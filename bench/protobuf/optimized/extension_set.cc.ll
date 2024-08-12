@@ -8316,7 +8316,13 @@ if.then.i.i:                                      ; preds = %if.then
   %call5.i.i2.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32, !noalias !94
   store ptr %call5.i.i2.i.i.i.i.i, ptr %call5.i.i2.i.i.i.i.i, align 8, !noalias !94
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i.i, align 1, !noalias !94
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i.i, align 1, !noalias !94
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !94
+  %arrayidx.i2.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i.i, align 1, !noalias !94
+  %arrayidx.i3.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i.i, align 1, !noalias !94
   %rightmost_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %call5.i.i2.i.i.i.i.i, ptr %rightmost_.i.i.i, align 8, !noalias !94
   store ptr %call5.i.i2.i.i.i.i.i, ptr %1, align 8, !noalias !94
@@ -8993,11 +8999,15 @@ sw.bb89:                                          ; preds = %if.then
   %28 = load ptr, ptr %descriptor93, align 8
   %call94 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i1 noundef zeroext %tobool92, ptr noundef %28)
   %29 = getelementptr inbounds i8, ptr %extension, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %arg = getelementptr inbounds i8, ptr %extension, i64 24
+  %31 = load ptr, ptr %arg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp1.i)
   store ptr %call94, ptr %agg.tmp1.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %30 = load <2 x ptr>, ptr %29, align 8
-  store <2 x ptr> %30, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, align 8
+  store ptr %30, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, align 8
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  store ptr %31, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i, align 8
   %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 24
   store ptr %metadata, ptr %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i, align 8
   %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
@@ -9016,7 +9026,7 @@ invoke.cont:                                      ; preds = %sw.bb96
   unreachable
 
 lpad:                                             ; preds = %sw.bb96
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp97) #31
   unreachable
@@ -9044,747 +9054,747 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb102:                                         ; preds = %if.else
-  %32 = load i8, ptr %ptr, align 1
-  %cmp.i197 = icmp sgt i8 %32, -1
+  %33 = load i8, ptr %ptr, align 1
+  %cmp.i197 = icmp sgt i8 %33, -1
   br i1 %cmp.i197, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread: ; preds = %sw.bb102
-  %conv1.i = zext nneg i8 %32 to i64
+  %conv1.i = zext nneg i8 %33 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %sw.bb102
-  %conv.i = zext i8 %32 to i32
+  %conv.i = zext i8 %33 to i32
   %call.i.i199 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i)
-  %33 = extractvalue { ptr, i64 } %call.i.i199, 0
-  %34 = extractvalue { ptr, i64 } %call.i.i199, 1
-  %tobool104.not = icmp eq ptr %33, null
+  %34 = extractvalue { ptr, i64 } %call.i.i199, 0
+  %35 = extractvalue { ptr, i64 } %call.i.i199, 1
+  %tobool104.not = icmp eq ptr %34, null
   br i1 %tobool104.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
-  %retval.0.i486 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %33, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
-  %.sink.i485 = phi i64 [ %conv1.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %34, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
+  %retval.0.i486 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %34, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
+  %.sink.i485 = phi i64 [ %conv1.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %35, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
   %is_repeated = getelementptr inbounds i8, ptr %extension, i64 13
-  %35 = load i8, ptr %is_repeated, align 1
-  %tobool106 = trunc i8 %35 to i1
+  %36 = load i8, ptr %is_repeated, align 1
+  %tobool106 = trunc i8 %36 to i1
   br i1 %tobool106, label %if.then107, label %if.else112
 
 if.then107:                                       ; preds = %if.end
   %is_packed108 = getelementptr inbounds i8, ptr %extension, i64 14
-  %36 = load i8, ptr %is_packed108, align 2
-  %tobool109 = trunc i8 %36 to i1
+  %37 = load i8, ptr %is_packed108, align 2
+  %tobool109 = trunc i8 %37 to i1
   %conv110 = trunc i64 %.sink.i485 to i32
   %descriptor111 = getelementptr inbounds i8, ptr %extension, i64 32
-  %37 = load ptr, ptr %descriptor111, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 5, i1 noundef zeroext %tobool109, i32 noundef %conv110, ptr noundef %37)
+  %38 = load ptr, ptr %descriptor111, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 5, i1 noundef zeroext %tobool109, i32 noundef %conv110, ptr noundef %38)
   br label %return
 
 if.else112:                                       ; preds = %if.end
   %conv113 = trunc i64 %.sink.i485 to i32
   %descriptor114 = getelementptr inbounds i8, ptr %extension, i64 32
-  %38 = load ptr, ptr %descriptor114, align 8
+  %39 = load ptr, ptr %descriptor114, align 8
   %call.i.i201 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %39 = extractvalue { ptr, i8 } %call.i.i201, 0
-  %40 = extractvalue { ptr, i8 } %call.i.i201, 1
-  %descriptor4.i.i = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %38, ptr %descriptor4.i.i, align 8
-  %tobool.i.i = trunc i8 %40 to i1
+  %40 = extractvalue { ptr, i8 } %call.i.i201, 0
+  %41 = extractvalue { ptr, i8 } %call.i.i201, 1
+  %descriptor4.i.i = getelementptr inbounds i8, ptr %40, i64 16
+  store ptr %39, ptr %descriptor4.i.i, align 8
+  %tobool.i.i = trunc i8 %41 to i1
   br i1 %tobool.i.i, label %if.then.i203, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit
 
 if.then.i203:                                     ; preds = %if.else112
-  %type2.i = getelementptr inbounds i8, ptr %39, i64 8
+  %type2.i = getelementptr inbounds i8, ptr %40, i64 8
   store i8 5, ptr %type2.i, align 8
-  %is_repeated.i = getelementptr inbounds i8, ptr %39, i64 9
+  %is_repeated.i = getelementptr inbounds i8, ptr %40, i64 9
   store i8 0, ptr %is_repeated.i, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit: ; preds = %if.else112, %if.then.i203
-  %is_cleared.i = getelementptr inbounds i8, ptr %39, i64 10
+  %is_cleared.i = getelementptr inbounds i8, ptr %40, i64 10
   %bf.load.i = load i8, ptr %is_cleared.i, align 2
   %bf.clear.i = and i8 %bf.load.i, -16
   store i8 %bf.clear.i, ptr %is_cleared.i, align 2
-  store i32 %conv113, ptr %39, align 8
+  store i32 %conv113, ptr %40, align 8
   br label %return
 
 sw.bb116:                                         ; preds = %if.else
-  %41 = load i8, ptr %ptr, align 1
-  %cmp.i204 = icmp sgt i8 %41, -1
+  %42 = load i8, ptr %ptr, align 1
+  %cmp.i204 = icmp sgt i8 %42, -1
   br i1 %cmp.i204, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread: ; preds = %sw.bb116
-  %conv1.i211 = zext nneg i8 %41 to i64
+  %conv1.i211 = zext nneg i8 %42 to i64
   %add.ptr.i212 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end121
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213: ; preds = %sw.bb116
-  %conv.i206 = zext i8 %41 to i32
+  %conv.i206 = zext i8 %42 to i32
   %call.i.i207 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i206)
-  %42 = extractvalue { ptr, i64 } %call.i.i207, 0
-  %43 = extractvalue { ptr, i64 } %call.i.i207, 1
-  %tobool119.not = icmp eq ptr %42, null
+  %43 = extractvalue { ptr, i64 } %call.i.i207, 0
+  %44 = extractvalue { ptr, i64 } %call.i.i207, 1
+  %tobool119.not = icmp eq ptr %43, null
   br i1 %tobool119.not, label %return, label %if.end121
 
 if.end121:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213
-  %retval.0.i209491 = phi ptr [ %add.ptr.i212, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread ], [ %42, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213 ]
-  %.sink.i208490 = phi i64 [ %conv1.i211, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread ], [ %43, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213 ]
+  %retval.0.i209491 = phi ptr [ %add.ptr.i212, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread ], [ %43, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213 ]
+  %.sink.i208490 = phi i64 [ %conv1.i211, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213.thread ], [ %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit213 ]
   %is_repeated122 = getelementptr inbounds i8, ptr %extension, i64 13
-  %44 = load i8, ptr %is_repeated122, align 1
-  %tobool123 = trunc i8 %44 to i1
+  %45 = load i8, ptr %is_repeated122, align 1
+  %tobool123 = trunc i8 %45 to i1
   br i1 %tobool123, label %if.then124, label %if.else128
 
 if.then124:                                       ; preds = %if.end121
   %is_packed125 = getelementptr inbounds i8, ptr %extension, i64 14
-  %45 = load i8, ptr %is_packed125, align 2
-  %tobool126 = trunc i8 %45 to i1
+  %46 = load i8, ptr %is_packed125, align 2
+  %tobool126 = trunc i8 %46 to i1
   %descriptor127 = getelementptr inbounds i8, ptr %extension, i64 32
-  %46 = load ptr, ptr %descriptor127, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 3, i1 noundef zeroext %tobool126, i64 noundef %.sink.i208490, ptr noundef %46)
+  %47 = load ptr, ptr %descriptor127, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 3, i1 noundef zeroext %tobool126, i64 noundef %.sink.i208490, ptr noundef %47)
   br label %return
 
 if.else128:                                       ; preds = %if.end121
   %descriptor129 = getelementptr inbounds i8, ptr %extension, i64 32
-  %47 = load ptr, ptr %descriptor129, align 8
+  %48 = load ptr, ptr %descriptor129, align 8
   %call.i.i214 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %48 = extractvalue { ptr, i8 } %call.i.i214, 0
-  %49 = extractvalue { ptr, i8 } %call.i.i214, 1
-  %descriptor4.i.i215 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr %47, ptr %descriptor4.i.i215, align 8
-  %tobool.i.i216 = trunc i8 %49 to i1
+  %49 = extractvalue { ptr, i8 } %call.i.i214, 0
+  %50 = extractvalue { ptr, i8 } %call.i.i214, 1
+  %descriptor4.i.i215 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr %48, ptr %descriptor4.i.i215, align 8
+  %tobool.i.i216 = trunc i8 %50 to i1
   br i1 %tobool.i.i216, label %if.then.i221, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit
 
 if.then.i221:                                     ; preds = %if.else128
-  %type2.i222 = getelementptr inbounds i8, ptr %48, i64 8
+  %type2.i222 = getelementptr inbounds i8, ptr %49, i64 8
   store i8 3, ptr %type2.i222, align 8
-  %is_repeated.i223 = getelementptr inbounds i8, ptr %48, i64 9
+  %is_repeated.i223 = getelementptr inbounds i8, ptr %49, i64 9
   store i8 0, ptr %is_repeated.i223, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit: ; preds = %if.else128, %if.then.i221
-  %is_cleared.i218 = getelementptr inbounds i8, ptr %48, i64 10
+  %is_cleared.i218 = getelementptr inbounds i8, ptr %49, i64 10
   %bf.load.i219 = load i8, ptr %is_cleared.i218, align 2
   %bf.clear.i220 = and i8 %bf.load.i219, -16
   store i8 %bf.clear.i220, ptr %is_cleared.i218, align 2
-  store i64 %.sink.i208490, ptr %48, align 8
+  store i64 %.sink.i208490, ptr %49, align 8
   br label %return
 
 sw.bb131:                                         ; preds = %if.else
-  %50 = load i8, ptr %ptr, align 1
-  %cmp.i224 = icmp sgt i8 %50, -1
+  %51 = load i8, ptr %ptr, align 1
+  %cmp.i224 = icmp sgt i8 %51, -1
   br i1 %cmp.i224, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread: ; preds = %sw.bb131
-  %conv1.i231 = zext nneg i8 %50 to i64
+  %conv1.i231 = zext nneg i8 %51 to i64
   %add.ptr.i232 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end136
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233: ; preds = %sw.bb131
-  %conv.i226 = zext i8 %50 to i32
+  %conv.i226 = zext i8 %51 to i32
   %call.i.i227 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i226)
-  %51 = extractvalue { ptr, i64 } %call.i.i227, 0
-  %52 = extractvalue { ptr, i64 } %call.i.i227, 1
-  %tobool134.not = icmp eq ptr %51, null
+  %52 = extractvalue { ptr, i64 } %call.i.i227, 0
+  %53 = extractvalue { ptr, i64 } %call.i.i227, 1
+  %tobool134.not = icmp eq ptr %52, null
   br i1 %tobool134.not, label %return, label %if.end136
 
 if.end136:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233
-  %retval.0.i229496 = phi ptr [ %add.ptr.i232, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread ], [ %51, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233 ]
-  %.sink.i228495 = phi i64 [ %conv1.i231, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread ], [ %52, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233 ]
+  %retval.0.i229496 = phi ptr [ %add.ptr.i232, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread ], [ %52, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233 ]
+  %.sink.i228495 = phi i64 [ %conv1.i231, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233.thread ], [ %53, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit233 ]
   %is_repeated137 = getelementptr inbounds i8, ptr %extension, i64 13
-  %53 = load i8, ptr %is_repeated137, align 1
-  %tobool138 = trunc i8 %53 to i1
+  %54 = load i8, ptr %is_repeated137, align 1
+  %tobool138 = trunc i8 %54 to i1
   br i1 %tobool138, label %if.then139, label %if.else144
 
 if.then139:                                       ; preds = %if.end136
   %is_packed140 = getelementptr inbounds i8, ptr %extension, i64 14
-  %54 = load i8, ptr %is_packed140, align 2
-  %tobool141 = trunc i8 %54 to i1
+  %55 = load i8, ptr %is_packed140, align 2
+  %tobool141 = trunc i8 %55 to i1
   %conv142 = trunc i64 %.sink.i228495 to i32
   %descriptor143 = getelementptr inbounds i8, ptr %extension, i64 32
-  %55 = load ptr, ptr %descriptor143, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 13, i1 noundef zeroext %tobool141, i32 noundef %conv142, ptr noundef %55)
+  %56 = load ptr, ptr %descriptor143, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 13, i1 noundef zeroext %tobool141, i32 noundef %conv142, ptr noundef %56)
   br label %return
 
 if.else144:                                       ; preds = %if.end136
   %conv145 = trunc i64 %.sink.i228495 to i32
   %descriptor146 = getelementptr inbounds i8, ptr %extension, i64 32
-  %56 = load ptr, ptr %descriptor146, align 8
+  %57 = load ptr, ptr %descriptor146, align 8
   %call.i.i234 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %57 = extractvalue { ptr, i8 } %call.i.i234, 0
-  %58 = extractvalue { ptr, i8 } %call.i.i234, 1
-  %descriptor4.i.i235 = getelementptr inbounds i8, ptr %57, i64 16
-  store ptr %56, ptr %descriptor4.i.i235, align 8
-  %tobool.i.i236 = trunc i8 %58 to i1
+  %58 = extractvalue { ptr, i8 } %call.i.i234, 0
+  %59 = extractvalue { ptr, i8 } %call.i.i234, 1
+  %descriptor4.i.i235 = getelementptr inbounds i8, ptr %58, i64 16
+  store ptr %57, ptr %descriptor4.i.i235, align 8
+  %tobool.i.i236 = trunc i8 %59 to i1
   br i1 %tobool.i.i236, label %if.then.i241, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit
 
 if.then.i241:                                     ; preds = %if.else144
-  %type2.i242 = getelementptr inbounds i8, ptr %57, i64 8
+  %type2.i242 = getelementptr inbounds i8, ptr %58, i64 8
   store i8 13, ptr %type2.i242, align 8
-  %is_repeated.i243 = getelementptr inbounds i8, ptr %57, i64 9
+  %is_repeated.i243 = getelementptr inbounds i8, ptr %58, i64 9
   store i8 0, ptr %is_repeated.i243, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit: ; preds = %if.else144, %if.then.i241
-  %is_cleared.i238 = getelementptr inbounds i8, ptr %57, i64 10
+  %is_cleared.i238 = getelementptr inbounds i8, ptr %58, i64 10
   %bf.load.i239 = load i8, ptr %is_cleared.i238, align 2
   %bf.clear.i240 = and i8 %bf.load.i239, -16
   store i8 %bf.clear.i240, ptr %is_cleared.i238, align 2
-  store i32 %conv145, ptr %57, align 8
+  store i32 %conv145, ptr %58, align 8
   br label %return
 
 sw.bb148:                                         ; preds = %if.else
-  %59 = load i8, ptr %ptr, align 1
-  %cmp.i244 = icmp sgt i8 %59, -1
+  %60 = load i8, ptr %ptr, align 1
+  %cmp.i244 = icmp sgt i8 %60, -1
   br i1 %cmp.i244, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread: ; preds = %sw.bb148
-  %conv1.i251 = zext nneg i8 %59 to i64
+  %conv1.i251 = zext nneg i8 %60 to i64
   %add.ptr.i252 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end153
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253: ; preds = %sw.bb148
-  %conv.i246 = zext i8 %59 to i32
+  %conv.i246 = zext i8 %60 to i32
   %call.i.i247 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i246)
-  %60 = extractvalue { ptr, i64 } %call.i.i247, 0
-  %61 = extractvalue { ptr, i64 } %call.i.i247, 1
-  %tobool151.not = icmp eq ptr %60, null
+  %61 = extractvalue { ptr, i64 } %call.i.i247, 0
+  %62 = extractvalue { ptr, i64 } %call.i.i247, 1
+  %tobool151.not = icmp eq ptr %61, null
   br i1 %tobool151.not, label %return, label %if.end153
 
 if.end153:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253
-  %retval.0.i249501 = phi ptr [ %add.ptr.i252, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread ], [ %60, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253 ]
-  %.sink.i248500 = phi i64 [ %conv1.i251, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread ], [ %61, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253 ]
+  %retval.0.i249501 = phi ptr [ %add.ptr.i252, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread ], [ %61, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253 ]
+  %.sink.i248500 = phi i64 [ %conv1.i251, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253.thread ], [ %62, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit253 ]
   %is_repeated154 = getelementptr inbounds i8, ptr %extension, i64 13
-  %62 = load i8, ptr %is_repeated154, align 1
-  %tobool155 = trunc i8 %62 to i1
+  %63 = load i8, ptr %is_repeated154, align 1
+  %tobool155 = trunc i8 %63 to i1
   br i1 %tobool155, label %if.then156, label %if.else160
 
 if.then156:                                       ; preds = %if.end153
   %is_packed157 = getelementptr inbounds i8, ptr %extension, i64 14
-  %63 = load i8, ptr %is_packed157, align 2
-  %tobool158 = trunc i8 %63 to i1
+  %64 = load i8, ptr %is_packed157, align 2
+  %tobool158 = trunc i8 %64 to i1
   %descriptor159 = getelementptr inbounds i8, ptr %extension, i64 32
-  %64 = load ptr, ptr %descriptor159, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 4, i1 noundef zeroext %tobool158, i64 noundef %.sink.i248500, ptr noundef %64)
+  %65 = load ptr, ptr %descriptor159, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 4, i1 noundef zeroext %tobool158, i64 noundef %.sink.i248500, ptr noundef %65)
   br label %return
 
 if.else160:                                       ; preds = %if.end153
   %descriptor161 = getelementptr inbounds i8, ptr %extension, i64 32
-  %65 = load ptr, ptr %descriptor161, align 8
+  %66 = load ptr, ptr %descriptor161, align 8
   %call.i.i254 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %66 = extractvalue { ptr, i8 } %call.i.i254, 0
-  %67 = extractvalue { ptr, i8 } %call.i.i254, 1
-  %descriptor4.i.i255 = getelementptr inbounds i8, ptr %66, i64 16
-  store ptr %65, ptr %descriptor4.i.i255, align 8
-  %tobool.i.i256 = trunc i8 %67 to i1
+  %67 = extractvalue { ptr, i8 } %call.i.i254, 0
+  %68 = extractvalue { ptr, i8 } %call.i.i254, 1
+  %descriptor4.i.i255 = getelementptr inbounds i8, ptr %67, i64 16
+  store ptr %66, ptr %descriptor4.i.i255, align 8
+  %tobool.i.i256 = trunc i8 %68 to i1
   br i1 %tobool.i.i256, label %if.then.i261, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit
 
 if.then.i261:                                     ; preds = %if.else160
-  %type2.i262 = getelementptr inbounds i8, ptr %66, i64 8
+  %type2.i262 = getelementptr inbounds i8, ptr %67, i64 8
   store i8 4, ptr %type2.i262, align 8
-  %is_repeated.i263 = getelementptr inbounds i8, ptr %66, i64 9
+  %is_repeated.i263 = getelementptr inbounds i8, ptr %67, i64 9
   store i8 0, ptr %is_repeated.i263, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit: ; preds = %if.else160, %if.then.i261
-  %is_cleared.i258 = getelementptr inbounds i8, ptr %66, i64 10
+  %is_cleared.i258 = getelementptr inbounds i8, ptr %67, i64 10
   %bf.load.i259 = load i8, ptr %is_cleared.i258, align 2
   %bf.clear.i260 = and i8 %bf.load.i259, -16
   store i8 %bf.clear.i260, ptr %is_cleared.i258, align 2
-  store i64 %.sink.i248500, ptr %66, align 8
+  store i64 %.sink.i248500, ptr %67, align 8
   br label %return
 
 sw.bb163:                                         ; preds = %if.else
-  %68 = load i8, ptr %ptr, align 1
-  %cmp.i264 = icmp sgt i8 %68, -1
+  %69 = load i8, ptr %ptr, align 1
+  %cmp.i264 = icmp sgt i8 %69, -1
   br i1 %cmp.i264, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread: ; preds = %sw.bb163
-  %conv1.i271 = zext nneg i8 %68 to i64
+  %conv1.i271 = zext nneg i8 %69 to i64
   %add.ptr.i272 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end168
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273: ; preds = %sw.bb163
-  %conv.i266 = zext i8 %68 to i32
+  %conv.i266 = zext i8 %69 to i32
   %call.i.i267 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i266)
-  %69 = extractvalue { ptr, i64 } %call.i.i267, 0
-  %70 = extractvalue { ptr, i64 } %call.i.i267, 1
-  %tobool166.not = icmp eq ptr %69, null
+  %70 = extractvalue { ptr, i64 } %call.i.i267, 0
+  %71 = extractvalue { ptr, i64 } %call.i.i267, 1
+  %tobool166.not = icmp eq ptr %70, null
   br i1 %tobool166.not, label %return, label %if.end168
 
 if.end168:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273
-  %retval.0.i269506 = phi ptr [ %add.ptr.i272, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread ], [ %69, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273 ]
-  %.sink.i268505 = phi i64 [ %conv1.i271, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread ], [ %70, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273 ]
+  %retval.0.i269506 = phi ptr [ %add.ptr.i272, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread ], [ %70, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273 ]
+  %.sink.i268505 = phi i64 [ %conv1.i271, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273.thread ], [ %71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit273 ]
   %is_repeated169 = getelementptr inbounds i8, ptr %extension, i64 13
-  %71 = load i8, ptr %is_repeated169, align 1
-  %tobool170 = trunc i8 %71 to i1
+  %72 = load i8, ptr %is_repeated169, align 1
+  %tobool170 = trunc i8 %72 to i1
   br i1 %tobool170, label %if.then171, label %if.else176
 
 if.then171:                                       ; preds = %if.end168
   %is_packed172 = getelementptr inbounds i8, ptr %extension, i64 14
-  %72 = load i8, ptr %is_packed172, align 2
-  %tobool173 = trunc i8 %72 to i1
+  %73 = load i8, ptr %is_packed172, align 2
+  %tobool173 = trunc i8 %73 to i1
   %tobool174 = icmp ne i64 %.sink.i268505, 0
   %descriptor175 = getelementptr inbounds i8, ptr %extension, i64 32
-  %73 = load ptr, ptr %descriptor175, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 8, i1 noundef zeroext %tobool173, i1 noundef zeroext %tobool174, ptr noundef %73)
+  %74 = load ptr, ptr %descriptor175, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 8, i1 noundef zeroext %tobool173, i1 noundef zeroext %tobool174, ptr noundef %74)
   br label %return
 
 if.else176:                                       ; preds = %if.end168
   %tobool177 = icmp ne i64 %.sink.i268505, 0
   %descriptor178 = getelementptr inbounds i8, ptr %extension, i64 32
-  %74 = load ptr, ptr %descriptor178, align 8
+  %75 = load ptr, ptr %descriptor178, align 8
   %call.i.i274 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %75 = extractvalue { ptr, i8 } %call.i.i274, 0
-  %76 = extractvalue { ptr, i8 } %call.i.i274, 1
-  %descriptor4.i.i275 = getelementptr inbounds i8, ptr %75, i64 16
-  store ptr %74, ptr %descriptor4.i.i275, align 8
-  %tobool.i.i276 = trunc i8 %76 to i1
+  %76 = extractvalue { ptr, i8 } %call.i.i274, 0
+  %77 = extractvalue { ptr, i8 } %call.i.i274, 1
+  %descriptor4.i.i275 = getelementptr inbounds i8, ptr %76, i64 16
+  store ptr %75, ptr %descriptor4.i.i275, align 8
+  %tobool.i.i276 = trunc i8 %77 to i1
   br i1 %tobool.i.i276, label %if.then.i281, label %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit
 
 if.then.i281:                                     ; preds = %if.else176
-  %type2.i282 = getelementptr inbounds i8, ptr %75, i64 8
+  %type2.i282 = getelementptr inbounds i8, ptr %76, i64 8
   store i8 8, ptr %type2.i282, align 8
-  %is_repeated.i283 = getelementptr inbounds i8, ptr %75, i64 9
+  %is_repeated.i283 = getelementptr inbounds i8, ptr %76, i64 9
   store i8 0, ptr %is_repeated.i283, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit: ; preds = %if.else176, %if.then.i281
   %frombool.i = zext i1 %tobool177 to i8
-  %is_cleared.i278 = getelementptr inbounds i8, ptr %75, i64 10
+  %is_cleared.i278 = getelementptr inbounds i8, ptr %76, i64 10
   %bf.load.i279 = load i8, ptr %is_cleared.i278, align 2
   %bf.clear.i280 = and i8 %bf.load.i279, -16
   store i8 %bf.clear.i280, ptr %is_cleared.i278, align 2
-  store i8 %frombool.i, ptr %75, align 8
+  store i8 %frombool.i, ptr %76, align 8
   br label %return
 
 sw.bb180:                                         ; preds = %if.else
-  %77 = load i8, ptr %ptr, align 1
-  %cmp.i284 = icmp sgt i8 %77, -1
+  %78 = load i8, ptr %ptr, align 1
+  %cmp.i284 = icmp sgt i8 %78, -1
   br i1 %cmp.i284, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread: ; preds = %sw.bb180
-  %conv1.i291 = zext nneg i8 %77 to i64
+  %conv1.i291 = zext nneg i8 %78 to i64
   %add.ptr.i292 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end184
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293: ; preds = %sw.bb180
-  %conv.i286 = zext i8 %77 to i32
+  %conv.i286 = zext i8 %78 to i32
   %call.i.i287 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i286)
-  %78 = extractvalue { ptr, i64 } %call.i.i287, 0
-  %79 = extractvalue { ptr, i64 } %call.i.i287, 1
-  %tobool182.not = icmp eq ptr %78, null
+  %79 = extractvalue { ptr, i64 } %call.i.i287, 0
+  %80 = extractvalue { ptr, i64 } %call.i.i287, 1
+  %tobool182.not = icmp eq ptr %79, null
   br i1 %tobool182.not, label %return, label %if.end184
 
 if.end184:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293
-  %retval.0.i289511 = phi ptr [ %add.ptr.i292, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread ], [ %78, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293 ]
-  %.sink.i288510 = phi i64 [ %conv1.i291, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread ], [ %79, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293 ]
+  %retval.0.i289511 = phi ptr [ %add.ptr.i292, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread ], [ %79, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293 ]
+  %.sink.i288510 = phi i64 [ %conv1.i291, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293.thread ], [ %80, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit293 ]
   %conv186 = trunc i64 %.sink.i288510 to i32
   %shr.i = lshr i32 %conv186, 1
   %and.i294 = and i32 %conv186, 1
   %add.i = sub nsw i32 0, %and.i294
   %xor.i = xor i32 %shr.i, %add.i
   %is_repeated188 = getelementptr inbounds i8, ptr %extension, i64 13
-  %80 = load i8, ptr %is_repeated188, align 1
-  %tobool189 = trunc i8 %80 to i1
+  %81 = load i8, ptr %is_repeated188, align 1
+  %tobool189 = trunc i8 %81 to i1
   br i1 %tobool189, label %if.then190, label %if.else194
 
 if.then190:                                       ; preds = %if.end184
   %is_packed191 = getelementptr inbounds i8, ptr %extension, i64 14
-  %81 = load i8, ptr %is_packed191, align 2
-  %tobool192 = trunc i8 %81 to i1
+  %82 = load i8, ptr %is_packed191, align 2
+  %tobool192 = trunc i8 %82 to i1
   %descriptor193 = getelementptr inbounds i8, ptr %extension, i64 32
-  %82 = load ptr, ptr %descriptor193, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 17, i1 noundef zeroext %tobool192, i32 noundef %xor.i, ptr noundef %82)
+  %83 = load ptr, ptr %descriptor193, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 17, i1 noundef zeroext %tobool192, i32 noundef %xor.i, ptr noundef %83)
   br label %return
 
 if.else194:                                       ; preds = %if.end184
   %descriptor195 = getelementptr inbounds i8, ptr %extension, i64 32
-  %83 = load ptr, ptr %descriptor195, align 8
+  %84 = load ptr, ptr %descriptor195, align 8
   %call.i.i295 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %84 = extractvalue { ptr, i8 } %call.i.i295, 0
-  %85 = extractvalue { ptr, i8 } %call.i.i295, 1
-  %descriptor4.i.i296 = getelementptr inbounds i8, ptr %84, i64 16
-  store ptr %83, ptr %descriptor4.i.i296, align 8
-  %tobool.i.i297 = trunc i8 %85 to i1
+  %85 = extractvalue { ptr, i8 } %call.i.i295, 0
+  %86 = extractvalue { ptr, i8 } %call.i.i295, 1
+  %descriptor4.i.i296 = getelementptr inbounds i8, ptr %85, i64 16
+  store ptr %84, ptr %descriptor4.i.i296, align 8
+  %tobool.i.i297 = trunc i8 %86 to i1
   br i1 %tobool.i.i297, label %if.then.i302, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit305
 
 if.then.i302:                                     ; preds = %if.else194
-  %type2.i303 = getelementptr inbounds i8, ptr %84, i64 8
+  %type2.i303 = getelementptr inbounds i8, ptr %85, i64 8
   store i8 17, ptr %type2.i303, align 8
-  %is_repeated.i304 = getelementptr inbounds i8, ptr %84, i64 9
+  %is_repeated.i304 = getelementptr inbounds i8, ptr %85, i64 9
   store i8 0, ptr %is_repeated.i304, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit305
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit305: ; preds = %if.else194, %if.then.i302
-  %is_cleared.i299 = getelementptr inbounds i8, ptr %84, i64 10
+  %is_cleared.i299 = getelementptr inbounds i8, ptr %85, i64 10
   %bf.load.i300 = load i8, ptr %is_cleared.i299, align 2
   %bf.clear.i301 = and i8 %bf.load.i300, -16
   store i8 %bf.clear.i301, ptr %is_cleared.i299, align 2
-  store i32 %xor.i, ptr %84, align 8
+  store i32 %xor.i, ptr %85, align 8
   br label %return
 
 sw.bb197:                                         ; preds = %if.else
-  %86 = load i8, ptr %ptr, align 1
-  %cmp.i306 = icmp sgt i8 %86, -1
+  %87 = load i8, ptr %ptr, align 1
+  %cmp.i306 = icmp sgt i8 %87, -1
   br i1 %cmp.i306, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread: ; preds = %sw.bb197
-  %conv1.i313 = zext nneg i8 %86 to i64
+  %conv1.i313 = zext nneg i8 %87 to i64
   %add.ptr.i314 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end202
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315: ; preds = %sw.bb197
-  %conv.i308 = zext i8 %86 to i32
+  %conv.i308 = zext i8 %87 to i32
   %call.i.i309 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i308)
-  %87 = extractvalue { ptr, i64 } %call.i.i309, 0
-  %88 = extractvalue { ptr, i64 } %call.i.i309, 1
-  %tobool200.not = icmp eq ptr %87, null
+  %88 = extractvalue { ptr, i64 } %call.i.i309, 0
+  %89 = extractvalue { ptr, i64 } %call.i.i309, 1
+  %tobool200.not = icmp eq ptr %88, null
   br i1 %tobool200.not, label %return, label %if.end202
 
 if.end202:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315
-  %retval.0.i311516 = phi ptr [ %add.ptr.i314, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread ], [ %87, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315 ]
-  %.sink.i310515 = phi i64 [ %conv1.i313, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread ], [ %88, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315 ]
+  %retval.0.i311516 = phi ptr [ %add.ptr.i314, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread ], [ %88, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315 ]
+  %.sink.i310515 = phi i64 [ %conv1.i313, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315.thread ], [ %89, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit315 ]
   %shr.i316 = lshr i64 %.sink.i310515, 1
   %and.i317 = and i64 %.sink.i310515, 1
   %add.i318 = sub nsw i64 0, %and.i317
   %xor.i319 = xor i64 %shr.i316, %add.i318
   %is_repeated205 = getelementptr inbounds i8, ptr %extension, i64 13
-  %89 = load i8, ptr %is_repeated205, align 1
-  %tobool206 = trunc i8 %89 to i1
+  %90 = load i8, ptr %is_repeated205, align 1
+  %tobool206 = trunc i8 %90 to i1
   br i1 %tobool206, label %if.then207, label %if.else211
 
 if.then207:                                       ; preds = %if.end202
   %is_packed208 = getelementptr inbounds i8, ptr %extension, i64 14
-  %90 = load i8, ptr %is_packed208, align 2
-  %tobool209 = trunc i8 %90 to i1
+  %91 = load i8, ptr %is_packed208, align 2
+  %tobool209 = trunc i8 %91 to i1
   %descriptor210 = getelementptr inbounds i8, ptr %extension, i64 32
-  %91 = load ptr, ptr %descriptor210, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 18, i1 noundef zeroext %tobool209, i64 noundef %xor.i319, ptr noundef %91)
+  %92 = load ptr, ptr %descriptor210, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 18, i1 noundef zeroext %tobool209, i64 noundef %xor.i319, ptr noundef %92)
   br label %return
 
 if.else211:                                       ; preds = %if.end202
   %descriptor212 = getelementptr inbounds i8, ptr %extension, i64 32
-  %92 = load ptr, ptr %descriptor212, align 8
+  %93 = load ptr, ptr %descriptor212, align 8
   %call.i.i320 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %93 = extractvalue { ptr, i8 } %call.i.i320, 0
-  %94 = extractvalue { ptr, i8 } %call.i.i320, 1
-  %descriptor4.i.i321 = getelementptr inbounds i8, ptr %93, i64 16
-  store ptr %92, ptr %descriptor4.i.i321, align 8
-  %tobool.i.i322 = trunc i8 %94 to i1
+  %94 = extractvalue { ptr, i8 } %call.i.i320, 0
+  %95 = extractvalue { ptr, i8 } %call.i.i320, 1
+  %descriptor4.i.i321 = getelementptr inbounds i8, ptr %94, i64 16
+  store ptr %93, ptr %descriptor4.i.i321, align 8
+  %tobool.i.i322 = trunc i8 %95 to i1
   br i1 %tobool.i.i322, label %if.then.i327, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit330
 
 if.then.i327:                                     ; preds = %if.else211
-  %type2.i328 = getelementptr inbounds i8, ptr %93, i64 8
+  %type2.i328 = getelementptr inbounds i8, ptr %94, i64 8
   store i8 18, ptr %type2.i328, align 8
-  %is_repeated.i329 = getelementptr inbounds i8, ptr %93, i64 9
+  %is_repeated.i329 = getelementptr inbounds i8, ptr %94, i64 9
   store i8 0, ptr %is_repeated.i329, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit330
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit330: ; preds = %if.else211, %if.then.i327
-  %is_cleared.i324 = getelementptr inbounds i8, ptr %93, i64 10
+  %is_cleared.i324 = getelementptr inbounds i8, ptr %94, i64 10
   %bf.load.i325 = load i8, ptr %is_cleared.i324, align 2
   %bf.clear.i326 = and i8 %bf.load.i325, -16
   store i8 %bf.clear.i326, ptr %is_cleared.i324, align 2
-  store i64 %xor.i319, ptr %93, align 8
+  store i64 %xor.i319, ptr %94, align 8
   br label %return
 
 sw.bb214:                                         ; preds = %if.else
   %tmp.0.copyload.i.i = load i32, ptr %ptr, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 4
   %is_repeated217 = getelementptr inbounds i8, ptr %extension, i64 13
-  %95 = load i8, ptr %is_repeated217, align 1
-  %tobool218 = trunc i8 %95 to i1
+  %96 = load i8, ptr %is_repeated217, align 1
+  %tobool218 = trunc i8 %96 to i1
   br i1 %tobool218, label %if.then219, label %if.else223
 
 if.then219:                                       ; preds = %sw.bb214
   %is_packed220 = getelementptr inbounds i8, ptr %extension, i64 14
-  %96 = load i8, ptr %is_packed220, align 2
-  %tobool221 = trunc i8 %96 to i1
+  %97 = load i8, ptr %is_packed220, align 2
+  %tobool221 = trunc i8 %97 to i1
   %descriptor222 = getelementptr inbounds i8, ptr %extension, i64 32
-  %97 = load ptr, ptr %descriptor222, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 7, i1 noundef zeroext %tobool221, i32 noundef %tmp.0.copyload.i.i, ptr noundef %97)
+  %98 = load ptr, ptr %descriptor222, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 7, i1 noundef zeroext %tobool221, i32 noundef %tmp.0.copyload.i.i, ptr noundef %98)
   br label %return
 
 if.else223:                                       ; preds = %sw.bb214
   %descriptor224 = getelementptr inbounds i8, ptr %extension, i64 32
-  %98 = load ptr, ptr %descriptor224, align 8
+  %99 = load ptr, ptr %descriptor224, align 8
   %call.i.i331 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %99 = extractvalue { ptr, i8 } %call.i.i331, 0
-  %100 = extractvalue { ptr, i8 } %call.i.i331, 1
-  %descriptor4.i.i332 = getelementptr inbounds i8, ptr %99, i64 16
-  store ptr %98, ptr %descriptor4.i.i332, align 8
-  %tobool.i.i333 = trunc i8 %100 to i1
+  %100 = extractvalue { ptr, i8 } %call.i.i331, 0
+  %101 = extractvalue { ptr, i8 } %call.i.i331, 1
+  %descriptor4.i.i332 = getelementptr inbounds i8, ptr %100, i64 16
+  store ptr %99, ptr %descriptor4.i.i332, align 8
+  %tobool.i.i333 = trunc i8 %101 to i1
   br i1 %tobool.i.i333, label %if.then.i338, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit341
 
 if.then.i338:                                     ; preds = %if.else223
-  %type2.i339 = getelementptr inbounds i8, ptr %99, i64 8
+  %type2.i339 = getelementptr inbounds i8, ptr %100, i64 8
   store i8 7, ptr %type2.i339, align 8
-  %is_repeated.i340 = getelementptr inbounds i8, ptr %99, i64 9
+  %is_repeated.i340 = getelementptr inbounds i8, ptr %100, i64 9
   store i8 0, ptr %is_repeated.i340, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit341
 
 _ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit341: ; preds = %if.else223, %if.then.i338
-  %is_cleared.i335 = getelementptr inbounds i8, ptr %99, i64 10
+  %is_cleared.i335 = getelementptr inbounds i8, ptr %100, i64 10
   %bf.load.i336 = load i8, ptr %is_cleared.i335, align 2
   %bf.clear.i337 = and i8 %bf.load.i336, -16
   store i8 %bf.clear.i337, ptr %is_cleared.i335, align 2
-  store i32 %tmp.0.copyload.i.i, ptr %99, align 8
+  store i32 %tmp.0.copyload.i.i, ptr %100, align 8
   br label %return
 
 sw.bb226:                                         ; preds = %if.else
   %tmp.0.copyload.i.i342 = load i64, ptr %ptr, align 1
   %add.ptr229 = getelementptr inbounds i8, ptr %ptr, i64 8
   %is_repeated230 = getelementptr inbounds i8, ptr %extension, i64 13
-  %101 = load i8, ptr %is_repeated230, align 1
-  %tobool231 = trunc i8 %101 to i1
+  %102 = load i8, ptr %is_repeated230, align 1
+  %tobool231 = trunc i8 %102 to i1
   br i1 %tobool231, label %if.then232, label %if.else236
 
 if.then232:                                       ; preds = %sw.bb226
   %is_packed233 = getelementptr inbounds i8, ptr %extension, i64 14
-  %102 = load i8, ptr %is_packed233, align 2
-  %tobool234 = trunc i8 %102 to i1
+  %103 = load i8, ptr %is_packed233, align 2
+  %tobool234 = trunc i8 %103 to i1
   %descriptor235 = getelementptr inbounds i8, ptr %extension, i64 32
-  %103 = load ptr, ptr %descriptor235, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 6, i1 noundef zeroext %tobool234, i64 noundef %tmp.0.copyload.i.i342, ptr noundef %103)
+  %104 = load ptr, ptr %descriptor235, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 6, i1 noundef zeroext %tobool234, i64 noundef %tmp.0.copyload.i.i342, ptr noundef %104)
   br label %return
 
 if.else236:                                       ; preds = %sw.bb226
   %descriptor237 = getelementptr inbounds i8, ptr %extension, i64 32
-  %104 = load ptr, ptr %descriptor237, align 8
+  %105 = load ptr, ptr %descriptor237, align 8
   %call.i.i343 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %105 = extractvalue { ptr, i8 } %call.i.i343, 0
-  %106 = extractvalue { ptr, i8 } %call.i.i343, 1
-  %descriptor4.i.i344 = getelementptr inbounds i8, ptr %105, i64 16
-  store ptr %104, ptr %descriptor4.i.i344, align 8
-  %tobool.i.i345 = trunc i8 %106 to i1
+  %106 = extractvalue { ptr, i8 } %call.i.i343, 0
+  %107 = extractvalue { ptr, i8 } %call.i.i343, 1
+  %descriptor4.i.i344 = getelementptr inbounds i8, ptr %106, i64 16
+  store ptr %105, ptr %descriptor4.i.i344, align 8
+  %tobool.i.i345 = trunc i8 %107 to i1
   br i1 %tobool.i.i345, label %if.then.i350, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit353
 
 if.then.i350:                                     ; preds = %if.else236
-  %type2.i351 = getelementptr inbounds i8, ptr %105, i64 8
+  %type2.i351 = getelementptr inbounds i8, ptr %106, i64 8
   store i8 6, ptr %type2.i351, align 8
-  %is_repeated.i352 = getelementptr inbounds i8, ptr %105, i64 9
+  %is_repeated.i352 = getelementptr inbounds i8, ptr %106, i64 9
   store i8 0, ptr %is_repeated.i352, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit353
 
 _ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit353: ; preds = %if.else236, %if.then.i350
-  %is_cleared.i347 = getelementptr inbounds i8, ptr %105, i64 10
+  %is_cleared.i347 = getelementptr inbounds i8, ptr %106, i64 10
   %bf.load.i348 = load i8, ptr %is_cleared.i347, align 2
   %bf.clear.i349 = and i8 %bf.load.i348, -16
   store i8 %bf.clear.i349, ptr %is_cleared.i347, align 2
-  store i64 %tmp.0.copyload.i.i342, ptr %105, align 8
+  store i64 %tmp.0.copyload.i.i342, ptr %106, align 8
   br label %return
 
 sw.bb239:                                         ; preds = %if.else
   %tmp.0.copyload.i.i354 = load i32, ptr %ptr, align 1
   %add.ptr242 = getelementptr inbounds i8, ptr %ptr, i64 4
   %is_repeated243 = getelementptr inbounds i8, ptr %extension, i64 13
-  %107 = load i8, ptr %is_repeated243, align 1
-  %tobool244 = trunc i8 %107 to i1
+  %108 = load i8, ptr %is_repeated243, align 1
+  %tobool244 = trunc i8 %108 to i1
   br i1 %tobool244, label %if.then245, label %if.else249
 
 if.then245:                                       ; preds = %sw.bb239
   %is_packed246 = getelementptr inbounds i8, ptr %extension, i64 14
-  %108 = load i8, ptr %is_packed246, align 2
-  %tobool247 = trunc i8 %108 to i1
+  %109 = load i8, ptr %is_packed246, align 2
+  %tobool247 = trunc i8 %109 to i1
   %descriptor248 = getelementptr inbounds i8, ptr %extension, i64 32
-  %109 = load ptr, ptr %descriptor248, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 15, i1 noundef zeroext %tobool247, i32 noundef %tmp.0.copyload.i.i354, ptr noundef %109)
+  %110 = load ptr, ptr %descriptor248, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 15, i1 noundef zeroext %tobool247, i32 noundef %tmp.0.copyload.i.i354, ptr noundef %110)
   br label %return
 
 if.else249:                                       ; preds = %sw.bb239
   %descriptor250 = getelementptr inbounds i8, ptr %extension, i64 32
-  %110 = load ptr, ptr %descriptor250, align 8
+  %111 = load ptr, ptr %descriptor250, align 8
   %call.i.i355 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %111 = extractvalue { ptr, i8 } %call.i.i355, 0
-  %112 = extractvalue { ptr, i8 } %call.i.i355, 1
-  %descriptor4.i.i356 = getelementptr inbounds i8, ptr %111, i64 16
-  store ptr %110, ptr %descriptor4.i.i356, align 8
-  %tobool.i.i357 = trunc i8 %112 to i1
+  %112 = extractvalue { ptr, i8 } %call.i.i355, 0
+  %113 = extractvalue { ptr, i8 } %call.i.i355, 1
+  %descriptor4.i.i356 = getelementptr inbounds i8, ptr %112, i64 16
+  store ptr %111, ptr %descriptor4.i.i356, align 8
+  %tobool.i.i357 = trunc i8 %113 to i1
   br i1 %tobool.i.i357, label %if.then.i362, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit365
 
 if.then.i362:                                     ; preds = %if.else249
-  %type2.i363 = getelementptr inbounds i8, ptr %111, i64 8
+  %type2.i363 = getelementptr inbounds i8, ptr %112, i64 8
   store i8 15, ptr %type2.i363, align 8
-  %is_repeated.i364 = getelementptr inbounds i8, ptr %111, i64 9
+  %is_repeated.i364 = getelementptr inbounds i8, ptr %112, i64 9
   store i8 0, ptr %is_repeated.i364, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit365
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit365: ; preds = %if.else249, %if.then.i362
-  %is_cleared.i359 = getelementptr inbounds i8, ptr %111, i64 10
+  %is_cleared.i359 = getelementptr inbounds i8, ptr %112, i64 10
   %bf.load.i360 = load i8, ptr %is_cleared.i359, align 2
   %bf.clear.i361 = and i8 %bf.load.i360, -16
   store i8 %bf.clear.i361, ptr %is_cleared.i359, align 2
-  store i32 %tmp.0.copyload.i.i354, ptr %111, align 8
+  store i32 %tmp.0.copyload.i.i354, ptr %112, align 8
   br label %return
 
 sw.bb252:                                         ; preds = %if.else
   %tmp.0.copyload.i.i366 = load i64, ptr %ptr, align 1
   %add.ptr255 = getelementptr inbounds i8, ptr %ptr, i64 8
   %is_repeated256 = getelementptr inbounds i8, ptr %extension, i64 13
-  %113 = load i8, ptr %is_repeated256, align 1
-  %tobool257 = trunc i8 %113 to i1
+  %114 = load i8, ptr %is_repeated256, align 1
+  %tobool257 = trunc i8 %114 to i1
   br i1 %tobool257, label %if.then258, label %if.else262
 
 if.then258:                                       ; preds = %sw.bb252
   %is_packed259 = getelementptr inbounds i8, ptr %extension, i64 14
-  %114 = load i8, ptr %is_packed259, align 2
-  %tobool260 = trunc i8 %114 to i1
+  %115 = load i8, ptr %is_packed259, align 2
+  %tobool260 = trunc i8 %115 to i1
   %descriptor261 = getelementptr inbounds i8, ptr %extension, i64 32
-  %115 = load ptr, ptr %descriptor261, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 16, i1 noundef zeroext %tobool260, i64 noundef %tmp.0.copyload.i.i366, ptr noundef %115)
+  %116 = load ptr, ptr %descriptor261, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 16, i1 noundef zeroext %tobool260, i64 noundef %tmp.0.copyload.i.i366, ptr noundef %116)
   br label %return
 
 if.else262:                                       ; preds = %sw.bb252
   %descriptor263 = getelementptr inbounds i8, ptr %extension, i64 32
-  %116 = load ptr, ptr %descriptor263, align 8
+  %117 = load ptr, ptr %descriptor263, align 8
   %call.i.i367 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %117 = extractvalue { ptr, i8 } %call.i.i367, 0
-  %118 = extractvalue { ptr, i8 } %call.i.i367, 1
-  %descriptor4.i.i368 = getelementptr inbounds i8, ptr %117, i64 16
-  store ptr %116, ptr %descriptor4.i.i368, align 8
-  %tobool.i.i369 = trunc i8 %118 to i1
+  %118 = extractvalue { ptr, i8 } %call.i.i367, 0
+  %119 = extractvalue { ptr, i8 } %call.i.i367, 1
+  %descriptor4.i.i368 = getelementptr inbounds i8, ptr %118, i64 16
+  store ptr %117, ptr %descriptor4.i.i368, align 8
+  %tobool.i.i369 = trunc i8 %119 to i1
   br i1 %tobool.i.i369, label %if.then.i374, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit377
 
 if.then.i374:                                     ; preds = %if.else262
-  %type2.i375 = getelementptr inbounds i8, ptr %117, i64 8
+  %type2.i375 = getelementptr inbounds i8, ptr %118, i64 8
   store i8 16, ptr %type2.i375, align 8
-  %is_repeated.i376 = getelementptr inbounds i8, ptr %117, i64 9
+  %is_repeated.i376 = getelementptr inbounds i8, ptr %118, i64 9
   store i8 0, ptr %is_repeated.i376, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit377
 
 _ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit377: ; preds = %if.else262, %if.then.i374
-  %is_cleared.i371 = getelementptr inbounds i8, ptr %117, i64 10
+  %is_cleared.i371 = getelementptr inbounds i8, ptr %118, i64 10
   %bf.load.i372 = load i8, ptr %is_cleared.i371, align 2
   %bf.clear.i373 = and i8 %bf.load.i372, -16
   store i8 %bf.clear.i373, ptr %is_cleared.i371, align 2
-  store i64 %tmp.0.copyload.i.i366, ptr %117, align 8
+  store i64 %tmp.0.copyload.i.i366, ptr %118, align 8
   br label %return
 
 sw.bb265:                                         ; preds = %if.else
   %tmp.0.copyload.i1.i = load float, ptr %ptr, align 1
   %add.ptr268 = getelementptr inbounds i8, ptr %ptr, i64 4
   %is_repeated269 = getelementptr inbounds i8, ptr %extension, i64 13
-  %119 = load i8, ptr %is_repeated269, align 1
-  %tobool270 = trunc i8 %119 to i1
+  %120 = load i8, ptr %is_repeated269, align 1
+  %tobool270 = trunc i8 %120 to i1
   br i1 %tobool270, label %if.then271, label %if.else275
 
 if.then271:                                       ; preds = %sw.bb265
   %is_packed272 = getelementptr inbounds i8, ptr %extension, i64 14
-  %120 = load i8, ptr %is_packed272, align 2
-  %tobool273 = trunc i8 %120 to i1
+  %121 = load i8, ptr %is_packed272, align 2
+  %tobool273 = trunc i8 %121 to i1
   %descriptor274 = getelementptr inbounds i8, ptr %extension, i64 32
-  %121 = load ptr, ptr %descriptor274, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 2, i1 noundef zeroext %tobool273, float noundef %tmp.0.copyload.i1.i, ptr noundef %121)
+  %122 = load ptr, ptr %descriptor274, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 2, i1 noundef zeroext %tobool273, float noundef %tmp.0.copyload.i1.i, ptr noundef %122)
   br label %return
 
 if.else275:                                       ; preds = %sw.bb265
   %descriptor276 = getelementptr inbounds i8, ptr %extension, i64 32
-  %122 = load ptr, ptr %descriptor276, align 8
+  %123 = load ptr, ptr %descriptor276, align 8
   %call.i.i378 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %123 = extractvalue { ptr, i8 } %call.i.i378, 0
-  %124 = extractvalue { ptr, i8 } %call.i.i378, 1
-  %descriptor4.i.i379 = getelementptr inbounds i8, ptr %123, i64 16
-  store ptr %122, ptr %descriptor4.i.i379, align 8
-  %tobool.i.i380 = trunc i8 %124 to i1
+  %124 = extractvalue { ptr, i8 } %call.i.i378, 0
+  %125 = extractvalue { ptr, i8 } %call.i.i378, 1
+  %descriptor4.i.i379 = getelementptr inbounds i8, ptr %124, i64 16
+  store ptr %123, ptr %descriptor4.i.i379, align 8
+  %tobool.i.i380 = trunc i8 %125 to i1
   br i1 %tobool.i.i380, label %if.then.i385, label %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit
 
 if.then.i385:                                     ; preds = %if.else275
-  %type2.i386 = getelementptr inbounds i8, ptr %123, i64 8
+  %type2.i386 = getelementptr inbounds i8, ptr %124, i64 8
   store i8 2, ptr %type2.i386, align 8
-  %is_repeated.i387 = getelementptr inbounds i8, ptr %123, i64 9
+  %is_repeated.i387 = getelementptr inbounds i8, ptr %124, i64 9
   store i8 0, ptr %is_repeated.i387, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit: ; preds = %if.else275, %if.then.i385
-  %is_cleared.i382 = getelementptr inbounds i8, ptr %123, i64 10
+  %is_cleared.i382 = getelementptr inbounds i8, ptr %124, i64 10
   %bf.load.i383 = load i8, ptr %is_cleared.i382, align 2
   %bf.clear.i384 = and i8 %bf.load.i383, -16
   store i8 %bf.clear.i384, ptr %is_cleared.i382, align 2
-  store float %tmp.0.copyload.i1.i, ptr %123, align 8
+  store float %tmp.0.copyload.i1.i, ptr %124, align 8
   br label %return
 
 sw.bb278:                                         ; preds = %if.else
   %tmp.0.copyload.i1.i388 = load double, ptr %ptr, align 1
   %add.ptr281 = getelementptr inbounds i8, ptr %ptr, i64 8
   %is_repeated282 = getelementptr inbounds i8, ptr %extension, i64 13
-  %125 = load i8, ptr %is_repeated282, align 1
-  %tobool283 = trunc i8 %125 to i1
+  %126 = load i8, ptr %is_repeated282, align 1
+  %tobool283 = trunc i8 %126 to i1
   br i1 %tobool283, label %if.then284, label %if.else288
 
 if.then284:                                       ; preds = %sw.bb278
   %is_packed285 = getelementptr inbounds i8, ptr %extension, i64 14
-  %126 = load i8, ptr %is_packed285, align 2
-  %tobool286 = trunc i8 %126 to i1
+  %127 = load i8, ptr %is_packed285, align 2
+  %tobool286 = trunc i8 %127 to i1
   %descriptor287 = getelementptr inbounds i8, ptr %extension, i64 32
-  %127 = load ptr, ptr %descriptor287, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 1, i1 noundef zeroext %tobool286, double noundef %tmp.0.copyload.i1.i388, ptr noundef %127)
+  %128 = load ptr, ptr %descriptor287, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 1, i1 noundef zeroext %tobool286, double noundef %tmp.0.copyload.i1.i388, ptr noundef %128)
   br label %return
 
 if.else288:                                       ; preds = %sw.bb278
   %descriptor289 = getelementptr inbounds i8, ptr %extension, i64 32
-  %128 = load ptr, ptr %descriptor289, align 8
+  %129 = load ptr, ptr %descriptor289, align 8
   %call.i.i389 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %129 = extractvalue { ptr, i8 } %call.i.i389, 0
-  %130 = extractvalue { ptr, i8 } %call.i.i389, 1
-  %descriptor4.i.i390 = getelementptr inbounds i8, ptr %129, i64 16
-  store ptr %128, ptr %descriptor4.i.i390, align 8
-  %tobool.i.i391 = trunc i8 %130 to i1
+  %130 = extractvalue { ptr, i8 } %call.i.i389, 0
+  %131 = extractvalue { ptr, i8 } %call.i.i389, 1
+  %descriptor4.i.i390 = getelementptr inbounds i8, ptr %130, i64 16
+  store ptr %129, ptr %descriptor4.i.i390, align 8
+  %tobool.i.i391 = trunc i8 %131 to i1
   br i1 %tobool.i.i391, label %if.then.i396, label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
 
 if.then.i396:                                     ; preds = %if.else288
-  %type2.i397 = getelementptr inbounds i8, ptr %129, i64 8
+  %type2.i397 = getelementptr inbounds i8, ptr %130, i64 8
   store i8 1, ptr %type2.i397, align 8
-  %is_repeated.i398 = getelementptr inbounds i8, ptr %129, i64 9
+  %is_repeated.i398 = getelementptr inbounds i8, ptr %130, i64 9
   store i8 0, ptr %is_repeated.i398, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit: ; preds = %if.else288, %if.then.i396
-  %is_cleared.i393 = getelementptr inbounds i8, ptr %129, i64 10
+  %is_cleared.i393 = getelementptr inbounds i8, ptr %130, i64 10
   %bf.load.i394 = load i8, ptr %is_cleared.i393, align 2
   %bf.clear.i395 = and i8 %bf.load.i394, -16
   store i8 %bf.clear.i395, ptr %is_cleared.i393, align 2
-  store double %tmp.0.copyload.i1.i388, ptr %129, align 8
+  store double %tmp.0.copyload.i1.i388, ptr %130, align 8
   br label %return
 
 sw.bb291:                                         ; preds = %if.else
-  %131 = load i8, ptr %ptr, align 1
-  %cmp.i399 = icmp sgt i8 %131, -1
+  %132 = load i8, ptr %ptr, align 1
+  %cmp.i399 = icmp sgt i8 %132, -1
   br i1 %cmp.i399, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread: ; preds = %sw.bb291
-  %conv1.i406 = zext nneg i8 %131 to i64
+  %conv1.i406 = zext nneg i8 %132 to i64
   %add.ptr.i407 = getelementptr inbounds i8, ptr %ptr, i64 1
   br label %if.end295
 
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408: ; preds = %sw.bb291
-  %conv.i401 = zext i8 %131 to i32
+  %conv.i401 = zext i8 %132 to i32
   %call.i.i402 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i401)
-  %132 = extractvalue { ptr, i64 } %call.i.i402, 0
-  %133 = extractvalue { ptr, i64 } %call.i.i402, 1
-  %tobool293.not = icmp eq ptr %132, null
+  %133 = extractvalue { ptr, i64 } %call.i.i402, 0
+  %134 = extractvalue { ptr, i64 } %call.i.i402, 1
+  %tobool293.not = icmp eq ptr %133, null
   br i1 %tobool293.not, label %return, label %if.end295
 
 if.end295:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408
-  %retval.0.i404521 = phi ptr [ %add.ptr.i407, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread ], [ %132, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408 ]
-  %.sink.i403520 = phi i64 [ %conv1.i406, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread ], [ %133, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408 ]
+  %retval.0.i404521 = phi ptr [ %add.ptr.i407, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread ], [ %133, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408 ]
+  %.sink.i403520 = phi i64 [ %conv1.i406, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408.thread ], [ %134, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit408 ]
   %conv297 = trunc i64 %.sink.i403520 to i32
-  %134 = getelementptr inbounds i8, ptr %extension, i64 16
-  %135 = load ptr, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %extension, i64 16
+  %136 = load ptr, ptr %135, align 8
   %arg299 = getelementptr inbounds i8, ptr %extension, i64 24
-  %136 = load ptr, ptr %arg299, align 8
-  %call300 = tail call noundef zeroext i1 %135(ptr noundef %136, i32 noundef %conv297)
+  %137 = load ptr, ptr %arg299, align 8
+  %call300 = tail call noundef zeroext i1 %136(ptr noundef %137, i32 noundef %conv297)
   br i1 %call300, label %if.else304, label %if.then301
 
 if.then301:                                       ; preds = %if.end295
   %sext = shl i64 %.sink.i403520, 32
   %conv302 = ashr exact i64 %sext, 32
-  %137 = load i64, ptr %metadata, align 8
-  %and.i = and i64 %137, 1
+  %138 = load i64, ptr %metadata, align 8
+  %and.i = and i64 %138, 1
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then301
-  %and.i409 = and i64 %137, -2
-  %138 = inttoptr i64 %and.i409 to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %138, i64 8
+  %and.i409 = and i64 %138, -2
+  %139 = inttoptr i64 %and.i409 to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %139, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.then301
@@ -9798,75 +9808,75 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
 
 if.else304:                                       ; preds = %if.end295
   %is_repeated305 = getelementptr inbounds i8, ptr %extension, i64 13
-  %139 = load i8, ptr %is_repeated305, align 1
-  %tobool306 = trunc i8 %139 to i1
+  %140 = load i8, ptr %is_repeated305, align 1
+  %tobool306 = trunc i8 %140 to i1
   br i1 %tobool306, label %if.then307, label %if.else311
 
 if.then307:                                       ; preds = %if.else304
   %is_packed308 = getelementptr inbounds i8, ptr %extension, i64 14
-  %140 = load i8, ptr %is_packed308, align 2
-  %tobool309 = trunc i8 %140 to i1
+  %141 = load i8, ptr %is_packed308, align 2
+  %tobool309 = trunc i8 %141 to i1
   %descriptor310 = getelementptr inbounds i8, ptr %extension, i64 32
-  %141 = load ptr, ptr %descriptor310, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i1 noundef zeroext %tobool309, i32 noundef %conv297, ptr noundef %141)
+  %142 = load ptr, ptr %descriptor310, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i1 noundef zeroext %tobool309, i32 noundef %conv297, ptr noundef %142)
   br label %return
 
 if.else311:                                       ; preds = %if.else304
   %descriptor312 = getelementptr inbounds i8, ptr %extension, i64 32
-  %142 = load ptr, ptr %descriptor312, align 8
+  %143 = load ptr, ptr %descriptor312, align 8
   %call.i.i410 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %143 = extractvalue { ptr, i8 } %call.i.i410, 0
-  %144 = extractvalue { ptr, i8 } %call.i.i410, 1
-  %descriptor4.i.i411 = getelementptr inbounds i8, ptr %143, i64 16
-  store ptr %142, ptr %descriptor4.i.i411, align 8
-  %tobool.i.i412 = trunc i8 %144 to i1
+  %144 = extractvalue { ptr, i8 } %call.i.i410, 0
+  %145 = extractvalue { ptr, i8 } %call.i.i410, 1
+  %descriptor4.i.i411 = getelementptr inbounds i8, ptr %144, i64 16
+  store ptr %143, ptr %descriptor4.i.i411, align 8
+  %tobool.i.i412 = trunc i8 %145 to i1
   br i1 %tobool.i.i412, label %if.then.i417, label %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit
 
 if.then.i417:                                     ; preds = %if.else311
-  %type2.i418 = getelementptr inbounds i8, ptr %143, i64 8
+  %type2.i418 = getelementptr inbounds i8, ptr %144, i64 8
   store i8 14, ptr %type2.i418, align 8
-  %is_repeated.i419 = getelementptr inbounds i8, ptr %143, i64 9
+  %is_repeated.i419 = getelementptr inbounds i8, ptr %144, i64 9
   store i8 0, ptr %is_repeated.i419, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit: ; preds = %if.else311, %if.then.i417
-  %is_cleared.i414 = getelementptr inbounds i8, ptr %143, i64 10
+  %is_cleared.i414 = getelementptr inbounds i8, ptr %144, i64 10
   %bf.load.i415 = load i8, ptr %is_cleared.i414, align 2
   %bf.clear.i416 = and i8 %bf.load.i415, -16
   store i8 %bf.clear.i416, ptr %is_cleared.i414, align 2
-  store i32 %conv297, ptr %143, align 8
+  store i32 %conv297, ptr %144, align 8
   br label %return
 
 sw.bb315:                                         ; preds = %if.else, %if.else
   %is_repeated317 = getelementptr inbounds i8, ptr %extension, i64 13
-  %145 = load i8, ptr %is_repeated317, align 1
-  %tobool318 = trunc i8 %145 to i1
+  %146 = load i8, ptr %is_repeated317, align 1
+  %tobool318 = trunc i8 %146 to i1
   %descriptor319 = getelementptr inbounds i8, ptr %extension, i64 32
-  %146 = load ptr, ptr %descriptor319, align 8
+  %147 = load ptr, ptr %descriptor319, align 8
   %call.i2.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %147 = extractvalue { ptr, i8 } %call.i2.i, 0
-  %148 = extractvalue { ptr, i8 } %call.i2.i, 1
-  %descriptor4.i.i420 = getelementptr inbounds i8, ptr %147, i64 16
-  store ptr %146, ptr %descriptor4.i.i420, align 8
-  %tobool.i.i421 = trunc i8 %148 to i1
+  %148 = extractvalue { ptr, i8 } %call.i2.i, 0
+  %149 = extractvalue { ptr, i8 } %call.i2.i, 1
+  %descriptor4.i.i420 = getelementptr inbounds i8, ptr %148, i64 16
+  store ptr %147, ptr %descriptor4.i.i420, align 8
+  %tobool.i.i421 = trunc i8 %149 to i1
   br i1 %tobool318, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.bb315
   br i1 %tobool.i.i421, label %if.then.i423, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %cond.true
-  %.pre.i = load ptr, ptr %147, align 8
+  %.pre.i = load ptr, ptr %148, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
 if.then.i423:                                     ; preds = %cond.true
-  %type2.i424 = getelementptr inbounds i8, ptr %147, i64 8
+  %type2.i424 = getelementptr inbounds i8, ptr %148, i64 8
   store i8 9, ptr %type2.i424, align 8
-  %is_repeated.i425 = getelementptr inbounds i8, ptr %147, i64 9
+  %is_repeated.i425 = getelementptr inbounds i8, ptr %148, i64 9
   store i8 1, ptr %is_repeated.i425, align 1
-  %is_packed.i = getelementptr inbounds i8, ptr %147, i64 11
+  %is_packed.i = getelementptr inbounds i8, ptr %148, i64 11
   store i8 0, ptr %is_packed.i, align 1
-  %149 = load ptr, ptr %this, align 8
-  %cmp.i.i = icmp eq ptr %149, null
+  %150 = load ptr, ptr %this, align 8
+  %cmp.i.i = icmp eq ptr %150, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i423
@@ -9875,36 +9885,36 @@ if.then.i.i:                                      ; preds = %if.then.i423
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i423
-  %call2.i4.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %149, i64 noundef 24)
+  %call2.i4.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %150, i64 noundef 24)
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i4.i, i8 0, i64 16, i1 false)
-  store ptr %149, ptr %arena_.i.i.i.i, align 8
+  store ptr %150, ptr %arena_.i.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i
 
 _ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.i.0.i = phi ptr [ %call2.i4.i, %if.else.i.i ], [ %call.i.i426, %if.then.i.i ]
-  store ptr %retval.i.0.i, ptr %147, align 8
+  store ptr %retval.i.0.i, ptr %148, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit: ; preds = %entry.if.end_crit_edge.i, %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i
-  %150 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %retval.i.0.i, %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i ]
-  %call2.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
+  %151 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %retval.i.0.i, %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_PS1_.exit.i ]
+  %call2.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   br label %cond.end
 
 cond.false:                                       ; preds = %sw.bb315
   br i1 %tobool.i.i421, label %if.then.i436, label %entry.if.end_crit_edge.i430
 
 entry.if.end_crit_edge.i430:                      ; preds = %cond.false
-  %.pre.i431 = load ptr, ptr %147, align 8
+  %.pre.i431 = load ptr, ptr %148, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
 if.then.i436:                                     ; preds = %cond.false
-  %type2.i437 = getelementptr inbounds i8, ptr %147, i64 8
+  %type2.i437 = getelementptr inbounds i8, ptr %148, i64 8
   store i8 9, ptr %type2.i437, align 8
-  %is_repeated.i438 = getelementptr inbounds i8, ptr %147, i64 9
+  %is_repeated.i438 = getelementptr inbounds i8, ptr %148, i64 9
   store i8 0, ptr %is_repeated.i438, align 1
-  %151 = load ptr, ptr %this, align 8
-  %cmp.i.i.i = icmp eq ptr %151, null
+  %152 = load ptr, ptr %this, align 8
+  %cmp.i.i.i = icmp eq ptr %152, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i436
@@ -9912,28 +9922,28 @@ if.then.i.i.i:                                    ; preds = %if.then.i436
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i436
-  %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena23AllocateFromStringBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %151)
+  %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena23AllocateFromStringBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %152)
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
 
 _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.sink.i.i.i) #29
-  store ptr %call.i.sink.i.i.i, ptr %147, align 8
+  store ptr %call.i.sink.i.i.i, ptr %148, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit: ; preds = %entry.if.end_crit_edge.i430, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
-  %152 = phi ptr [ %.pre.i431, %entry.if.end_crit_edge.i430 ], [ %call.i.sink.i.i.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ]
-  %is_cleared.i433 = getelementptr inbounds i8, ptr %147, i64 10
+  %153 = phi ptr [ %.pre.i431, %entry.if.end_crit_edge.i430 ], [ %call.i.sink.i.i.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ]
+  %is_cleared.i433 = getelementptr inbounds i8, ptr %148, i64 10
   %bf.load.i434 = load i8, ptr %is_cleared.i433, align 2
   %bf.clear.i435 = and i8 %bf.load.i434, -16
   store i8 %bf.clear.i435, ptr %is_cleared.i433, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit, %_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
-  %cond = phi ptr [ %call2.i.i.i, %_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ], [ %152, %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ]
-  %153 = load i8, ptr %ptr, align 1
-  %conv.i439 = zext i8 %153 to i32
-  %cmp.i440 = icmp sgt i8 %153, -1
+  %cond = phi ptr [ %call2.i.i.i, %_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ], [ %153, %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ]
+  %154 = load i8, ptr %ptr, align 1
+  %conv.i439 = zext i8 %154 to i32
+  %cmp.i440 = icmp sgt i8 %154, -1
   br i1 %cmp.i440, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %cond.end
@@ -9942,18 +9952,18 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %cond.end
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %cond.end
   %call.i442 = tail call { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef nonnull %ptr, i32 noundef %conv.i439)
-  %154 = extractvalue { ptr, i32 } %call.i442, 0
-  %155 = extractvalue { ptr, i32 } %call.i442, 1
-  %tobool324.not = icmp eq ptr %154, null
+  %155 = extractvalue { ptr, i32 } %call.i442, 0
+  %156 = extractvalue { ptr, i32 } %call.i442, 1
+  %tobool324.not = icmp eq ptr %155, null
   br i1 %tobool324.not, label %return, label %if.end326
 
 if.end326:                                        ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %retval.0.i443526 = phi i32 [ %conv.i439, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %155, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %storemerge.i525 = phi ptr [ %add.ptr.i445, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %154, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %retval.0.i443526 = phi i32 [ %conv.i439, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %156, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %storemerge.i525 = phi ptr [ %add.ptr.i445, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %155, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
   %conv.i446 = sext i32 %retval.0.i443526 to i64
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %156 = load ptr, ptr %buffer_end_.i, align 8
-  %add.ptr.i447 = getelementptr inbounds i8, ptr %156, i64 16
+  %157 = load ptr, ptr %buffer_end_.i, align 8
+  %add.ptr.i447 = getelementptr inbounds i8, ptr %157, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i447 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %storemerge.i525 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -9973,68 +9983,71 @@ if.end.i451:                                      ; preds = %if.end326
 
 sw.bb328:                                         ; preds = %if.else
   %is_repeated330 = getelementptr inbounds i8, ptr %extension, i64 13
-  %157 = load i8, ptr %is_repeated330, align 1
-  %tobool331 = trunc i8 %157 to i1
-  %158 = getelementptr inbounds i8, ptr %extension, i64 16
-  %159 = load ptr, ptr %158, align 8
+  %158 = load i8, ptr %is_repeated330, align 1
+  %tobool331 = trunc i8 %158 to i1
+  %159 = getelementptr inbounds i8, ptr %extension, i64 16
+  %160 = load ptr, ptr %159, align 8
   %descriptor333 = getelementptr inbounds i8, ptr %extension, i64 32
-  %160 = load ptr, ptr %descriptor333, align 8
+  %161 = load ptr, ptr %descriptor333, align 8
   br i1 %tobool331, label %cond.true332, label %cond.false335
 
 cond.true332:                                     ; preds = %sw.bb328
-  %call334 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef %160)
+  %call334 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef %161)
   br label %cond.end339
 
 cond.false335:                                    ; preds = %sw.bb328
-  %call338 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef %160)
+  %call338 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef %161)
   br label %cond.end339
 
 cond.end339:                                      ; preds = %cond.false335, %cond.true332
   %cond340 = phi ptr [ %call334, %cond.true332 ], [ %call338, %cond.false335 ]
   %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
-  %161 = load i32, ptr %depth_.i, align 8
-  %dec.i = add nsw i32 %161, -1
+  %162 = load i32, ptr %depth_.i, align 8
+  %dec.i = add nsw i32 %162, -1
   store i32 %dec.i, ptr %depth_.i, align 8
-  %cmp.i = icmp slt i32 %161, 1
+  %cmp.i = icmp slt i32 %162, 1
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end339
   %shl = shl i32 %number, 3
   %add = or disjoint i32 %shl, 3
   %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
-  %162 = load i32, ptr %group_depth_.i, align 4
-  %inc.i = add nsw i32 %162, 1
+  %163 = load i32, ptr %group_depth_.i, align 4
+  %inc.i = add nsw i32 %163, 1
   store i32 %inc.i, ptr %group_depth_.i, align 4
   %vtable.i = load ptr, ptr %cond340, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
-  %163 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef ptr %163(ptr noundef nonnull align 8 dereferenceable(16) %cond340, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %164 = load <2 x i32>, ptr %depth_.i, align 8
-  %165 = add nsw <2 x i32> %164, <i32 1, i32 -1>
-  store <2 x i32> %165, ptr %depth_.i, align 8
+  %164 = load ptr, ptr %vfn.i, align 8
+  %call.i = tail call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(16) %cond340, ptr noundef %ptr, ptr noundef nonnull %ctx)
+  %165 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %165, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %166 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %166, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %166 = load i32, ptr %last_tag_minus_1_.i, align 8
-  %cmp.i452 = icmp eq i32 %166, %add
+  %167 = load i32, ptr %last_tag_minus_1_.i, align 8
+  %cmp.i452 = icmp eq i32 %167, %add
   store i32 0, ptr %last_tag_minus_1_.i, align 8
   %call.i. = select i1 %cmp.i452, ptr %call.i, ptr null
   br label %return
 
 sw.bb342:                                         ; preds = %if.else
   %is_repeated344 = getelementptr inbounds i8, ptr %extension, i64 13
-  %167 = load i8, ptr %is_repeated344, align 1
-  %tobool345 = trunc i8 %167 to i1
-  %168 = getelementptr inbounds i8, ptr %extension, i64 16
-  %169 = load ptr, ptr %168, align 8
+  %168 = load i8, ptr %is_repeated344, align 1
+  %tobool345 = trunc i8 %168 to i1
+  %169 = getelementptr inbounds i8, ptr %extension, i64 16
+  %170 = load ptr, ptr %169, align 8
   %descriptor348 = getelementptr inbounds i8, ptr %extension, i64 32
-  %170 = load ptr, ptr %descriptor348, align 8
+  %171 = load ptr, ptr %descriptor348, align 8
   br i1 %tobool345, label %cond.true346, label %cond.false350
 
 cond.true346:                                     ; preds = %sw.bb342
-  %call349 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef %170)
+  %call349 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef %171)
   br label %cond.end354
 
 cond.false350:                                    ; preds = %sw.bb342
-  %call353 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef %170)
+  %call353 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef %171)
   br label %cond.end354
 
 cond.end354:                                      ; preds = %cond.false350, %cond.true346
@@ -19293,7 +19306,13 @@ if.then.i:                                        ; preds = %entry
   %call5.i.i2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32, !noalias !199
   store ptr %call5.i.i2.i.i.i.i, ptr %call5.i.i2.i.i.i.i, align 8, !noalias !199
   %add.ptr.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i58, align 1, !noalias !199
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i58, align 1, !noalias !199
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !199
+  %arrayidx.i2.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i, align 1, !noalias !199
+  %arrayidx.i3.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i, align 1, !noalias !199
   %rightmost_.i.i59 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i2.i.i.i.i, ptr %rightmost_.i.i59, align 8, !noalias !199
   store ptr %call5.i.i2.i.i.i.i, ptr %this, align 8, !noalias !199

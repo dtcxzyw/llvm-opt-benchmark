@@ -1113,11 +1113,11 @@ Vec_StrPush.exit.i210:                            ; preds = %493, %Vec_StrGrow.e
   br i1 %.not.i211, label %Vec_StrPutI_ne.exit215, label %469, !llvm.loop !4
 
 Vec_StrPutI_ne.exit215:                           ; preds = %Vec_StrPush.exit.i210
-  %501 = load <2 x float>, ptr %431, align 4
-  %502 = fptosi <2 x float> %501 to <2 x i32>
-  %503 = extractelement <2 x i32> %502, i64 0
-  %504 = extractelement <2 x i32> %502, i64 1
-  %505 = mul nsw i32 %504, %503
+  %501 = load float, ptr %431, align 4
+  %502 = fptosi float %501 to i32
+  %503 = load float, ptr %466, align 4
+  %504 = fptosi float %503 to i32
+  %505 = mul nsw i32 %504, %502
   %invariant.gep = getelementptr inbounds i8, ptr %396, i64 12
   %506 = icmp sgt i32 %505, 0
   br i1 %506, label %.lr.ph220.preheader, label %._crit_edge
@@ -1826,10 +1826,11 @@ Vec_StrGetI_ne.exit172:                           ; preds = %Vec_StrGetI_ne.exit
   %134 = sext i32 %133 to i64
   %135 = shl nsw i64 %134, 2
   %136 = tail call noalias ptr @malloc(i64 noundef %135) #6
-  %137 = insertelement <2 x i32> poison, i32 %111, i64 0
-  %138 = insertelement <2 x i32> %137, i32 %120, i64 1
-  %139 = sitofp <2 x i32> %138 to <2 x float>
-  store <2 x float> %139, ptr %136, align 4
+  %137 = sitofp i32 %111 to float
+  store float %137, ptr %136, align 4
+  %138 = sitofp i32 %120 to float
+  %139 = getelementptr inbounds i8, ptr %136, i64 4
+  store float %138, ptr %139, align 4
   %140 = sitofp i32 %129 to float
   %141 = getelementptr inbounds i8, ptr %136, i64 8
   store float %140, ptr %141, align 4

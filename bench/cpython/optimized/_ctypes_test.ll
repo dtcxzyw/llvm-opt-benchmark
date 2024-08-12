@@ -1492,12 +1492,14 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = sext i32 %flag to i64
   store i64 %conv, ptr %prect, align 8
-  %0 = insertelement <2 x i32> poison, i32 %flag, i64 0
-  %1 = shufflevector <2 x i32> %0, <2 x i32> poison, <2 x i32> zeroinitializer
-  %2 = add <2 x i32> %1, <i32 1, i32 2>
+  %add = add i32 %flag, 1
+  %conv1 = sext i32 %add to i64
   %top = getelementptr inbounds i8, ptr %prect, i64 8
-  %3 = sext <2 x i32> %2 to <2 x i64>
-  store <2 x i64> %3, ptr %top, align 8
+  store i64 %conv1, ptr %top, align 8
+  %add2 = add i32 %flag, 2
+  %conv3 = sext i32 %add2 to i64
+  %right = getelementptr inbounds i8, ptr %prect, i64 16
+  store i64 %conv3, ptr %right, align 8
   %add4 = add i32 %flag, 3
   %conv5 = sext i32 %add4 to i64
   %bottom = getelementptr inbounds i8, ptr %prect, i64 24

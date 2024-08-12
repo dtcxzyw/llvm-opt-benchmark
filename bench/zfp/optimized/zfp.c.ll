@@ -1123,19 +1123,25 @@ define void @zfp_config_expert(ptr dead_on_unwind noalias nocapture writable wri
 define noalias noundef ptr @zfp_stream_open(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #23
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %7, label %3
+  br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
-  store <4 x i32> <i32 1, i32 16658, i32 64, i32 -1074>, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr null, ptr %6, align 8
-  br label %7
+  store i32 1, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 16658, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 64, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 -1074, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr null, ptr %9, align 8
+  br label %10
 
-7:                                                ; preds = %3, %1
+10:                                               ; preds = %3, %1
   ret ptr %2
 }
 
@@ -1772,7 +1778,13 @@ define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly %0, ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
-  store <4 x i32> <i32 1, i32 16658, i32 64, i32 -1075>, ptr %0, align 8
+  store i32 1, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 16658, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 64, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1075, ptr %4, align 4
   ret void
 }
 
@@ -1865,15 +1877,21 @@ define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly %0, doubl
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %8, ptr %11, align 4
   %12 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #19
-  br label %13
+  br label %16
 
 .critedge:                                        ; preds = %2
-  store <4 x i32> <i32 1, i32 16658, i32 64, i32 -1074>, ptr %0, align 8
-  br label %13
+  store i32 1, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 16658, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 64, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1074, ptr %15, align 4
+  br label %16
 
-13:                                               ; preds = %.critedge, %5
-  %14 = phi double [ %12, %5 ], [ 0.000000e+00, %.critedge ]
-  ret double %14
+16:                                               ; preds = %.critedge, %5
+  %17 = phi double [ %12, %5 ], [ 0.000000e+00, %.critedge ]
+  ret double %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)

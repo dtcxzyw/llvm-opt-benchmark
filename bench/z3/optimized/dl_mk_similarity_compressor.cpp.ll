@@ -7432,9 +7432,10 @@ if.else7.i:                                       ; preds = %entry
   br i1 %call.i21.i, label %if.then9.i, label %if.else10.i
 
 if.then9.i:                                       ; preds = %if.else7.i
-  %12 = load <2 x ptr>, ptr %__first, align 8
-  %13 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %13, ptr %__first, align 8
+  %12 = load ptr, ptr %__first, align 8
+  %13 = load ptr, ptr %add.ptr1, align 8
+  store ptr %13, ptr %__first, align 8
+  store ptr %12, ptr %add.ptr1, align 8
   br label %while.body.i.preheader
 
 if.else10.i:                                      ; preds = %if.else7.i

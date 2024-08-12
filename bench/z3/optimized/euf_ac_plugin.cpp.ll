@@ -2688,14 +2688,17 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   br i1 %tobool.not.i.i.i, label %_ZN3euf9ac_plugin10monomial_tC2ERKS1_.exit, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i.i: ; preds = %for.body18
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -4
+  %16 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
-  %16 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %17 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %17 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8
   %call3.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i)
-  store <2 x i32> %16, ptr %call3.i.i.i.i, align 4
+  store i32 %17, ptr %call3.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
+  store i32 %16, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %m, align 8
   %18 = load ptr, ptr %__begin112.083, align 8
@@ -5075,14 +5078,17 @@ _ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit: ; preds = %entry, %i
   br i1 %tobool.not.i.i, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEEC2ERKS3_.exit, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i: ; preds = %_ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %3, ptr %call3.i.i.i, align 4
+  store i32 %4, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %3, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %ref.tmp, align 8
   %5 = load ptr, ptr %ms, align 8
@@ -5866,14 +5872,17 @@ if.end16:                                         ; preds = %for.cond.i.i, %for.
   br i1 %tobool.not.i.i, label %invoke.cont, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.end16
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 -4
+  %21 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %20, i64 -8
-  %21 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %22 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %22 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %21, ptr %call3.i.i.i, align 4
+  store i32 %22, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %21, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m, align 8
   %23 = load ptr, ptr %m_dst_r, align 8
@@ -7949,35 +7958,39 @@ if.else:                                          ; preds = %for.body
   %m_value.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %s2.sroa.0.0.copyload = load ptr, ptr %m_value.i, align 8
   %s2.sroa.341.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  %39 = load <2 x i32>, ptr %s2.sroa.341.0.m_value.i.sroa_idx, align 8
+  %s2.sroa.341.0.copyload = load i32, ptr %s2.sroa.341.0.m_value.i.sroa_idx, align 8
+  %s2.sroa.5.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 36
+  %s2.sroa.5.0.copyload = load i32, ptr %s2.sroa.5.0.m_value.i.sroa_idx, align 4
   %s2.sroa.542.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %s2.sroa.542.0.copyload = load i8, ptr %s2.sroa.542.0.m_value.i.sroa_idx, align 8
   %s2.sroa.6.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %s2.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %s2.sroa.6.0.m_value.i.sroa_idx, i64 7, i1 false)
   %m_root.i = getelementptr inbounds i8, ptr %s2.sroa.0.0.copyload, i64 64
-  %40 = load ptr, ptr %m_root.i, align 8
-  %41 = load ptr, ptr %__begin1.060, align 8
-  %m_root.i29 = getelementptr inbounds i8, ptr %41, i64 64
-  %42 = load ptr, ptr %m_root.i29, align 8
-  %cmp24.not = icmp eq ptr %40, %42
+  %39 = load ptr, ptr %m_root.i, align 8
+  %40 = load ptr, ptr %__begin1.060, align 8
+  %m_root.i29 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = load ptr, ptr %m_root.i29, align 8
+  %cmp24.not = icmp eq ptr %39, %41
   br i1 %cmp24.not, label %for.inc, label %if.else.i.i34
 
 if.else.i.i34:                                    ; preds = %if.else
   %s2.sroa.643.0.m_value.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %s2.sroa.643.0.copyload = load ptr, ptr %s2.sroa.643.0.m_value.i.sroa_idx, align 8
   %j = getelementptr inbounds i8, ptr %__begin1.060, i64 16
-  %43 = load ptr, ptr %m_allocator.i.i, align 8
-  %44 = load ptr, ptr %43, align 8
-  %call.i.i.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %44, i64 noundef 32)
+  %42 = load ptr, ptr %m_allocator.i.i, align 8
+  %43 = load ptr, ptr %42, align 8
+  %call.i.i.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %43, i64 noundef 32)
   store i32 -2147483648, ptr %call.i.i.i, align 4
   %m_value.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %j, i64 24, i1 false)
-  %45 = load ptr, ptr %m_allocator.i.i, align 8
-  %46 = load ptr, ptr %45, align 8
-  %call.i.i.i31 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %46, i64 noundef 32)
+  %44 = load ptr, ptr %m_allocator.i.i, align 8
+  %45 = load ptr, ptr %44, align 8
+  %call.i.i.i31 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %45, i64 noundef 32)
   store i32 -2147483648, ptr %call.i.i.i31, align 4
   %m_value.i.i.i32 = getelementptr inbounds i8, ptr %call.i.i.i31, i64 8
-  store <2 x i32> %39, ptr %m_value.i.i.i32, align 8
+  store i32 %s2.sroa.341.0.copyload, ptr %m_value.i.i.i32, align 8
+  %s2.sroa.5.16.m_value.i.i.i32.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i31, i64 12
+  store i32 %s2.sroa.5.0.copyload, ptr %s2.sroa.5.16.m_value.i.i.i32.sroa_idx, align 4
   %s2.sroa.542.16.m_value.i.i.i32.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i31, i64 16
   store i8 %s2.sroa.542.0.copyload, ptr %s2.sroa.542.16.m_value.i.i.i32.sroa_idx, align 8
   %s2.sroa.6.16.m_value.i.i.i32.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i31, i64 17
@@ -7988,9 +8001,9 @@ if.else.i.i34:                                    ; preds = %if.else
   br i1 %cmp5.i.i, label %_ZN26stacked_dependency_managerIN3euf13justificationEE7mk_joinEPN18dependency_managerINS2_6configEE10dependencyES7_.exit, label %_ZN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE7inc_refEPNS5_10dependencyE.exit17.i.i
 
 _ZN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE7inc_refEPNS5_10dependencyE.exit17.i.i: ; preds = %if.else.i.i34
-  %47 = load ptr, ptr %m_allocator.i.i, align 8
-  %48 = load ptr, ptr %47, align 8
-  %call.i.i.i38 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %48, i64 noundef 24)
+  %46 = load ptr, ptr %m_allocator.i.i, align 8
+  %47 = load ptr, ptr %46, align 8
+  %call.i.i.i38 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %47, i64 noundef 24)
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 4
   %inc.i.i.i = add i32 %bf.load.i.i.i, 1
   %bf.value.i.i.i = and i32 %inc.i.i.i, 1073741823
@@ -8015,7 +8028,7 @@ _ZN26stacked_dependency_managerIN3euf13justificationEE7mk_joinEPN18dependency_ma
   store i32 3, ptr %agg.tmp28, align 8, !alias.scope !42
   store i8 0, ptr %35, align 8, !alias.scope !42
   store ptr %retval.0.i.i39, ptr %36, align 8, !alias.scope !42
-  call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_NS_13justificationE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %41, ptr noundef nonnull %s2.sroa.0.0.copyload, ptr noundef nonnull byval(%"class.euf::justification") align 8 %agg.tmp28)
+  call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_NS_13justificationE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %40, ptr noundef nonnull %s2.sroa.0.0.copyload, ptr noundef nonnull byval(%"class.euf::justification") align 8 %agg.tmp28)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then18, %_ZN26stacked_dependency_managerIN3euf13justificationEE7mk_joinEPN18dependency_managerINS2_6configEE10dependencyES7_.exit, %if.else
@@ -12248,14 +12261,17 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEEC2ERKS3_.exit, label %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE8capacityEv.exit.i.i.i: ; preds = %entry
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %3, ptr %call3.i.i.i, align 4
+  store i32 %4, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %3, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m1, align 8
   %5 = load ptr, ptr %arrayidx.i.i, align 8

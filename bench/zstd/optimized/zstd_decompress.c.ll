@@ -1379,10 +1379,13 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end
   %.not.i.i = icmp eq ptr @ZSTD_trace_decompress_begin, null
   %traceCtx.i.i = getelementptr inbounds i8, ptr %dctx, i64 95984
   %expected.i.i = getelementptr inbounds i8, ptr %dctx, i64 29920
+  %stage.i.i = getelementptr inbounds i8, ptr %dctx, i64 29996
   %processedCSize.i.i = getelementptr inbounds i8, ptr %dctx, i64 29976
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %dctx, i64 29888
   %entropy.i.i = getelementptr inbounds i8, ptr %dctx, i64 32
   %hufTable.i.i = getelementptr inbounds i8, ptr %dctx, i64 10296
+  %fseEntropy.i.i = getelementptr inbounds i8, ptr %dctx, i64 30004
+  %litEntropy.i.i = getelementptr inbounds i8, ptr %dctx, i64 30000
   %dictID.i.i = getelementptr inbounds i8, ptr %dctx, i64 30200
   %bType.i.i = getelementptr inbounds i8, ptr %dctx, i64 29992
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %dctx, i64 30176
@@ -1597,11 +1600,14 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %cond.true.i.i, %do.
   %cmp.i.i.i54 = icmp eq i32 %6, 0
   %cond.i.i.i = select i1 %cmp.i.i.i54, i64 5, i64 1
   store i64 %cond.i.i.i, ptr %expected.i.i, align 8
+  store i32 0, ptr %stage.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processedCSize.i.i, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 8
+  store i32 0, ptr %fseEntropy.i.i, align 4
+  store i32 0, ptr %litEntropy.i.i, align 8
   store i32 0, ptr %dictID.i.i, align 8
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %bType.i.i, align 8
+  store i32 3, ptr %bType.i.i, align 8
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   store ptr %entropy.i.i, ptr %dctx, align 8
@@ -2806,6 +2812,8 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cond.i = select i1 %cmp.i, i64 5, i64 1
   %expected = getelementptr inbounds i8, ptr %dctx, i64 29920
   store i64 %cond.i, ptr %expected, align 8
+  %stage = getelementptr inbounds i8, ptr %dctx, i64 29996
+  store i32 0, ptr %stage, align 4
   %processedCSize = getelementptr inbounds i8, ptr %dctx, i64 29976
   %previousDstEnd = getelementptr inbounds i8, ptr %dctx, i64 29888
   %entropy = getelementptr inbounds i8, ptr %dctx, i64 32
@@ -2813,10 +2821,14 @@ cond.end:                                         ; preds = %entry, %cond.true
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processedCSize, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %hufTable, align 8
+  %fseEntropy = getelementptr inbounds i8, ptr %dctx, i64 30004
+  store i32 0, ptr %fseEntropy, align 4
+  %litEntropy = getelementptr inbounds i8, ptr %dctx, i64 30000
+  store i32 0, ptr %litEntropy, align 8
   %dictID = getelementptr inbounds i8, ptr %dctx, i64 30200
   store i32 0, ptr %dictID, align 8
   %bType = getelementptr inbounds i8, ptr %dctx, i64 29992
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %bType, align 8
+  store i32 3, ptr %bType, align 8
   %isFrameDecompression = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 1, ptr %isFrameDecompression, align 8
   %rep = getelementptr inbounds i8, ptr %dctx, i64 26684
@@ -2855,6 +2867,8 @@ do.end9:                                          ; preds = %cond.true.i, %entry
   %cond.i.i = select i1 %cmp.i.i, i64 5, i64 1
   %expected.i = getelementptr inbounds i8, ptr %dctx, i64 29920
   store i64 %cond.i.i, ptr %expected.i, align 8
+  %stage.i = getelementptr inbounds i8, ptr %dctx, i64 29996
+  store i32 0, ptr %stage.i, align 4
   %processedCSize.i = getelementptr inbounds i8, ptr %dctx, i64 29976
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 29888
   %entropy.i = getelementptr inbounds i8, ptr %dctx, i64 32
@@ -2863,11 +2877,13 @@ do.end9:                                          ; preds = %cond.true.i, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processedCSize.i, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %hufTable.i, align 8
   %fseEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 30004
+  store i32 0, ptr %fseEntropy.i, align 4
   %litEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 30000
+  store i32 0, ptr %litEntropy.i, align 8
   %dictID.i = getelementptr inbounds i8, ptr %dctx, i64 30200
   store i32 0, ptr %dictID.i, align 8
   %bType.i = getelementptr inbounds i8, ptr %dctx, i64 29992
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %bType.i, align 8
+  store i32 3, ptr %bType.i, align 8
   %isFrameDecompression.i = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 1, ptr %isFrameDecompression.i, align 8
   %rep.i = getelementptr inbounds i8, ptr %dctx, i64 26684
@@ -2971,6 +2987,8 @@ ZSTD_decompressBegin.exit:                        ; preds = %do.body5, %cond.tru
   %cond.i.i = select i1 %cmp.i.i, i64 5, i64 1
   %expected.i = getelementptr inbounds i8, ptr %dctx, i64 29920
   store i64 %cond.i.i, ptr %expected.i, align 8
+  %stage.i = getelementptr inbounds i8, ptr %dctx, i64 29996
+  store i32 0, ptr %stage.i, align 4
   %processedCSize.i = getelementptr inbounds i8, ptr %dctx, i64 29976
   %previousDstEnd.i = getelementptr inbounds i8, ptr %dctx, i64 29888
   %entropy.i = getelementptr inbounds i8, ptr %dctx, i64 32
@@ -2978,10 +2996,14 @@ ZSTD_decompressBegin.exit:                        ; preds = %do.body5, %cond.tru
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processedCSize.i, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %hufTable.i, align 8
+  %fseEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 30004
+  store i32 0, ptr %fseEntropy.i, align 4
+  %litEntropy.i = getelementptr inbounds i8, ptr %dctx, i64 30000
+  store i32 0, ptr %litEntropy.i, align 8
   %dictID.i = getelementptr inbounds i8, ptr %dctx, i64 30200
   store i32 0, ptr %dictID.i, align 8
   %bType.i = getelementptr inbounds i8, ptr %dctx, i64 29992
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %bType.i, align 8
+  store i32 3, ptr %bType.i, align 8
   %isFrameDecompression.i = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 1, ptr %isFrameDecompression.i, align 8
   %rep.i = getelementptr inbounds i8, ptr %dctx, i64 26684
@@ -4386,6 +4408,8 @@ ZSTD_checkOutBuffer.exit:                         ; preds = %if.end3.i, %do.body
   %previousDstEnd.i.i = getelementptr inbounds i8, ptr %zds, i64 29888
   %entropy.i.i = getelementptr inbounds i8, ptr %zds, i64 32
   %hufTable.i.i = getelementptr inbounds i8, ptr %zds, i64 10296
+  %fseEntropy.i.i = getelementptr inbounds i8, ptr %zds, i64 30004
+  %litEntropy.i.i = getelementptr inbounds i8, ptr %zds, i64 30000
   %dictID.i.i = getelementptr inbounds i8, ptr %zds, i64 30200
   %bType.i.i = getelementptr inbounds i8, ptr %zds, i64 29992
   %isFrameDecompression.i.i = getelementptr inbounds i8, ptr %zds, i64 30176
@@ -4689,11 +4713,14 @@ ZSTD_decompressBegin.exit.i:                      ; preds = %cond.true.i.i, %do.
   %cmp.i.i.i = icmp eq i32 %38, 0
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 5, i64 1
   store i64 %cond.i.i.i, ptr %expected, align 8
+  store i32 0, ptr %stage.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %previousDstEnd.i.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %processedCSize.i.i, i8 0, i64 16, i1 false)
   store i32 201326604, ptr %hufTable.i.i, align 8
+  store i32 0, ptr %fseEntropy.i.i, align 4
+  store i32 0, ptr %litEntropy.i.i, align 8
   store i32 0, ptr %dictID.i.i, align 8
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %bType.i.i, align 8
+  store i32 3, ptr %bType.i.i, align 8
   store i32 1, ptr %isFrameDecompression.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %rep.i.i, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false)
   store ptr %entropy.i.i, ptr %zds, align 8

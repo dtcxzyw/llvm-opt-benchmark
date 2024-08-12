@@ -622,14 +622,16 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7
   store i32 %6, ptr %0, align 8
   store ptr %5, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %7 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %7, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %7 = load <2 x ptr>, ptr %_M_left.i.i4.i.i.i, align 8
-  store <2 x ptr> %7, ptr %_M_left.i.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %8, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %8 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %8, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  %9 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %9, ptr %_M_node_count.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -641,20 +643,20 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEaSEOSC_.exit
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #17
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #17
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEaSEOSC_.exit
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN9grpc_core19XdsClusterDropStats8SnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.result) #16
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1382,7 +1384,7 @@ define void @_ZN9grpc_core23XdsClusterLocalityStats19GetSnapshotAndResetEv(ptr n
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.93", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.96", align 1
-  %percpu_snapshot = alloca %"struct.grpc_core::XdsClusterLocalityStats::Snapshot", align 16
+  %percpu_snapshot = alloca %"struct.grpc_core::XdsClusterLocalityStats::Snapshot", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -1412,33 +1414,35 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %percpu_snapshot, i64 56
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %percpu_snapshot, i64 64
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %percpu_snapshot, i64 72
+  %total_requests_in_progress3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %total_error_requests5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %total_issued_requests7.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %backend_metrics13.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core23XdsClusterLocalityStats8SnapshotD2Ev.exit
   %__begin1.024 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr, %_ZN9grpc_core23XdsClusterLocalityStats8SnapshotD2Ev.exit ]
   %4 = atomicrmw xchg ptr %__begin1.024, i64 0 monotonic, align 8
-  store i64 %4, ptr %percpu_snapshot, align 16
+  store i64 %4, ptr %percpu_snapshot, align 8
   %total_requests_in_progress7 = getelementptr inbounds i8, ptr %__begin1.024, i64 8
   %5 = load atomic i64, ptr %total_requests_in_progress7 monotonic, align 8
   store i64 %5, ptr %total_requests_in_progress, align 8
   %total_error_requests9 = getelementptr inbounds i8, ptr %__begin1.024, i64 16
   %6 = atomicrmw xchg ptr %total_error_requests9, i64 0 monotonic, align 8
-  store i64 %6, ptr %total_error_requests, align 16
+  store i64 %6, ptr %total_error_requests, align 8
   %total_issued_requests12 = getelementptr inbounds i8, ptr %__begin1.024, i64 24
   %7 = atomicrmw xchg ptr %total_issued_requests12, i64 0 monotonic, align 8
   store i64 %7, ptr %total_issued_requests, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %backend_metrics, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %backend_metrics, i8 0, i64 24, i1 false)
   store ptr %3, ptr %_M_left.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_right.i.i.i.i.i, align 16
+  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %backend_metrics_mu = getelementptr inbounds i8, ptr %__begin1.024, i64 32
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %backend_metrics_mu)
           to label %invoke.cont16 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %for.body
-  %8 = load ptr, ptr %_M_parent.i.i.i.i.i, align 16
+  %8 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core23XdsClusterLocalityStats13BackendMetricEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %backend_metrics, ptr noundef %8)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core23XdsClusterLocalityStats13BackendMetricEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -1450,9 +1454,9 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont16
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core23XdsClusterLocalityStats13BackendMetricEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i: ; preds = %invoke.cont16
-  store ptr null, ptr %_M_parent.i.i.i.i.i, align 16
+  store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_left.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_right.i.i.i.i.i, align 16
+  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.024, i64 56
   %11 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -1463,16 +1467,18 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7
   %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.024, i64 48
   %12 = load i32, ptr %add.ptr3.i.i.i.i, align 8
   store i32 %12, ptr %3, align 8
-  store ptr %11, ptr %_M_parent.i.i.i.i.i, align 16
+  store ptr %11, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %__begin1.024, i64 64
+  %13 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %13, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %__begin1.024, i64 72
-  %13 = load <2 x ptr>, ptr %_M_left.i.i4.i.i.i, align 8
-  store <2 x ptr> %13, ptr %_M_left.i.i.i.i.i, align 8
+  %14 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %14, ptr %_M_right.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %3, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %__begin1.024, i64 80
-  %14 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %14, ptr %_M_node_count.i.i.i.i.i, align 8
+  %15 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %15, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -1484,47 +1490,55 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core23XdsCl
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core23XdsClusterLocalityStats13BackendMetricESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSEOSF_.exit
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #17
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #17
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core23XdsClusterLocalityStats13BackendMetricESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSEOSF_.exit
-  %17 = load <2 x i64>, ptr %percpu_snapshot, align 16
-  %18 = load <2 x i64>, ptr %agg.result, align 8
-  %19 = add <2 x i64> %18, %17
-  store <2 x i64> %19, ptr %agg.result, align 8
-  %20 = load <2 x i64>, ptr %total_error_requests, align 16
-  %21 = load <2 x i64>, ptr %total_error_requests5.i, align 8
-  %22 = add <2 x i64> %21, %20
-  store <2 x i64> %22, ptr %total_error_requests5.i, align 8
-  %23 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %cmp.i.not9.i = icmp eq ptr %23, %3
+  %18 = load i64, ptr %percpu_snapshot, align 8
+  %19 = load i64, ptr %agg.result, align 8
+  %add.i = add i64 %19, %18
+  store i64 %add.i, ptr %agg.result, align 8
+  %20 = load i64, ptr %total_requests_in_progress, align 8
+  %21 = load i64, ptr %total_requests_in_progress3.i, align 8
+  %add4.i = add i64 %21, %20
+  store i64 %add4.i, ptr %total_requests_in_progress3.i, align 8
+  %22 = load i64, ptr %total_error_requests, align 8
+  %23 = load i64, ptr %total_error_requests5.i, align 8
+  %add6.i = add i64 %23, %22
+  store i64 %add6.i, ptr %total_error_requests5.i, align 8
+  %24 = load i64, ptr %total_issued_requests, align 8
+  %25 = load i64, ptr %total_issued_requests7.i, align 8
+  %add8.i = add i64 %25, %24
+  store i64 %add8.i, ptr %total_issued_requests7.i, align 8
+  %26 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
+  %cmp.i.not9.i = icmp eq ptr %26, %3
   br i1 %cmp.i.not9.i, label %invoke.cont20, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit, %call14.i.noexc
-  %__begin2.sroa.0.010.i = phi ptr [ %call.i.i, %call14.i.noexc ], [ %23, %_ZN4absl12lts_202308029MutexLockD2Ev.exit ]
+  %__begin2.sroa.0.010.i = phi ptr [ %call.i.i, %call14.i.noexc ], [ %26, %_ZN4absl12lts_202308029MutexLockD2Ev.exit ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i, i64 32
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %24 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %cmp.not6.i.i.i.i = icmp eq ptr %24, null
+  %27 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %cmp.not6.i.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not6.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %for.body.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
-  %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %24, %for.body.i ]
+  %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %27, %for.body.i ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %0, %for.body.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
-  %25 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #17
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #17
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
@@ -1546,10 +1560,10 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapINSt7__cxx
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i20
 
 terminate.lpad.i.i.i20:                           ; preds = %lor.rhs.i
-  %27 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #17
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %lor.rhs.i
@@ -1567,30 +1581,30 @@ call14.i.noexc:                                   ; preds = %_ZNKSt4lessINSt7__c
   %second.i21 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %29 = load i64, ptr %second.i, align 8
-  %30 = load i64, ptr %second.i21, align 8
-  %add.i.i = add i64 %30, %29
+  %32 = load i64, ptr %second.i, align 8
+  %33 = load i64, ptr %second.i21, align 8
+  %add.i.i = add i64 %33, %32
   store i64 %add.i.i, ptr %second.i21, align 8
   %total_metric_value.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i, i64 72
-  %31 = load double, ptr %total_metric_value.i.i, align 8
+  %34 = load double, ptr %total_metric_value.i.i, align 8
   %total_metric_value3.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 72
-  %32 = load double, ptr %total_metric_value3.i.i, align 8
-  %add4.i.i = fadd double %31, %32
+  %35 = load double, ptr %total_metric_value3.i.i, align 8
+  %add4.i.i = fadd double %34, %35
   store double %add4.i.i, ptr %total_metric_value3.i.i, align 8
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.010.i) #20
   %cmp.i.not.i = icmp eq ptr %call.i.i, %3
   br i1 %cmp.i.not.i, label %invoke.cont20, label %for.body.i
 
 invoke.cont20:                                    ; preds = %call14.i.noexc, %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %33 = load ptr, ptr %_M_parent.i.i.i.i.i, align 16
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core23XdsClusterLocalityStats13BackendMetricEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %backend_metrics, ptr noundef %33)
+  %36 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core23XdsClusterLocalityStats13BackendMetricEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %backend_metrics, ptr noundef %36)
           to label %_ZN9grpc_core23XdsClusterLocalityStats8SnapshotD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont20
-  %34 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #17
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZN9grpc_core23XdsClusterLocalityStats8SnapshotD2Ev.exit: ; preds = %invoke.cont20

@@ -51,7 +51,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %63
+  br label %67
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -88,7 +88,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
 24:                                               ; preds = %18, %21
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   %25 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %63
+  br label %67
 
 26:                                               ; preds = %21
   %27 = icmp eq i8 %19, 120
@@ -118,7 +118,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
 39:                                               ; preds = %31
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   %40 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %63
+  br label %67
 
 41:                                               ; preds = %31
   %42 = fadd double %35, 1.000000e+00
@@ -130,7 +130,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
   %46 = getelementptr inbounds i8, ptr %0, i64 216
   %47 = load double, ptr %46, align 8
   %48 = fcmp une double %47, 0.000000e+00
-  br i1 %48, label %49, label %58
+  br i1 %48, label %49, label %61
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds i8, ptr %0, i64 256
@@ -138,28 +138,34 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
   %52 = tail call double @sqrt(double noundef %51) #9
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   store double %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 16
-  %55 = load <2 x double>, ptr %50, align 8
-  store <2 x double> %55, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL14geos_e_inverse5PJ_XYP8PJconsts, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL14geos_e_forward5PJ_LPP8PJconsts, ptr %57, align 8
-  br label %63
+  %54 = load double, ptr %50, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 264
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL14geos_e_inverse5PJ_XYP8PJconsts, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL14geos_e_forward5PJ_LPP8PJconsts, ptr %60, align 8
+  br label %67
 
-58:                                               ; preds = %41
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
-  store double 1.000000e+00, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL14geos_s_inverse5PJ_XYP8PJconsts, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL14geos_s_forward5PJ_LPP8PJconsts, ptr %62, align 8
-  br label %63
+61:                                               ; preds = %41
+  %62 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 1.000000e+00, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 1.000000e+00, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 1.000000e+00, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL14geos_s_inverse5PJ_XYP8PJconsts, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL14geos_s_forward5PJ_LPP8PJconsts, ptr %66, align 8
+  br label %67
 
-63:                                               ; preds = %49, %58, %39, %24, %4
-  %.0 = phi ptr [ %5, %4 ], [ %40, %39 ], [ %25, %24 ], [ %0, %58 ], [ %0, %49 ]
+67:                                               ; preds = %49, %61, %39, %24, %4
+  %.0 = phi ptr [ %5, %4 ], [ %40, %39 ], [ %25, %24 ], [ %0, %61 ], [ %0, %49 ]
   ret ptr %.0
 }
 

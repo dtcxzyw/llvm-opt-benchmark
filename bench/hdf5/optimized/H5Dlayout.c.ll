@@ -363,7 +363,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture nound
   %5 = alloca [33 x i64], align 16
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 2
-  br i1 %7, label %8, label %72
+  br i1 %7, label %8, label %75
 
 8:                                                ; preds = %3
   %9 = tail call i32 @H5S_get_simple_extent_ndims(ptr noundef %1) #3
@@ -374,11 +374,11 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture nound
   %12 = load i64, ptr @H5E_DATASET_g, align 8
   %13 = load i64, ptr @H5E_CANTGET_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_set_latest_indexing, i32 noundef 335, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.7) #3
-  br label %72
+  br label %75
 
 15:                                               ; preds = %8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %72, label %16
+  br i1 %.not, label %75, label %16
 
 16:                                               ; preds = %15
   %17 = call i32 @H5S_get_simple_extent_dims(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #3
@@ -394,7 +394,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture nound
   %21 = load i64, ptr @H5E_DATASET_g, align 8
   %22 = load i64, ptr @H5E_CANTGET_g, align 8
   %23 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_set_latest_indexing, i32 noundef 348, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.8) #3
-  br label %72
+  br label %75
 
 24:                                               ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %36 ]
@@ -427,8 +427,8 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture nound
   br i1 %exitcond.not, label %37, label %24
 
 37:                                               ; preds = %36
-  switch i32 %spec.select, label %44 [
-    i32 0, label %51
+  switch i32 %spec.select, label %47 [
+    i32 0, label %54
     i32 1, label %38
   ]
 
@@ -440,72 +440,78 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture nound
   %41 = getelementptr inbounds i8, ptr %0, i64 1936
   store ptr @H5D_COPS_EARRAY, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 1240
-  store <4 x i8> <i8 32, i8 4, i8 16, i8 4>, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 1244
-  store i8 10, ptr %43, align 4
-  br label %72
+  store i8 32, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 1241
+  store i8 4, ptr %43, align 1
+  %44 = getelementptr inbounds i8, ptr %0, i64 1243
+  store i8 4, ptr %44, align 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 1242
+  store i8 16, ptr %45, align 2
+  %46 = getelementptr inbounds i8, ptr %0, i64 1244
+  store i8 10, ptr %46, align 4
+  br label %75
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 5, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 1920
-  store i32 5, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1936
-  store ptr @H5D_COPS_BT2, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1240
-  store i32 2048, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1244
-  store i8 100, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 1245
-  store i8 40, ptr %50, align 1
-  br label %72
+47:                                               ; preds = %37
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 5, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 1920
+  store i32 5, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 1936
+  store ptr @H5D_COPS_BT2, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 1240
+  store i32 2048, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 1244
+  store i8 100, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 1245
+  store i8 40, ptr %53, align 1
+  br label %75
 
-51:                                               ; preds = %37
-  br i1 %.1, label %52, label %56
+54:                                               ; preds = %37
+  br i1 %.1, label %55, label %59
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 1920
-  store i32 1, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 1936
-  store ptr @H5D_COPS_SINGLE, ptr %55, align 8
-  br label %72
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 1920
+  store i32 1, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 1936
+  store ptr @H5D_COPS_SINGLE, ptr %58, align 8
+  br label %75
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %2, i64 144
-  %58 = load i64, ptr %57, align 8
-  %.not53 = icmp eq i64 %58, 0
-  br i1 %.not53, label %59, label %67
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %2, i64 144
+  %61 = load i64, ptr %60, align 8
+  %.not53 = icmp eq i64 %61, 0
+  br i1 %.not53, label %62, label %70
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %2, i64 72
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 1
-  br i1 %62, label %63, label %67
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %2, i64 72
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %70
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 2, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1920
-  store i32 2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 1936
-  store ptr @H5D_COPS_NONE, ptr %66, align 8
-  br label %72
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 1920
+  store i32 2, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 1936
+  store ptr @H5D_COPS_NONE, ptr %69, align 8
+  br label %75
 
-67:                                               ; preds = %59, %56
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 3, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 1920
-  store i32 3, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1936
-  store ptr @H5D_COPS_FARRAY, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 1240
-  store i8 10, ptr %71, align 8
-  br label %72
+70:                                               ; preds = %62, %59
+  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 3, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 1920
+  store i32 3, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 1936
+  store ptr @H5D_COPS_FARRAY, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 1240
+  store i8 10, ptr %74, align 8
+  br label %75
 
-72:                                               ; preds = %3, %44, %38, %63, %67, %52, %15, %20, %11
-  %.049 = phi i32 [ -1, %11 ], [ -1, %20 ], [ 0, %38 ], [ 0, %44 ], [ 0, %52 ], [ 0, %67 ], [ 0, %63 ], [ 0, %15 ], [ 0, %3 ]
+75:                                               ; preds = %3, %47, %38, %66, %70, %55, %15, %20, %11
+  %.049 = phi i32 [ -1, %11 ], [ -1, %20 ], [ 0, %38 ], [ 0, %47 ], [ 0, %55 ], [ 0, %70 ], [ 0, %66 ], [ 0, %15 ], [ 0, %3 ]
   ret i32 %.049
 }
 

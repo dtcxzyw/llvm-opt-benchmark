@@ -284,33 +284,37 @@ if.end.i:                                         ; preds = %for.body.i, %if.end
   %partial_len.i = getelementptr inbounds i8, ptr %2, i64 112
   store i32 0, ptr %partial_len.i, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = load i32, ptr %arrayidx, align 4
   %nonce = getelementptr inbounds i8, ptr %0, i64 120
-  %5 = load <2 x i32>, ptr %arrayidx, align 4
-  store <2 x i32> %5, ptr %nonce, align 8
+  store i32 %5, ptr %nonce, align 8
+  %arrayidx15 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load i32, ptr %arrayidx15, align 8
+  %arrayidx17 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 %6, ptr %arrayidx17, align 4
   %arrayidx20 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = load i32, ptr %arrayidx20, align 4
+  %7 = load i32, ptr %arrayidx20, align 4
   %arrayidx22 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 %6, ptr %arrayidx22, align 8
+  store i32 %7, ptr %arrayidx22, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %cipher_data, align 8
+  %8 = load ptr, ptr %cipher_data, align 8
   %tobool.not.i22 = icmp eq ptr %inkey, null
   br i1 %tobool.not.i22, label %chacha_init_key.exit31, label %for.body.i23
 
 for.body.i23:                                     ; preds = %if.else, %for.body.i23
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i27, %for.body.i23 ], [ 0, %if.else ]
   %add.ptr.i25 = getelementptr inbounds i8, ptr %inkey, i64 %indvars.iv.i24
-  %8 = load i32, ptr %add.ptr.i25, align 1
-  %9 = lshr exact i64 %indvars.iv.i24, 2
-  %arrayidx18.i26 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %9
-  store i32 %8, ptr %arrayidx18.i26, align 4
+  %9 = load i32, ptr %add.ptr.i25, align 1
+  %10 = lshr exact i64 %indvars.iv.i24, 2
+  %arrayidx18.i26 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %10
+  store i32 %9, ptr %arrayidx18.i26, align 4
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 4
   %cmp.i28 = icmp ult i64 %indvars.iv.i24, 28
   br i1 %cmp.i28, label %for.body.i23, label %chacha_init_key.exit31, !llvm.loop !4
 
 chacha_init_key.exit31:                           ; preds = %for.body.i23, %if.else
-  %partial_len.i30 = getelementptr inbounds i8, ptr %7, i64 112
+  %partial_len.i30 = getelementptr inbounds i8, ptr %8, i64 112
   store i32 0, ptr %partial_len.i30, align 8
   br label %return
 
@@ -910,11 +914,18 @@ if.end145:                                        ; preds = %if.end140, %if.end1
   %arrayidx152 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %19, ptr %arrayidx152, align 4
   %arrayidx154 = getelementptr inbounds i8, ptr %0, i64 124
+  %20 = load i32, ptr %arrayidx154, align 4
+  %21 = load i32, ptr %tls_aad124, align 1
+  %xor = xor i32 %21, %20
   %arrayidx171 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = load <2 x i32>, ptr %arrayidx154, align 4
-  %21 = load <2 x i32>, ptr %tls_aad124, align 1
-  %22 = xor <2 x i32> %21, %20
-  store <2 x i32> %22, ptr %arrayidx171, align 8
+  store i32 %xor, ptr %arrayidx171, align 8
+  %arrayidx173 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = load i32, ptr %arrayidx173, align 8
+  %add.ptr174 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = load i32, ptr %add.ptr174, align 1
+  %xor192 = xor i32 %23, %22
+  %arrayidx195 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %xor192, ptr %arrayidx195, align 4
   %mac_inited196 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 0, ptr %mac_inited196, align 4
   br label %return

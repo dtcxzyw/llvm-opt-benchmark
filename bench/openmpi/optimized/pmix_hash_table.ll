@@ -181,12 +181,18 @@ pmix_tma_calloc.exit.i:                           ; preds = %14, %10
   %19 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 %9, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 160
-  store <4 x i32> <i32 1, i32 2, i32 2, i32 1>, ptr %20, align 8
-  %21 = lshr i64 %9, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr null, ptr %23, align 8
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 2, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 2, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 172
+  store i32 1, ptr %23, align 4
+  %24 = lshr i64 %9, 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  store i64 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr null, ptr %26, align 8
   br label %pmix_hash_table_init2.exit
 
 pmix_hash_table_init2.exit:                       ; preds = %pmix_tma_calloc.exit.i, %18

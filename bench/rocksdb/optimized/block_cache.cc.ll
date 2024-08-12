@@ -509,53 +509,56 @@ entry:
   %allocation = getelementptr inbounds i8, ptr %block, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #14
   %allocation_.i = getelementptr inbounds i8, ptr %call, i64 32
+  %0 = load i64, ptr %allocation, align 8
+  store i64 %0, ptr %allocation_.i, align 8
+  %1 = getelementptr inbounds i8, ptr %call, i64 40
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %block, i64 24
-  %0 = load <2 x i64>, ptr %allocation, align 8
-  store <2 x i64> %0, ptr %allocation_.i, align 8
+  %2 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  store i64 %2, ptr %1, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
   %slice_.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %slice_.i, align 8
   %slice.sroa.2.0.slice_.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %slice.sroa.2.0.slice_.sroa_idx.i, align 8
-  %1 = load ptr, ptr %parsed_out, align 8
+  %3 = load ptr, ptr %parsed_out, align 8
   store ptr %call, ptr %parsed_out, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb17UncompressionDictESt14default_deleteIS1_EE5resetEPS1_.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
-  %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN7rocksdb17UncompressionDictEEclEPS1_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.i
-  %allocation_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %3 = load ptr, ptr %allocation_.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
+  %allocation_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = load ptr, ptr %allocation_.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 160
-  %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2)
+  %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4)
           to label %_ZNKSt14default_deleteIN7rocksdb17UncompressionDictEEclEPS1_.exit.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #12
   br label %_ZNKSt14default_deleteIN7rocksdb17UncompressionDictEEclEPS1_.exit.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #15
   unreachable
 
 _ZNKSt14default_deleteIN7rocksdb17UncompressionDictEEclEPS1_.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   br label %_ZNSt10unique_ptrIN7rocksdb17UncompressionDictESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN7rocksdb17UncompressionDictESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb17UncompressionDictEEclEPS1_.exit.i.i

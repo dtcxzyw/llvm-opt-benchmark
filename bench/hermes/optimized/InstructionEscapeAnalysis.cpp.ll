@@ -563,29 +563,33 @@ for.end61:                                        ; preds = %for.end61.loopexit,
   %44 = load ptr, ptr %prefixes_62, align 8
   store ptr null, ptr %prefixes_62, align 8
   %NumEntries3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %45 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
-  store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
-  %NumBuckets5.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %46 = load <2 x i32>, ptr %NumEntries3.i.i.i.i, align 8
+  %45 = load i32, ptr %NumEntries3.i.i.i.i, align 8
   store i32 0, ptr %NumEntries3.i.i.i.i, align 8
+  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  %46 = load i32, ptr %NumTombstones4.i.i.i.i, align 4
   store i32 0, ptr %NumTombstones4.i.i.i.i, align 4
+  %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %47 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
+  store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef null) #12
-  %47 = load ptr, ptr %auxPrefixes_, align 8
-  store ptr %47, ptr %prefixes_62, align 8
+  %48 = load ptr, ptr %auxPrefixes_, align 8
+  store ptr %48, ptr %prefixes_62, align 8
   store ptr null, ptr %auxPrefixes_, align 8
-  %48 = load <2 x i32>, ptr %NumEntries.i.i.i, align 8
+  %49 = load i32, ptr %NumEntries.i.i.i, align 8
+  store i32 %49, ptr %NumEntries3.i.i.i.i, align 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  store <2 x i32> %48, ptr %NumEntries3.i.i.i.i, align 8
+  %50 = load i32, ptr %NumTombstones.i.i.i, align 4
+  store i32 %50, ptr %NumTombstones4.i.i.i.i, align 4
   store i32 0, ptr %NumTombstones.i.i.i, align 4
-  %49 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
-  store i32 %49, ptr %NumBuckets5.i.i.i.i, align 8
+  %NumBuckets5.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %51 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
+  store i32 %51, ptr %NumBuckets5.i.i.i.i, align 8
   store i32 0, ptr %NumBuckets5.i.i8.i.i, align 8
   call void @_ZdlPv(ptr noundef null) #12
   store ptr %44, ptr %auxPrefixes_, align 8
-  store <2 x i32> %46, ptr %NumEntries.i.i.i, align 8
-  store i32 %45, ptr %NumBuckets5.i.i8.i.i, align 8
+  store i32 %45, ptr %NumEntries.i.i.i, align 8
+  store i32 %46, ptr %NumTombstones.i.i.i, align 4
+  store i32 %47, ptr %NumBuckets5.i.i8.i.i, align 8
   call void @_ZdlPv(ptr noundef null) #12
   %longest.i = getelementptr inbounds i8, ptr %this, i64 32
   %longest2.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -594,8 +598,8 @@ for.end61:                                        ; preds = %for.end61.loopexit,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest.i, ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i.i)
-  %50 = load i32, ptr %this, align 8
-  %inc65 = add i32 %50, 1
+  %52 = load i32, ptr %this, align 8
+  %inc65 = add i32 %52, 1
   store i32 %inc65, ptr %this, align 8
   %canRemove_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %canRemove_, align 4
@@ -651,31 +655,35 @@ entry:
   %0 = load ptr, ptr %prefixes_, align 8
   store ptr null, ptr %prefixes_, align 8
   %NumEntries3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
-  store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
-  %NumEntries3.i.i4.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %NumTombstones4.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 60
-  %NumBuckets5.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %2 = load <2 x i32>, ptr %NumEntries3.i.i.i.i, align 8
+  %1 = load i32, ptr %NumEntries3.i.i.i.i, align 8
   store i32 0, ptr %NumEntries3.i.i.i.i, align 8
+  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load i32, ptr %NumTombstones4.i.i.i.i, align 4
   store i32 0, ptr %NumTombstones4.i.i.i.i, align 4
+  %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %3 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
+  store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef null) #12
-  %3 = load ptr, ptr %auxPrefixes_, align 8
-  store ptr %3, ptr %prefixes_, align 8
+  %4 = load ptr, ptr %auxPrefixes_, align 8
+  store ptr %4, ptr %prefixes_, align 8
   store ptr null, ptr %auxPrefixes_, align 8
-  %4 = load <2 x i32>, ptr %NumEntries3.i.i4.i.i, align 8
+  %NumEntries3.i.i4.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load i32, ptr %NumEntries3.i.i4.i.i, align 8
+  store i32 %5, ptr %NumEntries3.i.i.i.i, align 8
   store i32 0, ptr %NumEntries3.i.i4.i.i, align 8
-  store <2 x i32> %4, ptr %NumEntries3.i.i.i.i, align 8
+  %NumTombstones4.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  %6 = load i32, ptr %NumTombstones4.i.i6.i.i, align 4
+  store i32 %6, ptr %NumTombstones4.i.i.i.i, align 4
   store i32 0, ptr %NumTombstones4.i.i6.i.i, align 4
-  %5 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
-  store i32 %5, ptr %NumBuckets5.i.i.i.i, align 8
+  %NumBuckets5.i.i8.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %7 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
+  store i32 %7, ptr %NumBuckets5.i.i.i.i, align 8
   store i32 0, ptr %NumBuckets5.i.i8.i.i, align 8
   tail call void @_ZdlPv(ptr noundef null) #12
   store ptr %0, ptr %auxPrefixes_, align 8
-  store <2 x i32> %2, ptr %NumEntries3.i.i4.i.i, align 8
-  store i32 %1, ptr %NumBuckets5.i.i8.i.i, align 8
+  store i32 %1, ptr %NumEntries3.i.i4.i.i, align 8
+  store i32 %2, ptr %NumTombstones4.i.i6.i.i, align 4
+  store i32 %3, ptr %NumBuckets5.i.i8.i.i, align 8
   tail call void @_ZdlPv(ptr noundef null) #12
   %longest.i = getelementptr inbounds i8, ptr %this, i64 32
   %longest2.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -684,18 +692,18 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest.i, ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %longest2.i, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i.i)
-  %6 = load i32, ptr %NumEntries3.i.i4.i.i, align 8
-  %cmp.i = icmp eq i32 %6, 0
-  %7 = load i32, ptr %NumTombstones4.i.i6.i.i, align 4
-  %cmp3.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %NumEntries3.i.i4.i.i, align 8
+  %cmp.i = icmp eq i32 %8, 0
+  %9 = load i32, ptr %NumTombstones4.i.i6.i.i, align 4
+  %cmp3.i = icmp eq i32 %9, 0
   %or.cond = select i1 %cmp.i, i1 %cmp3.i, i1 false
   br i1 %or.cond, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5clearEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mul.i = shl i32 %6, 2
-  %8 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
-  %cmp6.i = icmp ult i32 %mul.i, %8
-  %cmp9.i = icmp ugt i32 %8, 64
+  %mul.i = shl i32 %8, 2
+  %10 = load i32, ptr %NumBuckets5.i.i8.i.i, align 8
+  %cmp6.i = icmp ult i32 %mul.i, %10
+  %cmp9.i = icmp ugt i32 %10, 64
   %or.cond.i = and i1 %cmp6.i, %cmp9.i
   br i1 %or.cond.i, label %if.then10.i, label %if.end11.i
 
@@ -704,14 +712,14 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5clearEv.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  %9 = load ptr, ptr %auxPrefixes_, align 8
-  %idx.ext.i.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.13", ptr %9, i64 %idx.ext.i.i
-  %cmp16.not7.i = icmp eq i32 %8, 0
+  %11 = load ptr, ptr %auxPrefixes_, align 8
+  %idx.ext.i.i = zext i32 %10 to i64
+  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.13", ptr %11, i64 %idx.ext.i.i
+  %cmp16.not7.i = icmp eq i32 %10, 0
   br i1 %cmp16.not7.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end11.i, %for.body.i
-  %P.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %9, %if.end11.i ]
+  %P.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %11, %if.end11.i ]
   store i32 -1, ptr %P.08.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %P.08.i, i64 12
   %cmp16.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -723,8 +731,8 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5clearEv.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5clearEv.exit: ; preds = %entry, %if.then10.i, %for.end.i
-  %10 = load i32, ptr %this, align 8
-  %dec = add i32 %10, -1
+  %12 = load i32, ptr %this, align 8
+  %dec = add i32 %12, -1
   store i32 %dec, ptr %this, align 8
   %canRemove_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 0, ptr %canRemove_, align 4

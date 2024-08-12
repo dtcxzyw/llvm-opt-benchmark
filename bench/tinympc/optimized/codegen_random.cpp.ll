@@ -270,11 +270,17 @@ define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gx
   br i1 %61, label %64, label %.lr.ph.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.preheader:                   ; preds = %58
-  store <2 x double> <double -1.000000e+00, double -2.000000e+00>, ptr %60, align 16
+  store double -1.000000e+00, ptr %60, align 16
+  %.sroa.3217.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 8
+  store double -2.000000e+00, ptr %.sroa.3217.0..sroa_idx, align 8
   %.sroa.4218.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 16
-  store <2 x double> <double -1.000000e+00, double -2.000000e+00>, ptr %.sroa.4218.0..sroa_idx, align 16
+  store double -1.000000e+00, ptr %.sroa.4218.0..sroa_idx, align 16
+  %.sroa.5219.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 24
+  store double -2.000000e+00, ptr %.sroa.5219.0..sroa_idx, align 8
   %.sroa.6220.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 32
-  store <2 x double> <double -1.000000e+00, double -2.000000e+00>, ptr %.sroa.6220.0..sroa_idx, align 16
+  store double -1.000000e+00, ptr %.sroa.6220.0..sroa_idx, align 16
+  %.sroa.7221.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 40
+  store double -2.000000e+00, ptr %.sroa.7221.0..sroa_idx, align 8
   %62 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #15
   %63 = icmp eq ptr %62, null
   br i1 %63, label %70, label %.lr.ph.i.i.i.i.i.i.i50.preheader
@@ -294,11 +300,17 @@ define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gx
   br label %.body47
 
 .lr.ph.i.i.i.i.i.i.i50.preheader:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader
-  store <2 x double> <double 1.000000e+00, double 2.000000e+00>, ptr %62, align 16
+  store double 1.000000e+00, ptr %62, align 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 8
+  store double 2.000000e+00, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 16
-  store <2 x double> <double 1.000000e+00, double 2.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 16
+  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx, align 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 24
+  store double 2.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 32
-  store <2 x double> <double 1.000000e+00, double 2.000000e+00>, ptr %.sroa.6.0..sroa_idx, align 16
+  store double 1.000000e+00, ptr %.sroa.6.0..sroa_idx, align 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 40
+  store double 2.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8
   %68 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #15
   %69 = icmp eq ptr %68, null
   br i1 %69, label %74, label %78

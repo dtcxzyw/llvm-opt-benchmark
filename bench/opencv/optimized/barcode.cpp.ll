@@ -106,9 +106,9 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZL10greenColor = internal unnamed_addr global %"class.cv::Scalar_" zeroinitializer, align 16
+@_ZL10greenColor = internal unnamed_addr global %"class.cv::Scalar_" zeroinitializer, align 8
 @_ZL8redColor = internal unnamed_addr global %"class.cv::Scalar_" zeroinitializer, align 8
-@_ZL11yellowColor = internal unnamed_addr global %"class.cv::Scalar_" zeroinitializer, align 16
+@_ZL11yellowColor = internal unnamed_addr global %"class.cv::Scalar_" zeroinitializer, align 8
 @.str = private unnamed_addr constant [359 x i8] c"{h help ? |        | print help messages }{i in     |        | input image path (also switches to image detection mode) }{detect   | false  | detect 1D barcode only (skip decoding) }{o out    |        | path to result file (only for single image decode) }{sr_prototxt|      | super resolution prototxt path }{sr_model |        | super resolution model path }\00", align 1
 @.str.4 = private unnamed_addr constant [85 x i8] c"This program detects the 1D barcodes from camera or images using the OpenCV library.\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c"help\00", align 1
@@ -2482,12 +2482,16 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define internal void @_GLOBAL__sub_I_barcode.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr @_ZL10greenColor, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL10greenColor, i64 16), i8 0, i64 16, i1 false)
+  store double 0.000000e+00, ptr @_ZL10greenColor, align 8
+  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZL10greenColor, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL10greenColor, i64 16), i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZL8redColor, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL8redColor, i64 16), align 8
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr @_ZL11yellowColor, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZL11yellowColor, i64 16), align 16
+  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZL8redColor, i64 16), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL8redColor, i64 24), align 8
+  store double 0.000000e+00, ptr @_ZL11yellowColor, align 8
+  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZL11yellowColor, i64 8), align 8
+  store double 2.550000e+02, ptr getelementptr inbounds (i8, ptr @_ZL11yellowColor, i64 16), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL11yellowColor, i64 24), align 8
   ret void
 }
 

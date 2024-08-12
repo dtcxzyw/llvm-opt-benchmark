@@ -799,189 +799,216 @@ Bac_ManNtk.exit.lr.ph.i32.i:                      ; preds = %80
 
 Bac_ManNtk.exit.i34.i:                            ; preds = %Bac_ManNtk.exit.i34.i, %Bac_ManNtk.exit.lr.ph.i32.i
   %indvars.iv.i35.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i32.i ], [ %indvars.iv.next.i36.i, %Bac_ManNtk.exit.i34.i ]
-  %.224.i.i = phi i32 [ %87, %Bac_ManNtk.exit.lr.ph.i32.i ], [ %op.rdx61, %Bac_ManNtk.exit.i34.i ]
+  %.224.i.i = phi i32 [ %87, %Bac_ManNtk.exit.lr.ph.i32.i ], [ %155, %Bac_ManNtk.exit.i34.i ]
   %91 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %89, i64 %indvars.iv.i35.i
   %92 = getelementptr inbounds i8, ptr %91, i64 32
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 48
-  %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %91, i64 64
-  %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %91, i64 80
+  %94 = sext i32 %93 to i64
+  %95 = uitofp i64 %94 to double
+  %96 = tail call double @llvm.fmuladd.f64(double %95, double 4.000000e+00, double 1.600000e+01)
+  %97 = fptosi double %96 to i32
+  %98 = getelementptr inbounds i8, ptr %91, i64 48
   %99 = load i32, ptr %98, align 8
   %100 = sext i32 %99 to i64
   %101 = uitofp i64 %100 to double
-  %102 = fadd double %101, 1.600000e+01
+  %102 = tail call double @llvm.fmuladd.f64(double %101, double 4.000000e+00, double 1.600000e+01)
   %103 = fptosi double %102 to i32
-  %104 = getelementptr inbounds i8, ptr %91, i64 96
+  %104 = getelementptr inbounds i8, ptr %91, i64 64
   %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %91, i64 112
-  %107 = load i32, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %91, i64 128
-  %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %91, i64 144
+  %106 = sext i32 %105 to i64
+  %107 = uitofp i64 %106 to double
+  %108 = tail call double @llvm.fmuladd.f64(double %107, double 4.000000e+00, double 1.600000e+01)
+  %109 = fptosi double %108 to i32
+  %110 = getelementptr inbounds i8, ptr %91, i64 80
   %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %91, i64 160
-  %113 = load i32, ptr %112, align 8
-  %114 = insertelement <8 x i32> poison, i32 %93, i64 0
-  %115 = insertelement <8 x i32> %114, i32 %95, i64 1
-  %116 = insertelement <8 x i32> %115, i32 %97, i64 2
-  %117 = insertelement <8 x i32> %116, i32 %105, i64 3
-  %118 = insertelement <8 x i32> %117, i32 %107, i64 4
-  %119 = insertelement <8 x i32> %118, i32 %109, i64 5
-  %120 = insertelement <8 x i32> %119, i32 %111, i64 6
-  %121 = insertelement <8 x i32> %120, i32 %113, i64 7
-  %122 = uitofp <8 x i32> %121 to <8 x double>
-  %123 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %122, <8 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <8 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %124 = fptosi <8 x double> %123 to <8 x i32>
-  %125 = tail call i32 @llvm.vector.reduce.add.v8i32(<8 x i32> %124)
-  %op.rdx = add i32 %125, %103
-  %op.rdx60 = add i32 %.224.i.i, 208
-  %op.rdx61 = add i32 %op.rdx, %op.rdx60
+  %112 = sext i32 %111 to i64
+  %113 = uitofp i64 %112 to double
+  %114 = fadd double %113, 1.600000e+01
+  %115 = fptosi double %114 to i32
+  %116 = getelementptr inbounds i8, ptr %91, i64 96
+  %117 = load i32, ptr %116, align 8
+  %118 = sext i32 %117 to i64
+  %119 = uitofp i64 %118 to double
+  %120 = tail call double @llvm.fmuladd.f64(double %119, double 4.000000e+00, double 1.600000e+01)
+  %121 = fptosi double %120 to i32
+  %122 = getelementptr inbounds i8, ptr %91, i64 112
+  %123 = load i32, ptr %122, align 8
+  %124 = sext i32 %123 to i64
+  %125 = uitofp i64 %124 to double
+  %126 = tail call double @llvm.fmuladd.f64(double %125, double 4.000000e+00, double 1.600000e+01)
+  %127 = fptosi double %126 to i32
+  %128 = getelementptr inbounds i8, ptr %91, i64 128
+  %129 = load i32, ptr %128, align 8
+  %130 = sext i32 %129 to i64
+  %131 = uitofp i64 %130 to double
+  %132 = tail call double @llvm.fmuladd.f64(double %131, double 4.000000e+00, double 1.600000e+01)
+  %133 = fptosi double %132 to i32
+  %134 = getelementptr inbounds i8, ptr %91, i64 144
+  %135 = load i32, ptr %134, align 8
+  %136 = sext i32 %135 to i64
+  %137 = uitofp i64 %136 to double
+  %138 = tail call double @llvm.fmuladd.f64(double %137, double 4.000000e+00, double 1.600000e+01)
+  %139 = fptosi double %138 to i32
+  %140 = getelementptr inbounds i8, ptr %91, i64 160
+  %141 = load i32, ptr %140, align 8
+  %142 = sext i32 %141 to i64
+  %143 = uitofp i64 %142 to double
+  %144 = tail call double @llvm.fmuladd.f64(double %143, double 4.000000e+00, double 1.600000e+01)
+  %145 = fptosi double %144 to i32
+  %146 = add i32 %.224.i.i, 208
+  %147 = add i32 %146, %97
+  %148 = add i32 %147, %103
+  %149 = add i32 %148, %109
+  %150 = add i32 %149, %115
+  %151 = add i32 %150, %121
+  %152 = add i32 %151, %127
+  %153 = add i32 %152, %133
+  %154 = add i32 %153, %139
+  %155 = add i32 %154, %145
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, %wide.trip.count.i33.i
   br i1 %exitcond.not.i37.i, label %Bac_ManMemory.exit.i, label %Bac_ManNtk.exit.i34.i, !llvm.loop !11
 
 Bac_ManMemory.exit.i:                             ; preds = %Bac_ManNtk.exit.i34.i, %80
-  %.2.lcssa.i.i = phi i32 [ %87, %80 ], [ %op.rdx61, %Bac_ManNtk.exit.i34.i ]
-  %126 = sitofp i32 %.2.lcssa.i.i to double
-  %127 = fmul double %126, 0x3EB0000000000000
-  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %127)
+  %.2.lcssa.i.i = phi i32 [ %87, %80 ], [ %155, %Bac_ManNtk.exit.i34.i ]
+  %156 = sitofp i32 %.2.lcssa.i.i to double
+  %157 = fmul double %156, 0x3EB0000000000000
+  %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %157)
   %putchar.i = tail call i32 @putchar(i32 10)
   %.val6.i.i = load i32, ptr %41, align 4
   %.not7.i.i = icmp slt i32 %.val6.i.i, 1
   br i1 %.not7.i.i, label %.critedge.i.i, label %Bac_ManNtk.exit.lr.ph.i38.i
 
 Bac_ManNtk.exit.lr.ph.i38.i:                      ; preds = %Bac_ManMemory.exit.i
-  %129 = getelementptr inbounds i8, ptr %.val, i64 40
+  %159 = getelementptr inbounds i8, ptr %.val, i64 40
   br label %Bac_ManNtk.exit.i39.i
 
 Bac_ManNtk.exit.i39.i:                            ; preds = %Bac_ManNtk.exit.i39.i, %Bac_ManNtk.exit.lr.ph.i38.i
   %indvars.iv.i40.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i38.i ], [ %indvars.iv.next.i41.i, %Bac_ManNtk.exit.i39.i ]
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %130, i64 %indvars.iv.i40.i, i32 5
-  store i32 -1, ptr %131, align 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %160, i64 %indvars.iv.i40.i, i32 5
+  store i32 -1, ptr %161, align 8
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
   %.val.i42.i = load i32, ptr %41, align 4
-  %132 = sext i32 %.val.i42.i to i64
-  %.not.not.i.i = icmp slt i64 %indvars.iv.i40.i, %132
+  %162 = sext i32 %.val.i42.i to i64
+  %.not.not.i.i = icmp slt i64 %indvars.iv.i40.i, %162
   br i1 %.not.not.i.i, label %Bac_ManNtk.exit.i39.i, label %.critedge.i.i, !llvm.loop !12
 
 .critedge.i.i:                                    ; preds = %Bac_ManNtk.exit.i39.i, %Bac_ManMemory.exit.i
   %.val.lcssa.i.i = phi i32 [ %.val6.i.i, %Bac_ManMemory.exit.i ], [ %.val.i42.i, %Bac_ManNtk.exit.i39.i ]
-  %133 = load i32, ptr %23, align 8
-  %134 = icmp slt i32 %133, 1
-  %.not4.i.i.i.i = icmp slt i32 %.val.lcssa.i.i, %133
-  %or.cond.i.i = or i1 %134, %.not4.i.i.i.i
-  br i1 %or.cond.i.i, label %Bac_ManBoxNum.exit.i, label %135
+  %163 = load i32, ptr %23, align 8
+  %164 = icmp slt i32 %163, 1
+  %.not4.i.i.i.i = icmp slt i32 %.val.lcssa.i.i, %163
+  %or.cond.i.i = or i1 %164, %.not4.i.i.i.i
+  br i1 %or.cond.i.i, label %Bac_ManBoxNum.exit.i, label %165
 
-135:                                              ; preds = %.critedge.i.i
-  %136 = getelementptr inbounds i8, ptr %.val, i64 40
-  %137 = load ptr, ptr %136, align 8
-  %138 = zext nneg i32 %133 to i64
-  %139 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %137, i64 %138
+165:                                              ; preds = %.critedge.i.i
+  %166 = getelementptr inbounds i8, ptr %.val, i64 40
+  %167 = load ptr, ptr %166, align 8
+  %168 = zext nneg i32 %163 to i64
+  %169 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %167, i64 %168
   br label %Bac_ManBoxNum.exit.i
 
-Bac_ManBoxNum.exit.i:                             ; preds = %135, %.critedge.i.i
-  %140 = phi ptr [ %139, %135 ], [ null, %.critedge.i.i ]
-  %141 = tail call fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noundef %140)
-  %142 = getelementptr inbounds i8, ptr %.val, i64 40
+Bac_ManBoxNum.exit.i:                             ; preds = %165, %.critedge.i.i
+  %170 = phi ptr [ %169, %165 ], [ null, %.critedge.i.i ]
+  %171 = tail call fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noundef %170)
+  %172 = getelementptr inbounds i8, ptr %.val, i64 40
   %.val60.i = load i32, ptr %41, align 4
   %.not61.i = icmp slt i32 %.val60.i, 1
   br i1 %.not61.i, label %Bac_ManPrintStats.exit, label %Bac_ManNtk.exit.lr.ph.i
 
 Bac_ManNtk.exit.lr.ph.i:                          ; preds = %Bac_ManBoxNum.exit.i
-  %143 = add nuw nsw i32 %.014.ph, 1
-  %144 = zext nneg i32 %143 to i64
+  %173 = add nuw nsw i32 %.014.ph, 1
+  %174 = zext nneg i32 %173 to i64
   br label %Bac_ManNtk.exit.i
 
 Bac_ManNtk.exit.i:                                ; preds = %Bac_NtkPrintStats.exit.i, %Bac_ManNtk.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph.i ], [ %indvars.iv.next.i, %Bac_NtkPrintStats.exit.i ]
-  %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %145, i64 %indvars.iv.i
-  %147 = icmp eq i64 %indvars.iv.i, %144
-  br i1 %147, label %Bac_ManPrintStats.exit, label %148
+  %175 = load ptr, ptr %172, align 8
+  %176 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %175, i64 %indvars.iv.i
+  %177 = icmp eq i64 %indvars.iv.i, %174
+  br i1 %177, label %Bac_ManPrintStats.exit, label %178
 
-148:                                              ; preds = %Bac_ManNtk.exit.i
-  %149 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %149)
-  %151 = getelementptr i8, ptr %146, i64 36
-  %.val.i44.i = load i32, ptr %151, align 4
-  %152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.val.i44.i)
-  %153 = getelementptr i8, ptr %146, i64 52
-  %.val8.i45.i = load i32, ptr %153, align 4
-  %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.val8.i45.i)
-  %155 = getelementptr i8, ptr %146, i64 84
-  %.val.i.i46.i = load i32, ptr %155, align 4
-  %156 = icmp sgt i32 %.val.i.i46.i, 0
-  br i1 %156, label %.lr.ph.i.i.i50.i, label %Bac_NtkBoxNum.exit.i47.i
+178:                                              ; preds = %Bac_ManNtk.exit.i
+  %179 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %180 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %179)
+  %181 = getelementptr i8, ptr %176, i64 36
+  %.val.i44.i = load i32, ptr %181, align 4
+  %182 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.val.i44.i)
+  %183 = getelementptr i8, ptr %176, i64 52
+  %.val8.i45.i = load i32, ptr %183, align 4
+  %184 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.val8.i45.i)
+  %185 = getelementptr i8, ptr %176, i64 84
+  %.val.i.i46.i = load i32, ptr %185, align 4
+  %186 = icmp sgt i32 %.val.i.i46.i, 0
+  br i1 %186, label %.lr.ph.i.i.i50.i, label %Bac_NtkBoxNum.exit.i47.i
 
-.lr.ph.i.i.i50.i:                                 ; preds = %148
-  %157 = getelementptr inbounds i8, ptr %146, i64 88
-  %158 = load ptr, ptr %157, align 8
+.lr.ph.i.i.i50.i:                                 ; preds = %178
+  %187 = getelementptr inbounds i8, ptr %176, i64 88
+  %188 = load ptr, ptr %187, align 8
   %wide.trip.count.i.i.i51.i = zext nneg i32 %.val.i.i46.i to i64
-  br label %159
+  br label %189
 
-159:                                              ; preds = %159, %.lr.ph.i.i.i50.i
-  %indvars.iv.i.i.i52.i = phi i64 [ 0, %.lr.ph.i.i.i50.i ], [ %indvars.iv.next.i.i.i54.i, %159 ]
-  %.09.i.i.i53.i = phi i32 [ 0, %.lr.ph.i.i.i50.i ], [ %164, %159 ]
-  %160 = getelementptr inbounds i8, ptr %158, i64 %indvars.iv.i.i.i52.i
-  %161 = load i8, ptr %160, align 1
-  %162 = icmp slt i8 %161, 10
-  %163 = zext i1 %162 to i32
-  %164 = add nuw nsw i32 %.09.i.i.i53.i, %163
+189:                                              ; preds = %189, %.lr.ph.i.i.i50.i
+  %indvars.iv.i.i.i52.i = phi i64 [ 0, %.lr.ph.i.i.i50.i ], [ %indvars.iv.next.i.i.i54.i, %189 ]
+  %.09.i.i.i53.i = phi i32 [ 0, %.lr.ph.i.i.i50.i ], [ %194, %189 ]
+  %190 = getelementptr inbounds i8, ptr %188, i64 %indvars.iv.i.i.i52.i
+  %191 = load i8, ptr %190, align 1
+  %192 = icmp slt i8 %191, 10
+  %193 = zext i1 %192 to i32
+  %194 = add nuw nsw i32 %.09.i.i.i53.i, %193
   %indvars.iv.next.i.i.i54.i = add nuw nsw i64 %indvars.iv.i.i.i52.i, 1
   %exitcond.not.i.i.i55.i = icmp eq i64 %indvars.iv.next.i.i.i54.i, %wide.trip.count.i.i.i51.i
-  br i1 %exitcond.not.i.i.i55.i, label %Bac_NtkBoxNum.exit.i47.i, label %159, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i55.i, label %Bac_NtkBoxNum.exit.i47.i, label %189, !llvm.loop !8
 
-Bac_NtkBoxNum.exit.i47.i:                         ; preds = %159, %148
-  %.0.lcssa.i.i.i48.i = phi i32 [ 0, %148 ], [ %164, %159 ]
-  %165 = sub nsw i32 %.val.i.i46.i, %.0.lcssa.i.i.i48.i
-  %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, i32 noundef %165)
-  %167 = getelementptr inbounds i8, ptr %146, i64 24
-  %168 = load i32, ptr %167, align 8
-  %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %168)
-  %.val9.i.i = load i32, ptr %155, align 4
-  %170 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %.val9.i.i)
-  %.val10.i.i = load ptr, ptr %146, align 8
-  %171 = getelementptr i8, ptr %146, i64 8
-  %.val11.i.i = load i32, ptr %171, align 8
-  %172 = getelementptr i8, ptr %.val10.i.i, i64 16
-  %.val10.val.i.i = load ptr, ptr %172, align 8
-  %173 = tail call ptr @Abc_NamStr(ptr noundef %.val10.val.i.i, i32 noundef %.val11.i.i) #12
-  %174 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %173)
-  %175 = getelementptr inbounds i8, ptr %146, i64 16
-  %176 = load i32, ptr %175, align 8
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %Bac_ManNtkIsOk.exit.i.i.i.i, label %Bac_NtkPrintStats.exit.i
+Bac_NtkBoxNum.exit.i47.i:                         ; preds = %189, %178
+  %.0.lcssa.i.i.i48.i = phi i32 [ 0, %178 ], [ %194, %189 ]
+  %195 = sub nsw i32 %.val.i.i46.i, %.0.lcssa.i.i.i48.i
+  %196 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, i32 noundef %195)
+  %197 = getelementptr inbounds i8, ptr %176, i64 24
+  %198 = load i32, ptr %197, align 8
+  %199 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %198)
+  %.val9.i.i = load i32, ptr %185, align 4
+  %200 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %.val9.i.i)
+  %.val10.i.i = load ptr, ptr %176, align 8
+  %201 = getelementptr i8, ptr %176, i64 8
+  %.val11.i.i = load i32, ptr %201, align 8
+  %202 = getelementptr i8, ptr %.val10.i.i, i64 16
+  %.val10.val.i.i = load ptr, ptr %202, align 8
+  %203 = tail call ptr @Abc_NamStr(ptr noundef %.val10.val.i.i, i32 noundef %.val11.i.i) #12
+  %204 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef %203)
+  %205 = getelementptr inbounds i8, ptr %176, i64 16
+  %206 = load i32, ptr %205, align 8
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %Bac_ManNtkIsOk.exit.i.i.i.i, label %Bac_NtkPrintStats.exit.i
 
 Bac_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %Bac_NtkBoxNum.exit.i47.i
-  %178 = load ptr, ptr %146, align 8
-  %179 = getelementptr i8, ptr %178, i64 36
-  %.val.i.i.i.i.i = load i32, ptr %179, align 4
-  %.not4.i.i.i49.i = icmp slt i32 %.val.i.i.i.i.i, %176
+  %208 = load ptr, ptr %176, align 8
+  %209 = getelementptr i8, ptr %208, i64 36
+  %.val.i.i.i.i.i = load i32, ptr %209, align 4
+  %.not4.i.i.i49.i = icmp slt i32 %.val.i.i.i.i.i, %206
   br i1 %.not4.i.i.i49.i, label %Bac_NtkPrintStats.exit.i, label %Bac_ManNtkIsOk.exit.i.i14.i.i
 
 Bac_ManNtkIsOk.exit.i.i14.i.i:                    ; preds = %Bac_ManNtkIsOk.exit.i.i.i.i
-  %180 = getelementptr inbounds i8, ptr %178, i64 40
-  %181 = load ptr, ptr %180, align 8
-  %182 = zext nneg i32 %176 to i64
-  %183 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %181, i64 %182
-  %.val12.i.i = load ptr, ptr %183, align 8
-  %184 = getelementptr i8, ptr %183, i64 8
-  %.val13.i.i = load i32, ptr %184, align 8
-  %185 = getelementptr i8, ptr %.val12.i.i, i64 16
-  %.val12.val.i.i = load ptr, ptr %185, align 8
-  %186 = tail call ptr @Abc_NamStr(ptr noundef %.val12.val.i.i, i32 noundef %.val13.i.i) #12
-  %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %186)
+  %210 = getelementptr inbounds i8, ptr %208, i64 40
+  %211 = load ptr, ptr %210, align 8
+  %212 = zext nneg i32 %206 to i64
+  %213 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %211, i64 %212
+  %.val12.i.i = load ptr, ptr %213, align 8
+  %214 = getelementptr i8, ptr %213, i64 8
+  %.val13.i.i = load i32, ptr %214, align 8
+  %215 = getelementptr i8, ptr %.val12.i.i, i64 16
+  %.val12.val.i.i = load ptr, ptr %215, align 8
+  %216 = tail call ptr @Abc_NamStr(ptr noundef %.val12.val.i.i, i32 noundef %.val13.i.i) #12
+  %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %216)
   br label %Bac_NtkPrintStats.exit.i
 
 Bac_NtkPrintStats.exit.i:                         ; preds = %Bac_ManNtkIsOk.exit.i.i14.i.i, %Bac_ManNtkIsOk.exit.i.i.i.i, %Bac_NtkBoxNum.exit.i47.i
   %putchar.i.i = tail call i32 @putchar(i32 10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %41, align 4
-  %188 = sext i32 %.val.i to i64
-  %.not.not.i = icmp slt i64 %indvars.iv.i, %188
+  %218 = sext i32 %.val.i to i64
+  %.not.not.i = icmp slt i64 %indvars.iv.i, %218
   br i1 %.not.not.i, label %Bac_ManNtk.exit.i, label %Bac_ManPrintStats.exit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %5, %10, %9
@@ -990,8 +1017,8 @@ Bac_NtkPrintStats.exit.i:                         ; preds = %Bac_ManNtkIsOk.exit
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.50)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51, i32 noundef %.115)
   %.not23 = icmp eq i32 %.0, 0
-  %189 = select i1 %.not23, ptr @.str.32, ptr @.str.31
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.34, ptr noundef nonnull %189)
+  %219 = select i1 %.not23, ptr @.str.32, ptr @.str.31
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.34, ptr noundef nonnull %219)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.35)
   br label %Bac_ManPrintStats.exit
 
@@ -2113,8 +2140,11 @@ declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #1
 
 declare i32 @Abc_NamMemUsed(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
+
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr nocapture noundef %0) unnamed_addr #8 {
+define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr nocapture noundef %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, -1
@@ -2223,22 +2253,16 @@ declare ptr @Gia_ManMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 declare i32 @Cec_ManVerify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x double> @llvm.fmuladd.v8f64(<8 x double>, <8 x double>, <8 x double>) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v8i32(<8 x i32>) #11
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2248,10 +2272,10 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { nofree nounwind }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind allocsize(0) }

@@ -2912,16 +2912,21 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = load <2 x i64>, ptr %13, align 8
-  %15 = load <2 x i64>, ptr %6, align 8
-  %16 = xor <2 x i64> %15, %14
-  %17 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %16)
-  %18 = trunc nuw nsw <2 x i64> %17 to <2 x i32>
-  %shift = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = add nuw nsw <2 x i32> %shift, %18
-  %20 = extractelement <2 x i32> %19, i64 0
-  %21 = uitofp nneg i32 %20 to float
-  ret float %21
+  %14 = load i64, ptr %13, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = xor i64 %15, %14
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i64, ptr %21, align 8
+  %23 = xor i64 %22, %20
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = add nuw nsw i32 %25, %18
+  %27 = uitofp nneg i32 %26 to float
+  ret float %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3008,23 +3013,28 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = load <2 x i64>, ptr %13, align 8
-  %15 = load <2 x i64>, ptr %6, align 8
-  %16 = xor <2 x i64> %15, %14
-  %17 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %16)
-  %18 = trunc nuw nsw <2 x i64> %17 to <2 x i32>
-  %shift = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = add nuw nsw <2 x i32> %shift, %18
-  %20 = extractelement <2 x i32> %19, i64 0
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = load i32, ptr %23, align 8
-  %25 = xor i32 %24, %22
-  %26 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %25)
-  %27 = add nuw nsw i32 %20, %26
-  %28 = uitofp nneg i32 %27 to float
-  ret float %28
+  %14 = load i64, ptr %13, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = xor i64 %15, %14
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i64, ptr %21, align 8
+  %23 = xor i64 %22, %20
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = add nuw nsw i32 %25, %18
+  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i32, ptr %29, align 8
+  %31 = xor i32 %30, %28
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)
+  %33 = add nuw nsw i32 %26, %32
+  %34 = uitofp nneg i32 %33 to float
+  ret float %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3114,14 +3124,37 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = load <4 x i64>, ptr %13, align 8
-  %15 = load <4 x i64>, ptr %6, align 8
-  %16 = xor <4 x i64> %15, %14
-  %17 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %16)
-  %18 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %17)
-  %19 = trunc i64 %18 to i32
-  %20 = uitofp nneg i32 %19 to float
-  ret float %20
+  %14 = load i64, ptr %13, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = xor i64 %15, %14
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i64, ptr %21, align 8
+  %23 = xor i64 %22, %20
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = add nuw nsw i32 %25, %18
+  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i64, ptr %29, align 8
+  %31 = xor i64 %30, %28
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
+  %33 = trunc nuw nsw i64 %32 to i32
+  %34 = add nuw nsw i32 %26, %33
+  %35 = getelementptr inbounds i8, ptr %13, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = load i64, ptr %37, align 8
+  %39 = xor i64 %38, %36
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = add nuw nsw i32 %34, %41
+  %43 = uitofp nneg i32 %42 to float
+  ret float %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3227,14 +3260,69 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = load <8 x i64>, ptr %13, align 8
-  %15 = load <8 x i64>, ptr %6, align 8
-  %16 = xor <8 x i64> %15, %14
-  %17 = tail call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %16)
-  %18 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %17)
-  %19 = trunc i64 %18 to i32
-  %20 = uitofp nneg i32 %19 to float
-  ret float %20
+  %14 = load i64, ptr %13, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = xor i64 %15, %14
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load i64, ptr %21, align 8
+  %23 = xor i64 %22, %20
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = add nuw nsw i32 %25, %18
+  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = load i64, ptr %29, align 8
+  %31 = xor i64 %30, %28
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
+  %33 = trunc nuw nsw i64 %32 to i32
+  %34 = add nuw nsw i32 %26, %33
+  %35 = getelementptr inbounds i8, ptr %13, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = load i64, ptr %37, align 8
+  %39 = xor i64 %38, %36
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = add nuw nsw i32 %34, %41
+  %43 = getelementptr inbounds i8, ptr %13, i64 32
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = load i64, ptr %45, align 8
+  %47 = xor i64 %46, %44
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = add nuw nsw i32 %42, %49
+  %51 = getelementptr inbounds i8, ptr %13, i64 40
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = load i64, ptr %53, align 8
+  %55 = xor i64 %54, %52
+  %56 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %55)
+  %57 = trunc nuw nsw i64 %56 to i32
+  %58 = add nuw nsw i32 %50, %57
+  %59 = getelementptr inbounds i8, ptr %13, i64 48
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %62 = load i64, ptr %61, align 8
+  %63 = xor i64 %62, %60
+  %64 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63)
+  %65 = trunc nuw nsw i64 %64 to i32
+  %66 = add nuw nsw i32 %58, %65
+  %67 = getelementptr inbounds i8, ptr %13, i64 56
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 88
+  %70 = load i64, ptr %69, align 8
+  %71 = xor i64 %70, %68
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
+  %73 = trunc nuw nsw i64 %72 to i32
+  %74 = add nuw nsw i32 %66, %73
+  %75 = uitofp nneg i32 %74 to float
+  ret float %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3400,21 +3488,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.ctpop.v2i64(<2 x i64>) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.ctpop.v4i64(<4 x i64>) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.ctpop.v8i64(<8 x i64>) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

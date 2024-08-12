@@ -2060,26 +2060,30 @@ define linkonce_odr dso_local void @_ZN5vcpkg6Checks21msg_exit_with_messageIJEJE
 define dso_local void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %9
+          to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %12
 
 _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %2
   store i32 5, ptr %3, align 8, !noalias !50
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load <2 x ptr>, ptr %1, align 8, !noalias !50
-  store <2 x ptr> %5, ptr %4, align 8, !noalias !50
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %1, align 8, !noalias !50
+  store ptr %5, ptr %4, align 8, !noalias !50
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !50
   store ptr %8, ptr %6, align 8, !noalias !50
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8, !noalias !50
+  store ptr %11, ptr %9, align 8, !noalias !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !noalias !50
   tail call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #26
   ret void
 
-9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #25
   unreachable
 }
 
@@ -2188,26 +2192,30 @@ _ZNSt16allocator_traitsISaIN5vcpkg4Json5ValueEEE8allocateERS3_m.exit.i.i.i.i.i: 
 define dso_local void @_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %9
+          to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %12
 
 _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %2
   store i32 6, ptr %3, align 8, !noalias !53
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load <2 x ptr>, ptr %1, align 8, !noalias !53
-  store <2 x ptr> %5, ptr %4, align 8, !noalias !53
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %1, align 8, !noalias !53
+  store ptr %5, ptr %4, align 8, !noalias !53
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !53
   store ptr %8, ptr %6, align 8, !noalias !53
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8, !noalias !53
+  store ptr %11, ptr %9, align 8, !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !noalias !53
   tail call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #26
   ret void
 
-9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #25
   unreachable
 }
 
@@ -2720,178 +2728,182 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %2
   store i32 6, ptr %6, align 8, !noalias !68
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load <2 x ptr>, ptr %1, align 8, !noalias !68
-  store <2 x ptr> %11, ptr %10, align 8, !noalias !68
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %1, align 8, !noalias !68
+  store ptr %11, ptr %10, align 8, !noalias !68
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !68
   store ptr %14, ptr %12, align 8, !noalias !68
+  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8, !noalias !68
+  store ptr %17, ptr %15, align 8, !noalias !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !noalias !68
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6) #26
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %.not.i.i = icmp eq ptr %16, %18
-  br i1 %.not.i.i, label %23, label %19
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not.i.i = icmp eq ptr %19, %21
+  br i1 %.not.i.i, label %26, label %22
 
-19:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %20 = load i64, ptr %5, align 8
-  store i64 %20, ptr %16, align 8
+22:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %23 = load i64, ptr %5, align 8
+  store i64 %23, ptr %19, align 8
   store ptr null, ptr %5, align 8
-  %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %22, ptr %15, align 8
-  br label %47
+  %24 = load ptr, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %25, ptr %18, align 8
+  br label %50
 
-23:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %16 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp eq i64 %27, 9223372036854775800
-  br i1 %28, label %29, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+26:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = ptrtoint ptr %19 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp eq i64 %30, 9223372036854775800
+  br i1 %31, label %32, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
 
-29:                                               ; preds = %23
+32:                                               ; preds = %26
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.78) #27
-          to label %.noexc7 unwind label %63
+          to label %.noexc7 unwind label %66
 
-.noexc7:                                          ; preds = %29
+.noexc7:                                          ; preds = %32
   unreachable
 
-_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
-  %30 = ashr exact i64 %27, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %30, i64 1)
-  %31 = add nsw i64 %.sroa.speculated.i.i, %30
-  %32 = icmp ult i64 %31, %30
-  %33 = call i64 @llvm.umin.i64(i64 %31, i64 1152921504606846975)
-  %34 = select i1 %32, i64 1152921504606846975, i64 %33
-  %.not.i.i6 = icmp eq i64 %34, 0
-  br i1 %.not.i.i6, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %35
+_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %26
+  %33 = ashr exact i64 %30, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %33, i64 1)
+  %34 = add nsw i64 %.sroa.speculated.i.i, %33
+  %35 = icmp ult i64 %34, %33
+  %36 = call i64 @llvm.umin.i64(i64 %34, i64 1152921504606846975)
+  %37 = select i1 %35, i64 1152921504606846975, i64 %36
+  %.not.i.i6 = icmp eq i64 %37, 0
+  br i1 %.not.i.i6, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %38
 
-35:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %36 = shl nuw nsw i64 %34, 3
-  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #28
-          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %63
+38:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %39 = shl nuw nsw i64 %37, 3
+  %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #28
+          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %66
 
-_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %35, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %38 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %37, %35 ]
-  %39 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %38, i64 %30
-  %40 = load i64, ptr %5, align 8
-  store i64 %40, ptr %39, align 8
+_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %38, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %41 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %40, %38 ]
+  %42 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %41, i64 %33
+  %43 = load i64, ptr %5, align 8
+  store i64 %43, ptr %42, align 8
   store ptr null, ptr %5, align 8
-  %.not10.i.i.i.i = icmp eq ptr %24, %16
+  %.not10.i.i.i.i = icmp eq ptr %27, %19
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %38, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %41, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %27, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %41 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !74, !noalias !71
-  store i64 %41, ptr %.012.i.i.i.i, align 8, !alias.scope !71, !noalias !74
+  %44 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !74, !noalias !71
+  store i64 %44, ptr %.012.i.i.i.i, align 8, !alias.scope !71, !noalias !74
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !74, !noalias !71
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %42, %16
+  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %45, %19
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %38, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %43, %.lr.ph.i.i.i.i ]
-  %44 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %24, null
-  br i1 %.not.i23.i, label %.noexc, label %45
+  %.0.lcssa.i.i.i.i = phi ptr [ %41, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
+  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %27, null
+  br i1 %.not.i23.i, label %.noexc, label %48
 
-45:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  call void @_ZdlPv(ptr noundef nonnull %24) #29
+48:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  call void @_ZdlPv(ptr noundef nonnull %27) #29
   br label %.noexc
 
-.noexc:                                           ; preds = %45, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  store ptr %38, ptr %0, align 8
-  store ptr %44, ptr %15, align 8
-  %46 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %38, i64 %34
-  store ptr %46, ptr %17, align 8
-  br label %47
+.noexc:                                           ; preds = %48, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  store ptr %41, ptr %0, align 8
+  store ptr %47, ptr %18, align 8
+  %49 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %41, i64 %37
+  store ptr %49, ptr %20, align 8
+  br label %50
 
-47:                                               ; preds = %.noexc, %19
-  %48 = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc ], [ %21, %19 ]
+50:                                               ; preds = %.noexc, %22
+  %51 = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc ], [ %24, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 320, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str, ptr %49, align 8
-  %50 = load ptr, ptr %48, align 8
-  %.not.i.i.i = icmp eq ptr %50, null
+  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str, ptr %52, align 8
+  %53 = load ptr, ptr %51, align 8
+  %.not.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %47
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %50
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br label %53
+  br label %56
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %47
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 6
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %50
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp eq i32 %54, 6
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br i1 %52, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %53
+  br i1 %55, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %56
 
-53:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
+56:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %57
+          to label %.noexc.i unwind label %60
 
-.noexc.i:                                         ; preds = %53
+.noexc.i:                                         ; preds = %56
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-          to label %54 unwind label %55
+          to label %57 unwind label %58
 
-54:                                               ; preds = %.noexc.i
+57:                                               ; preds = %.noexc.i
   unreachable
 
-55:                                               ; preds = %.noexc.i
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc.i
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body.i
 
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %56
+  %61 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %57, %55
-  %eh.lpad-body.i = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %59 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %59) #25
+.body.i:                                          ; preds = %60, %58
+  %eh.lpad-body.i = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
+  %62 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %62) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit:  ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %60 = load ptr, ptr %5, align 8
-  %.not.i.i3 = icmp eq ptr %60, null
-  br i1 %.not.i.i3, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %61
+  %63 = load ptr, ptr %5, align 8
+  %.not.i.i3 = icmp eq ptr %63, null
+  br i1 %.not.i.i3, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %64
 
-61:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %60) #31
+64:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %63) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %61
-  %62 = getelementptr inbounds i8, ptr %50, i64 8
-  ret ptr %62
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %64
+  %65 = getelementptr inbounds i8, ptr %53, i64 8
+  ret ptr %65
 
-63:                                               ; preds = %35, %29
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %38, %32
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %65 = load ptr, ptr %5, align 8
-  %.not.i.i4 = icmp eq ptr %65, null
-  br i1 %.not.i.i4, label %_ZN5vcpkg4Json5ValueD2Ev.exit5, label %66
+  %68 = load ptr, ptr %5, align 8
+  %.not.i.i4 = icmp eq ptr %68, null
+  br i1 %.not.i.i4, label %_ZN5vcpkg4Json5ValueD2Ev.exit5, label %69
 
-66:                                               ; preds = %63
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %65) #31
+69:                                               ; preds = %66
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %68) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit5
 
-_ZN5vcpkg4Json5ValueD2Ev.exit5:                   ; preds = %63, %66
-  resume { ptr, i32 } %64
+_ZN5vcpkg4Json5ValueD2Ev.exit5:                   ; preds = %66, %69
+  resume { ptr, i32 } %67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2914,178 +2926,182 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %2
   store i32 5, ptr %6, align 8, !noalias !79
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load <2 x ptr>, ptr %1, align 8, !noalias !79
-  store <2 x ptr> %11, ptr %10, align 8, !noalias !79
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %1, align 8, !noalias !79
+  store ptr %11, ptr %10, align 8, !noalias !79
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !79
   store ptr %14, ptr %12, align 8, !noalias !79
+  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8, !noalias !79
+  store ptr %17, ptr %15, align 8, !noalias !79
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !noalias !79
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6) #26
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %.not.i.i = icmp eq ptr %16, %18
-  br i1 %.not.i.i, label %23, label %19
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not.i.i = icmp eq ptr %19, %21
+  br i1 %.not.i.i, label %26, label %22
 
-19:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %20 = load i64, ptr %5, align 8
-  store i64 %20, ptr %16, align 8
+22:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %23 = load i64, ptr %5, align 8
+  store i64 %23, ptr %19, align 8
   store ptr null, ptr %5, align 8
-  %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %22, ptr %15, align 8
-  br label %47
+  %24 = load ptr, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %25, ptr %18, align 8
+  br label %50
 
-23:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %16 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp eq i64 %27, 9223372036854775800
-  br i1 %28, label %29, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+26:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = ptrtoint ptr %19 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp eq i64 %30, 9223372036854775800
+  br i1 %31, label %32, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
 
-29:                                               ; preds = %23
+32:                                               ; preds = %26
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.78) #27
-          to label %.noexc7 unwind label %63
+          to label %.noexc7 unwind label %66
 
-.noexc7:                                          ; preds = %29
+.noexc7:                                          ; preds = %32
   unreachable
 
-_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
-  %30 = ashr exact i64 %27, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %30, i64 1)
-  %31 = add nsw i64 %.sroa.speculated.i.i, %30
-  %32 = icmp ult i64 %31, %30
-  %33 = call i64 @llvm.umin.i64(i64 %31, i64 1152921504606846975)
-  %34 = select i1 %32, i64 1152921504606846975, i64 %33
-  %.not.i.i6 = icmp eq i64 %34, 0
-  br i1 %.not.i.i6, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %35
+_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %26
+  %33 = ashr exact i64 %30, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %33, i64 1)
+  %34 = add nsw i64 %.sroa.speculated.i.i, %33
+  %35 = icmp ult i64 %34, %33
+  %36 = call i64 @llvm.umin.i64(i64 %34, i64 1152921504606846975)
+  %37 = select i1 %35, i64 1152921504606846975, i64 %36
+  %.not.i.i6 = icmp eq i64 %37, 0
+  br i1 %.not.i.i6, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %38
 
-35:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %36 = shl nuw nsw i64 %34, 3
-  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #28
-          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %63
+38:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %39 = shl nuw nsw i64 %37, 3
+  %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #28
+          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %66
 
-_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %35, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %38 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %37, %35 ]
-  %39 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %38, i64 %30
-  %40 = load i64, ptr %5, align 8
-  store i64 %40, ptr %39, align 8
+_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %38, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %41 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %40, %38 ]
+  %42 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %41, i64 %33
+  %43 = load i64, ptr %5, align 8
+  store i64 %43, ptr %42, align 8
   store ptr null, ptr %5, align 8
-  %.not10.i.i.i.i = icmp eq ptr %24, %16
+  %.not10.i.i.i.i = icmp eq ptr %27, %19
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %38, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %41, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %27, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %41 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !85, !noalias !82
-  store i64 %41, ptr %.012.i.i.i.i, align 8, !alias.scope !82, !noalias !85
+  %44 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !85, !noalias !82
+  store i64 %44, ptr %.012.i.i.i.i, align 8, !alias.scope !82, !noalias !85
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !85, !noalias !82
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %42, %16
+  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %45, %19
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %38, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %43, %.lr.ph.i.i.i.i ]
-  %44 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %24, null
-  br i1 %.not.i23.i, label %.noexc, label %45
+  %.0.lcssa.i.i.i.i = phi ptr [ %41, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
+  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %27, null
+  br i1 %.not.i23.i, label %.noexc, label %48
 
-45:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  call void @_ZdlPv(ptr noundef nonnull %24) #29
+48:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  call void @_ZdlPv(ptr noundef nonnull %27) #29
   br label %.noexc
 
-.noexc:                                           ; preds = %45, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  store ptr %38, ptr %0, align 8
-  store ptr %44, ptr %15, align 8
-  %46 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %38, i64 %34
-  store ptr %46, ptr %17, align 8
-  br label %47
+.noexc:                                           ; preds = %48, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  store ptr %41, ptr %0, align 8
+  store ptr %47, ptr %18, align 8
+  %49 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %41, i64 %37
+  store ptr %49, ptr %20, align 8
+  br label %50
 
-47:                                               ; preds = %.noexc, %19
-  %48 = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc ], [ %21, %19 ]
+50:                                               ; preds = %.noexc, %22
+  %51 = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc ], [ %24, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 321, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str, ptr %49, align 8
-  %50 = load ptr, ptr %48, align 8
-  %.not.i.i.i = icmp eq ptr %50, null
+  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str, ptr %52, align 8
+  %53 = load ptr, ptr %51, align 8
+  %.not.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %47
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %50
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br label %53
+  br label %56
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %47
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 5
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %50
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp eq i32 %54, 5
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br i1 %52, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %53
+  br i1 %55, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %56
 
-53:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
+56:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %57
+          to label %.noexc.i unwind label %60
 
-.noexc.i:                                         ; preds = %53
+.noexc.i:                                         ; preds = %56
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-          to label %54 unwind label %55
+          to label %57 unwind label %58
 
-54:                                               ; preds = %.noexc.i
+57:                                               ; preds = %.noexc.i
   unreachable
 
-55:                                               ; preds = %.noexc.i
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc.i
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br label %.body.i
 
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %56
+  %61 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %57, %55
-  %eh.lpad-body.i = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %59 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %59) #25
+.body.i:                                          ; preds = %60, %58
+  %eh.lpad-body.i = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
+  %62 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %62) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit:   ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %60 = load ptr, ptr %5, align 8
-  %.not.i.i3 = icmp eq ptr %60, null
-  br i1 %.not.i.i3, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %61
+  %63 = load ptr, ptr %5, align 8
+  %.not.i.i3 = icmp eq ptr %63, null
+  br i1 %.not.i.i3, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %64
 
-61:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %60) #31
+64:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %63) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %61
-  %62 = getelementptr inbounds i8, ptr %50, i64 8
-  ret ptr %62
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %64
+  %65 = getelementptr inbounds i8, ptr %53, i64 8
+  ret ptr %65
 
-63:                                               ; preds = %35, %29
-  %64 = landingpad { ptr, i32 }
+66:                                               ; preds = %38, %32
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %65 = load ptr, ptr %5, align 8
-  %.not.i.i4 = icmp eq ptr %65, null
-  br i1 %.not.i.i4, label %_ZN5vcpkg4Json5ValueD2Ev.exit5, label %66
+  %68 = load ptr, ptr %5, align 8
+  %.not.i.i4 = icmp eq ptr %68, null
+  br i1 %.not.i.i4, label %_ZN5vcpkg4Json5ValueD2Ev.exit5, label %69
 
-66:                                               ; preds = %63
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %65) #31
+69:                                               ; preds = %66
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %68) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit5
 
-_ZN5vcpkg4Json5ValueD2Ev.exit5:                   ; preds = %63, %66
-  resume { ptr, i32 } %64
+_ZN5vcpkg4Json5ValueD2Ev.exit5:                   ; preds = %66, %69
+  resume { ptr, i32 } %67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3180,240 +3196,244 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %3
   store i32 6, ptr %7, align 8, !noalias !91
   %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = load <2 x ptr>, ptr %2, align 8, !noalias !91
-  store <2 x ptr> %12, ptr %11, align 8, !noalias !91
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = load ptr, ptr %2, align 8, !noalias !91
+  store ptr %12, ptr %11, align 8, !noalias !91
+  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !91
   store ptr %15, ptr %13, align 8, !noalias !91
+  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = load ptr, ptr %17, align 8, !noalias !91
+  store ptr %18, ptr %16, align 8, !noalias !91
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !91
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7) #26
-  %16 = load ptr, ptr %0, align 8
-  %17 = ptrtoint ptr %1 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %21, %23
-  br i1 %.not.i.i.i, label %47, label %24
+  %19 = load ptr, ptr %0, align 8
+  %20 = ptrtoint ptr %1 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i.i = icmp eq ptr %24, %26
+  br i1 %.not.i.i.i, label %50, label %27
 
-24:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %25 = icmp eq ptr %21, %1
-  br i1 %25, label %26, label %30
+27:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %28 = icmp eq ptr %24, %1
+  br i1 %28, label %29, label %33
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %6, align 8
-  store i64 %27, ptr %21, align 8
+29:                                               ; preds = %27
+  %30 = load i64, ptr %6, align 8
+  store i64 %30, ptr %24, align 8
   store ptr null, ptr %6, align 8
-  %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %29, ptr %20, align 8
-  br label %74
+  %31 = load ptr, ptr %23, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %32, ptr %23, align 8
+  br label %77
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %16, i64 %19
-  %32 = getelementptr inbounds i8, ptr %21, i64 -8
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %21, align 8
-  store ptr null, ptr %32, align 8
-  %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %35, ptr %20, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 -8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %17
-  %39 = ashr exact i64 %38, 3
-  %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %19, i64 %22
+  %35 = getelementptr inbounds i8, ptr %24, i64 -8
+  %36 = load i64, ptr %35, align 8
+  store i64 %36, ptr %24, align 8
+  store ptr null, ptr %35, align 8
+  %37 = load ptr, ptr %23, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %38, ptr %23, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 -8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = sub i64 %40, %20
+  %42 = ashr exact i64 %41, 3
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %30, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %39, %30 ]
-  %.069.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %30 ]
-  %.078.i.i.i.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %36, %30 ]
-  %41 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i.i, i64 -8
-  %42 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
-  %43 = load ptr, ptr %41, align 8
-  store ptr null, ptr %41, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43) #26
-  %44 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
-  br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %33, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %42, %33 ]
+  %.069.i.i.i.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %37, %33 ]
+  %.078.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %39, %33 ]
+  %44 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i.i, i64 -8
+  %45 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
+  %46 = load ptr, ptr %44, align 8
+  store ptr null, ptr %44, align 8
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %46) #26
+  %47 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
+  %48 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  br i1 %48, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
 
-_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %30
-  %46 = load ptr, ptr %6, align 8
+_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
+  %49 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %46) #26
-  br label %74
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %49) #26
+  br label %77
 
-47:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %48 = getelementptr i8, ptr %16, i64 %19
-  %49 = ptrtoint ptr %21 to i64
-  %50 = sub i64 %49, %18
-  %51 = icmp eq i64 %50, 9223372036854775800
-  br i1 %51, label %52, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+50:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %51 = getelementptr i8, ptr %19, i64 %22
+  %52 = ptrtoint ptr %24 to i64
+  %53 = sub i64 %52, %21
+  %54 = icmp eq i64 %53, 9223372036854775800
+  br i1 %54, label %55, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
 
-52:                                               ; preds = %47
+55:                                               ; preds = %50
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.78) #27
-          to label %.noexc9 unwind label %91
+          to label %.noexc9 unwind label %94
 
-.noexc9:                                          ; preds = %52
+.noexc9:                                          ; preds = %55
   unreachable
 
-_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %47
-  %53 = ashr exact i64 %50, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %53, i64 1)
-  %54 = add nsw i64 %.sroa.speculated.i.i, %53
-  %55 = icmp ult i64 %54, %53
-  %56 = call i64 @llvm.umin.i64(i64 %54, i64 1152921504606846975)
-  %57 = select i1 %55, i64 1152921504606846975, i64 %56
-  %58 = ashr exact i64 %19, 3
-  %.not.i.i8 = icmp eq i64 %57, 0
-  br i1 %.not.i.i8, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %59
+_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %50
+  %56 = ashr exact i64 %53, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
+  %57 = add nsw i64 %.sroa.speculated.i.i, %56
+  %58 = icmp ult i64 %57, %56
+  %59 = call i64 @llvm.umin.i64(i64 %57, i64 1152921504606846975)
+  %60 = select i1 %58, i64 1152921504606846975, i64 %59
+  %61 = ashr exact i64 %22, 3
+  %.not.i.i8 = icmp eq i64 %60, 0
+  br i1 %.not.i.i8, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %62
 
-59:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %60 = shl nuw nsw i64 %57, 3
-  %61 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #28
-          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %91
+62:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %63 = shl nuw nsw i64 %60, 3
+  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #28
+          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %94
 
-_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %59, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %62 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %61, %59 ]
-  %63 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %62, i64 %58
-  %64 = load i64, ptr %6, align 8
-  store i64 %64, ptr %63, align 8
+_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %62, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %65 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %64, %62 ]
+  %66 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %65, i64 %61
+  %67 = load i64, ptr %6, align 8
+  store i64 %67, ptr %66, align 8
   store ptr null, ptr %6, align 8
-  %.not10.i.i.i.i = icmp eq ptr %16, %1
+  %.not10.i.i.i.i = icmp eq ptr %19, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i ], [ %62, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i ], [ %16, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i ], [ %65, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %65 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  store i64 %65, ptr %.012.i.i.i.i, align 8, !alias.scope !94, !noalias !97
+  %68 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !97, !noalias !94
+  store i64 %68, ptr %.012.i.i.i.i, align 8, !alias.scope !94, !noalias !97
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !97, !noalias !94
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %67 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %66, %1
+  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %70 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %69, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %62, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %67, %.lr.ph.i.i.i.i ]
-  %68 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i16.i = icmp eq ptr %21, %1
+  %.0.lcssa.i.i.i.i = phi ptr [ %65, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
+  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not10.i.i.i16.i = icmp eq ptr %24, %1
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, %.lr.ph.i.i.i17.i
-  %.012.i.i.i18.i = phi ptr [ %71, %.lr.ph.i.i.i17.i ], [ %68, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
-  %.0911.i.i.i19.i = phi ptr [ %70, %.lr.ph.i.i.i17.i ], [ %48, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
+  %.012.i.i.i18.i = phi ptr [ %74, %.lr.ph.i.i.i17.i ], [ %71, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
+  %.0911.i.i.i19.i = phi ptr [ %73, %.lr.ph.i.i.i17.i ], [ %51, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %69 = load i64, ptr %.0911.i.i.i19.i, align 8, !alias.scope !102, !noalias !99
-  store i64 %69, ptr %.012.i.i.i18.i, align 8, !alias.scope !99, !noalias !102
+  %72 = load i64, ptr %.0911.i.i.i19.i, align 8, !alias.scope !102, !noalias !99
+  store i64 %72, ptr %.012.i.i.i18.i, align 8, !alias.scope !99, !noalias !102
   store ptr null, ptr %.0911.i.i.i19.i, align 8, !alias.scope !102, !noalias !99
-  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 8
-  %71 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 8
-  %.not.i.i.i20.i = icmp eq ptr %70, %21
+  %73 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 8
+  %74 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 8
+  %.not.i.i.i20.i = icmp eq ptr %73, %24
   br i1 %.not.i.i.i20.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i17.i, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  %.0.lcssa.i.i.i21.i = phi ptr [ %68, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ], [ %71, %.lr.ph.i.i.i17.i ]
-  %.not.i23.i = icmp eq ptr %16, null
-  br i1 %.not.i23.i, label %.noexc, label %72
+  %.0.lcssa.i.i.i21.i = phi ptr [ %71, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ], [ %74, %.lr.ph.i.i.i17.i ]
+  %.not.i23.i = icmp eq ptr %19, null
+  br i1 %.not.i23.i, label %.noexc, label %75
 
-72:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #29
+75:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  call void @_ZdlPv(ptr noundef nonnull %19) #29
   br label %.noexc
 
-.noexc:                                           ; preds = %72, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  store ptr %62, ptr %0, align 8
-  store ptr %.0.lcssa.i.i.i21.i, ptr %20, align 8
-  %73 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %62, i64 %57
-  store ptr %73, ptr %22, align 8
-  br label %74
+.noexc:                                           ; preds = %75, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  store ptr %65, ptr %0, align 8
+  store ptr %.0.lcssa.i.i.i21.i, ptr %23, align 8
+  %76 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %65, i64 %60
+  store ptr %76, ptr %25, align 8
+  br label %77
 
-74:                                               ; preds = %.noexc, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, %26
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 %19
+77:                                               ; preds = %.noexc, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, %29
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 330, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @.str, ptr %77, align 8
-  %78 = load ptr, ptr %76, align 8
-  %.not.i.i.i5 = icmp eq ptr %78, null
+  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @.str, ptr %80, align 8
+  %81 = load ptr, ptr %79, align 8
+  %.not.i.i.i5 = icmp eq ptr %81, null
   br i1 %.not.i.i.i5, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %74
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %77
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  br label %81
+  br label %84
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %74
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, 6
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %77
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, 6
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  br i1 %80, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %81
+  br i1 %83, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %84
 
-81:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
+84:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %85
+          to label %.noexc.i unwind label %88
 
-.noexc.i:                                         ; preds = %81
+.noexc.i:                                         ; preds = %84
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-          to label %82 unwind label %83
+          to label %85 unwind label %86
 
-82:                                               ; preds = %.noexc.i
+85:                                               ; preds = %.noexc.i
   unreachable
 
-83:                                               ; preds = %.noexc.i
-  %84 = landingpad { ptr, i32 }
+86:                                               ; preds = %.noexc.i
+  %87 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %.body.i
 
-85:                                               ; preds = %81
-  %86 = landingpad { ptr, i32 }
+88:                                               ; preds = %84
+  %89 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %85, %83
-  %eh.lpad-body.i = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
-  %87 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %87) #25
+.body.i:                                          ; preds = %88, %86
+  %eh.lpad-body.i = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
+  %90 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %90) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit:  ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %88 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %89
+  %91 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %92
 
-89:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %88) #31
+92:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %91) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %89
-  %90 = getelementptr inbounds i8, ptr %78, i64 8
-  ret ptr %90
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %92
+  %93 = getelementptr inbounds i8, ptr %81, i64 8
+  ret ptr %93
 
-91:                                               ; preds = %59, %52
-  %92 = landingpad { ptr, i32 }
+94:                                               ; preds = %62, %55
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %93 = load ptr, ptr %6, align 8
-  %.not.i.i6 = icmp eq ptr %93, null
-  br i1 %.not.i.i6, label %_ZN5vcpkg4Json5ValueD2Ev.exit7, label %94
+  %96 = load ptr, ptr %6, align 8
+  %.not.i.i6 = icmp eq ptr %96, null
+  br i1 %.not.i.i6, label %_ZN5vcpkg4Json5ValueD2Ev.exit7, label %97
 
-94:                                               ; preds = %91
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %93) #31
+97:                                               ; preds = %94
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %96) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit7
 
-_ZN5vcpkg4Json5ValueD2Ev.exit7:                   ; preds = %91, %94
-  resume { ptr, i32 } %92
+_ZN5vcpkg4Json5ValueD2Ev.exit7:                   ; preds = %94, %97
+  resume { ptr, i32 } %95
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3436,240 +3456,244 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %3
   store i32 5, ptr %7, align 8, !noalias !107
   %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = load <2 x ptr>, ptr %2, align 8, !noalias !107
-  store <2 x ptr> %12, ptr %11, align 8, !noalias !107
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = load ptr, ptr %2, align 8, !noalias !107
+  store ptr %12, ptr %11, align 8, !noalias !107
+  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !107
   store ptr %15, ptr %13, align 8, !noalias !107
+  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = load ptr, ptr %17, align 8, !noalias !107
+  store ptr %18, ptr %16, align 8, !noalias !107
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !107
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7) #26
-  %16 = load ptr, ptr %0, align 8
-  %17 = ptrtoint ptr %1 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %21, %23
-  br i1 %.not.i.i.i, label %47, label %24
+  %19 = load ptr, ptr %0, align 8
+  %20 = ptrtoint ptr %1 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i.i = icmp eq ptr %24, %26
+  br i1 %.not.i.i.i, label %50, label %27
 
-24:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %25 = icmp eq ptr %21, %1
-  br i1 %25, label %26, label %30
+27:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %28 = icmp eq ptr %24, %1
+  br i1 %28, label %29, label %33
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %6, align 8
-  store i64 %27, ptr %21, align 8
+29:                                               ; preds = %27
+  %30 = load i64, ptr %6, align 8
+  store i64 %30, ptr %24, align 8
   store ptr null, ptr %6, align 8
-  %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %29, ptr %20, align 8
-  br label %74
+  %31 = load ptr, ptr %23, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %32, ptr %23, align 8
+  br label %77
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %16, i64 %19
-  %32 = getelementptr inbounds i8, ptr %21, i64 -8
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %21, align 8
-  store ptr null, ptr %32, align 8
-  %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %35, ptr %20, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 -8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %17
-  %39 = ashr exact i64 %38, 3
-  %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %19, i64 %22
+  %35 = getelementptr inbounds i8, ptr %24, i64 -8
+  %36 = load i64, ptr %35, align 8
+  store i64 %36, ptr %24, align 8
+  store ptr null, ptr %35, align 8
+  %37 = load ptr, ptr %23, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %38, ptr %23, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 -8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = sub i64 %40, %20
+  %42 = ashr exact i64 %41, 3
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %30, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %39, %30 ]
-  %.069.i.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %30 ]
-  %.078.i.i.i.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %36, %30 ]
-  %41 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i.i, i64 -8
-  %42 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
-  %43 = load ptr, ptr %41, align 8
-  store ptr null, ptr %41, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43) #26
-  %44 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
-  br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %33, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %42, %33 ]
+  %.069.i.i.i.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %37, %33 ]
+  %.078.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %39, %33 ]
+  %44 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i.i.i, i64 -8
+  %45 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
+  %46 = load ptr, ptr %44, align 8
+  store ptr null, ptr %44, align 8
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %46) #26
+  %47 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
+  %48 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  br i1 %48, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
 
-_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %30
-  %46 = load ptr, ptr %6, align 8
+_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
+  %49 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %46) #26
-  br label %74
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %49) #26
+  br label %77
 
-47:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %48 = getelementptr i8, ptr %16, i64 %19
-  %49 = ptrtoint ptr %21 to i64
-  %50 = sub i64 %49, %18
-  %51 = icmp eq i64 %50, 9223372036854775800
-  br i1 %51, label %52, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+50:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %51 = getelementptr i8, ptr %19, i64 %22
+  %52 = ptrtoint ptr %24 to i64
+  %53 = sub i64 %52, %21
+  %54 = icmp eq i64 %53, 9223372036854775800
+  br i1 %54, label %55, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
 
-52:                                               ; preds = %47
+55:                                               ; preds = %50
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.78) #27
-          to label %.noexc9 unwind label %91
+          to label %.noexc9 unwind label %94
 
-.noexc9:                                          ; preds = %52
+.noexc9:                                          ; preds = %55
   unreachable
 
-_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %47
-  %53 = ashr exact i64 %50, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %53, i64 1)
-  %54 = add nsw i64 %.sroa.speculated.i.i, %53
-  %55 = icmp ult i64 %54, %53
-  %56 = call i64 @llvm.umin.i64(i64 %54, i64 1152921504606846975)
-  %57 = select i1 %55, i64 1152921504606846975, i64 %56
-  %58 = ashr exact i64 %19, 3
-  %.not.i.i8 = icmp eq i64 %57, 0
-  br i1 %.not.i.i8, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %59
+_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %50
+  %56 = ashr exact i64 %53, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %56, i64 1)
+  %57 = add nsw i64 %.sroa.speculated.i.i, %56
+  %58 = icmp ult i64 %57, %56
+  %59 = call i64 @llvm.umin.i64(i64 %57, i64 1152921504606846975)
+  %60 = select i1 %58, i64 1152921504606846975, i64 %59
+  %61 = ashr exact i64 %22, 3
+  %.not.i.i8 = icmp eq i64 %60, 0
+  br i1 %.not.i.i8, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %62
 
-59:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %60 = shl nuw nsw i64 %57, 3
-  %61 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #28
-          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %91
+62:                                               ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %63 = shl nuw nsw i64 %60, 3
+  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #28
+          to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %94
 
-_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %59, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %62 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %61, %59 ]
-  %63 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %62, i64 %58
-  %64 = load i64, ptr %6, align 8
-  store i64 %64, ptr %63, align 8
+_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %62, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %65 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %64, %62 ]
+  %66 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %65, i64 %61
+  %67 = load i64, ptr %6, align 8
+  store i64 %67, ptr %66, align 8
   store ptr null, ptr %6, align 8
-  %.not10.i.i.i.i = icmp eq ptr %16, %1
+  %.not10.i.i.i.i = icmp eq ptr %19, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i ], [ %62, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i ], [ %16, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i ], [ %65, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  %65 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !113, !noalias !110
-  store i64 %65, ptr %.012.i.i.i.i, align 8, !alias.scope !110, !noalias !113
+  %68 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !113, !noalias !110
+  store i64 %68, ptr %.012.i.i.i.i, align 8, !alias.scope !110, !noalias !113
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !113, !noalias !110
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %67 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %66, %1
+  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %70 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %69, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %62, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %67, %.lr.ph.i.i.i.i ]
-  %68 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not10.i.i.i16.i = icmp eq ptr %21, %1
+  %.0.lcssa.i.i.i.i = phi ptr [ %65, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
+  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not10.i.i.i16.i = icmp eq ptr %24, %1
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i
 
 .lr.ph.i.i.i17.i:                                 ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, %.lr.ph.i.i.i17.i
-  %.012.i.i.i18.i = phi ptr [ %71, %.lr.ph.i.i.i17.i ], [ %68, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
-  %.0911.i.i.i19.i = phi ptr [ %70, %.lr.ph.i.i.i17.i ], [ %48, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
+  %.012.i.i.i18.i = phi ptr [ %74, %.lr.ph.i.i.i17.i ], [ %71, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
+  %.0911.i.i.i19.i = phi ptr [ %73, %.lr.ph.i.i.i17.i ], [ %51, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %69 = load i64, ptr %.0911.i.i.i19.i, align 8, !alias.scope !118, !noalias !115
-  store i64 %69, ptr %.012.i.i.i18.i, align 8, !alias.scope !115, !noalias !118
+  %72 = load i64, ptr %.0911.i.i.i19.i, align 8, !alias.scope !118, !noalias !115
+  store i64 %72, ptr %.012.i.i.i18.i, align 8, !alias.scope !115, !noalias !118
   store ptr null, ptr %.0911.i.i.i19.i, align 8, !alias.scope !118, !noalias !115
-  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 8
-  %71 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 8
-  %.not.i.i.i20.i = icmp eq ptr %70, %21
+  %73 = getelementptr inbounds i8, ptr %.0911.i.i.i19.i, i64 8
+  %74 = getelementptr inbounds i8, ptr %.012.i.i.i18.i, i64 8
+  %.not.i.i.i20.i = icmp eq ptr %73, %24
   br i1 %.not.i.i.i20.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i17.i, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  %.0.lcssa.i.i.i21.i = phi ptr [ %68, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ], [ %71, %.lr.ph.i.i.i17.i ]
-  %.not.i23.i = icmp eq ptr %16, null
-  br i1 %.not.i23.i, label %.noexc, label %72
+  %.0.lcssa.i.i.i21.i = phi ptr [ %71, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ], [ %74, %.lr.ph.i.i.i17.i ]
+  %.not.i23.i = icmp eq ptr %19, null
+  br i1 %.not.i23.i, label %.noexc, label %75
 
-72:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #29
+75:                                               ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  call void @_ZdlPv(ptr noundef nonnull %19) #29
   br label %.noexc
 
-.noexc:                                           ; preds = %72, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  store ptr %62, ptr %0, align 8
-  store ptr %.0.lcssa.i.i.i21.i, ptr %20, align 8
-  %73 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %62, i64 %57
-  store ptr %73, ptr %22, align 8
-  br label %74
+.noexc:                                           ; preds = %75, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  store ptr %65, ptr %0, align 8
+  store ptr %.0.lcssa.i.i.i21.i, ptr %23, align 8
+  %76 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %65, i64 %60
+  store ptr %76, ptr %25, align 8
+  br label %77
 
-74:                                               ; preds = %.noexc, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, %26
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 %19
+77:                                               ; preds = %.noexc, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, %29
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 334, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @.str, ptr %77, align 8
-  %78 = load ptr, ptr %76, align 8
-  %.not.i.i.i5 = icmp eq ptr %78, null
+  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @.str, ptr %80, align 8
+  %81 = load ptr, ptr %79, align 8
+  %.not.i.i.i5 = icmp eq ptr %81, null
   br i1 %.not.i.i.i5, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %74
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %77
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  br label %81
+  br label %84
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %74
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, 5
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %77
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, 5
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  br i1 %80, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %81
+  br i1 %83, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %84
 
-81:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
+84:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %4, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %85
+          to label %.noexc.i unwind label %88
 
-.noexc.i:                                         ; preds = %81
+.noexc.i:                                         ; preds = %84
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-          to label %82 unwind label %83
+          to label %85 unwind label %86
 
-82:                                               ; preds = %.noexc.i
+85:                                               ; preds = %.noexc.i
   unreachable
 
-83:                                               ; preds = %.noexc.i
-  %84 = landingpad { ptr, i32 }
+86:                                               ; preds = %.noexc.i
+  %87 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   br label %.body.i
 
-85:                                               ; preds = %81
-  %86 = landingpad { ptr, i32 }
+88:                                               ; preds = %84
+  %89 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %85, %83
-  %eh.lpad-body.i = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
-  %87 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %87) #25
+.body.i:                                          ; preds = %88, %86
+  %eh.lpad-body.i = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
+  %90 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %90) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit:   ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %88 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %89
+  %91 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %92
 
-89:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %88) #31
+92:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %91) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %89
-  %90 = getelementptr inbounds i8, ptr %78, i64 8
-  ret ptr %90
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %92
+  %93 = getelementptr inbounds i8, ptr %81, i64 8
+  ret ptr %93
 
-91:                                               ; preds = %59, %52
-  %92 = landingpad { ptr, i32 }
+94:                                               ; preds = %62, %55
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %93 = load ptr, ptr %6, align 8
-  %.not.i.i6 = icmp eq ptr %93, null
-  br i1 %.not.i.i6, label %_ZN5vcpkg4Json5ValueD2Ev.exit7, label %94
+  %96 = load ptr, ptr %6, align 8
+  %.not.i.i6 = icmp eq ptr %96, null
+  br i1 %.not.i.i6, label %_ZN5vcpkg4Json5ValueD2Ev.exit7, label %97
 
-94:                                               ; preds = %91
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %93) #31
+97:                                               ; preds = %94
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %96) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit7
 
-_ZN5vcpkg4Json5ValueD2Ev.exit7:                   ; preds = %91, %94
-  resume { ptr, i32 } %92
+_ZN5vcpkg4Json5ValueD2Ev.exit7:                   ; preds = %94, %97
+  resume { ptr, i32 } %95
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3913,95 +3937,99 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %4
   store i32 5, ptr %8, align 8, !noalias !129
   %12 = getelementptr inbounds i8, ptr %8, i64 8
-  %13 = load <2 x ptr>, ptr %3, align 8, !noalias !129
-  store <2 x ptr> %13, ptr %12, align 8, !noalias !129
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = load ptr, ptr %3, align 8, !noalias !129
+  store ptr %13, ptr %12, align 8, !noalias !129
+  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !129
   store ptr %16, ptr %14, align 8, !noalias !129
+  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = load ptr, ptr %18, align 8, !noalias !129
+  store ptr %19, ptr %17, align 8, !noalias !129
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !129
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %8) #26
-  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %18 unwind label %33
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %21 unwind label %36
 
-18:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+21:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 362, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str, ptr %19, align 8
-  %20 = load ptr, ptr %17, align 8
-  %.not.i.i.i = icmp eq ptr %20, null
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str, ptr %22, align 8
+  %23 = load ptr, ptr %20, align 8
+  %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %18
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %21
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br label %23
+  br label %26
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %18
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, 5
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %21
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 5
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br i1 %22, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %23
+  br i1 %25, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %26
 
-23:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
+26:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %27
+          to label %.noexc.i unwind label %30
 
-.noexc.i:                                         ; preds = %23
+.noexc.i:                                         ; preds = %26
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-          to label %24 unwind label %25
+          to label %27 unwind label %28
 
-24:                                               ; preds = %.noexc.i
+27:                                               ; preds = %.noexc.i
   unreachable
 
-25:                                               ; preds = %.noexc.i
-  %26 = landingpad { ptr, i32 }
+28:                                               ; preds = %.noexc.i
+  %29 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %.body.i
 
-27:                                               ; preds = %23
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %26
+  %31 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %27, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %29 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %29) #25
+.body.i:                                          ; preds = %30, %28
+  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+  %32 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %32) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit:   ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %30 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %31
+  %33 = load ptr, ptr %7, align 8
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %34
 
-31:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %30) #31
+34:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %33) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %31
-  %32 = getelementptr inbounds i8, ptr %20, i64 8
-  ret ptr %32
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %34
+  %35 = getelementptr inbounds i8, ptr %23, i64 8
+  ret ptr %35
 
-33:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %7, align 8
-  %.not.i.i7 = icmp eq ptr %35, null
-  br i1 %.not.i.i7, label %_ZN5vcpkg4Json5ValueD2Ev.exit8, label %36
+  %38 = load ptr, ptr %7, align 8
+  %.not.i.i7 = icmp eq ptr %38, null
+  br i1 %.not.i.i7, label %_ZN5vcpkg4Json5ValueD2Ev.exit8, label %39
 
-36:                                               ; preds = %33
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %35) #31
+39:                                               ; preds = %36
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %38) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit8
 
-_ZN5vcpkg4Json5ValueD2Ev.exit8:                   ; preds = %33, %36
-  resume { ptr, i32 } %34
+_ZN5vcpkg4Json5ValueD2Ev.exit8:                   ; preds = %36, %39
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4144,95 +4172,99 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %4
   store i32 6, ptr %8, align 8, !noalias !138
   %12 = getelementptr inbounds i8, ptr %8, i64 8
-  %13 = load <2 x ptr>, ptr %3, align 8, !noalias !138
-  store <2 x ptr> %13, ptr %12, align 8, !noalias !138
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = load ptr, ptr %3, align 8, !noalias !138
+  store ptr %13, ptr %12, align 8, !noalias !138
+  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !138
   store ptr %16, ptr %14, align 8, !noalias !138
+  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = load ptr, ptr %18, align 8, !noalias !138
+  store ptr %19, ptr %17, align 8, !noalias !138
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !138
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %8) #26
-  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %18 unwind label %33
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %21 unwind label %36
 
-18:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+21:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 370, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str, ptr %19, align 8
-  %20 = load ptr, ptr %17, align 8
-  %.not.i.i.i = icmp eq ptr %20, null
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str, ptr %22, align 8
+  %23 = load ptr, ptr %20, align 8
+  %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %18
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %21
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br label %23
+  br label %26
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %18
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, 6
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %21
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 6
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br i1 %22, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %23
+  br i1 %25, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %26
 
-23:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
+26:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %27
+          to label %.noexc.i unwind label %30
 
-.noexc.i:                                         ; preds = %23
+.noexc.i:                                         ; preds = %26
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-          to label %24 unwind label %25
+          to label %27 unwind label %28
 
-24:                                               ; preds = %.noexc.i
+27:                                               ; preds = %.noexc.i
   unreachable
 
-25:                                               ; preds = %.noexc.i
-  %26 = landingpad { ptr, i32 }
+28:                                               ; preds = %.noexc.i
+  %29 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %.body.i
 
-27:                                               ; preds = %23
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %26
+  %31 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %27, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %29 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %29) #25
+.body.i:                                          ; preds = %30, %28
+  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+  %32 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %32) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit:  ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %30 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %31
+  %33 = load ptr, ptr %7, align 8
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %34
 
-31:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %30) #31
+34:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %33) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %31
-  %32 = getelementptr inbounds i8, ptr %20, i64 8
-  ret ptr %32
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %34
+  %35 = getelementptr inbounds i8, ptr %23, i64 8
+  ret ptr %35
 
-33:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %7, align 8
-  %.not.i.i7 = icmp eq ptr %35, null
-  br i1 %.not.i.i7, label %_ZN5vcpkg4Json5ValueD2Ev.exit8, label %36
+  %38 = load ptr, ptr %7, align 8
+  %.not.i.i7 = icmp eq ptr %38, null
+  br i1 %.not.i.i7, label %_ZN5vcpkg4Json5ValueD2Ev.exit8, label %39
 
-36:                                               ; preds = %33
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %35) #31
+39:                                               ; preds = %36
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %38) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit8
 
-_ZN5vcpkg4Json5ValueD2Ev.exit8:                   ; preds = %33, %36
-  resume { ptr, i32 } %34
+_ZN5vcpkg4Json5ValueD2Ev.exit8:                   ; preds = %36, %39
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4598,149 +4630,153 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %4
   store i32 5, ptr %9, align 8, !noalias !147
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  %14 = load <2 x ptr>, ptr %3, align 8, !noalias !147
-  store <2 x ptr> %14, ptr %13, align 8, !noalias !147
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = load ptr, ptr %3, align 8, !noalias !147
+  store ptr %14, ptr %13, align 8, !noalias !147
+  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !147
   store ptr %17, ptr %15, align 8, !noalias !147
+  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = load ptr, ptr %19, align 8, !noalias !147
+  store ptr %20, ptr %18, align 8, !noalias !147
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !147
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %2, ptr %18, align 8
-  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %19, %21
-  br i1 %22, label %31, label %23
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %2, ptr %21, align 8
+  %22 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %22, %24
+  br i1 %25, label %34, label %26
 
-23:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %19 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
-  %30 = load ptr, ptr %8, align 8
+26:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = ptrtoint ptr %22 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30) #26
-  br label %42
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33) #26
+  br label %45
 
-31:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %19, %33
-  br i1 %.not.i.i, label %39, label %34
+34:                                               ; preds = %_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not.i.i = icmp eq ptr %22, %36
+  br i1 %.not.i.i, label %42, label %37
 
-34:                                               ; preds = %31
-  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc unwind label %57
+37:                                               ; preds = %34
+  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %.noexc unwind label %60
 
-.noexc:                                           ; preds = %34
-  %35 = getelementptr inbounds i8, ptr %21, i64 32
-  %36 = load i64, ptr %8, align 8
-  store i64 %36, ptr %35, align 8
+.noexc:                                           ; preds = %37
+  %38 = getelementptr inbounds i8, ptr %24, i64 32
+  %39 = load i64, ptr %8, align 8
+  store i64 %39, ptr %38, align 8
   store ptr null, ptr %8, align 8
-  %37 = load ptr, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
-  store ptr %38, ptr %20, align 8
+  %40 = load ptr, ptr %23, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  store ptr %41, ptr %23, align 8
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i
 
-39:                                               ; preds = %31
-  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE17_M_realloc_insertIJRNS7_10StringViewES9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %21, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc7 unwind label %57
+42:                                               ; preds = %34
+  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE17_M_realloc_insertIJRNS7_10StringViewES9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %24, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %.noexc7 unwind label %60
 
-.noexc7:                                          ; preds = %39
-  %.pre.i.i = load ptr, ptr %20, align 8
+.noexc7:                                          ; preds = %42
+  %.pre.i.i = load ptr, ptr %23, align 8
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i: ; preds = %.noexc7, %.noexc
-  %40 = phi ptr [ %.pre.i.i, %.noexc7 ], [ %38, %.noexc ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 -8
-  br label %42
+  %43 = phi ptr [ %.pre.i.i, %.noexc7 ], [ %41, %.noexc ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 -8
+  br label %45
 
-42:                                               ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i, %23
-  %.0.i = phi ptr [ %29, %23 ], [ %41, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i ]
+45:                                               ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i, %26
+  %.0.i = phi ptr [ %32, %26 ], [ %44, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 409, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str, ptr %43, align 8
-  %44 = load ptr, ptr %.0.i, align 8
-  %.not.i.i.i = icmp eq ptr %44, null
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str, ptr %46, align 8
+  %47 = load ptr, ptr %.0.i, align 8
+  %.not.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %42
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i:   ; preds = %45
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br label %47
+  br label %50
 
-_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %42
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, 5
+_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i:          ; preds = %45
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 5
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg20msgJsonValueNotArrayE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br i1 %46, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %47
+  br i1 %49, label %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, label %50
 
-47:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
+50:                                               ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %51
+          to label %.noexc.i unwind label %54
 
-.noexc.i:                                         ; preds = %47
+.noexc.i:                                         ; preds = %50
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-          to label %48 unwind label %49
+          to label %51 unwind label %52
 
-48:                                               ; preds = %.noexc.i
+51:                                               ; preds = %.noexc.i
   unreachable
 
-49:                                               ; preds = %.noexc.i
-  %50 = landingpad { ptr, i32 }
+52:                                               ; preds = %.noexc.i
+  %53 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %.body.i
 
-51:                                               ; preds = %47
-  %52 = landingpad { ptr, i32 }
+54:                                               ; preds = %50
+  %55 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %51, %49
-  %eh.lpad-body.i = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
-  %53 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %53) #25
+.body.i:                                          ; preds = %54, %52
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+  %56 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %56) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit:   ; preds = %_ZNK5vcpkg4Json5Value8is_arrayEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %54 = load ptr, ptr %8, align 8
-  %.not.i.i8 = icmp eq ptr %54, null
-  br i1 %.not.i.i8, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %55
+  %57 = load ptr, ptr %8, align 8
+  %.not.i.i8 = icmp eq ptr %57, null
+  br i1 %.not.i.i8, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %58
 
-55:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %54) #31
+58:                                               ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %57) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %55
-  %56 = getelementptr inbounds i8, ptr %44, i64 8
-  ret ptr %56
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE.exit, %58
+  %59 = getelementptr inbounds i8, ptr %47, i64 8
+  ret ptr %59
 
-57:                                               ; preds = %39, %34
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %42, %37
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %8, align 8
-  %.not.i.i9 = icmp eq ptr %59, null
-  br i1 %.not.i.i9, label %_ZN5vcpkg4Json5ValueD2Ev.exit10, label %60
+  %62 = load ptr, ptr %8, align 8
+  %.not.i.i9 = icmp eq ptr %62, null
+  br i1 %.not.i.i9, label %_ZN5vcpkg4Json5ValueD2Ev.exit10, label %63
 
-60:                                               ; preds = %57
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %59) #31
+63:                                               ; preds = %60
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %62) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit10
 
-_ZN5vcpkg4Json5ValueD2Ev.exit10:                  ; preds = %57, %60
-  resume { ptr, i32 } %58
+_ZN5vcpkg4Json5ValueD2Ev.exit10:                  ; preds = %60, %63
+  resume { ptr, i32 } %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4939,149 +4975,153 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json
 _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %4
   store i32 6, ptr %9, align 8, !noalias !156
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  %14 = load <2 x ptr>, ptr %3, align 8, !noalias !156
-  store <2 x ptr> %14, ptr %13, align 8, !noalias !156
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = load ptr, ptr %3, align 8, !noalias !156
+  store ptr %14, ptr %13, align 8, !noalias !156
+  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !156
   store ptr %17, ptr %15, align 8, !noalias !156
+  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = load ptr, ptr %19, align 8, !noalias !156
+  store ptr %20, ptr %18, align 8, !noalias !156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !156
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %2, ptr %18, align 8
-  %19 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %19, %21
-  br i1 %22, label %31, label %23
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %2, ptr %21, align 8
+  %22 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) #26
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %22, %24
+  br i1 %25, label %34, label %26
 
-23:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %19 to i64
-  %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
-  %30 = load ptr, ptr %8, align 8
+26:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %27 = load ptr, ptr %0, align 8
+  %28 = ptrtoint ptr %22 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30) #26
-  br label %42
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33) #26
+  br label %45
 
-31:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %19, %33
-  br i1 %.not.i.i, label %39, label %34
+34:                                               ; preds = %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not.i.i = icmp eq ptr %22, %36
+  br i1 %.not.i.i, label %42, label %37
 
-34:                                               ; preds = %31
-  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc unwind label %57
+37:                                               ; preds = %34
+  invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %.noexc unwind label %60
 
-.noexc:                                           ; preds = %34
-  %35 = getelementptr inbounds i8, ptr %21, i64 32
-  %36 = load i64, ptr %8, align 8
-  store i64 %36, ptr %35, align 8
+.noexc:                                           ; preds = %37
+  %38 = getelementptr inbounds i8, ptr %24, i64 32
+  %39 = load i64, ptr %8, align 8
+  store i64 %39, ptr %38, align 8
   store ptr null, ptr %8, align 8
-  %37 = load ptr, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
-  store ptr %38, ptr %20, align 8
+  %40 = load ptr, ptr %23, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  store ptr %41, ptr %23, align 8
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i
 
-39:                                               ; preds = %31
-  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE17_M_realloc_insertIJRNS7_10StringViewES9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %21, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc7 unwind label %57
+42:                                               ; preds = %34
+  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE17_M_realloc_insertIJRNS7_10StringViewES9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %24, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %.noexc7 unwind label %60
 
-.noexc7:                                          ; preds = %39
-  %.pre.i.i = load ptr, ptr %20, align 8
+.noexc7:                                          ; preds = %42
+  %.pre.i.i = load ptr, ptr %23, align 8
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i: ; preds = %.noexc7, %.noexc
-  %40 = phi ptr [ %.pre.i.i, %.noexc7 ], [ %38, %.noexc ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 -8
-  br label %42
+  %43 = phi ptr [ %.pre.i.i, %.noexc7 ], [ %41, %.noexc ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 -8
+  br label %45
 
-42:                                               ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i, %23
-  %.0.i = phi ptr [ %29, %23 ], [ %41, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i ]
+45:                                               ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i, %26
+  %.0.i = phi ptr [ %32, %26 ], [ %44, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESaISA_EE12emplace_backIJRNS7_10StringViewES9_EEERSA_DpOT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 417, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str, ptr %43, align 8
-  %44 = load ptr, ptr %.0.i, align 8
-  %.not.i.i.i = icmp eq ptr %44, null
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str, ptr %46, align 8
+  %47 = load ptr, ptr %.0.i, align 8
+  %.not.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i, label %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %42
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i:  ; preds = %45
   %.sroa.0.0.copyload2.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br label %47
+  br label %50
 
-_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %42
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, 6
+_ZNK5vcpkg4Json5Value9is_objectEv.exit.i:         ; preds = %45
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %48, 6
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgJsonValueNotObjectE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br i1 %46, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %47
+  br i1 %49, label %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, label %50
 
-47:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
+50:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i
   %.sroa.0.0.copyload3.i = phi i64 [ %.sroa.0.0.copyload2.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i ], [ %.sroa.0.0.copyload.i, %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i ]
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload3.i)
-          to label %.noexc.i unwind label %51
+          to label %.noexc.i unwind label %54
 
-.noexc.i:                                         ; preds = %47
+.noexc.i:                                         ; preds = %50
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-          to label %48 unwind label %49
+          to label %51 unwind label %52
 
-48:                                               ; preds = %.noexc.i
+51:                                               ; preds = %.noexc.i
   unreachable
 
-49:                                               ; preds = %.noexc.i
-  %50 = landingpad { ptr, i32 }
+52:                                               ; preds = %.noexc.i
+  %53 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %.body.i
 
-51:                                               ; preds = %47
-  %52 = landingpad { ptr, i32 }
+54:                                               ; preds = %50
+  %55 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %51, %49
-  %eh.lpad-body.i = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
-  %53 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %53) #25
+.body.i:                                          ; preds = %54, %52
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+  %56 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %56) #25
   unreachable
 
 _ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit:  ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %54 = load ptr, ptr %8, align 8
-  %.not.i.i8 = icmp eq ptr %54, null
-  br i1 %.not.i.i8, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %55
+  %57 = load ptr, ptr %8, align 8
+  %.not.i.i8 = icmp eq ptr %57, null
+  br i1 %.not.i.i8, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %58
 
-55:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %54) #31
+58:                                               ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %57) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %55
-  %56 = getelementptr inbounds i8, ptr %44, i64 8
-  ret ptr %56
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit, %58
+  %59 = getelementptr inbounds i8, ptr %47, i64 8
+  ret ptr %59
 
-57:                                               ; preds = %39, %34
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %42, %37
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %8, align 8
-  %.not.i.i9 = icmp eq ptr %59, null
-  br i1 %.not.i.i9, label %_ZN5vcpkg4Json5ValueD2Ev.exit10, label %60
+  %62 = load ptr, ptr %8, align 8
+  %.not.i.i9 = icmp eq ptr %62, null
+  br i1 %.not.i.i9, label %_ZN5vcpkg4Json5ValueD2Ev.exit10, label %63
 
-60:                                               ; preds = %57
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %59) #31
+63:                                               ; preds = %60
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %62) #31
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit10
 
-_ZN5vcpkg4Json5ValueD2Ev.exit10:                  ; preds = %57, %60
-  resume { ptr, i32 } %58
+_ZN5vcpkg4Json5ValueD2Ev.exit10:                  ; preds = %60, %63
+  resume { ptr, i32 } %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6126,7 +6166,7 @@ define dso_local void @_ZN5vcpkg4Json12parse_objectENS_10StringViewES1_(ptr dead
 
 13:                                               ; preds = %5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc unwind label %37
+          to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %13
   %14 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6150,46 +6190,50 @@ _ZNK5vcpkg4Json5Value9is_objectEv.exit.i.i.i.i.i: ; preds = %15
 
 _ZNO5vcpkg4Json5Value6objectENS_8LineInfoE.exit.i.i.i.i.i: ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.val1.i, i64 8
-  %19 = load <2 x ptr>, ptr %18, align 8, !noalias !187
-  store <2 x ptr> %19, ptr %0, align 8, !alias.scope !187
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %.val1.i, i64 24
+  %19 = load ptr, ptr %18, align 8, !noalias !187
+  store ptr %19, ptr %0, align 8, !alias.scope !187
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %.val1.i, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !187
   store ptr %22, ptr %20, align 8, !alias.scope !187
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %.val1.i, i64 24
+  %25 = load ptr, ptr %24, align 8, !noalias !187
+  store ptr %25, ptr %23, align 8, !alias.scope !187
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false), !noalias !187
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8, !alias.scope !187
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8, !alias.scope !187
   br label %"_ZSt6invokeIRZN5vcpkg4Json12parse_objectENS0_10StringViewES2_E3$_0JNS1_10ParsedJsonEEENSt13invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_.exit.i"
 
 _ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.i.i.i.i.i, %15
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr @_ZN5vcpkg26msgJsonErrorMustBeAnObjectE, align 8, !noalias !187
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !187
   store ptr %3, ptr %7, align 8, !noalias !188
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %4, ptr %24, align 8, !noalias !188
-  %25 = load ptr, ptr @_ZN5vcpkg3msg6path_t4nameE, align 8, !noalias !188
+  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %4, ptr %27, align 8, !noalias !188
+  %28 = load ptr, ptr @_ZN5vcpkg3msg6path_t4nameE, align 8, !noalias !188
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !188
-  %26 = ptrtoint ptr %7 to i64
-  %27 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %27, ptr %6, align 16, !alias.scope !191, !noalias !194
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 1, ptr %28, align 8, !alias.scope !191, !noalias !194
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %26, ptr %29, align 16, !alias.scope !191, !noalias !194
+  %29 = ptrtoint ptr %7 to i64
+  %30 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %30, ptr %6, align 16, !alias.scope !191, !noalias !194
+  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 1, ptr %31, align 8, !alias.scope !191, !noalias !194
+  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %29, ptr %32, align 16, !alias.scope !191, !noalias !194
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
-  store ptr %25, ptr %27, align 16, !alias.scope !191, !noalias !194
+  store ptr %28, ptr %30, align 16, !alias.scope !191, !noalias !194
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, i64 noundef %.sroa.01.0.copyload.i.i.i.i.i, i64 4611686018427387919, ptr nonnull %29)
-          to label %.noexc6 unwind label %37
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %8, i64 noundef %.sroa.01.0.copyload.i.i.i.i.i, i64 4611686018427387919, ptr nonnull %32)
+          to label %.noexc6 unwind label %40
 
 .noexc6:                                          ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !188
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %30, align 8, !alias.scope !187
+  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %33, align 8, !alias.scope !187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   br label %"_ZSt6invokeIRZN5vcpkg4Json12parse_objectENS0_10StringViewES2_E3$_0JNS1_10ParsedJsonEEENSt13invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_.exit.i"
 
@@ -6198,31 +6242,31 @@ _ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK5vcpkg4J
   br label %"_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit"
 
 "_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit": ; preds = %"_ZSt6invokeIRZN5vcpkg4Json12parse_objectENS0_10StringViewES2_E3$_0JNS1_10ParsedJsonEEENSt13invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_.exit.i", %.noexc
-  %31 = load i8, ptr %10, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %34
+  %34 = load i8, ptr %10, align 8
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %37
 
-33:                                               ; preds = %"_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit"
+36:                                               ; preds = %"_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   br label %_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit
 
-34:                                               ; preds = %"_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit"
-  %35 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit, label %36
+37:                                               ; preds = %"_ZNO5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEE4thenIZNS1_12parse_objectENS_10StringViewES6_E3$_0JEEENSt13invoke_resultIT_JS2_DpT0_EE4typeES9_DpOSA_.exit"
+  %38 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit, label %39
 
-36:                                               ; preds = %34
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %35) #31
+39:                                               ; preds = %37
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %38) #31
   br label %_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit
 
-_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit: ; preds = %34, %36, %33
+_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev.exit: ; preds = %37, %39, %36
   ret void
 
-37:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i.i.i.i.i, %13
-  %38 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZNK5vcpkg4Json5Value9is_objectEv.exit.thread.i.i.i.i.i, %13
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5vcpkg9ExpectedTINS_4Json10ParsedJsonENS_15LocalizedStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %9) #26
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7897,44 +7941,48 @@ define dso_local void @_ZNK5vcpkg4Json21ParagraphDeserializer9type_nameEv(ptr de
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg4Json21ParagraphDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.64") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::StringView", align 8
-  %7 = alloca %"class.std::vector.56", align 16
+  %7 = alloca %"class.std::vector.56", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %4, ptr %9, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %10 unwind label %16
+          to label %10 unwind label %19
 
 10:                                               ; preds = %5
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit unwind label %18
+          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit unwind label %21
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %10
   %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
   store i8 1, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = load ptr, ptr %11, align 16
-  store ptr %15, ptr %14, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load ptr, ptr %12, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %17, align 8
   ret void
 
-16:                                               ; preds = %5
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %5
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %20
+  br label %23
 
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %10
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  br label %20
+  br label %23
 
-20:                                               ; preds = %18, %16
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
+23:                                               ; preds = %21, %19
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #26
   resume { ptr, i32 } %.pn
 }
@@ -9291,7 +9339,7 @@ define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(
   %52 = alloca %"struct.vcpkg::LocalizedString", align 8
   %53 = alloca %"struct.vcpkg::Json::Value", align 8
   %54 = alloca %"struct.vcpkg::LineInfo", align 8
-  %55 = alloca %"struct.vcpkg::Json::Object", align 16
+  %55 = alloca %"struct.vcpkg::Json::Object", align 8
   %56 = alloca %"struct.vcpkg::LocalizedString", align 8
   %57 = alloca %"struct.vcpkg::SourceLoc", align 8
   %58 = alloca %"struct.vcpkg::LocalizedString", align 8
@@ -9308,34 +9356,34 @@ define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(
   %69 = alloca %"struct.vcpkg::LocalizedString", align 8
   %70 = alloca %"struct.vcpkg::LocalizedString", align 8
   %71 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %72 unwind label %575
+          to label %72 unwind label %585
 
 72:                                               ; preds = %2
   %73 = load i32, ptr %1, align 8
-  switch i32 %73, label %392 [
+  switch i32 %73, label %402 [
     i32 -1, label %74
     i32 123, label %77
-    i32 91, label %221
-    i32 34, label %325
-    i32 110, label %326
-    i32 116, label %326
-    i32 102, label %326
-    i32 47, label %387
+    i32 91, label %228
+    i32 34, label %335
+    i32 110, label %336
+    i32 116, label %336
+    i32 102, label %336
+    i32 47, label %397
   ]
 
 74:                                               ; preds = %72
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg29msgUnexpectedEOFExpectedValueE, align 8
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %67, i64 %.sroa.03.0.copyload)
-          to label %75 unwind label %575
+          to label %75 unwind label %585
 
 75:                                               ; preds = %74
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %67)
-          to label %76 unwind label %575
+          to label %76 unwind label %585
 
 76:                                               ; preds = %75
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #26
   store ptr null, ptr %0, align 8
-  br label %574
+  br label %584
 
 77:                                               ; preds = %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
@@ -9387,192 +9435,202 @@ define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(
   unreachable
 
 _ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit38: ; preds = %85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %55, i8 0, i64 24, i1 false), !noalias !295
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false), !noalias !295
   %90 = getelementptr inbounds i8, ptr %57, i64 32
   %91 = getelementptr inbounds i8, ptr %1, i64 32
   %92 = getelementptr inbounds i8, ptr %57, i64 64
   %93 = getelementptr inbounds i8, ptr %1, i64 64
-  %94 = getelementptr inbounds i8, ptr %62, i64 32
-  %95 = getelementptr inbounds i8, ptr %62, i64 64
-  %96 = getelementptr inbounds i8, ptr %63, i64 32
-  %97 = getelementptr inbounds i8, ptr %64, i64 8
-  %98 = getelementptr inbounds i8, ptr %55, i64 8
+  %94 = getelementptr inbounds i8, ptr %57, i64 68
+  %95 = getelementptr inbounds i8, ptr %1, i64 68
+  %96 = getelementptr inbounds i8, ptr %62, i64 32
+  %97 = getelementptr inbounds i8, ptr %62, i64 64
+  %98 = getelementptr inbounds i8, ptr %62, i64 68
+  %99 = getelementptr inbounds i8, ptr %63, i64 32
+  %100 = getelementptr inbounds i8, ptr %64, i64 8
+  %101 = getelementptr inbounds i8, ptr %55, i64 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %13, i64 8
-  %99 = getelementptr inbounds i8, ptr %15, i64 8
-  %100 = ptrtoint ptr %15 to i64
-  %101 = getelementptr inbounds i8, ptr %14, i64 32
-  %102 = getelementptr inbounds i8, ptr %14, i64 8
-  %103 = getelementptr inbounds i8, ptr %14, i64 16
+  %102 = getelementptr inbounds i8, ptr %15, i64 8
+  %103 = ptrtoint ptr %15 to i64
+  %104 = getelementptr inbounds i8, ptr %14, i64 32
+  %105 = getelementptr inbounds i8, ptr %14, i64 8
+  %106 = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %.sroa.2.0..sroa_idx.i.i.i.i26 = getelementptr inbounds i8, ptr %14, i64 40
-  %104 = getelementptr inbounds i8, ptr %66, i64 8
-  br label %105
+  %107 = getelementptr inbounds i8, ptr %66, i64 8
+  br label %108
 
-105:                                              ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit38
+108:                                              ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit38
   %.0.i = phi i1 [ true, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit38 ], [ false, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit ]
-  %106 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %107 unwind label %.loopexit, !noalias !295
+  %109 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %110 unwind label %.loopexit, !noalias !295
 
-107:                                              ; preds = %105
-  %108 = load i32, ptr %1, align 8, !noalias !295
-  switch i32 %108, label %126 [
-    i32 -1, label %109
-    i32 125, label %112
+110:                                              ; preds = %108
+  %111 = load i32, ptr %1, align 8, !noalias !295
+  switch i32 %111, label %131 [
+    i32 -1, label %112
+    i32 125, label %115
   ]
 
-109:                                              ; preds = %107
+112:                                              ; preds = %110
   %.sroa.08.0.copyload.i = load i64, ptr @_ZN5vcpkg34msgUnexpectedEOFExpectedCloseBraceE, align 8, !noalias !295
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %56, i64 %.sroa.08.0.copyload.i)
-          to label %110 unwind label %.loopexit.split-lp, !noalias !295
+          to label %113 unwind label %.loopexit.split-lp, !noalias !295
 
-110:                                              ; preds = %109
+113:                                              ; preds = %112
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %111 unwind label %.loopexit.split-lp, !noalias !295
+          to label %114 unwind label %.loopexit.split-lp, !noalias !295
 
-111:                                              ; preds = %110
+114:                                              ; preds = %113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #26, !noalias !295
   store ptr null, ptr %0, align 8, !alias.scope !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit
 
-112:                                              ; preds = %107
-  %113 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37 unwind label %114, !noalias !295
+115:                                              ; preds = %110
+  %116 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37 unwind label %117, !noalias !295
 
-114:                                              ; preds = %112
-  %115 = landingpad { ptr, i32 }
+117:                                              ; preds = %115
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #25, !noalias !295
+  %119 = extractvalue { ptr, i32 } %118, 0
+  call void @__clang_call_terminate(ptr %119) #25, !noalias !295
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37: ; preds = %112
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37: ; preds = %115
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   store ptr null, ptr %0, align 8, !alias.scope !298
-  %117 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit unwind label %118, !noalias !298
+  %120 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit unwind label %121, !noalias !298
 
-118:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37
-  %119 = landingpad { ptr, i32 }
+121:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #25
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #25
   unreachable
 
 _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit37
-  store i32 6, ptr %117, align 8, !noalias !301
-  %121 = getelementptr inbounds i8, ptr %117, i64 8
-  %122 = load <2 x ptr>, ptr %55, align 16, !noalias !301
-  store <2 x ptr> %122, ptr %121, align 8, !noalias !301
-  %123 = getelementptr inbounds i8, ptr %117, i64 24
-  %124 = getelementptr inbounds i8, ptr %55, i64 16
-  %125 = load ptr, ptr %124, align 16, !noalias !301
-  store ptr %125, ptr %123, align 8, !noalias !301
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %55, i8 0, i64 24, i1 false), !noalias !301
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %117) #26
+  store i32 6, ptr %120, align 8, !noalias !301
+  %124 = getelementptr inbounds i8, ptr %120, i64 8
+  %125 = load ptr, ptr %55, align 8, !noalias !301
+  store ptr %125, ptr %124, align 8, !noalias !301
+  %126 = getelementptr inbounds i8, ptr %120, i64 16
+  %127 = load ptr, ptr %101, align 8, !noalias !301
+  store ptr %127, ptr %126, align 8, !noalias !301
+  %128 = getelementptr inbounds i8, ptr %120, i64 24
+  %129 = getelementptr inbounds i8, ptr %55, i64 16
+  %130 = load ptr, ptr %129, align 8, !noalias !301
+  store ptr %130, ptr %128, align 8, !noalias !301
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false), !noalias !301
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %120) #26
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit
 
-126:                                              ; preds = %107
-  br i1 %.0.i, label %149, label %127
+131:                                              ; preds = %110
+  br i1 %.0.i, label %155, label %132
 
-127:                                              ; preds = %126
-  switch i32 %108, label %147 [
-    i32 44, label %128
-    i32 47, label %143
+132:                                              ; preds = %131
+  switch i32 %111, label %153 [
+    i32 44, label %133
+    i32 47, label %149
   ]
 
-128:                                              ; preds = %127
+133:                                              ; preds = %132
   call void @llvm.experimental.noalias.scope.decl(metadata !304)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 32, i1 false), !noalias !295
-  %129 = load <2 x i32>, ptr %93, align 8, !noalias !307
-  store <2 x i32> %129, ptr %92, align 8, !alias.scope !304, !noalias !295
-  %130 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit unwind label %131, !noalias !295
+  %134 = load i32, ptr %93, align 8, !noalias !307
+  store i32 %134, ptr %92, align 8, !alias.scope !304, !noalias !295
+  %135 = load i32, ptr %95, align 4, !noalias !307
+  store i32 %135, ptr %94, align 4, !alias.scope !304, !noalias !295
+  %136 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit unwind label %137, !noalias !295
 
-131:                                              ; preds = %128
-  %132 = landingpad { ptr, i32 }
+137:                                              ; preds = %133
+  %138 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #25, !noalias !295
+  %139 = extractvalue { ptr, i32 } %138, 0
+  call void @__clang_call_terminate(ptr %139) #25, !noalias !295
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit:  ; preds = %128
-  %134 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %135 unwind label %.loopexit, !noalias !295
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit:  ; preds = %133
+  %140 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %141 unwind label %.loopexit, !noalias !295
 
-135:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit
-  %136 = load i32, ptr %1, align 8, !noalias !295
-  switch i32 %136, label %149 [
-    i32 -1, label %137
-    i32 125, label %140
+141:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit
+  %142 = load i32, ptr %1, align 8, !noalias !295
+  switch i32 %142, label %155 [
+    i32 -1, label %143
+    i32 125, label %146
   ]
 
-137:                                              ; preds = %135
+143:                                              ; preds = %141
   %.sroa.06.0.copyload.i = load i64, ptr @_ZN5vcpkg28msgUnexpectedEOFExpectedPropE, align 8, !noalias !295
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %58, i64 %.sroa.06.0.copyload.i)
-          to label %138 unwind label %.loopexit.split-lp, !noalias !295
+          to label %144 unwind label %.loopexit.split-lp, !noalias !295
 
-138:                                              ; preds = %137
+144:                                              ; preds = %143
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %58)
-          to label %139 unwind label %.loopexit.split-lp, !noalias !295
+          to label %145 unwind label %.loopexit.split-lp, !noalias !295
 
-139:                                              ; preds = %138
+145:                                              ; preds = %144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #26, !noalias !295
   store ptr null, ptr %0, align 8, !alias.scope !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit
 
-140:                                              ; preds = %135
+146:                                              ; preds = %141
   %.sroa.05.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgTrailingCommaInObjE, align 8, !noalias !295
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %59, i64 %.sroa.05.0.copyload.i)
-          to label %141 unwind label %.loopexit.split-lp, !noalias !295
+          to label %147 unwind label %.loopexit.split-lp, !noalias !295
 
-141:                                              ; preds = %140
+147:                                              ; preds = %146
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringERKNS_9SourceLocE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(72) %57)
-          to label %142 unwind label %.loopexit.split-lp, !noalias !295
+          to label %148 unwind label %.loopexit.split-lp, !noalias !295
 
-142:                                              ; preds = %141
+148:                                              ; preds = %147
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #26, !noalias !295
   store ptr null, ptr %0, align 8, !alias.scope !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit
 
-143:                                              ; preds = %127
+149:                                              ; preds = %132
   %.sroa.04.0.copyload.i = load i64, ptr @_ZN5vcpkg30msgUnexpectedCharExpectedColonE, align 8, !noalias !295
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %60, i64 %.sroa.04.0.copyload.i)
-          to label %144 unwind label %.loopexit, !noalias !295
+          to label %150 unwind label %.loopexit, !noalias !295
 
-144:                                              ; preds = %143
-  %145 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 noundef signext 10)
-          to label %146 unwind label %.loopexit, !noalias !295
+150:                                              ; preds = %149
+  %151 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 noundef signext 10)
+          to label %152 unwind label %.loopexit, !noalias !295
 
-146:                                              ; preds = %144
+152:                                              ; preds = %150
   %.sroa.03.0.copyload.i = load i64, ptr @_ZN5vcpkg22msgInvalidCommentStyleE, align 8, !noalias !295
-  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %145, i64 %.sroa.03.0.copyload.i)
+  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %151, i64 %.sroa.03.0.copyload.i)
           to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36 unwind label %.loopexit
 
-_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36: ; preds = %146
-  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %145)
+_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36: ; preds = %152
+  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %151)
           to label %.sink.split unwind label %.loopexit, !noalias !295
 
-147:                                              ; preds = %127
+153:                                              ; preds = %132
   %.sroa.02.0.copyload.i = load i64, ptr @_ZN5vcpkg35msgUnexpectedCharExpectedCloseBraceE, align 8, !noalias !295
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %61, i64 %.sroa.02.0.copyload.i)
-          to label %148 unwind label %.loopexit, !noalias !295
+          to label %154 unwind label %.loopexit, !noalias !295
 
-148:                                              ; preds = %147
+154:                                              ; preds = %153
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %.sink.split unwind label %.loopexit, !noalias !295
 
-.sink.split:                                      ; preds = %148, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36
-  %.sink = phi ptr [ %60, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36 ], [ %61, %148 ]
+.sink.split:                                      ; preds = %154, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36
+  %.sink = phi ptr [ %60, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36 ], [ %61, %154 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26, !noalias !295
-  br label %149
+  br label %155
 
-149:                                              ; preds = %.sink.split, %135, %126
+155:                                              ; preds = %.sink.split, %141, %131
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !295
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 32, i1 false), !noalias !295
-  %150 = load <2 x i32>, ptr %93, align 8, !noalias !311
-  store <2 x i32> %150, ptr %95, align 8, !alias.scope !308, !noalias !295
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 32, i1 false), !noalias !295
+  %156 = load i32, ptr %93, align 8, !noalias !311
+  store i32 %156, ptr %97, align 8, !alias.scope !308, !noalias !295
+  %157 = load i32, ptr %95, align 4, !noalias !311
+  store i32 %157, ptr %98, align 4, !alias.scope !308, !noalias !295
   call void @llvm.experimental.noalias.scope.decl(metadata !312)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -9583,185 +9641,185 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %151 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %152 unwind label %193, !noalias !315
+  %158 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %159 unwind label %200, !noalias !315
 
-152:                                              ; preds = %149
-  %153 = load i32, ptr %1, align 8, !noalias !315
+159:                                              ; preds = %155
+  %160 = load i32, ptr %1, align 8, !noalias !315
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26, !noalias !295
-  %154 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %.noexc.i unwind label %193, !noalias !295
+  %161 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.noexc.i unwind label %200, !noalias !295
 
-.noexc.i:                                         ; preds = %152
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %154, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc15.i unwind label %193, !noalias !295
+.noexc.i:                                         ; preds = %159
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %161, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %.noexc15.i unwind label %200, !noalias !295
 
 .noexc15.i:                                       ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %155 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %159 unwind label %156, !noalias !295
+  %162 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %166 unwind label %163, !noalias !295
 
-156:                                              ; preds = %.noexc15.i
-  %157 = landingpad { ptr, i32 }
+163:                                              ; preds = %.noexc15.i
+  %164 = landingpad { ptr, i32 }
           catch ptr null
-  %158 = extractvalue { ptr, i32 } %157, 0
-  call void @__clang_call_terminate(ptr %158) #25, !noalias !295
+  %165 = extractvalue { ptr, i32 } %164, 0
+  call void @__clang_call_terminate(ptr %165) #25, !noalias !295
   unreachable
 
-159:                                              ; preds = %.noexc15.i
+166:                                              ; preds = %.noexc15.i
   store ptr %4, ptr %3, align 8, !noalias !295
-  %160 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %161 unwind label %.body, !noalias !295
+  %167 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %168 unwind label %.body, !noalias !295
 
-161:                                              ; preds = %159
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %160, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29) #26, !noalias !295
+168:                                              ; preds = %166
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %167, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29) #26, !noalias !295
   store ptr null, ptr %3, align 8, !noalias !295
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
           to label %_ZN5vcpkg4Json5ValueD2Ev.exit.i28 unwind label %.body, !noalias !295
 
-.body:                                            ; preds = %161, %159
-  %162 = landingpad { ptr, i32 }
+.body:                                            ; preds = %168, %166
+  %169 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26, !noalias !295
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26, !noalias !295
   br label %.body.i
 
-_ZN5vcpkg4Json5ValueD2Ev.exit.i28:                ; preds = %161
+_ZN5vcpkg4Json5ValueD2Ev.exit.i28:                ; preds = %168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %4) #26, !noalias !295
-  store i64 0, ptr %96, align 8, !alias.scope !312, !noalias !295
+  store i64 0, ptr %99, align 8, !alias.scope !312, !noalias !295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26, !noalias !295
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26, !noalias !295
-  switch i32 %153, label %166 [
-    i32 -1, label %163
-    i32 34, label %169
+  switch i32 %160, label %173 [
+    i32 -1, label %170
+    i32 34, label %176
   ]
 
-163:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
+170:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
   %.sroa.06.0.copyload.i34 = load i64, ptr @_ZN5vcpkg28msgUnexpectedEOFExpectedNameE, align 8, !noalias !315
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %6, i64 %.sroa.06.0.copyload.i34)
-          to label %164 unwind label %193, !noalias !295
+          to label %171 unwind label %200, !noalias !295
 
-164:                                              ; preds = %163
+171:                                              ; preds = %170
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %165 unwind label %193, !noalias !295
+          to label %172 unwind label %200, !noalias !295
 
-165:                                              ; preds = %164
+172:                                              ; preds = %171
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-166:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
+173:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
   %.sroa.05.0.copyload.i35 = load i64, ptr @_ZN5vcpkg29msgUnexpectedCharExpectedNameE, align 8, !noalias !315
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, i64 %.sroa.05.0.copyload.i35)
-          to label %167 unwind label %193, !noalias !295
+          to label %174 unwind label %200, !noalias !295
 
-167:                                              ; preds = %166
+174:                                              ; preds = %173
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %168 unwind label %193, !noalias !295
+          to label %175 unwind label %200, !noalias !295
 
-168:                                              ; preds = %167
+175:                                              ; preds = %174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-169:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
+176:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
   call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %1) #26, !noalias !295
-  %170 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %8) #26, !noalias !295
+  %177 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %8) #26, !noalias !295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26, !noalias !295
-  %171 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %172 unwind label %193, !noalias !295
+  %178 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %179 unwind label %200, !noalias !295
 
-172:                                              ; preds = %169
-  %173 = load i32, ptr %1, align 8, !noalias !315
-  switch i32 %173, label %190 [
-    i32 58, label %174
-    i32 -1, label %182
-    i32 47, label %185
+179:                                              ; preds = %176
+  %180 = load i32, ptr %1, align 8, !noalias !315
+  switch i32 %180, label %197 [
+    i32 58, label %181
+    i32 -1, label %189
+    i32 47, label %192
   ]
 
-174:                                              ; preds = %172
-  %175 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32 unwind label %176, !noalias !295
+181:                                              ; preds = %179
+  %182 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32 unwind label %183, !noalias !295
 
-176:                                              ; preds = %174
-  %177 = landingpad { ptr, i32 }
+183:                                              ; preds = %181
+  %184 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #25, !noalias !295
+  %185 = extractvalue { ptr, i32 } %184, 0
+  call void @__clang_call_terminate(ptr %185) #25, !noalias !295
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32: ; preds = %174
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32: ; preds = %181
   call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(184) %1) #26, !noalias !295
-  %179 = load ptr, ptr %12, align 8, !noalias !315
+  %186 = load ptr, ptr %12, align 8, !noalias !315
   store ptr null, ptr %12, align 8, !noalias !315
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef %179) #26, !noalias !295
-  %180 = load ptr, ptr %12, align 8, !noalias !315
-  %.not.i.i16.i = icmp eq ptr %180, null
-  br i1 %.not.i.i16.i, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit, label %181
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef %186) #26, !noalias !295
+  %187 = load ptr, ptr %12, align 8, !noalias !315
+  %.not.i.i16.i = icmp eq ptr %187, null
+  br i1 %.not.i.i16.i, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit, label %188
 
-181:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %180) #31, !noalias !295
+188:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %187) #31, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-182:                                              ; preds = %172
+189:                                              ; preds = %179
   %.sroa.03.0.copyload.i31 = load i64, ptr @_ZN5vcpkg29msgUnexpectedEOFExpectedColonE, align 8, !noalias !315
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %9, i64 %.sroa.03.0.copyload.i31)
-          to label %183 unwind label %193, !noalias !295
+          to label %190 unwind label %200, !noalias !295
 
-183:                                              ; preds = %182
+190:                                              ; preds = %189
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %184 unwind label %193, !noalias !295
+          to label %191 unwind label %200, !noalias !295
 
-184:                                              ; preds = %183
+191:                                              ; preds = %190
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-185:                                              ; preds = %172
+192:                                              ; preds = %179
   %.sroa.02.0.copyload.i29 = load i64, ptr @_ZN5vcpkg30msgUnexpectedCharExpectedColonE, align 8, !noalias !315
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %10, i64 %.sroa.02.0.copyload.i29)
-          to label %186 unwind label %193, !noalias !295
+          to label %193 unwind label %200, !noalias !295
 
-186:                                              ; preds = %185
-  %187 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef signext 10)
-          to label %188 unwind label %193, !noalias !295
+193:                                              ; preds = %192
+  %194 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef signext 10)
+          to label %195 unwind label %200, !noalias !295
 
-188:                                              ; preds = %186
+195:                                              ; preds = %193
   %.sroa.01.0.copyload.i30 = load i64, ptr @_ZN5vcpkg22msgInvalidCommentStyleE, align 8, !noalias !315
-  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %187, i64 %.sroa.01.0.copyload.i30)
-          to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i unwind label %193, !noalias !295
+  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %194, i64 %.sroa.01.0.copyload.i30)
+          to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i unwind label %200, !noalias !295
 
-_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i: ; preds = %188
-  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %187)
-          to label %189 unwind label %193, !noalias !295
+_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i: ; preds = %195
+  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %194)
+          to label %196 unwind label %200, !noalias !295
 
-189:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i
+196:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-190:                                              ; preds = %172
+197:                                              ; preds = %179
   %.sroa.0.0.copyload.i33 = load i64, ptr @_ZN5vcpkg30msgUnexpectedCharExpectedColonE, align 8, !noalias !315
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %11, i64 %.sroa.0.0.copyload.i33)
-          to label %191 unwind label %193, !noalias !295
+          to label %198 unwind label %200, !noalias !295
 
-191:                                              ; preds = %190
+198:                                              ; preds = %197
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %192 unwind label %193, !noalias !295
+          to label %199 unwind label %200, !noalias !295
 
-192:                                              ; preds = %191
+199:                                              ; preds = %198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26, !noalias !295
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
-193:                                              ; preds = %191, %190, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i, %188, %186, %185, %183, %182, %169, %167, %166, %164, %163, %.noexc.i, %152, %149
-  %194 = landingpad { ptr, i32 }
+200:                                              ; preds = %198, %197, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit.i, %195, %193, %192, %190, %189, %176, %174, %173, %171, %170, %.noexc.i, %159, %155
+  %201 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i
 
-.body.i:                                          ; preds = %193, %.body
-  %eh.lpad-body.i = phi { ptr, i32 } [ %194, %193 ], [ %162, %.body ]
-  %195 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  call void @__clang_call_terminate(ptr %195) #25, !noalias !295
+.body.i:                                          ; preds = %200, %.body
+  %eh.lpad-body.i = phi { ptr, i32 } [ %201, %200 ], [ %169, %.body ]
+  %202 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  call void @__clang_call_terminate(ptr %202) #25, !noalias !295
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit: ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32, %181, %165, %168, %184, %189, %192
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit: ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32, %188, %172, %175, %191, %196, %199
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -9772,14 +9830,14 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(32) %63) #26, !noalias !295
-  %196 = load ptr, ptr %64, align 8, !noalias !295
-  %197 = load i64, ptr %97, align 8, !noalias !295
-  %198 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %55, ptr %196, i64 %197) #26, !noalias !295
-  %199 = load ptr, ptr %98, align 8, !noalias !295
-  %.not = icmp eq ptr %198, %199
-  br i1 %.not, label %204, label %200
+  %203 = load ptr, ptr %64, align 8, !noalias !295
+  %204 = load i64, ptr %100, align 8, !noalias !295
+  %205 = call ptr @_ZNK5vcpkg4Json6Object17internal_find_keyB5cxx11ENS_10StringViewE(ptr noundef nonnull readonly align 8 dereferenceable(24) %55, ptr %203, i64 %204) #26, !noalias !295
+  %206 = load ptr, ptr %101, align 8, !noalias !295
+  %.not = icmp eq ptr %205, %206
+  br i1 %.not, label %211, label %207
 
-200:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
+207:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
   %.sroa.01.0.copyload.i = load i64, ptr @_ZN5vcpkg21msgDuplicatedKeyInObjE, align 8, !noalias !295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %63) #26, !noalias !295
@@ -9788,104 +9846,104 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store ptr %.fca.0.load.i, ptr %15, align 8, !noalias !316
-  store i64 %.fca.1.load.i, ptr %99, align 8, !noalias !316
-  %201 = load ptr, ptr @_ZN5vcpkg3msg7value_t4nameE, align 8, !noalias !316
+  store i64 %.fca.1.load.i, ptr %102, align 8, !noalias !316
+  %208 = load ptr, ptr @_ZN5vcpkg3msg7value_t4nameE, align 8, !noalias !316
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !316
-  store ptr %101, ptr %14, align 16, !alias.scope !319, !noalias !322
-  store i64 1, ptr %102, align 8, !alias.scope !319, !noalias !322
-  store i64 %100, ptr %103, align 16, !alias.scope !319, !noalias !322
+  store ptr %104, ptr %14, align 16, !alias.scope !319, !noalias !322
+  store i64 1, ptr %105, align 8, !alias.scope !319, !noalias !322
+  store i64 %103, ptr %106, align 16, !alias.scope !319, !noalias !322
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !319, !noalias !322
-  store ptr %201, ptr %101, align 16, !alias.scope !319, !noalias !322
+  store ptr %208, ptr %104, align 16, !alias.scope !319, !noalias !322
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i26, align 8, !alias.scope !319, !noalias !322
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %65, i64 noundef %.sroa.01.0.copyload.i, i64 4611686018427387919, ptr nonnull %103)
-          to label %202 unwind label %.loopexit
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %65, i64 noundef %.sroa.01.0.copyload.i, i64 4611686018427387919, ptr nonnull %106)
+          to label %209 unwind label %.loopexit
 
-202:                                              ; preds = %200
+209:                                              ; preds = %207
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !316
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringERKNS_9SourceLocE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(72) %62)
-          to label %203 unwind label %.loopexit, !noalias !295
+          to label %210 unwind label %.loopexit, !noalias !295
 
-203:                                              ; preds = %202
+210:                                              ; preds = %209
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #26, !noalias !295
   store ptr null, ptr %0, align 8, !alias.scope !295
-  br label %208
+  br label %215
 
-204:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
+211:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(32) %63) #26, !noalias !295
-  %205 = load ptr, ptr %66, align 8, !noalias !295
-  %206 = load i64, ptr %104, align 8, !noalias !295
-  %207 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr %205, i64 %206, ptr noundef nonnull align 8 dereferenceable(8) %96)
-          to label %208 unwind label %.loopexit, !noalias !295
+  %212 = load ptr, ptr %66, align 8, !noalias !295
+  %213 = load i64, ptr %107, align 8, !noalias !295
+  %214 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object6insertENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr %212, i64 %213, ptr noundef nonnull align 8 dereferenceable(8) %99)
+          to label %215 unwind label %.loopexit, !noalias !295
 
-208:                                              ; preds = %204, %203
-  %209 = load ptr, ptr %96, align 8, !noalias !295
-  %.not.i.i.i24 = icmp eq ptr %209, null
-  br i1 %.not.i.i.i24, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, label %210
+215:                                              ; preds = %211, %210
+  %216 = load ptr, ptr %99, align 8, !noalias !295
+  %.not.i.i.i24 = icmp eq ptr %216, null
+  br i1 %.not.i.i.i24, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, label %217
 
-210:                                              ; preds = %208
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %96, ptr noundef nonnull %209) #31, !noalias !295
+217:                                              ; preds = %215
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr noundef nonnull %216) #31, !noalias !295
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit
 
-_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit: ; preds = %208, %210
-  store ptr null, ptr %96, align 8, !noalias !295
+_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit: ; preds = %215, %217
+  store ptr null, ptr %99, align 8, !noalias !295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #26, !noalias !295
-  br i1 %.not, label %105, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit, !llvm.loop !325
+  br i1 %.not, label %108, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit, !llvm.loop !325
 
-.loopexit:                                        ; preds = %105, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit, %143, %144, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36, %147, %148, %202, %204, %200, %146
+.loopexit:                                        ; preds = %108, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit, %149, %150, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit36, %153, %154, %209, %211, %207, %152
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %211
+  br label %218
 
-.loopexit.split-lp:                               ; preds = %77, %109, %110, %137, %138, %140, %141
+.loopexit.split-lp:                               ; preds = %77, %112, %113, %143, %144, %146, %147
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %211
+  br label %218
 
-211:                                              ; preds = %.loopexit.split-lp, %.loopexit
+218:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %212 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %212) #25
+  %219 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %219) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit: ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, %111, %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit, %139, %142
-  %213 = load ptr, ptr %55, align 16
-  %214 = load ptr, ptr %98, align 8
-  %.not.i.i12.i.i = icmp eq ptr %213, %214
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit: ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit, %114, %_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit, %145, %148
+  %220 = load ptr, ptr %55, align 8
+  %221 = load ptr, ptr %101, align 8
+  %.not.i.i12.i.i = icmp eq ptr %220, %221
   br i1 %.not.i.i12.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit, %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i
-  %.0.i.i3.i.i = phi ptr [ %218, %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i ], [ %213, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit ]
-  %215 = getelementptr inbounds i8, ptr %.0.i.i3.i.i, i64 32
-  %216 = load ptr, ptr %215, align 8
-  %.not.i.i.i1.i = icmp eq ptr %216, null
-  br i1 %.not.i.i.i1.i, label %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i, label %217
+  %.0.i.i3.i.i = phi ptr [ %225, %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i ], [ %220, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit ]
+  %222 = getelementptr inbounds i8, ptr %.0.i.i3.i.i, i64 32
+  %223 = load ptr, ptr %222, align 8
+  %.not.i.i.i1.i = icmp eq ptr %223, null
+  br i1 %.not.i.i.i1.i, label %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i, label %224
 
-217:                                              ; preds = %.lr.ph.i.i
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %215, ptr noundef nonnull %216) #35
+224:                                              ; preds = %.lr.ph.i.i
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %222, ptr noundef nonnull %223) #35
   br label %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i
 
-_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i: ; preds = %217, %.lr.ph.i.i
-  store ptr null, ptr %215, align 8
+_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i: ; preds = %224, %.lr.ph.i.i
+  store ptr null, ptr %222, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i3.i.i) #26
-  %218 = getelementptr inbounds i8, ptr %.0.i.i3.i.i, i64 40
-  %.not.i.i1.i.i = icmp eq ptr %218, %214
+  %225 = getelementptr inbounds i8, ptr %.0.i.i3.i.i, i64 40
+  %.not.i.i1.i.i = icmp eq ptr %225, %221
   br i1 %.not.i.i1.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !294
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.loopexit.i.i: ; preds = %_ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEEEvPT_.exit.i
-  %.pre.i.i = load ptr, ptr %55, align 16
+  %.pre.i.i = load ptr, ptr %55, align 8
   br label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.loopexit.i.i, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit
-  %219 = phi ptr [ %.pre.i.i, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.loopexit.i.i ], [ %213, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit ]
-  %.not.i.i.i.i = icmp eq ptr %219, null
-  br i1 %.not.i.i.i.i, label %_ZN5vcpkg4Json6ObjectD2Ev.exit, label %220
+  %226 = phi ptr [ %.pre.i.i, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.loopexit.i.i ], [ %220, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_objectEv.exit ]
+  %.not.i.i.i.i = icmp eq ptr %226, null
+  br i1 %.not.i.i.i.i, label %_ZN5vcpkg4Json6ObjectD2Ev.exit, label %227
 
-220:                                              ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %219) #29
+227:                                              ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %226) #29
   br label %_ZN5vcpkg4Json6ObjectD2Ev.exit
 
-_ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, %220
+_ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i, %227
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56)
@@ -9899,9 +9957,9 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
-  br label %574
+  br label %584
 
-221:                                              ; preds = %72
+228:                                              ; preds = %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
@@ -9913,364 +9971,368 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
   store i32 786, ptr %45, align 8, !noalias !326
-  %222 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr @.str, ptr %222, align 8, !noalias !326
+  %229 = getelementptr inbounds i8, ptr %45, i64 8
+  store ptr @.str, ptr %229, align 8, !noalias !326
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %45, i1 noundef zeroext true)
-          to label %223 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %230 unwind label %.loopexit.split-lp61, !noalias !326
 
-223:                                              ; preds = %221
-  %224 = load i32, ptr %1, align 8, !noalias !326
-  switch i32 %224, label %229 [
-    i32 13, label %225
-    i32 9, label %227
+230:                                              ; preds = %228
+  %231 = load i32, ptr %1, align 8, !noalias !326
+  switch i32 %231, label %236 [
+    i32 13, label %232
+    i32 9, label %234
   ]
 
-225:                                              ; preds = %223
-  %226 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 1, ptr %226, align 8, !noalias !326
-  br label %229
+232:                                              ; preds = %230
+  %233 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 1, ptr %233, align 8, !noalias !326
+  br label %236
 
-227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %1, i64 176
-  store i64 -1, ptr %228, align 8, !noalias !326
-  br label %229
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds i8, ptr %1, i64 176
+  store i64 -1, ptr %235, align 8, !noalias !326
+  br label %236
 
-229:                                              ; preds = %227, %225, %223
-  %230 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 unwind label %231, !noalias !326
+236:                                              ; preds = %234, %232, %230
+  %237 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 unwind label %238, !noalias !326
 
-231:                                              ; preds = %229
-  %232 = landingpad { ptr, i32 }
+238:                                              ; preds = %236
+  %239 = landingpad { ptr, i32 }
           catch ptr null
-  %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #25, !noalias !326
+  %240 = extractvalue { ptr, i32 } %239, 0
+  call void @__clang_call_terminate(ptr %240) #25, !noalias !326
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54: ; preds = %229
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54: ; preds = %236
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !noalias !326
-  %234 = getelementptr inbounds i8, ptr %48, i64 32
-  %235 = getelementptr inbounds i8, ptr %1, i64 32
-  %236 = getelementptr inbounds i8, ptr %48, i64 64
-  %237 = getelementptr inbounds i8, ptr %1, i64 64
-  %238 = getelementptr inbounds i8, ptr %46, i64 8
-  %239 = getelementptr inbounds i8, ptr %46, i64 16
-  br label %240
+  %241 = getelementptr inbounds i8, ptr %48, i64 32
+  %242 = getelementptr inbounds i8, ptr %1, i64 32
+  %243 = getelementptr inbounds i8, ptr %48, i64 64
+  %244 = getelementptr inbounds i8, ptr %1, i64 64
+  %245 = getelementptr inbounds i8, ptr %48, i64 68
+  %246 = getelementptr inbounds i8, ptr %1, i64 68
+  %247 = getelementptr inbounds i8, ptr %46, i64 8
+  %248 = getelementptr inbounds i8, ptr %46, i64 16
+  br label %249
 
-240:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54
-  %241 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %315, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
-  %242 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %316, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
-  %243 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %317, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
+249:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54
+  %250 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %325, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
+  %251 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %326, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
+  %252 = phi ptr [ null, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ %327, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
   %.0.i7 = phi i1 [ true, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit54 ], [ false, %_ZN5vcpkg4Json5ValueD2Ev.exit ]
-  %244 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %245 unwind label %.loopexit60, !noalias !326
+  %253 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %254 unwind label %.loopexit60, !noalias !326
 
-245:                                              ; preds = %240
-  %246 = load i32, ptr %1, align 8, !noalias !326
-  switch i32 %246, label %262 [
-    i32 -1, label %247
-    i32 93, label %250
+254:                                              ; preds = %249
+  %255 = load i32, ptr %1, align 8, !noalias !326
+  switch i32 %255, label %271 [
+    i32 -1, label %256
+    i32 93, label %259
   ]
 
-247:                                              ; preds = %245
-  store ptr %243, ptr %46, align 8
+256:                                              ; preds = %254
+  store ptr %252, ptr %46, align 8
   %.sroa.06.0.copyload.i8 = load i64, ptr @_ZN5vcpkg24msgUnexpectedEOFMidArrayE, align 8, !noalias !326
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %47, i64 %.sroa.06.0.copyload.i8)
-          to label %248 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %257 unwind label %.loopexit.split-lp61, !noalias !326
 
-248:                                              ; preds = %247
+257:                                              ; preds = %256
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %47)
-          to label %249 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %258 unwind label %.loopexit.split-lp61, !noalias !326
 
-249:                                              ; preds = %248
+258:                                              ; preds = %257
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #26, !noalias !326
   store ptr null, ptr %0, align 8, !alias.scope !326
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
 
-250:                                              ; preds = %245
-  store ptr %243, ptr %46, align 8
-  %251 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53 unwind label %252, !noalias !326
+259:                                              ; preds = %254
+  store ptr %252, ptr %46, align 8
+  %260 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53 unwind label %261, !noalias !326
 
-252:                                              ; preds = %250
-  %253 = landingpad { ptr, i32 }
+261:                                              ; preds = %259
+  %262 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #25, !noalias !326
+  %263 = extractvalue { ptr, i32 } %262, 0
+  call void @__clang_call_terminate(ptr %263) #25, !noalias !326
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53: ; preds = %250
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53: ; preds = %259
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
   store ptr null, ptr %0, align 8, !alias.scope !329
-  %255 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.thread unwind label %256, !noalias !329
+  %264 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.thread unwind label %265, !noalias !329
 
-256:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53
-  %257 = landingpad { ptr, i32 }
+265:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53
+  %266 = landingpad { ptr, i32 }
           catch ptr null
-  %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #25
+  %267 = extractvalue { ptr, i32 } %266, 0
+  call void @__clang_call_terminate(ptr %267) #25
   unreachable
 
 _ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.thread: ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit53
-  store i32 5, ptr %255, align 8, !noalias !332
-  %259 = getelementptr inbounds i8, ptr %255, i64 8
-  store ptr %243, ptr %259, align 8, !noalias !332
-  %260 = getelementptr inbounds i8, ptr %255, i64 16
-  store ptr %242, ptr %260, align 8, !noalias !332
-  %261 = getelementptr inbounds i8, ptr %255, i64 24
-  store ptr %241, ptr %261, align 8, !noalias !332
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %255) #26
+  store i32 5, ptr %264, align 8, !noalias !332
+  %268 = getelementptr inbounds i8, ptr %264, i64 8
+  store ptr %252, ptr %268, align 8, !noalias !332
+  %269 = getelementptr inbounds i8, ptr %264, i64 16
+  store ptr %251, ptr %269, align 8, !noalias !332
+  %270 = getelementptr inbounds i8, ptr %264, i64 24
+  store ptr %250, ptr %270, align 8, !noalias !332
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %264) #26
   br label %_ZN5vcpkg4Json5ArrayD2Ev.exit
 
-262:                                              ; preds = %245
-  br i1 %.0.i7, label %287, label %263
+271:                                              ; preds = %254
+  br i1 %.0.i7, label %297, label %272
 
-263:                                              ; preds = %262
-  switch i32 %246, label %284 [
-    i32 44, label %264
-    i32 47, label %279
+272:                                              ; preds = %271
+  switch i32 %255, label %294 [
+    i32 44, label %273
+    i32 47, label %289
   ]
 
-264:                                              ; preds = %263
+273:                                              ; preds = %272
   call void @llvm.experimental.noalias.scope.decl(metadata !335)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !326
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %234, ptr noundef nonnull align 8 dereferenceable(32) %235, i64 32, i1 false), !noalias !326
-  %265 = load <2 x i32>, ptr %237, align 8, !noalias !338
-  store <2 x i32> %265, ptr %236, align 8, !alias.scope !335, !noalias !326
-  %266 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51 unwind label %267, !noalias !326
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %242, i64 32, i1 false), !noalias !326
+  %274 = load i32, ptr %244, align 8, !noalias !338
+  store i32 %274, ptr %243, align 8, !alias.scope !335, !noalias !326
+  %275 = load i32, ptr %246, align 4, !noalias !338
+  store i32 %275, ptr %245, align 4, !alias.scope !335, !noalias !326
+  %276 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51 unwind label %277, !noalias !326
 
-267:                                              ; preds = %264
-  %268 = landingpad { ptr, i32 }
+277:                                              ; preds = %273
+  %278 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %243, ptr %46, align 8
-  %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #25, !noalias !326
+  store ptr %252, ptr %46, align 8
+  %279 = extractvalue { ptr, i32 } %278, 0
+  call void @__clang_call_terminate(ptr %279) #25, !noalias !326
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51: ; preds = %264
-  %270 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %271 unwind label %.loopexit60, !noalias !326
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51: ; preds = %273
+  %280 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %281 unwind label %.loopexit60, !noalias !326
 
-271:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51
-  %272 = load i32, ptr %1, align 8, !noalias !326
-  switch i32 %272, label %287 [
-    i32 -1, label %273
-    i32 93, label %276
+281:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51
+  %282 = load i32, ptr %1, align 8, !noalias !326
+  switch i32 %282, label %297 [
+    i32 -1, label %283
+    i32 93, label %286
   ]
 
-273:                                              ; preds = %271
-  store ptr %243, ptr %46, align 8
+283:                                              ; preds = %281
+  store ptr %252, ptr %46, align 8
   %.sroa.04.0.copyload.i13 = load i64, ptr @_ZN5vcpkg24msgUnexpectedEOFMidArrayE, align 8, !noalias !326
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %49, i64 %.sroa.04.0.copyload.i13)
-          to label %274 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %284 unwind label %.loopexit.split-lp61, !noalias !326
 
-274:                                              ; preds = %273
+284:                                              ; preds = %283
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %49)
-          to label %275 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %285 unwind label %.loopexit.split-lp61, !noalias !326
 
-275:                                              ; preds = %274
+285:                                              ; preds = %284
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #26, !noalias !326
   store ptr null, ptr %0, align 8, !alias.scope !326
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
 
-276:                                              ; preds = %271
-  store ptr %243, ptr %46, align 8
+286:                                              ; preds = %281
+  store ptr %252, ptr %46, align 8
   %.sroa.03.0.copyload.i12 = load i64, ptr @_ZN5vcpkg23msgTrailingCommaInArrayE, align 8, !noalias !326
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %50, i64 %.sroa.03.0.copyload.i12)
-          to label %277 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %287 unwind label %.loopexit.split-lp61, !noalias !326
 
-277:                                              ; preds = %276
+287:                                              ; preds = %286
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringERKNS_9SourceLocE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(72) %48)
-          to label %278 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %288 unwind label %.loopexit.split-lp61, !noalias !326
 
-278:                                              ; preds = %277
+288:                                              ; preds = %287
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #26, !noalias !326
   call void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %46) #26
   %.pre = load ptr, ptr %46, align 8
-  %.pre85 = load ptr, ptr %238, align 8
+  %.pre85 = load ptr, ptr %247, align 8
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
 
-279:                                              ; preds = %263
+289:                                              ; preds = %272
   %.sroa.02.0.copyload.i9 = load i64, ptr @_ZN5vcpkg25msgUnexpectedCharMidArrayE, align 8, !noalias !326
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %51, i64 %.sroa.02.0.copyload.i9)
-          to label %280 unwind label %.loopexit60, !noalias !326
+          to label %290 unwind label %.loopexit60, !noalias !326
 
-280:                                              ; preds = %279
-  %281 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 noundef signext 10)
-          to label %282 unwind label %.loopexit60, !noalias !326
+290:                                              ; preds = %289
+  %291 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 noundef signext 10)
+          to label %292 unwind label %.loopexit60, !noalias !326
 
-282:                                              ; preds = %280
+292:                                              ; preds = %290
   %.sroa.01.0.copyload.i10 = load i64, ptr @_ZN5vcpkg22msgInvalidCommentStyleE, align 8, !noalias !326
-  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %281, i64 %.sroa.01.0.copyload.i10)
+  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %291, i64 %.sroa.01.0.copyload.i10)
           to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50 unwind label %.loopexit60
 
-_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50: ; preds = %282
-  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %281)
-          to label %283 unwind label %.loopexit60, !noalias !326
+_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50: ; preds = %292
+  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %291)
+          to label %293 unwind label %.loopexit60, !noalias !326
 
-283:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50
+293:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #26, !noalias !326
-  br label %287
+  br label %297
 
-284:                                              ; preds = %263
-  store ptr %243, ptr %46, align 8
+294:                                              ; preds = %272
+  store ptr %252, ptr %46, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN5vcpkg25msgUnexpectedCharMidArrayE, align 8, !noalias !326
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %52, i64 %.sroa.0.0.copyload.i)
-          to label %285 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %295 unwind label %.loopexit.split-lp61, !noalias !326
 
-285:                                              ; preds = %284
+295:                                              ; preds = %294
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %286 unwind label %.loopexit.split-lp61, !noalias !326
+          to label %296 unwind label %.loopexit.split-lp61, !noalias !326
 
-286:                                              ; preds = %285
+296:                                              ; preds = %295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #26, !noalias !326
   store ptr null, ptr %0, align 8, !alias.scope !326
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
 
-287:                                              ; preds = %283, %271, %262
+297:                                              ; preds = %293, %281, %271
   call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(184) %1) #26, !noalias !326
-  %288 = load ptr, ptr %239, align 8, !noalias !339
-  %.not.i.i47 = icmp eq ptr %242, %288
-  br i1 %.not.i.i47, label %291, label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread
+  %298 = load ptr, ptr %248, align 8, !noalias !339
+  %.not.i.i47 = icmp eq ptr %251, %298
+  br i1 %.not.i.i47, label %301, label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread
 
-_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread: ; preds = %287
-  %289 = load i64, ptr %53, align 8, !noalias !326
-  store i64 %289, ptr %242, align 8, !noalias !326
-  %290 = getelementptr inbounds i8, ptr %242, i64 8
-  store ptr %290, ptr %238, align 8, !noalias !326
+_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread: ; preds = %297
+  %299 = load i64, ptr %53, align 8, !noalias !326
+  store i64 %299, ptr %251, align 8, !noalias !326
+  %300 = getelementptr inbounds i8, ptr %251, i64 8
+  store ptr %300, ptr %247, align 8, !noalias !326
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-291:                                              ; preds = %287
-  %292 = ptrtoint ptr %242 to i64
-  %293 = ptrtoint ptr %243 to i64
-  %294 = sub i64 %292, %293
-  %295 = icmp eq i64 %294, 9223372036854775800
-  br i1 %295, label %296, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+301:                                              ; preds = %297
+  %302 = ptrtoint ptr %251 to i64
+  %303 = ptrtoint ptr %252 to i64
+  %304 = sub i64 %302, %303
+  %305 = icmp eq i64 %304, 9223372036854775800
+  br i1 %305, label %306, label %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
 
-296:                                              ; preds = %291
-  store ptr %243, ptr %46, align 8
+306:                                              ; preds = %301
+  store ptr %252, ptr %46, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.78) #27
           to label %.noexc57 unwind label %.loopexit.split-lp61
 
-.noexc57:                                         ; preds = %296
+.noexc57:                                         ; preds = %306
   unreachable
 
-_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %291
-  %297 = ashr exact i64 %294, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %297, i64 1)
-  %298 = add nsw i64 %.sroa.speculated.i.i, %297
-  %299 = icmp ult i64 %298, %297
-  %300 = call i64 @llvm.umin.i64(i64 %298, i64 1152921504606846975)
-  %301 = select i1 %299, i64 1152921504606846975, i64 %300
-  %.not.i.i55 = icmp eq i64 %301, 0
-  br i1 %.not.i.i55, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %302
+_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %301
+  %307 = ashr exact i64 %304, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %307, i64 1)
+  %308 = add nsw i64 %.sroa.speculated.i.i, %307
+  %309 = icmp ult i64 %308, %307
+  %310 = call i64 @llvm.umin.i64(i64 %308, i64 1152921504606846975)
+  %311 = select i1 %309, i64 1152921504606846975, i64 %310
+  %.not.i.i55 = icmp eq i64 %311, 0
+  br i1 %.not.i.i55, label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, label %312
 
-302:                                              ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %303 = shl nuw nsw i64 %301, 3
-  %304 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %303) #28
+312:                                              ; preds = %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %313 = shl nuw nsw i64 %311, 3
+  %314 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %313) #28
           to label %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i unwind label %.loopexit60
 
-_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %302, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
-  %305 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %304, %302 ]
-  %306 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %305, i64 %297
-  %307 = load i64, ptr %53, align 8
-  store i64 %307, ptr %306, align 8
+_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i: ; preds = %312, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i
+  %315 = phi ptr [ null, %_ZNKSt6vectorIN5vcpkg4Json5ValueESaIS2_EE12_M_check_lenEmPKc.exit.i ], [ %314, %312 ]
+  %316 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %315, i64 %307
+  %317 = load i64, ptr %53, align 8
+  store i64 %317, ptr %316, align 8
   store ptr null, ptr %53, align 8
-  %.not10.i.i.i.i = icmp eq ptr %243, %242
+  %.not10.i.i.i.i = icmp eq ptr %252, %251
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %310, %.lr.ph.i.i.i.i ], [ %305, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %309, %.lr.ph.i.i.i.i ], [ %243, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %320, %.lr.ph.i.i.i.i ], [ %315, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %319, %.lr.ph.i.i.i.i ], [ %252, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
   call void @llvm.experimental.noalias.scope.decl(metadata !343)
-  %308 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !343, !noalias !340
-  store i64 %308, ptr %.012.i.i.i.i, align 8, !alias.scope !340, !noalias !343
+  %318 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !343, !noalias !340
+  store i64 %318, ptr %.012.i.i.i.i, align 8, !alias.scope !340, !noalias !343
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !343, !noalias !340
-  %309 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %310 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i56 = icmp eq ptr %309, %242
+  %319 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %320 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i56 = icmp eq ptr %319, %251
   br i1 %.not.i.i.i.i56, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %305, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %310, %.lr.ph.i.i.i.i ]
-  %311 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %243, null
-  br i1 %.not.i23.i, label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit, label %312
+  %.0.lcssa.i.i.i.i = phi ptr [ %315, %_ZNSt12_Vector_baseIN5vcpkg4Json5ValueESaIS2_EE11_M_allocateEm.exit.i ], [ %320, %.lr.ph.i.i.i.i ]
+  %321 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %252, null
+  br i1 %.not.i23.i, label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit, label %322
 
-312:                                              ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
-  call void @_ZdlPv(ptr noundef nonnull %243) #29
+322:                                              ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
+  call void @_ZdlPv(ptr noundef nonnull %252) #29
   br label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit
 
-_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit: ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, %312
-  store ptr %311, ptr %238, align 8
-  %313 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %305, i64 %301
-  store ptr %313, ptr %239, align 8
+_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit: ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, %322
+  store ptr %321, ptr %247, align 8
+  %323 = getelementptr inbounds %"struct.vcpkg::Json::Value", ptr %315, i64 %311
+  store ptr %323, ptr %248, align 8
   %.pr = load ptr, ptr %53, align 8, !noalias !326
   %.not.i.i45 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i45, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %314
+  br i1 %.not.i.i45, label %_ZN5vcpkg4Json5ValueD2Ev.exit, label %324
 
-314:                                              ; preds = %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit
+324:                                              ; preds = %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit
   call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull %.pr) #31, !noalias !326
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit
 
-_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit, %314
-  %315 = phi ptr [ %288, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %313, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %313, %314 ]
-  %316 = phi ptr [ %290, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %311, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %311, %314 ]
-  %317 = phi ptr [ %243, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %305, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %305, %314 ]
+_ZN5vcpkg4Json5ValueD2Ev.exit:                    ; preds = %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit, %324
+  %325 = phi ptr [ %298, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %323, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %323, %324 ]
+  %326 = phi ptr [ %300, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %321, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %321, %324 ]
+  %327 = phi ptr [ %252, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread ], [ %315, %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit ], [ %315, %324 ]
   store ptr null, ptr %53, align 8, !noalias !326
-  br label %240, !llvm.loop !345
+  br label %249, !llvm.loop !345
 
-.loopexit60:                                      ; preds = %240, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51, %279, %280, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50, %282, %302
+.loopexit60:                                      ; preds = %249, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51, %289, %290, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit50, %292, %312
   %lpad.loopexit62 = landingpad { ptr, i32 }
           catch ptr null
-  store ptr %243, ptr %46, align 8
-  br label %318
+  store ptr %252, ptr %46, align 8
+  br label %328
 
-.loopexit.split-lp61:                             ; preds = %221, %247, %248, %273, %274, %276, %277, %284, %285, %296
+.loopexit.split-lp61:                             ; preds = %228, %256, %257, %283, %284, %286, %287, %294, %295, %306
   %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           catch ptr null
-  br label %318
+  br label %328
 
-318:                                              ; preds = %.loopexit.split-lp61, %.loopexit60
+328:                                              ; preds = %.loopexit.split-lp61, %.loopexit60
   %lpad.phi64 = phi { ptr, i32 } [ %lpad.loopexit62, %.loopexit60 ], [ %lpad.loopexit.split-lp63, %.loopexit.split-lp61 ]
-  %319 = extractvalue { ptr, i32 } %lpad.phi64, 0
-  call void @__clang_call_terminate(ptr %319) #25
+  %329 = extractvalue { ptr, i32 } %lpad.phi64, 0
+  call void @__clang_call_terminate(ptr %329) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit: ; preds = %249, %275, %278, %286
-  %320 = phi ptr [ %242, %249 ], [ %242, %275 ], [ %.pre85, %278 ], [ %242, %286 ]
-  %321 = phi ptr [ %243, %249 ], [ %243, %275 ], [ %.pre, %278 ], [ %243, %286 ]
-  %.not.i.i12.i.i39 = icmp eq ptr %321, %320
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit: ; preds = %258, %285, %288, %296
+  %330 = phi ptr [ %251, %258 ], [ %251, %285 ], [ %.pre85, %288 ], [ %251, %296 ]
+  %331 = phi ptr [ %252, %258 ], [ %252, %285 ], [ %.pre, %288 ], [ %252, %296 ]
+  %.not.i.i12.i.i39 = icmp eq ptr %331, %330
   br i1 %.not.i.i12.i.i39, label %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i40
 
 .lr.ph.i.i40:                                     ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit, %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i
-  %.0.i.i3.i.i41 = phi ptr [ %323, %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i ], [ %321, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit ]
-  %322 = load ptr, ptr %.0.i.i3.i.i41, align 8
-  %.not.i.i = icmp eq ptr %322, null
+  %.0.i.i3.i.i41 = phi ptr [ %333, %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i ], [ %331, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit ]
+  %332 = load ptr, ptr %.0.i.i3.i.i41, align 8
+  %.not.i.i = icmp eq ptr %332, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_.exit.i.i
 
 _ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_.exit.i.i: ; preds = %.lr.ph.i.i40
-  call void @_ZN5vcpkg4Json4impl9ValueImpl18destroy_underlyingEv(ptr noundef nonnull align 8 dereferenceable(40) %322) #33
-  call void @_ZdlPv(ptr noundef nonnull %322) #29
+  call void @_ZN5vcpkg4Json4impl9ValueImpl18destroy_underlyingEv(ptr noundef nonnull align 8 dereferenceable(40) %332) #33
+  call void @_ZdlPv(ptr noundef nonnull %332) #29
   br label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_.exit.i.i, %.lr.ph.i.i40
   store ptr null, ptr %.0.i.i3.i.i41, align 8
-  %323 = getelementptr inbounds i8, ptr %.0.i.i3.i.i41, i64 8
-  %.not.i.i1.i.i42 = icmp eq ptr %323, %320
+  %333 = getelementptr inbounds i8, ptr %.0.i.i3.i.i41, i64 8
+  %.not.i.i1.i.i42 = icmp eq ptr %333, %330
   br i1 %.not.i.i1.i.i42, label %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i40, !llvm.loop !293
 
 _ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit.i, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
-  %.not.i.i.i.i44 = icmp eq ptr %321, null
-  br i1 %.not.i.i.i.i44, label %_ZN5vcpkg4Json5ArrayD2Ev.exit, label %324
+  %.not.i.i.i.i44 = icmp eq ptr %331, null
+  br i1 %.not.i.i.i.i44, label %_ZN5vcpkg4Json5ArrayD2Ev.exit, label %334
 
-324:                                              ; preds = %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %321) #29
+334:                                              ; preds = %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %331) #29
   br label %_ZN5vcpkg4Json5ArrayD2Ev.exit
 
-_ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.thread, %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, %324
+_ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.thread, %_ZSt8_DestroyIPN5vcpkg4Json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, %334
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
@@ -10280,15 +10342,15 @@ _ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  br label %574
+  br label %584
 
-325:                                              ; preds = %72
+335:                                              ; preds = %72
   call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(184) %1) #26
   call void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %68) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
-  br label %574
+  br label %584
 
-326:                                              ; preds = %72, %72, %72
+336:                                              ; preds = %72, %72, %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
@@ -10297,267 +10359,267 @@ _ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
   store ptr null, ptr %39, align 8, !noalias !346
-  switch i32 %73, label %345 [
-    i32 116, label %327
-    i32 102, label %336
+  switch i32 %73, label %355 [
+    i32 116, label %337
+    i32 102, label %346
     i32 110, label %_ZN5vcpkg4Json5ValueD2Ev.exit15.i
   ]
 
-327:                                              ; preds = %326
+337:                                              ; preds = %336
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   store ptr null, ptr %40, align 8, !alias.scope !349, !noalias !346
-  %328 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value7booleanEb.exit.i unwind label %329, !noalias !352
+  %338 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value7booleanEb.exit.i unwind label %339, !noalias !352
 
-329:                                              ; preds = %327
-  %330 = landingpad { ptr, i32 }
+339:                                              ; preds = %337
+  %340 = landingpad { ptr, i32 }
           catch ptr null
-  %331 = extractvalue { ptr, i32 } %330, 0
-  tail call void @__clang_call_terminate(ptr %331) #25
+  %341 = extractvalue { ptr, i32 } %340, 0
+  tail call void @__clang_call_terminate(ptr %341) #25
   unreachable
 
-_ZN5vcpkg4Json5Value7booleanEb.exit.i:            ; preds = %327
-  store i32 1, ptr %328, align 8, !noalias !353
-  %332 = getelementptr inbounds i8, ptr %328, i64 8
-  store i8 1, ptr %332, align 8, !noalias !353
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %328) #26, !noalias !346
-  %333 = load ptr, ptr %40, align 8, !noalias !346
+_ZN5vcpkg4Json5Value7booleanEb.exit.i:            ; preds = %337
+  store i32 1, ptr %338, align 8, !noalias !353
+  %342 = getelementptr inbounds i8, ptr %338, i64 8
+  store i8 1, ptr %342, align 8, !noalias !353
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %338) #26, !noalias !346
+  %343 = load ptr, ptr %40, align 8, !noalias !346
   store ptr null, ptr %40, align 8, !noalias !346
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %333) #26, !noalias !346
-  %334 = load ptr, ptr %40, align 8, !noalias !346
-  %.not.i.i.i = icmp eq ptr %334, null
-  br i1 %.not.i.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit.i, label %335
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %343) #26, !noalias !346
+  %344 = load ptr, ptr %40, align 8, !noalias !346
+  %.not.i.i.i = icmp eq ptr %344, null
+  br i1 %.not.i.i.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit.i, label %345
 
-335:                                              ; preds = %_ZN5vcpkg4Json5Value7booleanEb.exit.i
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull %334) #31, !noalias !346
+345:                                              ; preds = %_ZN5vcpkg4Json5Value7booleanEb.exit.i
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull %344) #31, !noalias !346
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit.i
 
-_ZN5vcpkg4Json5ValueD2Ev.exit.i:                  ; preds = %335, %_ZN5vcpkg4Json5Value7booleanEb.exit.i
+_ZN5vcpkg4Json5ValueD2Ev.exit.i:                  ; preds = %345, %_ZN5vcpkg4Json5Value7booleanEb.exit.i
   store ptr null, ptr %40, align 8, !noalias !346
-  br label %348
+  br label %358
 
-336:                                              ; preds = %326
+346:                                              ; preds = %336
   tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
   store ptr null, ptr %41, align 8, !alias.scope !356, !noalias !346
-  %337 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value7booleanEb.exit11.i unwind label %338, !noalias !359
+  %347 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value7booleanEb.exit11.i unwind label %348, !noalias !359
 
-338:                                              ; preds = %336
-  %339 = landingpad { ptr, i32 }
+348:                                              ; preds = %346
+  %349 = landingpad { ptr, i32 }
           catch ptr null
-  %340 = extractvalue { ptr, i32 } %339, 0
-  tail call void @__clang_call_terminate(ptr %340) #25
+  %350 = extractvalue { ptr, i32 } %349, 0
+  tail call void @__clang_call_terminate(ptr %350) #25
   unreachable
 
-_ZN5vcpkg4Json5Value7booleanEb.exit11.i:          ; preds = %336
-  store i32 1, ptr %337, align 8, !noalias !360
-  %341 = getelementptr inbounds i8, ptr %337, i64 8
-  store i8 0, ptr %341, align 8, !noalias !360
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %337) #26, !noalias !346
-  %342 = load ptr, ptr %41, align 8, !noalias !346
+_ZN5vcpkg4Json5Value7booleanEb.exit11.i:          ; preds = %346
+  store i32 1, ptr %347, align 8, !noalias !360
+  %351 = getelementptr inbounds i8, ptr %347, i64 8
+  store i8 0, ptr %351, align 8, !noalias !360
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %347) #26, !noalias !346
+  %352 = load ptr, ptr %41, align 8, !noalias !346
   store ptr null, ptr %41, align 8, !noalias !346
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %342) #26, !noalias !346
-  %343 = load ptr, ptr %41, align 8, !noalias !346
-  %.not.i.i12.i = icmp eq ptr %343, null
-  br i1 %.not.i.i12.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit13.i, label %344
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %352) #26, !noalias !346
+  %353 = load ptr, ptr %41, align 8, !noalias !346
+  %.not.i.i12.i = icmp eq ptr %353, null
+  br i1 %.not.i.i12.i, label %_ZN5vcpkg4Json5ValueD2Ev.exit13.i, label %354
 
-344:                                              ; preds = %_ZN5vcpkg4Json5Value7booleanEb.exit11.i
-  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull %343) #31, !noalias !346
+354:                                              ; preds = %_ZN5vcpkg4Json5Value7booleanEb.exit11.i
+  call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull %353) #31, !noalias !346
   br label %_ZN5vcpkg4Json5ValueD2Ev.exit13.i
 
-_ZN5vcpkg4Json5ValueD2Ev.exit13.i:                ; preds = %344, %_ZN5vcpkg4Json5Value7booleanEb.exit11.i
+_ZN5vcpkg4Json5ValueD2Ev.exit13.i:                ; preds = %354, %_ZN5vcpkg4Json5Value7booleanEb.exit11.i
   store ptr null, ptr %41, align 8, !noalias !346
-  br label %348
+  br label %358
 
-_ZN5vcpkg4Json5ValueD2Ev.exit15.i:                ; preds = %326
+_ZN5vcpkg4Json5ValueD2Ev.exit15.i:                ; preds = %336
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef null) #26, !noalias !346
-  br label %348
+  br label %358
 
-345:                                              ; preds = %326
+355:                                              ; preds = %336
   store i32 762, ptr %42, align 8, !noalias !346
-  %346 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr @.str, ptr %346, align 8, !noalias !346
+  %356 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr @.str, ptr %356, align 8, !noalias !346
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %42) #27
-          to label %347 unwind label %.loopexit.split-lp.i, !noalias !346
+          to label %357 unwind label %.loopexit.split-lp.i, !noalias !346
 
-347:                                              ; preds = %345
+357:                                              ; preds = %355
   unreachable
 
-348:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit15.i, %_ZN5vcpkg4Json5ValueD2Ev.exit13.i, %_ZN5vcpkg4Json5ValueD2Ev.exit.i
+358:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit15.i, %_ZN5vcpkg4Json5ValueD2Ev.exit13.i, %_ZN5vcpkg4Json5ValueD2Ev.exit.i
   %.0.i14 = phi ptr [ @.str.52, %_ZN5vcpkg4Json5ValueD2Ev.exit15.i ], [ @.str.51, %_ZN5vcpkg4Json5ValueD2Ev.exit13.i ], [ @.str.50, %_ZN5vcpkg4Json5ValueD2Ev.exit.i ]
-  %349 = load i32, ptr %.0.i14, align 4, !noalias !346
-  %.not20.i = icmp eq i32 %349, 0
+  %359 = load i32, ptr %.0.i14, align 4, !noalias !346
+  %.not20.i = icmp eq i32 %359, 0
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %348
-  %350 = getelementptr inbounds i8, ptr %1, i64 176
-  %351 = getelementptr inbounds i8, ptr %1, i64 168
-  br label %352
+.lr.ph.i:                                         ; preds = %358
+  %360 = getelementptr inbounds i8, ptr %1, i64 176
+  %361 = getelementptr inbounds i8, ptr %1, i64 168
+  br label %362
 
-352:                                              ; preds = %369, %.lr.ph.i
-  %353 = phi i32 [ %349, %.lr.ph.i ], [ %371, %369 ]
-  %.0821.i = phi ptr [ %.0.i14, %.lr.ph.i ], [ %370, %369 ]
-  %354 = load i32, ptr %1, align 8, !noalias !346
-  switch i32 %354, label %357 [
-    i32 13, label %355
-    i32 9, label %356
+362:                                              ; preds = %379, %.lr.ph.i
+  %363 = phi i32 [ %359, %.lr.ph.i ], [ %381, %379 ]
+  %.0821.i = phi ptr [ %.0.i14, %.lr.ph.i ], [ %380, %379 ]
+  %364 = load i32, ptr %1, align 8, !noalias !346
+  switch i32 %364, label %367 [
+    i32 13, label %365
+    i32 9, label %366
   ]
 
-355:                                              ; preds = %352
-  store i32 1, ptr %351, align 8, !noalias !346
-  br label %357
+365:                                              ; preds = %362
+  store i32 1, ptr %361, align 8, !noalias !346
+  br label %367
 
-356:                                              ; preds = %352
-  store i64 -1, ptr %350, align 8, !noalias !346
-  br label %357
+366:                                              ; preds = %362
+  store i64 -1, ptr %360, align 8, !noalias !346
+  br label %367
 
-357:                                              ; preds = %356, %355, %352
-  %358 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i unwind label %359, !noalias !346
+367:                                              ; preds = %366, %365, %362
+  %368 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i unwind label %369, !noalias !346
 
-359:                                              ; preds = %357
-  %360 = landingpad { ptr, i32 }
+369:                                              ; preds = %367
+  %370 = landingpad { ptr, i32 }
           catch ptr null
-  %361 = extractvalue { ptr, i32 } %360, 0
-  call void @__clang_call_terminate(ptr %361) #25
+  %371 = extractvalue { ptr, i32 } %370, 0
+  call void @__clang_call_terminate(ptr %371) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i: ; preds = %357
-  %362 = icmp eq i32 %358, -1
-  br i1 %362, label %363, label %365
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i: ; preds = %367
+  %372 = icmp eq i32 %368, -1
+  br i1 %372, label %373, label %375
 
-363:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i
+373:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i
   %.sroa.01.0.copyload.i16 = load i64, ptr @_ZN5vcpkg26msgUnexpectedEOFMidKeywordE, align 8, !noalias !346
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %43, i64 %.sroa.01.0.copyload.i16)
-          to label %364 unwind label %.loopexit.split-lp.i, !noalias !346
+          to label %374 unwind label %.loopexit.split-lp.i, !noalias !346
 
-364:                                              ; preds = %363
+374:                                              ; preds = %373
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %43)
-          to label %383 unwind label %.loopexit.split-lp.i, !noalias !346
+          to label %393 unwind label %.loopexit.split-lp.i, !noalias !346
 
-365:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i
-  %.not10.i = icmp eq i32 %358, %353
-  br i1 %.not10.i, label %369, label %366
+375:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i
+  %.not10.i = icmp eq i32 %368, %363
+  br i1 %.not10.i, label %379, label %376
 
-366:                                              ; preds = %365
+376:                                              ; preds = %375
   %.sroa.0.0.copyload.i15 = load i64, ptr @_ZN5vcpkg27msgUnexpectedCharMidKeywordE, align 8, !noalias !346
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %44, i64 %.sroa.0.0.copyload.i15)
-          to label %367 unwind label %.loopexit.i, !noalias !346
+          to label %377 unwind label %.loopexit.i, !noalias !346
 
-367:                                              ; preds = %366
+377:                                              ; preds = %376
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %44)
-          to label %368 unwind label %.loopexit.i, !noalias !346
+          to label %378 unwind label %.loopexit.i, !noalias !346
 
-368:                                              ; preds = %367
+378:                                              ; preds = %377
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #26, !noalias !346
-  br label %369
+  br label %379
 
-369:                                              ; preds = %368, %365
-  %370 = getelementptr inbounds i8, ptr %.0821.i, i64 4
-  %371 = load i32, ptr %370, align 4, !noalias !346
-  %.not.i = icmp eq i32 %371, 0
-  br i1 %.not.i, label %._crit_edge.i, label %352, !llvm.loop !363
+379:                                              ; preds = %378, %375
+  %380 = getelementptr inbounds i8, ptr %.0821.i, i64 4
+  %381 = load i32, ptr %380, align 4, !noalias !346
+  %.not.i = icmp eq i32 %381, 0
+  br i1 %.not.i, label %._crit_edge.i, label %362, !llvm.loop !363
 
-._crit_edge.i:                                    ; preds = %369, %348
-  %372 = load i32, ptr %1, align 8, !noalias !346
-  switch i32 %372, label %377 [
-    i32 13, label %373
-    i32 9, label %375
+._crit_edge.i:                                    ; preds = %379, %358
+  %382 = load i32, ptr %1, align 8, !noalias !346
+  switch i32 %382, label %387 [
+    i32 13, label %383
+    i32 9, label %385
   ]
 
-373:                                              ; preds = %._crit_edge.i
-  %374 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 1, ptr %374, align 8, !noalias !346
-  br label %377
+383:                                              ; preds = %._crit_edge.i
+  %384 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 1, ptr %384, align 8, !noalias !346
+  br label %387
 
-375:                                              ; preds = %._crit_edge.i
-  %376 = getelementptr inbounds i8, ptr %1, i64 176
-  store i64 -1, ptr %376, align 8, !noalias !346
-  br label %377
+385:                                              ; preds = %._crit_edge.i
+  %386 = getelementptr inbounds i8, ptr %1, i64 176
+  store i64 -1, ptr %386, align 8, !noalias !346
+  br label %387
 
-377:                                              ; preds = %375, %373, %._crit_edge.i
-  %378 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %.thread.i unwind label %379, !noalias !346
+387:                                              ; preds = %385, %383, %._crit_edge.i
+  %388 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %.thread.i unwind label %389, !noalias !346
 
-379:                                              ; preds = %377
-  %380 = landingpad { ptr, i32 }
+389:                                              ; preds = %387
+  %390 = landingpad { ptr, i32 }
           catch ptr null
-  %381 = extractvalue { ptr, i32 } %380, 0
-  call void @__clang_call_terminate(ptr %381) #25
+  %391 = extractvalue { ptr, i32 } %390, 0
+  call void @__clang_call_terminate(ptr %391) #25
   unreachable
 
-.thread.i:                                        ; preds = %377
-  %382 = load i64, ptr %39, align 8, !noalias !346
-  store i64 %382, ptr %0, align 8, !alias.scope !346
+.thread.i:                                        ; preds = %387
+  %392 = load i64, ptr %39, align 8, !noalias !346
+  store i64 %392, ptr %0, align 8, !alias.scope !346
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit
 
-383:                                              ; preds = %364
+393:                                              ; preds = %374
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #26, !noalias !346
   store ptr null, ptr %0, align 8, !alias.scope !346
   %.pr.i = load ptr, ptr %39, align 8, !noalias !346
   %.not.i.i17.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i17.i, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit, label %384
+  br i1 %.not.i.i17.i, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit, label %394
 
-384:                                              ; preds = %383
+394:                                              ; preds = %393
   call void @_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull %.pr.i) #31, !noalias !346
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit
 
-.loopexit.i:                                      ; preds = %367, %366
+.loopexit.i:                                      ; preds = %377, %376
   %lpad.loopexit.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %385
+  br label %395
 
-.loopexit.split-lp.i:                             ; preds = %364, %363, %345
+.loopexit.split-lp.i:                             ; preds = %374, %373, %355
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %385
+  br label %395
 
-385:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+395:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %386 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %386) #25
+  %396 = extractvalue { ptr, i32 } %lpad.phi.i, 0
+  call void @__clang_call_terminate(ptr %396) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit: ; preds = %.thread.i, %383, %384
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit: ; preds = %.thread.i, %393, %394
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
-  br label %574
+  br label %584
 
-387:                                              ; preds = %72
+397:                                              ; preds = %72
   %.sroa.02.0.copyload = load i64, ptr @_ZN5vcpkg30msgUnexpectedCharExpectedValueE, align 8
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %69, i64 %.sroa.02.0.copyload)
-          to label %388 unwind label %575
+          to label %398 unwind label %585
 
-388:                                              ; preds = %387
-  %389 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 noundef signext 10)
-          to label %390 unwind label %575
+398:                                              ; preds = %397
+  %399 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawEc(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 noundef signext 10)
+          to label %400 unwind label %585
 
-390:                                              ; preds = %388
+400:                                              ; preds = %398
   %.sroa.01.0.copyload = load i64, ptr @_ZN5vcpkg22msgInvalidCommentStyleE, align 8
-  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %389, i64 %.sroa.01.0.copyload)
-          to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit unwind label %575
+  invoke void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32) %399, i64 %.sroa.01.0.copyload)
+          to label %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit unwind label %585
 
-_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit: ; preds = %390
-  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %389)
-          to label %391 unwind label %575
+_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit: ; preds = %400
+  invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %399)
+          to label %401 unwind label %585
 
-391:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit
+401:                                              ; preds = %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #26
   store ptr null, ptr %0, align 8
-  br label %574
+  br label %584
 
-392:                                              ; preds = %72
-  %393 = icmp eq i32 %73, 45
-  %394 = add i32 %73, -48
-  %395 = icmp ult i32 %394, 10
-  %396 = or i1 %393, %395
-  br i1 %396, label %397, label %571
+402:                                              ; preds = %72
+  %403 = icmp eq i32 %73, 45
+  %404 = add i32 %73, -48
+  %405 = icmp ult i32 %404, 10
+  %406 = or i1 %403, %405
+  br i1 %406, label %407, label %581
 
-397:                                              ; preds = %392
+407:                                              ; preds = %402
   tail call void @llvm.experimental.noalias.scope.decl(metadata !364)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
@@ -10572,394 +10634,394 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   store i32 640, ptr %27, align 8, !noalias !364
-  %398 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr @.str, ptr %398, align 8, !noalias !364
+  %408 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr @.str, ptr %408, align 8, !noalias !364
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %27, i1 noundef zeroext true)
-          to label %399 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %409 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-399:                                              ; preds = %397
+409:                                              ; preds = %407
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
-  %400 = load i32, ptr %1, align 8, !noalias !364
-  %401 = icmp eq i32 %400, 45
-  br i1 %401, label %402, label %418
+  %410 = load i32, ptr %1, align 8, !noalias !364
+  %411 = icmp eq i32 %410, 45
+  br i1 %411, label %412, label %428
 
-402:                                              ; preds = %399
+412:                                              ; preds = %409
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext 45)
-          to label %403 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %413 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-403:                                              ; preds = %402
-  %404 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %404, label %409 [
-    i32 13, label %405
-    i32 9, label %407
+413:                                              ; preds = %412
+  %414 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %414, label %419 [
+    i32 13, label %415
+    i32 9, label %417
   ]
 
-405:                                              ; preds = %403
-  %406 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 1, ptr %406, align 8, !noalias !364
-  br label %409
+415:                                              ; preds = %413
+  %416 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 1, ptr %416, align 8, !noalias !364
+  br label %419
 
-407:                                              ; preds = %403
-  %408 = getelementptr inbounds i8, ptr %1, i64 176
-  store i64 -1, ptr %408, align 8, !noalias !364
-  br label %409
+417:                                              ; preds = %413
+  %418 = getelementptr inbounds i8, ptr %1, i64 176
+  store i64 -1, ptr %418, align 8, !noalias !364
+  br label %419
 
-409:                                              ; preds = %407, %405, %403
-  %410 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23 unwind label %411, !noalias !364
+419:                                              ; preds = %417, %415, %413
+  %420 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23 unwind label %421, !noalias !364
 
-411:                                              ; preds = %409
-  %412 = landingpad { ptr, i32 }
+421:                                              ; preds = %419
+  %422 = landingpad { ptr, i32 }
           catch ptr null
-  %413 = extractvalue { ptr, i32 } %412, 0
-  call void @__clang_call_terminate(ptr %413) #25
+  %423 = extractvalue { ptr, i32 } %422, 0
+  call void @__clang_call_terminate(ptr %423) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23: ; preds = %409
-  %414 = icmp eq i32 %410, -1
-  br i1 %414, label %415, label %418
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23: ; preds = %419
+  %424 = icmp eq i32 %420, -1
+  br i1 %424, label %425, label %428
 
-415:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23
+425:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23
   %.sroa.017.0.copyload.i = load i64, ptr @_ZN5vcpkg26msgUnexpectedEOFAfterMinusE, align 8, !noalias !364
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %29, i64 %.sroa.017.0.copyload.i)
-          to label %416 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %426 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-416:                                              ; preds = %415
+426:                                              ; preds = %425
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %29)
-          to label %417 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %427 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-417:                                              ; preds = %416
+427:                                              ; preds = %426
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #26, !noalias !364
   store ptr null, ptr %0, align 8, !alias.scope !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-418:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23, %399
-  %.033.i = phi i32 [ %410, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23 ], [ %400, %399 ]
-  %419 = icmp eq i32 %.033.i, 48
-  br i1 %419, label %420, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i
+428:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23, %409
+  %.033.i = phi i32 [ %420, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i23 ], [ %410, %409 ]
+  %429 = icmp eq i32 %.033.i, 48
+  br i1 %429, label %430, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i
 
-420:                                              ; preds = %418
-  %421 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %421, label %426 [
-    i32 13, label %422
-    i32 9, label %424
+430:                                              ; preds = %428
+  %431 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %431, label %436 [
+    i32 13, label %432
+    i32 9, label %434
   ]
 
-422:                                              ; preds = %420
-  %423 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 1, ptr %423, align 8, !noalias !364
-  br label %426
+432:                                              ; preds = %430
+  %433 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 1, ptr %433, align 8, !noalias !364
+  br label %436
 
-424:                                              ; preds = %420
-  %425 = getelementptr inbounds i8, ptr %1, i64 176
-  store i64 -1, ptr %425, align 8, !noalias !364
-  br label %426
+434:                                              ; preds = %430
+  %435 = getelementptr inbounds i8, ptr %1, i64 176
+  store i64 -1, ptr %435, align 8, !noalias !364
+  br label %436
 
-426:                                              ; preds = %424, %422, %420
-  %427 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i unwind label %428, !noalias !364
+436:                                              ; preds = %434, %432, %430
+  %437 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i unwind label %438, !noalias !364
 
-428:                                              ; preds = %426
-  %429 = landingpad { ptr, i32 }
+438:                                              ; preds = %436
+  %439 = landingpad { ptr, i32 }
           catch ptr null
-  %430 = extractvalue { ptr, i32 } %429, 0
-  call void @__clang_call_terminate(ptr %430) #25
+  %440 = extractvalue { ptr, i32 } %439, 0
+  call void @__clang_call_terminate(ptr %440) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i: ; preds = %426
-  %431 = icmp eq i32 %427, 46
-  br i1 %431, label %432, label %445
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i: ; preds = %436
+  %441 = icmp eq i32 %437, 46
+  br i1 %441, label %442, label %455
 
-432:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i
-  %433 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.53)
-          to label %434 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+442:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i
+  %443 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.53)
+          to label %444 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-434:                                              ; preds = %432
-  %435 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %435, label %440 [
-    i32 13, label %436
-    i32 9, label %438
+444:                                              ; preds = %442
+  %445 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %445, label %450 [
+    i32 13, label %446
+    i32 9, label %448
   ]
 
-436:                                              ; preds = %434
-  %437 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 1, ptr %437, align 8, !noalias !364
-  br label %440
+446:                                              ; preds = %444
+  %447 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 1, ptr %447, align 8, !noalias !364
+  br label %450
 
-438:                                              ; preds = %434
-  %439 = getelementptr inbounds i8, ptr %1, i64 176
-  store i64 -1, ptr %439, align 8, !noalias !364
-  br label %440
+448:                                              ; preds = %444
+  %449 = getelementptr inbounds i8, ptr %1, i64 176
+  store i64 -1, ptr %449, align 8, !noalias !364
+  br label %450
 
-440:                                              ; preds = %438, %436, %434
-  %441 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i unwind label %442, !noalias !364
+450:                                              ; preds = %448, %446, %444
+  %451 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i unwind label %452, !noalias !364
 
-442:                                              ; preds = %440
-  %443 = landingpad { ptr, i32 }
+452:                                              ; preds = %450
+  %453 = landingpad { ptr, i32 }
           catch ptr null
-  %444 = extractvalue { ptr, i32 } %443, 0
-  call void @__clang_call_terminate(ptr %444) #25
+  %454 = extractvalue { ptr, i32 } %453, 0
+  call void @__clang_call_terminate(ptr %454) #25
   unreachable
 
-445:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i
-  %446 = add i32 %427, -48
-  %447 = icmp ult i32 %446, 10
-  br i1 %447, label %448, label %451
+455:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit43.i
+  %456 = add i32 %437, -48
+  %457 = icmp ult i32 %456, 10
+  br i1 %457, label %458, label %461
 
-448:                                              ; preds = %445
+458:                                              ; preds = %455
   %.sroa.015.0.copyload.i = load i64, ptr @_ZN5vcpkg35msgUnexpectedDigitsAfterLeadingZeroE, align 8, !noalias !364
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %30, i64 %.sroa.015.0.copyload.i)
-          to label %449 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %459 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-449:                                              ; preds = %448
+459:                                              ; preds = %458
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %450 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %460 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-450:                                              ; preds = %449
+460:                                              ; preds = %459
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #26, !noalias !364
   store ptr null, ptr %0, align 8, !alias.scope !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-451:                                              ; preds = %445
-  br i1 %401, label %452, label %460
+461:                                              ; preds = %455
+  br i1 %411, label %462, label %470
 
-452:                                              ; preds = %451
+462:                                              ; preds = %461
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !364
   store i32 259, ptr %26, align 8, !noalias !370
-  %453 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr @.str, ptr %453, align 8, !noalias !370
+  %463 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr @.str, ptr %463, align 8, !noalias !370
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %26, i1 noundef zeroext true)
-          to label %454 unwind label %456, !noalias !370
+          to label %464 unwind label %466, !noalias !370
 
-454:                                              ; preds = %452
+464:                                              ; preds = %462
   store ptr null, ptr %0, align 8, !alias.scope !370
-  %455 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value6numberEd.exit.i unwind label %456, !noalias !370
+  %465 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value6numberEd.exit.i unwind label %466, !noalias !370
 
-456:                                              ; preds = %454, %452
-  %457 = landingpad { ptr, i32 }
+466:                                              ; preds = %464, %462
+  %467 = landingpad { ptr, i32 }
           catch ptr null
-  %458 = extractvalue { ptr, i32 } %457, 0
-  call void @__clang_call_terminate(ptr %458) #25
+  %468 = extractvalue { ptr, i32 } %467, 0
+  call void @__clang_call_terminate(ptr %468) #25
   unreachable
 
-_ZN5vcpkg4Json5Value6numberEd.exit.i:             ; preds = %454
-  store i32 3, ptr %455, align 8, !noalias !371
-  %459 = getelementptr inbounds i8, ptr %455, i64 8
-  store double -0.000000e+00, ptr %459, align 8, !noalias !371
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %455) #26
+_ZN5vcpkg4Json5Value6numberEd.exit.i:             ; preds = %464
+  store i32 3, ptr %465, align 8, !noalias !371
+  %469 = getelementptr inbounds i8, ptr %465, i64 8
+  store double -0.000000e+00, ptr %469, align 8, !noalias !371
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %465) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-460:                                              ; preds = %451
+470:                                              ; preds = %461
   call void @llvm.experimental.noalias.scope.decl(metadata !374)
   store ptr null, ptr %0, align 8, !alias.scope !377
-  %461 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value7integerEl.exit.i unwind label %462, !noalias !377
-
-462:                                              ; preds = %460
-  %463 = landingpad { ptr, i32 }
-          catch ptr null
-  %464 = extractvalue { ptr, i32 } %463, 0
-  call void @__clang_call_terminate(ptr %464) #25
-  unreachable
-
-_ZN5vcpkg4Json5Value7integerEl.exit.i:            ; preds = %460
-  store i32 2, ptr %461, align 8, !noalias !378
-  %465 = getelementptr inbounds i8, ptr %461, i64 8
-  store i64 0, ptr %465, align 8, !noalias !378
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %461) #26
-  br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
-
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i: ; preds = %440, %418
-  %.134.i = phi i32 [ %.033.i, %418 ], [ %441, %440 ]
-  %466 = getelementptr inbounds i8, ptr %1, i64 176
-  %467 = getelementptr inbounds i8, ptr %1, i64 168
-  br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
-
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i: ; preds = %476, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i
-  %.2.i = phi i32 [ %.134.i, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i ], [ %477, %476 ]
-  %468 = add i32 %.2.i, -48
-  %469 = icmp ult i32 %468, 10
-  br i1 %469, label %470, label %481
-
-470:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
-  %471 = trunc nuw i32 %.2.i to i8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext %471)
-          to label %472 unwind label %.loopexit.split-lp.loopexit.i, !noalias !364
+  %471 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value7integerEl.exit.i unwind label %472, !noalias !377
 
 472:                                              ; preds = %470
-  %473 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %473, label %476 [
-    i32 13, label %474
-    i32 9, label %475
-  ]
-
-474:                                              ; preds = %472
-  store i32 1, ptr %467, align 8, !noalias !364
-  br label %476
-
-475:                                              ; preds = %472
-  store i64 -1, ptr %466, align 8, !noalias !364
-  br label %476
-
-476:                                              ; preds = %475, %474, %472
-  %477 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i unwind label %478, !noalias !364, !llvm.loop !381
-
-478:                                              ; preds = %476
-  %479 = landingpad { ptr, i32 }
+  %473 = landingpad { ptr, i32 }
           catch ptr null
-  %480 = extractvalue { ptr, i32 } %479, 0
-  call void @__clang_call_terminate(ptr %480) #25
+  %474 = extractvalue { ptr, i32 } %473, 0
+  call void @__clang_call_terminate(ptr %474) #25
   unreachable
 
-481:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
-  %482 = icmp ne i32 %.2.i, 46
-  %or.cond.not.i = or i1 %419, %482
-  br i1 %or.cond.not.i, label %511, label %483
+_ZN5vcpkg4Json5Value7integerEl.exit.i:            ; preds = %470
+  store i32 2, ptr %471, align 8, !noalias !378
+  %475 = getelementptr inbounds i8, ptr %471, i64 8
+  store i64 0, ptr %475, align 8, !noalias !378
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %471) #26
+  br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-483:                                              ; preds = %481
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i: ; preds = %450, %428
+  %.134.i = phi i32 [ %.033.i, %428 ], [ %451, %450 ]
+  %476 = getelementptr inbounds i8, ptr %1, i64 176
+  %477 = getelementptr inbounds i8, ptr %1, i64 168
+  br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
+
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i: ; preds = %486, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i
+  %.2.i = phi i32 [ %.134.i, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit44.i ], [ %487, %486 ]
+  %478 = add i32 %.2.i, -48
+  %479 = icmp ult i32 %478, 10
+  br i1 %479, label %480, label %491
+
+480:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
+  %481 = trunc nuw i32 %.2.i to i8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext %481)
+          to label %482 unwind label %.loopexit.split-lp.loopexit.i, !noalias !364
+
+482:                                              ; preds = %480
+  %483 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %483, label %486 [
+    i32 13, label %484
+    i32 9, label %485
+  ]
+
+484:                                              ; preds = %482
+  store i32 1, ptr %477, align 8, !noalias !364
+  br label %486
+
+485:                                              ; preds = %482
+  store i64 -1, ptr %476, align 8, !noalias !364
+  br label %486
+
+486:                                              ; preds = %485, %484, %482
+  %487 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i unwind label %488, !noalias !364, !llvm.loop !381
+
+488:                                              ; preds = %486
+  %489 = landingpad { ptr, i32 }
+          catch ptr null
+  %490 = extractvalue { ptr, i32 } %489, 0
+  call void @__clang_call_terminate(ptr %490) #25
+  unreachable
+
+491:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit45.i
+  %492 = icmp ne i32 %.2.i, 46
+  %or.cond.not.i = or i1 %429, %492
+  br i1 %or.cond.not.i, label %521, label %493
+
+493:                                              ; preds = %491
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext 46)
-          to label %484 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %494 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-484:                                              ; preds = %483
-  %485 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %485, label %488 [
-    i32 13, label %486
-    i32 9, label %487
+494:                                              ; preds = %493
+  %495 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %495, label %498 [
+    i32 13, label %496
+    i32 9, label %497
   ]
 
-486:                                              ; preds = %484
-  store i32 1, ptr %467, align 8, !noalias !364
-  br label %488
+496:                                              ; preds = %494
+  store i32 1, ptr %477, align 8, !noalias !364
+  br label %498
 
-487:                                              ; preds = %484
-  store i64 -1, ptr %466, align 8, !noalias !364
-  br label %488
+497:                                              ; preds = %494
+  store i64 -1, ptr %476, align 8, !noalias !364
+  br label %498
 
-488:                                              ; preds = %487, %486, %484
-  %489 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i unwind label %490, !noalias !364
+498:                                              ; preds = %497, %496, %494
+  %499 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i unwind label %500, !noalias !364
 
-490:                                              ; preds = %488
-  %491 = landingpad { ptr, i32 }
+500:                                              ; preds = %498
+  %501 = landingpad { ptr, i32 }
           catch ptr null
-  %492 = extractvalue { ptr, i32 } %491, 0
-  call void @__clang_call_terminate(ptr %492) #25
+  %502 = extractvalue { ptr, i32 } %501, 0
+  call void @__clang_call_terminate(ptr %502) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i: ; preds = %488
-  %493 = add i32 %489, -48
-  %494 = icmp ult i32 %493, 10
-  br i1 %494, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i, label %495
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i: ; preds = %498
+  %503 = add i32 %499, -48
+  %504 = icmp ult i32 %503, 10
+  br i1 %504, label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i, label %505
 
-495:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i
+505:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i
   %.sroa.014.0.copyload.i = load i64, ptr @_ZN5vcpkg29msgExpectedDigitsAfterDecimalE, align 8, !noalias !364
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %31, i64 %.sroa.014.0.copyload.i)
-          to label %496 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %506 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-496:                                              ; preds = %495
+506:                                              ; preds = %505
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %31)
-          to label %497 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+          to label %507 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-497:                                              ; preds = %496
+507:                                              ; preds = %506
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #26, !noalias !364
   store ptr null, ptr %0, align 8, !alias.scope !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i: ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i, %506
-  %.3.i = phi i32 [ %507, %506 ], [ %489, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i ]
-  %498 = add i32 %.3.i, -48
-  %499 = icmp ult i32 %498, 10
-  br i1 %499, label %500, label %.thread.i19
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i: ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i, %516
+  %.3.i = phi i32 [ %517, %516 ], [ %499, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit46.i ]
+  %508 = add i32 %.3.i, -48
+  %509 = icmp ult i32 %508, 10
+  br i1 %509, label %510, label %.thread.i19
 
-500:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i
-  %501 = trunc nuw i32 %.3.i to i8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext %501)
-          to label %502 unwind label %.loopexit.i20, !noalias !364
+510:                                              ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i
+  %511 = trunc nuw i32 %.3.i to i8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 noundef signext %511)
+          to label %512 unwind label %.loopexit.i20, !noalias !364
 
-502:                                              ; preds = %500
-  %503 = load i32, ptr %1, align 8, !noalias !364
-  switch i32 %503, label %506 [
-    i32 13, label %504
-    i32 9, label %505
+512:                                              ; preds = %510
+  %513 = load i32, ptr %1, align 8, !noalias !364
+  switch i32 %513, label %516 [
+    i32 13, label %514
+    i32 9, label %515
   ]
 
-504:                                              ; preds = %502
-  store i32 1, ptr %467, align 8, !noalias !364
-  br label %506
+514:                                              ; preds = %512
+  store i32 1, ptr %477, align 8, !noalias !364
+  br label %516
 
-505:                                              ; preds = %502
-  store i64 -1, ptr %466, align 8, !noalias !364
-  br label %506
+515:                                              ; preds = %512
+  store i64 -1, ptr %476, align 8, !noalias !364
+  br label %516
 
-506:                                              ; preds = %505, %504, %502
-  %507 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
-          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i unwind label %508, !noalias !364, !llvm.loop !382
+516:                                              ; preds = %515, %514, %512
+  %517 = invoke noundef zeroext i32 @_ZN5vcpkg10ParserBase4nextEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+          to label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i unwind label %518, !noalias !364, !llvm.loop !382
 
-508:                                              ; preds = %506
-  %509 = landingpad { ptr, i32 }
+518:                                              ; preds = %516
+  %519 = landingpad { ptr, i32 }
           catch ptr null
-  %510 = extractvalue { ptr, i32 } %509, 0
-  call void @__clang_call_terminate(ptr %510) #25
+  %520 = extractvalue { ptr, i32 } %519, 0
+  call void @__clang_call_terminate(ptr %520) #25
   unreachable
 
-511:                                              ; preds = %481
-  br i1 %419, label %.thread.i19, label %546
+521:                                              ; preds = %491
+  br i1 %429, label %.thread.i19, label %556
 
-.thread.i19:                                      ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i, %511
+.thread.i19:                                      ; preds = %_ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i, %521
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
-  %512 = load ptr, ptr %33, align 8, !noalias !364
-  %513 = getelementptr inbounds i8, ptr %33, i64 8
-  %514 = load i64, ptr %513, align 8, !noalias !364
-  invoke void @_ZN5vcpkg7Strings5strtoIdEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.92") align 8 %32, ptr %512, i64 %514)
-          to label %515 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+  %522 = load ptr, ptr %33, align 8, !noalias !364
+  %523 = getelementptr inbounds i8, ptr %33, i64 8
+  %524 = load i64, ptr %523, align 8, !noalias !364
+  invoke void @_ZN5vcpkg7Strings5strtoIdEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.92") align 8 %32, ptr %522, i64 %524)
+          to label %525 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-515:                                              ; preds = %.thread.i19
-  %516 = load i8, ptr %32, align 8, !noalias !364
-  %517 = trunc i8 %516 to i1
-  br i1 %517, label %518, label %538
+525:                                              ; preds = %.thread.i19
+  %526 = load i8, ptr %32, align 8, !noalias !364
+  %527 = trunc i8 %526 to i1
+  br i1 %527, label %528, label %548
 
-518:                                              ; preds = %515
-  %519 = getelementptr inbounds i8, ptr %32, i64 8
-  %520 = load double, ptr %519, align 8, !noalias !364
-  %521 = call noundef double @llvm.fabs.f64(double %520)
-  %522 = fcmp ueq double %521, 0x7FF0000000000000
-  br i1 %522, label %530, label %.critedge.i
+528:                                              ; preds = %525
+  %529 = getelementptr inbounds i8, ptr %32, i64 8
+  %530 = load double, ptr %529, align 8, !noalias !364
+  %531 = call noundef double @llvm.fabs.f64(double %530)
+  %532 = fcmp ueq double %531, 0x7FF0000000000000
+  br i1 %532, label %540, label %.critedge.i
 
-.critedge.i:                                      ; preds = %518
+.critedge.i:                                      ; preds = %528
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !364
   store i32 259, ptr %25, align 8, !noalias !386
-  %523 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr @.str, ptr %523, align 8, !noalias !386
+  %533 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr @.str, ptr %533, align 8, !noalias !386
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %25, i1 noundef zeroext true)
-          to label %524 unwind label %526, !noalias !386
+          to label %534 unwind label %536, !noalias !386
 
-524:                                              ; preds = %.critedge.i
+534:                                              ; preds = %.critedge.i
   store ptr null, ptr %0, align 8, !alias.scope !386
-  %525 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN5vcpkg4Json5Value6numberEd.exit48.i unwind label %526, !noalias !386
+  %535 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %_ZN5vcpkg4Json5Value6numberEd.exit48.i unwind label %536, !noalias !386
 
-526:                                              ; preds = %524, %.critedge.i
-  %527 = landingpad { ptr, i32 }
+536:                                              ; preds = %534, %.critedge.i
+  %537 = landingpad { ptr, i32 }
           catch ptr null
-  %528 = extractvalue { ptr, i32 } %527, 0
-  call void @__clang_call_terminate(ptr %528) #25
+  %538 = extractvalue { ptr, i32 } %537, 0
+  call void @__clang_call_terminate(ptr %538) #25
   unreachable
 
-_ZN5vcpkg4Json5Value6numberEd.exit48.i:           ; preds = %524
-  store i32 3, ptr %525, align 8, !noalias !387
-  %529 = getelementptr inbounds i8, ptr %525, i64 8
-  store double %520, ptr %529, align 8, !noalias !387
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %525) #26
+_ZN5vcpkg4Json5Value6numberEd.exit48.i:           ; preds = %534
+  store i32 3, ptr %535, align 8, !noalias !387
+  %539 = getelementptr inbounds i8, ptr %535, i64 8
+  store double %530, ptr %539, align 8, !noalias !387
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %535) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-530:                                              ; preds = %518
+540:                                              ; preds = %528
   %.sroa.010.0.copyload.i = load i64, ptr @_ZN5vcpkg27msgFloatingPointConstTooBigE, align 8, !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !364
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
@@ -10969,32 +11031,32 @@ _ZN5vcpkg4Json5Value6numberEd.exit48.i:           ; preds = %524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !364
   store ptr %.fca.0.load.i.i, ptr %23, align 8, !noalias !390
-  %531 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %.fca.1.load.i.i, ptr %531, align 8, !noalias !390
-  %532 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !390
+  %541 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %.fca.1.load.i.i, ptr %541, align 8, !noalias !390
+  %542 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !390
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !390
-  %533 = ptrtoint ptr %23 to i64
-  %534 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr %534, ptr %22, align 16, !alias.scope !393, !noalias !396
-  %535 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 1, ptr %535, align 8, !alias.scope !393, !noalias !396
-  %536 = getelementptr inbounds i8, ptr %22, i64 16
-  store i64 %533, ptr %536, align 16, !alias.scope !393, !noalias !396
+  %543 = ptrtoint ptr %23 to i64
+  %544 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %544, ptr %22, align 16, !alias.scope !393, !noalias !396
+  %545 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 1, ptr %545, align 8, !alias.scope !393, !noalias !396
+  %546 = getelementptr inbounds i8, ptr %22, i64 16
+  store i64 %543, ptr %546, align 16, !alias.scope !393, !noalias !396
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !393, !noalias !396
-  store ptr %532, ptr %534, align 16, !alias.scope !393, !noalias !396
+  store ptr %542, ptr %544, align 16, !alias.scope !393, !noalias !396
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 40
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !393, !noalias !396
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %34, i64 noundef %.sroa.010.0.copyload.i, i64 4611686018427387919, ptr nonnull %536)
-          to label %537 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %34, i64 noundef %.sroa.010.0.copyload.i, i64 4611686018427387919, ptr nonnull %546)
+          to label %547 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-537:                                              ; preds = %530
+547:                                              ; preds = %540
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !390
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !364
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %.thread67.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-538:                                              ; preds = %515
+548:                                              ; preds = %525
   %.sroa.07.0.copyload.i = load i64, ptr @_ZN5vcpkg28msgInvalidFloatingPointConstE, align 8, !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !364
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
@@ -11004,60 +11066,60 @@ _ZN5vcpkg4Json5Value6numberEd.exit48.i:           ; preds = %524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !364
   store ptr %.fca.0.load.i49.i, ptr %20, align 8, !noalias !399
-  %539 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 %.fca.1.load.i52.i, ptr %539, align 8, !noalias !399
-  %540 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !399
+  %549 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 %.fca.1.load.i52.i, ptr %549, align 8, !noalias !399
+  %550 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !399
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !399
-  %541 = ptrtoint ptr %20 to i64
-  %542 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %542, ptr %19, align 16, !alias.scope !402, !noalias !405
-  %543 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 1, ptr %543, align 8, !alias.scope !402, !noalias !405
-  %544 = getelementptr inbounds i8, ptr %19, i64 16
-  store i64 %541, ptr %544, align 16, !alias.scope !402, !noalias !405
+  %551 = ptrtoint ptr %20 to i64
+  %552 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %552, ptr %19, align 16, !alias.scope !402, !noalias !405
+  %553 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 1, ptr %553, align 8, !alias.scope !402, !noalias !405
+  %554 = getelementptr inbounds i8, ptr %19, i64 16
+  store i64 %551, ptr %554, align 16, !alias.scope !402, !noalias !405
   %.sroa.2.0..sroa_idx.i.i.i54.i = getelementptr inbounds i8, ptr %19, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.2.0..sroa_idx.i.i.i54.i, align 8, !alias.scope !402, !noalias !405
-  store ptr %540, ptr %542, align 16, !alias.scope !402, !noalias !405
+  store ptr %550, ptr %552, align 16, !alias.scope !402, !noalias !405
   %.sroa.2.0..sroa_idx.i.i.i.i55.i = getelementptr inbounds i8, ptr %19, i64 40
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i55.i, align 8, !alias.scope !402, !noalias !405
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %35, i64 noundef %.sroa.07.0.copyload.i, i64 4611686018427387919, ptr nonnull %544)
-          to label %545 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %35, i64 noundef %.sroa.07.0.copyload.i, i64 4611686018427387919, ptr nonnull %554)
+          to label %555 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-545:                                              ; preds = %538
+555:                                              ; preds = %548
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !399
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !364
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.thread67.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-546:                                              ; preds = %511
+556:                                              ; preds = %521
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
-  %547 = load ptr, ptr %37, align 8, !noalias !364
-  %548 = getelementptr inbounds i8, ptr %37, i64 8
-  %549 = load i64, ptr %548, align 8, !noalias !364
-  invoke void @_ZN5vcpkg7Strings5strtoIlEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.97") align 8 %36, ptr %547, i64 %549)
-          to label %550 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+  %557 = load ptr, ptr %37, align 8, !noalias !364
+  %558 = getelementptr inbounds i8, ptr %37, i64 8
+  %559 = load i64, ptr %558, align 8, !noalias !364
+  invoke void @_ZN5vcpkg7Strings5strtoIlEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.97") align 8 %36, ptr %557, i64 %559)
+          to label %560 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-550:                                              ; preds = %546
-  %551 = load i8, ptr %36, align 8, !noalias !364
-  %552 = trunc i8 %551 to i1
-  br i1 %552, label %553, label %560
+560:                                              ; preds = %556
+  %561 = load i8, ptr %36, align 8, !noalias !364
+  %562 = trunc i8 %561 to i1
+  br i1 %562, label %563, label %570
 
-553:                                              ; preds = %550
-  %554 = getelementptr inbounds i8, ptr %36, i64 8
-  %555 = load i64, ptr %554, align 8, !noalias !364
+563:                                              ; preds = %560
+  %564 = getelementptr inbounds i8, ptr %36, i64 8
+  %565 = load i64, ptr %564, align 8, !noalias !364
   call void @llvm.experimental.noalias.scope.decl(metadata !408)
   store ptr null, ptr %0, align 8, !alias.scope !411
-  %556 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %568 unwind label %557, !noalias !411
+  %566 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %578 unwind label %567, !noalias !411
 
-557:                                              ; preds = %553
-  %558 = landingpad { ptr, i32 }
+567:                                              ; preds = %563
+  %568 = landingpad { ptr, i32 }
           catch ptr null
-  %559 = extractvalue { ptr, i32 } %558, 0
-  call void @__clang_call_terminate(ptr %559) #25
+  %569 = extractvalue { ptr, i32 } %568, 0
+  call void @__clang_call_terminate(ptr %569) #25
   unreachable
 
-560:                                              ; preds = %550
+570:                                              ; preds = %560
   %.sroa.03.0.copyload.i22 = load i64, ptr @_ZN5vcpkg22msgInvalidIntegerConstE, align 8, !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !364
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(32) %28) #26, !noalias !364
@@ -11067,66 +11129,66 @@ _ZN5vcpkg4Json5Value6numberEd.exit48.i:           ; preds = %524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !364
   store ptr %.fca.0.load.i58.i, ptr %17, align 8, !noalias !412
-  %561 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %.fca.1.load.i61.i, ptr %561, align 8, !noalias !412
-  %562 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !412
+  %571 = getelementptr inbounds i8, ptr %17, i64 8
+  store i64 %.fca.1.load.i61.i, ptr %571, align 8, !noalias !412
+  %572 = load ptr, ptr @_ZN5vcpkg3msg7count_t4nameE, align 8, !noalias !412
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !412
-  %563 = ptrtoint ptr %17 to i64
-  %564 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %564, ptr %16, align 16, !alias.scope !415, !noalias !418
-  %565 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 1, ptr %565, align 8, !alias.scope !415, !noalias !418
-  %566 = getelementptr inbounds i8, ptr %16, i64 16
-  store i64 %563, ptr %566, align 16, !alias.scope !415, !noalias !418
+  %573 = ptrtoint ptr %17 to i64
+  %574 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %574, ptr %16, align 16, !alias.scope !415, !noalias !418
+  %575 = getelementptr inbounds i8, ptr %16, i64 8
+  store i64 1, ptr %575, align 8, !alias.scope !415, !noalias !418
+  %576 = getelementptr inbounds i8, ptr %16, i64 16
+  store i64 %573, ptr %576, align 16, !alias.scope !415, !noalias !418
   %.sroa.2.0..sroa_idx.i.i.i63.i = getelementptr inbounds i8, ptr %16, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN5vcpkg10StringViewENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %.sroa.2.0..sroa_idx.i.i.i63.i, align 8, !alias.scope !415, !noalias !418
-  store ptr %562, ptr %564, align 16, !alias.scope !415, !noalias !418
+  store ptr %572, ptr %574, align 16, !alias.scope !415, !noalias !418
   %.sroa.2.0..sroa_idx.i.i.i.i64.i = getelementptr inbounds i8, ptr %16, i64 40
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i64.i, align 8, !alias.scope !415, !noalias !418
-  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %38, i64 noundef %.sroa.03.0.copyload.i22, i64 4611686018427387919, ptr nonnull %566)
-          to label %567 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
+  invoke void @_ZN5vcpkg3msg6detail23format_message_by_indexEmN3fmt3v1017basic_format_argsINS3_20basic_format_contextINS3_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %38, i64 noundef %.sroa.03.0.copyload.i22, i64 4611686018427387919, ptr nonnull %576)
+          to label %577 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-567:                                              ; preds = %560
+577:                                              ; preds = %570
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !412
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !364
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %.thread67.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !364
 
-568:                                              ; preds = %553
-  store i32 2, ptr %556, align 8, !noalias !421
-  %569 = getelementptr inbounds i8, ptr %556, i64 8
-  store i64 %555, ptr %569, align 8, !noalias !421
-  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %556) #26
+578:                                              ; preds = %563
+  store i32 2, ptr %566, align 8, !noalias !421
+  %579 = getelementptr inbounds i8, ptr %566, i64 8
+  store i64 %565, ptr %579, align 8, !noalias !421
+  call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %566) #26
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-.thread67.i:                                      ; preds = %567, %545, %537
-  %.sink.i = phi ptr [ %34, %537 ], [ %35, %545 ], [ %38, %567 ]
+.thread67.i:                                      ; preds = %577, %555, %547
+  %.sink.i = phi ptr [ %34, %547 ], [ %35, %555 ], [ %38, %577 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #26, !noalias !364
   store ptr null, ptr %0, align 8, !alias.scope !364
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit
 
-.loopexit.i20:                                    ; preds = %500
+.loopexit.i20:                                    ; preds = %510
   %lpad.loopexit.i21 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i17
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %470
+.loopexit.split-lp.loopexit.i:                    ; preds = %480
   %lpad.loopexit68.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i17
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %567, %560, %546, %545, %538, %537, %530, %.thread.i19, %496, %495, %483, %449, %448, %432, %416, %415, %402, %397
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %577, %570, %556, %555, %548, %547, %540, %.thread.i19, %506, %505, %493, %459, %458, %442, %426, %425, %412, %407
   %lpad.loopexit.split-lp69.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i17
 
 .loopexit.split-lp.i17:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i20
   %lpad.phi.i18 = phi { ptr, i32 } [ %lpad.loopexit.i21, %.loopexit.i20 ], [ %lpad.loopexit68.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp69.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  %570 = extractvalue { ptr, i32 } %lpad.phi.i18, 0
-  call void @__clang_call_terminate(ptr %570) #25
+  %580 = extractvalue { ptr, i32 } %lpad.phi.i18, 0
+  call void @__clang_call_terminate(ptr %580) #25
   unreachable
 
-_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit: ; preds = %417, %450, %_ZN5vcpkg4Json5Value6numberEd.exit.i, %_ZN5vcpkg4Json5Value7integerEl.exit.i, %497, %_ZN5vcpkg4Json5Value6numberEd.exit48.i, %568, %.thread67.i
+_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit: ; preds = %427, %460, %_ZN5vcpkg4Json5Value6numberEd.exit.i, %_ZN5vcpkg4Json5Value7integerEl.exit.i, %507, %_ZN5vcpkg4Json5Value6numberEd.exit48.i, %578, %.thread67.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
@@ -11140,30 +11202,30 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit: ; preds = %417, %450, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
-  br label %574
+  br label %584
 
-571:                                              ; preds = %392
+581:                                              ; preds = %402
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg30msgUnexpectedCharExpectedValueE, align 8
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %70, i64 %.sroa.0.0.copyload)
-          to label %572 unwind label %575
+          to label %582 unwind label %585
 
-572:                                              ; preds = %571
+582:                                              ; preds = %581
   invoke void @_ZN5vcpkg10ParserBase9add_errorEONS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %573 unwind label %575
+          to label %583 unwind label %585
 
-573:                                              ; preds = %572
+583:                                              ; preds = %582
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #26
   store ptr null, ptr %0, align 8
-  br label %574
+  br label %584
 
-574:                                              ; preds = %573, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit, %391, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit, %325, %_ZN5vcpkg4Json5ArrayD2Ev.exit, %_ZN5vcpkg4Json6ObjectD2Ev.exit, %76
+584:                                              ; preds = %583, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_numberEv.exit, %401, %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_keywordEv.exit, %335, %_ZN5vcpkg4Json5ArrayD2Ev.exit, %_ZN5vcpkg4Json6ObjectD2Ev.exit, %76
   ret void
 
-575:                                              ; preds = %390, %572, %571, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit, %388, %387, %75, %74, %2
-  %576 = landingpad { ptr, i32 }
+585:                                              ; preds = %400, %582, %581, %_ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit, %398, %397, %75, %74, %2
+  %586 = landingpad { ptr, i32 }
           catch ptr null
-  %577 = extractvalue { ptr, i32 } %576, 0
-  call void @__clang_call_terminate(ptr %577) #25
+  %587 = extractvalue { ptr, i32 } %586, 0
+  call void @__clang_call_terminate(ptr %587) #25
   unreachable
 }
 
@@ -14027,35 +14089,51 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v106detail18for_each_codepoi
   %or.cond5.i = icmp ult i32 %65, 30288
   %66 = icmp ne i32 %58, 12351
   %or.cond7.i = and i1 %66, %or.cond5.i
-  %67 = and i32 %58, -65538
-  %68 = insertelement <8 x i32> poison, i32 %58, i64 0
-  %69 = insertelement <8 x i32> %68, i32 %67, i64 1
-  %70 = shufflevector <8 x i32> %69, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %71 = add <8 x i32> %70, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %72 = icmp ult <8 x i32> %71, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %73 = bitcast <8 x i1> %72 to i8
-  %74 = icmp ne i8 %73, 0
-  %op.rdx = or i1 %74, %or.cond7.i
-  br i1 %op.rdx, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %75
+  %67 = add nsw i32 %58, -44032
+  %or.cond9.i = icmp ult i32 %67, 11172
+  %or.cond.i = or i1 %or.cond9.i, %or.cond7.i
+  %68 = add nsw i32 %58, -63744
+  %or.cond11.i = icmp ult i32 %68, 512
+  %or.cond52.i = or i1 %or.cond11.i, %or.cond.i
+  %69 = add nsw i32 %58, -65040
+  %or.cond13.i = icmp ult i32 %69, 10
+  %or.cond53.i = or i1 %or.cond13.i, %or.cond52.i
+  %70 = add nsw i32 %58, -65072
+  %or.cond15.i = icmp ult i32 %70, 64
+  %or.cond54.i = or i1 %or.cond15.i, %or.cond53.i
+  %71 = add nsw i32 %58, -65280
+  %or.cond17.i = icmp ult i32 %71, 97
+  %or.cond55.i = or i1 %or.cond17.i, %or.cond54.i
+  %72 = add nsw i32 %58, -65504
+  %or.cond19.i = icmp ult i32 %72, 7
+  %or.cond56.i = or i1 %or.cond19.i, %or.cond55.i
+  %73 = and i32 %58, -65538
+  %74 = add i32 %73, -131072
+  %75 = icmp ult i32 %74, 65534
+  %or.cond58.i = or i1 %75, %or.cond56.i
+  %76 = add nsw i32 %58, -127744
+  %or.cond25.i = icmp ult i32 %76, 848
+  %or.cond59.i = or i1 %or.cond25.i, %or.cond58.i
+  br i1 %or.cond59.i, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %77
 
-75:                                               ; preds = %64
-  %76 = and i32 %58, -256
-  %77 = icmp eq i32 %76, 129280
-  %78 = select i1 %77, i64 2, i64 1
+77:                                               ; preds = %64
+  %78 = and i32 %58, -256
+  %79 = icmp eq i32 %78, 129280
+  %80 = select i1 %79, i64 2, i64 1
   br label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
-_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %3, %60, %64, %75
-  %79 = phi i64 [ 1, %3 ], [ 2, %60 ], [ %78, %75 ], [ 2, %64 ]
-  %80 = getelementptr inbounds i8, ptr %1, i64 %10
-  %81 = lshr i64 2164195328, %7
-  %82 = and i64 %81, 1
-  %83 = getelementptr inbounds i8, ptr %80, i64 %82
-  %84 = load ptr, ptr %0, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, %79
-  store i64 %86, ptr %84, align 8
-  %87 = select i1 %.not, ptr %83, ptr %15
-  ret ptr %87
+_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %3, %60, %64, %77
+  %81 = phi i64 [ 1, %3 ], [ 2, %60 ], [ %80, %77 ], [ 2, %64 ]
+  %82 = getelementptr inbounds i8, ptr %1, i64 %10
+  %83 = lshr i64 2164195328, %7
+  %84 = and i64 %83, 1
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
+  %86 = load ptr, ptr %0, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, %81
+  store i64 %88, ptr %86, align 8
+  %89 = select i1 %.not, ptr %85, ptr %15
+  ret ptr %89
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

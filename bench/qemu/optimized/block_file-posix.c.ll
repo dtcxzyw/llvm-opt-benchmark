@@ -2040,12 +2040,16 @@ entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
   %stats.i = getelementptr inbounds i8, ptr %bs.val, i64 96
+  %1 = load i64, ptr %stats.i, align 8, !noalias !5
+  %discard_nb_failed3.i = getelementptr inbounds i8, ptr %bs.val, i64 104
+  %2 = load i64, ptr %discard_nb_failed3.i, align 8, !noalias !5
   %discard_bytes_ok5.i = getelementptr inbounds i8, ptr %bs.val, i64 112
-  %1 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !5
-  %2 = load <2 x i64>, ptr %stats.i, align 8, !noalias !5
-  store <2 x i64> %2, ptr %u, align 8
+  %3 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !5
+  store i64 %1, ptr %u, align 8
+  %tmp.sroa.2.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store i64 %2, ptr %tmp.sroa.2.0.u.sroa_idx, align 8
   %tmp.sroa.3.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %1, ptr %tmp.sroa.3.0.u.sroa_idx, align 8
+  store i64 %3, ptr %tmp.sroa.3.0.u.sroa_idx, align 8
   ret ptr %call
 }
 
@@ -4513,31 +4517,37 @@ if.then:                                          ; preds = %entry
 
 do.body.preheader.i:                              ; preds = %if.then
   %aio_offset.i = getelementptr inbounds i8, ptr %opaque, i64 16
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %range.i, i64 8
+  %aio_nbytes.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %aio_fildes.i = getelementptr inbounds i8, ptr %opaque, i64 12
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %do.body.preheader.i
-  %4 = load <2 x i64>, ptr %aio_offset.i, align 8
-  store <2 x i64> %4, ptr %range.i, align 16
-  %5 = load i32, ptr %aio_fildes.i, align 4
-  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 4735, ptr noundef nonnull %range.i) #18
+  %4 = load i64, ptr %aio_offset.i, align 8
+  store i64 %4, ptr %range.i, align 16
+  %5 = load i64, ptr %aio_nbytes.i, align 8
+  store i64 %5, ptr %arrayinit.element.i, align 8
+  %6 = load i32, ptr %aio_fildes.i, align 4
+  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef 4735, ptr noundef nonnull %range.i) #18
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %handle_aiocb_write_zeroes_block.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %call4.i = tail call ptr @__errno_location() #21
-  %6 = load i32, ptr %call4.i, align 4
-  %cmp5.i = icmp eq i32 %6, 4
+  %7 = load i32, ptr %call4.i, align 4
+  %cmp5.i = icmp eq i32 %7, 4
   br i1 %cmp5.i, label %do.body.i, label %do.end.i, !llvm.loop !25
 
 do.end.i:                                         ; preds = %do.cond.i
-  %sub.i = sub i32 0, %6
-  %7 = insertelement <4 x i32> poison, i32 %6, i64 0
-  %8 = shufflevector <4 x i32> %7, <4 x i32> poison, <4 x i32> zeroinitializer
-  %9 = icmp eq <4 x i32> %8, <i32 19, i32 38, i32 95, i32 25>
-  %10 = bitcast <4 x i1> %9 to i4
-  %.not = icmp eq i4 %10, 0
-  %spec.store.select.i.i = select i1 %.not, i32 %sub.i, i32 -95
+  %sub.i = sub i32 0, %7
+  %cmp.i.i = icmp eq i32 %7, 19
+  %cmp1.i.i = icmp eq i32 %7, 38
+  %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
+  %cmp3.i.i = icmp eq i32 %7, 95
+  %or.cond1.i.i = or i1 %cmp3.i.i, %or.cond.i.i
+  %cmp5.i.i = icmp eq i32 %7, 25
+  %or.cond2.i.i = or i1 %cmp5.i.i, %or.cond1.i.i
+  %spec.store.select.i.i = select i1 %or.cond2.i.i, i32 -95, i32 %sub.i
   %cmp8.i = icmp eq i32 %spec.store.select.i.i, -95
   br i1 %cmp8.i, label %if.then9.i, label %handle_aiocb_write_zeroes_block.exit
 
@@ -4555,27 +4565,27 @@ handle_aiocb_write_zeroes_block.exit:             ; preds = %do.body.i, %do.end.
 if.end:                                           ; preds = %entry
   %has_write_zeroes = getelementptr inbounds i8, ptr %1, i64 80
   %bf.load = load i8, ptr %has_write_zeroes, align 8
-  %11 = and i8 %bf.load, 2
-  %bf.cast.not = icmp eq i8 %11, 0
+  %8 = and i8 %bf.load, 2
+  %bf.cast.not = icmp eq i8 %8, 0
   br i1 %bf.cast.not, label %if.end16, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %12 = load i32, ptr %1, align 8
+  %9 = load i32, ptr %1, align 8
   %aio_offset = getelementptr inbounds i8, ptr %opaque, i64 16
-  %13 = load i64, ptr %aio_offset, align 8
+  %10 = load i64, ptr %aio_offset, align 8
   %aio_nbytes = getelementptr inbounds i8, ptr %opaque, i64 24
-  %14 = load i64, ptr %aio_nbytes, align 8
+  %11 = load i64, ptr %aio_nbytes, align 8
   br label %do.body.i39
 
 do.body.i39:                                      ; preds = %do.cond.i42, %if.then2
-  %call.i40 = tail call i32 @fallocate64(i32 noundef %12, i32 noundef 16, i64 noundef %13, i64 noundef %14) #18
+  %call.i40 = tail call i32 @fallocate64(i32 noundef %9, i32 noundef 16, i64 noundef %10, i64 noundef %11) #18
   %cmp.i41 = icmp eq i32 %call.i40, 0
   br i1 %cmp.i41, label %return, label %do.cond.i42
 
 do.cond.i42:                                      ; preds = %do.body.i39
   %call1.i = tail call ptr @__errno_location() #21
-  %15 = load i32, ptr %call1.i, align 4
-  switch i32 %15, label %do_fallocate.exit [
+  %12 = load i32, ptr %call1.i, align 4
+  switch i32 %12, label %do_fallocate.exit [
     i32 4, label %do.body.i39
     i32 95, label %if.then5
     i32 38, label %if.then5
@@ -4584,8 +4594,8 @@ do.cond.i42:                                      ; preds = %do.body.i39
   ]
 
 do_fallocate.exit:                                ; preds = %do.cond.i42
-  %sub.i44 = sub i32 0, %15
-  %cond = icmp eq i32 %15, 22
+  %sub.i44 = sub i32 0, %12
+  %cond = icmp eq i32 %12, 22
   br i1 %cond, label %do_fallocate.exit.if.end16_crit_edge, label %return
 
 do_fallocate.exit.if.end16_crit_edge:             ; preds = %do_fallocate.exit
@@ -4605,27 +4615,27 @@ if.end16:                                         ; preds = %do_fallocate.exit.i
 
 land.lhs.true:                                    ; preds = %if.end16
   %has_fallocate = getelementptr inbounds i8, ptr %1, i64 88
-  %16 = load i8, ptr %has_fallocate, align 8
-  %tobool21 = trunc i8 %16 to i1
+  %13 = load i8, ptr %has_fallocate, align 8
+  %tobool21 = trunc i8 %13 to i1
   br i1 %tobool21, label %if.then23, label %if.end62
 
 if.then23:                                        ; preds = %land.lhs.true
-  %17 = load i32, ptr %1, align 8
+  %14 = load i32, ptr %1, align 8
   %aio_offset26 = getelementptr inbounds i8, ptr %opaque, i64 16
-  %18 = load i64, ptr %aio_offset26, align 8
+  %15 = load i64, ptr %aio_offset26, align 8
   %aio_nbytes27 = getelementptr inbounds i8, ptr %opaque, i64 24
-  %19 = load i64, ptr %aio_nbytes27, align 8
+  %16 = load i64, ptr %aio_nbytes27, align 8
   br label %do.body.i54
 
 do.body.i54:                                      ; preds = %do.cond.i57, %if.then23
-  %call.i55 = tail call i32 @fallocate64(i32 noundef %17, i32 noundef 3, i64 noundef %18, i64 noundef %19) #18
+  %call.i55 = tail call i32 @fallocate64(i32 noundef %14, i32 noundef 3, i64 noundef %15, i64 noundef %16) #18
   %cmp.i56 = icmp eq i32 %call.i55, 0
   br i1 %cmp.i56, label %if.then31, label %do.cond.i57
 
 do.cond.i57:                                      ; preds = %do.body.i54
   %call1.i58 = tail call ptr @__errno_location() #21
-  %20 = load i32, ptr %call1.i58, align 4
-  switch i32 %20, label %do_fallocate.exit71 [
+  %17 = load i32, ptr %call1.i58, align 4
+  switch i32 %17, label %do_fallocate.exit71 [
     i32 4, label %do.body.i54
     i32 95, label %if.else54
     i32 38, label %if.else54
@@ -4634,27 +4644,27 @@ do.cond.i57:                                      ; preds = %do.body.i54
   ]
 
 do_fallocate.exit71:                              ; preds = %do.cond.i57
-  %sub.i61 = sub i32 0, %20
-  switch i32 %20, label %return [
+  %sub.i61 = sub i32 0, %17
+  switch i32 %17, label %return [
     i32 0, label %if.then31
     i32 22, label %if.then47
   ]
 
 if.then31:                                        ; preds = %do.body.i54, %do_fallocate.exit71
-  %21 = load i32, ptr %1, align 8
-  %22 = load i64, ptr %aio_offset26, align 8
-  %23 = load i64, ptr %aio_nbytes27, align 8
+  %18 = load i32, ptr %1, align 8
+  %19 = load i64, ptr %aio_offset26, align 8
+  %20 = load i64, ptr %aio_nbytes27, align 8
   br label %do.body.i72
 
 do.body.i72:                                      ; preds = %do.cond.i75, %if.then31
-  %call.i73 = tail call i32 @fallocate64(i32 noundef %21, i32 noundef 0, i64 noundef %22, i64 noundef %23) #18
+  %call.i73 = tail call i32 @fallocate64(i32 noundef %18, i32 noundef 0, i64 noundef %19, i64 noundef %20) #18
   %cmp.i74 = icmp eq i32 %call.i73, 0
   br i1 %cmp.i74, label %return, label %do.cond.i75
 
 do.cond.i75:                                      ; preds = %do.body.i72
   %call1.i76 = tail call ptr @__errno_location() #21
-  %24 = load i32, ptr %call1.i76, align 4
-  switch i32 %24, label %do_fallocate.exit89 [
+  %21 = load i32, ptr %call1.i76, align 4
+  switch i32 %21, label %do_fallocate.exit89 [
     i32 4, label %do.body.i72
     i32 95, label %if.end42
     i32 38, label %if.end42
@@ -4663,7 +4673,7 @@ do.cond.i75:                                      ; preds = %do.body.i72
   ]
 
 do_fallocate.exit89:                              ; preds = %do.cond.i75
-  %sub.i79 = sub i32 0, %24
+  %sub.i79 = sub i32 0, %21
   br label %return
 
 if.end42:                                         ; preds = %do.cond.i75, %do.cond.i75, %do.cond.i75, %do.cond.i75
@@ -4681,9 +4691,9 @@ if.else54:                                        ; preds = %do.cond.i57, %do.co
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end42, %if.else54, %if.then47, %land.lhs.true, %if.end16
-  %25 = load ptr, ptr %opaque, align 8
-  %26 = getelementptr i8, ptr %25, i64 24
-  %.val = load ptr, ptr %26, align 8
+  %22 = load ptr, ptr %opaque, align 8
+  %23 = getelementptr i8, ptr %22, i64 24
+  %.val = load ptr, ptr %23, align 8
   %.val.val = load i32, ptr %.val, align 8
   %cmp.inv.i.i = icmp slt i32 %.val.val, 0
   br i1 %cmp.inv.i.i, label %return, label %if.end.i90
@@ -4695,41 +4705,41 @@ if.end.i90:                                       ; preds = %if.end62
 
 if.then4.i:                                       ; preds = %if.end.i90
   %call5.i = tail call ptr @__errno_location() #21
-  %27 = load i32, ptr %call5.i, align 4
-  %sub.i94 = sub i32 0, %27
+  %24 = load i32, ptr %call5.i, align 4
+  %sub.i94 = sub i32 0, %24
   %conv6.i = sext i32 %sub.i94 to i64
   br label %raw_getlength.exit
 
 raw_getlength.exit:                               ; preds = %if.end.i90, %if.then4.i
   %retval.0.i93 = phi i64 [ %conv6.i, %if.then4.i ], [ %call1.i91, %if.end.i90 ]
   %has_fallocate65 = getelementptr inbounds i8, ptr %1, i64 88
-  %28 = load i8, ptr %has_fallocate65, align 8
-  %tobool66 = trunc i8 %28 to i1
+  %25 = load i8, ptr %has_fallocate65, align 8
+  %tobool66 = trunc i8 %25 to i1
   %cmp69 = icmp sgt i64 %retval.0.i93, -1
   %or.cond2 = select i1 %tobool66, i1 %cmp69, i1 false
   br i1 %or.cond2, label %land.lhs.true71, label %return
 
 land.lhs.true71:                                  ; preds = %raw_getlength.exit
   %aio_offset72 = getelementptr inbounds i8, ptr %opaque, i64 16
-  %29 = load i64, ptr %aio_offset72, align 8
-  %cmp73.not = icmp slt i64 %29, %retval.0.i93
+  %26 = load i64, ptr %aio_offset72, align 8
+  %cmp73.not = icmp slt i64 %26, %retval.0.i93
   br i1 %cmp73.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %land.lhs.true71
-  %30 = load i32, ptr %1, align 8
+  %27 = load i32, ptr %1, align 8
   %aio_nbytes79 = getelementptr inbounds i8, ptr %opaque, i64 24
-  %31 = load i64, ptr %aio_nbytes79, align 8
+  %28 = load i64, ptr %aio_nbytes79, align 8
   br label %do.body.i95
 
 do.body.i95:                                      ; preds = %do.cond.i98, %if.then75
-  %call.i96 = tail call i32 @fallocate64(i32 noundef %30, i32 noundef 0, i64 noundef %29, i64 noundef %31) #18
+  %call.i96 = tail call i32 @fallocate64(i32 noundef %27, i32 noundef 0, i64 noundef %26, i64 noundef %28) #18
   %cmp.i97 = icmp eq i32 %call.i96, 0
   br i1 %cmp.i97, label %return, label %do.cond.i98
 
 do.cond.i98:                                      ; preds = %do.body.i95
   %call1.i99 = tail call ptr @__errno_location() #21
-  %32 = load i32, ptr %call1.i99, align 4
-  switch i32 %32, label %do_fallocate.exit112 [
+  %29 = load i32, ptr %call1.i99, align 4
+  switch i32 %29, label %do_fallocate.exit112 [
     i32 4, label %do.body.i95
     i32 95, label %if.end87
     i32 38, label %if.end87
@@ -4738,7 +4748,7 @@ do.cond.i98:                                      ; preds = %do.body.i95
   ]
 
 do_fallocate.exit112:                             ; preds = %do.cond.i98
-  %sub.i102 = sub i32 0, %32
+  %sub.i102 = sub i32 0, %29
   br label %return
 
 if.end87:                                         ; preds = %do.cond.i98, %do.cond.i98, %do.cond.i98, %do.cond.i98
@@ -4821,21 +4831,25 @@ if.end:                                           ; preds = %entry
 
 do.body.preheader:                                ; preds = %if.end
   %aio_offset = getelementptr inbounds i8, ptr %opaque, i64 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %range, i64 8
+  %aio_nbytes = getelementptr inbounds i8, ptr %opaque, i64 24
   %aio_fildes = getelementptr inbounds i8, ptr %opaque, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %do.body.preheader
-  %3 = load <2 x i64>, ptr %aio_offset, align 8
-  store <2 x i64> %3, ptr %range, align 16
-  %4 = load i32, ptr %aio_fildes, align 4
-  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 4727, ptr noundef nonnull %range) #18
+  %3 = load i64, ptr %aio_offset, align 8
+  store i64 %3, ptr %range, align 16
+  %4 = load i64, ptr %aio_nbytes, align 8
+  store i64 %4, ptr %arrayinit.element, align 8
+  %5 = load i32, ptr %aio_fildes, align 4
+  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 4727, ptr noundef nonnull %range) #18
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %do.cond
 
 do.cond:                                          ; preds = %do.body
   %call5 = tail call ptr @__errno_location() #21
-  %5 = load i32, ptr %call5, align 4
-  switch i32 %5, label %if.end13 [
+  %6 = load i32, ptr %call5, align 4
+  switch i32 %6, label %if.end13 [
     i32 4, label %do.body
     i32 19, label %if.then15
     i32 25, label %if.then15
@@ -4844,22 +4858,22 @@ do.cond:                                          ; preds = %do.body
   ]
 
 if.else:                                          ; preds = %if.end
-  %6 = load i32, ptr %1, align 8
+  %7 = load i32, ptr %1, align 8
   %aio_offset9 = getelementptr inbounds i8, ptr %opaque, i64 16
-  %7 = load i64, ptr %aio_offset9, align 8
+  %8 = load i64, ptr %aio_offset9, align 8
   %aio_nbytes10 = getelementptr inbounds i8, ptr %opaque, i64 24
-  %8 = load i64, ptr %aio_nbytes10, align 8
+  %9 = load i64, ptr %aio_nbytes10, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.else
-  %call.i = tail call i32 @fallocate64(i32 noundef %6, i32 noundef 3, i64 noundef %7, i64 noundef %8) #18
+  %call.i = tail call i32 @fallocate64(i32 noundef %7, i32 noundef 3, i64 noundef %8, i64 noundef %9) #18
   %cmp.i11 = icmp eq i32 %call.i, 0
   br i1 %cmp.i11, label %return, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #21
-  %9 = load i32, ptr %call1.i, align 4
-  switch i32 %9, label %if.end13 [
+  %10 = load i32, ptr %call1.i, align 4
+  switch i32 %10, label %if.end13 [
     i32 4, label %do.body.i
     i32 95, label %if.then15
     i32 38, label %if.then15
@@ -4868,7 +4882,7 @@ do.cond.i:                                        ; preds = %do.body.i
   ]
 
 if.end13:                                         ; preds = %do.cond, %do.cond.i
-  %.pn = phi i32 [ %9, %do.cond.i ], [ %5, %do.cond ]
+  %.pn = phi i32 [ %10, %do.cond.i ], [ %6, %do.cond ]
   %ret.0 = sub i32 0, %.pn
   %cmp14 = icmp eq i32 %.pn, 95
   br i1 %cmp14, label %if.then15, label %return
@@ -5482,12 +5496,16 @@ entry:
   %0 = getelementptr i8, ptr %bs, i64 24
   %bs.val = load ptr, ptr %0, align 8
   %stats.i = getelementptr inbounds i8, ptr %bs.val, i64 96
+  %1 = load i64, ptr %stats.i, align 8, !noalias !29
+  %discard_nb_failed3.i = getelementptr inbounds i8, ptr %bs.val, i64 104
+  %2 = load i64, ptr %discard_nb_failed3.i, align 8, !noalias !29
   %discard_bytes_ok5.i = getelementptr inbounds i8, ptr %bs.val, i64 112
-  %1 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !29
-  %2 = load <2 x i64>, ptr %stats.i, align 8, !noalias !29
-  store <2 x i64> %2, ptr %u, align 8
+  %3 = load i64, ptr %discard_bytes_ok5.i, align 8, !noalias !29
+  store i64 %1, ptr %u, align 8
+  %tmp.sroa.2.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store i64 %2, ptr %tmp.sroa.2.0.u.sroa_idx, align 8
   %tmp.sroa.3.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %1, ptr %tmp.sroa.3.0.u.sroa_idx, align 8
+  store i64 %3, ptr %tmp.sroa.3.0.u.sroa_idx, align 8
   ret ptr %call
 }
 

@@ -1428,29 +1428,35 @@ define void @_ZN5faiss17ResidualQuantizerC2Ev(ptr noundef nonnull align 8 derefe
   tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 308
-  store <4 x i32> <i32 1, i32 5, i32 5, i32 0>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 324
-  store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke void @_ZN5faiss34ProgressiveDimClusteringParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %4)
-          to label %5 unwind label %10
+  store i32 1, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 5, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 316
+  store i32 5, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 320
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 324
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 328
+  invoke void @_ZN5faiss34ProgressiveDimClusteringParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7)
+          to label %8 unwind label %13
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 376
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 129
-  store i8 0, ptr %9, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 376
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 129
+  store i8 0, ptr %12, align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #16
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %14
 }
 
 declare void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308)) unnamed_addr #1
@@ -1467,55 +1473,61 @@ define void @_ZN5faiss17ResidualQuantizerC2EmRKSt6vectorImSaImEENS_17AdditiveQua
   tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 308
-  store <4 x i32> <i32 1, i32 5, i32 5, i32 0>, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 324
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 328
-  invoke void @_ZN5faiss34ProgressiveDimClusteringParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7)
-          to label %_ZN5faiss17ResidualQuantizerC2Ev.exit unwind label %8
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 5, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 316
+  store i32 5, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 324
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 328
+  invoke void @_ZN5faiss34ProgressiveDimClusteringParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(45) %10)
+          to label %_ZN5faiss17ResidualQuantizerC2Ev.exit unwind label %11
 
-common.resume:                                    ; preds = %26, %8
-  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %27, %26 ]
+common.resume:                                    ; preds = %29, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
-8:                                                ; preds = %4
-  %9 = landingpad { ptr, i32 }
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #16
   br label %common.resume
 
 _ZN5faiss17ResidualQuantizerC2Ev.exit:            ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 376
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 129
-  store i8 0, ptr %13, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
-  store i32 %3, ptr %14, align 8
-  store i64 %1, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = ptrtoint ptr %16 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = ashr exact i64 %20, 3
-  store i64 %21, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %24 unwind label %26
+  %13 = getelementptr inbounds i8, ptr %0, i64 376
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 129
+  store i8 0, ptr %16, align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
+  %17 = getelementptr inbounds i8, ptr %0, i64 296
+  store i32 %3, ptr %17, align 8
+  store i64 %1, ptr %14, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %2, align 8
+  %21 = ptrtoint ptr %19 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = ashr exact i64 %23, 3
+  store i64 %24, ptr %15, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %27 unwind label %29
 
-24:                                               ; preds = %_ZN5faiss17ResidualQuantizerC2Ev.exit
+27:                                               ; preds = %_ZN5faiss17ResidualQuantizerC2Ev.exit
   invoke void @_ZN5faiss17AdditiveQuantizer18set_derived_valuesEv(ptr noundef nonnull align 8 dereferenceable(308) %0)
-          to label %25 unwind label %26
+          to label %28 unwind label %29
 
-25:                                               ; preds = %24
+28:                                               ; preds = %27
   ret void
 
-26:                                               ; preds = %24, %_ZN5faiss17ResidualQuantizerC2Ev.exit
-  %27 = landingpad { ptr, i32 }
+29:                                               ; preds = %27, %_ZN5faiss17ResidualQuantizerC2Ev.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #16
   br label %common.resume

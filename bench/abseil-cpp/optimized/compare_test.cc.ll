@@ -328,7 +328,7 @@ declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_128Compare_PartialOrdering_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %values = alloca [4 x %"class.absl::partial_ordering"], align 4
+  %values = alloca [4 x %"class.absl::partial_ordering"], align 1
   %are_equal = alloca i8, align 1
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp587 = alloca i8, align 1
@@ -339,7 +339,13 @@ if.end:
   %ref.tmp620 = alloca i8, align 1
   %ref.tmp628 = alloca %"class.testing::Message", align 8
   %ref.tmp630 = alloca %"class.testing::internal::AssertHelper", align 8
-  store <4 x i8> <i8 -1, i8 0, i8 1, i8 -127>, ptr %values, align 4
+  store i8 -1, ptr %values, align 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %values, i64 1
+  store i8 0, ptr %arrayinit.element, align 1
+  %arrayinit.element576 = getelementptr inbounds i8, ptr %values, i64 2
+  store i8 1, ptr %arrayinit.element576, align 1
+  %arrayinit.element577 = getelementptr inbounds i8, ptr %values, i64 3
+  store i8 -127, ptr %arrayinit.element577, align 1
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %message_.i.i448 = getelementptr inbounds i8, ptr %gtest_ar612, i64 8
   br label %for.cond582.preheader

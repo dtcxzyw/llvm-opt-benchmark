@@ -9393,7 +9393,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_143RandomDistributionsTest_PoissonDefault_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dist.i.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i = alloca %"class.absl::poisson_distribution", align 8
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
   %gen = alloca %"class.absl::random_internal::NonsecureURBGBase", align 16
   %moments = alloca %"struct.absl::random_internal::DistributionMoments", align 8
@@ -9464,13 +9464,15 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %6 = getelementptr inbounds i8, ptr %gen, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i, ptr %6, align 8
   %split_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 40
+  %emu_16.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 8
   br label %.noexc18
 
 .noexc18:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont4
   %indvars.iv = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %indvars.iv.next, %invoke.cont4 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i, align 8
   store i32 1, ptr %split_.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i, align 16
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i, align 8
   %call.i.i.i.i19 = invoke noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i)
           to label %invoke.cont4 unwind label %lpad2.loopexit
 
@@ -10243,6 +10245,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   store i64 %.narrow.i.i.i.i.i.i.i, ptr %6, align 8
   %split_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 40
   %lmu_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 16
+  %s_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 24
   %emu_16.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 32
   br label %.noexc18
 
@@ -10251,7 +10254,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i)
   store double 1.000000e+08, ptr %dist.i.i.i, align 8
   store i32 0, ptr %split_.i, align 8
-  store <2 x double> <double 0x40326BB1BBB55516, double 0x40C0C10B4E5E7707>, ptr %lmu_.i, align 8
+  store double 0x40326BB1BBB55516, ptr %lmu_.i, align 8
+  store double 0x40C0C10B4E5E7707, ptr %s_.i, align 8
   store double 0x4197D783D77B9E51, ptr %emu_16.i, align 8
   %call.i.i.i.i19 = invoke noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i)
           to label %invoke.cont4 unwind label %lpad2.loopexit
@@ -11350,15 +11354,15 @@ if.end19:                                         ; preds = %if.end
 if.then30:                                        ; preds = %if.end19
   %method_31 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %method_31, align 8
-  %5 = insertelement <2 x double> poison, double %alpha, i64 0
-  %6 = insertelement <2 x double> %5, double %beta, i64 1
-  %7 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %6
-  store <2 x double> %7, ptr %3, align 8
-  %8 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %7)
-  %9 = fcmp oeq <2 x double> %8, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %shift = shufflevector <2 x i1> %9, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = or <2 x i1> %9, %shift
-  %or.cond18 = extractelement <2 x i1> %10, i64 0
+  %div = fdiv double 1.000000e+00, %alpha
+  store double %div, ptr %3, align 8
+  %div35 = fdiv double 1.000000e+00, %beta
+  store double %div35, ptr %4, align 8
+  %5 = tail call double @llvm.fabs.f64(double %div)
+  %6 = fcmp oeq double %5, 0x7FF0000000000000
+  %7 = tail call double @llvm.fabs.f64(double %div35)
+  %8 = fcmp oeq double %7, 0x7FF0000000000000
+  %or.cond18 = or i1 %6, %8
   br i1 %or.cond18, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.then30
@@ -11385,37 +11389,37 @@ if.end64:                                         ; preds = %if.end49
   %call70 = tail call double @log(double noundef %add) #15
   %log_x_ = getelementptr inbounds i8, ptr %this, i64 40
   store double %call70, ptr %log_x_, align 8
-  %11 = load double, ptr %3, align 8
-  %cmp72 = fcmp ugt double %11, 1.000000e+00
+  %9 = load double, ptr %3, align 8
+  %cmp72 = fcmp ugt double %9, 1.000000e+00
   %method_81 = getelementptr inbounds i8, ptr %this, i64 64
   br i1 %cmp72, label %if.end80, label %if.then73
 
 if.then73:                                        ; preds = %if.end64
   store i32 1, ptr %method_81, align 8
-  %div76 = fdiv double 1.000000e+00, %11
+  %div76 = fdiv double 1.000000e+00, %9
   %y_ = getelementptr inbounds i8, ptr %this, i64 48
   store double %div76, ptr %y_, align 8
-  %add79 = fadd double %11, %11
+  %add79 = fadd double %9, %9
   br label %return.sink.split
 
 if.end80:                                         ; preds = %if.end64
   store i32 2, ptr %method_81, align 8
-  %sub = fadd double %11, -1.000000e+00
-  %12 = load double, ptr %4, align 8
-  %sub85 = fadd double %12, -1.000000e+00
+  %sub = fadd double %9, -1.000000e+00
+  %10 = load double, ptr %4, align 8
+  %sub85 = fadd double %10, -1.000000e+00
   %div86 = fdiv double %sub, %sub85
   %add87 = fadd double %div86, 1.000000e+00
-  %mul = fmul double %12, %div86
+  %mul = fmul double %10, %div86
   %neg = fneg double %div86
-  %13 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double %neg)
-  %add90 = fadd double %13, 1.000000e+00
+  %11 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double %neg)
+  %add90 = fadd double %11, 1.000000e+00
   %div91 = fdiv double %add87, %add90
   %call92 = tail call double @sqrt(double noundef %div91) #15
   %y_93 = getelementptr inbounds i8, ptr %this, i64 48
   store double %call92, ptr %y_93, align 8
-  %14 = load double, ptr %3, align 8
+  %12 = load double, ptr %3, align 8
   %div96 = fdiv double 1.000000e+00, %call92
-  %add97 = fadd double %div96, %14
+  %add97 = fadd double %div96, %12
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then14, %if.then53, %if.then73, %if.end80, %if.then42
@@ -11775,19 +11779,25 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %6 = getelementptr inbounds i8, ptr %gen, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i, ptr %6, align 8
   %q_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 8
+  %v_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 16
   %one_minus_q_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 24
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 40
+  %hxm_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 48
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 56
+  %s_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 32
   br label %.noexc9
 
 .noexc9:                                          ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont4
   %indvars.iv = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %indvars.iv.next, %invoke.cont4 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i)
   store i64 100, ptr %dist.i.i.i, align 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  store double 1.000000e+00, ptr %v_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  store double 0xBF842D6625D51F87, ptr %hxm_.i, align 8
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %call.i.i.i.i10 = invoke noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i)
           to label %invoke.cont4 unwind label %lpad2.loopexit
 
@@ -12201,12 +12211,14 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %6 = getelementptr inbounds i8, ptr %gen, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i, ptr %6, align 8
   %param_.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 8
+  %stddev_.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont4
   %indvars.iv = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %indvars.iv.next, %invoke.cont4 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i)
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i, align 8
+  store double 0.000000e+00, ptr %param_.i.i.i.i, align 8
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i, align 8
   %call3.i.i.i.i.i18 = invoke noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen)
           to label %invoke.cont4 unwind label %lpad2.loopexit
 
@@ -14499,9 +14511,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

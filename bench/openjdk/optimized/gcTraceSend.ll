@@ -298,27 +298,35 @@ define hidden void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr nocapture
   %19 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = load <2 x i64>, ptr %20, align 8
-  store <2 x i64> %21, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
-  %24 = load <2 x i64>, ptr %22, align 8
-  store <2 x i64> %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i6 = load i64, ptr %25, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %8, align 8
+  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.221.0..sroa_idx, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.0.0.copyload.i1 = load i64, ptr %21, align 8
+  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0.copyload.i3 = load i64, ptr %.sroa.2.0..sroa_idx.i2, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 %.sroa.0.0.copyload.i1, ptr %22, align 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 64
+  store i64 %.sroa.2.0.copyload.i3, ptr %.sroa.219.0..sroa_idx, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i6 = load i64, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i8 = load i64, ptr %.sroa.2.0..sroa_idx.i7, align 8
-  %26 = load i8, ptr @_ZN7JfrTime11_ft_enabledE, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = select i1 %27, i64 %.sroa.2.0.copyload.i8, i64 %.sroa.0.0.copyload.i6
-  store i64 %28, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload.i11 = load i64, ptr %29, align 8
+  %24 = load i8, ptr @_ZN7JfrTime11_ft_enabledE, align 1
+  %25 = trunc i8 %24 to i1
+  %26 = select i1 %25, i64 %.sroa.2.0.copyload.i8, i64 %.sroa.0.0.copyload.i6
+  store i64 %26, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.0.copyload.i11 = load i64, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i12, align 8
-  %30 = select i1 %27, i64 %.sroa.2.0.copyload.i13, i64 %.sroa.0.0.copyload.i11
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %30, ptr %31, align 8
+  %28 = select i1 %25, i64 %.sroa.2.0.copyload.i13, i64 %.sroa.0.0.copyload.i11
+  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %28, ptr %29, align 8
   call void @_ZN8JfrEventI22EventGarbageCollectionE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
   br label %_ZN8JfrEventI22EventGarbageCollectionE13should_commitEv.exit
 
@@ -1470,21 +1478,26 @@ define hidden void @_ZNK13YoungGCTracer27send_promotion_failed_eventERK19Promoti
   %13 = load i32, ptr %12, align 8, !noalias !6
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !noalias !6
-  %18 = shl i64 %17, 3
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %14, ptr %19, align 8
+  %16 = load i64, ptr %15, align 8, !noalias !6
+  %17 = shl i64 %16, 3
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load i64, ptr %18, align 8, !noalias !6
+  %20 = shl i64 %19, 3
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load i64, ptr %21, align 8, !noalias !6
+  %23 = shl i64 %22, 3
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %14, ptr %24, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %20 = load <2 x i64>, ptr %15, align 8, !noalias !6
-  %21 = shl <2 x i64> %20, <i64 3, i64 3>
-  store <2 x i64> %21, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %17, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %20, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %23, ptr %24, align 8
+  store i64 %23, ptr %.sroa.4.0..sroa_idx, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %26, ptr %27, align 8
   call void @_ZN8JfrEventI20EventPromotionFailedE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI20EventPromotionFailedE13should_commitEv.exit
 
@@ -1716,28 +1729,40 @@ define hidden void @_ZNK8GCTracer29send_meta_space_summary_eventEN6GCWhen4TypeER
   store i64 %16, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = load i64, ptr %18, align 8, !noalias !9
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = load <2 x i64>, ptr %19, align 8, !noalias !9
-  store <2 x i64> %22, ptr %21, align 8
+  %20 = load i64, ptr %19, align 8, !noalias !9
+  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = load i64, ptr %21, align 8, !noalias !9
+  %23 = load i64, ptr %18, align 8, !noalias !9
+  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %20, ptr %24, align 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i64 %22, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.39.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  store i64 %20, ptr %.sroa.39.0..sroa_idx, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
-  %24 = getelementptr inbounds i8, ptr %2, i64 64
-  %25 = load i64, ptr %23, align 8, !noalias !12
-  %26 = getelementptr inbounds i8, ptr %4, i64 64
-  %27 = load <2 x i64>, ptr %24, align 8, !noalias !12
-  store <2 x i64> %27, ptr %26, align 8
+  store i64 %23, ptr %.sroa.39.0..sroa_idx, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 56
+  %26 = getelementptr inbounds i8, ptr %2, i64 64
+  %27 = load i64, ptr %26, align 8, !noalias !12
+  %28 = getelementptr inbounds i8, ptr %2, i64 72
+  %29 = load i64, ptr %28, align 8, !noalias !12
+  %30 = load i64, ptr %25, align 8, !noalias !12
+  %31 = getelementptr inbounds i8, ptr %4, i64 64
+  store i64 %27, ptr %31, align 8
+  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
+  store i64 %29, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
-  store i64 %25, ptr %.sroa.36.0..sroa_idx, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
-  %30 = load i64, ptr %28, align 8, !noalias !15
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
-  %32 = load <2 x i64>, ptr %29, align 8, !noalias !15
-  store <2 x i64> %32, ptr %31, align 8
+  store i64 %30, ptr %.sroa.36.0..sroa_idx, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = load i64, ptr %33, align 8, !noalias !15
+  %35 = getelementptr inbounds i8, ptr %2, i64 48
+  %36 = load i64, ptr %35, align 8, !noalias !15
+  %37 = load i64, ptr %32, align 8, !noalias !15
+  %38 = getelementptr inbounds i8, ptr %4, i64 88
+  store i64 %34, ptr %38, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
+  store i64 %36, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 104
-  store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %37, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN8JfrEventI21EventMetaspaceSummaryE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %4)
   br label %_ZN8JfrEventI21EventMetaspaceSummaryE13should_commitEv.exit
 
@@ -2284,17 +2309,25 @@ define linkonce_odr hidden void @_ZNK24GCHeapSummaryEventSender5visitEPK13G1Heap
   %18 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 40
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = load <2 x i64>, ptr %19, align 8
-  store <2 x i64> %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = load <2 x i64>, ptr %22, align 8
-  store <2 x i64> %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 %26, ptr %27, align 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 48
+  store i64 %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 %32, ptr %33, align 8
   call void @_ZN8JfrEventI18EventG1HeapSummaryE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI18EventG1HeapSummaryE13should_commitEv.exit
 

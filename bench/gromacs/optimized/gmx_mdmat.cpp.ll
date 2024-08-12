@@ -146,7 +146,7 @@ define noundef i32 @_Z9gmx_mdmatiPPc(i32 noundef %0, ptr noundef %1) local_unnam
   %31 = alloca %"class.std::allocator.0", align 1
   %32 = alloca %"class.std::__cxx11::basic_string", align 8
   %33 = alloca %"class.std::allocator.0", align 1
-  %34 = alloca %struct.t_rgb, align 16
+  %34 = alloca %struct.t_rgb, align 8
   %35 = alloca %struct.t_rgb, align 8
   %36 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %37 = alloca ptr, align 8
@@ -158,7 +158,7 @@ define noundef i32 @_Z9gmx_mdmatiPPc(i32 noundef %0, ptr noundef %1) local_unnam
   %43 = alloca %"class.std::allocator.0", align 1
   %44 = alloca %"class.std::__cxx11::basic_string", align 8
   %45 = alloca %"class.std::allocator.0", align 1
-  %46 = alloca %struct.t_rgb, align 16
+  %46 = alloca %struct.t_rgb, align 8
   %47 = alloca %struct.t_rgb, align 8
   %48 = alloca %"struct.std::array", align 8
   %49 = alloca %"class.std::allocator.0", align 1
@@ -671,6 +671,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit216:       ; preds = %247, %250
   %258 = getelementptr inbounds i8, ptr %4, i64 4
   %259 = getelementptr inbounds i8, ptr %4, i64 8
   %260 = zext i32 %116 to i64
+  %.sroa.4337.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
   %.sroa.5340.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
   br label %261
 
@@ -991,8 +992,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit241: ; preds = %.noexc238
   %367 = load float, ptr @_ZZ9gmx_mdmatiPPcE8truncate, align 4
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %34, align 16
-  store double 1.000000e+00, ptr %.sroa.5340.0..sroa_idx, align 16
+  store double 1.000000e+00, ptr %34, align 8
+  store double 1.000000e+00, ptr %.sroa.4337.0..sroa_idx, align 8
+  store double 1.000000e+00, ptr %.sroa.5340.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %.0146, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef %206, i32 noundef %206, ptr noundef %209, ptr noundef %209, ptr noundef %210, float noundef 0.000000e+00, float noundef %367, ptr noundef nonnull byval(%struct.t_rgb) align 8 %34, ptr noundef nonnull byval(%struct.t_rgb) align 8 %35, ptr noundef nonnull @_ZZ9gmx_mdmatiPPcE7nlevels)
           to label %368 unwind label %377
@@ -1206,9 +1208,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit256: ;
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit261: ; preds = %.noexc258
   %419 = load float, ptr @_ZZ9gmx_mdmatiPPcE8truncate, align 4
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %46, align 16
+  store double 1.000000e+00, ptr %46, align 8
+  %.sroa.4337.0..sroa_idx338 = getelementptr inbounds i8, ptr %46, i64 8
+  store double 1.000000e+00, ptr %.sroa.4337.0..sroa_idx338, align 8
   %.sroa.5340.0..sroa_idx341 = getelementptr inbounds i8, ptr %46, i64 16
-  store double 1.000000e+00, ptr %.sroa.5340.0..sroa_idx341, align 16
+  store double 1.000000e+00, ptr %.sroa.5340.0..sroa_idx341, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %405, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %206, i32 noundef %206, ptr noundef %209, ptr noundef %209, ptr noundef %226, float noundef 0.000000e+00, float noundef %419, ptr noundef nonnull byval(%struct.t_rgb) align 8 %46, ptr noundef nonnull byval(%struct.t_rgb) align 8 %47, ptr noundef nonnull @_ZZ9gmx_mdmatiPPcE7nlevels)
           to label %420 unwind label %508

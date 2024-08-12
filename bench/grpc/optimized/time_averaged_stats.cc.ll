@@ -24,10 +24,13 @@ entry:
 define void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, double noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %batch_total_value_ = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load <2 x double>, ptr %batch_total_value_, align 8
-  %1 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %value, i64 0
-  %2 = fadd <2 x double> %0, %1
-  store <2 x double> %2, ptr %batch_total_value_, align 8
+  %0 = load double, ptr %batch_total_value_, align 8
+  %add = fadd double %0, %value
+  store double %add, ptr %batch_total_value_, align 8
+  %batch_num_samples_ = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load double, ptr %batch_num_samples_, align 8
+  %inc = fadd double %1, 1.000000e+00
+  store double %inc, ptr %batch_num_samples_, align 8
   ret void
 }
 

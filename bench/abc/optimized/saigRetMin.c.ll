@@ -1828,7 +1828,7 @@ define i32 @Saig_ManHideBadRegs(ptr nocapture noundef %0, ptr nocapture noundef 
   %3 = getelementptr i8, ptr %1, i64 4
   %.val70 = load i32, ptr %3, align 4
   %4 = icmp eq i32 %.val70, 0
-  br i1 %4, label %122, label %.preheader
+  br i1 %4, label %123, label %.preheader
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 104
@@ -2067,14 +2067,16 @@ Vec_PtrFree.exit93:                               ; preds = %Vec_PtrFree.exit, %
   %116 = sub nsw i32 %115, %.val68
   store i32 %116, ptr %5, align 8
   %117 = getelementptr inbounds i8, ptr %0, i64 108
-  %118 = load <2 x i32>, ptr %117, align 4
-  %119 = insertelement <2 x i32> poison, i32 %.val68, i64 0
-  %120 = shufflevector <2 x i32> %119, <2 x i32> poison, <2 x i32> zeroinitializer
-  %121 = add nsw <2 x i32> %118, %120
-  store <2 x i32> %121, ptr %117, align 4
-  br label %122
+  %118 = load i32, ptr %117, align 4
+  %119 = add nsw i32 %118, %.val68
+  store i32 %119, ptr %117, align 4
+  %120 = getelementptr inbounds i8, ptr %0, i64 112
+  %121 = load i32, ptr %120, align 8
+  %122 = add nsw i32 %121, %.val68
+  store i32 %122, ptr %120, align 8
+  br label %123
 
-122:                                              ; preds = %2, %Vec_PtrFree.exit93
+123:                                              ; preds = %2, %Vec_PtrFree.exit93
   %.061 = phi i32 [ %.val68, %Vec_PtrFree.exit93 ], [ 0, %2 ]
   ret i32 %.061
 }
@@ -2086,11 +2088,13 @@ define void @Saig_ManExposeBadRegs(ptr nocapture noundef %0, i32 noundef %1) loc
   %5 = add nsw i32 %4, %1
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 108
-  %7 = load <2 x i32>, ptr %6, align 4
-  %8 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> zeroinitializer
-  %10 = sub nsw <2 x i32> %7, %9
-  store <2 x i32> %10, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4
+  %8 = sub nsw i32 %7, %1
+  store i32 %8, ptr %6, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = load i32, ptr %9, align 8
+  %11 = sub nsw i32 %10, %1
+  store i32 %11, ptr %9, align 8
   ret void
 }
 

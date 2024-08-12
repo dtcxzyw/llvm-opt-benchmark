@@ -1275,7 +1275,13 @@ define internal void @pccon(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 748
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  store <4 x i8> <i8 -1, i8 -1, i8 -1, i8 0>, ptr %8, align 4
+  store i8 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 749
+  store i8 -1, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 750
+  store i8 -1, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 751
+  store i8 0, ptr %11, align 1
   ret void
 }
 

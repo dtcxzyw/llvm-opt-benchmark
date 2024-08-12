@@ -1038,9 +1038,11 @@ invoke.cont111.i:                                 ; preds = %invoke.cont109.i
   br i1 %tobool115.i, label %if.end121.i, label %if.then116.i
 
 if.then116.i:                                     ; preds = %invoke.cont111.i
-  %65 = load <2 x double>, ptr %range.i, align 8
-  %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %66, ptr %range.i, align 8
+  %second120.i = getelementptr inbounds i8, ptr %call17, i64 32
+  %65 = load double, ptr %range.i, align 8
+  %66 = load double, ptr %second120.i, align 8
+  store double %66, ptr %range.i, align 8
+  store double %65, ptr %second120.i, align 8
   br label %if.end121.i
 
 lpad110.i:                                        ; preds = %invoke.cont109.i
@@ -2432,24 +2434,29 @@ if.end:                                           ; preds = %entry
   %sub5 = fsub double %p, %conv4
   %3 = getelementptr %class.aiVector3t, ptr %2, i64 %conv
   %add.ptr.i = getelementptr i8, ptr %3, i64 24
+  %4 = load double, ptr %add.ptr.i, align 8, !noalias !29
+  %mul.i = fmul double %sub5, %4
+  %y.i = getelementptr i8, ptr %3, i64 32
+  %5 = load double, ptr %y.i, align 8, !noalias !29
+  %mul1.i = fmul double %sub5, %5
   %z.i = getelementptr i8, ptr %3, i64 40
-  %4 = load double, ptr %z.i, align 8, !noalias !29
-  %mul2.i = fmul double %sub5, %4
+  %6 = load double, ptr %z.i, align 8, !noalias !29
+  %mul2.i = fmul double %sub5, %6
   %sub11 = fsub double 1.000000e+00, %sub5
+  %7 = load double, ptr %3, align 8, !noalias !32
+  %mul.i7 = fmul double %sub11, %7
+  %y.i8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load double, ptr %y.i8, align 8, !noalias !32
+  %mul1.i9 = fmul double %sub11, %8
   %z.i10 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = load double, ptr %z.i10, align 8, !noalias !32
-  %mul2.i11 = fmul double %sub11, %5
+  %9 = load double, ptr %z.i10, align 8, !noalias !32
+  %mul2.i11 = fmul double %sub11, %9
+  %add.i = fadd double %mul.i, %mul.i7
+  %add3.i = fadd double %mul1.i, %mul1.i9
   %add5.i = fadd double %mul2.i, %mul2.i11
-  %6 = load <2 x double>, ptr %add.ptr.i, align 8, !noalias !29
-  %7 = insertelement <2 x double> poison, double %sub5, i64 0
-  %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x double> %8, %6
-  %10 = load <2 x double>, ptr %3, align 8, !noalias !32
-  %11 = insertelement <2 x double> poison, double %sub11, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = fadd <2 x double> %9, %13
-  store <2 x double> %14, ptr %agg.result, align 8, !alias.scope !35
+  store double %add.i, ptr %agg.result, align 8, !alias.scope !35
+  %y.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add3.i, ptr %y.i.i16, align 8, !alias.scope !35
   %z.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add5.i, ptr %z.i.i17, align 8, !alias.scope !35
   br label %return
@@ -4186,15 +4193,17 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pa
 _ZNSt12_Vector_baseISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.144", ptr %cond.i17, i64 %sub.ptr.div.i
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  %4 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %4, ptr %add.ptr, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -4222,15 +4231,18 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  %9 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !48, !noalias !45
+  store ptr %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !45, !noalias !48
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !48, !noalias !45
+  %10 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
-  store <2 x ptr> %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !45, !noalias !48
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !48
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !48, !noalias !45
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %10 = load i8, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
-  %frombool.i.i.i.i.i.i.i = and i8 %10, 1
+  %11 = load i8, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
+  %frombool.i.i.i.i.i.i.i = and i8 %11, 1
   store i8 %frombool.i.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !48
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -4248,15 +4260,18 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pai
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  %12 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !54, !noalias !51
+  store ptr %12, ptr %__cur.07.i.i.i20, align 8, !alias.scope !51, !noalias !54
+  %_M_refcount.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 8
-  %11 = load <2 x ptr>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !54, !noalias !51
+  %13 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !54, !noalias !51
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !54, !noalias !51
-  store <2 x ptr> %11, ptr %__cur.07.i.i.i20, align 8, !alias.scope !51, !noalias !54
+  store ptr %13, ptr %_M_refcount.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !51, !noalias !54
   store ptr null, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !54, !noalias !51
   %second.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %second3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
-  %12 = load i8, ptr %second3.i.i.i.i.i.i.i25, align 8, !alias.scope !54, !noalias !51
-  %frombool.i.i.i.i.i.i.i26 = and i8 %12, 1
+  %14 = load i8, ptr %second3.i.i.i.i.i.i.i25, align 8, !alias.scope !54, !noalias !51
+  %frombool.i.i.i.i.i.i.i26 = and i8 %14, 1
   store i8 %frombool.i.i.i.i.i.i.i26, ptr %second.i.i.i.i.i.i.i24, align 8, !alias.scope !51, !noalias !54
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 24
   %incdec.ptr1.i.i.i28 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 24
@@ -4316,35 +4331,42 @@ entry:
   %3 = load double, ptr %Radius, align 8
   %call = tail call double @cos(double noundef %mul) #26
   %p = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load double, ptr %p, align 8, !noalias !56
+  %mul.i = fmul double %call, %4
+  %y.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load double, ptr %y.i, align 8, !noalias !56
+  %mul1.i = fmul double %call, %5
   %z.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load double, ptr %z.i, align 8, !noalias !56
-  %mul2.i = fmul double %call, %4
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 72
-  %z.i6 = getelementptr inbounds i8, ptr %this, i64 88
-  %z.i25 = getelementptr inbounds i8, ptr %this, i64 40
-  %5 = load <2 x double>, ptr %p, align 8, !noalias !56
-  %6 = insertelement <2 x double> poison, double %call, i64 0
-  %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
-  %8 = fmul <2 x double> %7, %5
+  %6 = load double, ptr %z.i, align 8, !noalias !56
+  %mul2.i = fmul double %call, %6
   %call5 = tail call double @sin(double noundef %mul) #26
-  %9 = load <2 x double>, ptr %arrayidx7, align 8, !noalias !59
-  %10 = insertelement <2 x double> poison, double %call5, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = load double, ptr %z.i6, align 8, !noalias !59
-  %mul2.i7 = fmul double %call5, %13
-  %14 = fadd <2 x double> %8, %12
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 72
+  %7 = load double, ptr %arrayidx7, align 8, !noalias !59
+  %mul.i3 = fmul double %call5, %7
+  %y.i4 = getelementptr inbounds i8, ptr %this, i64 80
+  %8 = load double, ptr %y.i4, align 8, !noalias !59
+  %mul1.i5 = fmul double %call5, %8
+  %z.i6 = getelementptr inbounds i8, ptr %this, i64 88
+  %9 = load double, ptr %z.i6, align 8, !noalias !59
+  %mul2.i7 = fmul double %call5, %9
+  %add.i = fadd double %mul.i, %mul.i3
+  %add3.i = fadd double %mul1.i, %mul1.i5
   %add5.i = fadd double %mul2.i, %mul2.i7
-  %15 = insertelement <2 x double> poison, double %3, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x double> %16, %14
+  %mul.i14 = fmul double %3, %add.i
+  %mul1.i16 = fmul double %3, %add3.i
   %mul2.i18 = fmul double %3, %add5.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %18 = load <2 x double>, ptr %location, align 8, !noalias !62
-  %19 = fadd <2 x double> %17, %18
-  %20 = load double, ptr %z.i25, align 8, !noalias !62
-  %add5.i27 = fadd double %mul2.i18, %20
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !62
+  %10 = load double, ptr %location, align 8, !noalias !62
+  %add.i21 = fadd double %mul.i14, %10
+  %y.i22 = getelementptr inbounds i8, ptr %this, i64 32
+  %11 = load double, ptr %y.i22, align 8, !noalias !62
+  %add3.i24 = fadd double %mul1.i16, %11
+  %z.i25 = getelementptr inbounds i8, ptr %this, i64 40
+  %12 = load double, ptr %z.i25, align 8, !noalias !62
+  %add5.i27 = fadd double %mul2.i18, %12
+  store double %add.i21, ptr %agg.result, align 8, !alias.scope !62
+  %y.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add3.i24, ptr %y.i.i28, align 8, !alias.scope !62
   %z.i.i29 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add5.i27, ptr %z.i.i29, align 8, !alias.scope !62
   ret void
@@ -4443,34 +4465,42 @@ entry:
   %call = tail call double @cos(double noundef %mul) #26
   %mul3 = fmul double %3, %call
   %p = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load double, ptr %p, align 8, !noalias !65
+  %mul.i = fmul double %4, %mul3
+  %y.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load double, ptr %y.i, align 8, !noalias !65
+  %mul1.i = fmul double %mul3, %5
   %z.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load double, ptr %z.i, align 8, !noalias !65
-  %mul2.i = fmul double %mul3, %4
+  %6 = load double, ptr %z.i, align 8, !noalias !65
+  %mul2.i = fmul double %mul3, %6
+  %7 = load double, ptr %location, align 8, !noalias !68
+  %add.i = fadd double %mul.i, %7
+  %y.i3 = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load double, ptr %y.i3, align 8, !noalias !68
+  %add3.i = fadd double %mul1.i, %8
   %z.i4 = getelementptr inbounds i8, ptr %this, i64 40
-  %5 = load double, ptr %z.i4, align 8, !noalias !68
-  %add5.i = fadd double %mul2.i, %5
-  %6 = load ptr, ptr %entity, align 8
-  %SemiAxis2 = getelementptr inbounds i8, ptr %6, i64 104
-  %7 = load double, ptr %SemiAxis2, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 72
-  %z.i10 = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load <2 x double>, ptr %p, align 8, !noalias !65
-  %9 = insertelement <2 x double> poison, double %mul3, i64 0
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %11 = fmul <2 x double> %8, %10
-  %12 = load <2 x double>, ptr %location, align 8, !noalias !68
-  %13 = fadd <2 x double> %11, %12
+  %9 = load double, ptr %z.i4, align 8, !noalias !68
+  %add5.i = fadd double %mul2.i, %9
+  %10 = load ptr, ptr %entity, align 8
+  %SemiAxis2 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = load double, ptr %SemiAxis2, align 8
   %call6 = tail call double @sin(double noundef %mul) #26
-  %mul7 = fmul double %7, %call6
-  %14 = load <2 x double>, ptr %arrayidx9, align 8, !noalias !71
-  %15 = insertelement <2 x double> poison, double %mul7, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x double> %14, %16
-  %18 = load double, ptr %z.i10, align 8, !noalias !71
-  %mul2.i11 = fmul double %mul7, %18
-  %19 = fadd <2 x double> %13, %17
+  %mul7 = fmul double %11, %call6
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 72
+  %12 = load double, ptr %arrayidx9, align 8, !noalias !71
+  %mul.i7 = fmul double %12, %mul7
+  %y.i8 = getelementptr inbounds i8, ptr %this, i64 80
+  %13 = load double, ptr %y.i8, align 8, !noalias !71
+  %mul1.i9 = fmul double %mul7, %13
+  %z.i10 = getelementptr inbounds i8, ptr %this, i64 88
+  %14 = load double, ptr %z.i10, align 8, !noalias !71
+  %mul2.i11 = fmul double %mul7, %14
+  %add.i14 = fadd double %add.i, %mul.i7
+  %add3.i17 = fadd double %add3.i, %mul1.i9
   %add5.i20 = fadd double %add5.i, %mul2.i11
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !74
+  store double %add.i14, ptr %agg.result, align 8, !alias.scope !74
+  %y.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add3.i17, ptr %y.i.i21, align 8, !alias.scope !74
   %z.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add5.i20, ptr %z.i.i22, align 8, !alias.scope !74
   ret void
@@ -4502,20 +4532,26 @@ define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_14Line4EvalEd(ptr noalias noca
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 24
   %v = getelementptr inbounds i8, ptr %this, i64 48
+  %0 = load double, ptr %v, align 8, !noalias !77
+  %mul.i = fmul double %0, %u
+  %y.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = load double, ptr %y.i, align 8, !noalias !77
+  %mul1.i = fmul double %1, %u
   %z.i = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load double, ptr %z.i, align 8, !noalias !77
-  %mul2.i = fmul double %0, %u
+  %2 = load double, ptr %z.i, align 8, !noalias !77
+  %mul2.i = fmul double %2, %u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
+  %3 = load double, ptr %p, align 8, !noalias !80
+  %add.i = fadd double %mul.i, %3
+  %y.i1 = getelementptr inbounds i8, ptr %this, i64 32
+  %4 = load double, ptr %y.i1, align 8, !noalias !80
+  %add3.i = fadd double %mul1.i, %4
   %z.i2 = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load double, ptr %z.i2, align 8, !noalias !80
-  %add5.i = fadd double %mul2.i, %1
-  %2 = load <2 x double>, ptr %v, align 8, !noalias !77
-  %3 = insertelement <2 x double> poison, double %u, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x double> %2, %4
-  %6 = load <2 x double>, ptr %p, align 8, !noalias !80
-  %7 = fadd <2 x double> %5, %6
-  store <2 x double> %7, ptr %agg.result, align 8, !alias.scope !80
+  %5 = load double, ptr %z.i2, align 8, !noalias !80
+  %add5.i = fadd double %mul2.i, %5
+  store double %add.i, ptr %agg.result, align 8, !alias.scope !80
+  %y.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add3.i, ptr %y.i.i3, align 8, !alias.scope !80
   %z.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add5.i, ptr %z.i.i4, align 8, !alias.scope !80
   ret void

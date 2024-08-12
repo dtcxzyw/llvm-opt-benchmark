@@ -275,7 +275,13 @@ land.end:                                         ; preds = %invoke.cont15, %ent
   %frombool19 = zext i1 %8 to i8
   store i8 %frombool19, ptr %use_rcheck, align 1
   %merges = getelementptr inbounds i8, ptr %this, i64 876
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %merges, align 4
+  store i32 0, ptr %merges, align 4
+  %asymm_lits = getelementptr inbounds i8, ptr %this, i64 880
+  store i32 0, ptr %asymm_lits, align 8
+  %eliminated_vars = getelementptr inbounds i8, ptr %this, i64 884
+  store i32 0, ptr %eliminated_vars, align 4
+  %elimorder = getelementptr inbounds i8, ptr %this, i64 888
+  store i32 1, ptr %elimorder, align 8
   %use_simplification = getelementptr inbounds i8, ptr %this, i64 892
   %call21 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont20 unwind label %lpad
@@ -2874,8 +2880,12 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %for.end31, %for.con
   %24 = load ptr, ptr %tmp, align 8
   store ptr %24, ptr %this, align 8
   %sz.i17 = getelementptr inbounds i8, ptr %tmp, i64 8
-  %25 = load <2 x i32>, ptr %sz.i17, align 8
-  store <2 x i32> %25, ptr %sz.i, align 8
+  %25 = load i32, ptr %sz.i17, align 8
+  store i32 %25, ptr %sz.i, align 8
+  %cap.i = getelementptr inbounds i8, ptr %tmp, i64 12
+  %26 = load i32, ptr %cap.i, align 4
+  %cap4.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %26, ptr %cap4.i, align 4
   br label %if.end37
 
 if.end37:                                         ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, %if.end
@@ -6583,11 +6593,15 @@ _ZN4cvc58internal7Minisat15ClauseAllocatorD2Ev.exit8: ; preds = %if.end, %if.the
   %10 = load ptr, ptr %to, align 8
   store ptr %10, ptr %ca, align 8
   %sz.i.i = getelementptr inbounds i8, ptr %to, i64 8
-  %11 = load <2 x i32>, ptr %sz.i.i, align 8
-  store <2 x i32> %11, ptr %sz.i, align 8
+  %11 = load i32, ptr %sz.i.i, align 8
+  store i32 %11, ptr %sz.i, align 8
+  %cap.i.i = getelementptr inbounds i8, ptr %to, i64 12
+  %12 = load i32, ptr %cap.i.i, align 4
+  %cap6.i.i = getelementptr inbounds i8, ptr %this, i64 716
+  store i32 %12, ptr %cap6.i.i, align 4
   %wasted_.i.i = getelementptr inbounds i8, ptr %to, i64 16
-  %12 = load i32, ptr %wasted_.i.i, align 8
-  store i32 %12, ptr %wasted_.i, align 8
+  %13 = load i32, ptr %wasted_.i.i, align 8
+  store i32 %13, ptr %wasted_.i, align 8
   ret void
 }
 
@@ -8047,7 +8061,8 @@ entry:
   store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL21opt_simp_garbage_frac, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.48)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i64 16), ptr @_ZL21opt_simp_garbage_frac, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 57), align 1
   store double 5.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8

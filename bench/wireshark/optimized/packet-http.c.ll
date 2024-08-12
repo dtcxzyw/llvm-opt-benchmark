@@ -1480,7 +1480,7 @@ define internal void @header_fields_post_update_cb() #0 {
 deregister_header_fields.exit:                    ; preds = %15, %17
   %18 = load i32, ptr @num_header_fields, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %54, label %19
+  br i1 %.not, label %57, label %19
 
 19:                                               ; preds = %deregister_header_fields.exit
   %20 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef null) #14
@@ -1524,29 +1524,35 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %44 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 6
   store ptr %42, ptr %44, align 8
   %45 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 7
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %45, align 8
-  %46 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 11
-  store ptr null, ptr %46, align 8
-  %47 = load ptr, ptr @header_fields_hash, align 8
-  %48 = tail call i32 @g_hash_table_insert(ptr noundef %47, ptr noundef %30, ptr noundef nonnull %25) #14
+  store i32 -1, ptr %45, align 8
+  %46 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 8
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 9
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 10
+  store i32 -1, ptr %48, align 4
+  %49 = getelementptr %struct.hf_register_info, ptr %43, i64 %indvars.iv, i32 1, i32 11
+  store ptr null, ptr %49, align 8
+  %50 = load ptr, ptr @header_fields_hash, align 8
+  %51 = tail call i32 @g_hash_table_insert(ptr noundef %50, ptr noundef %30, ptr noundef nonnull %25) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load i32, ptr @dynamic_hf_size, align 4
-  %50 = zext i32 %49 to i64
-  %51 = icmp ult i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  %52 = load i32, ptr @dynamic_hf_size, align 4
+  %53 = zext i32 %52 to i64
+  %54 = icmp ult i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr @dynamic_hf, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %52 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %19 ], [ %49, %._crit_edge.loopexit ]
-  %53 = load i32, ptr @proto_http, align 4
-  tail call void @proto_register_field_array(i32 noundef %53, ptr noundef %52, i32 noundef %.lcssa) #14
-  br label %54
+  %55 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %19 ], [ %52, %._crit_edge.loopexit ]
+  %56 = load i32, ptr @proto_http, align 4
+  tail call void @proto_register_field_array(i32 noundef %56, ptr noundef %55, i32 noundef %.lcssa) #14
+  br label %57
 
-54:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
+57:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
   ret void
 }
 

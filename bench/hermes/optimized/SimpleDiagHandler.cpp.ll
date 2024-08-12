@@ -202,19 +202,23 @@ entry:
   store i32 %cond.i, ptr %errorLimit_.i, align 8
   %3 = load ptr, ptr %sourceErrorManager_, align 8
   %oldHandler_ = getelementptr inbounds i8, ptr %this, i64 368
+  %4 = load ptr, ptr %oldHandler_, align 8
+  %oldContext_ = getelementptr inbounds i8, ptr %this, i64 376
+  %5 = load ptr, ptr %oldContext_, align 8
   %DiagHandler.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  %4 = load <2 x ptr>, ptr %oldHandler_, align 8
-  store <2 x ptr> %4, ptr %DiagHandler.i.i, align 8
+  store ptr %4, ptr %DiagHandler.i.i, align 8
+  %DiagContext.i.i = getelementptr inbounds i8, ptr %3, i64 112
+  store ptr %5, ptr %DiagContext.i.i, align 8
   %FixIts.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %5 = load ptr, ptr %FixIts.i.i, align 8
+  %6 = load ptr, ptr %FixIts.i.i, align 8
   %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %6 = load i32, ptr %Size.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq i32 %6, 0
+  %7 = load i32, ptr %Size.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not3.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i, label %while.body.i.preheader.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %entry
-  %conv.i.i.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %5, i64 %conv.i.i.i.i
+  %conv.i.i.i.i = zext i32 %7 to i64
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %6, i64 %conv.i.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -222,7 +226,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -48
   %Text.i.i.i.i.i = getelementptr inbounds i8, ptr %E.addr.04.i.i.i.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i) #12
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !24
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i: ; preds = %while.body.i.i.i.i
@@ -230,23 +234,23 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, %entry
-  %7 = phi ptr [ %.pre.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i ], [ %5, %entry ]
+  %8 = phi ptr [ %.pre.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i ], [ %6, %entry ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %cmp.i.i.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
-  tail call void @free(ptr noundef %7) #12
+  tail call void @free(ptr noundef %8) #12
   br label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i
 
 _ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
   %Ranges.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %8 = load ptr, ptr %Ranges.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %Ranges.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6hermes17SimpleDiagHandlerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #13
   br label %_ZN6hermes17SimpleDiagHandlerD2Ev.exit
 
 _ZN6hermes17SimpleDiagHandlerD2Ev.exit:           ; preds = %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, %if.then.i.i.i.i.i

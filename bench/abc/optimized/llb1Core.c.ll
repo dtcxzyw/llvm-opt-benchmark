@@ -28,21 +28,33 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Llb_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 40, i1 false)
-  store <4 x i32> <i32 10000000, i32 10000000, i32 20, i32 0>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 0, i32 100, i32 30>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 5, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 10000000, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 10000000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 20, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  store i32 -1, ptr %9, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 100, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 30, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 5, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  store i32 -1, ptr %15, align 8
   ret void
 }
 

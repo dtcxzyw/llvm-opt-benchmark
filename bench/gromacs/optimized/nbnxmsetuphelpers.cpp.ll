@@ -1167,93 +1167,98 @@ define void @_ZN5nblib22createInteractionConstERKNS_15NBKernelOptionsE(ptr dead_
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
-  %18 = getelementptr inbounds i8, ptr %0, i64 116
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
-  store float 0.000000e+00, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  store float 1.000000e+00, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 108
+  store float 1.000000e+00, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  store float 1.000000e+00, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 116
+  store float 0.000000e+00, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  store float 0.000000e+00, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store i32 0, ptr %0, align 8
   store i32 1, ptr %7, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
-  %22 = load float, ptr %21, align 4
-  store float %22, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4
-  switch i32 %24, label %34 [
+  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %23 = load float, ptr %22, align 4
+  store float %23, ptr %9, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load i32, ptr %24, align 4
+  switch i32 %25, label %35 [
     i32 0, label %.sink.split
-    i32 3, label %26
-    i32 2, label %25
+    i32 3, label %27
+    i32 2, label %26
   ]
 
-25:                                               ; preds = %2
+26:                                               ; preds = %2
   br label %.sink.split
 
-26:                                               ; preds = %2
-  %27 = tail call ptr @__cxa_allocate_exception(i64 40) #18
+27:                                               ; preds = %2
+  %28 = tail call ptr @__cxa_allocate_exception(i64 40) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %28 unwind label %.thread
+          to label %29 unwind label %.thread
 
-28:                                               ; preds = %26
-  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %29 unwind label %31
+29:                                               ; preds = %27
+  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %30 unwind label %32
 
-29:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #19
-          to label %64 unwind label %31
+30:                                               ; preds = %29
+  invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #19
+          to label %65 unwind label %32
 
-.thread:                                          ; preds = %26
-  %30 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %27
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  br label %33
+  br label %34
 
-31:                                               ; preds = %28, %29
-  %.08 = phi i1 [ false, %29 ], [ true, %28 ]
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %29, %30
+  %.08 = phi i1 [ false, %30 ], [ true, %29 ]
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  br i1 %.08, label %33, label %63
+  br i1 %.08, label %34, label %64
 
-33:                                               ; preds = %.thread, %31
-  %.pn22 = phi { ptr, i32 } [ %30, %.thread ], [ %32, %31 ]
-  call void @__cxa_free_exception(ptr %27) #18
-  br label %63
+34:                                               ; preds = %.thread, %32
+  %.pn22 = phi { ptr, i32 } [ %31, %.thread ], [ %33, %32 ]
+  call void @__cxa_free_exception(ptr %28) #18
+  br label %64
 
-.sink.split:                                      ; preds = %2, %25
-  %.sink = phi i32 [ 1, %25 ], [ 3, %2 ]
+.sink.split:                                      ; preds = %2, %26
+  %.sink = phi i32 [ 1, %26 ], [ 3, %2 ]
   store i32 %.sink, ptr %12, align 4
-  br label %34
+  br label %35
 
-34:                                               ; preds = %.sink.split, %2
+35:                                               ; preds = %.sink.split, %2
   store i32 1, ptr %13, align 8
-  store float %22, ptr %14, align 4
-  %35 = fmul float %22, %22
-  %36 = fmul float %22, %35
-  %37 = fmul float %36, %36
-  %38 = fdiv float -1.000000e+00, %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %38, ptr %39, align 8
-  %40 = fmul float %37, %37
-  %41 = fdiv float -1.000000e+00, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %41, ptr %42, align 4
-  store float 1.000000e+00, ptr %17, align 8
-  store <2 x float> <float 1.000000e+00, float 0x40615DEF40000000>, ptr %16, align 8
-  invoke void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef null, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef %22, ptr noundef nonnull %18, ptr noundef nonnull %19)
-          to label %45 unwind label %43
+  store float %23, ptr %14, align 4
+  %36 = fmul float %23, %23
+  %37 = fmul float %23, %36
+  %38 = fmul float %37, %37
+  %39 = fdiv float -1.000000e+00, %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %39, ptr %40, align 8
+  %41 = fmul float %38, %38
+  %42 = fdiv float -1.000000e+00, %41
+  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %42, ptr %43, align 4
+  store float 1.000000e+00, ptr %16, align 8
+  store float 1.000000e+00, ptr %18, align 8
+  store float 0x40615DEF40000000, ptr %17, align 4
+  invoke void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef null, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %20)
+          to label %46 unwind label %44
 
-43:                                               ; preds = %58, %.thread23, %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit, %34
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %59, %.thread23, %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit, %35
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %64
 
-45:                                               ; preds = %34
+46:                                               ; preds = %35
   %.val = load i32, ptr %12, align 4
-  switch i32 %.val, label %62 [
+  switch i32 %.val, label %63 [
     i32 3, label %.thread23
     i32 14, label %.thread23
     i32 13, label %.thread23
@@ -1262,78 +1267,78 @@ define void @_ZN5nblib22createInteractionConstERKNS_15NBKernelOptionsE(ptr dead_
     i32 4, label %.thread23
   ]
 
-.thread23:                                        ; preds = %45, %45, %45, %45, %45, %45
-  %46 = load float, ptr %21, align 4
-  %47 = invoke noundef float @_Z17calc_ewaldcoeff_qff(float noundef %46, float noundef 0x3EE4F8B580000000)
-          to label %_ZN5nblib10ewaldCoeffEff.exit unwind label %43
+.thread23:                                        ; preds = %46, %46, %46, %46, %46, %46
+  %47 = load float, ptr %22, align 4
+  %48 = invoke noundef float @_Z17calc_ewaldcoeff_qff(float noundef %47, float noundef 0x3EE4F8B580000000)
+          to label %_ZN5nblib10ewaldCoeffEff.exit unwind label %44
 
 _ZN5nblib10ewaldCoeffEff.exit:                    ; preds = %.thread23
-  %48 = getelementptr inbounds i8, ptr %0, i64 84
-  store float %47, ptr %48, align 4
-  %49 = fcmp ugt float %47, 0.000000e+00
-  br i1 %49, label %58, label %50
+  %49 = getelementptr inbounds i8, ptr %0, i64 84
+  store float %48, ptr %49, align 4
+  %50 = fcmp ugt float %48, 0.000000e+00
+  br i1 %50, label %59, label %51
 
-50:                                               ; preds = %_ZN5nblib10ewaldCoeffEff.exit
-  %51 = tail call ptr @__cxa_allocate_exception(i64 40) #18
+51:                                               ; preds = %_ZN5nblib10ewaldCoeffEff.exit
+  %52 = tail call ptr @__cxa_allocate_exception(i64 40) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %52 unwind label %.thread24
+          to label %53 unwind label %.thread24
 
-52:                                               ; preds = %50
-  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %53 unwind label %55
+53:                                               ; preds = %51
+  invoke void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %54 unwind label %56
 
-53:                                               ; preds = %52
-  invoke void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #19
-          to label %64 unwind label %55
+54:                                               ; preds = %53
+  invoke void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTIN5nblib14InputExceptionE, ptr nonnull @_ZN5nblib14InputExceptionD2Ev) #19
+          to label %65 unwind label %56
 
-.thread24:                                        ; preds = %50
-  %54 = landingpad { ptr, i32 }
+.thread24:                                        ; preds = %51
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
-  br label %57
+  br label %58
 
-55:                                               ; preds = %52, %53
-  %.0 = phi i1 [ false, %53 ], [ true, %52 ]
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %53, %54
+  %.0 = phi i1 [ false, %54 ], [ true, %53 ]
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
-  br i1 %.0, label %57, label %63
+  br i1 %.0, label %58, label %64
 
-57:                                               ; preds = %.thread24, %55
-  %.pn1727 = phi { ptr, i32 } [ %54, %.thread24 ], [ %56, %55 ]
-  call void @__cxa_free_exception(ptr %51) #18
-  br label %63
+58:                                               ; preds = %.thread24, %56
+  %.pn1727 = phi { ptr, i32 } [ %55, %.thread24 ], [ %57, %56 ]
+  call void @__cxa_free_exception(ptr %52) #18
+  br label %64
 
-58:                                               ; preds = %_ZN5nblib10ewaldCoeffEff.exit
-  %59 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
-          to label %60 unwind label %43
+59:                                               ; preds = %_ZN5nblib10ewaldCoeffEff.exit
+  %60 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22
+          to label %61 unwind label %44
 
-60:                                               ; preds = %58
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 80, i1 false), !noalias !16
-  %61 = load ptr, ptr %20, align 8
-  store ptr %59, ptr %20, align 8
-  %.not.i.i.i.i = icmp eq ptr %61, null
+61:                                               ; preds = %59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 80, i1 false), !noalias !16
+  %62 = load ptr, ptr %21, align 8
+  store ptr %60, ptr %21, align 8
+  %.not.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit, label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EEaSEOS3_.exit
 
-_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %60
-  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %61)
+_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %61
+  tail call void @_ZNKSt14default_deleteI21EwaldCorrectionTablesEclEPS0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %62)
   br label %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit
 
-_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EEaSEOS3_.exit, %60
+_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EEaSEOS3_.exit, %61
   invoke void @_Z29init_interaction_const_tablesP8_IO_FILEP19interaction_const_tff(ptr noundef null, ptr noundef nonnull %0, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %62 unwind label %43
+          to label %63 unwind label %44
 
-62:                                               ; preds = %45, %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit
+63:                                               ; preds = %46, %_ZNSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EED2Ev.exit
   ret void
 
-63:                                               ; preds = %55, %57, %31, %33, %43
-  %.pn17.pn = phi { ptr, i32 } [ %.pn1727, %57 ], [ %56, %55 ], [ %44, %43 ], [ %.pn22, %33 ], [ %32, %31 ]
+64:                                               ; preds = %56, %58, %32, %34, %44
+  %.pn17.pn = phi { ptr, i32 } [ %.pn1727, %58 ], [ %57, %56 ], [ %45, %44 ], [ %.pn22, %34 ], [ %33, %32 ]
   call void @_ZN19interaction_const_tD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #18
   resume { ptr, i32 } %.pn17.pn
 
-64:                                               ; preds = %53, %29
+65:                                               ; preds = %54, %30
   unreachable
 }
 

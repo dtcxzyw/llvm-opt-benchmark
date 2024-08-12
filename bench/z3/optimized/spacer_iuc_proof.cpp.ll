@@ -4143,16 +4143,19 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  %0 = load <2 x i32>, ptr %__args, align 4
-  %1 = load i32, ptr %__args, align 4
-  store <2 x i32> %0, ptr %add.ptr.i.i, align 4
+  %0 = load i32, ptr %__args, align 4
+  store i32 %0, ptr %add.ptr.i.i, align 4
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 12
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 4
+  %1 = load i32, ptr %second3.i.i.i.i.i, align 4
+  store i32 %1, ptr %second.i.i.i.i.i, align 4
   %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %2, 0
   br i1 %cmp.not.not, label %if.then, label %invoke.cont21.thread
 
 invoke.cont21.thread:                             ; preds = %entry
-  %conv.i.i22 = zext i32 %1 to i64
+  %conv.i.i22 = zext i32 %0 to i64
   %_M_bucket_count.i23 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i23, align 8
   %rem.i.i.i24 = urem i64 %conv.i.i22, %3
@@ -4175,7 +4178,7 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
 invoke.cont:                                      ; preds = %for.cond
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %6 = load i32, ptr %add.ptr12, align 4
-  %cmp.i.i = icmp eq i32 %1, %6
+  %cmp.i.i = icmp eq i32 %0, %6
   br i1 %cmp.i.i, label %if.then.i15, label %for.cond, !llvm.loop !36
 
 _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end34
@@ -4185,7 +4188,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   resume { ptr, i32 } %7
 
 invoke.cont21:                                    ; preds = %for.cond
-  %conv.i.i = zext i32 %1 to i64
+  %conv.i.i = zext i32 %0 to i64
   %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i, %8
@@ -4195,11 +4198,11 @@ if.end.i.i:                                       ; preds = %invoke.cont21.threa
   %9 = load ptr, ptr %5, align 8
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %add.ptr8.i.i, align 4
-  %cmp.i.i.i9.i.i = icmp eq i32 %1, %10
+  %cmp.i.i.i9.i.i = icmp eq i32 %0, %10
   br i1 %cmp.i.i.i9.i.i, label %if.then.i15, label %if.end3.i.i
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %cmp.i.i.i.i.i = icmp eq i32 %1, %12
+  %cmp.i.i.i.i.i = icmp eq i32 %0, %12
   br i1 %cmp.i.i.i.i.i, label %if.then.i15, label %if.end3.i.i, !llvm.loop !13
 
 if.end3.i.i:                                      ; preds = %if.end.i.i, %for.cond.i.i

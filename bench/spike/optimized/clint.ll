@@ -139,7 +139,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7clint_tC2EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %struct.timeval, align 16
+  %5 = alloca %struct.timeval, align 8
   %6 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV7clint_t, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -161,24 +161,28 @@ define void @_ZN7clint_tC2EPK7simif_tmb(ptr noundef nonnull align 8 dereferencea
   %15 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 0, ptr %15, align 8
   %16 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #18
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = load <2 x i64>, ptr %5, align 16
-  store <2 x i64> %18, ptr %17, align 8
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef 0)
-          to label %22 unwind label %23
+  %17 = load i64, ptr %5, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %20, ptr %21, align 8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef 0)
+          to label %25 unwind label %26
 
-22:                                               ; preds = %4
+25:                                               ; preds = %4
   ret void
 
-23:                                               ; preds = %4
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %4
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #18
-  resume { ptr, i32 } %24
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #18
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: nofree nounwind

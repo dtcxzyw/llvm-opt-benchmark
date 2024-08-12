@@ -43,51 +43,71 @@ define dso_local noundef i64 @ginhandler(ptr nocapture noundef readnone %0) loca
   %6 = getelementptr inbounds i8, ptr %2, i64 10
   %7 = getelementptr inbounds i8, ptr %2, i64 14
   store i32 0, ptr %6, align 2
-  store <8 x i8> <i8 1, i8 1, i8 0, i8 0, i8 1, i8 0, i8 1, i8 0>, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 22
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 26
-  store i8 5, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @ginbuild, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr @ginbuildempty, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr @gininsert, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr @ginbulkdelete, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr @ginvacuumcleanup, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr @gincostestimate, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr @ginoptions, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 104
-  %21 = getelementptr inbounds i8, ptr %2, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  store ptr @ginvalidate, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr @ginadjustmembers, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 136
-  store ptr @ginbeginscan, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 144
-  store ptr @ginrescan, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 152
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 160
-  store ptr @gingetbitmap, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 168
-  store ptr @ginendscan, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 176
-  %29 = ptrtoint ptr %2 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
-  ret i64 %29
+  store i8 1, ptr %7, align 2
+  %8 = getelementptr inbounds i8, ptr %2, i64 15
+  store i8 1, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %2, i64 18
+  store i8 1, ptr %11, align 2
+  %12 = getelementptr inbounds i8, ptr %2, i64 19
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  store i8 1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %2, i64 21
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 22
+  store i8 0, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %2, i64 23
+  store i8 0, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %2, i64 26
+  store i8 5, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @ginbuild, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @ginbuildempty, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @gininsert, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr @ginbulkdelete, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr @ginvacuumcleanup, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr @gincostestimate, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @ginoptions, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 104
+  %31 = getelementptr inbounds i8, ptr %2, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  store ptr @ginvalidate, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr @ginadjustmembers, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 136
+  store ptr @ginbeginscan, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 144
+  store ptr @ginrescan, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 152
+  store ptr null, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 160
+  store ptr @gingetbitmap, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 168
+  store ptr @ginendscan, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 176
+  %39 = ptrtoint ptr %2 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false)
+  ret i64 %39
 }
 
 declare ptr @ginbuild(ptr noundef, ptr noundef, ptr noundef) #1

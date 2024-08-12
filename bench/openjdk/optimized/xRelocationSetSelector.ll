@@ -438,50 +438,58 @@ _ZN24EventZRelocationSetGroupC2E14EventStartTime.exit: ; preds = %10, %15
 20:                                               ; preds = %18, %_ZN24EventZRelocationSetGroupC2E14EventStartTime.exit
   %21 = phi i64 [ %19, %18 ], [ 2, %_ZN24EventZRelocationSetGroupC2E14EventStartTime.exit ]
   %22 = getelementptr inbounds i8, ptr %0, i64 64
-  %23 = load <2 x i64>, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
-  %25 = load <2 x i64>, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 88
   %27 = load i64, ptr %26, align 8
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3593), align 1
-  %.not.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i, label %_ZN24EventZRelocationSetGroup6commitEmmmmmm.exit, label %29
+  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = load i64, ptr %30, align 8
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3593), align 1
+  %.not.i.i = icmp eq i8 %32, 0
+  br i1 %.not.i.i, label %_ZN24EventZRelocationSetGroup6commitEmmmmmm.exit, label %33
 
-29:                                               ; preds = %20
-  %30 = icmp eq i64 %.pre3.i.i.i, 0
-  br i1 %30, label %31, label %33
+33:                                               ; preds = %20
+  %34 = icmp eq i64 %.pre3.i.i.i, 0
+  br i1 %34, label %35, label %37
 
-31:                                               ; preds = %29
-  %32 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
-  store i64 %32, ptr %2, align 8
+35:                                               ; preds = %33
+  %36 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
+  store i64 %36, ptr %2, align 8
   br label %_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.i
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  %35 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
-  store i64 %35, ptr %34, align 8
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
+  store i64 %39, ptr %38, align 8
   br label %_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.i
 
-_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.i: ; preds = %33, %31
-  %36 = phi i64 [ %.pre3.i.i.i, %33 ], [ %32, %31 ]
-  %37 = phi i64 [ %35, %33 ], [ 0, %31 ]
-  %38 = sub nsw i64 %37, %36
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3576), align 8
-  %40 = icmp sge i64 %38, %39
-  %41 = zext i1 %40 to i8
-  store i8 %41, ptr %11, align 1
+_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.i: ; preds = %37, %35
+  %40 = phi i64 [ %.pre3.i.i.i, %37 ], [ %36, %35 ]
+  %41 = phi i64 [ %39, %37 ], [ 0, %35 ]
+  %42 = sub nsw i64 %41, %40
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3576), align 8
+  %44 = icmp sge i64 %42, %43
+  %45 = zext i1 %44 to i8
+  store i8 %45, ptr %11, align 1
   store i8 1, ptr %12, align 2
-  br i1 %40, label %_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.thread.i, label %_ZN24EventZRelocationSetGroup6commitEmmmmmm.exit
+  br i1 %44, label %_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.thread.i, label %_ZN24EventZRelocationSetGroup6commitEmmmmmm.exit
 
 _ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.thread.i: ; preds = %_ZN8JfrEventI24EventZRelocationSetGroupE13should_commitEv.exit.i
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %21, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x i64> %23, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 48
-  store <2 x i64> %25, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 64
-  store i64 %27, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %21, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %23, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %25, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %27, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 %29, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %2, i64 64
+  store i64 %31, ptr %51, align 8
   call void @_ZN8JfrEventI24EventZRelocationSetGroupE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
   br label %_ZN24EventZRelocationSetGroup6commitEmmmmmm.exit
 

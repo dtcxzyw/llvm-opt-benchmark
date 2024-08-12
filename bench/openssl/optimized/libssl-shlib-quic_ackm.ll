@@ -409,9 +409,9 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr nocapture n
 entry:
   %space.i82 = alloca i32, align 4
   %r.i.i = alloca %struct.uint_range_st, align 8
-  %ainfo.i = alloca %struct.ossl_cc_ack_info_st, align 16
+  %ainfo.i = alloca %struct.ossl_cc_ack_info_st, align 8
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
-  %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 16
+  %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 8
   %key.i.i49 = alloca %struct.ossl_ackm_tx_pkt_st, align 8
   %ecn_info.i = alloca %struct.ossl_cc_ecn_info_st, align 8
   %space.i = alloca i32, align 4
@@ -807,9 +807,10 @@ if.end59:                                         ; preds = %ackm_process_ecn.ex
 for.body.lr.ph.i57:                               ; preds = %if.end59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %loss_info.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
   %bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 400
   %ack_eliciting_bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 408
+  %tx_size.i = getelementptr inbounds i8, ptr %loss_info.i, i64 8
   %cc_method.i58 = getelementptr inbounds i8, ptr %ackm, i64 264
   %cc_data.i59 = getelementptr inbounds i8, ptr %ackm, i64 272
   br label %for.body.us.i
@@ -846,9 +847,11 @@ if.then6.us.i:                                    ; preds = %if.then.us.i
   br label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.then6.us.i, %if.then.us.i
-  %60 = load <2 x i64>, ptr %num_bytes.us.i, align 8
-  %61 = shufflevector <2 x i64> %60, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %61, ptr %loss_info.i, align 16
+  %time.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 16
+  %60 = load i64, ptr %time.us.i, align 8
+  store i64 %60, ptr %loss_info.i, align 8
+  %61 = load i64, ptr %num_bytes.us.i, align 8
+  store i64 %61, ptr %tx_size.i, align 8
   %62 = load ptr, ptr %cc_method.i58, align 8
   %on_data_lost.us.i = getelementptr inbounds i8, ptr %62, i64 80
   %63 = load ptr, ptr %on_data_lost.us.i, align 8
@@ -880,11 +883,12 @@ ackm_on_pkts_lost.exit:                           ; preds = %if.end21.us.i
 
 for.body.lr.ph.i60:                               ; preds = %if.end59, %ackm_on_pkts_lost.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ainfo.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ainfo.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ainfo.i, i8 0, i64 16, i1 false)
   %bytes_in_flight.i61 = getelementptr inbounds i8, ptr %ackm, i64 400
   %ack_eliciting_bytes_in_flight.i62 = getelementptr inbounds i8, ptr %ackm, i64 408
   %rx_history.i.i = getelementptr inbounds i8, ptr %ackm, i64 144
   %end.i.i63 = getelementptr inbounds i8, ptr %r.i.i, i64 8
+  %tx_size.i64 = getelementptr inbounds i8, ptr %ainfo.i, i64 8
   %cc_method.i65 = getelementptr inbounds i8, ptr %ackm, i64 264
   %cc_data.i66 = getelementptr inbounds i8, ptr %ackm, i64 272
   br label %for.body.i67
@@ -952,10 +956,12 @@ rx_pkt_history_bump_watermark.exit.i:             ; preds = %if.end4.i.i, %if.en
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %rx_pkt_history_bump_watermark.exit.i, %if.end.i75, %for.body.i67
+  %time.i79 = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 16
+  %79 = load i64, ptr %time.i79, align 8
+  store i64 %79, ptr %ainfo.i, align 8
   %num_bytes26.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 8
-  %79 = load <2 x i64>, ptr %num_bytes26.i, align 8
-  %80 = shufflevector <2 x i64> %79, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %80, ptr %ainfo.i, align 16
+  %80 = load i64, ptr %num_bytes26.i, align 8
+  store i64 %80, ptr %tx_size.i64, align 8
   %anext27.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 88
   %81 = load ptr, ptr %anext27.i, align 8
   %on_acked.i = getelementptr inbounds i8, ptr %apkt.addr.022.i, i64 48
@@ -1541,7 +1547,7 @@ entry:
   %space.i21 = alloca i32, align 4
   %space.i = alloca i32, align 4
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
-  %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 16
+  %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 8
   %pkt_space = alloca i32, align 4
   %loss_time.i = getelementptr inbounds i8, ptr %ackm, i64 336
   %retval.sroa.0.0.copyload.i = load i64, ptr %loss_time.i, align 8
@@ -1576,9 +1582,10 @@ if.then:                                          ; preds = %ackm_get_loss_time_
 for.body.lr.ph.i:                                 ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rtt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %loss_info.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_info.i, i8 0, i64 16, i1 false)
   %bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 400
   %ack_eliciting_bytes_in_flight.i = getelementptr inbounds i8, ptr %ackm, i64 408
+  %tx_size.i = getelementptr inbounds i8, ptr %loss_info.i, i64 8
   %cc_method.i = getelementptr inbounds i8, ptr %ackm, i64 264
   %cc_data.i = getelementptr inbounds i8, ptr %ackm, i64 272
   br label %for.body.us.i
@@ -1615,9 +1622,11 @@ if.then6.us.i:                                    ; preds = %if.then.us.i
   br label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.then6.us.i, %if.then.us.i
-  %10 = load <2 x i64>, ptr %num_bytes.us.i, align 8
-  %11 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %11, ptr %loss_info.i, align 16
+  %time.us.i = getelementptr inbounds i8, ptr %p.024.us.i, i64 16
+  %10 = load i64, ptr %time.us.i, align 8
+  store i64 %10, ptr %loss_info.i, align 8
+  %11 = load i64, ptr %num_bytes.us.i, align 8
+  store i64 %11, ptr %tx_size.i, align 8
   %12 = load ptr, ptr %cc_method.i, align 8
   %on_data_lost.us.i = getelementptr inbounds i8, ptr %12, i64 80
   %13 = load ptr, ptr %on_data_lost.us.i, align 8

@@ -8410,54 +8410,62 @@ if.end7:                                          ; preds = %lor.lhs.false
   %inuse15 = getelementptr inbounds i8, ptr %call8, i64 12
   store i32 %5, ptr %inuse15, align 4
   %arrayidx18 = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i
+  %6 = load i32, ptr %arrayidx18, align 8
   %vring_num = getelementptr inbounds i8, ptr %call8, i64 16
-  %6 = load <2 x i32>, ptr %arrayidx18, align 8
-  store <2 x i32> %6, ptr %vring_num, align 8
+  store i32 %6, ptr %vring_num, align 8
+  %num_default = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 1
+  %7 = load i32, ptr %num_default, align 4
+  %vring_num_default = getelementptr inbounds i8, ptr %call8, i64 20
+  store i32 %7, ptr %vring_num_default, align 4
   %align = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 2
-  %7 = load i32, ptr %align, align 8
+  %8 = load i32, ptr %align, align 8
   %vring_align = getelementptr inbounds i8, ptr %call8, i64 24
-  store i32 %7, ptr %vring_align, align 8
+  store i32 %8, ptr %vring_align, align 8
   %desc = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 3
+  %9 = load i64, ptr %desc, align 8
   %vring_desc = getelementptr inbounds i8, ptr %call8, i64 32
-  %8 = load <2 x i64>, ptr %desc, align 8
-  store <2 x i64> %8, ptr %vring_desc, align 8
+  store i64 %9, ptr %vring_desc, align 8
+  %avail = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 4
+  %10 = load i64, ptr %avail, align 8
+  %vring_avail = getelementptr inbounds i8, ptr %call8, i64 40
+  store i64 %10, ptr %vring_avail, align 8
   %used = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 5
-  %9 = load i64, ptr %used, align 8
+  %11 = load i64, ptr %used, align 8
   %vring_used = getelementptr inbounds i8, ptr %call8, i64 48
-  store i64 %9, ptr %vring_used, align 8
+  store i64 %11, ptr %vring_used, align 8
   %used_idx = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 6
-  %10 = load i16, ptr %used_idx, align 8
+  %12 = load i16, ptr %used_idx, align 8
   %used_idx42 = getelementptr inbounds i8, ptr %call8, i64 64
-  store i16 %10, ptr %used_idx42, align 8
+  store i16 %12, ptr %used_idx42, align 8
   %signalled_used = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 8
-  %11 = load i16, ptr %signalled_used, align 4
+  %13 = load i16, ptr %signalled_used, align 4
   %signalled_used46 = getelementptr inbounds i8, ptr %call8, i64 66
-  store i16 %11, ptr %signalled_used46, align 2
+  store i16 %13, ptr %signalled_used46, align 2
   %signalled_used_valid = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 9
-  %12 = load i8, ptr %signalled_used_valid, align 2
+  %14 = load i8, ptr %signalled_used_valid, align 2
   %signalled_used_valid51 = getelementptr inbounds i8, ptr %call8, i64 68
-  %frombool = and i8 %12, 1
+  %frombool = and i8 %14, 1
   store i8 %frombool, ptr %signalled_used_valid51, align 4
   %vhost_started = getelementptr inbounds i8, ptr %call, i64 442
-  %13 = load i8, ptr %vhost_started, align 2
-  %tobool52 = trunc i8 %13 to i1
+  %15 = load i8, ptr %vhost_started, align 2
+  %tobool52 = trunc i8 %15 to i1
   br i1 %tobool52, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.end7
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %get_vhost = getelementptr inbounds i8, ptr %call1.i, i64 352
-  %14 = load ptr, ptr %get_vhost, align 8
-  %call55 = tail call ptr %14(ptr noundef nonnull %call) #23
+  %16 = load ptr, ptr %get_vhost, align 8
+  %call55 = tail call ptr %16(ptr noundef nonnull %call) #23
   %vq_index = getelementptr inbounds i8, ptr %call55, i64 444
-  %15 = load i32, ptr %vq_index, align 4
-  %cmp57.not = icmp sgt i32 %15, %conv
+  %17 = load i32, ptr %vq_index, align 4
+  %cmp57.not = icmp sgt i32 %17, %conv
   br i1 %cmp57.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then53
   %nvqs = getelementptr inbounds i8, ptr %call55, i64 440
-  %16 = load i32, ptr %nvqs, align 8
-  %add = add i32 %16, %15
+  %18 = load i32, ptr %nvqs, align 8
+  %add = add i32 %18, %17
   %cmp61 = icmp ugt i32 %add, %conv
   br i1 %cmp61, label %if.then63, label %return
 
@@ -8465,17 +8473,17 @@ if.then63:                                        ; preds = %land.lhs.true
   %has_last_avail_idx = getelementptr inbounds i8, ptr %call8, i64 56
   store i8 1, ptr %has_last_avail_idx, align 8
   %vhost_ops = getelementptr inbounds i8, ptr %call55, i64 528
-  %17 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds i8, ptr %17, i64 208
-  %18 = load ptr, ptr %vhost_get_vq_index, align 8
-  %call65 = tail call i32 %18(ptr noundef nonnull %call55, i32 noundef %conv) #23
+  %19 = load ptr, ptr %vhost_ops, align 8
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %19, i64 208
+  %20 = load ptr, ptr %vhost_get_vq_index, align 8
+  %call65 = tail call i32 %20(ptr noundef nonnull %call55, i32 noundef %conv) #23
   store i32 %call65, ptr %state, align 4
   %num66 = getelementptr inbounds i8, ptr %state, i64 4
   store i32 0, ptr %num66, align 4
-  %19 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vring_base = getelementptr inbounds i8, ptr %19, i64 128
-  %20 = load ptr, ptr %vhost_get_vring_base, align 8
-  %call68 = call i32 %20(ptr noundef nonnull %call55, ptr noundef nonnull %state) #23
+  %21 = load ptr, ptr %vhost_ops, align 8
+  %vhost_get_vring_base = getelementptr inbounds i8, ptr %21, i64 128
+  %22 = load ptr, ptr %vhost_get_vring_base, align 8
+  %call68 = call i32 %22(ptr noundef nonnull %call55, ptr noundef nonnull %state) #23
   %conv69 = trunc i32 %call68 to i16
   %last_avail_idx = getelementptr inbounds i8, ptr %call8, i64 58
   store i16 %conv69, ptr %last_avail_idx, align 2
@@ -8487,13 +8495,13 @@ if.else:                                          ; preds = %if.end7
   %has_last_avail_idx71 = getelementptr inbounds i8, ptr %call8, i64 56
   store i8 1, ptr %has_last_avail_idx71, align 8
   %last_avail_idx75 = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 2
-  %21 = load i16, ptr %last_avail_idx75, align 8
+  %23 = load i16, ptr %last_avail_idx75, align 8
   %last_avail_idx76 = getelementptr inbounds i8, ptr %call8, i64 58
-  store i16 %21, ptr %last_avail_idx76, align 2
+  store i16 %23, ptr %last_avail_idx76, align 2
   %shadow_avail_idx = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 4
-  %22 = load i16, ptr %shadow_avail_idx, align 4
+  %24 = load i16, ptr %shadow_avail_idx, align 4
   %shadow_avail_idx80 = getelementptr inbounds i8, ptr %call8, i64 62
-  store i16 %22, ptr %shadow_avail_idx80, align 2
+  store i16 %24, ptr %shadow_avail_idx80, align 2
   br label %return
 
 return:                                           ; preds = %if.else, %if.then63, %land.lhs.true, %if.then53, %if.then5, %if.then

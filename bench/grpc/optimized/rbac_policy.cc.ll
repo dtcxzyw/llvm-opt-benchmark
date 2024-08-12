@@ -919,12 +919,16 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 0, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
-  %1 = load <2 x ptr>, ptr %permissions, align 8
-  store <2 x ptr> %1, ptr %permissions.i, align 8
+  %1 = load ptr, ptr %permissions, align 8
+  store ptr %1, ptr %permissions.i, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 8
+  %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1037,12 +1041,16 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 1, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
-  %1 = load <2 x ptr>, ptr %permissions, align 8
-  store <2 x ptr> %1, ptr %permissions.i, align 8
+  %1 = load ptr, ptr %permissions, align 8
+  store ptr %1, ptr %permissions.i, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 8
+  %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2245,12 +2253,16 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 0, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
-  %1 = load <2 x ptr>, ptr %principals, align 8
-  store <2 x ptr> %1, ptr %principals.i, align 8
+  %1 = load ptr, ptr %principals, align 8
+  store ptr %1, ptr %principals.i, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %principals, i64 8
+  %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %principals, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2367,12 +2379,16 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 1, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
-  %1 = load <2 x ptr>, ptr %principals, align 8
-  store <2 x ptr> %1, ptr %principals.i, align 8
+  %1 = load ptr, ptr %principals, align 8
+  store ptr %1, ptr %principals.i, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %principals, i64 8
+  %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %principals, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals, i8 0, i64 24, i1 false)
   ret void
 }

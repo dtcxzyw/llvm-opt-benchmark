@@ -1733,19 +1733,22 @@ invoke.cont21:                                    ; preds = %for.body16
   br i1 %tobool.not, label %cleanup150, label %for.cond14
 
 for.end27:                                        ; preds = %for.cond14, %invoke.cont9
+  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 72
+  %12 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i11 = getelementptr inbounds i8, ptr %10, i64 64
-  %12 = load <2 x ptr>, ptr %add.ptr.i11, align 8
+  %13 = load ptr, ptr %add.ptr.i11, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %10, i64 56
+  %14 = load ptr, ptr %add.ptr.i12, align 8
   %add.ptr.i13 = getelementptr inbounds i8, ptr %10, i64 48
-  %13 = load <2 x ptr>, ptr %add.ptr.i13, align 8
+  %15 = load ptr, ptr %add.ptr.i13, align 8
   %add.ptr.i14 = getelementptr inbounds i8, ptr %10, i64 40
-  %14 = load ptr, ptr %add.ptr.i14, align 8
+  %16 = load ptr, ptr %add.ptr.i14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expected, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
           to label %invoke.cont43 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %for.end27
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
@@ -1754,13 +1757,15 @@ invoke.cont43:                                    ; preds = %for.end27
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
   %_M_end_of_storage.i.i15 = getelementptr inbounds i8, ptr %expected, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i15, align 8
-  %16 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %16, ptr %call5.i.i.i.i2.i, align 8
+  store ptr %12, ptr %call5.i.i.i.i2.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store ptr %13, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  %17 = shufflevector <2 x ptr> %13, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %17, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store ptr %14, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
+  store ptr %15, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
-  store ptr %14, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store ptr %16, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %_M_finish.i.i16 = getelementptr inbounds i8, ptr %expected, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i16, align 8
   %call47 = invoke fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vectorIP14ssl_session_stSaIS3_EE(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %expected)
@@ -1828,13 +1833,17 @@ if.end71:                                         ; preds = %invoke.cont67
   %22 = load ptr, ptr %collision, align 8
   store ptr %22, ptr %ref.tmp73, align 8
   %arrayinit.element76 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
-  %23 = load <2 x ptr>, ptr %add.ptr.i11, align 8
-  %24 = shufflevector <2 x ptr> %23, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %24, ptr %arrayinit.element76, align 8
+  %23 = load ptr, ptr %add.ptr.i, align 8
+  store ptr %23, ptr %arrayinit.element76, align 8
+  %arrayinit.element79 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %24 = load ptr, ptr %add.ptr.i11, align 8
+  store ptr %24, ptr %arrayinit.element79, align 8
   %arrayinit.element82 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
-  %25 = load <2 x ptr>, ptr %add.ptr.i14, align 8
-  %26 = shufflevector <2 x ptr> %25, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %26, ptr %arrayinit.element82, align 8
+  %25 = load ptr, ptr %add.ptr.i13, align 8
+  store ptr %25, ptr %arrayinit.element82, align 8
+  %arrayinit.element85 = getelementptr inbounds i8, ptr %ref.tmp73, i64 32
+  %26 = load ptr, ptr %add.ptr.i14, align 8
+  store ptr %26, ptr %arrayinit.element85, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 40
   invoke void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %expected, ptr noundef nonnull %ref.tmp73, ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont91 unwind label %lpad66
@@ -1859,9 +1868,11 @@ if.end105:                                        ; preds = %invoke.cont101
   %28 = load ptr, ptr %collision, align 8
   store ptr %28, ptr %ref.tmp107, align 8
   %arrayinit.element110 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
-  %29 = load <2 x ptr>, ptr %add.ptr.i11, align 8
-  %30 = shufflevector <2 x ptr> %29, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %30, ptr %arrayinit.element110, align 8
+  %29 = load ptr, ptr %add.ptr.i, align 8
+  store ptr %29, ptr %arrayinit.element110, align 8
+  %arrayinit.element113 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %30 = load ptr, ptr %add.ptr.i11, align 8
+  store ptr %30, ptr %arrayinit.element113, align 8
   %arrayinit.element116 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
   %31 = load ptr, ptr %add.ptr.i14, align 8
   store ptr %31, ptr %arrayinit.element116, align 8
@@ -1967,7 +1978,7 @@ if.then.i.i.i53:                                  ; preds = %invoke.cont.i
   br label %cleanup152
 
 ehcleanup151:                                     ; preds = %lpad.i, %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i43, %ehcleanup, %lpad6
-  %.pn5 = phi { ptr, i32 } [ %lpad.phi80, %lpad6 ], [ %15, %lpad.i ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i43 ], [ %lpad.loopexit73, %lpad.loopexit ], [ %lpad.loopexit75, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp76, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn5 = phi { ptr, i32 } [ %lpad.phi80, %lpad6 ], [ %17, %lpad.i ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i43 ], [ %lpad.loopexit73, %lpad.loopexit ], [ %lpad.loopexit75, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp76, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sessions) #26
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #26
   resume { ptr, i32 } %.pn5

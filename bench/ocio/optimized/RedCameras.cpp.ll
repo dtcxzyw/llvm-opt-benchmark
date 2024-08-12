@@ -50,7 +50,7 @@ $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9LogOpDataEED2Ev = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
+@_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE = internal global %"class.std::vector" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL3logE = internal global %"class.OpenColorIO_v2_4dev::LogOpData" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev25RED_LOG3G10_RWG_to_LINEARL6paramsE = internal global %"class.std::vector" zeroinitializer, align 8
@@ -780,18 +780,26 @@ define internal void @_GLOBAL__sub_I_RedCameras.cpp() #11 section ".text.startup
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store <2 x double> <double 7.803080e-01, double 3.042530e-01>, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, align 16
-  store <2 x double> <double 1.215950e-01, double 0x3FF7E76640A6B93D>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 16), align 16
-  store <2 x double> <double 9.561200e-02, double 0xBFB5A79FEC99F1AE>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 48), align 16
+  store double 7.803080e-01, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, align 8
+  store double 3.042530e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 8), align 8
+  store double 1.215950e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 16), align 8
+  store double 0x3FF7E76640A6B93D, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 24), align 8
+  store double 9.561200e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 32), align 8
+  store double 0xBFB5A79FEC99F1AE, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev18RED_WIDE_GAMUT_RGBL9primariesE, i64 56), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 32
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i64 16), align 8
-  store <2 x double> <double 0x3FD2C4B12C4B12C4, double 0x3FE56D5B56D5B56D>, ptr %call5.i.i.i.i2.i.i, align 8
+  store double 0x3FD2C4B12C4B12C4, ptr %call5.i.i.i.i2.i.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
+  store double 0x3FE56D5B56D5B56D, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i, align 8
   %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 16
-  store <2 x double> <double 0x3FEFA78B793D0BD5, double 0x3F861D21B0BD0ACE>, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i, align 8
+  store double 0x3FEFA78B793D0BD5, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i, align 8
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 24
+  store double 0x3F861D21B0BD0ACE, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx.i, align 8
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i64 8), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIdSaIdEED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, ptr nonnull @__dso_handle) #15
   tail call void @_ZN19OpenColorIO_v2_4dev9LogOpDataC1EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL3logE, double noundef 1.000000e+01, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev28RED_REDLOGFILM_RWG_to_LINEARL6paramsE, i32 noundef 1)

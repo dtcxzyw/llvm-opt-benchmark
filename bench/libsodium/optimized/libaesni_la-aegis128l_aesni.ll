@@ -221,32 +221,33 @@ if.end32:                                         ; preds = %if.then21, %for.end
   %state.sroa.24.3 = phi <2 x i64> [ %state.sroa.24.2.lcssa, %for.end18 ], [ %59, %if.then21 ]
   %state.sroa.11.3 = phi <2 x i64> [ %state.sroa.11.2.lcssa, %for.end18 ], [ %60, %if.then21 ]
   %state.sroa.0.3 = phi <2 x i64> [ %state.sroa.0.2.lcssa, %for.end18 ], [ %xor.i39.i.i54, %if.then21 ]
-  %62 = insertelement <2 x i64> poison, i64 %adlen, i64 0
-  %63 = insertelement <2 x i64> %62, i64 %mlen, i64 1
-  %64 = shl <2 x i64> %63, <i64 3, i64 3>
-  %xor.i70.i = xor <2 x i64> %state.sroa.24.3, %64
+  %shl.i = shl i64 %mlen, 3
+  %shl1.i = shl i64 %adlen, 3
+  %vecinit.i.i = insertelement <2 x i64> poison, i64 %shl1.i, i64 0
+  %vecinit1.i.i = insertelement <2 x i64> %vecinit.i.i, i64 %shl.i, i64 1
+  %xor.i70.i = xor <2 x i64> %state.sroa.24.3, %vecinit1.i.i
   br label %for.body.i63
 
 for.body.i63:                                     ; preds = %for.body.i63, %if.end32
   %i.041.i = phi i32 [ 0, %if.end32 ], [ %inc.i66, %for.body.i63 ]
-  %65 = phi <2 x i64> [ %state.sroa.90.3, %if.end32 ], [ %71, %for.body.i63 ]
-  %66 = phi <2 x i64> [ %state.sroa.76.3, %if.end32 ], [ %72, %for.body.i63 ]
-  %67 = phi <2 x i64> [ %state.sroa.62.3, %if.end32 ], [ %73, %for.body.i63 ]
+  %62 = phi <2 x i64> [ %state.sroa.90.3, %if.end32 ], [ %68, %for.body.i63 ]
+  %63 = phi <2 x i64> [ %state.sroa.76.3, %if.end32 ], [ %69, %for.body.i63 ]
+  %64 = phi <2 x i64> [ %state.sroa.62.3, %if.end32 ], [ %70, %for.body.i63 ]
   %xor.i.i3440.i = phi <2 x i64> [ %state.sroa.50.3, %if.end32 ], [ %xor.i.i.i65, %for.body.i63 ]
-  %68 = phi <2 x i64> [ %state.sroa.37.3, %if.end32 ], [ %75, %for.body.i63 ]
-  %69 = phi <2 x i64> [ %state.sroa.24.3, %if.end32 ], [ %76, %for.body.i63 ]
-  %70 = phi <2 x i64> [ %state.sroa.11.3, %if.end32 ], [ %77, %for.body.i63 ]
+  %65 = phi <2 x i64> [ %state.sroa.37.3, %if.end32 ], [ %72, %for.body.i63 ]
+  %66 = phi <2 x i64> [ %state.sroa.24.3, %if.end32 ], [ %73, %for.body.i63 ]
+  %67 = phi <2 x i64> [ %state.sroa.11.3, %if.end32 ], [ %74, %for.body.i63 ]
   %xor.i39.i3839.i = phi <2 x i64> [ %state.sroa.0.3, %if.end32 ], [ %xor.i39.i.i64, %for.body.i63 ]
-  %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %66, <2 x i64> %65)
-  %72 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %67, <2 x i64> %66)
-  %73 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i.i3440.i, <2 x i64> %67)
-  %74 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %68, <2 x i64> %xor.i.i3440.i)
-  %75 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %69, <2 x i64> %68)
-  %76 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %70, <2 x i64> %69)
-  %77 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i39.i3839.i, <2 x i64> %70)
-  %78 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %65, <2 x i64> %xor.i39.i3839.i)
-  %xor.i39.i.i64 = xor <2 x i64> %78, %xor.i70.i
-  %xor.i.i.i65 = xor <2 x i64> %74, %xor.i70.i
+  %68 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %63, <2 x i64> %62)
+  %69 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %64, <2 x i64> %63)
+  %70 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i.i3440.i, <2 x i64> %64)
+  %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %65, <2 x i64> %xor.i.i3440.i)
+  %72 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %66, <2 x i64> %65)
+  %73 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %67, <2 x i64> %66)
+  %74 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i39.i3839.i, <2 x i64> %67)
+  %75 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %62, <2 x i64> %xor.i39.i3839.i)
+  %xor.i39.i.i64 = xor <2 x i64> %75, %xor.i70.i
+  %xor.i.i.i65 = xor <2 x i64> %71, %xor.i70.i
   %inc.i66 = add nuw nsw i32 %i.041.i, 1
   %exitcond.not.i67 = icmp eq i32 %inc.i66, 7
   br i1 %exitcond.not.i67, label %for.end.i, label %for.body.i63, !llvm.loop !8
@@ -258,22 +259,22 @@ for.end.i:                                        ; preds = %for.body.i63
   ]
 
 if.then.i:                                        ; preds = %for.end.i
-  %xor.i55.i = xor <2 x i64> %73, %72
+  %xor.i55.i = xor <2 x i64> %70, %69
   %xor.i61.i = xor <2 x i64> %xor.i55.i, %xor.i.i.i65
-  %xor.i67.i = xor <2 x i64> %xor.i61.i, %75
-  %xor.i64.i = xor <2 x i64> %xor.i67.i, %76
-  %xor.i58.i = xor <2 x i64> %xor.i64.i, %77
+  %xor.i67.i = xor <2 x i64> %xor.i61.i, %72
+  %xor.i64.i = xor <2 x i64> %xor.i67.i, %73
+  %xor.i58.i = xor <2 x i64> %xor.i64.i, %74
   %xor.i52.i = xor <2 x i64> %xor.i58.i, %xor.i39.i.i64
   store <2 x i64> %xor.i52.i, ptr %mac, align 1
   br label %aegis128l_mac.exit
 
 if.then18.i:                                      ; preds = %for.end.i
-  %xor.i46.i = xor <2 x i64> %76, %75
-  %xor.i49.i = xor <2 x i64> %xor.i46.i, %77
+  %xor.i46.i = xor <2 x i64> %73, %72
+  %xor.i49.i = xor <2 x i64> %xor.i46.i, %74
   %xor.i43.i = xor <2 x i64> %xor.i49.i, %xor.i39.i.i64
   store <2 x i64> %xor.i43.i, ptr %mac, align 1
-  %xor.i37.i = xor <2 x i64> %73, %72
-  %xor.i40.i = xor <2 x i64> %xor.i37.i, %71
+  %xor.i37.i = xor <2 x i64> %70, %69
+  %xor.i40.i = xor <2 x i64> %xor.i37.i, %68
   %xor.i.i68 = xor <2 x i64> %xor.i40.i, %xor.i.i.i65
   %add.ptr.i = getelementptr i8, ptr %mac, i64 16
   store <2 x i64> %xor.i.i68, ptr %add.ptr.i, align 1
@@ -623,32 +624,33 @@ if.end47:                                         ; preds = %if.end31.thread333,
   %state.sroa.34.5 = phi <2 x i64> [ %state.sroa.34.3, %if.end31 ], [ %78, %if.then36 ], [ %96, %if.else41 ], [ %state.sroa.34.1, %if.end31.thread ], [ %state.sroa.34.1, %if.end31.thread333 ]
   %state.sroa.15.5 = phi <2 x i64> [ %state.sroa.15.3, %if.end31 ], [ %79, %if.then36 ], [ %97, %if.else41 ], [ %state.sroa.15.1, %if.end31.thread ], [ %state.sroa.15.1, %if.end31.thread333 ]
   %state.sroa.0.5 = phi <2 x i64> [ %state.sroa.0.3, %if.end31 ], [ %xor.i39.i.i79, %if.then36 ], [ %xor.i39.i.i97, %if.else41 ], [ %state.sroa.0.1, %if.end31.thread ], [ %state.sroa.0.1, %if.end31.thread333 ]
-  %99 = insertelement <2 x i64> poison, i64 %adlen, i64 0
-  %100 = insertelement <2 x i64> %99, i64 %clen, i64 1
-  %101 = shl <2 x i64> %100, <i64 3, i64 3>
-  %xor.i70.i = xor <2 x i64> %state.sroa.34.5, %101
+  %shl.i = shl i64 %clen, 3
+  %shl1.i = shl i64 %adlen, 3
+  %vecinit.i.i = insertelement <2 x i64> poison, i64 %shl1.i, i64 0
+  %vecinit1.i.i = insertelement <2 x i64> %vecinit.i.i, i64 %shl.i, i64 1
+  %xor.i70.i = xor <2 x i64> %state.sroa.34.5, %vecinit1.i.i
   br label %for.body.i106
 
 for.body.i106:                                    ; preds = %for.body.i106, %if.end47
   %i.041.i = phi i32 [ 0, %if.end47 ], [ %inc.i109, %for.body.i106 ]
-  %102 = phi <2 x i64> [ %state.sroa.128.5, %if.end47 ], [ %108, %for.body.i106 ]
-  %103 = phi <2 x i64> [ %state.sroa.108.5, %if.end47 ], [ %109, %for.body.i106 ]
-  %104 = phi <2 x i64> [ %state.sroa.88.5, %if.end47 ], [ %110, %for.body.i106 ]
+  %99 = phi <2 x i64> [ %state.sroa.128.5, %if.end47 ], [ %105, %for.body.i106 ]
+  %100 = phi <2 x i64> [ %state.sroa.108.5, %if.end47 ], [ %106, %for.body.i106 ]
+  %101 = phi <2 x i64> [ %state.sroa.88.5, %if.end47 ], [ %107, %for.body.i106 ]
   %xor.i.i3440.i = phi <2 x i64> [ %state.sroa.72.5, %if.end47 ], [ %xor.i.i.i108, %for.body.i106 ]
-  %105 = phi <2 x i64> [ %state.sroa.53.5, %if.end47 ], [ %112, %for.body.i106 ]
-  %106 = phi <2 x i64> [ %state.sroa.34.5, %if.end47 ], [ %113, %for.body.i106 ]
-  %107 = phi <2 x i64> [ %state.sroa.15.5, %if.end47 ], [ %114, %for.body.i106 ]
+  %102 = phi <2 x i64> [ %state.sroa.53.5, %if.end47 ], [ %109, %for.body.i106 ]
+  %103 = phi <2 x i64> [ %state.sroa.34.5, %if.end47 ], [ %110, %for.body.i106 ]
+  %104 = phi <2 x i64> [ %state.sroa.15.5, %if.end47 ], [ %111, %for.body.i106 ]
   %xor.i39.i3839.i = phi <2 x i64> [ %state.sroa.0.5, %if.end47 ], [ %xor.i39.i.i107, %for.body.i106 ]
-  %108 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %103, <2 x i64> %102)
-  %109 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %104, <2 x i64> %103)
-  %110 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i.i3440.i, <2 x i64> %104)
-  %111 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %105, <2 x i64> %xor.i.i3440.i)
-  %112 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %106, <2 x i64> %105)
-  %113 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %107, <2 x i64> %106)
-  %114 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i39.i3839.i, <2 x i64> %107)
-  %115 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %102, <2 x i64> %xor.i39.i3839.i)
-  %xor.i39.i.i107 = xor <2 x i64> %115, %xor.i70.i
-  %xor.i.i.i108 = xor <2 x i64> %111, %xor.i70.i
+  %105 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %100, <2 x i64> %99)
+  %106 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %101, <2 x i64> %100)
+  %107 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i.i3440.i, <2 x i64> %101)
+  %108 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %102, <2 x i64> %xor.i.i3440.i)
+  %109 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %103, <2 x i64> %102)
+  %110 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %104, <2 x i64> %103)
+  %111 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %xor.i39.i3839.i, <2 x i64> %104)
+  %112 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %99, <2 x i64> %xor.i39.i3839.i)
+  %xor.i39.i.i107 = xor <2 x i64> %112, %xor.i70.i
+  %xor.i.i.i108 = xor <2 x i64> %108, %xor.i70.i
   %inc.i109 = add nuw nsw i32 %i.041.i, 1
   %exitcond.not.i110 = icmp eq i32 %inc.i109, 7
   br i1 %exitcond.not.i110, label %for.end.i, label %for.body.i106, !llvm.loop !8
@@ -660,23 +662,23 @@ for.end.i:                                        ; preds = %for.body.i106
   ]
 
 if.then53:                                        ; preds = %for.end.i
-  %xor.i55.i = xor <2 x i64> %110, %109
+  %xor.i55.i = xor <2 x i64> %107, %106
   %xor.i61.i = xor <2 x i64> %xor.i55.i, %xor.i.i.i108
-  %xor.i67.i = xor <2 x i64> %xor.i61.i, %112
-  %xor.i64.i = xor <2 x i64> %xor.i67.i, %113
-  %xor.i58.i = xor <2 x i64> %xor.i64.i, %114
+  %xor.i67.i = xor <2 x i64> %xor.i61.i, %109
+  %xor.i64.i = xor <2 x i64> %xor.i67.i, %110
+  %xor.i58.i = xor <2 x i64> %xor.i64.i, %111
   %xor.i52.i = xor <2 x i64> %xor.i58.i, %xor.i39.i.i107
   store <2 x i64> %xor.i52.i, ptr %computed_mac, align 16
   %call55 = call i32 @crypto_verify_16(ptr noundef nonnull %computed_mac, ptr noundef %mac) #7
   br label %if.end63
 
 if.then58:                                        ; preds = %for.end.i
-  %xor.i46.i = xor <2 x i64> %113, %112
-  %xor.i49.i = xor <2 x i64> %xor.i46.i, %114
+  %xor.i46.i = xor <2 x i64> %110, %109
+  %xor.i49.i = xor <2 x i64> %xor.i46.i, %111
   %xor.i43.i = xor <2 x i64> %xor.i49.i, %xor.i39.i.i107
   store <2 x i64> %xor.i43.i, ptr %computed_mac, align 16
-  %xor.i37.i = xor <2 x i64> %110, %109
-  %xor.i40.i = xor <2 x i64> %xor.i37.i, %108
+  %xor.i37.i = xor <2 x i64> %107, %106
+  %xor.i40.i = xor <2 x i64> %xor.i37.i, %105
   %xor.i.i111 = xor <2 x i64> %xor.i40.i, %xor.i.i.i108
   %add.ptr.i112 = getelementptr inbounds i8, ptr %computed_mac, i64 16
   store <2 x i64> %xor.i.i111, ptr %add.ptr.i112, align 16

@@ -341,9 +341,15 @@ define dso_local void @_ZN10cmFindBaseC2ENSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %9, i8 0, i64 26, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   %11 = getelementptr inbounds i8, ptr %0, i64 560
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 568
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 561
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 562
+  store i8 1, ptr %13, align 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 563
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 568
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   ret void
 }
 

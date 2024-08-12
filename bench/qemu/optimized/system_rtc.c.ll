@@ -200,9 +200,12 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then6.i, %if.else10
-  %0 = load <2 x i32>, ptr %tm_mon.i, align 8
-  %1 = add <2 x i32> %0, <i32 -1, i32 -1900>
-  store <2 x i32> %1, ptr %tm_mon.i, align 8
+  %0 = load i32, ptr %tm_year.i, align 4
+  %sub.i = add i32 %0, -1900
+  store i32 %sub.i, ptr %tm_year.i, align 4
+  %1 = load i32, ptr %tm_mon.i, align 8
+  %dec.i = add i32 %1, -1
+  store i32 %dec.i, ptr %tm_mon.i, align 8
   %call14.i = call i64 @mktimegm(ptr noundef nonnull %tm.i) #10
   %cmp15.i = icmp eq i64 %call14.i, -1
   br i1 %cmp15.i, label %date_fail.i, label %configure_rtc_base_datetime.exit

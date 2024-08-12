@@ -3846,7 +3846,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %7 = or i64 %.sink7.i, %6
   store i64 %7, ptr %.sink.i, align 8
   store ptr null, ptr %3, align 8
-  switch i32 %.tr40, label %31 [
+  switch i32 %.tr40, label %33 [
     i32 83, label %common.ret.sink.split.loopexit52
     i32 49, label %common.ret.sink.split.loopexit52
     i32 60, label %common.ret.sink.split.loopexit52
@@ -3865,39 +3865,39 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 45, label %12
     i32 80, label %12
     i32 92, label %13
-    i32 93, label %18
+    i32 93, label %20
     i32 101, label %common.ret.sink.split.loopexit
     i32 102, label %common.ret.sink.split.loopexit
     i32 103, label %common.ret.sink.split.loopexit
-    i32 14, label %21
-    i32 13, label %21
-    i32 15, label %21
-    i32 16, label %21
-    i32 20, label %21
-    i32 23, label %21
-    i32 19, label %21
-    i32 24, label %21
-    i32 26, label %21
-    i32 25, label %21
-    i32 46, label %22
-    i32 99, label %23
-    i32 2, label %24
-    i32 4, label %24
-    i32 5, label %24
-    i32 3, label %24
-    i32 31, label %25
-    i32 30, label %25
-    i32 27, label %25
-    i32 28, label %25
-    i32 29, label %25
-    i32 78, label %25
-    i32 81, label %25
-    i32 18, label %26
-    i32 97, label %27
-    i32 21, label %30
-    i32 22, label %30
-    i32 12, label %30
-    i32 11, label %30
+    i32 14, label %23
+    i32 13, label %23
+    i32 15, label %23
+    i32 16, label %23
+    i32 20, label %23
+    i32 23, label %23
+    i32 19, label %23
+    i32 24, label %23
+    i32 26, label %23
+    i32 25, label %23
+    i32 46, label %24
+    i32 99, label %25
+    i32 2, label %26
+    i32 4, label %26
+    i32 5, label %26
+    i32 3, label %26
+    i32 31, label %27
+    i32 30, label %27
+    i32 27, label %27
+    i32 28, label %27
+    i32 29, label %27
+    i32 78, label %27
+    i32 81, label %27
+    i32 18, label %28
+    i32 97, label %29
+    i32 21, label %32
+    i32 22, label %32
+    i32 12, label %32
+    i32 11, label %32
     i32 10, label %common.ret
     i32 9, label %common.ret
     i32 0, label %common.ret
@@ -3959,8 +3959,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 9:                                                ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %9, %10, %11, %12, %13, %21, %22, %23, %25, %26, %30, %tailrecurse
-  %.tr40.be = phi i32 [ 85, %9 ], [ 86, %10 ], [ 45, %11 ], [ 7, %12 ], [ 7, %13 ], [ 17, %21 ], [ 7, %22 ], [ 46, %23 ], [ 8, %25 ], [ 23, %26 ], [ 13, %30 ], [ 88, %tailrecurse ]
+tailrecurse.backedge:                             ; preds = %9, %10, %11, %12, %13, %23, %24, %25, %27, %28, %32, %tailrecurse
+  %.tr40.be = phi i32 [ 85, %9 ], [ 86, %10 ], [ 45, %11 ], [ 7, %12 ], [ 7, %13 ], [ 17, %23 ], [ 7, %24 ], [ 46, %25 ], [ 8, %27 ], [ 23, %28 ], [ 13, %32 ], [ 88, %tailrecurse ]
   br label %tailrecurse
 
 10:                                               ; preds = %tailrecurse
@@ -3975,9 +3975,12 @@ tailrecurse.backedge:                             ; preds = %9, %10, %11, %12, %
   br label %tailrecurse.backedge
 
 13:                                               ; preds = %tailrecurse
-  %14 = load <2 x i64>, ptr %0, align 8
-  %15 = or <2 x i64> %14, <i64 2, i64 786432>
-  store <2 x i64> %15, ptr %0, align 8
+  %14 = load i64, ptr %0, align 8
+  %15 = or i64 %14, 2
+  store i64 %15, ptr %0, align 8
+  %16 = load i64, ptr %.sink.i.i28.i31, align 8
+  %17 = or i64 %16, 786432
+  store i64 %17, ptr %.sink.i.i28.i31, align 8
   store ptr null, ptr %3, align 8
   br label %tailrecurse.backedge
 
@@ -3987,56 +3990,56 @@ common.ret.sink.split.loopexit:                   ; preds = %tailrecurse, %tailr
 common.ret.sink.split.loopexit52:                 ; preds = %tailrecurse, %tailrecurse, %tailrecurse
   br label %common.ret.sink.split
 
-common.ret.sink.split:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %common.ret.sink.split.loopexit52, %common.ret.sink.split.loopexit, %18, %27, %24, %8
-  %.sink.i.i28.i31.sink51 = phi ptr [ %.sink.i.i28.i31, %8 ], [ %0, %24 ], [ %.sink.i.i28.i31, %27 ], [ %.sink.i.i28.i31, %18 ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit52 ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ]
-  %.sink50 = phi i64 [ 1835008, %8 ], [ 64, %24 ], [ 786432, %27 ], [ 262144, %18 ], [ 68719476736, %common.ret.sink.split.loopexit ], [ 262144, %common.ret.sink.split.loopexit52 ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ]
-  %16 = load i64, ptr %.sink.i.i28.i31.sink51, align 8
-  %17 = or i64 %16, %.sink50
-  store i64 %17, ptr %.sink.i.i28.i31.sink51, align 8
+common.ret.sink.split:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %common.ret.sink.split.loopexit52, %common.ret.sink.split.loopexit, %20, %29, %26, %8
+  %.sink.i.i28.i31.sink51 = phi ptr [ %.sink.i.i28.i31, %8 ], [ %0, %26 ], [ %.sink.i.i28.i31, %29 ], [ %.sink.i.i28.i31, %20 ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit ], [ %.sink.i.i28.i31, %common.ret.sink.split.loopexit52 ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ], [ %.sink.i.i28.i31, %tailrecurse ]
+  %.sink50 = phi i64 [ 1835008, %8 ], [ 64, %26 ], [ 786432, %29 ], [ 262144, %20 ], [ 68719476736, %common.ret.sink.split.loopexit ], [ 262144, %common.ret.sink.split.loopexit52 ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ], [ 786432, %tailrecurse ]
+  %18 = load i64, ptr %.sink.i.i28.i31.sink51, align 8
+  %19 = or i64 %18, %.sink50
+  store i64 %19, ptr %.sink.i.i28.i31.sink51, align 8
   store ptr null, ptr %3, align 8
   br label %common.ret
 
 common.ret:                                       ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %common.ret.sink.split
   ret void
 
-18:                                               ; preds = %tailrecurse
+20:                                               ; preds = %tailrecurse
   tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 7)
-  %19 = load i64, ptr %0, align 8
-  %20 = or i64 %19, 1152921504606846976
-  store i64 %20, ptr %0, align 8
+  %21 = load i64, ptr %0, align 8
+  %22 = or i64 %21, 1152921504606846976
+  store i64 %22, ptr %0, align 8
   br label %common.ret.sink.split
 
-21:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+23:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %tailrecurse.backedge
 
-22:                                               ; preds = %tailrecurse
+24:                                               ; preds = %tailrecurse
   tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 87)
   br label %tailrecurse.backedge
 
-23:                                               ; preds = %tailrecurse
+25:                                               ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-24:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+26:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %common.ret.sink.split
 
-25:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+27:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %tailrecurse.backedge
 
-26:                                               ; preds = %tailrecurse
+28:                                               ; preds = %tailrecurse
   tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 13)
   tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 15)
   br label %tailrecurse.backedge
 
-27:                                               ; preds = %tailrecurse
-  %28 = load i64, ptr %0, align 8
-  %29 = or i64 %28, 4503599627370496
-  store i64 %29, ptr %0, align 8
+29:                                               ; preds = %tailrecurse
+  %30 = load i64, ptr %0, align 8
+  %31 = or i64 %30, 4503599627370496
+  store i64 %31, ptr %0, align 8
   br label %common.ret.sink.split
 
-30:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+32:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %tailrecurse.backedge
 
-31:                                               ; preds = %tailrecurse
+33:                                               ; preds = %tailrecurse
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.x86_features_add_feature, ptr noundef nonnull @.str.18, i32 noundef 667) #16
   unreachable
 }

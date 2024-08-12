@@ -489,74 +489,76 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
 .lr.ph:                                           ; preds = %1
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
-  %15 = getelementptr inbounds i8, ptr %6, i64 48
-  br label %16
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  br label %17
 
-16:                                               ; preds = %.lr.ph, %16
-  %17 = phi ptr [ %11, %.lr.ph ], [ %33, %16 ]
-  %.016 = phi i64 [ 0, %.lr.ph ], [ %30, %16 ]
-  %18 = call ptr @cstring_to_text(ptr noundef nonnull %17) #9
-  %19 = ptrtoint ptr %18 to i64
-  store i64 %19, ptr %3, align 16
-  %20 = getelementptr inbounds i8, ptr %17, i64 48
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr @ShmemSegHdr, align 8
-  %23 = ptrtoint ptr %21 to i64
+17:                                               ; preds = %.lr.ph, %17
+  %18 = phi ptr [ %11, %.lr.ph ], [ %34, %17 ]
+  %.016 = phi i64 [ 0, %.lr.ph ], [ %31, %17 ]
+  %19 = call ptr @cstring_to_text(ptr noundef nonnull %18) #9
+  %20 = ptrtoint ptr %19 to i64
+  store i64 %20, ptr %3, align 16
+  %21 = getelementptr inbounds i8, ptr %18, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr @ShmemSegHdr, align 8
   %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  store i64 %25, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 56
-  %27 = getelementptr inbounds i8, ptr %17, i64 64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  store i64 %26, ptr %12, align 8
+  %27 = getelementptr inbounds i8, ptr %18, i64 56
   %28 = load i64, ptr %27, align 8
-  %29 = load <2 x i64>, ptr %26, align 8
-  store <2 x i64> %29, ptr %13, align 16
-  %30 = add i64 %28, %.016
-  %31 = load ptr, ptr %14, align 8
+  store i64 %28, ptr %13, align 16
+  %29 = getelementptr inbounds i8, ptr %18, i64 64
+  %30 = load i64, ptr %29, align 8
+  store i64 %30, ptr %14, align 8
+  %31 = add i64 %30, %.016
   %32 = load ptr, ptr %15, align 8
-  call void @tuplestore_putvalues(ptr noundef %31, ptr noundef %32, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
-  %33 = call ptr @hash_seq_search(ptr noundef nonnull %2) #9
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
+  %33 = load ptr, ptr %16, align 8
+  call void @tuplestore_putvalues(ptr noundef %32, ptr noundef %33, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %34 = call ptr @hash_seq_search(ptr noundef nonnull %2) #9
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %16, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %30, %16 ]
-  %34 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #9
-  %35 = ptrtoint ptr %34 to i64
-  store i64 %35, ptr %3, align 16
-  %36 = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 1, ptr %36, align 1
-  %37 = load ptr, ptr @ShmemSegHdr, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = sub i64 %39, %.0.lcssa
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %40, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %40, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 40
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 48
-  %46 = load ptr, ptr %45, align 8
-  call void @tuplestore_putvalues(ptr noundef %44, ptr noundef %46, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+._crit_edge:                                      ; preds = %17, %1
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %31, %17 ]
+  %35 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #9
+  %36 = ptrtoint ptr %35 to i64
+  store i64 %36, ptr %3, align 16
+  %37 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 1, ptr %37, align 1
+  %38 = load ptr, ptr @ShmemSegHdr, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = sub i64 %40, %.0.lcssa
+  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %41, ptr %42, align 16
+  %43 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %41, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 40
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %47 = load ptr, ptr %46, align 8
+  call void @tuplestore_putvalues(ptr noundef %45, ptr noundef %47, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   store i8 1, ptr %4, align 4
-  %47 = load ptr, ptr @ShmemSegHdr, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %49, ptr %50, align 8
-  store i8 0, ptr %36, align 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
-  %52 = load i64, ptr %51, align 8
-  %53 = sub i64 %52, %49
-  store i64 %53, ptr %41, align 16
-  store i64 %53, ptr %42, align 8
-  %54 = load ptr, ptr %43, align 8
-  %55 = load ptr, ptr %45, align 8
-  call void @tuplestore_putvalues(ptr noundef %54, ptr noundef %55, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
-  %56 = load ptr, ptr @MainLWLockArray, align 8
-  %57 = getelementptr i8, ptr %56, i64 128
-  call void @LWLockRelease(ptr noundef %57) #9
+  %48 = load ptr, ptr @ShmemSegHdr, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %50, ptr %51, align 8
+  store i8 0, ptr %37, align 1
+  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = sub i64 %53, %50
+  store i64 %54, ptr %42, align 16
+  store i64 %54, ptr %43, align 8
+  %55 = load ptr, ptr %44, align 8
+  %56 = load ptr, ptr %46, align 8
+  call void @tuplestore_putvalues(ptr noundef %55, ptr noundef %56, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %57 = load ptr, ptr @MainLWLockArray, align 8
+  %58 = getelementptr i8, ptr %57, i64 128
+  call void @LWLockRelease(ptr noundef %58) #9
   ret i64 0
 }
 

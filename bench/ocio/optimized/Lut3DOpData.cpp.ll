@@ -447,23 +447,24 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData7ComposeERSt10shared_ptrIKS0_ES4_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lutc1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lutc2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lut1 = alloca %"class.std::shared_ptr", align 16
-  %lut2 = alloca %"class.std::shared_ptr", align 16
+  %lut1 = alloca %"class.std::shared_ptr", align 8
+  %lut2 = alloca %"class.std::shared_ptr", align 8
   %ops = alloca %"class.OpenColorIO_v2_4dev::OpRcPtrVec", align 8
   %metadata = alloca %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", align 8
   %nonConstLut1 = alloca %"class.std::shared_ptr", align 8
-  %nonConstLut2 = alloca %"class.std::shared_ptr", align 16
+  %nonConstLut2 = alloca %"class.std::shared_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %0 = load ptr, ptr %lutc1, align 8, !noalias !7
+  store ptr %0, ptr %lut1, align 8, !alias.scope !7
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %lut1, i64 8
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %lutc1, i64 8
-  %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !7
-  %1 = load <2 x ptr>, ptr %lutc1, align 8, !noalias !7
-  store <2 x ptr> %1, ptr %lut1, align 16, !alias.scope !7
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !7
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !7
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -481,7 +482,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %5 = load ptr, ptr %lutc2, align 8, !noalias !10
-  store ptr %5, ptr %lut2, align 16, !alias.scope !10
+  store ptr %5, ptr %lut2, align 8, !alias.scope !10
   %_M_refcount.i.i.i8 = getelementptr inbounds i8, ptr %lut2, i64 8
   %_M_refcount2.i.i.i9 = getelementptr inbounds i8, ptr %lutc2, i64 8
   %6 = load ptr, ptr %_M_refcount2.i.i.i9, align 8, !noalias !10
@@ -503,12 +504,12 @@ if.then.i.i.i.i.i.i14:                            ; preds = %if.then.i.i.i.i11
 
 if.else.i.i.i.i.i.i16:                            ; preds = %if.then.i.i.i.i11
   %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i12, i32 1 acq_rel, align 4, !noalias !10
-  %.pre.pre = load ptr, ptr %lut2, align 16
+  %.pre.pre = load ptr, ptr %lut2, align 8
   br label %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit17
 
 _ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit17: ; preds = %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit, %if.then.i.i.i.i.i.i14, %if.else.i.i.i.i.i.i16
   %.pre = phi ptr [ %5, %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataEKS1_ESt10shared_ptrIT_ERKS3_IT0_E.exit ], [ %5, %if.then.i.i.i.i.i.i14 ], [ %.pre.pre, %if.else.i.i.i.i.i.i16 ]
-  %10 = load ptr, ptr %lut1, align 16
+  %10 = load ptr, ptr %lut1, align 8
   %m_direction.i = getelementptr inbounds i8, ptr %10, i64 224
   %11 = load i32, ptr %m_direction.i, align 8
   %cmp = icmp eq i32 %11, 1
@@ -521,8 +522,8 @@ land.lhs.true:                                    ; preds = %_ZSt18const_pointer
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  store ptr %.pre, ptr %lut1, align 16
-  store ptr %10, ptr %lut2, align 16
+  store ptr %.pre, ptr %lut1, align 8
+  store ptr %10, ptr %lut2, align 8
   %13 = load ptr, ptr %_M_refcount.i.i.i8, align 8
   %14 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %14, ptr %_M_refcount.i.i.i8, align 8
@@ -547,7 +548,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.end
-  %18 = load ptr, ptr %lut1, align 16
+  %18 = load ptr, ptr %lut1, align 8
   %m_array.i21 = getelementptr inbounds i8, ptr %18, i64 176
   %vtable18 = load ptr, ptr %m_array.i21, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 32
@@ -761,15 +762,16 @@ ehcleanup:                                        ; preds = %lpad53, %lpad48
 
 if.end55:                                         ; preds = %invoke.cont34, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataEED2Ev.exit144
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  %42 = load ptr, ptr %lut2, align 8, !noalias !24
+  store ptr %42, ptr %nonConstLut2, align 8, !alias.scope !24
   %_M_refcount.i.i.i145 = getelementptr inbounds i8, ptr %nonConstLut2, i64 8
-  %42 = load ptr, ptr %_M_refcount.i.i.i8, align 8, !noalias !24
-  %43 = load <2 x ptr>, ptr %lut2, align 16, !noalias !24
-  store <2 x ptr> %43, ptr %nonConstLut2, align 16, !alias.scope !24
-  %cmp.not.i.i.i.i147 = icmp eq ptr %42, null
+  %43 = load ptr, ptr %_M_refcount.i.i.i8, align 8, !noalias !24
+  store ptr %43, ptr %_M_refcount.i.i.i145, align 8, !alias.scope !24
+  %cmp.not.i.i.i.i147 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i.i.i147, label %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit154, label %if.then.i.i.i.i148
 
 if.then.i.i.i.i148:                               ; preds = %if.end55
-  %_M_use_count.i.i.i.i.i149 = getelementptr inbounds i8, ptr %42, i64 8
+  %_M_use_count.i.i.i.i.i149 = getelementptr inbounds i8, ptr %43, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1, !noalias !24
   %tobool.i.i.not.i.i.i.i.i150 = icmp eq i8 %44, 0
   br i1 %tobool.i.i.not.i.i.i.i.i150, label %if.else.i.i.i.i.i.i153, label %if.then.i.i.i.i.i.i151
@@ -789,12 +791,12 @@ _ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataES1_ESt10shared_ptrI
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %_ZSt18const_pointer_castIN19OpenColorIO_v2_4dev11Lut3DOpDataES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit154
-  %47 = load ptr, ptr %lut1, align 16
+  %47 = load ptr, ptr %lut1, align 8
   %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %47, i64 228
   %48 = load i32, ptr %m_fileOutBitDepth.i, align 4
   %49 = load ptr, ptr %agg.result, align 8
   %m_metadata.i155 = getelementptr inbounds i8, ptr %49, i64 48
-  %50 = load ptr, ptr %lut2, align 16
+  %50 = load ptr, ptr %lut2, align 8
   %m_metadata.i156 = getelementptr inbounds i8, ptr %50, i64 48
   invoke void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImpl7combineERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i155, ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i156)
           to label %invoke.cont67 unwind label %lpad56

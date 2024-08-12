@@ -3158,8 +3158,9 @@ define void @_ZN6casadi17SundialsInterface4initERKSt3mapINSt7__cxx1112basic_stri
   %101 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN6casadi10Integrator4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %102 = getelementptr inbounds i8, ptr %0, i64 1912
+  store double 1.000000e-08, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 1920
-  store <2 x double> <double 1.000000e-08, double 0x3EB0C6F7A0B5ED8D>, ptr %102, align 8
+  store double 0x3EB0C6F7A0B5ED8D, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 1928
   store i64 10000, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 1936
@@ -6954,7 +6955,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   %12 = alloca %"class.std::vector", align 8
   %13 = tail call noundef i32 @_ZNK6casadi10Integrator8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef %1)
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %156
+  br i1 %.not, label %14, label %160
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 1600
@@ -7151,7 +7152,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
 
 115:                                              ; preds = %114
   invoke void @__cxa_throw(ptr nonnull %105, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #22
-          to label %158 unwind label %129
+          to label %162 unwind label %129
 
 .thread:                                          ; preds = %104
   %116 = landingpad { ptr, i32 }
@@ -7233,12 +7234,12 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   %.2 = phi i1 [ %.3, %135 ], [ true, %117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
-  br i1 %.2, label %137, label %157
+  br i1 %.2, label %137, label %161
 
 137:                                              ; preds = %.thread, %136
   %.pn.pn.pn.pn.pn.pn.pn64 = phi { ptr, i32 } [ %116, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %136 ]
   call void @__cxa_free_exception(ptr %105) #23
-  br label %157
+  br label %161
 
 138:                                              ; preds = %14
   %139 = getelementptr inbounds i8, ptr %1, i64 512
@@ -7257,33 +7258,41 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi17SundialsInterface8init_memEPv(p
   store i32 -1, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %1, i64 296
   store i32 -1, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %1, i64 320
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %1, i64 304
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %1, i64 336
-  %151 = getelementptr inbounds i8, ptr %1, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %150, i8 0, i64 48, i1 false)
-  store i32 -1, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %1, i64 384
-  store i32 -1, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 408
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %1, i64 392
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %1, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %155, i8 0, i64 64, i1 false)
-  br label %156
+  %148 = getelementptr inbounds i8, ptr %1, i64 328
+  store double 0x7FF8000000000000, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %1, i64 320
+  store double 0x7FF8000000000000, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %1, i64 312
+  store double 0x7FF8000000000000, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %1, i64 304
+  store double 0x7FF8000000000000, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %1, i64 336
+  %153 = getelementptr inbounds i8, ptr %1, i64 388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %152, i8 0, i64 48, i1 false)
+  store i32 -1, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %1, i64 384
+  store i32 -1, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %1, i64 416
+  store double 0x7FF8000000000000, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %1, i64 408
+  store double 0x7FF8000000000000, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %1, i64 400
+  store double 0x7FF8000000000000, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %1, i64 392
+  store double 0x7FF8000000000000, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %1, i64 424
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, i8 0, i64 64, i1 false)
+  br label %160
 
-156:                                              ; preds = %2, %140
+160:                                              ; preds = %2, %140
   %.051 = phi i32 [ 0, %140 ], [ 1, %2 ]
   ret i32 %.051
 
-157:                                              ; preds = %136, %137
+161:                                              ; preds = %136, %137
   %.pn.pn.pn.pn.pn.pn.pn63 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %136 ], [ %.pn.pn.pn.pn.pn.pn.pn64, %137 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn63
 
-158:                                              ; preds = %115
+162:                                              ; preds = %115
   unreachable
 }
 
@@ -7301,22 +7310,30 @@ define void @_ZNK6casadi17SundialsInterface11reset_statsEPNS_14SundialsMemoryE(p
   store i32 -1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 296
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 320
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 304
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 336
-  %9 = getelementptr inbounds i8, ptr %1, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 384
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 392
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
+  %6 = getelementptr inbounds i8, ptr %1, i64 328
+  store double 0x7FF8000000000000, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 320
+  store double 0x7FF8000000000000, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 312
+  store double 0x7FF8000000000000, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 304
+  store double 0x7FF8000000000000, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 336
+  %11 = getelementptr inbounds i8, ptr %1, i64 388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %1, i64 384
+  store i32 -1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 416
+  store double 0x7FF8000000000000, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  store double 0x7FF8000000000000, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 400
+  store double 0x7FF8000000000000, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 392
+  store double 0x7FF8000000000000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 424
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   ret void
 }
 
@@ -7328,140 +7345,148 @@ define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S
   store i32 -1, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 296
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 320
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 304
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 336
-  %12 = getelementptr inbounds i8, ptr %1, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
-  store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 384
-  store i32 -1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 392
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 1712
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 200
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %21
+  %9 = getelementptr inbounds i8, ptr %1, i64 328
+  store double 0x7FF8000000000000, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 320
+  store double 0x7FF8000000000000, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 312
+  store double 0x7FF8000000000000, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 304
+  store double 0x7FF8000000000000, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 336
+  %14 = getelementptr inbounds i8, ptr %1, i64 388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
+  store i32 -1, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 384
+  store i32 -1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 416
+  store double 0x7FF8000000000000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  store double 0x7FF8000000000000, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 400
+  store double 0x7FF8000000000000, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 392
+  store double 0x7FF8000000000000, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 424
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
+  %21 = getelementptr inbounds i8, ptr %0, i64 1712
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 200
+  %24 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %25
 
-21:                                               ; preds = %5
+25:                                               ; preds = %5
   %.not15.i = icmp eq ptr %4, null
-  %22 = icmp sgt i64 %18, 0
+  %26 = icmp sgt i64 %22, 0
   br i1 %.not15.i, label %.preheader.i, label %.preheader16.i
 
-.preheader16.i:                                   ; preds = %21
-  br i1 %22, label %.lr.ph.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
+.preheader16.i:                                   ; preds = %25
+  br i1 %26, label %.lr.ph.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
 
-.preheader.i:                                     ; preds = %21
-  br i1 %22, label %.lr.ph23.preheader.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
+.preheader.i:                                     ; preds = %25
+  br i1 %26, label %.lr.ph23.preheader.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
 
 .lr.ph23.preheader.i:                             ; preds = %.preheader.i
-  %23 = shl nuw i64 %18, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %23, i1 false)
+  %27 = shl nuw i64 %22, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %27, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader16.i, %.lr.ph.i
-  %.020.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %.preheader16.i ]
-  %.01019.i = phi ptr [ %26, %.lr.ph.i ], [ %20, %.preheader16.i ]
-  %.01218.i = phi ptr [ %24, %.lr.ph.i ], [ %4, %.preheader16.i ]
-  %24 = getelementptr inbounds i8, ptr %.01218.i, i64 8
-  %25 = load double, ptr %.01218.i, align 8
-  %26 = getelementptr inbounds i8, ptr %.01019.i, i64 8
-  store double %25, ptr %.01019.i, align 8
-  %27 = add nuw nsw i64 %.020.i, 1
-  %exitcond.not.i = icmp eq i64 %27, %18
+  %.020.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %.preheader16.i ]
+  %.01019.i = phi ptr [ %30, %.lr.ph.i ], [ %24, %.preheader16.i ]
+  %.01218.i = phi ptr [ %28, %.lr.ph.i ], [ %4, %.preheader16.i ]
+  %28 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %29 = load double, ptr %.01218.i, align 8
+  %30 = getelementptr inbounds i8, ptr %.01019.i, i64 8
+  store double %29, ptr %.01019.i, align 8
+  %31 = add nuw nsw i64 %.020.i, 1
+  %exitcond.not.i = icmp eq i64 %31, %22
   br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %5, %.preheader16.i, %.preheader.i, %.lr.ph23.preheader.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 1600
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 144
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %.not.i10 = icmp eq ptr %34, null
-  br i1 %.not.i10, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20, label %35
+  %32 = getelementptr inbounds i8, ptr %0, i64 1600
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 144
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not.i10 = icmp eq ptr %38, null
+  br i1 %.not.i10, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20, label %39
 
-35:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
+39:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
   %.not15.i11 = icmp eq ptr %2, null
-  %36 = icmp sgt i64 %29, 0
+  %40 = icmp sgt i64 %33, 0
   br i1 %.not15.i11, label %.preheader.i18, label %.preheader16.i12
 
-.preheader16.i12:                                 ; preds = %35
-  br i1 %36, label %.lr.ph.i13, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
+.preheader16.i12:                                 ; preds = %39
+  br i1 %40, label %.lr.ph.i13, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
 
-.preheader.i18:                                   ; preds = %35
-  br i1 %36, label %.lr.ph23.preheader.i19, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
+.preheader.i18:                                   ; preds = %39
+  br i1 %40, label %.lr.ph23.preheader.i19, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
 
 .lr.ph23.preheader.i19:                           ; preds = %.preheader.i18
-  %37 = shl nuw i64 %29, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %37, i1 false)
+  %41 = shl nuw i64 %33, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %38, i8 0, i64 %41, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
 
 .lr.ph.i13:                                       ; preds = %.preheader16.i12, %.lr.ph.i13
-  %.020.i14 = phi i64 [ %41, %.lr.ph.i13 ], [ 0, %.preheader16.i12 ]
-  %.01019.i15 = phi ptr [ %40, %.lr.ph.i13 ], [ %34, %.preheader16.i12 ]
-  %.01218.i16 = phi ptr [ %38, %.lr.ph.i13 ], [ %2, %.preheader16.i12 ]
-  %38 = getelementptr inbounds i8, ptr %.01218.i16, i64 8
-  %39 = load double, ptr %.01218.i16, align 8
-  %40 = getelementptr inbounds i8, ptr %.01019.i15, i64 8
-  store double %39, ptr %.01019.i15, align 8
-  %41 = add nuw nsw i64 %.020.i14, 1
-  %exitcond.not.i17 = icmp eq i64 %41, %29
+  %.020.i14 = phi i64 [ %45, %.lr.ph.i13 ], [ 0, %.preheader16.i12 ]
+  %.01019.i15 = phi ptr [ %44, %.lr.ph.i13 ], [ %38, %.preheader16.i12 ]
+  %.01218.i16 = phi ptr [ %42, %.lr.ph.i13 ], [ %2, %.preheader16.i12 ]
+  %42 = getelementptr inbounds i8, ptr %.01218.i16, i64 8
+  %43 = load double, ptr %.01218.i16, align 8
+  %44 = getelementptr inbounds i8, ptr %.01019.i15, i64 8
+  store double %43, ptr %.01019.i15, align 8
+  %45 = add nuw nsw i64 %.020.i14, 1
+  %exitcond.not.i17 = icmp eq i64 %45, %33
   br i1 %exitcond.not.i17, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20, label %.lr.ph.i13, !llvm.loop !30
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20:     ; preds = %.lr.ph.i13, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %.preheader16.i12, %.preheader.i18, %.lr.ph23.preheader.i19
-  %42 = getelementptr inbounds i8, ptr %0, i64 1608
-  %43 = load i64, ptr %42, align 8
-  %44 = load ptr, ptr %30, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i64, ptr %28, align 8
-  %49 = getelementptr double, ptr %47, i64 %48
-  %.not.i21 = icmp eq ptr %47, null
-  br i1 %.not.i21, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31, label %50
+  %46 = getelementptr inbounds i8, ptr %0, i64 1608
+  %47 = load i64, ptr %46, align 8
+  %48 = load ptr, ptr %34, align 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %32, align 8
+  %53 = getelementptr double, ptr %51, i64 %52
+  %.not.i21 = icmp eq ptr %51, null
+  br i1 %.not.i21, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31, label %54
 
-50:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
+54:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20
   %.not15.i22 = icmp eq ptr %3, null
-  %51 = icmp sgt i64 %43, 0
+  %55 = icmp sgt i64 %47, 0
   br i1 %.not15.i22, label %.preheader.i29, label %.preheader16.i23
 
-.preheader16.i23:                                 ; preds = %50
-  br i1 %51, label %.lr.ph.i24, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31
+.preheader16.i23:                                 ; preds = %54
+  br i1 %55, label %.lr.ph.i24, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31
 
-.preheader.i29:                                   ; preds = %50
-  br i1 %51, label %.lr.ph23.preheader.i30, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31
+.preheader.i29:                                   ; preds = %54
+  br i1 %55, label %.lr.ph23.preheader.i30, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31
 
 .lr.ph23.preheader.i30:                           ; preds = %.preheader.i29
-  %52 = shl nuw i64 %43, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %52, i1 false)
+  %56 = shl nuw i64 %47, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %53, i8 0, i64 %56, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31
 
 .lr.ph.i24:                                       ; preds = %.preheader16.i23, %.lr.ph.i24
-  %.020.i25 = phi i64 [ %56, %.lr.ph.i24 ], [ 0, %.preheader16.i23 ]
-  %.01019.i26 = phi ptr [ %55, %.lr.ph.i24 ], [ %49, %.preheader16.i23 ]
-  %.01218.i27 = phi ptr [ %53, %.lr.ph.i24 ], [ %3, %.preheader16.i23 ]
-  %53 = getelementptr inbounds i8, ptr %.01218.i27, i64 8
-  %54 = load double, ptr %.01218.i27, align 8
-  %55 = getelementptr inbounds i8, ptr %.01019.i26, i64 8
-  store double %54, ptr %.01019.i26, align 8
-  %56 = add nuw nsw i64 %.020.i25, 1
-  %exitcond.not.i28 = icmp eq i64 %56, %43
+  %.020.i25 = phi i64 [ %60, %.lr.ph.i24 ], [ 0, %.preheader16.i23 ]
+  %.01019.i26 = phi ptr [ %59, %.lr.ph.i24 ], [ %53, %.preheader16.i23 ]
+  %.01218.i27 = phi ptr [ %57, %.lr.ph.i24 ], [ %3, %.preheader16.i23 ]
+  %57 = getelementptr inbounds i8, ptr %.01218.i27, i64 8
+  %58 = load double, ptr %.01218.i27, align 8
+  %59 = getelementptr inbounds i8, ptr %.01019.i26, i64 8
+  store double %58, ptr %.01019.i26, align 8
+  %60 = add nuw nsw i64 %.020.i25, 1
+  %exitcond.not.i28 = icmp eq i64 %60, %47
   br i1 %exitcond.not.i28, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31, label %.lr.ph.i24, !llvm.loop !30
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31:     ; preds = %.lr.ph.i24, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20, %.preheader16.i23, %.preheader.i29, %.lr.ph23.preheader.i30
-  %57 = getelementptr inbounds i8, ptr %1, i64 160
-  %58 = load ptr, ptr %57, align 8
-  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %58)
+  %61 = getelementptr inbounds i8, ptr %1, i64 160
+  %62 = load ptr, ptr %61, align 8
+  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %62)
   ret void
 }
 
@@ -7470,40 +7495,70 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6casadi17SundialsInterface12save_offsetsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
-  %4 = getelementptr inbounds i8, ptr %1, i64 440
-  %5 = load <2 x i64>, ptr %3, align 8
-  store <2 x i64> %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 368
-  %7 = getelementptr inbounds i8, ptr %1, i64 456
-  %8 = load <2 x i64>, ptr %6, align 8
-  store <2 x i64> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 424
-  %10 = getelementptr inbounds i8, ptr %1, i64 472
-  %11 = load <2 x i64>, ptr %9, align 8
-  store <2 x i64> %11, ptr %10, align 8
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 440
+  store i64 %4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 360
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 448
+  store i64 %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 368
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 456
+  store i64 %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 376
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 464
+  store i64 %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 424
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 472
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 432
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 480
+  store i64 %19, ptr %20, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6casadi17SundialsInterface11add_offsetsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 440
-  %4 = getelementptr inbounds i8, ptr %1, i64 352
-  %5 = load <2 x i64>, ptr %3, align 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  %7 = add nsw <2 x i64> %6, %5
-  store <2 x i64> %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %1, i64 368
-  %10 = load <2 x i64>, ptr %8, align 8
-  %11 = load <2 x i64>, ptr %9, align 8
-  %12 = add nsw <2 x i64> %11, %10
-  store <2 x i64> %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 472
-  %14 = getelementptr inbounds i8, ptr %1, i64 424
-  %15 = load <2 x i64>, ptr %13, align 8
-  %16 = load <2 x i64>, ptr %14, align 8
-  %17 = add nsw <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %14, align 8
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 352
+  %6 = load i64, ptr %5, align 8
+  %7 = add nsw i64 %6, %4
+  store i64 %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 448
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 360
+  %11 = load i64, ptr %10, align 8
+  %12 = add nsw i64 %11, %9
+  store i64 %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 456
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 368
+  %16 = load i64, ptr %15, align 8
+  %17 = add nsw i64 %16, %14
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 464
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 376
+  %21 = load i64, ptr %20, align 8
+  %22 = add nsw i64 %21, %19
+  store i64 %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 472
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 424
+  %26 = load i64, ptr %25, align 8
+  %27 = add nsw i64 %26, %24
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 480
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 432
+  %31 = load i64, ptr %30, align 8
+  %32 = add nsw i64 %31, %29
+  store i64 %32, ptr %30, align 8
   ret void
 }
 

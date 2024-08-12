@@ -94,11 +94,15 @@ define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) lo
 define noalias noundef ptr @Msat_IntVecDupArray(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %5, ptr %4, align 8
-  %6 = load ptr, ptr %0, align 8
-  store ptr %6, ptr %2, align 8
+  %4 = load i32, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %0, align 8
+  store ptr %9, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret ptr %2
 }

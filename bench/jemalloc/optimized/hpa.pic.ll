@@ -1193,6 +1193,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %prev_owner.i.i.i = getelementptr inbounds i8, ptr %shard, i64 112
   %n_owner_switches.i.i.i = getelementptr inbounds i8, ptr %shard, i64 104
   %stats.i = getelementptr inbounds i8, ptr %shard, i64 5672
+  %npurges.i = getelementptr inbounds i8, ptr %shard, i64 5680
   %last_purge.i = getelementptr inbounds i8, ptr %shard, i64 5704
   %ndehugifies.i = getelementptr inbounds i8, ptr %shard, i64 5696
   %4 = getelementptr i8, ptr %shard, i64 5632
@@ -1361,19 +1362,21 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i22, %i
   %21 = load i64, ptr %2, align 8
   %sub.i = sub i64 %21, %call8.i
   store i64 %sub.i, ptr %2, align 8
-  %22 = load <2 x i64>, ptr %stats.i, align 8
-  %23 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %purges_this_pass.0.lcssa.i, i64 1
-  %24 = add <2 x i64> %22, %23
-  store <2 x i64> %24, ptr %stats.i, align 8
-  %25 = load ptr, ptr %central.i, align 8
-  %curtime.i = getelementptr inbounds i8, ptr %25, i64 184
-  %26 = load ptr, ptr %curtime.i, align 8
-  call void %26(ptr noundef nonnull %last_purge.i, i1 noundef zeroext false) #8
+  %22 = load i64, ptr %stats.i, align 8
+  %inc22.i = add i64 %22, 1
+  store i64 %inc22.i, ptr %stats.i, align 8
+  %23 = load i64, ptr %npurges.i, align 8
+  %add24.i = add i64 %23, %purges_this_pass.0.lcssa.i
+  store i64 %add24.i, ptr %npurges.i, align 8
+  %24 = load ptr, ptr %central.i, align 8
+  %curtime.i = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = load ptr, ptr %curtime.i, align 8
+  call void %25(ptr noundef nonnull %last_purge.i, i1 noundef zeroext false) #8
   br i1 %tobool.i.i, label %if.then28.i, label %if.end35.critedge.i
 
 if.then28.i:                                      ; preds = %malloc_mutex_lock.exit.i
-  %27 = load i64, ptr %ndehugifies.i, align 8
-  %inc30.i = add i64 %27, 1
+  %26 = load i64, ptr %ndehugifies.i, align 8
+  %inc30.i = add i64 %26, 1
   store i64 %inc30.i, ptr %ndehugifies.i, align 8
   call void @psset_update_begin(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call.i) #8
   call void @hpdata_dehugify(ptr noundef nonnull %call.i) #8
@@ -1389,8 +1392,8 @@ hpdata_changing_state_get.exit.i.i:               ; preds = %if.end35.critedge.i
   store i8 1, ptr %h_alloc_allowed.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i)
   %h_mid_hugify.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 34
-  %28 = load i8, ptr %h_mid_hugify.i.i.i, align 2
-  %tobool1.i.i.i = trunc i8 %28 to i1
+  %27 = load i8, ptr %h_mid_hugify.i.i.i, align 2
+  %tobool1.i.i.i = trunc i8 %27 to i1
   br i1 %tobool1.i.i.i, label %if.then.i48.i, label %if.end.i46.i
 
 if.then.i48.i:                                    ; preds = %hpdata_changing_state_get.exit.i.i
@@ -1398,10 +1401,10 @@ if.then.i48.i:                                    ; preds = %hpdata_changing_sta
   br label %if.end9.sink.split.i.i
 
 if.end.i46.i:                                     ; preds = %hpdata_changing_state_get.exit.i.i
-  %29 = getelementptr i8, ptr %call.i, i64 104
-  %ps.val.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr i8, ptr %call.i, i64 176
-  %ps.val12.i.i = load i64, ptr %30, align 8
+  %28 = getelementptr i8, ptr %call.i, i64 104
+  %ps.val.i.i = load i64, ptr %28, align 8
+  %29 = getelementptr i8, ptr %call.i, i64 176
+  %ps.val12.i.i = load i64, ptr %29, align 8
   %cmp.i.i23 = icmp ne i64 %ps.val12.i.i, %ps.val.i.i
   %frombool.i.i.i = zext i1 %cmp.i.i23 to i8
   store i8 %frombool.i.i.i, ptr %h_purge_allowed.i.i, align 1
@@ -1416,15 +1419,15 @@ land.lhs.true.i.i:                                ; preds = %if.end.i46.i
   br i1 %tobool.i17.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  %31 = load ptr, ptr %central.i, align 8
-  %curtime.i.i = getelementptr inbounds i8, ptr %31, i64 184
-  %32 = load ptr, ptr %curtime.i.i, align 8
-  call void %32(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
-  %33 = load i64, ptr %now.i.i, align 8
+  %30 = load ptr, ptr %central.i, align 8
+  %curtime.i.i = getelementptr inbounds i8, ptr %30, i64 184
+  %31 = load ptr, ptr %curtime.i.i, align 8
+  call void %31(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
+  %32 = load i64, ptr %now.i.i, align 8
   store i8 1, ptr %h_hugify_allowed.i.i, align 4
   %h_time_hugify_allowed.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i64 %33, ptr %h_time_hugify_allowed.i.i.i, align 8
-  %ps.val13.pre.i.i = load i64, ptr %29, align 8
+  store i64 %32, ptr %h_time_hugify_allowed.i.i.i, align 8
+  %ps.val13.pre.i.i = load i64, ptr %28, align 8
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.end.i46.i
@@ -1449,9 +1452,9 @@ hpa_try_purge.exit:                               ; preds = %while.body, %hpa_up
   %spec.select = add nuw i64 %nops.1, %inc
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %hpa_try_purge.exit, %55
-  %purged.0.be = phi i1 [ %cmp.i20, %hpa_try_purge.exit ], [ false, %55 ]
-  %nops.1.be = phi i64 [ %spec.select, %hpa_try_purge.exit ], [ %56, %55 ]
+while.cond.backedge:                              ; preds = %hpa_try_purge.exit, %54
+  %purged.0.be = phi i1 [ %cmp.i20, %hpa_try_purge.exit ], [ false, %54 ]
+  %nops.1.be = phi i64 [ %spec.select, %hpa_try_purge.exit ], [ %55, %54 ]
   br label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end.i, %hpa_should_purge.exit
@@ -1463,13 +1466,13 @@ while.end:                                        ; preds = %if.end.i, %hpa_shou
 if.end.i.i31:                                     ; preds = %while.end
   %shard.val.i.i32 = load i64, ptr %1, align 8
   %shard.val7.i.i33 = load i64, ptr %2, align 8
-  %34 = getelementptr i8, ptr %call.i.i29, i64 176
-  %call.val.i.i34 = load i64, ptr %34, align 8
+  %33 = getelementptr i8, ptr %call.i.i29, i64 176
+  %call.val.i.i34 = load i64, ptr %33, align 8
   %.neg92 = add i64 %shard.val.i.i32, 512
-  %35 = add i64 %shard.val7.i.i33, %call.val.i.i34
-  %add.i.i36 = sub i64 %.neg92, %35
-  %36 = load i32, ptr %dirty_mult.i.i, align 8
-  %cmp.i.i.i37 = icmp eq i32 %36, -1
+  %34 = add i64 %shard.val7.i.i33, %call.val.i.i34
+  %add.i.i36 = sub i64 %.neg92, %34
+  %35 = load i32, ptr %dirty_mult.i.i, align 8
+  %cmp.i.i.i37 = icmp eq i32 %35, -1
   br i1 %cmp.i.i.i37, label %if.end.i47, label %if.end.i.i.i38
 
 if.end.i.i.i38:                                   ; preds = %if.end.i.i31
@@ -1478,14 +1481,14 @@ if.end.i.i.i38:                                   ; preds = %if.end.i.i31
   br i1 %cmp.i.i.i.i40, label %if.then.i.i.i.i83, label %if.else.i.i.i.i41
 
 if.then.i.i.i.i83:                                ; preds = %if.end.i.i.i38
-  %conv.i.i.i.i84 = zext i32 %36 to i64
+  %conv.i.i.i.i84 = zext i32 %35 to i64
   %mul.i.i.i.i85 = mul i64 %psset.val.i.i.i39, %conv.i.i.i.i84
   %shr.i.i.i.i86 = lshr i64 %mul.i.i.i.i85, 16
   br label %hpa_hugify_blocked_by_ndirty.exit.i
 
 if.else.i.i.i.i41:                                ; preds = %if.end.i.i.i38
   %shr1.i.i.i.i42 = lshr i64 %psset.val.i.i.i39, 16
-  %conv2.i.i.i.i43 = zext i32 %36 to i64
+  %conv2.i.i.i.i43 = zext i32 %35 to i64
   %mul3.i.i.i.i44 = mul i64 %shr1.i.i.i.i42, %conv2.i.i.i.i43
   br label %hpa_hugify_blocked_by_ndirty.exit.i
 
@@ -1500,15 +1503,15 @@ if.end.i47:                                       ; preds = %hpa_hugify_blocked_
   br i1 %cmp.i48, label %hpa_try_hugify.exit.thread, label %do.end5.i
 
 do.end5.i:                                        ; preds = %if.end.i47
-  %37 = getelementptr i8, ptr %call1.i, i64 24
-  %call1.val.i = load i64, ptr %37, align 8
+  %36 = getelementptr i8, ptr %call1.i, i64 24
+  %call1.val.i = load i64, ptr %36, align 8
   store i64 %call1.val.i, ptr %time_hugify_allowed.i, align 8
-  %38 = load ptr, ptr %central.i, align 8
-  %ms_since.i = getelementptr inbounds i8, ptr %38, i64 192
-  %39 = load ptr, ptr %ms_since.i, align 8
-  %call7.i = call i64 %39(ptr noundef nonnull %time_hugify_allowed.i) #8
-  %40 = load i64, ptr %hugify_delay_ms.i, align 8
-  %cmp8.i = icmp ult i64 %call7.i, %40
+  %37 = load ptr, ptr %central.i, align 8
+  %ms_since.i = getelementptr inbounds i8, ptr %37, i64 192
+  %38 = load ptr, ptr %ms_since.i, align 8
+  %call7.i = call i64 %38(ptr noundef nonnull %time_hugify_allowed.i) #8
+  %39 = load i64, ptr %hugify_delay_ms.i, align 8
+  %cmp8.i = icmp ult i64 %call7.i, %39
   br i1 %cmp8.i, label %hpa_try_hugify.exit.thread, label %if.end10.i
 
 if.end10.i:                                       ; preds = %do.end5.i
@@ -1522,11 +1525,11 @@ if.end10.i:                                       ; preds = %do.end5.i
   call void @psset_update_end(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call1.i) #8
   store atomic i8 0, ptr %locked.i.i monotonic, align 1
   %call1.i.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #8
-  %41 = load ptr, ptr %central.i, align 8
-  %hugify.i = getelementptr inbounds i8, ptr %41, i64 168
-  %42 = load ptr, ptr %hugify.i, align 8
+  %40 = load ptr, ptr %central.i, align 8
+  %hugify.i = getelementptr inbounds i8, ptr %40, i64 168
+  %41 = load ptr, ptr %hugify.i, align 8
   %call1.val30.i = load ptr, ptr %call1.i, align 8
-  call void %42(ptr noundef %call1.val30.i, i64 noundef 2097152) #8
+  call void %41(ptr noundef %call1.val30.i, i64 noundef 2097152) #8
   %call.i.i.i55 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i.i56 = icmp eq i32 %call.i.i.i55, 0
   br i1 %cmp.i.not.i.i56, label %if.end.i32.i, label %if.then.i.i57
@@ -1537,31 +1540,31 @@ if.then.i.i57:                                    ; preds = %if.end10.i
   br label %if.end.i32.i
 
 if.end.i32.i:                                     ; preds = %if.then.i.i57, %if.end10.i
-  %43 = load i64, ptr %n_lock_ops.i.i.i, align 8
-  %inc.i.i.i59 = add i64 %43, 1
+  %42 = load i64, ptr %n_lock_ops.i.i.i, align 8
+  %inc.i.i.i59 = add i64 %42, 1
   store i64 %inc.i.i.i59, ptr %n_lock_ops.i.i.i, align 8
-  %44 = load ptr, ptr %prev_owner.i.i.i, align 8
-  %cmp.not.i.i.i61 = icmp eq ptr %44, %tsdn
+  %43 = load ptr, ptr %prev_owner.i.i.i, align 8
+  %cmp.not.i.i.i61 = icmp eq ptr %43, %tsdn
   br i1 %cmp.not.i.i.i61, label %malloc_mutex_lock.exit.i65, label %if.then.i.i.i62
 
 if.then.i.i.i62:                                  ; preds = %if.end.i32.i
   store ptr %tsdn, ptr %prev_owner.i.i.i, align 8
-  %45 = load i64, ptr %n_owner_switches.i.i.i, align 8
-  %inc2.i.i.i64 = add i64 %45, 1
+  %44 = load i64, ptr %n_owner_switches.i.i.i, align 8
+  %inc2.i.i.i64 = add i64 %44, 1
   store i64 %inc2.i.i.i64, ptr %n_owner_switches.i.i.i, align 8
   br label %malloc_mutex_lock.exit.i65
 
 malloc_mutex_lock.exit.i65:                       ; preds = %if.then.i.i.i62, %if.end.i32.i
-  %46 = load i64, ptr %nhugifies.i, align 8
-  %inc.i66 = add i64 %46, 1
+  %45 = load i64, ptr %nhugifies.i, align 8
+  %inc.i66 = add i64 %45, 1
   store i64 %inc.i66, ptr %nhugifies.i, align 8
   call void @psset_update_begin(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call1.i) #8
   call void @hpdata_hugify(ptr noundef nonnull %call1.i) #8
   store i8 0, ptr %h_mid_hugify.i.i, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i26)
   %h_mid_purge.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 33
-  %47 = load i8, ptr %h_mid_purge.i.i.i, align 1
-  %tobool.i.i.i = trunc i8 %47 to i1
+  %46 = load i8, ptr %h_mid_purge.i.i.i, align 1
+  %tobool.i.i.i = trunc i8 %46 to i1
   br i1 %tobool.i.i.i, label %if.then.i38.i, label %if.end.i34.i
 
 if.then.i38.i:                                    ; preds = %malloc_mutex_lock.exit.i65
@@ -1569,10 +1572,10 @@ if.then.i38.i:                                    ; preds = %malloc_mutex_lock.e
   br label %if.end9.sink.split.i.i82
 
 if.end.i34.i:                                     ; preds = %malloc_mutex_lock.exit.i65
-  %48 = getelementptr i8, ptr %call1.i, i64 104
-  %ps.val.i.i67 = load i64, ptr %48, align 8
-  %49 = getelementptr i8, ptr %call1.i, i64 176
-  %ps.val12.i.i68 = load i64, ptr %49, align 8
+  %47 = getelementptr i8, ptr %call1.i, i64 104
+  %ps.val.i.i67 = load i64, ptr %47, align 8
+  %48 = getelementptr i8, ptr %call1.i, i64 176
+  %ps.val12.i.i68 = load i64, ptr %48, align 8
   %cmp.i35.i = icmp ne i64 %ps.val12.i.i68, %ps.val.i.i67
   %frombool.i.i.i69 = zext i1 %cmp.i35.i to i8
   store i8 %frombool.i.i.i69, ptr %h_purge_allowed.i.i50, align 1
@@ -1582,51 +1585,51 @@ if.end.i34.i:                                     ; preds = %malloc_mutex_lock.e
   br i1 %cmp.i.not.i37.i, label %if.end5.i.i77, label %land.lhs.true.i.i71
 
 land.lhs.true.i.i71:                              ; preds = %if.end.i34.i
-  %50 = getelementptr i8, ptr %call1.i, i64 16
-  %ps.val15.i.i72 = load i8, ptr %50, align 8
+  %49 = getelementptr i8, ptr %call1.i, i64 16
+  %ps.val15.i.i72 = load i8, ptr %49, align 8
   %tobool.i17.i.i73 = trunc i8 %ps.val15.i.i72 to i1
   br i1 %tobool.i17.i.i73, label %if.end5.i.i77, label %if.then4.i.i74
 
 if.then4.i.i74:                                   ; preds = %land.lhs.true.i.i71
-  %51 = load ptr, ptr %central.i, align 8
-  %curtime.i.i75 = getelementptr inbounds i8, ptr %51, i64 184
-  %52 = load ptr, ptr %curtime.i.i75, align 8
-  call void %52(ptr noundef nonnull %now.i.i26, i1 noundef zeroext true) #8
-  %53 = load i64, ptr %now.i.i26, align 8
+  %50 = load ptr, ptr %central.i, align 8
+  %curtime.i.i75 = getelementptr inbounds i8, ptr %50, i64 184
+  %51 = load ptr, ptr %curtime.i.i75, align 8
+  call void %51(ptr noundef nonnull %now.i.i26, i1 noundef zeroext true) #8
+  %52 = load i64, ptr %now.i.i26, align 8
   store i8 1, ptr %h_hugify_allowed.i.i51, align 4
-  store i64 %53, ptr %37, align 8
-  %ps.val13.pre.i.i76 = load i64, ptr %48, align 8
+  store i64 %52, ptr %36, align 8
+  %ps.val13.pre.i.i76 = load i64, ptr %47, align 8
   br label %if.end5.i.i77
 
 if.end5.i.i77:                                    ; preds = %if.then4.i.i74, %land.lhs.true.i.i71, %if.end.i34.i
   %ps.val13.i.i78 = phi i64 [ %ps.val13.pre.i.i76, %if.then4.i.i74 ], [ %ps.val.i.i67, %land.lhs.true.i.i71 ], [ %ps.val.i.i67, %if.end.i34.i ]
   %cmp7.i.i79 = icmp eq i64 %ps.val13.i.i78, 0
-  br i1 %cmp7.i.i79, label %if.end9.sink.split.i.i82, label %54
+  br i1 %cmp7.i.i79, label %if.end9.sink.split.i.i82, label %53
 
 if.end9.sink.split.i.i82:                         ; preds = %if.end5.i.i77, %if.then.i38.i
   store i8 0, ptr %h_hugify_allowed.i.i51, align 4
-  br label %54
+  br label %53
 
 hpa_try_hugify.exit.thread:                       ; preds = %hpa_hugify_blocked_by_ndirty.exit.i, %if.end.i47, %do.end5.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_hugify_allowed.i)
-  br label %55
+  br label %54
 
-54:                                               ; preds = %if.end9.sink.split.i.i82, %if.end5.i.i77
+53:                                               ; preds = %if.end9.sink.split.i.i82, %if.end5.i.i77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now.i.i26)
   call void @psset_update_end(ptr noundef nonnull %psset.i.i, ptr noundef nonnull %call1.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time_hugify_allowed.i)
   %inc12 = add i64 %nops.1, 1
-  br label %55
+  br label %54
 
-55:                                               ; preds = %hpa_try_hugify.exit.thread, %54
-  %retval.0.i8191 = phi i1 [ true, %54 ], [ false, %hpa_try_hugify.exit.thread ]
-  %56 = phi i64 [ %inc12, %54 ], [ %nops.1, %hpa_try_hugify.exit.thread ]
+54:                                               ; preds = %hpa_try_hugify.exit.thread, %53
+  %retval.0.i8191 = phi i1 [ true, %53 ], [ false, %hpa_try_hugify.exit.thread ]
+  %55 = phi i64 [ %inc12, %53 ], [ %nops.1, %hpa_try_hugify.exit.thread ]
   %brmerge = or i1 %purged.0, %retval.0.i8191
-  %cmp19 = icmp ult i64 %56, %cond
+  %cmp19 = icmp ult i64 %55, %cond
   %or.cond = select i1 %brmerge, i1 %cmp19, i1 false
   br i1 %or.cond, label %while.cond.backedge, label %do.end
 
-do.end:                                           ; preds = %55, %land.lhs.true
+do.end:                                           ; preds = %54, %land.lhs.true
   ret void
 }
 

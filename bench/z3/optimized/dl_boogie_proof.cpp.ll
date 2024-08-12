@@ -5256,67 +5256,69 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp, ptr noundef nonnull align 8 dereferenceable(16) %__a, i64 16, i1 false)
   %m_subst.i = getelementptr inbounds i8, ptr %__tmp, i64 16
   %m_subst3.i = getelementptr inbounds i8, ptr %__a, i64 16
+  %0 = load ptr, ptr %m_subst3.i, align 8
+  store ptr %0, ptr %m_subst.i, align 8
+  store ptr null, ptr %m_subst3.i, align 8
   %m_labels.i = getelementptr inbounds i8, ptr %__tmp, i64 24
   %m_labels4.i = getelementptr inbounds i8, ptr %__a, i64 24
-  %0 = load <2 x ptr>, ptr %m_subst3.i, align 8
-  store ptr null, ptr %m_subst3.i, align 8
-  store <2 x ptr> %0, ptr %m_subst.i, align 8
+  %1 = load ptr, ptr %m_labels4.i, align 8
+  store ptr %1, ptr %m_labels.i, align 8
   store ptr null, ptr %m_labels4.i, align 8
   %m_refs.i = getelementptr inbounds i8, ptr %__tmp, i64 32
   %m_refs5.i = getelementptr inbounds i8, ptr %__a, i64 32
-  %1 = load ptr, ptr %m_refs5.i, align 8
-  store ptr %1, ptr %m_refs.i, align 8
+  %2 = load ptr, ptr %m_refs5.i, align 8
+  store ptr %2, ptr %m_refs.i, align 8
   store ptr null, ptr %m_refs5.i, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7datalog12boogie_proof4stepaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %__a, ptr noundef nonnull align 8 dereferenceable(40) %__b) #15
   %call1 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7datalog12boogie_proof4stepaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %__b, ptr noundef nonnull align 8 dereferenceable(40) %__tmp) #15
-  %2 = load ptr, ptr %m_refs.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %m_refs.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN7svectorIjjED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
-  %5 = load ptr, ptr %m_labels.i, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %m_labels.i, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7svectorI6symboljED2Ev.exit.i, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZN7svectorIjjED2Ev.exit.i
-  %add.ptr.i.i.i.i3.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %add.ptr.i.i.i.i3.i = getelementptr inbounds i8, ptr %6, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i)
           to label %_ZN7svectorI6symboljED2Ev.exit.i unwind label %terminate.lpad.i.i4.i
 
 terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #16
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #16
   unreachable
 
 _ZN7svectorI6symboljED2Ev.exit.i:                 ; preds = %if.then.i.i.i2.i, %_ZN7svectorIjjED2Ev.exit.i
-  %8 = load ptr, ptr %m_subst.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %m_subst.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZN7datalog12boogie_proof4stepD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7svectorI6symboljED2Ev.exit.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7datalog12boogie_proof4stepD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #16
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #16
   unreachable
 
 _ZN7datalog12boogie_proof4stepD2Ev.exit:          ; preds = %_ZN7svectorI6symboljED2Ev.exit.i, %if.then.i.i.i

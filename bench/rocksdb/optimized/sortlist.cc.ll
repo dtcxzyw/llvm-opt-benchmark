@@ -103,12 +103,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 16
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br label %for.body
 
 for.cond9.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit8, %entry
   %3 = phi ptr [ null, %entry ], [ %6, %_ZNSt6vectorIiSaIiEED2Ev.exit8 ]
-  %4 = phi ptr [ null, %entry ], [ %8, %_ZNSt6vectorIiSaIiEED2Ev.exit8 ]
+  %4 = phi ptr [ null, %entry ], [ %7, %_ZNSt6vectorIiSaIiEED2Ev.exit8 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -137,9 +139,10 @@ invoke.cont:                                      ; preds = %for.body
 invoke.cont6:                                     ; preds = %invoke.cont
   %6 = load ptr, ptr %ref.tmp, align 8
   store ptr %6, ptr %left, align 8
-  %7 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
-  %8 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store <2 x ptr> %7, ptr %_M_finish.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %7, ptr %_M_finish.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i.i.i

@@ -40,7 +40,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 
 $_ZN5arrow6Status8FromArgsIJRA115_KcEEES0_NS_10StatusCodeEDpOT_ = comdat any
 
-@_ZN5arrow12_GLOBAL__N_110kBuildInfoE = internal global %"struct.arrow::BuildInfo" zeroinitializer, align 16
+@_ZN5arrow12_GLOBAL__N_110kBuildInfoE = internal global %"struct.arrow::BuildInfo" zeroinitializer, align 8
 @.str = private unnamed_addr constant [16 x i8] c"15.0.0-SNAPSHOT\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"1500\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"1500.0.0\00", align 1
@@ -1011,7 +1011,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp19.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp22.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp25.i)
-  store <4 x i32> <i32 15000000, i32 15, i32 0, i32 0>, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, align 16
+  store i32 15000000, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, align 8
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 12), align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #9
   %call.i10.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrow12_GLOBAL__N_110kBuildInfoE, i64 16))
           to label %call.i.noexc.i unwind label %lpad.i

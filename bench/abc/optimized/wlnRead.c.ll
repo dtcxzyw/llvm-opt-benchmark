@@ -13492,7 +13492,10 @@ Rtl_NtkMapWires.exit71:                           ; preds = %.lr.ph.split.i, %.c
 119:                                              ; preds = %Rtl_NtkMapWires.exit71
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
   %120 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %116) #37
-  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 18), align 2
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 19), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 20), align 4
   br label %Rtl_ShortenName.exit
 
 Rtl_ShortenName.exit:                             ; preds = %Rtl_NtkMapWires.exit71, %119
@@ -14653,7 +14656,10 @@ Rtl_NtkMapWires.exit59:                           ; preds = %.lr.ph.split.i, %._
 117:                                              ; preds = %Rtl_NtkMapWires.exit59
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16
   %118 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull readonly dereferenceable(1) %114) #37
-  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 17), align 1
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 18), align 2
+  store i8 46, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 19), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @Rtl_ShortenName.Buffer, i64 20), align 4
   br label %Rtl_ShortenName.exit
 
 Rtl_ShortenName.exit:                             ; preds = %Rtl_NtkMapWires.exit59, %117

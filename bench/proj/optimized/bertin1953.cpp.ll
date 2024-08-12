@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @pj_bertin1953(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %2
+  br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #5
@@ -25,36 +25,40 @@ define hidden noundef ptr @pj_bertin1953(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 440
-  store <2 x double> <double 0.000000e+00, double 0xBFE7750CB50C6E5B>, ptr %9, align 8
-  store <2 x double> <double 0x3FE7C7D7A833BEC2, double 0xBFE5698496E20BD8>, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  store double 1.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts, ptr %12, align 8
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 448
+  store double 0xBFE7750CB50C6E5B, ptr %10, align 8
+  store double 0x3FE7C7D7A833BEC2, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store double 0xBFE5698496E20BD8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  store double 1.000000e+00, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts, ptr %14, align 8
   br label %_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit
 
-13:                                               ; preds = %1
-  %14 = tail call noundef ptr @_Z6pj_newv()
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit, label %16
+15:                                               ; preds = %1
+  %16 = tail call noundef ptr @_Z6pj_newv()
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit, label %18
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr @.str, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr @_ZL14des_bertin1953, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 360
-  store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 380
-  store i32 4, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %14, i64 384
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @.str, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr @_ZL14des_bertin1953, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 360
   store i32 1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 380
+  store i32 4, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %16, i64 384
+  store i32 1, ptr %23, align 8
   br label %_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit
 
-_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit: ; preds = %7, %5, %13, %16
-  %.0 = phi ptr [ %14, %16 ], [ null, %13 ], [ %6, %5 ], [ %0, %7 ]
+_Z39pj_projection_specific_setup_bertin1953P8PJconsts.exit: ; preds = %7, %5, %15, %18
+  %.0 = phi ptr [ %16, %18 ], [ null, %15 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -66,23 +70,27 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_bertin1953P8PJconsts
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %12
+  br label %14
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 440
-  store <2 x double> <double 0.000000e+00, double 0xBFE7750CB50C6E5B>, ptr %8, align 8
-  store <2 x double> <double 0x3FE7C7D7A833BEC2, double 0xBFE5698496E20BD8>, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  store double 1.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts, ptr %11, align 8
-  br label %12
+  store double 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 448
+  store double 0xBFE7750CB50C6E5B, ptr %9, align 8
+  store double 0x3FE7C7D7A833BEC2, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0xBFE5698496E20BD8, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 1.000000e+00, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL20bertin1953_s_forward5PJ_LPP8PJconsts, ptr %13, align 8
+  br label %14
 
-12:                                               ; preds = %6, %4
+14:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %6 ]
   ret ptr %.0
 }

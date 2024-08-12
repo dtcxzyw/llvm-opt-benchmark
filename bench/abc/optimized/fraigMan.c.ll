@@ -46,27 +46,33 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Prove_ParamsSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 0>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 6, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 5000, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store float 2.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store float 1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store float 8.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 1000000, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 20, i1 false)
+  store i32 1, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 6, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 5000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store float 2.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 3, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  store float 1.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 2, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store float 8.000000e+00, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 1000000, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -147,25 +153,49 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ParamsSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  store <4 x i32> <i32 2048, i32 2048, i32 99, i32 20>, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 0>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  store i32 2048, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 2048, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 99, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 20, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 1, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ParamsSetDefaultFull(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  store <4 x i32> <i32 2048, i32 2048, i32 -1, i32 20>, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  store i32 2048, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 2048, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 20, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   ret void
 }
 

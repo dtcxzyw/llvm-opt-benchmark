@@ -69,13 +69,17 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #9
   %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i32>, ptr %pos_begin2.i.i, align 8
-  store <2 x i32> %0, ptr %pos_begin.i.i, align 8
+  %0 = load i32, ptr %pos_begin2.i.i, align 8
+  store i32 %0, ptr %pos_begin.i.i, align 8
+  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %pos_end3.i.i, align 4
+  store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213ComponentByteE, i64 16), ptr %call, align 8
   %position.i = getelementptr inbounds i8, ptr %call, i64 16
   %position2.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load i32, ptr %position2.i, align 8
-  store i32 %1, ptr %position.i, align 8
+  %2 = load i32, ptr %position2.i, align 8
+  store i32 %2, ptr %position.i, align 8
   ret ptr %call
 }
 

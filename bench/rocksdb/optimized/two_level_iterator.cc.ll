@@ -1163,20 +1163,23 @@ invoke.cont32:                                    ; preds = %invoke.cont27
 if.then.i:                                        ; preds = %invoke.cont32
   %20 = load i8, ptr %ref.tmp22, align 8
   store i8 %20, ptr %status_, align 8
+  store i8 0, ptr %ref.tmp22, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 1
   %21 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %this, i64 129
   store i8 %21, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 2
   %22 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %this, i64 130
   store i8 %22, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 3
   %23 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %this, i64 131
   %frombool.i = and i8 %23, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp22, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 4
   %24 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %this, i64 132

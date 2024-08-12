@@ -79,35 +79,39 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
   %pos_begin.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i32>, ptr %pos_begin2.i.i.i, align 8
-  store <2 x i32> %0, ptr %pos_begin.i.i.i, align 8
+  %0 = load i32, ptr %pos_begin2.i.i.i, align 8
+  store i32 %0, ptr %pos_begin.i.i.i, align 8
+  %pos_end.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %pos_end3.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %pos_end3.i.i.i, align 4
+  store i32 %1, ptr %pos_end.i.i.i, align 4
   %m_negate.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %m_negate2.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load i8, ptr %m_negate2.i.i, align 8
-  %frombool.i.i = and i8 %1, 1
+  %2 = load i8, ptr %m_negate2.i.i, align 8
+  %frombool.i.i = and i8 %2, 1
   store i8 %frombool.i.i, ptr %m_negate.i.i, align 8
   %mode.i.i = getelementptr inbounds i8, ptr %call, i64 17
   %mode3.i.i = getelementptr inbounds i8, ptr %this, i64 17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode.i.i, ptr noundef nonnull align 1 dereferenceable(6) %mode3.i.i, i64 6, i1 false)
   %in_cand_range.i.i = getelementptr inbounds i8, ptr %call, i64 23
   %in_cand_range4.i.i = getelementptr inbounds i8, ptr %this, i64 23
-  %2 = load i8, ptr %in_cand_range4.i.i, align 1
-  %frombool6.i.i = and i8 %2, 1
+  %3 = load i8, ptr %in_cand_range4.i.i, align 1
+  %frombool6.i.i = and i8 %3, 1
   store i8 %frombool6.i.i, ptr %in_cand_range.i.i, align 1
   %range_start.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %range_start7.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i32, ptr %range_start7.i.i, align 8
-  store i32 %3, ptr %range_start.i.i, align 8
+  %4 = load i32, ptr %range_start7.i.i, align 8
+  store i32 %4, ptr %range_start.i.i, align 8
   %finalized.i.i = getelementptr inbounds i8, ptr %call, i64 28
   %finalized8.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %4 = load i8, ptr %finalized8.i.i, align 4
-  %frombool10.i.i = and i8 %4, 1
+  %5 = load i8, ptr %finalized8.i.i, align 4
+  %frombool10.i.i = and i8 %5, 1
   store i8 %frombool10.i.i, ptr %finalized.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue219AsciiComponentClassE, i64 16), ptr %call, align 8
   %position.i = getelementptr inbounds i8, ptr %call, i64 32
   %position2.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load i32, ptr %position2.i, align 8
-  store i32 %5, ptr %position.i, align 8
+  %6 = load i32, ptr %position2.i, align 8
+  store i32 %6, ptr %position.i, align 8
   %cr.i = getelementptr inbounds i8, ptr %call, i64 40
   %cr3.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i, ptr noundef nonnull align 8 dereferenceable(32) %cr3.i, i64 32, i1 false)
@@ -145,7 +149,7 @@ define hidden void @_ZN3ue219AsciiComponentClass11createRangeEj(ptr nocapture no
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %ncr = alloca %"class.ue2::CharReach", align 16
+  %ncr = alloca %"class.ue2::CharReach", align 8
   %range_start = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %range_start, align 8
   %conv2 = and i32 %0, 255
@@ -188,7 +192,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 if.end:                                           ; preds = %entry
   %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   store i8 0, ptr %in_cand_range, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ncr, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ncr, i8 0, i64 32, i1 false)
   %conv.i.i = zext nneg i32 %conv2 to i64
   %3 = and i32 %to, 255
   %conv2.i.i = zext nneg i32 %3 to i64
@@ -280,16 +284,28 @@ if.then7:                                         ; preds = %_ZN3ue29CharReachC2
 
 if.end8:                                          ; preds = %if.then7, %_ZN3ue29CharReachC2Ehh.exit
   %cr = getelementptr inbounds i8, ptr %this, i64 40
-  %16 = load <2 x i64>, ptr %ncr, align 16
-  %17 = load <2 x i64>, ptr %cr, align 8
-  %18 = or <2 x i64> %17, %16
-  store <2 x i64> %18, ptr %cr, align 8
+  %16 = load i64, ptr %ncr, align 8
+  %17 = load i64, ptr %cr, align 8
+  %or.i.i = or i64 %17, %16
+  store i64 %or.i.i, ptr %cr, align 8
+  %arrayidx.i.i19.i.i = getelementptr inbounds i8, ptr %ncr, i64 8
+  %18 = load i64, ptr %arrayidx.i.i19.i.i, align 8
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %19 = load i64, ptr %arrayidx.i.i20.i.i, align 8
+  %or10.i.i = or i64 %19, %18
+  store i64 %or10.i.i, ptr %arrayidx.i.i20.i.i, align 8
   %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %ncr, i64 16
+  %20 = load i64, ptr %arrayidx.i.i21.i.i, align 8
   %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %19 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
-  %20 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
-  %21 = or <2 x i64> %20, %19
-  store <2 x i64> %21, ptr %arrayidx.i.i22.i.i, align 8
+  %21 = load i64, ptr %arrayidx.i.i22.i.i, align 8
+  %or17.i.i = or i64 %21, %20
+  store i64 %or17.i.i, ptr %arrayidx.i.i22.i.i, align 8
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %ncr, i64 24
+  %22 = load i64, ptr %arrayidx.i.i23.i.i, align 8
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %23 = load i64, ptr %arrayidx.i.i24.i.i, align 8
+  %or24.i.i = or i64 %23, %22
+  store i64 %or24.i.i, ptr %arrayidx.i.i24.i.i, align 8
   store i32 -1, ptr %range_start, align 8
   ret void
 
@@ -449,7 +465,7 @@ define hidden void @_ZN3ue219AsciiComponentClass3addENS_15PredefinedClassEb(ptr 
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %pcr = alloca %"class.ue2::CharReach", align 16
+  %pcr = alloca %"class.ue2::CharReach", align 8
   %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %in_cand_range, align 1
   %tobool = trunc i8 %0 to i1
@@ -516,16 +532,28 @@ for.body.i.i:                                     ; preds = %if.end8, %for.body.
 
 if.end12:                                         ; preds = %for.body.i.i, %if.end8
   %cr = getelementptr inbounds i8, ptr %this, i64 40
-  %5 = load <2 x i64>, ptr %pcr, align 16
-  %6 = load <2 x i64>, ptr %cr, align 8
-  %7 = or <2 x i64> %6, %5
-  store <2 x i64> %7, ptr %cr, align 8
+  %5 = load i64, ptr %pcr, align 8
+  %6 = load i64, ptr %cr, align 8
+  %or.i.i = or i64 %6, %5
+  store i64 %or.i.i, ptr %cr, align 8
+  %arrayidx.i.i19.i.i = getelementptr inbounds i8, ptr %pcr, i64 8
+  %7 = load i64, ptr %arrayidx.i.i19.i.i, align 8
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load i64, ptr %arrayidx.i.i20.i.i, align 8
+  %or10.i.i = or i64 %8, %7
+  store i64 %or10.i.i, ptr %arrayidx.i.i20.i.i, align 8
   %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %pcr, i64 16
+  %9 = load i64, ptr %arrayidx.i.i21.i.i, align 8
   %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
-  %9 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
-  %10 = or <2 x i64> %9, %8
-  store <2 x i64> %10, ptr %arrayidx.i.i22.i.i, align 8
+  %10 = load i64, ptr %arrayidx.i.i22.i.i, align 8
+  %or17.i.i = or i64 %10, %9
+  store i64 %or17.i.i, ptr %arrayidx.i.i22.i.i, align 8
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %pcr, i64 24
+  %11 = load i64, ptr %arrayidx.i.i23.i.i, align 8
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %12 = load i64, ptr %arrayidx.i.i24.i.i, align 8
+  %or24.i.i = or i64 %12, %11
+  store i64 %or24.i.i, ptr %arrayidx.i.i24.i.i, align 8
   %range_start = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %range_start, align 8
   store i8 0, ptr %in_cand_range, align 1
@@ -548,7 +576,7 @@ define hidden void @_ZN3ue219AsciiComponentClass3addEj(ptr noundef nonnull align
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %ncr = alloca %"class.ue2::CharReach", align 16
+  %ncr = alloca %"class.ue2::CharReach", align 8
   %cmp = icmp ugt i32 %c, 255
   br i1 %cmp, label %if.then, label %if.end
 
@@ -600,7 +628,7 @@ if.then5:                                         ; preds = %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end
   %conv = zext nneg i32 %c to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ncr, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ncr, i8 0, i64 32, i1 false)
   %div18.i.i.i = lshr i64 %conv, 6
   %rem.i.i.i = and i64 %conv, 63
   %cmp4.not.i.i.i = icmp eq i64 %rem.i.i.i, 63
@@ -632,16 +660,28 @@ if.then9:                                         ; preds = %_ZN3ue29CharReachC2
 
 if.end10:                                         ; preds = %if.then9, %_ZN3ue29CharReachC2Ehh.exit
   %cr = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load <2 x i64>, ptr %ncr, align 16
-  %7 = load <2 x i64>, ptr %cr, align 8
-  %8 = or <2 x i64> %7, %6
-  store <2 x i64> %8, ptr %cr, align 8
+  %6 = load i64, ptr %ncr, align 8
+  %7 = load i64, ptr %cr, align 8
+  %or.i.i = or i64 %7, %6
+  store i64 %or.i.i, ptr %cr, align 8
+  %arrayidx.i.i19.i.i = getelementptr inbounds i8, ptr %ncr, i64 8
+  %8 = load i64, ptr %arrayidx.i.i19.i.i, align 8
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %9 = load i64, ptr %arrayidx.i.i20.i.i, align 8
+  %or10.i.i = or i64 %9, %8
+  store i64 %or10.i.i, ptr %arrayidx.i.i20.i.i, align 8
   %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %ncr, i64 16
+  %10 = load i64, ptr %arrayidx.i.i21.i.i, align 8
   %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %9 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 16
-  %10 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 8
-  %11 = or <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %arrayidx.i.i22.i.i, align 8
+  %11 = load i64, ptr %arrayidx.i.i22.i.i, align 8
+  %or17.i.i = or i64 %11, %10
+  store i64 %or17.i.i, ptr %arrayidx.i.i22.i.i, align 8
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %ncr, i64 24
+  %12 = load i64, ptr %arrayidx.i.i23.i.i, align 8
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %13 = load i64, ptr %arrayidx.i.i24.i.i, align 8
+  %or24.i.i = or i64 %13, %12
+  store i64 %or24.i.i, ptr %arrayidx.i.i24.i.i, align 8
   %range_start = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %c, ptr %range_start, align 8
   br label %return

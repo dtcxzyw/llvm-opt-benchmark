@@ -2043,13 +2043,13 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr 
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %121
 
 24:                                               ; preds = %17
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  br label %118
+  br label %121
 
 26:                                               ; preds = %.outer, %40
   %27 = load i8, ptr %.136.ph, align 1
@@ -2062,8 +2062,8 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr 
   %29 = getelementptr inbounds i8, ptr %.136.ph, i64 1
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %28, %88, %82, %82
-  %.136.ph.be = phi ptr [ %71, %82 ], [ %71, %82 ], [ %71, %88 ], [ %29, %28 ]
+.outer.backedge:                                  ; preds = %28, %91, %85, %85
+  %.136.ph.be = phi ptr [ %71, %85 ], [ %71, %85 ], [ %71, %91 ], [ %29, %28 ]
   br label %.outer, !llvm.loop !21
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
@@ -2122,16 +2122,16 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr 
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %121
 
 63:                                               ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  br label %118
+  br label %121
 
 65:                                               ; preds = %41
-  switch i8 %27, label %105 [
+  switch i8 %27, label %108 [
     i8 0, label %66
     i8 10, label %66
     i8 13, label %66
@@ -2144,7 +2144,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr 
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(8) %67)
   %.not46 = icmp eq ptr %71, null
-  br i1 %.not46, label %72, label %82
+  br i1 %.not46, label %72, label %85
 
 72:                                               ; preds = %66
   %73 = load ptr, ptr %13, align 8
@@ -2152,97 +2152,103 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr 
   %75 = getelementptr inbounds i8, ptr %74, i64 88
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %73)
-  store <4 x i8> <i8 46, i8 46, i8 46, i8 0>, ptr %77, align 1
-  %78 = load ptr, ptr %13, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78)
+  %78 = getelementptr inbounds i8, ptr %77, i64 2
+  store i8 46, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %77, i64 1
+  store i8 46, ptr %79, align 1
+  store i8 46, ptr %77, align 1
+  %80 = getelementptr inbounds i8, ptr %77, i64 3
+  store i8 0, ptr %80, align 1
+  %81 = load ptr, ptr %13, align 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %84 = load ptr, ptr %83, align 8
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %81)
   br label %.loopexit
 
-82:                                               ; preds = %66
-  %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
-  %84 = shl i64 %83, 32
-  %sext = add i64 %84, -4294967296
-  %85 = ashr exact i64 %sext, 32
-  %86 = getelementptr inbounds i8, ptr %71, i64 %85
-  %87 = load i8, ptr %86, align 1
-  switch i8 %87, label %88 [
+85:                                               ; preds = %66
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
+  %87 = shl i64 %86, 32
+  %sext = add i64 %87, -4294967296
+  %88 = ashr exact i64 %sext, 32
+  %89 = getelementptr inbounds i8, ptr %71, i64 %88
+  %90 = load i8, ptr %89, align 1
+  switch i8 %90, label %91 [
     i8 10, label %.outer.backedge
     i8 13, label %.outer.backedge
   ]
 
-88:                                               ; preds = %82
-  %89 = load ptr, ptr %13, align 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(8) %89)
-  br i1 %93, label %.outer.backedge, label %94
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %13, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 40
+  %95 = load ptr, ptr %94, align 8
+  %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(8) %92)
+  br i1 %96, label %.outer.backedge, label %97
 
-94:                                               ; preds = %88
-  %95 = load ptr, ptr %13, align 8
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %13, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %96 unwind label %101
+          to label %99 unwind label %104
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %95, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 184
-  %99 = load ptr, ptr %98, align 8
-  invoke void %99(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull @__func__._ZN2cv10YAMLParser10skipSpacesEPcii, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.1, i32 noundef 378) #15
-          to label %100 unwind label %103
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %98, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 184
+  %102 = load ptr, ptr %101, align 8
+  invoke void %102(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull @__func__._ZN2cv10YAMLParser10skipSpacesEPcii, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.1, i32 noundef 378) #15
+          to label %103 unwind label %106
 
-100:                                              ; preds = %96
+103:                                              ; preds = %99
   unreachable
 
-101:                                              ; preds = %94
-  %102 = landingpad { ptr, i32 }
+104:                                              ; preds = %97
+  %105 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %121
 
-103:                                              ; preds = %96
-  %104 = landingpad { ptr, i32 }
+106:                                              ; preds = %99
+  %107 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  br label %118
+  br label %121
 
-105:                                              ; preds = %65
-  %106 = load ptr, ptr %13, align 8
-  %107 = icmp eq i8 %27, 9
-  %108 = select i1 %107, ptr @.str.32, ptr @.str.33
+108:                                              ; preds = %65
+  %109 = load ptr, ptr %13, align 8
+  %110 = icmp eq i8 %27, 9
+  %111 = select i1 %110, ptr @.str.32, ptr @.str.33
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %108, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %109 unwind label %114
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %111, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %112 unwind label %117
 
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %106, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 184
-  %112 = load ptr, ptr %111, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull @__func__._ZN2cv10YAMLParser10skipSpacesEPcii, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.1, i32 noundef 382) #15
-          to label %113 unwind label %116
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %109, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 184
+  %115 = load ptr, ptr %114, align 8
+  invoke void %115(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @__func__._ZN2cv10YAMLParser10skipSpacesEPcii, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.1, i32 noundef 382) #15
+          to label %116 unwind label %119
 
-113:                                              ; preds = %109
+116:                                              ; preds = %112
   unreachable
 
-114:                                              ; preds = %105
-  %115 = landingpad { ptr, i32 }
+117:                                              ; preds = %108
+  %118 = landingpad { ptr, i32 }
           cleanup
-  br label %118
+  br label %121
 
-116:                                              ; preds = %109
-  %117 = landingpad { ptr, i32 }
+119:                                              ; preds = %112
+  %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br label %118
+  br label %121
 
 .loopexit:                                        ; preds = %31, %72, %43
   %.0 = phi ptr [ %.136.ph, %43 ], [ %77, %72 ], [ %.136.ph, %31 ]
   ret ptr %.0
 
-118:                                              ; preds = %114, %116, %101, %103, %61, %63, %22, %24
-  %.sink = phi ptr [ %6, %24 ], [ %6, %22 ], [ %8, %63 ], [ %8, %61 ], [ %10, %103 ], [ %10, %101 ], [ %12, %116 ], [ %12, %114 ]
-  %.pn51.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %64, %63 ], [ %62, %61 ], [ %104, %103 ], [ %102, %101 ], [ %117, %116 ], [ %115, %114 ]
+121:                                              ; preds = %117, %119, %104, %106, %61, %63, %22, %24
+  %.sink = phi ptr [ %6, %24 ], [ %6, %22 ], [ %8, %63 ], [ %8, %61 ], [ %10, %106 ], [ %10, %104 ], [ %12, %119 ], [ %12, %117 ]
+  %.pn51.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %64, %63 ], [ %62, %61 ], [ %107, %106 ], [ %105, %104 ], [ %120, %119 ], [ %118, %117 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #14
   resume { ptr, i32 } %.pn51.pn
 }

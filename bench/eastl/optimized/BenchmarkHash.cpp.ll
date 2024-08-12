@@ -410,6 +410,7 @@ for.cond76.preheader:                             ; preds = %_ZN5eastl12basic_st
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %stdMapUint32TO, i64 40
   %mnBucketCount.i.i.i = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 16
   %mRehashPolicy.i.i.i = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 32
+  %mfGrowthFactor.i.i.i.i = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 36
   %mnNextResize.i.i.i.i = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 40
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 24
   %6 = getelementptr inbounds i8, ptr %eaMapUint32TO, i64 8
@@ -420,6 +421,7 @@ for.cond76.preheader:                             ; preds = %_ZN5eastl12basic_st
   %_M_next_resize.i.i.i209 = getelementptr inbounds i8, ptr %stdMapStrUint32, i64 40
   %mnBucketCount.i.i.i210 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 16
   %mRehashPolicy.i.i.i211 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 32
+  %mfGrowthFactor.i.i.i.i212 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 36
   %mnNextResize.i.i.i.i213 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 40
   %mnElementCount.i.i.i214 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 24
   %7 = getelementptr inbounds i8, ptr %eaMapStrUint32, i64 8
@@ -740,7 +742,8 @@ invoke.cont82:                                    ; preds = %for.cond76.preheade
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i.i, align 8
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i.i, align 4
   store i64 1, ptr %mnBucketCount.i.i.i, align 8
   store i64 0, ptr %mnElementCount.i.i.i, align 8
   store i32 0, ptr %mnNextResize.i.i.i.i, align 8
@@ -750,7 +753,8 @@ invoke.cont82:                                    ; preds = %for.cond76.preheade
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i207, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i208, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i209, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i211, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i.i211, align 8
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i.i212, align 4
   store i64 1, ptr %mnBucketCount.i.i.i210, align 8
   store i64 0, ptr %mnElementCount.i.i.i214, align 8
   store i32 0, ptr %mnNextResize.i.i.i.i213, align 8

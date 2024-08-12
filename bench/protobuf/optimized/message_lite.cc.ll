@@ -1109,26 +1109,30 @@ entry:
   %call.i7 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %zcis)
   store i32 0, ptr %group_depth_.i, align 4
   %extension_pool_.i = getelementptr inbounds i8, ptr %input, i64 64
-  %3 = load <2 x ptr>, ptr %extension_pool_.i, align 8
-  store <2 x ptr> %3, ptr %data_.i, align 8
+  %3 = load ptr, ptr %extension_pool_.i, align 8
+  store ptr %3, ptr %data_.i, align 8
+  %extension_factory_.i = getelementptr inbounds i8, ptr %input, i64 72
+  %4 = load ptr, ptr %extension_factory_.i, align 8
+  %factory = getelementptr inbounds i8, ptr %ctx, i64 104
+  store ptr %4, ptr %factory, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
-  %4 = load ptr, ptr %vfn, align 8
-  %call15 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i7, ptr noundef nonnull %ctx)
+  %5 = load ptr, ptr %vfn, align 8
+  %call15 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i7, ptr noundef nonnull %ctx)
   %tobool.not = icmp eq ptr %call15, null
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
   %next_chunk_.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  %5 = load ptr, ptr %next_chunk_.i, align 8
+  %6 = load ptr, ptr %next_chunk_.i, align 8
   %patch_buffer_.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %cmp.i = icmp eq ptr %5, %patch_buffer_.i
+  %cmp.i = icmp eq ptr %6, %patch_buffer_.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %6 = load ptr, ptr %buffer_end_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = load ptr, ptr %buffer_end_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1137,14 +1141,14 @@ if.then.i:                                        ; preds = %if.end
 
 if.else.i:                                        ; preds = %if.end
   %size_.i = getelementptr inbounds i8, ptr %ctx, i64 24
-  %7 = load i32, ptr %size_.i, align 8
+  %8 = load i32, ptr %size_.i, align 8
   %buffer_end_2.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %8 = load ptr, ptr %buffer_end_2.i, align 8
-  %sub.ptr.lhs.cast3.i = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %buffer_end_2.i, align 8
+  %sub.ptr.lhs.cast3.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %call15 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %conv6.i = trunc i64 %sub.ptr.sub5.i to i32
-  %add.i = add nsw i32 %7, %conv6.i
+  %add.i = add nsw i32 %8, %conv6.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1153,45 +1157,45 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp7.i, label %if.then8.i, label %invoke.cont16
 
 if.then8.i:                                       ; preds = %if.end.i
-  %9 = load ptr, ptr %zcis_.i.i, align 8
-  %vtable.i.i = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %zcis_.i.i, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %10 = load ptr, ptr %vfn.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %count.0.i)
-  %11 = load i32, ptr %overall_limit_.i.i, align 4
-  %add.i.i = add nsw i32 %11, %count.0.i
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %count.0.i)
+  %12 = load i32, ptr %overall_limit_.i.i, align 4
+  %add.i.i = add nsw i32 %12, %count.0.i
   store i32 %add.i.i, ptr %overall_limit_.i.i, align 4
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %if.then8.i, %if.end.i
-  %12 = load i32, ptr %last_tag_minus_1_.i.i, align 8
-  %cmp.i13 = icmp eq i32 %12, 1
+  %13 = load i32, ptr %last_tag_minus_1_.i.i, align 8
+  %cmp.i13 = icmp eq i32 %13, 1
   br i1 %cmp.i13, label %if.else, label %while.end
 
 while.end:                                        ; preds = %invoke.cont16
-  %13 = load ptr, ptr %ctx, align 8
-  %cmp.i14 = icmp ult ptr %13, %call15
+  %14 = load ptr, ptr %ctx, align 8
+  %cmp.i14 = icmp ult ptr %14, %call15
   br i1 %cmp.i14, label %land.rhs.i, label %if.end26
 
 land.rhs.i:                                       ; preds = %while.end
-  %14 = load ptr, ptr %next_chunk_.i, align 8
-  %cmp2.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %next_chunk_.i, align 8
+  %cmp2.i = icmp eq ptr %15, null
   br i1 %cmp2.i, label %cleanup, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
 
 _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; preds = %land.rhs.i
   %buffer_end_.i16 = getelementptr inbounds i8, ptr %ctx, i64 8
-  %15 = load ptr, ptr %buffer_end_.i16, align 8
+  %16 = load ptr, ptr %buffer_end_.i16, align 8
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %call15 to i64
-  %sub.ptr.rhs.cast.i18 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i18 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
   %limit_.i = getelementptr inbounds i8, ptr %ctx, i64 28
-  %16 = load i32, ptr %limit_.i, align 4
-  %conv.i20 = sext i32 %16 to i64
+  %17 = load i32, ptr %limit_.i, align 4
+  %conv.i20 = sext i32 %17 to i64
   %cmp3.i = icmp sgt i64 %sub.ptr.sub.i19, %conv.i20
   br i1 %cmp3.i, label %cleanup, label %if.end26
 
 if.end26:                                         ; preds = %while.end, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
-  %add.i22 = add i32 %12, 1
+  %add.i22 = add i32 %13, 1
   %last_tag_.i = getelementptr inbounds i8, ptr %input, i64 32
   store i32 %add.i22, ptr %last_tag_.i, align 8
   br label %if.end31
@@ -1209,8 +1213,8 @@ if.end31:                                         ; preds = %if.else, %if.end26
 if.end.i23:                                       ; preds = %if.end31
   %vtable.i.i24 = load ptr, ptr %this, align 8
   %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 32
-  %17 = load ptr, ptr %vfn.i.i25, align 8
-  %call.i.i26 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %this)
+  %18 = load ptr, ptr %vfn.i.i25, align 8
+  %call.i.i26 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i26, label %cleanup, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i23

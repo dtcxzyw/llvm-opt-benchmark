@@ -425,7 +425,13 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this) unnamed_addr #12 align 2 {
 entry:
-  store <4 x i32> <i32 1, i32 65536, i32 -1, i32 0>, ptr %this, align 4
+  store i32 1, ptr %this, align 4
+  %buffer_size = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 65536, ptr %buffer_size, align 4
+  %compression_level = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 -1, ptr %compression_level, align 4
+  %compression_strategy = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %compression_strategy, align 4
   ret void
 }
 

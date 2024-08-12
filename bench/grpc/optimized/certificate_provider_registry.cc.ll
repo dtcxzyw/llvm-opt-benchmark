@@ -241,33 +241,36 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %2 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %2, ptr %0, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %3 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %4 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %3 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_parent6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %_M_left9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %4 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
+  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i64 %5, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  store i32 %2, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  store i32 %2, ptr %6, align 8
+  %_M_parent6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %1, ptr %_M_parent6.i.i.i.i.i.i, align 8
-  store <2 x ptr> %4, ptr %_M_left9.i.i.i.i.i.i, align 8
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_left9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store ptr %3, ptr %_M_left9.i.i.i.i.i.i, align 8
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  %_M_right12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store ptr %4, ptr %_M_right12.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %3, ptr %_M_parent16.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_parent16.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %6 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  %7 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i64 %6, ptr %_M_node_count17.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
@@ -283,14 +286,14 @@ if.else.i.i.i.i.i:                                ; preds = %entry
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i64 0, ptr %_M_node_count.i5.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i32 0, ptr %8, align 8
   %_M_parent.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i, align 8
   %_M_left.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %7, ptr %_M_left.i3.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_left.i3.i.i.i.i.i, align 8
   %_M_right.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr %7, ptr %_M_right.i4.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_right.i4.i.i.i.i.i, align 8
   %_M_node_count.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   br label %_ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrINS_26CertificateProviderFactoryESt14default_deleteIS7_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE.exit
 
@@ -301,10 +304,10 @@ _ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11c
           to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS6_EESt4lessIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrINS_26CertificateProviderFactoryESt14default_deleteIS7_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE.exit
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #18
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #18
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS6_EESt4lessIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit: ; preds = %_ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrINS_26CertificateProviderFactoryESt14default_deleteIS7_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE.exit

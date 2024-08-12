@@ -114,16 +114,21 @@ $_ZTVN3url15RawCanonOutputTIcLi64EEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly %out_host) local_unnamed_addr #0 {
 entry:
-  %host_info = alloca %"struct.url::CanonHostInfo", align 16
+  %host_info = alloca %"struct.url::CanonHostInfo", align 4
+  store i32 0, ptr %host_info, align 4
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  store i32 0, ptr %num_ipv4_components.i, align 4
   %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
+  store i32 0, ptr %out_host.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  store i32 -1, ptr %len.i.i, align 4
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
-  %1 = load i64, ptr %out_host.i, align 8
+  %1 = load i64, ptr %out_host.i, align 4
   store i64 %1, ptr %out_host, align 4
-  %2 = load i32, ptr %host_info, align 16
+  %2 = load i32, ptr %host_info, align 4
   %cmp = icmp ne i32 %2, 1
   ret i1 %cmp
 }
@@ -336,16 +341,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly %out_host) local_unnamed_addr #0 {
 entry:
-  %host_info = alloca %"struct.url::CanonHostInfo", align 16
+  %host_info = alloca %"struct.url::CanonHostInfo", align 4
+  store i32 0, ptr %host_info, align 4
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  store i32 0, ptr %num_ipv4_components.i, align 4
   %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
+  store i32 0, ptr %out_host.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  store i32 -1, ptr %len.i.i, align 4
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, i32 %host.val, i32 %host.val1, ptr noundef %output, ptr noundef nonnull %host_info)
-  %1 = load i64, ptr %out_host.i, align 8
+  %1 = load i64, ptr %out_host.i, align 4
   store i64 %1, ptr %out_host, align 4
-  %2 = load i32, ptr %host_info, align 16
+  %2 = load i32, ptr %host_info, align 4
   %cmp = icmp ne i32 %2, 1
   ret i1 %cmp
 }

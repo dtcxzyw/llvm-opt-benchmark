@@ -481,65 +481,65 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_cipher_context_t, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %3, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
-  %12 = icmp eq <4 x ptr> %11, zeroinitializer
-  %13 = bitcast <4 x i1> %12 to i4
-  %.not30 = icmp eq i4 %13, 0
-  br i1 %.not30, label %14, label %33
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %9
+  %10 = icmp eq ptr %3, null
+  %or.cond3 = or i1 %or.cond, %10
+  %11 = icmp eq ptr %5, null
+  %or.cond5 = or i1 %or.cond3, %11
+  br i1 %or.cond5, label %31, label %12
 
-14:                                               ; preds = %6
+12:                                               ; preds = %6
   call void @mbedtls_cipher_init(ptr noundef nonnull %7) #10
-  %15 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %7, ptr noundef nonnull %0) #10
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %mbedtls_cipher_cmac_starts.exit.thread
+  %13 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %7, ptr noundef nonnull %0) #10
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %14, label %mbedtls_cipher_cmac_starts.exit.thread
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %7, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %mbedtls_cipher_cmac_starts.exit.thread, label %19
+14:                                               ; preds = %12
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %mbedtls_cipher_cmac_starts.exit.thread, label %17
 
-19:                                               ; preds = %16
-  %20 = trunc i64 %2 to i32
-  %21 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %20, i32 noundef 1) #10
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %mbedtls_cipher_cmac_starts.exit.thread
+17:                                               ; preds = %14
+  %18 = trunc i64 %2 to i32
+  %19 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %18, i32 noundef 1) #10
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %20, label %mbedtls_cipher_cmac_starts.exit.thread
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %mbedtls_cipher_cmac_starts.exit.thread [
-    i32 2, label %25
-    i32 3, label %25
-    i32 4, label %25
-    i32 36, label %25
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  switch i32 %22, label %mbedtls_cipher_cmac_starts.exit.thread [
+    i32 2, label %23
+    i32 3, label %23
+    i32 4, label %23
+    i32 36, label %23
   ]
 
-25:                                               ; preds = %22, %22, %22, %22
-  %26 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #11
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %mbedtls_cipher_cmac_starts.exit.thread, label %28
+23:                                               ; preds = %20, %20, %20, %20
+  %24 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #11
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %mbedtls_cipher_cmac_starts.exit.thread, label %26
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr %26, ptr %29, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %26, i64 noundef 16) #10
-  %30 = call i32 @mbedtls_cipher_cmac_update(ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef %4)
-  %.not27 = icmp eq i32 %30, 0
-  br i1 %.not27, label %31, label %mbedtls_cipher_cmac_starts.exit.thread
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %7, i64 88
+  store ptr %24, ptr %27, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %24, i64 noundef 16) #10
+  %28 = call i32 @mbedtls_cipher_cmac_update(ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef %4)
+  %.not27 = icmp eq i32 %28, 0
+  br i1 %.not27, label %29, label %mbedtls_cipher_cmac_starts.exit.thread
 
-31:                                               ; preds = %28
-  %32 = call i32 @mbedtls_cipher_cmac_finish(ptr noundef nonnull %7, ptr noundef nonnull %5)
+29:                                               ; preds = %26
+  %30 = call i32 @mbedtls_cipher_cmac_finish(ptr noundef nonnull %7, ptr noundef nonnull %5)
   br label %mbedtls_cipher_cmac_starts.exit.thread
 
-mbedtls_cipher_cmac_starts.exit.thread:           ; preds = %25, %22, %19, %16, %28, %14, %31
-  %.0 = phi i32 [ %15, %14 ], [ %30, %28 ], [ %32, %31 ], [ -24960, %25 ], [ -24832, %22 ], [ %21, %19 ], [ -24832, %16 ]
+mbedtls_cipher_cmac_starts.exit.thread:           ; preds = %23, %20, %17, %14, %26, %12, %29
+  %.0 = phi i32 [ %13, %12 ], [ %28, %26 ], [ %30, %29 ], [ -24960, %23 ], [ -24832, %20 ], [ %19, %17 ], [ -24832, %14 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %7) #10
-  br label %33
+  br label %31
 
-33:                                               ; preds = %6, %mbedtls_cipher_cmac_starts.exit.thread
+31:                                               ; preds = %6, %mbedtls_cipher_cmac_starts.exit.thread
   %.018 = phi i32 [ %.0, %mbedtls_cipher_cmac_starts.exit.thread ], [ -24832, %6 ]
   ret i32 %.018
 }

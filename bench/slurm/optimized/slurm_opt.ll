@@ -13693,7 +13693,7 @@ define internal i32 @arg_set_data_nodes(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr null, ptr %4, align 8
   %6 = tail call i32 @data_get_type(ptr noundef %1) #23
   %7 = icmp eq i32 %6, 2
-  br i1 %7, label %8, label %32
+  br i1 %7, label %8, label %34
 
 8:                                                ; preds = %3
   store i32 -2, ptr %5, align 8
@@ -13712,7 +13712,7 @@ define internal i32 @arg_set_data_nodes(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = tail call ptr @data_set_string(ptr noundef %15, ptr noundef nonnull @.str.252) #23
   %17 = tail call ptr @data_key_set(ptr noundef %14, ptr noundef nonnull @.str.3) #23
   %18 = tail call ptr @data_set_int(ptr noundef %17, i64 noundef -1) #23
-  br label %57
+  br label %59
 
 19:                                               ; preds = %8
   %20 = call i32 @data_list_for_each_const(ptr noundef %1, ptr noundef nonnull @_parse_nodes_counts, ptr noundef nonnull %5) #23
@@ -13726,51 +13726,54 @@ define internal i32 @arg_set_data_nodes(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = call ptr @data_set_string(ptr noundef %25, ptr noundef nonnull @.str.253) #23
   %27 = call ptr @data_key_set(ptr noundef %24, ptr noundef nonnull @.str.3) #23
   %28 = call ptr @data_set_int(ptr noundef %27, i64 noundef -1) #23
-  br label %57
+  br label %59
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
-  %31 = load <2 x i32>, ptr %5, align 8
-  store <2 x i32> %31, ptr %30, align 8
-  br label %57
+  %30 = load i32, ptr %5, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 %30, ptr %31, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 %32, ptr %33, align 4
+  br label %59
 
-32:                                               ; preds = %3
-  %33 = call i32 @data_get_string_converted(ptr noundef %1, ptr noundef nonnull %4) #23
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %42, label %34
+34:                                               ; preds = %3
+  %35 = call i32 @data_get_string_converted(ptr noundef %1, ptr noundef nonnull %4) #23
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %44, label %36
 
-34:                                               ; preds = %32
-  %35 = call ptr @data_list_append(ptr noundef %2) #23
-  %36 = call ptr @data_set_dict(ptr noundef %35) #23
-  %37 = call ptr @data_key_set(ptr noundef %36, ptr noundef nonnull @.str.1) #23
-  %38 = call ptr @data_set_string(ptr noundef %37, ptr noundef nonnull @.str.75) #23
-  %39 = call ptr @data_key_set(ptr noundef %36, ptr noundef nonnull @.str.3) #23
-  %40 = sext i32 %33 to i64
-  %41 = call ptr @data_set_int(ptr noundef %39, i64 noundef %40) #23
-  br label %57
+36:                                               ; preds = %34
+  %37 = call ptr @data_list_append(ptr noundef %2) #23
+  %38 = call ptr @data_set_dict(ptr noundef %37) #23
+  %39 = call ptr @data_key_set(ptr noundef %38, ptr noundef nonnull @.str.1) #23
+  %40 = call ptr @data_set_string(ptr noundef %39, ptr noundef nonnull @.str.75) #23
+  %41 = call ptr @data_key_set(ptr noundef %38, ptr noundef nonnull @.str.3) #23
+  %42 = sext i32 %35 to i64
+  %43 = call ptr @data_set_int(ptr noundef %41, i64 noundef %42) #23
+  br label %59
 
-42:                                               ; preds = %32
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 136
-  %45 = getelementptr inbounds i8, ptr %0, i64 140
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
-  %47 = call zeroext i1 @verify_node_count(ptr noundef %43, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef nonnull %46) #23
-  %48 = getelementptr inbounds i8, ptr %0, i64 152
-  %49 = zext i1 %47 to i8
-  store i8 %49, ptr %48, align 8
-  br i1 %47, label %57, label %50
+44:                                               ; preds = %34
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds i8, ptr %0, i64 140
+  %48 = getelementptr inbounds i8, ptr %0, i64 144
+  %49 = call zeroext i1 @verify_node_count(ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48) #23
+  %50 = getelementptr inbounds i8, ptr %0, i64 152
+  %51 = zext i1 %49 to i8
+  store i8 %51, ptr %50, align 8
+  br i1 %49, label %59, label %52
 
-50:                                               ; preds = %42
-  %51 = call ptr @data_list_append(ptr noundef %2) #23
-  %52 = call ptr @data_set_dict(ptr noundef %51) #23
-  %53 = call ptr @data_key_set(ptr noundef %52, ptr noundef nonnull @.str.1) #23
-  %54 = call ptr @data_set_string(ptr noundef %53, ptr noundef nonnull @.str.254) #23
-  %55 = call ptr @data_key_set(ptr noundef %52, ptr noundef nonnull @.str.3) #23
-  %56 = call ptr @data_set_int(ptr noundef %55, i64 noundef -1) #23
-  br label %57
+52:                                               ; preds = %44
+  %53 = call ptr @data_list_append(ptr noundef %2) #23
+  %54 = call ptr @data_set_dict(ptr noundef %53) #23
+  %55 = call ptr @data_key_set(ptr noundef %54, ptr noundef nonnull @.str.1) #23
+  %56 = call ptr @data_set_string(ptr noundef %55, ptr noundef nonnull @.str.254) #23
+  %57 = call ptr @data_key_set(ptr noundef %54, ptr noundef nonnull @.str.3) #23
+  %58 = call ptr @data_set_int(ptr noundef %57, i64 noundef -1) #23
+  br label %59
 
-57:                                               ; preds = %34, %50, %42, %12, %29, %22
-  %.0 = phi i32 [ -1, %12 ], [ -1, %22 ], [ 0, %29 ], [ %33, %34 ], [ 0, %42 ], [ -1, %50 ]
+59:                                               ; preds = %36, %52, %44, %12, %29, %22
+  %.0 = phi i32 [ -1, %12 ], [ -1, %22 ], [ 0, %29 ], [ %35, %36 ], [ 0, %44 ], [ -1, %52 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #23
   ret i32 %.0
 }

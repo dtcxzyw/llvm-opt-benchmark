@@ -2879,7 +2879,7 @@ return:                                           ; preds = %if.then8, %invoke.c
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_758TZGNCore22getPartialLocationNameERKNS_13UnicodeStringES3_aS3_(ptr noundef nonnull align 8 dereferenceable(485) %this, ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID, ptr noundef nonnull align 8 dereferenceable(64) %mzID, i8 noundef signext %isLong, ptr noundef nonnull align 8 dereferenceable(64) %mzDisplayName) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %key = alloca %"struct.icu_75::PartialLocationKey", align 16
+  %key = alloca %"struct.icu_75::PartialLocationKey", align 8
   %location = alloca %"class.icu_75::UnicodeString", align 8
   %usCountryCode = alloca %"class.icu_75::UnicodeString", align 8
   %countryCode = alloca [4 x i8], align 1
@@ -2887,12 +2887,12 @@ entry:
   %status = alloca i32, align 4
   %name = alloca %"class.icu_75::UnicodeString", align 8
   %call = tail call noundef ptr @_ZN6icu_758ZoneMeta14findTimeZoneIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %tzCanonicalID)
-  store ptr %call, ptr %key, align 16
+  store ptr %call, ptr %key, align 8
   %call2 = tail call noundef ptr @_ZN6icu_758ZoneMeta14findMetaZoneIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %mzID)
   %mzID3 = getelementptr inbounds i8, ptr %key, i64 8
   store ptr %call2, ptr %mzID3, align 8
   %isLong4 = getelementptr inbounds i8, ptr %key, i64 16
-  store i8 %isLong, ptr %isLong4, align 16
+  store i8 %isLong, ptr %isLong4, align 8
   %fPartialLocationNamesMap = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %fPartialLocationNamesMap, align 8
   %call5 = call ptr @uhash_get_75(ptr noundef %0, ptr noundef nonnull %key)
@@ -3069,18 +3069,21 @@ invoke.cont64:                                    ; preds = %if.then63
   br i1 %cmp66.not, label %cleanup, label %if.then67
 
 if.then67:                                        ; preds = %invoke.cont64
-  %25 = load <2 x ptr>, ptr %key, align 16
-  store <2 x ptr> %25, ptr %call65, align 8
-  %26 = load i8, ptr %isLong4, align 16
+  %25 = load ptr, ptr %key, align 8
+  store ptr %25, ptr %call65, align 8
+  %26 = load ptr, ptr %mzID3, align 8
+  %mzID71 = getelementptr inbounds i8, ptr %call65, i64 8
+  store ptr %26, ptr %mzID71, align 8
+  %27 = load i8, ptr %isLong4, align 8
   %isLong73 = getelementptr inbounds i8, ptr %call65, i64 16
-  store i8 %26, ptr %isLong73, align 8
-  %27 = load ptr, ptr %fPartialLocationNamesMap, align 8
-  %call76 = invoke ptr @uhash_put_75(ptr noundef %27, ptr noundef nonnull %call65, ptr noundef %call59, ptr noundef nonnull %status)
+  store i8 %27, ptr %isLong73, align 8
+  %28 = load ptr, ptr %fPartialLocationNamesMap, align 8
+  %call76 = invoke ptr @uhash_put_75(ptr noundef %28, ptr noundef nonnull %call65, ptr noundef %call59, ptr noundef nonnull %status)
           to label %invoke.cont75 unwind label %lpad50
 
 invoke.cont75:                                    ; preds = %if.then67
-  %28 = load i32, ptr %status, align 4
-  %cmp.i35 = icmp slt i32 %28, 1
+  %29 = load i32, ptr %status, align 4
+  %cmp.i35 = icmp slt i32 %29, 1
   br i1 %cmp.i35, label %if.else82, label %if.then80
 
 if.then80:                                        ; preds = %invoke.cont75
@@ -3099,9 +3102,9 @@ if.then86:                                        ; preds = %invoke.cont83
   %tobool87.not = icmp eq i8 %isLong, 0
   %cond = select i1 %tobool87.not, i32 4, i32 2
   store i32 %cond, ptr %call84, align 8
-  %29 = load ptr, ptr %key, align 16
+  %30 = load ptr, ptr %key, align 8
   %tzID89 = getelementptr inbounds i8, ptr %call84, i64 8
-  store ptr %29, ptr %tzID89, align 8
+  store ptr %30, ptr %tzID89, align 8
   %fGNamesTrie = getelementptr inbounds i8, ptr %this, i64 424
   invoke void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fGNamesTrie, ptr noundef %call59, ptr noundef nonnull %call84, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad50

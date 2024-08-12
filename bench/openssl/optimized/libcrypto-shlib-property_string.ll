@@ -89,15 +89,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %0 = insertelement <4 x ptr> poison, ptr %call4, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call5, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call.i, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call.i13, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %return, label %if.then19
+  %cmp9 = icmp eq ptr %call4, null
+  %cmp12 = icmp eq ptr %call5, null
+  %or.cond = select i1 %cmp9, i1 true, i1 %cmp12
+  %cmp15 = icmp eq ptr %call.i, null
+  %or.cond14 = select i1 %or.cond, i1 true, i1 %cmp15
+  %cmp18 = icmp eq ptr %call.i13, null
+  %or.cond15 = select i1 %or.cond14, i1 true, i1 %cmp18
+  br i1 %or.cond15, label %if.then19, label %return
 
 if.then19:                                        ; preds = %lor.lhs.false, %if.end
   tail call void @ossl_property_string_data_free(ptr noundef nonnull %call)

@@ -288,34 +288,46 @@ define hidden void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind noali
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = phi i32 [ 0, %2 ], [ %10, %3 ]
-  %5 = phi i64 [ 0, %2 ], [ %19, %3 ]
-  %6 = phi <2 x i64> [ zeroinitializer, %2 ], [ %13, %3 ]
-  %7 = phi <2 x i64> [ zeroinitializer, %2 ], [ %16, %3 ]
-  %8 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %1, i64 0, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %4, %9
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
-  %12 = load <2 x i64>, ptr %11, align 8
-  %13 = add <2 x i64> %6, %12
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
-  %15 = load <2 x i64>, ptr %14, align 8
-  %16 = add <2 x i64> %7, %15
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %5, %18
+  %4 = phi i32 [ 0, %2 ], [ %12, %3 ]
+  %5 = phi i64 [ 0, %2 ], [ %15, %3 ]
+  %6 = phi i64 [ 0, %2 ], [ %18, %3 ]
+  %7 = phi i64 [ 0, %2 ], [ %21, %3 ]
+  %8 = phi i64 [ 0, %2 ], [ %24, %3 ]
+  %9 = phi i64 [ 0, %2 ], [ %27, %3 ]
+  %10 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %1, i64 0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 8
+  %12 = add nsw i32 %4, %11
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %5, %14
+  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %6, %17
+  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %7, %20
+  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %23 = load i64, ptr %22, align 8
+  %24 = add i64 %8, %23
+  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %9, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %20, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %28, label %3, !llvm.loop !12
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %10, ptr %0, align 8
-  store <2 x i64> %13, ptr %21, align 8
-  store <2 x i64> %16, ptr %23, align 8
-  store i64 %19, ptr %22, align 8
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %12, ptr %0, align 8
+  store i64 %15, ptr %29, align 8
+  store i64 %18, ptr %33, align 8
+  store i64 %21, ptr %32, align 8
+  store i64 %24, ptr %31, align 8
+  store i64 %27, ptr %30, align 8
   ret void
 }
 
@@ -327,7 +339,7 @@ define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr no
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 2
   store i32 %9, ptr %7, align 8
-  br i1 %3, label %10, label %47
+  br i1 %3, label %10, label %57
 
 10:                                               ; preds = %4
   tail call void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
@@ -369,99 +381,123 @@ define hidden void @_ZNK9metaspace10ArenaStats8print_onEP12outputStreammb(ptr no
 
 22:                                               ; preds = %22, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %22 ]
-  %23 = phi i32 [ 0, %21 ], [ %29, %22 ]
-  %24 = phi i64 [ 0, %21 ], [ %38, %22 ]
-  %25 = phi <2 x i64> [ zeroinitializer, %21 ], [ %32, %22 ]
-  %26 = phi <2 x i64> [ zeroinitializer, %21 ], [ %35, %22 ]
-  %27 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i
-  %28 = load i32, ptr %27, align 8, !noalias !14
-  %29 = add nsw i32 %28, %23
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = load <2 x i64>, ptr %30, align 8, !noalias !14
-  %32 = add <2 x i64> %31, %25
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = load <2 x i64>, ptr %33, align 8, !noalias !14
-  %35 = add <2 x i64> %34, %26
-  %36 = getelementptr inbounds i8, ptr %27, i64 40
-  %37 = load i64, ptr %36, align 8, !noalias !14
-  %38 = add i64 %37, %24
+  %23 = phi i32 [ 0, %21 ], [ %31, %22 ]
+  %24 = phi i64 [ 0, %21 ], [ %34, %22 ]
+  %25 = phi i64 [ 0, %21 ], [ %37, %22 ]
+  %26 = phi i64 [ 0, %21 ], [ %40, %22 ]
+  %27 = phi i64 [ 0, %21 ], [ %43, %22 ]
+  %28 = phi i64 [ 0, %21 ], [ %46, %22 ]
+  %29 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i
+  %30 = load i32, ptr %29, align 8, !noalias !14
+  %31 = add nsw i32 %30, %23
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !14
+  %34 = add i64 %33, %24
+  %35 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = load i64, ptr %35, align 8, !noalias !14
+  %37 = add i64 %36, %25
+  %38 = getelementptr inbounds i8, ptr %29, i64 24
+  %39 = load i64, ptr %38, align 8, !noalias !14
+  %40 = add i64 %39, %26
+  %41 = getelementptr inbounds i8, ptr %29, i64 32
+  %42 = load i64, ptr %41, align 8, !noalias !14
+  %43 = add i64 %42, %27
+  %44 = getelementptr inbounds i8, ptr %29, i64 40
+  %45 = load i64, ptr %44, align 8, !noalias !14
+  %46 = add i64 %45, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %_ZNK9metaspace10ArenaStats6totalsEv.exit, label %22, !llvm.loop !12
 
 _ZNK9metaspace10ArenaStats6totalsEv.exit:         ; preds = %22
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 40
-  %41 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %29, ptr %5, align 8, !alias.scope !14
-  store <2 x i64> %32, ptr %39, align 8, !alias.scope !14
-  store <2 x i64> %35, ptr %41, align 8, !alias.scope !14
-  store i64 %38, ptr %40, align 8, !alias.scope !14
+  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 40
+  %49 = getelementptr inbounds i8, ptr %5, i64 32
+  %50 = getelementptr inbounds i8, ptr %5, i64 24
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %31, ptr %5, align 8, !alias.scope !14
+  store i64 %34, ptr %47, align 8, !alias.scope !14
+  store i64 %37, ptr %51, align 8, !alias.scope !14
+  store i64 %40, ptr %50, align 8, !alias.scope !14
+  store i64 %43, ptr %49, align 8, !alias.scope !14
+  store i64 %46, ptr %48, align 8, !alias.scope !14
   call void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %1, i64 noundef %2)
-  %42 = load i32, ptr %7, align 8
-  %43 = add nsw i32 %42, -2
-  store i32 %43, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 720
-  %45 = load i64, ptr %44, align 8
-  %.not = icmp eq i64 %45, 0
-  br i1 %.not, label %72, label %46
+  %52 = load i32, ptr %7, align 8
+  %53 = add nsw i32 %52, -2
+  store i32 %53, ptr %7, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 720
+  %55 = load i64, ptr %54, align 8
+  %.not = icmp eq i64 %55, 0
+  br i1 %.not, label %92, label %56
 
-46:                                               ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit
+56:                                               ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit
   tail call void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #6
   br label %.sink.split
 
-47:                                               ; preds = %4
+57:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  br label %48
+  br label %58
 
-48:                                               ; preds = %48, %47
-  %indvars.iv.i30 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i31, %48 ]
-  %49 = phi i32 [ 0, %47 ], [ %55, %48 ]
-  %50 = phi i64 [ 0, %47 ], [ %64, %48 ]
-  %51 = phi <2 x i64> [ zeroinitializer, %47 ], [ %58, %48 ]
-  %52 = phi <2 x i64> [ zeroinitializer, %47 ], [ %61, %48 ]
-  %53 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i30
-  %54 = load i32, ptr %53, align 8, !noalias !17
-  %55 = add nsw i32 %54, %49
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
-  %57 = load <2 x i64>, ptr %56, align 8, !noalias !17
-  %58 = add <2 x i64> %57, %51
-  %59 = getelementptr inbounds i8, ptr %53, i64 24
-  %60 = load <2 x i64>, ptr %59, align 8, !noalias !17
-  %61 = add <2 x i64> %60, %52
-  %62 = getelementptr inbounds i8, ptr %53, i64 40
-  %63 = load i64, ptr %62, align 8, !noalias !17
-  %64 = add i64 %63, %50
+58:                                               ; preds = %58, %57
+  %indvars.iv.i30 = phi i64 [ 0, %57 ], [ %indvars.iv.next.i31, %58 ]
+  %59 = phi i32 [ 0, %57 ], [ %67, %58 ]
+  %60 = phi i64 [ 0, %57 ], [ %70, %58 ]
+  %61 = phi i64 [ 0, %57 ], [ %73, %58 ]
+  %62 = phi i64 [ 0, %57 ], [ %76, %58 ]
+  %63 = phi i64 [ 0, %57 ], [ %79, %58 ]
+  %64 = phi i64 [ 0, %57 ], [ %82, %58 ]
+  %65 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i30
+  %66 = load i32, ptr %65, align 8, !noalias !17
+  %67 = add nsw i32 %66, %59
+  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = load i64, ptr %68, align 8, !noalias !17
+  %70 = add i64 %69, %60
+  %71 = getelementptr inbounds i8, ptr %65, i64 16
+  %72 = load i64, ptr %71, align 8, !noalias !17
+  %73 = add i64 %72, %61
+  %74 = getelementptr inbounds i8, ptr %65, i64 24
+  %75 = load i64, ptr %74, align 8, !noalias !17
+  %76 = add i64 %75, %62
+  %77 = getelementptr inbounds i8, ptr %65, i64 32
+  %78 = load i64, ptr %77, align 8, !noalias !17
+  %79 = add i64 %78, %63
+  %80 = getelementptr inbounds i8, ptr %65, i64 40
+  %81 = load i64, ptr %80, align 8, !noalias !17
+  %82 = add i64 %81, %64
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 15
-  br i1 %exitcond.not.i32, label %_ZNK9metaspace10ArenaStats6totalsEv.exit33, label %48, !llvm.loop !12
+  br i1 %exitcond.not.i32, label %_ZNK9metaspace10ArenaStats6totalsEv.exit33, label %58, !llvm.loop !12
 
-_ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %48
-  %65 = getelementptr inbounds i8, ptr %6, i64 8
-  %66 = getelementptr inbounds i8, ptr %6, i64 40
-  %67 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 %55, ptr %6, align 8, !alias.scope !17
-  store <2 x i64> %58, ptr %65, align 8, !alias.scope !17
-  store <2 x i64> %61, ptr %67, align 8, !alias.scope !17
-  store i64 %64, ptr %66, align 8, !alias.scope !17
+_ZNK9metaspace10ArenaStats6totalsEv.exit33:       ; preds = %58
+  %83 = getelementptr inbounds i8, ptr %6, i64 8
+  %84 = getelementptr inbounds i8, ptr %6, i64 40
+  %85 = getelementptr inbounds i8, ptr %6, i64 32
+  %86 = getelementptr inbounds i8, ptr %6, i64 24
+  %87 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %67, ptr %6, align 8, !alias.scope !17
+  store i64 %70, ptr %83, align 8, !alias.scope !17
+  store i64 %73, ptr %87, align 8, !alias.scope !17
+  store i64 %76, ptr %86, align 8, !alias.scope !17
+  store i64 %79, ptr %85, align 8, !alias.scope !17
+  store i64 %82, ptr %84, align 8, !alias.scope !17
   call void @_ZNK9metaspace15InUseChunkStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %1, i64 noundef %2)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.23) #6
-  %68 = getelementptr inbounds i8, ptr %0, i64 720
+  %88 = getelementptr inbounds i8, ptr %0, i64 720
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit33, %46
-  %.sink72 = phi ptr [ %44, %46 ], [ %68, %_ZNK9metaspace10ArenaStats6totalsEv.exit33 ]
-  %69 = load i64, ptr %.sink72, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, i64 noundef %69) #6
-  %70 = getelementptr inbounds i8, ptr %0, i64 728
-  %71 = load i64, ptr %70, align 8
-  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %71, i64 noundef %2, i32 noundef -1) #6
-  br label %72
+.sink.split:                                      ; preds = %_ZNK9metaspace10ArenaStats6totalsEv.exit33, %56
+  %.sink72 = phi ptr [ %54, %56 ], [ %88, %_ZNK9metaspace10ArenaStats6totalsEv.exit33 ]
+  %89 = load i64, ptr %.sink72, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, i64 noundef %89) #6
+  %90 = getelementptr inbounds i8, ptr %0, i64 728
+  %91 = load i64, ptr %90, align 8
+  tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %91, i64 noundef %2, i32 noundef -1) #6
+  br label %92
 
-72:                                               ; preds = %.sink.split, %_ZNK9metaspace10ArenaStats6totalsEv.exit
-  %73 = load i32, ptr %7, align 8
-  %74 = add nsw i32 %73, -2
-  store i32 %74, ptr %7, align 8
+92:                                               ; preds = %.sink.split, %_ZNK9metaspace10ArenaStats6totalsEv.exit
+  %93 = load i32, ptr %7, align 8
+  %94 = add nsw i32 %93, -2
+  store i32 %94, ptr %7, align 8
   ret void
 }
 
@@ -495,72 +531,107 @@ _ZN9metaspace10ArenaStatsC2Ev.exit:               ; preds = %3
   %12 = add nsw i32 %11, %10
   store i32 %12, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load <2 x i64>, ptr %13, align 8
-  %16 = load <2 x i64>, ptr %14, align 8
-  %17 = add <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 24
-  %20 = load <2 x i64>, ptr %18, align 8
-  %21 = load <2 x i64>, ptr %19, align 8
-  %22 = add <2 x i64> %21, %20
-  store <2 x i64> %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, %14
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %21, %19
+  store i64 %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 40
+  %25 = getelementptr inbounds i8, ptr %8, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %24
   store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %9, i64 32
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %8, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %31, %29
+  store i64 %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %9, i64 40
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %8, i64 40
+  %36 = load i64, ptr %35, align 8
+  %37 = add i64 %36, %34
+  store i64 %37, ptr %35, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %_ZN9metaspace10ArenaStats3addERKS0_.exit, label %7, !llvm.loop !11
 
 _ZN9metaspace10ArenaStats3addERKS0_.exit:         ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %1, i64 720
-  %29 = load <2 x i64>, ptr %28, align 8
-  %30 = load <2 x i64>, ptr %6, align 8
-  %31 = add <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 736
-  br label %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 720
+  %39 = load i64, ptr %38, align 8
+  %40 = load i64, ptr %6, align 8
+  %41 = add i64 %40, %39
+  store i64 %41, ptr %6, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 728
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 728
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %43
+  store i64 %46, ptr %44, align 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 736
+  br label %48
 
-33:                                               ; preds = %33, %_ZN9metaspace10ArenaStats3addERKS0_.exit
-  %indvars.iv.i1 = phi i64 [ 0, %_ZN9metaspace10ArenaStats3addERKS0_.exit ], [ %indvars.iv.next.i2, %33 ]
-  %34 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i1
-  %35 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %32, i64 0, i64 %indvars.iv.i1
-  %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr %34, align 8
-  %38 = add nsw i32 %37, %36
-  store i32 %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
-  %40 = getelementptr inbounds i8, ptr %34, i64 8
-  %41 = load <2 x i64>, ptr %39, align 8
-  %42 = load <2 x i64>, ptr %40, align 8
-  %43 = add <2 x i64> %42, %41
-  store <2 x i64> %43, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 24
-  %45 = getelementptr inbounds i8, ptr %34, i64 24
-  %46 = load <2 x i64>, ptr %44, align 8
-  %47 = load <2 x i64>, ptr %45, align 8
-  %48 = add <2 x i64> %47, %46
-  store <2 x i64> %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %35, i64 40
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %34, i64 40
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, %50
-  store i64 %53, ptr %51, align 8
+48:                                               ; preds = %48, %_ZN9metaspace10ArenaStats3addERKS0_.exit
+  %indvars.iv.i1 = phi i64 [ 0, %_ZN9metaspace10ArenaStats3addERKS0_.exit ], [ %indvars.iv.next.i2, %48 ]
+  %49 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %0, i64 0, i64 %indvars.iv.i1
+  %50 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %47, i64 0, i64 %indvars.iv.i1
+  %51 = load i32, ptr %50, align 8
+  %52 = load i32, ptr %49, align 8
+  %53 = add nsw i32 %52, %51
+  store i32 %53, ptr %49, align 8
+  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = add i64 %57, %55
+  store i64 %58, ptr %56, align 8
+  %59 = getelementptr inbounds i8, ptr %50, i64 16
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %49, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, %60
+  store i64 %63, ptr %61, align 8
+  %64 = getelementptr inbounds i8, ptr %50, i64 24
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %49, i64 24
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, %65
+  store i64 %68, ptr %66, align 8
+  %69 = getelementptr inbounds i8, ptr %50, i64 32
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %49, i64 32
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %70
+  store i64 %73, ptr %71, align 8
+  %74 = getelementptr inbounds i8, ptr %50, i64 40
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %49, i64 40
+  %77 = load i64, ptr %76, align 8
+  %78 = add i64 %77, %75
+  store i64 %78, ptr %76, align 8
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i2, 15
-  br i1 %exitcond.not.i3, label %_ZN9metaspace10ArenaStats3addERKS0_.exit4, label %33, !llvm.loop !11
+  br i1 %exitcond.not.i3, label %_ZN9metaspace10ArenaStats3addERKS0_.exit4, label %48, !llvm.loop !11
 
-_ZN9metaspace10ArenaStats3addERKS0_.exit4:        ; preds = %33
-  %54 = getelementptr inbounds i8, ptr %1, i64 1456
-  %55 = load <2 x i64>, ptr %54, align 8
-  %56 = load <2 x i64>, ptr %6, align 8
-  %57 = add <2 x i64> %56, %55
-  store <2 x i64> %57, ptr %6, align 8
+_ZN9metaspace10ArenaStats3addERKS0_.exit4:        ; preds = %48
+  %79 = getelementptr inbounds i8, ptr %1, i64 1456
+  %80 = load i64, ptr %79, align 8
+  %81 = load i64, ptr %6, align 8
+  %82 = add i64 %81, %80
+  store i64 %82, ptr %6, align 8
+  %83 = getelementptr inbounds i8, ptr %1, i64 1464
+  %84 = load i64, ptr %83, align 8
+  %85 = load i64, ptr %44, align 8
+  %86 = add i64 %85, %84
+  store i64 %86, ptr %44, align 8
   ret void
 }
 

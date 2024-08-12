@@ -1254,18 +1254,20 @@ define dso_local void @rb_define_hooked_variable(ptr noundef nonnull %0, ptr nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %1, ptr %14, align 8
-  %15 = insertelement <2 x ptr> poison, ptr %2, i64 0
-  %16 = insertelement <2 x ptr> %15, ptr %3, i64 1
-  %17 = icmp eq <2 x ptr> %16, zeroinitializer
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
-  %19 = select <2 x i1> %17, <2 x ptr> <ptr @rb_gvar_var_getter, ptr @rb_gvar_var_setter>, <2 x ptr> %16
-  store <2 x ptr> %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr @rb_gvar_var_marker, ptr %20, align 8
+  %.not13 = icmp eq ptr %2, null
+  %15 = select i1 %.not13, ptr @rb_gvar_var_getter, ptr %2
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %15, ptr %16, align 8
+  %.not14 = icmp eq ptr %3, null
+  %17 = select i1 %.not14, ptr @rb_gvar_var_setter, ptr %3
+  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr @rb_gvar_var_marker, ptr %19, align 8
   store ptr %5, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #24, !srcloc !25
-  %21 = load ptr, ptr %6, align 8
-  %22 = load volatile i64, ptr %21, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load volatile i64, ptr %20, align 8
   ret void
 }
 
@@ -1379,26 +1381,28 @@ define dso_local void @rb_define_readonly_variable(ptr noundef nonnull %0, ptr n
 define dso_local void @rb_define_virtual_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  %6 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %7 = insertelement <2 x ptr> %6, ptr %2, i64 1
-  %8 = icmp eq <2 x ptr> %7, zeroinitializer
+  %.not = icmp eq ptr %1, null
+  %spec.store.select = select i1 %.not, ptr @rb_gvar_val_getter, ptr %1
+  %.not6 = icmp eq ptr %2, null
+  %spec.store.select1 = select i1 %.not6, ptr @rb_gvar_readonly_setter, ptr %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store volatile i64 4, ptr %4, align 8
-  %9 = tail call fastcc i64 @global_id(ptr noundef nonnull %0)
-  %10 = tail call fastcc ptr @rb_global_entry(i64 noundef %9)
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = select <2 x i1> %8, <2 x ptr> <ptr @rb_gvar_val_getter, ptr @rb_gvar_readonly_setter>, <2 x ptr> %7
-  store <2 x ptr> %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr @rb_gvar_var_marker, ptr %15, align 8
+  %6 = tail call fastcc i64 @global_id(ptr noundef nonnull %0)
+  %7 = tail call fastcc ptr @rb_global_entry(i64 noundef %6)
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %spec.store.select, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %spec.store.select1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr @rb_gvar_var_marker, ptr %12, align 8
   store ptr %4, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #24, !srcloc !25
-  %16 = load ptr, ptr %5, align 8
-  %17 = load volatile i64, ptr %16, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = load volatile i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void

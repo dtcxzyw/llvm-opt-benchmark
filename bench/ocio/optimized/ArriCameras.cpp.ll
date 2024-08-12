@@ -50,8 +50,8 @@ $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9LogOpDataEED2Ev = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
+@_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE = internal global %"class.std::vector" zeroinitializer, align 8
 @constinit = private unnamed_addr constant [5 x double] [double 0x3FCFA3E8FA344BFD, double 0x3FD8ACA3603420AE, double 0x401638E38E38E38E, double 0x3FAAC36E7F399C03, double 0x3F85B0BAAEA3523B], align 8
 @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL3logE = internal global %"class.OpenColorIO_v2_4dev::LogOpData" zeroinitializer, align 8
@@ -782,14 +782,22 @@ define internal void @_GLOBAL__sub_I_ArriCameras.cpp() #11 section ".text.startu
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store <2 x double> <double 6.840000e-01, double 3.130000e-01>, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, align 16
-  store <2 x double> <double 2.210000e-01, double 8.480000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 16), align 16
-  store <2 x double> <double 0x3FB60AA64C2F837B, double -1.020000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 48), align 16
-  store <2 x double> <double 7.347000e-01, double 2.653000e-01>, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, align 16
-  store <2 x double> <double 1.424000e-01, double 8.576000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 16), align 16
-  store <2 x double> <double 0x3FB95E9E1B089A02, double -3.080000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 48), align 16
+  store double 6.840000e-01, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, align 8
+  store double 3.130000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 8), align 8
+  store double 2.210000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 16), align 8
+  store double 8.480000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 24), align 8
+  store double 0x3FB60AA64C2F837B, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 32), align 8
+  store double -1.020000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev21ARRI_ALEXA_WIDE_GAMUTL9primariesE, i64 56), align 8
+  store double 7.347000e-01, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, align 8
+  store double 2.653000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 8), align 8
+  store double 1.424000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 16), align 8
+  store double 8.576000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 24), align 8
+  store double 0x3FB95E9E1B089A02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 32), align 8
+  store double -3.080000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17ARRI_WIDE_GAMUT_4L9primariesE, i64 56), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev31ARRI_ALEXA_LOGC_EI800_to_LINEARL6paramsE, align 8

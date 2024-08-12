@@ -571,9 +571,13 @@ define hidden void @PMurHash128x86(ptr noundef %0, i32 noundef %1, i32 noundef %
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %7 = insertelement <4 x i32> poison, i32 %2, i64 0
-  %8 = shufflevector <4 x i32> %7, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %8, ptr %6, align 16
+  store i32 %2, ptr %6, align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %2, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %2, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 %2, ptr %9, align 4
   call void @PMurHash128x86_Process(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %0, i32 noundef %1)
   call void @PMurHash128x86_Result(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %1, ptr noundef %3)
   ret void

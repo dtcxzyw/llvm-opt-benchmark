@@ -31,10 +31,14 @@ define void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT
   %3 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbf813a7117455064E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -46,14 +50,14 @@ define { ptr, ptr } @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  %9 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %9 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %10 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %10)
   invoke void @"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr nonnull align 1 %9, ptr nonnull %3)
           to label %11 unwind label %23
 
 11:                                               ; preds = %4
-  %12 = load i64, ptr %6, align 8, !range !5, !noundef !3
+  %12 = load i64, ptr %6, align 8, !range !6, !noundef !4
   %13 = icmp eq i64 %12, -9223372036854775808
   br i1 %13, label %14, label %16
 
@@ -159,6 +163,7 @@ attributes #6 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
-!3 = !{}
-!4 = !{i64 1}
-!5 = !{i64 0, i64 -9223372036854775807}
+!3 = !{i64 0, i64 2}
+!4 = !{}
+!5 = !{i64 1}
+!6 = !{i64 0, i64 -9223372036854775807}

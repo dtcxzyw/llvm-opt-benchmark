@@ -133,19 +133,27 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
 
 34:                                               ; preds = %6
   %35 = lshr i32 %0, 18
-  %36 = lshr i32 %0, 12
-  %37 = lshr i32 %0, 6
-  %38 = trunc i32 %0 to i8
-  %39 = trunc i32 %35 to i8
-  %40 = insertelement <4 x i8> poison, i8 %39, i64 0
-  %41 = trunc i32 %36 to i8
-  %42 = insertelement <4 x i8> %40, i8 %41, i64 1
-  %43 = trunc i32 %37 to i8
-  %44 = insertelement <4 x i8> %42, i8 %43, i64 2
-  %45 = insertelement <4 x i8> %44, i8 %38, i64 3
-  %46 = and <4 x i8> %45, <i8 7, i8 63, i8 63, i8 63>
-  %47 = or disjoint <4 x i8> %46, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %47, ptr %1, align 1
+  %36 = trunc i32 %35 to i8
+  %37 = and i8 %36, 7
+  %38 = or disjoint i8 %37, -16
+  store i8 %38, ptr %1, align 1
+  %39 = lshr i32 %0, 12
+  %40 = trunc i32 %39 to i8
+  %41 = and i8 %40, 63
+  %42 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = or disjoint i8 %41, -128
+  store i8 %43, ptr %42, align 1
+  %44 = lshr i32 %0, 6
+  %45 = trunc i32 %44 to i8
+  %46 = and i8 %45, 63
+  %47 = getelementptr inbounds i8, ptr %1, i64 2
+  %48 = or disjoint i8 %46, -128
+  store i8 %48, ptr %47, align 1
+  %49 = trunc i32 %0 to i8
+  %50 = and i8 %49, 63
+  %51 = getelementptr inbounds i8, ptr %1, i64 3
+  %52 = or disjoint i8 %50, -128
+  store i8 %52, ptr %51, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 }
 

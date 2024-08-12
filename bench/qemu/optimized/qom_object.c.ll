@@ -5549,9 +5549,10 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
-  %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
-  %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
-  %2 = icmp eq <2 x ptr> %1, zeroinitializer
+  %tobool3.not = icmp eq ptr %set, null
+  %cond4 = select i1 %tobool3.not, ptr null, ptr @property_set_str
+  %tobool.not = icmp eq ptr %get, null
+  %cond = select i1 %tobool.not, ptr null, ptr @property_get_str
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
@@ -5559,15 +5560,16 @@ object_class_property_add.exit:                   ; preds = %entry
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %3 = select <2 x i1> %2, <2 x ptr> zeroinitializer, <2 x ptr> <ptr @property_get_str, ptr @property_set_str>
-  store <2 x ptr> %3, ptr %get6.i, align 8
+  store ptr %cond, ptr %get6.i, align 8
+  %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  store ptr %cond4, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
-  %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
+  %0 = load ptr, ptr %properties.i, align 8
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -5647,9 +5649,10 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
-  %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
-  %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
-  %2 = icmp eq <2 x ptr> %1, zeroinitializer
+  %tobool3.not = icmp eq ptr %set, null
+  %cond4 = select i1 %tobool3.not, ptr null, ptr @property_set_bool
+  %tobool.not = icmp eq ptr %get, null
+  %cond = select i1 %tobool.not, ptr null, ptr @property_get_bool
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
@@ -5657,15 +5660,16 @@ object_class_property_add.exit:                   ; preds = %entry
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %3 = select <2 x i1> %2, <2 x ptr> zeroinitializer, <2 x ptr> <ptr @property_get_bool, ptr @property_set_bool>
-  store <2 x ptr> %3, ptr %get6.i, align 8
+  store ptr %cond, ptr %get6.i, align 8
+  %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  store ptr %cond4, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
-  %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
+  %0 = load ptr, ptr %properties.i, align 8
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -5753,9 +5757,10 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
-  %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
-  %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
-  %2 = icmp eq <2 x ptr> %1, zeroinitializer
+  %tobool4.not = icmp eq ptr %set, null
+  %cond5 = select i1 %tobool4.not, ptr null, ptr @property_set_enum
+  %tobool.not = icmp eq ptr %get, null
+  %cond = select i1 %tobool.not, ptr null, ptr @property_get_enum
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
@@ -5763,15 +5768,16 @@ object_class_property_add.exit:                   ; preds = %entry
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %3 = select <2 x i1> %2, <2 x ptr> zeroinitializer, <2 x ptr> <ptr @property_get_enum, ptr @property_set_enum>
-  store <2 x ptr> %3, ptr %get6.i, align 8
+  store ptr %cond, ptr %get6.i, align 8
+  %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  store ptr %cond5, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
-  %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
+  %0 = load ptr, ptr %properties.i, align 8
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -6596,33 +6602,45 @@ if.end7:                                          ; preds = %type_table_lookup.e
   %class_size13 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %7, ptr %class_size13, align 8
   %instance_size = getelementptr inbounds i8, ptr %info, i64 16
+  %8 = load i64, ptr %instance_size, align 8
   %instance_size14 = getelementptr inbounds i8, ptr %call, i64 16
-  %8 = load <2 x i64>, ptr %instance_size, align 8
-  store <2 x i64> %8, ptr %instance_size14, align 8
+  store i64 %8, ptr %instance_size14, align 8
+  %instance_align = getelementptr inbounds i8, ptr %info, i64 24
+  %9 = load i64, ptr %instance_align, align 8
+  %instance_align15 = getelementptr inbounds i8, ptr %call, i64 24
+  store i64 %9, ptr %instance_align15, align 8
   %class_init = getelementptr inbounds i8, ptr %info, i64 72
+  %10 = load ptr, ptr %class_init, align 8
   %class_init16 = getelementptr inbounds i8, ptr %call, i64 32
-  %9 = load <2 x ptr>, ptr %class_init, align 8
-  store <2 x ptr> %9, ptr %class_init16, align 8
+  store ptr %10, ptr %class_init16, align 8
+  %class_base_init = getelementptr inbounds i8, ptr %info, i64 80
+  %11 = load ptr, ptr %class_base_init, align 8
+  %class_base_init17 = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr %11, ptr %class_base_init17, align 8
   %class_data = getelementptr inbounds i8, ptr %info, i64 88
-  %10 = load ptr, ptr %class_data, align 8
+  %12 = load ptr, ptr %class_data, align 8
   %class_data18 = getelementptr inbounds i8, ptr %call, i64 48
-  store ptr %10, ptr %class_data18, align 8
+  store ptr %12, ptr %class_data18, align 8
   %instance_init = getelementptr inbounds i8, ptr %info, i64 32
+  %13 = load ptr, ptr %instance_init, align 8
   %instance_init19 = getelementptr inbounds i8, ptr %call, i64 56
-  %11 = load <2 x ptr>, ptr %instance_init, align 8
-  store <2 x ptr> %11, ptr %instance_init19, align 8
+  store ptr %13, ptr %instance_init19, align 8
+  %instance_post_init = getelementptr inbounds i8, ptr %info, i64 40
+  %14 = load ptr, ptr %instance_post_init, align 8
+  %instance_post_init20 = getelementptr inbounds i8, ptr %call, i64 64
+  store ptr %14, ptr %instance_post_init20, align 8
   %instance_finalize = getelementptr inbounds i8, ptr %info, i64 48
-  %12 = load ptr, ptr %instance_finalize, align 8
+  %15 = load ptr, ptr %instance_finalize, align 8
   %instance_finalize21 = getelementptr inbounds i8, ptr %call, i64 72
-  store ptr %12, ptr %instance_finalize21, align 8
+  store ptr %15, ptr %instance_finalize21, align 8
   %abstract = getelementptr inbounds i8, ptr %info, i64 56
-  %13 = load i8, ptr %abstract, align 8
+  %16 = load i8, ptr %abstract, align 8
   %abstract22 = getelementptr inbounds i8, ptr %call, i64 80
-  %frombool = and i8 %13, 1
+  %frombool = and i8 %16, 1
   store i8 %frombool, ptr %abstract22, align 8
   %interfaces = getelementptr inbounds i8, ptr %info, i64 96
-  %14 = load ptr, ptr %interfaces, align 8
-  %tobool23.not38 = icmp eq ptr %14, null
+  %17 = load ptr, ptr %interfaces, align 8
+  %tobool23.not38 = icmp eq ptr %17, null
   br i1 %tobool23.not38, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end7
@@ -6630,21 +6648,21 @@ land.rhs.lr.ph:                                   ; preds = %if.end7
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body
-  %15 = phi ptr [ %14, %land.rhs.lr.ph ], [ %17, %for.body ]
+  %18 = phi ptr [ %17, %land.rhs.lr.ph ], [ %20, %for.body ]
   %i.039 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.body ]
   %idxprom = sext i32 %i.039 to i64
-  %arrayidx = getelementptr %struct.InterfaceInfo, ptr %15, i64 %idxprom
-  %16 = load ptr, ptr %arrayidx, align 8
-  %tobool25.not = icmp eq ptr %16, null
+  %arrayidx = getelementptr %struct.InterfaceInfo, ptr %18, i64 %idxprom
+  %19 = load ptr, ptr %arrayidx, align 8
+  %tobool25.not = icmp eq ptr %19, null
   br i1 %tobool25.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %16) #20
+  %call30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %19) #20
   %arrayidx33 = getelementptr [32 x %struct.InterfaceImpl], ptr %interfaces31, i64 0, i64 %idxprom
   store ptr %call30, ptr %arrayidx33, align 8
   %inc = add i32 %i.039, 1
-  %17 = load ptr, ptr %interfaces, align 8
-  %tobool23.not = icmp eq ptr %17, null
+  %20 = load ptr, ptr %interfaces, align 8
+  %tobool23.not = icmp eq ptr %20, null
   br i1 %tobool23.not, label %for.end, label %land.rhs, !llvm.loop !31
 
 for.end:                                          ; preds = %land.rhs, %for.body, %if.end7

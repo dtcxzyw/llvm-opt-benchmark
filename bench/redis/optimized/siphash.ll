@@ -250,17 +250,46 @@ for.body:                                         ; preds = %entry, %for.body
   %or25199 = or i32 %or19198, %19
   %or25 = zext i32 %or25199 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %in.addr.0205, i64 4
-  %20 = load <4 x i8>, ptr %arrayidx26, align 1
-  %21 = zext <4 x i8> %20 to <4 x i16>
-  %22 = add nsw <4 x i16> %21, <i16 -65, i16 -65, i16 -65, i16 -65>
-  %23 = icmp ult <4 x i16> %22, <i16 26, i16 26, i16 26, i16 26>
-  %24 = or <4 x i8> %20, <i8 32, i8 32, i8 32, i8 32>
-  %.v = select <4 x i1> %23, <4 x i8> %24, <4 x i8> %20
-  %25 = zext <4 x i8> %.v to <4 x i64>
-  %26 = shl nuw <4 x i64> %25, <i64 32, i64 40, i64 48, i64 56>
-  %27 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %26)
-  %op.rdx = or disjoint i64 %27, %or25
-  %xor50 = xor i64 %op.rdx, %v3.0201
+  %20 = load i8, ptr %arrayidx26, align 1
+  %conv27 = zext i8 %20 to i32
+  %21 = add nsw i32 %conv27, -65
+  %or.cond.i164 = icmp ult i32 %21, 26
+  %add.i165 = or disjoint i32 %conv27, 32
+  %retval.0.i166 = select i1 %or.cond.i164, i32 %add.i165, i32 %conv27
+  %conv29 = zext nneg i32 %retval.0.i166 to i64
+  %shl30 = shl nuw nsw i64 %conv29, 32
+  %or31 = or disjoint i64 %shl30, %or25
+  %arrayidx32 = getelementptr inbounds i8, ptr %in.addr.0205, i64 5
+  %22 = load i8, ptr %arrayidx32, align 1
+  %conv33 = zext i8 %22 to i32
+  %23 = add nsw i32 %conv33, -65
+  %or.cond.i167 = icmp ult i32 %23, 26
+  %add.i168 = or disjoint i32 %conv33, 32
+  %retval.0.i169 = select i1 %or.cond.i167, i32 %add.i168, i32 %conv33
+  %conv35 = zext nneg i32 %retval.0.i169 to i64
+  %shl36 = shl nuw nsw i64 %conv35, 40
+  %or37 = or disjoint i64 %or31, %shl36
+  %arrayidx38 = getelementptr inbounds i8, ptr %in.addr.0205, i64 6
+  %24 = load i8, ptr %arrayidx38, align 1
+  %conv39 = zext i8 %24 to i32
+  %25 = add nsw i32 %conv39, -65
+  %or.cond.i170 = icmp ult i32 %25, 26
+  %add.i171 = or disjoint i32 %conv39, 32
+  %retval.0.i172 = select i1 %or.cond.i170, i32 %add.i171, i32 %conv39
+  %conv41 = zext nneg i32 %retval.0.i172 to i64
+  %shl42 = shl nuw nsw i64 %conv41, 48
+  %or43 = or i64 %or37, %shl42
+  %arrayidx44 = getelementptr inbounds i8, ptr %in.addr.0205, i64 7
+  %26 = load i8, ptr %arrayidx44, align 1
+  %conv45 = zext i8 %26 to i32
+  %27 = add nsw i32 %conv45, -65
+  %or.cond.i173 = icmp ult i32 %27, 26
+  %add.i174 = or disjoint i32 %conv45, 32
+  %retval.0.i175 = select i1 %or.cond.i173, i32 %add.i174, i32 %conv45
+  %conv47 = zext nneg i32 %retval.0.i175 to i64
+  %shl48 = shl nuw i64 %conv47, 56
+  %or49 = or i64 %or43, %shl48
+  %xor50 = xor i64 %or49, %v3.0201
   %add = add i64 %v0.0204, %v1.0203
   %or52 = tail call i64 @llvm.fshl.i64(i64 %v1.0203, i64 %v1.0203, i64 13)
   %xor53 = xor i64 %add, %or52
@@ -275,7 +304,7 @@ for.body:                                         ; preds = %entry, %for.body
   %or70 = tail call i64 @llvm.fshl.i64(i64 %xor53, i64 %xor53, i64 17)
   %xor71 = xor i64 %add67, %or70
   %or74 = tail call i64 @llvm.fshl.i64(i64 %add67, i64 %add67, i64 32)
-  %xor75 = xor i64 %add62, %op.rdx
+  %xor75 = xor i64 %add62, %or49
   %add.ptr76 = getelementptr inbounds i8, ptr %in.addr.0205, i64 8
   %cmp.not = icmp eq ptr %add.ptr76, %add.ptr2
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
@@ -446,9 +475,6 @@ sw.epilog:                                        ; preds = %for.end, %sw.bb118
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.or.v4i64(<4 x i64>) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

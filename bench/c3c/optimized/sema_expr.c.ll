@@ -10112,128 +10112,130 @@ context_push_returns.exit:                        ; preds = %vec_resize.exit.i, 
   %31 = getelementptr inbounds i8, ptr %0, i64 120
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %21, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
-  %35 = load <2 x ptr>, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8
   store ptr null, ptr %33, align 8
-  store ptr null, ptr %34, align 8
-  %36 = load i32, ptr %17, align 8
-  %.not103 = icmp eq i32 %36, 0
+  store i32 %21, ptr %31, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = load ptr, ptr %35, align 8
+  store ptr null, ptr %35, align 8
+  %37 = load i32, ptr %17, align 8
+  %.not103 = icmp eq i32 %37, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
-37:                                               ; preds = %.lr.ph
-  %.not = icmp eq i32 %42, 0
+38:                                               ; preds = %.lr.ph
+  %.not = icmp eq i32 %43, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
-.lr.ph:                                           ; preds = %context_push_returns.exit, %37
-  %.090104 = phi i32 [ %42, %37 ], [ %36, %context_push_returns.exit ]
-  %38 = load ptr, ptr @ast_arena, align 8
-  %39 = zext i32 %.090104 to i64
-  %40 = getelementptr inbounds %struct.Ast_, ptr %38, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load i32, ptr %41, align 8
-  %43 = tail call zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr noundef nonnull %40) #12
-  br i1 %43, label %37, label %.loopexit, !llvm.loop !37
+.lr.ph:                                           ; preds = %context_push_returns.exit, %38
+  %.090104 = phi i32 [ %43, %38 ], [ %37, %context_push_returns.exit ]
+  %39 = load ptr, ptr @ast_arena, align 8
+  %40 = zext i32 %.090104 to i64
+  %41 = getelementptr inbounds %struct.Ast_, ptr %39, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = tail call zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr noundef nonnull %41) #12
+  br i1 %44, label %38, label %.loopexit, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %37, %context_push_returns.exit
-  %.087.lcssa = phi ptr [ null, %context_push_returns.exit ], [ %40, %37 ]
-  %44 = load ptr, ptr %6, align 8
-  %.not94 = icmp eq ptr %44, null
-  br i1 %.not94, label %.critedge, label %45
+._crit_edge:                                      ; preds = %38, %context_push_returns.exit
+  %.087.lcssa = phi ptr [ null, %context_push_returns.exit ], [ %41, %38 ]
+  %45 = load ptr, ptr %6, align 8
+  %.not94 = icmp eq ptr %45, null
+  br i1 %.not94, label %.critedge, label %46
 
-45:                                               ; preds = %._crit_edge
-  %46 = getelementptr inbounds i8, ptr %44, i64 -8
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.critedge, label %50
+46:                                               ; preds = %._crit_edge
+  %47 = getelementptr inbounds i8, ptr %45, i64 -8
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %.critedge, label %51
 
-.critedge:                                        ; preds = %._crit_edge, %45
-  %49 = load ptr, ptr @type_void, align 8
-  store ptr %49, ptr %2, align 8
+.critedge:                                        ; preds = %._crit_edge, %46
+  %50 = load ptr, ptr @type_void, align 8
+  store ptr %50, ptr %2, align 8
   br label %.loopexit
 
-50:                                               ; preds = %45
-  %51 = tail call fastcc ptr @context_unify_returns(ptr noundef nonnull %0)
-  %.not96 = icmp eq ptr %51, null
-  br i1 %.not96, label %.loopexit, label %52
+51:                                               ; preds = %46
+  %52 = tail call fastcc ptr @context_unify_returns(ptr noundef nonnull %0)
+  %.not96 = icmp eq ptr %52, null
+  br i1 %.not96, label %.loopexit, label %53
 
-52:                                               ; preds = %50
-  %53 = load i32, ptr %51, align 8
-  %54 = icmp eq i32 %53, 40
-  br i1 %54, label %55, label %58
+53:                                               ; preds = %51
+  %54 = load i32, ptr %52, align 8
+  %55 = icmp eq i32 %54, 40
+  br i1 %55, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %51, i64 56
-  %57 = load ptr, ptr %56, align 8
-  br label %58
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %52, i64 56
+  %58 = load ptr, ptr %57, align 8
+  br label %59
 
-58:                                               ; preds = %52, %55
-  %.085 = phi ptr [ %57, %55 ], [ %51, %52 ]
-  %59 = load ptr, ptr @type_wildcard, align 8
-  %.not97 = icmp eq ptr %.085, %59
-  %60 = load ptr, ptr @type_void, align 8
-  %.not98 = icmp eq ptr %.085, %60
+59:                                               ; preds = %53, %56
+  %.085 = phi ptr [ %58, %56 ], [ %52, %53 ]
+  %60 = load ptr, ptr @type_wildcard, align 8
+  %.not97 = icmp eq ptr %.085, %60
+  %61 = load ptr, ptr @type_void, align 8
+  %.not98 = icmp eq ptr %.085, %61
   %or.cond = select i1 %.not97, i1 true, i1 %.not98
-  br i1 %or.cond, label %73, label %61
+  br i1 %or.cond, label %74, label %62
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %0, i64 252
-  %63 = load i8, ptr %62, align 4
-  %64 = and i8 %63, 2
-  %.not99 = icmp eq i8 %64, 0
-  br i1 %.not99, label %65, label %73
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 252
+  %64 = load i8, ptr %63, align 4
+  %65 = and i8 %64, 2
+  %.not99 = icmp eq i8 %65, 0
+  br i1 %.not99, label %66, label %74
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %17, align 8
-  %67 = load ptr, ptr @ast_arena, align 8
-  br label %68
+66:                                               ; preds = %62
+  %67 = load i32, ptr %17, align 8
+  %68 = load ptr, ptr @ast_arena, align 8
+  br label %69
 
-68:                                               ; preds = %68, %65
-  %.pn.in = phi i32 [ %66, %65 ], [ %70, %68 ]
+69:                                               ; preds = %69, %66
+  %.pn.in = phi i32 [ %67, %66 ], [ %71, %69 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0 = getelementptr inbounds %struct.Ast_, ptr %67, i64 %.pn
-  %69 = getelementptr inbounds i8, ptr %.0, i64 8
-  %70 = load i32, ptr %69, align 8
-  %.not100 = icmp eq i32 %70, 0
-  br i1 %.not100, label %71, label %68, !llvm.loop !38
+  %.0 = getelementptr inbounds %struct.Ast_, ptr %68, i64 %.pn
+  %70 = getelementptr inbounds i8, ptr %.0, i64 8
+  %71 = load i32, ptr %70, align 8
+  %.not100 = icmp eq i32 %71, 0
+  br i1 %.not100, label %72, label %69, !llvm.loop !38
 
-71:                                               ; preds = %68
-  %72 = load i64, ptr %.0, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %72, ptr noundef nonnull @.str.310) #12
+72:                                               ; preds = %69
+  %73 = load i64, ptr %.0, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %73, ptr noundef nonnull @.str.310) #12
   br label %.loopexit
 
-73:                                               ; preds = %61, %58
-  store ptr %51, ptr %2, align 8
+74:                                               ; preds = %62, %59
+  store ptr %52, ptr %2, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %50, %73, %71, %.critedge
-  %.088 = phi i1 [ true, %73 ], [ false, %71 ], [ true, %.critedge ], [ false, %50 ], [ false, %.lr.ph ]
-  %.1 = phi ptr [ %.087.lcssa, %73 ], [ %.087.lcssa, %71 ], [ %.087.lcssa, %.critedge ], [ %.087.lcssa, %50 ], [ %40, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %51, %74, %72, %.critedge
+  %.088 = phi i1 [ true, %74 ], [ false, %72 ], [ true, %.critedge ], [ false, %51 ], [ false, %.lr.ph ]
+  %.1 = phi ptr [ %.087.lcssa, %74 ], [ %.087.lcssa, %72 ], [ %.087.lcssa, %.critedge ], [ %.087.lcssa, %51 ], [ %41, %.lr.ph ]
   store ptr %26, ptr %25, align 8
   store i32 %24, ptr %23, align 8
   store ptr %30, ptr %29, align 8
   store i32 %28, ptr %27, align 8
+  store ptr %34, ptr %33, align 8
   store i32 %32, ptr %31, align 8
-  store <2 x ptr> %35, ptr %33, align 8
-  %74 = getelementptr inbounds i8, ptr %.1, i64 8
-  tail call void @context_pop_defers(ptr noundef %0, ptr noundef nonnull %74) #12
+  store ptr %36, ptr %35, align 8
+  %75 = getelementptr inbounds i8, ptr %.1, i64 8
+  tail call void @context_pop_defers(ptr noundef %0, ptr noundef nonnull %75) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   store ptr %13, ptr %12, align 8
   store ptr %16, ptr %15, align 8
-  %75 = load ptr, ptr %8, align 8
-  %.not.i101 = icmp eq ptr %75, null
-  br i1 %.not.i101, label %76, label %context_pop_returns.exit
+  %76 = load ptr, ptr %8, align 8
+  %.not.i101 = icmp eq ptr %76, null
+  br i1 %.not.i101, label %77, label %context_pop_returns.exit
 
-76:                                               ; preds = %.loopexit
-  %77 = load ptr, ptr %6, align 8
-  %.not6.i = icmp eq ptr %77, null
-  br i1 %.not6.i, label %context_pop_returns.exit, label %78
+77:                                               ; preds = %.loopexit
+  %78 = load ptr, ptr %6, align 8
+  %.not6.i = icmp eq ptr %78, null
+  br i1 %.not6.i, label %context_pop_returns.exit, label %79
 
-78:                                               ; preds = %76
-  store ptr %77, ptr %8, align 8
+79:                                               ; preds = %77
+  store ptr %78, ptr %8, align 8
   br label %context_pop_returns.exit
 
-context_pop_returns.exit:                         ; preds = %.loopexit, %76, %78
+context_pop_returns.exit:                         ; preds = %.loopexit, %77, %79
   store ptr %7, ptr %6, align 8
   ret i1 %.088
 }

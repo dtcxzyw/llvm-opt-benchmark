@@ -41270,8 +41270,9 @@ if.end.i:                                         ; preds = %.noexc33, %lor.lhs.
   br i1 %tobool.not.i.i.i, label %invoke.cont16, label %_ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i.i: ; preds = %if.end.i
+  %arrayidx.i.i.i.i.i31 = getelementptr inbounds i8, ptr %30, i64 -4
+  %31 = load i32, ptr %arrayidx.i.i.i.i.i31, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 -8
-  %31 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %32 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %32 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
@@ -41280,7 +41281,9 @@ _ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i.i: ; preds = %if.end.i
           to label %call3.i.i.i.i.noexc unwind label %lpad7.loopexit
 
 call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i.i
-  store <2 x i32> %31, ptr %call3.i.i.i.i34, align 4
+  store i32 %32, ptr %call3.i.i.i.i34, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i34, i64 4
+  store i32 %31, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i34, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %add.ptr.i, align 8
   %33 = load ptr, ptr %id, align 8

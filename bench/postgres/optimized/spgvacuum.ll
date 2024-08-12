@@ -1431,177 +1431,181 @@ BufferGetPage.exit:                               ; preds = %8, %14
 .lr.ph:                                           ; preds = %51
   %58 = getelementptr inbounds i8, ptr %23, i64 2
   %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %60 = zext i16 %.0.i to i64
-  br label %61
+  %60 = getelementptr inbounds i8, ptr %23, i64 4
+  %61 = zext i16 %.0.i to i64
+  br label %62
 
-61:                                               ; preds = %.lr.ph, %97
-  %62 = phi i16 [ 0, %.lr.ph ], [ %99, %97 ]
-  %63 = phi i32 [ 0, %.lr.ph ], [ %100, %97 ]
-  %indvars.iv = phi i64 [ %60, %.lr.ph ], [ %67, %97 ]
-  %.082 = phi i16 [ %.0.i, %.lr.ph ], [ %104, %97 ]
-  %.05681 = phi i16 [ 0, %.lr.ph ], [ %.157, %97 ]
-  %.05880 = phi i1 [ false, %.lr.ph ], [ %.159, %97 ]
-  %.06079 = phi i1 [ false, %.lr.ph ], [ %.161, %97 ]
-  %64 = load i16, ptr %58, align 2
-  %65 = icmp eq i16 %64, 0
-  %.not70 = select i1 %65, i1 %.05880, i1 false
-  br i1 %.not70, label %.critedge, label %66
+62:                                               ; preds = %.lr.ph, %100
+  %63 = phi i16 [ 0, %.lr.ph ], [ %102, %100 ]
+  %64 = phi i32 [ 0, %.lr.ph ], [ %103, %100 ]
+  %indvars.iv = phi i64 [ %61, %.lr.ph ], [ %68, %100 ]
+  %.082 = phi i16 [ %.0.i, %.lr.ph ], [ %107, %100 ]
+  %.05681 = phi i16 [ 0, %.lr.ph ], [ %.157, %100 ]
+  %.05880 = phi i1 [ false, %.lr.ph ], [ %.159, %100 ]
+  %.06079 = phi i1 [ false, %.lr.ph ], [ %.161, %100 ]
+  %65 = load i16, ptr %58, align 2
+  %66 = icmp eq i16 %65, 0
+  %.not70 = select i1 %66, i1 %.05880, i1 false
+  br i1 %.not70, label %.critedge, label %67
 
-66:                                               ; preds = %61
-  %67 = add nsw i64 %indvars.iv, -1
-  %68 = getelementptr [0 x %struct.ItemIdData], ptr %59, i64 0, i64 %67
-  %.val76 = load i32, ptr %68, align 4
-  %69 = and i32 %.val76, 32767
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr i8, ptr %.0.i.i, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 3
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %97
+67:                                               ; preds = %62
+  %68 = add nsw i64 %indvars.iv, -1
+  %69 = getelementptr [0 x %struct.ItemIdData], ptr %59, i64 0, i64 %68
+  %.val76 = load i32, ptr %69, align 4
+  %70 = and i32 %.val76, 32767
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr i8, ptr %.0.i.i, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %74 = and i32 %73, 3
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %76, label %100
 
-75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %71, i64 12
-  %77 = load i32, ptr %76, align 4
-  %78 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %55, i32 noundef %77) #8
-  %.pre90 = load i32, ptr %71, align 4
-  br i1 %78, label %79, label %97
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds i8, ptr %72, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %55, i32 noundef %78) #8
+  %.pre90 = load i32, ptr %72, align 4
+  br i1 %79, label %80, label %100
 
-79:                                               ; preds = %75
-  %80 = or i32 %.pre90, 3
-  store i32 %80, ptr %71, align 4
-  %81 = load <2 x i16>, ptr %58, align 2
-  %82 = add <2 x i16> %81, <i16 -1, i16 1>
-  store <2 x i16> %82, ptr %58, align 2
-  %.not73 = icmp eq i32 %63, 0
-  br i1 %.not73, label %86, label %83
+80:                                               ; preds = %76
+  %81 = or i32 %.pre90, 3
+  store i32 %81, ptr %72, align 4
+  %82 = load i16, ptr %58, align 2
+  %83 = add i16 %82, -1
+  store i16 %83, ptr %58, align 2
+  %84 = load i16, ptr %60, align 2
+  %85 = add i16 %84, 1
+  store i16 %85, ptr %60, align 2
+  %.not73 = icmp eq i32 %64, 0
+  br i1 %.not73, label %89, label %86
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %76, align 4
-  %85 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %63, i32 noundef %84) #8
-  br i1 %85, label %86, label %88
+86:                                               ; preds = %80
+  %87 = load i32, ptr %77, align 4
+  %88 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %64, i32 noundef %87) #8
+  br i1 %88, label %89, label %91
 
-86:                                               ; preds = %83, %79
-  %87 = load i32, ptr %76, align 4
-  store i32 %87, ptr %54, align 4
-  br label %88
+89:                                               ; preds = %86, %80
+  %90 = load i32, ptr %77, align 4
+  store i32 %90, ptr %54, align 4
+  br label %91
 
-88:                                               ; preds = %86, %83
-  %89 = phi i32 [ %87, %86 ], [ %63, %83 ]
-  %90 = getelementptr inbounds i8, ptr %71, i64 6
-  store i16 -1, ptr %90, align 2
-  %91 = getelementptr inbounds i8, ptr %71, i64 8
-  store i16 -1, ptr %91, align 2
-  %92 = getelementptr inbounds i8, ptr %71, i64 10
-  store i16 0, ptr %92, align 2
-  %93 = zext i16 %62 to i64
-  %94 = getelementptr [408 x i16], ptr %4, i64 0, i64 %93
-  %95 = trunc nuw i64 %indvars.iv to i16
-  store i16 %95, ptr %94, align 2
-  %96 = add i16 %62, 1
-  store i16 %96, ptr %6, align 4
-  %.pre = load i32, ptr %71, align 4
-  br label %97
+91:                                               ; preds = %89, %86
+  %92 = phi i32 [ %90, %89 ], [ %64, %86 ]
+  %93 = getelementptr inbounds i8, ptr %72, i64 6
+  store i16 -1, ptr %93, align 2
+  %94 = getelementptr inbounds i8, ptr %72, i64 8
+  store i16 -1, ptr %94, align 2
+  %95 = getelementptr inbounds i8, ptr %72, i64 10
+  store i16 0, ptr %95, align 2
+  %96 = zext i16 %63 to i64
+  %97 = getelementptr [408 x i16], ptr %4, i64 0, i64 %96
+  %98 = trunc nuw i64 %indvars.iv to i16
+  store i16 %98, ptr %97, align 2
+  %99 = add i16 %63, 1
+  store i16 %99, ptr %6, align 4
+  %.pre = load i32, ptr %72, align 4
+  br label %100
 
-97:                                               ; preds = %88, %75, %66
-  %98 = phi i32 [ %.pre, %88 ], [ %.pre90, %75 ], [ %72, %66 ]
-  %99 = phi i16 [ %96, %88 ], [ %62, %75 ], [ %62, %66 ]
-  %100 = phi i32 [ %89, %88 ], [ %63, %75 ], [ %63, %66 ]
-  %.161 = phi i1 [ true, %88 ], [ %.06079, %75 ], [ %.06079, %66 ]
-  %101 = and i32 %98, 3
-  %102 = icmp ne i32 %101, 3
-  %.159 = select i1 %102, i1 true, i1 %.05880
-  %103 = trunc nuw i64 %indvars.iv to i16
-  %.157 = select i1 %.159, i16 %.05681, i16 %103
-  %104 = add i16 %.082, -1
-  %.not68 = icmp eq i16 %104, 0
-  br i1 %.not68, label %.critedge, label %61, !llvm.loop !19
+100:                                              ; preds = %91, %76, %67
+  %101 = phi i32 [ %.pre, %91 ], [ %.pre90, %76 ], [ %73, %67 ]
+  %102 = phi i16 [ %99, %91 ], [ %63, %76 ], [ %63, %67 ]
+  %103 = phi i32 [ %92, %91 ], [ %64, %76 ], [ %64, %67 ]
+  %.161 = phi i1 [ true, %91 ], [ %.06079, %76 ], [ %.06079, %67 ]
+  %104 = and i32 %101, 3
+  %105 = icmp ne i32 %104, 3
+  %.159 = select i1 %105, i1 true, i1 %.05880
+  %106 = trunc nuw i64 %indvars.iv to i16
+  %.157 = select i1 %.159, i16 %.05681, i16 %106
+  %107 = add i16 %.082, -1
+  %.not68 = icmp eq i16 %107, 0
+  br i1 %.not68, label %.critedge, label %62, !llvm.loop !19
 
-.critedge:                                        ; preds = %61, %97
-  %.060.lcssa = phi i1 [ %.06079, %61 ], [ %.161, %97 ]
-  %.056.lcssa = phi i16 [ %.05681, %61 ], [ %.157, %97 ]
-  %105 = zext i16 %.056.lcssa to i64
+.critedge:                                        ; preds = %62, %100
+  %.060.lcssa = phi i1 [ %.06079, %62 ], [ %.161, %100 ]
+  %.056.lcssa = phi i16 [ %.05681, %62 ], [ %.157, %100 ]
+  %108 = zext i16 %.056.lcssa to i64
   %.not71 = icmp eq i16 %.056.lcssa, 0
-  br i1 %.not71, label %117, label %.preheader
+  br i1 %.not71, label %120, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
   %.not7287 = icmp ugt i16 %.056.lcssa, %.0.i
   br i1 %.not7287, label %.thread, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.preheader, %.lr.ph89
-  %.188 = phi i16 [ %109, %.lr.ph89 ], [ %.056.lcssa, %.preheader ]
-  %106 = zext i16 %.188 to i64
-  %107 = sub nsw i64 %106, %105
-  %108 = getelementptr [408 x i16], ptr %5, i64 0, i64 %107
-  store i16 %.188, ptr %108, align 2
-  %109 = add i16 %.188, 1
-  %.not72 = icmp ugt i16 %109, %.0.i
+  %.188 = phi i16 [ %112, %.lr.ph89 ], [ %.056.lcssa, %.preheader ]
+  %109 = zext i16 %.188 to i64
+  %110 = sub nsw i64 %109, %108
+  %111 = getelementptr [408 x i16], ptr %5, i64 0, i64 %110
+  store i16 %.188, ptr %111, align 2
+  %112 = add i16 %.188, 1
+  %.not72 = icmp ugt i16 %112, %.0.i
   br i1 %.not72, label %.thread, label %.lr.ph89, !llvm.loop !20
 
 .thread:                                          ; preds = %.lr.ph89, %.preheader
-  %110 = sub i16 %.0.i, %.056.lcssa
-  %111 = add i16 %110, 1
-  %112 = zext i16 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %23, i64 4
-  %114 = load i16, ptr %113, align 2
-  %115 = sub i16 %114, %111
-  store i16 %115, ptr %113, align 2
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i, ptr noundef nonnull %5, i32 noundef %112) #8
-  %116 = getelementptr inbounds i8, ptr %6, i64 2
-  store i16 %.056.lcssa, ptr %116, align 2
-  br label %119
+  %113 = sub i16 %.0.i, %.056.lcssa
+  %114 = add i16 %113, 1
+  %115 = zext i16 %114 to i32
+  %116 = getelementptr inbounds i8, ptr %23, i64 4
+  %117 = load i16, ptr %116, align 2
+  %118 = sub i16 %117, %114
+  store i16 %118, ptr %116, align 2
+  call void @PageIndexMultiDelete(ptr noundef %.0.i.i, ptr noundef nonnull %5, i32 noundef %115) #8
+  %119 = getelementptr inbounds i8, ptr %6, i64 2
+  store i16 %.056.lcssa, ptr %119, align 2
+  br label %122
 
-117:                                              ; preds = %.critedge
-  %118 = getelementptr inbounds i8, ptr %6, i64 2
-  store i16 0, ptr %118, align 2
-  br i1 %.060.lcssa, label %119, label %.critedge75
+120:                                              ; preds = %.critedge
+  %121 = getelementptr inbounds i8, ptr %6, i64 2
+  store i16 0, ptr %121, align 2
+  br i1 %.060.lcssa, label %122, label %.critedge75
 
-119:                                              ; preds = %.thread, %117
+122:                                              ; preds = %.thread, %120
   call void @MarkBufferDirty(i32 noundef %2) #8
-  %120 = getelementptr inbounds i8, ptr %0, i64 56
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 114
-  %123 = load i8, ptr %122, align 2
-  %124 = icmp eq i8 %123, 112
-  br i1 %124, label %125, label %.critedge75
+  %123 = getelementptr inbounds i8, ptr %0, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 114
+  %126 = load i8, ptr %125, align 2
+  %127 = icmp eq i8 %126, 112
+  br i1 %127, label %128, label %.critedge75
 
-125:                                              ; preds = %119
-  %126 = load i32, ptr @wal_level, align 4
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %136, label %128
+128:                                              ; preds = %122
+  %129 = load i32, ptr @wal_level, align 4
+  %130 = icmp sgt i32 %129, 0
+  br i1 %130, label %139, label %131
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 40
-  %130 = load i32, ptr %129, align 8
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %.critedge75
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %0, i64 40
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %.critedge75
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %0, i64 48
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %.critedge75
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds i8, ptr %0, i64 48
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %.critedge75
 
-136:                                              ; preds = %132, %125
+139:                                              ; preds = %135, %128
   call void @XLogBeginInsert() #8
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 10) #8
-  %137 = load i16, ptr %6, align 4
-  %138 = zext i16 %137 to i32
-  %139 = shl nuw nsw i32 %138, 1
-  call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef %139) #8
+  %140 = load i16, ptr %6, align 4
+  %141 = zext i16 %140 to i32
+  %142 = shl nuw nsw i32 %141, 1
+  call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef %142) #8
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %2, i8 noundef zeroext 8) #8
-  %140 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext -128) #8
-  %141 = lshr i64 %140, 32
-  %142 = trunc nuw i64 %141 to i32
-  store i32 %142, ptr %.0.i.i, align 4
-  %143 = trunc i64 %140 to i32
-  %144 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  store i32 %143, ptr %144, align 4
+  %143 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext -128) #8
+  %144 = lshr i64 %143, 32
+  %145 = trunc nuw i64 %144 to i32
+  store i32 %145, ptr %.0.i.i, align 4
+  %146 = trunc i64 %143 to i32
+  %147 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  store i32 %146, ptr %147, align 4
   br label %.critedge75
 
-.critedge75:                                      ; preds = %51, %117, %119, %128, %132, %136
-  %145 = load volatile i32, ptr @CritSectionCount, align 4
-  %146 = add i32 %145, -1
-  store volatile i32 %146, ptr @CritSectionCount, align 4
+.critedge75:                                      ; preds = %51, %120, %122, %131, %135, %139
+  %148 = load volatile i32, ptr @CritSectionCount, align 4
+  %149 = add i32 %148, -1
+  store volatile i32 %149, ptr @CritSectionCount, align 4
   ret void
 }
 

@@ -4635,7 +4635,13 @@ entry:
   %accept_ref = getelementptr inbounds i8, ptr %opts, i64 60
   store i32 1, ptr %accept_ref, align 4
   %switch_branch_doing_nothing_is_ok = getelementptr inbounds i8, ptr %opts, i64 68
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %switch_branch_doing_nothing_is_ok, align 4
+  store i32 0, ptr %switch_branch_doing_nothing_is_ok, align 4
+  %only_merge_on_switching_branches = getelementptr inbounds i8, ptr %opts, i64 72
+  store i32 1, ptr %only_merge_on_switching_branches, align 8
+  %can_switch_when_in_progress = getelementptr inbounds i8, ptr %opts, i64 76
+  store i32 0, ptr %can_switch_when_in_progress, align 4
+  %orphan_from_empty_tree = getelementptr inbounds i8, ptr %opts, i64 80
+  store i32 1, ptr %orphan_from_empty_tree, align 8
   %overlay_mode = getelementptr inbounds i8, ptr %opts, i64 48
   store i32 -1, ptr %overlay_mode, align 8
   %call = call ptr @parse_options_dup(ptr noundef nonnull %switch_options) #15

@@ -1243,8 +1243,8 @@ list_length.exit:                                 ; preds = %4, %5
   %25 = getelementptr inbounds i8, ptr %12, i64 24
   br label %26
 
-26:                                               ; preds = %70, %list_length.exit
-  %.sroa.16.0 = phi i32 [ 0, %list_length.exit ], [ %77, %70 ]
+26:                                               ; preds = %67, %list_length.exit
+  %.sroa.16.0 = phi i32 [ 0, %list_length.exit ], [ %74, %67 ]
   br i1 %.not.i, label %34, label %27
 
 27:                                               ; preds = %26
@@ -1305,30 +1305,29 @@ list_length.exit:                                 ; preds = %4, %5
 
 61:                                               ; preds = %52, %54, %57
   %62 = phi ptr [ %60, %57 ], [ null, %54 ], [ null, %52 ]
-  %63 = insertelement <4 x ptr> poison, ptr %35, i64 0
-  %64 = insertelement <4 x ptr> %63, ptr %44, i64 1
-  %65 = insertelement <4 x ptr> %64, ptr %53, i64 2
-  %66 = insertelement <4 x ptr> %65, ptr %62, i64 3
-  %.fr = freeze <4 x ptr> %66
-  %67 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %68 = bitcast <4 x i1> %67 to i4
-  %69 = icmp eq i4 %68, 0
-  br i1 %69, label %70, label %.critedge
+  %63 = icmp ne ptr %35, null
+  %64 = icmp ne ptr %44, null
+  %or.cond = select i1 %63, i1 %64, i1 false
+  %65 = icmp ne ptr %53, null
+  %or.cond3 = select i1 %or.cond, i1 %65, i1 false
+  %66 = icmp ne ptr %62, null
+  %or.cond5 = select i1 %or.cond3, i1 %66, i1 false
+  br i1 %or.cond5, label %67, label %.critedge
 
-70:                                               ; preds = %61
-  %71 = load ptr, ptr %35, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %44, align 8
-  %75 = load i32, ptr %53, align 8
-  %76 = load i32, ptr %62, align 8
-  %77 = add i32 %.sroa.16.0, 1
-  %indvars = trunc i32 %77 to i16
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %12, i16 noundef signext %indvars, ptr noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef 0)
-  %78 = sext i16 %indvars to i64
-  %79 = add nsw i64 %78, -1
-  %80 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %25, i64 0, i64 %79, i32 20
-  store i32 %76, ptr %80, align 4
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %35, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %44, align 8
+  %72 = load i32, ptr %53, align 8
+  %73 = load i32, ptr %62, align 8
+  %74 = add i32 %.sroa.16.0, 1
+  %indvars = trunc i32 %74 to i16
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %12, i16 noundef signext %indvars, ptr noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef 0)
+  %75 = sext i16 %indvars to i64
+  %76 = add nsw i64 %75, -1
+  %77 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %25, i64 0, i64 %76, i32 20
+  store i32 %73, ptr %77, align 4
   br label %26, !llvm.loop !20
 
 .critedge:                                        ; preds = %61

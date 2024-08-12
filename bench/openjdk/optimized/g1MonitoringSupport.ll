@@ -704,26 +704,29 @@ define hidden void @_ZN19G1MonitoringSupport12memory_usageEv(ptr dead_on_unwind 
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %5 = load i64, ptr @InitialHeapSize, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 680
-  %7 = load ptr, ptr %1, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load <2 x i64>, ptr %6, align 8
-  %13 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(1488) %7) #10
+  %6 = getelementptr inbounds i8, ptr %1, i64 688
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 680
+  %9 = load i64, ptr %8, align 8
+  %10 = load ptr, ptr %1, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(1488) %10) #10
   store i64 %5, ptr %0, align 8
-  %14 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %13, ptr %15, align 8
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %16
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %14, ptr %17, align 8
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %18
 
-16:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+18:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %16
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %18
   ret void
 }
 
@@ -856,28 +859,34 @@ define hidden void @_ZN19G1MonitoringSupport16update_eden_sizeEv(ptr nocapture n
 define hidden void @_ZN19G1MonitoringSupport23eden_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %8
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %10
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 712
-  %7 = load <2 x i64>, ptr %6, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 720
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 712
+  %9 = load i64, ptr %8, align 8
   br label %_ZN11MutexLockerD2Ev.exit
 
-8:                                                ; preds = %4
+10:                                               ; preds = %4
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #10
-  %9 = getelementptr inbounds i8, ptr %1, i64 712
-  %10 = load <2 x i64>, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 720
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 712
+  %14 = load i64, ptr %13, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %8
-  %11 = phi <2 x i64> [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %10, %8 ]
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %10
+  %.sink3 = phi i64 [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %12, %10 ]
+  %.sink = phi i64 [ %9, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %14, %10 ]
   store i64 %2, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %3, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %3, ptr %17, align 8
   ret void
 }
 
@@ -885,28 +894,34 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 define hidden void @_ZN19G1MonitoringSupport27survivor_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %8
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %10
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 728
-  %7 = load <2 x i64>, ptr %6, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 736
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 728
+  %9 = load i64, ptr %8, align 8
   br label %_ZN11MutexLockerD2Ev.exit
 
-8:                                                ; preds = %4
+10:                                               ; preds = %4
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #10
-  %9 = getelementptr inbounds i8, ptr %1, i64 728
-  %10 = load <2 x i64>, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 736
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 728
+  %14 = load i64, ptr %13, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %8
-  %11 = phi <2 x i64> [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %10, %8 ]
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %10
+  %.sink3 = phi i64 [ %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %12, %10 ]
+  %.sink = phi i64 [ %9, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %14, %10 ]
   store i64 %2, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %3, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %3, ptr %17, align 8
   ret void
 }
 

@@ -805,7 +805,13 @@ sw.bb2:                                           ; preds = %if.end
   br i1 %tobool.not.i.i15, label %console_fstat.exit, label %if.end11.i.i16
 
 if.end11.i.i16:                                   ; preds = %sw.bb2
-  store <4 x i32> <i32 0, i32 0, i32 -1239351296, i32 0>, ptr %call9.i.i14, align 1
+  store i32 0, ptr %call9.i.i14, align 1
+  %gdb_st_ino.i.i17 = getelementptr inbounds i8, ptr %call9.i.i14, i64 4
+  store i32 0, ptr %gdb_st_ino.i.i17, align 1
+  %gdb_st_mode.i.i18 = getelementptr inbounds i8, ptr %call9.i.i14, i64 8
+  store i32 -1239351296, ptr %gdb_st_mode.i.i18, align 1
+  %gdb_st_nlink.i.i19 = getelementptr inbounds i8, ptr %call9.i.i14, i64 12
+  store i32 0, ptr %gdb_st_nlink.i.i19, align 1
   %gdb_st_uid.i.i20 = getelementptr inbounds i8, ptr %call9.i.i14, i64 16
   store i32 0, ptr %gdb_st_uid.i.i20, align 1
   %gdb_st_gid.i.i21 = getelementptr inbounds i8, ptr %call9.i.i14, i64 20

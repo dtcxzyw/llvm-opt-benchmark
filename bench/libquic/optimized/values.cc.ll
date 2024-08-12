@@ -5973,20 +5973,22 @@ define dso_local void @_ZN4base9ListValue4SwapEPS0_(ptr nocapture noundef nonnul
 entry:
   %list_ = getelementptr inbounds i8, ptr %this, i64 16
   %list_2 = getelementptr inbounds i8, ptr %other, i64 16
+  %0 = load ptr, ptr %list_, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %1 = load ptr, ptr %list_2, align 8
+  %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %3 = load ptr, ptr %list_2, align 8
+  store ptr %3, ptr %list_, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %other, i64 24
+  %4 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %other, i64 32
-  %2 = load <2 x ptr>, ptr %list_, align 8
-  store ptr %1, ptr %list_, align 8
-  %3 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  store ptr %3, ptr %_M_finish.i.i.i, align 8
-  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i, align 8
-  store <2 x ptr> %2, ptr %list_2, align 8
-  store ptr %0, ptr %_M_end_of_storage.i4.i.i, align 8
+  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %0, ptr %list_2, align 8
+  store ptr %1, ptr %_M_finish.i2.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i4.i.i, align 8
   ret void
 }
 

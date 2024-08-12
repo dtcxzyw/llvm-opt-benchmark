@@ -827,7 +827,13 @@ if.end:                                           ; preds = %if.then, %entry
   %port = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call5, ptr %port, align 8
   %x_origin = getelementptr inbounds i8, ptr %call.i, i64 64
-  store <4 x i16> <i16 0, i16 0, i16 1920, i16 1080>, ptr %x_origin, align 8
+  store i16 0, ptr %x_origin, align 8
+  %y_origin = getelementptr inbounds i8, ptr %call.i, i64 66
+  store i16 0, ptr %y_origin, align 2
+  %width = getelementptr inbounds i8, ptr %call.i, i64 68
+  store i16 1920, ptr %width, align 4
+  %height = getelementptr inbounds i8, ptr %call.i, i64 70
+  store i16 1080, ptr %height, align 2
   ret void
 }
 

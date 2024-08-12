@@ -136,27 +136,35 @@ define hidden noundef ptr @_ZN13StackMapFrame26frame_in_exception_handlerEh(ptr 
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef 8, i32 noundef 0) #12
   %7 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 12
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  %15 = load <2 x i16>, ptr %8, align 8
-  %16 = load <2 x i32>, ptr %0, align 8
-  store <2 x i32> %16, ptr %7, align 8
-  store i32 0, ptr %12, align 8
-  store i32 -1, ptr %13, align 4
-  store <2 x i16> %15, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 20
-  store i8 %1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %10, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %11, ptr %20, align 8
+  %8 = load i32, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i16, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 18
+  %14 = load i16, ptr %13, align 2
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %3, align 8
+  store i32 %8, ptr %7, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %10, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 -1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  store i16 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 18
+  store i16 %14, ptr %22, align 2
+  %23 = getelementptr inbounds i8, ptr %7, i64 20
+  store i8 %1, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %16, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %6, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %17, ptr %26, align 8
   ret ptr %7
 }
 

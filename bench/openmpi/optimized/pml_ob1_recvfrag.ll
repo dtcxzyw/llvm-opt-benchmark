@@ -4860,7 +4860,7 @@ declare i32 @mca_pml_ob1_send_cid(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @mca_pml_ob1_recv_frag_callback_cid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = alloca %struct.ompi_comm_extended_cid_t, align 16
+  %3 = alloca %struct.ompi_comm_extended_cid_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [16 x %struct.mca_btl_base_segment_t], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4877,96 +4877,100 @@ define void @mca_pml_ob1_recv_frag_callback_cid(ptr noundef %0, ptr nocapture no
   store i64 %15, ptr %13, align 8
   store ptr %9, ptr %5, align 16
   %16 = getelementptr inbounds i8, ptr %8, i64 8
-  %17 = load <2 x i64>, ptr %16, align 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store <2 x i64> %17, ptr %3, align 16
+  store i64 %17, ptr %3, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %19, ptr %20, align 8
   store ptr null, ptr %4, align 8
-  %18 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @ompi_comm_hash, ptr noundef nonnull %3, i64 noundef 16, ptr noundef nonnull %4) #10
-  %19 = load ptr, ptr %4, align 8
+  %21 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @ompi_comm_hash, ptr noundef nonnull %3, i64 noundef 16, ptr noundef nonnull %4) #10
+  %22 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %2
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %64, label %22
-
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %6, align 8
-  call fastcc void @append_frag_to_list(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2320), ptr noundef %0, ptr noundef nonnull %8, ptr noundef %23, i64 noundef %11, ptr noundef null)
-  br label %64
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %27
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %8, i64 28
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %19, i64 312
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 224
-  %30 = load i64, ptr %29, align 8
-  %31 = trunc i64 %30 to i32
-  %.not.i.i = icmp slt i32 %26, %31
-  br i1 %.not.i.i, label %33, label %32
+  %.not = icmp eq i64 %15, 0
+  br i1 %.not, label %67, label %25
 
-32:                                               ; preds = %24
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %6, align 8
+  call fastcc void @append_frag_to_list(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2320), ptr noundef %0, ptr noundef nonnull %8, ptr noundef %26, i64 noundef %11, ptr noundef null)
+  br label %67
+
+27:                                               ; preds = %2
+  %28 = getelementptr inbounds i8, ptr %8, i64 28
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %22, i64 312
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 224
+  %33 = load i64, ptr %32, align 8
+  %34 = trunc i64 %33 to i32
+  %.not.i.i = icmp slt i32 %29, %34
+  br i1 %.not.i.i, label %36, label %35
+
+35:                                               ; preds = %27
   call void (i32, ptr, ...) @ompi_rte_abort(i32 noundef -1, ptr noundef nonnull @.str.2) #11
   unreachable
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %28, i64 216
-  %35 = load ptr, ptr %34, align 8
-  %36 = sext i32 %26 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
-  %38 = load volatile ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %mca_pml_ob1_peer_lookup.exit.i
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds i8, ptr %31, i64 216
+  %38 = load ptr, ptr %37, align 8
+  %39 = sext i32 %29 to i64
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %41 = load volatile ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %mca_pml_ob1_peer_lookup.exit.i
 
-40:                                               ; preds = %33
-  %41 = call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %19, ptr noundef nonnull %28, i32 noundef %26) #10
-  %.pre.i.i = load ptr, ptr %34, align 8
+43:                                               ; preds = %36
+  %44 = call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %22, ptr noundef nonnull %31, i32 noundef %29) #10
+  %.pre.i.i = load ptr, ptr %37, align 8
   br label %mca_pml_ob1_peer_lookup.exit.i
 
-mca_pml_ob1_peer_lookup.exit.i:                   ; preds = %40, %33
-  %42 = phi ptr [ %.pre.i.i, %40 ], [ %35, %33 ]
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %36
-  %44 = load volatile ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 26
-  %46 = load i16, ptr %45, align 2
-  %.not.i = icmp eq i16 %46, -1
-  br i1 %.not.i, label %47, label %mca_pml_ob1_handle_cid.exit
+mca_pml_ob1_peer_lookup.exit.i:                   ; preds = %43, %36
+  %45 = phi ptr [ %.pre.i.i, %43 ], [ %38, %36 ]
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %39
+  %47 = load volatile ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 26
+  %49 = load i16, ptr %48, align 2
+  %.not.i = icmp eq i16 %49, -1
+  br i1 %.not.i, label %50, label %mca_pml_ob1_handle_cid.exit
 
-47:                                               ; preds = %mca_pml_ob1_peer_lookup.exit.i
-  %48 = getelementptr inbounds i8, ptr %8, i64 24
-  %49 = load i16, ptr %48, align 8
-  store i16 %49, ptr %45, align 2
-  %50 = getelementptr inbounds i8, ptr %44, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr @ompi_proc_local_proc, align 8
-  %.not8.i = icmp eq ptr %51, %52
-  br i1 %.not8.i, label %mca_pml_ob1_handle_cid.exit, label %53
+50:                                               ; preds = %mca_pml_ob1_peer_lookup.exit.i
+  %51 = getelementptr inbounds i8, ptr %8, i64 24
+  %52 = load i16, ptr %51, align 8
+  store i16 %52, ptr %48, align 2
+  %53 = getelementptr inbounds i8, ptr %47, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr @ompi_proc_local_proc, align 8
+  %.not8.i = icmp eq ptr %54, %55
+  br i1 %.not8.i, label %mca_pml_ob1_handle_cid.exit, label %56
 
-53:                                               ; preds = %47
-  %54 = call i32 @mca_pml_ob1_send_cid(ptr noundef %51, ptr noundef nonnull %19) #10
+56:                                               ; preds = %50
+  %57 = call i32 @mca_pml_ob1_send_cid(ptr noundef %54, ptr noundef nonnull %22) #10
   br label %mca_pml_ob1_handle_cid.exit
 
-mca_pml_ob1_handle_cid.exit:                      ; preds = %mca_pml_ob1_peer_lookup.exit.i, %47, %53
-  %55 = getelementptr inbounds i8, ptr %19, i64 216
-  %56 = load i32, ptr %55, align 8
-  %57 = trunc i32 %56 to i16
-  %58 = getelementptr inbounds i8, ptr %8, i64 34
-  store i16 %57, ptr %58, align 2
-  %59 = icmp eq i64 %15, 0
-  br i1 %59, label %64, label %60
+mca_pml_ob1_handle_cid.exit:                      ; preds = %mca_pml_ob1_peer_lookup.exit.i, %50, %56
+  %58 = getelementptr inbounds i8, ptr %22, i64 216
+  %59 = load i32, ptr %58, align 8
+  %60 = trunc i32 %59 to i16
+  %61 = getelementptr inbounds i8, ptr %8, i64 34
+  store i16 %60, ptr %61, align 2
+  %62 = icmp eq i64 %15, 0
+  br i1 %62, label %67, label %63
 
-60:                                               ; preds = %mca_pml_ob1_handle_cid.exit
-  %61 = load i64, ptr %10, align 8
-  %62 = load i8, ptr %9, align 4
-  %63 = zext i8 %62 to i32
-  call fastcc void @mca_pml_ob1_recv_frag_match(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef %61, i32 noundef %63)
-  br label %64
+63:                                               ; preds = %mca_pml_ob1_handle_cid.exit
+  %64 = load i64, ptr %10, align 8
+  %65 = load i8, ptr %9, align 4
+  %66 = zext i8 %65 to i32
+  call fastcc void @mca_pml_ob1_recv_frag_match(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef %64, i32 noundef %66)
+  br label %67
 
-64:                                               ; preds = %mca_pml_ob1_handle_cid.exit, %21, %22, %60
+67:                                               ; preds = %mca_pml_ob1_handle_cid.exit, %24, %25, %63
   ret void
 }
 

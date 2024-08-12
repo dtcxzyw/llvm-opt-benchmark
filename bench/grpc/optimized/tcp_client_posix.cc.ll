@@ -1262,7 +1262,13 @@ invoke.cont101:                                   ; preds = %invoke.cont97
   %addr_str.i = getelementptr inbounds i8, ptr %call99, i64 152
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr_str.i) #22
   %options.i = getelementptr inbounds i8, ptr %call99, i64 216
-  store <4 x i32> <i32 8192, i32 256, i32 4194304, i32 16384>, ptr %options.i, align 8
+  store i32 8192, ptr %options.i, align 8
+  %tcp_min_read_chunk_size.i.i = getelementptr inbounds i8, ptr %call99, i64 220
+  store i32 256, ptr %tcp_min_read_chunk_size.i.i, align 4
+  %tcp_max_read_chunk_size.i.i = getelementptr inbounds i8, ptr %call99, i64 224
+  store i32 4194304, ptr %tcp_max_read_chunk_size.i.i, align 8
+  %tcp_tx_zerocopy_send_bytes_threshold.i.i = getelementptr inbounds i8, ptr %call99, i64 228
+  store i32 16384, ptr %tcp_tx_zerocopy_send_bytes_threshold.i.i, align 4
   %tcp_tx_zerocopy_max_simultaneous_sends.i.i = getelementptr inbounds i8, ptr %call99, i64 232
   store i32 4, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i.i, align 8
   %tcp_receive_buffer_size.i.i = getelementptr inbounds i8, ptr %call99, i64 236

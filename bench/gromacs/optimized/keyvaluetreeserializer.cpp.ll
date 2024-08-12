@@ -4371,7 +4371,7 @@ define void @_ZN3gmx23deserializeKeyValueTreeEPNS_11ISerializerE(ptr dead_on_unw
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   store ptr %3, ptr %4, align 8
   invoke fastcc void @_ZN3gmx12_GLOBAL__N_119SerializationTraitsINS_18KeyValueTreeObjectEE17deserializeObjectEPNS_25KeyValueTreeObjectBuilderEPNS_11ISerializerE(ptr noundef nonnull %4, ptr noundef nonnull %1)
-          to label %16 unwind label %40
+          to label %16 unwind label %43
 
 16:                                               ; preds = %10
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
@@ -4413,31 +4413,35 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %19, %26
   store i64 0, ptr %.sink.i.i.i.i.i.i, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = getelementptr inbounds i8, ptr %3, i64 48
-  %33 = load <2 x ptr>, ptr %32, align 8, !noalias !130
-  store <2 x ptr> %33, ptr %31, align 8, !alias.scope !130
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  %35 = getelementptr inbounds i8, ptr %3, i64 64
+  %33 = load ptr, ptr %32, align 8, !noalias !130
+  store ptr %33, ptr %31, align 8, !alias.scope !130
+  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds i8, ptr %3, i64 56
   %36 = load ptr, ptr %35, align 8, !noalias !130
   store ptr %36, ptr %34, align 8, !alias.scope !130
+  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %38 = getelementptr inbounds i8, ptr %3, i64 64
+  %39 = load ptr, ptr %38, align 8, !noalias !130
+  store ptr %39, ptr %37, align 8, !alias.scope !130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !noalias !130
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null)
-          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %37
+          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %40
 
-37:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
-  %38 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #18
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #18
   unreachable
 
 _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
   ret void
 
-40:                                               ; preds = %10
-  %41 = landingpad { ptr, i32 }
+43:                                               ; preds = %10
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx19KeyValueTreeBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

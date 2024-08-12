@@ -243,7 +243,13 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h2ae5cdb0a2d7c55dE.exit: ;
   %79 = phi i64 [ %74, %65 ], [ %.pre.i.i.i.i.i37, %78 ]
   %80 = load ptr, ptr %7, align 8, !alias.scope !76, !noalias !83, !nonnull !4, !noundef !4
   %81 = getelementptr inbounds i8, ptr %80, i64 %79
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %81, align 1, !noalias !92
+  store i8 92, ptr %81, align 1, !noalias !92
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 1
+  store i8 117, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !92
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 2
+  store i8 48, ptr %.sroa.5.0..sroa_idx.i, align 1, !noalias !92
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 3
+  store i8 48, ptr %.sroa.6.0..sroa_idx.i, align 1, !noalias !92
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 4
   store i8 %71, ptr %.sroa.7.0..sroa_idx.i, align 1, !noalias !92
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 5

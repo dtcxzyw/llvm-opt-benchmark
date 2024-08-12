@@ -784,7 +784,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %9 = icmp slt i32 %8, 3
   %10 = select i1 %9, ptr null, ptr @.str.15
   %11 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %10) #10
-  br label %84
+  br label %86
 
 12:                                               ; preds = %4
   %13 = call i32 @fileno(ptr noundef %1) #10
@@ -834,10 +834,10 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %32 = icmp slt i32 %31, 1
   br i1 %32, label %.loopexit, label %.thread67
 
-.preheader:                                       ; preds = %.preheader.preheader, %73
-  %.04872 = phi i8 [ %.149, %73 ], [ 0, %.preheader.preheader ]
-  %.05171 = phi i1 [ %.152, %73 ], [ true, %.preheader.preheader ]
-  %.05370 = phi i32 [ %.255, %73 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %75
+  %.04872 = phi i8 [ %.149, %75 ], [ 0, %.preheader.preheader ]
+  %.05171 = phi i1 [ %.152, %75 ], [ true, %.preheader.preheader ]
+  %.05370 = phi i32 [ %.255, %75 ], [ 0, %.preheader.preheader ]
   %brmerge.not = and i1 %.not58.not, %.05171
   br i1 %brmerge.not, label %33, label %39
 
@@ -857,7 +857,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %43 = call ptr @fgets(ptr noundef %41, i32 noundef %42, ptr noundef %1)
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
   %.not59 = icmp eq ptr %43, null
-  br i1 %.not59, label %66, label %44
+  br i1 %.not59, label %68, label %44
 
 44:                                               ; preds = %39
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
@@ -868,7 +868,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %50 = getelementptr [8192 x i8], ptr %5, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 10
-  br i1 %52, label %53, label %66
+  br i1 %52, label %53, label %68
 
 53:                                               ; preds = %44
   br i1 %.05171, label %54, label %60
@@ -896,93 +896,96 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   %.250 = phi i8 [ 1, %59 ], [ %.04872, %57 ], [ %.04872, %53 ], [ %.04872, %54 ], [ %.04872, %55 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   %62 = icmp eq ptr %61, %1
-  br i1 %62, label %63, label %66
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %60
-  %64 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
-  %65 = add <2 x i64> %64, <i64 1, i64 1>
-  store <2 x i64> %65, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
-  br label %66
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  %65 = add i64 %64, 1
+  store i64 %65, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
+  %66 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  %67 = add i64 %66, 1
+  store i64 %67, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  br label %68
 
-66:                                               ; preds = %44, %60, %63, %39
+68:                                               ; preds = %44, %60, %63, %39
   %.154 = phi i32 [ %.05370, %39 ], [ %47, %63 ], [ %47, %60 ], [ %47, %44 ]
   %.152 = phi i1 [ %.05171, %39 ], [ true, %63 ], [ true, %60 ], [ false, %44 ]
   %.149 = phi i8 [ 1, %39 ], [ %.250, %63 ], [ %.250, %60 ], [ %.04872, %44 ]
-  %67 = icmp sgt i32 %.154, 8186
-  %68 = trunc nuw i8 %.149 to i1
-  %69 = icmp sgt i32 %.154, 0
-  %or.cond = and i1 %69, %68
-  %or.cond65 = select i1 %67, i1 true, i1 %or.cond
-  br i1 %or.cond65, label %70, label %73
+  %69 = icmp sgt i32 %.154, 8186
+  %70 = trunc nuw i8 %.149 to i1
+  %71 = icmp sgt i32 %.154, 0
+  %or.cond = and i1 %71, %70
+  %or.cond65 = select i1 %69, i1 true, i1 %or.cond
+  br i1 %or.cond65, label %72, label %75
 
-70:                                               ; preds = %66
-  %71 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.154) #10
-  %72 = icmp slt i32 %71, 1
-  br i1 %72, label %.loopexit, label %73
+72:                                               ; preds = %68
+  %73 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.154) #10
+  %74 = icmp slt i32 %73, 1
+  br i1 %74, label %.loopexit, label %75
 
-73:                                               ; preds = %70, %66
-  %.255 = phi i32 [ %.154, %66 ], [ 0, %70 ]
-  br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !7
+75:                                               ; preds = %72, %68
+  %.255 = phi i32 [ %.154, %68 ], [ 0, %72 ]
+  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %70, %73, %30, %.thread67
-  %.1 = phi i8 [ 0, %30 ], [ 1, %.thread67 ], [ 0, %70 ], [ 1, %73 ]
-  %74 = call i32 @ferror(ptr noundef %1) #10
-  %.not61 = icmp eq i32 %74, 0
+.loopexit:                                        ; preds = %72, %75, %30, %.thread67
+  %.1 = phi i8 [ 0, %30 ], [ 1, %.thread67 ], [ 0, %72 ], [ 1, %75 ]
+  %76 = call i32 @ferror(ptr noundef %1) #10
+  %.not61 = icmp eq i32 %76, 0
   %spec.select = select i1 %.not61, i8 %.1, i8 0
-  %75 = trunc nuw i8 %spec.select to i1
-  br i1 %75, label %80, label %76
+  %77 = trunc nuw i8 %spec.select to i1
+  br i1 %77, label %82, label %78
 
-76:                                               ; preds = %.loopexit
-  %77 = call i32 @PQprotocolVersion(ptr noundef %0) #10
-  %78 = icmp slt i32 %77, 3
-  %79 = select i1 %78, ptr null, ptr @.str.19
-  br label %80
+78:                                               ; preds = %.loopexit
+  %79 = call i32 @PQprotocolVersion(ptr noundef %0) #10
+  %80 = icmp slt i32 %79, 3
+  %81 = select i1 %80, ptr null, ptr @.str.19
+  br label %82
 
-80:                                               ; preds = %76, %.loopexit
-  %81 = phi ptr [ null, %.loopexit ], [ %79, %76 ]
-  %82 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %81) #10
-  %83 = icmp slt i32 %82, 1
-  %spec.select66 = select i1 %83, i8 0, i8 %spec.select
-  br label %84
+82:                                               ; preds = %78, %.loopexit
+  %83 = phi ptr [ null, %.loopexit ], [ %81, %78 ]
+  %84 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %83) #10
+  %85 = icmp slt i32 %84, 1
+  %spec.select66 = select i1 %85, i8 0, i8 %spec.select
+  br label %86
 
-84:                                               ; preds = %80, %7
-  %.0 = phi i8 [ 0, %7 ], [ %spec.select66, %80 ]
+86:                                               ; preds = %82, %7
+  %.0 = phi i8 [ 0, %7 ], [ %spec.select66, %82 ]
   call void @clearerr(ptr noundef %1) #10
-  %85 = call ptr @PQgetResult(ptr noundef %0) #10
-  store ptr %85, ptr %3, align 8
-  %86 = call i32 @PQresultStatus(ptr noundef %85) #10
-  %87 = icmp eq i32 %86, 4
-  br i1 %87, label %.lr.ph, label %._crit_edge
+  %87 = call ptr @PQgetResult(ptr noundef %0) #10
+  store ptr %87, ptr %3, align 8
+  %88 = call i32 @PQresultStatus(ptr noundef %87) #10
+  %89 = icmp eq i32 %88, 4
+  br i1 %89, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %84, %.lr.ph
-  %88 = load ptr, ptr %3, align 8
-  call void @PQclear(ptr noundef %88) #10
-  %89 = call i32 @PQprotocolVersion(ptr noundef %0) #10
-  %90 = icmp slt i32 %89, 3
-  %91 = select i1 %90, ptr null, ptr @.str.20
-  %92 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %91) #10
-  %93 = call ptr @PQgetResult(ptr noundef %0) #10
-  store ptr %93, ptr %3, align 8
-  %94 = call i32 @PQresultStatus(ptr noundef %93) #10
-  %95 = icmp eq i32 %94, 4
-  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+.lr.ph:                                           ; preds = %86, %.lr.ph
+  %90 = load ptr, ptr %3, align 8
+  call void @PQclear(ptr noundef %90) #10
+  %91 = call i32 @PQprotocolVersion(ptr noundef %0) #10
+  %92 = icmp slt i32 %91, 3
+  %93 = select i1 %92, ptr null, ptr @.str.20
+  %94 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %93) #10
+  %95 = call ptr @PQgetResult(ptr noundef %0) #10
+  store ptr %95, ptr %3, align 8
+  %96 = call i32 @PQresultStatus(ptr noundef %95) #10
+  %97 = icmp eq i32 %96, 4
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %84
-  %.3.lcssa = phi i8 [ %.0, %84 ], [ 0, %.lr.ph ]
-  %96 = load ptr, ptr %3, align 8
-  %97 = call i32 @PQresultStatus(ptr noundef %96) #10
-  %.not62 = icmp eq i32 %97, 1
-  br i1 %.not62, label %100, label %98
+._crit_edge:                                      ; preds = %.lr.ph, %86
+  %.3.lcssa = phi i8 [ %.0, %86 ], [ 0, %.lr.ph ]
+  %98 = load ptr, ptr %3, align 8
+  %99 = call i32 @PQresultStatus(ptr noundef %98) #10
+  %.not62 = icmp eq i32 %99, 1
+  br i1 %.not62, label %102, label %100
 
-98:                                               ; preds = %._crit_edge
-  %99 = call ptr @PQerrorMessage(ptr noundef %0) #10
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %99) #10
-  br label %100
+100:                                              ; preds = %._crit_edge
+  %101 = call ptr @PQerrorMessage(ptr noundef %0) #10
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %101) #10
+  br label %102
 
-100:                                              ; preds = %98, %._crit_edge
-  %.4 = phi i8 [ 0, %98 ], [ %.3.lcssa, %._crit_edge ]
-  %101 = trunc nuw i8 %.4 to i1
-  ret i1 %101
+102:                                              ; preds = %100, %._crit_edge
+  %.4 = phi i8 [ 0, %100 ], [ %.3.lcssa, %._crit_edge ]
+  %103 = trunc nuw i8 %.4 to i1
+  ret i1 %103
 }
 
 ; Function Attrs: nounwind returns_twice

@@ -86,7 +86,7 @@ define noundef i32 @mca_common_ompio_simple_grouping(ptr nocapture noundef reado
   %24 = sext i32 %23 to i64
   %25 = sext i32 %15 to i64
   %26 = uitofp i64 %24 to double
-  br i1 %13, label %27, label %32
+  br i1 %13, label %27, label %31
 
 27:                                               ; preds = %21
   %28 = icmp ugt i64 %10, %24
@@ -95,281 +95,263 @@ define noundef i32 @mca_common_ompio_simple_grouping(ptr nocapture noundef reado
 
 29:                                               ; preds = %27
   %30 = fdiv double %26, %.pre.i
-  %31 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %30, i64 0
   br label %cost_calc.exit
 
-32:                                               ; preds = %21
-  %33 = sitofp i32 %15 to double
-  %34 = tail call double @sqrt(double noundef %33) #10
-  %35 = fptosi double %34 to i32
-  %36 = sitofp i32 %35 to double
-  %37 = fdiv double 1.000000e+00, %36
-  %38 = udiv i64 %24, %25
-  %39 = icmp ult i64 %38, %10
-  br i1 %39, label %40, label %46
+31:                                               ; preds = %21
+  %32 = sitofp i32 %15 to double
+  %33 = tail call double @sqrt(double noundef %32) #10
+  %34 = fptosi double %33 to i32
+  %35 = sitofp i32 %34 to double
+  %36 = fdiv double 1.000000e+00, %35
+  %37 = udiv i64 %24, %25
+  %38 = icmp ult i64 %37, %10
+  br i1 %38, label %39, label %43
 
-40:                                               ; preds = %32
-  %41 = fdiv double %26, %36
-  %42 = uitofp i64 %10 to double
-  %43 = tail call double @llvm.minnum.f64(double %41, double %42)
-  %44 = insertelement <2 x double> poison, double %36, i64 0
-  %45 = insertelement <2 x double> %44, double %37, i64 1
+39:                                               ; preds = %31
+  %40 = fdiv double %26, %35
+  %41 = uitofp i64 %10 to double
+  %42 = tail call double @llvm.minnum.f64(double %40, double %41)
   br label %cost_calc.exit
 
-46:                                               ; preds = %32
-  %47 = sext i32 %35 to i64
-  %48 = mul i64 %10, %47
-  %49 = uitofp i64 %48 to double
-  %50 = uitofp i64 %10 to double
-  %51 = tail call double @llvm.minnum.f64(double %49, double %50)
-  %52 = insertelement <2 x double> poison, double %36, i64 0
-  %53 = insertelement <2 x double> %52, double %37, i64 1
+43:                                               ; preds = %31
+  %44 = sext i32 %34 to i64
+  %45 = mul i64 %10, %44
+  %46 = uitofp i64 %45 to double
+  %47 = uitofp i64 %10 to double
+  %48 = tail call double @llvm.minnum.f64(double %46, double %47)
   br label %cost_calc.exit
 
-cost_calc.exit:                                   ; preds = %27, %29, %40, %46
-  %.pre-phi.i = phi double [ %42, %40 ], [ %50, %46 ], [ %.pre.i, %29 ], [ %.pre.i, %27 ]
-  %.051.i = phi double [ %43, %40 ], [ %51, %46 ], [ %.pre.i, %29 ], [ %26, %27 ]
-  %.0.i = phi double [ %37, %40 ], [ %37, %46 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %27 ]
-  %54 = phi <2 x double> [ %45, %40 ], [ %53, %46 ], [ %31, %29 ], [ <double 1.000000e+00, double 1.000000e+00>, %27 ]
-  %55 = load i32, ptr %14, align 8
-  %.not64 = icmp sgt i32 %.050, %55
+cost_calc.exit:                                   ; preds = %27, %29, %39, %43
+  %.pre-phi.i = phi double [ %41, %39 ], [ %47, %43 ], [ %.pre.i, %29 ], [ %.pre.i, %27 ]
+  %.052.i = phi double [ %35, %39 ], [ %35, %43 ], [ %30, %29 ], [ 1.000000e+00, %27 ]
+  %.051.i = phi double [ %42, %39 ], [ %48, %43 ], [ %.pre.i, %29 ], [ %26, %27 ]
+  %.0.i = phi double [ %36, %39 ], [ %36, %43 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %27 ]
+  %49 = load i32, ptr %14, align 8
+  %.not64 = icmp sgt i32 %.050, %49
   br i1 %.not64, label %cost_calc.exit62._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %cost_calc.exit
-  %56 = fmul double %.051.i, %.0.i
-  %57 = fadd double %.051.i, -1.000000e+00
-  %58 = fadd <2 x double> %54, <double -1.000000e+00, double -1.000000e+00>
-  %59 = fcmp olt double %.051.i, 0x4180000000000000
-  %.053.i = select i1 %59, double 1.080000e-06, double 1.190000e-05
-  %60 = mul i64 %10, %25
-  %61 = sitofp i64 %60 to double
-  %62 = insertelement <2 x double> poison, double %61, i64 0
-  %63 = insertelement <2 x double> %62, double %.pre-phi.i, i64 1
-  %64 = insertelement <2 x double> poison, double %26, i64 0
-  %65 = insertelement <2 x double> %64, double %56, i64 1
-  %66 = fdiv <2 x double> %63, %65
-  %67 = insertelement <2 x double> poison, double %57, i64 0
-  %68 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = fmul <2 x double> %68, %54
-  %70 = insertelement <2 x double> poison, double %.053.i, i64 0
-  %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
-  %72 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %58, <2 x double> %71, <2 x double> <double 4.820000e-06, double 4.820000e-06>)
-  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %69, <2 x double> <double 6.700000e-10, double 6.700000e-10>, <2 x double> %72)
-  %74 = fmul <2 x double> %66, %73
-  %shift = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %75 = fadd <2 x double> %shift, %74
-  %76 = extractelement <2 x double> %75, i64 0
-  %77 = zext nneg i32 %.050 to i64
+  %50 = fmul double %.051.i, %.0.i
+  %51 = fdiv double %.pre-phi.i, %50
+  %52 = fadd double %.051.i, -1.000000e+00
+  %53 = fmul double %52, %.0.i
+  %54 = fadd double %.0.i, -1.000000e+00
+  %55 = fcmp olt double %.051.i, 0x4180000000000000
+  %.053.i = select i1 %55, double 1.080000e-06, double 1.190000e-05
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %.053.i, double 4.820000e-06)
+  %57 = tail call double @llvm.fmuladd.f64(double %53, double 6.700000e-10, double %56)
+  %58 = fmul double %51, %57
+  %59 = mul i64 %10, %25
+  %60 = sitofp i64 %59 to double
+  %61 = fdiv double %60, %26
+  %62 = fmul double %.052.i, %52
+  %63 = fadd double %.052.i, -1.000000e+00
+  %64 = tail call double @llvm.fmuladd.f64(double %63, double %.053.i, double 4.820000e-06)
+  %65 = tail call double @llvm.fmuladd.f64(double %62, double 6.700000e-10, double %64)
+  %66 = fmul double %61, %65
+  %67 = fadd double %58, %66
+  %68 = zext nneg i32 %.050 to i64
   br label %.lr.ph
 
-78:                                               ; preds = %cost_calc.exit62
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %77
-  %79 = trunc nuw i64 %indvars.iv.next to i32
-  %.not = icmp slt i32 %.pre.pre, %79
-  %80 = trunc nuw nsw i64 %indvars.iv to i32
+69:                                               ; preds = %cost_calc.exit62
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %68
+  %70 = trunc nuw i64 %indvars.iv.next to i32
+  %.not = icmp slt i32 %.pre.pre, %70
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not, label %cost_calc.exit62._crit_edge, label %.lr.ph, !llvm.loop !4
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %78
-  %indvars.iv = phi i64 [ %77, %.lr.ph.preheader ], [ %indvars.iv.next, %78 ]
-  %81 = phi i32 [ %55, %.lr.ph.preheader ], [ %.pre.pre, %78 ]
-  %.068 = phi i32 [ 1, %.lr.ph.preheader ], [ %80, %78 ]
-  %.05266 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %142, %78 ]
-  %.05365 = phi double [ %76, %.lr.ph.preheader ], [ %140, %78 ]
-  %82 = load i64, ptr %9, align 8
-  %83 = load i32, ptr %22, align 8
-  %84 = sext i32 %83 to i64
-  %85 = sext i32 %81 to i64
-  %86 = uitofp i64 %84 to double
-  br i1 %13, label %87, label %92
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
+  %indvars.iv = phi i64 [ %68, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
+  %72 = phi i32 [ %49, %.lr.ph.preheader ], [ %.pre.pre, %69 ]
+  %.068 = phi i32 [ 1, %.lr.ph.preheader ], [ %71, %69 ]
+  %.05266 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %124, %69 ]
+  %.05365 = phi double [ %67, %.lr.ph.preheader ], [ %122, %69 ]
+  %73 = load i64, ptr %9, align 8
+  %74 = load i32, ptr %22, align 8
+  %75 = sext i32 %74 to i64
+  %76 = sext i32 %72 to i64
+  %77 = uitofp i64 %75 to double
+  br i1 %13, label %78, label %82
 
-87:                                               ; preds = %.lr.ph
-  %88 = icmp ugt i64 %82, %84
-  %.pre.i61 = uitofp i64 %82 to double
-  br i1 %88, label %cost_calc.exit62, label %89
+78:                                               ; preds = %.lr.ph
+  %79 = icmp ugt i64 %73, %75
+  %.pre.i61 = uitofp i64 %73 to double
+  br i1 %79, label %cost_calc.exit62, label %80
 
-89:                                               ; preds = %87
-  %90 = fdiv double %86, %.pre.i61
-  %91 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %90, i64 0
+80:                                               ; preds = %78
+  %81 = fdiv double %77, %.pre.i61
   br label %cost_calc.exit62
 
-92:                                               ; preds = %.lr.ph
-  %93 = sitofp i32 %81 to double
-  %94 = tail call double @sqrt(double noundef %93) #10
-  %95 = fptosi double %94 to i32
-  %96 = trunc nuw nsw i64 %indvars.iv to i32
-  %97 = uitofp nneg i32 %96 to double
-  %98 = sitofp i32 %95 to double
-  %99 = fdiv double %97, %98
-  %100 = mul nsw i64 %indvars.iv, %84
-  %101 = udiv i64 %100, %85
-  %102 = icmp ult i64 %101, %82
-  br i1 %102, label %103, label %109
+82:                                               ; preds = %.lr.ph
+  %83 = sitofp i32 %72 to double
+  %84 = tail call double @sqrt(double noundef %83) #10
+  %85 = fptosi double %84 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv to i32
+  %87 = uitofp nneg i32 %86 to double
+  %88 = sitofp i32 %85 to double
+  %89 = fdiv double %87, %88
+  %90 = mul nsw i64 %indvars.iv, %75
+  %91 = udiv i64 %90, %76
+  %92 = icmp ult i64 %91, %73
+  br i1 %92, label %93, label %97
 
-103:                                              ; preds = %92
-  %104 = fdiv double %86, %98
-  %105 = uitofp i64 %82 to double
-  %106 = tail call double @llvm.minnum.f64(double %104, double %105)
-  %107 = insertelement <2 x double> poison, double %98, i64 0
-  %108 = insertelement <2 x double> %107, double %99, i64 1
+93:                                               ; preds = %82
+  %94 = fdiv double %77, %88
+  %95 = uitofp i64 %73 to double
+  %96 = tail call double @llvm.minnum.f64(double %94, double %95)
   br label %cost_calc.exit62
 
-109:                                              ; preds = %92
-  %110 = sext i32 %95 to i64
-  %111 = mul i64 %82, %110
-  %112 = uitofp i64 %111 to double
-  %113 = fdiv double %112, %97
-  %114 = uitofp i64 %82 to double
-  %115 = tail call double @llvm.minnum.f64(double %113, double %114)
-  %116 = insertelement <2 x double> poison, double %98, i64 0
-  %117 = insertelement <2 x double> %116, double %99, i64 1
+97:                                               ; preds = %82
+  %98 = sext i32 %85 to i64
+  %99 = mul i64 %73, %98
+  %100 = uitofp i64 %99 to double
+  %101 = fdiv double %100, %87
+  %102 = uitofp i64 %73 to double
+  %103 = tail call double @llvm.minnum.f64(double %101, double %102)
   br label %cost_calc.exit62
 
-cost_calc.exit62:                                 ; preds = %87, %89, %103, %109
-  %.pre-phi.i56 = phi double [ %105, %103 ], [ %114, %109 ], [ %.pre.i61, %89 ], [ %.pre.i61, %87 ]
-  %.051.i58 = phi double [ %106, %103 ], [ %115, %109 ], [ %.pre.i61, %89 ], [ %86, %87 ]
-  %.0.i59 = phi double [ %99, %103 ], [ %99, %109 ], [ 1.000000e+00, %89 ], [ 1.000000e+00, %87 ]
-  %118 = phi <2 x double> [ %108, %103 ], [ %117, %109 ], [ %91, %89 ], [ <double 1.000000e+00, double 1.000000e+00>, %87 ]
-  %119 = fcmp olt double %.051.i58, 0x4180000000000000
-  %.053.i60 = select i1 %119, double 1.080000e-06, double 1.190000e-05
-  %120 = fmul double %.051.i58, %.0.i59
-  %121 = mul i64 %82, %85
-  %122 = udiv i64 %121, %indvars.iv
-  %123 = sitofp i64 %122 to double
-  %124 = fadd <2 x double> %118, <double -1.000000e+00, double -1.000000e+00>
-  %125 = fadd double %.051.i58, -1.000000e+00
-  %126 = insertelement <2 x double> poison, double %123, i64 0
-  %127 = insertelement <2 x double> %126, double %.pre-phi.i56, i64 1
-  %128 = insertelement <2 x double> poison, double %86, i64 0
-  %129 = insertelement <2 x double> %128, double %120, i64 1
-  %130 = fdiv <2 x double> %127, %129
-  %131 = insertelement <2 x double> poison, double %.053.i60, i64 0
-  %132 = shufflevector <2 x double> %131, <2 x double> poison, <2 x i32> zeroinitializer
-  %133 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %124, <2 x double> %132, <2 x double> <double 4.820000e-06, double 4.820000e-06>)
-  %134 = insertelement <2 x double> poison, double %125, i64 0
-  %135 = shufflevector <2 x double> %134, <2 x double> poison, <2 x i32> zeroinitializer
-  %136 = fmul <2 x double> %135, %118
-  %137 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %136, <2 x double> <double 6.700000e-10, double 6.700000e-10>, <2 x double> %133)
-  %138 = fmul <2 x double> %130, %137
-  %shift74 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %139 = fadd <2 x double> %shift74, %138
-  %140 = extractelement <2 x double> %139, i64 0
-  %141 = fsub double %.05365, %140
-  %142 = fdiv double %141, %.05365
-  %143 = icmp eq i64 %indvars.iv, %77
-  %144 = fsub double %.05266, %142
-  %145 = select i1 %143, double %142, double %144
-  %146 = fcmp olt double %145, %8
-  %147 = fcmp olt double %141, 1.000000e-03
-  %or.cond = or i1 %147, %146
+cost_calc.exit62:                                 ; preds = %78, %80, %93, %97
+  %.pre-phi.i56 = phi double [ %95, %93 ], [ %102, %97 ], [ %.pre.i61, %80 ], [ %.pre.i61, %78 ]
+  %.052.i57 = phi double [ %88, %93 ], [ %88, %97 ], [ %81, %80 ], [ 1.000000e+00, %78 ]
+  %.051.i58 = phi double [ %96, %93 ], [ %103, %97 ], [ %.pre.i61, %80 ], [ %77, %78 ]
+  %.0.i59 = phi double [ %89, %93 ], [ %89, %97 ], [ 1.000000e+00, %80 ], [ 1.000000e+00, %78 ]
+  %104 = fcmp olt double %.051.i58, 0x4180000000000000
+  %.053.i60 = select i1 %104, double 1.080000e-06, double 1.190000e-05
+  %105 = fmul double %.051.i58, %.0.i59
+  %106 = fdiv double %.pre-phi.i56, %105
+  %107 = mul i64 %73, %76
+  %108 = udiv i64 %107, %indvars.iv
+  %109 = sitofp i64 %108 to double
+  %110 = fdiv double %109, %77
+  %111 = fadd double %.0.i59, -1.000000e+00
+  %112 = tail call double @llvm.fmuladd.f64(double %111, double %.053.i60, double 4.820000e-06)
+  %113 = fadd double %.051.i58, -1.000000e+00
+  %114 = fmul double %113, %.0.i59
+  %115 = tail call double @llvm.fmuladd.f64(double %114, double 6.700000e-10, double %112)
+  %116 = fmul double %106, %115
+  %117 = fadd double %.052.i57, -1.000000e+00
+  %118 = tail call double @llvm.fmuladd.f64(double %117, double %.053.i60, double 4.820000e-06)
+  %119 = fmul double %.052.i57, %113
+  %120 = tail call double @llvm.fmuladd.f64(double %119, double 6.700000e-10, double %118)
+  %121 = fmul double %110, %120
+  %122 = fadd double %116, %121
+  %123 = fsub double %.05365, %122
+  %124 = fdiv double %123, %.05365
+  %125 = icmp eq i64 %indvars.iv, %68
+  %126 = fsub double %.05266, %124
+  %127 = select i1 %125, double %124, double %126
+  %128 = fcmp olt double %127, %8
+  %129 = fcmp olt double %123, 1.000000e-03
+  %or.cond = or i1 %129, %128
   %.pre.pre = load i32, ptr %14, align 8
-  br i1 %or.cond, label %cost_calc.exit62._crit_edge, label %78
+  br i1 %or.cond, label %cost_calc.exit62._crit_edge, label %69
 
-cost_calc.exit62._crit_edge:                      ; preds = %78, %cost_calc.exit62, %cost_calc.exit
-  %148 = phi i32 [ %55, %cost_calc.exit ], [ %.pre.pre, %cost_calc.exit62 ], [ %.pre.pre, %78 ]
-  %.0.lcssa = phi i32 [ 1, %cost_calc.exit ], [ %80, %78 ], [ %.068, %cost_calc.exit62 ]
-  %149 = load ptr, ptr %4, align 8
-  %150 = tail call i32 %149(ptr noundef nonnull @.str.1, i32 noundef 22) #10
-  %151 = sdiv i32 %148, %150
-  %152 = icmp sgt i32 %.0.lcssa, %151
-  br i1 %152, label %153, label %158
+cost_calc.exit62._crit_edge:                      ; preds = %69, %cost_calc.exit62, %cost_calc.exit
+  %130 = phi i32 [ %49, %cost_calc.exit ], [ %.pre.pre, %cost_calc.exit62 ], [ %.pre.pre, %69 ]
+  %.0.lcssa = phi i32 [ 1, %cost_calc.exit ], [ %71, %69 ], [ %.068, %cost_calc.exit62 ]
+  %131 = load ptr, ptr %4, align 8
+  %132 = tail call i32 %131(ptr noundef nonnull @.str.1, i32 noundef 22) #10
+  %133 = sdiv i32 %130, %132
+  %134 = icmp sgt i32 %.0.lcssa, %133
+  br i1 %134, label %135, label %140
 
-153:                                              ; preds = %cost_calc.exit62._crit_edge
-  %154 = load i32, ptr %14, align 8
-  %155 = load ptr, ptr %4, align 8
-  %156 = tail call i32 %155(ptr noundef nonnull @.str.1, i32 noundef 22) #10
-  %157 = sdiv i32 %154, %156
-  br label %158
+135:                                              ; preds = %cost_calc.exit62._crit_edge
+  %136 = load i32, ptr %14, align 8
+  %137 = load ptr, ptr %4, align 8
+  %138 = tail call i32 %137(ptr noundef nonnull @.str.1, i32 noundef 22) #10
+  %139 = sdiv i32 %136, %138
+  br label %140
 
-158:                                              ; preds = %153, %cost_calc.exit62._crit_edge
-  %.051 = phi i32 [ %157, %153 ], [ %.0.lcssa, %cost_calc.exit62._crit_edge ]
+140:                                              ; preds = %135, %cost_calc.exit62._crit_edge
+  %.051 = phi i32 [ %139, %135 ], [ %.0.lcssa, %cost_calc.exit62._crit_edge ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.051, i32 1)
   store i32 %spec.store.select, ptr %1, align 4
-  %159 = load i32, ptr %14, align 8
-  %160 = sdiv i32 %159, %spec.store.select
-  %161 = srem i32 %159, %spec.store.select
-  %162 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
-  %163 = and i32 %162, 32768
-  %164 = add nsw i32 %160, 1
-  %.not.i = icmp eq i32 %163, 0
+  %141 = load i32, ptr %14, align 8
+  %142 = sdiv i32 %141, %spec.store.select
+  %143 = srem i32 %141, %spec.store.select
+  %144 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 224), align 8
+  %145 = and i32 %144, 32768
+  %146 = add nsw i32 %142, 1
+  %.not.i = icmp eq i32 %145, 0
   br i1 %.not.i, label %.lr.ph49.split.us.preheader.i, label %.lr.ph49.split.preheader.i
 
-.lr.ph49.split.preheader.i:                       ; preds = %158
-  %165 = zext nneg i32 %spec.store.select to i64
-  %166 = sext i32 %161 to i64
+.lr.ph49.split.preheader.i:                       ; preds = %140
+  %147 = zext nneg i32 %spec.store.select to i64
+  %148 = sext i32 %143 to i64
   br label %.lr.ph49.split.i
 
-.lr.ph49.split.us.preheader.i:                    ; preds = %158
-  %167 = sext i32 %161 to i64
+.lr.ph49.split.us.preheader.i:                    ; preds = %140
+  %149 = sext i32 %143 to i64
   %wide.trip.count61.i = zext nneg i32 %spec.store.select to i64
   br label %.lr.ph49.split.us.i
 
 .lr.ph49.split.us.i:                              ; preds = %.loopexit.us.i, %.lr.ph49.split.us.preheader.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph49.split.us.preheader.i ], [ %indvars.iv.next59.i, %.loopexit.us.i ]
   %.03646.us.i = phi i32 [ 0, %.lr.ph49.split.us.preheader.i ], [ %.2.lcssa.us.i, %.loopexit.us.i ]
-  %168 = icmp slt i64 %indvars.iv58.i, %167
-  %spec.select.i = select i1 %168, i32 %164, i32 %160
-  %169 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv58.i, i32 2
-  store i32 %spec.select.i, ptr %169, align 8
-  %170 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv58.i
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
-  %172 = icmp sgt i32 %spec.select.i, 0
-  br i1 %172, label %.lr.ph44.us.i, label %.loopexit.us.i
+  %150 = icmp slt i64 %indvars.iv58.i, %149
+  %spec.select.i = select i1 %150, i32 %146, i32 %142
+  %151 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv58.i, i32 2
+  store i32 %spec.select.i, ptr %151, align 8
+  %152 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv58.i
+  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %154 = icmp sgt i32 %spec.select.i, 0
+  br i1 %154, label %.lr.ph44.us.i, label %.loopexit.us.i
 
-173:                                              ; preds = %.lr.ph44.us.i, %173
-  %indvars.iv55.i = phi i64 [ 0, %.lr.ph44.us.i ], [ %indvars.iv.next56.i, %173 ]
-  %.242.us.i = phi i32 [ %.03646.us.i, %.lr.ph44.us.i ], [ %176, %173 ]
-  %174 = load ptr, ptr %180, align 8
-  %175 = getelementptr inbounds i32, ptr %174, i64 %indvars.iv55.i
-  store i32 %.242.us.i, ptr %175, align 4
-  %176 = add nsw i32 %.242.us.i, 1
+155:                                              ; preds = %.lr.ph44.us.i, %155
+  %indvars.iv55.i = phi i64 [ 0, %.lr.ph44.us.i ], [ %indvars.iv.next56.i, %155 ]
+  %.242.us.i = phi i32 [ %.03646.us.i, %.lr.ph44.us.i ], [ %158, %155 ]
+  %156 = load ptr, ptr %162, align 8
+  %157 = getelementptr inbounds i32, ptr %156, i64 %indvars.iv55.i
+  store i32 %.242.us.i, ptr %157, align 4
+  %158 = add nsw i32 %.242.us.i, 1
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %177 = load i32, ptr %171, align 8
-  %178 = sext i32 %177 to i64
-  %179 = icmp slt i64 %indvars.iv.next56.i, %178
-  br i1 %179, label %173, label %.loopexit.us.i, !llvm.loop !6
+  %159 = load i32, ptr %153, align 8
+  %160 = sext i32 %159 to i64
+  %161 = icmp slt i64 %indvars.iv.next56.i, %160
+  br i1 %161, label %155, label %.loopexit.us.i, !llvm.loop !6
 
-.loopexit.us.i:                                   ; preds = %173, %.lr.ph49.split.us.i
-  %.2.lcssa.us.i = phi i32 [ %.03646.us.i, %.lr.ph49.split.us.i ], [ %176, %173 ]
+.loopexit.us.i:                                   ; preds = %155, %.lr.ph49.split.us.i
+  %.2.lcssa.us.i = phi i32 [ %.03646.us.i, %.lr.ph49.split.us.i ], [ %158, %155 ]
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count61.i
   br i1 %exitcond62.not.i, label %mca_common_ompio_forced_grouping.exit, label %.lr.ph49.split.us.i, !llvm.loop !7
 
 .lr.ph44.us.i:                                    ; preds = %.lr.ph49.split.us.i
-  %180 = getelementptr inbounds i8, ptr %170, i64 8
-  br label %173
+  %162 = getelementptr inbounds i8, ptr %152, i64 8
+  br label %155
 
 .lr.ph49.split.i:                                 ; preds = %.loopexit40.i, %.lr.ph49.split.preheader.i
   %indvars.iv52.i = phi i64 [ 0, %.lr.ph49.split.preheader.i ], [ %indvars.iv.next53.i, %.loopexit40.i ]
-  %181 = icmp slt i64 %indvars.iv52.i, %166
-  %spec.select65.i = select i1 %181, i32 %164, i32 %160
-  %182 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv52.i, i32 2
-  store i32 %spec.select65.i, ptr %182, align 8
-  %183 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv52.i
-  %184 = getelementptr inbounds i8, ptr %183, i64 16
-  %185 = icmp sgt i32 %spec.select65.i, 0
-  br i1 %185, label %.lr.ph.i, label %.loopexit40.i
+  %163 = icmp slt i64 %indvars.iv52.i, %148
+  %spec.select65.i = select i1 %163, i32 %146, i32 %142
+  %164 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv52.i, i32 2
+  store i32 %spec.select65.i, ptr %164, align 8
+  %165 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv52.i
+  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %167 = icmp sgt i32 %spec.select65.i, 0
+  br i1 %167, label %.lr.ph.i, label %.loopexit40.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph49.split.i
-  %186 = getelementptr inbounds i8, ptr %183, i64 8
-  br label %187
+  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  br label %169
 
-187:                                              ; preds = %187, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %187 ]
-  %188 = mul nuw nsw i64 %indvars.iv.i, %165
-  %189 = add nuw nsw i64 %188, %indvars.iv52.i
-  %190 = load ptr, ptr %186, align 8
-  %191 = getelementptr inbounds i32, ptr %190, i64 %indvars.iv.i
-  %192 = trunc nuw i64 %189 to i32
-  store i32 %192, ptr %191, align 4
+169:                                              ; preds = %169, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %169 ]
+  %170 = mul nuw nsw i64 %indvars.iv.i, %147
+  %171 = add nuw nsw i64 %170, %indvars.iv52.i
+  %172 = load ptr, ptr %168, align 8
+  %173 = getelementptr inbounds i32, ptr %172, i64 %indvars.iv.i
+  %174 = trunc nuw i64 %171 to i32
+  store i32 %174, ptr %173, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %193 = load i32, ptr %184, align 8
-  %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next.i, %194
-  br i1 %195, label %187, label %.loopexit40.i, !llvm.loop !8
+  %175 = load i32, ptr %166, align 8
+  %176 = sext i32 %175 to i64
+  %177 = icmp slt i64 %indvars.iv.next.i, %176
+  br i1 %177, label %169, label %.loopexit40.i, !llvm.loop !8
 
-.loopexit40.i:                                    ; preds = %187, %.lr.ph49.split.i
+.loopexit40.i:                                    ; preds = %169, %.lr.ph49.split.i
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %165
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %147
   br i1 %exitcond.not.i, label %mca_common_ompio_forced_grouping.exit, label %.lr.ph49.split.i, !llvm.loop !7
 
 mca_common_ompio_forced_grouping.exit:            ; preds = %.loopexit40.i, %.loopexit.us.i
@@ -2831,11 +2813,11 @@ declare double @sqrt(double noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #9
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

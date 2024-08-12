@@ -397,7 +397,7 @@ define internal nonnull ptr @UnrollXYZDoubleTo16(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
-  %5 = alloca %struct.cmsCIELab, align 16
+  %5 = alloca %struct.cmsCIELab, align 8
   %6 = load i32, ptr %0, align 8
   %7 = and i32 %6, 4096
   %.not = icmp eq i32 %7, 0
@@ -410,46 +410,52 @@ define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %2, i64 %12
   %14 = load float, ptr %2, align 4
-  %15 = load float, ptr %10, align 4
-  %16 = insertelement <2 x float> poison, float %14, i64 0
-  %17 = insertelement <2 x float> %16, float %15, i64 1
-  %18 = fpext <2 x float> %17 to <2 x double>
-  store <2 x double> %18, ptr %5, align 16
+  %15 = fpext float %14 to double
+  store double %15, ptr %5, align 8
+  %16 = load float, ptr %10, align 4
+  %17 = fpext float %16 to double
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %17, ptr %18, align 8
   %19 = load float, ptr %13, align 4
   %20 = fpext float %19 to double
   %21 = getelementptr inbounds i8, ptr %5, i64 16
-  store double %20, ptr %21, align 16
+  store double %20, ptr %21, align 8
   call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %22 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %36
+  br label %40
 
 23:                                               ; preds = %4
-  %24 = load <2 x float>, ptr %2, align 4
-  %25 = fpext <2 x float> %24 to <2 x double>
-  store <2 x double> %25, ptr %5, align 16
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = load float, ptr %2, align 4
+  %25 = fpext float %24 to double
+  store double %25, ptr %5, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 4
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
-  store double %28, ptr %29, align 16
+  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = load float, ptr %30, align 4
+  %32 = fpext float %31 to double
+  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  store double %32, ptr %33, align 8
   call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
-  %30 = load i32, ptr %0, align 8
-  %31 = lshr i32 %30, 5
-  %32 = and i32 %31, 28
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %2, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 12
-  br label %36
+  %34 = load i32, ptr %0, align 8
+  %35 = lshr i32 %34, 5
+  %36 = and i32 %35, 28
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %2, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  br label %40
 
-36:                                               ; preds = %23, %8
-  %.0 = phi ptr [ %22, %8 ], [ %35, %23 ]
+40:                                               ; preds = %23, %8
+  %.0 = phi ptr [ %22, %8 ], [ %39, %23 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
-  %5 = alloca %struct.cmsCIEXYZ, align 16
-  %6 = alloca %struct.cmsCIEXYZ, align 16
+  %5 = alloca %struct.cmsCIEXYZ, align 8
+  %6 = alloca %struct.cmsCIEXYZ, align 8
   %7 = load i32, ptr %0, align 8
   %8 = and i32 %7, 4096
   %.not = icmp eq i32 %8, 0
@@ -462,39 +468,45 @@ define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %2, i64 %13
   %15 = load float, ptr %2, align 4
-  %16 = load float, ptr %11, align 4
-  %17 = insertelement <2 x float> poison, float %15, i64 0
-  %18 = insertelement <2 x float> %17, float %16, i64 1
-  %19 = fpext <2 x float> %18 to <2 x double>
-  store <2 x double> %19, ptr %5, align 16
+  %16 = fpext float %15 to double
+  store double %16, ptr %5, align 8
+  %17 = load float, ptr %11, align 4
+  %18 = fpext float %17 to double
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %18, ptr %19, align 8
   %20 = load float, ptr %14, align 4
   %21 = fpext float %20 to double
   %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store double %21, ptr %22, align 16
+  store double %21, ptr %22, align 8
   call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %23 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %37
+  br label %41
 
 24:                                               ; preds = %4
-  %25 = load <2 x float>, ptr %2, align 4
-  %26 = fpext <2 x float> %25 to <2 x double>
-  store <2 x double> %26, ptr %6, align 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = load float, ptr %2, align 4
+  %26 = fpext float %25 to double
+  store double %26, ptr %6, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 4
   %28 = load float, ptr %27, align 4
   %29 = fpext float %28 to double
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %29, ptr %30, align 16
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  store double %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load float, ptr %31, align 4
+  %33 = fpext float %32 to double
+  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %33, ptr %34, align 8
   call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %6) #9
-  %31 = load i32, ptr %0, align 8
-  %32 = lshr i32 %31, 5
-  %33 = and i32 %32, 28
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %2, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 12
-  br label %37
+  %35 = load i32, ptr %0, align 8
+  %36 = lshr i32 %35, 5
+  %37 = and i32 %36, 28
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %2, i64 %38
+  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  br label %41
 
-37:                                               ; preds = %24, %9
-  %.0 = phi ptr [ %23, %9 ], [ %36, %24 ]
+41:                                               ; preds = %24, %9
+  %.0 = phi ptr [ %23, %9 ], [ %40, %24 ]
   ret ptr %.0
 }
 
@@ -3344,11 +3356,12 @@ define internal nonnull ptr @UnrollLabV2_8ToFloat(ptr nocapture readnone %0, ptr
   %25 = uitofp i16 %18 to float
   %26 = fdiv float %25, 2.570000e+02
   %27 = fadd float %26, -1.280000e+02
-  %28 = fadd float %24, 1.280000e+02
-  %29 = insertelement <2 x float> poison, float %21, i64 0
-  %30 = insertelement <2 x float> %29, float %28, i64 1
-  %31 = fdiv <2 x float> %30, <float 1.000000e+02, float 2.550000e+02>
-  store <2 x float> %31, ptr %1, align 4
+  %28 = fdiv float %21, 1.000000e+02
+  store float %28, ptr %1, align 4
+  %29 = fadd float %24, 1.280000e+02
+  %30 = fdiv float %29, 2.550000e+02
+  %31 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %30, ptr %31, align 4
   %32 = fadd float %27, 1.280000e+02
   %33 = fdiv float %32, 2.550000e+02
   %34 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3382,11 +3395,12 @@ define internal nonnull ptr @UnrollALabV2_8ToFloat(ptr nocapture readnone %0, pt
   %26 = uitofp i16 %19 to float
   %27 = fdiv float %26, 2.570000e+02
   %28 = fadd float %27, -1.280000e+02
-  %29 = fadd float %25, 1.280000e+02
-  %30 = insertelement <2 x float> poison, float %22, i64 0
-  %31 = insertelement <2 x float> %30, float %29, i64 1
-  %32 = fdiv <2 x float> %31, <float 1.000000e+02, float 2.550000e+02>
-  store <2 x float> %32, ptr %1, align 4
+  %29 = fdiv float %22, 1.000000e+02
+  store float %29, ptr %1, align 4
+  %30 = fadd float %25, 1.280000e+02
+  %31 = fdiv float %30, 2.550000e+02
+  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %31, ptr %32, align 4
   %33 = fadd float %28, 1.280000e+02
   %34 = fdiv float %33, 2.550000e+02
   %35 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3416,11 +3430,12 @@ define internal nonnull ptr @UnrollLabV2_16ToFloat(ptr nocapture readnone %0, pt
   %22 = uitofp i16 %15 to float
   %23 = fdiv float %22, 2.570000e+02
   %24 = fadd float %23, -1.280000e+02
-  %25 = fadd float %21, 1.280000e+02
-  %26 = insertelement <2 x float> poison, float %18, i64 0
-  %27 = insertelement <2 x float> %26, float %25, i64 1
-  %28 = fdiv <2 x float> %27, <float 1.000000e+02, float 2.550000e+02>
-  store <2 x float> %28, ptr %1, align 4
+  %25 = fdiv float %18, 1.000000e+02
+  store float %25, ptr %1, align 4
+  %26 = fadd float %21, 1.280000e+02
+  %27 = fdiv float %26, 2.550000e+02
+  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %27, ptr %28, align 4
   %29 = fadd float %24, 1.280000e+02
   %30 = fdiv float %29, 2.550000e+02
   %31 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3798,7 +3813,7 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
-  %5 = alloca %struct.cmsCIELab, align 16
+  %5 = alloca %struct.cmsCIELab, align 8
   call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -3811,7 +3826,7 @@ define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %
   %11 = icmp eq i32 %10, 0
   %..i = select i1 %11, i32 8, i32 %10
   %12 = udiv i32 %3, %..i
-  %13 = load double, ptr %5, align 16
+  %13 = load double, ptr %5, align 8
   %14 = fptrunc double %13 to float
   store float %14, ptr %2, align 4
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3821,41 +3836,46 @@ define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %
   %19 = getelementptr inbounds float, ptr %2, i64 %18
   store float %17, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %5, i64 16
-  %21 = load double, ptr %20, align 16
+  %21 = load double, ptr %20, align 8
   %22 = fptrunc double %21 to float
   %23 = shl i32 %12, 1
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds float, ptr %2, i64 %24
   store float %22, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %40
+  br label %44
 
 27:                                               ; preds = %4
-  %28 = load <2 x double>, ptr %5, align 16
-  %29 = fptrunc <2 x double> %28 to <2 x float>
-  store <2 x float> %29, ptr %2, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
-  %31 = load double, ptr %30, align 16
+  %28 = load double, ptr %5, align 8
+  %29 = fptrunc double %28 to float
+  store float %29, ptr %2, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = load double, ptr %30, align 8
   %32 = fptrunc double %31 to float
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 4
   store float %32, ptr %33, align 4
-  %34 = load i32, ptr %6, align 4
-  %35 = lshr i32 %34, 5
-  %36 = and i32 %35, 28
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %2, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
-  br label %40
+  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %35 = load double, ptr %34, align 8
+  %36 = fptrunc double %35 to float
+  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %36, ptr %37, align 4
+  %38 = load i32, ptr %6, align 4
+  %39 = lshr i32 %38, 5
+  %40 = and i32 %39, 28
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %2, i64 %41
+  %43 = getelementptr inbounds i8, ptr %42, i64 12
+  br label %44
 
-40:                                               ; preds = %27, %9
-  %.0 = phi ptr [ %26, %9 ], [ %39, %27 ]
+44:                                               ; preds = %27, %9
+  %.0 = phi ptr [ %26, %9 ], [ %43, %27 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
-  %6 = alloca %struct.cmsCIEXYZ, align 16
+  %6 = alloca %struct.cmsCIEXYZ, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 4096
@@ -3886,28 +3906,33 @@ define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %
   %27 = getelementptr inbounds float, ptr %2, i64 %26
   store float %24, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %2, i64 4
-  br label %42
+  br label %46
 
 29:                                               ; preds = %4
   call void @cmsXYZEncoded2Float(ptr noundef nonnull %6, ptr noundef %1) #9
-  %30 = load <2 x double>, ptr %6, align 16
-  %31 = fptrunc <2 x double> %30 to <2 x float>
-  store <2 x float> %31, ptr %2, align 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
-  %33 = load double, ptr %32, align 16
+  %30 = load double, ptr %6, align 8
+  %31 = fptrunc double %30 to float
+  store float %31, ptr %2, align 4
+  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = load double, ptr %32, align 8
   %34 = fptrunc double %33 to float
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 4
   store float %34, ptr %35, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = lshr i32 %36, 5
-  %38 = and i32 %37, 28
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %2, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 12
-  br label %42
+  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = load double, ptr %36, align 8
+  %38 = fptrunc double %37 to float
+  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %38, ptr %39, align 4
+  %40 = load i32, ptr %7, align 4
+  %41 = lshr i32 %40, 5
+  %42 = and i32 %41, 28
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %2, i64 %43
+  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  br label %46
 
-42:                                               ; preds = %29, %10
-  %.0 = phi ptr [ %28, %10 ], [ %41, %29 ]
+46:                                               ; preds = %29, %10
+  %.0 = phi ptr [ %28, %10 ], [ %45, %29 ]
   ret ptr %.0
 }
 
@@ -6571,134 +6596,150 @@ define internal nonnull ptr @PackEncodedBytesLabV2FromFloat(ptr nocapture nounde
   %9 = fmul double %8, 1.000000e+02
   store double %9, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load <2 x float>, ptr %10, align 4
-  %13 = fpext <2 x float> %12 to <2 x double>
-  %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %13, <2 x double> <double 2.550000e+02, double 2.550000e+02>, <2 x double> <double -1.280000e+02, double -1.280000e+02>)
-  store <2 x double> %14, ptr %11, align 8
+  %11 = load float, ptr %10, align 4
+  %12 = fpext float %11 to double
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double 2.550000e+02, double -1.280000e+02)
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = fpext float %16 to double
+  %18 = tail call double @llvm.fmuladd.f64(double %17, double 2.550000e+02, double -1.280000e+02)
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  store double %18, ptr %19, align 8
   call void @cmsFloat2LabEncoded(ptr noundef nonnull %6, ptr noundef nonnull %5) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 4096
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %39, label %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 4096
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %44, label %23
 
-18:                                               ; preds = %4
-  %19 = and i32 %16, 7
-  %20 = icmp eq i32 %19, 0
-  %..i = select i1 %20, i32 8, i32 %19
-  %21 = udiv i32 %3, %..i
-  %22 = load i16, ptr %6, align 2
-  %23 = lshr i16 %22, 8
-  %24 = trunc nuw i16 %23 to i8
-  store i8 %24, ptr %2, align 1
-  %25 = getelementptr inbounds i8, ptr %6, i64 2
-  %26 = load i16, ptr %25, align 2
-  %27 = lshr i16 %26, 8
-  %28 = trunc nuw i16 %27 to i8
-  %29 = zext i32 %21 to i64
-  %30 = getelementptr inbounds i8, ptr %2, i64 %29
-  store i8 %28, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %6, i64 4
-  %32 = load i16, ptr %31, align 2
-  %33 = lshr i16 %32, 8
-  %34 = trunc nuw i16 %33 to i8
-  %35 = shl i32 %21, 1
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %2, i64 %36
-  store i8 %34, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %2, i64 1
-  br label %59
+23:                                               ; preds = %4
+  %24 = and i32 %21, 7
+  %25 = icmp eq i32 %24, 0
+  %..i = select i1 %25, i32 8, i32 %24
+  %26 = udiv i32 %3, %..i
+  %27 = load i16, ptr %6, align 2
+  %28 = lshr i16 %27, 8
+  %29 = trunc nuw i16 %28 to i8
+  store i8 %29, ptr %2, align 1
+  %30 = getelementptr inbounds i8, ptr %6, i64 2
+  %31 = load i16, ptr %30, align 2
+  %32 = lshr i16 %31, 8
+  %33 = trunc nuw i16 %32 to i8
+  %34 = zext i32 %26 to i64
+  %35 = getelementptr inbounds i8, ptr %2, i64 %34
+  store i8 %33, ptr %35, align 1
+  %36 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = load i16, ptr %36, align 2
+  %38 = lshr i16 %37, 8
+  %39 = trunc nuw i16 %38 to i8
+  %40 = shl i32 %26, 1
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %2, i64 %41
+  store i8 %39, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %2, i64 1
+  br label %64
 
-39:                                               ; preds = %4
-  %40 = load i16, ptr %6, align 2
-  %41 = lshr i16 %40, 8
-  %42 = trunc nuw i16 %41 to i8
-  store i8 %42, ptr %2, align 1
-  %43 = getelementptr inbounds i8, ptr %6, i64 2
-  %44 = load i16, ptr %43, align 2
-  %45 = lshr i16 %44, 8
-  %46 = trunc nuw i16 %45 to i8
-  %47 = getelementptr inbounds i8, ptr %2, i64 1
-  store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+44:                                               ; preds = %4
+  %45 = load i16, ptr %6, align 2
+  %46 = lshr i16 %45, 8
+  %47 = trunc nuw i16 %46 to i8
+  store i8 %47, ptr %2, align 1
+  %48 = getelementptr inbounds i8, ptr %6, i64 2
   %49 = load i16, ptr %48, align 2
   %50 = lshr i16 %49, 8
   %51 = trunc nuw i16 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %2, i64 2
+  %52 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 %51, ptr %52, align 1
-  %53 = load i32, ptr %15, align 4
-  %54 = lshr i32 %53, 7
-  %55 = and i32 %54, 7
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %2, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 3
-  br label %59
+  %53 = getelementptr inbounds i8, ptr %6, i64 4
+  %54 = load i16, ptr %53, align 2
+  %55 = lshr i16 %54, 8
+  %56 = trunc nuw i16 %55 to i8
+  %57 = getelementptr inbounds i8, ptr %2, i64 2
+  store i8 %56, ptr %57, align 1
+  %58 = load i32, ptr %20, align 4
+  %59 = lshr i32 %58, 7
+  %60 = and i32 %59, 7
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %2, i64 %61
+  %63 = getelementptr inbounds i8, ptr %62, i64 3
+  br label %64
 
-59:                                               ; preds = %39, %18
-  %.0 = phi ptr [ %38, %18 ], [ %58, %39 ]
+64:                                               ; preds = %44, %23
+  %.0 = phi ptr [ %43, %23 ], [ %63, %44 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
-  %6 = alloca [3 x i16], align 4
+  %6 = alloca [3 x i16], align 2
   %7 = load float, ptr %1, align 4
   %8 = fpext float %7 to double
   %9 = fmul double %8, 1.000000e+02
   store double %9, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load <2 x float>, ptr %10, align 4
-  %13 = fpext <2 x float> %12 to <2 x double>
-  %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %13, <2 x double> <double 2.550000e+02, double 2.550000e+02>, <2 x double> <double -1.280000e+02, double -1.280000e+02>)
-  store <2 x double> %14, ptr %11, align 8
+  %11 = load float, ptr %10, align 4
+  %12 = fpext float %11 to double
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double 2.550000e+02, double -1.280000e+02)
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = fpext float %16 to double
+  %18 = tail call double @llvm.fmuladd.f64(double %17, double 2.550000e+02, double -1.280000e+02)
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  store double %18, ptr %19, align 8
   call void @cmsFloat2LabEncodedV2(ptr noundef nonnull %6, ptr noundef nonnull %5) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 4096
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %33, label %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 4096
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %38, label %23
 
-18:                                               ; preds = %4
-  %19 = and i32 %16, 7
-  %20 = icmp eq i32 %19, 0
-  %..i = select i1 %20, i32 8, i32 %19
-  %21 = udiv i32 %3, %..i
-  %22 = load i16, ptr %6, align 4
-  store i16 %22, ptr %2, align 2
-  %23 = getelementptr inbounds i8, ptr %6, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds i16, ptr %2, i64 %25
-  store i16 %24, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %6, i64 4
-  %28 = load i16, ptr %27, align 4
-  %29 = shl i32 %21, 1
-  %30 = zext i32 %29 to i64
+23:                                               ; preds = %4
+  %24 = and i32 %21, 7
+  %25 = icmp eq i32 %24, 0
+  %..i = select i1 %25, i32 8, i32 %24
+  %26 = udiv i32 %3, %..i
+  %27 = load i16, ptr %6, align 2
+  store i16 %27, ptr %2, align 2
+  %28 = getelementptr inbounds i8, ptr %6, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = zext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %2, i64 %30
-  store i16 %28, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %2, i64 2
-  br label %44
+  store i16 %29, ptr %31, align 2
+  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = load i16, ptr %32, align 2
+  %34 = shl i32 %26, 1
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds i16, ptr %2, i64 %35
+  store i16 %33, ptr %36, align 2
+  %37 = getelementptr inbounds i8, ptr %2, i64 2
+  br label %52
 
-33:                                               ; preds = %4
-  %34 = load <2 x i16>, ptr %6, align 4
-  store <2 x i16> %34, ptr %2, align 2
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
-  %36 = load i16, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
-  store i16 %36, ptr %37, align 2
-  %38 = load i32, ptr %15, align 4
-  %39 = lshr i32 %38, 6
-  %40 = and i32 %39, 14
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %2, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 6
-  br label %44
+38:                                               ; preds = %4
+  %39 = load i16, ptr %6, align 2
+  store i16 %39, ptr %2, align 2
+  %40 = getelementptr inbounds i8, ptr %6, i64 2
+  %41 = load i16, ptr %40, align 2
+  %42 = getelementptr inbounds i8, ptr %2, i64 2
+  store i16 %41, ptr %42, align 2
+  %43 = getelementptr inbounds i8, ptr %6, i64 4
+  %44 = load i16, ptr %43, align 2
+  %45 = getelementptr inbounds i8, ptr %2, i64 4
+  store i16 %44, ptr %45, align 2
+  %46 = load i32, ptr %20, align 4
+  %47 = lshr i32 %46, 6
+  %48 = and i32 %47, 14
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %2, i64 %49
+  %51 = getelementptr inbounds i8, ptr %50, i64 6
+  br label %52
 
-44:                                               ; preds = %33, %18
-  %.0 = phi ptr [ %32, %18 ], [ %43, %33 ]
+52:                                               ; preds = %38, %23
+  %.0 = phi ptr [ %37, %23 ], [ %51, %38 ]
   ret ptr %.0
 }
 
@@ -7627,9 +7668,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

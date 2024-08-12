@@ -425,7 +425,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   br label %.preheader118
 
 .preheader118:                                    ; preds = %.preheader118.lr.ph, %._crit_edge
-  %8 = phi i32 [ %5, %.preheader118.lr.ph ], [ %43, %._crit_edge ]
+  %8 = phi i32 [ %5, %.preheader118.lr.ph ], [ %46, %._crit_edge ]
   %.084127 = phi i32 [ 0, %.preheader118.lr.ph ], [ %spec.select106, %._crit_edge ]
   %.085126 = phi i32 [ 0, %.preheader118.lr.ph ], [ %spec.select, %._crit_edge ]
   %.090125 = phi i32 [ 0, %.preheader118.lr.ph ], [ %.191.lcssa, %._crit_edge ]
@@ -460,7 +460,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   br label %._crit_edge
 
 .critedge.preheader:                              ; preds = %._crit_edge, %2
-  %27 = phi i32 [ %5, %2 ], [ %43, %._crit_edge ]
+  %27 = phi i32 [ %5, %2 ], [ %46, %._crit_edge ]
   %.085.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %._crit_edge ]
   %.084.lcssa = phi i32 [ 0, %2 ], [ %spec.select106, %._crit_edge ]
   %.not103149 = icmp sgt i32 %.085.lcssa, %27
@@ -481,220 +481,228 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %38 = getelementptr inbounds i8, ptr %3, i64 12
   %39 = getelementptr inbounds i8, ptr %3, i64 16
   %40 = getelementptr inbounds i8, ptr %3, i64 13
-  %41 = getelementptr inbounds i8, ptr %3, i64 14
-  %42 = getelementptr inbounds i8, ptr %3, i64 15
+  %41 = getelementptr inbounds i8, ptr %3, i64 17
+  %42 = getelementptr inbounds i8, ptr %3, i64 14
+  %43 = getelementptr inbounds i8, ptr %3, i64 18
+  %44 = getelementptr inbounds i8, ptr %3, i64 15
+  %45 = getelementptr inbounds i8, ptr %3, i64 19
   %scevgep189 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %48
+  br label %51
 
 ._crit_edge:                                      ; preds = %.preheader117.lr.ph, %.preheader118
-  %43 = phi i32 [ %8, %.preheader118 ], [ %.pre, %.preheader117.lr.ph ]
+  %46 = phi i32 [ %8, %.preheader118 ], [ %.pre, %.preheader117.lr.ph ]
   %.191.lcssa = phi i32 [ %.090125, %.preheader118 ], [ %25, %.preheader117.lr.ph ]
   %.1.lcssa = phi i32 [ %.084127, %.preheader118 ], [ %26, %.preheader117.lr.ph ]
-  %44 = icmp eq i32 %.1.lcssa, 4
-  %45 = zext i1 %44 to i32
-  %spec.select = add nuw nsw i32 %.085126, %45
-  %spec.select106 = select i1 %44, i32 0, i32 %.1.lcssa
-  %46 = icmp sge i32 %.191.lcssa, %6
-  %.not = icmp sgt i32 %spec.select, %43
-  %or.cond = select i1 %46, i1 true, i1 %.not
+  %47 = icmp eq i32 %.1.lcssa, 4
+  %48 = zext i1 %47 to i32
+  %spec.select = add nuw nsw i32 %.085126, %48
+  %spec.select106 = select i1 %47, i32 0, i32 %.1.lcssa
+  %49 = icmp sge i32 %.191.lcssa, %6
+  %.not = icmp sgt i32 %spec.select, %46
+  %or.cond = select i1 %49, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge.preheader, label %.preheader118, !llvm.loop !13
 
 .critedge.loopexit:                               ; preds = %._crit_edge139, %.loopexit
-  %47 = phi i32 [ %49, %.loopexit ], [ %144, %._crit_edge139 ]
+  %50 = phi i32 [ %52, %.loopexit ], [ %149, %._crit_edge139 ]
   %.388.lcssa = phi i32 [ %.287151, %.loopexit ], [ %spec.select108, %._crit_edge139 ]
   %.4.lcssa = phi i32 [ %.3152, %.loopexit ], [ %spec.select109, %._crit_edge139 ]
-  %.not103 = icmp sgt i32 %.388.lcssa, %47
-  br i1 %.not103, label %.critedge._crit_edge, label %48, !llvm.loop !14
+  %.not103 = icmp sgt i32 %.388.lcssa, %50
+  br i1 %.not103, label %.critedge._crit_edge, label %51, !llvm.loop !14
 
-48:                                               ; preds = %.lr.ph, %.critedge.loopexit
-  %49 = phi i32 [ %27, %.lr.ph ], [ %47, %.critedge.loopexit ]
+51:                                               ; preds = %.lr.ph, %.critedge.loopexit
+  %52 = phi i32 [ %27, %.lr.ph ], [ %50, %.critedge.loopexit ]
   %indvars.iv196 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next197, %.critedge.loopexit ]
   %.3152 = phi i32 [ %.084.lcssa, %.lr.ph ], [ %.4.lcssa, %.critedge.loopexit ]
   %.287151 = phi i32 [ %.085.lcssa, %.lr.ph ], [ %.388.lcssa, %.critedge.loopexit ]
-  %50 = load i8, ptr %31, align 1
-  %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = load i8, ptr %3, align 16
-  %55 = xor i8 %54, %53
-  store i8 %55, ptr %3, align 16
-  %56 = load i8, ptr %32, align 2
-  %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = load i8, ptr %33, align 1
-  %61 = xor i8 %60, %59
-  store i8 %61, ptr %33, align 1
-  %62 = load i8, ptr %34, align 1
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = load i8, ptr %35, align 2
-  %67 = xor i8 %66, %65
-  store i8 %67, ptr %35, align 2
-  %68 = load i8, ptr %30, align 4
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1
-  %72 = load i8, ptr %36, align 1
-  %73 = xor i8 %72, %71
-  store i8 %73, ptr %36, align 1
+  %53 = load i8, ptr %31, align 1
+  %54 = zext i8 %53 to i64
+  %55 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %54
+  %56 = load i8, ptr %55, align 1
+  %57 = load i8, ptr %3, align 16
+  %58 = xor i8 %57, %56
+  store i8 %58, ptr %3, align 16
+  %59 = load i8, ptr %32, align 2
+  %60 = zext i8 %59 to i64
+  %61 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = load i8, ptr %33, align 1
+  %64 = xor i8 %63, %62
+  store i8 %64, ptr %33, align 1
+  %65 = load i8, ptr %34, align 1
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %66
+  %68 = load i8, ptr %67, align 1
+  %69 = load i8, ptr %35, align 2
+  %70 = xor i8 %69, %68
+  store i8 %70, ptr %35, align 2
+  %71 = load i8, ptr %30, align 4
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %72
+  %74 = load i8, ptr %73, align 1
+  %75 = load i8, ptr %36, align 1
+  %76 = xor i8 %75, %74
+  store i8 %76, ptr %36, align 1
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %74 = getelementptr inbounds [10 x i8], ptr @_ZL4rcon, i64 0, i64 %indvars.iv196
-  %75 = load i8, ptr %74, align 1
-  %76 = xor i8 %75, %55
-  store i8 %76, ptr %3, align 16
+  %77 = getelementptr inbounds [10 x i8], ptr @_ZL4rcon, i64 0, i64 %indvars.iv196
+  %78 = load i8, ptr %77, align 1
+  %79 = xor i8 %78, %58
+  store i8 %79, ptr %3, align 16
   br i1 %.not104, label %.preheader112, label %.preheader115
 
-.preheader115:                                    ; preds = %48
+.preheader115:                                    ; preds = %51
   br i1 %37, label %.preheader113, label %.loopexit
 
-.preheader113:                                    ; preds = %.preheader115, %84
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %84 ], [ 1, %.preheader115 ]
-  %77 = add nsw i64 %indvars.iv165, -1
-  br label %78
+.preheader113:                                    ; preds = %.preheader115, %87
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %87 ], [ 1, %.preheader115 ]
+  %80 = add nsw i64 %indvars.iv165, -1
+  br label %81
 
-78:                                               ; preds = %.preheader113, %78
-  %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %78 ]
-  %79 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %77, i64 %indvars.iv
-  %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv165, i64 %indvars.iv
-  %82 = load i8, ptr %81, align 1
-  %83 = xor i8 %82, %80
-  store i8 %83, ptr %81, align 1
+81:                                               ; preds = %.preheader113, %81
+  %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %81 ]
+  %82 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %80, i64 %indvars.iv
+  %83 = load i8, ptr %82, align 1
+  %84 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv165, i64 %indvars.iv
+  %85 = load i8, ptr %84, align 1
+  %86 = xor i8 %85, %83
+  store i8 %86, ptr %84, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %84, label %78, !llvm.loop !15
+  br i1 %exitcond.not, label %87, label %81, !llvm.loop !15
 
-84:                                               ; preds = %78
+87:                                               ; preds = %81
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
   br i1 %exitcond168.not, label %.loopexit, label %.preheader113, !llvm.loop !16
 
-.preheader112:                                    ; preds = %48, %92
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %92 ], [ 1, %48 ]
-  %85 = add nsw i64 %indvars.iv173, -1
-  br label %86
+.preheader112:                                    ; preds = %51, %95
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %95 ], [ 1, %51 ]
+  %88 = add nsw i64 %indvars.iv173, -1
+  br label %89
 
-86:                                               ; preds = %.preheader112, %86
-  %indvars.iv169 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next170, %86 ]
-  %87 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %85, i64 %indvars.iv169
-  %88 = load i8, ptr %87, align 1
-  %89 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv173, i64 %indvars.iv169
-  %90 = load i8, ptr %89, align 1
-  %91 = xor i8 %90, %88
-  store i8 %91, ptr %89, align 1
+89:                                               ; preds = %.preheader112, %89
+  %indvars.iv169 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next170, %89 ]
+  %90 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %88, i64 %indvars.iv169
+  %91 = load i8, ptr %90, align 1
+  %92 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv173, i64 %indvars.iv169
+  %93 = load i8, ptr %92, align 1
+  %94 = xor i8 %93, %91
+  store i8 %94, ptr %92, align 1
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 4
-  br i1 %exitcond172.not, label %92, label %86, !llvm.loop !17
+  br i1 %exitcond172.not, label %95, label %89, !llvm.loop !17
 
-92:                                               ; preds = %86
+95:                                               ; preds = %89
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 4
-  br i1 %exitcond176.not, label %93, label %.preheader112, !llvm.loop !18
+  br i1 %exitcond176.not, label %96, label %.preheader112, !llvm.loop !18
 
-93:                                               ; preds = %92
-  %94 = load i8, ptr %38, align 4
-  %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = load i8, ptr %40, align 1
-  %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %99
-  %101 = load i8, ptr %100, align 1
-  %102 = load i8, ptr %41, align 2
-  %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %103
-  %105 = load i8, ptr %104, align 1
-  %106 = load i8, ptr %42, align 1
-  %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %107
-  %109 = load i8, ptr %108, align 1
-  %110 = load <4 x i8>, ptr %39, align 16
-  %111 = insertelement <4 x i8> poison, i8 %97, i64 0
-  %112 = insertelement <4 x i8> %111, i8 %101, i64 1
-  %113 = insertelement <4 x i8> %112, i8 %105, i64 2
-  %114 = insertelement <4 x i8> %113, i8 %109, i64 3
-  %115 = xor <4 x i8> %110, %114
-  store <4 x i8> %115, ptr %39, align 16
+96:                                               ; preds = %95
+  %97 = load i8, ptr %38, align 4
+  %98 = zext i8 %97 to i64
+  %99 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %98
+  %100 = load i8, ptr %99, align 1
+  %101 = load i8, ptr %39, align 16
+  %102 = xor i8 %101, %100
+  store i8 %102, ptr %39, align 16
+  %103 = load i8, ptr %40, align 1
+  %104 = zext i8 %103 to i64
+  %105 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %104
+  %106 = load i8, ptr %105, align 1
+  %107 = load i8, ptr %41, align 1
+  %108 = xor i8 %107, %106
+  store i8 %108, ptr %41, align 1
+  %109 = load i8, ptr %42, align 2
+  %110 = zext i8 %109 to i64
+  %111 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %110
+  %112 = load i8, ptr %111, align 1
+  %113 = load i8, ptr %43, align 2
+  %114 = xor i8 %113, %112
+  store i8 %114, ptr %43, align 2
+  %115 = load i8, ptr %44, align 1
+  %116 = zext i8 %115 to i64
+  %117 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %116
+  %118 = load i8, ptr %117, align 1
+  %119 = load i8, ptr %45, align 1
+  %120 = xor i8 %119, %118
+  store i8 %120, ptr %45, align 1
   br label %.preheader111
 
-.preheader111:                                    ; preds = %93, %123
-  %indvars.iv181 = phi i64 [ 5, %93 ], [ %indvars.iv.next182, %123 ]
-  %116 = add nsw i64 %indvars.iv181, -1
-  br label %117
+.preheader111:                                    ; preds = %96, %128
+  %indvars.iv181 = phi i64 [ 5, %96 ], [ %indvars.iv.next182, %128 ]
+  %121 = add nsw i64 %indvars.iv181, -1
+  br label %122
 
-117:                                              ; preds = %.preheader111, %117
-  %indvars.iv177 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next178, %117 ]
-  %118 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %116, i64 %indvars.iv177
-  %119 = load i8, ptr %118, align 1
-  %120 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv181, i64 %indvars.iv177
-  %121 = load i8, ptr %120, align 1
-  %122 = xor i8 %121, %119
-  store i8 %122, ptr %120, align 1
+122:                                              ; preds = %.preheader111, %122
+  %indvars.iv177 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next178, %122 ]
+  %123 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %121, i64 %indvars.iv177
+  %124 = load i8, ptr %123, align 1
+  %125 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv181, i64 %indvars.iv177
+  %126 = load i8, ptr %125, align 1
+  %127 = xor i8 %126, %124
+  store i8 %127, ptr %125, align 1
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 4
-  br i1 %exitcond180.not, label %123, label %117, !llvm.loop !19
+  br i1 %exitcond180.not, label %128, label %122, !llvm.loop !19
 
-123:                                              ; preds = %117
+128:                                              ; preds = %122
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 8
   br i1 %exitcond184.not, label %.loopexit, label %.preheader111, !llvm.loop !20
 
-.loopexit:                                        ; preds = %84, %123, %.preheader115
-  %.not105142 = icmp sgt i32 %.287151, %49
+.loopexit:                                        ; preds = %87, %128, %.preheader115
+  %.not105142 = icmp sgt i32 %.287151, %52
   %or.cond107143 = or i1 %7, %.not105142
   br i1 %or.cond107143, label %.critedge.loopexit, label %.preheader110
 
 .preheader110:                                    ; preds = %.loopexit, %._crit_edge139
-  %124 = phi i32 [ %144, %._crit_edge139 ], [ %49, %.loopexit ]
-  %125 = phi i32 [ %145, %._crit_edge139 ], [ %49, %.loopexit ]
+  %129 = phi i32 [ %149, %._crit_edge139 ], [ %52, %.loopexit ]
+  %130 = phi i32 [ %150, %._crit_edge139 ], [ %52, %.loopexit ]
   %.4146 = phi i32 [ %spec.select109, %._crit_edge139 ], [ %.3152, %.loopexit ]
   %.388145 = phi i32 [ %spec.select108, %._crit_edge139 ], [ %.287151, %.loopexit ]
   %.595144 = phi i32 [ %.696.lcssa, %._crit_edge139 ], [ 0, %.loopexit ]
-  %126 = icmp slt i32 %.4146, 4
-  br i1 %126, label %.preheader.lr.ph, label %._crit_edge139
+  %131 = icmp slt i32 %.4146, 4
+  br i1 %131, label %.preheader.lr.ph, label %._crit_edge139
 
 .preheader.lr.ph:                                 ; preds = %.preheader110
-  %127 = sext i32 %.388145 to i64
-  %128 = shl nsw i64 %127, 4
-  %129 = sext i32 %.4146 to i64
-  %130 = shl nsw i64 %129, 2
-  %131 = sext i32 %.595144 to i64
-  %132 = shl nsw i64 %131, 2
-  %133 = getelementptr i8, ptr %scevgep189, i64 %128
-  %scevgep190 = getelementptr i8, ptr %133, i64 %130
-  %scevgep191 = getelementptr i8, ptr %3, i64 %132
-  %134 = add nsw i32 %.595144, 1
-  %smax192 = tail call i32 @llvm.smax.i32(i32 %6, i32 %134)
-  %135 = xor i32 %.595144, -1
-  %136 = add i32 %smax192, %135
-  %137 = sub i32 3, %.4146
-  %138 = tail call i32 @llvm.umin.i32(i32 %136, i32 %137)
-  %umin193 = zext i32 %138 to i64
-  %139 = shl nuw nsw i64 %umin193, 2
-  %140 = add nuw nsw i64 %139, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep190, ptr noundef nonnull align 4 dereferenceable(1) %scevgep191, i64 %140, i1 false)
-  %umin195 = tail call i32 @llvm.umin.i32(i32 %136, i32 %137)
-  %141 = add nsw i32 %.4146, 1
-  %142 = add i32 %134, %umin195
-  %143 = add i32 %141, %umin195
+  %132 = sext i32 %.388145 to i64
+  %133 = shl nsw i64 %132, 4
+  %134 = sext i32 %.4146 to i64
+  %135 = shl nsw i64 %134, 2
+  %136 = sext i32 %.595144 to i64
+  %137 = shl nsw i64 %136, 2
+  %138 = getelementptr i8, ptr %scevgep189, i64 %133
+  %scevgep190 = getelementptr i8, ptr %138, i64 %135
+  %scevgep191 = getelementptr i8, ptr %3, i64 %137
+  %139 = add nsw i32 %.595144, 1
+  %smax192 = tail call i32 @llvm.smax.i32(i32 %6, i32 %139)
+  %140 = xor i32 %.595144, -1
+  %141 = add i32 %smax192, %140
+  %142 = sub i32 3, %.4146
+  %143 = tail call i32 @llvm.umin.i32(i32 %141, i32 %142)
+  %umin193 = zext i32 %143 to i64
+  %144 = shl nuw nsw i64 %umin193, 2
+  %145 = add nuw nsw i64 %144, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep190, ptr noundef nonnull align 4 dereferenceable(1) %scevgep191, i64 %145, i1 false)
+  %umin195 = tail call i32 @llvm.umin.i32(i32 %141, i32 %142)
+  %146 = add nsw i32 %.4146, 1
+  %147 = add i32 %139, %umin195
+  %148 = add i32 %146, %umin195
   %.pre199 = load i32, ptr %4, align 4
   br label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %.preheader.lr.ph, %.preheader110
-  %144 = phi i32 [ %124, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
-  %145 = phi i32 [ %125, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
-  %.696.lcssa = phi i32 [ %.595144, %.preheader110 ], [ %142, %.preheader.lr.ph ]
-  %.5.lcssa = phi i32 [ %.4146, %.preheader110 ], [ %143, %.preheader.lr.ph ]
-  %146 = icmp eq i32 %.5.lcssa, 4
-  %147 = zext i1 %146 to i32
-  %spec.select108 = add nsw i32 %.388145, %147
-  %spec.select109 = select i1 %146, i32 0, i32 %.5.lcssa
-  %148 = icmp sge i32 %.696.lcssa, %6
-  %.not105 = icmp sgt i32 %spec.select108, %145
-  %or.cond107 = select i1 %148, i1 true, i1 %.not105
+  %149 = phi i32 [ %129, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
+  %150 = phi i32 [ %130, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
+  %.696.lcssa = phi i32 [ %.595144, %.preheader110 ], [ %147, %.preheader.lr.ph ]
+  %.5.lcssa = phi i32 [ %.4146, %.preheader110 ], [ %148, %.preheader.lr.ph ]
+  %151 = icmp eq i32 %.5.lcssa, 4
+  %152 = zext i1 %151 to i32
+  %spec.select108 = add nsw i32 %.388145, %152
+  %spec.select109 = select i1 %151, i32 0, i32 %.5.lcssa
+  %153 = icmp sge i32 %.696.lcssa, %6
+  %.not105 = icmp sgt i32 %spec.select108, %150
+  %or.cond107 = select i1 %153, i1 true, i1 %.not105
   br i1 %or.cond107, label %.critedge.loopexit, label %.preheader110, !llvm.loop !21
 
 .critedge._crit_edge:                             ; preds = %.critedge.loopexit, %.critedge.preheader
@@ -772,7 +780,7 @@ define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 align 2 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %314, label %6
+  br i1 %5, label %330, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -793,416 +801,436 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   br label %14
 
 14:                                               ; preds = %.lr.ph148, %._crit_edge
-  %.043146 = phi i64 [ %8, %.lr.ph148 ], [ %303, %._crit_edge ]
+  %.043146 = phi i64 [ %8, %.lr.ph148 ], [ %319, %._crit_edge ]
   %.044145 = phi ptr [ %7, %.lr.ph148 ], [ %.046143, %._crit_edge ]
-  %.045144 = phi ptr [ %1, %.lr.ph148 ], [ %302, %._crit_edge ]
-  %.046143 = phi ptr [ %3, %.lr.ph148 ], [ %301, %._crit_edge ]
+  %.045144 = phi ptr [ %1, %.lr.ph148 ], [ %318, %._crit_edge ]
+  %.046143 = phi ptr [ %3, %.lr.ph148 ], [ %317, %._crit_edge ]
   %15 = load i8, ptr %0, align 4
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %36
 
 17:                                               ; preds = %14
-  %18 = load <4 x i32>, ptr %.044145, align 4
-  %19 = load <4 x i32>, ptr %.045144, align 4
-  %20 = xor <4 x i32> %19, %18
-  br label %23
+  %18 = load i32, ptr %.044145, align 4
+  %19 = load i32, ptr %.045144, align 4
+  %20 = xor i32 %19, %18
+  %21 = getelementptr inbounds i8, ptr %.044145, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %.045144, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = xor i32 %24, %22
+  %26 = getelementptr inbounds i8, ptr %.044145, i64 8
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %.045144, i64 8
+  %29 = load i32, ptr %28, align 4
+  %30 = xor i32 %29, %27
+  %31 = getelementptr inbounds i8, ptr %.044145, i64 12
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %.045144, i64 12
+  %34 = load i32, ptr %33, align 4
+  %35 = xor i32 %34, %32
+  br label %44
 
-21:                                               ; preds = %14
-  %22 = load <4 x i32>, ptr %.045144, align 4
-  br label %23
+36:                                               ; preds = %14
+  %37 = load i32, ptr %.045144, align 4
+  %38 = getelementptr inbounds i8, ptr %.045144, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %.045144, i64 8
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %.045144, i64 12
+  %43 = load i32, ptr %42, align 4
+  br label %44
 
-23:                                               ; preds = %21, %17
-  %24 = phi <4 x i32> [ %20, %17 ], [ %22, %21 ]
-  %25 = load i32, ptr %9, align 4
-  %26 = extractelement <4 x i32> %24, i64 0
-  %27 = xor i32 %25, %26
-  %.sroa.6.0.extract.shift = lshr i32 %27, 8
-  %.sroa.9.0.extract.shift = lshr i32 %27, 16
-  %.sroa.12.0.extract.shift = lshr i32 %27, 24
+44:                                               ; preds = %36, %17
+  %.sroa.9139.0 = phi i32 [ %35, %17 ], [ %43, %36 ]
+  %.sroa.6138.0 = phi i32 [ %30, %17 ], [ %41, %36 ]
+  %.sroa.3.0 = phi i32 [ %25, %17 ], [ %39, %36 ]
+  %.sroa.0137.0 = phi i32 [ %20, %17 ], [ %37, %36 ]
+  %45 = load i32, ptr %9, align 4
+  %46 = xor i32 %45, %.sroa.0137.0
+  %.sroa.6.0.extract.shift = lshr i32 %46, 8
+  %.sroa.9.0.extract.shift = lshr i32 %46, 16
+  %.sroa.12.0.extract.shift = lshr i32 %46, 24
   %.sroa.12.0.extract.trunc = zext nneg i32 %.sroa.12.0.extract.shift to i64
-  %28 = load i32, ptr %10, align 4
-  %29 = extractelement <4 x i32> %24, i64 1
-  %30 = xor i32 %28, %29
-  %.sroa.21.4.extract.shift = lshr i32 %30, 8
-  %.sroa.24.4.extract.shift = lshr i32 %30, 16
-  %.sroa.27.4.extract.shift = lshr i32 %30, 24
+  %47 = load i32, ptr %10, align 4
+  %48 = xor i32 %47, %.sroa.3.0
+  %.sroa.21.4.extract.shift = lshr i32 %48, 8
+  %.sroa.24.4.extract.shift = lshr i32 %48, 16
+  %.sroa.27.4.extract.shift = lshr i32 %48, 24
   %.sroa.27.4.extract.trunc = zext nneg i32 %.sroa.27.4.extract.shift to i64
-  %31 = load i32, ptr %11, align 4
-  %32 = extractelement <4 x i32> %24, i64 2
-  %33 = xor i32 %31, %32
-  %.sroa.36.8.extract.shift = lshr i32 %33, 8
-  %.sroa.39.8.extract.shift = lshr i32 %33, 16
-  %.sroa.42.8.extract.shift = lshr i32 %33, 24
+  %49 = load i32, ptr %11, align 4
+  %50 = xor i32 %49, %.sroa.6138.0
+  %.sroa.36.8.extract.shift = lshr i32 %50, 8
+  %.sroa.39.8.extract.shift = lshr i32 %50, 16
+  %.sroa.42.8.extract.shift = lshr i32 %50, 24
   %.sroa.42.8.extract.trunc = zext nneg i32 %.sroa.42.8.extract.shift to i64
-  %34 = load i32, ptr %12, align 4
-  %35 = extractelement <4 x i32> %24, i64 3
-  %36 = xor i32 %34, %35
-  %.sroa.51.12.extract.shift = lshr i32 %36, 8
-  %.sroa.54.12.extract.shift = lshr i32 %36, 16
-  %.sroa.57.12.extract.shift = lshr i32 %36, 24
+  %51 = load i32, ptr %12, align 4
+  %52 = xor i32 %51, %.sroa.9139.0
+  %.sroa.51.12.extract.shift = lshr i32 %52, 8
+  %.sroa.54.12.extract.shift = lshr i32 %52, 16
+  %.sroa.57.12.extract.shift = lshr i32 %52, 24
   %.sroa.57.12.extract.trunc = zext nneg i32 %.sroa.57.12.extract.shift to i64
-  %37 = and i32 %27, 255
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %38
-  %40 = and i32 %.sroa.21.4.extract.shift, 255
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %41
-  %43 = and i32 %.sroa.39.8.extract.shift, 255
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %44
-  %46 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc
-  %47 = load i32, ptr %39, align 4
-  %48 = load i32, ptr %42, align 4
-  %49 = xor i32 %48, %47
-  %50 = load i32, ptr %45, align 4
-  %51 = xor i32 %49, %50
-  %52 = load i32, ptr %46, align 4
-  %53 = xor i32 %51, %52
-  store i32 %53, ptr %.046143, align 4
-  %54 = getelementptr inbounds i8, ptr %.046143, i64 4
-  %55 = and i32 %30, 255
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %56
-  %58 = and i32 %.sroa.36.8.extract.shift, 255
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %59
-  %61 = and i32 %.sroa.54.12.extract.shift, 255
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %62
-  %64 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc
-  %65 = load i32, ptr %57, align 4
-  %66 = load i32, ptr %60, align 4
-  %67 = xor i32 %66, %65
-  %68 = load i32, ptr %63, align 4
+  %53 = and i32 %46, 255
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %54
+  %56 = and i32 %.sroa.21.4.extract.shift, 255
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %57
+  %59 = and i32 %.sroa.39.8.extract.shift, 255
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %60
+  %62 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc
+  %63 = load i32, ptr %55, align 4
+  %64 = load i32, ptr %58, align 4
+  %65 = xor i32 %64, %63
+  %66 = load i32, ptr %61, align 4
+  %67 = xor i32 %65, %66
+  %68 = load i32, ptr %62, align 4
   %69 = xor i32 %67, %68
-  %70 = load i32, ptr %64, align 4
-  %71 = xor i32 %69, %70
-  store i32 %71, ptr %54, align 4
-  %72 = getelementptr inbounds i8, ptr %.046143, i64 8
-  %73 = and i32 %33, 255
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %74
-  %76 = and i32 %.sroa.51.12.extract.shift, 255
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %77
-  %79 = and i32 %.sroa.9.0.extract.shift, 255
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %80
-  %82 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc
-  %83 = load i32, ptr %75, align 4
-  %84 = load i32, ptr %78, align 4
-  %85 = xor i32 %84, %83
-  %86 = load i32, ptr %81, align 4
+  store i32 %69, ptr %.046143, align 4
+  %70 = getelementptr inbounds i8, ptr %.046143, i64 4
+  %71 = and i32 %48, 255
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %72
+  %74 = and i32 %.sroa.36.8.extract.shift, 255
+  %75 = zext nneg i32 %74 to i64
+  %76 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %75
+  %77 = and i32 %.sroa.54.12.extract.shift, 255
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %78
+  %80 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc
+  %81 = load i32, ptr %73, align 4
+  %82 = load i32, ptr %76, align 4
+  %83 = xor i32 %82, %81
+  %84 = load i32, ptr %79, align 4
+  %85 = xor i32 %83, %84
+  %86 = load i32, ptr %80, align 4
   %87 = xor i32 %85, %86
-  %88 = load i32, ptr %82, align 4
-  %89 = xor i32 %87, %88
-  store i32 %89, ptr %72, align 4
-  %90 = getelementptr inbounds i8, ptr %.046143, i64 12
-  %91 = and i32 %36, 255
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %92
-  %94 = and i32 %.sroa.6.0.extract.shift, 255
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %95
-  %97 = and i32 %.sroa.24.4.extract.shift, 255
-  %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %98
-  %100 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc
-  %101 = load i32, ptr %93, align 4
-  %102 = load i32, ptr %96, align 4
-  %103 = xor i32 %102, %101
-  %104 = load i32, ptr %99, align 4
+  store i32 %87, ptr %70, align 4
+  %88 = getelementptr inbounds i8, ptr %.046143, i64 8
+  %89 = and i32 %50, 255
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %90
+  %92 = and i32 %.sroa.51.12.extract.shift, 255
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %93
+  %95 = and i32 %.sroa.9.0.extract.shift, 255
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %96
+  %98 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc
+  %99 = load i32, ptr %91, align 4
+  %100 = load i32, ptr %94, align 4
+  %101 = xor i32 %100, %99
+  %102 = load i32, ptr %97, align 4
+  %103 = xor i32 %101, %102
+  %104 = load i32, ptr %98, align 4
   %105 = xor i32 %103, %104
-  %106 = load i32, ptr %100, align 4
-  %107 = xor i32 %105, %106
-  store i32 %107, ptr %90, align 4
-  %108 = load i32, ptr %13, align 4
-  %109 = icmp sgt i32 %108, 2
-  br i1 %109, label %.lr.ph, label %.._crit_edge_crit_edge
+  store i32 %105, ptr %88, align 4
+  %106 = getelementptr inbounds i8, ptr %.046143, i64 12
+  %107 = and i32 %52, 255
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %108
+  %110 = and i32 %.sroa.6.0.extract.shift, 255
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %111
+  %113 = and i32 %.sroa.24.4.extract.shift, 255
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %114
+  %116 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc
+  %117 = load i32, ptr %109, align 4
+  %118 = load i32, ptr %112, align 4
+  %119 = xor i32 %118, %117
+  %120 = load i32, ptr %115, align 4
+  %121 = xor i32 %119, %120
+  %122 = load i32, ptr %116, align 4
+  %123 = xor i32 %121, %122
+  store i32 %123, ptr %106, align 4
+  %124 = load i32, ptr %13, align 4
+  %125 = icmp sgt i32 %124, 2
+  br i1 %125, label %.lr.ph, label %.._crit_edge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %23
-  %110 = add nsw i32 %108, -1
-  %.pre153 = sext i32 %110 to i64
+.._crit_edge_crit_edge:                           ; preds = %44
+  %126 = add nsw i32 %124, -1
+  %.pre153 = sext i32 %126 to i64
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %23, %.lr.ph
-  %111 = phi i32 [ %194, %.lr.ph ], [ %107, %23 ]
-  %112 = phi i32 [ %177, %.lr.ph ], [ %89, %23 ]
-  %113 = phi i32 [ %160, %.lr.ph ], [ %71, %23 ]
-  %114 = phi i32 [ %143, %.lr.ph ], [ %53, %23 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %23 ]
-  %115 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv
-  %116 = load i32, ptr %115, align 4
-  %117 = xor i32 %116, %114
-  %.sroa.6.0.extract.shift53 = lshr i32 %117, 8
-  %.sroa.9.0.extract.shift59 = lshr i32 %117, 16
-  %.sroa.12.0.extract.shift65 = lshr i32 %117, 24
+.lr.ph:                                           ; preds = %44, %.lr.ph
+  %127 = phi i32 [ %210, %.lr.ph ], [ %123, %44 ]
+  %128 = phi i32 [ %193, %.lr.ph ], [ %105, %44 ]
+  %129 = phi i32 [ %176, %.lr.ph ], [ %87, %44 ]
+  %130 = phi i32 [ %159, %.lr.ph ], [ %69, %44 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %44 ]
+  %131 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv
+  %132 = load i32, ptr %131, align 4
+  %133 = xor i32 %132, %130
+  %.sroa.6.0.extract.shift53 = lshr i32 %133, 8
+  %.sroa.9.0.extract.shift59 = lshr i32 %133, 16
+  %.sroa.12.0.extract.shift65 = lshr i32 %133, 24
   %.sroa.12.0.extract.trunc66 = zext nneg i32 %.sroa.12.0.extract.shift65 to i64
-  %118 = getelementptr inbounds i8, ptr %115, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = xor i32 %119, %113
-  %.sroa.21.4.extract.shift75 = lshr i32 %120, 8
-  %.sroa.24.4.extract.shift81 = lshr i32 %120, 16
-  %.sroa.27.4.extract.shift87 = lshr i32 %120, 24
+  %134 = getelementptr inbounds i8, ptr %131, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = xor i32 %135, %129
+  %.sroa.21.4.extract.shift75 = lshr i32 %136, 8
+  %.sroa.24.4.extract.shift81 = lshr i32 %136, 16
+  %.sroa.27.4.extract.shift87 = lshr i32 %136, 24
   %.sroa.27.4.extract.trunc88 = zext nneg i32 %.sroa.27.4.extract.shift87 to i64
-  %121 = getelementptr inbounds i8, ptr %115, i64 8
-  %122 = load i32, ptr %121, align 4
-  %123 = xor i32 %122, %112
-  %.sroa.36.8.extract.shift97 = lshr i32 %123, 8
-  %.sroa.39.8.extract.shift103 = lshr i32 %123, 16
-  %.sroa.42.8.extract.shift109 = lshr i32 %123, 24
+  %137 = getelementptr inbounds i8, ptr %131, i64 8
+  %138 = load i32, ptr %137, align 4
+  %139 = xor i32 %138, %128
+  %.sroa.36.8.extract.shift97 = lshr i32 %139, 8
+  %.sroa.39.8.extract.shift103 = lshr i32 %139, 16
+  %.sroa.42.8.extract.shift109 = lshr i32 %139, 24
   %.sroa.42.8.extract.trunc110 = zext nneg i32 %.sroa.42.8.extract.shift109 to i64
-  %124 = getelementptr inbounds i8, ptr %115, i64 12
-  %125 = load i32, ptr %124, align 4
-  %126 = xor i32 %125, %111
-  %.sroa.51.12.extract.shift119 = lshr i32 %126, 8
-  %.sroa.54.12.extract.shift125 = lshr i32 %126, 16
-  %.sroa.57.12.extract.shift131 = lshr i32 %126, 24
+  %140 = getelementptr inbounds i8, ptr %131, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = xor i32 %141, %127
+  %.sroa.51.12.extract.shift119 = lshr i32 %142, 8
+  %.sroa.54.12.extract.shift125 = lshr i32 %142, 16
+  %.sroa.57.12.extract.shift131 = lshr i32 %142, 24
   %.sroa.57.12.extract.trunc132 = zext nneg i32 %.sroa.57.12.extract.shift131 to i64
-  %127 = and i32 %117, 255
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %128
-  %130 = and i32 %.sroa.21.4.extract.shift75, 255
-  %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %131
-  %133 = and i32 %.sroa.39.8.extract.shift103, 255
-  %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %134
-  %136 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc132
-  %137 = load i32, ptr %129, align 4
-  %138 = load i32, ptr %132, align 4
-  %139 = xor i32 %138, %137
-  %140 = load i32, ptr %135, align 4
-  %141 = xor i32 %139, %140
-  %142 = load i32, ptr %136, align 4
-  %143 = xor i32 %141, %142
-  store i32 %143, ptr %.046143, align 4
-  %144 = and i32 %120, 255
-  %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %145
-  %147 = and i32 %.sroa.36.8.extract.shift97, 255
-  %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %148
-  %150 = and i32 %.sroa.54.12.extract.shift125, 255
-  %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %151
-  %153 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc66
-  %154 = load i32, ptr %146, align 4
-  %155 = load i32, ptr %149, align 4
-  %156 = xor i32 %155, %154
-  %157 = load i32, ptr %152, align 4
-  %158 = xor i32 %156, %157
-  %159 = load i32, ptr %153, align 4
-  %160 = xor i32 %158, %159
-  store i32 %160, ptr %54, align 4
-  %161 = and i32 %123, 255
-  %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %162
-  %164 = and i32 %.sroa.51.12.extract.shift119, 255
-  %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %165
-  %167 = and i32 %.sroa.9.0.extract.shift59, 255
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %168
-  %170 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc88
-  %171 = load i32, ptr %163, align 4
-  %172 = load i32, ptr %166, align 4
-  %173 = xor i32 %172, %171
-  %174 = load i32, ptr %169, align 4
-  %175 = xor i32 %173, %174
-  %176 = load i32, ptr %170, align 4
-  %177 = xor i32 %175, %176
-  store i32 %177, ptr %72, align 4
-  %178 = and i32 %126, 255
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %179
-  %181 = and i32 %.sroa.6.0.extract.shift53, 255
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %182
-  %184 = and i32 %.sroa.24.4.extract.shift81, 255
-  %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %185
-  %187 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc110
-  %188 = load i32, ptr %180, align 4
-  %189 = load i32, ptr %183, align 4
-  %190 = xor i32 %189, %188
-  %191 = load i32, ptr %186, align 4
-  %192 = xor i32 %190, %191
-  %193 = load i32, ptr %187, align 4
-  %194 = xor i32 %192, %193
-  store i32 %194, ptr %90, align 4
+  %143 = and i32 %133, 255
+  %144 = zext nneg i32 %143 to i64
+  %145 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %144
+  %146 = and i32 %.sroa.21.4.extract.shift75, 255
+  %147 = zext nneg i32 %146 to i64
+  %148 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %147
+  %149 = and i32 %.sroa.39.8.extract.shift103, 255
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %150
+  %152 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc132
+  %153 = load i32, ptr %145, align 4
+  %154 = load i32, ptr %148, align 4
+  %155 = xor i32 %154, %153
+  %156 = load i32, ptr %151, align 4
+  %157 = xor i32 %155, %156
+  %158 = load i32, ptr %152, align 4
+  %159 = xor i32 %157, %158
+  store i32 %159, ptr %.046143, align 4
+  %160 = and i32 %136, 255
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %161
+  %163 = and i32 %.sroa.36.8.extract.shift97, 255
+  %164 = zext nneg i32 %163 to i64
+  %165 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %164
+  %166 = and i32 %.sroa.54.12.extract.shift125, 255
+  %167 = zext nneg i32 %166 to i64
+  %168 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %167
+  %169 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc66
+  %170 = load i32, ptr %162, align 4
+  %171 = load i32, ptr %165, align 4
+  %172 = xor i32 %171, %170
+  %173 = load i32, ptr %168, align 4
+  %174 = xor i32 %172, %173
+  %175 = load i32, ptr %169, align 4
+  %176 = xor i32 %174, %175
+  store i32 %176, ptr %70, align 4
+  %177 = and i32 %139, 255
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %178
+  %180 = and i32 %.sroa.51.12.extract.shift119, 255
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %181
+  %183 = and i32 %.sroa.9.0.extract.shift59, 255
+  %184 = zext nneg i32 %183 to i64
+  %185 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %184
+  %186 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc88
+  %187 = load i32, ptr %179, align 4
+  %188 = load i32, ptr %182, align 4
+  %189 = xor i32 %188, %187
+  %190 = load i32, ptr %185, align 4
+  %191 = xor i32 %189, %190
+  %192 = load i32, ptr %186, align 4
+  %193 = xor i32 %191, %192
+  store i32 %193, ptr %88, align 4
+  %194 = and i32 %142, 255
+  %195 = zext nneg i32 %194 to i64
+  %196 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %195
+  %197 = and i32 %.sroa.6.0.extract.shift53, 255
+  %198 = zext nneg i32 %197 to i64
+  %199 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %198
+  %200 = and i32 %.sroa.24.4.extract.shift81, 255
+  %201 = zext nneg i32 %200 to i64
+  %202 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %201
+  %203 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc110
+  %204 = load i32, ptr %196, align 4
+  %205 = load i32, ptr %199, align 4
+  %206 = xor i32 %205, %204
+  %207 = load i32, ptr %202, align 4
+  %208 = xor i32 %206, %207
+  %209 = load i32, ptr %203, align 4
+  %210 = xor i32 %208, %209
+  store i32 %210, ptr %106, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %195 = load i32, ptr %13, align 4
-  %196 = add nsw i32 %195, -1
-  %197 = sext i32 %196 to i64
-  %198 = icmp slt i64 %indvars.iv.next, %197
-  br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %211 = load i32, ptr %13, align 4
+  %212 = add nsw i32 %211, -1
+  %213 = sext i32 %212 to i64
+  %214 = icmp slt i64 %indvars.iv.next, %213
+  br i1 %214, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre153, %.._crit_edge_crit_edge ], [ %197, %.lr.ph ]
-  %199 = phi i32 [ %107, %.._crit_edge_crit_edge ], [ %194, %.lr.ph ]
-  %200 = phi i32 [ %89, %.._crit_edge_crit_edge ], [ %177, %.lr.ph ]
-  %201 = phi i32 [ %71, %.._crit_edge_crit_edge ], [ %160, %.lr.ph ]
-  %202 = phi i32 [ %53, %.._crit_edge_crit_edge ], [ %143, %.lr.ph ]
-  %203 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %.pre-phi
-  %204 = load i32, ptr %203, align 4
-  %205 = xor i32 %204, %202
-  %.sroa.6.0.extract.shift55 = lshr i32 %205, 8
-  %.sroa.9.0.extract.shift61 = lshr i32 %205, 16
-  %.sroa.12.0.extract.shift67 = lshr i32 %205, 24
+  %.pre-phi = phi i64 [ %.pre153, %.._crit_edge_crit_edge ], [ %213, %.lr.ph ]
+  %215 = phi i32 [ %123, %.._crit_edge_crit_edge ], [ %210, %.lr.ph ]
+  %216 = phi i32 [ %105, %.._crit_edge_crit_edge ], [ %193, %.lr.ph ]
+  %217 = phi i32 [ %87, %.._crit_edge_crit_edge ], [ %176, %.lr.ph ]
+  %218 = phi i32 [ %69, %.._crit_edge_crit_edge ], [ %159, %.lr.ph ]
+  %219 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %.pre-phi
+  %220 = load i32, ptr %219, align 4
+  %221 = xor i32 %220, %218
+  %.sroa.6.0.extract.shift55 = lshr i32 %221, 8
+  %.sroa.9.0.extract.shift61 = lshr i32 %221, 16
+  %.sroa.12.0.extract.shift67 = lshr i32 %221, 24
   %.sroa.12.0.extract.trunc68 = zext nneg i32 %.sroa.12.0.extract.shift67 to i64
-  %206 = getelementptr inbounds i8, ptr %203, i64 4
-  %207 = load i32, ptr %206, align 4
-  %208 = xor i32 %207, %201
-  %.sroa.21.4.extract.shift77 = lshr i32 %208, 8
-  %.sroa.24.4.extract.shift83 = lshr i32 %208, 16
-  %.sroa.27.4.extract.shift89 = lshr i32 %208, 24
+  %222 = getelementptr inbounds i8, ptr %219, i64 4
+  %223 = load i32, ptr %222, align 4
+  %224 = xor i32 %223, %217
+  %.sroa.21.4.extract.shift77 = lshr i32 %224, 8
+  %.sroa.24.4.extract.shift83 = lshr i32 %224, 16
+  %.sroa.27.4.extract.shift89 = lshr i32 %224, 24
   %.sroa.27.4.extract.trunc90 = zext nneg i32 %.sroa.27.4.extract.shift89 to i64
-  %209 = getelementptr inbounds i8, ptr %203, i64 8
-  %210 = load i32, ptr %209, align 4
-  %211 = xor i32 %210, %200
-  %.sroa.36.8.extract.shift99 = lshr i32 %211, 8
-  %.sroa.39.8.extract.shift105 = lshr i32 %211, 16
-  %.sroa.42.8.extract.shift111 = lshr i32 %211, 24
+  %225 = getelementptr inbounds i8, ptr %219, i64 8
+  %226 = load i32, ptr %225, align 4
+  %227 = xor i32 %226, %216
+  %.sroa.36.8.extract.shift99 = lshr i32 %227, 8
+  %.sroa.39.8.extract.shift105 = lshr i32 %227, 16
+  %.sroa.42.8.extract.shift111 = lshr i32 %227, 24
   %.sroa.42.8.extract.trunc112 = zext nneg i32 %.sroa.42.8.extract.shift111 to i64
-  %212 = getelementptr inbounds i8, ptr %203, i64 12
-  %213 = load i32, ptr %212, align 4
-  %214 = xor i32 %213, %199
-  %.sroa.51.12.extract.shift121 = lshr i32 %214, 8
-  %.sroa.54.12.extract.shift127 = lshr i32 %214, 16
-  %.sroa.57.12.extract.shift133 = lshr i32 %214, 24
+  %228 = getelementptr inbounds i8, ptr %219, i64 12
+  %229 = load i32, ptr %228, align 4
+  %230 = xor i32 %229, %215
+  %.sroa.51.12.extract.shift121 = lshr i32 %230, 8
+  %.sroa.54.12.extract.shift127 = lshr i32 %230, 16
+  %.sroa.57.12.extract.shift133 = lshr i32 %230, 24
   %.sroa.57.12.extract.trunc134 = zext nneg i32 %.sroa.57.12.extract.shift133 to i64
-  %215 = and i32 %205, 255
-  %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %216, i64 1
-  %218 = load i8, ptr %217, align 1
-  store i8 %218, ptr %.046143, align 1
-  %219 = and i32 %.sroa.21.4.extract.shift77, 255
-  %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %220, i64 1
-  %222 = load i8, ptr %221, align 1
-  %223 = getelementptr inbounds i8, ptr %.046143, i64 1
-  store i8 %222, ptr %223, align 1
-  %224 = and i32 %.sroa.39.8.extract.shift105, 255
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %225, i64 1
-  %227 = load i8, ptr %226, align 1
-  %228 = getelementptr inbounds i8, ptr %.046143, i64 2
-  store i8 %227, ptr %228, align 1
-  %229 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.57.12.extract.trunc134, i64 1
-  %230 = load i8, ptr %229, align 1
-  %231 = getelementptr inbounds i8, ptr %.046143, i64 3
-  store i8 %230, ptr %231, align 1
-  %232 = and i32 %208, 255
-  %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %233, i64 1
-  %235 = load i8, ptr %234, align 1
-  store i8 %235, ptr %54, align 1
-  %236 = and i32 %.sroa.36.8.extract.shift99, 255
-  %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %237, i64 1
-  %239 = load i8, ptr %238, align 1
-  %240 = getelementptr inbounds i8, ptr %.046143, i64 5
-  store i8 %239, ptr %240, align 1
-  %241 = and i32 %.sroa.54.12.extract.shift127, 255
-  %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %242, i64 1
-  %244 = load i8, ptr %243, align 1
-  %245 = getelementptr inbounds i8, ptr %.046143, i64 6
-  store i8 %244, ptr %245, align 1
-  %246 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.12.0.extract.trunc68, i64 1
-  %247 = load i8, ptr %246, align 1
-  %248 = getelementptr inbounds i8, ptr %.046143, i64 7
-  store i8 %247, ptr %248, align 1
-  %249 = and i32 %211, 255
-  %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %250, i64 1
-  %252 = load i8, ptr %251, align 1
-  store i8 %252, ptr %72, align 1
-  %253 = and i32 %.sroa.51.12.extract.shift121, 255
-  %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %254, i64 1
-  %256 = load i8, ptr %255, align 1
-  %257 = getelementptr inbounds i8, ptr %.046143, i64 9
-  store i8 %256, ptr %257, align 1
-  %258 = and i32 %.sroa.9.0.extract.shift61, 255
-  %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %259, i64 1
-  %261 = load i8, ptr %260, align 1
-  %262 = getelementptr inbounds i8, ptr %.046143, i64 10
-  store i8 %261, ptr %262, align 1
-  %263 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.27.4.extract.trunc90, i64 1
-  %264 = load i8, ptr %263, align 1
-  %265 = getelementptr inbounds i8, ptr %.046143, i64 11
-  store i8 %264, ptr %265, align 1
-  %266 = and i32 %214, 255
-  %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %267, i64 1
-  %269 = load i8, ptr %268, align 1
-  store i8 %269, ptr %90, align 1
-  %270 = and i32 %.sroa.6.0.extract.shift55, 255
-  %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %271, i64 1
-  %273 = load i8, ptr %272, align 1
-  %274 = getelementptr inbounds i8, ptr %.046143, i64 13
-  store i8 %273, ptr %274, align 1
-  %275 = and i32 %.sroa.24.4.extract.shift83, 255
-  %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %276, i64 1
-  %278 = load i8, ptr %277, align 1
-  %279 = getelementptr inbounds i8, ptr %.046143, i64 14
-  store i8 %278, ptr %279, align 1
-  %280 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.42.8.extract.trunc112, i64 1
-  %281 = load i8, ptr %280, align 1
-  %282 = getelementptr inbounds i8, ptr %.046143, i64 15
-  store i8 %281, ptr %282, align 1
-  %283 = load i32, ptr %13, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %284
-  %286 = load i32, ptr %.046143, align 4
-  %287 = load i32, ptr %285, align 4
-  %288 = xor i32 %287, %286
-  store i32 %288, ptr %.046143, align 4
-  %289 = load i32, ptr %54, align 4
-  %290 = getelementptr inbounds i8, ptr %285, i64 4
-  %291 = load i32, ptr %290, align 4
-  %292 = xor i32 %291, %289
-  store i32 %292, ptr %54, align 4
-  %293 = load i32, ptr %72, align 4
-  %294 = getelementptr inbounds i8, ptr %285, i64 8
-  %295 = load i32, ptr %294, align 4
-  %296 = xor i32 %295, %293
-  store i32 %296, ptr %72, align 4
-  %297 = load i32, ptr %90, align 4
-  %298 = getelementptr inbounds i8, ptr %285, i64 12
-  %299 = load i32, ptr %298, align 4
-  %300 = xor i32 %299, %297
-  store i32 %300, ptr %90, align 4
-  %301 = getelementptr inbounds i8, ptr %.046143, i64 16
-  %302 = getelementptr inbounds i8, ptr %.045144, i64 16
-  %303 = add nsw i64 %.043146, -1
-  %.not = icmp eq i64 %303, 0
+  %231 = and i32 %221, 255
+  %232 = zext nneg i32 %231 to i64
+  %233 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %232, i64 1
+  %234 = load i8, ptr %233, align 1
+  store i8 %234, ptr %.046143, align 1
+  %235 = and i32 %.sroa.21.4.extract.shift77, 255
+  %236 = zext nneg i32 %235 to i64
+  %237 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %236, i64 1
+  %238 = load i8, ptr %237, align 1
+  %239 = getelementptr inbounds i8, ptr %.046143, i64 1
+  store i8 %238, ptr %239, align 1
+  %240 = and i32 %.sroa.39.8.extract.shift105, 255
+  %241 = zext nneg i32 %240 to i64
+  %242 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %241, i64 1
+  %243 = load i8, ptr %242, align 1
+  %244 = getelementptr inbounds i8, ptr %.046143, i64 2
+  store i8 %243, ptr %244, align 1
+  %245 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.57.12.extract.trunc134, i64 1
+  %246 = load i8, ptr %245, align 1
+  %247 = getelementptr inbounds i8, ptr %.046143, i64 3
+  store i8 %246, ptr %247, align 1
+  %248 = and i32 %224, 255
+  %249 = zext nneg i32 %248 to i64
+  %250 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %249, i64 1
+  %251 = load i8, ptr %250, align 1
+  store i8 %251, ptr %70, align 1
+  %252 = and i32 %.sroa.36.8.extract.shift99, 255
+  %253 = zext nneg i32 %252 to i64
+  %254 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %253, i64 1
+  %255 = load i8, ptr %254, align 1
+  %256 = getelementptr inbounds i8, ptr %.046143, i64 5
+  store i8 %255, ptr %256, align 1
+  %257 = and i32 %.sroa.54.12.extract.shift127, 255
+  %258 = zext nneg i32 %257 to i64
+  %259 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %258, i64 1
+  %260 = load i8, ptr %259, align 1
+  %261 = getelementptr inbounds i8, ptr %.046143, i64 6
+  store i8 %260, ptr %261, align 1
+  %262 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.12.0.extract.trunc68, i64 1
+  %263 = load i8, ptr %262, align 1
+  %264 = getelementptr inbounds i8, ptr %.046143, i64 7
+  store i8 %263, ptr %264, align 1
+  %265 = and i32 %227, 255
+  %266 = zext nneg i32 %265 to i64
+  %267 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %266, i64 1
+  %268 = load i8, ptr %267, align 1
+  store i8 %268, ptr %88, align 1
+  %269 = and i32 %.sroa.51.12.extract.shift121, 255
+  %270 = zext nneg i32 %269 to i64
+  %271 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %270, i64 1
+  %272 = load i8, ptr %271, align 1
+  %273 = getelementptr inbounds i8, ptr %.046143, i64 9
+  store i8 %272, ptr %273, align 1
+  %274 = and i32 %.sroa.9.0.extract.shift61, 255
+  %275 = zext nneg i32 %274 to i64
+  %276 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %275, i64 1
+  %277 = load i8, ptr %276, align 1
+  %278 = getelementptr inbounds i8, ptr %.046143, i64 10
+  store i8 %277, ptr %278, align 1
+  %279 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.27.4.extract.trunc90, i64 1
+  %280 = load i8, ptr %279, align 1
+  %281 = getelementptr inbounds i8, ptr %.046143, i64 11
+  store i8 %280, ptr %281, align 1
+  %282 = and i32 %230, 255
+  %283 = zext nneg i32 %282 to i64
+  %284 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %283, i64 1
+  %285 = load i8, ptr %284, align 1
+  store i8 %285, ptr %106, align 1
+  %286 = and i32 %.sroa.6.0.extract.shift55, 255
+  %287 = zext nneg i32 %286 to i64
+  %288 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %287, i64 1
+  %289 = load i8, ptr %288, align 1
+  %290 = getelementptr inbounds i8, ptr %.046143, i64 13
+  store i8 %289, ptr %290, align 1
+  %291 = and i32 %.sroa.24.4.extract.shift83, 255
+  %292 = zext nneg i32 %291 to i64
+  %293 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %292, i64 1
+  %294 = load i8, ptr %293, align 1
+  %295 = getelementptr inbounds i8, ptr %.046143, i64 14
+  store i8 %294, ptr %295, align 1
+  %296 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.42.8.extract.trunc112, i64 1
+  %297 = load i8, ptr %296, align 1
+  %298 = getelementptr inbounds i8, ptr %.046143, i64 15
+  store i8 %297, ptr %298, align 1
+  %299 = load i32, ptr %13, align 4
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %300
+  %302 = load i32, ptr %.046143, align 4
+  %303 = load i32, ptr %301, align 4
+  %304 = xor i32 %303, %302
+  store i32 %304, ptr %.046143, align 4
+  %305 = load i32, ptr %70, align 4
+  %306 = getelementptr inbounds i8, ptr %301, i64 4
+  %307 = load i32, ptr %306, align 4
+  %308 = xor i32 %307, %305
+  store i32 %308, ptr %70, align 4
+  %309 = load i32, ptr %88, align 4
+  %310 = getelementptr inbounds i8, ptr %301, i64 8
+  %311 = load i32, ptr %310, align 4
+  %312 = xor i32 %311, %309
+  store i32 %312, ptr %88, align 4
+  %313 = load i32, ptr %106, align 4
+  %314 = getelementptr inbounds i8, ptr %301, i64 12
+  %315 = load i32, ptr %314, align 4
+  %316 = xor i32 %315, %313
+  store i32 %316, ptr %106, align 4
+  %317 = getelementptr inbounds i8, ptr %.046143, i64 16
+  %318 = getelementptr inbounds i8, ptr %.045144, i64 16
+  %319 = add nsw i64 %.043146, -1
+  %.not = icmp eq i64 %319, 0
   br i1 %.not, label %._crit_edge149, label %14, !llvm.loop !23
 
 ._crit_edge149:                                   ; preds = %._crit_edge, %.._crit_edge149_crit_edge
-  %304 = phi i32 [ %.pre, %.._crit_edge149_crit_edge ], [ %288, %._crit_edge ]
+  %320 = phi i32 [ %.pre, %.._crit_edge149_crit_edge ], [ %304, %._crit_edge ]
   %.044.lcssa = phi ptr [ %7, %.._crit_edge149_crit_edge ], [ %.046143, %._crit_edge ]
-  store i32 %304, ptr %7, align 4
-  %305 = getelementptr inbounds i8, ptr %.044.lcssa, i64 4
-  %306 = load i32, ptr %305, align 4
-  %307 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %306, ptr %307, align 4
-  %308 = getelementptr inbounds i8, ptr %.044.lcssa, i64 8
-  %309 = load i32, ptr %308, align 4
-  %310 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %309, ptr %310, align 4
-  %311 = getelementptr inbounds i8, ptr %.044.lcssa, i64 12
-  %312 = load i32, ptr %311, align 4
-  %313 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %312, ptr %313, align 4
-  br label %314
+  store i32 %320, ptr %7, align 4
+  %321 = getelementptr inbounds i8, ptr %.044.lcssa, i64 4
+  %322 = load i32, ptr %321, align 4
+  %323 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %322, ptr %323, align 4
+  %324 = getelementptr inbounds i8, ptr %.044.lcssa, i64 8
+  %325 = load i32, ptr %324, align 4
+  %326 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %325, ptr %326, align 4
+  %327 = getelementptr inbounds i8, ptr %.044.lcssa, i64 12
+  %328 = load i32, ptr %327, align 4
+  %329 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %328, ptr %329, align 4
+  br label %330
 
-314:                                              ; preds = %4, %._crit_edge149
+330:                                              ; preds = %4, %._crit_edge149
   ret void
 }
 

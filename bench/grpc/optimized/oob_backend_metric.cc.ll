@@ -2346,9 +2346,13 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %if.the
   %producer_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %3, ptr %producer_.i, align 8
   %backend_metric_data_.i = getelementptr inbounds i8, ptr %call, i64 16
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %backend_metric_data_.i, align 8
+  store double -1.000000e+00, ptr %backend_metric_data_.i, align 8
+  %mem_utilization.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double -1.000000e+00, ptr %mem_utilization.i.i, align 8
   %application_utilization.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %application_utilization.i.i, align 8
+  store double -1.000000e+00, ptr %application_utilization.i.i, align 8
+  %qps.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double -1.000000e+00, ptr %qps.i.i, align 8
   %eps.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store double -1.000000e+00, ptr %eps.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %call, i64 64

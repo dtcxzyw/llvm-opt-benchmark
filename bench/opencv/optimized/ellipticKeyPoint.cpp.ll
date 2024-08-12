@@ -53,18 +53,26 @@ define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2ENS_6Point_IfEEfNS_5Size_Ii
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 -1, ptr %5, align 8
+  store float 0.000000e+00, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 0.000000e+00, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store float 0.000000e+00, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  store float -1.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store float 0.000000e+00, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 -1, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv11xfeatures2d17Elliptic_KeyPointE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
-  store <2 x float> zeroinitializer, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store float 0.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   ret void
 }
 

@@ -269,11 +269,11 @@ declare void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6spacer28lemma_quantifier_generalizer15find_candidatesEP4exprR10ref_vectorI3app11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %candidates) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__comp.i.i19.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 16
-  %__comp.i20.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 16
+  %__comp.i.i19.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
+  %__comp.i20.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %__comp.i.i7.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
-  %__comp.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 16
-  %__comp.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 16
+  %__comp.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
+  %__comp.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %tmp.i.i = alloca ptr, align 8
   %indices = alloca %class.ref_vector.51, align 8
   %extra = alloca %class.ref_vector.51, align 8
@@ -663,9 +663,10 @@ if.then.i.i65:                                    ; preds = %invoke.cont51
 
 if.then.i.i.i67:                                  ; preds = %.noexc69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i.i.i.i)
-  store ptr %47, ptr %__comp.i.i.i.i, align 16
+  store ptr %47, ptr %__comp.i.i.i.i, align 8
   %51 = getelementptr inbounds i8, ptr %__comp.i.i.i.i, i64 8
   store ptr %49, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %__comp.i.i.i.i.i, i64 8
   %scevgep.i.i.i = getelementptr i8, ptr %44, i64 8
   br label %for.body.i.i.i.i
 
@@ -682,15 +683,17 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i
   br i1 %call.i.i.i.i.i70, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.noexc
-  %52 = load ptr, ptr %__i.015.i.ptr.i.i.i, align 8
+  %53 = load ptr, ptr %__i.015.i.ptr.i.i.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %__i.015.i.idx.i.i.i, i1 false)
-  store ptr %52, ptr %44, align 8
+  store ptr %53, ptr %44, align 8
   br label %for.inc.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %call.i.i.i.i.i.noexc
+  %agg.tmp5.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %__comp.i.i.i.i, align 8
+  %agg.tmp5.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i.i.i.i.i)
-  %53 = load <2 x ptr>, ptr %__comp.i.i.i.i, align 16
-  store <2 x ptr> %53, ptr %__comp.i.i.i.i.i, align 16
+  store ptr %agg.tmp5.sroa.0.0.copyload.i.i.i.i, ptr %__comp.i.i.i.i.i, align 8
+  store ptr %agg.tmp5.sroa.2.0.copyload.i.i.i.i, ptr %52, align 8
   %54 = load ptr, ptr %__i.015.i.ptr.i.i.i, align 8
   %__next.0.val9.i.i.i.i.i = load ptr, ptr %__first.pn14.i.i.i.i, align 8
   %call.i10.i.i.i.i.i71 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3appS2_(ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i.i.i.i, ptr noundef %54, ptr noundef %__next.0.val9.i.i.i.i.i)
@@ -766,7 +769,7 @@ _ZSt25__unguarded_linear_insertIPP3appN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOB
 
 for.cond.preheader.i.i.i.i:                       ; preds = %.noexc69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i20.i.i.i)
-  store ptr %47, ptr %__comp.i20.i.i.i, align 16
+  store ptr %47, ptr %__comp.i20.i.i.i, align 8
   %59 = getelementptr inbounds i8, ptr %__comp.i20.i.i.i, i64 8
   store ptr %49, ptr %59, align 8
   %cmp1.not13.i.i.i.i = icmp eq i32 %retval.0.i.i62, 1
@@ -774,6 +777,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %.noexc69
 
 for.body.lr.ph.i22.i.i.i:                         ; preds = %for.cond.preheader.i.i.i.i
   %__i.012.i21.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
+  %60 = getelementptr inbounds i8, ptr %__comp.i.i19.i.i.i, i64 8
   br label %for.body.i24.i.i.i
 
 for.body.i24.i.i.i:                               ; preds = %for.inc.i37.i.i.i, %for.body.lr.ph.i22.i.i.i
@@ -788,7 +792,7 @@ call.i.i29.i.i.i.noexc:                           ; preds = %for.body.i24.i.i.i
   br i1 %call.i.i29.i.i.i75, label %if.then2.i46.i.i.i, label %if.else.i30.i.i.i
 
 if.then2.i46.i.i.i:                               ; preds = %call.i.i29.i.i.i.noexc
-  %60 = load ptr, ptr %__i.015.i25.i.i.i, align 8
+  %61 = load ptr, ptr %__i.015.i25.i.i.i, align 8
   %add.ptr3.i47.i.i.i = getelementptr inbounds i8, ptr %__first.pn14.i26.i.i.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i48.i.i.i = ptrtoint ptr %__i.015.i25.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i49.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i48.i.i.i, %sub.ptr.rhs.cast.i.i
@@ -796,13 +800,15 @@ if.then2.i46.i.i.i:                               ; preds = %call.i.i29.i.i.i.no
   %.pre.i.i.i.i.i.i51.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i50.i.i.i
   %add.ptr.i.i.i.i.i.i52.i.i.i = getelementptr inbounds ptr, ptr %add.ptr3.i47.i.i.i, i64 %.pre.i.i.i.i.i.i51.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i52.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %sub.ptr.sub.i.i.i.i.i.i49.i.i.i, i1 false)
-  store ptr %60, ptr %44, align 8
+  store ptr %61, ptr %44, align 8
   br label %for.inc.i37.i.i.i
 
 if.else.i30.i.i.i:                                ; preds = %call.i.i29.i.i.i.noexc
+  %agg.tmp5.sroa.0.0.copyload.i31.i.i.i = load ptr, ptr %__comp.i20.i.i.i, align 8
+  %agg.tmp5.sroa.2.0.copyload.i32.i.i.i = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__comp.i.i19.i.i.i)
-  %61 = load <2 x ptr>, ptr %__comp.i20.i.i.i, align 16
-  store <2 x ptr> %61, ptr %__comp.i.i19.i.i.i, align 16
+  store ptr %agg.tmp5.sroa.0.0.copyload.i31.i.i.i, ptr %__comp.i.i19.i.i.i, align 8
+  store ptr %agg.tmp5.sroa.2.0.copyload.i32.i.i.i, ptr %60, align 8
   %62 = load ptr, ptr %__i.015.i25.i.i.i, align 8
   %__next.0.val9.i.i33.i.i.i = load ptr, ptr %__first.pn14.i26.i.i.i, align 8
   %call.i10.i.i34.i.i.i76 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3appS2_(ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i19.i.i.i, ptr noundef %62, ptr noundef %__next.0.val9.i.i33.i.i.i)
@@ -10294,9 +10300,10 @@ if.else7.i.i:                                     ; preds = %if.end
   br i1 %call.i28.i.i, label %if.then9.i.i, label %if.else10.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
-  %25 = load <2 x ptr>, ptr %__first, align 8
-  %26 = shufflevector <2 x ptr> %25, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %26, ptr %__first, align 8
+  %25 = load ptr, ptr %__first, align 8
+  %26 = load ptr, ptr %add.ptr1.i, align 8
+  store ptr %26, ptr %__first, align 8
+  store ptr %25, ptr %add.ptr1.i, align 8
   br label %_ZSt22__move_median_to_firstIPP3appN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_S9_S9_S9_T0_.exit.i
 
 if.else10.i.i:                                    ; preds = %if.else7.i.i

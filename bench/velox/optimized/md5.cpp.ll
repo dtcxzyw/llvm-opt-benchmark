@@ -168,7 +168,13 @@ $_ZTVN5folly12BadFormatArgE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4
+  store i32 1732584193, ptr %this, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 -271733879, ptr %arrayidx3, align 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 -1732584194, ptr %arrayidx5, align 4
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 271733878, ptr %arrayidx7, align 4
   %bits = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %bits, align 4
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 20
@@ -831,9 +837,13 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %1 = load i32, ptr %bits, align 4
   %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load <2 x i32>, ptr %bits, align 4
-  store <2 x i32> %1, ptr %arrayidx17, align 4
+  store i32 %1, ptr %arrayidx17, align 4
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load i32, ptr %arrayidx19, align 4
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %2, ptr %arrayidx22, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out_digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   ret void
@@ -956,9 +966,13 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.else.i
+  %1 = load i32, ptr %bits.i, align 4
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load <2 x i32>, ptr %bits.i, align 4
-  store <2 x i32> %1, ptr %arrayidx17.i, align 4
+  store i32 %1, ptr %arrayidx17.i, align 4
+  %arrayidx19.i = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load i32, ptr %arrayidx19.i, align 4
+  %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %2, ptr %arrayidx22.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br label %for.body.i
@@ -967,22 +981,22 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN8fa
   %indvars.iv8.i = phi i64 [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ], [ %indvars.iv.next9.i, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv.i
-  %2 = load i8, ptr %arrayidx.i, align 1
-  %conv1.i = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i, align 1
+  %conv1.i = zext i8 %3 to i32
   %shr.i1 = lshr i32 %conv1.i, 4
   %idxprom2.i = zext nneg i32 %shr.i1 to i64
   %arrayidx3.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i
-  %3 = load i8, ptr %arrayidx3.i, align 1
-  %4 = or disjoint i64 %indvars.iv8.i, 1
+  %4 = load i8, ptr %arrayidx3.i, align 1
+  %5 = or disjoint i64 %indvars.iv8.i, 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %out_digest, i64 %indvars.iv8.i
-  store i8 %3, ptr %arrayidx5.i, align 1
+  store i8 %4, ptr %arrayidx5.i, align 1
   %and6.i = and i32 %conv1.i, 15
   %idxprom7.i = zext nneg i32 %and6.i to i64
   %arrayidx8.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i
-  %5 = load i8, ptr %arrayidx8.i, align 1
+  %6 = load i8, ptr %arrayidx8.i, align 1
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 2
-  %arrayidx11.i = getelementptr inbounds i8, ptr %out_digest, i64 %4
-  store i8 %5, ptr %arrayidx11.i, align 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %out_digest, i64 %5
+  store i8 %6, ptr %arrayidx11.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc.exit, label %for.body.i, !llvm.loop !6
@@ -1028,9 +1042,13 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit: ; preds = %if.then.i, %if.else.i
+  %1 = load i32, ptr %bits.i, align 4
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load <2 x i32>, ptr %bits.i, align 4
-  store <2 x i32> %1, ptr %arrayidx17.i, align 4
+  store i32 %1, ptr %arrayidx17.i, align 4
+  %arrayidx19.i = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load i32, ptr %arrayidx19.i, align 4
+  %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %2, ptr %arrayidx22.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br i1 %needPadding, label %for.body.i, label %for.body.i5
@@ -1039,10 +1057,10 @@ for.body.i:                                       ; preds = %_ZN8facebook5velox6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %val.08.i = phi i128 [ %or9.i, %for.body.i ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %arrayidx.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv.i
-  %2 = load i8, ptr %arrayidx.i, align 1, !noalias !11
-  %3 = shl i128 %val.08.i, 8
-  %4 = zext i8 %2 to i128
-  %or9.i = or disjoint i128 %3, %4
+  %3 = load i8, ptr %arrayidx.i, align 1, !noalias !11
+  %4 = shl i128 %val.08.i, 8
+  %5 = zext i8 %3 to i128
+  %or9.i = or disjoint i128 %4, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
@@ -1054,7 +1072,7 @@ for.end.i:                                        ; preds = %for.body.i
 
 .noexc.i.i:                                       ; preds = %for.end.i
   %coerce.sroa.0.0.extract.trunc.i.i.i = trunc i128 %or9.i to i64
-  %coerce.sroa.2.0.extract.shift.i.i.i = lshr i128 %3, 64
+  %coerce.sroa.2.0.extract.shift.i.i.i = lshr i128 %4, 64
   %coerce.sroa.2.0.extract.trunc.i.i.i = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %buffer.i.i.i.i), !noalias !14
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 39
@@ -1066,7 +1084,7 @@ call.i.i.noexc.i.i:                               ; preds = %.noexc.i.i
           to label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit unwind label %lpad.i.i
 
 common.resume.sink.split:                         ; preds = %lpad.body, %lpad.i.i
-  %common.resume.op.ph = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %eh.lpad-body, %lpad.body ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %6, %lpad.i.i ], [ %eh.lpad-body, %lpad.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
   br label %common.resume
 
@@ -1075,7 +1093,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %call.i.i.noexc.i.i, %.noexc.i.i, %for.end.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -1087,8 +1105,8 @@ _ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit: ; preds =
   store ptr getelementptr inbounds (i8, ptr @.str, i64 6), ptr %str.sroa.2.0.str_.sroa_idx.i.i.i, align 8, !noalias !17
   %values_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %values_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18, !noalias !17
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
-  store i32 32, ptr %6, align 8, !noalias !17
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
+  store i32 32, ptr %7, align 8, !noalias !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %appender.i.i.i), !noalias !20
   store ptr %dec, ptr %appender.i.i.i, align 8, !noalias !20
@@ -1096,7 +1114,7 @@ _ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit: ; preds =
           to label %_ZN5folly7sformatIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_NS_5RangeIPKcEEDpOT_.exit unwind label %lpad.i.i3
 
 lpad.i.i3:                                        ; preds = %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec) #18
   br label %lpad.body
@@ -1111,10 +1129,10 @@ for.body.i5:                                      ; preds = %_ZN8facebook5velox6
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i10, %for.body.i5 ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %val.08.i7 = phi i128 [ %or9.i9, %for.body.i5 ], [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit ]
   %arrayidx.i8 = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv.i6
-  %8 = load i8, ptr %arrayidx.i8, align 1, !noalias !23
-  %9 = shl i128 %val.08.i7, 8
-  %10 = zext i8 %8 to i128
-  %or9.i9 = or disjoint i128 %9, %10
+  %9 = load i8, ptr %arrayidx.i8, align 1, !noalias !23
+  %10 = shl i128 %val.08.i7, 8
+  %11 = zext i8 %9 to i128
+  %or9.i9 = or disjoint i128 %10, %11
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 16
   br i1 %exitcond.not.i11, label %for.end.i12, label %for.body.i5, !llvm.loop !7
@@ -1126,7 +1144,7 @@ for.end.i12:                                      ; preds = %for.body.i5
 
 .noexc.i.i14:                                     ; preds = %for.end.i12
   %coerce.sroa.0.0.extract.trunc.i.i.i15 = trunc i128 %or9.i9 to i64
-  %coerce.sroa.2.0.extract.shift.i.i.i16 = lshr i128 %9, 64
+  %coerce.sroa.2.0.extract.shift.i.i.i16 = lshr i128 %10, 64
   %coerce.sroa.2.0.extract.trunc.i.i.i17 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i.i16 to i64
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %buffer.i.i.i.i4), !noalias !26
   %add.ptr.i.i.i.i18 = getelementptr inbounds i8, ptr %buffer.i.i.i.i4, i64 39
@@ -1138,7 +1156,7 @@ call.i.i.noexc.i.i20:                             ; preds = %.noexc.i.i14
           to label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase10B5cxx11EPKh.exit24 unwind label %lpad.i.i13
 
 lpad.i.i13:                                       ; preds = %call.i.i.noexc.i.i20, %.noexc.i.i14, %for.end.i12
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -1165,7 +1183,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %co
 
 lpad.body:                                        ; preds = %lpad.i.i13, %lpad.i.i3
   %dec.sink = phi ptr [ %dec, %lpad.i.i13 ], [ %values_.i.i.i, %lpad.i.i3 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad.i.i13 ], [ %7, %lpad.i.i3 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i13 ], [ %8, %lpad.i.i3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dec.sink) #18
   br i1 %needPadding, label %common.resume.sink.split, label %common.resume
 }
@@ -1212,9 +1230,13 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i
 
 _ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i: ; preds = %if.else.i.i, %if.then.i.i
+  %1 = load i32, ptr %bits.i.i, align 4
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load <2 x i32>, ptr %bits.i.i, align 4
-  store <2 x i32> %1, ptr %arrayidx17.i.i, align 4
+  store i32 %1, ptr %arrayidx17.i.i, align 4
+  %arrayidx19.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load i32, ptr %arrayidx19.i.i, align 4
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  store i32 %2, ptr %arrayidx22.i.i, align 4
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %digest.i, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
   br label %for.body.i.i
@@ -1223,22 +1245,22 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN8
   %indvars.iv8.i.i = phi i64 [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i ], [ %indvars.iv.next9.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN8facebook5velox6crypto10MD5Context6FinishEPh.exit.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %digest.i, i64 %indvars.iv.i.i
-  %2 = load i8, ptr %arrayidx.i.i, align 1
-  %conv1.i.i = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i.i, align 1
+  %conv1.i.i = zext i8 %3 to i32
   %shr.i1.i = lshr i32 %conv1.i.i, 4
   %idxprom2.i.i = zext nneg i32 %shr.i1.i to i64
   %arrayidx3.i.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i.i
-  %3 = load i8, ptr %arrayidx3.i.i, align 1
-  %4 = or disjoint i64 %indvars.iv8.i.i, 1
+  %4 = load i8, ptr %arrayidx3.i.i, align 1
+  %5 = or disjoint i64 %indvars.iv8.i.i, 1
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %digest, i64 %indvars.iv8.i.i
-  store i8 %3, ptr %arrayidx5.i.i, align 2
+  store i8 %4, ptr %arrayidx5.i.i, align 2
   %and6.i.i = and i32 %conv1.i.i, 15
   %idxprom7.i.i = zext nneg i32 %and6.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i.i
-  %5 = load i8, ptr %arrayidx8.i.i, align 1
+  %6 = load i8, ptr %arrayidx8.i.i, align 1
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 2
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %digest, i64 %4
-  store i8 %5, ptr %arrayidx11.i.i, align 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %digest, i64 %5
+  store i8 %6, ptr %arrayidx11.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit, label %for.body.i.i, !llvm.loop !6
@@ -1254,10 +1276,10 @@ invoke.cont:                                      ; preds = %_ZN8facebook5velox6
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: nounwind

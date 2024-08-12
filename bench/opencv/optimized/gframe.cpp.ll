@@ -415,22 +415,25 @@ define noundef zeroext i1 @_ZNK2cv10GFrameDesceqERKS0_(ptr nocapture noundef non
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = load <2 x i32>, ptr %7, align 4
-  %10 = load <2 x i32>, ptr %8, align 4
-  %11 = icmp eq <2 x i32> %9, %10
-  %12 = extractelement <2 x i1> %11, i64 0
-  %13 = extractelement <2 x i1> %11, i64 1
-  %14 = select i1 %12, i1 %13, i1 false
-  br label %15
+  %.val = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val3 = load i32, ptr %9, align 4
+  %.val4 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val5 = load i32, ptr %10, align 4
+  %11 = icmp eq i32 %.val, %.val4
+  %12 = icmp eq i32 %.val3, %.val5
+  %13 = select i1 %11, i1 %12, i1 false
+  br label %14
 
-15:                                               ; preds = %6, %2
-  %16 = phi i1 [ false, %2 ], [ %14, %6 ]
-  ret i1 %16
+14:                                               ; preds = %6, %2
+  %15 = phi i1 [ false, %2 ], [ %13, %6 ]
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress uwtable

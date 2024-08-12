@@ -6638,41 +6638,44 @@ entry:
   %2 = load ptr, ptr %ident_.i, align 8
   %savedIdent.0 = select i1 %or.cond, ptr %2, ptr undef
   %range_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %3 = load <2 x ptr>, ptr %range_.i, align 8
+  %retval.sroa.0.0.copyload.i = load ptr, ptr %range_.i, align 8
+  %End.i = getelementptr inbounds i8, ptr %this, i64 72
+  %retval.sroa.0.0.copyload.i4 = load ptr, ptr %End.i, align 8
   %curCharPtr_ = getelementptr inbounds i8, ptr %this, i64 144
-  %4 = load ptr, ptr %curCharPtr_, align 8
-  %5 = load ptr, ptr %this, align 8
-  %suppressMessages_.i = getelementptr inbounds i8, ptr %5, i64 336
-  %6 = load i64, ptr %suppressMessages_.i, align 8
+  %3 = load ptr, ptr %curCharPtr_, align 8
+  %4 = load ptr, ptr %this, align 8
+  %suppressMessages_.i = getelementptr inbounds i8, ptr %4, i64 336
+  %5 = load i64, ptr %suppressMessages_.i, align 8
   store i32 0, ptr %suppressMessages_.i, align 8
-  %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 340
+  %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 340
   store i8 1, ptr %ref.tmp.sroa.2.0.suppressMessages_.sroa_idx.i, align 4
   %commentStorage_ = getelementptr inbounds i8, ptr %this, i64 1080
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 1088
-  %7 = load ptr, ptr %_M_finish.i, align 8
-  %8 = load ptr, ptr %commentStorage_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %6 = load ptr, ptr %_M_finish.i, align 8
+  %7 = load ptr, ptr %commentStorage_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %call14 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef 0)
   %newLineBeforeCurrentToken_.i = getelementptr inbounds i8, ptr %this, i64 160
-  %9 = load i8, ptr %newLineBeforeCurrentToken_.i, align 8
-  %tobool.i = trunc i8 %9 to i1
+  %8 = load i8, ptr %newLineBeforeCurrentToken_.i, align 8
+  %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.end24, label %if.else
 
 if.else:                                          ; preds = %entry
-  %10 = load i32, ptr %token_, align 8
+  %9 = load i32, ptr %token_, align 8
   %expectedToken.sroa.0.0.extract.trunc = trunc i64 %expectedToken.coerce to i32
-  %11 = and i64 %expectedToken.coerce, 4294967296
-  %expectedToken.sroa.2.0.extract.trunc.not = icmp ne i64 %11, 0
-  %cmp.i = icmp eq i32 %10, %expectedToken.sroa.0.0.extract.trunc
+  %10 = and i64 %expectedToken.coerce, 4294967296
+  %expectedToken.sroa.2.0.extract.trunc.not = icmp ne i64 %10, 0
+  %cmp.i = icmp eq i32 %9, %expectedToken.sroa.0.0.extract.trunc
   %or.cond18 = select i1 %expectedToken.sroa.2.0.extract.trunc.not, i1 %cmp.i, i1 false
   br i1 %or.cond18, label %if.then.i13, label %if.end24
 
 if.end24:                                         ; preds = %if.else, %entry
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ %10, %if.else ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ %9, %if.else ]
   %retval.sroa.4.0 = phi i8 [ 0, %entry ], [ 1, %if.else ]
-  store <2 x ptr> %3, ptr %range_.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i, ptr %range_.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i4, ptr %End.i, align 8
   switch i32 %0, label %if.else36 [
     i32 1, label %if.then30
     i32 91, label %if.then34
@@ -6693,16 +6696,16 @@ if.else36:                                        ; preds = %if.end24
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %if.else36, %if.then30
-  store ptr %4, ptr %curCharPtr_, align 8
+  store ptr %3, ptr %curCharPtr_, align 8
   %storeTokens_ = getelementptr inbounds i8, ptr %this, i64 50
-  %12 = load i8, ptr %storeTokens_, align 2
-  %tobool = trunc i8 %12 to i1
+  %11 = load i8, ptr %storeTokens_, align 2
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then43, label %if.then.i13
 
 if.then43:                                        ; preds = %if.end39
   %_M_finish.i10 = getelementptr inbounds i8, ptr %this, i64 1112
-  %13 = load ptr, ptr %_M_finish.i10, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 -24
+  %12 = load ptr, ptr %_M_finish.i10, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 -24
   store ptr %incdec.ptr.i, ptr %_M_finish.i10, align 8
   br label %if.then.i13
 
@@ -6710,15 +6713,15 @@ if.then.i13:                                      ; preds = %if.else, %if.then43
   %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %if.then43 ], [ %retval.sroa.0.0, %if.end39 ], [ %expectedToken.sroa.0.0.extract.trunc, %if.else ]
   %retval.sroa.4.1 = phi i8 [ %retval.sroa.4.0, %if.then43 ], [ %retval.sroa.4.0, %if.end39 ], [ 1, %if.else ]
   %storeComments_.i.i = getelementptr inbounds i8, ptr %this, i64 49
-  %14 = load i8, ptr %storeComments_.i.i, align 1
-  %tobool.i.i14 = trunc i8 %14 to i1
+  %13 = load i8, ptr %storeComments_.i.i, align 1
+  %tobool.i.i14 = trunc i8 %13 to i1
   br i1 %tobool.i.i14, label %if.then.i.i, label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit"
 
 if.then.i.i:                                      ; preds = %if.then.i13
-  %15 = load ptr, ptr %commentStorage_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 %sub.ptr.sub.i
-  %16 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %16
+  %14 = load ptr, ptr %commentStorage_, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub.i
+  %15 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %15
   br i1 %cmp.i.not.i.i.i.i, label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
@@ -6726,7 +6729,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
   br label %"_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit"
 
 "_ZN4llvh6detail10scope_exitIZN6hermes6parser7JSLexer10lookahead1ENS2_8OptValueINS3_9TokenKindEEEE3$_0ED2Ev.exit": ; preds = %if.then.i13, %if.then.i.i, %if.then.i.i.i.i.i
-  %suppress.sroa.2.8.extract.trunc = trunc i64 %6 to i40
+  %suppress.sroa.2.8.extract.trunc = trunc i64 %5 to i40
   store i40 %suppress.sroa.2.8.extract.trunc, ptr %suppressMessages_.i, align 8
   %retval.sroa.4.0.insert.ext = zext nneg i8 %retval.sroa.4.1 to i64
   %retval.sroa.4.0.insert.shift = shl nuw nsw i64 %retval.sroa.4.0.insert.ext, 32

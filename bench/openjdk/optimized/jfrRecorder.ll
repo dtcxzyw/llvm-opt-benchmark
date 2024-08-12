@@ -668,120 +668,122 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder17create_componentsEv() local_
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load <2 x ptr>, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %3) #11
-  %13 = call noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() #11
-  br i1 %13, label %14, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+  %14 = call noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() #11
+  br i1 %14, label %15, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-14:                                               ; preds = %0
-  %15 = call noundef zeroext i1 @_ZN12JfrOptionSet18allow_retransformsEv() #11
-  br i1 %15, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread
+15:                                               ; preds = %0
+  %16 = call noundef zeroext i1 @_ZN12JfrOptionSet18allow_retransformsEv() #11
+  br i1 %16, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread
 
-_ZN11JfrRecorder18create_jvmti_agentEv.exit:      ; preds = %14
-  %16 = call noundef zeroext i1 @_ZN13JfrJvmtiAgent6createEv() #11
-  br i1 %16, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+_ZN11JfrRecorder18create_jvmti_agentEv.exit:      ; preds = %15
+  %17 = call noundef zeroext i1 @_ZN13JfrJvmtiAgent6createEv() #11
+  br i1 %17, label %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread: ; preds = %14, %_ZN11JfrRecorder18create_jvmti_agentEv.exit
-  %17 = call noundef ptr @_ZN10JfrPostBox6createEv() #11
-  store ptr %17, ptr @_ZL9_post_box, align 8
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %18
+_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread: ; preds = %15, %_ZN11JfrRecorder18create_jvmti_agentEv.exit
+  %18 = call noundef ptr @_ZN10JfrPostBox6createEv() #11
+  store ptr %18, ptr @_ZL9_post_box, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %19
 
-18:                                               ; preds = %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread
-  %19 = call noundef ptr @_ZN13JfrRepository6createER10JfrPostBox(ptr noundef nonnull align 8 dereferenceable(21) %17) #11
-  store ptr %19, ptr @_ZL11_repository, align 8
-  %.not.i = icmp eq ptr %19, null
+19:                                               ; preds = %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread
+  %20 = call noundef ptr @_ZN13JfrRepository6createER10JfrPostBox(ptr noundef nonnull align 8 dereferenceable(21) %18) #11
+  store ptr %20, ptr @_ZL11_repository, align 8
+  %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit
 
-_ZN11JfrRecorder23create_chunk_repositoryEv.exit: ; preds = %18
-  %20 = call noundef zeroext i1 @_ZN13JfrRepository10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #11
-  br i1 %20, label %21, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+_ZN11JfrRecorder23create_chunk_repositoryEv.exit: ; preds = %19
+  %21 = call noundef zeroext i1 @_ZN13JfrRepository10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #11
+  br i1 %21, label %22, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-21:                                               ; preds = %_ZN11JfrRecorder23create_chunk_repositoryEv.exit
-  %22 = call noundef nonnull align 1 ptr @_ZN13JfrRepository11chunkwriterEv() #11
-  %23 = load ptr, ptr @_ZL9_post_box, align 8
-  %24 = call noundef ptr @_ZN10JfrStorage6createER14JfrChunkWriterR10JfrPostBox(ptr noundef nonnull align 1 %22, ptr noundef nonnull align 8 dereferenceable(21) %23) #11
-  store ptr %24, ptr @_ZL8_storage, align 8
-  %.not.i1 = icmp eq ptr %24, null
+22:                                               ; preds = %_ZN11JfrRecorder23create_chunk_repositoryEv.exit
+  %23 = call noundef nonnull align 1 ptr @_ZN13JfrRepository11chunkwriterEv() #11
+  %24 = load ptr, ptr @_ZL9_post_box, align 8
+  %25 = call noundef ptr @_ZN10JfrStorage6createER14JfrChunkWriterR10JfrPostBox(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 8 dereferenceable(21) %24) #11
+  store ptr %25, ptr @_ZL8_storage, align 8
+  %.not.i1 = icmp eq ptr %25, null
   br i1 %.not.i1, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %_ZN11JfrRecorder14create_storageEv.exit
 
-_ZN11JfrRecorder14create_storageEv.exit:          ; preds = %21
-  %25 = call noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #11
-  br i1 %25, label %26, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+_ZN11JfrRecorder14create_storageEv.exit:          ; preds = %22
+  %26 = call noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonnull align 8 dereferenceable(48) %25) #11
+  br i1 %26, label %27, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-26:                                               ; preds = %_ZN11JfrRecorder14create_storageEv.exit
-  %27 = load ptr, ptr @_ZL19_checkpoint_manager, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit
+27:                                               ; preds = %_ZN11JfrRecorder14create_storageEv.exit
+  %28 = load ptr, ptr @_ZL19_checkpoint_manager, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit
 
-29:                                               ; preds = %26
-  %30 = call noundef ptr @_ZN20JfrCheckpointManager6createEv() #11
-  store ptr %30, ptr @_ZL19_checkpoint_manager, align 8
-  %.not.i.i = icmp eq ptr %30, null
+30:                                               ; preds = %27
+  %31 = call noundef ptr @_ZN20JfrCheckpointManager6createEv() #11
+  store ptr %31, ptr @_ZL19_checkpoint_manager, align 8
+  %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i
 
-_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i: ; preds = %29
-  %31 = call noundef zeroext i1 @_ZN20JfrCheckpointManager16initialize_earlyEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #11
-  br i1 %31, label %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i: ; preds = %30
+  %32 = call noundef zeroext i1 @_ZN20JfrCheckpointManager16initialize_earlyEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
+  br i1 %32, label %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
 _ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i: ; preds = %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i
   %.pre.i = load ptr, ptr @_ZL19_checkpoint_manager, align 8
   br label %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit
 
-_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit: ; preds = %26, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i
-  %32 = phi ptr [ %.pre.i, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i ], [ %27, %26 ]
-  %33 = call noundef nonnull align 1 ptr @_ZN13JfrRepository11chunkwriterEv() #11
-  %34 = call noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %33) #11
-  br i1 %34, label %35, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit: ; preds = %27, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i
+  %33 = phi ptr [ %.pre.i, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit._crit_edge.i ], [ %28, %27 ]
+  %34 = call noundef nonnull align 1 ptr @_ZN13JfrRepository11chunkwriterEv() #11
+  %35 = call noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull %34) #11
+  br i1 %35, label %36, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-35:                                               ; preds = %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit
-  %36 = call noundef zeroext i1 @_ZN11JfrRecorder28create_stacktrace_repositoryEv()
-  br i1 %36, label %37, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+36:                                               ; preds = %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit
+  %37 = call noundef zeroext i1 @_ZN11JfrRecorder28create_stacktrace_repositoryEv()
+  br i1 %37, label %38, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-37:                                               ; preds = %35
-  %38 = call noundef zeroext i1 @_ZN11JfrRecorder19create_os_interfaceEv()
-  br i1 %38, label %39, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+38:                                               ; preds = %36
+  %39 = call noundef zeroext i1 @_ZN11JfrRecorder19create_os_interfaceEv()
+  br i1 %39, label %40, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-39:                                               ; preds = %37
-  %40 = call noundef zeroext i1 @_ZN11JfrRecorder17create_stringpoolEv()
-  br i1 %40, label %41, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+40:                                               ; preds = %38
+  %41 = call noundef zeroext i1 @_ZN11JfrRecorder17create_stringpoolEv()
+  br i1 %41, label %42, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-41:                                               ; preds = %39
-  %42 = call noundef ptr @_ZN17JfrThreadSampling6createEv() #11
-  store ptr %42, ptr @_ZL16_thread_sampling, align 8
-  %.not6 = icmp eq ptr %42, null
-  br i1 %.not6, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %43
+42:                                               ; preds = %40
+  %43 = call noundef ptr @_ZN17JfrThreadSampling6createEv() #11
+  store ptr %43, ptr @_ZL16_thread_sampling, align 8
+  %.not6 = icmp eq ptr %43, null
+  br i1 %.not6, label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread, label %44
 
-43:                                               ; preds = %41
-  %44 = call noundef zeroext i1 @_ZN17JfrEventThrottler6createEv() #11
+44:                                               ; preds = %42
+  %45 = call noundef zeroext i1 @_ZN17JfrEventThrottler6createEv() #11
   br label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
-_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread: ; preds = %29, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i, %21, %18, %43, %41, %39, %37, %35, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit, %_ZN11JfrRecorder14create_storageEv.exit, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread, %_ZN11JfrRecorder18create_jvmti_agentEv.exit, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread ], [ false, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit ], [ false, %_ZN11JfrRecorder14create_storageEv.exit ], [ false, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit ], [ false, %35 ], [ false, %37 ], [ false, %39 ], [ false, %41 ], [ %44, %43 ], [ false, %18 ], [ false, %21 ], [ false, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i ], [ false, %29 ]
+_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread: ; preds = %30, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i, %22, %19, %44, %42, %40, %38, %36, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit, %_ZN11JfrRecorder14create_storageEv.exit, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread, %_ZN11JfrRecorder18create_jvmti_agentEv.exit, %0
+  %.0 = phi i1 [ false, %0 ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread ], [ false, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit ], [ false, %_ZN11JfrRecorder14create_storageEv.exit ], [ false, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit ], [ false, %36 ], [ false, %38 ], [ false, %40 ], [ false, %42 ], [ %45, %44 ], [ false, %19 ], [ false, %22 ], [ false, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i ], [ false, %30 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #11
-  %45 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %47, label %46
+  %46 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-46:                                               ; preds = %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #11
+47:                                               ; preds = %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #11
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #11
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
-  %48 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %48, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %49
+48:                                               ; preds = %47, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
+  %49 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %49, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   store ptr %7, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   ret i1 %.0
 }
 

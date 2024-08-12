@@ -17150,6 +17150,7 @@ entry:
   br i1 %8, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %ViewportHeight.i = getelementptr inbounds i8, ptr %0, i64 188
   %ViewportWidth.i = getelementptr inbounds i8, ptr %0, i64 184
   %ViewportY.i = getelementptr inbounds i8, ptr %0, i64 180
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 432), align 8, !tbaa !449
@@ -17158,7 +17159,8 @@ if.then.i:                                        ; preds = %entry
   tail call void %9(i32 noundef 0, i32 noundef 0, i32 noundef %10, i32 noundef %11) #24
   store i32 0, ptr %ViewportX.i, align 8, !tbaa !448
   store i32 0, ptr %ViewportY.i, align 4, !tbaa !450
-  store <2 x i32> %1, ptr %ViewportWidth.i, align 8, !tbaa !129
+  store i32 %10, ptr %ViewportWidth.i, align 8, !tbaa !451
+  store i32 %11, ptr %ViewportHeight.i, align 4, !tbaa !452
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit
 
 _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setViewportEiiii.exit: ; preds = %if.then.i, %entry

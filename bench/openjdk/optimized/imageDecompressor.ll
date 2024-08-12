@@ -198,92 +198,95 @@ define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageS
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
-  br label %11
+  %10 = getelementptr inbounds i8, ptr %6, i64 28
+  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  br label %12
 
-11:                                               ; preds = %.backedge, %5
-  %.035 = phi ptr [ %0, %5 ], [ %67, %.backedge ]
-  %12 = load i32, ptr %.035, align 1
-  store i32 %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %.035, i64 4
-  %14 = load i32, ptr %13, align 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %.035, i64 8
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = shl nuw nsw i64 %18, 32
-  %20 = or i64 %19, %15
-  %21 = getelementptr inbounds i8, ptr %.035, i64 9
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i64
-  %24 = shl nuw nsw i64 %23, 40
-  %25 = or i64 %20, %24
-  %26 = getelementptr inbounds i8, ptr %.035, i64 10
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i64
-  %29 = shl nuw nsw i64 %28, 48
-  %30 = or i64 %25, %29
-  %31 = getelementptr inbounds i8, ptr %.035, i64 11
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i64
-  %34 = shl nuw i64 %33, 56
-  %35 = or i64 %30, %34
-  store i64 %35, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %.035, i64 12
-  %37 = load i32, ptr %36, align 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %.035, i64 16
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i64
-  %42 = shl nuw nsw i64 %41, 32
-  %43 = or i64 %42, %38
-  %44 = getelementptr inbounds i8, ptr %.035, i64 17
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i64
-  %47 = shl nuw nsw i64 %46, 40
-  %48 = or i64 %43, %47
-  %49 = getelementptr inbounds i8, ptr %.035, i64 18
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i64
-  %52 = shl nuw nsw i64 %51, 48
-  %53 = or i64 %48, %52
-  %54 = getelementptr inbounds i8, ptr %.035, i64 19
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i64
-  %57 = shl nuw i64 %56, 56
-  %58 = or i64 %53, %57
-  store i64 %58, ptr %8, align 8
-  %59 = getelementptr inbounds i8, ptr %.035, i64 20
-  %60 = load <2 x i32>, ptr %59, align 1
-  %61 = load i32, ptr %59, align 1
-  store <2 x i32> %60, ptr %9, align 8
-  %62 = getelementptr inbounds i8, ptr %.035, i64 28
-  %63 = load i8, ptr %62, align 1
-  store i8 %63, ptr %10, align 8
-  %64 = icmp eq i32 %12, -889259270
-  br i1 %64, label %65, label %75
+12:                                               ; preds = %.backedge, %5
+  %.035 = phi ptr [ %0, %5 ], [ %69, %.backedge ]
+  %13 = load i32, ptr %.035, align 1
+  store i32 %13, ptr %6, align 8
+  %14 = getelementptr inbounds i8, ptr %.035, i64 4
+  %15 = load i32, ptr %14, align 1
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i8, ptr %.035, i64 8
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i64
+  %20 = shl nuw nsw i64 %19, 32
+  %21 = or i64 %20, %16
+  %22 = getelementptr inbounds i8, ptr %.035, i64 9
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i64
+  %25 = shl nuw nsw i64 %24, 40
+  %26 = or i64 %21, %25
+  %27 = getelementptr inbounds i8, ptr %.035, i64 10
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, 48
+  %31 = or i64 %26, %30
+  %32 = getelementptr inbounds i8, ptr %.035, i64 11
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i64
+  %35 = shl nuw i64 %34, 56
+  %36 = or i64 %31, %35
+  store i64 %36, ptr %7, align 8
+  %37 = getelementptr inbounds i8, ptr %.035, i64 12
+  %38 = load i32, ptr %37, align 1
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %.035, i64 16
+  %41 = load i8, ptr %40, align 1
+  %42 = zext i8 %41 to i64
+  %43 = shl nuw nsw i64 %42, 32
+  %44 = or i64 %43, %39
+  %45 = getelementptr inbounds i8, ptr %.035, i64 17
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i64
+  %48 = shl nuw nsw i64 %47, 40
+  %49 = or i64 %44, %48
+  %50 = getelementptr inbounds i8, ptr %.035, i64 18
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 48
+  %54 = or i64 %49, %53
+  %55 = getelementptr inbounds i8, ptr %.035, i64 19
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i64
+  %58 = shl nuw i64 %57, 56
+  %59 = or i64 %54, %58
+  store i64 %59, ptr %8, align 8
+  %60 = getelementptr inbounds i8, ptr %.035, i64 20
+  %61 = load i32, ptr %60, align 1
+  store i32 %61, ptr %9, align 8
+  %62 = getelementptr inbounds i8, ptr %.035, i64 24
+  %63 = load i32, ptr %62, align 1
+  store i32 %63, ptr %10, align 4
+  %64 = getelementptr inbounds i8, ptr %.035, i64 28
+  %65 = load i8, ptr %64, align 1
+  store i8 %65, ptr %11, align 8
+  %66 = icmp eq i32 %13, -889259270
+  br i1 %66, label %67, label %77
 
-65:                                               ; preds = %11
-  %66 = getelementptr inbounds i8, ptr %.035, i64 29
-  %67 = call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #12
-  %68 = load ptr, ptr %3, align 8
-  %69 = zext i32 %61 to i64
-  %70 = getelementptr inbounds i8, ptr %68, i64 %69
-  %71 = call noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr noundef %70)
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %6, ptr noundef nonnull %3)
+67:                                               ; preds = %12
+  %68 = getelementptr inbounds i8, ptr %.035, i64 29
+  %69 = call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #12
+  %70 = load ptr, ptr %3, align 8
+  %71 = zext i32 %61 to i64
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
+  %73 = call noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr noundef %72)
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %.not = icmp eq ptr %.035, %0
-  br i1 %.not, label %.backedge, label %74
+  br i1 %.not, label %.backedge, label %76
 
-.backedge:                                        ; preds = %65, %74
-  br label %11, !llvm.loop !8
+.backedge:                                        ; preds = %67, %76
+  br label %12, !llvm.loop !8
 
-74:                                               ; preds = %65
+76:                                               ; preds = %67
   call void @_ZdaPv(ptr noundef nonnull %.035) #13
   br label %.backedge
 
-75:                                               ; preds = %11
+77:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.035, i64 %2, i1 false)
   call void @_ZdaPv(ptr noundef nonnull %.035) #13
   ret void

@@ -222,7 +222,7 @@ declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_9AsyncWrapEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this, ptr nocapture noundef readonly %async_wrap, i32 noundef %flags) unnamed_addr #3 align 2 {
 entry:
-  %ref.tmp = alloca %"struct.node::async_context", align 16
+  %ref.tmp = alloca %"struct.node::async_context", align 8
   %realm_.i = getelementptr inbounds i8, ptr %async_wrap, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds i8, ptr %0, i64 176
@@ -249,8 +249,12 @@ _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS
 _ZNK4node10BaseObject6objectEv.exit:              ; preds = %entry, %if.end.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %entry ], [ %3, %if.end.i.i.i ]
   %async_id_.i = getelementptr inbounds i8, ptr %async_wrap, i64 40
-  %7 = load <2 x double>, ptr %async_id_.i, align 8
-  store <2 x double> %7, ptr %ref.tmp, align 16
+  %7 = load double, ptr %async_id_.i, align 8
+  store double %7, ptr %ref.tmp, align 8
+  %trigger_async_id = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %trigger_async_id_.i = getelementptr inbounds i8, ptr %async_wrap, i64 48
+  %8 = load double, ptr %trigger_async_id_.i, align 8
+  store double %8, ptr %trigger_async_id, align 8
   call void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull %1, ptr %retval.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %flags)
   ret void
 }

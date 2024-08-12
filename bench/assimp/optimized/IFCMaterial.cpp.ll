@@ -267,7 +267,7 @@ entry:
   %name = alloca %struct.aiString, align 4
   %mname = alloca %struct.aiString, align 4
   %mat91 = alloca %"class.std::unique_ptr", align 8
-  %col = alloca %class.aiColor4t, align 16
+  %col = alloca %class.aiColor4t, align 4
   %ref.tmp105 = alloca ptr, align 8
   %db = getelementptr inbounds i8, ptr %conv, i64 24
   %0 = load ptr, ptr %db, align 8
@@ -1124,7 +1124,13 @@ invoke.cont94:                                    ; preds = %for.end90
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %invoke.cont94
-  store <4 x float> <float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 1.000000e+00>, ptr %col, align 16
+  store float 0x3FE3333340000000, ptr %col, align 4
+  %g.i = getelementptr inbounds i8, ptr %col, i64 4
+  store float 0x3FE3333340000000, ptr %g.i, align 4
+  %b.i = getelementptr inbounds i8, ptr %col, i64 8
+  store float 0x3FE3333340000000, ptr %b.i, align 4
+  %a.i = getelementptr inbounds i8, ptr %col, i64 12
+  store float 1.000000e+00, ptr %a.i, align 4
   %call3.i123 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call92, ptr noundef nonnull %col, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont102 unwind label %lpad97
 

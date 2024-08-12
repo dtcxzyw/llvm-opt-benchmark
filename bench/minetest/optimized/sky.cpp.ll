@@ -5799,6 +5799,7 @@ for.cond.preheader:                               ; preds = %if.end180
   %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 44
   %ref.tmp205.sroa.7.0.arrayidx210.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 84
   %ref.tmp205.sroa.9.0.arrayidx210.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 92
+  %ref.tmp212.sroa.5.0.arrayidx217.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 112
   %ref.tmp212.sroa.7.0.arrayidx217.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 120
   %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 128
   %Z3.i1053.us.2 = getelementptr inbounds i8, ptr %vertices, i64 80
@@ -5903,6 +5904,7 @@ invoke.cont216.2:                                 ; preds = %invoke.cont296.1
   store float 1.000000e+00, ptr %ref.tmp205.sroa.9.0.arrayidx210.sroa_idx, align 4, !tbaa !22
   store i32 -1, ptr %Color.i.2, align 16, !tbaa !94
   store <2 x float> zeroinitializer, ptr %TCoords.i.2, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %ref.tmp212.sroa.5.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store <2 x float> zeroinitializer, ptr %ref.tmp212.sroa.7.0.arrayidx217.sroa_idx, align 8, !tbaa !22
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
@@ -5913,7 +5915,7 @@ invoke.cont216.2:                                 ; preds = %invoke.cont296.1
   store float 0x3FF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store float 0x3FF0CCCCC0000000, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !195
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
-  store <2 x float> <float 0x3FF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !195
   store float 0xBFF0CCCCC0000000, ptr %Z3.i1053.us.3, align 4, !tbaa !24
   %vtable.i.2 = load ptr, ptr %call, align 8, !tbaa !20
   %vfn.i.2 = getelementptr inbounds i8, ptr %vtable.i.2, i64 344
@@ -5941,6 +5943,7 @@ invoke.cont216.3:                                 ; preds = %invoke.cont296.2
   store float 1.000000e+00, ptr %ref.tmp205.sroa.9.0.arrayidx210.sroa_idx, align 4, !tbaa !22
   store i32 -1, ptr %Color.i.2, align 16, !tbaa !94
   store <2 x float> zeroinitializer, ptr %TCoords.i.2, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %ref.tmp212.sroa.5.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store <2 x float> zeroinitializer, ptr %ref.tmp212.sroa.7.0.arrayidx217.sroa_idx, align 8, !tbaa !22
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
@@ -5951,7 +5954,7 @@ invoke.cont216.3:                                 ; preds = %invoke.cont296.2
   store float 0xBFF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store float 0xBFF0CCCCC0000000, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !195
   store float 0xBFF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
-  store <2 x float> <float 0xBFF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !22
+  store float 0xBFF0CCCCC0000000, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !195
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.3, align 4, !tbaa !24
   %vtable.i.3 = load ptr, ptr %call, align 8, !tbaa !20
   %vfn.i.3 = getelementptr inbounds i8, ptr %vtable.i.3, i64 344
@@ -5979,6 +5982,7 @@ invoke.cont216.4:                                 ; preds = %invoke.cont296.3
   store float 1.000000e+00, ptr %ref.tmp205.sroa.9.0.arrayidx210.sroa_idx, align 4, !tbaa !22
   store i32 -1, ptr %Color.i.2, align 16, !tbaa !94
   store <2 x float> zeroinitializer, ptr %TCoords.i.2, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %ref.tmp212.sroa.5.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store <2 x float> zeroinitializer, ptr %ref.tmp212.sroa.7.0.arrayidx217.sroa_idx, align 8, !tbaa !22
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
@@ -5989,7 +5993,7 @@ invoke.cont216.4:                                 ; preds = %invoke.cont296.3
   store float 0xBFF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store float 0x3FF0CCCCC0000000, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !195
   store float 0xBFF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
-  store <2 x float> <float 0xBFF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !22
+  store float 0xBFF0CCCCC0000000, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !195
   store float 0xBFF0CCCCC0000000, ptr %Z3.i1053.us.3, align 4, !tbaa !24
   %vtable.i.4 = load ptr, ptr %call, align 8, !tbaa !20
   %vfn.i.4 = getelementptr inbounds i8, ptr %vtable.i.4, i64 344
@@ -6017,6 +6021,7 @@ invoke.cont216.5:                                 ; preds = %invoke.cont296.4
   store float 1.000000e+00, ptr %ref.tmp205.sroa.9.0.arrayidx210.sroa_idx, align 4, !tbaa !22
   store i32 -1, ptr %Color.i.2, align 16, !tbaa !94
   store <2 x float> zeroinitializer, ptr %TCoords.i.2, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %ref.tmp212.sroa.5.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store <2 x float> zeroinitializer, ptr %ref.tmp212.sroa.7.0.arrayidx217.sroa_idx, align 8, !tbaa !22
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
@@ -6027,7 +6032,7 @@ invoke.cont216.5:                                 ; preds = %invoke.cont296.4
   store float 0x3FF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store float 0xBFF0CCCCC0000000, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !195
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
-  store <2 x float> <float 0x3FF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !22
+  store float 0x3FF0CCCCC0000000, ptr %arrayctor.cur.ptr.3, align 4, !tbaa !195
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.3, align 4, !tbaa !24
   %vtable.i.5 = load ptr, ptr %call, align 8, !tbaa !20
   %vfn.i.5 = getelementptr inbounds i8, ptr %vtable.i.5, i64 344

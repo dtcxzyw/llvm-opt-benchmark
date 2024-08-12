@@ -305,7 +305,13 @@ if.then.i:
   %0 = load i32, ptr @maxBodiesPerCell, align 4
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 524
   store i32 %0, ptr %arrayidx.i, align 4
-  store <4 x float> <float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0.000000e+00>, ptr %m_paramsCPU39, align 8
+  store float 0x3FD5555560000000, ptr %m_paramsCPU39, align 8
+  %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 500
+  store float 0x3FD5555560000000, ptr %arrayidx62, align 4
+  %arrayidx68 = getelementptr inbounds i8, ptr %this, i64 504
+  store float 0x3FD5555560000000, ptr %arrayidx68, align 8
+  %arrayidx71 = getelementptr inbounds i8, ptr %this, i64 508
+  store float 0.000000e+00, ptr %arrayidx71, align 4
   %call5.i77 = invoke noundef zeroext i1 @_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %m_paramsGPU, i64 noundef 1, i1 noundef zeroext true)
           to label %if.then.i.i unwind label %lpad22
 

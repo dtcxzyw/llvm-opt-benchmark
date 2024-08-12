@@ -1697,8 +1697,11 @@ if.end127:                                        ; preds = %if.end120
   %11 = load ptr, ptr %Element_Type, align 8
   store ptr %11, ptr %types, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %types, i64 8
-  %12 = load <2 x ptr>, ptr %TreeBuilder_Type, align 8
-  store <2 x ptr> %12, ptr %arrayinit.element, align 8
+  %12 = load ptr, ptr %TreeBuilder_Type, align 8
+  store ptr %12, ptr %arrayinit.element, align 8
+  %arrayinit.element130 = getelementptr inbounds i8, ptr %types, i64 16
+  %13 = load ptr, ptr %XMLParser_Type, align 8
+  store ptr %13, ptr %arrayinit.element130, align 16
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1709,8 +1712,8 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %if.end127, %for.cond
   %i.051 = phi i64 [ 0, %if.end127 ], [ %inc, %for.cond ]
   %arrayidx = getelementptr [3 x ptr], ptr %types, i64 0, i64 %i.051
-  %13 = load ptr, ptr %arrayidx, align 8
-  %call134 = tail call i32 @PyModule_AddType(ptr noundef %m, ptr noundef %13) #11
+  %14 = load ptr, ptr %arrayidx, align 8
+  %call134 = tail call i32 @PyModule_AddType(ptr noundef %m, ptr noundef %14) #11
   %cmp135 = icmp slt i32 %call134, 0
   br i1 %cmp135, label %return, label %for.cond
 

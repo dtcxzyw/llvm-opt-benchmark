@@ -681,17 +681,29 @@ entry:
   %9 = tail call i16 @llvm.bswap.i16(i16 %8)
   store i16 %9, ptr %bpp, align 2
   %compression = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load <4 x i32>, ptr %compression, align 4
-  %11 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %10)
-  store <4 x i32> %11, ptr %compression, align 4
-  %cpalete = getelementptr inbounds i8, ptr %this, i64 32
-  %12 = load i32, ptr %cpalete, align 4
+  %10 = load i32, ptr %compression, align 4
+  %11 = tail call i32 @llvm.bswap.i32(i32 %10)
+  store i32 %11, ptr %compression, align 4
+  %isize = getelementptr inbounds i8, ptr %this, i64 20
+  %12 = load i32, ptr %isize, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  store i32 %13, ptr %cpalete, align 4
-  %important = getelementptr inbounds i8, ptr %this, i64 36
-  %14 = load i32, ptr %important, align 4
+  store i32 %13, ptr %isize, align 4
+  %hres = getelementptr inbounds i8, ptr %this, i64 24
+  %14 = load i32, ptr %hres, align 4
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
-  store i32 %15, ptr %important, align 4
+  store i32 %15, ptr %hres, align 4
+  %vres = getelementptr inbounds i8, ptr %this, i64 28
+  %16 = load i32, ptr %vres, align 4
+  %17 = tail call i32 @llvm.bswap.i32(i32 %16)
+  store i32 %17, ptr %vres, align 4
+  %cpalete = getelementptr inbounds i8, ptr %this, i64 32
+  %18 = load i32, ptr %cpalete, align 4
+  %19 = tail call i32 @llvm.bswap.i32(i32 %18)
+  store i32 %19, ptr %cpalete, align 4
+  %important = getelementptr inbounds i8, ptr %this, i64 36
+  %20 = load i32, ptr %important, align 4
+  %21 = tail call i32 @llvm.bswap.i32(i32 %20)
+  store i32 %21, ptr %important, align 4
   ret void
 }
 
@@ -705,12 +717,9 @@ declare i32 @llvm.bswap.i32(i32) #6
 define internal void @_GLOBAL__sub_I_bmp_pvt.cpp() #7 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -720,8 +729,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

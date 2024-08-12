@@ -234,7 +234,7 @@ define internal i64 @console_raw(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @console_set_raw(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
-  %4 = alloca %struct.termios, align 8
+  %4 = alloca %struct.termios, align 4
   %5 = alloca %struct.rawmode_arg_t, align 4
   %6 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5)
   %7 = call i32 @rb_io_descriptor(i64 noundef %2) #10
@@ -286,30 +286,34 @@ define internal noundef i64 @console_set_raw(i32 noundef %0, ptr noundef %1, i64
   br i1 %.not16.i, label %set_rawmode.exit.preheader, label %32
 
 32:                                               ; preds = %29
-  %33 = or i32 %15, 1
-  store i32 %33, ptr %13, align 4
-  %34 = load <2 x i32>, ptr %4, align 8
-  %35 = or <2 x i32> %34, <i32 2, i32 1>
-  store <2 x i32> %35, ptr %4, align 8
+  %33 = load i32, ptr %4, align 4
+  %34 = or i32 %33, 2
+  store i32 %34, ptr %4, align 4
+  %35 = or i32 %15, 1
+  store i32 %35, ptr %13, align 4
+  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = or i32 %37, 1
+  store i32 %38, ptr %36, align 4
   br label %set_rawmode.exit.preheader
 
 set_rawmode.exit.preheader:                       ; preds = %12, %29, %32
   br label %set_rawmode.exit
 
-set_rawmode.exit:                                 ; preds = %set_rawmode.exit.preheader, %37
-  %36 = call i32 @tcsetattr(i32 noundef %7, i32 noundef 0, ptr noundef nonnull %4) #10
-  %.not.i7 = icmp eq i32 %36, 0
-  br i1 %.not.i7, label %setattr.exit, label %37
+set_rawmode.exit:                                 ; preds = %set_rawmode.exit.preheader, %40
+  %39 = call i32 @tcsetattr(i32 noundef %7, i32 noundef 0, ptr noundef nonnull %4) #10
+  %.not.i7 = icmp eq i32 %39, 0
+  br i1 %.not.i7, label %setattr.exit, label %40
 
-37:                                               ; preds = %set_rawmode.exit
-  %38 = call ptr @rb_errno_ptr() #10
-  %39 = load i32, ptr %38, align 4
-  %.not2.i = icmp eq i32 %39, 4
-  br i1 %.not2.i, label %set_rawmode.exit, label %40, !llvm.loop !6
+40:                                               ; preds = %set_rawmode.exit
+  %41 = call ptr @rb_errno_ptr() #10
+  %42 = load i32, ptr %41, align 4
+  %.not2.i = icmp eq i32 %42, 4
+  br i1 %.not2.i, label %set_rawmode.exit, label %43, !llvm.loop !6
 
-40:                                               ; preds = %37
-  %41 = call i64 @rb_io_path(i64 noundef %2) #10
-  call void @rb_sys_fail_str(i64 noundef %41) #11
+43:                                               ; preds = %40
+  %44 = call i64 @rb_io_path(i64 noundef %2) #10
+  call void @rb_sys_fail_str(i64 noundef %44) #11
   unreachable
 
 setattr.exit:                                     ; preds = %set_rawmode.exit
@@ -324,7 +328,7 @@ define internal i64 @console_cooked(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @console_set_cooked(i64 noundef returned %0) #0 {
-  %2 = alloca %struct.termios, align 8
+  %2 = alloca %struct.termios, align 4
   %3 = tail call i32 @rb_io_descriptor(i64 noundef %0) #10
   %4 = call i32 @tcgetattr(i32 noundef %3, ptr noundef nonnull %2) #10
   %5 = icmp eq i32 %4, 0
@@ -336,32 +340,36 @@ define internal noundef i64 @console_set_cooked(i64 noundef returned %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = load <2 x i32>, ptr %2, align 8
-  %10 = or <2 x i32> %9, <i32 1314, i32 1>
-  store <2 x i32> %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = load i32, ptr %2, align 4
+  %10 = or i32 %9, 1314
+  store i32 %10, ptr %2, align 4
+  %11 = getelementptr inbounds i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = or i32 %12, 32891
+  %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %14
+  %14 = getelementptr inbounds i8, ptr %2, i64 12
+  %15 = load i32, ptr %14, align 4
+  %16 = or i32 %15, 32891
+  store i32 %16, ptr %14, align 4
+  br label %17
 
-14:                                               ; preds = %16, %8
-  %15 = call i32 @tcsetattr(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %2) #10
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %setattr.exit, label %16
+17:                                               ; preds = %19, %8
+  %18 = call i32 @tcsetattr(i32 noundef %3, i32 noundef 0, ptr noundef nonnull %2) #10
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %setattr.exit, label %19
 
-16:                                               ; preds = %14
-  %17 = call ptr @rb_errno_ptr() #10
-  %18 = load i32, ptr %17, align 4
-  %.not2.i = icmp eq i32 %18, 4
-  br i1 %.not2.i, label %14, label %19, !llvm.loop !6
+19:                                               ; preds = %17
+  %20 = call ptr @rb_errno_ptr() #10
+  %21 = load i32, ptr %20, align 4
+  %.not2.i = icmp eq i32 %21, 4
+  br i1 %.not2.i, label %17, label %22, !llvm.loop !6
 
-19:                                               ; preds = %16
-  %20 = call i64 @rb_io_path(i64 noundef %0) #10
-  call void @rb_sys_fail_str(i64 noundef %20) #11
+22:                                               ; preds = %19
+  %23 = call i64 @rb_io_path(i64 noundef %0) #10
+  call void @rb_sys_fail_str(i64 noundef %23) #11
   unreachable
 
-setattr.exit:                                     ; preds = %14
+setattr.exit:                                     ; preds = %17
   ret i64 %0
 }
 
@@ -1610,11 +1618,15 @@ define internal noundef i64 @conmode_set_raw(i32 noundef %0, ptr noundef %1, i64
   br i1 %.not16.i, label %set_rawmode.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = or i32 %9, 1
-  store i32 %27, ptr %7, align 4
-  %28 = load <2 x i32>, ptr %5, align 4
-  %29 = or <2 x i32> %28, <i32 2, i32 1>
-  store <2 x i32> %29, ptr %5, align 4
+  %27 = load i32, ptr %5, align 4
+  %28 = or i32 %27, 2
+  store i32 %28, ptr %5, align 4
+  %29 = or i32 %9, 1
+  store i32 %29, ptr %7, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = or i32 %31, 1
+  store i32 %32, ptr %30, align 4
   br label %set_rawmode.exit
 
 set_rawmode.exit:                                 ; preds = %3, %23, %26
@@ -1623,10 +1635,10 @@ set_rawmode.exit:                                 ; preds = %3, %23, %26
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @conmode_raw_new(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = alloca %struct.termios, align 8
+  %4 = alloca %struct.termios, align 4
   %5 = alloca %struct.rawmode_arg_t, align 4
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false)
   %7 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5)
   call void @cfmakeraw(ptr noundef nonnull %4) #10
   %8 = getelementptr inbounds i8, ptr %4, i64 12
@@ -1666,21 +1678,25 @@ define internal i64 @conmode_raw_new(i32 noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not16.i, label %set_rawmode.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = or i32 %10, 1
-  store i32 %28, ptr %8, align 4
-  %29 = load <2 x i32>, ptr %4, align 8
-  %30 = or <2 x i32> %29, <i32 2, i32 1>
-  store <2 x i32> %30, ptr %4, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = or i32 %28, 2
+  store i32 %29, ptr %4, align 4
+  %30 = or i32 %10, 1
+  store i32 %30, ptr %8, align 4
+  %31 = getelementptr inbounds i8, ptr %4, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = or i32 %32, 1
+  store i32 %33, ptr %31, align 4
   br label %set_rawmode.exit
 
 set_rawmode.exit:                                 ; preds = %3, %24, %27
-  %31 = call i64 @rb_obj_class(i64 noundef %2) #10
-  %32 = call i64 @rb_data_typed_object_zalloc(i64 noundef %31, i64 noundef 60, ptr noundef nonnull @conmode_type) #10
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %35, ptr noundef nonnull readonly align 8 dereferenceable(60) %4, i64 60, i1 false)
-  ret i64 %32
+  %34 = call i64 @rb_obj_class(i64 noundef %2) #10
+  %35 = call i64 @rb_data_typed_object_zalloc(i64 noundef %34, i64 noundef 60, ptr noundef nonnull @conmode_type) #10
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %38, ptr noundef nonnull readonly align 4 dereferenceable(60) %4, i64 60, i1 false)
+  ret i64 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1995,7 +2011,7 @@ define internal void @set_rawmode(ptr noundef %0, ptr noundef readonly %1) #0 {
   %5 = and i32 %4, -49
   store i32 %5, ptr %3, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %26, label %6
+  br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4
@@ -2024,17 +2040,21 @@ define internal void @set_rawmode(ptr noundef %0, ptr noundef readonly %1) #0 {
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 4
   %.not16 = icmp eq i32 %21, 0
-  br i1 %.not16, label %26, label %22
+  br i1 %.not16, label %29, label %22
 
 22:                                               ; preds = %19
-  %23 = or i32 %5, 1
-  store i32 %23, ptr %3, align 4
-  %24 = load <2 x i32>, ptr %0, align 4
-  %25 = or <2 x i32> %24, <i32 2, i32 1>
-  store <2 x i32> %25, ptr %0, align 4
-  br label %26
+  %23 = load i32, ptr %0, align 4
+  %24 = or i32 %23, 2
+  store i32 %24, ptr %0, align 4
+  %25 = or i32 %5, 1
+  store i32 %25, ptr %3, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = or i32 %27, 1
+  store i32 %28, ptr %26, align 4
+  br label %29
 
-26:                                               ; preds = %19, %22, %2
+29:                                               ; preds = %19, %22, %2
   ret void
 }
 
@@ -2087,13 +2107,17 @@ declare i64 @rb_io_path(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @set_cookedmode(ptr nocapture noundef %0, ptr nocapture readnone %1) #5 {
-  %3 = load <2 x i32>, ptr %0, align 4
-  %4 = or <2 x i32> %3, <i32 1314, i32 1>
-  store <2 x i32> %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = load i32, ptr %0, align 4
+  %4 = or i32 %3, 1314
+  store i32 %4, ptr %0, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = or i32 %6, 32891
+  %7 = or i32 %6, 1
   store i32 %7, ptr %5, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = load i32, ptr %8, align 4
+  %10 = or i32 %9, 32891
+  store i32 %10, ptr %8, align 4
   ret void
 }
 

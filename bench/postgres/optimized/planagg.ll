@@ -444,43 +444,45 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   %68 = getelementptr inbounds i8, ptr %17, i64 200
   store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %7, i64 568
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %69, align 8
-  %70 = tail call ptr @query_planner(ptr noundef nonnull %7, ptr noundef nonnull @minmax_qp_callback, ptr noundef null) #7
+  store double 1.000000e+00, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %7, i64 576
+  store double 1.000000e+00, ptr %70, align 8
+  %71 = tail call ptr @query_planner(ptr noundef nonnull %7, ptr noundef nonnull @minmax_qp_callback, ptr noundef null) #7
   tail call void @SS_identify_outer_params(ptr noundef nonnull %7) #7
-  tail call void @SS_charge_for_initplans(ptr noundef nonnull %7, ptr noundef %70) #7
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
-  %72 = load double, ptr %71, align 8
-  %73 = fcmp ogt double %72, 1.000000e+00
-  %74 = fdiv double 1.000000e+00, %72
-  %.078 = select i1 %73, double %74, double 1.000000e+00
-  %75 = getelementptr inbounds i8, ptr %70, i64 40
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 312
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef %76, ptr noundef %78, ptr noundef null, double noundef %.078) #7
-  %.not = icmp ne ptr %79, null
-  br i1 %.not, label %80, label %94
+  tail call void @SS_charge_for_initplans(ptr noundef nonnull %7, ptr noundef %71) #7
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = load double, ptr %72, align 8
+  %74 = fcmp ogt double %73, 1.000000e+00
+  %75 = fdiv double 1.000000e+00, %73
+  %.078 = select i1 %74, double %75, double 1.000000e+00
+  %76 = getelementptr inbounds i8, ptr %71, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %7, i64 312
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef %77, ptr noundef %79, ptr noundef null, double noundef %.078) #7
+  %.not = icmp ne ptr %80, null
+  br i1 %.not, label %81, label %95
 
-80:                                               ; preds = %55
-  %81 = load ptr, ptr %30, align 8
-  %82 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %81) #7
-  %83 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %7, ptr noundef %82) #7
-  %84 = tail call ptr @apply_projection_to_path(ptr noundef nonnull %7, ptr noundef nonnull %70, ptr noundef nonnull %79, ptr noundef %83) #7
-  %85 = getelementptr inbounds i8, ptr %84, i64 48
-  %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %84, i64 56
-  %88 = load double, ptr %87, align 8
-  %89 = fsub double %88, %86
-  %90 = tail call double @llvm.fmuladd.f64(double %.078, double %89, double %86)
-  %91 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %7, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 32
-  store ptr %84, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 40
-  store double %90, ptr %93, align 8
-  br label %94
+81:                                               ; preds = %55
+  %82 = load ptr, ptr %30, align 8
+  %83 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %82) #7
+  %84 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %7, ptr noundef %83) #7
+  %85 = tail call ptr @apply_projection_to_path(ptr noundef nonnull %7, ptr noundef nonnull %71, ptr noundef nonnull %80, ptr noundef %84) #7
+  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %87 = load double, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %85, i64 56
+  %89 = load double, ptr %88, align 8
+  %90 = fsub double %89, %87
+  %91 = tail call double @llvm.fmuladd.f64(double %.078, double %90, double %87)
+  %92 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %7, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr %85, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %1, i64 40
+  store double %91, ptr %94, align 8
+  br label %95
 
-94:                                               ; preds = %55, %80
+95:                                               ; preds = %55, %81
   ret i1 %.not
 }
 

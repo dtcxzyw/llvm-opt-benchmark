@@ -29,35 +29,37 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.winsize, align 4
+  %3 = alloca %struct.winsize, align 2
   %4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 21523, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
-  br label %19
+  br label %20
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 262
-  %9 = load <2 x i16>, ptr %3, align 4
-  %10 = shufflevector <2 x i16> %9, <2 x i16> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i16> %10, ptr %8, align 2
-  %11 = call i32 @get_log_level() #6
-  %12 = icmp sgt i32 %11, 5
-  br i1 %12, label %13, label %19
+  %8 = load i16, ptr %3, align 2
+  %9 = getelementptr inbounds i8, ptr %1, i64 264
+  store i16 %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = getelementptr inbounds i8, ptr %1, i64 262
+  store i16 %11, ptr %12, align 2
+  %13 = call i32 @get_log_level() #6
+  %14 = icmp sgt i32 %13, 5
+  br i1 %14, label %15, label %20
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 264
-  %15 = load i16, ptr %14, align 8
-  %16 = zext i16 %15 to i32
-  %17 = load i16, ptr %8, align 2
-  %18 = zext i16 %17 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %16, i32 noundef %18) #6
-  br label %19
+15:                                               ; preds = %7
+  %16 = load i16, ptr %9, align 8
+  %17 = zext i16 %16 to i32
+  %18 = load i16, ptr %12, align 2
+  %19 = zext i16 %18 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %17, i32 noundef %19) #6
+  br label %20
 
-19:                                               ; preds = %7, %13, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %13 ], [ 0, %7 ]
+20:                                               ; preds = %7, %15, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %15 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -233,7 +235,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @_pty_thread(ptr nocapture noundef %0) #0 {
   %2 = alloca [4 x i8], align 2
-  %3 = alloca %struct.winsize, align 4
+  %3 = alloca %struct.winsize, align 2
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = tail call i32 @xsignal_unblock(ptr noundef nonnull @pty_sigarray) #6
   %6 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #6
@@ -245,7 +247,7 @@ define internal noalias noundef ptr @_pty_thread(ptr nocapture noundef %0) #0 {
 
 11:                                               ; preds = %1
   %12 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #6
-  br label %61
+  br label %62
 
 13:                                               ; preds = %1
   %14 = call i32 @net_set_keep_alive(i32 noundef %9) #6
@@ -256,105 +258,107 @@ define internal noalias noundef ptr @_pty_thread(ptr nocapture noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %13
   %18 = getelementptr i8, ptr %0, i64 264
-  %19 = getelementptr i8, ptr %0, i64 262
-  %20 = getelementptr inbounds i8, ptr %2, i64 2
-  br label %21
+  %19 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr i8, ptr %0, i64 262
+  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %.backedge
-  %22 = call i32 @get_log_level() #6
-  %23 = icmp sgt i32 %22, 5
-  br i1 %23, label %24, label %25
+22:                                               ; preds = %.lr.ph, %.backedge
+  %23 = call i32 @get_log_level() #6
+  %24 = icmp sgt i32 %23, 5
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.12) #6
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %21
-  %26 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef -1) #6
-  %27 = icmp slt i32 %26, 1
-  br i1 %27, label %28, label %37
+26:                                               ; preds = %25, %22
+  %27 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef -1) #6
+  %28 = icmp slt i32 %27, 1
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %25
-  %29 = tail call ptr @__errno_location() #7
-  %30 = load i32, ptr %29, align 4
-  %.not = icmp eq i32 %30, 4
-  br i1 %.not, label %37, label %31
+29:                                               ; preds = %26
+  %30 = tail call ptr @__errno_location() #7
+  %31 = load i32, ptr %30, align 4
+  %.not = icmp eq i32 %31, 4
+  br i1 %.not, label %38, label %32
 
-31:                                               ; preds = %28
-  %32 = call i32 @get_log_level() #6
-  %33 = icmp sgt i32 %32, 4
-  br i1 %33, label %34, label %.backedge
+32:                                               ; preds = %29
+  %33 = call i32 @get_log_level() #6
+  %34 = icmp sgt i32 %33, 4
+  br i1 %34, label %35, label %.backedge
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__._pty_thread) #6
   br label %.backedge
 
-.backedge:                                        ; preds = %31, %34, %59
-  %35 = load i32, ptr %15, align 4
-  %36 = icmp ult i32 %35, 4
-  br i1 %36, label %21, label %._crit_edge, !llvm.loop !7
+.backedge:                                        ; preds = %32, %35, %60
+  %36 = load i32, ptr %15, align 4
+  %37 = icmp ult i32 %36, 4
+  br i1 %37, label %22, label %._crit_edge, !llvm.loop !7
 
-37:                                               ; preds = %28, %25
+38:                                               ; preds = %29, %26
   %.b = load i1, ptr @winch, align 4
-  br i1 %.b, label %38, label %59
+  br i1 %.b, label %39, label %60
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #6
-  %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %42, label %40
+  %40 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #6
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %43, label %41
 
-40:                                               ; preds = %38
-  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
+41:                                               ; preds = %39
+  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
   br label %set_winsize.exit
 
-42:                                               ; preds = %38
-  %43 = load <2 x i16>, ptr %3, align 4
-  %44 = shufflevector <2 x i16> %43, <2 x i16> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i16> %44, ptr %19, align 2
-  %45 = call i32 @get_log_level() #6
-  %46 = icmp sgt i32 %45, 5
-  br i1 %46, label %47, label %set_winsize.exit
+43:                                               ; preds = %39
+  %44 = load i16, ptr %3, align 2
+  store i16 %44, ptr %18, align 8
+  %45 = load i16, ptr %19, align 2
+  store i16 %45, ptr %20, align 2
+  %46 = call i32 @get_log_level() #6
+  %47 = icmp sgt i32 %46, 5
+  br i1 %47, label %48, label %set_winsize.exit
 
-47:                                               ; preds = %42
-  %48 = load i16, ptr %18, align 8
-  %49 = zext i16 %48 to i32
-  %50 = load i16, ptr %19, align 2
-  %51 = zext i16 %50 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %49, i32 noundef %51) #6
+48:                                               ; preds = %43
+  %49 = load i16, ptr %18, align 8
+  %50 = zext i16 %49 to i32
+  %51 = load i16, ptr %20, align 2
+  %52 = zext i16 %51 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %50, i32 noundef %52) #6
   br label %set_winsize.exit
 
-set_winsize.exit:                                 ; preds = %40, %42, %47
+set_winsize.exit:                                 ; preds = %41, %43, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.val = load i16, ptr %19, align 2
+  %.val = load i16, ptr %20, align 2
   %.val8 = load i16, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %52 = call zeroext i16 @htons(i16 noundef zeroext %.val) #7
-  %53 = call zeroext i16 @htons(i16 noundef zeroext %.val8) #7
-  store i16 %52, ptr %2, align 2
-  store i16 %53, ptr %20, align 2
-  %54 = call i64 @slurm_write_stream(i32 noundef %9, ptr noundef nonnull %2, i64 noundef 4) #6
-  %55 = and i64 %54, 4294967292
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %57, label %_notify_winsize_change.exit
+  %53 = call zeroext i16 @htons(i16 noundef zeroext %.val) #7
+  %54 = call zeroext i16 @htons(i16 noundef zeroext %.val8) #7
+  store i16 %53, ptr %2, align 2
+  store i16 %54, ptr %21, align 2
+  %55 = call i64 @slurm_write_stream(i32 noundef %9, ptr noundef nonnull %2, i64 noundef 4) #6
+  %56 = and i64 %55, 4294967292
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %58, label %_notify_winsize_change.exit
 
-57:                                               ; preds = %set_winsize.exit
-  %58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #6
+58:                                               ; preds = %set_winsize.exit
+  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #6
   br label %_notify_winsize_change.exit
 
-_notify_winsize_change.exit:                      ; preds = %set_winsize.exit, %57
+_notify_winsize_change.exit:                      ; preds = %set_winsize.exit, %58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %59
+  br label %60
 
-59:                                               ; preds = %_notify_winsize_change.exit, %37
+60:                                               ; preds = %_notify_winsize_change.exit, %38
   store i1 false, ptr @winch, align 4
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %13
-  %60 = call i32 @close(i32 noundef %9) #6
-  br label %61
+  %61 = call i32 @close(i32 noundef %9) #6
+  br label %62
 
-61:                                               ; preds = %._crit_edge, %11
+62:                                               ; preds = %._crit_edge, %11
   ret ptr null
 }
 

@@ -472,9 +472,13 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
 
 .thread133:                                       ; preds = %124
   %139 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0xFFF0000000000000, double 0xFFF0000000000000>, ptr %139, align 16
+  store double 0xFFF0000000000000, ptr %139, align 16
+  %.sroa.7.16..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0xFFF0000000000000, ptr %.sroa.7.16..sroa_idx, align 8
   %140 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> <double 0x7FF0000000000000, double 0x7FF0000000000000>, ptr %140, align 16
+  store double 0x7FF0000000000000, ptr %140, align 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
+  store double 0x7FF0000000000000, ptr %.sroa.3.0..sroa_idx, align 8
   br label %156
 
 141:                                              ; preds = %124

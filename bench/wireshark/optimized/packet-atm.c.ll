@@ -1669,7 +1669,7 @@ get_header_err.exit:                              ; preds = %44
   %.071 = phi i32 [ %4, %63 ], [ %spec.select, %64 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   %.not78 = icmp eq ptr %6, null
-  br i1 %.not78, label %93, label %71
+  br i1 %.not78, label %102, label %71
 
 71:                                               ; preds = %70
   %72 = load i32, ptr %6, align 4
@@ -1691,32 +1691,44 @@ get_header_err.exit:                              ; preds = %44
   %86 = getelementptr inbounds i8, ptr %8, i64 12
   store i8 %85, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %6, i64 14
-  %88 = getelementptr inbounds i8, ptr %8, i64 14
-  %89 = load <4 x i16>, ptr %87, align 2
-  store <4 x i16> %89, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %6, i64 24
-  %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 %91, ptr %92, align 4
-  br label %95
+  %88 = load i16, ptr %87, align 2
+  %89 = getelementptr inbounds i8, ptr %8, i64 14
+  store i16 %88, ptr %89, align 2
+  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %91 = load i16, ptr %90, align 4
+  %92 = getelementptr inbounds i8, ptr %8, i64 16
+  store i16 %91, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %6, i64 18
+  %94 = load i16, ptr %93, align 2
+  %95 = getelementptr inbounds i8, ptr %8, i64 18
+  store i16 %94, ptr %95, align 2
+  %96 = getelementptr inbounds i8, ptr %6, i64 20
+  %97 = load i16, ptr %96, align 4
+  %98 = getelementptr inbounds i8, ptr %8, i64 20
+  store i16 %97, ptr %98, align 4
+  %99 = getelementptr inbounds i8, ptr %6, i64 24
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 %100, ptr %101, align 4
+  br label %104
 
-93:                                               ; preds = %70
-  %94 = trunc nuw i32 %.071 to i8
-  br label %95
+102:                                              ; preds = %70
+  %103 = trunc nuw i32 %.071 to i8
+  br label %104
 
-95:                                               ; preds = %93, %71
-  %.sink84 = phi i8 [ %94, %93 ], [ %74, %71 ]
-  %.sink83 = phi i8 [ %33, %93 ], [ %76, %71 ]
-  %.sink82 = phi i16 [ %14, %93 ], [ %81, %71 ]
-  %.sink = phi i16 [ %28, %93 ], [ %83, %71 ]
-  %96 = getelementptr inbounds i8, ptr %8, i64 4
-  store i8 %.sink84, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %8, i64 5
-  store i8 %.sink83, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %8, i64 8
-  store i16 %.sink82, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %8, i64 10
-  store i16 %.sink, ptr %99, align 2
+104:                                              ; preds = %102, %71
+  %.sink84 = phi i8 [ %103, %102 ], [ %74, %71 ]
+  %.sink83 = phi i8 [ %33, %102 ], [ %76, %71 ]
+  %.sink82 = phi i16 [ %14, %102 ], [ %81, %71 ]
+  %.sink = phi i16 [ %28, %102 ], [ %83, %71 ]
+  %105 = getelementptr inbounds i8, ptr %8, i64 4
+  store i8 %.sink84, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %8, i64 5
+  store i8 %.sink83, ptr %106, align 1
+  %107 = getelementptr inbounds i8, ptr %8, i64 8
+  store i16 %.sink82, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %8, i64 10
+  store i16 %.sink, ptr %108, align 2
   call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef nonnull %8)
   ret void
 }

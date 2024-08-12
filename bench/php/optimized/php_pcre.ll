@@ -5955,7 +5955,7 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
   %.0163197 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 5, %25 ]
   %.0164196 = phi ptr [ %10, %15 ], [ null, %8 ], [ %20, %25 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0161199, i32 noundef %.0162198, ptr noundef null, i32 noundef %.0163197, ptr noundef %.0164196) #23
-  br label %91
+  br label %94
 
 .thread200:                                       ; preds = %25, %.thread206, %17
   %27 = load ptr, ptr %3, align 8
@@ -5969,7 +5969,7 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
   store ptr %32, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 6, ptr %33, align 8
-  br label %91
+  br label %94
 
 34:                                               ; preds = %.thread200
   %35 = getelementptr inbounds i8, ptr %27, i64 24
@@ -6048,7 +6048,7 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 6, ptr %59, align 8
-  br label %91
+  br label %94
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %27, align 4
@@ -6056,7 +6056,7 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
   store i32 %62, ptr %27, align 4
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %63, align 8
-  br label %91
+  br label %94
 
 64:                                               ; preds = %52
   %65 = and i64 %spec.select, -8
@@ -6073,11 +6073,11 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
   %72 = getelementptr inbounds i8, ptr %67, i64 24
   br label %73
 
-73:                                               ; preds = %87, %64
-  %.0158 = phi ptr [ %72, %64 ], [ %.1159, %87 ]
-  %.1157 = phi ptr [ %35, %64 ], [ %88, %87 ]
+73:                                               ; preds = %90, %64
+  %.0158 = phi ptr [ %72, %64 ], [ %.1159, %90 ]
+  %.1157 = phi ptr [ %35, %64 ], [ %91, %90 ]
   %74 = load i8, ptr %.1157, align 1
-  switch i8 %74, label %80 [
+  switch i8 %74, label %83 [
     i8 46, label %75
     i8 92, label %75
     i8 43, label %75
@@ -6107,43 +6107,49 @@ define hidden void @zif_preg_quote(ptr noundef %0, ptr nocapture noundef writeon
   store i8 92, ptr %.0158, align 1
   %77 = getelementptr inbounds i8, ptr %.0158, i64 2
   store i8 %74, ptr %76, align 1
-  br label %87
+  br label %90
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %.0158, i64 4
-  store <4 x i8> <i8 92, i8 48, i8 48, i8 48>, ptr %.0158, align 1
-  br label %87
-
-80:                                               ; preds = %73
-  %81 = sext i8 %74 to i32
-  %82 = icmp eq i32 %.0160, %81
-  br i1 %82, label %83, label %85
-
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %.0158, i64 1
+  %79 = getelementptr inbounds i8, ptr %.0158, i64 1
   store i8 92, ptr %.0158, align 1
-  br label %85
+  %80 = getelementptr inbounds i8, ptr %.0158, i64 2
+  store i8 48, ptr %79, align 1
+  %81 = getelementptr inbounds i8, ptr %.0158, i64 3
+  store i8 48, ptr %80, align 1
+  %82 = getelementptr inbounds i8, ptr %.0158, i64 4
+  store i8 48, ptr %81, align 1
+  br label %90
 
-85:                                               ; preds = %83, %80
-  %.2 = phi ptr [ %84, %83 ], [ %.0158, %80 ]
-  %86 = getelementptr inbounds i8, ptr %.2, i64 1
+83:                                               ; preds = %73
+  %84 = sext i8 %74 to i32
+  %85 = icmp eq i32 %.0160, %84
+  br i1 %85, label %86, label %88
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %.0158, i64 1
+  store i8 92, ptr %.0158, align 1
+  br label %88
+
+88:                                               ; preds = %86, %83
+  %.2 = phi ptr [ %87, %86 ], [ %.0158, %83 ]
+  %89 = getelementptr inbounds i8, ptr %.2, i64 1
   store i8 %74, ptr %.2, align 1
-  br label %87
+  br label %90
 
-87:                                               ; preds = %85, %78, %75
-  %.1159 = phi ptr [ %86, %85 ], [ %79, %78 ], [ %77, %75 ]
-  %88 = getelementptr inbounds i8, ptr %.1157, i64 1
-  %.not175 = icmp eq ptr %88, %36
-  br i1 %.not175, label %89, label %73
+90:                                               ; preds = %88, %78, %75
+  %.1159 = phi ptr [ %89, %88 ], [ %82, %78 ], [ %77, %75 ]
+  %91 = getelementptr inbounds i8, ptr %.1157, i64 1
+  %.not175 = icmp eq ptr %91, %36
+  br i1 %.not175, label %92, label %73
 
-89:                                               ; preds = %87
+92:                                               ; preds = %90
   store i8 0, ptr %.1159, align 1
   store ptr %67, ptr %1, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %90, align 8
-  br label %91
+  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %93, align 8
+  br label %94
 
-91:                                               ; preds = %60, %58, %89, %31, %.thread190
+94:                                               ; preds = %60, %58, %92, %31, %.thread190
   ret void
 }
 

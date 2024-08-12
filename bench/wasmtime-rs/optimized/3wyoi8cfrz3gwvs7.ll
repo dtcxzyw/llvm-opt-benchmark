@@ -979,18 +979,22 @@ define { i32, i32 } @_ZN14wasmtime_types10EntityType11unwrap_func17ha4caad5613c9
 define void @"_ZN114_$LT$wasmtime_types..Memory$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..MemoryType$GT$$GT$4from17hdca2a4f25b45df88E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %1, i64 33
-  %6 = load i8, ptr %5, align 1, !range !16, !noundef !5
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = load i8, ptr %7, align 8, !range !16, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %4, ptr %9, align 8
-  %10 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 %8, ptr %12, align 1
+  %5 = load i64, ptr %1, align 8, !range !73, !noundef !5
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 33
+  %9 = load i8, ptr %8, align 1, !range !16, !noundef !5
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = load i8, ptr %10, align 8, !range !16, !noundef !5
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %4, ptr %12, align 8
+  store i64 %5, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %9, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 %11, ptr %15, align 1
   ret void
 }
 
@@ -1437,3 +1441,4 @@ attributes #9 = { noreturn }
 !70 = distinct !{!70, !68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !71 = distinct !{!71, !68, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 2"}
 !72 = !{i64 0, i64 7}
+!73 = !{i64 0, i64 2}

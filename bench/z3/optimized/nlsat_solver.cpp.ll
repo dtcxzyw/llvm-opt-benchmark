@@ -858,12 +858,18 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont20, %for
 invoke.cont22:                                    ; preds = %for.body.i.i.i.i
   store ptr %call.i.i.i.i24, ptr %m_ineq_atoms, align 8
   %m_slots.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  store i32 8, ptr %m_slots.i.i, align 4
+  %m_used_slots.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  store i32 0, ptr %m_used_slots.i.i, align 8
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 172
+  store i32 0, ptr %m_size.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i24, i64 128
   %m_next_cell.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %add.ptr.i.i, ptr %m_next_cell.i.i, align 8
   %m_free_cell.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i, align 4
+  %m_collisions.i = getelementptr inbounds i8, ptr %this, i64 176
+  store i32 0, ptr %m_collisions.i, align 8
   %m_root_atoms = getelementptr inbounds i8, ptr %this, i64 208
   %m_init_slots.i25 = getelementptr inbounds i8, ptr %this, i64 220
   store i32 8, ptr %m_init_slots.i25, align 4
@@ -886,11 +892,17 @@ for.body.i.i.i.i28:                               ; preds = %invoke.cont22, %for
 invoke.cont54:                                    ; preds = %for.body.i.i.i.i28
   store ptr %call.i.i.i.i42, ptr %m_root_atoms, align 8
   %m_slots.i.i34 = getelementptr inbounds i8, ptr %this, i64 228
+  store i32 8, ptr %m_slots.i.i34, align 4
+  %m_used_slots.i.i35 = getelementptr inbounds i8, ptr %this, i64 232
+  store i32 0, ptr %m_used_slots.i.i35, align 8
+  %m_size.i.i36 = getelementptr inbounds i8, ptr %this, i64 236
+  store i32 0, ptr %m_size.i.i36, align 4
   %add.ptr.i.i37 = getelementptr inbounds i8, ptr %call.i.i.i.i42, i64 128
   %m_next_cell.i.i38 = getelementptr inbounds i8, ptr %this, i64 248
   store ptr %add.ptr.i.i37, ptr %m_next_cell.i.i38, align 8
   %m_free_cell.i.i39 = getelementptr inbounds i8, ptr %this, i64 256
-  store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i34, align 4
+  %m_collisions.i40 = getelementptr inbounds i8, ptr %this, i64 240
+  store i32 0, ptr %m_collisions.i40, align 8
   %m_patch_var = getelementptr inbounds i8, ptr %this, i64 272
   %m_patch_num = getelementptr inbounds i8, ptr %this, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_free_cell.i.i39, i8 0, i64 24, i1 false)
@@ -27730,14 +27742,17 @@ if.then:                                          ; preds = %entry, %_ZNK6vector
   br i1 %tobool.not.i.i, label %_ZN10ptr_vectorIN5nlsat6clauseEEC2ERKS2_.exit, label %_ZNK6vectorIPN5nlsat6clauseELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIPN5nlsat6clauseELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.then
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %3, ptr %call3.i.i.i, align 4
+  store i32 %4, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %3, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %agg.tmp, align 8
   %5 = load ptr, ptr %d, align 8
@@ -27913,14 +27928,17 @@ _ZN6vectorIPN5nlsat6clauseELb0EjE7destroyEv.exit.i.i: ; preds = %if.then.i.i.i6,
   br i1 %tobool.not.i.i8, label %if.else.i.i, label %_ZNK6vectorIPN5nlsat6clauseELb0EjE8capacityEv.exit.i.i.i9
 
 _ZNK6vectorIPN5nlsat6clauseELb0EjE8capacityEv.exit.i.i.i9: ; preds = %_ZN6vectorIPN5nlsat6clauseELb0EjE7destroyEv.exit.i.i
+  %arrayidx.i.i.i.i10 = getelementptr inbounds i8, ptr %25, i64 -4
+  %26 = load i32, ptr %arrayidx.i.i.i.i10, align 4
   %arrayidx.i11.i.i.i11 = getelementptr inbounds i8, ptr %25, i64 -8
-  %26 = load <2 x i32>, ptr %arrayidx.i11.i.i.i11, align 4
   %27 = load i32, ptr %arrayidx.i11.i.i.i11, align 4
   %conv.i.i.i12 = zext i32 %27 to i64
   %mul.i.i.i13 = shl nuw nsw i64 %conv.i.i.i12, 3
   %add.i.i.i14 = add nuw nsw i64 %mul.i.i.i13, 8
   %call3.i.i.i15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i14)
-  store <2 x i32> %26, ptr %call3.i.i.i15, align 4
+  store i32 %27, ptr %call3.i.i.i15, align 4
+  %incdec.ptr.i.i.i16 = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 4
+  store i32 %26, ptr %incdec.ptr.i.i.i16, align 4
   %incdec.ptr4.i.i.i17 = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   store ptr %incdec.ptr4.i.i.i17, ptr %arrayidx, align 8
   %28 = load ptr, ptr %elem, align 8
@@ -28705,10 +28723,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %9 = load i32, ptr %m_size, align 4
+  %inc = add i32 %9, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x i32>, ptr %m_used_slots, align 8
-  %10 = add <2 x i32> %9, <i32 1, i32 1>
-  store <2 x i32> %10, ptr %m_used_slots, align 8
+  %10 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %10, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8
@@ -28984,10 +29006,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %9 = load i32, ptr %m_size, align 4
+  %inc = add i32 %9, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x i32>, ptr %m_used_slots, align 8
-  %10 = add <2 x i32> %9, <i32 1, i32 1>
-  store <2 x i32> %10, ptr %m_used_slots, align 8
+  %10 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %10, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %11 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %11, ptr %m_data, align 8

@@ -971,60 +971,68 @@ _ZNKSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %22, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %23, %22 ]
-  %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %5, %22 ]
+  %.012.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %23, %22 ]
+  %.0911.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %5, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %25 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store <2 x ptr> %25, ptr %.012.i.i.i, align 8, !alias.scope !9, !noalias !12
-  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %25 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store ptr %25, ptr %.012.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !12, !noalias !9
   store ptr %28, ptr %26, align 8, !alias.scope !9, !noalias !12
+  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !alias.scope !12, !noalias !9
+  store ptr %31, ptr %29, align 8, !alias.scope !9, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !12, !noalias !9
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %29, %1
+  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %32, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %22
-  %.0.lcssa.i.i.i = phi ptr [ %23, %22 ], [ %30, %.lr.ph.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %23, %22 ], [ %33, %.lr.ph.i.i.i ]
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i25 = icmp eq ptr %4, %1
   br i1 %.not10.i.i.i25, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %.lr.ph.i.i.i26
 
 .lr.ph.i.i.i26:                                   ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i26
-  %.012.i.i.i27 = phi ptr [ %37, %.lr.ph.i.i.i26 ], [ %31, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i28 = phi ptr [ %36, %.lr.ph.i.i.i26 ], [ %1, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.012.i.i.i27 = phi ptr [ %43, %.lr.ph.i.i.i26 ], [ %34, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i28 = phi ptr [ %42, %.lr.ph.i.i.i26 ], [ %1, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %32 = load <2 x ptr>, ptr %.0911.i.i.i28, align 8, !alias.scope !18, !noalias !15
-  store <2 x ptr> %32, ptr %.012.i.i.i27, align 8, !alias.scope !15, !noalias !18
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i27, i64 16
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i28, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !18, !noalias !15
-  store ptr %35, ptr %33, align 8, !alias.scope !15, !noalias !18
+  %35 = load ptr, ptr %.0911.i.i.i28, align 8, !alias.scope !18, !noalias !15
+  store ptr %35, ptr %.012.i.i.i27, align 8, !alias.scope !15, !noalias !18
+  %36 = getelementptr inbounds i8, ptr %.012.i.i.i27, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i28, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !18, !noalias !15
+  store ptr %38, ptr %36, align 8, !alias.scope !15, !noalias !18
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i27, i64 16
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i28, i64 16
+  %41 = load ptr, ptr %40, align 8, !alias.scope !18, !noalias !15
+  store ptr %41, ptr %39, align 8, !alias.scope !15, !noalias !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !15
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i28, i64 24
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i27, i64 24
-  %.not.i.i.i29 = icmp eq ptr %36, %4
+  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i28, i64 24
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i27, i64 24
+  %.not.i.i.i29 = icmp eq ptr %42, %4
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, label %.lr.ph.i.i.i26, !llvm.loop !14
 
 _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31: ; preds = %.lr.ph.i.i.i26, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i30 = phi ptr [ %31, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %37, %.lr.ph.i.i.i26 ]
+  %.0.lcssa.i.i.i30 = phi ptr [ %34, %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %43, %.lr.ph.i.i.i26 ]
   %.not.i32 = icmp eq ptr %5, null
-  br i1 %.not.i32, label %_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit, label %38
+  br i1 %.not.i32, label %_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit, label %44
 
-38:                                               ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31
+44:                                               ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31
   tail call void @_ZdlPv(ptr noundef nonnull %5) #13
   br label %_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %38
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %44
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i30, ptr %3, align 8
-  %40 = getelementptr inbounds %"class.cmFileLockPool::ScopePool", ptr %23, i64 %15
-  store ptr %40, ptr %39, align 8
+  %46 = getelementptr inbounds %"class.cmFileLockPool::ScopePool", ptr %23, i64 %15
+  store ptr %46, ptr %45, align 8
   ret void
 }
 

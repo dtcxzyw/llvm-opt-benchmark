@@ -27,7 +27,10 @@ init:                                             ; preds = %init.check
   store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8
   store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8
   store i8 101, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8
-  store <4 x i32> <i32 -6, i32 21, i32 6, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
+  store i32 -6, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
+  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 32), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #12
   br label %init.end

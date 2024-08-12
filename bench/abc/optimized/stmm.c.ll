@@ -65,28 +65,34 @@ define noalias noundef ptr @stmm_init_table(ptr noundef %0, ptr noundef %1) loca
   store ptr %0, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  store double 2.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store <4 x i32> <i32 11, i32 0, i32 5, i32 0>, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  store double 2.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 11, ptr %11, align 8
   %calloc.i = tail call dereferenceable_or_null(88) ptr @calloc(i64 1, i64 88)
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr %calloc.i, ptr %9, align 8
-  %10 = icmp eq ptr %calloc.i, null
-  br i1 %10, label %13, label %.preheader.preheader.i
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %calloc.i, ptr %12, align 8
+  %13 = icmp eq ptr %calloc.i, null
+  br i1 %13, label %16, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %5
-  %11 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #13
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %11, ptr %12, align 8
+  %14 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #13
+  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %14, ptr %15, align 8
   br label %stmm_init_table_with_params.exit
 
-13:                                               ; preds = %5
+16:                                               ; preds = %5
   tail call void @free(ptr noundef nonnull %3) #13
   br label %stmm_init_table_with_params.exit
 
-stmm_init_table_with_params.exit:                 ; preds = %2, %.preheader.preheader.i, %13
-  %.027.i = phi ptr [ null, %13 ], [ %3, %.preheader.preheader.i ], [ null, %2 ]
+stmm_init_table_with_params.exit:                 ; preds = %2, %.preheader.preheader.i, %16
+  %.027.i = phi ptr [ null, %16 ], [ %3, %.preheader.preheader.i ], [ null, %2 ]
   ret ptr %.027.i
 }
 
@@ -574,17 +580,17 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = load <2 x i32>, ptr %4, align 8
-  %7 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load double, ptr %8, align 8
-  %10 = sitofp i32 %7 to double
+  %10 = sitofp i32 %5 to double
   %11 = fmul double %9, %10
   %12 = fptosi double %11 to i32
   %spec.select = or i32 %12, 1
   store i32 %spec.select, ptr %4, align 8
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %6, align 4
   %13 = sext i32 %spec.select to i64
   %14 = shl nsw i64 %13, 3
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #12
@@ -598,16 +604,17 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
 
 18:                                               ; preds = %1
   store ptr %3, ptr %2, align 8
-  store <2 x i32> %6, ptr %4, align 8
+  store i32 %5, ptr %4, align 8
+  store i32 %7, ptr %6, align 4
   br label %64
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader54
-  %19 = icmp sgt i32 %7, 0
+  %19 = icmp sgt i32 %5, 0
   br i1 %19, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %26
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph
@@ -674,9 +681,9 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   %59 = load ptr, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %56
   store ptr %.04957, ptr %60, align 8
-  %61 = load i32, ptr %5, align 4
+  %61 = load i32, ptr %6, align 4
   %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %5, align 4
+  store i32 %62, ptr %6, align 4
   %.not53 = icmp eq ptr %30, null
   br i1 %.not53, label %._crit_edge, label %.lr.ph58, !llvm.loop !10
 

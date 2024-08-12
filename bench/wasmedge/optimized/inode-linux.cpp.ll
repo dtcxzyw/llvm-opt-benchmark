@@ -1632,7 +1632,7 @@ declare i32 @mkdirat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @_ZNK8WasmEdge4Host4WASI5INode15pathFilestatGetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER17__wasi_filestat_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %struct.stat, align 16
+  %4 = alloca %struct.stat, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %7 = call i32 @fstatat(i32 noundef %5, ptr noundef %6, ptr noundef nonnull %4, i32 noundef 256) #23
@@ -1645,65 +1645,69 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode15pathFilestatGetENSt7__cxx1112basic_st
   %11 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #23
   %12 = zext i16 %11 to i32
   %13 = shl nuw i32 %12, 16
-  br label %51
+  br label %54
 
 14:                                               ; preds = %3
-  %15 = load <2 x i64>, ptr %4, align 16
-  store <2 x i64> %15, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 61440
-  %19 = add nsw i32 %18, -4096
-  %20 = lshr exact i32 %19, 12
-  %switch.tableidx = add nsw i32 %20, -1
-  %21 = icmp ult i32 %switch.tableidx, 11
-  br i1 %21, label %switch.lookup, label %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit
+  %15 = load i64, ptr %4, align 8
+  store i64 %15, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 61440
+  %22 = add nsw i32 %21, -4096
+  %23 = lshr exact i32 %22, 12
+  %switch.tableidx = add nsw i32 %23, -1
+  %24 = icmp ult i32 %switch.tableidx, 11
+  br i1 %24, label %switch.lookup, label %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit
 
 switch.lookup:                                    ; preds = %14
-  %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode15pathFilestatGetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER17__wasi_filestat_t, i64 0, i64 %22
+  %25 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i8], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode15pathFilestatGetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER17__wasi_filestat_t, i64 0, i64 %25
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit
 
 _ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit: ; preds = %14, %switch.lookup
   %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ 0, %14 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 %.0.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
-  %25 = load i64, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 48
-  %28 = load i64, ptr %27, align 16
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 %.0.i, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds i8, ptr %4, i64 48
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 80
-  %33 = load i64, ptr %32, align 16
-  %34 = mul nsw i64 %31, 1000000000
-  %35 = add nsw i64 %34, %33
-  %36 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 88
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 96
-  %40 = load i64, ptr %39, align 16
-  %41 = mul nsw i64 %38, 1000000000
-  %42 = add nsw i64 %41, %40
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
-  store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 104
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 112
-  %47 = load i64, ptr %46, align 16
-  %48 = mul nsw i64 %45, 1000000000
-  %49 = add nsw i64 %48, %47
-  %50 = getelementptr inbounds i8, ptr %2, i64 56
-  store i64 %49, ptr %50, align 8
-  br label %51
+  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 80
+  %36 = load i64, ptr %35, align 8
+  %37 = mul nsw i64 %34, 1000000000
+  %38 = add nsw i64 %37, %36
+  %39 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 88
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 96
+  %43 = load i64, ptr %42, align 8
+  %44 = mul nsw i64 %41, 1000000000
+  %45 = add nsw i64 %44, %43
+  %46 = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 104
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 112
+  %50 = load i64, ptr %49, align 8
+  %51 = mul nsw i64 %48, 1000000000
+  %52 = add nsw i64 %51, %50
+  %53 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 %52, ptr %53, align 8
+  br label %54
 
-51:                                               ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit, %8
+54:                                               ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit, %8
   %.sroa.09.0.insert.insert = phi i32 [ %13, %8 ], [ 1, %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEj.exit ]
   ret i32 %.sroa.09.0.insert.insert
 }
@@ -3004,7 +3008,7 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm1844
 
 15:                                               ; preds = %8
   %.val = load ptr, ptr %5, align 8
-  switch i8 %4, label %24 [
+  switch i8 %4, label %23 [
     i8 1, label %16
     i8 2, label %20
   ]
@@ -3027,27 +3031,34 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm1844
   %21 = tail call zeroext i16 @htons(i16 noundef zeroext %6) #24
   %22 = icmp ugt i64 %14, 15
   tail call void @llvm.assume(i1 %22)
-  %.sroa.4.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 2
-  %.sroa.7.0..sroa_idx59 = getelementptr inbounds i8, ptr %9, i64 4
-  %.sroa.9.0..sroa_idx60 = getelementptr inbounds i8, ptr %9, i64 8
-  %23 = load <2 x i64>, ptr %.val, align 1
+  %.sroa.9.8.copyload = load i64, ptr %.val, align 1
+  %.sroa.11.8..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 8
+  %.sroa.11.8.copyload = load i64, ptr %.sroa.11.8..val.sroa_idx, align 1
   store i16 10, ptr %9, align 8
+  %.sroa.4.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 2
   store i16 %21, ptr %.sroa.4.0..sroa_idx58, align 2
+  %.sroa.7.0..sroa_idx59 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 0, ptr %.sroa.7.0..sroa_idx59, align 4
-  store <2 x i64> %23, ptr %.sroa.9.0..sroa_idx60, align 8
+  %.sroa.9.0..sroa_idx60 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %.sroa.9.8.copyload, ptr %.sroa.9.0..sroa_idx60, align 8
+  %.sroa.11.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.sroa.11.8.copyload, ptr %.sroa.11.0..sroa_idx61, align 8
   %.sroa.1128.0..sroa_idx62 = getelementptr inbounds i8, ptr %9, i64 24
   store i32 0, ptr %.sroa.1128.0..sroa_idx62, align 8
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
-24:                                               ; preds = %15
-  %25 = icmp eq i8 %4, 3
+23:                                               ; preds = %15
+  %24 = icmp eq i8 %4, 3
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp ugt i64 %14, 107
   tail call void @llvm.assume(i1 %25)
-  %26 = icmp ugt i64 %14, 107
-  tail call void @llvm.assume(i1 %26)
   %.sroa.4.2.copyload = load i16, ptr %.val, align 1
   %.sroa.7.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 2
   %.sroa.7.2.copyload = load i32, ptr %.sroa.7.2..val.sroa_idx, align 1
   %.sroa.9.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 6
+  %.sroa.9.2.copyload = load i64, ptr %.sroa.9.2..val.sroa_idx, align 1
+  %.sroa.11.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 14
+  %.sroa.11.2.copyload = load i64, ptr %.sroa.11.2..val.sroa_idx, align 1
   %.sroa.1128.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 22
   %.sroa.1128.2.copyload = load i32, ptr %.sroa.1128.2..val.sroa_idx, align 1
   %.sroa.12.2..val.sroa_idx = getelementptr inbounds i8, ptr %.val, i64 26
@@ -3056,85 +3067,86 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm1844
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   store i16 %.sroa.4.2.copyload, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = load <2 x i64>, ptr %.sroa.9.2..val.sroa_idx, align 1
   store i32 %.sroa.7.2.copyload, ptr %.sroa.7.0..sroa_idx, align 4
-  store <2 x i64> %27, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %.sroa.9.2.copyload, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.sroa.11.2.copyload, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.1128.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store i32 %.sroa.1128.2.copyload, ptr %.sroa.1128.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(100) %.sroa.12, i64 100, i1 false)
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
-_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split: ; preds = %16, %20, %24
-  %.sink = phi i8 [ 5, %24 ], [ 4, %20 ], [ 3, %16 ]
-  %.021.ph = phi i32 [ 110, %24 ], [ 28, %20 ], [ 16, %16 ]
+_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split: ; preds = %16, %20, %23
+  %.sink = phi i8 [ 5, %23 ], [ 4, %20 ], [ 3, %16 ]
+  %.021.ph = phi i32 [ 110, %23 ], [ 28, %20 ], [ 16, %16 ]
   store i8 %.sink, ptr %12, align 8
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
 
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split, %8
-  %28 = phi ptr [ null, %8 ], [ %9, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
+  %26 = phi ptr [ null, %8 ], [ %9, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %.021 = phi i32 [ 0, %8 ], [ %.021.ph, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
-  %29 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
+  %27 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
   %.not2468 = icmp eq i64 %2, 0
   br i1 %.not2468, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit, %.lr.ph
-  %.02270 = phi i64 [ %35, %.lr.ph ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
-  %.02369 = phi ptr [ %36, %.lr.ph ], [ %1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
-  %30 = load ptr, ptr %.02369, align 8
-  %31 = getelementptr inbounds [1024 x %struct.iovec], ptr %10, i64 0, i64 %.02270
-  store ptr %30, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %.02369, i64 8
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
-  store i64 %33, ptr %34, align 8
-  %35 = add nuw nsw i64 %.02270, 1
-  %36 = getelementptr inbounds i8, ptr %.02369, i64 16
-  %.not24 = icmp eq ptr %36, %29
+  %.02270 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
+  %.02369 = phi ptr [ %34, %.lr.ph ], [ %1, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ]
+  %28 = load ptr, ptr %.02369, align 8
+  %29 = getelementptr inbounds [1024 x %struct.iovec], ptr %10, i64 0, i64 %.02270
+  store ptr %28, ptr %29, align 16
+  %30 = getelementptr inbounds i8, ptr %.02369, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %31, ptr %32, align 8
+  %33 = add nuw nsw i64 %.02270, 1
+  %34 = getelementptr inbounds i8, ptr %.02369, i64 16
+  %.not24 = icmp eq ptr %34, %27
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
-  %.022.lcssa = phi i64 [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ %35, %.lr.ph ]
-  store ptr %28, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 %.021, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %10, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 %.022.lcssa, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  %41 = load i32, ptr %0, align 8
-  %42 = invoke i64 @sendmsg(i32 noundef %41, ptr noundef nonnull %11, i32 noundef 16384)
-          to label %43 unwind label %54
+  %.022.lcssa = phi i64 [ 0, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit ], [ %33, %.lr.ph ]
+  store ptr %26, ptr %11, align 8
+  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %.021, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %10, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %11, i64 24
+  store i64 %.022.lcssa, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %11, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  %39 = load i32, ptr %0, align 8
+  %40 = invoke i64 @sendmsg(i32 noundef %39, ptr noundef nonnull %11, i32 noundef 16384)
+          to label %41 unwind label %52
 
-43:                                               ; preds = %._crit_edge
-  %44 = icmp slt i64 %42, 0
-  br i1 %44, label %45, label %51
+41:                                               ; preds = %._crit_edge
+  %42 = icmp slt i64 %40, 0
+  br i1 %42, label %43, label %49
 
-45:                                               ; preds = %43
-  %46 = tail call ptr @__errno_location() #24
-  %47 = load i32, ptr %46, align 4
-  %48 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %47) #23
-  %49 = zext i16 %48 to i32
-  %50 = shl nuw i32 %49, 16
-  br label %53
+43:                                               ; preds = %41
+  %44 = tail call ptr @__errno_location() #24
+  %45 = load i32, ptr %44, align 4
+  %46 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %45) #23
+  %47 = zext i16 %46 to i32
+  %48 = shl nuw i32 %47, 16
+  br label %51
 
-51:                                               ; preds = %43
-  %52 = trunc i64 %42 to i32
-  store i32 %52, ptr %7, align 4
-  br label %53
+49:                                               ; preds = %41
+  %50 = trunc i64 %40 to i32
+  store i32 %50, ptr %7, align 4
+  br label %51
 
-53:                                               ; preds = %51, %45
-  %.sroa.032.0.insert.insert = phi i32 [ %50, %45 ], [ 1, %51 ]
+51:                                               ; preds = %49, %43
+  %.sroa.032.0.insert.insert = phi i32 [ %48, %43 ], [ 1, %49 ]
   ret i32 %.sroa.032.0.insert.insert
 
-54:                                               ; preds = %._crit_edge
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %._crit_edge
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #22
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #22
   unreachable
 }
 

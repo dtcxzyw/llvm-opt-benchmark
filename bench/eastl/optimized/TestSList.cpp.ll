@@ -222,19 +222,19 @@ for.body.lr.ph.i.i:
   %list11277 = alloca %"class.eastl::slist.13", align 8
   %list11318.sroa.0 = alloca ptr, align 8
   %list21326.sroa.0 = alloca ptr, align 8
-  %ref.tmp1328 = alloca [4 x i32], align 16
+  %ref.tmp1328 = alloca [4 x i32], align 4
   %list11357.sroa.0 = alloca ptr, align 8
   %list11392.sroa.0 = alloca ptr, align 8
   %list21400.sroa.0 = alloca ptr, align 8
   %valid.sroa.0 = alloca ptr, align 8
   %list11429 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1431 = alloca [4 x i32], align 16
+  %ref.tmp1431 = alloca [4 x i32], align 4
   %list21443 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1445 = alloca [4 x i32], align 16
+  %ref.tmp1445 = alloca [4 x i32], align 4
   %list11473 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1475 = alloca [4 x i32], align 16
+  %ref.tmp1475 = alloca [4 x i32], align 4
   %list21486 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1488 = alloca [4 x i32], align 16
+  %ref.tmp1488 = alloca [4 x i32], align 4
   %ref.tmp1510.sroa.0 = alloca ptr, align 8
   %ref.tmp1526.sroa.0 = alloca ptr, align 8
   %ref.tmp1528 = alloca [3 x i32], align 4
@@ -244,39 +244,39 @@ for.body.lr.ph.i.i:
   %ref.tmp1595.sroa.0 = alloca ptr, align 8
   %ref.tmp1636.sroa.0 = alloca ptr, align 8
   %list11674 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1676 = alloca [4 x i32], align 16
+  %ref.tmp1676 = alloca [4 x i32], align 4
   %list21685 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1687 = alloca [4 x i32], align 16
+  %ref.tmp1687 = alloca [4 x i32], align 4
   %ref.tmp1706.sroa.0 = alloca ptr, align 8
   %list11724 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1726 = alloca [4 x i32], align 16
+  %ref.tmp1726 = alloca [4 x i32], align 4
   %list21735 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1737 = alloca [4 x i32], align 16
+  %ref.tmp1737 = alloca [4 x i32], align 4
   %ref.tmp1760.sroa.0 = alloca ptr, align 8
   %list11778 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1780 = alloca [4 x i32], align 16
+  %ref.tmp1780 = alloca [4 x i32], align 4
   %list21789 = alloca %"class.eastl::slist", align 8
-  %ref.tmp1791 = alloca [4 x i32], align 16
+  %ref.tmp1791 = alloca [4 x i32], align 4
   %ref.tmp1828.sroa.0 = alloca ptr, align 8
   %list11846.sroa.0 = alloca ptr, align 8
-  %ref.tmp1848 = alloca [4 x i32], align 16
+  %ref.tmp1848 = alloca [4 x i32], align 4
   %list21857.sroa.0 = alloca ptr, align 8
-  %ref.tmp1859 = alloca [4 x i32], align 16
+  %ref.tmp1859 = alloca [4 x i32], align 4
   %ref.tmp1877.sroa.0 = alloca ptr, align 8
   %list11903.sroa.0 = alloca ptr, align 8
-  %ref.tmp1905 = alloca [4 x i32], align 16
+  %ref.tmp1905 = alloca [4 x i32], align 4
   %list21914.sroa.0 = alloca ptr, align 8
-  %ref.tmp1916 = alloca [4 x i32], align 16
+  %ref.tmp1916 = alloca [4 x i32], align 4
   %ref.tmp1935.sroa.0 = alloca ptr, align 8
   %list11953.sroa.0 = alloca ptr, align 8
-  %ref.tmp1955 = alloca [4 x i32], align 16
+  %ref.tmp1955 = alloca [4 x i32], align 4
   %list21964.sroa.0 = alloca ptr, align 8
-  %ref.tmp1966 = alloca [4 x i32], align 16
+  %ref.tmp1966 = alloca [4 x i32], align 4
   %ref.tmp1989.sroa.0 = alloca ptr, align 8
   %list12007.sroa.0 = alloca ptr, align 8
-  %ref.tmp2009 = alloca [4 x i32], align 16
+  %ref.tmp2009 = alloca [4 x i32], align 4
   %list22018 = alloca %"class.eastl::slist", align 8
-  %ref.tmp2020 = alloca [4 x i32], align 16
+  %ref.tmp2020 = alloca [4 x i32], align 4
   %ref.tmp2057.sroa.0 = alloca ptr, align 8
   %list12075.sroa.0 = alloca ptr, align 8
   %list12111.sroa.0 = alloca ptr, align 8
@@ -289,13 +289,13 @@ for.body.lr.ph.i.i:
   %l2262.sroa.0 = alloca ptr, align 8
   %ref.tmp2275.sroa.0 = alloca ptr, align 8
   %ref.tmp2297.sroa.0 = alloca ptr, align 8
-  %ref.tmp2299 = alloca [4 x i32], align 16
+  %ref.tmp2299 = alloca [4 x i32], align 4
   %ref.tmp2322.sroa.0 = alloca ptr, align 8
   %ref.tmp2324 = alloca [2 x i32], align 4
   %list12343.sroa.0 = alloca ptr, align 8
   %list22351.sroa.0 = alloca ptr, align 8
   %list3.sroa.0 = alloca ptr, align 8
-  %ref.tmp2363 = alloca [4 x i32], align 16
+  %ref.tmp2363 = alloca [4 x i32], align 4
   store i32 0, ptr %nErrorCount, align 4
   %call1 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @.str.1)
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.2)
@@ -5086,7 +5086,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6480
   br i1 %cmp.not.i.i6483, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6480, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2732: ; preds = %call.i.i.i.i.i.i.noexc.i2727
-  store <4 x i32> <i32 0, i32 1, i32 3, i32 4>, ptr %ref.tmp1328, align 16
+  store i32 0, ptr %ref.tmp1328, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp1328, i64 4
+  store i32 1, ptr %arrayinit.element, align 4
+  %arrayinit.element1330 = getelementptr inbounds i8, ptr %ref.tmp1328, i64 8
+  store i32 3, ptr %arrayinit.element1330, align 4
+  %arrayinit.element1331 = getelementptr inbounds i8, ptr %ref.tmp1328, i64 12
+  store i32 4, ptr %arrayinit.element1331, align 4
   store ptr null, ptr %list21326.sroa.0, align 8
   br label %for.body.i.i.i2736
 
@@ -5738,7 +5744,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6512
   br i1 %cmp.not.i.i6515, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6512, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3070: ; preds = %call.i.i.i.i.i.i.noexc.i3065
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1431, align 16
+  store i32 0, ptr %ref.tmp1431, align 4
+  %arrayinit.element1433 = getelementptr inbounds i8, ptr %ref.tmp1431, i64 4
+  store i32 1, ptr %arrayinit.element1433, align 4
+  %arrayinit.element1434 = getelementptr inbounds i8, ptr %ref.tmp1431, i64 8
+  store i32 2, ptr %arrayinit.element1434, align 4
+  %arrayinit.element1435 = getelementptr inbounds i8, ptr %ref.tmp1431, i64 12
+  store i32 3, ptr %arrayinit.element1435, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list11429, i8 0, i64 16, i1 false)
   %mSize.i.i.i3073 = getelementptr inbounds i8, ptr %list11429, i64 8
   br label %for.body.i.i.i3074
@@ -5786,7 +5798,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEED2Ev.exit6524: ; preds = %_ZN5eastl9SListBas
   br label %ehcleanup1673
 
 invoke.cont1442:                                  ; preds = %call.i.i.i.i.i.i.noexc.i3079
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1445, align 16
+  store i32 4, ptr %ref.tmp1445, align 4
+  %arrayinit.element1447 = getelementptr inbounds i8, ptr %ref.tmp1445, i64 4
+  store i32 5, ptr %arrayinit.element1447, align 4
+  %arrayinit.element1448 = getelementptr inbounds i8, ptr %ref.tmp1445, i64 8
+  store i32 6, ptr %arrayinit.element1448, align 4
+  %arrayinit.element1449 = getelementptr inbounds i8, ptr %ref.tmp1445, i64 12
+  store i32 7, ptr %arrayinit.element1449, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list21443, i8 0, i64 16, i1 false)
   %mSize.i.i.i3088 = getelementptr inbounds i8, ptr %list21443, i64 8
   br label %for.body.i.i.i3089
@@ -5977,7 +5995,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i31
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3166:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i3162, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3158
   store ptr null, ptr %list11429, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1475, align 16
+  store i32 0, ptr %ref.tmp1475, align 4
+  %arrayinit.element1477 = getelementptr inbounds i8, ptr %ref.tmp1475, i64 4
+  store i32 1, ptr %arrayinit.element1477, align 4
+  %arrayinit.element1478 = getelementptr inbounds i8, ptr %ref.tmp1475, i64 8
+  store i32 2, ptr %arrayinit.element1478, align 4
+  %arrayinit.element1479 = getelementptr inbounds i8, ptr %ref.tmp1475, i64 12
+  store i32 3, ptr %arrayinit.element1479, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list11473, i8 0, i64 16, i1 false)
   %mSize.i.i.i3169 = getelementptr inbounds i8, ptr %list11473, i64 8
   br label %for.body.i.i.i3170
@@ -6025,7 +6049,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEED2Ev.exit6540: ; preds = %_ZN5eastl9SListBas
   br label %ehcleanup1673
 
 invoke.cont1485:                                  ; preds = %call.i.i.i.i.i.i.noexc.i3175
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1488, align 16
+  store i32 4, ptr %ref.tmp1488, align 4
+  %arrayinit.element1490 = getelementptr inbounds i8, ptr %ref.tmp1488, i64 4
+  store i32 5, ptr %arrayinit.element1490, align 4
+  %arrayinit.element1491 = getelementptr inbounds i8, ptr %ref.tmp1488, i64 8
+  store i32 6, ptr %arrayinit.element1491, align 4
+  %arrayinit.element1492 = getelementptr inbounds i8, ptr %ref.tmp1488, i64 12
+  store i32 7, ptr %arrayinit.element1492, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list21486, i8 0, i64 16, i1 false)
   %mSize.i.i.i3185 = getelementptr inbounds i8, ptr %list21486, i64 8
   br label %for.body.i.i.i3186
@@ -7121,7 +7151,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i37
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3765:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i3761, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3757
   store ptr null, ptr %valid.sroa.0, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1676, align 16
+  store i32 0, ptr %ref.tmp1676, align 4
+  %arrayinit.element1678 = getelementptr inbounds i8, ptr %ref.tmp1676, i64 4
+  store i32 1, ptr %arrayinit.element1678, align 4
+  %arrayinit.element1679 = getelementptr inbounds i8, ptr %ref.tmp1676, i64 8
+  store i32 2, ptr %arrayinit.element1679, align 4
+  %arrayinit.element1680 = getelementptr inbounds i8, ptr %ref.tmp1676, i64 12
+  store i32 3, ptr %arrayinit.element1680, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list11674, i8 0, i64 16, i1 false)
   %mSize.i.i.i3768 = getelementptr inbounds i8, ptr %list11674, i64 8
   br label %for.body.i.i.i3769
@@ -7165,7 +7201,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6616
   br i1 %cmp.not.i.i6619, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6616, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3779: ; preds = %call.i.i.i.i.i.i.noexc.i3774
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1687, align 16
+  store i32 4, ptr %ref.tmp1687, align 4
+  %arrayinit.element1689 = getelementptr inbounds i8, ptr %ref.tmp1687, i64 4
+  store i32 5, ptr %arrayinit.element1689, align 4
+  %arrayinit.element1690 = getelementptr inbounds i8, ptr %ref.tmp1687, i64 8
+  store i32 6, ptr %arrayinit.element1690, align 4
+  %arrayinit.element1691 = getelementptr inbounds i8, ptr %ref.tmp1687, i64 12
+  store i32 7, ptr %arrayinit.element1691, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list21685, i8 0, i64 16, i1 false)
   %mSize.i.i.i3782 = getelementptr inbounds i8, ptr %list21685, i64 8
   br label %for.body.i.i.i3783
@@ -7398,7 +7440,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i38
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3868:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i3864, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3860
   store ptr null, ptr %list11674, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1726, align 16
+  store i32 0, ptr %ref.tmp1726, align 4
+  %arrayinit.element1728 = getelementptr inbounds i8, ptr %ref.tmp1726, i64 4
+  store i32 1, ptr %arrayinit.element1728, align 4
+  %arrayinit.element1729 = getelementptr inbounds i8, ptr %ref.tmp1726, i64 8
+  store i32 2, ptr %arrayinit.element1729, align 4
+  %arrayinit.element1730 = getelementptr inbounds i8, ptr %ref.tmp1726, i64 12
+  store i32 3, ptr %arrayinit.element1730, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list11724, i8 0, i64 16, i1 false)
   %mSize.i.i.i3871 = getelementptr inbounds i8, ptr %list11724, i64 8
   br label %for.body.i.i.i3872
@@ -7442,7 +7490,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6640
   br i1 %cmp.not.i.i6643, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6640, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3882: ; preds = %call.i.i.i.i.i.i.noexc.i3877
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1737, align 16
+  store i32 4, ptr %ref.tmp1737, align 4
+  %arrayinit.element1739 = getelementptr inbounds i8, ptr %ref.tmp1737, i64 4
+  store i32 5, ptr %arrayinit.element1739, align 4
+  %arrayinit.element1740 = getelementptr inbounds i8, ptr %ref.tmp1737, i64 8
+  store i32 6, ptr %arrayinit.element1740, align 4
+  %arrayinit.element1741 = getelementptr inbounds i8, ptr %ref.tmp1737, i64 12
+  store i32 7, ptr %arrayinit.element1741, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list21735, i8 0, i64 16, i1 false)
   %mSize.i.i.i3885 = getelementptr inbounds i8, ptr %list21735, i64 8
   br label %for.body.i.i.i3886
@@ -7678,7 +7732,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i39
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3980:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i3976, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit3972
   store ptr null, ptr %list11724, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1780, align 16
+  store i32 0, ptr %ref.tmp1780, align 4
+  %arrayinit.element1782 = getelementptr inbounds i8, ptr %ref.tmp1780, i64 4
+  store i32 1, ptr %arrayinit.element1782, align 4
+  %arrayinit.element1783 = getelementptr inbounds i8, ptr %ref.tmp1780, i64 8
+  store i32 2, ptr %arrayinit.element1783, align 4
+  %arrayinit.element1784 = getelementptr inbounds i8, ptr %ref.tmp1780, i64 12
+  store i32 3, ptr %arrayinit.element1784, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list11778, i8 0, i64 16, i1 false)
   %mSize.i.i.i3983 = getelementptr inbounds i8, ptr %list11778, i64 8
   br label %for.body.i.i.i3984
@@ -7722,7 +7782,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6664
   br i1 %cmp.not.i.i6667, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6664, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3994: ; preds = %call.i.i.i.i.i.i.noexc.i3989
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1791, align 16
+  store i32 4, ptr %ref.tmp1791, align 4
+  %arrayinit.element1793 = getelementptr inbounds i8, ptr %ref.tmp1791, i64 4
+  store i32 5, ptr %arrayinit.element1793, align 4
+  %arrayinit.element1794 = getelementptr inbounds i8, ptr %ref.tmp1791, i64 8
+  store i32 6, ptr %arrayinit.element1794, align 4
+  %arrayinit.element1795 = getelementptr inbounds i8, ptr %ref.tmp1791, i64 12
+  store i32 7, ptr %arrayinit.element1795, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list21789, i8 0, i64 16, i1 false)
   %mSize.i.i.i3997 = getelementptr inbounds i8, ptr %list21789, i64 8
   br label %for.body.i.i.i3998
@@ -8005,7 +8071,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i41
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4110:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i4106, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4102
   store ptr null, ptr %list11778, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1848, align 16
+  store i32 0, ptr %ref.tmp1848, align 4
+  %arrayinit.element1850 = getelementptr inbounds i8, ptr %ref.tmp1848, i64 4
+  store i32 1, ptr %arrayinit.element1850, align 4
+  %arrayinit.element1851 = getelementptr inbounds i8, ptr %ref.tmp1848, i64 8
+  store i32 2, ptr %arrayinit.element1851, align 4
+  %arrayinit.element1852 = getelementptr inbounds i8, ptr %ref.tmp1848, i64 12
+  store i32 3, ptr %arrayinit.element1852, align 4
   store ptr null, ptr %list11846.sroa.0, align 8
   br label %for.body.i.i.i4114
 
@@ -8042,7 +8114,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6688
   br i1 %cmp.not.i.i6691, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6688, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4124: ; preds = %call.i.i.i.i.i.i.noexc.i4119
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1859, align 16
+  store i32 4, ptr %ref.tmp1859, align 4
+  %arrayinit.element1861 = getelementptr inbounds i8, ptr %ref.tmp1859, i64 4
+  store i32 5, ptr %arrayinit.element1861, align 4
+  %arrayinit.element1862 = getelementptr inbounds i8, ptr %ref.tmp1859, i64 8
+  store i32 6, ptr %arrayinit.element1862, align 4
+  %arrayinit.element1863 = getelementptr inbounds i8, ptr %ref.tmp1859, i64 12
+  store i32 7, ptr %arrayinit.element1863, align 4
   store ptr null, ptr %list21857.sroa.0, align 8
   br label %for.body.i.i.i4128
 
@@ -8250,7 +8328,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i42
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4236:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i4232, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4228
   store ptr null, ptr %list11846.sroa.0, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1905, align 16
+  store i32 0, ptr %ref.tmp1905, align 4
+  %arrayinit.element1907 = getelementptr inbounds i8, ptr %ref.tmp1905, i64 4
+  store i32 1, ptr %arrayinit.element1907, align 4
+  %arrayinit.element1908 = getelementptr inbounds i8, ptr %ref.tmp1905, i64 8
+  store i32 2, ptr %arrayinit.element1908, align 4
+  %arrayinit.element1909 = getelementptr inbounds i8, ptr %ref.tmp1905, i64 12
+  store i32 3, ptr %arrayinit.element1909, align 4
   store ptr null, ptr %list11903.sroa.0, align 8
   br label %for.body.i.i.i4240
 
@@ -8287,7 +8371,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6712
   br i1 %cmp.not.i.i6715, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6712, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4250: ; preds = %call.i.i.i.i.i.i.noexc.i4245
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1916, align 16
+  store i32 4, ptr %ref.tmp1916, align 4
+  %arrayinit.element1918 = getelementptr inbounds i8, ptr %ref.tmp1916, i64 4
+  store i32 5, ptr %arrayinit.element1918, align 4
+  %arrayinit.element1919 = getelementptr inbounds i8, ptr %ref.tmp1916, i64 8
+  store i32 6, ptr %arrayinit.element1919, align 4
+  %arrayinit.element1920 = getelementptr inbounds i8, ptr %ref.tmp1916, i64 12
+  store i32 7, ptr %arrayinit.element1920, align 4
   store ptr null, ptr %list21914.sroa.0, align 8
   br label %for.body.i.i.i4254
 
@@ -8463,7 +8553,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i43
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4341:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i4337, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4333
   store ptr null, ptr %list11903.sroa.0, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp1955, align 16
+  store i32 0, ptr %ref.tmp1955, align 4
+  %arrayinit.element1957 = getelementptr inbounds i8, ptr %ref.tmp1955, i64 4
+  store i32 1, ptr %arrayinit.element1957, align 4
+  %arrayinit.element1958 = getelementptr inbounds i8, ptr %ref.tmp1955, i64 8
+  store i32 2, ptr %arrayinit.element1958, align 4
+  %arrayinit.element1959 = getelementptr inbounds i8, ptr %ref.tmp1955, i64 12
+  store i32 3, ptr %arrayinit.element1959, align 4
   store ptr null, ptr %list11953.sroa.0, align 8
   br label %for.body.i.i.i4345
 
@@ -8500,7 +8596,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6736
   br i1 %cmp.not.i.i6739, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6736, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4355: ; preds = %call.i.i.i.i.i.i.noexc.i4350
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp1966, align 16
+  store i32 4, ptr %ref.tmp1966, align 4
+  %arrayinit.element1968 = getelementptr inbounds i8, ptr %ref.tmp1966, i64 4
+  store i32 5, ptr %arrayinit.element1968, align 4
+  %arrayinit.element1969 = getelementptr inbounds i8, ptr %ref.tmp1966, i64 8
+  store i32 6, ptr %arrayinit.element1969, align 4
+  %arrayinit.element1970 = getelementptr inbounds i8, ptr %ref.tmp1966, i64 12
+  store i32 7, ptr %arrayinit.element1970, align 4
   store ptr null, ptr %list21964.sroa.0, align 8
   br label %for.body.i.i.i4359
 
@@ -8696,7 +8798,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i44
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4449:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i4445, %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit4441
   store ptr null, ptr %list11953.sroa.0, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp2009, align 16
+  store i32 0, ptr %ref.tmp2009, align 4
+  %arrayinit.element2011 = getelementptr inbounds i8, ptr %ref.tmp2009, i64 4
+  store i32 1, ptr %arrayinit.element2011, align 4
+  %arrayinit.element2012 = getelementptr inbounds i8, ptr %ref.tmp2009, i64 8
+  store i32 2, ptr %arrayinit.element2012, align 4
+  %arrayinit.element2013 = getelementptr inbounds i8, ptr %ref.tmp2009, i64 12
+  store i32 3, ptr %arrayinit.element2013, align 4
   store ptr null, ptr %list12007.sroa.0, align 8
   br label %for.body.i.i.i4453
 
@@ -8733,7 +8841,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6760
   br i1 %cmp.not.i.i6763, label %common.resume, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6760, !llvm.loop !9
 
 _ZN5eastl5slistIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4463: ; preds = %call.i.i.i.i.i.i.noexc.i4458
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %ref.tmp2020, align 16
+  store i32 4, ptr %ref.tmp2020, align 4
+  %arrayinit.element2022 = getelementptr inbounds i8, ptr %ref.tmp2020, i64 4
+  store i32 5, ptr %arrayinit.element2022, align 4
+  %arrayinit.element2023 = getelementptr inbounds i8, ptr %ref.tmp2020, i64 8
+  store i32 6, ptr %arrayinit.element2023, align 4
+  %arrayinit.element2024 = getelementptr inbounds i8, ptr %ref.tmp2020, i64 12
+  store i32 7, ptr %arrayinit.element2024, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list22018, i8 0, i64 16, i1 false)
   %mSize.i.i.i4466 = getelementptr inbounds i8, ptr %list22018, i64 8
   br label %for.body.i.i.i4467
@@ -10314,7 +10428,13 @@ if.end.i.i5161:                                   ; preds = %if.then.i.i5166, %w
 
 invoke.cont2295:                                  ; preds = %if.end.i.i5161, %invoke.cont2292
   %numErased.0.lcssa.i.i5165 = phi i64 [ 0, %invoke.cont2292 ], [ %numErased.1.i.i5163, %if.end.i.i5161 ]
-  store <4 x i32> <i32 1, i32 3, i32 7, i32 9>, ptr %ref.tmp2299, align 16
+  store i32 1, ptr %ref.tmp2299, align 4
+  %arrayinit.element2301 = getelementptr inbounds i8, ptr %ref.tmp2299, i64 4
+  store i32 3, ptr %arrayinit.element2301, align 4
+  %arrayinit.element2302 = getelementptr inbounds i8, ptr %ref.tmp2299, i64 8
+  store i32 7, ptr %arrayinit.element2302, align 4
+  %arrayinit.element2303 = getelementptr inbounds i8, ptr %ref.tmp2299, i64 12
+  store i32 9, ptr %arrayinit.element2303, align 4
   store ptr null, ptr %ref.tmp2297.sroa.0, align 8
   br label %for.body.i.i.i5172
 
@@ -10658,7 +10778,13 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6888
   br i1 %cmp.not.i.i6891, label %ehcleanup2423, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6888, !llvm.loop !9
 
 invoke.cont2361:                                  ; preds = %call.i.i.i.i.i.i.noexc.i5325
-  store <4 x i32> <i32 5, i32 6, i32 7, i32 8>, ptr %ref.tmp2363, align 16
+  store i32 5, ptr %ref.tmp2363, align 4
+  %arrayinit.element2365 = getelementptr inbounds i8, ptr %ref.tmp2363, i64 4
+  store i32 6, ptr %arrayinit.element2365, align 4
+  %arrayinit.element2366 = getelementptr inbounds i8, ptr %ref.tmp2363, i64 8
+  store i32 7, ptr %arrayinit.element2366, align 4
+  %arrayinit.element2367 = getelementptr inbounds i8, ptr %ref.tmp2363, i64 12
+  store i32 8, ptr %arrayinit.element2367, align 4
   store ptr null, ptr %list3.sroa.0, align 8
   br label %for.body.i.i.i5335
 

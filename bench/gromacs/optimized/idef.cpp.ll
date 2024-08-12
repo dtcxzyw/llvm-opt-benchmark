@@ -165,7 +165,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  switch i32 %1, label %499 [
+  switch i32 %1, label %511 [
     i32 10, label %7
     i32 11, label %7
     i32 14, label %19
@@ -206,26 +206,26 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
     i32 53, label %358
     i32 20, label %.preheader
     i32 23, label %391
-    i32 62, label %442
-    i32 63, label %442
-    i32 64, label %448
-    i32 65, label %454
-    i32 66, label %455
-    i32 67, label %455
-    i32 68, label %458
-    i32 69, label %458
-    i32 70, label %458
-    i32 71, label %464
-    i32 72, label %464
-    i32 73, label %464
-    i32 74, label %473
-    i32 28, label %506
-    i32 29, label %506
-    i32 30, label %506
-    i32 27, label %478
-    i32 12, label %482
-    i32 21, label %483
-    i32 22, label %489
+    i32 62, label %454
+    i32 63, label %454
+    i32 64, label %460
+    i32 65, label %466
+    i32 66, label %467
+    i32 67, label %467
+    i32 68, label %470
+    i32 69, label %470
+    i32 70, label %470
+    i32 71, label %476
+    i32 72, label %476
+    i32 73, label %476
+    i32 74, label %485
+    i32 28, label %518
+    i32 29, label %518
+    i32 30, label %518
+    i32 27, label %490
+    i32 12, label %494
+    i32 21, label %495
+    i32 22, label %501
   ]
 
 7:                                                ; preds = %3, %3
@@ -241,7 +241,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %17 = load float, ptr %16, align 4
   %18 = fpext float %17 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str, double noundef %9, ptr noundef nonnull @.str.1, double noundef %12, ptr noundef nonnull @.str, double noundef %15, ptr noundef nonnull @.str.1, double noundef %18)
-  br label %506
+  br label %518
 
 19:                                               ; preds = %3
   %20 = load float, ptr %2, align 4
@@ -253,7 +253,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %26 = load float, ptr %25, align 4
   %27 = fpext float %26 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, double noundef %21, double noundef %24, double noundef %27)
-  br label %506
+  br label %518
 
 28:                                               ; preds = %3
   %29 = load float, ptr %2, align 4
@@ -268,7 +268,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.3, double noundef %30, double noundef %33, double noundef %36, double noundef %39)
-  br label %506
+  br label %518
 
 40:                                               ; preds = %3
   %41 = load float, ptr %2, align 4
@@ -283,7 +283,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %50 = load float, ptr %49, align 4
   %51 = fpext float %50 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4, double noundef %42, double noundef %45, double noundef %48, double noundef %51)
-  br label %506
+  br label %518
 
 52:                                               ; preds = %3
   %53 = load float, ptr %2, align 4
@@ -310,7 +310,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %74 = load float, ptr %73, align 4
   %75 = fpext float %74 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, double noundef %54, double noundef %57, double noundef %60, double noundef %63, double noundef %66, double noundef %69, double noundef %72, double noundef %75)
-  br label %506
+  br label %518
 
 76:                                               ; preds = %3
   %77 = load float, ptr %2, align 4
@@ -333,7 +333,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
 
 86:                                               ; preds = %80
   tail call void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
 87:                                               ; preds = %3
   %88 = load float, ptr %2, align 4
@@ -345,7 +345,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.8, double noundef %89, double noundef %92, double noundef %95)
-  br label %506
+  br label %518
 
 96:                                               ; preds = %3, %3, %3
   %97 = load float, ptr %2, align 4
@@ -360,11 +360,11 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %106 = load float, ptr %105, align 4
   %107 = fpext float %106 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.9, double noundef %98, ptr noundef nonnull @.str.10, double noundef %101, ptr noundef nonnull @.str.9, double noundef %104, ptr noundef nonnull @.str.10, double noundef %107)
-  br label %506
+  br label %518
 
 108:                                              ; preds = %3
   tail call fastcc void @_ZL24printHarmonicInteractionPN3gmx10TextWriterERK9t_iparamsPKcS6_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
-  br label %506
+  br label %518
 
 109:                                              ; preds = %3
   %110 = load float, ptr %2, align 4
@@ -385,7 +385,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %125 = load float, ptr %124, align 4
   %126 = fpext float %125 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.13, double noundef %111, double noundef %114, double noundef %117, double noundef %120, double noundef %123, double noundef %126)
-  br label %506
+  br label %518
 
 127:                                              ; preds = %3
   %128 = load float, ptr %2, align 4
@@ -397,11 +397,11 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %134 = load float, ptr %133, align 4
   %135 = fpext float %134 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.14, double noundef %129, double noundef %132, double noundef %135)
-  br label %506
+  br label %518
 
 136:                                              ; preds = %3
   tail call void @_ZN3gmx10TextWriter15ensureEmptyLineEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
 137:                                              ; preds = %3
   %138 = load float, ptr %2, align 4
@@ -410,7 +410,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %141 = load float, ptr %140, align 4
   %142 = fpext float %141 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.15, double noundef %139, double noundef %142)
-  br label %506
+  br label %518
 
 143:                                              ; preds = %3
   %144 = load float, ptr %2, align 4
@@ -437,7 +437,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %165 = load float, ptr %164, align 4
   %166 = fpext float %165 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.16, double noundef %145, double noundef %148, double noundef %151, double noundef %154, double noundef %157, double noundef %160, double noundef %163, double noundef %166)
-  br label %506
+  br label %518
 
 167:                                              ; preds = %3, %3, %3, %3
   %168 = load i32, ptr %2, align 4
@@ -448,13 +448,13 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %173 = load float, ptr %172, align 4
   %174 = fpext float %173 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17, i32 noundef %168, double noundef %171, double noundef %174)
-  br label %506
+  br label %518
 
 175:                                              ; preds = %3
   %176 = load float, ptr %2, align 4
   %177 = fpext float %176 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.18, double noundef %177)
-  br label %506
+  br label %518
 
 178:                                              ; preds = %3
   %179 = load float, ptr %2, align 4
@@ -466,7 +466,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %185 = load float, ptr %184, align 4
   %186 = fpext float %185 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.19, double noundef %180, double noundef %183, double noundef %186)
-  br label %506
+  br label %518
 
 187:                                              ; preds = %3
   %188 = load float, ptr %2, align 4
@@ -478,7 +478,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %194 = load float, ptr %193, align 4
   %195 = fpext float %194 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.20, double noundef %189, double noundef %192, double noundef %195)
-  br label %506
+  br label %518
 
 196:                                              ; preds = %3
   %197 = load float, ptr %2, align 4
@@ -499,7 +499,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %212 = load float, ptr %211, align 4
   %213 = fpext float %212 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.21, double noundef %198, double noundef %201, double noundef %204, double noundef %207, double noundef %210, double noundef %213)
-  br label %506
+  br label %518
 
 214:                                              ; preds = %3
   %215 = load float, ptr %2, align 4
@@ -508,7 +508,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %218 = load float, ptr %217, align 4
   %219 = fpext float %218 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.22, double noundef %216, double noundef %219)
-  br label %506
+  br label %518
 
 220:                                              ; preds = %3
   %221 = load float, ptr %2, align 4
@@ -523,7 +523,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %230 = load float, ptr %229, align 4
   %231 = fpext float %230 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.23, double noundef %222, double noundef %225, double noundef %228, double noundef %231)
-  br label %506
+  br label %518
 
 232:                                              ; preds = %3
   %233 = load float, ptr %2, align 4
@@ -541,7 +541,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %245 = load float, ptr %244, align 4
   %246 = fpext float %245 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.24, double noundef %234, double noundef %237, double noundef %240, double noundef %243, double noundef %246)
-  br label %506
+  br label %518
 
 247:                                              ; preds = %3
   %248 = load float, ptr %2, align 4
@@ -556,7 +556,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %257 = load float, ptr %256, align 4
   %258 = fpext float %257 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.25, double noundef %249, double noundef %252, double noundef %255, double noundef %258)
-  br label %506
+  br label %518
 
 259:                                              ; preds = %3, %3, %3, %3
   %260 = load float, ptr %2, align 4
@@ -573,7 +573,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %271 = getelementptr inbounds i8, ptr %2, i64 8
   %272 = load i32, ptr %271, align 4
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.26, double noundef %261, double noundef %264, double noundef %267, double noundef %270, i32 noundef %272)
-  br label %506
+  br label %518
 
 273:                                              ; preds = %3
   %274 = getelementptr inbounds i8, ptr %2, i64 20
@@ -592,7 +592,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %287 = load float, ptr %286, align 4
   %288 = fpext float %287 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.27, i32 noundef %275, i32 noundef %277, double noundef %279, double noundef %282, double noundef %285, double noundef %288)
-  br label %506
+  br label %518
 
 289:                                              ; preds = %3
   %290 = load i32, ptr %2, align 4
@@ -610,7 +610,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %302 = load float, ptr %301, align 4
   %303 = fpext float %302 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.28, i32 noundef %290, i32 noundef %292, i32 noundef %294, double noundef %297, double noundef %300, double noundef %303)
-  br label %506
+  br label %518
 
 304:                                              ; preds = %3
   %305 = load float, ptr %2, align 4
@@ -631,7 +631,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %320 = load float, ptr %319, align 4
   %321 = fpext float %320 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.29, double noundef %306, double noundef %309, double noundef %312, double noundef %315, double noundef %318, double noundef %321)
-  br label %506
+  br label %518
 
 322:                                              ; preds = %3
   %323 = load float, ptr %2, align 4
@@ -670,7 +670,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %356 = load float, ptr %355, align 4
   %357 = fpext float %356 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.30, double noundef %324, double noundef %327, double noundef %330, double noundef %333, double noundef %336, double noundef %339, double noundef %342, double noundef %345, double noundef %348, double noundef %351, double noundef %354, double noundef %357)
-  br label %506
+  br label %518
 
 358:                                              ; preds = %3
   %359 = load float, ptr %2, align 4
@@ -690,7 +690,7 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
   %373 = load float, ptr %372, align 4
   %374 = fpext float %373 to double
   tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.31, double noundef %360, double noundef %363, double noundef %366, i32 noundef %368, double noundef %371, double noundef %374)
-  br label %506
+  br label %518
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %.preheader ], [ 0, %3 ]
@@ -725,200 +725,216 @@ define void @_Z26printInteractionParametersPN3gmx10TextWriterEiRK9t_iparams(ptr 
 
 390:                                              ; preds = %383
   tail call void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
 391:                                              ; preds = %3
-  %392 = getelementptr inbounds i8, ptr %2, i64 12
-  %393 = getelementptr inbounds i8, ptr %4, i64 8
-  %394 = load <2 x float>, ptr %392, align 4
-  %395 = fmul <2 x float> %394, <float -5.000000e-01, float -2.500000e-01>
-  store <2 x float> %395, ptr %393, align 8
-  %396 = getelementptr inbounds i8, ptr %2, i64 8
+  %392 = getelementptr inbounds i8, ptr %2, i64 16
+  %393 = load float, ptr %392, align 4
+  %394 = fmul float %393, -2.500000e-01
+  %395 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %394, ptr %395, align 4
+  %396 = getelementptr inbounds i8, ptr %2, i64 12
   %397 = load float, ptr %396, align 4
-  %398 = fpext float %397 to double
-  %399 = fneg double %398
-  %400 = getelementptr inbounds i8, ptr %2, i64 4
-  %401 = load float, ptr %400, align 4
-  %402 = fpext float %401 to double
-  %403 = fmul double %402, -2.000000e+00
-  %404 = fpext <2 x float> %395 to <2 x double>
-  %405 = insertelement <2 x double> poison, double %403, i64 0
-  %406 = insertelement <2 x double> %405, double %399, i64 1
-  %407 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %404, <2 x double> <double 3.000000e+00, double 4.000000e+00>, <2 x double> %406)
-  %408 = fptrunc <2 x double> %407 to <2 x float>
-  store <2 x float> %408, ptr %4, align 16
-  %409 = getelementptr inbounds i8, ptr %2, i64 36
-  %410 = getelementptr inbounds i8, ptr %5, i64 8
-  %411 = load <2 x float>, ptr %409, align 4
-  %412 = fmul <2 x float> %411, <float -5.000000e-01, float -2.500000e-01>
-  store <2 x float> %412, ptr %410, align 8
-  %413 = getelementptr inbounds i8, ptr %2, i64 32
-  %414 = load float, ptr %413, align 4
-  %415 = fpext float %414 to double
-  %416 = fneg double %415
-  %417 = getelementptr inbounds i8, ptr %2, i64 28
-  %418 = load float, ptr %417, align 4
-  %419 = fpext float %418 to double
-  %420 = fmul double %419, -2.000000e+00
-  %421 = fpext <2 x float> %412 to <2 x double>
-  %422 = insertelement <2 x double> poison, double %420, i64 0
-  %423 = insertelement <2 x double> %422, double %416, i64 1
-  %424 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %421, <2 x double> <double 3.000000e+00, double 4.000000e+00>, <2 x double> %423)
-  %425 = fptrunc <2 x double> %424 to <2 x float>
-  store <2 x float> %425, ptr %5, align 16
-  br label %426
+  %398 = fmul float %397, -5.000000e-01
+  %399 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %398, ptr %399, align 8
+  %400 = fpext float %394 to double
+  %401 = getelementptr inbounds i8, ptr %2, i64 8
+  %402 = load float, ptr %401, align 4
+  %403 = fpext float %402 to double
+  %404 = fneg double %403
+  %405 = tail call double @llvm.fmuladd.f64(double %400, double 4.000000e+00, double %404)
+  %406 = fptrunc double %405 to float
+  %407 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %406, ptr %407, align 4
+  %408 = fpext float %398 to double
+  %409 = getelementptr inbounds i8, ptr %2, i64 4
+  %410 = load float, ptr %409, align 4
+  %411 = fpext float %410 to double
+  %412 = fmul double %411, -2.000000e+00
+  %413 = tail call double @llvm.fmuladd.f64(double %408, double 3.000000e+00, double %412)
+  %414 = fptrunc double %413 to float
+  store float %414, ptr %4, align 16
+  %415 = getelementptr inbounds i8, ptr %2, i64 40
+  %416 = load float, ptr %415, align 4
+  %417 = fmul float %416, -2.500000e-01
+  %418 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %417, ptr %418, align 4
+  %419 = getelementptr inbounds i8, ptr %2, i64 36
+  %420 = load float, ptr %419, align 4
+  %421 = fmul float %420, -5.000000e-01
+  %422 = getelementptr inbounds i8, ptr %5, i64 8
+  store float %421, ptr %422, align 8
+  %423 = fpext float %417 to double
+  %424 = getelementptr inbounds i8, ptr %2, i64 32
+  %425 = load float, ptr %424, align 4
+  %426 = fpext float %425 to double
+  %427 = fneg double %426
+  %428 = tail call double @llvm.fmuladd.f64(double %423, double 4.000000e+00, double %427)
+  %429 = fptrunc double %428 to float
+  %430 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %429, ptr %430, align 4
+  %431 = fpext float %421 to double
+  %432 = getelementptr inbounds i8, ptr %2, i64 28
+  %433 = load float, ptr %432, align 4
+  %434 = fpext float %433 to double
+  %435 = fmul double %434, -2.000000e+00
+  %436 = tail call double @llvm.fmuladd.f64(double %431, double 3.000000e+00, double %435)
+  %437 = fptrunc double %436 to float
+  store float %437, ptr %5, align 16
+  br label %438
 
-426:                                              ; preds = %391, %426
-  %indvars.iv245 = phi i64 [ 0, %391 ], [ %indvars.iv.next246, %426 ]
-  %427 = icmp eq i64 %indvars.iv245, 0
-  %428 = select i1 %427, ptr @.str.33, ptr @.str.34
-  %429 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv245
-  %430 = load float, ptr %429, align 4
-  %431 = fpext float %430 to double
-  %432 = trunc nuw nsw i64 %indvars.iv245 to i32
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %428, i32 noundef %432, double noundef %431)
+438:                                              ; preds = %391, %438
+  %indvars.iv245 = phi i64 [ 0, %391 ], [ %indvars.iv.next246, %438 ]
+  %439 = icmp eq i64 %indvars.iv245, 0
+  %440 = select i1 %439, ptr @.str.33, ptr @.str.34
+  %441 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv245
+  %442 = load float, ptr %441, align 4
+  %443 = fpext float %442 to double
+  %444 = trunc nuw nsw i64 %indvars.iv245 to i32
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %440, i32 noundef %444, double noundef %443)
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next246, 4
-  br i1 %exitcond248.not, label %433, label %426, !llvm.loop !9
+  br i1 %exitcond248.not, label %445, label %438, !llvm.loop !9
 
-433:                                              ; preds = %426
+445:                                              ; preds = %438
   tail call void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %434
+  br label %446
 
-434:                                              ; preds = %433, %434
-  %indvars.iv249 = phi i64 [ 0, %433 ], [ %indvars.iv.next250, %434 ]
-  %435 = icmp eq i64 %indvars.iv249, 0
-  %436 = select i1 %435, ptr @.str.33, ptr @.str.34
-  %437 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv249
-  %438 = load float, ptr %437, align 4
-  %439 = fpext float %438 to double
-  %440 = trunc nuw nsw i64 %indvars.iv249 to i32
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.37, ptr noundef nonnull %436, i32 noundef %440, double noundef %439)
+446:                                              ; preds = %445, %446
+  %indvars.iv249 = phi i64 [ 0, %445 ], [ %indvars.iv.next250, %446 ]
+  %447 = icmp eq i64 %indvars.iv249, 0
+  %448 = select i1 %447, ptr @.str.33, ptr @.str.34
+  %449 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv249
+  %450 = load float, ptr %449, align 4
+  %451 = fpext float %450 to double
+  %452 = trunc nuw nsw i64 %indvars.iv249 to i32
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.37, ptr noundef nonnull %448, i32 noundef %452, double noundef %451)
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next250, 4
-  br i1 %exitcond252.not, label %441, label %434, !llvm.loop !10
+  br i1 %exitcond252.not, label %453, label %446, !llvm.loop !10
 
-441:                                              ; preds = %434
+453:                                              ; preds = %446
   tail call void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
-442:                                              ; preds = %3, %3
-  %443 = load float, ptr %2, align 4
-  %444 = fpext float %443 to double
-  %445 = getelementptr inbounds i8, ptr %2, i64 4
-  %446 = load float, ptr %445, align 4
-  %447 = fpext float %446 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.38, double noundef %444, double noundef %447)
-  br label %506
+454:                                              ; preds = %3, %3
+  %455 = load float, ptr %2, align 4
+  %456 = fpext float %455 to double
+  %457 = getelementptr inbounds i8, ptr %2, i64 4
+  %458 = load float, ptr %457, align 4
+  %459 = fpext float %458 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.38, double noundef %456, double noundef %459)
+  br label %518
 
-448:                                              ; preds = %3
-  %449 = load float, ptr %2, align 4
-  %450 = fpext float %449 to double
-  %451 = getelementptr inbounds i8, ptr %2, i64 4
-  %452 = load float, ptr %451, align 4
-  %453 = fpext float %452 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, double noundef %450, double noundef %453)
-  br label %506
+460:                                              ; preds = %3
+  %461 = load float, ptr %2, align 4
+  %462 = fpext float %461 to double
+  %463 = getelementptr inbounds i8, ptr %2, i64 4
+  %464 = load float, ptr %463, align 4
+  %465 = fpext float %464 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.39, double noundef %462, double noundef %465)
+  br label %518
 
-454:                                              ; preds = %3
+466:                                              ; preds = %3
   tail call void @_ZN3gmx10TextWriter15ensureEmptyLineEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
-455:                                              ; preds = %3, %3
-  %456 = load float, ptr %2, align 4
-  %457 = fpext float %456 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.40, double noundef %457)
-  br label %506
-
-458:                                              ; preds = %3, %3, %3
-  %459 = load float, ptr %2, align 4
-  %460 = fpext float %459 to double
-  %461 = getelementptr inbounds i8, ptr %2, i64 4
-  %462 = load float, ptr %461, align 4
-  %463 = fpext float %462 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.41, double noundef %460, double noundef %463)
-  br label %506
-
-464:                                              ; preds = %3, %3, %3
-  %465 = load float, ptr %2, align 4
-  %466 = fpext float %465 to double
-  %467 = getelementptr inbounds i8, ptr %2, i64 4
-  %468 = load float, ptr %467, align 4
+467:                                              ; preds = %3, %3
+  %468 = load float, ptr %2, align 4
   %469 = fpext float %468 to double
-  %470 = getelementptr inbounds i8, ptr %2, i64 8
-  %471 = load float, ptr %470, align 4
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.40, double noundef %469)
+  br label %518
+
+470:                                              ; preds = %3, %3, %3
+  %471 = load float, ptr %2, align 4
   %472 = fpext float %471 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.8, double noundef %466, double noundef %469, double noundef %472)
-  br label %506
+  %473 = getelementptr inbounds i8, ptr %2, i64 4
+  %474 = load float, ptr %473, align 4
+  %475 = fpext float %474 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.41, double noundef %472, double noundef %475)
+  br label %518
 
-473:                                              ; preds = %3
-  %474 = load i32, ptr %2, align 4
-  %475 = getelementptr inbounds i8, ptr %2, i64 4
-  %476 = load float, ptr %475, align 4
-  %477 = fpext float %476 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.42, i32 noundef %474, double noundef %477)
-  br label %506
+476:                                              ; preds = %3, %3, %3
+  %477 = load float, ptr %2, align 4
+  %478 = fpext float %477 to double
+  %479 = getelementptr inbounds i8, ptr %2, i64 4
+  %480 = load float, ptr %479, align 4
+  %481 = fpext float %480 to double
+  %482 = getelementptr inbounds i8, ptr %2, i64 8
+  %483 = load float, ptr %482, align 4
+  %484 = fpext float %483 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.8, double noundef %478, double noundef %481, double noundef %484)
+  br label %518
 
-478:                                              ; preds = %3
-  %479 = load i32, ptr %2, align 4
-  %480 = getelementptr inbounds i8, ptr %2, i64 4
-  %481 = load i32, ptr %480, align 4
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.43, i32 noundef %479, i32 noundef %481)
-  br label %506
+485:                                              ; preds = %3
+  %486 = load i32, ptr %2, align 4
+  %487 = getelementptr inbounds i8, ptr %2, i64 4
+  %488 = load float, ptr %487, align 4
+  %489 = fpext float %488 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.42, i32 noundef %486, double noundef %489)
+  br label %518
 
-482:                                              ; preds = %3
+490:                                              ; preds = %3
+  %491 = load i32, ptr %2, align 4
+  %492 = getelementptr inbounds i8, ptr %2, i64 4
+  %493 = load i32, ptr %492, align 4
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.43, i32 noundef %491, i32 noundef %493)
+  br label %518
+
+494:                                              ; preds = %3
   tail call fastcc void @_ZL24printHarmonicInteractionPN3gmx10TextWriterERK9t_iparamsPKcS6_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45)
-  br label %506
+  br label %518
 
-483:                                              ; preds = %3
-  %484 = load float, ptr %2, align 4
-  %485 = fpext float %484 to double
-  %486 = getelementptr inbounds i8, ptr %2, i64 4
-  %487 = load float, ptr %486, align 4
-  %488 = fpext float %487 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.46, double noundef %485, double noundef %488)
-  br label %506
+495:                                              ; preds = %3
+  %496 = load float, ptr %2, align 4
+  %497 = fpext float %496 to double
+  %498 = getelementptr inbounds i8, ptr %2, i64 4
+  %499 = load float, ptr %498, align 4
+  %500 = fpext float %499 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.46, double noundef %497, double noundef %500)
+  br label %518
 
-489:                                              ; preds = %3
-  %490 = load float, ptr %2, align 4
-  %491 = fpext float %490 to double
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.47, double noundef %491)
-  br label %492
+501:                                              ; preds = %3
+  %502 = load float, ptr %2, align 4
+  %503 = fpext float %502 to double
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter18writeLineFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.47, double noundef %503)
+  br label %504
 
-492:                                              ; preds = %489, %492
-  %indvars.iv = phi i64 [ 1, %489 ], [ %indvars.iv.next, %492 ]
-  %493 = getelementptr inbounds [6 x float], ptr %2, i64 0, i64 %indvars.iv
-  %494 = load float, ptr %493, align 4
-  %495 = fpext float %494 to double
-  %496 = trunc i64 %indvars.iv to i32
-  %497 = add i32 %496, -1
-  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.48, i32 noundef %497, double noundef %495)
+504:                                              ; preds = %501, %504
+  %indvars.iv = phi i64 [ 1, %501 ], [ %indvars.iv.next, %504 ]
+  %505 = getelementptr inbounds [6 x float], ptr %2, i64 0, i64 %indvars.iv
+  %506 = load float, ptr %505, align 4
+  %507 = fpext float %506 to double
+  %508 = trunc i64 %indvars.iv to i32
+  %509 = add i32 %508, -1
+  tail call void (ptr, ptr, ...) @_ZN3gmx10TextWriter20writeStringFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.48, i32 noundef %509, double noundef %507)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %498, label %492, !llvm.loop !11
+  br i1 %exitcond.not, label %510, label %504, !llvm.loop !11
 
-498:                                              ; preds = %492
+510:                                              ; preds = %504
   tail call void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %506
+  br label %518
 
-499:                                              ; preds = %3
+511:                                              ; preds = %3
   call void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(123) @.str.49, i8 noundef zeroext 2)
-  %500 = sext i32 %1 to i64
-  %501 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %500
-  %502 = load ptr, ptr %501, align 16
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 383, ptr noundef nonnull @.str.50, i32 noundef %1, ptr noundef %502, ptr noundef nonnull @.str.49, i32 noundef 388) #18
-          to label %503 unwind label %504
+  %512 = sext i32 %1 to i64
+  %513 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %512
+  %514 = load ptr, ptr %513, align 16
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 383, ptr noundef nonnull @.str.50, i32 noundef %1, ptr noundef %514, ptr noundef nonnull @.str.49, i32 noundef 388) #18
+          to label %515 unwind label %516
 
-503:                                              ; preds = %499
+515:                                              ; preds = %511
   unreachable
 
-504:                                              ; preds = %499
-  %505 = landingpad { ptr, i32 }
+516:                                              ; preds = %511
+  %517 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
-  resume { ptr, i32 } %505
+  resume { ptr, i32 } %517
 
-506:                                              ; preds = %3, %3, %3, %498, %483, %482, %478, %473, %464, %458, %455, %454, %448, %442, %441, %390, %358, %322, %304, %289, %273, %259, %247, %232, %220, %214, %196, %187, %178, %175, %167, %143, %137, %136, %127, %109, %108, %96, %87, %86, %52, %40, %28, %19, %7
+518:                                              ; preds = %3, %3, %3, %510, %495, %494, %490, %485, %476, %470, %467, %466, %460, %454, %453, %390, %358, %322, %304, %289, %273, %259, %247, %232, %220, %214, %196, %187, %178, %175, %167, %143, %137, %136, %127, %109, %108, %96, %87, %86, %52, %40, %28, %19, %7
   ret void
 }
 
@@ -962,8 +978,11 @@ declare void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr noundef nonnull align 8
 
 declare void @_ZN3gmx10TextWriter15ensureEmptyLineEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #4
+
 ; Function Attrs: noreturn
-declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(123) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1033,7 +1052,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1060,7 +1079,7 @@ declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align
 declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #19
   unreachable
@@ -1071,7 +1090,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #2
@@ -1646,7 +1665,7 @@ declare noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef, ptr nound
 declare void @_Z7pr_realP8_IO_FILEiPKcf(ptr noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z9init_idefP6t_idef(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
+define void @_Z9init_idefP6t_idef(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
@@ -1789,10 +1808,10 @@ _ZNSt6vectorI9t_iparamsSaIS0_EED2Ev.exit8:        ; preds = %_ZNSt6vectorI9t_ipa
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPK14gmx_cmapdata_tSt6vectorIS2_SaIS2_EEEEPS2_ET0_T_SB_SA_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1921,13 +1940,13 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN22InteractionDefinitions5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22InteractionDefinitions5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %1, %_ZN15InteractionList5clearEv.exit
@@ -2026,40 +2045,37 @@ _Z9init_idefP6t_idef.exit:                        ; preds = %15
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn }
 attributes #19 = { noreturn nounwind }

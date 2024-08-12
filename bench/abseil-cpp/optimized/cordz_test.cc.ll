@@ -1762,7 +1762,13 @@ define internal void @_ZN4absl12_GLOBAL__N_145gtest_WithParamCordzStringTest_Eva
 entry:
   %call5.i.i.i.i2.i.i.i = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #30, !noalias !13
   %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 20
-  store <4 x i32> <i32 8, i32 15, i32 22, i32 256>, ptr %call5.i.i.i.i2.i.i.i, align 4, !noalias !13
+  store i32 8, ptr %call5.i.i.i.i2.i.i.i, align 4, !noalias !13
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 4
+  store i32 15, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i, align 4, !noalias !13
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 8
+  store i32 22, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx.i.i, align 4, !noalias !13
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 12
+  store i32 256, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx.i.i, align 4, !noalias !13
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i, i64 16
   store i32 16332, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx.i.i, align 4, !noalias !13
   invoke void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN4absl12TestCordSizeESt6vectorIS4_SaIS4_EEEEEENS_8internal14ParamGeneratorINSt15iterator_traitsIT_E10value_typeEEESE_SE_(ptr sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result, ptr nonnull %call5.i.i.i.i2.i.i.i, ptr nonnull %add.ptr.i1.i.i.i)
@@ -3525,8 +3531,8 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOfMatcherPINS_13cord_internal18CordzUpdateTracker16MethodIdentifierEE10gmock_ImplIRKNS_4CordEE15MatchAndExplainES8_PN7testing19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %arg, ptr noundef %result_listener) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
-  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
+  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
+  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %__end1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %agg.tmp = alloca %"class.absl::cord_internal::CordzSampleToken", align 8
   %stat = alloca %"struct.absl::cord_internal::CordzStatistics", align 8
@@ -3561,9 +3567,13 @@ if.end:                                           ; preds = %entry
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.end
-  %5 = load <2 x ptr>, ptr %retval.i.i, align 16
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
-  store <2 x ptr> %5, ptr %__begin1.i, align 16
+  store ptr %.fca.0.load.i.i, ptr %__begin1.i, align 8
+  %5 = getelementptr inbounds i8, ptr %__begin1.i, i64 8
+  store ptr %.fca.1.load.i.i, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__end1.i, i8 0, i64 16, i1 false)
   %call22.i8 = invoke noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %__end1.i)
           to label %call22.i.noexc unwind label %lpad.loopexit.split-lp
@@ -5006,10 +5016,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  %21 = load ptr, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
+  store ptr %21, ptr %__cur.03.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !57
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
-  %21 = load <2 x ptr>, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
+  %22 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
-  store <2 x ptr> %21, ptr %__cur.03.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !57
+  store ptr %22, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !57
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !54
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
@@ -5038,18 +5051,18 @@ _ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL
   ret void
 
 ehcleanup7.thread:                                ; preds = %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #15
   br label %ehcleanup7.thread7
 
 ehcleanup7.thread7:                               ; preds = %lpad5, %lpad3.i.i.i.i
-  %.pn.ph = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %23, %lpad5 ]
+  %.pn.ph = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %24, %lpad5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
   br label %eh.resume
 
@@ -5059,7 +5072,7 @@ ehcleanup7:                                       ; preds = %lpad.body.i, %ehcle
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %ehcleanup7, %ehcleanup7.thread
-  %.pn.pn6 = phi { ptr, i32 } [ %22, %ehcleanup7.thread ], [ %.pn, %ehcleanup7 ]
+  %.pn.pn6 = phi { ptr, i32 } [ %23, %ehcleanup7.thread ], [ %.pn, %ehcleanup7 ]
   call void @_ZdlPv(ptr noundef nonnull %call) #32
   br label %eh.resume
 
@@ -9471,10 +9484,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.02.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %this.val10.i.i.i, %call5.i.i.i.i.i.i.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  %21 = load ptr, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  store ptr %21, ptr %__cur.03.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 8
-  %21 = load <2 x ptr>, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
+  %22 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store <2 x ptr> %21, ptr %__cur.03.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  store ptr %22, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
@@ -9503,18 +9519,18 @@ _ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL
   ret void
 
 ehcleanup7.thread:                                ; preds = %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #15
   br label %ehcleanup7.thread7
 
 ehcleanup7.thread7:                               ; preds = %lpad5, %lpad3.i.i.i.i
-  %.pn.ph = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %23, %lpad5 ]
+  %.pn.ph = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %24, %lpad5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
   br label %eh.resume
 
@@ -9524,7 +9540,7 @@ ehcleanup7:                                       ; preds = %lpad.body.i, %ehcle
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %ehcleanup7, %ehcleanup7.thread
-  %.pn.pn6 = phi { ptr, i32 } [ %22, %ehcleanup7.thread ], [ %.pn, %ehcleanup7 ]
+  %.pn.pn6 = phi { ptr, i32 } [ %23, %ehcleanup7.thread ], [ %.pn, %ehcleanup7 ]
   call void @_ZdlPv(ptr noundef nonnull %call) #32
   br label %eh.resume
 
@@ -9909,8 +9925,8 @@ _ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD2Ev.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
-  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
+  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
+  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %__end1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %src = alloca %"class.absl::Cord", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -10079,9 +10095,13 @@ invoke.cont32:                                    ; preds = %_ZN7testing15Assert
           to label %.noexc22 unwind label %lpad33.loopexit.split-lp
 
 .noexc22:                                         ; preds = %invoke.cont32
-  %24 = load <2 x ptr>, ptr %retval.i.i, align 16
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
-  store <2 x ptr> %24, ptr %__begin1.i, align 16
+  store ptr %.fca.0.load.i.i, ptr %__begin1.i, align 8
+  %24 = getelementptr inbounds i8, ptr %__begin1.i, i64 8
+  store ptr %.fca.1.load.i.i, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__end1.i, i8 0, i64 16, i1 false)
   %call22.i23 = invoke noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %__end1.i)
           to label %call22.i.noexc unwind label %lpad33.loopexit.split-lp
@@ -12423,8 +12443,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_168CordzUpdateTest_AssignUnsampledCordToSampledCordWithoutSampling_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
-  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
+  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
+  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %__end1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %sample_never = alloca %"class.absl::CordzSamplingIntervalHelper", align 4
   %cord = alloca %"class.absl::Cord", align 8
@@ -12615,9 +12635,13 @@ invoke.cont31:                                    ; preds = %_ZN7testing15Assert
           to label %.noexc22 unwind label %lpad32.loopexit.split-lp
 
 .noexc22:                                         ; preds = %invoke.cont31
-  %27 = load <2 x ptr>, ptr %retval.i.i, align 16
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
-  store <2 x ptr> %27, ptr %__begin1.i, align 16
+  store ptr %.fca.0.load.i.i, ptr %__begin1.i, align 8
+  %27 = getelementptr inbounds i8, ptr %__begin1.i, i64 8
+  store ptr %.fca.1.load.i.i, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__end1.i, i8 0, i64 16, i1 false)
   %call22.i23 = invoke noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %__end1.i)
           to label %call22.i.noexc unwind label %lpad32.loopexit.split-lp
@@ -12913,8 +12937,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_165CordzUpdateTest_AssignUnsampledCordToSampledCordWithSampling_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
-  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
+  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
+  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %__end1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %sample_every = alloca %"class.absl::CordzSamplingIntervalHelper", align 4
   %cord = alloca %"class.absl::Cord", align 8
@@ -13105,9 +13129,13 @@ invoke.cont31:                                    ; preds = %_ZN7testing15Assert
           to label %.noexc22 unwind label %lpad32.loopexit.split-lp
 
 .noexc22:                                         ; preds = %invoke.cont31
-  %27 = load <2 x ptr>, ptr %retval.i.i, align 16
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
-  store <2 x ptr> %27, ptr %__begin1.i, align 16
+  store ptr %.fca.0.load.i.i, ptr %__begin1.i, align 8
+  %27 = getelementptr inbounds i8, ptr %__begin1.i, i64 8
+  store ptr %.fca.1.load.i.i, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__end1.i, i8 0, i64 16, i1 false)
   %call22.i23 = invoke noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %__end1.i)
           to label %call22.i.noexc unwind label %lpad32.loopexit.split-lp
@@ -14635,8 +14663,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl12_GLOBAL__N_145CordzTest_AssignInlinedCordToSampledCord_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
-  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 16
+  %retval.i.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
+  %__begin1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %__end1.i = alloca %"class.absl::cord_internal::CordzSampleToken::Iterator", align 8
   %token = alloca %"class.absl::cord_internal::CordzSampleToken", align 8
   %sample_every = alloca %"class.absl::CordzSamplingIntervalHelper", align 4
@@ -14850,9 +14878,13 @@ invoke.cont36:                                    ; preds = %_ZN7testing15Assert
           to label %.noexc27 unwind label %lpad37.loopexit.split-lp
 
 .noexc27:                                         ; preds = %invoke.cont36
-  %30 = load <2 x ptr>, ptr %retval.i.i, align 16
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load ptr, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
-  store <2 x ptr> %30, ptr %__begin1.i, align 16
+  store ptr %.fca.0.load.i.i, ptr %__begin1.i, align 8
+  %30 = getelementptr inbounds i8, ptr %__begin1.i, i64 8
+  store ptr %.fca.1.load.i.i, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__end1.i, i8 0, i64 16, i1 false)
   %call22.i28 = invoke noundef zeroext i1 @_ZN4absl13cord_internalneERKNS0_16CordzSampleToken8IteratorES4_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.i, ptr noundef nonnull align 8 dereferenceable(16) %__end1.i)
           to label %call22.i.noexc unwind label %lpad37.loopexit.split-lp
@@ -17299,11 +17331,14 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %call.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !183
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 4, !noalias !183
+  %1 = load i32, ptr %this, align 4, !noalias !183
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl27CordzMethodCountEqMatcherP2INS_13cord_internal18CordzUpdateTracker16MethodIdentifierEiE10gmock_ImplIRKNS_4CordEEE, i64 16), ptr %call.i.i.i.i.i.i, align 8, !noalias !183
   %method.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
-  %0 = load <2 x i32>, ptr %this, align 4, !noalias !183
-  %1 = shufflevector <2 x i32> %0, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %1, ptr %method.i.i.i.i.i.i.i, align 8, !noalias !183
+  store i32 %0, ptr %method.i.i.i.i.i.i.i, align 8, !noalias !183
+  %n.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 12
+  store i32 %1, ptr %n.i.i.i.i.i.i.i, align 4, !noalias !183
   %vtable_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 16
   store ptr @_ZZN7testing8internal11MatcherBaseIRKN4absl4CordEE9GetVTableINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS6_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8, !alias.scope !183
@@ -17771,7 +17806,7 @@ invoke.cont:
   %ref.tmp3 = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp7 = alloca %"class.std::vector.102", align 8
   %ref.tmp12 = alloca %"class.std::vector.108", align 8
-  %ref.tmp13 = alloca %"class.std::tuple.216", align 8
+  %ref.tmp13 = alloca %"class.std::tuple.216", align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gmock_description) #15
   store i64 30, ptr %ref.tmp2, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
@@ -17828,15 +17863,17 @@ invoke.cont11:                                    ; preds = %if.end
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   %method = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load <2 x i32>, ptr %method, align 8
-  %5 = shufflevector <2 x i32> %4, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %5, ptr %ref.tmp13, align 8
+  %4 = load i32, ptr %n, align 4
+  store i32 %4, ptr %ref.tmp13, align 4
+  %5 = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
+  %6 = load i32, ptr %method, align 8
+  store i32 %6, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12, i8 0, i64 24, i1 false), !alias.scope !184
   invoke void @_ZN7testing8internal25TersePrintPrefixToStringsISt5tupleIJN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEiEELm2EEEvRKT_St17integral_constantImXT0_EEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp13, ptr noundef nonnull %ref.tmp12)
           to label %invoke.cont16 unwind label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %invoke.cont11
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12) #15
   br label %if.then.i.i.i14
@@ -17846,17 +17883,17 @@ invoke.cont16:                                    ; preds = %invoke.cont11
           to label %invoke.cont18 unwind label %ehcleanup
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %7 = load ptr, ptr %ref.tmp12, align 8
+  %8 = load ptr, ptr %ref.tmp12, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  %8 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %7, %8
+  %9 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont18, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %7, %invoke.cont18 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %8, %invoke.cont18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %8
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !44
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -17864,25 +17901,25 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont18
-  %9 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %7, %invoke.cont18 ]
-  %tobool.not.i.i.i7 = icmp eq ptr %9, null
+  %10 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %8, %invoke.cont18 ]
+  %tobool.not.i.i.i7 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %9) #32
+  call void @_ZdlPv(ptr noundef nonnull %10) #32
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %10 = load ptr, ptr %ref.tmp7, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %ref.tmp7, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i9, label %cleanup, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %10) #32
+  call void @_ZdlPv(ptr noundef nonnull %11) #32
   br label %cleanup
 
 ehcleanup:                                        ; preds = %invoke.cont16
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12) #15
   %.pre = load ptr, ptr %ref.tmp7, align 8
@@ -17890,9 +17927,9 @@ ehcleanup:                                        ; preds = %invoke.cont16
   br i1 %tobool.not.i.i.i13, label %ehcleanup20, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn19 = phi { ptr, i32 } [ %6, %ehcleanup.thread ], [ %11, %ehcleanup ]
-  %12 = phi ptr [ %call5.i.i.i.i2.i, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
-  call void @_ZdlPv(ptr noundef nonnull %12) #32
+  %.pn19 = phi { ptr, i32 } [ %7, %ehcleanup.thread ], [ %12, %ehcleanup ]
+  %13 = phi ptr [ %call5.i.i.i.i2.i, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
+  call void @_ZdlPv(ptr noundef nonnull %13) #32
   br label %ehcleanup20
 
 cleanup:                                          ; preds = %if.then.i.i.i10, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.then
@@ -17900,7 +17937,7 @@ cleanup:                                          ; preds = %if.then.i.i.i10, %_
   ret void
 
 ehcleanup20:                                      ; preds = %lpad.i, %ehcleanup, %if.then.i.i.i14, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad.i ], [ %11, %ehcleanup ], [ %.pn19, %if.then.i.i.i14 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad.i ], [ %12, %ehcleanup ], [ %.pn19, %if.then.i.i.i14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gmock_description) #15
   resume { ptr, i32 } %.pn.pn.pn
 }

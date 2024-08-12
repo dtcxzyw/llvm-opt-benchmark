@@ -6719,9 +6719,12 @@ if.then81:                                        ; preds = %if.end71
   %and92 = and i32 %25, %not
   store i32 %and92, ptr %arrayidx91, align 4
   %size94 = getelementptr inbounds i8, ptr %h, i64 4
-  %26 = load <2 x i32>, ptr %size94, align 4
-  %27 = add <2 x i32> %26, <i32 1, i32 1>
-  store <2 x i32> %27, ptr %size94, align 4
+  %26 = load i32, ptr %size94, align 4
+  %inc95 = add i32 %26, 1
+  store i32 %inc95, ptr %size94, align 4
+  %27 = load i32, ptr %n_occupied, align 8
+  %inc97 = add i32 %27, 1
+  store i32 %inc97, ptr %n_occupied, align 8
   br label %if.end128
 
 if.else98:                                        ; preds = %if.end71

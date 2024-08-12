@@ -1520,42 +1520,52 @@ if.then7.i:                                       ; preds = %if.end4.i
   unreachable
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %2 = load <4 x i8>, ptr %buffer.i, align 4
-  %.fr = freeze <4 x i8> %2
+  %2 = load i8, ptr %buffer.i, align 4
+  %cmp10.i = icmp ne i8 %2, 127
+  %arrayidx12.i = getelementptr inbounds i8, ptr %buffer.i, i64 1
+  %3 = load i8, ptr %arrayidx12.i, align 1
+  %cmp14.i = icmp ne i8 %3, 69
+  %or.cond.i = select i1 %cmp10.i, i1 true, i1 %cmp14.i
+  %arrayidx17.i = getelementptr inbounds i8, ptr %buffer.i, i64 2
+  %4 = load i8, ptr %arrayidx17.i, align 2
+  %cmp19.i = icmp ne i8 %4, 76
+  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp19.i
+  %arrayidx22.i = getelementptr inbounds i8, ptr %buffer.i, i64 3
+  %5 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp ne i8 %5, 70
+  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp24.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %buffer.i, i64 4
-  %3 = load i8, ptr %arrayidx27.i, align 4
-  %4 = add i8 %3, -3
-  %5 = icmp ult i8 %4, -2
-  %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %6 = icmp ne i32 %.fr.scalar, 1179403647
-  %op.rdx = select i1 %6, i1 true, i1 %5
-  br i1 %op.rdx, label %if.then35.i, label %if.end37.i
+  %6 = load i8, ptr %arrayidx27.i, align 4
+  %7 = add i8 %6, -3
+  %8 = icmp ult i8 %7, -2
+  %or.cond4.i = select i1 %or.cond2.i, i1 true, i1 %8
+  br i1 %or.cond4.i, label %if.then35.i, label %if.end37.i
 
 if.then35.i:                                      ; preds = %if.end9.i
-  %7 = load ptr, ptr @stderr, align 8
-  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.66, ptr noundef nonnull %optMatchArch) #21
+  %9 = load ptr, ptr @stderr, align 8
+  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.66, ptr noundef nonnull %optMatchArch) #21
   call void @exit(i32 noundef 16) #22
   unreachable
 
 if.end37.i:                                       ; preds = %if.end9.i
   %arrayidx51.i = getelementptr inbounds i8, ptr %buffer.i, i64 5
-  %8 = load i8, ptr %arrayidx51.i, align 1
-  %cmp53.i = icmp eq i8 %8, 2
+  %10 = load i8, ptr %arrayidx51.i, align 1
+  %cmp53.i = icmp eq i8 %10, 2
   br i1 %cmp53.i, label %if.then57.i, label %if.then
 
 if.then57.i:                                      ; preds = %if.end37.i
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = call i64 @fwrite(ptr nonnull @.str.68, i64 67, i64 1, ptr %9) #21
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = call i64 @fwrite(ptr nonnull @.str.68, i64 67, i64 1, ptr %11) #21
   call void @exit(i32 noundef 16) #22
   unreachable
 
 if.then:                                          ; preds = %if.end37.i
-  %cmp41.i = icmp eq i8 %3, 1
+  %cmp41.i = icmp eq i8 %6, 1
   %e_machine.i = getelementptr inbounds i8, ptr %buffer.i, i64 18
-  %11 = load i16, ptr %e_machine.i, align 2
+  %13 = load i16, ptr %e_machine.i, align 2
   call void @T_FileStream_close(ptr noundef nonnull %call.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buffer.i)
-  %conv = zext i16 %11 to i32
+  %conv = zext i16 %13 to i32
   %conv2 = select i1 %cmp41.i, i32 32, i32 64
   %call = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %conv, i32 noundef %conv2, i32 noundef 0)
   br label %if.end
@@ -1567,14 +1577,14 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %bits.057 = phi i1 [ true, %if.else ], [ %cmp41.i, %if.then ]
-  %cpu.055 = phi i16 [ 3, %if.else ], [ %11, %if.then ]
+  %cpu.055 = phi i16 [ 3, %if.else ], [ %13, %if.then ]
   %call8 = call ptr @T_FileStream_open(ptr noundef %filename, ptr noundef nonnull @.str.3)
   %cmp = icmp eq ptr %call8, null
   br i1 %cmp, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
-  %12 = load ptr, ptr @stderr, align 8
-  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, ptr noundef %filename) #21
+  %14 = load ptr, ptr @stderr, align 8
+  %call10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef %filename) #21
   call void @exit(i32 noundef 4) #22
   unreachable
 
@@ -1591,8 +1601,8 @@ if.then17:                                        ; preds = %if.end11
   br i1 %cmp20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.then17
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = call i64 @fwrite(ptr nonnull @.str.12, i64 28, i64 1, ptr %13) #21
+  %15 = load ptr, ptr @stderr, align 8
+  %16 = call i64 @fwrite(ptr nonnull @.str.12, i64 28, i64 1, ptr %15) #21
   call void @exit(i32 noundef 1) #22
   unreachable
 
@@ -1625,8 +1635,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [96 x i8], ptr %entry1, i64 0, i64 %indvars.iv.next
-  %15 = load i8, ptr %arrayidx, align 1
-  %cmp45 = icmp eq i8 %15, 45
+  %17 = load i8, ptr %arrayidx, align 1
+  %cmp45 = icmp eq i8 %17, 45
   br i1 %cmp45, label %if.then46, label %for.inc
 
 if.then46:                                        ; preds = %for.body
@@ -1643,8 +1653,8 @@ for.end:                                          ; preds = %for.inc, %if.end37
   br i1 %cmp53, label %if.then54, label %if.end57
 
 if.then54:                                        ; preds = %for.end
-  %16 = load ptr, ptr @stderr, align 8
-  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull %buffer) #21
+  %18 = load ptr, ptr @stderr, align 8
+  %call56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.11, ptr noundef nonnull %buffer) #21
   call void @exit(i32 noundef 4) #22
   unreachable
 
@@ -1655,14 +1665,14 @@ if.end57:                                         ; preds = %for.end
 if.then60:                                        ; preds = %if.end57
   store i8 %conv62, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 5), align 1
   store i16 %cpu.055, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 18), align 2
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
-  %and = and i32 %17, 15
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
+  %and = and i32 %19, 15
   %cmp63.not = icmp eq i32 %and, 0
   br i1 %cmp63.not, label %if.end67, label %if.then64
 
 if.then64:                                        ; preds = %if.then60
   %sub65 = sub nuw nsw i32 16, %and
-  %add66 = add i32 %sub65, %17
+  %add66 = add i32 %sub65, %19
   store i32 %add66, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
   br label %if.end67
 
@@ -1678,16 +1688,16 @@ if.end67:                                         ; preds = %if.then64, %if.then
 if.else71:                                        ; preds = %if.end57
   store i8 %conv62, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 5), align 1
   store i16 %cpu.055, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 18), align 2
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
-  %19 = trunc i64 %18 to i32
-  %conv76 = and i32 %19, 15
+  %20 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
+  %21 = trunc i64 %20 to i32
+  %conv76 = and i32 %21, 15
   %cmp77.not = icmp eq i32 %conv76, 0
   br i1 %cmp77.not, label %if.end82, label %if.then78
 
 if.then78:                                        ; preds = %if.else71
   %sub79 = sub nuw nsw i32 16, %conv76
   %conv80 = zext nneg i32 %sub79 to i64
-  %add81 = add i64 %18, %conv80
+  %add81 = add i64 %20, %conv80
   store i64 %add81, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
   br label %if.end82
 
@@ -1730,8 +1740,8 @@ for.end104:                                       ; preds = %if.end101, %if.end9
   br i1 %tobool106.not, label %if.end109, label %if.then107
 
 if.then107:                                       ; preds = %for.end104
-  %20 = load ptr, ptr @stderr, align 8
-  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.16, ptr noundef %filename) #21
+  %22 = load ptr, ptr @stderr, align 8
+  %call108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.16, ptr noundef %filename) #21
   call void @exit(i32 noundef 4) #22
   unreachable
 
@@ -1741,8 +1751,8 @@ if.end109:                                        ; preds = %for.end104
   br i1 %tobool111.not, label %if.end114, label %if.then112
 
 if.then112:                                       ; preds = %if.end109
-  %21 = load ptr, ptr @stderr, align 8
-  %call113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.17, ptr noundef %filename) #21
+  %23 = load ptr, ptr @stderr, align 8
+  %call113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.17, ptr noundef %filename) #21
   call void @exit(i32 noundef 4) #22
   unreachable
 

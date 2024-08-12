@@ -281,7 +281,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   tail call void @srand(i32 noundef 305402420) #7
   %8 = tail call i32 @Cudd_SupportSize(ptr noundef %1, ptr noundef %2) #7
   %9 = icmp slt i32 %8, 2
-  br i1 %9, label %35, label %.preheader42.preheader
+  br i1 %9, label %38, label %.preheader42.preheader
 
 .preheader42.preheader:                           ; preds = %3
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -301,59 +301,63 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %exitcond.not, label %.preheader41, label %.preheader42, !llvm.loop !11
 
 13:                                               ; preds = %.preheader41, %13
-  %.144 = phi i32 [ 0, %.preheader41 ], [ %20, %13 ]
+  %.144 = phi i32 [ 0, %.preheader41 ], [ %23, %13 ]
   %14 = tail call i32 @rand() #7
   %15 = srem i32 %14, %10
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %16
-  %18 = load <2 x i32>, ptr %17, align 4
-  %19 = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %19, ptr %17, align 4
-  %20 = add nuw nsw i32 %.144, 1
-  %exitcond47.not = icmp eq i32 %20, 120
+  %18 = load i32, ptr %17, align 4
+  %19 = add nsw i32 %15, 1
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %17, align 4
+  store i32 %18, ptr %21, align 4
+  %23 = add nuw nsw i32 %.144, 1
+  %exitcond47.not = icmp eq i32 %23, 120
   br i1 %exitcond47.not, label %.lr.ph, label %13, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph ], [ 0, %13 ]
-  %21 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv48
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [1000 x i32], ptr %7, i64 0, i64 %23
-  %25 = trunc nuw nsw i64 %indvars.iv48 to i32
-  store i32 %25, ptr %24, align 4
+  %24 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv48
+  %25 = load i32, ptr %24, align 4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [1000 x i32], ptr %7, i64 0, i64 %26
+  %28 = trunc nuw nsw i64 %indvars.iv48 to i32
+  store i32 %28, ptr %27, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
   br i1 %exitcond52.not, label %Abc_Clock.exit, label %.lr.ph, !llvm.loop !13
 
 Abc_Clock.exit:                                   ; preds = %.lr.ph
-  %26 = tail call ptr @Extra_bddRemapUp(ptr noundef %1, ptr noundef %2) #7
-  tail call void @Cudd_Ref(ptr noundef %26) #7
+  %29 = tail call ptr @Extra_bddRemapUp(ptr noundef %1, ptr noundef %2) #7
+  tail call void @Cudd_Ref(ptr noundef %29) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
+  %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %28 = call ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @Cudd_Ref(ptr noundef %28) #7
+  %31 = call ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call void @Cudd_Ref(ptr noundef %31) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
+  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %30 = call ptr @Cudd_bddPermute(ptr noundef %1, ptr noundef %26, ptr noundef nonnull %7) #7
-  call void @Cudd_Ref(ptr noundef %30) #7
-  %.not = icmp eq ptr %30, %28
-  br i1 %.not, label %34, label %31
+  %33 = call ptr @Cudd_bddPermute(ptr noundef %1, ptr noundef %29, ptr noundef nonnull %7) #7
+  call void @Cudd_Ref(ptr noundef %33) #7
+  %.not = icmp eq ptr %33, %31
+  br i1 %.not, label %37, label %34
 
-31:                                               ; preds = %Abc_Clock.exit
+34:                                               ; preds = %Abc_Clock.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %32 = load ptr, ptr @stdout, align 8
-  %33 = call i32 @fflush(ptr noundef %32)
-  br label %34
+  %35 = load ptr, ptr @stdout, align 8
+  %36 = call i32 @fflush(ptr noundef %35)
+  br label %37
 
-34:                                               ; preds = %31, %Abc_Clock.exit
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %30) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %28) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %26) #7
-  br label %35
+37:                                               ; preds = %34, %Abc_Clock.exit
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %33) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %31) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %29) #7
+  br label %38
 
-35:                                               ; preds = %3, %34
+38:                                               ; preds = %3, %37
   ret void
 }
 

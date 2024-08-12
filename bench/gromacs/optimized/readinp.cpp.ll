@@ -1262,7 +1262,7 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i: ; preds = %33
 43:                                               ; preds = %18
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %76
 
 45:                                               ; preds = %.noexc, %19
   %46 = landingpad { ptr, i32 }
@@ -1277,12 +1277,12 @@ _ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i: ; preds = %33
 .body:                                            ; preds = %47, %_ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i, %33, %25
   %eh.lpad-body20 = phi { ptr, i32 } [ %48, %47 ], [ %26, %25 ], [ %34, %33 ], [ %34, %_ZNKSt14default_deleteIN3gmx3Any8IContentEEclEPS2_.exit.i.i.i5.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  br i1 %17, label %.body.thread, label %73
+  br i1 %17, label %.body.thread, label %76
 
 .body.thread:                                     ; preds = %45, %21, %.body
   %.pn25 = phi { ptr, i32 } [ %eh.lpad-body20, %.body ], [ %22, %21 ], [ %46, %45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
-  br label %73
+  br label %76
 
 ._crit_edge:                                      ; preds = %41
   %.pre = load ptr, ptr %10, align 8
@@ -1327,27 +1327,31 @@ _ZN3gmx19KeyValueTreeBuilder5buildEv.exit:        ; preds = %50, %57
   store i64 0, ptr %.sink.i.i.i.i.i.i, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 48
   %65 = getelementptr inbounds i8, ptr %5, i64 48
-  %66 = load <2 x ptr>, ptr %65, align 8, !noalias !36
-  store <2 x ptr> %66, ptr %64, align 8, !alias.scope !36
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
-  %68 = getelementptr inbounds i8, ptr %5, i64 64
+  %66 = load ptr, ptr %65, align 8, !noalias !36
+  store ptr %66, ptr %64, align 8, !alias.scope !36
+  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %68 = getelementptr inbounds i8, ptr %5, i64 56
   %69 = load ptr, ptr %68, align 8, !noalias !36
   store ptr %69, ptr %67, align 8, !alias.scope !36
+  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds i8, ptr %5, i64 64
+  %72 = load ptr, ptr %71, align 8, !noalias !36
+  store ptr %72, ptr %70, align 8, !alias.scope !36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false), !noalias !36
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null)
-          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %70
+          to label %_ZN3gmx19KeyValueTreeBuilderD2Ev.exit unwind label %73
 
-70:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
-  %71 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #22
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #22
   unreachable
 
 _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZN3gmx19KeyValueTreeBuilder5buildEv.exit
   ret void
 
-73:                                               ; preds = %.body, %.body.thread, %43
+76:                                               ; preds = %.body, %.body.thread, %43
   %.pn.pn = phi { ptr, i32 } [ %.pn25, %.body.thread ], [ %eh.lpad-body20, %.body ], [ %44, %43 ]
   call void @_ZN3gmx19KeyValueTreeBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #19
   resume { ptr, i32 } %.pn.pn

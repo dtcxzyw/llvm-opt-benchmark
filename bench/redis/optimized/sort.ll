@@ -1346,13 +1346,13 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %int_conversion_error.1.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %int_conversion_error.2, %for.inc ]
   store i32 %desc.0.lcssa, ptr getelementptr inbounds (i8, ptr @server, i64 4968), align 8
   store i32 %alpha.2553, ptr getelementptr inbounds (i8, ptr @server, i64 4972), align 4
-  %85 = insertelement <2 x ptr> poison, ptr %sortby.3549, i64 0
-  %86 = insertelement <2 x ptr> %85, ptr %storekey.0.lcssa, i64 1
-  %87 = icmp ne <2 x ptr> %86, zeroinitializer
-  %tobool589.not.not = icmp eq ptr %sortby.3549, null
-  %88 = zext <2 x i1> %87 to <2 x i32>
-  store <2 x i32> %88, ptr getelementptr inbounds (i8, ptr @server, i64 4976), align 8
-  br i1 %tobool589.not.not, label %if.else604, label %land.lhs.true594
+  %tobool589.not = icmp ne ptr %sortby.3549, null
+  %cond590 = zext i1 %tobool589.not to i32
+  store i32 %cond590, ptr getelementptr inbounds (i8, ptr @server, i64 4976), align 8
+  %tobool591.not = icmp ne ptr %storekey.0.lcssa, null
+  %cond592 = zext i1 %tobool591.not to i32
+  store i32 %cond592, ptr getelementptr inbounds (i8, ptr @server, i64 4980), align 4
+  br i1 %tobool589.not, label %land.lhs.true594, label %if.else604
 
 land.lhs.true594:                                 ; preds = %for.end
   %cmp595.not = icmp eq i64 %start.1, 0
@@ -1416,8 +1416,8 @@ for.body632:                                      ; preds = %if.then625, %for.in
 
 if.then636:                                       ; preds = %for.body632
   %arrayidx638 = getelementptr inbounds %struct._redisSortObject, ptr %call303, i64 %indvars.iv528
-  %89 = load ptr, ptr %arrayidx638, align 8
-  call void @addReplyBulk(ptr noundef %c, ptr noundef %89) #12
+  %85 = load ptr, ptr %arrayidx638, align 8
+  call void @addReplyBulk(ptr noundef %c, ptr noundef %85) #12
   br label %if.end640
 
 if.end640:                                        ; preds = %if.then636, %for.body632
@@ -1433,14 +1433,14 @@ while.body644.lr.ph:                              ; preds = %if.end640
 while.body644:                                    ; preds = %while.body644.lr.ph, %if.end670
   %call642491 = phi ptr [ %call642489, %while.body644.lr.ph ], [ %call642, %if.end670 ]
   %value = getelementptr inbounds i8, ptr %call642491, i64 16
-  %90 = load ptr, ptr %value, align 8
-  %91 = load ptr, ptr %db, align 8
-  %pattern = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load ptr, ptr %pattern, align 8
-  %93 = load ptr, ptr %arrayidx647, align 8
-  %call649 = call ptr @lookupKeyByPattern(ptr noundef %91, ptr noundef %92, ptr noundef %93)
-  %94 = load i32, ptr %90, align 8
-  %cmp650 = icmp eq i32 %94, 0
+  %86 = load ptr, ptr %value, align 8
+  %87 = load ptr, ptr %db, align 8
+  %pattern = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load ptr, ptr %pattern, align 8
+  %89 = load ptr, ptr %arrayidx647, align 8
+  %call649 = call ptr @lookupKeyByPattern(ptr noundef %87, ptr noundef %88, ptr noundef %89)
+  %90 = load i32, ptr %86, align 8
+  %cmp650 = icmp eq i32 %90, 0
   br i1 %cmp650, label %if.then652, label %cond.false668
 
 if.then652:                                       ; preds = %while.body644
@@ -1484,8 +1484,8 @@ for.body682.lr.ph:                                ; preds = %if.else675
 for.body682.us:                                   ; preds = %for.body682.lr.ph, %for.body682.us
   %indvars.iv525 = phi i64 [ %indvars.iv.next526, %for.body682.us ], [ %conv679485, %for.body682.lr.ph ]
   %arrayidx688.us = getelementptr inbounds %struct._redisSortObject, ptr %call303, i64 %indvars.iv525
-  %95 = load ptr, ptr %arrayidx688.us, align 8
-  call void @listTypePush(ptr noundef %call676, ptr noundef %95, i32 noundef 1) #12
+  %91 = load ptr, ptr %arrayidx688.us, align 8
+  call void @listTypePush(ptr noundef %call676, ptr noundef %91, i32 noundef 1) #12
   %indvars.iv.next526 = add nsw i64 %indvars.iv525, 1
   %cmp680.not.us.not = icmp sgt i64 %end.2, %indvars.iv525
   br i1 %cmp680.not.us.not, label %for.body682.us, label %for.end730, !llvm.loop !15
@@ -1504,14 +1504,14 @@ while.body694.lr.ph:                              ; preds = %for.body682
 while.body694:                                    ; preds = %while.body694.lr.ph, %if.end711
   %call692484 = phi ptr [ %call692482, %while.body694.lr.ph ], [ %call692, %if.end711 ]
   %value696 = getelementptr inbounds i8, ptr %call692484, i64 16
-  %96 = load ptr, ptr %value696, align 8
-  %97 = load ptr, ptr %db, align 8
-  %pattern699 = getelementptr inbounds i8, ptr %96, i64 8
-  %98 = load ptr, ptr %pattern699, align 8
-  %99 = load ptr, ptr %arrayidx701, align 8
-  %call703 = call ptr @lookupKeyByPattern(ptr noundef %97, ptr noundef %98, ptr noundef %99)
-  %100 = load i32, ptr %96, align 8
-  %cmp705 = icmp eq i32 %100, 0
+  %92 = load ptr, ptr %value696, align 8
+  %93 = load ptr, ptr %db, align 8
+  %pattern699 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load ptr, ptr %pattern699, align 8
+  %95 = load ptr, ptr %arrayidx701, align 8
+  %call703 = call ptr @lookupKeyByPattern(ptr noundef %93, ptr noundef %94, ptr noundef %95)
+  %96 = load i32, ptr %92, align 8
+  %cmp705 = icmp eq i32 %96, 0
   br i1 %cmp705, label %if.then707, label %cond.false723
 
 if.then707:                                       ; preds = %while.body694
@@ -1541,45 +1541,45 @@ for.inc728.loopexit:                              ; preds = %if.end711, %for.bod
   br i1 %cmp680.not.not, label %for.body682, label %for.end730, !llvm.loop !15
 
 for.end730:                                       ; preds = %for.inc728.loopexit, %for.body682.us, %if.else675
-  %101 = and i64 %cond618, 4294967295
-  %tobool731.not = icmp eq i64 %101, 0
+  %97 = and i64 %cond618, 4294967295
+  %tobool731.not = icmp eq i64 %97, 0
   br i1 %tobool731.not, label %if.else737, label %if.then732
 
 if.then732:                                       ; preds = %for.end730
   call void @listTypeTryConversion(ptr noundef %call676, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %102 = load ptr, ptr %db, align 8
-  call void @setKey(ptr noundef %c, ptr noundef %102, ptr noundef nonnull %storekey.0.lcssa, ptr noundef %call676, i32 noundef 0) #12
-  %103 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %103, i64 48
-  %104 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef nonnull %storekey.0.lcssa, i32 noundef %104) #12
+  %98 = load ptr, ptr %db, align 8
+  call void @setKey(ptr noundef %c, ptr noundef %98, ptr noundef nonnull %storekey.0.lcssa, ptr noundef %call676, i32 noundef 0) #12
+  %99 = load ptr, ptr %db, align 8
+  %id = getelementptr inbounds i8, ptr %99, i64 48
+  %100 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.21, ptr noundef nonnull %storekey.0.lcssa, i32 noundef %100) #12
   br label %if.end747.sink.split
 
 if.else737:                                       ; preds = %for.end730
-  %105 = load ptr, ptr %db, align 8
-  %call739 = call i32 @dbDelete(ptr noundef %105, ptr noundef nonnull %storekey.0.lcssa) #12
+  %101 = load ptr, ptr %db, align 8
+  %call739 = call i32 @dbDelete(ptr noundef %101, ptr noundef nonnull %storekey.0.lcssa) #12
   %tobool740.not = icmp eq i32 %call739, 0
   br i1 %tobool740.not, label %if.end747, label %if.then741
 
 if.then741:                                       ; preds = %if.else737
-  %106 = load ptr, ptr %db, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %106, ptr noundef nonnull %storekey.0.lcssa) #12
-  %107 = load ptr, ptr %db, align 8
-  %id744 = getelementptr inbounds i8, ptr %107, i64 48
-  %108 = load i32, ptr %id744, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull %storekey.0.lcssa, i32 noundef %108) #12
+  %102 = load ptr, ptr %db, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %102, ptr noundef nonnull %storekey.0.lcssa) #12
+  %103 = load ptr, ptr %db, align 8
+  %id744 = getelementptr inbounds i8, ptr %103, i64 48
+  %104 = load i32, ptr %id744, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull %storekey.0.lcssa, i32 noundef %104) #12
   br label %if.end747.sink.split
 
 if.end747.sink.split:                             ; preds = %if.then732, %if.then741
-  %.sink557 = phi i64 [ 1, %if.then741 ], [ %101, %if.then732 ]
-  %109 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
-  %inc745 = add nsw i64 %109, %.sink557
+  %.sink557 = phi i64 [ 1, %if.then741 ], [ %97, %if.then732 ]
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %inc745 = add nsw i64 %105, %.sink557
   store i64 %inc745, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %if.end747
 
 if.end747:                                        ; preds = %if.end747.sink.split, %if.else737
   call void @decrRefCount(ptr noundef %call676) #12
-  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %101) #12
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %97) #12
   br label %if.end750
 
 if.end750:                                        ; preds = %for.inc672, %if.then625, %if.end747, %if.then621
@@ -1593,8 +1593,8 @@ for.body754.preheader:                            ; preds = %if.end750
 for.body754:                                      ; preds = %for.body754.preheader, %for.body754
   %indvars.iv531 = phi i64 [ 0, %for.body754.preheader ], [ %indvars.iv.next532, %for.body754 ]
   %arrayidx756 = getelementptr inbounds %struct._redisSortObject, ptr %call303, i64 %indvars.iv531
-  %110 = load ptr, ptr %arrayidx756, align 8
-  call void @decrRefCount(ptr noundef %110) #12
+  %106 = load ptr, ptr %arrayidx756, align 8
+  call void @decrRefCount(ptr noundef %106) #12
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
   %exitcond535.not = icmp eq i64 %indvars.iv.next532, %wide.trip.count534
   br i1 %exitcond535.not, label %for.end760, label %for.body754, !llvm.loop !17
@@ -1613,12 +1613,12 @@ for.body764.preheader:                            ; preds = %for.end760
 for.body764:                                      ; preds = %for.body764.preheader, %for.inc776
   %indvars.iv536 = phi i64 [ 0, %for.body764.preheader ], [ %indvars.iv.next537, %for.inc776 ]
   %u769 = getelementptr inbounds %struct._redisSortObject, ptr %call303, i64 %indvars.iv536, i32 1
-  %111 = load ptr, ptr %u769, align 8
-  %tobool770.not = icmp eq ptr %111, null
+  %107 = load ptr, ptr %u769, align 8
+  %tobool770.not = icmp eq ptr %107, null
   br i1 %tobool770.not, label %for.inc776, label %if.then771
 
 if.then771:                                       ; preds = %for.body764
-  call void @decrRefCount(ptr noundef nonnull %111) #12
+  call void @decrRefCount(ptr noundef nonnull %107) #12
   br label %for.inc776
 
 for.inc776:                                       ; preds = %for.body764, %if.then771

@@ -78,46 +78,52 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVector
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr %1, ptr readnone %2) local_unnamed_addr #2 align 2 {
-  %4 = alloca %"class.gmx::BasicVector", align 8
-  br label %8
+  %4 = alloca %"class.gmx::BasicVector", align 4
+  br label %10
 
-.preheader:                                       ; preds = %8
+.preheader:                                       ; preds = %10
   %.not16 = icmp eq ptr %1, %2
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = load <2 x float>, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load float, ptr %6, align 8
-  br label %15
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = load float, ptr %8, align 4
+  br label %17
 
-8:                                                ; preds = %3, %8
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %indvars.iv
-  %10 = load float, ptr %9, align 4
-  %11 = fcmp une float %10, 0.000000e+00
-  %12 = fdiv float 1.000000e+00, %10
-  %13 = select i1 %11, float %12, float 1.000000e+00
-  %14 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv
-  store float %13, ptr %14, align 4
+10:                                               ; preds = %3, %10
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %indvars.iv
+  %12 = load float, ptr %11, align 4
+  %13 = fcmp une float %12, 0.000000e+00
+  %14 = fdiv float 1.000000e+00, %12
+  %15 = select i1 %13, float %14, float 1.000000e+00
+  %16 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  store float %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !5
 
-15:                                               ; preds = %.lr.ph, %15
-  %.sroa.0.017 = phi ptr [ %1, %.lr.ph ], [ %21, %15 ]
-  %16 = load <2 x float>, ptr %.sroa.0.017, align 4
-  %17 = fmul <2 x float> %5, %16
-  store <2 x float> %17, ptr %.sroa.0.017, align 4
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
-  %19 = load float, ptr %18, align 4
-  %20 = fmul float %7, %19
-  store float %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 12
-  %.not = icmp eq ptr %21, %2
-  br i1 %.not, label %._crit_edge, label %15
+17:                                               ; preds = %.lr.ph, %17
+  %.sroa.0.017 = phi ptr [ %1, %.lr.ph ], [ %26, %17 ]
+  %18 = load float, ptr %.sroa.0.017, align 4
+  %19 = fmul float %5, %18
+  store float %19, ptr %.sroa.0.017, align 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 4
+  %21 = load float, ptr %20, align 4
+  %22 = fmul float %7, %21
+  store float %22, ptr %20, align 4
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
+  %24 = load float, ptr %23, align 4
+  %25 = fmul float %9, %24
+  store float %25, ptr %23, align 4
+  %26 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 12
+  %.not = icmp eq ptr %26, %2
+  br i1 %.not, label %._crit_edge, label %17
 
-._crit_edge:                                      ; preds = %15, %.preheader
+._crit_edge:                                      ; preds = %17, %.preheader
   ret void
 }
 
@@ -206,85 +212,97 @@ define void @_ZNK3gmx16ScaleCoordinatesclEPNS_11BasicVectorIfEE(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr %1, ptr readnone %2) local_unnamed_addr #6 align 2 {
-  %4 = alloca %"class.gmx::BasicVector", align 8
+  %4 = alloca %"class.gmx::BasicVector", align 4
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  br label %9
+  br label %11
 
-.preheader.i:                                     ; preds = %9
+.preheader.i:                                     ; preds = %11
   %.not16.i = icmp eq ptr %1, %2
   br i1 %.not16.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %6 = load <2 x float>, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load float, ptr %7, align 8
-  br label %16
+  %6 = load float, ptr %4, align 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = load float, ptr %9, align 4
+  br label %18
 
-9:                                                ; preds = %9, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %9 ]
-  %10 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
-  %11 = load float, ptr %10, align 4
-  %12 = fcmp une float %11, 0.000000e+00
-  %13 = fdiv float 1.000000e+00, %11
-  %14 = select i1 %12, float %13, float 1.000000e+00
-  %15 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  store float %14, ptr %15, align 4
+11:                                               ; preds = %11, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %11 ]
+  %12 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %13 = load float, ptr %12, align 4
+  %14 = fcmp une float %13, 0.000000e+00
+  %15 = fdiv float 1.000000e+00, %13
+  %16 = select i1 %14, float %15, float 1.000000e+00
+  %17 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  store float %16, ptr %17, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %9, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.preheader.i, label %11, !llvm.loop !5
 
-16:                                               ; preds = %16, %.lr.ph.i
-  %.sroa.0.017.i = phi ptr [ %1, %.lr.ph.i ], [ %22, %16 ]
-  %17 = load <2 x float>, ptr %.sroa.0.017.i, align 4
-  %18 = fmul <2 x float> %6, %17
-  store <2 x float> %18, ptr %.sroa.0.017.i, align 4
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 8
-  %20 = load float, ptr %19, align 4
-  %21 = fmul float %8, %20
-  store float %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 12
-  %.not.i = icmp eq ptr %22, %2
-  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %16
+18:                                               ; preds = %18, %.lr.ph.i
+  %.sroa.0.017.i = phi ptr [ %1, %.lr.ph.i ], [ %27, %18 ]
+  %19 = load float, ptr %.sroa.0.017.i, align 4
+  %20 = fmul float %6, %19
+  store float %20, ptr %.sroa.0.017.i, align 4
+  %21 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 4
+  %22 = load float, ptr %21, align 4
+  %23 = fmul float %8, %22
+  store float %23, ptr %21, align 4
+  %24 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 8
+  %25 = load float, ptr %24, align 4
+  %26 = fmul float %10, %25
+  store float %26, ptr %24, align 4
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 12
+  %.not.i = icmp eq ptr %27, %2
+  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %18
 
-_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %16, %.preheader.i
+_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %18, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVectorIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = alloca %"class.gmx::BasicVector", align 8
+  %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  br label %13
+  br label %18
 
-.lr.ph.i:                                         ; preds = %13
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load float, ptr %5, align 8
-  %7 = load <2 x float>, ptr %3, align 8
-  %8 = load <2 x float>, ptr %1, align 4
-  %9 = fmul <2 x float> %7, %8
-  store <2 x float> %9, ptr %1, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load float, ptr %10, align 4
-  %12 = fmul float %6, %11
-  store float %12, ptr %10, align 4
+.lr.ph.i:                                         ; preds = %18
+  %5 = load float, ptr %3, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load float, ptr %8, align 4
+  %10 = load float, ptr %1, align 4
+  %11 = fmul float %5, %10
+  store float %11, ptr %1, align 4
+  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = load float, ptr %12, align 4
+  %14 = fmul float %7, %13
+  store float %14, ptr %12, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %9, %16
+  store float %17, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   ret void
 
-13:                                               ; preds = %13, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %15 = load float, ptr %14, align 4
-  %16 = fcmp une float %15, 0.000000e+00
-  %17 = fdiv float 1.000000e+00, %15
-  %18 = select i1 %16, float %17, float 1.000000e+00
-  %19 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
-  store float %18, ptr %19, align 4
+18:                                               ; preds = %18, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %18 ]
+  %19 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp une float %20, 0.000000e+00
+  %22 = fdiv float 1.000000e+00, %20
+  %23 = select i1 %21, float %22, float 1.000000e+00
+  %24 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  store float %23, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.lr.ph.i, label %13, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.lr.ph.i, label %18, !llvm.loop !5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -359,39 +377,43 @@ define void @_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicV
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %8
-  %.sroa.0.013 = phi ptr [ %1, %.lr.ph ], [ %25, %8 ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 4
-  %10 = load <2 x float>, ptr %.sroa.0.013, align 4
-  %11 = load <2 x float>, ptr %4, align 4
-  %12 = fadd <2 x float> %10, %11
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+9:                                                ; preds = %.lr.ph, %9
+  %.sroa.0.013 = phi ptr [ %1, %.lr.ph ], [ %27, %9 ]
+  %10 = load float, ptr %.sroa.0.013, align 4
+  %11 = load float, ptr %4, align 4
+  %12 = fadd float %10, %11
+  %13 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 4
   %14 = load float, ptr %13, align 4
   %15 = load float, ptr %5, align 4
   %16 = fadd float %14, %15
-  store <2 x float> %12, ptr %.sroa.0.013, align 4
-  store float %16, ptr %13, align 4
-  %17 = load float, ptr %0, align 4
-  %18 = extractelement <2 x float> %12, i64 0
-  %19 = fmul float %17, %18
-  store float %19, ptr %.sroa.0.013, align 4
-  %20 = load float, ptr %6, align 4
-  %21 = extractelement <2 x float> %12, i64 1
-  %22 = fmul float %20, %21
-  store float %22, ptr %9, align 4
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %18 = load float, ptr %17, align 4
+  %19 = load float, ptr %6, align 4
+  %20 = fadd float %18, %19
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %12, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %16, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %.sroa.0.013, align 4
+  store float %20, ptr %17, align 4
+  %21 = load float, ptr %0, align 4
+  %22 = fmul float %21, %12
+  store float %22, ptr %.sroa.0.013, align 4
   %23 = load float, ptr %7, align 4
-  %24 = fmul float %16, %23
+  %24 = fmul float %23, %16
   store float %24, ptr %13, align 4
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 12
-  %.not = icmp eq ptr %25, %2
-  br i1 %.not, label %._crit_edge, label %8
+  %25 = load float, ptr %8, align 4
+  %26 = fmul float %20, %25
+  store float %26, ptr %17, align 4
+  %27 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 12
+  %.not = icmp eq ptr %27, %2
+  br i1 %.not, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %8, %3
+._crit_edge:                                      ; preds = %9, %3
   ret void
 }
 
@@ -420,39 +442,43 @@ define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(p
 
 .lr.ph.i:                                         ; preds = %3
   %5 = getelementptr inbounds i8, ptr %4, i64 12
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %9
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %10
 
-9:                                                ; preds = %9, %.lr.ph.i
-  %.sroa.0.013.i = phi ptr [ %1, %.lr.ph.i ], [ %26, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 4
-  %11 = load <2 x float>, ptr %.sroa.0.013.i, align 4
-  %12 = load <2 x float>, ptr %5, align 4
-  %13 = fadd <2 x float> %11, %12
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 8
+10:                                               ; preds = %10, %.lr.ph.i
+  %.sroa.0.013.i = phi ptr [ %1, %.lr.ph.i ], [ %28, %10 ]
+  %11 = load float, ptr %.sroa.0.013.i, align 4
+  %12 = load float, ptr %5, align 4
+  %13 = fadd float %11, %12
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 4
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %6, align 4
   %17 = fadd float %15, %16
-  store <2 x float> %13, ptr %.sroa.0.013.i, align 4
-  store float %17, ptr %14, align 4
-  %18 = load float, ptr %4, align 4
-  %19 = extractelement <2 x float> %13, i64 0
-  %20 = fmul float %19, %18
-  store float %20, ptr %.sroa.0.013.i, align 4
-  %21 = load float, ptr %7, align 4
-  %22 = extractelement <2 x float> %13, i64 1
-  %23 = fmul float %22, %21
-  store float %23, ptr %10, align 4
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 8
+  %19 = load float, ptr %18, align 4
+  %20 = load float, ptr %7, align 4
+  %21 = fadd float %19, %20
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %17, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %.sroa.0.013.i, align 4
+  store float %21, ptr %18, align 4
+  %22 = load float, ptr %4, align 4
+  %23 = fmul float %13, %22
+  store float %23, ptr %.sroa.0.013.i, align 4
   %24 = load float, ptr %8, align 4
   %25 = fmul float %17, %24
   store float %25, ptr %14, align 4
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 12
-  %.not.i = icmp eq ptr %26, %2
-  br i1 %.not.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %9
+  %26 = load float, ptr %9, align 4
+  %27 = fmul float %21, %26
+  store float %27, ptr %18, align 4
+  %28 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 12
+  %.not.i = icmp eq ptr %28, %2
+  br i1 %.not.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %10
 
-_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %9, %3
+_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %10, %3
   ret void
 }
 
@@ -461,30 +487,34 @@ define void @_ZNK3gmx17TranslateAndScaleclEPNS_11BasicVectorIfEE(ptr nocapture n
 .lr.ph.i:
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 12
-  %4 = getelementptr inbounds i8, ptr %2, i64 20
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = load <2 x float>, ptr %1, align 4
-  %9 = load <2 x float>, ptr %3, align 4
-  %10 = fadd <2 x float> %8, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = load float, ptr %1, align 4
+  %9 = load float, ptr %3, align 4
+  %10 = fadd float %8, %9
+  %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = load float, ptr %4, align 4
   %14 = fadd float %12, %13
-  store <2 x float> %10, ptr %1, align 4
-  store float %14, ptr %11, align 4
-  %15 = load float, ptr %2, align 4
-  %16 = extractelement <2 x float> %10, i64 0
-  %17 = fmul float %16, %15
-  store float %17, ptr %1, align 4
-  %18 = load float, ptr %5, align 4
-  %19 = extractelement <2 x float> %10, i64 1
-  %20 = fmul float %19, %18
-  store float %20, ptr %7, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = load float, ptr %5, align 4
+  %18 = fadd float %16, %17
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %14, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %1, align 4
+  store float %18, ptr %15, align 4
+  %19 = load float, ptr %2, align 4
+  %20 = fmul float %10, %19
+  store float %20, ptr %1, align 4
   %21 = load float, ptr %6, align 4
   %22 = fmul float %14, %21
   store float %22, ptr %11, align 4
+  %23 = load float, ptr %7, align 4
+  %24 = fmul float %18, %23
+  store float %24, ptr %15, align 4
   ret void
 }
 
@@ -587,26 +617,33 @@ define void @_ZNK3gmx20AffineTransformationclENS_8ArrayRefINS_11BasicVectorIfEEE
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %6
+  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  br label %7
 
-6:                                                ; preds = %.lr.ph, %6
-  %.sroa.0.012 = phi ptr [ %1, %.lr.ph ], [ %14, %6 ]
+7:                                                ; preds = %.lr.ph, %7
+  %.sroa.0.012 = phi ptr [ %1, %.lr.ph ], [ %19, %7 ]
   tail call void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr nonnull %0, ptr noundef nonnull %.sroa.0.012)
-  %7 = load <2 x float>, ptr %.sroa.0.012, align 4
-  %8 = load <2 x float>, ptr %4, align 8
-  %9 = fadd <2 x float> %7, %8
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 8
-  %11 = load float, ptr %10, align 4
-  %12 = load float, ptr %5, align 8
-  %13 = fadd float %11, %12
-  store <2 x float> %9, ptr %.sroa.0.012, align 4
-  store float %13, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 12
-  %.not = icmp eq ptr %14, %2
-  br i1 %.not, label %._crit_edge, label %6
+  %8 = load float, ptr %.sroa.0.012, align 4
+  %9 = load float, ptr %4, align 8
+  %10 = fadd float %8, %9
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 4
+  %12 = load float, ptr %11, align 4
+  %13 = load float, ptr %5, align 4
+  %14 = fadd float %12, %13
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 8
+  %16 = load float, ptr %15, align 4
+  %17 = load float, ptr %6, align 8
+  %18 = fadd float %16, %17
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %14, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %.sroa.0.012, align 4
+  store float %18, ptr %15, align 4
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 12
+  %.not = icmp eq ptr %19, %2
+  br i1 %.not, label %._crit_edge, label %7
 
-._crit_edge:                                      ; preds = %6, %3
+._crit_edge:                                      ; preds = %7, %3
   ret void
 }
 
@@ -616,17 +653,24 @@ declare void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3
 define void @_ZNK3gmx20AffineTransformationclEPNS_11BasicVectorIfEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
 .lr.ph.i:
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr nonnull %0, ptr noundef nonnull %1)
-  %4 = load <2 x float>, ptr %1, align 4
-  %5 = load <2 x float>, ptr %2, align 8
-  %6 = fadd <2 x float> %4, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load float, ptr %7, align 4
-  %9 = load float, ptr %3, align 8
-  %10 = fadd float %8, %9
-  store <2 x float> %6, ptr %1, align 4
-  store float %10, ptr %7, align 4
+  %5 = load float, ptr %1, align 4
+  %6 = load float, ptr %2, align 8
+  %7 = fadd float %5, %6
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load float, ptr %8, align 4
+  %10 = load float, ptr %3, align 4
+  %11 = fadd float %9, %10
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load float, ptr %12, align 4
+  %14 = load float, ptr %4, align 8
+  %15 = fadd float %13, %14
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %7, i64 0
+  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %11, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %1, align 4
+  store float %15, ptr %12, align 4
   ret void
 }
 

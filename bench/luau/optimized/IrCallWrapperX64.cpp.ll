@@ -34,34 +34,40 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX64C2ERNS1_13IrRegAllo
   %.ptr.i = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   store i8 0, ptr %.ptr.i, align 4
   %9 = getelementptr inbounds i8, ptr %.ptr.i, i64 4
-  store <4 x i8> <i8 0, i8 -128, i8 -128, i8 16>, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %.ptr.i, i64 8
-  %11 = getelementptr inbounds i8, ptr %.ptr.i, i64 17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %10, i8 0, i64 9, i1 false)
-  store i8 -128, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %.ptr.i, i64 18
-  store i8 -128, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %.ptr.i, i64 19
-  store i8 16, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %.ptr.i, i64 20
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %.ptr.i, i64 24
-  store i8 1, ptr %15, align 4
+  store i8 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %.ptr.i, i64 5
+  store i8 -128, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %.ptr.i, i64 6
+  store i8 -128, ptr %11, align 2
+  %12 = getelementptr inbounds i8, ptr %.ptr.i, i64 7
+  store i8 16, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %.ptr.i, i64 8
+  %14 = getelementptr inbounds i8, ptr %.ptr.i, i64 17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %13, i8 0, i64 9, i1 false)
+  store i8 -128, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %.ptr.i, i64 18
+  store i8 -128, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %.ptr.i, i64 19
+  store i8 16, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %.ptr.i, i64 20
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %.ptr.i, i64 24
+  store i8 1, ptr %18, align 4
   %.add.i = add nuw nsw i64 %.idx.i, 28
-  %16 = icmp eq i64 %.add.i, 168
-  br i1 %16, label %_ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit, label %8
+  %19 = icmp eq i64 %.add.i, 168
+  br i1 %19, label %_ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit, label %8
 
 _ZNSt5arrayIN4Luau7CodeGen3X6412CallArgumentELm6EEC2Ev.exit: ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 188
-  %18 = getelementptr inbounds i8, ptr %0, i64 201
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %17, i8 0, i64 13, i1 false)
-  store i8 -128, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 202
-  store i8 -128, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 203
-  store i8 16, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 204
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 36, i1 false)
+  %20 = getelementptr inbounds i8, ptr %0, i64 188
+  %21 = getelementptr inbounds i8, ptr %0, i64 201
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %20, i8 0, i64 13, i1 false)
+  store i8 -128, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 202
+  store i8 -128, ptr %22, align 2
+  %23 = getelementptr inbounds i8, ptr %0, i64 203
+  store i8 16, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 204
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %24, i8 0, i64 36, i1 false)
   ret void
 }
 
@@ -80,7 +86,13 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 12
   store i32 %3, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store <4 x i8> <i8 0, i8 -128, i8 -128, i8 16>, ptr %.sroa.4.0..sroa_idx, align 4
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 17
+  store i8 -128, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 18
+  store i8 -128, ptr %.sroa.6.0..sroa_idx, align 2
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 19
+  store i8 16, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 20
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
@@ -158,33 +170,37 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exi
   %36 = getelementptr inbounds i8, ptr %35, i64 84
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %46
 
 39:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
   %40 = getelementptr inbounds i8, ptr %0, i64 192
-  %41 = load <2 x i32>, ptr %40, align 8
-  %42 = add nsw <2 x i32> %41, <i32 1, i32 1>
-  store <2 x i32> %42, ptr %40, align 8
-  br label %52
+  %41 = load i32, ptr %40, align 8
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 196
+  %44 = load i32, ptr %43, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %43, align 4
+  br label %55
 
-43:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
-  br i1 %11, label %44, label %48
+46:                                               ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
+  br i1 %11, label %47, label %51
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 196
-  %46 = load i32, ptr %45, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 4
-  br label %52
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %0, i64 196
+  %49 = load i32, ptr %48, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %48, align 4
+  br label %55
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 192
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8
-  br label %52
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 192
+  %53 = load i32, ptr %52, align 8
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 8
+  br label %55
 
-52:                                               ; preds = %44, %48, %39
+55:                                               ; preds = %47, %51, %39
   ret void
 }
 

@@ -200,7 +200,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %72 = getelementptr inbounds i8, ptr %2, i64 584
   %73 = load double, ptr %72, align 8
   %74 = fcmp une double %73, 0.000000e+00
-  br i1 %74, label %75, label %90
+  br i1 %74, label %75, label %89
 
 75:                                               ; preds = %._crit_edge._crit_edge, %71, %67, %61
   %76 = phi ptr [ %59, %._crit_edge._crit_edge ], [ %62, %71 ], [ %62, %67 ], [ %62, %61 ]
@@ -210,25 +210,25 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %79 = fmul double %77, 0x3ED455A5B2FF8F9D
   store double %79, ptr %76, align 8
   %80 = getelementptr inbounds i8, ptr %2, i64 568
-  %81 = getelementptr inbounds i8, ptr %2, i64 576
-  %82 = load double, ptr %81, align 8
-  %83 = insertelement <2 x double> poison, double %78, i64 0
-  %84 = insertelement <2 x double> %83, double %82, i64 1
-  %85 = fmul <2 x double> %84, <double 0x3ED455A5B2FF8F9D, double 0x3ED455A5B2FF8F9D>
-  store <2 x double> %85, ptr %80, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 584
-  %87 = load double, ptr %86, align 8
-  %88 = fdiv double %87, 1.000000e+06
-  %89 = fadd double %88, 1.000000e+00
-  store double %89, ptr %86, align 8
+  %81 = fmul double %78, 0x3ED455A5B2FF8F9D
+  store double %81, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %2, i64 576
+  %83 = load double, ptr %82, align 8
+  %84 = fmul double %83, 0x3ED455A5B2FF8F9D
+  store double %84, ptr %82, align 8
+  %85 = getelementptr inbounds i8, ptr %2, i64 584
+  %86 = load double, ptr %85, align 8
+  %87 = fdiv double %86, 1.000000e+06
+  %88 = fadd double %87, 1.000000e+00
+  store double %88, ptr %85, align 8
   br label %.critedge97
 
-90:                                               ; preds = %71
+89:                                               ; preds = %71
   store i32 1, ptr %5, align 8
   br label %.critedge97
 
-.critedge97:                                      ; preds = %.preheader, %41, %75, %90, %42, %37, %28, %.critedge98
-  %.073 = phi i32 [ 1, %28 ], [ 1, %37 ], [ 1, %.critedge98 ], [ 0, %42 ], [ 0, %90 ], [ 0, %75 ], [ 0, %41 ], [ -1, %.preheader ]
+.critedge97:                                      ; preds = %.preheader, %41, %75, %89, %42, %37, %28, %.critedge98
+  %.073 = phi i32 [ 1, %28 ], [ 1, %37 ], [ 1, %.critedge98 ], [ 0, %42 ], [ 0, %89 ], [ 0, %75 ], [ 0, %41 ], [ -1, %.preheader ]
   ret i32 %.073
 }
 

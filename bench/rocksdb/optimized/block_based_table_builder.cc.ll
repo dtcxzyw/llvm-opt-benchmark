@@ -753,10 +753,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN7rocksdb13CompressBlockERKNS_5SliceERKNS_15CompressionInfoEPNS_15CompressionTypeEjbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_(ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_data, ptr noundef nonnull align 8 dereferenceable(40) %info, ptr nocapture noundef writeonly %type, i32 noundef %format_version, i1 noundef zeroext %allow_sample, ptr noundef %compressed_output, ptr noundef %sampled_output_fast, ptr noundef %sampled_output_slow) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %options = alloca %"struct.rocksdb::CompressionOptions", align 16
+  %options = alloca %"struct.rocksdb::CompressionOptions", align 8
   %context = alloca %"class.rocksdb::CompressionContext", align 8
   %info_tmp = alloca %"class.rocksdb::CompressionInfo", align 8
-  %options29 = alloca %"struct.rocksdb::CompressionOptions", align 16
+  %options29 = alloca %"struct.rocksdb::CompressionOptions", align 8
   %context30 = alloca %"class.rocksdb::CompressionContext", align 8
   %info_tmp31 = alloca %"class.rocksdb::CompressionInfo", align 8
   br i1 %allow_sample, label %land.lhs.true, label %if.end43
@@ -791,21 +791,27 @@ if.then:                                          ; preds = %land.lhs.true2
   br i1 %tobool6.not, label %if.end, label %if.then10
 
 if.then10:                                        ; preds = %if.then
-  store <4 x i32> <i32 -14, i32 32767, i32 0, i32 0>, ptr %options, align 16
+  store i32 -14, ptr %options, align 8
+  %level.i = getelementptr inbounds i8, ptr %options, i64 4
+  store i32 32767, ptr %level.i, align 4
+  %strategy.i = getelementptr inbounds i8, ptr %options, i64 8
+  store i32 0, ptr %strategy.i, align 8
+  %max_dict_bytes.i = getelementptr inbounds i8, ptr %options, i64 12
+  store i32 0, ptr %max_dict_bytes.i, align 4
   %zstd_max_train_bytes.i = getelementptr inbounds i8, ptr %options, i64 16
-  store i32 0, ptr %zstd_max_train_bytes.i, align 16
+  store i32 0, ptr %zstd_max_train_bytes.i, align 8
   %parallel_threads.i = getelementptr inbounds i8, ptr %options, i64 20
   store i32 1, ptr %parallel_threads.i, align 4
   %enabled.i = getelementptr inbounds i8, ptr %options, i64 24
   store i8 0, ptr %enabled.i, align 8
   %max_dict_buffer_bytes.i = getelementptr inbounds i8, ptr %options, i64 32
-  store i64 0, ptr %max_dict_buffer_bytes.i, align 16
+  store i64 0, ptr %max_dict_buffer_bytes.i, align 8
   %use_zstd_dict_trainer.i = getelementptr inbounds i8, ptr %options, i64 40
   store i8 1, ptr %use_zstd_dict_trainer.i, align 8
   %max_compressed_bytes_per_kb.i = getelementptr inbounds i8, ptr %options, i64 44
   store i32 896, ptr %max_compressed_bytes_per_kb.i, align 4
   %checksum.i = getelementptr inbounds i8, ptr %options, i64 48
-  store i8 0, ptr %checksum.i, align 16
+  store i8 0, ptr %checksum.i, align 8
   store ptr null, ptr %context, align 8
   call void @_ZN7rocksdb18CompressionContext19CreateNativeContextENS_15CompressionTypeEib(ptr noundef nonnull align 8 dereferenceable(8) %context, i8 noundef zeroext 4, i32 noundef 32767, i1 noundef zeroext false)
   %3 = load atomic i8, ptr @_ZGVZN7rocksdb15CompressionDict12GetEmptyDictEvE10empty_dict acquire, align 8
@@ -870,21 +876,27 @@ land.lhs.true21:                                  ; preds = %if.end
   %call.i34 = call i32 @ZSTD_versionNumber()
   %cmp.i35 = icmp ugt i32 %call.i34, 799
   %cond28 = select i1 %cmp.i35, i8 7, i8 2
-  store <4 x i32> <i32 -14, i32 32767, i32 0, i32 0>, ptr %options29, align 16
+  store i32 -14, ptr %options29, align 8
+  %level.i36 = getelementptr inbounds i8, ptr %options29, i64 4
+  store i32 32767, ptr %level.i36, align 4
+  %strategy.i37 = getelementptr inbounds i8, ptr %options29, i64 8
+  store i32 0, ptr %strategy.i37, align 8
+  %max_dict_bytes.i38 = getelementptr inbounds i8, ptr %options29, i64 12
+  store i32 0, ptr %max_dict_bytes.i38, align 4
   %zstd_max_train_bytes.i39 = getelementptr inbounds i8, ptr %options29, i64 16
-  store i32 0, ptr %zstd_max_train_bytes.i39, align 16
+  store i32 0, ptr %zstd_max_train_bytes.i39, align 8
   %parallel_threads.i40 = getelementptr inbounds i8, ptr %options29, i64 20
   store i32 1, ptr %parallel_threads.i40, align 4
   %enabled.i41 = getelementptr inbounds i8, ptr %options29, i64 24
   store i8 0, ptr %enabled.i41, align 8
   %max_dict_buffer_bytes.i42 = getelementptr inbounds i8, ptr %options29, i64 32
-  store i64 0, ptr %max_dict_buffer_bytes.i42, align 16
+  store i64 0, ptr %max_dict_buffer_bytes.i42, align 8
   %use_zstd_dict_trainer.i43 = getelementptr inbounds i8, ptr %options29, i64 40
   store i8 1, ptr %use_zstd_dict_trainer.i43, align 8
   %max_compressed_bytes_per_kb.i44 = getelementptr inbounds i8, ptr %options29, i64 44
   store i32 896, ptr %max_compressed_bytes_per_kb.i44, align 4
   %checksum.i45 = getelementptr inbounds i8, ptr %options29, i64 48
-  store i8 0, ptr %checksum.i45, align 16
+  store i8 0, ptr %checksum.i45, align 8
   store ptr null, ptr %context30, align 8
   call void @_ZN7rocksdb18CompressionContext19CreateNativeContextENS_15CompressionTypeEib(ptr noundef nonnull align 8 dereferenceable(8) %context30, i8 noundef zeroext %cond28, i32 noundef 32767, i1 noundef zeroext false)
   %11 = load atomic i8, ptr @_ZGVZN7rocksdb15CompressionDict12GetEmptyDictEvE10empty_dict acquire, align 8
@@ -6389,20 +6401,23 @@ invoke.cont90:                                    ; preds = %invoke.cont84
 if.then.i103:                                     ; preds = %invoke.cont90
   %43 = load i8, ptr %ref.tmp85, align 8
   store i8 %43, ptr %out_status, align 8
+  store i8 0, ptr %ref.tmp85, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp85, i64 1
   %44 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %out_status, i64 1
   store i8 %44, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp85, i64 2
   %45 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %out_status, i64 2
   store i8 %45, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp85, i64 3
   %46 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %out_status, i64 3
   %frombool.i = and i8 %46, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp85, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp85, i64 4
   %47 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %out_status, i64 4
@@ -6496,20 +6511,23 @@ invoke.cont109:                                   ; preds = %invoke.cont104
 if.then.i117:                                     ; preds = %invoke.cont109
   %56 = load i8, ptr %ref.tmp94, align 8
   store i8 %56, ptr %out_status, align 8
+  store i8 0, ptr %ref.tmp94, align 8
   %subcode_.i118 = getelementptr inbounds i8, ptr %ref.tmp94, i64 1
   %57 = load i8, ptr %subcode_.i118, align 1
   %subcode_4.i119 = getelementptr inbounds i8, ptr %out_status, i64 1
   store i8 %57, ptr %subcode_4.i119, align 1
+  store i8 0, ptr %subcode_.i118, align 1
   %sev_.i120 = getelementptr inbounds i8, ptr %ref.tmp94, i64 2
   %58 = load i8, ptr %sev_.i120, align 2
   %sev_6.i121 = getelementptr inbounds i8, ptr %out_status, i64 2
   store i8 %58, ptr %sev_6.i121, align 2
+  store i8 0, ptr %sev_.i120, align 2
   %retryable_.i122 = getelementptr inbounds i8, ptr %ref.tmp94, i64 3
   %59 = load i8, ptr %retryable_.i122, align 1
   %retryable_8.i123 = getelementptr inbounds i8, ptr %out_status, i64 3
   %frombool.i124 = and i8 %59, 1
   store i8 %frombool.i124, ptr %retryable_8.i123, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp94, align 8
+  store i8 0, ptr %retryable_.i122, align 1
   %data_loss_.i125 = getelementptr inbounds i8, ptr %ref.tmp94, i64 4
   %60 = load i8, ptr %data_loss_.i125, align 4
   %data_loss_11.i126 = getelementptr inbounds i8, ptr %out_status, i64 4
@@ -8432,20 +8450,23 @@ invoke.cont15:                                    ; preds = %invoke.cont12
 _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %invoke.cont15
   %10 = load i8, ptr %ref.tmp, align 8
   store i8 %10, ptr %agg.result, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %11 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %11, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %12 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %12, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %13 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i = and i8 %13, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %14 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -12936,19 +12957,21 @@ _ZN7rocksdb22BlockBasedTableBuilder22ParallelCompressionRep20PrepareBlockInterna
   %size_.i6 = getelementptr inbounds i8, ptr %7, i64 32
   store i64 %sub.ptr.div.i.i, ptr %size_.i6, align 8
   %keys_.i = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %keys_.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
-  %10 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %11 = load ptr, ptr %keys, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %keys, align 8
+  store ptr %13, ptr %keys_.i, align 8
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  store ptr %14, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %keys, i64 16
-  %12 = load <2 x ptr>, ptr %keys_.i, align 8
-  store ptr %11, ptr %keys_.i, align 8
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  store ptr %13, ptr %_M_finish.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %12, ptr %keys, align 8
-  store ptr %10, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %10, ptr %keys, align 8
+  store ptr %11, ptr %_M_finish.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   ret ptr %4
 }
 
@@ -18725,17 +18748,18 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE7EEEJRKSt10shared_ptrINS0_5CacheEEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.3", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
+  %0 = load ptr, ptr %__args, align 8
+  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -23641,20 +23665,23 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = load i8, ptr %ref.tmp, align 8
   store i8 %2, ptr %status_, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %3 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %this, i64 233
   store i8 %3, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %4 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %this, i64 234
   store i8 %4, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %5 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %this, i64 235
   %frombool.i = and i8 %5, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %6 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %this, i64 236

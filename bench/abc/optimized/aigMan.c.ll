@@ -1831,12 +1831,15 @@ define void @Aig_ManSetRegNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 136
-  %5 = getelementptr inbounds i8, ptr %0, i64 108
-  %6 = load <2 x i32>, ptr %4, align 8
-  %7 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> zeroinitializer
-  %9 = sub nsw <2 x i32> %6, %8
-  store <2 x i32> %9, ptr %5, align 4
+  %.val8 = load i32, ptr %4, align 8
+  %5 = sub nsw i32 %.val8, %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %5, ptr %6, align 4
+  %7 = getelementptr i8, ptr %0, i64 140
+  %.val = load i32, ptr %7, align 4
+  %8 = sub nsw i32 %.val, %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 %8, ptr %9, align 8
   tail call void @Aig_ManSetCioIds(ptr noundef %0) #17
   ret void
 }

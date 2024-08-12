@@ -395,13 +395,14 @@ entry:
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
   %arrayidx26 = getelementptr inbounds i8, ptr %sd, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %sd, i64 8
   %tobool.i = fcmp une double %mul, 0.000000e+00
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end33
 
 for.cond16.preheader:                             ; preds = %for.cond16.preheader.lr.ph, %for.inc31
-  %5 = phi i32 [ %32, %for.inc31 ], [ %3, %for.cond16.preheader.lr.ph ]
-  %6 = phi i32 [ %33, %for.inc31 ], [ %1, %for.cond16.preheader.lr.ph ]
+  %5 = phi i32 [ %26, %for.inc31 ], [ %3, %for.cond16.preheader.lr.ph ]
+  %6 = phi i32 [ %27, %for.inc31 ], [ %1, %for.cond16.preheader.lr.ph ]
   %y.035 = phi i32 [ %inc32, %for.inc31 ], [ 0, %for.cond16.preheader.lr.ph ]
   %cmp1832 = icmp sgt i32 %6, 0
   br i1 %cmp1832, label %for.body19.lr.ph, label %for.inc31
@@ -423,7 +424,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
-  %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %31, %_ZN7msdfgenL7distValEfdf.exit ]
+  %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %25, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.033 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
   %conv22 = uitofp nneg i32 %x.033 to double
   %add23 = fadd double %conv22, 5.000000e-01
@@ -512,18 +513,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 4
-  %21 = load <2 x float>, ptr %arrayidx26, align 4
-  %22 = extractelement <2 x float> %21, i64 0
-  %cmp.i3.i = fcmp olt float %20, %22
-  %cond.i4.i = select i1 %cmp.i3.i, float %22, float %20
-  %23 = insertelement <2 x float> poison, float %20, i64 0
-  %24 = insertelement <2 x float> %23, float %cond.i4.i, i64 1
-  %25 = fcmp olt <2 x float> %21, %24
-  %26 = select <2 x i1> %25, <2 x float> %21, <2 x float> %24
-  %27 = extractelement <2 x float> %26, i64 0
-  %28 = extractelement <2 x float> %26, i64 1
-  %cmp.i7.i = fcmp olt float %27, %28
-  %cond.i8.i = select i1 %cmp.i7.i, float %28, float %27
+  %21 = load float, ptr %arrayidx26, align 4
+  %22 = load float, ptr %arrayidx27, align 4
+  %cmp.i.i19 = fcmp olt float %21, %20
+  %cond.i.i20 = select i1 %cmp.i.i19, float %21, float %20
+  %cmp.i3.i = fcmp olt float %20, %21
+  %cond.i4.i = select i1 %cmp.i3.i, float %21, float %20
+  %cmp.i5.i = fcmp ogt float %cond.i4.i, %22
+  %cond.i6.i = select i1 %cmp.i5.i, float %22, float %cond.i4.i
+  %cmp.i7.i = fcmp olt float %cond.i.i20, %cond.i6.i
+  %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i20
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit
@@ -534,27 +533,27 @@ if.then.i:                                        ; preds = %_ZN7msdfgenL11inter
 if.end.i:                                         ; preds = %_ZN7msdfgenL11interpolateIfLi3EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit
   %sub.i22 = fsub float %cond.i8.i, %midValue
   %conv1.i23 = fpext float %sub.i22 to double
-  %29 = tail call double @llvm.fmuladd.f64(double %conv1.i23, double %mul, double 5.000000e-01)
-  %cmp.i.i24 = fcmp oge double %29, 0.000000e+00
-  %cmp1.i.i = fcmp ole double %29, 1.000000e+00
+  %23 = tail call double @llvm.fmuladd.f64(double %conv1.i23, double %mul, double 5.000000e-01)
+  %cmp.i.i24 = fcmp oge double %23, 0.000000e+00
+  %cmp1.i.i = fcmp ole double %23, 1.000000e+00
   %or.cond.i.i25 = and i1 %cmp.i.i24, %cmp1.i.i
-  %cmp2.i.i26 = fcmp ogt double %29, 0.000000e+00
+  %cmp2.i.i26 = fcmp ogt double %23, 0.000000e+00
   %conv.i.i27 = uitofp i1 %cmp2.i.i26 to double
-  %cond.i.i28 = select i1 %or.cond.i.i25, double %29, double %conv.i.i27
+  %cond.i.i28 = select i1 %or.cond.i.i25, double %23, double %conv.i.i27
   %conv2.i = fptrunc double %cond.i.i28 to float
   br label %_ZN7msdfgenL7distValEfdf.exit
 
 _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi float [ %conv2.i, %if.end.i ], [ %conv.i21, %if.then.i ]
-  %30 = load ptr, ptr %output, align 8
+  %24 = load ptr, ptr %output, align 8
   %mul.i30 = mul nsw i32 %8, %y.035
   %add.i31 = add nsw i32 %mul.i30, %x.033
   %idx.ext.i = sext i32 %add.i31 to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %30, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds float, ptr %24, i64 %idx.ext.i
   store float %retval.0.i, ptr %add.ptr.i, align 4
   %inc = add nuw nsw i32 %x.033, 1
-  %31 = load i32, ptr %width1, align 8
-  %cmp18 = icmp slt i32 %inc, %31
+  %25 = load i32, ptr %width1, align 8
+  %cmp18 = icmp slt i32 %inc, %25
   br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !12
 
 for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit
@@ -562,10 +561,10 @@ for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distVa
   br label %for.inc31
 
 for.inc31:                                        ; preds = %for.inc31.loopexit, %for.cond16.preheader
-  %32 = phi i32 [ %.pre, %for.inc31.loopexit ], [ %5, %for.cond16.preheader ]
-  %33 = phi i32 [ %31, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
+  %26 = phi i32 [ %.pre, %for.inc31.loopexit ], [ %5, %for.cond16.preheader ]
+  %27 = phi i32 [ %25, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
   %inc32 = add nuw nsw i32 %y.035, 1
-  %cmp = icmp slt i32 %inc32, %32
+  %cmp = icmp slt i32 %inc32, %26
   br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !13
 
 for.end33:                                        ; preds = %for.inc31, %for.cond16.preheader.lr.ph, %entry
@@ -861,13 +860,14 @@ entry:
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
   %arrayidx26 = getelementptr inbounds i8, ptr %sd, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %sd, i64 8
   %tobool.i = fcmp une double %mul, 0.000000e+00
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end33
 
 for.cond16.preheader:                             ; preds = %for.cond16.preheader.lr.ph, %for.inc31
-  %5 = phi i32 [ %32, %for.inc31 ], [ %3, %for.cond16.preheader.lr.ph ]
-  %6 = phi i32 [ %33, %for.inc31 ], [ %1, %for.cond16.preheader.lr.ph ]
+  %5 = phi i32 [ %26, %for.inc31 ], [ %3, %for.cond16.preheader.lr.ph ]
+  %6 = phi i32 [ %27, %for.inc31 ], [ %1, %for.cond16.preheader.lr.ph ]
   %y.035 = phi i32 [ %inc32, %for.inc31 ], [ 0, %for.cond16.preheader.lr.ph ]
   %cmp1832 = icmp sgt i32 %6, 0
   br i1 %cmp1832, label %for.body19.lr.ph, label %for.inc31
@@ -889,7 +889,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
-  %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %31, %_ZN7msdfgenL7distValEfdf.exit ]
+  %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %25, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.033 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
   %conv22 = uitofp nneg i32 %x.033 to double
   %add23 = fadd double %conv22, 5.000000e-01
@@ -978,18 +978,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit: ; preds = %for.body.i
   %20 = load float, ptr %sd, align 16
-  %21 = load <2 x float>, ptr %arrayidx26, align 4
-  %22 = extractelement <2 x float> %21, i64 0
-  %cmp.i3.i = fcmp olt float %20, %22
-  %cond.i4.i = select i1 %cmp.i3.i, float %22, float %20
-  %23 = insertelement <2 x float> poison, float %20, i64 0
-  %24 = insertelement <2 x float> %23, float %cond.i4.i, i64 1
-  %25 = fcmp olt <2 x float> %21, %24
-  %26 = select <2 x i1> %25, <2 x float> %21, <2 x float> %24
-  %27 = extractelement <2 x float> %26, i64 0
-  %28 = extractelement <2 x float> %26, i64 1
-  %cmp.i7.i = fcmp olt float %27, %28
-  %cond.i8.i = select i1 %cmp.i7.i, float %28, float %27
+  %21 = load float, ptr %arrayidx26, align 4
+  %22 = load float, ptr %arrayidx27, align 8
+  %cmp.i.i19 = fcmp olt float %21, %20
+  %cond.i.i20 = select i1 %cmp.i.i19, float %21, float %20
+  %cmp.i3.i = fcmp olt float %20, %21
+  %cond.i4.i = select i1 %cmp.i3.i, float %21, float %20
+  %cmp.i5.i = fcmp ogt float %cond.i4.i, %22
+  %cond.i6.i = select i1 %cmp.i5.i, float %22, float %cond.i4.i
+  %cmp.i7.i = fcmp olt float %cond.i.i20, %cond.i6.i
+  %cond.i8.i = select i1 %cmp.i7.i, float %cond.i6.i, float %cond.i.i20
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit
@@ -1000,27 +998,27 @@ if.then.i:                                        ; preds = %_ZN7msdfgenL11inter
 if.end.i:                                         ; preds = %_ZN7msdfgenL11interpolateIfLi4EEEvPT_RKNS_14BitmapConstRefIS1_XT0_EEENS_7Vector2E.exit
   %sub.i22 = fsub float %cond.i8.i, %midValue
   %conv1.i23 = fpext float %sub.i22 to double
-  %29 = tail call double @llvm.fmuladd.f64(double %conv1.i23, double %mul, double 5.000000e-01)
-  %cmp.i.i24 = fcmp oge double %29, 0.000000e+00
-  %cmp1.i.i = fcmp ole double %29, 1.000000e+00
+  %23 = tail call double @llvm.fmuladd.f64(double %conv1.i23, double %mul, double 5.000000e-01)
+  %cmp.i.i24 = fcmp oge double %23, 0.000000e+00
+  %cmp1.i.i = fcmp ole double %23, 1.000000e+00
   %or.cond.i.i25 = and i1 %cmp.i.i24, %cmp1.i.i
-  %cmp2.i.i26 = fcmp ogt double %29, 0.000000e+00
+  %cmp2.i.i26 = fcmp ogt double %23, 0.000000e+00
   %conv.i.i27 = uitofp i1 %cmp2.i.i26 to double
-  %cond.i.i28 = select i1 %or.cond.i.i25, double %29, double %conv.i.i27
+  %cond.i.i28 = select i1 %or.cond.i.i25, double %23, double %conv.i.i27
   %conv2.i = fptrunc double %cond.i.i28 to float
   br label %_ZN7msdfgenL7distValEfdf.exit
 
 _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi float [ %conv2.i, %if.end.i ], [ %conv.i21, %if.then.i ]
-  %30 = load ptr, ptr %output, align 8
+  %24 = load ptr, ptr %output, align 8
   %mul.i30 = mul nsw i32 %8, %y.035
   %add.i31 = add nsw i32 %mul.i30, %x.033
   %idx.ext.i = sext i32 %add.i31 to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %30, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds float, ptr %24, i64 %idx.ext.i
   store float %retval.0.i, ptr %add.ptr.i, align 4
   %inc = add nuw nsw i32 %x.033, 1
-  %31 = load i32, ptr %width1, align 8
-  %cmp18 = icmp slt i32 %inc, %31
+  %25 = load i32, ptr %width1, align 8
+  %cmp18 = icmp slt i32 %inc, %25
   br i1 %cmp18, label %for.body19, label %for.inc31.loopexit, !llvm.loop !17
 
 for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distValEfdf.exit
@@ -1028,10 +1026,10 @@ for.inc31.loopexit:                               ; preds = %_ZN7msdfgenL7distVa
   br label %for.inc31
 
 for.inc31:                                        ; preds = %for.inc31.loopexit, %for.cond16.preheader
-  %32 = phi i32 [ %.pre, %for.inc31.loopexit ], [ %5, %for.cond16.preheader ]
-  %33 = phi i32 [ %31, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
+  %26 = phi i32 [ %.pre, %for.inc31.loopexit ], [ %5, %for.cond16.preheader ]
+  %27 = phi i32 [ %25, %for.inc31.loopexit ], [ %6, %for.cond16.preheader ]
   %inc32 = add nuw nsw i32 %y.035, 1
-  %cmp = icmp slt i32 %inc32, %32
+  %cmp = icmp slt i32 %inc32, %26
   br i1 %cmp, label %for.cond16.preheader, label %for.end33, !llvm.loop !18
 
 for.end33:                                        ; preds = %for.inc31, %for.cond16.preheader.lr.ph, %entry

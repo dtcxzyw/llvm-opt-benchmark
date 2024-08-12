@@ -506,127 +506,130 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   %108 = add i64 %107, %.076
   store i64 %108, ptr %106, align 8
   %109 = getelementptr inbounds i8, ptr %105, i64 16
-  %110 = load <2 x i64>, ptr %109, align 16
-  %111 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %.076, i64 0
-  %112 = add <2 x i64> %110, %111
-  store <2 x i64> %112, ptr %109, align 16
-  %113 = load i64, ptr %105, align 16
-  %114 = icmp sgt i64 %108, %113
-  br i1 %114, label %115, label %116
+  %110 = load i64, ptr %109, align 16
+  %111 = add i64 %110, %.076
+  store i64 %111, ptr %109, align 16
+  %112 = getelementptr inbounds i8, ptr %105, i64 24
+  %113 = load i64, ptr %112, align 8
+  %114 = add nsw i64 %113, 1
+  store i64 %114, ptr %112, align 8
+  %115 = load i64, ptr %105, align 16
+  %116 = icmp sgt i64 %108, %115
+  br i1 %116, label %117, label %118
 
-115:                                              ; preds = %103
+117:                                              ; preds = %103
   store i64 %108, ptr %105, align 16
-  br label %116
+  br label %118
 
-116:                                              ; preds = %115, %103
-  %117 = load volatile i64, ptr @allocated, align 8
-  %118 = add i64 %117, %.076
-  store volatile i64 %118, ptr @allocated, align 8
+118:                                              ; preds = %117, %103
   %119 = load volatile i64, ptr @allocated, align 8
-  %120 = load volatile i64, ptr @TRMaxMem, align 8
-  %121 = icmp ugt i64 %119, %120
-  br i1 %121, label %122, label %125
+  %120 = add i64 %119, %.076
+  store volatile i64 %120, ptr @allocated, align 8
+  %121 = load volatile i64, ptr @allocated, align 8
+  %122 = load volatile i64, ptr @TRMaxMem, align 8
+  %123 = icmp ugt i64 %121, %122
+  br i1 %123, label %124, label %127
 
-122:                                              ; preds = %116
-  %123 = load volatile i64, ptr @allocated, align 8
-  store volatile i64 %123, ptr @TRMaxMem, align 8
-  %124 = load volatile i32, ptr @TRid, align 4
-  store volatile i32 %124, ptr @TRMaxMemId, align 4
-  br label %125
+124:                                              ; preds = %118
+  %125 = load volatile i64, ptr @allocated, align 8
+  store volatile i64 %125, ptr @TRMaxMem, align 8
+  %126 = load volatile i32, ptr @TRid, align 4
+  store volatile i32 %126, ptr @TRMaxMemId, align 4
+  br label %127
 
-125:                                              ; preds = %122, %116
-  %126 = load volatile i64, ptr @frags, align 8
-  %127 = add nsw i64 %126, 1
-  store volatile i64 %127, ptr @frags, align 8
-  %128 = load volatile i32, ptr @TRlevel, align 4
-  %129 = and i32 %128, 1
-  %.not94 = icmp eq i32 %129, 0
-  br i1 %.not94, label %134, label %130
+127:                                              ; preds = %124, %118
+  %128 = load volatile i64, ptr @frags, align 8
+  %129 = add nsw i64 %128, 1
+  store volatile i64 %129, ptr @frags, align 8
+  %130 = load volatile i32, ptr @TRlevel, align 4
+  %131 = and i32 %130, 1
+  %.not94 = icmp eq i32 %131, 0
+  br i1 %.not94, label %136, label %132
 
-130:                                              ; preds = %125
-  %131 = load ptr, ptr @stderr, align 8
-  %132 = load i32, ptr @world_rank, align 4
-  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.31, i32 noundef %132, i64 noundef %1, i64 noundef %.076, ptr noundef nonnull %53, ptr noundef %.0, i32 noundef %3) #21
-  br label %134
+132:                                              ; preds = %127
+  %133 = load ptr, ptr @stderr, align 8
+  %134 = load i32, ptr @world_rank, align 4
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.31, i32 noundef %134, i64 noundef %1, i64 noundef %.076, ptr noundef nonnull %53, ptr noundef %.0, i32 noundef %3) #21
+  br label %136
 
-134:                                              ; preds = %130, %125
-  %135 = load volatile i64, ptr @TRCurOverhead, align 8
-  %136 = add i64 %135, %52
-  store volatile i64 %136, ptr @TRCurOverhead, align 8
+136:                                              ; preds = %132, %127
   %137 = load volatile i64, ptr @TRCurOverhead, align 8
-  %138 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %139 = icmp ugt i64 %137, %138
-  br i1 %139, label %140, label %152
+  %138 = add i64 %137, %52
+  store volatile i64 %138, ptr @TRCurOverhead, align 8
+  %139 = load volatile i64, ptr @TRCurOverhead, align 8
+  %140 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %141 = icmp ugt i64 %139, %140
+  br i1 %141, label %142, label %154
 
-140:                                              ; preds = %134
-  %141 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %.not95 = icmp eq i64 %141, 0
-  br i1 %.not95, label %152, label %142
+142:                                              ; preds = %136
+  %143 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %.not95 = icmp eq i64 %143, 0
+  br i1 %.not95, label %154, label %144
 
-142:                                              ; preds = %140
-  %143 = load ptr, ptr @stderr, align 8
-  %144 = load i32, ptr @world_rank, align 4
-  %145 = load volatile i64, ptr @TRCurOverhead, align 8
-  %146 = uitofp i64 %145 to double
-  %147 = fmul double %146, 0x3F50000000000000
-  %148 = fmul double %147, 0x3F50000000000000
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.32, i32 noundef %144, double noundef %148) #21
-  %150 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %151 = shl i64 %150, 1
-  store volatile i64 %151, ptr @TRMaxOverhead, align 8
-  br label %152
+144:                                              ; preds = %142
+  %145 = load ptr, ptr @stderr, align 8
+  %146 = load i32, ptr @world_rank, align 4
+  %147 = load volatile i64, ptr @TRCurOverhead, align 8
+  %148 = uitofp i64 %147 to double
+  %149 = fmul double %148, 0x3F50000000000000
+  %150 = fmul double %149, 0x3F50000000000000
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.32, i32 noundef %146, double noundef %150) #21
+  %152 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %153 = shl i64 %152, 1
+  store volatile i64 %153, ptr @TRMaxOverhead, align 8
+  br label %154
 
-152:                                              ; preds = %134, %140, %142
+154:                                              ; preds = %136, %142, %144
   store volatile i64 1296236545, ptr %10, align 16
-  %153 = ptrtoint ptr %53 to i64
-  %154 = getelementptr inbounds i8, ptr %10, i64 8
-  store volatile i64 %153, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %10, i64 16
-  store volatile i64 %.076, ptr %155, align 16
-  %156 = getelementptr inbounds i8, ptr %10, i64 24
-  store volatile i64 0, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %10, i64 32
-  store volatile i64 0, ptr %157, align 16
-  %158 = getelementptr inbounds i8, ptr %10, i64 40
+  %155 = ptrtoint ptr %53 to i64
+  %156 = getelementptr inbounds i8, ptr %10, i64 8
+  store volatile i64 %155, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %10, i64 16
+  store volatile i64 %.076, ptr %157, align 16
+  %158 = getelementptr inbounds i8, ptr %10, i64 24
   store volatile i64 0, ptr %158, align 8
-  %159 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !8
-  store volatile i64 %159, ptr %11, align 8
+  %159 = getelementptr inbounds i8, ptr %10, i64 32
+  store volatile i64 0, ptr %159, align 16
+  %160 = getelementptr inbounds i8, ptr %10, i64 40
+  store volatile i64 0, ptr %160, align 8
+  %161 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #17, !srcloc !8
+  store volatile i64 %161, ptr %11, align 8
   %.0..0..0..0.2 = load volatile i64, ptr %11, align 8
   store volatile i64 1296236544, ptr %12, align 16
-  %160 = load ptr, ptr %51, align 8
-  %161 = ptrtoint ptr %160 to i64
-  %162 = getelementptr inbounds i8, ptr %12, i64 8
-  store volatile i64 %161, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %12, i64 16
-  store volatile i64 %52, ptr %163, align 16
-  %164 = getelementptr inbounds i8, ptr %12, i64 24
-  store volatile i64 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %12, i64 32
-  store volatile i64 0, ptr %165, align 16
-  %166 = getelementptr inbounds i8, ptr %12, i64 40
+  %162 = load ptr, ptr %51, align 8
+  %163 = ptrtoint ptr %162 to i64
+  %164 = getelementptr inbounds i8, ptr %12, i64 8
+  store volatile i64 %163, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %12, i64 16
+  store volatile i64 %52, ptr %165, align 16
+  %166 = getelementptr inbounds i8, ptr %12, i64 24
   store volatile i64 0, ptr %166, align 8
-  %167 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, i64 0) #17, !srcloc !9
-  store volatile i64 %167, ptr %13, align 8
+  %167 = getelementptr inbounds i8, ptr %12, i64 32
+  store volatile i64 0, ptr %167, align 16
+  %168 = getelementptr inbounds i8, ptr %12, i64 40
+  store volatile i64 0, ptr %168, align 8
+  %169 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, i64 0) #17, !srcloc !9
+  store volatile i64 %169, ptr %13, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %13, align 8
   store volatile i64 1296236544, ptr %14, align 16
-  %168 = ptrtoint ptr %102 to i64
-  %169 = getelementptr inbounds i8, ptr %14, i64 8
-  store volatile i64 %168, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %14, i64 16
-  store volatile i64 8, ptr %170, align 16
-  %171 = getelementptr inbounds i8, ptr %14, i64 24
-  store volatile i64 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %14, i64 32
-  store volatile i64 0, ptr %172, align 16
-  %173 = getelementptr inbounds i8, ptr %14, i64 40
+  %170 = ptrtoint ptr %102 to i64
+  %171 = getelementptr inbounds i8, ptr %14, i64 8
+  store volatile i64 %170, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %14, i64 16
+  store volatile i64 8, ptr %172, align 16
+  %173 = getelementptr inbounds i8, ptr %14, i64 24
   store volatile i64 0, ptr %173, align 8
-  %174 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #17, !srcloc !10
-  store volatile i64 %174, ptr %15, align 8
+  %174 = getelementptr inbounds i8, ptr %14, i64 32
+  store volatile i64 0, ptr %174, align 16
+  %175 = getelementptr inbounds i8, ptr %14, i64 40
+  store volatile i64 0, ptr %175, align 8
+  %176 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #17, !srcloc !10
+  store volatile i64 %176, ptr %15, align 8
   %.0..0..0..0. = load volatile i64, ptr %15, align 8
   br label %is_valid_alignment.exit
 
-is_valid_alignment.exit:                          ; preds = %.lr.ph.i, %17, %35, %23, %152, %57, %32
-  %.075 = phi ptr [ null, %23 ], [ null, %32 ], [ null, %57 ], [ %53, %152 ], [ null, %35 ], [ null, %17 ], [ null, %.lr.ph.i ]
+is_valid_alignment.exit:                          ; preds = %.lr.ph.i, %17, %35, %23, %154, %57, %32
+  %.075 = phi ptr [ null, %23 ], [ null, %32 ], [ null, %57 ], [ %53, %154 ], [ null, %35 ], [ null, %17 ], [ null, %.lr.ph.i ]
   ret ptr %.075
 }
 
@@ -1666,34 +1669,37 @@ define ptr @MPL_trmmap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 nound
   %31 = add i64 %30, %1
   store i64 %31, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 16
-  %33 = load <2 x i64>, ptr %32, align 16
-  %34 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %1, i64 0
-  %35 = add <2 x i64> %33, %34
-  store <2 x i64> %35, ptr %32, align 16
-  %36 = load i64, ptr %28, align 16
-  %37 = icmp slt i64 %36, %31
-  br i1 %37, label %38, label %trmmap.exit
+  %33 = load i64, ptr %32, align 16
+  %34 = add i64 %33, %1
+  store i64 %34, ptr %32, align 16
+  %35 = getelementptr inbounds i8, ptr %28, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = add nsw i64 %36, 1
+  store i64 %37, ptr %35, align 8
+  %38 = load i64, ptr %28, align 16
+  %39 = icmp slt i64 %38, %31
+  br i1 %39, label %40, label %trmmap.exit
 
-38:                                               ; preds = %26
+40:                                               ; preds = %26
   store i64 %31, ptr %28, align 16
   br label %trmmap.exit
 
-trmmap.exit:                                      ; preds = %.critedge, %26, %38
+trmmap.exit:                                      ; preds = %.critedge, %26, %40
   %.b = load i1, ptr @TR_is_threaded, align 4
-  br i1 %.b, label %39, label %.critedge21
+  br i1 %.b, label %41, label %.critedge21
 
-39:                                               ; preds = %trmmap.exit
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @memalloc_mutex) #17
-  %.not19 = icmp eq i32 %40, 0
-  br i1 %.not19, label %.critedge21, label %41
+41:                                               ; preds = %trmmap.exit
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @memalloc_mutex) #17
+  %.not19 = icmp eq i32 %42, 0
+  br i1 %.not19, label %.critedge21, label %43
 
-41:                                               ; preds = %39
-  %42 = tail call i32 (ptr, i32, ptr, ...) @MPL_internal_sys_error_printf(ptr noundef nonnull @.str.13, i32 noundef %40, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 915) #17
-  %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 36, i64 1, ptr %43) #19
+43:                                               ; preds = %41
+  %44 = tail call i32 (ptr, i32, ptr, ...) @MPL_internal_sys_error_printf(ptr noundef nonnull @.str.13, i32 noundef %42, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 915) #17
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 36, i64 1, ptr %45) #19
   br label %.critedge21
 
-.critedge21:                                      ; preds = %39, %trmmap.exit, %41
+.critedge21:                                      ; preds = %41, %trmmap.exit, %43
   ret ptr %16
 }
 

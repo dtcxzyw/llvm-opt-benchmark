@@ -173,7 +173,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost6common7Monitor4StopERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN7xgboost13ConsoleLogger9ShouldLogENS0_12LogVerbosityE(i32 noundef 3)
-  br i1 %3, label %4, label %13
+  br i1 %3, label %4, label %15
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -182,13 +182,16 @@ define void @_ZN7xgboost6common7Monitor4StopERKNSt7__cxx1112basic_stringIcSt11ch
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %6, align 8
   %8 = sub i64 %7, %.sroa.0.0.copyload.i2.i.i
   %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = load <2 x i64>, ptr %9, align 8
-  %11 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %8, i64 0
-  %12 = add <2 x i64> %11, %10
-  store <2 x i64> %12, ptr %9, align 8
-  br label %13
+  %10 = load i64, ptr %9, align 8
+  %11 = add nsw i64 %8, %10
+  store i64 %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8
+  br label %15
 
-13:                                               ; preds = %4, %2
+15:                                               ; preds = %4, %2
   ret void
 }
 

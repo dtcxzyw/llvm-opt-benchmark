@@ -4808,7 +4808,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define internal fastcc void @_ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %out, ptr noundef %name, i64 noundef %length, i1 noundef zeroext %utf8, ptr noundef %safe_prefix) unnamed_addr #3 {
 entry:
   %c = alloca i8, align 1
-  %u = alloca [6 x i8], align 4
+  %u = alloca [6 x i8], align 1
   %cmp8.i = icmp eq i64 %length, 0
   br i1 %cmp8.i, label %if.then, label %for.body.lr.ph.i
 
@@ -4893,6 +4893,9 @@ if.then9:                                         ; preds = %if.else
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.else
+  %arrayinit.element = getelementptr inbounds i8, ptr %u, i64 1
+  %arrayinit.element41 = getelementptr inbounds i8, ptr %u, i64 2
+  %arrayinit.element42 = getelementptr inbounds i8, ptr %u, i64 3
   %arrayinit.element43 = getelementptr inbounds i8, ptr %u, i64 4
   %arrayinit.element47 = getelementptr inbounds i8, ptr %u, i64 5
   %umax = tail call i64 @llvm.umax.i64(i64 %length, i64 1)
@@ -4934,12 +4937,15 @@ if.then37:                                        ; preds = %if.else25
   br label %for.inc
 
 if.else40:                                        ; preds = %if.else25
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %u, align 4
+  store i8 92, ptr %u, align 1
+  store i8 117, ptr %arrayinit.element, align 1
+  store i8 48, ptr %arrayinit.element41, align 1
+  store i8 48, ptr %arrayinit.element42, align 1
   %13 = lshr i8 %7, 4
   %idxprom = zext nneg i8 %13 to i64
   %arrayidx46 = getelementptr inbounds [17 x i8], ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 0, i64 %idxprom
   %14 = load i8, ptr %arrayidx46, align 1
-  store i8 %14, ptr %arrayinit.element43, align 4
+  store i8 %14, ptr %arrayinit.element43, align 1
   %15 = and i8 %7, 15
   %idxprom50 = zext nneg i8 %15 to i64
   %arrayidx51 = getelementptr inbounds [17 x i8], ptr @__const._ZN4node6cryptoL12PrintAltNameERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS2_XadL_Z12BIO_free_allEEEEEPKcmbS9_.hex, i64 0, i64 %idxprom50

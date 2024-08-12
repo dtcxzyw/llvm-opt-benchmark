@@ -518,7 +518,7 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   %34 = getelementptr inbounds i8, ptr %4, i64 2672
   store i32 0, ptr %34, align 8
   call void @_ZN11MemBaseline8baselineEb(ptr noundef nonnull align 8 dereferenceable(2676) %4, i1 noundef zeroext %0) #11
-  br i1 %0, label %35, label %42
+  br i1 %0, label %35, label %45
 
 35:                                               ; preds = %_ZN11MemBaselineC2Ev.exit
   %36 = getelementptr inbounds i8, ptr %5, i64 8
@@ -530,27 +530,35 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   store ptr %20, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 56
   %40 = getelementptr inbounds i8, ptr %4, i64 2568
-  %41 = load <2 x i64>, ptr %40, align 8
-  store <2 x i64> %41, ptr %39, align 8
+  %41 = load i64, ptr %40, align 8
+  store i64 %41, ptr %39, align 8
+  %42 = getelementptr inbounds i8, ptr %5, i64 64
+  %43 = getelementptr inbounds i8, ptr %4, i64 2576
+  %44 = load i64, ptr %43, align 8
+  store i64 %44, ptr %42, align 8
   call void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #11
-  br label %57
+  br label %63
 
-42:                                               ; preds = %_ZN11MemBaselineC2Ev.exit
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %1, i64 noundef %2) #11
-  %44 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %4, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr %20, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 56
-  %47 = getelementptr inbounds i8, ptr %4, i64 2568
-  %48 = load <2 x i64>, ptr %47, align 8
-  store <2 x i64> %48, ptr %46, align 8
+45:                                               ; preds = %_ZN11MemBaselineC2Ev.exit
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef %1, i64 noundef %2) #11
+  %47 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %4, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %20, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 56
+  %50 = getelementptr inbounds i8, ptr %4, i64 2568
+  %51 = load i64, ptr %50, align 8
+  store i64 %51, ptr %49, align 8
+  %52 = getelementptr inbounds i8, ptr %6, i64 64
+  %53 = getelementptr inbounds i8, ptr %4, i64 2576
+  %54 = load i64, ptr %53, align 8
+  store i64 %54, ptr %52, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17MemDetailReporter, i64 16), ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 72
-  store ptr %4, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 80
-  call void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %50, ptr noundef %1) #11
+  %55 = getelementptr inbounds i8, ptr %6, i64 72
+  store ptr %4, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %6, i64 80
+  call void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %56, ptr noundef %1) #11
   call void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #11
   call void @_ZN17MemDetailReporter25report_virtual_memory_mapEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #11
   call void @_ZN17MemDetailReporter30report_memory_file_allocationsEv(ptr noundef nonnull align 8 dereferenceable(2488) %6) #11
@@ -558,99 +566,99 @@ _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9) #11
   call void @_ZN14MetaspaceUtils18print_basic_reportEP12outputStreamm(ptr noundef nonnull %1, i64 noundef %2) #11
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17MemDetailReporter, i64 16), ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 128
-  br label %52
+  %57 = getelementptr inbounds i8, ptr %6, i64 128
+  br label %58
 
-52:                                               ; preds = %._crit_edge.i.i.i.i, %42
-  %.0.idx11.i.i.i.i = phi i64 [ 0, %42 ], [ %.0.add.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 %.0.idx11.i.i.i.i
-  %53 = load ptr, ptr %.0.ptr.i.i.i.i, align 8
-  %.not9.i.i.i.i = icmp eq ptr %53, null
+58:                                               ; preds = %._crit_edge.i.i.i.i, %45
+  %.0.idx11.i.i.i.i = phi i64 [ 0, %45 ], [ %.0.add.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 %.0.idx11.i.i.i.i
+  %59 = load ptr, ptr %.0.ptr.i.i.i.i, align 8
+  %.not9.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not9.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %52, %.lr.ph.i.i.i.i
-  %.0810.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %53, %52 ]
-  %54 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
-  %55 = load ptr, ptr %54, align 8
+.lr.ph.i.i.i.i:                                   ; preds = %58, %.lr.ph.i.i.i.i
+  %.0810.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i ], [ %59, %58 ]
+  %60 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
+  %61 = load ptr, ptr %60, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i.i) #11
-  %.not.i.i.i.i = icmp eq ptr %55, null
+  %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %52
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %58
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i, 8
-  %56 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
-  br i1 %56, label %52, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !12
+  %62 = icmp ult i64 %.0.idx11.i.i.i.i, 2336
+  br i1 %62, label %58, label %_ZN17MemDetailReporterD2Ev.exit, !llvm.loop !12
 
 _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i
-  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #11
-  br label %57
+  call void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %56) #11
+  br label %63
 
-57:                                               ; preds = %_ZN17MemDetailReporterD2Ev.exit, %35
+63:                                               ; preds = %_ZN17MemDetailReporterD2Ev.exit, %35
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep13, %35 ]
   %.sink.sroa.phi14 = phi ptr [ %.sink.sroa.gep15, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep16, %35 ]
-  %58 = load ptr, ptr %.sink.sroa.phi, align 8
-  %59 = load i8, ptr %.sink.sroa.phi14, align 8
-  %60 = trunc i8 %59 to i1
-  %61 = call noundef zeroext i1 @_ZN12outputStream14set_autoindentEb(ptr noundef nonnull align 8 dereferenceable(56) %58, i1 noundef zeroext %60) #11
+  %64 = load ptr, ptr %.sink.sroa.phi, align 8
+  %65 = load i8, ptr %.sink.sroa.phi14, align 8
+  %66 = trunc i8 %65 to i1
+  %67 = call noundef zeroext i1 @_ZN12outputStream14set_autoindentEb(ptr noundef nonnull align 8 dereferenceable(56) %64, i1 noundef zeroext %66) #11
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %31, align 8
-  %62 = load ptr, ptr %32, align 8
+  %68 = load ptr, ptr %32, align 8
   store ptr null, ptr %32, align 8
-  %.not5.i.i.i = icmp eq ptr %62, null
+  %.not5.i.i.i = icmp eq ptr %68, null
   br i1 %.not5.i.i.i, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
 
-_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i: ; preds = %57, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
-  %.06.i.i.i = phi ptr [ %64, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %62, %57 ]
-  %63 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 64
-  %64 = load ptr, ptr %63, align 8
+_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i: ; preds = %63, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
+  %.06.i.i.i = phi ptr [ %70, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %68, %63 ]
+  %69 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 64
+  %70 = load ptr, ptr %69, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i) #11
-  %.not.i.i.i = icmp eq ptr %64, null
+  %.not.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !6
 
-_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i: ; preds = %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %57
+_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i: ; preds = %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %63
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %28, align 8
-  %65 = load ptr, ptr %29, align 8
+  %71 = load ptr, ptr %29, align 8
   store ptr null, ptr %29, align 8
-  %.not5.i.i1.i = icmp eq ptr %65, null
+  %.not5.i.i1.i = icmp eq ptr %71, null
   br i1 %.not5.i.i1.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
-  %.06.i.i2.i = phi ptr [ %67, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %65, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i ]
-  %66 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 80
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 16
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 24
-  %70 = load ptr, ptr %69, align 8
-  store ptr null, ptr %69, align 8
-  %.not5.i.i.i.i.i.i.i.i.i = icmp eq ptr %70, null
+  %.06.i.i2.i = phi ptr [ %73, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %71, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i ]
+  %72 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 80
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 16
+  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %.06.i.i2.i, i64 24
+  %76 = load ptr, ptr %75, align 8
+  store ptr null, ptr %75, align 8
+  %.not5.i.i.i.i.i.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not5.i.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i
 
 _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %72, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i ], [ %70, %.lr.ph.i.i.i ]
-  %71 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 48
-  %72 = load ptr, ptr %71, align 8
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %78, %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i ], [ %76, %.lr.ph.i.i.i ]
+  %77 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 48
+  %78 = load ptr, ptr %77, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i.i.i.i.i.i.i) #11
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %72, null
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i: ; preds = %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i2.i) #11
-  %.not.i.i3.i = icmp eq ptr %67, null
+  %.not.i.i3.i = icmp eq ptr %73, null
   br i1 %.not.i.i3.i, label %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %25, align 8
-  %73 = load ptr, ptr %26, align 8
+  %79 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
-  %.not5.i.i4.i = icmp eq ptr %73, null
+  %.not5.i.i4.i = icmp eq ptr %79, null
   br i1 %.not5.i.i4.i, label %_ZN11MemBaselineD2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
 
 _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i: ; preds = %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i
-  %.06.i.i5.i = phi ptr [ %75, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %73, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i ]
-  %74 = getelementptr inbounds i8, ptr %.06.i.i5.i, i64 72
-  %75 = load ptr, ptr %74, align 8
+  %.06.i.i5.i = phi ptr [ %81, %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ], [ %79, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i ]
+  %80 = getelementptr inbounds i8, ptr %.06.i.i5.i, i64 72
+  %81 = load ptr, ptr %80, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i5.i) #11
-  %.not.i.i6.i = icmp eq ptr %75, null
+  %.not.i.i6.i = icmp eq ptr %81, null
   br i1 %.not.i.i6.i, label %_ZN11MemBaselineD2Ev.exit, label %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !10
 
 _ZN11MemBaselineD2Ev.exit:                        ; preds = %_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %_ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i

@@ -6451,17 +6451,17 @@ entry:
   %sb3 = getelementptr inbounds i8, ptr %call2, i64 24
   %1 = load ptr, ptr %sb3, align 8, !tbaa !88
   %block_idx = getelementptr inbounds i8, ptr %call, i64 32
+  %2 = load i64, ptr %block_idx, align 8, !tbaa !220
   %entry_idx = getelementptr inbounds i8, ptr %call, i64 40
-  %2 = load <2 x i64>, ptr %block_idx, align 8, !tbaa !13
+  %3 = load i64, ptr %entry_idx, align 8, !tbaa !105
   %block_idx4 = getelementptr inbounds i8, ptr %call2, i64 32
   %entry_idx5 = getelementptr inbounds i8, ptr %call2, i64 40
-  %3 = load <2 x i64>, ptr %block_idx4, align 8, !tbaa !13
-  %4 = load i64, ptr %count, align 8, !tbaa !13
-  %cmp452.not = icmp eq i64 %4, 0
+  %4 = load <2 x i64>, ptr %block_idx4, align 8, !tbaa !13
+  %5 = load i64, ptr %count, align 8, !tbaa !13
+  %cmp452.not = icmp eq i64 %5, 0
   br i1 %cmp452.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %5 = load i64, ptr %entry_idx, align 8, !tbaa !105
   %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 8
   %_M_finish.i224 = getelementptr inbounds i8, ptr %1, i64 8
   %sort_layout = getelementptr inbounds i8, ptr %this, i64 16
@@ -6470,7 +6470,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %cleanup, %while.body.lr.ph
-  %6 = phi i64 [ %5, %while.body.lr.ph ], [ %108, %cleanup ]
+  %6 = phi i64 [ %3, %while.body.lr.ph ], [ %108, %cleanup ]
   %compared.0453 = phi i64 [ 0, %while.body.lr.ph ], [ %compared.4, %cleanup ]
   %7 = load i64, ptr %block_idx, align 8, !tbaa !220
   %8 = load ptr, ptr %_M_finish.i, align 8, !tbaa !221
@@ -7112,10 +7112,12 @@ cleanup:                                          ; preds = %for.body, %_ZN6duck
 while.end:                                        ; preds = %cleanup, %if.end34, %entry
   %call158 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11SBScanStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %left)
   %block_idx.i = getelementptr inbounds i8, ptr %call158, i64 32
-  store <2 x i64> %2, ptr %block_idx.i, align 8, !tbaa !13
+  store i64 %2, ptr %block_idx.i, align 8, !tbaa !220
+  %entry_idx.i268 = getelementptr inbounds i8, ptr %call158, i64 40
+  store i64 %3, ptr %entry_idx.i268, align 8, !tbaa !105
   %call160 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_11SBScanStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %right)
   %block_idx.i269 = getelementptr inbounds i8, ptr %call160, i64 32
-  store <2 x i64> %3, ptr %block_idx.i269, align 8, !tbaa !13
+  store <2 x i64> %4, ptr %block_idx.i269, align 8, !tbaa !13
   ret void
 }
 

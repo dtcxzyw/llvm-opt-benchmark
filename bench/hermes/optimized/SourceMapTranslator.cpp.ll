@@ -44,7 +44,7 @@ $_ZTVSt19_Sp_counted_deleterIPN6hermes9SourceMapESt14default_deleteIS1_ESaIvELN9
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes19SourceMapTranslator12addSourceMapEjSt10unique_ptrINS_9SourceMapESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %fileBufId, ptr noundef %sourceMap) local_unnamed_addr #0 align 2 {
 entry:
-  %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 16
+  %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
   %fileBufId.addr = alloca i32, align 4
   store i32 %fileBufId, ptr %fileBufId.addr, align 4
   %sourceMaps_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -106,20 +106,21 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10shared_ptrIN6hermes9SourceMapEENS_12Den
   %second.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN6hermes9SourceMapELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sourceMap)
-  %6 = load ptr, ptr %ref.tmp.i.i, align 16
+  %6 = load ptr, ptr %ref.tmp.i.i, align 8
+  %7 = load ptr, ptr %second.i, align 8
+  store ptr %7, ptr %ref.tmp.i.i, align 8
+  store ptr %6, ptr %second.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
-  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %8 = load <2 x ptr>, ptr %second.i, align 8
-  store ptr %6, ptr %second.i, align 8
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   %9 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %9, ptr %_M_refcount3.i.i.i, align 8
-  store <2 x ptr> %8, ptr %ref.tmp.i.i, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %7, null
+  store ptr %8, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6hermes9SourceMapEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10shared_ptrIN6hermes9SourceMapEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i1 = icmp eq i64 %10, 4294967297
   %11 = trunc i64 %10 to i32
@@ -127,12 +128,12 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12DenseMapB
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %7, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -155,11 +156,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZNSt10shared_ptrIN6hermes9SourceMapEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
+  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -180,10 +181,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN6hermes9SourceMapEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %7) #9
+  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %8) #9
   br label %_ZNSt10shared_ptrIN6hermes9SourceMapEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit
 
 _ZNSt10shared_ptrIN6hermes9SourceMapEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10shared_ptrIN6hermes9SourceMapEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
@@ -263,14 +264,17 @@ if.then8:                                         ; preds = %if.end
   %call10 = call noundef i32 @_ZN6hermes18SourceErrorManager25addNewVirtualSourceBufferEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(464) %10, ptr %call.i, i64 %call2.i) #9
   store i32 %call10, ptr %coords, align 4
   %line13 = getelementptr inbounds i8, ptr %originalLocOpt, i64 32
-  %11 = load <2 x i32>, ptr %line13, align 8
-  store <2 x i32> %11, ptr %line, align 4
+  %11 = load i32, ptr %line13, align 8
+  store i32 %11, ptr %line, align 4
+  %column = getelementptr inbounds i8, ptr %originalLocOpt, i64 36
+  %12 = load i32, ptr %column, align 4
+  store i32 %12, ptr %col, align 4
   %.pre = load i8, ptr %hasVal.i, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then8, %if.end
-  %12 = phi i8 [ %.pre, %if.then8 ], [ %9, %if.end ]
-  %tobool.i.i.i = trunc i8 %12 to i1
+  %13 = phi i8 [ %.pre, %if.then8 ], [ %9, %if.end ]
+  %tobool.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %return
 
 if.then.i.i.i:                                    ; preds = %if.end17

@@ -212,7 +212,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocation
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE17resizeWithPaddingEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.gmx::BasicVector", align 8
+  %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit, label %5
 
@@ -268,16 +268,18 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   %29 = sub i64 %28, %.pre-phi
   %.neg.i = sdiv exact i64 %29, -12
   %30 = add i64 %.neg.i, %.0.i
-  store <2 x float> zeroinitializer, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
-  store float 0.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %29
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %32, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  store float 0.000000e+00, ptr %3, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 4
+  store float 0.000000e+00, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  store float 0.000000e+00, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %26, i64 %29
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %33, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(12) %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %34, ptr %35, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %34, i64 %1
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %35, ptr %36, align 8
   ret void
 }
 
@@ -698,7 +700,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12ForceBuffersC2EbNS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(137) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i:
-  %3 = alloca %"class.gmx::BasicVector", align 8
+  %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = alloca %"class.gmx::Allocator", align 4
   %5 = alloca %"class.gmx::HostAllocationPolicy", align 4
   call void @_ZN3gmx20HostAllocationPolicyC1ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %2)
@@ -707,89 +709,91 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  store <2 x float> zeroinitializer, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store float 0.000000e+00, ptr %8, align 8
+  store float 0.000000e+00, ptr %3, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  store float 0.000000e+00, ptr %9, align 4
   invoke void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr null, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(12) %3)
-          to label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit unwind label %9
+          to label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit unwind label %10
 
-9:                                                ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %9, %.body
-  %.sink = phi ptr [ %35, %.body ], [ %11, %9 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %.body ], [ %10, %9 ]
+common.resume.sink.split:                         ; preds = %10, %.body
+  %.sink = phi ptr [ %36, %.body ], [ %12, %10 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn, %.body ], [ %11, %10 ]
   call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %.sink) #11
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %.body, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %.body, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
   invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0)
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit
-  invoke void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEC2ESt16initializer_listIS2_ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.noexc9 unwind label %33
+  invoke void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEC2ESt16initializer_listIS2_ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %.noexc9 unwind label %34
 
 .noexc9:                                          ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %17 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = sdiv exact i64 %22, 12
-  invoke void @_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE17resizeWithPaddingEl(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %23)
-          to label %28 unwind label %24
+  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %18 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = sdiv exact i64 %23, 12
+  invoke void @_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE17resizeWithPaddingEl(ptr noundef nonnull align 8 dereferenceable(40) %15, i64 noundef %24)
+          to label %29 unwind label %25
 
-24:                                               ; preds = %.noexc9
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %.noexc9
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i7 = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i7, label %.body, label %27
+  %27 = load ptr, ptr %19, align 8
+  %.not.i.i.i.i7 = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i7, label %.body, label %28
 
-27:                                               ; preds = %24
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull %26) #11
+28:                                               ; preds = %25
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull %27) #11
   br label %.body
 
-28:                                               ; preds = %.noexc9
+29:                                               ; preds = %.noexc9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
-  %30 = zext i1 %1 to i8
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 0, i64 48, i1 false)
-  store i8 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 136
-  store i8 %30, ptr %32, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = zext i1 %1 to i8
+  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, i8 0, i64 48, i1 false)
+  store i8 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 136
+  store i8 %31, ptr %33, align 8
   ret void
 
-33:                                               ; preds = %.noexc, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc, %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2ElRKS5_.exit
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %33, %27, %24
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %25, %27 ], [ %25, %24 ]
-  %35 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i12 = icmp eq ptr %35, null
+.body:                                            ; preds = %34, %28, %25
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %26, %28 ], [ %26, %25 ]
+  %36 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i12 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i12, label %common.resume, label %common.resume.sink.split
 }
 

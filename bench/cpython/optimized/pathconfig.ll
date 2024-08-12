@@ -467,12 +467,18 @@ if.end:                                           ; preds = %entry
   store ptr %call8, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 32), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 40), align 8
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %6 = load <4 x ptr>, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 8), align 8
-  %.fr = freeze <4 x ptr> %6
-  %7 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %8 = bitcast <4 x i1> %7 to i4
-  %.not = icmp eq i4 %8, 0
-  br i1 %.not, label %if.end16, label %if.then15
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 8), align 8
+  %cmp9 = icmp eq ptr %6, null
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 16), align 8
+  %cmp10 = icmp eq ptr %7, null
+  %or.cond = select i1 %cmp9, i1 true, i1 %cmp10
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 24), align 8
+  %cmp12 = icmp eq ptr %8, null
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %cmp12
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 32), align 8
+  %cmp14 = icmp eq ptr %9, null
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %cmp14
+  br i1 %or.cond5, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end
   call fastcc void @path_out_of_memory(ptr noundef nonnull @__func__.Py_SetPath) #13

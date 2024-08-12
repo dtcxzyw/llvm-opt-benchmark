@@ -4977,7 +4977,7 @@ define internal range(i32 0, 4) i32 @megasas_ctrl_get_info(ptr noundef %s, ptr n
 entry:
   %curtime.i = alloca %struct.tm, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %info = alloca %struct.mfi_ctrl_info, align 4
+  %info = alloca %struct.mfi_ctrl_info, align 2
   %residual = alloca i64, align 8
   %biosver = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
@@ -4985,7 +4985,7 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.31, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #14
   %call.i40 = tail call ptr @object_get_class(ptr noundef %s) #14
   %call1.i41 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, i32 noundef 140, ptr noundef nonnull @__func__.MEGASAS_GET_CLASS) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %info, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(2048) %info, i8 0, i64 2048, i1 false)
   %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %0 = load i64, ptr %iov_size, align 8
   %cmp = icmp ult i64 %0, 2048
@@ -5031,16 +5031,24 @@ trace_megasas_dcmd_invalid_xfer_len.exit:         ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %entry
   %vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 208
-  %8 = load <2 x i16>, ptr %vendor_id, align 8
-  store <2 x i16> %8, ptr %info, align 4
+  %8 = load i16, ptr %vendor_id, align 8
+  store i16 %8, ptr %info, align 2
+  %device_id = getelementptr inbounds i8, ptr %call1.i, i64 210
+  %9 = load i16, ptr %device_id, align 2
+  %device = getelementptr inbounds i8, ptr %info, i64 2
+  store i16 %9, ptr %device, align 2
   %subsystem_vendor_id = getelementptr inbounds i8, ptr %call1.i, i64 216
+  %10 = load i16, ptr %subsystem_vendor_id, align 8
   %subvendor = getelementptr inbounds i8, ptr %info, i64 4
-  %9 = load <2 x i16>, ptr %subsystem_vendor_id, align 8
-  store <2 x i16> %9, ptr %subvendor, align 4
+  store i16 %10, ptr %subvendor, align 2
+  %subsystem_id = getelementptr inbounds i8, ptr %call1.i, i64 218
+  %11 = load i16, ptr %subsystem_id, align 2
+  %subdevice = getelementptr inbounds i8, ptr %info, i64 6
+  store i16 %11, ptr %subdevice, align 2
   %host = getelementptr inbounds i8, ptr %info, i64 32
-  store i8 2, ptr %host, align 4
+  store i8 2, ptr %host, align 2
   %device11 = getelementptr inbounds i8, ptr %info, i64 104
-  store i8 2, ptr %device11, align 4
+  store i8 2, ptr %device11, align 2
   %port_count = getelementptr inbounds i8, ptr %info, i64 111
   store i8 8, ptr %port_count, align 1
   %children = getelementptr inbounds i8, ptr %s, i64 266056
@@ -5056,26 +5064,26 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %kid.051 = phi ptr [ %kid.048, %for.body.lr.ph ], [ %kid.0, %if.end21 ]
   %num_pd_disks.050 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end21 ]
   %child = getelementptr inbounds i8, ptr %kid.051, i64 16
-  %10 = load ptr, ptr %child, align 8
-  %call.i42 = tail call ptr @object_dynamic_cast_assert(ptr noundef %10, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
+  %12 = load ptr, ptr %child, align 8
+  %call.i42 = tail call ptr @object_dynamic_cast_assert(ptr noundef %12, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
   %cmp15 = icmp slt i32 %num_pd_disks.050, 8
   br i1 %cmp15, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %for.body
   %id = getelementptr inbounds i8, ptr %call.i42, i64 176
-  %11 = load i32, ptr %id, align 8
-  %and = shl i32 %11, 8
+  %13 = load i32, ptr %id, align 8
+  %and = shl i32 %13, 8
   %lun = getelementptr inbounds i8, ptr %call.i42, i64 556
-  %12 = load i32, ptr %lun, align 4
-  %and17 = and i32 %12, 255
+  %14 = load i32, ptr %lun, align 4
+  %and17 = and i32 %14, 255
   %and.masked = and i32 %and, 65280
-  %13 = or disjoint i32 %and.masked, %and17
-  %conv.i = zext nneg i32 %13 to i64
+  %15 = or disjoint i32 %and.masked, %and17
+  %conv.i = zext nneg i32 %15 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24
   %or.i = or disjoint i64 %shl.i, 1306325366914154496
   %idxprom = sext i32 %num_pd_disks.050 to i64
   %arrayidx = getelementptr [8 x i64], ptr %port_addr, i64 0, i64 %idxprom
-  store i64 %or.i, ptr %arrayidx, align 4
+  store i64 %or.i, ptr %arrayidx, align 2
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %for.body
@@ -5086,37 +5094,37 @@ if.end21:                                         ; preds = %if.then16, %for.bod
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !16
 
 for.end.loopexit:                                 ; preds = %if.end21
-  %14 = trunc i32 %inc to i16
+  %16 = trunc i32 %inc to i16
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %num_pd_disks.0.lcssa = phi i16 [ 0, %if.end ], [ %14, %for.end.loopexit ]
+  %num_pd_disks.0.lcssa = phi i16 [ 0, %if.end ], [ %16, %for.end.loopexit ]
   %product_name = getelementptr inbounds i8, ptr %info, i64 1344
   %product_name22 = getelementptr inbounds i8, ptr %call1.i41, i64 232
-  %15 = load ptr, ptr %product_name22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %product_name, ptr noundef nonnull align 1 dereferenceable(24) %15, i64 24, i1 false)
+  %17 = load ptr, ptr %product_name22, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %product_name, ptr noundef nonnull align 1 dereferenceable(24) %17, i64 24, i1 false)
   %serial_number = getelementptr inbounds i8, ptr %info, i64 1424
   %hba_serial = getelementptr inbounds i8, ptr %s, i64 3520
-  %16 = load ptr, ptr %hba_serial, align 16
-  %call24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %serial_number, i64 noundef 32, ptr noundef nonnull @.str.153, ptr noundef %16) #14
+  %18 = load ptr, ptr %hba_serial, align 16
+  %call24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %serial_number, i64 noundef 32, ptr noundef nonnull @.str.153, ptr noundef %18) #14
   %package_version = getelementptr inbounds i8, ptr %info, i64 1600
   %call26 = tail call ptr @qemu_hw_version() #14
   %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %package_version, i64 noundef 96, ptr noundef nonnull @.str.154, ptr noundef %call26) #14
   %image_component = getelementptr inbounds i8, ptr %info, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %image_component, ptr noundef nonnull align 1 dereferenceable(3) @.str.155, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %image_component, ptr noundef nonnull align 1 dereferenceable(3) @.str.155, i64 3, i1 false)
   %version = getelementptr inbounds i8, ptr %info, i64 192
   %product_version = getelementptr inbounds i8, ptr %call1.i41, i64 240
-  %17 = load ptr, ptr %product_version, align 8
-  %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %version, i64 noundef 10, ptr noundef nonnull @.str.154, ptr noundef %17) #14
+  %19 = load ptr, ptr %product_version, align 8
+  %call33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %version, i64 noundef 10, ptr noundef nonnull @.str.154, ptr noundef %19) #14
   %build_date = getelementptr inbounds i8, ptr %info, i64 224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %build_date, ptr noundef nonnull align 1 dereferenceable(11) @.str.156, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(11) %build_date, ptr noundef nonnull align 1 dereferenceable(11) @.str.156, i64 11, i1 false)
   %build_time = getelementptr inbounds i8, ptr %info, i64 240
-  store i64 3906092247685935665, ptr %build_time, align 4
+  store i64 3906092247685935665, ptr %build_time, align 2
   %image_component_count = getelementptr inbounds i8, ptr %info, i64 180
-  store i32 1, ptr %image_component_count, align 4
+  store i32 1, ptr %image_component_count, align 2
   %has_rom = getelementptr inbounds i8, ptr %call.i, i64 2268
-  %18 = load i8, ptr %has_rom, align 4
-  %tobool40 = trunc i8 %18 to i1
+  %20 = load i8, ptr %has_rom, align 4
+  %tobool40 = trunc i8 %20 to i1
   br i1 %tobool40, label %if.then41, label %if.end58
 
 if.then41:                                        ; preds = %for.end
@@ -5127,91 +5135,97 @@ if.then41:                                        ; preds = %for.end
   %arrayidx44 = getelementptr inbounds i8, ptr %biosver, i64 31
   store i8 0, ptr %arrayidx44, align 1
   %arrayidx46 = getelementptr inbounds i8, ptr %info, i64 256
-  store i32 1397705026, ptr %arrayidx46, align 4
+  store i32 1397705026, ptr %arrayidx46, align 2
   %version51 = getelementptr inbounds i8, ptr %info, i64 264
   %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %biosver) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %version51, ptr nonnull align 16 %biosver, i64 %call55, i1 false)
-  store i32 2, ptr %image_component_count, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %version51, ptr nonnull align 16 %biosver, i64 %call55, i1 false)
+  store i32 2, ptr %image_component_count, align 2
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then41, %for.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %curtime.i)
   call void @qemu_get_timedate(ptr noundef nonnull %curtime.i, i64 noundef 0) #14
   %tm_mday.i = getelementptr inbounds i8, ptr %curtime.i, i64 12
-  %19 = load i32, ptr %tm_mday.i, align 4
-  %20 = shl i32 %19, 24
+  %21 = load i32, ptr %tm_mday.i, align 4
+  %22 = shl i32 %21, 24
   %tm_mon.i = getelementptr inbounds i8, ptr %curtime.i, i64 16
-  %21 = load i32, ptr %tm_mon.i, align 8
-  %22 = shl i32 %21, 16
-  %23 = and i32 %22, 16711680
-  %or15.i46 = or disjoint i32 %23, %20
+  %23 = load i32, ptr %tm_mon.i, align 8
+  %24 = shl i32 %23, 16
+  %25 = and i32 %24, 16711680
+  %or15.i46 = or disjoint i32 %25, %22
   %tm_year.i = getelementptr inbounds i8, ptr %curtime.i, i64 20
-  %24 = load i32, ptr %tm_year.i, align 4
-  %add.i = add i32 %24, 1900
-  %25 = and i32 %add.i, 65535
-  %or18.i47 = or disjoint i32 %or15.i46, %25
+  %26 = load i32, ptr %tm_year.i, align 4
+  %add.i = add i32 %26, 1900
+  %27 = and i32 %add.i, 65535
+  %or18.i47 = or disjoint i32 %or15.i46, %27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %curtime.i)
   %current_fw_time = getelementptr inbounds i8, ptr %info, i64 1460
-  store i32 %or18.i47, ptr %current_fw_time, align 4
+  store i32 %or18.i47, ptr %current_fw_time, align 2
   %max_arms = getelementptr inbounds i8, ptr %info, i64 1340
-  store <4 x i8> <i8 32, i8 8, i8 -128, i8 64>, ptr %max_arms, align 4
+  store i8 32, ptr %max_arms, align 2
+  %max_spans = getelementptr inbounds i8, ptr %info, i64 1341
+  store i8 8, ptr %max_spans, align 1
+  %max_arrays = getelementptr inbounds i8, ptr %info, i64 1342
+  store i8 -128, ptr %max_arrays, align 2
+  %max_lds = getelementptr inbounds i8, ptr %info, i64 1343
+  store i8 64, ptr %max_lds, align 1
   %fw_cmds = getelementptr inbounds i8, ptr %s, i64 3436
-  %26 = load i32, ptr %fw_cmds, align 4
-  %conv62 = trunc i32 %26 to i16
+  %28 = load i32, ptr %fw_cmds, align 4
+  %conv62 = trunc i32 %28 to i16
   %max_cmds = getelementptr inbounds i8, ptr %info, i64 1464
-  store i16 %conv62, ptr %max_cmds, align 4
+  store i16 %conv62, ptr %max_cmds, align 2
   %fw_sge = getelementptr inbounds i8, ptr %s, i64 3432
-  %27 = load i32, ptr %fw_sge, align 8
-  %conv64 = trunc i32 %27 to i16
+  %29 = load i32, ptr %fw_sge, align 8
+  %conv64 = trunc i32 %29 to i16
   %max_sg_elements = getelementptr inbounds i8, ptr %info, i64 1466
   store i16 %conv64, ptr %max_sg_elements, align 2
   %max_request_size = getelementptr inbounds i8, ptr %info, i64 1468
-  store i32 65535, ptr %max_request_size, align 4
-  %28 = getelementptr i8, ptr %s, i64 3440
-  %s.val = load i32, ptr %28, align 16
+  store i32 65535, ptr %max_request_size, align 2
+  %30 = getelementptr i8, ptr %s, i64 3440
+  %s.val = load i32, ptr %30, align 16
   %and.i45 = and i32 %s.val, 1
   %tobool.i.not = icmp eq i32 %and.i45, 0
   br i1 %tobool.i.not, label %if.then68, label %if.end71
 
 if.then68:                                        ; preds = %if.end58
   %lds_present = getelementptr inbounds i8, ptr %info, i64 1472
-  store i16 %num_pd_disks.0.lcssa, ptr %lds_present, align 4
+  store i16 %num_pd_disks.0.lcssa, ptr %lds_present, align 2
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end58, %if.then68
   %pd_present = getelementptr inbounds i8, ptr %info, i64 1478
   store i16 %num_pd_disks.0.lcssa, ptr %pd_present, align 2
   %pd_disks_present = getelementptr inbounds i8, ptr %info, i64 1480
-  store i16 %num_pd_disks.0.lcssa, ptr %pd_disks_present, align 4
+  store i16 %num_pd_disks.0.lcssa, ptr %pd_disks_present, align 2
   %hw_present = getelementptr inbounds i8, ptr %info, i64 1456
-  store i32 52, ptr %hw_present, align 4
+  store i32 52, ptr %hw_present, align 2
   %memory_size = getelementptr inbounds i8, ptr %info, i64 1488
-  store i16 512, ptr %memory_size, align 4
+  store i16 512, ptr %memory_size, align 2
   %nvram_size = getelementptr inbounds i8, ptr %info, i64 1486
   store i16 32, ptr %nvram_size, align 2
   %flash_size = getelementptr inbounds i8, ptr %info, i64 1490
   store i16 16, ptr %flash_size, align 2
   %raid_levels = getelementptr inbounds i8, ptr %info, i64 1500
-  store i32 1, ptr %raid_levels, align 4
+  store i32 1, ptr %raid_levels, align 2
   %adapter_ops = getelementptr inbounds i8, ptr %info, i64 1504
-  store i32 12289, ptr %adapter_ops, align 4
+  store i32 12289, ptr %adapter_ops, align 2
   %ld_ops = getelementptr inbounds i8, ptr %info, i64 1508
-  store i32 31, ptr %ld_ops, align 4
+  store i32 31, ptr %ld_ops, align 2
   %max_strips_per_io = getelementptr inbounds i8, ptr %info, i64 1498
   store i16 %conv64, ptr %max_strips_per_io, align 2
   %stripe_sz_ops = getelementptr inbounds i8, ptr %info, i64 1512
-  store i8 3, ptr %stripe_sz_ops, align 4
+  store i8 3, ptr %stripe_sz_ops, align 2
   %max = getelementptr inbounds i8, ptr %info, i64 1513
   store i8 16, ptr %max, align 1
   %pred_fail_poll_interval = getelementptr inbounds i8, ptr %info, i64 1538
   store i16 300, ptr %pred_fail_poll_interval, align 2
   %intr_throttle_cnt = getelementptr inbounds i8, ptr %info, i64 1540
-  store i16 16, ptr %intr_throttle_cnt, align 4
+  store i16 16, ptr %intr_throttle_cnt, align 2
   %intr_throttle_timeout = getelementptr inbounds i8, ptr %info, i64 1542
   store i16 50, ptr %intr_throttle_timeout, align 2
   %rebuild_rate = getelementptr inbounds i8, ptr %info, i64 1544
   %cache_flush_interval = getelementptr inbounds i8, ptr %info, i64 1549
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %rebuild_rate, i8 30, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %rebuild_rate, i8 30, i64 5, i1 false)
   store i8 4, ptr %cache_flush_interval, align 1
   %spinup_drv_cnt = getelementptr inbounds i8, ptr %info, i64 1550
   store i8 2, ptr %spinup_drv_cnt, align 2
@@ -5224,16 +5238,16 @@ if.end71:                                         ; preds = %if.end58, %if.then6
   %expose_encl_devices = getelementptr inbounds i8, ptr %info, i64 1561
   store i8 1, ptr %expose_encl_devices, align 1
   %OnOffProperties = getelementptr inbounds i8, ptr %info, i64 1568
-  store i32 8192, ptr %OnOffProperties, align 4
+  store i32 8192, ptr %OnOffProperties, align 2
   %pd_ops = getelementptr inbounds i8, ptr %info, i64 1516
-  store i32 3, ptr %pd_ops, align 4
+  store i32 3, ptr %pd_ops, align 2
   %pd_mix_support = getelementptr inbounds i8, ptr %info, i64 1520
-  store i32 11, ptr %pd_mix_support, align 4
+  store i32 11, ptr %pd_mix_support, align 2
   %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call137 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 2048, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
-  %29 = load i64, ptr %residual, align 8
-  %30 = load i64, ptr %iov_size, align 8
-  %sub = sub i64 %30, %29
+  %31 = load i64, ptr %residual, align 8
+  %32 = load i64, ptr %iov_size, align 8
+  %sub = sub i64 %32, %31
   store i64 %sub, ptr %iov_size, align 8
   br label %return
 
@@ -5432,15 +5446,19 @@ entry:
   %1 = load i32, ptr %event_count, align 8
   store i32 %1, ptr %info, align 4
   %shutdown_event = getelementptr inbounds i8, ptr %s, i64 3500
+  %2 = load i32, ptr %shutdown_event, align 4
   %shutdown_seq_num = getelementptr inbounds i8, ptr %info, i64 12
-  %2 = load <2 x i32>, ptr %shutdown_event, align 4
-  store <2 x i32> %2, ptr %shutdown_seq_num, align 4
+  store i32 %2, ptr %shutdown_seq_num, align 4
+  %boot_event = getelementptr inbounds i8, ptr %s, i64 3504
+  %3 = load i32, ptr %boot_event, align 16
+  %boot_seq_num = getelementptr inbounds i8, ptr %info, i64 16
+  store i32 %3, ptr %boot_seq_num, align 4
   %qsg = getelementptr inbounds i8, ptr %cmd, i64 56
   %call30 = call i32 @dma_buf_read(ptr noundef nonnull %info, i64 noundef 20, ptr noundef nonnull %residual, ptr noundef nonnull %qsg, i32 1) #14
-  %3 = load i64, ptr %residual, align 8
+  %4 = load i64, ptr %residual, align 8
   %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
-  %4 = load i64, ptr %iov_size, align 8
-  %sub = sub i64 %4, %3
+  %5 = load i64, ptr %iov_size, align 8
+  %sub = sub i64 %5, %4
   store i64 %sub, ptr %iov_size, align 8
   ret i32 0
 }
@@ -6670,8 +6688,14 @@ for.end78:                                        ; preds = %for.body52
   store i8 12, ptr %default_cache_policy, align 1
   %current_cache_policy = getelementptr inbounds i8, ptr %add.ptr84, i64 23
   store i8 12, ptr %current_cache_policy, align 1
+  %state = getelementptr inbounds i8, ptr %add.ptr84, i64 38
+  store i8 3, ptr %state, align 1
   %stripe_size = getelementptr inbounds i8, ptr %add.ptr84, i64 35
-  store <4 x i8> <i8 3, i8 1, i8 1, i8 3>, ptr %stripe_size, align 1
+  store i8 3, ptr %stripe_size, align 1
+  %num_drives92 = getelementptr inbounds i8, ptr %add.ptr84, i64 36
+  store i8 1, ptr %num_drives92, align 1
+  %span_depth = getelementptr inbounds i8, ptr %add.ptr84, i64 37
+  store i8 1, ptr %span_depth, align 1
   %is_consistent = getelementptr inbounds i8, ptr %add.ptr84, i64 40
   store i8 1, ptr %is_consistent, align 1
   %num_blocks = getelementptr inbounds i8, ptr %add.ptr84, i64 72

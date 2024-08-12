@@ -499,123 +499,132 @@ for.body446:                                      ; preds = %for.body, %for.body
 
 do.body459:                                       ; preds = %for.body446
   %28 = load i64, ptr %s, align 8
-  %29 = load <4 x i64>, ptr %arrayidx21, align 8
-  %30 = extractelement <4 x i64> %29, i64 0
-  %not = xor i64 %30, -1
-  %31 = extractelement <4 x i64> %29, i64 1
-  %and = and i64 %31, %not
-  %32 = shufflevector <4 x i64> %29, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %33 = insertelement <4 x i64> %32, i64 %28, i64 3
-  %34 = xor <4 x i64> %33, <i64 -1, i64 -1, i64 -1, i64 -1>
-  %35 = shufflevector <4 x i64> %29, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 0>
-  %36 = insertelement <4 x i64> %35, i64 %28, i64 2
-  %37 = and <4 x i64> %36, %34
-  %38 = xor <4 x i64> %29, %37
-  store <4 x i64> %38, ptr %arrayidx21, align 8
-  %39 = load i64, ptr %arrayidx3, align 8
-  %40 = load i64, ptr %arrayidx24, align 8
-  %not564 = xor i64 %40, -1
-  %41 = load i64, ptr %arrayidx46, align 8
-  %and569 = and i64 %41, %not564
-  %xor570 = xor i64 %and569, %39
-  %not580 = xor i64 %41, -1
-  %42 = load i64, ptr %arrayidx68, align 8
-  %and585 = and i64 %42, %not580
-  %xor586 = xor i64 %and585, %40
-  %not596 = xor i64 %42, -1
-  %43 = load i64, ptr %arrayidx90, align 8
-  %and601 = and i64 %43, %not596
-  %xor602 = xor i64 %and601, %41
-  %not612 = xor i64 %43, -1
-  %and617 = and i64 %39, %not612
-  %xor618 = xor i64 %and617, %42
-  %not628 = xor i64 %39, -1
-  %and633 = and i64 %40, %not628
-  %xor634 = xor i64 %43, %and633
+  %29 = load i64, ptr %arrayidx21, align 8
+  %not = xor i64 %29, -1
+  %30 = load i64, ptr %arrayidx43, align 8
+  %and = and i64 %30, %not
+  %not482 = xor i64 %30, -1
+  %31 = load i64, ptr %arrayidx65, align 8
+  %and487 = and i64 %31, %not482
+  %xor488 = xor i64 %and487, %29
+  %not497 = xor i64 %31, -1
+  %32 = load i64, ptr %arrayidx87, align 8
+  %and502 = and i64 %32, %not497
+  %xor503 = xor i64 %and502, %30
+  %not512 = xor i64 %32, -1
+  %and517 = and i64 %28, %not512
+  %xor518 = xor i64 %and517, %31
+  %not527 = xor i64 %28, -1
+  %and532 = and i64 %29, %not527
+  %xor533 = xor i64 %32, %and532
+  store i64 %xor488, ptr %arrayidx21, align 8
+  store i64 %xor503, ptr %arrayidx43, align 8
+  store i64 %xor518, ptr %arrayidx65, align 8
+  store i64 %xor533, ptr %arrayidx87, align 8
+  %33 = load i64, ptr %arrayidx3, align 8
+  %34 = load i64, ptr %arrayidx24, align 8
+  %not564 = xor i64 %34, -1
+  %35 = load i64, ptr %arrayidx46, align 8
+  %and569 = and i64 %35, %not564
+  %xor570 = xor i64 %and569, %33
+  %not580 = xor i64 %35, -1
+  %36 = load i64, ptr %arrayidx68, align 8
+  %and585 = and i64 %36, %not580
+  %xor586 = xor i64 %and585, %34
+  %not596 = xor i64 %36, -1
+  %37 = load i64, ptr %arrayidx90, align 8
+  %and601 = and i64 %37, %not596
+  %xor602 = xor i64 %and601, %35
+  %not612 = xor i64 %37, -1
+  %and617 = and i64 %33, %not612
+  %xor618 = xor i64 %and617, %36
+  %not628 = xor i64 %33, -1
+  %and633 = and i64 %34, %not628
+  %xor634 = xor i64 %37, %and633
   store i64 %xor570, ptr %arrayidx3, align 8
   store i64 %xor586, ptr %arrayidx24, align 8
   store i64 %xor602, ptr %arrayidx46, align 8
   store i64 %xor618, ptr %arrayidx68, align 8
   store i64 %xor634, ptr %arrayidx90, align 8
-  %44 = load i64, ptr %arrayidx6, align 8
-  %45 = load i64, ptr %arrayidx27, align 8
-  %not665 = xor i64 %45, -1
-  %46 = load i64, ptr %arrayidx49, align 8
-  %and670 = and i64 %46, %not665
-  %xor671 = xor i64 %and670, %44
-  %not681 = xor i64 %46, -1
-  %47 = load i64, ptr %arrayidx71, align 8
-  %and686 = and i64 %47, %not681
-  %xor687 = xor i64 %and686, %45
-  %not697 = xor i64 %47, -1
-  %48 = load i64, ptr %arrayidx93, align 8
-  %and702 = and i64 %48, %not697
-  %xor703 = xor i64 %and702, %46
-  %not713 = xor i64 %48, -1
-  %and718 = and i64 %44, %not713
-  %xor719 = xor i64 %and718, %47
-  %not729 = xor i64 %44, -1
-  %and734 = and i64 %45, %not729
-  %xor735 = xor i64 %48, %and734
+  %38 = load i64, ptr %arrayidx6, align 8
+  %39 = load i64, ptr %arrayidx27, align 8
+  %not665 = xor i64 %39, -1
+  %40 = load i64, ptr %arrayidx49, align 8
+  %and670 = and i64 %40, %not665
+  %xor671 = xor i64 %and670, %38
+  %not681 = xor i64 %40, -1
+  %41 = load i64, ptr %arrayidx71, align 8
+  %and686 = and i64 %41, %not681
+  %xor687 = xor i64 %and686, %39
+  %not697 = xor i64 %41, -1
+  %42 = load i64, ptr %arrayidx93, align 8
+  %and702 = and i64 %42, %not697
+  %xor703 = xor i64 %and702, %40
+  %not713 = xor i64 %42, -1
+  %and718 = and i64 %38, %not713
+  %xor719 = xor i64 %and718, %41
+  %not729 = xor i64 %38, -1
+  %and734 = and i64 %39, %not729
+  %xor735 = xor i64 %42, %and734
   store i64 %xor671, ptr %arrayidx6, align 8
   store i64 %xor687, ptr %arrayidx27, align 8
   store i64 %xor703, ptr %arrayidx49, align 8
   store i64 %xor719, ptr %arrayidx71, align 8
   store i64 %xor735, ptr %arrayidx93, align 8
-  %49 = load i64, ptr %arrayidx9, align 8
-  %50 = load i64, ptr %arrayidx30, align 8
-  %not766 = xor i64 %50, -1
-  %51 = load i64, ptr %arrayidx52, align 8
-  %and771 = and i64 %51, %not766
-  %xor772 = xor i64 %and771, %49
-  %not782 = xor i64 %51, -1
-  %52 = load i64, ptr %arrayidx74, align 8
-  %and787 = and i64 %52, %not782
-  %xor788 = xor i64 %and787, %50
-  %not798 = xor i64 %52, -1
-  %53 = load i64, ptr %arrayidx96, align 8
-  %and803 = and i64 %53, %not798
-  %xor804 = xor i64 %and803, %51
-  %not814 = xor i64 %53, -1
-  %and819 = and i64 %49, %not814
-  %xor820 = xor i64 %and819, %52
-  %not830 = xor i64 %49, -1
-  %and835 = and i64 %50, %not830
-  %xor836 = xor i64 %53, %and835
+  %43 = load i64, ptr %arrayidx9, align 8
+  %44 = load i64, ptr %arrayidx30, align 8
+  %not766 = xor i64 %44, -1
+  %45 = load i64, ptr %arrayidx52, align 8
+  %and771 = and i64 %45, %not766
+  %xor772 = xor i64 %and771, %43
+  %not782 = xor i64 %45, -1
+  %46 = load i64, ptr %arrayidx74, align 8
+  %and787 = and i64 %46, %not782
+  %xor788 = xor i64 %and787, %44
+  %not798 = xor i64 %46, -1
+  %47 = load i64, ptr %arrayidx96, align 8
+  %and803 = and i64 %47, %not798
+  %xor804 = xor i64 %and803, %45
+  %not814 = xor i64 %47, -1
+  %and819 = and i64 %43, %not814
+  %xor820 = xor i64 %and819, %46
+  %not830 = xor i64 %43, -1
+  %and835 = and i64 %44, %not830
+  %xor836 = xor i64 %47, %and835
   store i64 %xor772, ptr %arrayidx9, align 8
   store i64 %xor788, ptr %arrayidx30, align 8
   store i64 %xor804, ptr %arrayidx52, align 8
   store i64 %xor820, ptr %arrayidx74, align 8
   store i64 %xor836, ptr %arrayidx96, align 8
-  %54 = load i64, ptr %arrayidx12, align 8
-  %55 = load i64, ptr %arrayidx33, align 8
-  %not867 = xor i64 %55, -1
-  %56 = load i64, ptr %arrayidx55, align 8
-  %and872 = and i64 %56, %not867
-  %xor873 = xor i64 %and872, %54
-  %not883 = xor i64 %56, -1
-  %57 = load i64, ptr %arrayidx77, align 8
-  %and888 = and i64 %57, %not883
-  %xor889 = xor i64 %and888, %55
-  %not899 = xor i64 %57, -1
-  %58 = load i64, ptr %arrayidx99, align 8
-  %and904 = and i64 %58, %not899
-  %xor905 = xor i64 %and904, %56
-  %not915 = xor i64 %58, -1
-  %and920 = and i64 %54, %not915
-  %xor921 = xor i64 %and920, %57
-  %not931 = xor i64 %54, -1
-  %and936 = and i64 %55, %not931
-  %xor937 = xor i64 %58, %and936
+  %48 = load i64, ptr %arrayidx12, align 8
+  %49 = load i64, ptr %arrayidx33, align 8
+  %not867 = xor i64 %49, -1
+  %50 = load i64, ptr %arrayidx55, align 8
+  %and872 = and i64 %50, %not867
+  %xor873 = xor i64 %and872, %48
+  %not883 = xor i64 %50, -1
+  %51 = load i64, ptr %arrayidx77, align 8
+  %and888 = and i64 %51, %not883
+  %xor889 = xor i64 %and888, %49
+  %not899 = xor i64 %51, -1
+  %52 = load i64, ptr %arrayidx99, align 8
+  %and904 = and i64 %52, %not899
+  %xor905 = xor i64 %and904, %50
+  %not915 = xor i64 %52, -1
+  %and920 = and i64 %48, %not915
+  %xor921 = xor i64 %and920, %51
+  %not931 = xor i64 %48, -1
+  %and936 = and i64 %49, %not931
+  %xor937 = xor i64 %52, %and936
   store i64 %xor873, ptr %arrayidx12, align 8
   store i64 %xor889, ptr %arrayidx33, align 8
   store i64 %xor905, ptr %arrayidx55, align 8
   store i64 %xor921, ptr %arrayidx77, align 8
   store i64 %xor937, ptr %arrayidx99, align 8
   %arrayidx961 = getelementptr [24 x i64], ptr @keccak_rndc, i64 0, i64 %indvars.iv497
-  %59 = load i64, ptr %arrayidx961, align 8
-  %60 = xor i64 %and, %59
-  %xor963 = xor i64 %60, %28
+  %53 = load i64, ptr %arrayidx961, align 8
+  %54 = xor i64 %and, %53
+  %xor963 = xor i64 %54, %28
   store i64 %xor963, ptr %s, align 8
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next498, 24
@@ -769,12 +778,14 @@ define hidden void @Hacl_Streaming_Keccak_reset(ptr nocapture noundef %s) local_
 entry:
   %scrut.sroa.0.0.copyload = load i64, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 24
-  %0 = load <2 x ptr>, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0.copyload = load ptr, ptr %scrut.sroa.3.0..sroa_idx, align 8
+  %scrut.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %scrut.sroa.2.0.copyload, i8 0, i64 200, i1 false)
   store i64 %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store <2 x ptr> %0, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store ptr %scrut.sroa.3.0.copyload, ptr %scrut.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %scrut.sroa.4.0..sroa_idx, align 8
   ret void
 }

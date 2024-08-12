@@ -1987,7 +1987,7 @@ entry:
   %buf.i10.i44 = alloca [2 x i8], align 1
   %buf.i5.i45 = alloca [2 x i8], align 1
   %buf.i.i46 = alloca [2 x i8], align 1
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -2045,7 +2045,13 @@ sw.bb1:                                           ; preds = %entry
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 5>, ptr %buf.i.i.i, align 4
+  store i8 0, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 0, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 5, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   %call2 = call i32 @vnc_hextile_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #25
@@ -3838,10 +3844,16 @@ declare i32 @qcrypto_random_bytes(ptr noundef, i64 noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @authentication_failed(ptr noundef %vs) unnamed_addr #0 {
 entry:
-  %buf.i6 = alloca [4 x i8], align 4
-  %buf.i = alloca [4 x i8], align 4
+  %buf.i6 = alloca [4 x i8], align 1
+  %buf.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %buf.i, align 4
+  store i8 0, ptr %buf.i, align 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %buf.i, i64 1
+  store i8 0, ptr %arrayidx4.i, align 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %buf.i, i64 2
+  store i8 0, ptr %arrayidx8.i, align 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %buf.i, i64 3
+  store i8 1, ptr %arrayidx11.i, align 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %buf.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   %minor = getelementptr inbounds i8, ptr %vs, i64 49260
@@ -3851,7 +3863,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i6)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 22>, ptr %buf.i6, align 4
+  store i8 0, ptr %buf.i6, align 1
+  %arrayidx4.i7 = getelementptr inbounds i8, ptr %buf.i6, i64 1
+  store i8 0, ptr %arrayidx4.i7, align 1
+  %arrayidx8.i8 = getelementptr inbounds i8, ptr %buf.i6, i64 2
+  store i8 0, ptr %arrayidx8.i8, align 1
+  %arrayidx11.i9 = getelementptr inbounds i8, ptr %buf.i6, i64 3
+  store i8 22, ptr %arrayidx11.i9, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i6)
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull @authentication_failed.err, i64 noundef 22)
@@ -4456,9 +4474,9 @@ entry:
   %value.addr.i = alloca i8, align 1
   %buf.i112 = alloca [4 x i8], align 4
   %_now.i.i98 = alloca %struct.timeval, align 8
-  %buf.i77 = alloca [4 x i8], align 4
+  %buf.i77 = alloca [4 x i8], align 1
   %_now.i.i63 = alloca %struct.timeval, align 8
-  %buf.i42 = alloca [4 x i8], align 4
+  %buf.i42 = alloca [4 x i8], align 1
   %_now.i.i = alloca %struct.timeval, align 8
   %buf.i = alloca [4 x i8], align 4
   %local = alloca [13 x i8], align 1
@@ -4597,7 +4615,13 @@ trace_vnc_auth_start.exit:                        ; preds = %if.then33, %land.lh
 
 if.then36:                                        ; preds = %trace_vnc_auth_start.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i42)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %buf.i42, align 4
+  store i8 0, ptr %buf.i42, align 1
+  %arrayidx4.i43 = getelementptr inbounds i8, ptr %buf.i42, i64 1
+  store i8 0, ptr %arrayidx4.i43, align 1
+  %arrayidx8.i44 = getelementptr inbounds i8, ptr %buf.i42, i64 2
+  store i8 0, ptr %arrayidx8.i44, align 1
+  %arrayidx11.i45 = getelementptr inbounds i8, ptr %buf.i42, i64 3
+  store i8 1, ptr %arrayidx11.i45, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i42, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i42)
   %17 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -4684,7 +4708,13 @@ trace_vnc_auth_pass.exit:                         ; preds = %vnc_flush.exit62, %
 
 do.end43:                                         ; preds = %trace_vnc_auth_start.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i77)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %buf.i77, align 4
+  store i8 0, ptr %buf.i77, align 1
+  %arrayidx4.i78 = getelementptr inbounds i8, ptr %buf.i77, i64 1
+  store i8 0, ptr %arrayidx4.i78, align 1
+  %arrayidx8.i79 = getelementptr inbounds i8, ptr %buf.i77, i64 2
+  store i8 0, ptr %arrayidx8.i79, align 1
+  %arrayidx11.i80 = getelementptr inbounds i8, ptr %buf.i77, i64 3
+  store i8 2, ptr %arrayidx11.i80, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i77, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i77)
   %30 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -4880,7 +4910,7 @@ return:                                           ; preds = %vnc_flush.exit150, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @check_pointer_type_change(ptr noundef %notifier, ptr nocapture readnone %data) #0 {
 entry:
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -4966,7 +4996,13 @@ if.then:                                          ; preds = %land.lhs.true
   call void @vnc_write(ptr noundef %add.ptr, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -1>, ptr %buf.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 -2, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 -1, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef %add.ptr, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.68, i32 noundef 65) #25
@@ -6628,7 +6664,13 @@ vnc_set_share_mode.exit:                          ; preds = %vnc_client_cache_ad
   %last_y = getelementptr inbounds i8, ptr %call, i64 49224
   store i32 -1, ptr %last_y, align 8
   %as = getelementptr inbounds i8, ptr %call, i64 49464
-  store <4 x i32> <i32 44100, i32 2, i32 3, i32 0>, ptr %as, align 8
+  store i32 44100, ptr %as, align 8
+  %nchannels = getelementptr inbounds i8, ptr %call, i64 49468
+  store i32 2, ptr %nchannels, align 4
+  %fmt = getelementptr inbounds i8, ptr %call, i64 49472
+  store i32 3, ptr %fmt, align 8
+  %endianness = getelementptr inbounds i8, ptr %call, i64 49476
+  store i32 0, ptr %endianness, align 4
   %output_mutex = getelementptr inbounds i8, ptr %call, i64 49504
   call void @qemu_mutex_init(ptr noundef nonnull %output_mutex) #25
   %call69 = call ptr @qemu_bh_new_full(ptr noundef nonnull @vnc_jobs_bh, ptr noundef nonnull %call, ptr noundef nonnull @.str.892, ptr noundef null) #25
@@ -7017,7 +7059,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define internal range(i32 0, 1048585) i32 @protocol_client_msg(ptr noundef %vs, ptr noundef %data, i64 noundef %len) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %buf.i.i.i.i53.i = alloca [4 x i8], align 4
+  %buf.i.i.i.i53.i = alloca [4 x i8], align 1
   %buf.i15.i.i54.i = alloca [2 x i8], align 1
   %buf.i10.i.i55.i = alloca [2 x i8], align 1
   %buf.i5.i.i56.i = alloca [2 x i8], align 1
@@ -7025,7 +7067,7 @@ entry:
   %buf.i.i58.i = alloca [2 x i8], align 1
   %value.addr.i9.i59.i = alloca i8, align 1
   %value.addr.i.i60.i = alloca i8, align 1
-  %buf.i.i.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i.i.i = alloca [2 x i8], align 1
   %buf.i10.i.i.i = alloca [2 x i8], align 1
   %buf.i5.i.i.i = alloca [2 x i8], align 1
@@ -7413,6 +7455,9 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   %arrayidx5.i9.i.i69.i = getelementptr inbounds i8, ptr %buf.i5.i.i56.i, i64 1
   %arrayidx5.i14.i.i73.i = getelementptr inbounds i8, ptr %buf.i10.i.i55.i, i64 1
   %arrayidx5.i19.i.i77.i = getelementptr inbounds i8, ptr %buf.i15.i.i54.i, i64 1
+  %arrayidx4.i.i.i.i78.i = getelementptr inbounds i8, ptr %buf.i.i.i.i53.i, i64 1
+  %arrayidx8.i.i.i.i79.i = getelementptr inbounds i8, ptr %buf.i.i.i.i53.i, i64 2
+  %arrayidx11.i.i.i.i80.i = getelementptr inbounds i8, ptr %buf.i.i.i.i53.i, i64 3
   %ioc.i.i81.i = getelementptr inbounds i8, ptr %vs, i64 16
   %offset.i.i84.i = getelementptr inbounds i8, ptr %vs, i64 49344
   %disconnecting.i.i88.i = getelementptr inbounds i8, ptr %vs, i64 28
@@ -7422,6 +7467,9 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   %arrayidx5.i9.i.i.i = getelementptr inbounds i8, ptr %buf.i5.i.i.i, i64 1
   %arrayidx5.i14.i.i.i = getelementptr inbounds i8, ptr %buf.i10.i.i.i, i64 1
   %arrayidx5.i19.i.i.i = getelementptr inbounds i8, ptr %buf.i15.i.i.i, i64 1
+  %arrayidx4.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 1
+  %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 2
+  %arrayidx11.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i.i, i64 3
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -7602,7 +7650,10 @@ sw.bb45.i:                                        ; preds = %for.body.i
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %buf.i15.i.i.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -2>, ptr %buf.i.i.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i.i.i, align 1
+  store i8 -1, ptr %arrayidx4.i.i.i.i.i, align 1
+  store i8 -2, ptr %arrayidx8.i.i.i.i.i, align 1
+  store i8 -2, ptr %arrayidx11.i.i.i.i.i, align 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %buf.i.i.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i.i61.i, ptr noundef nonnull @.str.68, i32 noundef 65) #25
@@ -7706,7 +7757,10 @@ if.then47.i:                                      ; preds = %sw.bb46.i
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i.i54.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i.i54.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i53.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -3>, ptr %buf.i.i.i.i53.i, align 4
+  store i8 -1, ptr %buf.i.i.i.i53.i, align 1
+  store i8 -1, ptr %arrayidx4.i.i.i.i78.i, align 1
+  store i8 -2, ptr %arrayidx8.i.i.i.i79.i, align 1
+  store i8 -3, ptr %arrayidx11.i.i.i.i80.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i.i53.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i53.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i.i61.i, ptr noundef nonnull @.str.68, i32 noundef 65) #25
@@ -8923,7 +8977,7 @@ entry:
   %value.addr.i30 = alloca i8, align 1
   %value.addr.i29 = alloca i8, align 1
   %value.addr.i28 = alloca i8, align 1
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -9030,7 +9084,13 @@ trace_vnc_msg_server_ext_desktop_resize.exit:     ; preds = %entry, %land.lhs.tr
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -52>, ptr %buf.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 -2, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 -52, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.addr.i28)
@@ -9365,7 +9425,7 @@ declare void @vnc_server_cut_text_caps(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vnc_desktop_resize(ptr noundef %vs) unnamed_addr #0 {
 entry:
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -9552,7 +9612,13 @@ trace_vnc_msg_server_desktop_resize.exit:         ; preds = %if.end50, %land.lhs
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -1, i8 33>, ptr %buf.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 -1, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 33, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.68, i32 noundef 65) #25
@@ -9605,7 +9671,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 define internal fastcc void @vnc_led_state_change(ptr noundef %vs) unnamed_addr #0 {
 entry:
   %value.addr.i11 = alloca i8, align 1
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -9663,7 +9729,13 @@ if.end:                                           ; preds = %entry
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -5>, ptr %buf.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 -2, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 -5, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   %vd = getelementptr inbounds i8, ptr %vs, i64 49192
@@ -9725,7 +9797,7 @@ return:                                           ; preds = %entry, %vnc_flush.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vnc_cursor_define(ptr noundef %vs) unnamed_addr #0 {
 entry:
-  %buf.i.i.i46 = alloca [4 x i8], align 4
+  %buf.i.i.i46 = alloca [4 x i8], align 1
   %buf.i15.i47 = alloca [2 x i8], align 1
   %buf.i10.i48 = alloca [2 x i8], align 1
   %buf.i5.i49 = alloca [2 x i8], align 1
@@ -9734,7 +9806,7 @@ entry:
   %value.addr.i43 = alloca i8, align 1
   %value.addr.i42 = alloca i8, align 1
   %buf.i.i38 = alloca [4 x i8], align 4
-  %buf.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i = alloca [2 x i8], align 1
   %buf.i10.i = alloca [2 x i8], align 1
   %buf.i5.i = alloca [2 x i8], align 1
@@ -9820,7 +9892,13 @@ if.then3:                                         ; preds = %if.end
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i)
-  store <4 x i8> <i8 -1, i8 -1, i8 -2, i8 -58>, ptr %buf.i.i.i, align 4
+  store i8 -1, ptr %buf.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 2
+  store i8 -2, ptr %arrayidx8.i.i.i, align 1
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 3
+  store i8 -58, ptr %arrayidx11.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i38)
@@ -9906,7 +9984,13 @@ if.then14:                                        ; preds = %if.end11
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i15.i47, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i47)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i46)
-  store <4 x i8> <i8 -1, i8 -1, i8 -1, i8 17>, ptr %buf.i.i.i46, align 4
+  store i8 -1, ptr %buf.i.i.i46, align 1
+  %arrayidx4.i.i.i67 = getelementptr inbounds i8, ptr %buf.i.i.i46, i64 1
+  store i8 -1, ptr %arrayidx4.i.i.i67, align 1
+  %arrayidx8.i.i.i68 = getelementptr inbounds i8, ptr %buf.i.i.i46, i64 2
+  store i8 -1, ptr %arrayidx8.i.i.i68, align 1
+  %arrayidx11.i.i.i69 = getelementptr inbounds i8, ptr %buf.i.i.i46, i64 3
+  store i8 17, ptr %arrayidx11.i.i.i69, align 1
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %buf.i.i.i46, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i46)
   %17 = load i16, ptr %call, align 4
@@ -11931,7 +12015,7 @@ vnc_set_area_dirty.exit:                          ; preds = %for.body.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vnc_dpy_switch(ptr noundef %dcl, ptr noundef %surface) #0 {
 entry:
-  %buf.i.i.i.i = alloca [4 x i8], align 4
+  %buf.i.i.i.i = alloca [4 x i8], align 1
   %buf.i15.i.i = alloca [2 x i8], align 1
   %buf.i10.i.i = alloca [2 x i8], align 1
   %buf.i5.i.i = alloca [2 x i8], align 1
@@ -12187,6 +12271,9 @@ for.body.lr.ph:                                   ; preds = %trace_vnc_server_dp
   %arrayidx5.i9.i.i = getelementptr inbounds i8, ptr %buf.i5.i.i, i64 1
   %arrayidx5.i14.i.i = getelementptr inbounds i8, ptr %buf.i10.i.i, i64 1
   %arrayidx5.i19.i.i = getelementptr inbounds i8, ptr %buf.i15.i.i, i64 1
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 1
+  %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 2
+  %arrayidx11.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %vnc_set_area_dirty.exit109
@@ -12246,7 +12333,10 @@ if.then.i68:                                      ; preds = %for.body
   call void @vnc_write(ptr noundef nonnull %vs.0117, ptr noundef nonnull %buf.i15.i.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i)
-  store <4 x i8> <i8 87, i8 77, i8 86, i8 105>, ptr %buf.i.i.i.i, align 4
+  store i8 87, ptr %buf.i.i.i.i, align 1
+  store i8 77, ptr %arrayidx4.i.i.i.i, align 1
+  store i8 86, ptr %arrayidx8.i.i.i.i, align 1
+  store i8 105, ptr %arrayidx11.i.i.i.i, align 1
   call void @vnc_write(ptr noundef nonnull %vs.0117, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i)
   call fastcc void @pixel_format_message(ptr noundef nonnull %vs.0117)

@@ -976,9 +976,10 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = load <2 x ptr>, ptr %0, align 8
-  %29 = shufflevector <2 x ptr> %28, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %29, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %10, align 8
+  store ptr %29, ptr %0, align 8
+  store ptr %28, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS7_SG_EEEEvT_SK_SK_SK_T0_.exit.preheader
 
 30:                                               ; preds = %25

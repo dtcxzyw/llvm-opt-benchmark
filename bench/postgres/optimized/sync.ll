@@ -234,8 +234,8 @@ declare ptr @list_delete_first_n(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
-  %1 = alloca %struct.timespec, align 16
-  %2 = alloca %struct.timespec, align 16
+  %1 = alloca %struct.timespec, align 8
+  %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = load ptr, ptr @pendingOps, align 8
@@ -277,6 +277,8 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   store i1 true, ptr @ProcessSyncRequests.sync_in_progress, align 1
   %19 = load ptr, ptr @pendingOps, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %19) #9
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %.loopexit42
@@ -284,159 +286,162 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %.028.ph = phi i64 [ %.129, %.loopexit ], [ 0, %.loopexit42 ]
   %.026.ph = phi i64 [ %.127, %.loopexit ], [ 0, %.loopexit42 ]
   %.0.ph = phi i32 [ %.1, %.loopexit ], [ 10, %.loopexit42 ]
-  br label %20
+  br label %22
 
-20:                                               ; preds = %.outer, %22
-  %21 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
-  %.not39 = icmp eq ptr %21, null
-  br i1 %.not39, label %97, label %22
+22:                                               ; preds = %.outer, %24
+  %23 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  %.not39 = icmp eq ptr %23, null
+  br i1 %.not39, label %99, label %24
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
-  %24 = load i16, ptr %23, align 8
-  %25 = load i16, ptr @sync_cycle_ctr, align 2
-  %26 = icmp eq i16 %24, %25
-  br i1 %26, label %20, label %27, !llvm.loop !8
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = load i16, ptr %25, align 8
+  %27 = load i16, ptr @sync_cycle_ctr, align 2
+  %28 = icmp eq i16 %26, %27
+  br i1 %28, label %22, label %29, !llvm.loop !8
 
-27:                                               ; preds = %22
-  %28 = load i8, ptr @enableFsync, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %.loopexit
+29:                                               ; preds = %24
+  %30 = load i8, ptr @enableFsync, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %.loopexit
 
-30:                                               ; preds = %27
-  %31 = add i32 %.0.ph, -1
-  %32 = icmp slt i32 %31, 1
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %29
+  %33 = add i32 %.0.ph, -1
+  %34 = icmp slt i32 %33, 1
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %30
+35:                                               ; preds = %32
   call void @AbsorbSyncRequests() #9
-  br label %34
+  br label %36
 
-34:                                               ; preds = %33, %30
-  %.2 = phi i32 [ 10, %33 ], [ %31, %30 ]
-  %35 = getelementptr inbounds i8, ptr %21, i64 26
-  %36 = load i8, ptr %35, align 2
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %.loopexit, label %.lr.ph52.preheader
+36:                                               ; preds = %35, %32
+  %.2 = phi i32 [ 10, %35 ], [ %33, %32 ]
+  %37 = getelementptr inbounds i8, ptr %23, i64 26
+  %38 = load i8, ptr %37, align 2
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %.loopexit, label %.lr.ph52.preheader
 
-.lr.ph52.preheader:                               ; preds = %34
+.lr.ph52.preheader:                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
-  %39 = load <2 x i64>, ptr %2, align 16
+  %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
+  %41 = load i64, ptr %2, align 8
+  %42 = load i64, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %40 = load i16, ptr %21, align 8
-  %41 = sext i16 %40 to i64
-  %42 = getelementptr [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 %43(ptr noundef nonnull %21, ptr noundef nonnull %4) #9
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.lr.ph52._crit_edge, label %.lr.ph78.preheader
+  %43 = load i16, ptr %23, align 8
+  %44 = sext i16 %43 to i64
+  %45 = getelementptr [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 %46(ptr noundef nonnull %23, ptr noundef nonnull %4) #9
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.lr.ph52._crit_edge, label %.lr.ph78.preheader
 
 .lr.ph78.preheader:                               ; preds = %.lr.ph52.preheader
-  %46 = tail call ptr @__errno_location() #10
+  %49 = tail call ptr @__errno_location() #10
   br label %.lr.ph78
 
-.lr.ph52:                                         ; preds = %88
-  %47 = add i32 %.0255077, 1
+.lr.ph52:                                         ; preds = %90
+  %50 = add i32 %.0255077, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %48 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
-  %49 = load <2 x i64>, ptr %2, align 16
+  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
+  %52 = load i64, ptr %2, align 8
+  %53 = load i64, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %50 = load i16, ptr %21, align 8
-  %51 = sext i16 %50 to i64
-  %52 = getelementptr [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 %53(ptr noundef nonnull %21, ptr noundef nonnull %4) #9
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.lr.ph52._crit_edge, label %.lr.ph78, !llvm.loop !9
+  %54 = load i16, ptr %23, align 8
+  %55 = sext i16 %54 to i64
+  %56 = getelementptr [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %58 = call i32 %57(ptr noundef nonnull %23, ptr noundef nonnull %4) #9
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %.lr.ph52._crit_edge, label %.lr.ph78, !llvm.loop !9
 
 .lr.ph52._crit_edge:                              ; preds = %.lr.ph52, %.lr.ph52.preheader
   %.351.lcssa = phi i32 [ %.2, %.lr.ph52.preheader ], [ 10, %.lr.ph52 ]
-  %56 = phi <2 x i64> [ %39, %.lr.ph52.preheader ], [ %49, %.lr.ph52 ]
+  %.lcssa71 = phi i64 [ %41, %.lr.ph52.preheader ], [ %52, %.lr.ph52 ]
+  %.lcssa = phi i64 [ %42, %.lr.ph52.preheader ], [ %53, %.lr.ph52 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
-  %58 = load <2 x i64>, ptr %1, align 16
+  %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
+  %61 = load i64, ptr %1, align 8
+  %62 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %59 = sub <2 x i64> %58, %56
-  %60 = extractelement <2 x i64> %59, i64 0
-  %reass.mul = mul i64 %60, 1000000000
-  %61 = extractelement <2 x i64> %59, i64 1
-  %62 = add i64 %61, %reass.mul
-  %63 = sdiv i64 %62, 1000
-  %spec.select = call i64 @llvm.umax.i64(i64 %63, i64 %.028.ph)
-  %64 = add i64 %63, %.026.ph
-  %65 = add i32 %.031.ph, 1
-  %66 = load i8, ptr @log_checkpoints, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %.loopexit
-
-68:                                               ; preds = %.lr.ph52._crit_edge
-  %69 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  %reass.add = sub i64 %61, %.lcssa71
+  %reass.mul = mul i64 %reass.add, 1000000000
+  %63 = sub i64 %62, %.lcssa
+  %64 = add i64 %63, %reass.mul
+  %65 = sdiv i64 %64, 1000
+  %spec.select = call i64 @llvm.umax.i64(i64 %65, i64 %.028.ph)
+  %66 = add i64 %65, %.026.ph
+  %67 = add i32 %.031.ph, 1
+  %68 = load i8, ptr @log_checkpoints, align 1
+  %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %.loopexit
 
-70:                                               ; preds = %68
-  %71 = uitofp i64 %63 to double
-  %72 = fdiv double %71, 1.000000e+03
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %65, ptr noundef nonnull %4, double noundef %72) #9
+70:                                               ; preds = %.lr.ph52._crit_edge
+  %71 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  br i1 %71, label %72, label %.loopexit
+
+72:                                               ; preds = %70
+  %73 = uitofp i64 %65 to double
+  %74 = fdiv double %73, 1.000000e+03
+  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %67, ptr noundef nonnull %4, double noundef %74) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 437, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
   br label %.loopexit
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph52
-  %.0255077 = phi i32 [ %47, %.lr.ph52 ], [ 0, %.lr.ph78.preheader ]
-  %74 = load i32, ptr %46, align 4
-  %75 = icmp ne i32 %74, 2
-  %76 = icmp sgt i32 %.0255077, 0
-  %or.cond = select i1 %75, i1 true, i1 %76
-  br i1 %or.cond, label %77, label %83
+  %.0255077 = phi i32 [ %50, %.lr.ph52 ], [ 0, %.lr.ph78.preheader ]
+  %76 = load i32, ptr %49, align 4
+  %77 = icmp ne i32 %76, 2
+  %78 = icmp sgt i32 %.0255077, 0
+  %or.cond = select i1 %77, i1 true, i1 %78
+  br i1 %or.cond, label %79, label %85
 
-77:                                               ; preds = %.lr.ph78
-  %78 = call i32 @data_sync_elevel(i32 noundef 21) #9
-  %79 = call zeroext i1 @errstart(i32 noundef %78, ptr noundef null) #9
-  br i1 %79, label %80, label %88
+79:                                               ; preds = %.lr.ph78
+  %80 = call i32 @data_sync_elevel(i32 noundef 21) #9
+  %81 = call zeroext i1 @errstart(i32 noundef %80, ptr noundef null) #9
+  br i1 %81, label %82, label %90
 
-80:                                               ; preds = %77
-  %81 = call i32 @errcode_for_file_access() #9
-  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #9
+82:                                               ; preds = %79
+  %83 = call i32 @errcode_for_file_access() #9
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #9
   br label %.sink.split
 
-83:                                               ; preds = %.lr.ph78
-  %84 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
-  br i1 %84, label %85, label %88
+85:                                               ; preds = %.lr.ph78
+  %86 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  br i1 %86, label %87, label %90
 
-85:                                               ; preds = %83
-  %86 = call i32 @errcode_for_file_access() #9
-  %87 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #9
+87:                                               ; preds = %85
+  %88 = call i32 @errcode_for_file_access() #9
+  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #9
   br label %.sink.split
 
-.sink.split:                                      ; preds = %80, %85
-  %.sink = phi i32 [ 457, %85 ], [ 452, %80 ]
+.sink.split:                                      ; preds = %82, %87
+  %.sink = phi i32 [ 457, %87 ], [ 452, %82 ]
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
-  br label %88
+  br label %90
 
-88:                                               ; preds = %.sink.split, %83, %77
+90:                                               ; preds = %.sink.split, %85, %79
   call void @AbsorbSyncRequests() #9
-  %89 = load i8, ptr %35, align 2
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %.loopexit, label %.lr.ph52, !llvm.loop !9
+  %91 = load i8, ptr %37, align 2
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %.loopexit, label %.lr.ph52, !llvm.loop !9
 
-.loopexit:                                        ; preds = %88, %34, %70, %68, %.lr.ph52._crit_edge, %27
-  %.132 = phi i32 [ %65, %70 ], [ %65, %68 ], [ %65, %.lr.ph52._crit_edge ], [ %.031.ph, %27 ], [ %.031.ph, %34 ], [ %.031.ph, %88 ]
-  %.129 = phi i64 [ %spec.select, %70 ], [ %spec.select, %68 ], [ %spec.select, %.lr.ph52._crit_edge ], [ %.028.ph, %27 ], [ %.028.ph, %34 ], [ %.028.ph, %88 ]
-  %.127 = phi i64 [ %64, %70 ], [ %64, %68 ], [ %64, %.lr.ph52._crit_edge ], [ %.026.ph, %27 ], [ %.026.ph, %34 ], [ %.026.ph, %88 ]
-  %.1 = phi i32 [ %.351.lcssa, %70 ], [ %.351.lcssa, %68 ], [ %.351.lcssa, %.lr.ph52._crit_edge ], [ %.0.ph, %27 ], [ %.2, %34 ], [ 10, %88 ]
-  %91 = load ptr, ptr @pendingOps, align 8
-  %92 = call ptr @hash_search(ptr noundef %91, ptr noundef nonnull %21, i32 noundef 2, ptr noundef null) #9
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %.outer, !llvm.loop !8
+.loopexit:                                        ; preds = %90, %36, %72, %70, %.lr.ph52._crit_edge, %29
+  %.132 = phi i32 [ %67, %72 ], [ %67, %70 ], [ %67, %.lr.ph52._crit_edge ], [ %.031.ph, %29 ], [ %.031.ph, %36 ], [ %.031.ph, %90 ]
+  %.129 = phi i64 [ %spec.select, %72 ], [ %spec.select, %70 ], [ %spec.select, %.lr.ph52._crit_edge ], [ %.028.ph, %29 ], [ %.028.ph, %36 ], [ %.028.ph, %90 ]
+  %.127 = phi i64 [ %66, %72 ], [ %66, %70 ], [ %66, %.lr.ph52._crit_edge ], [ %.026.ph, %29 ], [ %.026.ph, %36 ], [ %.026.ph, %90 ]
+  %.1 = phi i32 [ %.351.lcssa, %72 ], [ %.351.lcssa, %70 ], [ %.351.lcssa, %.lr.ph52._crit_edge ], [ %.0.ph, %29 ], [ %.2, %36 ], [ 10, %90 ]
+  %93 = load ptr, ptr @pendingOps, align 8
+  %94 = call ptr @hash_search(ptr noundef %93, ptr noundef nonnull %23, i32 noundef 2, ptr noundef null) #9
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %.outer, !llvm.loop !8
 
-94:                                               ; preds = %.loopexit
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %95)
-  %96 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
+96:                                               ; preds = %.loopexit
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %97)
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 470, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
   unreachable
 
-97:                                               ; preds = %20
+99:                                               ; preds = %22
   store i32 %.031.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
   store i64 %.028.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 64), align 8
   store i64 %.026.ph, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 72), align 8

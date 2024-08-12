@@ -6227,15 +6227,16 @@ define internal fastcc void @"_ZZNK5faiss8IndexIVF6searchElPKflPfPlPKNS_16Search
           to label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit24
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %53
-  %55 = insertelement <2 x double> poison, double %36, i64 0
-  %56 = insertelement <2 x double> %55, double %54, i64 1
-  %57 = insertelement <2 x double> poison, double %20, i64 0
-  %58 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
-  %59 = fsub <2 x double> %56, %58
-  %60 = getelementptr inbounds i8, ptr %5, i64 32
-  %61 = load <2 x double>, ptr %60, align 8
-  %62 = fadd <2 x double> %59, %61
-  store <2 x double> %62, ptr %60, align 8
+  %55 = fsub double %36, %20
+  %56 = getelementptr inbounds i8, ptr %5, i64 32
+  %57 = load double, ptr %56, align 8
+  %58 = fadd double %55, %57
+  store double %58, ptr %56, align 8
+  %59 = fsub double %54, %20
+  %60 = getelementptr inbounds i8, ptr %5, i64 40
+  %61 = load double, ptr %60, align 8
+  %62 = fadd double %59, %61
+  store double %62, ptr %60, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %18) #36
   tail call void @_ZdaPv(ptr noundef nonnull %14) #36
   ret void

@@ -82,64 +82,70 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %.thread, label %6
+  br i1 %4, label %.thread, label %9
 
 .thread:                                          ; preds = %3
-  store <4 x i32> <i32 -2147483648, i32 -2147483648, i32 2147483647, i32 2147483647>, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 0, ptr %5, align 8
-  br label %43
+  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -2147483648, ptr %5, align 4
+  store i32 -2147483648, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 2147483647, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 2147483647, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 0, ptr %8, align 8
+  br label %46
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 800
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr @loxID, align 8
-  %11 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %10) #6
-  store i32 %11, ptr %2, align 8
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr @loyID, align 8
-  %16 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %15) #6
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %16, ptr %17, align 4
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 800
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr @hixID, align 8
-  %22 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %21) #6
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %22, ptr %23, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 800
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr @hiyID, align 8
-  %28 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %27) #6
-  %29 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %28, ptr %29, align 4
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 800
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr @endIndexID, align 8
-  %34 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %33) #6
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %34, ptr %35, align 8
-  %36 = icmp eq i32 %34, 0
-  br i1 %36, label %43, label %37
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr @loxID, align 8
+  %14 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %13) #6
+  store i32 %14, ptr %2, align 8
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 800
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr @loyID, align 8
+  %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %18) #6
+  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %19, ptr %20, align 4
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 800
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr @hixID, align 8
+  %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %24) #6
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %25, ptr %26, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 800
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr @hiyID, align 8
+  %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %30) #6
+  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %31, ptr %32, align 4
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 800
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr @endIndexID, align 8
+  %37 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %36) #6
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %37, ptr %38, align 8
+  %39 = icmp eq i32 %37, 0
+  br i1 %39, label %46, label %40
 
-37:                                               ; preds = %6
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 760
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr @bandsID, align 8
-  %42 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %41) #6
-  br label %43
+40:                                               ; preds = %9
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 760
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @bandsID, align 8
+  %45 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %44) #6
+  br label %46
 
-43:                                               ; preds = %.thread, %6, %37
-  %44 = phi ptr [ %42, %37 ], [ null, %6 ], [ null, %.thread ]
-  %45 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %44, ptr %45, align 8
+46:                                               ; preds = %.thread, %9, %40
+  %47 = phi ptr [ %45, %40 ], [ null, %9 ], [ null, %.thread ]
+  %48 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %47, ptr %48, align 8
   ret i32 0
 }
 

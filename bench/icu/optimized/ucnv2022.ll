@@ -293,7 +293,13 @@ _ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit: ; pre
 if.then.i94:                                      ; preds = %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
   store i8 4, ptr %charErrorBufferLength.i, align 1
   %charErrorBuffer.i = getelementptr inbounds i8, ptr %cnv, i64 104
-  store <4 x i8> <i8 27, i8 36, i8 41, i8 67>, ptr %charErrorBuffer.i, align 8
+  store i8 27, ptr %charErrorBuffer.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %cnv, i64 105
+  store i8 36, ptr %arrayidx3.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %cnv, i64 106
+  store i8 41, ptr %arrayidx5.i, align 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %cnv, i64 107
+  store i8 67, ptr %arrayidx7.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i94, %_ZL26setInitialStateToUnicodeKRP10UConverterP21UConverterDataISO2022.exit
@@ -581,7 +587,13 @@ if.then10:                                        ; preds = %if.then7.thread, %i
 if.then.i15:                                      ; preds = %if.then10
   store i8 4, ptr %charErrorBufferLength.i, align 1
   %charErrorBuffer.i = getelementptr inbounds i8, ptr %converter, i64 104
-  store <4 x i8> <i8 27, i8 36, i8 41, i8 67>, ptr %charErrorBuffer.i, align 8
+  store i8 27, ptr %charErrorBuffer.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %converter, i64 105
+  store i8 36, ptr %arrayidx3.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %converter, i64 106
+  store i8 41, ptr %arrayidx5.i, align 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %converter, i64 107
+  store i8 67, ptr %arrayidx7.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i15, %if.then10

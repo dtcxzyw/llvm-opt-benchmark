@@ -49,7 +49,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_labrdP8PJconsts(ptr 
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %96
+  br label %95
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -62,7 +62,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_labrdP8PJconsts(ptr 
 11:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.1)
   %12 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %96
+  br label %95
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %0, align 8
@@ -146,20 +146,20 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_labrdP8PJconsts(ptr 
   %85 = fneg double %83
   %86 = fmul double %83, %85
   %87 = tail call double @llvm.fmuladd.f64(double %84, double %84, double %86)
-  %88 = getelementptr inbounds i8, ptr %2, i64 48
-  %89 = fmul double %84, 6.000000e+00
-  %90 = insertelement <2 x double> poison, double %87, i64 0
-  %91 = insertelement <2 x double> %90, double %83, i64 1
-  %92 = insertelement <2 x double> <double 3.000000e+00, double poison>, double %89, i64 1
-  %93 = fmul <2 x double> %91, %92
-  store <2 x double> %93, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL15labrd_e_inverse5PJ_XYP8PJconsts, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL15labrd_e_forward5PJ_LPP8PJconsts, ptr %95, align 8
-  br label %96
+  %88 = fmul double %87, 3.000000e+00
+  %89 = getelementptr inbounds i8, ptr %2, i64 48
+  store double %88, ptr %89, align 8
+  %90 = fmul double %84, 6.000000e+00
+  %91 = fmul double %83, %90
+  %92 = getelementptr inbounds i8, ptr %2, i64 56
+  store double %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL15labrd_e_inverse5PJ_XYP8PJconsts, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL15labrd_e_forward5PJ_LPP8PJconsts, ptr %94, align 8
+  br label %95
 
-96:                                               ; preds = %13, %11, %4
+95:                                               ; preds = %13, %11, %4
   %.0 = phi ptr [ %5, %4 ], [ %12, %11 ], [ %0, %13 ]
   ret ptr %.0
 }

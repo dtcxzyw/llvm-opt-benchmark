@@ -710,119 +710,125 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.0.i.neg = phi i64 [ %.neg42, %8 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %12 = getelementptr inbounds i8, ptr %0, i64 28
-  %13 = load <2 x i32>, ptr %12, align 4
-  %14 = add nsw <2 x i32> %13, <i32 1, i32 1>
-  store <2 x i32> %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8
-  call void @Gia_ManIncrementTravId(ptr noundef %16) #17
-  %17 = load ptr, ptr %15, align 8
-  %18 = load i64, ptr %2, align 4
-  %19 = and i64 %18, 536870911
-  %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %20
-  %22 = call i32 @Cec_ManPatComputePattern_rec(ptr noundef %1, ptr noundef %17, ptr noundef nonnull %21)
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
-  %24 = load <2 x i32>, ptr %23, align 4
-  %25 = insertelement <2 x i32> poison, i32 %22, i64 0
-  %26 = shufflevector <2 x i32> %25, <2 x i32> poison, <2 x i32> zeroinitializer
-  %27 = add nsw <2 x i32> %24, %26
-  store <2 x i32> %27, ptr %23, align 4
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 0, ptr %29, align 4
-  %30 = load ptr, ptr %15, align 8
-  call void @Gia_ManIncrementTravId(ptr noundef %30) #17
-  %31 = load ptr, ptr %15, align 8
-  %32 = load i64, ptr %2, align 4
-  %33 = and i64 %32, 536870911
-  %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %34
-  %36 = load ptr, ptr %0, align 8
-  call void @Cec_ManPatComputePattern1_rec(ptr noundef %31, ptr noundef nonnull %35, ptr noundef %36)
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
-  store i32 0, ptr %39, align 4
-  %40 = load ptr, ptr %15, align 8
-  call void @Gia_ManIncrementTravId(ptr noundef %40) #17
-  %41 = load ptr, ptr %15, align 8
-  %42 = load i64, ptr %2, align 4
-  %43 = and i64 %42, 536870911
-  %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %44
-  %46 = load ptr, ptr %37, align 8
-  call void @Cec_ManPatComputePattern2_rec(ptr noundef %41, ptr noundef nonnull %45, ptr noundef %46)
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr i8, ptr %47, i64 4
-  %.val34 = load i32, ptr %48, align 4
-  %49 = load ptr, ptr %37, align 8
-  %50 = getelementptr i8, ptr %49, i64 4
-  %.val33 = load i32, ptr %50, align 4
-  %51 = icmp slt i32 %.val34, %.val33
-  %52 = select i1 %51, ptr %47, ptr %49
-  %53 = getelementptr i8, ptr %52, i64 4
-  %.val32 = load i32, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 44
-  %55 = load i32, ptr %54, align 4
-  %56 = add nsw i32 %55, %.val32
-  store i32 %56, ptr %54, align 4
-  %.val = load i32, ptr %53, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
-  %58 = load i32, ptr %57, align 8
-  %59 = add nsw i32 %58, %.val
-  store i32 %59, ptr %57, align 8
-  %.val35 = load i32, ptr %53, align 4
-  %60 = getelementptr i8, ptr %52, i64 8
-  %.val36 = load ptr, ptr %60, align 8
-  %61 = sext i32 %.val35 to i64
-  call void @qsort(ptr noundef %.val36, i64 noundef %61, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #17
-  %.val14.i = load i32, ptr %53, align 4
+  %13 = load i32, ptr %12, align 4
+  %14 = add nsw i32 %13, 1
+  store i32 %14, ptr %12, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load i32, ptr %15, align 8
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8
+  call void @Gia_ManIncrementTravId(ptr noundef %19) #17
+  %20 = load ptr, ptr %18, align 8
+  %21 = load i64, ptr %2, align 4
+  %22 = and i64 %21, 536870911
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %23
+  %25 = call i32 @Cec_ManPatComputePattern_rec(ptr noundef %1, ptr noundef %20, ptr noundef nonnull %24)
+  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = load i32, ptr %26, align 4
+  %28 = add nsw i32 %27, %25
+  store i32 %28, ptr %26, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = add nsw i32 %30, %25
+  store i32 %31, ptr %29, align 8
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  store i32 0, ptr %33, align 4
+  %34 = load ptr, ptr %18, align 8
+  call void @Gia_ManIncrementTravId(ptr noundef %34) #17
+  %35 = load ptr, ptr %18, align 8
+  %36 = load i64, ptr %2, align 4
+  %37 = and i64 %36, 536870911
+  %38 = sub nsw i64 0, %37
+  %39 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %38
+  %40 = load ptr, ptr %0, align 8
+  call void @Cec_ManPatComputePattern1_rec(ptr noundef %35, ptr noundef nonnull %39, ptr noundef %40)
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %43, align 4
+  %44 = load ptr, ptr %18, align 8
+  call void @Gia_ManIncrementTravId(ptr noundef %44) #17
+  %45 = load ptr, ptr %18, align 8
+  %46 = load i64, ptr %2, align 4
+  %47 = and i64 %46, 536870911
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %48
+  %50 = load ptr, ptr %41, align 8
+  call void @Cec_ManPatComputePattern2_rec(ptr noundef %45, ptr noundef nonnull %49, ptr noundef %50)
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr i8, ptr %51, i64 4
+  %.val34 = load i32, ptr %52, align 4
+  %53 = load ptr, ptr %41, align 8
+  %54 = getelementptr i8, ptr %53, i64 4
+  %.val33 = load i32, ptr %54, align 4
+  %55 = icmp slt i32 %.val34, %.val33
+  %56 = select i1 %55, ptr %51, ptr %53
+  %57 = getelementptr i8, ptr %56, i64 4
+  %.val32 = load i32, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 44
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %59, %.val32
+  store i32 %60, ptr %58, align 4
+  %.val = load i32, ptr %57, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = load i32, ptr %61, align 8
+  %63 = add nsw i32 %62, %.val
+  store i32 %63, ptr %61, align 8
+  %.val35 = load i32, ptr %57, align 4
+  %64 = getelementptr i8, ptr %56, i64 8
+  %.val36 = load ptr, ptr %64, align 8
+  %65 = sext i32 %.val35 to i64
+  call void @qsort(ptr noundef %.val36, i64 noundef %65, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #17
+  %.val14.i = load i32, ptr %57, align 4
   call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %.val14.i)
-  %.val16.i = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %.val16.i, align 4
-  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %62)
-  %.val17.i = load i32, ptr %53, align 4
-  %63 = icmp sgt i32 %.val17.i, 1
-  br i1 %63, label %.lr.ph.i, label %Cec_ManPatStore.exit
+  %.val16.i = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %.val16.i, align 4
+  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %66)
+  %.val17.i = load i32, ptr %57, align 4
+  %67 = icmp sgt i32 %.val17.i, 1
+  br i1 %67, label %.lr.ph.i, label %Cec_ManPatStore.exit
 
 .lr.ph.i:                                         ; preds = %Abc_Clock.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %Abc_Clock.exit ]
-  %.019.i = phi i32 [ %65, %.lr.ph.i ], [ %62, %Abc_Clock.exit ]
-  %.val15.i = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
-  %65 = load i32, ptr %64, align 4
-  %66 = sub nsw i32 %65, %.019.i
-  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %66)
+  %.019.i = phi i32 [ %69, %.lr.ph.i ], [ %66, %Abc_Clock.exit ]
+  %.val15.i = load ptr, ptr %64, align 8
+  %68 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i
+  %69 = load i32, ptr %68, align 4
+  %70 = sub nsw i32 %69, %.019.i
+  call fastcc void @Cec_ManPatStoreNum(ptr noundef nonnull readonly %0, i32 noundef %70)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val.i = load i32, ptr %53, align 4
-  %67 = sext i32 %.val.i to i64
-  %68 = icmp slt i64 %indvars.iv.next.i, %67
-  br i1 %68, label %.lr.ph.i, label %Cec_ManPatStore.exit, !llvm.loop !6
+  %.val.i = load i32, ptr %57, align 4
+  %71 = sext i32 %.val.i to i64
+  %72 = icmp slt i64 %indvars.iv.next.i, %71
+  br i1 %72, label %.lr.ph.i, label %Cec_ManPatStore.exit, !llvm.loop !6
 
 Cec_ManPatStore.exit:                             ; preds = %.lr.ph.i, %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %Abc_Clock.exit38, label %71
+  %73 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %Abc_Clock.exit38, label %75
 
-71:                                               ; preds = %Cec_ManPatStore.exit
-  %72 = load i64, ptr %4, align 8
-  %73 = mul nsw i64 %72, 1000000
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  %75 = load i64, ptr %74, align 8
-  %76 = sdiv i64 %75, 1000
-  %77 = add nsw i64 %76, %73
+75:                                               ; preds = %Cec_ManPatStore.exit
+  %76 = load i64, ptr %4, align 8
+  %77 = mul nsw i64 %76, 1000000
+  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = sdiv i64 %79, 1000
+  %81 = add nsw i64 %80, %77
   br label %Abc_Clock.exit38
 
-Abc_Clock.exit38:                                 ; preds = %Cec_ManPatStore.exit, %71
-  %.0.i37 = phi i64 [ %77, %71 ], [ -1, %Cec_ManPatStore.exit ]
+Abc_Clock.exit38:                                 ; preds = %Cec_ManPatStore.exit, %75
+  %.0.i37 = phi i64 [ %81, %75 ], [ -1, %Cec_ManPatStore.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %78 = add i64 %.0.i37, %.0.i.neg
-  %79 = getelementptr inbounds i8, ptr %0, i64 104
-  %80 = load i64, ptr %79, align 8
-  %81 = add nsw i64 %78, %80
-  store i64 %81, ptr %79, align 8
+  %82 = add i64 %.0.i37, %.0.i.neg
+  %83 = getelementptr inbounds i8, ptr %0, i64 104
+  %84 = load i64, ptr %83, align 8
+  %85 = add nsw i64 %82, %84
+  store i64 %85, ptr %83, align 8
   ret void
 }
 

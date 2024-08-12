@@ -88,9 +88,15 @@ entry:
 define void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamERKNS_6HeaderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull align 8 dereferenceable(49) %header) local_unnamed_addr #7 align 2 {
 entry:
   %b.i9 = alloca [4 x i8], align 1
-  %b.i = alloca [4 x i8], align 4
+  %b.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
-  store <4 x i8> <i8 118, i8 47, i8 49, i8 1>, ptr %b.i, align 4
+  store i8 118, ptr %b.i, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
+  store i8 47, ptr %arrayidx2.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
+  store i8 49, ptr %arrayidx5.i, align 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
+  store i8 1, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8
@@ -144,9 +150,15 @@ declare noundef zeroext i1 @_ZN7Imf_3_213usesLongNamesERKNS_6HeaderE(ptr noundef
 define void @_ZN7Imf_3_217GenericOutputFile31writeMagicNumberAndVersionFieldERNS_7OStreamEPKNS_6HeaderEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef %headers, i32 noundef %parts) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i16 = alloca [4 x i8], align 1
-  %b.i = alloca [4 x i8], align 4
+  %b.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
-  store <4 x i8> <i8 118, i8 47, i8 49, i8 1>, ptr %b.i, align 4
+  store i8 118, ptr %b.i, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %b.i, i64 1
+  store i8 47, ptr %arrayidx2.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
+  store i8 49, ptr %arrayidx5.i, align 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
+  store i8 1, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8

@@ -802,35 +802,47 @@ _ZN3ue215RepeatStateInfoD2Ev.exit:                ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_(ptr readonly %a_it.coerce, ptr readnone %a_ite.coerce, ptr nocapture readonly %b_it.coerce, ptr nocapture readnone %b_ite.coerce) local_unnamed_addr #4 {
 entry:
-  %ref.tmp = alloca %"class.ue2::CharReach", align 16
+  %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %cmp.i.not5 = icmp eq ptr %a_it.coerce, %a_ite.coerce
   br i1 %cmp.i.not5, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK3ue29CharReach4noneEv.exit, %for.body.lr.ph
   %b_it.sroa.0.07 = phi ptr [ %b_it.coerce, %for.body.lr.ph ], [ %incdec.ptr.i1, %_ZNK3ue29CharReach4noneEv.exit ]
   %a_it.sroa.0.06 = phi ptr [ %a_it.coerce, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNK3ue29CharReach4noneEv.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06, i64 32, i1 false)
-  %0 = load <2 x i64>, ptr %b_it.sroa.0.07, align 8, !noalias !9
-  %1 = load <2 x i64>, ptr %ref.tmp, align 16, !alias.scope !9
-  %2 = and <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %ref.tmp, align 16, !alias.scope !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06, i64 32, i1 false)
+  %0 = load i64, ptr %b_it.sroa.0.07, align 8, !noalias !9
+  %1 = load i64, ptr %ref.tmp, align 8, !alias.scope !9
+  %and.i.i = and i64 %1, %0
+  store i64 %and.i.i, ptr %ref.tmp, align 8, !alias.scope !9
+  %arrayidx.i.i19.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07, i64 8
+  %2 = load i64, ptr %arrayidx.i.i19.i.i, align 8, !noalias !9
+  %3 = load i64, ptr %arrayidx.i.i20.i.i, align 8, !alias.scope !9
+  %and10.i.i = and i64 %3, %2
+  store i64 %and10.i.i, ptr %arrayidx.i.i20.i.i, align 8, !alias.scope !9
   %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07, i64 16
-  %3 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 8, !noalias !9
-  %4 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 16, !alias.scope !9
-  %5 = and <2 x i64> %4, %3
-  store <2 x i64> %5, ptr %arrayidx.i.i22.i.i, align 16, !alias.scope !9
+  %4 = load i64, ptr %arrayidx.i.i21.i.i, align 8, !noalias !9
+  %5 = load i64, ptr %arrayidx.i.i22.i.i, align 8, !alias.scope !9
+  %and17.i.i = and i64 %5, %4
+  store i64 %and17.i.i, ptr %arrayidx.i.i22.i.i, align 8, !alias.scope !9
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07, i64 24
+  %6 = load i64, ptr %arrayidx.i.i23.i.i, align 8, !noalias !9
+  %7 = load i64, ptr %arrayidx.i.i24.i.i, align 8, !alias.scope !9
+  %and24.i.i = and i64 %7, %6
+  store i64 %and24.i.i, ptr %arrayidx.i.i24.i.i, align 8, !alias.scope !9
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body
   %__begin0.0.idx4.i.i = phi i64 [ 0, %for.body ], [ %__begin0.0.add.i.i, %for.body.i.i ]
   %__begin0.0.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %__begin0.0.idx4.i.i
-  %6 = load i64, ptr %__begin0.0.ptr.i.i, align 8
-  %cmp3.not.i.i = icmp eq i64 %6, 0
+  %8 = load i64, ptr %__begin0.0.ptr.i.i, align 8
+  %cmp3.not.i.i = icmp eq i64 %8, 0
   %__begin0.0.add.i.i = add nuw nsw i64 %__begin0.0.idx4.i.i, 8
   %cmp.not.i.i = icmp ne i64 %__begin0.0.add.i.i, 32
   %or.cond.not.i.i = select i1 %cmp3.not.i.i, i1 %cmp.not.i.i, i1 false
@@ -855,7 +867,7 @@ return:                                           ; preds = %return.loopexit, %e
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217minResetDistToEndERKSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EERKS1_(ptr noalias nocapture sret(%"class.std::vector.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %triggers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.ue2::CharReach", align 16
+  %ref.tmp = alloca %"class.ue2::CharReach", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %triggers, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %triggers, i64 8
@@ -864,14 +876,18 @@ entry:
   br i1 %cmp.i.not22, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %arrayidx.i.i19.i.i = getelementptr inbounds i8, ptr %cr, i64 8
+  %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %arrayidx.i.i21.i.i = getelementptr inbounds i8, ptr %cr, i64 16
   %arrayidx.i.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i.i23.i.i = getelementptr inbounds i8, ptr %cr, i64 24
+  %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %_M_finish.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc13
-  %2 = phi ptr [ null, %for.body.lr.ph ], [ %16, %for.inc13 ]
+  %2 = phi ptr [ null, %for.body.lr.ph ], [ %18, %for.inc13 ]
   %__begin1.sroa.0.024 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i9, %for.inc13 ]
   %cond.i10.i.i2123 = phi ptr [ null, %for.body.lr.ph ], [ %cond.i10.i.i20, %for.inc13 ]
   %_M_finish.i4 = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 8
@@ -886,30 +902,38 @@ invoke.cont.lr.ph:                                ; preds = %for.body
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %5 = getelementptr i8, ptr %4, i64 %sub.ptr.sub.i
-  %6 = load <2 x i64>, ptr %cr, align 8, !noalias !13
-  %7 = load <2 x i64>, ptr %arrayidx.i.i21.i.i, align 8, !noalias !13
+  %6 = load i64, ptr %cr, align 8, !noalias !13
+  %7 = load i64, ptr %arrayidx.i.i19.i.i, align 8, !noalias !13
+  %8 = load i64, ptr %arrayidx.i.i21.i.i, align 8, !noalias !13
+  %9 = load i64, ptr %arrayidx.i.i23.i.i, align 8, !noalias !13
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.inc
   %storemerge18 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %inc, %for.inc ]
-  %8 = xor i64 %storemerge18, -1
-  %add.ptr.i = getelementptr %"class.ue2::CharReach", ptr %5, i64 %8
+  %10 = xor i64 %storemerge18, -1
+  %add.ptr.i = getelementptr %"class.ue2::CharReach", ptr %5, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
-  %9 = load <2 x i64>, ptr %ref.tmp, align 16, !alias.scope !13
-  %10 = and <2 x i64> %9, %6
-  store <2 x i64> %10, ptr %ref.tmp, align 16, !alias.scope !13
-  %11 = load <2 x i64>, ptr %arrayidx.i.i22.i.i, align 16, !alias.scope !13
-  %12 = and <2 x i64> %11, %7
-  store <2 x i64> %12, ptr %arrayidx.i.i22.i.i, align 16, !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
+  %11 = load i64, ptr %ref.tmp, align 8, !alias.scope !13
+  %and.i.i = and i64 %11, %6
+  store i64 %and.i.i, ptr %ref.tmp, align 8, !alias.scope !13
+  %12 = load i64, ptr %arrayidx.i.i20.i.i, align 8, !alias.scope !13
+  %and10.i.i = and i64 %12, %7
+  store i64 %and10.i.i, ptr %arrayidx.i.i20.i.i, align 8, !alias.scope !13
+  %13 = load i64, ptr %arrayidx.i.i22.i.i, align 8, !alias.scope !13
+  %and17.i.i = and i64 %13, %8
+  store i64 %and17.i.i, ptr %arrayidx.i.i22.i.i, align 8, !alias.scope !13
+  %14 = load i64, ptr %arrayidx.i.i24.i.i, align 8, !alias.scope !13
+  %and24.i.i = and i64 %14, %9
+  store i64 %and24.i.i, ptr %arrayidx.i.i24.i.i, align 8, !alias.scope !13
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %invoke.cont
   %__begin0.0.idx4.i.i = phi i64 [ 0, %invoke.cont ], [ %__begin0.0.add.i.i, %for.body.i.i ]
   %__begin0.0.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %__begin0.0.idx4.i.i
-  %13 = load i64, ptr %__begin0.0.ptr.i.i, align 8
-  %cmp3.not.i.i = icmp eq i64 %13, 0
+  %15 = load i64, ptr %__begin0.0.ptr.i.i, align 8
+  %cmp3.not.i.i = icmp eq i64 %15, 0
   %__begin0.0.add.i.i = add nuw nsw i64 %__begin0.0.idx4.i.i, 8
   %cmp.not.i.i = icmp ne i64 %__begin0.0.add.i.i, 32
   %or.cond.not.i.i = select i1 %cmp3.not.i.i, i1 %cmp.not.i.i, i1 false
@@ -947,8 +971,8 @@ for.inc:                                          ; preds = %invoke.cont10
 
 for.end:                                          ; preds = %for.inc, %invoke.cont10, %for.body
   %storemerge.lcssa = phi i64 [ 0, %for.body ], [ %storemerge18, %invoke.cont10 ], [ %umax, %for.inc ]
-  %14 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %2, %14
+  %16 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %2, %16
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
@@ -976,8 +1000,8 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %15
+  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %17
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -1015,7 +1039,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %for.inc13
 
 for.inc13:                                        ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i
-  %16 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %18 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %cond.i10.i.i20 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %cond.i10.i.i2123, %if.then.i ]
   %incdec.ptr.i9 = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i9, %1
@@ -1028,8 +1052,8 @@ nrvo.skipdtor:                                    ; preds = %for.inc13, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN3ue29minPeriodERKSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EERKS1_Pb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %triggers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr nocapture noundef writeonly %can_reset) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i49.i = alloca %"class.ue2::CharReach", align 16
-  %ref.tmp.i.i = alloca %"class.ue2::CharReach", align 16
+  %ref.tmp.i49.i = alloca %"class.ue2::CharReach", align 8
+  %ref.tmp.i.i = alloca %"class.ue2::CharReach", align 8
   %min_reset_dist = alloca %"class.std::vector.0", align 8
   store i8 1, ptr %can_reset, align 1
   call void @_ZN3ue217minResetDistToEndERKSt6vectorIS0_INS_9CharReachESaIS1_EESaIS3_EERKS1_(ptr nonnull sret(%"class.std::vector.0") align 8 %min_reset_dist, ptr noundef nonnull align 8 dereferenceable(24) %triggers, ptr noundef nonnull align 8 dereferenceable(32) %cr)
@@ -1041,15 +1065,19 @@ entry:
   br i1 %cmp.i.not35, label %do.end19, label %for.cond5.preheader.lr.ph
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
+  %arrayidx.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %arrayidx.i.i22.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %arrayidx.i.i24.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %arrayidx.i.i20.i.i.i52.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 8
   %arrayidx.i.i22.i.i.i53.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 16
+  %arrayidx.i.i24.i.i.i54.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 24
   br label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %for.cond5.preheader.lr.ph, %for.inc14
-  %2 = phi ptr [ %0, %for.cond5.preheader.lr.ph ], [ %36, %for.inc14 ]
-  %3 = phi ptr [ %1, %for.cond5.preheader.lr.ph ], [ %37, %for.inc14 ]
-  %4 = phi ptr [ %0, %for.cond5.preheader.lr.ph ], [ %38, %for.inc14 ]
-  %5 = phi ptr [ %1, %for.cond5.preheader.lr.ph ], [ %39, %for.inc14 ]
+  %2 = phi ptr [ %0, %for.cond5.preheader.lr.ph ], [ %42, %for.inc14 ]
+  %3 = phi ptr [ %1, %for.cond5.preheader.lr.ph ], [ %43, %for.inc14 ]
+  %4 = phi ptr [ %0, %for.cond5.preheader.lr.ph ], [ %44, %for.inc14 ]
+  %5 = phi ptr [ %1, %for.cond5.preheader.lr.ph ], [ %45, %for.inc14 ]
   %rv.037 = phi i32 [ -1, %for.cond5.preheader.lr.ph ], [ %rv.1.lcssa, %for.inc14 ]
   %__begin1.sroa.0.036 = phi ptr [ %0, %for.cond5.preheader.lr.ph ], [ %incdec.ptr.i, %for.inc14 ]
   %cmp32.not = icmp eq ptr %5, %4
@@ -1060,9 +1088,9 @@ for.body7.lr.ph:                                  ; preds = %for.cond5.preheader
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc
-  %7 = phi ptr [ %2, %for.body7.lr.ph ], [ %34, %for.inc ]
-  %8 = phi ptr [ %3, %for.body7.lr.ph ], [ %35, %for.inc ]
-  %9 = phi ptr [ %4, %for.body7.lr.ph ], [ %34, %for.inc ]
+  %7 = phi ptr [ %2, %for.body7.lr.ph ], [ %40, %for.inc ]
+  %8 = phi ptr [ %3, %for.body7.lr.ph ], [ %41, %for.inc ]
+  %9 = phi ptr [ %4, %for.body7.lr.ph ], [ %40, %for.inc ]
   %j.034 = phi i64 [ 0, %for.body7.lr.ph ], [ %inc, %for.inc ]
   %rv.133 = phi i32 [ %rv.037, %for.body7.lr.ph ], [ %.sroa.speculated, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"class.std::vector.11", ptr %9, i64 %j.034
@@ -1111,23 +1139,33 @@ for.body.i.us.i:                                  ; preds = %_ZNK3ue29CharReach4
   %b_it.sroa.0.07.i.us.i = phi ptr [ %call8.val, %for.body.lr.ph.i.us.i ], [ %incdec.ptr.i1.i.us.i, %_ZNK3ue29CharReach4noneEv.exit.i.us.i ]
   %a_it.sroa.0.06.i.us.i = phi ptr [ %add.ptr.i.us.i, %for.body.lr.ph.i.us.i ], [ %incdec.ptr.i.i.us.i, %_ZNK3ue29CharReach4noneEv.exit.i.us.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i.us.i, i64 32, i1 false)
-  %12 = load <2 x i64>, ptr %b_it.sroa.0.07.i.us.i, align 8, !noalias !17
-  %13 = load <2 x i64>, ptr %ref.tmp.i.i, align 16, !alias.scope !17
-  %14 = and <2 x i64> %13, %12
-  store <2 x i64> %14, ptr %ref.tmp.i.i, align 16, !alias.scope !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i.us.i, i64 32, i1 false)
+  %12 = load i64, ptr %b_it.sroa.0.07.i.us.i, align 8, !noalias !17
+  %13 = load i64, ptr %ref.tmp.i.i, align 8, !alias.scope !17
+  %and.i.i.i.us.i = and i64 %13, %12
+  store i64 %and.i.i.i.us.i, ptr %ref.tmp.i.i, align 8, !alias.scope !17
+  %arrayidx.i.i19.i.i.i.us.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.us.i, i64 8
+  %14 = load i64, ptr %arrayidx.i.i19.i.i.i.us.i, align 8, !noalias !17
+  %15 = load i64, ptr %arrayidx.i.i20.i.i.i.i, align 8, !alias.scope !17
+  %and10.i.i.i.us.i = and i64 %15, %14
+  store i64 %and10.i.i.i.us.i, ptr %arrayidx.i.i20.i.i.i.i, align 8, !alias.scope !17
   %arrayidx.i.i21.i.i.i.us.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.us.i, i64 16
-  %15 = load <2 x i64>, ptr %arrayidx.i.i21.i.i.i.us.i, align 8, !noalias !17
-  %16 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i, align 16, !alias.scope !17
-  %17 = and <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %arrayidx.i.i22.i.i.i.i, align 16, !alias.scope !17
+  %16 = load i64, ptr %arrayidx.i.i21.i.i.i.us.i, align 8, !noalias !17
+  %17 = load i64, ptr %arrayidx.i.i22.i.i.i.i, align 8, !alias.scope !17
+  %and17.i.i.i.us.i = and i64 %17, %16
+  store i64 %and17.i.i.i.us.i, ptr %arrayidx.i.i22.i.i.i.i, align 8, !alias.scope !17
+  %arrayidx.i.i23.i.i.i.us.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.us.i, i64 24
+  %18 = load i64, ptr %arrayidx.i.i23.i.i.i.us.i, align 8, !noalias !17
+  %19 = load i64, ptr %arrayidx.i.i24.i.i.i.i, align 8, !alias.scope !17
+  %and24.i.i.i.us.i = and i64 %19, %18
+  store i64 %and24.i.i.i.us.i, ptr %arrayidx.i.i24.i.i.i.i, align 8, !alias.scope !17
   br label %for.body.i.i.i.us.i
 
 for.body.i.i.i.us.i:                              ; preds = %for.body.i.i.i.us.i, %for.body.i.us.i
   %__begin0.0.idx4.i.i.i.us.i = phi i64 [ 0, %for.body.i.us.i ], [ %__begin0.0.add.i.i.i.us.i, %for.body.i.i.i.us.i ]
   %__begin0.0.ptr.i.i.i.us.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 %__begin0.0.idx4.i.i.i.us.i
-  %18 = load i64, ptr %__begin0.0.ptr.i.i.i.us.i, align 8
-  %cmp3.not.i.i.i.us.i = icmp eq i64 %18, 0
+  %20 = load i64, ptr %__begin0.0.ptr.i.i.i.us.i, align 8
+  %cmp3.not.i.i.i.us.i = icmp eq i64 %20, 0
   %__begin0.0.add.i.i.i.us.i = add nuw nsw i64 %__begin0.0.idx4.i.i.i.us.i, 8
   %cmp.not.i.i.i.us.i = icmp ne i64 %__begin0.0.add.i.i.i.us.i, 32
   %or.cond.not.i.i.i.us.i = select i1 %cmp3.not.i.i.i.us.i, i1 %cmp.not.i.i.i.us.i, i1 false
@@ -1176,23 +1214,33 @@ for.body.i.i:                                     ; preds = %_ZNK3ue29CharReach4
   %b_it.sroa.0.07.i.i = phi ptr [ %call8.val, %for.body.lr.ph.i.i ], [ %incdec.ptr.i1.i.i, %_ZNK3ue29CharReach4noneEv.exit.i.i ]
   %a_it.sroa.0.06.i.i = phi ptr [ %add.ptr.i.i, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i.i, %_ZNK3ue29CharReach4noneEv.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i.i, i64 32, i1 false)
-  %19 = load <2 x i64>, ptr %b_it.sroa.0.07.i.i, align 8, !noalias !17
-  %20 = load <2 x i64>, ptr %ref.tmp.i.i, align 16, !alias.scope !17
-  %21 = and <2 x i64> %20, %19
-  store <2 x i64> %21, ptr %ref.tmp.i.i, align 16, !alias.scope !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i.i, i64 32, i1 false)
+  %21 = load i64, ptr %b_it.sroa.0.07.i.i, align 8, !noalias !17
+  %22 = load i64, ptr %ref.tmp.i.i, align 8, !alias.scope !17
+  %and.i.i.i.i = and i64 %22, %21
+  store i64 %and.i.i.i.i, ptr %ref.tmp.i.i, align 8, !alias.scope !17
+  %arrayidx.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.i, i64 8
+  %23 = load i64, ptr %arrayidx.i.i19.i.i.i.i, align 8, !noalias !17
+  %24 = load i64, ptr %arrayidx.i.i20.i.i.i.i, align 8, !alias.scope !17
+  %and10.i.i.i.i = and i64 %24, %23
+  store i64 %and10.i.i.i.i, ptr %arrayidx.i.i20.i.i.i.i, align 8, !alias.scope !17
   %arrayidx.i.i21.i.i.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.i, i64 16
-  %22 = load <2 x i64>, ptr %arrayidx.i.i21.i.i.i.i, align 8, !noalias !17
-  %23 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i.i, align 16, !alias.scope !17
-  %24 = and <2 x i64> %23, %22
-  store <2 x i64> %24, ptr %arrayidx.i.i22.i.i.i.i, align 16, !alias.scope !17
+  %25 = load i64, ptr %arrayidx.i.i21.i.i.i.i, align 8, !noalias !17
+  %26 = load i64, ptr %arrayidx.i.i22.i.i.i.i, align 8, !alias.scope !17
+  %and17.i.i.i.i = and i64 %26, %25
+  store i64 %and17.i.i.i.i, ptr %arrayidx.i.i22.i.i.i.i, align 8, !alias.scope !17
+  %arrayidx.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i.i, i64 24
+  %27 = load i64, ptr %arrayidx.i.i23.i.i.i.i, align 8, !noalias !17
+  %28 = load i64, ptr %arrayidx.i.i24.i.i.i.i, align 8, !alias.scope !17
+  %and24.i.i.i.i = and i64 %28, %27
+  store i64 %and24.i.i.i.i, ptr %arrayidx.i.i24.i.i.i.i, align 8, !alias.scope !17
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i
   %__begin0.0.idx4.i.i.i.i = phi i64 [ 0, %for.body.i.i ], [ %__begin0.0.add.i.i.i.i, %for.body.i.i.i.i ]
   %__begin0.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 %__begin0.0.idx4.i.i.i.i
-  %25 = load i64, ptr %__begin0.0.ptr.i.i.i.i, align 8
-  %cmp3.not.i.i.i.i = icmp eq i64 %25, 0
+  %29 = load i64, ptr %__begin0.0.ptr.i.i.i.i, align 8
+  %cmp3.not.i.i.i.i = icmp eq i64 %29, 0
   %__begin0.0.add.i.i.i.i = add nuw nsw i64 %__begin0.0.idx4.i.i.i.i, 8
   %cmp.not.i.i.i.i = icmp ne i64 %__begin0.0.add.i.i.i.i, 32
   %or.cond.not.i.i.i.i = select i1 %cmp3.not.i.i.i.i, i1 %cmp.not.i.i.i.i, i1 false
@@ -1219,23 +1267,33 @@ for.body.i55.i:                                   ; preds = %_ZNK3ue29CharReach4
   %b_it.sroa.0.07.i56.i = phi ptr [ %gep.i, %if.else.i ], [ %incdec.ptr.i1.i74.i, %_ZNK3ue29CharReach4noneEv.exit.i72.i ]
   %a_it.sroa.0.06.i57.i = phi ptr [ %call4.val, %if.else.i ], [ %incdec.ptr.i.i73.i, %_ZNK3ue29CharReach4noneEv.exit.i72.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i49.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i57.i, i64 32, i1 false)
-  %26 = load <2 x i64>, ptr %b_it.sroa.0.07.i56.i, align 8, !noalias !21
-  %27 = load <2 x i64>, ptr %ref.tmp.i49.i, align 16, !alias.scope !21
-  %28 = and <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %ref.tmp.i49.i, align 16, !alias.scope !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49.i, ptr noundef nonnull align 8 dereferenceable(32) %a_it.sroa.0.06.i57.i, i64 32, i1 false)
+  %30 = load i64, ptr %b_it.sroa.0.07.i56.i, align 8, !noalias !21
+  %31 = load i64, ptr %ref.tmp.i49.i, align 8, !alias.scope !21
+  %and.i.i.i58.i = and i64 %31, %30
+  store i64 %and.i.i.i58.i, ptr %ref.tmp.i49.i, align 8, !alias.scope !21
+  %arrayidx.i.i19.i.i.i59.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i56.i, i64 8
+  %32 = load i64, ptr %arrayidx.i.i19.i.i.i59.i, align 8, !noalias !21
+  %33 = load i64, ptr %arrayidx.i.i20.i.i.i52.i, align 8, !alias.scope !21
+  %and10.i.i.i60.i = and i64 %33, %32
+  store i64 %and10.i.i.i60.i, ptr %arrayidx.i.i20.i.i.i52.i, align 8, !alias.scope !21
   %arrayidx.i.i21.i.i.i61.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i56.i, i64 16
-  %29 = load <2 x i64>, ptr %arrayidx.i.i21.i.i.i61.i, align 8, !noalias !21
-  %30 = load <2 x i64>, ptr %arrayidx.i.i22.i.i.i53.i, align 16, !alias.scope !21
-  %31 = and <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %arrayidx.i.i22.i.i.i53.i, align 16, !alias.scope !21
+  %34 = load i64, ptr %arrayidx.i.i21.i.i.i61.i, align 8, !noalias !21
+  %35 = load i64, ptr %arrayidx.i.i22.i.i.i53.i, align 8, !alias.scope !21
+  %and17.i.i.i62.i = and i64 %35, %34
+  store i64 %and17.i.i.i62.i, ptr %arrayidx.i.i22.i.i.i53.i, align 8, !alias.scope !21
+  %arrayidx.i.i23.i.i.i63.i = getelementptr inbounds i8, ptr %b_it.sroa.0.07.i56.i, i64 24
+  %36 = load i64, ptr %arrayidx.i.i23.i.i.i63.i, align 8, !noalias !21
+  %37 = load i64, ptr %arrayidx.i.i24.i.i.i54.i, align 8, !alias.scope !21
+  %and24.i.i.i64.i = and i64 %37, %36
+  store i64 %and24.i.i.i64.i, ptr %arrayidx.i.i24.i.i.i54.i, align 8, !alias.scope !21
   br label %for.body.i.i.i65.i
 
 for.body.i.i.i65.i:                               ; preds = %for.body.i.i.i65.i, %for.body.i55.i
   %__begin0.0.idx4.i.i.i66.i = phi i64 [ 0, %for.body.i55.i ], [ %__begin0.0.add.i.i.i69.i, %for.body.i.i.i65.i ]
   %__begin0.0.ptr.i.i.i67.i = getelementptr inbounds i8, ptr %ref.tmp.i49.i, i64 %__begin0.0.idx4.i.i.i66.i
-  %32 = load i64, ptr %__begin0.0.ptr.i.i.i67.i, align 8
-  %cmp3.not.i.i.i68.i = icmp eq i64 %32, 0
+  %38 = load i64, ptr %__begin0.0.ptr.i.i.i67.i, align 8
+  %cmp3.not.i.i.i68.i = icmp eq i64 %38, 0
   %__begin0.0.add.i.i.i69.i = add nuw nsw i64 %__begin0.0.idx4.i.i.i66.i, 8
   %cmp.not.i.i.i70.i = icmp ne i64 %__begin0.0.add.i.i.i69.i, 32
   %or.cond.not.i.i.i71.i = select i1 %cmp3.not.i.i.i68.i, i1 %cmp.not.i.i.i70.i, i1 false
@@ -1263,8 +1321,8 @@ invoke.cont:                                      ; preds = %for.inc.i, %_ZN3ue2
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %retval.0.i, i32 %rv.133)
   %conv = zext i32 %retval.0.i to i64
   %add.ptr.i14 = getelementptr inbounds i64, ptr %.pre43, i64 %j.034
-  %33 = load i64, ptr %add.ptr.i14, align 8
-  %cmp13.not = icmp ult i64 %33, %conv
+  %39 = load i64, ptr %add.ptr.i14, align 8
+  %cmp13.not = icmp ult i64 %39, %conv
   br i1 %cmp13.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -1274,21 +1332,21 @@ if.then:                                          ; preds = %invoke.cont
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %if.then
-  %34 = phi ptr [ %7, %invoke.cont ], [ %.pre42, %if.then ]
-  %35 = phi ptr [ %8, %invoke.cont ], [ %.pre, %if.then ]
+  %40 = phi ptr [ %7, %invoke.cont ], [ %.pre42, %if.then ]
+  %41 = phi ptr [ %8, %invoke.cont ], [ %.pre, %if.then ]
   %inc = add nuw i64 %j.034, 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %34 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %41 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body7, label %for.inc14, !llvm.loop !24
 
 for.inc14:                                        ; preds = %for.inc, %for.cond5.preheader
-  %36 = phi ptr [ %2, %for.cond5.preheader ], [ %34, %for.inc ]
-  %37 = phi ptr [ %3, %for.cond5.preheader ], [ %35, %for.inc ]
-  %38 = phi ptr [ %4, %for.cond5.preheader ], [ %34, %for.inc ]
-  %39 = phi ptr [ %4, %for.cond5.preheader ], [ %35, %for.inc ]
+  %42 = phi ptr [ %2, %for.cond5.preheader ], [ %40, %for.inc ]
+  %43 = phi ptr [ %3, %for.cond5.preheader ], [ %41, %for.inc ]
+  %44 = phi ptr [ %4, %for.cond5.preheader ], [ %40, %for.inc ]
+  %45 = phi ptr [ %4, %for.cond5.preheader ], [ %41, %for.inc ]
   %rv.1.lcssa = phi i32 [ %rv.037, %for.cond5.preheader ], [ %.sroa.speculated, %for.inc ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.036, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1

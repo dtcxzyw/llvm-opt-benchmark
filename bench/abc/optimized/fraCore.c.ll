@@ -1457,15 +1457,21 @@ define ptr @Fra_FraigChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 1, ptr %7, align 8
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 112
-  store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
-  store i32 %2, ptr %9, align 8
-  %10 = call ptr @Fra_FraigPerform(ptr noundef %0, ptr noundef nonnull %4)
-  ret ptr %10
+  %8 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %4, i64 112
+  store i32 1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 %2, ptr %12, align 8
+  %13 = call ptr @Fra_FraigPerform(ptr noundef %0, ptr noundef nonnull %4)
+  ret ptr %13
 }
 
 declare void @Fra_ParamsDefault(ptr noundef) local_unnamed_addr #4

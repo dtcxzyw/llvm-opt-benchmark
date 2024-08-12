@@ -14,7 +14,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4base7MD5InitEPA88_c(ptr nocapture noundef writeonly %context) local_unnamed_addr #0 {
 entry:
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %context, align 4
+  store i32 1732584193, ptr %context, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %context, i64 4
+  store i32 -271733879, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %context, i64 8
+  store i32 -1732584194, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %context, i64 12
+  store i32 271733878, ptr %arrayidx6, align 4
   %bits = getelementptr inbounds i8, ptr %context, i64 16
   store i32 0, ptr %bits, align 4
   %arrayidx9 = getelementptr inbounds i8, ptr %context, i64 20
@@ -684,8 +690,12 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %arrayidx13 = getelementptr inbounds i8, ptr %context, i64 80
-  %1 = load <2 x i32>, ptr %bits, align 4
-  store <2 x i32> %1, ptr %arrayidx13, align 4
+  %1 = load i32, ptr %bits, align 4
+  store i32 %1, ptr %arrayidx13, align 4
+  %arrayidx17 = getelementptr inbounds i8, ptr %context, i64 84
+  %arrayidx19 = getelementptr inbounds i8, ptr %context, i64 20
+  %2 = load i32, ptr %arrayidx19, align 4
+  store i32 %2, ptr %arrayidx17, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context, ptr noundef nonnull %in)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 4 dereferenceable(16) %context, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %context, i8 0, i64 88, i1 false)
@@ -728,8 +738,12 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else.i
   %arrayidx13.i = getelementptr inbounds i8, ptr %context_copy, i64 80
-  %1 = load <2 x i32>, ptr %bits.i, align 16
-  store <2 x i32> %1, ptr %arrayidx13.i, align 16
+  %1 = load i32, ptr %bits.i, align 16
+  store i32 %1, ptr %arrayidx13.i, align 16
+  %arrayidx17.i = getelementptr inbounds i8, ptr %context_copy, i64 84
+  %arrayidx19.i = getelementptr inbounds i8, ptr %context_copy, i64 20
+  %2 = load i32, ptr %arrayidx19.i, align 4
+  store i32 %2, ptr %arrayidx17.i, align 4
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context_copy, ptr noundef nonnull %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %context_copy, i64 16, i1 false)
   ret void
@@ -808,7 +822,13 @@ define dso_local void @_ZN4base6MD5SumEPKvmPNS_9MD5DigestE(ptr noundef %data, i6
 entry:
   %ctx = alloca [88 x i8], align 16
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
+  store i32 1732584193, ptr %ctx, align 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 -1732584194, ptr %arrayidx4.i, align 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 271733878, ptr %arrayidx6.i, align 4
   %bits.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 0, ptr %bits.i, align 16
   %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 20
@@ -842,8 +862,11 @@ if.else.i:                                        ; preds = %entry
 
 _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else.i
   %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %1 = load <2 x i32>, ptr %bits.i, align 16
-  store <2 x i32> %1, ptr %arrayidx13.i, align 16
+  %1 = load i32, ptr %bits.i, align 16
+  store i32 %1, ptr %arrayidx13.i, align 16
+  %arrayidx17.i = getelementptr inbounds i8, ptr %ctx, i64 84
+  %2 = load i32, ptr %arrayidx9.i, align 4
+  store i32 %2, ptr %arrayidx17.i, align 4
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx, ptr noundef nonnull %in.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx, i64 16, i1 false)
   ret void
@@ -861,7 +884,13 @@ entry:
   %call1 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %str)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx.i, align 16
+  store i32 1732584193, ptr %ctx.i, align 16
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 4
+  store i32 -271733879, ptr %arrayidx2.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
+  store i32 -1732584194, ptr %arrayidx4.i.i, align 8
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 12
+  store i32 271733878, ptr %arrayidx6.i.i, align 4
   %bits.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 0, ptr %bits.i.i, align 16
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 20
@@ -895,8 +924,11 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit:         ; preds = %if.then.i.i, %if.else.i.i
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 80
-  %1 = load <2 x i32>, ptr %bits.i.i, align 16
-  store <2 x i32> %1, ptr %arrayidx13.i.i, align 16
+  %1 = load i32, ptr %bits.i.i, align 16
+  store i32 %1, ptr %arrayidx13.i.i, align 16
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 84
+  %2 = load i32, ptr %arrayidx9.i.i, align 4
+  store i32 %2, ptr %arrayidx17.i.i, align 4
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx.i, ptr noundef nonnull %in.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ctx.i)
@@ -909,27 +941,27 @@ for.body.i:                                       ; preds = %_ZN4base6MD5SumEPKv
   %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %invoke.cont11.i ], [ 0, %_ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %invoke.cont11.i ], [ 0, %_ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit ]
   %arrayidx.i = getelementptr inbounds [16 x i8], ptr %digest, i64 0, i64 %indvars.iv11.i
-  %2 = load i8, ptr %arrayidx.i, align 1, !noalias !8
-  %conv.i = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i, align 1, !noalias !8
+  %conv.i = zext i8 %3 to i32
   %shr.i = lshr i32 %conv.i, 4
   %idxprom2.i = zext nneg i32 %shr.i to i64
   %arrayidx3.i = getelementptr inbounds [17 x i8], ptr @_ZZN4base17MD5DigestToBase16B5cxx11ERKNS_9MD5DigestEE7zEncode, i64 0, i64 %idxprom2.i
-  %3 = load i8, ptr %arrayidx3.i, align 1, !noalias !8
+  %4 = load i8, ptr %arrayidx3.i, align 1, !noalias !8
   %call.i = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %indvars.iv.i)
           to label %invoke.cont5.i unwind label %lpad.loopexit.i
 
 invoke.cont5.i:                                   ; preds = %for.body.i
-  store i8 %3, ptr %call.i, align 1
+  store i8 %4, ptr %call.i, align 1
   %and7.i = and i32 %conv.i, 15
   %idxprom8.i = zext nneg i32 %and7.i to i64
   %arrayidx9.i = getelementptr inbounds [17 x i8], ptr @_ZZN4base17MD5DigestToBase16B5cxx11ERKNS_9MD5DigestEE7zEncode, i64 0, i64 %idxprom8.i
-  %4 = load i8, ptr %arrayidx9.i, align 1, !noalias !8
-  %5 = or disjoint i64 %indvars.iv.i, 1
-  %call12.i = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %5)
+  %5 = load i8, ptr %arrayidx9.i, align 1, !noalias !8
+  %6 = or disjoint i64 %indvars.iv.i, 1
+  %call12.i = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %6)
           to label %invoke.cont11.i unwind label %lpad.loopexit.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont5.i
-  store i8 %4, ptr %call12.i, align 1
+  store i8 %5, ptr %call12.i, align 1
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %exitcond.not.i = icmp eq i64 %indvars.iv.next12.i, 16

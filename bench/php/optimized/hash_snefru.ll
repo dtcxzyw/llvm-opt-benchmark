@@ -245,44 +245,48 @@ SnefruTransform.exit:                             ; preds = %7
 
 32:                                               ; preds = %SnefruTransform.exit, %2
   %33 = getelementptr inbounds i8, ptr %1, i64 64
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
-  %35 = load <2 x i32>, ptr %33, align 4
-  store <2 x i32> %35, ptr %34, align 4
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 68
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 %37, ptr %38, align 4
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
-  br label %36
+  br label %39
 
-36:                                               ; preds = %32, %36
-  %indvars.iv30 = phi i64 [ 0, %32 ], [ %indvars.iv.next31, %36 ]
-  %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
-  %38 = load i32, ptr %37, align 4
-  %39 = lshr i32 %38, 24
-  %40 = trunc nuw i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  store i8 %40, ptr %41, align 1
-  %42 = load i32, ptr %37, align 4
-  %43 = lshr i32 %42, 16
-  %44 = trunc i32 %43 to i8
-  %45 = or disjoint i64 %indvars.iv, 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 %45
-  store i8 %44, ptr %46, align 1
-  %47 = load i32, ptr %37, align 4
-  %48 = lshr i32 %47, 8
-  %49 = trunc i32 %48 to i8
-  %50 = or disjoint i64 %indvars.iv, 2
-  %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  store i8 %49, ptr %51, align 1
-  %52 = load i32, ptr %37, align 4
-  %53 = trunc i32 %52 to i8
-  %54 = or disjoint i64 %indvars.iv, 3
-  %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  store i8 %53, ptr %55, align 1
+39:                                               ; preds = %32, %39
+  %indvars.iv30 = phi i64 [ 0, %32 ], [ %indvars.iv.next31, %39 ]
+  %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %39 ]
+  %40 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
+  %41 = load i32, ptr %40, align 4
+  %42 = lshr i32 %41, 24
+  %43 = trunc nuw i32 %42 to i8
+  %44 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  store i8 %43, ptr %44, align 1
+  %45 = load i32, ptr %40, align 4
+  %46 = lshr i32 %45, 16
+  %47 = trunc i32 %46 to i8
+  %48 = or disjoint i64 %indvars.iv, 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  store i8 %47, ptr %49, align 1
+  %50 = load i32, ptr %40, align 4
+  %51 = lshr i32 %50, 8
+  %52 = trunc i32 %51 to i8
+  %53 = or disjoint i64 %indvars.iv, 2
+  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  store i8 %52, ptr %54, align 1
+  %55 = load i32, ptr %40, align 4
+  %56 = trunc i32 %55 to i8
+  %57 = or disjoint i64 %indvars.iv, 3
+  %58 = getelementptr inbounds i8, ptr %0, i64 %57
+  store i8 %56, ptr %58, align 1
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next31, 8
-  br i1 %exitcond.not, label %56, label %36
+  br i1 %exitcond.not, label %59, label %39
 
-56:                                               ; preds = %36
+59:                                               ; preds = %39
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 108) #7
   ret void
 }

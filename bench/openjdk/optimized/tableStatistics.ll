@@ -106,16 +106,17 @@ declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load <2 x i64>, ptr %2, align 8
-  %4 = uitofp <2 x i64> %3 to <2 x double>
-  %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %5 = fsub <2 x double> %4, %shift
-  %6 = extractelement <2 x double> %5, i64 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load double, ptr %7, align 8
-  %9 = fdiv double %6, %8
-  %10 = fptrunc double %9 to float
-  ret float %10
+  %3 = load i64, ptr %2, align 8
+  %4 = uitofp i64 %3 to double
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load i64, ptr %5, align 8
+  %7 = uitofp i64 %6 to double
+  %8 = fsub double %4, %7
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load double, ptr %9, align 8
+  %11 = fdiv double %8, %10
+  %12 = fptrunc double %11 to float
+  ret float %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

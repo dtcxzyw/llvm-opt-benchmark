@@ -43458,18 +43458,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -45135,18 +45136,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -46267,18 +46269,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -48376,18 +48379,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -50642,18 +50646,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -52890,18 +52895,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -54888,18 +54894,19 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !23
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
+  %11 = load ptr, ptr %info2.i, align 8, !tbaa !1604
+  store ptr %11, ptr %info.i, align 8, !tbaa !1604
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
-  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !55
-  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !55
+  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !1606
+  store ptr %12, ptr %vtable.i, align 8, !tbaa !1606
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !1607
-  %tobool.not.i = icmp eq ptr %11, null
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -60347,15 +60354,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !315
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -60474,15 +60483,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !315
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -61706,15 +61717,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !344
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -61833,15 +61846,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !344
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -63059,15 +63074,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !367
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEEEEENS0_5get_tIJNSJ_INSK_I8velocitySM_SaISV_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -63186,15 +63203,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !367
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -64616,15 +64635,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !630
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -64743,15 +64764,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !630
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -66157,15 +66180,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !663
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -66284,15 +66309,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !663
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -67742,15 +67769,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !689
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_I4compILi0EESM_SaIS10_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -67869,15 +67898,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !689
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -69912,15 +69943,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !1298
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EENSL_INSM_ISZ_ILi1EESO_SaIS14_EvEEST_EENSL_INSM_ISZ_ILi2EESO_SaIS18_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -70039,15 +70072,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !1298
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -72210,15 +72245,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !1337
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS16_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -72337,15 +72374,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !1337
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -74507,15 +74546,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !1369
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -74634,15 +74675,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !1369
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -76809,15 +76852,17 @@ if.then.i:                                        ; preds = %cleanup.cont
   %element.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %0, ptr %element.i.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = load ptr, ptr %args, align 8, !tbaa !1401
+  store ptr %9, ptr %second.i.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %args, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi1EESM_SaIS14_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -76936,15 +76981,17 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_
   %8 = load i32, ptr %5, align 4, !tbaa !65
   store i32 %8, ptr %element.i.i.i, align 8, !tbaa !1870
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %9 = load ptr, ptr %7, align 8, !tbaa !1401
+  store ptr %9, ptr %second.i.i.i.i.i, align 8, !tbaa !307
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %10 = load <2 x ptr>, ptr %7, align 8, !tbaa !55
-  store <2 x ptr> %10, ptr %second.i.i.i.i.i, align 8, !tbaa !55
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i

@@ -2021,20 +2021,65 @@ if.end:                                           ; preds = %tcp_chr_telnet_dest
   %3 = load i8, ptr %is_tn3270, align 2
   %tobool4 = trunc i8 %3 to i1
   %buflen45 = getelementptr inbounds i8, ptr %call1, i64 24
+  %arrayidx52 = getelementptr i8, ptr %call1, i64 1
+  %arrayidx55 = getelementptr i8, ptr %call1, i64 2
+  %arrayidx60 = getelementptr i8, ptr %call1, i64 3
+  %arrayidx63 = getelementptr i8, ptr %call1, i64 4
+  %arrayidx66 = getelementptr i8, ptr %call1, i64 5
+  %arrayidx71 = getelementptr i8, ptr %call1, i64 6
+  %arrayidx74 = getelementptr i8, ptr %call1, i64 7
+  %arrayidx77 = getelementptr i8, ptr %call1, i64 8
+  %arrayidx82 = getelementptr i8, ptr %call1, i64 9
+  %arrayidx85 = getelementptr i8, ptr %call1, i64 10
+  %arrayidx88 = getelementptr i8, ptr %call1, i64 11
   br i1 %tobool4, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %arrayidx77 = getelementptr i8, ptr %call1, i64 8
   store i64 12, ptr %buflen45, align 8
-  store <8 x i8> <i8 -1, i8 -5, i8 1, i8 -1, i8 -5, i8 3, i8 -1, i8 -5>, ptr %call1, align 1
-  store <4 x i8> <i8 0, i8 -1, i8 -3, i8 0>, ptr %arrayidx77, align 1
+  store i8 -1, ptr %call1, align 1
+  store i8 -5, ptr %arrayidx52, align 1
+  store i8 1, ptr %arrayidx55, align 1
+  store i8 -1, ptr %arrayidx60, align 1
+  store i8 -5, ptr %arrayidx63, align 1
+  store i8 3, ptr %arrayidx66, align 1
+  store i8 -1, ptr %arrayidx71, align 1
+  store i8 -5, ptr %arrayidx74, align 1
+  store i8 0, ptr %arrayidx77, align 1
+  store i8 -1, ptr %arrayidx82, align 1
+  store i8 -3, ptr %arrayidx85, align 1
+  store i8 0, ptr %arrayidx88, align 1
   br label %cont
 
 if.else:                                          ; preds = %if.end
   store i64 21, ptr %buflen45, align 8
-  store <16 x i8> <i8 -1, i8 -3, i8 25, i8 -1, i8 -5, i8 25, i8 -1, i8 -3, i8 0, i8 -1, i8 -5, i8 0, i8 -1, i8 -3, i8 24, i8 -1>, ptr %call1, align 1
+  store i8 -1, ptr %call1, align 1
+  store i8 -3, ptr %arrayidx52, align 1
+  store i8 25, ptr %arrayidx55, align 1
+  store i8 -1, ptr %arrayidx60, align 1
+  store i8 -5, ptr %arrayidx63, align 1
+  store i8 25, ptr %arrayidx66, align 1
+  store i8 -1, ptr %arrayidx71, align 1
+  store i8 -3, ptr %arrayidx74, align 1
+  store i8 0, ptr %arrayidx77, align 1
+  store i8 -1, ptr %arrayidx82, align 1
+  store i8 -5, ptr %arrayidx85, align 1
+  store i8 0, ptr %arrayidx88, align 1
+  %arrayidx93 = getelementptr i8, ptr %call1, i64 12
+  store i8 -1, ptr %arrayidx93, align 1
+  %arrayidx96 = getelementptr i8, ptr %call1, i64 13
+  store i8 -3, ptr %arrayidx96, align 1
+  %arrayidx99 = getelementptr i8, ptr %call1, i64 14
+  store i8 24, ptr %arrayidx99, align 1
+  %arrayidx104 = getelementptr i8, ptr %call1, i64 15
+  store i8 -1, ptr %arrayidx104, align 1
   %arrayidx107 = getelementptr i8, ptr %call1, i64 16
-  store <4 x i8> <i8 -6, i8 24, i8 1, i8 -1>, ptr %arrayidx107, align 1
+  store i8 -6, ptr %arrayidx107, align 1
+  %arrayidx110 = getelementptr i8, ptr %call1, i64 17
+  store i8 24, ptr %arrayidx110, align 1
+  %arrayidx115 = getelementptr i8, ptr %call1, i64 18
+  store i8 1, ptr %arrayidx115, align 1
+  %arrayidx118 = getelementptr i8, ptr %call1, i64 19
+  store i8 -1, ptr %arrayidx118, align 1
   %arrayidx121 = getelementptr i8, ptr %call1, i64 20
   store i8 -16, ptr %arrayidx121, align 1
   br label %cont

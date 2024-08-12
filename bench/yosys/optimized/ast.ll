@@ -20640,7 +20640,7 @@ _ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EED2Ev.exit
 define noundef nonnull ptr @_ZNK5Yosys3AST9AstModule5cloneEv(ptr noundef nonnull align 8 dereferenceable(579) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #36
   invoke void @_ZN5Yosys5RTLIL6ModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %2)
-          to label %3 unwind label %45
+          to label %3 unwind label %73
 
 3:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %2, align 8
@@ -20690,32 +20690,67 @@ _ZN5Yosys5RTLIL8IdStringaSERKS1_.exit:            ; preds = %_ZN5Yosys5RTLIL8IdS
   %28 = getelementptr inbounds i8, ptr %2, i64 560
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 568
-  %30 = getelementptr inbounds i8, ptr %2, i64 568
-  %31 = load <8 x i8>, ptr %29, align 8
-  %32 = and <8 x i8> %31, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  store <8 x i8> %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 576
-  %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 576
+  %30 = load i8, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 568
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 569
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %2, i64 569
   %36 = and i8 %34, 1
-  store i8 %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 577
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %2, i64 577
+  store i8 %36, ptr %35, align 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 570
+  %38 = load i8, ptr %37, align 2
+  %39 = getelementptr inbounds i8, ptr %2, i64 570
   %40 = and i8 %38, 1
-  store i8 %40, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 578
-  %42 = load i8, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %2, i64 578
+  store i8 %40, ptr %39, align 2
+  %41 = getelementptr inbounds i8, ptr %0, i64 571
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %2, i64 571
   %44 = and i8 %42, 1
-  store i8 %44, ptr %43, align 2
+  store i8 %44, ptr %43, align 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 572
+  %46 = load i8, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %2, i64 572
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 573
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr inbounds i8, ptr %2, i64 573
+  %52 = and i8 %50, 1
+  store i8 %52, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %0, i64 574
+  %54 = load i8, ptr %53, align 2
+  %55 = getelementptr inbounds i8, ptr %2, i64 574
+  %56 = and i8 %54, 1
+  store i8 %56, ptr %55, align 2
+  %57 = getelementptr inbounds i8, ptr %0, i64 575
+  %58 = load i8, ptr %57, align 1
+  %59 = getelementptr inbounds i8, ptr %2, i64 575
+  %60 = and i8 %58, 1
+  store i8 %60, ptr %59, align 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 576
+  %62 = load i8, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 576
+  %64 = and i8 %62, 1
+  store i8 %64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 577
+  %66 = load i8, ptr %65, align 1
+  %67 = getelementptr inbounds i8, ptr %2, i64 577
+  %68 = and i8 %66, 1
+  store i8 %68, ptr %67, align 1
+  %69 = getelementptr inbounds i8, ptr %0, i64 578
+  %70 = load i8, ptr %69, align 2
+  %71 = getelementptr inbounds i8, ptr %2, i64 578
+  %72 = and i8 %70, 1
+  store i8 %72, ptr %71, align 2
   ret ptr %2
 
-45:                                               ; preds = %1
-  %46 = landingpad { ptr, i32 }
+73:                                               ; preds = %1
+  %74 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #33
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %74
 }
 
 declare void @_ZNK5Yosys5RTLIL6Module9cloneIntoEPS1_(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef) local_unnamed_addr #0

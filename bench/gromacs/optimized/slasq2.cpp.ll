@@ -800,23 +800,25 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %413 = load float, ptr %412, align 4
   store float %413, ptr %11, align 4
   %414 = getelementptr i8, ptr %411, i64 -4
-  %415 = load <2 x float>, ptr %414, align 4
-  %416 = add i32 %394, -12
-  %.not567657 = icmp sgt i32 %409, %416
+  %415 = load float, ptr %414, align 4
+  %416 = load float, ptr %411, align 4
+  %417 = add i32 %394, -12
+  %.not567657 = icmp sgt i32 %409, %417
   br i1 %.not567657, label %._crit_edge664, label %.lr.ph663
 
 .lr.ph663:                                        ; preds = %407
-  %417 = load float, ptr %14, align 4
-  %418 = fmul float %417, 0x3DE3880000000000
-  %419 = fneg float %417
-  %420 = sext i32 %416 to i64
-  br label %421
+  %418 = load float, ptr %14, align 4
+  %419 = fmul float %418, 0x3DE3880000000000
+  %420 = fneg float %418
+  %421 = sext i32 %417 to i64
+  br label %422
 
-421:                                              ; preds = %.lr.ph663, %450
-  %indvars.iv737 = phi i64 [ %410, %.lr.ph663 ], [ %indvars.iv.next738, %450 ]
-  %.0519660 = phi i32 [ %408, %.lr.ph663 ], [ %.1520, %450 ]
-  %422 = phi float [ %413, %.lr.ph663 ], [ %451, %450 ]
-  %423 = phi <2 x float> [ %415, %.lr.ph663 ], [ %452, %450 ]
+422:                                              ; preds = %.lr.ph663, %452
+  %indvars.iv737 = phi i64 [ %410, %.lr.ph663 ], [ %indvars.iv.next738, %452 ]
+  %.0511661 = phi float [ %416, %.lr.ph663 ], [ %.1512, %452 ]
+  %.0519660 = phi i32 [ %408, %.lr.ph663 ], [ %.1520, %452 ]
+  %.4532659 = phi float [ %415, %.lr.ph663 ], [ %.5, %452 ]
+  %423 = phi float [ %413, %.lr.ph663 ], [ %453, %452 ]
   %424 = getelementptr inbounds float, ptr %16, i64 %indvars.iv737
   %425 = load float, ptr %424, align 4
   %426 = getelementptr i8, ptr %424, i64 -12
@@ -825,48 +827,53 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %429 = fcmp ugt float %425, %428
   br i1 %429, label %430, label %434
 
-430:                                              ; preds = %421
+430:                                              ; preds = %422
   %431 = getelementptr i8, ptr %424, i64 -4
   %432 = load float, ptr %431, align 4
-  %433 = fcmp ugt float %432, %418
-  br i1 %433, label %441, label %434
+  %433 = fcmp ugt float %432, %419
+  br i1 %433, label %443, label %434
 
-434:                                              ; preds = %430, %421
+434:                                              ; preds = %430, %422
   %435 = getelementptr i8, ptr %424, i64 -4
-  store float %419, ptr %435, align 4
+  store float %420, ptr %435, align 4
   %436 = trunc nsw i64 %indvars.iv737 to i32
   %437 = ashr exact i32 %436, 2
   store float 0.000000e+00, ptr %11, align 4
   %438 = or disjoint i64 %indvars.iv737, 3
   %439 = getelementptr inbounds float, ptr %16, i64 %438
-  %440 = load <2 x float>, ptr %439, align 4
-  br label %450
+  %440 = load float, ptr %439, align 4
+  %441 = getelementptr i8, ptr %424, i64 16
+  %442 = load float, ptr %441, align 4
+  br label %452
 
-441:                                              ; preds = %430
-  %442 = getelementptr float, ptr %1, i64 %indvars.iv737
-  %443 = load float, ptr %442, align 4
-  %444 = fcmp ogt float %422, %443
-  %445 = select i1 %444, float %422, float %443
-  store float %445, ptr %11, align 4
-  %446 = insertelement <2 x float> poison, float %432, i64 0
-  %447 = insertelement <2 x float> %446, float %425, i64 1
-  %448 = fcmp olt <2 x float> %423, %447
-  %449 = select <2 x i1> %448, <2 x float> %423, <2 x float> %447
-  br label %450
+443:                                              ; preds = %430
+  %444 = getelementptr float, ptr %1, i64 %indvars.iv737
+  %445 = load float, ptr %444, align 4
+  %446 = fcmp ogt float %423, %445
+  %447 = select i1 %446, float %423, float %445
+  store float %447, ptr %11, align 4
+  %448 = fcmp olt float %.4532659, %432
+  %449 = select i1 %448, float %.4532659, float %432
+  %450 = fcmp olt float %.0511661, %425
+  %451 = select i1 %450, float %.0511661, float %425
+  br label %452
 
-450:                                              ; preds = %434, %441
-  %451 = phi float [ 0.000000e+00, %434 ], [ %445, %441 ]
-  %.1520 = phi i32 [ %437, %434 ], [ %.0519660, %441 ]
-  %452 = phi <2 x float> [ %440, %434 ], [ %449, %441 ]
+452:                                              ; preds = %434, %443
+  %453 = phi float [ 0.000000e+00, %434 ], [ %447, %443 ]
+  %.5 = phi float [ %440, %434 ], [ %449, %443 ]
+  %.1520 = phi i32 [ %437, %434 ], [ %.0519660, %443 ]
+  %.1512 = phi float [ %442, %434 ], [ %451, %443 ]
   %indvars.iv.next738 = add nsw i64 %indvars.iv737, 4
-  %.not567 = icmp sgt i64 %indvars.iv.next738, %420
-  br i1 %.not567, label %._crit_edge664, label %421, !llvm.loop !16
+  %.not567 = icmp sgt i64 %indvars.iv.next738, %421
+  br i1 %.not567, label %._crit_edge664, label %422, !llvm.loop !16
 
-._crit_edge664:                                   ; preds = %450, %407
-  %.0519.lcssa = phi i32 [ %408, %407 ], [ %.1520, %450 ]
-  %453 = phi <2 x float> [ %415, %407 ], [ %452, %450 ]
+._crit_edge664:                                   ; preds = %452, %407
+  %.4532.lcssa = phi float [ %415, %407 ], [ %.5, %452 ]
+  %.0519.lcssa = phi i32 [ %408, %407 ], [ %.1520, %452 ]
+  %.0511.lcssa = phi float [ %416, %407 ], [ %.1512, %452 ]
   %454 = getelementptr i8, ptr %396, i64 -4
-  store <2 x float> %453, ptr %454, align 4
+  store float %.4532.lcssa, ptr %454, align 4
+  store float %.0511.lcssa, ptr %396, align 4
   %455 = add nsw i32 %.0519.lcssa, 1
   store i32 %455, ptr %4, align 4
   br label %456

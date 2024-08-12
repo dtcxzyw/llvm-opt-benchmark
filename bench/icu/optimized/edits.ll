@@ -547,7 +547,12 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.then3
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 7>, ptr %length2, align 4
+  %numChanges8 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %numChanges8, align 4
+  %delta9 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 0, ptr %delta9, align 8
+  store i32 0, ptr %length2, align 4
+  store i32 7, ptr %errorCode_, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.then3
@@ -716,7 +721,10 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then7.i, label %if.end12.i
 
 if.then7.i:                                       ; preds = %if.then3.i
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 7>, ptr %length2, align 4
+  store i32 0, ptr %numChanges4, align 4
+  store i32 0, ptr %delta3, align 8
+  store i32 0, ptr %length2, align 4
+  store i32 7, ptr %errorCode_5, align 8
   br label %return
 
 if.end12.i:                                       ; preds = %if.then3.i
@@ -2831,11 +2839,13 @@ _ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit61: ; preds = %if.then70,
   %sub.i51 = sub nsw i32 %28, %shr
   store i32 %sub.i51, ptr %srcIndex.i50, align 8
   %replIndex.i57 = getelementptr inbounds i8, ptr %this, i64 36
-  %29 = load <2 x i32>, ptr %replIndex.i57, align 4
-  %30 = insertelement <2 x i32> poison, i32 %and59, i64 0
-  %31 = shufflevector <2 x i32> %30, <2 x i32> poison, <2 x i32> zeroinitializer
-  %32 = sub nsw <2 x i32> %29, %31
-  store <2 x i32> %32, ptr %replIndex.i57, align 4
+  %29 = load i32, ptr %replIndex.i57, align 4
+  %sub2.i58 = sub nsw i32 %29, %and59
+  store i32 %sub2.i58, ptr %replIndex.i57, align 4
+  %destIndex.i59 = getelementptr inbounds i8, ptr %this, i64 40
+  %30 = load i32, ptr %destIndex.i59, align 8
+  %sub4.i60 = sub nsw i32 %30, %and59
+  store i32 %sub4.i60, ptr %destIndex.i59, align 8
   br label %return
 
 if.else74:                                        ; preds = %if.end54
@@ -2843,7 +2853,7 @@ if.else74:                                        ; preds = %if.end54
   br i1 %cmp75, label %if.then76, label %while.cond85.preheader
 
 while.cond85.preheader:                           ; preds = %if.else74
-  %33 = zext nneg i32 %dec34 to i64
+  %31 = zext nneg i32 %dec34 to i64
   br label %while.cond85
 
 if.then76:                                        ; preds = %if.else74
@@ -2859,19 +2869,19 @@ if.then76:                                        ; preds = %if.else74
   br label %if.end105
 
 while.cond85:                                     ; preds = %while.cond85.preheader, %while.cond85
-  %indvars.iv = phi i64 [ %33, %while.cond85.preheader ], [ %indvars.iv.next, %while.cond85 ]
+  %indvars.iv = phi i64 [ %31, %while.cond85.preheader ], [ %indvars.iv.next, %while.cond85 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %34 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %34, ptr %index26, align 8
+  %32 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %32, ptr %index26, align 8
   %arrayidx90 = getelementptr inbounds i16, ptr %20, i64 %indvars.iv.next
-  %35 = load i16, ptr %arrayidx90, align 2
-  %cmp92 = icmp slt i16 %35, 0
+  %33 = load i16, ptr %arrayidx90, align 2
+  %cmp92 = icmp slt i16 %33, 0
   br i1 %cmp92, label %while.cond85, label %while.end94, !llvm.loop !16
 
 while.end94:                                      ; preds = %while.cond85
-  %36 = trunc nsw i64 %indvars.iv to i32
-  %conv91 = zext nneg i16 %35 to i32
-  store i32 %36, ptr %index26, align 8
+  %34 = trunc nsw i64 %indvars.iv to i32
+  %conv91 = zext nneg i16 %33 to i32
+  store i32 %34, ptr %index26, align 8
   %shr97 = lshr i32 %conv91, 6
   %and98 = and i32 %shr97, 63
   %call99 = tail call noundef i32 @_ZN6icu_755Edits8Iterator10readLengthEi(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %and98)
@@ -2881,14 +2891,14 @@ while.end94:                                      ; preds = %while.cond85
   %call102 = tail call noundef i32 @_ZN6icu_755Edits8Iterator10readLengthEi(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %and101)
   %newLength_103 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %call102, ptr %newLength_103, align 4
-  store i32 %34, ptr %index26, align 8
+  store i32 %32, ptr %index26, align 8
   br label %if.end105
 
 if.end105:                                        ; preds = %while.end94, %if.then76
   %.pre.i68 = phi i32 [ %call102, %while.end94 ], [ %call82, %if.then76 ]
   %coarse106 = getelementptr inbounds i8, ptr %this, i64 21
-  %37 = load i8, ptr %coarse106, align 1
-  %tobool107.not = icmp eq i8 %37, 0
+  %35 = load i8, ptr %coarse106, align 1
+  %tobool107.not = icmp eq i8 %35, 0
   br i1 %tobool107.not, label %if.then108, label %if.end105.if.end110_crit_edge
 
 if.end105.if.end110_crit_edge:                    ; preds = %if.end105
@@ -2897,26 +2907,26 @@ if.end105.if.end110_crit_edge:                    ; preds = %if.end105
 
 if.then108:                                       ; preds = %if.end105
   %oldLength_.i62 = getelementptr inbounds i8, ptr %this, i64 24
-  %38 = load i32, ptr %oldLength_.i62, align 8
+  %36 = load i32, ptr %oldLength_.i62, align 8
   %srcIndex.i63 = getelementptr inbounds i8, ptr %this, i64 32
-  %39 = load i32, ptr %srcIndex.i63, align 8
-  %sub.i64 = sub nsw i32 %39, %38
+  %37 = load i32, ptr %srcIndex.i63, align 8
+  %sub.i64 = sub nsw i32 %37, %36
   store i32 %sub.i64, ptr %srcIndex.i63, align 8
-  %40 = load i8, ptr %changed, align 1
-  %tobool.not.i66 = icmp eq i8 %40, 0
+  %38 = load i8, ptr %changed, align 1
+  %tobool.not.i66 = icmp eq i8 %38, 0
   br i1 %tobool.not.i66, label %_ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit74, label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.then108
   %replIndex.i70 = getelementptr inbounds i8, ptr %this, i64 36
-  %41 = load i32, ptr %replIndex.i70, align 4
-  %sub2.i71 = sub nsw i32 %41, %.pre.i68
+  %39 = load i32, ptr %replIndex.i70, align 4
+  %sub2.i71 = sub nsw i32 %39, %.pre.i68
   store i32 %sub2.i71, ptr %replIndex.i70, align 4
   br label %_ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit74
 
 _ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit74: ; preds = %if.then108, %if.then.i69
   %destIndex.i72 = getelementptr inbounds i8, ptr %this, i64 40
-  %42 = load i32, ptr %destIndex.i72, align 8
-  %sub4.i73 = sub nsw i32 %42, %.pre.i68
+  %40 = load i32, ptr %destIndex.i72, align 8
+  %sub4.i73 = sub nsw i32 %40, %.pre.i68
   store i32 %sub4.i73, ptr %destIndex.i72, align 8
   br label %return
 
@@ -2932,28 +2942,28 @@ if.end110.while.end158_crit_edge:                 ; preds = %if.end110
   br label %while.end158
 
 land.rhs114.lr.ph:                                ; preds = %if.end110
-  %43 = load ptr, ptr %this, align 8
-  %invariant.gep = getelementptr i8, ptr %43, i64 -2
+  %41 = load ptr, ptr %this, align 8
+  %invariant.gep = getelementptr i8, ptr %41, i64 -2
   %oldLength_149 = getelementptr inbounds i8, ptr %this, i64 24
   %newLength_153 = getelementptr inbounds i8, ptr %this, i64 28
   %oldLength_149.promoted = load i32, ptr %oldLength_149, align 8
   br label %land.rhs114
 
 land.rhs114:                                      ; preds = %land.rhs114.lr.ph, %if.end157
-  %44 = phi i32 [ %newLength_153.promoted, %land.rhs114.lr.ph ], [ %60, %if.end157 ]
-  %45 = phi i32 [ %oldLength_149.promoted, %land.rhs114.lr.ph ], [ %61, %if.end157 ]
+  %42 = phi i32 [ %newLength_153.promoted, %land.rhs114.lr.ph ], [ %58, %if.end157 ]
+  %43 = phi i32 [ %oldLength_149.promoted, %land.rhs114.lr.ph ], [ %59, %if.end157 ]
   %add21.i117119 = phi i32 [ %index26.promoted115, %land.rhs114.lr.ph ], [ %dec125, %if.end157 ]
-  %46 = zext nneg i32 %add21.i117119 to i64
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %46
-  %47 = load i16, ptr %gep, align 2
-  %conv120 = zext i16 %47 to i32
-  %cmp121 = icmp ugt i16 %47, 4095
+  %44 = zext nneg i32 %add21.i117119 to i64
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %44
+  %45 = load i16, ptr %gep, align 2
+  %conv120 = zext i16 %45 to i32
+  %cmp121 = icmp ugt i16 %45, 4095
   br i1 %cmp121, label %while.body123, label %while.end158
 
 while.body123:                                    ; preds = %land.rhs114
   %dec125 = add nsw i32 %add21.i117119, -1
   store i32 %dec125, ptr %index26, align 8
-  %cmp126 = icmp ult i16 %47, 28672
+  %cmp126 = icmp ult i16 %45, 28672
   br i1 %cmp126, label %if.then127, label %if.else140
 
 if.then127:                                       ; preds = %while.body123
@@ -2961,17 +2971,17 @@ if.then127:                                       ; preds = %while.body123
   %add130 = add nuw nsw i32 %and129, 1
   %shr131 = lshr i32 %conv120, 12
   %mul132 = mul nuw nsw i32 %add130, %shr131
-  %add134 = add nsw i32 %45, %mul132
+  %add134 = add nsw i32 %43, %mul132
   store i32 %add134, ptr %oldLength_149, align 8
   %shr135 = lshr i32 %conv120, 9
   %and136 = and i32 %shr135, 7
   %mul137 = mul nuw nsw i32 %and136, %add130
-  %add139 = add nsw i32 %44, %mul137
+  %add139 = add nsw i32 %42, %mul137
   store i32 %add139, ptr %newLength_153, align 4
   br label %if.end157
 
 if.else140:                                       ; preds = %while.body123
-  %cmp141 = icmp sgt i16 %47, -1
+  %cmp141 = icmp sgt i16 %45, -1
   br i1 %cmp141, label %if.then142, label %if.end157
 
 if.then142:                                       ; preds = %if.else140
@@ -2983,29 +2993,29 @@ if.then142:                                       ; preds = %if.else140
 
 if.else.i:                                        ; preds = %if.then142
   %cmp2.i = icmp eq i32 %and147, 61
-  %arrayidx.i = getelementptr inbounds i16, ptr %43, i64 %46
+  %arrayidx.i = getelementptr inbounds i16, ptr %41, i64 %44
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %inc.i = add nuw nsw i32 %add21.i117119, 1
   store i32 %inc.i, ptr %index26, align 8
-  %48 = load i16, ptr %arrayidx.i, align 2
-  %49 = and i16 %48, 32767
-  %and.i = zext nneg i16 %49 to i32
+  %46 = load i16, ptr %arrayidx.i, align 2
+  %47 = and i16 %46, 32767
+  %and.i = zext nneg i16 %47 to i32
   br label %_ZN6icu_755Edits8Iterator10readLengthEi.exit
 
 if.else4.i:                                       ; preds = %if.else.i
   %and5.i = shl i32 %shr146, 30
   %shl.i = and i32 %and5.i, 1073741824
-  %50 = load i16, ptr %arrayidx.i, align 2
-  %51 = and i16 %50, 32767
-  %and11.i = zext nneg i16 %51 to i32
+  %48 = load i16, ptr %arrayidx.i, align 2
+  %49 = and i16 %48, 32767
+  %and11.i = zext nneg i16 %49 to i32
   %shl12.i = shl nuw nsw i32 %and11.i, 15
   %or.i = or disjoint i32 %shl12.i, %shl.i
   %arrayidx16.i = getelementptr i8, ptr %arrayidx.i, i64 2
-  %52 = load i16, ptr %arrayidx16.i, align 2
-  %53 = and i16 %52, 32767
-  %and18.i = zext nneg i16 %53 to i32
+  %50 = load i16, ptr %arrayidx16.i, align 2
+  %51 = and i16 %50, 32767
+  %and18.i = zext nneg i16 %51 to i32
   %or19.i = or disjoint i32 %or.i, %and18.i
   %add21.i = add nuw nsw i32 %add21.i117119, 2
   store i32 %add21.i, ptr %index26, align 8
@@ -3014,7 +3024,7 @@ if.else4.i:                                       ; preds = %if.else.i
 _ZN6icu_755Edits8Iterator10readLengthEi.exit:     ; preds = %if.then142, %if.then3.i, %if.else4.i
   %add21.i116 = phi i32 [ %inc.i, %if.then3.i ], [ %add21.i, %if.else4.i ], [ %add21.i117119, %if.then142 ]
   %retval.0.i = phi i32 [ %and.i, %if.then3.i ], [ %or19.i, %if.else4.i ], [ %and147, %if.then142 ]
-  %add150 = add nsw i32 %45, %retval.0.i
+  %add150 = add nsw i32 %43, %retval.0.i
   store i32 %add150, ptr %oldLength_149, align 8
   %and151 = and i32 %conv120, 63
   %cmp.i76 = icmp ult i32 %and151, 61
@@ -3023,67 +3033,67 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit:     ; preds = %if.then142, %if.the
 if.else.i77:                                      ; preds = %_ZN6icu_755Edits8Iterator10readLengthEi.exit
   %cmp2.i78 = icmp eq i32 %and151, 61
   %idxprom.i96 = zext nneg i32 %add21.i116 to i64
-  %arrayidx.i97 = getelementptr inbounds i16, ptr %43, i64 %idxprom.i96
+  %arrayidx.i97 = getelementptr inbounds i16, ptr %41, i64 %idxprom.i96
   br i1 %cmp2.i78, label %if.then3.i93, label %if.else4.i79
 
 if.then3.i93:                                     ; preds = %if.else.i77
   %inc.i95 = add nuw nsw i32 %add21.i116, 1
   store i32 %inc.i95, ptr %index26, align 8
-  %54 = load i16, ptr %arrayidx.i97, align 2
-  %55 = and i16 %54, 32767
-  %and.i98 = zext nneg i16 %55 to i32
+  %52 = load i16, ptr %arrayidx.i97, align 2
+  %53 = and i16 %52, 32767
+  %and.i98 = zext nneg i16 %53 to i32
   br label %_ZN6icu_755Edits8Iterator10readLengthEi.exit99
 
 if.else4.i79:                                     ; preds = %if.else.i77
   %and5.i80 = shl i32 %conv120, 30
   %shl.i81 = and i32 %and5.i80, 1073741824
-  %56 = load i16, ptr %arrayidx.i97, align 2
-  %57 = and i16 %56, 32767
-  %and11.i85 = zext nneg i16 %57 to i32
+  %54 = load i16, ptr %arrayidx.i97, align 2
+  %55 = and i16 %54, 32767
+  %and11.i85 = zext nneg i16 %55 to i32
   %shl12.i86 = shl nuw nsw i32 %and11.i85, 15
   %or.i87 = or disjoint i32 %shl12.i86, %shl.i81
   %arrayidx16.i88 = getelementptr i8, ptr %arrayidx.i97, i64 2
-  %58 = load i16, ptr %arrayidx16.i88, align 2
-  %59 = and i16 %58, 32767
-  %and18.i89 = zext nneg i16 %59 to i32
+  %56 = load i16, ptr %arrayidx16.i88, align 2
+  %57 = and i16 %56, 32767
+  %and18.i89 = zext nneg i16 %57 to i32
   %or19.i90 = or disjoint i32 %or.i87, %and18.i89
   br label %_ZN6icu_755Edits8Iterator10readLengthEi.exit99
 
 _ZN6icu_755Edits8Iterator10readLengthEi.exit99:   ; preds = %_ZN6icu_755Edits8Iterator10readLengthEi.exit, %if.then3.i93, %if.else4.i79
   %retval.0.i92 = phi i32 [ %and.i98, %if.then3.i93 ], [ %or19.i90, %if.else4.i79 ], [ %and151, %_ZN6icu_755Edits8Iterator10readLengthEi.exit ]
-  %add154 = add nsw i32 %44, %retval.0.i92
+  %add154 = add nsw i32 %42, %retval.0.i92
   store i32 %add154, ptr %newLength_153, align 4
   store i32 %dec125, ptr %index26, align 8
   br label %if.end157
 
 if.end157:                                        ; preds = %if.else140, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99, %if.then127
-  %60 = phi i32 [ %44, %if.else140 ], [ %add154, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add139, %if.then127 ]
-  %61 = phi i32 [ %45, %if.else140 ], [ %add150, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add134, %if.then127 ]
+  %58 = phi i32 [ %42, %if.else140 ], [ %add154, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add139, %if.then127 ]
+  %59 = phi i32 [ %43, %if.else140 ], [ %add150, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add134, %if.then127 ]
   %cmp113 = icmp ugt i32 %add21.i117119, 1
   br i1 %cmp113, label %land.rhs114, label %while.end158, !llvm.loop !17
 
 while.end158:                                     ; preds = %land.rhs114, %if.end157, %if.end110.while.end158_crit_edge
-  %.pre.i106 = phi i32 [ %newLength_153.promoted, %if.end110.while.end158_crit_edge ], [ %44, %land.rhs114 ], [ %60, %if.end157 ]
-  %62 = phi i32 [ %.pre129, %if.end110.while.end158_crit_edge ], [ %45, %land.rhs114 ], [ %61, %if.end157 ]
+  %.pre.i106 = phi i32 [ %newLength_153.promoted, %if.end110.while.end158_crit_edge ], [ %42, %land.rhs114 ], [ %58, %if.end157 ]
+  %60 = phi i32 [ %.pre129, %if.end110.while.end158_crit_edge ], [ %43, %land.rhs114 ], [ %59, %if.end157 ]
   %srcIndex.i101 = getelementptr inbounds i8, ptr %this, i64 32
-  %63 = load i32, ptr %srcIndex.i101, align 8
-  %sub.i102 = sub nsw i32 %63, %62
+  %61 = load i32, ptr %srcIndex.i101, align 8
+  %sub.i102 = sub nsw i32 %61, %60
   store i32 %sub.i102, ptr %srcIndex.i101, align 8
-  %64 = load i8, ptr %changed, align 1
-  %tobool.not.i104 = icmp eq i8 %64, 0
+  %62 = load i8, ptr %changed, align 1
+  %tobool.not.i104 = icmp eq i8 %62, 0
   br i1 %tobool.not.i104, label %_ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit112, label %if.then.i107
 
 if.then.i107:                                     ; preds = %while.end158
   %replIndex.i108 = getelementptr inbounds i8, ptr %this, i64 36
-  %65 = load i32, ptr %replIndex.i108, align 4
-  %sub2.i109 = sub nsw i32 %65, %.pre.i106
+  %63 = load i32, ptr %replIndex.i108, align 4
+  %sub2.i109 = sub nsw i32 %63, %.pre.i106
   store i32 %sub2.i109, ptr %replIndex.i108, align 4
   br label %_ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit112
 
 _ZN6icu_755Edits8Iterator21updatePreviousIndexesEv.exit112: ; preds = %while.end158, %if.then.i107
   %destIndex.i110 = getelementptr inbounds i8, ptr %this, i64 40
-  %66 = load i32, ptr %destIndex.i110, align 8
-  %sub4.i111 = sub nsw i32 %66, %.pre.i106
+  %64 = load i32, ptr %destIndex.i110, align 8
+  %sub4.i111 = sub nsw i32 %64, %.pre.i106
   store i32 %sub4.i111, ptr %destIndex.i110, align 8
   br label %return
 
@@ -3164,28 +3174,30 @@ if.then28:                                        ; preds = %if.then17
   store i32 %sub36, ptr %srcIndex, align 8
   %9 = load i32, ptr %newLength_, align 4
   %mul38 = mul nsw i32 %9, %add32
-  %10 = load <2 x i32>, ptr %replIndex53, align 4
-  %11 = insertelement <2 x i32> poison, i32 %mul38, i64 0
-  %12 = shufflevector <2 x i32> %11, <2 x i32> poison, <2 x i32> zeroinitializer
-  %13 = sub nsw <2 x i32> %10, %12
-  store <2 x i32> %13, ptr %replIndex53, align 4
+  %10 = load i32, ptr %replIndex53, align 4
+  %sub39 = sub nsw i32 %10, %mul38
+  store i32 %sub39, ptr %replIndex53, align 4
+  %11 = load i32, ptr %destIndex, align 8
+  %sub43 = sub nsw i32 %11, %mul38
+  store i32 %sub43, ptr %destIndex, align 8
   %add45 = add nsw i32 %add32, %1
   store i32 %add45, ptr %remaining, align 8
   br label %return
 
 if.end46:                                         ; preds = %if.then17
-  %14 = load i32, ptr %oldLength_, align 8
-  %mul48 = mul nsw i32 %14, %sub
-  %15 = load i32, ptr %srcIndex, align 8
-  %sub50 = sub nsw i32 %15, %mul48
+  %12 = load i32, ptr %oldLength_, align 8
+  %mul48 = mul nsw i32 %12, %sub
+  %13 = load i32, ptr %srcIndex, align 8
+  %sub50 = sub nsw i32 %13, %mul48
   store i32 %sub50, ptr %srcIndex, align 8
-  %16 = load i32, ptr %newLength_, align 4
-  %mul52 = mul nsw i32 %16, %sub
-  %17 = load <2 x i32>, ptr %replIndex53, align 4
-  %18 = insertelement <2 x i32> poison, i32 %mul52, i64 0
-  %19 = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> zeroinitializer
-  %20 = sub nsw <2 x i32> %17, %19
-  store <2 x i32> %20, ptr %replIndex53, align 4
+  %14 = load i32, ptr %newLength_, align 4
+  %mul52 = mul nsw i32 %14, %sub
+  %15 = load i32, ptr %replIndex53, align 4
+  %sub54 = sub nsw i32 %15, %mul52
+  store i32 %sub54, ptr %replIndex53, align 4
+  %16 = load i32, ptr %destIndex, align 8
+  %sub58 = sub nsw i32 %16, %mul52
+  store i32 %sub58, ptr %destIndex, align 8
   store i32 0, ptr %remaining, align 8
   br label %if.end60
 
@@ -3228,12 +3240,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp86, label %return, label %if.end88
 
 if.end88:                                         ; preds = %while.body
-  %21 = load i32, ptr %remaining89, align 8
-  %cmp90 = icmp sgt i32 %21, 1
+  %17 = load i32, ptr %remaining89, align 8
+  %cmp90 = icmp sgt i32 %17, 1
   br i1 %cmp90, label %if.then91, label %if.end123
 
 if.then91:                                        ; preds = %if.end88
-  %mul94 = mul nsw i32 %21, %spanLength.1
+  %mul94 = mul nsw i32 %17, %spanLength.1
   %add95 = add nsw i32 %mul94, %spanStart.1
   %cmp96 = icmp sgt i32 %add95, %i
   br i1 %cmp96, label %if.then97, label %if.end115
@@ -3241,29 +3253,30 @@ if.then91:                                        ; preds = %if.end88
 if.then97:                                        ; preds = %if.then91
   %sub99 = sub nsw i32 %i, %spanStart.1
   %div100 = sdiv i32 %sub99, %spanLength.1
-  %22 = load i32, ptr %oldLength_, align 8
-  %mul102 = mul nsw i32 %22, %div100
-  %23 = load i32, ptr %srcIndex, align 8
-  %add104 = add nsw i32 %23, %mul102
+  %18 = load i32, ptr %oldLength_, align 8
+  %mul102 = mul nsw i32 %18, %div100
+  %19 = load i32, ptr %srcIndex, align 8
+  %add104 = add nsw i32 %19, %mul102
   store i32 %add104, ptr %srcIndex, align 8
-  %24 = load i32, ptr %newLength_, align 4
-  %mul106 = mul nsw i32 %24, %div100
+  %20 = load i32, ptr %newLength_, align 4
+  %mul106 = mul nsw i32 %20, %div100
   %replIndex107 = getelementptr inbounds i8, ptr %this, i64 36
-  %25 = load <2 x i32>, ptr %replIndex107, align 4
-  %26 = insertelement <2 x i32> poison, i32 %mul106, i64 0
-  %27 = shufflevector <2 x i32> %26, <2 x i32> poison, <2 x i32> zeroinitializer
-  %28 = add nsw <2 x i32> %25, %27
-  store <2 x i32> %28, ptr %replIndex107, align 4
-  %sub114 = sub nsw i32 %21, %div100
+  %21 = load i32, ptr %replIndex107, align 4
+  %add108 = add nsw i32 %21, %mul106
+  store i32 %add108, ptr %replIndex107, align 4
+  %22 = load i32, ptr %destIndex, align 8
+  %add112 = add nsw i32 %22, %mul106
+  store i32 %add112, ptr %destIndex, align 8
+  %sub114 = sub nsw i32 %17, %div100
   store i32 %sub114, ptr %remaining89, align 8
   br label %return
 
 if.end115:                                        ; preds = %if.then91
-  %29 = load i32, ptr %oldLength_, align 8
-  %mul118 = mul nsw i32 %29, %21
+  %23 = load i32, ptr %oldLength_, align 8
+  %mul118 = mul nsw i32 %23, %17
   store i32 %mul118, ptr %oldLength_, align 8
-  %30 = load i32, ptr %newLength_, align 4
-  %mul121 = mul nsw i32 %30, %21
+  %24 = load i32, ptr %newLength_, align 4
+  %mul121 = mul nsw i32 %24, %17
   store i32 %mul121, ptr %newLength_, align 4
   store i32 0, ptr %remaining89, align 8
   br label %if.end123

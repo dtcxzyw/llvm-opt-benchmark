@@ -177,10 +177,14 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %61
   %.sroa.2.0..sroa_idx.i.i.i28 = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i.i.i29 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i28, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
+  %.sroa.0.0.vec.extract.i.i30 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i27, i64 0
+  %.sroa.0.4.vec.extract.i.i31 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i27, i64 1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  store <2 x float> %.sroa.0.0.copyload.i.i.i27, ptr %19, align 8
+  store float %.sroa.0.0.vec.extract.i.i30, ptr %19, align 8
+  %.sroa.287.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 4
+  store float %.sroa.0.4.vec.extract.i.i31, ptr %.sroa.287.0..sroa_idx, align 4
   %.sroa.388.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
   store float %.sroa.2.0.copyload.i.i.i29, ptr %.sroa.388.0..sroa_idx, align 8
   %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 12
@@ -337,10 +341,14 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   %.sroa.2.0..sroa_idx.i.i.i69 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i70 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i69, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  %.sroa.0.0.vec.extract.i.i71 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i68, i64 0
+  %.sroa.0.4.vec.extract.i.i72 = extractelement <2 x float> %.sroa.0.0.copyload.i.i.i68, i64 1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  store <2 x float> %.sroa.0.0.copyload.i.i.i68, ptr %21, align 8
+  store float %.sroa.0.0.vec.extract.i.i71, ptr %21, align 8
+  %.sroa.2.0..sroa_idx78 = getelementptr inbounds i8, ptr %21, i64 4
+  store float %.sroa.0.4.vec.extract.i.i72, ptr %.sroa.2.0..sroa_idx78, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store float %.sroa.2.0.copyload.i.i.i70, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 12

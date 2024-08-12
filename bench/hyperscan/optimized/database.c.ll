@@ -182,42 +182,46 @@ if.end10:                                         ; preds = %if.end6
   %incdec.ptr24.i = getelementptr inbounds i8, ptr %bytes, i64 28
   %5 = load i32, ptr %incdec.ptr24.i, align 1
   %incdec.ptr26.i = getelementptr inbounds i8, ptr %bytes, i64 32
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %bytes, i64 24
+  %6 = load i32, ptr %incdec.ptr22.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %bytes, i64 20
-  %header.sroa.3.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 4
-  %header.sroa.4.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 8
-  %header.sroa.6.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 12
-  %header.sroa.616.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 16
-  %header.sroa.8.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 24
-  %6 = load <2 x i32>, ptr %add.ptr.i, align 1
+  %7 = load i32, ptr %add.ptr.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %db, i8 0, i64 %length, i1 false)
   store i32 -606348325, ptr %db, align 8
+  %header.sroa.3.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 4
   store i32 84148736, ptr %header.sroa.3.0.db.sroa_idx, align 4
+  %header.sroa.4.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 8
   store i32 %3, ptr %header.sroa.4.0.db.sroa_idx, align 8
+  %header.sroa.6.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 12
   store i32 0, ptr %header.sroa.6.0.db.sroa_idx, align 4
+  %header.sroa.616.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 16
   store i64 229376, ptr %header.sroa.616.0.db.sroa_idx, align 8
-  store <2 x i32> %6, ptr %header.sroa.8.0.db.sroa_idx, align 8
+  %header.sroa.8.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 24
+  store i32 %7, ptr %header.sroa.8.0.db.sroa_idx, align 8
+  %header.sroa.9.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 28
+  store i32 %6, ptr %header.sroa.9.0.db.sroa_idx, align 4
   %header.sroa.10.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 32
   store i32 %5, ptr %header.sroa.10.0.db.sroa_idx, align 8
   %header.sroa.11.0.db.sroa_idx = getelementptr inbounds i8, ptr %db, i64 36
-  %7 = getelementptr inbounds i8, ptr %db, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 64, i1 false)
+  %8 = getelementptr inbounds i8, ptr %db, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   %bytes.i = getelementptr inbounds i8, ptr %db, i64 104
-  %8 = ptrtoint ptr %bytes.i to i64
-  %9 = trunc i64 %8 to i32
-  %10 = and i32 %9, 56
-  %conv.i9 = sub nuw nsw i32 104, %10
+  %9 = ptrtoint ptr %bytes.i to i64
+  %10 = trunc i64 %9 to i32
+  %11 = and i32 %10, 56
+  %conv.i9 = sub nuw nsw i32 104, %11
   store i32 %conv.i9, ptr %header.sroa.11.0.db.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i9 to i64
   %add.ptr.i10 = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i10, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
-  %11 = load i32, ptr %header.sroa.11.0.db.sroa_idx, align 4
-  %idx.ext.i.i = zext i32 %11 to i64
+  %12 = load i32, ptr %header.sroa.11.0.db.sroa_idx, align 4
+  %idx.ext.i.i = zext i32 %12 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %db, i64 %idx.ext.i.i
-  %12 = load i32, ptr %header.sroa.4.0.db.sroa_idx, align 8
-  %conv.i12 = zext i32 %12 to i64
+  %13 = load i32, ptr %header.sroa.4.0.db.sroa_idx, align 8
+  %conv.i12 = zext i32 %13 to i64
   %call1.i = tail call i32 @Crc32c_ComputeBuf(i32 noundef 0, ptr noundef nonnull %add.ptr.i.i, i64 noundef %conv.i12) #6
-  %13 = load i32, ptr %header.sroa.8.0.db.sroa_idx, align 8
-  %cmp.not.i14.not = icmp ne i32 %call1.i, %13
+  %14 = load i32, ptr %header.sroa.8.0.db.sroa_idx, align 8
+  %cmp.not.i14.not = icmp ne i32 %call1.i, %14
   %. = sext i1 %cmp.not.i14.not to i32
   br label %return
 
@@ -262,29 +266,31 @@ if.end3:                                          ; preds = %if.end12.i
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %bytes, i64 12
   %3 = load i64, ptr %incdec.ptr13.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %bytes, i64 20
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %bytes, i64 24
+  %4 = load i32, ptr %add.ptr.i, align 1
   %incdec.ptr24.i = getelementptr inbounds i8, ptr %bytes, i64 28
-  %4 = load <2 x i32>, ptr %add.ptr.i, align 1
+  %5 = load i32, ptr %incdec.ptr22.i, align 1
   %incdec.ptr26.i = getelementptr inbounds i8, ptr %bytes, i64 32
-  %5 = load i32, ptr %incdec.ptr24.i, align 1
+  %6 = load i32, ptr %incdec.ptr24.i, align 1
   %cmp.not.i = icmp eq i64 %3, 229376
   br i1 %cmp.not.i, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %6 = load ptr, ptr @hs_database_alloc, align 8
-  %call9 = tail call ptr %6(i64 noundef %length) #6
+  %7 = load ptr, ptr @hs_database_alloc, align 8
+  %call9 = tail call ptr %7(i64 noundef %length) #6
   %tobool.i.not = icmp eq ptr %call9, null
   br i1 %tobool.i.not, label %if.then13, label %hs_check_alloc.exit
 
 hs_check_alloc.exit:                              ; preds = %if.end7
-  %7 = ptrtoint ptr %call9 to i64
-  %and.i = and i64 %7, 7
+  %8 = ptrtoint ptr %call9 to i64
+  %and.i = and i64 %8, 7
   %cmp.i = icmp eq i64 %and.i, 0
   br i1 %cmp.i, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end7, %hs_check_alloc.exit
   %ret.i.042 = phi i32 [ -9, %hs_check_alloc.exit ], [ -2, %if.end7 ]
-  %8 = load ptr, ptr @hs_database_free, align 8
-  tail call void %8(ptr noundef %call9) #6
+  %9 = load ptr, ptr @hs_database_free, align 8
+  tail call void %9(ptr noundef %call9) #6
   br label %return
 
 if.end14:                                         ; preds = %hs_check_alloc.exit
@@ -299,34 +305,36 @@ if.end14:                                         ; preds = %hs_check_alloc.exit
   %header.sroa.626.0.call9.sroa_idx = getelementptr inbounds i8, ptr %call9, i64 16
   store i64 229376, ptr %header.sroa.626.0.call9.sroa_idx, align 8
   %header.sroa.8.0.call9.sroa_idx = getelementptr inbounds i8, ptr %call9, i64 24
-  store <2 x i32> %4, ptr %header.sroa.8.0.call9.sroa_idx, align 8
+  store i32 %4, ptr %header.sroa.8.0.call9.sroa_idx, align 8
+  %header.sroa.9.0.call9.sroa_idx = getelementptr inbounds i8, ptr %call9, i64 28
+  store i32 %5, ptr %header.sroa.9.0.call9.sroa_idx, align 4
   %header.sroa.10.0.call9.sroa_idx = getelementptr inbounds i8, ptr %call9, i64 32
-  store i32 %5, ptr %header.sroa.10.0.call9.sroa_idx, align 8
+  store i32 %6, ptr %header.sroa.10.0.call9.sroa_idx, align 8
   %header.sroa.11.0.call9.sroa_idx = getelementptr inbounds i8, ptr %call9, i64 36
-  %9 = getelementptr inbounds i8, ptr %call9, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  %10 = getelementptr inbounds i8, ptr %call9, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %bytes.i = getelementptr inbounds i8, ptr %call9, i64 104
-  %10 = ptrtoint ptr %bytes.i to i64
-  %11 = trunc i64 %10 to i32
-  %12 = and i32 %11, 56
-  %conv.i19 = sub nuw nsw i32 104, %12
+  %11 = ptrtoint ptr %bytes.i to i64
+  %12 = trunc i64 %11 to i32
+  %13 = and i32 %12, 56
+  %conv.i19 = sub nuw nsw i32 104, %13
   store i32 %conv.i19, ptr %header.sroa.11.0.call9.sroa_idx, align 4
   %idx.ext.i = zext nneg i32 %conv.i19 to i64
   %add.ptr.i20 = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr nonnull readonly align 1 %incdec.ptr26.i, i64 %conv.i, i1 false)
-  %13 = load i32, ptr %header.sroa.11.0.call9.sroa_idx, align 4
-  %idx.ext.i.i = zext i32 %13 to i64
+  %14 = load i32, ptr %header.sroa.11.0.call9.sroa_idx, align 4
+  %idx.ext.i.i = zext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call9, i64 %idx.ext.i.i
-  %14 = load i32, ptr %header.sroa.4.0.call9.sroa_idx, align 8
-  %conv.i22 = zext i32 %14 to i64
+  %15 = load i32, ptr %header.sroa.4.0.call9.sroa_idx, align 8
+  %conv.i22 = zext i32 %15 to i64
   %call1.i = tail call i32 @Crc32c_ComputeBuf(i32 noundef 0, ptr noundef nonnull %add.ptr.i.i, i64 noundef %conv.i22) #6
-  %15 = load i32, ptr %header.sroa.8.0.call9.sroa_idx, align 8
-  %cmp.not.i24.not = icmp eq i32 %call1.i, %15
+  %16 = load i32, ptr %header.sroa.8.0.call9.sroa_idx, align 8
+  %cmp.not.i24.not = icmp eq i32 %call1.i, %16
   br i1 %cmp.not.i24.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
-  %16 = load ptr, ptr @hs_database_free, align 8
-  tail call void %16(ptr noundef nonnull %call9) #6
+  %17 = load ptr, ptr @hs_database_free, align 8
+  tail call void %17(ptr noundef nonnull %call9) #6
   br label %return
 
 if.end19:                                         ; preds = %if.end14

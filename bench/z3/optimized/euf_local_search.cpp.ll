@@ -234,7 +234,13 @@ define linkonce_odr hidden void @_ZN3sat4ddfwC2Ev(ptr noundef nonnull align 8 de
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3sat4ddfwE, i64 16), ptr %this, align 8
   %m_config = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 15, i32 8, i32 1024, i32 100333>, ptr %m_config, align 8
+  %m_init_clause_weight.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 8, ptr %m_init_clause_weight.i.i, align 4
+  store i32 15, ptr %m_config, align 8
+  %m_max_num_models.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 1024, ptr %m_max_num_models.i.i, align 8
+  %m_restart_base.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 100333, ptr %m_restart_base.i.i, align 4
   %m_reinit_base.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 10000, ptr %m_reinit_base.i.i, align 8
   %m_parsync_base.i.i = getelementptr inbounds i8, ptr %this, i64 28

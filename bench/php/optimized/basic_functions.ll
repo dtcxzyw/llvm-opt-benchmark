@@ -4356,8 +4356,8 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca double, align 8
   %4 = alloca %struct.timeval, align 8
-  %5 = alloca %struct.timespec, align 16
-  %6 = alloca %struct.timespec, align 16
+  %5 = alloca %struct.timespec, align 8
+  %6 = alloca %struct.timespec, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %cond = icmp eq i32 %8, 1
@@ -4390,7 +4390,7 @@ define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef w
   %.05797 = phi i32 [ 0, %9 ], [ 20, %16 ]
   %.05896 = phi ptr [ null, %9 ], [ %11, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.099, i32 noundef %.05698, ptr noundef null, i32 noundef %.05797, ptr noundef %.05896) #18
-  br label %50
+  br label %52
 
 .thread83:                                        ; preds = %16, %.thread79
   %18 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #18
@@ -4400,7 +4400,7 @@ define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef w
 19:                                               ; preds = %.thread83
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %20, align 8
-  br label %50
+  br label %52
 
 21:                                               ; preds = %.thread83
   %22 = load double, ptr %3, align 8
@@ -4419,12 +4419,12 @@ define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef w
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #18
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
-  br label %50
+  br label %52
 
 34:                                               ; preds = %21
   %35 = sub nuw i64 %24, %30
   %36 = udiv i64 %35, 1000000000
-  store i64 %36, ptr %5, align 16
+  store i64 %36, ptr %5, align 8
   %37 = urem i64 %35, 1000000000
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %37, ptr %38, align 8
@@ -4434,31 +4434,34 @@ define hidden void @zif_time_sleep_until(ptr noundef %0, ptr nocapture noundef w
 
 .lr.ph:                                           ; preds = %34
   %40 = tail call ptr @__errno_location() #21
-  br label %41
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %44
-  %42 = load i32, ptr %40, align 4
-  %43 = icmp eq i32 %42, 4
-  br i1 %43, label %44, label %47
+42:                                               ; preds = %.lr.ph, %45
+  %43 = load i32, ptr %40, align 4
+  %44 = icmp eq i32 %43, 4
+  br i1 %44, label %45, label %49
 
-44:                                               ; preds = %41
-  %45 = load <2 x i64>, ptr %6, align 16
-  store <2 x i64> %45, ptr %5, align 16
-  %46 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %6) #18
-  %.not65 = icmp eq i32 %46, 0
-  br i1 %.not65, label %._crit_edge, label %41
+45:                                               ; preds = %42
+  %46 = load i64, ptr %6, align 8
+  store i64 %46, ptr %5, align 8
+  %47 = load i64, ptr %41, align 8
+  store i64 %47, ptr %38, align 8
+  %48 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  %.not65 = icmp eq i32 %48, 0
+  br i1 %.not65, label %._crit_edge, label %42
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %48, align 8
-  br label %50
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %50, align 8
+  br label %52
 
-._crit_edge:                                      ; preds = %44, %34
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %49, align 8
-  br label %50
+._crit_edge:                                      ; preds = %45, %34
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-50:                                               ; preds = %._crit_edge, %47, %32, %19, %.thread90
+52:                                               ; preds = %._crit_edge, %49, %32, %19, %.thread90
   ret void
 }
 

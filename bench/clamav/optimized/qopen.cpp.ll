@@ -482,11 +482,12 @@ define noundef range(i32 0, -2147483648) i32 @_ZN9QuickOpen10ReadBufferEv(ptr no
 42:                                               ; preds = %35, %31
   %.pre = phi ptr [ %.pre.pre, %35 ], [ %.pre13, %31 ]
   %43 = zext nneg i32 %29 to i64
-  %44 = load <2 x i64>, ptr %10, align 8
-  %45 = insertelement <2 x i64> poison, i64 %43, i64 0
-  %46 = shufflevector <2 x i64> %45, <2 x i64> poison, <2 x i32> zeroinitializer
-  %47 = add <2 x i64> %44, %46
-  store <2 x i64> %47, ptr %10, align 8
+  %44 = load i64, ptr %10, align 8
+  %45 = add i64 %44, %43
+  store i64 %45, ptr %10, align 8
+  %46 = load i64, ptr %17, align 8
+  %47 = add i64 %46, %43
+  store i64 %47, ptr %17, align 8
   br label %48
 
 48:                                               ; preds = %25, %42, %1

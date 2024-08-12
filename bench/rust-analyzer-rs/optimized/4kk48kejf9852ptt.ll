@@ -7410,21 +7410,24 @@ define void @"_ZN7base_db5input153_$LT$impl$u20$core..convert..From$LT$base_db..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.0.sroa.5.0.copyload = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.0.sroa.6.0.copyload = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %7 = load <16 x i8>, ptr %.sroa.0.sroa.0.0.copyload, align 16, !noalias !1445
-  %8 = icmp slt <16 x i8> %7, zeroinitializer
-  %9 = bitcast <16 x i1> %8 to i16
-  %10 = xor i16 %9, -1
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
+  %7 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
+  %8 = getelementptr i8, ptr %7, i64 1
+  %9 = load <16 x i8>, ptr %.sroa.0.sroa.0.0.copyload, align 16, !noalias !1445
+  %10 = icmp slt <16 x i8> %9, zeroinitializer
+  %11 = bitcast <16 x i1> %10 to i16
+  %12 = xor i16 %11, -1
+  %13 = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1456
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %4, align 8, !noalias !1461
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load <2 x i64>, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %13 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
-  %14 = getelementptr i8, ptr %13, i64 1
-  store <2 x i64> %12, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !1461
+  store i64 %.sroa.0.sroa.4.0.copyload, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !1461
+  %.sroa.67.0..sroa_idx8.i = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.sroa.0.sroa.5.0.copyload, ptr %.sroa.67.0..sroa_idx8.i, align 8, !noalias !1461
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !1461
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h847114a9567e1fe6E.llvm.8192890789926972031"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
@@ -7432,42 +7435,42 @@ define void @"_ZN7base_db5input153_$LT$impl$u20$core..convert..From$LT$base_db..
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %14, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
-  store i16 %10, ptr %.sroa.7.0..sroa_idx, align 8
+  store i16 %12, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.87.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.87.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9b46f2f97eef22b4E.llvm.13102108871640256408"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5)
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !13, !noundef !13
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
-  %18 = load i64, ptr %17, align 8, !noundef !13
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !nonnull !13, !noundef !13
+  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = load i64, ptr %16, align 8, !noundef !13
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  invoke void @_ZN4core5slice4sort10merge_sort17h4b0d3ccd2129aaf0E(ptr noalias noundef nonnull align 8 %16, i64 noundef %18, ptr noalias noundef nonnull align 1 %3)
-          to label %21 unwind label %19
+  invoke void @_ZN4core5slice4sort10merge_sort17h4b0d3ccd2129aaf0E(ptr noalias noundef nonnull align 8 %15, i64 noundef %17, ptr noalias noundef nonnull align 1 %3)
+          to label %20 unwind label %18
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$17h40b8b4cc9a32052bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #35
-          to label %24 unwind label %22
+          to label %23 unwind label %21
 
-21:                                               ; preds = %2
+20:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-24:                                               ; preds = %19
-  resume { ptr, i32 } %20
+23:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

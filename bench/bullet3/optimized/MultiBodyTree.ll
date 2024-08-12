@@ -1146,13 +1146,13 @@ do.body3:                                         ; preds = %sw.bb
   %2 = load float, ptr %arrayidx.i14, align 8
   %conv8 = fpext float %2 to double
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.9, double noundef %conv, double noundef %conv6, double noundef %conv8)
-  %3 = load <2 x float>, ptr %body_axis_of_motion, align 8
-  %4 = fmul <2 x float> %3, %3
-  %shift = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %5 = fadd <2 x float> %4, %shift
-  %add = extractelement <2 x float> %5, i64 0
-  %6 = load float, ptr %arrayidx.i14, align 8
-  %square23 = fmul float %6, %6
+  %3 = load float, ptr %body_axis_of_motion, align 8
+  %square = fmul float %3, %3
+  %4 = load float, ptr %arrayidx.i, align 4
+  %square22 = fmul float %4, %4
+  %add = fadd float %square, %square22
+  %5 = load float, ptr %arrayidx.i14, align 8
+  %square23 = fmul float %5, %5
   %add16 = fadd float %add, %square23
   %sqrt = call float @llvm.sqrt.f32(float %add16)
   %cmp20 = fcmp olt float %sqrt, 0x3C00000000000000
@@ -1166,12 +1166,13 @@ do.body22:                                        ; preds = %do.body3
 
 if.end25:                                         ; preds = %do.body3
   %conv28 = fdiv float 1.000000e+00, %sqrt
-  %7 = insertelement <2 x float> poison, float %conv28, i64 0
-  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x float> %8, %3
-  %mul8.i.i = fmul float %conv28, %6
+  %mul.i.i = fmul float %conv28, %3
+  %mul4.i.i = fmul float %conv28, %4
+  %mul8.i.i = fmul float %conv28, %5
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
-  store <2 x float> %9, ptr %body_axis_of_motion, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %body_axis_of_motion, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %arrayidx.i14, align 8
   br label %sw.epilog
 
@@ -1191,8 +1192,8 @@ if.then38:                                        ; preds = %sw.epilog
   %conv40 = fpext float %mass to double
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.12, i32 noundef %body_index, double noundef %conv40)
   %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2
-  %10 = load i8, ptr %m_accept_invalid_mass_parameters, align 2
-  %tobool = trunc i8 %10 to i1
+  %6 = load i8, ptr %m_accept_invalid_mass_parameters, align 2
+  %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then38, %sw.epilog
@@ -1204,8 +1205,8 @@ if.then47:                                        ; preds = %if.end44
   %m_mass_parameters_are_valid48 = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %m_mass_parameters_are_valid48, align 1
   %m_accept_invalid_mass_parameters49 = getelementptr inbounds i8, ptr %this, i64 2
-  %11 = load i8, ptr %m_accept_invalid_mass_parameters49, align 2
-  %tobool50 = trunc i8 %11 to i1
+  %7 = load i8, ptr %m_accept_invalid_mass_parameters49, align 2
+  %tobool50 = trunc i8 %7 to i1
   br i1 %tobool50, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then47, %if.end44
@@ -1214,8 +1215,8 @@ if.end53:                                         ; preds = %if.then47, %if.end4
 
 if.end56:                                         ; preds = %if.end53
   %m_init_cache = getelementptr inbounds i8, ptr %this, i64 16
-  %12 = load ptr, ptr %m_init_cache, align 8
-  %call57 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %12, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr noundef nonnull align 4 dereferenceable(16) %parent_r_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(48) %body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %body_r_body_com, ptr noundef nonnull align 4 dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr)
+  %8 = load ptr, ptr %m_init_cache, align 8
+  %call57 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache7addBodyEiiNS_9JointTypeERKNS_4vec3ERKNS_5mat33ES5_fS5_S8_iPv(ptr noundef nonnull align 8 dereferenceable(172) %8, i32 noundef %body_index, i32 noundef %parent_index, i32 noundef %joint_type, ptr noundef nonnull align 4 dereferenceable(16) %parent_r_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(48) %body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %body_axis_of_motion, float noundef %mass, ptr noundef nonnull align 4 dereferenceable(16) %body_r_body_com, ptr noundef nonnull align 4 dereferenceable(48) %body_I_body, i32 noundef %user_int, ptr noundef %user_ptr)
   br label %return
 
 return:                                           ; preds = %if.end53, %if.then47, %if.then38, %if.end56, %do.body35, %do.body22, %do.body
@@ -1430,18 +1431,17 @@ if.end23:                                         ; preds = %if.end18
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %20, i64 %indvars.iv
   %21 = load float, ptr %inertia, align 4
   store float %21, ptr %arrayidx.i, align 8
-  %22 = load <4 x float>, ptr %m_body_pos_body_com, align 4
-  %23 = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %24 = load float, ptr %arrayidx3.i.i, align 4
-  %25 = insertelement <2 x float> %23, float %21, i64 1
-  %26 = insertelement <2 x float> poison, float %21, i64 0
-  %27 = insertelement <2 x float> %26, float %24, i64 1
-  %28 = fmul <2 x float> %25, %27
-  %29 = load float, ptr %arrayidx7.i.i, align 4
-  %mul8.i.i = fmul float %21, %29
+  %22 = load float, ptr %m_body_pos_body_com, align 4
+  %mul.i.i = fmul float %22, %21
+  %23 = load float, ptr %arrayidx3.i.i, align 4
+  %mul4.i.i = fmul float %21, %23
+  %24 = load float, ptr %arrayidx7.i.i, align 4
+  %mul8.i.i = fmul float %21, %24
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
   %m_body_mass_com = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  store <2 x float> %28, ptr %m_body_mass_com, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %m_body_mass_com, align 4
   %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx, align 4
   %m_body_I_body31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
@@ -1450,9 +1450,9 @@ if.end23:                                         ; preds = %if.end18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i54, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %30 = load i32, ptr %joint, align 4
+  %25 = load i32, ptr %joint, align 4
   %m_joint_type = getelementptr inbounds i8, ptr %arrayidx.i, i64 420
-  store i32 %30, ptr %m_joint_type, align 4
+  store i32 %25, ptr %m_joint_type, align 4
   %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref, i64 16, i1 false)
   %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
@@ -1462,36 +1462,36 @@ if.end23:                                         ; preds = %if.end18
   %arrayidx11.i.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i58, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i57, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref, i64 16, i1 false)
-  %31 = load i32, ptr %joint, align 4
-  store i32 %31, ptr %m_joint_type, align 4
-  %32 = load ptr, ptr %m_init_cache, align 8
-  %call39 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull align 8 dereferenceable(172) %32, i32 noundef %17, ptr noundef nonnull %user_int)
+  %26 = load i32, ptr %joint, align 4
+  store i32 %26, ptr %m_joint_type, align 4
+  %27 = load ptr, ptr %m_init_cache, align 8
+  %call39 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserIntEiPi(ptr noundef nonnull align 8 dereferenceable(172) %27, i32 noundef %17, ptr noundef nonnull %user_int)
   %cmp40 = icmp eq i32 %call39, -1
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %if.end23
-  %33 = load ptr, ptr %m_impl, align 8
-  %34 = load i32, ptr %user_int, align 4
-  %call44 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserIntEii(ptr noundef nonnull align 8 dereferenceable(400) %33, i32 noundef %17, i32 noundef %34)
+  %28 = load ptr, ptr %m_impl, align 8
+  %29 = load i32, ptr %user_int, align 4
+  %call44 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserIntEii(ptr noundef nonnull align 8 dereferenceable(400) %28, i32 noundef %17, i32 noundef %29)
   %cmp45 = icmp eq i32 %call44, -1
   br i1 %cmp45, label %return, label %if.end47
 
 if.end47:                                         ; preds = %if.end42
-  %35 = load ptr, ptr %m_init_cache, align 8
-  %call49 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull align 8 dereferenceable(172) %35, i32 noundef %17, ptr noundef nonnull %user_ptr)
+  %30 = load ptr, ptr %m_init_cache, align 8
+  %call49 = call noundef i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree9InitCache10getUserPtrEiPPv(ptr noundef nonnull align 8 dereferenceable(172) %30, i32 noundef %17, ptr noundef nonnull %user_ptr)
   %cmp50 = icmp eq i32 %call49, -1
   br i1 %cmp50, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.end47
-  %36 = load ptr, ptr %m_impl, align 8
-  %37 = load ptr, ptr %user_ptr, align 8
-  %call54 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserPtrEiPv(ptr noundef nonnull align 8 dereferenceable(400) %36, i32 noundef %17, ptr noundef %37)
+  %31 = load ptr, ptr %m_impl, align 8
+  %32 = load ptr, ptr %user_ptr, align 8
+  %call54 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10setUserPtrEiPv(ptr noundef nonnull align 8 dereferenceable(400) %31, i32 noundef %17, ptr noundef %32)
   %cmp55 = icmp eq i32 %call54, -1
   br i1 %cmp55, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end52
-  %38 = load i32, ptr %m_joint_type, align 4
-  switch i32 %38, label %do.body132 [
+  %33 = load i32, ptr %m_joint_type, align 4
+  switch i32 %33, label %do.body132 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb74
     i32 0, label %sw.bb93
@@ -1500,68 +1500,84 @@ if.end57:                                         ; preds = %if.end52
   ]
 
 sw.bb:                                            ; preds = %if.end57
-  %39 = load float, ptr %m_child_axis_of_motion81, align 4
+  %34 = load float, ptr %m_child_axis_of_motion81, align 4
   %m_Jac_JR = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
-  store float %39, ptr %m_Jac_JR, align 4
-  %40 = load float, ptr %arrayidx.i73, align 4
+  store float %34, ptr %m_Jac_JR, align 4
+  %35 = load float, ptr %arrayidx.i73, align 4
   %arrayidx.i62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
-  store float %40, ptr %arrayidx.i62, align 4
-  %41 = load float, ptr %arrayidx.i75, align 4
+  store float %35, ptr %arrayidx.i62, align 4
+  %36 = load float, ptr %arrayidx.i75, align 4
   %arrayidx.i64 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
-  store float %41, ptr %arrayidx.i64, align 4
+  store float %36, ptr %arrayidx.i64, align 4
   %m_Jac_JT = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
-  store <2 x float> zeroinitializer, ptr %m_Jac_JT, align 4
+  store float 0.000000e+00, ptr %m_Jac_JT, align 4
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  store float 0.000000e+00, ptr %arrayidx.i66, align 4
   br label %for.inc
 
 sw.bb74:                                          ; preds = %if.end57
   %m_Jac_JR75 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
-  store <2 x float> zeroinitializer, ptr %m_Jac_JR75, align 4
+  store float 0.000000e+00, ptr %m_Jac_JR75, align 4
+  %arrayidx.i69 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  store float 0.000000e+00, ptr %arrayidx.i69, align 4
   %arrayidx.i70 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i70, align 4
-  %42 = load float, ptr %m_child_axis_of_motion81, align 4
+  %37 = load float, ptr %m_child_axis_of_motion81, align 4
   %m_Jac_JT83 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
-  store float %42, ptr %m_Jac_JT83, align 4
-  %43 = load float, ptr %arrayidx.i73, align 4
+  store float %37, ptr %m_Jac_JT83, align 4
+  %38 = load float, ptr %arrayidx.i73, align 4
   %arrayidx.i74 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
-  store float %43, ptr %arrayidx.i74, align 4
-  %44 = load float, ptr %arrayidx.i75, align 4
+  store float %38, ptr %arrayidx.i74, align 4
+  %39 = load float, ptr %arrayidx.i75, align 4
   br label %for.inc
 
 sw.bb93:                                          ; preds = %if.end57
   %m_Jac_JR94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
-  store <2 x float> zeroinitializer, ptr %m_Jac_JR94, align 4
+  store float 0.000000e+00, ptr %m_Jac_JR94, align 4
+  %arrayidx.i78 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  store float 0.000000e+00, ptr %arrayidx.i78, align 4
   %arrayidx.i79 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i79, align 4
   %m_Jac_JT100 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
-  store <2 x float> zeroinitializer, ptr %m_Jac_JT100, align 4
+  store float 0.000000e+00, ptr %m_Jac_JT100, align 4
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  store float 0.000000e+00, ptr %arrayidx.i81, align 4
   br label %for.inc
 
 sw.bb106:                                         ; preds = %if.end57
   %m_Jac_JR107 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
-  store <2 x float> zeroinitializer, ptr %m_Jac_JR107, align 4
+  store float 0.000000e+00, ptr %m_Jac_JR107, align 4
+  %arrayidx.i84 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  store float 0.000000e+00, ptr %arrayidx.i84, align 4
   %arrayidx.i85 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i85, align 4
   %m_Jac_JT113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
-  store <2 x float> zeroinitializer, ptr %m_Jac_JT113, align 4
+  store float 0.000000e+00, ptr %m_Jac_JT113, align 4
+  %arrayidx.i87 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  store float 0.000000e+00, ptr %arrayidx.i87, align 4
   br label %for.inc
 
 sw.bb119:                                         ; preds = %if.end57
   %m_Jac_JR120 = getelementptr inbounds i8, ptr %arrayidx.i, i64 488
-  store <2 x float> zeroinitializer, ptr %m_Jac_JR120, align 4
+  store float 0.000000e+00, ptr %m_Jac_JR120, align 4
+  %arrayidx.i90 = getelementptr inbounds i8, ptr %arrayidx.i, i64 492
+  store float 0.000000e+00, ptr %arrayidx.i90, align 4
   %arrayidx.i91 = getelementptr inbounds i8, ptr %arrayidx.i, i64 496
   store float 0.000000e+00, ptr %arrayidx.i91, align 4
   %m_Jac_JT126 = getelementptr inbounds i8, ptr %arrayidx.i, i64 504
-  store <2 x float> zeroinitializer, ptr %m_Jac_JT126, align 4
+  store float 0.000000e+00, ptr %m_Jac_JT126, align 4
+  %arrayidx.i93 = getelementptr inbounds i8, ptr %arrayidx.i, i64 508
+  store float 0.000000e+00, ptr %arrayidx.i93, align 4
   br label %for.inc
 
 do.body132:                                       ; preds = %if.end57
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 463)
-  %45 = load i32, ptr %m_joint_type, align 4
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.14, i32 noundef %45)
+  %40 = load i32, ptr %m_joint_type, align 4
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.14, i32 noundef %40)
   br label %return
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb74, %sw.bb93, %sw.bb106, %sw.bb119
-  %.sink = phi float [ 0.000000e+00, %sw.bb ], [ %44, %sw.bb74 ], [ 0.000000e+00, %sw.bb93 ], [ 0.000000e+00, %sw.bb106 ], [ 0.000000e+00, %sw.bb119 ]
+  %.sink = phi float [ 0.000000e+00, %sw.bb ], [ %39, %sw.bb74 ], [ 0.000000e+00, %sw.bb93 ], [ 0.000000e+00, %sw.bb106 ], [ 0.000000e+00, %sw.bb119 ]
   %arrayidx.i67 = getelementptr inbounds i8, ptr %arrayidx.i, i64 512
   store float %.sink, ptr %arrayidx.i67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1569,8 +1585,8 @@ for.inc:                                          ; preds = %sw.bb, %sw.bb74, %s
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCache19getParentIndexArrayEP20b3AlignedObjectArrayIiE.exit
-  %46 = load ptr, ptr %m_impl, align 8
-  %call136 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17generateIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(400) %46)
+  %41 = load ptr, ptr %m_impl, align 8
+  %call136 = call noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17generateIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(400) %41)
   %cmp137 = icmp eq i32 %call136, -1
   br i1 %cmp137, label %do.body139, label %if.end141
 
@@ -1580,10 +1596,10 @@ do.body139:                                       ; preds = %for.end
   br label %return
 
 if.end141:                                        ; preds = %for.end
-  %47 = load ptr, ptr %m_impl, align 8
-  call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateStaticDataEv(ptr noundef nonnull align 8 dereferenceable(400) %47)
-  %48 = load ptr, ptr %m_impl, align 8
-  call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28clearAllUserForcesAndMomentsEv(ptr noundef nonnull align 8 dereferenceable(400) %48)
+  %42 = load ptr, ptr %m_impl, align 8
+  call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateStaticDataEv(ptr noundef nonnull align 8 dereferenceable(400) %42)
+  %43 = load ptr, ptr %m_impl, align 8
+  call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28clearAllUserForcesAndMomentsEv(ptr noundef nonnull align 8 dereferenceable(400) %43)
   store i8 1, ptr %this, align 8
   br label %return
 

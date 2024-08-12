@@ -49,19 +49,31 @@ define void @Ssw_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_u
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x i32> <i32 1000, i32 5000000, i32 100, i32 -1>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1000, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 0, i32 1000, i32 50, i32 5000>, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 250, ptr %11, align 4
+  store i32 1000, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 5000000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 100, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
+  store i32 1000, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 50, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 5000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 250, ptr %17, align 4
   ret void
 }
 
@@ -76,17 +88,29 @@ define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly %0) lo
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1000, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %0, i64 132
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 250, ptr %9, align 4
-  store <4 x i32> <i32 1, i32 1000, i32 50, i32 5000>, ptr %8, align 4
-  store <4 x i32> <i32 10000, i32 5000000, i32 100, i32 -1>, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 5000000, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 100, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1000, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 -1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %11 = getelementptr inbounds i8, ptr %0, i64 132
+  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false)
+  store i32 1000, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 50, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 5000, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 250, ptr %15, align 4
+  store i32 1, ptr %11, align 4
+  store i32 10000, ptr %4, align 8
   ret void
 }
 
@@ -1025,7 +1049,7 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   %3 = alloca %struct.Ssw_Pars_t_, align 8
   %4 = tail call i32 @Aig_ManRandom(i32 noundef 1) #13
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.thread, label %10
+  br i1 %5, label %.thread, label %16
 
 .thread:                                          ; preds = %2
   %.072.sroa.gep191 = getelementptr inbounds i8, ptr %3, i64 132
@@ -1035,16 +1059,28 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
   store i32 1, ptr %.072.sroa.gep173, align 4
   store i32 2, ptr %.072.sroa.gep, align 8
-  store <4 x i32> <i32 1000, i32 5000000, i32 100, i32 -1>, ptr %.072.sroa.gep164, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1000, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 68
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 0, i32 1000, i32 50, i32 5000>, ptr %.072.sroa.gep191, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 148
-  store i32 250, ptr %9, align 4
+  store i32 1000, ptr %.072.sroa.gep164, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 5000000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 100, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 -1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 0, ptr %.072.sroa.gep191, align 4
+  %12 = getelementptr inbounds i8, ptr %3, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
+  store i32 1000, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 140
+  store i32 50, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5000, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 148
+  store i32 250, ptr %15, align 4
   %.072.sroa.phi220229 = getelementptr inbounds i8, ptr %3, i64 88
   %.072.sroa.phi217230 = getelementptr inbounds i8, ptr %3, i64 112
   %.072.sroa.phi214231 = getelementptr inbounds i8, ptr %3, i64 28
@@ -1054,14 +1090,14 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   %.072.sroa.phi202235 = getelementptr inbounds i8, ptr %3, i64 20
   %.072.sroa.phi199236 = getelementptr inbounds i8, ptr %3, i64 108
   %.072.sroa.phi196237 = getelementptr inbounds i8, ptr %3, i64 104
-  br label %20
+  br label %26
 
-10:                                               ; preds = %2
+16:                                               ; preds = %2
   %.072.sroa.gep192 = getelementptr inbounds i8, ptr %1, i64 132
   %.072.sroa.gep174 = getelementptr inbounds i8, ptr %1, i64 12
   %.072.sroa.gep165 = getelementptr inbounds i8, ptr %1, i64 32
   %.pre = load i32, ptr %.072.sroa.gep192, align 4
-  %11 = icmp eq i32 %.pre, 0
+  %17 = icmp eq i32 %.pre, 0
   %.072.sroa.phi220 = getelementptr inbounds i8, ptr %1, i64 88
   %.072.sroa.phi217 = getelementptr inbounds i8, ptr %1, i64 112
   %.072.sroa.phi214 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1071,225 +1107,225 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   %.072.sroa.phi202 = getelementptr inbounds i8, ptr %1, i64 20
   %.072.sroa.phi199 = getelementptr inbounds i8, ptr %1, i64 108
   %.072.sroa.phi196 = getelementptr inbounds i8, ptr %1, i64 104
-  br i1 %11, label %20, label %12
+  br i1 %17, label %26, label %18
 
-12:                                               ; preds = %10
+18:                                               ; preds = %16
   %.072.sroa.gep159 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 1, ptr %.072.sroa.phi205, align 8
   store i32 0, ptr %.072.sroa.gep159, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 456
-  %14 = load ptr, ptr %13, align 8
-  %.not145 = icmp eq ptr %14, null
-  br i1 %.not145, label %34, label %15
+  %19 = getelementptr inbounds i8, ptr %0, i64 456
+  %20 = load ptr, ptr %19, align 8
+  %.not145 = icmp eq ptr %20, null
+  br i1 %.not145, label %40, label %21
 
-15:                                               ; preds = %12
-  %16 = getelementptr i8, ptr %14, i64 4
-  %.val156 = load i32, ptr %16, align 4
-  %17 = icmp sgt i32 %.val156, 0
-  br i1 %17, label %18, label %34
+21:                                               ; preds = %18
+  %22 = getelementptr i8, ptr %20, i64 4
+  %.val156 = load i32, ptr %22, align 4
+  %23 = icmp sgt i32 %.val156, 0
+  br i1 %23, label %24, label %40
 
-18:                                               ; preds = %15
-  %19 = tail call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  br label %110
+24:                                               ; preds = %21
+  %25 = tail call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  br label %116
 
-20:                                               ; preds = %.thread, %10
-  %.072.sroa.phi196265 = phi ptr [ %.072.sroa.phi196237, %.thread ], [ %.072.sroa.phi196, %10 ]
-  %.072.sroa.phi199263 = phi ptr [ %.072.sroa.phi199236, %.thread ], [ %.072.sroa.phi199, %10 ]
-  %.072.sroa.phi202261 = phi ptr [ %.072.sroa.phi202235, %.thread ], [ %.072.sroa.phi202, %10 ]
-  %.072.sroa.phi205259 = phi ptr [ %.072.sroa.phi205234, %.thread ], [ %.072.sroa.phi205, %10 ]
-  %.072.sroa.phi208257 = phi ptr [ %.072.sroa.phi208233, %.thread ], [ %.072.sroa.phi208, %10 ]
-  %.072.sroa.phi211255 = phi ptr [ %.072.sroa.phi211232, %.thread ], [ %.072.sroa.phi211, %10 ]
-  %.072.sroa.phi214253 = phi ptr [ %.072.sroa.phi214231, %.thread ], [ %.072.sroa.phi214, %10 ]
-  %.072.sroa.phi217251 = phi ptr [ %.072.sroa.phi217230, %.thread ], [ %.072.sroa.phi217, %10 ]
-  %.072.sroa.phi220249 = phi ptr [ %.072.sroa.phi220229, %.thread ], [ %.072.sroa.phi220, %10 ]
-  %.072247 = phi ptr [ %3, %.thread ], [ %1, %10 ]
-  %.072.sroa.phi190245 = phi ptr [ %.072.sroa.gep191, %.thread ], [ %.072.sroa.gep192, %10 ]
-  %.072.sroa.phi172243 = phi ptr [ %.072.sroa.gep173, %.thread ], [ %.072.sroa.gep174, %10 ]
-  %.072.sroa.phi163241 = phi ptr [ %.072.sroa.gep164, %.thread ], [ %.072.sroa.gep165, %10 ]
-  %21 = load i32, ptr %.072247, align 8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %20
-  %24 = getelementptr i8, ptr %0, i64 104
-  %.val = load i32, ptr %24, align 8
-  %25 = icmp slt i32 %21, %.val
-  br i1 %25, label %32, label %26
-
-26:                                               ; preds = %23, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 456
-  %28 = load ptr, ptr %27, align 8
-  %.not144 = icmp eq ptr %28, null
-  br i1 %.not144, label %34, label %29
+26:                                               ; preds = %.thread, %16
+  %.072.sroa.phi196265 = phi ptr [ %.072.sroa.phi196237, %.thread ], [ %.072.sroa.phi196, %16 ]
+  %.072.sroa.phi199263 = phi ptr [ %.072.sroa.phi199236, %.thread ], [ %.072.sroa.phi199, %16 ]
+  %.072.sroa.phi202261 = phi ptr [ %.072.sroa.phi202235, %.thread ], [ %.072.sroa.phi202, %16 ]
+  %.072.sroa.phi205259 = phi ptr [ %.072.sroa.phi205234, %.thread ], [ %.072.sroa.phi205, %16 ]
+  %.072.sroa.phi208257 = phi ptr [ %.072.sroa.phi208233, %.thread ], [ %.072.sroa.phi208, %16 ]
+  %.072.sroa.phi211255 = phi ptr [ %.072.sroa.phi211232, %.thread ], [ %.072.sroa.phi211, %16 ]
+  %.072.sroa.phi214253 = phi ptr [ %.072.sroa.phi214231, %.thread ], [ %.072.sroa.phi214, %16 ]
+  %.072.sroa.phi217251 = phi ptr [ %.072.sroa.phi217230, %.thread ], [ %.072.sroa.phi217, %16 ]
+  %.072.sroa.phi220249 = phi ptr [ %.072.sroa.phi220229, %.thread ], [ %.072.sroa.phi220, %16 ]
+  %.072247 = phi ptr [ %3, %.thread ], [ %1, %16 ]
+  %.072.sroa.phi190245 = phi ptr [ %.072.sroa.gep191, %.thread ], [ %.072.sroa.gep192, %16 ]
+  %.072.sroa.phi172243 = phi ptr [ %.072.sroa.gep173, %.thread ], [ %.072.sroa.gep174, %16 ]
+  %.072.sroa.phi163241 = phi ptr [ %.072.sroa.gep164, %.thread ], [ %.072.sroa.gep165, %16 ]
+  %27 = load i32, ptr %.072247, align 8
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = getelementptr i8, ptr %28, i64 4
-  %.val157 = load i32, ptr %30, align 4
-  %31 = icmp sgt i32 %.val157, 0
-  br i1 %31, label %32, label %34
+  %30 = getelementptr i8, ptr %0, i64 104
+  %.val = load i32, ptr %30, align 8
+  %31 = icmp slt i32 %27, %.val
+  br i1 %31, label %38, label %32
 
-32:                                               ; preds = %29, %23
-  %33 = call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %.072247) #13
-  br label %110
+32:                                               ; preds = %29, %26
+  %33 = getelementptr inbounds i8, ptr %0, i64 456
+  %34 = load ptr, ptr %33, align 8
+  %.not144 = icmp eq ptr %34, null
+  br i1 %.not144, label %40, label %35
 
-34:                                               ; preds = %26, %29, %12, %15
-  %.072.sroa.phi196264 = phi ptr [ %.072.sroa.phi196265, %26 ], [ %.072.sroa.phi196265, %29 ], [ %.072.sroa.phi196, %12 ], [ %.072.sroa.phi196, %15 ]
-  %.072.sroa.phi199262 = phi ptr [ %.072.sroa.phi199263, %26 ], [ %.072.sroa.phi199263, %29 ], [ %.072.sroa.phi199, %12 ], [ %.072.sroa.phi199, %15 ]
-  %.072.sroa.phi202260 = phi ptr [ %.072.sroa.phi202261, %26 ], [ %.072.sroa.phi202261, %29 ], [ %.072.sroa.phi202, %12 ], [ %.072.sroa.phi202, %15 ]
-  %.072.sroa.phi205258 = phi ptr [ %.072.sroa.phi205259, %26 ], [ %.072.sroa.phi205259, %29 ], [ %.072.sroa.phi205, %12 ], [ %.072.sroa.phi205, %15 ]
-  %.072.sroa.phi208256 = phi ptr [ %.072.sroa.phi208257, %26 ], [ %.072.sroa.phi208257, %29 ], [ %.072.sroa.phi208, %12 ], [ %.072.sroa.phi208, %15 ]
-  %.072.sroa.phi211254 = phi ptr [ %.072.sroa.phi211255, %26 ], [ %.072.sroa.phi211255, %29 ], [ %.072.sroa.phi211, %12 ], [ %.072.sroa.phi211, %15 ]
-  %.072.sroa.phi214252 = phi ptr [ %.072.sroa.phi214253, %26 ], [ %.072.sroa.phi214253, %29 ], [ %.072.sroa.phi214, %12 ], [ %.072.sroa.phi214, %15 ]
-  %.072.sroa.phi217250 = phi ptr [ %.072.sroa.phi217251, %26 ], [ %.072.sroa.phi217251, %29 ], [ %.072.sroa.phi217, %12 ], [ %.072.sroa.phi217, %15 ]
-  %.072.sroa.phi220248 = phi ptr [ %.072.sroa.phi220249, %26 ], [ %.072.sroa.phi220249, %29 ], [ %.072.sroa.phi220, %12 ], [ %.072.sroa.phi220, %15 ]
-  %.072246 = phi ptr [ %.072247, %26 ], [ %.072247, %29 ], [ %1, %12 ], [ %1, %15 ]
-  %.072.sroa.phi190244 = phi ptr [ %.072.sroa.phi190245, %26 ], [ %.072.sroa.phi190245, %29 ], [ %.072.sroa.gep192, %12 ], [ %.072.sroa.gep192, %15 ]
-  %.072.sroa.phi172242 = phi ptr [ %.072.sroa.phi172243, %26 ], [ %.072.sroa.phi172243, %29 ], [ %.072.sroa.gep174, %12 ], [ %.072.sroa.gep174, %15 ]
-  %.072.sroa.phi163240 = phi ptr [ %.072.sroa.phi163241, %26 ], [ %.072.sroa.phi163241, %29 ], [ %.072.sroa.gep165, %12 ], [ %.072.sroa.gep165, %15 ]
-  %.not238 = phi i1 [ true, %26 ], [ true, %29 ], [ false, %12 ], [ false, %15 ]
-  %35 = load i32, ptr %.072.sroa.phi196264, align 8
-  %.not146 = icmp eq i32 %35, 0
-  br i1 %.not146, label %43, label %36
+35:                                               ; preds = %32
+  %36 = getelementptr i8, ptr %34, i64 4
+  %.val157 = load i32, ptr %36, align 4
+  %37 = icmp sgt i32 %.val157, 0
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr %.072.sroa.phi163240, align 8
-  %38 = load i32, ptr %.072.sroa.phi199262, align 4
-  br i1 %.not238, label %41, label %39
+38:                                               ; preds = %35, %29
+  %39 = call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %.072247) #13
+  br label %116
 
-39:                                               ; preds = %36
-  %40 = tail call ptr @Cec_LatchCorrespondence(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %38) #13
-  br label %110
+40:                                               ; preds = %32, %35, %18, %21
+  %.072.sroa.phi196264 = phi ptr [ %.072.sroa.phi196265, %32 ], [ %.072.sroa.phi196265, %35 ], [ %.072.sroa.phi196, %18 ], [ %.072.sroa.phi196, %21 ]
+  %.072.sroa.phi199262 = phi ptr [ %.072.sroa.phi199263, %32 ], [ %.072.sroa.phi199263, %35 ], [ %.072.sroa.phi199, %18 ], [ %.072.sroa.phi199, %21 ]
+  %.072.sroa.phi202260 = phi ptr [ %.072.sroa.phi202261, %32 ], [ %.072.sroa.phi202261, %35 ], [ %.072.sroa.phi202, %18 ], [ %.072.sroa.phi202, %21 ]
+  %.072.sroa.phi205258 = phi ptr [ %.072.sroa.phi205259, %32 ], [ %.072.sroa.phi205259, %35 ], [ %.072.sroa.phi205, %18 ], [ %.072.sroa.phi205, %21 ]
+  %.072.sroa.phi208256 = phi ptr [ %.072.sroa.phi208257, %32 ], [ %.072.sroa.phi208257, %35 ], [ %.072.sroa.phi208, %18 ], [ %.072.sroa.phi208, %21 ]
+  %.072.sroa.phi211254 = phi ptr [ %.072.sroa.phi211255, %32 ], [ %.072.sroa.phi211255, %35 ], [ %.072.sroa.phi211, %18 ], [ %.072.sroa.phi211, %21 ]
+  %.072.sroa.phi214252 = phi ptr [ %.072.sroa.phi214253, %32 ], [ %.072.sroa.phi214253, %35 ], [ %.072.sroa.phi214, %18 ], [ %.072.sroa.phi214, %21 ]
+  %.072.sroa.phi217250 = phi ptr [ %.072.sroa.phi217251, %32 ], [ %.072.sroa.phi217251, %35 ], [ %.072.sroa.phi217, %18 ], [ %.072.sroa.phi217, %21 ]
+  %.072.sroa.phi220248 = phi ptr [ %.072.sroa.phi220249, %32 ], [ %.072.sroa.phi220249, %35 ], [ %.072.sroa.phi220, %18 ], [ %.072.sroa.phi220, %21 ]
+  %.072246 = phi ptr [ %.072247, %32 ], [ %.072247, %35 ], [ %1, %18 ], [ %1, %21 ]
+  %.072.sroa.phi190244 = phi ptr [ %.072.sroa.phi190245, %32 ], [ %.072.sroa.phi190245, %35 ], [ %.072.sroa.gep192, %18 ], [ %.072.sroa.gep192, %21 ]
+  %.072.sroa.phi172242 = phi ptr [ %.072.sroa.phi172243, %32 ], [ %.072.sroa.phi172243, %35 ], [ %.072.sroa.gep174, %18 ], [ %.072.sroa.gep174, %21 ]
+  %.072.sroa.phi163240 = phi ptr [ %.072.sroa.phi163241, %32 ], [ %.072.sroa.phi163241, %35 ], [ %.072.sroa.gep165, %18 ], [ %.072.sroa.gep165, %21 ]
+  %.not238 = phi i1 [ true, %32 ], [ true, %35 ], [ false, %18 ], [ false, %21 ]
+  %41 = load i32, ptr %.072.sroa.phi196264, align 8
+  %.not146 = icmp eq i32 %41, 0
+  br i1 %.not146, label %49, label %42
 
-41:                                               ; preds = %36
-  %42 = tail call ptr @Cec_SignalCorrespondence(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %38) #13
-  br label %110
+42:                                               ; preds = %40
+  %43 = load i32, ptr %.072.sroa.phi163240, align 8
+  %44 = load i32, ptr %.072.sroa.phi199262, align 4
+  br i1 %.not238, label %47, label %45
 
-43:                                               ; preds = %34
-  %44 = call ptr @Ssw_ManCreate(ptr noundef nonnull %0, ptr noundef nonnull %.072246) #13
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 20
-  %47 = load i32, ptr %46, align 4
-  %.not147 = icmp eq i32 %47, 0
-  br i1 %.not147, label %63, label %48
+45:                                               ; preds = %42
+  %46 = tail call ptr @Cec_LatchCorrespondence(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %44) #13
+  br label %116
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %.072.sroa.phi205258, align 8
-  %50 = load i32, ptr %.072.sroa.phi214252, align 4
-  %51 = call ptr @Ssw_ClassesPrepareSimple(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %50) #13
-  %52 = getelementptr inbounds i8, ptr %44, i64 40
-  store ptr %51, ptr %52, align 8
-  call void @Ssw_ClassesSetData(ptr noundef %51, ptr noundef null, ptr noundef null, ptr noundef nonnull @Ssw_SmlObjIsConstBit, ptr noundef nonnull @Ssw_SmlObjsAreEqualBit) #13
-  %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = add nsw i32 %55, 1
-  %57 = getelementptr inbounds i8, ptr %44, i64 232
-  %58 = call i32 @Ssw_ManSetConstrPhases(ptr noundef nonnull %0, i32 noundef %56, ptr noundef nonnull %57) #13
-  %.not150 = icmp eq i32 %58, 0
-  br i1 %.not150, label %62, label %59
+47:                                               ; preds = %42
+  %48 = tail call ptr @Cec_SignalCorrespondence(ptr noundef nonnull %0, i32 noundef %43, i32 noundef %44) #13
+  br label %116
 
-59:                                               ; preds = %48
+49:                                               ; preds = %40
+  %50 = call ptr @Ssw_ManCreate(ptr noundef nonnull %0, ptr noundef nonnull %.072246) #13
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 20
+  %53 = load i32, ptr %52, align 4
+  %.not147 = icmp eq i32 %53, 0
+  br i1 %.not147, label %69, label %54
+
+54:                                               ; preds = %49
+  %55 = load i32, ptr %.072.sroa.phi205258, align 8
+  %56 = load i32, ptr %.072.sroa.phi214252, align 4
+  %57 = call ptr @Ssw_ClassesPrepareSimple(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %56) #13
+  %58 = getelementptr inbounds i8, ptr %50, i64 40
+  store ptr %57, ptr %58, align 8
+  call void @Ssw_ClassesSetData(ptr noundef %57, ptr noundef null, ptr noundef null, ptr noundef nonnull @Ssw_SmlObjIsConstBit, ptr noundef nonnull @Ssw_SmlObjsAreEqualBit) #13
+  %59 = load ptr, ptr %50, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = add nsw i32 %61, 1
+  %63 = getelementptr inbounds i8, ptr %50, i64 232
+  %64 = call i32 @Ssw_ManSetConstrPhases(ptr noundef nonnull %0, i32 noundef %62, ptr noundef nonnull %63) #13
+  %.not150 = icmp eq i32 %64, 0
+  br i1 %.not150, label %68, label %65
+
+65:                                               ; preds = %54
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28)
-  %60 = load ptr, ptr %44, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 112
-  store i32 0, ptr %61, align 8
-  call void @Ssw_ManStop(ptr noundef nonnull %44) #13
-  br label %110
+  %66 = load ptr, ptr %50, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 112
+  store i32 0, ptr %67, align 8
+  call void @Ssw_ManStop(ptr noundef nonnull %50) #13
+  br label %116
 
-62:                                               ; preds = %48
-  call void @Ssw_ManRefineByConstrSim(ptr noundef nonnull %44) #13
-  br label %86
+68:                                               ; preds = %54
+  call void @Ssw_ManRefineByConstrSim(ptr noundef nonnull %50) #13
+  br label %92
 
-63:                                               ; preds = %43
-  %64 = load i32, ptr %.072.sroa.phi172242, align 4
-  %65 = load i32, ptr %.072.sroa.phi205258, align 8
-  %66 = load i32, ptr %.072.sroa.phi208256, align 4
-  %67 = load i32, ptr %.072.sroa.phi211254, align 8
-  %68 = load i32, ptr %.072.sroa.phi214252, align 4
-  %69 = load i32, ptr %.072.sroa.phi217250, align 8
-  %70 = call ptr @Ssw_ClassesPrepare(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69) #13
-  %71 = getelementptr inbounds i8, ptr %44, i64 40
-  store ptr %70, ptr %71, align 8
-  %72 = load i32, ptr %.072.sroa.phi190244, align 4
-  %.not148 = icmp eq i32 %72, 0
-  br i1 %.not148, label %73, label %82
+69:                                               ; preds = %49
+  %70 = load i32, ptr %.072.sroa.phi172242, align 4
+  %71 = load i32, ptr %.072.sroa.phi205258, align 8
+  %72 = load i32, ptr %.072.sroa.phi208256, align 4
+  %73 = load i32, ptr %.072.sroa.phi211254, align 8
+  %74 = load i32, ptr %.072.sroa.phi214252, align 4
+  %75 = load i32, ptr %.072.sroa.phi217250, align 8
+  %76 = call ptr @Ssw_ClassesPrepare(ptr noundef nonnull %0, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %75) #13
+  %77 = getelementptr inbounds i8, ptr %50, i64 40
+  store ptr %76, ptr %77, align 8
+  %78 = load i32, ptr %.072.sroa.phi190244, align 4
+  %.not148 = icmp eq i32 %78, 0
+  br i1 %.not148, label %79, label %88
 
-73:                                               ; preds = %63
-  %74 = load i32, ptr %.072.sroa.phi220248, align 8
-  %.not149 = icmp eq i32 %74, 0
-  br i1 %.not149, label %.sink.split, label %75
+79:                                               ; preds = %69
+  %80 = load i32, ptr %.072.sroa.phi220248, align 8
+  %.not149 = icmp eq i32 %80, 0
+  br i1 %.not149, label %.sink.split, label %81
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %44, i64 8
-  %77 = load i32, ptr %76, align 8
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %50, i64 8
+  %83 = load i32, ptr %82, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %73, %75
-  %.sink268 = phi i32 [ %77, %75 ], [ 1, %73 ]
-  %78 = load ptr, ptr %44, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = add nsw i32 %80, %.sink268
-  br label %82
+.sink.split:                                      ; preds = %79, %81
+  %.sink268 = phi i32 [ %83, %81 ], [ 1, %79 ]
+  %84 = load ptr, ptr %50, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = load i32, ptr %85, align 8
+  %87 = add nsw i32 %86, %.sink268
+  br label %88
 
-82:                                               ; preds = %.sink.split, %63
-  %.sink267 = phi i32 [ 2, %63 ], [ %81, %.sink.split ]
-  %83 = call ptr @Ssw_SmlStart(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.sink267, i32 noundef 1) #13
-  %84 = getelementptr inbounds i8, ptr %44, i64 200
-  store ptr %83, ptr %84, align 8
-  %85 = load ptr, ptr %71, align 8
-  call void @Ssw_ClassesSetData(ptr noundef %85, ptr noundef %83, ptr noundef nonnull @Ssw_SmlObjHashWord, ptr noundef nonnull @Ssw_SmlObjIsConstWord, ptr noundef nonnull @Ssw_SmlObjsAreEqualWord) #13
-  br label %86
+88:                                               ; preds = %.sink.split, %69
+  %.sink267 = phi i32 [ 2, %69 ], [ %87, %.sink.split ]
+  %89 = call ptr @Ssw_SmlStart(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.sink267, i32 noundef 1) #13
+  %90 = getelementptr inbounds i8, ptr %50, i64 200
+  store ptr %89, ptr %90, align 8
+  %91 = load ptr, ptr %77, align 8
+  call void @Ssw_ClassesSetData(ptr noundef %91, ptr noundef %89, ptr noundef nonnull @Ssw_SmlObjHashWord, ptr noundef nonnull @Ssw_SmlObjIsConstWord, ptr noundef nonnull @Ssw_SmlObjsAreEqualWord) #13
+  br label %92
 
-86:                                               ; preds = %82, %62
-  %87 = load ptr, ptr %44, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 92
-  %89 = load i32, ptr %88, align 4
-  %.not151 = icmp eq i32 %89, 0
-  br i1 %.not151, label %103, label %90
+92:                                               ; preds = %88, %68
+  %93 = load ptr, ptr %50, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 92
+  %95 = load i32, ptr %94, align 4
+  %.not151 = icmp eq i32 %95, 0
+  br i1 %.not151, label %109, label %96
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %44, i64 200
-  %92 = load ptr, ptr %91, align 8
-  %.not152 = icmp eq ptr %92, null
-  br i1 %.not152, label %103, label %93
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %50, i64 200
+  %98 = load ptr, ptr %97, align 8
+  %.not152 = icmp eq ptr %98, null
+  br i1 %.not152, label %109, label %99
 
-93:                                               ; preds = %90
-  %94 = call i32 @Ssw_SmlNumFrames(ptr noundef nonnull %92) #13
-  %95 = getelementptr inbounds i8, ptr %44, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr i8, ptr %96, i64 32
-  %.val158 = load ptr, ptr %97, align 8
-  %98 = getelementptr i8, ptr %.val158, i64 4
-  %.val158.val = load i32, ptr %98, align 4
-  %99 = mul nsw i32 %.val158.val, %94
-  %100 = sext i32 %99 to i64
-  %101 = call noalias ptr @calloc(i64 noundef %100, i64 noundef 4) #15
-  %102 = getelementptr inbounds i8, ptr %44, i64 184
-  store ptr %101, ptr %102, align 8
-  br label %103
-
-103:                                              ; preds = %93, %90, %86
-  %104 = call ptr @Ssw_SignalCorrespondenceRefine(ptr noundef nonnull %44)
-  %105 = load i32, ptr %.072.sroa.phi202260, align 4
-  %.not153 = icmp eq i32 %105, 0
-  br i1 %.not153, label %109, label %106
-
-106:                                              ; preds = %103
-  %107 = load i32, ptr %.072.sroa.phi217250, align 8
-  %.not154 = icmp eq i32 %107, 0
-  br i1 %.not154, label %109, label %108
-
-108:                                              ; preds = %106
-  call void @Ssw_ReportConeReductions(ptr noundef nonnull %44, ptr noundef nonnull %0, ptr noundef %104)
+99:                                               ; preds = %96
+  %100 = call i32 @Ssw_SmlNumFrames(ptr noundef nonnull %98) #13
+  %101 = getelementptr inbounds i8, ptr %50, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr i8, ptr %102, i64 32
+  %.val158 = load ptr, ptr %103, align 8
+  %104 = getelementptr i8, ptr %.val158, i64 4
+  %.val158.val = load i32, ptr %104, align 4
+  %105 = mul nsw i32 %.val158.val, %100
+  %106 = sext i32 %105 to i64
+  %107 = call noalias ptr @calloc(i64 noundef %106, i64 noundef 4) #15
+  %108 = getelementptr inbounds i8, ptr %50, i64 184
+  store ptr %107, ptr %108, align 8
   br label %109
 
-109:                                              ; preds = %108, %106, %103
-  call void @Ssw_ManStop(ptr noundef nonnull %44) #13
-  br label %110
+109:                                              ; preds = %99, %96, %92
+  %110 = call ptr @Ssw_SignalCorrespondenceRefine(ptr noundef nonnull %50)
+  %111 = load i32, ptr %.072.sroa.phi202260, align 4
+  %.not153 = icmp eq i32 %111, 0
+  br i1 %.not153, label %115, label %112
 
-110:                                              ; preds = %109, %59, %41, %39, %32, %18
-  %.0 = phi ptr [ %19, %18 ], [ %40, %39 ], [ %42, %41 ], [ null, %59 ], [ %104, %109 ], [ %33, %32 ]
+112:                                              ; preds = %109
+  %113 = load i32, ptr %.072.sroa.phi217250, align 8
+  %.not154 = icmp eq i32 %113, 0
+  br i1 %.not154, label %115, label %114
+
+114:                                              ; preds = %112
+  call void @Ssw_ReportConeReductions(ptr noundef nonnull %50, ptr noundef nonnull %0, ptr noundef %110)
+  br label %115
+
+115:                                              ; preds = %114, %112, %109
+  call void @Ssw_ManStop(ptr noundef nonnull %50) #13
+  br label %116
+
+116:                                              ; preds = %115, %65, %47, %45, %38, %24
+  %.0 = phi ptr [ %25, %24 ], [ %46, %45 ], [ %48, %47 ], [ null, %65 ], [ %110, %115 ], [ %39, %38 ]
   ret ptr %.0
 }
 
@@ -1336,7 +1372,7 @@ declare i32 @Ssw_SmlNumFrames(ptr noundef) local_unnamed_addr #3
 define ptr @Ssw_LatchCorrespondence(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.Ssw_Pars_t_, align 8
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %20
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 12
@@ -1345,23 +1381,35 @@ define ptr @Ssw_LatchCorrespondence(ptr noundef %0, ptr noundef %1) local_unname
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
-  store i32 1000, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 68
-  %12 = getelementptr inbounds i8, ptr %3, i64 132
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
-  %13 = getelementptr inbounds i8, ptr %3, i64 148
-  store i32 250, ptr %13, align 4
-  store <4 x i32> <i32 1, i32 1000, i32 50, i32 5000>, ptr %12, align 4
-  store <4 x i32> <i32 10000, i32 5000000, i32 100, i32 -1>, ptr %8, align 8
-  br label %14
+  %9 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 5000000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 100, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 1000, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 -1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 68
+  %15 = getelementptr inbounds i8, ptr %3, i64 132
+  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %14, i8 0, i64 28, i1 false)
+  store i32 1000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 140
+  store i32 50, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5000, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 148
+  store i32 250, ptr %19, align 4
+  store i32 1, ptr %15, align 4
+  store i32 10000, ptr %8, align 8
+  br label %20
 
-14:                                               ; preds = %5, %2
+20:                                               ; preds = %5, %2
   %.0 = phi ptr [ %3, %5 ], [ %1, %2 ]
-  %15 = call ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef nonnull %.0)
-  ret ptr %15
+  %21 = call ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef nonnull %.0)
+  ret ptr %21
 }
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3

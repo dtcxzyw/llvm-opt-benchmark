@@ -449,18 +449,18 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 36028797018963968
   %.not15 = icmp eq i64 %12, 0
-  br i1 %.not15, label %37, label %13
+  br i1 %.not15, label %40, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @get_log_level() #6
   %15 = icmp sgt i32 %14, 3
-  br i1 %15, label %16, label %37
+  br i1 %15, label %16, label %40
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_load, ptr noundef %2, ptr noundef %18) #6
-  br label %37
+  br label %40
 
 19:                                               ; preds = %3
   %20 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -471,17 +471,17 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 36028797018963968
   %.not14 = icmp eq i64 %23, 0
-  br i1 %.not14, label %37, label %24
+  br i1 %.not14, label %40, label %24
 
 24:                                               ; preds = %21
   %25 = tail call i32 @get_log_level() #6
   %26 = icmp sgt i32 %25, 3
-  br i1 %26, label %27, label %37
+  br i1 %26, label %27, label %40
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %6, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_load, ptr noundef %28, ptr noundef nonnull %4) #6
-  br label %37
+  br label %40
 
 29:                                               ; preds = %19
   store ptr %0, ptr %1, align 8
@@ -492,12 +492,16 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   %33 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 28
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
-  %36 = load <2 x i32>, ptr %34, align 4
-  store <2 x i32> %36, ptr %35, align 8
-  br label %37
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 32
+  %38 = load i32, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 28
+  store i32 %38, ptr %39, align 4
+  br label %40
 
-37:                                               ; preds = %27, %24, %21, %16, %13, %10, %29
+40:                                               ; preds = %27, %24, %21, %16, %13, %10, %29
   %.0 = phi i32 [ 0, %29 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %21 ], [ -1, %24 ], [ -1, %27 ]
   ret i32 %.0
 }

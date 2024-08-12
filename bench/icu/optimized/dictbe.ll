@@ -603,7 +603,13 @@ if.end6:                                          ; preds = %if.end
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %if.end6
   %arrayctor.cur.idx = phi i64 [ 0, %if.end6 ], [ %arrayctor.cur.add, %arrayctor.loop ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
+  store i32 0, ptr %arrayctor.cur.ptr, align 4
+  %prefix.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
+  store i32 0, ptr %prefix.i, align 4
+  %offset.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
+  store i32 -1, ptr %offset.i, align 4
+  %mark.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 12
+  store i32 0, ptr %mark.i, align 4
   %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
@@ -1581,7 +1587,13 @@ entry:
 arrayctor.loop:                                   ; preds = %entry, %arrayctor.loop
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
+  store i32 0, ptr %arrayctor.cur.ptr, align 4
+  %prefix.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
+  store i32 0, ptr %prefix.i, align 4
+  %offset.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
+  store i32 -1, ptr %offset.i, align 4
+  %mark.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 12
+  store i32 0, ptr %mark.i, align 4
   %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
@@ -2397,7 +2409,13 @@ entry:
 arrayctor.loop:                                   ; preds = %entry, %arrayctor.loop
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
+  store i32 0, ptr %arrayctor.cur.ptr, align 4
+  %prefix.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
+  store i32 0, ptr %prefix.i, align 4
+  %offset.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
+  store i32 -1, ptr %offset.i, align 4
+  %mark.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 12
+  store i32 0, ptr %mark.i, align 4
   %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180
@@ -3233,7 +3251,13 @@ entry:
 arrayctor.loop:                                   ; preds = %entry, %arrayctor.loop
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %arrayctor.loop ], [ 0, %entry ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %words, i64 %arrayctor.cur.idx
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %arrayctor.cur.ptr, align 4
+  store i32 0, ptr %arrayctor.cur.ptr, align 4
+  %prefix.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 4
+  store i32 0, ptr %prefix.i, align 4
+  %offset.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
+  store i32 -1, ptr %offset.i, align 4
+  %mark.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 12
+  store i32 0, ptr %mark.i, align 4
   %current.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 16
   store i32 0, ptr %current.i, align 4
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 180

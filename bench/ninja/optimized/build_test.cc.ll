@@ -14065,7 +14065,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 52:                                               ; preds = %42
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %474
+  br label %476
 
 54:                                               ; preds = %43
   %55 = landingpad { ptr, i32 }
@@ -14103,7 +14103,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit43:                   ; preds = %61, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i42
   store ptr null, ptr %15, align 8
-  br label %474
+  br label %476
 
 66:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %47
   store ptr null, ptr %15, align 8
@@ -14159,7 +14159,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 81:                                               ; preds = %71
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %474
+  br label %476
 
 83:                                               ; preds = %72
   %84 = landingpad { ptr, i32 }
@@ -14197,7 +14197,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit50:                   ; preds = %90, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i49
   store ptr null, ptr %20, align 8
-  br label %474
+  br label %476
 
 95:                                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i46, %76
   store ptr null, ptr %20, align 8
@@ -14277,7 +14277,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 119:                                              ; preds = %109
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %474
+  br label %476
 
 121:                                              ; preds = %110
   %122 = landingpad { ptr, i32 }
@@ -14315,7 +14315,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit59:                   ; preds = %128, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i58
   store ptr null, ptr %24, align 8
-  br label %474
+  br label %476
 
 133:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i55, %114
   store ptr null, ptr %24, align 8
@@ -14340,223 +14340,226 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %143 = getelementptr inbounds i8, ptr %1, i64 48
   %144 = load ptr, ptr %143, align 8, !noalias !166
   %145 = getelementptr inbounds i8, ptr %1, i64 56
-  %146 = load <2 x ptr>, ptr %145, align 8, !noalias !166
-  %147 = load ptr, ptr %145, align 8, !noalias !166
-  %148 = getelementptr inbounds i8, ptr %1, i64 72
-  %149 = load ptr, ptr %148, align 8, !noalias !166
+  %146 = load ptr, ptr %145, align 8, !noalias !166
+  %147 = getelementptr inbounds i8, ptr %1, i64 64
+  %148 = load ptr, ptr %147, align 8, !noalias !166
+  %149 = getelementptr inbounds i8, ptr %1, i64 72
+  %150 = load ptr, ptr %149, align 8, !noalias !166
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %.not.i.i63 = icmp eq ptr %136, %144
-  br i1 %.not.i.i63, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %150
+  br i1 %.not.i.i63, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %151
 
-150:                                              ; preds = %134
+151:                                              ; preds = %134
   store ptr %136, ptr %12, align 8
-  %151 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %138, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %140, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr %142, ptr %153, align 8
+  %152 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %138, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %140, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr %142, ptr %154, align 8
   store ptr %144, ptr %13, align 8
-  %154 = getelementptr inbounds i8, ptr %13, i64 8
-  store <2 x ptr> %146, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr %149, ptr %155, align 8
-  %156 = ptrtoint ptr %149 to i64
-  %157 = ptrtoint ptr %142 to i64
-  %158 = sub i64 %156, %157
-  %159 = ashr exact i64 %158, 3
-  %160 = icmp ne ptr %149, null
-  %.neg.i.i.i = sext i1 %160 to i64
-  %161 = add nsw i64 %159, %.neg.i.i.i
-  %162 = shl nsw i64 %161, 6
-  %163 = ptrtoint ptr %144 to i64
-  %164 = ptrtoint ptr %147 to i64
-  %165 = sub i64 %163, %164
-  %166 = ashr exact i64 %165, 3
-  %167 = ptrtoint ptr %140 to i64
-  %168 = ptrtoint ptr %136 to i64
-  %169 = sub i64 %167, %168
-  %170 = ashr exact i64 %169, 3
-  %171 = add nsw i64 %166, %170
-  %172 = add i64 %171, %162
-  %173 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %172, i1 true)
-  %174 = shl nuw nsw i64 %173, 1
-  %175 = xor i64 %174, 126
-  call void @_ZSt16__introsort_loopISt15_Deque_iteratorIP4EdgeRS2_PS2_ElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_T1_(ptr noundef nonnull %12, ptr noundef nonnull %13, i64 noundef %175, ptr nonnull @_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_)
-  %176 = icmp sgt i64 %172, 16
-  %177 = ptrtoint ptr %138 to i64
-  %178 = sub i64 %168, %177
-  %179 = ashr exact i64 %178, 3
-  br i1 %176, label %180, label %365
+  %155 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %146, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %148, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %150, ptr %157, align 8
+  %158 = ptrtoint ptr %150 to i64
+  %159 = ptrtoint ptr %142 to i64
+  %160 = sub i64 %158, %159
+  %161 = ashr exact i64 %160, 3
+  %162 = icmp ne ptr %150, null
+  %.neg.i.i.i = sext i1 %162 to i64
+  %163 = add nsw i64 %161, %.neg.i.i.i
+  %164 = shl nsw i64 %163, 6
+  %165 = ptrtoint ptr %144 to i64
+  %166 = ptrtoint ptr %146 to i64
+  %167 = sub i64 %165, %166
+  %168 = ashr exact i64 %167, 3
+  %169 = ptrtoint ptr %140 to i64
+  %170 = ptrtoint ptr %136 to i64
+  %171 = sub i64 %169, %170
+  %172 = ashr exact i64 %171, 3
+  %173 = add nsw i64 %168, %172
+  %174 = add i64 %173, %164
+  %175 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %174, i1 true)
+  %176 = shl nuw nsw i64 %175, 1
+  %177 = xor i64 %176, 126
+  call void @_ZSt16__introsort_loopISt15_Deque_iteratorIP4EdgeRS2_PS2_ElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_T1_(ptr noundef nonnull %12, ptr noundef nonnull %13, i64 noundef %177, ptr nonnull @_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_)
+  %178 = icmp sgt i64 %174, 16
+  %179 = ptrtoint ptr %138 to i64
+  %180 = sub i64 %170, %179
+  %181 = ashr exact i64 %180, 3
+  br i1 %178, label %182, label %367
 
-180:                                              ; preds = %150
-  %181 = add nsw i64 %179, 16
-  %182 = icmp sgt i64 %179, -17
-  br i1 %182, label %183, label %188
+182:                                              ; preds = %151
+  %183 = add nsw i64 %181, 16
+  %184 = icmp sgt i64 %181, -17
+  br i1 %184, label %185, label %190
 
-183:                                              ; preds = %180
-  %184 = icmp ult i64 %181, 64
-  br i1 %184, label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, label %186
+185:                                              ; preds = %182
+  %186 = icmp ult i64 %183, 64
+  br i1 %186, label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, label %188
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %136, i64 128
-  br label %197
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %185
+  %187 = getelementptr inbounds i8, ptr %136, i64 128
+  br label %199
 
-186:                                              ; preds = %183
-  %187 = lshr i64 %181, 6
+188:                                              ; preds = %185
+  %189 = lshr i64 %183, 6
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
 
-188:                                              ; preds = %180
-  %189 = ashr i64 %181, 6
+190:                                              ; preds = %182
+  %191 = ashr i64 %183, 6
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %186, %188
-  %190 = phi i64 [ %187, %186 ], [ %189, %188 ]
-  %191 = getelementptr inbounds ptr, ptr %142, i64 %190
-  %192 = load ptr, ptr %191, align 8, !noalias !169
-  %193 = shl nsw i64 %190, 6
-  %194 = sub nsw i64 %181, %193
-  %195 = getelementptr inbounds ptr, ptr %192, i64 %194
-  %196 = icmp eq ptr %136, %195
-  br i1 %196, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %197
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %188, %190
+  %192 = phi i64 [ %189, %188 ], [ %191, %190 ]
+  %193 = getelementptr inbounds ptr, ptr %142, i64 %192
+  %194 = load ptr, ptr %193, align 8, !noalias !169
+  %195 = shl nsw i64 %192, 6
+  %196 = sub nsw i64 %183, %195
+  %197 = getelementptr inbounds ptr, ptr %194, i64 %196
+  %198 = icmp eq ptr %136, %197
+  br i1 %198, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %199
 
-197:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
-  %storemerge.i.i.i168 = phi ptr [ %185, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread ], [ %195, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i ]
-  %198 = add nsw i64 %179, 1
-  %199 = icmp sgt i64 %179, -2
-  br i1 %199, label %200, label %206
+199:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
+  %storemerge.i.i.i168 = phi ptr [ %187, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread ], [ %197, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i ]
+  %200 = add nsw i64 %181, 1
+  %201 = icmp sgt i64 %181, -2
+  br i1 %201, label %202, label %208
 
-200:                                              ; preds = %197
-  %201 = icmp ult i64 %198, 64
-  br i1 %201, label %202, label %204
+202:                                              ; preds = %199
+  %203 = icmp ult i64 %200, 64
+  br i1 %203, label %204, label %206
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %136, i64 8
+204:                                              ; preds = %202
+  %205 = getelementptr inbounds i8, ptr %136, i64 8
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70
 
-204:                                              ; preds = %200
-  %205 = lshr i64 %198, 6
-  br label %208
+206:                                              ; preds = %202
+  %207 = lshr i64 %200, 6
+  br label %210
 
-206:                                              ; preds = %197
-  %207 = ashr i64 %198, 6
-  br label %208
+208:                                              ; preds = %199
+  %209 = ashr i64 %200, 6
+  br label %210
 
-208:                                              ; preds = %206, %204
-  %209 = phi i64 [ %205, %204 ], [ %207, %206 ]
-  %210 = getelementptr inbounds ptr, ptr %142, i64 %209
-  %211 = load ptr, ptr %210, align 8, !noalias !172
-  %212 = getelementptr inbounds i8, ptr %211, i64 512
-  %213 = shl nsw i64 %209, 6
-  %214 = sub nsw i64 %198, %213
-  %215 = getelementptr inbounds ptr, ptr %211, i64 %214
+210:                                              ; preds = %208, %206
+  %211 = phi i64 [ %207, %206 ], [ %209, %208 ]
+  %212 = getelementptr inbounds ptr, ptr %142, i64 %211
+  %213 = load ptr, ptr %212, align 8, !noalias !172
+  %214 = getelementptr inbounds i8, ptr %213, i64 512
+  %215 = shl nsw i64 %211, 6
+  %216 = sub nsw i64 %200, %215
+  %217 = getelementptr inbounds ptr, ptr %213, i64 %216
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70: ; preds = %208, %202
-  %.sroa.10.1.i71 = phi ptr [ %138, %202 ], [ %211, %208 ]
-  %.sroa.17.1.i72 = phi ptr [ %140, %202 ], [ %212, %208 ]
-  %.sroa.25.1.i73 = phi ptr [ %142, %202 ], [ %210, %208 ]
-  %storemerge.i.i.i74 = phi ptr [ %203, %202 ], [ %215, %208 ]
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70: ; preds = %210, %204
+  %.sroa.10.1.i71 = phi ptr [ %138, %204 ], [ %213, %210 ]
+  %.sroa.17.1.i72 = phi ptr [ %140, %204 ], [ %214, %210 ]
+  %.sroa.25.1.i73 = phi ptr [ %142, %204 ], [ %212, %210 ]
+  %storemerge.i.i.i74 = phi ptr [ %205, %204 ], [ %217, %210 ]
   %.not44.i75 = icmp eq ptr %storemerge.i.i.i74, %storemerge.i.i.i168
   br i1 %.not44.i75, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %.lr.ph.i76
 
 .lr.ph.i76:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70
-  %216 = getelementptr inbounds i8, ptr %4, i64 8
-  %217 = getelementptr inbounds i8, ptr %4, i64 16
-  %218 = getelementptr inbounds i8, ptr %4, i64 24
-  %219 = getelementptr inbounds i8, ptr %5, i64 8
-  %220 = getelementptr inbounds i8, ptr %5, i64 16
-  %221 = getelementptr inbounds i8, ptr %5, i64 24
-  %222 = getelementptr inbounds i8, ptr %6, i64 8
-  %223 = getelementptr inbounds i8, ptr %6, i64 16
-  %224 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %225
+  %218 = getelementptr inbounds i8, ptr %4, i64 8
+  %219 = getelementptr inbounds i8, ptr %4, i64 16
+  %220 = getelementptr inbounds i8, ptr %4, i64 24
+  %221 = getelementptr inbounds i8, ptr %5, i64 8
+  %222 = getelementptr inbounds i8, ptr %5, i64 16
+  %223 = getelementptr inbounds i8, ptr %5, i64 24
+  %224 = getelementptr inbounds i8, ptr %6, i64 8
+  %225 = getelementptr inbounds i8, ptr %6, i64 16
+  %226 = getelementptr inbounds i8, ptr %6, i64 24
+  br label %227
 
-225:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87, %.lr.ph.i76
+227:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87, %.lr.ph.i76
   %.sroa.25.050.i77 = phi ptr [ %.sroa.25.1.i73, %.lr.ph.i76 ], [ %.sroa.25.2.i91, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
   %.sroa.17.049.i78 = phi ptr [ %.sroa.17.1.i72, %.lr.ph.i76 ], [ %.sroa.17.2.i90, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
   %.sroa.10.048.i79 = phi ptr [ %.sroa.10.1.i71, %.lr.ph.i76 ], [ %.sroa.10.2.i89, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
   %.sroa.025.045.i80 = phi ptr [ %storemerge.i.i.i74, %.lr.ph.i76 ], [ %.sroa.025.1.i88, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
-  %226 = load ptr, ptr %.sroa.025.045.i80, align 8
-  %227 = load ptr, ptr %136, align 8
-  %228 = getelementptr inbounds i8, ptr %226, i64 40
-  %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %227, i64 40
+  %228 = load ptr, ptr %.sroa.025.045.i80, align 8
+  %229 = load ptr, ptr %136, align 8
+  %230 = getelementptr inbounds i8, ptr %228, i64 40
+  %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %231, align 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull align 8 dereferenceable(32) %233)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113 unwind label %235
+  %233 = getelementptr inbounds i8, ptr %229, i64 40
+  %234 = load ptr, ptr %233, align 8
+  %235 = load ptr, ptr %234, align 8
+  %236 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(32) %235)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113 unwind label %237
 
-235:                                              ; preds = %225
-  %236 = landingpad { ptr, i32 }
+237:                                              ; preds = %227
+  %238 = landingpad { ptr, i32 }
           catch ptr null
-  %237 = extractvalue { ptr, i32 } %236, 0
-  call void @__clang_call_terminate(ptr %237) #25
+  %239 = extractvalue { ptr, i32 } %238, 0
+  call void @__clang_call_terminate(ptr %239) #25
   unreachable
 
-_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %225
-  %238 = icmp slt i32 %234, 0
-  %239 = load ptr, ptr %.sroa.025.045.i80, align 8
-  br i1 %238, label %240, label %263
+_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %227
+  %240 = icmp slt i32 %236, 0
+  %241 = load ptr, ptr %.sroa.025.045.i80, align 8
+  br i1 %240, label %242, label %265
 
-240:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
-  %241 = ptrtoint ptr %.sroa.025.045.i80 to i64
-  %242 = ptrtoint ptr %.sroa.10.048.i79 to i64
-  %243 = sub i64 %241, %242
-  %244 = ashr exact i64 %243, 3
-  %245 = add nsw i64 %244, 1
-  %246 = icmp sgt i64 %244, -2
-  br i1 %246, label %247, label %253
+242:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
+  %243 = ptrtoint ptr %.sroa.025.045.i80 to i64
+  %244 = ptrtoint ptr %.sroa.10.048.i79 to i64
+  %245 = sub i64 %243, %244
+  %246 = ashr exact i64 %245, 3
+  %247 = add nsw i64 %246, 1
+  %248 = icmp sgt i64 %246, -2
+  br i1 %248, label %249, label %255
 
-247:                                              ; preds = %240
-  %248 = icmp ult i64 %245, 64
-  br i1 %248, label %249, label %251
+249:                                              ; preds = %242
+  %250 = icmp ult i64 %247, 64
+  br i1 %250, label %251, label %253
 
-249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %.sroa.025.045.i80, i64 8
+251:                                              ; preds = %249
+  %252 = getelementptr inbounds i8, ptr %.sroa.025.045.i80, i64 8
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102
 
-251:                                              ; preds = %247
-  %252 = lshr i64 %245, 6
-  br label %255
+253:                                              ; preds = %249
+  %254 = lshr i64 %247, 6
+  br label %257
 
-253:                                              ; preds = %240
-  %254 = ashr i64 %245, 6
-  br label %255
+255:                                              ; preds = %242
+  %256 = ashr i64 %247, 6
+  br label %257
 
-255:                                              ; preds = %253, %251
-  %256 = phi i64 [ %252, %251 ], [ %254, %253 ]
-  %257 = getelementptr inbounds ptr, ptr %.sroa.25.050.i77, i64 %256
-  %258 = load ptr, ptr %257, align 8, !noalias !175
-  %259 = getelementptr inbounds i8, ptr %258, i64 512
-  %260 = shl nsw i64 %256, 6
-  %261 = sub nsw i64 %245, %260
-  %262 = getelementptr inbounds ptr, ptr %258, i64 %261
+257:                                              ; preds = %255, %253
+  %258 = phi i64 [ %254, %253 ], [ %256, %255 ]
+  %259 = getelementptr inbounds ptr, ptr %.sroa.25.050.i77, i64 %258
+  %260 = load ptr, ptr %259, align 8, !noalias !175
+  %261 = getelementptr inbounds i8, ptr %260, i64 512
+  %262 = shl nsw i64 %258, 6
+  %263 = sub nsw i64 %247, %262
+  %264 = getelementptr inbounds ptr, ptr %260, i64 %263
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %255, %249
-  %.sroa.59.0.i103 = phi ptr [ %.sroa.17.049.i78, %249 ], [ %259, %255 ]
-  %.sroa.28.0.i104 = phi ptr [ %.sroa.10.048.i79, %249 ], [ %258, %255 ]
-  %.sroa.810.0.i105 = phi ptr [ %.sroa.25.050.i77, %249 ], [ %257, %255 ]
-  %storemerge.i.i2.i106 = phi ptr [ %250, %249 ], [ %262, %255 ]
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %257, %251
+  %.sroa.59.0.i103 = phi ptr [ %.sroa.17.049.i78, %251 ], [ %261, %257 ]
+  %.sroa.28.0.i104 = phi ptr [ %.sroa.10.048.i79, %251 ], [ %260, %257 ]
+  %.sroa.810.0.i105 = phi ptr [ %.sroa.25.050.i77, %251 ], [ %259, %257 ]
+  %storemerge.i.i2.i106 = phi ptr [ %252, %251 ], [ %264, %257 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !181
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !181
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !181
   store ptr %136, ptr %4, align 8, !noalias !184
-  store ptr %138, ptr %216, align 8, !noalias !184
-  store ptr %140, ptr %217, align 8, !noalias !184
-  store ptr %142, ptr %218, align 8, !noalias !184
+  store ptr %138, ptr %218, align 8, !noalias !184
+  store ptr %140, ptr %219, align 8, !noalias !184
+  store ptr %142, ptr %220, align 8, !noalias !184
   store ptr %.sroa.025.045.i80, ptr %5, align 8, !noalias !184
-  store ptr %.sroa.10.048.i79, ptr %219, align 8, !noalias !184
-  store ptr %.sroa.17.049.i78, ptr %220, align 8, !noalias !184
-  store ptr %.sroa.25.050.i77, ptr %221, align 8, !noalias !184
+  store ptr %.sroa.10.048.i79, ptr %221, align 8, !noalias !184
+  store ptr %.sroa.17.049.i78, ptr %222, align 8, !noalias !184
+  store ptr %.sroa.25.050.i77, ptr %223, align 8, !noalias !184
   store ptr %storemerge.i.i2.i106, ptr %6, align 8, !noalias !184
-  store ptr %.sroa.28.0.i104, ptr %222, align 8, !noalias !184
-  store ptr %.sroa.59.0.i103, ptr %223, align 8, !noalias !184
-  store ptr %.sroa.810.0.i105, ptr %224, align 8, !noalias !184
+  store ptr %.sroa.28.0.i104, ptr %224, align 8, !noalias !184
+  store ptr %.sroa.59.0.i103, ptr %225, align 8, !noalias !184
+  store ptr %.sroa.810.0.i105, ptr %226, align 8, !noalias !184
   call void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1_PS1_St15_Deque_iteratorIS1_S2_S3_EET3_S4_IT0_T1_T2_ESA_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6), !noalias !181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !181
@@ -14564,138 +14567,138 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %255, %249
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !178
   br label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
 
-263:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
-  %264 = icmp eq ptr %.sroa.025.045.i80, %.sroa.10.048.i79
-  br i1 %264, label %265, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
+265:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
+  %266 = icmp eq ptr %.sroa.025.045.i80, %.sroa.10.048.i79
+  br i1 %266, label %267, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
 
-265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 -8
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 512
+267:                                              ; preds = %265
+  %268 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 -8
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds i8, ptr %269, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81: ; preds = %265, %263
-  %.sroa.8.1.i.i82 = phi ptr [ %267, %265 ], [ %.sroa.10.048.i79, %263 ]
-  %.sroa.18.1.i.i83 = phi ptr [ %266, %265 ], [ %.sroa.25.050.i77, %263 ]
-  %269 = phi ptr [ %268, %265 ], [ %.sroa.025.045.i80, %263 ]
-  %.sroa.02.012.i.i84 = getelementptr inbounds i8, ptr %269, i64 -8
-  %270 = load ptr, ptr %.sroa.02.012.i.i84, align 8
-  %271 = getelementptr inbounds i8, ptr %239, i64 40
-  %272 = load ptr, ptr %271, align 8
-  %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %270, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81: ; preds = %267, %265
+  %.sroa.8.1.i.i82 = phi ptr [ %269, %267 ], [ %.sroa.10.048.i79, %265 ]
+  %.sroa.18.1.i.i83 = phi ptr [ %268, %267 ], [ %.sroa.25.050.i77, %265 ]
+  %271 = phi ptr [ %270, %267 ], [ %.sroa.025.045.i80, %265 ]
+  %.sroa.02.012.i.i84 = getelementptr inbounds i8, ptr %271, i64 -8
+  %272 = load ptr, ptr %.sroa.02.012.i.i84, align 8
+  %273 = getelementptr inbounds i8, ptr %241, i64 40
+  %274 = load ptr, ptr %273, align 8
   %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(32) %276)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 unwind label %278
+  %276 = getelementptr inbounds i8, ptr %272, i64 40
+  %277 = load ptr, ptr %276, align 8
+  %278 = load ptr, ptr %277, align 8
+  %279 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(32) %278)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 unwind label %280
 
-278:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
-  %279 = landingpad { ptr, i32 }
+280:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
+  %281 = landingpad { ptr, i32 }
           catch ptr null
-  %280 = extractvalue { ptr, i32 } %279, 0
-  call void @__clang_call_terminate(ptr %280) #25
+  %282 = extractvalue { ptr, i32 } %281, 0
+  call void @__clang_call_terminate(ptr %282) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
-  %281 = icmp slt i32 %277, 0
-  br i1 %281, label %.lr.ph.i.i93, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
+  %283 = icmp slt i32 %279, 0
+  br i1 %283, label %.lr.ph.i.i93, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
 
 .lr.ph.i.i93:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111
   %.sroa.0.0.i94 = phi ptr [ %.sroa.02.016.i.i95, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.025.045.i80, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
   %.sroa.02.016.i.i95 = phi ptr [ %.sroa.02.0.i.i101, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.02.012.i.i84, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
   %.sroa.18.015.i.i96 = phi ptr [ %.sroa.18.2.i.i100, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.18.1.i.i83, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
   %.sroa.8.013.i.i97 = phi ptr [ %.sroa.8.2.i.i99, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.8.1.i.i82, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
-  %282 = load ptr, ptr %.sroa.02.016.i.i95, align 8
-  store ptr %282, ptr %.sroa.0.0.i94, align 8
-  %283 = icmp eq ptr %.sroa.02.016.i.i95, %.sroa.8.013.i.i97
-  br i1 %283, label %284, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
+  %284 = load ptr, ptr %.sroa.02.016.i.i95, align 8
+  store ptr %284, ptr %.sroa.0.0.i94, align 8
+  %285 = icmp eq ptr %.sroa.02.016.i.i95, %.sroa.8.013.i.i97
+  br i1 %285, label %286, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
 
-284:                                              ; preds = %.lr.ph.i.i93
-  %285 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i96, i64 -8
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 512
+286:                                              ; preds = %.lr.ph.i.i93
+  %287 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i96, i64 -8
+  %288 = load ptr, ptr %287, align 8
+  %289 = getelementptr inbounds i8, ptr %288, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98: ; preds = %284, %.lr.ph.i.i93
-  %.sroa.8.2.i.i99 = phi ptr [ %286, %284 ], [ %.sroa.8.013.i.i97, %.lr.ph.i.i93 ]
-  %.sroa.18.2.i.i100 = phi ptr [ %285, %284 ], [ %.sroa.18.015.i.i96, %.lr.ph.i.i93 ]
-  %288 = phi ptr [ %287, %284 ], [ %.sroa.02.016.i.i95, %.lr.ph.i.i93 ]
-  %.sroa.02.0.i.i101 = getelementptr inbounds i8, ptr %288, i64 -8
-  %289 = load ptr, ptr %.sroa.02.0.i.i101, align 8
-  %290 = load ptr, ptr %271, align 8
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %289, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98: ; preds = %286, %.lr.ph.i.i93
+  %.sroa.8.2.i.i99 = phi ptr [ %288, %286 ], [ %.sroa.8.013.i.i97, %.lr.ph.i.i93 ]
+  %.sroa.18.2.i.i100 = phi ptr [ %287, %286 ], [ %.sroa.18.015.i.i96, %.lr.ph.i.i93 ]
+  %290 = phi ptr [ %289, %286 ], [ %.sroa.02.016.i.i95, %.lr.ph.i.i93 ]
+  %.sroa.02.0.i.i101 = getelementptr inbounds i8, ptr %290, i64 -8
+  %291 = load ptr, ptr %.sroa.02.0.i.i101, align 8
+  %292 = load ptr, ptr %273, align 8
   %293 = load ptr, ptr %292, align 8
-  %294 = load ptr, ptr %293, align 8
-  %295 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %291, ptr noundef nonnull align 8 dereferenceable(32) %294)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 unwind label %296
+  %294 = getelementptr inbounds i8, ptr %291, i64 40
+  %295 = load ptr, ptr %294, align 8
+  %296 = load ptr, ptr %295, align 8
+  %297 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %296)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 unwind label %298
 
-296:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
-  %297 = landingpad { ptr, i32 }
+298:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
+  %299 = landingpad { ptr, i32 }
           catch ptr null
-  %298 = extractvalue { ptr, i32 } %297, 0
-  call void @__clang_call_terminate(ptr %298) #25
+  %300 = extractvalue { ptr, i32 } %299, 0
+  call void @__clang_call_terminate(ptr %300) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
-  %299 = icmp slt i32 %295, 0
-  br i1 %299, label %.lr.ph.i.i93, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85, !llvm.loop !187
+  %301 = icmp slt i32 %297, 0
+  br i1 %301, label %.lr.ph.i.i93, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85, !llvm.loop !187
 
 _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85: ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102
   %.sink.i86 = phi ptr [ %136, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102 ], [ %.sroa.025.045.i80, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ], [ %.sroa.02.016.i.i95, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ]
-  store ptr %239, ptr %.sink.i86, align 8
-  %300 = getelementptr inbounds i8, ptr %.sroa.025.045.i80, i64 8
-  %301 = icmp eq ptr %300, %.sroa.17.049.i78
-  br i1 %301, label %302, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87
+  store ptr %241, ptr %.sink.i86, align 8
+  %302 = getelementptr inbounds i8, ptr %.sroa.025.045.i80, i64 8
+  %303 = icmp eq ptr %302, %.sroa.17.049.i78
+  br i1 %303, label %304, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87
 
-302:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
-  %303 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 8
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 512
+304:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
+  %305 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 8
+  %306 = load ptr, ptr %305, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87: ; preds = %302, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
-  %.sroa.025.1.i88 = phi ptr [ %304, %302 ], [ %300, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.10.2.i89 = phi ptr [ %304, %302 ], [ %.sroa.10.048.i79, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.17.2.i90 = phi ptr [ %305, %302 ], [ %.sroa.17.049.i78, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.25.2.i91 = phi ptr [ %303, %302 ], [ %.sroa.25.050.i77, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87: ; preds = %304, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
+  %.sroa.025.1.i88 = phi ptr [ %306, %304 ], [ %302, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.10.2.i89 = phi ptr [ %306, %304 ], [ %.sroa.10.048.i79, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.17.2.i90 = phi ptr [ %307, %304 ], [ %.sroa.17.049.i78, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.25.2.i91 = phi ptr [ %305, %304 ], [ %.sroa.25.050.i77, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
   %.not.i92 = icmp eq ptr %.sroa.025.1.i88, %storemerge.i.i.i168
-  br i1 %.not.i92, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %225, !llvm.loop !188
+  br i1 %.not.i92, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %227, !llvm.loop !188
 
 _ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70
-  br i1 %182, label %306, label %312
+  br i1 %184, label %308, label %314
 
-306:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107
-  %307 = icmp ult i64 %181, 64
-  br i1 %307, label %308, label %310
+308:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107
+  %309 = icmp ult i64 %183, 64
+  br i1 %309, label %310, label %312
 
-308:                                              ; preds = %306
-  %309 = getelementptr inbounds i8, ptr %136, i64 128
+310:                                              ; preds = %308
+  %311 = getelementptr inbounds i8, ptr %136, i64 128
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i
 
-310:                                              ; preds = %306
-  %311 = lshr i64 %181, 6
-  br label %314
+312:                                              ; preds = %308
+  %313 = lshr i64 %183, 6
+  br label %316
 
-312:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107
-  %313 = ashr i64 %181, 6
-  br label %314
+314:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107
+  %315 = ashr i64 %183, 6
+  br label %316
 
-314:                                              ; preds = %312, %310
-  %315 = phi i64 [ %311, %310 ], [ %313, %312 ]
-  %316 = getelementptr inbounds ptr, ptr %142, i64 %315
-  %317 = load ptr, ptr %316, align 8, !noalias !189
-  %318 = getelementptr inbounds i8, ptr %317, i64 512
-  %319 = shl nsw i64 %315, 6
-  %320 = sub nsw i64 %181, %319
-  %321 = getelementptr inbounds ptr, ptr %317, i64 %320
+316:                                              ; preds = %314, %312
+  %317 = phi i64 [ %313, %312 ], [ %315, %314 ]
+  %318 = getelementptr inbounds ptr, ptr %142, i64 %317
+  %319 = load ptr, ptr %318, align 8, !noalias !189
+  %320 = getelementptr inbounds i8, ptr %319, i64 512
+  %321 = shl nsw i64 %317, 6
+  %322 = sub nsw i64 %183, %321
+  %323 = getelementptr inbounds ptr, ptr %319, i64 %322
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i: ; preds = %314, %308
-  %.sroa.2.0.i = phi ptr [ %138, %308 ], [ %317, %314 ]
-  %.sroa.58.0.i = phi ptr [ %140, %308 ], [ %318, %314 ]
-  %.sroa.8.0.i = phi ptr [ %142, %308 ], [ %316, %314 ]
-  %storemerge.i.i4.i = phi ptr [ %309, %308 ], [ %321, %314 ]
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i: ; preds = %316, %310
+  %.sroa.2.0.i = phi ptr [ %138, %310 ], [ %319, %316 ]
+  %.sroa.58.0.i = phi ptr [ %140, %310 ], [ %320, %316 ]
+  %.sroa.8.0.i = phi ptr [ %142, %310 ], [ %318, %316 ]
+  %storemerge.i.i4.i = phi ptr [ %311, %310 ], [ %323, %316 ]
   %.not10.i.i = icmp eq ptr %storemerge.i.i4.i, %144
   br i1 %.not10.i.i, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %.lr.ph.i.i
 
@@ -14704,239 +14707,239 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i: ; preds = %314, %308
   %.sroa.6.013.i.i = phi ptr [ %.sroa.6.1.i.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i ], [ %.sroa.2.0.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i ]
   %.sroa.9.012.i.i = phi ptr [ %.sroa.9.1.i.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i ], [ %.sroa.58.0.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i ]
   %.sroa.13.011.i.i = phi ptr [ %.sroa.13.1.i.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i ], [ %.sroa.8.0.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i ]
-  %322 = load ptr, ptr %.sroa.05.014.i.i, align 8
-  %323 = icmp eq ptr %.sroa.05.014.i.i, %.sroa.6.013.i.i
-  br i1 %323, label %324, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
+  %324 = load ptr, ptr %.sroa.05.014.i.i, align 8
+  %325 = icmp eq ptr %.sroa.05.014.i.i, %.sroa.6.013.i.i
+  br i1 %325, label %326, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
 
-324:                                              ; preds = %.lr.ph.i.i
-  %325 = getelementptr inbounds i8, ptr %.sroa.13.011.i.i, i64 -8
-  %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 512
+326:                                              ; preds = %.lr.ph.i.i
+  %327 = getelementptr inbounds i8, ptr %.sroa.13.011.i.i, i64 -8
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i: ; preds = %324, %.lr.ph.i.i
-  %.sroa.8.1.i.i.i = phi ptr [ %326, %324 ], [ %.sroa.6.013.i.i, %.lr.ph.i.i ]
-  %.sroa.18.1.i.i.i = phi ptr [ %325, %324 ], [ %.sroa.13.011.i.i, %.lr.ph.i.i ]
-  %328 = phi ptr [ %327, %324 ], [ %.sroa.05.014.i.i, %.lr.ph.i.i ]
-  %.sroa.02.012.i.i.i = getelementptr inbounds i8, ptr %328, i64 -8
-  %329 = load ptr, ptr %.sroa.02.012.i.i.i, align 8
-  %330 = getelementptr inbounds i8, ptr %322, i64 40
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %329, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i: ; preds = %326, %.lr.ph.i.i
+  %.sroa.8.1.i.i.i = phi ptr [ %328, %326 ], [ %.sroa.6.013.i.i, %.lr.ph.i.i ]
+  %.sroa.18.1.i.i.i = phi ptr [ %327, %326 ], [ %.sroa.13.011.i.i, %.lr.ph.i.i ]
+  %330 = phi ptr [ %329, %326 ], [ %.sroa.05.014.i.i, %.lr.ph.i.i ]
+  %.sroa.02.012.i.i.i = getelementptr inbounds i8, ptr %330, i64 -8
+  %331 = load ptr, ptr %.sroa.02.012.i.i.i, align 8
+  %332 = getelementptr inbounds i8, ptr %324, i64 40
+  %333 = load ptr, ptr %332, align 8
   %334 = load ptr, ptr %333, align 8
-  %335 = load ptr, ptr %334, align 8
-  %336 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %332, ptr noundef nonnull align 8 dereferenceable(32) %335)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 unwind label %337
+  %335 = getelementptr inbounds i8, ptr %331, i64 40
+  %336 = load ptr, ptr %335, align 8
+  %337 = load ptr, ptr %336, align 8
+  %338 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef nonnull align 8 dereferenceable(32) %337)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 unwind label %339
 
-337:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
-  %338 = landingpad { ptr, i32 }
+339:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
+  %340 = landingpad { ptr, i32 }
           catch ptr null
-  %339 = extractvalue { ptr, i32 } %338, 0
-  call void @__clang_call_terminate(ptr %339) #25
+  %341 = extractvalue { ptr, i32 } %340, 0
+  call void @__clang_call_terminate(ptr %341) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69:  ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
-  %340 = icmp slt i32 %336, 0
-  br i1 %340, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
+  %342 = icmp slt i32 %338, 0
+  br i1 %342, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit
   %.sroa.0.0.i.i = phi ptr [ %.sroa.02.016.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.05.014.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
   %.sroa.02.016.i.i.i = phi ptr [ %.sroa.02.0.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.02.012.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
   %.sroa.18.015.i.i.i = phi ptr [ %.sroa.18.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.18.1.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
   %.sroa.8.013.i.i.i = phi ptr [ %.sroa.8.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.8.1.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
-  %341 = load ptr, ptr %.sroa.02.016.i.i.i, align 8
-  store ptr %341, ptr %.sroa.0.0.i.i, align 8
-  %342 = icmp eq ptr %.sroa.02.016.i.i.i, %.sroa.8.013.i.i.i
-  br i1 %342, label %343, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
+  %343 = load ptr, ptr %.sroa.02.016.i.i.i, align 8
+  store ptr %343, ptr %.sroa.0.0.i.i, align 8
+  %344 = icmp eq ptr %.sroa.02.016.i.i.i, %.sroa.8.013.i.i.i
+  br i1 %344, label %345, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
 
-343:                                              ; preds = %.lr.ph.i.i.i
-  %344 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i.i, i64 -8
-  %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 512
+345:                                              ; preds = %.lr.ph.i.i.i
+  %346 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i.i, i64 -8
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds i8, ptr %347, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i: ; preds = %343, %.lr.ph.i.i.i
-  %.sroa.8.2.i.i.i = phi ptr [ %345, %343 ], [ %.sroa.8.013.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.18.2.i.i.i = phi ptr [ %344, %343 ], [ %.sroa.18.015.i.i.i, %.lr.ph.i.i.i ]
-  %347 = phi ptr [ %346, %343 ], [ %.sroa.02.016.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.02.0.i.i.i = getelementptr inbounds i8, ptr %347, i64 -8
-  %348 = load ptr, ptr %.sroa.02.0.i.i.i, align 8
-  %349 = load ptr, ptr %330, align 8
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %348, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i: ; preds = %345, %.lr.ph.i.i.i
+  %.sroa.8.2.i.i.i = phi ptr [ %347, %345 ], [ %.sroa.8.013.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.18.2.i.i.i = phi ptr [ %346, %345 ], [ %.sroa.18.015.i.i.i, %.lr.ph.i.i.i ]
+  %349 = phi ptr [ %348, %345 ], [ %.sroa.02.016.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.02.0.i.i.i = getelementptr inbounds i8, ptr %349, i64 -8
+  %350 = load ptr, ptr %.sroa.02.0.i.i.i, align 8
+  %351 = load ptr, ptr %332, align 8
   %352 = load ptr, ptr %351, align 8
-  %353 = load ptr, ptr %352, align 8
-  %354 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %350, ptr noundef nonnull align 8 dereferenceable(32) %353)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit unwind label %355
+  %353 = getelementptr inbounds i8, ptr %350, i64 40
+  %354 = load ptr, ptr %353, align 8
+  %355 = load ptr, ptr %354, align 8
+  %356 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %352, ptr noundef nonnull align 8 dereferenceable(32) %355)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit unwind label %357
 
-355:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
-  %356 = landingpad { ptr, i32 }
+357:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
+  %358 = landingpad { ptr, i32 }
           catch ptr null
-  %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #25
+  %359 = extractvalue { ptr, i32 } %358, 0
+  call void @__clang_call_terminate(ptr %359) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit:    ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
-  %358 = icmp slt i32 %354, 0
-  br i1 %358, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i, !llvm.loop !187
+  %360 = icmp slt i32 %356, 0
+  br i1 %360, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i, !llvm.loop !187
 
 _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i: ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69
   %.sroa.0.1.i.i = phi ptr [ %.sroa.05.014.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ], [ %.sroa.02.016.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ]
-  store ptr %322, ptr %.sroa.0.1.i.i, align 8
-  %359 = getelementptr inbounds i8, ptr %.sroa.05.014.i.i, i64 8
-  %360 = icmp eq ptr %359, %.sroa.9.012.i.i
-  br i1 %360, label %361, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i
+  store ptr %324, ptr %.sroa.0.1.i.i, align 8
+  %361 = getelementptr inbounds i8, ptr %.sroa.05.014.i.i, i64 8
+  %362 = icmp eq ptr %361, %.sroa.9.012.i.i
+  br i1 %362, label %363, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i
 
-361:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
-  %362 = getelementptr inbounds i8, ptr %.sroa.13.011.i.i, i64 8
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 512
+363:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
+  %364 = getelementptr inbounds i8, ptr %.sroa.13.011.i.i, i64 8
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %361, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
-  %.sroa.13.1.i.i = phi ptr [ %362, %361 ], [ %.sroa.13.011.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
-  %.sroa.9.1.i.i = phi ptr [ %364, %361 ], [ %.sroa.9.012.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
-  %.sroa.6.1.i.i = phi ptr [ %363, %361 ], [ %.sroa.6.013.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
-  %.sroa.05.1.i.i = phi ptr [ %363, %361 ], [ %359, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %363, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i
+  %.sroa.13.1.i.i = phi ptr [ %364, %363 ], [ %.sroa.13.011.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
+  %.sroa.9.1.i.i = phi ptr [ %366, %363 ], [ %.sroa.9.012.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
+  %.sroa.6.1.i.i = phi ptr [ %365, %363 ], [ %.sroa.6.013.i.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
+  %.sroa.05.1.i.i = phi ptr [ %365, %363 ], [ %361, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i.i ]
   %.not.i.i64 = icmp eq ptr %.sroa.05.1.i.i, %144
   br i1 %.not.i.i64, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %.lr.ph.i.i, !llvm.loop !192
 
-365:                                              ; preds = %150
-  %366 = add nsw i64 %179, 1
-  %367 = icmp sgt i64 %179, -2
-  br i1 %367, label %368, label %374
+367:                                              ; preds = %151
+  %368 = add nsw i64 %181, 1
+  %369 = icmp sgt i64 %181, -2
+  br i1 %369, label %370, label %376
 
-368:                                              ; preds = %365
-  %369 = icmp ult i64 %366, 64
-  br i1 %369, label %370, label %372
+370:                                              ; preds = %367
+  %371 = icmp ult i64 %368, 64
+  br i1 %371, label %372, label %374
 
-370:                                              ; preds = %368
-  %371 = getelementptr inbounds i8, ptr %136, i64 8
+372:                                              ; preds = %370
+  %373 = getelementptr inbounds i8, ptr %136, i64 8
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65
 
-372:                                              ; preds = %368
-  %373 = lshr i64 %366, 6
-  br label %376
+374:                                              ; preds = %370
+  %375 = lshr i64 %368, 6
+  br label %378
 
-374:                                              ; preds = %365
-  %375 = ashr i64 %366, 6
-  br label %376
+376:                                              ; preds = %367
+  %377 = ashr i64 %368, 6
+  br label %378
 
-376:                                              ; preds = %374, %372
-  %377 = phi i64 [ %373, %372 ], [ %375, %374 ]
-  %378 = getelementptr inbounds ptr, ptr %142, i64 %377
-  %379 = load ptr, ptr %378, align 8, !noalias !193
-  %380 = getelementptr inbounds i8, ptr %379, i64 512
-  %381 = shl nsw i64 %377, 6
-  %382 = sub nsw i64 %366, %381
-  %383 = getelementptr inbounds ptr, ptr %379, i64 %382
+378:                                              ; preds = %376, %374
+  %379 = phi i64 [ %375, %374 ], [ %377, %376 ]
+  %380 = getelementptr inbounds ptr, ptr %142, i64 %379
+  %381 = load ptr, ptr %380, align 8, !noalias !193
+  %382 = getelementptr inbounds i8, ptr %381, i64 512
+  %383 = shl nsw i64 %379, 6
+  %384 = sub nsw i64 %368, %383
+  %385 = getelementptr inbounds ptr, ptr %381, i64 %384
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65: ; preds = %376, %370
-  %.sroa.10.1.i = phi ptr [ %138, %370 ], [ %379, %376 ]
-  %.sroa.17.1.i = phi ptr [ %140, %370 ], [ %380, %376 ]
-  %.sroa.25.1.i = phi ptr [ %142, %370 ], [ %378, %376 ]
-  %storemerge.i.i.i66 = phi ptr [ %371, %370 ], [ %383, %376 ]
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65: ; preds = %378, %372
+  %.sroa.10.1.i = phi ptr [ %138, %372 ], [ %381, %378 ]
+  %.sroa.17.1.i = phi ptr [ %140, %372 ], [ %382, %378 ]
+  %.sroa.25.1.i = phi ptr [ %142, %372 ], [ %380, %378 ]
+  %storemerge.i.i.i66 = phi ptr [ %373, %372 ], [ %385, %378 ]
   %.not44.i = icmp eq ptr %storemerge.i.i.i66, %144
   br i1 %.not44.i, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65
-  %384 = getelementptr inbounds i8, ptr %8, i64 8
-  %385 = getelementptr inbounds i8, ptr %8, i64 16
-  %386 = getelementptr inbounds i8, ptr %8, i64 24
-  %387 = getelementptr inbounds i8, ptr %9, i64 8
-  %388 = getelementptr inbounds i8, ptr %9, i64 16
-  %389 = getelementptr inbounds i8, ptr %9, i64 24
-  %390 = getelementptr inbounds i8, ptr %10, i64 8
-  %391 = getelementptr inbounds i8, ptr %10, i64 16
-  %392 = getelementptr inbounds i8, ptr %10, i64 24
-  br label %393
+  %386 = getelementptr inbounds i8, ptr %8, i64 8
+  %387 = getelementptr inbounds i8, ptr %8, i64 16
+  %388 = getelementptr inbounds i8, ptr %8, i64 24
+  %389 = getelementptr inbounds i8, ptr %9, i64 8
+  %390 = getelementptr inbounds i8, ptr %9, i64 16
+  %391 = getelementptr inbounds i8, ptr %9, i64 24
+  %392 = getelementptr inbounds i8, ptr %10, i64 8
+  %393 = getelementptr inbounds i8, ptr %10, i64 16
+  %394 = getelementptr inbounds i8, ptr %10, i64 24
+  br label %395
 
-393:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i, %.lr.ph.i
+395:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i, %.lr.ph.i
   %.sroa.25.050.i = phi ptr [ %.sroa.25.1.i, %.lr.ph.i ], [ %.sroa.25.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %.sroa.17.049.i = phi ptr [ %.sroa.17.1.i, %.lr.ph.i ], [ %.sroa.17.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %.sroa.10.048.i = phi ptr [ %.sroa.10.1.i, %.lr.ph.i ], [ %.sroa.10.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %.sroa.025.045.i = phi ptr [ %storemerge.i.i.i66, %.lr.ph.i ], [ %.sroa.025.1.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %394 = load ptr, ptr %.sroa.025.045.i, align 8
-  %395 = load ptr, ptr %136, align 8
-  %396 = getelementptr inbounds i8, ptr %394, i64 40
-  %397 = load ptr, ptr %396, align 8
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %395, i64 40
+  %396 = load ptr, ptr %.sroa.025.045.i, align 8
+  %397 = load ptr, ptr %136, align 8
+  %398 = getelementptr inbounds i8, ptr %396, i64 40
+  %399 = load ptr, ptr %398, align 8
   %400 = load ptr, ptr %399, align 8
-  %401 = load ptr, ptr %400, align 8
-  %402 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %398, ptr noundef nonnull align 8 dereferenceable(32) %401)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110 unwind label %403
+  %401 = getelementptr inbounds i8, ptr %397, i64 40
+  %402 = load ptr, ptr %401, align 8
+  %403 = load ptr, ptr %402, align 8
+  %404 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %400, ptr noundef nonnull align 8 dereferenceable(32) %403)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110 unwind label %405
 
-403:                                              ; preds = %393
-  %404 = landingpad { ptr, i32 }
+405:                                              ; preds = %395
+  %406 = landingpad { ptr, i32 }
           catch ptr null
-  %405 = extractvalue { ptr, i32 } %404, 0
-  call void @__clang_call_terminate(ptr %405) #25
+  %407 = extractvalue { ptr, i32 } %406, 0
+  call void @__clang_call_terminate(ptr %407) #25
   unreachable
 
-_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %393
-  %406 = icmp slt i32 %402, 0
-  %407 = load ptr, ptr %.sroa.025.045.i, align 8
-  br i1 %406, label %408, label %431
+_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %395
+  %408 = icmp slt i32 %404, 0
+  %409 = load ptr, ptr %.sroa.025.045.i, align 8
+  br i1 %408, label %410, label %433
 
-408:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
-  %409 = ptrtoint ptr %.sroa.025.045.i to i64
-  %410 = ptrtoint ptr %.sroa.10.048.i to i64
-  %411 = sub i64 %409, %410
-  %412 = ashr exact i64 %411, 3
-  %413 = add nsw i64 %412, 1
-  %414 = icmp sgt i64 %412, -2
-  br i1 %414, label %415, label %421
+410:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
+  %411 = ptrtoint ptr %.sroa.025.045.i to i64
+  %412 = ptrtoint ptr %.sroa.10.048.i to i64
+  %413 = sub i64 %411, %412
+  %414 = ashr exact i64 %413, 3
+  %415 = add nsw i64 %414, 1
+  %416 = icmp sgt i64 %414, -2
+  br i1 %416, label %417, label %423
 
-415:                                              ; preds = %408
-  %416 = icmp ult i64 %413, 64
-  br i1 %416, label %417, label %419
+417:                                              ; preds = %410
+  %418 = icmp ult i64 %415, 64
+  br i1 %418, label %419, label %421
 
-417:                                              ; preds = %415
-  %418 = getelementptr inbounds i8, ptr %.sroa.025.045.i, i64 8
+419:                                              ; preds = %417
+  %420 = getelementptr inbounds i8, ptr %.sroa.025.045.i, i64 8
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i
 
-419:                                              ; preds = %415
-  %420 = lshr i64 %413, 6
-  br label %423
+421:                                              ; preds = %417
+  %422 = lshr i64 %415, 6
+  br label %425
 
-421:                                              ; preds = %408
-  %422 = ashr i64 %413, 6
-  br label %423
+423:                                              ; preds = %410
+  %424 = ashr i64 %415, 6
+  br label %425
 
-423:                                              ; preds = %421, %419
-  %424 = phi i64 [ %420, %419 ], [ %422, %421 ]
-  %425 = getelementptr inbounds ptr, ptr %.sroa.25.050.i, i64 %424
-  %426 = load ptr, ptr %425, align 8, !noalias !196
-  %427 = getelementptr inbounds i8, ptr %426, i64 512
-  %428 = shl nsw i64 %424, 6
-  %429 = sub nsw i64 %413, %428
-  %430 = getelementptr inbounds ptr, ptr %426, i64 %429
+425:                                              ; preds = %423, %421
+  %426 = phi i64 [ %422, %421 ], [ %424, %423 ]
+  %427 = getelementptr inbounds ptr, ptr %.sroa.25.050.i, i64 %426
+  %428 = load ptr, ptr %427, align 8, !noalias !196
+  %429 = getelementptr inbounds i8, ptr %428, i64 512
+  %430 = shl nsw i64 %426, 6
+  %431 = sub nsw i64 %415, %430
+  %432 = getelementptr inbounds ptr, ptr %428, i64 %431
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i
 
-_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %423, %417
-  %.sroa.59.0.i = phi ptr [ %.sroa.17.049.i, %417 ], [ %427, %423 ]
-  %.sroa.28.0.i = phi ptr [ %.sroa.10.048.i, %417 ], [ %426, %423 ]
-  %.sroa.810.0.i = phi ptr [ %.sroa.25.050.i, %417 ], [ %425, %423 ]
-  %storemerge.i.i2.i = phi ptr [ %418, %417 ], [ %430, %423 ]
+_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %425, %419
+  %.sroa.59.0.i = phi ptr [ %.sroa.17.049.i, %419 ], [ %429, %425 ]
+  %.sroa.28.0.i = phi ptr [ %.sroa.10.048.i, %419 ], [ %428, %425 ]
+  %.sroa.810.0.i = phi ptr [ %.sroa.25.050.i, %419 ], [ %427, %425 ]
+  %storemerge.i.i2.i = phi ptr [ %420, %419 ], [ %432, %425 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !199
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !202
   store ptr %136, ptr %8, align 8, !noalias !205
-  store ptr %138, ptr %384, align 8, !noalias !205
-  store ptr %140, ptr %385, align 8, !noalias !205
-  store ptr %142, ptr %386, align 8, !noalias !205
+  store ptr %138, ptr %386, align 8, !noalias !205
+  store ptr %140, ptr %387, align 8, !noalias !205
+  store ptr %142, ptr %388, align 8, !noalias !205
   store ptr %.sroa.025.045.i, ptr %9, align 8, !noalias !205
-  store ptr %.sroa.10.048.i, ptr %387, align 8, !noalias !205
-  store ptr %.sroa.17.049.i, ptr %388, align 8, !noalias !205
-  store ptr %.sroa.25.050.i, ptr %389, align 8, !noalias !205
+  store ptr %.sroa.10.048.i, ptr %389, align 8, !noalias !205
+  store ptr %.sroa.17.049.i, ptr %390, align 8, !noalias !205
+  store ptr %.sroa.25.050.i, ptr %391, align 8, !noalias !205
   store ptr %storemerge.i.i2.i, ptr %10, align 8, !noalias !205
-  store ptr %.sroa.28.0.i, ptr %390, align 8, !noalias !205
-  store ptr %.sroa.59.0.i, ptr %391, align 8, !noalias !205
-  store ptr %.sroa.810.0.i, ptr %392, align 8, !noalias !205
+  store ptr %.sroa.28.0.i, ptr %392, align 8, !noalias !205
+  store ptr %.sroa.59.0.i, ptr %393, align 8, !noalias !205
+  store ptr %.sroa.810.0.i, ptr %394, align 8, !noalias !205
   call void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1_PS1_St15_Deque_iteratorIS1_S2_S3_EET3_S4_IT0_T1_T2_ESA_S6_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10), !noalias !202
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !202
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !202
@@ -14944,103 +14947,103 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %423, %417
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !199
   br label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
 
-431:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
-  %432 = icmp eq ptr %.sroa.025.045.i, %.sroa.10.048.i
-  br i1 %432, label %433, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
+433:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
+  %434 = icmp eq ptr %.sroa.025.045.i, %.sroa.10.048.i
+  br i1 %434, label %435, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
 
-433:                                              ; preds = %431
-  %434 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 -8
-  %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 512
+435:                                              ; preds = %433
+  %436 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 -8
+  %437 = load ptr, ptr %436, align 8
+  %438 = getelementptr inbounds i8, ptr %437, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i: ; preds = %433, %431
-  %.sroa.8.1.i.i = phi ptr [ %435, %433 ], [ %.sroa.10.048.i, %431 ]
-  %.sroa.18.1.i.i = phi ptr [ %434, %433 ], [ %.sroa.25.050.i, %431 ]
-  %437 = phi ptr [ %436, %433 ], [ %.sroa.025.045.i, %431 ]
-  %.sroa.02.012.i.i = getelementptr inbounds i8, ptr %437, i64 -8
-  %438 = load ptr, ptr %.sroa.02.012.i.i, align 8
-  %439 = getelementptr inbounds i8, ptr %407, i64 40
-  %440 = load ptr, ptr %439, align 8
-  %441 = load ptr, ptr %440, align 8
-  %442 = getelementptr inbounds i8, ptr %438, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i: ; preds = %435, %433
+  %.sroa.8.1.i.i = phi ptr [ %437, %435 ], [ %.sroa.10.048.i, %433 ]
+  %.sroa.18.1.i.i = phi ptr [ %436, %435 ], [ %.sroa.25.050.i, %433 ]
+  %439 = phi ptr [ %438, %435 ], [ %.sroa.025.045.i, %433 ]
+  %.sroa.02.012.i.i = getelementptr inbounds i8, ptr %439, i64 -8
+  %440 = load ptr, ptr %.sroa.02.012.i.i, align 8
+  %441 = getelementptr inbounds i8, ptr %409, i64 40
+  %442 = load ptr, ptr %441, align 8
   %443 = load ptr, ptr %442, align 8
-  %444 = load ptr, ptr %443, align 8
-  %445 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %441, ptr noundef nonnull align 8 dereferenceable(32) %444)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 unwind label %446
+  %444 = getelementptr inbounds i8, ptr %440, i64 40
+  %445 = load ptr, ptr %444, align 8
+  %446 = load ptr, ptr %445, align 8
+  %447 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull align 8 dereferenceable(32) %446)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 unwind label %448
 
-446:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
-  %447 = landingpad { ptr, i32 }
+448:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
+  %449 = landingpad { ptr, i32 }
           catch ptr null
-  %448 = extractvalue { ptr, i32 } %447, 0
-  call void @__clang_call_terminate(ptr %448) #25
+  %450 = extractvalue { ptr, i32 } %449, 0
+  call void @__clang_call_terminate(ptr %450) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
-  %449 = icmp slt i32 %445, 0
-  br i1 %449, label %.lr.ph.i.i68, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
+  %451 = icmp slt i32 %447, 0
+  br i1 %451, label %.lr.ph.i.i68, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
 
 .lr.ph.i.i68:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108
   %.sroa.0.0.i = phi ptr [ %.sroa.02.016.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.025.045.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
   %.sroa.02.016.i.i = phi ptr [ %.sroa.02.0.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.02.012.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
   %.sroa.18.015.i.i = phi ptr [ %.sroa.18.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.18.1.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
   %.sroa.8.013.i.i = phi ptr [ %.sroa.8.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.8.1.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
-  %450 = load ptr, ptr %.sroa.02.016.i.i, align 8
-  store ptr %450, ptr %.sroa.0.0.i, align 8
-  %451 = icmp eq ptr %.sroa.02.016.i.i, %.sroa.8.013.i.i
-  br i1 %451, label %452, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
+  %452 = load ptr, ptr %.sroa.02.016.i.i, align 8
+  store ptr %452, ptr %.sroa.0.0.i, align 8
+  %453 = icmp eq ptr %.sroa.02.016.i.i, %.sroa.8.013.i.i
+  br i1 %453, label %454, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
 
-452:                                              ; preds = %.lr.ph.i.i68
-  %453 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i, i64 -8
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 512
+454:                                              ; preds = %.lr.ph.i.i68
+  %455 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i, i64 -8
+  %456 = load ptr, ptr %455, align 8
+  %457 = getelementptr inbounds i8, ptr %456, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i: ; preds = %452, %.lr.ph.i.i68
-  %.sroa.8.2.i.i = phi ptr [ %454, %452 ], [ %.sroa.8.013.i.i, %.lr.ph.i.i68 ]
-  %.sroa.18.2.i.i = phi ptr [ %453, %452 ], [ %.sroa.18.015.i.i, %.lr.ph.i.i68 ]
-  %456 = phi ptr [ %455, %452 ], [ %.sroa.02.016.i.i, %.lr.ph.i.i68 ]
-  %.sroa.02.0.i.i = getelementptr inbounds i8, ptr %456, i64 -8
-  %457 = load ptr, ptr %.sroa.02.0.i.i, align 8
-  %458 = load ptr, ptr %439, align 8
-  %459 = load ptr, ptr %458, align 8
-  %460 = getelementptr inbounds i8, ptr %457, i64 40
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i: ; preds = %454, %.lr.ph.i.i68
+  %.sroa.8.2.i.i = phi ptr [ %456, %454 ], [ %.sroa.8.013.i.i, %.lr.ph.i.i68 ]
+  %.sroa.18.2.i.i = phi ptr [ %455, %454 ], [ %.sroa.18.015.i.i, %.lr.ph.i.i68 ]
+  %458 = phi ptr [ %457, %454 ], [ %.sroa.02.016.i.i, %.lr.ph.i.i68 ]
+  %.sroa.02.0.i.i = getelementptr inbounds i8, ptr %458, i64 -8
+  %459 = load ptr, ptr %.sroa.02.0.i.i, align 8
+  %460 = load ptr, ptr %441, align 8
   %461 = load ptr, ptr %460, align 8
-  %462 = load ptr, ptr %461, align 8
-  %463 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %459, ptr noundef nonnull align 8 dereferenceable(32) %462)
-          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 unwind label %464
+  %462 = getelementptr inbounds i8, ptr %459, i64 40
+  %463 = load ptr, ptr %462, align 8
+  %464 = load ptr, ptr %463, align 8
+  %465 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %464)
+          to label %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 unwind label %466
 
-464:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
-  %465 = landingpad { ptr, i32 }
+466:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
+  %467 = landingpad { ptr, i32 }
           catch ptr null
-  %466 = extractvalue { ptr, i32 } %465, 0
-  call void @__clang_call_terminate(ptr %466) #25
+  %468 = extractvalue { ptr, i32 } %467, 0
+  call void @__clang_call_terminate(ptr %468) #25
   unreachable
 
 _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
-  %467 = icmp slt i32 %463, 0
-  br i1 %467, label %.lr.ph.i.i68, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i, !llvm.loop !187
+  %469 = icmp slt i32 %465, 0
+  br i1 %469, label %.lr.ph.i.i68, label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i, !llvm.loop !187
 
 _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i: ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i
   %.sink.i = phi ptr [ %136, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i ], [ %.sroa.025.045.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ], [ %.sroa.02.016.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ]
-  store ptr %407, ptr %.sink.i, align 8
-  %468 = getelementptr inbounds i8, ptr %.sroa.025.045.i, i64 8
-  %469 = icmp eq ptr %468, %.sroa.17.049.i
-  br i1 %469, label %470, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
+  store ptr %409, ptr %.sink.i, align 8
+  %470 = getelementptr inbounds i8, ptr %.sroa.025.045.i, i64 8
+  %471 = icmp eq ptr %470, %.sroa.17.049.i
+  br i1 %471, label %472, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
-470:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
-  %471 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 8
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 512
+472:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
+  %473 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 8
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds i8, ptr %474, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i: ; preds = %470, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
-  %.sroa.025.1.i = phi ptr [ %472, %470 ], [ %468, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.10.2.i = phi ptr [ %472, %470 ], [ %.sroa.10.048.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.17.2.i = phi ptr [ %473, %470 ], [ %.sroa.17.049.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.25.2.i = phi ptr [ %471, %470 ], [ %.sroa.25.050.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i: ; preds = %472, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
+  %.sroa.025.1.i = phi ptr [ %474, %472 ], [ %470, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.10.2.i = phi ptr [ %474, %472 ], [ %.sroa.10.048.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.17.2.i = phi ptr [ %475, %472 ], [ %.sroa.17.049.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.25.2.i = phi ptr [ %473, %472 ], [ %.sroa.25.050.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
   %.not.i67 = icmp eq ptr %.sroa.025.1.i, %144
-  br i1 %.not.i67, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %393, !llvm.loop !188
+  br i1 %.not.i67, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %395, !llvm.loop !188
 
 _ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65, %134
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -15050,7 +15053,7 @@ _ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit: ; pred
 _ZN7testing15AssertionResultD2Ev.exit.thread:     ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i61, %133, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %95, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %66, %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit
   ret void
 
-474:                                              ; preds = %119, %_ZN7testing7MessageD2Ev.exit59, %81, %_ZN7testing7MessageD2Ev.exit50, %52, %_ZN7testing7MessageD2Ev.exit43
+476:                                              ; preds = %119, %_ZN7testing7MessageD2Ev.exit59, %81, %_ZN7testing7MessageD2Ev.exit50, %52, %_ZN7testing7MessageD2Ev.exit43
   %.sink = phi ptr [ %14, %_ZN7testing7MessageD2Ev.exit43 ], [ %14, %52 ], [ %19, %_ZN7testing7MessageD2Ev.exit50 ], [ %19, %81 ], [ %23, %_ZN7testing7MessageD2Ev.exit59 ], [ %23, %119 ]
   %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %_ZN7testing7MessageD2Ev.exit43 ], [ %53, %52 ], [ %.pn32.pn, %_ZN7testing7MessageD2Ev.exit50 ], [ %82, %81 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit59 ], [ %120, %119 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #23
@@ -165456,11 +165459,11 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopISt15_Deque_iteratorIP
   %5 = alloca %"struct.std::_Deque_iterator", align 8
   %6 = alloca %"struct.std::_Deque_iterator", align 8
   %7 = alloca %"struct.std::_Deque_iterator", align 8
-  %8 = alloca %"struct.std::_Deque_iterator", align 16
+  %8 = alloca %"struct.std::_Deque_iterator", align 8
   %9 = alloca %"struct.std::_Deque_iterator", align 8
   %10 = alloca %"struct.std::_Deque_iterator", align 8
-  %11 = alloca %"struct.std::_Deque_iterator", align 16
-  %12 = alloca %"struct.std::_Deque_iterator", align 16
+  %11 = alloca %"struct.std::_Deque_iterator", align 8
+  %12 = alloca %"struct.std::_Deque_iterator", align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -165473,219 +165476,256 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopISt15_Deque_iteratorIP
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   %24 = getelementptr inbounds i8, ptr %10, i64 24
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
-  %27 = getelementptr inbounds i8, ptr %12, i64 16
-  br label %28
+  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %27 = getelementptr inbounds i8, ptr %11, i64 16
+  %28 = getelementptr inbounds i8, ptr %8, i64 16
+  %29 = getelementptr inbounds i8, ptr %11, i64 24
+  %30 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds i8, ptr %12, i64 24
+  br label %34
 
-28:                                               ; preds = %67, %4
-  %.0 = phi i64 [ %2, %4 ], [ %68, %67 ]
-  %29 = load ptr, ptr %13, align 8
-  %30 = load ptr, ptr %14, align 8
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 3
-  %35 = icmp ne ptr %29, null
-  %.neg.i = sext i1 %35 to i64
-  %36 = add nsw i64 %34, %.neg.i
-  %37 = shl nsw i64 %36, 6
-  %38 = load ptr, ptr %1, align 8
-  %39 = load ptr, ptr %15, align 8
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %40, %41
-  %43 = ashr exact i64 %42, 3
-  %44 = add nsw i64 %37, %43
-  %45 = load ptr, ptr %16, align 8
-  %46 = load ptr, ptr %0, align 8
+34:                                               ; preds = %73, %4
+  %.0 = phi i64 [ %2, %4 ], [ %74, %73 ]
+  %35 = load ptr, ptr %13, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = ptrtoint ptr %35 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = icmp ne ptr %35, null
+  %.neg.i = sext i1 %41 to i64
+  %42 = add nsw i64 %40, %.neg.i
+  %43 = shl nsw i64 %42, 6
+  %44 = load ptr, ptr %1, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 3
-  %51 = add nsw i64 %44, %50
-  %52 = icmp sgt i64 %51, 16
-  br i1 %52, label %53, label %.loopexit
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 3
+  %50 = add nsw i64 %43, %49
+  %51 = load ptr, ptr %16, align 8
+  %52 = load ptr, ptr %0, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = ashr exact i64 %55, 3
+  %57 = add nsw i64 %50, %56
+  %58 = icmp sgt i64 %57, 16
+  br i1 %58, label %59, label %.loopexit
 
-53:                                               ; preds = %28
-  %54 = icmp eq i64 %.0, 0
-  br i1 %54, label %55, label %67
+59:                                               ; preds = %34
+  %60 = icmp eq i64 %.0, 0
+  br i1 %60, label %61, label %73
 
-55:                                               ; preds = %53
-  store ptr %46, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
-  %57 = load ptr, ptr %18, align 8
-  store ptr %57, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %45, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %30, ptr %59, align 8
-  store ptr %38, ptr %6, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %39, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
-  %62 = load ptr, ptr %23, align 8
-  store ptr %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %29, ptr %63, align 8
-  store ptr %38, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %39, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %62, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %29, ptr %66, align 8
+61:                                               ; preds = %59
+  store ptr %52, ptr %5, align 8
+  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = load ptr, ptr %18, align 8
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %51, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %36, ptr %65, align 8
+  store ptr %44, ptr %6, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %45, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %6, i64 16
+  %68 = load ptr, ptr %23, align 8
+  store ptr %68, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %35, ptr %69, align 8
+  store ptr %44, ptr %7, align 8
+  %70 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %45, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %68, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %35, ptr %72, align 8
   call void @_ZSt14__partial_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_T0_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr %3)
   br label %.loopexit
 
-67:                                               ; preds = %53
-  %68 = add nsw i64 %.0, -1
-  store ptr %46, ptr %9, align 8
-  %69 = load ptr, ptr %18, align 8
-  store ptr %69, ptr %17, align 8
-  store ptr %45, ptr %19, align 8
-  store ptr %30, ptr %20, align 8
-  store ptr %38, ptr %10, align 8
-  store ptr %39, ptr %21, align 8
-  %70 = load ptr, ptr %23, align 8
-  store ptr %70, ptr %22, align 8
-  store ptr %29, ptr %24, align 8
+73:                                               ; preds = %59
+  %74 = add nsw i64 %.0, -1
+  store ptr %52, ptr %9, align 8
+  %75 = load ptr, ptr %18, align 8
+  store ptr %75, ptr %17, align 8
+  store ptr %51, ptr %19, align 8
+  store ptr %36, ptr %20, align 8
+  store ptr %44, ptr %10, align 8
+  store ptr %45, ptr %21, align 8
+  %76 = load ptr, ptr %23, align 8
+  store ptr %76, ptr %22, align 8
+  store ptr %35, ptr %24, align 8
   call void @_ZSt27__unguarded_partition_pivotISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET_SE_SE_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr %3)
-  %71 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %71, ptr %11, align 16
-  %72 = load <2 x ptr>, ptr %26, align 16
-  store <2 x ptr> %72, ptr %25, align 16
-  %73 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %73, ptr %12, align 16
-  %74 = load <2 x ptr>, ptr %23, align 8
-  store <2 x ptr> %74, ptr %27, align 16
-  call void @_ZSt16__introsort_loopISt15_Deque_iteratorIP4EdgeRS2_PS2_ElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_T1_(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %68, ptr %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %8, i64 32, i1 false)
-  br label %28, !llvm.loop !2047
+  %77 = load ptr, ptr %8, align 8
+  store ptr %77, ptr %11, align 8
+  %78 = load ptr, ptr %26, align 8
+  store ptr %78, ptr %25, align 8
+  %79 = load ptr, ptr %28, align 8
+  store ptr %79, ptr %27, align 8
+  %80 = load ptr, ptr %30, align 8
+  store ptr %80, ptr %29, align 8
+  %81 = load ptr, ptr %1, align 8
+  store ptr %81, ptr %12, align 8
+  %82 = load ptr, ptr %15, align 8
+  store ptr %82, ptr %31, align 8
+  %83 = load ptr, ptr %23, align 8
+  store ptr %83, ptr %32, align 8
+  %84 = load ptr, ptr %13, align 8
+  store ptr %84, ptr %33, align 8
+  call void @_ZSt16__introsort_loopISt15_Deque_iteratorIP4EdgeRS2_PS2_ElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_T1_(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %74, ptr %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  br label %34, !llvm.loop !2047
 
-.loopexit:                                        ; preds = %28, %55
+.loopexit:                                        ; preds = %34, %61
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt14__partial_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #3 comdat {
-  %5 = alloca %"struct.std::_Deque_iterator", align 16
-  %6 = alloca %"struct.std::_Deque_iterator", align 16
-  %7 = alloca %"struct.std::_Deque_iterator", align 16
-  %8 = alloca %"struct.std::_Deque_iterator", align 16
-  %9 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %9, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %13, ptr %10, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %15, ptr %7, align 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
-  %19 = load <2 x ptr>, ptr %17, align 8
-  store <2 x ptr> %19, ptr %16, align 16
-  %20 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %20, ptr %8, align 16
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = load <2 x ptr>, ptr %22, align 8
-  store <2 x ptr> %23, ptr %21, align 16
+  %5 = alloca %"struct.std::_Deque_iterator", align 8
+  %6 = alloca %"struct.std::_Deque_iterator", align 8
+  %7 = alloca %"struct.std::_Deque_iterator", align 8
+  %8 = alloca %"struct.std::_Deque_iterator", align 8
+  %9 = load ptr, ptr %0, align 8
+  store ptr %9, ptr %6, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
+  %19 = load ptr, ptr %1, align 8
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = load ptr, ptr %2, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %36, align 8
   call void @_ZSt13__heap_selectISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_T0_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr %3)
-  %24 = load <2 x ptr>, ptr %0, align 8
-  %25 = load ptr, ptr %0, align 8
-  %26 = load ptr, ptr %11, align 8
-  %27 = load ptr, ptr %12, align 8
-  %28 = load ptr, ptr %1, align 8
-  %29 = load ptr, ptr %14, align 8
-  %30 = load ptr, ptr %18, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
-  %33 = ptrtoint ptr %27 to i64
-  %34 = ptrtoint ptr %26 to i64
-  %35 = ptrtoint ptr %25 to i64
-  %36 = sub i64 %34, %35
-  %37 = ashr exact i64 %36, 3
-  %38 = ptrtoint ptr %30 to i64
-  %39 = sub i64 %38, %33
-  %40 = ashr exact i64 %39, 3
-  %41 = icmp ne ptr %30, null
-  %.neg.i.i8 = sext i1 %41 to i64
-  %42 = add nsw i64 %40, %.neg.i.i8
-  %43 = shl nsw i64 %42, 6
-  %44 = ptrtoint ptr %28 to i64
-  %45 = ptrtoint ptr %29 to i64
-  %46 = sub i64 %44, %45
-  %47 = ashr exact i64 %46, 3
-  %48 = add nsw i64 %47, %37
-  %49 = add i64 %48, %43
-  %50 = icmp sgt i64 %49, 1
-  br i1 %50, label %.lr.ph, label %_ZSt11__sort_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_.exit
+  %39 = load ptr, ptr %0, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %14, align 8
+  %42 = load ptr, ptr %17, align 8
+  %43 = load ptr, ptr %1, align 8
+  %44 = load ptr, ptr %21, align 8
+  %45 = load ptr, ptr %27, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = getelementptr inbounds i8, ptr %5, i64 24
+  %49 = ptrtoint ptr %42 to i64
+  %50 = ptrtoint ptr %41 to i64
+  %51 = ptrtoint ptr %39 to i64
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 3
+  %54 = ptrtoint ptr %45 to i64
+  %55 = sub i64 %54, %49
+  %56 = ashr exact i64 %55, 3
+  %57 = icmp ne ptr %45, null
+  %.neg.i.i8 = sext i1 %57 to i64
+  %58 = add nsw i64 %56, %.neg.i.i8
+  %59 = shl nsw i64 %58, 6
+  %60 = ptrtoint ptr %43 to i64
+  %61 = ptrtoint ptr %44 to i64
+  %62 = sub i64 %60, %61
+  %63 = ashr exact i64 %62, 3
+  %64 = add nsw i64 %63, %53
+  %65 = add i64 %64, %59
+  %66 = icmp sgt i64 %65, 1
+  br i1 %66, label %.lr.ph, label %_ZSt11__sort_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_.exit
 
 .lr.ph:                                           ; preds = %4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i
-  %51 = phi i64 [ %.pre-phi13, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %45, %4 ]
-  %52 = phi i64 [ %.pre-phi, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %38, %4 ]
-  %.sroa.0.011 = phi ptr [ %59, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %28, %4 ]
-  %.sroa.3.010 = phi ptr [ %.sroa.3.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %29, %4 ]
-  %.sroa.8.09 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %30, %4 ]
-  %53 = icmp eq ptr %.sroa.0.011, %.sroa.3.010
-  br i1 %53, label %54, label %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge
+  %67 = phi i64 [ %.pre-phi13, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %61, %4 ]
+  %68 = phi i64 [ %.pre-phi, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %54, %4 ]
+  %.sroa.0.011 = phi ptr [ %75, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %43, %4 ]
+  %.sroa.3.010 = phi ptr [ %.sroa.3.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %44, %4 ]
+  %.sroa.8.09 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %45, %4 ]
+  %69 = icmp eq ptr %.sroa.0.011, %.sroa.3.010
+  br i1 %69, label %70, label %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge
 
 .lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge: ; preds = %.lr.ph
   %.pre = ptrtoint ptr %.sroa.8.09 to i64
   %.pre12 = ptrtoint ptr %.sroa.3.010 to i64
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.sroa.8.09, i64 -8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 512
-  %.pre.i = ptrtoint ptr %55 to i64
-  %.pre8.i = ptrtoint ptr %56 to i64
+70:                                               ; preds = %.lr.ph
+  %71 = getelementptr inbounds i8, ptr %.sroa.8.09, i64 -8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 512
+  %.pre.i = ptrtoint ptr %71 to i64
+  %.pre8.i = ptrtoint ptr %72 to i64
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i: ; preds = %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge, %54
-  %.pre-phi13 = phi i64 [ %.pre12, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre8.i, %54 ]
-  %.pre-phi = phi i64 [ %.pre, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre.i, %54 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.09, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %55, %54 ]
-  %.sroa.3.1 = phi ptr [ %.sroa.3.010, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %56, %54 ]
-  %.pre-phi9.i = phi i64 [ %51, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre8.i, %54 ]
-  %.pre-phi.i = phi i64 [ %52, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre.i, %54 ]
-  %58 = phi ptr [ %.sroa.0.011, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %57, %54 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 -8
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i: ; preds = %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge, %70
+  %.pre-phi13 = phi i64 [ %.pre12, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre8.i, %70 ]
+  %.pre-phi = phi i64 [ %.pre, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre.i, %70 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.09, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %71, %70 ]
+  %.sroa.3.1 = phi ptr [ %.sroa.3.010, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %72, %70 ]
+  %.pre-phi9.i = phi i64 [ %67, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre8.i, %70 ]
+  %.pre-phi.i = phi i64 [ %68, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %.pre.i, %70 ]
+  %74 = phi ptr [ %.sroa.0.011, %.lr.ph._ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i_crit_edge ], [ %73, %70 ]
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %25, align 8
-  store ptr %61, ptr %59, align 8
-  store <2 x ptr> %24, ptr %5, align 16
-  store ptr %26, ptr %31, align 16
-  store ptr %27, ptr %32, align 8
-  %62 = sub i64 %.pre-phi.i, %33
-  %63 = ashr exact i64 %62, 3
-  %64 = icmp ne ptr %.sroa.8.1, null
-  %.neg.i.i.i = sext i1 %64 to i64
-  %65 = add nsw i64 %63, %.neg.i.i.i
-  %66 = shl nsw i64 %65, 6
-  %67 = ptrtoint ptr %59 to i64
-  %68 = sub i64 %67, %.pre-phi9.i
-  %69 = ashr exact i64 %68, 3
-  %70 = add i64 %66, %37
-  %71 = add i64 %70, %69
-  call void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %5, i64 noundef 0, i64 noundef %71, ptr noundef %60, ptr %3)
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %39, align 8
+  store ptr %77, ptr %75, align 8
+  store ptr %39, ptr %5, align 8
+  store ptr %40, ptr %46, align 8
+  store ptr %41, ptr %47, align 8
+  store ptr %42, ptr %48, align 8
+  %78 = sub i64 %.pre-phi.i, %49
+  %79 = ashr exact i64 %78, 3
+  %80 = icmp ne ptr %.sroa.8.1, null
+  %.neg.i.i.i = sext i1 %80 to i64
+  %81 = add nsw i64 %79, %.neg.i.i.i
+  %82 = shl nsw i64 %81, 6
+  %83 = ptrtoint ptr %75 to i64
+  %84 = sub i64 %83, %.pre-phi9.i
+  %85 = ashr exact i64 %84, 3
+  %86 = add i64 %82, %53
+  %87 = add i64 %86, %85
+  call void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %5, i64 noundef 0, i64 noundef %87, ptr noundef %76, ptr %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %72 = sub i64 %.pre-phi, %33
-  %73 = ashr exact i64 %72, 3
-  %74 = add nsw i64 %73, %.neg.i.i.i
-  %75 = shl nsw i64 %74, 6
-  %76 = sub i64 %67, %.pre-phi13
-  %77 = ashr exact i64 %76, 3
-  %78 = add nsw i64 %77, %37
-  %79 = add i64 %78, %75
-  %80 = icmp sgt i64 %79, 1
-  br i1 %80, label %.lr.ph, label %_ZSt11__sort_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_.exit, !llvm.loop !2048
+  %88 = sub i64 %.pre-phi, %49
+  %89 = ashr exact i64 %88, 3
+  %90 = add nsw i64 %89, %.neg.i.i.i
+  %91 = shl nsw i64 %90, 6
+  %92 = sub i64 %83, %.pre-phi13
+  %93 = ashr exact i64 %92, 3
+  %94 = add nsw i64 %93, %53
+  %95 = add i64 %94, %91
+  %96 = icmp sgt i64 %95, 1
+  br i1 %96, label %.lr.ph, label %_ZSt11__sort_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_.exit, !llvm.loop !2048
 
 _ZSt11__sort_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_.exit: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i, %4
   ret void
@@ -166068,115 +166108,130 @@ _ZSt21__unguarded_partitionISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt13__heap_selectISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #3 comdat {
-  %5 = alloca %"struct.std::_Deque_iterator", align 16
+  %5 = alloca %"struct.std::_Deque_iterator", align 8
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"struct.std::_Deque_iterator", align 16
-  %8 = alloca %"struct.std::_Deque_iterator", align 16
+  %7 = alloca %"struct.std::_Deque_iterator", align 8
+  %8 = alloca %"struct.std::_Deque_iterator", align 8
   store ptr %3, ptr %6, align 8
-  %9 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %9, ptr %7, align 16
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %13, ptr %10, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %15, ptr %8, align 16
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
-  %19 = load <2 x ptr>, ptr %17, align 8
-  store <2 x ptr> %19, ptr %16, align 16
+  %9 = load ptr, ptr %0, align 8
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
+  %19 = load ptr, ptr %1, align 8
+  store ptr %19, ptr %8, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
   call void @_ZSt11__make_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_RT0_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %20 = load ptr, ptr %1, align 8
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %21, %23
-  %25 = load ptr, ptr %2, align 8
-  %26 = icmp ult ptr %20, %25
-  %27 = icmp ult ptr %21, %23
-  %28 = select i1 %24, i1 %26, i1 %27
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %29 = load ptr, ptr %1, align 8
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %30, %32
+  %34 = load ptr, ptr %2, align 8
+  %35 = icmp ult ptr %29, %34
+  %36 = icmp ult ptr %30, %32
+  %37 = select i1 %33, i1 %35, i1 %36
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  br label %32
+  %38 = load ptr, ptr %24, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  br label %42
 
-32:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit
-  %.sroa.16.029 = phi ptr [ %21, %.lr.ph ], [ %.sroa.16.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
-  %.sroa.11.028 = phi ptr [ %29, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
-  %.sroa.016.027 = phi ptr [ %20, %.lr.ph ], [ %.sroa.016.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
-  %33 = load ptr, ptr %0, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %.sroa.016.027, align 8
-  %36 = load ptr, ptr %33, align 8
-  %37 = call noundef zeroext i1 %34(ptr noundef %35, ptr noundef %36)
-  br i1 %37, label %38, label %65
+42:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit
+  %.sroa.16.029 = phi ptr [ %30, %.lr.ph ], [ %.sroa.16.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
+  %.sroa.11.028 = phi ptr [ %38, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
+  %.sroa.016.027 = phi ptr [ %29, %.lr.ph ], [ %.sroa.016.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit ]
+  %43 = load ptr, ptr %0, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %.sroa.016.027, align 8
+  %46 = load ptr, ptr %43, align 8
+  %47 = call noundef zeroext i1 %44(ptr noundef %45, ptr noundef %46)
+  br i1 %47, label %48, label %75
 
-38:                                               ; preds = %32
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = load ptr, ptr %1, align 8
-  %42 = load ptr, ptr %14, align 8
-  %43 = load ptr, ptr %18, align 8
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %0, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %14, align 8
+  %52 = load ptr, ptr %17, align 8
+  %53 = load ptr, ptr %1, align 8
+  %54 = load ptr, ptr %21, align 8
+  %55 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %44 = load ptr, ptr %.sroa.016.027, align 8
-  %45 = load <2 x ptr>, ptr %0, align 8
-  %46 = load ptr, ptr %0, align 8
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %.sroa.016.027, align 8
-  store <2 x ptr> %45, ptr %5, align 16
-  store ptr %39, ptr %30, align 16
-  store ptr %40, ptr %31, align 8
-  %48 = ptrtoint ptr %43 to i64
-  %49 = ptrtoint ptr %40 to i64
-  %50 = sub i64 %48, %49
-  %51 = ashr exact i64 %50, 3
-  %52 = icmp ne ptr %43, null
-  %.neg.i.i = sext i1 %52 to i64
-  %53 = add nsw i64 %51, %.neg.i.i
-  %54 = shl nsw i64 %53, 6
-  %55 = ptrtoint ptr %41 to i64
-  %56 = ptrtoint ptr %42 to i64
-  %57 = sub i64 %55, %56
-  %58 = ashr exact i64 %57, 3
-  %59 = ptrtoint ptr %39 to i64
-  %60 = ptrtoint ptr %46 to i64
-  %61 = sub i64 %59, %60
-  %62 = ashr exact i64 %61, 3
-  %63 = add nsw i64 %58, %62
-  %64 = add i64 %63, %54
+  %56 = load ptr, ptr %.sroa.016.027, align 8
+  %57 = load ptr, ptr %49, align 8
+  store ptr %57, ptr %.sroa.016.027, align 8
+  store ptr %49, ptr %5, align 8
+  store ptr %50, ptr %39, align 8
+  store ptr %51, ptr %40, align 8
+  store ptr %52, ptr %41, align 8
+  %58 = ptrtoint ptr %55 to i64
+  %59 = ptrtoint ptr %52 to i64
+  %60 = sub i64 %58, %59
+  %61 = ashr exact i64 %60, 3
+  %62 = icmp ne ptr %55, null
+  %.neg.i.i = sext i1 %62 to i64
+  %63 = add nsw i64 %61, %.neg.i.i
+  %64 = shl nsw i64 %63, 6
+  %65 = ptrtoint ptr %53 to i64
+  %66 = ptrtoint ptr %54 to i64
+  %67 = sub i64 %65, %66
+  %68 = ashr exact i64 %67, 3
+  %69 = ptrtoint ptr %51 to i64
+  %70 = ptrtoint ptr %49 to i64
+  %71 = sub i64 %69, %70
+  %72 = ashr exact i64 %71, 3
+  %73 = add nsw i64 %68, %72
+  %74 = add i64 %73, %64
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8
-  call void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %5, i64 noundef 0, i64 noundef %64, ptr noundef %44, ptr %.sroa.0.0.copyload.i)
+  call void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %5, i64 noundef 0, i64 noundef %74, ptr noundef %56, ptr %.sroa.0.0.copyload.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %65
+  br label %75
 
-65:                                               ; preds = %32, %38
-  %66 = getelementptr inbounds i8, ptr %.sroa.016.027, i64 8
-  %67 = icmp eq ptr %66, %.sroa.11.028
-  br i1 %67, label %68, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit
+75:                                               ; preds = %42, %48
+  %76 = getelementptr inbounds i8, ptr %.sroa.016.027, i64 8
+  %77 = icmp eq ptr %76, %.sroa.11.028
+  br i1 %77, label %78, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.sroa.16.029, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 512
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds i8, ptr %.sroa.16.029, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit
 
-_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit:  ; preds = %65, %68
-  %.sroa.016.1 = phi ptr [ %70, %68 ], [ %66, %65 ]
-  %.sroa.11.1 = phi ptr [ %71, %68 ], [ %.sroa.11.028, %65 ]
-  %.sroa.16.1 = phi ptr [ %69, %68 ], [ %.sroa.16.029, %65 ]
-  %72 = load ptr, ptr %22, align 8
-  %73 = icmp eq ptr %.sroa.16.1, %72
-  %74 = load ptr, ptr %2, align 8
-  %75 = icmp ult ptr %.sroa.016.1, %74
-  %76 = icmp ult ptr %.sroa.16.1, %72
-  %77 = select i1 %73, i1 %75, i1 %76
-  br i1 %77, label %32, label %._crit_edge, !llvm.loop !2068
+_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit:  ; preds = %75, %78
+  %.sroa.016.1 = phi ptr [ %80, %78 ], [ %76, %75 ]
+  %.sroa.11.1 = phi ptr [ %81, %78 ], [ %.sroa.11.028, %75 ]
+  %.sroa.16.1 = phi ptr [ %79, %78 ], [ %.sroa.16.029, %75 ]
+  %82 = load ptr, ptr %31, align 8
+  %83 = icmp eq ptr %.sroa.16.1, %82
+  %84 = load ptr, ptr %2, align 8
+  %85 = icmp ult ptr %.sroa.016.1, %84
+  %86 = icmp ult ptr %.sroa.16.1, %82
+  %87 = select i1 %83, i1 %85, i1 %86
+  br i1 %87, label %42, label %._crit_edge, !llvm.loop !2068
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit, %4
   ret void
@@ -172907,9 +172962,10 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = load <2 x ptr>, ptr %0, align 8
-  %36 = shufflevector <2 x ptr> %35, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %36, ptr %0, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = load ptr, ptr %10, align 8
+  store ptr %36, ptr %0, align 8
+  store ptr %35, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_SG_T0_.exit.preheader
 
 37:                                               ; preds = %31

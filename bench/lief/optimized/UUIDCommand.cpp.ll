@@ -173,11 +173,15 @@ declare noundef i64 @_ZNK4LIEF5MachO11LoadCommand7commandEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO11UUIDCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  %3 = alloca %"struct.std::array", align 16
+  %3 = alloca %"struct.std::array", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO11LoadCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = load <2 x i64>, ptr %5, align 8
-  store <2 x i64> %6, ptr %3, align 16
+  %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %2, %7

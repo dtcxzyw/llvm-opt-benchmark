@@ -212,82 +212,100 @@ define { i16, i64 } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h054e887f965fb35fE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h36f514d37de64af0E(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2d2aecf8b0b5e2b2E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h2245c7541c76e811E"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h865f13309188e098E(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2d2aecf8b0b5e2b2E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h256130972930ef3dE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h986db644d21df29bE(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h63a4ae6f2646e696E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
@@ -305,28 +323,34 @@ define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h3775c1bc14f38dedE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h5de51a54b0c426acE(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2d2aecf8b0b5e2b2E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
@@ -344,77 +368,92 @@ define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h539f2f453e6df99bE"(ptr nocapture writeonly sret({ { { ptr, ptr, {} }, { ptr, ptr, ptr } }, { { ptr, ptr, {} } }, i64, i64, i64 }) align 8 %0, ptr align 8 %1, ptr %2, ptr %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %5 = alloca { { ptr, ptr, {} } }, align 16
-  store ptr %2, ptr %5, align 16
+  %5 = alloca { { ptr, ptr, {} } }, align 8
+  store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
   %7 = tail call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h6f97b3539dc384aaE(ptr align 8 %1)
   %8 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0c8f324b536d26c5E(ptr nonnull align 8 %5)
   %9 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %7, i64 %8)
+  %10 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+  %11 = load ptr, ptr %6, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %7, ptr %14, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %11, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %9, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %7, ptr %16, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h57ee56f0c41a0efbE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2dbb3ee0ae2ccdf2E(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2d2aecf8b0b5e2b2E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hb31242bb4031f92cE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %6 = alloca { ptr, ptr, {} }, align 16
-  %7 = alloca { ptr, ptr, {} }, align 16
-  store ptr %1, ptr %7, align 16
+  %6 = alloca { ptr, ptr, {} }, align 8
+  %7 = alloca { ptr, ptr, {} }, align 8
+  store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %6, align 16
+  store ptr %3, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %9, align 8
   %10 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h63a4ae6f2646e696E(ptr nonnull align 8 %7)
   %11 = call i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h2dbb3ee0ae2ccdf2E(ptr nonnull align 8 %6)
   %12 = call i64 @_ZN4core3cmp6min_by17ha96f4f95dfdb421bE(i64 %10, i64 %11)
-  %13 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %10, ptr %18, align 8
+  %13 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %14 = load ptr, ptr %8, align 8, !noundef !3
+  %15 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %9, align 8, !noundef !3
+  store ptr %13, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %12, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %10, ptr %22, align 8
   ret void
 }
 

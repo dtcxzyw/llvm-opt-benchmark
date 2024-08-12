@@ -2159,11 +2159,16 @@ if.end29:                                         ; preds = %if.end25
   %call35 = call noalias ptr @g_strdup(ptr noundef nonnull %name33) #15
   %name36 = getelementptr inbounds i8, ptr %call30, i64 8
   store ptr %call35, ptr %name36, align 8
+  %date_nsec = getelementptr inbounds i8, ptr %sn, i64 396
+  %2 = load i32, ptr %date_nsec, align 4
+  %conv37 = zext i32 %2 to i64
+  %date_nsec38 = getelementptr inbounds i8, ptr %call30, i64 32
+  store i64 %conv37, ptr %date_nsec38, align 8
   %date_sec = getelementptr inbounds i8, ptr %sn, i64 392
+  %3 = load i32, ptr %date_sec, align 8
+  %conv39 = zext i32 %3 to i64
   %date_sec40 = getelementptr inbounds i8, ptr %call30, i64 24
-  %2 = load <2 x i32>, ptr %date_sec, align 8
-  %3 = zext <2 x i32> %2 to <2 x i64>
-  store <2 x i64> %3, ptr %date_sec40, align 8
+  store i64 %conv39, ptr %date_sec40, align 8
   %vm_state_size = getelementptr inbounds i8, ptr %sn, i64 384
   %4 = load i64, ptr %vm_state_size, align 8
   %vm_state_size41 = getelementptr inbounds i8, ptr %call30, i64 16

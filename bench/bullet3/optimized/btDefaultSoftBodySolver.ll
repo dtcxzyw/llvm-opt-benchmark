@@ -395,10 +395,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %vertexPointer.031 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %add.ptr25, %for.body ]
   %6 = load ptr, ptr %m_data.i, align 8
   %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 1
+  %position.sroa.0.0.copyload = load float, ptr %m_x, align 8
+  %position.sroa.2.0.m_x.sroa_idx = getelementptr inbounds i8, ptr %m_x, i64 4
+  %position.sroa.2.0.copyload = load float, ptr %position.sroa.2.0.m_x.sroa_idx, align 4
   %position.sroa.3.0.m_x.sroa_idx = getelementptr inbounds i8, ptr %m_x, i64 8
   %position.sroa.3.0.copyload = load float, ptr %position.sroa.3.0.m_x.sroa_idx, align 8
-  %7 = load <2 x float>, ptr %m_x, align 8
-  store <2 x float> %7, ptr %vertexPointer.031, align 4
+  store float %position.sroa.0.0.copyload, ptr %vertexPointer.031, align 4
+  %add.ptr21 = getelementptr inbounds i8, ptr %vertexPointer.031, i64 4
+  store float %position.sroa.2.0.copyload, ptr %add.ptr21, align 4
   %add.ptr23 = getelementptr inbounds i8, ptr %vertexPointer.031, i64 8
   store float %position.sroa.3.0.copyload, ptr %add.ptr23, align 4
   %add.ptr25 = getelementptr inbounds float, ptr %vertexPointer.031, i64 %idx.ext24
@@ -409,19 +413,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end:                                           ; preds = %for.body, %if.then9, %if.then
   %vtable26 = load ptr, ptr %vertexBuffer, align 8
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 24
-  %8 = load ptr, ptr %vfn27, align 8
-  %call28 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
+  %7 = load ptr, ptr %vfn27, align 8
+  %call28 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   br i1 %call28, label %if.then29, label %if.end55
 
 if.then29:                                        ; preds = %if.end
   %vtable30 = load ptr, ptr %vertexBuffer, align 8
   %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 56
-  %9 = load ptr, ptr %vfn31, align 8
-  %call32 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
+  %8 = load ptr, ptr %vfn31, align 8
+  %call32 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %vtable33 = load ptr, ptr %vertexBuffer, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 64
-  %10 = load ptr, ptr %vfn34, align 8
-  %call35 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
+  %9 = load ptr, ptr %vfn34, align 8
+  %call35 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %cmp4032 = icmp sgt i32 %1, 0
   br i1 %cmp4032, label %for.body41.lr.ph, label %if.end55
 
@@ -436,12 +440,16 @@ for.body41.lr.ph:                                 ; preds = %if.then29
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
   %indvars.iv36 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next37, %for.body41 ]
   %normalPointer.033 = phi ptr [ %add.ptr37, %for.body41.lr.ph ], [ %add.ptr50, %for.body41 ]
-  %11 = load ptr, ptr %m_data.i24, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Node", ptr %11, i64 %indvars.iv36, i32 6
+  %10 = load ptr, ptr %m_data.i24, align 8
+  %m_n = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv36, i32 6
+  %normal.sroa.0.0.copyload = load float, ptr %m_n, align 8
+  %normal.sroa.2.0.m_n.sroa_idx = getelementptr inbounds i8, ptr %m_n, i64 4
+  %normal.sroa.2.0.copyload = load float, ptr %normal.sroa.2.0.m_n.sroa_idx, align 4
   %normal.sroa.3.0.m_n.sroa_idx = getelementptr inbounds i8, ptr %m_n, i64 8
   %normal.sroa.3.0.copyload = load float, ptr %normal.sroa.3.0.m_n.sroa_idx, align 8
-  %12 = load <2 x float>, ptr %m_n, align 8
-  store <2 x float> %12, ptr %normalPointer.033, align 4
+  store float %normal.sroa.0.0.copyload, ptr %normalPointer.033, align 4
+  %add.ptr46 = getelementptr inbounds i8, ptr %normalPointer.033, i64 4
+  store float %normal.sroa.2.0.copyload, ptr %add.ptr46, align 4
   %add.ptr48 = getelementptr inbounds i8, ptr %normalPointer.033, i64 8
   store float %normal.sroa.3.0.copyload, ptr %add.ptr48, align 4
   %add.ptr50 = getelementptr inbounds float, ptr %normalPointer.033, i64 %idx.ext49

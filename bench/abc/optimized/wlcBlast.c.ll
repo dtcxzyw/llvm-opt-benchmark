@@ -11937,10 +11937,11 @@ Wlc_ObjFaninId.exit2891:                          ; preds = %Wlc_ObjFaninId2.exi
   %588 = shl nsw i64 %587, 2
   %589 = tail call noalias ptr @malloc(i64 noundef %588) #20
   %.12123.val = load i32, ptr %582, align 4
-  %590 = insertelement <2 x i32> poison, i32 %.12123.val, i64 0
-  %591 = insertelement <2 x i32> %590, i32 %581, i64 1
-  %592 = sitofp <2 x i32> %591 to <2 x float>
-  store <2 x float> %592, ptr %589, align 4
+  %590 = sitofp i32 %.12123.val to float
+  store float %590, ptr %589, align 4
+  %591 = sitofp i32 %581 to float
+  %592 = getelementptr inbounds i8, ptr %589, i64 4
+  store float %591, ptr %592, align 4
   %593 = uitofp nneg i32 %442 to float
   %594 = getelementptr inbounds i8, ptr %589, i64 8
   store float %593, ptr %594, align 4

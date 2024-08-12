@@ -329,7 +329,7 @@ define hidden void @_Z9pickPointiiiiPv(i32 noundef %0, i32 noundef %1, i32 nound
   %9 = alloca %"class.cv::MatExpr", align 8
   %10 = alloca %"class.cv::_InputOutputArray", align 8
   %11 = alloca %"class.cv::_InputOutputArray", align 8
-  %12 = alloca %"class.cv::Scalar_", align 16
+  %12 = alloca %"class.cv::Scalar_", align 8
   %13 = alloca %"class.cv::Scalar_", align 8
   %14 = alloca %"class.cv::Scalar_", align 8
   %15 = alloca %"class.cv::Mat", align 8
@@ -379,9 +379,13 @@ define hidden void @_Z9pickPointiiiiPv(i32 noundef %0, i32 noundef %1, i32 nound
   store ptr %8, ptr %35, align 8
   %.sroa.222.0.insert.ext = zext i32 %2 to i64
   %.sroa.021.0.insert.ext = zext i32 %1 to i64
-  store <2 x double> <double 1.200000e+02, double 1.200000e+02>, ptr %12, align 16
+  store double 1.200000e+02, ptr %12, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  store double 1.200000e+02, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
-  store <2 x double> <double 1.200000e+02, double 0.000000e+00>, ptr %.sroa.3.0..sroa_idx, align 16
+  store double 1.200000e+02, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.222.0.insert.shift = shl nuw i64 %.sroa.222.0.insert.ext, 32
   %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.222.0.insert.shift, %.sroa.021.0.insert.ext
   %37 = load i32, ptr @low, align 4

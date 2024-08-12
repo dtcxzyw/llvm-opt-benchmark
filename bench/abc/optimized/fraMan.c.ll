@@ -33,9 +33,17 @@ define void @Fra_ParamsDefault(ptr nocapture noundef writeonly %0) local_unnamed
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 25, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 3.000000e-01, double 1.000000e+01>, ptr %5, align 8
-  store <4 x i32> <i32 1, i32 1, i32 100, i32 500000>, ptr %4, align 8
+  store double 3.000000e-01, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 1.000000e+01, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 100, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 500000, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 1, ptr %9, align 4
   ret void
 }
 
@@ -53,15 +61,17 @@ define void @Fra_ParamsDefaultSeq(ptr nocapture noundef writeonly %0) local_unna
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 3.000000e-01, double 1.000000e+01>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 10000000, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 500000, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 0, ptr %9, align 4
+  store double 3.000000e-01, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 1.000000e+01, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 10000000, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 500000, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 0, ptr %10, align 4
   ret void
 }
 

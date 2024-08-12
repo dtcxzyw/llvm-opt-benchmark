@@ -1667,7 +1667,13 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %sw.epilog191, %if.e
   store ptr @.str.17, ptr %agg.tmp.i, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 18, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i, align 4
+  store i8 7, ptr %agg.tmp2.i, align 4
+  %aggregate.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 1
+  store i8 1, ptr %aggregate.i.i, align 1
+  %vecsemantics.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 2
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  %reserved.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 3
+  store i8 0, ptr %reserved.i.i, align 1
   %arraylen4.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 4
   store i32 0, ptr %arraylen4.i.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %value.addr.i)
@@ -1694,7 +1700,13 @@ sw.epilog209:                                     ; preds = %_ZNK3dpx13GenericHe
   store ptr @.str.18, ptr %agg.tmp.i108, align 8
   %m_len.i.i110 = getelementptr inbounds i8, ptr %agg.tmp.i108, i64 8
   store i64 11, ptr %m_len.i.i110, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i109, align 4
+  store i8 7, ptr %agg.tmp2.i109, align 4
+  %aggregate.i.i112 = getelementptr inbounds i8, ptr %agg.tmp2.i109, i64 1
+  store i8 1, ptr %aggregate.i.i112, align 1
+  %vecsemantics.i.i113 = getelementptr inbounds i8, ptr %agg.tmp2.i109, i64 2
+  store i8 0, ptr %vecsemantics.i.i113, align 2
+  %reserved.i.i114 = getelementptr inbounds i8, ptr %agg.tmp2.i109, i64 3
+  store i8 0, ptr %reserved.i.i114, align 1
   %arraylen4.i.i115 = getelementptr inbounds i8, ptr %agg.tmp2.i109, i64 4
   store i32 0, ptr %arraylen4.i.i115, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i108, ptr noundef nonnull %agg.tmp2.i109, ptr noundef nonnull %value.addr.i107)
@@ -1994,7 +2006,13 @@ if.end371:                                        ; preds = %if.then366, %_ZNK3d
   store ptr @.str.34, ptr %agg.tmp.i217, align 8
   %m_len.i.i219 = getelementptr inbounds i8, ptr %agg.tmp.i217, i64 8
   store i64 16, ptr %m_len.i.i219, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i218, align 4
+  store i8 11, ptr %agg.tmp2.i218, align 4
+  %aggregate.i.i221 = getelementptr inbounds i8, ptr %agg.tmp2.i218, i64 1
+  store i8 1, ptr %aggregate.i.i221, align 1
+  %vecsemantics.i.i222 = getelementptr inbounds i8, ptr %agg.tmp2.i218, i64 2
+  store i8 0, ptr %vecsemantics.i.i222, align 2
+  %reserved.i.i223 = getelementptr inbounds i8, ptr %agg.tmp2.i218, i64 3
+  store i8 0, ptr %reserved.i.i223, align 1
   %arraylen4.i.i224 = getelementptr inbounds i8, ptr %agg.tmp2.i218, i64 4
   store i32 0, ptr %arraylen4.i.i224, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i217, ptr noundef nonnull %agg.tmp2.i218, ptr noundef nonnull %value.addr.i216)
@@ -2040,7 +2058,13 @@ if.then400:                                       ; preds = %invoke.cont395
   store ptr @.str.36, ptr %agg.tmp.i242, align 8
   %m_len.i.i244 = getelementptr inbounds i8, ptr %agg.tmp.i242, i64 8
   store i64 14, ptr %m_len.i.i244, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i243, align 4
+  store i8 6, ptr %agg.tmp2.i243, align 4
+  %aggregate.i.i246 = getelementptr inbounds i8, ptr %agg.tmp2.i243, i64 1
+  store i8 1, ptr %aggregate.i.i246, align 1
+  %vecsemantics.i.i247 = getelementptr inbounds i8, ptr %agg.tmp2.i243, i64 2
+  store i8 0, ptr %vecsemantics.i.i247, align 2
+  %reserved.i.i248 = getelementptr inbounds i8, ptr %agg.tmp2.i243, i64 3
+  store i8 0, ptr %reserved.i.i248, align 1
   %arraylen4.i.i249 = getelementptr inbounds i8, ptr %agg.tmp2.i243, i64 4
   store i32 0, ptr %arraylen4.i.i249, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i242, ptr noundef nonnull %agg.tmp2.i243, ptr noundef nonnull %value.addr.i241)
@@ -2068,7 +2092,13 @@ if.then411:                                       ; preds = %if.end406
   store ptr @.str.37, ptr %agg.tmp.i254, align 8
   %m_len.i.i256 = getelementptr inbounds i8, ptr %agg.tmp.i254, i64 8
   store i64 12, ptr %m_len.i.i256, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i255, align 4
+  store i8 6, ptr %agg.tmp2.i255, align 4
+  %aggregate.i.i258 = getelementptr inbounds i8, ptr %agg.tmp2.i255, i64 1
+  store i8 1, ptr %aggregate.i.i258, align 1
+  %vecsemantics.i.i259 = getelementptr inbounds i8, ptr %agg.tmp2.i255, i64 2
+  store i8 0, ptr %vecsemantics.i.i259, align 2
+  %reserved.i.i260 = getelementptr inbounds i8, ptr %agg.tmp2.i255, i64 3
+  store i8 0, ptr %reserved.i.i260, align 1
   %arraylen4.i.i261 = getelementptr inbounds i8, ptr %agg.tmp2.i255, i64 4
   store i32 0, ptr %arraylen4.i.i261, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i254, ptr noundef nonnull %agg.tmp2.i255, ptr noundef nonnull %value.addr.i253)
@@ -2096,7 +2126,13 @@ _ZNK3dpx13GenericHeader7LowDataEi.exit275:        ; preds = %_ZNK3dpx13GenericHe
   store ptr @.str.38, ptr %agg.tmp.i277, align 8
   %m_len.i.i279 = getelementptr inbounds i8, ptr %agg.tmp.i277, i64 8
   store i64 11, ptr %m_len.i.i279, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i278, align 4
+  store i8 6, ptr %agg.tmp2.i278, align 4
+  %aggregate.i.i281 = getelementptr inbounds i8, ptr %agg.tmp2.i278, i64 1
+  store i8 1, ptr %aggregate.i.i281, align 1
+  %vecsemantics.i.i282 = getelementptr inbounds i8, ptr %agg.tmp2.i278, i64 2
+  store i8 0, ptr %vecsemantics.i.i282, align 2
+  %reserved.i.i283 = getelementptr inbounds i8, ptr %agg.tmp2.i278, i64 3
+  store i8 0, ptr %reserved.i.i283, align 1
   %arraylen4.i.i284 = getelementptr inbounds i8, ptr %agg.tmp2.i278, i64 4
   store i32 0, ptr %arraylen4.i.i284, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i277, ptr noundef nonnull %agg.tmp2.i278, ptr noundef nonnull %value.addr.i276)
@@ -2120,7 +2156,13 @@ if.end439:                                        ; preds = %_ZNK3dpx13GenericHe
   store ptr @.str.39, ptr %agg.tmp.i300, align 8
   %m_len.i.i302 = getelementptr inbounds i8, ptr %agg.tmp.i300, i64 8
   store i64 15, ptr %m_len.i.i302, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i301, align 4
+  store i8 11, ptr %agg.tmp2.i301, align 4
+  %aggregate.i.i304 = getelementptr inbounds i8, ptr %agg.tmp2.i301, i64 1
+  store i8 1, ptr %aggregate.i.i304, align 1
+  %vecsemantics.i.i305 = getelementptr inbounds i8, ptr %agg.tmp2.i301, i64 2
+  store i8 0, ptr %vecsemantics.i.i305, align 2
+  %reserved.i.i306 = getelementptr inbounds i8, ptr %agg.tmp2.i301, i64 3
+  store i8 0, ptr %reserved.i.i306, align 1
   %arraylen4.i.i307 = getelementptr inbounds i8, ptr %agg.tmp2.i301, i64 4
   store i32 0, ptr %arraylen4.i.i307, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i300, ptr noundef nonnull %agg.tmp2.i301, ptr noundef nonnull %value.addr.i299)
@@ -2149,7 +2191,13 @@ _ZNK3dpx13GenericHeader8HighDataEi.exit321:       ; preds = %_ZNK3dpx13GenericHe
   store ptr @.str.40, ptr %agg.tmp.i323, align 8
   %m_len.i.i325 = getelementptr inbounds i8, ptr %agg.tmp.i323, i64 8
   store i64 12, ptr %m_len.i.i325, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i324, align 4
+  store i8 6, ptr %agg.tmp2.i324, align 4
+  %aggregate.i.i327 = getelementptr inbounds i8, ptr %agg.tmp2.i324, i64 1
+  store i8 1, ptr %aggregate.i.i327, align 1
+  %vecsemantics.i.i328 = getelementptr inbounds i8, ptr %agg.tmp2.i324, i64 2
+  store i8 0, ptr %vecsemantics.i.i328, align 2
+  %reserved.i.i329 = getelementptr inbounds i8, ptr %agg.tmp2.i324, i64 3
+  store i8 0, ptr %reserved.i.i329, align 1
   %arraylen4.i.i330 = getelementptr inbounds i8, ptr %agg.tmp2.i324, i64 4
   store i32 0, ptr %arraylen4.i.i330, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i323, ptr noundef nonnull %agg.tmp2.i324, ptr noundef nonnull %value.addr.i322)
@@ -2173,7 +2221,13 @@ if.end461:                                        ; preds = %_ZNK3dpx13GenericHe
   store ptr @.str.41, ptr %agg.tmp.i346, align 8
   %m_len.i.i348 = getelementptr inbounds i8, ptr %agg.tmp.i346, i64 8
   store i64 16, ptr %m_len.i.i348, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i347, align 4
+  store i8 11, ptr %agg.tmp2.i347, align 4
+  %aggregate.i.i350 = getelementptr inbounds i8, ptr %agg.tmp2.i347, i64 1
+  store i8 1, ptr %aggregate.i.i350, align 1
+  %vecsemantics.i.i351 = getelementptr inbounds i8, ptr %agg.tmp2.i347, i64 2
+  store i8 0, ptr %vecsemantics.i.i351, align 2
+  %reserved.i.i352 = getelementptr inbounds i8, ptr %agg.tmp2.i347, i64 3
+  store i8 0, ptr %reserved.i.i352, align 1
   %arraylen4.i.i353 = getelementptr inbounds i8, ptr %agg.tmp2.i347, i64 4
   store i32 0, ptr %arraylen4.i.i353, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i346, ptr noundef nonnull %agg.tmp2.i347, ptr noundef nonnull %value.addr.i345)
@@ -2200,7 +2254,13 @@ if.end.i381:                                      ; preds = %if.end461.if.end.i3
   store ptr @.str.42, ptr %agg.tmp.i372, align 8
   %m_len.i.i374 = getelementptr inbounds i8, ptr %agg.tmp.i372, i64 8
   store i64 20, ptr %m_len.i.i374, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i373, align 4
+  store i8 6, ptr %agg.tmp2.i373, align 4
+  %aggregate.i.i376 = getelementptr inbounds i8, ptr %agg.tmp2.i373, i64 1
+  store i8 1, ptr %aggregate.i.i376, align 1
+  %vecsemantics.i.i377 = getelementptr inbounds i8, ptr %agg.tmp2.i373, i64 2
+  store i8 0, ptr %vecsemantics.i.i377, align 2
+  %reserved.i.i378 = getelementptr inbounds i8, ptr %agg.tmp2.i373, i64 3
+  store i8 0, ptr %reserved.i.i378, align 1
   %arraylen4.i.i379 = getelementptr inbounds i8, ptr %agg.tmp2.i373, i64 4
   store i32 0, ptr %arraylen4.i.i379, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i372, ptr noundef nonnull %agg.tmp2.i373, ptr noundef nonnull %value.addr.i371)
@@ -2218,7 +2278,13 @@ if.end.i381:                                      ; preds = %if.end461.if.end.i3
   store ptr @.str.43, ptr %agg.tmp.i399, align 8
   %m_len.i.i401 = getelementptr inbounds i8, ptr %agg.tmp.i399, i64 8
   store i64 21, ptr %m_len.i.i401, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i400, align 4
+  store i8 6, ptr %agg.tmp2.i400, align 4
+  %aggregate.i.i403 = getelementptr inbounds i8, ptr %agg.tmp2.i400, i64 1
+  store i8 1, ptr %aggregate.i.i403, align 1
+  %vecsemantics.i.i404 = getelementptr inbounds i8, ptr %agg.tmp2.i400, i64 2
+  store i8 0, ptr %vecsemantics.i.i404, align 2
+  %reserved.i.i405 = getelementptr inbounds i8, ptr %agg.tmp2.i400, i64 3
+  store i8 0, ptr %reserved.i.i405, align 1
   %arraylen4.i.i406 = getelementptr inbounds i8, ptr %agg.tmp2.i400, i64 4
   store i32 0, ptr %arraylen4.i.i406, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i399, ptr noundef nonnull %agg.tmp2.i400, ptr noundef nonnull %value.addr.i398)
@@ -2241,7 +2307,13 @@ if.then488:                                       ; preds = %if.end483
   store ptr @.str.44, ptr %agg.tmp.i411, align 8
   %m_len.i.i413 = getelementptr inbounds i8, ptr %agg.tmp.i411, i64 8
   store i64 16, ptr %m_len.i.i413, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i412, align 4
+  store i8 11, ptr %agg.tmp2.i412, align 4
+  %aggregate.i.i415 = getelementptr inbounds i8, ptr %agg.tmp2.i412, i64 1
+  store i8 1, ptr %aggregate.i.i415, align 1
+  %vecsemantics.i.i416 = getelementptr inbounds i8, ptr %agg.tmp2.i412, i64 2
+  store i8 0, ptr %vecsemantics.i.i416, align 2
+  %reserved.i.i417 = getelementptr inbounds i8, ptr %agg.tmp2.i412, i64 3
+  store i8 0, ptr %reserved.i.i417, align 1
   %arraylen4.i.i418 = getelementptr inbounds i8, ptr %agg.tmp2.i412, i64 4
   store i32 0, ptr %arraylen4.i.i418, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i411, ptr noundef nonnull %agg.tmp2.i412, ptr noundef nonnull %value.addr.i410)
@@ -2264,7 +2336,13 @@ if.then499:                                       ; preds = %if.end494
   store ptr @.str.45, ptr %agg.tmp.i423, align 8
   %m_len.i.i425 = getelementptr inbounds i8, ptr %agg.tmp.i423, i64 8
   store i64 16, ptr %m_len.i.i425, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i424, align 4
+  store i8 11, ptr %agg.tmp2.i424, align 4
+  %aggregate.i.i427 = getelementptr inbounds i8, ptr %agg.tmp2.i424, i64 1
+  store i8 1, ptr %aggregate.i.i427, align 1
+  %vecsemantics.i.i428 = getelementptr inbounds i8, ptr %agg.tmp2.i424, i64 2
+  store i8 0, ptr %vecsemantics.i.i428, align 2
+  %reserved.i.i429 = getelementptr inbounds i8, ptr %agg.tmp2.i424, i64 3
+  store i8 0, ptr %reserved.i.i429, align 1
   %arraylen4.i.i430 = getelementptr inbounds i8, ptr %agg.tmp2.i424, i64 4
   store i32 0, ptr %arraylen4.i.i430, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i423, ptr noundef nonnull %agg.tmp2.i424, ptr noundef nonnull %value.addr.i422)
@@ -2288,7 +2366,13 @@ if.then511:                                       ; preds = %if.end505
   store ptr @.str.46, ptr %agg.tmp.i435, align 8
   %m_len.i.i437 = getelementptr inbounds i8, ptr %agg.tmp.i435, i64 8
   store i64 17, ptr %m_len.i.i437, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i436, align 4
+  store i8 6, ptr %agg.tmp2.i436, align 4
+  %aggregate.i.i439 = getelementptr inbounds i8, ptr %agg.tmp2.i436, i64 1
+  store i8 1, ptr %aggregate.i.i439, align 1
+  %vecsemantics.i.i440 = getelementptr inbounds i8, ptr %agg.tmp2.i436, i64 2
+  store i8 0, ptr %vecsemantics.i.i440, align 2
+  %reserved.i.i441 = getelementptr inbounds i8, ptr %agg.tmp2.i436, i64 3
+  store i8 0, ptr %reserved.i.i441, align 1
   %arraylen4.i.i442 = getelementptr inbounds i8, ptr %agg.tmp2.i436, i64 4
   store i32 0, ptr %arraylen4.i.i442, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i435, ptr noundef nonnull %agg.tmp2.i436, ptr noundef nonnull %value.addr.i434)
@@ -2311,7 +2395,13 @@ if.then524:                                       ; preds = %if.end518
   store ptr @.str.47, ptr %agg.tmp.i447, align 8
   %m_len.i.i449 = getelementptr inbounds i8, ptr %agg.tmp.i447, i64 8
   store i64 18, ptr %m_len.i.i449, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i448, align 4
+  store i8 6, ptr %agg.tmp2.i448, align 4
+  %aggregate.i.i451 = getelementptr inbounds i8, ptr %agg.tmp2.i448, i64 1
+  store i8 1, ptr %aggregate.i.i451, align 1
+  %vecsemantics.i.i452 = getelementptr inbounds i8, ptr %agg.tmp2.i448, i64 2
+  store i8 0, ptr %vecsemantics.i.i452, align 2
+  %reserved.i.i453 = getelementptr inbounds i8, ptr %agg.tmp2.i448, i64 3
+  store i8 0, ptr %reserved.i.i453, align 1
   %arraylen4.i.i454 = getelementptr inbounds i8, ptr %agg.tmp2.i448, i64 4
   store i32 0, ptr %arraylen4.i.i454, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i447, ptr noundef nonnull %agg.tmp2.i448, ptr noundef nonnull %value.addr.i446)
@@ -2334,7 +2424,13 @@ if.then537:                                       ; preds = %if.end531
   store ptr @.str.48, ptr %agg.tmp.i459, align 8
   %m_len.i.i461 = getelementptr inbounds i8, ptr %agg.tmp.i459, i64 8
   store i64 13, ptr %m_len.i.i461, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i460, align 4
+  store i8 6, ptr %agg.tmp2.i460, align 4
+  %aggregate.i.i463 = getelementptr inbounds i8, ptr %agg.tmp2.i460, i64 1
+  store i8 1, ptr %aggregate.i.i463, align 1
+  %vecsemantics.i.i464 = getelementptr inbounds i8, ptr %agg.tmp2.i460, i64 2
+  store i8 0, ptr %vecsemantics.i.i464, align 2
+  %reserved.i.i465 = getelementptr inbounds i8, ptr %agg.tmp2.i460, i64 3
+  store i8 0, ptr %reserved.i.i465, align 1
   %arraylen4.i.i466 = getelementptr inbounds i8, ptr %agg.tmp2.i460, i64 4
   store i32 0, ptr %arraylen4.i.i466, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i459, ptr noundef nonnull %agg.tmp2.i460, ptr noundef nonnull %value.addr.i458)
@@ -2357,7 +2453,13 @@ if.then550:                                       ; preds = %if.end544
   store ptr @.str.49, ptr %agg.tmp.i471, align 8
   %m_len.i.i473 = getelementptr inbounds i8, ptr %agg.tmp.i471, i64 8
   store i64 13, ptr %m_len.i.i473, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i472, align 4
+  store i8 11, ptr %agg.tmp2.i472, align 4
+  %aggregate.i.i475 = getelementptr inbounds i8, ptr %agg.tmp2.i472, i64 1
+  store i8 1, ptr %aggregate.i.i475, align 1
+  %vecsemantics.i.i476 = getelementptr inbounds i8, ptr %agg.tmp2.i472, i64 2
+  store i8 0, ptr %vecsemantics.i.i476, align 2
+  %reserved.i.i477 = getelementptr inbounds i8, ptr %agg.tmp2.i472, i64 3
+  store i8 0, ptr %reserved.i.i477, align 1
   %arraylen4.i.i478 = getelementptr inbounds i8, ptr %agg.tmp2.i472, i64 4
   store i32 0, ptr %arraylen4.i.i478, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i471, ptr noundef nonnull %agg.tmp2.i472, ptr noundef nonnull %value.addr.i470)
@@ -2380,7 +2482,13 @@ if.then563:                                       ; preds = %if.end557
   store ptr @.str.50, ptr %agg.tmp.i483, align 8
   %m_len.i.i485 = getelementptr inbounds i8, ptr %agg.tmp.i483, i64 8
   store i64 16, ptr %m_len.i.i485, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i484, align 4
+  store i8 11, ptr %agg.tmp2.i484, align 4
+  %aggregate.i.i487 = getelementptr inbounds i8, ptr %agg.tmp2.i484, i64 1
+  store i8 1, ptr %aggregate.i.i487, align 1
+  %vecsemantics.i.i488 = getelementptr inbounds i8, ptr %agg.tmp2.i484, i64 2
+  store i8 0, ptr %vecsemantics.i.i488, align 2
+  %reserved.i.i489 = getelementptr inbounds i8, ptr %agg.tmp2.i484, i64 3
+  store i8 0, ptr %reserved.i.i489, align 1
   %arraylen4.i.i490 = getelementptr inbounds i8, ptr %agg.tmp2.i484, i64 4
   store i32 0, ptr %arraylen4.i.i490, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i483, ptr noundef nonnull %agg.tmp2.i484, ptr noundef nonnull %value.addr.i482)
@@ -2537,7 +2645,13 @@ if.then726:                                       ; preds = %if.end719
   store ptr @.str.58, ptr %agg.tmp.i523, align 8
   %m_len.i.i525 = getelementptr inbounds i8, ptr %agg.tmp.i523, i64 8
   store i64 13, ptr %m_len.i.i525, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i524, align 4
+  store i8 7, ptr %agg.tmp2.i524, align 4
+  %aggregate.i.i527 = getelementptr inbounds i8, ptr %agg.tmp2.i524, i64 1
+  store i8 1, ptr %aggregate.i.i527, align 1
+  %vecsemantics.i.i528 = getelementptr inbounds i8, ptr %agg.tmp2.i524, i64 2
+  store i8 0, ptr %vecsemantics.i.i528, align 2
+  %reserved.i.i529 = getelementptr inbounds i8, ptr %agg.tmp2.i524, i64 3
+  store i8 0, ptr %reserved.i.i529, align 1
   %arraylen4.i.i530 = getelementptr inbounds i8, ptr %agg.tmp2.i524, i64 4
   store i32 0, ptr %arraylen4.i.i530, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i523, ptr noundef nonnull %agg.tmp2.i524, ptr noundef nonnull %value.addr.i522)
@@ -2561,7 +2675,13 @@ if.then741:                                       ; preds = %if.end734
   store ptr @.str.59, ptr %agg.tmp.i535, align 8
   %m_len.i.i537 = getelementptr inbounds i8, ptr %agg.tmp.i535, i64 8
   store i64 15, ptr %m_len.i.i537, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i536, align 4
+  store i8 7, ptr %agg.tmp2.i536, align 4
+  %aggregate.i.i539 = getelementptr inbounds i8, ptr %agg.tmp2.i536, i64 1
+  store i8 1, ptr %aggregate.i.i539, align 1
+  %vecsemantics.i.i540 = getelementptr inbounds i8, ptr %agg.tmp2.i536, i64 2
+  store i8 0, ptr %vecsemantics.i.i540, align 2
+  %reserved.i.i541 = getelementptr inbounds i8, ptr %agg.tmp2.i536, i64 3
+  store i8 0, ptr %reserved.i.i541, align 1
   %arraylen4.i.i542 = getelementptr inbounds i8, ptr %agg.tmp2.i536, i64 4
   store i32 0, ptr %arraylen4.i.i542, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i535, ptr noundef nonnull %agg.tmp2.i536, ptr noundef nonnull %value.addr.i534)
@@ -2584,7 +2704,13 @@ if.then755:                                       ; preds = %if.end749
   store ptr @.str.60, ptr %agg.tmp.i547, align 8
   %m_len.i.i549 = getelementptr inbounds i8, ptr %agg.tmp.i547, i64 8
   store i64 24, ptr %m_len.i.i549, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i548, align 4
+  store i8 11, ptr %agg.tmp2.i548, align 4
+  %aggregate.i.i551 = getelementptr inbounds i8, ptr %agg.tmp2.i548, i64 1
+  store i8 1, ptr %aggregate.i.i551, align 1
+  %vecsemantics.i.i552 = getelementptr inbounds i8, ptr %agg.tmp2.i548, i64 2
+  store i8 0, ptr %vecsemantics.i.i552, align 2
+  %reserved.i.i553 = getelementptr inbounds i8, ptr %agg.tmp2.i548, i64 3
+  store i8 0, ptr %reserved.i.i553, align 1
   %arraylen4.i.i554 = getelementptr inbounds i8, ptr %agg.tmp2.i548, i64 4
   store i32 0, ptr %arraylen4.i.i554, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i547, ptr noundef nonnull %agg.tmp2.i548, ptr noundef nonnull %value.addr.i546)
@@ -2607,7 +2733,13 @@ if.then768:                                       ; preds = %if.end762
   store ptr @.str.61, ptr %agg.tmp.i559, align 8
   %m_len.i.i561 = getelementptr inbounds i8, ptr %agg.tmp.i559, i64 8
   store i64 22, ptr %m_len.i.i561, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i560, align 4
+  store i8 11, ptr %agg.tmp2.i560, align 4
+  %aggregate.i.i563 = getelementptr inbounds i8, ptr %agg.tmp2.i560, i64 1
+  store i8 1, ptr %aggregate.i.i563, align 1
+  %vecsemantics.i.i564 = getelementptr inbounds i8, ptr %agg.tmp2.i560, i64 2
+  store i8 0, ptr %vecsemantics.i.i564, align 2
+  %reserved.i.i565 = getelementptr inbounds i8, ptr %agg.tmp2.i560, i64 3
+  store i8 0, ptr %reserved.i.i565, align 1
   %arraylen4.i.i566 = getelementptr inbounds i8, ptr %agg.tmp2.i560, i64 4
   store i32 0, ptr %arraylen4.i.i566, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i559, ptr noundef nonnull %agg.tmp2.i560, ptr noundef nonnull %value.addr.i558)
@@ -2630,7 +2762,13 @@ if.then781:                                       ; preds = %if.end775
   store ptr @.str.62, ptr %agg.tmp.i571, align 8
   %m_len.i.i573 = getelementptr inbounds i8, ptr %agg.tmp.i571, i64 8
   store i64 21, ptr %m_len.i.i573, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i572, align 4
+  store i8 11, ptr %agg.tmp2.i572, align 4
+  %aggregate.i.i575 = getelementptr inbounds i8, ptr %agg.tmp2.i572, i64 1
+  store i8 1, ptr %aggregate.i.i575, align 1
+  %vecsemantics.i.i576 = getelementptr inbounds i8, ptr %agg.tmp2.i572, i64 2
+  store i8 0, ptr %vecsemantics.i.i576, align 2
+  %reserved.i.i577 = getelementptr inbounds i8, ptr %agg.tmp2.i572, i64 3
+  store i8 0, ptr %reserved.i.i577, align 1
   %arraylen4.i.i578 = getelementptr inbounds i8, ptr %agg.tmp2.i572, i64 4
   store i32 0, ptr %arraylen4.i.i578, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i571, ptr noundef nonnull %agg.tmp2.i572, ptr noundef nonnull %value.addr.i570)
@@ -2653,7 +2791,13 @@ if.then794:                                       ; preds = %if.end788
   store ptr @.str.63, ptr %agg.tmp.i583, align 8
   %m_len.i.i585 = getelementptr inbounds i8, ptr %agg.tmp.i583, i64 8
   store i64 14, ptr %m_len.i.i585, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i584, align 4
+  store i8 11, ptr %agg.tmp2.i584, align 4
+  %aggregate.i.i587 = getelementptr inbounds i8, ptr %agg.tmp2.i584, i64 1
+  store i8 1, ptr %aggregate.i.i587, align 1
+  %vecsemantics.i.i588 = getelementptr inbounds i8, ptr %agg.tmp2.i584, i64 2
+  store i8 0, ptr %vecsemantics.i.i588, align 2
+  %reserved.i.i589 = getelementptr inbounds i8, ptr %agg.tmp2.i584, i64 3
+  store i8 0, ptr %reserved.i.i589, align 1
   %arraylen4.i.i590 = getelementptr inbounds i8, ptr %agg.tmp2.i584, i64 4
   store i32 0, ptr %arraylen4.i.i590, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i583, ptr noundef nonnull %agg.tmp2.i584, ptr noundef nonnull %value.addr.i582)
@@ -2676,7 +2820,13 @@ if.then807:                                       ; preds = %if.end801
   store ptr @.str.64, ptr %agg.tmp.i595, align 8
   %m_len.i.i597 = getelementptr inbounds i8, ptr %agg.tmp.i595, i64 8
   store i64 14, ptr %m_len.i.i597, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i596, align 4
+  store i8 11, ptr %agg.tmp2.i596, align 4
+  %aggregate.i.i599 = getelementptr inbounds i8, ptr %agg.tmp2.i596, i64 1
+  store i8 1, ptr %aggregate.i.i599, align 1
+  %vecsemantics.i.i600 = getelementptr inbounds i8, ptr %agg.tmp2.i596, i64 2
+  store i8 0, ptr %vecsemantics.i.i600, align 2
+  %reserved.i.i601 = getelementptr inbounds i8, ptr %agg.tmp2.i596, i64 3
+  store i8 0, ptr %reserved.i.i601, align 1
   %arraylen4.i.i602 = getelementptr inbounds i8, ptr %agg.tmp2.i596, i64 4
   store i32 0, ptr %arraylen4.i.i602, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i595, ptr noundef nonnull %agg.tmp2.i596, ptr noundef nonnull %value.addr.i594)
@@ -2699,7 +2849,13 @@ if.then820:                                       ; preds = %if.end814
   store ptr @.str.65, ptr %agg.tmp.i607, align 8
   %m_len.i.i609 = getelementptr inbounds i8, ptr %agg.tmp.i607, i64 8
   store i64 13, ptr %m_len.i.i609, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i608, align 4
+  store i8 11, ptr %agg.tmp2.i608, align 4
+  %aggregate.i.i611 = getelementptr inbounds i8, ptr %agg.tmp2.i608, i64 1
+  store i8 1, ptr %aggregate.i.i611, align 1
+  %vecsemantics.i.i612 = getelementptr inbounds i8, ptr %agg.tmp2.i608, i64 2
+  store i8 0, ptr %vecsemantics.i.i612, align 2
+  %reserved.i.i613 = getelementptr inbounds i8, ptr %agg.tmp2.i608, i64 3
+  store i8 0, ptr %reserved.i.i613, align 1
   %arraylen4.i.i614 = getelementptr inbounds i8, ptr %agg.tmp2.i608, i64 4
   store i32 0, ptr %arraylen4.i.i614, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i607, ptr noundef nonnull %agg.tmp2.i608, ptr noundef nonnull %value.addr.i606)
@@ -2722,7 +2878,13 @@ if.then833:                                       ; preds = %if.end827
   store ptr @.str.66, ptr %agg.tmp.i619, align 8
   %m_len.i.i621 = getelementptr inbounds i8, ptr %agg.tmp.i619, i64 8
   store i64 14, ptr %m_len.i.i621, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i620, align 4
+  store i8 11, ptr %agg.tmp2.i620, align 4
+  %aggregate.i.i623 = getelementptr inbounds i8, ptr %agg.tmp2.i620, i64 1
+  store i8 1, ptr %aggregate.i.i623, align 1
+  %vecsemantics.i.i624 = getelementptr inbounds i8, ptr %agg.tmp2.i620, i64 2
+  store i8 0, ptr %vecsemantics.i.i624, align 2
+  %reserved.i.i625 = getelementptr inbounds i8, ptr %agg.tmp2.i620, i64 3
+  store i8 0, ptr %reserved.i.i625, align 1
   %arraylen4.i.i626 = getelementptr inbounds i8, ptr %agg.tmp2.i620, i64 4
   store i32 0, ptr %arraylen4.i.i626, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i619, ptr noundef nonnull %agg.tmp2.i620, ptr noundef nonnull %value.addr.i618)
@@ -2745,7 +2907,13 @@ if.then846:                                       ; preds = %if.end840
   store ptr @.str.67, ptr %agg.tmp.i631, align 8
   %m_len.i.i633 = getelementptr inbounds i8, ptr %agg.tmp.i631, i64 8
   store i64 14, ptr %m_len.i.i633, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i632, align 4
+  store i8 11, ptr %agg.tmp2.i632, align 4
+  %aggregate.i.i635 = getelementptr inbounds i8, ptr %agg.tmp2.i632, i64 1
+  store i8 1, ptr %aggregate.i.i635, align 1
+  %vecsemantics.i.i636 = getelementptr inbounds i8, ptr %agg.tmp2.i632, i64 2
+  store i8 0, ptr %vecsemantics.i.i636, align 2
+  %reserved.i.i637 = getelementptr inbounds i8, ptr %agg.tmp2.i632, i64 3
+  store i8 0, ptr %reserved.i.i637, align 1
   %arraylen4.i.i638 = getelementptr inbounds i8, ptr %agg.tmp2.i632, i64 4
   store i32 0, ptr %arraylen4.i.i638, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i631, ptr noundef nonnull %agg.tmp2.i632, ptr noundef nonnull %value.addr.i630)
@@ -2768,7 +2936,13 @@ if.then859:                                       ; preds = %if.end853
   store ptr @.str.68, ptr %agg.tmp.i643, align 8
   %m_len.i.i645 = getelementptr inbounds i8, ptr %agg.tmp.i643, i64 8
   store i64 20, ptr %m_len.i.i645, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i644, align 4
+  store i8 11, ptr %agg.tmp2.i644, align 4
+  %aggregate.i.i647 = getelementptr inbounds i8, ptr %agg.tmp2.i644, i64 1
+  store i8 1, ptr %aggregate.i.i647, align 1
+  %vecsemantics.i.i648 = getelementptr inbounds i8, ptr %agg.tmp2.i644, i64 2
+  store i8 0, ptr %vecsemantics.i.i648, align 2
+  %reserved.i.i649 = getelementptr inbounds i8, ptr %agg.tmp2.i644, i64 3
+  store i8 0, ptr %reserved.i.i649, align 1
   %arraylen4.i.i650 = getelementptr inbounds i8, ptr %agg.tmp2.i644, i64 4
   store i32 0, ptr %arraylen4.i.i650, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i643, ptr noundef nonnull %agg.tmp2.i644, ptr noundef nonnull %value.addr.i642)
@@ -2830,7 +3004,13 @@ invoke.cont897:                                   ; preds = %if.then895
   store ptr @.str.73, ptr %agg.tmp899, align 8
   %m_len.i663 = getelementptr inbounds i8, ptr %agg.tmp899, i64 8
   store i64 13, ptr %m_len.i663, align 8
-  store <4 x i8> <i8 7, i8 1, i8 6, i8 0>, ptr %agg.tmp900, align 4
+  store i8 7, ptr %agg.tmp900, align 4
+  %aggregate.i664 = getelementptr inbounds i8, ptr %agg.tmp900, i64 1
+  store i8 1, ptr %aggregate.i664, align 1
+  %vecsemantics.i665 = getelementptr inbounds i8, ptr %agg.tmp900, i64 2
+  store i8 6, ptr %vecsemantics.i665, align 2
+  %reserved.i666 = getelementptr inbounds i8, ptr %agg.tmp900, i64 3
+  store i8 0, ptr %reserved.i666, align 1
   %arraylen.i667 = getelementptr inbounds i8, ptr %agg.tmp900, i64 4
   store i32 7, ptr %arraylen.i667, align 4
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp899, ptr noundef nonnull %agg.tmp900, ptr noundef nonnull %kc)
@@ -2851,7 +3031,13 @@ if.then908:                                       ; preds = %if.end903
   store ptr @.str.74, ptr %agg.tmp917, align 8
   %m_len.i669 = getelementptr inbounds i8, ptr %agg.tmp917, i64 8
   store i64 14, ptr %m_len.i669, align 8
-  store <4 x i8> <i8 6, i8 1, i8 5, i8 0>, ptr %agg.tmp918, align 4
+  store i8 6, ptr %agg.tmp918, align 4
+  %aggregate.i670 = getelementptr inbounds i8, ptr %agg.tmp918, i64 1
+  store i8 1, ptr %aggregate.i670, align 1
+  %vecsemantics.i671 = getelementptr inbounds i8, ptr %agg.tmp918, i64 2
+  store i8 5, ptr %vecsemantics.i671, align 2
+  %reserved.i672 = getelementptr inbounds i8, ptr %agg.tmp918, i64 3
+  store i8 0, ptr %reserved.i672, align 1
   %arraylen.i673 = getelementptr inbounds i8, ptr %agg.tmp918, i64 4
   store i32 2, ptr %arraylen.i673, align 4
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp917, ptr noundef nonnull %agg.tmp918, ptr noundef nonnull %timecode)
@@ -2903,7 +3089,13 @@ if.then943:                                       ; preds = %if.end937
   store ptr @.str.76, ptr %agg.tmp.i682, align 8
   %m_len.i.i684 = getelementptr inbounds i8, ptr %agg.tmp.i682, i64 8
   store i64 12, ptr %m_len.i.i684, align 8
-  store <4 x i8> <i8 6, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i683, align 4
+  store i8 6, ptr %agg.tmp2.i683, align 4
+  %aggregate.i.i686 = getelementptr inbounds i8, ptr %agg.tmp2.i683, i64 1
+  store i8 1, ptr %aggregate.i.i686, align 1
+  %vecsemantics.i.i687 = getelementptr inbounds i8, ptr %agg.tmp2.i683, i64 2
+  store i8 0, ptr %vecsemantics.i.i687, align 2
+  %reserved.i.i688 = getelementptr inbounds i8, ptr %agg.tmp2.i683, i64 3
+  store i8 0, ptr %reserved.i.i688, align 1
   %arraylen4.i.i689 = getelementptr inbounds i8, ptr %agg.tmp2.i683, i64 4
   store i32 0, ptr %arraylen4.i.i689, align 4
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i682, ptr noundef nonnull %agg.tmp2.i683, ptr noundef nonnull %value.addr.i681)
@@ -3109,7 +3301,13 @@ if.then1091:                                      ; preds = %if.end1088
   store i64 12, ptr %m_len.i715, align 8
   %userSize.i716 = getelementptr inbounds i8, ptr %this, i64 240
   %122 = load i32, ptr %userSize.i716, align 8
-  store <4 x i8> <i8 2, i8 1, i8 0, i8 0>, ptr %agg.tmp1094, align 4
+  store i8 2, ptr %agg.tmp1094, align 4
+  %aggregate.i.i717 = getelementptr inbounds i8, ptr %agg.tmp1094, i64 1
+  store i8 1, ptr %aggregate.i.i717, align 1
+  %vecsemantics.i.i718 = getelementptr inbounds i8, ptr %agg.tmp1094, i64 2
+  store i8 0, ptr %vecsemantics.i.i718, align 2
+  %reserved.i.i719 = getelementptr inbounds i8, ptr %agg.tmp1094, i64 3
+  store i8 0, ptr %reserved.i.i719, align 1
   %arraylen4.i.i720 = getelementptr inbounds i8, ptr %agg.tmp1094, i64 4
   store i32 %122, ptr %arraylen4.i.i720, align 4
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp1093, ptr noundef nonnull %agg.tmp1094, ptr noundef nonnull %121)
@@ -3432,7 +3630,13 @@ entry:
   %m_len.i.i = getelementptr inbounds i8, ptr %name, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
   store i64 %1, ptr %m_len.i, align 8
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp2, align 4
+  store i8 11, ptr %agg.tmp2, align 4
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 1
+  store i8 1, ptr %aggregate.i, align 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 2
+  store i8 0, ptr %vecsemantics.i, align 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 3
+  store i8 0, ptr %reserved.i, align 1
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 4
   store i32 0, ptr %arraylen4.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %value.addr)
@@ -6252,7 +6456,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
   store ptr null, ptr %__cur.07.i.i.i.i, align 8
   %m_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %m_type.i.i.i.i.i.i, align 4
+  store i8 0, ptr %m_type.i.i.i.i.i.i, align 4
+  %aggregate.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 9
+  store i8 1, ptr %aggregate.i.i.i.i.i.i.i, align 1
+  %vecsemantics.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 10
+  store i8 0, ptr %vecsemantics.i.i.i.i.i.i.i, align 2
+  %reserved.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 11
+  store i8 0, ptr %reserved.i.i.i.i.i.i.i, align 1
   %arraylen4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   store i32 0, ptr %arraylen4.i.i.i.i.i.i.i, align 4
   %m_nvalues.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
@@ -6351,7 +6561,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
   store ptr null, ptr %__cur.07.i.i.i.i, align 8
   %m_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %m_type.i.i.i.i.i.i, align 4
+  store i8 0, ptr %m_type.i.i.i.i.i.i, align 4
+  %aggregate.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 9
+  store i8 1, ptr %aggregate.i.i.i.i.i.i.i, align 1
+  %vecsemantics.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 10
+  store i8 0, ptr %vecsemantics.i.i.i.i.i.i.i, align 2
+  %reserved.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 11
+  store i8 0, ptr %reserved.i.i.i.i.i.i.i, align 1
   %arraylen4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   store i32 0, ptr %arraylen4.i.i.i.i.i.i.i, align 4
   %m_nvalues.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
@@ -6643,6 +6859,9 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   %type.i = getelementptr inbounds i8, ptr %specs, i64 8
   %align.i = getelementptr inbounds i8, ptr %specs, i64 9
   %fill.i = getelementptr inbounds i8, ptr %specs, i64 11
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %specs, i64 12
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %specs, i64 13
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %specs, i64 14
   %size_.i.i229 = getelementptr inbounds i8, ptr %specs, i64 15
   %type_.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
   %type_.i275 = getelementptr inbounds i8, ptr %arg, i64 16
@@ -6814,7 +7033,10 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit
   store i8 0, ptr %type.i, align 8
   %bf.load.i = load i16, ptr %align.i, align 1
   %bf.clear9.i = and i16 %bf.load.i, -512
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   store i8 1, ptr %size_.i.i229, align 1
   %bf.set = or disjoint i16 %bf.clear9.i, 2
   store i16 %bf.set, ptr %align.i, align 1
@@ -19656,14 +19878,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.102, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.99, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.17", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -19698,11 +19920,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq float %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -19769,13 +19993,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -28278,14 +28502,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.102, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.99, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.17", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -28320,11 +28544,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq double %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -28391,13 +28617,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -28564,14 +28790,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.102, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.99, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.17", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -28606,11 +28832,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -28677,13 +28905,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -29863,30 +30091,46 @@ lor.lhs.false6.i:                                 ; preds = %land.rhs.i
   %or.cond2.i = icmp ult i32 %20, 30288
   %cmp10.i = icmp ne i32 %cond, 12351
   %or.cond3.i = and i1 %cmp10.i, %or.cond2.i
-  %21 = and i32 %cond, -65538
-  %22 = insertelement <8 x i32> poison, i32 %cond, i64 0
-  %23 = insertelement <8 x i32> %22, i32 %21, i64 1
-  %24 = shufflevector <8 x i32> %23, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %25 = add <8 x i32> %24, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %26 = icmp ult <8 x i32> %25, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %27 = bitcast <8 x i1> %26 to i8
-  %28 = icmp ne i8 %27, 0
-  %op.rdx = or i1 %28, %or.cond3.i
-  br i1 %op.rdx, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
+  %21 = add i32 %cond, -44032
+  %or.cond4.i = icmp ult i32 %21, 11172
+  %or.cond.i = or i1 %or.cond4.i, %or.cond3.i
+  %22 = add i32 %cond, -63744
+  %or.cond5.i = icmp ult i32 %22, 512
+  %or.cond39.i = or i1 %or.cond5.i, %or.cond.i
+  %23 = add i32 %cond, -65040
+  %or.cond6.i = icmp ult i32 %23, 10
+  %or.cond40.i = or i1 %or.cond6.i, %or.cond39.i
+  %24 = add i32 %cond, -65072
+  %or.cond7.i = icmp ult i32 %24, 64
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond40.i
+  %25 = add i32 %cond, -65280
+  %or.cond8.i = icmp ult i32 %25, 97
+  %or.cond42.i = or i1 %or.cond8.i, %or.cond41.i
+  %26 = add i32 %cond, -65504
+  %or.cond9.i = icmp ult i32 %26, 7
+  %or.cond43.i = or i1 %or.cond9.i, %or.cond42.i
+  %27 = and i32 %cond, -65538
+  %28 = add i32 %27, -131072
+  %29 = icmp ult i32 %28, 65534
+  %or.cond45.i = or i1 %29, %or.cond43.i
+  %30 = add i32 %cond, -127744
+  %or.cond12.i = icmp ult i32 %30, 848
+  %or.cond46.i = or i1 %or.cond12.i, %or.cond45.i
+  br i1 %or.cond46.i, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false6.i
-  %29 = and i32 %cond, -256
-  %30 = icmp eq i32 %29, 129280
-  %31 = select i1 %30, i64 2, i64 1
+  %31 = and i32 %cond, -256
+  %32 = icmp eq i32 %31, 129280
+  %33 = select i1 %32, i64 2, i64 1
   br label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
 _ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %entry, %land.rhs.i, %lor.lhs.false6.i, %lor.rhs.i
-  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %31, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
+  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %33, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %add.i.i
-  %32 = load ptr, ptr %this, align 8
-  %33 = load i64, ptr %32, align 8
-  %add52.i = add i64 %33, %conv.i4
-  store i64 %add52.i, ptr %32, align 8
+  %34 = load ptr, ptr %this, align 8
+  %35 = load i64, ptr %34, align 8
+  %add52.i = add i64 %35, %conv.i4
+  store i64 %add52.i, ptr %34, align 8
   ret ptr %add.ptr.i
 }
 

@@ -2756,28 +2756,30 @@ define linkonce_odr hidden void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImplC2Ev(
   %20 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 16, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 32
-  store <2 x double> <double 8.000000e-01, double 8.000000e-01>, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 7, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
-  store i8 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.31)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %1
-  ret void
+  store double 8.000000e-01, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 8.000000e-01, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 7, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 52
+  store i8 1, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.31)
+          to label %27 unwind label %28
 
 27:                                               ; preds = %1
-  %28 = landingpad { ptr, i32 }
+  ret void
+
+28:                                               ; preds = %1
+  %29 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: nounwind

@@ -376,7 +376,13 @@ cond.true.i:                                      ; preds = %invoke.cont322
   store i8 1, ptr %engaged.i.i264, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %o364, i64 23
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
-  store <4 x i8> <i8 97, i8 98, i8 99, i8 0>, ptr %o364, align 8
+  store i8 97, ptr %o364, align 8
+  %ref.tmp366.sroa.2.0.o364.sroa_idx = getelementptr inbounds i8, ptr %o364, i64 1
+  store i8 98, ptr %ref.tmp366.sroa.2.0.o364.sroa_idx, align 1
+  %ref.tmp366.sroa.3.0.o364.sroa_idx = getelementptr inbounds i8, ptr %o364, i64 2
+  store i8 99, ptr %ref.tmp366.sroa.3.0.o364.sroa_idx, align 2
+  %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %o364, i64 3
+  store i8 0, ptr %add.ptr.i1.i.i.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp373, i64 23
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %ref.tmp373, ptr noundef nonnull align 1 dereferenceable(3) @.str.53, i64 3, i1 false)

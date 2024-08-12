@@ -13882,19 +13882,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %newCtx) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
+  %0 = load ptr, ptr %newCtx, align 8, !tbaa !328, !noalias !482
+  store ptr %0, ptr %ref.tmp, align 8, !tbaa !328, !alias.scope !482
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %newCtx, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !334, !noalias !482
-  %1 = load <2 x ptr>, ptr %newCtx, align 8, !tbaa !59, !noalias !482
-  store <2 x ptr> %1, ptr %ref.tmp, align 16, !tbaa !59, !alias.scope !482
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !334, !noalias !482
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !334, !alias.scope !482
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly4copyIRKSt10shared_ptrINS_14RequestContextEEEEDTclsr6detailE8decay_0_IT_ELi0EEEOS6_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85, !noalias !482
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14940,11 +14941,12 @@ if.then7.i.i.i.i.i813:                            ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit821
 
 _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit821: ; preds = %if.then7.i.i.i.i.i813, %invoke.cont.i.i.i.i.i810, %if.then.i.i.i.i.i815, %if.end182
-  %145 = load <2 x ptr>, ptr %newCtx, align 16, !tbaa !59
-  %146 = load ptr, ptr %newCtx, align 16, !tbaa !328
+  %145 = load ptr, ptr %newCtx, align 16, !tbaa !328
+  %146 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !334
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %newCtx, i8 0, i64 16, i1 false)
+  store ptr %145, ptr %cond-lvalue.i.i625, align 8, !tbaa !59
   %147 = load ptr, ptr %_M_refcount4.i.i.i800, align 8, !tbaa !334
-  store <2 x ptr> %145, ptr %cond-lvalue.i.i625, align 8, !tbaa !59
+  store ptr %146, ptr %_M_refcount4.i.i.i800, align 8, !tbaa !334
   %cmp.not.i.i.i.i824 = icmp eq ptr %147, null
   br i1 %cmp.not.i.i.i.i824, label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843, label %if.then.i.i.i.i825
 
@@ -14997,7 +14999,7 @@ _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843thread-pre-split: ; pr
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843
 
 _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843: ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843thread-pre-split, %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit821
-  %154 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843thread-pre-split ], [ %146, %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit821 ]
+  %154 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit843thread-pre-split ], [ %145, %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit821 ]
   %cmp.i844.not = icmp eq ptr %154, null
   %rootId198 = getelementptr inbounds i8, ptr %cond-lvalue.i.i625, i64 16
   br i1 %cmp.i844.not, label %if.else197, label %if.then189

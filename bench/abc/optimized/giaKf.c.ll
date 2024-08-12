@@ -4652,25 +4652,30 @@ Vec_FltFill.exit:                                 ; preds = %75, %Vec_FltGrow.ex
   %87 = getelementptr inbounds i8, ptr %1, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %14, i64 128
-  %90 = load <2 x i32>, ptr %1, align 8
-  %91 = trunc <2 x i32> %90 to <2 x i16>
+  %90 = load i32, ptr %1, align 8
+  %91 = trunc i32 %90 to i16
+  %92 = getelementptr inbounds i8, ptr %1, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = trunc i32 %93 to i16
   %smax = call i32 @llvm.smax.i32(i32 %88, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %92
+  br label %95
 
-92:                                               ; preds = %Vec_FltFill.exit, %92
-  %indvars.iv = phi i64 [ 0, %Vec_FltFill.exit ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds %struct.Kf_Set_t_, ptr %89, i64 %indvars.iv
-  store ptr %14, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  store <2 x i16> %91, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 28
-  store i32 255, ptr %95, align 4
+95:                                               ; preds = %Vec_FltFill.exit, %95
+  %indvars.iv = phi i64 [ 0, %Vec_FltFill.exit ], [ %indvars.iv.next, %95 ]
+  %96 = getelementptr inbounds %struct.Kf_Set_t_, ptr %89, i64 %indvars.iv
+  store ptr %14, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  store i16 %91, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %96, i64 10
+  store i16 %94, ptr %98, align 2
+  %99 = getelementptr inbounds i8, ptr %96, i64 28
+  store i32 255, ptr %99, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %96, label %92, !llvm.loop !57
+  br i1 %exitcond.not, label %100, label %95, !llvm.loop !57
 
-96:                                               ; preds = %92
+100:                                              ; preds = %95
   ret ptr %14
 }
 
@@ -5205,25 +5210,31 @@ Vec_IntPush.exit64:                               ; preds = %.Vec_IntGrow.exit10
 define void @Kf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 248, i1 false)
-  store <4 x i32> <i32 6, i32 8, i32 0, i32 1>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 5, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
-  %7 = getelementptr inbounds i8, ptr %0, i64 124
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store i32 16, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 32, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 32, ptr %11, align 8
+  store i32 6, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 8, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 84
+  %10 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  store i32 16, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 32, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 32, ptr %14, align 8
   ret void
 }
 

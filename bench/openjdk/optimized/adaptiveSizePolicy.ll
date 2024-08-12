@@ -110,175 +110,181 @@ define hidden void @_ZN18AdaptiveSizePolicyC2Emmmdj(ptr noundef nonnull align 8 
   %22 = getelementptr inbounds i8, ptr %17, i64 12
   store i8 0, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %17, i64 16
-  store <2 x float> zeroinitializer, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %17, i64 24
+  store float 0.000000e+00, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %17, i64 20
   store float 0.000000e+00, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 28
-  store i32 %19, ptr %25, align 4
+  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  store float 0.000000e+00, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %17, i64 28
+  store i32 %19, ptr %26, align 4
   store ptr %17, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  %27 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %28 = load i32, ptr @AdaptiveTimeWeight, align 4
-  store float 0.000000e+00, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  store i32 %28, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 12
-  store i8 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
-  store float 0.000000e+00, ptr %32, align 4
-  store ptr %27, ptr %26, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
-  %34 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %35 = load i32, ptr @AdaptiveTimeWeight, align 4
-  store float 0.000000e+00, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
-  store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 %35, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %34, i64 12
-  store i8 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
-  store float 0.000000e+00, ptr %39, align 4
-  store ptr %34, ptr %33, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
-  %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %42 = load i32, ptr @AdaptiveTimeWeight, align 4
-  store float 0.000000e+00, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %42, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %41, i64 12
-  store i8 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
-  store float 0.000000e+00, ptr %46, align 4
-  store ptr %41, ptr %40, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  %48 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %49 = load i32, ptr @AdaptiveTimeWeight, align 4
-  store float 0.000000e+00, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %48, i64 4
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  store i32 %49, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %48, i64 12
-  store i8 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
-  store float 0.000000e+00, ptr %53, align 4
-  store ptr %48, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
-  %55 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %56 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  store float 0.000000e+00, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
-  store i32 %56, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %55, i64 12
-  store i8 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %55, i64 16
-  store float 0.000000e+00, ptr %60, align 4
-  store ptr %55, ptr %54, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
-  %62 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %63 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  store float 0.000000e+00, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
-  store i32 0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
-  store i32 %63, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %62, i64 12
-  store i8 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %62, i64 16
-  store float 0.000000e+00, ptr %67, align 4
-  store ptr %62, ptr %61, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 104
-  %69 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
-  %70 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  store float 0.000000e+00, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 4
-  store i32 0, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
-  store i32 %70, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %69, i64 12
-  store i8 0, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %69, i64 16
-  store float 0.000000e+00, ptr %74, align 4
-  store ptr %69, ptr %68, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 112
-  %76 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #10
-  %77 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  %78 = load i32, ptr @SurvivorPadding, align 4
-  store float 0.000000e+00, ptr %76, align 4
-  %79 = getelementptr inbounds i8, ptr %76, i64 4
-  store i32 0, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %76, i64 8
-  store i32 %77, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %76, i64 12
-  store i8 0, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %76, i64 16
-  store <2 x float> zeroinitializer, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %76, i64 24
+  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %29 = load i32, ptr @AdaptiveTimeWeight, align 4
+  store float 0.000000e+00, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %29, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %28, i64 12
+  store i8 0, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  store float 0.000000e+00, ptr %33, align 4
+  store ptr %28, ptr %27, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %36 = load i32, ptr @AdaptiveTimeWeight, align 4
+  store float 0.000000e+00, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  store i32 0, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %36, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %35, i64 12
+  store i8 0, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  store float 0.000000e+00, ptr %40, align 4
+  store ptr %35, ptr %34, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %43 = load i32, ptr @AdaptiveTimeWeight, align 4
+  store float 0.000000e+00, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %43, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %42, i64 12
+  store i8 0, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  store float 0.000000e+00, ptr %47, align 4
+  store ptr %42, ptr %41, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %50 = load i32, ptr @AdaptiveTimeWeight, align 4
+  store float 0.000000e+00, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  store i32 %50, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %49, i64 12
+  store i8 0, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  store float 0.000000e+00, ptr %54, align 4
+  store ptr %49, ptr %48, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %57 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  store float 0.000000e+00, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  store i32 %57, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %56, i64 12
+  store i8 0, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %56, i64 16
+  store float 0.000000e+00, ptr %61, align 4
+  store ptr %56, ptr %55, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %63 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %64 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  store float 0.000000e+00, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  store i32 0, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  store i32 %64, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %63, i64 12
+  store i8 0, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %63, i64 16
+  store float 0.000000e+00, ptr %68, align 4
+  store ptr %63, ptr %62, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 104
+  %70 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #10
+  %71 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  store float 0.000000e+00, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %70, i64 4
+  store i32 0, ptr %72, align 4
+  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  store i32 %71, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %70, i64 12
+  store i8 0, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %70, i64 16
+  store float 0.000000e+00, ptr %75, align 4
+  store ptr %70, ptr %69, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 112
+  %77 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #10
+  %78 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  %79 = load i32, ptr @SurvivorPadding, align 4
+  store float 0.000000e+00, ptr %77, align 4
+  %80 = getelementptr inbounds i8, ptr %77, i64 4
+  store i32 0, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %77, i64 8
+  store i32 %78, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %77, i64 12
+  store i8 0, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %77, i64 16
   store float 0.000000e+00, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %76, i64 28
-  store i32 %78, ptr %84, align 4
-  store ptr %76, ptr %75, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 120
-  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #10
-  %87 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  %88 = load i32, ptr @SurvivorPadding, align 4
-  store float 0.000000e+00, ptr %86, align 4
-  %89 = getelementptr inbounds i8, ptr %86, i64 4
-  store i32 0, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %86, i64 8
-  store i32 %87, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %86, i64 12
-  store i8 0, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %86, i64 16
-  store <2 x float> zeroinitializer, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %86, i64 24
-  store float 0.000000e+00, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %86, i64 28
-  store i32 %88, ptr %94, align 4
-  store ptr %86, ptr %85, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 128
-  %96 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #10
-  %97 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
-  tail call void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 dereferenceable(88) %96, i32 noundef %97) #10
-  store ptr %96, ptr %95, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 136
+  %84 = getelementptr inbounds i8, ptr %77, i64 20
+  store float 0.000000e+00, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %77, i64 24
+  store float 0.000000e+00, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %77, i64 28
+  store i32 %79, ptr %86, align 4
+  store ptr %77, ptr %76, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 120
+  %88 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #10
+  %89 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  %90 = load i32, ptr @SurvivorPadding, align 4
+  store float 0.000000e+00, ptr %88, align 4
+  %91 = getelementptr inbounds i8, ptr %88, i64 4
+  store i32 0, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  store i32 %89, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %88, i64 12
+  store i8 0, ptr %93, align 4
+  %94 = getelementptr inbounds i8, ptr %88, i64 16
+  store float 0.000000e+00, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %88, i64 20
+  store float 0.000000e+00, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %88, i64 24
+  store float 0.000000e+00, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %88, i64 28
+  store i32 %90, ptr %97, align 4
+  store ptr %88, ptr %87, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 128
   %99 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #10
   %100 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
   tail call void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 dereferenceable(88) %99, i32 noundef %100) #10
   store ptr %99, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 144
+  %101 = getelementptr inbounds i8, ptr %0, i64 136
   %102 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #10
   %103 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
   tail call void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 dereferenceable(88) %102, i32 noundef %103) #10
   store ptr %102, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 152
+  %104 = getelementptr inbounds i8, ptr %0, i64 144
   %105 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #10
   %106 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
   tail call void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 dereferenceable(88) %105, i32 noundef %106) #10
   store ptr %105, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 160
-  store double 0.000000e+00, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 168
-  %109 = load i32, ptr @ThresholdTolerance, align 4
-  %110 = uitofp i32 %109 to double
-  %111 = fdiv double %110, 1.000000e+02
-  %112 = fadd double %111, 1.000000e+00
-  store double %112, ptr %108, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 176
-  store double %4, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 188
-  %116 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %115, i8 0, i64 19, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
+  %107 = getelementptr inbounds i8, ptr %0, i64 152
+  %108 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #10
+  %109 = load i32, ptr @AdaptiveSizePolicyWeight, align 4
+  tail call void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 dereferenceable(88) %108, i32 noundef %109) #10
+  store ptr %108, ptr %107, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 160
+  store double 0.000000e+00, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 168
+  %112 = load i32, ptr @ThresholdTolerance, align 4
+  %113 = uitofp i32 %112 to double
+  %114 = fdiv double %113, 1.000000e+02
+  %115 = fadd double %114, 1.000000e+00
+  store double %115, ptr %111, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 176
+  store double %4, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 184
+  store i8 0, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 188
+  %119 = getelementptr inbounds i8, ptr %0, i64 208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %118, i8 0, i64 19, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_minor_timerE) #10
   ret void
 }
@@ -690,23 +696,24 @@ define hidden void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCau
   %17 = getelementptr inbounds i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = load float, ptr %21, align 4
+  %20 = fpext float %19 to double
+  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = load float, ptr %22, align 4
+  %24 = fpext float %23 to double
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37AdaptiveSizePolicySpaceOverheadTester, i64 16), ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  store i64 %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
-  store i64 %16, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 40
-  %28 = insertelement <2 x float> poison, float %19, i64 0
-  %29 = insertelement <2 x float> %28, float %22, i64 1
-  %30 = fpext <2 x float> %29 to <2 x double>
-  store <2 x double> %30, ptr %27, align 8
+  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %2, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %9, i64 24
+  store i64 %3, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %9, i64 32
+  store i64 %16, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %9, i64 40
+  store double %20, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %9, i64 48
+  store double %24, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   call void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverheadTesterS1_bN7GCCause5CauseEP13SoftRefPolicy(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6) #10
   ret void
@@ -880,17 +887,16 @@ define linkonce_odr hidden noundef double @_ZNK18AdaptiveSizePolicy7gc_costEv(pt
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8
-  %7 = load float, ptr %6, align 4
-  %8 = insertelement <2 x float> poison, float %4, i64 0
-  %9 = insertelement <2 x float> %8, float %7, i64 1
-  %10 = fcmp olt <2 x float> %9, zeroinitializer
-  %11 = select <2 x i1> %10, <2 x float> zeroinitializer, <2 x float> %9
-  %12 = fpext <2 x float> %11 to <2 x double>
-  %shift = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %13 = fadd <2 x double> %shift, %12
-  %14 = extractelement <2 x double> %13, i64 0
+  %5 = fcmp olt float %4, 0.000000e+00
+  %6 = select i1 %5, float 0.000000e+00, float %4
+  %7 = fpext float %6 to double
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = load ptr, ptr %8, align 8
+  %10 = load float, ptr %9, align 4
+  %11 = fcmp olt float %10, 0.000000e+00
+  %12 = select i1 %11, float 0.000000e+00, float %10
+  %13 = fpext float %12 to double
+  %14 = fadd double %7, %13
   %15 = fcmp ogt double %14, 1.000000e+00
   %16 = select i1 %15, double 1.000000e+00, double %14
   ret double %16

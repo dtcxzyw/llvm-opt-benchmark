@@ -2435,69 +2435,72 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
   %indvars.iv112 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next113, %.lr.ph91 ]
-  %69 = getelementptr inbounds %struct.t_karplus, ptr %4, i64 %indvars.iv112, i32 5
-  store <2 x float> zeroinitializer, ptr %69, align 8
+  %69 = getelementptr inbounds %struct.t_karplus, ptr %4, i64 %indvars.iv112
+  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  store float 0.000000e+00, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %69, i64 28
+  store float 0.000000e+00, ptr %71, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %.preheader86, label %.lr.ph91, !llvm.loop !37
 
 .preheader:                                       ; preds = %.lr.ph99.split, %._crit_edge95.us, %.preheader86
-  %70 = phi i1 [ true, %.preheader86 ], [ true, %._crit_edge95.us ], [ false, %.lr.ph99.split ]
+  %72 = phi i1 [ true, %.preheader86 ], [ true, %._crit_edge95.us ], [ false, %.lr.ph99.split ]
   %.079.lcssa142 = phi i32 [ %.079.lcssa145, %.preheader86 ], [ %.079.lcssa145, %._crit_edge95.us ], [ %20, %.lr.ph99.split ]
-  %.083.lcssa = phi float [ 0.000000e+00, %.preheader86 ], [ %68, %._crit_edge95.us ], [ %84, %.lr.ph99.split ]
-  %.0.lcssa = phi float [ 0.000000e+00, %.preheader86 ], [ %39, %._crit_edge95.us ], [ %83, %.lr.ph99.split ]
-  br i1 %70, label %.lr.ph104, label %._crit_edge105
+  %.083.lcssa = phi float [ 0.000000e+00, %.preheader86 ], [ %68, %._crit_edge95.us ], [ %86, %.lr.ph99.split ]
+  %.0.lcssa = phi float [ 0.000000e+00, %.preheader86 ], [ %39, %._crit_edge95.us ], [ %85, %.lr.ph99.split ]
+  br i1 %72, label %.lr.ph104, label %._crit_edge105
 
 .lr.ph104:                                        ; preds = %.preheader
-  %71 = sitofp i32 %.079.lcssa142 to float
+  %73 = sitofp i32 %.079.lcssa142 to float
   %wide.trip.count135 = zext nneg i32 %3 to i64
-  br label %85
+  br label %87
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99.thread, %.lr.ph99.split
   %indvars.iv117 = phi i64 [ 0, %.lr.ph99.thread ], [ %indvars.iv.next118, %.lr.ph99.split ]
-  %.098 = phi float [ 0.000000e+00, %.lr.ph99.thread ], [ %83, %.lr.ph99.split ]
-  %.08396 = phi float [ 0.000000e+00, %.lr.ph99.thread ], [ %84, %.lr.ph99.split ]
-  %72 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv117
-  %73 = load i32, ptr %72, align 4
-  %74 = sitofp i32 %73 to float
-  %75 = fmul float %23, %74
-  %76 = trunc nuw nsw i64 %indvars.iv117 to i32
-  %77 = uitofp nneg i32 %76 to float
-  %78 = tail call float @llvm.fmuladd.f32(float %77, float %16, float %27)
-  %79 = tail call noundef float @cosf(float noundef %78) #20
-  %80 = fmul float %79, %75
-  %81 = tail call noundef float @sinf(float noundef %78) #20
-  %82 = fmul float %75, %81
-  %83 = fadd float %.098, %80
-  %84 = fadd float %.08396, %82
+  %.098 = phi float [ 0.000000e+00, %.lr.ph99.thread ], [ %85, %.lr.ph99.split ]
+  %.08396 = phi float [ 0.000000e+00, %.lr.ph99.thread ], [ %86, %.lr.ph99.split ]
+  %74 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv117
+  %75 = load i32, ptr %74, align 4
+  %76 = sitofp i32 %75 to float
+  %77 = fmul float %23, %76
+  %78 = trunc nuw nsw i64 %indvars.iv117 to i32
+  %79 = uitofp nneg i32 %78 to float
+  %80 = tail call float @llvm.fmuladd.f32(float %79, float %16, float %27)
+  %81 = tail call noundef float @cosf(float noundef %80) #20
+  %82 = fmul float %81, %77
+  %83 = tail call noundef float @sinf(float noundef %80) #20
+  %84 = fmul float %77, %83
+  %85 = fadd float %.098, %82
+  %86 = fadd float %.08396, %84
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
   br i1 %exitcond121.not, label %.preheader, label %.lr.ph99.split, !llvm.loop !36
 
-85:                                               ; preds = %.lr.ph104, %85
-  %indvars.iv132 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next133, %85 ]
-  %86 = getelementptr inbounds %struct.t_karplus, ptr %4, i64 %indvars.iv132
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
-  %88 = load float, ptr %87, align 8
-  %89 = fdiv float %88, %71
-  store float %89, ptr %87, align 8
-  %90 = getelementptr inbounds i8, ptr %86, i64 28
-  %91 = load float, ptr %90, align 4
-  %92 = fdiv float %91, %71
-  %93 = fmul float %89, %89
-  %94 = fsub float %92, %93
-  %95 = tail call noundef float @sqrtf(float noundef %94) #20
-  store float %95, ptr %90, align 4
+87:                                               ; preds = %.lr.ph104, %87
+  %indvars.iv132 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next133, %87 ]
+  %88 = getelementptr inbounds %struct.t_karplus, ptr %4, i64 %indvars.iv132
+  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %90 = load float, ptr %89, align 8
+  %91 = fdiv float %90, %73
+  store float %91, ptr %89, align 8
+  %92 = getelementptr inbounds i8, ptr %88, i64 28
+  %93 = load float, ptr %92, align 4
+  %94 = fdiv float %93, %73
+  %95 = fmul float %91, %91
+  %96 = fsub float %94, %95
+  %97 = tail call noundef float @sqrtf(float noundef %96) #20
+  store float %97, ptr %92, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %._crit_edge105, label %85, !llvm.loop !38
+  br i1 %exitcond136.not, label %._crit_edge105, label %87, !llvm.loop !38
 
-._crit_edge105:                                   ; preds = %85, %._crit_edge.thread, %.preheader86.thread, %.preheader
-  %.0.lcssa140 = phi float [ %.0.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa, %85 ]
-  %.083.lcssa139 = phi float [ %.083.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa, %85 ]
-  %96 = fmul float %.083.lcssa139, %.083.lcssa139
-  %97 = tail call float @llvm.fmuladd.f32(float %.0.lcssa140, float %.0.lcssa140, float %96)
-  store float %97, ptr %5, align 4
+._crit_edge105:                                   ; preds = %87, %._crit_edge.thread, %.preheader86.thread, %.preheader
+  %.0.lcssa140 = phi float [ %.0.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.0.lcssa, %87 ]
+  %.083.lcssa139 = phi float [ %.083.lcssa, %.preheader ], [ 0.000000e+00, %.preheader86.thread ], [ 0.000000e+00, %._crit_edge.thread ], [ %.083.lcssa, %87 ]
+  %98 = fmul float %.083.lcssa139, %.083.lcssa139
+  %99 = tail call float @llvm.fmuladd.f32(float %.0.lcssa140, float %.0.lcssa140, float %98)
+  store float %99, ptr %5, align 4
   ret void
 }
 

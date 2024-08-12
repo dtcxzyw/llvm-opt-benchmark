@@ -1794,10 +1794,13 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   %.02363 = phi i32 [ 0, %65 ], [ 1, %64 ], [ 0, %63 ], [ 0, %62 ], [ %5, %11 ]
   %67 = phi i1 [ false, %65 ], [ true, %64 ], [ false, %63 ], [ false, %62 ], [ false, %11 ]
   %68 = phi i1 [ true, %65 ], [ false, %64 ], [ true, %63 ], [ true, %62 ], [ false, %11 ]
+  store i8 0, ptr %60, align 1
   %69 = getelementptr i8, ptr %60, i64 1
+  store i8 0, ptr %69, align 1
   %70 = getelementptr i8, ptr %60, i64 2
+  store i8 0, ptr %70, align 1
   %71 = getelementptr i8, ptr %60, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 16>, ptr %60, align 1
+  store i8 16, ptr %71, align 1
   %72 = getelementptr i8, ptr %60, i64 4
   store i8 0, ptr %72, align 1
   %73 = getelementptr i8, ptr %60, i64 5

@@ -31,18 +31,18 @@ define i64 @polish(ptr noundef %0) local_unnamed_addr #0 {
   %16 = tail call noalias ptr @malloc(i64 noundef %13) #6
   %17 = tail call noalias ptr @malloc(i64 noundef %13) #6
   %18 = tail call noalias ptr @malloc(i64 noundef %13) #6
-  %19 = insertelement <4 x ptr> poison, ptr %14, i64 0
-  %20 = insertelement <4 x ptr> %19, ptr %15, i64 1
-  %21 = insertelement <4 x ptr> %20, ptr %16, i64 2
-  %22 = insertelement <4 x ptr> %21, ptr %17, i64 3
+  %19 = icmp ne ptr %14, null
+  %20 = icmp ne ptr %15, null
+  %or.cond.i = and i1 %19, %20
+  %21 = icmp ne ptr %16, null
+  %or.cond3.i = and i1 %or.cond.i, %21
+  %22 = icmp ne ptr %17, null
+  %or.cond5.i = and i1 %or.cond3.i, %22
   %23 = icmp ne ptr %18, null
-  %24 = icmp eq <4 x ptr> %22, zeroinitializer
-  %25 = bitcast <4 x i1> %24 to i4
-  %26 = icmp eq i4 %25, 0
-  %op.rdx147 = and i1 %26, %23
-  br i1 %op.rdx147, label %28, label %27
+  %or.cond7.i = and i1 %or.cond5.i, %23
+  br i1 %or.cond7.i, label %25, label %24
 
-27:                                               ; preds = %1
+24:                                               ; preds = %1
   tail call void @free(ptr noundef %14) #5
   tail call void @free(ptr noundef %15) #5
   tail call void @free(ptr noundef %16) #5
@@ -50,502 +50,502 @@ define i64 @polish(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %18) #5
   br label %form_Ared.exit
 
-28:                                               ; preds = %1
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void @OSQPVectori_to_raw(ptr noundef nonnull %14, ptr noundef %32) #5
-  %33 = getelementptr inbounds i8, ptr %7, i64 64
-  %34 = load ptr, ptr %33, align 8
-  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %15, ptr noundef %34) #5
-  %35 = getelementptr inbounds i8, ptr %7, i64 56
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  tail call void @OSQPVectori_to_raw(ptr noundef nonnull %14, ptr noundef %29) #5
+  %30 = getelementptr inbounds i8, ptr %7, i64 64
+  %31 = load ptr, ptr %30, align 8
+  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %15, ptr noundef %31) #5
+  %32 = getelementptr inbounds i8, ptr %7, i64 56
+  %33 = load ptr, ptr %32, align 8
+  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %16, ptr noundef %33) #5
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %16, ptr noundef %36) #5
+  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %17, ptr noundef %36) #5
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
-  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %17, ptr noundef %39) #5
+  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %18, ptr noundef %39) #5
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
-  %42 = load ptr, ptr %41, align 8
-  tail call void @OSQPVectorf_to_raw(ptr noundef nonnull %18, ptr noundef %42) #5
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp sgt i64 %45, 0
-  br i1 %46, label %.lr.ph.i, label %._crit_edge.i
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %28, %70
-  %.07381.i = phi i64 [ %.1.i, %70 ], [ 0, %28 ]
-  %.07480.i = phi i64 [ %71, %70 ], [ 0, %28 ]
-  %47 = getelementptr inbounds double, ptr %15, i64 %.07480.i
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds double, ptr %17, i64 %.07480.i
+.lr.ph.i:                                         ; preds = %25, %67
+  %.07381.i = phi i64 [ %.1.i, %67 ], [ 0, %25 ]
+  %.07480.i = phi i64 [ %68, %67 ], [ 0, %25 ]
+  %44 = getelementptr inbounds double, ptr %15, i64 %.07480.i
+  %45 = load double, ptr %44, align 8
+  %46 = getelementptr inbounds double, ptr %17, i64 %.07480.i
+  %47 = load double, ptr %46, align 8
+  %48 = fsub double %45, %47
+  %49 = getelementptr inbounds double, ptr %16, i64 %.07480.i
   %50 = load double, ptr %49, align 8
-  %51 = fsub double %48, %50
-  %52 = getelementptr inbounds double, ptr %16, i64 %.07480.i
-  %53 = load double, ptr %52, align 8
-  %54 = fneg double %53
-  %55 = fcmp olt double %51, %54
-  br i1 %55, label %60, label %56
+  %51 = fneg double %50
+  %52 = fcmp olt double %48, %51
+  br i1 %52, label %57, label %53
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds double, ptr %18, i64 %.07480.i
-  %58 = load double, ptr %57, align 8
-  %59 = fcmp oeq double %50, %58
-  br i1 %59, label %60, label %63
+53:                                               ; preds = %.lr.ph.i
+  %54 = getelementptr inbounds double, ptr %18, i64 %.07480.i
+  %55 = load double, ptr %54, align 8
+  %56 = fcmp oeq double %47, %55
+  br i1 %56, label %57, label %60
 
-60:                                               ; preds = %56, %.lr.ph.i
-  %61 = getelementptr inbounds i64, ptr %14, i64 %.07480.i
-  store i64 -1, ptr %61, align 8
-  %62 = add nsw i64 %.07381.i, 1
-  br label %70
+57:                                               ; preds = %53, %.lr.ph.i
+  %58 = getelementptr inbounds i64, ptr %14, i64 %.07480.i
+  store i64 -1, ptr %58, align 8
+  %59 = add nsw i64 %.07381.i, 1
+  br label %67
 
-63:                                               ; preds = %56
-  %64 = fsub double %58, %48
-  %65 = fcmp olt double %64, %53
-  %66 = getelementptr inbounds i64, ptr %14, i64 %.07480.i
-  br i1 %65, label %67, label %69
+60:                                               ; preds = %53
+  %61 = fsub double %55, %45
+  %62 = fcmp olt double %61, %50
+  %63 = getelementptr inbounds i64, ptr %14, i64 %.07480.i
+  br i1 %62, label %64, label %66
 
-67:                                               ; preds = %63
-  store i64 1, ptr %66, align 8
-  %68 = add nsw i64 %.07381.i, 1
-  br label %70
+64:                                               ; preds = %60
+  store i64 1, ptr %63, align 8
+  %65 = add nsw i64 %.07381.i, 1
+  br label %67
 
-69:                                               ; preds = %63
-  store i64 0, ptr %66, align 8
-  br label %70
+66:                                               ; preds = %60
+  store i64 0, ptr %63, align 8
+  br label %67
 
-70:                                               ; preds = %69, %67, %60
-  %.1.i = phi i64 [ %62, %60 ], [ %68, %67 ], [ %.07381.i, %69 ]
-  %71 = add nuw nsw i64 %.07480.i, 1
-  %72 = load i64, ptr %44, align 8
-  %73 = icmp slt i64 %71, %72
-  br i1 %73, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+67:                                               ; preds = %66, %64, %57
+  %.1.i = phi i64 [ %59, %57 ], [ %65, %64 ], [ %.07381.i, %66 ]
+  %68 = add nuw nsw i64 %.07480.i, 1
+  %69 = load i64, ptr %41, align 8
+  %70 = icmp slt i64 %68, %69
+  br i1 %70, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %70, %28
-  %.073.lcssa.i = phi i64 [ 0, %28 ], [ %.1.i, %70 ]
-  %74 = load ptr, ptr %29, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  tail call void @OSQPVectori_from_raw(ptr noundef %76, ptr noundef nonnull %14) #5
-  %77 = load ptr, ptr %29, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  store i64 %.073.lcssa.i, ptr %78, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+._crit_edge.i:                                    ; preds = %67, %25
+  %.073.lcssa.i = phi i64 [ 0, %25 ], [ %.1.i, %67 ]
+  %71 = load ptr, ptr %26, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = load ptr, ptr %72, align 8
+  tail call void @OSQPVectori_from_raw(ptr noundef %73, ptr noundef nonnull %14) #5
+  %74 = load ptr, ptr %26, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  store i64 %.073.lcssa.i, ptr %75, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %26, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %29, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call ptr @OSQPMatrix_submatrix_byrows(ptr noundef %81, ptr noundef %84) #5
-  %86 = load ptr, ptr %29, align 8
-  store ptr %85, ptr %86, align 8
+  %82 = tail call ptr @OSQPMatrix_submatrix_byrows(ptr noundef %78, ptr noundef %81) #5
+  %83 = load ptr, ptr %26, align 8
+  store ptr %82, ptr %83, align 8
   tail call void @free(ptr noundef nonnull %14) #5
   tail call void @free(ptr noundef nonnull %15) #5
   tail call void @free(ptr noundef nonnull %16) #5
   tail call void @free(ptr noundef nonnull %17) #5
   tail call void @free(ptr noundef %18) #5
-  %87 = load ptr, ptr %29, align 8
-  %88 = load ptr, ptr %87, align 8
-  %.not.i = icmp eq ptr %88, null
+  %84 = load ptr, ptr %26, align 8
+  %85 = load ptr, ptr %84, align 8
+  %.not.i = icmp eq ptr %85, null
   br i1 %.not.i, label %form_Ared.exit, label %form_Ared.exit.thread
 
-form_Ared.exit:                                   ; preds = %27, %._crit_edge.i
-  %89 = tail call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.form_Ared) #5
-  %.not = icmp eq i64 %89, 0
-  br i1 %.not, label %form_Ared.exit.form_Ared.exit.thread_crit_edge, label %90
+form_Ared.exit:                                   ; preds = %24, %._crit_edge.i
+  %86 = tail call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.form_Ared) #5
+  %.not = icmp eq i64 %86, 0
+  br i1 %.not, label %form_Ared.exit.form_Ared.exit.thread_crit_edge, label %87
 
 form_Ared.exit.form_Ared.exit.thread_crit_edge:   ; preds = %form_Ared.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %form_Ared.exit.thread
 
-90:                                               ; preds = %form_Ared.exit
-  %91 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %91, align 8
-  br label %313
+87:                                               ; preds = %form_Ared.exit
+  %88 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %88, align 8
+  br label %307
 
 form_Ared.exit.thread:                            ; preds = %form_Ared.exit.form_Ared.exit.thread_crit_edge, %._crit_edge.i
-  %92 = phi ptr [ %.pre, %form_Ared.exit.form_Ared.exit.thread_crit_edge ], [ %87, %._crit_edge.i ]
-  %93 = getelementptr inbounds i8, ptr %7, i64 16
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
-  %95 = load i64, ptr %94, align 8
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %101
+  %89 = phi ptr [ %.pre, %form_Ared.exit.form_Ared.exit.thread_crit_edge ], [ %84, %._crit_edge.i ]
+  %90 = getelementptr inbounds i8, ptr %7, i64 16
+  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = load i64, ptr %91, align 8
+  %93 = icmp eq i64 %92, 0
+  br i1 %93, label %94, label %98
 
-97:                                               ; preds = %form_Ared.exit.thread
+94:                                               ; preds = %form_Ared.exit.thread
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %98 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %98, align 8
-  %99 = load ptr, ptr %93, align 8
-  %100 = load ptr, ptr %99, align 8
-  tail call void @OSQPMatrix_free(ptr noundef %100) #5
-  br label %313
+  %95 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %95, align 8
+  %96 = load ptr, ptr %90, align 8
+  %97 = load ptr, ptr %96, align 8
+  tail call void @OSQPMatrix_free(ptr noundef %97) #5
+  br label %307
 
-101:                                              ; preds = %form_Ared.exit.thread
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %92, align 8
-  %106 = call i64 @osqp_algebra_init_linsys_solver(ptr noundef nonnull %2, ptr noundef %104, ptr noundef %105, ptr noundef null, ptr noundef %5, ptr noundef null, ptr noundef null, i64 noundef 1) #5
-  %.not119 = icmp eq i64 %106, 0
-  br i1 %.not119, label %111, label %107
+98:                                               ; preds = %form_Ared.exit.thread
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %89, align 8
+  %103 = call i64 @osqp_algebra_init_linsys_solver(ptr noundef nonnull %2, ptr noundef %101, ptr noundef %102, ptr noundef null, ptr noundef %5, ptr noundef null, ptr noundef null, i64 noundef 1) #5
+  %.not119 = icmp eq i64 %103, 0
+  br i1 %.not119, label %108, label %104
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -2, ptr %108, align 8
-  %109 = load ptr, ptr %93, align 8
-  %110 = load ptr, ptr %109, align 8
-  call void @OSQPMatrix_free(ptr noundef %110) #5
-  br label %313
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -2, ptr %105, align 8
+  %106 = load ptr, ptr %90, align 8
+  %107 = load ptr, ptr %106, align 8
+  call void @OSQPMatrix_free(ptr noundef %107) #5
+  br label %307
 
-111:                                              ; preds = %101
-  %112 = load ptr, ptr %7, align 8
+108:                                              ; preds = %98
+  %109 = load ptr, ptr %7, align 8
+  %110 = load i64, ptr %109, align 8
+  %111 = load ptr, ptr %90, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load i64, ptr %112, align 8
-  %114 = load ptr, ptr %93, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  %116 = load i64, ptr %115, align 8
-  %117 = add nsw i64 %116, %113
-  %118 = call ptr @OSQPVectorf_malloc(i64 noundef %117) #5
-  %.not120 = icmp eq ptr %118, null
-  br i1 %.not120, label %119, label %124
+  %114 = add nsw i64 %113, %110
+  %115 = call ptr @OSQPVectorf_malloc(i64 noundef %114) #5
+  %.not120 = icmp eq ptr %115, null
+  br i1 %.not120, label %116, label %121
 
-119:                                              ; preds = %111
-  %120 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %120, align 8
-  %121 = load ptr, ptr %93, align 8
-  %122 = load ptr, ptr %121, align 8
-  call void @OSQPMatrix_free(ptr noundef %122) #5
-  %123 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
-  br label %313
+116:                                              ; preds = %108
+  %117 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %117, align 8
+  %118 = load ptr, ptr %90, align 8
+  %119 = load ptr, ptr %118, align 8
+  call void @OSQPMatrix_free(ptr noundef %119) #5
+  %120 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
+  br label %307
 
-124:                                              ; preds = %111
-  %125 = load ptr, ptr %7, align 8
-  %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %125, i64 8
-  %128 = load i64, ptr %127, align 8
-  %129 = call i64 @OSQPVectorf_length(ptr noundef nonnull %118) #5
-  %130 = shl i64 %128, 3
-  %131 = call noalias ptr @malloc(i64 noundef %130) #6
-  %132 = shl i64 %129, 3
-  %133 = call noalias ptr @malloc(i64 noundef %132) #6
-  %134 = shl i64 %126, 3
-  %135 = call noalias ptr @malloc(i64 noundef %134) #6
-  %136 = call noalias ptr @malloc(i64 noundef %130) #6
-  %137 = call noalias ptr @malloc(i64 noundef %130) #6
-  %138 = insertelement <4 x ptr> poison, ptr %131, i64 0
-  %139 = insertelement <4 x ptr> %138, ptr %133, i64 1
-  %140 = insertelement <4 x ptr> %139, ptr %135, i64 2
-  %141 = insertelement <4 x ptr> %140, ptr %136, i64 3
-  %142 = icmp ne ptr %137, null
-  %143 = icmp eq <4 x ptr> %141, zeroinitializer
-  %144 = bitcast <4 x i1> %143 to i4
-  %145 = icmp eq i4 %144, 0
-  %op.rdx = and i1 %145, %142
-  br i1 %op.rdx, label %146, label %form_rhs_red.exit
+121:                                              ; preds = %108
+  %122 = load ptr, ptr %7, align 8
+  %123 = load i64, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = load i64, ptr %124, align 8
+  %126 = call i64 @OSQPVectorf_length(ptr noundef nonnull %115) #5
+  %127 = shl i64 %125, 3
+  %128 = call noalias ptr @malloc(i64 noundef %127) #6
+  %129 = shl i64 %126, 3
+  %130 = call noalias ptr @malloc(i64 noundef %129) #6
+  %131 = shl i64 %123, 3
+  %132 = call noalias ptr @malloc(i64 noundef %131) #6
+  %133 = call noalias ptr @malloc(i64 noundef %127) #6
+  %134 = call noalias ptr @malloc(i64 noundef %127) #6
+  %135 = icmp ne ptr %128, null
+  %136 = icmp ne ptr %130, null
+  %or.cond.i128 = and i1 %135, %136
+  %137 = icmp ne ptr %132, null
+  %or.cond3.i129 = and i1 %or.cond.i128, %137
+  %138 = icmp ne ptr %133, null
+  %or.cond5.i130 = and i1 %or.cond3.i129, %138
+  %139 = icmp ne ptr %134, null
+  %or.cond7.i131 = and i1 %or.cond5.i130, %139
+  br i1 %or.cond7.i131, label %140, label %form_rhs_red.exit
 
-146:                                              ; preds = %124
-  %147 = load ptr, ptr %93, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
+140:                                              ; preds = %121
+  %141 = load ptr, ptr %90, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 8
+  call void @OSQPVectori_to_raw(ptr noundef nonnull %128, ptr noundef %143) #5
+  call void @OSQPVectorf_to_raw(ptr noundef nonnull %130, ptr noundef nonnull %115) #5
+  %144 = load ptr, ptr %7, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 32
+  %146 = load ptr, ptr %145, align 8
+  call void @OSQPVectorf_to_raw(ptr noundef nonnull %132, ptr noundef %146) #5
+  %147 = load ptr, ptr %7, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 40
   %149 = load ptr, ptr %148, align 8
-  call void @OSQPVectori_to_raw(ptr noundef nonnull %131, ptr noundef %149) #5
-  call void @OSQPVectorf_to_raw(ptr noundef nonnull %133, ptr noundef nonnull %118) #5
+  call void @OSQPVectorf_to_raw(ptr noundef nonnull %133, ptr noundef %149) #5
   %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 32
+  %151 = getelementptr inbounds i8, ptr %150, i64 48
   %152 = load ptr, ptr %151, align 8
-  call void @OSQPVectorf_to_raw(ptr noundef nonnull %135, ptr noundef %152) #5
+  call void @OSQPVectorf_to_raw(ptr noundef nonnull %134, ptr noundef %152) #5
   %153 = load ptr, ptr %7, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 40
-  %155 = load ptr, ptr %154, align 8
-  call void @OSQPVectorf_to_raw(ptr noundef nonnull %136, ptr noundef %155) #5
-  %156 = load ptr, ptr %7, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
-  %158 = load ptr, ptr %157, align 8
-  call void @OSQPVectorf_to_raw(ptr noundef nonnull %137, ptr noundef %158) #5
-  %159 = load ptr, ptr %7, align 8
-  %160 = load i64, ptr %159, align 8
-  %161 = icmp sgt i64 %160, 0
-  br i1 %161, label %.lr.ph.i135, label %.preheader.i
+  %154 = load i64, ptr %153, align 8
+  %155 = icmp sgt i64 %154, 0
+  br i1 %155, label %.lr.ph.i135, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i135, %146
-  %162 = getelementptr inbounds i8, ptr %159, i64 8
-  %163 = load i64, ptr %162, align 8
-  %164 = icmp sgt i64 %163, 0
-  br i1 %164, label %.lr.ph79.i, label %form_rhs_red.exit.thread
+.preheader.i:                                     ; preds = %.lr.ph.i135, %140
+  %156 = getelementptr inbounds i8, ptr %153, i64 8
+  %157 = load i64, ptr %156, align 8
+  %158 = icmp sgt i64 %157, 0
+  br i1 %158, label %.lr.ph79.i, label %form_rhs_red.exit.thread
 
-.lr.ph.i135:                                      ; preds = %146, %.lr.ph.i135
-  %.06876.i = phi i64 [ %169, %.lr.ph.i135 ], [ 0, %146 ]
-  %165 = getelementptr inbounds double, ptr %135, i64 %.06876.i
-  %166 = load double, ptr %165, align 8
-  %167 = fneg double %166
-  %168 = getelementptr inbounds double, ptr %133, i64 %.06876.i
-  store double %167, ptr %168, align 8
-  %169 = add nuw nsw i64 %.06876.i, 1
-  %170 = load i64, ptr %159, align 8
-  %171 = icmp slt i64 %169, %170
-  br i1 %171, label %.lr.ph.i135, label %.preheader.i, !llvm.loop !6
+.lr.ph.i135:                                      ; preds = %140, %.lr.ph.i135
+  %.06876.i = phi i64 [ %163, %.lr.ph.i135 ], [ 0, %140 ]
+  %159 = getelementptr inbounds double, ptr %132, i64 %.06876.i
+  %160 = load double, ptr %159, align 8
+  %161 = fneg double %160
+  %162 = getelementptr inbounds double, ptr %130, i64 %.06876.i
+  store double %161, ptr %162, align 8
+  %163 = add nuw nsw i64 %.06876.i, 1
+  %164 = load i64, ptr %153, align 8
+  %165 = icmp slt i64 %163, %164
+  br i1 %165, label %.lr.ph.i135, label %.preheader.i, !llvm.loop !6
 
-.lr.ph79.i:                                       ; preds = %.preheader.i, %182
-  %172 = phi i64 [ %183, %182 ], [ %163, %.preheader.i ]
-  %.178.i = phi i64 [ %184, %182 ], [ 0, %.preheader.i ]
-  %.06977.i = phi i64 [ %.170.i, %182 ], [ 0, %.preheader.i ]
-  %173 = getelementptr inbounds i64, ptr %131, i64 %.178.i
-  %174 = load i64, ptr %173, align 8
-  switch i64 %174, label %182 [
+.lr.ph79.i:                                       ; preds = %.preheader.i, %176
+  %166 = phi i64 [ %177, %176 ], [ %157, %.preheader.i ]
+  %.178.i = phi i64 [ %178, %176 ], [ 0, %.preheader.i ]
+  %.06977.i = phi i64 [ %.170.i, %176 ], [ 0, %.preheader.i ]
+  %167 = getelementptr inbounds i64, ptr %128, i64 %.178.i
+  %168 = load i64, ptr %167, align 8
+  switch i64 %168, label %176 [
     i64 -1, label %.sink.split.i134
-    i64 1, label %175
+    i64 1, label %169
   ]
 
-175:                                              ; preds = %.lr.ph79.i
+169:                                              ; preds = %.lr.ph79.i
   br label %.sink.split.i134
 
-.sink.split.i134:                                 ; preds = %175, %.lr.ph79.i
-  %.sink.i = phi ptr [ %137, %175 ], [ %136, %.lr.ph79.i ]
-  %176 = getelementptr inbounds double, ptr %.sink.i, i64 %.178.i
-  %177 = load double, ptr %176, align 8
-  %178 = load i64, ptr %159, align 8
-  %179 = getelementptr double, ptr %133, i64 %178
-  %180 = getelementptr double, ptr %179, i64 %.06977.i
-  store double %177, ptr %180, align 8
-  %181 = add nsw i64 %.06977.i, 1
-  %.pre141 = load i64, ptr %162, align 8
-  br label %182
+.sink.split.i134:                                 ; preds = %169, %.lr.ph79.i
+  %.sink.i = phi ptr [ %134, %169 ], [ %133, %.lr.ph79.i ]
+  %170 = getelementptr inbounds double, ptr %.sink.i, i64 %.178.i
+  %171 = load double, ptr %170, align 8
+  %172 = load i64, ptr %153, align 8
+  %173 = getelementptr double, ptr %130, i64 %172
+  %174 = getelementptr double, ptr %173, i64 %.06977.i
+  store double %171, ptr %174, align 8
+  %175 = add nsw i64 %.06977.i, 1
+  %.pre141 = load i64, ptr %156, align 8
+  br label %176
 
-182:                                              ; preds = %.sink.split.i134, %.lr.ph79.i
-  %183 = phi i64 [ %172, %.lr.ph79.i ], [ %.pre141, %.sink.split.i134 ]
-  %.170.i = phi i64 [ %.06977.i, %.lr.ph79.i ], [ %181, %.sink.split.i134 ]
-  %184 = add nuw nsw i64 %.178.i, 1
-  %185 = icmp slt i64 %184, %183
-  br i1 %185, label %.lr.ph79.i, label %form_rhs_red.exit.thread, !llvm.loop !7
+176:                                              ; preds = %.sink.split.i134, %.lr.ph79.i
+  %177 = phi i64 [ %166, %.lr.ph79.i ], [ %.pre141, %.sink.split.i134 ]
+  %.170.i = phi i64 [ %.06977.i, %.lr.ph79.i ], [ %175, %.sink.split.i134 ]
+  %178 = add nuw nsw i64 %.178.i, 1
+  %179 = icmp slt i64 %178, %177
+  br i1 %179, label %.lr.ph79.i, label %form_rhs_red.exit.thread, !llvm.loop !7
 
-form_rhs_red.exit.thread:                         ; preds = %182, %.preheader.i
-  call void @OSQPVectorf_from_raw(ptr noundef nonnull %118, ptr noundef nonnull %133) #5
-  call void @free(ptr noundef %131) #5
+form_rhs_red.exit.thread:                         ; preds = %176, %.preheader.i
+  call void @OSQPVectorf_from_raw(ptr noundef nonnull %115, ptr noundef nonnull %130) #5
+  call void @free(ptr noundef %128) #5
+  call void @free(ptr noundef %130) #5
+  call void @free(ptr noundef %132) #5
   call void @free(ptr noundef %133) #5
-  call void @free(ptr noundef %135) #5
-  call void @free(ptr noundef %136) #5
-  call void @free(ptr noundef %137) #5
-  br label %191
+  call void @free(ptr noundef %134) #5
+  br label %185
 
-form_rhs_red.exit:                                ; preds = %124
-  call void @free(ptr noundef %131) #5
+form_rhs_red.exit:                                ; preds = %121
+  call void @free(ptr noundef %128) #5
+  call void @free(ptr noundef %130) #5
+  call void @free(ptr noundef %132) #5
   call void @free(ptr noundef %133) #5
-  call void @free(ptr noundef %135) #5
-  call void @free(ptr noundef %136) #5
-  call void @free(ptr noundef %137) #5
-  %186 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.form_rhs_red) #5
-  %.not121 = icmp eq i64 %186, 0
-  br i1 %.not121, label %191, label %187
+  call void @free(ptr noundef %134) #5
+  %180 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.form_rhs_red) #5
+  %.not121 = icmp eq i64 %180, 0
+  br i1 %.not121, label %185, label %181
 
-187:                                              ; preds = %form_rhs_red.exit
+181:                                              ; preds = %form_rhs_red.exit
+  %182 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %182, align 8
+  %183 = load ptr, ptr %90, align 8
+  %184 = load ptr, ptr %183, align 8
+  call void @OSQPMatrix_free(ptr noundef %184) #5
+  br label %307
+
+185:                                              ; preds = %form_rhs_red.exit.thread, %form_rhs_red.exit
+  %186 = call ptr @OSQPVectorf_copy_new(ptr noundef nonnull %115) #5
+  %.not122 = icmp eq ptr %186, null
+  br i1 %.not122, label %187, label %192
+
+187:                                              ; preds = %185
   %188 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 -1, ptr %188, align 8
-  %189 = load ptr, ptr %93, align 8
+  %189 = load ptr, ptr %90, align 8
   %190 = load ptr, ptr %189, align 8
   call void @OSQPMatrix_free(ptr noundef %190) #5
-  br label %313
+  call void @OSQPVectorf_free(ptr noundef nonnull %115) #5
+  %191 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
+  br label %307
 
-191:                                              ; preds = %form_rhs_red.exit.thread, %form_rhs_red.exit
-  %192 = call ptr @OSQPVectorf_copy_new(ptr noundef nonnull %118) #5
-  %.not122 = icmp eq ptr %192, null
-  br i1 %.not122, label %193, label %198
-
-193:                                              ; preds = %191
-  %194 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %194, align 8
-  %195 = load ptr, ptr %93, align 8
-  %196 = load ptr, ptr %195, align 8
-  call void @OSQPMatrix_free(ptr noundef %196) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %118) #5
-  %197 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
-  br label %313
-
-198:                                              ; preds = %191
-  %199 = load ptr, ptr %7, align 8
+192:                                              ; preds = %185
+  %193 = load ptr, ptr %7, align 8
+  %194 = load i64, ptr %193, align 8
+  %195 = call ptr @OSQPVectorf_view(ptr noundef nonnull %186, i64 noundef 0, i64 noundef %194) #5
+  %196 = load ptr, ptr %7, align 8
+  %197 = load i64, ptr %196, align 8
+  %198 = load ptr, ptr %90, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 8
   %200 = load i64, ptr %199, align 8
-  %201 = call ptr @OSQPVectorf_view(ptr noundef nonnull %192, i64 noundef 0, i64 noundef %200) #5
-  %202 = load ptr, ptr %7, align 8
-  %203 = load i64, ptr %202, align 8
-  %204 = load ptr, ptr %93, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
-  %206 = load i64, ptr %205, align 8
-  %207 = call ptr @OSQPVectorf_view(ptr noundef nonnull %192, i64 noundef %203, i64 noundef %206) #5
-  %208 = icmp ne ptr %201, null
-  %209 = icmp ne ptr %207, null
-  %or.cond = select i1 %208, i1 %209, i1 false
-  br i1 %or.cond, label %215, label %210
+  %201 = call ptr @OSQPVectorf_view(ptr noundef nonnull %186, i64 noundef %197, i64 noundef %200) #5
+  %202 = icmp ne ptr %195, null
+  %203 = icmp ne ptr %201, null
+  %or.cond = select i1 %202, i1 %203, i1 false
+  br i1 %or.cond, label %209, label %204
 
-210:                                              ; preds = %198
-  %211 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %211, align 8
-  %212 = load ptr, ptr %93, align 8
-  %213 = load ptr, ptr %212, align 8
-  call void @OSQPMatrix_free(ptr noundef %213) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %118) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %192) #5
+204:                                              ; preds = %192
+  %205 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %205, align 8
+  %206 = load ptr, ptr %90, align 8
+  %207 = load ptr, ptr %206, align 8
+  call void @OSQPMatrix_free(ptr noundef %207) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %115) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %186) #5
+  call void @OSQPVectorf_view_free(ptr noundef %195) #5
   call void @OSQPVectorf_view_free(ptr noundef %201) #5
-  call void @OSQPVectorf_view_free(ptr noundef %207) #5
-  %214 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
-  br label %313
+  %208 = call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.polish) #5
+  br label %307
 
-215:                                              ; preds = %198
-  %216 = load ptr, ptr %2, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 32
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %7, i64 48
-  %220 = load ptr, ptr %219, align 8
-  call void %218(ptr noundef %216, ptr noundef %220) #5
-  %221 = load ptr, ptr %2, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
-  %223 = load ptr, ptr %222, align 8
-  %224 = call i64 %223(ptr noundef %221, ptr noundef nonnull %192, i64 noundef 1) #5
-  %225 = load ptr, ptr %2, align 8
+209:                                              ; preds = %192
+  %210 = load ptr, ptr %2, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 32
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds i8, ptr %7, i64 48
+  %214 = load ptr, ptr %213, align 8
+  call void %212(ptr noundef %210, ptr noundef %214) #5
+  %215 = load ptr, ptr %2, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 16
+  %217 = load ptr, ptr %216, align 8
+  %218 = call i64 %217(ptr noundef %215, ptr noundef nonnull %186, i64 noundef 1) #5
+  %219 = load ptr, ptr %2, align 8
   %.val = load ptr, ptr %0, align 8
   %.val127 = load ptr, ptr %6, align 8
-  %226 = call fastcc i64 @iterative_refinement(ptr %.val, ptr %.val127, ptr noundef %225, ptr noundef nonnull %192, ptr noundef nonnull %118)
-  %.not123 = icmp eq i64 %226, 0
-  br i1 %.not123, label %231, label %227
+  %220 = call fastcc i64 @iterative_refinement(ptr %.val, ptr %.val127, ptr noundef %219, ptr noundef nonnull %186, ptr noundef nonnull %115)
+  %.not123 = icmp eq i64 %220, 0
+  br i1 %.not123, label %225, label %221
 
-227:                                              ; preds = %215
-  %228 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %228, align 8
-  %229 = load ptr, ptr %93, align 8
-  %230 = load ptr, ptr %229, align 8
-  call void @OSQPMatrix_free(ptr noundef %230) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %118) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %192) #5
+221:                                              ; preds = %209
+  %222 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %222, align 8
+  %223 = load ptr, ptr %90, align 8
+  %224 = load ptr, ptr %223, align 8
+  call void @OSQPMatrix_free(ptr noundef %224) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %115) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %186) #5
+  call void @OSQPVectorf_view_free(ptr noundef nonnull %195) #5
   call void @OSQPVectorf_view_free(ptr noundef nonnull %201) #5
-  call void @OSQPVectorf_view_free(ptr noundef nonnull %207) #5
-  br label %313
+  br label %307
 
-231:                                              ; preds = %215
-  %232 = load ptr, ptr %93, align 8
+225:                                              ; preds = %209
+  %226 = load ptr, ptr %90, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 24
+  %228 = load ptr, ptr %227, align 8
+  call void @OSQPVectorf_copy(ptr noundef %228, ptr noundef nonnull %195) #5
+  %229 = load ptr, ptr %7, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 24
+  %231 = load ptr, ptr %230, align 8
+  %232 = load ptr, ptr %90, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 24
   %234 = load ptr, ptr %233, align 8
-  call void @OSQPVectorf_copy(ptr noundef %234, ptr noundef nonnull %201) #5
-  %235 = load ptr, ptr %7, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 24
-  %237 = load ptr, ptr %236, align 8
-  %238 = load ptr, ptr %93, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %238, i64 32
-  %242 = load ptr, ptr %241, align 8
-  call void @OSQPMatrix_Axpy(ptr noundef %237, ptr noundef %240, ptr noundef %242, double noundef 1.000000e+00, double noundef 0.000000e+00) #5
-  call fastcc void @get_ypol_from_yred(ptr noundef nonnull %7, ptr noundef nonnull %207)
-  %243 = load ptr, ptr %93, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 40
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 32
-  %247 = load ptr, ptr %246, align 8
-  call void @OSQPVectorf_plus(ptr noundef %245, ptr noundef %245, ptr noundef %247) #5
-  %248 = load ptr, ptr %93, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 32
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %248, i64 40
-  %252 = load ptr, ptr %251, align 8
-  %253 = load ptr, ptr %7, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 40
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %253, i64 48
-  %257 = load ptr, ptr %256, align 8
-  call void @OSQPVectorf_ew_bound_vec(ptr noundef %250, ptr noundef %252, ptr noundef %255, ptr noundef %257) #5
-  %258 = load ptr, ptr %93, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 40
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %258, i64 32
-  %262 = load ptr, ptr %261, align 8
-  call void @OSQPVectorf_minus(ptr noundef %260, ptr noundef %260, ptr noundef %262) #5
+  %235 = getelementptr inbounds i8, ptr %232, i64 32
+  %236 = load ptr, ptr %235, align 8
+  call void @OSQPMatrix_Axpy(ptr noundef %231, ptr noundef %234, ptr noundef %236, double noundef 1.000000e+00, double noundef 0.000000e+00) #5
+  call fastcc void @get_ypol_from_yred(ptr noundef nonnull %7, ptr noundef nonnull %201)
+  %237 = load ptr, ptr %90, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 40
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %237, i64 32
+  %241 = load ptr, ptr %240, align 8
+  call void @OSQPVectorf_plus(ptr noundef %239, ptr noundef %239, ptr noundef %241) #5
+  %242 = load ptr, ptr %90, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 32
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %242, i64 40
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr %7, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 40
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %247, i64 48
+  %251 = load ptr, ptr %250, align 8
+  call void @OSQPVectorf_ew_bound_vec(ptr noundef %244, ptr noundef %246, ptr noundef %249, ptr noundef %251) #5
+  %252 = load ptr, ptr %90, align 8
+  %253 = getelementptr inbounds i8, ptr %252, i64 40
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %252, i64 32
+  %256 = load ptr, ptr %255, align 8
+  call void @OSQPVectorf_minus(ptr noundef %254, ptr noundef %254, ptr noundef %256) #5
   call void @update_info(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 1, i64 noundef 1) #5
-  %263 = load ptr, ptr %93, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 56
-  %265 = load double, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %4, i64 56
-  %267 = load double, ptr %266, align 8
-  %268 = fcmp olt double %265, %267
-  %269 = getelementptr inbounds i8, ptr %263, i64 64
-  %270 = load double, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %4, i64 64
-  %272 = load double, ptr %271, align 8
-  br i1 %268, label %273, label %._crit_edge
+  %257 = load ptr, ptr %90, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 56
+  %259 = load double, ptr %258, align 8
+  %260 = getelementptr inbounds i8, ptr %4, i64 56
+  %261 = load double, ptr %260, align 8
+  %262 = fcmp olt double %259, %261
+  %263 = getelementptr inbounds i8, ptr %257, i64 64
+  %264 = load double, ptr %263, align 8
+  %265 = getelementptr inbounds i8, ptr %4, i64 64
+  %266 = load double, ptr %265, align 8
+  br i1 %262, label %267, label %._crit_edge
 
-273:                                              ; preds = %231
-  %274 = fcmp olt double %270, %272
-  %275 = fcmp olt double %272, 1.000000e-10
-  %or.cond146 = or i1 %274, %275
+267:                                              ; preds = %225
+  %268 = fcmp olt double %264, %266
+  %269 = fcmp olt double %266, 1.000000e-10
+  %or.cond146 = or i1 %268, %269
   br i1 %or.cond146, label %.critedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %273, %231
-  %276 = fcmp olt double %270, %272
-  %277 = fcmp olt double %267, 1.000000e-10
-  %or.cond140 = and i1 %277, %276
+._crit_edge:                                      ; preds = %267, %225
+  %270 = fcmp olt double %264, %266
+  %271 = fcmp olt double %261, 1.000000e-10
+  %or.cond140 = and i1 %271, %270
   br i1 %or.cond140, label %.critedge, label %.critedge126
 
-.critedge:                                        ; preds = %._crit_edge, %273
-  %278 = getelementptr inbounds i8, ptr %263, i64 48
-  %279 = load double, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %4, i64 48
-  store double %279, ptr %280, align 8
-  %281 = load ptr, ptr %93, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 56
-  %283 = load double, ptr %282, align 8
-  store double %283, ptr %266, align 8
-  %284 = load ptr, ptr %93, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 64
-  %286 = load double, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %4, i64 64
-  store double %286, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 1, ptr %288, align 8
-  %289 = load ptr, ptr %219, align 8
-  %290 = load ptr, ptr %93, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 24
-  %292 = load ptr, ptr %291, align 8
-  call void @OSQPVectorf_copy(ptr noundef %289, ptr noundef %292) #5
-  %293 = getelementptr inbounds i8, ptr %7, i64 64
-  %294 = load ptr, ptr %293, align 8
-  %295 = load ptr, ptr %93, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 32
-  %297 = load ptr, ptr %296, align 8
-  call void @OSQPVectorf_copy(ptr noundef %294, ptr noundef %297) #5
-  %298 = getelementptr inbounds i8, ptr %7, i64 56
-  %299 = load ptr, ptr %298, align 8
-  %300 = load ptr, ptr %93, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 40
-  %302 = load ptr, ptr %301, align 8
-  call void @OSQPVectorf_copy(ptr noundef %299, ptr noundef %302) #5
-  %303 = getelementptr inbounds i8, ptr %5, i64 24
-  %304 = load i64, ptr %303, align 8
-  %.not124 = icmp eq i64 %304, 0
-  br i1 %.not124, label %307, label %305
+.critedge:                                        ; preds = %._crit_edge, %267
+  %272 = getelementptr inbounds i8, ptr %257, i64 48
+  %273 = load double, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %4, i64 48
+  store double %273, ptr %274, align 8
+  %275 = load ptr, ptr %90, align 8
+  %276 = getelementptr inbounds i8, ptr %275, i64 56
+  %277 = load double, ptr %276, align 8
+  store double %277, ptr %260, align 8
+  %278 = load ptr, ptr %90, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 64
+  %280 = load double, ptr %279, align 8
+  %281 = getelementptr inbounds i8, ptr %4, i64 64
+  store double %280, ptr %281, align 8
+  %282 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 1, ptr %282, align 8
+  %283 = load ptr, ptr %213, align 8
+  %284 = load ptr, ptr %90, align 8
+  %285 = getelementptr inbounds i8, ptr %284, i64 24
+  %286 = load ptr, ptr %285, align 8
+  call void @OSQPVectorf_copy(ptr noundef %283, ptr noundef %286) #5
+  %287 = getelementptr inbounds i8, ptr %7, i64 64
+  %288 = load ptr, ptr %287, align 8
+  %289 = load ptr, ptr %90, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 32
+  %291 = load ptr, ptr %290, align 8
+  call void @OSQPVectorf_copy(ptr noundef %288, ptr noundef %291) #5
+  %292 = getelementptr inbounds i8, ptr %7, i64 56
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %90, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 40
+  %296 = load ptr, ptr %295, align 8
+  call void @OSQPVectorf_copy(ptr noundef %293, ptr noundef %296) #5
+  %297 = getelementptr inbounds i8, ptr %5, i64 24
+  %298 = load i64, ptr %297, align 8
+  %.not124 = icmp eq i64 %298, 0
+  br i1 %.not124, label %301, label %299
 
-305:                                              ; preds = %.critedge
+299:                                              ; preds = %.critedge
   call void @print_polish(ptr noundef nonnull %0) #5
-  br label %307
+  br label %301
 
 .critedge126:                                     ; preds = %._crit_edge
-  %306 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 -1, ptr %306, align 8
+  %300 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 -1, ptr %300, align 8
+  br label %301
+
+301:                                              ; preds = %.critedge, %299, %.critedge126
+  %302 = load ptr, ptr %2, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 48
+  %304 = load ptr, ptr %303, align 8
+  call void %304(ptr noundef %302) #5
+  %305 = load ptr, ptr %90, align 8
+  %306 = load ptr, ptr %305, align 8
+  call void @OSQPMatrix_free(ptr noundef %306) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %115) #5
+  call void @OSQPVectorf_free(ptr noundef nonnull %186) #5
+  call void @OSQPVectorf_view_free(ptr noundef nonnull %195) #5
+  call void @OSQPVectorf_view_free(ptr noundef nonnull %201) #5
   br label %307
 
-307:                                              ; preds = %.critedge, %305, %.critedge126
-  %308 = load ptr, ptr %2, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 48
-  %310 = load ptr, ptr %309, align 8
-  call void %310(ptr noundef %308) #5
-  %311 = load ptr, ptr %93, align 8
-  %312 = load ptr, ptr %311, align 8
-  call void @OSQPMatrix_free(ptr noundef %312) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %118) #5
-  call void @OSQPVectorf_free(ptr noundef nonnull %192) #5
-  call void @OSQPVectorf_view_free(ptr noundef nonnull %201) #5
-  call void @OSQPVectorf_view_free(ptr noundef nonnull %207) #5
-  br label %313
-
-313:                                              ; preds = %307, %227, %210, %193, %187, %119, %107, %97, %90
-  %.0 = phi i64 [ %89, %90 ], [ 0, %97 ], [ %106, %107 ], [ %186, %187 ], [ %226, %227 ], [ 0, %307 ], [ %214, %210 ], [ %197, %193 ], [ %123, %119 ]
+307:                                              ; preds = %301, %221, %204, %187, %181, %116, %104, %94, %87
+  %.0 = phi i64 [ %86, %87 ], [ 0, %94 ], [ %103, %104 ], [ %180, %181 ], [ %220, %221 ], [ 0, %301 ], [ %208, %204 ], [ %191, %187 ], [ %120, %116 ]
   ret i64 %.0
 }
 
@@ -572,7 +572,7 @@ define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val,
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 232
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
-  br i1 %6, label %7, label %54
+  br i1 %6, label %7, label %51
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %.24.val, i64 16
@@ -595,62 +595,61 @@ define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val,
   %25 = load ptr, ptr %.24.val, align 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call ptr @OSQPVectorf_view(ptr noundef %1, i64 noundef %26, i64 noundef %11) #5
-  %28 = insertelement <4 x ptr> poison, ptr %15, i64 0
-  %29 = insertelement <4 x ptr> %28, ptr %18, i64 1
-  %30 = insertelement <4 x ptr> %29, ptr %21, i64 2
-  %31 = insertelement <4 x ptr> %30, ptr %24, i64 3
-  %.fr = freeze <4 x ptr> %31
+  %28 = icmp ne ptr %15, null
+  %29 = icmp ne ptr %18, null
+  %or.cond = select i1 %28, i1 %29, i1 false
+  %30 = icmp ne ptr %21, null
+  %or.cond3 = select i1 %or.cond, i1 %30, i1 false
+  %31 = icmp ne ptr %24, null
+  %or.cond5 = select i1 %or.cond3, i1 %31, i1 false
   %32 = icmp ne ptr %27, null
-  %33 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %34 = bitcast <4 x i1> %33 to i4
-  %35 = icmp eq i4 %34, 0
-  %op.rdx = select i1 %35, i1 %32, i1 false
-  br i1 %op.rdx, label %.preheader, label %39
+  %or.cond7 = select i1 %or.cond5, i1 %32, i1 false
+  br i1 %or.cond7, label %.preheader, label %36
 
 .preheader:                                       ; preds = %7
-  %36 = load i64, ptr %4, align 8
-  %37 = icmp sgt i64 %36, 0
-  br i1 %37, label %.lr.ph, label %._crit_edge
+  %33 = load i64, ptr %4, align 8
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %41
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %38
 
-39:                                               ; preds = %7
-  %40 = tail call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.iterative_refinement) #5
-  br label %54
+36:                                               ; preds = %7
+  %37 = tail call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.iterative_refinement) #5
+  br label %51
 
-41:                                               ; preds = %.lr.ph, %41
-  %.0531 = phi i64 [ 0, %.lr.ph ], [ %51, %41 ]
+38:                                               ; preds = %.lr.ph, %38
+  %.0531 = phi i64 [ 0, %.lr.ph ], [ %48, %38 ]
   tail call void @OSQPVectorf_copy(ptr noundef nonnull %15, ptr noundef %2) #5
-  %42 = load ptr, ptr %.24.val, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  tail call void @OSQPMatrix_Axpy(ptr noundef %44, ptr noundef nonnull %24, ptr noundef nonnull %18, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
-  %45 = load ptr, ptr %8, align 8
-  %46 = load ptr, ptr %45, align 8
-  tail call void @OSQPMatrix_Atxpy(ptr noundef %46, ptr noundef nonnull %27, ptr noundef nonnull %18, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
-  %47 = load ptr, ptr %8, align 8
-  %48 = load ptr, ptr %47, align 8
-  tail call void @OSQPMatrix_Axpy(ptr noundef %48, ptr noundef nonnull %24, ptr noundef nonnull %21, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
-  %49 = load ptr, ptr %38, align 8
-  %50 = tail call i64 %49(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1) #5
+  %39 = load ptr, ptr %.24.val, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  tail call void @OSQPMatrix_Axpy(ptr noundef %41, ptr noundef nonnull %24, ptr noundef nonnull %18, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void @OSQPMatrix_Atxpy(ptr noundef %43, ptr noundef nonnull %27, ptr noundef nonnull %18, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
+  %44 = load ptr, ptr %8, align 8
+  %45 = load ptr, ptr %44, align 8
+  tail call void @OSQPMatrix_Axpy(ptr noundef %45, ptr noundef nonnull %24, ptr noundef nonnull %21, double noundef -1.000000e+00, double noundef 1.000000e+00) #5
+  %46 = load ptr, ptr %35, align 8
+  %47 = tail call i64 %46(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1) #5
   tail call void @OSQPVectorf_plus(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %15) #5
-  %51 = add nuw nsw i64 %.0531, 1
-  %52 = load i64, ptr %4, align 8
-  %53 = icmp slt i64 %51, %52
-  br i1 %53, label %41, label %._crit_edge, !llvm.loop !8
+  %48 = add nuw nsw i64 %.0531, 1
+  %49 = load i64, ptr %4, align 8
+  %50 = icmp slt i64 %48, %49
+  br i1 %50, label %38, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %41, %.preheader
+._crit_edge:                                      ; preds = %38, %.preheader
   tail call void @OSQPVectorf_free(ptr noundef nonnull %15) #5
   tail call void @OSQPVectorf_view_free(ptr noundef nonnull %18) #5
   tail call void @OSQPVectorf_view_free(ptr noundef nonnull %21) #5
   tail call void @OSQPVectorf_view_free(ptr noundef nonnull %24) #5
   tail call void @OSQPVectorf_view_free(ptr noundef nonnull %27) #5
-  br label %54
+  br label %51
 
-54:                                               ; preds = %3, %._crit_edge, %39
-  %.0 = phi i64 [ %40, %39 ], [ 0, %._crit_edge ], [ 0, %3 ]
+51:                                               ; preds = %3, %._crit_edge, %36
+  %.0 = phi i64 [ %37, %36 ], [ 0, %._crit_edge ], [ 0, %3 ]
   ret i64 %.0
 }
 

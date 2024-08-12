@@ -48,22 +48,28 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN4SHA1C2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 0, ptr %4, align 8
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
-          to label %_ZN4SHA15resetEv.exit unwind label %6
+  store i32 1732584193, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %7, align 8
+  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
+          to label %_ZN4SHA15resetEv.exit unwind label %9
 
 _ZN4SHA15resetEv.exit:                            ; preds = %1
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nounwind
@@ -71,13 +77,19 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4SHA15resetEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str)
+  store i32 1732584193, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
   ret void
 }
 
@@ -1291,17 +1303,22 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %999 = add i32 %998, %988
   %1000 = add i32 %999, %993
   store i32 %1000, ptr %0, align 8
-  %1001 = load <4 x i32>, ptr %4, align 4
-  %1002 = insertelement <4 x i32> poison, i32 %985, i64 0
-  %1003 = insertelement <4 x i32> %1002, i32 %994, i64 1
-  %1004 = insertelement <4 x i32> %1003, i32 %986, i64 2
-  %1005 = insertelement <4 x i32> %1004, i32 %974, i64 3
-  %1006 = add <4 x i32> %1005, %1001
-  store <4 x i32> %1006, ptr %4, align 4
-  %1007 = getelementptr inbounds i8, ptr %0, i64 56
-  %1008 = load i64, ptr %1007, align 8
-  %1009 = add i64 %1008, 1
-  store i64 %1009, ptr %1007, align 8
+  %1001 = load i32, ptr %4, align 4
+  %1002 = add i32 %985, %1001
+  store i32 %1002, ptr %4, align 4
+  %1003 = load i32, ptr %6, align 8
+  %1004 = add i32 %994, %1003
+  store i32 %1004, ptr %6, align 8
+  %1005 = load i32, ptr %8, align 4
+  %1006 = add i32 %986, %1005
+  store i32 %1006, ptr %8, align 4
+  %1007 = load i32, ptr %10, align 8
+  %1008 = add i32 %974, %1007
+  store i32 %1008, ptr %10, align 8
+  %1009 = getelementptr inbounds i8, ptr %0, i64 56
+  %1010 = load i64, ptr %1009, align 8
+  %1011 = add i64 %1010, 1
+  store i64 %1011, ptr %1009, align 8
   ret void
 }
 
@@ -1423,18 +1440,24 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   resume { ptr, i32 } %lpad.phi
 
 61:                                               ; preds = %59
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
-  store i32 -1009589776, ptr %62, align 8
+  store i32 1732584193, ptr %1, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 -271733879, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 -1732584194, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 271733878, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 -1009589776, ptr %65, align 8
   store i64 0, ptr %5, align 8
-  %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
+  %66 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
           to label %_ZN4SHA15resetEv.exit unwind label %.loopexit.split-lp
 
 _ZN4SHA15resetEv.exit:                            ; preds = %61
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
-          to label %64 unwind label %.loopexit.split-lp
+          to label %67 unwind label %.loopexit.split-lp
 
-64:                                               ; preds = %_ZN4SHA15resetEv.exit
+67:                                               ; preds = %_ZN4SHA15resetEv.exit
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #12
   ret void
 }

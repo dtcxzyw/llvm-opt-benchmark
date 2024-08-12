@@ -350,26 +350,32 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %3, align 1
-  %7 = load i64, ptr %4, align 8
-  %8 = trunc i64 %7 to i8
-  store i8 %8, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 1, ptr %3, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %6, align 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 0, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 0, ptr %8, align 1
   %10 = load i64, ptr %4, align 8
-  %11 = lshr i64 %10, 8
-  %12 = trunc i64 %11 to i8
-  store i8 %12, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 6
-  %14 = load i64, ptr %4, align 8
-  %15 = lshr i64 %14, 16
-  %16 = trunc i64 %15 to i8
-  store i8 %16, ptr %13, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 7
-  %18 = load i64, ptr %4, align 8
-  %19 = lshr i64 %18, 24
-  %20 = trunc i64 %19 to i8
-  store i8 %20, ptr %17, align 1
+  %11 = trunc i64 %10 to i8
+  store i8 %11, ptr %9, align 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 5
+  %13 = load i64, ptr %4, align 8
+  %14 = lshr i64 %13, 8
+  %15 = trunc i64 %14 to i8
+  store i8 %15, ptr %12, align 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  %17 = load i64, ptr %4, align 8
+  %18 = lshr i64 %17, 16
+  %19 = trunc i64 %18 to i8
+  store i8 %19, ptr %16, align 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 7
+  %21 = load i64, ptr %4, align 8
+  %22 = lshr i64 %21, 24
+  %23 = trunc i64 %22 to i8
+  store i8 %23, ptr %20, align 1
   ret i32 0
 }
 

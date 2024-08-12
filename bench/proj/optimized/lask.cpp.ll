@@ -58,37 +58,28 @@ define internal { double, double } @_ZL14lask_s_forward5PJ_LPP8PJconsts(double %
   %4 = fmul double %0, %0
   %5 = fmul double %1, %1
   %6 = tail call double @llvm.fmuladd.f64(double %4, double -1.430590e-02, double -1.191610e-01)
-  %7 = tail call double @llvm.fmuladd.f64(double %5, double -2.855000e-02, double 0x3FB48DD89B37288B)
-  %8 = tail call double @llvm.fmuladd.f64(double %4, double 1.990250e-04, double %7)
-  %9 = tail call double @llvm.fmuladd.f64(double %4, double %8, double 1.003840e+00)
-  %10 = insertelement <2 x double> poison, double %5, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = insertelement <2 x double> <double poison, double 9.989090e-02>, double %6, i64 0
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %11, <2 x double> <double -5.470090e-02, double -4.910320e-02>, <2 x double> %12)
-  %14 = insertelement <2 x double> <double 9.755340e-01, double poison>, double %9, i64 1
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %11, <2 x double> %13, <2 x double> %14)
-  %16 = insertelement <2 x double> poison, double %0, i64 0
-  %17 = insertelement <2 x double> %16, double %1, i64 1
-  %18 = fmul <2 x double> %15, %17
-  %19 = extractelement <2 x double> %18, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %19, 0
-  %20 = extractelement <2 x double> %18, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %20, 1
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double -5.470090e-02, double %6)
+  %8 = tail call double @llvm.fmuladd.f64(double %5, double %7, double 9.755340e-01)
+  %9 = fmul double %8, %0
+  %10 = tail call double @llvm.fmuladd.f64(double %5, double -2.855000e-02, double 0x3FB48DD89B37288B)
+  %11 = tail call double @llvm.fmuladd.f64(double %4, double 1.990250e-04, double %10)
+  %12 = tail call double @llvm.fmuladd.f64(double %4, double %11, double 1.003840e+00)
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double -4.910320e-02, double 9.989090e-02)
+  %14 = tail call double @llvm.fmuladd.f64(double %5, double %13, double %12)
+  %15 = fmul double %14, %1
+  %.fca.0.insert = insertvalue { double, double } poison, double %9, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %15, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #5
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

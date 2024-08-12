@@ -954,137 +954,137 @@ define noundef double @_ZN2mu9ParserInt3IteEddd(double noundef %0, double nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3AddEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %1, i64 0
-  %4 = insertelement <2 x double> %3, double %0, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = add nsw <2 x i32> %shift, %8
-  %10 = extractelement <2 x i32> %9, i64 0
-  %11 = sitofp i32 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = add nsw i32 %10, %6
+  %12 = sitofp i32 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3SubEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = sub nsw <2 x i32> %8, %shift
-  %10 = extractelement <2 x i32> %9, i64 0
-  %11 = sitofp i32 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = sub nsw i32 %6, %10
+  %12 = sitofp i32 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3MulEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %1, i64 0
-  %4 = insertelement <2 x double> %3, double %0, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %9 = extractelement <2 x i32> %8, i64 0
-  %10 = extractelement <2 x i32> %8, i64 1
-  %11 = mul nsw i32 %9, %10
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = mul nsw i32 %10, %6
   %12 = sitofp i32 %11 to double
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3DivEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %9 = extractelement <2 x i32> %8, i64 0
-  %10 = extractelement <2 x i32> %8, i64 1
-  %11 = sdiv i32 %9, %10
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = sdiv i32 %6, %10
   %12 = sitofp i32 %11 to double
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3ModEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %9 = extractelement <2 x i32> %8, i64 0
-  %10 = extractelement <2 x i32> %8, i64 1
-  %11 = srem i32 %9, %10
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = srem i32 %6, %10
   %12 = sitofp i32 %11 to double
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3ShrEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %9 = extractelement <2 x i32> %8, i64 0
-  %10 = extractelement <2 x i32> %8, i64 1
-  %11 = ashr i32 %9, %10
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = ashr i32 %6, %10
   %12 = sitofp i32 %11 to double
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt3ShlEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %9 = extractelement <2 x i32> %8, i64 0
-  %10 = extractelement <2 x i32> %8, i64 1
-  %11 = shl i32 %9, %10
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = shl i32 %6, %10
   %12 = sitofp i32 %11 to double
   ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt6LogAndEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %1, i64 0
-  %4 = insertelement <2 x double> %3, double %0, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = and <2 x i32> %shift, %8
-  %10 = extractelement <2 x i32> %9, i64 0
-  %11 = sitofp i32 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = and i32 %10, %6
+  %12 = sitofp i32 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt5LogOrEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %1, i64 0
-  %4 = insertelement <2 x double> %3, double %0, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = or <2 x i32> %shift, %8
-  %10 = extractelement <2 x i32> %9, i64 0
-  %11 = sitofp i32 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = or i32 %10, %6
+  %12 = sitofp i32 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1135,92 +1135,92 @@ define noundef double @_ZN2mu9ParserInt2OrEdd(double noundef %0, double noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt4LessEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp sgt <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp slt i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt7GreaterEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp slt <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp sgt i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt6LessEqEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp sge <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp sle i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt9GreaterEqEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp sle <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp sge i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt5EqualEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp eq <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp eq i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN2mu9ParserInt8NotEqualEdd(double noundef %0, double noundef %1) #2 align 2 {
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = fcmp oge <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
-  %7 = fadd <2 x double> %6, %4
-  %8 = fptosi <2 x double> %7 to <2 x i32>
-  %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = icmp ne <2 x i32> %shift, %8
-  %10 = extractelement <2 x i1> %9, i64 0
-  %11 = uitofp i1 %10 to double
-  ret double %11
+  %3 = fcmp oge double %0, 0.000000e+00
+  %4 = select i1 %3, double 5.000000e-01, double -5.000000e-01
+  %5 = fadd double %4, %0
+  %6 = fptosi double %5 to i32
+  %7 = fcmp oge double %1, 0.000000e+00
+  %8 = select i1 %7, double 5.000000e-01, double -5.000000e-01
+  %9 = fadd double %8, %1
+  %10 = fptosi double %9 to i32
+  %11 = icmp ne i32 %6, %10
+  %12 = uitofp i1 %11 to double
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

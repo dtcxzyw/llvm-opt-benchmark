@@ -3822,6 +3822,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
   %callback_buffer_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pop.i, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   %slots_.i.i.i.i.i.i.i.i290 = getelementptr inbounds i8, ptr %map.i283, i64 8
   %418 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 8), align 8
   %cmp.i.i291 = icmp eq i64 %418, 0
@@ -3847,6 +3850,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
   %callback_buffer_.i.i.i.i.i.i633 = getelementptr inbounds i8, ptr %pop.i623, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i634 = getelementptr inbounds i8, ptr %agg.tmp3.i624, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i635 = getelementptr inbounds i8, ptr %agg.tmp3.i624, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i636 = getelementptr inbounds i8, ptr %agg.tmp3.i624, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i637 = getelementptr inbounds i8, ptr %agg.tmp3.i624, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i638 = getelementptr inbounds i8, ptr %agg.tmp3.i624, i64 8
   %421 = getelementptr inbounds i8, ptr %ref.tmp.i266, i64 8
   %422 = getelementptr inbounds i8, ptr %ref.tmp3.i267, i64 8
   %423 = getelementptr inbounds i8, ptr %ref.tmp5.i268, i64 8
@@ -3873,6 +3879,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
   %callback_buffer_.i.i.i.i.i.i541 = getelementptr inbounds i8, ptr %pop.i531, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i542 = getelementptr inbounds i8, ptr %agg.tmp3.i532, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i543 = getelementptr inbounds i8, ptr %agg.tmp3.i532, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i544 = getelementptr inbounds i8, ptr %agg.tmp3.i532, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i545 = getelementptr inbounds i8, ptr %agg.tmp3.i532, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i546 = getelementptr inbounds i8, ptr %agg.tmp3.i532, i64 8
   %426 = getelementptr inbounds i8, ptr %ref.tmp.i188, i64 8
   %427 = getelementptr inbounds i8, ptr %ref.tmp3.i189, i64 8
   %428 = getelementptr inbounds i8, ptr %ref.tmp5.i190, i64 8
@@ -3899,6 +3908,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
   %callback_buffer_.i.i.i.i.i.i449 = getelementptr inbounds i8, ptr %pop.i439, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i450 = getelementptr inbounds i8, ptr %agg.tmp3.i440, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i451 = getelementptr inbounds i8, ptr %agg.tmp3.i440, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i452 = getelementptr inbounds i8, ptr %agg.tmp3.i440, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i453 = getelementptr inbounds i8, ptr %agg.tmp3.i440, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i454 = getelementptr inbounds i8, ptr %agg.tmp3.i440, i64 8
   %431 = getelementptr inbounds i8, ptr %ref.tmp.i128, i64 8
   %432 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %433 = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
@@ -3916,6 +3928,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
   %callback_buffer_.i.i.i.i.i.i408 = getelementptr inbounds i8, ptr %pop.i398, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i409 = getelementptr inbounds i8, ptr %agg.tmp3.i399, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i410 = getelementptr inbounds i8, ptr %agg.tmp3.i399, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i411 = getelementptr inbounds i8, ptr %agg.tmp3.i399, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i412 = getelementptr inbounds i8, ptr %agg.tmp3.i399, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i413 = getelementptr inbounds i8, ptr %agg.tmp3.i399, i64 8
   %slots_.i.i.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %map.i.i29, i64 8
   %capacity_.i.i.i.i.i5.i.i95 = getelementptr inbounds i8, ptr %map.i.i29, i64 16
   br label %for.body22
@@ -4549,7 +4564,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i, align 8, !alias.scope !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i389)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i33, i64 4, ptr nonnull @.str.108, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i)
           to label %if.then.i.i393 unwind label %lpad.i392
 
@@ -5001,7 +5019,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i623, align 8, !alias.scope !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i622)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i634, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i635, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i635, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i636, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i637, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i638, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i33, i64 40, ptr nonnull @.str.217, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i624)
           to label %if.then.i.i640 unwind label %lpad.i639
 
@@ -5334,7 +5355,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i531, align 8, !alias.scope !131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i530)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i542, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i543, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i543, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i544, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i545, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i546, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i33, i64 33, ptr nonnull @.str.219, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i532)
           to label %if.then.i.i548 unwind label %lpad.i547
 
@@ -5667,7 +5691,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i439, align 8, !alias.scope !162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i438)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i450, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i451, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i451, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i452, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i453, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i454, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i33, i64 30, ptr nonnull @.str.221, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i440)
           to label %if.then.i.i456 unwind label %lpad.i455
 
@@ -6299,7 +6326,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i398, align 8, !alias.scope !194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i397)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i409, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i410, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i410, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i411, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i412, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i413, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i33, i64 57, ptr nonnull @.str.223, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i399)
           to label %if.then.i.i415 unwind label %lpad.i414
 
@@ -6649,6 +6679,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9.prehea
   %callback_buffer_.i.i.i.i.i.i444 = getelementptr inbounds i8, ptr %pop.i434, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i445 = getelementptr inbounds i8, ptr %agg.tmp3.i435, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i446 = getelementptr inbounds i8, ptr %agg.tmp3.i435, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i447 = getelementptr inbounds i8, ptr %agg.tmp3.i435, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i448 = getelementptr inbounds i8, ptr %agg.tmp3.i435, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i449 = getelementptr inbounds i8, ptr %agg.tmp3.i435, i64 8
   %_M_str.i.i.i80.i = getelementptr inbounds i8, ptr %ref.tmp.i78.i, i64 8
   %second.i.i81.i = getelementptr inbounds i8, ptr %ref.tmp.i78.i, i64 16
   %_M_str.i2.i.i82.i = getelementptr inbounds i8, ptr %ref.tmp.i78.i, i64 24
@@ -6686,11 +6719,17 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9.prehea
   %11 = ptrtoint ptr %map.i99.i to i64
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
   %slots_.i.i.i.i.i.i.i.i114.i = getelementptr inbounds i8, ptr %map.i113.i, i64 8
   %12 = ptrtoint ptr %map.i113.i to i64
   %callback_buffer_.i.i.i.i.i.i313.i = getelementptr inbounds i8, ptr %pop.i303.i, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i314.i = getelementptr inbounds i8, ptr %agg.tmp3.i304.i, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i315.i = getelementptr inbounds i8, ptr %agg.tmp3.i304.i, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i316.i = getelementptr inbounds i8, ptr %agg.tmp3.i304.i, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i317.i = getelementptr inbounds i8, ptr %agg.tmp3.i304.i, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i318.i = getelementptr inbounds i8, ptr %agg.tmp3.i304.i, i64 8
   %capacity_.i.i.i.i.i5.i122.i = getelementptr inbounds i8, ptr %map.i113.i, i64 16
   %_M_str.i.i.i133.i = getelementptr inbounds i8, ptr %ref.tmp.i131.i, i64 8
   %second.i.i134.i = getelementptr inbounds i8, ptr %ref.tmp.i131.i, i64 16
@@ -6722,6 +6761,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9.prehea
   %callback_buffer_.i.i.i.i.i.i343.i = getelementptr inbounds i8, ptr %pop.i333.i, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i344.i = getelementptr inbounds i8, ptr %agg.tmp3.i334.i, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i345.i = getelementptr inbounds i8, ptr %agg.tmp3.i334.i, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i346.i = getelementptr inbounds i8, ptr %agg.tmp3.i334.i, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i347.i = getelementptr inbounds i8, ptr %agg.tmp3.i334.i, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i348.i = getelementptr inbounds i8, ptr %agg.tmp3.i334.i, i64 8
   %15 = getelementptr inbounds i8, ptr %agg.tmp.i.i218, i64 8
   %compressed_tuple_.i.i.i.i = getelementptr inbounds i8, ptr %map.i145.i, i64 24
   %slots_.i.i.i.i.i.i.i.i191.i = getelementptr inbounds i8, ptr %map.i190.i, i64 8
@@ -6760,6 +6802,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9.prehea
   %callback_buffer_.i.i.i.i.i.i352 = getelementptr inbounds i8, ptr %pop.i342, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i353 = getelementptr inbounds i8, ptr %agg.tmp3.i343, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i354 = getelementptr inbounds i8, ptr %agg.tmp3.i343, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i355 = getelementptr inbounds i8, ptr %agg.tmp3.i343, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i356 = getelementptr inbounds i8, ptr %agg.tmp3.i343, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i357 = getelementptr inbounds i8, ptr %agg.tmp3.i343, i64 8
   %slots_.i.i.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %map.i, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %map.i, i64 16
   %compressed_tuple_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %map.i, i64 24
@@ -6767,6 +6812,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont9.prehea
   %callback_buffer_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pop.i, i64 8
   %opts.sroa.1.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 5
+  %opts.sroa.6.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 6
+  %opts.sroa.7.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 7
+  %opts.sroa.8.0.agg.tmp3.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   %slots_.i.i.i.i.i.i.i.i257.i = getelementptr inbounds i8, ptr %map.i256.i, i64 8
   %capacity_.i.i.i.i.i5.i265.i = getelementptr inbounds i8, ptr %map.i256.i, i64 16
   %_M_finish.i81 = getelementptr inbounds i8, ptr %option_pair, i64 8
@@ -7365,7 +7413,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i434, align 8, !alias.scope !234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i433)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i445, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i446, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i446, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i447, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i448, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i449, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 38, ptr nonnull @.str.228, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i435)
           to label %if.then.i.i451 unwind label %lpad.i450
 
@@ -8153,7 +8204,10 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt8fun
 
 _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESA_NS5_18container_internal10StringHashENSB_8StringEqESaISt4pairIKSA_SA_EEEEEEDaPKT_.exit.i.i: ; preds = %.noexc279.i, %if.then.i.i.i.i
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i.i, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i.i, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i.i, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i.i, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i.i, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 8, ptr nonnull @.str.234, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i.i)
           to label %if.then.i.i278.i unwind label %if.then.i212
 
@@ -8398,7 +8452,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store ptr %printer.i, ptr %callback_buffer_.i.i.i.i.i.i313.i, align 8, !alias.scope !282
   store i8 1, ptr %pop.i303.i, align 8, !alias.scope !282
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i314.i, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i315.i, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i315.i, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i316.i, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i317.i, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i318.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 1, ptr nonnull @.str.65, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i304.i)
           to label %if.then.i.i320.i unwind label %lpad.i319.i
 
@@ -8831,7 +8888,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store ptr %printer.i, ptr %callback_buffer_.i.i.i.i.i.i343.i, align 8, !alias.scope !313
   store i8 1, ptr %pop.i333.i, align 8, !alias.scope !313
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i344.i, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i345.i, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i345.i, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i346.i, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i347.i, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i348.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 32, ptr nonnull @.str.237, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i334.i)
           to label %if.then.i.i350.i unwind label %lpad.i349.i
 
@@ -9262,7 +9322,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store i8 1, ptr %pop.i342, align 8, !alias.scope !341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i341)
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i353, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i354, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i354, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i355, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i356, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i357, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 34, ptr nonnull @.str.242, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i343)
           to label %if.then.i.i359 unwind label %lpad.i358
 
@@ -9711,7 +9774,10 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   store ptr %printer.i, ptr %callback_buffer_.i.i.i.i.i.i, align 8, !alias.scope !370
   store i8 1, ptr %pop.i, align 8, !alias.scope !370
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx.i, align 1
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx.i, align 2
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx.i, align 1
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %printer.i, i64 25, ptr nonnull @.str.260, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3.i)
           to label %if.then.i.i294 unwind label %lpad.i293
 
@@ -15754,7 +15820,13 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   %opts.sroa.1.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 1
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx, align 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 5
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx, align 1
+  %opts.sroa.6.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 6
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx, align 2
+  %opts.sroa.7.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 7
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx, align 1
+  %opts.sroa.8.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 %text.coerce0, ptr %text.coerce1, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3)
           to label %if.then.i unwind label %lpad
 
@@ -18881,22 +18953,29 @@ if.then:                                          ; preds = %for.body
   store ptr %15, ptr %add.ptr16, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %16 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !545
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %17 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !545
   %capacity_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 24
-  %16 = load <2 x i64>, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !545
-  %17 = load <2 x ptr>, ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !545
+  %18 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !545
+  %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %19 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !545
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !545
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store <2 x ptr> %17, ptr %second.i.i.i.i.i.i.i, align 8
-  store <2 x i64> %16, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %18 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %18, 0
+  store ptr %16, ptr %second.i.i.i.i.i.i.i, align 8
+  %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 16
+  store ptr %17, ptr %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 24
+  store i64 %18, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 32
+  store i64 %19, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %20 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %for.inc, label %invoke.cont13.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then
-  %19 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 -8
+  %21 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i) #25
   br label %for.inc
 
@@ -18941,22 +19020,29 @@ entry:
   store ptr %0, ptr %dst, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %1 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !549
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 16
+  %2 = load ptr, ptr %slots_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !549
   %capacity_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 24
-  %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 24
-  %1 = load <2 x i64>, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !549
-  %2 = load <2 x ptr>, ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !549
+  %3 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !549
+  %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 32
+  %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !549
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %second3.i.i.i.i.i.i.i, align 8, !noalias !549
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store <2 x ptr> %2, ptr %second.i.i.i.i.i.i.i, align 8
-  store <2 x i64> %1, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %3 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 0
+  store ptr %1, ptr %second.i.i.i.i.i.i.i, align 8
+  %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 16
+  store ptr %2, ptr %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 24
+  store i64 %3, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
+  store i64 %4, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENS0_13flat_hash_setIS8_NS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EEEEEvE8transferISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EESR_.exit, label %invoke.cont13.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i.i.i.i.i.i:                ; preds = %entry
-  %4 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  %6 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i) #25
   br label %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENS0_13flat_hash_setIS8_NS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EEEEEvE8transferISaISt4pairIKS8_SF_EEEEvPT_PNS1_13map_slot_typeIS8_SF_EESR_.exit
 

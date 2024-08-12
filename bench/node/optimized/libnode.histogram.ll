@@ -547,9 +547,13 @@ _ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit:
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %wrap.coerce) #15
   %1 = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load <2 x ptr>, ptr %histogram, align 8
+  %2 = load ptr, ptr %histogram, align 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %histogram, i64 8
+  %3 = load ptr, ptr %_M_refcount4.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %histogram, i8 0, i64 16, i1 false)
-  store <2 x ptr> %2, ptr %1, align 8
+  store ptr %2, ptr %1, align 8
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  store ptr %3, ptr %_M_refcount.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %this, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   ret void
@@ -2878,13 +2882,17 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
   %0 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
+  %1 = load ptr, ptr %args3, align 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %args3, i64 8
+  %2 = load ptr, ptr %_M_refcount4.i.i, align 8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
-  %1 = getelementptr inbounds i8, ptr %call, i64 32
-  %2 = load <2 x ptr>, ptr %args3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #15
-  store <2 x ptr> %2, ptr %1, align 8
+  %4 = getelementptr inbounds i8, ptr %call, i64 32
+  store ptr %1, ptr %4, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
   store ptr %call, ptr %agg.result, align 8
@@ -4711,9 +4719,9 @@ declare void @_ZN4node22SetConstructorFunctionEPN2v87IsolateENS0_5LocalINS0_8Tem
 define dso_local void @_ZN4node13HistogramBase21HistogramTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.366") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr nocapture readnone %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %histogram_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %histogram_, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_refcount4.i.i, align 8
-  %1 = load <2 x ptr>, ptr %histogram_, align 8
+  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %env, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %histogram_, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %isolate_data_.i.i, align 8, !noalias !14
@@ -4734,7 +4742,9 @@ if.end.i:                                         ; preds = %entry
   %5 = load ptr, ptr %principal_realm_.i.i.i, align 8, !noalias !17
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %5, ptr nonnull %call19.i) #15, !noalias !17
   %6 = getelementptr inbounds i8, ptr %call.i, i64 32
-  store <2 x ptr> %1, ptr %6, align 8, !noalias !17
+  store ptr %0, ptr %6, align 8, !noalias !17
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call.i, align 8, !noalias !17
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !17
   %call3.i.i.i4 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !17
@@ -4765,11 +4775,11 @@ _ZN4node17BaseObjectPtrImplINS_13HistogramBaseELb0EED2Ev.exit.thread: ; preds = 
 
 _ZN4node17BaseObjectPtrImplINS_13HistogramBaseELb0EED2Ev.exit: ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjectPtrImplINS_13HistogramBaseELb0EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -4777,12 +4787,12 @@ if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -4805,11 +4815,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4830,10 +4840,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node9HistogramEED2Ev.exit:    ; preds = %_ZN4node17BaseObjectPtrImplINS_13HistogramBaseELb0EED2Ev.exit.thread, %_ZN4node17BaseObjectPtrImplINS_13HistogramBaseELb0EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -4847,15 +4857,17 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i64 16), ptr %call.i, align 8, !noalias !20
   %histogram_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !20
+  store ptr %0, ptr %histogram_.i.i, align 8, !noalias !20
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !20
-  %1 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !20
-  store <2 x ptr> %1, ptr %histogram_.i.i, align 8, !noalias !20
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !20
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !20
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13HistogramBase21HistogramTransferDataESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8263,14 +8275,14 @@ define dso_local void @_ZNK4node17IntervalHistogram17CloneForMessagingEv(ptr noa
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !31
+  %0 = load ptr, ptr %add.ptr, align 8, !noalias !31
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !31
-  %1 = load <2 x ptr>, ptr %add.ptr, align 8, !noalias !31
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !31
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node13HistogramBase21HistogramTransferDataESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !31
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8288,7 +8300,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZNSt10unique_ptrIN4node13HistogramBase21HistogramTransferDataESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBase21HistogramTransferDataE, i64 16), ptr %call.i, align 8, !noalias !31
   %histogram_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store <2 x ptr> %1, ptr %histogram_.i.i, align 8, !noalias !31
+  store ptr %0, ptr %histogram_.i.i, align 8, !noalias !31
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !31
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

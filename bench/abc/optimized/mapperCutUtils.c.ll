@@ -16,10 +16,22 @@ define noundef ptr @Map_CutAlloc(ptr nocapture noundef readonly %0) local_unname
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 144, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 144
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 116
+  store float 0x47B9999980000000, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %4, i64 104
+  store float 0x47B9999980000000, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 108
+  store float 0x47B9999980000000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 112
+  store float 0x47B9999980000000, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 156
+  store float 0x47B9999980000000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 144
+  store float 0x47B9999980000000, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 148
+  store float 0x47B9999980000000, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 152
+  store float 0x47B9999980000000, ptr %12, align 8
   ret ptr %4
 }
 

@@ -304,24 +304,24 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %216 = getelementptr inbounds i32, ptr %15, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !3
   %218 = getelementptr inbounds double, ptr %16, i64 %215
-  %219 = sext i32 %213 to i64
-  %220 = getelementptr inbounds double, ptr %16, i64 %219
-  %221 = load <2 x double>, ptr %218, align 8, !tbaa !7
-  %222 = extractelement <2 x double> %221, i64 0
-  %223 = extractelement <2 x double> %221, i64 1
-  %224 = fadd double %222, %223
-  %225 = fmul double %224, 5.000000e-01
-  %226 = fsub double %223, %225
-  %227 = fcmp oge <2 x double> %221, zeroinitializer
-  %228 = fneg <2 x double> %221
-  %229 = select <2 x i1> %227, <2 x double> %221, <2 x double> %228
-  %230 = extractelement <2 x double> %229, i64 0
-  %231 = extractelement <2 x double> %229, i64 1
-  %232 = fcmp oge double %230, %231
-  %233 = select i1 %232, double %230, double %231
+  %219 = load double, ptr %218, align 8, !tbaa !7
+  %220 = sext i32 %213 to i64
+  %221 = getelementptr inbounds double, ptr %16, i64 %220
+  %222 = load double, ptr %221, align 8, !tbaa !7
+  %223 = fadd double %219, %222
+  %224 = fmul double %223, 5.000000e-01
+  %225 = fsub double %222, %224
+  %226 = fcmp oge double %219, 0.000000e+00
+  %227 = fneg double %219
+  %228 = select i1 %226, double %219, double %227
+  %229 = fcmp oge double %222, 0.000000e+00
+  %230 = fneg double %222
+  %231 = select i1 %229, double %222, double %230
+  %232 = fcmp oge double %228, %231
+  %233 = select i1 %232, double %228, double %231
   %234 = load double, ptr %5, align 8, !tbaa !7
   %235 = fmul double %234, %233
-  %236 = fcmp olt double %226, %235
+  %236 = fcmp olt double %225, %235
   br i1 %236, label %237, label %246
 
 237:                                              ; preds = %.split41
@@ -343,7 +343,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 246:                                              ; preds = %.split41
   %247 = load double, ptr %1, align 8, !tbaa !7
-  %248 = fsub double %247, %225
+  %248 = fsub double %247, %224
   %249 = fcmp olt double %248, 0.000000e+00
   %250 = zext i1 %249 to i32
   %251 = load i32, ptr %0, align 4, !tbaa !3
@@ -361,7 +361,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %259 = phi double [ %248, %253 ], [ %266, %256 ]
   %260 = getelementptr inbounds double, ptr %19, i64 %257
   %261 = load double, ptr %260, align 8, !tbaa !7
-  %262 = fsub double %261, %225
+  %262 = fsub double %261, %224
   %263 = getelementptr double, ptr %44, i64 %257
   %264 = load double, ptr %263, align 8, !tbaa !7
   %265 = fdiv double %264, %259
@@ -379,11 +379,11 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %273, label %274, label %275
 
 274:                                              ; preds = %.loopexit18
-  store double %225, ptr %218, align 8, !tbaa !7
+  store double %224, ptr %218, align 8, !tbaa !7
   br label %276
 
 275:                                              ; preds = %.loopexit18
-  store double %225, ptr %220, align 8, !tbaa !7
+  store double %224, ptr %221, align 8, !tbaa !7
   br label %276
 
 276:                                              ; preds = %275, %274, %242, %240, %237

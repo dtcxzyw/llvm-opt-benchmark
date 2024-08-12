@@ -1158,15 +1158,17 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25, !noalias !19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList17SocketAddressRuleE, i64 16), ptr %call.i, align 8, !noalias !19
   %address.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %0 = load ptr, ptr %address, align 8, !noalias !19
+  store ptr %0, ptr %address.i.i, align 8, !noalias !19
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %address, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !19
-  %1 = load <2 x ptr>, ptr %address, align 8, !noalias !19
-  store <2 x ptr> %1, ptr %address.i.i, align 8, !noalias !19
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !19
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !19
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1332,15 +1334,17 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25, !noalias !24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList22SocketAddressRangeRuleE, i64 16), ptr %call.i, align 8, !noalias !24
   %start.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %0 = load ptr, ptr %start, align 8, !noalias !24
+  store ptr %0, ptr %start.i.i, align 8, !noalias !24
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %start, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !24
-  %1 = load <2 x ptr>, ptr %start, align 8, !noalias !24
-  store <2 x ptr> %1, ptr %start.i.i, align 8, !noalias !24
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !24
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !24
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !24
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1357,15 +1361,17 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
   %end.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %5 = load ptr, ptr %end, align 8, !noalias !24
+  store ptr %5, ptr %end.i.i, align 8, !noalias !24
+  %_M_refcount.i.i1.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %_M_refcount3.i.i2.i.i = getelementptr inbounds i8, ptr %end, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i2.i.i, align 8, !noalias !24
-  %6 = load <2 x ptr>, ptr %end, align 8, !noalias !24
-  store <2 x ptr> %6, ptr %end.i.i, align 8, !noalias !24
-  %cmp.not.i.i.i3.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_refcount3.i.i2.i.i, align 8, !noalias !24
+  store ptr %6, ptr %_M_refcount.i.i1.i.i, align 8, !noalias !24
+  %cmp.not.i.i.i3.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i3.i.i, label %_ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i4.i.i
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_.exit.i.i
-  %_M_use_count.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !24
   %tobool.i.not.i.i.i.i6.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6.i.i, label %if.else.i.i.i.i.i9.i.i, label %if.then.i.i.i.i.i7.i.i
@@ -1404,15 +1410,17 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !27
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i64 16), ptr %call.i, align 8, !noalias !27
   %network.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %0 = load ptr, ptr %network, align 8, !noalias !27
+  store ptr %0, ptr %network.i.i, align 8, !noalias !27
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %network, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !27
-  %1 = load <2 x ptr>, ptr %network, align 8, !noalias !27
-  store <2 x ptr> %1, ptr %network.i.i, align 8, !noalias !27
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !27
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !27
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2933,14 +2941,18 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %0 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
+  %1 = load ptr, ptr %args3, align 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %args3, i64 8
+  %2 = load ptr, ptr %_M_refcount4.i.i, align 8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
-  %blocklist_.i = getelementptr inbounds i8, ptr %call, i64 32
-  %1 = load <2 x ptr>, ptr %args3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
-  %2 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %2, ptr %agg.tmp.sroa.0.0.copyload) #21
+  %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call, align 8
-  store <2 x ptr> %1, ptr %blocklist_.i, align 8
+  %blocklist_.i = getelementptr inbounds i8, ptr %call, i64 32
+  store ptr %1, ptr %blocklist_.i, align 8
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr %2, ptr %_M_refcount.i.i.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
@@ -4148,15 +4160,17 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrap12TransferDataE, i64 16), ptr %call.i, align 8, !noalias !81
   %blocklist_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %blocklist_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load ptr, ptr %blocklist_2.i.i, align 8, !noalias !81
+  store ptr %0, ptr %blocklist_.i.i, align 8, !noalias !81
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !81
-  %1 = load <2 x ptr>, ptr %blocklist_2.i.i, align 8, !noalias !81
-  store <2 x ptr> %1, ptr %blocklist_.i.i, align 8, !noalias !81
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !81
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !81
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node26SocketAddressBlockListWrap12TransferDataESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !81
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4360,9 +4374,9 @@ declare i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4N
 define dso_local void @_ZN4node26SocketAddressBlockListWrap12TransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.384") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr nocapture readnone %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %blocklist_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %blocklist_, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_refcount4.i.i, align 8
-  %1 = load <2 x ptr>, ptr %blocklist_, align 8
+  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %env, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %blocklist_, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %isolate_data_.i.i.i, align 8, !noalias !84
@@ -4385,7 +4399,9 @@ if.end.i:                                         ; preds = %entry
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %6, ptr nonnull %call18.i) #21, !noalias !87
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i64 16), ptr %call.i, align 8, !noalias !87
   %blocklist_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store <2 x ptr> %1, ptr %blocklist_.i.i, align 8, !noalias !87
+  store ptr %0, ptr %blocklist_.i.i, align 8, !noalias !87
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !87
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #21, !noalias !87
   %call3.i.i.i4 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #21, !noalias !87
   %cmp2.not.i.i5 = icmp eq ptr %call3.i.i.i4, null
@@ -4415,11 +4431,11 @@ _ZN4node17BaseObjectPtrImplINS_26SocketAddressBlockListWrapELb0EED2Ev.exit.threa
 
 _ZN4node17BaseObjectPtrImplINS_26SocketAddressBlockListWrapELb0EED2Ev.exit: ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjectPtrImplINS_26SocketAddressBlockListWrapELb0EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -4427,12 +4443,12 @@ if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -4455,11 +4471,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4480,10 +4496,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_26SocketAddressBlockListWrapELb0EED2Ev.exit.thread, %_ZN4node17BaseObjectPtrImplINS_26SocketAddressBlockListWrapELb0EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -5442,14 +5458,18 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %0 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
+  %1 = load ptr, ptr %args3, align 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %args3, i64 8
+  %2 = load ptr, ptr %_M_refcount4.i.i, align 8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
-  %address_.i = getelementptr inbounds i8, ptr %call, i64 32
-  %1 = load <2 x ptr>, ptr %args3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
-  %2 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %2, ptr %agg.tmp.sroa.0.0.copyload) #21
+  %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBaseE, i64 16), ptr %call, align 8
-  store <2 x ptr> %1, ptr %address_.i, align 8
+  %address_.i = getelementptr inbounds i8, ptr %call, i64 32
+  store ptr %1, ptr %address_.i, align 8
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr %2, ptr %_M_refcount.i.i.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #21
@@ -5627,15 +5647,17 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBase12TransferDataE, i64 16), ptr %call.i, align 8, !noalias !99
   %address_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %address_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load ptr, ptr %address_2.i.i, align 8, !noalias !99
+  store ptr %0, ptr %address_.i.i, align 8, !noalias !99
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !99
-  %1 = load <2 x ptr>, ptr %address_2.i.i, align 8, !noalias !99
-  store <2 x ptr> %1, ptr %address_.i.i, align 8, !noalias !99
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !99
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !99
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node17SocketAddressBase12TransferDataESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !99
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5775,9 +5797,9 @@ _ZN4node13MemoryTracker10TrackFieldINS_13SocketAddressEEEvPKcRKSt10shared_ptrIT_
 define dso_local void @_ZN4node17SocketAddressBase12TransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.384") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr nocapture readnone %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %address_ = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %address_, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_refcount4.i.i, align 8
-  %1 = load <2 x ptr>, ptr %address_, align 8
+  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_, i8 0, i64 16, i1 false)
   %call.i = tail call ptr @_ZN4node17SocketAddressBase22GetConstructorTemplateEPNS_11EnvironmentE(ptr noundef %env), !noalias !105
   %call6.i = tail call ptr @_ZN2v816FunctionTemplate16InstanceTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #21, !noalias !105
@@ -5797,7 +5819,9 @@ if.end.i:                                         ; preds = %entry
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i4, ptr noundef %4, ptr nonnull %call18.i) #21, !noalias !108
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17SocketAddressBaseE, i64 16), ptr %call.i4, align 8, !noalias !108
   %address_.i.i = getelementptr inbounds i8, ptr %call.i4, i64 32
-  store <2 x ptr> %1, ptr %address_.i.i, align 8, !noalias !108
+  store ptr %0, ptr %address_.i.i, align 8, !noalias !108
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 40
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !108
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i4) #21, !noalias !108
   %call3.i.i.i5 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i4) #21, !noalias !108
   %cmp2.not.i.i6 = icmp eq ptr %call3.i.i.i5, null
@@ -5827,11 +5851,11 @@ _ZN4node17BaseObjectPtrImplINS_17SocketAddressBaseELb0EED2Ev.exit.thread: ; pred
 
 _ZN4node17BaseObjectPtrImplINS_17SocketAddressBaseELb0EED2Ev.exit: ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjectPtrImplINS_17SocketAddressBaseELb0EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -5839,12 +5863,12 @@ if.then.i.i.i:                                    ; preds = %_ZN4node17BaseObjec
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -5867,11 +5891,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5892,10 +5916,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
   br label %_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node13SocketAddressEED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_17SocketAddressBaseELb0EED2Ev.exit.thread, %_ZN4node17BaseObjectPtrImplINS_17SocketAddressBaseELb0EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i

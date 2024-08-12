@@ -12,90 +12,96 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @gsave(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load <2 x i32>, ptr %0, align 8
-  %4 = load i32, ptr %0, align 8
-  store <2 x i32> %3, ptr %2, align 8
-  %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %2 = load i32, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %2, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %5, ptr %6, align 4
+  %7 = icmp sgt i32 %2, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %7
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %9
 
-7:                                                ; preds = %.lr.ph, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %struct.snode, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = load i16, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 26
-  store i16 %11, ptr %12, align 2
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds %struct.snode, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = load i16, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 26
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %0, align 8
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %7, label %._crit_edge
+  %15 = load i32, ptr %0, align 8
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %9, label %._crit_edge
 
-._crit_edge:                                      ; preds = %7, %1
+._crit_edge:                                      ; preds = %9, %1
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load <2 x i32>, ptr %2, align 8
-  %4 = load i32, ptr %2, align 8
-  store <2 x i32> %3, ptr %0, align 8
-  %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %.preheader
+  %3 = load i32, ptr %2, align 8
+  store i32 %3, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %5, ptr %6, align 4
+  %7 = icmp sgt i32 %3, 0
+  br i1 %7, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %13
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %15
 
-.preheader.loopexit:                              ; preds = %13
-  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
+.preheader.loopexit:                              ; preds = %15
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %1
-  %8 = phi i32 [ %4, %1 ], [ %19, %.preheader.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.preheader.loopexit ]
-  %9 = add nsw i32 %8, 2
-  %10 = icmp slt i32 %.0.lcssa, %9
-  br i1 %10, label %.lr.ph17, label %._crit_edge
+  %10 = phi i32 [ %3, %1 ], [ %21, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %9, %.preheader.loopexit ]
+  %11 = add nsw i32 %10, 2
+  %12 = icmp slt i32 %.0.lcssa, %11
+  br i1 %12, label %.lr.ph17, label %._crit_edge
 
 .lr.ph17:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = zext nneg i32 %.0.lcssa to i64
-  br label %22
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = zext nneg i32 %.0.lcssa to i64
+  br label %24
 
-13:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.snode, ptr %14, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 26
-  %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
-  store i16 %17, ptr %18, align 8
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds %struct.snode, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds i8, ptr %17, i64 26
+  %19 = load i16, ptr %18, align 2
+  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  store i16 %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %0, align 8
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %13, label %.preheader.loopexit
+  %21 = load i32, ptr %0, align 8
+  %22 = sext i32 %21 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %15, label %.preheader.loopexit
 
-22:                                               ; preds = %.lr.ph17, %22
-  %indvars.iv19 = phi i64 [ %12, %.lr.ph17 ], [ %indvars.iv.next20, %22 ]
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct.snode, ptr %23, i64 %indvars.iv19, i32 4
-  store i16 0, ptr %24, align 8
+24:                                               ; preds = %.lr.ph17, %24
+  %indvars.iv19 = phi i64 [ %14, %.lr.ph17 ], [ %indvars.iv.next20, %24 ]
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds %struct.snode, ptr %25, i64 %indvars.iv19, i32 4
+  store i16 0, ptr %26, align 8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %25 = load i32, ptr %0, align 8
-  %26 = sext i32 %25 to i64
-  %.not = icmp sgt i64 %indvars.iv19, %26
-  br i1 %.not, label %._crit_edge, label %22
+  %27 = load i32, ptr %0, align 8
+  %28 = sext i32 %27 to i64
+  %.not = icmp sgt i64 %indvars.iv19, %28
+  br i1 %.not, label %._crit_edge, label %24
 
-._crit_edge:                                      ; preds = %22, %.preheader
+._crit_edge:                                      ; preds = %24, %.preheader
   ret void
 }
 

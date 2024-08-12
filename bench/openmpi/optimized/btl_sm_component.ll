@@ -438,13 +438,16 @@ define internal noundef i32 @mca_btl_sm_component_register() #0 {
   %storemerge = select i1 %12, ptr @.str.19, ptr %13
   store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6120), align 8
   %14 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_sm_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_sm_component, i64 6120)) #10
+  store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 56), align 8
   store i64 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 8), align 8
   store i64 32768, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 16), align 8
   store i64 32768, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 24), align 8
   store i64 2147483647, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 48), align 8
   store i64 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 32), align 8
   store i64 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 40), align 8
-  store <4 x i32> <i32 65536, i32 1, i32 20000, i32 9>, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 56), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 68), align 4
+  store i32 20000, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 64), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_sm, i64 60), align 4
   %15 = tail call i32 @mca_btl_base_param_register(ptr noundef nonnull @mca_btl_sm_component, ptr noundef nonnull @mca_btl_sm) #10
   ret i32 0
 }

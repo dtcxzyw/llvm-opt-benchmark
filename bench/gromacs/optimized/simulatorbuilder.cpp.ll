@@ -467,7 +467,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 26:                                               ; preds = %24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %23, align 8
   invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %28
+          to label %431 unwind label %28
 
 .thread:                                          ; preds = %22
   %27 = landingpad { ptr, i32 }
@@ -478,12 +478,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
-  br label %406
+  br label %430
 
 30:                                               ; preds = %.thread119, %.thread
   %.pn118 = phi { ptr, i32 } [ %27, %.thread ], [ %25, %.thread119 ]
   call void @__cxa_free_exception(ptr %23) #13
-  br label %406
+  br label %430
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds i8, ptr %1, i64 8
@@ -509,7 +509,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 38:                                               ; preds = %36
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %35, align 8
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %40
+          to label %431 unwind label %40
 
 .thread121:                                       ; preds = %34
   %39 = landingpad { ptr, i32 }
@@ -520,12 +520,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
-  br label %406
+  br label %430
 
 42:                                               ; preds = %.thread125, %.thread121
   %.pn64124 = phi { ptr, i32 } [ %39, %.thread121 ], [ %37, %.thread125 ]
   call void @__cxa_free_exception(ptr %35) #13
-  br label %406
+  br label %430
 
 43:                                               ; preds = %31
   %44 = getelementptr inbounds i8, ptr %1, i64 24
@@ -551,7 +551,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 50:                                               ; preds = %48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %47, align 8
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %52
+          to label %431 unwind label %52
 
 .thread127:                                       ; preds = %46
   %51 = landingpad { ptr, i32 }
@@ -562,12 +562,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
-  br label %406
+  br label %430
 
 54:                                               ; preds = %.thread131, %.thread127
   %.pn66130 = phi { ptr, i32 } [ %51, %.thread127 ], [ %49, %.thread131 ]
   call void @__cxa_free_exception(ptr %47) #13
-  br label %406
+  br label %430
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %1, align 8
@@ -592,7 +592,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 61:                                               ; preds = %59
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %58, align 8
   invoke void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %63
+          to label %431 unwind label %63
 
 .thread133:                                       ; preds = %57
   %62 = landingpad { ptr, i32 }
@@ -603,12 +603,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #13
-  br label %406
+  br label %430
 
 65:                                               ; preds = %.thread137, %.thread133
   %.pn68136 = phi { ptr, i32 } [ %62, %.thread133 ], [ %60, %.thread137 ]
   call void @__cxa_free_exception(ptr %58) #13
-  br label %406
+  br label %430
 
 66:                                               ; preds = %55
   %67 = getelementptr inbounds i8, ptr %1, i64 32
@@ -634,7 +634,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 73:                                               ; preds = %71
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %70, align 8
   invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %75
+          to label %431 unwind label %75
 
 .thread139:                                       ; preds = %69
   %74 = landingpad { ptr, i32 }
@@ -645,12 +645,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #13
-  br label %406
+  br label %430
 
 77:                                               ; preds = %.thread143, %.thread139
   %.pn70142 = phi { ptr, i32 } [ %74, %.thread139 ], [ %72, %.thread143 ]
   call void @__cxa_free_exception(ptr %70) #13
-  br label %406
+  br label %430
 
 78:                                               ; preds = %66
   %79 = getelementptr inbounds i8, ptr %1, i64 40
@@ -676,7 +676,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 85:                                               ; preds = %83
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %82, align 8
   invoke void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %87
+          to label %431 unwind label %87
 
 .thread145:                                       ; preds = %81
   %86 = landingpad { ptr, i32 }
@@ -687,12 +687,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %88 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #13
-  br label %406
+  br label %430
 
 89:                                               ; preds = %.thread149, %.thread145
   %.pn72148 = phi { ptr, i32 } [ %86, %.thread145 ], [ %84, %.thread149 ]
   call void @__cxa_free_exception(ptr %82) #13
-  br label %406
+  br label %430
 
 90:                                               ; preds = %78
   %91 = getelementptr inbounds i8, ptr %1, i64 48
@@ -718,7 +718,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 97:                                               ; preds = %95
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %94, align 8
   invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %99
+          to label %431 unwind label %99
 
 .thread151:                                       ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -729,12 +729,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #13
-  br label %406
+  br label %430
 
 101:                                              ; preds = %.thread155, %.thread151
   %.pn74154 = phi { ptr, i32 } [ %98, %.thread151 ], [ %96, %.thread155 ]
   call void @__cxa_free_exception(ptr %94) #13
-  br label %406
+  br label %430
 
 102:                                              ; preds = %90
   %103 = getelementptr inbounds i8, ptr %1, i64 56
@@ -760,7 +760,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 109:                                              ; preds = %107
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %106, align 8
   invoke void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %111
+          to label %431 unwind label %111
 
 .thread157:                                       ; preds = %105
   %110 = landingpad { ptr, i32 }
@@ -771,12 +771,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #13
-  br label %406
+  br label %430
 
 113:                                              ; preds = %.thread161, %.thread157
   %.pn76160 = phi { ptr, i32 } [ %110, %.thread157 ], [ %108, %.thread161 ]
   call void @__cxa_free_exception(ptr %106) #13
-  br label %406
+  br label %430
 
 114:                                              ; preds = %102
   %115 = getelementptr inbounds i8, ptr %1, i64 64
@@ -802,7 +802,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 121:                                              ; preds = %119
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %123
+          to label %431 unwind label %123
 
 .thread163:                                       ; preds = %117
   %122 = landingpad { ptr, i32 }
@@ -813,12 +813,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %124 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #13
-  br label %406
+  br label %430
 
 125:                                              ; preds = %.thread167, %.thread163
   %.pn78166 = phi { ptr, i32 } [ %122, %.thread163 ], [ %120, %.thread167 ]
   call void @__cxa_free_exception(ptr %118) #13
-  br label %406
+  br label %430
 
 126:                                              ; preds = %114
   %127 = getelementptr inbounds i8, ptr %1, i64 72
@@ -844,7 +844,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 133:                                              ; preds = %131
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %130, align 8
   invoke void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %135
+          to label %431 unwind label %135
 
 .thread169:                                       ; preds = %129
   %134 = landingpad { ptr, i32 }
@@ -855,12 +855,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #13
-  br label %406
+  br label %430
 
 137:                                              ; preds = %.thread173, %.thread169
   %.pn80172 = phi { ptr, i32 } [ %134, %.thread169 ], [ %132, %.thread173 ]
   call void @__cxa_free_exception(ptr %130) #13
-  br label %406
+  br label %430
 
 138:                                              ; preds = %126
   %139 = getelementptr inbounds i8, ptr %1, i64 80
@@ -886,7 +886,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 145:                                              ; preds = %143
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %142, align 8
   invoke void @__cxa_throw(ptr nonnull %142, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %147
+          to label %431 unwind label %147
 
 .thread175:                                       ; preds = %141
   %146 = landingpad { ptr, i32 }
@@ -897,12 +897,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %148 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #13
-  br label %406
+  br label %430
 
 149:                                              ; preds = %.thread179, %.thread175
   %.pn82178 = phi { ptr, i32 } [ %146, %.thread175 ], [ %144, %.thread179 ]
   call void @__cxa_free_exception(ptr %142) #13
-  br label %406
+  br label %430
 
 150:                                              ; preds = %138
   %151 = getelementptr inbounds i8, ptr %1, i64 88
@@ -928,7 +928,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 157:                                              ; preds = %155
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %154, align 8
   invoke void @__cxa_throw(ptr nonnull %154, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %159
+          to label %431 unwind label %159
 
 .thread181:                                       ; preds = %153
   %158 = landingpad { ptr, i32 }
@@ -939,12 +939,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %160 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #13
-  br label %406
+  br label %430
 
 161:                                              ; preds = %.thread185, %.thread181
   %.pn84184 = phi { ptr, i32 } [ %158, %.thread181 ], [ %156, %.thread185 ]
   call void @__cxa_free_exception(ptr %154) #13
-  br label %406
+  br label %430
 
 162:                                              ; preds = %150
   %163 = getelementptr inbounds i8, ptr %1, i64 96
@@ -970,7 +970,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 169:                                              ; preds = %167
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %171
+          to label %431 unwind label %171
 
 .thread187:                                       ; preds = %165
   %170 = landingpad { ptr, i32 }
@@ -981,12 +981,12 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %172 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #13
-  br label %406
+  br label %430
 
 173:                                              ; preds = %.thread191, %.thread187
   %.pn86190 = phi { ptr, i32 } [ %170, %.thread187 ], [ %168, %.thread191 ]
   call void @__cxa_free_exception(ptr %166) #13
-  br label %406
+  br label %430
 
 174:                                              ; preds = %162
   %175 = getelementptr inbounds i8, ptr %1, i64 104
@@ -1012,7 +1012,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
 181:                                              ; preds = %179
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %178, align 8
   invoke void @__cxa_throw(ptr nonnull %178, ptr nonnull @_ZTIN3gmx8APIErrorE, ptr nonnull @_ZN3gmx8APIErrorD2Ev) #16
-          to label %407 unwind label %183
+          to label %431 unwind label %183
 
 .thread193:                                       ; preds = %177
   %182 = landingpad { ptr, i32 }
@@ -1023,15 +1023,15 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #13
-  br label %406
+  br label %430
 
 185:                                              ; preds = %.thread197, %.thread193
   %.pn88196 = phi { ptr, i32 } [ %182, %.thread193 ], [ %180, %.thread197 ]
   call void @__cxa_free_exception(ptr %178) #13
-  br label %406
+  br label %430
 
 186:                                              ; preds = %174
-  br i1 %2, label %187, label %318
+  br i1 %2, label %187, label %326
 
 187:                                              ; preds = %186
   %188 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -1044,7 +1044,7 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr %176, align 8
   %197 = invoke noundef ptr @_ZN3gmx12MembedHolder6membedEv(ptr noundef nonnull align 8 dereferenceable(9) %33)
-          to label %198 unwind label %313
+          to label %198 unwind label %321
 
 198:                                              ; preds = %187
   %199 = load ptr, ptr %79, align 8
@@ -1052,367 +1052,416 @@ define void @_ZN3gmx16SimulatorBuilder5buildEb(ptr dead_on_unwind noalias nocapt
   %201 = load ptr, ptr %200, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %202 = invoke noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #17
-          to label %203 unwind label %313
+          to label %203 unwind label %321
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds i8, ptr %199, i64 16
-  %205 = getelementptr inbounds i8, ptr %68, i64 16
-  %206 = getelementptr inbounds i8, ptr %104, i64 8
-  %207 = getelementptr inbounds i8, ptr %68, i64 32
-  %208 = getelementptr inbounds i8, ptr %56, i64 8
-  %209 = getelementptr inbounds i8, ptr %92, i64 16
-  %210 = getelementptr inbounds i8, ptr %104, i64 16
-  %211 = getelementptr inbounds i8, ptr %176, i64 8
-  %212 = getelementptr inbounds i8, ptr %45, i64 16
-  %213 = getelementptr inbounds i8, ptr %176, i64 16
-  %214 = getelementptr inbounds i8, ptr %104, i64 24
-  %215 = getelementptr inbounds i8, ptr %45, i64 24
-  %216 = getelementptr inbounds i8, ptr %68, i64 40
-  %217 = getelementptr inbounds i8, ptr %45, i64 32
-  %218 = getelementptr inbounds i8, ptr %56, i64 16
-  %219 = load ptr, ptr %205, align 8, !noalias !8
-  %220 = load i32, ptr %104, align 4, !noalias !8
-  %221 = load ptr, ptr %206, align 8, !noalias !8
-  %222 = load ptr, ptr %207, align 8, !noalias !8
-  %223 = load i32, ptr %208, align 4, !noalias !8
-  %224 = load ptr, ptr %209, align 8, !noalias !8
-  %225 = load <2 x ptr>, ptr %92, align 8, !noalias !8
-  %226 = load ptr, ptr %193, align 8, !noalias !8
-  %227 = load ptr, ptr %140, align 8, !noalias !8
-  %228 = load ptr, ptr %210, align 8, !noalias !8
-  %229 = load ptr, ptr %128, align 8, !noalias !8
-  %230 = load ptr, ptr %152, align 8, !noalias !8
-  %231 = load ptr, ptr %164, align 8, !noalias !8
+  %205 = getelementptr inbounds i8, ptr %68, i64 8
+  %206 = getelementptr inbounds i8, ptr %68, i64 16
+  %207 = getelementptr inbounds i8, ptr %104, i64 8
+  %208 = getelementptr inbounds i8, ptr %68, i64 32
+  %209 = getelementptr inbounds i8, ptr %56, i64 8
+  %210 = getelementptr inbounds i8, ptr %92, i64 16
+  %211 = getelementptr inbounds i8, ptr %92, i64 8
+  %212 = getelementptr inbounds i8, ptr %104, i64 16
+  %213 = getelementptr inbounds i8, ptr %176, i64 8
+  %214 = getelementptr inbounds i8, ptr %45, i64 8
+  %215 = getelementptr inbounds i8, ptr %45, i64 16
+  %216 = getelementptr inbounds i8, ptr %176, i64 16
+  %217 = getelementptr inbounds i8, ptr %80, i64 8
+  %218 = getelementptr inbounds i8, ptr %104, i64 24
+  %219 = getelementptr inbounds i8, ptr %45, i64 24
+  %220 = getelementptr inbounds i8, ptr %68, i64 40
+  %221 = getelementptr inbounds i8, ptr %45, i64 32
+  %222 = getelementptr inbounds i8, ptr %56, i64 16
+  %223 = load ptr, ptr %68, align 8, !noalias !8
+  %224 = load ptr, ptr %205, align 8, !noalias !8
+  %225 = load ptr, ptr %206, align 8, !noalias !8
+  %226 = load i32, ptr %104, align 4, !noalias !8
+  %227 = load ptr, ptr %207, align 8, !noalias !8
+  %228 = load ptr, ptr %208, align 8, !noalias !8
+  %229 = load i32, ptr %209, align 4, !noalias !8
+  %230 = load ptr, ptr %210, align 8, !noalias !8
+  %231 = load ptr, ptr %92, align 8, !noalias !8
   %232 = load ptr, ptr %211, align 8, !noalias !8
-  %233 = load <2 x ptr>, ptr %45, align 8, !noalias !8
-  %234 = load ptr, ptr %212, align 8, !noalias !8
-  %235 = load ptr, ptr %213, align 8, !noalias !8
-  %236 = load <2 x ptr>, ptr %80, align 8, !noalias !8
-  %237 = load ptr, ptr %214, align 8, !noalias !8
-  %238 = load ptr, ptr %215, align 8, !noalias !8
-  %239 = load ptr, ptr %216, align 8, !noalias !8
-  %240 = load ptr, ptr %217, align 8, !noalias !8
-  %241 = load ptr, ptr %218, align 8, !noalias !8
-  %242 = load ptr, ptr %204, align 8, !noalias !8
-  %243 = load i64, ptr %20, align 8, !noalias !8
-  %244 = load <2 x ptr>, ptr %68, align 8, !noalias !8
+  %233 = load ptr, ptr %193, align 8, !noalias !8
+  %234 = load ptr, ptr %140, align 8, !noalias !8
+  %235 = load ptr, ptr %212, align 8, !noalias !8
+  %236 = load ptr, ptr %128, align 8, !noalias !8
+  %237 = load ptr, ptr %152, align 8, !noalias !8
+  %238 = load ptr, ptr %164, align 8, !noalias !8
+  %239 = load ptr, ptr %213, align 8, !noalias !8
+  %240 = load ptr, ptr %45, align 8, !noalias !8
+  %241 = load ptr, ptr %214, align 8, !noalias !8
+  %242 = load ptr, ptr %215, align 8, !noalias !8
+  %243 = load ptr, ptr %216, align 8, !noalias !8
+  %244 = load ptr, ptr %80, align 8, !noalias !8
+  %245 = load ptr, ptr %217, align 8, !noalias !8
+  %246 = load ptr, ptr %218, align 8, !noalias !8
+  %247 = load ptr, ptr %219, align 8, !noalias !8
+  %248 = load ptr, ptr %220, align 8, !noalias !8
+  %249 = load ptr, ptr %221, align 8, !noalias !8
+  %250 = load ptr, ptr %222, align 8, !noalias !8
+  %251 = load ptr, ptr %204, align 8, !noalias !8
+  %252 = load i64, ptr %20, align 8, !noalias !8
   store ptr null, ptr %20, align 8, !noalias !8
-  %245 = load i8, ptr %201, align 1, !noalias !8
-  %246 = and i8 %245, 1
-  store <2 x ptr> %244, ptr %202, align 8, !noalias !8
-  %247 = getelementptr inbounds i8, ptr %202, i64 16
-  store ptr %219, ptr %247, align 8, !noalias !8
-  %248 = getelementptr inbounds i8, ptr %202, i64 24
-  store ptr %190, ptr %248, align 8, !noalias !8
-  %249 = getelementptr inbounds i8, ptr %202, i64 32
-  store i32 %220, ptr %249, align 8, !noalias !8
-  %250 = getelementptr inbounds i8, ptr %202, i64 40
-  store ptr %221, ptr %250, align 8, !noalias !8
-  %251 = getelementptr inbounds i8, ptr %202, i64 48
-  store ptr %222, ptr %251, align 8, !noalias !8
-  %252 = getelementptr inbounds i8, ptr %202, i64 56
-  store ptr %191, ptr %252, align 8, !noalias !8
-  %253 = getelementptr inbounds i8, ptr %202, i64 64
-  store i32 %223, ptr %253, align 8, !noalias !8
-  %254 = getelementptr inbounds i8, ptr %202, i64 72
-  store ptr %224, ptr %254, align 8, !noalias !8
-  %255 = getelementptr inbounds i8, ptr %202, i64 80
-  %256 = shufflevector <2 x ptr> %225, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %257 = insertelement <4 x ptr> %256, ptr %226, i64 2
-  %258 = insertelement <4 x ptr> %257, ptr %227, i64 3
-  store <4 x ptr> %258, ptr %255, align 8, !noalias !8
-  %259 = getelementptr inbounds i8, ptr %202, i64 112
-  store ptr %195, ptr %259, align 8, !noalias !8
-  %260 = getelementptr inbounds i8, ptr %202, i64 120
+  %253 = load i8, ptr %201, align 1, !noalias !8
+  %254 = and i8 %253, 1
+  store ptr %223, ptr %202, align 8, !noalias !8
+  %255 = getelementptr inbounds i8, ptr %202, i64 8
+  store ptr %224, ptr %255, align 8, !noalias !8
+  %256 = getelementptr inbounds i8, ptr %202, i64 16
+  store ptr %225, ptr %256, align 8, !noalias !8
+  %257 = getelementptr inbounds i8, ptr %202, i64 24
+  store ptr %190, ptr %257, align 8, !noalias !8
+  %258 = getelementptr inbounds i8, ptr %202, i64 32
+  store i32 %226, ptr %258, align 8, !noalias !8
+  %259 = getelementptr inbounds i8, ptr %202, i64 40
+  store ptr %227, ptr %259, align 8, !noalias !8
+  %260 = getelementptr inbounds i8, ptr %202, i64 48
   store ptr %228, ptr %260, align 8, !noalias !8
-  %261 = getelementptr inbounds i8, ptr %202, i64 128
-  store ptr %229, ptr %261, align 8, !noalias !8
-  %262 = getelementptr inbounds i8, ptr %202, i64 136
-  store ptr %230, ptr %262, align 8, !noalias !8
-  %263 = getelementptr inbounds i8, ptr %202, i64 144
-  store ptr %231, ptr %263, align 8, !noalias !8
-  %264 = getelementptr inbounds i8, ptr %202, i64 152
-  store ptr %196, ptr %264, align 8, !noalias !8
-  %265 = getelementptr inbounds i8, ptr %202, i64 160
-  %266 = insertelement <4 x ptr> poison, ptr %232, i64 0
-  %267 = shufflevector <2 x ptr> %233, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %268 = shufflevector <4 x ptr> %266, <4 x ptr> %267, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %269 = insertelement <4 x ptr> %268, ptr %234, i64 3
-  store <4 x ptr> %269, ptr %265, align 8, !noalias !8
-  %270 = getelementptr inbounds i8, ptr %202, i64 192
-  store ptr %235, ptr %270, align 8, !noalias !8
-  %271 = getelementptr inbounds i8, ptr %202, i64 200
-  %272 = shufflevector <2 x ptr> %236, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %273 = insertelement <4 x ptr> %272, ptr %237, i64 2
-  %274 = insertelement <4 x ptr> %273, ptr %238, i64 3
-  store <4 x ptr> %274, ptr %271, align 8, !noalias !8
-  %275 = getelementptr inbounds i8, ptr %202, i64 232
-  store ptr %239, ptr %275, align 8, !noalias !8
-  %276 = getelementptr inbounds i8, ptr %202, i64 240
-  store ptr %240, ptr %276, align 8, !noalias !8
-  %277 = getelementptr inbounds i8, ptr %202, i64 248
-  store ptr %241, ptr %277, align 8, !noalias !8
-  %278 = getelementptr inbounds i8, ptr %202, i64 256
-  store ptr %116, ptr %278, align 8, !noalias !8
-  %279 = getelementptr inbounds i8, ptr %202, i64 264
-  store ptr %197, ptr %279, align 8, !noalias !8
-  %280 = getelementptr inbounds i8, ptr %202, i64 272
-  store ptr %242, ptr %280, align 8, !noalias !8
-  %281 = getelementptr inbounds i8, ptr %202, i64 280
-  store i64 %243, ptr %281, align 8, !noalias !8
-  %282 = getelementptr inbounds i8, ptr %202, i64 288
-  store i8 %246, ptr %282, align 8, !noalias !8
+  %261 = getelementptr inbounds i8, ptr %202, i64 56
+  store ptr %191, ptr %261, align 8, !noalias !8
+  %262 = getelementptr inbounds i8, ptr %202, i64 64
+  store i32 %229, ptr %262, align 8, !noalias !8
+  %263 = getelementptr inbounds i8, ptr %202, i64 72
+  store ptr %230, ptr %263, align 8, !noalias !8
+  %264 = getelementptr inbounds i8, ptr %202, i64 80
+  store ptr %231, ptr %264, align 8, !noalias !8
+  %265 = getelementptr inbounds i8, ptr %202, i64 88
+  store ptr %232, ptr %265, align 8, !noalias !8
+  %266 = getelementptr inbounds i8, ptr %202, i64 96
+  store ptr %233, ptr %266, align 8, !noalias !8
+  %267 = getelementptr inbounds i8, ptr %202, i64 104
+  store ptr %234, ptr %267, align 8, !noalias !8
+  %268 = getelementptr inbounds i8, ptr %202, i64 112
+  store ptr %195, ptr %268, align 8, !noalias !8
+  %269 = getelementptr inbounds i8, ptr %202, i64 120
+  store ptr %235, ptr %269, align 8, !noalias !8
+  %270 = getelementptr inbounds i8, ptr %202, i64 128
+  store ptr %236, ptr %270, align 8, !noalias !8
+  %271 = getelementptr inbounds i8, ptr %202, i64 136
+  store ptr %237, ptr %271, align 8, !noalias !8
+  %272 = getelementptr inbounds i8, ptr %202, i64 144
+  store ptr %238, ptr %272, align 8, !noalias !8
+  %273 = getelementptr inbounds i8, ptr %202, i64 152
+  store ptr %196, ptr %273, align 8, !noalias !8
+  %274 = getelementptr inbounds i8, ptr %202, i64 160
+  store ptr %239, ptr %274, align 8, !noalias !8
+  %275 = getelementptr inbounds i8, ptr %202, i64 168
+  store ptr %240, ptr %275, align 8, !noalias !8
+  %276 = getelementptr inbounds i8, ptr %202, i64 176
+  store ptr %241, ptr %276, align 8, !noalias !8
+  %277 = getelementptr inbounds i8, ptr %202, i64 184
+  store ptr %242, ptr %277, align 8, !noalias !8
+  %278 = getelementptr inbounds i8, ptr %202, i64 192
+  store ptr %243, ptr %278, align 8, !noalias !8
+  %279 = getelementptr inbounds i8, ptr %202, i64 200
+  store ptr %244, ptr %279, align 8, !noalias !8
+  %280 = getelementptr inbounds i8, ptr %202, i64 208
+  store ptr %245, ptr %280, align 8, !noalias !8
+  %281 = getelementptr inbounds i8, ptr %202, i64 216
+  store ptr %246, ptr %281, align 8, !noalias !8
+  %282 = getelementptr inbounds i8, ptr %202, i64 224
+  store ptr %247, ptr %282, align 8, !noalias !8
+  %283 = getelementptr inbounds i8, ptr %202, i64 232
+  store ptr %248, ptr %283, align 8, !noalias !8
+  %284 = getelementptr inbounds i8, ptr %202, i64 240
+  store ptr %249, ptr %284, align 8, !noalias !8
+  %285 = getelementptr inbounds i8, ptr %202, i64 248
+  store ptr %250, ptr %285, align 8, !noalias !8
+  %286 = getelementptr inbounds i8, ptr %202, i64 256
+  store ptr %116, ptr %286, align 8, !noalias !8
+  %287 = getelementptr inbounds i8, ptr %202, i64 264
+  store ptr %197, ptr %287, align 8, !noalias !8
+  %288 = getelementptr inbounds i8, ptr %202, i64 272
+  store ptr %251, ptr %288, align 8, !noalias !8
+  %289 = getelementptr inbounds i8, ptr %202, i64 280
+  store i64 %252, ptr %289, align 8, !noalias !8
+  %290 = getelementptr inbounds i8, ptr %202, i64 288
+  store i8 %254, ptr %290, align 8, !noalias !8
   store ptr %202, ptr %18, align 8, !alias.scope !8
-  %283 = getelementptr inbounds i8, ptr %1, i64 120
-  %284 = load i64, ptr %283, align 8
-  store i64 %284, ptr %19, align 8
-  store ptr null, ptr %283, align 8
+  %291 = getelementptr inbounds i8, ptr %1, i64 120
+  %292 = load i64, ptr %291, align 8
+  store i64 %292, ptr %19, align 8
+  store ptr null, ptr %291, align 8
   invoke void @_ZN3gmx16ModularSimulatorC1ESt10unique_ptrINS_19LegacySimulatorDataESt14default_deleteIS2_EES1_INS_24ReadCheckpointDataHolderES3_IS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef nonnull %18, ptr noundef nonnull %19)
-          to label %_ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit unwind label %315
+          to label %_ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit unwind label %323
 
 _ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %203
   store ptr %188, ptr %0, align 8
-  %285 = load ptr, ptr %19, align 8
-  %.not.i106 = icmp eq ptr %285, null
-  br i1 %.not.i106, label %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit, label %286
+  %293 = load ptr, ptr %19, align 8
+  %.not.i106 = icmp eq ptr %293, null
+  br i1 %.not.i106, label %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit, label %294
 
-286:                                              ; preds = %_ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit
-  %287 = getelementptr inbounds i8, ptr %285, i64 48
-  %288 = load ptr, ptr %287, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %288, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i, label %289
+294:                                              ; preds = %_ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit
+  %295 = getelementptr inbounds i8, ptr %293, i64 48
+  %296 = load ptr, ptr %295, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %296, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i, label %297
 
-289:                                              ; preds = %286
-  call void @_ZdlPv(ptr noundef nonnull %288) #15
+297:                                              ; preds = %294
+  call void @_ZdlPv(ptr noundef nonnull %296) #15
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i
 
-_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %289, %286
-  %290 = getelementptr inbounds i8, ptr %285, i64 16
-  %291 = load ptr, ptr %290, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %285, ptr noundef %291)
-          to label %_ZNKSt14default_deleteIN3gmx24ReadCheckpointDataHolderEEclEPS1_.exit.i unwind label %292
+_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %297, %294
+  %298 = getelementptr inbounds i8, ptr %293, i64 16
+  %299 = load ptr, ptr %298, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N3gmx17KeyValueTreeValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %293, ptr noundef %299)
+          to label %_ZNKSt14default_deleteIN3gmx24ReadCheckpointDataHolderEEclEPS1_.exit.i unwind label %300
 
-292:                                              ; preds = %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i
-  %293 = landingpad { ptr, i32 }
+300:                                              ; preds = %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i
+  %301 = landingpad { ptr, i32 }
           catch ptr null
-  %294 = extractvalue { ptr, i32 } %293, 0
-  call void @__clang_call_terminate(ptr %294) #14
+  %302 = extractvalue { ptr, i32 } %301, 0
+  call void @__clang_call_terminate(ptr %302) #14
   unreachable
 
 _ZNKSt14default_deleteIN3gmx24ReadCheckpointDataHolderEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %285) #15
+  call void @_ZdlPv(ptr noundef nonnull %293) #15
   br label %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx16ModularSimulatorESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3gmx24ReadCheckpointDataHolderEEclEPS1_.exit.i
   store ptr null, ptr %19, align 8
-  %295 = load ptr, ptr %18, align 8
-  %.not.i107 = icmp eq ptr %295, null
-  br i1 %.not.i107, label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit, label %296
+  %303 = load ptr, ptr %18, align 8
+  %.not.i107 = icmp eq ptr %303, null
+  br i1 %.not.i107, label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit, label %304
 
-296:                                              ; preds = %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit
-  %297 = getelementptr inbounds i8, ptr %295, i64 280
-  %298 = load ptr, ptr %297, align 8
-  %.not.i.i.i.i = icmp eq ptr %298, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i, label %299
+304:                                              ; preds = %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit
+  %305 = getelementptr inbounds i8, ptr %303, i64 280
+  %306 = load ptr, ptr %305, align 8
+  %.not.i.i.i.i = icmp eq ptr %306, null
+  br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i, label %307
 
-299:                                              ; preds = %296
-  %300 = load ptr, ptr %298, align 8
-  %301 = getelementptr inbounds i8, ptr %298, i64 8
-  %302 = load ptr, ptr %301, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %300, %302
+307:                                              ; preds = %304
+  %308 = load ptr, ptr %306, align 8
+  %309 = getelementptr inbounds i8, ptr %306, i64 8
+  %310 = load ptr, ptr %309, align 8
+  %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %308, %310
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %299, %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %310, %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i ], [ %300, %299 ]
-  %303 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 16
-  %304 = load ptr, ptr %303, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %304, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i, label %305
+.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %307, %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %318, %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i ], [ %308, %307 ]
+  %311 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 16
+  %312 = load ptr, ptr %311, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %312, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i, label %313
 
-305:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %306 = invoke noundef zeroext i1 %304(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i.i, i32 noundef 3)
-          to label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i unwind label %307
+313:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  %314 = invoke noundef zeroext i1 %312(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i.i.i.i.i, i32 noundef 3)
+          to label %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i unwind label %315
 
-307:                                              ; preds = %305
-  %308 = landingpad { ptr, i32 }
+315:                                              ; preds = %313
+  %316 = landingpad { ptr, i32 }
           catch ptr null
-  %309 = extractvalue { ptr, i32 } %308, 0
-  call void @__clang_call_terminate(ptr %309) #14
+  %317 = extractvalue { ptr, i32 } %316, 0
+  call void @__clang_call_terminate(ptr %317) #14
   unreachable
 
-_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %305, %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %310 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %310, %302
+_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %313, %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  %318 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %318, %310
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt8functionIFN3gmx10StopSignalEvEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i = load ptr, ptr %298, align 8
+  %.pr.i.i.i.i.i.i.i = load ptr, ptr %306, align 8
   br label %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %299
-  %311 = phi ptr [ %.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %300, %299 ]
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %311, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i, label %312
+_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %307
+  %319 = phi ptr [ %.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %308, %307 ]
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %319, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i, label %320
 
-312:                                              ; preds = %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %311) #15
+320:                                              ; preds = %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %319) #15
   br label %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i: ; preds = %312, %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %298) #15
+_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i: ; preds = %320, %_ZSt8_DestroyIPSt8functionIFN3gmx10StopSignalEvEES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %306) #15
   br label %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i, %296
-  call void @_ZdlPv(ptr noundef %295) #15
+_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i, %304
+  call void @_ZdlPv(ptr noundef %303) #15
   br label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
 
-313:                                              ; preds = %198, %187
-  %314 = landingpad { ptr, i32 }
+321:                                              ; preds = %198, %187
+  %322 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %325
 
-315:                                              ; preds = %203
-  %316 = landingpad { ptr, i32 }
+323:                                              ; preds = %203
+  %324 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
   call void @_ZNSt10unique_ptrIN3gmx19LegacySimulatorDataESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #13
-  br label %317
+  br label %325
 
-317:                                              ; preds = %313, %315
-  %.pn90 = phi { ptr, i32 } [ %316, %315 ], [ %314, %313 ]
+325:                                              ; preds = %321, %323
+  %.pn90 = phi { ptr, i32 } [ %324, %323 ], [ %322, %321 ]
   call void @_ZdlPv(ptr noundef nonnull %188) #15
-  br label %406
+  br label %430
 
-318:                                              ; preds = %186
-  %319 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #17
-  %320 = load <4 x ptr>, ptr %68, align 8
-  %321 = load i32, ptr %104, align 8
-  %322 = getelementptr inbounds i8, ptr %104, i64 8
-  %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds i8, ptr %68, i64 32
-  %325 = load ptr, ptr %324, align 8
-  %326 = load ptr, ptr %56, align 8
-  %327 = getelementptr inbounds i8, ptr %56, i64 8
-  %328 = load i32, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %92, i64 16
+326:                                              ; preds = %186
+  %327 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #17
+  %328 = load ptr, ptr %68, align 8
+  %329 = getelementptr inbounds i8, ptr %68, i64 8
   %330 = load ptr, ptr %329, align 8
-  %331 = load <2 x ptr>, ptr %92, align 8
-  %332 = getelementptr inbounds i8, ptr %1, i64 112
-  %333 = load ptr, ptr %332, align 8
+  %331 = getelementptr inbounds i8, ptr %68, i64 16
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds i8, ptr %68, i64 24
   %334 = load ptr, ptr %333, align 8
-  %335 = load ptr, ptr %140, align 8
-  %336 = getelementptr inbounds i8, ptr %140, i64 8
+  %335 = load i32, ptr %104, align 8
+  %336 = getelementptr inbounds i8, ptr %104, i64 8
   %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %104, i64 16
+  %338 = getelementptr inbounds i8, ptr %68, i64 32
   %339 = load ptr, ptr %338, align 8
-  %340 = load ptr, ptr %128, align 8
-  %341 = load ptr, ptr %152, align 8
-  %342 = load ptr, ptr %164, align 8
-  %343 = load <2 x ptr>, ptr %176, align 8
-  %344 = load <2 x ptr>, ptr %45, align 8
-  %345 = getelementptr inbounds i8, ptr %45, i64 16
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %176, i64 16
-  %348 = load ptr, ptr %347, align 8
-  %349 = load <2 x ptr>, ptr %80, align 8
-  %350 = getelementptr inbounds i8, ptr %104, i64 24
-  %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %45, i64 24
+  %340 = load ptr, ptr %56, align 8
+  %341 = getelementptr inbounds i8, ptr %56, i64 8
+  %342 = load i32, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %92, i64 16
+  %344 = load ptr, ptr %343, align 8
+  %345 = load ptr, ptr %92, align 8
+  %346 = getelementptr inbounds i8, ptr %92, i64 8
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds i8, ptr %1, i64 112
+  %349 = load ptr, ptr %348, align 8
+  %350 = load ptr, ptr %349, align 8
+  %351 = load ptr, ptr %140, align 8
+  %352 = getelementptr inbounds i8, ptr %140, i64 8
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %68, i64 40
+  %354 = getelementptr inbounds i8, ptr %104, i64 16
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %45, i64 32
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %56, i64 16
-  %359 = load ptr, ptr %358, align 8
-  %360 = invoke noundef ptr @_ZN3gmx12MembedHolder6membedEv(ptr noundef nonnull align 8 dereferenceable(9) %33)
-          to label %_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit unwind label %404
-
-_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %318
-  %361 = load ptr, ptr %79, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 16
-  %363 = load ptr, ptr %362, align 8
-  %364 = load i64, ptr %20, align 8
-  store ptr null, ptr %20, align 8
-  %365 = load ptr, ptr %1, align 8
+  %356 = load ptr, ptr %128, align 8
+  %357 = load ptr, ptr %152, align 8
+  %358 = load ptr, ptr %164, align 8
+  %359 = load ptr, ptr %176, align 8
+  %360 = getelementptr inbounds i8, ptr %176, i64 8
+  %361 = load ptr, ptr %360, align 8
+  %362 = load ptr, ptr %45, align 8
+  %363 = getelementptr inbounds i8, ptr %45, i64 8
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds i8, ptr %45, i64 16
   %366 = load ptr, ptr %365, align 8
-  %367 = load i8, ptr %366, align 8
-  %368 = getelementptr inbounds i8, ptr %319, i64 8
-  %369 = and i8 %367, 1
-  store <4 x ptr> %320, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %319, i64 40
-  store i32 %321, ptr %370, align 8
-  %371 = getelementptr inbounds i8, ptr %319, i64 48
-  store ptr %323, ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %319, i64 56
-  store ptr %325, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %319, i64 64
-  store ptr %326, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %319, i64 72
-  store i32 %328, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %319, i64 80
-  store ptr %330, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %319, i64 88
-  %377 = shufflevector <2 x ptr> %331, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %378 = insertelement <4 x ptr> %377, ptr %334, i64 2
-  %379 = insertelement <4 x ptr> %378, ptr %335, i64 3
-  store <4 x ptr> %379, ptr %376, align 8
-  %380 = getelementptr inbounds i8, ptr %319, i64 120
-  store ptr %337, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %319, i64 128
-  store ptr %339, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %319, i64 136
-  store ptr %340, ptr %382, align 8
-  %383 = getelementptr inbounds i8, ptr %319, i64 144
-  %384 = insertelement <4 x ptr> poison, ptr %341, i64 0
-  %385 = insertelement <4 x ptr> %384, ptr %342, i64 1
-  %386 = shufflevector <2 x ptr> %343, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %387 = shufflevector <4 x ptr> %385, <4 x ptr> %386, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x ptr> %387, ptr %383, align 8
-  %388 = getelementptr inbounds i8, ptr %319, i64 176
-  %389 = shufflevector <2 x ptr> %344, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %390 = insertelement <4 x ptr> %389, ptr %346, i64 2
-  %391 = insertelement <4 x ptr> %390, ptr %348, i64 3
-  store <4 x ptr> %391, ptr %388, align 8
-  %392 = getelementptr inbounds i8, ptr %319, i64 208
-  %393 = shufflevector <2 x ptr> %349, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %394 = insertelement <4 x ptr> %393, ptr %351, i64 2
-  %395 = insertelement <4 x ptr> %394, ptr %353, i64 3
-  store <4 x ptr> %395, ptr %392, align 8
-  %396 = getelementptr inbounds i8, ptr %319, i64 240
-  store ptr %355, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %319, i64 248
-  store ptr %357, ptr %397, align 8
-  %398 = getelementptr inbounds i8, ptr %319, i64 256
-  store ptr %359, ptr %398, align 8
-  %399 = getelementptr inbounds i8, ptr %319, i64 264
-  store ptr %116, ptr %399, align 8
-  %400 = getelementptr inbounds i8, ptr %319, i64 272
-  store ptr %360, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %319, i64 280
-  store ptr %363, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %319, i64 288
-  store i64 %364, ptr %402, align 8
-  %403 = getelementptr inbounds i8, ptr %319, i64 296
-  store i8 %369, ptr %403, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15LegacySimulatorE, i64 16), ptr %319, align 8
-  store ptr %319, ptr %0, align 8
+  %367 = getelementptr inbounds i8, ptr %176, i64 16
+  %368 = load ptr, ptr %367, align 8
+  %369 = load ptr, ptr %80, align 8
+  %370 = getelementptr inbounds i8, ptr %80, i64 8
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds i8, ptr %104, i64 24
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds i8, ptr %45, i64 24
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds i8, ptr %68, i64 40
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds i8, ptr %45, i64 32
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds i8, ptr %56, i64 16
+  %381 = load ptr, ptr %380, align 8
+  %382 = invoke noundef ptr @_ZN3gmx12MembedHolder6membedEv(ptr noundef nonnull align 8 dereferenceable(9) %33)
+          to label %_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit unwind label %428
+
+_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %326
+  %383 = load ptr, ptr %79, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %385 = load ptr, ptr %384, align 8
+  %386 = load i64, ptr %20, align 8
+  store ptr null, ptr %20, align 8
+  %387 = load ptr, ptr %1, align 8
+  %388 = load ptr, ptr %387, align 8
+  %389 = load i8, ptr %388, align 8
+  %390 = getelementptr inbounds i8, ptr %327, i64 8
+  %391 = and i8 %389, 1
+  store ptr %328, ptr %390, align 8
+  %392 = getelementptr inbounds i8, ptr %327, i64 16
+  store ptr %330, ptr %392, align 8
+  %393 = getelementptr inbounds i8, ptr %327, i64 24
+  store ptr %332, ptr %393, align 8
+  %394 = getelementptr inbounds i8, ptr %327, i64 32
+  store ptr %334, ptr %394, align 8
+  %395 = getelementptr inbounds i8, ptr %327, i64 40
+  store i32 %335, ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %327, i64 48
+  store ptr %337, ptr %396, align 8
+  %397 = getelementptr inbounds i8, ptr %327, i64 56
+  store ptr %339, ptr %397, align 8
+  %398 = getelementptr inbounds i8, ptr %327, i64 64
+  store ptr %340, ptr %398, align 8
+  %399 = getelementptr inbounds i8, ptr %327, i64 72
+  store i32 %342, ptr %399, align 8
+  %400 = getelementptr inbounds i8, ptr %327, i64 80
+  store ptr %344, ptr %400, align 8
+  %401 = getelementptr inbounds i8, ptr %327, i64 88
+  store ptr %345, ptr %401, align 8
+  %402 = getelementptr inbounds i8, ptr %327, i64 96
+  store ptr %347, ptr %402, align 8
+  %403 = getelementptr inbounds i8, ptr %327, i64 104
+  store ptr %350, ptr %403, align 8
+  %404 = getelementptr inbounds i8, ptr %327, i64 112
+  store ptr %351, ptr %404, align 8
+  %405 = getelementptr inbounds i8, ptr %327, i64 120
+  store ptr %353, ptr %405, align 8
+  %406 = getelementptr inbounds i8, ptr %327, i64 128
+  store ptr %355, ptr %406, align 8
+  %407 = getelementptr inbounds i8, ptr %327, i64 136
+  store ptr %356, ptr %407, align 8
+  %408 = getelementptr inbounds i8, ptr %327, i64 144
+  store ptr %357, ptr %408, align 8
+  %409 = getelementptr inbounds i8, ptr %327, i64 152
+  store ptr %358, ptr %409, align 8
+  %410 = getelementptr inbounds i8, ptr %327, i64 160
+  store ptr %359, ptr %410, align 8
+  %411 = getelementptr inbounds i8, ptr %327, i64 168
+  store ptr %361, ptr %411, align 8
+  %412 = getelementptr inbounds i8, ptr %327, i64 176
+  store ptr %362, ptr %412, align 8
+  %413 = getelementptr inbounds i8, ptr %327, i64 184
+  store ptr %364, ptr %413, align 8
+  %414 = getelementptr inbounds i8, ptr %327, i64 192
+  store ptr %366, ptr %414, align 8
+  %415 = getelementptr inbounds i8, ptr %327, i64 200
+  store ptr %368, ptr %415, align 8
+  %416 = getelementptr inbounds i8, ptr %327, i64 208
+  store ptr %369, ptr %416, align 8
+  %417 = getelementptr inbounds i8, ptr %327, i64 216
+  store ptr %371, ptr %417, align 8
+  %418 = getelementptr inbounds i8, ptr %327, i64 224
+  store ptr %373, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %327, i64 232
+  store ptr %375, ptr %419, align 8
+  %420 = getelementptr inbounds i8, ptr %327, i64 240
+  store ptr %377, ptr %420, align 8
+  %421 = getelementptr inbounds i8, ptr %327, i64 248
+  store ptr %379, ptr %421, align 8
+  %422 = getelementptr inbounds i8, ptr %327, i64 256
+  store ptr %381, ptr %422, align 8
+  %423 = getelementptr inbounds i8, ptr %327, i64 264
+  store ptr %116, ptr %423, align 8
+  %424 = getelementptr inbounds i8, ptr %327, i64 272
+  store ptr %382, ptr %424, align 8
+  %425 = getelementptr inbounds i8, ptr %327, i64 280
+  store ptr %385, ptr %425, align 8
+  %426 = getelementptr inbounds i8, ptr %327, i64 288
+  store i64 %386, ptr %426, align 8
+  %427 = getelementptr inbounds i8, ptr %327, i64 296
+  store i8 %391, ptr %427, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15LegacySimulatorE, i64 16), ptr %327, align 8
+  store ptr %327, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
 
-404:                                              ; preds = %318
-  %405 = landingpad { ptr, i32 }
+428:                                              ; preds = %326
+  %429 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %319) #15
-  br label %406
+  tail call void @_ZdlPv(ptr noundef nonnull %327) #15
+  br label %430
 
 _ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-406:                                              ; preds = %183, %171, %159, %147, %135, %123, %111, %99, %87, %75, %63, %52, %40, %28, %404, %317, %185, %173, %161, %149, %137, %125, %113, %101, %89, %77, %65, %54, %42, %30
-  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %317 ], [ %405, %404 ], [ %.pn88196, %185 ], [ %184, %183 ], [ %.pn86190, %173 ], [ %172, %171 ], [ %.pn84184, %161 ], [ %160, %159 ], [ %.pn82178, %149 ], [ %148, %147 ], [ %.pn80172, %137 ], [ %136, %135 ], [ %.pn78166, %125 ], [ %124, %123 ], [ %.pn76160, %113 ], [ %112, %111 ], [ %.pn74154, %101 ], [ %100, %99 ], [ %.pn72148, %89 ], [ %88, %87 ], [ %.pn70142, %77 ], [ %76, %75 ], [ %.pn68136, %65 ], [ %64, %63 ], [ %.pn66130, %54 ], [ %53, %52 ], [ %.pn64124, %42 ], [ %41, %40 ], [ %.pn118, %30 ], [ %29, %28 ]
+430:                                              ; preds = %183, %171, %159, %147, %135, %123, %111, %99, %87, %75, %63, %52, %40, %28, %428, %325, %185, %173, %161, %149, %137, %125, %113, %101, %89, %77, %65, %54, %42, %30
+  %.pn90.pn = phi { ptr, i32 } [ %.pn90, %325 ], [ %429, %428 ], [ %.pn88196, %185 ], [ %184, %183 ], [ %.pn86190, %173 ], [ %172, %171 ], [ %.pn84184, %161 ], [ %160, %159 ], [ %.pn82178, %149 ], [ %148, %147 ], [ %.pn80172, %137 ], [ %136, %135 ], [ %.pn78166, %125 ], [ %124, %123 ], [ %.pn76160, %113 ], [ %112, %111 ], [ %.pn74154, %101 ], [ %100, %99 ], [ %.pn72148, %89 ], [ %88, %87 ], [ %.pn70142, %77 ], [ %76, %75 ], [ %.pn68136, %65 ], [ %64, %63 ], [ %.pn66130, %54 ], [ %53, %52 ], [ %.pn64124, %42 ], [ %41, %40 ], [ %.pn118, %30 ], [ %29, %28 ]
   resume { ptr, i32 } %.pn90.pn
 
-407:                                              ; preds = %181, %169, %157, %145, %133, %121, %109, %97, %85, %73, %61, %50, %38, %26
+431:                                              ; preds = %181, %169, %157, %145, %133, %121, %109, %97, %85, %73, %61, %50, %38, %26
   unreachable
 }
 

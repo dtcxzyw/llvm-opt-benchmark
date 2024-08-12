@@ -1108,7 +1108,7 @@ define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetDefaults, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %24
+  br i1 %.not, label %5, label %28
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
@@ -1118,7 +1118,7 @@ define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %5
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 704, ptr noundef nonnull @__func__.ARKStepSetDefaults, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
-  br label %24
+  br label %28
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %3, align 8
@@ -1129,28 +1129,36 @@ define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %10, i64 184
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store <4 x i32> <i32 0, i32 1, i32 1, i32 1>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 256
-  store i32 3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 232
-  store double 1.000000e-01, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 192
-  store <2 x double> <double 3.000000e-01, double 2.300000e+00>, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 176
-  store double 2.000000e-01, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 240
-  store i32 20, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 96
-  %22 = getelementptr inbounds i8, ptr %10, i64 264
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 260
-  store i32 0, ptr %23, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
-  br label %24
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  store i32 1, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  store i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 28
+  store i32 1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %10, i64 256
+  store i32 3, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %10, i64 232
+  store double 1.000000e-01, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 192
+  store double 3.000000e-01, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 200
+  store double 2.300000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 176
+  store double 2.000000e-01, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 240
+  store i32 20, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %10, i64 96
+  %26 = getelementptr inbounds i8, ptr %10, i64 264
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %10, i64 260
+  store i32 0, ptr %27, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
+  br label %28
 
-24:                                               ; preds = %1, %9, %8
+28:                                               ; preds = %1, %9, %8
   %.0 = phi i32 [ %7, %8 ], [ 0, %9 ], [ %4, %1 ]
   ret i32 %.0
 }
@@ -1167,7 +1175,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %234
+  br i1 %.not, label %7, label %247
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
@@ -1178,7 +1186,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %7
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %8, i32 noundef -21, i32 noundef 760, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #6
-  br label %234
+  br label %247
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds i8, ptr %10, i64 104
@@ -1220,7 +1228,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 
 38:                                               ; preds = %31
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %34, i32 noundef -20, i32 noundef 779, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #6
-  br label %234
+  br label %247
 
 39:                                               ; preds = %31, %28
   store ptr null, ptr %14, align 8
@@ -1231,7 +1239,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %43 = getelementptr inbounds i8, ptr %40, i64 28
   %44 = load i32, ptr %43, align 4
   %.not108 = icmp eq i32 %44, 0
-  br i1 %.not106, label %60, label %45
+  br i1 %.not106, label %61, label %45
 
 45:                                               ; preds = %39
   br i1 %.not108, label %46, label %.thread111
@@ -1247,357 +1255,383 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 51:                                               ; preds = %46
   %52 = load ptr, ptr %2, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %52, i32 noundef -20, i32 noundef 794, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
-  br label %234
+  br label %247
 
 53:                                               ; preds = %46
   %54 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %49, double noundef 1.200000e+00) #6
   %55 = load ptr, ptr %14, align 8
   %56 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef %55, double noundef 8.000000e-01, double noundef -3.100000e-01) #6
   %57 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEFAE147AE147AE, double 2.500000e+01>, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 3.000000e-01, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %59, align 8
-  br label %234
+  store double 0x3FEFAE147AE147AE, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.500000e+01, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 3.000000e-01, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %60, align 8
+  br label %247
 
-60:                                               ; preds = %39
-  br i1 %.not108, label %.thread111, label %61
+61:                                               ; preds = %39
+  br i1 %.not108, label %.thread111, label %62
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %40, i64 88
-  %63 = load i32, ptr %62, align 8
-  switch i32 %63, label %234 [
-    i32 2, label %64
-    i32 3, label %83
-    i32 4, label %102
-    i32 5, label %123
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds i8, ptr %40, i64 88
+  %64 = load i32, ptr %63, align 8
+  switch i32 %64, label %247 [
+    i32 2, label %65
+    i32 3, label %86
+    i32 4, label %107
+    i32 5, label %130
   ]
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %2, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @SUNAdaptController_PID(ptr noundef %66) #6
-  store ptr %67, ptr %14, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %71
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %2, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = call ptr @SUNAdaptController_PID(ptr noundef %67) #6
+  store ptr %68, ptr %14, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %64
-  %70 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %70, i32 noundef -20, i32 noundef 817, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %71, i32 noundef -20, i32 noundef 817, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEEB851EB851EB8, double 2.000000e+01>, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 3.000000e-01, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %76, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 232
-  store double 1.000000e-03, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 256
-  store i32 5, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 192
-  store <2 x double> <double 3.000000e-01, double 2.300000e+00>, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 176
-  store double 2.000000e-01, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %77, i64 240
-  store i32 20, ptr %82, align 8
-  br label %234
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEEB851EB851EB8, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.000000e+01, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 3.000000e-01, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %78, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 232
+  store double 1.000000e-03, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 256
+  store i32 5, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %79, i64 192
+  store double 3.000000e-01, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %79, i64 200
+  store double 2.300000e+00, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %79, i64 176
+  store double 2.000000e-01, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %79, i64 240
+  store i32 20, ptr %85, align 8
+  br label %247
 
-83:                                               ; preds = %61
-  %84 = load ptr, ptr %2, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @SUNAdaptController_I(ptr noundef %85) #6
-  store ptr %86, ptr %14, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %90
+86:                                               ; preds = %62
+  %87 = load ptr, ptr %2, align 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = call ptr @SUNAdaptController_I(ptr noundef %88) #6
+  store ptr %89, ptr %14, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %93
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %89, i32 noundef -20, i32 noundef 838, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
-  br label %234
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %92, i32 noundef -20, i32 noundef 838, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
+  br label %247
 
-90:                                               ; preds = %83
-  %91 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %86, double noundef 1.900000e+00) #6
-  %92 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 9.570000e-01, double 1.760000e+01>, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 4.500000e-01, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %96, align 8
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 232
-  store double 2.200000e-01, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 192
-  store <2 x double> <double 1.700000e-01, double 2.300000e+00>, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 176
-  store double 1.900000e-01, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 240
-  store i32 60, ptr %101, align 8
-  br label %234
+93:                                               ; preds = %86
+  %94 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %89, double noundef 1.900000e+00) #6
+  %95 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 9.570000e-01, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 1.760000e+01, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 4.500000e-01, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %100, align 8
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 232
+  store double 2.200000e-01, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %101, i64 192
+  store double 1.700000e-01, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %101, i64 200
+  store double 2.300000e+00, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %101, i64 176
+  store double 1.900000e-01, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %101, i64 240
+  store i32 60, ptr %106, align 8
+  br label %247
 
-102:                                              ; preds = %61
-  %103 = load ptr, ptr %2, align 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @SUNAdaptController_PID(ptr noundef %104) #6
-  store ptr %105, ptr %14, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %109
-
-107:                                              ; preds = %102
+107:                                              ; preds = %62
   %108 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %108, i32 noundef -20, i32 noundef 860, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+  %109 = load ptr, ptr %108, align 8
+  %110 = call ptr @SUNAdaptController_PID(ptr noundef %109) #6
+  store ptr %110, ptr %14, align 8
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %114
 
-109:                                              ; preds = %102
-  %110 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %105, double noundef 1.200000e+00) #6
-  %111 = load ptr, ptr %14, align 8
-  %112 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %111, double noundef 5.350000e-01, double noundef -2.090000e-01, double noundef 1.480000e-01) #6
-  %113 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEF9DB22D0E5604, double 3.150000e+01>, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 3.300000e-01, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %117, align 8
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 232
-  store double 2.400000e-01, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %118, i64 192
-  store <2 x double> <double 2.600000e-01, double 2.300000e+00>, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %118, i64 176
-  store double 1.600000e-01, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %118, i64 240
-  store i32 31, ptr %122, align 8
-  br label %234
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %113, i32 noundef -20, i32 noundef 860, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-123:                                              ; preds = %61
-  %124 = load ptr, ptr %2, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = call ptr @SUNAdaptController_PID(ptr noundef %125) #6
-  store ptr %126, ptr %14, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %128, label %130
+114:                                              ; preds = %107
+  %115 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %110, double noundef 1.200000e+00) #6
+  %116 = load ptr, ptr %14, align 8
+  %117 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %116, double noundef 5.350000e-01, double noundef -2.090000e-01, double noundef 1.480000e-01) #6
+  %118 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEF9DB22D0E5604, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 3.150000e+01, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 3.300000e-01, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %123, align 8
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 232
+  store double 2.400000e-01, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %124, i64 192
+  store double 2.600000e-01, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %124, i64 200
+  store double 2.300000e+00, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %124, i64 176
+  store double 1.600000e-01, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %124, i64 240
+  store i32 31, ptr %129, align 8
+  br label %247
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %129, i32 noundef -20, i32 noundef 886, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+130:                                              ; preds = %62
+  %131 = load ptr, ptr %2, align 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = call ptr @SUNAdaptController_PID(ptr noundef %132) #6
+  store ptr %133, ptr %14, align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %137
 
-130:                                              ; preds = %123
-  %131 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %126, double noundef 3.300000e+00) #6
-  %132 = load ptr, ptr %14, align 8
-  %133 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %132, double noundef 5.600000e-01, double noundef -3.380000e-01, double noundef 1.400000e-01) #6
-  %134 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 9.370000e-01, double 2.200000e+01>, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 4.400000e-01, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %138, align 8
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 232
-  store double 2.500000e-01, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %139, i64 192
-  store <2 x double> <double 4.000000e-01, double 2.300000e+00>, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %139, i64 176
-  store double 3.200000e-01, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %139, i64 240
-  store i32 31, ptr %143, align 8
-  br label %234
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %136, i32 noundef -20, i32 noundef 886, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-.thread111:                                       ; preds = %45, %60
-  %144 = getelementptr inbounds i8, ptr %40, i64 88
-  %145 = load i32, ptr %144, align 8
-  switch i32 %145, label %220 [
-    i32 2, label %146
-    i32 3, label %162
-    i32 4, label %180
-    i32 5, label %198
+137:                                              ; preds = %130
+  %138 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %133, double noundef 3.300000e+00) #6
+  %139 = load ptr, ptr %14, align 8
+  %140 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %139, double noundef 5.600000e-01, double noundef -3.380000e-01, double noundef 1.400000e-01) #6
+  %141 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 9.370000e-01, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.200000e+01, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 4.400000e-01, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %146, align 8
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 232
+  store double 2.500000e-01, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %147, i64 192
+  store double 4.000000e-01, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %147, i64 200
+  store double 2.300000e+00, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %147, i64 176
+  store double 3.200000e-01, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %147, i64 240
+  store i32 31, ptr %152, align 8
+  br label %247
+
+.thread111:                                       ; preds = %45, %61
+  %153 = getelementptr inbounds i8, ptr %40, i64 88
+  %154 = load i32, ptr %153, align 8
+  switch i32 %154, label %233 [
+    i32 2, label %155
+    i32 3, label %172
+    i32 4, label %191
+    i32 5, label %210
   ]
 
-146:                                              ; preds = %.thread111
-  %147 = load ptr, ptr %2, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = call ptr @SUNAdaptController_PID(ptr noundef %148) #6
-  store ptr %149, ptr %14, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %151, label %153
+155:                                              ; preds = %.thread111
+  %156 = load ptr, ptr %2, align 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = call ptr @SUNAdaptController_PID(ptr noundef %157) #6
+  store ptr %158, ptr %14, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %160, label %162
 
-151:                                              ; preds = %146
-  %152 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %152, i32 noundef -20, i32 noundef 919, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %161, i32 noundef -20, i32 noundef 919, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-153:                                              ; preds = %146
-  %154 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEEB851EB851EB8, double 2.000000e+01>, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 3.000000e-01, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %158, align 8
-  %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 232
-  store double 1.000000e-03, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %159, i64 256
-  store i32 5, ptr %161, align 8
+162:                                              ; preds = %155
+  %163 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEEB851EB851EB8, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.000000e+01, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 3.000000e-01, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %168, align 8
+  %169 = load ptr, ptr %3, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 232
+  store double 1.000000e-03, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %169, i64 256
+  store i32 5, ptr %171, align 8
   br label %.sink.split
 
-162:                                              ; preds = %.thread111
-  %163 = load ptr, ptr %2, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = call ptr @SUNAdaptController_PID(ptr noundef %164) #6
-  store ptr %165, ptr %14, align 8
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %169
+172:                                              ; preds = %.thread111
+  %173 = load ptr, ptr %2, align 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = call ptr @SUNAdaptController_PID(ptr noundef %174) #6
+  store ptr %175, ptr %14, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %179
 
-167:                                              ; preds = %162
-  %168 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %168, i32 noundef -20, i32 noundef 940, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+177:                                              ; preds = %172
+  %178 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %178, i32 noundef -20, i32 noundef 940, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-169:                                              ; preds = %162
-  %170 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %165, double noundef 1.420000e+00) #6
-  %171 = load ptr, ptr %14, align 8
-  %172 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %171, double noundef 5.400000e-01, double noundef -3.600000e-01, double noundef 1.400000e-01) #6
-  %173 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEEE147AE147AE1, double 2.870000e+01>, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 4.600000e-01, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %177, align 8
-  %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 232
-  store double 2.200000e-01, ptr %179, align 8
+179:                                              ; preds = %172
+  %180 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %175, double noundef 1.420000e+00) #6
+  %181 = load ptr, ptr %14, align 8
+  %182 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %181, double noundef 5.400000e-01, double noundef -3.600000e-01, double noundef 1.400000e-01) #6
+  %183 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEEE147AE147AE1, ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.870000e+01, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 4.600000e-01, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %186, align 8
+  %187 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %188, align 8
+  %189 = load ptr, ptr %3, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 232
+  store double 2.200000e-01, ptr %190, align 8
   br label %.sink.split
 
-180:                                              ; preds = %.thread111
-  %181 = load ptr, ptr %2, align 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = call ptr @SUNAdaptController_PID(ptr noundef %182) #6
-  store ptr %183, ptr %14, align 8
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %185, label %187
+191:                                              ; preds = %.thread111
+  %192 = load ptr, ptr %2, align 8
+  %193 = load ptr, ptr %192, align 8
+  %194 = call ptr @SUNAdaptController_PID(ptr noundef %193) #6
+  store ptr %194, ptr %14, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %196, label %198
 
-185:                                              ; preds = %180
-  %186 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %186, i32 noundef -20, i32 noundef 965, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
-  br label %234
+196:                                              ; preds = %191
+  %197 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %197, i32 noundef -20, i32 noundef 965, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
+  br label %247
 
-187:                                              ; preds = %180
-  %188 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %183, double noundef 1.350000e+00) #6
-  %189 = load ptr, ptr %14, align 8
-  %190 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %189, double noundef 5.430000e-01, double noundef -2.970000e-01, double noundef 1.400000e-01) #6
-  %191 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEF0A3D70A3D70A, double 2.500000e+01>, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 4.700000e-01, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %195, align 8
-  %196 = load ptr, ptr %3, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 232
-  store double 2.400000e-01, ptr %197, align 8
+198:                                              ; preds = %191
+  %199 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %194, double noundef 1.350000e+00) #6
+  %200 = load ptr, ptr %14, align 8
+  %201 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %200, double noundef 5.430000e-01, double noundef -2.970000e-01, double noundef 1.400000e-01) #6
+  %202 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEF0A3D70A3D70A, ptr %202, align 8
+  %203 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.500000e+01, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 4.700000e-01, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %207, align 8
+  %208 = load ptr, ptr %3, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 232
+  store double 2.400000e-01, ptr %209, align 8
   br label %.sink.split
 
-198:                                              ; preds = %.thread111
-  %199 = load ptr, ptr %2, align 8
-  %200 = load ptr, ptr %199, align 8
-  %201 = call ptr @SUNAdaptController_PI(ptr noundef %200) #6
-  store ptr %201, ptr %14, align 8
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %205
+210:                                              ; preds = %.thread111
+  %211 = load ptr, ptr %2, align 8
+  %212 = load ptr, ptr %211, align 8
+  %213 = call ptr @SUNAdaptController_PI(ptr noundef %212) #6
+  store ptr %213, ptr %14, align 8
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %217
 
-203:                                              ; preds = %198
-  %204 = load ptr, ptr %2, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %204, i32 noundef -20, i32 noundef 991, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
-  br label %234
+215:                                              ; preds = %210
+  %216 = load ptr, ptr %2, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %216, i32 noundef -20, i32 noundef 991, ptr noundef nonnull @__func__.ARKStepSetOptimalParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
+  br label %247
 
-205:                                              ; preds = %198
-  %206 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %201, double noundef 1.150000e+00) #6
-  %207 = load ptr, ptr %14, align 8
-  %208 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef %207, double noundef 8.000000e-01, double noundef -3.500000e-01) #6
-  %209 = getelementptr inbounds i8, ptr %10, i64 56
-  store <2 x double> <double 0x3FEFC6A7EF9DB22D, double 2.850000e+01>, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %10, i64 16
-  store double 3.000000e-01, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 2, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %10, i64 40
-  store double 2.500000e-01, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 0, ptr %213, align 8
-  %214 = load ptr, ptr %3, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 232
-  store double 2.500000e-01, ptr %215, align 8
+217:                                              ; preds = %210
+  %218 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %213, double noundef 1.150000e+00) #6
+  %219 = load ptr, ptr %14, align 8
+  %220 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef %219, double noundef 8.000000e-01, double noundef -3.500000e-01) #6
+  %221 = getelementptr inbounds i8, ptr %10, i64 56
+  store double 0x3FEFC6A7EF9DB22D, ptr %221, align 8
+  %222 = getelementptr inbounds i8, ptr %10, i64 64
+  store double 2.850000e+01, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 3.000000e-01, ptr %223, align 8
+  %224 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 2, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %10, i64 40
+  store double 2.500000e-01, ptr %225, align 8
+  %226 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 0, ptr %226, align 8
+  %227 = load ptr, ptr %3, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 232
+  store double 2.500000e-01, ptr %228, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %153, %169, %187, %205
-  %.sink121 = phi ptr [ %214, %205 ], [ %196, %187 ], [ %178, %169 ], [ %159, %153 ]
-  %.sink119 = phi double [ 4.000000e-01, %205 ], [ 2.600000e-01, %187 ], [ 1.700000e-01, %169 ], [ 3.000000e-01, %153 ]
-  %.sink114 = phi double [ 3.200000e-01, %205 ], [ 1.600000e-01, %187 ], [ 1.900000e-01, %169 ], [ 2.000000e-01, %153 ]
-  %.sink = phi i32 [ 31, %205 ], [ 31, %187 ], [ 60, %169 ], [ 20, %153 ]
-  %216 = getelementptr inbounds i8, ptr %.sink121, i64 192
-  store double %.sink119, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %.sink121, i64 200
-  store double 2.300000e+00, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %.sink121, i64 176
-  store double %.sink114, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %.sink121, i64 240
-  store i32 %.sink, ptr %219, align 8
-  br label %220
+.sink.split:                                      ; preds = %162, %179, %198, %217
+  %.sink121 = phi ptr [ %227, %217 ], [ %208, %198 ], [ %189, %179 ], [ %169, %162 ]
+  %.sink119 = phi double [ 4.000000e-01, %217 ], [ 2.600000e-01, %198 ], [ 1.700000e-01, %179 ], [ 3.000000e-01, %162 ]
+  %.sink114 = phi double [ 3.200000e-01, %217 ], [ 1.600000e-01, %198 ], [ 1.900000e-01, %179 ], [ 2.000000e-01, %162 ]
+  %.sink = phi i32 [ 31, %217 ], [ 31, %198 ], [ 60, %179 ], [ 20, %162 ]
+  %229 = getelementptr inbounds i8, ptr %.sink121, i64 192
+  store double %.sink119, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %.sink121, i64 200
+  store double 2.300000e+00, ptr %230, align 8
+  %231 = getelementptr inbounds i8, ptr %.sink121, i64 176
+  store double %.sink114, ptr %231, align 8
+  %232 = getelementptr inbounds i8, ptr %.sink121, i64 240
+  store i32 %.sink, ptr %232, align 8
+  br label %233
 
-220:                                              ; preds = %.sink.split, %.thread111
+233:                                              ; preds = %.sink.split, %.thread111
   store i32 1, ptr %29, align 8
-  %221 = load ptr, ptr %14, align 8
-  %222 = call i32 @SUNAdaptController_Space(ptr noundef %221, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %224, label %234
+  %234 = load ptr, ptr %14, align 8
+  %235 = call i32 @SUNAdaptController_Space(ptr noundef %234, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %237, label %247
 
-224:                                              ; preds = %220
-  %225 = load i64, ptr %5, align 8
-  %226 = load ptr, ptr %2, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 552
-  %228 = load i64, ptr %227, align 8
-  %229 = add nsw i64 %228, %225
-  store i64 %229, ptr %227, align 8
-  %230 = load i64, ptr %4, align 8
-  %231 = getelementptr inbounds i8, ptr %226, i64 544
-  %232 = load i64, ptr %231, align 8
-  %233 = add nsw i64 %232, %230
-  store i64 %233, ptr %231, align 8
-  br label %234
+237:                                              ; preds = %233
+  %238 = load i64, ptr %5, align 8
+  %239 = load ptr, ptr %2, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 552
+  %241 = load i64, ptr %240, align 8
+  %242 = add nsw i64 %241, %238
+  store i64 %242, ptr %240, align 8
+  %243 = load i64, ptr %4, align 8
+  %244 = getelementptr inbounds i8, ptr %239, i64 544
+  %245 = load i64, ptr %244, align 8
+  %246 = add nsw i64 %245, %243
+  store i64 %246, ptr %244, align 8
+  br label %247
 
-234:                                              ; preds = %53, %220, %224, %61, %71, %90, %109, %130, %1, %203, %185, %167, %151, %128, %107, %88, %69, %51, %38, %12
-  %.0 = phi i32 [ -21, %12 ], [ -20, %38 ], [ -20, %203 ], [ -20, %185 ], [ -20, %167 ], [ -20, %151 ], [ -20, %128 ], [ -20, %107 ], [ -20, %88 ], [ -20, %69 ], [ -20, %51 ], [ %6, %1 ], [ 0, %130 ], [ 0, %109 ], [ 0, %90 ], [ 0, %71 ], [ 0, %61 ], [ 0, %224 ], [ 0, %220 ], [ 0, %53 ]
+247:                                              ; preds = %53, %233, %237, %62, %72, %93, %114, %137, %1, %215, %196, %177, %160, %135, %112, %91, %70, %51, %38, %12
+  %.0 = phi i32 [ -21, %12 ], [ -20, %38 ], [ -20, %215 ], [ -20, %196 ], [ -20, %177 ], [ -20, %160 ], [ -20, %135 ], [ -20, %112 ], [ -20, %91 ], [ -20, %70 ], [ -20, %51 ], [ %6, %1 ], [ 0, %137 ], [ 0, %114 ], [ 0, %93 ], [ 0, %72 ], [ 0, %62 ], [ 0, %237 ], [ 0, %233 ], [ 0, %53 ]
   ret i32 %.0
 }
 

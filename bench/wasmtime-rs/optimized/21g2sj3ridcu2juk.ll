@@ -225,579 +225,579 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators13Visit
   %6 = load i16, ptr %1, align 8, !range !4, !noundef !5
   switch i16 %6, label %default.unreachable41 [
     i16 0, label %7
-    i16 1, label %1501
+    i16 1, label %1508
     i16 2, label %10
     i16 3, label %13
     i16 4, label %16
     i16 5, label %19
     i16 6, label %21
-    i16 7, label %33
-    i16 8, label %37
-    i16 9, label %39
-    i16 10, label %42
-    i16 11, label %45
-    i16 12, label %48
-    i16 13, label %51
-    i16 14, label %54
-    i16 15, label %56
-    i16 16, label %60
-    i16 17, label %64
-    i16 18, label %77
-    i16 19, label %79
-    i16 20, label %83
-    i16 21, label %91
-    i16 22, label %95
-    i16 23, label %101
-    i16 24, label %103
-    i16 25, label %105
-    i16 26, label %108
-    i16 27, label %113
-    i16 28, label %117
-    i16 29, label %121
-    i16 30, label %125
-    i16 31, label %129
-    i16 32, label %132
-    i16 33, label %135
-    i16 34, label %138
-    i16 35, label %141
-    i16 36, label %144
-    i16 37, label %147
-    i16 38, label %150
-    i16 39, label %153
-    i16 40, label %156
-    i16 41, label %159
-    i16 42, label %162
-    i16 43, label %165
-    i16 44, label %168
-    i16 45, label %171
-    i16 46, label %174
-    i16 47, label %177
-    i16 48, label %180
-    i16 49, label %183
-    i16 50, label %186
-    i16 51, label %189
-    i16 52, label %192
-    i16 53, label %195
-    i16 54, label %198
-    i16 55, label %204
-    i16 56, label %210
-    i16 57, label %211
-    i16 58, label %212
-    i16 59, label %215
-    i16 60, label %218
-    i16 61, label %221
-    i16 62, label %223
-    i16 63, label %227
-    i16 64, label %229
-    i16 65, label %231
-    i16 66, label %233
-    i16 67, label %235
-    i16 68, label %237
-    i16 69, label %239
-    i16 70, label %241
-    i16 71, label %243
-    i16 72, label %245
-    i16 73, label %247
-    i16 74, label %249
-    i16 75, label %251
-    i16 76, label %253
-    i16 77, label %255
-    i16 78, label %257
-    i16 79, label %259
-    i16 80, label %261
-    i16 81, label %263
-    i16 82, label %265
-    i16 83, label %267
-    i16 84, label %269
-    i16 85, label %271
-    i16 86, label %273
-    i16 87, label %275
-    i16 88, label %277
-    i16 89, label %279
-    i16 90, label %281
-    i16 91, label %283
-    i16 92, label %285
-    i16 93, label %287
-    i16 94, label %289
-    i16 95, label %291
-    i16 96, label %293
-    i16 97, label %295
-    i16 98, label %297
-    i16 99, label %299
-    i16 100, label %301
-    i16 101, label %303
-    i16 102, label %305
-    i16 103, label %307
-    i16 104, label %309
-    i16 105, label %311
-    i16 106, label %313
-    i16 107, label %315
-    i16 108, label %317
-    i16 109, label %319
-    i16 110, label %321
-    i16 111, label %323
-    i16 112, label %325
-    i16 113, label %327
-    i16 114, label %329
-    i16 115, label %331
-    i16 116, label %333
-    i16 117, label %335
-    i16 118, label %337
-    i16 119, label %339
-    i16 120, label %341
-    i16 121, label %343
-    i16 122, label %345
-    i16 123, label %347
-    i16 124, label %349
-    i16 125, label %351
-    i16 126, label %353
-    i16 127, label %355
-    i16 128, label %357
-    i16 129, label %359
-    i16 130, label %361
-    i16 131, label %363
-    i16 132, label %365
-    i16 133, label %367
-    i16 134, label %369
-    i16 135, label %371
-    i16 136, label %373
-    i16 137, label %375
-    i16 138, label %377
-    i16 139, label %379
-    i16 140, label %381
-    i16 141, label %383
-    i16 142, label %385
-    i16 143, label %387
-    i16 144, label %389
-    i16 145, label %391
-    i16 146, label %393
-    i16 147, label %395
-    i16 148, label %397
-    i16 149, label %399
-    i16 150, label %401
-    i16 151, label %403
-    i16 152, label %405
-    i16 153, label %407
-    i16 154, label %409
-    i16 155, label %411
-    i16 156, label %413
-    i16 157, label %415
-    i16 158, label %417
-    i16 159, label %419
-    i16 160, label %421
-    i16 161, label %423
-    i16 162, label %425
-    i16 163, label %427
-    i16 164, label %429
-    i16 165, label %431
-    i16 166, label %433
-    i16 167, label %435
-    i16 168, label %437
-    i16 169, label %439
-    i16 170, label %441
-    i16 171, label %443
-    i16 172, label %445
-    i16 173, label %447
-    i16 174, label %449
-    i16 175, label %451
-    i16 176, label %453
-    i16 177, label %455
-    i16 178, label %457
-    i16 179, label %459
-    i16 180, label %461
-    i16 181, label %463
-    i16 182, label %465
-    i16 183, label %467
-    i16 184, label %469
-    i16 185, label %471
-    i16 186, label %473
-    i16 187, label %475
-    i16 188, label %477
-    i16 189, label %479
-    i16 190, label %481
-    i16 191, label %483
-    i16 192, label %485
-    i16 193, label %489
-    i16 194, label %493
-    i16 195, label %499
-    i16 196, label %505
-    i16 197, label %511
-    i16 198, label %517
-    i16 199, label %521
-    i16 200, label %525
-    i16 201, label %531
-    i16 202, label %537
-    i16 203, label %543
-    i16 204, label %547
-    i16 205, label %551
-    i16 206, label %555
-    i16 207, label %559
-    i16 208, label %561
-    i16 209, label %565
-    i16 210, label %571
-    i16 211, label %577
-    i16 212, label %583
-    i16 213, label %586
-    i16 214, label %589
-    i16 215, label %592
-    i16 216, label %595
-    i16 217, label %601
-    i16 218, label %607
-    i16 219, label %609
-    i16 220, label %611
-    i16 221, label %613
-    i16 222, label %615
-    i16 223, label %617
-    i16 224, label %619
-    i16 225, label %621
-    i16 226, label %623
-    i16 227, label %625
-    i16 228, label %627
-    i16 229, label %629
-    i16 230, label %631
-    i16 231, label %633
-    i16 232, label %639
-    i16 233, label %643
-    i16 234, label %649
-    i16 235, label %653
-    i16 236, label %659
-    i16 237, label %663
-    i16 238, label %669
-    i16 239, label %673
-    i16 240, label %677
-    i16 241, label %681
-    i16 242, label %685
-    i16 243, label %689
-    i16 244, label %693
-    i16 245, label %696
-    i16 246, label %699
-    i16 247, label %702
-    i16 248, label %705
-    i16 249, label %708
-    i16 250, label %711
-    i16 251, label %714
-    i16 252, label %717
-    i16 253, label %720
-    i16 254, label %723
-    i16 255, label %726
-    i16 256, label %729
-    i16 257, label %732
-    i16 258, label %735
-    i16 259, label %738
-    i16 260, label %741
-    i16 261, label %744
-    i16 262, label %747
-    i16 263, label %750
-    i16 264, label %753
-    i16 265, label %756
-    i16 266, label %759
-    i16 267, label %762
-    i16 268, label %765
-    i16 269, label %768
-    i16 270, label %771
-    i16 271, label %774
-    i16 272, label %777
-    i16 273, label %780
-    i16 274, label %783
-    i16 275, label %786
-    i16 276, label %789
-    i16 277, label %792
-    i16 278, label %795
-    i16 279, label %798
-    i16 280, label %801
-    i16 281, label %804
-    i16 282, label %807
-    i16 283, label %810
-    i16 284, label %813
-    i16 285, label %816
-    i16 286, label %819
-    i16 287, label %822
-    i16 288, label %825
-    i16 289, label %828
-    i16 290, label %831
-    i16 291, label %834
-    i16 292, label %837
-    i16 293, label %840
-    i16 294, label %843
-    i16 295, label %846
-    i16 296, label %849
-    i16 297, label %852
-    i16 298, label %855
-    i16 299, label %858
-    i16 300, label %861
-    i16 301, label %864
-    i16 302, label %867
-    i16 303, label %870
-    i16 304, label %873
-    i16 305, label %876
-    i16 306, label %879
-    i16 307, label %882
-    i16 308, label %885
-    i16 309, label %888
-    i16 310, label %891
-    i16 311, label %894
-    i16 312, label %898
-    i16 313, label %902
-    i16 314, label %905
-    i16 315, label %908
-    i16 316, label %911
-    i16 317, label %914
-    i16 318, label %917
-    i16 319, label %920
-    i16 320, label %923
-    i16 321, label %926
-    i16 322, label %929
-    i16 323, label %932
-    i16 324, label %935
-    i16 325, label %938
-    i16 326, label %941
-    i16 327, label %944
-    i16 328, label %949
-    i16 329, label %954
-    i16 330, label %959
-    i16 331, label %964
-    i16 332, label %969
-    i16 333, label %974
-    i16 334, label %979
-    i16 335, label %984
-    i16 336, label %987
-    i16 337, label %991
-    i16 338, label %995
-    i16 339, label %999
-    i16 340, label %1003
-    i16 341, label %1007
-    i16 342, label %1011
-    i16 343, label %1015
-    i16 344, label %1019
-    i16 345, label %1023
-    i16 346, label %1027
-    i16 347, label %1031
-    i16 348, label %1035
-    i16 349, label %1039
-    i16 350, label %1043
-    i16 351, label %1047
-    i16 352, label %1049
-    i16 353, label %1051
-    i16 354, label %1053
-    i16 355, label %1055
-    i16 356, label %1057
-    i16 357, label %1059
-    i16 358, label %1061
-    i16 359, label %1063
-    i16 360, label %1065
-    i16 361, label %1067
-    i16 362, label %1069
-    i16 363, label %1071
-    i16 364, label %1073
-    i16 365, label %1075
-    i16 366, label %1077
-    i16 367, label %1079
-    i16 368, label %1081
-    i16 369, label %1083
-    i16 370, label %1085
-    i16 371, label %1087
-    i16 372, label %1089
-    i16 373, label %1091
-    i16 374, label %1093
-    i16 375, label %1095
-    i16 376, label %1097
-    i16 377, label %1099
-    i16 378, label %1101
-    i16 379, label %1103
-    i16 380, label %1105
-    i16 381, label %1107
-    i16 382, label %1109
-    i16 383, label %1111
-    i16 384, label %1113
-    i16 385, label %1115
-    i16 386, label %1117
-    i16 387, label %1119
-    i16 388, label %1121
-    i16 389, label %1123
-    i16 390, label %1125
-    i16 391, label %1127
-    i16 392, label %1129
-    i16 393, label %1131
-    i16 394, label %1133
-    i16 395, label %1135
-    i16 396, label %1137
-    i16 397, label %1139
-    i16 398, label %1141
-    i16 399, label %1143
-    i16 400, label %1145
-    i16 401, label %1147
-    i16 402, label %1149
-    i16 403, label %1151
-    i16 404, label %1153
-    i16 405, label %1155
-    i16 406, label %1157
-    i16 407, label %1159
-    i16 408, label %1161
-    i16 409, label %1163
-    i16 410, label %1165
-    i16 411, label %1167
-    i16 412, label %1169
-    i16 413, label %1171
-    i16 414, label %1173
-    i16 415, label %1175
-    i16 416, label %1177
-    i16 417, label %1179
-    i16 418, label %1181
-    i16 419, label %1183
-    i16 420, label %1185
-    i16 421, label %1187
-    i16 422, label %1189
-    i16 423, label %1191
-    i16 424, label %1193
-    i16 425, label %1195
-    i16 426, label %1197
-    i16 427, label %1199
-    i16 428, label %1201
-    i16 429, label %1203
-    i16 430, label %1205
-    i16 431, label %1207
-    i16 432, label %1209
-    i16 433, label %1211
-    i16 434, label %1213
-    i16 435, label %1215
-    i16 436, label %1217
-    i16 437, label %1219
-    i16 438, label %1221
-    i16 439, label %1223
-    i16 440, label %1225
-    i16 441, label %1227
-    i16 442, label %1229
-    i16 443, label %1231
-    i16 444, label %1233
-    i16 445, label %1235
-    i16 446, label %1237
-    i16 447, label %1239
-    i16 448, label %1241
-    i16 449, label %1243
-    i16 450, label %1245
-    i16 451, label %1247
-    i16 452, label %1249
-    i16 453, label %1251
-    i16 454, label %1253
-    i16 455, label %1255
-    i16 456, label %1257
-    i16 457, label %1259
-    i16 458, label %1261
-    i16 459, label %1263
-    i16 460, label %1265
-    i16 461, label %1267
-    i16 462, label %1269
-    i16 463, label %1271
-    i16 464, label %1273
-    i16 465, label %1275
-    i16 466, label %1277
-    i16 467, label %1279
-    i16 468, label %1281
-    i16 469, label %1283
-    i16 470, label %1285
-    i16 471, label %1287
-    i16 472, label %1289
-    i16 473, label %1291
-    i16 474, label %1293
-    i16 475, label %1295
-    i16 476, label %1297
-    i16 477, label %1299
-    i16 478, label %1301
-    i16 479, label %1303
-    i16 480, label %1305
-    i16 481, label %1307
-    i16 482, label %1309
-    i16 483, label %1311
-    i16 484, label %1313
-    i16 485, label %1315
-    i16 486, label %1317
-    i16 487, label %1319
-    i16 488, label %1321
-    i16 489, label %1323
-    i16 490, label %1325
-    i16 491, label %1327
-    i16 492, label %1329
-    i16 493, label %1331
-    i16 494, label %1333
-    i16 495, label %1335
-    i16 496, label %1337
-    i16 497, label %1339
-    i16 498, label %1341
-    i16 499, label %1343
-    i16 500, label %1345
-    i16 501, label %1347
-    i16 502, label %1349
-    i16 503, label %1351
-    i16 504, label %1353
-    i16 505, label %1355
-    i16 506, label %1357
-    i16 507, label %1359
-    i16 508, label %1361
-    i16 509, label %1363
-    i16 510, label %1365
-    i16 511, label %1367
-    i16 512, label %1369
-    i16 513, label %1371
-    i16 514, label %1373
-    i16 515, label %1375
-    i16 516, label %1377
-    i16 517, label %1379
-    i16 518, label %1381
-    i16 519, label %1383
-    i16 520, label %1385
-    i16 521, label %1387
-    i16 522, label %1389
-    i16 523, label %1391
-    i16 524, label %1393
-    i16 525, label %1395
-    i16 526, label %1397
-    i16 527, label %1399
-    i16 528, label %1401
-    i16 529, label %1403
-    i16 530, label %1405
-    i16 531, label %1407
-    i16 532, label %1409
-    i16 533, label %1411
-    i16 534, label %1413
-    i16 535, label %1415
-    i16 536, label %1417
-    i16 537, label %1419
-    i16 538, label %1421
-    i16 539, label %1423
-    i16 540, label %1425
-    i16 541, label %1427
-    i16 542, label %1429
-    i16 543, label %1431
-    i16 544, label %1433
-    i16 545, label %1435
-    i16 546, label %1437
-    i16 547, label %1439
-    i16 548, label %1441
-    i16 549, label %1443
-    i16 550, label %1445
-    i16 551, label %1447
-    i16 552, label %1449
-    i16 553, label %1451
-    i16 554, label %1453
-    i16 555, label %1455
-    i16 556, label %1457
-    i16 557, label %1459
-    i16 558, label %1461
-    i16 559, label %1463
-    i16 560, label %1465
-    i16 561, label %1467
-    i16 562, label %1469
-    i16 563, label %1471
-    i16 564, label %1473
-    i16 565, label %1475
-    i16 566, label %1477
-    i16 567, label %1479
-    i16 568, label %1481
-    i16 569, label %1483
-    i16 570, label %1487
-    i16 571, label %1491
-    i16 572, label %1493
-    i16 573, label %1497
+    i16 7, label %35
+    i16 8, label %39
+    i16 9, label %41
+    i16 10, label %44
+    i16 11, label %47
+    i16 12, label %50
+    i16 13, label %53
+    i16 14, label %56
+    i16 15, label %58
+    i16 16, label %62
+    i16 17, label %66
+    i16 18, label %84
+    i16 19, label %86
+    i16 20, label %90
+    i16 21, label %98
+    i16 22, label %102
+    i16 23, label %108
+    i16 24, label %110
+    i16 25, label %112
+    i16 26, label %115
+    i16 27, label %120
+    i16 28, label %124
+    i16 29, label %128
+    i16 30, label %132
+    i16 31, label %136
+    i16 32, label %139
+    i16 33, label %142
+    i16 34, label %145
+    i16 35, label %148
+    i16 36, label %151
+    i16 37, label %154
+    i16 38, label %157
+    i16 39, label %160
+    i16 40, label %163
+    i16 41, label %166
+    i16 42, label %169
+    i16 43, label %172
+    i16 44, label %175
+    i16 45, label %178
+    i16 46, label %181
+    i16 47, label %184
+    i16 48, label %187
+    i16 49, label %190
+    i16 50, label %193
+    i16 51, label %196
+    i16 52, label %199
+    i16 53, label %202
+    i16 54, label %205
+    i16 55, label %211
+    i16 56, label %217
+    i16 57, label %218
+    i16 58, label %219
+    i16 59, label %222
+    i16 60, label %225
+    i16 61, label %228
+    i16 62, label %230
+    i16 63, label %234
+    i16 64, label %236
+    i16 65, label %238
+    i16 66, label %240
+    i16 67, label %242
+    i16 68, label %244
+    i16 69, label %246
+    i16 70, label %248
+    i16 71, label %250
+    i16 72, label %252
+    i16 73, label %254
+    i16 74, label %256
+    i16 75, label %258
+    i16 76, label %260
+    i16 77, label %262
+    i16 78, label %264
+    i16 79, label %266
+    i16 80, label %268
+    i16 81, label %270
+    i16 82, label %272
+    i16 83, label %274
+    i16 84, label %276
+    i16 85, label %278
+    i16 86, label %280
+    i16 87, label %282
+    i16 88, label %284
+    i16 89, label %286
+    i16 90, label %288
+    i16 91, label %290
+    i16 92, label %292
+    i16 93, label %294
+    i16 94, label %296
+    i16 95, label %298
+    i16 96, label %300
+    i16 97, label %302
+    i16 98, label %304
+    i16 99, label %306
+    i16 100, label %308
+    i16 101, label %310
+    i16 102, label %312
+    i16 103, label %314
+    i16 104, label %316
+    i16 105, label %318
+    i16 106, label %320
+    i16 107, label %322
+    i16 108, label %324
+    i16 109, label %326
+    i16 110, label %328
+    i16 111, label %330
+    i16 112, label %332
+    i16 113, label %334
+    i16 114, label %336
+    i16 115, label %338
+    i16 116, label %340
+    i16 117, label %342
+    i16 118, label %344
+    i16 119, label %346
+    i16 120, label %348
+    i16 121, label %350
+    i16 122, label %352
+    i16 123, label %354
+    i16 124, label %356
+    i16 125, label %358
+    i16 126, label %360
+    i16 127, label %362
+    i16 128, label %364
+    i16 129, label %366
+    i16 130, label %368
+    i16 131, label %370
+    i16 132, label %372
+    i16 133, label %374
+    i16 134, label %376
+    i16 135, label %378
+    i16 136, label %380
+    i16 137, label %382
+    i16 138, label %384
+    i16 139, label %386
+    i16 140, label %388
+    i16 141, label %390
+    i16 142, label %392
+    i16 143, label %394
+    i16 144, label %396
+    i16 145, label %398
+    i16 146, label %400
+    i16 147, label %402
+    i16 148, label %404
+    i16 149, label %406
+    i16 150, label %408
+    i16 151, label %410
+    i16 152, label %412
+    i16 153, label %414
+    i16 154, label %416
+    i16 155, label %418
+    i16 156, label %420
+    i16 157, label %422
+    i16 158, label %424
+    i16 159, label %426
+    i16 160, label %428
+    i16 161, label %430
+    i16 162, label %432
+    i16 163, label %434
+    i16 164, label %436
+    i16 165, label %438
+    i16 166, label %440
+    i16 167, label %442
+    i16 168, label %444
+    i16 169, label %446
+    i16 170, label %448
+    i16 171, label %450
+    i16 172, label %452
+    i16 173, label %454
+    i16 174, label %456
+    i16 175, label %458
+    i16 176, label %460
+    i16 177, label %462
+    i16 178, label %464
+    i16 179, label %466
+    i16 180, label %468
+    i16 181, label %470
+    i16 182, label %472
+    i16 183, label %474
+    i16 184, label %476
+    i16 185, label %478
+    i16 186, label %480
+    i16 187, label %482
+    i16 188, label %484
+    i16 189, label %486
+    i16 190, label %488
+    i16 191, label %490
+    i16 192, label %492
+    i16 193, label %496
+    i16 194, label %500
+    i16 195, label %506
+    i16 196, label %512
+    i16 197, label %518
+    i16 198, label %524
+    i16 199, label %528
+    i16 200, label %532
+    i16 201, label %538
+    i16 202, label %544
+    i16 203, label %550
+    i16 204, label %554
+    i16 205, label %558
+    i16 206, label %562
+    i16 207, label %566
+    i16 208, label %568
+    i16 209, label %572
+    i16 210, label %578
+    i16 211, label %584
+    i16 212, label %590
+    i16 213, label %593
+    i16 214, label %596
+    i16 215, label %599
+    i16 216, label %602
+    i16 217, label %608
+    i16 218, label %614
+    i16 219, label %616
+    i16 220, label %618
+    i16 221, label %620
+    i16 222, label %622
+    i16 223, label %624
+    i16 224, label %626
+    i16 225, label %628
+    i16 226, label %630
+    i16 227, label %632
+    i16 228, label %634
+    i16 229, label %636
+    i16 230, label %638
+    i16 231, label %640
+    i16 232, label %646
+    i16 233, label %650
+    i16 234, label %656
+    i16 235, label %660
+    i16 236, label %666
+    i16 237, label %670
+    i16 238, label %676
+    i16 239, label %680
+    i16 240, label %684
+    i16 241, label %688
+    i16 242, label %692
+    i16 243, label %696
+    i16 244, label %700
+    i16 245, label %703
+    i16 246, label %706
+    i16 247, label %709
+    i16 248, label %712
+    i16 249, label %715
+    i16 250, label %718
+    i16 251, label %721
+    i16 252, label %724
+    i16 253, label %727
+    i16 254, label %730
+    i16 255, label %733
+    i16 256, label %736
+    i16 257, label %739
+    i16 258, label %742
+    i16 259, label %745
+    i16 260, label %748
+    i16 261, label %751
+    i16 262, label %754
+    i16 263, label %757
+    i16 264, label %760
+    i16 265, label %763
+    i16 266, label %766
+    i16 267, label %769
+    i16 268, label %772
+    i16 269, label %775
+    i16 270, label %778
+    i16 271, label %781
+    i16 272, label %784
+    i16 273, label %787
+    i16 274, label %790
+    i16 275, label %793
+    i16 276, label %796
+    i16 277, label %799
+    i16 278, label %802
+    i16 279, label %805
+    i16 280, label %808
+    i16 281, label %811
+    i16 282, label %814
+    i16 283, label %817
+    i16 284, label %820
+    i16 285, label %823
+    i16 286, label %826
+    i16 287, label %829
+    i16 288, label %832
+    i16 289, label %835
+    i16 290, label %838
+    i16 291, label %841
+    i16 292, label %844
+    i16 293, label %847
+    i16 294, label %850
+    i16 295, label %853
+    i16 296, label %856
+    i16 297, label %859
+    i16 298, label %862
+    i16 299, label %865
+    i16 300, label %868
+    i16 301, label %871
+    i16 302, label %874
+    i16 303, label %877
+    i16 304, label %880
+    i16 305, label %883
+    i16 306, label %886
+    i16 307, label %889
+    i16 308, label %892
+    i16 309, label %895
+    i16 310, label %898
+    i16 311, label %901
+    i16 312, label %905
+    i16 313, label %909
+    i16 314, label %912
+    i16 315, label %915
+    i16 316, label %918
+    i16 317, label %921
+    i16 318, label %924
+    i16 319, label %927
+    i16 320, label %930
+    i16 321, label %933
+    i16 322, label %936
+    i16 323, label %939
+    i16 324, label %942
+    i16 325, label %945
+    i16 326, label %948
+    i16 327, label %951
+    i16 328, label %956
+    i16 329, label %961
+    i16 330, label %966
+    i16 331, label %971
+    i16 332, label %976
+    i16 333, label %981
+    i16 334, label %986
+    i16 335, label %991
+    i16 336, label %994
+    i16 337, label %998
+    i16 338, label %1002
+    i16 339, label %1006
+    i16 340, label %1010
+    i16 341, label %1014
+    i16 342, label %1018
+    i16 343, label %1022
+    i16 344, label %1026
+    i16 345, label %1030
+    i16 346, label %1034
+    i16 347, label %1038
+    i16 348, label %1042
+    i16 349, label %1046
+    i16 350, label %1050
+    i16 351, label %1054
+    i16 352, label %1056
+    i16 353, label %1058
+    i16 354, label %1060
+    i16 355, label %1062
+    i16 356, label %1064
+    i16 357, label %1066
+    i16 358, label %1068
+    i16 359, label %1070
+    i16 360, label %1072
+    i16 361, label %1074
+    i16 362, label %1076
+    i16 363, label %1078
+    i16 364, label %1080
+    i16 365, label %1082
+    i16 366, label %1084
+    i16 367, label %1086
+    i16 368, label %1088
+    i16 369, label %1090
+    i16 370, label %1092
+    i16 371, label %1094
+    i16 372, label %1096
+    i16 373, label %1098
+    i16 374, label %1100
+    i16 375, label %1102
+    i16 376, label %1104
+    i16 377, label %1106
+    i16 378, label %1108
+    i16 379, label %1110
+    i16 380, label %1112
+    i16 381, label %1114
+    i16 382, label %1116
+    i16 383, label %1118
+    i16 384, label %1120
+    i16 385, label %1122
+    i16 386, label %1124
+    i16 387, label %1126
+    i16 388, label %1128
+    i16 389, label %1130
+    i16 390, label %1132
+    i16 391, label %1134
+    i16 392, label %1136
+    i16 393, label %1138
+    i16 394, label %1140
+    i16 395, label %1142
+    i16 396, label %1144
+    i16 397, label %1146
+    i16 398, label %1148
+    i16 399, label %1150
+    i16 400, label %1152
+    i16 401, label %1154
+    i16 402, label %1156
+    i16 403, label %1158
+    i16 404, label %1160
+    i16 405, label %1162
+    i16 406, label %1164
+    i16 407, label %1166
+    i16 408, label %1168
+    i16 409, label %1170
+    i16 410, label %1172
+    i16 411, label %1174
+    i16 412, label %1176
+    i16 413, label %1178
+    i16 414, label %1180
+    i16 415, label %1182
+    i16 416, label %1184
+    i16 417, label %1186
+    i16 418, label %1188
+    i16 419, label %1190
+    i16 420, label %1192
+    i16 421, label %1194
+    i16 422, label %1196
+    i16 423, label %1198
+    i16 424, label %1200
+    i16 425, label %1202
+    i16 426, label %1204
+    i16 427, label %1206
+    i16 428, label %1208
+    i16 429, label %1210
+    i16 430, label %1212
+    i16 431, label %1214
+    i16 432, label %1216
+    i16 433, label %1218
+    i16 434, label %1220
+    i16 435, label %1222
+    i16 436, label %1224
+    i16 437, label %1226
+    i16 438, label %1228
+    i16 439, label %1230
+    i16 440, label %1232
+    i16 441, label %1234
+    i16 442, label %1236
+    i16 443, label %1238
+    i16 444, label %1240
+    i16 445, label %1242
+    i16 446, label %1244
+    i16 447, label %1246
+    i16 448, label %1248
+    i16 449, label %1250
+    i16 450, label %1252
+    i16 451, label %1254
+    i16 452, label %1256
+    i16 453, label %1258
+    i16 454, label %1260
+    i16 455, label %1262
+    i16 456, label %1264
+    i16 457, label %1266
+    i16 458, label %1268
+    i16 459, label %1270
+    i16 460, label %1272
+    i16 461, label %1274
+    i16 462, label %1276
+    i16 463, label %1278
+    i16 464, label %1280
+    i16 465, label %1282
+    i16 466, label %1284
+    i16 467, label %1286
+    i16 468, label %1288
+    i16 469, label %1290
+    i16 470, label %1292
+    i16 471, label %1294
+    i16 472, label %1296
+    i16 473, label %1298
+    i16 474, label %1300
+    i16 475, label %1302
+    i16 476, label %1304
+    i16 477, label %1306
+    i16 478, label %1308
+    i16 479, label %1310
+    i16 480, label %1312
+    i16 481, label %1314
+    i16 482, label %1316
+    i16 483, label %1318
+    i16 484, label %1320
+    i16 485, label %1322
+    i16 486, label %1324
+    i16 487, label %1326
+    i16 488, label %1328
+    i16 489, label %1330
+    i16 490, label %1332
+    i16 491, label %1334
+    i16 492, label %1336
+    i16 493, label %1338
+    i16 494, label %1340
+    i16 495, label %1342
+    i16 496, label %1344
+    i16 497, label %1346
+    i16 498, label %1348
+    i16 499, label %1350
+    i16 500, label %1352
+    i16 501, label %1354
+    i16 502, label %1356
+    i16 503, label %1358
+    i16 504, label %1360
+    i16 505, label %1362
+    i16 506, label %1364
+    i16 507, label %1366
+    i16 508, label %1368
+    i16 509, label %1370
+    i16 510, label %1372
+    i16 511, label %1374
+    i16 512, label %1376
+    i16 513, label %1378
+    i16 514, label %1380
+    i16 515, label %1382
+    i16 516, label %1384
+    i16 517, label %1386
+    i16 518, label %1388
+    i16 519, label %1390
+    i16 520, label %1392
+    i16 521, label %1394
+    i16 522, label %1396
+    i16 523, label %1398
+    i16 524, label %1400
+    i16 525, label %1402
+    i16 526, label %1404
+    i16 527, label %1406
+    i16 528, label %1408
+    i16 529, label %1410
+    i16 530, label %1412
+    i16 531, label %1414
+    i16 532, label %1416
+    i16 533, label %1418
+    i16 534, label %1420
+    i16 535, label %1422
+    i16 536, label %1424
+    i16 537, label %1426
+    i16 538, label %1428
+    i16 539, label %1430
+    i16 540, label %1432
+    i16 541, label %1434
+    i16 542, label %1436
+    i16 543, label %1438
+    i16 544, label %1440
+    i16 545, label %1442
+    i16 546, label %1444
+    i16 547, label %1446
+    i16 548, label %1448
+    i16 549, label %1450
+    i16 550, label %1452
+    i16 551, label %1454
+    i16 552, label %1456
+    i16 553, label %1458
+    i16 554, label %1460
+    i16 555, label %1462
+    i16 556, label %1464
+    i16 557, label %1466
+    i16 558, label %1468
+    i16 559, label %1470
+    i16 560, label %1472
+    i16 561, label %1474
+    i16 562, label %1476
+    i16 563, label %1478
+    i16 564, label %1480
+    i16 565, label %1482
+    i16 566, label %1484
+    i16 567, label %1486
+    i16 568, label %1488
+    i16 569, label %1490
+    i16 570, label %1494
+    i16 571, label %1498
+    i16 572, label %1500
+    i16 573, label %1504
   ]
 
 default.unreachable41:                            ; preds = %2
@@ -808,2705 +808,2716 @@ default.unreachable41:                            ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %.val15 = load i64, ptr %8, align 8
   %9 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_unreachable17heb476e617db14269E"(ptr nonnull %.val, i64 %.val15)
-  br label %1501
+  br label %1508
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.0.0.copyload = load i64, ptr %11, align 4
   %12 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_block17h5204c7394a68dc84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.copyload)
-  br label %1501
+  br label %1508
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.01.0.copyload = load i64, ptr %14, align 4
   %15 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_loop17h850b22368bda75e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.01.0.copyload)
-  br label %1501
+  br label %1508
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.02.0.copyload = load i64, ptr %17, align 4
   %18 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$8visit_if17h95802d75c40a4234E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.02.0.copyload)
-  br label %1501
+  br label %1508
 
 19:                                               ; preds = %2
   %20 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_else17he1859bef1c27c968E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
+  br label %1508
 
 21:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = load i64, ptr %22, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !noundef !5
+  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !noundef !5
+  %27 = load i64, ptr %24, align 8, !alias.scope !7, !noalias !10, !noundef !5
+  %28 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb9d192dcc789fc2aE"(i64 noundef %27, i1 noundef zeroext false), !noalias !12
+  %29 = extractvalue { i64, ptr } %28, 0
+  %30 = extractvalue { i64, ptr } %28, 1
+  %31 = icmp ne ptr %30, null
+  tail call void @llvm.assume(i1 %31)
+  %32 = mul i64 %27, 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull readonly align 4 %26, i64 %32, i1 false)
+  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %23, ptr %33, align 8
+  store i64 %29, ptr %5, align 8
   %.sroa.4.0..sroa_idx39 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %30, ptr %.sroa.4.0..sroa_idx39, align 8
   %.sroa.5.0..sroa_idx40 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = load <2 x i64>, ptr %22, align 8
-  %26 = load i64, ptr %22, align 8, !alias.scope !7, !noalias !10, !noundef !5
-  %27 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb9d192dcc789fc2aE"(i64 noundef %26, i1 noundef zeroext false), !noalias !12
-  %28 = extractvalue { i64, ptr } %27, 0
-  %29 = extractvalue { i64, ptr } %27, 1
-  %30 = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = mul i64 %26, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull readonly align 4 %24, i64 %31, i1 false)
-  store i64 %28, ptr %5, align 8
-  store ptr %29, ptr %.sroa.4.0..sroa_idx39, align 8
-  store <2 x i64> %25, ptr %.sroa.5.0..sroa_idx40, align 8
-  %32 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_try_table17h66b886028f0086a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5)
+  store i64 %27, ptr %.sroa.5.0..sroa_idx40, align 8
+  %34 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_try_table17h66b886028f0086a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %1501
+  br label %1508
 
-33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
-  %35 = load i32, ptr %34, align 4, !noundef !5
-  %36 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_throw17h9724aafa9d6039cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %35)
-  br label %1501
-
-37:                                               ; preds = %2
-  %38 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_throw_ref17ha93c37c39101a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = load i32, ptr %36, align 4, !noundef !5
+  %38 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_throw17h9724aafa9d6039cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %37)
+  br label %1508
 
 39:                                               ; preds = %2
+  %40 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_throw_ref17ha93c37c39101a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+41:                                               ; preds = %2
   %.val16 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val17 = load i64, ptr %40, align 8
-  %41 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_try17hb6588a23b236a496E"(ptr nonnull %.val16, i64 %.val17)
-  br label %1501
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val17 = load i64, ptr %42, align 8
+  %43 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_try17hb6588a23b236a496E"(ptr nonnull %.val16, i64 %.val17)
+  br label %1508
 
-42:                                               ; preds = %2
+44:                                               ; preds = %2
   %.val18 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val19 = load i64, ptr %43, align 8
-  %44 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_catch17hbf56826fec5efacbE"(ptr nonnull %.val18, i64 %.val19)
-  br label %1501
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val19 = load i64, ptr %45, align 8
+  %46 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_catch17hbf56826fec5efacbE"(ptr nonnull %.val18, i64 %.val19)
+  br label %1508
 
-45:                                               ; preds = %2
+47:                                               ; preds = %2
   %.val20 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val21 = load i64, ptr %46, align 8
-  %47 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_rethrow17h8de12ccb185a329bE"(ptr nonnull %.val20, i64 %.val21)
-  br label %1501
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val21 = load i64, ptr %48, align 8
+  %49 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_rethrow17h8de12ccb185a329bE"(ptr nonnull %.val20, i64 %.val21)
+  br label %1508
 
-48:                                               ; preds = %2
+50:                                               ; preds = %2
   %.val22 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val23 = load i64, ptr %49, align 8
-  %50 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_delegate17hcbf745cacd458a38E"(ptr nonnull %.val22, i64 %.val23)
-  br label %1501
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val23 = load i64, ptr %51, align 8
+  %52 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_delegate17hcbf745cacd458a38E"(ptr nonnull %.val22, i64 %.val23)
+  br label %1508
 
-51:                                               ; preds = %2
+53:                                               ; preds = %2
   %.val24 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val25 = load i64, ptr %52, align 8
-  %53 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_catch_all17h61e11b77128b20d3E"(ptr nonnull %.val24, i64 %.val25)
-  br label %1501
-
-54:                                               ; preds = %2
-  %55 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_end17h8af464b28e3a9f54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val25 = load i64, ptr %54, align 8
+  %55 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_catch_all17h61e11b77128b20d3E"(ptr nonnull %.val24, i64 %.val25)
+  br label %1508
 
 56:                                               ; preds = %2
-  %57 = getelementptr inbounds i8, ptr %1, i64 4
-  %58 = load i32, ptr %57, align 4, !noundef !5
-  %59 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$8visit_br17hce610fdb092d56f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %58)
-  br label %1501
+  %57 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$9visit_end17h8af464b28e3a9f54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
 
-60:                                               ; preds = %2
-  %61 = getelementptr inbounds i8, ptr %1, i64 4
-  %62 = load i32, ptr %61, align 4, !noundef !5
-  %63 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_br_if17h06ebfa56612e1d07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %62)
-  br label %1501
+58:                                               ; preds = %2
+  %59 = getelementptr inbounds i8, ptr %1, i64 4
+  %60 = load i32, ptr %59, align 4, !noundef !5
+  %61 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$8visit_br17hce610fdb092d56f3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %60)
+  br label %1508
 
-64:                                               ; preds = %2
+62:                                               ; preds = %2
+  %63 = getelementptr inbounds i8, ptr %1, i64 4
+  %64 = load i32, ptr %63, align 4, !noundef !5
+  %65 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$11visit_br_if17h06ebfa56612e1d07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %64)
+  br label %1508
+
+66:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  %66 = load ptr, ptr %65, align 8, !nonnull !5, !align !16, !noundef !5
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
-  %68 = getelementptr inbounds i8, ptr %1, i64 32
-  %69 = load i64, ptr %68, align 8, !noundef !5
-  %70 = getelementptr inbounds i8, ptr %1, i64 40
-  %71 = load i8, ptr %70, align 8, !range !17, !noundef !5
-  %72 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %66, ptr %4, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = load ptr, ptr %67, align 8, !nonnull !5, !align !16, !noundef !5
+  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = load i64, ptr %69, align 8, !noundef !5
+  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !5
+  %73 = getelementptr inbounds i8, ptr %1, i64 32
+  %74 = load i64, ptr %73, align 8, !noundef !5
+  %75 = getelementptr inbounds i8, ptr %1, i64 40
+  %76 = load i8, ptr %75, align 8, !range !17, !noundef !5
+  %77 = getelementptr inbounds i8, ptr %1, i64 48
+  %78 = load i32, ptr %77, align 8, !noundef !5
+  %79 = getelementptr inbounds i8, ptr %1, i64 52
+  %80 = load i32, ptr %79, align 4, !noundef !5
+  store ptr %68, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %73 = load <2 x i64>, ptr %67, align 8
-  store <2 x i64> %73, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %70, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %72, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %69, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %74, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %71, ptr %.sroa.7.0..sroa_idx, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 40
-  %75 = load <2 x i32>, ptr %72, align 8
-  store <2 x i32> %75, ptr %74, align 8
-  %76 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17had4db6d113e712fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  store i8 %76, ptr %.sroa.7.0..sroa_idx, align 8
+  %81 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %78, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 %80, ptr %82, align 4
+  %83 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17had4db6d113e712fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %1501
+  br label %1508
 
-77:                                               ; preds = %2
-  %78 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  br label %1501
+84:                                               ; preds = %2
+  %85 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_return17h01a2ab5ff8890c53E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  br label %1508
 
-79:                                               ; preds = %2
-  %80 = getelementptr inbounds i8, ptr %1, i64 4
-  %81 = load i32, ptr %80, align 4, !noundef !5
-  %82 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_call17h9f7d6a72782cd877E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %81)
-  br label %1501
+86:                                               ; preds = %2
+  %87 = getelementptr inbounds i8, ptr %1, i64 4
+  %88 = load i32, ptr %87, align 4, !noundef !5
+  %89 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_call17h9f7d6a72782cd877E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %88)
+  br label %1508
 
-83:                                               ; preds = %2
-  %84 = getelementptr inbounds i8, ptr %1, i64 4
-  %85 = load i32, ptr %84, align 4, !noundef !5
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %87 = load i32, ptr %86, align 8, !noundef !5
-  %88 = getelementptr inbounds i8, ptr %1, i64 2
-  %89 = load i8, ptr %88, align 2, !noundef !5
-  %90 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_call_indirect17h953dbad13dcfcbf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %85, i32 noundef %87, i8 noundef %89)
-  br label %1501
+90:                                               ; preds = %2
+  %91 = getelementptr inbounds i8, ptr %1, i64 4
+  %92 = load i32, ptr %91, align 4, !noundef !5
+  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = load i32, ptr %93, align 8, !noundef !5
+  %95 = getelementptr inbounds i8, ptr %1, i64 2
+  %96 = load i8, ptr %95, align 2, !noundef !5
+  %97 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_call_indirect17h953dbad13dcfcbf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %92, i32 noundef %94, i8 noundef %96)
+  br label %1508
 
-91:                                               ; preds = %2
-  %92 = getelementptr inbounds i8, ptr %1, i64 4
-  %93 = load i32, ptr %92, align 4, !noundef !5
-  %94 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h02b02366a94a1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %93)
-  br label %1501
+98:                                               ; preds = %2
+  %99 = getelementptr inbounds i8, ptr %1, i64 4
+  %100 = load i32, ptr %99, align 4, !noundef !5
+  %101 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_return_call17h02b02366a94a1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %100)
+  br label %1508
 
-95:                                               ; preds = %2
-  %96 = getelementptr inbounds i8, ptr %1, i64 4
-  %97 = load i32, ptr %96, align 4, !noundef !5
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
-  %99 = load i32, ptr %98, align 8, !noundef !5
-  %100 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_return_call_indirect17h572362194991d006E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %97, i32 noundef %99)
-  br label %1501
-
-101:                                              ; preds = %2
-  %102 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17hb90338607a091111E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-103:                                              ; preds = %2
-  %104 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_select17h36f2973c35cb86b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-105:                                              ; preds = %2
-  %106 = getelementptr inbounds i8, ptr %1, i64 2
-  %.sroa.04.0.copyload = load i32, ptr %106, align 2
-  %107 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_typed_select17ha5ec6ec2c419cee5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.04.0.copyload)
-  br label %1501
+102:                                              ; preds = %2
+  %103 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = load i32, ptr %103, align 4, !noundef !5
+  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = load i32, ptr %105, align 8, !noundef !5
+  %107 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_return_call_indirect17h572362194991d006E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %104, i32 noundef %106)
+  br label %1508
 
 108:                                              ; preds = %2
-  %109 = getelementptr inbounds i8, ptr %1, i64 4
-  %110 = load i32, ptr %109, align 4, !noundef !5
+  %109 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17hb90338607a091111E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+110:                                              ; preds = %2
+  %111 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_select17h36f2973c35cb86b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+112:                                              ; preds = %2
+  %113 = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.04.0.copyload = load i32, ptr %113, align 2
+  %114 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_typed_select17ha5ec6ec2c419cee5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 %.sroa.04.0.copyload)
+  br label %1508
+
+115:                                              ; preds = %2
+  %116 = getelementptr inbounds i8, ptr %1, i64 4
+  %117 = load i32, ptr %116, align 4, !noundef !5
   %.val26 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %111 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val27 = load i64, ptr %111, align 8
-  %112 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_get17h892ff1600aa2b3ccE"(ptr nonnull %.val26, i64 %.val27, i32 noundef %110)
-  br label %1501
+  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val27 = load i64, ptr %118, align 8
+  %119 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_get17h892ff1600aa2b3ccE"(ptr nonnull %.val26, i64 %.val27, i32 noundef %117)
+  br label %1508
 
-113:                                              ; preds = %2
-  %114 = getelementptr inbounds i8, ptr %1, i64 4
-  %115 = load i32, ptr %114, align 4, !noundef !5
-  %116 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_set17h282e0d2611ef2292E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %115)
-  br label %1501
+120:                                              ; preds = %2
+  %121 = getelementptr inbounds i8, ptr %1, i64 4
+  %122 = load i32, ptr %121, align 4, !noundef !5
+  %123 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_set17h282e0d2611ef2292E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %122)
+  br label %1508
 
-117:                                              ; preds = %2
-  %118 = getelementptr inbounds i8, ptr %1, i64 4
-  %119 = load i32, ptr %118, align 4, !noundef !5
-  %120 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_tee17h1046c367bac26c2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %119)
-  br label %1501
+124:                                              ; preds = %2
+  %125 = getelementptr inbounds i8, ptr %1, i64 4
+  %126 = load i32, ptr %125, align 4, !noundef !5
+  %127 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_local_tee17h1046c367bac26c2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %126)
+  br label %1508
 
-121:                                              ; preds = %2
-  %122 = getelementptr inbounds i8, ptr %1, i64 4
-  %123 = load i32, ptr %122, align 4, !noundef !5
-  %124 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_get17h35c34240213bfe73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %123)
-  br label %1501
-
-125:                                              ; preds = %2
-  %126 = getelementptr inbounds i8, ptr %1, i64 4
-  %127 = load i32, ptr %126, align 4, !noundef !5
-  %128 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %127)
-  br label %1501
-
-129:                                              ; preds = %2
-  %130 = getelementptr inbounds i8, ptr %1, i64 8
-  %131 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32_load17he712b67654735a27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %130)
-  br label %1501
+128:                                              ; preds = %2
+  %129 = getelementptr inbounds i8, ptr %1, i64 4
+  %130 = load i32, ptr %129, align 4, !noundef !5
+  %131 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_get17h35c34240213bfe73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %130)
+  br label %1508
 
 132:                                              ; preds = %2
-  %133 = getelementptr inbounds i8, ptr %1, i64 8
-  %134 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64_load17h784bc497e8bc936fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %133)
-  br label %1501
+  %133 = getelementptr inbounds i8, ptr %1, i64 4
+  %134 = load i32, ptr %133, align 4, !noundef !5
+  %135 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_global_set17h6e23be69e70e4764E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %134)
+  br label %1508
 
-135:                                              ; preds = %2
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
-  %137 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_load17hc8047332472a2ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %136)
-  br label %1501
+136:                                              ; preds = %2
+  %137 = getelementptr inbounds i8, ptr %1, i64 8
+  %138 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32_load17he712b67654735a27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %137)
+  br label %1508
 
-138:                                              ; preds = %2
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
-  %140 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_load17h0cf6f16e436ca920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %139)
-  br label %1501
+139:                                              ; preds = %2
+  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %141 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64_load17h784bc497e8bc936fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %140)
+  br label %1508
 
-141:                                              ; preds = %2
-  %142 = getelementptr inbounds i8, ptr %1, i64 8
-  %143 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %142)
-  br label %1501
+142:                                              ; preds = %2
+  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_load17hc8047332472a2ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %143)
+  br label %1508
 
-144:                                              ; preds = %2
-  %145 = getelementptr inbounds i8, ptr %1, i64 8
-  %146 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %145)
-  br label %1501
+145:                                              ; preds = %2
+  %146 = getelementptr inbounds i8, ptr %1, i64 8
+  %147 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_load17h0cf6f16e436ca920E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %146)
+  br label %1508
 
-147:                                              ; preds = %2
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
-  %149 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %148)
-  br label %1501
+148:                                              ; preds = %2
+  %149 = getelementptr inbounds i8, ptr %1, i64 8
+  %150 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %149)
+  br label %1508
 
-150:                                              ; preds = %2
-  %151 = getelementptr inbounds i8, ptr %1, i64 8
-  %152 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %151)
-  br label %1501
+151:                                              ; preds = %2
+  %152 = getelementptr inbounds i8, ptr %1, i64 8
+  %153 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_load8_s17h0e2de7b00d732d37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %152)
+  br label %1508
 
-153:                                              ; preds = %2
-  %154 = getelementptr inbounds i8, ptr %1, i64 8
-  %155 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %154)
-  br label %1501
+154:                                              ; preds = %2
+  %155 = getelementptr inbounds i8, ptr %1, i64 8
+  %156 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %155)
+  br label %1508
 
-156:                                              ; preds = %2
-  %157 = getelementptr inbounds i8, ptr %1, i64 8
-  %158 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %157)
-  br label %1501
+157:                                              ; preds = %2
+  %158 = getelementptr inbounds i8, ptr %1, i64 8
+  %159 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i32_load16_s17h1d9cf737d1483009E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %158)
+  br label %1508
 
-159:                                              ; preds = %2
-  %160 = getelementptr inbounds i8, ptr %1, i64 8
-  %161 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %160)
-  br label %1501
+160:                                              ; preds = %2
+  %161 = getelementptr inbounds i8, ptr %1, i64 8
+  %162 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %161)
+  br label %1508
 
-162:                                              ; preds = %2
-  %163 = getelementptr inbounds i8, ptr %1, i64 8
-  %164 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %163)
-  br label %1501
+163:                                              ; preds = %2
+  %164 = getelementptr inbounds i8, ptr %1, i64 8
+  %165 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_load8_s17hdc8f18975e9ca3f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %164)
+  br label %1508
 
-165:                                              ; preds = %2
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
-  %167 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %166)
-  br label %1501
+166:                                              ; preds = %2
+  %167 = getelementptr inbounds i8, ptr %1, i64 8
+  %168 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %167)
+  br label %1508
 
-168:                                              ; preds = %2
-  %169 = getelementptr inbounds i8, ptr %1, i64 8
-  %170 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %169)
-  br label %1501
+169:                                              ; preds = %2
+  %170 = getelementptr inbounds i8, ptr %1, i64 8
+  %171 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load16_s17h41fad699220f14a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %170)
+  br label %1508
 
-171:                                              ; preds = %2
-  %172 = getelementptr inbounds i8, ptr %1, i64 8
-  %173 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32_store17h84cc90ea531997d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %172)
-  br label %1501
+172:                                              ; preds = %2
+  %173 = getelementptr inbounds i8, ptr %1, i64 8
+  %174 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %173)
+  br label %1508
 
-174:                                              ; preds = %2
-  %175 = getelementptr inbounds i8, ptr %1, i64 8
-  %176 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64_store17h25f7f283fb0be750E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %175)
-  br label %1501
+175:                                              ; preds = %2
+  %176 = getelementptr inbounds i8, ptr %1, i64 8
+  %177 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i64_load32_s17h6b7e56c7f2330259E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %176)
+  br label %1508
 
-177:                                              ; preds = %2
-  %178 = getelementptr inbounds i8, ptr %1, i64 8
-  %179 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_store17hd53f165a59f1e87aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %178)
-  br label %1501
+178:                                              ; preds = %2
+  %179 = getelementptr inbounds i8, ptr %1, i64 8
+  %180 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32_store17h84cc90ea531997d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %179)
+  br label %1508
 
-180:                                              ; preds = %2
-  %181 = getelementptr inbounds i8, ptr %1, i64 8
-  %182 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_store17h565c4b8737e42933E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %181)
-  br label %1501
+181:                                              ; preds = %2
+  %182 = getelementptr inbounds i8, ptr %1, i64 8
+  %183 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64_store17h25f7f283fb0be750E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %182)
+  br label %1508
 
-183:                                              ; preds = %2
-  %184 = getelementptr inbounds i8, ptr %1, i64 8
-  %185 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32_store817h6537f1f580dd5286E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %184)
-  br label %1501
+184:                                              ; preds = %2
+  %185 = getelementptr inbounds i8, ptr %1, i64 8
+  %186 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_store17hd53f165a59f1e87aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %185)
+  br label %1508
 
-186:                                              ; preds = %2
-  %187 = getelementptr inbounds i8, ptr %1, i64 8
-  %188 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_store1617h999d3b12bb14a969E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %187)
-  br label %1501
+187:                                              ; preds = %2
+  %188 = getelementptr inbounds i8, ptr %1, i64 8
+  %189 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_store17h565c4b8737e42933E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %188)
+  br label %1508
 
-189:                                              ; preds = %2
-  %190 = getelementptr inbounds i8, ptr %1, i64 8
-  %191 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64_store817h1164726c7ab38da3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %190)
-  br label %1501
+190:                                              ; preds = %2
+  %191 = getelementptr inbounds i8, ptr %1, i64 8
+  %192 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32_store817h6537f1f580dd5286E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %191)
+  br label %1508
 
-192:                                              ; preds = %2
-  %193 = getelementptr inbounds i8, ptr %1, i64 8
-  %194 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_store1617h6884a5c9c82b628eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %193)
-  br label %1501
+193:                                              ; preds = %2
+  %194 = getelementptr inbounds i8, ptr %1, i64 8
+  %195 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32_store1617h999d3b12bb14a969E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %194)
+  br label %1508
 
-195:                                              ; preds = %2
-  %196 = getelementptr inbounds i8, ptr %1, i64 8
-  %197 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_store3217h4b8f8b8aa686d1c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %196)
-  br label %1501
+196:                                              ; preds = %2
+  %197 = getelementptr inbounds i8, ptr %1, i64 8
+  %198 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64_store817h1164726c7ab38da3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %197)
+  br label %1508
 
-198:                                              ; preds = %2
-  %199 = getelementptr inbounds i8, ptr %1, i64 4
-  %200 = load i32, ptr %199, align 4, !noundef !5
-  %201 = getelementptr inbounds i8, ptr %1, i64 2
-  %202 = load i8, ptr %201, align 2, !noundef !5
-  %203 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_size17h5099243e8a27af2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %200, i8 noundef %202)
-  br label %1501
+199:                                              ; preds = %2
+  %200 = getelementptr inbounds i8, ptr %1, i64 8
+  %201 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_store1617h6884a5c9c82b628eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %200)
+  br label %1508
 
-204:                                              ; preds = %2
-  %205 = getelementptr inbounds i8, ptr %1, i64 4
-  %206 = load i32, ptr %205, align 4, !noundef !5
-  %207 = getelementptr inbounds i8, ptr %1, i64 2
-  %208 = load i8, ptr %207, align 2, !noundef !5
-  %209 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_grow17he4d5625997827a65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %206, i8 noundef %208)
-  br label %1501
+202:                                              ; preds = %2
+  %203 = getelementptr inbounds i8, ptr %1, i64 8
+  %204 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64_store3217h4b8f8b8aa686d1c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %203)
+  br label %1508
 
-210:                                              ; preds = %2
-  %.val28 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  tail call fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32_const17h83543347ec2e73e2E"(ptr nonnull %.val28)
-  br label %1501
+205:                                              ; preds = %2
+  %206 = getelementptr inbounds i8, ptr %1, i64 4
+  %207 = load i32, ptr %206, align 4, !noundef !5
+  %208 = getelementptr inbounds i8, ptr %1, i64 2
+  %209 = load i8, ptr %208, align 2, !noundef !5
+  %210 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_size17h5099243e8a27af2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %207, i8 noundef %209)
+  br label %1508
 
 211:                                              ; preds = %2
-  %.val29 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  tail call fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64_const17h946ad42a92ee1c14E"(ptr nonnull %.val29)
-  br label %1501
+  %212 = getelementptr inbounds i8, ptr %1, i64 4
+  %213 = load i32, ptr %212, align 4, !noundef !5
+  %214 = getelementptr inbounds i8, ptr %1, i64 2
+  %215 = load i8, ptr %214, align 2, !noundef !5
+  %216 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_grow17he4d5625997827a65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %213, i8 noundef %215)
+  br label %1508
 
-212:                                              ; preds = %2
-  %.val30 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %213 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val31 = load i64, ptr %213, align 8
-  %214 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_const17h9c187329c43c638cE"(ptr nonnull %.val30, i64 %.val31)
-  br label %1501
-
-215:                                              ; preds = %2
-  %.val32 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %216 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val33 = load i64, ptr %216, align 8
-  %217 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_const17h2a03557f6e18a3b3E"(ptr nonnull %.val32, i64 %.val33)
-  br label %1501
+217:                                              ; preds = %2
+  %.val28 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  tail call fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32_const17h83543347ec2e73e2E"(ptr nonnull %.val28)
+  br label %1508
 
 218:                                              ; preds = %2
-  %219 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.05.0.copyload = load i64, ptr %219, align 4
-  %220 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_ref_null17h177aae8eeb2b7d10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.05.0.copyload)
-  br label %1501
-
-221:                                              ; preds = %2
-  %222 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_ref_is_null17h7f9ccac33471bd33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-223:                                              ; preds = %2
-  %224 = getelementptr inbounds i8, ptr %1, i64 4
-  %225 = load i32, ptr %224, align 4, !noundef !5
-  %226 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_ref_func17h6cbbe7101ee778afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %225)
-  br label %1501
-
-227:                                              ; preds = %2
-  %228 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_ref_eq17hb3af38b3582c2123E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-229:                                              ; preds = %2
-  %230 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_i32_eqz17h56915dc8bc05e4e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-231:                                              ; preds = %2
-  %232 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-233:                                              ; preds = %2
-  %234 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-235:                                              ; preds = %2
-  %236 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-237:                                              ; preds = %2
-  %238 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-239:                                              ; preds = %2
-  %240 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-241:                                              ; preds = %2
-  %242 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-243:                                              ; preds = %2
-  %244 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-245:                                              ; preds = %2
-  %246 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-247:                                              ; preds = %2
-  %248 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-249:                                              ; preds = %2
-  %250 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-251:                                              ; preds = %2
-  %252 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_i64_eqz17h47c153c2e787d6c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-253:                                              ; preds = %2
-  %254 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-255:                                              ; preds = %2
-  %256 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-257:                                              ; preds = %2
-  %258 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-259:                                              ; preds = %2
-  %260 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-261:                                              ; preds = %2
-  %262 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-263:                                              ; preds = %2
-  %264 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-265:                                              ; preds = %2
-  %266 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-267:                                              ; preds = %2
-  %268 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-269:                                              ; preds = %2
-  %270 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-271:                                              ; preds = %2
-  %272 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-273:                                              ; preds = %2
-  %274 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_eq17hb6f94b8afd43f439E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-275:                                              ; preds = %2
-  %276 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_ne17he8134932216eb4d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-277:                                              ; preds = %2
-  %278 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_lt17hab0edd185a23b249E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-279:                                              ; preds = %2
-  %280 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_gt17h18d3d334b9312d0dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-281:                                              ; preds = %2
-  %282 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_le17hd75b9d7d1c3a4df7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-283:                                              ; preds = %2
-  %284 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_ge17h367d7d68820a2f42E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-285:                                              ; preds = %2
-  %286 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_eq17ha02f7557876760fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-287:                                              ; preds = %2
-  %288 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_ne17haa2bfde23ef115c4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-289:                                              ; preds = %2
-  %290 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_lt17h6406f73addefeb87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-291:                                              ; preds = %2
-  %292 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_gt17haecfb97282934a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-293:                                              ; preds = %2
-  %294 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_le17h10a1a619d3c23707E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-295:                                              ; preds = %2
-  %296 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_ge17hb1f3c5882f6376ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-297:                                              ; preds = %2
-  %298 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-299:                                              ; preds = %2
-  %300 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-301:                                              ; preds = %2
-  %302 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-303:                                              ; preds = %2
-  %304 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-305:                                              ; preds = %2
-  %306 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-307:                                              ; preds = %2
-  %308 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-309:                                              ; preds = %2
-  %310 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-311:                                              ; preds = %2
-  %312 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-313:                                              ; preds = %2
-  %314 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-315:                                              ; preds = %2
-  %316 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-317:                                              ; preds = %2
-  %318 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-319:                                              ; preds = %2
-  %320 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-321:                                              ; preds = %2
-  %322 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-323:                                              ; preds = %2
-  %324 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-325:                                              ; preds = %2
-  %326 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-327:                                              ; preds = %2
-  %328 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-329:                                              ; preds = %2
-  %330 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-331:                                              ; preds = %2
-  %332 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
-  br label %1501
-
-333:                                              ; preds = %2
-  %334 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-335:                                              ; preds = %2
-  %336 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-337:                                              ; preds = %2
-  %338 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-339:                                              ; preds = %2
-  %340 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-341:                                              ; preds = %2
-  %342 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-343:                                              ; preds = %2
-  %344 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-345:                                              ; preds = %2
-  %346 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-347:                                              ; preds = %2
-  %348 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-349:                                              ; preds = %2
-  %350 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-351:                                              ; preds = %2
-  %352 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-353:                                              ; preds = %2
-  %354 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-355:                                              ; preds = %2
-  %356 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-357:                                              ; preds = %2
-  %358 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-359:                                              ; preds = %2
-  %360 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-361:                                              ; preds = %2
-  %362 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-363:                                              ; preds = %2
-  %364 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-365:                                              ; preds = %2
-  %366 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-367:                                              ; preds = %2
-  %368 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
-  br label %1501
-
-369:                                              ; preds = %2
-  %370 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_abs17h1ab0f5536e8f0136E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-371:                                              ; preds = %2
-  %372 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_neg17hd570b8f14b0bca17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-373:                                              ; preds = %2
-  %374 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_ceil17h631b1bfe533f1a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-375:                                              ; preds = %2
-  %376 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_floor17h4431291e02082c17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-377:                                              ; preds = %2
-  %378 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_trunc17h0f734f3642a0d51aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-379:                                              ; preds = %2
-  %380 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32_nearest17h264e71338b1e542bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-381:                                              ; preds = %2
-  %382 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_sqrt17hafd7bd647a490e90E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-383:                                              ; preds = %2
-  %384 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_add17h342706b81322fe82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-385:                                              ; preds = %2
-  %386 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_sub17h0fc595c940bcee09E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-387:                                              ; preds = %2
-  %388 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_mul17hfbda477597e0dbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-389:                                              ; preds = %2
-  %390 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_div17hc78d1e3698f9688cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-391:                                              ; preds = %2
-  %392 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_min17hda02bc8113723080E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-393:                                              ; preds = %2
-  %394 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_max17h2c474dc777a50c72E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-395:                                              ; preds = %2
-  %396 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_f32_copysign17hef473af26aa9cb19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-397:                                              ; preds = %2
-  %398 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_abs17h69abe105da5be0fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-399:                                              ; preds = %2
-  %400 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_neg17hb2a30916f29afec8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-401:                                              ; preds = %2
-  %402 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_ceil17hdcf659aca396c405E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-403:                                              ; preds = %2
-  %404 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_floor17h1a285e6faad92129E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-405:                                              ; preds = %2
-  %406 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_trunc17h7bd11e44a8173bf3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-407:                                              ; preds = %2
-  %408 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64_nearest17h823c5d3a5e31e242E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-409:                                              ; preds = %2
-  %410 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_sqrt17h8f1271d6b6913210E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-411:                                              ; preds = %2
-  %412 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_add17h4b1740208ab78dc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-413:                                              ; preds = %2
-  %414 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_sub17hd2e7c812f267728dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-415:                                              ; preds = %2
-  %416 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_mul17h344c90e95ef8f926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-417:                                              ; preds = %2
-  %418 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_div17ha8ad75695dd4c54cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-419:                                              ; preds = %2
-  %420 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_min17hadb05598a87c2110E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-421:                                              ; preds = %2
-  %422 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_max17heeaab4f2a310e9e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-423:                                              ; preds = %2
-  %424 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_f64_copysign17h00c90e1441ad30aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-425:                                              ; preds = %2
-  %426 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 1)
-  br label %1501
-
-427:                                              ; preds = %2
-  %428 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
-  br label %1501
-
-429:                                              ; preds = %2
-  %430 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
-  br label %1501
-
-431:                                              ; preds = %2
-  %432 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
-  br label %1501
-
-433:                                              ; preds = %2
-  %434 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
-  br label %1501
-
-435:                                              ; preds = %2
-  %436 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
-  br label %1501
-
-437:                                              ; preds = %2
-  %438 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
-  br label %1501
-
-439:                                              ; preds = %2
-  %440 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
-  br label %1501
-
-441:                                              ; preds = %2
-  %442 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
-  br label %1501
-
-443:                                              ; preds = %2
-  %444 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
-  br label %1501
-
-445:                                              ; preds = %2
-  %446 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
-  br label %1501
-
-447:                                              ; preds = %2
-  %448 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i32_s17h7703e323c34e805eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-449:                                              ; preds = %2
-  %450 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i32_u17hdd06c8ecc9ceaa38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-451:                                              ; preds = %2
-  %452 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i64_s17h4b0f6658e42cc994E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-453:                                              ; preds = %2
-  %454 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i64_u17h1ba8972c8dd1e2b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-455:                                              ; preds = %2
-  %456 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_f32_demote_f6417h574a187daed571e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-457:                                              ; preds = %2
-  %458 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i32_s17hdeff9a3ee56a15ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-459:                                              ; preds = %2
-  %460 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i32_u17haacad13dab19f900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-461:                                              ; preds = %2
-  %462 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i64_s17h0cb78da7ecea45beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-463:                                              ; preds = %2
-  %464 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i64_u17hce0b811d3e610426E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-465:                                              ; preds = %2
-  %466 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_f64_promote_f3217hfd0f3a9742af6502E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-467:                                              ; preds = %2
-  %468 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
-  br label %1501
-
-469:                                              ; preds = %2
-  %470 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
-  br label %1501
-
-471:                                              ; preds = %2
-  %472 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f32_reinterpret_i3217hf39bd443aca27e9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-473:                                              ; preds = %2
-  %474 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f64_reinterpret_i6417h43b8ab526f4c8e92E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-475:                                              ; preds = %2
-  %476 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i32_extend8_s17h3c5bebdcb514837eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-477:                                              ; preds = %2
-  %478 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i32_extend16_s17he21dcc5166d31024E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-479:                                              ; preds = %2
-  %480 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i64_extend8_s17hbca92968f09735fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-481:                                              ; preds = %2
-  %482 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64_extend16_s17h60b3390f07a50d8dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-483:                                              ; preds = %2
-  %484 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64_extend32_s17h2cac79a9481e5649E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-485:                                              ; preds = %2
-  %486 = getelementptr inbounds i8, ptr %1, i64 4
-  %487 = load i32, ptr %486, align 4, !noundef !5
-  %488 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_new17h67d6c1513195c2a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %487)
-  br label %1501
-
-489:                                              ; preds = %2
-  %490 = getelementptr inbounds i8, ptr %1, i64 4
-  %491 = load i32, ptr %490, align 4, !noundef !5
-  %492 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_struct_new_default17h52b443b0cc3e60caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %491)
-  br label %1501
-
-493:                                              ; preds = %2
-  %494 = getelementptr inbounds i8, ptr %1, i64 4
-  %495 = load i32, ptr %494, align 4, !noundef !5
-  %496 = getelementptr inbounds i8, ptr %1, i64 8
-  %497 = load i32, ptr %496, align 8, !noundef !5
-  %498 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_get17heaa13d8987f8e3b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %495, i32 noundef %497)
-  br label %1501
-
-499:                                              ; preds = %2
-  %500 = getelementptr inbounds i8, ptr %1, i64 4
-  %501 = load i32, ptr %500, align 4, !noundef !5
-  %502 = getelementptr inbounds i8, ptr %1, i64 8
-  %503 = load i32, ptr %502, align 8, !noundef !5
-  %504 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_struct_get_s17he72bb8d69c03725aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %501, i32 noundef %503)
-  br label %1501
-
-505:                                              ; preds = %2
-  %506 = getelementptr inbounds i8, ptr %1, i64 4
-  %507 = load i32, ptr %506, align 4, !noundef !5
-  %508 = getelementptr inbounds i8, ptr %1, i64 8
-  %509 = load i32, ptr %508, align 8, !noundef !5
-  %510 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_struct_get_u17hc619673da12a0113E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %507, i32 noundef %509)
-  br label %1501
-
-511:                                              ; preds = %2
-  %512 = getelementptr inbounds i8, ptr %1, i64 4
-  %513 = load i32, ptr %512, align 4, !noundef !5
-  %514 = getelementptr inbounds i8, ptr %1, i64 8
-  %515 = load i32, ptr %514, align 8, !noundef !5
-  %516 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_set17h7b5d8acca91639e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %513, i32 noundef %515)
-  br label %1501
-
-517:                                              ; preds = %2
-  %518 = getelementptr inbounds i8, ptr %1, i64 4
-  %519 = load i32, ptr %518, align 4, !noundef !5
-  %520 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_new17h105513a5b524a651E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %519)
-  br label %1501
-
-521:                                              ; preds = %2
-  %522 = getelementptr inbounds i8, ptr %1, i64 4
-  %523 = load i32, ptr %522, align 4, !noundef !5
-  %524 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_array_new_default17hb7af6bc6f19a52d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %523)
-  br label %1501
-
-525:                                              ; preds = %2
-  %526 = getelementptr inbounds i8, ptr %1, i64 4
-  %527 = load i32, ptr %526, align 4, !noundef !5
-  %528 = getelementptr inbounds i8, ptr %1, i64 8
-  %529 = load i32, ptr %528, align 8, !noundef !5
-  %530 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_new_fixed17h96bc2fbb0e69c7b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %527, i32 noundef %529)
-  br label %1501
-
-531:                                              ; preds = %2
-  %532 = getelementptr inbounds i8, ptr %1, i64 4
-  %533 = load i32, ptr %532, align 4, !noundef !5
-  %534 = getelementptr inbounds i8, ptr %1, i64 8
-  %535 = load i32, ptr %534, align 8, !noundef !5
-  %536 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17hbd8108ea006a52baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %533, i32 noundef %535)
-  br label %1501
-
-537:                                              ; preds = %2
-  %538 = getelementptr inbounds i8, ptr %1, i64 4
-  %539 = load i32, ptr %538, align 4, !noundef !5
-  %540 = getelementptr inbounds i8, ptr %1, i64 8
-  %541 = load i32, ptr %540, align 8, !noundef !5
-  %542 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_elem17hacf7c949d8f21a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %539, i32 noundef %541)
-  br label %1501
-
-543:                                              ; preds = %2
-  %544 = getelementptr inbounds i8, ptr %1, i64 4
-  %545 = load i32, ptr %544, align 4, !noundef !5
-  %546 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_get17h89e8a2b0d6e962dcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %545)
-  br label %1501
-
-547:                                              ; preds = %2
-  %548 = getelementptr inbounds i8, ptr %1, i64 4
-  %549 = load i32, ptr %548, align 4, !noundef !5
-  %550 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_s17haa80b0a6fbc4bdc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %549)
-  br label %1501
-
-551:                                              ; preds = %2
-  %552 = getelementptr inbounds i8, ptr %1, i64 4
-  %553 = load i32, ptr %552, align 4, !noundef !5
-  %554 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_u17hfd1923ead0ddb907E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %553)
-  br label %1501
-
-555:                                              ; preds = %2
-  %556 = getelementptr inbounds i8, ptr %1, i64 4
-  %557 = load i32, ptr %556, align 4, !noundef !5
-  %558 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_set17h2bd3d6d762397330E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %557)
-  br label %1501
-
-559:                                              ; preds = %2
-  %560 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_len17h92fe6160b9005338E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-561:                                              ; preds = %2
-  %562 = getelementptr inbounds i8, ptr %1, i64 4
-  %563 = load i32, ptr %562, align 4, !noundef !5
-  %564 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_fill17h29c5fe40ffde5e96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %563)
-  br label %1501
-
-565:                                              ; preds = %2
-  %566 = getelementptr inbounds i8, ptr %1, i64 4
-  %567 = load i32, ptr %566, align 4, !noundef !5
-  %568 = getelementptr inbounds i8, ptr %1, i64 8
-  %569 = load i32, ptr %568, align 8, !noundef !5
-  %570 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_copy17h9f56f927504985a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %567, i32 noundef %569)
-  br label %1501
-
-571:                                              ; preds = %2
-  %572 = getelementptr inbounds i8, ptr %1, i64 4
-  %573 = load i32, ptr %572, align 4, !noundef !5
-  %574 = getelementptr inbounds i8, ptr %1, i64 8
-  %575 = load i32, ptr %574, align 8, !noundef !5
-  %576 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_data17h1f5172398a1c178cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %573, i32 noundef %575)
-  br label %1501
-
-577:                                              ; preds = %2
-  %578 = getelementptr inbounds i8, ptr %1, i64 4
-  %579 = load i32, ptr %578, align 4, !noundef !5
-  %580 = getelementptr inbounds i8, ptr %1, i64 8
-  %581 = load i32, ptr %580, align 8, !noundef !5
-  %582 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_elem17h0a890e319767bcccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %579, i32 noundef %581)
-  br label %1501
-
-583:                                              ; preds = %2
-  %584 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.06.0.copyload = load i64, ptr %584, align 4
-  %585 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_test_non_null17h156434185bb53622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.06.0.copyload)
-  br label %1501
-
-586:                                              ; preds = %2
-  %587 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.07.0.copyload = load i64, ptr %587, align 4
-  %588 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_test_nullable17h417fe5bb32519785E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.07.0.copyload)
-  br label %1501
-
-589:                                              ; preds = %2
-  %590 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.08.0.copyload = load i64, ptr %590, align 4
-  %591 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_cast_non_null17h3f8da94fb3416b3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.08.0.copyload)
-  br label %1501
-
-592:                                              ; preds = %2
-  %593 = getelementptr inbounds i8, ptr %1, i64 4
-  %.sroa.09.0.copyload = load i64, ptr %593, align 4
-  %594 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_cast_nullable17hb5dc5279b135069bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.09.0.copyload)
-  br label %1501
-
-595:                                              ; preds = %2
-  %596 = getelementptr inbounds i8, ptr %1, i64 8
-  %597 = load i32, ptr %596, align 8, !noundef !5
-  %598 = getelementptr inbounds i8, ptr %1, i64 2
-  %.sroa.010.0.copyload = load i24, ptr %598, align 2
-  %599 = getelementptr inbounds i8, ptr %1, i64 5
-  %.sroa.011.0.copyload = load i24, ptr %599, align 1
-  %600 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_cast17ha54504a8aa5e2e5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %597, i24 %.sroa.010.0.copyload, i24 %.sroa.011.0.copyload)
-  br label %1501
-
-601:                                              ; preds = %2
-  %602 = getelementptr inbounds i8, ptr %1, i64 8
-  %603 = load i32, ptr %602, align 8, !noundef !5
-  %604 = getelementptr inbounds i8, ptr %1, i64 2
-  %.sroa.012.0.copyload = load i24, ptr %604, align 2
-  %605 = getelementptr inbounds i8, ptr %1, i64 5
-  %.sroa.013.0.copyload = load i24, ptr %605, align 1
-  %606 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_br_on_cast_fail17he40867906ae6730dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %603, i24 %.sroa.012.0.copyload, i24 %.sroa.013.0.copyload)
-  br label %1501
-
-607:                                              ; preds = %2
-  %608 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_any_convert_extern17hb034267af551c195E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-609:                                              ; preds = %2
-  %610 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_extern_convert_any17ha86fc1659ef976ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-611:                                              ; preds = %2
-  %612 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_ref_i3117h795217f8126cff34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-613:                                              ; preds = %2
-  %614 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i31_get_s17hcedb269672e164faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-615:                                              ; preds = %2
-  %616 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i31_get_u17hedb3ce80ba81af1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-617:                                              ; preds = %2
-  %618 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f32_s17h227949cb1334d60aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-619:                                              ; preds = %2
-  %620 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f32_u17h9769bd8d5c0cf92fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-621:                                              ; preds = %2
-  %622 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f64_s17h4a4b08794c36375fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-623:                                              ; preds = %2
-  %624 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f64_u17hd16ce0cdedaf18d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-625:                                              ; preds = %2
-  %626 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f32_s17h33e743dd0aff8bfcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-627:                                              ; preds = %2
-  %628 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f32_u17h536dd3ad33fcfd01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-629:                                              ; preds = %2
-  %630 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f64_s17h5276db30438a6196E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-631:                                              ; preds = %2
-  %632 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f64_u17h6ee9ccde3efedaefE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-633:                                              ; preds = %2
-  %634 = getelementptr inbounds i8, ptr %1, i64 4
-  %635 = load i32, ptr %634, align 4, !noundef !5
-  %636 = getelementptr inbounds i8, ptr %1, i64 8
-  %637 = load i32, ptr %636, align 8, !noundef !5
-  %638 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_init17h8133d87e24a19d99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %635, i32 noundef %637)
-  br label %1501
-
-639:                                              ; preds = %2
-  %640 = getelementptr inbounds i8, ptr %1, i64 4
-  %641 = load i32, ptr %640, align 4, !noundef !5
-  %642 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17h72ee061623f1c345E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %641)
-  br label %1501
-
-643:                                              ; preds = %2
-  %644 = getelementptr inbounds i8, ptr %1, i64 4
-  %645 = load i32, ptr %644, align 4, !noundef !5
-  %646 = getelementptr inbounds i8, ptr %1, i64 8
-  %647 = load i32, ptr %646, align 8, !noundef !5
-  %648 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_copy17h9355009d05fdb72bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %645, i32 noundef %647)
-  br label %1501
-
-649:                                              ; preds = %2
-  %650 = getelementptr inbounds i8, ptr %1, i64 4
-  %651 = load i32, ptr %650, align 4, !noundef !5
-  %652 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_fill17h791661626e66ff5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %651)
-  br label %1501
-
-653:                                              ; preds = %2
-  %654 = getelementptr inbounds i8, ptr %1, i64 4
-  %655 = load i32, ptr %654, align 4, !noundef !5
-  %656 = getelementptr inbounds i8, ptr %1, i64 8
-  %657 = load i32, ptr %656, align 8, !noundef !5
-  %658 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_init17h32cbac4ef4d76757E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %655, i32 noundef %657)
-  br label %1501
-
-659:                                              ; preds = %2
-  %660 = getelementptr inbounds i8, ptr %1, i64 4
-  %661 = load i32, ptr %660, align 4, !noundef !5
-  %662 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_elem_drop17h21580714b4d63689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %661)
-  br label %1501
-
-663:                                              ; preds = %2
-  %664 = getelementptr inbounds i8, ptr %1, i64 4
-  %665 = load i32, ptr %664, align 4, !noundef !5
-  %666 = getelementptr inbounds i8, ptr %1, i64 8
-  %667 = load i32, ptr %666, align 8, !noundef !5
-  %668 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_copy17hb20ff3e34539ec60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %665, i32 noundef %667)
-  br label %1501
-
-669:                                              ; preds = %2
-  %670 = getelementptr inbounds i8, ptr %1, i64 4
-  %671 = load i32, ptr %670, align 4, !noundef !5
-  %672 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_fill17h4cbc2797d3cce2adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %671)
-  br label %1501
-
-673:                                              ; preds = %2
-  %674 = getelementptr inbounds i8, ptr %1, i64 4
-  %675 = load i32, ptr %674, align 4, !noundef !5
-  %676 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_table_get17h38e96ec7aad8b1e8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %675)
-  br label %1501
-
-677:                                              ; preds = %2
-  %678 = getelementptr inbounds i8, ptr %1, i64 4
-  %679 = load i32, ptr %678, align 4, !noundef !5
-  %680 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_table_set17ha7b6b294ec28e5b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %679)
-  br label %1501
-
-681:                                              ; preds = %2
-  %682 = getelementptr inbounds i8, ptr %1, i64 4
-  %683 = load i32, ptr %682, align 4, !noundef !5
-  %684 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_grow17h57f5f2775436614cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %683)
-  br label %1501
-
-685:                                              ; preds = %2
-  %686 = getelementptr inbounds i8, ptr %1, i64 4
-  %687 = load i32, ptr %686, align 4, !noundef !5
-  %688 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_size17h81159dea9b4ca399E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %687)
-  br label %1501
-
-689:                                              ; preds = %2
-  %690 = getelementptr inbounds i8, ptr %1, i64 4
-  %691 = load i32, ptr %690, align 4, !noundef !5
-  %692 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_memory_discard17h04ae629a631f7070E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %691)
-  br label %1501
-
-693:                                              ; preds = %2
-  %694 = getelementptr inbounds i8, ptr %1, i64 8
-  %695 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_notify17h124705dc7af4e55aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %694)
-  br label %1501
+  %.val29 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  tail call fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64_const17h946ad42a92ee1c14E"(ptr nonnull %.val29)
+  br label %1508
+
+219:                                              ; preds = %2
+  %.val30 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  %220 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val31 = load i64, ptr %220, align 8
+  %221 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_const17h9c187329c43c638cE"(ptr nonnull %.val30, i64 %.val31)
+  br label %1508
+
+222:                                              ; preds = %2
+  %.val32 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  %223 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val33 = load i64, ptr %223, align 8
+  %224 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_const17h2a03557f6e18a3b3E"(ptr nonnull %.val32, i64 %.val33)
+  br label %1508
+
+225:                                              ; preds = %2
+  %226 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.05.0.copyload = load i64, ptr %226, align 4
+  %227 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_ref_null17h177aae8eeb2b7d10E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.05.0.copyload)
+  br label %1508
+
+228:                                              ; preds = %2
+  %229 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_ref_is_null17h7f9ccac33471bd33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+230:                                              ; preds = %2
+  %231 = getelementptr inbounds i8, ptr %1, i64 4
+  %232 = load i32, ptr %231, align 4, !noundef !5
+  %233 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_ref_func17h6cbbe7101ee778afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %232)
+  br label %1508
+
+234:                                              ; preds = %2
+  %235 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_ref_eq17hb3af38b3582c2123E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+236:                                              ; preds = %2
+  %237 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_i32_eqz17h56915dc8bc05e4e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+238:                                              ; preds = %2
+  %239 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+240:                                              ; preds = %2
+  %241 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+242:                                              ; preds = %2
+  %243 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+244:                                              ; preds = %2
+  %245 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+246:                                              ; preds = %2
+  %247 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+248:                                              ; preds = %2
+  %249 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+250:                                              ; preds = %2
+  %251 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+252:                                              ; preds = %2
+  %253 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+254:                                              ; preds = %2
+  %255 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+256:                                              ; preds = %2
+  %257 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+258:                                              ; preds = %2
+  %259 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_i64_eqz17h47c153c2e787d6c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+260:                                              ; preds = %2
+  %261 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+262:                                              ; preds = %2
+  %263 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+264:                                              ; preds = %2
+  %265 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+266:                                              ; preds = %2
+  %267 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+268:                                              ; preds = %2
+  %269 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+270:                                              ; preds = %2
+  %271 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+272:                                              ; preds = %2
+  %273 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+274:                                              ; preds = %2
+  %275 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+276:                                              ; preds = %2
+  %277 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+278:                                              ; preds = %2
+  %279 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_cmp_op17h23bedb68d72d34fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+280:                                              ; preds = %2
+  %281 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_eq17hb6f94b8afd43f439E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+282:                                              ; preds = %2
+  %283 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_ne17he8134932216eb4d1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+284:                                              ; preds = %2
+  %285 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_lt17hab0edd185a23b249E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+286:                                              ; preds = %2
+  %287 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_gt17h18d3d334b9312d0dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+288:                                              ; preds = %2
+  %289 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_le17hd75b9d7d1c3a4df7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+290:                                              ; preds = %2
+  %291 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f32_ge17h367d7d68820a2f42E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+292:                                              ; preds = %2
+  %293 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_eq17ha02f7557876760fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+294:                                              ; preds = %2
+  %295 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_ne17haa2bfde23ef115c4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+296:                                              ; preds = %2
+  %297 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_lt17h6406f73addefeb87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+298:                                              ; preds = %2
+  %299 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_gt17haecfb97282934a55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+300:                                              ; preds = %2
+  %301 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_le17h10a1a619d3c23707E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+302:                                              ; preds = %2
+  %303 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$12visit_f64_ge17hb1f3c5882f6376ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+304:                                              ; preds = %2
+  %305 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+306:                                              ; preds = %2
+  %307 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+308:                                              ; preds = %2
+  %309 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+310:                                              ; preds = %2
+  %311 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+312:                                              ; preds = %2
+  %313 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+314:                                              ; preds = %2
+  %315 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+316:                                              ; preds = %2
+  %317 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+318:                                              ; preds = %2
+  %319 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+320:                                              ; preds = %2
+  %321 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+322:                                              ; preds = %2
+  %323 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+324:                                              ; preds = %2
+  %325 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+326:                                              ; preds = %2
+  %327 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+328:                                              ; preds = %2
+  %329 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+330:                                              ; preds = %2
+  %331 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+332:                                              ; preds = %2
+  %333 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+334:                                              ; preds = %2
+  %335 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+336:                                              ; preds = %2
+  %337 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+338:                                              ; preds = %2
+  %339 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0)
+  br label %1508
+
+340:                                              ; preds = %2
+  %341 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+342:                                              ; preds = %2
+  %343 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+344:                                              ; preds = %2
+  %345 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$14check_unary_op17hdbd8ee2b85aeb575E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+346:                                              ; preds = %2
+  %347 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+348:                                              ; preds = %2
+  %349 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+350:                                              ; preds = %2
+  %351 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+352:                                              ; preds = %2
+  %353 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+354:                                              ; preds = %2
+  %355 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+356:                                              ; preds = %2
+  %357 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+358:                                              ; preds = %2
+  %359 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+360:                                              ; preds = %2
+  %361 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+362:                                              ; preds = %2
+  %363 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+364:                                              ; preds = %2
+  %365 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+366:                                              ; preds = %2
+  %367 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+368:                                              ; preds = %2
+  %369 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+370:                                              ; preds = %2
+  %371 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+372:                                              ; preds = %2
+  %373 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+374:                                              ; preds = %2
+  %375 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15check_binary_op17h666033348d5a62fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1)
+  br label %1508
+
+376:                                              ; preds = %2
+  %377 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_abs17h1ab0f5536e8f0136E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+378:                                              ; preds = %2
+  %379 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_neg17hd570b8f14b0bca17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+380:                                              ; preds = %2
+  %381 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_ceil17h631b1bfe533f1a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+382:                                              ; preds = %2
+  %383 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_floor17h4431291e02082c17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+384:                                              ; preds = %2
+  %385 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32_trunc17h0f734f3642a0d51aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+386:                                              ; preds = %2
+  %387 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32_nearest17h264e71338b1e542bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+388:                                              ; preds = %2
+  %389 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32_sqrt17hafd7bd647a490e90E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+390:                                              ; preds = %2
+  %391 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_add17h342706b81322fe82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+392:                                              ; preds = %2
+  %393 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_sub17h0fc595c940bcee09E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+394:                                              ; preds = %2
+  %395 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_mul17hfbda477597e0dbc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+396:                                              ; preds = %2
+  %397 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_div17hc78d1e3698f9688cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+398:                                              ; preds = %2
+  %399 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_min17hda02bc8113723080E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+400:                                              ; preds = %2
+  %401 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f32_max17h2c474dc777a50c72E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+402:                                              ; preds = %2
+  %403 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_f32_copysign17hef473af26aa9cb19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+404:                                              ; preds = %2
+  %405 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_abs17h69abe105da5be0fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+406:                                              ; preds = %2
+  %407 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_neg17hb2a30916f29afec8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+408:                                              ; preds = %2
+  %409 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_ceil17hdcf659aca396c405E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+410:                                              ; preds = %2
+  %411 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_floor17h1a285e6faad92129E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+412:                                              ; preds = %2
+  %413 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64_trunc17h7bd11e44a8173bf3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+414:                                              ; preds = %2
+  %415 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64_nearest17h823c5d3a5e31e242E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+416:                                              ; preds = %2
+  %417 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64_sqrt17h8f1271d6b6913210E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+418:                                              ; preds = %2
+  %419 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_add17h4b1740208ab78dc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+420:                                              ; preds = %2
+  %421 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_sub17hd2e7c812f267728dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+422:                                              ; preds = %2
+  %423 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_mul17h344c90e95ef8f926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+424:                                              ; preds = %2
+  %425 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_div17ha8ad75695dd4c54cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+426:                                              ; preds = %2
+  %427 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_min17hadb05598a87c2110E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+428:                                              ; preds = %2
+  %429 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_f64_max17heeaab4f2a310e9e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+430:                                              ; preds = %2
+  %431 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_f64_copysign17h00c90e1441ad30aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+432:                                              ; preds = %2
+  %433 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 1)
+  br label %1508
+
+434:                                              ; preds = %2
+  %435 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
+  br label %1508
+
+436:                                              ; preds = %2
+  %437 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
+  br label %1508
+
+438:                                              ; preds = %2
+  %439 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
+  br label %1508
+
+440:                                              ; preds = %2
+  %441 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 3)
+  br label %1508
+
+442:                                              ; preds = %2
+  %443 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
+  br label %1508
+
+444:                                              ; preds = %2
+  %445 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 0)
+  br label %1508
+
+446:                                              ; preds = %2
+  %447 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
+  br label %1508
+
+448:                                              ; preds = %2
+  %449 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 2)
+  br label %1508
+
+450:                                              ; preds = %2
+  %451 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
+  br label %1508
+
+452:                                              ; preds = %2
+  %453 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
+  br label %1508
+
+454:                                              ; preds = %2
+  %455 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i32_s17h7703e323c34e805eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+456:                                              ; preds = %2
+  %457 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i32_u17hdd06c8ecc9ceaa38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+458:                                              ; preds = %2
+  %459 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i64_s17h4b0f6658e42cc994E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+460:                                              ; preds = %2
+  %461 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32_convert_i64_u17h1ba8972c8dd1e2b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+462:                                              ; preds = %2
+  %463 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_f32_demote_f6417h574a187daed571e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+464:                                              ; preds = %2
+  %465 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i32_s17hdeff9a3ee56a15ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+466:                                              ; preds = %2
+  %467 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i32_u17haacad13dab19f900E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+468:                                              ; preds = %2
+  %469 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i64_s17h0cb78da7ecea45beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+470:                                              ; preds = %2
+  %471 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64_convert_i64_u17hce0b811d3e610426E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+472:                                              ; preds = %2
+  %473 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_f64_promote_f3217hfd0f3a9742af6502E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+474:                                              ; preds = %2
+  %475 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 0, i32 2)
+  br label %1508
+
+476:                                              ; preds = %2
+  %477 = tail call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$19check_conversion_op17h1587304d173eed73E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 1, i32 3)
+  br label %1508
+
+478:                                              ; preds = %2
+  %479 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f32_reinterpret_i3217hf39bd443aca27e9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+480:                                              ; preds = %2
+  %481 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f64_reinterpret_i6417h43b8ab526f4c8e92E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+482:                                              ; preds = %2
+  %483 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i32_extend8_s17h3c5bebdcb514837eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+484:                                              ; preds = %2
+  %485 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i32_extend16_s17he21dcc5166d31024E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+486:                                              ; preds = %2
+  %487 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i64_extend8_s17hbca92968f09735fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+488:                                              ; preds = %2
+  %489 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64_extend16_s17h60b3390f07a50d8dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+490:                                              ; preds = %2
+  %491 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64_extend32_s17h2cac79a9481e5649E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+492:                                              ; preds = %2
+  %493 = getelementptr inbounds i8, ptr %1, i64 4
+  %494 = load i32, ptr %493, align 4, !noundef !5
+  %495 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_new17h67d6c1513195c2a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %494)
+  br label %1508
+
+496:                                              ; preds = %2
+  %497 = getelementptr inbounds i8, ptr %1, i64 4
+  %498 = load i32, ptr %497, align 4, !noundef !5
+  %499 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_struct_new_default17h52b443b0cc3e60caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %498)
+  br label %1508
+
+500:                                              ; preds = %2
+  %501 = getelementptr inbounds i8, ptr %1, i64 4
+  %502 = load i32, ptr %501, align 4, !noundef !5
+  %503 = getelementptr inbounds i8, ptr %1, i64 8
+  %504 = load i32, ptr %503, align 8, !noundef !5
+  %505 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_get17heaa13d8987f8e3b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %502, i32 noundef %504)
+  br label %1508
+
+506:                                              ; preds = %2
+  %507 = getelementptr inbounds i8, ptr %1, i64 4
+  %508 = load i32, ptr %507, align 4, !noundef !5
+  %509 = getelementptr inbounds i8, ptr %1, i64 8
+  %510 = load i32, ptr %509, align 8, !noundef !5
+  %511 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_struct_get_s17he72bb8d69c03725aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %508, i32 noundef %510)
+  br label %1508
+
+512:                                              ; preds = %2
+  %513 = getelementptr inbounds i8, ptr %1, i64 4
+  %514 = load i32, ptr %513, align 4, !noundef !5
+  %515 = getelementptr inbounds i8, ptr %1, i64 8
+  %516 = load i32, ptr %515, align 8, !noundef !5
+  %517 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_struct_get_u17hc619673da12a0113E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %514, i32 noundef %516)
+  br label %1508
+
+518:                                              ; preds = %2
+  %519 = getelementptr inbounds i8, ptr %1, i64 4
+  %520 = load i32, ptr %519, align 4, !noundef !5
+  %521 = getelementptr inbounds i8, ptr %1, i64 8
+  %522 = load i32, ptr %521, align 8, !noundef !5
+  %523 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_set17h7b5d8acca91639e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %520, i32 noundef %522)
+  br label %1508
+
+524:                                              ; preds = %2
+  %525 = getelementptr inbounds i8, ptr %1, i64 4
+  %526 = load i32, ptr %525, align 4, !noundef !5
+  %527 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_new17h105513a5b524a651E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %526)
+  br label %1508
+
+528:                                              ; preds = %2
+  %529 = getelementptr inbounds i8, ptr %1, i64 4
+  %530 = load i32, ptr %529, align 4, !noundef !5
+  %531 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_array_new_default17hb7af6bc6f19a52d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %530)
+  br label %1508
+
+532:                                              ; preds = %2
+  %533 = getelementptr inbounds i8, ptr %1, i64 4
+  %534 = load i32, ptr %533, align 4, !noundef !5
+  %535 = getelementptr inbounds i8, ptr %1, i64 8
+  %536 = load i32, ptr %535, align 8, !noundef !5
+  %537 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_new_fixed17h96bc2fbb0e69c7b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %534, i32 noundef %536)
+  br label %1508
+
+538:                                              ; preds = %2
+  %539 = getelementptr inbounds i8, ptr %1, i64 4
+  %540 = load i32, ptr %539, align 4, !noundef !5
+  %541 = getelementptr inbounds i8, ptr %1, i64 8
+  %542 = load i32, ptr %541, align 8, !noundef !5
+  %543 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17hbd8108ea006a52baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %540, i32 noundef %542)
+  br label %1508
+
+544:                                              ; preds = %2
+  %545 = getelementptr inbounds i8, ptr %1, i64 4
+  %546 = load i32, ptr %545, align 4, !noundef !5
+  %547 = getelementptr inbounds i8, ptr %1, i64 8
+  %548 = load i32, ptr %547, align 8, !noundef !5
+  %549 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_elem17hacf7c949d8f21a8fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %546, i32 noundef %548)
+  br label %1508
+
+550:                                              ; preds = %2
+  %551 = getelementptr inbounds i8, ptr %1, i64 4
+  %552 = load i32, ptr %551, align 4, !noundef !5
+  %553 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_get17h89e8a2b0d6e962dcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %552)
+  br label %1508
+
+554:                                              ; preds = %2
+  %555 = getelementptr inbounds i8, ptr %1, i64 4
+  %556 = load i32, ptr %555, align 4, !noundef !5
+  %557 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_s17haa80b0a6fbc4bdc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %556)
+  br label %1508
+
+558:                                              ; preds = %2
+  %559 = getelementptr inbounds i8, ptr %1, i64 4
+  %560 = load i32, ptr %559, align 4, !noundef !5
+  %561 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_u17hfd1923ead0ddb907E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %560)
+  br label %1508
+
+562:                                              ; preds = %2
+  %563 = getelementptr inbounds i8, ptr %1, i64 4
+  %564 = load i32, ptr %563, align 4, !noundef !5
+  %565 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_set17h2bd3d6d762397330E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %564)
+  br label %1508
+
+566:                                              ; preds = %2
+  %567 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_len17h92fe6160b9005338E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+568:                                              ; preds = %2
+  %569 = getelementptr inbounds i8, ptr %1, i64 4
+  %570 = load i32, ptr %569, align 4, !noundef !5
+  %571 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_fill17h29c5fe40ffde5e96E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %570)
+  br label %1508
+
+572:                                              ; preds = %2
+  %573 = getelementptr inbounds i8, ptr %1, i64 4
+  %574 = load i32, ptr %573, align 4, !noundef !5
+  %575 = getelementptr inbounds i8, ptr %1, i64 8
+  %576 = load i32, ptr %575, align 8, !noundef !5
+  %577 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_copy17h9f56f927504985a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %574, i32 noundef %576)
+  br label %1508
+
+578:                                              ; preds = %2
+  %579 = getelementptr inbounds i8, ptr %1, i64 4
+  %580 = load i32, ptr %579, align 4, !noundef !5
+  %581 = getelementptr inbounds i8, ptr %1, i64 8
+  %582 = load i32, ptr %581, align 8, !noundef !5
+  %583 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_data17h1f5172398a1c178cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %580, i32 noundef %582)
+  br label %1508
+
+584:                                              ; preds = %2
+  %585 = getelementptr inbounds i8, ptr %1, i64 4
+  %586 = load i32, ptr %585, align 4, !noundef !5
+  %587 = getelementptr inbounds i8, ptr %1, i64 8
+  %588 = load i32, ptr %587, align 8, !noundef !5
+  %589 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_elem17h0a890e319767bcccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %586, i32 noundef %588)
+  br label %1508
+
+590:                                              ; preds = %2
+  %591 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.06.0.copyload = load i64, ptr %591, align 4
+  %592 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_test_non_null17h156434185bb53622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.06.0.copyload)
+  br label %1508
+
+593:                                              ; preds = %2
+  %594 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.07.0.copyload = load i64, ptr %594, align 4
+  %595 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_test_nullable17h417fe5bb32519785E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.07.0.copyload)
+  br label %1508
+
+596:                                              ; preds = %2
+  %597 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.08.0.copyload = load i64, ptr %597, align 4
+  %598 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_cast_non_null17h3f8da94fb3416b3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.08.0.copyload)
+  br label %1508
+
+599:                                              ; preds = %2
+  %600 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.09.0.copyload = load i64, ptr %600, align 4
+  %601 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_ref_cast_nullable17hb5dc5279b135069bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.09.0.copyload)
+  br label %1508
+
+602:                                              ; preds = %2
+  %603 = getelementptr inbounds i8, ptr %1, i64 8
+  %604 = load i32, ptr %603, align 8, !noundef !5
+  %605 = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.010.0.copyload = load i24, ptr %605, align 2
+  %606 = getelementptr inbounds i8, ptr %1, i64 5
+  %.sroa.011.0.copyload = load i24, ptr %606, align 1
+  %607 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_cast17ha54504a8aa5e2e5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %604, i24 %.sroa.010.0.copyload, i24 %.sroa.011.0.copyload)
+  br label %1508
+
+608:                                              ; preds = %2
+  %609 = getelementptr inbounds i8, ptr %1, i64 8
+  %610 = load i32, ptr %609, align 8, !noundef !5
+  %611 = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.012.0.copyload = load i24, ptr %611, align 2
+  %612 = getelementptr inbounds i8, ptr %1, i64 5
+  %.sroa.013.0.copyload = load i24, ptr %612, align 1
+  %613 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_br_on_cast_fail17he40867906ae6730dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %610, i24 %.sroa.012.0.copyload, i24 %.sroa.013.0.copyload)
+  br label %1508
+
+614:                                              ; preds = %2
+  %615 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_any_convert_extern17hb034267af551c195E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+616:                                              ; preds = %2
+  %617 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_extern_convert_any17ha86fc1659ef976ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+618:                                              ; preds = %2
+  %619 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_ref_i3117h795217f8126cff34E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+620:                                              ; preds = %2
+  %621 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i31_get_s17hcedb269672e164faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+622:                                              ; preds = %2
+  %623 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i31_get_u17hedb3ce80ba81af1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+624:                                              ; preds = %2
+  %625 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f32_s17h227949cb1334d60aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+626:                                              ; preds = %2
+  %627 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f32_u17h9769bd8d5c0cf92fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+628:                                              ; preds = %2
+  %629 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f64_s17h4a4b08794c36375fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+630:                                              ; preds = %2
+  %631 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_trunc_sat_f64_u17hd16ce0cdedaf18d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+632:                                              ; preds = %2
+  %633 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f32_s17h33e743dd0aff8bfcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+634:                                              ; preds = %2
+  %635 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f32_u17h536dd3ad33fcfd01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+636:                                              ; preds = %2
+  %637 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f64_s17h5276db30438a6196E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+638:                                              ; preds = %2
+  %639 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_trunc_sat_f64_u17h6ee9ccde3efedaefE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+640:                                              ; preds = %2
+  %641 = getelementptr inbounds i8, ptr %1, i64 4
+  %642 = load i32, ptr %641, align 4, !noundef !5
+  %643 = getelementptr inbounds i8, ptr %1, i64 8
+  %644 = load i32, ptr %643, align 8, !noundef !5
+  %645 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_init17h8133d87e24a19d99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %642, i32 noundef %644)
+  br label %1508
+
+646:                                              ; preds = %2
+  %647 = getelementptr inbounds i8, ptr %1, i64 4
+  %648 = load i32, ptr %647, align 4, !noundef !5
+  %649 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_data_drop17h72ee061623f1c345E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %648)
+  br label %1508
+
+650:                                              ; preds = %2
+  %651 = getelementptr inbounds i8, ptr %1, i64 4
+  %652 = load i32, ptr %651, align 4, !noundef !5
+  %653 = getelementptr inbounds i8, ptr %1, i64 8
+  %654 = load i32, ptr %653, align 8, !noundef !5
+  %655 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_copy17h9355009d05fdb72bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %652, i32 noundef %654)
+  br label %1508
+
+656:                                              ; preds = %2
+  %657 = getelementptr inbounds i8, ptr %1, i64 4
+  %658 = load i32, ptr %657, align 4, !noundef !5
+  %659 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_memory_fill17h791661626e66ff5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %658)
+  br label %1508
+
+660:                                              ; preds = %2
+  %661 = getelementptr inbounds i8, ptr %1, i64 4
+  %662 = load i32, ptr %661, align 4, !noundef !5
+  %663 = getelementptr inbounds i8, ptr %1, i64 8
+  %664 = load i32, ptr %663, align 8, !noundef !5
+  %665 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_init17h32cbac4ef4d76757E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %662, i32 noundef %664)
+  br label %1508
+
+666:                                              ; preds = %2
+  %667 = getelementptr inbounds i8, ptr %1, i64 4
+  %668 = load i32, ptr %667, align 4, !noundef !5
+  %669 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_elem_drop17h21580714b4d63689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %668)
+  br label %1508
+
+670:                                              ; preds = %2
+  %671 = getelementptr inbounds i8, ptr %1, i64 4
+  %672 = load i32, ptr %671, align 4, !noundef !5
+  %673 = getelementptr inbounds i8, ptr %1, i64 8
+  %674 = load i32, ptr %673, align 8, !noundef !5
+  %675 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_copy17hb20ff3e34539ec60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %672, i32 noundef %674)
+  br label %1508
+
+676:                                              ; preds = %2
+  %677 = getelementptr inbounds i8, ptr %1, i64 4
+  %678 = load i32, ptr %677, align 4, !noundef !5
+  %679 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_fill17h4cbc2797d3cce2adE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %678)
+  br label %1508
+
+680:                                              ; preds = %2
+  %681 = getelementptr inbounds i8, ptr %1, i64 4
+  %682 = load i32, ptr %681, align 4, !noundef !5
+  %683 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_table_get17h38e96ec7aad8b1e8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %682)
+  br label %1508
+
+684:                                              ; preds = %2
+  %685 = getelementptr inbounds i8, ptr %1, i64 4
+  %686 = load i32, ptr %685, align 4, !noundef !5
+  %687 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_table_set17ha7b6b294ec28e5b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %686)
+  br label %1508
+
+688:                                              ; preds = %2
+  %689 = getelementptr inbounds i8, ptr %1, i64 4
+  %690 = load i32, ptr %689, align 4, !noundef !5
+  %691 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_grow17h57f5f2775436614cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %690)
+  br label %1508
+
+692:                                              ; preds = %2
+  %693 = getelementptr inbounds i8, ptr %1, i64 4
+  %694 = load i32, ptr %693, align 4, !noundef !5
+  %695 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_table_size17h81159dea9b4ca399E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %694)
+  br label %1508
 
 696:                                              ; preds = %2
-  %697 = getelementptr inbounds i8, ptr %1, i64 8
-  %698 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_wait3217hfe2e781d4028ab6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %697)
-  br label %1501
+  %697 = getelementptr inbounds i8, ptr %1, i64 4
+  %698 = load i32, ptr %697, align 4, !noundef !5
+  %699 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_memory_discard17h04ae629a631f7070E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %698)
+  br label %1508
 
-699:                                              ; preds = %2
-  %700 = getelementptr inbounds i8, ptr %1, i64 8
-  %701 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_wait6417h39862c5c2d50d833E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %700)
-  br label %1501
+700:                                              ; preds = %2
+  %701 = getelementptr inbounds i8, ptr %1, i64 8
+  %702 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_notify17h124705dc7af4e55aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %701)
+  br label %1508
 
-702:                                              ; preds = %2
+703:                                              ; preds = %2
+  %704 = getelementptr inbounds i8, ptr %1, i64 8
+  %705 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_wait3217hfe2e781d4028ab6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %704)
+  br label %1508
+
+706:                                              ; preds = %2
+  %707 = getelementptr inbounds i8, ptr %1, i64 8
+  %708 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_memory_atomic_wait6417h39862c5c2d50d833E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %707)
+  br label %1508
+
+709:                                              ; preds = %2
   %.val34 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %703 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val35 = load i64, ptr %703, align 8
-  %704 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_atomic_fence17h25ddca1bb983a8e6E"(ptr nonnull %.val34, i64 %.val35)
-  br label %1501
-
-705:                                              ; preds = %2
-  %706 = getelementptr inbounds i8, ptr %1, i64 8
-  %707 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i32_atomic_load17h01916f9e79d352caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %706)
-  br label %1501
-
-708:                                              ; preds = %2
-  %709 = getelementptr inbounds i8, ptr %1, i64 8
-  %710 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i64_atomic_load17h51634a3522851e2dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %709)
-  br label %1501
-
-711:                                              ; preds = %2
-  %712 = getelementptr inbounds i8, ptr %1, i64 8
-  %713 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_load8_u17hd62562fd7f6546edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %712)
-  br label %1501
-
-714:                                              ; preds = %2
-  %715 = getelementptr inbounds i8, ptr %1, i64 8
-  %716 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_atomic_load16_u17hf70ef6b9201ad0b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %715)
-  br label %1501
-
-717:                                              ; preds = %2
-  %718 = getelementptr inbounds i8, ptr %1, i64 8
-  %719 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_load8_u17h72670f1fe01f11cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %718)
-  br label %1501
-
-720:                                              ; preds = %2
-  %721 = getelementptr inbounds i8, ptr %1, i64 8
-  %722 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_load16_u17ha18d4716bfe83d40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %721)
-  br label %1501
-
-723:                                              ; preds = %2
-  %724 = getelementptr inbounds i8, ptr %1, i64 8
-  %725 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_load32_u17h19586ea741074b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %724)
-  br label %1501
-
-726:                                              ; preds = %2
-  %727 = getelementptr inbounds i8, ptr %1, i64 8
-  %728 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_i32_atomic_store17h1221061d976258e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %727)
-  br label %1501
-
-729:                                              ; preds = %2
-  %730 = getelementptr inbounds i8, ptr %1, i64 8
-  %731 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_i64_atomic_store17he5a145ae8b15263eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %730)
-  br label %1501
-
-732:                                              ; preds = %2
-  %733 = getelementptr inbounds i8, ptr %1, i64 8
-  %734 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32_atomic_store817hdc9a9fa6bf5a958bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %733)
-  br label %1501
-
-735:                                              ; preds = %2
-  %736 = getelementptr inbounds i8, ptr %1, i64 8
-  %737 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_store1617ha4ab6ea6e1ecba0fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %736)
-  br label %1501
-
-738:                                              ; preds = %2
-  %739 = getelementptr inbounds i8, ptr %1, i64 8
-  %740 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i64_atomic_store817h81344909b3253cb6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %739)
-  br label %1501
-
-741:                                              ; preds = %2
-  %742 = getelementptr inbounds i8, ptr %1, i64 8
-  %743 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_store1617hb2c8ff7908343326E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %742)
-  br label %1501
-
-744:                                              ; preds = %2
-  %745 = getelementptr inbounds i8, ptr %1, i64 8
-  %746 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_store3217h6dcc12499a33d27aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %745)
-  br label %1501
-
-747:                                              ; preds = %2
-  %748 = getelementptr inbounds i8, ptr %1, i64 8
-  %749 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_add17h0d3c4ae7d2247e5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %748)
-  br label %1501
-
-750:                                              ; preds = %2
-  %751 = getelementptr inbounds i8, ptr %1, i64 8
-  %752 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_add17h6e75a1e048dc6f6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %751)
-  br label %1501
-
-753:                                              ; preds = %2
-  %754 = getelementptr inbounds i8, ptr %1, i64 8
-  %755 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_add_u17he659aeb7c1be2490E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %754)
-  br label %1501
-
-756:                                              ; preds = %2
-  %757 = getelementptr inbounds i8, ptr %1, i64 8
-  %758 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_add_u17h3ca7b2d9b855d531E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %757)
-  br label %1501
-
-759:                                              ; preds = %2
-  %760 = getelementptr inbounds i8, ptr %1, i64 8
-  %761 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_add_u17h85da232c0c373f78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %760)
-  br label %1501
-
-762:                                              ; preds = %2
-  %763 = getelementptr inbounds i8, ptr %1, i64 8
-  %764 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_add_u17h8da248d7ad9206bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %763)
-  br label %1501
-
-765:                                              ; preds = %2
-  %766 = getelementptr inbounds i8, ptr %1, i64 8
-  %767 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_add_u17h5f1efee99b2af0b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %766)
-  br label %1501
-
-768:                                              ; preds = %2
-  %769 = getelementptr inbounds i8, ptr %1, i64 8
-  %770 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_sub17hd1dc1409e4138e68E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %769)
-  br label %1501
-
-771:                                              ; preds = %2
-  %772 = getelementptr inbounds i8, ptr %1, i64 8
-  %773 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_sub17h3d37677575c8da11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %772)
-  br label %1501
-
-774:                                              ; preds = %2
-  %775 = getelementptr inbounds i8, ptr %1, i64 8
-  %776 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_sub_u17hc8234b343a7f86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %775)
-  br label %1501
-
-777:                                              ; preds = %2
-  %778 = getelementptr inbounds i8, ptr %1, i64 8
-  %779 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_sub_u17h88b719763a826f83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %778)
-  br label %1501
-
-780:                                              ; preds = %2
-  %781 = getelementptr inbounds i8, ptr %1, i64 8
-  %782 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_sub_u17hf7e67de0129337e8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %781)
-  br label %1501
-
-783:                                              ; preds = %2
-  %784 = getelementptr inbounds i8, ptr %1, i64 8
-  %785 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_sub_u17h9d731e8d747be8b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %784)
-  br label %1501
-
-786:                                              ; preds = %2
-  %787 = getelementptr inbounds i8, ptr %1, i64 8
-  %788 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_sub_u17hfb4844af13f4e05aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %787)
-  br label %1501
-
-789:                                              ; preds = %2
-  %790 = getelementptr inbounds i8, ptr %1, i64 8
-  %791 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_and17h091d29ef6c1d045aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %790)
-  br label %1501
-
-792:                                              ; preds = %2
-  %793 = getelementptr inbounds i8, ptr %1, i64 8
-  %794 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_and17hf465c516cb7dbba7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %793)
-  br label %1501
-
-795:                                              ; preds = %2
-  %796 = getelementptr inbounds i8, ptr %1, i64 8
-  %797 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_and_u17h719cadef9488dcbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %796)
-  br label %1501
-
-798:                                              ; preds = %2
-  %799 = getelementptr inbounds i8, ptr %1, i64 8
-  %800 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_and_u17h7547c860138e7c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %799)
-  br label %1501
-
-801:                                              ; preds = %2
-  %802 = getelementptr inbounds i8, ptr %1, i64 8
-  %803 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_and_u17h00df79875a60d38aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %802)
-  br label %1501
-
-804:                                              ; preds = %2
-  %805 = getelementptr inbounds i8, ptr %1, i64 8
-  %806 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_and_u17h18385419772b6c82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %805)
-  br label %1501
-
-807:                                              ; preds = %2
-  %808 = getelementptr inbounds i8, ptr %1, i64 8
-  %809 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_and_u17hbe1608d3e4789aa0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %808)
-  br label %1501
-
-810:                                              ; preds = %2
-  %811 = getelementptr inbounds i8, ptr %1, i64 8
-  %812 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32_atomic_rmw_or17h1fc2dc509941f656E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %811)
-  br label %1501
-
-813:                                              ; preds = %2
-  %814 = getelementptr inbounds i8, ptr %1, i64 8
-  %815 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i64_atomic_rmw_or17h9f22c49e561abf2bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %814)
-  br label %1501
-
-816:                                              ; preds = %2
-  %817 = getelementptr inbounds i8, ptr %1, i64 8
-  %818 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i32_atomic_rmw8_or_u17ha44ea0e9f94664c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %817)
-  br label %1501
-
-819:                                              ; preds = %2
-  %820 = getelementptr inbounds i8, ptr %1, i64 8
-  %821 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw16_or_u17h6c997d2437650b26E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %820)
-  br label %1501
-
-822:                                              ; preds = %2
-  %823 = getelementptr inbounds i8, ptr %1, i64 8
-  %824 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i64_atomic_rmw8_or_u17hbc500ad80f02b758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %823)
-  br label %1501
-
-825:                                              ; preds = %2
-  %826 = getelementptr inbounds i8, ptr %1, i64 8
-  %827 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw16_or_u17h7e1528a1e6a4b89dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %826)
-  br label %1501
-
-828:                                              ; preds = %2
-  %829 = getelementptr inbounds i8, ptr %1, i64 8
-  %830 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw32_or_u17h335c35767b672960E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %829)
-  br label %1501
-
-831:                                              ; preds = %2
-  %832 = getelementptr inbounds i8, ptr %1, i64 8
-  %833 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_xor17hc8f5f9c02fdcbe85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %832)
-  br label %1501
-
-834:                                              ; preds = %2
-  %835 = getelementptr inbounds i8, ptr %1, i64 8
-  %836 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_xor17h89d304cb7fb9b53eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %835)
-  br label %1501
-
-837:                                              ; preds = %2
-  %838 = getelementptr inbounds i8, ptr %1, i64 8
-  %839 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_xor_u17hc9827866d4fc128dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %838)
-  br label %1501
-
-840:                                              ; preds = %2
-  %841 = getelementptr inbounds i8, ptr %1, i64 8
-  %842 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_xor_u17h00517605ebe3d06fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %841)
-  br label %1501
-
-843:                                              ; preds = %2
-  %844 = getelementptr inbounds i8, ptr %1, i64 8
-  %845 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_xor_u17h00e64470195047ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %844)
-  br label %1501
-
-846:                                              ; preds = %2
-  %847 = getelementptr inbounds i8, ptr %1, i64 8
-  %848 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_xor_u17hc43e6909fc066edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %847)
-  br label %1501
-
-849:                                              ; preds = %2
-  %850 = getelementptr inbounds i8, ptr %1, i64 8
-  %851 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_xor_u17h5b6210e12b4a8f04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %850)
-  br label %1501
-
-852:                                              ; preds = %2
-  %853 = getelementptr inbounds i8, ptr %1, i64 8
-  %854 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_atomic_rmw_xchg17hb47433de9e7157b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %853)
-  br label %1501
-
-855:                                              ; preds = %2
-  %856 = getelementptr inbounds i8, ptr %1, i64 8
-  %857 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_rmw_xchg17hafbd5069dfcc0b9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %856)
-  br label %1501
-
-858:                                              ; preds = %2
-  %859 = getelementptr inbounds i8, ptr %1, i64 8
-  %860 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw8_xchg_u17h60de5311072d4d1aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %859)
-  br label %1501
-
-861:                                              ; preds = %2
-  %862 = getelementptr inbounds i8, ptr %1, i64 8
-  %863 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32_atomic_rmw16_xchg_u17hf3745c976ca2563eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %862)
-  br label %1501
-
-864:                                              ; preds = %2
-  %865 = getelementptr inbounds i8, ptr %1, i64 8
-  %866 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw8_xchg_u17h3d23c7b94557b067E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %865)
-  br label %1501
-
-867:                                              ; preds = %2
-  %868 = getelementptr inbounds i8, ptr %1, i64 8
-  %869 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i64_atomic_rmw16_xchg_u17h1c6c2013ce64ffc2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %868)
-  br label %1501
-
-870:                                              ; preds = %2
-  %871 = getelementptr inbounds i8, ptr %1, i64 8
-  %872 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i64_atomic_rmw32_xchg_u17h5b9a03d8483673e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %871)
-  br label %1501
-
-873:                                              ; preds = %2
-  %874 = getelementptr inbounds i8, ptr %1, i64 8
-  %875 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw_cmpxchg17h9f86c6ed8e3e865dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %874)
-  br label %1501
-
-876:                                              ; preds = %2
-  %877 = getelementptr inbounds i8, ptr %1, i64 8
-  %878 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw_cmpxchg17h88e7ddbb2859a8b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %877)
-  br label %1501
-
-879:                                              ; preds = %2
-  %880 = getelementptr inbounds i8, ptr %1, i64 8
-  %881 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32_atomic_rmw8_cmpxchg_u17hb957bcee94599272E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %880)
-  br label %1501
-
-882:                                              ; preds = %2
-  %883 = getelementptr inbounds i8, ptr %1, i64 8
-  %884 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i32_atomic_rmw16_cmpxchg_u17h54475e75743d9c22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %883)
-  br label %1501
-
-885:                                              ; preds = %2
-  %886 = getelementptr inbounds i8, ptr %1, i64 8
-  %887 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64_atomic_rmw8_cmpxchg_u17h2c17b424472ce5f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %886)
-  br label %1501
-
-888:                                              ; preds = %2
-  %889 = getelementptr inbounds i8, ptr %1, i64 8
-  %890 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i64_atomic_rmw16_cmpxchg_u17h978830550b42256fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %889)
-  br label %1501
-
-891:                                              ; preds = %2
-  %892 = getelementptr inbounds i8, ptr %1, i64 8
-  %893 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i64_atomic_rmw32_cmpxchg_u17hef796f73e468b85aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %892)
-  br label %1501
-
-894:                                              ; preds = %2
-  %895 = getelementptr inbounds i8, ptr %1, i64 4
-  %896 = load i32, ptr %895, align 4, !noundef !5
-  %897 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_global_atomic_get17hecc1974243b22c2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %896)
-  br label %1501
+  %710 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val35 = load i64, ptr %710, align 8
+  %711 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_atomic_fence17h25ddca1bb983a8e6E"(ptr nonnull %.val34, i64 %.val35)
+  br label %1508
+
+712:                                              ; preds = %2
+  %713 = getelementptr inbounds i8, ptr %1, i64 8
+  %714 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i32_atomic_load17h01916f9e79d352caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %713)
+  br label %1508
+
+715:                                              ; preds = %2
+  %716 = getelementptr inbounds i8, ptr %1, i64 8
+  %717 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i64_atomic_load17h51634a3522851e2dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %716)
+  br label %1508
+
+718:                                              ; preds = %2
+  %719 = getelementptr inbounds i8, ptr %1, i64 8
+  %720 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_load8_u17hd62562fd7f6546edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %719)
+  br label %1508
+
+721:                                              ; preds = %2
+  %722 = getelementptr inbounds i8, ptr %1, i64 8
+  %723 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_atomic_load16_u17hf70ef6b9201ad0b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %722)
+  br label %1508
+
+724:                                              ; preds = %2
+  %725 = getelementptr inbounds i8, ptr %1, i64 8
+  %726 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_load8_u17h72670f1fe01f11cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %725)
+  br label %1508
+
+727:                                              ; preds = %2
+  %728 = getelementptr inbounds i8, ptr %1, i64 8
+  %729 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_load16_u17ha18d4716bfe83d40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %728)
+  br label %1508
+
+730:                                              ; preds = %2
+  %731 = getelementptr inbounds i8, ptr %1, i64 8
+  %732 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_load32_u17h19586ea741074b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %731)
+  br label %1508
+
+733:                                              ; preds = %2
+  %734 = getelementptr inbounds i8, ptr %1, i64 8
+  %735 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_i32_atomic_store17h1221061d976258e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %734)
+  br label %1508
+
+736:                                              ; preds = %2
+  %737 = getelementptr inbounds i8, ptr %1, i64 8
+  %738 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_i64_atomic_store17he5a145ae8b15263eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %737)
+  br label %1508
+
+739:                                              ; preds = %2
+  %740 = getelementptr inbounds i8, ptr %1, i64 8
+  %741 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32_atomic_store817hdc9a9fa6bf5a958bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %740)
+  br label %1508
+
+742:                                              ; preds = %2
+  %743 = getelementptr inbounds i8, ptr %1, i64 8
+  %744 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_store1617ha4ab6ea6e1ecba0fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %743)
+  br label %1508
+
+745:                                              ; preds = %2
+  %746 = getelementptr inbounds i8, ptr %1, i64 8
+  %747 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i64_atomic_store817h81344909b3253cb6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %746)
+  br label %1508
+
+748:                                              ; preds = %2
+  %749 = getelementptr inbounds i8, ptr %1, i64 8
+  %750 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_store1617hb2c8ff7908343326E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %749)
+  br label %1508
+
+751:                                              ; preds = %2
+  %752 = getelementptr inbounds i8, ptr %1, i64 8
+  %753 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_store3217h6dcc12499a33d27aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %752)
+  br label %1508
+
+754:                                              ; preds = %2
+  %755 = getelementptr inbounds i8, ptr %1, i64 8
+  %756 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_add17h0d3c4ae7d2247e5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %755)
+  br label %1508
+
+757:                                              ; preds = %2
+  %758 = getelementptr inbounds i8, ptr %1, i64 8
+  %759 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_add17h6e75a1e048dc6f6eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %758)
+  br label %1508
+
+760:                                              ; preds = %2
+  %761 = getelementptr inbounds i8, ptr %1, i64 8
+  %762 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_add_u17he659aeb7c1be2490E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %761)
+  br label %1508
+
+763:                                              ; preds = %2
+  %764 = getelementptr inbounds i8, ptr %1, i64 8
+  %765 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_add_u17h3ca7b2d9b855d531E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %764)
+  br label %1508
+
+766:                                              ; preds = %2
+  %767 = getelementptr inbounds i8, ptr %1, i64 8
+  %768 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_add_u17h85da232c0c373f78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %767)
+  br label %1508
+
+769:                                              ; preds = %2
+  %770 = getelementptr inbounds i8, ptr %1, i64 8
+  %771 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_add_u17h8da248d7ad9206bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %770)
+  br label %1508
+
+772:                                              ; preds = %2
+  %773 = getelementptr inbounds i8, ptr %1, i64 8
+  %774 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_add_u17h5f1efee99b2af0b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %773)
+  br label %1508
+
+775:                                              ; preds = %2
+  %776 = getelementptr inbounds i8, ptr %1, i64 8
+  %777 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_sub17hd1dc1409e4138e68E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %776)
+  br label %1508
+
+778:                                              ; preds = %2
+  %779 = getelementptr inbounds i8, ptr %1, i64 8
+  %780 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_sub17h3d37677575c8da11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %779)
+  br label %1508
+
+781:                                              ; preds = %2
+  %782 = getelementptr inbounds i8, ptr %1, i64 8
+  %783 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_sub_u17hc8234b343a7f86a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %782)
+  br label %1508
+
+784:                                              ; preds = %2
+  %785 = getelementptr inbounds i8, ptr %1, i64 8
+  %786 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_sub_u17h88b719763a826f83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %785)
+  br label %1508
+
+787:                                              ; preds = %2
+  %788 = getelementptr inbounds i8, ptr %1, i64 8
+  %789 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_sub_u17hf7e67de0129337e8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %788)
+  br label %1508
+
+790:                                              ; preds = %2
+  %791 = getelementptr inbounds i8, ptr %1, i64 8
+  %792 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_sub_u17h9d731e8d747be8b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %791)
+  br label %1508
+
+793:                                              ; preds = %2
+  %794 = getelementptr inbounds i8, ptr %1, i64 8
+  %795 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_sub_u17hfb4844af13f4e05aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %794)
+  br label %1508
+
+796:                                              ; preds = %2
+  %797 = getelementptr inbounds i8, ptr %1, i64 8
+  %798 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_and17h091d29ef6c1d045aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %797)
+  br label %1508
+
+799:                                              ; preds = %2
+  %800 = getelementptr inbounds i8, ptr %1, i64 8
+  %801 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_and17hf465c516cb7dbba7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %800)
+  br label %1508
+
+802:                                              ; preds = %2
+  %803 = getelementptr inbounds i8, ptr %1, i64 8
+  %804 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_and_u17h719cadef9488dcbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %803)
+  br label %1508
+
+805:                                              ; preds = %2
+  %806 = getelementptr inbounds i8, ptr %1, i64 8
+  %807 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_and_u17h7547c860138e7c0dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %806)
+  br label %1508
+
+808:                                              ; preds = %2
+  %809 = getelementptr inbounds i8, ptr %1, i64 8
+  %810 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_and_u17h00df79875a60d38aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %809)
+  br label %1508
+
+811:                                              ; preds = %2
+  %812 = getelementptr inbounds i8, ptr %1, i64 8
+  %813 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_and_u17h18385419772b6c82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %812)
+  br label %1508
+
+814:                                              ; preds = %2
+  %815 = getelementptr inbounds i8, ptr %1, i64 8
+  %816 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_and_u17hbe1608d3e4789aa0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %815)
+  br label %1508
+
+817:                                              ; preds = %2
+  %818 = getelementptr inbounds i8, ptr %1, i64 8
+  %819 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32_atomic_rmw_or17h1fc2dc509941f656E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %818)
+  br label %1508
+
+820:                                              ; preds = %2
+  %821 = getelementptr inbounds i8, ptr %1, i64 8
+  %822 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i64_atomic_rmw_or17h9f22c49e561abf2bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %821)
+  br label %1508
+
+823:                                              ; preds = %2
+  %824 = getelementptr inbounds i8, ptr %1, i64 8
+  %825 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i32_atomic_rmw8_or_u17ha44ea0e9f94664c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %824)
+  br label %1508
+
+826:                                              ; preds = %2
+  %827 = getelementptr inbounds i8, ptr %1, i64 8
+  %828 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw16_or_u17h6c997d2437650b26E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %827)
+  br label %1508
+
+829:                                              ; preds = %2
+  %830 = getelementptr inbounds i8, ptr %1, i64 8
+  %831 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i64_atomic_rmw8_or_u17hbc500ad80f02b758E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %830)
+  br label %1508
+
+832:                                              ; preds = %2
+  %833 = getelementptr inbounds i8, ptr %1, i64 8
+  %834 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw16_or_u17h7e1528a1e6a4b89dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %833)
+  br label %1508
+
+835:                                              ; preds = %2
+  %836 = getelementptr inbounds i8, ptr %1, i64 8
+  %837 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw32_or_u17h335c35767b672960E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %836)
+  br label %1508
+
+838:                                              ; preds = %2
+  %839 = getelementptr inbounds i8, ptr %1, i64 8
+  %840 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32_atomic_rmw_xor17hc8f5f9c02fdcbe85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %839)
+  br label %1508
+
+841:                                              ; preds = %2
+  %842 = getelementptr inbounds i8, ptr %1, i64 8
+  %843 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64_atomic_rmw_xor17h89d304cb7fb9b53eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %842)
+  br label %1508
+
+844:                                              ; preds = %2
+  %845 = getelementptr inbounds i8, ptr %1, i64 8
+  %846 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i32_atomic_rmw8_xor_u17hc9827866d4fc128dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %845)
+  br label %1508
+
+847:                                              ; preds = %2
+  %848 = getelementptr inbounds i8, ptr %1, i64 8
+  %849 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw16_xor_u17h00517605ebe3d06fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %848)
+  br label %1508
+
+850:                                              ; preds = %2
+  %851 = getelementptr inbounds i8, ptr %1, i64 8
+  %852 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i64_atomic_rmw8_xor_u17h00e64470195047ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %851)
+  br label %1508
+
+853:                                              ; preds = %2
+  %854 = getelementptr inbounds i8, ptr %1, i64 8
+  %855 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw16_xor_u17hc43e6909fc066edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %854)
+  br label %1508
+
+856:                                              ; preds = %2
+  %857 = getelementptr inbounds i8, ptr %1, i64 8
+  %858 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw32_xor_u17h5b6210e12b4a8f04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %857)
+  br label %1508
+
+859:                                              ; preds = %2
+  %860 = getelementptr inbounds i8, ptr %1, i64 8
+  %861 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i32_atomic_rmw_xchg17hb47433de9e7157b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %860)
+  br label %1508
+
+862:                                              ; preds = %2
+  %863 = getelementptr inbounds i8, ptr %1, i64 8
+  %864 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i64_atomic_rmw_xchg17hafbd5069dfcc0b9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %863)
+  br label %1508
+
+865:                                              ; preds = %2
+  %866 = getelementptr inbounds i8, ptr %1, i64 8
+  %867 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw8_xchg_u17h60de5311072d4d1aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %866)
+  br label %1508
+
+868:                                              ; preds = %2
+  %869 = getelementptr inbounds i8, ptr %1, i64 8
+  %870 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32_atomic_rmw16_xchg_u17hf3745c976ca2563eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %869)
+  br label %1508
+
+871:                                              ; preds = %2
+  %872 = getelementptr inbounds i8, ptr %1, i64 8
+  %873 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw8_xchg_u17h3d23c7b94557b067E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %872)
+  br label %1508
+
+874:                                              ; preds = %2
+  %875 = getelementptr inbounds i8, ptr %1, i64 8
+  %876 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i64_atomic_rmw16_xchg_u17h1c6c2013ce64ffc2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %875)
+  br label %1508
+
+877:                                              ; preds = %2
+  %878 = getelementptr inbounds i8, ptr %1, i64 8
+  %879 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i64_atomic_rmw32_xchg_u17h5b9a03d8483673e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %878)
+  br label %1508
+
+880:                                              ; preds = %2
+  %881 = getelementptr inbounds i8, ptr %1, i64 8
+  %882 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i32_atomic_rmw_cmpxchg17h9f86c6ed8e3e865dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %881)
+  br label %1508
+
+883:                                              ; preds = %2
+  %884 = getelementptr inbounds i8, ptr %1, i64 8
+  %885 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$28visit_i64_atomic_rmw_cmpxchg17h88e7ddbb2859a8b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %884)
+  br label %1508
+
+886:                                              ; preds = %2
+  %887 = getelementptr inbounds i8, ptr %1, i64 8
+  %888 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32_atomic_rmw8_cmpxchg_u17hb957bcee94599272E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %887)
+  br label %1508
+
+889:                                              ; preds = %2
+  %890 = getelementptr inbounds i8, ptr %1, i64 8
+  %891 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i32_atomic_rmw16_cmpxchg_u17h54475e75743d9c22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %890)
+  br label %1508
+
+892:                                              ; preds = %2
+  %893 = getelementptr inbounds i8, ptr %1, i64 8
+  %894 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64_atomic_rmw8_cmpxchg_u17h2c17b424472ce5f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %893)
+  br label %1508
+
+895:                                              ; preds = %2
+  %896 = getelementptr inbounds i8, ptr %1, i64 8
+  %897 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i64_atomic_rmw16_cmpxchg_u17h978830550b42256fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %896)
+  br label %1508
 
 898:                                              ; preds = %2
-  %899 = getelementptr inbounds i8, ptr %1, i64 4
-  %900 = load i32, ptr %899, align 4, !noundef !5
-  %901 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_global_atomic_set17h7edd7946ad1d2cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %900)
-  br label %1501
+  %899 = getelementptr inbounds i8, ptr %1, i64 8
+  %900 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$32visit_i64_atomic_rmw32_cmpxchg_u17hef796f73e468b85aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %899)
+  br label %1508
 
-902:                                              ; preds = %2
-  %903 = getelementptr inbounds i8, ptr %1, i64 8
-  %904 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_v128_load17h8d6a109ddc34bc2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %903)
-  br label %1501
+901:                                              ; preds = %2
+  %902 = getelementptr inbounds i8, ptr %1, i64 4
+  %903 = load i32, ptr %902, align 4, !noundef !5
+  %904 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_global_atomic_get17hecc1974243b22c2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %903)
+  br label %1508
 
 905:                                              ; preds = %2
-  %906 = getelementptr inbounds i8, ptr %1, i64 8
-  %907 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_load8x8_s17h190daaf179b3227fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %906)
-  br label %1501
+  %906 = getelementptr inbounds i8, ptr %1, i64 4
+  %907 = load i32, ptr %906, align 4, !noundef !5
+  %908 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_global_atomic_set17h7edd7946ad1d2cf0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %907)
+  br label %1508
 
-908:                                              ; preds = %2
-  %909 = getelementptr inbounds i8, ptr %1, i64 8
-  %910 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_load8x8_u17hb0eb01a2a87d9596E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %909)
-  br label %1501
+909:                                              ; preds = %2
+  %910 = getelementptr inbounds i8, ptr %1, i64 8
+  %911 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_v128_load17h8d6a109ddc34bc2fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %910)
+  br label %1508
 
-911:                                              ; preds = %2
-  %912 = getelementptr inbounds i8, ptr %1, i64 8
-  %913 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load16x4_s17hb644137d047527f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %912)
-  br label %1501
+912:                                              ; preds = %2
+  %913 = getelementptr inbounds i8, ptr %1, i64 8
+  %914 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_load8x8_s17h190daaf179b3227fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %913)
+  br label %1508
 
-914:                                              ; preds = %2
-  %915 = getelementptr inbounds i8, ptr %1, i64 8
-  %916 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load16x4_u17h001e5e15c18e3b03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %915)
-  br label %1501
+915:                                              ; preds = %2
+  %916 = getelementptr inbounds i8, ptr %1, i64 8
+  %917 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_load8x8_u17hb0eb01a2a87d9596E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %916)
+  br label %1508
 
-917:                                              ; preds = %2
-  %918 = getelementptr inbounds i8, ptr %1, i64 8
-  %919 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load32x2_s17h7efb987911e5f223E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %918)
-  br label %1501
+918:                                              ; preds = %2
+  %919 = getelementptr inbounds i8, ptr %1, i64 8
+  %920 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load16x4_s17hb644137d047527f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %919)
+  br label %1508
 
-920:                                              ; preds = %2
-  %921 = getelementptr inbounds i8, ptr %1, i64 8
-  %922 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load32x2_u17h331fbdaa6c558b46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %921)
-  br label %1501
+921:                                              ; preds = %2
+  %922 = getelementptr inbounds i8, ptr %1, i64 8
+  %923 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load16x4_u17h001e5e15c18e3b03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %922)
+  br label %1508
 
-923:                                              ; preds = %2
-  %924 = getelementptr inbounds i8, ptr %1, i64 8
-  %925 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load8_splat17h59e93b05c7fce007E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %924)
-  br label %1501
+924:                                              ; preds = %2
+  %925 = getelementptr inbounds i8, ptr %1, i64 8
+  %926 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load32x2_s17h7efb987911e5f223E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %925)
+  br label %1508
 
-926:                                              ; preds = %2
-  %927 = getelementptr inbounds i8, ptr %1, i64 8
-  %928 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load16_splat17h0e6e232d18b9a7b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %927)
-  br label %1501
+927:                                              ; preds = %2
+  %928 = getelementptr inbounds i8, ptr %1, i64 8
+  %929 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load32x2_u17h331fbdaa6c558b46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %928)
+  br label %1508
 
-929:                                              ; preds = %2
-  %930 = getelementptr inbounds i8, ptr %1, i64 8
-  %931 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load32_splat17hc3698337aae5bbabE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %930)
-  br label %1501
+930:                                              ; preds = %2
+  %931 = getelementptr inbounds i8, ptr %1, i64 8
+  %932 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load8_splat17h59e93b05c7fce007E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %931)
+  br label %1508
 
-932:                                              ; preds = %2
-  %933 = getelementptr inbounds i8, ptr %1, i64 8
-  %934 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load64_splat17h7ddcab34825c7fd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %933)
-  br label %1501
+933:                                              ; preds = %2
+  %934 = getelementptr inbounds i8, ptr %1, i64 8
+  %935 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load16_splat17h0e6e232d18b9a7b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %934)
+  br label %1508
 
-935:                                              ; preds = %2
-  %936 = getelementptr inbounds i8, ptr %1, i64 8
-  %937 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load32_zero17h5e17a51b78d20770E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %936)
-  br label %1501
+936:                                              ; preds = %2
+  %937 = getelementptr inbounds i8, ptr %1, i64 8
+  %938 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load32_splat17hc3698337aae5bbabE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %937)
+  br label %1508
 
-938:                                              ; preds = %2
-  %939 = getelementptr inbounds i8, ptr %1, i64 8
-  %940 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load64_zero17hd869a770ce8bfc5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %939)
-  br label %1501
+939:                                              ; preds = %2
+  %940 = getelementptr inbounds i8, ptr %1, i64 8
+  %941 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_load64_splat17h7ddcab34825c7fd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %940)
+  br label %1508
 
-941:                                              ; preds = %2
-  %942 = getelementptr inbounds i8, ptr %1, i64 8
-  %943 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_v128_store17h8690d6d58403786bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %942)
-  br label %1501
+942:                                              ; preds = %2
+  %943 = getelementptr inbounds i8, ptr %1, i64 8
+  %944 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load32_zero17h5e17a51b78d20770E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %943)
+  br label %1508
 
-944:                                              ; preds = %2
-  %945 = getelementptr inbounds i8, ptr %1, i64 8
-  %946 = getelementptr inbounds i8, ptr %1, i64 2
-  %947 = load i8, ptr %946, align 2, !noundef !5
-  %948 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load8_lane17he7601f5250f9e36bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %945, i8 noundef %947)
-  br label %1501
+945:                                              ; preds = %2
+  %946 = getelementptr inbounds i8, ptr %1, i64 8
+  %947 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load64_zero17hd869a770ce8bfc5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %946)
+  br label %1508
 
-949:                                              ; preds = %2
-  %950 = getelementptr inbounds i8, ptr %1, i64 8
-  %951 = getelementptr inbounds i8, ptr %1, i64 2
-  %952 = load i8, ptr %951, align 2, !noundef !5
-  %953 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load16_lane17ha3352ccde247ad7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %950, i8 noundef %952)
-  br label %1501
+948:                                              ; preds = %2
+  %949 = getelementptr inbounds i8, ptr %1, i64 8
+  %950 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_v128_store17h8690d6d58403786bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %949)
+  br label %1508
 
-954:                                              ; preds = %2
-  %955 = getelementptr inbounds i8, ptr %1, i64 8
-  %956 = getelementptr inbounds i8, ptr %1, i64 2
-  %957 = load i8, ptr %956, align 2, !noundef !5
-  %958 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load32_lane17h79965b56b5369fe9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %955, i8 noundef %957)
-  br label %1501
+951:                                              ; preds = %2
+  %952 = getelementptr inbounds i8, ptr %1, i64 8
+  %953 = getelementptr inbounds i8, ptr %1, i64 2
+  %954 = load i8, ptr %953, align 2, !noundef !5
+  %955 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_v128_load8_lane17he7601f5250f9e36bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %952, i8 noundef %954)
+  br label %1508
 
-959:                                              ; preds = %2
-  %960 = getelementptr inbounds i8, ptr %1, i64 8
-  %961 = getelementptr inbounds i8, ptr %1, i64 2
-  %962 = load i8, ptr %961, align 2, !noundef !5
-  %963 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load64_lane17h0e152a6244e47e58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %960, i8 noundef %962)
-  br label %1501
+956:                                              ; preds = %2
+  %957 = getelementptr inbounds i8, ptr %1, i64 8
+  %958 = getelementptr inbounds i8, ptr %1, i64 2
+  %959 = load i8, ptr %958, align 2, !noundef !5
+  %960 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load16_lane17ha3352ccde247ad7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %957, i8 noundef %959)
+  br label %1508
 
-964:                                              ; preds = %2
-  %965 = getelementptr inbounds i8, ptr %1, i64 8
-  %966 = getelementptr inbounds i8, ptr %1, i64 2
-  %967 = load i8, ptr %966, align 2, !noundef !5
-  %968 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_store8_lane17h004637451170b5e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %965, i8 noundef %967)
-  br label %1501
+961:                                              ; preds = %2
+  %962 = getelementptr inbounds i8, ptr %1, i64 8
+  %963 = getelementptr inbounds i8, ptr %1, i64 2
+  %964 = load i8, ptr %963, align 2, !noundef !5
+  %965 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load32_lane17h79965b56b5369fe9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %962, i8 noundef %964)
+  br label %1508
 
-969:                                              ; preds = %2
-  %970 = getelementptr inbounds i8, ptr %1, i64 8
-  %971 = getelementptr inbounds i8, ptr %1, i64 2
-  %972 = load i8, ptr %971, align 2, !noundef !5
-  %973 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store16_lane17h250188a022689996E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %970, i8 noundef %972)
-  br label %1501
+966:                                              ; preds = %2
+  %967 = getelementptr inbounds i8, ptr %1, i64 8
+  %968 = getelementptr inbounds i8, ptr %1, i64 2
+  %969 = load i8, ptr %968, align 2, !noundef !5
+  %970 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_load64_lane17h0e152a6244e47e58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %967, i8 noundef %969)
+  br label %1508
 
-974:                                              ; preds = %2
-  %975 = getelementptr inbounds i8, ptr %1, i64 8
-  %976 = getelementptr inbounds i8, ptr %1, i64 2
-  %977 = load i8, ptr %976, align 2, !noundef !5
-  %978 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store32_lane17h733bc2ccff78a9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %975, i8 noundef %977)
-  br label %1501
+971:                                              ; preds = %2
+  %972 = getelementptr inbounds i8, ptr %1, i64 8
+  %973 = getelementptr inbounds i8, ptr %1, i64 2
+  %974 = load i8, ptr %973, align 2, !noundef !5
+  %975 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$22visit_v128_store8_lane17h004637451170b5e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %972, i8 noundef %974)
+  br label %1508
 
-979:                                              ; preds = %2
-  %980 = getelementptr inbounds i8, ptr %1, i64 8
-  %981 = getelementptr inbounds i8, ptr %1, i64 2
-  %982 = load i8, ptr %981, align 2, !noundef !5
-  %983 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store64_lane17hf119849cb284bc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %980, i8 noundef %982)
-  br label %1501
+976:                                              ; preds = %2
+  %977 = getelementptr inbounds i8, ptr %1, i64 8
+  %978 = getelementptr inbounds i8, ptr %1, i64 2
+  %979 = load i8, ptr %978, align 2, !noundef !5
+  %980 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store16_lane17h250188a022689996E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %977, i8 noundef %979)
+  br label %1508
 
-984:                                              ; preds = %2
-  %.val36 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %985 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val37 = load i64, ptr %985, align 8
-  %986 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_v128_const17h70f1c8cd2556bcf9E"(ptr nonnull %.val36, i64 %.val37)
-  br label %1501
+981:                                              ; preds = %2
+  %982 = getelementptr inbounds i8, ptr %1, i64 8
+  %983 = getelementptr inbounds i8, ptr %1, i64 2
+  %984 = load i8, ptr %983, align 2, !noundef !5
+  %985 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store32_lane17h733bc2ccff78a9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %982, i8 noundef %984)
+  br label %1508
 
-987:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+986:                                              ; preds = %2
+  %987 = getelementptr inbounds i8, ptr %1, i64 8
   %988 = getelementptr inbounds i8, ptr %1, i64 2
-  %989 = load <16 x i8>, ptr %988, align 2
-  store <16 x i8> %989, ptr %3, align 16
-  %990 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17hf64677a947699694E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %1501
+  %989 = load i8, ptr %988, align 2, !noundef !5
+  %990 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_v128_store64_lane17hf119849cb284bc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %987, i8 noundef %989)
+  br label %1508
 
 991:                                              ; preds = %2
-  %992 = getelementptr inbounds i8, ptr %1, i64 2
-  %993 = load i8, ptr %992, align 2, !noundef !5
-  %994 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_extract_lane_s17hd5d8ad7d8d51c13eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %993)
-  br label %1501
-
-995:                                              ; preds = %2
-  %996 = getelementptr inbounds i8, ptr %1, i64 2
-  %997 = load i8, ptr %996, align 2, !noundef !5
-  %998 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_extract_lane_u17h688614899100efb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %997)
-  br label %1501
-
-999:                                              ; preds = %2
-  %1000 = getelementptr inbounds i8, ptr %1, i64 2
-  %1001 = load i8, ptr %1000, align 2, !noundef !5
-  %1002 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i8x16_replace_lane17h398a7a2a1f8006f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1001)
-  br label %1501
-
-1003:                                             ; preds = %2
-  %1004 = getelementptr inbounds i8, ptr %1, i64 2
-  %1005 = load i8, ptr %1004, align 2, !noundef !5
-  %1006 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_extract_lane_s17hc52bf5eb763d0c74E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1005)
-  br label %1501
-
-1007:                                             ; preds = %2
-  %1008 = getelementptr inbounds i8, ptr %1, i64 2
-  %1009 = load i8, ptr %1008, align 2, !noundef !5
-  %1010 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_extract_lane_u17hdab687432a0d019dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1009)
-  br label %1501
-
-1011:                                             ; preds = %2
-  %1012 = getelementptr inbounds i8, ptr %1, i64 2
-  %1013 = load i8, ptr %1012, align 2, !noundef !5
-  %1014 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i16x8_replace_lane17h42fd5c08063ab061E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1013)
-  br label %1501
-
-1015:                                             ; preds = %2
-  %1016 = getelementptr inbounds i8, ptr %1, i64 2
-  %1017 = load i8, ptr %1016, align 2, !noundef !5
-  %1018 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32x4_extract_lane17hd84ec48cc6b50243E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1017)
-  br label %1501
-
-1019:                                             ; preds = %2
-  %1020 = getelementptr inbounds i8, ptr %1, i64 2
-  %1021 = load i8, ptr %1020, align 2, !noundef !5
-  %1022 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32x4_replace_lane17hdd35e8c1eb94ae1fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1021)
-  br label %1501
-
-1023:                                             ; preds = %2
-  %1024 = getelementptr inbounds i8, ptr %1, i64 2
-  %1025 = load i8, ptr %1024, align 2, !noundef !5
-  %1026 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64x2_extract_lane17h4eb133fe81ab0dffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1025)
-  br label %1501
-
-1027:                                             ; preds = %2
-  %1028 = getelementptr inbounds i8, ptr %1, i64 2
-  %1029 = load i8, ptr %1028, align 2, !noundef !5
-  %1030 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64x2_replace_lane17he542b11f1ff160c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1029)
-  br label %1501
-
-1031:                                             ; preds = %2
-  %1032 = getelementptr inbounds i8, ptr %1, i64 2
-  %1033 = load i8, ptr %1032, align 2, !noundef !5
-  %1034 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_extract_lane17h0f6976dc09881c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1033)
-  br label %1501
-
-1035:                                             ; preds = %2
-  %1036 = getelementptr inbounds i8, ptr %1, i64 2
-  %1037 = load i8, ptr %1036, align 2, !noundef !5
-  %1038 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_replace_lane17h1d8c605b63db0cdbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1037)
-  br label %1501
-
-1039:                                             ; preds = %2
-  %1040 = getelementptr inbounds i8, ptr %1, i64 2
-  %1041 = load i8, ptr %1040, align 2, !noundef !5
-  %1042 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_extract_lane17hdf19bf8df387ddd9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1041)
-  br label %1501
-
-1043:                                             ; preds = %2
-  %1044 = getelementptr inbounds i8, ptr %1, i64 2
-  %1045 = load i8, ptr %1044, align 2, !noundef !5
-  %1046 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_replace_lane17h08011e9d20b2ae22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1045)
-  br label %1501
-
-1047:                                             ; preds = %2
-  %1048 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_swizzle17ha066459c4a88e4c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1049:                                             ; preds = %2
-  %1050 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_splat17heb50844afec964c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1051:                                             ; preds = %2
-  %1052 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_splat17h161c437950627f3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1053:                                             ; preds = %2
-  %1054 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_splat17haff43fb862629f20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1055:                                             ; preds = %2
-  %1056 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_splat17hb08f7c6e01733f50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1057:                                             ; preds = %2
-  %1058 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_splat17hfaab21970d1a06c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1059:                                             ; preds = %2
-  %1060 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_splat17h308e26a918bad294E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1061:                                             ; preds = %2
-  %1062 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i8x16_eq17ha50a81793475e34eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1063:                                             ; preds = %2
-  %1064 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i8x16_ne17habf942a86bc0b45dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1065:                                             ; preds = %2
-  %1066 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_lt_s17h7da263ce86c58f9dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1067:                                             ; preds = %2
-  %1068 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_lt_u17h4ea89f426bb075e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1069:                                             ; preds = %2
-  %1070 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_gt_s17h5e87a6afe330e4e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1071:                                             ; preds = %2
-  %1072 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_gt_u17ha9e0078a3c1709c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1073:                                             ; preds = %2
-  %1074 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_le_s17h3072943c5ed727d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1075:                                             ; preds = %2
-  %1076 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_le_u17h54ddc72e582dd8a1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1077:                                             ; preds = %2
-  %1078 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_ge_s17hc5ec71d5e377996cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1079:                                             ; preds = %2
-  %1080 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_ge_u17h61330ae508d039dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1081:                                             ; preds = %2
-  %1082 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i16x8_eq17h8f6d415a4a23bcc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1083:                                             ; preds = %2
-  %1084 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i16x8_ne17hbf28fd8943876616E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1085:                                             ; preds = %2
-  %1086 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_lt_s17hd5d6e1ad5558fe8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1087:                                             ; preds = %2
-  %1088 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_lt_u17h2c7b294a25d4678eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1089:                                             ; preds = %2
-  %1090 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_gt_s17hdd22b9c482071f26E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1091:                                             ; preds = %2
-  %1092 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_gt_u17hda071ca03d37c8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1093:                                             ; preds = %2
-  %1094 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_le_s17h4d6c9ad50076a20fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1095:                                             ; preds = %2
-  %1096 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_le_u17h0e951b2a25a12f76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1097:                                             ; preds = %2
-  %1098 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_ge_s17h53165a0d8843a711E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1099:                                             ; preds = %2
-  %1100 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_ge_u17h9295fe088a5b810bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1101:                                             ; preds = %2
-  %1102 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32x4_eq17hcca1493e97f7c2bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1103:                                             ; preds = %2
-  %1104 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32x4_ne17hf0b7d1d74ab13ef6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1105:                                             ; preds = %2
-  %1106 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_lt_s17h6ae762f5af9d92faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1107:                                             ; preds = %2
-  %1108 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_lt_u17hefc96d3c5263a729E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1109:                                             ; preds = %2
-  %1110 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_gt_s17h40c8bc6f753b87d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1111:                                             ; preds = %2
-  %1112 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_gt_u17h697f0c339d04f15bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1113:                                             ; preds = %2
-  %1114 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_le_s17h3824d25d2c14c494E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1115:                                             ; preds = %2
-  %1116 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_le_u17h5e72f44399675ee0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1117:                                             ; preds = %2
-  %1118 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_ge_s17h8a060cf2eb191258E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1119:                                             ; preds = %2
-  %1120 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_ge_u17hdfa0fc8b83176ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1121:                                             ; preds = %2
-  %1122 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64x2_eq17h96987a7bc6b8d890E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1123:                                             ; preds = %2
-  %1124 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64x2_ne17ha8968507944dc5d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1125:                                             ; preds = %2
-  %1126 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_lt_s17h55fe2919bad91329E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1127:                                             ; preds = %2
-  %1128 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_gt_s17h0c945875b8c27ddbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1129:                                             ; preds = %2
-  %1130 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_le_s17h63d65b60cfdfcfc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1131:                                             ; preds = %2
-  %1132 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_ge_s17h507a3f83ad821de3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1133:                                             ; preds = %2
-  %1134 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_eq17h0d1e01999084e772E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1135:                                             ; preds = %2
-  %1136 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_ne17h0299f1d65ff81adcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1137:                                             ; preds = %2
-  %1138 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_lt17hf7e8dac40b6f5d81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1139:                                             ; preds = %2
-  %1140 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_gt17h013640527c30457aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1141:                                             ; preds = %2
-  %1142 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_le17hc0c82f5d05278f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1143:                                             ; preds = %2
-  %1144 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_ge17hf13ce05af89fcd84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1145:                                             ; preds = %2
-  %1146 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_eq17h6862c205ab163456E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1147:                                             ; preds = %2
-  %1148 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_ne17h9d3af4a1aaf58aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1149:                                             ; preds = %2
-  %1150 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_lt17h5fe928f97ed696eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1151:                                             ; preds = %2
-  %1152 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_gt17hac116af7d4f00e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1153:                                             ; preds = %2
-  %1154 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_le17hc0c10d5673fb21d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1155:                                             ; preds = %2
-  %1156 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_ge17h9ed5e11e1d621f83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1157:                                             ; preds = %2
-  %1158 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_not17hf4a8217b2b5ebb8bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1159:                                             ; preds = %2
-  %1160 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_and17h33b6002055c2b1c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1161:                                             ; preds = %2
-  %1162 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_v128_andnot17hf2936bea4b692643E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1163:                                             ; preds = %2
-  %1164 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_v128_or17h8c02a9127fe29395E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1165:                                             ; preds = %2
-  %1166 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_xor17hd1f402d3aec96e17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1167:                                             ; preds = %2
-  %1168 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_bitselect17ha5b7fa269f8fe42aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1169:                                             ; preds = %2
-  %1170 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_v128_any_true17h6561e7a555871a07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1171:                                             ; preds = %2
-  %1172 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_abs17h8a1769b2a2fea680E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1173:                                             ; preds = %2
-  %1174 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_neg17he676ca7add76fb27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1175:                                             ; preds = %2
-  %1176 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i8x16_popcnt17hdb74d3ee1bd6352bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1177:                                             ; preds = %2
-  %1178 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i8x16_all_true17h6e43bf8aae290aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1179:                                             ; preds = %2
-  %1180 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_bitmask17ha375982e23bf09daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1181:                                             ; preds = %2
-  %1182 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_narrow_i16x8_s17h9787e8a029aeaaf5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1183:                                             ; preds = %2
-  %1184 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_narrow_i16x8_u17hda499e379b2e80d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1185:                                             ; preds = %2
-  %1186 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_shl17h8992af9cbd0736b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1187:                                             ; preds = %2
-  %1188 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_shr_s17hd39a0177ab44abeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1189:                                             ; preds = %2
-  %1190 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_shr_u17h0ddb3e43fa9af5b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1191:                                             ; preds = %2
-  %1192 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_add17h63262cc8747747f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1193:                                             ; preds = %2
-  %1194 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_add_sat_s17hfa0b7719be3804a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1195:                                             ; preds = %2
-  %1196 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_add_sat_u17h8e24c1ae063458dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1197:                                             ; preds = %2
-  %1198 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_sub17h1efecf34c6dcc322E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1199:                                             ; preds = %2
-  %1200 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_sub_sat_s17h0038f99bb201469aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1201:                                             ; preds = %2
-  %1202 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_sub_sat_u17hf5dd32b95b2bdde8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1203:                                             ; preds = %2
-  %1204 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_min_s17hf30dc0dba0195072E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1205:                                             ; preds = %2
-  %1206 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_min_u17hc583d091fa4286d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1207:                                             ; preds = %2
-  %1208 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_max_s17h04c0741c9fa7dad4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1209:                                             ; preds = %2
-  %1210 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_max_u17h84cf9ab85a9819c4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1211:                                             ; preds = %2
-  %1212 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i8x16_avgr_u17h552be4562796aaa8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1213:                                             ; preds = %2
-  %1214 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_s17h6bd1479c6ce52cbdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1215:                                             ; preds = %2
-  %1216 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_u17h38842041f0144426E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1217:                                             ; preds = %2
-  %1218 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_abs17h0a70096e4936a28fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1219:                                             ; preds = %2
-  %1220 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_neg17h0131625a30f1d388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1221:                                             ; preds = %2
-  %1222 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i16x8_q15mulr_sat_s17h43226e1602a08fe0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1223:                                             ; preds = %2
-  %1224 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i16x8_all_true17h31a8aeb1bcd5f561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1225:                                             ; preds = %2
-  %1226 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i16x8_bitmask17h3620b17f93a840f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1227:                                             ; preds = %2
-  %1228 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_narrow_i32x4_s17h829bbac9b7a24c66E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1229:                                             ; preds = %2
-  %1230 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_narrow_i32x4_u17h652f2ed4cb701860E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1231:                                             ; preds = %2
-  %1232 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extend_low_i8x16_s17hd0dcba7b8140e394E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1233:                                             ; preds = %2
-  %1234 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extend_high_i8x16_s17h62caf9fd64c86ecaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1235:                                             ; preds = %2
-  %1236 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extend_low_i8x16_u17hdea3064d7690f91aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1237:                                             ; preds = %2
-  %1238 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extend_high_i8x16_u17h85bdc6dca019fdeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1239:                                             ; preds = %2
-  %1240 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_shl17hf3384628ebef642dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1241:                                             ; preds = %2
-  %1242 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_shr_s17hea2261ba99b6a2a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1243:                                             ; preds = %2
-  %1244 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_shr_u17h2c695f6eacdb5231E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1245:                                             ; preds = %2
-  %1246 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_add17h19f1fbe5d2798c8eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1247:                                             ; preds = %2
-  %1248 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_add_sat_s17hc23fb7cc2654de0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1249:                                             ; preds = %2
-  %1250 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_add_sat_u17h8ae707d4802eebfaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1251:                                             ; preds = %2
-  %1252 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_sub17h05361911e772e193E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1253:                                             ; preds = %2
-  %1254 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_sub_sat_s17h812f68091ca5f6b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1255:                                             ; preds = %2
-  %1256 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_sub_sat_u17hb894b7b23b32891eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1257:                                             ; preds = %2
-  %1258 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_mul17hd7ee5f90970df01bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1259:                                             ; preds = %2
-  %1260 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_min_s17h70370ac75d65d5d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1261:                                             ; preds = %2
-  %1262 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_min_u17h52fee430b2f762fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1263:                                             ; preds = %2
-  %1264 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_max_s17h33b00058ec0bf543E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1265:                                             ; preds = %2
-  %1266 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_max_u17hb5d2a2cab9e5c81dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1267:                                             ; preds = %2
-  %1268 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i16x8_avgr_u17h2498205bb5c0e71eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1269:                                             ; preds = %2
-  %1270 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extmul_low_i8x16_s17hb7d0c50f1725c701E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1271:                                             ; preds = %2
-  %1272 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extmul_high_i8x16_s17h6d35262f5f8243dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1273:                                             ; preds = %2
-  %1274 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extmul_low_i8x16_u17h2896f6eb6a62f851E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1275:                                             ; preds = %2
-  %1276 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extmul_high_i8x16_u17ha6d26ee0d79971caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1277:                                             ; preds = %2
-  %1278 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_s17hdb1684624f37deceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1279:                                             ; preds = %2
-  %1280 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_u17h3808428069fc5595E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1281:                                             ; preds = %2
-  %1282 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_abs17hb38704e2df6a220aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1283:                                             ; preds = %2
-  %1284 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_neg17hdb2b0f375536fd9dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1285:                                             ; preds = %2
-  %1286 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i32x4_all_true17h22ba560c1cde68a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1287:                                             ; preds = %2
-  %1288 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i32x4_bitmask17hc0b598f881db38eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1289:                                             ; preds = %2
-  %1290 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extend_low_i16x8_s17hfb6e90fe2ec70695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1291:                                             ; preds = %2
-  %1292 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extend_high_i16x8_s17h9cf79bd430ef9148E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1293:                                             ; preds = %2
-  %1294 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extend_low_i16x8_u17had7312f5ec539dfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1295:                                             ; preds = %2
-  %1296 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extend_high_i16x8_u17had24a30a2e47a355E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1297:                                             ; preds = %2
-  %1298 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_shl17h204464e377c8e80aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1299:                                             ; preds = %2
-  %1300 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_shr_s17hedddebcbd2e64b44E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1301:                                             ; preds = %2
-  %1302 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_shr_u17he058e7b0fa2a033fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1303:                                             ; preds = %2
-  %1304 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_add17h06aa84fee80efbfcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1305:                                             ; preds = %2
-  %1306 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_sub17hc89a95af20c77536E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1307:                                             ; preds = %2
-  %1308 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_mul17h30bbed16dfe68e9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1309:                                             ; preds = %2
-  %1310 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_min_s17h6a265cdf5d2c7871E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1311:                                             ; preds = %2
-  %1312 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_min_u17hcc1718f728294ac0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1313:                                             ; preds = %2
-  %1314 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_max_s17h242015d69040e279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1315:                                             ; preds = %2
-  %1316 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_max_u17h7145efdbfc0d23a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1317:                                             ; preds = %2
-  %1318 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32x4_dot_i16x8_s17h7721fe8b950dc4cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1319:                                             ; preds = %2
-  %1320 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extmul_low_i16x8_s17h2e0706fa55ed1fb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1321:                                             ; preds = %2
-  %1322 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extmul_high_i16x8_s17hab4268165116e0acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1323:                                             ; preds = %2
-  %1324 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extmul_low_i16x8_u17h0bb672fcc83cc5a3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1325:                                             ; preds = %2
-  %1326 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extmul_high_i16x8_u17h1821f100dde2d735E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1327:                                             ; preds = %2
-  %1328 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_abs17hfaf30033ba5353f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1329:                                             ; preds = %2
-  %1330 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_neg17h5a8909ae1e7131a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1331:                                             ; preds = %2
-  %1332 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64x2_all_true17h095f1b7f9e154c1dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1333:                                             ; preds = %2
-  %1334 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i64x2_bitmask17h0134671482bd2c67E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1335:                                             ; preds = %2
-  %1336 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extend_low_i32x4_s17h36be49953c198430E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1337:                                             ; preds = %2
-  %1338 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extend_high_i32x4_s17hc240ab5579fe47faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1339:                                             ; preds = %2
-  %1340 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extend_low_i32x4_u17hb027349f0ddb7927E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1341:                                             ; preds = %2
-  %1342 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extend_high_i32x4_u17h8be4b8d282e0749dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1343:                                             ; preds = %2
-  %1344 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_shl17ha9409aacbf034f5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1345:                                             ; preds = %2
-  %1346 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_shr_s17h8a48fa187d43f0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1347:                                             ; preds = %2
-  %1348 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_shr_u17ha6d73c2aeb541a7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1349:                                             ; preds = %2
-  %1350 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_add17he1e7ac1731107809E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1351:                                             ; preds = %2
-  %1352 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_sub17hb09acfaad4a43e56E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1353:                                             ; preds = %2
-  %1354 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_mul17h527ea8a8cef66057E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1355:                                             ; preds = %2
-  %1356 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extmul_low_i32x4_s17hf4f8489b260f64d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1357:                                             ; preds = %2
-  %1358 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extmul_high_i32x4_s17h043ffd2413346b0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1359:                                             ; preds = %2
-  %1360 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extmul_low_i32x4_u17h9c6bc47cc381a841E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1361:                                             ; preds = %2
-  %1362 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extmul_high_i32x4_u17hb878b38b881586c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1363:                                             ; preds = %2
-  %1364 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_ceil17h94105d4a61ae0e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1365:                                             ; preds = %2
-  %1366 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_floor17he99b88a775ae1f01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1367:                                             ; preds = %2
-  %1368 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_trunc17h0049f6bf4d14dc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1369:                                             ; preds = %2
-  %1370 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_f32x4_nearest17h43d1c915c8785bedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1371:                                             ; preds = %2
-  %1372 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_abs17h3fe1ca73a463e06bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1373:                                             ; preds = %2
-  %1374 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_neg17h7b5c3f429d4846a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1375:                                             ; preds = %2
-  %1376 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_sqrt17h211da4ffa0f51eb6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1377:                                             ; preds = %2
-  %1378 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_add17hd9fffc2cc6831db7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1379:                                             ; preds = %2
-  %1380 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_sub17h904d78bc96349c4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1381:                                             ; preds = %2
-  %1382 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_mul17h9217d016b86940acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1383:                                             ; preds = %2
-  %1384 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_div17hf45c2340dbbea6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1385:                                             ; preds = %2
-  %1386 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_min17h0554dc5e74652891E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1387:                                             ; preds = %2
-  %1388 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_max17h46baf6a69edd136cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1389:                                             ; preds = %2
-  %1390 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_pmin17hbf5c8b1b3d57549bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1391:                                             ; preds = %2
-  %1392 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_pmax17h010be1c2b27adc51E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1393:                                             ; preds = %2
-  %1394 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_ceil17h8d6fdd26b6b32d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1395:                                             ; preds = %2
-  %1396 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_floor17h1449357497cacd37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1397:                                             ; preds = %2
-  %1398 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_trunc17hc60fd0f423b4adc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1399:                                             ; preds = %2
-  %1400 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_f64x2_nearest17he97c952cd443d2c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1401:                                             ; preds = %2
-  %1402 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_abs17h826956fd8cc1e122E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1403:                                             ; preds = %2
-  %1404 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_neg17h90b247c0466979d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1405:                                             ; preds = %2
-  %1406 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_sqrt17h6cb4cf6aabf7c836E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1407:                                             ; preds = %2
-  %1408 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_add17hef1fcd9c64dd2909E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1409:                                             ; preds = %2
-  %1410 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_sub17hf89823e5f5f436fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1411:                                             ; preds = %2
-  %1412 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_mul17hb1335685dcbc4501E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1413:                                             ; preds = %2
-  %1414 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_div17hd822ee2dae10e207E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1415:                                             ; preds = %2
-  %1416 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_min17h6992fc54df749313E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1417:                                             ; preds = %2
-  %1418 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_max17h43ace05391eb77b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1419:                                             ; preds = %2
-  %1420 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_pmin17h90ab0ce05ee49493E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1421:                                             ; preds = %2
-  %1422 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_pmax17h95bc65beb31a3961E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1423:                                             ; preds = %2
-  %1424 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32x4_trunc_sat_f32x4_s17h3249c55139f68751E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1425:                                             ; preds = %2
-  %1426 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32x4_trunc_sat_f32x4_u17h51be8ec9e16f5c21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1427:                                             ; preds = %2
-  %1428 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_f32x4_convert_i32x4_s17h71bf0dbd5fbcf4bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1429:                                             ; preds = %2
-  %1430 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_f32x4_convert_i32x4_u17h2c22ee8ed47648f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1431:                                             ; preds = %2
-  %1432 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$34visit_i32x4_trunc_sat_f64x2_s_zero17h9a7d869e8c416e19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1433:                                             ; preds = %2
-  %1434 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$34visit_i32x4_trunc_sat_f64x2_u_zero17h2aace0fd2641f512E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1435:                                             ; preds = %2
-  %1436 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_f64x2_convert_low_i32x4_s17hcc4c3cc6d95ab95eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1437:                                             ; preds = %2
-  %1438 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_f64x2_convert_low_i32x4_u17ha587176272509eddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1439:                                             ; preds = %2
-  %1440 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_f32x4_demote_f64x2_zero17hbeac38f5654deb52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1441:                                             ; preds = %2
-  %1442 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_f64x2_promote_low_f32x417hf36d4c5f15bdf5e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1443:                                             ; preds = %2
-  %1444 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i8x16_relaxed_swizzle17h441a878d32e3d581E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1445:                                             ; preds = %2
-  %1446 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_s17h42ba1da73259710eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1447:                                             ; preds = %2
-  %1448 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_u17h09cccf0899ae0bbeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1449:                                             ; preds = %2
-  %1450 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_s_zero17hb4cb38cb62d2f241E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1451:                                             ; preds = %2
-  %1452 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_u_zero17h61ad0ae1b3e5edb5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1453:                                             ; preds = %2
-  %1454 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_relaxed_madd17h984fb0a37b6e0608E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1455:                                             ; preds = %2
-  %1456 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f32x4_relaxed_nmadd17hd8191dc30784cd4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1457:                                             ; preds = %2
-  %1458 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_relaxed_madd17h36bb21b0213e3354E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1459:                                             ; preds = %2
-  %1460 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f64x2_relaxed_nmadd17h15d280b6cc0fe8eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1461:                                             ; preds = %2
-  %1462 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i8x16_relaxed_laneselect17habfc2e011867217bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1463:                                             ; preds = %2
-  %1464 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_relaxed_laneselect17h43f70aee4a36e80bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1465:                                             ; preds = %2
-  %1466 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_relaxed_laneselect17hee05df206a1d7318E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1467:                                             ; preds = %2
-  %1468 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_relaxed_laneselect17hb648e823122919fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1469:                                             ; preds = %2
-  %1470 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32x4_relaxed_min17hbf18ac33765ae384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1471:                                             ; preds = %2
-  %1472 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32x4_relaxed_max17h66bc40cfd9964bf4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1473:                                             ; preds = %2
-  %1474 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64x2_relaxed_min17h427f22edb3e96fceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1475:                                             ; preds = %2
-  %1476 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64x2_relaxed_max17h40d218da7b576e7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1477:                                             ; preds = %2
-  %1478 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i16x8_relaxed_q15mulr_s17h64bd94f56bc83662E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1479:                                             ; preds = %2
-  %1480 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$37visit_i16x8_relaxed_dot_i8x16_i7x16_s17hea2ff90cabdb4d82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1481:                                             ; preds = %2
-  %1482 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$41visit_i32x4_relaxed_dot_i8x16_i7x16_add_s17hcb68f911e8e92e4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1483:                                             ; preds = %2
-  %1484 = getelementptr inbounds i8, ptr %1, i64 4
-  %1485 = load i32, ptr %1484, align 4, !noundef !5
-  %1486 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_call_ref17heda2141cb52609b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1485)
-  br label %1501
-
-1487:                                             ; preds = %2
-  %1488 = getelementptr inbounds i8, ptr %1, i64 4
-  %1489 = load i32, ptr %1488, align 4, !noundef !5
-  %1490 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_return_call_ref17hf49bc95d7d48e255E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1489)
-  br label %1501
-
-1491:                                             ; preds = %2
-  %1492 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_ref_as_non_null17he041e8f5746546b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %1501
-
-1493:                                             ; preds = %2
-  %1494 = getelementptr inbounds i8, ptr %1, i64 4
-  %1495 = load i32, ptr %1494, align 4, !noundef !5
-  %1496 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_null17hf5604d9bba5cab52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1495)
-  br label %1501
-
-1497:                                             ; preds = %2
-  %1498 = getelementptr inbounds i8, ptr %1, i64 4
-  %1499 = load i32, ptr %1498, align 4, !noundef !5
-  %1500 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_br_on_non_null17hd34764529af6f521E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1499)
-  br label %1501
-
-1501:                                             ; preds = %2, %1497, %1493, %1491, %1487, %1483, %1481, %1479, %1477, %1475, %1473, %1471, %1469, %1467, %1465, %1463, %1461, %1459, %1457, %1455, %1453, %1451, %1449, %1447, %1445, %1443, %1441, %1439, %1437, %1435, %1433, %1431, %1429, %1427, %1425, %1423, %1421, %1419, %1417, %1415, %1413, %1411, %1409, %1407, %1405, %1403, %1401, %1399, %1397, %1395, %1393, %1391, %1389, %1387, %1385, %1383, %1381, %1379, %1377, %1375, %1373, %1371, %1369, %1367, %1365, %1363, %1361, %1359, %1357, %1355, %1353, %1351, %1349, %1347, %1345, %1343, %1341, %1339, %1337, %1335, %1333, %1331, %1329, %1327, %1325, %1323, %1321, %1319, %1317, %1315, %1313, %1311, %1309, %1307, %1305, %1303, %1301, %1299, %1297, %1295, %1293, %1291, %1289, %1287, %1285, %1283, %1281, %1279, %1277, %1275, %1273, %1271, %1269, %1267, %1265, %1263, %1261, %1259, %1257, %1255, %1253, %1251, %1249, %1247, %1245, %1243, %1241, %1239, %1237, %1235, %1233, %1231, %1229, %1227, %1225, %1223, %1221, %1219, %1217, %1215, %1213, %1211, %1209, %1207, %1205, %1203, %1201, %1199, %1197, %1195, %1193, %1191, %1189, %1187, %1185, %1183, %1181, %1179, %1177, %1175, %1173, %1171, %1169, %1167, %1165, %1163, %1161, %1159, %1157, %1155, %1153, %1151, %1149, %1147, %1145, %1143, %1141, %1139, %1137, %1135, %1133, %1131, %1129, %1127, %1125, %1123, %1121, %1119, %1117, %1115, %1113, %1111, %1109, %1107, %1105, %1103, %1101, %1099, %1097, %1095, %1093, %1091, %1089, %1087, %1085, %1083, %1081, %1079, %1077, %1075, %1073, %1071, %1069, %1067, %1065, %1063, %1061, %1059, %1057, %1055, %1053, %1051, %1049, %1047, %1043, %1039, %1035, %1031, %1027, %1023, %1019, %1015, %1011, %1007, %1003, %999, %995, %991, %987, %984, %979, %974, %969, %964, %959, %954, %949, %944, %941, %938, %935, %932, %929, %926, %923, %920, %917, %914, %911, %908, %905, %902, %898, %894, %891, %888, %885, %882, %879, %876, %873, %870, %867, %864, %861, %858, %855, %852, %849, %846, %843, %840, %837, %834, %831, %828, %825, %822, %819, %816, %813, %810, %807, %804, %801, %798, %795, %792, %789, %786, %783, %780, %777, %774, %771, %768, %765, %762, %759, %756, %753, %750, %747, %744, %741, %738, %735, %732, %729, %726, %723, %720, %717, %714, %711, %708, %705, %702, %699, %696, %693, %689, %685, %681, %677, %673, %669, %663, %659, %653, %649, %643, %639, %633, %631, %629, %627, %625, %623, %621, %619, %617, %615, %613, %611, %609, %607, %601, %595, %592, %589, %586, %583, %577, %571, %565, %561, %559, %555, %551, %547, %543, %537, %531, %525, %521, %517, %511, %505, %499, %493, %489, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %223, %221, %218, %215, %212, %211, %210, %204, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %125, %121, %117, %113, %108, %105, %103, %101, %95, %91, %83, %79, %77, %64, %60, %56, %54, %51, %48, %45, %42, %39, %37, %33, %21, %19, %16, %13, %10, %7
-  %.0 = phi ptr [ %1500, %1497 ], [ %1496, %1493 ], [ %1492, %1491 ], [ %1490, %1487 ], [ %1486, %1483 ], [ %1482, %1481 ], [ %1480, %1479 ], [ %1478, %1477 ], [ %1476, %1475 ], [ %1474, %1473 ], [ %1472, %1471 ], [ %1470, %1469 ], [ %1468, %1467 ], [ %1466, %1465 ], [ %1464, %1463 ], [ %1462, %1461 ], [ %1460, %1459 ], [ %1458, %1457 ], [ %1456, %1455 ], [ %1454, %1453 ], [ %1452, %1451 ], [ %1450, %1449 ], [ %1448, %1447 ], [ %1446, %1445 ], [ %1444, %1443 ], [ %1442, %1441 ], [ %1440, %1439 ], [ %1438, %1437 ], [ %1436, %1435 ], [ %1434, %1433 ], [ %1432, %1431 ], [ %1430, %1429 ], [ %1428, %1427 ], [ %1426, %1425 ], [ %1424, %1423 ], [ %1422, %1421 ], [ %1420, %1419 ], [ %1418, %1417 ], [ %1416, %1415 ], [ %1414, %1413 ], [ %1412, %1411 ], [ %1410, %1409 ], [ %1408, %1407 ], [ %1406, %1405 ], [ %1404, %1403 ], [ %1402, %1401 ], [ %1400, %1399 ], [ %1398, %1397 ], [ %1396, %1395 ], [ %1394, %1393 ], [ %1392, %1391 ], [ %1390, %1389 ], [ %1388, %1387 ], [ %1386, %1385 ], [ %1384, %1383 ], [ %1382, %1381 ], [ %1380, %1379 ], [ %1378, %1377 ], [ %1376, %1375 ], [ %1374, %1373 ], [ %1372, %1371 ], [ %1370, %1369 ], [ %1368, %1367 ], [ %1366, %1365 ], [ %1364, %1363 ], [ %1362, %1361 ], [ %1360, %1359 ], [ %1358, %1357 ], [ %1356, %1355 ], [ %1354, %1353 ], [ %1352, %1351 ], [ %1350, %1349 ], [ %1348, %1347 ], [ %1346, %1345 ], [ %1344, %1343 ], [ %1342, %1341 ], [ %1340, %1339 ], [ %1338, %1337 ], [ %1336, %1335 ], [ %1334, %1333 ], [ %1332, %1331 ], [ %1330, %1329 ], [ %1328, %1327 ], [ %1326, %1325 ], [ %1324, %1323 ], [ %1322, %1321 ], [ %1320, %1319 ], [ %1318, %1317 ], [ %1316, %1315 ], [ %1314, %1313 ], [ %1312, %1311 ], [ %1310, %1309 ], [ %1308, %1307 ], [ %1306, %1305 ], [ %1304, %1303 ], [ %1302, %1301 ], [ %1300, %1299 ], [ %1298, %1297 ], [ %1296, %1295 ], [ %1294, %1293 ], [ %1292, %1291 ], [ %1290, %1289 ], [ %1288, %1287 ], [ %1286, %1285 ], [ %1284, %1283 ], [ %1282, %1281 ], [ %1280, %1279 ], [ %1278, %1277 ], [ %1276, %1275 ], [ %1274, %1273 ], [ %1272, %1271 ], [ %1270, %1269 ], [ %1268, %1267 ], [ %1266, %1265 ], [ %1264, %1263 ], [ %1262, %1261 ], [ %1260, %1259 ], [ %1258, %1257 ], [ %1256, %1255 ], [ %1254, %1253 ], [ %1252, %1251 ], [ %1250, %1249 ], [ %1248, %1247 ], [ %1246, %1245 ], [ %1244, %1243 ], [ %1242, %1241 ], [ %1240, %1239 ], [ %1238, %1237 ], [ %1236, %1235 ], [ %1234, %1233 ], [ %1232, %1231 ], [ %1230, %1229 ], [ %1228, %1227 ], [ %1226, %1225 ], [ %1224, %1223 ], [ %1222, %1221 ], [ %1220, %1219 ], [ %1218, %1217 ], [ %1216, %1215 ], [ %1214, %1213 ], [ %1212, %1211 ], [ %1210, %1209 ], [ %1208, %1207 ], [ %1206, %1205 ], [ %1204, %1203 ], [ %1202, %1201 ], [ %1200, %1199 ], [ %1198, %1197 ], [ %1196, %1195 ], [ %1194, %1193 ], [ %1192, %1191 ], [ %1190, %1189 ], [ %1188, %1187 ], [ %1186, %1185 ], [ %1184, %1183 ], [ %1182, %1181 ], [ %1180, %1179 ], [ %1178, %1177 ], [ %1176, %1175 ], [ %1174, %1173 ], [ %1172, %1171 ], [ %1170, %1169 ], [ %1168, %1167 ], [ %1166, %1165 ], [ %1164, %1163 ], [ %1162, %1161 ], [ %1160, %1159 ], [ %1158, %1157 ], [ %1156, %1155 ], [ %1154, %1153 ], [ %1152, %1151 ], [ %1150, %1149 ], [ %1148, %1147 ], [ %1146, %1145 ], [ %1144, %1143 ], [ %1142, %1141 ], [ %1140, %1139 ], [ %1138, %1137 ], [ %1136, %1135 ], [ %1134, %1133 ], [ %1132, %1131 ], [ %1130, %1129 ], [ %1128, %1127 ], [ %1126, %1125 ], [ %1124, %1123 ], [ %1122, %1121 ], [ %1120, %1119 ], [ %1118, %1117 ], [ %1116, %1115 ], [ %1114, %1113 ], [ %1112, %1111 ], [ %1110, %1109 ], [ %1108, %1107 ], [ %1106, %1105 ], [ %1104, %1103 ], [ %1102, %1101 ], [ %1100, %1099 ], [ %1098, %1097 ], [ %1096, %1095 ], [ %1094, %1093 ], [ %1092, %1091 ], [ %1090, %1089 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1084, %1083 ], [ %1082, %1081 ], [ %1080, %1079 ], [ %1078, %1077 ], [ %1076, %1075 ], [ %1074, %1073 ], [ %1072, %1071 ], [ %1070, %1069 ], [ %1068, %1067 ], [ %1066, %1065 ], [ %1064, %1063 ], [ %1062, %1061 ], [ %1060, %1059 ], [ %1058, %1057 ], [ %1056, %1055 ], [ %1054, %1053 ], [ %1052, %1051 ], [ %1050, %1049 ], [ %1048, %1047 ], [ %1046, %1043 ], [ %1042, %1039 ], [ %1038, %1035 ], [ %1034, %1031 ], [ %1030, %1027 ], [ %1026, %1023 ], [ %1022, %1019 ], [ %1018, %1015 ], [ %1014, %1011 ], [ %1010, %1007 ], [ %1006, %1003 ], [ %1002, %999 ], [ %998, %995 ], [ %994, %991 ], [ %990, %987 ], [ %986, %984 ], [ %983, %979 ], [ %978, %974 ], [ %973, %969 ], [ %968, %964 ], [ %963, %959 ], [ %958, %954 ], [ %953, %949 ], [ %948, %944 ], [ %943, %941 ], [ %940, %938 ], [ %937, %935 ], [ %934, %932 ], [ %931, %929 ], [ %928, %926 ], [ %925, %923 ], [ %922, %920 ], [ %919, %917 ], [ %916, %914 ], [ %913, %911 ], [ %910, %908 ], [ %907, %905 ], [ %904, %902 ], [ %901, %898 ], [ %897, %894 ], [ %893, %891 ], [ %890, %888 ], [ %887, %885 ], [ %884, %882 ], [ %881, %879 ], [ %878, %876 ], [ %875, %873 ], [ %872, %870 ], [ %869, %867 ], [ %866, %864 ], [ %863, %861 ], [ %860, %858 ], [ %857, %855 ], [ %854, %852 ], [ %851, %849 ], [ %848, %846 ], [ %845, %843 ], [ %842, %840 ], [ %839, %837 ], [ %836, %834 ], [ %833, %831 ], [ %830, %828 ], [ %827, %825 ], [ %824, %822 ], [ %821, %819 ], [ %818, %816 ], [ %815, %813 ], [ %812, %810 ], [ %809, %807 ], [ %806, %804 ], [ %803, %801 ], [ %800, %798 ], [ %797, %795 ], [ %794, %792 ], [ %791, %789 ], [ %788, %786 ], [ %785, %783 ], [ %782, %780 ], [ %779, %777 ], [ %776, %774 ], [ %773, %771 ], [ %770, %768 ], [ %767, %765 ], [ %764, %762 ], [ %761, %759 ], [ %758, %756 ], [ %755, %753 ], [ %752, %750 ], [ %749, %747 ], [ %746, %744 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %734, %732 ], [ %731, %729 ], [ %728, %726 ], [ %725, %723 ], [ %722, %720 ], [ %719, %717 ], [ %716, %714 ], [ %713, %711 ], [ %710, %708 ], [ %707, %705 ], [ %704, %702 ], [ %701, %699 ], [ %698, %696 ], [ %695, %693 ], [ %692, %689 ], [ %688, %685 ], [ %684, %681 ], [ %680, %677 ], [ %676, %673 ], [ %672, %669 ], [ %668, %663 ], [ %662, %659 ], [ %658, %653 ], [ %652, %649 ], [ %648, %643 ], [ %642, %639 ], [ %638, %633 ], [ %632, %631 ], [ %630, %629 ], [ %628, %627 ], [ %626, %625 ], [ %624, %623 ], [ %622, %621 ], [ %620, %619 ], [ %618, %617 ], [ %616, %615 ], [ %614, %613 ], [ %612, %611 ], [ %610, %609 ], [ %608, %607 ], [ %606, %601 ], [ %600, %595 ], [ %594, %592 ], [ %591, %589 ], [ %588, %586 ], [ %585, %583 ], [ %582, %577 ], [ %576, %571 ], [ %570, %565 ], [ %564, %561 ], [ %560, %559 ], [ %558, %555 ], [ %554, %551 ], [ %550, %547 ], [ %546, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %525 ], [ %524, %521 ], [ %520, %517 ], [ %516, %511 ], [ %510, %505 ], [ %504, %499 ], [ %498, %493 ], [ %492, %489 ], [ %488, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %444, %443 ], [ %442, %441 ], [ %440, %439 ], [ %438, %437 ], [ %436, %435 ], [ %434, %433 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ], [ %292, %291 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %223 ], [ %222, %221 ], [ %220, %218 ], [ %217, %215 ], [ %214, %212 ], [ null, %211 ], [ null, %210 ], [ %209, %204 ], [ %203, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %177 ], [ %176, %174 ], [ %173, %171 ], [ %170, %168 ], [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %153 ], [ %152, %150 ], [ %149, %147 ], [ %146, %144 ], [ %143, %141 ], [ %140, %138 ], [ %137, %135 ], [ %134, %132 ], [ %131, %129 ], [ %128, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %113 ], [ %112, %108 ], [ %107, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %95 ], [ %94, %91 ], [ %90, %83 ], [ %82, %79 ], [ %78, %77 ], [ %76, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %37 ], [ %36, %33 ], [ %32, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ null, %2 ]
+  %.val36 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  %992 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val37 = load i64, ptr %992, align 8
+  %993 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_v128_const17h70f1c8cd2556bcf9E"(ptr nonnull %.val36, i64 %.val37)
+  br label %1508
+
+994:                                              ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  %995 = getelementptr inbounds i8, ptr %1, i64 2
+  %996 = load <16 x i8>, ptr %995, align 2
+  store <16 x i8> %996, ptr %3, align 16
+  %997 = call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17hf64677a947699694E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  br label %1508
+
+998:                                              ; preds = %2
+  %999 = getelementptr inbounds i8, ptr %1, i64 2
+  %1000 = load i8, ptr %999, align 2, !noundef !5
+  %1001 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_extract_lane_s17hd5d8ad7d8d51c13eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1000)
+  br label %1508
+
+1002:                                             ; preds = %2
+  %1003 = getelementptr inbounds i8, ptr %1, i64 2
+  %1004 = load i8, ptr %1003, align 2, !noundef !5
+  %1005 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_extract_lane_u17h688614899100efb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1004)
+  br label %1508
+
+1006:                                             ; preds = %2
+  %1007 = getelementptr inbounds i8, ptr %1, i64 2
+  %1008 = load i8, ptr %1007, align 2, !noundef !5
+  %1009 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i8x16_replace_lane17h398a7a2a1f8006f7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1008)
+  br label %1508
+
+1010:                                             ; preds = %2
+  %1011 = getelementptr inbounds i8, ptr %1, i64 2
+  %1012 = load i8, ptr %1011, align 2, !noundef !5
+  %1013 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_extract_lane_s17hc52bf5eb763d0c74E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1012)
+  br label %1508
+
+1014:                                             ; preds = %2
+  %1015 = getelementptr inbounds i8, ptr %1, i64 2
+  %1016 = load i8, ptr %1015, align 2, !noundef !5
+  %1017 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_extract_lane_u17hdab687432a0d019dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1016)
+  br label %1508
+
+1018:                                             ; preds = %2
+  %1019 = getelementptr inbounds i8, ptr %1, i64 2
+  %1020 = load i8, ptr %1019, align 2, !noundef !5
+  %1021 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i16x8_replace_lane17h42fd5c08063ab061E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1020)
+  br label %1508
+
+1022:                                             ; preds = %2
+  %1023 = getelementptr inbounds i8, ptr %1, i64 2
+  %1024 = load i8, ptr %1023, align 2, !noundef !5
+  %1025 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32x4_extract_lane17hd84ec48cc6b50243E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1024)
+  br label %1508
+
+1026:                                             ; preds = %2
+  %1027 = getelementptr inbounds i8, ptr %1, i64 2
+  %1028 = load i8, ptr %1027, align 2, !noundef !5
+  %1029 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i32x4_replace_lane17hdd35e8c1eb94ae1fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1028)
+  br label %1508
+
+1030:                                             ; preds = %2
+  %1031 = getelementptr inbounds i8, ptr %1, i64 2
+  %1032 = load i8, ptr %1031, align 2, !noundef !5
+  %1033 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64x2_extract_lane17h4eb133fe81ab0dffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1032)
+  br label %1508
+
+1034:                                             ; preds = %2
+  %1035 = getelementptr inbounds i8, ptr %1, i64 2
+  %1036 = load i8, ptr %1035, align 2, !noundef !5
+  %1037 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_i64x2_replace_lane17he542b11f1ff160c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1036)
+  br label %1508
+
+1038:                                             ; preds = %2
+  %1039 = getelementptr inbounds i8, ptr %1, i64 2
+  %1040 = load i8, ptr %1039, align 2, !noundef !5
+  %1041 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_extract_lane17h0f6976dc09881c8bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1040)
+  br label %1508
+
+1042:                                             ; preds = %2
+  %1043 = getelementptr inbounds i8, ptr %1, i64 2
+  %1044 = load i8, ptr %1043, align 2, !noundef !5
+  %1045 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_replace_lane17h1d8c605b63db0cdbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1044)
+  br label %1508
+
+1046:                                             ; preds = %2
+  %1047 = getelementptr inbounds i8, ptr %1, i64 2
+  %1048 = load i8, ptr %1047, align 2, !noundef !5
+  %1049 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_extract_lane17hdf19bf8df387ddd9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1048)
+  br label %1508
+
+1050:                                             ; preds = %2
+  %1051 = getelementptr inbounds i8, ptr %1, i64 2
+  %1052 = load i8, ptr %1051, align 2, !noundef !5
+  %1053 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_replace_lane17h08011e9d20b2ae22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1052)
+  br label %1508
+
+1054:                                             ; preds = %2
+  %1055 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_swizzle17ha066459c4a88e4c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1056:                                             ; preds = %2
+  %1057 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_splat17heb50844afec964c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1058:                                             ; preds = %2
+  %1059 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_splat17h161c437950627f3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1060:                                             ; preds = %2
+  %1061 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_splat17haff43fb862629f20E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1062:                                             ; preds = %2
+  %1063 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_splat17hb08f7c6e01733f50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1064:                                             ; preds = %2
+  %1065 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_splat17hfaab21970d1a06c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1066:                                             ; preds = %2
+  %1067 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_splat17h308e26a918bad294E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1068:                                             ; preds = %2
+  %1069 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i8x16_eq17ha50a81793475e34eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1070:                                             ; preds = %2
+  %1071 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i8x16_ne17habf942a86bc0b45dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1072:                                             ; preds = %2
+  %1073 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_lt_s17h7da263ce86c58f9dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1074:                                             ; preds = %2
+  %1075 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_lt_u17h4ea89f426bb075e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1076:                                             ; preds = %2
+  %1077 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_gt_s17h5e87a6afe330e4e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1078:                                             ; preds = %2
+  %1079 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_gt_u17ha9e0078a3c1709c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1080:                                             ; preds = %2
+  %1081 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_le_s17h3072943c5ed727d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1082:                                             ; preds = %2
+  %1083 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_le_u17h54ddc72e582dd8a1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1084:                                             ; preds = %2
+  %1085 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_ge_s17hc5ec71d5e377996cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1086:                                             ; preds = %2
+  %1087 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i8x16_ge_u17h61330ae508d039dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1088:                                             ; preds = %2
+  %1089 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i16x8_eq17h8f6d415a4a23bcc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1090:                                             ; preds = %2
+  %1091 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i16x8_ne17hbf28fd8943876616E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1092:                                             ; preds = %2
+  %1093 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_lt_s17hd5d6e1ad5558fe8cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1094:                                             ; preds = %2
+  %1095 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_lt_u17h2c7b294a25d4678eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1096:                                             ; preds = %2
+  %1097 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_gt_s17hdd22b9c482071f26E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1098:                                             ; preds = %2
+  %1099 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_gt_u17hda071ca03d37c8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1100:                                             ; preds = %2
+  %1101 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_le_s17h4d6c9ad50076a20fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1102:                                             ; preds = %2
+  %1103 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_le_u17h0e951b2a25a12f76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1104:                                             ; preds = %2
+  %1105 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_ge_s17h53165a0d8843a711E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1106:                                             ; preds = %2
+  %1107 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i16x8_ge_u17h9295fe088a5b810bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1108:                                             ; preds = %2
+  %1109 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32x4_eq17hcca1493e97f7c2bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1110:                                             ; preds = %2
+  %1111 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i32x4_ne17hf0b7d1d74ab13ef6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1112:                                             ; preds = %2
+  %1113 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_lt_s17h6ae762f5af9d92faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1114:                                             ; preds = %2
+  %1115 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_lt_u17hefc96d3c5263a729E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1116:                                             ; preds = %2
+  %1117 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_gt_s17h40c8bc6f753b87d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1118:                                             ; preds = %2
+  %1119 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_gt_u17h697f0c339d04f15bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1120:                                             ; preds = %2
+  %1121 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_le_s17h3824d25d2c14c494E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1122:                                             ; preds = %2
+  %1123 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_le_u17h5e72f44399675ee0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1124:                                             ; preds = %2
+  %1125 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_ge_s17h8a060cf2eb191258E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1126:                                             ; preds = %2
+  %1127 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i32x4_ge_u17hdfa0fc8b83176ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1128:                                             ; preds = %2
+  %1129 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64x2_eq17h96987a7bc6b8d890E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1130:                                             ; preds = %2
+  %1131 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_i64x2_ne17ha8968507944dc5d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1132:                                             ; preds = %2
+  %1133 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_lt_s17h55fe2919bad91329E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1134:                                             ; preds = %2
+  %1135 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_gt_s17h0c945875b8c27ddbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1136:                                             ; preds = %2
+  %1137 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_le_s17h63d65b60cfdfcfc5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1138:                                             ; preds = %2
+  %1139 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_i64x2_ge_s17h507a3f83ad821de3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1140:                                             ; preds = %2
+  %1141 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_eq17h0d1e01999084e772E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1142:                                             ; preds = %2
+  %1143 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_ne17h0299f1d65ff81adcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1144:                                             ; preds = %2
+  %1145 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_lt17hf7e8dac40b6f5d81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1146:                                             ; preds = %2
+  %1147 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_gt17h013640527c30457aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1148:                                             ; preds = %2
+  %1149 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_le17hc0c82f5d05278f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1150:                                             ; preds = %2
+  %1151 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f32x4_ge17hf13ce05af89fcd84E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1152:                                             ; preds = %2
+  %1153 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_eq17h6862c205ab163456E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1154:                                             ; preds = %2
+  %1155 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_ne17h9d3af4a1aaf58aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1156:                                             ; preds = %2
+  %1157 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_lt17h5fe928f97ed696eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1158:                                             ; preds = %2
+  %1159 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_gt17hac116af7d4f00e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1160:                                             ; preds = %2
+  %1161 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_le17hc0c10d5673fb21d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1162:                                             ; preds = %2
+  %1163 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_f64x2_ge17h9ed5e11e1d621f83E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1164:                                             ; preds = %2
+  %1165 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_not17hf4a8217b2b5ebb8bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1166:                                             ; preds = %2
+  %1167 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_and17h33b6002055c2b1c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1168:                                             ; preds = %2
+  %1169 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_v128_andnot17hf2936bea4b692643E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1170:                                             ; preds = %2
+  %1171 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$13visit_v128_or17h8c02a9127fe29395E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1172:                                             ; preds = %2
+  %1173 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_v128_xor17hd1f402d3aec96e17E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1174:                                             ; preds = %2
+  %1175 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_v128_bitselect17ha5b7fa269f8fe42aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1176:                                             ; preds = %2
+  %1177 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_v128_any_true17h6561e7a555871a07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1178:                                             ; preds = %2
+  %1179 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_abs17h8a1769b2a2fea680E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1180:                                             ; preds = %2
+  %1181 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_neg17he676ca7add76fb27E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1182:                                             ; preds = %2
+  %1183 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i8x16_popcnt17hdb74d3ee1bd6352bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1184:                                             ; preds = %2
+  %1185 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i8x16_all_true17h6e43bf8aae290aa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1186:                                             ; preds = %2
+  %1187 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_bitmask17ha375982e23bf09daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1188:                                             ; preds = %2
+  %1189 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_narrow_i16x8_s17h9787e8a029aeaaf5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1190:                                             ; preds = %2
+  %1191 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i8x16_narrow_i16x8_u17hda499e379b2e80d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1192:                                             ; preds = %2
+  %1193 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_shl17h8992af9cbd0736b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1194:                                             ; preds = %2
+  %1195 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_shr_s17hd39a0177ab44abeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1196:                                             ; preds = %2
+  %1197 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_shr_u17h0ddb3e43fa9af5b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1198:                                             ; preds = %2
+  %1199 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_add17h63262cc8747747f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1200:                                             ; preds = %2
+  %1201 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_add_sat_s17hfa0b7719be3804a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1202:                                             ; preds = %2
+  %1203 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_add_sat_u17h8e24c1ae063458dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1204:                                             ; preds = %2
+  %1205 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i8x16_sub17h1efecf34c6dcc322E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1206:                                             ; preds = %2
+  %1207 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_sub_sat_s17h0038f99bb201469aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1208:                                             ; preds = %2
+  %1209 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i8x16_sub_sat_u17hf5dd32b95b2bdde8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1210:                                             ; preds = %2
+  %1211 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_min_s17hf30dc0dba0195072E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1212:                                             ; preds = %2
+  %1213 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_min_u17hc583d091fa4286d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1214:                                             ; preds = %2
+  %1215 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_max_s17h04c0741c9fa7dad4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1216:                                             ; preds = %2
+  %1217 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i8x16_max_u17h84cf9ab85a9819c4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1218:                                             ; preds = %2
+  %1219 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i8x16_avgr_u17h552be4562796aaa8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1220:                                             ; preds = %2
+  %1221 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_s17h6bd1479c6ce52cbdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1222:                                             ; preds = %2
+  %1223 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_u17h38842041f0144426E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1224:                                             ; preds = %2
+  %1225 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_abs17h0a70096e4936a28fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1226:                                             ; preds = %2
+  %1227 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_neg17h0131625a30f1d388E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1228:                                             ; preds = %2
+  %1229 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_i16x8_q15mulr_sat_s17h43226e1602a08fe0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1230:                                             ; preds = %2
+  %1231 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i16x8_all_true17h31a8aeb1bcd5f561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1232:                                             ; preds = %2
+  %1233 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i16x8_bitmask17h3620b17f93a840f5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1234:                                             ; preds = %2
+  %1235 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_narrow_i32x4_s17h829bbac9b7a24c66E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1236:                                             ; preds = %2
+  %1237 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$26visit_i16x8_narrow_i32x4_u17h652f2ed4cb701860E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1238:                                             ; preds = %2
+  %1239 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extend_low_i8x16_s17hd0dcba7b8140e394E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1240:                                             ; preds = %2
+  %1241 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extend_high_i8x16_s17h62caf9fd64c86ecaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1242:                                             ; preds = %2
+  %1243 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extend_low_i8x16_u17hdea3064d7690f91aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1244:                                             ; preds = %2
+  %1245 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extend_high_i8x16_u17h85bdc6dca019fdeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1246:                                             ; preds = %2
+  %1247 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_shl17hf3384628ebef642dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1248:                                             ; preds = %2
+  %1249 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_shr_s17hea2261ba99b6a2a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1250:                                             ; preds = %2
+  %1251 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_shr_u17h2c695f6eacdb5231E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1252:                                             ; preds = %2
+  %1253 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_add17h19f1fbe5d2798c8eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1254:                                             ; preds = %2
+  %1255 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_add_sat_s17hc23fb7cc2654de0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1256:                                             ; preds = %2
+  %1257 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_add_sat_u17h8ae707d4802eebfaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1258:                                             ; preds = %2
+  %1259 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_sub17h05361911e772e193E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1260:                                             ; preds = %2
+  %1261 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_sub_sat_s17h812f68091ca5f6b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1262:                                             ; preds = %2
+  %1263 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_i16x8_sub_sat_u17hb894b7b23b32891eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1264:                                             ; preds = %2
+  %1265 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i16x8_mul17hd7ee5f90970df01bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1266:                                             ; preds = %2
+  %1267 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_min_s17h70370ac75d65d5d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1268:                                             ; preds = %2
+  %1269 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_min_u17h52fee430b2f762fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1270:                                             ; preds = %2
+  %1271 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_max_s17h33b00058ec0bf543E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1272:                                             ; preds = %2
+  %1273 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i16x8_max_u17hb5d2a2cab9e5c81dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1274:                                             ; preds = %2
+  %1275 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$18visit_i16x8_avgr_u17h2498205bb5c0e71eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1276:                                             ; preds = %2
+  %1277 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extmul_low_i8x16_s17hb7d0c50f1725c701E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1278:                                             ; preds = %2
+  %1279 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extmul_high_i8x16_s17h6d35262f5f8243dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1280:                                             ; preds = %2
+  %1281 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_extmul_low_i8x16_u17h2896f6eb6a62f851E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1282:                                             ; preds = %2
+  %1283 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i16x8_extmul_high_i8x16_u17ha6d26ee0d79971caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1284:                                             ; preds = %2
+  %1285 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_s17hdb1684624f37deceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1286:                                             ; preds = %2
+  %1287 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_u17h3808428069fc5595E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1288:                                             ; preds = %2
+  %1289 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_abs17hb38704e2df6a220aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1290:                                             ; preds = %2
+  %1291 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_neg17hdb2b0f375536fd9dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1292:                                             ; preds = %2
+  %1293 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i32x4_all_true17h22ba560c1cde68a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1294:                                             ; preds = %2
+  %1295 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i32x4_bitmask17hc0b598f881db38eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1296:                                             ; preds = %2
+  %1297 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extend_low_i16x8_s17hfb6e90fe2ec70695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1298:                                             ; preds = %2
+  %1299 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extend_high_i16x8_s17h9cf79bd430ef9148E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1300:                                             ; preds = %2
+  %1301 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extend_low_i16x8_u17had7312f5ec539dfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1302:                                             ; preds = %2
+  %1303 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extend_high_i16x8_u17had24a30a2e47a355E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1304:                                             ; preds = %2
+  %1305 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_shl17h204464e377c8e80aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1306:                                             ; preds = %2
+  %1307 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_shr_s17hedddebcbd2e64b44E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1308:                                             ; preds = %2
+  %1309 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_shr_u17he058e7b0fa2a033fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1310:                                             ; preds = %2
+  %1311 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_add17h06aa84fee80efbfcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1312:                                             ; preds = %2
+  %1313 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_sub17hc89a95af20c77536E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1314:                                             ; preds = %2
+  %1315 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i32x4_mul17h30bbed16dfe68e9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1316:                                             ; preds = %2
+  %1317 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_min_s17h6a265cdf5d2c7871E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1318:                                             ; preds = %2
+  %1319 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_min_u17hcc1718f728294ac0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1320:                                             ; preds = %2
+  %1321 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_max_s17h242015d69040e279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1322:                                             ; preds = %2
+  %1323 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i32x4_max_u17h7145efdbfc0d23a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1324:                                             ; preds = %2
+  %1325 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_i32x4_dot_i16x8_s17h7721fe8b950dc4cdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1326:                                             ; preds = %2
+  %1327 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extmul_low_i16x8_s17h2e0706fa55ed1fb4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1328:                                             ; preds = %2
+  %1329 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extmul_high_i16x8_s17hab4268165116e0acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1330:                                             ; preds = %2
+  %1331 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_extmul_low_i16x8_u17h0bb672fcc83cc5a3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1332:                                             ; preds = %2
+  %1333 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i32x4_extmul_high_i16x8_u17h1821f100dde2d735E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1334:                                             ; preds = %2
+  %1335 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_abs17hfaf30033ba5353f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1336:                                             ; preds = %2
+  %1337 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_neg17h5a8909ae1e7131a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1338:                                             ; preds = %2
+  %1339 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_i64x2_all_true17h095f1b7f9e154c1dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1340:                                             ; preds = %2
+  %1341 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i64x2_bitmask17h0134671482bd2c67E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1342:                                             ; preds = %2
+  %1343 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extend_low_i32x4_s17h36be49953c198430E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1344:                                             ; preds = %2
+  %1345 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extend_high_i32x4_s17hc240ab5579fe47faE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1346:                                             ; preds = %2
+  %1347 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extend_low_i32x4_u17hb027349f0ddb7927E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1348:                                             ; preds = %2
+  %1349 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extend_high_i32x4_u17h8be4b8d282e0749dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1350:                                             ; preds = %2
+  %1351 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_shl17ha9409aacbf034f5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1352:                                             ; preds = %2
+  %1353 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_shr_s17h8a48fa187d43f0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1354:                                             ; preds = %2
+  %1355 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_i64x2_shr_u17ha6d73c2aeb541a7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1356:                                             ; preds = %2
+  %1357 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_add17he1e7ac1731107809E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1358:                                             ; preds = %2
+  %1359 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_sub17hb09acfaad4a43e56E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1360:                                             ; preds = %2
+  %1361 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_i64x2_mul17h527ea8a8cef66057E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1362:                                             ; preds = %2
+  %1363 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extmul_low_i32x4_s17hf4f8489b260f64d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1364:                                             ; preds = %2
+  %1365 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extmul_high_i32x4_s17h043ffd2413346b0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1366:                                             ; preds = %2
+  %1367 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_extmul_low_i32x4_u17h9c6bc47cc381a841E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1368:                                             ; preds = %2
+  %1369 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_i64x2_extmul_high_i32x4_u17hb878b38b881586c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1370:                                             ; preds = %2
+  %1371 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_ceil17h94105d4a61ae0e9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1372:                                             ; preds = %2
+  %1373 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_floor17he99b88a775ae1f01E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1374:                                             ; preds = %2
+  %1375 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f32x4_trunc17h0049f6bf4d14dc6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1376:                                             ; preds = %2
+  %1377 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_f32x4_nearest17h43d1c915c8785bedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1378:                                             ; preds = %2
+  %1379 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_abs17h3fe1ca73a463e06bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1380:                                             ; preds = %2
+  %1381 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_neg17h7b5c3f429d4846a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1382:                                             ; preds = %2
+  %1383 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_sqrt17h211da4ffa0f51eb6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1384:                                             ; preds = %2
+  %1385 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_add17hd9fffc2cc6831db7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1386:                                             ; preds = %2
+  %1387 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_sub17h904d78bc96349c4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1388:                                             ; preds = %2
+  %1389 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_mul17h9217d016b86940acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1390:                                             ; preds = %2
+  %1391 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_div17hf45c2340dbbea6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1392:                                             ; preds = %2
+  %1393 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_min17h0554dc5e74652891E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1394:                                             ; preds = %2
+  %1395 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f32x4_max17h46baf6a69edd136cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1396:                                             ; preds = %2
+  %1397 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_pmin17hbf5c8b1b3d57549bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1398:                                             ; preds = %2
+  %1399 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f32x4_pmax17h010be1c2b27adc51E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1400:                                             ; preds = %2
+  %1401 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_ceil17h8d6fdd26b6b32d31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1402:                                             ; preds = %2
+  %1403 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_floor17h1449357497cacd37E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1404:                                             ; preds = %2
+  %1405 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_f64x2_trunc17hc60fd0f423b4adc3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1406:                                             ; preds = %2
+  %1407 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_f64x2_nearest17he97c952cd443d2c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1408:                                             ; preds = %2
+  %1409 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_abs17h826956fd8cc1e122E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1410:                                             ; preds = %2
+  %1411 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_neg17h90b247c0466979d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1412:                                             ; preds = %2
+  %1413 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_sqrt17h6cb4cf6aabf7c836E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1414:                                             ; preds = %2
+  %1415 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_add17hef1fcd9c64dd2909E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1416:                                             ; preds = %2
+  %1417 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_sub17hf89823e5f5f436fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1418:                                             ; preds = %2
+  %1419 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_mul17hb1335685dcbc4501E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1420:                                             ; preds = %2
+  %1421 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_div17hd822ee2dae10e207E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1422:                                             ; preds = %2
+  %1423 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_min17h6992fc54df749313E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1424:                                             ; preds = %2
+  %1425 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_f64x2_max17h43ace05391eb77b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1426:                                             ; preds = %2
+  %1427 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_pmin17h90ab0ce05ee49493E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1428:                                             ; preds = %2
+  %1429 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_f64x2_pmax17h95bc65beb31a3961E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1430:                                             ; preds = %2
+  %1431 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32x4_trunc_sat_f32x4_s17h3249c55139f68751E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1432:                                             ; preds = %2
+  %1433 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i32x4_trunc_sat_f32x4_u17h51be8ec9e16f5c21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1434:                                             ; preds = %2
+  %1435 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_f32x4_convert_i32x4_s17h71bf0dbd5fbcf4bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1436:                                             ; preds = %2
+  %1437 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_f32x4_convert_i32x4_u17h2c22ee8ed47648f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1438:                                             ; preds = %2
+  %1439 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$34visit_i32x4_trunc_sat_f64x2_s_zero17h9a7d869e8c416e19E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1440:                                             ; preds = %2
+  %1441 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$34visit_i32x4_trunc_sat_f64x2_u_zero17h2aace0fd2641f512E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1442:                                             ; preds = %2
+  %1443 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_f64x2_convert_low_i32x4_s17hcc4c3cc6d95ab95eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1444:                                             ; preds = %2
+  %1445 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$31visit_f64x2_convert_low_i32x4_u17ha587176272509eddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1446:                                             ; preds = %2
+  %1447 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_f32x4_demote_f64x2_zero17hbeac38f5654deb52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1448:                                             ; preds = %2
+  %1449 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_f64x2_promote_low_f32x417hf36d4c5f15bdf5e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1450:                                             ; preds = %2
+  %1451 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$27visit_i8x16_relaxed_swizzle17h441a878d32e3d581E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1452:                                             ; preds = %2
+  %1453 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_s17h42ba1da73259710eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1454:                                             ; preds = %2
+  %1455 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_u17h09cccf0899ae0bbeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1456:                                             ; preds = %2
+  %1457 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_s_zero17hb4cb38cb62d2f241E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1458:                                             ; preds = %2
+  %1459 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_u_zero17h61ad0ae1b3e5edb5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1460:                                             ; preds = %2
+  %1461 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f32x4_relaxed_madd17h984fb0a37b6e0608E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1462:                                             ; preds = %2
+  %1463 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f32x4_relaxed_nmadd17hd8191dc30784cd4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1464:                                             ; preds = %2
+  %1465 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_f64x2_relaxed_madd17h36bb21b0213e3354E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1466:                                             ; preds = %2
+  %1467 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$25visit_f64x2_relaxed_nmadd17h15d280b6cc0fe8eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1468:                                             ; preds = %2
+  %1469 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i8x16_relaxed_laneselect17habfc2e011867217bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1470:                                             ; preds = %2
+  %1471 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i16x8_relaxed_laneselect17h43f70aee4a36e80bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1472:                                             ; preds = %2
+  %1473 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i32x4_relaxed_laneselect17hee05df206a1d7318E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1474:                                             ; preds = %2
+  %1475 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$30visit_i64x2_relaxed_laneselect17hb648e823122919fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1476:                                             ; preds = %2
+  %1477 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32x4_relaxed_min17hbf18ac33765ae384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1478:                                             ; preds = %2
+  %1479 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f32x4_relaxed_max17h66bc40cfd9964bf4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1480:                                             ; preds = %2
+  %1481 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64x2_relaxed_min17h427f22edb3e96fceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1482:                                             ; preds = %2
+  %1483 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_f64x2_relaxed_max17h40d218da7b576e7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1484:                                             ; preds = %2
+  %1485 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$29visit_i16x8_relaxed_q15mulr_s17h64bd94f56bc83662E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1486:                                             ; preds = %2
+  %1487 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$37visit_i16x8_relaxed_dot_i8x16_i7x16_s17hea2ff90cabdb4d82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1488:                                             ; preds = %2
+  %1489 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$41visit_i32x4_relaxed_dot_i8x16_i7x16_add_s17hcb68f911e8e92e4aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1490:                                             ; preds = %2
+  %1491 = getelementptr inbounds i8, ptr %1, i64 4
+  %1492 = load i32, ptr %1491, align 4, !noundef !5
+  %1493 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_call_ref17heda2141cb52609b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1492)
+  br label %1508
+
+1494:                                             ; preds = %2
+  %1495 = getelementptr inbounds i8, ptr %1, i64 4
+  %1496 = load i32, ptr %1495, align 4, !noundef !5
+  %1497 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_return_call_ref17hf49bc95d7d48e255E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1496)
+  br label %1508
+
+1498:                                             ; preds = %2
+  %1499 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_ref_as_non_null17he041e8f5746546b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  br label %1508
+
+1500:                                             ; preds = %2
+  %1501 = getelementptr inbounds i8, ptr %1, i64 4
+  %1502 = load i32, ptr %1501, align 4, !noundef !5
+  %1503 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_br_on_null17hf5604d9bba5cab52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1502)
+  br label %1508
+
+1504:                                             ; preds = %2
+  %1505 = getelementptr inbounds i8, ptr %1, i64 4
+  %1506 = load i32, ptr %1505, align 4, !noundef !5
+  %1507 = tail call fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators..WasmProposalValidator$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_br_on_non_null17hd34764529af6f521E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1506)
+  br label %1508
+
+1508:                                             ; preds = %2, %1504, %1500, %1498, %1494, %1490, %1488, %1486, %1484, %1482, %1480, %1478, %1476, %1474, %1472, %1470, %1468, %1466, %1464, %1462, %1460, %1458, %1456, %1454, %1452, %1450, %1448, %1446, %1444, %1442, %1440, %1438, %1436, %1434, %1432, %1430, %1428, %1426, %1424, %1422, %1420, %1418, %1416, %1414, %1412, %1410, %1408, %1406, %1404, %1402, %1400, %1398, %1396, %1394, %1392, %1390, %1388, %1386, %1384, %1382, %1380, %1378, %1376, %1374, %1372, %1370, %1368, %1366, %1364, %1362, %1360, %1358, %1356, %1354, %1352, %1350, %1348, %1346, %1344, %1342, %1340, %1338, %1336, %1334, %1332, %1330, %1328, %1326, %1324, %1322, %1320, %1318, %1316, %1314, %1312, %1310, %1308, %1306, %1304, %1302, %1300, %1298, %1296, %1294, %1292, %1290, %1288, %1286, %1284, %1282, %1280, %1278, %1276, %1274, %1272, %1270, %1268, %1266, %1264, %1262, %1260, %1258, %1256, %1254, %1252, %1250, %1248, %1246, %1244, %1242, %1240, %1238, %1236, %1234, %1232, %1230, %1228, %1226, %1224, %1222, %1220, %1218, %1216, %1214, %1212, %1210, %1208, %1206, %1204, %1202, %1200, %1198, %1196, %1194, %1192, %1190, %1188, %1186, %1184, %1182, %1180, %1178, %1176, %1174, %1172, %1170, %1168, %1166, %1164, %1162, %1160, %1158, %1156, %1154, %1152, %1150, %1148, %1146, %1144, %1142, %1140, %1138, %1136, %1134, %1132, %1130, %1128, %1126, %1124, %1122, %1120, %1118, %1116, %1114, %1112, %1110, %1108, %1106, %1104, %1102, %1100, %1098, %1096, %1094, %1092, %1090, %1088, %1086, %1084, %1082, %1080, %1078, %1076, %1074, %1072, %1070, %1068, %1066, %1064, %1062, %1060, %1058, %1056, %1054, %1050, %1046, %1042, %1038, %1034, %1030, %1026, %1022, %1018, %1014, %1010, %1006, %1002, %998, %994, %991, %986, %981, %976, %971, %966, %961, %956, %951, %948, %945, %942, %939, %936, %933, %930, %927, %924, %921, %918, %915, %912, %909, %905, %901, %898, %895, %892, %889, %886, %883, %880, %877, %874, %871, %868, %865, %862, %859, %856, %853, %850, %847, %844, %841, %838, %835, %832, %829, %826, %823, %820, %817, %814, %811, %808, %805, %802, %799, %796, %793, %790, %787, %784, %781, %778, %775, %772, %769, %766, %763, %760, %757, %754, %751, %748, %745, %742, %739, %736, %733, %730, %727, %724, %721, %718, %715, %712, %709, %706, %703, %700, %696, %692, %688, %684, %680, %676, %670, %666, %660, %656, %650, %646, %640, %638, %636, %634, %632, %630, %628, %626, %624, %622, %620, %618, %616, %614, %608, %602, %599, %596, %593, %590, %584, %578, %572, %568, %566, %562, %558, %554, %550, %544, %538, %532, %528, %524, %518, %512, %506, %500, %496, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %412, %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %230, %228, %225, %222, %219, %218, %217, %211, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %132, %128, %124, %120, %115, %112, %110, %108, %102, %98, %90, %86, %84, %66, %62, %58, %56, %53, %50, %47, %44, %41, %39, %35, %21, %19, %16, %13, %10, %7
+  %.0 = phi ptr [ %1507, %1504 ], [ %1503, %1500 ], [ %1499, %1498 ], [ %1497, %1494 ], [ %1493, %1490 ], [ %1489, %1488 ], [ %1487, %1486 ], [ %1485, %1484 ], [ %1483, %1482 ], [ %1481, %1480 ], [ %1479, %1478 ], [ %1477, %1476 ], [ %1475, %1474 ], [ %1473, %1472 ], [ %1471, %1470 ], [ %1469, %1468 ], [ %1467, %1466 ], [ %1465, %1464 ], [ %1463, %1462 ], [ %1461, %1460 ], [ %1459, %1458 ], [ %1457, %1456 ], [ %1455, %1454 ], [ %1453, %1452 ], [ %1451, %1450 ], [ %1449, %1448 ], [ %1447, %1446 ], [ %1445, %1444 ], [ %1443, %1442 ], [ %1441, %1440 ], [ %1439, %1438 ], [ %1437, %1436 ], [ %1435, %1434 ], [ %1433, %1432 ], [ %1431, %1430 ], [ %1429, %1428 ], [ %1427, %1426 ], [ %1425, %1424 ], [ %1423, %1422 ], [ %1421, %1420 ], [ %1419, %1418 ], [ %1417, %1416 ], [ %1415, %1414 ], [ %1413, %1412 ], [ %1411, %1410 ], [ %1409, %1408 ], [ %1407, %1406 ], [ %1405, %1404 ], [ %1403, %1402 ], [ %1401, %1400 ], [ %1399, %1398 ], [ %1397, %1396 ], [ %1395, %1394 ], [ %1393, %1392 ], [ %1391, %1390 ], [ %1389, %1388 ], [ %1387, %1386 ], [ %1385, %1384 ], [ %1383, %1382 ], [ %1381, %1380 ], [ %1379, %1378 ], [ %1377, %1376 ], [ %1375, %1374 ], [ %1373, %1372 ], [ %1371, %1370 ], [ %1369, %1368 ], [ %1367, %1366 ], [ %1365, %1364 ], [ %1363, %1362 ], [ %1361, %1360 ], [ %1359, %1358 ], [ %1357, %1356 ], [ %1355, %1354 ], [ %1353, %1352 ], [ %1351, %1350 ], [ %1349, %1348 ], [ %1347, %1346 ], [ %1345, %1344 ], [ %1343, %1342 ], [ %1341, %1340 ], [ %1339, %1338 ], [ %1337, %1336 ], [ %1335, %1334 ], [ %1333, %1332 ], [ %1331, %1330 ], [ %1329, %1328 ], [ %1327, %1326 ], [ %1325, %1324 ], [ %1323, %1322 ], [ %1321, %1320 ], [ %1319, %1318 ], [ %1317, %1316 ], [ %1315, %1314 ], [ %1313, %1312 ], [ %1311, %1310 ], [ %1309, %1308 ], [ %1307, %1306 ], [ %1305, %1304 ], [ %1303, %1302 ], [ %1301, %1300 ], [ %1299, %1298 ], [ %1297, %1296 ], [ %1295, %1294 ], [ %1293, %1292 ], [ %1291, %1290 ], [ %1289, %1288 ], [ %1287, %1286 ], [ %1285, %1284 ], [ %1283, %1282 ], [ %1281, %1280 ], [ %1279, %1278 ], [ %1277, %1276 ], [ %1275, %1274 ], [ %1273, %1272 ], [ %1271, %1270 ], [ %1269, %1268 ], [ %1267, %1266 ], [ %1265, %1264 ], [ %1263, %1262 ], [ %1261, %1260 ], [ %1259, %1258 ], [ %1257, %1256 ], [ %1255, %1254 ], [ %1253, %1252 ], [ %1251, %1250 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1245, %1244 ], [ %1243, %1242 ], [ %1241, %1240 ], [ %1239, %1238 ], [ %1237, %1236 ], [ %1235, %1234 ], [ %1233, %1232 ], [ %1231, %1230 ], [ %1229, %1228 ], [ %1227, %1226 ], [ %1225, %1224 ], [ %1223, %1222 ], [ %1221, %1220 ], [ %1219, %1218 ], [ %1217, %1216 ], [ %1215, %1214 ], [ %1213, %1212 ], [ %1211, %1210 ], [ %1209, %1208 ], [ %1207, %1206 ], [ %1205, %1204 ], [ %1203, %1202 ], [ %1201, %1200 ], [ %1199, %1198 ], [ %1197, %1196 ], [ %1195, %1194 ], [ %1193, %1192 ], [ %1191, %1190 ], [ %1189, %1188 ], [ %1187, %1186 ], [ %1185, %1184 ], [ %1183, %1182 ], [ %1181, %1180 ], [ %1179, %1178 ], [ %1177, %1176 ], [ %1175, %1174 ], [ %1173, %1172 ], [ %1171, %1170 ], [ %1169, %1168 ], [ %1167, %1166 ], [ %1165, %1164 ], [ %1163, %1162 ], [ %1161, %1160 ], [ %1159, %1158 ], [ %1157, %1156 ], [ %1155, %1154 ], [ %1153, %1152 ], [ %1151, %1150 ], [ %1149, %1148 ], [ %1147, %1146 ], [ %1145, %1144 ], [ %1143, %1142 ], [ %1141, %1140 ], [ %1139, %1138 ], [ %1137, %1136 ], [ %1135, %1134 ], [ %1133, %1132 ], [ %1131, %1130 ], [ %1129, %1128 ], [ %1127, %1126 ], [ %1125, %1124 ], [ %1123, %1122 ], [ %1121, %1120 ], [ %1119, %1118 ], [ %1117, %1116 ], [ %1115, %1114 ], [ %1113, %1112 ], [ %1111, %1110 ], [ %1109, %1108 ], [ %1107, %1106 ], [ %1105, %1104 ], [ %1103, %1102 ], [ %1101, %1100 ], [ %1099, %1098 ], [ %1097, %1096 ], [ %1095, %1094 ], [ %1093, %1092 ], [ %1091, %1090 ], [ %1089, %1088 ], [ %1087, %1086 ], [ %1085, %1084 ], [ %1083, %1082 ], [ %1081, %1080 ], [ %1079, %1078 ], [ %1077, %1076 ], [ %1075, %1074 ], [ %1073, %1072 ], [ %1071, %1070 ], [ %1069, %1068 ], [ %1067, %1066 ], [ %1065, %1064 ], [ %1063, %1062 ], [ %1061, %1060 ], [ %1059, %1058 ], [ %1057, %1056 ], [ %1055, %1054 ], [ %1053, %1050 ], [ %1049, %1046 ], [ %1045, %1042 ], [ %1041, %1038 ], [ %1037, %1034 ], [ %1033, %1030 ], [ %1029, %1026 ], [ %1025, %1022 ], [ %1021, %1018 ], [ %1017, %1014 ], [ %1013, %1010 ], [ %1009, %1006 ], [ %1005, %1002 ], [ %1001, %998 ], [ %997, %994 ], [ %993, %991 ], [ %990, %986 ], [ %985, %981 ], [ %980, %976 ], [ %975, %971 ], [ %970, %966 ], [ %965, %961 ], [ %960, %956 ], [ %955, %951 ], [ %950, %948 ], [ %947, %945 ], [ %944, %942 ], [ %941, %939 ], [ %938, %936 ], [ %935, %933 ], [ %932, %930 ], [ %929, %927 ], [ %926, %924 ], [ %923, %921 ], [ %920, %918 ], [ %917, %915 ], [ %914, %912 ], [ %911, %909 ], [ %908, %905 ], [ %904, %901 ], [ %900, %898 ], [ %897, %895 ], [ %894, %892 ], [ %891, %889 ], [ %888, %886 ], [ %885, %883 ], [ %882, %880 ], [ %879, %877 ], [ %876, %874 ], [ %873, %871 ], [ %870, %868 ], [ %867, %865 ], [ %864, %862 ], [ %861, %859 ], [ %858, %856 ], [ %855, %853 ], [ %852, %850 ], [ %849, %847 ], [ %846, %844 ], [ %843, %841 ], [ %840, %838 ], [ %837, %835 ], [ %834, %832 ], [ %831, %829 ], [ %828, %826 ], [ %825, %823 ], [ %822, %820 ], [ %819, %817 ], [ %816, %814 ], [ %813, %811 ], [ %810, %808 ], [ %807, %805 ], [ %804, %802 ], [ %801, %799 ], [ %798, %796 ], [ %795, %793 ], [ %792, %790 ], [ %789, %787 ], [ %786, %784 ], [ %783, %781 ], [ %780, %778 ], [ %777, %775 ], [ %774, %772 ], [ %771, %769 ], [ %768, %766 ], [ %765, %763 ], [ %762, %760 ], [ %759, %757 ], [ %756, %754 ], [ %753, %751 ], [ %750, %748 ], [ %747, %745 ], [ %744, %742 ], [ %741, %739 ], [ %738, %736 ], [ %735, %733 ], [ %732, %730 ], [ %729, %727 ], [ %726, %724 ], [ %723, %721 ], [ %720, %718 ], [ %717, %715 ], [ %714, %712 ], [ %711, %709 ], [ %708, %706 ], [ %705, %703 ], [ %702, %700 ], [ %699, %696 ], [ %695, %692 ], [ %691, %688 ], [ %687, %684 ], [ %683, %680 ], [ %679, %676 ], [ %675, %670 ], [ %669, %666 ], [ %665, %660 ], [ %659, %656 ], [ %655, %650 ], [ %649, %646 ], [ %645, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ], [ %621, %620 ], [ %619, %618 ], [ %617, %616 ], [ %615, %614 ], [ %613, %608 ], [ %607, %602 ], [ %601, %599 ], [ %598, %596 ], [ %595, %593 ], [ %592, %590 ], [ %589, %584 ], [ %583, %578 ], [ %577, %572 ], [ %571, %568 ], [ %567, %566 ], [ %565, %562 ], [ %561, %558 ], [ %557, %554 ], [ %553, %550 ], [ %549, %544 ], [ %543, %538 ], [ %537, %532 ], [ %531, %528 ], [ %527, %524 ], [ %523, %518 ], [ %517, %512 ], [ %511, %506 ], [ %505, %500 ], [ %499, %496 ], [ %495, %492 ], [ %491, %490 ], [ %489, %488 ], [ %487, %486 ], [ %485, %484 ], [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %477, %476 ], [ %475, %474 ], [ %473, %472 ], [ %471, %470 ], [ %469, %468 ], [ %467, %466 ], [ %465, %464 ], [ %463, %462 ], [ %461, %460 ], [ %459, %458 ], [ %457, %456 ], [ %455, %454 ], [ %453, %452 ], [ %451, %450 ], [ %449, %448 ], [ %447, %446 ], [ %445, %444 ], [ %443, %442 ], [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ %435, %434 ], [ %433, %432 ], [ %431, %430 ], [ %429, %428 ], [ %427, %426 ], [ %425, %424 ], [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %407, %406 ], [ %405, %404 ], [ %403, %402 ], [ %401, %400 ], [ %399, %398 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %389, %388 ], [ %387, %386 ], [ %385, %384 ], [ %383, %382 ], [ %381, %380 ], [ %379, %378 ], [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %369, %368 ], [ %367, %366 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ], [ %359, %358 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %253, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %230 ], [ %229, %228 ], [ %227, %225 ], [ %224, %222 ], [ %221, %219 ], [ null, %218 ], [ null, %217 ], [ %216, %211 ], [ %210, %205 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ %195, %193 ], [ %192, %190 ], [ %189, %187 ], [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %115 ], [ %114, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %102 ], [ %101, %98 ], [ %97, %90 ], [ %89, %86 ], [ %85, %84 ], [ %83, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %39 ], [ %38, %35 ], [ %34, %21 ], [ %20, %19 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ %9, %7 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -13481,7 +13492,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !1120
   br i1 %trunc.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit", label %41
 
-default.unreachable:                              ; preds = %107
+default.unreachable:                              ; preds = %109
   unreachable
 
 41:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i"
@@ -13580,740 +13591,744 @@ default.unreachable:                              ; preds = %107
   %.sroa.9.0323.ph.ptr.i = inttoptr i64 %.sroa.9.0323.ph.i to ptr
   %83 = load ptr, ptr %1, align 8, !alias.scope !1118, !noalias !1115, !nonnull !5, !align !16, !noundef !5
   %84 = getelementptr inbounds i8, ptr %1, i64 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
-  %86 = load i64, ptr %85, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
-  %87 = getelementptr inbounds i8, ptr %1, i64 32
-  %88 = load i8, ptr %87, align 8, !range !17, !alias.scope !1118, !noalias !1115, !noundef !5
-  %89 = getelementptr inbounds i8, ptr %1, i64 40
-  %90 = load i32, ptr %89, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
+  %85 = load i64, ptr %84, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
+  %86 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = load i64, ptr %86, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
+  %88 = getelementptr inbounds i8, ptr %1, i64 24
+  %89 = load i64, ptr %88, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
+  %90 = getelementptr inbounds i8, ptr %1, i64 32
+  %91 = load i8, ptr %90, align 8, !range !17, !alias.scope !1118, !noalias !1115, !noundef !5
+  %92 = getelementptr inbounds i8, ptr %1, i64 40
+  %93 = load i32, ptr %92, align 8, !alias.scope !1118, !noalias !1115, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !1120
   store ptr %83, ptr %14, align 8, !noalias !1120
   %.sroa.020.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
-  %91 = load <2 x i64>, ptr %84, align 8, !alias.scope !1118, !noalias !1115
-  store <2 x i64> %91, ptr %.sroa.020.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
+  store i64 %85, ptr %.sroa.020.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
+  %.sroa.020.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 %87, ptr %.sroa.020.sroa.3.0..sroa_idx.i, align 8, !noalias !1120
   %.sroa.020.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 24
-  store i64 %86, ptr %.sroa.020.sroa.4.0..sroa_idx.i, align 8, !noalias !1120
+  store i64 %89, ptr %.sroa.020.sroa.4.0..sroa_idx.i, align 8, !noalias !1120
   %.sroa.020.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 32
-  store i8 %88, ptr %.sroa.020.sroa.5.0..sroa_idx.i, align 8, !noalias !1120
+  store i8 %91, ptr %.sroa.020.sroa.5.0..sroa_idx.i, align 8, !noalias !1120
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 40
-  store i32 %90, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
+  store i32 %93, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 4
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.439.0..sroa_idx.i208.i = getelementptr inbounds i8, ptr %3, i64 16
-  %93 = getelementptr inbounds i8, ptr %4, i64 8
+  %95 = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.436.0..sroa_idx.i217.i = getelementptr inbounds i8, ptr %4, i64 16
-  %94 = icmp eq ptr %.sroa.5.0.ph.i, null
-  %95 = ptrtoint ptr %.sroa.5.0.ph.i to i64
-  %96 = sub nuw i64 %.sroa.9.0323.ph.i, %95
-  %97 = lshr exact i64 %96, 2
-  %98 = and i64 %.sroa.9.0323.ph.i, 255
-  %99 = icmp ne i64 %98, 6
-  %spec.select.i.i.i3.i226.i = zext i1 %99 to i64
-  %100 = getelementptr inbounds i8, ptr %16, i64 96
-  %101 = getelementptr inbounds i8, ptr %16, i64 112
-  %102 = getelementptr inbounds i8, ptr %16, i64 144
-  %103 = getelementptr inbounds i8, ptr %16, i64 152
-  %104 = getelementptr inbounds i8, ptr %11, i64 1
+  %96 = icmp eq ptr %.sroa.5.0.ph.i, null
+  %97 = ptrtoint ptr %.sroa.5.0.ph.i to i64
+  %98 = sub nuw i64 %.sroa.9.0323.ph.i, %97
+  %99 = lshr exact i64 %98, 2
+  %100 = and i64 %.sroa.9.0323.ph.i, 255
+  %101 = icmp ne i64 %100, 6
+  %spec.select.i.i.i3.i226.i = zext i1 %101 to i64
+  %102 = getelementptr inbounds i8, ptr %16, i64 96
+  %103 = getelementptr inbounds i8, ptr %16, i64 112
+  %104 = getelementptr inbounds i8, ptr %16, i64 144
+  %105 = getelementptr inbounds i8, ptr %16, i64 152
+  %106 = getelementptr inbounds i8, ptr %11, i64 1
   %.sroa.419.0..sroa_idx.i260.i = getelementptr inbounds i8, ptr %11, i64 2
-  %105 = getelementptr inbounds i8, ptr %11, i64 8
-  %106 = getelementptr inbounds i8, ptr %16, i64 104
+  %107 = getelementptr inbounds i8, ptr %11, i64 8
+  %108 = getelementptr inbounds i8, ptr %16, i64 104
   %.sroa.063.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.063.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.063.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 24
   %.sroa.063.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 32
-  %spec.select.i.i.i.i224..i = select i1 %94, i64 %spec.select.i.i.i3.i226.i, i64 %97
-  br label %107
+  %spec.select.i.i.i.i224..i = select i1 %96, i64 %spec.select.i.i.i3.i226.i, i64 %99
+  br label %109
 
-107:                                              ; preds = %.thread372.i, %82
+109:                                              ; preds = %.thread372.i, %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !1120
   call void @"_ZN100_$LT$wasmparser..binary_reader..BrTableTargets$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f10e670f8dab288E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !1120
-  %108 = load i32, ptr %13, align 8, !range !287, !noalias !1120, !noundef !5
-  switch i32 %108, label %default.unreachable [
-    i32 2, label %109
-    i32 0, label %210
-    i32 1, label %209
+  %110 = load i32, ptr %13, align 8, !range !287, !noalias !1120, !noundef !5
+  switch i32 %110, label %default.unreachable [
+    i32 2, label %111
+    i32 0, label %212
+    i32 1, label %211
   ]
 
-109:                                              ; preds = %107
+111:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1120
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !1120
-  %110 = getelementptr inbounds i8, ptr %9, i64 8
+  %112 = getelementptr inbounds i8, ptr %9, i64 8
   br i1 %.not377.i, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %109, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i"
-  %.sroa.8316.0.us.i = phi i64 [ %.sroa.8316.1.us.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i" ], [ %.sroa.9.0323.ph.i, %109 ]
-  br i1 %94, label %121, label %111
+.split.us.i:                                      ; preds = %111, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i"
+  %.sroa.8316.0.us.i = phi i64 [ %.sroa.8316.1.us.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i" ], [ %.sroa.9.0323.ph.i, %111 ]
+  br i1 %96, label %123, label %113
 
-111:                                              ; preds = %.split.us.i
-  %112 = inttoptr i64 %.sroa.8316.0.us.i to ptr
-  %113 = icmp eq ptr %.sroa.5.0.ph.i, %112
-  br i1 %113, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %114
+113:                                              ; preds = %.split.us.i
+  %114 = inttoptr i64 %.sroa.8316.0.us.i to ptr
+  %115 = icmp eq ptr %.sroa.5.0.ph.i, %114
+  br i1 %115, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %116
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %112, i64 -4
-  %116 = ptrtoint ptr %115 to i64
-  %.sroa.02.0.copyload.i.i.i.us.i = load i8, ptr %115, align 1, !noalias !1135
-  %.sroa.4.0..0.1.sroa_idx.i.i.i.us.i = getelementptr inbounds i8, ptr %112, i64 -3
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds i8, ptr %114, i64 -4
+  %118 = ptrtoint ptr %117 to i64
+  %.sroa.02.0.copyload.i.i.i.us.i = load i8, ptr %117, align 1, !noalias !1135
+  %.sroa.4.0..0.1.sroa_idx.i.i.i.us.i = getelementptr inbounds i8, ptr %114, i64 -3
   %.sroa.4.0.copyload.i.i.i.us.i = load i24, ptr %.sroa.4.0..0.1.sroa_idx.i.i.i.us.i, align 1, !noalias !1135
-  %117 = zext i24 %.sroa.4.0.copyload.i.i.i.us.i to i32
-  %118 = shl nuw i32 %117, 8
-  %119 = zext i8 %.sroa.02.0.copyload.i.i.i.us.i to i32
-  %120 = or disjoint i32 %118, %119
+  %119 = zext i24 %.sroa.4.0.copyload.i.i.i.us.i to i32
+  %120 = shl nuw i32 %119, 8
+  %121 = zext i8 %.sroa.02.0.copyload.i.i.i.us.i to i32
+  %122 = or disjoint i32 %120, %121
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i"
 
-121:                                              ; preds = %.split.us.i
+123:                                              ; preds = %.split.us.i
   %.sroa.8316.16.extract.trunc.us.i = trunc i64 %.sroa.8316.0.us.i to i32
   %.sroa.8316.16.insert.mask.us.i = and i64 %.sroa.8316.0.us.i, -256
   %.sroa.8316.16.insert.insert.us.i = or disjoint i64 %.sroa.8316.16.insert.mask.us.i, 6
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i"
 
-"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i": ; preds = %121, %114
-  %.sroa.8316.1.us.i = phi i64 [ %.sroa.8316.16.insert.insert.us.i, %121 ], [ %116, %114 ]
-  %.sroa.0.0.i.us.i = phi i32 [ %.sroa.8316.16.extract.trunc.us.i, %121 ], [ %120, %114 ]
-  %122 = and i32 %.sroa.0.0.i.us.i, 255
-  %123 = icmp eq i32 %122, 6
-  br i1 %123, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %124
+"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i": ; preds = %123, %116
+  %.sroa.8316.1.us.i = phi i64 [ %.sroa.8316.16.insert.insert.us.i, %123 ], [ %118, %116 ]
+  %.sroa.0.0.i.us.i = phi i32 [ %.sroa.8316.16.extract.trunc.us.i, %123 ], [ %122, %116 ]
+  %124 = and i32 %.sroa.0.0.i.us.i, 255
+  %125 = icmp eq i32 %124, 6
+  br i1 %125, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %126
 
-124:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i"
+126:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1120
   %.sroa.4.0.extract.shift.i.us.i = lshr i32 %.sroa.0.0.i.us.i, 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1142)
-  %125 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %.critedge45.i196.us.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i"
+  %127 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %.critedge45.i196.us.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i": ; preds = %124
-  %127 = add i64 %125, -1
-  store i64 %127, ptr %17, align 8, !alias.scope !1142, !noalias !1145
-  %128 = load i64, ptr %102, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %129 = icmp ult i64 %127, %128
-  call void @llvm.assume(i1 %129)
-  %130 = load ptr, ptr %103, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
-  %131 = getelementptr inbounds { i8, [3 x i8] }, ptr %130, i64 %127
-  %.sroa.01.0.copyload.i.i191.us.i = load i8, ptr %131, align 1, !noalias !1149
-  %.sroa.4.0..sroa_idx.i.i192.us.i = getelementptr inbounds i8, ptr %131, i64 1
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i": ; preds = %126
+  %129 = add i64 %127, -1
+  store i64 %129, ptr %17, align 8, !alias.scope !1142, !noalias !1145
+  %130 = load i64, ptr %104, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %131 = icmp ult i64 %129, %130
+  call void @llvm.assume(i1 %131)
+  %132 = load ptr, ptr %105, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
+  %133 = getelementptr inbounds { i8, [3 x i8] }, ptr %132, i64 %129
+  %.sroa.01.0.copyload.i.i191.us.i = load i8, ptr %133, align 1, !noalias !1149
+  %.sroa.4.0..sroa_idx.i.i192.us.i = getelementptr inbounds i8, ptr %133, i64 1
   %.sroa.4.0.copyload.i.i193.us.i = load i24, ptr %.sroa.4.0..sroa_idx.i.i192.us.i, align 1, !noalias !1149
-  %132 = zext i24 %.sroa.4.0.copyload.i.i193.us.i to i32
-  %133 = shl nuw i32 %132, 8
-  %134 = zext i8 %.sroa.01.0.copyload.i.i191.us.i to i32
-  %135 = or disjoint i32 %133, %134
-  %136 = add i8 %.sroa.01.0.copyload.i.i191.us.i, -9
-  %switch.i194.us.i = icmp ult i8 %136, -3
-  %137 = icmp eq i32 %122, %134
-  %or.cond.i195.us.i = and i1 %switch.i194.us.i, %137
-  br i1 %or.cond.i195.us.i, label %138, label %.critedge45.i196.us.i
+  %134 = zext i24 %.sroa.4.0.copyload.i.i193.us.i to i32
+  %135 = shl nuw i32 %134, 8
+  %136 = zext i8 %.sroa.01.0.copyload.i.i191.us.i to i32
+  %137 = or disjoint i32 %135, %136
+  %138 = add i8 %.sroa.01.0.copyload.i.i191.us.i, -9
+  %switch.i194.us.i = icmp ult i8 %138, -3
+  %139 = icmp eq i32 %124, %136
+  %or.cond.i195.us.i = and i1 %switch.i194.us.i, %139
+  br i1 %or.cond.i195.us.i, label %140, label %.critedge45.i196.us.i
 
-138:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i"
-  %139 = icmp ne i8 %.sroa.01.0.copyload.i.i191.us.i, 5
-  %140 = icmp eq i32 %.sroa.4.0.extract.shift.i.us.i, %132
-  %or.cond46.i198.us.i = select i1 %139, i1 true, i1 %140
+140:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i"
+  %141 = icmp ne i8 %.sroa.01.0.copyload.i.i191.us.i, 5
+  %142 = icmp eq i32 %.sroa.4.0.extract.shift.i.us.i, %134
+  %or.cond46.i198.us.i = select i1 %141, i1 true, i1 %142
   br i1 %or.cond46.i198.us.i, label %.critedge.i199.us.i, label %.critedge45.i196.us.i
 
-.critedge.i199.us.i:                              ; preds = %138
-  %141 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
-  %.not40.i200.us.i = icmp eq i64 %141, 0
-  br i1 %.not40.i200.us.i, label %.critedge45.i196.us.i, label %142
+.critedge.i199.us.i:                              ; preds = %140
+  %143 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
+  %.not40.i200.us.i = icmp eq i64 %143, 0
+  br i1 %.not40.i200.us.i, label %.critedge45.i196.us.i, label %144
 
-142:                                              ; preds = %.critedge.i199.us.i
-  %143 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
-  %144 = add i64 %141, -1
-  %145 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %143, i64 0, i64 %144
-  %146 = load i64, ptr %145, align 8, !noalias !1145, !noundef !5
-  %.not42.i201.us.i = icmp ult i64 %127, %146
+144:                                              ; preds = %.critedge.i199.us.i
+  %145 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
+  %146 = add i64 %143, -1
+  %147 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %145, i64 0, i64 %146
+  %148 = load i64, ptr %147, align 8, !noalias !1145, !noundef !5
+  %.not42.i201.us.i = icmp ult i64 %129, %148
   br i1 %.not42.i201.us.i, label %.critedge45.i196.us.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i"
 
-.critedge45.i196.us.i:                            ; preds = %142, %.critedge.i199.us.i, %138, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i", %124
-  %.sroa.0.0.insert.insert.i56.i197.us.i = phi i32 [ %135, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i" ], [ %135, %138 ], [ %135, %142 ], [ 8, %124 ], [ %135, %.critedge.i199.us.i ]
+.critedge45.i196.us.i:                            ; preds = %144, %.critedge.i199.us.i, %140, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i", %126
+  %.sroa.0.0.insert.insert.i56.i197.us.i = phi i32 [ %137, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us.i" ], [ %137, %140 ], [ %137, %144 ], [ 8, %126 ], [ %137, %.critedge.i199.us.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us.i), !noalias !1118
   %.pre440.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i": ; preds = %.critedge45.i196.us.i, %142
-  %147 = phi i8 [ %.pre440.i, %.critedge45.i196.us.i ], [ 0, %142 ]
-  %trunc159.us.i = trunc nuw i8 %147 to i1
-  %148 = load ptr, ptr %110, align 8, !noalias !1120, !nonnull !5, !align !6
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i": ; preds = %.critedge45.i196.us.i, %144
+  %149 = phi i8 [ %.pre440.i, %.critedge45.i196.us.i ], [ 0, %144 ]
+  %trunc159.us.i = trunc nuw i8 %149 to i1
+  %150 = load ptr, ptr %112, align 8, !noalias !1120, !nonnull !5, !align !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1120
   br i1 %trunc159.us.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit", label %.split.us.i
 
-.split.i:                                         ; preds = %109
-  br i1 %94, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i", label %.split.split.i
+.split.i:                                         ; preds = %111
+  br i1 %96, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i", label %.split.split.i
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i": ; preds = %.split.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i"
   %.sroa.8316.0.us394.i = phi i64 [ %.sroa.8316.16.insert.insert322.us.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i" ], [ %.sroa.9.0323.ph.i, %.split.i ]
   %.sroa.8316.16.extract.trunc319.us.i = trunc i64 %.sroa.8316.0.us394.i to i32
   %.sroa.8316.16.insert.mask321.us.i = and i64 %.sroa.8316.0.us394.i, -256
   %.sroa.8316.16.insert.insert322.us.i = or disjoint i64 %.sroa.8316.16.insert.mask321.us.i, 6
-  %149 = and i32 %.sroa.8316.16.extract.trunc319.us.i, 255
-  %150 = icmp eq i32 %149, 6
-  br i1 %150, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %151
+  %151 = and i32 %.sroa.8316.16.extract.trunc319.us.i, 255
+  %152 = icmp eq i32 %151, 6
+  br i1 %152, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %153
 
-151:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i"
+153:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1120
   %.sroa.4.0.extract.shift.i.us398.i = lshr i32 %.sroa.8316.16.extract.trunc319.us.i, 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1142)
-  %152 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %.critedge45.i196.us409.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i"
+  %154 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %.critedge45.i196.us409.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i": ; preds = %151
-  %154 = add i64 %152, -1
-  store i64 %154, ptr %17, align 8, !alias.scope !1142, !noalias !1145
-  %155 = load i64, ptr %102, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %156 = icmp ult i64 %154, %155
-  call void @llvm.assume(i1 %156)
-  %157 = load ptr, ptr %103, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
-  %158 = getelementptr inbounds { i8, [3 x i8] }, ptr %157, i64 %154
-  %.sroa.01.0.copyload.i.i191.us400.i = load i8, ptr %158, align 1, !noalias !1149
-  %.sroa.4.0..sroa_idx.i.i192.us401.i = getelementptr inbounds i8, ptr %158, i64 1
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i": ; preds = %153
+  %156 = add i64 %154, -1
+  store i64 %156, ptr %17, align 8, !alias.scope !1142, !noalias !1145
+  %157 = load i64, ptr %104, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %158 = icmp ult i64 %156, %157
+  call void @llvm.assume(i1 %158)
+  %159 = load ptr, ptr %105, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
+  %160 = getelementptr inbounds { i8, [3 x i8] }, ptr %159, i64 %156
+  %.sroa.01.0.copyload.i.i191.us400.i = load i8, ptr %160, align 1, !noalias !1149
+  %.sroa.4.0..sroa_idx.i.i192.us401.i = getelementptr inbounds i8, ptr %160, i64 1
   %.sroa.4.0.copyload.i.i193.us402.i = load i24, ptr %.sroa.4.0..sroa_idx.i.i192.us401.i, align 1, !noalias !1149
-  %159 = zext i24 %.sroa.4.0.copyload.i.i193.us402.i to i32
-  %160 = shl nuw i32 %159, 8
-  %161 = zext i8 %.sroa.01.0.copyload.i.i191.us400.i to i32
-  %162 = or disjoint i32 %160, %161
-  %163 = add i8 %.sroa.01.0.copyload.i.i191.us400.i, -9
-  %switch.i194.us403.i = icmp ult i8 %163, -3
-  %164 = icmp eq i32 %149, %161
-  %or.cond.i195.us404.i = and i1 %switch.i194.us403.i, %164
-  br i1 %or.cond.i195.us404.i, label %165, label %.critedge45.i196.us409.i
+  %161 = zext i24 %.sroa.4.0.copyload.i.i193.us402.i to i32
+  %162 = shl nuw i32 %161, 8
+  %163 = zext i8 %.sroa.01.0.copyload.i.i191.us400.i to i32
+  %164 = or disjoint i32 %162, %163
+  %165 = add i8 %.sroa.01.0.copyload.i.i191.us400.i, -9
+  %switch.i194.us403.i = icmp ult i8 %165, -3
+  %166 = icmp eq i32 %151, %163
+  %or.cond.i195.us404.i = and i1 %switch.i194.us403.i, %166
+  br i1 %or.cond.i195.us404.i, label %167, label %.critedge45.i196.us409.i
 
-165:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i"
-  %166 = icmp ne i8 %.sroa.01.0.copyload.i.i191.us400.i, 5
-  %167 = icmp eq i32 %.sroa.4.0.extract.shift.i.us398.i, %159
-  %or.cond46.i198.us405.i = select i1 %166, i1 true, i1 %167
+167:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i"
+  %168 = icmp ne i8 %.sroa.01.0.copyload.i.i191.us400.i, 5
+  %169 = icmp eq i32 %.sroa.4.0.extract.shift.i.us398.i, %161
+  %or.cond46.i198.us405.i = select i1 %168, i1 true, i1 %169
   br i1 %or.cond46.i198.us405.i, label %.critedge.i199.us406.i, label %.critedge45.i196.us409.i
 
-.critedge.i199.us406.i:                           ; preds = %165
-  %168 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
-  %.not40.i200.us407.i = icmp eq i64 %168, 0
-  br i1 %.not40.i200.us407.i, label %.critedge45.i196.us409.i, label %169
+.critedge.i199.us406.i:                           ; preds = %167
+  %170 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
+  %.not40.i200.us407.i = icmp eq i64 %170, 0
+  br i1 %.not40.i200.us407.i, label %.critedge45.i196.us409.i, label %171
 
-169:                                              ; preds = %.critedge.i199.us406.i
-  %170 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
-  %171 = add i64 %168, -1
-  %172 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %170, i64 0, i64 %171
-  %173 = load i64, ptr %172, align 8, !noalias !1145, !noundef !5
-  %.not42.i201.us408.i = icmp ult i64 %154, %173
+171:                                              ; preds = %.critedge.i199.us406.i
+  %172 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
+  %173 = add i64 %170, -1
+  %174 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %172, i64 0, i64 %173
+  %175 = load i64, ptr %174, align 8, !noalias !1145, !noundef !5
+  %.not42.i201.us408.i = icmp ult i64 %156, %175
   br i1 %.not42.i201.us408.i, label %.critedge45.i196.us409.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i"
 
-.critedge45.i196.us409.i:                         ; preds = %169, %.critedge.i199.us406.i, %165, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i", %151
-  %.sroa.0.0.insert.insert.i56.i197.us410.i = phi i32 [ %162, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i" ], [ %162, %165 ], [ %162, %169 ], [ 8, %151 ], [ %162, %.critedge.i199.us406.i ]
+.critedge45.i196.us409.i:                         ; preds = %171, %.critedge.i199.us406.i, %167, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i", %153
+  %.sroa.0.0.insert.insert.i56.i197.us410.i = phi i32 [ %164, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.us399.i" ], [ %164, %167 ], [ %164, %171 ], [ 8, %153 ], [ %164, %.critedge.i199.us406.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.8316.16.extract.trunc319.us.i, i32 %.sroa.0.0.insert.insert.i56.i197.us410.i), !noalias !1118
   %.pre439.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i": ; preds = %.critedge45.i196.us409.i, %169
-  %174 = phi i8 [ %.pre439.i, %.critedge45.i196.us409.i ], [ 0, %169 ]
-  %trunc159.us412.i = trunc nuw i8 %174 to i1
-  %175 = load ptr, ptr %110, align 8, !noalias !1120, !nonnull !5, !align !6
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i": ; preds = %.critedge45.i196.us409.i, %171
+  %176 = phi i8 [ %.pre439.i, %.critedge45.i196.us409.i ], [ 0, %171 ]
+  %trunc159.us412.i = trunc nuw i8 %176 to i1
+  %177 = load ptr, ptr %112, align 8, !noalias !1120, !nonnull !5, !align !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1120
   br i1 %trunc159.us412.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit", label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i"
 
 .split.split.i:                                   ; preds = %.split.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i"
-  %.sroa.8316.0.ptr.i = phi ptr [ %177, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i" ], [ %.sroa.9.0323.ph.ptr.i, %.split.i ]
-  %176 = icmp eq ptr %.sroa.5.0.ph.i, %.sroa.8316.0.ptr.i
-  br i1 %176, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i"
+  %.sroa.8316.0.ptr.i = phi ptr [ %179, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i" ], [ %.sroa.9.0323.ph.ptr.i, %.split.i ]
+  %178 = icmp eq ptr %.sroa.5.0.ph.i, %.sroa.8316.0.ptr.i
+  br i1 %178, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i"
 
 "_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i": ; preds = %.split.split.i
-  %177 = getelementptr inbounds i8, ptr %.sroa.8316.0.ptr.i, i64 -4
-  %.sroa.02.0.copyload.i.i3.i.i = load i8, ptr %177, align 1, !noalias !1150
+  %179 = getelementptr inbounds i8, ptr %.sroa.8316.0.ptr.i, i64 -4
+  %.sroa.02.0.copyload.i.i3.i.i = load i8, ptr %179, align 1, !noalias !1150
   %.sroa.4.0..0.1.sroa_idx.i.i4.i.i = getelementptr inbounds i8, ptr %.sroa.8316.0.ptr.i, i64 -3
   %.sroa.4.0.copyload.i.i5.i.i = load i24, ptr %.sroa.4.0..0.1.sroa_idx.i.i4.i.i, align 1, !noalias !1150
-  %178 = zext i24 %.sroa.4.0.copyload.i.i5.i.i to i32
-  %179 = shl nuw i32 %178, 8
-  %180 = zext i8 %.sroa.02.0.copyload.i.i3.i.i to i32
-  %181 = or disjoint i32 %179, %180
-  %182 = icmp eq i8 %.sroa.02.0.copyload.i.i3.i.i, 6
-  br i1 %182, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %184
+  %180 = zext i24 %.sroa.4.0.copyload.i.i5.i.i to i32
+  %181 = shl nuw i32 %180, 8
+  %182 = zext i8 %.sroa.02.0.copyload.i.i3.i.i to i32
+  %183 = or disjoint i32 %181, %182
+  %184 = icmp eq i8 %.sroa.02.0.copyload.i.i3.i.i, 6
+  br i1 %184, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", label %186
 
-"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i", %.split.split.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i", %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i", %111
-  %183 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h155b98be11285486E"(ptr nonnull %16, i64 %.val184.i44), !noalias !1120
+"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i", %.split.split.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us395.i", %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.us.i", %113
+  %185 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11unreachable17h155b98be11285486E"(ptr nonnull %16, i64 %.val184.i44), !noalias !1120
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit"
 
-184:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i"
+186:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1120
   call void @llvm.experimental.noalias.scope.decl(metadata !1142)
-  %185 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %186 = icmp eq i64 %185, 0
-  br i1 %186, label %.critedge45.i196.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i"
+  %187 = load i64, ptr %17, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %188 = icmp eq i64 %187, 0
+  br i1 %188, label %.critedge45.i196.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i": ; preds = %184
-  %187 = add i64 %185, -1
-  store i64 %187, ptr %17, align 8, !alias.scope !1142, !noalias !1145
-  %188 = load i64, ptr %102, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
-  %189 = icmp ult i64 %187, %188
-  call void @llvm.assume(i1 %189)
-  %190 = load ptr, ptr %103, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
-  %191 = getelementptr inbounds { i8, [3 x i8] }, ptr %190, i64 %187
-  %.sroa.01.0.copyload.i.i191.i = load i8, ptr %191, align 1, !noalias !1149
-  %.sroa.4.0..sroa_idx.i.i192.i = getelementptr inbounds i8, ptr %191, i64 1
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i": ; preds = %186
+  %189 = add i64 %187, -1
+  store i64 %189, ptr %17, align 8, !alias.scope !1142, !noalias !1145
+  %190 = load i64, ptr %104, align 8, !alias.scope !1142, !noalias !1145, !noundef !5
+  %191 = icmp ult i64 %189, %190
+  call void @llvm.assume(i1 %191)
+  %192 = load ptr, ptr %105, align 8, !alias.scope !1142, !noalias !1145, !nonnull !5, !noundef !5
+  %193 = getelementptr inbounds { i8, [3 x i8] }, ptr %192, i64 %189
+  %.sroa.01.0.copyload.i.i191.i = load i8, ptr %193, align 1, !noalias !1149
+  %.sroa.4.0..sroa_idx.i.i192.i = getelementptr inbounds i8, ptr %193, i64 1
   %.sroa.4.0.copyload.i.i193.i = load i24, ptr %.sroa.4.0..sroa_idx.i.i192.i, align 1, !noalias !1149
-  %192 = zext i24 %.sroa.4.0.copyload.i.i193.i to i32
-  %193 = shl nuw i32 %192, 8
-  %194 = zext i8 %.sroa.01.0.copyload.i.i191.i to i32
-  %195 = or disjoint i32 %193, %194
-  %196 = add i8 %.sroa.01.0.copyload.i.i191.i, -9
-  %switch.i194.i = icmp ult i8 %196, -3
-  %197 = icmp eq i8 %.sroa.02.0.copyload.i.i3.i.i, %.sroa.01.0.copyload.i.i191.i
-  %or.cond.i195.i = and i1 %197, %switch.i194.i
-  br i1 %or.cond.i195.i, label %198, label %.critedge45.i196.i
+  %194 = zext i24 %.sroa.4.0.copyload.i.i193.i to i32
+  %195 = shl nuw i32 %194, 8
+  %196 = zext i8 %.sroa.01.0.copyload.i.i191.i to i32
+  %197 = or disjoint i32 %195, %196
+  %198 = add i8 %.sroa.01.0.copyload.i.i191.i, -9
+  %switch.i194.i = icmp ult i8 %198, -3
+  %199 = icmp eq i8 %.sroa.02.0.copyload.i.i3.i.i, %.sroa.01.0.copyload.i.i191.i
+  %or.cond.i195.i = and i1 %199, %switch.i194.i
+  br i1 %or.cond.i195.i, label %200, label %.critedge45.i196.i
 
-.critedge45.i196.i:                               ; preds = %202, %.critedge.i199.i, %198, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i", %184
-  %.sroa.0.0.insert.insert.i56.i197.i = phi i32 [ %195, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i" ], [ %195, %198 ], [ %195, %202 ], [ 8, %184 ], [ %195, %.critedge.i199.i ]
-  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %181, i32 %.sroa.0.0.insert.insert.i56.i197.i), !noalias !1118
+.critedge45.i196.i:                               ; preds = %204, %.critedge.i199.i, %200, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i", %186
+  %.sroa.0.0.insert.insert.i56.i197.i = phi i32 [ %197, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i" ], [ %197, %200 ], [ %197, %204 ], [ 8, %186 ], [ %197, %.critedge.i199.i ]
+  call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %183, i32 %.sroa.0.0.insert.insert.i56.i197.i), !noalias !1118
   %.pre438.i = load i8, ptr %9, align 8, !range !17, !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i"
 
-198:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i"
-  %199 = icmp ne i8 %.sroa.02.0.copyload.i.i3.i.i, 5
-  %200 = icmp eq i24 %.sroa.4.0.copyload.i.i5.i.i, %.sroa.4.0.copyload.i.i193.i
-  %or.cond46.i198.i = select i1 %199, i1 true, i1 %200
+200:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i190.i"
+  %201 = icmp ne i8 %.sroa.02.0.copyload.i.i3.i.i, 5
+  %202 = icmp eq i24 %.sroa.4.0.copyload.i.i5.i.i, %.sroa.4.0.copyload.i.i193.i
+  %or.cond46.i198.i = select i1 %201, i1 true, i1 %202
   br i1 %or.cond46.i198.i, label %.critedge.i199.i, label %.critedge45.i196.i
 
-.critedge.i199.i:                                 ; preds = %198
-  %201 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
-  %.not40.i200.i = icmp eq i64 %201, 0
-  br i1 %.not40.i200.i, label %.critedge45.i196.i, label %202
+.critedge.i199.i:                                 ; preds = %200
+  %203 = load i64, ptr %48, align 8, !noalias !1145, !noundef !5
+  %.not40.i200.i = icmp eq i64 %203, 0
+  br i1 %.not40.i200.i, label %.critedge45.i196.i, label %204
 
-202:                                              ; preds = %.critedge.i199.i
-  %203 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
-  %204 = add i64 %201, -1
-  %205 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %203, i64 0, i64 %204
-  %206 = load i64, ptr %205, align 8, !noalias !1145, !noundef !5
-  %.not42.i201.i = icmp ult i64 %187, %206
+204:                                              ; preds = %.critedge.i199.i
+  %205 = load ptr, ptr %64, align 8, !noalias !1145, !nonnull !5, !noundef !5
+  %206 = add i64 %203, -1
+  %207 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %205, i64 0, i64 %206
+  %208 = load i64, ptr %207, align 8, !noalias !1145, !noundef !5
+  %.not42.i201.i = icmp ult i64 %189, %208
   br i1 %.not42.i201.i, label %.critedge45.i196.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i": ; preds = %202, %.critedge45.i196.i
-  %207 = phi i8 [ %.pre438.i, %.critedge45.i196.i ], [ 0, %202 ]
-  %trunc159.i = trunc nuw i8 %207 to i1
-  %208 = load ptr, ptr %110, align 8, !noalias !1120, !nonnull !5, !align !6
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i": ; preds = %204, %.critedge45.i196.i
+  %209 = phi i8 [ %.pre438.i, %.critedge45.i196.i ], [ 0, %204 ]
+  %trunc159.i = trunc nuw i8 %209 to i1
+  %210 = load ptr, ptr %112, align 8, !noalias !1120, !nonnull !5, !align !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1120
   br i1 %trunc159.i, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit", label %.split.split.i
 
-209:                                              ; preds = %107
+211:                                              ; preds = %109
   %.sroa.326.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
   %.sroa.326.0.copyload.i = load ptr, ptr %.sroa.326.0..sroa_idx.i, align 8, !noalias !1120, !nonnull !5, !noundef !5
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i"
 
-210:                                              ; preds = %107
-  %211 = load i64, ptr %48, align 8, !noalias !1155, !noundef !5
-  %212 = icmp eq i64 %211, 0
-  br i1 %212, label %213, label %215
+212:                                              ; preds = %109
+  %213 = load i64, ptr %48, align 8, !noalias !1155, !noundef !5
+  %214 = icmp eq i64 %213, 0
+  br i1 %214, label %215, label %217
 
-213:                                              ; preds = %210
-  %214 = call noundef nonnull align 8 ptr @_ZN10wasmparser9validator9operators17OperatorValidator14err_beyond_end17hce39d3fe1957d346E(ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %16, i64 noundef %.val184.i44), !noalias !1155
+215:                                              ; preds = %212
+  %216 = call noundef nonnull align 8 ptr @_ZN10wasmparser9validator9operators17OperatorValidator14err_beyond_end17hce39d3fe1957d346E(ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %16, i64 noundef %.val184.i44), !noalias !1155
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i"
 
-215:                                              ; preds = %210
+217:                                              ; preds = %212
   %.sroa.225.0.copyload.i = load i32, ptr %.sroa.225.0..sroa_idx.i, align 4, !noalias !1120
-  %216 = add i64 %211, -1
-  %217 = zext i32 %.sroa.225.0.copyload.i to i64
-  %218 = sub i64 %216, %217
-  %.not.i204.i = icmp ult i64 %216, %217
-  br i1 %.not.i204.i, label %219, label %225
+  %218 = add i64 %213, -1
+  %219 = zext i32 %.sroa.225.0.copyload.i to i64
+  %220 = sub i64 %218, %219
+  %.not.i204.i = icmp ult i64 %218, %219
+  br i1 %.not.i204.i, label %221, label %227
 
-219:                                              ; preds = %215
+221:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1155
   store ptr @anon.42d715dd7730a3603781b29caeb54517.72, ptr %5, align 8, !noalias !1155
-  %220 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 1, ptr %220, align 8, !noalias !1155
-  %221 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %221, align 8, !noalias !1155
-  %222 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr @anon.42d715dd7730a3603781b29caeb54517.12, ptr %222, align 8, !noalias !1155
-  %223 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 0, ptr %223, align 8, !noalias !1155
-  %224 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val184.i44), !noalias !1155
+  %222 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 1, ptr %222, align 8, !noalias !1155
+  %223 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %223, align 8, !noalias !1155
+  %224 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr @anon.42d715dd7730a3603781b29caeb54517.12, ptr %224, align 8, !noalias !1155
+  %225 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 0, ptr %225, align 8, !noalias !1155
+  %226 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val184.i44), !noalias !1155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1155
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i"
 
-225:                                              ; preds = %215
-  %226 = icmp ult i64 %218, %211
-  br i1 %226, label %228, label %227, !prof !619
+227:                                              ; preds = %217
+  %228 = icmp ult i64 %220, %213
+  br i1 %228, label %230, label %229, !prof !619
 
-227:                                              ; preds = %225
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %218, i64 noundef %211, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.42d715dd7730a3603781b29caeb54517.73) #13, !noalias !1155
+229:                                              ; preds = %227
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %220, i64 noundef %213, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.42d715dd7730a3603781b29caeb54517.73) #13, !noalias !1155
   unreachable
 
-228:                                              ; preds = %225
-  %229 = load ptr, ptr %64, align 8, !noalias !1155, !nonnull !5, !noundef !5
-  %230 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %229, i64 0, i64 %218
-  %231 = getelementptr inbounds i8, ptr %230, i64 16
-  %232 = load i32, ptr %231, align 8, !noalias !1120
-  %.sroa_idx273.i = getelementptr inbounds i8, ptr %230, i64 20
-  %233 = load i32, ptr %.sroa_idx273.i, align 4, !noalias !1120
-  %234 = getelementptr inbounds i8, ptr %230, i64 24
-  %235 = load i8, ptr %234, align 8, !range !828, !noalias !1155, !noundef !5
-  %.sroa.8277.8.insert.ext.i = zext i32 %233 to i64
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %64, align 8, !noalias !1155, !nonnull !5, !noundef !5
+  %232 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %231, i64 0, i64 %220
+  %233 = getelementptr inbounds i8, ptr %232, i64 16
+  %234 = load i32, ptr %233, align 8, !noalias !1120
+  %.sroa_idx273.i = getelementptr inbounds i8, ptr %232, i64 20
+  %235 = load i32, ptr %.sroa_idx273.i, align 4, !noalias !1120
+  %236 = getelementptr inbounds i8, ptr %232, i64 24
+  %237 = load i8, ptr %236, align 8, !range !828, !noalias !1155, !noundef !5
+  %.sroa.8277.8.insert.ext.i = zext i32 %235 to i64
   %.sroa.2140.0.insert.ext.i = shl nuw i64 %.sroa.8277.8.insert.ext.i, 32
-  %.sroa.0139.0.insert.ext.i = zext i32 %232 to i64
+  %.sroa.0139.0.insert.ext.i = zext i32 %234 to i64
   %.sroa.0139.0.insert.insert.i = or disjoint i64 %.sroa.2140.0.insert.ext.i, %.sroa.0139.0.insert.ext.i
-  %.not376.i = icmp eq i8 %235, 3
-  br i1 %.not376.i, label %236, label %239
+  %.not376.i = icmp eq i8 %237, 3
+  br i1 %.not376.i, label %238, label %241
 
-236:                                              ; preds = %228
+238:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1158
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$6params17h1b08be2c06112102E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr %.val187.i, i64 %.val184.i44, i64 %.sroa.0139.0.insert.insert.i), !noalias !1158
-  %237 = load i64, ptr %4, align 8, !range !101, !noalias !1158, !noundef !5
-  %trunc42.i216.i = trunc nuw i64 %237 to i1
-  %238 = load ptr, ptr %93, align 8, !noalias !1158
+  %239 = load i64, ptr %4, align 8, !range !101, !noalias !1158, !noundef !5
+  %trunc42.i216.i = trunc nuw i64 %239 to i1
+  %240 = load ptr, ptr %95, align 8, !noalias !1158
   %.sroa.436.0.copyload.i218.i = load i64, ptr %.sroa.436.0..sroa_idx.i217.i, align 8, !noalias !1158
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1158
-  br i1 %trunc42.i216.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %242
+  br i1 %trunc42.i216.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %244
 
-239:                                              ; preds = %228
+241:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1158
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7results17h1778ae33eaaef118E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr %.val187.i, i64 %.val184.i44, i64 %.sroa.0139.0.insert.insert.i), !noalias !1158
-  %240 = load i64, ptr %3, align 8, !range !101, !noalias !1158, !noundef !5
-  %trunc.i207.i = trunc nuw i64 %240 to i1
-  %241 = load ptr, ptr %92, align 8, !noalias !1158
+  %242 = load i64, ptr %3, align 8, !range !101, !noalias !1158, !noundef !5
+  %trunc.i207.i = trunc nuw i64 %242 to i1
+  %243 = load ptr, ptr %94, align 8, !noalias !1158
   %.sroa.439.0.copyload.i209.i = load i64, ptr %.sroa.439.0..sroa_idx.i208.i, align 8, !noalias !1158
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1158
-  br i1 %trunc.i207.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %251
+  br i1 %trunc.i207.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %253
 
-242:                                              ; preds = %236
-  %243 = icmp eq ptr %238, null
-  br i1 %243, label %248, label %244
+244:                                              ; preds = %238
+  %245 = icmp eq ptr %240, null
+  br i1 %245, label %250, label %246
 
-244:                                              ; preds = %242
-  %245 = ptrtoint ptr %238 to i64
-  %246 = sub nuw i64 %.sroa.436.0.copyload.i218.i, %245
-  %247 = lshr exact i64 %246, 2
+246:                                              ; preds = %244
+  %247 = ptrtoint ptr %240 to i64
+  %248 = sub nuw i64 %.sroa.436.0.copyload.i218.i, %247
+  %249 = lshr exact i64 %248, 2
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
 
-248:                                              ; preds = %242
-  %249 = and i64 %.sroa.436.0.copyload.i218.i, 255
-  %250 = icmp ne i64 %249, 6
-  %spec.select.i.i.i.i.i = zext i1 %250 to i64
+250:                                              ; preds = %244
+  %251 = and i64 %.sroa.436.0.copyload.i218.i, 255
+  %252 = icmp ne i64 %251, 6
+  %spec.select.i.i.i.i.i = zext i1 %252 to i64
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
 
-251:                                              ; preds = %239
-  %252 = icmp eq ptr %241, null
-  br i1 %252, label %257, label %253
+253:                                              ; preds = %241
+  %254 = icmp eq ptr %243, null
+  br i1 %254, label %259, label %255
 
-253:                                              ; preds = %251
-  %254 = ptrtoint ptr %241 to i64
-  %255 = sub nuw i64 %.sroa.439.0.copyload.i209.i, %254
-  %256 = lshr exact i64 %255, 2
+255:                                              ; preds = %253
+  %256 = ptrtoint ptr %243 to i64
+  %257 = sub nuw i64 %.sroa.439.0.copyload.i209.i, %256
+  %258 = lshr exact i64 %257, 2
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
 
-257:                                              ; preds = %251
-  %258 = and i64 %.sroa.439.0.copyload.i209.i, 255
-  %259 = icmp ne i64 %258, 6
-  %spec.select.i.i.i3.i.i = zext i1 %259 to i64
+259:                                              ; preds = %253
+  %260 = and i64 %.sroa.439.0.copyload.i209.i, 255
+  %261 = icmp ne i64 %260, 6
+  %spec.select.i.i.i3.i.i = zext i1 %261 to i64
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
 
-"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i": ; preds = %257, %253, %248, %244
-  %260 = phi i1 [ true, %248 ], [ false, %244 ], [ true, %257 ], [ false, %253 ]
-  %.sroa.9292.1.ph365.i = phi i64 [ %.sroa.436.0.copyload.i218.i, %248 ], [ %.sroa.436.0.copyload.i218.i, %244 ], [ %.sroa.439.0.copyload.i209.i, %257 ], [ %.sroa.439.0.copyload.i209.i, %253 ]
-  %.sroa.5291.0.ph363.i = phi ptr [ null, %248 ], [ %238, %244 ], [ null, %257 ], [ %241, %253 ]
-  %.0.i.i = phi i64 [ %spec.select.i.i.i.i.i, %248 ], [ %247, %244 ], [ %spec.select.i.i.i3.i.i, %257 ], [ %256, %253 ]
+"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i": ; preds = %259, %255, %250, %246
+  %262 = phi i1 [ true, %250 ], [ false, %246 ], [ true, %259 ], [ false, %255 ]
+  %.sroa.9292.1.ph365.i = phi i64 [ %.sroa.436.0.copyload.i218.i, %250 ], [ %.sroa.436.0.copyload.i218.i, %246 ], [ %.sroa.439.0.copyload.i209.i, %259 ], [ %.sroa.439.0.copyload.i209.i, %255 ]
+  %.sroa.5291.0.ph363.i = phi ptr [ null, %250 ], [ %240, %246 ], [ null, %259 ], [ %243, %255 ]
+  %.0.i.i = phi i64 [ %spec.select.i.i.i.i.i, %250 ], [ %249, %246 ], [ %spec.select.i.i.i3.i.i, %259 ], [ %258, %255 ]
   %.not.i = icmp eq i64 %.0.i.i, %spec.select.i.i.i.i224..i
-  br i1 %.not.i, label %261, label %283
+  br i1 %.not.i, label %263, label %285
 
-261:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
-  br i1 %.not376.i, label %262, label %270
+263:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
+  br i1 %.not376.i, label %264, label %272
 
-262:                                              ; preds = %261
-  br i1 %260, label %267, label %263
+264:                                              ; preds = %263
+  br i1 %262, label %269, label %265
 
-263:                                              ; preds = %262
-  %264 = ptrtoint ptr %.sroa.5291.0.ph363.i to i64
-  %265 = sub nuw i64 %.sroa.9292.1.ph365.i, %264
-  %266 = lshr exact i64 %265, 2
+265:                                              ; preds = %264
+  %266 = ptrtoint ptr %.sroa.5291.0.ph363.i to i64
+  %267 = sub nuw i64 %.sroa.9292.1.ph365.i, %266
+  %268 = lshr exact i64 %267, 2
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
 
-267:                                              ; preds = %262
-  %268 = and i64 %.sroa.9292.1.ph365.i, 255
-  %269 = icmp ne i64 %268, 6
-  %spec.select.i.i.i.i231.i = zext i1 %269 to i64
+269:                                              ; preds = %264
+  %270 = and i64 %.sroa.9292.1.ph365.i, 255
+  %271 = icmp ne i64 %270, 6
+  %spec.select.i.i.i.i231.i = zext i1 %271 to i64
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
 
-270:                                              ; preds = %261
-  br i1 %260, label %275, label %271
+272:                                              ; preds = %263
+  br i1 %262, label %277, label %273
 
-271:                                              ; preds = %270
-  %272 = ptrtoint ptr %.sroa.5291.0.ph363.i to i64
-  %273 = sub nuw i64 %.sroa.9292.1.ph365.i, %272
-  %274 = lshr exact i64 %273, 2
+273:                                              ; preds = %272
+  %274 = ptrtoint ptr %.sroa.5291.0.ph363.i to i64
+  %275 = sub nuw i64 %.sroa.9292.1.ph365.i, %274
+  %276 = lshr exact i64 %275, 2
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
 
-275:                                              ; preds = %270
-  %276 = and i64 %.sroa.9292.1.ph365.i, 255
-  %277 = icmp ne i64 %276, 6
-  %spec.select.i.i.i3.i233.i = zext i1 %277 to i64
+277:                                              ; preds = %272
+  %278 = and i64 %.sroa.9292.1.ph365.i, 255
+  %279 = icmp ne i64 %278, 6
+  %spec.select.i.i.i3.i233.i = zext i1 %279 to i64
   br label %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
 
-"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i": ; preds = %275, %271, %267, %263
-  %.0.i229.i = phi i64 [ %spec.select.i.i.i.i231.i, %267 ], [ %266, %263 ], [ %spec.select.i.i.i3.i233.i, %275 ], [ %274, %271 ]
-  %278 = load i64, ptr %101, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
-  %279 = load i64, ptr %100, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
-  %280 = sub i64 %279, %278
-  %281 = icmp ult i64 %280, %.0.i229.i
-  br i1 %281, label %282, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader"
+"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i": ; preds = %277, %273, %269, %265
+  %.0.i229.i = phi i64 [ %spec.select.i.i.i.i231.i, %269 ], [ %268, %265 ], [ %spec.select.i.i.i3.i233.i, %277 ], [ %276, %273 ]
+  %280 = load i64, ptr %103, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
+  %281 = load i64, ptr %102, align 8, !alias.scope !1161, !noalias !1120, !noundef !5
+  %282 = sub i64 %281, %280
+  %283 = icmp ult i64 %282, %.0.i229.i
+  br i1 %283, label %284, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader": ; preds = %282, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader": ; preds = %284, %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
 
-282:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h371ffaa2be1c40efE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %100, i64 noundef %278, i64 noundef %.0.i229.i), !noalias !1120
+284:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit234.i"
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h371ffaa2be1c40efE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %102, i64 noundef %280, i64 noundef %.0.i229.i), !noalias !1120
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader"
 
-283:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
+285:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !1120
   store ptr @anon.42d715dd7730a3603781b29caeb54517.99, ptr %12, align 8, !noalias !1120
-  %284 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 1, ptr %284, align 8, !noalias !1120
-  %285 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr null, ptr %285, align 8, !noalias !1120
-  %286 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr @anon.42d715dd7730a3603781b29caeb54517.12, ptr %286, align 8, !noalias !1120
-  %287 = getelementptr inbounds i8, ptr %12, i64 24
-  store i64 0, ptr %287, align 8, !noalias !1120
-  %288 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %.val184.i44), !noalias !1120
+  %286 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 1, ptr %286, align 8, !noalias !1120
+  %287 = getelementptr inbounds i8, ptr %12, i64 32
+  store ptr null, ptr %287, align 8, !noalias !1120
+  %288 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr @anon.42d715dd7730a3603781b29caeb54517.12, ptr %288, align 8, !noalias !1120
+  %289 = getelementptr inbounds i8, ptr %12, i64 24
+  store i64 0, ptr %289, align 8, !noalias !1120
+  %290 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %.val184.i44), !noalias !1120
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !1120
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i"
   %.sroa.8298.0.i = phi i64 [ %.sroa.8298.1.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i" ], [ %.sroa.9292.1.ph365.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i.preheader" ]
-  br i1 %.not376.i, label %289, label %301
+  br i1 %.not376.i, label %291, label %303
 
-289:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
-  br i1 %260, label %300, label %290
+291:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
+  br i1 %262, label %302, label %292
 
-290:                                              ; preds = %289
-  %291 = inttoptr i64 %.sroa.8298.0.i to ptr
-  %292 = icmp eq ptr %.sroa.5291.0.ph363.i, %291
-  br i1 %292, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %293
+292:                                              ; preds = %291
+  %293 = inttoptr i64 %.sroa.8298.0.i to ptr
+  %294 = icmp eq ptr %.sroa.5291.0.ph363.i, %293
+  br i1 %294, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %295
 
-293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %291, i64 -4
-  %295 = ptrtoint ptr %294 to i64
-  %.sroa.02.0.copyload.i.i.i236.i = load i8, ptr %294, align 1, !noalias !1164
-  %.sroa.4.0..0.1.sroa_idx.i.i.i237.i = getelementptr inbounds i8, ptr %291, i64 -3
+295:                                              ; preds = %292
+  %296 = getelementptr inbounds i8, ptr %293, i64 -4
+  %297 = ptrtoint ptr %296 to i64
+  %.sroa.02.0.copyload.i.i.i236.i = load i8, ptr %296, align 1, !noalias !1164
+  %.sroa.4.0..0.1.sroa_idx.i.i.i237.i = getelementptr inbounds i8, ptr %293, i64 -3
   %.sroa.4.0.copyload.i.i.i238.i = load i24, ptr %.sroa.4.0..0.1.sroa_idx.i.i.i237.i, align 1, !noalias !1164
-  %296 = zext i24 %.sroa.4.0.copyload.i.i.i238.i to i32
-  %297 = shl nuw i32 %296, 8
-  %298 = zext i8 %.sroa.02.0.copyload.i.i.i236.i to i32
-  %299 = or disjoint i32 %297, %298
+  %298 = zext i24 %.sroa.4.0.copyload.i.i.i238.i to i32
+  %299 = shl nuw i32 %298, 8
+  %300 = zext i8 %.sroa.02.0.copyload.i.i.i236.i to i32
+  %301 = or disjoint i32 %299, %300
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
 
-300:                                              ; preds = %289
+302:                                              ; preds = %291
   %.sroa.8298.16.extract.trunc.i = trunc i64 %.sroa.8298.0.i to i32
   %.sroa.8298.16.insert.mask.i = and i64 %.sroa.8298.0.i, -256
   %.sroa.8298.16.insert.insert.i = or disjoint i64 %.sroa.8298.16.insert.mask.i, 6
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
 
-301:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
-  br i1 %260, label %312, label %302
+303:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
+  br i1 %262, label %314, label %304
 
-302:                                              ; preds = %301
-  %303 = inttoptr i64 %.sroa.8298.0.i to ptr
-  %304 = icmp eq ptr %.sroa.5291.0.ph363.i, %303
-  br i1 %304, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %305
+304:                                              ; preds = %303
+  %305 = inttoptr i64 %.sroa.8298.0.i to ptr
+  %306 = icmp eq ptr %.sroa.5291.0.ph363.i, %305
+  br i1 %306, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %307
 
-305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %303, i64 -4
-  %307 = ptrtoint ptr %306 to i64
-  %.sroa.02.0.copyload.i.i3.i241.i = load i8, ptr %306, align 1, !noalias !1171
-  %.sroa.4.0..0.1.sroa_idx.i.i4.i242.i = getelementptr inbounds i8, ptr %303, i64 -3
+307:                                              ; preds = %304
+  %308 = getelementptr inbounds i8, ptr %305, i64 -4
+  %309 = ptrtoint ptr %308 to i64
+  %.sroa.02.0.copyload.i.i3.i241.i = load i8, ptr %308, align 1, !noalias !1171
+  %.sroa.4.0..0.1.sroa_idx.i.i4.i242.i = getelementptr inbounds i8, ptr %305, i64 -3
   %.sroa.4.0.copyload.i.i5.i243.i = load i24, ptr %.sroa.4.0..0.1.sroa_idx.i.i4.i242.i, align 1, !noalias !1171
-  %308 = zext i24 %.sroa.4.0.copyload.i.i5.i243.i to i32
-  %309 = shl nuw i32 %308, 8
-  %310 = zext i8 %.sroa.02.0.copyload.i.i3.i241.i to i32
-  %311 = or disjoint i32 %309, %310
+  %310 = zext i24 %.sroa.4.0.copyload.i.i5.i243.i to i32
+  %311 = shl nuw i32 %310, 8
+  %312 = zext i8 %.sroa.02.0.copyload.i.i3.i241.i to i32
+  %313 = or disjoint i32 %311, %312
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
 
-312:                                              ; preds = %301
+314:                                              ; preds = %303
   %.sroa.8298.16.extract.trunc301.i = trunc i64 %.sroa.8298.0.i to i32
   %.sroa.8298.16.insert.mask303.i = and i64 %.sroa.8298.0.i, -256
   %.sroa.8298.16.insert.insert304.i = or disjoint i64 %.sroa.8298.16.insert.mask303.i, 6
   br label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
 
-"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i": ; preds = %312, %305, %300, %293
-  %.sroa.8298.1.i = phi i64 [ %.sroa.8298.16.insert.insert304.i, %312 ], [ %307, %305 ], [ %.sroa.8298.16.insert.insert.i, %300 ], [ %295, %293 ]
-  %.sroa.0.0.i239.i = phi i32 [ %.sroa.8298.16.extract.trunc301.i, %312 ], [ %311, %305 ], [ %.sroa.8298.16.extract.trunc.i, %300 ], [ %299, %293 ]
-  %313 = and i32 %.sroa.0.0.i239.i, 255
-  %314 = icmp eq i32 %313, 6
-  br i1 %314, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %324
+"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i": ; preds = %314, %307, %302, %295
+  %.sroa.8298.1.i = phi i64 [ %.sroa.8298.16.insert.insert304.i, %314 ], [ %309, %307 ], [ %.sroa.8298.16.insert.insert.i, %302 ], [ %297, %295 ]
+  %.sroa.0.0.i239.i = phi i32 [ %.sroa.8298.16.extract.trunc301.i, %314 ], [ %313, %307 ], [ %.sroa.8298.16.extract.trunc.i, %302 ], [ %301, %295 ]
+  %315 = and i32 %.sroa.0.0.i239.i, 255
+  %316 = icmp eq i32 %315, 6
+  br i1 %316, label %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", label %326
 
-"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i", %302, %290
+"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i": ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i", %304, %292
   call void @llvm.experimental.noalias.scope.decl(metadata !1176)
-  %315 = load i64, ptr %101, align 8, !alias.scope !1176, !noalias !1179, !noundef !5
-  %316 = call { i64, i64 } @_ZN4core5slice5index5range17hfc6f788080d69269E(i64 noundef %315, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f8aa87755bb4cbf303018e2f61381d7e.23.llvm.12599983639457799574), !noalias !1181
-  %317 = extractvalue { i64, i64 } %316, 0
-  %318 = extractvalue { i64, i64 } %316, 1
-  store i64 %317, ptr %101, align 8, !alias.scope !1176, !noalias !1179
-  %319 = load ptr, ptr %106, align 8, !alias.scope !1176, !noalias !1179, !nonnull !5, !noundef !5
-  %320 = getelementptr inbounds { i8, [3 x i8] }, ptr %319, i64 %317
-  %321 = sub i64 %315, %318
-  %322 = getelementptr inbounds { i8, [3 x i8] }, ptr %319, i64 %318
+  %317 = load i64, ptr %103, align 8, !alias.scope !1176, !noalias !1179, !noundef !5
+  %318 = call { i64, i64 } @_ZN4core5slice5index5range17hfc6f788080d69269E(i64 noundef %317, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f8aa87755bb4cbf303018e2f61381d7e.23.llvm.12599983639457799574), !noalias !1181
+  %319 = extractvalue { i64, i64 } %318, 0
+  %320 = extractvalue { i64, i64 } %318, 1
+  store i64 %319, ptr %103, align 8, !alias.scope !1176, !noalias !1179
+  %321 = load ptr, ptr %108, align 8, !alias.scope !1176, !noalias !1179, !nonnull !5, !noundef !5
+  %322 = getelementptr inbounds { i8, [3 x i8] }, ptr %321, i64 %319
+  %323 = sub i64 %317, %320
+  %324 = getelementptr inbounds { i8, [3 x i8] }, ptr %321, i64 %320
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !1120
-  store ptr %320, ptr %10, align 8, !noalias !1120
-  store ptr %322, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
-  store ptr %100, ptr %.sroa.063.sroa.3.0..sroa_idx.i, align 8, !noalias !1120
-  store i64 %318, ptr %.sroa.063.sroa.4.0..sroa_idx.i, align 8, !noalias !1120
-  store i64 %321, ptr %.sroa.063.sroa.5.0..sroa_idx.i, align 8, !noalias !1120
-  %323 = icmp eq i64 %317, %318
-  br i1 %323, label %.thread372.i, label %.lr.ph.i
+  store ptr %322, ptr %10, align 8, !noalias !1120
+  store ptr %324, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !noalias !1120
+  store ptr %102, ptr %.sroa.063.sroa.3.0..sroa_idx.i, align 8, !noalias !1120
+  store i64 %320, ptr %.sroa.063.sroa.4.0..sroa_idx.i, align 8, !noalias !1120
+  store i64 %323, ptr %.sroa.063.sroa.5.0..sroa_idx.i, align 8, !noalias !1120
+  %325 = icmp eq i64 %319, %320
+  br i1 %325, label %.thread372.i, label %.lr.ph.i
 
-324:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
+326:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !1120
   call void @llvm.experimental.noalias.scope.decl(metadata !1182)
   %.sroa.4.0.extract.shift.i246.i = lshr i32 %.sroa.0.0.i239.i, 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1185)
-  %325 = load i64, ptr %17, align 8, !alias.scope !1185, !noalias !1188, !noundef !5
-  %326 = icmp eq i64 %325, 0
-  br i1 %326, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i"
+  %327 = load i64, ptr %17, align 8, !alias.scope !1185, !noalias !1188, !noundef !5
+  %328 = icmp eq i64 %327, 0
+  br i1 %328, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i": ; preds = %324
-  %327 = add i64 %325, -1
-  store i64 %327, ptr %17, align 8, !alias.scope !1185, !noalias !1188
-  %328 = load i64, ptr %102, align 8, !alias.scope !1185, !noalias !1188, !noundef !5
-  %329 = icmp ult i64 %327, %328
-  call void @llvm.assume(i1 %329)
-  %330 = load ptr, ptr %103, align 8, !alias.scope !1185, !noalias !1188, !nonnull !5, !noundef !5
-  %331 = getelementptr inbounds { i8, [3 x i8] }, ptr %330, i64 %327
-  %.sroa.01.0.copyload.i.i248.i = load i8, ptr %331, align 1, !noalias !1190
-  %.sroa.4.0..sroa_idx.i.i249.i = getelementptr inbounds i8, ptr %331, i64 1
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i": ; preds = %326
+  %329 = add i64 %327, -1
+  store i64 %329, ptr %17, align 8, !alias.scope !1185, !noalias !1188
+  %330 = load i64, ptr %104, align 8, !alias.scope !1185, !noalias !1188, !noundef !5
+  %331 = icmp ult i64 %329, %330
+  call void @llvm.assume(i1 %331)
+  %332 = load ptr, ptr %105, align 8, !alias.scope !1185, !noalias !1188, !nonnull !5, !noundef !5
+  %333 = getelementptr inbounds { i8, [3 x i8] }, ptr %332, i64 %329
+  %.sroa.01.0.copyload.i.i248.i = load i8, ptr %333, align 1, !noalias !1190
+  %.sroa.4.0..sroa_idx.i.i249.i = getelementptr inbounds i8, ptr %333, i64 1
   %.sroa.4.0.copyload.i.i250.i = load i24, ptr %.sroa.4.0..sroa_idx.i.i249.i, align 1, !noalias !1190
-  %332 = zext i24 %.sroa.4.0.copyload.i.i250.i to i32
-  %333 = shl nuw i32 %332, 8
-  %334 = zext i8 %.sroa.01.0.copyload.i.i248.i to i32
-  %335 = or disjoint i32 %333, %334
-  %336 = add i8 %.sroa.01.0.copyload.i.i248.i, -9
-  %switch.i251.i = icmp ult i8 %336, -3
-  %337 = icmp eq i32 %313, %334
-  %or.cond.i253.i = and i1 %switch.i251.i, %337
-  br i1 %or.cond.i253.i, label %338, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i"
+  %334 = zext i24 %.sroa.4.0.copyload.i.i250.i to i32
+  %335 = shl nuw i32 %334, 8
+  %336 = zext i8 %.sroa.01.0.copyload.i.i248.i to i32
+  %337 = or disjoint i32 %335, %336
+  %338 = add i8 %.sroa.01.0.copyload.i.i248.i, -9
+  %switch.i251.i = icmp ult i8 %338, -3
+  %339 = icmp eq i32 %315, %336
+  %or.cond.i253.i = and i1 %switch.i251.i, %339
+  br i1 %or.cond.i253.i, label %340, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i"
 
-338:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i"
-  %339 = icmp ne i8 %.sroa.01.0.copyload.i.i248.i, 5
-  %340 = icmp eq i32 %.sroa.4.0.extract.shift.i246.i, %332
-  %or.cond46.i256.i = select i1 %339, i1 true, i1 %340
+340:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i"
+  %341 = icmp ne i8 %.sroa.01.0.copyload.i.i248.i, 5
+  %342 = icmp eq i32 %.sroa.4.0.extract.shift.i246.i, %334
+  %or.cond46.i256.i = select i1 %341, i1 true, i1 %342
   br i1 %or.cond46.i256.i, label %.critedge.i257.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i"
 
-.critedge.i257.i:                                 ; preds = %338
-  %341 = load i64, ptr %48, align 8, !noalias !1188, !noundef !5
-  %.not40.i258.i = icmp eq i64 %341, 0
-  br i1 %.not40.i258.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", label %342
+.critedge.i257.i:                                 ; preds = %340
+  %343 = load i64, ptr %48, align 8, !noalias !1188, !noundef !5
+  %.not40.i258.i = icmp eq i64 %343, 0
+  br i1 %.not40.i258.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", label %344
 
-342:                                              ; preds = %.critedge.i257.i
-  %343 = load ptr, ptr %64, align 8, !noalias !1188, !nonnull !5, !noundef !5
-  %344 = add i64 %341, -1
-  %345 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %343, i64 0, i64 %344
-  %346 = load i64, ptr %345, align 8, !noalias !1188, !noundef !5
-  %.not42.i259.i = icmp ult i64 %327, %346
+344:                                              ; preds = %.critedge.i257.i
+  %345 = load ptr, ptr %64, align 8, !noalias !1188, !nonnull !5, !noundef !5
+  %346 = add i64 %343, -1
+  %347 = getelementptr inbounds [0 x { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }], ptr %345, i64 0, i64 %346
+  %348 = load i64, ptr %347, align 8, !noalias !1188, !noundef !5
+  %.not42.i259.i = icmp ult i64 %329, %348
   br i1 %.not42.i259.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i": ; preds = %342
-  store i8 %.sroa.01.0.copyload.i.i248.i, ptr %104, align 1, !alias.scope !1182, !noalias !1191
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i": ; preds = %344
+  store i8 %.sroa.01.0.copyload.i.i248.i, ptr %106, align 1, !alias.scope !1182, !noalias !1191
   store i24 %.sroa.4.0.copyload.i.i250.i, ptr %.sroa.419.0..sroa_idx.i260.i, align 2, !alias.scope !1182, !noalias !1191
-  %.sroa.0128.0.copyload444.i = load i32, ptr %104, align 1, !noalias !1120
+  %.sroa.0128.0.copyload444.i = load i32, ptr %106, align 1, !noalias !1120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1120
-  br label %368
+  br label %370
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i": ; preds = %342, %.critedge.i257.i, %338, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i", %324
-  %.sroa.0.0.insert.insert.i56.i255.i = phi i32 [ %335, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i" ], [ %335, %338 ], [ %335, %342 ], [ 8, %324 ], [ %335, %.critedge.i257.i ]
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i": ; preds = %344, %.critedge.i257.i, %340, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i", %326
+  %.sroa.0.0.insert.insert.i56.i255.i = phi i32 [ %337, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i247.i" ], [ %337, %340 ], [ %337, %344 ], [ 8, %326 ], [ %337, %.critedge.i257.i ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %.sroa.0.0.i239.i, i32 %.sroa.0.0.insert.insert.i56.i255.i), !noalias !1118
   %.pre437.i = load i8, ptr %11, align 8, !range !17, !noalias !1120
   %trunc157.i = trunc nuw i8 %.pre437.i to i1
-  %347 = load ptr, ptr %105, align 8, !noalias !1120, !nonnull !5, !align !6
-  %.sroa.0128.0.copyload.i = load i32, ptr %104, align 1, !noalias !1120
+  %349 = load ptr, ptr %107, align 8, !noalias !1120, !nonnull !5, !align !6
+  %.sroa.0128.0.copyload.i = load i32, ptr %106, align 1, !noalias !1120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1120
-  br i1 %trunc157.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %368
+  br i1 %trunc157.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i", label %370
 
-348:                                              ; preds = %357
-  %349 = landingpad { ptr, i32 }
+350:                                              ; preds = %359
+  %351 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf67b45a910ad1e56E.llvm.3191862155771161713"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
-          to label %"_ZN4core3ptr134drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..drain..Drain$LT$wasmparser..validator..operators..MaybeType$GT$$GT$$GT$17h3246864d7c83b906E.exit.i" unwind label %366, !noalias !1120
+          to label %"_ZN4core3ptr134drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..drain..Drain$LT$wasmparser..validator..operators..MaybeType$GT$$GT$$GT$17h3246864d7c83b906E.exit.i" unwind label %368, !noalias !1120
 
 .lr.ph.i:                                         ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i"
-  %350 = phi ptr [ %363, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i" ], [ %322, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i" ]
-  %351 = getelementptr inbounds i8, ptr %350, i64 -4
-  store ptr %351, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !alias.scope !1192, !noalias !1120
-  %.sroa.0132.0.copyload.i = load i8, ptr %351, align 1, !noalias !1120
-  %352 = icmp eq i8 %.sroa.0132.0.copyload.i, 8
-  br i1 %352, label %.thread372.i, label %353
+  %352 = phi ptr [ %365, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i" ], [ %324, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i" ]
+  %353 = getelementptr inbounds i8, ptr %352, i64 -4
+  store ptr %353, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !alias.scope !1192, !noalias !1120
+  %.sroa.0132.0.copyload.i = load i8, ptr %353, align 1, !noalias !1120
+  %354 = icmp eq i8 %.sroa.0132.0.copyload.i, 8
+  br i1 %354, label %.thread372.i, label %355
 
 .thread372.i:                                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i", %.lr.ph.i, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit245.thread.i"
   call void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf67b45a910ad1e56E.llvm.3191862155771161713"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10), !noalias !1120
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !1120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1120
-  br label %107
+  br label %109
 
-353:                                              ; preds = %.lr.ph.i
-  %.sroa.4133.0..0.131.sroa_idx.i = getelementptr inbounds i8, ptr %350, i64 -3
+355:                                              ; preds = %.lr.ph.i
+  %.sroa.4133.0..0.131.sroa_idx.i = getelementptr inbounds i8, ptr %352, i64 -3
   %.sroa.4133.0.copyload.i = load i24, ptr %.sroa.4133.0..0.131.sroa_idx.i, align 1, !noalias !1120
   %.sroa.269.0.insert.ext.i = zext i24 %.sroa.4133.0.copyload.i to i32
   %.sroa.269.0.insert.shift.i = shl nuw i32 %.sroa.269.0.insert.ext.i, 8
   %.sroa.068.0.insert.ext.i = zext i8 %.sroa.0132.0.copyload.i to i32
   %.sroa.068.0.insert.insert.i = or disjoint i32 %.sroa.269.0.insert.shift.i, %.sroa.068.0.insert.ext.i
-  %354 = load i64, ptr %17, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
-  %355 = load i64, ptr %102, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
-  %356 = icmp eq i64 %354, %355
-  br i1 %356, label %357, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i"
+  %356 = load i64, ptr %17, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
+  %357 = load i64, ptr %104, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
+  %358 = icmp eq i64 %356, %357
+  br i1 %358, label %359, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i"
 
-357:                                              ; preds = %353
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h96fb499aa9ae04ddE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %102, i64 noundef %354)
-          to label %.noexc.i unwind label %348, !noalias !1120
+359:                                              ; preds = %355
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h96fb499aa9ae04ddE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %104, i64 noundef %356)
+          to label %.noexc.i unwind label %350, !noalias !1120
 
-.noexc.i:                                         ; preds = %357
+.noexc.i:                                         ; preds = %359
   %.pre.i.i = load i64, ptr %17, align 8, !alias.scope !1197, !noalias !1120
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i": ; preds = %.noexc.i, %353
-  %358 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %354, %353 ]
-  %359 = load ptr, ptr %103, align 8, !alias.scope !1197, !noalias !1120, !nonnull !5, !noundef !5
-  %360 = getelementptr inbounds { i8, [3 x i8] }, ptr %359, i64 %358
-  store i32 %.sroa.068.0.insert.insert.i, ptr %360, align 1, !noalias !1120
-  %361 = load i64, ptr %17, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
-  %362 = add i64 %361, 1
-  store i64 %362, ptr %17, align 8, !alias.scope !1197, !noalias !1120
-  %363 = load ptr, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !alias.scope !1200, !noalias !1120, !nonnull !5, !noundef !5
-  %364 = load ptr, ptr %10, align 8, !alias.scope !1200, !noalias !1120, !nonnull !5, !noundef !5
-  %365 = icmp eq ptr %364, %363
-  br i1 %365, label %.thread372.i, label %.lr.ph.i
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i": ; preds = %.noexc.i, %355
+  %360 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %356, %355 ]
+  %361 = load ptr, ptr %105, align 8, !alias.scope !1197, !noalias !1120, !nonnull !5, !noundef !5
+  %362 = getelementptr inbounds { i8, [3 x i8] }, ptr %361, i64 %360
+  store i32 %.sroa.068.0.insert.insert.i, ptr %362, align 1, !noalias !1120
+  %363 = load i64, ptr %17, align 8, !alias.scope !1197, !noalias !1120, !noundef !5
+  %364 = add i64 %363, 1
+  store i64 %364, ptr %17, align 8, !alias.scope !1197, !noalias !1120
+  %365 = load ptr, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !alias.scope !1200, !noalias !1120, !nonnull !5, !noundef !5
+  %366 = load ptr, ptr %10, align 8, !alias.scope !1200, !noalias !1120, !nonnull !5, !noundef !5
+  %367 = icmp eq ptr %366, %365
+  br i1 %367, label %.thread372.i, label %.lr.ph.i
 
-366:                                              ; preds = %348
-  %367 = landingpad { ptr, i32 }
+368:                                              ; preds = %350
+  %369 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14, !noalias !1120
   unreachable
 
-"_ZN4core3ptr134drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..drain..Drain$LT$wasmparser..validator..operators..MaybeType$GT$$GT$$GT$17h3246864d7c83b906E.exit.i": ; preds = %348
-  resume { ptr, i32 } %349
+"_ZN4core3ptr134drop_in_place$LT$core..iter..adapters..rev..Rev$LT$alloc..vec..drain..Drain$LT$wasmparser..validator..operators..MaybeType$GT$$GT$$GT$17h3246864d7c83b906E.exit.i": ; preds = %350
+  resume { ptr, i32 } %351
 
-368:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i"
+370:                                              ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i"
   %.sroa.0128.0.copyload445.i = phi i32 [ %.sroa.0128.0.copyload444.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.thread.i" ], [ %.sroa.0128.0.copyload.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i" ]
-  %369 = load i64, ptr %101, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
-  %370 = load i64, ptr %100, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
-  %371 = icmp eq i64 %369, %370
-  br i1 %371, label %372, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i"
+  %371 = load i64, ptr %103, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
+  %372 = load i64, ptr %102, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
+  %373 = icmp eq i64 %371, %372
+  br i1 %373, label %374, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i"
 
-372:                                              ; preds = %368
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h96fb499aa9ae04ddE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %100, i64 noundef %369), !noalias !1120
-  %.pre.i263.i = load i64, ptr %101, align 8, !alias.scope !1201, !noalias !1120
+374:                                              ; preds = %370
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h96fb499aa9ae04ddE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %102, i64 noundef %371), !noalias !1120
+  %.pre.i263.i = load i64, ptr %103, align 8, !alias.scope !1201, !noalias !1120
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i": ; preds = %372, %368
-  %373 = phi i64 [ %.pre.i263.i, %372 ], [ %369, %368 ]
-  %374 = load ptr, ptr %106, align 8, !alias.scope !1201, !noalias !1120, !nonnull !5, !noundef !5
-  %375 = getelementptr inbounds { i8, [3 x i8] }, ptr %374, i64 %373
-  store i32 %.sroa.0128.0.copyload445.i, ptr %375, align 1, !noalias !1120
-  %376 = load i64, ptr %101, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
-  %377 = add i64 %376, 1
-  store i64 %377, ptr %101, align 8, !alias.scope !1201, !noalias !1120
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit264.i": ; preds = %374, %370
+  %375 = phi i64 [ %.pre.i263.i, %374 ], [ %371, %370 ]
+  %376 = load ptr, ptr %108, align 8, !alias.scope !1201, !noalias !1120, !nonnull !5, !noundef !5
+  %377 = getelementptr inbounds { i8, [3 x i8] }, ptr %376, i64 %375
+  store i32 %.sroa.0128.0.copyload445.i, ptr %377, align 1, !noalias !1120
+  %378 = load i64, ptr %103, align 8, !alias.scope !1201, !noalias !1120, !noundef !5
+  %379 = add i64 %378, 1
+  store i64 %379, ptr %103, align 8, !alias.scope !1201, !noalias !1120
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5c77bbeb935f8926E.exit.i"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i": ; preds = %239, %236, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", %283, %219, %213, %209
-  %.2.i = phi ptr [ %.sroa.326.0.copyload.i, %209 ], [ %288, %283 ], [ %224, %219 ], [ %214, %213 ], [ %347, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i" ], [ %241, %239 ], [ %238, %236 ]
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i": ; preds = %241, %238, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i", %285, %221, %215, %211
+  %.2.i = phi ptr [ %.sroa.326.0.copyload.i, %211 ], [ %290, %285 ], [ %226, %221 ], [ %216, %215 ], [ %349, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit261.i" ], [ %243, %241 ], [ %240, %238 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1120
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !1120
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$14visit_br_table17hef07995e3c052a0cE.exit": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %44, %54, %74, %78, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i"
-  %.0.i = phi ptr [ %.pre436.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %.2.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i" ], [ %59, %54 ], [ %45, %44 ], [ %183, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i" ], [ %81, %78 ], [ %77, %74 ], [ %148, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i" ], [ %175, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i" ], [ %208, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i" ]
+  %.0.i = phi ptr [ %.pre436.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %.2.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$4jump17h834ec3d69caf8bcbE.exit206.thread.i" ], [ %59, %54 ], [ %45, %44 ], [ %185, %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i" ], [ %81, %78 ], [ %77, %74 ], [ %150, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us.i" ], [ %177, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.us411.i" ], [ %210, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit203.i" ]
   ret ptr %.0.i
 }
 

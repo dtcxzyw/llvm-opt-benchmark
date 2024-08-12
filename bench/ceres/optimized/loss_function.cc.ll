@@ -103,7 +103,9 @@ declare void @llvm.trap() #2
 define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull readnone align 8 %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 align 2 {
   store double %1, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %4, align 8
+  store double 1.000000e+00, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0.000000e+00, ptr %5, align 8
   ret void
 }
 

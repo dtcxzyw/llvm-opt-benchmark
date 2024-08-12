@@ -639,7 +639,9 @@ invoke.cont13:                                    ; preds = %call5.i.i.i3.i.i.i.
   store ptr %call5.i.i.i3.i.i.i.i21, ptr %_M_refcount.i.i.i19, align 8, !alias.scope !10
   store ptr %_M_impl.i.i.i.i.i.i16, ptr %m_gamma, align 8, !alias.scope !10
   %m_pivot = getelementptr inbounds i8, ptr %this, i64 224
-  store <2 x double> <double 1.800000e-01, double 0x3FB6872B020C49BA>, ptr %m_pivot, align 8
+  store double 1.800000e-01, ptr %m_pivot, align 8
+  %m_logExposureStep = getelementptr inbounds i8, ptr %this, i64 232
+  store double 0x3FB6872B020C49BA, ptr %m_logExposureStep, align 8
   %m_logMidGray = getelementptr inbounds i8, ptr %this, i64 240
   store double 4.350000e-01, ptr %m_logMidGray, align 8
   ret void
@@ -845,7 +847,9 @@ invoke.cont13:                                    ; preds = %call5.i.i.i3.i.i.i.
   store ptr %call5.i.i.i3.i.i.i.i21, ptr %_M_refcount.i.i.i19, align 8, !alias.scope !19
   store ptr %_M_impl.i.i.i.i.i.i16, ptr %m_gamma, align 8, !alias.scope !19
   %m_pivot = getelementptr inbounds i8, ptr %this, i64 224
-  store <2 x double> <double 1.800000e-01, double 0x3FB6872B020C49BA>, ptr %m_pivot, align 8
+  store double 1.800000e-01, ptr %m_pivot, align 8
+  %m_logExposureStep = getelementptr inbounds i8, ptr %this, i64 232
+  store double 0x3FB6872B020C49BA, ptr %m_logExposureStep, align 8
   %m_logMidGray = getelementptr inbounds i8, ptr %this, i64 240
   store double 4.350000e-01, ptr %m_logMidGray, align 8
   ret void

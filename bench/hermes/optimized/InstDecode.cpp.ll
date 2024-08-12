@@ -315,14 +315,24 @@ sw.bb1:                                           ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i, ptr %operandValue, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op2 = getelementptr inbounds i8, ptr %inst, i64 2
-  %4 = load <2 x i16>, ptr %op2, align 1
-  %5 = zext <2 x i16> %4 to <2 x i64>
-  store <2 x i64> %5, ptr %arrayidx3, align 8
+  %4 = load i16, ptr %op2, align 1
+  %conv.i512 = zext i16 %4 to i64
+  store i64 %conv.i512, ptr %arrayidx3, align 8
+  %arrayidx5 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op3 = getelementptr inbounds i8, ptr %inst, i64 4
+  %5 = load i16, ptr %op3, align 1
+  %conv.i513 = zext i16 %5 to i64
+  store i64 %conv.i513, ptr %arrayidx5, align 8
   %arrayidx7 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op4 = getelementptr inbounds i8, ptr %inst, i64 6
-  %6 = load <2 x i16>, ptr %op4, align 1
-  %7 = zext <2 x i16> %6 to <2 x i64>
-  store <2 x i64> %7, ptr %arrayidx7, align 8
+  %6 = load i16, ptr %op4, align 1
+  %conv.i514 = zext i16 %6 to i64
+  store i64 %conv.i514, ptr %arrayidx7, align 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %op5 = getelementptr inbounds i8, ptr %inst, i64 8
+  %7 = load i16, ptr %op5, align 1
+  %conv.i515 = zext i16 %7 to i64
+  store i64 %conv.i515, ptr %arrayidx9, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -333,14 +343,24 @@ sw.bb10:                                          ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i516, ptr %operandValue11, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op216 = getelementptr inbounds i8, ptr %inst, i64 2
-  %9 = load <2 x i16>, ptr %op216, align 1
-  %10 = zext <2 x i16> %9 to <2 x i64>
-  store <2 x i64> %10, ptr %arrayidx15, align 8
+  %9 = load i16, ptr %op216, align 1
+  %conv.i517 = zext i16 %9 to i64
+  store i64 %conv.i517, ptr %arrayidx15, align 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op319 = getelementptr inbounds i8, ptr %inst, i64 4
+  %10 = load i16, ptr %op319, align 1
+  %conv.i518 = zext i16 %10 to i64
+  store i64 %conv.i518, ptr %arrayidx18, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op422 = getelementptr inbounds i8, ptr %inst, i64 6
-  %11 = load <2 x i32>, ptr %op422, align 1
-  %12 = zext <2 x i32> %11 to <2 x i64>
-  store <2 x i64> %12, ptr %arrayidx21, align 8
+  %11 = load i32, ptr %op422, align 1
+  %conv.i519 = zext i32 %11 to i64
+  store i64 %conv.i519, ptr %arrayidx21, align 8
+  %arrayidx24 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %op525 = getelementptr inbounds i8, ptr %inst, i64 10
+  %12 = load i32, ptr %op525, align 1
+  %conv.i520 = zext i32 %12 to i64
+  store i64 %conv.i520, ptr %arrayidx24, align 8
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -354,9 +374,14 @@ sw.bb26:                                          ; preds = %_ZN6hermes4inst15ge
 sw.bb30:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue31 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op133 = getelementptr inbounds i8, ptr %inst, i64 1
-  %14 = load <2 x i8>, ptr %op133, align 1
-  %15 = zext <2 x i8> %14 to <2 x i64>
-  store <2 x i64> %15, ptr %operandValue31, align 8
+  %14 = load i8, ptr %op133, align 1
+  %conv.i522 = zext i8 %14 to i64
+  store i64 %conv.i522, ptr %operandValue31, align 8
+  %arrayidx35 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op236 = getelementptr inbounds i8, ptr %inst, i64 2
+  %15 = load i8, ptr %op236, align 1
+  %conv.i523 = zext i8 %15 to i64
+  store i64 %conv.i523, ptr %arrayidx35, align 8
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -367,9 +392,14 @@ sw.bb37:                                          ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i524, ptr %operandValue38, align 8
   %arrayidx42 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op243 = getelementptr inbounds i8, ptr %inst, i64 2
-  %17 = load <2 x i16>, ptr %op243, align 1
-  %18 = zext <2 x i16> %17 to <2 x i64>
-  store <2 x i64> %18, ptr %arrayidx42, align 8
+  %17 = load i16, ptr %op243, align 1
+  %conv.i525 = zext i16 %17 to i64
+  store i64 %conv.i525, ptr %arrayidx42, align 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op346 = getelementptr inbounds i8, ptr %inst, i64 4
+  %18 = load i16, ptr %op346, align 1
+  %conv.i526 = zext i16 %18 to i64
+  store i64 %conv.i526, ptr %arrayidx45, align 8
   %arrayidx48 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op449 = getelementptr inbounds i8, ptr %inst, i64 6
   %19 = load i16, ptr %op449, align 1
@@ -385,9 +415,14 @@ sw.bb50:                                          ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i528, ptr %operandValue51, align 8
   %arrayidx55 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op256 = getelementptr inbounds i8, ptr %inst, i64 2
-  %21 = load <2 x i16>, ptr %op256, align 1
-  %22 = zext <2 x i16> %21 to <2 x i64>
-  store <2 x i64> %22, ptr %arrayidx55, align 8
+  %21 = load i16, ptr %op256, align 1
+  %conv.i529 = zext i16 %21 to i64
+  store i64 %conv.i529, ptr %arrayidx55, align 8
+  %arrayidx58 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op359 = getelementptr inbounds i8, ptr %inst, i64 4
+  %22 = load i16, ptr %op359, align 1
+  %conv.i530 = zext i16 %22 to i64
+  store i64 %conv.i530, ptr %arrayidx58, align 8
   %arrayidx61 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op462 = getelementptr inbounds i8, ptr %inst, i64 6
   %23 = load i32, ptr %op462, align 1
@@ -411,57 +446,92 @@ sw.bb63:                                          ; preds = %_ZN6hermes4inst15ge
 sw.bb70:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue71 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op173 = getelementptr inbounds i8, ptr %inst, i64 1
-  %26 = load <2 x i8>, ptr %op173, align 1
-  %27 = zext <2 x i8> %26 to <2 x i64>
-  store <2 x i64> %27, ptr %operandValue71, align 8
+  %26 = load i8, ptr %op173, align 1
+  %conv.i534 = zext i8 %26 to i64
+  store i64 %conv.i534, ptr %operandValue71, align 8
+  %arrayidx75 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op276 = getelementptr inbounds i8, ptr %inst, i64 2
+  %27 = load i8, ptr %op276, align 1
+  %conv.i535 = zext i8 %27 to i64
+  store i64 %conv.i535, ptr %arrayidx75, align 8
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue78 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op180 = getelementptr inbounds i8, ptr %inst, i64 1
-  %28 = load <2 x i32>, ptr %op180, align 1
-  %29 = zext <2 x i32> %28 to <2 x i64>
-  store <2 x i64> %29, ptr %operandValue78, align 8
+  %28 = load i32, ptr %op180, align 1
+  %conv.i536 = zext i32 %28 to i64
+  store i64 %conv.i536, ptr %operandValue78, align 8
+  %arrayidx82 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op283 = getelementptr inbounds i8, ptr %inst, i64 5
+  %29 = load i32, ptr %op283, align 1
+  %conv.i537 = zext i32 %29 to i64
+  store i64 %conv.i537, ptr %arrayidx82, align 8
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue85 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op187 = getelementptr inbounds i8, ptr %inst, i64 1
-  %30 = load <2 x i8>, ptr %op187, align 1
-  %31 = zext <2 x i8> %30 to <2 x i64>
-  store <2 x i64> %31, ptr %operandValue85, align 8
+  %30 = load i8, ptr %op187, align 1
+  %conv.i538 = zext i8 %30 to i64
+  store i64 %conv.i538, ptr %operandValue85, align 8
+  %arrayidx89 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op290 = getelementptr inbounds i8, ptr %inst, i64 2
+  %31 = load i8, ptr %op290, align 1
+  %conv.i539 = zext i8 %31 to i64
+  store i64 %conv.i539, ptr %arrayidx89, align 8
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue92 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op194 = getelementptr inbounds i8, ptr %inst, i64 1
-  %32 = load <2 x i8>, ptr %op194, align 1
-  %33 = zext <2 x i8> %32 to <2 x i64>
-  store <2 x i64> %33, ptr %operandValue92, align 8
+  %32 = load i8, ptr %op194, align 1
+  %conv.i540 = zext i8 %32 to i64
+  store i64 %conv.i540, ptr %operandValue92, align 8
+  %arrayidx96 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op297 = getelementptr inbounds i8, ptr %inst, i64 2
+  %33 = load i8, ptr %op297, align 1
+  %conv.i541 = zext i8 %33 to i64
+  store i64 %conv.i541, ptr %arrayidx96, align 8
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue99 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1101 = getelementptr inbounds i8, ptr %inst, i64 1
-  %34 = load <2 x i8>, ptr %op1101, align 1
-  %35 = zext <2 x i8> %34 to <2 x i64>
-  store <2 x i64> %35, ptr %operandValue99, align 8
+  %34 = load i8, ptr %op1101, align 1
+  %conv.i542 = zext i8 %34 to i64
+  store i64 %conv.i542, ptr %operandValue99, align 8
+  %arrayidx103 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2104 = getelementptr inbounds i8, ptr %inst, i64 2
+  %35 = load i8, ptr %op2104, align 1
+  %conv.i543 = zext i8 %35 to i64
+  store i64 %conv.i543, ptr %arrayidx103, align 8
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue106 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1108 = getelementptr inbounds i8, ptr %inst, i64 1
-  %36 = load <2 x i8>, ptr %op1108, align 1
-  %37 = zext <2 x i8> %36 to <2 x i64>
-  store <2 x i64> %37, ptr %operandValue106, align 8
+  %36 = load i8, ptr %op1108, align 1
+  %conv.i544 = zext i8 %36 to i64
+  store i64 %conv.i544, ptr %operandValue106, align 8
+  %arrayidx110 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2111 = getelementptr inbounds i8, ptr %inst, i64 2
+  %37 = load i8, ptr %op2111, align 1
+  %conv.i545 = zext i8 %37 to i64
+  store i64 %conv.i545, ptr %arrayidx110, align 8
   br label %sw.epilog
 
 sw.bb112:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue113 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1115 = getelementptr inbounds i8, ptr %inst, i64 1
-  %38 = load <2 x i8>, ptr %op1115, align 1
-  %39 = zext <2 x i8> %38 to <2 x i64>
-  store <2 x i64> %39, ptr %operandValue113, align 8
+  %38 = load i8, ptr %op1115, align 1
+  %conv.i546 = zext i8 %38 to i64
+  store i64 %conv.i546, ptr %operandValue113, align 8
+  %arrayidx117 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2118 = getelementptr inbounds i8, ptr %inst, i64 2
+  %39 = load i8, ptr %op2118, align 1
+  %conv.i547 = zext i8 %39 to i64
+  store i64 %conv.i547, ptr %arrayidx117, align 8
   %arrayidx120 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3121 = getelementptr inbounds i8, ptr %inst, i64 3
   %40 = load i8, ptr %op3121, align 1
@@ -472,9 +542,14 @@ sw.bb112:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb122:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue123 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1125 = getelementptr inbounds i8, ptr %inst, i64 1
-  %41 = load <2 x i8>, ptr %op1125, align 1
-  %42 = zext <2 x i8> %41 to <2 x i64>
-  store <2 x i64> %42, ptr %operandValue123, align 8
+  %41 = load i8, ptr %op1125, align 1
+  %conv.i549 = zext i8 %41 to i64
+  store i64 %conv.i549, ptr %operandValue123, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2128 = getelementptr inbounds i8, ptr %inst, i64 2
+  %42 = load i8, ptr %op2128, align 1
+  %conv.i550 = zext i8 %42 to i64
+  store i64 %conv.i550, ptr %arrayidx127, align 8
   %arrayidx130 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3131 = getelementptr inbounds i8, ptr %inst, i64 3
   %43 = load i8, ptr %op3131, align 1
@@ -485,9 +560,14 @@ sw.bb122:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb132:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue133 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1135 = getelementptr inbounds i8, ptr %inst, i64 1
-  %44 = load <2 x i8>, ptr %op1135, align 1
-  %45 = zext <2 x i8> %44 to <2 x i64>
-  store <2 x i64> %45, ptr %operandValue133, align 8
+  %44 = load i8, ptr %op1135, align 1
+  %conv.i552 = zext i8 %44 to i64
+  store i64 %conv.i552, ptr %operandValue133, align 8
+  %arrayidx137 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2138 = getelementptr inbounds i8, ptr %inst, i64 2
+  %45 = load i8, ptr %op2138, align 1
+  %conv.i553 = zext i8 %45 to i64
+  store i64 %conv.i553, ptr %arrayidx137, align 8
   %arrayidx140 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3141 = getelementptr inbounds i8, ptr %inst, i64 3
   %46 = load i8, ptr %op3141, align 1
@@ -498,9 +578,14 @@ sw.bb132:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb142:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue143 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1145 = getelementptr inbounds i8, ptr %inst, i64 1
-  %47 = load <2 x i8>, ptr %op1145, align 1
-  %48 = zext <2 x i8> %47 to <2 x i64>
-  store <2 x i64> %48, ptr %operandValue143, align 8
+  %47 = load i8, ptr %op1145, align 1
+  %conv.i555 = zext i8 %47 to i64
+  store i64 %conv.i555, ptr %operandValue143, align 8
+  %arrayidx147 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2148 = getelementptr inbounds i8, ptr %inst, i64 2
+  %48 = load i8, ptr %op2148, align 1
+  %conv.i556 = zext i8 %48 to i64
+  store i64 %conv.i556, ptr %arrayidx147, align 8
   %arrayidx150 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3151 = getelementptr inbounds i8, ptr %inst, i64 3
   %49 = load i8, ptr %op3151, align 1
@@ -511,9 +596,14 @@ sw.bb142:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb152:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue153 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1155 = getelementptr inbounds i8, ptr %inst, i64 1
-  %50 = load <2 x i8>, ptr %op1155, align 1
-  %51 = zext <2 x i8> %50 to <2 x i64>
-  store <2 x i64> %51, ptr %operandValue153, align 8
+  %50 = load i8, ptr %op1155, align 1
+  %conv.i558 = zext i8 %50 to i64
+  store i64 %conv.i558, ptr %operandValue153, align 8
+  %arrayidx157 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2158 = getelementptr inbounds i8, ptr %inst, i64 2
+  %51 = load i8, ptr %op2158, align 1
+  %conv.i559 = zext i8 %51 to i64
+  store i64 %conv.i559, ptr %arrayidx157, align 8
   %arrayidx160 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3161 = getelementptr inbounds i8, ptr %inst, i64 3
   %52 = load i8, ptr %op3161, align 1
@@ -524,9 +614,14 @@ sw.bb152:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb162:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue163 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1165 = getelementptr inbounds i8, ptr %inst, i64 1
-  %53 = load <2 x i8>, ptr %op1165, align 1
-  %54 = zext <2 x i8> %53 to <2 x i64>
-  store <2 x i64> %54, ptr %operandValue163, align 8
+  %53 = load i8, ptr %op1165, align 1
+  %conv.i561 = zext i8 %53 to i64
+  store i64 %conv.i561, ptr %operandValue163, align 8
+  %arrayidx167 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2168 = getelementptr inbounds i8, ptr %inst, i64 2
+  %54 = load i8, ptr %op2168, align 1
+  %conv.i562 = zext i8 %54 to i64
+  store i64 %conv.i562, ptr %arrayidx167, align 8
   %arrayidx170 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3171 = getelementptr inbounds i8, ptr %inst, i64 3
   %55 = load i8, ptr %op3171, align 1
@@ -537,9 +632,14 @@ sw.bb162:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb172:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue173 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1175 = getelementptr inbounds i8, ptr %inst, i64 1
-  %56 = load <2 x i8>, ptr %op1175, align 1
-  %57 = zext <2 x i8> %56 to <2 x i64>
-  store <2 x i64> %57, ptr %operandValue173, align 8
+  %56 = load i8, ptr %op1175, align 1
+  %conv.i564 = zext i8 %56 to i64
+  store i64 %conv.i564, ptr %operandValue173, align 8
+  %arrayidx177 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2178 = getelementptr inbounds i8, ptr %inst, i64 2
+  %57 = load i8, ptr %op2178, align 1
+  %conv.i565 = zext i8 %57 to i64
+  store i64 %conv.i565, ptr %arrayidx177, align 8
   %arrayidx180 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3181 = getelementptr inbounds i8, ptr %inst, i64 3
   %58 = load i8, ptr %op3181, align 1
@@ -550,9 +650,14 @@ sw.bb172:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb182:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue183 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1185 = getelementptr inbounds i8, ptr %inst, i64 1
-  %59 = load <2 x i8>, ptr %op1185, align 1
-  %60 = zext <2 x i8> %59 to <2 x i64>
-  store <2 x i64> %60, ptr %operandValue183, align 8
+  %59 = load i8, ptr %op1185, align 1
+  %conv.i567 = zext i8 %59 to i64
+  store i64 %conv.i567, ptr %operandValue183, align 8
+  %arrayidx187 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2188 = getelementptr inbounds i8, ptr %inst, i64 2
+  %60 = load i8, ptr %op2188, align 1
+  %conv.i568 = zext i8 %60 to i64
+  store i64 %conv.i568, ptr %arrayidx187, align 8
   %arrayidx190 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3191 = getelementptr inbounds i8, ptr %inst, i64 3
   %61 = load i8, ptr %op3191, align 1
@@ -563,9 +668,14 @@ sw.bb182:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb192:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue193 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1195 = getelementptr inbounds i8, ptr %inst, i64 1
-  %62 = load <2 x i8>, ptr %op1195, align 1
-  %63 = zext <2 x i8> %62 to <2 x i64>
-  store <2 x i64> %63, ptr %operandValue193, align 8
+  %62 = load i8, ptr %op1195, align 1
+  %conv.i570 = zext i8 %62 to i64
+  store i64 %conv.i570, ptr %operandValue193, align 8
+  %arrayidx197 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2198 = getelementptr inbounds i8, ptr %inst, i64 2
+  %63 = load i8, ptr %op2198, align 1
+  %conv.i571 = zext i8 %63 to i64
+  store i64 %conv.i571, ptr %arrayidx197, align 8
   %arrayidx200 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3201 = getelementptr inbounds i8, ptr %inst, i64 3
   %64 = load i8, ptr %op3201, align 1
@@ -576,9 +686,14 @@ sw.bb192:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb202:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue203 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1205 = getelementptr inbounds i8, ptr %inst, i64 1
-  %65 = load <2 x i8>, ptr %op1205, align 1
-  %66 = zext <2 x i8> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %operandValue203, align 8
+  %65 = load i8, ptr %op1205, align 1
+  %conv.i573 = zext i8 %65 to i64
+  store i64 %conv.i573, ptr %operandValue203, align 8
+  %arrayidx207 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2208 = getelementptr inbounds i8, ptr %inst, i64 2
+  %66 = load i8, ptr %op2208, align 1
+  %conv.i574 = zext i8 %66 to i64
+  store i64 %conv.i574, ptr %arrayidx207, align 8
   %arrayidx210 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3211 = getelementptr inbounds i8, ptr %inst, i64 3
   %67 = load i8, ptr %op3211, align 1
@@ -589,9 +704,14 @@ sw.bb202:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb212:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue213 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1215 = getelementptr inbounds i8, ptr %inst, i64 1
-  %68 = load <2 x i8>, ptr %op1215, align 1
-  %69 = zext <2 x i8> %68 to <2 x i64>
-  store <2 x i64> %69, ptr %operandValue213, align 8
+  %68 = load i8, ptr %op1215, align 1
+  %conv.i576 = zext i8 %68 to i64
+  store i64 %conv.i576, ptr %operandValue213, align 8
+  %arrayidx217 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2218 = getelementptr inbounds i8, ptr %inst, i64 2
+  %69 = load i8, ptr %op2218, align 1
+  %conv.i577 = zext i8 %69 to i64
+  store i64 %conv.i577, ptr %arrayidx217, align 8
   %arrayidx220 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3221 = getelementptr inbounds i8, ptr %inst, i64 3
   %70 = load i8, ptr %op3221, align 1
@@ -602,9 +722,14 @@ sw.bb212:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb222:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue223 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1225 = getelementptr inbounds i8, ptr %inst, i64 1
-  %71 = load <2 x i8>, ptr %op1225, align 1
-  %72 = zext <2 x i8> %71 to <2 x i64>
-  store <2 x i64> %72, ptr %operandValue223, align 8
+  %71 = load i8, ptr %op1225, align 1
+  %conv.i579 = zext i8 %71 to i64
+  store i64 %conv.i579, ptr %operandValue223, align 8
+  %arrayidx227 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2228 = getelementptr inbounds i8, ptr %inst, i64 2
+  %72 = load i8, ptr %op2228, align 1
+  %conv.i580 = zext i8 %72 to i64
+  store i64 %conv.i580, ptr %arrayidx227, align 8
   %arrayidx230 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3231 = getelementptr inbounds i8, ptr %inst, i64 3
   %73 = load i8, ptr %op3231, align 1
@@ -615,9 +740,14 @@ sw.bb222:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb232:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue233 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1235 = getelementptr inbounds i8, ptr %inst, i64 1
-  %74 = load <2 x i8>, ptr %op1235, align 1
-  %75 = zext <2 x i8> %74 to <2 x i64>
-  store <2 x i64> %75, ptr %operandValue233, align 8
+  %74 = load i8, ptr %op1235, align 1
+  %conv.i582 = zext i8 %74 to i64
+  store i64 %conv.i582, ptr %operandValue233, align 8
+  %arrayidx237 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2238 = getelementptr inbounds i8, ptr %inst, i64 2
+  %75 = load i8, ptr %op2238, align 1
+  %conv.i583 = zext i8 %75 to i64
+  store i64 %conv.i583, ptr %arrayidx237, align 8
   %arrayidx240 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3241 = getelementptr inbounds i8, ptr %inst, i64 3
   %76 = load i8, ptr %op3241, align 1
@@ -628,9 +758,14 @@ sw.bb232:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb242:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue243 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1245 = getelementptr inbounds i8, ptr %inst, i64 1
-  %77 = load <2 x i8>, ptr %op1245, align 1
-  %78 = zext <2 x i8> %77 to <2 x i64>
-  store <2 x i64> %78, ptr %operandValue243, align 8
+  %77 = load i8, ptr %op1245, align 1
+  %conv.i585 = zext i8 %77 to i64
+  store i64 %conv.i585, ptr %operandValue243, align 8
+  %arrayidx247 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2248 = getelementptr inbounds i8, ptr %inst, i64 2
+  %78 = load i8, ptr %op2248, align 1
+  %conv.i586 = zext i8 %78 to i64
+  store i64 %conv.i586, ptr %arrayidx247, align 8
   %arrayidx250 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3251 = getelementptr inbounds i8, ptr %inst, i64 3
   %79 = load i8, ptr %op3251, align 1
@@ -641,9 +776,14 @@ sw.bb242:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb252:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue253 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1255 = getelementptr inbounds i8, ptr %inst, i64 1
-  %80 = load <2 x i8>, ptr %op1255, align 1
-  %81 = zext <2 x i8> %80 to <2 x i64>
-  store <2 x i64> %81, ptr %operandValue253, align 8
+  %80 = load i8, ptr %op1255, align 1
+  %conv.i588 = zext i8 %80 to i64
+  store i64 %conv.i588, ptr %operandValue253, align 8
+  %arrayidx257 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2258 = getelementptr inbounds i8, ptr %inst, i64 2
+  %81 = load i8, ptr %op2258, align 1
+  %conv.i589 = zext i8 %81 to i64
+  store i64 %conv.i589, ptr %arrayidx257, align 8
   %arrayidx260 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3261 = getelementptr inbounds i8, ptr %inst, i64 3
   %82 = load i8, ptr %op3261, align 1
@@ -654,9 +794,14 @@ sw.bb252:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb262:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue263 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1265 = getelementptr inbounds i8, ptr %inst, i64 1
-  %83 = load <2 x i8>, ptr %op1265, align 1
-  %84 = zext <2 x i8> %83 to <2 x i64>
-  store <2 x i64> %84, ptr %operandValue263, align 8
+  %83 = load i8, ptr %op1265, align 1
+  %conv.i591 = zext i8 %83 to i64
+  store i64 %conv.i591, ptr %operandValue263, align 8
+  %arrayidx267 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2268 = getelementptr inbounds i8, ptr %inst, i64 2
+  %84 = load i8, ptr %op2268, align 1
+  %conv.i592 = zext i8 %84 to i64
+  store i64 %conv.i592, ptr %arrayidx267, align 8
   %arrayidx270 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3271 = getelementptr inbounds i8, ptr %inst, i64 3
   %85 = load i8, ptr %op3271, align 1
@@ -667,9 +812,14 @@ sw.bb262:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb272:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue273 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1275 = getelementptr inbounds i8, ptr %inst, i64 1
-  %86 = load <2 x i8>, ptr %op1275, align 1
-  %87 = zext <2 x i8> %86 to <2 x i64>
-  store <2 x i64> %87, ptr %operandValue273, align 8
+  %86 = load i8, ptr %op1275, align 1
+  %conv.i594 = zext i8 %86 to i64
+  store i64 %conv.i594, ptr %operandValue273, align 8
+  %arrayidx277 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2278 = getelementptr inbounds i8, ptr %inst, i64 2
+  %87 = load i8, ptr %op2278, align 1
+  %conv.i595 = zext i8 %87 to i64
+  store i64 %conv.i595, ptr %arrayidx277, align 8
   %arrayidx280 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3281 = getelementptr inbounds i8, ptr %inst, i64 3
   %88 = load i8, ptr %op3281, align 1
@@ -680,9 +830,14 @@ sw.bb272:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb282:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue283 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1285 = getelementptr inbounds i8, ptr %inst, i64 1
-  %89 = load <2 x i8>, ptr %op1285, align 1
-  %90 = zext <2 x i8> %89 to <2 x i64>
-  store <2 x i64> %90, ptr %operandValue283, align 8
+  %89 = load i8, ptr %op1285, align 1
+  %conv.i597 = zext i8 %89 to i64
+  store i64 %conv.i597, ptr %operandValue283, align 8
+  %arrayidx287 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2288 = getelementptr inbounds i8, ptr %inst, i64 2
+  %90 = load i8, ptr %op2288, align 1
+  %conv.i598 = zext i8 %90 to i64
+  store i64 %conv.i598, ptr %arrayidx287, align 8
   %arrayidx290 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3291 = getelementptr inbounds i8, ptr %inst, i64 3
   %91 = load i8, ptr %op3291, align 1
@@ -693,9 +848,14 @@ sw.bb282:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb292:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue293 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1295 = getelementptr inbounds i8, ptr %inst, i64 1
-  %92 = load <2 x i8>, ptr %op1295, align 1
-  %93 = zext <2 x i8> %92 to <2 x i64>
-  store <2 x i64> %93, ptr %operandValue293, align 8
+  %92 = load i8, ptr %op1295, align 1
+  %conv.i600 = zext i8 %92 to i64
+  store i64 %conv.i600, ptr %operandValue293, align 8
+  %arrayidx297 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2298 = getelementptr inbounds i8, ptr %inst, i64 2
+  %93 = load i8, ptr %op2298, align 1
+  %conv.i601 = zext i8 %93 to i64
+  store i64 %conv.i601, ptr %arrayidx297, align 8
   %arrayidx300 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3301 = getelementptr inbounds i8, ptr %inst, i64 3
   %94 = load i8, ptr %op3301, align 1
@@ -706,9 +866,14 @@ sw.bb292:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb302:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue303 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1305 = getelementptr inbounds i8, ptr %inst, i64 1
-  %95 = load <2 x i8>, ptr %op1305, align 1
-  %96 = zext <2 x i8> %95 to <2 x i64>
-  store <2 x i64> %96, ptr %operandValue303, align 8
+  %95 = load i8, ptr %op1305, align 1
+  %conv.i603 = zext i8 %95 to i64
+  store i64 %conv.i603, ptr %operandValue303, align 8
+  %arrayidx307 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2308 = getelementptr inbounds i8, ptr %inst, i64 2
+  %96 = load i8, ptr %op2308, align 1
+  %conv.i604 = zext i8 %96 to i64
+  store i64 %conv.i604, ptr %arrayidx307, align 8
   %arrayidx310 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3311 = getelementptr inbounds i8, ptr %inst, i64 3
   %97 = load i8, ptr %op3311, align 1
@@ -719,9 +884,14 @@ sw.bb302:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb312:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue313 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1315 = getelementptr inbounds i8, ptr %inst, i64 1
-  %98 = load <2 x i8>, ptr %op1315, align 1
-  %99 = zext <2 x i8> %98 to <2 x i64>
-  store <2 x i64> %99, ptr %operandValue313, align 8
+  %98 = load i8, ptr %op1315, align 1
+  %conv.i606 = zext i8 %98 to i64
+  store i64 %conv.i606, ptr %operandValue313, align 8
+  %arrayidx317 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2318 = getelementptr inbounds i8, ptr %inst, i64 2
+  %99 = load i8, ptr %op2318, align 1
+  %conv.i607 = zext i8 %99 to i64
+  store i64 %conv.i607, ptr %arrayidx317, align 8
   %arrayidx320 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3321 = getelementptr inbounds i8, ptr %inst, i64 3
   %100 = load i8, ptr %op3321, align 1
@@ -732,9 +902,14 @@ sw.bb312:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb322:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue323 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1325 = getelementptr inbounds i8, ptr %inst, i64 1
-  %101 = load <2 x i8>, ptr %op1325, align 1
-  %102 = zext <2 x i8> %101 to <2 x i64>
-  store <2 x i64> %102, ptr %operandValue323, align 8
+  %101 = load i8, ptr %op1325, align 1
+  %conv.i609 = zext i8 %101 to i64
+  store i64 %conv.i609, ptr %operandValue323, align 8
+  %arrayidx327 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2328 = getelementptr inbounds i8, ptr %inst, i64 2
+  %102 = load i8, ptr %op2328, align 1
+  %conv.i610 = zext i8 %102 to i64
+  store i64 %conv.i610, ptr %arrayidx327, align 8
   %arrayidx330 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3331 = getelementptr inbounds i8, ptr %inst, i64 3
   %103 = load i8, ptr %op3331, align 1
@@ -745,9 +920,14 @@ sw.bb322:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb332:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue333 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1335 = getelementptr inbounds i8, ptr %inst, i64 1
-  %104 = load <2 x i8>, ptr %op1335, align 1
-  %105 = zext <2 x i8> %104 to <2 x i64>
-  store <2 x i64> %105, ptr %operandValue333, align 8
+  %104 = load i8, ptr %op1335, align 1
+  %conv.i612 = zext i8 %104 to i64
+  store i64 %conv.i612, ptr %operandValue333, align 8
+  %arrayidx337 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2338 = getelementptr inbounds i8, ptr %inst, i64 2
+  %105 = load i8, ptr %op2338, align 1
+  %conv.i613 = zext i8 %105 to i64
+  store i64 %conv.i613, ptr %arrayidx337, align 8
   %arrayidx340 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3341 = getelementptr inbounds i8, ptr %inst, i64 3
   %106 = load i8, ptr %op3341, align 1
@@ -758,25 +938,40 @@ sw.bb332:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb342:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue343 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1345 = getelementptr inbounds i8, ptr %inst, i64 1
-  %107 = load <2 x i8>, ptr %op1345, align 1
-  %108 = zext <2 x i8> %107 to <2 x i64>
-  store <2 x i64> %108, ptr %operandValue343, align 8
+  %107 = load i8, ptr %op1345, align 1
+  %conv.i615 = zext i8 %107 to i64
+  store i64 %conv.i615, ptr %operandValue343, align 8
+  %arrayidx347 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2348 = getelementptr inbounds i8, ptr %inst, i64 2
+  %108 = load i8, ptr %op2348, align 1
+  %conv.i616 = zext i8 %108 to i64
+  store i64 %conv.i616, ptr %arrayidx347, align 8
   br label %sw.epilog
 
 sw.bb349:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue350 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1352 = getelementptr inbounds i8, ptr %inst, i64 1
-  %109 = load <2 x i8>, ptr %op1352, align 1
-  %110 = zext <2 x i8> %109 to <2 x i64>
-  store <2 x i64> %110, ptr %operandValue350, align 8
+  %109 = load i8, ptr %op1352, align 1
+  %conv.i617 = zext i8 %109 to i64
+  store i64 %conv.i617, ptr %operandValue350, align 8
+  %arrayidx354 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2355 = getelementptr inbounds i8, ptr %inst, i64 2
+  %110 = load i8, ptr %op2355, align 1
+  %conv.i618 = zext i8 %110 to i64
+  store i64 %conv.i618, ptr %arrayidx354, align 8
   br label %sw.epilog
 
 sw.bb356:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue357 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1359 = getelementptr inbounds i8, ptr %inst, i64 1
-  %111 = load <2 x i8>, ptr %op1359, align 1
-  %112 = zext <2 x i8> %111 to <2 x i64>
-  store <2 x i64> %112, ptr %operandValue357, align 8
+  %111 = load i8, ptr %op1359, align 1
+  %conv.i619 = zext i8 %111 to i64
+  store i64 %conv.i619, ptr %operandValue357, align 8
+  %arrayidx361 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2362 = getelementptr inbounds i8, ptr %inst, i64 2
+  %112 = load i8, ptr %op2362, align 1
+  %conv.i620 = zext i8 %112 to i64
+  store i64 %conv.i620, ptr %arrayidx361, align 8
   %arrayidx364 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3365 = getelementptr inbounds i8, ptr %inst, i64 3
   %113 = load i8, ptr %op3365, align 1
@@ -787,9 +982,14 @@ sw.bb356:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb366:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue367 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1369 = getelementptr inbounds i8, ptr %inst, i64 1
-  %114 = load <2 x i8>, ptr %op1369, align 1
-  %115 = zext <2 x i8> %114 to <2 x i64>
-  store <2 x i64> %115, ptr %operandValue367, align 8
+  %114 = load i8, ptr %op1369, align 1
+  %conv.i622 = zext i8 %114 to i64
+  store i64 %conv.i622, ptr %operandValue367, align 8
+  %arrayidx371 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2372 = getelementptr inbounds i8, ptr %inst, i64 2
+  %115 = load i8, ptr %op2372, align 1
+  %conv.i623 = zext i8 %115 to i64
+  store i64 %conv.i623, ptr %arrayidx371, align 8
   %arrayidx374 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3375 = getelementptr inbounds i8, ptr %inst, i64 3
   %116 = load i8, ptr %op3375, align 1
@@ -800,17 +1000,27 @@ sw.bb366:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb376:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue377 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1379 = getelementptr inbounds i8, ptr %inst, i64 1
-  %117 = load <2 x i8>, ptr %op1379, align 1
-  %118 = zext <2 x i8> %117 to <2 x i64>
-  store <2 x i64> %118, ptr %operandValue377, align 8
+  %117 = load i8, ptr %op1379, align 1
+  %conv.i625 = zext i8 %117 to i64
+  store i64 %conv.i625, ptr %operandValue377, align 8
+  %arrayidx381 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2382 = getelementptr inbounds i8, ptr %inst, i64 2
+  %118 = load i8, ptr %op2382, align 1
+  %conv.i626 = zext i8 %118 to i64
+  store i64 %conv.i626, ptr %arrayidx381, align 8
   br label %sw.epilog
 
 sw.bb383:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue384 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1386 = getelementptr inbounds i8, ptr %inst, i64 1
-  %119 = load <2 x i8>, ptr %op1386, align 1
-  %120 = zext <2 x i8> %119 to <2 x i64>
-  store <2 x i64> %120, ptr %operandValue384, align 8
+  %119 = load i8, ptr %op1386, align 1
+  %conv.i627 = zext i8 %119 to i64
+  store i64 %conv.i627, ptr %operandValue384, align 8
+  %arrayidx388 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2389 = getelementptr inbounds i8, ptr %inst, i64 2
+  %120 = load i8, ptr %op2389, align 1
+  %conv.i628 = zext i8 %120 to i64
+  store i64 %conv.i628, ptr %arrayidx388, align 8
   %arrayidx391 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3392 = getelementptr inbounds i8, ptr %inst, i64 3
   %121 = load i8, ptr %op3392, align 1
@@ -839,9 +1049,14 @@ sw.bb393:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb403:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue404 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1406 = getelementptr inbounds i8, ptr %inst, i64 1
-  %125 = load <2 x i8>, ptr %op1406, align 1
-  %126 = zext <2 x i8> %125 to <2 x i64>
-  store <2 x i64> %126, ptr %operandValue404, align 8
+  %125 = load i8, ptr %op1406, align 1
+  %conv.i633 = zext i8 %125 to i64
+  store i64 %conv.i633, ptr %operandValue404, align 8
+  %arrayidx408 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2409 = getelementptr inbounds i8, ptr %inst, i64 2
+  %126 = load i8, ptr %op2409, align 1
+  %conv.i634 = zext i8 %126 to i64
+  store i64 %conv.i634, ptr %arrayidx408, align 8
   %arrayidx411 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3412 = getelementptr inbounds i8, ptr %inst, i64 3
   %127 = load i8, ptr %op3412, align 1
@@ -870,9 +1085,14 @@ sw.bb413:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb423:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue424 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1426 = getelementptr inbounds i8, ptr %inst, i64 1
-  %131 = load <2 x i8>, ptr %op1426, align 1
-  %132 = zext <2 x i8> %131 to <2 x i64>
-  store <2 x i64> %132, ptr %operandValue424, align 8
+  %131 = load i8, ptr %op1426, align 1
+  %conv.i639 = zext i8 %131 to i64
+  store i64 %conv.i639, ptr %operandValue424, align 8
+  %arrayidx428 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2429 = getelementptr inbounds i8, ptr %inst, i64 2
+  %132 = load i8, ptr %op2429, align 1
+  %conv.i640 = zext i8 %132 to i64
+  store i64 %conv.i640, ptr %arrayidx428, align 8
   %arrayidx431 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3432 = getelementptr inbounds i8, ptr %inst, i64 3
   %133 = load i8, ptr %op3432, align 1
@@ -883,9 +1103,14 @@ sw.bb423:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb433:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue434 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1436 = getelementptr inbounds i8, ptr %inst, i64 1
-  %134 = load <2 x i8>, ptr %op1436, align 1
-  %135 = zext <2 x i8> %134 to <2 x i64>
-  store <2 x i64> %135, ptr %operandValue434, align 8
+  %134 = load i8, ptr %op1436, align 1
+  %conv.i642 = zext i8 %134 to i64
+  store i64 %conv.i642, ptr %operandValue434, align 8
+  %arrayidx438 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2439 = getelementptr inbounds i8, ptr %inst, i64 2
+  %135 = load i8, ptr %op2439, align 1
+  %conv.i643 = zext i8 %135 to i64
+  store i64 %conv.i643, ptr %arrayidx438, align 8
   %arrayidx441 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3442 = getelementptr inbounds i8, ptr %inst, i64 3
   %136 = load i16, ptr %op3442, align 1
@@ -920,9 +1145,14 @@ sw.bb451:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb455:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue456 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1458 = getelementptr inbounds i8, ptr %inst, i64 1
-  %140 = load <2 x i8>, ptr %op1458, align 1
-  %141 = zext <2 x i8> %140 to <2 x i64>
-  store <2 x i64> %141, ptr %operandValue456, align 8
+  %140 = load i8, ptr %op1458, align 1
+  %conv.i648 = zext i8 %140 to i64
+  store i64 %conv.i648, ptr %operandValue456, align 8
+  %arrayidx460 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2461 = getelementptr inbounds i8, ptr %inst, i64 2
+  %141 = load i8, ptr %op2461, align 1
+  %conv.i649 = zext i8 %141 to i64
+  store i64 %conv.i649, ptr %arrayidx460, align 8
   %arrayidx463 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3464 = getelementptr inbounds i8, ptr %inst, i64 3
   %142 = load i32, ptr %op3464, align 1
@@ -949,22 +1179,37 @@ sw.bb469:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb473:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue474 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1476 = getelementptr inbounds i8, ptr %inst, i64 1
-  %145 = load <2 x i8>, ptr %op1476, align 1
-  %146 = zext <2 x i8> %145 to <2 x i64>
-  store <2 x i64> %146, ptr %operandValue474, align 8
+  %145 = load i8, ptr %op1476, align 1
+  %conv.i653 = zext i8 %145 to i64
+  store i64 %conv.i653, ptr %operandValue474, align 8
+  %arrayidx478 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2479 = getelementptr inbounds i8, ptr %inst, i64 2
+  %146 = load i8, ptr %op2479, align 1
+  %conv.i654 = zext i8 %146 to i64
+  store i64 %conv.i654, ptr %arrayidx478, align 8
   %arrayidx481 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3482 = getelementptr inbounds i8, ptr %inst, i64 3
-  %147 = load <2 x i8>, ptr %op3482, align 1
-  %148 = zext <2 x i8> %147 to <2 x i64>
-  store <2 x i64> %148, ptr %arrayidx481, align 8
+  %147 = load i8, ptr %op3482, align 1
+  %conv.i655 = zext i8 %147 to i64
+  store i64 %conv.i655, ptr %arrayidx481, align 8
+  %arrayidx484 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4485 = getelementptr inbounds i8, ptr %inst, i64 4
+  %148 = load i8, ptr %op4485, align 1
+  %conv.i656 = zext i8 %148 to i64
+  store i64 %conv.i656, ptr %arrayidx484, align 8
   br label %sw.epilog
 
 sw.bb486:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue487 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1489 = getelementptr inbounds i8, ptr %inst, i64 1
-  %149 = load <2 x i8>, ptr %op1489, align 1
-  %150 = zext <2 x i8> %149 to <2 x i64>
-  store <2 x i64> %150, ptr %operandValue487, align 8
+  %149 = load i8, ptr %op1489, align 1
+  %conv.i657 = zext i8 %149 to i64
+  store i64 %conv.i657, ptr %operandValue487, align 8
+  %arrayidx491 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2492 = getelementptr inbounds i8, ptr %inst, i64 2
+  %150 = load i8, ptr %op2492, align 1
+  %conv.i658 = zext i8 %150 to i64
+  store i64 %conv.i658, ptr %arrayidx491, align 8
   %arrayidx494 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3495 = getelementptr inbounds i8, ptr %inst, i64 3
   %151 = load i8, ptr %op3495, align 1
@@ -980,9 +1225,14 @@ sw.bb486:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb499:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue500 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1502 = getelementptr inbounds i8, ptr %inst, i64 1
-  %153 = load <2 x i8>, ptr %op1502, align 1
-  %154 = zext <2 x i8> %153 to <2 x i64>
-  store <2 x i64> %154, ptr %operandValue500, align 8
+  %153 = load i8, ptr %op1502, align 1
+  %conv.i661 = zext i8 %153 to i64
+  store i64 %conv.i661, ptr %operandValue500, align 8
+  %arrayidx504 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2505 = getelementptr inbounds i8, ptr %inst, i64 2
+  %154 = load i8, ptr %op2505, align 1
+  %conv.i662 = zext i8 %154 to i64
+  store i64 %conv.i662, ptr %arrayidx504, align 8
   %arrayidx507 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3508 = getelementptr inbounds i8, ptr %inst, i64 3
   %155 = load i8, ptr %op3508, align 1
@@ -998,9 +1248,14 @@ sw.bb499:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb512:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue513 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1515 = getelementptr inbounds i8, ptr %inst, i64 1
-  %157 = load <2 x i8>, ptr %op1515, align 1
-  %158 = zext <2 x i8> %157 to <2 x i64>
-  store <2 x i64> %158, ptr %operandValue513, align 8
+  %157 = load i8, ptr %op1515, align 1
+  %conv.i665 = zext i8 %157 to i64
+  store i64 %conv.i665, ptr %operandValue513, align 8
+  %arrayidx517 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2518 = getelementptr inbounds i8, ptr %inst, i64 2
+  %158 = load i8, ptr %op2518, align 1
+  %conv.i666 = zext i8 %158 to i64
+  store i64 %conv.i666, ptr %arrayidx517, align 8
   %arrayidx520 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3521 = getelementptr inbounds i8, ptr %inst, i64 3
   %159 = load i8, ptr %op3521, align 1
@@ -1016,9 +1271,14 @@ sw.bb512:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb525:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue526 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1528 = getelementptr inbounds i8, ptr %inst, i64 1
-  %161 = load <2 x i8>, ptr %op1528, align 1
-  %162 = zext <2 x i8> %161 to <2 x i64>
-  store <2 x i64> %162, ptr %operandValue526, align 8
+  %161 = load i8, ptr %op1528, align 1
+  %conv.i669 = zext i8 %161 to i64
+  store i64 %conv.i669, ptr %operandValue526, align 8
+  %arrayidx530 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2531 = getelementptr inbounds i8, ptr %inst, i64 2
+  %162 = load i8, ptr %op2531, align 1
+  %conv.i670 = zext i8 %162 to i64
+  store i64 %conv.i670, ptr %arrayidx530, align 8
   %arrayidx533 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3534 = getelementptr inbounds i8, ptr %inst, i64 3
   %163 = load i8, ptr %op3534, align 1
@@ -1034,9 +1294,14 @@ sw.bb525:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb538:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue539 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1541 = getelementptr inbounds i8, ptr %inst, i64 1
-  %165 = load <2 x i8>, ptr %op1541, align 1
-  %166 = zext <2 x i8> %165 to <2 x i64>
-  store <2 x i64> %166, ptr %operandValue539, align 8
+  %165 = load i8, ptr %op1541, align 1
+  %conv.i673 = zext i8 %165 to i64
+  store i64 %conv.i673, ptr %operandValue539, align 8
+  %arrayidx543 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2544 = getelementptr inbounds i8, ptr %inst, i64 2
+  %166 = load i8, ptr %op2544, align 1
+  %conv.i674 = zext i8 %166 to i64
+  store i64 %conv.i674, ptr %arrayidx543, align 8
   %arrayidx546 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3547 = getelementptr inbounds i8, ptr %inst, i64 3
   %167 = load i8, ptr %op3547, align 1
@@ -1052,9 +1317,14 @@ sw.bb538:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb551:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue552 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1554 = getelementptr inbounds i8, ptr %inst, i64 1
-  %169 = load <2 x i8>, ptr %op1554, align 1
-  %170 = zext <2 x i8> %169 to <2 x i64>
-  store <2 x i64> %170, ptr %operandValue552, align 8
+  %169 = load i8, ptr %op1554, align 1
+  %conv.i677 = zext i8 %169 to i64
+  store i64 %conv.i677, ptr %operandValue552, align 8
+  %arrayidx556 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2557 = getelementptr inbounds i8, ptr %inst, i64 2
+  %170 = load i8, ptr %op2557, align 1
+  %conv.i678 = zext i8 %170 to i64
+  store i64 %conv.i678, ptr %arrayidx556, align 8
   %arrayidx559 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3560 = getelementptr inbounds i8, ptr %inst, i64 3
   %171 = load i8, ptr %op3560, align 1
@@ -1070,9 +1340,14 @@ sw.bb551:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb564:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue565 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1567 = getelementptr inbounds i8, ptr %inst, i64 1
-  %173 = load <2 x i8>, ptr %op1567, align 1
-  %174 = zext <2 x i8> %173 to <2 x i64>
-  store <2 x i64> %174, ptr %operandValue565, align 8
+  %173 = load i8, ptr %op1567, align 1
+  %conv.i681 = zext i8 %173 to i64
+  store i64 %conv.i681, ptr %operandValue565, align 8
+  %arrayidx569 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2570 = getelementptr inbounds i8, ptr %inst, i64 2
+  %174 = load i8, ptr %op2570, align 1
+  %conv.i682 = zext i8 %174 to i64
+  store i64 %conv.i682, ptr %arrayidx569, align 8
   %arrayidx572 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3573 = getelementptr inbounds i8, ptr %inst, i64 3
   %175 = load i8, ptr %op3573, align 1
@@ -1088,9 +1363,14 @@ sw.bb564:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb577:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue578 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1580 = getelementptr inbounds i8, ptr %inst, i64 1
-  %177 = load <2 x i8>, ptr %op1580, align 1
-  %178 = zext <2 x i8> %177 to <2 x i64>
-  store <2 x i64> %178, ptr %operandValue578, align 8
+  %177 = load i8, ptr %op1580, align 1
+  %conv.i685 = zext i8 %177 to i64
+  store i64 %conv.i685, ptr %operandValue578, align 8
+  %arrayidx582 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2583 = getelementptr inbounds i8, ptr %inst, i64 2
+  %178 = load i8, ptr %op2583, align 1
+  %conv.i686 = zext i8 %178 to i64
+  store i64 %conv.i686, ptr %arrayidx582, align 8
   %arrayidx585 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3586 = getelementptr inbounds i8, ptr %inst, i64 3
   %179 = load i8, ptr %op3586, align 1
@@ -1106,9 +1386,14 @@ sw.bb577:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb590:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue591 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1593 = getelementptr inbounds i8, ptr %inst, i64 1
-  %181 = load <2 x i8>, ptr %op1593, align 1
-  %182 = zext <2 x i8> %181 to <2 x i64>
-  store <2 x i64> %182, ptr %operandValue591, align 8
+  %181 = load i8, ptr %op1593, align 1
+  %conv.i689 = zext i8 %181 to i64
+  store i64 %conv.i689, ptr %operandValue591, align 8
+  %arrayidx595 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2596 = getelementptr inbounds i8, ptr %inst, i64 2
+  %182 = load i8, ptr %op2596, align 1
+  %conv.i690 = zext i8 %182 to i64
+  store i64 %conv.i690, ptr %arrayidx595, align 8
   %arrayidx598 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3599 = getelementptr inbounds i8, ptr %inst, i64 3
   %183 = load i8, ptr %op3599, align 1
@@ -1119,9 +1404,14 @@ sw.bb590:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb600:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue601 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1603 = getelementptr inbounds i8, ptr %inst, i64 1
-  %184 = load <2 x i8>, ptr %op1603, align 1
-  %185 = zext <2 x i8> %184 to <2 x i64>
-  store <2 x i64> %185, ptr %operandValue601, align 8
+  %184 = load i8, ptr %op1603, align 1
+  %conv.i692 = zext i8 %184 to i64
+  store i64 %conv.i692, ptr %operandValue601, align 8
+  %arrayidx605 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2606 = getelementptr inbounds i8, ptr %inst, i64 2
+  %185 = load i8, ptr %op2606, align 1
+  %conv.i693 = zext i8 %185 to i64
+  store i64 %conv.i693, ptr %arrayidx605, align 8
   %arrayidx608 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3609 = getelementptr inbounds i8, ptr %inst, i64 3
   %186 = load i16, ptr %op3609, align 1
@@ -1132,9 +1422,14 @@ sw.bb600:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb610:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue611 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1613 = getelementptr inbounds i8, ptr %inst, i64 1
-  %187 = load <2 x i8>, ptr %op1613, align 1
-  %188 = zext <2 x i8> %187 to <2 x i64>
-  store <2 x i64> %188, ptr %operandValue611, align 8
+  %187 = load i8, ptr %op1613, align 1
+  %conv.i695 = zext i8 %187 to i64
+  store i64 %conv.i695, ptr %operandValue611, align 8
+  %arrayidx615 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2616 = getelementptr inbounds i8, ptr %inst, i64 2
+  %188 = load i8, ptr %op2616, align 1
+  %conv.i696 = zext i8 %188 to i64
+  store i64 %conv.i696, ptr %arrayidx615, align 8
   %arrayidx618 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3619 = getelementptr inbounds i8, ptr %inst, i64 3
   %189 = load i32, ptr %op3619, align 1
@@ -1145,9 +1440,14 @@ sw.bb610:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb620:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue621 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1623 = getelementptr inbounds i8, ptr %inst, i64 1
-  %190 = load <2 x i8>, ptr %op1623, align 1
-  %191 = zext <2 x i8> %190 to <2 x i64>
-  store <2 x i64> %191, ptr %operandValue621, align 8
+  %190 = load i8, ptr %op1623, align 1
+  %conv.i698 = zext i8 %190 to i64
+  store i64 %conv.i698, ptr %operandValue621, align 8
+  %arrayidx625 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2626 = getelementptr inbounds i8, ptr %inst, i64 2
+  %191 = load i8, ptr %op2626, align 1
+  %conv.i699 = zext i8 %191 to i64
+  store i64 %conv.i699, ptr %arrayidx625, align 8
   %arrayidx628 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3629 = getelementptr inbounds i8, ptr %inst, i64 3
   %192 = load i16, ptr %op3629, align 1
@@ -1158,9 +1458,14 @@ sw.bb620:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb630:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue631 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1633 = getelementptr inbounds i8, ptr %inst, i64 1
-  %193 = load <2 x i8>, ptr %op1633, align 1
-  %194 = zext <2 x i8> %193 to <2 x i64>
-  store <2 x i64> %194, ptr %operandValue631, align 8
+  %193 = load i8, ptr %op1633, align 1
+  %conv.i701 = zext i8 %193 to i64
+  store i64 %conv.i701, ptr %operandValue631, align 8
+  %arrayidx635 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2636 = getelementptr inbounds i8, ptr %inst, i64 2
+  %194 = load i8, ptr %op2636, align 1
+  %conv.i702 = zext i8 %194 to i64
+  store i64 %conv.i702, ptr %arrayidx635, align 8
   %arrayidx638 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3639 = getelementptr inbounds i8, ptr %inst, i64 3
   %195 = load i32, ptr %op3639, align 1
@@ -1171,9 +1476,14 @@ sw.bb630:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb640:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue641 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1643 = getelementptr inbounds i8, ptr %inst, i64 1
-  %196 = load <2 x i8>, ptr %op1643, align 1
-  %197 = zext <2 x i8> %196 to <2 x i64>
-  store <2 x i64> %197, ptr %operandValue641, align 8
+  %196 = load i8, ptr %op1643, align 1
+  %conv.i704 = zext i8 %196 to i64
+  store i64 %conv.i704, ptr %operandValue641, align 8
+  %arrayidx645 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2646 = getelementptr inbounds i8, ptr %inst, i64 2
+  %197 = load i8, ptr %op2646, align 1
+  %conv.i705 = zext i8 %197 to i64
+  store i64 %conv.i705, ptr %arrayidx645, align 8
   %arrayidx648 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3649 = getelementptr inbounds i8, ptr %inst, i64 3
   %198 = load i8, ptr %op3649, align 1
@@ -1184,9 +1494,14 @@ sw.bb640:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb650:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue651 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1653 = getelementptr inbounds i8, ptr %inst, i64 1
-  %199 = load <2 x i8>, ptr %op1653, align 1
-  %200 = zext <2 x i8> %199 to <2 x i64>
-  store <2 x i64> %200, ptr %operandValue651, align 8
+  %199 = load i8, ptr %op1653, align 1
+  %conv.i707 = zext i8 %199 to i64
+  store i64 %conv.i707, ptr %operandValue651, align 8
+  %arrayidx655 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2656 = getelementptr inbounds i8, ptr %inst, i64 2
+  %200 = load i8, ptr %op2656, align 1
+  %conv.i708 = zext i8 %200 to i64
+  store i64 %conv.i708, ptr %arrayidx655, align 8
   %arrayidx658 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3659 = getelementptr inbounds i8, ptr %inst, i64 3
   %201 = load i32, ptr %op3659, align 1
@@ -1197,22 +1512,37 @@ sw.bb650:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb660:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue661 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1663 = getelementptr inbounds i8, ptr %inst, i64 1
-  %202 = load <2 x i8>, ptr %op1663, align 1
-  %203 = zext <2 x i8> %202 to <2 x i64>
-  store <2 x i64> %203, ptr %operandValue661, align 8
+  %202 = load i8, ptr %op1663, align 1
+  %conv.i710 = zext i8 %202 to i64
+  store i64 %conv.i710, ptr %operandValue661, align 8
+  %arrayidx665 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2666 = getelementptr inbounds i8, ptr %inst, i64 2
+  %203 = load i8, ptr %op2666, align 1
+  %conv.i711 = zext i8 %203 to i64
+  store i64 %conv.i711, ptr %arrayidx665, align 8
   %arrayidx668 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3669 = getelementptr inbounds i8, ptr %inst, i64 3
-  %204 = load <2 x i8>, ptr %op3669, align 1
-  %205 = zext <2 x i8> %204 to <2 x i64>
-  store <2 x i64> %205, ptr %arrayidx668, align 8
+  %204 = load i8, ptr %op3669, align 1
+  %conv.i712 = zext i8 %204 to i64
+  store i64 %conv.i712, ptr %arrayidx668, align 8
+  %arrayidx671 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4672 = getelementptr inbounds i8, ptr %inst, i64 4
+  %205 = load i8, ptr %op4672, align 1
+  %conv.i713 = zext i8 %205 to i64
+  store i64 %conv.i713, ptr %arrayidx671, align 8
   br label %sw.epilog
 
 sw.bb673:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue674 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1676 = getelementptr inbounds i8, ptr %inst, i64 1
-  %206 = load <2 x i8>, ptr %op1676, align 1
-  %207 = zext <2 x i8> %206 to <2 x i64>
-  store <2 x i64> %207, ptr %operandValue674, align 8
+  %206 = load i8, ptr %op1676, align 1
+  %conv.i714 = zext i8 %206 to i64
+  store i64 %conv.i714, ptr %operandValue674, align 8
+  %arrayidx678 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2679 = getelementptr inbounds i8, ptr %inst, i64 2
+  %207 = load i8, ptr %op2679, align 1
+  %conv.i715 = zext i8 %207 to i64
+  store i64 %conv.i715, ptr %arrayidx678, align 8
   %arrayidx681 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3682 = getelementptr inbounds i8, ptr %inst, i64 3
   %208 = load i16, ptr %op3682, align 1
@@ -1223,9 +1553,14 @@ sw.bb673:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb683:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue684 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1686 = getelementptr inbounds i8, ptr %inst, i64 1
-  %209 = load <2 x i8>, ptr %op1686, align 1
-  %210 = zext <2 x i8> %209 to <2 x i64>
-  store <2 x i64> %210, ptr %operandValue684, align 8
+  %209 = load i8, ptr %op1686, align 1
+  %conv.i717 = zext i8 %209 to i64
+  store i64 %conv.i717, ptr %operandValue684, align 8
+  %arrayidx688 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2689 = getelementptr inbounds i8, ptr %inst, i64 2
+  %210 = load i8, ptr %op2689, align 1
+  %conv.i718 = zext i8 %210 to i64
+  store i64 %conv.i718, ptr %arrayidx688, align 8
   %arrayidx691 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3692 = getelementptr inbounds i8, ptr %inst, i64 3
   %211 = load i32, ptr %op3692, align 1
@@ -1236,9 +1571,14 @@ sw.bb683:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb693:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue694 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1696 = getelementptr inbounds i8, ptr %inst, i64 1
-  %212 = load <2 x i8>, ptr %op1696, align 1
-  %213 = zext <2 x i8> %212 to <2 x i64>
-  store <2 x i64> %213, ptr %operandValue694, align 8
+  %212 = load i8, ptr %op1696, align 1
+  %conv.i720 = zext i8 %212 to i64
+  store i64 %conv.i720, ptr %operandValue694, align 8
+  %arrayidx698 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2699 = getelementptr inbounds i8, ptr %inst, i64 2
+  %213 = load i8, ptr %op2699, align 1
+  %conv.i721 = zext i8 %213 to i64
+  store i64 %conv.i721, ptr %arrayidx698, align 8
   %arrayidx701 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3702 = getelementptr inbounds i8, ptr %inst, i64 3
   %214 = load i8, ptr %op3702, align 1
@@ -1249,9 +1589,14 @@ sw.bb693:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb703:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue704 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1706 = getelementptr inbounds i8, ptr %inst, i64 1
-  %215 = load <2 x i8>, ptr %op1706, align 1
-  %216 = zext <2 x i8> %215 to <2 x i64>
-  store <2 x i64> %216, ptr %operandValue704, align 8
+  %215 = load i8, ptr %op1706, align 1
+  %conv.i723 = zext i8 %215 to i64
+  store i64 %conv.i723, ptr %operandValue704, align 8
+  %arrayidx708 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2709 = getelementptr inbounds i8, ptr %inst, i64 2
+  %216 = load i8, ptr %op2709, align 1
+  %conv.i724 = zext i8 %216 to i64
+  store i64 %conv.i724, ptr %arrayidx708, align 8
   %arrayidx711 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3712 = getelementptr inbounds i8, ptr %inst, i64 3
   %217 = load i8, ptr %op3712, align 1
@@ -1262,9 +1607,14 @@ sw.bb703:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb713:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue714 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1716 = getelementptr inbounds i8, ptr %inst, i64 1
-  %218 = load <2 x i8>, ptr %op1716, align 1
-  %219 = zext <2 x i8> %218 to <2 x i64>
-  store <2 x i64> %219, ptr %operandValue714, align 8
+  %218 = load i8, ptr %op1716, align 1
+  %conv.i726 = zext i8 %218 to i64
+  store i64 %conv.i726, ptr %operandValue714, align 8
+  %arrayidx718 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2719 = getelementptr inbounds i8, ptr %inst, i64 2
+  %219 = load i8, ptr %op2719, align 1
+  %conv.i727 = zext i8 %219 to i64
+  store i64 %conv.i727, ptr %arrayidx718, align 8
   %arrayidx721 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3722 = getelementptr inbounds i8, ptr %inst, i64 3
   %220 = load i8, ptr %op3722, align 1
@@ -1275,14 +1625,24 @@ sw.bb713:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb723:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue724 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1726 = getelementptr inbounds i8, ptr %inst, i64 1
-  %221 = load <2 x i8>, ptr %op1726, align 1
-  %222 = zext <2 x i8> %221 to <2 x i64>
-  store <2 x i64> %222, ptr %operandValue724, align 8
+  %221 = load i8, ptr %op1726, align 1
+  %conv.i729 = zext i8 %221 to i64
+  store i64 %conv.i729, ptr %operandValue724, align 8
+  %arrayidx728 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2729 = getelementptr inbounds i8, ptr %inst, i64 2
+  %222 = load i8, ptr %op2729, align 1
+  %conv.i730 = zext i8 %222 to i64
+  store i64 %conv.i730, ptr %arrayidx728, align 8
   %arrayidx731 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3732 = getelementptr inbounds i8, ptr %inst, i64 3
-  %223 = load <2 x i8>, ptr %op3732, align 1
-  %224 = zext <2 x i8> %223 to <2 x i64>
-  store <2 x i64> %224, ptr %arrayidx731, align 8
+  %223 = load i8, ptr %op3732, align 1
+  %conv.i731 = zext i8 %223 to i64
+  store i64 %conv.i731, ptr %arrayidx731, align 8
+  %arrayidx734 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4735 = getelementptr inbounds i8, ptr %inst, i64 4
+  %224 = load i8, ptr %op4735, align 1
+  %conv.i732 = zext i8 %224 to i64
+  store i64 %conv.i732, ptr %arrayidx734, align 8
   %arrayidx737 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %op5738 = getelementptr inbounds i8, ptr %inst, i64 5
   %225 = load i8, ptr %op5738, align 1
@@ -1293,27 +1653,47 @@ sw.bb723:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb739:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue740 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1742 = getelementptr inbounds i8, ptr %inst, i64 1
-  %226 = load <2 x i8>, ptr %op1742, align 1
-  %227 = zext <2 x i8> %226 to <2 x i64>
-  store <2 x i64> %227, ptr %operandValue740, align 8
+  %226 = load i8, ptr %op1742, align 1
+  %conv.i734 = zext i8 %226 to i64
+  store i64 %conv.i734, ptr %operandValue740, align 8
+  %arrayidx744 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2745 = getelementptr inbounds i8, ptr %inst, i64 2
+  %227 = load i8, ptr %op2745, align 1
+  %conv.i735 = zext i8 %227 to i64
+  store i64 %conv.i735, ptr %arrayidx744, align 8
   %arrayidx747 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3748 = getelementptr inbounds i8, ptr %inst, i64 3
-  %228 = load <2 x i8>, ptr %op3748, align 1
-  %229 = zext <2 x i8> %228 to <2 x i64>
-  store <2 x i64> %229, ptr %arrayidx747, align 8
+  %228 = load i8, ptr %op3748, align 1
+  %conv.i736 = zext i8 %228 to i64
+  store i64 %conv.i736, ptr %arrayidx747, align 8
+  %arrayidx750 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4751 = getelementptr inbounds i8, ptr %inst, i64 4
+  %229 = load i8, ptr %op4751, align 1
+  %conv.i737 = zext i8 %229 to i64
+  store i64 %conv.i737, ptr %arrayidx750, align 8
   br label %sw.epilog
 
 sw.bb752:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue753 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1755 = getelementptr inbounds i8, ptr %inst, i64 1
-  %230 = load <2 x i8>, ptr %op1755, align 1
-  %231 = zext <2 x i8> %230 to <2 x i64>
-  store <2 x i64> %231, ptr %operandValue753, align 8
+  %230 = load i8, ptr %op1755, align 1
+  %conv.i738 = zext i8 %230 to i64
+  store i64 %conv.i738, ptr %operandValue753, align 8
+  %arrayidx757 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2758 = getelementptr inbounds i8, ptr %inst, i64 2
+  %231 = load i8, ptr %op2758, align 1
+  %conv.i739 = zext i8 %231 to i64
+  store i64 %conv.i739, ptr %arrayidx757, align 8
   %arrayidx760 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3761 = getelementptr inbounds i8, ptr %inst, i64 3
-  %232 = load <2 x i8>, ptr %op3761, align 1
-  %233 = zext <2 x i8> %232 to <2 x i64>
-  store <2 x i64> %233, ptr %arrayidx760, align 8
+  %232 = load i8, ptr %op3761, align 1
+  %conv.i740 = zext i8 %232 to i64
+  store i64 %conv.i740, ptr %arrayidx760, align 8
+  %arrayidx763 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4764 = getelementptr inbounds i8, ptr %inst, i64 4
+  %233 = load i8, ptr %op4764, align 1
+  %conv.i741 = zext i8 %233 to i64
+  store i64 %conv.i741, ptr %arrayidx763, align 8
   %arrayidx766 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %op5767 = getelementptr inbounds i8, ptr %inst, i64 5
   %234 = load i8, ptr %op5767, align 1
@@ -1324,9 +1704,14 @@ sw.bb752:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb768:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue769 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1771 = getelementptr inbounds i8, ptr %inst, i64 1
-  %235 = load <2 x i8>, ptr %op1771, align 1
-  %236 = zext <2 x i8> %235 to <2 x i64>
-  store <2 x i64> %236, ptr %operandValue769, align 8
+  %235 = load i8, ptr %op1771, align 1
+  %conv.i743 = zext i8 %235 to i64
+  store i64 %conv.i743, ptr %operandValue769, align 8
+  %arrayidx773 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2774 = getelementptr inbounds i8, ptr %inst, i64 2
+  %236 = load i8, ptr %op2774, align 1
+  %conv.i744 = zext i8 %236 to i64
+  store i64 %conv.i744, ptr %arrayidx773, align 8
   %arrayidx776 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3777 = getelementptr inbounds i8, ptr %inst, i64 3
   %237 = load i8, ptr %op3777, align 1
@@ -1337,9 +1722,14 @@ sw.bb768:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb778:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue779 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1781 = getelementptr inbounds i8, ptr %inst, i64 1
-  %238 = load <2 x i8>, ptr %op1781, align 1
-  %239 = zext <2 x i8> %238 to <2 x i64>
-  store <2 x i64> %239, ptr %operandValue779, align 8
+  %238 = load i8, ptr %op1781, align 1
+  %conv.i746 = zext i8 %238 to i64
+  store i64 %conv.i746, ptr %operandValue779, align 8
+  %arrayidx783 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2784 = getelementptr inbounds i8, ptr %inst, i64 2
+  %239 = load i8, ptr %op2784, align 1
+  %conv.i747 = zext i8 %239 to i64
+  store i64 %conv.i747, ptr %arrayidx783, align 8
   %arrayidx786 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3787 = getelementptr inbounds i8, ptr %inst, i64 3
   %240 = load i8, ptr %op3787, align 1
@@ -1350,9 +1740,14 @@ sw.bb778:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb788:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue789 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1791 = getelementptr inbounds i8, ptr %inst, i64 1
-  %241 = load <2 x i8>, ptr %op1791, align 1
-  %242 = zext <2 x i8> %241 to <2 x i64>
-  store <2 x i64> %242, ptr %operandValue789, align 8
+  %241 = load i8, ptr %op1791, align 1
+  %conv.i749 = zext i8 %241 to i64
+  store i64 %conv.i749, ptr %operandValue789, align 8
+  %arrayidx793 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2794 = getelementptr inbounds i8, ptr %inst, i64 2
+  %242 = load i8, ptr %op2794, align 1
+  %conv.i750 = zext i8 %242 to i64
+  store i64 %conv.i750, ptr %arrayidx793, align 8
   %arrayidx796 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3797 = getelementptr inbounds i8, ptr %inst, i64 3
   %243 = load i8, ptr %op3797, align 1
@@ -1363,9 +1758,14 @@ sw.bb788:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb798:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue799 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1801 = getelementptr inbounds i8, ptr %inst, i64 1
-  %244 = load <2 x i8>, ptr %op1801, align 1
-  %245 = zext <2 x i8> %244 to <2 x i64>
-  store <2 x i64> %245, ptr %operandValue799, align 8
+  %244 = load i8, ptr %op1801, align 1
+  %conv.i752 = zext i8 %244 to i64
+  store i64 %conv.i752, ptr %operandValue799, align 8
+  %arrayidx803 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2804 = getelementptr inbounds i8, ptr %inst, i64 2
+  %245 = load i8, ptr %op2804, align 1
+  %conv.i753 = zext i8 %245 to i64
+  store i64 %conv.i753, ptr %arrayidx803, align 8
   %arrayidx806 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3807 = getelementptr inbounds i8, ptr %inst, i64 3
   %246 = load i16, ptr %op3807, align 1
@@ -1376,27 +1776,47 @@ sw.bb798:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb808:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue809 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1811 = getelementptr inbounds i8, ptr %inst, i64 1
-  %247 = load <2 x i8>, ptr %op1811, align 1
-  %248 = zext <2 x i8> %247 to <2 x i64>
-  store <2 x i64> %248, ptr %operandValue809, align 8
+  %247 = load i8, ptr %op1811, align 1
+  %conv.i755 = zext i8 %247 to i64
+  store i64 %conv.i755, ptr %operandValue809, align 8
+  %arrayidx813 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2814 = getelementptr inbounds i8, ptr %inst, i64 2
+  %248 = load i8, ptr %op2814, align 1
+  %conv.i756 = zext i8 %248 to i64
+  store i64 %conv.i756, ptr %arrayidx813, align 8
   %arrayidx816 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3817 = getelementptr inbounds i8, ptr %inst, i64 3
-  %249 = load <2 x i8>, ptr %op3817, align 1
-  %250 = zext <2 x i8> %249 to <2 x i64>
-  store <2 x i64> %250, ptr %arrayidx816, align 8
+  %249 = load i8, ptr %op3817, align 1
+  %conv.i757 = zext i8 %249 to i64
+  store i64 %conv.i757, ptr %arrayidx816, align 8
+  %arrayidx819 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4820 = getelementptr inbounds i8, ptr %inst, i64 4
+  %250 = load i8, ptr %op4820, align 1
+  %conv.i758 = zext i8 %250 to i64
+  store i64 %conv.i758, ptr %arrayidx819, align 8
   br label %sw.epilog
 
 sw.bb821:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue822 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1824 = getelementptr inbounds i8, ptr %inst, i64 1
-  %251 = load <2 x i8>, ptr %op1824, align 1
-  %252 = zext <2 x i8> %251 to <2 x i64>
-  store <2 x i64> %252, ptr %operandValue822, align 8
+  %251 = load i8, ptr %op1824, align 1
+  %conv.i759 = zext i8 %251 to i64
+  store i64 %conv.i759, ptr %operandValue822, align 8
+  %arrayidx826 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2827 = getelementptr inbounds i8, ptr %inst, i64 2
+  %252 = load i8, ptr %op2827, align 1
+  %conv.i760 = zext i8 %252 to i64
+  store i64 %conv.i760, ptr %arrayidx826, align 8
   %arrayidx829 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3830 = getelementptr inbounds i8, ptr %inst, i64 3
-  %253 = load <2 x i8>, ptr %op3830, align 1
-  %254 = zext <2 x i8> %253 to <2 x i64>
-  store <2 x i64> %254, ptr %arrayidx829, align 8
+  %253 = load i8, ptr %op3830, align 1
+  %conv.i761 = zext i8 %253 to i64
+  store i64 %conv.i761, ptr %arrayidx829, align 8
+  %arrayidx832 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4833 = getelementptr inbounds i8, ptr %inst, i64 4
+  %254 = load i8, ptr %op4833, align 1
+  %conv.i762 = zext i8 %254 to i64
+  store i64 %conv.i762, ptr %arrayidx832, align 8
   %arrayidx835 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %op5836 = getelementptr inbounds i8, ptr %inst, i64 5
   %255 = load i8, ptr %op5836, align 1
@@ -1407,27 +1827,47 @@ sw.bb821:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb837:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue838 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1840 = getelementptr inbounds i8, ptr %inst, i64 1
-  %256 = load <2 x i8>, ptr %op1840, align 1
-  %257 = zext <2 x i8> %256 to <2 x i64>
-  store <2 x i64> %257, ptr %operandValue838, align 8
+  %256 = load i8, ptr %op1840, align 1
+  %conv.i764 = zext i8 %256 to i64
+  store i64 %conv.i764, ptr %operandValue838, align 8
+  %arrayidx842 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2843 = getelementptr inbounds i8, ptr %inst, i64 2
+  %257 = load i8, ptr %op2843, align 1
+  %conv.i765 = zext i8 %257 to i64
+  store i64 %conv.i765, ptr %arrayidx842, align 8
   %arrayidx845 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3846 = getelementptr inbounds i8, ptr %inst, i64 3
-  %258 = load <2 x i8>, ptr %op3846, align 1
-  %259 = zext <2 x i8> %258 to <2 x i64>
-  store <2 x i64> %259, ptr %arrayidx845, align 8
+  %258 = load i8, ptr %op3846, align 1
+  %conv.i766 = zext i8 %258 to i64
+  store i64 %conv.i766, ptr %arrayidx845, align 8
+  %arrayidx848 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %op4849 = getelementptr inbounds i8, ptr %inst, i64 4
+  %259 = load i8, ptr %op4849, align 1
+  %conv.i767 = zext i8 %259 to i64
+  store i64 %conv.i767, ptr %arrayidx848, align 8
   %arrayidx851 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %op5852 = getelementptr inbounds i8, ptr %inst, i64 5
-  %260 = load <2 x i8>, ptr %op5852, align 1
-  %261 = zext <2 x i8> %260 to <2 x i64>
-  store <2 x i64> %261, ptr %arrayidx851, align 8
+  %260 = load i8, ptr %op5852, align 1
+  %conv.i768 = zext i8 %260 to i64
+  store i64 %conv.i768, ptr %arrayidx851, align 8
+  %arrayidx854 = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %op6 = getelementptr inbounds i8, ptr %inst, i64 6
+  %261 = load i8, ptr %op6, align 1
+  %conv.i769 = zext i8 %261 to i64
+  store i64 %conv.i769, ptr %arrayidx854, align 8
   br label %sw.epilog
 
 sw.bb855:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue856 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1858 = getelementptr inbounds i8, ptr %inst, i64 1
-  %262 = load <2 x i8>, ptr %op1858, align 1
-  %263 = zext <2 x i8> %262 to <2 x i64>
-  store <2 x i64> %263, ptr %operandValue856, align 8
+  %262 = load i8, ptr %op1858, align 1
+  %conv.i770 = zext i8 %262 to i64
+  store i64 %conv.i770, ptr %operandValue856, align 8
+  %arrayidx860 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2861 = getelementptr inbounds i8, ptr %inst, i64 2
+  %263 = load i8, ptr %op2861, align 1
+  %conv.i771 = zext i8 %263 to i64
+  store i64 %conv.i771, ptr %arrayidx860, align 8
   %arrayidx863 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3864 = getelementptr inbounds i8, ptr %inst, i64 3
   %264 = load i32, ptr %op3864, align 1
@@ -1438,9 +1878,14 @@ sw.bb855:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb865:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue866 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1868 = getelementptr inbounds i8, ptr %inst, i64 1
-  %265 = load <2 x i8>, ptr %op1868, align 1
-  %266 = zext <2 x i8> %265 to <2 x i64>
-  store <2 x i64> %266, ptr %operandValue866, align 8
+  %265 = load i8, ptr %op1868, align 1
+  %conv.i773 = zext i8 %265 to i64
+  store i64 %conv.i773, ptr %operandValue866, align 8
+  %arrayidx870 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2871 = getelementptr inbounds i8, ptr %inst, i64 2
+  %266 = load i8, ptr %op2871, align 1
+  %conv.i774 = zext i8 %266 to i64
+  store i64 %conv.i774, ptr %arrayidx870, align 8
   %arrayidx873 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3874 = getelementptr inbounds i8, ptr %inst, i64 3
   %267 = load i32, ptr %op3874, align 1
@@ -1451,9 +1896,14 @@ sw.bb865:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb875:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue876 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1878 = getelementptr inbounds i8, ptr %inst, i64 1
-  %268 = load <2 x i8>, ptr %op1878, align 1
-  %269 = zext <2 x i8> %268 to <2 x i64>
-  store <2 x i64> %269, ptr %operandValue876, align 8
+  %268 = load i8, ptr %op1878, align 1
+  %conv.i776 = zext i8 %268 to i64
+  store i64 %conv.i776, ptr %operandValue876, align 8
+  %arrayidx880 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2881 = getelementptr inbounds i8, ptr %inst, i64 2
+  %269 = load i8, ptr %op2881, align 1
+  %conv.i777 = zext i8 %269 to i64
+  store i64 %conv.i777, ptr %arrayidx880, align 8
   %arrayidx883 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3884 = getelementptr inbounds i8, ptr %inst, i64 3
   %270 = load i32, ptr %op3884, align 1
@@ -1464,9 +1914,14 @@ sw.bb875:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb885:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue886 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1888 = getelementptr inbounds i8, ptr %inst, i64 1
-  %271 = load <2 x i8>, ptr %op1888, align 1
-  %272 = zext <2 x i8> %271 to <2 x i64>
-  store <2 x i64> %272, ptr %operandValue886, align 8
+  %271 = load i8, ptr %op1888, align 1
+  %conv.i779 = zext i8 %271 to i64
+  store i64 %conv.i779, ptr %operandValue886, align 8
+  %arrayidx890 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2891 = getelementptr inbounds i8, ptr %inst, i64 2
+  %272 = load i8, ptr %op2891, align 1
+  %conv.i780 = zext i8 %272 to i64
+  store i64 %conv.i780, ptr %arrayidx890, align 8
   %arrayidx893 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3894 = getelementptr inbounds i8, ptr %inst, i64 3
   %273 = load i8, ptr %op3894, align 1
@@ -1477,9 +1932,14 @@ sw.bb885:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb895:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue896 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1898 = getelementptr inbounds i8, ptr %inst, i64 1
-  %274 = load <2 x i8>, ptr %op1898, align 1
-  %275 = zext <2 x i8> %274 to <2 x i64>
-  store <2 x i64> %275, ptr %operandValue896, align 8
+  %274 = load i8, ptr %op1898, align 1
+  %conv.i782 = zext i8 %274 to i64
+  store i64 %conv.i782, ptr %operandValue896, align 8
+  %arrayidx900 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2901 = getelementptr inbounds i8, ptr %inst, i64 2
+  %275 = load i8, ptr %op2901, align 1
+  %conv.i783 = zext i8 %275 to i64
+  store i64 %conv.i783, ptr %arrayidx900, align 8
   %arrayidx903 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3904 = getelementptr inbounds i8, ptr %inst, i64 3
   %276 = load i32, ptr %op3904, align 1
@@ -1490,9 +1950,14 @@ sw.bb895:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb905:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue906 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1908 = getelementptr inbounds i8, ptr %inst, i64 1
-  %277 = load <2 x i8>, ptr %op1908, align 1
-  %278 = zext <2 x i8> %277 to <2 x i64>
-  store <2 x i64> %278, ptr %operandValue906, align 8
+  %277 = load i8, ptr %op1908, align 1
+  %conv.i785 = zext i8 %277 to i64
+  store i64 %conv.i785, ptr %operandValue906, align 8
+  %arrayidx910 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2911 = getelementptr inbounds i8, ptr %inst, i64 2
+  %278 = load i8, ptr %op2911, align 1
+  %conv.i786 = zext i8 %278 to i64
+  store i64 %conv.i786, ptr %arrayidx910, align 8
   br label %sw.epilog
 
 sw.bb912:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1514,9 +1979,14 @@ sw.bb916:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb920:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue921 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1923 = getelementptr inbounds i8, ptr %inst, i64 1
-  %281 = load <2 x i8>, ptr %op1923, align 1
-  %282 = zext <2 x i8> %281 to <2 x i64>
-  store <2 x i64> %282, ptr %operandValue921, align 8
+  %281 = load i8, ptr %op1923, align 1
+  %conv.i789 = zext i8 %281 to i64
+  store i64 %conv.i789, ptr %operandValue921, align 8
+  %arrayidx925 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2926 = getelementptr inbounds i8, ptr %inst, i64 2
+  %282 = load i8, ptr %op2926, align 1
+  %conv.i790 = zext i8 %282 to i64
+  store i64 %conv.i790, ptr %arrayidx925, align 8
   %arrayidx928 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3929 = getelementptr inbounds i8, ptr %inst, i64 3
   %283 = load i8, ptr %op3929, align 1
@@ -1535,9 +2005,14 @@ sw.bb930:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb934:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue935 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1937 = getelementptr inbounds i8, ptr %inst, i64 1
-  %285 = load <2 x i8>, ptr %op1937, align 1
-  %286 = zext <2 x i8> %285 to <2 x i64>
-  store <2 x i64> %286, ptr %operandValue935, align 8
+  %285 = load i8, ptr %op1937, align 1
+  %conv.i793 = zext i8 %285 to i64
+  store i64 %conv.i793, ptr %operandValue935, align 8
+  %arrayidx939 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2940 = getelementptr inbounds i8, ptr %inst, i64 2
+  %286 = load i8, ptr %op2940, align 1
+  %conv.i794 = zext i8 %286 to i64
+  store i64 %conv.i794, ptr %arrayidx939, align 8
   br label %sw.epilog
 
 sw.bb943:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1551,9 +2026,14 @@ sw.bb943:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb947:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue948 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1950 = getelementptr inbounds i8, ptr %inst, i64 1
-  %288 = load <2 x i8>, ptr %op1950, align 1
-  %289 = zext <2 x i8> %288 to <2 x i64>
-  store <2 x i64> %289, ptr %operandValue948, align 8
+  %288 = load i8, ptr %op1950, align 1
+  %conv.i796 = zext i8 %288 to i64
+  store i64 %conv.i796, ptr %operandValue948, align 8
+  %arrayidx952 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2953 = getelementptr inbounds i8, ptr %inst, i64 2
+  %289 = load i8, ptr %op2953, align 1
+  %conv.i797 = zext i8 %289 to i64
+  store i64 %conv.i797, ptr %arrayidx952, align 8
   %arrayidx955 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3956 = getelementptr inbounds i8, ptr %inst, i64 3
   %290 = load i16, ptr %op3956, align 1
@@ -1564,9 +2044,14 @@ sw.bb947:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb957:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue958 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1960 = getelementptr inbounds i8, ptr %inst, i64 1
-  %291 = load <2 x i8>, ptr %op1960, align 1
-  %292 = zext <2 x i8> %291 to <2 x i64>
-  store <2 x i64> %292, ptr %operandValue958, align 8
+  %291 = load i8, ptr %op1960, align 1
+  %conv.i799 = zext i8 %291 to i64
+  store i64 %conv.i799, ptr %operandValue958, align 8
+  %arrayidx962 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2963 = getelementptr inbounds i8, ptr %inst, i64 2
+  %292 = load i8, ptr %op2963, align 1
+  %conv.i800 = zext i8 %292 to i64
+  store i64 %conv.i800, ptr %arrayidx962, align 8
   %arrayidx965 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3966 = getelementptr inbounds i8, ptr %inst, i64 3
   %293 = load i32, ptr %op3966, align 1
@@ -1577,9 +2062,14 @@ sw.bb957:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb967:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue968 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1970 = getelementptr inbounds i8, ptr %inst, i64 1
-  %294 = load <2 x i8>, ptr %op1970, align 1
-  %295 = zext <2 x i8> %294 to <2 x i64>
-  store <2 x i64> %295, ptr %operandValue968, align 8
+  %294 = load i8, ptr %op1970, align 1
+  %conv.i802 = zext i8 %294 to i64
+  store i64 %conv.i802, ptr %operandValue968, align 8
+  %arrayidx972 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2973 = getelementptr inbounds i8, ptr %inst, i64 2
+  %295 = load i8, ptr %op2973, align 1
+  %conv.i803 = zext i8 %295 to i64
+  store i64 %conv.i803, ptr %arrayidx972, align 8
   %arrayidx975 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3976 = getelementptr inbounds i8, ptr %inst, i64 3
   %296 = load i16, ptr %op3976, align 1
@@ -1590,9 +2080,14 @@ sw.bb967:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb977:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue978 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1980 = getelementptr inbounds i8, ptr %inst, i64 1
-  %297 = load <2 x i8>, ptr %op1980, align 1
-  %298 = zext <2 x i8> %297 to <2 x i64>
-  store <2 x i64> %298, ptr %operandValue978, align 8
+  %297 = load i8, ptr %op1980, align 1
+  %conv.i805 = zext i8 %297 to i64
+  store i64 %conv.i805, ptr %operandValue978, align 8
+  %arrayidx982 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2983 = getelementptr inbounds i8, ptr %inst, i64 2
+  %298 = load i8, ptr %op2983, align 1
+  %conv.i806 = zext i8 %298 to i64
+  store i64 %conv.i806, ptr %arrayidx982, align 8
   %arrayidx985 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3986 = getelementptr inbounds i8, ptr %inst, i64 3
   %299 = load i32, ptr %op3986, align 1
@@ -1603,9 +2098,14 @@ sw.bb977:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb987:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue988 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op1990 = getelementptr inbounds i8, ptr %inst, i64 1
-  %300 = load <2 x i8>, ptr %op1990, align 1
-  %301 = zext <2 x i8> %300 to <2 x i64>
-  store <2 x i64> %301, ptr %operandValue988, align 8
+  %300 = load i8, ptr %op1990, align 1
+  %conv.i808 = zext i8 %300 to i64
+  store i64 %conv.i808, ptr %operandValue988, align 8
+  %arrayidx992 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op2993 = getelementptr inbounds i8, ptr %inst, i64 2
+  %301 = load i8, ptr %op2993, align 1
+  %conv.i809 = zext i8 %301 to i64
+  store i64 %conv.i809, ptr %arrayidx992, align 8
   %arrayidx995 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op3996 = getelementptr inbounds i8, ptr %inst, i64 3
   %302 = load i16, ptr %op3996, align 1
@@ -1616,9 +2116,14 @@ sw.bb987:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb997:                                         ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue998 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11000 = getelementptr inbounds i8, ptr %inst, i64 1
-  %303 = load <2 x i8>, ptr %op11000, align 1
-  %304 = zext <2 x i8> %303 to <2 x i64>
-  store <2 x i64> %304, ptr %operandValue998, align 8
+  %303 = load i8, ptr %op11000, align 1
+  %conv.i811 = zext i8 %303 to i64
+  store i64 %conv.i811, ptr %operandValue998, align 8
+  %arrayidx1002 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21003 = getelementptr inbounds i8, ptr %inst, i64 2
+  %304 = load i8, ptr %op21003, align 1
+  %conv.i812 = zext i8 %304 to i64
+  store i64 %conv.i812, ptr %arrayidx1002, align 8
   %arrayidx1005 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31006 = getelementptr inbounds i8, ptr %inst, i64 3
   %305 = load i32, ptr %op31006, align 1
@@ -1629,9 +2134,14 @@ sw.bb997:                                         ; preds = %_ZN6hermes4inst15ge
 sw.bb1007:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1008 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11010 = getelementptr inbounds i8, ptr %inst, i64 1
-  %306 = load <2 x i8>, ptr %op11010, align 1
-  %307 = zext <2 x i8> %306 to <2 x i64>
-  store <2 x i64> %307, ptr %operandValue1008, align 8
+  %306 = load i8, ptr %op11010, align 1
+  %conv.i814 = zext i8 %306 to i64
+  store i64 %conv.i814, ptr %operandValue1008, align 8
+  %arrayidx1012 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21013 = getelementptr inbounds i8, ptr %inst, i64 2
+  %307 = load i8, ptr %op21013, align 1
+  %conv.i815 = zext i8 %307 to i64
+  store i64 %conv.i815, ptr %arrayidx1012, align 8
   %arrayidx1015 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31016 = getelementptr inbounds i8, ptr %inst, i64 3
   %308 = load i8, ptr %op31016, align 1
@@ -1642,9 +2152,14 @@ sw.bb1007:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1017:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1018 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11020 = getelementptr inbounds i8, ptr %inst, i64 1
-  %309 = load <2 x i8>, ptr %op11020, align 1
-  %310 = zext <2 x i8> %309 to <2 x i64>
-  store <2 x i64> %310, ptr %operandValue1018, align 8
+  %309 = load i8, ptr %op11020, align 1
+  %conv.i817 = zext i8 %309 to i64
+  store i64 %conv.i817, ptr %operandValue1018, align 8
+  %arrayidx1022 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21023 = getelementptr inbounds i8, ptr %inst, i64 2
+  %310 = load i8, ptr %op21023, align 1
+  %conv.i818 = zext i8 %310 to i64
+  store i64 %conv.i818, ptr %arrayidx1022, align 8
   %arrayidx1025 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31026 = getelementptr inbounds i8, ptr %inst, i64 3
   %311 = load i8, ptr %op31026, align 1
@@ -1655,9 +2170,14 @@ sw.bb1017:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1027:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1028 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11030 = getelementptr inbounds i8, ptr %inst, i64 1
-  %312 = load <2 x i8>, ptr %op11030, align 1
-  %313 = zext <2 x i8> %312 to <2 x i64>
-  store <2 x i64> %313, ptr %operandValue1028, align 8
+  %312 = load i8, ptr %op11030, align 1
+  %conv.i820 = zext i8 %312 to i64
+  store i64 %conv.i820, ptr %operandValue1028, align 8
+  %arrayidx1032 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21033 = getelementptr inbounds i8, ptr %inst, i64 2
+  %313 = load i8, ptr %op21033, align 1
+  %conv.i821 = zext i8 %313 to i64
+  store i64 %conv.i821, ptr %arrayidx1032, align 8
   br label %sw.epilog
 
 sw.bb1034:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1676,9 +2196,14 @@ sw.bb1034:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1041:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1042 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11044 = getelementptr inbounds i8, ptr %inst, i64 1
-  %316 = load <2 x i8>, ptr %op11044, align 1
-  %317 = zext <2 x i8> %316 to <2 x i64>
-  store <2 x i64> %317, ptr %operandValue1042, align 8
+  %316 = load i8, ptr %op11044, align 1
+  %conv.i824 = zext i8 %316 to i64
+  store i64 %conv.i824, ptr %operandValue1042, align 8
+  %arrayidx1046 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21047 = getelementptr inbounds i8, ptr %inst, i64 2
+  %317 = load i8, ptr %op21047, align 1
+  %conv.i825 = zext i8 %317 to i64
+  store i64 %conv.i825, ptr %arrayidx1046, align 8
   br label %sw.epilog
 
 sw.bb1048:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1809,9 +2334,14 @@ sw.bb1110:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1114:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1115 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11117 = getelementptr inbounds i8, ptr %inst, i64 1
-  %336 = load <2 x i8>, ptr %op11117, align 1
-  %337 = zext <2 x i8> %336 to <2 x i64>
-  store <2 x i64> %337, ptr %operandValue1115, align 8
+  %336 = load i8, ptr %op11117, align 1
+  %conv.i843 = zext i8 %336 to i64
+  store i64 %conv.i843, ptr %operandValue1115, align 8
+  %arrayidx1119 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21120 = getelementptr inbounds i8, ptr %inst, i64 2
+  %337 = load i8, ptr %op21120, align 1
+  %conv.i844 = zext i8 %337 to i64
+  store i64 %conv.i844, ptr %arrayidx1119, align 8
   br label %sw.epilog
 
 sw.bb1121:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1825,41 +2355,66 @@ sw.bb1121:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1125:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1126 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11128 = getelementptr inbounds i8, ptr %inst, i64 1
-  %339 = load <2 x i8>, ptr %op11128, align 1
-  %340 = zext <2 x i8> %339 to <2 x i64>
-  store <2 x i64> %340, ptr %operandValue1126, align 8
+  %339 = load i8, ptr %op11128, align 1
+  %conv.i846 = zext i8 %339 to i64
+  store i64 %conv.i846, ptr %operandValue1126, align 8
+  %arrayidx1130 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21131 = getelementptr inbounds i8, ptr %inst, i64 2
+  %340 = load i8, ptr %op21131, align 1
+  %conv.i847 = zext i8 %340 to i64
+  store i64 %conv.i847, ptr %arrayidx1130, align 8
   br label %sw.epilog
 
 sw.bb1132:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1133 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11135 = getelementptr inbounds i8, ptr %inst, i64 1
-  %341 = load <2 x i8>, ptr %op11135, align 1
-  %342 = zext <2 x i8> %341 to <2 x i64>
-  store <2 x i64> %342, ptr %operandValue1133, align 8
+  %341 = load i8, ptr %op11135, align 1
+  %conv.i848 = zext i8 %341 to i64
+  store i64 %conv.i848, ptr %operandValue1133, align 8
+  %arrayidx1137 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21138 = getelementptr inbounds i8, ptr %inst, i64 2
+  %342 = load i8, ptr %op21138, align 1
+  %conv.i849 = zext i8 %342 to i64
+  store i64 %conv.i849, ptr %arrayidx1137, align 8
   br label %sw.epilog
 
 sw.bb1139:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1140 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11142 = getelementptr inbounds i8, ptr %inst, i64 1
-  %343 = load <2 x i8>, ptr %op11142, align 1
-  %344 = zext <2 x i8> %343 to <2 x i64>
-  store <2 x i64> %344, ptr %operandValue1140, align 8
+  %343 = load i8, ptr %op11142, align 1
+  %conv.i850 = zext i8 %343 to i64
+  store i64 %conv.i850, ptr %operandValue1140, align 8
+  %arrayidx1144 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21145 = getelementptr inbounds i8, ptr %inst, i64 2
+  %344 = load i8, ptr %op21145, align 1
+  %conv.i851 = zext i8 %344 to i64
+  store i64 %conv.i851, ptr %arrayidx1144, align 8
   br label %sw.epilog
 
 sw.bb1146:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1147 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11149 = getelementptr inbounds i8, ptr %inst, i64 1
-  %345 = load <2 x i8>, ptr %op11149, align 1
-  %346 = zext <2 x i8> %345 to <2 x i64>
-  store <2 x i64> %346, ptr %operandValue1147, align 8
+  %345 = load i8, ptr %op11149, align 1
+  %conv.i852 = zext i8 %345 to i64
+  store i64 %conv.i852, ptr %operandValue1147, align 8
+  %arrayidx1151 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21152 = getelementptr inbounds i8, ptr %inst, i64 2
+  %346 = load i8, ptr %op21152, align 1
+  %conv.i853 = zext i8 %346 to i64
+  store i64 %conv.i853, ptr %arrayidx1151, align 8
   br label %sw.epilog
 
 sw.bb1153:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1154 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11156 = getelementptr inbounds i8, ptr %inst, i64 1
-  %347 = load <2 x i8>, ptr %op11156, align 1
-  %348 = zext <2 x i8> %347 to <2 x i64>
-  store <2 x i64> %348, ptr %operandValue1154, align 8
+  %347 = load i8, ptr %op11156, align 1
+  %conv.i854 = zext i8 %347 to i64
+  store i64 %conv.i854, ptr %operandValue1154, align 8
+  %arrayidx1158 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21159 = getelementptr inbounds i8, ptr %inst, i64 2
+  %348 = load i8, ptr %op21159, align 1
+  %conv.i855 = zext i8 %348 to i64
+  store i64 %conv.i855, ptr %arrayidx1158, align 8
   %arrayidx1161 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31162 = getelementptr inbounds i8, ptr %inst, i64 3
   %349 = load i8, ptr %op31162, align 1
@@ -1870,9 +2425,14 @@ sw.bb1153:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1163:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1164 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11166 = getelementptr inbounds i8, ptr %inst, i64 1
-  %350 = load <2 x i8>, ptr %op11166, align 1
-  %351 = zext <2 x i8> %350 to <2 x i64>
-  store <2 x i64> %351, ptr %operandValue1164, align 8
+  %350 = load i8, ptr %op11166, align 1
+  %conv.i857 = zext i8 %350 to i64
+  store i64 %conv.i857, ptr %operandValue1164, align 8
+  %arrayidx1168 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21169 = getelementptr inbounds i8, ptr %inst, i64 2
+  %351 = load i8, ptr %op21169, align 1
+  %conv.i858 = zext i8 %351 to i64
+  store i64 %conv.i858, ptr %arrayidx1168, align 8
   br label %sw.epilog
 
 sw.bb1170:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -1891,9 +2451,14 @@ sw.bb1174:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i860, ptr %operandValue1175, align 8
   %arrayidx1179 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21180 = getelementptr inbounds i8, ptr %inst, i64 2
-  %354 = load <2 x i32>, ptr %op21180, align 1
-  %355 = zext <2 x i32> %354 to <2 x i64>
-  store <2 x i64> %355, ptr %arrayidx1179, align 8
+  %354 = load i32, ptr %op21180, align 1
+  %conv.i861 = zext i32 %354 to i64
+  store i64 %conv.i861, ptr %arrayidx1179, align 8
+  %arrayidx1182 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31183 = getelementptr inbounds i8, ptr %inst, i64 6
+  %355 = load i32, ptr %op31183, align 1
+  %conv.i862 = zext i32 %355 to i64
+  store i64 %conv.i862, ptr %arrayidx1182, align 8
   %arrayidx1185 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op41186 = getelementptr inbounds i8, ptr %inst, i64 10
   %356 = load i32, ptr %op41186, align 1
@@ -1919,25 +2484,40 @@ sw.bb1187:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i866, ptr %arrayidx1195, align 8
   %arrayidx1198 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %op41199 = getelementptr inbounds i8, ptr %inst, i64 10
-  %360 = load <2 x i32>, ptr %op41199, align 1
-  %361 = zext <2 x i32> %360 to <2 x i64>
-  store <2 x i64> %361, ptr %arrayidx1198, align 8
+  %360 = load i32, ptr %op41199, align 1
+  %conv.i867 = zext i32 %360 to i64
+  store i64 %conv.i867, ptr %arrayidx1198, align 8
+  %arrayidx1201 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %op51202 = getelementptr inbounds i8, ptr %inst, i64 14
+  %361 = load i32, ptr %op51202, align 1
+  %conv.i868 = zext i32 %361 to i64
+  store i64 %conv.i868, ptr %arrayidx1201, align 8
   br label %sw.epilog
 
 sw.bb1204:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1205 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11207 = getelementptr inbounds i8, ptr %inst, i64 1
-  %362 = load <2 x i8>, ptr %op11207, align 1
-  %363 = zext <2 x i8> %362 to <2 x i64>
-  store <2 x i64> %363, ptr %operandValue1205, align 8
+  %362 = load i8, ptr %op11207, align 1
+  %conv.i869 = zext i8 %362 to i64
+  store i64 %conv.i869, ptr %operandValue1205, align 8
+  %arrayidx1209 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21210 = getelementptr inbounds i8, ptr %inst, i64 2
+  %363 = load i8, ptr %op21210, align 1
+  %conv.i870 = zext i8 %363 to i64
+  store i64 %conv.i870, ptr %arrayidx1209, align 8
   br label %sw.epilog
 
 sw.bb1212:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1213 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11215 = getelementptr inbounds i8, ptr %inst, i64 1
-  %364 = load <2 x i8>, ptr %op11215, align 1
-  %365 = zext <2 x i8> %364 to <2 x i64>
-  store <2 x i64> %365, ptr %operandValue1213, align 8
+  %364 = load i8, ptr %op11215, align 1
+  %conv.i871 = zext i8 %364 to i64
+  store i64 %conv.i871, ptr %operandValue1213, align 8
+  %arrayidx1217 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21218 = getelementptr inbounds i8, ptr %inst, i64 2
+  %365 = load i8, ptr %op21218, align 1
+  %conv.i872 = zext i8 %365 to i64
+  store i64 %conv.i872, ptr %arrayidx1217, align 8
   %arrayidx1220 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31221 = getelementptr inbounds i8, ptr %inst, i64 3
   %366 = load i16, ptr %op31221, align 1
@@ -1948,9 +2528,14 @@ sw.bb1212:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1222:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1223 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11225 = getelementptr inbounds i8, ptr %inst, i64 1
-  %367 = load <2 x i8>, ptr %op11225, align 1
-  %368 = zext <2 x i8> %367 to <2 x i64>
-  store <2 x i64> %368, ptr %operandValue1223, align 8
+  %367 = load i8, ptr %op11225, align 1
+  %conv.i874 = zext i8 %367 to i64
+  store i64 %conv.i874, ptr %operandValue1223, align 8
+  %arrayidx1227 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21228 = getelementptr inbounds i8, ptr %inst, i64 2
+  %368 = load i8, ptr %op21228, align 1
+  %conv.i875 = zext i8 %368 to i64
+  store i64 %conv.i875, ptr %arrayidx1227, align 8
   %arrayidx1230 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31231 = getelementptr inbounds i8, ptr %inst, i64 3
   %369 = load i32, ptr %op31231, align 1
@@ -1961,17 +2546,27 @@ sw.bb1222:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1232:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1233 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11235 = getelementptr inbounds i8, ptr %inst, i64 1
-  %370 = load <2 x i8>, ptr %op11235, align 1
-  %371 = zext <2 x i8> %370 to <2 x i64>
-  store <2 x i64> %371, ptr %operandValue1233, align 8
+  %370 = load i8, ptr %op11235, align 1
+  %conv.i877 = zext i8 %370 to i64
+  store i64 %conv.i877, ptr %operandValue1233, align 8
+  %arrayidx1237 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21238 = getelementptr inbounds i8, ptr %inst, i64 2
+  %371 = load i8, ptr %op21238, align 1
+  %conv.i878 = zext i8 %371 to i64
+  store i64 %conv.i878, ptr %arrayidx1237, align 8
   br label %sw.epilog
 
 sw.bb1239:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1240 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11242 = getelementptr inbounds i8, ptr %inst, i64 1
-  %372 = load <2 x i8>, ptr %op11242, align 1
-  %373 = zext <2 x i8> %372 to <2 x i64>
-  store <2 x i64> %373, ptr %operandValue1240, align 8
+  %372 = load i8, ptr %op11242, align 1
+  %conv.i879 = zext i8 %372 to i64
+  store i64 %conv.i879, ptr %operandValue1240, align 8
+  %arrayidx1244 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21245 = getelementptr inbounds i8, ptr %inst, i64 2
+  %373 = load i8, ptr %op21245, align 1
+  %conv.i880 = zext i8 %373 to i64
+  store i64 %conv.i880, ptr %arrayidx1244, align 8
   %arrayidx1247 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %op31248 = getelementptr inbounds i8, ptr %inst, i64 3
   %374 = load i8, ptr %op31248, align 1
@@ -1982,9 +2577,14 @@ sw.bb1239:                                        ; preds = %_ZN6hermes4inst15ge
 sw.bb1249:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
   %operandValue1250 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %op11252 = getelementptr inbounds i8, ptr %inst, i64 1
-  %375 = load <2 x i8>, ptr %op11252, align 1
-  %376 = zext <2 x i8> %375 to <2 x i64>
-  store <2 x i64> %376, ptr %operandValue1250, align 8
+  %375 = load i8, ptr %op11252, align 1
+  %conv.i882 = zext i8 %375 to i64
+  store i64 %conv.i882, ptr %operandValue1250, align 8
+  %arrayidx1254 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %op21255 = getelementptr inbounds i8, ptr %inst, i64 2
+  %376 = load i8, ptr %op21255, align 1
+  %conv.i883 = zext i8 %376 to i64
+  store i64 %conv.i883, ptr %arrayidx1254, align 8
   br label %sw.epilog
 
 sw.bb1256:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2105,9 +2705,14 @@ sw.bb1314:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i900, ptr %operandValue1315, align 8
   %arrayidx1319 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21320 = getelementptr inbounds i8, ptr %inst, i64 2
-  %394 = load <2 x i8>, ptr %op21320, align 1
-  %395 = zext <2 x i8> %394 to <2 x i64>
-  store <2 x i64> %395, ptr %arrayidx1319, align 8
+  %394 = load i8, ptr %op21320, align 1
+  %conv.i901 = zext i8 %394 to i64
+  store i64 %conv.i901, ptr %arrayidx1319, align 8
+  %arrayidx1322 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31323 = getelementptr inbounds i8, ptr %inst, i64 3
+  %395 = load i8, ptr %op31323, align 1
+  %conv.i902 = zext i8 %395 to i64
+  store i64 %conv.i902, ptr %arrayidx1322, align 8
   br label %sw.epilog
 
 sw.bb1324:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2118,9 +2723,14 @@ sw.bb1324:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i903, ptr %operandValue1325, align 8
   %arrayidx1329 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21330 = getelementptr inbounds i8, ptr %inst, i64 5
-  %397 = load <2 x i8>, ptr %op21330, align 1
-  %398 = zext <2 x i8> %397 to <2 x i64>
-  store <2 x i64> %398, ptr %arrayidx1329, align 8
+  %397 = load i8, ptr %op21330, align 1
+  %conv.i904 = zext i8 %397 to i64
+  store i64 %conv.i904, ptr %arrayidx1329, align 8
+  %arrayidx1332 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31333 = getelementptr inbounds i8, ptr %inst, i64 6
+  %398 = load i8, ptr %op31333, align 1
+  %conv.i905 = zext i8 %398 to i64
+  store i64 %conv.i905, ptr %arrayidx1332, align 8
   br label %sw.epilog
 
 sw.bb1334:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2131,9 +2741,14 @@ sw.bb1334:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i906, ptr %operandValue1335, align 8
   %arrayidx1339 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21340 = getelementptr inbounds i8, ptr %inst, i64 2
-  %400 = load <2 x i8>, ptr %op21340, align 1
-  %401 = zext <2 x i8> %400 to <2 x i64>
-  store <2 x i64> %401, ptr %arrayidx1339, align 8
+  %400 = load i8, ptr %op21340, align 1
+  %conv.i907 = zext i8 %400 to i64
+  store i64 %conv.i907, ptr %arrayidx1339, align 8
+  %arrayidx1342 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31343 = getelementptr inbounds i8, ptr %inst, i64 3
+  %401 = load i8, ptr %op31343, align 1
+  %conv.i908 = zext i8 %401 to i64
+  store i64 %conv.i908, ptr %arrayidx1342, align 8
   br label %sw.epilog
 
 sw.bb1344:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2144,9 +2759,14 @@ sw.bb1344:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i909, ptr %operandValue1345, align 8
   %arrayidx1349 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21350 = getelementptr inbounds i8, ptr %inst, i64 5
-  %403 = load <2 x i8>, ptr %op21350, align 1
-  %404 = zext <2 x i8> %403 to <2 x i64>
-  store <2 x i64> %404, ptr %arrayidx1349, align 8
+  %403 = load i8, ptr %op21350, align 1
+  %conv.i910 = zext i8 %403 to i64
+  store i64 %conv.i910, ptr %arrayidx1349, align 8
+  %arrayidx1352 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31353 = getelementptr inbounds i8, ptr %inst, i64 6
+  %404 = load i8, ptr %op31353, align 1
+  %conv.i911 = zext i8 %404 to i64
+  store i64 %conv.i911, ptr %arrayidx1352, align 8
   br label %sw.epilog
 
 sw.bb1354:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2157,9 +2777,14 @@ sw.bb1354:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i912, ptr %operandValue1355, align 8
   %arrayidx1359 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21360 = getelementptr inbounds i8, ptr %inst, i64 2
-  %406 = load <2 x i8>, ptr %op21360, align 1
-  %407 = zext <2 x i8> %406 to <2 x i64>
-  store <2 x i64> %407, ptr %arrayidx1359, align 8
+  %406 = load i8, ptr %op21360, align 1
+  %conv.i913 = zext i8 %406 to i64
+  store i64 %conv.i913, ptr %arrayidx1359, align 8
+  %arrayidx1362 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31363 = getelementptr inbounds i8, ptr %inst, i64 3
+  %407 = load i8, ptr %op31363, align 1
+  %conv.i914 = zext i8 %407 to i64
+  store i64 %conv.i914, ptr %arrayidx1362, align 8
   br label %sw.epilog
 
 sw.bb1364:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2170,9 +2795,14 @@ sw.bb1364:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i915, ptr %operandValue1365, align 8
   %arrayidx1369 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21370 = getelementptr inbounds i8, ptr %inst, i64 5
-  %409 = load <2 x i8>, ptr %op21370, align 1
-  %410 = zext <2 x i8> %409 to <2 x i64>
-  store <2 x i64> %410, ptr %arrayidx1369, align 8
+  %409 = load i8, ptr %op21370, align 1
+  %conv.i916 = zext i8 %409 to i64
+  store i64 %conv.i916, ptr %arrayidx1369, align 8
+  %arrayidx1372 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31373 = getelementptr inbounds i8, ptr %inst, i64 6
+  %410 = load i8, ptr %op31373, align 1
+  %conv.i917 = zext i8 %410 to i64
+  store i64 %conv.i917, ptr %arrayidx1372, align 8
   br label %sw.epilog
 
 sw.bb1374:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2183,9 +2813,14 @@ sw.bb1374:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i918, ptr %operandValue1375, align 8
   %arrayidx1379 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21380 = getelementptr inbounds i8, ptr %inst, i64 2
-  %412 = load <2 x i8>, ptr %op21380, align 1
-  %413 = zext <2 x i8> %412 to <2 x i64>
-  store <2 x i64> %413, ptr %arrayidx1379, align 8
+  %412 = load i8, ptr %op21380, align 1
+  %conv.i919 = zext i8 %412 to i64
+  store i64 %conv.i919, ptr %arrayidx1379, align 8
+  %arrayidx1382 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31383 = getelementptr inbounds i8, ptr %inst, i64 3
+  %413 = load i8, ptr %op31383, align 1
+  %conv.i920 = zext i8 %413 to i64
+  store i64 %conv.i920, ptr %arrayidx1382, align 8
   br label %sw.epilog
 
 sw.bb1384:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2196,9 +2831,14 @@ sw.bb1384:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i921, ptr %operandValue1385, align 8
   %arrayidx1389 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21390 = getelementptr inbounds i8, ptr %inst, i64 5
-  %415 = load <2 x i8>, ptr %op21390, align 1
-  %416 = zext <2 x i8> %415 to <2 x i64>
-  store <2 x i64> %416, ptr %arrayidx1389, align 8
+  %415 = load i8, ptr %op21390, align 1
+  %conv.i922 = zext i8 %415 to i64
+  store i64 %conv.i922, ptr %arrayidx1389, align 8
+  %arrayidx1392 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31393 = getelementptr inbounds i8, ptr %inst, i64 6
+  %416 = load i8, ptr %op31393, align 1
+  %conv.i923 = zext i8 %416 to i64
+  store i64 %conv.i923, ptr %arrayidx1392, align 8
   br label %sw.epilog
 
 sw.bb1394:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2209,9 +2849,14 @@ sw.bb1394:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i924, ptr %operandValue1395, align 8
   %arrayidx1399 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21400 = getelementptr inbounds i8, ptr %inst, i64 2
-  %418 = load <2 x i8>, ptr %op21400, align 1
-  %419 = zext <2 x i8> %418 to <2 x i64>
-  store <2 x i64> %419, ptr %arrayidx1399, align 8
+  %418 = load i8, ptr %op21400, align 1
+  %conv.i925 = zext i8 %418 to i64
+  store i64 %conv.i925, ptr %arrayidx1399, align 8
+  %arrayidx1402 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31403 = getelementptr inbounds i8, ptr %inst, i64 3
+  %419 = load i8, ptr %op31403, align 1
+  %conv.i926 = zext i8 %419 to i64
+  store i64 %conv.i926, ptr %arrayidx1402, align 8
   br label %sw.epilog
 
 sw.bb1404:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2222,9 +2867,14 @@ sw.bb1404:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i927, ptr %operandValue1405, align 8
   %arrayidx1409 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21410 = getelementptr inbounds i8, ptr %inst, i64 5
-  %421 = load <2 x i8>, ptr %op21410, align 1
-  %422 = zext <2 x i8> %421 to <2 x i64>
-  store <2 x i64> %422, ptr %arrayidx1409, align 8
+  %421 = load i8, ptr %op21410, align 1
+  %conv.i928 = zext i8 %421 to i64
+  store i64 %conv.i928, ptr %arrayidx1409, align 8
+  %arrayidx1412 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31413 = getelementptr inbounds i8, ptr %inst, i64 6
+  %422 = load i8, ptr %op31413, align 1
+  %conv.i929 = zext i8 %422 to i64
+  store i64 %conv.i929, ptr %arrayidx1412, align 8
   br label %sw.epilog
 
 sw.bb1414:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2235,9 +2885,14 @@ sw.bb1414:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i930, ptr %operandValue1415, align 8
   %arrayidx1419 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21420 = getelementptr inbounds i8, ptr %inst, i64 2
-  %424 = load <2 x i8>, ptr %op21420, align 1
-  %425 = zext <2 x i8> %424 to <2 x i64>
-  store <2 x i64> %425, ptr %arrayidx1419, align 8
+  %424 = load i8, ptr %op21420, align 1
+  %conv.i931 = zext i8 %424 to i64
+  store i64 %conv.i931, ptr %arrayidx1419, align 8
+  %arrayidx1422 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31423 = getelementptr inbounds i8, ptr %inst, i64 3
+  %425 = load i8, ptr %op31423, align 1
+  %conv.i932 = zext i8 %425 to i64
+  store i64 %conv.i932, ptr %arrayidx1422, align 8
   br label %sw.epilog
 
 sw.bb1424:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2248,9 +2903,14 @@ sw.bb1424:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i933, ptr %operandValue1425, align 8
   %arrayidx1429 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21430 = getelementptr inbounds i8, ptr %inst, i64 5
-  %427 = load <2 x i8>, ptr %op21430, align 1
-  %428 = zext <2 x i8> %427 to <2 x i64>
-  store <2 x i64> %428, ptr %arrayidx1429, align 8
+  %427 = load i8, ptr %op21430, align 1
+  %conv.i934 = zext i8 %427 to i64
+  store i64 %conv.i934, ptr %arrayidx1429, align 8
+  %arrayidx1432 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31433 = getelementptr inbounds i8, ptr %inst, i64 6
+  %428 = load i8, ptr %op31433, align 1
+  %conv.i935 = zext i8 %428 to i64
+  store i64 %conv.i935, ptr %arrayidx1432, align 8
   br label %sw.epilog
 
 sw.bb1434:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2261,9 +2921,14 @@ sw.bb1434:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i936, ptr %operandValue1435, align 8
   %arrayidx1439 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21440 = getelementptr inbounds i8, ptr %inst, i64 2
-  %430 = load <2 x i8>, ptr %op21440, align 1
-  %431 = zext <2 x i8> %430 to <2 x i64>
-  store <2 x i64> %431, ptr %arrayidx1439, align 8
+  %430 = load i8, ptr %op21440, align 1
+  %conv.i937 = zext i8 %430 to i64
+  store i64 %conv.i937, ptr %arrayidx1439, align 8
+  %arrayidx1442 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31443 = getelementptr inbounds i8, ptr %inst, i64 3
+  %431 = load i8, ptr %op31443, align 1
+  %conv.i938 = zext i8 %431 to i64
+  store i64 %conv.i938, ptr %arrayidx1442, align 8
   br label %sw.epilog
 
 sw.bb1444:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2274,9 +2939,14 @@ sw.bb1444:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i939, ptr %operandValue1445, align 8
   %arrayidx1449 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21450 = getelementptr inbounds i8, ptr %inst, i64 5
-  %433 = load <2 x i8>, ptr %op21450, align 1
-  %434 = zext <2 x i8> %433 to <2 x i64>
-  store <2 x i64> %434, ptr %arrayidx1449, align 8
+  %433 = load i8, ptr %op21450, align 1
+  %conv.i940 = zext i8 %433 to i64
+  store i64 %conv.i940, ptr %arrayidx1449, align 8
+  %arrayidx1452 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31453 = getelementptr inbounds i8, ptr %inst, i64 6
+  %434 = load i8, ptr %op31453, align 1
+  %conv.i941 = zext i8 %434 to i64
+  store i64 %conv.i941, ptr %arrayidx1452, align 8
   br label %sw.epilog
 
 sw.bb1454:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2287,9 +2957,14 @@ sw.bb1454:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i942, ptr %operandValue1455, align 8
   %arrayidx1459 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21460 = getelementptr inbounds i8, ptr %inst, i64 2
-  %436 = load <2 x i8>, ptr %op21460, align 1
-  %437 = zext <2 x i8> %436 to <2 x i64>
-  store <2 x i64> %437, ptr %arrayidx1459, align 8
+  %436 = load i8, ptr %op21460, align 1
+  %conv.i943 = zext i8 %436 to i64
+  store i64 %conv.i943, ptr %arrayidx1459, align 8
+  %arrayidx1462 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31463 = getelementptr inbounds i8, ptr %inst, i64 3
+  %437 = load i8, ptr %op31463, align 1
+  %conv.i944 = zext i8 %437 to i64
+  store i64 %conv.i944, ptr %arrayidx1462, align 8
   br label %sw.epilog
 
 sw.bb1464:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2300,9 +2975,14 @@ sw.bb1464:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i945, ptr %operandValue1465, align 8
   %arrayidx1469 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21470 = getelementptr inbounds i8, ptr %inst, i64 5
-  %439 = load <2 x i8>, ptr %op21470, align 1
-  %440 = zext <2 x i8> %439 to <2 x i64>
-  store <2 x i64> %440, ptr %arrayidx1469, align 8
+  %439 = load i8, ptr %op21470, align 1
+  %conv.i946 = zext i8 %439 to i64
+  store i64 %conv.i946, ptr %arrayidx1469, align 8
+  %arrayidx1472 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31473 = getelementptr inbounds i8, ptr %inst, i64 6
+  %440 = load i8, ptr %op31473, align 1
+  %conv.i947 = zext i8 %440 to i64
+  store i64 %conv.i947, ptr %arrayidx1472, align 8
   br label %sw.epilog
 
 sw.bb1474:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2313,9 +2993,14 @@ sw.bb1474:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i948, ptr %operandValue1475, align 8
   %arrayidx1479 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21480 = getelementptr inbounds i8, ptr %inst, i64 2
-  %442 = load <2 x i8>, ptr %op21480, align 1
-  %443 = zext <2 x i8> %442 to <2 x i64>
-  store <2 x i64> %443, ptr %arrayidx1479, align 8
+  %442 = load i8, ptr %op21480, align 1
+  %conv.i949 = zext i8 %442 to i64
+  store i64 %conv.i949, ptr %arrayidx1479, align 8
+  %arrayidx1482 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31483 = getelementptr inbounds i8, ptr %inst, i64 3
+  %443 = load i8, ptr %op31483, align 1
+  %conv.i950 = zext i8 %443 to i64
+  store i64 %conv.i950, ptr %arrayidx1482, align 8
   br label %sw.epilog
 
 sw.bb1484:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2326,9 +3011,14 @@ sw.bb1484:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i951, ptr %operandValue1485, align 8
   %arrayidx1489 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21490 = getelementptr inbounds i8, ptr %inst, i64 5
-  %445 = load <2 x i8>, ptr %op21490, align 1
-  %446 = zext <2 x i8> %445 to <2 x i64>
-  store <2 x i64> %446, ptr %arrayidx1489, align 8
+  %445 = load i8, ptr %op21490, align 1
+  %conv.i952 = zext i8 %445 to i64
+  store i64 %conv.i952, ptr %arrayidx1489, align 8
+  %arrayidx1492 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31493 = getelementptr inbounds i8, ptr %inst, i64 6
+  %446 = load i8, ptr %op31493, align 1
+  %conv.i953 = zext i8 %446 to i64
+  store i64 %conv.i953, ptr %arrayidx1492, align 8
   br label %sw.epilog
 
 sw.bb1494:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2339,9 +3029,14 @@ sw.bb1494:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i954, ptr %operandValue1495, align 8
   %arrayidx1499 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21500 = getelementptr inbounds i8, ptr %inst, i64 2
-  %448 = load <2 x i8>, ptr %op21500, align 1
-  %449 = zext <2 x i8> %448 to <2 x i64>
-  store <2 x i64> %449, ptr %arrayidx1499, align 8
+  %448 = load i8, ptr %op21500, align 1
+  %conv.i955 = zext i8 %448 to i64
+  store i64 %conv.i955, ptr %arrayidx1499, align 8
+  %arrayidx1502 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31503 = getelementptr inbounds i8, ptr %inst, i64 3
+  %449 = load i8, ptr %op31503, align 1
+  %conv.i956 = zext i8 %449 to i64
+  store i64 %conv.i956, ptr %arrayidx1502, align 8
   br label %sw.epilog
 
 sw.bb1504:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2352,9 +3047,14 @@ sw.bb1504:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i957, ptr %operandValue1505, align 8
   %arrayidx1509 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21510 = getelementptr inbounds i8, ptr %inst, i64 5
-  %451 = load <2 x i8>, ptr %op21510, align 1
-  %452 = zext <2 x i8> %451 to <2 x i64>
-  store <2 x i64> %452, ptr %arrayidx1509, align 8
+  %451 = load i8, ptr %op21510, align 1
+  %conv.i958 = zext i8 %451 to i64
+  store i64 %conv.i958, ptr %arrayidx1509, align 8
+  %arrayidx1512 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31513 = getelementptr inbounds i8, ptr %inst, i64 6
+  %452 = load i8, ptr %op31513, align 1
+  %conv.i959 = zext i8 %452 to i64
+  store i64 %conv.i959, ptr %arrayidx1512, align 8
   br label %sw.epilog
 
 sw.bb1514:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2365,9 +3065,14 @@ sw.bb1514:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i960, ptr %operandValue1515, align 8
   %arrayidx1519 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21520 = getelementptr inbounds i8, ptr %inst, i64 2
-  %454 = load <2 x i8>, ptr %op21520, align 1
-  %455 = zext <2 x i8> %454 to <2 x i64>
-  store <2 x i64> %455, ptr %arrayidx1519, align 8
+  %454 = load i8, ptr %op21520, align 1
+  %conv.i961 = zext i8 %454 to i64
+  store i64 %conv.i961, ptr %arrayidx1519, align 8
+  %arrayidx1522 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31523 = getelementptr inbounds i8, ptr %inst, i64 3
+  %455 = load i8, ptr %op31523, align 1
+  %conv.i962 = zext i8 %455 to i64
+  store i64 %conv.i962, ptr %arrayidx1522, align 8
   br label %sw.epilog
 
 sw.bb1524:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2378,9 +3083,14 @@ sw.bb1524:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i963, ptr %operandValue1525, align 8
   %arrayidx1529 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21530 = getelementptr inbounds i8, ptr %inst, i64 5
-  %457 = load <2 x i8>, ptr %op21530, align 1
-  %458 = zext <2 x i8> %457 to <2 x i64>
-  store <2 x i64> %458, ptr %arrayidx1529, align 8
+  %457 = load i8, ptr %op21530, align 1
+  %conv.i964 = zext i8 %457 to i64
+  store i64 %conv.i964, ptr %arrayidx1529, align 8
+  %arrayidx1532 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31533 = getelementptr inbounds i8, ptr %inst, i64 6
+  %458 = load i8, ptr %op31533, align 1
+  %conv.i965 = zext i8 %458 to i64
+  store i64 %conv.i965, ptr %arrayidx1532, align 8
   br label %sw.epilog
 
 sw.bb1534:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2391,9 +3101,14 @@ sw.bb1534:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i966, ptr %operandValue1535, align 8
   %arrayidx1539 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21540 = getelementptr inbounds i8, ptr %inst, i64 2
-  %460 = load <2 x i8>, ptr %op21540, align 1
-  %461 = zext <2 x i8> %460 to <2 x i64>
-  store <2 x i64> %461, ptr %arrayidx1539, align 8
+  %460 = load i8, ptr %op21540, align 1
+  %conv.i967 = zext i8 %460 to i64
+  store i64 %conv.i967, ptr %arrayidx1539, align 8
+  %arrayidx1542 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31543 = getelementptr inbounds i8, ptr %inst, i64 3
+  %461 = load i8, ptr %op31543, align 1
+  %conv.i968 = zext i8 %461 to i64
+  store i64 %conv.i968, ptr %arrayidx1542, align 8
   br label %sw.epilog
 
 sw.bb1544:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2404,9 +3119,14 @@ sw.bb1544:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i969, ptr %operandValue1545, align 8
   %arrayidx1549 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21550 = getelementptr inbounds i8, ptr %inst, i64 5
-  %463 = load <2 x i8>, ptr %op21550, align 1
-  %464 = zext <2 x i8> %463 to <2 x i64>
-  store <2 x i64> %464, ptr %arrayidx1549, align 8
+  %463 = load i8, ptr %op21550, align 1
+  %conv.i970 = zext i8 %463 to i64
+  store i64 %conv.i970, ptr %arrayidx1549, align 8
+  %arrayidx1552 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31553 = getelementptr inbounds i8, ptr %inst, i64 6
+  %464 = load i8, ptr %op31553, align 1
+  %conv.i971 = zext i8 %464 to i64
+  store i64 %conv.i971, ptr %arrayidx1552, align 8
   br label %sw.epilog
 
 sw.bb1554:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2417,9 +3137,14 @@ sw.bb1554:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i972, ptr %operandValue1555, align 8
   %arrayidx1559 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21560 = getelementptr inbounds i8, ptr %inst, i64 2
-  %466 = load <2 x i8>, ptr %op21560, align 1
-  %467 = zext <2 x i8> %466 to <2 x i64>
-  store <2 x i64> %467, ptr %arrayidx1559, align 8
+  %466 = load i8, ptr %op21560, align 1
+  %conv.i973 = zext i8 %466 to i64
+  store i64 %conv.i973, ptr %arrayidx1559, align 8
+  %arrayidx1562 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31563 = getelementptr inbounds i8, ptr %inst, i64 3
+  %467 = load i8, ptr %op31563, align 1
+  %conv.i974 = zext i8 %467 to i64
+  store i64 %conv.i974, ptr %arrayidx1562, align 8
   br label %sw.epilog
 
 sw.bb1564:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2430,9 +3155,14 @@ sw.bb1564:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i975, ptr %operandValue1565, align 8
   %arrayidx1569 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21570 = getelementptr inbounds i8, ptr %inst, i64 5
-  %469 = load <2 x i8>, ptr %op21570, align 1
-  %470 = zext <2 x i8> %469 to <2 x i64>
-  store <2 x i64> %470, ptr %arrayidx1569, align 8
+  %469 = load i8, ptr %op21570, align 1
+  %conv.i976 = zext i8 %469 to i64
+  store i64 %conv.i976, ptr %arrayidx1569, align 8
+  %arrayidx1572 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31573 = getelementptr inbounds i8, ptr %inst, i64 6
+  %470 = load i8, ptr %op31573, align 1
+  %conv.i977 = zext i8 %470 to i64
+  store i64 %conv.i977, ptr %arrayidx1572, align 8
   br label %sw.epilog
 
 sw.bb1574:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2443,9 +3173,14 @@ sw.bb1574:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i978, ptr %operandValue1575, align 8
   %arrayidx1579 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21580 = getelementptr inbounds i8, ptr %inst, i64 2
-  %472 = load <2 x i8>, ptr %op21580, align 1
-  %473 = zext <2 x i8> %472 to <2 x i64>
-  store <2 x i64> %473, ptr %arrayidx1579, align 8
+  %472 = load i8, ptr %op21580, align 1
+  %conv.i979 = zext i8 %472 to i64
+  store i64 %conv.i979, ptr %arrayidx1579, align 8
+  %arrayidx1582 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31583 = getelementptr inbounds i8, ptr %inst, i64 3
+  %473 = load i8, ptr %op31583, align 1
+  %conv.i980 = zext i8 %473 to i64
+  store i64 %conv.i980, ptr %arrayidx1582, align 8
   br label %sw.epilog
 
 sw.bb1584:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2456,9 +3191,14 @@ sw.bb1584:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i981, ptr %operandValue1585, align 8
   %arrayidx1589 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21590 = getelementptr inbounds i8, ptr %inst, i64 5
-  %475 = load <2 x i8>, ptr %op21590, align 1
-  %476 = zext <2 x i8> %475 to <2 x i64>
-  store <2 x i64> %476, ptr %arrayidx1589, align 8
+  %475 = load i8, ptr %op21590, align 1
+  %conv.i982 = zext i8 %475 to i64
+  store i64 %conv.i982, ptr %arrayidx1589, align 8
+  %arrayidx1592 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31593 = getelementptr inbounds i8, ptr %inst, i64 6
+  %476 = load i8, ptr %op31593, align 1
+  %conv.i983 = zext i8 %476 to i64
+  store i64 %conv.i983, ptr %arrayidx1592, align 8
   br label %sw.epilog
 
 sw.bb1594:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2469,9 +3209,14 @@ sw.bb1594:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i984, ptr %operandValue1595, align 8
   %arrayidx1599 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21600 = getelementptr inbounds i8, ptr %inst, i64 2
-  %478 = load <2 x i8>, ptr %op21600, align 1
-  %479 = zext <2 x i8> %478 to <2 x i64>
-  store <2 x i64> %479, ptr %arrayidx1599, align 8
+  %478 = load i8, ptr %op21600, align 1
+  %conv.i985 = zext i8 %478 to i64
+  store i64 %conv.i985, ptr %arrayidx1599, align 8
+  %arrayidx1602 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31603 = getelementptr inbounds i8, ptr %inst, i64 3
+  %479 = load i8, ptr %op31603, align 1
+  %conv.i986 = zext i8 %479 to i64
+  store i64 %conv.i986, ptr %arrayidx1602, align 8
   br label %sw.epilog
 
 sw.bb1604:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2482,9 +3227,14 @@ sw.bb1604:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i987, ptr %operandValue1605, align 8
   %arrayidx1609 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21610 = getelementptr inbounds i8, ptr %inst, i64 5
-  %481 = load <2 x i8>, ptr %op21610, align 1
-  %482 = zext <2 x i8> %481 to <2 x i64>
-  store <2 x i64> %482, ptr %arrayidx1609, align 8
+  %481 = load i8, ptr %op21610, align 1
+  %conv.i988 = zext i8 %481 to i64
+  store i64 %conv.i988, ptr %arrayidx1609, align 8
+  %arrayidx1612 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31613 = getelementptr inbounds i8, ptr %inst, i64 6
+  %482 = load i8, ptr %op31613, align 1
+  %conv.i989 = zext i8 %482 to i64
+  store i64 %conv.i989, ptr %arrayidx1612, align 8
   br label %sw.epilog
 
 sw.bb1614:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2495,9 +3245,14 @@ sw.bb1614:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i990, ptr %operandValue1615, align 8
   %arrayidx1619 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21620 = getelementptr inbounds i8, ptr %inst, i64 2
-  %484 = load <2 x i8>, ptr %op21620, align 1
-  %485 = zext <2 x i8> %484 to <2 x i64>
-  store <2 x i64> %485, ptr %arrayidx1619, align 8
+  %484 = load i8, ptr %op21620, align 1
+  %conv.i991 = zext i8 %484 to i64
+  store i64 %conv.i991, ptr %arrayidx1619, align 8
+  %arrayidx1622 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31623 = getelementptr inbounds i8, ptr %inst, i64 3
+  %485 = load i8, ptr %op31623, align 1
+  %conv.i992 = zext i8 %485 to i64
+  store i64 %conv.i992, ptr %arrayidx1622, align 8
   br label %sw.epilog
 
 sw.bb1624:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2508,9 +3263,14 @@ sw.bb1624:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i993, ptr %operandValue1625, align 8
   %arrayidx1629 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21630 = getelementptr inbounds i8, ptr %inst, i64 5
-  %487 = load <2 x i8>, ptr %op21630, align 1
-  %488 = zext <2 x i8> %487 to <2 x i64>
-  store <2 x i64> %488, ptr %arrayidx1629, align 8
+  %487 = load i8, ptr %op21630, align 1
+  %conv.i994 = zext i8 %487 to i64
+  store i64 %conv.i994, ptr %arrayidx1629, align 8
+  %arrayidx1632 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31633 = getelementptr inbounds i8, ptr %inst, i64 6
+  %488 = load i8, ptr %op31633, align 1
+  %conv.i995 = zext i8 %488 to i64
+  store i64 %conv.i995, ptr %arrayidx1632, align 8
   br label %sw.epilog
 
 sw.bb1634:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2521,9 +3281,14 @@ sw.bb1634:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i996, ptr %operandValue1635, align 8
   %arrayidx1639 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21640 = getelementptr inbounds i8, ptr %inst, i64 2
-  %490 = load <2 x i8>, ptr %op21640, align 1
-  %491 = zext <2 x i8> %490 to <2 x i64>
-  store <2 x i64> %491, ptr %arrayidx1639, align 8
+  %490 = load i8, ptr %op21640, align 1
+  %conv.i997 = zext i8 %490 to i64
+  store i64 %conv.i997, ptr %arrayidx1639, align 8
+  %arrayidx1642 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31643 = getelementptr inbounds i8, ptr %inst, i64 3
+  %491 = load i8, ptr %op31643, align 1
+  %conv.i998 = zext i8 %491 to i64
+  store i64 %conv.i998, ptr %arrayidx1642, align 8
   br label %sw.epilog
 
 sw.bb1644:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2534,9 +3299,14 @@ sw.bb1644:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i999, ptr %operandValue1645, align 8
   %arrayidx1649 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21650 = getelementptr inbounds i8, ptr %inst, i64 5
-  %493 = load <2 x i8>, ptr %op21650, align 1
-  %494 = zext <2 x i8> %493 to <2 x i64>
-  store <2 x i64> %494, ptr %arrayidx1649, align 8
+  %493 = load i8, ptr %op21650, align 1
+  %conv.i1000 = zext i8 %493 to i64
+  store i64 %conv.i1000, ptr %arrayidx1649, align 8
+  %arrayidx1652 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31653 = getelementptr inbounds i8, ptr %inst, i64 6
+  %494 = load i8, ptr %op31653, align 1
+  %conv.i1001 = zext i8 %494 to i64
+  store i64 %conv.i1001, ptr %arrayidx1652, align 8
   br label %sw.epilog
 
 sw.bb1654:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2547,9 +3317,14 @@ sw.bb1654:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1002, ptr %operandValue1655, align 8
   %arrayidx1659 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21660 = getelementptr inbounds i8, ptr %inst, i64 2
-  %496 = load <2 x i8>, ptr %op21660, align 1
-  %497 = zext <2 x i8> %496 to <2 x i64>
-  store <2 x i64> %497, ptr %arrayidx1659, align 8
+  %496 = load i8, ptr %op21660, align 1
+  %conv.i1003 = zext i8 %496 to i64
+  store i64 %conv.i1003, ptr %arrayidx1659, align 8
+  %arrayidx1662 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31663 = getelementptr inbounds i8, ptr %inst, i64 3
+  %497 = load i8, ptr %op31663, align 1
+  %conv.i1004 = zext i8 %497 to i64
+  store i64 %conv.i1004, ptr %arrayidx1662, align 8
   br label %sw.epilog
 
 sw.bb1664:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2560,9 +3335,14 @@ sw.bb1664:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1005, ptr %operandValue1665, align 8
   %arrayidx1669 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21670 = getelementptr inbounds i8, ptr %inst, i64 5
-  %499 = load <2 x i8>, ptr %op21670, align 1
-  %500 = zext <2 x i8> %499 to <2 x i64>
-  store <2 x i64> %500, ptr %arrayidx1669, align 8
+  %499 = load i8, ptr %op21670, align 1
+  %conv.i1006 = zext i8 %499 to i64
+  store i64 %conv.i1006, ptr %arrayidx1669, align 8
+  %arrayidx1672 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31673 = getelementptr inbounds i8, ptr %inst, i64 6
+  %500 = load i8, ptr %op31673, align 1
+  %conv.i1007 = zext i8 %500 to i64
+  store i64 %conv.i1007, ptr %arrayidx1672, align 8
   br label %sw.epilog
 
 sw.bb1674:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2573,9 +3353,14 @@ sw.bb1674:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1008, ptr %operandValue1675, align 8
   %arrayidx1679 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21680 = getelementptr inbounds i8, ptr %inst, i64 2
-  %502 = load <2 x i8>, ptr %op21680, align 1
-  %503 = zext <2 x i8> %502 to <2 x i64>
-  store <2 x i64> %503, ptr %arrayidx1679, align 8
+  %502 = load i8, ptr %op21680, align 1
+  %conv.i1009 = zext i8 %502 to i64
+  store i64 %conv.i1009, ptr %arrayidx1679, align 8
+  %arrayidx1682 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31683 = getelementptr inbounds i8, ptr %inst, i64 3
+  %503 = load i8, ptr %op31683, align 1
+  %conv.i1010 = zext i8 %503 to i64
+  store i64 %conv.i1010, ptr %arrayidx1682, align 8
   br label %sw.epilog
 
 sw.bb1684:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2586,9 +3371,14 @@ sw.bb1684:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1011, ptr %operandValue1685, align 8
   %arrayidx1689 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21690 = getelementptr inbounds i8, ptr %inst, i64 5
-  %505 = load <2 x i8>, ptr %op21690, align 1
-  %506 = zext <2 x i8> %505 to <2 x i64>
-  store <2 x i64> %506, ptr %arrayidx1689, align 8
+  %505 = load i8, ptr %op21690, align 1
+  %conv.i1012 = zext i8 %505 to i64
+  store i64 %conv.i1012, ptr %arrayidx1689, align 8
+  %arrayidx1692 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31693 = getelementptr inbounds i8, ptr %inst, i64 6
+  %506 = load i8, ptr %op31693, align 1
+  %conv.i1013 = zext i8 %506 to i64
+  store i64 %conv.i1013, ptr %arrayidx1692, align 8
   br label %sw.epilog
 
 sw.bb1694:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2599,9 +3389,14 @@ sw.bb1694:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1014, ptr %operandValue1695, align 8
   %arrayidx1699 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21700 = getelementptr inbounds i8, ptr %inst, i64 2
-  %508 = load <2 x i8>, ptr %op21700, align 1
-  %509 = zext <2 x i8> %508 to <2 x i64>
-  store <2 x i64> %509, ptr %arrayidx1699, align 8
+  %508 = load i8, ptr %op21700, align 1
+  %conv.i1015 = zext i8 %508 to i64
+  store i64 %conv.i1015, ptr %arrayidx1699, align 8
+  %arrayidx1702 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31703 = getelementptr inbounds i8, ptr %inst, i64 3
+  %509 = load i8, ptr %op31703, align 1
+  %conv.i1016 = zext i8 %509 to i64
+  store i64 %conv.i1016, ptr %arrayidx1702, align 8
   br label %sw.epilog
 
 sw.bb1704:                                        ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit
@@ -2612,9 +3407,14 @@ sw.bb1704:                                        ; preds = %_ZN6hermes4inst15ge
   store i64 %conv.i1017, ptr %operandValue1705, align 8
   %arrayidx1709 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %op21710 = getelementptr inbounds i8, ptr %inst, i64 5
-  %511 = load <2 x i8>, ptr %op21710, align 1
-  %512 = zext <2 x i8> %511 to <2 x i64>
-  store <2 x i64> %512, ptr %arrayidx1709, align 8
+  %511 = load i8, ptr %op21710, align 1
+  %conv.i1018 = zext i8 %511 to i64
+  store i64 %conv.i1018, ptr %arrayidx1709, align 8
+  %arrayidx1712 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %op31713 = getelementptr inbounds i8, ptr %inst, i64 6
+  %512 = load i8, ptr %op31713, align 1
+  %conv.i1019 = zext i8 %512 to i64
+  store i64 %conv.i1019, ptr %arrayidx1712, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit

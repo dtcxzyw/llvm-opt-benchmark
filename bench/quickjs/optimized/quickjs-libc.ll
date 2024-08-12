@@ -5101,8 +5101,8 @@ declare { i64, i64 } @JS_NewCFunction2(ptr noundef, ptr noundef, ptr noundef, i3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
-  %6 = alloca [2 x i32], align 8
-  %7 = alloca [2 x i32], align 8
+  %6 = alloca [2 x i32], align 4
+  %7 = alloca [2 x i32], align 4
   %8 = alloca i64, align 8
   %9 = alloca %union.pthread_attr_t, align 8
   %10 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
@@ -5135,7 +5135,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %26 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %19) #29
   tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %19) #29
   %.not72 = icmp eq ptr %26, null
-  br i1 %.not72, label %89, label %27
+  br i1 %.not72, label %95, label %27
 
 27:                                               ; preds = %25
   %28 = load i64, ptr %4, align 8
@@ -5143,12 +5143,12 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %30 = load i64, ptr %29, align 8
   %31 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %28, i64 %30, i32 noundef 0) #29
   %.not73 = icmp eq ptr %31, null
-  br i1 %.not73, label %89, label %32
+  br i1 %.not73, label %95, label %32
 
 32:                                               ; preds = %27
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %.not74 = icmp eq ptr %calloc, null
-  br i1 %.not74, label %87, label %33
+  br i1 %.not74, label %93, label %33
 
 33:                                               ; preds = %32
   %34 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #29
@@ -5167,7 +5167,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   br i1 %.not.i80, label %41, label %47
 
 41:                                               ; preds = %39
-  %42 = load i32, ptr %7, align 8
+  %42 = load i32, ptr %7, align 4
   %43 = call i32 @close(i32 noundef %42) #29
   %44 = getelementptr inbounds i8, ptr %7, i64 4
   %45 = load i32, ptr %44, align 4
@@ -5186,130 +5186,138 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %40, i64 8
   %51 = call i32 @pthread_mutex_init(ptr noundef nonnull %50, ptr noundef null) #29
-  %52 = getelementptr inbounds i8, ptr %40, i64 64
-  %53 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %53, ptr %52, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = getelementptr inbounds i8, ptr %40, i64 64
+  store i32 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %7, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %40, i64 68
+  store i32 %55, ptr %56, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %54 = getelementptr inbounds i8, ptr %calloc, i64 16
-  store ptr %40, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %calloc, i64 16
+  store ptr %40, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %55 = call i32 @pipe(ptr noundef nonnull %6) #29
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %js_new_message_pipe.exit83.thread, label %57
+  %58 = call i32 @pipe(ptr noundef nonnull %6) #29
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %js_new_message_pipe.exit83.thread, label %60
 
-57:                                               ; preds = %47
-  %58 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
-  %.not.i81 = icmp eq ptr %58, null
-  br i1 %.not.i81, label %59, label %65
+60:                                               ; preds = %47
+  %61 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
+  %.not.i81 = icmp eq ptr %61, null
+  br i1 %.not.i81, label %62, label %68
 
-59:                                               ; preds = %57
-  %60 = load i32, ptr %6, align 8
-  %61 = call i32 @close(i32 noundef %60) #29
-  %62 = getelementptr inbounds i8, ptr %6, i64 4
-  %63 = load i32, ptr %62, align 4
+62:                                               ; preds = %60
+  %63 = load i32, ptr %6, align 4
   %64 = call i32 @close(i32 noundef %63) #29
+  %65 = getelementptr inbounds i8, ptr %6, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = call i32 @close(i32 noundef %66) #29
   br label %js_new_message_pipe.exit83.thread
 
-js_new_message_pipe.exit83.thread:                ; preds = %59, %47
+js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.sink.split
 
-65:                                               ; preds = %57
-  store i32 1, ptr %58, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 48
-  store ptr %66, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 56
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 8
-  %69 = call i32 @pthread_mutex_init(ptr noundef nonnull %68, ptr noundef null) #29
-  %70 = getelementptr inbounds i8, ptr %58, i64 64
-  %71 = load <2 x i32>, ptr %6, align 8
-  store <2 x i32> %71, ptr %70, align 8
+68:                                               ; preds = %60
+  store i32 1, ptr %61, align 8
+  %69 = getelementptr inbounds i8, ptr %61, i64 48
+  store ptr %69, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %61, i64 56
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %61, i64 8
+  %72 = call i32 @pthread_mutex_init(ptr noundef nonnull %71, ptr noundef null) #29
+  %73 = load i32, ptr %6, align 4
+  %74 = getelementptr inbounds i8, ptr %61, i64 64
+  store i32 %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %6, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds i8, ptr %61, i64 68
+  store i32 %76, ptr %77, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %72 = getelementptr inbounds i8, ptr %calloc, i64 24
-  store ptr %58, ptr %72, align 8
-  %73 = load ptr, ptr %54, align 8
-  %74 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %58, ptr noundef %73)
-  %75 = extractvalue { i64, i64 } %74, 0
-  %76 = extractvalue { i64, i64 } %74, 1
-  %77 = and i64 %76, 4294967295
-  %.not = icmp eq i64 %77, 6
-  br i1 %.not, label %89, label %78
+  %78 = getelementptr inbounds i8, ptr %calloc, i64 24
+  store ptr %61, ptr %78, align 8
+  %79 = load ptr, ptr %57, align 8
+  %80 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %61, ptr noundef %79)
+  %81 = extractvalue { i64, i64 } %80, 0
+  %82 = extractvalue { i64, i64 } %80, 1
+  %83 = and i64 %82, 4294967295
+  %.not = icmp eq i64 %83, 6
+  br i1 %.not, label %95, label %84
 
-78:                                               ; preds = %65
-  %79 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #29
-  %80 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %9, i32 noundef 1) #29
-  %81 = call i32 @pthread_create(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @worker_func, ptr noundef nonnull %calloc) #29
-  %82 = call i32 @pthread_attr_destroy(ptr noundef nonnull %9) #29
-  %.not78 = icmp eq i32 %81, 0
-  br i1 %.not78, label %85, label %83
+84:                                               ; preds = %68
+  %85 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #29
+  %86 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %9, i32 noundef 1) #29
+  %87 = call i32 @pthread_create(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @worker_func, ptr noundef nonnull %calloc) #29
+  %88 = call i32 @pthread_attr_destroy(ptr noundef nonnull %9) #29
+  %.not78 = icmp eq i32 %87, 0
+  br i1 %.not78, label %91, label %89
 
-83:                                               ; preds = %78
-  %84 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109) #29
-  br label %89
+89:                                               ; preds = %84
+  %90 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109) #29
+  br label %95
 
-85:                                               ; preds = %78
+91:                                               ; preds = %84
   call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %26) #29
   call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %31) #29
-  %.sroa.558.0.extract.shift61 = and i64 %75, -4294967296
+  %.sroa.558.0.extract.shift61 = and i64 %81, -4294967296
   br label %JS_FreeValue.exit
 
 .sink.split:                                      ; preds = %js_new_message_pipe.exit.thread, %js_new_message_pipe.exit83.thread
   %.sink88 = phi i64 [ 24, %js_new_message_pipe.exit83.thread ], [ 16, %js_new_message_pipe.exit.thread ]
-  %86 = getelementptr inbounds i8, ptr %calloc, i64 %.sink88
-  store ptr null, ptr %86, align 8
-  br label %87
+  %92 = getelementptr inbounds i8, ptr %calloc, i64 %.sink88
+  store ptr null, ptr %92, align 8
+  br label %93
 
-87:                                               ; preds = %.sink.split, %32
-  %88 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #29
-  br label %89
+93:                                               ; preds = %.sink.split, %32
+  %94 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #29
+  br label %95
 
-89:                                               ; preds = %65, %27, %25, %87, %83
-  %.066 = phi ptr [ %31, %65 ], [ %31, %83 ], [ %31, %87 ], [ null, %27 ], [ null, %25 ]
-  %.sroa.014.0 = phi i64 [ %75, %65 ], [ %75, %83 ], [ 0, %87 ], [ 0, %27 ], [ 0, %25 ]
-  %.sroa.5.0 = phi i64 [ %76, %65 ], [ %76, %83 ], [ 3, %87 ], [ 3, %27 ], [ 3, %25 ]
-  %.0 = phi ptr [ %calloc, %65 ], [ %calloc, %83 ], [ %calloc, %87 ], [ null, %27 ], [ null, %25 ]
+95:                                               ; preds = %68, %27, %25, %93, %89
+  %.066 = phi ptr [ %31, %68 ], [ %31, %89 ], [ %31, %93 ], [ null, %27 ], [ null, %25 ]
+  %.sroa.014.0 = phi i64 [ %81, %68 ], [ %81, %89 ], [ 0, %93 ], [ 0, %27 ], [ 0, %25 ]
+  %.sroa.5.0 = phi i64 [ %82, %68 ], [ %82, %89 ], [ 3, %93 ], [ 3, %27 ], [ 3, %25 ]
+  %.0 = phi ptr [ %calloc, %68 ], [ %calloc, %89 ], [ %calloc, %93 ], [ null, %27 ], [ null, %25 ]
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %26) #29
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.066) #29
   %.not79 = icmp eq ptr %.0, null
-  br i1 %.not79, label %98, label %90
+  br i1 %.not79, label %104, label %96
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %.0, align 8
-  call void @free(ptr noundef %91) #29
-  %92 = getelementptr inbounds i8, ptr %.0, i64 8
-  %93 = load ptr, ptr %92, align 8
-  call void @free(ptr noundef %93) #29
-  %94 = getelementptr inbounds i8, ptr %.0, i64 16
-  %95 = load ptr, ptr %94, align 8
-  call fastcc void @js_free_message_pipe(ptr noundef %95)
-  %96 = getelementptr inbounds i8, ptr %.0, i64 24
-  %97 = load ptr, ptr %96, align 8
-  call fastcc void @js_free_message_pipe(ptr noundef %97)
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %.0, align 8
+  call void @free(ptr noundef %97) #29
+  %98 = getelementptr inbounds i8, ptr %.0, i64 8
+  %99 = load ptr, ptr %98, align 8
+  call void @free(ptr noundef %99) #29
+  %100 = getelementptr inbounds i8, ptr %.0, i64 16
+  %101 = load ptr, ptr %100, align 8
+  call fastcc void @js_free_message_pipe(ptr noundef %101)
+  %102 = getelementptr inbounds i8, ptr %.0, i64 24
+  %103 = load ptr, ptr %102, align 8
+  call fastcc void @js_free_message_pipe(ptr noundef %103)
   call void @free(ptr noundef nonnull %.0) #29
-  br label %98
+  br label %104
 
-98:                                               ; preds = %90, %89
-  %99 = trunc i64 %.sroa.5.0 to i32
-  %100 = icmp ugt i32 %99, -12
-  br i1 %100, label %101, label %JS_FreeValue.exit
+104:                                              ; preds = %96, %95
+  %105 = trunc i64 %.sroa.5.0 to i32
+  %106 = icmp ugt i32 %105, -12
+  br i1 %106, label %107, label %JS_FreeValue.exit
 
-101:                                              ; preds = %98
-  %102 = inttoptr i64 %.sroa.014.0 to ptr
-  %103 = load i32, ptr %102, align 4
-  %104 = add i32 %103, -1
-  store i32 %104, ptr %102, align 4
-  %105 = icmp slt i32 %104, 1
-  br i1 %105, label %106, label %JS_FreeValue.exit
+107:                                              ; preds = %104
+  %108 = inttoptr i64 %.sroa.014.0 to ptr
+  %109 = load i32, ptr %108, align 4
+  %110 = add i32 %109, -1
+  store i32 %110, ptr %108, align 4
+  %111 = icmp slt i32 %110, 1
+  br i1 %111, label %112, label %JS_FreeValue.exit
 
-106:                                              ; preds = %101
+112:                                              ; preds = %107
   call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.014.0, i64 %.sroa.5.0) #29
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %106, %101, %98, %85, %21, %14
-  %.sroa.055.0 = phi i64 [ %23, %21 ], [ %75, %85 ], [ %16, %14 ], [ 0, %98 ], [ 0, %101 ], [ 0, %106 ]
-  %.sroa.558.sroa.0.0 = phi i64 [ %.sroa.558.0.extract.shift59, %21 ], [ %.sroa.558.0.extract.shift61, %85 ], [ %.sroa.558.0.extract.shift, %14 ], [ 0, %98 ], [ 0, %101 ], [ 0, %106 ]
-  %.sroa.558.sroa.4.0 = phi i64 [ %24, %21 ], [ %76, %85 ], [ %17, %14 ], [ 6, %98 ], [ 6, %101 ], [ 6, %106 ]
+JS_FreeValue.exit:                                ; preds = %112, %107, %104, %91, %21, %14
+  %.sroa.055.0 = phi i64 [ %23, %21 ], [ %81, %91 ], [ %16, %14 ], [ 0, %104 ], [ 0, %107 ], [ 0, %112 ]
+  %.sroa.558.sroa.0.0 = phi i64 [ %.sroa.558.0.extract.shift59, %21 ], [ %.sroa.558.0.extract.shift61, %91 ], [ %.sroa.558.0.extract.shift, %14 ], [ 0, %104 ], [ 0, %107 ], [ 0, %112 ]
+  %.sroa.558.sroa.4.0 = phi i64 [ %24, %21 ], [ %82, %91 ], [ %17, %14 ], [ 6, %104 ], [ 6, %107 ], [ 6, %112 ]
   %.sroa.055.0.insert.ext = and i64 %.sroa.055.0, 4294967295
   %.sroa.055.0.insert.insert = or disjoint i64 %.sroa.558.sroa.0.0, %.sroa.055.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.055.0.insert.insert, 0

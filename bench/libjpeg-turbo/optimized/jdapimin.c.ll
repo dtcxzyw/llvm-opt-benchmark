@@ -155,17 +155,17 @@ define i32 @jpeg_read_header(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 define i32 @jpeg_consume_input(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
-  switch i32 %3, label %126 [
+  switch i32 %3, label %135 [
     i32 200, label %4
     i32 201, label %13
-    i32 202, label %134
-    i32 203, label %121
-    i32 204, label %121
-    i32 205, label %121
-    i32 206, label %121
-    i32 207, label %121
-    i32 208, label %121
-    i32 210, label %121
+    i32 202, label %143
+    i32 203, label %130
+    i32 204, label %130
+    i32 205, label %130
+    i32 206, label %130
+    i32 207, label %130
+    i32 208, label %130
+    i32 210, label %130
   ]
 
 4:                                                ; preds = %1
@@ -188,7 +188,7 @@ define i32 @jpeg_consume_input(ptr noundef %0) local_unnamed_addr #0 {
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0) #3
   %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %134
+  br i1 %18, label %19, label %143
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %0, i64 56
@@ -386,38 +386,56 @@ default_decompress_parms.exit:                    ; preds = %22, %27, %35, %37, 
   %116 = getelementptr inbounds i8, ptr %0, i64 80
   store double 1.000000e+00, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %0, i64 88
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 104
-  store <4 x i32> <i32 1, i32 0, i32 2, i32 1>, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 120
-  %120 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr null, ptr %120, align 8
-  store <4 x i32> <i32 256, i32 0, i32 0, i32 0>, ptr %119, align 8
+  store i32 0, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 0, ptr %118, align 4
+  %119 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 1, ptr %120, align 4
+  %121 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 1, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 0, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 2, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 1, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 256, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr null, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 0, ptr %127, align 4
+  %128 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 0, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %129, align 4
   store i32 202, ptr %2, align 4
-  br label %134
+  br label %143
 
-121:                                              ; preds = %1, %1, %1, %1, %1, %1, %1
-  %122 = getelementptr inbounds i8, ptr %0, i64 576
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call i32 %124(ptr noundef nonnull %0) #3
-  br label %134
-
-126:                                              ; preds = %1
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 40
-  store i32 20, ptr %128, align 8
-  %129 = load i32, ptr %2, align 4
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 44
-  store i32 %129, ptr %131, align 4
-  %132 = load ptr, ptr %0, align 8
+130:                                              ; preds = %1, %1, %1, %1, %1, %1, %1
+  %131 = getelementptr inbounds i8, ptr %0, i64 576
+  %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %132, align 8
-  tail call void %133(ptr noundef nonnull %0) #3
-  br label %134
+  %134 = tail call i32 %133(ptr noundef nonnull %0) #3
+  br label %143
 
-134:                                              ; preds = %1, %13, %default_decompress_parms.exit, %126, %121
-  %.0 = phi i32 [ 0, %126 ], [ %125, %121 ], [ 1, %default_decompress_parms.exit ], [ %17, %13 ], [ 1, %1 ]
+135:                                              ; preds = %1
+  %136 = load ptr, ptr %0, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 40
+  store i32 20, ptr %137, align 8
+  %138 = load i32, ptr %2, align 4
+  %139 = load ptr, ptr %0, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 44
+  store i32 %138, ptr %140, align 4
+  %141 = load ptr, ptr %0, align 8
+  %142 = load ptr, ptr %141, align 8
+  tail call void %142(ptr noundef nonnull %0) #3
+  br label %143
+
+143:                                              ; preds = %1, %13, %default_decompress_parms.exit, %135, %130
+  %.0 = phi i32 [ 0, %135 ], [ %134, %130 ], [ 1, %default_decompress_parms.exit ], [ %17, %13 ], [ 1, %1 ]
   ret i32 %.0
 }
 

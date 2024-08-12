@@ -292,35 +292,38 @@ declare void @_ZN5cmsys11SystemTools24GetFilenameLastExtensionERKNSt7__cxx1112ba
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN21cmParseJacocoCoverage13ReadJacocoXMLEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmParseJacocoCoverage::XMLParser", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
-  %9 = load <2 x ptr>, ptr %4, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = load ptr, ptr %6, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i64 16), ptr %3, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %10, ptr %8, align 8
-  %11 = invoke noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef %1)
-          to label %12 unwind label %13
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  %10 = getelementptr inbounds i8, ptr %3, i64 104
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
+  %11 = getelementptr inbounds i8, ptr %3, i64 136
+  store ptr %5, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 144
+  store ptr %7, ptr %12, align 8
+  %13 = invoke noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef %1)
+          to label %14 unwind label %15
 
-12:                                               ; preds = %2
+14:                                               ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i64 16), ptr %3, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   ret i1 true
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN21cmParseJacocoCoverage9XMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #17
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nounwind

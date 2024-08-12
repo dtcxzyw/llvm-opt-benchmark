@@ -385,7 +385,7 @@ if.end15:                                         ; preds = %if.else11, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i8, ptr %inTimeoutExpired_, align 8
   %tobool = trunc i8 %0 to i1
@@ -416,16 +416,17 @@ if.else:                                          ; preds = %if.end
   %conv = select i1 %cmp.i.i.not.i, i32 %5, i32 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !5
+  %6 = load ptr, ptr %call.i, align 8, !noalias !5
+  store ptr %6, ptr %ref.tmp, align 8, !alias.scope !5
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !5
-  %7 = load <2 x ptr>, ptr %call.i, align 8, !noalias !5
-  store <2 x ptr> %7, ptr %ref.tmp, align 16, !alias.scope !5
-  %cmp.not.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !5
+  store ptr %7, ptr %_M_refcount.i.i.i, align 8, !alias.scope !5
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -811,7 +812,7 @@ _ZN8proxygen15AsyncTimeoutSet7destroyEv.exit:     ; preds = %if.then.i.i, %if.el
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet15scheduleTimeoutEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %callback) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp4 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp4 = alloca %"class.std::shared_ptr", align 8
   %timeoutSet_.i = getelementptr inbounds i8, ptr %callback, i64 24
   %0 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -850,14 +851,14 @@ _ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i: ; preds = %i
 
 _ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit: ; preds = %entry, %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !10
+  %6 = load ptr, ptr %call.i, align 8, !noalias !10
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
-  %7 = load <2 x ptr>, ptr %call.i, align 8, !noalias !10
-  %cmp.not.i.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -874,9 +875,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %context_ = getelementptr inbounds i8, ptr %callback, i64 8
+  store ptr %6, ptr %context_, align 8
   %_M_refcount3.i.i.i7 = getelementptr inbounds i8, ptr %callback, i64 16
   %11 = load ptr, ptr %_M_refcount3.i.i.i7, align 8
-  store <2 x ptr> %7, ptr %context_, align 8
+  store ptr %7, ptr %_M_refcount3.i.i.i7, align 8
   %cmp.not.i.i.i.i8 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i8, label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit, label %if.then.i.i.i.i9
 
@@ -968,16 +970,17 @@ if.then2:                                         ; preds = %if.then
   %conv = trunc i64 %25 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !13
+  %26 = load ptr, ptr %call.i16, align 8, !noalias !13
+  store ptr %26, ptr %ref.tmp4, align 8, !alias.scope !13
   %_M_refcount.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %_M_refcount3.i.i.i18 = getelementptr inbounds i8, ptr %call.i16, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !13
-  %27 = load <2 x ptr>, ptr %call.i16, align 8, !noalias !13
-  store <2 x ptr> %27, ptr %ref.tmp4, align 16, !alias.scope !13
-  %cmp.not.i.i.i.i19 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !13
+  store ptr %27, ptr %_M_refcount.i.i.i17, align 8, !alias.scope !13
+  %cmp.not.i.i.i.i19 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i.i19, label %_ZN5folly14RequestContext11saveContextEv.exit26, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %if.then2
-  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.i.not.i.i.i.i.i22 = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i.i22, label %if.else.i.i.i.i.i.i25, label %if.then.i.i.i.i.i.i23
@@ -1110,7 +1113,7 @@ declare void @_ZN5folly12AsyncTimeout13cancelTimeoutEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet14timeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(249) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp20 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp20 = alloca %"class.std::shared_ptr", align 8
   %rctxScopeGuard = alloca %"class.folly::RequestContextScopeGuard", align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 192
   %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -1153,16 +1156,17 @@ if.then:                                          ; preds = %invoke.cont12
           to label %call.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
+  %7 = load ptr, ptr %call.i3, align 8, !noalias !16
+  store ptr %7, ptr %ref.tmp20, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
-  %8 = load <2 x ptr>, ptr %call.i3, align 8, !noalias !16
-  store <2 x ptr> %8, ptr %ref.tmp20, align 16, !alias.scope !16
-  %cmp.not.i.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
+  store ptr %8, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont21, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

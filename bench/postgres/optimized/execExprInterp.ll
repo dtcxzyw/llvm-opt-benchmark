@@ -8248,76 +8248,78 @@ define dso_local noundef zeroext i1 @ExecEvalPreOrderedDistinctMulti(ptr nocaptu
   %43 = load ptr, ptr %32, align 8
   %44 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %43) #15
   %45 = getelementptr inbounds i8, ptr %5, i64 24
-  %46 = getelementptr inbounds i8, ptr %5, i64 16
-  %47 = load <2 x ptr>, ptr %46, align 8
-  %48 = load ptr, ptr %32, align 8
-  store ptr %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 312
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 337
-  %52 = load i8, ptr %51, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %64
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %32, align 8
+  store ptr %49, ptr %45, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 312
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %47, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 337
+  %53 = load i8, ptr %52, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %65
 
-54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %1, i64 280
-  %56 = load ptr, ptr %55, align 8
+55:                                               ; preds = %._crit_edge
+  %56 = getelementptr inbounds i8, ptr %1, i64 280
+  %57 = load ptr, ptr %56, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %ExecQual.exit.thread, label %ExecQual.exit
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %ExecQual.exit.thread, label %ExecQual.exit
 
-ExecQual.exit.thread:                             ; preds = %54
+ExecQual.exit.thread:                             ; preds = %55
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %79
+  br label %80
 
-ExecQual.exit:                                    ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %5, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %59, ptr @CurrentMemoryContext, align 8
-  %61 = getelementptr inbounds i8, ptr %56, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i64 %62(ptr noundef nonnull %56, ptr noundef nonnull %5, ptr noundef nonnull %3) #15
+ExecQual.exit:                                    ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %5, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %60, ptr @CurrentMemoryContext, align 8
-  %.not = icmp eq i64 %63, 0
+  %62 = getelementptr inbounds i8, ptr %57, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i64 %63(ptr noundef nonnull %57, ptr noundef nonnull %5, ptr noundef nonnull %3) #15
+  store ptr %61, ptr @CurrentMemoryContext, align 8
+  %.not = icmp eq i64 %64, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not, label %ExecQual.exit._crit_edge, label %79
+  br i1 %.not, label %ExecQual.exit._crit_edge, label %80
 
 ExecQual.exit._crit_edge:                         ; preds = %ExecQual.exit
-  %.pre = load i8, ptr %51, align 1
-  %.pre39.pre = load ptr, ptr %49, align 8
-  br label %64
+  %.pre = load i8, ptr %52, align 1
+  %.pre39.pre = load ptr, ptr %50, align 8
+  br label %65
 
-64:                                               ; preds = %ExecQual.exit._crit_edge, %._crit_edge
-  %.pre39 = phi ptr [ %.pre39.pre, %ExecQual.exit._crit_edge ], [ %50, %._crit_edge ]
-  %65 = phi i8 [ %.pre, %ExecQual.exit._crit_edge ], [ %52, %._crit_edge ]
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %72
+65:                                               ; preds = %ExecQual.exit._crit_edge, %._crit_edge
+  %.pre39 = phi ptr [ %.pre39.pre, %ExecQual.exit._crit_edge ], [ %51, %._crit_edge ]
+  %66 = phi i8 [ %.pre, %ExecQual.exit._crit_edge ], [ %53, %._crit_edge ]
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %73
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.pre39, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef %.pre39) #15
-  %.pre38 = load ptr, ptr %49, align 8
-  br label %72
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %.pre39, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load ptr, ptr %71, align 8
+  call void %72(ptr noundef %.pre39) #15
+  %.pre38 = load ptr, ptr %50, align 8
+  br label %73
 
-72:                                               ; preds = %67, %64
-  %73 = phi ptr [ %.pre38, %67 ], [ %.pre39, %64 ]
-  store i8 1, ptr %51, align 1
-  %74 = load ptr, ptr %32, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 56
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef %73, ptr noundef %74) #15
-  br label %79
+73:                                               ; preds = %68, %65
+  %74 = phi ptr [ %.pre38, %68 ], [ %.pre39, %65 ]
+  store i8 1, ptr %52, align 1
+  %75 = load ptr, ptr %32, align 8
+  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef %74, ptr noundef %75) #15
+  br label %80
 
-79:                                               ; preds = %ExecQual.exit.thread, %72, %ExecQual.exit
-  %.034 = phi i1 [ false, %ExecQual.exit ], [ true, %72 ], [ false, %ExecQual.exit.thread ]
-  store <2 x ptr> %47, ptr %46, align 8
+80:                                               ; preds = %ExecQual.exit.thread, %73, %ExecQual.exit
+  %.034 = phi i1 [ false, %ExecQual.exit ], [ true, %73 ], [ false, %ExecQual.exit.thread ]
+  store ptr %46, ptr %45, align 8
+  store ptr %48, ptr %47, align 8
   ret i1 %.034
 }
 

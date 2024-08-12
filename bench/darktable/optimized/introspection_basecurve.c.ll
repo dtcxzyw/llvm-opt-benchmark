@@ -5810,15 +5810,15 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = getelementptr inbounds i8, ptr %1, i64 52
   %16 = load i32, ptr %15, align 4, !tbaa !253
-  switch i32 %16, label %508 [
+  switch i32 %16, label %522 [
     i32 1, label %17
-    i32 3, label %447
+    i32 3, label %461
   ]
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %1, align 8, !tbaa !255
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %20, label %349
+  br i1 %19, label %20, label %363
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %1, i64 48
@@ -5830,13 +5830,13 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %27 = icmp eq i32 %26, 4
   %28 = icmp slt i32 %14, 20
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %30, label %347
+  br i1 %29, label %30, label %361
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %12, i64 80
   %32 = load i32, ptr %31, align 8, !tbaa !221
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %34, label %347
+  br i1 %33, label %34, label %361
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !226
@@ -5931,7 +5931,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %96 = fsub reassoc nsz arcp contract afn float %72, %95
   %97 = fpext float %96 to double
   %98 = fcmp reassoc nsz arcp contract afn ugt double %97, 2.500000e-02
-  br i1 %98, label %99, label %346
+  br i1 %98, label %99, label %360
 
 99:                                               ; preds = %90, %71
   %100 = phi i32 [ %91, %90 ], [ 0, %71 ]
@@ -5945,7 +5945,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %106 = fsub reassoc nsz arcp contract afn float %105, %72
   %107 = fpext float %106 to double
   %108 = fcmp reassoc nsz arcp contract afn ugt double %107, 2.500000e-02
-  br i1 %108, label %109, label %346
+  br i1 %108, label %109, label %360
 
 109:                                              ; preds = %102, %99, %.loopexit30
   %110 = load ptr, ptr %12, align 8, !tbaa !215
@@ -6041,7 +6041,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   %167 = fcmp reassoc nsz arcp contract afn ult float %166, 0.000000e+00
   %168 = fcmp reassoc nsz arcp contract afn ugt float %166, 1.000000e+00
   %169 = or i1 %167, %168
-  br i1 %169, label %346, label %170
+  br i1 %169, label %360, label %170
 
 170:                                              ; preds = %dt_draw_curve_calc_value.exit
   %171 = call fastcc i32 @_add_node(ptr noundef nonnull %8, ptr noundef nonnull %13, float noundef %72, float noundef %166)
@@ -6111,8 +6111,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   %213 = shufflevector <8 x float> %212, <8 x float> poison, <8 x i32> zeroinitializer
   br label %214
 
-214:                                              ; preds = %228, %203
-  %215 = phi i64 [ 0, %203 ], [ %229, %228 ]
+214:                                              ; preds = %242, %203
+  %215 = phi i64 [ 0, %203 ], [ %243, %242 ]
   %216 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %215, i32 1
   %217 = load <16 x float>, ptr %216, align 4, !tbaa !17
   %218 = shufflevector <16 x float> %217, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
@@ -6123,459 +6123,472 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   %223 = fsub reassoc nsz arcp contract afn <8 x float> %211, %222
   %224 = fmul reassoc nsz arcp contract afn <8 x float> %223, %223
   %225 = fcmp reassoc nsz arcp contract afn olt <8 x float> %224, <float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000>
-  %226 = bitcast <8 x i1> %225 to i8
-  %.not = icmp eq i8 %226, 0
-  br i1 %.not, label %228, label %227
+  %226 = extractelement <8 x i1> %225, i64 0
+  %227 = extractelement <8 x i1> %225, i64 1
+  %228 = or i1 %226, %227
+  %229 = extractelement <8 x i1> %225, i64 2
+  %230 = or i1 %229, %228
+  %231 = extractelement <8 x i1> %225, i64 3
+  %232 = or i1 %231, %230
+  %233 = extractelement <8 x i1> %225, i64 4
+  %234 = or i1 %233, %232
+  %235 = extractelement <8 x i1> %225, i64 5
+  %236 = or i1 %235, %234
+  %237 = extractelement <8 x i1> %225, i64 6
+  %238 = or i1 %237, %236
+  %239 = extractelement <8 x i1> %225, i64 7
+  %240 = or i1 %239, %238
+  br i1 %240, label %241, label %242
 
-227:                                              ; preds = %214
+241:                                              ; preds = %214
   store i32 %171, ptr %31, align 8, !tbaa !221, !alias.scope !265, !noalias !268
-  br label %228
+  br label %242
 
-228:                                              ; preds = %227, %214
-  %229 = add nuw i64 %215, 8
-  %230 = icmp eq i64 %229, %207
-  br i1 %230, label %.loopexit25, label %214, !llvm.loop !270
+242:                                              ; preds = %241, %214
+  %243 = add nuw i64 %215, 8
+  %244 = icmp eq i64 %243, %207
+  br i1 %244, label %.loopexit25, label %214, !llvm.loop !270
 
-.loopexit25:                                      ; preds = %228, %195, %191
-  %231 = phi i64 [ 0, %195 ], [ 0, %191 ], [ %207, %228 ]
-  %232 = sub nsw i64 %176, %231
-  %233 = and i64 %232, 3
-  %234 = icmp eq i64 %233, 0
-  br i1 %234, label %.loopexit24, label %.preheader.preheader
+.loopexit25:                                      ; preds = %242, %195, %191
+  %245 = phi i64 [ 0, %195 ], [ 0, %191 ], [ %207, %242 ]
+  %246 = sub nsw i64 %176, %245
+  %247 = and i64 %246, 3
+  %248 = icmp eq i64 %247, 0
+  br i1 %248, label %.loopexit24, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.loopexit25
-  %235 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %193
+  %249 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %193
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %248
-  %236 = phi i64 [ %249, %248 ], [ %231, %.preheader.preheader ]
-  %237 = phi i64 [ %250, %248 ], [ 0, %.preheader.preheader ]
-  %238 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %236, i32 1
-  %239 = load float, ptr %238, align 4, !tbaa !17
-  %240 = fmul reassoc nsz arcp contract afn float %239, %174
-  %241 = fadd reassoc nsz arcp contract afn float %240, 1.000000e+00
-  %242 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %241)
-  %243 = fmul reassoc nsz arcp contract afn float %242, %235
-  %244 = fsub reassoc nsz arcp contract afn float %166, %243
-  %245 = fmul reassoc nsz arcp contract afn float %244, %244
-  %246 = fcmp reassoc nsz arcp contract afn olt float %245, 0x3F5A36E2E0000000
-  br i1 %246, label %247, label %248
+.preheader:                                       ; preds = %.preheader.preheader, %262
+  %250 = phi i64 [ %263, %262 ], [ %245, %.preheader.preheader ]
+  %251 = phi i64 [ %264, %262 ], [ 0, %.preheader.preheader ]
+  %252 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %250, i32 1
+  %253 = load float, ptr %252, align 4, !tbaa !17
+  %254 = fmul reassoc nsz arcp contract afn float %253, %174
+  %255 = fadd reassoc nsz arcp contract afn float %254, 1.000000e+00
+  %256 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %255)
+  %257 = fmul reassoc nsz arcp contract afn float %256, %249
+  %258 = fsub reassoc nsz arcp contract afn float %166, %257
+  %259 = fmul reassoc nsz arcp contract afn float %258, %258
+  %260 = fcmp reassoc nsz arcp contract afn olt float %259, 0x3F5A36E2E0000000
+  br i1 %260, label %261, label %262
 
-247:                                              ; preds = %.preheader
+261:                                              ; preds = %.preheader
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %248
+  br label %262
 
-248:                                              ; preds = %247, %.preheader
-  %249 = add nuw nsw i64 %236, 1
-  %250 = add nuw nsw i64 %237, 1
-  %251 = icmp eq i64 %250, %233
-  br i1 %251, label %.loopexit24.loopexit, label %.preheader, !llvm.loop !271
+262:                                              ; preds = %261, %.preheader
+  %263 = add nuw nsw i64 %250, 1
+  %264 = add nuw nsw i64 %251, 1
+  %265 = icmp eq i64 %264, %247
+  br i1 %265, label %.loopexit24.loopexit, label %.preheader, !llvm.loop !271
 
-.loopexit24.loopexit:                             ; preds = %248
-  %252 = add nsw i64 %231, %233
+.loopexit24.loopexit:                             ; preds = %262
+  %266 = add nsw i64 %245, %247
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %.loopexit24.loopexit, %.loopexit25
-  %253 = phi i64 [ %231, %.loopexit25 ], [ %252, %.loopexit24.loopexit ]
-  %254 = sub nsw i64 %231, %176
-  %255 = icmp ugt i64 %254, -4
-  br i1 %255, label %.loopexit, label %256
+  %267 = phi i64 [ %245, %.loopexit25 ], [ %266, %.loopexit24.loopexit ]
+  %268 = sub nsw i64 %245, %176
+  %269 = icmp ugt i64 %268, -4
+  br i1 %269, label %.loopexit, label %270
 
-256:                                              ; preds = %.loopexit24
-  %257 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %193
-  br label %258
+270:                                              ; preds = %.loopexit24
+  %271 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %193
+  br label %272
 
-258:                                              ; preds = %306, %256
-  %259 = phi i64 [ %253, %256 ], [ %307, %306 ]
-  %260 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %259, i32 1
-  %261 = load float, ptr %260, align 4, !tbaa !17
-  %262 = fmul reassoc nsz arcp contract afn float %261, %174
-  %263 = fadd reassoc nsz arcp contract afn float %262, 1.000000e+00
-  %264 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %263)
-  %265 = fmul reassoc nsz arcp contract afn float %264, %257
-  %266 = fsub reassoc nsz arcp contract afn float %166, %265
-  %267 = fmul reassoc nsz arcp contract afn float %266, %266
-  %268 = fcmp reassoc nsz arcp contract afn olt float %267, 0x3F5A36E2E0000000
-  br i1 %268, label %269, label %270
+272:                                              ; preds = %320, %270
+  %273 = phi i64 [ %267, %270 ], [ %321, %320 ]
+  %274 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %273, i32 1
+  %275 = load float, ptr %274, align 4, !tbaa !17
+  %276 = fmul reassoc nsz arcp contract afn float %275, %174
+  %277 = fadd reassoc nsz arcp contract afn float %276, 1.000000e+00
+  %278 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %277)
+  %279 = fmul reassoc nsz arcp contract afn float %278, %271
+  %280 = fsub reassoc nsz arcp contract afn float %166, %279
+  %281 = fmul reassoc nsz arcp contract afn float %280, %280
+  %282 = fcmp reassoc nsz arcp contract afn olt float %281, 0x3F5A36E2E0000000
+  br i1 %282, label %283, label %284
 
-269:                                              ; preds = %258
+283:                                              ; preds = %272
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %270
+  br label %284
 
-270:                                              ; preds = %269, %258
-  %271 = add nuw nsw i64 %259, 1
-  %272 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %271, i32 1
-  %273 = load float, ptr %272, align 4, !tbaa !17
-  %274 = fmul reassoc nsz arcp contract afn float %273, %174
-  %275 = fadd reassoc nsz arcp contract afn float %274, 1.000000e+00
-  %276 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %275)
-  %277 = fmul reassoc nsz arcp contract afn float %276, %257
-  %278 = fsub reassoc nsz arcp contract afn float %166, %277
-  %279 = fmul reassoc nsz arcp contract afn float %278, %278
-  %280 = fcmp reassoc nsz arcp contract afn olt float %279, 0x3F5A36E2E0000000
-  br i1 %280, label %281, label %282
+284:                                              ; preds = %283, %272
+  %285 = add nuw nsw i64 %273, 1
+  %286 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %285, i32 1
+  %287 = load float, ptr %286, align 4, !tbaa !17
+  %288 = fmul reassoc nsz arcp contract afn float %287, %174
+  %289 = fadd reassoc nsz arcp contract afn float %288, 1.000000e+00
+  %290 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %289)
+  %291 = fmul reassoc nsz arcp contract afn float %290, %271
+  %292 = fsub reassoc nsz arcp contract afn float %166, %291
+  %293 = fmul reassoc nsz arcp contract afn float %292, %292
+  %294 = fcmp reassoc nsz arcp contract afn olt float %293, 0x3F5A36E2E0000000
+  br i1 %294, label %295, label %296
 
-281:                                              ; preds = %270
+295:                                              ; preds = %284
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %282
+  br label %296
 
-282:                                              ; preds = %281, %270
-  %283 = add nuw nsw i64 %259, 2
-  %284 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %283, i32 1
-  %285 = load float, ptr %284, align 4, !tbaa !17
-  %286 = fmul reassoc nsz arcp contract afn float %285, %174
-  %287 = fadd reassoc nsz arcp contract afn float %286, 1.000000e+00
-  %288 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %287)
-  %289 = fmul reassoc nsz arcp contract afn float %288, %257
-  %290 = fsub reassoc nsz arcp contract afn float %166, %289
-  %291 = fmul reassoc nsz arcp contract afn float %290, %290
-  %292 = fcmp reassoc nsz arcp contract afn olt float %291, 0x3F5A36E2E0000000
-  br i1 %292, label %293, label %294
+296:                                              ; preds = %295, %284
+  %297 = add nuw nsw i64 %273, 2
+  %298 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %297, i32 1
+  %299 = load float, ptr %298, align 4, !tbaa !17
+  %300 = fmul reassoc nsz arcp contract afn float %299, %174
+  %301 = fadd reassoc nsz arcp contract afn float %300, 1.000000e+00
+  %302 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %301)
+  %303 = fmul reassoc nsz arcp contract afn float %302, %271
+  %304 = fsub reassoc nsz arcp contract afn float %166, %303
+  %305 = fmul reassoc nsz arcp contract afn float %304, %304
+  %306 = fcmp reassoc nsz arcp contract afn olt float %305, 0x3F5A36E2E0000000
+  br i1 %306, label %307, label %308
 
-293:                                              ; preds = %282
+307:                                              ; preds = %296
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %294
+  br label %308
 
-294:                                              ; preds = %293, %282
-  %295 = add nuw nsw i64 %259, 3
-  %296 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %295, i32 1
-  %297 = load float, ptr %296, align 4, !tbaa !17
-  %298 = fmul reassoc nsz arcp contract afn float %297, %174
-  %299 = fadd reassoc nsz arcp contract afn float %298, 1.000000e+00
-  %300 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %299)
-  %301 = fmul reassoc nsz arcp contract afn float %300, %257
-  %302 = fsub reassoc nsz arcp contract afn float %166, %301
-  %303 = fmul reassoc nsz arcp contract afn float %302, %302
-  %304 = fcmp reassoc nsz arcp contract afn olt float %303, 0x3F5A36E2E0000000
-  br i1 %304, label %305, label %306
+308:                                              ; preds = %307, %296
+  %309 = add nuw nsw i64 %273, 3
+  %310 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %309, i32 1
+  %311 = load float, ptr %310, align 4, !tbaa !17
+  %312 = fmul reassoc nsz arcp contract afn float %311, %174
+  %313 = fadd reassoc nsz arcp contract afn float %312, 1.000000e+00
+  %314 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %313)
+  %315 = fmul reassoc nsz arcp contract afn float %314, %271
+  %316 = fsub reassoc nsz arcp contract afn float %166, %315
+  %317 = fmul reassoc nsz arcp contract afn float %316, %316
+  %318 = fcmp reassoc nsz arcp contract afn olt float %317, 0x3F5A36E2E0000000
+  br i1 %318, label %319, label %320
 
-305:                                              ; preds = %294
+319:                                              ; preds = %308
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %306
+  br label %320
 
-306:                                              ; preds = %305, %294
-  %307 = add nuw nsw i64 %259, 4
-  %308 = icmp eq i64 %307, %176
-  br i1 %308, label %.loopexit, label %258, !llvm.loop !272
+320:                                              ; preds = %319, %308
+  %321 = add nuw nsw i64 %273, 4
+  %322 = icmp eq i64 %321, %176
+  br i1 %322, label %.loopexit, label %272, !llvm.loop !272
 
-.loopexit:                                        ; preds = %343, %306, %.loopexit24, %.loopexit29, %170
-  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  call void @dt_dev_add_history_item_target(ptr noundef %309, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
-  %310 = getelementptr inbounds i8, ptr %2, i64 816
-  %311 = load ptr, ptr %310, align 16, !tbaa !212
-  call void @gtk_widget_queue_draw(ptr noundef %311) #27
-  br label %346
+.loopexit:                                        ; preds = %357, %320, %.loopexit24, %.loopexit29, %170
+  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
+  call void @dt_dev_add_history_item_target(ptr noundef %323, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  %324 = getelementptr inbounds i8, ptr %2, i64 816
+  %325 = load ptr, ptr %324, align 16, !tbaa !212
+  call void @gtk_widget_queue_draw(ptr noundef %325) #27
+  br label %360
 
-.preheader26:                                     ; preds = %.loopexit29, %343
-  %312 = phi i64 [ %344, %343 ], [ %178, %.loopexit29 ]
-  %313 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %312, i32 1
-  %314 = load float, ptr %313, align 4, !tbaa !17
-  %315 = fsub reassoc nsz arcp contract afn float %166, %314
-  %316 = fmul reassoc nsz arcp contract afn float %315, %315
-  %317 = fcmp reassoc nsz arcp contract afn olt float %316, 0x3F5A36E2E0000000
-  br i1 %317, label %318, label %319
+.preheader26:                                     ; preds = %.loopexit29, %357
+  %326 = phi i64 [ %358, %357 ], [ %178, %.loopexit29 ]
+  %327 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %326, i32 1
+  %328 = load float, ptr %327, align 4, !tbaa !17
+  %329 = fsub reassoc nsz arcp contract afn float %166, %328
+  %330 = fmul reassoc nsz arcp contract afn float %329, %329
+  %331 = fcmp reassoc nsz arcp contract afn olt float %330, 0x3F5A36E2E0000000
+  br i1 %331, label %332, label %333
 
-318:                                              ; preds = %.preheader26
+332:                                              ; preds = %.preheader26
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %319
+  br label %333
 
-319:                                              ; preds = %318, %.preheader26
-  %320 = add nuw nsw i64 %312, 1
-  %321 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %320, i32 1
-  %322 = load float, ptr %321, align 4, !tbaa !17
-  %323 = fsub reassoc nsz arcp contract afn float %166, %322
-  %324 = fmul reassoc nsz arcp contract afn float %323, %323
-  %325 = fcmp reassoc nsz arcp contract afn olt float %324, 0x3F5A36E2E0000000
-  br i1 %325, label %326, label %327
+333:                                              ; preds = %332, %.preheader26
+  %334 = add nuw nsw i64 %326, 1
+  %335 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %334, i32 1
+  %336 = load float, ptr %335, align 4, !tbaa !17
+  %337 = fsub reassoc nsz arcp contract afn float %166, %336
+  %338 = fmul reassoc nsz arcp contract afn float %337, %337
+  %339 = fcmp reassoc nsz arcp contract afn olt float %338, 0x3F5A36E2E0000000
+  br i1 %339, label %340, label %341
 
-326:                                              ; preds = %319
+340:                                              ; preds = %333
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %327
+  br label %341
 
-327:                                              ; preds = %326, %319
-  %328 = add nuw nsw i64 %312, 2
-  %329 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %328, i32 1
-  %330 = load float, ptr %329, align 4, !tbaa !17
-  %331 = fsub reassoc nsz arcp contract afn float %166, %330
-  %332 = fmul reassoc nsz arcp contract afn float %331, %331
-  %333 = fcmp reassoc nsz arcp contract afn olt float %332, 0x3F5A36E2E0000000
-  br i1 %333, label %334, label %335
+341:                                              ; preds = %340, %333
+  %342 = add nuw nsw i64 %326, 2
+  %343 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %342, i32 1
+  %344 = load float, ptr %343, align 4, !tbaa !17
+  %345 = fsub reassoc nsz arcp contract afn float %166, %344
+  %346 = fmul reassoc nsz arcp contract afn float %345, %345
+  %347 = fcmp reassoc nsz arcp contract afn olt float %346, 0x3F5A36E2E0000000
+  br i1 %347, label %348, label %349
 
-334:                                              ; preds = %327
+348:                                              ; preds = %341
   store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %335
-
-335:                                              ; preds = %334, %327
-  %336 = add nuw nsw i64 %312, 3
-  %337 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %336, i32 1
-  %338 = load float, ptr %337, align 4, !tbaa !17
-  %339 = fsub reassoc nsz arcp contract afn float %166, %338
-  %340 = fmul reassoc nsz arcp contract afn float %339, %339
-  %341 = fcmp reassoc nsz arcp contract afn olt float %340, 0x3F5A36E2E0000000
-  br i1 %341, label %342, label %343
-
-342:                                              ; preds = %335
-  store i32 %171, ptr %31, align 8, !tbaa !221
-  br label %343
-
-343:                                              ; preds = %342, %335
-  %344 = add nuw nsw i64 %312, 4
-  %345 = icmp eq i64 %344, %176
-  br i1 %345, label %.loopexit, label %.preheader26, !llvm.loop !274
-
-346:                                              ; preds = %.loopexit, %dt_draw_curve_calc_value.exit, %102, %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
-  br label %508
-
-347:                                              ; preds = %30, %20
-  %348 = load i32, ptr %1, align 8, !tbaa !255
   br label %349
 
-349:                                              ; preds = %347, %17
-  %350 = phi i32 [ %348, %347 ], [ %18, %17 ]
-  %351 = icmp eq i32 %350, 5
-  br i1 %351, label %352, label %508
+349:                                              ; preds = %348, %341
+  %350 = add nuw nsw i64 %326, 3
+  %351 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %350, i32 1
+  %352 = load float, ptr %351, align 4, !tbaa !17
+  %353 = fsub reassoc nsz arcp contract afn float %166, %352
+  %354 = fmul reassoc nsz arcp contract afn float %353, %353
+  %355 = fcmp reassoc nsz arcp contract afn olt float %354, 0x3F5A36E2E0000000
+  br i1 %355, label %356, label %357
 
-352:                                              ; preds = %349
-  %353 = getelementptr inbounds i8, ptr %10, i64 480
-  %354 = load i32, ptr %353, align 4, !tbaa !10
-  store i32 %354, ptr %13, align 4, !tbaa !10
-  %355 = getelementptr inbounds i8, ptr %10, i64 492
-  %356 = load i32, ptr %355, align 4, !tbaa !10
-  %357 = getelementptr inbounds i8, ptr %8, i64 492
-  store i32 %356, ptr %357, align 4, !tbaa !10
-  %358 = load i32, ptr %353, align 4, !tbaa !10
-  %359 = icmp sgt i32 %358, 0
-  br i1 %359, label %360, label %.loopexit32
+356:                                              ; preds = %349
+  store i32 %171, ptr %31, align 8, !tbaa !221
+  br label %357
 
-360:                                              ; preds = %352
-  %361 = zext nneg i32 %358 to i64
-  %362 = icmp ult i32 %358, 16
-  br i1 %362, label %394, label %363
+357:                                              ; preds = %356, %349
+  %358 = add nuw nsw i64 %326, 4
+  %359 = icmp eq i64 %358, %176
+  br i1 %359, label %.loopexit, label %.preheader26, !llvm.loop !274
 
-363:                                              ; preds = %360
-  %364 = shl nuw nsw i64 %361, 3
-  %365 = add nsw i64 %364, -4
-  %366 = getelementptr i8, ptr %8, i64 %365
-  %367 = getelementptr i8, ptr %10, i64 %365
-  %368 = getelementptr i8, ptr %8, i64 4
-  %369 = getelementptr i8, ptr %8, i64 %364
-  %370 = getelementptr i8, ptr %10, i64 4
-  %371 = getelementptr i8, ptr %10, i64 %364
-  %372 = icmp ult ptr %8, %367
-  %373 = icmp ult ptr %10, %366
-  %374 = and i1 %372, %373
-  %375 = icmp ult ptr %368, %371
-  %376 = icmp ult ptr %370, %369
-  %377 = and i1 %375, %376
-  %378 = or i1 %377, %374
-  br i1 %378, label %394, label %379
+360:                                              ; preds = %.loopexit, %dt_draw_curve_calc_value.exit, %102, %90
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  br label %522
 
-379:                                              ; preds = %363
-  %380 = and i64 %361, 2147483632
-  br label %381
+361:                                              ; preds = %30, %20
+  %362 = load i32, ptr %1, align 8, !tbaa !255
+  br label %363
 
-381:                                              ; preds = %381, %379
-  %382 = phi i64 [ 0, %379 ], [ %390, %381 ]
-  %383 = or disjoint i64 %382, 8
-  %384 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %382
-  %385 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %383
-  %386 = load <16 x float>, ptr %384, align 4, !tbaa !12
-  %387 = load <16 x float>, ptr %385, align 4, !tbaa !12
-  %388 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %382
-  %389 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %383
-  store <16 x float> %386, ptr %388, align 4, !tbaa !12
-  store <16 x float> %387, ptr %389, align 4, !tbaa !12
-  %390 = add nuw nsw i64 %382, 16
-  %391 = icmp eq i64 %390, %380
-  br i1 %391, label %392, label %381, !llvm.loop !275
+363:                                              ; preds = %361, %17
+  %364 = phi i32 [ %362, %361 ], [ %18, %17 ]
+  %365 = icmp eq i32 %364, 5
+  br i1 %365, label %366, label %522
 
-392:                                              ; preds = %381
-  %393 = icmp eq i64 %380, %361
-  br i1 %393, label %.loopexit32, label %394
+366:                                              ; preds = %363
+  %367 = getelementptr inbounds i8, ptr %10, i64 480
+  %368 = load i32, ptr %367, align 4, !tbaa !10
+  store i32 %368, ptr %13, align 4, !tbaa !10
+  %369 = getelementptr inbounds i8, ptr %10, i64 492
+  %370 = load i32, ptr %369, align 4, !tbaa !10
+  %371 = getelementptr inbounds i8, ptr %8, i64 492
+  store i32 %370, ptr %371, align 4, !tbaa !10
+  %372 = load i32, ptr %367, align 4, !tbaa !10
+  %373 = icmp sgt i32 %372, 0
+  br i1 %373, label %374, label %.loopexit32
 
-394:                                              ; preds = %392, %363, %360
-  %395 = phi i64 [ 0, %363 ], [ 0, %360 ], [ %380, %392 ]
-  %396 = and i64 %361, 7
-  %397 = icmp eq i64 %396, 0
-  br i1 %397, label %.loopexit34, label %.preheader33
+374:                                              ; preds = %366
+  %375 = zext nneg i32 %372 to i64
+  %376 = icmp ult i32 %372, 16
+  br i1 %376, label %408, label %377
 
-.preheader33:                                     ; preds = %394, %.preheader33
-  %398 = phi i64 [ %403, %.preheader33 ], [ %395, %394 ]
-  %399 = phi i64 [ %404, %.preheader33 ], [ 0, %394 ]
-  %400 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %398
-  %401 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %398
-  %402 = load <2 x float>, ptr %400, align 4, !tbaa !12
-  store <2 x float> %402, ptr %401, align 4, !tbaa !12
-  %403 = add nuw nsw i64 %398, 1
-  %404 = add nuw nsw i64 %399, 1
-  %405 = icmp eq i64 %404, %396
-  br i1 %405, label %.loopexit34, label %.preheader33, !llvm.loop !276
+377:                                              ; preds = %374
+  %378 = shl nuw nsw i64 %375, 3
+  %379 = add nsw i64 %378, -4
+  %380 = getelementptr i8, ptr %8, i64 %379
+  %381 = getelementptr i8, ptr %10, i64 %379
+  %382 = getelementptr i8, ptr %8, i64 4
+  %383 = getelementptr i8, ptr %8, i64 %378
+  %384 = getelementptr i8, ptr %10, i64 4
+  %385 = getelementptr i8, ptr %10, i64 %378
+  %386 = icmp ult ptr %8, %381
+  %387 = icmp ult ptr %10, %380
+  %388 = and i1 %386, %387
+  %389 = icmp ult ptr %382, %385
+  %390 = icmp ult ptr %384, %383
+  %391 = and i1 %389, %390
+  %392 = or i1 %391, %388
+  br i1 %392, label %408, label %393
 
-.loopexit34:                                      ; preds = %.preheader33, %394
-  %406 = phi i64 [ %395, %394 ], [ %403, %.preheader33 ]
-  %407 = sub nsw i64 %395, %361
-  %408 = icmp ugt i64 %407, -8
-  br i1 %408, label %.loopexit32, label %.preheader31
+393:                                              ; preds = %377
+  %394 = and i64 %375, 2147483632
+  br label %395
 
-.loopexit32:                                      ; preds = %.preheader31, %.loopexit34, %392, %352
-  %409 = getelementptr inbounds i8, ptr %12, i64 80
-  store i32 -2, ptr %409, align 8, !tbaa !221
-  %410 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %410, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
-  %411 = getelementptr inbounds i8, ptr %2, i64 816
-  %412 = load ptr, ptr %411, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %412) #27
-  br label %508
+395:                                              ; preds = %395, %393
+  %396 = phi i64 [ 0, %393 ], [ %404, %395 ]
+  %397 = or disjoint i64 %396, 8
+  %398 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %396
+  %399 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %397
+  %400 = load <16 x float>, ptr %398, align 4, !tbaa !12
+  %401 = load <16 x float>, ptr %399, align 4, !tbaa !12
+  %402 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %396
+  %403 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %397
+  store <16 x float> %400, ptr %402, align 4, !tbaa !12
+  store <16 x float> %401, ptr %403, align 4, !tbaa !12
+  %404 = add nuw nsw i64 %396, 16
+  %405 = icmp eq i64 %404, %394
+  br i1 %405, label %406, label %395, !llvm.loop !275
 
-.preheader31:                                     ; preds = %.loopexit34, %.preheader31
-  %413 = phi i64 [ %445, %.preheader31 ], [ %406, %.loopexit34 ]
-  %414 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %413
-  %415 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %413
+406:                                              ; preds = %395
+  %407 = icmp eq i64 %394, %375
+  br i1 %407, label %.loopexit32, label %408
+
+408:                                              ; preds = %406, %377, %374
+  %409 = phi i64 [ 0, %377 ], [ 0, %374 ], [ %394, %406 ]
+  %410 = and i64 %375, 7
+  %411 = icmp eq i64 %410, 0
+  br i1 %411, label %.loopexit34, label %.preheader33
+
+.preheader33:                                     ; preds = %408, %.preheader33
+  %412 = phi i64 [ %417, %.preheader33 ], [ %409, %408 ]
+  %413 = phi i64 [ %418, %.preheader33 ], [ 0, %408 ]
+  %414 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %412
+  %415 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %412
   %416 = load <2 x float>, ptr %414, align 4, !tbaa !12
   store <2 x float> %416, ptr %415, align 4, !tbaa !12
-  %417 = add nuw nsw i64 %413, 1
-  %418 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %417
-  %419 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %417
-  %420 = load <2 x float>, ptr %418, align 4, !tbaa !12
-  store <2 x float> %420, ptr %419, align 4, !tbaa !12
-  %421 = add nuw nsw i64 %413, 2
-  %422 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %421
-  %423 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %421
-  %424 = load <2 x float>, ptr %422, align 4, !tbaa !12
-  store <2 x float> %424, ptr %423, align 4, !tbaa !12
-  %425 = add nuw nsw i64 %413, 3
-  %426 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %425
-  %427 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %425
-  %428 = load <2 x float>, ptr %426, align 4, !tbaa !12
-  store <2 x float> %428, ptr %427, align 4, !tbaa !12
-  %429 = add nuw nsw i64 %413, 4
-  %430 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %429
-  %431 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %429
-  %432 = load <2 x float>, ptr %430, align 4, !tbaa !12
-  store <2 x float> %432, ptr %431, align 4, !tbaa !12
-  %433 = add nuw nsw i64 %413, 5
-  %434 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %433
-  %435 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %433
-  %436 = load <2 x float>, ptr %434, align 4, !tbaa !12
-  store <2 x float> %436, ptr %435, align 4, !tbaa !12
-  %437 = add nuw nsw i64 %413, 6
-  %438 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %437
-  %439 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %437
-  %440 = load <2 x float>, ptr %438, align 4, !tbaa !12
-  store <2 x float> %440, ptr %439, align 4, !tbaa !12
-  %441 = add nuw nsw i64 %413, 7
-  %442 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %441
-  %443 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %441
-  %444 = load <2 x float>, ptr %442, align 4, !tbaa !12
-  store <2 x float> %444, ptr %443, align 4, !tbaa !12
-  %445 = add nuw nsw i64 %413, 8
-  %446 = icmp eq i64 %445, %361
-  br i1 %446, label %.loopexit32, label %.preheader31, !llvm.loop !277
+  %417 = add nuw nsw i64 %412, 1
+  %418 = add nuw nsw i64 %413, 1
+  %419 = icmp eq i64 %418, %410
+  br i1 %419, label %.loopexit34, label %.preheader33, !llvm.loop !276
 
-447:                                              ; preds = %3
-  %448 = getelementptr inbounds i8, ptr %12, i64 80
-  %449 = load i32, ptr %448, align 8, !tbaa !221
-  %450 = icmp sgt i32 %449, -1
-  br i1 %450, label %451, label %508
+.loopexit34:                                      ; preds = %.preheader33, %408
+  %420 = phi i64 [ %409, %408 ], [ %417, %.preheader33 ]
+  %421 = sub nsw i64 %409, %375
+  %422 = icmp ugt i64 %421, -8
+  br i1 %422, label %.loopexit32, label %.preheader31
 
-451:                                              ; preds = %447
-  %452 = icmp eq i32 %449, 0
-  br i1 %452, label %484, label %453
+.loopexit32:                                      ; preds = %.preheader31, %.loopexit34, %406, %366
+  %423 = getelementptr inbounds i8, ptr %12, i64 80
+  store i32 -2, ptr %423, align 8, !tbaa !221
+  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
+  tail call void @dt_dev_add_history_item_target(ptr noundef %424, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  %425 = getelementptr inbounds i8, ptr %2, i64 816
+  %426 = load ptr, ptr %425, align 16, !tbaa !212
+  tail call void @gtk_widget_queue_draw(ptr noundef %426) #27
+  br label %522
 
-453:                                              ; preds = %451
-  %454 = add nsw i32 %14, -1
-  %455 = icmp eq i32 %449, %454
-  br i1 %455, label %484, label %456
+.preheader31:                                     ; preds = %.loopexit34, %.preheader31
+  %427 = phi i64 [ %459, %.preheader31 ], [ %420, %.loopexit34 ]
+  %428 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %427
+  %429 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %427
+  %430 = load <2 x float>, ptr %428, align 4, !tbaa !12
+  store <2 x float> %430, ptr %429, align 4, !tbaa !12
+  %431 = add nuw nsw i64 %427, 1
+  %432 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %431
+  %433 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %431
+  %434 = load <2 x float>, ptr %432, align 4, !tbaa !12
+  store <2 x float> %434, ptr %433, align 4, !tbaa !12
+  %435 = add nuw nsw i64 %427, 2
+  %436 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %435
+  %437 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %435
+  %438 = load <2 x float>, ptr %436, align 4, !tbaa !12
+  store <2 x float> %438, ptr %437, align 4, !tbaa !12
+  %439 = add nuw nsw i64 %427, 3
+  %440 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %439
+  %441 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %439
+  %442 = load <2 x float>, ptr %440, align 4, !tbaa !12
+  store <2 x float> %442, ptr %441, align 4, !tbaa !12
+  %443 = add nuw nsw i64 %427, 4
+  %444 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %443
+  %445 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %443
+  %446 = load <2 x float>, ptr %444, align 4, !tbaa !12
+  store <2 x float> %446, ptr %445, align 4, !tbaa !12
+  %447 = add nuw nsw i64 %427, 5
+  %448 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %447
+  %449 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %447
+  %450 = load <2 x float>, ptr %448, align 4, !tbaa !12
+  store <2 x float> %450, ptr %449, align 4, !tbaa !12
+  %451 = add nuw nsw i64 %427, 6
+  %452 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %451
+  %453 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %451
+  %454 = load <2 x float>, ptr %452, align 4, !tbaa !12
+  store <2 x float> %454, ptr %453, align 4, !tbaa !12
+  %455 = add nuw nsw i64 %427, 7
+  %456 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %10, i64 0, i64 %455
+  %457 = getelementptr inbounds [20 x %struct.dt_iop_basecurve_node_t], ptr %8, i64 0, i64 %455
+  %458 = load <2 x float>, ptr %456, align 4, !tbaa !12
+  store <2 x float> %458, ptr %457, align 4, !tbaa !12
+  %459 = add nuw nsw i64 %427, 8
+  %460 = icmp eq i64 %459, %375
+  br i1 %460, label %.loopexit32, label %.preheader31, !llvm.loop !277
 
-456:                                              ; preds = %453
-  %457 = icmp slt i32 %449, %454
-  br i1 %457, label %458, label %.loopexit35
+461:                                              ; preds = %3
+  %462 = getelementptr inbounds i8, ptr %12, i64 80
+  %463 = load i32, ptr %462, align 8, !tbaa !221
+  %464 = icmp sgt i32 %463, -1
+  br i1 %464, label %465, label %522
 
-458:                                              ; preds = %456
-  %459 = zext nneg i32 %449 to i64
-  %460 = add i32 %14, -2
-  %461 = sub nsw i32 %460, %449
-  %462 = zext i32 %461 to i64
-  %463 = add nuw nsw i64 %462, 1
-  %464 = icmp ult i32 %461, 15
-  br i1 %464, label %.preheader57, label %465
+465:                                              ; preds = %461
+  %466 = icmp eq i32 %463, 0
+  br i1 %466, label %498, label %467
 
-.preheader57:                                     ; preds = %481, %458
-  %.ph58 = phi i64 [ %482, %481 ], [ %459, %458 ]
-  br label %500
+467:                                              ; preds = %465
+  %468 = add nsw i32 %14, -1
+  %469 = icmp eq i32 %463, %468
+  br i1 %469, label %498, label %470
 
-465:                                              ; preds = %458
-  %466 = and i64 %463, 8589934576
-  %467 = getelementptr i8, ptr %8, i64 8
-  %468 = getelementptr i8, ptr %8, i64 72
-  %469 = getelementptr i8, ptr %8, i64 64
-  br label %470
+470:                                              ; preds = %467
+  %471 = icmp slt i32 %463, %468
+  br i1 %471, label %472, label %.loopexit35
 
-470:                                              ; preds = %470, %465
-  %471 = phi i64 [ 0, %465 ], [ %479, %470 ]
-  %472 = add i64 %471, %459
-  %473 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %467, i64 %472
-  %474 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %468, i64 %472
-  %475 = load <16 x float>, ptr %473, align 4, !tbaa !12
-  %476 = load <16 x float>, ptr %474, align 4, !tbaa !12
-  %477 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %472
-  %478 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %469, i64 %472
-  store <16 x float> %475, ptr %477, align 4, !tbaa !12
-  store <16 x float> %476, ptr %478, align 4, !tbaa !12
-  %479 = add nuw i64 %471, 16
-  %480 = icmp eq i64 %479, %466
-  br i1 %480, label %481, label %470, !llvm.loop !278
+472:                                              ; preds = %470
+  %473 = zext nneg i32 %463 to i64
+  %474 = add i32 %14, -2
+  %475 = sub nsw i32 %474, %463
+  %476 = zext i32 %475 to i64
+  %477 = add nuw nsw i64 %476, 1
+  %478 = icmp ult i32 %475, 15
+  br i1 %478, label %.preheader57, label %479
 
-481:                                              ; preds = %470
-  %482 = add nuw nsw i64 %466, %459
-  %483 = icmp eq i64 %463, %466
-  br i1 %483, label %.loopexit35, label %.preheader57
+.preheader57:                                     ; preds = %495, %472
+  %.ph58 = phi i64 [ %496, %495 ], [ %473, %472 ]
+  br label %514
 
-484:                                              ; preds = %453, %451
-  %485 = icmp ne i32 %449, 0
-  %486 = uitofp i1 %485 to float
-  %487 = zext nneg i32 %449 to i64
-  %488 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %487
-  store float %486, ptr %488, align 4, !tbaa !15
-  %489 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %487, i32 1
-  store float %486, ptr %489, align 4, !tbaa !17
-  %490 = getelementptr inbounds i8, ptr %2, i64 816
-  %491 = load ptr, ptr %490, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %491) #27
-  %492 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %492, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #27
-  br label %508
+479:                                              ; preds = %472
+  %480 = and i64 %477, 8589934576
+  %481 = getelementptr i8, ptr %8, i64 8
+  %482 = getelementptr i8, ptr %8, i64 72
+  %483 = getelementptr i8, ptr %8, i64 64
+  br label %484
 
-.loopexit35:                                      ; preds = %500, %481, %456
-  %493 = sext i32 %454 to i64
-  %494 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %493
-  store <2 x float> zeroinitializer, ptr %494, align 4, !tbaa !12
-  store i32 -2, ptr %448, align 8, !tbaa !221
-  %495 = load i32, ptr %13, align 4, !tbaa !10
-  %496 = add nsw i32 %495, -1
-  store i32 %496, ptr %13, align 4, !tbaa !10
-  %497 = getelementptr inbounds i8, ptr %2, i64 816
-  %498 = load ptr, ptr %497, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %498) #27
-  %499 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %499, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
-  br label %508
+484:                                              ; preds = %484, %479
+  %485 = phi i64 [ 0, %479 ], [ %493, %484 ]
+  %486 = add i64 %485, %473
+  %487 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %481, i64 %486
+  %488 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %482, i64 %486
+  %489 = load <16 x float>, ptr %487, align 4, !tbaa !12
+  %490 = load <16 x float>, ptr %488, align 4, !tbaa !12
+  %491 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %486
+  %492 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %483, i64 %486
+  store <16 x float> %489, ptr %491, align 4, !tbaa !12
+  store <16 x float> %490, ptr %492, align 4, !tbaa !12
+  %493 = add nuw i64 %485, 16
+  %494 = icmp eq i64 %493, %480
+  br i1 %494, label %495, label %484, !llvm.loop !278
 
-500:                                              ; preds = %.preheader57, %500
-  %501 = phi i64 [ %502, %500 ], [ %.ph58, %.preheader57 ]
-  %502 = add nuw nsw i64 %501, 1
-  %503 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %502
-  %504 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %501
-  %505 = load <2 x float>, ptr %503, align 4, !tbaa !12
-  store <2 x float> %505, ptr %504, align 4, !tbaa !12
-  %506 = trunc i64 %502 to i32
-  %507 = icmp sgt i32 %454, %506
-  br i1 %507, label %500, label %.loopexit35, !llvm.loop !279
+495:                                              ; preds = %484
+  %496 = add nuw nsw i64 %480, %473
+  %497 = icmp eq i64 %477, %480
+  br i1 %497, label %.loopexit35, label %.preheader57
 
-508:                                              ; preds = %.loopexit35, %484, %447, %.loopexit32, %349, %346, %3
-  %509 = phi i32 [ 1, %346 ], [ 1, %.loopexit32 ], [ 1, %484 ], [ 1, %.loopexit35 ], [ 0, %3 ], [ 0, %447 ], [ 0, %349 ]
-  ret i32 %509
+498:                                              ; preds = %467, %465
+  %499 = icmp ne i32 %463, 0
+  %500 = uitofp i1 %499 to float
+  %501 = zext nneg i32 %463 to i64
+  %502 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %501
+  store float %500, ptr %502, align 4, !tbaa !15
+  %503 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %501, i32 1
+  store float %500, ptr %503, align 4, !tbaa !17
+  %504 = getelementptr inbounds i8, ptr %2, i64 816
+  %505 = load ptr, ptr %504, align 16, !tbaa !212
+  tail call void @gtk_widget_queue_draw(ptr noundef %505) #27
+  %506 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
+  tail call void @dt_dev_add_history_item_target(ptr noundef %506, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #27
+  br label %522
+
+.loopexit35:                                      ; preds = %514, %495, %470
+  %507 = sext i32 %468 to i64
+  %508 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %507
+  store <2 x float> zeroinitializer, ptr %508, align 4, !tbaa !12
+  store i32 -2, ptr %462, align 8, !tbaa !221
+  %509 = load i32, ptr %13, align 4, !tbaa !10
+  %510 = add nsw i32 %509, -1
+  store i32 %510, ptr %13, align 4, !tbaa !10
+  %511 = getelementptr inbounds i8, ptr %2, i64 816
+  %512 = load ptr, ptr %511, align 16, !tbaa !212
+  tail call void @gtk_widget_queue_draw(ptr noundef %512) #27
+  %513 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !273
+  tail call void @dt_dev_add_history_item_target(ptr noundef %513, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  br label %522
+
+514:                                              ; preds = %.preheader57, %514
+  %515 = phi i64 [ %516, %514 ], [ %.ph58, %.preheader57 ]
+  %516 = add nuw nsw i64 %515, 1
+  %517 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %516
+  %518 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %515
+  %519 = load <2 x float>, ptr %517, align 4, !tbaa !12
+  store <2 x float> %519, ptr %518, align 4, !tbaa !12
+  %520 = trunc i64 %516 to i32
+  %521 = icmp sgt i32 %468, %520
+  br i1 %521, label %514, label %.loopexit35, !llvm.loop !279
+
+522:                                              ; preds = %.loopexit35, %498, %461, %.loopexit32, %363, %360, %3
+  %523 = phi i32 [ 1, %360 ], [ 1, %.loopexit32 ], [ 1, %498 ], [ 1, %.loopexit35 ], [ 0, %3 ], [ 0, %461 ], [ 0, %363 ]
+  ret i32 %523
 }
 
 ; Function Attrs: nounwind uwtable

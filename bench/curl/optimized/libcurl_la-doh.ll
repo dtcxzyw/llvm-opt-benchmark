@@ -163,8 +163,14 @@ entry:
   br i1 %cmp3.i, label %if.then, label %if.end10.i
 
 if.end10.i:                                       ; preds = %entry
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p, i64 13
+  store i8 0, ptr %dohbuffer, align 1
+  %incdec.ptr11.i = getelementptr inbounds i8, ptr %p, i64 14
+  store i8 0, ptr %incdec.ptr.i, align 1
+  %incdec.ptr12.i = getelementptr inbounds i8, ptr %p, i64 15
+  store i8 1, ptr %incdec.ptr11.i, align 1
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %p, i64 16
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %dohbuffer, align 1
+  store i8 0, ptr %incdec.ptr12.i, align 1
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %p, i64 17
   store i8 0, ptr %incdec.ptr13.i, align 1
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %p, i64 18

@@ -641,8 +641,8 @@ _ZN4YAML11NodeBuilder14RegisterAnchorEmRNS_6detail4nodeE.exit: ; preds = %entry,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML11NodeBuilder3PopEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
-  %agg.tmp18 = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp18 = alloca %"class.std::shared_ptr", align 8
   %m_stack = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -681,16 +681,17 @@ if.end:                                           ; preds = %entry
 
 if.then12:                                        ; preds = %if.end
   %m_pMemory = getelementptr inbounds i8, ptr %this, i64 8
+  %9 = load ptr, ptr %m_pMemory, align 8
+  store ptr %9, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %10 = load <2 x ptr>, ptr %m_pMemory, align 8
-  store <2 x ptr> %10, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %10, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -799,16 +800,17 @@ if.then17:                                        ; preds = %if.then15
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %26, i64 -16
   %28 = load ptr, ptr %add.ptr.i.i24, align 8
   %m_pMemory19 = getelementptr inbounds i8, ptr %this, i64 8
+  %29 = load ptr, ptr %m_pMemory19, align 8
+  store ptr %29, ptr %agg.tmp18, align 8
   %_M_refcount.i.i25 = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %_M_refcount3.i.i26 = getelementptr inbounds i8, ptr %this, i64 16
-  %29 = load ptr, ptr %_M_refcount3.i.i26, align 8
-  %30 = load <2 x ptr>, ptr %m_pMemory19, align 8
-  store <2 x ptr> %30, ptr %agg.tmp18, align 16
-  %cmp.not.i.i.i27 = icmp eq ptr %29, null
+  %30 = load ptr, ptr %_M_refcount3.i.i26, align 8
+  store ptr %30, ptr %_M_refcount.i.i25, align 8
+  %cmp.not.i.i.i27 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i27, label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit34, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %if.then17
-  %_M_use_count.i.i.i.i29 = getelementptr inbounds i8, ptr %29, i64 8
+  %_M_use_count.i.i.i.i29 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i30 = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i.i.i.i30, label %if.else.i.i.i.i.i33, label %if.then.i.i.i.i.i31
@@ -1358,18 +1360,19 @@ if.end:                                           ; preds = %_ZNSt6vectorIPN4YAM
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4YAML6detail4node9push_backERS1_St10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %input, ptr noundef %pMemory) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %pMemory, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pMemory, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %pMemory, align 8
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1479,18 +1482,19 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4YAML6detail4node6insertERS1_S2_St10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %key, ptr noundef nonnull align 8 dereferenceable(72) %value, ptr noundef %pMemory) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %pMemory, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pMemory, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %pMemory, align 8
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4YAML6detail13memory_holderEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

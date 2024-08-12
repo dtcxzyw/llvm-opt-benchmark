@@ -541,73 +541,77 @@ if.end20.i:                                       ; preds = %if.then13.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end20.i, %if.end10.i
+  %54 = load i32, ptr %new_token, align 8
   %level25.i = getelementptr inbounds i8, ptr %32, i64 16
-  %54 = load <2 x i32>, ptr %new_token, align 8
-  store <2 x i32> %54, ptr %level25.i, align 8
-  %55 = load ptr, ptr %p, align 8
-  %lineno27.i = getelementptr inbounds i8, ptr %55, i64 512
-  %56 = load i32, ptr %lineno27.i, align 8
+  store i32 %54, ptr %level25.i, align 8
+  %lineno.i = getelementptr inbounds i8, ptr %new_token, i64 4
+  %55 = load i32, ptr %lineno.i, align 4
+  %lineno26.i = getelementptr inbounds i8, ptr %32, i64 20
+  store i32 %55, ptr %lineno26.i, align 4
+  %56 = load ptr, ptr %p, align 8
+  %lineno27.i = getelementptr inbounds i8, ptr %56, i64 512
+  %57 = load i32, ptr %lineno27.i, align 8
   %starting_lineno.i = getelementptr inbounds i8, ptr %p, i64 88
-  %57 = load i32, ptr %starting_lineno.i, align 8
-  %cmp28.i = icmp eq i32 %56, %57
+  %58 = load i32, ptr %starting_lineno.i, align 8
+  %cmp28.i = icmp eq i32 %57, %58
   br i1 %cmp28.i, label %cond.true29.i, label %cond.false30.i
 
 cond.true29.i:                                    ; preds = %if.end24.i
   %starting_col_offset.i = getelementptr inbounds i8, ptr %p, i64 92
-  %58 = load i32, ptr %starting_col_offset.i, align 4
+  %59 = load i32, ptr %starting_col_offset.i, align 4
   %col_offset.i = getelementptr inbounds i8, ptr %new_token, i64 8
-  %59 = load i32, ptr %col_offset.i, align 8
-  %add.i = add i32 %59, %58
+  %60 = load i32, ptr %col_offset.i, align 8
+  %add.i = add i32 %60, %59
   br label %cond.end32.i
 
 cond.false30.i:                                   ; preds = %if.end24.i
   %col_offset31.i = getelementptr inbounds i8, ptr %new_token, i64 8
-  %60 = load i32, ptr %col_offset31.i, align 8
+  %61 = load i32, ptr %col_offset31.i, align 8
   br label %cond.end32.i
 
 cond.end32.i:                                     ; preds = %cond.false30.i, %cond.true29.i
-  %cond33.i = phi i32 [ %add.i, %cond.true29.i ], [ %60, %cond.false30.i ]
+  %cond33.i = phi i32 [ %add.i, %cond.true29.i ], [ %61, %cond.false30.i ]
   %col_offset34.i = getelementptr inbounds i8, ptr %32, i64 24
   store i32 %cond33.i, ptr %col_offset34.i, align 8
   %end_lineno.i = getelementptr inbounds i8, ptr %new_token, i64 12
-  %61 = load i32, ptr %end_lineno.i, align 4
+  %62 = load i32, ptr %end_lineno.i, align 4
   %end_lineno35.i = getelementptr inbounds i8, ptr %32, i64 28
-  store i32 %61, ptr %end_lineno35.i, align 4
-  %62 = load ptr, ptr %p, align 8
-  %lineno37.i = getelementptr inbounds i8, ptr %62, i64 512
-  %63 = load i32, ptr %lineno37.i, align 8
-  %64 = load i32, ptr %starting_lineno.i, align 8
-  %cmp39.i = icmp eq i32 %63, %64
+  store i32 %62, ptr %end_lineno35.i, align 4
+  %63 = load ptr, ptr %p, align 8
+  %lineno37.i = getelementptr inbounds i8, ptr %63, i64 512
+  %64 = load i32, ptr %lineno37.i, align 8
+  %65 = load i32, ptr %starting_lineno.i, align 8
+  %cmp39.i = icmp eq i32 %64, %65
   br i1 %cmp39.i, label %cond.true40.i, label %cond.false43.i
 
 cond.true40.i:                                    ; preds = %cond.end32.i
   %starting_col_offset41.i = getelementptr inbounds i8, ptr %p, i64 92
-  %65 = load i32, ptr %starting_col_offset41.i, align 4
+  %66 = load i32, ptr %starting_col_offset41.i, align 4
   %end_col_offset.i = getelementptr inbounds i8, ptr %new_token, i64 16
-  %66 = load i32, ptr %end_col_offset.i, align 8
-  %add42.i = add i32 %66, %65
+  %67 = load i32, ptr %end_col_offset.i, align 8
+  %add42.i = add i32 %67, %66
   br label %cond.end45.i
 
 cond.false43.i:                                   ; preds = %cond.end32.i
   %end_col_offset44.i = getelementptr inbounds i8, ptr %new_token, i64 16
-  %67 = load i32, ptr %end_col_offset44.i, align 8
+  %68 = load i32, ptr %end_col_offset44.i, align 8
   br label %cond.end45.i
 
 cond.end45.i:                                     ; preds = %cond.false43.i, %cond.true40.i
-  %cond46.i = phi i32 [ %add42.i, %cond.true40.i ], [ %67, %cond.false43.i ]
+  %cond46.i = phi i32 [ %add42.i, %cond.true40.i ], [ %68, %cond.false43.i ]
   %end_col_offset47.i = getelementptr inbounds i8, ptr %32, i64 32
   store i32 %cond46.i, ptr %end_col_offset47.i, align 8
-  %68 = load i32, ptr %fill, align 4
-  %add48.i = add i32 %68, 1
+  %69 = load i32, ptr %fill, align 4
+  %add48.i = add i32 %69, 1
   store i32 %add48.i, ptr %fill, align 4
   %cmp49.i = icmp eq i32 %type.1, 64
   br i1 %cmp49.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %cond.end45.i
-  %69 = load ptr, ptr %p, align 8
-  %done.i = getelementptr inbounds i8, ptr %69, i64 64
-  %70 = load i32, ptr %done.i, align 8
-  %cmp51.i = icmp eq i32 %70, 22
+  %70 = load ptr, ptr %p, align 8
+  %done.i = getelementptr inbounds i8, ptr %70, i64 64
+  %71 = load i32, ptr %done.i, align 8
+  %cmp51.i = icmp eq i32 %71, 22
   br i1 %cmp51.i, label %if.then52.i, label %cond.true56.i
 
 if.then52.i:                                      ; preds = %land.lhs.true.i

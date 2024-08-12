@@ -670,64 +670,69 @@ define noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %0, ptr nocapture noundef %1
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = alloca [2 x i32], align 8
+  %3 = alloca [2 x i32], align 4
   %4 = load i32, ptr %0, align 8
-  switch i32 %4, label %35 [
+  switch i32 %4, label %38 [
     i32 0, label %5
-    i32 1, label %21
-    i32 2, label %36
+    i32 1, label %22
+    i32 2, label %39
   ]
 
 5:                                                ; preds = %2
-  %6 = load <2 x i32>, ptr %1, align 4
-  %7 = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %3, align 4
+  %8 = load i32, ptr %1, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %36, label %13
+  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %13 = load ptr, ptr %12, align 8
+  %14 = call noundef i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %.not32 = icmp eq i32 %14, 0
+  br i1 %.not32, label %39, label %15
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %14)
-  %19 = icmp ne i32 %18, 0
-  %20 = zext i1 %19 to i32
-  br label %36
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %10, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  br label %39
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 4
-  %27 = call noundef i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %26)
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %35, label %28
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = call noundef i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %27)
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %38, label %29
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %.not31 = icmp eq i32 %32, 0
-  br i1 %.not31, label %35, label %33
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %33 = call noundef i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %.not31 = icmp eq i32 %33, 0
+  br i1 %.not31, label %38, label %34
 
-33:                                               ; preds = %28
-  %34 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %34, ptr %1, align 4
-  br label %36
+34:                                               ; preds = %29
+  %35 = load i32, ptr %3, align 4
+  store i32 %35, ptr %1, align 4
+  %36 = load i32, ptr %27, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %36, ptr %37, align 4
+  br label %39
 
-35:                                               ; preds = %21, %28, %2
-  br label %36
+38:                                               ; preds = %22, %29, %2
+  br label %39
 
-36:                                               ; preds = %2, %5, %13, %35, %33
-  %.0 = phi i32 [ 0, %35 ], [ 1, %33 ], [ 0, %5 ], [ %20, %13 ], [ 1, %2 ]
+39:                                               ; preds = %2, %5, %15, %38, %34
+  %.0 = phi i32 [ 0, %38 ], [ 1, %34 ], [ 0, %5 ], [ %21, %15 ], [ 1, %2 ]
   ret i32 %.0
 }
 

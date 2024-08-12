@@ -527,7 +527,13 @@ if.then93:                                        ; preds = %if.else84.tail
   %or = xor i8 %67, 87
   store i8 %or, ptr %arrayinit.element100, align 1
   %arrayinit.element106 = getelementptr inbounds i8, ptr %codes, i64 3
-  store <4 x i8> <i8 3, i8 127, i8 127, i8 0>, ptr %arrayinit.element106, align 1
+  store i8 3, ptr %arrayinit.element106, align 1
+  %arrayinit.element107 = getelementptr inbounds i8, ptr %codes, i64 4
+  store i8 127, ptr %arrayinit.element107, align 1
+  %arrayinit.element108 = getelementptr inbounds i8, ptr %codes, i64 5
+  store i8 127, ptr %arrayinit.element108, align 1
+  %arrayinit.element109 = getelementptr inbounds i8, ptr %codes, i64 6
+  store i8 0, ptr %arrayinit.element109, align 1
   tail call fastcc void @trace_wct_cmd_ts(i32 noundef %conv96)
   %68 = load i32, ptr %query_index, align 4
   %sub.i136 = add i32 %68, -4

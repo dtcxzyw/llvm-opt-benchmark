@@ -1791,16 +1791,19 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %call.i.i.noexc
   %_M_parent6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %3, ptr %_M_parent6.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
   %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 24
+  %5 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_left9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store ptr %5, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
   %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 32
-  %5 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i, align 8, !noalias !8
-  store <2 x ptr> %5, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
+  %6 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i, align 8, !noalias !8
+  %_M_right12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  store ptr %6, ptr %_M_right12.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
   %_M_parent16.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %_M_parent16.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3, i64 40
-  %6 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
+  %7 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  store i64 %6, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
+  store i64 %7, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8, !alias.scope !8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i2, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
@@ -1826,45 +1829,45 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %7)
+  %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %8)
           to label %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont7
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #20
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #20
   unreachable
 
 _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit: ; preds = %invoke.cont7
-  %10 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %10)
+  %11 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %11)
           to label %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit6 unwind label %terminate.lpad.i.i.i.i5
 
 terminate.lpad.i.i.i.i5:                          ; preds = %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit6: ; preds = %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit
   ret void
 
 lpad:                                             ; preds = %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaEC2ERKS4_.exit
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %14, %lpad6 ], [ %13, %lpad ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad6 ], [ %14, %lpad ]
   call void @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #19
   br label %common.resume
 }
@@ -1907,16 +1910,19 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_parent6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %2, ptr %_M_parent6.i.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8
   %_M_left9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store ptr %4, ptr %_M_left9.i.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i, align 8
-  store <2 x ptr> %4, ptr %_M_left9.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %_M_right.i.i.i.i.i.i.i, align 8
+  %_M_right12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  store ptr %5, ptr %_M_right12.i.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %_M_parent16.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
+  %6 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  store i64 %5, ptr %_M_node_count17.i.i.i.i.i.i.i, align 8
+  store i64 %6, ptr %_M_node_count17.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, align 8
@@ -1941,25 +1947,25 @@ _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaEC2EOS5_.exit:
 
 invoke.cont:                                      ; preds = %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaEC2EOS5_.exit
   %_M_parent.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i1, align 8
-  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %6)
+  %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i1, align 8
+  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef %7)
           to label %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #20
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit: ; preds = %invoke.cont
   ret ptr %this
 
 lpad:                                             ; preds = %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaEC2EOS5_.exit
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #19
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %10
 }
 
 declare void @_ZN3ue27getUcpCEv(ptr sret(%"class.ue2::CodePointSet") align 8) local_unnamed_addr #3
@@ -2285,23 +2291,27 @@ invoke.cont:
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %single_pos = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  %3 = insertelement <4 x i32> poison, i32 %2, i64 0
-  %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %4, ptr %single_pos, align 8
+  store i32 %2, ptr %single_pos, align 8
+  %one_dot_trailer = getelementptr inbounds i8, ptr %this, i64 132
+  store i32 %2, ptr %one_dot_trailer, align 4
+  %two_dot_trailer = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 %2, ptr %two_dot_trailer, align 8
+  %three_dot_trailer = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 %2, ptr %three_dot_trailer, align 4
   %two_char_dot_head = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %2, ptr %two_char_dot_head, align 8
   %three_char_dot_head = getelementptr inbounds i8, ptr %this, i64 148
   store i32 %2, ptr %three_char_dot_head, align 4
   %four_char_dot_head = getelementptr inbounds i8, ptr %this, i64 152
   store i32 %2, ptr %four_char_dot_head, align 8
-  %5 = getelementptr inbounds i8, ptr %this, i64 168
-  store i32 0, ptr %5, align 8
+  %3 = getelementptr inbounds i8, ptr %this, i64 168
+  store i32 0, ptr %3, align 8
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr null, ptr %_M_parent.i.i.i.i.i1, align 8
   %_M_left.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr %5, ptr %_M_left.i.i.i.i.i2, align 8
+  store ptr %3, ptr %_M_left.i.i.i.i.i2, align 8
   %_M_right.i.i.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr %5, ptr %_M_right.i.i.i.i.i3, align 8
+  store ptr %3, ptr %_M_right.i.i.i.i.i3, align 8
   %_M_node_count.i.i.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 200
   store i64 0, ptr %_M_node_count.i.i.i.i.i4, align 8
   ret void
@@ -7305,16 +7315,19 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_parent6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %1, ptr %_M_parent6.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 24
+  %3 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_left9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store ptr %3, ptr %_M_left9.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 32
-  %3 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %_M_left9.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
+  %_M_right12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  store ptr %4, ptr %_M_right12.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %_M_parent16.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 40
-  %4 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  %5 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  store i64 %4, ptr %_M_node_count17.i.i.i.i.i.i, align 8
+  store i64 %5, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, align 8
@@ -7335,15 +7348,15 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
   %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %5)
+  %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %6)
           to label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaEC2EOS7_.exit
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #20
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i.i: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaEC2EOS7_.exit
@@ -7356,23 +7369,25 @@ _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19
   %_M_node_count.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i3, align 8
   %_M_parent.i.i.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %8 = load ptr, ptr %_M_parent.i.i.i.i.i4, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_parent.i.i.i.i.i4, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaEaSES7_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i.i
-  %9 = load i32, ptr %0, align 8
-  store i32 %9, ptr %add.ptr.i.i.i.i.i, align 8
-  store ptr %8, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  %10 = load i32, ptr %0, align 8
+  store i32 %10, ptr %add.ptr.i.i.i.i.i, align 8
+  store ptr %9, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %11 = load ptr, ptr %_M_left.i.i4.i.i.i.i, align 8
+  store ptr %11, ptr %_M_left.i.i.i.i.i.i1, align 8
   %_M_right.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %10 = load <2 x ptr>, ptr %_M_left.i.i4.i.i.i.i, align 8
-  store <2 x ptr> %10, ptr %_M_left.i.i.i.i.i.i1, align 8
-  %_M_parent16.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load ptr, ptr %_M_right.i.i5.i.i.i.i, align 8
+  store ptr %12, ptr %_M_right.i.i.i.i.i.i2, align 8
+  %_M_parent16.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_parent16.i.i.i.i.i.i5, align 8
   %_M_node_count.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %11 = load i64, ptr %_M_node_count.i.i6.i.i.i.i, align 8
-  store i64 %11, ptr %_M_node_count.i.i.i.i.i.i3, align 8
+  %13 = load i64, ptr %_M_node_count.i.i6.i.i.i.i, align 8
+  store i64 %13, ptr %_M_node_count.i.i.i.i.i.i3, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i4, align 8
   store ptr %0, ptr %_M_left.i.i4.i.i.i.i, align 8
   store ptr %0, ptr %_M_right.i.i5.i.i.i.i, align 8
@@ -7384,10 +7399,10 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
           to label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaEaSES7_.exit
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaED2Ev.exit: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaEaSES7_.exit

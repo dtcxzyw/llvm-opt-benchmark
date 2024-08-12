@@ -11850,7 +11850,7 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %99 = getelementptr inbounds i8, ptr %1, i64 20
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %98, %100
-  br i1 %101, label %102, label %234
+  br i1 %101, label %102, label %244
 
 102:                                              ; preds = %96, %92
   %103 = and i64 %indvars.iv259, 4294967295
@@ -11885,223 +11885,236 @@ define hidden void @nds_defrag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %121 = add i32 %120, %118
   %122 = call i32 @tvb_reported_length(ptr noundef %0) #13
   %.not225 = icmp eq i32 %122, 0
-  br i1 %.not225, label %221, label %123
+  br i1 %.not225, label %231, label %123
 
 123:                                              ; preds = %116
   %124 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %122) #13
   %.not226 = icmp eq i32 %124, 0
-  br i1 %.not226, label %221, label %125
+  br i1 %.not226, label %231, label %125
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds i8, ptr %104, i64 16
   %127 = load i32, ptr %126, align 4
   %128 = icmp ugt i32 %127, %122
-  br i1 %128, label %129, label %141
+  br i1 %128, label %129, label %148
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds i8, ptr %.0207, i64 52
-  %131 = load <2 x i8>, ptr %130, align 4
-  %132 = zext <2 x i8> %131 to <2 x i32>
-  store <2 x i32> %132, ptr %104, align 4
-  %133 = getelementptr inbounds i8, ptr %.0207, i64 44
-  %134 = getelementptr inbounds i8, ptr %104, i64 8
-  %135 = load <2 x i32>, ptr %133, align 4
-  store <2 x i32> %135, ptr %134, align 4
-  %136 = load i8, ptr %93, align 2
-  %137 = and i8 %136, 1
-  %138 = zext nneg i8 %137 to i32
-  %139 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %122, i32 noundef %138) #13
-  %140 = getelementptr inbounds i8, ptr %104, i64 25
-  store i8 %3, ptr %140, align 1
-  store i32 1, ptr %126, align 4
-  br label %166
-
-141:                                              ; preds = %125
-  %142 = load ptr, ptr %22, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 50
-  %144 = load i16, ptr %143, align 2
-  %145 = and i16 %144, 8
-  %.not227 = icmp eq i16 %145, 0
-  br i1 %.not227, label %146, label %159
-
-146:                                              ; preds = %141
+  %131 = load i8, ptr %130, align 4
+  %132 = zext i8 %131 to i32
+  store i32 %132, ptr %104, align 4
+  %133 = getelementptr inbounds i8, ptr %.0207, i64 53
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = getelementptr inbounds i8, ptr %104, i64 4
+  store i32 %135, ptr %136, align 4
+  %137 = getelementptr inbounds i8, ptr %.0207, i64 44
+  %138 = load i32, ptr %137, align 4
+  %139 = getelementptr inbounds i8, ptr %104, i64 8
+  store i32 %138, ptr %139, align 4
+  %140 = getelementptr inbounds i8, ptr %.0207, i64 48
+  %141 = load i32, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %104, i64 12
+  store i32 %141, ptr %142, align 4
+  %143 = load i8, ptr %93, align 2
+  %144 = and i8 %143, 1
+  %145 = zext nneg i8 %144 to i32
+  %146 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %122, i32 noundef %145) #13
   %147 = getelementptr inbounds i8, ptr %104, i64 25
-  %148 = load i8, ptr %147, align 1
-  %.not228 = icmp eq i8 %148, %3
-  br i1 %.not228, label %155, label %149
-
-149:                                              ; preds = %146
-  %150 = add i32 %122, -16
-  %151 = load i8, ptr %93, align 2
-  %152 = and i8 %151, 1
-  %153 = zext nneg i8 %152 to i32
-  %154 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %150, i32 noundef %153) #13
   store i8 %3, ptr %147, align 1
-  br label %166
+  store i32 1, ptr %126, align 4
+  br label %173
 
-155:                                              ; preds = %146
-  %156 = getelementptr inbounds i8, ptr %1, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = load i32, ptr %105, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %157, i32 noundef 25, ptr noundef nonnull @.str, i32 noundef %158) #13
+148:                                              ; preds = %125
+  %149 = load ptr, ptr %22, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 50
+  %151 = load i16, ptr %150, align 2
+  %152 = and i16 %151, 8
+  %.not227 = icmp eq i16 %152, 0
+  br i1 %.not227, label %153, label %166
+
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds i8, ptr %104, i64 25
+  %155 = load i8, ptr %154, align 1
+  %.not228 = icmp eq i8 %155, %3
+  br i1 %.not228, label %162, label %156
+
+156:                                              ; preds = %153
+  %157 = add i32 %122, -16
+  %158 = load i8, ptr %93, align 2
+  %159 = and i8 %158, 1
+  %160 = zext nneg i8 %159 to i32
+  %161 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %157, i32 noundef %160) #13
+  store i8 %3, ptr %154, align 1
+  br label %173
+
+162:                                              ; preds = %153
+  %163 = getelementptr inbounds i8, ptr %1, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = load i32, ptr %105, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str, i32 noundef %165) #13
   br label %.thread236
 
-159:                                              ; preds = %141
-  %160 = add i32 %122, -16
-  %161 = load i8, ptr %93, align 2
-  %162 = and i8 %161, 1
-  %163 = zext nneg i8 %162 to i32
-  %164 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %160, i32 noundef %163) #13
-  %165 = getelementptr inbounds i8, ptr %104, i64 25
-  store i8 %3, ptr %165, align 1
-  br label %166
+166:                                              ; preds = %148
+  %167 = add i32 %122, -16
+  %168 = load i8, ptr %93, align 2
+  %169 = and i8 %168, 1
+  %170 = zext nneg i8 %169 to i32
+  %171 = call ptr @fragment_add_seq_next(ptr noundef nonnull @nds_reassembly_table, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, i32 noundef %121, ptr noundef null, i32 noundef %167, i32 noundef %170) #13
+  %172 = getelementptr inbounds i8, ptr %104, i64 25
+  store i8 %3, ptr %172, align 1
+  br label %173
 
-166:                                              ; preds = %149, %159, %129
-  %.0208 = phi ptr [ %139, %129 ], [ %164, %159 ], [ %154, %149 ]
+173:                                              ; preds = %156, %166, %129
+  %.0208 = phi ptr [ %146, %129 ], [ %171, %166 ], [ %161, %156 ]
   %.not229 = icmp eq ptr %.0208, null
-  br i1 %.not229, label %214, label %167
+  br i1 %.not229, label %224, label %174
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %.0208, align 8
-  %.not230 = icmp eq ptr %168, null
-  br i1 %.not230, label %206, label %169
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %.0208, align 8
+  %.not230 = icmp eq ptr %175, null
+  br i1 %.not230, label %216, label %176
 
-169:                                              ; preds = %167
-  %170 = load i8, ptr %93, align 2
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %206, label %172
+176:                                              ; preds = %174
+  %177 = load i8, ptr %93, align 2
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %216, label %179
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %.0208, i64 56
-  %174 = load ptr, ptr %173, align 8
-  %175 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %174) #13
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %175, ptr noundef nonnull @.str.1) #13
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds i8, ptr %.0208, i64 56
+  %181 = load ptr, ptr %180, align 8
+  %182 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %181) #13
+  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %182, ptr noundef nonnull @.str.1) #13
   %.not231 = icmp eq ptr %5, null
-  br i1 %.not231, label %178, label %176
+  br i1 %.not231, label %185, label %183
 
-176:                                              ; preds = %172
-  %177 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %.0208, ptr noundef nonnull @nds_frag_items, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %175, ptr noundef nonnull %9) #13
-  br label %178
-
-178:                                              ; preds = %176, %172
-  %179 = load ptr, ptr %22, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 50
-  %181 = load i16, ptr %180, align 2
-  %182 = and i16 %181, 8
-  %.not232 = icmp eq i16 %182, 0
-  br i1 %.not232, label %183, label %223
-
-183:                                              ; preds = %178
-  %184 = call i32 @tvb_get_letohl(ptr noundef %175, i32 noundef 12) #13
+183:                                              ; preds = %179
+  %184 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %.0208, ptr noundef nonnull @nds_frag_items, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %182, ptr noundef nonnull %9) #13
   br label %185
 
-185:                                              ; preds = %183, %189
-  %indvars.iv263 = phi i64 [ 0, %183 ], [ %indvars.iv.next264, %189 ]
-  %186 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %indvars.iv263, i32 5
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp eq i32 %187, %184
-  br i1 %188, label %190, label %189
-
-189:                                              ; preds = %185
-  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %exitcond266.not = icmp eq i64 %indvars.iv.next264, 100
-  br i1 %exitcond266.not, label %.thread236, label %185, !llvm.loop !8
+185:                                              ; preds = %183, %179
+  %186 = load ptr, ptr %22, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 50
+  %188 = load i16, ptr %187, align 2
+  %189 = and i16 %188, 8
+  %.not232 = icmp eq i16 %189, 0
+  br i1 %.not232, label %190, label %233
 
 190:                                              ; preds = %185
-  %191 = and i64 %indvars.iv263, 4294967295
-  %192 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %191
-  %193 = getelementptr inbounds i8, ptr %1, i64 20
+  %191 = call i32 @tvb_get_letohl(ptr noundef %182, i32 noundef 12) #13
+  br label %192
+
+192:                                              ; preds = %190, %196
+  %indvars.iv263 = phi i64 [ 0, %190 ], [ %indvars.iv.next264, %196 ]
+  %193 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %indvars.iv263, i32 5
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %.0207, i64 312
-  store i32 %194, ptr %195, align 8
-  %196 = load i32, ptr %192, align 4
-  %197 = trunc i32 %196 to i8
-  %198 = getelementptr inbounds i8, ptr %.0207, i64 52
-  store i8 %197, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %192, i64 4
-  %200 = load i32, ptr %199, align 4
-  %201 = trunc i32 %200 to i8
-  %202 = getelementptr inbounds i8, ptr %.0207, i64 53
-  store i8 %201, ptr %202, align 1
-  %203 = getelementptr inbounds i8, ptr %192, i64 8
-  %204 = getelementptr inbounds i8, ptr %.0207, i64 44
-  %205 = load <2 x i32>, ptr %203, align 4
-  store <2 x i32> %205, ptr %204, align 4
-  br label %223
+  %195 = icmp eq i32 %194, %191
+  br i1 %195, label %197, label %196
 
-206:                                              ; preds = %169, %167
-  %207 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
-  %208 = load i8, ptr %93, align 2
-  %209 = trunc i8 %208 to i1
-  br i1 %209, label %210, label %223
+196:                                              ; preds = %192
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
+  %exitcond266.not = icmp eq i64 %indvars.iv.next264, 100
+  br i1 %exitcond266.not, label %.thread236, label %192, !llvm.loop !8
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %1, i64 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = load i32, ptr %105, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %212, i32 noundef 25, ptr noundef nonnull @.str.2, i32 noundef %213) #13
-  br label %223
+197:                                              ; preds = %192
+  %198 = and i64 %indvars.iv263, 4294967295
+  %199 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %198
+  %200 = getelementptr inbounds i8, ptr %1, i64 20
+  %201 = load i32, ptr %200, align 4
+  %202 = getelementptr inbounds i8, ptr %.0207, i64 312
+  store i32 %201, ptr %202, align 8
+  %203 = load i32, ptr %199, align 4
+  %204 = trunc i32 %203 to i8
+  %205 = getelementptr inbounds i8, ptr %.0207, i64 52
+  store i8 %204, ptr %205, align 4
+  %206 = getelementptr inbounds i8, ptr %199, i64 4
+  %207 = load i32, ptr %206, align 4
+  %208 = trunc i32 %207 to i8
+  %209 = getelementptr inbounds i8, ptr %.0207, i64 53
+  store i8 %208, ptr %209, align 1
+  %210 = getelementptr inbounds i8, ptr %199, i64 8
+  %211 = load i32, ptr %210, align 4
+  %212 = getelementptr inbounds i8, ptr %.0207, i64 44
+  store i32 %211, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %199, i64 12
+  %214 = load i32, ptr %213, align 4
+  %215 = getelementptr inbounds i8, ptr %.0207, i64 48
+  store i32 %214, ptr %215, align 8
+  br label %233
 
-214:                                              ; preds = %166
-  %215 = load i8, ptr %93, align 2
-  %216 = trunc i8 %215 to i1
-  br i1 %216, label %217, label %.thread238
+216:                                              ; preds = %176, %174
+  %217 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
+  %218 = load i8, ptr %93, align 2
+  %219 = trunc i8 %218 to i1
+  br i1 %219, label %220, label %233
 
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %1, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = load i32, ptr %105, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %219, i32 noundef 25, ptr noundef nonnull @.str.2, i32 noundef %220) #13
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds i8, ptr %1, i64 8
+  %222 = load ptr, ptr %221, align 8
+  %223 = load i32, ptr %105, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %222, i32 noundef 25, ptr noundef nonnull @.str.2, i32 noundef %223) #13
+  br label %233
+
+224:                                              ; preds = %173
+  %225 = load i8, ptr %93, align 2
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %227, label %.thread238
+
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds i8, ptr %1, i64 8
+  %229 = load ptr, ptr %228, align 8
+  %230 = load i32, ptr %105, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.2, i32 noundef %230) #13
   br label %.thread238
 
-221:                                              ; preds = %123, %116
-  %222 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
-  br label %223
+231:                                              ; preds = %123, %116
+  %232 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
+  br label %233
 
-223:                                              ; preds = %206, %210, %178, %190, %221
-  %.0209 = phi ptr [ %207, %210 ], [ %207, %206 ], [ %175, %178 ], [ %175, %190 ], [ %222, %221 ]
-  %.0206.in = phi i64 [ %indvars.iv259, %210 ], [ %indvars.iv259, %206 ], [ %indvars.iv259, %178 ], [ %indvars.iv263, %190 ], [ %indvars.iv259, %221 ]
-  %224 = icmp eq ptr %.0209, null
-  br i1 %224, label %.thread238, label %228
+233:                                              ; preds = %216, %220, %185, %197, %231
+  %.0209 = phi ptr [ %217, %220 ], [ %217, %216 ], [ %182, %185 ], [ %182, %197 ], [ %232, %231 ]
+  %.0206.in = phi i64 [ %indvars.iv259, %220 ], [ %indvars.iv259, %216 ], [ %indvars.iv259, %185 ], [ %indvars.iv263, %197 ], [ %indvars.iv259, %231 ]
+  %234 = icmp eq ptr %.0209, null
+  br i1 %234, label %.thread238, label %238
 
-.thread238:                                       ; preds = %214, %217, %223
-  %225 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
-  %226 = call ptr @find_dissector(ptr noundef nonnull @.str.3) #13
-  store ptr %226, ptr @nds_data_handle, align 8
-  %227 = call i32 @call_dissector(ptr noundef %226, ptr noundef %225, ptr noundef nonnull %1, ptr noundef %5) #13
+.thread238:                                       ; preds = %224, %227, %233
+  %235 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #13
+  %236 = call ptr @find_dissector(ptr noundef nonnull @.str.3) #13
+  store ptr %236, ptr @nds_data_handle, align 8
+  %237 = call i32 @call_dissector(ptr noundef %236, ptr noundef %235, ptr noundef nonnull %1, ptr noundef %5) #13
   br label %.thread236
 
-228:                                              ; preds = %223
-  %229 = load i8, ptr %93, align 2
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %.thread236, label %231
+238:                                              ; preds = %233
+  %239 = load i8, ptr %93, align 2
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %.thread236, label %241
 
-231:                                              ; preds = %228
-  %232 = and i64 %.0206.in, 4294967295
-  %233 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %232, i32 4
-  store i32 0, ptr %233, align 4
+241:                                              ; preds = %238
+  %242 = and i64 %.0206.in, 4294967295
+  %243 = getelementptr [100 x %struct.frag_info], ptr @frags, i64 0, i64 %242, i32 4
+  store i32 0, ptr %243, align 4
   call void @dissect_ncp_reply(ptr noundef nonnull %.0209, ptr noundef nonnull %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6)
   br label %.thread236
 
-234:                                              ; preds = %96
+244:                                              ; preds = %96
   store i8 0, ptr %93, align 2
-  %235 = load i32, ptr %99, align 4
-  %236 = icmp ult i32 %98, %235
-  br i1 %236, label %237, label %242
+  %245 = load i32, ptr %99, align 4
+  %246 = icmp ult i32 %98, %245
+  br i1 %246, label %247, label %252
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %1, i64 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %.0207, i64 316
-  %241 = load i32, ptr %240, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.4, i32 noundef %241, i32 noundef %98) #13
+247:                                              ; preds = %244
+  %248 = getelementptr inbounds i8, ptr %1, i64 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %.0207, i64 316
+  %251 = load i32, ptr %250, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %249, i32 noundef 25, ptr noundef nonnull @.str.4, i32 noundef %251, i32 noundef %98) #13
   br label %.thread236
 
-242:                                              ; preds = %234
+252:                                              ; preds = %244
   call void @dissect_ncp_reply(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6)
   br label %.thread236
 
-.thread236:                                       ; preds = %84, %189, %237, %242, %.thread238, %231, %228, %155, %91, %69, %65, %57, %52, %49, %20
+.thread236:                                       ; preds = %84, %196, %247, %252, %.thread238, %241, %238, %162, %91, %69, %65, %57, %52, %49, %20
   ret void
 }
 

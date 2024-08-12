@@ -70,36 +70,38 @@ define hidden void @_ZN8GCLocker13log_debug_jniEPKc(ptr noundef %0) local_unname
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 168
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(888) %6) #8
-  %20 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %21 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %19, i32 noundef %20)
-  %22 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %24, label %23
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(888) %6) #8
+  %21 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %20, i32 noundef %21)
+  %23 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %25, label %24
 
-23:                                               ; preds = %4
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #8
+24:                                               ; preds = %4
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %4
-  %25 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %25, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
+25:                                               ; preds = %24, %4
+  %26 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %26, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %27
 
-26:                                               ; preds = %24
+27:                                               ; preds = %25
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %24, %1
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %25, %1
   ret void
 }
 
@@ -124,12 +126,12 @@ define hidden noundef zeroext i1 @_ZN8GCLocker22check_active_before_gcEv() local
   %1 = alloca %class.LogImpl, align 1
   %2 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   %3 = icmp sgt i32 %2, 0
-  br i1 %3, label %4, label %33
+  br i1 %3, label %4, label %34
 
 4:                                                ; preds = %0
   %5 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %33, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %4
   store volatile i8 1, ptr @_ZN8GCLocker9_needs_gcE, align 1
@@ -148,43 +150,45 @@ define hidden noundef zeroext i1 @_ZN8GCLocker22check_active_before_gcEv() local
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load <2 x ptr>, ptr %17, align 8
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 168
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(888) %12) #8
-  %26 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %27 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef %25, i32 noundef %26)
-  %28 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %30, label %29
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 168
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(888) %12) #8
+  %27 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef %26, i32 noundef %27)
+  %29 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i, label %31, label %30
 
-29:                                               ; preds = %10
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #8
+30:                                               ; preds = %10
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %10
-  %31 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %31, %19
-  br i1 %.not8.i.i.i.i.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %32
+31:                                               ; preds = %30, %10
+  %32 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %32, %18
+  br i1 %.not8.i.i.i.i.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   store ptr %16, ptr %15, align 8
-  store <2 x ptr> %18, ptr %17, align 8
+  store ptr %18, ptr %17, align 8
+  store ptr %20, ptr %19, align 8
   br label %_ZN8GCLocker13log_debug_jniEPKc.exit
 
-_ZN8GCLocker13log_debug_jniEPKc.exit:             ; preds = %7, %30, %32
+_ZN8GCLocker13log_debug_jniEPKc.exit:             ; preds = %7, %31, %33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %_ZN8GCLocker13log_debug_jniEPKc.exit, %4, %0
-  %34 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %35 = icmp sgt i32 %34, 0
-  ret i1 %35
+34:                                               ; preds = %_ZN8GCLocker13log_debug_jniEPKc.exit, %4, %0
+  %35 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %36 = icmp sgt i32 %35, 0
+  ret i1 %36
 }
 
 declare void @_ZN14GCLockerTracer15start_gc_lockerEi(i32 noundef) local_unnamed_addr #2
@@ -203,7 +207,7 @@ define hidden void @_ZN8GCLocker17stall_until_clearEv() local_unnamed_addr #0 al
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %0, %3
   %4 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %31
+  br i1 %5, label %6, label %32
 
 6:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   tail call void @_ZN14GCLockerTracer15inc_stall_countEv() #8
@@ -220,58 +224,60 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %0, %
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = load <2 x ptr>, ptr %15, align 8
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 168
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(888) %10) #8
-  %24 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef %23, i32 noundef %24)
-  %26 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %28, label %27
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 168
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(888) %10) #8
+  %25 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef %24, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i.i, label %29, label %28
 
-27:                                               ; preds = %8
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %19) #8
+28:                                               ; preds = %8
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %8
-  %29 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %29, %17
-  br i1 %.not8.i.i.i.i.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %30
+29:                                               ; preds = %28, %8
+  %30 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %30, %16
+  br i1 %.not8.i.i.i.i.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %31
 
-30:                                               ; preds = %28
+31:                                               ; preds = %29
   store ptr %14, ptr %13, align 8
-  store <2 x ptr> %16, ptr %15, align 8
+  store ptr %16, ptr %15, align 8
+  store ptr %18, ptr %17, align 8
   br label %_ZN8GCLocker13log_debug_jniEPKc.exit
 
-_ZN8GCLocker13log_debug_jniEPKc.exit:             ; preds = %6, %28, %30
+_ZN8GCLocker13log_debug_jniEPKc.exit:             ; preds = %6, %29, %31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %_ZN8GCLocker13log_debug_jniEPKc.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %32 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge
+32:                                               ; preds = %_ZN8GCLocker13log_debug_jniEPKc.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
+  %33 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %31, %_ZN13MonitorLocker4waitEl.exit
-  %34 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #8
-  %35 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge, !llvm.loop !6
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %32, %_ZN13MonitorLocker4waitEl.exit
+  %35 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #8
+  %36 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %31
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %37
+._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %32
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %38
 
-37:                                               ; preds = %._crit_edge
+38:                                               ; preds = %._crit_edge
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %37
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %38
   ret void
 }
 
@@ -346,12 +352,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
   store i32 %9, ptr %7, align 4
   %10 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %49
+  br i1 %11, label %12, label %50
 
 12:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %13 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %49, label %15
+  br i1 %14, label %50, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -374,56 +380,58 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 32
-  %29 = load <2 x ptr>, ptr %28, align 8
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
-  %32 = load i64, ptr %31, align 8
-  %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 168
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(888) %23) #8
-  %37 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %38 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef %36, i32 noundef %37)
-  %39 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i.i, label %41, label %40
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %23, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 168
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(888) %23) #8
+  %38 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %39 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE5debugEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef %37, i32 noundef %38)
+  %40 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i.i, label %42, label %41
 
-40:                                               ; preds = %21
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %32) #8
+41:                                               ; preds = %21
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %33) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %27) #8
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %21
-  %42 = load ptr, ptr %28, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %42, %30
-  br i1 %.not8.i.i.i.i.i, label %_ZN13MutexUnlockerD2Ev.exit, label %43
+42:                                               ; preds = %41, %21
+  %43 = load ptr, ptr %28, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %43, %29
+  br i1 %.not8.i.i.i.i.i, label %_ZN13MutexUnlockerD2Ev.exit, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store ptr %27, ptr %26, align 8
-  store <2 x ptr> %29, ptr %28, align 8
+  store ptr %29, ptr %28, align 8
+  store ptr %31, ptr %30, align 8
   br label %_ZN13MutexUnlockerD2Ev.exit
 
-_ZN13MutexUnlockerD2Ev.exit:                      ; preds = %15, %41, %43
+_ZN13MutexUnlockerD2Ev.exit:                      ; preds = %15, %42, %44
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %44 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 192
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(104) %44, i32 noundef 5) #8
+  %45 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 192
+  %48 = load ptr, ptr %47, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(104) %45, i32 noundef 5) #8
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #8
   store volatile i8 0, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %48 = load ptr, ptr @JNICritical_lock, align 8
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %48) #8
-  br label %49
+  %49 = load ptr, ptr @JNICritical_lock, align 8
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %49) #8
+  br label %50
 
-49:                                               ; preds = %_ZN13MutexUnlockerD2Ev.exit, %12, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %50
+50:                                               ; preds = %_ZN13MutexUnlockerD2Ev.exit, %12, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %51
 
-50:                                               ; preds = %49
+51:                                               ; preds = %50
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #8
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %49, %50
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %50, %51
   ret void
 }
 

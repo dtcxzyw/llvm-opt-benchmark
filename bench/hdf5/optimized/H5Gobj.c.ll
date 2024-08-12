@@ -195,7 +195,7 @@ declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5O_link_t, align 8
   %8 = alloca i8, align 1
-  %9 = alloca %struct.H5O_stab_t, align 16
+  %9 = alloca %struct.H5O_stab_t, align 8
   %10 = load i64, ptr %4, align 8
   %11 = tail call i32 @H5F_get_intent(ptr noundef %0) #4
   %12 = and i32 %11, 1
@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %15 = load i64, ptr @H5E_CACHE_g, align 8
   %16 = load i64, ptr @H5E_BADVALUE_g, align 8
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 175, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.7) #4
-  br label %119
+  br label %122
 
 18:                                               ; preds = %6
   %19 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #4
@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %37 = load i64, ptr @H5E_SYM_g, align 8
   %38 = load i64, ptr @H5E_BADVALUE_g, align 8
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 188, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.8) #4
-  br label %119
+  br label %122
 
 40:                                               ; preds = %33, %29
   br i1 %.061, label %41, label %.thread
@@ -322,7 +322,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %81 = load i64, ptr @H5E_SYM_g, align 8
   %82 = load i64, ptr @H5E_CANTINIT_g, align 8
   %83 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 249, i64 noundef %81, i64 noundef %82, ptr noundef nonnull @.str.9) #4
-  br label %119
+  br label %122
 
 84:                                               ; preds = %71
   %85 = call i32 @H5O_msg_create(ptr noundef %5, i32 noundef 2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %2) #4
@@ -333,7 +333,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %88 = load i64, ptr @H5E_SYM_g, align 8
   %89 = load i64, ptr @H5E_CANTINIT_g, align 8
   %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 256, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.10) #4
-  br label %119
+  br label %122
 
 91:                                               ; preds = %84
   %92 = call i32 @H5O_msg_create(ptr noundef %5, i32 noundef 10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %1) #4
@@ -344,27 +344,27 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %95 = load i64, ptr @H5E_SYM_g, align 8
   %96 = load i64, ptr @H5E_CANTINIT_g, align 8
   %97 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 260, i64 noundef %95, i64 noundef %96, ptr noundef nonnull @.str.10) #4
-  br label %119
+  br label %122
 
 98:                                               ; preds = %91
-  br i1 %.not67, label %119, label %99
+  br i1 %.not67, label %122, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %3, i64 56
   %101 = load i64, ptr %100, align 8
   %.not71 = icmp eq i64 %101, 0
-  br i1 %.not71, label %119, label %102
+  br i1 %.not71, label %122, label %102
 
 102:                                              ; preds = %99
   %103 = call i32 @H5O_msg_create(ptr noundef %5, i32 noundef 11, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #4
   %104 = icmp slt i32 %103, 0
-  br i1 %104, label %105, label %119
+  br i1 %104, label %105, label %122
 
 105:                                              ; preds = %102
   %106 = load i64, ptr @H5E_SYM_g, align 8
   %107 = load i64, ptr @H5E_CANTINIT_g, align 8
   %108 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 265, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.10) #4
-  br label %119
+  br label %122
 
 .thread73:                                        ; preds = %.thread
   %109 = call i32 @H5G__stab_create(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %9) #4
@@ -375,17 +375,21 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %112 = load i64, ptr @H5E_SYM_g, align 8
   %113 = load i64, ptr @H5E_CANTINIT_g, align 8
   %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__obj_create_real, i32 noundef 273, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.11) #4
-  br label %119
+  br label %122
 
 115:                                              ; preds = %.thread73
   %116 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %4, i64 16
-  %118 = load <2 x i64>, ptr %9, align 16
-  store <2 x i64> %118, ptr %117, align 8
-  br label %119
+  %117 = load i64, ptr %9, align 8
+  %118 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %117, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %9, i64 8
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %120, ptr %121, align 8
+  br label %122
 
-119:                                              ; preds = %115, %102, %99, %98, %111, %105, %94, %87, %80, %36, %14
+122:                                              ; preds = %115, %102, %99, %98, %111, %105, %94, %87, %80, %36, %14
   %.062 = phi i32 [ -1, %14 ], [ -1, %80 ], [ -1, %87 ], [ -1, %94 ], [ -1, %105 ], [ 0, %102 ], [ 0, %99 ], [ 0, %98 ], [ -1, %111 ], [ 0, %115 ], [ -1, %36 ]
   ret i32 %.062
 }

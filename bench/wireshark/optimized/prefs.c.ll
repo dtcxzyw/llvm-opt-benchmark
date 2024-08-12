@@ -1351,7 +1351,10 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   tail call void @g_free(ptr noundef %4) #24
   %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #24
   store ptr %5, ptr getelementptr inbounds (i8, ptr @prefs, i64 64), align 8
-  store <4 x i16> <i16 0, i16 0, i16 0, i16 -13313>, ptr getelementptr inbounds (i8, ptr @prefs, i64 72), align 8
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 72), align 8
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 74), align 2
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 76), align 4
+  store i16 -13313, ptr getelementptr inbounds (i8, ptr @prefs, i64 78), align 2
   store i16 -5889, ptr getelementptr inbounds (i8, ptr @prefs, i64 80), align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 82), align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) getelementptr inbounds (i8, ptr @prefs, i64 84), i8 0, i64 10, i1 false)
@@ -1359,8 +1362,18 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   store i16 -4097, ptr getelementptr inbounds (i8, ptr @prefs, i64 96), align 8
   store i16 -4097, ptr getelementptr inbounds (i8, ptr @prefs, i64 98), align 2
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 100), align 4
-  store <8 x i16> <i16 -1, i16 -1, i16 -1, i16 0, i16 8224, i16 10794, i16 32767, i16 32767>, ptr getelementptr inbounds (i8, ptr @prefs, i64 104), align 8
-  store <4 x i16> <i16 32767, i16 -1, i16 -1, i16 -1>, ptr getelementptr inbounds (i8, ptr @prefs, i64 120), align 8
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 104), align 8
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 106), align 2
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 108), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 110), align 2
+  store i16 8224, ptr getelementptr inbounds (i8, ptr @prefs, i64 112), align 8
+  store i16 10794, ptr getelementptr inbounds (i8, ptr @prefs, i64 114), align 2
+  store i16 32767, ptr getelementptr inbounds (i8, ptr @prefs, i64 116), align 4
+  store i16 32767, ptr getelementptr inbounds (i8, ptr @prefs, i64 118), align 2
+  store i16 32767, ptr getelementptr inbounds (i8, ptr @prefs, i64 120), align 8
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 122), align 2
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 124), align 4
+  store i16 -1, ptr getelementptr inbounds (i8, ptr @prefs, i64 126), align 2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 128), align 8
   tail call void @g_free(ptr noundef %6) #24
   %7 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.539) #24
@@ -1369,8 +1382,18 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   tail call void @g_free(ptr noundef %8) #24
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.540) #24
   store ptr %9, ptr getelementptr inbounds (i8, ptr @prefs, i64 136), align 8
-  store <8 x i16> <i16 32767, i16 0, i16 0, i16 -1029, i16 -4627, i16 -4627, i16 0, i16 0>, ptr getelementptr inbounds (i8, ptr @prefs, i64 12), align 4
-  store <4 x i16> <i16 32767, i16 -4627, i16 -4627, i16 -1029>, ptr getelementptr inbounds (i8, ptr @prefs, i64 28), align 4
+  store i16 32767, ptr getelementptr inbounds (i8, ptr @prefs, i64 12), align 4
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 14), align 2
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 16), align 8
+  store i16 -1029, ptr getelementptr inbounds (i8, ptr @prefs, i64 18), align 2
+  store i16 -4627, ptr getelementptr inbounds (i8, ptr @prefs, i64 20), align 4
+  store i16 -4627, ptr getelementptr inbounds (i8, ptr @prefs, i64 22), align 2
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 24), align 8
+  store i16 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 26), align 2
+  store i16 32767, ptr getelementptr inbounds (i8, ptr @prefs, i64 28), align 4
+  store i16 -4627, ptr getelementptr inbounds (i8, ptr @prefs, i64 30), align 2
+  store i16 -4627, ptr getelementptr inbounds (i8, ptr @prefs, i64 32), align 8
+  store i16 -1029, ptr getelementptr inbounds (i8, ptr @prefs, i64 34), align 2
   %10 = load i32, ptr @gui_theme_is_dark, align 4
   %.not = icmp eq i32 %10, 0
   %. = select i1 %.not, i16 -1, i16 26367
@@ -1384,8 +1407,11 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   store i16 %., ptr getelementptr inbounds (i8, ptr @prefs, i64 48), align 8
   store i16 %., ptr getelementptr inbounds (i8, ptr @prefs, i64 50), align 2
   store i16 %.26, ptr getelementptr inbounds (i8, ptr @prefs, i64 52), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 144), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 148), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 152), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 164), align 4
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 10>, ptr getelementptr inbounds (i8, ptr @prefs, i64 144), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @prefs, i64 156), align 4
   store i32 10, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 168), align 8
   tail call void @g_free(ptr noundef %11) #24
@@ -1400,7 +1426,10 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 192), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 196), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 200), align 8
-  store <4 x i32> <i32 1, i32 1, i32 86400, i32 400>, ptr getelementptr inbounds (i8, ptr @prefs, i64 456), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 456), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 460), align 4
+  store i32 86400, ptr getelementptr inbounds (i8, ptr @prefs, i64 464), align 8
+  store i32 400, ptr getelementptr inbounds (i8, ptr @prefs, i64 468), align 4
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 208), align 8
   tail call void @g_free(ptr noundef %16) #24
   %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.9) #24
@@ -1414,9 +1443,15 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   %21 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.541) #24
   store ptr %21, ptr getelementptr inbounds (i8, ptr @prefs, i64 224), align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @prefs, i64 232), align 8
-  store <4 x i32> <i32 1, i32 2, i32 1, i32 2>, ptr getelementptr inbounds (i8, ptr @prefs, i64 248), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 248), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @prefs, i64 252), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 256), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @prefs, i64 260), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @prefs, i64 264), align 8
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @prefs, i64 504), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 504), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 508), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 516), align 4
   store i32 10000, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 272), align 8
   tail call void @g_free(ptr noundef %22) #24
@@ -1424,7 +1459,10 @@ define internal fastcc void @pre_init_prefs() unnamed_addr #1 {
   store ptr %23, ptr getelementptr inbounds (i8, ptr @prefs, i64 272), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 280), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 284), align 4
-  store <4 x i32> <i32 0, i32 1, i32 1, i32 0>, ptr getelementptr inbounds (i8, ptr @prefs, i64 484), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 484), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 488), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 492), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 496), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 500), align 4
   store i32 1000, ptr getelementptr inbounds (i8, ptr @prefs, i64 236), align 4
   store i32 1000000, ptr getelementptr inbounds (i8, ptr @prefs, i64 240), align 8
@@ -1486,7 +1524,10 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
 
 48:                                               ; preds = %32
   store i32 %.0, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
-  store <4 x i32> <i32 1, i32 0, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @prefs, i64 376), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 376), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 380), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 384), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 388), align 4
   store i32 100, ptr getelementptr inbounds (i8, ptr @prefs, i64 392), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 400), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 404), align 4
@@ -1508,8 +1549,14 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
 
 .loopexit:                                        ; preds = %.preheader, %48
   store i32 3000, ptr getelementptr inbounds (i8, ptr @prefs, i64 416), align 8
-  store <4 x i32> <i32 1, i32 0, i32 5, i32 100>, ptr getelementptr inbounds (i8, ptr @prefs, i64 544), align 8
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 2>, ptr getelementptr inbounds (i8, ptr @prefs, i64 560), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 544), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 548), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @prefs, i64 552), align 8
+  store i32 100, ptr getelementptr inbounds (i8, ptr @prefs, i64 556), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 560), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 564), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 568), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @prefs, i64 572), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @prefs, i64 576), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 580), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4

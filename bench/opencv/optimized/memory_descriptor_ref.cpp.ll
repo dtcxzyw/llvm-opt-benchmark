@@ -217,18 +217,21 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i, %2
   br i1 %.not16.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %.lr.ph.i
-  %.sroa.012.017.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
+  %.sroa.012.017.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
   %17 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %5, i64 0, i64 %.sroa.012.017.i
-  %18 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i
-  %19 = load i32, ptr %18, align 4, !noalias !14
-  %20 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %0, i64 0, i64 %.sroa.012.017.i
-  %21 = load <2 x i32>, ptr %17, align 8, !noalias !14
-  %22 = insertelement <2 x i32> poison, i32 %19, i64 0
-  %23 = shufflevector <2 x i32> %22, <2 x i32> poison, <2 x i32> zeroinitializer
-  %24 = add nsw <2 x i32> %21, %23
-  store <2 x i32> %24, ptr %20, align 8, !alias.scope !14
-  %25 = add nuw i64 %.sroa.012.017.i, 1
-  %.not.i = icmp eq i64 %25, %15
+  %18 = load i32, ptr %17, align 8, !noalias !14
+  %19 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i
+  %20 = load i32, ptr %19, align 4, !noalias !14
+  %21 = add nsw i32 %20, %18
+  %22 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %0, i64 0, i64 %.sroa.012.017.i
+  store i32 %21, ptr %22, align 8, !alias.scope !14
+  %23 = getelementptr inbounds i8, ptr %17, i64 4
+  %24 = load i32, ptr %23, align 4, !noalias !14
+  %25 = add nsw i32 %24, %20
+  %26 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 %25, ptr %26, align 4, !alias.scope !14
+  %27 = add nuw i64 %.sroa.012.017.i, 1
+  %.not.i = icmp eq i64 %27, %15
   br i1 %.not.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 _ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit
@@ -252,7 +255,7 @@ _ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit:
 
 11:                                               ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
-  br label %60
+  br label %62
 
 12:                                               ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -291,73 +294,76 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i:    ; preds = %.lr.ph.i.i.i, %12
   br i1 %.not16.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i, %.lr.ph.i.i
-  %.sroa.012.017.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i ]
+  %.sroa.012.017.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i ]
   %25 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %13, i64 0, i64 %.sroa.012.017.i.i
-  %26 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %.sroa.012.017.i.i
-  %27 = load i32, ptr %26, align 4, !noalias !27
-  %28 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %5, i64 0, i64 %.sroa.012.017.i.i
-  %29 = load <2 x i32>, ptr %25, align 8, !noalias !27
-  %30 = insertelement <2 x i32> poison, i32 %27, i64 0
-  %31 = shufflevector <2 x i32> %30, <2 x i32> poison, <2 x i32> zeroinitializer
-  %32 = add nsw <2 x i32> %29, %31
-  store <2 x i32> %32, ptr %28, align 8, !alias.scope !27
-  %33 = add nuw i64 %.sroa.012.017.i.i, 1
-  %.not.i.i = icmp eq i64 %33, %23
+  %26 = load i32, ptr %25, align 8, !noalias !27
+  %27 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %.sroa.012.017.i.i
+  %28 = load i32, ptr %27, align 4, !noalias !27
+  %29 = add nsw i32 %28, %26
+  %30 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %5, i64 0, i64 %.sroa.012.017.i.i
+  store i32 %29, ptr %30, align 8, !alias.scope !27
+  %31 = getelementptr inbounds i8, ptr %25, i64 4
+  %32 = load i32, ptr %31, align 4, !noalias !27
+  %33 = add nsw i32 %32, %28
+  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 %33, ptr %34, align 4, !alias.scope !27
+  %35 = add nuw i64 %.sroa.012.017.i.i, 1
+  %.not.i.i = icmp eq i64 %35, %23
   br i1 %.not.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, label %.lr.ph.i.i
 
 _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
-  %35 = load i64, ptr %34, align 8, !noalias !28
+  %36 = getelementptr inbounds i8, ptr %4, i64 48
+  %37 = load i64, ptr %36, align 8, !noalias !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 48, i1 false), !alias.scope !28
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %35, ptr %36, align 8, !alias.scope !28
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
-  %38 = load i32, ptr %37, align 4, !noalias !28
-  %39 = sext i32 %38 to i64
-  %.not3132.i = icmp eq i64 %35, 0
+  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %37, ptr %38, align 8, !alias.scope !28
+  %39 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = load i32, ptr %39, align 4, !noalias !28
+  %41 = sext i32 %40 to i64
+  %.not3132.i = icmp eq i64 %37, 0
   br i1 %.not3132.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %.lr.ph.i
-  %.035.i = phi i64 [ %55, %.lr.ph.i ], [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %.01934.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %.sroa.022.033.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %40 = getelementptr inbounds [6 x %"struct.ade::util::SliceDimension"], ptr %4, i64 0, i64 %.sroa.022.033.i, i32 1
-  %41 = load i32, ptr %40, align 4, !noalias !28
-  %42 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %5, i64 0, i64 %.sroa.022.033.i
-  %43 = load i32, ptr %42, align 8, !noalias !28
-  %44 = mul nsw i32 %43, %41
-  %45 = sext i32 %44 to i64
-  %46 = add i64 %.01934.i, %45
-  %47 = getelementptr inbounds i8, ptr %42, i64 4
-  %48 = load i32, ptr %47, align 4, !noalias !28
-  %49 = sub nsw i32 %48, %43
-  %50 = getelementptr inbounds [6 x %"struct.ade::util::SliceDimension"], ptr %0, i64 0, i64 %.sroa.022.033.i
-  store i32 %49, ptr %50, align 8, !alias.scope !28
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 %41, ptr %51, align 4, !alias.scope !28
-  %52 = add nsw i32 %49, -1
-  %53 = mul nsw i32 %52, %41
-  %54 = sext i32 %53 to i64
-  %55 = add i64 %.035.i, %54
-  %56 = add nuw i64 %.sroa.022.033.i, 1
-  %.not31.i = icmp eq i64 %56, %35
+  %.035.i = phi i64 [ %57, %.lr.ph.i ], [ %41, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %.01934.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %.sroa.022.033.i = phi i64 [ %58, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %42 = getelementptr inbounds [6 x %"struct.ade::util::SliceDimension"], ptr %4, i64 0, i64 %.sroa.022.033.i, i32 1
+  %43 = load i32, ptr %42, align 4, !noalias !28
+  %44 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %5, i64 0, i64 %.sroa.022.033.i
+  %45 = load i32, ptr %44, align 8, !noalias !28
+  %46 = mul nsw i32 %45, %43
+  %47 = sext i32 %46 to i64
+  %48 = add i64 %.01934.i, %47
+  %49 = getelementptr inbounds i8, ptr %44, i64 4
+  %50 = load i32, ptr %49, align 4, !noalias !28
+  %51 = sub nsw i32 %50, %45
+  %52 = getelementptr inbounds [6 x %"struct.ade::util::SliceDimension"], ptr %0, i64 0, i64 %.sroa.022.033.i
+  store i32 %51, ptr %52, align 8, !alias.scope !28
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  store i32 %43, ptr %53, align 4, !alias.scope !28
+  %54 = add nsw i32 %51, -1
+  %55 = mul nsw i32 %54, %43
+  %56 = sext i32 %55 to i64
+  %57 = add i64 %.035.i, %56
+  %58 = add nuw i64 %.sroa.022.033.i, 1
+  %.not31.i = icmp eq i64 %58, %37
   br i1 %.not31.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit
-  %.019.lcssa.i = phi i64 [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %46, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %55, %.lr.ph.i ]
-  %57 = load ptr, ptr %8, align 8, !noalias !28
-  %58 = getelementptr inbounds i8, ptr %57, i64 %.019.lcssa.i
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %58, ptr %59, align 8, !alias.scope !28
+  %.019.lcssa.i = phi i64 [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %48, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %41, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %57, %.lr.ph.i ]
+  %59 = load ptr, ptr %8, align 8, !noalias !28
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.019.lcssa.i
+  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %60, ptr %61, align 8, !alias.scope !28
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %.0.lcssa.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !28
-  br label %60
+  br label %62
 
-60:                                               ; preds = %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, %11
+62:                                               ; preds = %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, %11
   ret void
 }
 
@@ -406,7 +412,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3adelsERSoRKNS_
 
 12:                                               ; preds = %2
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef null)
-  br label %107
+  br label %111
 
 14:                                               ; preds = %2
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
@@ -449,18 +455,21 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i:    ; preds = %.lr.ph.i.i.i, %14
   br i1 %.not16.i.i, label %.preheader.i.i.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i, %.lr.ph.i.i
-  %.sroa.012.017.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i ]
+  %.sroa.012.017.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i ]
   %31 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.012.017.i.i
-  %32 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %.sroa.012.017.i.i
-  %33 = load i32, ptr %32, align 4, !noalias !41
-  %34 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.012.017.i.i
-  %35 = load <2 x i32>, ptr %31, align 8, !noalias !41
-  %36 = insertelement <2 x i32> poison, i32 %33, i64 0
-  %37 = shufflevector <2 x i32> %36, <2 x i32> poison, <2 x i32> zeroinitializer
-  %38 = add nsw <2 x i32> %35, %37
-  store <2 x i32> %38, ptr %34, align 8, !alias.scope !41
-  %39 = add nuw i64 %.sroa.012.017.i.i, 1
-  %.not.i.i = icmp eq i64 %39, %29
+  %32 = load i32, ptr %31, align 8, !noalias !41
+  %33 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %.sroa.012.017.i.i
+  %34 = load i32, ptr %33, align 4, !noalias !41
+  %35 = add nsw i32 %34, %32
+  %36 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.012.017.i.i
+  store i32 %35, ptr %36, align 8, !alias.scope !41
+  %37 = getelementptr inbounds i8, ptr %31, i64 4
+  %38 = load i32, ptr %37, align 4, !noalias !41
+  %39 = add nsw i32 %38, %34
+  %40 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 %39, ptr %40, align 4, !alias.scope !41
+  %41 = add nuw i64 %.sroa.012.017.i.i, 1
+  %.not.i.i = icmp eq i64 %41, %29
   br i1 %.not.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, label %.lr.ph.i.i
 
 _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i
@@ -475,141 +484,144 @@ _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
 
-40:                                               ; preds = %.lr.ph.i.i18
-  %41 = add nuw i64 %.sroa.07.013.i.i, 1
-  %.not11.i.i = icmp eq i64 %41, %29
+42:                                               ; preds = %.lr.ph.i.i18
+  %43 = add nuw i64 %.sroa.07.013.i.i, 1
+  %.not11.i.i = icmp eq i64 %43, %29
   br i1 %.not11.i.i, label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit, label %.lr.ph.i.i18
 
-.lr.ph.i.i18:                                     ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %40
-  %.sroa.07.013.i.i = phi i64 [ %41, %40 ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %42 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.07.013.i.i
-  %43 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.07.013.i.i
-  %44 = load i32, ptr %42, align 8
-  %45 = load i32, ptr %43, align 8
-  %46 = icmp ne i32 %44, %45
-  %47 = getelementptr inbounds i8, ptr %42, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %43, i64 4
+.lr.ph.i.i18:                                     ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %42
+  %.sroa.07.013.i.i = phi i64 [ %43, %42 ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %44 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.07.013.i.i
+  %45 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.07.013.i.i
+  %46 = load i32, ptr %44, align 8
+  %47 = load i32, ptr %45, align 8
+  %48 = icmp ne i32 %46, %47
+  %49 = getelementptr inbounds i8, ptr %44, i64 4
   %50 = load i32, ptr %49, align 4
-  %51 = icmp ne i32 %48, %50
-  %.not3.i.not.i.not.i = select i1 %46, i1 true, i1 %51
-  br i1 %.not3.i.not.i.not.i, label %.loopexit, label %40
+  %51 = getelementptr inbounds i8, ptr %45, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ne i32 %50, %52
+  %.not3.i.not.i.not.i = select i1 %48, i1 true, i1 %53
+  br i1 %.not3.i.not.i.not.i, label %.loopexit, label %42
 
 .loopexit:                                        ; preds = %.lr.ph.i.i18, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit
-  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @.str.3)
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @.str.3)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %54 = load ptr, ptr %1, align 8, !noalias !42
-  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %54), !noalias !42
+  %56 = load ptr, ptr %1, align 8, !noalias !42
+  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %56), !noalias !42
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
-  %56 = getelementptr inbounds i8, ptr %4, i64 48
-  %57 = load i64, ptr %56, align 8, !noalias !48
-  store i64 %57, ptr %55, align 8, !alias.scope !45, !noalias !42
-  %58 = getelementptr inbounds %"struct.ade::util::Span", ptr %4, i64 %57
-  %.not8.i.i.i19 = icmp eq i64 %57, 0
+  %57 = getelementptr inbounds i8, ptr %3, i64 24
+  %58 = getelementptr inbounds i8, ptr %4, i64 48
+  %59 = load i64, ptr %58, align 8, !noalias !48
+  store i64 %59, ptr %57, align 8, !alias.scope !45, !noalias !42
+  %60 = getelementptr inbounds %"struct.ade::util::Span", ptr %4, i64 %59
+  %.not8.i.i.i19 = icmp eq i64 %59, 0
   br i1 %.not8.i.i.i19, label %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24, label %.lr.ph.i.i.i20
 
 .lr.ph.i.i.i20:                                   ; preds = %.loopexit, %.lr.ph.i.i.i20
-  %.010.i.i.i21 = phi ptr [ %61, %.lr.ph.i.i.i20 ], [ %3, %.loopexit ]
-  %.079.i.i.i22 = phi ptr [ %60, %.lr.ph.i.i.i20 ], [ %4, %.loopexit ]
-  %59 = load i32, ptr %.079.i.i.i22, align 4, !noalias !48
-  store i32 %59, ptr %.010.i.i.i21, align 4, !alias.scope !45, !noalias !42
-  %60 = getelementptr inbounds i8, ptr %.079.i.i.i22, i64 8
-  %61 = getelementptr inbounds i8, ptr %.010.i.i.i21, i64 4
-  %.not.i.i.i23 = icmp eq ptr %60, %58
+  %.010.i.i.i21 = phi ptr [ %63, %.lr.ph.i.i.i20 ], [ %3, %.loopexit ]
+  %.079.i.i.i22 = phi ptr [ %62, %.lr.ph.i.i.i20 ], [ %4, %.loopexit ]
+  %61 = load i32, ptr %.079.i.i.i22, align 4, !noalias !48
+  store i32 %61, ptr %.010.i.i.i21, align 4, !alias.scope !45, !noalias !42
+  %62 = getelementptr inbounds i8, ptr %.079.i.i.i22, i64 8
+  %63 = getelementptr inbounds i8, ptr %.010.i.i.i21, i64 4
+  %.not.i.i.i23 = icmp eq ptr %62, %60
   br i1 %.not.i.i.i23, label %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24, label %.lr.ph.i.i.i20, !llvm.loop !13
 
 _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24:  ; preds = %.lr.ph.i.i.i20, %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 48, i1 false), !alias.scope !52
-  %62 = load i64, ptr %28, align 8, !noalias !52
-  %63 = getelementptr inbounds i8, ptr %8, i64 48
-  store i64 %62, ptr %63, align 8, !alias.scope !52
-  %.not16.i.i25 = icmp eq i64 %62, 0
+  %64 = load i64, ptr %28, align 8, !noalias !52
+  %65 = getelementptr inbounds i8, ptr %8, i64 48
+  store i64 %64, ptr %65, align 8, !alias.scope !52
+  %.not16.i.i25 = icmp eq i64 %64, 0
   br i1 %.not16.i.i25, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29, label %.lr.ph.i.i26
 
 .lr.ph.i.i26:                                     ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24, %.lr.ph.i.i26
-  %.sroa.012.017.i.i27 = phi i64 [ %72, %.lr.ph.i.i26 ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24 ]
-  %64 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.012.017.i.i27
-  %65 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i.i27
-  %66 = load i32, ptr %65, align 4, !noalias !52
-  %67 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %8, i64 0, i64 %.sroa.012.017.i.i27
-  %68 = load <2 x i32>, ptr %64, align 8, !noalias !52
-  %69 = insertelement <2 x i32> poison, i32 %66, i64 0
-  %70 = shufflevector <2 x i32> %69, <2 x i32> poison, <2 x i32> zeroinitializer
-  %71 = add nsw <2 x i32> %68, %70
-  store <2 x i32> %71, ptr %67, align 8, !alias.scope !52
-  %72 = add nuw i64 %.sroa.012.017.i.i27, 1
-  %.not.i.i28 = icmp eq i64 %72, %62
+  %.sroa.012.017.i.i27 = phi i64 [ %76, %.lr.ph.i.i26 ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24 ]
+  %66 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.012.017.i.i27
+  %67 = load i32, ptr %66, align 8, !noalias !52
+  %68 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i.i27
+  %69 = load i32, ptr %68, align 4, !noalias !52
+  %70 = add nsw i32 %69, %67
+  %71 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %8, i64 0, i64 %.sroa.012.017.i.i27
+  store i32 %70, ptr %71, align 8, !alias.scope !52
+  %72 = getelementptr inbounds i8, ptr %66, i64 4
+  %73 = load i32, ptr %72, align 4, !noalias !52
+  %74 = add nsw i32 %73, %69
+  %75 = getelementptr inbounds i8, ptr %71, i64 4
+  store i32 %74, ptr %75, align 4, !alias.scope !52
+  %76 = add nuw i64 %.sroa.012.017.i.i27, 1
+  %.not.i.i28 = icmp eq i64 %76, %64
   br i1 %.not.i.i28, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29, label %.lr.ph.i.i26
 
 _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29: ; preds = %.lr.ph.i.i26, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSpanIXT_EEE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull @.str.2)
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSpanIXT_EEE(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.2)
   br label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
 
-_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit:       ; preds = %40, %.preheader.i.i.thread, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29
-  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.4)
-  %77 = load ptr, ptr %1, align 8
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %77)
-  %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.5)
-  %80 = load ptr, ptr %1, align 8
-  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %80)
-  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSpanIXT_EEE(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(56) %9)
-  %82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull @.str.6)
-  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull @.str.7)
-  %85 = load ptr, ptr %1, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit, label %87
+_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit:       ; preds = %42, %.preheader.i.i.thread, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29
+  %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.4)
+  %81 = load ptr, ptr %1, align 8
+  %82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %81)
+  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @.str.5)
+  %84 = load ptr, ptr %1, align 8
+  call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %84)
+  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSpanIXT_EEE(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.6)
+  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.7)
+  %89 = load ptr, ptr %1, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit, label %91
 
-87:                                               ; preds = %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
-  %88 = call noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(96) %85)
+91:                                               ; preds = %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
+  %92 = call noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(96) %89)
   br label %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
 
-_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit: ; preds = %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit, %87
-  %.0.i = phi ptr [ %88, %87 ], [ null, %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit ]
-  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef %.0.i)
-  %90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull @.str.5)
-  %91 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
-  %92 = call noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(96) %91)
-  %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3ade16MemoryDescriptor10dimensionsEv(ptr noundef nonnull align 8 dereferenceable(264) %92)
-  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str)
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
-  %96 = load i64, ptr %95, align 8
-  %.not1415.i = icmp eq i64 %96, 0
+_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit: ; preds = %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit, %91
+  %.0.i = phi ptr [ %92, %91 ], [ null, %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit ]
+  %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %.0.i)
+  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.5)
+  %95 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
+  %96 = call noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(96) %95)
+  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3ade16MemoryDescriptor10dimensionsEv(ptr noundef nonnull align 8 dereferenceable(264) %96)
+  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str)
+  %99 = getelementptr inbounds i8, ptr %97, i64 24
+  %100 = load i64, ptr %99, align 8
+  %.not1415.i = icmp eq i64 %100, 0
   br i1 %.not1415.i, label %_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit, %99
-  %.sroa.010.016.i = phi i64 [ %103, %99 ], [ 0, %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit ]
+.lr.ph.i:                                         ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit, %103
+  %.sroa.010.016.i = phi i64 [ %107, %103 ], [ 0, %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit ]
   %.not.i = icmp eq i64 %.sroa.010.016.i, 0
-  br i1 %.not.i, label %99, label %97
+  br i1 %.not.i, label %103, label %101
 
-97:                                               ; preds = %.lr.ph.i
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.2)
-  br label %99
+101:                                              ; preds = %.lr.ph.i
+  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.2)
+  br label %103
 
-99:                                               ; preds = %97, %.lr.ph.i
-  %100 = getelementptr inbounds [6 x i32], ptr %93, i64 0, i64 %.sroa.010.016.i
-  %101 = load i32, ptr %100, align 4
-  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %101)
-  %103 = add nuw i64 %.sroa.010.016.i, 1
-  %.not14.i = icmp eq i64 %103, %96
+103:                                              ; preds = %101, %.lr.ph.i
+  %104 = getelementptr inbounds [6 x i32], ptr %97, i64 0, i64 %.sroa.010.016.i
+  %105 = load i32, ptr %104, align 4
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %94, i32 noundef %105)
+  %107 = add nuw i64 %.sroa.010.016.i, 1
+  %.not14.i = icmp eq i64 %107, %100
   br i1 %.not14.i, label %_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
-_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %99, %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
-  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.9)
-  %105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.8)
-  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9)
-  br label %107
+_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %103, %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
+  %108 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.9)
+  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.8)
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9)
+  br label %111
 
-107:                                              ; preds = %_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit, %12
+111:                                              ; preds = %_ZN3ade4utillsILm6EEERSoS2_RKNS0_9DynMdSizeIXT_EEE.exit, %12
   ret ptr %0
 }
 

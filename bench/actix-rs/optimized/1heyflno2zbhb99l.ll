@@ -4224,8 +4224,10 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %.sroa.0148 = alloca <2 x float>, align 8
-  %.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0146 = alloca float, align 4
+  %.sroa.5147 = alloca float, align 4
+  %.sroa.0 = alloca float, align 4
+  %.sroa.5 = alloca float, align 4
   %10 = alloca [2 x { [704 x i32], i64, float, [1 x i32] }], align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -4237,8 +4239,6 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp eq i64 %16, 0
   %.sroa.0.0125.sroa.gep139 = getelementptr inbounds i8, ptr %10, i64 2832
-  %.sroa.0.4.gep142.sroa_idx144 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0148.4.gep147.sroa_idx150 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
@@ -4369,10 +4369,14 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit69: ; preds = %
   store i64 %69, ptr %.sroa.492.0..sroa_idx, align 8
   %.sroa.593.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 5656
   store float %71, ptr %.sroa.593.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  store <2 x float> zeroinitializer, ptr %.sroa.0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0148)
-  store <2 x float> zeroinitializer, ptr %.sroa.0148, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
+  store float 0.000000e+00, ptr %.sroa.0, align 4
+  store float 0.000000e+00, ptr %.sroa.5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5147)
+  store float 0.000000e+00, ptr %.sroa.0146, align 4
+  store float 0.000000e+00, ptr %.sroa.5147, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 64
   br label %183
 
@@ -4380,22 +4384,21 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit69: ; preds = %
   %75 = getelementptr inbounds i8, ptr %1, i64 32
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = icmp ult i64 %76, 256
-  %.sroa.0148.4..sroa_idx149 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
-  %.sroa.0148.4..sroa.0148.4..pre = load float, ptr %.sroa.0148.4..sroa_idx149, align 4
-  %.sroa.0148.0..sroa.0148.0..pre135 = load float, ptr %.sroa.0148, align 8
+  %.sroa.5147.0..sroa.5147.4..pre = load float, ptr %.sroa.5147, align 4
+  %.sroa.0146.0..sroa.0146.0..pre135 = load float, ptr %.sroa.0146, align 4
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 80
   %80 = load float, ptr %79, align 8, !noundef !4
-  %81 = fcmp ogt float %.sroa.0148.0..sroa.0148.0..pre135, %80
-  %82 = fcmp ogt float %.sroa.0148.4..sroa.0148.4..pre, %80
+  %81 = fcmp ogt float %.sroa.0146.0..sroa.0146.0..pre135, %80
+  %82 = fcmp ogt float %.sroa.5147.0..sroa.5147.4..pre, %80
   %or.cond = select i1 %81, i1 %82, i1 false
   br i1 %or.cond, label %87, label %83
 
 83:                                               ; preds = %78, %74
-  %84 = fadd float %.sroa.0148.0..sroa.0148.0..pre135, -2.000000e+01
-  %85 = fcmp olt float %.sroa.0148.4..sroa.0148.4..pre, %84
+  %84 = fadd float %.sroa.0146.0..sroa.0146.0..pre135, -2.000000e+01
+  %85 = fcmp olt float %.sroa.5147.0..sroa.5147.4..pre, %84
   %86 = getelementptr inbounds i8, ptr %1, i64 24
   %.val74 = load i64, ptr %86, align 8, !noundef !4
   br i1 %85, label %93, label %90
@@ -4444,7 +4447,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit69: ; preds = %
   store i64 %107, ptr %.sroa.4100.0..sroa_idx, align 8
   %.sroa.5101.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 2824
   store float %106, ptr %.sroa.5101.0..sroa_idx, align 8
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 8
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !noundef !4
   store float %.sroa.0.0..sroa.0.0., ptr %73, align 8
   %109 = icmp eq i64 %76, 1
   br i1 %109, label %110, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit
@@ -4530,9 +4533,8 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit67: ; preds = %
   %143 = load float, ptr %73, align 8, !noundef !4
   %144 = getelementptr inbounds i8, ptr %0, i64 68
   store float %143, ptr %144, align 4
-  %.sroa.0.4..sroa_idx143 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0.4..sroa.0.4. = load float, ptr %.sroa.0.4..sroa_idx143, align 4
-  store float %.sroa.0.4..sroa.0.4., ptr %73, align 8
+  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !noundef !4
+  store float %.sroa.5.0..sroa.5.4., ptr %73, align 8
   %145 = add nuw i64 %16, 1
   store i64 %145, ptr %15, align 8
   store i64 0, ptr %11, align 8
@@ -4546,8 +4548,10 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit67: ; preds = %
 
 148:                                              ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit67, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit, %116, %172
   %149 = phi i64 [ %145, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit67 ], [ %16, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit ], [ %16, %116 ], [ %164, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0148)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5147)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 5664, ptr nonnull %10)
   br label %52
 
@@ -4630,8 +4634,8 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit68: ; preds = %
 183:                                              ; preds = %60, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit
   %184 = phi i1 [ true, %60 ], [ false, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
   %.sroa.0.0125.sroa.phi = phi ptr [ %10, %60 ], [ %.sroa.0.0125.sroa.gep139, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
-  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.0.4.gep142.sroa_idx144, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
-  %.sroa.0.0125.sroa.phi145 = phi ptr [ %.sroa.0148, %60 ], [ %.sroa.0148.4.gep147.sroa_idx150, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
+  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.5, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
+  %.sroa.0.0125.sroa.phi143 = phi ptr [ %.sroa.0146, %60 ], [ %.sroa.5147, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
   %.sroa.0.0125 = phi i64 [ 0, %60 ], [ 1, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit ]
   %185 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %.sroa.0.0125
   %186 = load i64, ptr %185, align 8, !noundef !4
@@ -4674,7 +4678,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h9ad80c31fd8a704cE.exit: ; pred
   %207 = getelementptr inbounds [2 x float], ptr %73, i64 0, i64 %.sroa.0.0125
   %208 = load float, ptr %207, align 4, !noundef !4
   %209 = fsub float %206, %208
-  store float %209, ptr %.sroa.0.0125.sroa.phi145, align 4
+  store float %209, ptr %.sroa.0.0125.sroa.phi143, align 4
   br i1 %184, label %183, label %74
 
 210:                                              ; preds = %183
@@ -4687,8 +4691,10 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %.sroa.0148 = alloca <2 x float>, align 8
-  %.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0146 = alloca float, align 4
+  %.sroa.5147 = alloca float, align 4
+  %.sroa.0 = alloca float, align 4
+  %.sroa.5 = alloca float, align 4
   %10 = alloca [2 x { [544 x i32], i64, float, [1 x i32] }], align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -4700,8 +4706,6 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp eq i64 %16, 0
   %.sroa.0.0125.sroa.gep139 = getelementptr inbounds i8, ptr %10, i64 2192
-  %.sroa.0.4.gep142.sroa_idx144 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0148.4.gep147.sroa_idx150 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
@@ -4832,10 +4836,14 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit69: ; preds = %
   store i64 %69, ptr %.sroa.492.0..sroa_idx, align 8
   %.sroa.593.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 4376
   store float %71, ptr %.sroa.593.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  store <2 x float> zeroinitializer, ptr %.sroa.0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0148)
-  store <2 x float> zeroinitializer, ptr %.sroa.0148, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
+  store float 0.000000e+00, ptr %.sroa.0, align 4
+  store float 0.000000e+00, ptr %.sroa.5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5147)
+  store float 0.000000e+00, ptr %.sroa.0146, align 4
+  store float 0.000000e+00, ptr %.sroa.5147, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 64
   br label %183
 
@@ -4843,22 +4851,21 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit69: ; preds = %
   %75 = getelementptr inbounds i8, ptr %1, i64 32
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = icmp ult i64 %76, 256
-  %.sroa.0148.4..sroa_idx149 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
-  %.sroa.0148.4..sroa.0148.4..pre = load float, ptr %.sroa.0148.4..sroa_idx149, align 4
-  %.sroa.0148.0..sroa.0148.0..pre135 = load float, ptr %.sroa.0148, align 8
+  %.sroa.5147.0..sroa.5147.4..pre = load float, ptr %.sroa.5147, align 4
+  %.sroa.0146.0..sroa.0146.0..pre135 = load float, ptr %.sroa.0146, align 4
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 80
   %80 = load float, ptr %79, align 8, !noundef !4
-  %81 = fcmp ogt float %.sroa.0148.0..sroa.0148.0..pre135, %80
-  %82 = fcmp ogt float %.sroa.0148.4..sroa.0148.4..pre, %80
+  %81 = fcmp ogt float %.sroa.0146.0..sroa.0146.0..pre135, %80
+  %82 = fcmp ogt float %.sroa.5147.0..sroa.5147.4..pre, %80
   %or.cond = select i1 %81, i1 %82, i1 false
   br i1 %or.cond, label %87, label %83
 
 83:                                               ; preds = %78, %74
-  %84 = fadd float %.sroa.0148.0..sroa.0148.0..pre135, -2.000000e+01
-  %85 = fcmp olt float %.sroa.0148.4..sroa.0148.4..pre, %84
+  %84 = fadd float %.sroa.0146.0..sroa.0146.0..pre135, -2.000000e+01
+  %85 = fcmp olt float %.sroa.5147.0..sroa.5147.4..pre, %84
   %86 = getelementptr inbounds i8, ptr %1, i64 24
   %.val74 = load i64, ptr %86, align 8, !noundef !4
   br i1 %85, label %93, label %90
@@ -4907,7 +4914,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit69: ; preds = %
   store i64 %107, ptr %.sroa.4100.0..sroa_idx, align 8
   %.sroa.5101.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 2184
   store float %106, ptr %.sroa.5101.0..sroa_idx, align 8
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 8
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !noundef !4
   store float %.sroa.0.0..sroa.0.0., ptr %73, align 8
   %109 = icmp eq i64 %76, 1
   br i1 %109, label %110, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit
@@ -4993,9 +5000,8 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit67: ; preds = %
   %143 = load float, ptr %73, align 8, !noundef !4
   %144 = getelementptr inbounds i8, ptr %0, i64 68
   store float %143, ptr %144, align 4
-  %.sroa.0.4..sroa_idx143 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0.4..sroa.0.4. = load float, ptr %.sroa.0.4..sroa_idx143, align 4
-  store float %.sroa.0.4..sroa.0.4., ptr %73, align 8
+  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !noundef !4
+  store float %.sroa.5.0..sroa.5.4., ptr %73, align 8
   %145 = add nuw i64 %16, 1
   store i64 %145, ptr %15, align 8
   store i64 0, ptr %11, align 8
@@ -5009,8 +5015,10 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit67: ; preds = %
 
 148:                                              ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit67, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit, %116, %172
   %149 = phi i64 [ %145, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit67 ], [ %16, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit ], [ %16, %116 ], [ %164, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0148)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5147)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 4384, ptr nonnull %10)
   br label %52
 
@@ -5093,8 +5101,8 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit68: ; preds = %
 183:                                              ; preds = %60, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit
   %184 = phi i1 [ true, %60 ], [ false, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
   %.sroa.0.0125.sroa.phi = phi ptr [ %10, %60 ], [ %.sroa.0.0125.sroa.gep139, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
-  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.0.4.gep142.sroa_idx144, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
-  %.sroa.0.0125.sroa.phi145 = phi ptr [ %.sroa.0148, %60 ], [ %.sroa.0148.4.gep147.sroa_idx150, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
+  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.5, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
+  %.sroa.0.0125.sroa.phi143 = phi ptr [ %.sroa.0146, %60 ], [ %.sroa.5147, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
   %.sroa.0.0125 = phi i64 [ 0, %60 ], [ 1, %_ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit ]
   %185 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %.sroa.0.0125
   %186 = load i64, ptr %185, align 8, !noundef !4
@@ -5137,7 +5145,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit: ; pred
   %207 = getelementptr inbounds [2 x float], ptr %73, i64 0, i64 %.sroa.0.0125
   %208 = load float, ptr %207, align 4, !noundef !4
   %209 = fsub float %206, %208
-  store float %209, ptr %.sroa.0.0125.sroa.phi145, align 4
+  store float %209, ptr %.sroa.0.0125.sroa.phi143, align 4
   br i1 %184, label %183, label %74
 
 210:                                              ; preds = %183
@@ -5150,8 +5158,10 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  %.sroa.0148 = alloca <2 x float>, align 8
-  %.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0146 = alloca float, align 4
+  %.sroa.5147 = alloca float, align 4
+  %.sroa.0 = alloca float, align 4
+  %.sroa.5 = alloca float, align 4
   %10 = alloca [2 x { [256 x i32], i64, float, [1 x i32] }], align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -5163,8 +5173,6 @@ define internal fastcc void @_ZN6brotli3enc9metablock24BlockSplitterFinishBlock1
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp eq i64 %16, 0
   %.sroa.0.0125.sroa.gep139 = getelementptr inbounds i8, ptr %10, i64 1040
-  %.sroa.0.4.gep142.sroa_idx144 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0148.4.gep147.sroa_idx150 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
@@ -5295,10 +5303,14 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit69: ; preds = %
   store i64 %69, ptr %.sroa.492.0..sroa_idx, align 8
   %.sroa.593.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 2072
   store float %71, ptr %.sroa.593.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  store <2 x float> zeroinitializer, ptr %.sroa.0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0148)
-  store <2 x float> zeroinitializer, ptr %.sroa.0148, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
+  store float 0.000000e+00, ptr %.sroa.0, align 4
+  store float 0.000000e+00, ptr %.sroa.5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5147)
+  store float 0.000000e+00, ptr %.sroa.0146, align 4
+  store float 0.000000e+00, ptr %.sroa.5147, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 64
   br label %183
 
@@ -5306,22 +5318,21 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit69: ; preds = %
   %75 = getelementptr inbounds i8, ptr %1, i64 32
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = icmp ult i64 %76, 256
-  %.sroa.0148.4..sroa_idx149 = getelementptr inbounds i8, ptr %.sroa.0148, i64 4
-  %.sroa.0148.4..sroa.0148.4..pre = load float, ptr %.sroa.0148.4..sroa_idx149, align 4
-  %.sroa.0148.0..sroa.0148.0..pre135 = load float, ptr %.sroa.0148, align 8
+  %.sroa.5147.0..sroa.5147.4..pre = load float, ptr %.sroa.5147, align 4
+  %.sroa.0146.0..sroa.0146.0..pre135 = load float, ptr %.sroa.0146, align 4
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 80
   %80 = load float, ptr %79, align 8, !noundef !4
-  %81 = fcmp ogt float %.sroa.0148.0..sroa.0148.0..pre135, %80
-  %82 = fcmp ogt float %.sroa.0148.4..sroa.0148.4..pre, %80
+  %81 = fcmp ogt float %.sroa.0146.0..sroa.0146.0..pre135, %80
+  %82 = fcmp ogt float %.sroa.5147.0..sroa.5147.4..pre, %80
   %or.cond = select i1 %81, i1 %82, i1 false
   br i1 %or.cond, label %87, label %83
 
 83:                                               ; preds = %78, %74
-  %84 = fadd float %.sroa.0148.0..sroa.0148.0..pre135, -2.000000e+01
-  %85 = fcmp olt float %.sroa.0148.4..sroa.0148.4..pre, %84
+  %84 = fadd float %.sroa.0146.0..sroa.0146.0..pre135, -2.000000e+01
+  %85 = fcmp olt float %.sroa.5147.0..sroa.5147.4..pre, %84
   %86 = getelementptr inbounds i8, ptr %1, i64 24
   %.val74 = load i64, ptr %86, align 8, !noundef !4
   br i1 %85, label %93, label %90
@@ -5370,7 +5381,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit69: ; preds = %
   store i64 %107, ptr %.sroa.4100.0..sroa_idx, align 8
   %.sroa.5101.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 1032
   store float %106, ptr %.sroa.5101.0..sroa_idx, align 8
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 8
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !noundef !4
   store float %.sroa.0.0..sroa.0.0., ptr %73, align 8
   %109 = icmp eq i64 %76, 1
   br i1 %109, label %110, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit
@@ -5456,9 +5467,8 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit67: ; preds = %
   %143 = load float, ptr %73, align 8, !noundef !4
   %144 = getelementptr inbounds i8, ptr %0, i64 68
   store float %143, ptr %144, align 4
-  %.sroa.0.4..sroa_idx143 = getelementptr inbounds i8, ptr %.sroa.0, i64 4
-  %.sroa.0.4..sroa.0.4. = load float, ptr %.sroa.0.4..sroa_idx143, align 4
-  store float %.sroa.0.4..sroa.0.4., ptr %73, align 8
+  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !noundef !4
+  store float %.sroa.5.0..sroa.5.4., ptr %73, align 8
   %145 = add nuw i64 %16, 1
   store i64 %145, ptr %15, align 8
   store i64 0, ptr %11, align 8
@@ -5472,8 +5482,10 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit67: ; preds = %
 
 148:                                              ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit67, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit, %116, %172
   %149 = phi i64 [ %145, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit67 ], [ %16, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit ], [ %16, %116 ], [ %164, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0148)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5147)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 2080, ptr nonnull %10)
   br label %52
 
@@ -5556,8 +5568,8 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit68: ; preds = %
 183:                                              ; preds = %60, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit
   %184 = phi i1 [ true, %60 ], [ false, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
   %.sroa.0.0125.sroa.phi = phi ptr [ %10, %60 ], [ %.sroa.0.0125.sroa.gep139, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
-  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.0.4.gep142.sroa_idx144, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
-  %.sroa.0.0125.sroa.phi145 = phi ptr [ %.sroa.0148, %60 ], [ %.sroa.0148.4.gep147.sroa_idx150, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
+  %.sroa.0.0125.sroa.phi140 = phi ptr [ %.sroa.0, %60 ], [ %.sroa.5, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
+  %.sroa.0.0125.sroa.phi143 = phi ptr [ %.sroa.0146, %60 ], [ %.sroa.5147, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
   %.sroa.0.0125 = phi i64 [ 0, %60 ], [ 1, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit ]
   %185 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %.sroa.0.0125
   %186 = load i64, ptr %185, align 8, !noundef !4
@@ -5600,7 +5612,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit: ; pred
   %207 = getelementptr inbounds [2 x float], ptr %73, i64 0, i64 %.sroa.0.0125
   %208 = load float, ptr %207, align 4, !noundef !4
   %209 = fsub float %206, %208
-  store float %209, ptr %.sroa.0.0125.sroa.phi145, align 4
+  store float %209, ptr %.sroa.0.0125.sroa.phi143, align 4
   br i1 %184, label %183, label %74
 
 210:                                              ; preds = %183
@@ -6256,9 +6268,11 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   %236 = load i8, ptr %235, align 1, !noundef !4
   %237 = getelementptr inbounds [0 x i8], ptr %.val205, i64 0, i64 %229
   store i8 %236, ptr %237, align 1
-  %238 = load <2 x i64>, ptr %0, align 8, !alias.scope !586
-  %239 = shufflevector <2 x i64> %238, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %239, ptr %0, align 8, !alias.scope !586
+  %238 = getelementptr inbounds i8, ptr %0, i64 8
+  %.0.copyload.i = load i64, ptr %0, align 8, !alias.scope !586
+  %239 = load i64, ptr %238, align 8, !alias.scope !586
+  store i64 %239, ptr %0, align 8, !alias.scope !586
+  store i64 %.0.copyload.i, ptr %238, align 8, !alias.scope !586
   br i1 %.not136, label %._crit_edge105, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %234

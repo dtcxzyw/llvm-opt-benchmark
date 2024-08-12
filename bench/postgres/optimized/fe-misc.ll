@@ -540,12 +540,13 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   %21 = sext i32 %20 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %21, i1 false)
   %22 = load i32, ptr %7, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 904
-  %24 = load <2 x i32>, ptr %23, align 8
-  %25 = insertelement <2 x i32> poison, i32 %22, i64 0
-  %26 = shufflevector <2 x i32> %25, <2 x i32> poison, <2 x i32> zeroinitializer
-  %27 = sub <2 x i32> %24, %26
-  store <2 x i32> %27, ptr %23, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = sub i32 %23, %22
+  store i32 %24, ptr %11, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 904
+  %26 = load i32, ptr %25, align 8
+  %27 = sub i32 %26, %22
+  store i32 %27, ptr %25, align 8
   br label %.sink.split
 
 28:                                               ; preds = %6

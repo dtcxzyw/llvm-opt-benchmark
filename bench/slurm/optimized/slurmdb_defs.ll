@@ -3657,7 +3657,7 @@ define void @slurmdb_init_instance_rec(ptr noundef writeonly %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @slurmdb_init_qos_rec(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %25, label %4
+  br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %3
   br i1 %1, label %5, label %6
@@ -3671,6 +3671,7 @@ define void @slurmdb_init_qos_rec(ptr noundef %0, i1 noundef zeroext %1, i32 nou
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 268435456, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %2, ptr %8, align 8
   %9 = trunc i32 %2 to i16
   %10 = getelementptr inbounds i8, ptr %0, i64 280
   store i16 %9, ptr %10, align 8
@@ -3678,31 +3679,40 @@ define void @slurmdb_init_qos_rec(ptr noundef %0, i1 noundef zeroext %1, i32 nou
   store i32 %2, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 288
   store i32 %2, ptr %12, align 8
-  %13 = insertelement <4 x i32> poison, i32 %2, i64 0
-  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %14, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %2, ptr %15, align 8
-  %16 = uitofp i32 %2 to double
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  store double %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
-  store <4 x i32> %14, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 236
-  store i32 %2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 116
-  store i32 %2, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
-  store i32 %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 312
-  store double %16, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 320
-  store double %16, ptr %24, align 8
-  br label %25
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %2, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %2, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %2, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %2, ptr %16, align 8
+  %17 = uitofp i32 %2 to double
+  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  store double %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 %2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 %2, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %2, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %2, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 236
+  store i32 %2, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 %2, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 %2, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 232
+  store i32 %2, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 312
+  store double %17, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 320
+  store double %17, ptr %28, align 8
+  br label %29
 
-25:                                               ; preds = %3, %6
+29:                                               ; preds = %3, %6
   ret void
 }
 

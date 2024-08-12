@@ -784,28 +784,30 @@ define hidden void @_ZN17TenuredGenerationC2E13ReservedSpacemmmP11CardTableRS(pt
   %62 = getelementptr inbounds i8, ptr %57, i64 12
   store i8 0, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %57, i64 16
-  store <2 x float> zeroinitializer, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %57, i64 24
+  store float 0.000000e+00, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %57, i64 20
   store float 0.000000e+00, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %57, i64 28
-  store i32 %59, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %57, ptr %66, align 8
-  %67 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #8
-  tail call void @_ZN18GenerationCountersC1EPKciimmP12VirtualSpace(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i64 noundef %3, i64 noundef %4, ptr noundef nonnull %43) #8
-  %68 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr %67, ptr %68, align 8
-  %69 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #8
-  tail call void @_ZN17CollectorCountersC1EPKci(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull @.str.21, i32 noundef 1) #8
-  %70 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr %69, ptr %70, align 8
-  %71 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 5, i32 noundef 0) #8
-  %72 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %43) #8
-  %73 = load ptr, ptr %49, align 8
-  %74 = load ptr, ptr %68, align 8
-  tail call void @_ZN14CSpaceCountersC1EPKcimP15ContiguousSpaceP18GenerationCounters(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull @.str.20, i32 noundef 0, i64 noundef %72, ptr noundef %73, ptr noundef %74) #8
-  %75 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %71, ptr %75, align 8
+  %65 = getelementptr inbounds i8, ptr %57, i64 24
+  store float 0.000000e+00, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %57, i64 28
+  store i32 %59, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %57, ptr %67, align 8
+  %68 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #8
+  tail call void @_ZN18GenerationCountersC1EPKciimmP12VirtualSpace(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i64 noundef %3, i64 noundef %4, ptr noundef nonnull %43) #8
+  %69 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr %68, ptr %69, align 8
+  %70 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #8
+  tail call void @_ZN17CollectorCountersC1EPKci(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull @.str.21, i32 noundef 1) #8
+  %71 = getelementptr inbounds i8, ptr %0, i64 144
+  store ptr %70, ptr %71, align 8
+  %72 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 5, i32 noundef 0) #8
+  %73 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %43) #8
+  %74 = load ptr, ptr %49, align 8
+  %75 = load ptr, ptr %69, align 8
+  tail call void @_ZN14CSpaceCountersC1EPKcimP15ContiguousSpaceP18GenerationCounters(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull @.str.20, i32 noundef 0, i64 noundef %73, ptr noundef %74, ptr noundef %75) #8
+  %76 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %72, ptr %76, align 8
   ret void
 }
 

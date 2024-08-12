@@ -123,31 +123,37 @@ lor.lhs.false:                                    ; preds = %if.end14
 
 if.end24:                                         ; preds = %lor.lhs.false
   %N = getelementptr inbounds i8, ptr %vctx, i64 48
-  %7 = load <2 x i64>, ptr %N, align 8
-  store <2 x i64> %7, ptr %N.i.i, align 8
+  %7 = load i64, ptr %N, align 8
+  store i64 %7, ptr %N.i.i, align 8
+  %r = getelementptr inbounds i8, ptr %vctx, i64 56
+  %8 = load i64, ptr %r, align 8
+  store i64 %8, ptr %r.i.i, align 8
   %p = getelementptr inbounds i8, ptr %vctx, i64 64
-  %8 = load <2 x i64>, ptr %p, align 8
-  store <2 x i64> %8, ptr %p.i.i, align 8
-  %9 = load ptr, ptr %sha256, align 8
+  %9 = load i64, ptr %p, align 8
+  store i64 %9, ptr %p.i.i, align 8
+  %maxmem_bytes = getelementptr inbounds i8, ptr %vctx, i64 72
+  %10 = load i64, ptr %maxmem_bytes, align 8
+  store i64 %10, ptr %maxmem_bytes.i.i, align 8
+  %11 = load ptr, ptr %sha256, align 8
   %sha25630 = getelementptr inbounds i8, ptr %call1.i, i64 80
-  store ptr %9, ptr %sha25630, align 8
+  store ptr %11, ptr %sha25630, align 8
   br label %return
 
 kdf_scrypt_free.exit:                             ; preds = %if.end14, %lor.lhs.false, %if.then6, %land.lhs.true
   %propq.i = getelementptr inbounds i8, ptr %call1.i, i64 8
-  %10 = load ptr, ptr %propq.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 83) #7
+  %12 = load ptr, ptr %propq.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 83) #7
   %sha256.i = getelementptr inbounds i8, ptr %call1.i, i64 80
-  %11 = load ptr, ptr %sha256.i, align 8
-  tail call void @EVP_MD_free(ptr noundef %11) #7
+  %13 = load ptr, ptr %sha256.i, align 8
+  tail call void @EVP_MD_free(ptr noundef %13) #7
   %salt.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  %12 = load ptr, ptr %salt.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 94) #7
+  %14 = load ptr, ptr %salt.i.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 94) #7
   %pass.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
-  %13 = load ptr, ptr %pass.i.i, align 8
+  %15 = load ptr, ptr %pass.i.i, align 8
   %pass_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %14 = load i64, ptr %pass_len.i.i, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 95) #7
+  %16 = load i64, ptr %pass_len.i.i, align 8
+  tail call void @CRYPTO_clear_free(ptr noundef %15, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef 95) #7
   store i64 1048576, ptr %N.i.i, align 8
   store i64 8, ptr %r.i.i, align 8
   store i64 1, ptr %p.i.i, align 8

@@ -447,7 +447,13 @@ if.then7:                                         ; preds = %if.end4
 if.end9:                                          ; preds = %if.then7, %if.end4
   %14 = load ptr, ptr %session_ptr, align 8
   %remote_settings = getelementptr inbounds i8, ptr %14, i64 2796
-  store <4 x i32> <i32 4096, i32 1, i32 -1, i32 65535>, ptr %remote_settings, align 4
+  store i32 4096, ptr %remote_settings, align 4
+  %enable_push.i = getelementptr inbounds i8, ptr %14, i64 2800
+  store i32 1, ptr %enable_push.i, align 4
+  %max_concurrent_streams.i = getelementptr inbounds i8, ptr %14, i64 2804
+  store i32 -1, ptr %max_concurrent_streams.i, align 4
+  %initial_window_size.i = getelementptr inbounds i8, ptr %14, i64 2808
+  store i32 65535, ptr %initial_window_size.i, align 4
   %max_frame_size.i = getelementptr inbounds i8, ptr %14, i64 2812
   store i32 16384, ptr %max_frame_size.i, align 4
   %max_header_list_size.i = getelementptr inbounds i8, ptr %14, i64 2816
@@ -456,7 +462,13 @@ if.end9:                                          ; preds = %if.then7, %if.end4
   store i32 -1, ptr %no_rfc7540_priorities.i, align 4
   %15 = load ptr, ptr %session_ptr, align 8
   %local_settings = getelementptr inbounds i8, ptr %15, i64 2828
-  store <4 x i32> <i32 4096, i32 1, i32 -1, i32 65535>, ptr %local_settings, align 4
+  store i32 4096, ptr %local_settings, align 4
+  %enable_push.i111 = getelementptr inbounds i8, ptr %15, i64 2832
+  store i32 1, ptr %enable_push.i111, align 4
+  %max_concurrent_streams.i112 = getelementptr inbounds i8, ptr %15, i64 2836
+  store i32 -1, ptr %max_concurrent_streams.i112, align 4
+  %initial_window_size.i113 = getelementptr inbounds i8, ptr %15, i64 2840
+  store i32 65535, ptr %initial_window_size.i113, align 4
   %max_frame_size.i114 = getelementptr inbounds i8, ptr %15, i64 2844
   store i32 16384, ptr %max_frame_size.i114, align 4
   %max_header_list_size.i115 = getelementptr inbounds i8, ptr %15, i64 2848
@@ -12362,28 +12374,28 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %iv, align 8
   %2 = getelementptr %struct.nghttp2_settings_entry, ptr %1, i64 %0
   %arrayidx = getelementptr i8, ptr %2, i64 -8
+  %min_header_size_entry.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
   %min_header_size_entry.sroa.2.0.arrayidx.sroa_idx = getelementptr i8, ptr %2, i64 -4
   %min_header_size_entry.sroa.2.0.copyload = load i32, ptr %min_header_size_entry.sroa.2.0.arrayidx.sroa_idx, align 4
-  %3 = load <2 x i32>, ptr %arrayidx, align 4
   %cmp.not = icmp eq i32 %min_header_size_entry.sroa.2.0.copyload, -1
   br i1 %cmp.not, label %if.end30, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
   %niv = getelementptr inbounds i8, ptr %session, i64 920
-  %4 = load i64, ptr %niv, align 8
-  %cmp532.not = icmp eq i64 %4, 0
+  %3 = load i64, ptr %niv, align 8
+  %cmp532.not = icmp eq i64 %3, 0
   br i1 %cmp532.not, label %if.else, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %arrayidx7 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %1, i64 %i.033
-  %5 = load i32, ptr %arrayidx7, align 4
-  %cmp8 = icmp eq i32 %5, 1
+  %4 = load i32, ptr %arrayidx7, align 4
+  %cmp8 = icmp eq i32 %4, 1
   br i1 %cmp8, label %if.end13, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.033, 1
-  %exitcond.not = icmp eq i64 %inc, %4
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.else, label %for.body, !llvm.loop !25
 
 if.else:                                          ; preds = %for.inc, %for.cond.preheader
@@ -12392,29 +12404,31 @@ if.else:                                          ; preds = %for.inc, %for.cond.
 
 if.end13:                                         ; preds = %for.body
   %value17 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %1, i64 %i.033, i32 1
-  %6 = load i32, ptr %value17, align 4
-  %cmp18.not = icmp eq i32 %min_header_size_entry.sroa.2.0.copyload, %6
+  %5 = load i32, ptr %value17, align 4
+  %cmp18.not = icmp eq i32 %min_header_size_entry.sroa.2.0.copyload, %5
   br i1 %cmp18.not, label %if.end30, label %if.then19
 
 if.then19:                                        ; preds = %if.end13
   %arrayidx7.le = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %1, i64 %i.033
-  %inc22 = add i64 %4, 1
+  %inc22 = add i64 %3, 1
   store i64 %inc22, ptr %niv, align 8
-  %arrayidx23 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %1, i64 %4
-  %7 = load i64, ptr %arrayidx7.le, align 4
-  store i64 %7, ptr %arrayidx23, align 4
-  %8 = load ptr, ptr %iv, align 8
-  %arrayidx27 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %8, i64 %i.033
-  store <2 x i32> %3, ptr %arrayidx27, align 4
+  %arrayidx23 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %1, i64 %3
+  %6 = load i64, ptr %arrayidx7.le, align 4
+  store i64 %6, ptr %arrayidx23, align 4
+  %7 = load ptr, ptr %iv, align 8
+  %arrayidx27 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %7, i64 %i.033
+  store i32 %min_header_size_entry.sroa.0.0.copyload, ptr %arrayidx27, align 4
+  %min_header_size_entry.sroa.2.0.arrayidx27.sroa_idx = getelementptr inbounds i8, ptr %arrayidx27, i64 4
+  store i32 %min_header_size_entry.sroa.2.0.copyload, ptr %min_header_size_entry.sroa.2.0.arrayidx27.sroa_idx, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then, %if.then19, %if.end13, %entry
   %iframe1 = getelementptr inbounds i8, ptr %session, i64 728
   %iv31 = getelementptr inbounds i8, ptr %session, i64 824
-  %9 = load ptr, ptr %iv31, align 8
+  %8 = load ptr, ptr %iv31, align 8
   %niv32 = getelementptr inbounds i8, ptr %session, i64 920
-  %10 = load i64, ptr %niv32, align 8
-  tail call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %iframe1, ptr noundef %9, i64 noundef %10) #17
+  %9 = load i64, ptr %niv32, align 8
+  tail call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %iframe1, ptr noundef %8, i64 noundef %9) #17
   store ptr null, ptr %iv31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %niv32, i8 0, i64 16, i1 false)
   %call = tail call i32 @nghttp2_session_on_settings_received(ptr noundef nonnull %session, ptr noundef nonnull %iframe1, i32 noundef 0)

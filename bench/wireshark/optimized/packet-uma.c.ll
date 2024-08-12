@@ -1051,7 +1051,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %.0599 = phi i16 [ %32, %31 ], [ %25, %19 ]
   %.0 = phi i32 [ %17, %31 ], [ %20, %19 ]
   %38 = add nsw i32 %.sink632, %3
-  switch i8 %10, label %546 [
+  switch i8 %10, label %548 [
     i8 1, label %45
     i8 2, label %48
     i8 3, label %51
@@ -1149,7 +1149,7 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
     i8 100, label %443
     i8 103, label %465
     i8 104, label %487
-    i8 105, label %518
+    i8 105, label %520
     i8 106, label %.preheader615
     i8 107, label %.preheader617
   ]
@@ -1847,109 +1847,114 @@ define internal fastcc i32 @dissect_uma_IE(ptr noundef %0, ptr noundef %1, ptr n
   %490 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %489, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #3
   %491 = load i32, ptr @unc_ipv4_address, align 4
   %.not606 = icmp eq i32 %491, 0
-  br i1 %.not606, label %492, label %497
+  br i1 %.not606, label %492, label %499
 
 492:                                              ; preds = %487
   %493 = getelementptr inbounds i8, ptr %1, i64 208
-  %494 = load <2 x i32>, ptr %493, align 8
-  %495 = getelementptr inbounds i8, ptr %1, i64 216
-  %496 = load ptr, ptr %495, align 8
-  br label %497
+  %494 = load i32, ptr %493, align 8
+  %495 = getelementptr inbounds i8, ptr %1, i64 212
+  %496 = load i32, ptr %495, align 4
+  %497 = getelementptr inbounds i8, ptr %1, i64 216
+  %498 = load ptr, ptr %497, align 8
+  br label %499
 
-497:                                              ; preds = %487, %492
-  %unc_ipv4_address.sink = phi ptr [ %496, %492 ], [ @unc_ipv4_address, %487 ]
-  %498 = phi <2 x i32> [ %494, %492 ], [ <i32 2, i32 4>, %487 ]
-  store <2 x i32> %498, ptr %9, align 8
-  %499 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %unc_ipv4_address.sink, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr null, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %1, i64 80
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 50
-  %504 = load i16, ptr %503, align 2
-  %505 = and i16 %504, 8
-  %506 = icmp eq i16 %505, 0
-  %507 = icmp ne i16 %488, 0
-  %or.cond = select i1 %506, i1 %507, i1 false
-  br i1 %or.cond, label %508, label %.loopexit
+499:                                              ; preds = %487, %492
+  %.sink629 = phi i32 [ %494, %492 ], [ 2, %487 ]
+  %.sink = phi i32 [ %496, %492 ], [ 4, %487 ]
+  %unc_ipv4_address.sink = phi ptr [ %498, %492 ], [ @unc_ipv4_address, %487 ]
+  store i32 %.sink629, ptr %9, align 8
+  %500 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.sink, ptr %500, align 4
+  %501 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %unc_ipv4_address.sink, ptr %501, align 8
+  %502 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr null, ptr %502, align 8
+  %503 = getelementptr inbounds i8, ptr %1, i64 80
+  %504 = load ptr, ptr %503, align 8
+  %505 = getelementptr inbounds i8, ptr %504, i64 50
+  %506 = load i16, ptr %505, align 2
+  %507 = and i16 %506, 8
+  %508 = icmp eq i16 %507, 0
+  %509 = icmp ne i16 %488, 0
+  %or.cond = select i1 %508, i1 %509, i1 false
+  br i1 %or.cond, label %510, label %.loopexit
 
-508:                                              ; preds = %497
-  %509 = zext i16 %488 to i32
-  %510 = getelementptr inbounds i8, ptr %1, i64 20
-  %511 = load i32, ptr %510, align 4
-  call void @rtp_add_address(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %509, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %511, i32 noundef 0, ptr noundef null) #3
-  %512 = and i32 %509, 1
-  %513 = icmp eq i32 %512, 0
-  br i1 %513, label %514, label %.loopexit
+510:                                              ; preds = %499
+  %511 = zext i16 %488 to i32
+  %512 = getelementptr inbounds i8, ptr %1, i64 20
+  %513 = load i32, ptr %512, align 4
+  call void @rtp_add_address(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %511, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %513, i32 noundef 0, ptr noundef null) #3
+  %514 = and i32 %511, 1
+  %515 = icmp eq i32 %514, 0
+  br i1 %515, label %516, label %.loopexit
 
-514:                                              ; preds = %508
-  %515 = or i16 %488, 1
-  %516 = zext i16 %515 to i32
-  %517 = load i32, ptr %510, align 4
-  call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %516, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %517) #3
+516:                                              ; preds = %510
+  %517 = or i16 %488, 1
+  %518 = zext i16 %517 to i32
+  %519 = load i32, ptr %512, align 4
+  call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %518, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %519) #3
   br label %.loopexit
 
-518:                                              ; preds = %37
-  %519 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %38) #3
-  %520 = load i32, ptr @hf_uma_urr_RTCP_port, align 4
-  %521 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %520, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #3
-  %522 = getelementptr inbounds i8, ptr %1, i64 80
-  %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 50
-  %525 = load i16, ptr %524, align 2
-  %526 = and i16 %525, 8
-  %527 = icmp eq i16 %526, 0
-  %528 = load i32, ptr @rtcp_ipv4_address, align 4
-  %529 = icmp ne i32 %528, 0
-  %or.cond4 = select i1 %527, i1 %529, i1 false
-  %530 = icmp ne i16 %519, 0
-  %or.cond7 = select i1 %or.cond4, i1 %530, i1 false
-  %531 = load ptr, ptr @rtcp_handle, align 8
-  %532 = icmp ne ptr %531, null
-  %or.cond9 = select i1 %or.cond7, i1 %532, i1 false
-  br i1 %or.cond9, label %533, label %.loopexit
+520:                                              ; preds = %37
+  %521 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %38) #3
+  %522 = load i32, ptr @hf_uma_urr_RTCP_port, align 4
+  %523 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %522, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #3
+  %524 = getelementptr inbounds i8, ptr %1, i64 80
+  %525 = load ptr, ptr %524, align 8
+  %526 = getelementptr inbounds i8, ptr %525, i64 50
+  %527 = load i16, ptr %526, align 2
+  %528 = and i16 %527, 8
+  %529 = icmp eq i16 %528, 0
+  %530 = load i32, ptr @rtcp_ipv4_address, align 4
+  %531 = icmp ne i32 %530, 0
+  %or.cond4 = select i1 %529, i1 %531, i1 false
+  %532 = icmp ne i16 %521, 0
+  %or.cond7 = select i1 %or.cond4, i1 %532, i1 false
+  %533 = load ptr, ptr @rtcp_handle, align 8
+  %534 = icmp ne ptr %533, null
+  %or.cond9 = select i1 %or.cond7, i1 %534, i1 false
+  br i1 %or.cond9, label %535, label %.loopexit
 
-533:                                              ; preds = %518
-  %534 = zext i16 %519 to i32
+535:                                              ; preds = %520
+  %536 = zext i16 %521 to i32
   store i32 2, ptr %9, align 8
-  %535 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 4, ptr %535, align 4
-  %536 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @rtcp_ipv4_address, ptr %536, align 8
-  %537 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr null, ptr %537, align 8
-  %538 = getelementptr inbounds i8, ptr %1, i64 20
-  %539 = load i32, ptr %538, align 4
-  call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %534, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %539) #3
+  %537 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 4, ptr %537, align 4
+  %538 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @rtcp_ipv4_address, ptr %538, align 8
+  %539 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr null, ptr %539, align 8
+  %540 = getelementptr inbounds i8, ptr %1, i64 20
+  %541 = load i32, ptr %540, align 4
+  call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %536, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %541) #3
   br label %.loopexit
 
 .lr.ph623:                                        ; preds = %.preheader615, %.lr.ph623
-  %.3622 = phi i32 [ %542, %.lr.ph623 ], [ %38, %.preheader615 ]
-  %540 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
-  %541 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %540, ptr noundef %0, i32 noundef %.3622, i32 noundef 1, i32 noundef 0) #3
-  %542 = add i32 %.3622, 1
-  %.not605 = icmp sgt i32 %542, %42
+  %.3622 = phi i32 [ %544, %.lr.ph623 ], [ %38, %.preheader615 ]
+  %542 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
+  %543 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %542, ptr noundef %0, i32 noundef %.3622, i32 noundef 1, i32 noundef 0) #3
+  %544 = add i32 %.3622, 1
+  %.not605 = icmp sgt i32 %544, %42
   br i1 %.not605, label %.loopexit, label %.lr.ph623, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader617, %.lr.ph
-  %.4620 = phi i32 [ %545, %.lr.ph ], [ %38, %.preheader617 ]
-  %543 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %543, ptr noundef %0, i32 noundef %.4620, i32 noundef 1, i32 noundef 0) #3
-  %545 = add i32 %.4620, 1
-  %.not604 = icmp sgt i32 %545, %40
+  %.4620 = phi i32 [ %547, %.lr.ph ], [ %38, %.preheader617 ]
+  %545 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
+  %546 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %545, ptr noundef %0, i32 noundef %.4620, i32 noundef 1, i32 noundef 0) #3
+  %547 = add i32 %.4620, 1
+  %.not604 = icmp sgt i32 %547, %40
   br i1 %.not604, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-546:                                              ; preds = %37
-  %547 = load i32, ptr @hf_uma_data, align 4
-  %548 = zext nneg i16 %.0599 to i32
-  %549 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %547, ptr noundef %0, i32 noundef %38, i32 noundef %548, i32 noundef 0) #3
+548:                                              ; preds = %37
+  %549 = load i32, ptr @hf_uma_data, align 4
+  %550 = zext nneg i16 %.0599 to i32
+  %551 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %549, ptr noundef %0, i32 noundef %38, i32 noundef %550, i32 noundef 0) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph623, %.lr.ph626, %.preheader617, %.preheader615, %.preheader, %518, %533, %497, %514, %508, %475, %483, %465, %452, %461, %443, %438, %433, %425, %431, %418, %413, %404, %410, %37, %358, %363, %310, %316, %211, %220, %186, %195, %105, %109, %100, %95, %75, %83, %57, %63, %546, %394, %387, %384, %374, %371, %368, %355, %351, %346, %335, %327, %324, %321, %318, %301, %298, %295, %292, %288, %285, %282, %279, %276, %272, %268, %265, %262, %259, %255, %252, %247, %244, %237, %234, %231, %228, %225, %222, %208, %205, %203, %200, %197, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %120, %117, %114, %111, %91, %72, %69, %66, %48, %45
-  %550 = zext nneg i16 %.0599 to i32
-  %551 = add i32 %.0, %550
-  ret i32 %551
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph623, %.lr.ph626, %.preheader617, %.preheader615, %.preheader, %520, %535, %499, %516, %510, %475, %483, %465, %452, %461, %443, %438, %433, %425, %431, %418, %413, %404, %410, %37, %358, %363, %310, %316, %211, %220, %186, %195, %105, %109, %100, %95, %75, %83, %57, %63, %548, %394, %387, %384, %374, %371, %368, %355, %351, %346, %335, %327, %324, %321, %318, %301, %298, %295, %292, %288, %285, %282, %279, %276, %272, %268, %265, %262, %259, %255, %252, %247, %244, %237, %234, %231, %228, %225, %222, %208, %205, %203, %200, %197, %183, %180, %177, %174, %171, %168, %165, %162, %159, %156, %153, %120, %117, %114, %111, %91, %72, %69, %66, %48, %45
+  %552 = zext nneg i16 %.0599 to i32
+  %553 = add i32 %.0, %552
+  ret i32 %553
 }
 
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -327,9 +327,13 @@ link_easy.exit:                                   ; preds = %if.then.i, %if.else
   %easylp5.sink.i = phi ptr [ %easylp5.i, %if.else.i ], [ %easylp.i, %if.then.i ]
   store ptr %data, ptr %easylp5.sink.i, align 8
   %num_easy = getelementptr inbounds i8, ptr %multi, i64 24
-  %16 = load <2 x i32>, ptr %num_easy, align 8
-  %17 = add <2 x i32> %16, <i32 1, i32 1>
-  store <2 x i32> %17, ptr %num_easy, align 8
+  %16 = load i32, ptr %num_easy, align 8
+  %inc = add i32 %16, 1
+  store i32 %inc, ptr %num_easy, align 8
+  %num_alive73 = getelementptr inbounds i8, ptr %multi, i64 28
+  %17 = load i32, ptr %num_alive73, align 4
+  %inc74 = add i32 %17, 1
+  store i32 %inc74, ptr %num_alive73, align 4
   %18 = load ptr, ptr %share, align 8
   %tobool76.not = icmp eq ptr %18, null
   br i1 %tobool76.not, label %if.end79, label %if.then77

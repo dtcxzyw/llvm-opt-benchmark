@@ -32,8 +32,8 @@ entry:
 define dso_local void @_ZNK16btCollisionShape17getBoundingSphereER9btVector3Rf(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %center, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %radius) unnamed_addr #1 align 2 {
 entry:
   %tr = alloca %class.btTransform, align 4
-  %aabbMin = alloca %class.btVector3, align 8
-  %aabbMax = alloca %class.btVector3, align 8
+  %aabbMin = alloca %class.btVector3, align 4
+  %aabbMax = alloca %class.btVector3, align 4
   store float 1.000000e+00, ptr %tr, align 4
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %tr, i64 4
   %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %tr, i64 20
@@ -49,29 +49,35 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %tr, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
+  %1 = load float, ptr %aabbMax, align 4
+  %2 = load float, ptr %aabbMin, align 4
+  %sub.i = fsub float %1, %2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMax, i64 4
+  %3 = load float, ptr %arrayidx5.i, align 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
+  %4 = load float, ptr %arrayidx7.i, align 4
+  %sub8.i = fsub float %3, %4
   %arrayidx11.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
-  %1 = load float, ptr %arrayidx11.i, align 8
+  %5 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
-  %2 = load float, ptr %arrayidx13.i, align 8
-  %sub14.i = fsub float %1, %2
-  %add14.i = fadd float %1, %2
-  %3 = load <2 x float>, ptr %aabbMax, align 8
-  %4 = load <2 x float>, ptr %aabbMin, align 8
-  %5 = fsub <2 x float> %3, %4
-  %sub.i = extractelement <2 x float> %5, i64 0
-  %6 = fsub <2 x float> %3, %4
-  %7 = fmul <2 x float> %6, %6
-  %mul8.i.i.i = extractelement <2 x float> %7, i64 1
-  %8 = call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul8.i.i.i)
-  %9 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %8)
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %9)
+  %6 = load float, ptr %arrayidx13.i, align 4
+  %sub14.i = fsub float %5, %6
+  %mul8.i.i.i = fmul float %sub8.i, %sub8.i
+  %7 = call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul8.i.i.i)
+  %8 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %7)
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %8)
   %mul = fmul float %sqrt.i, 5.000000e-01
   store float %mul, ptr %radius, align 4
-  %10 = fadd <2 x float> %3, %4
-  %11 = fmul <2 x float> %10, <float 5.000000e-01, float 5.000000e-01>
+  %add.i = fadd float %1, %2
+  %add8.i = fadd float %3, %4
+  %add14.i = fadd float %5, %6
+  %mul.i = fmul float %add.i, 5.000000e-01
+  %mul4.i = fmul float %add8.i, 5.000000e-01
   %mul8.i = fmul float %add14.i, 5.000000e-01
+  %retval.sroa.0.0.vec.insert.i11 = insertelement <2 x float> poison, float %mul.i, i64 0
+  %retval.sroa.0.4.vec.insert.i12 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11, float %mul4.i, i64 1
   %retval.sroa.3.12.vec.insert.i13 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
-  store <2 x float> %11, ptr %center, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i12, ptr %center, align 4
   %ref.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %center, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i13, ptr %ref.tmp3.sroa.2.0..sroa_idx, align 4
   ret void
@@ -118,65 +124,81 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax)
+  %1 = load float, ptr %temporalAabbMax, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %temporalAabbMax, i64 4
+  %2 = load float, ptr %arrayidx.i, align 4
   %arrayidx.i11 = getelementptr inbounds i8, ptr %temporalAabbMax, i64 8
-  %1 = load float, ptr %arrayidx.i11, align 4
+  %3 = load float, ptr %arrayidx.i11, align 4
+  %4 = load float, ptr %temporalAabbMin, align 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 4
+  %5 = load float, ptr %arrayidx.i12, align 4
   %arrayidx.i13 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 8
-  %2 = load float, ptr %arrayidx.i13, align 4
+  %6 = load float, ptr %arrayidx.i13, align 4
+  %7 = load float, ptr %linvel, align 4
+  %mul.i = fmul float %7, %timeStep
+  %arrayidx3.i = getelementptr inbounds i8, ptr %linvel, i64 4
+  %8 = load float, ptr %arrayidx3.i, align 4
+  %mul4.i = fmul float %8, %timeStep
   %arrayidx7.i = getelementptr inbounds i8, ptr %linvel, i64 8
-  %3 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %3, %timeStep
+  %9 = load float, ptr %arrayidx7.i, align 4
+  %mul8.i = fmul float %9, %timeStep
+  %cmp = fcmp ogt float %mul.i, 0.000000e+00
+  %add = fadd float %1, %mul.i
+  %add11 = fadd float %4, %mul.i
+  %temporalAabbMinx.0 = select i1 %cmp, float %4, float %add11
+  %temporalAabbMaxx.0 = select i1 %cmp, float %add, float %1
+  %cmp13 = fcmp ogt float %mul4.i, 0.000000e+00
+  %add16 = fadd float %2, %mul4.i
+  %add19 = fadd float %5, %mul4.i
+  %temporalAabbMiny.0 = select i1 %cmp13, float %5, float %add19
+  %temporalAabbMaxy.0 = select i1 %cmp13, float %add16, float %2
   %cmp22 = fcmp ogt float %mul8.i, 0.000000e+00
-  %add25 = fadd float %1, %mul8.i
-  %add28 = fadd float %2, %mul8.i
-  %temporalAabbMinz.0 = select i1 %cmp22, float %2, float %add28
-  %temporalAabbMaxz.0 = select i1 %cmp22, float %add25, float %1
-  %4 = load float, ptr %angvel, align 4
+  %add25 = fadd float %3, %mul8.i
+  %add28 = fadd float %6, %mul8.i
+  %temporalAabbMinz.0 = select i1 %cmp22, float %6, float %add28
+  %temporalAabbMaxz.0 = select i1 %cmp22, float %add25, float %3
+  %10 = load float, ptr %angvel, align 4
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 4
-  %5 = load float, ptr %arrayidx5.i.i.i, align 4
-  %mul8.i.i.i = fmul float %5, %5
-  %6 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul8.i.i.i)
+  %11 = load float, ptr %arrayidx5.i.i.i, align 4
+  %mul8.i.i.i = fmul float %11, %11
+  %12 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %mul8.i.i.i)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 8
-  %7 = load float, ptr %arrayidx10.i.i.i, align 4
-  %8 = tail call noundef float @llvm.fmuladd.f32(float %7, float %7, float %6)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %8)
+  %13 = load float, ptr %arrayidx10.i.i.i, align 4
+  %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float %13, float %12)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %14)
   %vtable31 = load ptr, ptr %this, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
-  %9 = load ptr, ptr %vfn32, align 8
-  %10 = load <2 x float>, ptr %temporalAabbMin, align 4
-  %11 = load <2 x float>, ptr %linvel, align 4
-  %12 = insertelement <2 x float> poison, float %timeStep, i64 0
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x float> %11, %13
-  %15 = fcmp ogt <2 x float> %14, zeroinitializer
-  %16 = fadd <2 x float> %10, %14
-  %17 = select <2 x i1> %15, <2 x float> %10, <2 x float> %16
-  %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx = getelementptr inbounds i8, ptr %temporalAabbMin, i64 12
-  %18 = load <2 x float>, ptr %temporalAabbMax, align 4
-  %19 = fadd <2 x float> %18, %14
-  %20 = select <2 x i1> %15, <2 x float> %19, <2 x float> %18
-  %call33 = tail call noundef float %9(ptr noundef nonnull align 8 dereferenceable(32) %this)
+  %15 = load ptr, ptr %vfn32, align 8
+  %call33 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %mul = fmul float %sqrt.i, %call33
   %mul34 = fmul float %mul, %timeStep
-  store <2 x float> %17, ptr %temporalAabbMin, align 4
+  store float %temporalAabbMinx.0, ptr %temporalAabbMin, align 4
+  store float %temporalAabbMiny.0, ptr %arrayidx.i12, align 4
   store float %temporalAabbMinz.0, ptr %arrayidx.i13, align 4
+  %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx = getelementptr inbounds i8, ptr %temporalAabbMin, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx, align 4
-  store <2 x float> %20, ptr %temporalAabbMax, align 4
+  store float %temporalAabbMaxx.0, ptr %temporalAabbMax, align 4
+  store float %temporalAabbMaxy.0, ptr %arrayidx.i, align 4
   store float %temporalAabbMaxz.0, ptr %arrayidx.i11, align 4
   %ref.tmp35.sroa.4.0.temporalAabbMax.sroa_idx = getelementptr inbounds i8, ptr %temporalAabbMax, i64 12
   store float 0.000000e+00, ptr %ref.tmp35.sroa.4.0.temporalAabbMax.sroa_idx, align 4
-  %21 = load <2 x float>, ptr %temporalAabbMin, align 4
-  %22 = insertelement <2 x float> poison, float %mul34, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = fsub <2 x float> %21, %23
-  store <2 x float> %24, ptr %temporalAabbMin, align 4
-  %25 = load float, ptr %arrayidx.i13, align 4
-  %sub13.i = fsub float %25, %mul34
+  %16 = load float, ptr %temporalAabbMin, align 4
+  %sub.i = fsub float %16, %mul34
+  store float %sub.i, ptr %temporalAabbMin, align 4
+  %17 = load float, ptr %arrayidx.i12, align 4
+  %sub8.i = fsub float %17, %mul34
+  store float %sub8.i, ptr %arrayidx.i12, align 4
+  %18 = load float, ptr %arrayidx.i13, align 4
+  %sub13.i = fsub float %18, %mul34
   store float %sub13.i, ptr %arrayidx.i13, align 4
-  %26 = load <2 x float>, ptr %temporalAabbMax, align 4
-  %27 = fadd <2 x float> %23, %26
-  store <2 x float> %27, ptr %temporalAabbMax, align 4
-  %28 = load float, ptr %arrayidx.i11, align 4
-  %add13.i = fadd float %mul34, %28
+  %19 = load float, ptr %temporalAabbMax, align 4
+  %add.i = fadd float %mul34, %19
+  store float %add.i, ptr %temporalAabbMax, align 4
+  %20 = load float, ptr %arrayidx.i, align 4
+  %add8.i = fadd float %mul34, %20
+  store float %add8.i, ptr %arrayidx.i, align 4
+  %21 = load float, ptr %arrayidx.i11, align 4
+  %add13.i = fadd float %mul34, %21
   store float %add13.i, ptr %arrayidx.i11, align 4
   ret void
 }

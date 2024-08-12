@@ -4046,8 +4046,8 @@ entry:
   %ref.tmp115 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp119 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp123 = alloca %"class.std::__cxx11::basic_string", align 8
-  %shaderProp = alloca %"class.std::shared_ptr", align 16
-  %newProp = alloca %"class.std::shared_ptr.14", align 16
+  %shaderProp = alloca %"class.std::shared_ptr", align 8
+  %newProp = alloca %"class.std::shared_ptr.14", align 8
   %ref.tmp159 = alloca %"class.std::function", align 8
   %ref.tmp164 = alloca %"class.std::function", align 8
   %ref.tmp169 = alloca %"class.std::function", align 8
@@ -4335,16 +4335,17 @@ invoke.cont124:                                   ; preds = %invoke.cont120
           to label %invoke.cont128 unwind label %lpad
 
 invoke.cont128:                                   ; preds = %invoke.cont124
+  %4 = load ptr, ptr %shaderProp, align 8
+  store ptr %4, ptr %newProp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newProp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %shaderProp, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %5 = load <2 x ptr>, ptr %shaderProp, align 16
-  store <2 x ptr> %5, ptr %newProp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont128
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4365,7 +4366,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPrope
           to label %invoke.cont131 unwind label %lpad130
 
 invoke.cont131:                                   ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit
-  %10 = load ptr, ptr %shaderProp, align 16
+  %10 = load ptr, ptr %shaderProp, align 8
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %11 = load ptr, ptr %vfn, align 8
@@ -4373,7 +4374,7 @@ invoke.cont131:                                   ; preds = %_ZNSt10shared_ptrIN
           to label %invoke.cont158 unwind label %lpad130
 
 invoke.cont158:                                   ; preds = %invoke.cont131
-  %12 = load ptr, ptr %shaderProp, align 16
+  %12 = load ptr, ptr %shaderProp, align 8
   %m_preRenderValues.i = getelementptr inbounds i8, ptr %12, i64 272
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159, i8 0, i64 32, i1 false)
@@ -5402,7 +5403,7 @@ terminate.lpad.i.i609:                            ; preds = %if.then.i.i607
   unreachable
 
 invoke.cont406:                                   ; preds = %if.then.i.i607, %invoke.cont402
-  %106 = load ptr, ptr %shaderProp, align 16
+  %106 = load ptr, ptr %shaderProp, align 8
   %_M_manager.i.i612 = getelementptr inbounds i8, ptr %ref.tmp407, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp407, i8 0, i64 32, i1 false)
   %call.i.i2.i614 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16

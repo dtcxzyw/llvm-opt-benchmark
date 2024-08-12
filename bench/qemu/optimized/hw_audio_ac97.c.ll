@@ -139,11 +139,31 @@ entry:
 
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr i8, ptr %0, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 -128, i8 2>, ptr %arrayidx, align 1
+  store i8 0, ptr %arrayidx, align 1
+  %arrayidx3 = getelementptr i8, ptr %0, i64 5
+  store i8 0, ptr %arrayidx3, align 1
+  %arrayidx4 = getelementptr i8, ptr %0, i64 6
+  store i8 -128, ptr %arrayidx4, align 1
+  %arrayidx5 = getelementptr i8, ptr %0, i64 7
+  store i8 2, ptr %arrayidx5, align 1
   %arrayidx6 = getelementptr i8, ptr %0, i64 9
   store i8 0, ptr %arrayidx6, align 1
   %arrayidx7 = getelementptr i8, ptr %0, i64 16
-  store <8 x i8> <i8 1, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0>, ptr %arrayidx7, align 1
+  store i8 1, ptr %arrayidx7, align 1
+  %arrayidx8 = getelementptr i8, ptr %0, i64 17
+  store i8 0, ptr %arrayidx8, align 1
+  %arrayidx9 = getelementptr i8, ptr %0, i64 18
+  store i8 0, ptr %arrayidx9, align 1
+  %arrayidx10 = getelementptr i8, ptr %0, i64 19
+  store i8 0, ptr %arrayidx10, align 1
+  %arrayidx11 = getelementptr i8, ptr %0, i64 20
+  store i8 1, ptr %arrayidx11, align 1
+  %arrayidx12 = getelementptr i8, ptr %0, i64 21
+  store i8 0, ptr %arrayidx12, align 1
+  %arrayidx13 = getelementptr i8, ptr %0, i64 22
+  store i8 0, ptr %arrayidx13, align 1
+  %arrayidx14 = getelementptr i8, ptr %0, i64 23
+  store i8 0, ptr %arrayidx14, align 1
   %arrayidx15 = getelementptr i8, ptr %0, i64 60
   store i8 0, ptr %arrayidx15, align 1
   %arrayidx16 = getelementptr i8, ptr %0, i64 61
@@ -649,6 +669,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %s, i64 2752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 232, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %active, i8 0, i64 3, i1 false)
+  store i8 0, ptr %mixer_data, align 1
+  %arrayidx10.i = getelementptr i8, ptr %s, i64 2729
+  store i8 0, ptr %arrayidx10.i, align 1
   %arrayidx.i = getelementptr i8, ptr %s, i64 2732
   %arrayidx.i60 = getelementptr i8, ptr %s, i64 2758
   %arrayidx.i69 = getelementptr i8, ptr %s, i64 2766
@@ -668,7 +691,21 @@ entry:
   %arrayidx.i81 = getelementptr i8, ptr %s, i64 2770
   store i8 9, ptr %arrayidx.i81, align 1
   %arrayidx.i84 = getelementptr i8, ptr %s, i64 2772
-  store <8 x i8> <i8 -128, i8 -69, i8 -128, i8 -69, i8 -128, i8 -69, i8 -128, i8 -69>, ptr %arrayidx.i84, align 1
+  store i8 -128, ptr %arrayidx.i84, align 1
+  %arrayidx10.i85 = getelementptr i8, ptr %s, i64 2773
+  store i8 -69, ptr %arrayidx10.i85, align 1
+  %arrayidx.i87 = getelementptr i8, ptr %s, i64 2774
+  store i8 -128, ptr %arrayidx.i87, align 1
+  %arrayidx10.i88 = getelementptr i8, ptr %s, i64 2775
+  store i8 -69, ptr %arrayidx10.i88, align 1
+  %arrayidx.i90 = getelementptr i8, ptr %s, i64 2776
+  store i8 -128, ptr %arrayidx.i90, align 1
+  %arrayidx10.i91 = getelementptr i8, ptr %s, i64 2777
+  store i8 -69, ptr %arrayidx10.i91, align 1
+  %arrayidx.i93 = getelementptr i8, ptr %s, i64 2778
+  store i8 -128, ptr %arrayidx.i93, align 1
+  %arrayidx10.i94 = getelementptr i8, ptr %s, i64 2779
+  store i8 -69, ptr %arrayidx10.i94, align 1
   %arrayidx.i96 = getelementptr i8, ptr %s, i64 2780
   store i8 -128, ptr %arrayidx.i96, align 1
   %arrayidx10.i97 = getelementptr i8, ptr %s, i64 2781
@@ -676,8 +713,9 @@ entry:
   %arrayidx10.i.i = getelementptr i8, ptr %s, i64 2755
   store i8 0, ptr %arrayidx10.i.i, align 1
   %arrayidx.i.i98 = getelementptr i8, ptr %s, i64 2730
+  store i8 0, ptr %arrayidx.i.i98, align 1
   %arrayidx10.i.i99 = getelementptr i8, ptr %s, i64 2731
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 -128>, ptr %mixer_data, align 1
+  store i8 -128, ptr %arrayidx10.i.i99, align 1
   %arrayidx.i4.i.i = getelementptr i8, ptr %s, i64 2752
   %1 = load i8, ptr %arrayidx.i4.i.i, align 1
   %arrayidx7.i6.i.i = getelementptr i8, ptr %s, i64 2753

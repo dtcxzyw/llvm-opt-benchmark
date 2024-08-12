@@ -2722,13 +2722,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #16
   tail call void @_ZdlPv(ptr noundef %1) #19
   invoke void @__cxa_rethrow() #17
-          to label %37 unwind label %13
+          to label %38 unwind label %13
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %33 unwind label %34
+          to label %34 unwind label %35
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2752,32 +2752,34 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %25 = getelementptr inbounds i8, ptr %1, i64 220
   %26 = getelementptr inbounds i8, ptr %1, i64 236
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 244
-  %28 = getelementptr inbounds i8, ptr %1, i64 260
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 264
-  %30 = getelementptr inbounds i8, ptr %1, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 284
-  %32 = getelementptr inbounds i8, ptr %1, i64 300
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %32, align 4
+  store float 1.000000e+00, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 240
+  store float 1.000000e+00, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 244
+  %29 = getelementptr inbounds i8, ptr %1, i64 260
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %1, i64 264
+  %31 = getelementptr inbounds i8, ptr %1, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %1, i64 284
+  %33 = getelementptr inbounds i8, ptr %1, i64 300
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %33, align 4
   ret void
 
-33:                                               ; preds = %13
+34:                                               ; preds = %13
   resume { ptr, i32 } %14
 
-34:                                               ; preds = %13
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %13
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #15
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #15
   unreachable
 
-37:                                               ; preds = %9
+38:                                               ; preds = %9
   unreachable
 }
 

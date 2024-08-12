@@ -153,7 +153,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218SampleCountChannel3setEiij(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %x, i32 noundef %y, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
+  %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_base = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
   %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
@@ -329,7 +329,13 @@ delete.end108:                                    ; preds = %delete.notnull107, 
   %35 = load ptr, ptr %_level.i, align 8
   %_image.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load ptr, ptr %_image.i, align 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
+  %max.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 0, ptr %ref.tmp, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 4
+  %y3.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i32 -1, ptr %y3.i2.i, align 4
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %36, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont116 unwind label %lpad109
 
@@ -519,7 +525,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218SampleCountChannel5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
+  %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_numPixels.i, align 8
   %cmp6.not = icmp eq i64 %0, 0
@@ -555,7 +561,13 @@ lpad:                                             ; preds = %invoke.cont7
   %8 = load ptr, ptr %_level.i.i, align 8
   %_image.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_image.i, align 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
+  %max.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 0, ptr %ref.tmp, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 4
+  %y3.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i32 -1, ptr %y3.i2.i, align 4
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont17 unwind label %lpad10
 
@@ -607,7 +619,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
+  %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
   %_totalSamplesOccupied = getelementptr inbounds i8, ptr %this, i64 88
   %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -672,7 +684,13 @@ lpad:                                             ; preds = %invoke.cont18
   %15 = load ptr, ptr %_level.i.i, align 8
   %_image.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %_image.i, align 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
+  %max.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 0, ptr %ref.tmp, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 4
+  %y3.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i32 -1, ptr %y3.i2.i, align 4
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont28 unwind label %lpad21
 

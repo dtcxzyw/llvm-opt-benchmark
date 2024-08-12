@@ -385,7 +385,7 @@ _ZN2cv11JpegDecoder5closeEv.exit:                 ; preds = %6, %9
   %17 = getelementptr inbounds i8, ptr %14, i64 824
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #25
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %73
+  br i1 %19, label %20, label %75
 
 20:                                               ; preds = %_ZN2cv11JpegDecoder5closeEv.exit
   call void @jpeg_CreateDecompress(ptr noundef nonnull %14, i32 noundef 80, i64 noundef 656)
@@ -456,7 +456,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
   %59 = getelementptr inbounds i8, ptr %14, i64 40
   %60 = load ptr, ptr %59, align 8
   %.not22 = icmp eq ptr %60, null
-  br i1 %.not22, label %73, label %61
+  br i1 %.not22, label %75, label %61
 
 61:                                               ; preds = %58
   call void @jpeg_save_markers(ptr noundef nonnull %14, i32 noundef 225, i32 noundef 65535)
@@ -470,20 +470,23 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
   store i32 1, ptr %64, align 4
   call void @jpeg_calc_output_dimensions(ptr noundef nonnull %14)
   %67 = getelementptr inbounds i8, ptr %14, i64 136
-  %68 = load <2 x i32>, ptr %67, align 8
-  store <2 x i32> %68, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %14, i64 56
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp sgt i32 %70, 1
-  %72 = select i1 %71, i32 16, i32 0
-  store i32 %72, ptr %13, align 8
+  %68 = load i32, ptr %67, align 8
+  store i32 %68, ptr %12, align 8
+  %69 = getelementptr inbounds i8, ptr %14, i64 140
+  %70 = load i32, ptr %69, align 4
+  store i32 %70, ptr %11, align 4
+  %71 = getelementptr inbounds i8, ptr %14, i64 56
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp sgt i32 %72, 1
+  %74 = select i1 %73, i32 16, i32 0
+  store i32 %74, ptr %13, align 8
   store volatile i8 1, ptr %2, align 1
-  br label %73
+  br label %75
 
-73:                                               ; preds = %58, %61, %_ZN2cv11JpegDecoder5closeEv.exit
+75:                                               ; preds = %58, %61, %_ZN2cv11JpegDecoder5closeEv.exit
   %.0..0..0..0.20 = load volatile i8, ptr %2, align 1
-  %74 = trunc i8 %.0..0..0..0.20 to i1
-  ret i1 %74
+  %76 = trunc i8 %.0..0..0..0.20 to i1
+  ret i1 %76
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1046,9 +1049,12 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br label %.loopexit.split-lp
 
 66:                                               ; preds = %51, %59, %58
-  %67 = phi <2 x i32> [ <i32 4, i32 9>, %59 ], [ <i32 3, i32 8>, %58 ], [ <i32 1, i32 1>, %51 ]
-  %68 = getelementptr inbounds i8, ptr %6, i64 56
-  store <2 x i32> %67, ptr %68, align 8
+  %.sink280 = phi i32 [ 4, %59 ], [ 3, %58 ], [ 1, %51 ]
+  %.sink = phi i32 [ 9, %59 ], [ 8, %58 ], [ 1, %51 ]
+  %67 = getelementptr inbounds i8, ptr %6, i64 56
+  store i32 %.sink280, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 60
+  store i32 %.sink, ptr %68, align 4
   %69 = getelementptr inbounds i8, ptr %2, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %2, align 8

@@ -824,7 +824,13 @@ define void @_ZN6icu_756number9Precision7integerEv(ptr noalias nocapture writeon
 entry:
   store i32 2, ptr %agg.result, align 8, !alias.scope !10
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <4 x i16> <i16 0, i16 0, i16 -1, i16 -1>, ptr %fUnion.i.i.i, align 8, !alias.scope !10
+  store i16 0, ptr %fUnion.i.i.i, align 8, !alias.scope !10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  store i16 0, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !10
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !10
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !10
   %fTrailingZeroDisplay.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i.i, align 8, !alias.scope !10
   ret void
@@ -1510,7 +1516,9 @@ if.then.i:                                        ; preds = %entry
   %result.sroa.47.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %result.sroa.47.0.copyload9 = load i32, ptr %result.sroa.47.0.this.sroa_idx, align 8
   %result.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
-  %1 = load <2 x i16>, ptr %result.sroa.5.0.this.sroa_idx, align 4
+  %result.sroa.5.0.copyload11 = load i16, ptr %result.sroa.5.0.this.sroa_idx, align 4
+  %result.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 14
+  %result.sroa.6.0.copyload13 = load i16, ptr %result.sroa.6.0.this.sroa_idx, align 2
   %result.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
   %result.sroa.7.0.copyload15 = load i64, ptr %result.sroa.7.0.this.sroa_idx, align 8
   %result.sroa.8.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 28
@@ -1520,10 +1528,10 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %isoCode.i.i = getelementptr inbounds i8, ptr %currency, i64 20
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i32, ptr %fUnion.i, align 8, !noalias !52
+  %call2.i = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull %localStatus), !noalias !52
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !52
-  %call2.i = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull %localStatus), !noalias !52
-  %3 = load i32, ptr %fUnion.i, align 8, !noalias !52
-  %call4.i = call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %3, ptr noundef nonnull %localStatus), !noalias !52
+  %call4.i = call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %2, ptr noundef nonnull %localStatus), !noalias !52
   %cmp5.i = fcmp une double %call2.i, 0.000000e+00
   br i1 %cmp5.i, label %cond.true.i, label %cond.false.i
 
@@ -1535,7 +1543,9 @@ cond.true.i:                                      ; preds = %if.end.i
   %result.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %result.sroa.47.0.copyload8 = load i32, ptr %result.sroa.47.0.ref.tmp.i.sroa_idx, align 8
   %result.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
-  %4 = load <2 x i16>, ptr %result.sroa.5.0.ref.tmp.i.sroa_idx, align 4
+  %result.sroa.5.0.copyload10 = load i16, ptr %result.sroa.5.0.ref.tmp.i.sroa_idx, align 4
+  %result.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 14
+  %result.sroa.6.0.copyload12 = load i16, ptr %result.sroa.6.0.ref.tmp.i.sroa_idx, align 2
   %result.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %result.sroa.7.0.copyload14 = load i64, ptr %result.sroa.7.0.ref.tmp.i.sroa_idx, align 8
   %result.sroa.8.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
@@ -1544,32 +1554,35 @@ cond.true.i:                                      ; preds = %if.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %or.cond.i.i = icmp ult i32 %call4.i, 1000
-  %5 = and i32 %call4.i, 65535
+  %3 = and i32 %call4.i, 65535
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  %6 = shl i32 %call4.i, 16
-  %7 = or disjoint i32 %6, %5
-  %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %7, i32 65810
+  %4 = shl i32 %call4.i, 16
+  %5 = or disjoint i32 %4, %3
+  %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %5, i32 65810
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 _ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit: ; preds = %cond.true.i, %cond.false.i, %if.then.i
   %result.sroa.8.1 = phi i32 [ %result.sroa.8.0.copyload20, %if.then.i ], [ %result.sroa.8.0.copyload19, %cond.true.i ], [ undef, %cond.false.i ]
   %result.sroa.7.1 = phi i64 [ %result.sroa.7.0.copyload15, %if.then.i ], [ %result.sroa.7.0.copyload14, %cond.true.i ], [ undef, %cond.false.i ]
+  %result.sroa.6.1 = phi i16 [ %result.sroa.6.0.copyload13, %if.then.i ], [ %result.sroa.6.0.copyload12, %cond.true.i ], [ -1, %cond.false.i ]
+  %result.sroa.5.1 = phi i16 [ %result.sroa.5.0.copyload11, %if.then.i ], [ %result.sroa.5.0.copyload10, %cond.true.i ], [ -1, %cond.false.i ]
   %result.sroa.47.1 = phi i32 [ %result.sroa.47.0.copyload9, %if.then.i ], [ %result.sroa.47.0.copyload8, %cond.true.i ], [ %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i, %cond.false.i ]
   %result.sroa.4.1 = phi i32 [ %result.sroa.4.0.copyload6, %if.then.i ], [ %result.sroa.4.0.copyload5, %cond.true.i ], [ undef, %cond.false.i ]
   %result.sroa.0.1 = phi i32 [ 9, %if.then.i ], [ %result.sroa.0.0.copyload3, %cond.true.i ], [ %.sink.i.i, %cond.false.i ]
-  %8 = phi <2 x i16> [ %1, %if.then.i ], [ %4, %cond.true.i ], [ <i16 -1, i16 -1>, %cond.false.i ]
   %result.sroa.716.0.in = getelementptr inbounds i8, ptr %this, i64 24
   %result.sroa.716.0 = load i32, ptr %result.sroa.716.0.in, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %9 = load i32, ptr %localStatus, align 4
-  %cmp.i1 = icmp slt i32 %9, 1
+  %6 = load i32, ptr %localStatus, align 4
+  %cmp.i1 = icmp slt i32 %6, 1
   br i1 %cmp.i1, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
   %result.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %result.sroa.4.1, ptr %result.sroa.4.0.agg.result.sroa_idx, align 4
   %result.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store <2 x i16> %8, ptr %result.sroa.5.0.agg.result.sroa_idx, align 4
+  store i16 %result.sroa.5.1, ptr %result.sroa.5.0.agg.result.sroa_idx, align 4
+  %result.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  store i16 %result.sroa.6.1, ptr %result.sroa.6.0.agg.result.sroa_idx, align 2
   %result.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %result.sroa.7.1, ptr %result.sroa.7.0.agg.result.sroa_idx, align 8
   %result.sroa.8.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
@@ -1578,13 +1591,13 @@ if.end:                                           ; preds = %_ZNK6icu_756number9
 
 return:                                           ; preds = %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit, %if.end
   %.sink22 = phi i32 [ %result.sroa.0.1, %if.end ], [ 9, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
-  %.sink21 = phi i32 [ %result.sroa.47.1, %if.end ], [ %9, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
+  %.sink21 = phi i32 [ %result.sroa.47.1, %if.end ], [ %6, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
   %.sink = phi i32 [ %result.sroa.716.0, %if.end ], [ 0, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
   store i32 %.sink22, ptr %agg.result, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %.sink21, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i32 %.sink, ptr %11, align 8
+  %7 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i32 %.sink21, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store i32 %.sink, ptr %8, align 8
   ret void
 }
 
@@ -1651,42 +1664,51 @@ if.end.i:                                         ; preds = %entry
 
 cond.true.i:                                      ; preds = %if.end.i
   call void @_ZN6icu_756number9Precision9incrementEd(ptr nonnull sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp.i, double noundef %call2.i), !noalias !55
-  %3 = load <2 x i32>, ptr %ref.tmp.i, align 8
+  %ref.tmp.sroa.0.0.copyload = load i32, ptr %ref.tmp.i, align 8
+  %ref.tmp.sroa.4.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %ref.tmp.sroa.4.0.copyload = load i32, ptr %ref.tmp.sroa.4.0.ref.tmp.i.sroa_idx, align 4
   %ref.tmp.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp.sroa.47.0.copyload = load i32, ptr %ref.tmp.sroa.47.0.ref.tmp.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
-  %4 = load <2 x i16>, ptr %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx, align 4
+  %ref.tmp.sroa.5.0.copyload = load i16, ptr %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx, align 4
+  %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 14
+  %ref.tmp.sroa.6.0.copyload = load i16, ptr %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx, align 2
   %ref.tmp.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %ref.tmp.sroa.7.0.copyload = load i64, ptr %ref.tmp.sroa.7.0.ref.tmp.i.sroa_idx, align 8
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 cond.false.i:                                     ; preds = %if.end.i
   %or.cond.i.i = icmp ult i32 %call4.i, 1000
-  %5 = and i32 %call4.i, 65535
+  %3 = and i32 %call4.i, 65535
   %.sink.i.i = select i1 %or.cond.i.i, i32 2, i32 9
-  %6 = shl i32 %call4.i, 16
-  %7 = or disjoint i32 %6, %5
-  %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %7, i32 65810
-  %8 = insertelement <2 x i32> <i32 poison, i32 undef>, i32 %.sink.i.i, i64 0
+  %4 = shl i32 %call4.i, 16
+  %5 = or disjoint i32 %4, %3
+  %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i = select i1 %or.cond.i.i, i32 %5, i32 65810
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 _ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit: ; preds = %cond.true.i, %cond.false.i
   %ref.tmp.sroa.7.0 = phi i64 [ %ref.tmp.sroa.7.0.copyload, %cond.true.i ], [ undef, %cond.false.i ]
+  %ref.tmp.sroa.6.0 = phi i16 [ %ref.tmp.sroa.6.0.copyload, %cond.true.i ], [ -1, %cond.false.i ]
+  %ref.tmp.sroa.5.0 = phi i16 [ %ref.tmp.sroa.5.0.copyload, %cond.true.i ], [ -1, %cond.false.i ]
   %ref.tmp.sroa.47.0 = phi i32 [ %ref.tmp.sroa.47.0.copyload, %cond.true.i ], [ %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i, %cond.false.i ]
-  %9 = phi <2 x i16> [ %4, %cond.true.i ], [ <i16 -1, i16 -1>, %cond.false.i ]
-  %10 = phi <2 x i32> [ %3, %cond.true.i ], [ %8, %cond.false.i ]
+  %ref.tmp.sroa.4.0 = phi i32 [ %ref.tmp.sroa.4.0.copyload, %cond.true.i ], [ undef, %cond.false.i ]
+  %ref.tmp.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.copyload, %cond.true.i ], [ %.sink.i.i, %cond.false.i ]
   %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %precision, i64 24
-  %11 = load i32, ptr %fTrailingZeroDisplay.i, align 8, !noalias !55
+  %6 = load i32, ptr %fTrailingZeroDisplay.i, align 8, !noalias !55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  store <2 x i32> %10, ptr %this, align 8
+  store i32 %ref.tmp.sroa.0.0, ptr %this, align 8
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 %ref.tmp.sroa.4.0, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 4
   %ref.tmp.sroa.47.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %ref.tmp.sroa.47.0, ptr %ref.tmp.sroa.47.0.this.sroa_idx, align 8
   %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
-  store <2 x i16> %9, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 4
+  store i16 %ref.tmp.sroa.5.0, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 4
+  %ref.tmp.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 14
+  store i16 %ref.tmp.sroa.6.0, ptr %ref.tmp.sroa.6.0.this.sroa_idx, align 2
   %ref.tmp.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %ref.tmp.sroa.7.0, ptr %ref.tmp.sroa.7.0.this.sroa_idx, align 8
   %ref.tmp.sroa.716.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  store i32 %11, ptr %ref.tmp.sroa.716.0.this.sroa_idx, align 8
+  store i32 %6, ptr %ref.tmp.sroa.716.0.this.sroa_idx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit, %entry

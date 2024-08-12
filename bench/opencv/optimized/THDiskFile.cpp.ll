@@ -435,7 +435,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  br label %66
+  br label %69
 
 32:                                               ; preds = %23, %15, %13
   %.sink.i = phi ptr [ %5, %23 ], [ %5, %15 ], [ %4, %13 ]
@@ -473,7 +473,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
 42:                                               ; preds = %40, %38
   %.pn34 = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
-  br label %66
+  br label %69
 
 43:                                               ; preds = %32
   %44 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
@@ -483,7 +483,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
 
 46:                                               ; preds = %43
   %.not30 = icmp eq i32 %2, 0
-  br i1 %.not30, label %47, label %65
+  br i1 %.not30, label %47, label %68
 
 47:                                               ; preds = %46
   %48 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
@@ -498,7 +498,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
-  br label %66
+  br label %69
 
 52:                                               ; preds = %43
   %53 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #17
@@ -517,7 +517,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br label %66
+  br label %69
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds i8, ptr %53, i64 32
@@ -532,14 +532,20 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   %63 = getelementptr inbounds i8, ptr %53, i64 12
   store i32 %.0..0..0.39, ptr %63, align 4
   %64 = getelementptr inbounds i8, ptr %53, i64 16
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %64, align 8
-  br label %65
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %53, i64 20
+  store i32 0, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %53, i64 24
+  store i32 1, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %53, i64 28
+  store i32 0, ptr %67, align 4
+  br label %68
 
-65:                                               ; preds = %46, %58
+68:                                               ; preds = %46, %58
   %.025 = phi ptr [ %53, %58 ], [ null, %46 ]
   ret ptr %.025
 
-66:                                               ; preds = %56, %50, %42, %31
+69:                                               ; preds = %56, %50, %42, %31
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %42 ], [ %57, %56 ], [ %51, %50 ], [ %.pn, %31 ]
   resume { ptr, i32 } %.pn34.pn
 }

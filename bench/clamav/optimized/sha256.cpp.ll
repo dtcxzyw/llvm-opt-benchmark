@@ -7,11 +7,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z11sha256_initP14sha256_context(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %3, align 8
+  store i32 1779033703, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1150833019, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1013904242, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1521486534, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1359893119, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 -1694144372, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 528734635, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1541459225, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %9, align 8
   ret void
 }
 
@@ -287,8 +299,14 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr no
   %58 = getelementptr inbounds i8, ptr %1, i64 28
   %59 = tail call i32 @llvm.bswap.i32(i32 %57)
   store i32 %59, ptr %58, align 4
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %0, align 8
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %44, align 8
+  store i32 1779033703, ptr %0, align 8
+  store i32 -1150833019, ptr %32, align 4
+  store i32 1013904242, ptr %36, align 8
+  store i32 -1521486534, ptr %40, align 4
+  store i32 1359893119, ptr %44, align 8
+  store i32 -1694144372, ptr %48, align 4
+  store i32 528734635, ptr %52, align 8
+  store i32 1541459225, ptr %56, align 4
   store i64 0, ptr %3, align 8
   ret void
 }

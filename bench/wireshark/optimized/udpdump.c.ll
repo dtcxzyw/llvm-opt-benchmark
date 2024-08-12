@@ -376,7 +376,7 @@ define internal fastcc void @run_listener(ptr noundef %0, i16 noundef zeroext %1
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 163, ptr noundef nonnull @__func__.setup_dumpfile, ptr noundef nonnull @.str.43, ptr noundef %20) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %133
+  br label %145
 
 21:                                               ; preds = %16
   %22 = call zeroext i1 @libpcap_write_file_header(ptr noundef nonnull %17, i32 noundef 252, i32 noundef 65535, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
@@ -393,7 +393,7 @@ define internal fastcc void @run_listener(ptr noundef %0, i16 noundef zeroext %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %28 = call i32 @fclose(ptr noundef nonnull %17)
-  br label %133
+  br label %145
 
 29:                                               ; preds = %23, %14
   %.0.ph = phi ptr [ %17, %23 ], [ %15, %14 ]
@@ -468,7 +468,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %133
+  br label %145
 
 64:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -483,7 +483,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %68 = zext i16 %1 to i32
   br label %69
 
-69:                                               ; preds = %.lr.ph, %128
+69:                                               ; preds = %.lr.ph, %140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65535) %65, i8 0, i64 65535, i1 false)
   %70 = call i64 @recvfrom(i32 noundef %30, ptr noundef %65, i64 noundef 65535, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %12) #12
   %71 = icmp slt i64 %70, 0
@@ -493,8 +493,8 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %73 = tail call ptr @__errno_location() #13
   %74 = load i32, ptr %73, align 4
   switch i32 %74, label %75 [
-    i32 11, label %128
-    i32 4, label %128
+    i32 11, label %140
+    i32 4, label %140
   ]
 
 75:                                               ; preds = %72
@@ -502,7 +502,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %77 = load i32, ptr %73, align 4
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 320, ptr noundef nonnull @__func__.run_listener, ptr noundef nonnull @.str.40, ptr noundef %76, i32 noundef %77) #12
   store i8 1, ptr @extcap_end_application, align 1
-  br label %128
+  br label %140
 
 78:                                               ; preds = %69
   %79 = load i64, ptr %11, align 8
@@ -540,68 +540,92 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %101 = zext i16 %92 to i64
   %102 = getelementptr i8, ptr %88, i64 %101
   %103 = getelementptr i8, ptr %102, i64 4
-  store <4 x i8> <i8 0, i8 20, i8 0, i8 4>, ptr %103, align 1
-  %104 = getelementptr i8, ptr %102, i64 8
-  store i32 %.sroa.2.0.extract.trunc.i, ptr %104, align 1
-  %105 = getelementptr i8, ptr %102, i64 12
-  store <4 x i8> <i8 0, i8 21, i8 0, i8 4>, ptr %105, align 1
-  %106 = getelementptr i8, ptr %102, i64 16
-  store i32 16777343, ptr %106, align 1
-  %107 = call i32 @htonl(i32 noundef %81) #13
-  %108 = getelementptr i8, ptr %102, i64 20
-  store <4 x i8> <i8 0, i8 25, i8 0, i8 4>, ptr %108, align 1
-  %109 = getelementptr i8, ptr %102, i64 24
-  store i32 %107, ptr %109, align 1
-  %110 = call i32 @htonl(i32 noundef %68) #13
-  %111 = getelementptr i8, ptr %102, i64 28
-  store <4 x i8> <i8 0, i8 26, i8 0, i8 4>, ptr %111, align 1
-  %112 = getelementptr i8, ptr %102, i64 32
-  store i32 %110, ptr %112, align 1
-  %113 = getelementptr i8, ptr %102, i64 36
-  store i32 0, ptr %113, align 1
-  %114 = add nuw nsw i32 %100, 40
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr i8, ptr %88, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull readonly align 1 %65, i64 %70, i1 false)
-  %117 = trunc i64 %70 to i32
-  %118 = add i32 %114, %117
-  %119 = sdiv i64 %82, 1000000
-  %120 = and i64 %119, 4294967295
-  %121 = srem i64 %82, 1000000
-  %122 = trunc nsw i64 %121 to i32
-  %123 = call zeroext i1 @libpcap_write_packet(ptr noundef %.0.ph, i64 noundef %120, i32 noundef %122, i32 noundef %118, i32 noundef %118, ptr noundef nonnull %88, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
-  br i1 %123, label %.critedge, label %dump_packet.exit
+  store i8 0, ptr %103, align 1
+  %104 = getelementptr i8, ptr %102, i64 5
+  store i8 20, ptr %104, align 1
+  %105 = getelementptr i8, ptr %102, i64 6
+  store i8 0, ptr %105, align 1
+  %106 = getelementptr i8, ptr %102, i64 7
+  store i8 4, ptr %106, align 1
+  %107 = getelementptr i8, ptr %102, i64 8
+  store i32 %.sroa.2.0.extract.trunc.i, ptr %107, align 1
+  %108 = getelementptr i8, ptr %102, i64 12
+  store i8 0, ptr %108, align 1
+  %109 = getelementptr i8, ptr %102, i64 13
+  store i8 21, ptr %109, align 1
+  %110 = getelementptr i8, ptr %102, i64 14
+  store i8 0, ptr %110, align 1
+  %111 = getelementptr i8, ptr %102, i64 15
+  store i8 4, ptr %111, align 1
+  %112 = getelementptr i8, ptr %102, i64 16
+  store i32 16777343, ptr %112, align 1
+  %113 = call i32 @htonl(i32 noundef %81) #13
+  %114 = getelementptr i8, ptr %102, i64 20
+  store i8 0, ptr %114, align 1
+  %115 = getelementptr i8, ptr %102, i64 21
+  store i8 25, ptr %115, align 1
+  %116 = getelementptr i8, ptr %102, i64 22
+  store i8 0, ptr %116, align 1
+  %117 = getelementptr i8, ptr %102, i64 23
+  store i8 4, ptr %117, align 1
+  %118 = getelementptr i8, ptr %102, i64 24
+  store i32 %113, ptr %118, align 1
+  %119 = call i32 @htonl(i32 noundef %68) #13
+  %120 = getelementptr i8, ptr %102, i64 28
+  store i8 0, ptr %120, align 1
+  %121 = getelementptr i8, ptr %102, i64 29
+  store i8 26, ptr %121, align 1
+  %122 = getelementptr i8, ptr %102, i64 30
+  store i8 0, ptr %122, align 1
+  %123 = getelementptr i8, ptr %102, i64 31
+  store i8 4, ptr %123, align 1
+  %124 = getelementptr i8, ptr %102, i64 32
+  store i32 %119, ptr %124, align 1
+  %125 = getelementptr i8, ptr %102, i64 36
+  store i32 0, ptr %125, align 1
+  %126 = add nuw nsw i32 %100, 40
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr i8, ptr %88, i64 %127
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %65, i64 %70, i1 false)
+  %129 = trunc i64 %70 to i32
+  %130 = add i32 %126, %129
+  %131 = sdiv i64 %82, 1000000
+  %132 = and i64 %131, 4294967295
+  %133 = srem i64 %82, 1000000
+  %134 = trunc nsw i64 %133 to i32
+  %135 = call zeroext i1 @libpcap_write_packet(ptr noundef %.0.ph, i64 noundef %132, i32 noundef %134, i32 noundef %130, i32 noundef %130, ptr noundef nonnull %88, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  br i1 %135, label %.critedge, label %dump_packet.exit
 
 dump_packet.exit:                                 ; preds = %78
-  %124 = load i32, ptr %5, align 4
-  %125 = call ptr @g_strerror(i32 noundef %124) #13
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 267, ptr noundef nonnull @__func__.dump_packet, ptr noundef nonnull @.str.49, ptr noundef %125) #12
-  %126 = call i32 @fflush(ptr noundef %.0.ph)
+  %136 = load i32, ptr %5, align 4
+  %137 = call ptr @g_strerror(i32 noundef %136) #13
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 267, ptr noundef nonnull @__func__.dump_packet, ptr noundef nonnull @.str.49, ptr noundef %137) #12
+  %138 = call i32 @fflush(ptr noundef %.0.ph)
   call void @g_free(ptr noundef nonnull %88) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i8 1, ptr @extcap_end_application, align 1
-  br label %128
+  br label %140
 
 .critedge:                                        ; preds = %78
-  %127 = call i32 @fflush(ptr noundef %.0.ph)
+  %139 = call i32 @fflush(ptr noundef %.0.ph)
   call void @g_free(ptr noundef nonnull %88) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %128
+  br label %140
 
-128:                                              ; preds = %.critedge, %dump_packet.exit, %75, %72, %72
-  %129 = load i8, ptr @extcap_end_application, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %._crit_edge, label %69, !llvm.loop !7
+140:                                              ; preds = %.critedge, %dump_packet.exit, %75, %72, %72
+  %141 = load i8, ptr @extcap_end_application, align 1
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %._crit_edge, label %69, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %128, %64
-  %131 = call i32 @fclose(ptr noundef %.0.ph)
-  %132 = call i32 @close(i32 noundef %30) #12
+._crit_edge:                                      ; preds = %140, %64
+  %143 = call i32 @fclose(ptr noundef %.0.ph)
+  %144 = call i32 @close(i32 noundef %30) #12
   call void @g_free(ptr noundef %65) #12
-  br label %133
+  br label %145
 
-133:                                              ; preds = %setup_listener.exit.thread, %.thread, %25, %._crit_edge
+145:                                              ; preds = %setup_listener.exit.thread, %.thread, %25, %._crit_edge
   ret void
 }
 

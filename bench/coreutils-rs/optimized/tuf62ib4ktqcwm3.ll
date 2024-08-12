@@ -3209,53 +3209,72 @@ define hidden noundef zeroext i1 @_ZN5uu_dd8progress8ReadStat8is_empty17h575cea8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN73_$LT$uu_dd..progress..ReadStat$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hc2330f65407329a4E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #22 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8, !noundef !4
-  %7 = add i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load i64, ptr %0, align 8, !noundef !4
+  %4 = load i64, ptr %1, align 8, !noundef !4
+  %5 = add i64 %4, %3
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = add i64 %11, %9
-  %13 = load <2 x i64>, ptr %0, align 8
-  %14 = load <2 x i64>, ptr %1, align 8
-  %15 = add <2 x i64> %14, %13
-  store <2 x i64> %15, ptr %0, align 8
-  store i64 %12, ptr %8, align 8
-  store i32 %7, ptr %3, align 8
+  %10 = add i64 %9, %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load i32, ptr %11, align 8, !noundef !4
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load i32, ptr %13, align 8, !noundef !4
+  %15 = add i32 %14, %12
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load i64, ptr %18, align 8, !noundef !4
+  %20 = add i64 %19, %17
+  store i64 %5, ptr %0, align 8
+  store i64 %10, ptr %6, align 8
+  store i64 %20, ptr %16, align 8
+  store i32 %15, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN74_$LT$uu_dd..progress..WriteStat$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17h4779d86f1280a1f5E"(ptr noalias nocapture noundef align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(32) %1) unnamed_addr #22 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load i128, ptr %0, align 16, !noundef !4
-  %6 = load i128, ptr %1, align 16, !noundef !4
-  %7 = add i128 %6, %5
-  store i128 %7, ptr %0, align 16
-  %8 = load <2 x i64>, ptr %3, align 16
-  %9 = load <2 x i64>, ptr %4, align 16
-  %10 = add <2 x i64> %9, %8
-  store <2 x i64> %10, ptr %3, align 16
+  %4 = load i64, ptr %3, align 16, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load i64, ptr %5, align 16, !noundef !4
+  %7 = add i64 %6, %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = add i64 %11, %9
+  %13 = load i128, ptr %0, align 16, !noundef !4
+  %14 = load i128, ptr %1, align 16, !noundef !4
+  %15 = add i128 %14, %13
+  store i128 %15, ptr %0, align 16
+  store i64 %7, ptr %3, align 16
+  store i64 %12, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN68_$LT$uu_dd..progress..WriteStat$u20$as$u20$core..ops..arith..Add$GT$3add17hc944ec291d737e27E"(ptr noalias nocapture noundef writeonly sret({ i128, i64, i64 }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(32) %2) unnamed_addr #22 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = load i128, ptr %1, align 16, !noundef !4
-  %7 = load i128, ptr %2, align 16, !noundef !4
-  %8 = add i128 %7, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load <2 x i64>, ptr %4, align 16
-  %11 = load <2 x i64>, ptr %5, align 16
-  %12 = add <2 x i64> %11, %10
-  store <2 x i64> %12, ptr %9, align 16
-  store i128 %8, ptr %0, align 16
+  %5 = load i64, ptr %4, align 16, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = load i64, ptr %6, align 16, !noundef !4
+  %8 = add i64 %7, %5
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = add i64 %12, %10
+  %14 = load i128, ptr %1, align 16, !noundef !4
+  %15 = load i128, ptr %2, align 16, !noundef !4
+  %16 = add i128 %15, %14
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %8, ptr %17, align 16
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %13, ptr %18, align 8
+  store i128 %16, ptr %0, align 16
   ret void
 }
 

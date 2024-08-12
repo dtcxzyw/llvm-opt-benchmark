@@ -145674,7 +145674,7 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCCall5cloneEv(ptr noundef nonn
   %5 = getelementptr inbounds i8, ptr %2, i64 152
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %.noexc unwind label %22
+          to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 184
@@ -145683,37 +145683,39 @@ define linkonce_odr dso_local noundef ptr @_ZN8AstCCall5cloneEv(ptr noundef nonn
   store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCCall, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 200
   %10 = getelementptr inbounds i8, ptr %0, i64 200
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
-  %12 = load ptr, ptr %11, align 8
-  %13 = load <2 x ptr>, ptr %10, align 8
-  store <2 x ptr> %13, ptr %9, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i, label %_ZN8AstCCallC2ERKS_.exit, label %14
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 208
+  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i.i.i, label %_ZN8AstCCallC2ERKS_.exit, label %15
 
-14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i, label %20, label %17
+15:                                               ; preds = %.noexc
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %17, 0
+  br i1 %.not.i.i.i.i.i.i, label %21, label %18
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4
+18:                                               ; preds = %15
+  %19 = load i32, ptr %16, align 4
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %16, align 4
   br label %_ZN8AstCCallC2ERKS_.exit
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
+21:                                               ; preds = %15
+  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
   br label %_ZN8AstCCallC2ERKS_.exit
 
-_ZN8AstCCallC2ERKS_.exit:                         ; preds = %20, %17, %.noexc
+_ZN8AstCCallC2ERKS_.exit:                         ; preds = %21, %18, %.noexc
   ret ptr %2
 
-22:                                               ; preds = %1
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %1
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #36
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -156267,30 +156269,32 @@ define linkonce_odr dso_local noundef ptr @_ZN9AstVarRef5cloneEv(ptr noundef non
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull align 8 dereferenceable(25) %6, i64 25, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 184
   %8 = getelementptr inbounds i8, ptr %0, i64 184
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
-  %10 = load ptr, ptr %9, align 8
-  %11 = load <2 x ptr>, ptr %8, align 8
-  store <2 x ptr> %11, ptr %7, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9AstVarRefC2ERKS_.exit, label %12
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 192
+  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9AstVarRefC2ERKS_.exit, label %13
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %18, label %15
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %19, label %16
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %13, align 4
-  %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %13, align 4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4
   br label %_ZN9AstVarRefC2ERKS_.exit
 
-18:                                               ; preds = %12
-  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
   br label %_ZN9AstVarRefC2ERKS_.exit
 
-_ZN9AstVarRefC2ERKS_.exit:                        ; preds = %1, %15, %18
+_ZN9AstVarRefC2ERKS_.exit:                        ; preds = %1, %16, %19
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %2, align 8
   ret ptr %2
 }

@@ -278,11 +278,16 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph:    ; preds = %entry
   %computedFlexBasis.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   %nextCachedMeasurementsIndex.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cachedLayout.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 212
+  %availableHeight4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
   %widthSizingMode5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 220
   %heightSizingMode6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
   %computedWidth7.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 228
+  %computedHeight8.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 232
   %direction_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 236
   %dimensions_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 244
+  %measuredDimensions_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 248
+  %arrayinit.element16.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 252
   %position_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 256
   br label %_ZNK8facebook4yoga4Node8getChildEm.exit
 
@@ -319,26 +324,35 @@ if.then7.i:                                       ; preds = %if.end.i
 arrayinit.body.i.i:                               ; preds = %arrayinit.body.i.i, %if.then7.i
   %arrayinit.cur.idx.i.i = phi i64 [ 20, %if.then7.i ], [ %arrayinit.cur.add.i.i, %arrayinit.body.i.i ]
   %arrayinit.cur.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %arrayinit.cur.idx.i.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i.i, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i.i, align 4
+  %availableHeight.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i.i, align 4
   %widthSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 8
   store i32 1, ptr %widthSizingMode.i.i, align 4
   %heightSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 12
   store i32 1, ptr %heightSizingMode.i.i, align 4
   %computedWidth.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i.i, align 4
+  %computedHeight.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i.i, align 4
   %arrayinit.cur.add.i.i = add nuw nsw i64 %arrayinit.cur.idx.i.i, 24
   %arrayinit.done.i.i = icmp eq i64 %arrayinit.cur.add.i.i, 212
   br i1 %arrayinit.done.i.i, label %if.end8.i, label %arrayinit.body.i.i
 
 if.end8.i:                                        ; preds = %arrayinit.body.i.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i.i, align 4
+  store float -1.000000e+00, ptr %cachedLayout.i.i, align 4
+  store float -1.000000e+00, ptr %availableHeight4.i.i, align 4
   store i32 1, ptr %widthSizingMode5.i.i, align 4
   store i32 1, ptr %heightSizingMode6.i.i, align 4
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i.i, align 4
+  store float -1.000000e+00, ptr %computedWidth7.i.i, align 4
+  store float -1.000000e+00, ptr %computedHeight8.i.i, align 4
   %bf.load.i.i = load i8, ptr %direction_.i.i, align 4
   %bf.clear10.i.i = and i8 %bf.load.i.i, -8
   store i8 %bf.clear10.i.i, ptr %direction_.i.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i.i, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i.i, align 4
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i.i, i8 0, i64 64, i1 false)
   %layout_.i.i = getelementptr inbounds i8, ptr %4, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp.i, i64 320, i1 false)
@@ -403,32 +417,46 @@ if.then7:                                         ; preds = %if.then5
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %if.then7
   %arrayinit.cur.idx.i = phi i64 [ 20, %if.then7 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i, align 4
   %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
   %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
   %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i, align 4
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
   br i1 %arrayinit.done.i, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
   %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 4
+  store float -1.000000e+00, ptr %cachedLayout.i, align 4
+  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
+  store float -1.000000e+00, ptr %availableHeight4.i, align 4
   %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
   store i32 1, ptr %widthSizingMode5.i, align 4
   %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
   store i32 1, ptr %heightSizingMode6.i, align 4
   %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 4
+  store float -1.000000e+00, ptr %computedWidth7.i, align 4
+  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
+  store float -1.000000e+00, ptr %computedHeight8.i, align 4
   %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear10.i = and i8 %bf.load.i, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
   %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i, align 4
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp, i64 244
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i, align 4
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 248
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 252
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
   %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
   %layout_.i = getelementptr inbounds i8, ptr %excludedChildRef, i64 252
@@ -609,11 +637,16 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook4yoga4
   %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
+  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
   %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
   %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
   %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
+  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
   %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
   %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp, i64 244
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 248
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 252
   %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body
@@ -645,26 +678,35 @@ _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %for.body
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %_ZNK8facebook4yoga4Node8getChildEm.exit21
   %arrayinit.cur.idx.i = phi i64 [ 20, %_ZNK8facebook4yoga4Node8getChildEm.exit21 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i, align 4
   %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
   %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
   %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i, align 4
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
   br i1 %arrayinit.done.i, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 4
+  store float -1.000000e+00, ptr %cachedLayout.i, align 4
+  store float -1.000000e+00, ptr %availableHeight4.i, align 4
   store i32 1, ptr %widthSizingMode5.i, align 4
   store i32 1, ptr %heightSizingMode6.i, align 4
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 4
+  store float -1.000000e+00, ptr %computedWidth7.i, align 4
+  store float -1.000000e+00, ptr %computedHeight8.i, align 4
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear10.i = and i8 %bf.load.i, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i, align 4
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
   %layout_.i = getelementptr inbounds i8, ptr %6, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i64 320, i1 false)
@@ -775,11 +817,16 @@ for.body.lr.ph:                                   ; preds = %if.then2
   %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
   %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 212
+  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 216
   %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 220
   %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 224
   %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 228
+  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 232
   %direction_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 236
   %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 240
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 244
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 248
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 252
   %position_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 256
   br label %for.body
 
@@ -795,26 +842,35 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %for.body
   %arrayinit.cur.idx.i = phi i64 [ 20, %for.body ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
   %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 %arrayinit.cur.idx.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i, align 4
   %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
   %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
   %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i, align 4
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
   br i1 %arrayinit.done.i, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 4
+  store float -1.000000e+00, ptr %cachedLayout.i, align 4
+  store float -1.000000e+00, ptr %availableHeight4.i, align 4
   store i32 1, ptr %widthSizingMode5.i, align 4
   store i32 1, ptr %heightSizingMode6.i, align 4
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 4
+  store float -1.000000e+00, ptr %computedWidth7.i, align 4
+  store float -1.000000e+00, ptr %computedHeight8.i, align 4
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear10.i = and i8 %bf.load.i, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i, align 4
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
   %layout_.i = getelementptr inbounds i8, ptr %4, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp15, i64 320, i1 false)
@@ -859,11 +915,16 @@ for.body40.lr.ph:                                 ; preds = %if.then.i.i.i.i.i.i
   %lastOwnerDirection.i47 = getelementptr inbounds i8, ptr %ref.tmp58, i64 12
   %nextCachedMeasurementsIndex.i48 = getelementptr inbounds i8, ptr %ref.tmp58, i64 16
   %cachedLayout.i59 = getelementptr inbounds i8, ptr %ref.tmp58, i64 212
+  %availableHeight4.i60 = getelementptr inbounds i8, ptr %ref.tmp58, i64 216
   %widthSizingMode5.i61 = getelementptr inbounds i8, ptr %ref.tmp58, i64 220
   %heightSizingMode6.i62 = getelementptr inbounds i8, ptr %ref.tmp58, i64 224
   %computedWidth7.i63 = getelementptr inbounds i8, ptr %ref.tmp58, i64 228
+  %computedHeight8.i64 = getelementptr inbounds i8, ptr %ref.tmp58, i64 232
   %direction_.i65 = getelementptr inbounds i8, ptr %ref.tmp58, i64 236
   %dimensions_.i68 = getelementptr inbounds i8, ptr %ref.tmp58, i64 240
+  %arrayinit.element.i69 = getelementptr inbounds i8, ptr %ref.tmp58, i64 244
+  %measuredDimensions_.i70 = getelementptr inbounds i8, ptr %ref.tmp58, i64 248
+  %arrayinit.element16.i71 = getelementptr inbounds i8, ptr %ref.tmp58, i64 252
   %position_.i72 = getelementptr inbounds i8, ptr %ref.tmp58, i64 256
   br label %for.body40
 
@@ -970,26 +1031,35 @@ if.then57:                                        ; preds = %for.end.i.i.i, %inv
 arrayinit.body.i49:                               ; preds = %arrayinit.body.i49, %if.then57
   %arrayinit.cur.idx.i50 = phi i64 [ 20, %if.then57 ], [ %arrayinit.cur.add.i57, %arrayinit.body.i49 ]
   %arrayinit.cur.ptr.i51 = getelementptr inbounds i8, ptr %ref.tmp58, i64 %arrayinit.cur.idx.i50
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i51, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i51, align 4
+  %availableHeight.i52 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i52, align 4
   %widthSizingMode.i53 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 8
   store i32 1, ptr %widthSizingMode.i53, align 4
   %heightSizingMode.i54 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 12
   store i32 1, ptr %heightSizingMode.i54, align 4
   %computedWidth.i55 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i55, align 4
+  store float -1.000000e+00, ptr %computedWidth.i55, align 4
+  %computedHeight.i56 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i56, align 4
   %arrayinit.cur.add.i57 = add nuw nsw i64 %arrayinit.cur.idx.i50, 24
   %arrayinit.done.i58 = icmp eq i64 %arrayinit.cur.add.i57, 212
   br i1 %arrayinit.done.i58, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit73, label %arrayinit.body.i49
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit73:      ; preds = %arrayinit.body.i49
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i59, align 4
+  store float -1.000000e+00, ptr %cachedLayout.i59, align 4
+  store float -1.000000e+00, ptr %availableHeight4.i60, align 4
   store i32 1, ptr %widthSizingMode5.i61, align 4
   store i32 1, ptr %heightSizingMode6.i62, align 4
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i63, align 4
+  store float -1.000000e+00, ptr %computedWidth7.i63, align 4
+  store float -1.000000e+00, ptr %computedHeight8.i64, align 4
   %bf.load.i66 = load i8, ptr %direction_.i65, align 4
   %bf.clear10.i67 = and i8 %bf.load.i66, -8
   store i8 %bf.clear10.i67, ptr %direction_.i65, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i68, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i68, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i69, align 4
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i70, align 4
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i71, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i72, i8 0, i64 64, i1 false)
   %layout_.i74 = getelementptr inbounds i8, ptr %9, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i74, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp58, i64 320, i1 false)

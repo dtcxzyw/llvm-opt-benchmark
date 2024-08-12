@@ -915,31 +915,35 @@ sw.bb66.i:                                        ; preds = %if.end.i
 
 if.end76.i:                                       ; preds = %sw.bb66.i
   %rAccelData77.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
-  %64 = load <2 x i8>, ptr %rAccelData77.i, align 4
+  %64 = load i8, ptr %rAccelData77.i, align 4
+  %arrayidx80.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 13
+  %65 = load i8, ptr %arrayidx80.i, align 1
   %add.ptr87.i.ptr = getelementptr inbounds i8, ptr %7, i64 %sub72.i
-  %vecinit15.i617 = shufflevector <2 x i8> %64, <2 x i8> poison, <16 x i32> zeroinitializer
-  %vecinit15.i = shufflevector <2 x i8> %64, <2 x i8> poison, <16 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %65 = ptrtoint ptr %add.ptr87.i.ptr to i64
-  %rem.i224 = and i64 %65, 15
+  %vecinit.i602 = insertelement <16 x i8> poison, i8 %64, i64 0
+  %vecinit15.i617 = shufflevector <16 x i8> %vecinit.i602, <16 x i8> poison, <16 x i32> zeroinitializer
+  %vecinit.i = insertelement <16 x i8> poison, i8 %65, i64 0
+  %vecinit15.i = shufflevector <16 x i8> %vecinit.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  %66 = ptrtoint ptr %add.ptr87.i.ptr to i64
+  %rem.i224 = and i64 %66, 15
   %tobool.i225.not = icmp eq i64 %rem.i224, 0
   br i1 %tobool.i225.not, label %for.cond.i1401.preheader, label %cond.true.i248
 
 cond.true.i248:                                   ; preds = %if.end76.i
   %add.ptr.i249 = getelementptr inbounds i8, ptr %add.ptr87.i.ptr, i64 -16
-  %66 = load <16 x i8>, ptr %add.ptr.i249, align 1
-  %67 = and <16 x i8> %66, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
-  %cmp.i16.i = icmp eq <16 x i8> %vecinit15.i, %67
-  %cmp.i.i1186 = icmp eq <16 x i8> %vecinit15.i617, %67
+  %67 = load <16 x i8>, ptr %add.ptr.i249, align 1
+  %68 = and <16 x i8> %67, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
+  %cmp.i16.i = icmp eq <16 x i8> %vecinit15.i, %68
+  %cmp.i.i1186 = icmp eq <16 x i8> %vecinit15.i617, %68
   %sext.i.i = sext <16 x i1> %cmp.i.i1186 to <16 x i8>
   %pslldq.i = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %sext.i.i, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %68 = icmp slt <16 x i8> %pslldq.i, zeroinitializer
-  %69 = select <16 x i1> %cmp.i16.i, <16 x i1> %68, <16 x i1> zeroinitializer
-  %70 = bitcast <16 x i1> %69 to i16
-  %tobool.i1187.not = icmp eq i16 %70, 0
-  %71 = zext i16 %70 to i32
+  %69 = icmp slt <16 x i8> %pslldq.i, zeroinitializer
+  %70 = select <16 x i1> %cmp.i16.i, <16 x i1> %69, <16 x i1> zeroinitializer
+  %71 = bitcast <16 x i1> %70 to i16
+  %tobool.i1187.not = icmp eq i16 %71, 0
+  %72 = zext i16 %71 to i32
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr87.i.ptr, i64 15
-  %72 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
-  %idx.ext.i.i = zext nneg i32 %72 to i64
+  %73 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
+  %idx.ext.i.i = zext nneg i32 %73 to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i, i64 %idx.neg.i.i
   br i1 %tobool.i1187.not, label %if.end.i241, label %rvermicelliDoubleExec.exit251
@@ -967,40 +971,39 @@ for.body.i1405:                                   ; preds = %for.cond.i1401
   %buf_end.addr.i1380.0.add = add nsw i64 %buf_end.addr.i1380.0.idx, -16
   %add.ptr1.i1406.ptr = getelementptr inbounds i8, ptr %7, i64 %buf_end.addr.i1380.0.add
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr1.i1406.ptr, i64 16) ]
-  %73 = load <16 x i8>, ptr %add.ptr1.i1406.ptr, align 16
-  %74 = and <16 x i8> %73, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
-  %cmp.i30.i = icmp eq <16 x i8> %vecinit15.i, %74
-  %cmp.i.i1408 = icmp eq <16 x i8> %vecinit15.i617, %74
+  %74 = load <16 x i8>, ptr %add.ptr1.i1406.ptr, align 16
+  %75 = and <16 x i8> %74, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
+  %cmp.i30.i = icmp eq <16 x i8> %vecinit15.i, %75
+  %cmp.i.i1408 = icmp eq <16 x i8> %vecinit15.i617, %75
   %sext.i.i1409 = sext <16 x i1> %cmp.i.i1408 to <16 x i8>
   %pslldq.i1410 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %sext.i.i1409, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
-  %75 = icmp slt <16 x i8> %pslldq.i1410, zeroinitializer
-  %76 = select <16 x i1> %cmp.i30.i, <16 x i1> %75, <16 x i1> zeroinitializer
-  %77 = bitcast <16 x i1> %76 to i16
+  %76 = icmp slt <16 x i8> %pslldq.i1410, zeroinitializer
+  %77 = select <16 x i1> %cmp.i30.i, <16 x i1> %76, <16 x i1> zeroinitializer
+  %78 = bitcast <16 x i1> %77 to i16
   %arrayidx.i1411 = getelementptr inbounds i8, ptr %buf_end.addr.i1380.0.ptr, i64 -17
-  %78 = load i8, ptr %arrayidx.i1411, align 1
-  %79 = shufflevector <16 x i8> %73, <16 x i8> poison, <2 x i32> <i32 poison, i32 0>
-  %80 = insertelement <2 x i8> %79, i8 %78, i64 0
-  %81 = and <2 x i8> %80, <i8 -33, i8 -33>
-  %82 = icmp eq <2 x i8> %81, %64
-  %83 = extractelement <2 x i1> %82, i64 0
-  %84 = extractelement <2 x i1> %82, i64 1
-  %or.cond667 = select i1 %83, i1 %84, i1 false
+  %79 = load i8, ptr %arrayidx.i1411, align 1
+  %80 = and i8 %79, -33
+  %cmp10.i = icmp eq i8 %80, %64
+  %81 = extractelement <16 x i8> %74, i64 0
+  %82 = and i8 %81, -33
+  %cmp16.i = icmp eq i8 %82, %65
+  %or.cond667 = select i1 %cmp10.i, i1 %cmp16.i, i1 false
   br i1 %or.cond667, label %if.then21.i1419.split.loop.exit, label %if.end.i1414
 
 if.end.i1414:                                     ; preds = %for.body.i1405
-  %tobool.i1415.not = icmp eq i16 %77, 0
+  %tobool.i1415.not = icmp eq i16 %78, 0
   br i1 %tobool.i1415.not, label %for.cond.i1401, label %if.then21.i1419, !llvm.loop !10
 
 if.then21.i1419.split.loop.exit:                  ; preds = %for.body.i1405
-  %85 = or i16 %77, 1
+  %83 = or i16 %78, 1
   br label %if.then21.i1419
 
 if.then21.i1419:                                  ; preds = %if.end.i1414, %if.then21.i1419.split.loop.exit
-  %z.i1384.0621.in = phi i16 [ %85, %if.then21.i1419.split.loop.exit ], [ %77, %if.end.i1414 ]
+  %z.i1384.0621.in = phi i16 [ %83, %if.then21.i1419.split.loop.exit ], [ %78, %if.end.i1414 ]
   %z.i1384.0621 = zext i16 %z.i1384.0621.in to i32
   %add.ptr1.i.i1421 = getelementptr inbounds i8, ptr %add.ptr1.i1406.ptr, i64 31
-  %86 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %z.i1384.0621, i1 true)
-  %idx.ext.i.i1422 = zext nneg i32 %86 to i64
+  %84 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %z.i1384.0621, i1 true)
+  %idx.ext.i.i1422 = zext nneg i32 %84 to i64
   %idx.neg.i.i1423 = sub nsw i64 0, %idx.ext.i.i1422
   %add.ptr2.i.i1424 = getelementptr inbounds i8, ptr %add.ptr1.i.i1421, i64 %idx.neg.i.i1423
   br label %rvermicelliDoubleExec.exit251
@@ -1015,54 +1018,54 @@ rvermicelliDoubleExec.exit251:                    ; preds = %for.cond.i1401, %if
 
 sw.bb95.i:                                        ; preds = %if.end.i
   %rAccelOffset98.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 10
-  %87 = load i8, ptr %rAccelOffset98.i, align 2
-  %conv99.i = zext i8 %87 to i64
+  %85 = load i8, ptr %rAccelOffset98.i, align 2
+  %conv99.i = zext i8 %85 to i64
   %sub100.i = sub i64 %8, %conv99.i
   %arrayidx101.i = getelementptr inbounds i8, ptr %7, i64 %sub100.i
-  %88 = load i8, ptr %arrayidx101.i, align 1
+  %86 = load i8, ptr %arrayidx101.i, align 1
   %rAccelData103.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
-  %89 = load i8, ptr %rAccelData103.i, align 4
-  %cmp105.i.not = icmp eq i8 %88, %89
+  %87 = load i8, ptr %rAccelData103.i, align 4
+  %cmp105.i.not = icmp eq i8 %86, %87
   br i1 %cmp105.i.not, label %sw.epilog.i, label %if.end23
 
 sw.bb109.i:                                       ; preds = %if.end.i
   %rAccelOffset112.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 10
-  %90 = load i8, ptr %rAccelOffset112.i, align 2
-  %conv113.i = zext i8 %90 to i64
+  %88 = load i8, ptr %rAccelOffset112.i, align 2
+  %conv113.i = zext i8 %88 to i64
   %sub114.i = sub i64 %8, %conv113.i
   %arrayidx115.i = getelementptr inbounds i8, ptr %7, i64 %sub114.i
-  %91 = load i8, ptr %arrayidx115.i, align 1
-  %92 = and i8 %91, -33
+  %89 = load i8, ptr %arrayidx115.i, align 1
+  %90 = and i8 %89, -33
   %rAccelData117.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
-  %93 = load i8, ptr %rAccelData117.i, align 4
-  %cmp119.i.not = icmp eq i8 %92, %93
+  %91 = load i8, ptr %rAccelData117.i, align 4
+  %cmp119.i.not = icmp eq i8 %90, %91
   br i1 %cmp119.i.not, label %sw.epilog.i, label %if.end23
 
 sw.bb123.i:                                       ; preds = %if.end.i
   %add.ptr126.i = getelementptr inbounds i8, ptr %7, i64 %8
   %rAccelOffset127.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 10
-  %94 = load i8, ptr %rAccelOffset127.i, align 2
-  %idx.ext129.i = zext i8 %94 to i64
+  %92 = load i8, ptr %rAccelOffset127.i, align 2
+  %idx.ext129.i = zext i8 %92 to i64
   %idx.neg130.i = sub nsw i64 0, %idx.ext129.i
   %add.ptr131.i = getelementptr inbounds i8, ptr %add.ptr126.i, i64 %idx.neg130.i
-  %95 = load i16, ptr %add.ptr131.i, align 1
+  %93 = load i16, ptr %add.ptr131.i, align 1
   %rAccelData134.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
-  %96 = load i16, ptr %rAccelData134.i, align 4
-  %cmp136.i.not = icmp eq i16 %95, %96
+  %94 = load i16, ptr %rAccelData134.i, align 4
+  %cmp136.i.not = icmp eq i16 %93, %94
   br i1 %cmp136.i.not, label %sw.epilog.i, label %if.end23
 
 sw.bb140.i:                                       ; preds = %if.end.i
   %add.ptr143.i = getelementptr inbounds i8, ptr %7, i64 %8
   %rAccelOffset144.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 10
-  %97 = load i8, ptr %rAccelOffset144.i, align 2
-  %idx.ext146.i = zext i8 %97 to i64
+  %95 = load i8, ptr %rAccelOffset144.i, align 2
+  %idx.ext146.i = zext i8 %95 to i64
   %idx.neg147.i = sub nsw i64 0, %idx.ext146.i
   %add.ptr148.i = getelementptr inbounds i8, ptr %add.ptr143.i, i64 %idx.neg147.i
-  %98 = load i16, ptr %add.ptr148.i, align 1
-  %99 = and i16 %98, -8225
+  %96 = load i16, ptr %add.ptr148.i, align 1
+  %97 = and i16 %96, -8225
   %rAccelData152.i = getelementptr inbounds i8, ptr %add.ptr.i79, i64 12
-  %100 = load i16, ptr %rAccelData152.i, align 4
-  %cmp154.i.not = icmp eq i16 %99, %100
+  %98 = load i16, ptr %rAccelData152.i, align 4
+  %cmp154.i.not = icmp eq i16 %97, %98
   br i1 %cmp154.i.not, label %sw.epilog.i, label %if.end23
 
 sw.epilog.i:                                      ; preds = %if.end.i, %sw.bb140.i, %sw.bb123.i, %sw.bb109.i, %sw.bb95.i, %sw.bb66.i, %sw.bb38.i, %sw.bb12.i, %sw.bb.i, %rvermicelliDoubleExec.exit251, %rvermicelliDoubleExec.exit, %rvermicelliExec.exit188, %rvermicelliExec.exit
@@ -1077,93 +1080,93 @@ nfaRevAccelCheck.exit:                            ; preds = %sw.epilog.i, %if.en
 
 if.end:                                           ; preds = %nfaRevAccelCheck.exit
   %queues = getelementptr inbounds i8, ptr %scratch, i64 176
-  %101 = load ptr, ptr %queues, align 16
-  store ptr %add.ptr.i79, ptr %101, align 8
-  %end.i = getelementptr inbounds i8, ptr %101, i64 12
+  %99 = load ptr, ptr %queues, align 16
+  store ptr %add.ptr.i79, ptr %99, align 8
+  %end.i = getelementptr inbounds i8, ptr %99, i64 12
   store i32 0, ptr %end.i, align 4
-  %cur.i = getelementptr inbounds i8, ptr %101, i64 8
+  %cur.i = getelementptr inbounds i8, ptr %99, i64 8
   store i32 0, ptr %cur.i, align 8
   %fullState.i = getelementptr inbounds i8, ptr %scratch, i64 168
-  %102 = load ptr, ptr %fullState.i, align 8
+  %100 = load ptr, ptr %fullState.i, align 8
   %fullStateOffset.i = getelementptr inbounds i8, ptr %add.ptr.i70, i64 8
-  %103 = load i32, ptr %fullStateOffset.i, align 4
-  %idx.ext.i30 = zext i32 %103 to i64
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %102, i64 %idx.ext.i30
-  %state.i = getelementptr inbounds i8, ptr %101, i64 16
+  %101 = load i32, ptr %fullStateOffset.i, align 4
+  %idx.ext.i30 = zext i32 %101 to i64
+  %add.ptr.i31 = getelementptr inbounds i8, ptr %100, i64 %idx.ext.i30
+  %state.i = getelementptr inbounds i8, ptr %99, i64 16
   store ptr %add.ptr.i31, ptr %state.i, align 8
-  %104 = load ptr, ptr %state, align 8
+  %102 = load ptr, ptr %state, align 8
   %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr.i70, i64 4
-  %105 = load i32, ptr %stateOffset.i, align 4
-  %idx.ext3.i = zext i32 %105 to i64
-  %add.ptr4.i = getelementptr inbounds i8, ptr %104, i64 %idx.ext3.i
-  %streamState.i = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = load i32, ptr %stateOffset.i, align 4
+  %idx.ext3.i = zext i32 %103 to i64
+  %add.ptr4.i = getelementptr inbounds i8, ptr %102, i64 %idx.ext3.i
+  %streamState.i = getelementptr inbounds i8, ptr %99, i64 24
   store ptr %add.ptr4.i, ptr %streamState.i, align 8
   %buf_offset.i = getelementptr inbounds i8, ptr %scratch, i64 320
-  %106 = load i64, ptr %buf_offset.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %101, i64 32
-  store i64 %106, ptr %offset.i, align 8
-  %107 = load ptr, ptr %buf, align 8
-  %buffer.i = getelementptr inbounds i8, ptr %101, i64 40
-  store ptr %107, ptr %buffer.i, align 8
-  %108 = load i64, ptr %len3, align 8
-  %length.i = getelementptr inbounds i8, ptr %101, i64 48
-  store i64 %108, ptr %length.i, align 8
+  %104 = load i64, ptr %buf_offset.i, align 8
+  %offset.i = getelementptr inbounds i8, ptr %99, i64 32
+  store i64 %104, ptr %offset.i, align 8
+  %105 = load ptr, ptr %buf, align 8
+  %buffer.i = getelementptr inbounds i8, ptr %99, i64 40
+  store ptr %105, ptr %buffer.i, align 8
+  %106 = load i64, ptr %len3, align 8
+  %length.i = getelementptr inbounds i8, ptr %99, i64 48
+  store i64 %106, ptr %length.i, align 8
   %hbuf.i = getelementptr inbounds i8, ptr %scratch, i64 304
-  %109 = load ptr, ptr %hbuf.i, align 8
-  %history.i = getelementptr inbounds i8, ptr %101, i64 56
-  store ptr %109, ptr %history.i, align 8
+  %107 = load ptr, ptr %hbuf.i, align 8
+  %history.i = getelementptr inbounds i8, ptr %99, i64 56
+  store ptr %107, ptr %history.i, align 8
   %hlen.i = getelementptr inbounds i8, ptr %scratch, i64 312
-  %110 = load i64, ptr %hlen.i, align 8
-  %hlength.i = getelementptr inbounds i8, ptr %101, i64 64
-  store i64 %110, ptr %hlength.i, align 8
-  %cb.i = getelementptr inbounds i8, ptr %101, i64 88
+  %108 = load i64, ptr %hlen.i, align 8
+  %hlength.i = getelementptr inbounds i8, ptr %99, i64 64
+  store i64 %108, ptr %hlength.i, align 8
+  %cb.i = getelementptr inbounds i8, ptr %99, i64 88
   store ptr @roseReportAdaptor, ptr %cb.i, align 8
-  %context.i = getelementptr inbounds i8, ptr %101, i64 96
+  %context.i = getelementptr inbounds i8, ptr %99, i64 96
   store ptr %scratch, ptr %context.i, align 8
-  %report_current.i = getelementptr inbounds i8, ptr %101, i64 80
+  %report_current.i = getelementptr inbounds i8, ptr %99, i64 80
   store i8 0, ptr %report_current.i, align 8
   store i64 %retval.i.0, ptr %length.i, align 8
-  %call5 = tail call signext i8 @nfaQueueInitState(ptr noundef %add.ptr.i79, ptr noundef nonnull %101) #11
-  %items.i51 = getelementptr inbounds i8, ptr %101, i64 104
+  %call5 = tail call signext i8 @nfaQueueInitState(ptr noundef %add.ptr.i79, ptr noundef nonnull %99) #11
+  %items.i51 = getelementptr inbounds i8, ptr %99, i64 104
   store i32 0, ptr %items.i51, align 8
-  %location.i54 = getelementptr inbounds i8, ptr %101, i64 112
+  %location.i54 = getelementptr inbounds i8, ptr %99, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %location.i54, i8 0, i64 16, i1 false)
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %101, i64 128
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %99, i64 128
   store i32 2, ptr %arrayidx.i41, align 8
-  %location.i42 = getelementptr inbounds i8, ptr %101, i64 136
+  %location.i42 = getelementptr inbounds i8, ptr %99, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %location.i42, i8 0, i64 16, i1 false)
   store i32 2, ptr %end.i, align 4
-  %111 = load i64, ptr %len3, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %101, i64 152
+  %109 = load i64, ptr %len3, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %99, i64 152
   store i32 1, ptr %arrayidx.i, align 8
-  %location.i = getelementptr inbounds i8, ptr %101, i64 160
-  store i64 %111, ptr %location.i, align 8
-  %som.i = getelementptr inbounds i8, ptr %101, i64 168
+  %location.i = getelementptr inbounds i8, ptr %99, i64 160
+  store i64 %109, ptr %location.i, align 8
+  %som.i = getelementptr inbounds i8, ptr %99, i64 168
   store i64 0, ptr %som.i, align 8
   store i32 3, ptr %end.i, align 4
-  %112 = load ptr, ptr %101, align 8
-  %113 = load i64, ptr %len3, align 8
-  %call11 = tail call signext i8 @nfaQueueExec(ptr noundef %112, ptr noundef nonnull %101, i64 noundef %113) #11
+  %110 = load ptr, ptr %99, align 8
+  %111 = load i64, ptr %len3, align 8
+  %call11 = tail call signext i8 @nfaQueueExec(ptr noundef %110, ptr noundef nonnull %99, i64 noundef %111) #11
   %tobool12.not = icmp eq i8 %call11, 0
   br i1 %tobool12.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %114 = load i32, ptr %add.ptr.i79, align 64
-  %and.i = and i32 %114, 1
+  %112 = load i32, ptr %add.ptr.i79, align 64
+  %and.i = and i32 %112, 1
   %tobool14.not = icmp eq i32 %and.i, 0
   br i1 %tobool14.not, label %if.end23, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true
-  %115 = load i64, ptr %len3, align 8
-  %cmp = icmp eq i64 %retval.i.0, %115
+  %113 = load i64, ptr %len3, align 8
+  %cmp = icmp eq i64 %retval.i.0, %113
   br i1 %cmp, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %land.lhs.true15
-  %116 = load ptr, ptr %state.i, align 8
-  %117 = load ptr, ptr %streamState.i, align 8
-  %118 = load i64, ptr %length.i, align 8
-  %119 = load ptr, ptr %cb.i, align 8
-  %call22 = tail call signext i8 @nfaCheckFinalState(ptr noundef nonnull %add.ptr.i79, ptr noundef %116, ptr noundef %117, i64 noundef %118, ptr noundef %119, ptr noundef nonnull %scratch) #11
+  %114 = load ptr, ptr %state.i, align 8
+  %115 = load ptr, ptr %streamState.i, align 8
+  %116 = load i64, ptr %length.i, align 8
+  %117 = load ptr, ptr %cb.i, align 8
+  %call22 = tail call signext i8 @nfaCheckFinalState(ptr noundef nonnull %add.ptr.i79, ptr noundef %114, ptr noundef %115, i64 noundef %116, ptr noundef %117, ptr noundef nonnull %scratch) #11
   br label %if.end23
 
 if.end23:                                         ; preds = %sw.epilog.i, %sw.bb140.i, %sw.bb123.i, %sw.bb109.i, %sw.bb95.i, %initSomState.exit, %nfaRevAccelCheck.exit, %if.then19, %land.lhs.true15, %land.lhs.true, %if.end

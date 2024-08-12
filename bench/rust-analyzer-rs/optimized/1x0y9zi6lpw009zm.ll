@@ -3773,12 +3773,15 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN51_$LT$T$u20$a
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17ha000d258eb25817cE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1440)
-  %3 = load <2 x i32>, ptr %0, align 4, !alias.scope !1437, !noalias !1440
-  %4 = load <2 x i32>, ptr %1, align 4, !alias.scope !1440, !noalias !1437
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %.0.i = select i1 %6, i1 %7, i1 false
+  %3 = load i32, ptr %0, align 4, !alias.scope !1437, !noalias !1440, !noundef !7
+  %4 = load i32, ptr %1, align 4, !alias.scope !1440, !noalias !1437, !noundef !7
+  %5 = icmp eq i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4, !alias.scope !1437, !noalias !1440
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4, !alias.scope !1440, !noalias !1437
+  %10 = icmp eq i32 %7, %9
+  %.0.i = select i1 %5, i1 %10, i1 false
   ret i1 %.0.i
 }
 
@@ -6244,12 +6247,15 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN68_$LT$text_size..range..TextRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2dd4709019bac3a0E.llvm.17050508828239973313"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #16 {
-  %3 = load <2 x i32>, ptr %0, align 4
-  %4 = load <2 x i32>, ptr %1, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %.0 = select i1 %6, i1 %7, i1 false
+  %3 = load i32, ptr %0, align 4, !noundef !7
+  %4 = load i32, ptr %1, align 4, !noundef !7
+  %5 = icmp eq i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %7, %9
+  %.0 = select i1 %5, i1 %10, i1 false
   ret i1 %.0
 }
 

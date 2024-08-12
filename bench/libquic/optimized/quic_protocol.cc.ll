@@ -382,7 +382,13 @@ entry:
   %connection_id_length = getelementptr inbounds i8, ptr %this, i64 8
   store i32 8, ptr %connection_id_length, align 8
   %multipath_flag = getelementptr inbounds i8, ptr %this, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %multipath_flag, align 4
+  store i8 0, ptr %multipath_flag, align 4
+  %reset_flag = getelementptr inbounds i8, ptr %this, i64 13
+  store i8 0, ptr %reset_flag, align 1
+  %version_flag = getelementptr inbounds i8, ptr %this, i64 14
+  store i8 0, ptr %version_flag, align 2
+  %packet_number_length = getelementptr inbounds i8, ptr %this, i64 15
+  store i8 6, ptr %packet_number_length, align 1
   %versions = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %versions, i8 0, i64 32, i1 false)
   ret void
@@ -473,7 +479,13 @@ entry:
   %connection_id_length.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 8, ptr %connection_id_length.i, align 8
   %multipath_flag.i = getelementptr inbounds i8, ptr %this, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %multipath_flag.i, align 4
+  store i8 0, ptr %multipath_flag.i, align 4
+  %reset_flag.i = getelementptr inbounds i8, ptr %this, i64 13
+  store i8 0, ptr %reset_flag.i, align 1
+  %version_flag.i = getelementptr inbounds i8, ptr %this, i64 14
+  store i8 0, ptr %version_flag.i, align 2
+  %packet_number_length.i = getelementptr inbounds i8, ptr %this, i64 15
+  store i8 6, ptr %packet_number_length.i, align 1
   %versions.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %versions.i, i8 0, i64 44, i1 false)
   ret void
@@ -609,7 +621,13 @@ entry:
   %connection_id_length.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 8, ptr %connection_id_length.i, align 8
   %multipath_flag.i = getelementptr inbounds i8, ptr %this, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %multipath_flag.i, align 4
+  store i8 0, ptr %multipath_flag.i, align 4
+  %reset_flag.i = getelementptr inbounds i8, ptr %this, i64 13
+  store i8 0, ptr %reset_flag.i, align 1
+  %version_flag.i = getelementptr inbounds i8, ptr %this, i64 14
+  store i8 0, ptr %version_flag.i, align 2
+  %packet_number_length.i = getelementptr inbounds i8, ptr %this, i64 15
+  store i8 6, ptr %packet_number_length.i, align 1
   %versions.i = getelementptr inbounds i8, ptr %this, i64 16
   %client_address = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %versions.i, i8 0, i64 48, i1 false)
@@ -844,27 +862,29 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net15QuicStreamFrameC2EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %stream_id, i1 noundef zeroext %fin, i64 noundef %offset, i16 noundef zeroext %data_length, ptr nocapture noundef %buffer) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %0 = load i64, ptr %buffer, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %frombool.i = zext i1 %fin to i8
-  %fin3.i = getelementptr inbounds i8, ptr %this, i64 4
-  %data_length5.i = getelementptr inbounds i8, ptr %this, i64 6
-  %data_buffer6.i = getelementptr inbounds i8, ptr %this, i64 8
-  %offset7.i = getelementptr inbounds i8, ptr %this, i64 16
-  %buffer8.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %1 = load <2 x i64>, ptr %buffer, align 8
+  %1 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
+  %frombool.i = zext i1 %fin to i8
   store i32 %stream_id, ptr %this, align 8
+  %fin3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 %frombool.i, ptr %fin3.i, align 4
+  %data_length5.i = getelementptr inbounds i8, ptr %this, i64 6
   store i16 %data_length, ptr %data_length5.i, align 2
+  %data_buffer6.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %data_buffer6.i, align 8
+  %offset7.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %offset, ptr %offset7.i, align 8
-  store <2 x i64> %1, ptr %buffer8.i, align 8
-  %cmp.i.i.not.i = icmp eq i64 %0, 0
+  %buffer8.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i64 %0, ptr %buffer8.i, align 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 32
+  store i64 %1, ptr %2, align 8
+  %cmp.i.i.not.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %.cast = inttoptr i64 %0 to ptr
+  %.cast = inttoptr i64 %1 to ptr
   store ptr %.cast, ptr %data_buffer6.i, align 8
   br label %if.end
 
@@ -3205,16 +3225,19 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   store i32 %2, ptr %add.ptr.i.i, align 8
   store ptr %1, ptr %_M_parent.i.i.i, align 8
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %span, i64 24
+  %3 = load ptr, ptr %_M_left.i.i.i, align 8
   %_M_left9.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %3, ptr %_M_left9.i.i.i, align 8
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %span, i64 32
-  %3 = load <2 x ptr>, ptr %_M_left.i.i.i, align 8
-  store <2 x ptr> %3, ptr %_M_left9.i.i.i, align 8
+  %4 = load ptr, ptr %_M_right.i.i.i, align 8
+  %_M_right12.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %4, ptr %_M_right12.i.i.i, align 8
   %_M_parent16.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %add.ptr.i.i, ptr %_M_parent16.i.i.i, align 8
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %span, i64 40
-  %4 = load i64, ptr %_M_node_count.i.i.i, align 8
+  %5 = load i64, ptr %_M_node_count.i.i.i, align 8
   %_M_node_count17.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store i64 %4, ptr %_M_node_count17.i.i.i, align 8
+  store i64 %5, ptr %_M_node_count17.i.i.i, align 8
   store ptr null, ptr %_M_parent.i12.i.i, align 8
   store ptr %add.ptr6.i.i, ptr %_M_left.i.i.i, align 8
   store ptr %add.ptr6.i.i, ptr %_M_right.i.i.i, align 8
@@ -3227,20 +3250,23 @@ if.else.i.i:                                      ; preds = %invoke.cont
 if.then9.i.i:                                     ; preds = %if.else.i.i
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %span, i64 8
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load i32, ptr %add.ptr13.i.i, align 8
-  store i32 %5, ptr %add.ptr11.i.i, align 8
+  %6 = load i32, ptr %add.ptr13.i.i, align 8
+  store i32 %6, ptr %add.ptr11.i.i, align 8
   store ptr %0, ptr %_M_parent.i12.i.i, align 8
   %_M_left.i17.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load ptr, ptr %_M_left.i17.i.i, align 8
   %_M_left9.i18.i.i = getelementptr inbounds i8, ptr %span, i64 24
+  store ptr %7, ptr %_M_left9.i18.i.i, align 8
   %_M_right.i19.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load <2 x ptr>, ptr %_M_left.i17.i.i, align 8
-  store <2 x ptr> %6, ptr %_M_left9.i18.i.i, align 8
+  %8 = load ptr, ptr %_M_right.i19.i.i, align 8
+  %_M_right12.i20.i.i = getelementptr inbounds i8, ptr %span, i64 32
+  store ptr %8, ptr %_M_right12.i20.i.i, align 8
   %_M_parent16.i21.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %add.ptr11.i.i, ptr %_M_parent16.i21.i.i, align 8
   %_M_node_count.i22.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load i64, ptr %_M_node_count.i22.i.i, align 8
+  %9 = load i64, ptr %_M_node_count.i22.i.i, align 8
   %_M_node_count17.i23.i.i = getelementptr inbounds i8, ptr %span, i64 40
-  store i64 %7, ptr %_M_node_count17.i23.i.i, align 8
+  store i64 %9, ptr %_M_node_count17.i23.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr13.i.i, ptr %_M_left.i17.i.i, align 8
   store ptr %add.ptr13.i.i, ptr %_M_right.i19.i.i, align 8
@@ -3252,45 +3278,51 @@ if.else15.i.i:                                    ; preds = %if.else.i.i
   store ptr %0, ptr %_M_parent.i12.i.i, align 8
   %_M_left.i26.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_left.i27.i.i = getelementptr inbounds i8, ptr %span, i64 24
-  %8 = load <2 x ptr>, ptr %_M_left.i27.i.i, align 8
-  %9 = load <2 x ptr>, ptr %_M_left.i26.i.i, align 8
-  store <2 x ptr> %8, ptr %_M_left.i26.i.i, align 8
-  store <2 x ptr> %9, ptr %_M_left.i27.i.i, align 8
+  %10 = load ptr, ptr %_M_left.i26.i.i, align 8
+  %11 = load ptr, ptr %_M_left.i27.i.i, align 8
+  store ptr %11, ptr %_M_left.i26.i.i, align 8
+  store ptr %10, ptr %_M_left.i27.i.i, align 8
+  %_M_right.i28.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_right.i29.i.i = getelementptr inbounds i8, ptr %span, i64 32
+  %12 = load ptr, ptr %_M_right.i28.i.i, align 8
+  %13 = load ptr, ptr %_M_right.i29.i.i, align 8
+  store ptr %13, ptr %_M_right.i28.i.i, align 8
+  store ptr %12, ptr %_M_right.i29.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_parent.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_parent.i.i, align 8
   %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %span, i64 8
-  %10 = load ptr, ptr %_M_parent.i12.i.i, align 8
-  %_M_parent26.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = load ptr, ptr %_M_parent.i12.i.i, align 8
+  %_M_parent26.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %add.ptr.i31.i.i, ptr %_M_parent26.i.i, align 8
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_node_count31.i.i = getelementptr inbounds i8, ptr %span, i64 40
-  %11 = load i64, ptr %_M_node_count.i.i, align 8
-  %12 = load i64, ptr %_M_node_count31.i.i, align 8
-  store i64 %12, ptr %_M_node_count.i.i, align 8
-  store i64 %11, ptr %_M_node_count31.i.i, align 8
+  %15 = load i64, ptr %_M_node_count.i.i, align 8
+  %16 = load i64, ptr %_M_node_count31.i.i, align 8
+  store i64 %16, ptr %_M_node_count.i.i, align 8
+  store i64 %15, ptr %_M_node_count31.i.i, align 8
   br label %_ZNSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE4swapERS7_.exit
 
 _ZNSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE4swapERS7_.exit: ; preds = %if.then.i.i, %if.then4.i.i, %if.then9.i.i, %if.else15.i.i
-  %13 = load ptr, ptr %_M_parent.i12.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %span, ptr noundef %13)
+  %17 = load ptr, ptr %_M_parent.i12.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN3net8IntervalImEES2_St9_IdentityIS2_ENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %span, ptr noundef %17)
           to label %_ZN3net11IntervalSetImED2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %_ZNSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE4swapERS7_.exit
-  %14 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #27
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #27
   unreachable
 
 _ZN3net11IntervalSetImED2Ev.exit:                 ; preds = %_ZNSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE4swapERS7_.exit
   ret void
 
 lpad:                                             ; preds = %entry
-  %16 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3net11IntervalSetImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %span) #28
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -4479,7 +4511,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN3ne
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net18QuicVersionManager20GetSupportedVersionsEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::vector", align 16
+  %ref.tmp = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
   %0 = load i8, ptr %this, align 8
   %1 = load i8, ptr @FLAGS_quic_disable_pre_32, align 1
@@ -4579,12 +4611,16 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit: ; preds = %invoke.cont.i.
 invoke.cont:                                      ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
   %filtered_supported_versions_ = getelementptr inbounds i8, ptr %this, i64 32
   %21 = load ptr, ptr %filtered_supported_versions_, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %22 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %22, ptr %filtered_supported_versions_, align 8
+  %22 = load ptr, ptr %ref.tmp, align 8
+  store ptr %22, ptr %filtered_supported_versions_, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %23 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %23, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %23 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %23, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %24 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %24, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -4601,7 +4637,7 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorIN3net1
   br label %if.end
 
 lpad:                                             ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i7 = icmp eq ptr %cond.i.i.i.i14, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit9, label %if.then.i.i.i8
@@ -4611,7 +4647,7 @@ if.then.i.i.i8:                                   ; preds = %lpad
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit9
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit9: ; preds = %lpad, %if.then.i.i.i8
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %25
 
 if.end:                                           ; preds = %if.then.i.i.i4, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, %lor.lhs.false15
   %filtered_supported_versions_32 = getelementptr inbounds i8, ptr %this, i64 32

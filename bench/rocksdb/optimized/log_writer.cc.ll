@@ -1013,7 +1013,7 @@ entry:
   %value.addr.i.i = alloca i32, align 4
   %encode = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
-  %opts = alloca %"struct.rocksdb::CompressionOptions", align 16
+  %opts = alloca %"struct.rocksdb::CompressionOptions", align 8
   %compression_type_ = getelementptr inbounds i8, ptr %this, i64 77
   %0 = load i8, ptr %compression_type_, align 1
   %cmp = icmp eq i8 %0, 0
@@ -1141,21 +1141,27 @@ if.end13:                                         ; preds = %_ZN7rocksdb8IOStatu
   %15 = load i8, ptr %recycle_log_files_, align 8
   %tobool14 = trunc i8 %15 to i1
   %conv15 = select i1 %tobool14, i64 32757, i64 32761
-  store <4 x i32> <i32 -14, i32 32767, i32 0, i32 0>, ptr %opts, align 16
+  store i32 -14, ptr %opts, align 8
+  %level.i = getelementptr inbounds i8, ptr %opts, i64 4
+  store i32 32767, ptr %level.i, align 4
+  %strategy.i = getelementptr inbounds i8, ptr %opts, i64 8
+  store i32 0, ptr %strategy.i, align 8
+  %max_dict_bytes.i = getelementptr inbounds i8, ptr %opts, i64 12
+  store i32 0, ptr %max_dict_bytes.i, align 4
   %zstd_max_train_bytes.i = getelementptr inbounds i8, ptr %opts, i64 16
-  store i32 0, ptr %zstd_max_train_bytes.i, align 16
+  store i32 0, ptr %zstd_max_train_bytes.i, align 8
   %parallel_threads.i = getelementptr inbounds i8, ptr %opts, i64 20
   store i32 1, ptr %parallel_threads.i, align 4
   %enabled.i = getelementptr inbounds i8, ptr %opts, i64 24
   store i8 0, ptr %enabled.i, align 8
   %max_dict_buffer_bytes.i = getelementptr inbounds i8, ptr %opts, i64 32
-  store i64 0, ptr %max_dict_buffer_bytes.i, align 16
+  store i64 0, ptr %max_dict_buffer_bytes.i, align 8
   %use_zstd_dict_trainer.i = getelementptr inbounds i8, ptr %opts, i64 40
   store i8 1, ptr %use_zstd_dict_trainer.i, align 8
   %max_compressed_bytes_per_kb.i = getelementptr inbounds i8, ptr %opts, i64 44
   store i32 896, ptr %max_compressed_bytes_per_kb.i, align 4
   %checksum.i = getelementptr inbounds i8, ptr %opts, i64 48
-  store i8 0, ptr %checksum.i, align 16
+  store i8 0, ptr %checksum.i, align 8
   %16 = load i8, ptr %compression_type_, align 1
   %call18 = invoke noundef ptr @_ZN7rocksdb17StreamingCompress6CreateENS_15CompressionTypeERKNS_18CompressionOptionsEjm(i8 noundef zeroext %16, ptr noundef nonnull align 8 dereferenceable(49) %opts, i32 noundef 2, i64 noundef %conv15)
           to label %invoke.cont17 unwind label %lpad5

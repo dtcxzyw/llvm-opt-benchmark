@@ -399,6 +399,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %read_options, ptr noundef nonnull align 8 dereferenceable(120) %ro, i64 120, i1 false)
   %table_filter.i = getelementptr inbounds i8, ptr %read_options, i64 120
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %read_options, i64 144
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ro, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %table_filter.i, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -411,37 +412,40 @@ if.then.i.i:                                      ; preds = %if.end
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %13 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
-  store <2 x ptr> %13, ptr %_M_manager.i.i.i, align 8
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %ro, i64 144
+  %13 = load ptr, ptr %_M_invoker4.i.i, align 8
+  store ptr %13, ptr %_M_invoker.i.i, align 8
+  %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  store ptr %14, ptr %_M_manager.i.i.i, align 8
   br label %_ZN7rocksdb11ReadOptionsC2ERKS0_.exit
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %15, null
+  %16 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %common.resume, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %lpad.i.i
-  %call.i.i.i11 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i11 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i12
 
 terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #14
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i.i22, %lpad, %lpad.i.i, %if.then.i.i.i10
-  %common.resume.op = phi { ptr, i32 } [ %14, %if.then.i.i.i10 ], [ %14, %lpad.i.i ], [ %25, %lpad ], [ %25, %if.then.i.i.i22 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %if.then.i.i.i10 ], [ %15, %lpad.i.i ], [ %26, %lpad ], [ %26, %if.then.i.i.i22 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN7rocksdb11ReadOptionsC2ERKS0_.exit:            ; preds = %if.end, %invoke.cont.i.i
   %auto_readahead_size.i = getelementptr inbounds i8, ptr %read_options, i64 152
   %auto_readahead_size4.i = getelementptr inbounds i8, ptr %ro, i64 152
-  %18 = load i16, ptr %auto_readahead_size4.i, align 8
-  store i16 %18, ptr %auto_readahead_size.i, align 8
+  %19 = load i16, ptr %auto_readahead_size4.i, align 8
+  store i16 %19, ptr %auto_readahead_size.i, align 8
   br i1 %no_io, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %_ZN7rocksdb11ReadOptionsC2ERKS0_.exit
@@ -451,47 +455,47 @@ if.then4:                                         ; preds = %_ZN7rocksdb11ReadOp
 
 if.end5:                                          ; preds = %if.then4, %_ZN7rocksdb11ReadOptionsC2ERKS0_.exit
   %table_ = getelementptr inbounds i8, ptr %this, i64 8
-  %19 = load ptr, ptr %table_, align 8
-  %rep_.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %rep_.i.i, align 8
-  %cache_index_and_filter_blocks.i = getelementptr inbounds i8, ptr %20, i64 32
-  %21 = load i8, ptr %cache_index_and_filter_blocks.i, align 8
-  %tobool.i13 = trunc i8 %21 to i1
-  invoke void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommon14ReadIndexBlockEPKS0_PNS_18FilePrefetchBufferERKNS_11ReadOptionsEbPNS_10GetContextEPNS_23BlockCacheLookupContextEPNS_13CachableEntryINS_5BlockEEE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i1 noundef zeroext %tobool.i13, ptr noundef %get_context, ptr noundef %lookup_context, ptr noundef %index_block)
+  %20 = load ptr, ptr %table_, align 8
+  %rep_.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %rep_.i.i, align 8
+  %cache_index_and_filter_blocks.i = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = load i8, ptr %cache_index_and_filter_blocks.i, align 8
+  %tobool.i13 = trunc i8 %22 to i1
+  invoke void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommon14ReadIndexBlockEPKS0_PNS_18FilePrefetchBufferERKNS_11ReadOptionsEbPNS_10GetContextEPNS_23BlockCacheLookupContextEPNS_13CachableEntryINS_5BlockEEE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull %20, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i1 noundef zeroext %tobool.i13, ptr noundef %get_context, ptr noundef %lookup_context, ptr noundef %index_block)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.end5
-  %22 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i15 = icmp eq ptr %22, null
+  %23 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i15 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i15, label %return, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %invoke.cont7
-  %call.i.i.i18 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i18 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i.i19
 
 terminate.lpad.i.i.i19:                           ; preds = %if.then.i.i.i16
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #14
   unreachable
 
 lpad:                                             ; preds = %if.end5
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i21 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i21 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i21, label %common.resume, label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %lpad
-  %call.i.i.i24 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
+  %call.i.i.i24 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, ptr noundef nonnull align 8 dereferenceable(16) %table_filter.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i25
 
 terminate.lpad.i.i.i25:                           ; preds = %if.then.i.i.i22
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #14
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #14
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i16, %invoke.cont7, %_ZN7rocksdb13CachableEntryINS_5BlockEE15SetUnownedValueEPS1_.exit

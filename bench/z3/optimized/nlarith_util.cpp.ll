@@ -1758,7 +1758,13 @@ invoke.cont.i:                                    ; preds = %entry
   %m_distribute_forall.i = getelementptr inbounds i8, ptr %this, i64 59
   %m_max_bv_sharing.i = getelementptr inbounds i8, ptr %this, i64 63
   store i32 0, ptr %m_distribute_forall.i, align 1
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %m_max_bv_sharing.i, align 1
+  store i8 1, ptr %m_max_bv_sharing.i, align 1
+  %m_pre_simplifier.i = getelementptr inbounds i8, ptr %this, i64 64
+  store i8 1, ptr %m_pre_simplifier.i, align 8
+  %m_nlquant_elim.i = getelementptr inbounds i8, ptr %this, i64 65
+  store i8 0, ptr %m_nlquant_elim.i, align 1
+  %m_bound_simplifier.i = getelementptr inbounds i8, ptr %this, i64 66
+  store i8 1, ptr %m_bound_simplifier.i, align 2
   invoke void @_ZN19preprocessor_params17updt_local_paramsERK10params_ref(ptr noundef nonnull align 4 dereferenceable(67) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -1832,13 +1838,21 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   %m_arith_adaptive.i = getelementptr inbounds i8, ptr %this, i64 308
   store i8 0, ptr %m_arith_adaptive.i, align 4
   %m_arith_adaptive_assertion_threshold.i = getelementptr inbounds i8, ptr %this, i64 312
-  store <2 x double> <double 2.000000e-01, double 4.000000e-01>, ptr %m_arith_adaptive_assertion_threshold.i, align 8
+  store double 2.000000e-01, ptr %m_arith_adaptive_assertion_threshold.i, align 8
+  %m_arith_adaptive_propagation_threshold.i = getelementptr inbounds i8, ptr %this, i64 320
+  store double 4.000000e-01, ptr %m_arith_adaptive_propagation_threshold.i, align 8
   %m_arith_eager_eq_axioms.i = getelementptr inbounds i8, ptr %this, i64 328
   store i8 1, ptr %m_arith_eager_eq_axioms.i, align 8
   %m_arith_branch_cut_ratio.i = getelementptr inbounds i8, ptr %this, i64 332
   store i32 2, ptr %m_arith_branch_cut_ratio.i, align 4
   %m_arith_int_eq_branching.i = getelementptr inbounds i8, ptr %this, i64 336
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %m_arith_int_eq_branching.i, align 8
+  store i8 0, ptr %m_arith_int_eq_branching.i, align 8
+  %m_arith_enum_const_mod.i = getelementptr inbounds i8, ptr %this, i64 337
+  store i8 0, ptr %m_arith_enum_const_mod.i, align 1
+  %m_arith_gcd_test.i = getelementptr inbounds i8, ptr %this, i64 338
+  store i8 1, ptr %m_arith_gcd_test.i, align 2
+  %m_arith_eager_gcd.i = getelementptr inbounds i8, ptr %this, i64 339
+  store i8 0, ptr %m_arith_eager_gcd.i, align 1
   %m_arith_adaptive_gcd.i = getelementptr inbounds i8, ptr %this, i64 340
   store i8 0, ptr %m_arith_adaptive_gcd.i, align 4
   %m_arith_propagation_threshold.i = getelementptr inbounds i8, ptr %this, i64 344
@@ -1891,7 +1905,13 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   %m_array_laziness.i = getelementptr inbounds i8, ptr %this, i64 404
   store i32 1, ptr %m_array_laziness.i, align 4
   %m_array_delay_exp_axiom.i = getelementptr inbounds i8, ptr %this, i64 408
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %m_array_delay_exp_axiom.i, align 8
+  store i8 1, ptr %m_array_delay_exp_axiom.i, align 8
+  %m_array_cg.i = getelementptr inbounds i8, ptr %this, i64 409
+  store i8 0, ptr %m_array_cg.i, align 1
+  %m_array_always_prop_upward.i = getelementptr inbounds i8, ptr %this, i64 410
+  store i8 1, ptr %m_array_always_prop_upward.i, align 2
+  %m_array_lazy_ieq.i = getelementptr inbounds i8, ptr %this, i64 411
+  store i8 0, ptr %m_array_lazy_ieq.i, align 1
   %m_array_lazy_ieq_delay.i = getelementptr inbounds i8, ptr %this, i64 412
   store i32 10, ptr %m_array_lazy_ieq_delay.i, align 4
   %m_array_fake_support.i = getelementptr inbounds i8, ptr %this, i64 416
@@ -1900,11 +1920,23 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   store ptr null, ptr %ref.tmp14, align 8
   store i32 1, ptr %6, align 4
   %m_hi_div0.i = getelementptr inbounds i8, ptr %this, i64 424
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %m_hi_div0.i, align 8
+  store i8 0, ptr %m_hi_div0.i, align 8
+  %m_bv_reflect.i = getelementptr inbounds i8, ptr %this, i64 425
+  store i8 1, ptr %m_bv_reflect.i, align 1
+  %m_bv_lazy_le.i = getelementptr inbounds i8, ptr %this, i64 426
+  store i8 0, ptr %m_bv_lazy_le.i, align 2
+  %m_bv_cc.i = getelementptr inbounds i8, ptr %this, i64 427
+  store i8 0, ptr %m_bv_cc.i, align 1
   %m_bv_blast_max_size.i = getelementptr inbounds i8, ptr %this, i64 428
   store i32 2147483647, ptr %m_bv_blast_max_size.i, align 4
   %m_bv_enable_int2bv2int.i = getelementptr inbounds i8, ptr %this, i64 432
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %m_bv_enable_int2bv2int.i, align 8
+  store i8 1, ptr %m_bv_enable_int2bv2int.i, align 8
+  %m_bv_watch_diseq.i = getelementptr inbounds i8, ptr %this, i64 433
+  store i8 0, ptr %m_bv_watch_diseq.i, align 1
+  %m_bv_delay.i = getelementptr inbounds i8, ptr %this, i64 434
+  store i8 1, ptr %m_bv_delay.i, align 2
+  %m_bv_size_reduce.i = getelementptr inbounds i8, ptr %this, i64 435
+  store i8 0, ptr %m_bv_size_reduce.i, align 1
   %m_bv_solver.i = getelementptr inbounds i8, ptr %this, i64 436
   store i32 0, ptr %m_bv_solver.i, align 4
   invoke void @_ZN16theory_bv_params11updt_paramsERK10params_ref(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
@@ -1914,7 +1946,13 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14) #14
   %7 = getelementptr inbounds i8, ptr %this, i64 440
   store ptr null, ptr %ref.tmp18, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %7, align 8
+  store i8 1, ptr %7, align 8
+  %m_AggressiveLengthTesting.i = getelementptr inbounds i8, ptr %this, i64 441
+  store i8 0, ptr %m_AggressiveLengthTesting.i, align 1
+  %m_AggressiveValueTesting.i = getelementptr inbounds i8, ptr %this, i64 442
+  store i8 0, ptr %m_AggressiveValueTesting.i, align 2
+  %m_AggressiveUnrollTesting.i = getelementptr inbounds i8, ptr %this, i64 443
+  store i8 1, ptr %m_AggressiveUnrollTesting.i, align 1
   %m_UseFastLengthTesterCache.i = getelementptr inbounds i8, ptr %this, i64 444
   store i8 0, ptr %m_UseFastLengthTesterCache.i, align 4
   %m_UseFastValueTesterCache.i = getelementptr inbounds i8, ptr %this, i64 445
@@ -1924,7 +1962,13 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %m_OverlapTheoryAwarePriority.i = getelementptr inbounds i8, ptr %this, i64 448
   store double -1.000000e-01, ptr %m_OverlapTheoryAwarePriority.i, align 8
   %m_RegexAutomata_DifficultyThreshold.i = getelementptr inbounds i8, ptr %this, i64 456
-  store <4 x i32> <i32 1000, i32 1000, i32 10, i32 10>, ptr %m_RegexAutomata_DifficultyThreshold.i, align 8
+  store i32 1000, ptr %m_RegexAutomata_DifficultyThreshold.i, align 8
+  %m_RegexAutomata_IntersectionDifficultyThreshold.i = getelementptr inbounds i8, ptr %this, i64 460
+  store i32 1000, ptr %m_RegexAutomata_IntersectionDifficultyThreshold.i, align 4
+  %m_RegexAutomata_FailedAutomatonThreshold.i = getelementptr inbounds i8, ptr %this, i64 464
+  store i32 10, ptr %m_RegexAutomata_FailedAutomatonThreshold.i, align 8
+  %m_RegexAutomata_FailedIntersectionThreshold.i = getelementptr inbounds i8, ptr %this, i64 468
+  store i32 10, ptr %m_RegexAutomata_FailedIntersectionThreshold.i, align 4
   %m_RegexAutomata_LengthAttemptThreshold.i = getelementptr inbounds i8, ptr %this, i64 472
   store i32 10, ptr %m_RegexAutomata_LengthAttemptThreshold.i, align 8
   %m_FixedLengthRefinement.i = getelementptr inbounds i8, ptr %this, i64 476
@@ -1975,9 +2019,17 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %m_random_seed = getelementptr inbounds i8, ptr %this, i64 520
   store i32 0, ptr %m_random_seed, align 8
   %m_random_var_freq = getelementptr inbounds i8, ptr %this, i64 528
-  store <2 x double> <double 1.000000e-02, double 1.052000e+00>, ptr %m_random_var_freq, align 8
+  store double 1.000000e-02, ptr %m_random_var_freq, align 8
+  %m_inv_decay = getelementptr inbounds i8, ptr %this, i64 536
+  store double 1.052000e+00, ptr %m_inv_decay, align 8
   %m_clause_decay = getelementptr inbounds i8, ptr %this, i64 544
-  store <4 x i32> <i32 1, i32 1, i32 3, i32 700>, ptr %m_clause_decay, align 8
+  store i32 1, ptr %m_clause_decay, align 8
+  %m_random_initial_activity = getelementptr inbounds i8, ptr %this, i64 548
+  store i32 1, ptr %m_random_initial_activity, align 4
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
+  store i32 3, ptr %m_phase_selection, align 8
+  %m_phase_caching_on = getelementptr inbounds i8, ptr %this, i64 556
+  store i32 700, ptr %m_phase_caching_on, align 4
   %m_phase_caching_off = getelementptr inbounds i8, ptr %this, i64 560
   store i32 100, ptr %m_phase_caching_off, align 8
   %m_minimize_lemmas = getelementptr inbounds i8, ptr %this, i64 564
@@ -1985,13 +2037,25 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %m_max_conflicts = getelementptr inbounds i8, ptr %this, i64 568
   store i32 -1, ptr %m_max_conflicts, align 8
   %m_cube_depth = getelementptr inbounds i8, ptr %this, i64 576
-  store <4 x i32> <i32 1, i32 1, i32 -1, i32 2>, ptr %m_cube_depth, align 8
+  store i32 1, ptr %m_cube_depth, align 8
+  %m_threads = getelementptr inbounds i8, ptr %this, i64 580
+  store i32 1, ptr %m_threads, align 4
+  %m_threads_max_conflicts = getelementptr inbounds i8, ptr %this, i64 584
+  store i32 -1, ptr %m_threads_max_conflicts, align 8
+  %m_threads_cube_frequency = getelementptr inbounds i8, ptr %this, i64 588
+  store i32 2, ptr %m_threads_cube_frequency, align 4
   %m_simplify_clauses = getelementptr inbounds i8, ptr %this, i64 592
   store i8 1, ptr %m_simplify_clauses, align 8
   %m_tick = getelementptr inbounds i8, ptr %this, i64 596
   store i32 1000, ptr %m_tick, align 4
   %m_display_features = getelementptr inbounds i8, ptr %this, i64 600
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %m_display_features, align 8
+  store i8 0, ptr %m_display_features, align 8
+  %m_new_core2th_eq = getelementptr inbounds i8, ptr %this, i64 601
+  store i8 1, ptr %m_new_core2th_eq, align 1
+  %m_ematching = getelementptr inbounds i8, ptr %this, i64 602
+  store i8 1, ptr %m_ematching, align 2
+  %m_induction = getelementptr inbounds i8, ptr %this, i64 603
+  store i8 0, ptr %m_induction, align 1
   %m_clause_proof = getelementptr inbounds i8, ptr %this, i64 604
   store i8 0, ptr %m_clause_proof, align 4
   %m_proof_log = getelementptr inbounds i8, ptr %this, i64 608
@@ -2013,7 +2077,9 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %m_restart_adaptive = getelementptr inbounds i8, ptr %this, i64 656
   store i8 1, ptr %m_restart_adaptive, align 8
   %m_agility_factor = getelementptr inbounds i8, ptr %this, i64 664
-  store <2 x double> <double 9.999000e-01, double 1.800000e-01>, ptr %m_agility_factor, align 8
+  store double 9.999000e-01, ptr %m_agility_factor, align 8
+  %m_restart_agility_threshold = getelementptr inbounds i8, ptr %this, i64 672
+  store double 1.800000e-01, ptr %m_restart_agility_threshold, align 8
   %m_lemma_gc_strategy = getelementptr inbounds i8, ptr %this, i64 680
   store i32 0, ptr %m_lemma_gc_strategy, align 8
   %m_lemma_gc_half = getelementptr inbounds i8, ptr %this, i64 684
@@ -2025,7 +2091,13 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %m_lemma_gc_factor = getelementptr inbounds i8, ptr %this, i64 696
   store double 1.100000e+00, ptr %m_lemma_gc_factor, align 8
   %m_new_old_ratio = getelementptr inbounds i8, ptr %this, i64 704
-  store <4 x i32> <i32 16, i32 10, i32 500, i32 45>, ptr %m_new_old_ratio, align 8
+  store i32 16, ptr %m_new_old_ratio, align 8
+  %m_new_clause_activity = getelementptr inbounds i8, ptr %this, i64 708
+  store i32 10, ptr %m_new_clause_activity, align 4
+  %m_old_clause_activity = getelementptr inbounds i8, ptr %this, i64 712
+  store i32 500, ptr %m_old_clause_activity, align 8
+  %m_new_clause_relevancy = getelementptr inbounds i8, ptr %this, i64 716
+  store i32 45, ptr %m_new_clause_relevancy, align 4
   %m_old_clause_relevancy = getelementptr inbounds i8, ptr %this, i64 720
   store i32 6, ptr %m_old_clause_relevancy, align 8
   %m_inv_clause_decay = getelementptr inbounds i8, ptr %this, i64 728
@@ -2040,7 +2112,13 @@ invoke.cont29:                                    ; preds = %invoke.cont25
   %11 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %11, ptr %m_logic, align 8
   %m_profile_res_sub = getelementptr inbounds i8, ptr %this, i64 752
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %m_profile_res_sub, align 8
+  store i8 0, ptr %m_profile_res_sub, align 8
+  %m_display_bool_var2expr = getelementptr inbounds i8, ptr %this, i64 753
+  store i8 0, ptr %m_display_bool_var2expr, align 1
+  %m_display_ll_bool_var2expr = getelementptr inbounds i8, ptr %this, i64 754
+  store i8 0, ptr %m_display_ll_bool_var2expr, align 2
+  %m_model = getelementptr inbounds i8, ptr %this, i64 755
+  store i8 1, ptr %m_model, align 1
   %m_model_on_timeout = getelementptr inbounds i8, ptr %this, i64 756
   store i8 0, ptr %m_model_on_timeout, align 4
   %m_model_on_final_check = getelementptr inbounds i8, ptr %this, i64 757
@@ -2386,7 +2464,9 @@ lpad.i6:                                          ; preds = %.noexc9
 invoke.cont4:                                     ; preds = %.noexc9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   %m_qi_eager_threshold = getelementptr inbounds i8, ptr %this, i64 64
-  store <2 x double> <double 1.000000e+01, double 2.000000e+01>, ptr %m_qi_eager_threshold, align 8
+  store double 1.000000e+01, ptr %m_qi_eager_threshold, align 8
+  %m_qi_lazy_threshold = getelementptr inbounds i8, ptr %this, i64 72
+  store double 2.000000e+01, ptr %m_qi_lazy_threshold, align 8
   %m_qi_max_eager_multipatterns = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %m_qi_max_eager_multipatterns, align 8
   %m_qi_max_lazy_multipattern_matching = getelementptr inbounds i8, ptr %this, i64 84
@@ -2404,7 +2484,13 @@ invoke.cont4:                                     ; preds = %.noexc9
   %m_qi_max_instances = getelementptr inbounds i8, ptr %this, i64 104
   store i32 -1, ptr %m_qi_max_instances, align 8
   %m_qi_lazy_instantiation = getelementptr inbounds i8, ptr %this, i64 108
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %m_qi_lazy_instantiation, align 4
+  store i8 0, ptr %m_qi_lazy_instantiation, align 4
+  %m_qi_conservative_final_check = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 0, ptr %m_qi_conservative_final_check, align 1
+  %m_qe_lite = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 0, ptr %m_qe_lite, align 2
+  %m_mbqi = getelementptr inbounds i8, ptr %this, i64 111
+  store i8 1, ptr %m_mbqi, align 1
   %m_mbqi_max_cexs = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %m_mbqi_max_cexs, align 8
   %m_mbqi_max_cexs_incr = getelementptr inbounds i8, ptr %this, i64 116

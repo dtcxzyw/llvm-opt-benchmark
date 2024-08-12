@@ -1612,61 +1612,65 @@ define linkonce_odr hidden void @_ZNSt3__16threadC2IMN7mitsuba6ThreadEFvvEJPS3_E
   %5 = alloca %"class.std::__1::unique_ptr.47", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   invoke void @_ZNSt3__115__thread_structC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %7 unwind label %16
+          to label %7 unwind label %15
 
 7:                                                ; preds = %3
   store ptr %6, ptr %4, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
-          to label %9 unwind label %18
+          to label %9 unwind label %17
 
 9:                                                ; preds = %7
   store ptr null, ptr %4, align 8
   store ptr %6, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
-  %13 = load ptr, ptr %2, align 8
-  store ptr %13, ptr %12, align 8
+  %.unpack.i.i.i = load i64, ptr %1, align 8
+  %.elt2.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.unpack3.i.i.i = load i64, ptr %.elt2.i.i.i, align 8
+  store i64 %.unpack.i.i.i, ptr %10, align 8
+  %.repack4.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %.unpack3.i.i.i, ptr %.repack4.i.i.i, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = load ptr, ptr %2, align 8
+  store ptr %12, ptr %11, align 8
   store ptr %8, ptr %5, align 8
-  %14 = tail call noundef i32 @pthread_create(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEMN7mitsuba6ThreadEFvvEPS8_EEEEEPvSD_, ptr noundef nonnull %8) #3
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %_ZNSt3__110unique_ptrINS_15__thread_structENS_14default_deleteIS1_EEED2B8ne190000Ev.exit, label %22
+  %13 = tail call noundef i32 @pthread_create(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @_ZNSt3__114__thread_proxyB8ne190000INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEMN7mitsuba6ThreadEFvvEPS8_EEEEEPvSD_, ptr noundef nonnull %8) #3
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %_ZNSt3__110unique_ptrINS_15__thread_structENS_14default_deleteIS1_EEED2B8ne190000Ev.exit, label %21
 
 _ZNSt3__110unique_ptrINS_15__thread_structENS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds = %9
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #31
-  br label %25
-
-18:                                               ; preds = %7
-  %19 = landingpad { ptr, i32 }
-          cleanup
   br label %24
 
-20:                                               ; preds = %22
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %7
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  br label %23
+
+19:                                               ; preds = %21
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__110unique_ptrINS_5tupleIJNS0_INS_15__thread_structENS_14default_deleteIS2_EEEEMN7mitsuba6ThreadEFvvEPS7_EEENS3_ISB_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br label %24
+  br label %23
 
-22:                                               ; preds = %9
-  invoke void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef %14, ptr noundef nonnull @.str.38) #35
-          to label %23 unwind label %20
+21:                                               ; preds = %9
+  invoke void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef %13, ptr noundef nonnull @.str.38) #35
+          to label %22 unwind label %19
 
-23:                                               ; preds = %22
+22:                                               ; preds = %21
   unreachable
 
-24:                                               ; preds = %20, %18
-  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
+23:                                               ; preds = %19, %17
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @_ZNSt3__110unique_ptrINS_15__thread_structENS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %25
+  br label %24
 
-25:                                               ; preds = %24, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %24 ], [ %17, %16 ]
+24:                                               ; preds = %23, %15
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %23 ], [ %16, %15 ]
   resume { ptr, i32 } %.pn.pn
 }
 

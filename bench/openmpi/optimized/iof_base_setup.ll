@@ -88,7 +88,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.termios, align 8
+  %3 = alloca %struct.termios, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -111,124 +111,128 @@ define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef re
   %.not = icmp eq i32 %18, 0
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
-  br i1 %.not, label %42, label %21
+  br i1 %.not, label %45, label %21
 
 21:                                               ; preds = %11
   %22 = call i32 @tcgetattr(i32 noundef %20, ptr noundef nonnull %3) #5
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %93, label %24
+  br i1 %23, label %96, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -2681
   store i32 %27, ptr %25, align 4
-  %28 = load <2 x i32>, ptr %3, align 8
-  %29 = and <2 x i32> %28, <i32 -1393, i32 -13>
-  store <2 x i32> %29, ptr %3, align 8
-  %30 = load i32, ptr %19, align 4
-  %31 = call i32 @tcsetattr(i32 noundef %30, i32 noundef 0, ptr noundef nonnull %3) #5
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %93, label %33
+  %28 = load i32, ptr %3, align 4
+  %29 = and i32 %28, -1393
+  store i32 %29, ptr %3, align 4
+  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, -13
+  store i32 %32, ptr %30, align 4
+  %33 = load i32, ptr %19, align 4
+  %34 = call i32 @tcsetattr(i32 noundef %33, i32 noundef 0, ptr noundef nonnull %3) #5
+  %35 = icmp eq i32 %34, -1
+  br i1 %35, label %96, label %36
 
-33:                                               ; preds = %24
-  %34 = load i32, ptr %19, align 4
-  %35 = load ptr, ptr @stdout, align 8
-  %36 = call i32 @fileno_unlocked(ptr noundef %35) #5
-  %37 = call i32 @dup2(i32 noundef %34, i32 noundef %36) #5
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %93, label %39
+36:                                               ; preds = %24
+  %37 = load i32, ptr %19, align 4
+  %38 = load ptr, ptr @stdout, align 8
+  %39 = call i32 @fileno_unlocked(ptr noundef %38) #5
+  %40 = call i32 @dup2(i32 noundef %37, i32 noundef %39) #5
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %96, label %42
 
-39:                                               ; preds = %33
-  %40 = load i32, ptr %19, align 4
-  %41 = call i32 @close(i32 noundef %40) #5
-  br label %54
+42:                                               ; preds = %36
+  %43 = load i32, ptr %19, align 4
+  %44 = call i32 @close(i32 noundef %43) #5
+  br label %57
 
-42:                                               ; preds = %11
-  %43 = load ptr, ptr @stdout, align 8
-  %44 = tail call i32 @fileno_unlocked(ptr noundef %43) #5
-  %.not27 = icmp eq i32 %20, %44
-  br i1 %.not27, label %54, label %45
+45:                                               ; preds = %11
+  %46 = load ptr, ptr @stdout, align 8
+  %47 = tail call i32 @fileno_unlocked(ptr noundef %46) #5
+  %.not27 = icmp eq i32 %20, %47
+  br i1 %.not27, label %57, label %48
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %19, align 4
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = tail call i32 @fileno_unlocked(ptr noundef %47) #5
-  %49 = tail call i32 @dup2(i32 noundef %46, i32 noundef %48) #5
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %93, label %51
+48:                                               ; preds = %45
+  %49 = load i32, ptr %19, align 4
+  %50 = load ptr, ptr @stdout, align 8
+  %51 = tail call i32 @fileno_unlocked(ptr noundef %50) #5
+  %52 = tail call i32 @dup2(i32 noundef %49, i32 noundef %51) #5
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %96, label %54
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr %19, align 4
-  %53 = tail call i32 @close(i32 noundef %52) #5
-  br label %54
+54:                                               ; preds = %48
+  %55 = load i32, ptr %19, align 4
+  %56 = tail call i32 @close(i32 noundef %55) #5
+  br label %57
 
-54:                                               ; preds = %42, %51, %39
-  %55 = load i8, ptr %4, align 4
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %70
+57:                                               ; preds = %45, %54, %42
+  %58 = load i8, ptr %4, align 4
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %73
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = load i32, ptr %58, align 4
-  %60 = load ptr, ptr @stdin, align 8
-  %61 = call i32 @fileno_unlocked(ptr noundef %60) #5
-  %.not29 = icmp eq i32 %59, %61
-  br i1 %.not29, label %79, label %62
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = load i32, ptr %61, align 4
+  %63 = load ptr, ptr @stdin, align 8
+  %64 = call i32 @fileno_unlocked(ptr noundef %63) #5
+  %.not29 = icmp eq i32 %62, %64
+  br i1 %.not29, label %82, label %65
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %58, align 4
-  %64 = load ptr, ptr @stdin, align 8
-  %65 = call i32 @fileno_unlocked(ptr noundef %64) #5
-  %66 = call i32 @dup2(i32 noundef %63, i32 noundef %65) #5
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %93, label %68
+65:                                               ; preds = %60
+  %66 = load i32, ptr %61, align 4
+  %67 = load ptr, ptr @stdin, align 8
+  %68 = call i32 @fileno_unlocked(ptr noundef %67) #5
+  %69 = call i32 @dup2(i32 noundef %66, i32 noundef %68) #5
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %96, label %71
 
-68:                                               ; preds = %62
-  %69 = load i32, ptr %58, align 4
+71:                                               ; preds = %65
+  %72 = load i32, ptr %61, align 4
   br label %.sink.split
 
-70:                                               ; preds = %54
-  %71 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 0) #5
-  %72 = load ptr, ptr @stdin, align 8
-  %73 = call i32 @fileno(ptr noundef %72) #5
-  %.not28 = icmp eq i32 %71, %73
-  br i1 %.not28, label %.sink.split, label %74
-
-74:                                               ; preds = %70
+73:                                               ; preds = %57
+  %74 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 0) #5
   %75 = load ptr, ptr @stdin, align 8
   %76 = call i32 @fileno(ptr noundef %75) #5
-  %77 = call i32 @dup2(i32 noundef %71, i32 noundef %76) #5
+  %.not28 = icmp eq i32 %74, %76
+  br i1 %.not28, label %.sink.split, label %77
+
+77:                                               ; preds = %73
+  %78 = load ptr, ptr @stdin, align 8
+  %79 = call i32 @fileno(ptr noundef %78) #5
+  %80 = call i32 @dup2(i32 noundef %74, i32 noundef %79) #5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %70, %74, %68
-  %.sink = phi i32 [ %69, %68 ], [ %71, %74 ], [ %71, %70 ]
-  %78 = call i32 @close(i32 noundef %.sink) #5
-  br label %79
+.sink.split:                                      ; preds = %73, %77, %71
+  %.sink = phi i32 [ %72, %71 ], [ %74, %77 ], [ %74, %73 ]
+  %81 = call i32 @close(i32 noundef %.sink) #5
+  br label %82
 
-79:                                               ; preds = %.sink.split, %57
-  %80 = getelementptr inbounds i8, ptr %0, i64 28
-  %81 = load i32, ptr %80, align 4
-  %82 = load ptr, ptr @stderr, align 8
-  %83 = call i32 @fileno_unlocked(ptr noundef %82) #5
-  %.not30 = icmp eq i32 %81, %83
-  br i1 %.not30, label %93, label %84
+82:                                               ; preds = %.sink.split, %60
+  %83 = getelementptr inbounds i8, ptr %0, i64 28
+  %84 = load i32, ptr %83, align 4
+  %85 = load ptr, ptr @stderr, align 8
+  %86 = call i32 @fileno_unlocked(ptr noundef %85) #5
+  %.not30 = icmp eq i32 %84, %86
+  br i1 %.not30, label %96, label %87
 
-84:                                               ; preds = %79
-  %85 = load i32, ptr %80, align 4
-  %86 = load ptr, ptr @stderr, align 8
-  %87 = call i32 @fileno_unlocked(ptr noundef %86) #5
-  %88 = call i32 @dup2(i32 noundef %85, i32 noundef %87) #5
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %93, label %90
+87:                                               ; preds = %82
+  %88 = load i32, ptr %83, align 4
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = call i32 @fileno_unlocked(ptr noundef %89) #5
+  %91 = call i32 @dup2(i32 noundef %88, i32 noundef %90) #5
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %96, label %93
 
-90:                                               ; preds = %84
-  %91 = load i32, ptr %80, align 4
-  %92 = call i32 @close(i32 noundef %91) #5
-  br label %93
+93:                                               ; preds = %87
+  %94 = load i32, ptr %83, align 4
+  %95 = call i32 @close(i32 noundef %94) #5
+  br label %96
 
-93:                                               ; preds = %79, %90, %84, %62, %45, %33, %24, %21
-  %.0 = phi i32 [ -72, %21 ], [ -72, %24 ], [ -72, %33 ], [ -72, %45 ], [ -72, %62 ], [ -72, %84 ], [ 0, %90 ], [ 0, %79 ]
+96:                                               ; preds = %82, %93, %87, %65, %48, %36, %24, %21
+  %.0 = phi i32 [ -72, %21 ], [ -72, %24 ], [ -72, %36 ], [ -72, %48 ], [ -72, %65 ], [ -72, %87 ], [ 0, %93 ], [ 0, %82 ]
   ret i32 %.0
 }
 

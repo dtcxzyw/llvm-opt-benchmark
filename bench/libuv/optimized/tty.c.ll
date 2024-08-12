@@ -239,7 +239,7 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %tty, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
-  %tmp = alloca %struct.termios, align 16
+  %tmp = alloca %struct.termios, align 4
   %mode1 = getelementptr inbounds i8, ptr %tty, i64 308
   %0 = load i32, ptr %mode1, align 4
   %cmp = icmp eq i32 %0, %mode
@@ -293,18 +293,28 @@ if.end20:                                         ; preds = %if.then18, %do.end1
 
 if.end22:                                         ; preds = %if.end20, %if.end
   %orig_termios23 = getelementptr inbounds i8, ptr %tty, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %tmp, ptr noundef nonnull align 8 dereferenceable(60) %orig_termios23, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp, ptr noundef nonnull align 8 dereferenceable(60) %orig_termios23, i64 60, i1 false)
   switch i32 %mode, label %do.body.i.preheader [
     i32 2, label %sw.bb29
     i32 1, label %sw.bb24
   ]
 
 sw.bb24:                                          ; preds = %if.end22
-  %6 = load <4 x i32>, ptr %tmp, align 16
-  %7 = and <4 x i32> %6, <i32 -1331, i32 poison, i32 poison, i32 -32780>
-  %8 = or <4 x i32> %6, <i32 poison, i32 4, i32 48, i32 poison>
-  %9 = shufflevector <4 x i32> %7, <4 x i32> %8, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
-  store <4 x i32> %9, ptr %tmp, align 16
+  %6 = load i32, ptr %tmp, align 4
+  %and = and i32 %6, -1331
+  store i32 %and, ptr %tmp, align 4
+  %c_oflag = getelementptr inbounds i8, ptr %tmp, i64 4
+  %7 = load i32, ptr %c_oflag, align 4
+  %or = or i32 %7, 4
+  store i32 %or, ptr %c_oflag, align 4
+  %c_cflag = getelementptr inbounds i8, ptr %tmp, i64 8
+  %8 = load i32, ptr %c_cflag, align 4
+  %or25 = or i32 %8, 48
+  store i32 %or25, ptr %c_cflag, align 4
+  %c_lflag = getelementptr inbounds i8, ptr %tmp, i64 12
+  %9 = load i32, ptr %c_lflag, align 4
+  %and26 = and i32 %9, -32780
+  store i32 %and26, ptr %c_lflag, align 4
   %arrayidx = getelementptr inbounds i8, ptr %tmp, i64 23
   store i8 1, ptr %arrayidx, align 1
   %arrayidx28 = getelementptr inbounds i8, ptr %tmp, i64 22

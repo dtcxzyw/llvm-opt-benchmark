@@ -107,7 +107,7 @@ define hidden noundef i32 @_Z12pj_ellipsoidP8PJconsts(ptr noundef %0) local_unna
 _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %16, %16
   %20 = tail call fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0)
   %.not58 = icmp eq i32 %20, 0
-  br i1 %.not58, label %21, label %139
+  br i1 %.not58, label %21, label %172
 
 21:                                               ; preds = %_ZL12pj_get_paramP8ARG_listPKc.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 168
@@ -115,11 +115,11 @@ _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %16, %16
   %24 = tail call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %23, double noundef 0.000000e+00)
   %25 = tail call i32 @proj_errno(ptr noundef %0)
   %.not59 = icmp eq i32 %25, 0
-  br i1 %.not59, label %26, label %139
+  br i1 %.not59, label %26, label %172
 
 26:                                               ; preds = %21
   %27 = tail call i32 @proj_errno_restore(ptr noundef nonnull %0, i32 noundef %3)
-  br label %139
+  br label %172
 
 .lr.ph.i.i.preheader:                             ; preds = %.critedge12.i
   call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %2)
@@ -212,134 +212,178 @@ _ZL13pj_find_ellpsPKc.exit.thread.i:              ; preds = %43, %39
   store ptr %52, ptr %12, align 8
   call void @_ZN8PJconstsC1Ev(ptr noundef nonnull align 8 dereferenceable(847) %2)
   %66 = getelementptr inbounds i8, ptr %2, i64 168
-  %67 = getelementptr inbounds i8, ptr %0, i64 168
-  %68 = load <2 x double>, ptr %66, align 8
-  store <2 x double> %68, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 184
-  %70 = getelementptr inbounds i8, ptr %0, i64 184
-  %71 = load <2 x double>, ptr %69, align 8
-  store <2 x double> %71, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 200
-  %73 = getelementptr inbounds i8, ptr %0, i64 200
-  %74 = load <2 x double>, ptr %72, align 8
-  store <2 x double> %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 216
-  %76 = getelementptr inbounds i8, ptr %0, i64 216
-  %77 = load <2 x double>, ptr %75, align 8
-  store <2 x double> %77, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 232
-  %79 = getelementptr inbounds i8, ptr %0, i64 232
-  %80 = load <2 x double>, ptr %78, align 8
-  store <2 x double> %80, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 248
-  %82 = getelementptr inbounds i8, ptr %0, i64 248
-  %83 = load <2 x double>, ptr %81, align 8
-  store <2 x double> %83, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %2, i64 264
-  %85 = getelementptr inbounds i8, ptr %0, i64 264
-  %86 = load <2 x double>, ptr %84, align 8
-  store <2 x double> %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 280
-  %88 = getelementptr inbounds i8, ptr %0, i64 280
-  %89 = load <2 x double>, ptr %87, align 8
-  store <2 x double> %89, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %2, i64 296
-  %91 = getelementptr inbounds i8, ptr %0, i64 296
-  %92 = load <2 x double>, ptr %90, align 8
-  store <2 x double> %92, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 312
-  %94 = getelementptr inbounds i8, ptr %0, i64 312
-  %95 = load <2 x double>, ptr %93, align 8
-  store <2 x double> %95, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %2, i64 328
-  %97 = getelementptr inbounds i8, ptr %0, i64 328
-  %98 = load <2 x double>, ptr %96, align 8
-  store <2 x double> %98, ptr %97, align 8
+  %67 = load double, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 168
+  store double %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 176
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 176
+  store double %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 184
+  %73 = load double, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 184
+  store double %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %2, i64 192
+  %76 = load double, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 192
+  store double %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %2, i64 200
+  %79 = load double, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 200
+  store double %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %2, i64 208
+  %82 = load double, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 208
+  store double %82, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %2, i64 216
+  %85 = load double, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 216
+  store double %85, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %2, i64 224
+  %88 = load double, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 224
+  store double %88, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 232
+  %91 = load double, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 232
+  store double %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %2, i64 240
+  %94 = load double, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 240
+  store double %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %2, i64 248
+  %97 = load double, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 248
+  store double %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %2, i64 256
+  %100 = load double, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 256
+  store double %100, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %2, i64 264
+  %103 = load double, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 264
+  store double %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %2, i64 272
+  %106 = load double, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 272
+  store double %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %2, i64 280
+  %109 = load double, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %2, i64 288
+  %112 = load double, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 288
+  store double %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %2, i64 296
+  %115 = load double, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 296
+  store double %115, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %2, i64 304
+  %118 = load double, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 304
+  store double %118, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %2, i64 312
+  %121 = load double, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 312
+  store double %121, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %2, i64 320
+  %124 = load double, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 320
+  store double %124, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %2, i64 328
+  %127 = load double, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %0, i64 328
+  store double %127, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %2, i64 336
+  %130 = load double, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 336
+  store double %130, ptr %131, align 8
   call void @_ZN8PJconstsD2Ev(ptr noundef nonnull align 8 dereferenceable(847) %2) #13
-  %99 = call fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0)
-  %100 = call fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0)
+  %132 = call fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0)
+  %133 = call fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0)
   store ptr %65, ptr %12, align 8
-  %101 = load ptr, ptr %52, align 8
-  call void @free(ptr noundef %101) #13
+  %134 = load ptr, ptr %52, align 8
+  call void @free(ptr noundef %134) #13
   call void @free(ptr noundef nonnull %52) #13
-  %102 = call i32 @proj_errno(ptr noundef %0)
-  %.not.i60 = icmp eq i32 %102, 0
-  br i1 %.not.i60, label %105, label %103
+  %135 = call i32 @proj_errno(ptr noundef %0)
+  %.not.i60 = icmp eq i32 %135, 0
+  br i1 %.not.i60, label %138, label %136
 
-103:                                              ; preds = %64
-  %104 = call i32 @proj_errno(ptr noundef nonnull %0)
+136:                                              ; preds = %64
+  %137 = call i32 @proj_errno(ptr noundef nonnull %0)
   br label %_ZL11ellps_ellpsP8PJconsts.exit
 
-105:                                              ; preds = %64
-  %106 = call noundef ptr @_Z9pj_strdupPKc(ptr noundef nonnull %28)
-  store ptr %106, ptr %10, align 8
-  %107 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
-  store i8 1, ptr %107, align 8
-  %108 = call i32 @proj_errno_restore(ptr noundef nonnull %0, i32 noundef %49)
+138:                                              ; preds = %64
+  %139 = call noundef ptr @_Z9pj_strdupPKc(ptr noundef nonnull %28)
+  store ptr %139, ptr %10, align 8
+  %140 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  store i8 1, ptr %140, align 8
+  %141 = call i32 @proj_errno_restore(ptr noundef nonnull %0, i32 noundef %49)
   br label %_ZL11ellps_ellpsP8PJconsts.exit
 
 _ZL11ellps_ellpsP8PJconsts.exit.thread:           ; preds = %.critedge12.i.i, %.thread
   call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %2)
-  br label %109
+  br label %142
 
-_ZL11ellps_ellpsP8PJconsts.exit:                  ; preds = %37, %_ZL13pj_find_ellpsPKc.exit.thread.i, %55, %62, %103, %105
-  %.0.i = phi i32 [ %38, %37 ], [ %54, %_ZL13pj_find_ellpsPKc.exit.thread.i ], [ %56, %55 ], [ %63, %62 ], [ %104, %103 ], [ %108, %105 ]
+_ZL11ellps_ellpsP8PJconsts.exit:                  ; preds = %37, %_ZL13pj_find_ellpsPKc.exit.thread.i, %55, %62, %136, %138
+  %.0.i = phi i32 [ %38, %37 ], [ %54, %_ZL13pj_find_ellpsPKc.exit.thread.i ], [ %56, %55 ], [ %63, %62 ], [ %137, %136 ], [ %141, %138 ]
   call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %2)
   %.not49 = icmp eq i32 %.0.i, 0
-  br i1 %.not49, label %109, label %139
+  br i1 %.not49, label %142, label %172
 
-109:                                              ; preds = %_ZL11ellps_ellpsP8PJconsts.exit.thread, %_ZL11ellps_ellpsP8PJconsts.exit
-  %110 = call fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0)
-  %.not50 = icmp eq i32 %110, 0
-  br i1 %.not50, label %111, label %139
+142:                                              ; preds = %_ZL11ellps_ellpsP8PJconsts.exit.thread, %_ZL11ellps_ellpsP8PJconsts.exit
+  %143 = call fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0)
+  %.not50 = icmp eq i32 %143, 0
+  br i1 %.not50, label %144, label %172
 
-111:                                              ; preds = %109
-  %112 = call fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0)
-  %.not51 = icmp eq i32 %112, 0
-  br i1 %.not51, label %113, label %139
+144:                                              ; preds = %142
+  %145 = call fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0)
+  %.not51 = icmp eq i32 %145, 0
+  br i1 %.not51, label %146, label %172
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %0, i64 168
-  %115 = load double, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 216
-  %117 = load double, ptr %116, align 8
-  %118 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %115, double noundef %117)
-  %119 = call fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noundef %0)
-  %.not52 = icmp eq i32 %119, 0
-  br i1 %.not52, label %120, label %139
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds i8, ptr %0, i64 168
+  %148 = load double, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 216
+  %150 = load double, ptr %149, align 8
+  %151 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %148, double noundef %150)
+  %152 = call fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noundef %0)
+  %.not52 = icmp eq i32 %152, 0
+  br i1 %.not52, label %153, label %172
 
-120:                                              ; preds = %113
-  %121 = load double, ptr %114, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 272
-  %123 = load double, ptr %122, align 8
-  %124 = fcmp une double %123, 0.000000e+00
-  %125 = fdiv double 1.000000e+00, %123
-  %126 = select i1 %124, double %125, double 0.000000e+00
-  %127 = call i32 @proj_errno(ptr noundef nonnull %0)
-  call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, double noundef %121, double noundef %126, i32 noundef %127)
-  %128 = load ptr, ptr %4, align 8
-  %.not53 = icmp eq ptr %128, null
-  %129 = select i1 %.not53, ptr @.str, ptr %128
-  %130 = load ptr, ptr %6, align 8
-  %.not54 = icmp eq ptr %130, null
-  %131 = select i1 %.not54, ptr @.str, ptr %130
-  %132 = load ptr, ptr %8, align 8
-  %.not55 = icmp eq ptr %132, null
-  %133 = select i1 %.not55, ptr @.str, ptr %132
-  %134 = load ptr, ptr %10, align 8
-  %.not56 = icmp eq ptr %134, null
-  %135 = select i1 %.not56, ptr @.str, ptr %134
-  call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %129, ptr noundef nonnull %131, ptr noundef nonnull %133, ptr noundef nonnull %135)
-  %136 = call i32 @proj_errno(ptr noundef nonnull %0)
-  %.not57 = icmp eq i32 %136, 0
-  br i1 %.not57, label %137, label %139
+153:                                              ; preds = %146
+  %154 = load double, ptr %147, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 272
+  %156 = load double, ptr %155, align 8
+  %157 = fcmp une double %156, 0.000000e+00
+  %158 = fdiv double 1.000000e+00, %156
+  %159 = select i1 %157, double %158, double 0.000000e+00
+  %160 = call i32 @proj_errno(ptr noundef nonnull %0)
+  call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, double noundef %154, double noundef %159, i32 noundef %160)
+  %161 = load ptr, ptr %4, align 8
+  %.not53 = icmp eq ptr %161, null
+  %162 = select i1 %.not53, ptr @.str, ptr %161
+  %163 = load ptr, ptr %6, align 8
+  %.not54 = icmp eq ptr %163, null
+  %164 = select i1 %.not54, ptr @.str, ptr %163
+  %165 = load ptr, ptr %8, align 8
+  %.not55 = icmp eq ptr %165, null
+  %166 = select i1 %.not55, ptr @.str, ptr %165
+  %167 = load ptr, ptr %10, align 8
+  %.not56 = icmp eq ptr %167, null
+  %168 = select i1 %.not56, ptr @.str, ptr %167
+  call void (ptr, ptr, ...) @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %162, ptr noundef nonnull %164, ptr noundef nonnull %166, ptr noundef nonnull %168)
+  %169 = call i32 @proj_errno(ptr noundef nonnull %0)
+  %.not57 = icmp eq i32 %169, 0
+  br i1 %.not57, label %170, label %172
 
-137:                                              ; preds = %120
-  %138 = call i32 @proj_errno_restore(ptr noundef nonnull %0, i32 noundef %3)
-  br label %139
+170:                                              ; preds = %153
+  %171 = call i32 @proj_errno_restore(ptr noundef nonnull %0, i32 noundef %3)
+  br label %172
 
-139:                                              ; preds = %120, %113, %111, %109, %_ZL11ellps_ellpsP8PJconsts.exit, %21, %_ZL12pj_get_paramP8ARG_listPKc.exit, %137, %26
-  %.0 = phi i32 [ %27, %26 ], [ %138, %137 ], [ 1, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 1, %21 ], [ 1, %_ZL11ellps_ellpsP8PJconsts.exit ], [ 2, %109 ], [ 3, %111 ], [ 4, %113 ], [ 5, %120 ]
+172:                                              ; preds = %153, %146, %144, %142, %_ZL11ellps_ellpsP8PJconsts.exit, %21, %_ZL12pj_get_paramP8ARG_listPKc.exit, %170, %26
+  %.0 = phi i32 [ %27, %26 ], [ %171, %170 ], [ 1, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 1, %21 ], [ 1, %_ZL11ellps_ellpsP8PJconsts.exit ], [ 2, %142 ], [ 3, %144 ], [ 4, %146 ], [ 5, %153 ]
   ret i32 %.0
 }
 
@@ -597,11 +641,12 @@ define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJco
 
 84:                                               ; preds = %80, %62
   %85 = phi double [ %83, %80 ], [ %78, %62 ]
-  %86 = insertelement <2 x double> poison, double %.pre, i64 0
-  %87 = insertelement <2 x double> %86, double %85, i64 1
-  %88 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %87
+  %86 = fdiv double 1.000000e+00, %85
+  %87 = getelementptr inbounds i8, ptr %0, i64 192
+  store double %86, ptr %87, align 8
+  %88 = fdiv double 1.000000e+00, %.pre
   %89 = getelementptr inbounds i8, ptr %0, i64 184
-  store <2 x double> %88, ptr %89, align 8
+  store double %88, ptr %89, align 8
   %90 = load double, ptr %5, align 8
   %91 = fsub double 1.000000e+00, %90
   %92 = getelementptr inbounds i8, ptr %0, i64 256

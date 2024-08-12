@@ -2724,7 +2724,7 @@ define hidden i32 @VP8LEncodeImage(ptr noundef %0, ptr noundef %1) local_unnamed
   %5 = alloca %struct.VP8LBitWriter, align 8
   store i32 0, ptr %4, align 4
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %125, label %7
+  br i1 %6, label %128, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %0, null
@@ -2738,7 +2738,7 @@ define hidden i32 @VP8LEncodeImage(ptr noundef %0, ptr noundef %1) local_unnamed
 
 13:                                               ; preds = %9, %7
   %14 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 3) #8
-  br label %125
+  br label %128
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2758,202 +2758,208 @@ define hidden i32 @VP8LEncodeImage(ptr noundef %0, ptr noundef %1) local_unnamed
 
 28:                                               ; preds = %15
   %29 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %115
+  br label %118
 
 30:                                               ; preds = %15
   %31 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %4) #8
   %.not50 = icmp eq i32 %31, 0
   br i1 %.not50, label %32, label %34
 
-32:                                               ; preds = %94, %90, %86, %30
+32:                                               ; preds = %97, %93, %89, %30
   %33 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 10) #8
-  br label %115
+  br label %118
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %1, i64 128
   %36 = load ptr, ptr %35, align 8
   %.not51 = icmp eq ptr %36, null
-  br i1 %.not51, label %40, label %37
+  br i1 %.not51, label %43, label %37
 
 37:                                               ; preds = %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %36, i8 0, i64 188, i1 false)
   %38 = getelementptr inbounds i8, ptr %36, i64 4
-  store <4 x float> <float 9.900000e+01, float 9.900000e+01, float 9.900000e+01, float 9.900000e+01>, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %36, i64 20
+  store float 9.900000e+01, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
   store float 9.900000e+01, ptr %39, align 4
-  br label %40
+  %40 = getelementptr inbounds i8, ptr %36, i64 12
+  store float 9.900000e+01, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  store float 9.900000e+01, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %36, i64 20
+  store float 9.900000e+01, ptr %42, align 4
+  br label %43
 
-40:                                               ; preds = %37, %34
+43:                                               ; preds = %37, %34
   %.val = load i32, ptr %16, align 8
   %.val62 = load i32, ptr %18, align 4
-  %41 = add nsw i32 %.val, -1
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp sgt i32 %43, 31
-  br i1 %44, label %45, label %VP8LPutBits.exit.i
+  %44 = add nsw i32 %.val, -1
+  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp sgt i32 %46, 31
+  br i1 %47, label %48, label %VP8LPutBits.exit.i
 
-45:                                               ; preds = %40
+48:                                               ; preds = %43
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %5) #8
-  %.pre.i.i = load i32, ptr %42, align 8
+  %.pre.i.i = load i32, ptr %45, align 8
   br label %VP8LPutBits.exit.i
 
-VP8LPutBits.exit.i:                               ; preds = %45, %40
-  %46 = phi i32 [ %.pre.i.i, %45 ], [ %43, %40 ]
-  %47 = zext i32 %41 to i64
-  %48 = zext nneg i32 %46 to i64
-  %49 = shl i64 %47, %48
-  %50 = load i64, ptr %5, align 8
-  %51 = or i64 %49, %50
-  store i64 %51, ptr %5, align 8
-  %52 = add nsw i32 %46, 14
-  store i32 %52, ptr %42, align 8
-  %53 = icmp sgt i32 %46, 17
-  br i1 %53, label %54, label %WriteImageSize.exit
+VP8LPutBits.exit.i:                               ; preds = %48, %43
+  %49 = phi i32 [ %.pre.i.i, %48 ], [ %46, %43 ]
+  %50 = zext i32 %44 to i64
+  %51 = zext nneg i32 %49 to i64
+  %52 = shl i64 %50, %51
+  %53 = load i64, ptr %5, align 8
+  %54 = or i64 %52, %53
+  store i64 %54, ptr %5, align 8
+  %55 = add nsw i32 %49, 14
+  store i32 %55, ptr %45, align 8
+  %56 = icmp sgt i32 %49, 17
+  br i1 %56, label %57, label %WriteImageSize.exit
 
-54:                                               ; preds = %VP8LPutBits.exit.i
+57:                                               ; preds = %VP8LPutBits.exit.i
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %5) #8
-  %.pre.i6.i = load i32, ptr %42, align 8
+  %.pre.i6.i = load i32, ptr %45, align 8
   %.pre.i = load i64, ptr %5, align 8
   br label %WriteImageSize.exit
 
-WriteImageSize.exit:                              ; preds = %VP8LPutBits.exit.i, %54
-  %55 = phi i64 [ %.pre.i, %54 ], [ %51, %VP8LPutBits.exit.i ]
-  %56 = phi i32 [ %.pre.i6.i, %54 ], [ %52, %VP8LPutBits.exit.i ]
-  %57 = add nsw i32 %.val62, -1
-  %58 = zext i32 %57 to i64
-  %59 = zext nneg i32 %56 to i64
-  %60 = shl i64 %58, %59
-  %61 = or i64 %60, %55
-  store i64 %61, ptr %5, align 8
-  %62 = add nsw i32 %56, 14
-  store i32 %62, ptr %42, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 40
-  %64 = load i32, ptr %63, align 8
-  %.not.i.not = icmp eq i32 %64, 0
-  br i1 %.not.i.not, label %67, label %65
+WriteImageSize.exit:                              ; preds = %VP8LPutBits.exit.i, %57
+  %58 = phi i64 [ %.pre.i, %57 ], [ %54, %VP8LPutBits.exit.i ]
+  %59 = phi i32 [ %.pre.i6.i, %57 ], [ %55, %VP8LPutBits.exit.i ]
+  %60 = add nsw i32 %.val62, -1
+  %61 = zext i32 %60 to i64
+  %62 = zext nneg i32 %59 to i64
+  %63 = shl i64 %61, %62
+  %64 = or i64 %63, %58
+  store i64 %64, ptr %5, align 8
+  %65 = add nsw i32 %59, 14
+  store i32 %65, ptr %45, align 8
+  %66 = getelementptr inbounds i8, ptr %5, i64 40
+  %67 = load i32, ptr %66, align 8
+  %.not.i.not = icmp eq i32 %67, 0
+  br i1 %.not.i.not, label %70, label %68
 
-65:                                               ; preds = %WriteImageSize.exit
-  %66 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %115
+68:                                               ; preds = %WriteImageSize.exit
+  %69 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
+  br label %118
 
-67:                                               ; preds = %WriteImageSize.exit
-  %68 = call i32 @WebPPictureHasTransparency(ptr noundef nonnull %1) #8
-  %69 = load i32, ptr %42, align 8
-  %70 = icmp sgt i32 %69, 31
-  br i1 %70, label %71, label %VP8LPutBits.exit.i63
+70:                                               ; preds = %WriteImageSize.exit
+  %71 = call i32 @WebPPictureHasTransparency(ptr noundef nonnull %1) #8
+  %72 = load i32, ptr %45, align 8
+  %73 = icmp sgt i32 %72, 31
+  br i1 %73, label %74, label %VP8LPutBits.exit.i63
 
-71:                                               ; preds = %67
+74:                                               ; preds = %70
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %5) #8
-  %.pre.i.i65 = load i32, ptr %42, align 8
+  %.pre.i.i65 = load i32, ptr %45, align 8
   br label %VP8LPutBits.exit.i63
 
-VP8LPutBits.exit.i63:                             ; preds = %71, %67
-  %72 = phi i32 [ %.pre.i.i65, %71 ], [ %69, %67 ]
-  %73 = zext i32 %68 to i64
-  %74 = zext nneg i32 %72 to i64
-  %75 = shl i64 %73, %74
-  %76 = load i64, ptr %5, align 8
-  %77 = or i64 %75, %76
-  store i64 %77, ptr %5, align 8
-  %78 = add nsw i32 %72, 1
-  store i32 %78, ptr %42, align 8
-  %79 = icmp sgt i32 %72, 30
-  br i1 %79, label %80, label %WriteRealAlphaAndVersion.exit
+VP8LPutBits.exit.i63:                             ; preds = %74, %70
+  %75 = phi i32 [ %.pre.i.i65, %74 ], [ %72, %70 ]
+  %76 = zext i32 %71 to i64
+  %77 = zext nneg i32 %75 to i64
+  %78 = shl i64 %76, %77
+  %79 = load i64, ptr %5, align 8
+  %80 = or i64 %78, %79
+  store i64 %80, ptr %5, align 8
+  %81 = add nsw i32 %75, 1
+  store i32 %81, ptr %45, align 8
+  %82 = icmp sgt i32 %75, 30
+  br i1 %82, label %83, label %WriteRealAlphaAndVersion.exit
 
-80:                                               ; preds = %VP8LPutBits.exit.i63
+83:                                               ; preds = %VP8LPutBits.exit.i63
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %5) #8
-  %.pre.i3.i = load i32, ptr %42, align 8
+  %.pre.i3.i = load i32, ptr %45, align 8
   br label %WriteRealAlphaAndVersion.exit
 
-WriteRealAlphaAndVersion.exit:                    ; preds = %VP8LPutBits.exit.i63, %80
-  %81 = phi i32 [ %.pre.i3.i, %80 ], [ %78, %VP8LPutBits.exit.i63 ]
-  %82 = add nsw i32 %81, 3
-  store i32 %82, ptr %42, align 8
-  %83 = load i32, ptr %63, align 8
-  %.not.i64.not = icmp eq i32 %83, 0
-  br i1 %.not.i64.not, label %86, label %84
+WriteRealAlphaAndVersion.exit:                    ; preds = %VP8LPutBits.exit.i63, %83
+  %84 = phi i32 [ %.pre.i3.i, %83 ], [ %81, %VP8LPutBits.exit.i63 ]
+  %85 = add nsw i32 %84, 3
+  store i32 %85, ptr %45, align 8
+  %86 = load i32, ptr %66, align 8
+  %.not.i64.not = icmp eq i32 %86, 0
+  br i1 %.not.i64.not, label %89, label %87
 
-84:                                               ; preds = %WriteRealAlphaAndVersion.exit
-  %85 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %115
+87:                                               ; preds = %WriteRealAlphaAndVersion.exit
+  %88 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
+  br label %118
 
-86:                                               ; preds = %WriteRealAlphaAndVersion.exit
-  %87 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %4) #8
-  %.not54 = icmp eq i32 %87, 0
-  br i1 %.not54, label %32, label %88
+89:                                               ; preds = %WriteRealAlphaAndVersion.exit
+  %90 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %4) #8
+  %.not54 = icmp eq i32 %90, 0
+  br i1 %.not54, label %32, label %91
 
-88:                                               ; preds = %86
-  %89 = call i32 @VP8LEncodeStream(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
-  %.not55 = icmp eq i32 %89, 0
-  br i1 %.not55, label %115, label %90
+91:                                               ; preds = %89
+  %92 = call i32 @VP8LEncodeStream(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  %.not55 = icmp eq i32 %92, 0
+  br i1 %.not55, label %118, label %93
 
-90:                                               ; preds = %88
-  %91 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 99, ptr noundef nonnull %4) #8
-  %.not56 = icmp eq i32 %91, 0
-  br i1 %.not56, label %32, label %92
+93:                                               ; preds = %91
+  %94 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 99, ptr noundef nonnull %4) #8
+  %.not56 = icmp eq i32 %94, 0
+  br i1 %.not56, label %32, label %95
 
-92:                                               ; preds = %90
-  %93 = call fastcc i32 @WriteImage(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %.not57 = icmp eq i32 %93, 0
-  br i1 %.not57, label %115, label %94
+95:                                               ; preds = %93
+  %96 = call fastcc i32 @WriteImage(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %.not57 = icmp eq i32 %96, 0
+  br i1 %.not57, label %118, label %97
 
-94:                                               ; preds = %92
-  %95 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 100, ptr noundef nonnull %4) #8
-  %.not58 = icmp eq i32 %95, 0
-  br i1 %.not58, label %32, label %96
+97:                                               ; preds = %95
+  %98 = call i32 @WebPReportProgress(ptr noundef nonnull %1, i32 noundef 100, ptr noundef nonnull %4) #8
+  %.not58 = icmp eq i32 %98, 0
+  br i1 %.not58, label %32, label %99
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %35, align 8
-  %.not59 = icmp eq ptr %97, null
-  br i1 %.not59, label %105, label %98
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %35, align 8
+  %.not59 = icmp eq ptr %100, null
+  br i1 %.not59, label %108, label %101
 
-98:                                               ; preds = %96
-  %99 = load i64, ptr %3, align 8
-  %100 = trunc i64 %99 to i32
-  %101 = load i32, ptr %97, align 4
-  %102 = add nsw i32 %101, %100
-  store i32 %102, ptr %97, align 4
-  %103 = load ptr, ptr %35, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 168
-  store i32 %100, ptr %104, align 4
-  br label %105
+101:                                              ; preds = %99
+  %102 = load i64, ptr %3, align 8
+  %103 = trunc i64 %102 to i32
+  %104 = load i32, ptr %100, align 4
+  %105 = add nsw i32 %104, %103
+  store i32 %105, ptr %100, align 4
+  %106 = load ptr, ptr %35, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 168
+  store i32 %103, ptr %107, align 4
+  br label %108
 
-105:                                              ; preds = %98, %96
-  %106 = getelementptr inbounds i8, ptr %1, i64 120
-  %107 = load ptr, ptr %106, align 8
-  %.not60 = icmp eq ptr %107, null
-  br i1 %.not60, label %115, label %108
+108:                                              ; preds = %101, %99
+  %109 = getelementptr inbounds i8, ptr %1, i64 120
+  %110 = load ptr, ptr %109, align 8
+  %.not60 = icmp eq ptr %110, null
+  br i1 %.not60, label %118, label %111
 
-108:                                              ; preds = %105
-  %109 = add nsw i32 %17, 15
-  %110 = ashr i32 %109, 4
-  %111 = add nsw i32 %19, 15
-  %112 = ashr i32 %111, 4
-  %113 = mul nsw i32 %112, %110
-  %114 = sext i32 %113 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %114, i1 false)
-  br label %115
+111:                                              ; preds = %108
+  %112 = add nsw i32 %17, 15
+  %113 = ashr i32 %112, 4
+  %114 = add nsw i32 %19, 15
+  %115 = ashr i32 %114, 4
+  %116 = mul nsw i32 %115, %113
+  %117 = sext i32 %116 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %110, i8 0, i64 %117, i1 false)
+  br label %118
 
-115:                                              ; preds = %105, %108, %92, %88, %84, %65, %32, %28
-  %116 = getelementptr inbounds i8, ptr %5, i64 40
-  %117 = load i32, ptr %116, align 8
-  %.not61 = icmp eq i32 %117, 0
-  br i1 %.not61, label %120, label %118
+118:                                              ; preds = %108, %111, %95, %91, %87, %68, %32, %28
+  %119 = getelementptr inbounds i8, ptr %5, i64 40
+  %120 = load i32, ptr %119, align 8
+  %.not61 = icmp eq i32 %120, 0
+  br i1 %.not61, label %123, label %121
 
-118:                                              ; preds = %115
-  %119 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %120
+121:                                              ; preds = %118
+  %122 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
+  br label %123
 
-120:                                              ; preds = %118, %115
+123:                                              ; preds = %121, %118
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %5) #8
-  %121 = getelementptr inbounds i8, ptr %1, i64 136
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp eq i32 %122, 0
-  %124 = zext i1 %123 to i32
-  br label %125
+  %124 = getelementptr inbounds i8, ptr %1, i64 136
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp eq i32 %125, 0
+  %127 = zext i1 %126 to i32
+  br label %128
 
-125:                                              ; preds = %2, %120, %13
-  %.0 = phi i32 [ %14, %13 ], [ %124, %120 ], [ 0, %2 ]
+128:                                              ; preds = %2, %123, %13
+  %.0 = phi i32 [ %14, %13 ], [ %127, %123 ], [ 0, %2 ]
   ret i32 %.0
 }
 

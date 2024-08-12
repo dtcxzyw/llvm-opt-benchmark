@@ -100,76 +100,78 @@ define hidden void @_ZN27JfrFinalizerStatisticsEvent17send_unload_eventEPK13Inst
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = tail call noundef ptr @_ZN16FinalizerService6lookupEPK13InstanceKlassP6Thread(ptr noundef %0, ptr noundef %6) #7
-  %17 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = tail call noundef ptr @_ZN16FinalizerService6lookupEPK13InstanceKlassP6Thread(ptr noundef %0, ptr noundef %6) #7
+  %18 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.thread.i, label %18
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %.thread.i, label %19
 
-18:                                               ; preds = %4
-  %19 = tail call noundef ptr @_ZNK14FinalizerEntry10codesourceEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  %.not11.i = icmp eq ptr %19, null
-  br i1 %.not11.i, label %.thread.i, label %20
+19:                                               ; preds = %4
+  %20 = tail call noundef ptr @_ZNK14FinalizerEntry10codesourceEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  %.not11.i = icmp eq ptr %20, null
+  br i1 %.not11.i, label %.thread.i, label %21
 
-20:                                               ; preds = %18
-  %21 = tail call noundef i64 @_ZN14JfrSymbolTable3addEPKc(ptr noundef nonnull %19) #7
+21:                                               ; preds = %19
+  %22 = tail call noundef i64 @_ZN14JfrSymbolTable3addEPKc(ptr noundef nonnull %20) #7
   br label %.thread.i
 
-.thread.i:                                        ; preds = %20, %18, %4
-  %22 = phi i64 [ %21, %20 ], [ 0, %18 ], [ 0, %4 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 17
-  store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %2, i64 18
-  store i8 0, ptr %25, align 2
-  store i64 %17, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %17, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 %22, ptr %28, align 8
-  br i1 %.not.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit, label %29
+.thread.i:                                        ; preds = %21, %19, %4
+  %23 = phi i64 [ %22, %21 ], [ 0, %19 ], [ 0, %4 ]
+  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 0, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %2, i64 18
+  store i8 0, ptr %26, align 2
+  store i64 %18, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %18, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %23, ptr %29, align 8
+  br i1 %.not.i, label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit, label %30
 
-29:                                               ; preds = %.thread.i
-  %30 = tail call noundef i64 @_ZNK14FinalizerEntry15objects_on_heapEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
-  %31 = tail call noundef i64 @_ZNK14FinalizerEntry20total_finalizers_runEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
+30:                                               ; preds = %.thread.i
+  %31 = tail call noundef i64 @_ZNK14FinalizerEntry15objects_on_heapEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
+  %32 = tail call noundef i64 @_ZNK14FinalizerEntry20total_finalizers_runEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #7
   br label %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
 
-_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit: ; preds = %.thread.i, %29
-  %.sink2.i = phi i64 [ %30, %29 ], [ 0, %.thread.i ]
-  %.sink.i = phi i64 [ %31, %29 ], [ 0, %.thread.i ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 %.sink2.i, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
-  store i64 %.sink.i, ptr %33, align 8
+_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit: ; preds = %.thread.i, %30
+  %.sink2.i = phi i64 [ %31, %30 ], [ 0, %.thread.i ]
+  %.sink.i = phi i64 [ %32, %30 ], [ 0, %.thread.i ]
+  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %.sink2.i, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %.sink.i, ptr %34, align 8
   call void @_ZN8JfrEventI24EventFinalizerStatisticsE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  %34 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+  %35 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-35:                                               ; preds = %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #7
+36:                                               ; preds = %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #7
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
-  %37 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+37:                                               ; preds = %36, %_ZL10send_eventPK14FinalizerEntryPK13InstanceKlassRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEP6Thread.exit
+  %38 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %36, %1
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %37, %1
   ret void
 }
 
@@ -185,51 +187,53 @@ define hidden void @_ZN27JfrFinalizerStatisticsEvent15generate_eventsEv() local_
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load <2 x ptr>, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load i64, ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV31FinalizerStatisticsEventClosure, i64 16), ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
-  store i64 %15, ptr %14, align 8
-  %16 = load ptr, ptr @ClassLoaderDataGraph_lock, align 8
-  %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %17
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %3, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #7
+  store i64 %16, ptr %15, align 8
+  %17 = load ptr, ptr @ClassLoaderDataGraph_lock, align 8
+  %.not.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %18
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %0
   call void @_ZN16FinalizerService10do_entriesEP21FinalizerEntryClosureP6Thread(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   br label %_ZN11MutexLockerD2Ev.exit
 
-17:                                               ; preds = %0
-  tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #7
+18:                                               ; preds = %0
+  tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #7
   call void @_ZN16FinalizerService10do_entriesEP21FinalizerEntryClosureP6Thread(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #7
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #7
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %17
-  %18 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i, label %20, label %19
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %18
+  %19 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i, label %21, label %20
 
-19:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #7
+20:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #7
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %_ZN11MutexLockerD2Ev.exit
-  %21 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %21, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
+21:                                               ; preds = %20, %_ZN11MutexLockerD2Ev.exit
+  %22 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %22, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %23
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   store ptr %7, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
   ret void
 }
 

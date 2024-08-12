@@ -139,104 +139,106 @@ define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage16LoadCoverageDat
   %14 = ashr exact i64 %13, 5
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 16
   %umax = call i64 @llvm.umax.i64(i64 %14, i64 1)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %52
-  %.01216 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 %.01216
-  %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %21 unwind label %45
+18:                                               ; preds = %.lr.ph, %53
+  %.01216 = phi i64 [ 0, %.lr.ph ], [ %54, %53 ]
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 %.01216
+  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %22 unwind label %46
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
-          to label %22 unwind label %45
+          to label %23 unwind label %46
 
-22:                                               ; preds = %21
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str)
-          to label %24 unwind label %47
+23:                                               ; preds = %22
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str)
+          to label %25 unwind label %48
 
-24:                                               ; preds = %22
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %26 unwind label %47
+25:                                               ; preds = %23
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %27 unwind label %48
 
-26:                                               ; preds = %24
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %28 unwind label %47
+27:                                               ; preds = %25
+  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %29 unwind label %48
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %15, align 8
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %15, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
-          to label %30 unwind label %47
+          to label %31 unwind label %48
 
-30:                                               ; preds = %28
-  %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 128
-  %34 = load i8, ptr %33, align 8
-  %35 = trunc i8 %34 to i1
-  invoke void @_ZN7cmCTest3LogEiPKciS1_b(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 5, ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef %31, i1 noundef zeroext %35)
-          to label %36 unwind label %49
+31:                                               ; preds = %29
+  %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 128
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  invoke void @_ZN7cmCTest3LogEiPKciS1_b(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 5, ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef %32, i1 noundef zeroext %36)
+          to label %37 unwind label %50
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
   invoke void @_ZN5cmsys11SystemTools24GetFilenameLastExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %37 unwind label %45
+          to label %38 unwind label %46
 
-37:                                               ; preds = %36
-  %38 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2) #17
-  %39 = icmp eq i32 %38, 0
+38:                                               ; preds = %37
+  %39 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2) #17
+  %40 = icmp eq i32 %39, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  br i1 %39, label %40, label %52
+  br i1 %40, label %41, label %53
 
-40:                                               ; preds = %37
-  %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+41:                                               ; preds = %38
+  %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  %43 = load ptr, ptr %15, align 8
+  %44 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
-  %42 = load <2 x ptr>, ptr %0, align 8
-  %43 = shufflevector <2 x ptr> %42, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %43, ptr %16, align 8
-  %44 = invoke noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HTMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %41)
-          to label %_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit unwind label %45
+  store ptr %43, ptr %16, align 8
+  store ptr %44, ptr %17, align 8
+  %45 = invoke noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HTMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %42)
+          to label %_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit unwind label %46
 
-_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit: ; preds = %40
+_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  br label %53
+
+46:                                               ; preds = %41, %37, %22, %18
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  br label %55
+
+48:                                               ; preds = %29, %27, %25, %23
+  %49 = landingpad { ptr, i32 }
+          cleanup
   br label %52
 
-45:                                               ; preds = %40, %36, %21, %17
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  br label %54
-
-47:                                               ; preds = %28, %26, %24, %22
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  br label %51
-
-49:                                               ; preds = %30
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %31
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br label %51
+  br label %52
 
-51:                                               ; preds = %49, %47
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
+52:                                               ; preds = %50, %48
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #17
-  br label %54
+  br label %55
 
-52:                                               ; preds = %_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit, %37
-  %53 = add nuw i64 %.01216, 1
-  %exitcond.not = icmp eq i64 %53, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !5
+53:                                               ; preds = %_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc.exit, %38
+  %54 = add nuw i64 %.01216, 1
+  %exitcond.not = icmp eq i64 %54, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %52, %2
+._crit_edge:                                      ; preds = %53, %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   ret i1 true
 
-54:                                               ; preds = %51, %45
-  %.pn14 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %51 ]
+55:                                               ; preds = %52, %46
+  %.pn14 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %52 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   resume { ptr, i32 } %.pn14
 }
@@ -276,12 +278,15 @@ declare void @_ZN5cmsys11SystemTools24GetFilenameLastExtensionERKNSt7__cxx1112ba
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmParseDelphiCoverage::HTMLParser", align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load <2 x ptr>, ptr %0, align 8
-  %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %6, ptr %4, align 8
-  %7 = call noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HTMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %6, ptr %8, align 8
+  %9 = call noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HTMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1)
   ret i1 true
 }
 

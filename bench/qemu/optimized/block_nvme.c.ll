@@ -1663,12 +1663,16 @@ entry:
   store i32 25, ptr %call, align 8
   %u = getelementptr inbounds i8, ptr %call, i64 8
   %stats1 = getelementptr inbounds i8, ptr %0, i64 192
+  %1 = load i64, ptr %stats1, align 8
+  %aligned_accesses4 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = load i64, ptr %aligned_accesses4, align 8
   %unaligned_accesses6 = getelementptr inbounds i8, ptr %0, i64 208
-  %1 = load i64, ptr %unaligned_accesses6, align 8
-  %2 = load <2 x i64>, ptr %stats1, align 8
-  store <2 x i64> %2, ptr %u, align 8
+  %3 = load i64, ptr %unaligned_accesses6, align 8
+  store i64 %1, ptr %u, align 8
+  %.compoundliteral.sroa.2.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store i64 %2, ptr %.compoundliteral.sroa.2.0.u.sroa_idx, align 8
   %.compoundliteral.sroa.3.0.u.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %1, ptr %.compoundliteral.sroa.3.0.u.sroa_idx, align 8
+  store i64 %3, ptr %.compoundliteral.sroa.3.0.u.sroa_idx, align 8
   ret ptr %call
 }
 

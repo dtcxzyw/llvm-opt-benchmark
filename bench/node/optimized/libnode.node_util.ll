@@ -24,7 +24,7 @@ $_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS
 @.str = private unnamed_addr constant [27 x i8] c"../../src/node_util.cc:194\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"args[0]->IsArrayBufferView()\00", align 1
 @.str.2 = private unnamed_addr constant [79 x i8] c"void node::util::ArrayBufferViewHasBuffer(const FunctionCallbackInfo<Value> &)\00", align 1
-@_ZN4node4util23fast_guess_handle_type_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 16
+@_ZN4node4util23fast_guess_handle_type_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 8
 @.str.4 = private unnamed_addr constant [29 x i8] c"arrow_message_private_symbol\00", align 1
 @.str.5 = private unnamed_addr constant [34 x i8] c"contextify_context_private_symbol\00", align 1
 @.str.6 = private unnamed_addr constant [25 x i8] c"decorated_private_symbol\00", align 1
@@ -2770,7 +2770,7 @@ declare noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(p
 define internal void @_GLOBAL__sub_I_node_util.cc() #10 section ".text.startup" {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #14
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i)
@@ -2795,9 +2795,12 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 __cxx_global_var_init.3.exit:                     ; preds = %entry, %init.check.i.i.i.i, %init.i.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i, ptr noundef nonnull @_ZN4node4utilL19FastGuessHandleTypeEN2v85LocalINS1_5ValueEEEj, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_5ValueEEEJEEES3_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #14
-  %3 = load <2 x ptr>, ptr %retval.i.i.i.i, align 16
+  %.fca.0.load.i.i.i.i = load ptr, ptr %retval.i.i.i.i, align 8
+  %.fca.1.gep.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i, i64 8
+  %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
-  store <2 x ptr> %3, ptr @_ZN4node4util23fast_guess_handle_type_E, align 16
+  store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node4util23fast_guess_handle_type_E, align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node4util23fast_guess_handle_type_E, i64 8), align 8
   ret void
 }
 

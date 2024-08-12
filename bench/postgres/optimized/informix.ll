@@ -644,16 +644,21 @@ declare void @PGTYPESdate_today(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @rjulmdy(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = alloca [3 x i32], align 8
+  %3 = alloca [3 x i32], align 4
   call void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef nonnull %3) #16
-  %4 = load <2 x i32>, ptr %3, align 8
-  %5 = trunc <2 x i32> %4 to <2 x i16>
-  store <2 x i16> %5, ptr %1, align 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8
+  %4 = load i32, ptr %3, align 4
+  %5 = trunc i32 %4 to i16
+  store i16 %5, ptr %1, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
-  %9 = getelementptr i8, ptr %1, i64 4
+  %9 = getelementptr i8, ptr %1, i64 2
   store i16 %8, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = load i32, ptr %10, align 4
+  %12 = trunc i32 %11 to i16
+  %13 = getelementptr i8, ptr %1, i64 4
+  store i16 %12, ptr %13, align 2
   ret i32 0
 }
 

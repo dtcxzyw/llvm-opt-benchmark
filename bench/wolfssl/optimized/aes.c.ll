@@ -2131,101 +2131,124 @@ AesEncrypt_C.exit:                                ; preds = %if.end4, %if.then.i
   %idxprom1319.i = zext nneg i32 %shr1316.i to i64
   %arrayidx1320.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 2048), i64 0, i64 %idxprom1319.i
   %266 = load i32, ptr %arrayidx1320.i, align 4
+  %and.i = and i32 %266, -16777216
   %shr1321.i = lshr i32 %t1.0.i, 16
   %conv1323.i = and i32 %shr1321.i, 255
   %idxprom1324.i = zext nneg i32 %conv1323.i to i64
   %arrayidx1325.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 3072), i64 0, i64 %idxprom1324.i
   %267 = load i32, ptr %arrayidx1325.i, align 4
+  %and1326.i = and i32 %267, 16711680
+  %xor1327.i = or disjoint i32 %and1326.i, %and.i
   %shr1328.i = lshr i32 %t2.0.i, 8
   %conv1330.i = and i32 %shr1328.i, 255
   %idxprom1331.i = zext nneg i32 %conv1330.i to i64
   %arrayidx1332.i = getelementptr inbounds [256 x i32], ptr @Te, i64 0, i64 %idxprom1331.i
   %268 = load i32, ptr %arrayidx1332.i, align 4
+  %and1333.i = and i32 %268, 65280
+  %xor1334.i = or disjoint i32 %xor1327.i, %and1333.i
   %conv1337.i = and i32 %t3.0.i, 255
   %idxprom1338.i = zext nneg i32 %conv1337.i to i64
   %arrayidx1339.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 1024), i64 0, i64 %idxprom1338.i
   %269 = load i32, ptr %arrayidx1339.i, align 4
+  %and1340.i = and i32 %269, 255
+  %xor1341.i = or disjoint i32 %xor1334.i, %and1340.i
+  %270 = load i32, ptr %add.ptr1315.i, align 4
+  %xor1343.i = xor i32 %xor1341.i, %270
   %shr1344.i = lshr i32 %t1.0.i, 24
   %idxprom1347.i = zext nneg i32 %shr1344.i to i64
   %arrayidx1348.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 2048), i64 0, i64 %idxprom1347.i
-  %270 = load i32, ptr %arrayidx1348.i, align 4
+  %271 = load i32, ptr %arrayidx1348.i, align 4
+  %and1349.i = and i32 %271, -16777216
   %shr1350.i = lshr i32 %t2.0.i, 16
   %conv1352.i = and i32 %shr1350.i, 255
   %idxprom1353.i = zext nneg i32 %conv1352.i to i64
   %arrayidx1354.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 3072), i64 0, i64 %idxprom1353.i
-  %271 = load i32, ptr %arrayidx1354.i, align 4
+  %272 = load i32, ptr %arrayidx1354.i, align 4
+  %and1355.i = and i32 %272, 16711680
+  %xor1356.i = or disjoint i32 %and1355.i, %and1349.i
   %shr1357.i = lshr i32 %t3.0.i, 8
   %conv1359.i = and i32 %shr1357.i, 255
   %idxprom1360.i = zext nneg i32 %conv1359.i to i64
   %arrayidx1361.i = getelementptr inbounds [256 x i32], ptr @Te, i64 0, i64 %idxprom1360.i
-  %272 = load i32, ptr %arrayidx1361.i, align 4
+  %273 = load i32, ptr %arrayidx1361.i, align 4
+  %and1362.i = and i32 %273, 65280
+  %xor1363.i = or disjoint i32 %xor1356.i, %and1362.i
   %conv1366.i = and i32 %t0.0.i, 255
   %idxprom1367.i = zext nneg i32 %conv1366.i to i64
   %arrayidx1368.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 1024), i64 0, i64 %idxprom1367.i
-  %273 = load i32, ptr %arrayidx1368.i, align 4
+  %274 = load i32, ptr %arrayidx1368.i, align 4
+  %and1369.i = and i32 %274, 255
+  %xor1370.i = or disjoint i32 %xor1363.i, %and1369.i
+  %arrayidx1371.i = getelementptr inbounds i8, ptr %add.ptr1315.i, i64 4
+  %275 = load i32, ptr %arrayidx1371.i, align 4
+  %xor1372.i = xor i32 %xor1370.i, %275
   %shr1373.i = lshr i32 %t2.0.i, 24
   %idxprom1376.i = zext nneg i32 %shr1373.i to i64
   %arrayidx1377.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 2048), i64 0, i64 %idxprom1376.i
-  %274 = load i32, ptr %arrayidx1377.i, align 4
+  %276 = load i32, ptr %arrayidx1377.i, align 4
+  %and1378.i = and i32 %276, -16777216
   %shr1379.i = lshr i32 %t3.0.i, 16
   %conv1381.i = and i32 %shr1379.i, 255
   %idxprom1382.i = zext nneg i32 %conv1381.i to i64
   %arrayidx1383.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 3072), i64 0, i64 %idxprom1382.i
-  %275 = load i32, ptr %arrayidx1383.i, align 4
+  %277 = load i32, ptr %arrayidx1383.i, align 4
+  %and1384.i = and i32 %277, 16711680
+  %xor1385.i = or disjoint i32 %and1384.i, %and1378.i
   %shr1386.i = lshr i32 %t0.0.i, 8
   %conv1388.i = and i32 %shr1386.i, 255
   %idxprom1389.i = zext nneg i32 %conv1388.i to i64
   %arrayidx1390.i = getelementptr inbounds [256 x i32], ptr @Te, i64 0, i64 %idxprom1389.i
-  %276 = load i32, ptr %arrayidx1390.i, align 4
+  %278 = load i32, ptr %arrayidx1390.i, align 4
+  %and1391.i = and i32 %278, 65280
+  %xor1392.i = or disjoint i32 %xor1385.i, %and1391.i
   %conv1395.i = and i32 %t1.0.i, 255
   %idxprom1396.i = zext nneg i32 %conv1395.i to i64
   %arrayidx1397.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 1024), i64 0, i64 %idxprom1396.i
-  %277 = load i32, ptr %arrayidx1397.i, align 4
+  %279 = load i32, ptr %arrayidx1397.i, align 4
+  %and1398.i = and i32 %279, 255
+  %xor1399.i = or disjoint i32 %xor1392.i, %and1398.i
+  %arrayidx1400.i = getelementptr inbounds i8, ptr %add.ptr1315.i, i64 8
+  %280 = load i32, ptr %arrayidx1400.i, align 4
+  %xor1401.i = xor i32 %xor1399.i, %280
   %shr1402.i = lshr i32 %t3.0.i, 24
   %idxprom1405.i = zext nneg i32 %shr1402.i to i64
   %arrayidx1406.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 2048), i64 0, i64 %idxprom1405.i
-  %278 = load i32, ptr %arrayidx1406.i, align 4
+  %281 = load i32, ptr %arrayidx1406.i, align 4
+  %and1407.i = and i32 %281, -16777216
   %shr1408.i = lshr i32 %t0.0.i, 16
   %conv1410.i = and i32 %shr1408.i, 255
   %idxprom1411.i = zext nneg i32 %conv1410.i to i64
   %arrayidx1412.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 3072), i64 0, i64 %idxprom1411.i
-  %279 = load i32, ptr %arrayidx1412.i, align 4
+  %282 = load i32, ptr %arrayidx1412.i, align 4
+  %and1413.i = and i32 %282, 16711680
+  %xor1414.i = or disjoint i32 %and1413.i, %and1407.i
   %shr1415.i = lshr i32 %t1.0.i, 8
   %conv1417.i = and i32 %shr1415.i, 255
   %idxprom1418.i = zext nneg i32 %conv1417.i to i64
   %arrayidx1419.i = getelementptr inbounds [256 x i32], ptr @Te, i64 0, i64 %idxprom1418.i
-  %280 = load i32, ptr %arrayidx1419.i, align 4
+  %283 = load i32, ptr %arrayidx1419.i, align 4
+  %and1420.i = and i32 %283, 65280
+  %xor1421.i = or disjoint i32 %xor1414.i, %and1420.i
   %conv1424.i = and i32 %t2.0.i, 255
   %idxprom1425.i = zext nneg i32 %conv1424.i to i64
   %arrayidx1426.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @Te, i64 1024), i64 0, i64 %idxprom1425.i
-  %281 = load i32, ptr %arrayidx1426.i, align 4
-  %282 = insertelement <4 x i32> poison, i32 %267, i64 0
-  %283 = insertelement <4 x i32> %282, i32 %270, i64 1
-  %284 = insertelement <4 x i32> %283, i32 %275, i64 2
-  %285 = insertelement <4 x i32> %284, i32 %278, i64 3
-  %286 = and <4 x i32> %285, <i32 16711680, i32 -16777216, i32 16711680, i32 -16777216>
-  %287 = insertelement <4 x i32> poison, i32 %266, i64 0
-  %288 = insertelement <4 x i32> %287, i32 %271, i64 1
-  %289 = insertelement <4 x i32> %288, i32 %274, i64 2
-  %290 = insertelement <4 x i32> %289, i32 %279, i64 3
-  %291 = and <4 x i32> %290, <i32 -16777216, i32 16711680, i32 -16777216, i32 16711680>
-  %292 = or disjoint <4 x i32> %291, %286
-  %293 = insertelement <4 x i32> poison, i32 %268, i64 0
-  %294 = insertelement <4 x i32> %293, i32 %272, i64 1
-  %295 = insertelement <4 x i32> %294, i32 %276, i64 2
-  %296 = insertelement <4 x i32> %295, i32 %280, i64 3
-  %297 = and <4 x i32> %296, <i32 65280, i32 65280, i32 65280, i32 65280>
-  %298 = or disjoint <4 x i32> %292, %297
-  %299 = insertelement <4 x i32> poison, i32 %269, i64 0
-  %300 = insertelement <4 x i32> %299, i32 %273, i64 1
-  %301 = insertelement <4 x i32> %300, i32 %277, i64 2
-  %302 = insertelement <4 x i32> %301, i32 %281, i64 3
-  %303 = and <4 x i32> %302, <i32 255, i32 255, i32 255, i32 255>
-  %304 = or disjoint <4 x i32> %298, %303
-  %305 = load <4 x i32>, ptr %add.ptr1315.i, align 4
-  %306 = xor <4 x i32> %304, %305
-  %307 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %306)
-  store <4 x i32> %307, ptr %outBlock, align 1
+  %284 = load i32, ptr %arrayidx1426.i, align 4
+  %and1427.i = and i32 %284, 255
+  %xor1428.i = or disjoint i32 %xor1421.i, %and1427.i
+  %arrayidx1429.i = getelementptr inbounds i8, ptr %add.ptr1315.i, i64 12
+  %285 = load i32, ptr %arrayidx1429.i, align 4
+  %xor1430.i = xor i32 %xor1428.i, %285
+  %or.i305.i = tail call noundef i32 @llvm.bswap.i32(i32 %xor1343.i)
+  %or.i306.i = tail call noundef i32 @llvm.bswap.i32(i32 %xor1372.i)
+  %or.i307.i = tail call noundef i32 @llvm.bswap.i32(i32 %xor1401.i)
+  %or.i308.i = tail call noundef i32 @llvm.bswap.i32(i32 %xor1430.i)
+  store i32 %or.i305.i, ptr %outBlock, align 1
+  %add.ptr1435.i = getelementptr inbounds i8, ptr %outBlock, i64 4
+  store i32 %or.i306.i, ptr %add.ptr1435.i, align 1
+  %add.ptr1436.i = getelementptr inbounds i8, ptr %outBlock, i64 8
+  store i32 %or.i307.i, ptr %add.ptr1436.i, align 1
+  %add.ptr1437.i = getelementptr inbounds i8, ptr %outBlock, i64 12
+  store i32 %or.i308.i, ptr %add.ptr1437.i, align 1
   br label %return
 
 return:                                           ; preds = %entry, %AesEncrypt_C.exit
@@ -5926,9 +5949,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #11
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -154,10 +154,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeINS_14ChromaticitiesEE16makeNewAttributeEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp4.i = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp4.i = alloca %"class.Imath_3_2::Vec2", align 4
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -170,10 +170,18 @@ entry:
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <2 x float> <float 0x3FE47AE140000000, float 0x3FD51EB860000000>, ptr %ref.tmp.i, align 8
-  store <2 x float> <float 0x3FD3333340000000, float 0x3FE3333340000000>, ptr %ref.tmp2.i, align 8
-  store <2 x float> <float 0x3FC3333340000000, float 0x3FAEB851E0000000>, ptr %ref.tmp3.i, align 8
-  store <2 x float> <float 0x3FD40346E0000000, float 0x3FD50E5600000000>, ptr %ref.tmp4.i, align 8
+  store float 0x3FE47AE140000000, ptr %ref.tmp.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 0x3FD51EB860000000, ptr %y.i.i, align 4
+  store float 0x3FD3333340000000, ptr %ref.tmp2.i, align 4
+  %y.i1.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 4
+  store float 0x3FE3333340000000, ptr %y.i1.i, align 4
+  store float 0x3FC3333340000000, ptr %ref.tmp3.i, align 4
+  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 4
+  store float 0x3FAEB851E0000000, ptr %y.i2.i, align 4
+  store float 0x3FD40346E0000000, ptr %ref.tmp4.i, align 4
+  %y.i3.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 4
+  store float 0x3FD50E5600000000, ptr %y.i3.i, align 4
   invoke void @_ZN7Imf_3_214ChromaticitiesC1ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull align 4 dereferenceable(32) %_value.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp4.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -212,10 +220,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeINS_14ChromaticitiesEE4copyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
-  %ref.tmp4.i = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
+  %ref.tmp4.i = alloca %"class.Imath_3_2::Vec2", align 4
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -228,10 +236,18 @@ entry:
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14ChromaticitiesEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <2 x float> <float 0x3FE47AE140000000, float 0x3FD51EB860000000>, ptr %ref.tmp.i, align 8
-  store <2 x float> <float 0x3FD3333340000000, float 0x3FE3333340000000>, ptr %ref.tmp2.i, align 8
-  store <2 x float> <float 0x3FC3333340000000, float 0x3FAEB851E0000000>, ptr %ref.tmp3.i, align 8
-  store <2 x float> <float 0x3FD40346E0000000, float 0x3FD50E5600000000>, ptr %ref.tmp4.i, align 8
+  store float 0x3FE47AE140000000, ptr %ref.tmp.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 0x3FD51EB860000000, ptr %y.i.i, align 4
+  store float 0x3FD3333340000000, ptr %ref.tmp2.i, align 4
+  %y.i1.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 4
+  store float 0x3FE3333340000000, ptr %y.i1.i, align 4
+  store float 0x3FC3333340000000, ptr %ref.tmp3.i, align 4
+  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 4
+  store float 0x3FAEB851E0000000, ptr %y.i2.i, align 4
+  store float 0x3FD40346E0000000, ptr %ref.tmp4.i, align 4
+  %y.i3.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 4
+  store float 0x3FD50E5600000000, ptr %y.i3.i, align 4
   invoke void @_ZN7Imf_3_214ChromaticitiesC1ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull align 4 dereferenceable(32) %_value.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp3.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp4.i)
           to label %invoke.cont unwind label %lpad.i
 

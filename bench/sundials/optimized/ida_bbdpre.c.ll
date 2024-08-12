@@ -28,7 +28,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 15:                                               ; preds = %9
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 71, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %218
+  br label %220
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 1048
@@ -38,7 +38,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 20:                                               ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 80, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %218
+  br label %220
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %0, i64 464
@@ -52,7 +52,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 29:                                               ; preds = %21
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 89, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %218
+  br label %220
 
 30:                                               ; preds = %21
   %31 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #9
@@ -61,7 +61,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 33:                                               ; preds = %30
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 99, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %31, i64 152
@@ -104,7 +104,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 55:                                               ; preds = %34
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 126, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 56:                                               ; preds = %34
   %57 = getelementptr inbounds i8, ptr %31, i64 80
@@ -120,7 +120,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %62) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 139, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds i8, ptr %31, i64 88
@@ -138,7 +138,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %70) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 151, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds i8, ptr %31, i64 96
@@ -158,7 +158,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %79) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 164, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds i8, ptr %31, i64 104
@@ -180,7 +180,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %89) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 178, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 90:                                               ; preds = %80
   %91 = getelementptr inbounds i8, ptr %31, i64 112
@@ -204,7 +204,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %100) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 193, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 101:                                              ; preds = %90
   %102 = getelementptr inbounds i8, ptr %31, i64 120
@@ -230,7 +230,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %112) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 209, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 113:                                              ; preds = %101
   %114 = getelementptr inbounds i8, ptr %31, i64 72
@@ -260,7 +260,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   tail call void @SUNMatDestroy(ptr noundef %127) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 228, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %218
+  br label %220
 
 128:                                              ; preds = %113
   %129 = tail call i32 @SUNLinSolInitialize(ptr noundef nonnull %118) #8
@@ -286,7 +286,7 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %139 = tail call i32 @SUNLinSolFree(ptr noundef %138) #8
   tail call void @free(ptr noundef nonnull %31) #8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 247, ptr noundef nonnull @__func__.IDABBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %218
+  br label %220
 
 140:                                              ; preds = %128
   %141 = fcmp ogt double %6, 0.000000e+00
@@ -317,104 +317,108 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8
   %.not199 = icmp eq ptr %158, null
-  br i1 %.not199, label %167, label %159
+  br i1 %.not199, label %168, label %159
 
 159:                                              ; preds = %148
   call void @N_VSpace(ptr noundef nonnull %154, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %160 = load i64, ptr %10, align 8
-  %161 = load i64, ptr %11, align 8
-  %162 = insertelement <2 x i64> poison, i64 %160, i64 0
-  %163 = insertelement <2 x i64> %162, i64 %161, i64 1
-  %164 = shl nsw <2 x i64> %163, <i64 2, i64 2>
-  %165 = load <2 x i64>, ptr %152, align 8
-  %166 = add nsw <2 x i64> %165, %164
-  store <2 x i64> %166, ptr %152, align 8
-  br label %167
+  %161 = shl nsw i64 %160, 2
+  %162 = load i64, ptr %152, align 8
+  %163 = add nsw i64 %162, %161
+  store i64 %163, ptr %152, align 8
+  %164 = load i64, ptr %11, align 8
+  %165 = shl nsw i64 %164, 2
+  %166 = load i64, ptr %153, align 8
+  %167 = add nsw i64 %166, %165
+  store i64 %167, ptr %153, align 8
+  br label %168
 
-167:                                              ; preds = %159, %148
-  %168 = load ptr, ptr %64, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 32
-  %172 = load ptr, ptr %171, align 8
-  %.not200 = icmp eq ptr %172, null
-  br i1 %.not200, label %181, label %173
+168:                                              ; preds = %159, %148
+  %169 = load ptr, ptr %64, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 32
+  %173 = load ptr, ptr %172, align 8
+  %.not200 = icmp eq ptr %173, null
+  br i1 %.not200, label %183, label %174
 
-173:                                              ; preds = %167
-  call void @N_VSpace(ptr noundef nonnull %168, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
-  %174 = load i64, ptr %10, align 8
-  %175 = load i64, ptr %11, align 8
-  %176 = insertelement <2 x i64> poison, i64 %174, i64 0
-  %177 = insertelement <2 x i64> %176, i64 %175, i64 1
-  %178 = shl nsw <2 x i64> %177, <i64 1, i64 1>
-  %179 = load <2 x i64>, ptr %152, align 8
-  %180 = add nsw <2 x i64> %179, %178
-  store <2 x i64> %180, ptr %152, align 8
-  br label %181
+174:                                              ; preds = %168
+  call void @N_VSpace(ptr noundef nonnull %169, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
+  %175 = load i64, ptr %10, align 8
+  %176 = shl nsw i64 %175, 1
+  %177 = load i64, ptr %152, align 8
+  %178 = add nsw i64 %177, %176
+  store i64 %178, ptr %152, align 8
+  %179 = load i64, ptr %11, align 8
+  %180 = shl nsw i64 %179, 1
+  %181 = load i64, ptr %153, align 8
+  %182 = add nsw i64 %181, %180
+  store i64 %182, ptr %153, align 8
+  br label %183
 
-181:                                              ; preds = %173, %167
-  %182 = load ptr, ptr %51, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 72
+183:                                              ; preds = %174, %168
+  %184 = load ptr, ptr %51, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8
-  %.not201 = icmp eq ptr %186, null
-  br i1 %.not201, label %195, label %187
+  %187 = getelementptr inbounds i8, ptr %186, i64 72
+  %188 = load ptr, ptr %187, align 8
+  %.not201 = icmp eq ptr %188, null
+  br i1 %.not201, label %197, label %189
 
-187:                                              ; preds = %181
-  %188 = call i32 @SUNMatSpace(ptr noundef nonnull %182, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %189 = load i64, ptr %12, align 8
-  %190 = load i64, ptr %152, align 8
-  %191 = add nsw i64 %190, %189
-  store i64 %191, ptr %152, align 8
-  %192 = load i64, ptr %13, align 8
-  %193 = load i64, ptr %153, align 8
-  %194 = add nsw i64 %193, %192
-  store i64 %194, ptr %153, align 8
-  br label %195
+189:                                              ; preds = %183
+  %190 = call i32 @SUNMatSpace(ptr noundef nonnull %184, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
+  %191 = load i64, ptr %12, align 8
+  %192 = load i64, ptr %152, align 8
+  %193 = add nsw i64 %192, %191
+  store i64 %193, ptr %152, align 8
+  %194 = load i64, ptr %13, align 8
+  %195 = load i64, ptr %153, align 8
+  %196 = add nsw i64 %195, %194
+  store i64 %196, ptr %153, align 8
+  br label %197
 
-195:                                              ; preds = %187, %181
-  %196 = load ptr, ptr %114, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 96
+197:                                              ; preds = %189, %183
+  %198 = load ptr, ptr %114, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
-  %.not202 = icmp eq ptr %200, null
-  br i1 %.not202, label %209, label %201
+  %201 = getelementptr inbounds i8, ptr %200, i64 96
+  %202 = load ptr, ptr %201, align 8
+  %.not202 = icmp eq ptr %202, null
+  br i1 %.not202, label %211, label %203
 
-201:                                              ; preds = %195
-  %202 = call i32 @SUNLinSolSpace(ptr noundef nonnull %196, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %203 = load i64, ptr %12, align 8
-  %204 = load i64, ptr %152, align 8
-  %205 = add nsw i64 %204, %203
-  store i64 %205, ptr %152, align 8
-  %206 = load i64, ptr %13, align 8
-  %207 = load i64, ptr %153, align 8
-  %208 = add nsw i64 %207, %206
-  store i64 %208, ptr %153, align 8
-  br label %209
+203:                                              ; preds = %197
+  %204 = call i32 @SUNLinSolSpace(ptr noundef nonnull %198, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
+  %205 = load i64, ptr %12, align 8
+  %206 = load i64, ptr %152, align 8
+  %207 = add nsw i64 %206, %205
+  store i64 %207, ptr %152, align 8
+  %208 = load i64, ptr %13, align 8
+  %209 = load i64, ptr %153, align 8
+  %210 = add nsw i64 %209, %208
+  store i64 %210, ptr %153, align 8
+  br label %211
 
-209:                                              ; preds = %201, %195
-  %210 = getelementptr inbounds i8, ptr %31, i64 144
-  store i64 0, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %18, i64 272
-  %212 = load ptr, ptr %211, align 8
-  %.not203 = icmp eq ptr %212, null
-  br i1 %.not203, label %215, label %213
+211:                                              ; preds = %203, %197
+  %212 = getelementptr inbounds i8, ptr %31, i64 144
+  store i64 0, ptr %212, align 8
+  %213 = getelementptr inbounds i8, ptr %18, i64 272
+  %214 = load ptr, ptr %213, align 8
+  %.not203 = icmp eq ptr %214, null
+  br i1 %.not203, label %217, label %215
 
-213:                                              ; preds = %209
-  %214 = call i32 %212(ptr noundef nonnull %0) #8
-  br label %215
+215:                                              ; preds = %211
+  %216 = call i32 %214(ptr noundef nonnull %0) #8
+  br label %217
 
-215:                                              ; preds = %213, %209
-  %216 = getelementptr inbounds i8, ptr %18, i64 280
-  store ptr %31, ptr %216, align 8
-  store ptr @IDABBDPrecFree, ptr %211, align 8
-  %217 = call i32 @IDASetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @IDABBDPrecSetup, ptr noundef nonnull @IDABBDPrecSolve) #8
-  br label %218
+217:                                              ; preds = %215, %211
+  %218 = getelementptr inbounds i8, ptr %18, i64 280
+  store ptr %31, ptr %218, align 8
+  store ptr @IDABBDPrecFree, ptr %213, align 8
+  %219 = call i32 @IDASetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @IDABBDPrecSetup, ptr noundef nonnull @IDABBDPrecSolve) #8
+  br label %220
 
-218:                                              ; preds = %215, %130, %120, %106, %95, %85, %76, %68, %61, %55, %33, %29, %20, %15
-  %.0 = phi i32 [ -1, %15 ], [ -2, %20 ], [ -3, %29 ], [ -4, %33 ], [ -4, %55 ], [ -4, %61 ], [ -4, %68 ], [ -4, %76 ], [ -4, %85 ], [ -4, %95 ], [ -4, %106 ], [ -4, %120 ], [ -9, %130 ], [ %217, %215 ]
+220:                                              ; preds = %217, %130, %120, %106, %95, %85, %76, %68, %61, %55, %33, %29, %20, %15
+  %.0 = phi i32 [ -1, %15 ], [ -2, %20 ], [ -3, %29 ], [ -4, %33 ], [ -4, %55 ], [ -4, %61 ], [ -4, %68 ], [ -4, %76 ], [ -4, %85 ], [ -4, %95 ], [ -4, %106 ], [ -4, %120 ], [ -9, %130 ], [ %219, %217 ]
   ret i32 %.0
 }
 

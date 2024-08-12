@@ -273,7 +273,9 @@ define weak_odr dso_local void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12s
 entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -291,7 +293,9 @@ entry:
   %tmp = alloca %"struct.eastl::pair", align 8
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -1818,7 +1822,9 @@ define weak_odr dso_local void @_ZN5eastl15string_hash_mapI7Align32NS_4hashIPKcE
 entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -1836,7 +1842,9 @@ entry:
   %tmp = alloca %"struct.eastl::pair.16", align 8
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -5736,7 +5744,9 @@ invoke.cont433:                                   ; preds = %invoke.cont430
   call void @_ZN5eastl15string_hash_mapIiNS_4hashIPKcEENS_12str_equal_toIS3_EENS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(45) %m417) #11
   %mnBucketCount.i.i.i = getelementptr inbounds i8, ptr %m436, i64 16
   %mRehashPolicy.i.i.i = getelementptr inbounds i8, ptr %m436, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i.i, align 8
+  %mfGrowthFactor.i.i.i.i = getelementptr inbounds i8, ptr %m436, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i.i, align 4
   %mnNextResize.i.i.i.i = getelementptr inbounds i8, ptr %m436, i64 40
   %mnElementCount.i.i.i = getelementptr inbounds i8, ptr %m436, i64 24
   store i64 1, ptr %mnBucketCount.i.i.i, align 8
@@ -5853,7 +5863,9 @@ invoke.cont470:                                   ; preds = %invoke.cont460
   store i64 %inc2.i, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mnBucketCount.i.i.i1029 = getelementptr inbounds i8, ptr %m467, i64 16
   %mRehashPolicy.i.i.i1030 = getelementptr inbounds i8, ptr %m467, i64 32
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i1030, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i.i1030, align 8
+  %mfGrowthFactor.i.i.i.i1031 = getelementptr inbounds i8, ptr %m467, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i.i1031, align 4
   %mnNextResize.i.i.i.i1032 = getelementptr inbounds i8, ptr %m467, i64 40
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %m467, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i.i, align 8

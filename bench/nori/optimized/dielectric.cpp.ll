@@ -440,9 +440,11 @@ define linkonce_odr hidden void @_ZNK4nori10Dielectric6sampleERNS_15BSDFQueryRec
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4nori10Dielectric4evalERKNS_15BSDFQueryRecordE(ptr dead_on_unwind noalias writable sret(%"struct.nori::Color3f") align 4 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 {
-  store <2 x float> zeroinitializer, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %0, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %5, align 4
   ret void
 }
 

@@ -13,11 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = alloca %struct.mbedtls_pk_context, align 16
+  %5 = alloca %struct.mbedtls_pk_context, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
-  %7 = alloca %struct.mbedtls_pk_context, align 16
-  %8 = alloca %struct.mbedtls_pk_context, align 16
-  %9 = alloca %struct.mbedtls_pk_context, align 16
+  %7 = alloca %struct.mbedtls_pk_context, align 8
+  %8 = alloca %struct.mbedtls_pk_context, align 8
+  %9 = alloca %struct.mbedtls_pk_context, align 8
   call void @mbedtls_pk_init(ptr noundef nonnull %9) #7
   %10 = and i16 %0, 28672
   %11 = icmp eq i16 %10, 28672
@@ -36,75 +36,82 @@ define hidden i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %0, p
   %.sink = phi i32 [ %16, %15 ], [ %14, %12 ]
   %18 = call i32 @mbedtls_to_psa_error(i32 noundef %.sink) #7
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %45
+  br i1 %.not, label %19, label %49
 
 19:                                               ; preds = %17
   %20 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %9) #7
   %.not11 = icmp eq i32 %20, 1
-  br i1 %.not11, label %21, label %45
+  br i1 %.not11, label %21, label %49
 
 21:                                               ; preds = %19
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  %23 = load <2 x ptr>, ptr %9, align 16
-  store <2 x ptr> %23, ptr %8, align 16
-  %24 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #7
-  %cond.i = icmp eq i32 %24, 1
-  %25 = load ptr, ptr %22, align 8
-  %.0.i = select i1 %cond.i, ptr %25, ptr null
+  store ptr %22, ptr %8, align 8
+  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %24, ptr %25, align 8
+  %26 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #7
+  %cond.i = icmp eq i32 %26, 1
+  %27 = load ptr, ptr %25, align 8
+  %.0.i = select i1 %cond.i, ptr %27, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %26 = call i64 @mbedtls_rsa_get_len(ptr noundef %.0.i) #7
-  %27 = shl i64 %26, 3
-  %28 = icmp ugt i64 %27, 4096
-  br i1 %28, label %45, label %29
+  %28 = call i64 @mbedtls_rsa_get_len(ptr noundef %.0.i) #7
+  %29 = shl i64 %28, 3
+  %30 = icmp ugt i64 %29, 4096
+  br i1 %30, label %49, label %31
 
-29:                                               ; preds = %21
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
-  %31 = load <2 x ptr>, ptr %9, align 16
-  store <2 x ptr> %31, ptr %7, align 16
-  %32 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #7
-  %cond.i13 = icmp eq i32 %32, 1
-  %33 = load ptr, ptr %30, align 8
-  %.0.i14 = select i1 %cond.i13, ptr %33, ptr null
+  store ptr %32, ptr %7, align 8
+  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %33, ptr %34, align 8
+  %35 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #7
+  %cond.i13 = icmp eq i32 %35, 1
+  %36 = load ptr, ptr %34, align 8
+  %.0.i14 = select i1 %cond.i13, ptr %36, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @mbedtls_mpi_init(ptr noundef nonnull %6) #7
-  %34 = call i32 @mbedtls_rsa_export(ptr noundef %.0.i14, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
-  %35 = call i32 @mbedtls_to_psa_error(i32 noundef %34) #7
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %psa_check_rsa_key_byte_aligned.exit.thread
+  %37 = call i32 @mbedtls_rsa_export(ptr noundef %.0.i14, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %38 = call i32 @mbedtls_to_psa_error(i32 noundef %37) #7
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %psa_check_rsa_key_byte_aligned.exit.thread
 
-37:                                               ; preds = %29
-  %38 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %6) #7
-  %39 = and i64 %38, 7
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %40, label %psa_check_rsa_key_byte_aligned.exit.thread
+40:                                               ; preds = %31
+  %41 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %6) #7
+  %42 = and i64 %41, 7
+  %.not.i = icmp eq i64 %42, 0
+  br i1 %.not.i, label %43, label %psa_check_rsa_key_byte_aligned.exit.thread
 
-psa_check_rsa_key_byte_aligned.exit.thread:       ; preds = %29, %37
-  %.0.i15.ph = phi i32 [ -134, %37 ], [ %35, %29 ]
+psa_check_rsa_key_byte_aligned.exit.thread:       ; preds = %31, %40
+  %.0.i15.ph = phi i32 [ -134, %40 ], [ %38, %31 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %45
+  br label %49
 
-40:                                               ; preds = %37
+43:                                               ; preds = %40
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  %42 = load <2 x ptr>, ptr %9, align 16
-  store <2 x ptr> %42, ptr %5, align 16
-  %43 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #7
-  %cond.i16 = icmp eq i32 %43, 1
-  %44 = load ptr, ptr %41, align 8
-  %.0.i17 = select i1 %cond.i16, ptr %44, ptr null
+  store ptr %44, ptr %5, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %45, ptr %46, align 8
+  %47 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #7
+  %cond.i16 = icmp eq i32 %47, 1
+  %48 = load ptr, ptr %46, align 8
+  %.0.i17 = select i1 %cond.i16, ptr %48, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store ptr %.0.i17, ptr %3, align 8
-  store ptr null, ptr %9, align 16
-  br label %45
+  store ptr null, ptr %9, align 8
+  br label %49
 
-45:                                               ; preds = %psa_check_rsa_key_byte_aligned.exit.thread, %21, %19, %17, %40
-  %.1 = phi i32 [ %18, %17 ], [ 0, %40 ], [ -135, %19 ], [ -134, %21 ], [ %.0.i15.ph, %psa_check_rsa_key_byte_aligned.exit.thread ]
+49:                                               ; preds = %psa_check_rsa_key_byte_aligned.exit.thread, %21, %19, %17, %43
+  %.1 = phi i32 [ %18, %17 ], [ 0, %43 ], [ -135, %19 ], [ -134, %21 ], [ %.0.i15.ph, %psa_check_rsa_key_byte_aligned.exit.thread ]
   call void @mbedtls_pk_free(ptr noundef nonnull %9) #7
   ret i32 %.1
 }

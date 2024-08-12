@@ -3849,7 +3849,13 @@ lor.lhs.false55:                                  ; preds = %lor.lhs.false49
 
 if.end61:                                         ; preds = %lor.lhs.false55
   %client_handshake_secret_count = getelementptr inbounds i8, ptr %expected, i64 12
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %client_handshake_secret_count, align 4
+  store i32 1, ptr %client_handshake_secret_count, align 4
+  %server_handshake_secret_count = getelementptr inbounds i8, ptr %expected, i64 16
+  store i32 1, ptr %server_handshake_secret_count, align 4
+  %client_application_secret_count = getelementptr inbounds i8, ptr %expected, i64 20
+  store i32 1, ptr %client_application_secret_count, align 4
+  %server_application_secret_count = getelementptr inbounds i8, ptr %expected, i64 24
+  store i32 1, ptr %server_application_secret_count, align 4
   %exporter_secret_count = getelementptr inbounds i8, ptr %expected, i64 32
   store i32 1, ptr %exporter_secret_count, align 4
   %14 = load ptr, ptr %clientssl, align 8

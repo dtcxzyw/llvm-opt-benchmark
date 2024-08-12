@@ -211,7 +211,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @layoutTree(ptr noundef %0) unnamed_addr #0 {
-  %2 = alloca %struct.rectangle, align 16
+  %2 = alloca %struct.rectangle, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -284,130 +284,135 @@ gv_calloc.exit103:                                ; preds = %22, %gv_calloc.exit
   %37 = load double, ptr %36, align 8
   %38 = fcmp oeq double %35, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %38, label %57, label %40
+  br i1 %38, label %60, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %0, i64 32
-  %42 = load <2 x double>, ptr %39, align 8
-  store <2 x double> %42, ptr %2, align 16
-  %43 = fmul double %37, 4.000000e+00
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
-  %45 = load <2 x double>, ptr %41, align 8
-  %46 = extractelement <2 x double> %45, i64 0
-  %47 = extractelement <2 x double> %45, i64 1
-  %48 = fsub double %47, %46
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double %48, double %43)
-  %50 = tail call double @sqrt(double noundef %49) #14
-  %51 = fadd double %47, %46
-  %52 = fsub double %51, %50
-  %53 = fmul double %52, 5.000000e-01
-  %54 = insertelement <2 x double> poison, double %53, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
-  %56 = fsub <2 x double> %45, %55
-  store <2 x double> %56, ptr %44, align 16
-  br label %57
+  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = load double, ptr %42, align 8
+  %44 = load double, ptr %41, align 8
+  %45 = load double, ptr %39, align 8
+  store double %45, ptr %2, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %47, ptr %48, align 8
+  %49 = fsub double %43, %44
+  %50 = fmul double %37, 4.000000e+00
+  %51 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %50)
+  %52 = tail call double @sqrt(double noundef %51) #14
+  %53 = fadd double %43, %44
+  %54 = fsub double %53, %52
+  %55 = fmul double %54, 5.000000e-01
+  %56 = fsub double %44, %55
+  %57 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %56, ptr %57, align 8
+  %58 = fsub double %43, %55
+  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %58, ptr %59, align 8
+  br label %60
 
-57:                                               ; preds = %34, %40
+60:                                               ; preds = %34, %40
   %.sink = phi ptr [ %2, %40 ], [ %39, %34 ]
-  %58 = tail call ptr @tree_map(i64 noundef %4, ptr noundef nonnull %23, ptr noundef nonnull byval(%struct.rectangle) align 8 %.sink) #14
-  %59 = load i8, ptr @Verbose, align 1
-  %.not = icmp eq i8 %59, 0
-  br i1 %.not, label %.split.us.preheader, label %60
+  %61 = tail call ptr @tree_map(i64 noundef %4, ptr noundef nonnull %23, ptr noundef nonnull byval(%struct.rectangle) align 8 %.sink) #14
+  %62 = load i8, ptr @Verbose, align 1
+  %.not = icmp eq i8 %62, 0
+  br i1 %.not, label %.split.us.preheader, label %63
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr @stderr, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
-  %69 = load double, ptr %68, align 8
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.4, double noundef %63, double noundef %65, double noundef %67, double noundef %69) #16
+63:                                               ; preds = %60
+  %64 = load ptr, ptr @stderr, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load double, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = load double, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = load double, ptr %71, align 8
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.4, double noundef %66, double noundef %68, double noundef %70, double noundef %72) #16
   %.pre = load i8, ptr @Verbose, align 1
-  %71 = icmp eq i8 %.pre, 0
-  br i1 %71, label %.split.us.preheader, label %.split
+  %74 = icmp eq i8 %.pre, 0
+  br i1 %74, label %.split.us.preheader, label %.split
 
-.split.us.preheader:                              ; preds = %57, %60
+.split.us.preheader:                              ; preds = %60, %63
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %.094107.us = phi i64 [ %76, %.split.us ], [ 0, %.split.us.preheader ]
-  %72 = getelementptr inbounds ptr, ptr %11, i64 %.094107.us
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  %75 = getelementptr inbounds %struct.rectangle, ptr %58, i64 %.094107.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false)
-  %76 = add nuw i64 %.094107.us, 1
-  %exitcond117.not = icmp eq i64 %76, %4
+  %.094107.us = phi i64 [ %79, %.split.us ], [ 0, %.split.us.preheader ]
+  %75 = getelementptr inbounds ptr, ptr %11, i64 %.094107.us
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %78 = getelementptr inbounds %struct.rectangle, ptr %61, i64 %.094107.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
+  %79 = add nuw i64 %.094107.us, 1
+  %exitcond117.not = icmp eq i64 %79, %4
   br i1 %exitcond117.not, label %.split109.us, label %.split.us
 
-.split:                                           ; preds = %60, %101
-  %77 = phi i8 [ %102, %101 ], [ 1, %60 ]
-  %.094107 = phi i64 [ %103, %101 ], [ 0, %60 ]
-  %78 = getelementptr inbounds ptr, ptr %11, i64 %.094107
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = getelementptr inbounds %struct.rectangle, ptr %58, i64 %.094107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false)
-  %.not100 = icmp eq i8 %77, 0
-  br i1 %.not100, label %101, label %82
+.split:                                           ; preds = %63, %104
+  %80 = phi i8 [ %105, %104 ], [ 1, %63 ]
+  %.094107 = phi i64 [ %106, %104 ], [ 0, %63 ]
+  %81 = getelementptr inbounds ptr, ptr %11, i64 %.094107
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = getelementptr inbounds %struct.rectangle, ptr %61, i64 %.094107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %84, i64 32, i1 false)
+  %.not100 = icmp eq i8 %80, 0
+  br i1 %.not100, label %104, label %85
 
-82:                                               ; preds = %.split
-  %83 = load ptr, ptr @stderr, align 8
-  %84 = getelementptr inbounds double, ptr %23, i64 %.094107
-  %85 = load double, ptr %84, align 8
-  %86 = load double, ptr %81, align 8
-  %87 = getelementptr inbounds i8, ptr %81, i64 16
+85:                                               ; preds = %.split
+  %86 = load ptr, ptr @stderr, align 8
+  %87 = getelementptr inbounds double, ptr %23, i64 %.094107
   %88 = load double, ptr %87, align 8
-  %89 = fneg double %88
-  %90 = tail call double @llvm.fmuladd.f64(double %89, double 5.000000e-01, double %86)
-  %91 = getelementptr inbounds i8, ptr %81, i64 8
-  %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %81, i64 24
-  %94 = load double, ptr %93, align 8
-  %95 = fneg double %94
-  %96 = tail call double @llvm.fmuladd.f64(double %95, double 5.000000e-01, double %92)
-  %97 = tail call double @llvm.fmuladd.f64(double %88, double 5.000000e-01, double %86)
-  %98 = tail call double @llvm.fmuladd.f64(double %94, double 5.000000e-01, double %92)
-  %99 = fmul double %88, %94
-  %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.5, double noundef %85, double noundef %90, double noundef %96, double noundef %97, double noundef %98, double noundef %99, double noundef %86, double noundef %92, double noundef %88, double noundef %94) #16
+  %89 = load double, ptr %84, align 8
+  %90 = getelementptr inbounds i8, ptr %84, i64 16
+  %91 = load double, ptr %90, align 8
+  %92 = fneg double %91
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double 5.000000e-01, double %89)
+  %94 = getelementptr inbounds i8, ptr %84, i64 8
+  %95 = load double, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %84, i64 24
+  %97 = load double, ptr %96, align 8
+  %98 = fneg double %97
+  %99 = tail call double @llvm.fmuladd.f64(double %98, double 5.000000e-01, double %95)
+  %100 = tail call double @llvm.fmuladd.f64(double %91, double 5.000000e-01, double %89)
+  %101 = tail call double @llvm.fmuladd.f64(double %97, double 5.000000e-01, double %95)
+  %102 = fmul double %91, %97
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.5, double noundef %88, double noundef %93, double noundef %99, double noundef %100, double noundef %101, double noundef %102, double noundef %89, double noundef %95, double noundef %91, double noundef %97) #16
   %.pre120 = load i8, ptr @Verbose, align 1
-  br label %101
-
-101:                                              ; preds = %.split, %82
-  %102 = phi i8 [ 0, %.split ], [ %.pre120, %82 ]
-  %103 = add nuw i64 %.094107, 1
-  %exitcond115.not = icmp eq i64 %103, %4
-  br i1 %exitcond115.not, label %.split109.us, label %.split, !llvm.loop !4
-
-.split109.us:                                     ; preds = %101, %.split.us
-  tail call void @free(ptr noundef nonnull %11) #14
-  tail call void @free(ptr noundef %23) #14
-  tail call void @free(ptr noundef nonnull %58) #14
   br label %104
 
-104:                                              ; preds = %.split109.us, %109
-  %.1112.in = phi ptr [ %17, %.split109.us ], [ %110, %109 ]
-  %.0111 = phi i64 [ 0, %.split109.us ], [ %111, %109 ]
+104:                                              ; preds = %.split, %85
+  %105 = phi i8 [ 0, %.split ], [ %.pre120, %85 ]
+  %106 = add nuw i64 %.094107, 1
+  %exitcond115.not = icmp eq i64 %106, %4
+  br i1 %exitcond115.not, label %.split109.us, label %.split, !llvm.loop !4
+
+.split109.us:                                     ; preds = %104, %.split.us
+  tail call void @free(ptr noundef nonnull %11) #14
+  tail call void @free(ptr noundef %23) #14
+  tail call void @free(ptr noundef nonnull %61) #14
+  br label %107
+
+107:                                              ; preds = %.split109.us, %112
+  %.1112.in = phi ptr [ %17, %.split109.us ], [ %113, %112 ]
+  %.0111 = phi i64 [ 0, %.split109.us ], [ %114, %112 ]
   %.1112 = load ptr, ptr %.1112.in, align 8
-  %105 = getelementptr inbounds i8, ptr %.1112, i64 72
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %109
+  %108 = getelementptr inbounds i8, ptr %.1112, i64 72
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %112
 
-108:                                              ; preds = %104
+111:                                              ; preds = %107
   tail call fastcc void @layoutTree(ptr noundef nonnull %.1112)
-  br label %109
+  br label %112
 
-109:                                              ; preds = %108, %104
-  %110 = getelementptr inbounds i8, ptr %.1112, i64 56
-  %111 = add nuw i64 %.0111, 1
-  %exitcond119.not = icmp eq i64 %111, %4
-  br i1 %exitcond119.not, label %.loopexit, label %104
+112:                                              ; preds = %111, %107
+  %113 = getelementptr inbounds i8, ptr %.1112, i64 56
+  %114 = add nuw i64 %.0111, 1
+  %exitcond119.not = icmp eq i64 %114, %4
+  br i1 %exitcond119.not, label %.loopexit, label %107
 
-.loopexit:                                        ; preds = %109, %1
+.loopexit:                                        ; preds = %112, %1
   ret void
 }
 
@@ -417,7 +422,7 @@ define internal fastcc void @walkTree(ptr nocapture noundef readonly %0) unnamed
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %21
+  br i1 %5, label %6, label %28
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -435,98 +440,113 @@ define internal fastcc void @walkTree(ptr nocapture noundef readonly %0) unnamed
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
-  %16 = load <2 x double>, ptr %9, align 8
-  %17 = load <2 x double>, ptr %10, align 8
-  %18 = fmul <2 x double> %17, <double 5.000000e-01, double 5.000000e-01>
-  %19 = fsub <2 x double> %16, %18
-  store <2 x double> %19, ptr %15, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
-  %20 = fadd <2 x double> %17, %19
-  store <2 x double> %20, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %72
-
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.37.0.copyload = load double, ptr %.sroa.37.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
+  %10 = load double, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load double, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = load double, ptr %15, align 8
+  %17 = fmul double %14, 5.000000e-01
+  %18 = fsub double %10, %17
+  %19 = fmul double %16, 5.000000e-01
+  %20 = fsub double %12, %19
+  %21 = fadd double %14, %18
+  %22 = fadd double %16, %20
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
-  %28 = load <2 x double>, ptr %22, align 8
-  store <2 x double> %28, ptr %27, align 8
-  %29 = fdiv double %.sroa.37.0.copyload, 7.200000e+01
-  %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
-  store double %29, ptr %31, align 8
-  %32 = fdiv double %.sroa.4.0.copyload, 7.200000e+01
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
-  store double %32, ptr %34, align 8
-  %35 = tail call ptr @agraphof(ptr noundef %24) #14
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 132
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 1
-  %41 = icmp ne i32 %40, 0
-  tail call void @gv_nodesize(ptr noundef %24, i1 noundef zeroext %41) #14
+  store double %18, ptr %27, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 40
+  store double %20, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 48
+  store double %21, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 56
+  store double %22, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %78
+
+28:                                               ; preds = %1
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.06.0.copyload = load double, ptr %29, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.37.0.copyload = load double, ptr %.sroa.37.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  store double %.sroa.06.0.copyload, ptr %34, align 8
+  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 40
+  store double %.sroa.2.0.copyload, ptr %.sroa.29.0..sroa_idx, align 8
+  %35 = fdiv double %.sroa.37.0.copyload, 7.200000e+01
+  %36 = load ptr, ptr %32, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  store double %35, ptr %37, align 8
+  %38 = fdiv double %.sroa.4.0.copyload, 7.200000e+01
+  %39 = load ptr, ptr %32, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 56
+  store double %38, ptr %40, align 8
+  %41 = tail call ptr @agraphof(ptr noundef %31) #14
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 132
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, 1
+  %47 = icmp ne i32 %46, 0
+  tail call void @gv_nodesize(ptr noundef %31, i1 noundef zeroext %47) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  %42 = load ptr, ptr @N_fontsize, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %finishNode.exit, label %43
+  %48 = load ptr, ptr @N_fontsize, align 8
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %finishNode.exit, label %49
 
-43:                                               ; preds = %21
-  %44 = tail call ptr @agxget(ptr noundef nonnull %24, ptr noundef nonnull %42) #14
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %finishNode.exit
+49:                                               ; preds = %28
+  %50 = tail call ptr @agxget(ptr noundef nonnull %31, ptr noundef nonnull %48) #14
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %finishNode.exit
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %25, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
-  %50 = load double, ptr %49, align 8
-  %51 = fmul double %50, 0x3FE6666666666666
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.7, double noundef %51) #14
-  %53 = load ptr, ptr @N_fontsize, align 8
-  %54 = call i32 @agxset(ptr noundef nonnull %24, ptr noundef %53, ptr noundef nonnull %2) #14
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %32, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 96
+  %56 = load double, ptr %55, align 8
+  %57 = fmul double %56, 0x3FE6666666666666
+  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.7, double noundef %57) #14
+  %59 = load ptr, ptr @N_fontsize, align 8
+  %60 = call i32 @agxset(ptr noundef nonnull %31, ptr noundef %59, ptr noundef nonnull %2) #14
   br label %finishNode.exit
 
-finishNode.exit:                                  ; preds = %21, %43, %47
-  call void @common_init_node(ptr noundef nonnull %24) #14
+finishNode.exit:                                  ; preds = %28, %49, %53
+  call void @common_init_node(ptr noundef nonnull %31) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %55 = load i8, ptr @Verbose, align 1
-  %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %72, label %56
+  %61 = load i8, ptr @Verbose, align 1
+  %.not = icmp eq i8 %61, 0
+  br i1 %.not, label %78, label %62
 
-56:                                               ; preds = %finishNode.exit
-  %57 = load ptr, ptr @stderr, align 8
-  %58 = call ptr @agnameof(ptr noundef nonnull %24) #14
-  %59 = load ptr, ptr %25, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 32
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 40
-  %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 96
-  %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %59, i64 104
+62:                                               ; preds = %finishNode.exit
+  %63 = load ptr, ptr @stderr, align 8
+  %64 = call ptr @agnameof(ptr noundef nonnull %31) #14
+  %65 = load ptr, ptr %32, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %59, i64 112
+  %68 = getelementptr inbounds i8, ptr %65, i64 40
   %69 = load double, ptr %68, align 8
-  %70 = fadd double %67, %69
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.6, ptr noundef %58, double noundef %61, double noundef %63, double noundef %65, double noundef %70) #16
-  br label %72
+  %70 = getelementptr inbounds i8, ptr %65, i64 96
+  %71 = load double, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %65, i64 104
+  %73 = load double, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %65, i64 112
+  %75 = load double, ptr %74, align 8
+  %76 = fadd double %73, %75
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.6, ptr noundef %64, double noundef %67, double noundef %69, double noundef %71, double noundef %76) #16
+  br label %78
 
-72:                                               ; preds = %finishNode.exit, %56, %._crit_edge
+78:                                               ; preds = %finishNode.exit, %62, %._crit_edge
   ret void
 }
 

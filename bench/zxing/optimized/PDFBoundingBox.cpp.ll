@@ -147,30 +147,41 @@ define void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr nocaptur
   %40 = phi double [ %.pre26, %._crit_edge ], [ %29, %21 ], [ %7, %5 ]
   %41 = phi double [ %.pre, %._crit_edge ], [ %26, %21 ], [ %9, %5 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 16
-  %43 = load <2 x double>, ptr %42, align 8
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %43 = load double, ptr %42, align 8
+  %44 = fptrunc double %43 to float
   %45 = getelementptr inbounds i8, ptr %0, i64 40
-  %46 = load <2 x double>, ptr %45, align 8
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
-  %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = load double, ptr %45, align 8
+  %47 = fptrunc double %46 to float
+  %48 = fcmp olt float %47, %44
+  %.sroa.speculated15 = select i1 %48, float %47, float %44
+  %49 = fptosi float %.sroa.speculated15 to i32
+  %50 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 64
   %52 = load double, ptr %51, align 8
-  %53 = insertelement <4 x double> %47, double %50, i64 1
-  %54 = insertelement <4 x double> %53, double %40, i64 2
-  %55 = insertelement <4 x double> %54, double %39, i64 3
-  %56 = fptrunc <4 x double> %55 to <4 x float>
-  %57 = insertelement <4 x double> %44, double %52, i64 1
-  %58 = insertelement <4 x double> %57, double %41, i64 2
-  %59 = insertelement <4 x double> %58, double %38, i64 3
-  %60 = fptrunc <4 x double> %59 to <4 x float>
-  %61 = fcmp olt <4 x float> %56, %60
-  %62 = shufflevector <4 x float> %56, <4 x float> %60, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %63 = shufflevector <4 x float> %60, <4 x float> %56, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %64 = select <4 x i1> %61, <4 x float> %62, <4 x float> %63
-  %65 = fptosi <4 x float> %64 to <4 x i32>
-  store <4 x i32> %65, ptr %48, align 8
+  %53 = fptrunc double %52 to float
+  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = load double, ptr %54, align 8
+  %56 = fptrunc double %55 to float
+  %57 = fcmp olt float %53, %56
+  %.sroa.speculated10 = select i1 %57, float %56, float %53
+  %58 = fptosi float %.sroa.speculated10 to i32
+  %59 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %58, ptr %59, align 4
+  %60 = fptrunc double %41 to float
+  %61 = fptrunc double %40 to float
+  %62 = fcmp olt float %61, %60
+  %.sroa.speculated5 = select i1 %62, float %61, float %60
+  %63 = fptosi float %.sroa.speculated5 to i32
+  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 %63, ptr %64, align 8
+  %65 = fptrunc double %39 to float
+  %66 = fptrunc double %38 to float
+  %67 = fcmp olt float %65, %66
+  %.sroa.speculated = select i1 %67, float %66, float %65
+  %68 = fptosi float %.sroa.speculated to i32
+  %69 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 %68, ptr %69, align 4
   ret void
 }
 
@@ -197,73 +208,76 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
 12:                                               ; preds = %8
   call void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load <2 x i32>, ptr %13, align 8
-  %15 = load i32, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
-  %19 = getelementptr inbounds i8, ptr %1, i64 88
-  %20 = load i8, ptr %16, align 8
-  %21 = trunc i8 %20 to i1
-  %22 = load i8, ptr %18, align 8
-  %23 = trunc i8 %22 to i1
-  %24 = select i1 %21, i1 true, i1 %23
-  br i1 %24, label %25, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %21 = load i8, ptr %17, align 8
+  %22 = trunc i8 %21 to i1
+  %23 = load i8, ptr %19, align 8
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %22, i1 true, i1 %24
+  br i1 %25, label %26, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-25:                                               ; preds = %12
-  %26 = load i8, ptr %17, align 8
-  %27 = trunc i8 %26 to i1
-  %.pre.i = load i8, ptr %19, align 8
+26:                                               ; preds = %12
+  %27 = load i8, ptr %18, align 8
+  %28 = trunc i8 %27 to i1
+  %.pre.i = load i8, ptr %20, align 8
   %.pre27.i = trunc i8 %.pre.i to i1
-  %.not.i = xor i1 %21, true
+  %.not.i = xor i1 %22, true
   %brmerge.not.i = and i1 %.not.i, %.pre27.i
-  %or.cond.not.i = select i1 %27, i1 true, i1 %brmerge.not.i
-  %not..i = xor i1 %23, true
-  %28 = select i1 %not..i, i1 true, i1 %.pre27.i
-  %or.cond28.i = select i1 %or.cond.not.i, i1 %28, i1 false
-  br i1 %or.cond28.i, label %29, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+  %or.cond.not.i = select i1 %28, i1 true, i1 %brmerge.not.i
+  %not..i = xor i1 %24, true
+  %29 = select i1 %not..i, i1 true, i1 %.pre27.i
+  %or.cond28.i = select i1 %or.cond.not.i, i1 %29, i1 false
+  br i1 %or.cond28.i, label %30, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-29:                                               ; preds = %25
-  store <2 x i32> %14, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull readonly align 8 dereferenceable(24) %18, i64 24, i1 false)
-  %33 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %19, i64 24, i1 false)
-  %34 = load i8, ptr %30, align 8
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %47, label %36
+30:                                               ; preds = %26
+  store i32 %14, ptr %4, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %16, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false)
+  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %18, i64 24, i1 false)
+  %34 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull readonly align 8 dereferenceable(24) %19, i64 24, i1 false)
+  %35 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull readonly align 8 dereferenceable(24) %20, i64 24, i1 false)
+  %36 = load i8, ptr %32, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %49, label %38
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %4, i64 72
-  %38 = load double, ptr %37, align 8
-  %39 = fptrunc double %38 to float
-  %40 = fpext float %39 to double
-  store i8 1, ptr %30, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  store double 0.000000e+00, ptr %41, align 8
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds i8, ptr %4, i64 72
+  %40 = load double, ptr %39, align 8
+  %41 = fptrunc double %40 to float
+  %42 = fpext float %41 to double
+  store i8 1, ptr %32, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  store double 0.000000e+00, ptr %43, align 8
   %.sroa.224.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
-  store double %40, ptr %.sroa.224.0..sroa_idx.i, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 96
-  %43 = load double, ptr %42, align 8
-  %44 = fptrunc double %43 to float
-  %45 = fpext float %44 to double
-  store i8 1, ptr %31, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 40
-  store double 0.000000e+00, ptr %46, align 8
+  store double %42, ptr %.sroa.224.0..sroa_idx.i, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 96
+  %45 = load double, ptr %44, align 8
+  %46 = fptrunc double %45 to float
+  %47 = fpext float %46 to double
+  store i8 1, ptr %33, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 40
+  store double 0.000000e+00, ptr %48, align 8
   %.sroa.222.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  store double %45, ptr %.sroa.222.0..sroa_idx.i, align 8
-  br label %64
+  store double %47, ptr %.sroa.222.0..sroa_idx.i, align 8
+  br label %66
 
-47:                                               ; preds = %29
-  %48 = load i8, ptr %32, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %._crit_edge.i, label %50
+49:                                               ; preds = %30
+  %50 = load i8, ptr %34, align 8
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %._crit_edge.i, label %52
 
-._crit_edge.i:                                    ; preds = %47
+._crit_edge.i:                                    ; preds = %49
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 24
   %.pre.i14 = load double, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert25.i = getelementptr inbounds i8, ptr %4, i64 72
@@ -272,69 +286,80 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %.pre28.i = load double, ptr %.phi.trans.insert27.i, align 8
   %.phi.trans.insert29.i = getelementptr inbounds i8, ptr %4, i64 96
   %.pre30.i = load double, ptr %.phi.trans.insert29.i, align 8
-  br label %64
+  br label %66
 
-50:                                               ; preds = %47
-  %51 = add nsw i32 %15, -1
-  %52 = sitofp i32 %51 to float
-  %53 = getelementptr inbounds i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8
-  %55 = fptrunc double %54 to float
-  %56 = fpext float %52 to double
-  %57 = fpext float %55 to double
-  store i8 1, ptr %32, align 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
-  store double %56, ptr %58, align 8
+52:                                               ; preds = %49
+  %53 = add nsw i32 %14, -1
+  %54 = sitofp i32 %53 to float
+  %55 = getelementptr inbounds i8, ptr %4, i64 24
+  %56 = load double, ptr %55, align 8
+  %57 = fptrunc double %56 to float
+  %58 = fpext float %54 to double
+  %59 = fpext float %57 to double
+  store i8 1, ptr %34, align 8
+  %60 = getelementptr inbounds i8, ptr %4, i64 64
+  store double %58, ptr %60, align 8
   %.sroa.220.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 72
-  store double %57, ptr %.sroa.220.0..sroa_idx.i, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 48
-  %60 = load double, ptr %59, align 8
-  %61 = fptrunc double %60 to float
-  %62 = fpext float %61 to double
-  store i8 1, ptr %33, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 88
-  store double %56, ptr %63, align 8
+  store double %59, ptr %.sroa.220.0..sroa_idx.i, align 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 48
+  %62 = load double, ptr %61, align 8
+  %63 = fptrunc double %62 to float
+  %64 = fpext float %63 to double
+  store i8 1, ptr %35, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 88
+  store double %58, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 96
-  store double %62, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br label %64
+  store double %64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  br label %66
 
-64:                                               ; preds = %36, %._crit_edge.i, %50
-  %65 = phi double [ %.pre30.i, %._crit_edge.i ], [ %62, %50 ], [ %43, %36 ]
-  %66 = phi double [ %.pre28.i, %._crit_edge.i ], [ %60, %50 ], [ %45, %36 ]
-  %67 = phi double [ %.pre26.i, %._crit_edge.i ], [ %57, %50 ], [ %38, %36 ]
-  %68 = phi double [ %.pre.i14, %._crit_edge.i ], [ %54, %50 ], [ %40, %36 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
-  %70 = load <2 x double>, ptr %69, align 8
-  %71 = shufflevector <2 x double> %70, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %72 = getelementptr inbounds i8, ptr %4, i64 40
-  %73 = load <2 x double>, ptr %72, align 8
-  %74 = shufflevector <2 x double> %73, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %75 = getelementptr inbounds i8, ptr %4, i64 104
-  %76 = getelementptr inbounds i8, ptr %4, i64 64
-  %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 88
-  %79 = load double, ptr %78, align 8
-  %80 = insertelement <4 x double> %74, double %77, i64 1
-  %81 = insertelement <4 x double> %80, double %67, i64 2
-  %82 = insertelement <4 x double> %81, double %66, i64 3
-  %83 = fptrunc <4 x double> %82 to <4 x float>
-  %84 = insertelement <4 x double> %71, double %79, i64 1
-  %85 = insertelement <4 x double> %84, double %68, i64 2
-  %86 = insertelement <4 x double> %85, double %65, i64 3
-  %87 = fptrunc <4 x double> %86 to <4 x float>
-  %88 = fcmp olt <4 x float> %83, %87
-  %89 = shufflevector <4 x float> %83, <4 x float> %87, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %90 = shufflevector <4 x float> %87, <4 x float> %83, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  %91 = select <4 x i1> %88, <4 x float> %89, <4 x float> %90
-  %92 = fptosi <4 x float> %91 to <4 x i32>
-  store <4 x i32> %92, ptr %75, align 8
+66:                                               ; preds = %38, %._crit_edge.i, %52
+  %67 = phi double [ %.pre30.i, %._crit_edge.i ], [ %64, %52 ], [ %45, %38 ]
+  %68 = phi double [ %.pre28.i, %._crit_edge.i ], [ %62, %52 ], [ %47, %38 ]
+  %69 = phi double [ %.pre26.i, %._crit_edge.i ], [ %59, %52 ], [ %40, %38 ]
+  %70 = phi double [ %.pre.i14, %._crit_edge.i ], [ %56, %52 ], [ %42, %38 ]
+  %71 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = load double, ptr %71, align 8
+  %73 = fptrunc double %72 to float
+  %74 = getelementptr inbounds i8, ptr %4, i64 40
+  %75 = load double, ptr %74, align 8
+  %76 = fptrunc double %75 to float
+  %77 = fcmp olt float %76, %73
+  %.sroa.speculated15.i = select i1 %77, float %76, float %73
+  %78 = fptosi float %.sroa.speculated15.i to i32
+  %79 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %4, i64 64
+  %81 = load double, ptr %80, align 8
+  %82 = fptrunc double %81 to float
+  %83 = getelementptr inbounds i8, ptr %4, i64 88
+  %84 = load double, ptr %83, align 8
+  %85 = fptrunc double %84 to float
+  %86 = fcmp olt float %82, %85
+  %.sroa.speculated10.i = select i1 %86, float %85, float %82
+  %87 = fptosi float %.sroa.speculated10.i to i32
+  %88 = getelementptr inbounds i8, ptr %4, i64 108
+  store i32 %87, ptr %88, align 4
+  %89 = fptrunc double %70 to float
+  %90 = fptrunc double %69 to float
+  %91 = fcmp olt float %90, %89
+  %.sroa.speculated5.i = select i1 %91, float %90, float %89
+  %92 = fptosi float %.sroa.speculated5.i to i32
+  %93 = getelementptr inbounds i8, ptr %4, i64 112
+  store i32 %92, ptr %93, align 8
+  %94 = fptrunc double %68 to float
+  %95 = fptrunc double %67 to float
+  %96 = fcmp olt float %94, %95
+  %.sroa.speculated.i = select i1 %96, float %95, float %94
+  %97 = fptosi float %.sroa.speculated.i to i32
+  %98 = getelementptr inbounds i8, ptr %4, i64 116
+  store i32 %97, ptr %98, align 4
   store i8 1, ptr %2, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %93, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  %99 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %99, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %25, %12, %64, %11, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ true, %64 ], [ false, %12 ], [ false, %25 ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %26, %12, %66, %11, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ true, %66 ], [ false, %12 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -349,141 +374,159 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.470, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.470.0..sroa_idx, i64 7, i1 false)
   %.sroa.472.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x double>, ptr %.sroa.472.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.058.0.copyload = load i8, ptr %8, align 8
+  %.sroa.472.0.copyload = load double, ptr %.sroa.472.0..sroa_idx, align 8
+  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.575.0.copyload = load double, ptr %.sroa.575.0..sroa_idx, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.058.0.copyload = load i8, ptr %7, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.460, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.460.0..sroa_idx, i64 7, i1 false)
   %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = load <2 x double>, ptr %.sroa.462.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.048.0.copyload = load i8, ptr %10, align 8
+  %.sroa.462.0.copyload = load double, ptr %.sroa.462.0..sroa_idx, align 8
+  %.sroa.565.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.565.0.copyload = load double, ptr %.sroa.565.0..sroa_idx, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.048.0.copyload = load i8, ptr %8, align 8
   %.sroa.450.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.450, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.450.0..sroa_idx, i64 7, i1 false)
   %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = load <2 x double>, ptr %.sroa.452.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %.sroa.040.0.copyload = load i8, ptr %12, align 8
+  %.sroa.452.0.copyload = load double, ptr %.sroa.452.0..sroa_idx, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.555.0.copyload = load double, ptr %.sroa.555.0..sroa_idx, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.040.0.copyload = load i8, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx, i64 7, i1 false)
   %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = load <2 x double>, ptr %.sroa.443.0..sroa_idx, align 8
-  %14 = icmp sgt i32 %1, 0
-  br i1 %14, label %15, label %26
+  %.sroa.443.0.copyload = load double, ptr %.sroa.443.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
+  %10 = icmp sgt i32 %1, 0
+  br i1 %10, label %11, label %21
 
-15:                                               ; preds = %5
-  %16 = select i1 %3, ptr %6, ptr %10
-  %.sroa.138.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+11:                                               ; preds = %5
+  %12 = select i1 %3, ptr %6, ptr %8
+  %.sroa.138.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.138.0.copyload = load double, ptr %.sroa.138.0..sroa_idx, align 8
-  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
   %.sroa.239.0.copyload = load double, ptr %.sroa.239.0..sroa_idx, align 8
-  %17 = fptrunc double %.sroa.239.0.copyload to float
-  %18 = fptosi float %17 to i32
-  %19 = sub nsw i32 %18, %1
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
-  %20 = fptrunc double %.sroa.138.0.copyload to float
-  %21 = uitofp nneg i32 %spec.store.select to float
-  %22 = insertelement <2 x float> poison, float %20, i64 0
-  %23 = insertelement <2 x float> %22, float %21, i64 1
-  %24 = fpext <2 x float> %23 to <2 x double>
-  br i1 %3, label %26, label %25
+  %13 = fptrunc double %.sroa.239.0.copyload to float
+  %14 = fptosi float %13 to i32
+  %15 = sub nsw i32 %14, %1
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %16 = fptrunc double %.sroa.138.0.copyload to float
+  %17 = uitofp nneg i32 %spec.store.select to float
+  %18 = fpext float %16 to double
+  %19 = fpext float %17 to double
+  br i1 %3, label %21, label %20
 
-25:                                               ; preds = %15
-  br label %26
+20:                                               ; preds = %11
+  br label %21
 
-26:                                               ; preds = %15, %25, %5
-  %.sroa.048.0 = phi i8 [ 1, %25 ], [ %.sroa.048.0.copyload, %5 ], [ %.sroa.048.0.copyload, %15 ]
-  %.sroa.068.0 = phi i8 [ %.sroa.068.0.copyload, %25 ], [ %.sroa.068.0.copyload, %5 ], [ 1, %15 ]
-  %27 = phi <2 x double> [ %7, %25 ], [ %7, %5 ], [ %24, %15 ]
-  %28 = phi <2 x double> [ %24, %25 ], [ %11, %5 ], [ %11, %15 ]
-  %29 = icmp sgt i32 %2, 0
-  br i1 %29, label %30, label %._crit_edge
+21:                                               ; preds = %11, %20, %5
+  %.sroa.048.0 = phi i8 [ 1, %20 ], [ %.sroa.048.0.copyload, %5 ], [ %.sroa.048.0.copyload, %11 ]
+  %.sroa.452.0 = phi double [ %18, %20 ], [ %.sroa.452.0.copyload, %5 ], [ %.sroa.452.0.copyload, %11 ]
+  %.sroa.555.0 = phi double [ %19, %20 ], [ %.sroa.555.0.copyload, %5 ], [ %.sroa.555.0.copyload, %11 ]
+  %.sroa.068.0 = phi i8 [ %.sroa.068.0.copyload, %20 ], [ %.sroa.068.0.copyload, %5 ], [ 1, %11 ]
+  %.sroa.472.0 = phi double [ %.sroa.472.0.copyload, %20 ], [ %.sroa.472.0.copyload, %5 ], [ %18, %11 ]
+  %.sroa.575.0 = phi double [ %.sroa.575.0.copyload, %20 ], [ %.sroa.575.0.copyload, %5 ], [ %19, %11 ]
+  %22 = icmp sgt i32 %2, 0
+  br i1 %22, label %23, label %._crit_edge
 
-._crit_edge:                                      ; preds = %26
+._crit_edge:                                      ; preds = %21
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %44
+  br label %36
 
-30:                                               ; preds = %26
-  %31 = select i1 %3, ptr %8, ptr %12
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
+23:                                               ; preds = %21
+  %24 = select i1 %3, ptr %7, ptr %9
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.1.0.copyload = load double, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %32 = fptrunc double %.sroa.2.0.copyload to float
-  %33 = fptosi float %32 to i32
-  %34 = add nsw i32 %33, %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
-  %36 = load i32, ptr %35, align 4
-  %.not = icmp slt i32 %34, %36
-  %37 = add nsw i32 %36, -1
-  %spec.select = select i1 %.not, i32 %34, i32 %37
-  %38 = fptrunc double %.sroa.1.0.copyload to float
-  %39 = sitofp i32 %spec.select to float
-  %40 = insertelement <2 x float> poison, float %38, i64 0
-  %41 = insertelement <2 x float> %40, float %39, i64 1
-  %42 = fpext <2 x float> %41 to <2 x double>
-  br i1 %3, label %44, label %43
+  %25 = fptrunc double %.sroa.2.0.copyload to float
+  %26 = fptosi float %25 to i32
+  %27 = add nsw i32 %26, %2
+  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = load i32, ptr %28, align 4
+  %.not = icmp slt i32 %27, %29
+  %30 = add nsw i32 %29, -1
+  %spec.select = select i1 %.not, i32 %27, i32 %30
+  %31 = fptrunc double %.sroa.1.0.copyload to float
+  %32 = sitofp i32 %spec.select to float
+  %33 = fpext float %31 to double
+  %34 = fpext float %32 to double
+  br i1 %3, label %36, label %35
 
-43:                                               ; preds = %30
-  br label %44
+35:                                               ; preds = %23
+  br label %36
 
-44:                                               ; preds = %._crit_edge, %30, %43
-  %45 = phi i32 [ %36, %43 ], [ %.pre, %._crit_edge ], [ %36, %30 ]
-  %.sroa.040.0 = phi i8 [ 1, %43 ], [ %.sroa.040.0.copyload, %._crit_edge ], [ %.sroa.040.0.copyload, %30 ]
-  %.sroa.058.0 = phi i8 [ %.sroa.058.0.copyload, %43 ], [ %.sroa.058.0.copyload, %._crit_edge ], [ 1, %30 ]
-  %46 = phi <2 x double> [ %9, %43 ], [ %9, %._crit_edge ], [ %42, %30 ]
-  %47 = phi <2 x double> [ %42, %43 ], [ %13, %._crit_edge ], [ %13, %30 ]
-  %48 = load i32, ptr %0, align 8
-  %49 = trunc i8 %.sroa.068.0 to i1
-  %50 = trunc i8 %.sroa.048.0 to i1
-  %51 = select i1 %49, i1 true, i1 %50
-  br i1 %51, label %52, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
+36:                                               ; preds = %._crit_edge, %23, %35
+  %37 = phi i32 [ %29, %35 ], [ %.pre, %._crit_edge ], [ %29, %23 ]
+  %.sroa.443.0 = phi double [ %33, %35 ], [ %.sroa.443.0.copyload, %._crit_edge ], [ %.sroa.443.0.copyload, %23 ]
+  %.sroa.040.0 = phi i8 [ 1, %35 ], [ %.sroa.040.0.copyload, %._crit_edge ], [ %.sroa.040.0.copyload, %23 ]
+  %.sroa.5.0 = phi double [ %34, %35 ], [ %.sroa.5.0.copyload, %._crit_edge ], [ %.sroa.5.0.copyload, %23 ]
+  %.sroa.058.0 = phi i8 [ %.sroa.058.0.copyload, %35 ], [ %.sroa.058.0.copyload, %._crit_edge ], [ 1, %23 ]
+  %.sroa.462.0 = phi double [ %.sroa.462.0.copyload, %35 ], [ %.sroa.462.0.copyload, %._crit_edge ], [ %33, %23 ]
+  %.sroa.565.0 = phi double [ %.sroa.565.0.copyload, %35 ], [ %.sroa.565.0.copyload, %._crit_edge ], [ %34, %23 ]
+  %38 = load i32, ptr %0, align 8
+  %39 = trunc i8 %.sroa.068.0 to i1
+  %40 = trunc i8 %.sroa.048.0 to i1
+  %41 = select i1 %39, i1 true, i1 %40
+  br i1 %41, label %42, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-52:                                               ; preds = %44
-  %53 = trunc i8 %.sroa.058.0 to i1
+42:                                               ; preds = %36
+  %43 = trunc i8 %.sroa.058.0 to i1
   %.pre27.i = trunc i8 %.sroa.040.0 to i1
-  %.not.i = xor i1 %49, true
+  %.not.i = xor i1 %39, true
   %brmerge.not.i = and i1 %.not.i, %.pre27.i
-  %or.cond.not.i = select i1 %53, i1 true, i1 %brmerge.not.i
-  %not..i = xor i1 %50, true
-  %54 = select i1 %not..i, i1 true, i1 %.pre27.i
-  %or.cond28.i = select i1 %or.cond.not.i, i1 %54, i1 false
-  br i1 %or.cond28.i, label %55, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
+  %or.cond.not.i = select i1 %43, i1 true, i1 %brmerge.not.i
+  %not..i = xor i1 %40, true
+  %44 = select i1 %not..i, i1 true, i1 %.pre27.i
+  %or.cond28.i = select i1 %or.cond.not.i, i1 %44, i1 false
+  br i1 %or.cond28.i, label %45, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-55:                                               ; preds = %52
-  store i32 %48, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %45, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
-  store i8 %.sroa.068.0, ptr %57, align 8
+45:                                               ; preds = %42
+  store i32 %38, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %37, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  store i8 %.sroa.068.0, ptr %47, align 8
   %.sroa.470.0..sroa_idx71 = getelementptr inbounds i8, ptr %4, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.470.0..sroa_idx71, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.470, i64 7, i1 false)
   %.sroa.472.0..sroa_idx73 = getelementptr inbounds i8, ptr %4, i64 16
-  store <2 x double> %27, ptr %.sroa.472.0..sroa_idx73, align 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %.sroa.058.0, ptr %58, align 8
+  store double %.sroa.472.0, ptr %.sroa.472.0..sroa_idx73, align 8
+  %.sroa.575.0..sroa_idx76 = getelementptr inbounds i8, ptr %4, i64 24
+  store double %.sroa.575.0, ptr %.sroa.575.0..sroa_idx76, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 %.sroa.058.0, ptr %48, align 8
   %.sroa.460.0..sroa_idx61 = getelementptr inbounds i8, ptr %4, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.460.0..sroa_idx61, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.460, i64 7, i1 false)
   %.sroa.462.0..sroa_idx63 = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x double> %46, ptr %.sroa.462.0..sroa_idx63, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 56
-  store i8 %.sroa.048.0, ptr %59, align 8
+  store double %.sroa.462.0, ptr %.sroa.462.0..sroa_idx63, align 8
+  %.sroa.565.0..sroa_idx66 = getelementptr inbounds i8, ptr %4, i64 48
+  store double %.sroa.565.0, ptr %.sroa.565.0..sroa_idx66, align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 56
+  store i8 %.sroa.048.0, ptr %49, align 8
   %.sroa.450.0..sroa_idx51 = getelementptr inbounds i8, ptr %4, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.450.0..sroa_idx51, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.450, i64 7, i1 false)
   %.sroa.452.0..sroa_idx53 = getelementptr inbounds i8, ptr %4, i64 64
-  store <2 x double> %28, ptr %.sroa.452.0..sroa_idx53, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 80
-  store i8 %.sroa.040.0, ptr %60, align 8
+  store double %.sroa.452.0, ptr %.sroa.452.0..sroa_idx53, align 8
+  %.sroa.555.0..sroa_idx56 = getelementptr inbounds i8, ptr %4, i64 72
+  store double %.sroa.555.0, ptr %.sroa.555.0..sroa_idx56, align 8
+  %50 = getelementptr inbounds i8, ptr %4, i64 80
+  store i8 %.sroa.040.0, ptr %50, align 8
   %.sroa.4.0..sroa_idx42 = getelementptr inbounds i8, ptr %4, i64 81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx42, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.sroa.443.0..sroa_idx44 = getelementptr inbounds i8, ptr %4, i64 88
-  store <2 x double> %47, ptr %.sroa.443.0..sroa_idx44, align 8
+  store double %.sroa.443.0, ptr %.sroa.443.0..sroa_idx44, align 8
+  %.sroa.5.0..sroa_idx46 = getelementptr inbounds i8, ptr %4, i64 96
+  store double %.sroa.5.0, ptr %.sroa.5.0..sroa_idx46, align 8
   tail call void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr noundef nonnull align 8 dereferenceable(120) %4)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %44, %52, %55
-  %.0.i = phi i1 [ true, %55 ], [ false, %44 ], [ false, %52 ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %36, %42, %45
+  %.0.i = phi i1 [ true, %45 ], [ false, %36 ], [ false, %42 ]
   ret i1 %.0.i
 }
 

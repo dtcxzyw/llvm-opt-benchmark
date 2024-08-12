@@ -6684,103 +6684,111 @@ _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit
   %300 = load ptr, ptr %299, align 8
   store ptr %300, ptr %285, align 8
   %301 = getelementptr inbounds i8, ptr %293, i64 112
-  %302 = getelementptr inbounds i8, ptr %15, i64 112
-  %303 = load <2 x ptr>, ptr %301, align 8
-  store <2 x ptr> %303, ptr %302, align 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %15, i64 112
+  store ptr %302, ptr %303, align 8
+  %304 = getelementptr inbounds i8, ptr %293, i64 120
+  %305 = load ptr, ptr %304, align 8
+  %306 = getelementptr inbounds i8, ptr %15, i64 120
+  store ptr %305, ptr %306, align 8
   %.sink.in.i = getelementptr inbounds i8, ptr %293, i64 104
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   store ptr %.sink.i, ptr %288, align 8
-  %304 = getelementptr inbounds i8, ptr %293, i64 136
-  %305 = load <2 x ptr>, ptr %304, align 8
-  store <2 x ptr> %305, ptr %286, align 8
-  %306 = and i32 %295, 134217727
-  store i32 %306, ptr %284, align 8
-  %307 = getelementptr inbounds i8, ptr %16, i64 8
-  store i8 0, ptr %307, align 8
-  %308 = getelementptr inbounds i8, ptr %16, i64 9
-  store i8 1, ptr %308, align 1
-  %309 = getelementptr inbounds i8, ptr %16, i64 10
-  %310 = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %309, i8 0, i64 10, i1 false)
-  %311 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
-  store ptr %311, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %16, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %312, i8 0, i64 24, i1 false)
+  %307 = getelementptr inbounds i8, ptr %293, i64 136
+  %308 = load ptr, ptr %307, align 8
+  store ptr %308, ptr %286, align 8
+  %309 = getelementptr inbounds i8, ptr %293, i64 144
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds i8, ptr %15, i64 144
+  store ptr %310, ptr %311, align 8
+  %312 = and i32 %295, 134217727
+  store i32 %312, ptr %284, align 8
+  %313 = getelementptr inbounds i8, ptr %16, i64 8
+  store i8 0, ptr %313, align 8
+  %314 = getelementptr inbounds i8, ptr %16, i64 9
+  store i8 1, ptr %314, align 1
+  %315 = getelementptr inbounds i8, ptr %16, i64 10
+  %316 = getelementptr inbounds i8, ptr %16, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %315, i8 0, i64 10, i1 false)
+  %317 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
+  store ptr %317, ptr %316, align 8
+  %318 = getelementptr inbounds i8, ptr %16, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %318, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVZN7glslang13TIntermediate21mergeBlockDefinitionsER9TInfoSinkPNS_13TIntermSymbolES4_PS0_E20TMergeBlockTraverser, i64 16), ptr %16, align 8
-  %313 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr %2, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %16, i64 64
-  store ptr %15, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %16, i64 72
-  store ptr %4, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %16, i64 80
-  store ptr %6, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %4, i64 128
-  %318 = load ptr, ptr %317, align 8
-  %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 16
-  %321 = load ptr, ptr %320, align 8
-  call void %321(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull %16) #18
+  %319 = getelementptr inbounds i8, ptr %16, i64 56
+  store ptr %2, ptr %319, align 8
+  %320 = getelementptr inbounds i8, ptr %16, i64 64
+  store ptr %15, ptr %320, align 8
+  %321 = getelementptr inbounds i8, ptr %16, i64 72
+  store ptr %4, ptr %321, align 8
+  %322 = getelementptr inbounds i8, ptr %16, i64 80
+  store ptr %6, ptr %322, align 8
+  %323 = getelementptr inbounds i8, ptr %4, i64 128
+  %324 = load ptr, ptr %323, align 8
+  %325 = load ptr, ptr %324, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 16
+  %327 = load ptr, ptr %326, align 8
+  call void %327(ptr noundef nonnull align 8 dereferenceable(32) %324, ptr noundef nonnull %16) #18
   %.not.i.i67 = icmp eq ptr %96, %102
-  br i1 %.not.i.i67, label %_ZN7glslang7TVectorINS_8TTypeLocEEaSERKS2_.exit, label %322
+  br i1 %.not.i.i67, label %_ZN7glslang7TVectorINS_8TTypeLocEEaSERKS2_.exit, label %328
 
-322:                                              ; preds = %._crit_edge86
-  %323 = load ptr, ptr %109, align 8
-  %324 = load ptr, ptr %108, align 8
-  %325 = ptrtoint ptr %323 to i64
-  %326 = ptrtoint ptr %324 to i64
-  %327 = sub i64 %325, %326
-  %328 = getelementptr inbounds i8, ptr %102, i64 24
-  %329 = load ptr, ptr %328, align 8
-  %330 = load ptr, ptr %116, align 8
+328:                                              ; preds = %._crit_edge86
+  %329 = load ptr, ptr %109, align 8
+  %330 = load ptr, ptr %108, align 8
   %331 = ptrtoint ptr %329 to i64
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
-  %334 = icmp ugt i64 %327, %333
-  br i1 %334, label %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i, label %340
+  %334 = getelementptr inbounds i8, ptr %102, i64 24
+  %335 = load ptr, ptr %334, align 8
+  %336 = load ptr, ptr %116, align 8
+  %337 = ptrtoint ptr %335 to i64
+  %338 = ptrtoint ptr %336 to i64
+  %339 = sub i64 %337, %338
+  %340 = icmp ugt i64 %333, %339
+  br i1 %340, label %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i, label %346
 
-_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i: ; preds = %322
-  %335 = load ptr, ptr %102, align 8
-  %336 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %335, i64 noundef %327) #18
-  %.not8.i.i.i.i69 = icmp eq ptr %324, %323
+_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i: ; preds = %328
+  %341 = load ptr, ptr %102, align 8
+  %342 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %341, i64 noundef %333) #18
+  %.not8.i.i.i.i69 = icmp eq ptr %330, %329
   br i1 %.not8.i.i.i.i69, label %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S4_EEEEPS1_mT_SC_.exit.i.i, label %.lr.ph.i.i.i.i70
 
 .lr.ph.i.i.i.i70:                                 ; preds = %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i70
-  %.010.i.i.i.i71 = phi ptr [ %338, %.lr.ph.i.i.i.i70 ], [ %336, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ]
-  %.sroa.05.09.i.i.i.i72 = phi ptr [ %337, %.lr.ph.i.i.i.i70 ], [ %324, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ]
+  %.010.i.i.i.i71 = phi ptr [ %344, %.lr.ph.i.i.i.i70 ], [ %342, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ]
+  %.sroa.05.09.i.i.i.i72 = phi ptr [ %343, %.lr.ph.i.i.i.i70 ], [ %330, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.010.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.09.i.i.i.i72, i64 32, i1 false)
-  %337 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i72, i64 32
-  %338 = getelementptr inbounds i8, ptr %.010.i.i.i.i71, i64 32
-  %.not.i6.i.i.i = icmp eq ptr %337, %323
+  %343 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i72, i64 32
+  %344 = getelementptr inbounds i8, ptr %.010.i.i.i.i71, i64 32
+  %.not.i6.i.i.i = icmp eq ptr %343, %329
   br i1 %.not.i6.i.i.i, label %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S4_EEEEPS1_mT_SC_.exit.i.i, label %.lr.ph.i.i.i.i70, !llvm.loop !73
 
 _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S4_EEEEPS1_mT_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i70, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i
-  store ptr %336, ptr %116, align 8
-  %339 = getelementptr inbounds i8, ptr %336, i64 %327
-  store ptr %339, ptr %328, align 8
+  store ptr %342, ptr %116, align 8
+  %345 = getelementptr inbounds i8, ptr %342, i64 %333
+  store ptr %345, ptr %334, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i
 
-340:                                              ; preds = %322
-  %341 = load ptr, ptr %117, align 8
-  %342 = ptrtoint ptr %341 to i64
-  %343 = sub i64 %342, %332
-  %.not24.i.i = icmp ult i64 %343, %327
-  br i1 %.not24.i.i, label %346, label %344
+346:                                              ; preds = %328
+  %347 = load ptr, ptr %117, align 8
+  %348 = ptrtoint ptr %347 to i64
+  %349 = sub i64 %348, %338
+  %.not24.i.i = icmp ult i64 %349, %333
+  br i1 %.not24.i.i, label %352, label %350
 
-344:                                              ; preds = %340
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %323, %324
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i, label %345
+350:                                              ; preds = %346
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %329, %330
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i, label %351
 
-345:                                              ; preds = %344
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %330, ptr align 8 %324, i64 %327, i1 false)
+351:                                              ; preds = %350
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %336, ptr align 8 %330, i64 %333, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i
 
-346:                                              ; preds = %340
-  %.not.i.i.i.i.i25.i.i = icmp eq ptr %341, %330
-  br i1 %.not.i.i.i.i.i25.i.i, label %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i, label %347
+352:                                              ; preds = %346
+  %.not.i.i.i.i.i25.i.i = icmp eq ptr %347, %336
+  br i1 %.not.i.i.i.i.i25.i.i, label %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i, label %353
 
-347:                                              ; preds = %346
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %330, ptr align 8 %324, i64 %343, i1 false)
+353:                                              ; preds = %352
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %336, ptr align 8 %330, i64 %349, i1 false)
   %.pre.i.i = load ptr, ptr %108, align 8
   %.pre26.i.i = load ptr, ptr %117, align 8
   %.pre27.i.i = load ptr, ptr %116, align 8
@@ -6790,35 +6798,35 @@ _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_cop
   %.pre32.i.i = sub i64 %.pre29.i.i, %.pre30.i.i
   br label %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i
 
-_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i: ; preds = %347, %346
-  %.pre-phi33.i.i = phi i64 [ %343, %346 ], [ %.pre32.i.i, %347 ]
-  %348 = phi ptr [ %323, %346 ], [ %.pre28.i.i, %347 ]
-  %349 = phi ptr [ %341, %346 ], [ %.pre26.i.i, %347 ]
-  %350 = phi ptr [ %324, %346 ], [ %.pre.i.i, %347 ]
-  %351 = getelementptr inbounds i8, ptr %350, i64 %.pre-phi33.i.i
-  %.not10.i.i.i = icmp eq ptr %351, %348
+_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i: ; preds = %353, %352
+  %.pre-phi33.i.i = phi i64 [ %349, %352 ], [ %.pre32.i.i, %353 ]
+  %354 = phi ptr [ %329, %352 ], [ %.pre28.i.i, %353 ]
+  %355 = phi ptr [ %347, %352 ], [ %.pre26.i.i, %353 ]
+  %356 = phi ptr [ %330, %352 ], [ %.pre.i.i, %353 ]
+  %357 = getelementptr inbounds i8, ptr %356, i64 %.pre-phi33.i.i
+  %.not10.i.i.i = icmp eq ptr %357, %354
   br i1 %.not10.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %353, %.lr.ph.i.i.i ], [ %349, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i ]
-  %.0911.i.i.i = phi ptr [ %352, %.lr.ph.i.i.i ], [ %351, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i ]
+  %.012.i.i.i = phi ptr [ %359, %.lr.ph.i.i.i ], [ %355, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i ]
+  %.0911.i.i.i = phi ptr [ %358, %.lr.ph.i.i.i ], [ %357, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 32, i1 false)
-  %352 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %353 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %.not.i.i.i68 = icmp eq ptr %352, %348
+  %358 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %359 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %.not.i.i.i68 = icmp eq ptr %358, %354
   br i1 %.not.i.i.i68, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !74
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i, %345, %344, %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S4_EEEEPS1_mT_SC_.exit.i.i
-  %354 = load ptr, ptr %116, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 %327
-  store ptr %355, ptr %117, align 8
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZSt4copyIPN7glslang8TTypeLocES2_ET0_T_S4_S3_.exit.i.i, %351, %350, %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S4_EEEEPS1_mT_SC_.exit.i.i
+  %360 = load ptr, ptr %116, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 %333
+  store ptr %361, ptr %117, align 8
   br label %_ZN7glslang7TVectorINS_8TTypeLocEEaSERKS2_.exit
 
 _ZN7glslang7TVectorINS_8TTypeLocEEaSERKS2_.exit:  ; preds = %._crit_edge86, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS1_IPS3_S9_EEET0_T_SE_SD_.exit.i.i
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %16, align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TIntermTraverserE, i64 16), ptr %14, align 8
-  %356 = load ptr, ptr %104, align 8
-  call void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %356)
+  %362 = load ptr, ptr %104, align 8
+  call void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %362)
   br label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
 _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, %43, %60, %75, %_ZN7glslang7TVectorINS_8TTypeLocEEaSERKS2_.exit

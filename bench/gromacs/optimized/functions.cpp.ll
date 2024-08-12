@@ -60,19 +60,19 @@ define noundef i64 @_ZN3gmx21greatestCommonDivisorEll(i64 noundef %0, i64 nounde
 define noundef double @_ZN3gmx6erfinvEd(double noundef %0) local_unnamed_addr #2 {
   %2 = tail call noundef double @llvm.fabs.f64(double %0)
   %3 = fcmp ogt double %2, 1.000000e+00
-  br i1 %3, label %104, label %4
+  br i1 %3, label %109, label %4
 
 4:                                                ; preds = %1
   %5 = fcmp oeq double %0, 1.000000e+00
-  br i1 %5, label %104, label %6
+  br i1 %5, label %109, label %6
 
 6:                                                ; preds = %4
   %7 = fcmp oeq double %0, -1.000000e+00
-  br i1 %7, label %104, label %8
+  br i1 %7, label %109, label %8
 
 8:                                                ; preds = %6
   %9 = fcmp oeq double %0, 0.000000e+00
-  br i1 %9, label %104, label %10
+  br i1 %9, label %109, label %10
 
 10:                                               ; preds = %8
   %11 = fsub double 1.000000e+00, %2
@@ -101,93 +101,97 @@ define noundef double @_ZN3gmx6erfinvEd(double noundef %0) local_unnamed_addr #2
   %32 = fmul double %31, %20
   %33 = fdiv double %32, %29
   %34 = tail call double @llvm.fmuladd.f64(double %31, double 0x3FB6D15200000000, double %33)
-  br label %102
+  br label %107
 
 35:                                               ; preds = %10
   %36 = fcmp ugt double %2, 7.500000e-01
-  br i1 %36, label %56, label %37
+  br i1 %36, label %61, label %37
 
 37:                                               ; preds = %35
   %38 = fadd double %11, -2.500000e-01
-  %39 = insertelement <2 x double> poison, double %38, i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %40, <2 x double> <double 0xC00D6018EDA922CF, double 0x3FFB89D220507D2A>, <2 x double> <double 0x40352124A7690565, double 0xC036A4C9163998B3>)
-  %42 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %41, <2 x double> %40, <2 x double> <double 0x40317204D0E21FA4, double 0x4025A75B13A6A40E>)
-  %43 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %40, <2 x double> <double 0xC04651B199C97F30, double 0x404847CC44FEEAA8>)
-  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %43, <2 x double> %40, <2 x double> <double 0xC032D9DF6213FE8E, double 0xC03424ACEA25FADD>)
-  %45 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %40, <2 x double> <double 0x4031A50D03CD26E5, double 0xC03CA92B5F294546>)
-  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %40, <2 x double> <double 0x4020BDB29B3ACB95, double 0x400FC54FE55111D6>)
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %40, <2 x double> <double 0x3FBAF2A049071BEC, double 0x4018F876F28C9A27>)
-  %48 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %40, <2 x double> <double 0xBFC9E95759006C20, double 1.000000e+00>)
-  %49 = tail call double @log(double noundef %11) #5
-  %50 = fmul double %49, -2.000000e+00
-  %51 = tail call double @sqrt(double noundef %50) #5
-  %shift = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fdiv <2 x double> %48, %shift
-  %53 = extractelement <2 x double> %52, i64 0
-  %54 = fadd double %53, 0x4001FEF000000000
-  %55 = fdiv double %51, %54
-  br label %102
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double 0xC00D6018EDA922CF, double 0x40352124A7690565)
+  %40 = tail call double @llvm.fmuladd.f64(double %39, double %38, double 0x40317204D0E21FA4)
+  %41 = tail call double @llvm.fmuladd.f64(double %40, double %38, double 0xC04651B199C97F30)
+  %42 = tail call double @llvm.fmuladd.f64(double %41, double %38, double 0xC032D9DF6213FE8E)
+  %43 = tail call double @llvm.fmuladd.f64(double %42, double %38, double 0x4031A50D03CD26E5)
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double %38, double 0x4020BDB29B3ACB95)
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double %38, double 0x3FBAF2A049071BEC)
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double %38, double 0xBFC9E95759006C20)
+  %47 = tail call double @llvm.fmuladd.f64(double %38, double 0x3FFB89D220507D2A, double 0xC036A4C9163998B3)
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double %38, double 0x4025A75B13A6A40E)
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double %38, double 0x404847CC44FEEAA8)
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %38, double 0xC03424ACEA25FADD)
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %38, double 0xC03CA92B5F294546)
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double %38, double 0x400FC54FE55111D6)
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %38, double 0x4018F876F28C9A27)
+  %54 = tail call double @llvm.fmuladd.f64(double %53, double %38, double 1.000000e+00)
+  %55 = tail call double @log(double noundef %11) #4
+  %56 = fmul double %55, -2.000000e+00
+  %57 = tail call double @sqrt(double noundef %56) #4
+  %58 = fdiv double %46, %54
+  %59 = fadd double %58, 0x4001FEF000000000
+  %60 = fdiv double %57, %59
+  br label %107
 
-56:                                               ; preds = %35
-  %57 = tail call double @log(double noundef %11) #5
-  %58 = fneg double %57
-  %59 = tail call double @sqrt(double noundef %58) #5
-  %60 = fcmp olt double %59, 3.000000e+00
-  br i1 %60, label %61, label %83
+61:                                               ; preds = %35
+  %62 = tail call double @log(double noundef %11) #4
+  %63 = fneg double %62
+  %64 = tail call double @sqrt(double noundef %63) #4
+  %65 = fcmp olt double %64, 3.000000e+00
+  br i1 %65, label %66, label %88
 
-61:                                               ; preds = %56
-  %62 = fadd double %59, -1.125000e+00
-  %63 = tail call double @llvm.fmuladd.f64(double %62, double 0xBE076775588F330D, double 0x3E5EA036D72C22E6)
-  %64 = tail call double @llvm.fmuladd.f64(double %63, double %62, double 0xBEA6CC9099E64C30)
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double %62, double 0x3F6193A0D5D7A83A)
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double %62, double 0x3F9DB650C5A8D10C)
-  %67 = tail call double @llvm.fmuladd.f64(double %66, double %62, double 0x3FC2498C84F05B27)
-  %68 = tail call double @llvm.fmuladd.f64(double %67, double %62, double 0x3FD59E473CAC176C)
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double %62, double 0x3FD8C5EA18F53827)
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double %62, double 0x3FBDF5B03622778B)
-  %71 = tail call double @llvm.fmuladd.f64(double %70, double %62, double 0xBFC4F7340DFCC581)
-  %72 = tail call double @llvm.fmuladd.f64(double %71, double %62, double 0xBFC0C7F9D7DD7157)
-  %73 = tail call double @llvm.fmuladd.f64(double %62, double 0x3F86A63A5FC07442, double 0x3FC37D65D8A9AAFB)
-  %74 = tail call double @llvm.fmuladd.f64(double %73, double %62, double 0x3FEB29D095870405)
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double %62, double 0x4004BE80DBDD1285)
-  %76 = tail call double @llvm.fmuladd.f64(double %75, double %62, double 0x40131D262C304C04)
-  %77 = tail call double @llvm.fmuladd.f64(double %76, double %62, double 0x401586D807362921)
-  %78 = tail call double @llvm.fmuladd.f64(double %77, double %62, double 0x400BBAE36A458F85)
-  %79 = tail call double @llvm.fmuladd.f64(double %78, double %62, double 1.000000e+00)
-  %80 = fmul double %59, %72
-  %81 = fdiv double %80, %79
-  %82 = tail call double @llvm.fmuladd.f64(double %59, double 0x3FE9D4C000000000, double %81)
-  br label %102
+66:                                               ; preds = %61
+  %67 = fadd double %64, -1.125000e+00
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double 0xBE076775588F330D, double 0x3E5EA036D72C22E6)
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double %67, double 0xBEA6CC9099E64C30)
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double %67, double 0x3F6193A0D5D7A83A)
+  %71 = tail call double @llvm.fmuladd.f64(double %70, double %67, double 0x3F9DB650C5A8D10C)
+  %72 = tail call double @llvm.fmuladd.f64(double %71, double %67, double 0x3FC2498C84F05B27)
+  %73 = tail call double @llvm.fmuladd.f64(double %72, double %67, double 0x3FD59E473CAC176C)
+  %74 = tail call double @llvm.fmuladd.f64(double %73, double %67, double 0x3FD8C5EA18F53827)
+  %75 = tail call double @llvm.fmuladd.f64(double %74, double %67, double 0x3FBDF5B03622778B)
+  %76 = tail call double @llvm.fmuladd.f64(double %75, double %67, double 0xBFC4F7340DFCC581)
+  %77 = tail call double @llvm.fmuladd.f64(double %76, double %67, double 0xBFC0C7F9D7DD7157)
+  %78 = tail call double @llvm.fmuladd.f64(double %67, double 0x3F86A63A5FC07442, double 0x3FC37D65D8A9AAFB)
+  %79 = tail call double @llvm.fmuladd.f64(double %78, double %67, double 0x3FEB29D095870405)
+  %80 = tail call double @llvm.fmuladd.f64(double %79, double %67, double 0x4004BE80DBDD1285)
+  %81 = tail call double @llvm.fmuladd.f64(double %80, double %67, double 0x40131D262C304C04)
+  %82 = tail call double @llvm.fmuladd.f64(double %81, double %67, double 0x401586D807362921)
+  %83 = tail call double @llvm.fmuladd.f64(double %82, double %67, double 0x400BBAE36A458F85)
+  %84 = tail call double @llvm.fmuladd.f64(double %83, double %67, double 1.000000e+00)
+  %85 = fmul double %64, %77
+  %86 = fdiv double %85, %84
+  %87 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FE9D4C000000000, double %86)
+  br label %107
 
-83:                                               ; preds = %56
-  %84 = fadd double %59, -3.000000e+00
-  %85 = tail call double @llvm.fmuladd.f64(double %84, double 0x3D876D6D1D358341, double 0xBDEFAAA5BC21B76F)
-  %86 = tail call double @llvm.fmuladd.f64(double %85, double %84, double 0x3ED35041FF5208E2)
-  %87 = tail call double @llvm.fmuladd.f64(double %86, double %84, double 0x3F24A651F58128F3)
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double %84, double 0x3F5EA8873476814E)
-  %89 = tail call double @llvm.fmuladd.f64(double %88, double %84, double 0x3F8378F477C427A3)
-  %90 = tail call double @llvm.fmuladd.f64(double %89, double %84, double 0x3F9300B160FEE50C)
-  %91 = tail call double @llvm.fmuladd.f64(double %90, double %84, double 0xBF62389F55FEBBF0)
-  %92 = tail call double @llvm.fmuladd.f64(double %91, double %84, double 0xBFA1F0283B98A708)
-  %93 = tail call double @llvm.fmuladd.f64(double %84, double 0x3F140BA62624DB75, double 0x3F659D949702D5D5)
-  %94 = tail call double @llvm.fmuladd.f64(double %93, double %84, double 0x3FA17D46F825A696)
-  %95 = tail call double @llvm.fmuladd.f64(double %94, double %84, double 0x3FCC2BF202B2DEAF)
-  %96 = tail call double @llvm.fmuladd.f64(double %95, double %84, double 0x3FE862C9E6ABFF24)
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double %84, double 0x3FF5D8697E6B966F)
-  %98 = tail call double @llvm.fmuladd.f64(double %97, double %84, double 1.000000e+00)
-  %99 = fmul double %59, %92
-  %100 = fdiv double %99, %98
-  %101 = tail call double @llvm.fmuladd.f64(double %59, double 0x3FEE141E00000000, double %100)
-  br label %102
+88:                                               ; preds = %61
+  %89 = fadd double %64, -3.000000e+00
+  %90 = tail call double @llvm.fmuladd.f64(double %89, double 0x3D876D6D1D358341, double 0xBDEFAAA5BC21B76F)
+  %91 = tail call double @llvm.fmuladd.f64(double %90, double %89, double 0x3ED35041FF5208E2)
+  %92 = tail call double @llvm.fmuladd.f64(double %91, double %89, double 0x3F24A651F58128F3)
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double %89, double 0x3F5EA8873476814E)
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %89, double 0x3F8378F477C427A3)
+  %95 = tail call double @llvm.fmuladd.f64(double %94, double %89, double 0x3F9300B160FEE50C)
+  %96 = tail call double @llvm.fmuladd.f64(double %95, double %89, double 0xBF62389F55FEBBF0)
+  %97 = tail call double @llvm.fmuladd.f64(double %96, double %89, double 0xBFA1F0283B98A708)
+  %98 = tail call double @llvm.fmuladd.f64(double %89, double 0x3F140BA62624DB75, double 0x3F659D949702D5D5)
+  %99 = tail call double @llvm.fmuladd.f64(double %98, double %89, double 0x3FA17D46F825A696)
+  %100 = tail call double @llvm.fmuladd.f64(double %99, double %89, double 0x3FCC2BF202B2DEAF)
+  %101 = tail call double @llvm.fmuladd.f64(double %100, double %89, double 0x3FE862C9E6ABFF24)
+  %102 = tail call double @llvm.fmuladd.f64(double %101, double %89, double 0x3FF5D8697E6B966F)
+  %103 = tail call double @llvm.fmuladd.f64(double %102, double %89, double 1.000000e+00)
+  %104 = fmul double %64, %97
+  %105 = fdiv double %104, %103
+  %106 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FEE141E00000000, double %105)
+  br label %107
 
-102:                                              ; preds = %37, %83, %61, %13
-  %.0160 = phi double [ %34, %13 ], [ %55, %37 ], [ %82, %61 ], [ %101, %83 ]
-  %103 = tail call double @llvm.copysign.f64(double %.0160, double %0)
-  br label %104
+107:                                              ; preds = %37, %88, %66, %13
+  %.0160 = phi double [ %34, %13 ], [ %60, %37 ], [ %87, %66 ], [ %106, %88 ]
+  %108 = tail call double @llvm.copysign.f64(double %.0160, double %0)
+  br label %109
 
-104:                                              ; preds = %6, %4, %8, %1, %102
-  %.0 = phi double [ %103, %102 ], [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %8 ], [ 0x7FF0000000000000, %4 ], [ 0xFFF0000000000000, %6 ]
+109:                                              ; preds = %6, %4, %8, %1, %107
+  %.0 = phi double [ %108, %107 ], [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %8 ], [ 0x7FF0000000000000, %4 ], [ 0xFFF0000000000000, %6 ]
   ret double %.0
 }
 
@@ -210,19 +214,19 @@ declare double @llvm.fabs.f64(double) #1
 define noundef float @_ZN3gmx6erfinvEf(float noundef %0) local_unnamed_addr #2 {
   %2 = tail call noundef float @llvm.fabs.f32(float %0)
   %3 = fcmp ogt float %2, 1.000000e+00
-  br i1 %3, label %104, label %4
+  br i1 %3, label %109, label %4
 
 4:                                                ; preds = %1
   %5 = fcmp oeq float %0, 1.000000e+00
-  br i1 %5, label %104, label %6
+  br i1 %5, label %109, label %6
 
 6:                                                ; preds = %4
   %7 = fcmp oeq float %0, -1.000000e+00
-  br i1 %7, label %104, label %8
+  br i1 %7, label %109, label %8
 
 8:                                                ; preds = %6
   %9 = fcmp oeq float %0, 0.000000e+00
-  br i1 %9, label %104, label %10
+  br i1 %9, label %109, label %10
 
 10:                                               ; preds = %8
   %11 = fsub float 1.000000e+00, %2
@@ -251,93 +255,97 @@ define noundef float @_ZN3gmx6erfinvEf(float noundef %0) local_unnamed_addr #2 {
   %32 = fmul float %31, %20
   %33 = fdiv float %32, %29
   %34 = tail call float @llvm.fmuladd.f32(float %31, float 0x3FB6D15200000000, float %33)
-  br label %102
+  br label %107
 
 35:                                               ; preds = %10
   %36 = fcmp ugt float %2, 7.500000e-01
-  br i1 %36, label %56, label %37
+  br i1 %36, label %61, label %37
 
 37:                                               ; preds = %35
   %38 = fadd float %11, -2.500000e-01
-  %39 = insertelement <2 x float> poison, float %38, i64 0
-  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %40, <2 x float> <float 0xC00D6018E0000000, float 0x3FFB89D220000000>, <2 x float> <float 0x40352124A0000000, float 0xC036A4C920000000>)
-  %42 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %40, <2 x float> <float 0x40317204E0000000, float 0x4025A75B20000000>)
-  %43 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %42, <2 x float> %40, <2 x float> <float 0xC04651B1A0000000, float 0x404847CC40000000>)
-  %44 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %43, <2 x float> %40, <2 x float> <float 0xC032D9DF60000000, float 0xC03424ACE0000000>)
-  %45 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> %40, <2 x float> <float 0x4031A50D00000000, float 0xC03CA92B60000000>)
-  %46 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> %40, <2 x float> <float 0x4020BDB2A0000000, float 0x400FC54FE0000000>)
-  %47 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %46, <2 x float> %40, <2 x float> <float 0x3FBAF2A040000000, float 0x4018F87700000000>)
-  %48 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %47, <2 x float> %40, <2 x float> <float 0xBFC9E95760000000, float 1.000000e+00>)
-  %49 = tail call noundef float @logf(float noundef %11) #5
-  %50 = fmul float %49, -2.000000e+00
-  %51 = tail call noundef float @sqrtf(float noundef %50) #5
-  %shift = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fdiv <2 x float> %48, %shift
-  %53 = extractelement <2 x float> %52, i64 0
-  %54 = fadd float %53, 0x4001FEF000000000
-  %55 = fdiv float %51, %54
-  br label %102
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float 0xC00D6018E0000000, float 0x40352124A0000000)
+  %40 = tail call float @llvm.fmuladd.f32(float %39, float %38, float 0x40317204E0000000)
+  %41 = tail call float @llvm.fmuladd.f32(float %40, float %38, float 0xC04651B1A0000000)
+  %42 = tail call float @llvm.fmuladd.f32(float %41, float %38, float 0xC032D9DF60000000)
+  %43 = tail call float @llvm.fmuladd.f32(float %42, float %38, float 0x4031A50D00000000)
+  %44 = tail call float @llvm.fmuladd.f32(float %43, float %38, float 0x4020BDB2A0000000)
+  %45 = tail call float @llvm.fmuladd.f32(float %44, float %38, float 0x3FBAF2A040000000)
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %38, float 0xBFC9E95760000000)
+  %47 = tail call float @llvm.fmuladd.f32(float %38, float 0x3FFB89D220000000, float 0xC036A4C920000000)
+  %48 = tail call float @llvm.fmuladd.f32(float %47, float %38, float 0x4025A75B20000000)
+  %49 = tail call float @llvm.fmuladd.f32(float %48, float %38, float 0x404847CC40000000)
+  %50 = tail call float @llvm.fmuladd.f32(float %49, float %38, float 0xC03424ACE0000000)
+  %51 = tail call float @llvm.fmuladd.f32(float %50, float %38, float 0xC03CA92B60000000)
+  %52 = tail call float @llvm.fmuladd.f32(float %51, float %38, float 0x400FC54FE0000000)
+  %53 = tail call float @llvm.fmuladd.f32(float %52, float %38, float 0x4018F87700000000)
+  %54 = tail call float @llvm.fmuladd.f32(float %53, float %38, float 1.000000e+00)
+  %55 = tail call noundef float @logf(float noundef %11) #4
+  %56 = fmul float %55, -2.000000e+00
+  %57 = tail call noundef float @sqrtf(float noundef %56) #4
+  %58 = fdiv float %46, %54
+  %59 = fadd float %58, 0x4001FEF000000000
+  %60 = fdiv float %57, %59
+  br label %107
 
-56:                                               ; preds = %35
-  %57 = tail call noundef float @logf(float noundef %11) #5
-  %58 = fneg float %57
-  %59 = tail call noundef float @sqrtf(float noundef %58) #5
-  %60 = fcmp olt float %59, 3.000000e+00
-  br i1 %60, label %61, label %83
+61:                                               ; preds = %35
+  %62 = tail call noundef float @logf(float noundef %11) #4
+  %63 = fneg float %62
+  %64 = tail call noundef float @sqrtf(float noundef %63) #4
+  %65 = fcmp olt float %64, 3.000000e+00
+  br i1 %65, label %66, label %88
 
-61:                                               ; preds = %56
-  %62 = fadd float %59, -1.125000e+00
-  %63 = tail call float @llvm.fmuladd.f32(float %62, float 0xBE07677560000000, float 0x3E5EA036E0000000)
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float %62, float 0xBEA6CC90A0000000)
-  %65 = tail call float @llvm.fmuladd.f32(float %64, float %62, float 0x3F6193A0E0000000)
-  %66 = tail call float @llvm.fmuladd.f32(float %65, float %62, float 0x3F9DB650C0000000)
-  %67 = tail call float @llvm.fmuladd.f32(float %66, float %62, float 0x3FC2498C80000000)
-  %68 = tail call float @llvm.fmuladd.f32(float %67, float %62, float 0x3FD59E4740000000)
-  %69 = tail call float @llvm.fmuladd.f32(float %68, float %62, float 0x3FD8C5EA20000000)
-  %70 = tail call float @llvm.fmuladd.f32(float %69, float %62, float 0x3FBDF5B040000000)
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float %62, float 0xBFC4F73400000000)
-  %72 = tail call float @llvm.fmuladd.f32(float %71, float %62, float 0xBFC0C7F9E0000000)
-  %73 = tail call float @llvm.fmuladd.f32(float %62, float 0x3F86A63A60000000, float 0x3FC37D65E0000000)
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float %62, float 0x3FEB29D0A0000000)
-  %75 = tail call float @llvm.fmuladd.f32(float %74, float %62, float 0x4004BE80E0000000)
-  %76 = tail call float @llvm.fmuladd.f32(float %75, float %62, float 0x40131D2620000000)
-  %77 = tail call float @llvm.fmuladd.f32(float %76, float %62, float 0x401586D800000000)
-  %78 = tail call float @llvm.fmuladd.f32(float %77, float %62, float 0x400BBAE360000000)
-  %79 = tail call float @llvm.fmuladd.f32(float %78, float %62, float 1.000000e+00)
-  %80 = fmul float %59, %72
-  %81 = fdiv float %80, %79
-  %82 = tail call float @llvm.fmuladd.f32(float %59, float 0x3FE9D4C000000000, float %81)
-  br label %102
+66:                                               ; preds = %61
+  %67 = fadd float %64, -1.125000e+00
+  %68 = tail call float @llvm.fmuladd.f32(float %67, float 0xBE07677560000000, float 0x3E5EA036E0000000)
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %67, float 0xBEA6CC90A0000000)
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %67, float 0x3F6193A0E0000000)
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %67, float 0x3F9DB650C0000000)
+  %72 = tail call float @llvm.fmuladd.f32(float %71, float %67, float 0x3FC2498C80000000)
+  %73 = tail call float @llvm.fmuladd.f32(float %72, float %67, float 0x3FD59E4740000000)
+  %74 = tail call float @llvm.fmuladd.f32(float %73, float %67, float 0x3FD8C5EA20000000)
+  %75 = tail call float @llvm.fmuladd.f32(float %74, float %67, float 0x3FBDF5B040000000)
+  %76 = tail call float @llvm.fmuladd.f32(float %75, float %67, float 0xBFC4F73400000000)
+  %77 = tail call float @llvm.fmuladd.f32(float %76, float %67, float 0xBFC0C7F9E0000000)
+  %78 = tail call float @llvm.fmuladd.f32(float %67, float 0x3F86A63A60000000, float 0x3FC37D65E0000000)
+  %79 = tail call float @llvm.fmuladd.f32(float %78, float %67, float 0x3FEB29D0A0000000)
+  %80 = tail call float @llvm.fmuladd.f32(float %79, float %67, float 0x4004BE80E0000000)
+  %81 = tail call float @llvm.fmuladd.f32(float %80, float %67, float 0x40131D2620000000)
+  %82 = tail call float @llvm.fmuladd.f32(float %81, float %67, float 0x401586D800000000)
+  %83 = tail call float @llvm.fmuladd.f32(float %82, float %67, float 0x400BBAE360000000)
+  %84 = tail call float @llvm.fmuladd.f32(float %83, float %67, float 1.000000e+00)
+  %85 = fmul float %64, %77
+  %86 = fdiv float %85, %84
+  %87 = tail call float @llvm.fmuladd.f32(float %64, float 0x3FE9D4C000000000, float %86)
+  br label %107
 
-83:                                               ; preds = %56
-  %84 = fadd float %59, -3.000000e+00
-  %85 = tail call float @llvm.fmuladd.f32(float %84, float 0x3D876D6D20000000, float 0xBDEFAAA5C0000000)
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %84, float 0x3ED3504200000000)
-  %87 = tail call float @llvm.fmuladd.f32(float %86, float %84, float 0x3F24A65200000000)
-  %88 = tail call float @llvm.fmuladd.f32(float %87, float %84, float 0x3F5EA88740000000)
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %84, float 0x3F8378F480000000)
-  %90 = tail call float @llvm.fmuladd.f32(float %89, float %84, float 0x3F9300B160000000)
-  %91 = tail call float @llvm.fmuladd.f32(float %90, float %84, float 0xBF62389F60000000)
-  %92 = tail call float @llvm.fmuladd.f32(float %91, float %84, float 0xBFA1F02840000000)
-  %93 = tail call float @llvm.fmuladd.f32(float %84, float 0x3F140BA620000000, float 0x3F659D94A0000000)
-  %94 = tail call float @llvm.fmuladd.f32(float %93, float %84, float 0x3FA17D4700000000)
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float %84, float 0x3FCC2BF200000000)
-  %96 = tail call float @llvm.fmuladd.f32(float %95, float %84, float 0x3FE862C9E0000000)
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float %84, float 0x3FF5D86980000000)
-  %98 = tail call float @llvm.fmuladd.f32(float %97, float %84, float 1.000000e+00)
-  %99 = fmul float %59, %92
-  %100 = fdiv float %99, %98
-  %101 = tail call float @llvm.fmuladd.f32(float %59, float 0x3FEE141E00000000, float %100)
-  br label %102
+88:                                               ; preds = %61
+  %89 = fadd float %64, -3.000000e+00
+  %90 = tail call float @llvm.fmuladd.f32(float %89, float 0x3D876D6D20000000, float 0xBDEFAAA5C0000000)
+  %91 = tail call float @llvm.fmuladd.f32(float %90, float %89, float 0x3ED3504200000000)
+  %92 = tail call float @llvm.fmuladd.f32(float %91, float %89, float 0x3F24A65200000000)
+  %93 = tail call float @llvm.fmuladd.f32(float %92, float %89, float 0x3F5EA88740000000)
+  %94 = tail call float @llvm.fmuladd.f32(float %93, float %89, float 0x3F8378F480000000)
+  %95 = tail call float @llvm.fmuladd.f32(float %94, float %89, float 0x3F9300B160000000)
+  %96 = tail call float @llvm.fmuladd.f32(float %95, float %89, float 0xBF62389F60000000)
+  %97 = tail call float @llvm.fmuladd.f32(float %96, float %89, float 0xBFA1F02840000000)
+  %98 = tail call float @llvm.fmuladd.f32(float %89, float 0x3F140BA620000000, float 0x3F659D94A0000000)
+  %99 = tail call float @llvm.fmuladd.f32(float %98, float %89, float 0x3FA17D4700000000)
+  %100 = tail call float @llvm.fmuladd.f32(float %99, float %89, float 0x3FCC2BF200000000)
+  %101 = tail call float @llvm.fmuladd.f32(float %100, float %89, float 0x3FE862C9E0000000)
+  %102 = tail call float @llvm.fmuladd.f32(float %101, float %89, float 0x3FF5D86980000000)
+  %103 = tail call float @llvm.fmuladd.f32(float %102, float %89, float 1.000000e+00)
+  %104 = fmul float %64, %97
+  %105 = fdiv float %104, %103
+  %106 = tail call float @llvm.fmuladd.f32(float %64, float 0x3FEE141E00000000, float %105)
+  br label %107
 
-102:                                              ; preds = %37, %83, %61, %13
-  %.0160 = phi float [ %34, %13 ], [ %55, %37 ], [ %82, %61 ], [ %101, %83 ]
-  %103 = tail call noundef float @llvm.copysign.f32(float %.0160, float %0)
-  br label %104
+107:                                              ; preds = %37, %88, %66, %13
+  %.0160 = phi float [ %34, %13 ], [ %60, %37 ], [ %87, %66 ], [ %106, %88 ]
+  %108 = tail call noundef float @llvm.copysign.f32(float %.0160, float %0)
+  br label %109
 
-104:                                              ; preds = %6, %4, %8, %1, %102
-  %.0 = phi float [ %103, %102 ], [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %8 ], [ 0x7FF0000000000000, %4 ], [ 0xFFF0000000000000, %6 ]
+109:                                              ; preds = %6, %4, %8, %1, %107
+  %.0 = phi float [ %108, %107 ], [ 0x7FF8000000000000, %1 ], [ 0.000000e+00, %8 ], [ 0x7FF0000000000000, %4 ], [ 0xFFF0000000000000, %6 ]
   ret float %.0
 }
 
@@ -356,18 +364,11 @@ declare float @logf(float noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #4
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

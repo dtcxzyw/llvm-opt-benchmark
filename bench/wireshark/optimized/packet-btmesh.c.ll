@@ -12760,14 +12760,18 @@ define internal i32 @upper_transport_fragment_hash(ptr nocapture noundef readonl
   store i16 %4, ptr %3, align 1
   %5 = getelementptr i8, ptr %3, i64 2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = load <2 x i32>, ptr %6, align 4
-  store <2 x i32> %7, ptr %5, align 1
-  %8 = getelementptr i8, ptr %3, i64 10
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %5, align 1
+  %8 = getelementptr i8, ptr %3, i64 6
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 1
-  %11 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %3, i64 noundef 14) #16
-  ret i32 %11
+  %11 = getelementptr i8, ptr %3, i64 10
+  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = load i32, ptr %12, align 4
+  store i32 %13, ptr %11, align 1
+  %14 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %3, i64 noundef 14) #16
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -12813,13 +12817,17 @@ define internal noalias noundef ptr @upper_transport_fragment_temporary_key(ptr 
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = load <2 x i32>, ptr %6, align 4
-  store <2 x i32> %8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %13, ptr %14, align 4
   ret ptr %4
 }
 
@@ -12829,13 +12837,17 @@ define internal noalias noundef ptr @upper_transport_fragment_persistent_key(ptr
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = load <2 x i32>, ptr %6, align 4
-  store <2 x i32> %8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %13, ptr %14, align 4
   ret ptr %4
 }
 

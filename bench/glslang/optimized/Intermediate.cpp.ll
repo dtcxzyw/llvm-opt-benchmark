@@ -12516,13 +12516,19 @@ define noundef ptr @_ZN7glslang13TIntermediate7addLoopEP11TIntermNodePNS_12TInte
   %16 = getelementptr inbounds i8, ptr %8, i64 58
   store i8 0, ptr %16, align 2
   %17 = getelementptr inbounds i8, ptr %8, i64 60
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 1>, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 76
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 80
-  store i32 0, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds inrange(-24, 224) (i8, ptr @_ZTVN7glslang11TIntermLoopE, i64 24), align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #17
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %8, i64 64
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %8, i64 68
+  store i32 -1, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 76
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %8, i64 80
+  store i32 0, ptr %22, align 8
+  %23 = load ptr, ptr getelementptr inbounds inrange(-24, 224) (i8, ptr @_ZTVN7glslang11TIntermLoopE, i64 24), align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   ret ptr %8
 }
 
@@ -12547,67 +12553,73 @@ define noundef ptr @_ZN7glslang13TIntermediate10addForLoopEP11TIntermNodeS2_PNS_
   %18 = getelementptr inbounds i8, ptr %10, i64 58
   store i8 0, ptr %18, align 2
   %19 = getelementptr inbounds i8, ptr %10, i64 60
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 1>, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 76
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 80
-  store i32 0, ptr %21, align 8
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %10, i64 64
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 68
+  store i32 -1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %10, i64 72
+  store i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 76
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %10, i64 80
+  store i32 0, ptr %24, align 8
   store ptr %10, ptr %7, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  %25 = icmp eq ptr %2, null
-  br i1 %25, label %.split.thread, label %26
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %6) #17
+  %28 = icmp eq ptr %2, null
+  br i1 %28, label %.split.thread, label %29
 
-26:                                               ; preds = %8
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %.split20, label %33
+29:                                               ; preds = %8
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.split20, label %36
 
-.split20:                                         ; preds = %26
-  %32 = tail call noundef ptr @_ZN7glslang13TIntermediate13makeAggregateEP11TIntermNodeRKNS_10TSourceLocE(ptr nonnull align 8 poison, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %6)
+.split20:                                         ; preds = %29
+  %35 = tail call noundef ptr @_ZN7glslang13TIntermediate13makeAggregateEP11TIntermNodeRKNS_10TSourceLocE(ptr nonnull align 8 poison, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %.split
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.split
 
-.split:                                           ; preds = %.split20, %33
-  %38 = phi ptr [ %37, %33 ], [ %32, %.split20 ]
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.split.thread, label %39
+.split:                                           ; preds = %.split20, %36
+  %41 = phi ptr [ %40, %36 ], [ %35, %.split20 ]
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %.split.thread, label %42
 
-39:                                               ; preds = %.split
-  %40 = getelementptr inbounds i8, ptr %38, i64 184
-  %41 = load i32, ptr %40, align 8
-  %.off = add i32 %41, -1
+42:                                               ; preds = %.split
+  %43 = getelementptr inbounds i8, ptr %41, i64 184
+  %44 = load i32, ptr %43, align 8
+  %.off = add i32 %44, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %42, label %.split.thread
+  br i1 %switch, label %45, label %.split.thread
 
-42:                                               ; preds = %39
-  store i32 0, ptr %40, align 8
+45:                                               ; preds = %42
+  store i32 0, ptr %43, align 8
   br label %.split.thread
 
-.split.thread:                                    ; preds = %39, %8, %42, %.split
-  %43 = phi ptr [ %38, %42 ], [ null, %.split ], [ null, %8 ], [ %38, %39 ]
-  %44 = load ptr, ptr %7, align 8
-  %45 = tail call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr nonnull align 8 poison, ptr noundef %43, ptr noundef %44)
-  %46 = getelementptr inbounds i8, ptr %0, i64 624
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  %49 = select i1 %48, i32 2, i32 1
-  %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 392
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(364) %45, i32 noundef %49) #17
-  ret ptr %45
+.split.thread:                                    ; preds = %42, %8, %45, %.split
+  %46 = phi ptr [ %41, %45 ], [ null, %.split ], [ null, %8 ], [ %41, %42 ]
+  %47 = load ptr, ptr %7, align 8
+  %48 = tail call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr nonnull align 8 poison, ptr noundef %46, ptr noundef %47)
+  %49 = getelementptr inbounds i8, ptr %0, i64 624
+  %50 = load i8, ptr %49, align 8
+  %51 = trunc i8 %50 to i1
+  %52 = select i1 %51, i32 2, i32 1
+  %53 = load ptr, ptr %48, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 392
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(364) %48, i32 noundef %52) #17
+  ret ptr %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

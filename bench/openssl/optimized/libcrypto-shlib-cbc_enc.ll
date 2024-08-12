@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @DES_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %_schedule, ptr nocapture noundef readonly %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
-  %tin = alloca [2 x i32], align 8
+  %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %enc, 0
   %0 = load i32, ptr %ivec, align 1
   %incdec.ptr174 = getelementptr inbounds i8, ptr %ivec, i64 4
@@ -33,11 +33,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %incdec.ptr36, align 1
   %incdec.ptr50 = getelementptr inbounds i8, ptr %in.addr.0180, i64 8
   %xor = xor i32 %2, %tout0.0181
-  store i32 %xor, ptr %tin, align 8
+  store i32 %xor, ptr %tin, align 4
   %xor55 = xor i32 %3, %tout1.0182
   store i32 %xor55, ptr %arrayidx56, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 1) #2
-  %4 = load i32, ptr %tin, align 8
+  %4 = load i32, ptr %tin, align 4
   %conv58 = trunc i32 %4 to i8
   %incdec.ptr59 = getelementptr inbounds i8, ptr %out.addr.0179, i64 1
   store i8 %conv58, ptr %out.addr.0179, align 1
@@ -164,12 +164,12 @@ sw.epilog:                                        ; preds = %sw.bb123, %if.then9
   %tin0.0 = phi i32 [ 0, %if.then90 ], [ %or126, %sw.bb123 ]
   %tin1.0 = phi i32 [ 0, %if.then90 ], [ %tin1.7, %sw.bb123 ]
   %xor127 = xor i32 %tin0.0, %tout0.0.lcssa
-  store i32 %xor127, ptr %tin, align 8
+  store i32 %xor127, ptr %tin, align 4
   %xor129 = xor i32 %tin1.0, %tout1.0.lcssa
   %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor129, ptr %arrayidx130, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 1) #2
-  %13 = load i32, ptr %tin, align 8
+  %13 = load i32, ptr %tin, align 4
   %conv134 = trunc i32 %13 to i8
   %incdec.ptr135 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 1
   store i8 %conv134, ptr %out.addr.0.lcssa, align 1
@@ -229,7 +229,7 @@ for.body196:                                      ; preds = %for.body196.lr.ph, 
   %conv208 = zext i8 %18 to i32
   %shl209 = shl nuw i32 %conv208, 24
   %or210 = or disjoint i32 %or206, %shl209
-  store i32 %or210, ptr %tin, align 8
+  store i32 %or210, ptr %tin, align 4
   %19 = load i16, ptr %incdec.ptr207, align 1
   %20 = zext i16 %19 to i32
   %incdec.ptr214 = getelementptr inbounds i8, ptr %in.addr.8190, i64 6
@@ -245,7 +245,7 @@ for.body196:                                      ; preds = %for.body196.lr.ph, 
   %or225 = or disjoint i32 %or221, %shl224
   store i32 %or225, ptr %arrayidx226, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 0) #2
-  %23 = load i32, ptr %tin, align 8
+  %23 = load i32, ptr %tin, align 4
   %xor229 = xor i32 %23, %xor0.0191
   %24 = load i32, ptr %arrayidx226, align 4
   %xor231 = xor i32 %24, %xor1.0192
@@ -292,14 +292,17 @@ for.end264:                                       ; preds = %for.body196, %if.el
   br i1 %cmp265.not, label %if.end346, label %if.then267
 
 if.then267:                                       ; preds = %for.end264
+  %25 = load i32, ptr %in.addr.8.lcssa, align 1
+  %incdec.ptr278 = getelementptr inbounds i8, ptr %in.addr.8.lcssa, i64 4
+  store i32 %25, ptr %tin, align 4
+  %26 = load i32, ptr %incdec.ptr278, align 1
   %arrayidx297 = getelementptr inbounds i8, ptr %tin, i64 4
-  %25 = load <2 x i32>, ptr %in.addr.8.lcssa, align 1
-  store <2 x i32> %25, ptr %tin, align 8
+  store i32 %26, ptr %arrayidx297, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 0) #2
-  %26 = load i32, ptr %tin, align 8
-  %xor300 = xor i32 %26, %xor0.0.lcssa
-  %27 = load i32, ptr %arrayidx297, align 4
-  %xor302 = xor i32 %27, %xor1.0.lcssa
+  %27 = load i32, ptr %tin, align 4
+  %xor300 = xor i32 %27, %xor0.0.lcssa
+  %28 = load i32, ptr %arrayidx297, align 4
+  %xor302 = xor i32 %28, %xor1.0.lcssa
   %add.ptr304 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %l.1.in.lcssa
   switch i64 %l.1.in.lcssa, label %if.end346 [
     i64 1, label %sw.bb340

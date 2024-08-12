@@ -283,28 +283,49 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i: ; preds =
 "_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..Add$LT$$RF$grep_printer..stats..Stats$GT$$GT$3add17h8ba0765ded2236c7E.exit": ; preds = %11, %18
   %.010.i.i = phi i32 [ %16, %11 ], [ %19, %18 ]
   %.0.i.i = phi i64 [ %9, %11 ], [ %21, %18 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.0.i.i, ptr %27, align 8, !alias.scope !10, !noalias !20
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %.010.i.i, ptr %28, align 8, !alias.scope !10, !noalias !20
-  %29 = load <2 x i64>, ptr %1, align 8, !alias.scope !13, !noalias !17
-  %30 = load <2 x i64>, ptr %2, align 8, !alias.scope !15, !noalias !18
-  %31 = add <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %0, align 8, !alias.scope !10, !noalias !20
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load <2 x i64>, ptr %23, align 8, !alias.scope !13, !noalias !17
-  %34 = load <2 x i64>, ptr %24, align 8, !alias.scope !15, !noalias !18
-  %35 = add <2 x i64> %34, %33
-  store <2 x i64> %35, ptr %32, align 8, !alias.scope !10, !noalias !20
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load <2 x i64>, ptr %25, align 8, !alias.scope !13, !noalias !17
-  %38 = load <2 x i64>, ptr %26, align 8, !alias.scope !15, !noalias !18
-  %39 = add <2 x i64> %38, %37
-  store <2 x i64> %39, ptr %36, align 8, !alias.scope !10, !noalias !20
+  %23 = load i64, ptr %1, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %24 = load i64, ptr %2, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %25 = add i64 %24, %23
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %30 = add i64 %29, %27
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i64, ptr %31, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %35 = add i64 %34, %32
+  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = load i64, ptr %36, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = load i64, ptr %38, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %40 = add i64 %39, %37
+  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %42 = load i64, ptr %41, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %43 = getelementptr inbounds i8, ptr %2, i64 32
+  %44 = load i64, ptr %43, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %45 = add i64 %44, %42
+  %46 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = load i64, ptr %46, align 8, !alias.scope !13, !noalias !17, !noundef !7
+  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %49 = load i64, ptr %48, align 8, !alias.scope !15, !noalias !18, !noundef !7
+  %50 = add i64 %49, %47
+  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.0.i.i, ptr %51, align 8, !alias.scope !10, !noalias !20
+  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %.010.i.i, ptr %52, align 8, !alias.scope !10, !noalias !20
+  store i64 %25, ptr %0, align 8, !alias.scope !10, !noalias !20
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %30, ptr %53, align 8, !alias.scope !10, !noalias !20
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %35, ptr %54, align 8, !alias.scope !10, !noalias !20
+  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %40, ptr %55, align 8, !alias.scope !10, !noalias !20
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %45, ptr %56, align 8, !alias.scope !10, !noalias !20
+  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %50, ptr %57, align 8, !alias.scope !10, !noalias !20
   ret void
 }
 
@@ -338,28 +359,49 @@ define void @"_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith.
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %11, %18
   %.010.i = phi i32 [ %16, %11 ], [ %19, %18 ]
   %.0.i = phi i64 [ %9, %11 ], [ %21, %18 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.0.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %.010.i, ptr %28, align 8
-  %29 = load <2 x i64>, ptr %1, align 8
-  %30 = load <2 x i64>, ptr %2, align 8
-  %31 = add <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load <2 x i64>, ptr %23, align 8
-  %34 = load <2 x i64>, ptr %24, align 8
-  %35 = add <2 x i64> %34, %33
-  store <2 x i64> %35, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load <2 x i64>, ptr %25, align 8
-  %38 = load <2 x i64>, ptr %26, align 8
-  %39 = add <2 x i64> %38, %37
-  store <2 x i64> %39, ptr %36, align 8
+  %23 = load i64, ptr %1, align 8, !noundef !7
+  %24 = load i64, ptr %2, align 8, !noundef !7
+  %25 = add i64 %24, %23
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8, !noundef !7
+  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !noundef !7
+  %30 = add i64 %29, %27
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !7
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8, !noundef !7
+  %35 = add i64 %34, %32
+  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = load i64, ptr %36, align 8, !noundef !7
+  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = load i64, ptr %38, align 8, !noundef !7
+  %40 = add i64 %39, %37
+  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %42 = load i64, ptr %41, align 8, !noundef !7
+  %43 = getelementptr inbounds i8, ptr %2, i64 32
+  %44 = load i64, ptr %43, align 8, !noundef !7
+  %45 = add i64 %44, %42
+  %46 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = load i64, ptr %46, align 8, !noundef !7
+  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %49 = load i64, ptr %48, align 8, !noundef !7
+  %50 = add i64 %49, %47
+  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.0.i, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %.010.i, ptr %52, align 8
+  store i64 %25, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %30, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %35, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %40, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %45, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %50, ptr %57, align 8
   ret void
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread: ; preds = %3, %18
@@ -405,22 +447,40 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i: ; preds =
   %.0.i.i = phi i64 [ %9, %11 ], [ %20, %17 ]
   store i64 %.0.i.i, ptr %5, align 8, !alias.scope !21, !noalias !24
   store i32 %.010.i.i, ptr %7, align 8, !alias.scope !21, !noalias !24
-  %22 = load <2 x i64>, ptr %1, align 8, !alias.scope !24, !noalias !21
-  %23 = load <2 x i64>, ptr %0, align 8, !alias.scope !21, !noalias !24
-  %24 = add <2 x i64> %23, %22
-  store <2 x i64> %24, ptr %0, align 8, !alias.scope !21, !noalias !24
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %25, align 8, !alias.scope !24, !noalias !21
-  %28 = load <2 x i64>, ptr %26, align 8, !alias.scope !21, !noalias !24
-  %29 = add <2 x i64> %28, %27
-  store <2 x i64> %29, ptr %26, align 8, !alias.scope !21, !noalias !24
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load <2 x i64>, ptr %30, align 8, !alias.scope !24, !noalias !21
-  %33 = load <2 x i64>, ptr %31, align 8, !alias.scope !21, !noalias !24
-  %34 = add <2 x i64> %33, %32
-  store <2 x i64> %34, ptr %31, align 8, !alias.scope !21, !noalias !24
+  %22 = load i64, ptr %1, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %23 = load i64, ptr %0, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %0, align 8, !alias.scope !21, !noalias !24
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load i64, ptr %25, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load i64, ptr %27, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %29 = add i64 %28, %26
+  store i64 %29, ptr %27, align 8, !alias.scope !21, !noalias !24
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i64, ptr %30, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %34 = add i64 %33, %31
+  store i64 %34, ptr %32, align 8, !alias.scope !21, !noalias !24
+  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = load i64, ptr %35, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %39 = add i64 %38, %36
+  store i64 %39, ptr %37, align 8, !alias.scope !21, !noalias !24
+  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = load i64, ptr %40, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = load i64, ptr %42, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %44 = add i64 %43, %41
+  store i64 %44, ptr %42, align 8, !alias.scope !21, !noalias !24
+  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %46 = load i64, ptr %45, align 8, !alias.scope !24, !noalias !21, !noundef !7
+  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = load i64, ptr %47, align 8, !alias.scope !21, !noalias !24, !noundef !7
+  %49 = add i64 %48, %46
+  store i64 %49, ptr %47, align 8, !alias.scope !21, !noalias !24
   ret void
 }
 
@@ -456,22 +516,40 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %11, %17
   %.0.i = phi i64 [ %9, %11 ], [ %20, %17 ]
   store i64 %.0.i, ptr %5, align 8
   store i32 %.010.i, ptr %7, align 8
-  %22 = load <2 x i64>, ptr %1, align 8
-  %23 = load <2 x i64>, ptr %0, align 8
-  %24 = add <2 x i64> %23, %22
-  store <2 x i64> %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = load <2 x i64>, ptr %26, align 8
-  %29 = add <2 x i64> %28, %27
-  store <2 x i64> %29, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load <2 x i64>, ptr %30, align 8
-  %33 = load <2 x i64>, ptr %31, align 8
-  %34 = add <2 x i64> %33, %32
-  store <2 x i64> %34, ptr %31, align 8
+  %22 = load i64, ptr %1, align 8, !noundef !7
+  %23 = load i64, ptr %0, align 8, !noundef !7
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load i64, ptr %25, align 8, !noundef !7
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load i64, ptr %27, align 8, !noundef !7
+  %29 = add i64 %28, %26
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i64, ptr %30, align 8, !noundef !7
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8, !noundef !7
+  %34 = add i64 %33, %31
+  store i64 %34, ptr %32, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = load i64, ptr %35, align 8, !noundef !7
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8, !noundef !7
+  %39 = add i64 %38, %36
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = load i64, ptr %40, align 8, !noundef !7
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = load i64, ptr %42, align 8, !noundef !7
+  %44 = add i64 %43, %41
+  store i64 %44, ptr %42, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %46 = load i64, ptr %45, align 8, !noundef !7
+  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = load i64, ptr %47, align 8, !noundef !7
+  %49 = add i64 %48, %46
+  store i64 %49, ptr %47, align 8
   ret void
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread: ; preds = %2, %17

@@ -325,16 +325,17 @@ _ZNK6HandleclEv.exit14:                           ; preds = %11, %12
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load <2 x ptr>, ptr %24, align 8
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
-  %28 = load i64, ptr %27, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = load i64, ptr %28, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #10
-  %30 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 1, ptr %30, align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #10
+  %31 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 1, ptr %31, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
@@ -342,27 +343,28 @@ _ZNK6HandleclEv.exit14:                           ; preds = %11, %12
   call void @_ZNK15ClassLoaderData14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef nonnull %3) #10
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #10
-  %31 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %33, label %32
+  %32 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i.i, label %34, label %33
 
-32:                                               ; preds = %17
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %28) #10
+33:                                               ; preds = %17
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %29) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %23) #10
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %17
-  %34 = load ptr, ptr %24, align 8
-  %.not8.i.i.i.i = icmp eq ptr %34, %26
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
+34:                                               ; preds = %33, %17
+  %35 = load ptr, ptr %24, align 8
+  %.not8.i.i.i.i = icmp eq ptr %35, %25
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %36
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   store ptr %23, ptr %22, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %25, ptr %24, align 8
+  store ptr %27, ptr %26, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %15, %33, %35, %_ZNK6HandleclEv.exit
-  %.0 = phi ptr [ %6, %_ZNK6HandleclEv.exit ], [ %8, %35 ], [ %8, %33 ], [ %8, %15 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %15, %34, %36, %_ZNK6HandleclEv.exit
+  %.0 = phi ptr [ %6, %_ZNK6HandleclEv.exit ], [ %8, %36 ], [ %8, %34 ], [ %8, %15 ]
   ret ptr %.0
 }
 
@@ -1098,7 +1100,7 @@ define hidden void @_ZN20ClassLoaderDataGraph22print_table_statisticsEP12outputS
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %14, %_ZN12ResourceMarkD2Ev.exit
-  %.011.i.be = phi ptr [ %13, %14 ], [ %37, %_ZN12ResourceMarkD2Ev.exit ]
+  %.011.i.be = phi ptr [ %13, %14 ], [ %38, %_ZN12ResourceMarkD2Ev.exit ]
   br label %.lr.ph.i, !llvm.loop !23
 
 15:                                               ; preds = %.lr.ph.i
@@ -1115,43 +1117,45 @@ define hidden void @_ZN20ClassLoaderDataGraph22print_table_statisticsEP12outputS
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load <2 x ptr>, ptr %24, align 8
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
-  %28 = load i64, ptr %27, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = load i64, ptr %28, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #10
-  %29 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.8, ptr noundef %29) #10
-  %30 = load ptr, ptr %16, align 8
-  %31 = load ptr, ptr %10, align 8
-  call void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef %0, ptr noundef %31) #10
+  %30 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.8, ptr noundef %30) #10
+  %31 = load ptr, ptr %16, align 8
+  %32 = load ptr, ptr %10, align 8
+  call void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef %0, ptr noundef %32) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #10
-  %32 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %34, label %33
+  %33 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-33:                                               ; preds = %18
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %28) #10
+34:                                               ; preds = %18
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %29) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %23) #10
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %18
-  %35 = load ptr, ptr %24, align 8
-  %.not8.i.i.i.i = icmp eq ptr %35, %26
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exitthread-pre-split, label %36
+35:                                               ; preds = %34, %18
+  %36 = load ptr, ptr %24, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %25
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exitthread-pre-split, label %37
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   store ptr %23, ptr %22, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %25, ptr %24, align 8
+  store ptr %27, ptr %26, align 8
   br label %_ZN12ResourceMarkD2Ev.exitthread-pre-split
 
-_ZN12ResourceMarkD2Ev.exitthread-pre-split:       ; preds = %34, %36
+_ZN12ResourceMarkD2Ev.exitthread-pre-split:       ; preds = %35, %37
   %.pr = load ptr, ptr %2, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2Ev.exitthread-pre-split, %15
-  %37 = phi ptr [ %.pr, %_ZN12ResourceMarkD2Ev.exitthread-pre-split ], [ %13, %15 ]
-  %.not10.i = icmp eq ptr %37, null
+  %38 = phi ptr [ %.pr, %_ZN12ResourceMarkD2Ev.exitthread-pre-split ], [ %13, %15 ]
+  %.not10.i = icmp eq ptr %38, null
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.backedge
 
 .loopexit:                                        ; preds = %_ZN12ResourceMarkD2Ev.exit, %14, %1

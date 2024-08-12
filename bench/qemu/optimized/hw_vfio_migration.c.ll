@@ -892,9 +892,13 @@ if.end10:                                         ; preds = %sw.bb
   br i1 %tobool.not.i19, label %if.end.i23, label %vfio_query_precopy_size.exit
 
 if.end.i23:                                       ; preds = %if.end10
+  %precopy_dirty_size.i = getelementptr inbounds i8, ptr %0, i64 80
   %initial_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 8
-  %8 = load <2 x i64>, ptr %initial_bytes.i, align 8
-  store <2 x i64> %8, ptr %precopy_init_size.i, align 8
+  %8 = load i64, ptr %initial_bytes.i, align 8
+  store i64 %8, ptr %precopy_init_size.i, align 8
+  %dirty_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 16
+  %9 = load i64, ptr %dirty_bytes.i, align 8
+  store i64 %9, ptr %precopy_dirty_size.i, align 8
   br label %vfio_query_precopy_size.exit
 
 vfio_query_precopy_size.exit:                     ; preds = %if.end10, %if.end.i23
@@ -903,38 +907,38 @@ vfio_query_precopy_size.exit:                     ; preds = %if.end10, %if.end.i
 
 if.end13:                                         ; preds = %vfio_query_precopy_size.exit, %if.then6, %if.end
   %name14 = getelementptr inbounds i8, ptr %opaque, i64 72
-  %9 = load ptr, ptr %name14, align 8
-  %10 = load i64, ptr %data_buffer_size, align 8
+  %10 = load ptr, ptr %name14, align 8
+  %11 = load i64, ptr %data_buffer_size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %11 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %11, 0
-  %12 = load i16, ptr @_TRACE_VFIO_SAVE_SETUP_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %12, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_VFIO_SAVE_SETUP_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %13, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vfio_save_setup.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end13
-  %13 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %13, 32768
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %14, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_vfio_save_setup.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %14 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %14 to i1
+  %15 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %15 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %15 = load i64, ptr %_now.i.i, align 8
+  %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %16 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %9, i64 noundef %10) #16
+  %17 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %10, i64 noundef %11) #16
   br label %trace_vfio_save_setup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %9, i64 noundef %10) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef %10, i64 noundef %11) #16
   br label %trace_vfio_save_setup.exit
 
 trace_vfio_save_setup.exit:                       ; preds = %if.end13, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -49,15 +49,20 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIfSaIfE
 for.body:                                         ; preds = %invoke.cont, %for.body
   %idx.052 = phi i64 [ %inc, %for.body ], [ 0, %invoke.cont ]
   %values.051 = phi ptr [ %add.ptr, %for.body ], [ %in, %invoke.cont ]
+  %2 = load float, ptr %values.051, align 4
   %mul1 = shl nsw i64 %idx.052, 2
   %add.ptr.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %mul1
-  %2 = load <2 x float>, ptr %values.051, align 4
-  store <2 x float> %2, ptr %add.ptr.i, align 4
+  store float %2, ptr %add.ptr.i, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %values.051, i64 4
+  %3 = load float, ptr %arrayidx2, align 4
+  %add4 = or disjoint i64 %mul1, 1
+  %add.ptr.i26 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add4
+  store float %3, ptr %add.ptr.i26, align 4
   %arrayidx6 = getelementptr inbounds i8, ptr %values.051, i64 8
-  %3 = load float, ptr %arrayidx6, align 4
+  %4 = load float, ptr %arrayidx6, align 4
   %add8 = or disjoint i64 %mul1, 2
   %add.ptr.i27 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add8
-  store float %3, ptr %add.ptr.i27, align 4
+  store float %4, ptr %add.ptr.i27, align 4
   %add11 = or disjoint i64 %mul1, 3
   %add.ptr.i28 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add11
   store float 1.000000e+00, ptr %add.ptr.i28, align 4
@@ -78,14 +83,14 @@ invoke.cont14:                                    ; preds = %for.end
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ops, i64 8
-  %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %5 = load ptr, ptr %ops, align 8
-  %cmp1953.not = icmp eq ptr %4, %5
+  %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %6 = load ptr, ptr %ops, align 8
+  %cmp1953.not = icmp eq ptr %5, %6
   br i1 %cmp1953.not, label %for.cond31.preheader, label %for.body20.preheader
 
 for.body20.preheader:                             ; preds = %invoke.cont15
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
@@ -96,13 +101,13 @@ for.cond31.preheader:                             ; preds = %for.inc27, %invoke.
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.inc27
   %i.054 = phi i64 [ %inc28, %for.inc27 ], [ 0, %for.body20.preheader ]
-  %6 = load ptr, ptr %ops, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %6, i64 %i.054
-  %7 = load ptr, ptr %add.ptr.i.i, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %7 = load ptr, ptr %ops, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %7, i64 %i.054
+  %8 = load ptr, ptr %add.ptr.i.i, align 8
+  %vtable = load ptr, ptr %8, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
-  %8 = load ptr, ptr %vfn, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %tmp.sroa.0.062, ptr noundef nonnull %tmp.sroa.0.062, i64 noundef %numPixels)
+  %9 = load ptr, ptr %vfn, align 8
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %tmp.sroa.0.062, ptr noundef nonnull %tmp.sroa.0.062, i64 noundef %numPixels)
           to label %for.inc27 unwind label %lpad13.loopexit
 
 for.inc27:                                        ; preds = %for.body20
@@ -134,13 +139,18 @@ for.body33:                                       ; preds = %for.cond31.preheade
   %result.056 = phi ptr [ %add.ptr46, %for.body33 ], [ %out, %for.cond31.preheader ]
   %mul34 = shl nsw i64 %idx30.057, 2
   %add.ptr.i31 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %mul34
-  %9 = load <2 x float>, ptr %add.ptr.i31, align 4
-  store <2 x float> %9, ptr %result.056, align 4
+  %10 = load float, ptr %add.ptr.i31, align 4
+  store float %10, ptr %result.056, align 4
+  %add39 = or disjoint i64 %mul34, 1
+  %add.ptr.i32 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %add39
+  %11 = load float, ptr %add.ptr.i32, align 4
+  %arrayidx41 = getelementptr inbounds i8, ptr %result.056, i64 4
+  store float %11, ptr %arrayidx41, align 4
   %add43 = or disjoint i64 %mul34, 2
   %add.ptr.i33 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %add43
-  %10 = load float, ptr %add.ptr.i33, align 4
+  %12 = load float, ptr %add.ptr.i33, align 4
   %arrayidx45 = getelementptr inbounds i8, ptr %result.056, i64 8
-  store float %10, ptr %arrayidx45, align 4
+  store float %12, ptr %arrayidx45, align 4
   %add.ptr46 = getelementptr inbounds i8, ptr %result.056, i64 12
   %inc48 = add nuw nsw i64 %idx30.057, 1
   %exitcond59.not = icmp eq i64 %inc48, %numPixels

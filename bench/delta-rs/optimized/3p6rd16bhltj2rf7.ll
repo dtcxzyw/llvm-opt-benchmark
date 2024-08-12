@@ -1078,16 +1078,24 @@ define hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox8downcast1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN16aws_smithy_types12type_erasure13TypeErasedBox8downcast28_$u7b$$u7b$closure$u7d$$u7d$17h7c90d88f863d834cE.llvm.16377625001461121484"(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %1, align 8, !nonnull !17, !noundef !17
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !17, !align !125, !noundef !17
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8, !noundef !17
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = load ptr, ptr %10, align 8
   store ptr %2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %7, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %9, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %11, ptr %16, align 8
   ret void
 }
 
@@ -1204,16 +1212,24 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcast28_$u7b$$u7b$closure$u7d$$u7d$17h8fd038274a792f65E.llvm.16377625001461121484"(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %1, align 8, !nonnull !17, !noundef !17
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !17, !align !125, !noundef !17
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8, !nonnull !17, !align !136, !noundef !17
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = load ptr, ptr %10, align 8, !nonnull !17, !align !125, !noundef !17
   store ptr %2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %7, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %9, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %11, ptr %16, align 8
   ret void
 }
 
@@ -4065,85 +4081,93 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4824b9dd4e8d
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !17, !align !125, !noundef !17
-  br i1 %5, label %11, label %8
+  br i1 %5, label %9, label %8
 
 8:                                                ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %2, align 8, !nonnull !17, !noundef !17
+  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !nonnull !17, !noundef !17
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8
+  %.sroa.64.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %9, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.01.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.42.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load <2 x ptr>, ptr %.sroa.53.0..sroa_idx, align 8
-  store <2 x ptr> %10, ptr %.sroa.7.0..sroa_idx, align 8
+  store ptr %.sroa.53.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %.sroa.64.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   br label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit"
 
-"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit": ; preds = %32, %29, %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i", %8
+"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit": ; preds = %30, %27, %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i", %8
   ret void
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %12, align 8
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %10, align 8
   store ptr null, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1008)
-  %13 = load ptr, ptr %2, align 8, !alias.scope !1011, !nonnull !17, !noundef !17
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !1011
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i"
+  %11 = load ptr, ptr %2, align 8, !alias.scope !1011, !nonnull !17, !noundef !17
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !1011
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i"
 
-16:                                               ; preds = %11
+14:                                               ; preds = %9
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02c04db806869c64E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i" unwind label %17
+          to label %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i" unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1012)
-  %20 = load ptr, ptr %19, align 8, !alias.scope !1015, !noundef !17
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i", label %22
+  %18 = load ptr, ptr %17, align 8, !alias.scope !1015, !noundef !17
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i", label %20
 
-22:                                               ; preds = %17
-  %23 = atomicrmw sub ptr %20, i64 1 release, align 8, !noalias !1016
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %25, label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i"
+20:                                               ; preds = %15
+  %21 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !1016
+  %22 = icmp eq i64 %21, 1
+  br i1 %22, label %23, label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i"
 
-25:                                               ; preds = %22
+23:                                               ; preds = %20
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h61596d653ce50743E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
-          to label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i" unwind label %33
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h61596d653ce50743E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
+          to label %"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i" unwind label %31
 
-"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i": ; preds = %16, %11
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i": ; preds = %14, %9
+  %24 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1021)
-  %27 = load ptr, ptr %26, align 8, !alias.scope !1024, !noundef !17
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit", label %29
+  %25 = load ptr, ptr %24, align 8, !alias.scope !1024, !noundef !17
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit", label %27
 
-29:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i"
-  %30 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !1025
-  %31 = icmp eq i64 %30, 1
-  br i1 %31, label %32, label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit"
+27:                                               ; preds = %"_ZN4core3ptr351drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RF$mut$u20$core..fmt..Formatter$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h3e2ad538f8265c1aE.llvm.16377625001461121484.exit.i"
+  %28 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !1025
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit"
 
-32:                                               ; preds = %29
+30:                                               ; preds = %27
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h61596d653ce50743E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h61596d653ce50743E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
   br label %"_ZN4core3ptr182drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedBox..downcast$LT$aws_sdk_glue..operation..get_table.._get_table_output..GetTableOutput$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5d102979bbcd222bE.llvm.16377625001461121484.exit"
 
-33:                                               ; preds = %25
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %23
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
-"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i": ; preds = %25, %22, %17
-  resume { ptr, i32 } %18
+"_ZN4core3ptr337drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$aws_smithy_types..type_erasure..TypeErasedBox$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h01a521b580838ac4E.llvm.16377625001461121484.exit.i": ; preds = %23, %20, %15
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4152,30 +4176,38 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbb1711386907
   %5 = icmp eq ptr %4, null
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !17, !align !125, !noundef !17
-  br i1 %5, label %12, label %8
+  br i1 %5, label %10, label %8
 
 8:                                                ; preds = %3
+  %.sroa.01.0.copyload = load ptr, ptr %2, align 8, !nonnull !17, !noundef !17
+  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !nonnull !17, !noundef !17
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8, !nonnull !17, !noundef !17
+  %.sroa.64.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.64.0.copyload = load ptr, ptr %.sroa.64.0..sroa_idx, align 8, !nonnull !17, !noundef !17
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %9, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.01.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sroa.42.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load <2 x ptr>, ptr %.sroa.53.0..sroa_idx, align 8
-  store <2 x ptr> %10, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %11
+  store ptr %.sroa.53.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %.sroa.64.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %12
+9:                                                ; preds = %8, %10
   ret void
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %13, align 8
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
   store ptr null, ptr %0, align 8
   tail call void @"_ZN4core3ptr164drop_in_place$LT$aws_smithy_types..type_erasure..TypeErasedError..downcast$LT$aws_sdk_glue..operation..get_table..GetTableError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7eb30e5ec5b61db1E.llvm.16377625001461121484"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-  br label %11
+  br label %9
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

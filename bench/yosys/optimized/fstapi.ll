@@ -5228,170 +5228,170 @@ define void @fstWriterSetAttrEnd(ptr noundef %0) local_unnamed_addr #13 {
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
-  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %4, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %5, i64 3
+  %8 = icmp ne ptr %0, null
+  %9 = icmp ne ptr %1, null
+  %or.cond = and i1 %8, %9
+  %10 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %or.cond, %10
+  %11 = icmp ne ptr %5, null
+  %or.cond5 = and i1 %or.cond3, %11
   %12 = icmp ne i32 %2, 0
-  %13 = icmp eq <4 x ptr> %11, zeroinitializer
-  %14 = bitcast <4 x i1> %13 to i4
-  %15 = icmp eq i4 %14, 0
-  %op.rdx = and i1 %15, %12
-  br i1 %op.rdx, label %16, label %104
+  %or.cond7 = and i1 %12, %or.cond5
+  br i1 %or.cond7, label %13, label %101
 
-16:                                               ; preds = %6
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
-  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %2) #37
-  %19 = zext i32 %2 to i64
-  %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 4) #36
-  %21 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 4) #36
-  br label %22
+13:                                               ; preds = %6
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #38
+  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %2) #37
+  %16 = zext i32 %2 to i64
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #36
+  %18 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #36
+  br label %19
 
-22:                                               ; preds = %16, %22
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %22 ]
-  %.0117132 = phi i32 [ 0, %16 ], [ %29, %22 ]
-  %.0118131 = phi i32 [ 0, %16 ], [ %.1119, %22 ]
-  %23 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #38
-  %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
-  store i32 %26, ptr %27, align 4
-  %28 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %24, i32 noundef %26)
-  %29 = add nsw i32 %28, %.0117132
-  %30 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #38
-  %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
-  store i32 %33, ptr %34, align 4
-  %35 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %31, i32 noundef %33)
-  %36 = add nsw i32 %35, %.0118131
-  %37 = tail call i32 @llvm.usub.sat.i32(i32 %3, i32 %33)
-  %.1119 = add i32 %36, %37
+19:                                               ; preds = %13, %19
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %19 ]
+  %.0117132 = phi i32 [ 0, %13 ], [ %26, %19 ]
+  %.0118131 = phi i32 [ 0, %13 ], [ %.1119, %19 ]
+  %20 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #38
+  %23 = trunc i64 %22 to i32
+  %24 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  store i32 %23, ptr %24, align 4
+  %25 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %21, i32 noundef %23)
+  %26 = add nsw i32 %25, %.0117132
+  %27 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #38
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  store i32 %30, ptr %31, align 4
+  %32 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %28, i32 noundef %30)
+  %33 = add nsw i32 %32, %.0118131
+  %34 = tail call i32 @llvm.usub.sat.i32(i32 %3, i32 %30)
+  %.1119 = add i32 %33, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %38, label %22, !llvm.loop !35
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %16
+  br i1 %exitcond.not, label %35, label %19, !llvm.loop !35
 
-38:                                               ; preds = %22
-  %39 = trunc i64 %17 to i32
-  %40 = add nsw i32 %39, 1
-  %41 = add nsw i32 %40, %18
-  %42 = add nsw i32 %41, 1
+35:                                               ; preds = %19
+  %36 = trunc i64 %14 to i32
+  %37 = add nsw i32 %36, 1
+  %38 = add nsw i32 %37, %15
+  %39 = add nsw i32 %38, 1
   %factor = shl i32 %2, 1
-  %43 = add i32 %42, %factor
-  %44 = add i32 %43, %.1119
-  %45 = add i32 %44, %29
-  %46 = sext i32 %45 to i64
-  %47 = tail call noalias ptr @malloc(i64 noundef %46) #39
-  %sext = shl i64 %17, 32
-  %48 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 1 %1, i64 %48, i1 false)
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  store i8 32, ptr %49, align 1
-  %50 = sext i32 %40 to i64
-  %51 = getelementptr inbounds i8, ptr %47, i64 %50
-  %52 = sext i32 %18 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 16 %7, i64 %52, i1 false)
-  %53 = sext i32 %41 to i64
-  %54 = getelementptr inbounds i8, ptr %47, i64 %53
-  store i8 32, ptr %54, align 1
-  br label %66
+  %40 = add i32 %39, %factor
+  %41 = add i32 %40, %.1119
+  %42 = add i32 %41, %26
+  %43 = sext i32 %42 to i64
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #39
+  %sext = shl i64 %14, 32
+  %45 = ashr exact i64 %sext, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr nonnull align 1 %1, i64 %45, i1 false)
+  %46 = getelementptr inbounds i8, ptr %44, i64 %45
+  store i8 32, ptr %46, align 1
+  %47 = sext i32 %37 to i64
+  %48 = getelementptr inbounds i8, ptr %44, i64 %47
+  %49 = sext i32 %15 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 16 %7, i64 %49, i1 false)
+  %50 = sext i32 %38 to i64
+  %51 = getelementptr inbounds i8, ptr %44, i64 %50
+  store i8 32, ptr %51, align 1
+  br label %63
 
-.preheader:                                       ; preds = %66
+.preheader:                                       ; preds = %63
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.preheader.split.us ], [ 0, %.preheader ]
-  %.1115136.us = phi i32 [ %63, %.preheader.split.us ], [ %75, %.preheader ]
-  %55 = sext i32 %.1115136.us to i64
-  %56 = getelementptr inbounds i8, ptr %47, i64 %55
-  %57 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv153
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv153
-  %60 = load i32, ptr %59, align 4
-  %61 = tail call i32 @fstUtilityBinToEsc(ptr noundef %56, ptr noundef %58, i32 noundef %60)
-  %62 = add nsw i32 %61, %.1115136.us
-  %63 = add nsw i32 %62, 1
-  %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds i8, ptr %47, i64 %64
-  store i8 32, ptr %65, align 1
+  %.1115136.us = phi i32 [ %60, %.preheader.split.us ], [ %72, %.preheader ]
+  %52 = sext i32 %.1115136.us to i64
+  %53 = getelementptr inbounds i8, ptr %44, i64 %52
+  %54 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv153
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv153
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call i32 @fstUtilityBinToEsc(ptr noundef %53, ptr noundef %55, i32 noundef %57)
+  %59 = add nsw i32 %58, %.1115136.us
+  %60 = add nsw i32 %59, 1
+  %61 = sext i32 %59 to i64
+  %62 = getelementptr inbounds i8, ptr %44, i64 %61
+  store i8 32, ptr %62, align 1
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %19
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %16
   br i1 %exitcond157.not, label %.split.us, label %.preheader.split.us, !llvm.loop !36
 
-66:                                               ; preds = %38, %66
-  %indvars.iv143 = phi i64 [ 0, %38 ], [ %indvars.iv.next144, %66 ]
-  %.0114134 = phi i32 [ %42, %38 ], [ %75, %66 ]
-  %67 = sext i32 %.0114134 to i64
-  %68 = getelementptr inbounds i8, ptr %47, i64 %67
-  %69 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv143
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv143
-  %72 = load i32, ptr %71, align 4
-  %73 = tail call i32 @fstUtilityBinToEsc(ptr noundef %68, ptr noundef %70, i32 noundef %72)
-  %74 = add nsw i32 %73, %.0114134
-  %75 = add nsw i32 %74, 1
-  %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds i8, ptr %47, i64 %76
-  store i8 32, ptr %77, align 1
+63:                                               ; preds = %35, %63
+  %indvars.iv143 = phi i64 [ 0, %35 ], [ %indvars.iv.next144, %63 ]
+  %.0114134 = phi i32 [ %39, %35 ], [ %72, %63 ]
+  %64 = sext i32 %.0114134 to i64
+  %65 = getelementptr inbounds i8, ptr %44, i64 %64
+  %66 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv143
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv143
+  %69 = load i32, ptr %68, align 4
+  %70 = tail call i32 @fstUtilityBinToEsc(ptr noundef %65, ptr noundef %67, i32 noundef %69)
+  %71 = add nsw i32 %70, %.0114134
+  %72 = add nsw i32 %71, 1
+  %73 = sext i32 %71 to i64
+  %74 = getelementptr inbounds i8, ptr %44, i64 %73
+  store i8 32, ptr %74, align 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %19
-  br i1 %exitcond147.not, label %.preheader, label %66, !llvm.loop !37
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %16
+  br i1 %exitcond147.not, label %.preheader, label %63, !llvm.loop !37
 
-.preheader.split:                                 ; preds = %.preheader, %87
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %87 ], [ 0, %.preheader ]
-  %.1115136 = phi i32 [ %94, %87 ], [ %75, %.preheader ]
-  %78 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv148
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp ult i32 %79, %3
-  br i1 %80, label %81, label %87
+.preheader.split:                                 ; preds = %.preheader, %84
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %84 ], [ 0, %.preheader ]
+  %.1115136 = phi i32 [ %91, %84 ], [ %72, %.preheader ]
+  %75 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv148
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp ult i32 %76, %3
+  br i1 %77, label %78, label %84
 
-81:                                               ; preds = %.preheader.split
-  %82 = sext i32 %.1115136 to i64
-  %83 = getelementptr inbounds i8, ptr %47, i64 %82
-  %84 = sub nuw i32 %3, %79
-  %85 = zext i32 %84 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %83, i8 48, i64 %85, i1 false)
-  %86 = add i32 %84, %.1115136
-  br label %87
+78:                                               ; preds = %.preheader.split
+  %79 = sext i32 %.1115136 to i64
+  %80 = getelementptr inbounds i8, ptr %44, i64 %79
+  %81 = sub nuw i32 %3, %76
+  %82 = zext i32 %81 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %80, i8 48, i64 %82, i1 false)
+  %83 = add i32 %81, %.1115136
+  br label %84
 
-87:                                               ; preds = %.preheader.split, %81
-  %.2116 = phi i32 [ %86, %81 ], [ %.1115136, %.preheader.split ]
-  %88 = sext i32 %.2116 to i64
-  %89 = getelementptr inbounds i8, ptr %47, i64 %88
-  %90 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv148
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call i32 @fstUtilityBinToEsc(ptr noundef %89, ptr noundef %91, i32 noundef %79)
-  %93 = add nsw i32 %92, %.2116
-  %94 = add nsw i32 %93, 1
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i8, ptr %47, i64 %95
-  store i8 32, ptr %96, align 1
+84:                                               ; preds = %.preheader.split, %78
+  %.2116 = phi i32 [ %83, %78 ], [ %.1115136, %.preheader.split ]
+  %85 = sext i32 %.2116 to i64
+  %86 = getelementptr inbounds i8, ptr %44, i64 %85
+  %87 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv148
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call i32 @fstUtilityBinToEsc(ptr noundef %86, ptr noundef %88, i32 noundef %76)
+  %90 = add nsw i32 %89, %.2116
+  %91 = add nsw i32 %90, 1
+  %92 = sext i32 %90 to i64
+  %93 = getelementptr inbounds i8, ptr %44, i64 %92
+  store i8 32, ptr %93, align 1
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %19
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %16
   br i1 %exitcond152.not, label %.split.us, label %.preheader.split, !llvm.loop !36
 
-.split.us:                                        ; preds = %87, %.preheader.split.us
-  %.us-phi = phi i32 [ %63, %.preheader.split.us ], [ %94, %87 ]
-  %97 = sext i32 %.us-phi to i64
-  %98 = getelementptr i8, ptr %47, i64 %97
-  %99 = getelementptr i8, ptr %98, i64 -1
-  store i8 0, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %0, i64 336
-  %101 = load i32, ptr %100, align 8
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %100, align 8
-  %103 = zext i32 %102 to i64
-  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %47, i64 noundef %103)
-  tail call void @free(ptr noundef nonnull %47) #37
-  tail call void @free(ptr noundef nonnull %21) #37
-  tail call void @free(ptr noundef %20) #37
-  br label %104
+.split.us:                                        ; preds = %84, %.preheader.split.us
+  %.us-phi = phi i32 [ %60, %.preheader.split.us ], [ %91, %84 ]
+  %94 = sext i32 %.us-phi to i64
+  %95 = getelementptr i8, ptr %44, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 -1
+  store i8 0, ptr %96, align 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 336
+  %98 = load i32, ptr %97, align 8
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %97, align 8
+  %100 = zext i32 %99 to i64
+  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %44, i64 noundef %100)
+  tail call void @free(ptr noundef nonnull %44) #37
+  tail call void @free(ptr noundef nonnull %18) #37
+  tail call void @free(ptr noundef %17) #37
+  br label %101
 
-104:                                              ; preds = %.split.us, %6
-  %.0113 = phi i32 [ %102, %.split.us ], [ 0, %6 ]
+101:                                              ; preds = %.split.us, %6
+  %.0113 = phi i32 [ %99, %.split.us ], [ 0, %6 ]
   ret i32 %.0113
 }
 

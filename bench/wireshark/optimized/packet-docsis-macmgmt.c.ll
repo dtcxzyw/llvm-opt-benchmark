@@ -9365,7 +9365,7 @@ define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, pt
 
 .thread:                                          ; preds = %6, %14
   %20 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %5) #6
-  br label %50
+  br label %58
 
 21:                                               ; preds = %14
   %22 = shl nuw nsw i32 %3, 24
@@ -9374,47 +9374,59 @@ define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, pt
   %25 = lshr i32 %19, 4
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #6
   %27 = getelementptr inbounds i8, ptr %1, i64 208
-  %28 = getelementptr inbounds i8, ptr %1, i64 216
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 232
-  %31 = getelementptr inbounds i8, ptr %1, i64 240
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 212
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 216
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 112
-  %34 = getelementptr inbounds i8, ptr %1, i64 120
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %28, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 224
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 136
-  %38 = getelementptr inbounds i8, ptr %1, i64 144
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %31, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 248
-  store ptr null, ptr %40, align 8
-  %41 = icmp ne i32 %24, %25
-  %42 = zext i1 %41 to i32
-  %43 = load <2 x i32>, ptr %27, align 8
-  %44 = load <2 x i32>, ptr %33, align 8
-  store <2 x i32> %44, ptr %27, align 8
-  %45 = load <2 x i32>, ptr %30, align 8
-  %46 = load <2 x i32>, ptr %37, align 8
-  store <2 x i32> %46, ptr %30, align 8
-  %47 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @docsis_tlv_reassembly_table, ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1, i32 noundef %23, ptr noundef null, i32 noundef %24, i32 noundef %26, i32 noundef %42) #6
-  store <2 x i32> %43, ptr %27, align 8
-  store ptr %29, ptr %28, align 8
-  store ptr null, ptr %36, align 8
-  store <2 x i32> %45, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 232
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 236
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 240
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 112
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 116
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 120
+  %44 = load ptr, ptr %43, align 8
+  store i32 %40, ptr %27, align 8
+  store i32 %42, ptr %29, align 4
+  store ptr %44, ptr %31, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 224
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 136
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 140
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 144
+  %51 = load ptr, ptr %50, align 8
+  store i32 %47, ptr %33, align 8
+  store i32 %49, ptr %35, align 4
+  store ptr %51, ptr %37, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr null, ptr %52, align 8
+  %53 = icmp ne i32 %24, %25
+  %54 = zext i1 %53 to i32
+  %55 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @docsis_tlv_reassembly_table, ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1, i32 noundef %23, ptr noundef null, i32 noundef %24, i32 noundef %26, i32 noundef %54) #6
+  store i32 %28, ptr %27, align 8
+  store i32 %30, ptr %29, align 4
   store ptr %32, ptr %31, align 8
-  store ptr null, ptr %40, align 8
-  %.not38 = icmp eq ptr %47, null
-  br i1 %.not38, label %50, label %48
+  store ptr null, ptr %45, align 8
+  store i32 %34, ptr %33, align 8
+  store i32 %36, ptr %35, align 4
+  store ptr %38, ptr %37, align 8
+  store ptr null, ptr %52, align 8
+  %.not38 = icmp eq ptr %55, null
+  br i1 %.not38, label %58, label %56
 
-48:                                               ; preds = %21
-  %49 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1, ptr noundef nonnull @.str.1689, ptr noundef nonnull %47, ptr noundef nonnull @docsis_tlv_frag_items, ptr noundef null, ptr noundef %2) #6
-  br label %50
+56:                                               ; preds = %21
+  %57 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1, ptr noundef nonnull @.str.1689, ptr noundef nonnull %55, ptr noundef nonnull @docsis_tlv_frag_items, ptr noundef null, ptr noundef %2) #6
+  br label %58
 
-50:                                               ; preds = %21, %48, %.thread
-  %.0 = phi ptr [ %49, %48 ], [ %20, %.thread ], [ null, %21 ]
+58:                                               ; preds = %21, %56, %.thread
+  %.0 = phi ptr [ %57, %56 ], [ %20, %.thread ], [ null, %21 ]
   ret ptr %.0
 }
 

@@ -1640,14 +1640,24 @@ declare i32 @aiGetVersionRevision() local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef readonly %m, i32 noundef %components) local_unnamed_addr #1 align 2 {
 entry:
-  %defaultNormal = alloca %class.aiVector3t, align 8
-  %defaultUV = alloca %class.aiVector2t, align 8
-  %defaultColor = alloca %class.aiColor4t, align 16
-  store <2 x float> zeroinitializer, ptr %defaultNormal, align 8
+  %defaultNormal = alloca %class.aiVector3t, align 4
+  %defaultUV = alloca %class.aiVector2t, align 4
+  %defaultColor = alloca %class.aiColor4t, align 4
+  store float 0.000000e+00, ptr %defaultNormal, align 4
+  %y.i = getelementptr inbounds i8, ptr %defaultNormal, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   %z.i = getelementptr inbounds i8, ptr %defaultNormal, i64 8
-  store float 0.000000e+00, ptr %z.i, align 8
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %defaultUV, align 8
-  store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr %defaultColor, align 16
+  store float 0.000000e+00, ptr %z.i, align 4
+  store float -1.000000e+00, ptr %defaultUV, align 4
+  %y.i29 = getelementptr inbounds i8, ptr %defaultUV, i64 4
+  store float -1.000000e+00, ptr %y.i29, align 4
+  store float -1.000000e+00, ptr %defaultColor, align 4
+  %g.i = getelementptr inbounds i8, ptr %defaultColor, i64 4
+  store float -1.000000e+00, ptr %g.i, align 4
+  %b.i = getelementptr inbounds i8, ptr %defaultColor, i64 8
+  store float -1.000000e+00, ptr %b.i, align 4
+  %a.i = getelementptr inbounds i8, ptr %defaultColor, i64 12
+  store float -1.000000e+00, ptr %a.i, align 4
   %mNumVertices = getelementptr inbounds i8, ptr %m, i64 4
   %0 = load i32, ptr %mNumVertices, align 4
   %cmp55.not = icmp eq i32 %0, 0

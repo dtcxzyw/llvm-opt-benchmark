@@ -2661,51 +2661,67 @@ define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17ha832592f737e5683
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17h3857e38c7a3c8926E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !noundef !4
-  %4 = load <2 x ptr>, ptr %0, align 8
-  %5 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
-  store <2 x ptr> %4, ptr %5, align 8
-  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %3, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
-  %6 = insertvalue { ptr, ptr } poison, ptr %5, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr @anon.91c4c69a3e88e7a6d922f85400750664.18, 1
-  ret { ptr, ptr } %7
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !noundef !4
+  %7 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
+  store ptr %2, ptr %7, align 8
+  %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
+  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
+  %8 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr @anon.91c4c69a3e88e7a6d922f85400750664.18, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17hade2a806f70300d4E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !noundef !4
-  %4 = load <2 x ptr>, ptr %0, align 8
-  %5 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
-  store <2 x ptr> %4, ptr %5, align 8
-  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %3, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
-  %6 = insertvalue { ptr, ptr } poison, ptr %5, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr @anon.91c4c69a3e88e7a6d922f85400750664.15, 1
-  ret { ptr, ptr } %7
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !noundef !4
+  %7 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
+  store ptr %2, ptr %7, align 8
+  %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
+  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
+  %8 = insertvalue { ptr, ptr } poison, ptr %7, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr @anon.91c4c69a3e88e7a6d922f85400750664.15, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1307090eee84ecf3E"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, ptr }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %4, ptr %6, align 8
+  %3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8, !noundef !4
+  store ptr %3, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %7, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef9472696b36b4aE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, ptr }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %4, ptr %6, align 8
+  %3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8, !noundef !4
+  store ptr %3, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %7, ptr %9, align 8
   ret void
 }
 

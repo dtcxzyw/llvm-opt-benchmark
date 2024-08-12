@@ -2742,6 +2742,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -2751,17 +2752,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_0E9_M_invokeERKSt9_Any_dataOjOS3_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2999,6 +3001,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3008,17 +3011,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_1E9_M_invokeERKSt9_Any_dataOjOS3_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3038,6 +3042,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3047,17 +3052,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_2E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_2E9_M_invokeERKSt9_Any_dataOjOS3_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3077,6 +3083,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3086,17 +3093,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_3E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_3E9_M_invokeERKSt9_Any_dataOjOS3_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3116,6 +3124,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3125,17 +3134,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_4E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_4E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3609,6 +3619,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3618,17 +3629,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_5E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_5E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3648,6 +3660,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3657,17 +3670,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_6E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_6E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3687,6 +3701,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3696,17 +3711,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_7E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_7E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3726,6 +3742,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3735,17 +3752,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_8E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_8E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3765,6 +3783,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3774,17 +3793,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_9E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_9E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3804,6 +3824,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3813,17 +3834,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_10E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_10E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3843,6 +3865,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3852,17 +3875,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_11E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_11E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3882,6 +3906,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3891,17 +3916,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_12E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_12E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3921,6 +3947,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3930,17 +3957,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_13E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_13E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3960,6 +3988,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -3969,17 +3998,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_14E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_14E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -3999,6 +4029,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4008,17 +4039,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_15E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_15E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4038,6 +4070,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4047,17 +4080,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_16E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_16E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4077,6 +4111,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4086,17 +4121,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_17E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_17E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4116,6 +4152,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4125,17 +4162,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_18E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_18E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4155,6 +4193,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4164,17 +4203,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_19E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_19E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4194,6 +4234,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4203,17 +4244,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_20E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_20E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4233,6 +4275,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4242,17 +4285,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_21E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_21E9_M_invokeERKSt9_Any_dataOjOS3_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4272,6 +4316,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4281,17 +4326,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_22E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_22E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4311,6 +4357,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4320,17 +4367,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_23E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_23E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4350,6 +4398,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4359,17 +4408,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_24E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_24E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4635,6 +4685,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4644,17 +4695,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_25E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_25E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4674,6 +4726,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4683,17 +4736,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_26E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_26E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4713,6 +4767,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4722,17 +4777,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_27E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_27E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -4752,6 +4808,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -4761,17 +4818,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_28E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_28E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -5094,6 +5152,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -5103,17 +5162,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_29E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_29E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -5133,6 +5193,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -5142,17 +5203,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_30E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_30E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9181,6 +9243,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9190,17 +9253,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_31E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_31E9_M_invokeERKSt9_Any_dataOS1_SC_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9220,6 +9284,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9229,17 +9294,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_32E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_32E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9503,6 +9569,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9512,17 +9579,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_33E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_33E9_M_invokeERKSt9_Any_dataOS1_SC_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9542,6 +9610,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9551,17 +9620,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_34E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_34E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9581,6 +9651,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9590,17 +9661,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_35E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_35E9_M_invokeERKSt9_Any_dataOS1_SC_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9620,6 +9692,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9629,17 +9702,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_36E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_36E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9659,6 +9733,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9668,17 +9743,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_37E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_37E9_M_invokeERKSt9_Any_dataOS1_SC_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9698,6 +9774,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9707,17 +9784,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_38E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_38E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9737,6 +9815,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9746,17 +9825,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_39E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_39E9_M_invokeERKSt9_Any_dataOS1_SC_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_S1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9776,6 +9856,7 @@ entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   store i64 %__f.0.val, ptr %ref.tmp, align 8
@@ -9785,17 +9866,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   %_M_manager3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x ptr>, ptr %_M_manager3.i, align 8
-  %2 = load ptr, ptr %_M_manager3.i, align 8
+  %1 = load ptr, ptr %_M_manager3.i, align 8
+  store ptr %1, ptr %_M_manager.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_40E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i, align 8
-  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %2, ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_40E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker4.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFP4exprS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFP4exprS1_EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

@@ -1246,23 +1246,26 @@ declare void @_ZN13StackMapFrame10copy_stackEPKS_(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = alloca %class.ErrorContext, align 16
+  %5 = alloca %class.ErrorContext, align 8
+  store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 11, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 9, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 12
-  store <4 x i32> <i32 -1, i32 11, i32 9, i32 0>, ptr %5, align 16
+  store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %9, align 16
+  store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr inttoptr (i64 4294901761 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 32
-  store i32 9, ptr %11, align 16
+  store i32 9, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 36
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %14, align 16
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
@@ -1294,16 +1297,16 @@ _ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThr
 
 _ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit.thread: ; preds = %25, %4, %_ZNK13StackMapTable14match_stackmapEP13StackMapFrameibbP12ErrorContextP10JavaThread.exit
   %27 = load i32, ptr %1, align 8
-  store i32 %27, ptr %5, align 16
+  store i32 %27, ptr %5, align 8
   store i32 9, ptr %6, align 4
   store i32 9, ptr %7, align 8
   store i32 0, ptr %8, align 4
-  store ptr null, ptr %9, align 16
+  store ptr null, ptr %9, align 8
   store ptr inttoptr (i64 4294901761 to ptr), ptr %10, align 8
-  store i32 9, ptr %11, align 16
+  store i32 9, ptr %11, align 8
   store i32 0, ptr %12, align 4
   store ptr null, ptr %13, align 8
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %14, align 16
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %14, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %29, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.4, i32 noundef %2) #9

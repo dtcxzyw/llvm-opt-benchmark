@@ -1730,6 +1730,9 @@ if.end19:                                         ; preds = %if.else, %if.end
   %currentline = getelementptr inbounds i8, ptr %ar, i64 40
   %source40 = getelementptr inbounds i8, ptr %ar, i64 32
   %short_src41 = getelementptr inbounds i8, ptr %ar, i64 56
+  %arrayidx43 = getelementptr inbounds i8, ptr %ar, i64 57
+  %arrayidx45 = getelementptr inbounds i8, ptr %ar, i64 58
+  %arrayidx47 = getelementptr inbounds i8, ptr %ar, i64 59
   %linedefined48 = getelementptr inbounds i8, ptr %ar, i64 48
   %lastlinedefined49 = getelementptr inbounds i8, ptr %ar, i64 52
   %what50 = getelementptr inbounds i8, ptr %ar, i64 24
@@ -1791,7 +1794,10 @@ lor.end.thread:                                   ; preds = %if.then28, %lor.end
 
 if.else39:                                        ; preds = %if.then24
   store ptr @.str.20, ptr %source40, align 8
-  store <4 x i8> <i8 91, i8 67, i8 93, i8 0>, ptr %short_src41, align 8
+  store i8 91, ptr %short_src41, align 8
+  store i8 67, ptr %arrayidx43, align 1
+  store i8 93, ptr %arrayidx45, align 2
+  store i8 0, ptr %arrayidx47, align 1
   store i32 -1, ptr %linedefined48, align 8
   store i32 -1, ptr %lastlinedefined49, align 4
   store ptr @.str.21, ptr %what50, align 8

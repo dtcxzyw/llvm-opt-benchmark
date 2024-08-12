@@ -2360,11 +2360,14 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..in_plac
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !520
   %3 = load ptr, ptr %0, align 8, !alias.scope !520, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8, !alias.scope !520, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !alias.scope !520, !noundef !4
   store ptr %3, ptr %2, align 8, !noalias !520
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8, !alias.scope !520
-  %7 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %7, ptr %5, align 8, !noalias !520
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %7, ptr %8, align 8, !noalias !520
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %5, ptr %9, align 8, !noalias !520
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$ockam_abac..expr..Expr$GT$$GT$17hcc755fe6112a3b9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !520
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !520
   ret void

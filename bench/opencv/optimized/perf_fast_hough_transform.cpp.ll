@@ -696,7 +696,13 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_164gtest_srcSize_srcType_dstD
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %29, ptr %30, align 8, !noalias !41
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 4>, ptr %26, align 4, !noalias !41
+  store i32 0, ptr %26, align 4, !noalias !41
+  %.sroa.2.0..sroa_idx.i19.i = getelementptr inbounds i8, ptr %26, i64 4
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i19.i, align 4, !noalias !41
+  %.sroa.3.0..sroa_idx.i20.i = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 2, ptr %.sroa.3.0..sroa_idx.i20.i, align 4, !noalias !41
+  %.sroa.4.0..sroa_idx.i21.i = getelementptr inbounds i8, ptr %26, i64 12
+  store i32 4, ptr %.sroa.4.0..sroa_idx.i21.i, align 4, !noalias !41
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 16
   store i32 5, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !41
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %26, i64 20

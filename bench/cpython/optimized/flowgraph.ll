@@ -5366,7 +5366,7 @@ for.body.i27:                                     ; preds = %convert_pseudo_ops.
   br i1 %cmp.not.i29, label %for.body4.lr.ph.i, label %for.body.i27, !llvm.loop !95
 
 for.body4.i:                                      ; preds = %for.inc10.i, %for.body4.lr.ph.i
-  %b1.013.i = phi ptr [ %.pr, %for.body4.lr.ph.i ], [ %124, %for.inc10.i ]
+  %b1.013.i = phi ptr [ %.pr, %for.body4.lr.ph.i ], [ %126, %for.inc10.i ]
   %b_visited5.i = getelementptr inbounds i8, ptr %b1.013.i, i64 64
   %bf.load6.i = load i8, ptr %b_visited5.i, align 8
   %bf.set8.i = or i8 %bf.load6.i, 2
@@ -5430,10 +5430,12 @@ if.end28.i.i:                                     ; preds = %if.end19.i.i
   %b_label.i.i = getelementptr inbounds i8, ptr %112, i64 8
   %116 = load i32, ptr %b_label.i.i, align 8
   %i_loc.i.i = getelementptr i8, ptr %110, i64 -32
-  %117 = load <2 x i64>, ptr %i_loc.i.i, align 8
+  %117 = load i64, ptr %i_loc.i.i, align 8
+  %118 = getelementptr i8, ptr %110, i64 -24
+  %119 = load i64, ptr %118, align 8
   %b_iused.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
-  %118 = load i32, ptr %b_iused.i.i.i.i38, align 8
-  %add.i.i.i.i39 = add i32 %118, 1
+  %120 = load i32, ptr %b_iused.i.i.i.i38, align 8
+  %add.i.i.i.i39 = add i32 %120, 1
   %b_instr.i.i.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %b_ialloc.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i, i64 44
   %call.i.i.i.i42 = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i.i39, ptr noundef nonnull %b_instr.i.i.i.i40, ptr noundef nonnull %b_ialloc.i.i.i.i41, i32 noundef 16, i64 noundef 40) #8
@@ -5441,33 +5443,35 @@ if.end28.i.i:                                     ; preds = %if.end19.i.i
   br i1 %cmp.i.i.i.i43, label %basicblock_addop.exit.i.i, label %basicblock_next_instr.exit.i.i.i44
 
 basicblock_next_instr.exit.i.i.i44:               ; preds = %if.end28.i.i
-  %119 = load i32, ptr %b_iused.i.i.i.i38, align 8
-  %inc.i.i.i.i45 = add i32 %119, 1
+  %121 = load i32, ptr %b_iused.i.i.i.i38, align 8
+  %inc.i.i.i.i45 = add i32 %121, 1
   store i32 %inc.i.i.i.i45, ptr %b_iused.i.i.i.i38, align 8
-  %cmp.i25.i.i = icmp slt i32 %119, 0
+  %cmp.i25.i.i = icmp slt i32 %121, 0
   br i1 %cmp.i25.i.i, label %basicblock_addop.exit.i.i, label %if.end.i26.i.i
 
 if.end.i26.i.i:                                   ; preds = %basicblock_next_instr.exit.i.i.i44
-  %120 = load ptr, ptr %b_instr.i.i.i.i40, align 8
-  %idxprom.i27.i.i = zext nneg i32 %119 to i64
-  %arrayidx.i28.i.i = getelementptr %struct._PyCfgInstruction, ptr %120, i64 %idxprom.i27.i.i
+  %122 = load ptr, ptr %b_instr.i.i.i.i40, align 8
+  %idxprom.i27.i.i = zext nneg i32 %121 to i64
+  %arrayidx.i28.i.i = getelementptr %struct._PyCfgInstruction, ptr %122, i64 %idxprom.i27.i.i
   store i32 256, ptr %arrayidx.i28.i.i, align 8
   %i_oparg.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 4
   store i32 %116, ptr %i_oparg.i.i.i, align 4
   %i_target.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 24
   store ptr null, ptr %i_target.i.i.i, align 8
   %i_loc.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 8
-  store <2 x i64> %117, ptr %i_loc.i.i.i, align 8
+  store i64 %117, ptr %i_loc.i.i.i, align 8
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i28.i.i, i64 16
+  store i64 %119, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i, align 8
   br label %basicblock_addop.exit.i.i
 
 basicblock_addop.exit.i.i:                        ; preds = %if.end.i26.i.i, %basicblock_next_instr.exit.i.i.i44, %if.end28.i.i
-  %121 = load ptr, ptr %b_instr.i.i.i.i40, align 8
-  %i_target30.i.i = getelementptr inbounds i8, ptr %121, i64 24
+  %123 = load ptr, ptr %b_instr.i.i.i.i40, align 8
+  %i_target30.i.i = getelementptr inbounds i8, ptr %123, i64 24
   store ptr %112, ptr %i_target30.i.i, align 8
   store i32 %reversed_opcode.0.i.i, ptr %arrayidx.i.i.i32, align 8
   %b_next.i.i46 = getelementptr inbounds i8, ptr %b1.013.i, i64 32
-  %122 = load ptr, ptr %b_next.i.i46, align 8
-  store ptr %122, ptr %i_target.i.i, align 8
+  %124 = load ptr, ptr %b_next.i.i46, align 8
+  store ptr %124, ptr %i_target.i.i, align 8
   %bf.load33.i.i = load i8, ptr %b_visited5.i, align 8
   %bf.clear35.i.i = and i8 %bf.load33.i.i, 8
   %b_cold37.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
@@ -5475,16 +5479,16 @@ basicblock_addop.exit.i.i:                        ; preds = %if.end.i26.i.i, %ba
   %bf.clear39.i.i = and i8 %bf.load38.i.i, -9
   %bf.set.i.i = or disjoint i8 %bf.clear39.i.i, %bf.clear35.i.i
   store i8 %bf.set.i.i, ptr %b_cold37.i.i, align 8
-  %123 = load ptr, ptr %b_next.i.i46, align 8
+  %125 = load ptr, ptr %b_next.i.i46, align 8
   %b_next41.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
-  store ptr %123, ptr %b_next41.i.i, align 8
+  store ptr %125, ptr %b_next41.i.i, align 8
   store ptr %call.i.i.i, ptr %b_next.i.i46, align 8
   br label %for.inc10.i
 
 for.inc10.i:                                      ; preds = %basicblock_addop.exit.i.i, %if.end.i.i35, %lor.lhs.false2.i.i, %lor.lhs.false2.i.i, %lor.lhs.false2.i.i, %lor.lhs.false2.i.i, %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %basicblock_last_instr.exit.i.i, %for.body4.i
   %b_next11.i = getelementptr inbounds i8, ptr %b1.013.i, i64 32
-  %124 = load ptr, ptr %b_next11.i, align 8
-  %cmp3.not.i = icmp eq ptr %124, null
+  %126 = load ptr, ptr %b_next11.i, align 8
+  %cmp3.not.i = icmp eq ptr %126, null
   br i1 %cmp3.not.i, label %if.end8, label %for.body4.i, !llvm.loop !96
 
 normalize_jumps.exit:                             ; preds = %if.end19.i.i

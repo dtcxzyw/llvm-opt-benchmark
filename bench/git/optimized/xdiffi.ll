@@ -683,10 +683,13 @@ if.end20:                                         ; preds = %cond.end
   %ha38 = getelementptr inbounds i8, ptr %dd1, i64 8
   store ptr %6, ptr %ha38, align 8
   %rchg = getelementptr inbounds i8, ptr %xe, i64 104
+  %7 = load ptr, ptr %rchg, align 8
+  %rchg40 = getelementptr inbounds i8, ptr %dd1, i64 24
+  store ptr %7, ptr %rchg40, align 8
+  %rindex = getelementptr inbounds i8, ptr %xe, i64 112
+  %8 = load ptr, ptr %rindex, align 8
   %rindex42 = getelementptr inbounds i8, ptr %dd1, i64 16
-  %7 = load <2 x ptr>, ptr %rchg, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %rindex42, align 8
+  store ptr %8, ptr %rindex42, align 8
   %9 = load i64, ptr %nreff11, align 8
   store i64 %9, ptr %dd2, align 8
   %ha47 = getelementptr inbounds i8, ptr %xe, i64 264
@@ -694,10 +697,13 @@ if.end20:                                         ; preds = %cond.end
   %ha48 = getelementptr inbounds i8, ptr %dd2, i64 8
   store ptr %10, ptr %ha48, align 8
   %rchg50 = getelementptr inbounds i8, ptr %xe, i64 240
+  %11 = load ptr, ptr %rchg50, align 8
+  %rchg51 = getelementptr inbounds i8, ptr %dd2, i64 24
+  store ptr %11, ptr %rchg51, align 8
+  %rindex53 = getelementptr inbounds i8, ptr %xe, i64 248
+  %12 = load ptr, ptr %rindex53, align 8
   %rindex54 = getelementptr inbounds i8, ptr %dd2, i64 16
-  %11 = load <2 x ptr>, ptr %rchg50, align 8
-  %12 = shufflevector <2 x ptr> %11, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %12, ptr %rindex54, align 8
+  store ptr %12, ptr %rindex54, align 8
   %13 = load i64, ptr %xpp, align 8
   %14 = trunc i64 %13 to i32
   %conv = and i32 %14, 1

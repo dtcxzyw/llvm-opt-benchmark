@@ -143,9 +143,9 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv11cornerScor
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !7
 
-.preheader:                                       ; preds = %7, %44
-  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %44 ], [ 0, %7 ]
-  %.0181192 = phi i32 [ %.1182, %44 ], [ %2, %7 ]
+.preheader:                                       ; preds = %7, %55
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %55 ], [ 0, %7 ]
+  %.0181192 = phi i32 [ %.1182, %55 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv201, 1
   %17 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
@@ -159,101 +159,112 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv11cornerScor
   %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
   %.sroa.speculated146 = sext i16 %25 to i32
   %.not33 = icmp slt i32 %.0181192, %.sroa.speculated146
-  br i1 %.not33, label %26, label %44
+  br i1 %.not33, label %26, label %55
 
 26:                                               ; preds = %.preheader
   %27 = add nuw nsw i64 %indvars.iv201, 4
   %28 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %27
-  %29 = load <4 x i16>, ptr %28, align 4
-  %30 = add nuw nsw i64 %indvars.iv201, 8
-  %31 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %30
-  %32 = load i16, ptr %31, align 4
-  %33 = tail call i16 @llvm.vector.reduce.smin.v4i16(<4 x i16> %29)
-  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %32)
-  %35 = tail call i16 @llvm.smin.i16(i16 %34, i16 %25)
-  %36 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv201
+  %29 = load i16, ptr %28, align 4
+  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %25)
+  %31 = add nuw nsw i64 %indvars.iv201, 5
+  %32 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
+  %35 = add nuw nsw i64 %indvars.iv201, 6
+  %36 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %35
   %37 = load i16, ptr %36, align 4
-  %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %35)
-  %39 = sext i16 %38 to i32
-  %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181192, i32 %39)
-  %40 = add nuw nsw i64 %indvars.iv201, 9
-  %41 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2
-  %.v = tail call i16 @llvm.smin.i16(i16 %42, i16 %35)
-  %43 = sext i16 %.v to i32
-  %.sroa.speculated171 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated174, i32 %43)
-  br label %44
+  %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
+  %39 = add nuw nsw i64 %indvars.iv201, 7
+  %40 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = tail call i16 @llvm.smin.i16(i16 %41, i16 %38)
+  %43 = add nuw nsw i64 %indvars.iv201, 8
+  %44 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %43
+  %45 = load i16, ptr %44, align 4
+  %46 = tail call i16 @llvm.smin.i16(i16 %45, i16 %42)
+  %47 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv201
+  %48 = load i16, ptr %47, align 4
+  %49 = tail call i16 @llvm.smin.i16(i16 %48, i16 %46)
+  %50 = sext i16 %49 to i32
+  %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181192, i32 %50)
+  %51 = add nuw nsw i64 %indvars.iv201, 9
+  %52 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %51
+  %53 = load i16, ptr %52, align 2
+  %.v = tail call i16 @llvm.smin.i16(i16 %53, i16 %46)
+  %54 = sext i16 %.v to i32
+  %.sroa.speculated171 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated174, i32 %54)
+  br label %55
 
-44:                                               ; preds = %.preheader, %26
+55:                                               ; preds = %.preheader, %26
   %.1182 = phi i32 [ %.sroa.speculated171, %26 ], [ %.0181192, %.preheader ]
-  %45 = icmp ult i64 %indvars.iv201, 14
-  br i1 %45, label %.preheader, label %46, !llvm.loop !8
+  %56 = icmp ult i64 %indvars.iv201, 14
+  br i1 %56, label %.preheader, label %57, !llvm.loop !8
 
-46:                                               ; preds = %44
-  %47 = sub nsw i32 0, %.1182
+57:                                               ; preds = %55
+  %58 = sub nsw i32 0, %.1182
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert207 = getelementptr inbounds i8, ptr %4, i64 6
   %.pre208 = load i16, ptr %.phi.trans.insert207, align 2
-  br label %48
+  br label %59
 
-48:                                               ; preds = %46, %85
-  %49 = phi i16 [ %.pre208, %46 ], [ %62, %85 ]
-  %50 = phi i16 [ %.pre, %46 ], [ %58, %85 ]
-  %indvars.iv204 = phi i64 [ 0, %46 ], [ %indvars.iv.next205, %85 ]
-  %.0183197 = phi i32 [ %47, %46 ], [ %.1184, %85 ]
-  %51 = or disjoint i64 %indvars.iv204, 1
-  %52 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %51
-  %53 = load i16, ptr %52, align 2
+59:                                               ; preds = %57, %96
+  %60 = phi i16 [ %.pre208, %57 ], [ %73, %96 ]
+  %61 = phi i16 [ %.pre, %57 ], [ %69, %96 ]
+  %indvars.iv204 = phi i64 [ 0, %57 ], [ %indvars.iv.next205, %96 ]
+  %.0183197 = phi i32 [ %58, %57 ], [ %.1184, %96 ]
+  %62 = or disjoint i64 %indvars.iv204, 1
+  %63 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %62
+  %64 = load i16, ptr %63, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 2
-  %54 = tail call i16 @llvm.smax.i16(i16 %53, i16 %50)
-  %55 = tail call i16 @llvm.smax.i16(i16 %54, i16 %49)
-  %56 = add nuw nsw i64 %indvars.iv204, 4
-  %57 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %56
-  %58 = load i16, ptr %57, align 4
-  %59 = tail call i16 @llvm.smax.i16(i16 %55, i16 %58)
-  %60 = add nuw nsw i64 %indvars.iv204, 5
-  %61 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %60
-  %62 = load i16, ptr %61, align 2
-  %63 = tail call i16 @llvm.smax.i16(i16 %59, i16 %62)
-  %.sroa.speculated70 = sext i16 %63 to i32
+  %65 = tail call i16 @llvm.smax.i16(i16 %64, i16 %61)
+  %66 = tail call i16 @llvm.smax.i16(i16 %65, i16 %60)
+  %67 = add nuw nsw i64 %indvars.iv204, 4
+  %68 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %67
+  %69 = load i16, ptr %68, align 4
+  %70 = tail call i16 @llvm.smax.i16(i16 %66, i16 %69)
+  %71 = add nuw nsw i64 %indvars.iv204, 5
+  %72 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %71
+  %73 = load i16, ptr %72, align 2
+  %74 = tail call i16 @llvm.smax.i16(i16 %70, i16 %73)
+  %.sroa.speculated70 = sext i16 %74 to i32
   %.not = icmp sgt i32 %.0183197, %.sroa.speculated70
-  br i1 %.not, label %64, label %85
+  br i1 %.not, label %75, label %96
 
-64:                                               ; preds = %48
-  %65 = add nuw nsw i64 %indvars.iv204, 6
-  %66 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %65
-  %67 = load i16, ptr %66, align 4
-  %68 = tail call i16 @llvm.smax.i16(i16 %63, i16 %67)
-  %69 = add nuw nsw i64 %indvars.iv204, 7
-  %70 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2
-  %72 = tail call i16 @llvm.smax.i16(i16 %68, i16 %71)
-  %73 = add nuw nsw i64 %indvars.iv204, 8
-  %74 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 4
-  %76 = tail call i16 @llvm.smax.i16(i16 %72, i16 %75)
-  %77 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv204
+75:                                               ; preds = %59
+  %76 = add nuw nsw i64 %indvars.iv204, 6
+  %77 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %76
   %78 = load i16, ptr %77, align 4
-  %79 = tail call i16 @llvm.smax.i16(i16 %76, i16 %78)
-  %80 = sext i16 %79 to i32
-  %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %.0183197, i32 %80)
-  %81 = add nuw nsw i64 %indvars.iv204, 9
-  %82 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %81
-  %83 = load i16, ptr %82, align 2
-  %.v199 = tail call i16 @llvm.smax.i16(i16 %76, i16 %83)
-  %84 = sext i16 %.v199 to i32
-  %.sroa.speculated102 = tail call i32 @llvm.smin.i32(i32 %84, i32 %.sroa.speculated105)
-  br label %85
+  %79 = tail call i16 @llvm.smax.i16(i16 %74, i16 %78)
+  %80 = add nuw nsw i64 %indvars.iv204, 7
+  %81 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %80
+  %82 = load i16, ptr %81, align 2
+  %83 = tail call i16 @llvm.smax.i16(i16 %79, i16 %82)
+  %84 = add nuw nsw i64 %indvars.iv204, 8
+  %85 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %84
+  %86 = load i16, ptr %85, align 4
+  %87 = tail call i16 @llvm.smax.i16(i16 %83, i16 %86)
+  %88 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv204
+  %89 = load i16, ptr %88, align 4
+  %90 = tail call i16 @llvm.smax.i16(i16 %87, i16 %89)
+  %91 = sext i16 %90 to i32
+  %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %.0183197, i32 %91)
+  %92 = add nuw nsw i64 %indvars.iv204, 9
+  %93 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %92
+  %94 = load i16, ptr %93, align 2
+  %.v199 = tail call i16 @llvm.smax.i16(i16 %87, i16 %94)
+  %95 = sext i16 %.v199 to i32
+  %.sroa.speculated102 = tail call i32 @llvm.smin.i32(i32 %95, i32 %.sroa.speculated105)
+  br label %96
 
-85:                                               ; preds = %48, %64
-  %.1184 = phi i32 [ %.sroa.speculated102, %64 ], [ %.0183197, %48 ]
-  %86 = icmp ult i64 %indvars.iv204, 14
-  br i1 %86, label %48, label %87, !llvm.loop !9
+96:                                               ; preds = %59, %75
+  %.1184 = phi i32 [ %.sroa.speculated102, %75 ], [ %.0183197, %59 ]
+  %97 = icmp ult i64 %indvars.iv204, 14
+  br i1 %97, label %59, label %98, !llvm.loop !9
 
-87:                                               ; preds = %85
-  %88 = xor i32 %.1184, -1
-  ret i32 %88
+98:                                               ; preds = %96
+  %99 = xor i32 %.1184, -1
+  ret i32 %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -278,9 +289,9 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv11cornerScor
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !10
 
-.preheader:                                       ; preds = %7, %36
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %36 ], [ 0, %7 ]
-  %.0147158 = phi i32 [ %.1148, %36 ], [ %2, %7 ]
+.preheader:                                       ; preds = %7, %47
+  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %47 ], [ 0, %7 ]
+  %.0147158 = phi i32 [ %.1148, %47 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv167, 1
   %17 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
@@ -290,89 +301,100 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv11cornerScor
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated120 = sext i16 %21 to i32
   %.not29 = icmp slt i32 %.0147158, %.sroa.speculated120
-  br i1 %.not29, label %22, label %36
+  br i1 %.not29, label %22, label %47
 
 22:                                               ; preds = %.preheader
   %23 = add nuw nsw i64 %indvars.iv167, 3
   %24 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %23
-  %25 = load <4 x i16>, ptr %24, align 2
-  %26 = tail call i16 @llvm.vector.reduce.smin.v4i16(<4 x i16> %25)
-  %27 = tail call i16 @llvm.smin.i16(i16 %26, i16 %21)
-  %28 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv167
+  %25 = load i16, ptr %24, align 2
+  %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
+  %27 = add nuw nsw i64 %indvars.iv167, 4
+  %28 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %27
   %29 = load i16, ptr %28, align 4
-  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %27)
-  %31 = sext i16 %30 to i32
-  %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147158, i32 %31)
-  %32 = add nuw nsw i64 %indvars.iv167, 7
-  %33 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %.v = tail call i16 @llvm.smin.i16(i16 %34, i16 %27)
-  %35 = sext i16 %.v to i32
-  %.sroa.speculated137 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated140, i32 %35)
-  br label %36
+  %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
+  %31 = add nuw nsw i64 %indvars.iv167, 5
+  %32 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
+  %35 = add nuw nsw i64 %indvars.iv167, 6
+  %36 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %35
+  %37 = load i16, ptr %36, align 4
+  %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
+  %39 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv167
+  %40 = load i16, ptr %39, align 4
+  %41 = tail call i16 @llvm.smin.i16(i16 %40, i16 %38)
+  %42 = sext i16 %41 to i32
+  %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147158, i32 %42)
+  %43 = add nuw nsw i64 %indvars.iv167, 7
+  %44 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %43
+  %45 = load i16, ptr %44, align 2
+  %.v = tail call i16 @llvm.smin.i16(i16 %45, i16 %38)
+  %46 = sext i16 %.v to i32
+  %.sroa.speculated137 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated140, i32 %46)
+  br label %47
 
-36:                                               ; preds = %.preheader, %22
+47:                                               ; preds = %.preheader, %22
   %.1148 = phi i32 [ %.sroa.speculated137, %22 ], [ %.0147158, %.preheader ]
-  %37 = icmp ult i64 %indvars.iv167, 10
-  br i1 %37, label %.preheader, label %38, !llvm.loop !11
+  %48 = icmp ult i64 %indvars.iv167, 10
+  br i1 %48, label %.preheader, label %49, !llvm.loop !11
 
-38:                                               ; preds = %36
-  %39 = sub nsw i32 0, %.1148
+49:                                               ; preds = %47
+  %50 = sub nsw i32 0, %.1148
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
-  br label %40
+  br label %51
 
-40:                                               ; preds = %38, %71
-  %41 = phi i16 [ %.pre, %38 ], [ %52, %71 ]
-  %indvars.iv170 = phi i64 [ 0, %38 ], [ %indvars.iv.next171, %71 ]
-  %.0149163 = phi i32 [ %39, %38 ], [ %.1150, %71 ]
-  %42 = or disjoint i64 %indvars.iv170, 1
-  %43 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %42
-  %44 = load i16, ptr %43, align 2
+51:                                               ; preds = %49, %82
+  %52 = phi i16 [ %.pre, %49 ], [ %63, %82 ]
+  %indvars.iv170 = phi i64 [ 0, %49 ], [ %indvars.iv.next171, %82 ]
+  %.0149163 = phi i32 [ %50, %49 ], [ %.1150, %82 ]
+  %53 = or disjoint i64 %indvars.iv170, 1
+  %54 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %53
+  %55 = load i16, ptr %54, align 2
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 2
-  %45 = tail call i16 @llvm.smax.i16(i16 %44, i16 %41)
-  %46 = add nuw nsw i64 %indvars.iv170, 3
-  %47 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = tail call i16 @llvm.smax.i16(i16 %45, i16 %48)
-  %50 = add nuw nsw i64 %indvars.iv170, 4
-  %51 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %50
-  %52 = load i16, ptr %51, align 4
-  %53 = tail call i16 @llvm.smax.i16(i16 %49, i16 %52)
-  %.sroa.speculated57 = sext i16 %53 to i32
+  %56 = tail call i16 @llvm.smax.i16(i16 %55, i16 %52)
+  %57 = add nuw nsw i64 %indvars.iv170, 3
+  %58 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %57
+  %59 = load i16, ptr %58, align 2
+  %60 = tail call i16 @llvm.smax.i16(i16 %56, i16 %59)
+  %61 = add nuw nsw i64 %indvars.iv170, 4
+  %62 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %61
+  %63 = load i16, ptr %62, align 4
+  %64 = tail call i16 @llvm.smax.i16(i16 %60, i16 %63)
+  %.sroa.speculated57 = sext i16 %64 to i32
   %.not = icmp sgt i32 %.0149163, %.sroa.speculated57
-  br i1 %.not, label %54, label %71
+  br i1 %.not, label %65, label %82
 
-54:                                               ; preds = %40
-  %55 = add nuw nsw i64 %indvars.iv170, 5
-  %56 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = tail call i16 @llvm.smax.i16(i16 %53, i16 %57)
-  %59 = add nuw nsw i64 %indvars.iv170, 6
-  %60 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %59
-  %61 = load i16, ptr %60, align 4
-  %62 = tail call i16 @llvm.smax.i16(i16 %58, i16 %61)
-  %63 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv170
-  %64 = load i16, ptr %63, align 4
-  %65 = tail call i16 @llvm.smax.i16(i16 %62, i16 %64)
-  %66 = sext i16 %65 to i32
-  %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %.0149163, i32 %66)
-  %67 = add nuw nsw i64 %indvars.iv170, 7
-  %68 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 2
-  %.v165 = tail call i16 @llvm.smax.i16(i16 %62, i16 %69)
-  %70 = sext i16 %.v165 to i32
-  %.sroa.speculated82 = tail call i32 @llvm.smin.i32(i32 %70, i32 %.sroa.speculated85)
-  br label %71
+65:                                               ; preds = %51
+  %66 = add nuw nsw i64 %indvars.iv170, 5
+  %67 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %66
+  %68 = load i16, ptr %67, align 2
+  %69 = tail call i16 @llvm.smax.i16(i16 %64, i16 %68)
+  %70 = add nuw nsw i64 %indvars.iv170, 6
+  %71 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %70
+  %72 = load i16, ptr %71, align 4
+  %73 = tail call i16 @llvm.smax.i16(i16 %69, i16 %72)
+  %74 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv170
+  %75 = load i16, ptr %74, align 4
+  %76 = tail call i16 @llvm.smax.i16(i16 %73, i16 %75)
+  %77 = sext i16 %76 to i32
+  %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %.0149163, i32 %77)
+  %78 = add nuw nsw i64 %indvars.iv170, 7
+  %79 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %78
+  %80 = load i16, ptr %79, align 2
+  %.v165 = tail call i16 @llvm.smax.i16(i16 %73, i16 %80)
+  %81 = sext i16 %.v165 to i32
+  %.sroa.speculated82 = tail call i32 @llvm.smin.i32(i32 %81, i32 %.sroa.speculated85)
+  br label %82
 
-71:                                               ; preds = %40, %54
-  %.1150 = phi i32 [ %.sroa.speculated82, %54 ], [ %.0149163, %40 ]
-  %72 = icmp ult i64 %indvars.iv170, 10
-  br i1 %72, label %40, label %73, !llvm.loop !12
+82:                                               ; preds = %51, %65
+  %.1150 = phi i32 [ %.sroa.speculated82, %65 ], [ %.0149163, %51 ]
+  %83 = icmp ult i64 %indvars.iv170, 10
+  br i1 %83, label %51, label %84, !llvm.loop !12
 
-73:                                               ; preds = %71
-  %74 = xor i32 %.1150, -1
-  ret i32 %74
+84:                                               ; preds = %82
+  %85 = xor i32 %.1150, -1
+  ret i32 %85
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -499,9 +521,6 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.vector.reduce.smin.v4i16(<4 x i16>) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

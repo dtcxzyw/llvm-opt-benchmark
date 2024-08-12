@@ -1096,19 +1096,23 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, ptr nocapture noundef writeonly %cso) local_unnamed_addr #2 {
 entry:
-  %ipph = alloca %struct.ip_pseudo_header, align 8
+  %ipph = alloca %struct.ip_pseudo_header, align 4
   %ip_src = getelementptr inbounds i8, ptr %iphdr, i64 12
-  %0 = load <2 x i32>, ptr %ip_src, align 4
-  store <2 x i32> %0, ptr %ipph, align 8
-  %1 = tail call noundef i16 @llvm.bswap.i16(i16 %csl)
+  %0 = load i32, ptr %ip_src, align 4
+  store i32 %0, ptr %ipph, align 4
+  %ip_dst = getelementptr inbounds i8, ptr %iphdr, i64 16
+  %1 = load i32, ptr %ip_dst, align 4
+  %ip_dst2 = getelementptr inbounds i8, ptr %ipph, i64 4
+  store i32 %1, ptr %ip_dst2, align 4
+  %2 = tail call noundef i16 @llvm.bswap.i16(i16 %csl)
   %ip_payload = getelementptr inbounds i8, ptr %ipph, i64 10
-  store i16 %1, ptr %ip_payload, align 2
+  store i16 %2, ptr %ip_payload, align 2
   %ip_p = getelementptr inbounds i8, ptr %iphdr, i64 9
-  %2 = load i8, ptr %ip_p, align 1
+  %3 = load i8, ptr %ip_p, align 1
   %ip_proto = getelementptr inbounds i8, ptr %ipph, i64 9
-  store i8 %2, ptr %ip_proto, align 1
+  store i8 %3, ptr %ip_proto, align 1
   %zeros = getelementptr inbounds i8, ptr %ipph, i64 8
-  store i8 0, ptr %zeros, align 8
+  store i8 0, ptr %zeros, align 4
   store i32 12, ptr %cso, align 4
   %call.i = call i32 @net_checksum_add_cont(i32 noundef 12, ptr noundef nonnull %ipph, i32 noundef 0) #8
   ret i32 %call.i

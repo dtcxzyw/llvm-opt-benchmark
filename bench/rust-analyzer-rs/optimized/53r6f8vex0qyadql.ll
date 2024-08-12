@@ -1366,6 +1366,7 @@ define hidden void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(p
 .lr.ph:                                           ; preds = %2
   %.sroa.531.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.632.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1554,20 +1555,23 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %72 = getelementptr inbounds i8, ptr %69, i64 56
   %73 = load i64, ptr %72, align 8, !noundef !4
   %74 = getelementptr inbounds i8, ptr %69, i64 64
-  %75 = load <2 x ptr>, ptr %74, align 8
+  %75 = load ptr, ptr %74, align 8, !nonnull !4, !align !283, !noundef !4
+  %76 = getelementptr inbounds i8, ptr %69, i64 72
+  %77 = load ptr, ptr %76, align 8, !nonnull !4, !align !275, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %.not48 = icmp eq i64 %73, 0
-  br i1 %.not48, label %76, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
+  br i1 %.not48, label %78, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
-76:                                               ; preds = %68
+78:                                               ; preds = %68
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.186cf3a5ff61d7b819e386c7c9eb325f.23, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.186cf3a5ff61d7b819e386c7c9eb325f.24) #30
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %68
   store ptr %71, ptr %5, align 8
   store i64 %73, ptr %.sroa.531.0..sroa_idx, align 8
-  store <2 x ptr> %75, ptr %.sroa.632.0..sroa_idx, align 8
+  store ptr %75, ptr %.sroa.632.0..sroa_idx, align 8
+  store ptr %77, ptr %.sroa.7.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.833.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.186cf3a5ff61d7b819e386c7c9eb325f.26, ptr %4, align 8

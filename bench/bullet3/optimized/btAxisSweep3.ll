@@ -288,27 +288,33 @@ if.then14:                                        ; preds = %if.end
 invoke.cont40:                                    ; preds = %if.then14, %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_worldAabbMax, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i64 16, i1 false)
+  %2 = load float, ptr %m_worldAabbMax, align 4
+  %3 = load float, ptr %m_worldAabbMin, align 4
+  %sub.i = fsub float %2, %3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 32
+  %4 = load float, ptr %arrayidx5.i, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = load float, ptr %arrayidx7.i, align 8
+  %sub8.i = fsub float %4, %5
   %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 36
-  %2 = load float, ptr %arrayidx11.i, align 4
+  %6 = load float, ptr %arrayidx11.i, align 4
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 20
-  %3 = load float, ptr %arrayidx13.i, align 4
-  %sub14.i = fsub float %2, %3
-  %4 = load i16, ptr %m_handleSentinel, align 2
-  %conv34 = uitofp i16 %4 to float
-  %5 = load <2 x float>, ptr %m_worldAabbMax, align 4
-  %6 = load <2 x float>, ptr %m_worldAabbMin, align 4
-  %7 = fsub <2 x float> %5, %6
-  %8 = insertelement <2 x float> poison, float %conv34, i64 0
-  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
-  %10 = fdiv <2 x float> %9, %7
+  %7 = load float, ptr %arrayidx13.i, align 4
+  %sub14.i = fsub float %6, %7
+  %8 = load i16, ptr %m_handleSentinel, align 2
+  %conv34 = uitofp i16 %8 to float
+  %div.i = fdiv float %conv34, %sub.i
+  %div8.i = fdiv float %conv34, %sub8.i
   %div14.i = fdiv float %conv34, %sub14.i
+  %retval.sroa.0.0.vec.insert.i28 = insertelement <2 x float> poison, float %div.i, i64 0
+  %retval.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i28, float %div8.i, i64 1
   %retval.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %div14.i, i64 0
-  store <2 x float> %10, ptr %m_quantize, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i29, ptr %m_quantize, align 4
   %ref.tmp.sroa.2.0.m_quantize43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 52
   store <2 x float> %retval.sroa.3.12.vec.insert.i30, ptr %ref.tmp.sroa.2.0.m_quantize43.sroa_idx, align 4
   %conv44 = zext i16 %add to i64
-  %11 = mul nuw nsw i64 %conv44, 72
-  %call.i33 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %11, i32 noundef 16)
+  %9 = mul nuw nsw i64 %conv44, 72
+  %call.i33 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
   %isempty = icmp eq i16 %add, 0
   br i1 %isempty, label %arrayctor.cont.thread, label %new.ctorloop
 
@@ -348,11 +354,11 @@ arrayctor.cont:                                   ; preds = %invoke.cont48
 
 for.body:                                         ; preds = %arrayctor.cont, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %arrayctor.cont ]
-  %12 = load ptr, ptr %m_pHandles, align 8
+  %10 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %12, i64 %indvars.iv, i32 1
-  %13 = trunc nuw i64 %indvars.iv.next to i16
-  store i16 %13, ptr %m_minEdges.i, align 4
+  %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %10, i64 %indvars.iv, i32 1
+  %11 = trunc nuw i64 %indvars.iv.next to i16
+  store i16 %11, ptr %m_minEdges.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv44
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 
@@ -362,9 +368,9 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %arrayctor.cont.thread, %for.end.loopexit, %arrayctor.cont
   %m_pHandles53 = phi ptr [ %m_pHandles, %for.end.loopexit ], [ %m_pHandles, %arrayctor.cont ], [ %m_pHandles48, %arrayctor.cont.thread ]
-  %14 = phi ptr [ %.pre, %for.end.loopexit ], [ %call.i33, %arrayctor.cont ], [ %call.i33, %arrayctor.cont.thread ]
-  %15 = getelementptr %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %14, i64 %conv44
-  %m_minEdges.i34 = getelementptr i8, ptr %15, i64 -20
+  %12 = phi ptr [ %.pre, %for.end.loopexit ], [ %call.i33, %arrayctor.cont ], [ %call.i33, %arrayctor.cont.thread ]
+  %13 = getelementptr %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %12, i64 %conv44
+  %m_minEdges.i34 = getelementptr i8, ptr %13, i64 -20
   store i16 0, ptr %m_minEdges.i34, align 4
   %mul67 = shl nuw nsw i64 %conv44, 3
   %m_pEdgesRawPtr = getelementptr inbounds i8, ptr %this, i64 104
@@ -383,32 +389,32 @@ for.body65:                                       ; preds = %for.end, %for.body6
   br i1 %exitcond43.not, label %for.end82, label %for.body65, !llvm.loop !7
 
 for.end82:                                        ; preds = %for.body65
-  %16 = load ptr, ptr %m_pHandles53, align 8
-  store ptr null, ptr %16, align 8
+  %14 = load ptr, ptr %m_pHandles53, align 8
+  store ptr null, ptr %14, align 8
   br label %for.body87
 
 for.body87:                                       ; preds = %for.end82, %for.body87
   %indvars.iv44 = phi i64 [ 0, %for.end82 ], [ %indvars.iv.next45, %for.body87 ]
-  %17 = load ptr, ptr %m_pHandles53, align 8
-  %m_minEdges = getelementptr inbounds i8, ptr %17, i64 52
+  %15 = load ptr, ptr %m_pHandles53, align 8
+  %m_minEdges = getelementptr inbounds i8, ptr %15, i64 52
   %arrayidx91 = getelementptr inbounds [3 x i16], ptr %m_minEdges, i64 0, i64 %indvars.iv44
   store i16 0, ptr %arrayidx91, align 2
-  %18 = load ptr, ptr %m_pHandles53, align 8
-  %m_maxEdges = getelementptr inbounds i8, ptr %18, i64 58
+  %16 = load ptr, ptr %m_pHandles53, align 8
+  %m_maxEdges = getelementptr inbounds i8, ptr %16, i64 58
   %arrayidx95 = getelementptr inbounds [3 x i16], ptr %m_maxEdges, i64 0, i64 %indvars.iv44
   store i16 1, ptr %arrayidx95, align 2
   %arrayidx98 = getelementptr inbounds [3 x ptr], ptr %m_pEdges, i64 0, i64 %indvars.iv44
-  %19 = load ptr, ptr %arrayidx98, align 8
-  store i16 0, ptr %19, align 2
-  %20 = load ptr, ptr %arrayidx98, align 8
-  %m_handle = getelementptr inbounds i8, ptr %20, i64 2
+  %17 = load ptr, ptr %arrayidx98, align 8
+  store i16 0, ptr %17, align 2
+  %18 = load ptr, ptr %arrayidx98, align 8
+  %m_handle = getelementptr inbounds i8, ptr %18, i64 2
   store i16 0, ptr %m_handle, align 2
-  %21 = load i16, ptr %m_handleSentinel, align 2
-  %22 = load ptr, ptr %arrayidx98, align 8
-  %arrayidx108 = getelementptr inbounds i8, ptr %22, i64 4
-  store i16 %21, ptr %arrayidx108, align 2
-  %23 = load ptr, ptr %arrayidx98, align 8
-  %m_handle114 = getelementptr inbounds i8, ptr %23, i64 6
+  %19 = load i16, ptr %m_handleSentinel, align 2
+  %20 = load ptr, ptr %arrayidx98, align 8
+  %arrayidx108 = getelementptr inbounds i8, ptr %20, i64 4
+  store i16 %19, ptr %arrayidx108, align 2
+  %21 = load ptr, ptr %arrayidx98, align 8
+  %m_handle114 = getelementptr inbounds i8, ptr %21, i64 6
   store i16 0, ptr %m_handle114, align 2
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3
@@ -483,27 +489,33 @@ if.then12:                                        ; preds = %if.end
 invoke.cont37:                                    ; preds = %if.then12, %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldAabbMax, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i64 16, i1 false)
+  %2 = load float, ptr %m_worldAabbMax, align 8
+  %3 = load float, ptr %m_worldAabbMin, align 8
+  %sub.i = fsub float %2, %3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 36
+  %4 = load float, ptr %arrayidx5.i, align 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 20
+  %5 = load float, ptr %arrayidx7.i, align 4
+  %sub8.i = fsub float %4, %5
   %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load float, ptr %arrayidx11.i, align 8
+  %6 = load float, ptr %arrayidx11.i, align 8
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load float, ptr %arrayidx13.i, align 8
-  %sub14.i = fsub float %2, %3
-  %4 = load i32, ptr %m_handleSentinel, align 4
-  %conv = uitofp i32 %4 to float
-  %5 = load <2 x float>, ptr %m_worldAabbMax, align 8
-  %6 = load <2 x float>, ptr %m_worldAabbMin, align 8
-  %7 = fsub <2 x float> %5, %6
-  %8 = insertelement <2 x float> poison, float %conv, i64 0
-  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
-  %10 = fdiv <2 x float> %9, %7
+  %7 = load float, ptr %arrayidx13.i, align 8
+  %sub14.i = fsub float %6, %7
+  %8 = load i32, ptr %m_handleSentinel, align 4
+  %conv = uitofp i32 %8 to float
+  %div.i = fdiv float %conv, %sub.i
+  %div8.i = fdiv float %conv, %sub8.i
   %div14.i = fdiv float %conv, %sub14.i
+  %retval.sroa.0.0.vec.insert.i28 = insertelement <2 x float> poison, float %div.i, i64 0
+  %retval.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i28, float %div8.i, i64 1
   %retval.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %div14.i, i64 0
-  store <2 x float> %10, ptr %m_quantize, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i29, ptr %m_quantize, align 8
   %ref.tmp.sroa.2.0.m_quantize40.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i30, ptr %ref.tmp.sroa.2.0.m_quantize40.sroa_idx, align 8
   %conv41 = zext i32 %add to i64
-  %11 = mul nuw nsw i64 %conv41, 88
-  %call.i33 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %11, i32 noundef 16)
+  %9 = mul nuw nsw i64 %conv41, 88
+  %call.i33 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %9, i32 noundef 16)
   %isempty = icmp eq i32 %add, 0
   br i1 %isempty, label %arrayctor.cont.thread, label %new.ctorloop
 
@@ -543,11 +555,11 @@ arrayctor.cont:                                   ; preds = %invoke.cont45
 
 for.body:                                         ; preds = %arrayctor.cont, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %arrayctor.cont ]
-  %12 = load ptr, ptr %m_pHandles, align 8
+  %10 = load ptr, ptr %m_pHandles, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %12, i64 %indvars.iv, i32 1
-  %13 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %13, ptr %m_minEdges.i, align 4
+  %m_minEdges.i = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %10, i64 %indvars.iv, i32 1
+  %11 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %11, ptr %m_minEdges.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv41
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
 
@@ -557,9 +569,9 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %arrayctor.cont.thread, %for.end.loopexit, %arrayctor.cont
   %m_pHandles53 = phi ptr [ %m_pHandles, %for.end.loopexit ], [ %m_pHandles, %arrayctor.cont ], [ %m_pHandles48, %arrayctor.cont.thread ]
-  %14 = phi ptr [ %.pre, %for.end.loopexit ], [ %call.i33, %arrayctor.cont ], [ %call.i33, %arrayctor.cont.thread ]
+  %12 = phi ptr [ %.pre, %for.end.loopexit ], [ %call.i33, %arrayctor.cont ], [ %call.i33, %arrayctor.cont.thread ]
   %idxprom51 = zext i32 %userMaxHandles to i64
-  %m_minEdges.i34 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %14, i64 %idxprom51, i32 1
+  %m_minEdges.i34 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %12, i64 %idxprom51, i32 1
   store i32 0, ptr %m_minEdges.i34, align 4
   %mul59 = shl nuw nsw i64 %conv41, 4
   %m_pEdgesRawPtr = getelementptr inbounds i8, ptr %this, i64 112
@@ -578,32 +590,32 @@ for.body57:                                       ; preds = %for.end, %for.body5
   br i1 %exitcond43.not, label %for.end73, label %for.body57, !llvm.loop !10
 
 for.end73:                                        ; preds = %for.body57
-  %15 = load ptr, ptr %m_pHandles53, align 8
-  store ptr null, ptr %15, align 8
+  %13 = load ptr, ptr %m_pHandles53, align 8
+  store ptr null, ptr %13, align 8
   br label %for.body78
 
 for.body78:                                       ; preds = %for.end73, %for.body78
   %indvars.iv44 = phi i64 [ 0, %for.end73 ], [ %indvars.iv.next45, %for.body78 ]
-  %16 = load ptr, ptr %m_pHandles53, align 8
-  %m_minEdges = getelementptr inbounds i8, ptr %16, i64 52
+  %14 = load ptr, ptr %m_pHandles53, align 8
+  %m_minEdges = getelementptr inbounds i8, ptr %14, i64 52
   %arrayidx82 = getelementptr inbounds [3 x i32], ptr %m_minEdges, i64 0, i64 %indvars.iv44
   store i32 0, ptr %arrayidx82, align 4
-  %17 = load ptr, ptr %m_pHandles53, align 8
-  %m_maxEdges = getelementptr inbounds i8, ptr %17, i64 64
+  %15 = load ptr, ptr %m_pHandles53, align 8
+  %m_maxEdges = getelementptr inbounds i8, ptr %15, i64 64
   %arrayidx86 = getelementptr inbounds [3 x i32], ptr %m_maxEdges, i64 0, i64 %indvars.iv44
   store i32 1, ptr %arrayidx86, align 4
   %arrayidx89 = getelementptr inbounds [3 x ptr], ptr %m_pEdges, i64 0, i64 %indvars.iv44
-  %18 = load ptr, ptr %arrayidx89, align 8
-  store i32 0, ptr %18, align 4
-  %19 = load ptr, ptr %arrayidx89, align 8
-  %m_handle = getelementptr inbounds i8, ptr %19, i64 4
+  %16 = load ptr, ptr %arrayidx89, align 8
+  store i32 0, ptr %16, align 4
+  %17 = load ptr, ptr %arrayidx89, align 8
+  %m_handle = getelementptr inbounds i8, ptr %17, i64 4
   store i32 0, ptr %m_handle, align 4
-  %20 = load i32, ptr %m_handleSentinel, align 4
-  %21 = load ptr, ptr %arrayidx89, align 8
-  %arrayidx99 = getelementptr inbounds i8, ptr %21, i64 8
-  store i32 %20, ptr %arrayidx99, align 4
-  %22 = load ptr, ptr %arrayidx89, align 8
-  %m_handle105 = getelementptr inbounds i8, ptr %22, i64 12
+  %18 = load i32, ptr %m_handleSentinel, align 4
+  %19 = load ptr, ptr %arrayidx89, align 8
+  %arrayidx99 = getelementptr inbounds i8, ptr %19, i64 8
+  store i32 %18, ptr %arrayidx99, align 4
+  %20 = load ptr, ptr %arrayidx89, align 8
+  %m_handle105 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 0, ptr %m_handle105, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3

@@ -7,30 +7,35 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbbbbf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6) unnamed_addr #0 align 2 {
+  %8 = zext i1 %3 to i8
+  %9 = zext i1 %5 to i8
   store ptr %1, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = fcmp oge float %6, 0.000000e+00
-  %12 = and i1 %11, %4
-  %13 = insertelement <4 x i1> poison, i1 %12, i64 0
-  %14 = insertelement <4 x i1> %13, i1 %11, i64 1
-  %15 = insertelement <4 x i1> %14, i1 %5, i64 2
-  %16 = insertelement <4 x i1> %15, i1 %3, i64 3
-  %17 = zext <4 x i1> %16 to <4 x i8>
-  store <4 x i8> %17, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %6, ptr %18, align 4
-  br i1 %2, label %19, label %21
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = fcmp oge float %6, 0.000000e+00
+  %14 = and i1 %13, %4
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 17
+  %17 = zext i1 %13 to i8
+  store i8 %17, ptr %16, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 18
+  store i8 %9, ptr %18, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 19
+  store i8 %8, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %6, ptr %20, align 4
+  br i1 %2, label %21, label %23
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 0, ptr %20, align 1
-  br label %21
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 0, ptr %22, align 1
+  br label %23
 
-21:                                               ; preds = %19, %7
+23:                                               ; preds = %21, %7
   ret void
 }
 

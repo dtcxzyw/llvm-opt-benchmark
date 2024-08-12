@@ -2762,16 +2762,19 @@ define internal range(i32 0, 2) i32 @Scl_CommandMaxsize(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca %struct.SC_SizePars_, align 16
+  %4 = alloca %struct.SC_SizePars_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   %6 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 0, ptr %6, align 8
+  store i32 0, ptr %6, align 4
+  store i32 1000, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 50, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 1, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 12
-  store <4 x i32> <i32 1000, i32 50, i32 1, i32 10>, ptr %4, align 16
+  store i32 10, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 1000, ptr %10, align 16
+  store i32 1000, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %4, i64 20
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   %13 = getelementptr inbounds i8, ptr %4, i64 28
@@ -2785,11 +2788,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %20 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 0, ptr %18, align 4
   tail call void (...) @Extra_UtilGetoptReset() #10
-  %.promoted = load i32, ptr %17, align 16
+  %.promoted = load i32, ptr %17, align 4
   %.promoted428 = load i32, ptr %15, align 4
-  %.promoted440 = load i32, ptr %14, align 16
+  %.promoted440 = load i32, ptr %14, align 4
   %.promoted452 = load i32, ptr %13, align 4
-  %.promoted464 = load i32, ptr %12, align 8
+  %.promoted464 = load i32, ptr %12, align 4
   %.promoted477 = load i32, ptr %11, align 4
   br label %21
 
@@ -2841,11 +2844,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not133, label %47, label %46
 
 46:                                               ; preds = %44
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.131)
   br label %195
@@ -2855,7 +2858,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %49 = getelementptr inbounds ptr, ptr %2, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @atoi(ptr nocapture noundef %50) #12
-  store i32 %51, ptr %4, align 16
+  store i32 %51, ptr %4, align 4
   %52 = add nsw i32 %45, 1
   store i32 %52, ptr @globalUtilOptind, align 4
   %53 = icmp slt i32 %51, 0
@@ -2867,11 +2870,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not132, label %57, label %56
 
 56:                                               ; preds = %54
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.132)
   br label %195
@@ -2893,11 +2896,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not131, label %67, label %66
 
 66:                                               ; preds = %64
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.133)
   br label %195
@@ -2907,7 +2910,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %69 = getelementptr inbounds ptr, ptr %2, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @atoi(ptr nocapture noundef %70) #12
-  store i32 %71, ptr %8, align 8
+  store i32 %71, ptr %8, align 4
   %72 = add nsw i32 %65, 1
   store i32 %72, ptr @globalUtilOptind, align 4
   %73 = icmp slt i32 %71, 0
@@ -2919,11 +2922,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not130, label %77, label %76
 
 76:                                               ; preds = %74
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.134)
   br label %195
@@ -2945,11 +2948,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not129, label %87, label %86
 
 86:                                               ; preds = %84
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.113)
   br label %195
@@ -2959,7 +2962,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %89 = getelementptr inbounds ptr, ptr %2, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @atoi(ptr nocapture noundef %90) #12
-  store i32 %91, ptr %10, align 16
+  store i32 %91, ptr %10, align 4
   %92 = add nsw i32 %85, 1
   store i32 %92, ptr @globalUtilOptind, align 4
   %93 = icmp slt i32 %91, 0
@@ -2971,11 +2974,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not128, label %97, label %96
 
 96:                                               ; preds = %94
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.135)
   br label %195
@@ -2996,11 +2999,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not127, label %107, label %106
 
 106:                                              ; preds = %104
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.111)
   br label %195
@@ -3020,11 +3023,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not126, label %116, label %115
 
 115:                                              ; preds = %113
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.136)
   br label %195
@@ -3045,11 +3048,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not125, label %126, label %125
 
 125:                                              ; preds = %123
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.90)
   br label %195
@@ -3070,11 +3073,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br i1 %.not124, label %136, label %135
 
 135:                                              ; preds = %133
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.137)
   br label %195
@@ -3134,16 +3137,16 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   br label %.backedge
 
 153:                                              ; preds = %21
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %26, ptr %15, align 4
-  store i32 %25, ptr %14, align 16
+  store i32 %25, ptr %14, align 4
   store i32 %24, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %22, ptr %11, align 4
-  store i32 %42, ptr %20, align 8
+  store i32 %42, ptr %20, align 4
   store i32 %41, ptr %19, align 4
   store i32 %40, ptr %18, align 4
-  store i32 %39, ptr %16, align 8
+  store i32 %39, ptr %16, align 4
   %154 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #10
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %160
@@ -3213,11 +3216,11 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %192 = phi i32 [ %35, %47 ], [ %35, %57 ], [ %71, %67 ], [ %35, %77 ], [ %35, %87 ], [ %35, %97 ], [ %35, %116 ], [ %35, %126 ], [ %35, %136 ], [ %35, %21 ]
   %193 = phi i32 [ %36, %47 ], [ %61, %57 ], [ %36, %67 ], [ %36, %77 ], [ %36, %87 ], [ %36, %97 ], [ %36, %116 ], [ %36, %126 ], [ %36, %136 ], [ %36, %21 ]
   %194 = phi i32 [ %51, %47 ], [ %37, %57 ], [ %37, %67 ], [ %37, %77 ], [ %37, %87 ], [ %37, %97 ], [ %37, %116 ], [ %37, %126 ], [ %37, %136 ], [ %37, %21 ]
-  store i32 %27, ptr %17, align 16
+  store i32 %27, ptr %17, align 4
   store i32 %185, ptr %15, align 4
-  store i32 %184, ptr %14, align 16
+  store i32 %184, ptr %14, align 4
   store i32 %183, ptr %13, align 4
-  store i32 %23, ptr %12, align 8
+  store i32 %23, ptr %12, align 4
   store i32 %182, ptr %11, align 4
   br label %195
 

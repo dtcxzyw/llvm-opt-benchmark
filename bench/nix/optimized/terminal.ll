@@ -1555,10 +1555,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix16updateWindowSizeEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %1 = alloca %struct.winsize, align 4
+  %1 = alloca %struct.winsize, align 2
   %2 = call i32 (i32, i64, ...) @ioctl(i32 noundef 2, i64 noundef 21523, ptr noundef nonnull %1) #14
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %9
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %0
   %5 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3nixL10windowSizeE) #14, !noalias !9
@@ -1570,12 +1570,15 @@ define void @_ZN3nix16updateWindowSizeEv() local_unnamed_addr #0 personality ptr
   unreachable
 
 _ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit:  ; preds = %4
-  %7 = load <2 x i16>, ptr %1, align 4
-  store <2 x i16> %7, ptr getelementptr inbounds (i8, ptr @_ZN3nixL10windowSizeE, i64 40), align 8
-  %8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL10windowSizeE) #14
-  br label %9
+  %7 = load i16, ptr %1, align 2
+  store i16 %7, ptr getelementptr inbounds (i8, ptr @_ZN3nixL10windowSizeE, i64 40), align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = load i16, ptr %8, align 2
+  store i16 %9, ptr getelementptr inbounds (i8, ptr @_ZN3nixL10windowSizeE, i64 42), align 2
+  %10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL10windowSizeE) #14
+  br label %11
 
-9:                                                ; preds = %_ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit, %0
+11:                                               ; preds = %_ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit, %0
   ret void
 }
 

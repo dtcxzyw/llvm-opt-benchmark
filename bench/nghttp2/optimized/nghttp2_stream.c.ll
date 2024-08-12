@@ -33,6 +33,7 @@ entry:
   %state = getelementptr inbounds i8, ptr %stream, i64 204
   store i32 %initial_state, ptr %state, align 4
   %shut_flags = getelementptr inbounds i8, ptr %stream, i64 217
+  store i8 0, ptr %shut_flags, align 1
   %stream_user_data3 = getelementptr inbounds i8, ptr %stream, i64 144
   store ptr %stream_user_data, ptr %stream_user_data3, align 8
   %item = getelementptr inbounds i8, ptr %stream, i64 152
@@ -47,6 +48,8 @@ entry:
   store i32 0, ptr %consumed_size, align 4
   %recv_reduction = getelementptr inbounds i8, ptr %stream, i64 184
   store i32 0, ptr %recv_reduction, align 8
+  %window_update_queued = getelementptr inbounds i8, ptr %stream, i64 219
+  store i8 0, ptr %window_update_queued, align 1
   %dep_prev = getelementptr inbounds i8, ptr %stream, i64 96
   %weight4 = getelementptr inbounds i8, ptr %stream, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dep_prev, i8 0, i64 48, i1 false)
@@ -61,6 +64,8 @@ entry:
   store i64 0, ptr %recv_content_length, align 8
   %status_code = getelementptr inbounds i8, ptr %stream, i64 208
   store i16 -1, ptr %status_code, align 8
+  %queued = getelementptr inbounds i8, ptr %stream, i64 218
+  store i8 0, ptr %queued, align 2
   %descendant_last_cycle = getelementptr inbounds i8, ptr %stream, i64 64
   %pending_penalty = getelementptr inbounds i8, ptr %stream, i64 196
   store i32 0, ptr %pending_penalty, align 4
@@ -69,7 +74,8 @@ entry:
   %http_extpri = getelementptr inbounds i8, ptr %stream, i64 221
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %descendant_last_cycle, i8 0, i64 32, i1 false)
   store i8 3, ptr %http_extpri, align 1
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 3>, ptr %shut_flags, align 1
+  %extpri = getelementptr inbounds i8, ptr %stream, i64 220
+  store i8 3, ptr %extpri, align 4
   ret void
 }
 

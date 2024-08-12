@@ -1092,9 +1092,12 @@ if.then4:                                         ; preds = %if.else
   store i32 1, ptr %recursion_headroom, align 8
   %2 = load ptr, ptr @PyExc_RecursionError, align 8
   %call = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %where) #15
-  %3 = load <2 x i32>, ptr %c_recursion_remaining2, align 4
-  %4 = add <2 x i32> %3, <i32 1, i32 -1>
-  store <2 x i32> %4, ptr %c_recursion_remaining2, align 4
+  %3 = load i32, ptr %recursion_headroom, align 8
+  %dec = add i32 %3, -1
+  store i32 %dec, ptr %recursion_headroom, align 8
+  %4 = load i32, ptr %c_recursion_remaining2, align 4
+  %inc8 = add i32 %4, 1
+  store i32 %inc8, ptr %c_recursion_remaining2, align 4
   br label %return
 
 return:                                           ; preds = %if.then, %if.else, %if.then4
@@ -5887,9 +5890,12 @@ _Py_EnterRecursiveCallTstate.exit7657:            ; preds = %if.else.i.i7651
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %465 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i7654 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %465, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %466 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %467 = add <2 x i32> %466, <i32 1, i32 -1>
-  store <2 x i32> %467, ptr %c_recursion_remaining, align 4
+  %466 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i7655 = add i32 %466, -1
+  store i32 %dec.i3.i7655, ptr %recursion_headroom.i.i7748, align 8
+  %467 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i7656 = add i32 %467, 1
+  store i32 %inc8.i.i7656, ptr %c_recursion_remaining, align 4
   br label %error
 
 if.end2476:                                       ; preds = %if.end2470, %if.else.i.i7651, %if.then.i.i7647
@@ -7512,9 +7518,12 @@ _Py_EnterRecursiveCallTstate.exit7741:            ; preds = %if.else.i.i7735
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %706 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i7738 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %706, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %707 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %708 = add <2 x i32> %707, <i32 1, i32 -1>
-  store <2 x i32> %708, ptr %c_recursion_remaining, align 4
+  %707 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i7739 = add i32 %707, -1
+  store i32 %dec.i3.i7739, ptr %recursion_headroom.i.i7748, align 8
+  %708 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i7740 = add i32 %708, 1
+  store i32 %inc8.i.i7740, ptr %c_recursion_remaining, align 4
   br label %error
 
 if.end3712:                                       ; preds = %if.end3706, %if.else.i.i7735, %if.then.i.i7730
@@ -7662,9 +7671,12 @@ _Py_EnterRecursiveCallTstate.exit7761:            ; preds = %if.else.i.i7755
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %730 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i7758 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %730, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %731 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %732 = add <2 x i32> %731, <i32 1, i32 -1>
-  store <2 x i32> %732, ptr %c_recursion_remaining, align 4
+  %731 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i7759 = add i32 %731, -1
+  store i32 %dec.i3.i7759, ptr %recursion_headroom.i.i7748, align 8
+  %732 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i7760 = add i32 %732, 1
+  store i32 %inc8.i.i7760, ptr %c_recursion_remaining, align 4
   br label %error
 
 if.end3833:                                       ; preds = %if.end3827, %if.else.i.i7755, %if.then.i.i7750
@@ -27329,9 +27341,12 @@ _Py_EnterRecursiveCallTstate.exit9157:            ; preds = %if.else.i.i9151
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %3713 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i9154 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %3713, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %3714 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %3715 = add <2 x i32> %3714, <i32 1, i32 -1>
-  store <2 x i32> %3715, ptr %c_recursion_remaining, align 4
+  %3714 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i9155 = add i32 %3714, -1
+  store i32 %dec.i3.i9155, ptr %recursion_headroom.i.i7748, align 8
+  %3715 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i9156 = add i32 %3715, 1
+  store i32 %inc8.i.i9156, ptr %c_recursion_remaining, align 4
   br label %error_tier_two
 
 if.end17939:                                      ; preds = %if.end17933, %if.else.i.i9151, %if.then.i.i9146
@@ -27894,9 +27909,12 @@ _Py_EnterRecursiveCallTstate.exit9201:            ; preds = %if.else.i.i9195
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %3812 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i9198 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %3812, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %3813 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %3814 = add <2 x i32> %3813, <i32 1, i32 -1>
-  store <2 x i32> %3814, ptr %c_recursion_remaining, align 4
+  %3813 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i9199 = add i32 %3813, -1
+  store i32 %dec.i3.i9199, ptr %recursion_headroom.i.i7748, align 8
+  %3814 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i9200 = add i32 %3814, 1
+  store i32 %inc8.i.i9200, ptr %c_recursion_remaining, align 4
   br label %error_tier_two
 
 if.end18461:                                      ; preds = %if.end18455, %if.else.i.i9195, %if.then.i.i9190
@@ -28174,9 +28192,12 @@ _Py_EnterRecursiveCallTstate.exit9221:            ; preds = %if.else.i.i9215
   store i32 1, ptr %recursion_headroom.i.i7748, align 8
   %3860 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i9218 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %tstate, ptr noundef %3860, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #15
-  %3861 = load <2 x i32>, ptr %c_recursion_remaining, align 4
-  %3862 = add <2 x i32> %3861, <i32 1, i32 -1>
-  store <2 x i32> %3862, ptr %c_recursion_remaining, align 4
+  %3861 = load i32, ptr %recursion_headroom.i.i7748, align 8
+  %dec.i3.i9219 = add i32 %3861, -1
+  store i32 %dec.i3.i9219, ptr %recursion_headroom.i.i7748, align 8
+  %3862 = load i32, ptr %c_recursion_remaining, align 4
+  %inc8.i.i9220 = add i32 %3862, 1
+  store i32 %inc8.i.i9220, ptr %c_recursion_remaining, align 4
   br label %error_tier_two
 
 if.end18709:                                      ; preds = %if.end18703, %if.else.i.i9215, %if.then.i.i9210
@@ -32507,9 +32528,12 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
   store i32 1, ptr %recursion_headroom.i.i.i, align 8
   %4 = load ptr, ptr @PyExc_RecursionError, align 8
   %call.i.i.i = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef %where) #15
-  %5 = load <2 x i32>, ptr %c_recursion_remaining.i.i.i, align 4
-  %6 = add <2 x i32> %5, <i32 1, i32 -1>
-  store <2 x i32> %6, ptr %c_recursion_remaining.i.i.i, align 4
+  %5 = load i32, ptr %recursion_headroom.i.i.i, align 8
+  %dec.i3.i.i = add i32 %5, -1
+  store i32 %dec.i3.i.i, ptr %recursion_headroom.i.i.i, align 8
+  %6 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
+  %inc8.i.i.i = add i32 %6, 1
+  store i32 %inc8.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   br label %_Py_EnterRecursiveCall.exit
 
 _Py_EnterRecursiveCall.exit:                      ; preds = %entry, %if.then.i.i.i, %if.else.i.i.i, %if.then4.i.i.i

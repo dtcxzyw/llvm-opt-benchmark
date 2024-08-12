@@ -1257,7 +1257,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Scalar_", align 8
   %14 = alloca %"class.cv::Mat", align 8
-  %15 = alloca %"class.cv::Scalar_", align 16
+  %15 = alloca %"class.cv::Scalar_", align 8
   %16 = alloca %"class.cv::Mat", align 8
   %17 = alloca %"class.cv::Scalar_", align 8
   %18 = alloca %"class.cv::_InputOutputArray", align 8
@@ -1305,7 +1305,9 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.sroa.376.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.376.0..sroa_idx, align 8
+  store double 2.550000e+02, ptr %.sroa.376.0..sroa_idx, align 8
+  %.sroa.477.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  store double 0.000000e+00, ptr %.sroa.477.0..sroa_idx, align 8
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.2.0.insert.shift.i21 = shl nuw i64 %.sroa.2.0.insert.ext.i20, 32
@@ -1378,9 +1380,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit37:                 ; preds = %.noexc32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #20
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %0)
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr %15, align 16
+  store double 0.000000e+00, ptr %15, align 8
+  %.sroa.271.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  store double 2.550000e+02, ptr %.sroa.271.0..sroa_idx, align 8
   %.sroa.372.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.372.0..sroa_idx, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.372.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)

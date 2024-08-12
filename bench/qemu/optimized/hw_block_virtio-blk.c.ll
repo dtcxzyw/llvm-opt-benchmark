@@ -3214,16 +3214,20 @@ sw.epilog:                                        ; preds = %if.end61, %sw.bb68
   %div7357 = lshr i32 %25, 9
   %blkcfg.72.blkcfg.72.blkcfg.72.zoned71.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 72
   store i32 %div7357, ptr %blkcfg.72.blkcfg.72.blkcfg.72.zoned71.sroa_idx, align 8
+  %max_active_zones76 = getelementptr inbounds i8, ptr %call3, i64 16572
+  %26 = load i32, ptr %max_active_zones76, align 4
+  %blkcfg.80.blkcfg.80.blkcfg.80.max_active_zones.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 80
+  store i32 %26, ptr %blkcfg.80.blkcfg.80.blkcfg.80.max_active_zones.sroa_idx, align 8
   %max_open_zones79 = getelementptr inbounds i8, ptr %call3, i64 16568
-  %26 = load <2 x i32>, ptr %max_open_zones79, align 8
+  %27 = load i32, ptr %max_open_zones79, align 8
   %blkcfg.76.blkcfg.76.blkcfg.76.max_open_zones.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 76
-  store <2 x i32> %26, ptr %blkcfg.76.blkcfg.76.blkcfg.76.max_open_zones.sroa_idx, align 4
+  store i32 %27, ptr %blkcfg.76.blkcfg.76.blkcfg.76.max_open_zones.sroa_idx, align 4
   %blkcfg.88.blkcfg.88.blkcfg.88.write_granularity.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 88
   store i32 %1, ptr %blkcfg.88.blkcfg.88.blkcfg.88.write_granularity.sroa_idx, align 8
   %max_append_sectors83 = getelementptr inbounds i8, ptr %call3, i64 16564
-  %27 = load i32, ptr %max_append_sectors83, align 4
+  %28 = load i32, ptr %max_append_sectors83, align 4
   %blkcfg.84.blkcfg.84.blkcfg.84.max_append_sectors.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 84
-  store i32 %27, ptr %blkcfg.84.blkcfg.84.blkcfg.84.max_append_sectors.sroa_idx, align 4
+  store i32 %28, ptr %blkcfg.84.blkcfg.84.blkcfg.84.max_append_sectors.sroa_idx, align 4
   br label %if.end87
 
 if.else84:                                        ; preds = %if.end61
@@ -3233,8 +3237,8 @@ if.else84:                                        ; preds = %if.end61
 
 if.end87:                                         ; preds = %if.else84, %sw.epilog
   %config_size = getelementptr inbounds i8, ptr %call.i, i64 704
-  %28 = load i64, ptr %config_size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 8 %blkcfg, i64 %28, i1 false)
+  %29 = load i64, ptr %config_size, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 8 %blkcfg, i64 %29, i1 false)
   ret void
 }
 

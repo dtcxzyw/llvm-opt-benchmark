@@ -923,25 +923,29 @@ define i32 @pmix20_bfrop_pack_timeval(ptr nocapture noundef readnone %0, ptr nou
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %9
+  br label %10
 
-8:                                                ; preds = %9
+9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
 
-9:                                                ; preds = %.lr.ph, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds %struct.timeval, ptr %2, i64 %indvars.iv
-  %11 = load <2 x i64>, ptr %10, align 8
-  store <2 x i64> %11, ptr %6, align 16
-  %12 = call i32 @pmix20_bfrop_pack_int64(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2, i16 zeroext poison)
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %8, label %._crit_edge
+10:                                               ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %11 = getelementptr inbounds %struct.timeval, ptr %2, i64 %indvars.iv
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %6, align 16
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %8, align 8
+  %15 = call i32 @pmix20_bfrop_pack_int64(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2, i16 zeroext poison)
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %9, label %._crit_edge
 
-._crit_edge:                                      ; preds = %9, %8, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %12, %9 ]
+._crit_edge:                                      ; preds = %10, %9, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ %15, %10 ]
   ret i32 %.0
 }
 

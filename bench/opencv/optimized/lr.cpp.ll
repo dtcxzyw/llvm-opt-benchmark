@@ -242,16 +242,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN2cv2ml18LogisticRegression6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_2ml22LogisticRegressionImplEED2Ev.exit:
   %1 = alloca %"class.std::allocator.15", align 1
-  %2 = alloca %"class.std::shared_ptr.1", align 16
+  %2 = alloca %"class.std::shared_ptr.1", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1), !noalias !4
-  store ptr null, ptr %2, align 16, !alias.scope !7, !noalias !4
+  store ptr null, ptr %2, align 8, !alias.scope !7, !noalias !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv2ml22LogisticRegressionImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull %1), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1), !noalias !4
-  %4 = load <2 x ptr>, ptr %2, align 16, !noalias !4
+  %4 = load ptr, ptr %2, align 8, !noalias !4
+  %5 = load ptr, ptr %3, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  store <2 x ptr> %4, ptr %0, align 8
+  store ptr %4, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
@@ -5749,47 +5752,53 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml22LogisticRegressio
   %8 = getelementptr inbounds i8, ptr %3, i64 48
   store double 1.000000e-03, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 32
-  store <4 x i32> <i32 1000, i32 1, i32 0, i32 1>, ptr %9, align 8
+  store i32 1000, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 1, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 1, ptr %12, align 4
   store i32 3, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 52
   store i32 1000, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   store double 1.000000e-03, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 64
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #15
-  %11 = getelementptr inbounds i8, ptr %3, i64 168
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 176
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 192
-  store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 200
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 216
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 224
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 232
-  store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 240
-  store ptr %16, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 248
-  store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 256
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #15
-  %22 = getelementptr inbounds i8, ptr %3, i64 352
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #15
+  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
+  %14 = getelementptr inbounds i8, ptr %3, i64 168
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 176
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 184
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 192
+  store ptr %14, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 200
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 216
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 224
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 232
+  store ptr %19, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 240
+  store ptr %19, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 248
+  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 256
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #15
+  %25 = getelementptr inbounds i8, ptr %3, i64 352
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #15
   store ptr %3, ptr %0, align 8
   store ptr %6, ptr %1, align 8
   ret void
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml22LogisticRegressionImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv2ml22LogisticRegressionImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %23 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

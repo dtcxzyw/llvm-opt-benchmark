@@ -126,9 +126,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp4.not.wide, label %return, label %while.body, !llvm.loop !4
 
 if.else:                                          ; preds = %entry
+  %4 = load ptr, ptr %args, align 8
+  %arrayidx10 = getelementptr inbounds i8, ptr %args, i64 8
+  %5 = load ptr, ptr %arrayidx10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i19)
-  %4 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %4, ptr %args.i19, align 16
+  store ptr %4, ptr %args.i19, align 16
+  %arrayinit.element.i20 = getelementptr inbounds i8, ptr %args.i19, i64 8
+  store ptr %5, ptr %arrayinit.element.i20, align 8
   %call.i21 = call noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %f, i32 noundef 2, ptr noundef nonnull %args.i19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i19)
   br label %return
@@ -181,9 +185,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp4.not.wide.i, label %_Z17mk_list_assoc_appR11ast_managerP9func_decljPKP4expr.exit, label %while.body.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %entry
+  %4 = load ptr, ptr %args, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %args, i64 8
+  %5 = load ptr, ptr %arrayidx10.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i19.i)
-  %4 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %4, ptr %args.i19.i, align 16
+  store ptr %4, ptr %args.i19.i, align 16
+  %arrayinit.element.i20.i = getelementptr inbounds i8, ptr %args.i19.i, i64 8
+  store ptr %5, ptr %arrayinit.element.i20.i, align 8
   %call.i21.i = call noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %call, i32 noundef 2, ptr noundef nonnull %args.i19.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i19.i)
   br label %_Z17mk_list_assoc_appR11ast_managerP9func_decljPKP4expr.exit

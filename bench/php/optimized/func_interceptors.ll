@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [6 x i8] c"lstat\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"stat\00", align 1
 @.str.22 = private unnamed_addr constant [9 x i8] c"readfile\00", align 1
-@phar_orig_functions = internal unnamed_addr global %struct._phar_orig_functions zeroinitializer, align 16
+@phar_orig_functions = internal unnamed_addr global %struct._phar_orig_functions zeroinitializer, align 8
 @.str.23 = private unnamed_addr constant [4 x i8] c"://\00", align 1
 @.str.24 = private unnamed_addr constant [8 x i8] c"phar://\00", align 1
 @.str.25 = private unnamed_addr constant [2 x i8] c"/\00", align 1
@@ -2736,55 +2736,99 @@ define hidden void @phar_intercept_functions_shutdown() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @phar_save_orig_functions() local_unnamed_addr #3 {
-  %1 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 232), align 8
-  store <2 x ptr> %1, ptr @phar_orig_functions, align 16
-  %2 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 248), align 8
-  store <2 x ptr> %2, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 16), align 16
-  %3 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 264), align 8
-  store <2 x ptr> %3, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 32), align 16
-  %4 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 280), align 8
-  store <2 x ptr> %4, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 48), align 16
-  %5 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 296), align 8
-  store <2 x ptr> %5, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 64), align 16
-  %6 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 312), align 8
-  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 80), align 16
-  %7 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 328), align 8
-  store <2 x ptr> %7, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 96), align 16
-  %8 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 344), align 8
-  store <2 x ptr> %8, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 112), align 16
-  %9 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 360), align 8
-  store <2 x ptr> %9, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 128), align 16
-  %10 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 376), align 8
-  store <2 x ptr> %10, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 144), align 16
-  %11 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 392), align 8
-  store <2 x ptr> %11, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 160), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 232), align 8
+  store ptr %1, ptr @phar_orig_functions, align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 240), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 248), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 256), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 264), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 32), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 272), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 280), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 48), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 288), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 56), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 296), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 64), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 304), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 72), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 312), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 80), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 320), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 88), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 328), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 96), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 336), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 104), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 344), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 112), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 352), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 120), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 360), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 128), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 368), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 136), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 376), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 144), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 384), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 152), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 392), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 160), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 400), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 168), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @phar_restore_orig_functions() local_unnamed_addr #3 {
-  %1 = load <2 x ptr>, ptr @phar_orig_functions, align 16
-  store <2 x ptr> %1, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 232), align 8
-  %2 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 16), align 16
-  store <2 x ptr> %2, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 248), align 8
-  %3 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 32), align 16
-  store <2 x ptr> %3, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 264), align 8
-  %4 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 48), align 16
-  store <2 x ptr> %4, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 280), align 8
-  %5 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 64), align 16
-  store <2 x ptr> %5, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 296), align 8
-  %6 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 80), align 16
-  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 312), align 8
-  %7 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 96), align 16
-  store <2 x ptr> %7, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 328), align 8
-  %8 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 112), align 16
-  store <2 x ptr> %8, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 344), align 8
-  %9 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 128), align 16
-  store <2 x ptr> %9, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 360), align 8
-  %10 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 144), align 16
-  store <2 x ptr> %10, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 376), align 8
-  %11 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 160), align 16
-  store <2 x ptr> %11, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 392), align 8
+  %1 = load ptr, ptr @phar_orig_functions, align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 232), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 240), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 16), align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 248), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 24), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 256), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 32), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 264), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 40), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 272), align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 48), align 8
+  store ptr %7, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 280), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 56), align 8
+  store ptr %8, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 288), align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 64), align 8
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 296), align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 72), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 304), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 80), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 312), align 8
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 88), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 320), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 96), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 328), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 104), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 336), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 112), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 344), align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 120), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 352), align 8
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 128), align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 360), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 136), align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 368), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 144), align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 376), align 8
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 152), align 8
+  store ptr %20, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 384), align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 160), align 8
+  store ptr %21, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 392), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_orig_functions, i64 168), align 8
+  store ptr %22, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 400), align 8
   ret void
 }
 

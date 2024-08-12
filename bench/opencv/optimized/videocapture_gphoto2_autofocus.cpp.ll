@@ -1537,7 +1537,7 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
 
 35:                                               ; preds = %.noexc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !alias.scope !9
-  br label %38
+  br label %37
 
 36:                                               ; preds = %.noexc
   invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %2)
@@ -1550,26 +1550,30 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
   %.phi.trans.insert39 = getelementptr inbounds i8, ptr %10, i64 16
   %.pre40 = load ptr, ptr %.phi.trans.insert39, align 8
   %.phi.trans.insert41 = getelementptr inbounds i8, ptr %10, i64 24
-  %37 = load <2 x ptr>, ptr %.phi.trans.insert41, align 8
-  br label %38
+  %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8
+  %.phi.trans.insert43 = getelementptr inbounds i8, ptr %10, i64 32
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
+  br label %37
 
-38:                                               ; preds = %._crit_edge37, %35
+37:                                               ; preds = %._crit_edge37, %35
+  %38 = phi ptr [ %.pre44, %._crit_edge37 ], [ null, %35 ]
+  %39 = phi ptr [ %.pre42, %._crit_edge37 ], [ null, %35 ]
   %.val1931 = phi ptr [ %.pre40, %._crit_edge37 ], [ null, %35 ]
-  %39 = phi i64 [ %.pre38, %._crit_edge37 ], [ 0, %35 ]
+  %40 = phi i64 [ %.pre38, %._crit_edge37 ], [ 0, %35 ]
   %.val30 = phi ptr [ %.pre, %._crit_edge37 ], [ null, %35 ]
-  %40 = phi <2 x ptr> [ %37, %._crit_edge37 ], [ zeroinitializer, %35 ]
   store ptr %.val30, ptr %9, align 8
   %41 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %39, ptr %41, align 8
+  store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %.val1931, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %39, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %9, i64 32
-  store <2 x ptr> %40, ptr %43, align 8
+  store ptr %38, ptr %44, align 8
   %45 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %.noexc23 unwind label %.loopexit.split-lp
 
-.noexc23:                                         ; preds = %38
+.noexc23:                                         ; preds = %37
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %.noexc23
@@ -1668,7 +1672,7 @@ _ZN2cv12MatIterator_IhEppEv.exit:                 ; preds = %._ZN2cv12MatIterato
           cleanup
   br label %92
 
-.loopexit.split-lp:                               ; preds = %33, %36, %38, %47, %.noexc24, %64
+.loopexit.split-lp:                               ; preds = %33, %36, %37, %47, %.noexc24, %64
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %92

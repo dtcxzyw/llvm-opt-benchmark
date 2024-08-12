@@ -12870,7 +12870,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27Par
   %9 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %11 = load i8, ptr %3, align 8
-  br i1 %2, label %12, label %136
+  br i1 %2, label %12, label %139
 
 12:                                               ; preds = %7
   switch i8 %11, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
@@ -12888,10 +12888,10 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27Par
     i8 1, label %101
     i8 8, label %109
     i8 14, label %117
-    i8 9, label %130
-    i8 12, label %130
-    i8 10, label %130
-    i8 11, label %130
+    i8 9, label %133
+    i8 12, label %133
+    i8 10, label %133
+    i8 11, label %133
   ]
 
 13:                                               ; preds = %12
@@ -13032,1152 +13032,1159 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27Par
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 14, i1 noundef zeroext %120, ptr noundef %122)
   %124 = getelementptr inbounds i8, ptr %3, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %3, i64 16
+  %127 = load ptr, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store ptr %123, ptr %8, align 8
-  %125 = getelementptr inbounds i8, ptr %8, i64 8
-  %126 = load <2 x ptr>, ptr %124, align 8
-  store <2 x ptr> %126, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %4, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %8, i64 32
-  store i32 %1, ptr %128, align 8
-  %129 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSC_PNS1_12ParseContextEPFbPKviESH_PNS1_16InternalMetadataEiEUlmE_EESC_SC_T_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %5, ptr noundef nonnull byval(%class.anon.65) align 8 %8)
+  %128 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %125, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %127, ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %4, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 %1, ptr %131, align 8
+  %132 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSC_PNS1_12ParseContextEPFbPKviESH_PNS1_16InternalMetadataEiEUlmE_EESC_SC_T_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef %5, ptr noundef nonnull byval(%class.anon.65) align 8 %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-130:                                              ; preds = %12, %12, %12, %12
+133:                                              ; preds = %12, %12, %12, %12
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef 3, ptr noundef nonnull @.str.62, i32 noundef 79)
-  %131 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.40)
-          to label %132 unwind label %134
+  %134 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.40)
+          to label %135 unwind label %137
 
-132:                                              ; preds = %130
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %131)
-          to label %133 unwind label %134
+135:                                              ; preds = %133
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %134)
+          to label %136 unwind label %137
 
-133:                                              ; preds = %132
+136:                                              ; preds = %135
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-134:                                              ; preds = %132, %130
-  %135 = landingpad { ptr, i32 }
+137:                                              ; preds = %135, %133
+  %138 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #23
-  resume { ptr, i32 } %135
+  resume { ptr, i32 } %138
 
-136:                                              ; preds = %7
+139:                                              ; preds = %7
   switch i8 %11, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
-    i8 5, label %137
-    i8 3, label %180
-    i8 13, label %221
-    i8 4, label %264
-    i8 8, label %305
-    i8 17, label %349
-    i8 18, label %395
-    i8 7, label %440
-    i8 6, label %465
-    i8 15, label %490
-    i8 16, label %515
-    i8 2, label %540
-    i8 1, label %565
-    i8 14, label %590
-    i8 12, label %649
-    i8 9, label %649
-    i8 10, label %710
-    i8 11, label %743
+    i8 5, label %140
+    i8 3, label %183
+    i8 13, label %224
+    i8 4, label %267
+    i8 8, label %308
+    i8 17, label %352
+    i8 18, label %398
+    i8 7, label %443
+    i8 6, label %468
+    i8 15, label %493
+    i8 16, label %518
+    i8 2, label %543
+    i8 1, label %568
+    i8 14, label %593
+    i8 12, label %652
+    i8 9, label %652
+    i8 10, label %713
+    i8 11, label %748
   ]
 
-137:                                              ; preds = %136
-  %138 = load i8, ptr %5, align 1
-  %.not.i = icmp sgt i8 %138, -1
-  %139 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i, label %140, label %142
+140:                                              ; preds = %139
+  %141 = load i8, ptr %5, align 1
+  %.not.i = icmp sgt i8 %141, -1
+  %142 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i, label %143, label %145
 
-140:                                              ; preds = %137
-  %141 = zext nneg i8 %138 to i64
+143:                                              ; preds = %140
+  %144 = zext nneg i8 %141 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
 
-142:                                              ; preds = %137
-  %143 = zext i8 %138 to i32
-  %144 = load i8, ptr %139, align 1
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw nsw i32 %145, 7
-  %147 = add nsw i32 %143, -128
-  %148 = or disjoint i32 %146, %147
-  %.not16.i = icmp sgt i8 %144, -1
-  br i1 %.not16.i, label %149, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
+145:                                              ; preds = %140
+  %146 = zext i8 %141 to i32
+  %147 = load i8, ptr %142, align 1
+  %148 = zext i8 %147 to i32
+  %149 = shl nuw nsw i32 %148, 7
+  %150 = add nsw i32 %146, -128
+  %151 = or disjoint i32 %149, %150
+  %.not16.i = icmp sgt i8 %147, -1
+  br i1 %.not16.i, label %152, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
 
-149:                                              ; preds = %142
-  %150 = zext nneg i32 %148 to i64
-  %151 = getelementptr inbounds i8, ptr %5, i64 2
+152:                                              ; preds = %145
+  %153 = zext nneg i32 %151 to i64
+  %154 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %142
-  %152 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %148)
-  %153 = extractvalue { ptr, i64 } %152, 0
-  %154 = extractvalue { ptr, i64 } %152, 1
-  %.not236 = icmp eq ptr %153, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %145
+  %155 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %151)
+  %156 = extractvalue { ptr, i64 } %155, 0
+  %157 = extractvalue { ptr, i64 } %155, 1
+  %.not236 = icmp eq ptr %156, null
   br i1 %.not236, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread: ; preds = %140, %149, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
-  %.0.i327 = phi ptr [ %153, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %139, %140 ], [ %151, %149 ]
-  %.0321326 = phi i64 [ %154, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %141, %140 ], [ %150, %149 ]
-  %155 = getelementptr inbounds i8, ptr %3, i64 1
-  %156 = load i8, ptr %155, align 1
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %165
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread: ; preds = %143, %152, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
+  %.0.i327 = phi ptr [ %156, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %142, %143 ], [ %154, %152 ]
+  %.0321326 = phi i64 [ %157, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %144, %143 ], [ %153, %152 ]
+  %158 = getelementptr inbounds i8, ptr %3, i64 1
+  %159 = load i8, ptr %158, align 1
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %168
 
-158:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
-  %159 = getelementptr inbounds i8, ptr %3, i64 2
-  %160 = load i8, ptr %159, align 2
-  %161 = trunc i8 %160 to i1
-  %162 = trunc i64 %.0321326 to i32
-  %163 = getelementptr inbounds i8, ptr %3, i64 24
-  %164 = load ptr, ptr %163, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 5, i1 noundef zeroext %161, i32 noundef %162, ptr noundef %164)
+161:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
+  %162 = getelementptr inbounds i8, ptr %3, i64 2
+  %163 = load i8, ptr %162, align 2
+  %164 = trunc i8 %163 to i1
+  %165 = trunc i64 %.0321326 to i32
+  %166 = getelementptr inbounds i8, ptr %3, i64 24
+  %167 = load ptr, ptr %166, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 5, i1 noundef zeroext %164, i32 noundef %165, ptr noundef %167)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-165:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
-  %166 = trunc i64 %.0321326 to i32
-  %167 = getelementptr inbounds i8, ptr %3, i64 24
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %170 = extractvalue { ptr, i8 } %169, 0
-  %171 = extractvalue { ptr, i8 } %169, 1
-  %172 = getelementptr inbounds i8, ptr %170, i64 16
-  store ptr %168, ptr %172, align 8
-  %173 = trunc i8 %171 to i1
-  br i1 %173, label %174, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit
+168:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread
+  %169 = trunc i64 %.0321326 to i32
+  %170 = getelementptr inbounds i8, ptr %3, i64 24
+  %171 = load ptr, ptr %170, align 8
+  %172 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %173 = extractvalue { ptr, i8 } %172, 0
+  %174 = extractvalue { ptr, i8 } %172, 1
+  %175 = getelementptr inbounds i8, ptr %173, i64 16
+  store ptr %171, ptr %175, align 8
+  %176 = trunc i8 %174 to i1
+  br i1 %176, label %177, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit
 
-174:                                              ; preds = %165
-  %175 = getelementptr inbounds i8, ptr %170, i64 8
-  store i8 5, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %170, i64 9
-  store i8 0, ptr %176, align 1
+177:                                              ; preds = %168
+  %178 = getelementptr inbounds i8, ptr %173, i64 8
+  store i8 5, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %173, i64 9
+  store i8 0, ptr %179, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit: ; preds = %165, %174
-  %177 = getelementptr inbounds i8, ptr %170, i64 10
-  %178 = load i8, ptr %177, align 2
-  %179 = and i8 %178, -16
-  store i8 %179, ptr %177, align 2
-  store i32 %166, ptr %170, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit: ; preds = %168, %177
+  %180 = getelementptr inbounds i8, ptr %173, i64 10
+  %181 = load i8, ptr %180, align 2
+  %182 = and i8 %181, -16
+  store i8 %182, ptr %180, align 2
+  store i32 %169, ptr %173, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-180:                                              ; preds = %136
-  %181 = load i8, ptr %5, align 1
-  %.not.i237 = icmp sgt i8 %181, -1
-  %182 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i237, label %183, label %185
+183:                                              ; preds = %139
+  %184 = load i8, ptr %5, align 1
+  %.not.i237 = icmp sgt i8 %184, -1
+  %185 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i237, label %186, label %188
 
-183:                                              ; preds = %180
-  %184 = zext nneg i8 %181 to i64
+186:                                              ; preds = %183
+  %187 = zext nneg i8 %184 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
 
-185:                                              ; preds = %180
-  %186 = zext i8 %181 to i32
-  %187 = load i8, ptr %182, align 1
-  %188 = zext i8 %187 to i32
-  %189 = shl nuw nsw i32 %188, 7
-  %190 = add nsw i32 %186, -128
-  %191 = or disjoint i32 %189, %190
-  %.not16.i238 = icmp sgt i8 %187, -1
-  br i1 %.not16.i238, label %192, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240
+188:                                              ; preds = %183
+  %189 = zext i8 %184 to i32
+  %190 = load i8, ptr %185, align 1
+  %191 = zext i8 %190 to i32
+  %192 = shl nuw nsw i32 %191, 7
+  %193 = add nsw i32 %189, -128
+  %194 = or disjoint i32 %192, %193
+  %.not16.i238 = icmp sgt i8 %190, -1
+  br i1 %.not16.i238, label %195, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240
 
-192:                                              ; preds = %185
-  %193 = zext nneg i32 %191 to i64
-  %194 = getelementptr inbounds i8, ptr %5, i64 2
+195:                                              ; preds = %188
+  %196 = zext nneg i32 %194 to i64
+  %197 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240: ; preds = %185
-  %195 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %191)
-  %196 = extractvalue { ptr, i64 } %195, 0
-  %197 = extractvalue { ptr, i64 } %195, 1
-  %.not235 = icmp eq ptr %196, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240: ; preds = %188
+  %198 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %194)
+  %199 = extractvalue { ptr, i64 } %198, 0
+  %200 = extractvalue { ptr, i64 } %198, 1
+  %.not235 = icmp eq ptr %199, null
   br i1 %.not235, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread: ; preds = %183, %192, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240
-  %.0.i239332 = phi ptr [ %196, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ %182, %183 ], [ %194, %192 ]
-  %.0320331 = phi i64 [ %197, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ %184, %183 ], [ %193, %192 ]
-  %198 = getelementptr inbounds i8, ptr %3, i64 1
-  %199 = load i8, ptr %198, align 1
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %201, label %207
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread: ; preds = %186, %195, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240
+  %.0.i239332 = phi ptr [ %199, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ %185, %186 ], [ %197, %195 ]
+  %.0320331 = phi i64 [ %200, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ %187, %186 ], [ %196, %195 ]
+  %201 = getelementptr inbounds i8, ptr %3, i64 1
+  %202 = load i8, ptr %201, align 1
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %204, label %210
 
-201:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
-  %202 = getelementptr inbounds i8, ptr %3, i64 2
-  %203 = load i8, ptr %202, align 2
-  %204 = trunc i8 %203 to i1
-  %205 = getelementptr inbounds i8, ptr %3, i64 24
-  %206 = load ptr, ptr %205, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 3, i1 noundef zeroext %204, i64 noundef %.0320331, ptr noundef %206)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-207:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
+204:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
+  %205 = getelementptr inbounds i8, ptr %3, i64 2
+  %206 = load i8, ptr %205, align 2
+  %207 = trunc i8 %206 to i1
   %208 = getelementptr inbounds i8, ptr %3, i64 24
   %209 = load ptr, ptr %208, align 8
-  %210 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %211 = extractvalue { ptr, i8 } %210, 0
-  %212 = extractvalue { ptr, i8 } %210, 1
-  %213 = getelementptr inbounds i8, ptr %211, i64 16
-  store ptr %209, ptr %213, align 8
-  %214 = trunc i8 %212 to i1
-  br i1 %214, label %215, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 3, i1 noundef zeroext %207, i64 noundef %.0320331, ptr noundef %209)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-215:                                              ; preds = %207
-  %216 = getelementptr inbounds i8, ptr %211, i64 8
-  store i8 3, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %211, i64 9
-  store i8 0, ptr %217, align 1
+210:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread
+  %211 = getelementptr inbounds i8, ptr %3, i64 24
+  %212 = load ptr, ptr %211, align 8
+  %213 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %214 = extractvalue { ptr, i8 } %213, 0
+  %215 = extractvalue { ptr, i8 } %213, 1
+  %216 = getelementptr inbounds i8, ptr %214, i64 16
+  store ptr %212, ptr %216, align 8
+  %217 = trunc i8 %215 to i1
+  br i1 %217, label %218, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit
+
+218:                                              ; preds = %210
+  %219 = getelementptr inbounds i8, ptr %214, i64 8
+  store i8 3, ptr %219, align 8
+  %220 = getelementptr inbounds i8, ptr %214, i64 9
+  store i8 0, ptr %220, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit: ; preds = %207, %215
-  %218 = getelementptr inbounds i8, ptr %211, i64 10
-  %219 = load i8, ptr %218, align 2
-  %220 = and i8 %219, -16
-  store i8 %220, ptr %218, align 2
-  store i64 %.0320331, ptr %211, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit: ; preds = %210, %218
+  %221 = getelementptr inbounds i8, ptr %214, i64 10
+  %222 = load i8, ptr %221, align 2
+  %223 = and i8 %222, -16
+  store i8 %223, ptr %221, align 2
+  store i64 %.0320331, ptr %214, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-221:                                              ; preds = %136
-  %222 = load i8, ptr %5, align 1
-  %.not.i241 = icmp sgt i8 %222, -1
-  %223 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i241, label %224, label %226
+224:                                              ; preds = %139
+  %225 = load i8, ptr %5, align 1
+  %.not.i241 = icmp sgt i8 %225, -1
+  %226 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i241, label %227, label %229
 
-224:                                              ; preds = %221
-  %225 = zext nneg i8 %222 to i64
+227:                                              ; preds = %224
+  %228 = zext nneg i8 %225 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
 
-226:                                              ; preds = %221
-  %227 = zext i8 %222 to i32
-  %228 = load i8, ptr %223, align 1
-  %229 = zext i8 %228 to i32
-  %230 = shl nuw nsw i32 %229, 7
-  %231 = add nsw i32 %227, -128
-  %232 = or disjoint i32 %230, %231
-  %.not16.i242 = icmp sgt i8 %228, -1
-  br i1 %.not16.i242, label %233, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244
+229:                                              ; preds = %224
+  %230 = zext i8 %225 to i32
+  %231 = load i8, ptr %226, align 1
+  %232 = zext i8 %231 to i32
+  %233 = shl nuw nsw i32 %232, 7
+  %234 = add nsw i32 %230, -128
+  %235 = or disjoint i32 %233, %234
+  %.not16.i242 = icmp sgt i8 %231, -1
+  br i1 %.not16.i242, label %236, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244
 
-233:                                              ; preds = %226
-  %234 = zext nneg i32 %232 to i64
-  %235 = getelementptr inbounds i8, ptr %5, i64 2
+236:                                              ; preds = %229
+  %237 = zext nneg i32 %235 to i64
+  %238 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244: ; preds = %226
-  %236 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %232)
-  %237 = extractvalue { ptr, i64 } %236, 0
-  %238 = extractvalue { ptr, i64 } %236, 1
-  %.not234 = icmp eq ptr %237, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244: ; preds = %229
+  %239 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %235)
+  %240 = extractvalue { ptr, i64 } %239, 0
+  %241 = extractvalue { ptr, i64 } %239, 1
+  %.not234 = icmp eq ptr %240, null
   br i1 %.not234, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread: ; preds = %224, %233, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244
-  %.0.i243337 = phi ptr [ %237, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ %223, %224 ], [ %235, %233 ]
-  %.0319336 = phi i64 [ %238, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ %225, %224 ], [ %234, %233 ]
-  %239 = getelementptr inbounds i8, ptr %3, i64 1
-  %240 = load i8, ptr %239, align 1
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %249
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread: ; preds = %227, %236, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244
+  %.0.i243337 = phi ptr [ %240, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ %226, %227 ], [ %238, %236 ]
+  %.0319336 = phi i64 [ %241, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ %228, %227 ], [ %237, %236 ]
+  %242 = getelementptr inbounds i8, ptr %3, i64 1
+  %243 = load i8, ptr %242, align 1
+  %244 = trunc i8 %243 to i1
+  br i1 %244, label %245, label %252
 
-242:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
-  %243 = getelementptr inbounds i8, ptr %3, i64 2
-  %244 = load i8, ptr %243, align 2
-  %245 = trunc i8 %244 to i1
-  %246 = trunc i64 %.0319336 to i32
-  %247 = getelementptr inbounds i8, ptr %3, i64 24
-  %248 = load ptr, ptr %247, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 13, i1 noundef zeroext %245, i32 noundef %246, ptr noundef %248)
+245:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
+  %246 = getelementptr inbounds i8, ptr %3, i64 2
+  %247 = load i8, ptr %246, align 2
+  %248 = trunc i8 %247 to i1
+  %249 = trunc i64 %.0319336 to i32
+  %250 = getelementptr inbounds i8, ptr %3, i64 24
+  %251 = load ptr, ptr %250, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 13, i1 noundef zeroext %248, i32 noundef %249, ptr noundef %251)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-249:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
-  %250 = trunc i64 %.0319336 to i32
-  %251 = getelementptr inbounds i8, ptr %3, i64 24
-  %252 = load ptr, ptr %251, align 8
-  %253 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %254 = extractvalue { ptr, i8 } %253, 0
-  %255 = extractvalue { ptr, i8 } %253, 1
-  %256 = getelementptr inbounds i8, ptr %254, i64 16
-  store ptr %252, ptr %256, align 8
-  %257 = trunc i8 %255 to i1
-  br i1 %257, label %258, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit
+252:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244.thread
+  %253 = trunc i64 %.0319336 to i32
+  %254 = getelementptr inbounds i8, ptr %3, i64 24
+  %255 = load ptr, ptr %254, align 8
+  %256 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %257 = extractvalue { ptr, i8 } %256, 0
+  %258 = extractvalue { ptr, i8 } %256, 1
+  %259 = getelementptr inbounds i8, ptr %257, i64 16
+  store ptr %255, ptr %259, align 8
+  %260 = trunc i8 %258 to i1
+  br i1 %260, label %261, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit
 
-258:                                              ; preds = %249
-  %259 = getelementptr inbounds i8, ptr %254, i64 8
-  store i8 13, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %254, i64 9
-  store i8 0, ptr %260, align 1
+261:                                              ; preds = %252
+  %262 = getelementptr inbounds i8, ptr %257, i64 8
+  store i8 13, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %257, i64 9
+  store i8 0, ptr %263, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit: ; preds = %249, %258
-  %261 = getelementptr inbounds i8, ptr %254, i64 10
-  %262 = load i8, ptr %261, align 2
-  %263 = and i8 %262, -16
-  store i8 %263, ptr %261, align 2
-  store i32 %250, ptr %254, align 8
+_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit: ; preds = %252, %261
+  %264 = getelementptr inbounds i8, ptr %257, i64 10
+  %265 = load i8, ptr %264, align 2
+  %266 = and i8 %265, -16
+  store i8 %266, ptr %264, align 2
+  store i32 %253, ptr %257, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-264:                                              ; preds = %136
-  %265 = load i8, ptr %5, align 1
-  %.not.i245 = icmp sgt i8 %265, -1
-  %266 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i245, label %267, label %269
+267:                                              ; preds = %139
+  %268 = load i8, ptr %5, align 1
+  %.not.i245 = icmp sgt i8 %268, -1
+  %269 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i245, label %270, label %272
 
-267:                                              ; preds = %264
-  %268 = zext nneg i8 %265 to i64
+270:                                              ; preds = %267
+  %271 = zext nneg i8 %268 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
 
-269:                                              ; preds = %264
-  %270 = zext i8 %265 to i32
-  %271 = load i8, ptr %266, align 1
-  %272 = zext i8 %271 to i32
-  %273 = shl nuw nsw i32 %272, 7
-  %274 = add nsw i32 %270, -128
-  %275 = or disjoint i32 %273, %274
-  %.not16.i246 = icmp sgt i8 %271, -1
-  br i1 %.not16.i246, label %276, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248
+272:                                              ; preds = %267
+  %273 = zext i8 %268 to i32
+  %274 = load i8, ptr %269, align 1
+  %275 = zext i8 %274 to i32
+  %276 = shl nuw nsw i32 %275, 7
+  %277 = add nsw i32 %273, -128
+  %278 = or disjoint i32 %276, %277
+  %.not16.i246 = icmp sgt i8 %274, -1
+  br i1 %.not16.i246, label %279, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248
 
-276:                                              ; preds = %269
-  %277 = zext nneg i32 %275 to i64
-  %278 = getelementptr inbounds i8, ptr %5, i64 2
+279:                                              ; preds = %272
+  %280 = zext nneg i32 %278 to i64
+  %281 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248: ; preds = %269
-  %279 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %275)
-  %280 = extractvalue { ptr, i64 } %279, 0
-  %281 = extractvalue { ptr, i64 } %279, 1
-  %.not233 = icmp eq ptr %280, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248: ; preds = %272
+  %282 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %278)
+  %283 = extractvalue { ptr, i64 } %282, 0
+  %284 = extractvalue { ptr, i64 } %282, 1
+  %.not233 = icmp eq ptr %283, null
   br i1 %.not233, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread: ; preds = %267, %276, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248
-  %.0.i247342 = phi ptr [ %280, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ %266, %267 ], [ %278, %276 ]
-  %.0318341 = phi i64 [ %281, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ %268, %267 ], [ %277, %276 ]
-  %282 = getelementptr inbounds i8, ptr %3, i64 1
-  %283 = load i8, ptr %282, align 1
-  %284 = trunc i8 %283 to i1
-  br i1 %284, label %285, label %291
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread: ; preds = %270, %279, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248
+  %.0.i247342 = phi ptr [ %283, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ %269, %270 ], [ %281, %279 ]
+  %.0318341 = phi i64 [ %284, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ %271, %270 ], [ %280, %279 ]
+  %285 = getelementptr inbounds i8, ptr %3, i64 1
+  %286 = load i8, ptr %285, align 1
+  %287 = trunc i8 %286 to i1
+  br i1 %287, label %288, label %294
 
-285:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
-  %286 = getelementptr inbounds i8, ptr %3, i64 2
-  %287 = load i8, ptr %286, align 2
-  %288 = trunc i8 %287 to i1
-  %289 = getelementptr inbounds i8, ptr %3, i64 24
-  %290 = load ptr, ptr %289, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 4, i1 noundef zeroext %288, i64 noundef %.0318341, ptr noundef %290)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-291:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
+288:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
+  %289 = getelementptr inbounds i8, ptr %3, i64 2
+  %290 = load i8, ptr %289, align 2
+  %291 = trunc i8 %290 to i1
   %292 = getelementptr inbounds i8, ptr %3, i64 24
   %293 = load ptr, ptr %292, align 8
-  %294 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %295 = extractvalue { ptr, i8 } %294, 0
-  %296 = extractvalue { ptr, i8 } %294, 1
-  %297 = getelementptr inbounds i8, ptr %295, i64 16
-  store ptr %293, ptr %297, align 8
-  %298 = trunc i8 %296 to i1
-  br i1 %298, label %299, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 4, i1 noundef zeroext %291, i64 noundef %.0318341, ptr noundef %293)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-299:                                              ; preds = %291
-  %300 = getelementptr inbounds i8, ptr %295, i64 8
-  store i8 4, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %295, i64 9
-  store i8 0, ptr %301, align 1
+294:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248.thread
+  %295 = getelementptr inbounds i8, ptr %3, i64 24
+  %296 = load ptr, ptr %295, align 8
+  %297 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %298 = extractvalue { ptr, i8 } %297, 0
+  %299 = extractvalue { ptr, i8 } %297, 1
+  %300 = getelementptr inbounds i8, ptr %298, i64 16
+  store ptr %296, ptr %300, align 8
+  %301 = trunc i8 %299 to i1
+  br i1 %301, label %302, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit
+
+302:                                              ; preds = %294
+  %303 = getelementptr inbounds i8, ptr %298, i64 8
+  store i8 4, ptr %303, align 8
+  %304 = getelementptr inbounds i8, ptr %298, i64 9
+  store i8 0, ptr %304, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit: ; preds = %291, %299
-  %302 = getelementptr inbounds i8, ptr %295, i64 10
-  %303 = load i8, ptr %302, align 2
-  %304 = and i8 %303, -16
-  store i8 %304, ptr %302, align 2
-  store i64 %.0318341, ptr %295, align 8
+_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit: ; preds = %294, %302
+  %305 = getelementptr inbounds i8, ptr %298, i64 10
+  %306 = load i8, ptr %305, align 2
+  %307 = and i8 %306, -16
+  store i8 %307, ptr %305, align 2
+  store i64 %.0318341, ptr %298, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-305:                                              ; preds = %136
-  %306 = load i8, ptr %5, align 1
-  %.not.i249 = icmp sgt i8 %306, -1
-  %307 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i249, label %308, label %310
+308:                                              ; preds = %139
+  %309 = load i8, ptr %5, align 1
+  %.not.i249 = icmp sgt i8 %309, -1
+  %310 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i249, label %311, label %313
 
-308:                                              ; preds = %305
-  %309 = zext nneg i8 %306 to i64
+311:                                              ; preds = %308
+  %312 = zext nneg i8 %309 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
 
-310:                                              ; preds = %305
-  %311 = zext i8 %306 to i32
-  %312 = load i8, ptr %307, align 1
-  %313 = zext i8 %312 to i32
-  %314 = shl nuw nsw i32 %313, 7
-  %315 = add nsw i32 %311, -128
-  %316 = or disjoint i32 %314, %315
-  %.not16.i250 = icmp sgt i8 %312, -1
-  br i1 %.not16.i250, label %317, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252
+313:                                              ; preds = %308
+  %314 = zext i8 %309 to i32
+  %315 = load i8, ptr %310, align 1
+  %316 = zext i8 %315 to i32
+  %317 = shl nuw nsw i32 %316, 7
+  %318 = add nsw i32 %314, -128
+  %319 = or disjoint i32 %317, %318
+  %.not16.i250 = icmp sgt i8 %315, -1
+  br i1 %.not16.i250, label %320, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252
 
-317:                                              ; preds = %310
-  %318 = zext nneg i32 %316 to i64
-  %319 = getelementptr inbounds i8, ptr %5, i64 2
+320:                                              ; preds = %313
+  %321 = zext nneg i32 %319 to i64
+  %322 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252: ; preds = %310
-  %320 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %316)
-  %321 = extractvalue { ptr, i64 } %320, 0
-  %322 = extractvalue { ptr, i64 } %320, 1
-  %.not232 = icmp eq ptr %321, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252: ; preds = %313
+  %323 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %319)
+  %324 = extractvalue { ptr, i64 } %323, 0
+  %325 = extractvalue { ptr, i64 } %323, 1
+  %.not232 = icmp eq ptr %324, null
   br i1 %.not232, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread: ; preds = %308, %317, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252
-  %.0.i251347 = phi ptr [ %321, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ %307, %308 ], [ %319, %317 ]
-  %.0317346 = phi i64 [ %322, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ %309, %308 ], [ %318, %317 ]
-  %323 = getelementptr inbounds i8, ptr %3, i64 1
-  %324 = load i8, ptr %323, align 1
-  %325 = trunc i8 %324 to i1
-  br i1 %325, label %326, label %333
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread: ; preds = %311, %320, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252
+  %.0.i251347 = phi ptr [ %324, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ %310, %311 ], [ %322, %320 ]
+  %.0317346 = phi i64 [ %325, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ %312, %311 ], [ %321, %320 ]
+  %326 = getelementptr inbounds i8, ptr %3, i64 1
+  %327 = load i8, ptr %326, align 1
+  %328 = trunc i8 %327 to i1
+  br i1 %328, label %329, label %336
 
-326:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
-  %327 = getelementptr inbounds i8, ptr %3, i64 2
-  %328 = load i8, ptr %327, align 2
-  %329 = trunc i8 %328 to i1
-  %330 = icmp ne i64 %.0317346, 0
-  %331 = getelementptr inbounds i8, ptr %3, i64 24
-  %332 = load ptr, ptr %331, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 8, i1 noundef zeroext %329, i1 noundef zeroext %330, ptr noundef %332)
+329:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
+  %330 = getelementptr inbounds i8, ptr %3, i64 2
+  %331 = load i8, ptr %330, align 2
+  %332 = trunc i8 %331 to i1
+  %333 = icmp ne i64 %.0317346, 0
+  %334 = getelementptr inbounds i8, ptr %3, i64 24
+  %335 = load ptr, ptr %334, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 8, i1 noundef zeroext %332, i1 noundef zeroext %333, ptr noundef %335)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-333:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
-  %334 = icmp ne i64 %.0317346, 0
-  %335 = getelementptr inbounds i8, ptr %3, i64 24
-  %336 = load ptr, ptr %335, align 8
-  %337 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %338 = extractvalue { ptr, i8 } %337, 0
-  %339 = extractvalue { ptr, i8 } %337, 1
-  %340 = getelementptr inbounds i8, ptr %338, i64 16
-  store ptr %336, ptr %340, align 8
-  %341 = trunc i8 %339 to i1
-  br i1 %341, label %342, label %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit
+336:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252.thread
+  %337 = icmp ne i64 %.0317346, 0
+  %338 = getelementptr inbounds i8, ptr %3, i64 24
+  %339 = load ptr, ptr %338, align 8
+  %340 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %341 = extractvalue { ptr, i8 } %340, 0
+  %342 = extractvalue { ptr, i8 } %340, 1
+  %343 = getelementptr inbounds i8, ptr %341, i64 16
+  store ptr %339, ptr %343, align 8
+  %344 = trunc i8 %342 to i1
+  br i1 %344, label %345, label %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit
 
-342:                                              ; preds = %333
-  %343 = getelementptr inbounds i8, ptr %338, i64 8
-  store i8 8, ptr %343, align 8
-  %344 = getelementptr inbounds i8, ptr %338, i64 9
-  store i8 0, ptr %344, align 1
+345:                                              ; preds = %336
+  %346 = getelementptr inbounds i8, ptr %341, i64 8
+  store i8 8, ptr %346, align 8
+  %347 = getelementptr inbounds i8, ptr %341, i64 9
+  store i8 0, ptr %347, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit: ; preds = %333, %342
-  %345 = zext i1 %334 to i8
-  %346 = getelementptr inbounds i8, ptr %338, i64 10
-  %347 = load i8, ptr %346, align 2
-  %348 = and i8 %347, -16
-  store i8 %348, ptr %346, align 2
-  store i8 %345, ptr %338, align 8
+_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit: ; preds = %336, %345
+  %348 = zext i1 %337 to i8
+  %349 = getelementptr inbounds i8, ptr %341, i64 10
+  %350 = load i8, ptr %349, align 2
+  %351 = and i8 %350, -16
+  store i8 %351, ptr %349, align 2
+  store i8 %348, ptr %341, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-349:                                              ; preds = %136
-  %350 = load i8, ptr %5, align 1
-  %.not.i253 = icmp sgt i8 %350, -1
-  %351 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i253, label %352, label %354
+352:                                              ; preds = %139
+  %353 = load i8, ptr %5, align 1
+  %.not.i253 = icmp sgt i8 %353, -1
+  %354 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i253, label %355, label %357
 
-352:                                              ; preds = %349
-  %353 = zext nneg i8 %350 to i64
+355:                                              ; preds = %352
+  %356 = zext nneg i8 %353 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
 
-354:                                              ; preds = %349
-  %355 = zext i8 %350 to i32
-  %356 = load i8, ptr %351, align 1
-  %357 = zext i8 %356 to i32
-  %358 = shl nuw nsw i32 %357, 7
-  %359 = add nsw i32 %355, -128
-  %360 = or disjoint i32 %358, %359
-  %.not16.i254 = icmp sgt i8 %356, -1
-  br i1 %.not16.i254, label %361, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256
+357:                                              ; preds = %352
+  %358 = zext i8 %353 to i32
+  %359 = load i8, ptr %354, align 1
+  %360 = zext i8 %359 to i32
+  %361 = shl nuw nsw i32 %360, 7
+  %362 = add nsw i32 %358, -128
+  %363 = or disjoint i32 %361, %362
+  %.not16.i254 = icmp sgt i8 %359, -1
+  br i1 %.not16.i254, label %364, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256
 
-361:                                              ; preds = %354
-  %362 = zext nneg i32 %360 to i64
-  %363 = getelementptr inbounds i8, ptr %5, i64 2
+364:                                              ; preds = %357
+  %365 = zext nneg i32 %363 to i64
+  %366 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256: ; preds = %354
-  %364 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %360)
-  %365 = extractvalue { ptr, i64 } %364, 0
-  %366 = extractvalue { ptr, i64 } %364, 1
-  %.not231 = icmp eq ptr %365, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256: ; preds = %357
+  %367 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %363)
+  %368 = extractvalue { ptr, i64 } %367, 0
+  %369 = extractvalue { ptr, i64 } %367, 1
+  %.not231 = icmp eq ptr %368, null
   br i1 %.not231, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread: ; preds = %352, %361, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256
-  %.0.i255352 = phi ptr [ %365, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ %351, %352 ], [ %363, %361 ]
-  %.0316351 = phi i64 [ %366, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ %353, %352 ], [ %362, %361 ]
-  %367 = trunc i64 %.0316351 to i32
-  %368 = lshr i32 %367, 1
-  %369 = and i32 %367, 1
-  %370 = sub nsw i32 0, %369
-  %371 = xor i32 %368, %370
-  %372 = getelementptr inbounds i8, ptr %3, i64 1
-  %373 = load i8, ptr %372, align 1
-  %374 = trunc i8 %373 to i1
-  br i1 %374, label %375, label %381
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread: ; preds = %355, %364, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256
+  %.0.i255352 = phi ptr [ %368, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ %354, %355 ], [ %366, %364 ]
+  %.0316351 = phi i64 [ %369, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ %356, %355 ], [ %365, %364 ]
+  %370 = trunc i64 %.0316351 to i32
+  %371 = lshr i32 %370, 1
+  %372 = and i32 %370, 1
+  %373 = sub nsw i32 0, %372
+  %374 = xor i32 %371, %373
+  %375 = getelementptr inbounds i8, ptr %3, i64 1
+  %376 = load i8, ptr %375, align 1
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %378, label %384
 
-375:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
-  %376 = getelementptr inbounds i8, ptr %3, i64 2
-  %377 = load i8, ptr %376, align 2
-  %378 = trunc i8 %377 to i1
-  %379 = getelementptr inbounds i8, ptr %3, i64 24
-  %380 = load ptr, ptr %379, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 17, i1 noundef zeroext %378, i32 noundef %371, ptr noundef %380)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-381:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
+378:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
+  %379 = getelementptr inbounds i8, ptr %3, i64 2
+  %380 = load i8, ptr %379, align 2
+  %381 = trunc i8 %380 to i1
   %382 = getelementptr inbounds i8, ptr %3, i64 24
   %383 = load ptr, ptr %382, align 8
-  %384 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %385 = extractvalue { ptr, i8 } %384, 0
-  %386 = extractvalue { ptr, i8 } %384, 1
-  %387 = getelementptr inbounds i8, ptr %385, i64 16
-  store ptr %383, ptr %387, align 8
-  %388 = trunc i8 %386 to i1
-  br i1 %388, label %389, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 17, i1 noundef zeroext %381, i32 noundef %374, ptr noundef %383)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-389:                                              ; preds = %381
-  %390 = getelementptr inbounds i8, ptr %385, i64 8
-  store i8 17, ptr %390, align 8
-  %391 = getelementptr inbounds i8, ptr %385, i64 9
-  store i8 0, ptr %391, align 1
+384:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256.thread
+  %385 = getelementptr inbounds i8, ptr %3, i64 24
+  %386 = load ptr, ptr %385, align 8
+  %387 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %388 = extractvalue { ptr, i8 } %387, 0
+  %389 = extractvalue { ptr, i8 } %387, 1
+  %390 = getelementptr inbounds i8, ptr %388, i64 16
+  store ptr %386, ptr %390, align 8
+  %391 = trunc i8 %389 to i1
+  br i1 %391, label %392, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257
+
+392:                                              ; preds = %384
+  %393 = getelementptr inbounds i8, ptr %388, i64 8
+  store i8 17, ptr %393, align 8
+  %394 = getelementptr inbounds i8, ptr %388, i64 9
+  store i8 0, ptr %394, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257: ; preds = %381, %389
-  %392 = getelementptr inbounds i8, ptr %385, i64 10
-  %393 = load i8, ptr %392, align 2
-  %394 = and i8 %393, -16
-  store i8 %394, ptr %392, align 2
-  store i32 %371, ptr %385, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257: ; preds = %384, %392
+  %395 = getelementptr inbounds i8, ptr %388, i64 10
+  %396 = load i8, ptr %395, align 2
+  %397 = and i8 %396, -16
+  store i8 %397, ptr %395, align 2
+  store i32 %374, ptr %388, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-395:                                              ; preds = %136
-  %396 = load i8, ptr %5, align 1
-  %.not.i258 = icmp sgt i8 %396, -1
-  %397 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i258, label %398, label %400
+398:                                              ; preds = %139
+  %399 = load i8, ptr %5, align 1
+  %.not.i258 = icmp sgt i8 %399, -1
+  %400 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i258, label %401, label %403
 
-398:                                              ; preds = %395
-  %399 = zext nneg i8 %396 to i64
+401:                                              ; preds = %398
+  %402 = zext nneg i8 %399 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
 
-400:                                              ; preds = %395
-  %401 = zext i8 %396 to i32
-  %402 = load i8, ptr %397, align 1
-  %403 = zext i8 %402 to i32
-  %404 = shl nuw nsw i32 %403, 7
-  %405 = add nsw i32 %401, -128
-  %406 = or disjoint i32 %404, %405
-  %.not16.i259 = icmp sgt i8 %402, -1
-  br i1 %.not16.i259, label %407, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261
+403:                                              ; preds = %398
+  %404 = zext i8 %399 to i32
+  %405 = load i8, ptr %400, align 1
+  %406 = zext i8 %405 to i32
+  %407 = shl nuw nsw i32 %406, 7
+  %408 = add nsw i32 %404, -128
+  %409 = or disjoint i32 %407, %408
+  %.not16.i259 = icmp sgt i8 %405, -1
+  br i1 %.not16.i259, label %410, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261
 
-407:                                              ; preds = %400
-  %408 = zext nneg i32 %406 to i64
-  %409 = getelementptr inbounds i8, ptr %5, i64 2
+410:                                              ; preds = %403
+  %411 = zext nneg i32 %409 to i64
+  %412 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261: ; preds = %400
-  %410 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %406)
-  %411 = extractvalue { ptr, i64 } %410, 0
-  %412 = extractvalue { ptr, i64 } %410, 1
-  %.not230 = icmp eq ptr %411, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261: ; preds = %403
+  %413 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %409)
+  %414 = extractvalue { ptr, i64 } %413, 0
+  %415 = extractvalue { ptr, i64 } %413, 1
+  %.not230 = icmp eq ptr %414, null
   br i1 %.not230, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread: ; preds = %398, %407, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261
-  %.0.i260357 = phi ptr [ %411, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ %397, %398 ], [ %409, %407 ]
-  %.0315356 = phi i64 [ %412, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ %399, %398 ], [ %408, %407 ]
-  %413 = lshr i64 %.0315356, 1
-  %414 = and i64 %.0315356, 1
-  %415 = sub nsw i64 0, %414
-  %416 = xor i64 %413, %415
-  %417 = getelementptr inbounds i8, ptr %3, i64 1
-  %418 = load i8, ptr %417, align 1
-  %419 = trunc i8 %418 to i1
-  br i1 %419, label %420, label %426
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread: ; preds = %401, %410, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261
+  %.0.i260357 = phi ptr [ %414, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ %400, %401 ], [ %412, %410 ]
+  %.0315356 = phi i64 [ %415, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ %402, %401 ], [ %411, %410 ]
+  %416 = lshr i64 %.0315356, 1
+  %417 = and i64 %.0315356, 1
+  %418 = sub nsw i64 0, %417
+  %419 = xor i64 %416, %418
+  %420 = getelementptr inbounds i8, ptr %3, i64 1
+  %421 = load i8, ptr %420, align 1
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %423, label %429
 
-420:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
-  %421 = getelementptr inbounds i8, ptr %3, i64 2
-  %422 = load i8, ptr %421, align 2
-  %423 = trunc i8 %422 to i1
-  %424 = getelementptr inbounds i8, ptr %3, i64 24
-  %425 = load ptr, ptr %424, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 18, i1 noundef zeroext %423, i64 noundef %416, ptr noundef %425)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-426:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
+423:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
+  %424 = getelementptr inbounds i8, ptr %3, i64 2
+  %425 = load i8, ptr %424, align 2
+  %426 = trunc i8 %425 to i1
   %427 = getelementptr inbounds i8, ptr %3, i64 24
   %428 = load ptr, ptr %427, align 8
-  %429 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %430 = extractvalue { ptr, i8 } %429, 0
-  %431 = extractvalue { ptr, i8 } %429, 1
-  %432 = getelementptr inbounds i8, ptr %430, i64 16
-  store ptr %428, ptr %432, align 8
-  %433 = trunc i8 %431 to i1
-  br i1 %433, label %434, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 18, i1 noundef zeroext %426, i64 noundef %419, ptr noundef %428)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-434:                                              ; preds = %426
-  %435 = getelementptr inbounds i8, ptr %430, i64 8
-  store i8 18, ptr %435, align 8
-  %436 = getelementptr inbounds i8, ptr %430, i64 9
-  store i8 0, ptr %436, align 1
+429:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261.thread
+  %430 = getelementptr inbounds i8, ptr %3, i64 24
+  %431 = load ptr, ptr %430, align 8
+  %432 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %433 = extractvalue { ptr, i8 } %432, 0
+  %434 = extractvalue { ptr, i8 } %432, 1
+  %435 = getelementptr inbounds i8, ptr %433, i64 16
+  store ptr %431, ptr %435, align 8
+  %436 = trunc i8 %434 to i1
+  br i1 %436, label %437, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262
+
+437:                                              ; preds = %429
+  %438 = getelementptr inbounds i8, ptr %433, i64 8
+  store i8 18, ptr %438, align 8
+  %439 = getelementptr inbounds i8, ptr %433, i64 9
+  store i8 0, ptr %439, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262: ; preds = %426, %434
-  %437 = getelementptr inbounds i8, ptr %430, i64 10
-  %438 = load i8, ptr %437, align 2
-  %439 = and i8 %438, -16
-  store i8 %439, ptr %437, align 2
-  store i64 %416, ptr %430, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262: ; preds = %429, %437
+  %440 = getelementptr inbounds i8, ptr %433, i64 10
+  %441 = load i8, ptr %440, align 2
+  %442 = and i8 %441, -16
+  store i8 %442, ptr %440, align 2
+  store i64 %419, ptr %433, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-440:                                              ; preds = %136
+443:                                              ; preds = %139
   %.0.copyload.i.i = load i32, ptr %5, align 1
-  %441 = getelementptr inbounds i8, ptr %5, i64 4
-  %442 = getelementptr inbounds i8, ptr %3, i64 1
-  %443 = load i8, ptr %442, align 1
-  %444 = trunc i8 %443 to i1
-  br i1 %444, label %445, label %451
+  %444 = getelementptr inbounds i8, ptr %5, i64 4
+  %445 = getelementptr inbounds i8, ptr %3, i64 1
+  %446 = load i8, ptr %445, align 1
+  %447 = trunc i8 %446 to i1
+  br i1 %447, label %448, label %454
 
-445:                                              ; preds = %440
-  %446 = getelementptr inbounds i8, ptr %3, i64 2
-  %447 = load i8, ptr %446, align 2
-  %448 = trunc i8 %447 to i1
-  %449 = getelementptr inbounds i8, ptr %3, i64 24
-  %450 = load ptr, ptr %449, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 7, i1 noundef zeroext %448, i32 noundef %.0.copyload.i.i, ptr noundef %450)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-451:                                              ; preds = %440
+448:                                              ; preds = %443
+  %449 = getelementptr inbounds i8, ptr %3, i64 2
+  %450 = load i8, ptr %449, align 2
+  %451 = trunc i8 %450 to i1
   %452 = getelementptr inbounds i8, ptr %3, i64 24
   %453 = load ptr, ptr %452, align 8
-  %454 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %455 = extractvalue { ptr, i8 } %454, 0
-  %456 = extractvalue { ptr, i8 } %454, 1
-  %457 = getelementptr inbounds i8, ptr %455, i64 16
-  store ptr %453, ptr %457, align 8
-  %458 = trunc i8 %456 to i1
-  br i1 %458, label %459, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 7, i1 noundef zeroext %451, i32 noundef %.0.copyload.i.i, ptr noundef %453)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-459:                                              ; preds = %451
-  %460 = getelementptr inbounds i8, ptr %455, i64 8
-  store i8 7, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %455, i64 9
-  store i8 0, ptr %461, align 1
+454:                                              ; preds = %443
+  %455 = getelementptr inbounds i8, ptr %3, i64 24
+  %456 = load ptr, ptr %455, align 8
+  %457 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %458 = extractvalue { ptr, i8 } %457, 0
+  %459 = extractvalue { ptr, i8 } %457, 1
+  %460 = getelementptr inbounds i8, ptr %458, i64 16
+  store ptr %456, ptr %460, align 8
+  %461 = trunc i8 %459 to i1
+  br i1 %461, label %462, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263
+
+462:                                              ; preds = %454
+  %463 = getelementptr inbounds i8, ptr %458, i64 8
+  store i8 7, ptr %463, align 8
+  %464 = getelementptr inbounds i8, ptr %458, i64 9
+  store i8 0, ptr %464, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263
 
-_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263: ; preds = %451, %459
-  %462 = getelementptr inbounds i8, ptr %455, i64 10
-  %463 = load i8, ptr %462, align 2
-  %464 = and i8 %463, -16
-  store i8 %464, ptr %462, align 2
-  store i32 %.0.copyload.i.i, ptr %455, align 8
+_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263: ; preds = %454, %462
+  %465 = getelementptr inbounds i8, ptr %458, i64 10
+  %466 = load i8, ptr %465, align 2
+  %467 = and i8 %466, -16
+  store i8 %467, ptr %465, align 2
+  store i32 %.0.copyload.i.i, ptr %458, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-465:                                              ; preds = %136
+468:                                              ; preds = %139
   %.0.copyload.i.i264 = load i64, ptr %5, align 1
-  %466 = getelementptr inbounds i8, ptr %5, i64 8
-  %467 = getelementptr inbounds i8, ptr %3, i64 1
-  %468 = load i8, ptr %467, align 1
-  %469 = trunc i8 %468 to i1
-  br i1 %469, label %470, label %476
+  %469 = getelementptr inbounds i8, ptr %5, i64 8
+  %470 = getelementptr inbounds i8, ptr %3, i64 1
+  %471 = load i8, ptr %470, align 1
+  %472 = trunc i8 %471 to i1
+  br i1 %472, label %473, label %479
 
-470:                                              ; preds = %465
-  %471 = getelementptr inbounds i8, ptr %3, i64 2
-  %472 = load i8, ptr %471, align 2
-  %473 = trunc i8 %472 to i1
-  %474 = getelementptr inbounds i8, ptr %3, i64 24
-  %475 = load ptr, ptr %474, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 6, i1 noundef zeroext %473, i64 noundef %.0.copyload.i.i264, ptr noundef %475)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-476:                                              ; preds = %465
+473:                                              ; preds = %468
+  %474 = getelementptr inbounds i8, ptr %3, i64 2
+  %475 = load i8, ptr %474, align 2
+  %476 = trunc i8 %475 to i1
   %477 = getelementptr inbounds i8, ptr %3, i64 24
   %478 = load ptr, ptr %477, align 8
-  %479 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %480 = extractvalue { ptr, i8 } %479, 0
-  %481 = extractvalue { ptr, i8 } %479, 1
-  %482 = getelementptr inbounds i8, ptr %480, i64 16
-  store ptr %478, ptr %482, align 8
-  %483 = trunc i8 %481 to i1
-  br i1 %483, label %484, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 6, i1 noundef zeroext %476, i64 noundef %.0.copyload.i.i264, ptr noundef %478)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-484:                                              ; preds = %476
-  %485 = getelementptr inbounds i8, ptr %480, i64 8
-  store i8 6, ptr %485, align 8
-  %486 = getelementptr inbounds i8, ptr %480, i64 9
-  store i8 0, ptr %486, align 1
+479:                                              ; preds = %468
+  %480 = getelementptr inbounds i8, ptr %3, i64 24
+  %481 = load ptr, ptr %480, align 8
+  %482 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %483 = extractvalue { ptr, i8 } %482, 0
+  %484 = extractvalue { ptr, i8 } %482, 1
+  %485 = getelementptr inbounds i8, ptr %483, i64 16
+  store ptr %481, ptr %485, align 8
+  %486 = trunc i8 %484 to i1
+  br i1 %486, label %487, label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265
+
+487:                                              ; preds = %479
+  %488 = getelementptr inbounds i8, ptr %483, i64 8
+  store i8 6, ptr %488, align 8
+  %489 = getelementptr inbounds i8, ptr %483, i64 9
+  store i8 0, ptr %489, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265
 
-_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265: ; preds = %476, %484
-  %487 = getelementptr inbounds i8, ptr %480, i64 10
-  %488 = load i8, ptr %487, align 2
-  %489 = and i8 %488, -16
-  store i8 %489, ptr %487, align 2
-  store i64 %.0.copyload.i.i264, ptr %480, align 8
+_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265: ; preds = %479, %487
+  %490 = getelementptr inbounds i8, ptr %483, i64 10
+  %491 = load i8, ptr %490, align 2
+  %492 = and i8 %491, -16
+  store i8 %492, ptr %490, align 2
+  store i64 %.0.copyload.i.i264, ptr %483, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-490:                                              ; preds = %136
+493:                                              ; preds = %139
   %.0.copyload.i.i266 = load i32, ptr %5, align 1
-  %491 = getelementptr inbounds i8, ptr %5, i64 4
-  %492 = getelementptr inbounds i8, ptr %3, i64 1
-  %493 = load i8, ptr %492, align 1
-  %494 = trunc i8 %493 to i1
-  br i1 %494, label %495, label %501
+  %494 = getelementptr inbounds i8, ptr %5, i64 4
+  %495 = getelementptr inbounds i8, ptr %3, i64 1
+  %496 = load i8, ptr %495, align 1
+  %497 = trunc i8 %496 to i1
+  br i1 %497, label %498, label %504
 
-495:                                              ; preds = %490
-  %496 = getelementptr inbounds i8, ptr %3, i64 2
-  %497 = load i8, ptr %496, align 2
-  %498 = trunc i8 %497 to i1
-  %499 = getelementptr inbounds i8, ptr %3, i64 24
-  %500 = load ptr, ptr %499, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 15, i1 noundef zeroext %498, i32 noundef %.0.copyload.i.i266, ptr noundef %500)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-501:                                              ; preds = %490
+498:                                              ; preds = %493
+  %499 = getelementptr inbounds i8, ptr %3, i64 2
+  %500 = load i8, ptr %499, align 2
+  %501 = trunc i8 %500 to i1
   %502 = getelementptr inbounds i8, ptr %3, i64 24
   %503 = load ptr, ptr %502, align 8
-  %504 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %505 = extractvalue { ptr, i8 } %504, 0
-  %506 = extractvalue { ptr, i8 } %504, 1
-  %507 = getelementptr inbounds i8, ptr %505, i64 16
-  store ptr %503, ptr %507, align 8
-  %508 = trunc i8 %506 to i1
-  br i1 %508, label %509, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 15, i1 noundef zeroext %501, i32 noundef %.0.copyload.i.i266, ptr noundef %503)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-509:                                              ; preds = %501
-  %510 = getelementptr inbounds i8, ptr %505, i64 8
-  store i8 15, ptr %510, align 8
-  %511 = getelementptr inbounds i8, ptr %505, i64 9
-  store i8 0, ptr %511, align 1
+504:                                              ; preds = %493
+  %505 = getelementptr inbounds i8, ptr %3, i64 24
+  %506 = load ptr, ptr %505, align 8
+  %507 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %508 = extractvalue { ptr, i8 } %507, 0
+  %509 = extractvalue { ptr, i8 } %507, 1
+  %510 = getelementptr inbounds i8, ptr %508, i64 16
+  store ptr %506, ptr %510, align 8
+  %511 = trunc i8 %509 to i1
+  br i1 %511, label %512, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267
+
+512:                                              ; preds = %504
+  %513 = getelementptr inbounds i8, ptr %508, i64 8
+  store i8 15, ptr %513, align 8
+  %514 = getelementptr inbounds i8, ptr %508, i64 9
+  store i8 0, ptr %514, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267: ; preds = %501, %509
-  %512 = getelementptr inbounds i8, ptr %505, i64 10
-  %513 = load i8, ptr %512, align 2
-  %514 = and i8 %513, -16
-  store i8 %514, ptr %512, align 2
-  store i32 %.0.copyload.i.i266, ptr %505, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267: ; preds = %504, %512
+  %515 = getelementptr inbounds i8, ptr %508, i64 10
+  %516 = load i8, ptr %515, align 2
+  %517 = and i8 %516, -16
+  store i8 %517, ptr %515, align 2
+  store i32 %.0.copyload.i.i266, ptr %508, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-515:                                              ; preds = %136
+518:                                              ; preds = %139
   %.0.copyload.i.i268 = load i64, ptr %5, align 1
-  %516 = getelementptr inbounds i8, ptr %5, i64 8
-  %517 = getelementptr inbounds i8, ptr %3, i64 1
-  %518 = load i8, ptr %517, align 1
-  %519 = trunc i8 %518 to i1
-  br i1 %519, label %520, label %526
+  %519 = getelementptr inbounds i8, ptr %5, i64 8
+  %520 = getelementptr inbounds i8, ptr %3, i64 1
+  %521 = load i8, ptr %520, align 1
+  %522 = trunc i8 %521 to i1
+  br i1 %522, label %523, label %529
 
-520:                                              ; preds = %515
-  %521 = getelementptr inbounds i8, ptr %3, i64 2
-  %522 = load i8, ptr %521, align 2
-  %523 = trunc i8 %522 to i1
-  %524 = getelementptr inbounds i8, ptr %3, i64 24
-  %525 = load ptr, ptr %524, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 16, i1 noundef zeroext %523, i64 noundef %.0.copyload.i.i268, ptr noundef %525)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-526:                                              ; preds = %515
+523:                                              ; preds = %518
+  %524 = getelementptr inbounds i8, ptr %3, i64 2
+  %525 = load i8, ptr %524, align 2
+  %526 = trunc i8 %525 to i1
   %527 = getelementptr inbounds i8, ptr %3, i64 24
   %528 = load ptr, ptr %527, align 8
-  %529 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %530 = extractvalue { ptr, i8 } %529, 0
-  %531 = extractvalue { ptr, i8 } %529, 1
-  %532 = getelementptr inbounds i8, ptr %530, i64 16
-  store ptr %528, ptr %532, align 8
-  %533 = trunc i8 %531 to i1
-  br i1 %533, label %534, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 16, i1 noundef zeroext %526, i64 noundef %.0.copyload.i.i268, ptr noundef %528)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-534:                                              ; preds = %526
-  %535 = getelementptr inbounds i8, ptr %530, i64 8
-  store i8 16, ptr %535, align 8
-  %536 = getelementptr inbounds i8, ptr %530, i64 9
-  store i8 0, ptr %536, align 1
+529:                                              ; preds = %518
+  %530 = getelementptr inbounds i8, ptr %3, i64 24
+  %531 = load ptr, ptr %530, align 8
+  %532 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %533 = extractvalue { ptr, i8 } %532, 0
+  %534 = extractvalue { ptr, i8 } %532, 1
+  %535 = getelementptr inbounds i8, ptr %533, i64 16
+  store ptr %531, ptr %535, align 8
+  %536 = trunc i8 %534 to i1
+  br i1 %536, label %537, label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269
+
+537:                                              ; preds = %529
+  %538 = getelementptr inbounds i8, ptr %533, i64 8
+  store i8 16, ptr %538, align 8
+  %539 = getelementptr inbounds i8, ptr %533, i64 9
+  store i8 0, ptr %539, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269
 
-_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269: ; preds = %526, %534
-  %537 = getelementptr inbounds i8, ptr %530, i64 10
-  %538 = load i8, ptr %537, align 2
-  %539 = and i8 %538, -16
-  store i8 %539, ptr %537, align 2
-  store i64 %.0.copyload.i.i268, ptr %530, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269: ; preds = %529, %537
+  %540 = getelementptr inbounds i8, ptr %533, i64 10
+  %541 = load i8, ptr %540, align 2
+  %542 = and i8 %541, -16
+  store i8 %542, ptr %540, align 2
+  store i64 %.0.copyload.i.i268, ptr %533, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-540:                                              ; preds = %136
+543:                                              ; preds = %139
   %.0.copyload.i2.i = load float, ptr %5, align 1
-  %541 = getelementptr inbounds i8, ptr %5, i64 4
-  %542 = getelementptr inbounds i8, ptr %3, i64 1
-  %543 = load i8, ptr %542, align 1
-  %544 = trunc i8 %543 to i1
-  br i1 %544, label %545, label %551
+  %544 = getelementptr inbounds i8, ptr %5, i64 4
+  %545 = getelementptr inbounds i8, ptr %3, i64 1
+  %546 = load i8, ptr %545, align 1
+  %547 = trunc i8 %546 to i1
+  br i1 %547, label %548, label %554
 
-545:                                              ; preds = %540
-  %546 = getelementptr inbounds i8, ptr %3, i64 2
-  %547 = load i8, ptr %546, align 2
-  %548 = trunc i8 %547 to i1
-  %549 = getelementptr inbounds i8, ptr %3, i64 24
-  %550 = load ptr, ptr %549, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 2, i1 noundef zeroext %548, float noundef %.0.copyload.i2.i, ptr noundef %550)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-551:                                              ; preds = %540
+548:                                              ; preds = %543
+  %549 = getelementptr inbounds i8, ptr %3, i64 2
+  %550 = load i8, ptr %549, align 2
+  %551 = trunc i8 %550 to i1
   %552 = getelementptr inbounds i8, ptr %3, i64 24
   %553 = load ptr, ptr %552, align 8
-  %554 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %555 = extractvalue { ptr, i8 } %554, 0
-  %556 = extractvalue { ptr, i8 } %554, 1
-  %557 = getelementptr inbounds i8, ptr %555, i64 16
-  store ptr %553, ptr %557, align 8
-  %558 = trunc i8 %556 to i1
-  br i1 %558, label %559, label %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 2, i1 noundef zeroext %551, float noundef %.0.copyload.i2.i, ptr noundef %553)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-559:                                              ; preds = %551
-  %560 = getelementptr inbounds i8, ptr %555, i64 8
-  store i8 2, ptr %560, align 8
-  %561 = getelementptr inbounds i8, ptr %555, i64 9
-  store i8 0, ptr %561, align 1
+554:                                              ; preds = %543
+  %555 = getelementptr inbounds i8, ptr %3, i64 24
+  %556 = load ptr, ptr %555, align 8
+  %557 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %558 = extractvalue { ptr, i8 } %557, 0
+  %559 = extractvalue { ptr, i8 } %557, 1
+  %560 = getelementptr inbounds i8, ptr %558, i64 16
+  store ptr %556, ptr %560, align 8
+  %561 = trunc i8 %559 to i1
+  br i1 %561, label %562, label %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit
+
+562:                                              ; preds = %554
+  %563 = getelementptr inbounds i8, ptr %558, i64 8
+  store i8 2, ptr %563, align 8
+  %564 = getelementptr inbounds i8, ptr %558, i64 9
+  store i8 0, ptr %564, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit: ; preds = %551, %559
-  %562 = getelementptr inbounds i8, ptr %555, i64 10
-  %563 = load i8, ptr %562, align 2
-  %564 = and i8 %563, -16
-  store i8 %564, ptr %562, align 2
-  store float %.0.copyload.i2.i, ptr %555, align 8
+_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit: ; preds = %554, %562
+  %565 = getelementptr inbounds i8, ptr %558, i64 10
+  %566 = load i8, ptr %565, align 2
+  %567 = and i8 %566, -16
+  store i8 %567, ptr %565, align 2
+  store float %.0.copyload.i2.i, ptr %558, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-565:                                              ; preds = %136
+568:                                              ; preds = %139
   %.0.copyload.i2.i270 = load double, ptr %5, align 1
-  %566 = getelementptr inbounds i8, ptr %5, i64 8
-  %567 = getelementptr inbounds i8, ptr %3, i64 1
-  %568 = load i8, ptr %567, align 1
-  %569 = trunc i8 %568 to i1
-  br i1 %569, label %570, label %576
+  %569 = getelementptr inbounds i8, ptr %5, i64 8
+  %570 = getelementptr inbounds i8, ptr %3, i64 1
+  %571 = load i8, ptr %570, align 1
+  %572 = trunc i8 %571 to i1
+  br i1 %572, label %573, label %579
 
-570:                                              ; preds = %565
-  %571 = getelementptr inbounds i8, ptr %3, i64 2
-  %572 = load i8, ptr %571, align 2
-  %573 = trunc i8 %572 to i1
-  %574 = getelementptr inbounds i8, ptr %3, i64 24
-  %575 = load ptr, ptr %574, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 1, i1 noundef zeroext %573, double noundef %.0.copyload.i2.i270, ptr noundef %575)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-576:                                              ; preds = %565
+573:                                              ; preds = %568
+  %574 = getelementptr inbounds i8, ptr %3, i64 2
+  %575 = load i8, ptr %574, align 2
+  %576 = trunc i8 %575 to i1
   %577 = getelementptr inbounds i8, ptr %3, i64 24
   %578 = load ptr, ptr %577, align 8
-  %579 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %580 = extractvalue { ptr, i8 } %579, 0
-  %581 = extractvalue { ptr, i8 } %579, 1
-  %582 = getelementptr inbounds i8, ptr %580, i64 16
-  store ptr %578, ptr %582, align 8
-  %583 = trunc i8 %581 to i1
-  br i1 %583, label %584, label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
-
-584:                                              ; preds = %576
-  %585 = getelementptr inbounds i8, ptr %580, i64 8
-  store i8 1, ptr %585, align 8
-  %586 = getelementptr inbounds i8, ptr %580, i64 9
-  store i8 0, ptr %586, align 1
-  br label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
-
-_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit: ; preds = %576, %584
-  %587 = getelementptr inbounds i8, ptr %580, i64 10
-  %588 = load i8, ptr %587, align 2
-  %589 = and i8 %588, -16
-  store i8 %589, ptr %587, align 2
-  store double %.0.copyload.i2.i270, ptr %580, align 8
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 1, i1 noundef zeroext %576, double noundef %.0.copyload.i2.i270, ptr noundef %578)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-590:                                              ; preds = %136
-  %591 = load i8, ptr %5, align 1
-  %.not.i271 = icmp sgt i8 %591, -1
-  %592 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %.not.i271, label %593, label %595
+579:                                              ; preds = %568
+  %580 = getelementptr inbounds i8, ptr %3, i64 24
+  %581 = load ptr, ptr %580, align 8
+  %582 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %583 = extractvalue { ptr, i8 } %582, 0
+  %584 = extractvalue { ptr, i8 } %582, 1
+  %585 = getelementptr inbounds i8, ptr %583, i64 16
+  store ptr %581, ptr %585, align 8
+  %586 = trunc i8 %584 to i1
+  br i1 %586, label %587, label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
 
-593:                                              ; preds = %590
-  %594 = zext nneg i8 %591 to i64
+587:                                              ; preds = %579
+  %588 = getelementptr inbounds i8, ptr %583, i64 8
+  store i8 1, ptr %588, align 8
+  %589 = getelementptr inbounds i8, ptr %583, i64 9
+  store i8 0, ptr %589, align 1
+  br label %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit
+
+_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit: ; preds = %579, %587
+  %590 = getelementptr inbounds i8, ptr %583, i64 10
+  %591 = load i8, ptr %590, align 2
+  %592 = and i8 %591, -16
+  store i8 %592, ptr %590, align 2
+  store double %.0.copyload.i2.i270, ptr %583, align 8
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+
+593:                                              ; preds = %139
+  %594 = load i8, ptr %5, align 1
+  %.not.i271 = icmp sgt i8 %594, -1
+  %595 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %.not.i271, label %596, label %598
+
+596:                                              ; preds = %593
+  %597 = zext nneg i8 %594 to i64
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
 
-595:                                              ; preds = %590
-  %596 = zext i8 %591 to i32
-  %597 = load i8, ptr %592, align 1
-  %598 = zext i8 %597 to i32
-  %599 = shl nuw nsw i32 %598, 7
-  %600 = add nsw i32 %596, -128
-  %601 = or disjoint i32 %599, %600
-  %.not16.i272 = icmp sgt i8 %597, -1
-  br i1 %.not16.i272, label %602, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274
+598:                                              ; preds = %593
+  %599 = zext i8 %594 to i32
+  %600 = load i8, ptr %595, align 1
+  %601 = zext i8 %600 to i32
+  %602 = shl nuw nsw i32 %601, 7
+  %603 = add nsw i32 %599, -128
+  %604 = or disjoint i32 %602, %603
+  %.not16.i272 = icmp sgt i8 %600, -1
+  br i1 %.not16.i272, label %605, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274
 
-602:                                              ; preds = %595
-  %603 = zext nneg i32 %601 to i64
-  %604 = getelementptr inbounds i8, ptr %5, i64 2
+605:                                              ; preds = %598
+  %606 = zext nneg i32 %604 to i64
+  %607 = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274: ; preds = %595
-  %605 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %601)
-  %606 = extractvalue { ptr, i64 } %605, 0
-  %607 = extractvalue { ptr, i64 } %605, 1
-  %.not228 = icmp eq ptr %606, null
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274: ; preds = %598
+  %608 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %5, i32 noundef %604)
+  %609 = extractvalue { ptr, i64 } %608, 0
+  %610 = extractvalue { ptr, i64 } %608, 1
+  %.not228 = icmp eq ptr %609, null
   br i1 %.not228, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
 
-_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread: ; preds = %593, %602, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274
-  %.0.i273362 = phi ptr [ %606, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ %592, %593 ], [ %604, %602 ]
-  %.0361 = phi i64 [ %607, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ %594, %593 ], [ %603, %602 ]
-  %608 = trunc i64 %.0361 to i32
-  %609 = getelementptr inbounds i8, ptr %3, i64 8
-  %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %3, i64 16
-  %612 = load ptr, ptr %611, align 8
-  %613 = tail call noundef zeroext i1 %610(ptr noundef %612, i32 noundef %608)
-  br i1 %613, label %625, label %614
+_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread: ; preds = %596, %605, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274
+  %.0.i273362 = phi ptr [ %609, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ %595, %596 ], [ %607, %605 ]
+  %.0361 = phi i64 [ %610, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ %597, %596 ], [ %606, %605 ]
+  %611 = trunc i64 %.0361 to i32
+  %612 = getelementptr inbounds i8, ptr %3, i64 8
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds i8, ptr %3, i64 16
+  %615 = load ptr, ptr %614, align 8
+  %616 = tail call noundef zeroext i1 %613(ptr noundef %615, i32 noundef %611)
+  br i1 %616, label %628, label %617
 
-614:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
-  %615 = load ptr, ptr %4, align 8
-  %616 = ptrtoint ptr %615 to i64
-  %617 = and i64 %616, 1
-  %.not229 = icmp eq i64 %617, 0
-  br i1 %.not229, label %622, label %618
+617:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
+  %618 = load ptr, ptr %4, align 8
+  %619 = ptrtoint ptr %618 to i64
+  %620 = and i64 %619, 1
+  %.not229 = icmp eq i64 %620, 0
+  br i1 %.not229, label %625, label %621
 
-618:                                              ; preds = %614
-  %619 = and i64 %616, -2
-  %620 = inttoptr i64 %619 to ptr
-  %621 = getelementptr inbounds i8, ptr %620, i64 8
-  br label %624
+621:                                              ; preds = %617
+  %622 = and i64 %619, -2
+  %623 = inttoptr i64 %622 to ptr
+  %624 = getelementptr inbounds i8, ptr %623, i64 8
+  br label %627
 
-622:                                              ; preds = %614
-  %623 = tail call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %624
+625:                                              ; preds = %617
+  %626 = tail call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br label %627
 
-624:                                              ; preds = %622, %618
-  %.0225 = phi ptr [ %621, %618 ], [ %623, %622 ]
+627:                                              ; preds = %625, %621
+  %.0225 = phi ptr [ %624, %621 ], [ %626, %625 ]
   tail call void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %1, i64 noundef %.0361, ptr noundef %.0225)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-625:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
-  %626 = getelementptr inbounds i8, ptr %3, i64 1
-  %627 = load i8, ptr %626, align 1
-  %628 = trunc i8 %627 to i1
-  br i1 %628, label %629, label %635
+628:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274.thread
+  %629 = getelementptr inbounds i8, ptr %3, i64 1
+  %630 = load i8, ptr %629, align 1
+  %631 = trunc i8 %630 to i1
+  br i1 %631, label %632, label %638
 
-629:                                              ; preds = %625
-  %630 = getelementptr inbounds i8, ptr %3, i64 2
-  %631 = load i8, ptr %630, align 2
-  %632 = trunc i8 %631 to i1
-  %633 = getelementptr inbounds i8, ptr %3, i64 24
-  %634 = load ptr, ptr %633, align 8
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 14, i1 noundef zeroext %632, i32 noundef %608, ptr noundef %634)
-  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-
-635:                                              ; preds = %625
+632:                                              ; preds = %628
+  %633 = getelementptr inbounds i8, ptr %3, i64 2
+  %634 = load i8, ptr %633, align 2
+  %635 = trunc i8 %634 to i1
   %636 = getelementptr inbounds i8, ptr %3, i64 24
   %637 = load ptr, ptr %636, align 8
-  %638 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %639 = extractvalue { ptr, i8 } %638, 0
-  %640 = extractvalue { ptr, i8 } %638, 1
-  %641 = getelementptr inbounds i8, ptr %639, i64 16
-  store ptr %637, ptr %641, align 8
-  %642 = trunc i8 %640 to i1
-  br i1 %642, label %643, label %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 14, i1 noundef zeroext %635, i32 noundef %611, ptr noundef %637)
+  br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-643:                                              ; preds = %635
-  %644 = getelementptr inbounds i8, ptr %639, i64 8
-  store i8 14, ptr %644, align 8
-  %645 = getelementptr inbounds i8, ptr %639, i64 9
-  store i8 0, ptr %645, align 1
+638:                                              ; preds = %628
+  %639 = getelementptr inbounds i8, ptr %3, i64 24
+  %640 = load ptr, ptr %639, align 8
+  %641 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %642 = extractvalue { ptr, i8 } %641, 0
+  %643 = extractvalue { ptr, i8 } %641, 1
+  %644 = getelementptr inbounds i8, ptr %642, i64 16
+  store ptr %640, ptr %644, align 8
+  %645 = trunc i8 %643 to i1
+  br i1 %645, label %646, label %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit
+
+646:                                              ; preds = %638
+  %647 = getelementptr inbounds i8, ptr %642, i64 8
+  store i8 14, ptr %647, align 8
+  %648 = getelementptr inbounds i8, ptr %642, i64 9
+  store i8 0, ptr %648, align 1
   br label %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit: ; preds = %635, %643
-  %646 = getelementptr inbounds i8, ptr %639, i64 10
-  %647 = load i8, ptr %646, align 2
-  %648 = and i8 %647, -16
-  store i8 %648, ptr %646, align 2
-  store i32 %608, ptr %639, align 8
+_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit: ; preds = %638, %646
+  %649 = getelementptr inbounds i8, ptr %642, i64 10
+  %650 = load i8, ptr %649, align 2
+  %651 = and i8 %650, -16
+  store i8 %651, ptr %649, align 2
+  store i32 %611, ptr %642, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-649:                                              ; preds = %136, %136
-  %650 = getelementptr inbounds i8, ptr %3, i64 1
-  %651 = load i8, ptr %650, align 1
-  %652 = trunc i8 %651 to i1
-  %653 = getelementptr inbounds i8, ptr %3, i64 24
-  %654 = load ptr, ptr %653, align 8
-  br i1 %652, label %655, label %657
+652:                                              ; preds = %139, %139
+  %653 = getelementptr inbounds i8, ptr %3, i64 1
+  %654 = load i8, ptr %653, align 1
+  %655 = trunc i8 %654 to i1
+  %656 = getelementptr inbounds i8, ptr %3, i64 24
+  %657 = load ptr, ptr %656, align 8
+  br i1 %655, label %658, label %660
 
-655:                                              ; preds = %649
-  %656 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 9, ptr noundef %654)
-  br label %688
+658:                                              ; preds = %652
+  %659 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet9AddStringB5cxx11EihPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 9, ptr noundef %657)
+  br label %691
 
-657:                                              ; preds = %649
-  %658 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  %659 = extractvalue { ptr, i8 } %658, 0
-  %660 = extractvalue { ptr, i8 } %658, 1
-  %661 = getelementptr inbounds i8, ptr %659, i64 16
-  store ptr %654, ptr %661, align 8
-  %662 = trunc i8 %660 to i1
-  br i1 %662, label %663, label %._crit_edge.i
+660:                                              ; preds = %652
+  %661 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  %662 = extractvalue { ptr, i8 } %661, 0
+  %663 = extractvalue { ptr, i8 } %661, 1
+  %664 = getelementptr inbounds i8, ptr %662, i64 16
+  store ptr %657, ptr %664, align 8
+  %665 = trunc i8 %663 to i1
+  br i1 %665, label %666, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %657
-  %.pre.i = load ptr, ptr %659, align 8
+._crit_edge.i:                                    ; preds = %660
+  %.pre.i = load ptr, ptr %662, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
-663:                                              ; preds = %657
-  %664 = getelementptr inbounds i8, ptr %659, i64 8
-  store i8 9, ptr %664, align 8
-  %665 = getelementptr inbounds i8, ptr %659, i64 9
-  store i8 0, ptr %665, align 1
-  %666 = load ptr, ptr %0, align 8
-  %667 = icmp eq ptr %666, null
-  br i1 %667, label %668, label %670
+666:                                              ; preds = %660
+  %667 = getelementptr inbounds i8, ptr %662, i64 8
+  store i8 9, ptr %667, align 8
+  %668 = getelementptr inbounds i8, ptr %662, i64 9
+  store i8 0, ptr %668, align 1
+  %669 = load ptr, ptr %0, align 8
+  %670 = icmp eq ptr %669, null
+  br i1 %670, label %671, label %673
 
-668:                                              ; preds = %663
-  %669 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  br label %683
+671:                                              ; preds = %666
+  %672 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  br label %686
 
-670:                                              ; preds = %663
-  %671 = getelementptr inbounds i8, ptr %666, i64 24
-  %672 = load i64, ptr %671, align 8
-  %673 = and i64 %672, 1
-  %.not.i.i = icmp eq i64 %673, 0
-  br i1 %.not.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, label %674
+673:                                              ; preds = %666
+  %674 = getelementptr inbounds i8, ptr %669, i64 24
+  %675 = load i64, ptr %674, align 8
+  %676 = and i64 %675, 1
+  %.not.i.i = icmp eq i64 %676, 0
+  br i1 %.not.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, label %677
 
-674:                                              ; preds = %670
-  %675 = getelementptr inbounds i8, ptr %666, i64 32
-  %676 = load ptr, ptr %675, align 8
-  %677 = getelementptr inbounds i8, ptr %676, i64 32
-  %678 = load ptr, ptr %677, align 8
+677:                                              ; preds = %673
+  %678 = getelementptr inbounds i8, ptr %669, i64 32
   %679 = load ptr, ptr %678, align 8
-  %680 = getelementptr inbounds i8, ptr %679, i64 40
+  %680 = getelementptr inbounds i8, ptr %679, i64 32
   %681 = load ptr, ptr %680, align 8
-  tail call void %681(ptr noundef nonnull align 8 dereferenceable(8) %678, ptr noundef nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 noundef 32)
+  %682 = load ptr, ptr %681, align 8
+  %683 = getelementptr inbounds i8, ptr %682, i64 40
+  %684 = load ptr, ptr %683, align 8
+  tail call void %684(ptr noundef nonnull align 8 dereferenceable(8) %681, ptr noundef nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 noundef 32)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %674, %670
-  %682 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %666, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
-  br label %683
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %677, %673
+  %685 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %669, i64 noundef 32, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  br label %686
 
-683:                                              ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %668
-  %.sink.i = phi ptr [ %682, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %669, %668 ]
+686:                                              ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %671
+  %.sink.i = phi ptr [ %685, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %672, %671 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #23
-  store ptr %.sink.i, ptr %659, align 8
+  store ptr %.sink.i, ptr %662, align 8
   br label %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
 
-_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit: ; preds = %._crit_edge.i, %683
-  %684 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sink.i, %683 ]
-  %685 = getelementptr inbounds i8, ptr %659, i64 10
-  %686 = load i8, ptr %685, align 2
-  %687 = and i8 %686, -16
-  store i8 %687, ptr %685, align 2
-  br label %688
+_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit: ; preds = %._crit_edge.i, %686
+  %687 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sink.i, %686 ]
+  %688 = getelementptr inbounds i8, ptr %662, i64 10
+  %689 = load i8, ptr %688, align 2
+  %690 = and i8 %689, -16
+  store i8 %690, ptr %688, align 2
+  br label %691
 
-688:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit, %655
-  %689 = phi ptr [ %656, %655 ], [ %684, %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ]
-  %690 = load i8, ptr %5, align 1
-  %691 = zext i8 %690 to i32
-  %692 = icmp sgt i8 %690, -1
-  br i1 %692, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
+691:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit, %658
+  %692 = phi ptr [ %659, %658 ], [ %687, %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit ]
+  %693 = load i8, ptr %5, align 1
+  %694 = zext i8 %693 to i32
+  %695 = icmp sgt i8 %693, -1
+  br i1 %695, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
 
-_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %688
-  %693 = getelementptr inbounds i8, ptr %5, i64 1
-  br label %697
+_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %691
+  %696 = getelementptr inbounds i8, ptr %5, i64 1
+  br label %700
 
-_ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %688
-  %694 = tail call { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef nonnull %5, i32 noundef %691)
-  %695 = extractvalue { ptr, i32 } %694, 0
-  %696 = extractvalue { ptr, i32 } %694, 1
-  %.not = icmp eq ptr %695, null
-  br i1 %.not, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %697
+_ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %691
+  %697 = tail call { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef nonnull %5, i32 noundef %694)
+  %698 = extractvalue { ptr, i32 } %697, 0
+  %699 = extractvalue { ptr, i32 } %697, 1
+  %.not = icmp eq ptr %698, null
+  br i1 %.not, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %700
 
-697:                                              ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %.0.i275367 = phi i32 [ %691, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %696, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %storemerge.i366 = phi ptr [ %693, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %695, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %698 = sext i32 %.0.i275367 to i64
-  %699 = getelementptr inbounds i8, ptr %6, i64 8
-  %700 = load ptr, ptr %699, align 8
-  %701 = getelementptr inbounds i8, ptr %700, i64 16
-  %702 = ptrtoint ptr %701 to i64
-  %703 = ptrtoint ptr %storemerge.i366 to i64
-  %704 = sub i64 %702, %703
-  %.not.i276 = icmp slt i64 %704, %698
-  br i1 %.not.i276, label %708, label %705
+700:                                              ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
+  %.0.i275367 = phi i32 [ %694, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %699, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %storemerge.i366 = phi ptr [ %696, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %698, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %701 = sext i32 %.0.i275367 to i64
+  %702 = getelementptr inbounds i8, ptr %6, i64 8
+  %703 = load ptr, ptr %702, align 8
+  %704 = getelementptr inbounds i8, ptr %703, i64 16
+  %705 = ptrtoint ptr %704 to i64
+  %706 = ptrtoint ptr %storemerge.i366 to i64
+  %707 = sub i64 %705, %706
+  %.not.i276 = icmp slt i64 %707, %701
+  br i1 %.not.i276, label %711, label %708
 
-705:                                              ; preds = %697
-  %706 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %689, ptr noundef nonnull %storemerge.i366, i64 noundef %698)
-  %707 = getelementptr inbounds i8, ptr %storemerge.i366, i64 %698
+708:                                              ; preds = %700
+  %709 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %692, ptr noundef nonnull %storemerge.i366, i64 noundef %701)
+  %710 = getelementptr inbounds i8, ptr %storemerge.i366, i64 %701
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-708:                                              ; preds = %697
-  %709 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull %storemerge.i366, i32 noundef %.0.i275367, ptr noundef %689)
+711:                                              ; preds = %700
+  %712 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull %storemerge.i366, i32 noundef %.0.i275367, ptr noundef %692)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-710:                                              ; preds = %136
-  %711 = getelementptr inbounds i8, ptr %3, i64 1
-  %712 = load i8, ptr %711, align 1
-  %713 = trunc i8 %712 to i1
-  %714 = getelementptr inbounds i8, ptr %3, i64 8
-  %715 = load ptr, ptr %714, align 8
-  %716 = getelementptr inbounds i8, ptr %3, i64 24
-  %717 = load ptr, ptr %716, align 8
-  br i1 %713, label %718, label %720
+713:                                              ; preds = %139
+  %714 = getelementptr inbounds i8, ptr %3, i64 1
+  %715 = load i8, ptr %714, align 1
+  %716 = trunc i8 %715 to i1
+  %717 = getelementptr inbounds i8, ptr %3, i64 8
+  %718 = load ptr, ptr %717, align 8
+  %719 = getelementptr inbounds i8, ptr %3, i64 24
+  %720 = load ptr, ptr %719, align 8
+  br i1 %716, label %721, label %723
 
-718:                                              ; preds = %710
-  %719 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %715, ptr noundef %717)
-  br label %722
+721:                                              ; preds = %713
+  %722 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %718, ptr noundef %720)
+  br label %725
 
-720:                                              ; preds = %710
-  %721 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %715, ptr noundef %717)
-  br label %722
+723:                                              ; preds = %713
+  %724 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 10, ptr noundef nonnull align 8 dereferenceable(16) %718, ptr noundef %720)
+  br label %725
 
-722:                                              ; preds = %720, %718
-  %723 = phi ptr [ %719, %718 ], [ %721, %720 ]
-  %724 = getelementptr inbounds i8, ptr %6, i64 88
-  %725 = load i32, ptr %724, align 8
-  %726 = add nsw i32 %725, -1
-  store i32 %726, ptr %724, align 8
-  %727 = icmp slt i32 %725, 1
-  br i1 %727, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %728
+725:                                              ; preds = %723, %721
+  %726 = phi ptr [ %722, %721 ], [ %724, %723 ]
+  %727 = getelementptr inbounds i8, ptr %6, i64 88
+  %728 = load i32, ptr %727, align 8
+  %729 = add nsw i32 %728, -1
+  store i32 %729, ptr %727, align 8
+  %730 = icmp slt i32 %728, 1
+  br i1 %730, label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %731
 
-728:                                              ; preds = %722
-  %729 = shl i32 %1, 3
-  %730 = or disjoint i32 %729, 3
-  %731 = getelementptr inbounds i8, ptr %6, i64 92
-  %732 = load i32, ptr %731, align 4
-  %733 = add nsw i32 %732, 1
-  store i32 %733, ptr %731, align 4
-  %734 = load ptr, ptr %723, align 8
-  %735 = getelementptr inbounds i8, ptr %734, i64 88
-  %736 = load ptr, ptr %735, align 8
-  %737 = tail call noundef ptr %736(ptr noundef nonnull align 8 dereferenceable(16) %723, ptr noundef %5, ptr noundef nonnull %6)
-  %738 = load <2 x i32>, ptr %724, align 8
-  %739 = add nsw <2 x i32> %738, <i32 1, i32 -1>
-  store <2 x i32> %739, ptr %724, align 8
-  %740 = getelementptr inbounds i8, ptr %6, i64 80
-  %741 = load i32, ptr %740, align 8
-  %742 = icmp eq i32 %741, %730
-  store i32 0, ptr %740, align 8
-  %. = select i1 %742, ptr %737, ptr null
+731:                                              ; preds = %725
+  %732 = shl i32 %1, 3
+  %733 = or disjoint i32 %732, 3
+  %734 = getelementptr inbounds i8, ptr %6, i64 92
+  %735 = load i32, ptr %734, align 4
+  %736 = add nsw i32 %735, 1
+  store i32 %736, ptr %734, align 4
+  %737 = load ptr, ptr %726, align 8
+  %738 = getelementptr inbounds i8, ptr %737, i64 88
+  %739 = load ptr, ptr %738, align 8
+  %740 = tail call noundef ptr %739(ptr noundef nonnull align 8 dereferenceable(16) %726, ptr noundef %5, ptr noundef nonnull %6)
+  %741 = load i32, ptr %734, align 4
+  %742 = add nsw i32 %741, -1
+  store i32 %742, ptr %734, align 4
+  %743 = load i32, ptr %727, align 8
+  %744 = add nsw i32 %743, 1
+  store i32 %744, ptr %727, align 8
+  %745 = getelementptr inbounds i8, ptr %6, i64 80
+  %746 = load i32, ptr %745, align 8
+  %747 = icmp eq i32 %746, %733
+  store i32 0, ptr %745, align 8
+  %. = select i1 %747, ptr %740, ptr null
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-743:                                              ; preds = %136
-  %744 = getelementptr inbounds i8, ptr %3, i64 1
-  %745 = load i8, ptr %744, align 1
-  %746 = trunc i8 %745 to i1
-  %747 = getelementptr inbounds i8, ptr %3, i64 8
-  %748 = load ptr, ptr %747, align 8
-  %749 = getelementptr inbounds i8, ptr %3, i64 24
-  %750 = load ptr, ptr %749, align 8
-  br i1 %746, label %751, label %753
+748:                                              ; preds = %139
+  %749 = getelementptr inbounds i8, ptr %3, i64 1
+  %750 = load i8, ptr %749, align 1
+  %751 = trunc i8 %750 to i1
+  %752 = getelementptr inbounds i8, ptr %3, i64 8
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds i8, ptr %3, i64 24
+  %755 = load ptr, ptr %754, align 8
+  br i1 %751, label %756, label %758
 
-751:                                              ; preds = %743
-  %752 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef %750)
-  br label %755
+756:                                              ; preds = %748
+  %757 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %753, ptr noundef %755)
+  br label %760
 
-753:                                              ; preds = %743
-  %754 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef %750)
-  br label %755
+758:                                              ; preds = %748
+  %759 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %753, ptr noundef %755)
+  br label %760
 
-755:                                              ; preds = %753, %751
-  %756 = phi ptr [ %752, %751 ], [ %754, %753 ]
-  %757 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef %756, ptr noundef %5)
+760:                                              ; preds = %758, %756
+  %761 = phi ptr [ %757, %756 ], [ %759, %758 ]
+  %762 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef %761, ptr noundef %5)
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %133, %12, %624, %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit, %629, %570, %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit, %545, %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit, %520, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269, %495, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267, %470, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265, %445, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263, %420, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262, %375, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257, %326, %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit, %285, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit, %242, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit, %201, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit, %158, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit, %136, %708, %705, %722, %728, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit, %755, %117, %109, %101, %93, %85, %77, %69, %61, %53, %45, %37, %29, %21, %13
-  %.0226 = phi ptr [ %129, %117 ], [ %116, %109 ], [ %108, %101 ], [ %100, %93 ], [ %92, %85 ], [ %84, %77 ], [ %76, %69 ], [ %68, %61 ], [ %60, %53 ], [ %52, %45 ], [ %44, %37 ], [ %36, %29 ], [ %28, %21 ], [ %20, %13 ], [ %757, %755 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %722 ], [ %., %728 ], [ %707, %705 ], [ %709, %708 ], [ %5, %12 ], [ %5, %133 ], [ %5, %136 ], [ %.0.i273362, %629 ], [ %.0.i273362, %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit ], [ %.0.i273362, %624 ], [ %566, %570 ], [ %566, %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit ], [ %541, %545 ], [ %541, %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit ], [ %516, %520 ], [ %516, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269 ], [ %491, %495 ], [ %491, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267 ], [ %466, %470 ], [ %466, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265 ], [ %441, %445 ], [ %441, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263 ], [ %.0.i260357, %420 ], [ %.0.i260357, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262 ], [ %.0.i255352, %375 ], [ %.0.i255352, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257 ], [ %.0.i251347, %326 ], [ %.0.i251347, %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit ], [ %.0.i247342, %285 ], [ %.0.i247342, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit ], [ %.0.i243337, %242 ], [ %.0.i243337, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit ], [ %.0.i239332, %201 ], [ %.0.i239332, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit ], [ %.0.i327, %158 ], [ %.0.i327, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit ]
+_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %136, %12, %627, %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit, %632, %573, %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit, %548, %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit, %523, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269, %498, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267, %473, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265, %448, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263, %423, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262, %378, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257, %329, %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit, %288, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit, %245, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit, %204, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit, %161, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit, %139, %711, %708, %725, %731, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit, %760, %117, %109, %101, %93, %85, %77, %69, %61, %53, %45, %37, %29, %21, %13
+  %.0226 = phi ptr [ %132, %117 ], [ %116, %109 ], [ %108, %101 ], [ %100, %93 ], [ %92, %85 ], [ %84, %77 ], [ %76, %69 ], [ %68, %61 ], [ %60, %53 ], [ %52, %45 ], [ %44, %37 ], [ %36, %29 ], [ %28, %21 ], [ %20, %13 ], [ %762, %760 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit244 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit248 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit252 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit256 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit261 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit274 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %725 ], [ %., %731 ], [ %710, %708 ], [ %712, %711 ], [ %5, %12 ], [ %5, %136 ], [ %5, %139 ], [ %.0.i273362, %632 ], [ %.0.i273362, %_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE.exit ], [ %.0.i273362, %627 ], [ %569, %573 ], [ %569, %_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE.exit ], [ %544, %548 ], [ %544, %_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE.exit ], [ %519, %523 ], [ %519, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit269 ], [ %494, %498 ], [ %494, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit267 ], [ %469, %473 ], [ %469, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit265 ], [ %444, %448 ], [ %444, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit263 ], [ %.0.i260357, %423 ], [ %.0.i260357, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit262 ], [ %.0.i255352, %378 ], [ %.0.i255352, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit257 ], [ %.0.i251347, %329 ], [ %.0.i251347, %_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE.exit ], [ %.0.i247342, %288 ], [ %.0.i247342, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE.exit ], [ %.0.i243337, %245 ], [ %.0.i243337, %_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE.exit ], [ %.0.i239332, %204 ], [ %.0.i239332, %_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE.exit ], [ %.0.i327, %161 ], [ %.0.i327, %_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE.exit ]
   ret ptr %.0226
 }
 
@@ -14217,6 +14224,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23Par
   %25 = getelementptr inbounds i8, ptr %9, i64 8
   %26 = ptrtoint ptr %23 to i64
   %27 = getelementptr inbounds i8, ptr %4, i64 96
+  %28 = getelementptr inbounds i8, ptr %4, i64 104
+  %29 = getelementptr inbounds i8, ptr %9, i64 104
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %5
@@ -14226,232 +14235,232 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23Par
   br label %.outer224
 
 .outer224:                                        ; preds = %.outer, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit
-  %.087.ph225 = phi ptr [ %.087.ph, %.outer ], [ %226, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
+  %.087.ph225 = phi ptr [ %.087.ph, %.outer ], [ %229, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
   %.032.ph226 = phi i32 [ %.032.ph, %.outer ], [ 0, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
-  br label %28
+  br label %30
 
-28:                                               ; preds = %.outer224, %273
-  %.087 = phi ptr [ %272, %273 ], [ %.087.ph225, %.outer224 ]
-  %29 = load i32, ptr %10, align 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp ult ptr %.087, %30
-  br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96, label %32
+30:                                               ; preds = %.outer224, %276
+  %.087 = phi ptr [ %275, %276 ], [ %.087.ph225, %.outer224 ]
+  %31 = load i32, ptr %10, align 4
+  %32 = load ptr, ptr %4, align 8
+  %33 = icmp ult ptr %.087, %32
+  br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96, label %34
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %11, align 8
-  %34 = ptrtoint ptr %.087 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = trunc i64 %36 to i32
-  %38 = load i32, ptr %12, align 4
-  %39 = icmp eq i32 %38, %37
-  br i1 %39, label %40, label %45
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %11, align 8
+  %36 = ptrtoint ptr %.087 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = trunc i64 %38 to i32
+  %40 = load i32, ptr %12, align 4
+  %41 = icmp eq i32 %40, %39
+  br i1 %41, label %42, label %47
 
-40:                                               ; preds = %32
-  %41 = icmp sgt i32 %37, 0
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  %or.cond.i.i = select i1 %41, i1 %44, i1 false
+42:                                               ; preds = %34
+  %43 = icmp sgt i32 %39, 0
+  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  %or.cond.i.i = select i1 %43, i1 %46, i1 false
   %spec.select = select i1 %or.cond.i.i, ptr null, ptr %.087
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
-45:                                               ; preds = %32
-  %46 = invoke { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %37, i32 noundef %29)
+47:                                               ; preds = %34
+  %48 = invoke { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %39, i32 noundef %31)
           to label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit unwind label %.loopexit223.loopexit
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %45
-  %47 = extractvalue { ptr, i8 } %46, 0
-  %48 = extractvalue { ptr, i8 } %46, 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %47
+  %49 = extractvalue { ptr, i8 } %48, 0
+  %50 = extractvalue { ptr, i8 } %48, 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96: ; preds = %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.299 = phi ptr [ %47, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.087, %28 ]
-  %50 = getelementptr inbounds i8, ptr %.299, i64 1
-  %51 = load i8, ptr %.299, align 1
-  switch i8 %51, label %248 [
-    i8 16, label %52
-    i8 26, label %221
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96: ; preds = %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
+  %.299 = phi ptr [ %49, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.087, %30 ]
+  %52 = getelementptr inbounds i8, ptr %.299, i64 1
+  %53 = load i8, ptr %.299, align 1
+  switch i8 %53, label %251 [
+    i8 16, label %54
+    i8 26, label %224
   ]
 
-52:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
-  %.0.copyload.i.i.i.i = load i16, ptr %50, align 1
-  %53 = zext i16 %.0.copyload.i.i.i.i to i32
-  %sext.i.i = shl i32 %53, 24
-  %54 = ashr exact i32 %sext.i.i, 24
-  %55 = add nsw i32 %54, %53
-  %56 = ashr exact i32 %sext.i.i, 23
-  %57 = and i32 %55, %56
-  %58 = lshr exact i32 %57, 1
-  %59 = zext nneg i32 %58 to i64
-  %sext.mask.i = and i32 %57, 32768
-  %60 = icmp eq i32 %sext.mask.i, 0
-  br i1 %60, label %61, label %.preheader.i
+54:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
+  %.0.copyload.i.i.i.i = load i16, ptr %52, align 1
+  %55 = zext i16 %.0.copyload.i.i.i.i to i32
+  %sext.i.i = shl i32 %55, 24
+  %56 = ashr exact i32 %sext.i.i, 24
+  %57 = add nsw i32 %56, %55
+  %58 = ashr exact i32 %sext.i.i, 23
+  %59 = and i32 %57, %58
+  %60 = lshr exact i32 %59, 1
+  %61 = zext nneg i32 %60 to i64
+  %sext.mask.i = and i32 %59, 32768
+  %62 = icmp eq i32 %sext.mask.i, 0
+  br i1 %62, label %63, label %.preheader.i
 
-61:                                               ; preds = %52
-  %62 = icmp ult i32 %55, %54
-  br label %81
+63:                                               ; preds = %54
+  %64 = icmp ult i32 %57, %56
+  br label %83
 
-63:                                               ; preds = %.preheader.i
+65:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.preheader.i, !llvm.loop !46
 
-.preheader.i:                                     ; preds = %52, %63
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ 1, %52 ]
-  %.01527.i = phi i64 [ %76, %63 ], [ %59, %52 ]
-  %64 = shl nuw nsw i64 %indvars.iv.i, 1
-  %65 = getelementptr inbounds i8, ptr %50, i64 %64
-  %.0.copyload.i.i.i18.i = load i16, ptr %65, align 1
-  %66 = zext i16 %.0.copyload.i.i.i18.i to i32
-  %sext.i19.i = shl i32 %66, 24
-  %67 = ashr exact i32 %sext.i19.i, 24
-  %68 = add nsw i32 %67, %66
-  %69 = ashr exact i32 %sext.i19.i, 23
-  %70 = and i32 %68, %69
-  %71 = zext i32 %70 to i64
-  %72 = add nsw i64 %71, -2
-  %73 = mul nuw nsw i64 %indvars.iv.i, 14
-  %74 = add nsw i64 %73, -1
-  %75 = shl i64 %72, %74
-  %76 = add i64 %75, %.01527.i
-  %sext.mask17.i = and i32 %70, 32768
-  %77 = icmp eq i32 %sext.mask17.i, 0
-  br i1 %77, label %78, label %63
+.preheader.i:                                     ; preds = %54, %65
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 1, %54 ]
+  %.01527.i = phi i64 [ %78, %65 ], [ %61, %54 ]
+  %66 = shl nuw nsw i64 %indvars.iv.i, 1
+  %67 = getelementptr inbounds i8, ptr %52, i64 %66
+  %.0.copyload.i.i.i18.i = load i16, ptr %67, align 1
+  %68 = zext i16 %.0.copyload.i.i.i18.i to i32
+  %sext.i19.i = shl i32 %68, 24
+  %69 = ashr exact i32 %sext.i19.i, 24
+  %70 = add nsw i32 %69, %68
+  %71 = ashr exact i32 %sext.i19.i, 23
+  %72 = and i32 %70, %71
+  %73 = zext i32 %72 to i64
+  %74 = add nsw i64 %73, -2
+  %75 = mul nuw nsw i64 %indvars.iv.i, 14
+  %76 = add nsw i64 %75, -1
+  %77 = shl i64 %74, %76
+  %78 = add i64 %77, %.01527.i
+  %sext.mask17.i = and i32 %72, 32768
+  %79 = icmp eq i32 %sext.mask17.i, 0
+  br i1 %79, label %80, label %65
 
-78:                                               ; preds = %.preheader.i
-  %79 = getelementptr inbounds i8, ptr %50, i64 %64
-  %80 = icmp ult i32 %68, %67
-  br label %81
+80:                                               ; preds = %.preheader.i
+  %81 = getelementptr inbounds i8, ptr %52, i64 %66
+  %82 = icmp ult i32 %70, %69
+  br label %83
 
-.loopexit223.loopexit:                            ; preds = %260, %45, %270
+.loopexit223.loopexit:                            ; preds = %263, %47, %273
   %lpad.loopexit227 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit223.loopexit.split-lp:                   ; preds = %222
+.loopexit223.loopexit.split-lp:                   ; preds = %225
   %lpad.loopexit.split-lp228 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %164, %165, %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit, %145, %151, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %.thread179, %172, %191, %232, %243, %246, %127
+.loopexit.split-lp:                               ; preds = %166, %167, %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit, %147, %153, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, %.thread179, %174, %193, %235, %246, %249, %129
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit.split-lp, %.loopexit223.loopexit.split-lp, %.loopexit223.loopexit, %130
-  %eh.lpad-body = phi { ptr, i32 } [ %131, %130 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit227, %.loopexit223.loopexit ], [ %lpad.loopexit.split-lp228, %.loopexit223.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit.split-lp, %.loopexit223.loopexit.split-lp, %.loopexit223.loopexit, %132
+  %eh.lpad-body = phi { ptr, i32 } [ %133, %132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit227, %.loopexit223.loopexit ], [ %lpad.loopexit.split-lp228, %.loopexit223.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   resume { ptr, i32 } %eh.lpad-body
 
-81:                                               ; preds = %78, %61
-  %.sink46.i = phi i1 [ %80, %78 ], [ %62, %61 ]
-  %.sink.i = phi ptr [ %79, %78 ], [ %50, %61 ]
-  %.lcssa.sink.i = phi i64 [ %76, %78 ], [ %59, %61 ]
-  %82 = select i1 %.sink46.i, i64 2, i64 1
-  %83 = getelementptr inbounds i8, ptr %.sink.i, i64 %82
-  %84 = trunc i64 %.lcssa.sink.i to i32
-  br i1 %.033.ph, label %85, label %.outer.backedge
+83:                                               ; preds = %80, %63
+  %.sink46.i = phi i1 [ %82, %80 ], [ %64, %63 ]
+  %.sink.i = phi ptr [ %81, %80 ], [ %52, %63 ]
+  %.lcssa.sink.i = phi i64 [ %78, %80 ], [ %61, %63 ]
+  %84 = select i1 %.sink46.i, i64 2, i64 1
+  %85 = getelementptr inbounds i8, ptr %.sink.i, i64 %84
+  %86 = trunc i64 %.lcssa.sink.i to i32
+  br i1 %.033.ph, label %87, label %.outer.backedge
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_115global_registryE, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %88
+87:                                               ; preds = %83
+  %88 = load ptr, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_115global_registryE, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %90
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %86, i64 24
-  %.val.i.i.i.i.i = load i64, ptr %89, align 8
-  %90 = icmp eq i64 %.val.i.i.i.i.i, 0
-  br i1 %90, label %91, label %100
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds i8, ptr %88, i64 24
+  %.val.i.i.i.i.i = load i64, ptr %91, align 8
+  %92 = icmp eq i64 %.val.i.i.i.i.i, 0
+  br i1 %92, label %93, label %102
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %86, i64 16
-  br label %93
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %88, i64 16
+  br label %95
 
-93:                                               ; preds = %94, %91
-  %.sroa.01.0.in.i.i.i.i.i = phi ptr [ %92, %91 ], [ %.sroa.01.0.i.i.i.i.i, %94 ]
+95:                                               ; preds = %96, %93
+  %.sroa.01.0.in.i.i.i.i.i = phi ptr [ %94, %93 ], [ %.sroa.01.0.i.i.i.i.i, %96 ]
   %.sroa.01.0.i.i.i.i.i = load ptr, ptr %.sroa.01.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.01.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %94
+  br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %96
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i.i.i, i64 8
-  %.val9.i.i.i.i.i = load ptr, ptr %95, align 8
-  %96 = getelementptr i8, ptr %.sroa.01.0.i.i.i.i.i, i64 16
-  %.val10.i.i.i.i.i = load i32, ptr %96, align 8
-  %97 = icmp eq ptr %.val9.i.i.i.i.i, %2
-  %98 = icmp eq i32 %.val10.i.i.i.i.i, %84
-  %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %.loopexit, label %93, !llvm.loop !4
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i.i.i.i, i64 8
+  %.val9.i.i.i.i.i = load ptr, ptr %97, align 8
+  %98 = getelementptr i8, ptr %.sroa.01.0.i.i.i.i.i, i64 16
+  %.val10.i.i.i.i.i = load i32, ptr %98, align 8
+  %99 = icmp eq ptr %.val9.i.i.i.i.i, %2
+  %100 = icmp eq i32 %.val10.i.i.i.i.i, %86
+  %101 = select i1 %99, i1 %100, i1 false
+  br i1 %101, label %.loopexit, label %95, !llvm.loop !4
 
-100:                                              ; preds = %88
+102:                                              ; preds = %90
   %sext = shl i64 %.lcssa.sink.i, 32
-  %101 = ashr exact i64 %sext, 32
-  %102 = xor i64 %101, %13
-  %103 = getelementptr inbounds i8, ptr %86, i64 8
-  %.val13.i.i.i.i.i = load i64, ptr %103, align 8
-  %104 = urem i64 %102, %.val13.i.i.i.i.i
-  %.val14.i.i.i.i.i = load ptr, ptr %86, align 8
-  %105 = getelementptr inbounds ptr, ptr %.val14.i.i.i.i.i, i64 %104
-  %106 = load ptr, ptr %105, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %107
+  %103 = ashr exact i64 %sext, 32
+  %104 = xor i64 %103, %13
+  %105 = getelementptr inbounds i8, ptr %88, i64 8
+  %.val13.i.i.i.i.i = load i64, ptr %105, align 8
+  %106 = urem i64 %104, %.val13.i.i.i.i.i
+  %.val14.i.i.i.i.i = load ptr, ptr %88, align 8
+  %107 = getelementptr inbounds ptr, ptr %.val14.i.i.i.i.i, i64 %106
+  %108 = load ptr, ptr %107, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %108, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %109
 
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %106, align 8
-  %.phi.trans.insert.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %108, i64 56
+109:                                              ; preds = %102
+  %110 = load ptr, ptr %108, align 8
+  %.phi.trans.insert.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 56
   %.val7.i.pre.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8
-  br label %109
+  br label %111
 
-109:                                              ; preds = %118, %107
-  %.val7.i.i.i.i.i.i.i.i = phi i64 [ %.val7.i.pre.i.i.i.i.i.i.i, %107 ], [ %.val20.i.i.i.i.i.i.i, %118 ]
-  %110 = phi ptr [ %108, %107 ], [ %117, %118 ]
-  %111 = icmp eq i64 %.val7.i.i.i.i.i.i.i.i, %102
-  br i1 %111, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
+111:                                              ; preds = %120, %109
+  %.val7.i.i.i.i.i.i.i.i = phi i64 [ %.val7.i.pre.i.i.i.i.i.i.i, %109 ], [ %.val20.i.i.i.i.i.i.i, %120 ]
+  %112 = phi ptr [ %110, %109 ], [ %119, %120 ]
+  %113 = icmp eq i64 %.val7.i.i.i.i.i.i.i.i, %104
+  br i1 %113, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
 
-_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
-  %.val5.i.i.i.i.i.i.i.i = load ptr, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 16
-  %.val6.i.i.i.i.i.i.i.i = load i32, ptr %113, align 8
-  %114 = icmp eq ptr %.val5.i.i.i.i.i.i.i.i, %2
-  %115 = icmp eq i32 %.val6.i.i.i.i.i.i.i.i, %84
-  %116 = select i1 %114, i1 %115, i1 false
-  br i1 %116, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
+_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i: ; preds = %111
+  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %.val5.i.i.i.i.i.i.i.i = load ptr, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %112, i64 16
+  %.val6.i.i.i.i.i.i.i.i = load i32, ptr %115, align 8
+  %116 = icmp eq ptr %.val5.i.i.i.i.i.i.i.i, %2
+  %117 = icmp eq i32 %.val6.i.i.i.i.i.i.i.i, %86
+  %118 = select i1 %116, i1 %117, i1 false
+  br i1 %118, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
 
-_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, %109
-  %117 = load ptr, ptr %110, align 8
-  %.not16.i.i.i.i.i.i.i = icmp eq ptr %117, null
-  br i1 %.not16.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %118
+_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, %111
+  %119 = load ptr, ptr %112, align 8
+  %.not16.i.i.i.i.i.i.i = icmp eq ptr %119, null
+  br i1 %.not16.i.i.i.i.i.i.i, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, label %120
 
-118:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
-  %119 = getelementptr i8, ptr %117, i64 56
-  %.val20.i.i.i.i.i.i.i = load i64, ptr %119, align 8
-  %120 = urem i64 %.val20.i.i.i.i.i.i.i, %.val13.i.i.i.i.i
-  %.not17.i.i.i.i.i.i.i = icmp eq i64 %120, %104
-  br i1 %.not17.i.i.i.i.i.i.i, label %109, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, !llvm.loop !6
+120:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i
+  %121 = getelementptr i8, ptr %119, i64 56
+  %.val20.i.i.i.i.i.i.i = load i64, ptr %121, align 8
+  %122 = urem i64 %.val20.i.i.i.i.i.i.i, %.val13.i.i.i.i.i
+  %.not17.i.i.i.i.i.i.i = icmp eq i64 %122, %106
+  br i1 %.not17.i.i.i.i.i.i.i, label %111, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120, !llvm.loop !6
 
-.loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, %94
-  %.sroa.01.1.i.i.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i, %94 ], [ %110, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i ]
-  %121 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i.i, i64 24
-  %.sroa.067.0.copyload = load i8, ptr %121, align 8
+.loopexit:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i, %96
+  %.sroa.01.1.i.i.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i, %96 ], [ %112, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i.i ]
+  %123 = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i.i, i64 24
+  %.sroa.067.0.copyload = load i8, ptr %123, align 8
   %.sroa.268.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i.i, i64 25
   %.sroa.268.0.copyload = load i8, ptr %.sroa.268.0..sroa_idx, align 1
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i.i, i64 32
   %.sroa.470.0.copyload = load ptr, ptr %.sroa.470.0..sroa_idx, align 8
   %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.01.1.i.i.i.i.i, i64 48
   %.sroa.672.0.copyload = load ptr, ptr %.sroa.672.0..sroa_idx, align 8
-  %122 = zext i8 %.sroa.067.0.copyload to i64
-  %123 = getelementptr inbounds [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4
-  %125 = trunc i8 %.sroa.268.0.copyload to i1
-  br i1 %125, label %126, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178
+  %124 = zext i8 %.sroa.067.0.copyload to i64
+  %125 = getelementptr inbounds [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = trunc i8 %.sroa.268.0.copyload to i1
+  br i1 %127, label %128, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178
 
-126:                                              ; preds = %.loopexit
+128:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  switch i32 %124, label %127 [
+  switch i32 %126, label %129 [
     i32 0, label %.thread
     i32 1, label %.thread
     i32 5, label %.thread
@@ -14460,356 +14469,358 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_I
     i32 4, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
   ]
 
-127:                                              ; preds = %126
+129:                                              ; preds = %128
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 82)
           to label %.noexc66 unwind label %.loopexit.split-lp
 
-.noexc66:                                         ; preds = %127
-  %128 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.48)
-          to label %129 unwind label %130
+.noexc66:                                         ; preds = %129
+  %130 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.48)
+          to label %131 unwind label %132
 
-129:                                              ; preds = %.noexc66
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %128)
-          to label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180 unwind label %130
+131:                                              ; preds = %.noexc66
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %130)
+          to label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180 unwind label %132
 
-_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180: ; preds = %129
+_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180: ; preds = %131
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
 
-130:                                              ; preds = %129, %.noexc66
-  %131 = landingpad { ptr, i32 }
+132:                                              ; preds = %131, %.noexc66
+  %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
   br label %.body
 
-.thread:                                          ; preds = %126, %126, %126
+.thread:                                          ; preds = %128, %128, %128
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %165
+  br label %167
 
-_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit: ; preds = %126, %126, %126
+_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit: ; preds = %128, %128, %128
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %132 = icmp eq i32 %124, 2
-  br i1 %132, label %165, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
+  %134 = icmp eq i32 %126, 2
+  br i1 %134, label %167, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
 
 _ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178: ; preds = %.loopexit
-  %133 = icmp eq i32 %124, 2
-  br i1 %133, label %.thread179, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
+  %135 = icmp eq i32 %126, 2
+  br i1 %135, label %.thread179, label %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
 
-_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i, %118, %93, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178, %85, %100, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
-  %134 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %136 = load ptr, ptr %3, align 8
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %137, 1
-  %.not43 = icmp eq i64 %138, 0
-  br i1 %.not43, label %143, label %139
+_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPKN6google8protobuf11MessageLiteEiES1_IKS7_NS3_8internal13ExtensionInfoEENS_10_Select1stESt8equal_toIS7_ENS9_12_GLOBAL__N_115ExtensionHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread.i.i.i.i.i.i.i, %120, %95, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread180, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178, %87, %102, %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit
+  %136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %137 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %138 = load ptr, ptr %3, align 8
+  %139 = ptrtoint ptr %138 to i64
+  %140 = and i64 %139, 1
+  %.not43 = icmp eq i64 %140, 0
+  br i1 %.not43, label %145, label %141
 
-139:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
-  %140 = and i64 %137, -2
-  %141 = inttoptr i64 %140 to ptr
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  br label %164
+141:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
+  %142 = and i64 %139, -2
+  %143 = inttoptr i64 %142 to ptr
+  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  br label %166
 
-143:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
-  %144 = icmp eq ptr %136, null
-  br i1 %144, label %145, label %147
+145:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread120
+  %146 = icmp eq ptr %138, null
+  br i1 %146, label %147, label %149
 
-145:                                              ; preds = %143
-  %146 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
+147:                                              ; preds = %145
+  %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %.noexc47 unwind label %.loopexit.split-lp
 
-.noexc47:                                         ; preds = %145
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %146, i8 0, i64 40, i1 false)
+.noexc47:                                         ; preds = %147
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %148, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %136, i64 24
-  %149 = load i64, ptr %148, align 8
-  %150 = and i64 %149, 1
-  %.not.i.i = icmp eq i64 %150, 0
-  br i1 %.not.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, label %151
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %138, i64 24
+  %151 = load i64, ptr %150, align 8
+  %152 = and i64 %151, 1
+  %.not.i.i = icmp eq i64 %152, 0
+  br i1 %.not.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i, label %153
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %136, i64 32
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 32
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds i8, ptr %138, i64 32
   %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 40
+  %156 = getelementptr inbounds i8, ptr %155, i64 32
+  %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
-  invoke void %158(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef 40)
+  %159 = getelementptr inbounds i8, ptr %158, i64 40
+  %160 = load ptr, ptr %159, align 8
+  invoke void %160(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef 40)
           to label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i unwind label %.loopexit.split-lp
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %151, %147
-  %159 = invoke noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %136, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %153, %149
+  %161 = invoke noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %138, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
           to label %.noexc49 unwind label %.loopexit.split-lp
 
 .noexc49:                                         ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %159, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %161, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %.noexc47, %.noexc49
-  %.sink25.i = phi ptr [ %159, %.noexc49 ], [ %146, %.noexc47 ]
-  %160 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #23
-  %161 = ptrtoint ptr %.sink25.i to i64
-  %162 = or i64 %161, 1
-  %163 = inttoptr i64 %162 to ptr
-  store ptr %163, ptr %3, align 8
-  store ptr %136, ptr %.sink25.i, align 8
-  br label %164
+  %.sink25.i = phi ptr [ %161, %.noexc49 ], [ %148, %.noexc47 ]
+  %162 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %162) #23
+  %163 = ptrtoint ptr %.sink25.i to i64
+  %164 = or i64 %163, 1
+  %165 = inttoptr i64 %164 to ptr
+  store ptr %165, ptr %3, align 8
+  store ptr %138, ptr %.sink25.i, align 8
+  br label %166
 
-164:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %139
-  %.0 = phi ptr [ %142, %139 ], [ %160, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ]
-  invoke void @_ZN6google8protobuf8internal20WriteLengthDelimitedEjNS0_11StringPieceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %84, ptr %134, i64 %135, ptr noundef nonnull %.0)
+166:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %141
+  %.0 = phi ptr [ %144, %141 ], [ %162, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ]
+  invoke void @_ZN6google8protobuf8internal20WriteLengthDelimitedEjNS0_11StringPieceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %86, ptr %136, i64 %137, ptr noundef nonnull %.0)
           to label %.outer.backedge unwind label %.loopexit.split-lp
 
-165:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit, %.thread
-  %166 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %84, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload, ptr noundef %.sroa.672.0.copyload)
+167:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit, %.thread
+  %168 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10AddMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %86, i8 noundef zeroext 11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload, ptr noundef %.sroa.672.0.copyload)
           to label %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit unwind label %.loopexit.split-lp
 
 .thread179:                                       ; preds = %_ZN6google8protobuf8internal12ExtensionSet13FindExtensionEijPKNS0_11MessageLiteEPKNS1_12ParseContextEPNS1_13ExtensionInfoEPb.exit.thread178
-  %167 = invoke { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %84)
+  %169 = invoke { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %86)
           to label %.noexc51 unwind label %.loopexit.split-lp
 
 .noexc51:                                         ; preds = %.thread179
-  %168 = extractvalue { ptr, i8 } %167, 0
-  %169 = extractvalue { ptr, i8 } %167, 1
-  %170 = getelementptr inbounds i8, ptr %168, i64 16
-  store ptr %.sroa.672.0.copyload, ptr %170, align 8
-  %171 = trunc i8 %169 to i1
-  br i1 %171, label %172, label %185
+  %170 = extractvalue { ptr, i8 } %169, 0
+  %171 = extractvalue { ptr, i8 } %169, 1
+  %172 = getelementptr inbounds i8, ptr %170, i64 16
+  store ptr %.sroa.672.0.copyload, ptr %172, align 8
+  %173 = trunc i8 %171 to i1
+  br i1 %173, label %174, label %187
 
-172:                                              ; preds = %.noexc51
-  %173 = getelementptr inbounds i8, ptr %168, i64 8
-  store i8 11, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %168, i64 9
-  store i8 0, ptr %174, align 1
-  %175 = getelementptr inbounds i8, ptr %168, i64 10
-  %176 = load i8, ptr %175, align 2
-  %177 = and i8 %176, 15
-  store i8 %177, ptr %175, align 2
-  %178 = load ptr, ptr %0, align 8
-  %179 = load ptr, ptr %.sroa.470.0.copyload, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 32
-  %181 = load ptr, ptr %180, align 8
-  %182 = invoke noundef ptr %181(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload, ptr noundef %178)
+174:                                              ; preds = %.noexc51
+  %175 = getelementptr inbounds i8, ptr %170, i64 8
+  store i8 11, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %170, i64 9
+  store i8 0, ptr %176, align 1
+  %177 = getelementptr inbounds i8, ptr %170, i64 10
+  %178 = load i8, ptr %177, align 2
+  %179 = and i8 %178, 15
+  store i8 %179, ptr %177, align 2
+  %180 = load ptr, ptr %0, align 8
+  %181 = load ptr, ptr %.sroa.470.0.copyload, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 32
+  %183 = load ptr, ptr %182, align 8
+  %184 = invoke noundef ptr %183(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload, ptr noundef %180)
           to label %.noexc52 unwind label %.loopexit.split-lp
 
-.noexc52:                                         ; preds = %172
-  store ptr %182, ptr %168, align 8
-  %183 = load i8, ptr %175, align 2
-  %184 = and i8 %183, -16
-  store i8 %184, ptr %175, align 2
+.noexc52:                                         ; preds = %174
+  store ptr %184, ptr %170, align 8
+  %185 = load i8, ptr %177, align 2
+  %186 = and i8 %185, -16
+  store i8 %186, ptr %177, align 2
   br label %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit
 
-185:                                              ; preds = %.noexc51
-  %186 = getelementptr inbounds i8, ptr %168, i64 10
-  %187 = load i8, ptr %186, align 2
-  %188 = and i8 %187, -16
-  store i8 %188, ptr %186, align 2
-  %189 = and i8 %187, 16
-  %.not.i50 = icmp eq i8 %189, 0
-  %190 = load ptr, ptr %168, align 8
-  br i1 %.not.i50, label %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit, label %191
+187:                                              ; preds = %.noexc51
+  %188 = getelementptr inbounds i8, ptr %170, i64 10
+  %189 = load i8, ptr %188, align 2
+  %190 = and i8 %189, -16
+  store i8 %190, ptr %188, align 2
+  %191 = and i8 %189, 16
+  %.not.i50 = icmp eq i8 %191, 0
+  %192 = load ptr, ptr %170, align 8
+  br i1 %.not.i50, label %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit, label %193
 
-191:                                              ; preds = %185
-  %192 = load ptr, ptr %190, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 32
-  %194 = load ptr, ptr %193, align 8
-  %195 = invoke noundef ptr %194(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload)
+193:                                              ; preds = %187
+  %194 = load ptr, ptr %192, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 32
+  %196 = load ptr, ptr %195, align 8
+  %197 = invoke noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(8) %192, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.470.0.copyload)
           to label %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit unwind label %.loopexit.split-lp
 
-_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit: ; preds = %185, %.noexc52, %191, %165
-  %196 = phi ptr [ %166, %165 ], [ %182, %.noexc52 ], [ %190, %185 ], [ %195, %191 ]
-  %197 = load i32, ptr %14, align 8
+_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit: ; preds = %187, %.noexc52, %193, %167
+  %198 = phi ptr [ %168, %167 ], [ %184, %.noexc52 ], [ %192, %187 ], [ %197, %193 ]
+  %199 = load i32, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %18, align 4
-  store i32 %197, ptr %19, align 8
+  store i32 %199, ptr %19, align 8
   store i32 -2147483648, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %198 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  %199 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %200 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
+  %201 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   store i32 0, ptr %18, align 4
-  %200 = icmp sgt i64 %199, 16
-  br i1 %200, label %201, label %206
+  %202 = icmp sgt i64 %201, 16
+  br i1 %202, label %203, label %208
 
-201:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit
+203:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit
   store i32 16, ptr %24, align 4
-  %202 = getelementptr inbounds i8, ptr %198, i64 %199
-  %203 = getelementptr inbounds i8, ptr %202, i64 -16
-  store ptr %203, ptr %25, align 8
-  store ptr %203, ptr %9, align 8
+  %204 = getelementptr inbounds i8, ptr %200, i64 %201
+  %205 = getelementptr inbounds i8, ptr %204, i64 -16
+  store ptr %205, ptr %25, align 8
+  store ptr %205, ptr %9, align 8
   store ptr %23, ptr %22, align 8
-  %204 = load i64, ptr %16, align 8
-  %205 = icmp eq i64 %204, 1
-  br i1 %205, label %.sink.split.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
+  %206 = load i64, ptr %16, align 8
+  %207 = icmp eq i64 %206, 1
+  br i1 %207, label %.sink.split.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
 
-206:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %198, i64 %199, i1 false)
+208:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEihRKNS0_11MessageLiteEPKNS0_15FieldDescriptorE.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %200, i64 %201, i1 false)
   store i32 0, ptr %24, align 4
-  %207 = getelementptr inbounds i8, ptr %23, i64 %199
-  store ptr %207, ptr %25, align 8
-  store ptr %207, ptr %9, align 8
+  %209 = getelementptr inbounds i8, ptr %23, i64 %201
+  store ptr %209, ptr %25, align 8
+  store ptr %209, ptr %9, align 8
   store ptr null, ptr %22, align 8
-  %208 = load i64, ptr %16, align 8
-  %209 = icmp eq i64 %208, 1
-  br i1 %209, label %210, label %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
+  %210 = load i64, ptr %16, align 8
+  %211 = icmp eq i64 %210, 1
+  br i1 %211, label %212, label %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
 
-210:                                              ; preds = %206
-  %211 = ptrtoint ptr %198 to i64
-  %212 = sub i64 %211, %26
+212:                                              ; preds = %208
+  %213 = ptrtoint ptr %200 to i64
+  %214 = sub i64 %213, %26
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %210, %201
-  %.sink.i.i = phi i64 [ %212, %210 ], [ 2, %201 ]
-  %.0.ph.i.i = phi ptr [ %23, %210 ], [ %198, %201 ]
+.sink.split.i.i:                                  ; preds = %212, %203
+  %.sink.i.i = phi i64 [ %214, %212 ], [ 2, %203 ]
+  %.0.ph.i.i = phi ptr [ %23, %212 ], [ %200, %203 ]
   store i64 %.sink.i.i, ptr %16, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
 
-_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit: ; preds = %.sink.split.i.i, %206, %201
-  %.0.i.i54 = phi ptr [ %23, %206 ], [ %198, %201 ], [ %.0.ph.i.i, %.sink.split.i.i ]
-  %213 = load <2 x ptr>, ptr %27, align 8
-  store <2 x ptr> %213, ptr %21, align 8
-  %214 = load ptr, ptr %196, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 88
-  %216 = load ptr, ptr %215, align 8
-  %217 = invoke noundef ptr %216(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef %.0.i.i54, ptr noundef nonnull %9)
-          to label %218 unwind label %.loopexit.split-lp
+_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit: ; preds = %.sink.split.i.i, %208, %203
+  %.0.i.i54 = phi ptr [ %23, %208 ], [ %200, %203 ], [ %.0.ph.i.i, %.sink.split.i.i ]
+  %215 = load ptr, ptr %27, align 8
+  store ptr %215, ptr %21, align 8
+  %216 = load ptr, ptr %28, align 8
+  store ptr %216, ptr %29, align 8
+  %217 = load ptr, ptr %198, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 88
+  %219 = load ptr, ptr %218, align 8
+  %220 = invoke noundef ptr %219(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef %.0.i.i54, ptr noundef nonnull %9)
+          to label %221 unwind label %.loopexit.split-lp
 
-218:                                              ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
-  %.not44 = icmp ne ptr %217, null
-  %219 = load i32, ptr %17, align 8
-  %220 = icmp eq i32 %219, 0
-  %or.cond138 = select i1 %.not44, i1 %220, i1 false
+221:                                              ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEibPPKcDpOT_.exit
+  %.not44 = icmp ne ptr %220, null
+  %222 = load i32, ptr %17, align 8
+  %223 = icmp eq i32 %222, 0
+  %or.cond138 = select i1 %.not44, i1 %223, i1 false
   br i1 %or.cond138, label %.outer.backedge, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
-221:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
+224:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
   %.not38 = icmp eq i32 %.032.ph226, 0
-  br i1 %.not38, label %227, label %222
+  br i1 %.not38, label %230, label %225
 
-222:                                              ; preds = %221
-  %223 = zext i32 %.032.ph226 to i64
-  %224 = shl nuw nsw i64 %223, 3
-  %225 = or disjoint i64 %224, 2
-  %226 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %225, ptr noundef nonnull %50, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
+225:                                              ; preds = %224
+  %226 = zext i32 %.032.ph226 to i64
+  %227 = shl nuw nsw i64 %226, 3
+  %228 = or disjoint i64 %227, 2
+  %229 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %228, ptr noundef nonnull %52, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
           to label %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit unwind label %.loopexit223.loopexit.split-lp
 
-_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit: ; preds = %222
-  %.not41 = icmp eq ptr %226, null
+_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit: ; preds = %225
+  %.not41 = icmp eq ptr %229, null
   br i1 %.not41, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.outer224, !llvm.loop !47
 
-227:                                              ; preds = %221
-  %228 = load i8, ptr %50, align 1
-  %229 = zext i8 %228 to i32
-  %230 = icmp sgt i8 %228, -1
-  br i1 %230, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %232
+230:                                              ; preds = %224
+  %231 = load i8, ptr %52, align 1
+  %232 = zext i8 %231 to i32
+  %233 = icmp sgt i8 %231, -1
+  br i1 %233, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %235
 
-_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %.299, i64 2
-  br label %236
+_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %230
+  %234 = getelementptr inbounds i8, ptr %.299, i64 2
+  br label %239
 
-232:                                              ; preds = %227
-  %233 = invoke { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef nonnull %50, i32 noundef %229)
+235:                                              ; preds = %230
+  %236 = invoke { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef nonnull %52, i32 noundef %232)
           to label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit unwind label %.loopexit.split-lp
 
-_ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %232
-  %234 = extractvalue { ptr, i32 } %233, 0
-  %235 = extractvalue { ptr, i32 } %233, 1
-  %.not39 = icmp eq ptr %234, null
-  br i1 %.not39, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %236
+_ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %235
+  %237 = extractvalue { ptr, i32 } %236, 0
+  %238 = extractvalue { ptr, i32 } %236, 1
+  %.not39 = icmp eq ptr %237, null
+  br i1 %.not39, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %239
 
-236:                                              ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %.0.i56134 = phi i32 [ %229, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %235, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %storemerge.i133 = phi ptr [ %231, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %234, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %237 = sext i32 %.0.i56134 to i64
-  %238 = load ptr, ptr %11, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 16
-  %240 = ptrtoint ptr %239 to i64
-  %241 = ptrtoint ptr %storemerge.i133 to i64
-  %242 = sub i64 %240, %241
-  %.not.i58 = icmp slt i64 %242, %237
-  br i1 %.not.i58, label %246, label %243
+239:                                              ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
+  %.0.i56134 = phi i32 [ %232, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %238, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %storemerge.i133 = phi ptr [ %234, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %237, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %240 = sext i32 %.0.i56134 to i64
+  %241 = load ptr, ptr %11, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 16
+  %243 = ptrtoint ptr %242 to i64
+  %244 = ptrtoint ptr %storemerge.i133 to i64
+  %245 = sub i64 %243, %244
+  %.not.i58 = icmp slt i64 %245, %240
+  br i1 %.not.i58, label %249, label %246
 
-243:                                              ; preds = %236
-  %244 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %storemerge.i133, i64 noundef %237)
+246:                                              ; preds = %239
+  %247 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %storemerge.i133, i64 noundef %240)
           to label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread unwind label %.loopexit.split-lp
 
-_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %storemerge.i133, i64 %237
+_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %246
+  %248 = getelementptr inbounds i8, ptr %storemerge.i133, i64 %240
   br label %.outer.backedge
 
-246:                                              ; preds = %236
-  %247 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %storemerge.i133, i32 noundef %.0.i56134, ptr noundef nonnull %8)
+249:                                              ; preds = %239
+  %250 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %storemerge.i133, i32 noundef %.0.i56134, ptr noundef nonnull %8)
           to label %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp
 
-_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %246
-  %.not40 = icmp eq ptr %247, null
+_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %249
+  %.not40 = icmp eq ptr %250, null
   br i1 %.not40, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %164, %81, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %218
-  %.087.ph.be = phi ptr [ %83, %218 ], [ %245, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %83, %81 ], [ %83, %164 ], [ %247, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %.033.ph.be = phi i1 [ true, %218 ], [ true, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ false, %81 ], [ true, %164 ], [ true, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %.032.ph.be = phi i32 [ 0, %218 ], [ 0, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %84, %81 ], [ 0, %164 ], [ 0, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+.outer.backedge:                                  ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %166, %83, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %221
+  %.087.ph.be = phi ptr [ %85, %221 ], [ %248, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %85, %83 ], [ %85, %166 ], [ %250, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.033.ph.be = phi i1 [ true, %221 ], [ true, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ false, %83 ], [ true, %166 ], [ true, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.032.ph.be = phi i32 [ 0, %221 ], [ 0, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %86, %83 ], [ 0, %166 ], [ 0, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   br label %.outer, !llvm.loop !47
 
-248:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
-  %249 = zext i8 %51 to i32
-  %250 = icmp sgt i8 %51, -1
-  br i1 %250, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %251
+251:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread96
+  %252 = zext i8 %53 to i32
+  %253 = icmp sgt i8 %53, -1
+  br i1 %253, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %254
 
-251:                                              ; preds = %248
-  %252 = load i8, ptr %50, align 1
-  %253 = zext i8 %252 to i32
-  %254 = shl nuw nsw i32 %253, 7
-  %255 = add nsw i32 %249, -128
-  %256 = or disjoint i32 %254, %255
-  %257 = icmp sgt i8 %252, -1
-  br i1 %257, label %258, label %260
+254:                                              ; preds = %251
+  %255 = load i8, ptr %52, align 1
+  %256 = zext i8 %255 to i32
+  %257 = shl nuw nsw i32 %256, 7
+  %258 = add nsw i32 %252, -128
+  %259 = or disjoint i32 %257, %258
+  %260 = icmp sgt i8 %255, -1
+  br i1 %260, label %261, label %263
 
-258:                                              ; preds = %251
-  %259 = getelementptr inbounds i8, ptr %.299, i64 2
+261:                                              ; preds = %254
+  %262 = getelementptr inbounds i8, ptr %.299, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
-260:                                              ; preds = %251
-  %261 = invoke { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.299, i32 noundef %256)
+263:                                              ; preds = %254
+  %264 = invoke { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.299, i32 noundef %259)
           to label %.noexc63 unwind label %.loopexit223.loopexit
 
-.noexc63:                                         ; preds = %260
-  %262 = extractvalue { ptr, i32 } %261, 0
-  %263 = extractvalue { ptr, i32 } %261, 1
+.noexc63:                                         ; preds = %263
+  %265 = extractvalue { ptr, i32 } %264, 0
+  %266 = extractvalue { ptr, i32 } %264, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
-_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %248, %.noexc63, %258
-  %.089 = phi i32 [ %256, %258 ], [ %263, %.noexc63 ], [ %249, %248 ]
-  %.0.i62 = phi ptr [ %259, %258 ], [ %262, %.noexc63 ], [ %50, %248 ]
-  %264 = icmp eq i32 %.089, 0
-  %265 = and i32 %.089, 7
-  %266 = icmp eq i32 %265, 4
-  %or.cond = or i1 %264, %266
-  br i1 %or.cond, label %267, label %270
-
-267:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %268 = add i32 %.089, -1
-  %269 = getelementptr inbounds i8, ptr %4, i64 80
-  store i32 %268, ptr %269, align 8
-  br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
+_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %251, %.noexc63, %261
+  %.089 = phi i32 [ %259, %261 ], [ %266, %.noexc63 ], [ %252, %251 ]
+  %.0.i62 = phi ptr [ %262, %261 ], [ %265, %.noexc63 ], [ %52, %251 ]
+  %267 = icmp eq i32 %.089, 0
+  %268 = and i32 %.089, 7
+  %269 = icmp eq i32 %268, 4
+  %or.cond = or i1 %267, %269
+  br i1 %or.cond, label %270, label %273
 
 270:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %271 = zext i32 %.089 to i64
-  %272 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %271, ptr noundef %.0.i62, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
-          to label %273 unwind label %.loopexit223.loopexit
+  %271 = add i32 %.089, -1
+  %272 = getelementptr inbounds i8, ptr %4, i64 80
+  store i32 %271, ptr %272, align 8
+  br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
-273:                                              ; preds = %270
-  %.not = icmp eq ptr %272, null
-  br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %28, !llvm.loop !47
+273:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
+  %274 = zext i32 %.089 to i64
+  %275 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %274, ptr noundef %.0.i62, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
+          to label %276 unwind label %.loopexit223.loopexit
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %273, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %218, %63, %40, %267
-  %.031 = phi ptr [ %.0.i62, %267 ], [ %spec.select, %40 ], [ null, %63 ], [ %47, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %273 ], [ null, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %218 ]
+276:                                              ; preds = %273
+  %.not = icmp eq ptr %275, null
+  br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %30, !llvm.loop !47
+
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %276, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, %221, %65, %42, %270
+  %.031 = phi ptr [ %.0.i62, %270 ], [ %spec.select, %42 ], [ null, %65 ], [ %49, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %276 ], [ null, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ null, %221 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   ret ptr %.031
 }

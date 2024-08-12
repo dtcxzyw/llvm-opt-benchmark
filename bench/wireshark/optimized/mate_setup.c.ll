@@ -339,192 +339,200 @@ define hidden ptr @mate_make_config(ptr noundef %0, i32 noundef %1) local_unname
   %35 = getelementptr inbounds i8, ptr %8, i64 120
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 128
-  %37 = getelementptr inbounds i8, ptr %8, i64 144
-  store i32 0, ptr %37, align 8
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 0>, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 148
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %8, i64 156
-  store float -1.000000e+00, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %8, i64 160
-  store i32 2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %8, i64 164
-  store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %8, i64 168
-  store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 172
-  store float 5.000000e+00, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %8, i64 176
-  store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %8, i64 180
+  %37 = getelementptr inbounds i8, ptr %8, i64 140
+  store i32 0, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %8, i64 144
+  store i32 0, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %8, i64 136
+  store i32 0, ptr %39, align 8
+  store i32 1, ptr %36, align 8
+  %40 = getelementptr inbounds i8, ptr %8, i64 132
+  store i32 1, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %8, i64 148
+  store float -1.000000e+00, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %8, i64 152
+  store float -1.000000e+00, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %8, i64 156
+  store float -1.000000e+00, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %8, i64 160
+  store i32 2, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %8, i64 164
   store i32 1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %8, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %47 = tail call ptr @g_string_new(ptr noundef nonnull @.str.5) #9
-  %48 = getelementptr inbounds i8, ptr %8, i64 208
-  store ptr %47, ptr %48, align 8
+  %46 = getelementptr inbounds i8, ptr %8, i64 168
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %8, i64 172
+  store float 5.000000e+00, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %8, i64 176
+  store i32 1, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %8, i64 180
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %8, i64 184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %51 = tail call ptr @g_string_new(ptr noundef nonnull @.str.5) #9
+  %52 = getelementptr inbounds i8, ptr %8, i64 208
+  store ptr %51, ptr %52, align 8
   store ptr %31, ptr %7, align 8
-  %49 = call ptr @g_array_append_vals(ptr noundef %34, ptr noundef nonnull %7, i32 noundef 1) #9
-  %50 = call i32 @mate_load_config(ptr noundef %0, ptr noundef %8) #9
-  %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %133, label %51
+  %53 = call ptr @g_array_append_vals(ptr noundef %34, ptr noundef nonnull %7, i32 noundef 1) #9
+  %54 = call i32 @mate_load_config(ptr noundef %0, ptr noundef %8) #9
+  %.not = icmp eq i32 %54, 0
+  br i1 %.not, label %137, label %55
 
-51:                                               ; preds = %2
-  %52 = load ptr, ptr %26, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load i32, ptr %53, align 8
-  %.not.i = icmp eq i32 %54, 0
+55:                                               ; preds = %2
+  %56 = load ptr, ptr %26, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = load i32, ptr %57, align 8
+  %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %analyze_config.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %3, i64 32
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 24
-  %58 = getelementptr inbounds i8, ptr %3, i64 56
-  %59 = getelementptr inbounds i8, ptr %3, i64 68
-  %60 = getelementptr inbounds i8, ptr %3, i64 16
-  %61 = getelementptr inbounds i8, ptr %3, i64 48
-  %62 = getelementptr inbounds i8, ptr %3, i64 28
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %64
+.lr.ph.i:                                         ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %3, i64 32
+  %60 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds i8, ptr %3, i64 24
+  %62 = getelementptr inbounds i8, ptr %3, i64 56
+  %63 = getelementptr inbounds i8, ptr %3, i64 68
+  %64 = getelementptr inbounds i8, ptr %3, i64 16
+  %65 = getelementptr inbounds i8, ptr %3, i64 48
+  %66 = getelementptr inbounds i8, ptr %3, i64 28
+  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %68
 
-64:                                               ; preds = %analyze_pdu_config.exit.i, %.lr.ph.i
+68:                                               ; preds = %analyze_pdu_config.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %analyze_pdu_config.exit.i ]
-  %65 = phi ptr [ %52, %.lr.ph.i ], [ %124, %analyze_pdu_config.exit.i ]
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr ptr, ptr %66, i64 %indvars.iv.i
-  %68 = load ptr, ptr %67, align 8
+  %69 = phi ptr [ %56, %.lr.ph.i ], [ %128, %analyze_pdu_config.exit.i ]
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr ptr, ptr %70, i64 %indvars.iv.i
+  %72 = load ptr, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, i8 0, i64 48, i1 false)
-  store i32 -1, ptr %58, align 8
-  store i32 -1, ptr %59, align 4
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
-  store ptr %69, ptr %3, align 8
-  %70 = load ptr, ptr %68, align 8
-  %71 = call noalias ptr @g_strdup(ptr noundef %70) #9
-  store ptr %71, ptr %56, align 8
-  %72 = load ptr, ptr %68, align 8
-  %73 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %72) #9
-  store ptr %73, ptr %60, align 8
-  %74 = load ptr, ptr %68, align 8
-  %75 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %74) #9
-  store ptr %75, ptr %61, align 8
-  store i32 7, ptr %57, align 8
-  store i32 1, ptr %62, align 4
-  %76 = load ptr, ptr %33, align 8
-  %77 = call ptr @g_array_append_vals(ptr noundef %76, ptr noundef nonnull %3, i32 noundef 1) #9
-  %78 = getelementptr inbounds i8, ptr %68, i64 40
-  store ptr %78, ptr %3, align 8
-  %79 = load ptr, ptr %68, align 8
-  %80 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %79) #9
-  store ptr %80, ptr %56, align 8
-  %81 = load ptr, ptr %68, align 8
-  %82 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %81) #9
-  store ptr %82, ptr %60, align 8
-  store i32 22, ptr %57, align 8
-  store i32 0, ptr %62, align 4
-  store ptr @.str.11, ptr %61, align 8
-  %83 = load ptr, ptr %33, align 8
-  %84 = call ptr @g_array_append_vals(ptr noundef %83, ptr noundef nonnull %3, i32 noundef 1) #9
-  %85 = getelementptr inbounds i8, ptr %68, i64 44
-  store ptr %85, ptr %3, align 8
-  %86 = load ptr, ptr %68, align 8
-  %87 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %86) #9
-  store ptr %87, ptr %56, align 8
-  %88 = load ptr, ptr %68, align 8
-  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %88) #9
-  store ptr %89, ptr %60, align 8
-  store i32 22, ptr %57, align 8
-  store i32 0, ptr %62, align 4
-  store ptr @.str.14, ptr %61, align 8
-  %90 = load ptr, ptr %33, align 8
-  %91 = call ptr @g_array_append_vals(ptr noundef %90, ptr noundef nonnull %3, i32 noundef 1) #9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %59, i8 0, i64 48, i1 false)
+  store i32 -1, ptr %62, align 8
+  store i32 -1, ptr %63, align 4
+  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  store ptr %73, ptr %3, align 8
+  %74 = load ptr, ptr %72, align 8
+  %75 = call noalias ptr @g_strdup(ptr noundef %74) #9
+  store ptr %75, ptr %60, align 8
+  %76 = load ptr, ptr %72, align 8
+  %77 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %76) #9
+  store ptr %77, ptr %64, align 8
+  %78 = load ptr, ptr %72, align 8
+  %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %78) #9
+  store ptr %79, ptr %65, align 8
+  store i32 7, ptr %61, align 8
+  store i32 1, ptr %66, align 4
+  %80 = load ptr, ptr %33, align 8
+  %81 = call ptr @g_array_append_vals(ptr noundef %80, ptr noundef nonnull %3, i32 noundef 1) #9
+  %82 = getelementptr inbounds i8, ptr %72, i64 40
+  store ptr %82, ptr %3, align 8
+  %83 = load ptr, ptr %72, align 8
+  %84 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %83) #9
+  store ptr %84, ptr %60, align 8
+  %85 = load ptr, ptr %72, align 8
+  %86 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %85) #9
+  store ptr %86, ptr %64, align 8
+  store i32 22, ptr %61, align 8
+  store i32 0, ptr %66, align 4
+  store ptr @.str.11, ptr %65, align 8
+  %87 = load ptr, ptr %33, align 8
+  %88 = call ptr @g_array_append_vals(ptr noundef %87, ptr noundef nonnull %3, i32 noundef 1) #9
+  %89 = getelementptr inbounds i8, ptr %72, i64 44
+  store ptr %89, ptr %3, align 8
+  %90 = load ptr, ptr %72, align 8
+  %91 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %90) #9
+  store ptr %91, ptr %60, align 8
+  %92 = load ptr, ptr %72, align 8
+  %93 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %92) #9
+  store ptr %93, ptr %64, align 8
+  store i32 22, ptr %61, align 8
+  store i32 0, ptr %66, align 4
+  store ptr @.str.14, ptr %65, align 8
+  %94 = load ptr, ptr %33, align 8
+  %95 = call ptr @g_array_append_vals(ptr noundef %94, ptr noundef nonnull %3, i32 noundef 1) #9
   store ptr %8, ptr %5, align 8
-  store ptr %68, ptr %63, align 8
-  %92 = getelementptr inbounds i8, ptr %68, i64 64
-  %93 = load ptr, ptr %92, align 8
-  call void @g_hash_table_foreach(ptr noundef %93, ptr noundef nonnull @analyze_pdu_hfids, ptr noundef nonnull %5) #9
-  %94 = getelementptr inbounds i8, ptr %68, i64 88
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  %97 = load i32, ptr %96, align 8
-  %.not.i.i = icmp eq i32 %97, 0
+  store ptr %72, ptr %67, align 8
+  %96 = getelementptr inbounds i8, ptr %72, i64 64
+  %97 = load ptr, ptr %96, align 8
+  call void @g_hash_table_foreach(ptr noundef %97, ptr noundef nonnull @analyze_pdu_hfids, ptr noundef nonnull %5) #9
+  %98 = getelementptr inbounds i8, ptr %72, i64 88
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load i32, ptr %100, align 8
+  %.not.i.i = icmp eq i32 %101, 0
   br i1 %.not.i.i, label %analyze_pdu_config.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %64
+.lr.ph.i.i:                                       ; preds = %68
   %.pre.i.i = load ptr, ptr %11, align 8
-  br label %98
+  br label %102
 
-98:                                               ; preds = %98, %.lr.ph.i.i
-  %99 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %105, %98 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %98 ]
-  %100 = phi ptr [ %95, %.lr.ph.i.i ], [ %108, %98 ]
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr ptr, ptr %101, i64 %indvars.iv.i.i
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %103, align 4
-  store i32 %104, ptr %6, align 4
-  %105 = call ptr @g_array_append_vals(ptr noundef %99, ptr noundef nonnull %6, i32 noundef 1) #9
-  store ptr %105, ptr %11, align 8
-  %106 = load i32, ptr %12, align 8
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %12, align 8
+102:                                              ; preds = %102, %.lr.ph.i.i
+  %103 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %109, %102 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %102 ]
+  %104 = phi ptr [ %99, %.lr.ph.i.i ], [ %112, %102 ]
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr ptr, ptr %105, i64 %indvars.iv.i.i
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i32, ptr %107, align 4
+  store i32 %108, ptr %6, align 4
+  %109 = call ptr @g_array_append_vals(ptr noundef %103, ptr noundef nonnull %6, i32 noundef 1) #9
+  store ptr %109, ptr %11, align 8
+  %110 = load i32, ptr %12, align 8
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %12, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %108 = load ptr, ptr %94, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = icmp ult i64 %indvars.iv.next.i.i, %111
-  br i1 %112, label %98, label %analyze_pdu_config.exit.i, !llvm.loop !7
+  %112 = load ptr, ptr %98, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = zext i32 %114 to i64
+  %116 = icmp ult i64 %indvars.iv.next.i.i, %115
+  br i1 %116, label %102, label %analyze_pdu_config.exit.i, !llvm.loop !7
 
-analyze_pdu_config.exit.i:                        ; preds = %98, %64
-  %113 = getelementptr inbounds i8, ptr %68, i64 56
-  store ptr %113, ptr %4, align 8
-  %114 = load ptr, ptr %35, align 8
-  %115 = call ptr @g_array_append_vals(ptr noundef %114, ptr noundef nonnull %4, i32 noundef 1) #9
-  %116 = getelementptr inbounds i8, ptr %68, i64 60
-  store ptr %116, ptr %4, align 8
-  %117 = load ptr, ptr %35, align 8
-  %118 = call ptr @g_array_append_vals(ptr noundef %117, ptr noundef nonnull %4, i32 noundef 1) #9
-  %119 = load ptr, ptr %68, align 8
-  %120 = getelementptr inbounds i8, ptr %68, i64 24
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %68, i64 48
-  %123 = load ptr, ptr %122, align 8
-  call fastcc void @analyze_transform_hfrs(ptr noundef nonnull %8, ptr noundef %119, ptr noundef %121, ptr noundef %123)
+analyze_pdu_config.exit.i:                        ; preds = %102, %68
+  %117 = getelementptr inbounds i8, ptr %72, i64 56
+  store ptr %117, ptr %4, align 8
+  %118 = load ptr, ptr %35, align 8
+  %119 = call ptr @g_array_append_vals(ptr noundef %118, ptr noundef nonnull %4, i32 noundef 1) #9
+  %120 = getelementptr inbounds i8, ptr %72, i64 60
+  store ptr %120, ptr %4, align 8
+  %121 = load ptr, ptr %35, align 8
+  %122 = call ptr @g_array_append_vals(ptr noundef %121, ptr noundef nonnull %4, i32 noundef 1) #9
+  %123 = load ptr, ptr %72, align 8
+  %124 = getelementptr inbounds i8, ptr %72, i64 24
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %72, i64 48
+  %127 = load ptr, ptr %126, align 8
+  call fastcc void @analyze_transform_hfrs(ptr noundef nonnull %8, ptr noundef %123, ptr noundef %125, ptr noundef %127)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %124 = load ptr, ptr %26, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %indvars.iv.next.i, %127
-  br i1 %128, label %64, label %analyze_config.exit, !llvm.loop !8
+  %128 = load ptr, ptr %26, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load i32, ptr %129, align 8
+  %131 = zext i32 %130 to i64
+  %132 = icmp ult i64 %indvars.iv.next.i, %131
+  br i1 %132, label %68, label %analyze_config.exit, !llvm.loop !8
 
-analyze_config.exit:                              ; preds = %analyze_pdu_config.exit.i, %51
-  %129 = load ptr, ptr %20, align 8
-  call void @g_hash_table_foreach(ptr noundef %129, ptr noundef nonnull @analyze_gop_config, ptr noundef nonnull %8) #9
-  %130 = load ptr, ptr %22, align 8
-  call void @g_hash_table_foreach(ptr noundef %130, ptr noundef nonnull @analyze_gog_config, ptr noundef nonnull %8) #9
-  %131 = load i32, ptr %12, align 8
-  %132 = icmp eq i32 %131, 0
-  %. = select i1 %132, ptr null, ptr %8
-  br label %136
+analyze_config.exit:                              ; preds = %analyze_pdu_config.exit.i, %55
+  %133 = load ptr, ptr %20, align 8
+  call void @g_hash_table_foreach(ptr noundef %133, ptr noundef nonnull @analyze_gop_config, ptr noundef nonnull %8) #9
+  %134 = load ptr, ptr %22, align 8
+  call void @g_hash_table_foreach(ptr noundef %134, ptr noundef nonnull @analyze_gog_config, ptr noundef nonnull %8) #9
+  %135 = load i32, ptr %12, align 8
+  %136 = icmp eq i32 %135, 0
+  %. = select i1 %136, ptr null, ptr %8
+  br label %140
 
-133:                                              ; preds = %2
-  %134 = load ptr, ptr %48, align 8
-  %135 = load ptr, ptr %134, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, ptr noundef %135) #9
-  br label %136
+137:                                              ; preds = %2
+  %138 = load ptr, ptr %52, align 8
+  %139 = load ptr, ptr %138, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, ptr noundef %139) #9
+  br label %140
 
-136:                                              ; preds = %analyze_config.exit, %133
-  %.0 = phi ptr [ null, %133 ], [ %., %analyze_config.exit ]
+140:                                              ; preds = %analyze_config.exit, %137
+  %.0 = phi ptr [ null, %137 ], [ %., %analyze_config.exit ]
   ret ptr %.0
 }
 

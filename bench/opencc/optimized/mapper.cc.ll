@@ -106,7 +106,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.marisa::grimoire::io::Mapper", align 16
+  %3 = alloca %"class.marisa::grimoire::io::Mapper", align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %11
 
@@ -127,33 +127,45 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr nocapture noundef nonnul
 11:                                               ; preds = %2
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
   invoke void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %1)
-          to label %12 unwind label %23
+          to label %12 unwind label %31
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = load <2 x ptr>, ptr %3, align 16
-  %16 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %15, ptr %0, align 8
-  store <2 x ptr> %16, ptr %3, align 16
-  %17 = load <2 x i64>, ptr %14, align 16
-  %18 = load <2 x i64>, ptr %13, align 8
-  store <2 x i64> %17, ptr %13, align 8
-  store <2 x i64> %18, ptr %14, align 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = load i32, ptr %19, align 8
-  %22 = load i32, ptr %20, align 16
-  store i32 %22, ptr %19, align 8
-  store i32 %21, ptr %20, align 16
+  %13 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %3, align 8
+  store ptr %14, ptr %0, align 8
+  store ptr %13, ptr %3, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = load i64, ptr %15, align 8
+  %18 = load i64, ptr %16, align 8
+  store i64 %18, ptr %15, align 8
+  store i64 %17, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load ptr, ptr %19, align 8
+  %22 = load ptr, ptr %20, align 8
+  store ptr %22, ptr %19, align 8
+  store ptr %21, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = load i64, ptr %23, align 8
+  %26 = load i64, ptr %24, align 8
+  store i64 %26, ptr %23, align 8
+  store i64 %25, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  %29 = load i32, ptr %27, align 8
+  %30 = load i32, ptr %28, align 8
+  store i32 %30, ptr %27, align 8
+  store i32 %29, ptr %28, align 8
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
   ret void
 
-23:                                               ; preds = %11
-  %24 = landingpad { ptr, i32 }
+31:                                               ; preds = %11
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %32
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -277,7 +289,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.marisa::grimoire::io::Mapper", align 16
+  %4 = alloca %"class.marisa::grimoire::io::Mapper", align 8
   %5 = icmp eq ptr %1, null
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -300,27 +312,31 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr nocapture noundef nonnu
 13:                                               ; preds = %3
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4)
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = load <2 x ptr>, ptr %0, align 8
+  %15 = load ptr, ptr %0, align 8
   store ptr %1, ptr %0, align 8
-  store ptr %18, ptr %16, align 8
-  store <2 x ptr> %19, ptr %4, align 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  %22 = load i64, ptr %21, align 8
-  %23 = load <2 x i64>, ptr %15, align 8
-  store i64 %2, ptr %15, align 8
-  store i64 %22, ptr %20, align 8
-  store <2 x i64> %23, ptr %14, align 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
-  %26 = load i32, ptr %24, align 8
-  %27 = load i32, ptr %25, align 16
-  store i32 %27, ptr %24, align 8
-  store i32 %26, ptr %25, align 16
+  store ptr %15, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = load i64, ptr %16, align 8
+  store i64 %2, ptr %16, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = load ptr, ptr %18, align 8
+  %21 = load ptr, ptr %19, align 8
+  store ptr %21, ptr %18, align 8
+  store ptr %20, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = load i64, ptr %22, align 8
+  %25 = load i64, ptr %23, align 8
+  store i64 %25, ptr %22, align 8
+  store i64 %24, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = load i32, ptr %26, align 8
+  %29 = load i32, ptr %27, align 8
+  store i32 %29, ptr %26, align 8
+  store i32 %28, ptr %27, align 8
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #12
   ret void
 }
@@ -438,24 +454,36 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr nocapture nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.marisa::grimoire::io::Mapper", align 16
+  %2 = alloca %"class.marisa::grimoire::io::Mapper", align 8
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2)
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load <2 x ptr>, ptr %0, align 8
-  %6 = load <2 x ptr>, ptr %2, align 16
-  store <2 x ptr> %5, ptr %2, align 16
-  store <2 x ptr> %6, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load <2 x i64>, ptr %3, align 16
-  store <2 x i64> %7, ptr %3, align 16
-  store <2 x i64> %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = load i32, ptr %9, align 16
-  %12 = load i32, ptr %10, align 8
-  store i32 %12, ptr %9, align 16
-  store i32 %11, ptr %10, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %0, align 8
+  store ptr %4, ptr %2, align 8
+  store ptr %3, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i64, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  store i64 %8, ptr %5, align 8
+  store i64 %7, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = load ptr, ptr %10, align 8
+  store ptr %12, ptr %9, align 8
+  store ptr %11, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load i64, ptr %13, align 8
+  %16 = load i64, ptr %14, align 8
+  store i64 %16, ptr %13, align 8
+  store i64 %15, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load i32, ptr %17, align 8
+  %20 = load i32, ptr %18, align 8
+  store i32 %20, ptr %17, align 8
+  store i32 %19, ptr %18, align 8
   call void @_ZN6marisa8grimoire2io6MapperD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #12
   ret void
 }

@@ -1919,10 +1919,10 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
   store i8 1, ptr %46, align 1
   br label %_ZN7Archive14UnexpEndArcMsgEv.exit
 
-47:                                               ; preds = %.invoke, %.noexc193.invoke, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191, %207, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167, %151, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i, %55, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i, %497, %482, %480, %475, %446, %433, %424, %421, %417, %410, %408, %398, %387, %381, %378, %375, %371, %354, %340, %322, %320, %315, %314, %313, %311, %308, %302, %289, %287, %280, %266, %264, %260, %255, %239, %238, %224, %222, %220, %199, %169, %167, %163, %_ZN16RarCheckPasswordD2Ev.exit, %72, %49
+47:                                               ; preds = %.invoke, %.noexc193.invoke, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207, %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191, %207, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167, %151, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i, %55, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i, %498, %483, %481, %476, %447, %434, %425, %422, %418, %411, %409, %399, %388, %382, %379, %376, %371, %354, %340, %322, %320, %315, %314, %313, %311, %308, %302, %289, %287, %280, %266, %264, %260, %255, %239, %238, %224, %222, %220, %199, %169, %167, %163, %_ZN16RarCheckPasswordD2Ev.exit, %72, %49
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %511
+  br label %512
 
 49:                                               ; preds = %32
   %50 = load ptr, ptr %0, align 8
@@ -2042,7 +2042,7 @@ _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc150
 .body:                                            ; preds = %90, %97
   %eh.lpad-body = phi { ptr, i32 } [ %98, %97 ], [ %91, %90 ]
   call void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %14) #19
-  br label %511
+  br label %512
 
 99:                                               ; preds = %_ZN16RarCheckPassword3SetEPhS0_jS0_.exit, %80, %74
   invoke void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr poison)
@@ -2511,12 +2511,12 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %278 = select i1 %or.cond9.i, i64 0, i64 %277
   store i64 %278, ptr %274, align 8
   %279 = load i32, ptr %226, align 8
-  switch i32 %279, label %507 [
+  switch i32 %279, label %508 [
     i32 4, label %280
     i32 1, label %320
-    i32 2, label %378
-    i32 3, label %378
-    i32 5, label %497
+    i32 2, label %379
+    i32 3, label %379
+    i32 5, label %498
   ]
 
 280:                                              ; preds = %271
@@ -2603,7 +2603,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 319:                                              ; preds = %316, %305
   store i8 1, ptr %22, align 4
-  br label %507
+  br label %508
 
 320:                                              ; preds = %271
   %321 = getelementptr inbounds i8, ptr %0, i64 13808
@@ -2676,19 +2676,19 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %356 = getelementptr inbounds i8, ptr %0, i64 13768
   %357 = load i8, ptr %356, align 8
   %358 = trunc i8 %357 to i1
-  br i1 %358, label %507, label %359
+  br i1 %358, label %508, label %359
 
 359:                                              ; preds = %355
   %360 = getelementptr inbounds i8, ptr %0, i64 13838
   %361 = load i8, ptr %360, align 2
   %362 = trunc i8 %361 to i1
-  br i1 %362, label %363, label %507
+  br i1 %362, label %363, label %508
 
 363:                                              ; preds = %359
   %364 = getelementptr inbounds i8, ptr %0, i64 13840
   %365 = load i64, ptr %364, align 8
   %.not141 = icmp eq i64 %365, 0
-  br i1 %.not141, label %507, label %366
+  br i1 %.not141, label %508, label %366
 
 366:                                              ; preds = %363
   %367 = getelementptr inbounds i8, ptr %0, i64 11056
@@ -2696,321 +2696,323 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %369 = getelementptr inbounds i8, ptr %368, i64 16408
   %370 = load i32, ptr %369, align 8
   %.not142 = icmp eq i32 %370, 0
-  br i1 %.not142, label %507, label %371
+  br i1 %.not142, label %508, label %371
 
 371:                                              ; preds = %366
-  %372 = load <2 x i64>, ptr %25, align 8
-  %373 = load i32, ptr %236, align 4
-  %374 = getelementptr inbounds i8, ptr %0, i64 11088
-  invoke void @_ZN9QuickOpen4InitEP7Archiveb(ptr noundef nonnull align 8 dereferenceable(2673) %374, ptr noundef nonnull %0, i1 noundef zeroext false)
-          to label %375 unwind label %47
+  %372 = load i64, ptr %25, align 8
+  %373 = load i64, ptr %274, align 8
+  %374 = load i32, ptr %236, align 4
+  %375 = getelementptr inbounds i8, ptr %0, i64 11088
+  invoke void @_ZN9QuickOpen4InitEP7Archiveb(ptr noundef nonnull align 8 dereferenceable(2673) %375, ptr noundef nonnull %0, i1 noundef zeroext false)
+          to label %376 unwind label %47
 
-375:                                              ; preds = %371
-  %376 = load i64, ptr %364, align 8
-  invoke void @_ZN9QuickOpen4LoadEm(ptr noundef nonnull align 8 dereferenceable(2673) %374, i64 noundef %376)
-          to label %377 unwind label %47
+376:                                              ; preds = %371
+  %377 = load i64, ptr %364, align 8
+  invoke void @_ZN9QuickOpen4LoadEm(ptr noundef nonnull align 8 dereferenceable(2673) %375, i64 noundef %377)
+          to label %378 unwind label %47
 
-377:                                              ; preds = %375
-  store <2 x i64> %372, ptr %25, align 8
-  store i32 %373, ptr %236, align 4
-  br label %507
+378:                                              ; preds = %376
+  store i64 %372, ptr %25, align 8
+  store i64 %373, ptr %274, align 8
+  store i32 %374, ptr %236, align 4
+  br label %508
 
-378:                                              ; preds = %271, %271
-  %379 = icmp eq i32 %279, 2
-  %.v = select i1 %379, i64 13976, i64 31224
-  %380 = getelementptr inbounds i8, ptr %0, i64 %.v
-  invoke void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %380, i64 noundef 0)
-          to label %381 unwind label %47
+379:                                              ; preds = %271, %271
+  %380 = icmp eq i32 %279, 2
+  %.v = select i1 %380, i64 13976, i64 31224
+  %381 = getelementptr inbounds i8, ptr %0, i64 %.v
+  invoke void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %381, i64 noundef 0)
+          to label %382 unwind label %47
 
-381:                                              ; preds = %378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %380, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
-  %382 = load i32, ptr %226, align 8
-  %383 = icmp eq i32 %382, 2
-  %384 = getelementptr inbounds i8, ptr %380, i64 8457
-  store i8 1, ptr %384, align 1
-  %385 = getelementptr inbounds i8, ptr %380, i64 8288
-  store i64 %.0110, ptr %385, align 8
-  %386 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %387 unwind label %47
+382:                                              ; preds = %379
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %381, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
+  %383 = load i32, ptr %226, align 8
+  %384 = icmp eq i32 %383, 2
+  %385 = getelementptr inbounds i8, ptr %381, i64 8457
+  store i8 1, ptr %385, align 1
+  %386 = getelementptr inbounds i8, ptr %381, i64 8288
+  store i64 %.0110, ptr %386, align 8
+  %387 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %388 unwind label %47
 
-387:                                              ; preds = %381
-  %388 = trunc i64 %386 to i32
-  %389 = getelementptr inbounds i8, ptr %380, i64 8348
-  store i32 %388, ptr %389, align 4
-  %390 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %391 unwind label %47
+388:                                              ; preds = %382
+  %389 = trunc i64 %387 to i32
+  %390 = getelementptr inbounds i8, ptr %381, i64 8348
+  store i32 %389, ptr %390, align 4
+  %391 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %392 unwind label %47
 
-391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %380, i64 8296
-  store i64 %390, ptr %392, align 8
-  %393 = load i32, ptr %389, align 4
-  %394 = and i32 %393, 8
-  %.not126 = icmp eq i32 %394, 0
-  %395 = getelementptr inbounds i8, ptr %380, i64 8354
-  %.lobit = lshr exact i32 %394, 3
-  %396 = trunc nuw nsw i32 %.lobit to i8
-  store i8 %396, ptr %395, align 2
-  br i1 %.not126, label %398, label %397
+392:                                              ; preds = %388
+  %393 = getelementptr inbounds i8, ptr %381, i64 8296
+  store i64 %391, ptr %393, align 8
+  %394 = load i32, ptr %390, align 4
+  %395 = and i32 %394, 8
+  %.not126 = icmp eq i32 %395, 0
+  %396 = getelementptr inbounds i8, ptr %381, i64 8354
+  %.lobit = lshr exact i32 %395, 3
+  %397 = trunc nuw nsw i32 %.lobit to i8
+  store i8 %397, ptr %396, align 2
+  br i1 %.not126, label %399, label %398
 
-397:                                              ; preds = %391
-  store i64 9223372034707292159, ptr %392, align 8
-  br label %398
+398:                                              ; preds = %392
+  store i64 9223372034707292159, ptr %393, align 8
+  br label %399
 
-398:                                              ; preds = %397, %391
-  %399 = phi i64 [ 9223372034707292159, %397 ], [ %390, %391 ]
-  %400 = load i64, ptr %385, align 8
-  %. = call i64 @llvm.smax.i64(i64 %400, i64 %399)
-  %401 = getelementptr inbounds i8, ptr %380, i64 8304
-  store i64 %., ptr %401, align 8
-  %402 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %403 unwind label %47
+399:                                              ; preds = %398, %392
+  %400 = phi i64 [ 9223372034707292159, %398 ], [ %391, %392 ]
+  %401 = load i64, ptr %386, align 8
+  %. = call i64 @llvm.smax.i64(i64 %401, i64 %400)
+  %402 = getelementptr inbounds i8, ptr %381, i64 8304
+  store i64 %., ptr %402, align 8
+  %403 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %404 unwind label %47
 
-403:                                              ; preds = %398
-  %404 = trunc i64 %402 to i32
-  %405 = getelementptr inbounds i8, ptr %380, i64 36
-  store i32 %404, ptr %405, align 4
-  %406 = load i32, ptr %389, align 4
-  %407 = and i32 %406, 2
-  %.not127 = icmp eq i32 %407, 0
-  br i1 %.not127, label %413, label %408
+404:                                              ; preds = %399
+  %405 = trunc i64 %403 to i32
+  %406 = getelementptr inbounds i8, ptr %381, i64 36
+  store i32 %405, ptr %406, align 4
+  %407 = load i32, ptr %390, align 4
+  %408 = and i32 %407, 2
+  %.not127 = icmp eq i32 %408, 0
+  br i1 %.not127, label %414, label %409
 
-408:                                              ; preds = %403
-  %409 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %410 unwind label %47
+409:                                              ; preds = %404
+  %410 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %411 unwind label %47
 
-410:                                              ; preds = %408
-  %411 = getelementptr inbounds i8, ptr %380, i64 8264
-  %412 = zext i32 %409 to i64
-  invoke void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %411, i64 noundef %412)
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds i8, ptr %381, i64 8264
+  %413 = zext i32 %410 to i64
+  invoke void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %412, i64 noundef %413)
           to label %._crit_edge215 unwind label %47
 
-._crit_edge215:                                   ; preds = %410
-  %.pre216 = load i32, ptr %389, align 4
-  br label %413
+._crit_edge215:                                   ; preds = %411
+  %.pre216 = load i32, ptr %390, align 4
+  br label %414
 
-413:                                              ; preds = %._crit_edge215, %403
-  %414 = phi i32 [ %.pre216, %._crit_edge215 ], [ %406, %403 ]
-  %415 = getelementptr inbounds i8, ptr %380, i64 8312
-  store i32 0, ptr %415, align 8
-  %416 = and i32 %414, 4
-  %.not128 = icmp eq i32 %416, 0
-  br i1 %.not128, label %421, label %417
+414:                                              ; preds = %._crit_edge215, %404
+  %415 = phi i32 [ %.pre216, %._crit_edge215 ], [ %407, %404 ]
+  %416 = getelementptr inbounds i8, ptr %381, i64 8312
+  store i32 0, ptr %416, align 8
+  %417 = and i32 %415, 4
+  %.not128 = icmp eq i32 %417, 0
+  br i1 %.not128, label %422, label %418
 
-417:                                              ; preds = %413
-  store i32 2, ptr %415, align 8
-  %418 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %419 unwind label %47
+418:                                              ; preds = %414
+  store i32 2, ptr %416, align 8
+  %419 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %420 unwind label %47
 
-419:                                              ; preds = %417
-  %420 = getelementptr inbounds i8, ptr %380, i64 8316
-  store i32 %418, ptr %420, align 4
-  br label %421
+420:                                              ; preds = %418
+  %421 = getelementptr inbounds i8, ptr %381, i64 8316
+  store i32 %419, ptr %421, align 4
+  br label %422
 
-421:                                              ; preds = %419, %413
-  %422 = getelementptr inbounds i8, ptr %380, i64 8464
-  store i32 0, ptr %422, align 8
-  %423 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %424 unwind label %47
+422:                                              ; preds = %420, %414
+  %423 = getelementptr inbounds i8, ptr %381, i64 8464
+  store i32 0, ptr %423, align 8
+  %424 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %425 unwind label %47
 
-424:                                              ; preds = %421
-  %425 = trunc i64 %423 to i32
-  %426 = lshr i64 %423, 7
-  %427 = trunc i64 %426 to i8
-  %428 = and i8 %427, 7
-  %429 = getelementptr inbounds i8, ptr %380, i64 32
-  store i8 %428, ptr %429, align 8
-  %430 = and i32 %425, 63
-  %431 = getelementptr inbounds i8, ptr %380, i64 28
-  %.not129 = icmp eq i32 %430, 0
+425:                                              ; preds = %422
+  %426 = trunc i64 %424 to i32
+  %427 = lshr i64 %424, 7
+  %428 = trunc i64 %427 to i8
+  %429 = and i8 %428, 7
+  %430 = getelementptr inbounds i8, ptr %381, i64 32
+  store i8 %429, ptr %430, align 8
+  %431 = and i32 %426, 63
+  %432 = getelementptr inbounds i8, ptr %381, i64 28
+  %.not129 = icmp eq i32 %431, 0
   %spec.select = select i1 %.not129, i32 50, i32 9999
-  store i32 %spec.select, ptr %431, align 4
-  %432 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %433 unwind label %47
+  store i32 %spec.select, ptr %432, align 4
+  %433 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %434 unwind label %47
 
-433:                                              ; preds = %424
-  %434 = trunc i64 %432 to i8
-  %435 = getelementptr inbounds i8, ptr %380, i64 24
-  store i8 %434, ptr %435, align 8
-  %436 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %437 unwind label %47
+434:                                              ; preds = %425
+  %435 = trunc i64 %433 to i8
+  %436 = getelementptr inbounds i8, ptr %381, i64 24
+  store i8 %435, ptr %436, align 8
+  %437 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %438 unwind label %47
 
-437:                                              ; preds = %433
-  %438 = load i32, ptr %230, align 4
-  %439 = getelementptr inbounds i8, ptr %380, i64 8456
-  %440 = trunc i32 %438 to i8
-  %441 = lshr i8 %440, 6
-  %442 = and i8 %441, 1
-  store i8 %442, ptr %439, align 8
-  %443 = getelementptr inbounds i8, ptr %380, i64 8460
-  store i32 2, ptr %443, align 4
-  %444 = load i8, ptr %435, align 8
-  switch i8 %444, label %446 [
+438:                                              ; preds = %434
+  %439 = load i32, ptr %230, align 4
+  %440 = getelementptr inbounds i8, ptr %381, i64 8456
+  %441 = trunc i32 %439 to i8
+  %442 = lshr i8 %441, 6
+  %443 = and i8 %442, 1
+  store i8 %443, ptr %440, align 8
+  %444 = getelementptr inbounds i8, ptr %381, i64 8460
+  store i32 2, ptr %444, align 4
+  %445 = load i8, ptr %436, align 8
+  switch i8 %445, label %447 [
     i8 1, label %.sink.split
-    i8 0, label %445
+    i8 0, label %446
   ]
 
-445:                                              ; preds = %437
+446:                                              ; preds = %438
   br label %.sink.split
 
-.sink.split:                                      ; preds = %437, %445
-  %.sink = phi i32 [ 0, %445 ], [ 1, %437 ]
-  store i32 %.sink, ptr %443, align 4
-  br label %446
+.sink.split:                                      ; preds = %438, %446
+  %.sink = phi i32 [ 0, %446 ], [ 1, %438 ]
+  store i32 %.sink, ptr %444, align 4
+  br label %447
 
-446:                                              ; preds = %.sink.split, %437
-  %447 = getelementptr inbounds i8, ptr %380, i64 8
-  %448 = load i32, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %380, i64 8352
-  %450 = trunc i32 %448 to i8
-  %451 = lshr i8 %450, 3
-  %452 = and i8 %451, 1
-  store i8 %452, ptr %449, align 8
-  %453 = getelementptr inbounds i8, ptr %380, i64 8353
-  %454 = lshr i8 %450, 4
-  %455 = and i8 %454, 1
-  store i8 %455, ptr %453, align 1
-  %456 = getelementptr inbounds i8, ptr %380, i64 8458
-  %457 = lshr i8 %450, 5
-  %458 = and i8 %457, 1
-  store i8 %458, ptr %456, align 2
-  %459 = and i32 %425, 64
-  %460 = icmp ne i32 %459, 0
-  %461 = and i1 %383, %460
-  %462 = getelementptr inbounds i8, ptr %380, i64 8440
-  %463 = zext i1 %461 to i8
-  store i8 %463, ptr %462, align 8
-  %464 = load i32, ptr %389, align 4
-  %465 = and i32 %464, 1
-  %.not134 = icmp eq i32 %465, 0
-  %466 = getelementptr inbounds i8, ptr %380, i64 8441
-  %467 = trunc nuw nsw i32 %465 to i8
-  store i8 %467, ptr %466, align 1
-  %468 = lshr i64 %423, 10
-  %469 = and i64 %468, 15
-  %470 = shl nuw nsw i64 131072, %469
-  %471 = select i1 %.not134, i64 %470, i64 0
-  %472 = getelementptr inbounds i8, ptr %380, i64 8448
-  store i64 %471, ptr %472, align 8
-  %473 = call i64 @llvm.umin.i64(i64 %436, i64 8191)
-  %474 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %21, i64 noundef %473)
-          to label %475 unwind label %47
+447:                                              ; preds = %.sink.split, %438
+  %448 = getelementptr inbounds i8, ptr %381, i64 8
+  %449 = load i32, ptr %448, align 8
+  %450 = getelementptr inbounds i8, ptr %381, i64 8352
+  %451 = trunc i32 %449 to i8
+  %452 = lshr i8 %451, 3
+  %453 = and i8 %452, 1
+  store i8 %453, ptr %450, align 8
+  %454 = getelementptr inbounds i8, ptr %381, i64 8353
+  %455 = lshr i8 %451, 4
+  %456 = and i8 %455, 1
+  store i8 %456, ptr %454, align 1
+  %457 = getelementptr inbounds i8, ptr %381, i64 8458
+  %458 = lshr i8 %451, 5
+  %459 = and i8 %458, 1
+  store i8 %459, ptr %457, align 2
+  %460 = and i32 %426, 64
+  %461 = icmp ne i32 %460, 0
+  %462 = and i1 %384, %461
+  %463 = getelementptr inbounds i8, ptr %381, i64 8440
+  %464 = zext i1 %462 to i8
+  store i8 %464, ptr %463, align 8
+  %465 = load i32, ptr %390, align 4
+  %466 = and i32 %465, 1
+  %.not134 = icmp eq i32 %466, 0
+  %467 = getelementptr inbounds i8, ptr %381, i64 8441
+  %468 = trunc nuw nsw i32 %466 to i8
+  store i8 %468, ptr %467, align 1
+  %469 = lshr i64 %424, 10
+  %470 = and i64 %469, 15
+  %471 = shl nuw nsw i64 131072, %470
+  %472 = select i1 %.not134, i64 %471, i64 0
+  %473 = getelementptr inbounds i8, ptr %381, i64 8448
+  store i64 %472, ptr %473, align 8
+  %474 = call i64 @llvm.umin.i64(i64 %437, i64 8191)
+  %475 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %21, i64 noundef %474)
+          to label %476 unwind label %47
 
-475:                                              ; preds = %446
-  %476 = getelementptr inbounds [8192 x i8], ptr %21, i64 0, i64 %473
-  store i8 0, ptr %476, align 1
-  %477 = getelementptr inbounds i8, ptr %380, i64 40
-  %478 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %21, ptr noundef nonnull %477, i64 noundef 2048)
-          to label %479 unwind label %47
+476:                                              ; preds = %447
+  %477 = getelementptr inbounds [8192 x i8], ptr %21, i64 0, i64 %474
+  store i8 0, ptr %477, align 1
+  %478 = getelementptr inbounds i8, ptr %381, i64 40
+  %479 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %21, ptr noundef nonnull %478, i64 noundef 2048)
+          to label %480 unwind label %47
 
-479:                                              ; preds = %475
+480:                                              ; preds = %476
   %.not135 = icmp eq i64 %.0109, 0
-  br i1 %.not135, label %481, label %480
+  br i1 %.not135, label %482, label %481
 
-480:                                              ; preds = %479
-  invoke void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %12, i64 noundef %.0109, ptr noundef nonnull %380)
-          to label %481 unwind label %47
+481:                                              ; preds = %480
+  invoke void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %12, i64 noundef %.0109, ptr noundef nonnull %381)
+          to label %482 unwind label %47
 
-481:                                              ; preds = %480, %479
-  br i1 %383, label %482, label %.critedge147
-
-482:                                              ; preds = %481
-  invoke void @_ZN7Archive15ConvertNameCaseEPw(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %477)
-          to label %483 unwind label %47
+482:                                              ; preds = %481, %480
+  br i1 %384, label %483, label %.critedge147
 
 483:                                              ; preds = %482
-  call void @_ZN7Archive17ConvertFileHeaderEP10FileHeader(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %380)
-  br label %488
+  invoke void @_ZN7Archive15ConvertNameCaseEPw(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %478)
+          to label %484 unwind label %47
 
-.critedge147:                                     ; preds = %481
-  %484 = call i32 @wcscmp(ptr noundef nonnull %477, ptr noundef nonnull @.str.1) #20
-  %485 = icmp eq i32 %484, 0
-  br i1 %485, label %486, label %488
+484:                                              ; preds = %483
+  call void @_ZN7Archive17ConvertFileHeaderEP10FileHeader(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %381)
+  br label %489
 
-486:                                              ; preds = %.critedge147
-  %487 = getelementptr inbounds i8, ptr %0, i64 48846
-  store i8 1, ptr %487, align 2
-  br label %488
+.critedge147:                                     ; preds = %482
+  %485 = call i32 @wcscmp(ptr noundef nonnull %478, ptr noundef nonnull @.str.1) #20
+  %486 = icmp eq i32 %485, 0
+  br i1 %486, label %487, label %489
 
-488:                                              ; preds = %483, %486, %.critedge147
-  br i1 %.not122, label %507, label %489
+487:                                              ; preds = %.critedge147
+  %488 = getelementptr inbounds i8, ptr %0, i64 48846
+  store i8 1, ptr %488, align 2
+  br label %489
 
-489:                                              ; preds = %488
+489:                                              ; preds = %484, %487, %.critedge147
+  br i1 %.not122, label %508, label %490
+
+490:                                              ; preds = %489
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
-  br label %490
+  br label %491
 
-490:                                              ; preds = %490, %489
-  %indvars.iv.i.i204 = phi i64 [ 0, %489 ], [ %indvars.iv.next.i.i205, %490 ]
-  %491 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i204
-  store ptr @.str.8, ptr %491, align 8
+491:                                              ; preds = %491, %490
+  %indvars.iv.i.i204 = phi i64 [ 0, %490 ], [ %indvars.iv.next.i.i205, %491 ]
+  %492 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i204
+  store ptr @.str.8, ptr %492, align 8
   %indvars.iv.next.i.i205 = add nuw nsw i64 %indvars.iv.i.i204, 1
   %exitcond.not.i.i206 = icmp eq i64 %indvars.iv.next.i.i205, 8
-  br i1 %exitcond.not.i.i206, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207, label %490, !llvm.loop !4
+  br i1 %exitcond.not.i.i206, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207, label %491, !llvm.loop !4
 
-_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207: ; preds = %490
-  %492 = getelementptr inbounds i8, ptr %0, i64 52
-  %493 = getelementptr inbounds i8, ptr %2, i64 64
-  %494 = getelementptr inbounds i8, ptr %2, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %493, i8 0, i64 40, i1 false)
-  store i32 28, ptr %494, align 8
-  %495 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr %492, ptr %2, align 8
-  store i32 2, ptr %495, align 8
-  %496 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %477, ptr %496, align 8
+_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207: ; preds = %491
+  %493 = getelementptr inbounds i8, ptr %0, i64 52
+  %494 = getelementptr inbounds i8, ptr %2, i64 64
+  %495 = getelementptr inbounds i8, ptr %2, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %494, i8 0, i64 40, i1 false)
+  store i32 28, ptr %495, align 8
+  %496 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr %493, ptr %2, align 8
+  store i32 2, ptr %496, align 8
+  %497 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %478, ptr %497, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
           to label %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209 unwind label %47
 
 _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209: ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
-  br label %507
+  br label %508
 
-497:                                              ; preds = %271
-  %498 = getelementptr inbounds i8, ptr %0, i64 31160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %498, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
-  %499 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-          to label %500 unwind label %47
+498:                                              ; preds = %271
+  %499 = getelementptr inbounds i8, ptr %0, i64 31160
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %499, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
+  %500 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %501 unwind label %47
 
-500:                                              ; preds = %497
-  %501 = getelementptr inbounds i8, ptr %0, i64 31188
-  %502 = trunc i64 %499 to i8
-  %503 = and i8 %502, 1
-  store i8 %503, ptr %501, align 4
-  %504 = getelementptr inbounds i8, ptr %0, i64 31191
-  store i8 0, ptr %504, align 1
-  %505 = getelementptr inbounds i8, ptr %0, i64 31189
+501:                                              ; preds = %498
+  %502 = getelementptr inbounds i8, ptr %0, i64 31188
+  %503 = trunc i64 %500 to i8
+  %504 = and i8 %503, 1
+  store i8 %504, ptr %502, align 4
+  %505 = getelementptr inbounds i8, ptr %0, i64 31191
   store i8 0, ptr %505, align 1
-  %506 = getelementptr inbounds i8, ptr %0, i64 31190
-  store i8 0, ptr %506, align 2
-  br label %507
+  %506 = getelementptr inbounds i8, ptr %0, i64 31189
+  store i8 0, ptr %506, align 1
+  %507 = getelementptr inbounds i8, ptr %0, i64 31190
+  store i8 0, ptr %507, align 2
+  br label %508
 
-507:                                              ; preds = %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209, %488, %355, %359, %363, %366, %377, %500, %319, %271
-  %508 = load i64, ptr %203, align 8
+508:                                              ; preds = %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209, %489, %355, %359, %363, %366, %378, %501, %319, %271
+  %509 = load i64, ptr %203, align 8
   br label %_ZN7Archive14UnexpEndArcMsgEv.exit
 
-_ZN7Archive14UnexpEndArcMsgEv.exit:               ; preds = %.invoke, %.noexc193.invoke, %.noexc192, %.noexc168, %.noexc, %260, %147, %507, %250, %45
-  %.0 = phi i64 [ 0, %45 ], [ 0, %250 ], [ %508, %507 ], [ 0, %147 ], [ 0, %260 ], [ 0, %.noexc ], [ 0, %.noexc168 ], [ 0, %.noexc192 ], [ 0, %.noexc193.invoke ], [ 0, %.invoke ]
-  %509 = load ptr, ptr %12, align 8
-  %.not.i.i = icmp eq ptr %509, null
-  br i1 %.not.i.i, label %_ZN7RawReadD2Ev.exit, label %510
+_ZN7Archive14UnexpEndArcMsgEv.exit:               ; preds = %.invoke, %.noexc193.invoke, %.noexc192, %.noexc168, %.noexc, %260, %147, %508, %250, %45
+  %.0 = phi i64 [ 0, %45 ], [ 0, %250 ], [ %509, %508 ], [ 0, %147 ], [ 0, %260 ], [ 0, %.noexc ], [ 0, %.noexc168 ], [ 0, %.noexc192 ], [ 0, %.noexc193.invoke ], [ 0, %.invoke ]
+  %510 = load ptr, ptr %12, align 8
+  %.not.i.i = icmp eq ptr %510, null
+  br i1 %.not.i.i, label %_ZN7RawReadD2Ev.exit, label %511
 
-510:                                              ; preds = %_ZN7Archive14UnexpEndArcMsgEv.exit
-  call void @free(ptr noundef nonnull %509) #19
+511:                                              ; preds = %_ZN7Archive14UnexpEndArcMsgEv.exit
+  call void @free(ptr noundef nonnull %510) #19
   br label %_ZN7RawReadD2Ev.exit
 
-_ZN7RawReadD2Ev.exit:                             ; preds = %_ZN7Archive14UnexpEndArcMsgEv.exit, %510
+_ZN7RawReadD2Ev.exit:                             ; preds = %_ZN7Archive14UnexpEndArcMsgEv.exit, %511
   ret i64 %.0
 
-511:                                              ; preds = %.body, %47
+512:                                              ; preds = %.body, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body, %.body ]
-  %512 = load ptr, ptr %12, align 8
-  %.not.i.i210 = icmp eq ptr %512, null
-  br i1 %.not.i.i210, label %_ZN7RawReadD2Ev.exit211, label %513
+  %513 = load ptr, ptr %12, align 8
+  %.not.i.i210 = icmp eq ptr %513, null
+  br i1 %.not.i.i210, label %_ZN7RawReadD2Ev.exit211, label %514
 
-513:                                              ; preds = %511
-  call void @free(ptr noundef nonnull %512) #19
+514:                                              ; preds = %512
+  call void @free(ptr noundef nonnull %513) #19
   br label %_ZN7RawReadD2Ev.exit211
 
-_ZN7RawReadD2Ev.exit211:                          ; preds = %511, %513
+_ZN7RawReadD2Ev.exit211:                          ; preds = %512, %514
   resume { ptr, i32 } %.pn
 }
 

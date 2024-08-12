@@ -922,6 +922,7 @@ entry:
   %bcskip.i146 = getelementptr inbounds i8, ptr %ud, i64 183
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %tmptv = getelementptr inbounds i8, ptr %ud, i64 -496
+  %tmptv2 = getelementptr inbounds i8, ptr %ud, i64 -488
   %fn = getelementptr inbounds i8, ptr %ud, i64 144
   %pt = getelementptr inbounds i8, ptr %ud, i64 152
   br label %retry
@@ -985,8 +986,10 @@ if.then8:                                         ; preds = %trace_pendpatch.exi
   br i1 %tobool9.not, label %if.end37, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %9 = load <2 x i64>, ptr %tmptv, align 8
-  %10 = load <2 x i32>, ptr %parent.i103, align 8
+  %savetv.sroa.0.0.copyload = load i64, ptr %tmptv, align 8
+  %savetv2.sroa.0.0.copyload = load i64, ptr %tmptv2, align 8
+  %9 = load i32, ptr %parent.i103, align 8
+  %10 = load i32, ptr %exitno.i109, align 4
   %11 = load ptr, ptr %top89, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %incdec.ptr, ptr %top89, align 8
@@ -1028,8 +1031,10 @@ cond.end:                                         ; preds = %if.then10, %cond.tr
   %conv.i107 = sitofp i32 %20 to double
   store double %conv.i107, ptr %19, align 8
   tail call void @lj_vmevent_call(ptr noundef nonnull %L, i64 noundef %call) #13
-  store <2 x i64> %9, ptr %tmptv, align 8
-  store <2 x i32> %10, ptr %parent.i103, align 8
+  store i64 %savetv.sroa.0.0.copyload, ptr %tmptv, align 8
+  store i64 %savetv2.sroa.0.0.copyload, ptr %tmptv2, align 8
+  store i32 %9, ptr %parent.i103, align 8
+  store i32 %10, ptr %exitno.i109, align 4
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then8, %cond.end, %trace_pendpatch.exit156
@@ -2640,9 +2645,13 @@ if.end37:                                         ; preds = %trace_findfree.exit
   %ir = getelementptr inbounds i8, ptr %J, i64 32
   store ptr %32, ptr %ir, align 8
   %snapbuf = getelementptr inbounds i8, ptr %J, i64 352
+  %33 = load ptr, ptr %snapbuf, align 8
   %snap = getelementptr inbounds i8, ptr %J, i64 48
-  %33 = load <2 x ptr>, ptr %snapbuf, align 8
-  store <2 x ptr> %33, ptr %snap, align 8
+  store ptr %33, ptr %snap, align 8
+  %snapmapbuf = getelementptr inbounds i8, ptr %J, i64 360
+  %34 = load ptr, ptr %snapmapbuf, align 8
+  %snapmap = getelementptr inbounds i8, ptr %J, i64 56
+  store ptr %34, ptr %snapmap, align 8
   %mergesnap = getelementptr inbounds i8, ptr %J, i64 180
   %postproc = getelementptr inbounds i8, ptr %J, i64 372
   store i32 0, ptr %postproc, align 4
@@ -2651,86 +2660,86 @@ if.end37:                                         ; preds = %trace_findfree.exit
   %ktrace = getelementptr inbounds i8, ptr %J, i64 400
   store i16 0, ptr %ktrace, align 8
   store i32 0, ptr %mergesnap, align 4
-  %34 = load ptr, ptr %pt, align 8
-  %35 = ptrtoint ptr %34 to i64
+  %35 = load ptr, ptr %pt, align 8
+  %36 = ptrtoint ptr %35 to i64
   %startpt = getelementptr inbounds i8, ptr %J, i64 64
-  store i64 %35, ptr %startpt, align 8
+  store i64 %36, ptr %startpt, align 8
   %L51 = getelementptr inbounds i8, ptr %J, i64 128
-  %36 = load ptr, ptr %L51, align 8
-  %glref = getelementptr inbounds i8, ptr %36, i64 16
-  %37 = load i64, ptr %glref, align 8
-  %38 = inttoptr i64 %37 to ptr
-  %vmevmask = getelementptr inbounds i8, ptr %38, i64 147
-  %39 = load i8, ptr %vmevmask, align 1
-  %40 = and i8 %39, 2
-  %tobool54.not = icmp eq i8 %40, 0
+  %37 = load ptr, ptr %L51, align 8
+  %glref = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = load i64, ptr %glref, align 8
+  %39 = inttoptr i64 %38 to ptr
+  %vmevmask = getelementptr inbounds i8, ptr %39, i64 147
+  %40 = load i8, ptr %vmevmask, align 1
+  %41 = and i8 %40, 2
+  %tobool54.not = icmp eq i8 %41, 0
   br i1 %tobool54.not, label %if.end96, label %if.then55
 
 if.then55:                                        ; preds = %if.end37
-  %call56 = tail call i64 @lj_vmevent_prepare(ptr noundef nonnull %36, i32 noundef -1765235911) #13
+  %call56 = tail call i64 @lj_vmevent_prepare(ptr noundef nonnull %37, i32 noundef -1765235911) #13
   %tobool57.not = icmp eq i64 %call56, 0
   br i1 %tobool57.not, label %if.end96, label %if.then58
 
 if.then58:                                        ; preds = %if.then55
-  %top = getelementptr inbounds i8, ptr %36, i64 40
-  %41 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %41, i64 8
+  %top = getelementptr inbounds i8, ptr %37, i64 40
+  %42 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
-  %call59 = tail call ptr @lj_str_new(ptr noundef nonnull %36, ptr noundef nonnull @.str.2, i64 noundef 5) #13
-  %42 = ptrtoint ptr %call59 to i64
-  %or.i = or i64 %42, -703687441776640
-  store i64 %or.i, ptr %41, align 8
-  %43 = load ptr, ptr %top, align 8
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %43, i64 8
+  %call59 = tail call ptr @lj_str_new(ptr noundef nonnull %37, ptr noundef nonnull @.str.2, i64 noundef 5) #13
+  %43 = ptrtoint ptr %call59 to i64
+  %or.i = or i64 %43, -703687441776640
+  store i64 %or.i, ptr %42, align 8
+  %44 = load ptr, ptr %top, align 8
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %incdec.ptr61, ptr %top, align 8
   %conv.i111 = sitofp i32 %retval.0.i to double
-  store double %conv.i111, ptr %43, align 8
-  %44 = load ptr, ptr %top, align 8
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %44, i64 8
+  store double %conv.i111, ptr %44, align 8
+  %45 = load ptr, ptr %top, align 8
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %incdec.ptr63, ptr %top, align 8
   %fn = getelementptr inbounds i8, ptr %J, i64 144
-  %45 = load ptr, ptr %fn, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %or.i.i = or i64 %46, -1266637395197952
-  store i64 %or.i.i, ptr %44, align 8
-  %47 = load ptr, ptr %top, align 8
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %47, i64 8
+  %46 = load ptr, ptr %fn, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %or.i.i = or i64 %47, -1266637395197952
+  store i64 %or.i.i, ptr %45, align 8
+  %48 = load ptr, ptr %top, align 8
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %incdec.ptr65, ptr %top, align 8
   %pc66 = getelementptr inbounds i8, ptr %J, i64 136
-  %48 = load ptr, ptr %pc66, align 8
-  %49 = load ptr, ptr %pt, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %49, i64 104
-  %sub.ptr.lhs.cast = ptrtoint ptr %48 to i64
+  %49 = load ptr, ptr %pc66, align 8
+  %50 = load ptr, ptr %pt, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %50, i64 104
+  %sub.ptr.lhs.cast = ptrtoint ptr %49 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
   %conv68 = trunc i64 %sub.ptr.div to i32
   %conv.i108 = sitofp i32 %conv68 to double
-  store double %conv.i108, ptr %47, align 8
-  %50 = load i32, ptr %parent18, align 8
-  %tobool70.not = icmp eq i32 %50, 0
+  store double %conv.i108, ptr %48, align 8
+  %51 = load i32, ptr %parent18, align 8
+  %tobool70.not = icmp eq i32 %51, 0
   br i1 %tobool70.not, label %if.else, label %if.then71
 
 if.then71:                                        ; preds = %if.then58
-  %51 = load ptr, ptr %top, align 8
-  %incdec.ptr73 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load ptr, ptr %top, align 8
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %incdec.ptr73, ptr %top, align 8
-  %52 = load i32, ptr %parent18, align 8
-  %conv.i105 = sitofp i32 %52 to double
-  store double %conv.i105, ptr %51, align 8
-  %53 = load ptr, ptr %top, align 8
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %53, i64 8
+  %53 = load i32, ptr %parent18, align 8
+  %conv.i105 = sitofp i32 %53 to double
+  store double %conv.i105, ptr %52, align 8
+  %54 = load ptr, ptr %top, align 8
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %incdec.ptr76, ptr %top, align 8
   %exitno77 = getelementptr inbounds i8, ptr %J, i64 3020
-  %54 = load i32, ptr %exitno77, align 4
-  %conv.i102 = sitofp i32 %54 to double
-  store double %conv.i102, ptr %53, align 8
+  %55 = load i32, ptr %exitno77, align 4
+  %conv.i102 = sitofp i32 %55 to double
+  store double %conv.i102, ptr %54, align 8
   br label %if.end94
 
 if.else:                                          ; preds = %if.then58
-  %55 = load ptr, ptr %pc66, align 8
-  %56 = load i32, ptr %55, align 4
-  %trunc = trunc i32 %56 to i8
+  %56 = load ptr, ptr %pc66, align 8
+  %57 = load i32, ptr %56, align 4
+  %trunc = trunc i32 %57 to i8
   switch i8 %trunc, label %if.end94 [
     i8 69, label %if.then87
     i8 66, label %if.then87
@@ -2738,21 +2747,21 @@ if.else:                                          ; preds = %if.then58
   ]
 
 if.then87:                                        ; preds = %if.else, %if.else, %if.else
-  %57 = load ptr, ptr %top, align 8
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = load ptr, ptr %top, align 8
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %incdec.ptr89, ptr %top, align 8
   %exitno90 = getelementptr inbounds i8, ptr %J, i64 3020
-  %58 = load i32, ptr %exitno90, align 4
-  %conv.i99 = sitofp i32 %58 to double
-  store double %conv.i99, ptr %57, align 8
-  %59 = load ptr, ptr %top, align 8
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %59, i64 8
+  %59 = load i32, ptr %exitno90, align 4
+  %conv.i99 = sitofp i32 %59 to double
+  store double %conv.i99, ptr %58, align 8
+  %60 = load ptr, ptr %top, align 8
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %incdec.ptr92, ptr %top, align 8
-  store double -1.000000e+00, ptr %59, align 8
+  store double -1.000000e+00, ptr %60, align 8
   br label %if.end94
 
 if.end94:                                         ; preds = %if.else, %if.then87, %if.then71
-  tail call void @lj_vmevent_call(ptr noundef nonnull %36, i64 noundef %call56) #13
+  tail call void @lj_vmevent_call(ptr noundef nonnull %37, i64 noundef %call56) #13
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then55, %if.end94, %if.end37

@@ -232,11 +232,15 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = load i8, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1, !noundef !3
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store <2 x ptr> %8, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hffdb7b30be9b549eE(i8 %5, i8 %7, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -286,11 +290,15 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = load i8, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1, !noundef !3
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !5, !noundef !3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store <2 x ptr> %8, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h3934be620a5ab7bfE(i8 %5, i8 %7, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -328,7 +336,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = alloca { [4 x i64], i64, [2 x i64] }, align 8
   call void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dca9ef6bc8e438eE"(ptr nonnull sret({ [4 x i64], i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = load i64, ptr %6, align 8, !range !5, !noundef !3
+  %7 = load i64, ptr %6, align 8, !range !6, !noundef !3
   %8 = icmp eq i64 %7, -9223372036854775808
   br i1 %8, label %9, label %10
 
@@ -354,7 +362,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = alloca { [1 x i64], i64, [42 x i64] }, align 8
   call void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf9f6cd2a793f788E"(ptr nonnull sret({ [1 x i64], i64, [42 x i64] }) align 8 %5, ptr align 8 %1)
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load i64, ptr %6, align 8, !range !5, !noundef !3
+  %7 = load i64, ptr %6, align 8, !range !6, !noundef !3
   %8 = icmp eq i64 %7, -9223372036854775808
   br i1 %8, label %9, label %11
 
@@ -465,7 +473,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %4 = alloca { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   call void @"_ZN105_$LT$std..collections..hash..set..IntoIter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ba6521a156f7c2aE"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %5, ptr align 8 %1)
-  %6 = load i64, ptr %5, align 8, !range !6, !noundef !3
+  %6 = load i64, ptr %5, align 8, !range !7, !noundef !3
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %12, label %8
 
@@ -1000,9 +1008,13 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h7b10de04b4c19127E
   %5 = load i8, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1, !noundef !3
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !5, !noundef !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %8, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %8, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h3934be620a5ab7bfE(i8 %5, i8 %7, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -1068,9 +1080,13 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hadd81a5736c26ed5E
   %5 = load i8, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1, !noundef !3
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !4, !noundef !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %8, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %8, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hffdb7b30be9b549eE(i8 %5, i8 %7, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -1185,7 +1201,7 @@ define void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h73548578ca6dc46fE"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !8, !noundef !3
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2b723a002477c4a2E"(ptr nonnull align 1 %4, ptr nonnull align 8 %2)
@@ -1277,7 +1293,7 @@ define { ptr, ptr } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closu
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heabea2a2a0a4dbefE"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !8, !noundef !3
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he82cb6279896eafdE"(ptr nonnull align 1 %4, ptr nonnull align 8 %2)
@@ -2332,6 +2348,7 @@ attributes #8 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{i64 0, i64 -9223372036854775807}
-!6 = !{i64 0, i64 2}
-!7 = !{i64 1}
+!5 = !{i64 2}
+!6 = !{i64 0, i64 -9223372036854775807}
+!7 = !{i64 0, i64 2}
+!8 = !{i64 1}

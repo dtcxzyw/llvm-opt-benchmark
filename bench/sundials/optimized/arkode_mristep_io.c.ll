@@ -505,7 +505,7 @@ define i32 @MRIStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetDefaults, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %25
+  br i1 %.not, label %5, label %26
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
@@ -526,28 +526,30 @@ define i32 @MRIStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %6, i64 256
   store double 1.000000e-01, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 216
-  store <2 x double> <double 3.000000e-01, double 2.300000e+00>, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 200
-  store double 2.000000e-01, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 264
-  store i32 20, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 144
+  store double 3.000000e-01, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 224
+  store double 2.300000e+00, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 200
+  store double 2.000000e-01, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 264
+  store i32 20, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 72
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 152
+  %20 = getelementptr inbounds i8, ptr %6, i64 144
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 288
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 284
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 296
-  store ptr null, ptr %24, align 8
-  br label %25
+  %22 = getelementptr inbounds i8, ptr %6, i64 152
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 288
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 284
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %6, i64 296
+  store ptr null, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %1, %5
+26:                                               ; preds = %1, %5
   ret i32 %4
 }
 

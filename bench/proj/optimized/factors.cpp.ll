@@ -137,11 +137,12 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %74 = getelementptr inbounds i8, ptr %2, i64 256
   %75 = load double, ptr %74, align 8
   %76 = fdiv double %73, %75
-  %77 = load <2 x double>, ptr %56, align 8
-  %78 = insertelement <2 x double> poison, double %76, i64 0
-  %79 = insertelement <2 x double> %78, double %72, i64 1
-  %80 = fmul <2 x double> %77, %79
-  store <2 x double> %80, ptr %56, align 8
+  %77 = load double, ptr %56, align 8
+  %78 = fmul double %77, %76
+  store double %78, ptr %56, align 8
+  %79 = load double, ptr %62, align 8
+  %80 = fmul double %72, %79
+  store double %80, ptr %62, align 8
   %81 = fmul double %71, %71
   %82 = load double, ptr %74, align 8
   %83 = fdiv double %81, %82

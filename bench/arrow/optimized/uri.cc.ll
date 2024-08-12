@@ -1101,19 +1101,19 @@ define void @_ZNK5arrow8internal3Uri11query_itemsB5cxx11Ev(ptr noalias sret(%"cl
 entry:
   %query_list = alloca ptr, align 8
   %item_count = alloca i32, align 4
-  %items = alloca %"class.std::vector.13", align 16
+  %items = alloca %"class.std::vector.13", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   %query2 = getelementptr inbounds i8, ptr %0, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %items, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %query2, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %items, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items, i8 0, i64 24, i1 false)
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -1259,7 +1259,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %20 = load ptr, ptr %value, align 8
   %cmp16.not = icmp eq ptr %20, null
   %21 = load ptr, ptr %_M_finish.i, align 8
-  %22 = load ptr, ptr %_M_end_of_storage.i, align 16
+  %22 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i11 = icmp eq ptr %21, %22
   br i1 %cmp16.not, label %if.else, label %if.then17
 
@@ -1328,13 +1328,17 @@ if.end24:                                         ; preds = %if.end24.sink.split
 while.end:                                        ; preds = %if.end24, %while.condthread-pre-split
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %28 = load <2 x ptr>, ptr %items, align 16
-  store <2 x ptr> %28, ptr %storage_.i.i19, align 8
+  %28 = load ptr, ptr %items, align 8
+  store ptr %28, ptr %storage_.i.i19, align 8
+  %_M_finish.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish3.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %items, i64 8
+  %29 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i21, align 8
+  store ptr %29, ptr %_M_finish.i.i.i.i.i.i.i20, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %items, i64 16
-  %29 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i23, align 16
-  store ptr %29, ptr %_M_end_of_storage.i.i.i.i.i.i.i22, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %items, i8 0, i64 24, i1 false)
+  %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i23, align 8
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i.i.i22, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items, i8 0, i64 24, i1 false)
   %cmp.not.i25 = icmp eq ptr %17, null
   br i1 %cmp.not.i25, label %cleanup, label %if.then.i26
 
@@ -1343,39 +1347,39 @@ if.then.i26:                                      ; preds = %while.end
           to label %cleanup unwind label %terminate.lpad.i27
 
 terminate.lpad.i27:                               ; preds = %if.then.i26
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #22
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #22
   unreachable
 
 cleanup:                                          ; preds = %if.then.i26, %while.end, %_ZN5arrow6StatusD2Ev.exit, %if.then
-  %32 = load ptr, ptr %items, align 16
+  %33 = load ptr, ptr %items, align 8
   %_M_finish.i29 = getelementptr inbounds i8, ptr %items, i64 8
-  %33 = load ptr, ptr %_M_finish.i29, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %32, %33
+  %34 = load ptr, ptr %_M_finish.i29, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %33, %34
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %32, %cleanup ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %33, %cleanup ]
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #18
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %33
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %34
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !17
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
-  %.pr.i = load ptr, ptr %items, align 16
+  %.pr.i = load ptr, ptr %items, align 8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
-  %34 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %32, %cleanup ]
-  %tobool.not.i.i.i = icmp eq ptr %34, null
+  %35 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %33, %cleanup ]
+  %tobool.not.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %34) #20
+  call void @_ZdlPv(ptr noundef nonnull %35) #20
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i

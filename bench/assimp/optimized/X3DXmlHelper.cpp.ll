@@ -3895,18 +3895,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %_ZNSt7__cxx114listI10aiVector2tIfESaIS2_EE9push_backERKS2_.exit unwind label %lpad10
 
 _ZNSt7__cxx114listI10aiVector2tIfESaIS2_EE9push_backERKS2_.exit: ; preds = %while.body
-  %16 = insertelement <2 x double> poison, double %call37, i64 0
-  %17 = insertelement <2 x double> %16, double %call43, i64 1
-  %18 = fptrunc <2 x double> %17 to <2 x float>
+  %conv44 = fptrunc double %call43 to float
   %incdec.ptr.i13 = getelementptr inbounds i8, ptr %it.sroa.0.024, i64 64
+  %conv = fptrunc double %call37 to float
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 16
-  store <2 x float> %18, ptr %_M_storage.i.i.i.i, align 4
+  store float %conv, ptr %_M_storage.i.i.i.i, align 4
+  %_M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 20
+  store float %conv44, ptr %_M_storage.i.i.i.i.sroa_idx, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i14, ptr noundef nonnull %vectorList) #22
-  %19 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %19, 1
+  %16 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %16, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i13, %20
+  %17 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i13, %17
   br i1 %cmp.i.not, label %while.end.loopexit, label %while.body
 
 while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI10aiVector2tIfESaIS2_EE9push_backERKS2_.exit
@@ -3914,13 +3915,13 @@ while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %21 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
+  %18 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
   %.lcssa = phi ptr [ %4, %while.cond.preheader ], [ %incdec.ptr.i13, %while.end.loopexit ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %21, %.lcssa
+  %cmp.not3.i.i.i.i = icmp eq ptr %18, %.lcssa
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %while.end, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %21, %while.end ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %18, %while.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.lcssa
@@ -3931,12 +3932,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %while.end
-  %22 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %21, %while.end ]
-  %tobool.not.i.i.i = icmp eq ptr %22, null
+  %19 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %18, %while.end ]
+  %tobool.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %22) #26
+  call void @_ZdlPv(ptr noundef nonnull %19) #26
   br label %cleanup
 
 ehcleanup46:                                      ; preds = %ehcleanup25, %lpad10, %ehcleanup
@@ -4371,19 +4372,20 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 _ZNSt7__cxx114listI10aiVector3tIfESaIS2_EE9push_backERKS2_.exit: ; preds = %while.body
   %conv50 = fptrunc double %call49 to float
   %incdec.ptr.i14 = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 96
-  %15 = insertelement <2 x double> poison, double %call36, i64 0
-  %16 = insertelement <2 x double> %15, double %call42, i64 1
-  %17 = fptrunc <2 x double> %16 to <2 x float>
+  %conv43 = fptrunc double %call42 to float
+  %conv = fptrunc double %call36 to float
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 16
-  store <2 x float> %17, ptr %_M_storage.i.i.i.i, align 4
+  store float %conv, ptr %_M_storage.i.i.i.i, align 4
+  %tvec.sroa.3.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 20
+  store float %conv43, ptr %tvec.sroa.3.0._M_storage.i.i.i.i.sroa_idx, align 4
   %tvec.sroa.5.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 24
   store float %conv50, ptr %tvec.sroa.5.0._M_storage.i.i.i.i.sroa_idx, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull %vectorList) #22
-  %18 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %18, 1
+  %15 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %15, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %19 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i14, %19
+  %16 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i14, %16
   br i1 %cmp.i.not, label %while.end.loopexit, label %while.body
 
 while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI10aiVector3tIfESaIS2_EE9push_backERKS2_.exit
@@ -4391,13 +4393,13 @@ while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %20 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
+  %17 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
   %.lcssa = phi ptr [ %4, %while.cond.preheader ], [ %incdec.ptr.i14, %while.end.loopexit ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %20, %.lcssa
+  %cmp.not3.i.i.i.i = icmp eq ptr %17, %.lcssa
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %while.end, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %20, %while.end ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %17, %while.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.lcssa
@@ -4408,12 +4410,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %while.end
-  %21 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %20, %while.end ]
-  %tobool.not.i.i.i = icmp eq ptr %21, null
+  %18 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %17, %while.end ]
+  %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %21) #26
+  call void @_ZdlPv(ptr noundef nonnull %18) #26
   br label %cleanup
 
 ehcleanup52:                                      ; preds = %ehcleanup25, %lpad10, %ehcleanup
@@ -4840,19 +4842,20 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 _ZNSt7__cxx114listI9aiColor3DSaIS1_EE9push_backERKS1_.exit: ; preds = %while.body
   %conv50 = fptrunc double %call49 to float
   %incdec.ptr.i14 = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 96
-  %15 = insertelement <2 x double> poison, double %call36, i64 0
-  %16 = insertelement <2 x double> %15, double %call42, i64 1
-  %17 = fptrunc <2 x double> %16 to <2 x float>
+  %conv43 = fptrunc double %call42 to float
+  %conv = fptrunc double %call36 to float
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 16
-  store <2 x float> %17, ptr %_M_storage.i.i.i.i, align 4
+  store float %conv, ptr %_M_storage.i.i.i.i, align 4
+  %g.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 20
+  store float %conv43, ptr %g.i.i.i.i.i.i, align 4
   %b.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 24
   store float %conv50, ptr %b.i.i.i.i.i.i, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i15, ptr noundef nonnull %colorList) #22
-  %18 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %18, 1
+  %15 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %15, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %19 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i14, %19
+  %16 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i14, %16
   br i1 %cmp.i.not, label %while.end.loopexit, label %while.body
 
 while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI9aiColor3DSaIS1_EE9push_backERKS1_.exit
@@ -4860,13 +4863,13 @@ while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %20 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
+  %17 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
   %.lcssa = phi ptr [ %4, %while.cond.preheader ], [ %incdec.ptr.i14, %while.end.loopexit ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %20, %.lcssa
+  %cmp.not3.i.i.i.i = icmp eq ptr %17, %.lcssa
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %while.end, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %20, %while.end ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %17, %while.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.lcssa
@@ -4877,12 +4880,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %while.end
-  %21 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %20, %while.end ]
-  %tobool.not.i.i.i = icmp eq ptr %21, null
+  %18 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %17, %while.end ]
+  %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %21) #26
+  call void @_ZdlPv(ptr noundef nonnull %18) #26
   br label %cleanup
 
 ehcleanup52:                                      ; preds = %ehcleanup25, %lpad10, %ehcleanup
@@ -5094,20 +5097,25 @@ while.body:                                       ; preds = %while.body.lr.ph, %
           to label %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EE9push_backERKS2_.exit unwind label %lpad10
 
 _ZNSt7__cxx114listI9aiColor4tIfESaIS2_EE9push_backERKS2_.exit: ; preds = %while.body
-  %16 = insertelement <4 x double> poison, double %call36, i64 0
-  %17 = insertelement <4 x double> %16, double %call42, i64 1
-  %18 = insertelement <4 x double> %17, double %call49, i64 2
-  %19 = insertelement <4 x double> %18, double %call56, i64 3
-  %20 = fptrunc <4 x double> %19 to <4 x float>
+  %conv57 = fptrunc double %call56 to float
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %it.sroa.0.027, i64 128
+  %conv50 = fptrunc double %call49 to float
+  %conv43 = fptrunc double %call42 to float
+  %conv = fptrunc double %call36 to float
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 16
-  store <4 x float> %20, ptr %_M_storage.i.i.i.i, align 4
+  store float %conv, ptr %_M_storage.i.i.i.i, align 4
+  %tvec.sroa.3.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 20
+  store float %conv43, ptr %tvec.sroa.3.0._M_storage.i.i.i.i.sroa_idx, align 4
+  %tvec.sroa.4.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 24
+  store float %conv50, ptr %tvec.sroa.4.0._M_storage.i.i.i.i.sroa_idx, align 4
+  %tvec.sroa.5.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i16, i64 28
+  store float %conv57, ptr %tvec.sroa.5.0._M_storage.i.i.i.i.sroa_idx, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i16, ptr noundef nonnull %colorList) #22
-  %21 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %21, 1
+  %16 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %16, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %22 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i15, %22
+  %17 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i15, %17
   br i1 %cmp.i.not, label %while.end.loopexit, label %while.body
 
 while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI9aiColor4tIfESaIS2_EE9push_backERKS2_.exit
@@ -5115,13 +5123,13 @@ while.end.loopexit:                               ; preds = %_ZNSt7__cxx114listI
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %23 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
+  %18 = phi ptr [ %5, %while.cond.preheader ], [ %.pre, %while.end.loopexit ]
   %.lcssa = phi ptr [ %4, %while.cond.preheader ], [ %incdec.ptr.i15, %while.end.loopexit ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %23, %.lcssa
+  %cmp.not3.i.i.i.i = icmp eq ptr %18, %.lcssa
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %while.end, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %23, %while.end ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %18, %while.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.lcssa
@@ -5132,12 +5140,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %while.end
-  %24 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %23, %while.end ]
-  %tobool.not.i.i.i = icmp eq ptr %24, null
+  %19 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %18, %while.end ]
+  %tobool.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %24) #26
+  call void @_ZdlPv(ptr noundef nonnull %19) #26
   br label %cleanup
 
 ehcleanup59:                                      ; preds = %ehcleanup25, %lpad10, %ehcleanup

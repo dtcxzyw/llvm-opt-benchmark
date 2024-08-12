@@ -423,7 +423,7 @@ VP8SetError.exit125:                              ; preds = %33
   %36 = add i64 %11, -3
   %37 = getelementptr inbounds i8, ptr %0, i64 76
   %.not115.not = icmp eq i8 %22, 0
-  br i1 %.not115.not, label %38, label %98
+  br i1 %.not115.not, label %38, label %101
 
 38:                                               ; preds = %34
   %39 = icmp ult i64 %36, 7
@@ -526,128 +526,134 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   %95 = getelementptr inbounds i8, ptr %0, i64 1192
   tail call void @VP8ResetProba(ptr noundef nonnull %95) #13
   %96 = getelementptr inbounds i8, ptr %0, i64 132
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 0, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 1, ptr %98, align 4
+  %99 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 0, ptr %99, align 4
+  %100 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %100, align 4
   %.pre = load i32, ptr %31, align 4
-  br label %98
+  br label %101
 
-98:                                               ; preds = %49, %34
-  %99 = phi i32 [ %.pre, %49 ], [ %30, %34 ]
+101:                                              ; preds = %49, %34
+  %102 = phi i32 [ %.pre, %49 ], [ %30, %34 ]
   %.0108 = phi i64 [ %74, %49 ], [ %36, %34 ]
   %.0107 = phi ptr [ %73, %49 ], [ %35, %34 ]
-  %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %.0108, %100
-  br i1 %101, label %102, label %106
+  %103 = zext i32 %102 to i64
+  %104 = icmp ult i64 %.0108, %103
+  br i1 %104, label %105, label %109
 
-102:                                              ; preds = %98
-  %103 = load i32, ptr %0, align 8
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %VP8SetError.exit128
+105:                                              ; preds = %101
+  %106 = load i32, ptr %0, align 8
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %VP8SetError.exit128
 
-105:                                              ; preds = %102
+108:                                              ; preds = %105
   store i32 7, ptr %0, align 8
   store ptr @.str.8, ptr %5, align 8
   br label %VP8SetError.exit128.sink.split
 
-106:                                              ; preds = %98
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @VP8InitBitReader(ptr noundef nonnull %107, ptr noundef nonnull %.0107, i64 noundef %100) #13
-  %108 = load i32, ptr %31, align 4
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %.0107, i64 %109
-  %111 = sub i64 %.0108, %109
-  %112 = load i8, ptr %21, align 4
-  %.not118 = icmp eq i8 %112, 0
-  br i1 %.not118, label %120, label %113
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @VP8InitBitReader(ptr noundef nonnull %110, ptr noundef nonnull %.0107, i64 noundef %103) #13
+  %111 = load i32, ptr %31, align 4
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %.0107, i64 %112
+  %114 = sub i64 %.0108, %112
+  %115 = load i8, ptr %21, align 4
+  %.not118 = icmp eq i8 %115, 0
+  br i1 %.not118, label %123, label %116
 
-113:                                              ; preds = %106
-  %114 = tail call i32 @VP8GetValue(ptr noundef nonnull %107, i32 noundef 1) #13
-  %115 = trunc i32 %114 to i8
-  %116 = getelementptr inbounds i8, ptr %0, i64 82
-  store i8 %115, ptr %116, align 2
-  %117 = tail call i32 @VP8GetValue(ptr noundef nonnull %107, i32 noundef 1) #13
+116:                                              ; preds = %109
+  %117 = tail call i32 @VP8GetValue(ptr noundef nonnull %110, i32 noundef 1) #13
   %118 = trunc i32 %117 to i8
-  %119 = getelementptr inbounds i8, ptr %0, i64 83
-  store i8 %118, ptr %119, align 1
-  br label %120
+  %119 = getelementptr inbounds i8, ptr %0, i64 82
+  store i8 %118, ptr %119, align 2
+  %120 = tail call i32 @VP8GetValue(ptr noundef nonnull %110, i32 noundef 1) #13
+  %121 = trunc i32 %120 to i8
+  %122 = getelementptr inbounds i8, ptr %0, i64 83
+  store i8 %121, ptr %122, align 1
+  br label %123
 
-120:                                              ; preds = %113, %106
-  %121 = getelementptr inbounds i8, ptr %0, i64 132
-  %122 = getelementptr inbounds i8, ptr %0, i64 1192
-  %123 = tail call fastcc i32 @ParseSegmentHeader(ptr noundef nonnull %107, ptr noundef nonnull %121, ptr noundef nonnull %122)
-  %.not119 = icmp eq i32 %123, 0
-  br i1 %.not119, label %124, label %128
+123:                                              ; preds = %116, %109
+  %124 = getelementptr inbounds i8, ptr %0, i64 132
+  %125 = getelementptr inbounds i8, ptr %0, i64 1192
+  %126 = tail call fastcc i32 @ParseSegmentHeader(ptr noundef nonnull %110, ptr noundef nonnull %124, ptr noundef nonnull %125)
+  %.not119 = icmp eq i32 %126, 0
+  br i1 %.not119, label %127, label %131
 
-124:                                              ; preds = %120
-  %125 = load i32, ptr %0, align 8
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %VP8SetError.exit128
+127:                                              ; preds = %123
+  %128 = load i32, ptr %0, align 8
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %VP8SetError.exit128
 
-127:                                              ; preds = %124
+130:                                              ; preds = %127
   store i32 3, ptr %0, align 8
   store ptr @.str.9, ptr %5, align 8
   br label %VP8SetError.exit128.sink.split
 
-128:                                              ; preds = %120
-  %129 = tail call fastcc i32 @ParseFilterHeader(ptr noundef nonnull %107, ptr noundef nonnull %0)
-  %.not120 = icmp eq i32 %129, 0
-  br i1 %.not120, label %130, label %134
+131:                                              ; preds = %123
+  %132 = tail call fastcc i32 @ParseFilterHeader(ptr noundef nonnull %110, ptr noundef nonnull %0)
+  %.not120 = icmp eq i32 %132, 0
+  br i1 %.not120, label %133, label %137
 
-130:                                              ; preds = %128
-  %131 = load i32, ptr %0, align 8
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %VP8SetError.exit128
+133:                                              ; preds = %131
+  %134 = load i32, ptr %0, align 8
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %VP8SetError.exit128
 
-133:                                              ; preds = %130
+136:                                              ; preds = %133
   store i32 3, ptr %0, align 8
   store ptr @.str.10, ptr %5, align 8
   br label %VP8SetError.exit128.sink.split
 
-134:                                              ; preds = %128
-  %135 = tail call fastcc i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef nonnull %110, i64 noundef %111)
-  %.not121 = icmp eq i32 %135, 0
-  br i1 %.not121, label %140, label %136
+137:                                              ; preds = %131
+  %138 = tail call fastcc i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef nonnull %113, i64 noundef %114)
+  %.not121 = icmp eq i32 %138, 0
+  br i1 %.not121, label %143, label %139
 
-136:                                              ; preds = %134
-  %137 = load i32, ptr %0, align 8
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %VP8SetError.exit128
+139:                                              ; preds = %137
+  %140 = load i32, ptr %0, align 8
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %VP8SetError.exit128
 
-139:                                              ; preds = %136
-  store i32 %135, ptr %0, align 8
+142:                                              ; preds = %139
+  store i32 %138, ptr %0, align 8
   store ptr @.str.11, ptr %5, align 8
   br label %VP8SetError.exit128.sink.split
 
-140:                                              ; preds = %134
+143:                                              ; preds = %137
   tail call void @VP8ParseQuant(ptr noundef nonnull %0) #13
-  %141 = load i8, ptr %21, align 4
-  %.not122 = icmp eq i8 %141, 0
-  br i1 %.not122, label %142, label %146
+  %144 = load i8, ptr %21, align 4
+  %.not122 = icmp eq i8 %144, 0
+  br i1 %.not122, label %145, label %149
 
-142:                                              ; preds = %140
-  %143 = load i32, ptr %0, align 8
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %VP8SetError.exit128
+145:                                              ; preds = %143
+  %146 = load i32, ptr %0, align 8
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %VP8SetError.exit128
 
-145:                                              ; preds = %142
+148:                                              ; preds = %145
   store i32 4, ptr %0, align 8
   store ptr @.str.12, ptr %5, align 8
   br label %VP8SetError.exit128.sink.split
 
-146:                                              ; preds = %140
-  %147 = tail call i32 @VP8GetValue(ptr noundef nonnull %107, i32 noundef 1) #13
-  tail call void @VP8ParseProba(ptr noundef nonnull %107, ptr noundef nonnull %0) #13
+149:                                              ; preds = %143
+  %150 = tail call i32 @VP8GetValue(ptr noundef nonnull %110, i32 noundef 1) #13
+  tail call void @VP8ParseProba(ptr noundef nonnull %110, ptr noundef nonnull %0) #13
   br label %VP8SetError.exit128.sink.split
 
-VP8SetError.exit128.sink.split:                   ; preds = %VP8SetError.exit, %VP8SetError.exit123, %VP8SetError.exit124, %VP8SetError.exit125, %VP8SetError.exit126, %VP8SetError.exit127, %146, %105, %127, %133, %139, %145
-  %.sink = phi i32 [ 0, %145 ], [ 0, %139 ], [ 0, %133 ], [ 0, %127 ], [ 0, %105 ], [ 1, %146 ], [ 0, %VP8SetError.exit127 ], [ 0, %VP8SetError.exit126 ], [ 0, %VP8SetError.exit125 ], [ 0, %VP8SetError.exit124 ], [ 0, %VP8SetError.exit123 ], [ 0, %VP8SetError.exit ]
-  %148 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %148, align 4
+VP8SetError.exit128.sink.split:                   ; preds = %VP8SetError.exit, %VP8SetError.exit123, %VP8SetError.exit124, %VP8SetError.exit125, %VP8SetError.exit126, %VP8SetError.exit127, %149, %108, %130, %136, %142, %148
+  %.sink = phi i32 [ 0, %148 ], [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ 0, %108 ], [ 1, %149 ], [ 0, %VP8SetError.exit127 ], [ 0, %VP8SetError.exit126 ], [ 0, %VP8SetError.exit125 ], [ 0, %VP8SetError.exit124 ], [ 0, %VP8SetError.exit123 ], [ 0, %VP8SetError.exit ]
+  %151 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %151, align 4
   br label %VP8SetError.exit128
 
-VP8SetError.exit128:                              ; preds = %VP8SetError.exit128.sink.split, %142, %136, %130, %124, %102, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %102 ], [ 0, %124 ], [ 0, %130 ], [ 0, %136 ], [ 0, %142 ], [ %.sink, %VP8SetError.exit128.sink.split ]
+VP8SetError.exit128:                              ; preds = %VP8SetError.exit128.sink.split, %145, %139, %133, %127, %105, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %105 ], [ 0, %127 ], [ 0, %133 ], [ 0, %139 ], [ 0, %145 ], [ %.sink, %VP8SetError.exit128.sink.split ]
   ret i32 %.0
 }
 

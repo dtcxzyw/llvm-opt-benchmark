@@ -605,64 +605,72 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   br i1 %6, label %7, label %56
 
 7:                                                ; preds = %5
-  %8 = load <2 x float>, ptr %3, align 4
-  %9 = fpext <2 x float> %8 to <2 x double>
-  %10 = fadd <2 x double> %9, <double 5.000000e-01, double 5.000000e-01>
-  %11 = fptosi <2 x double> %10 to <2 x i32>
-  %12 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %13 = insertelement <2 x i32> %12, i32 %2, i64 1
-  %14 = add nsw <2 x i32> %13, %11
-  br label %15
+  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = load float, ptr %3, align 4
+  %10 = fpext float %9 to double
+  %11 = fadd double %10, 5.000000e-01
+  %12 = fptosi double %11 to i32
+  %13 = add nsw i32 %12, %1
+  %14 = load float, ptr %8, align 4
+  %15 = fpext float %14 to double
+  %16 = fadd double %15, 5.000000e-01
+  %17 = fptosi double %16 to i32
+  %18 = add nsw i32 %17, %2
+  br label %19
 
-15:                                               ; preds = %7, %15
-  %.pn70 = phi ptr [ %3, %7 ], [ %.0, %15 ]
-  %.04869 = phi i32 [ %4, %7 ], [ %25, %15 ]
-  %16 = phi <2 x i32> [ %14, %7 ], [ %24, %15 ]
-  %17 = phi <2 x i32> [ %14, %7 ], [ %23, %15 ]
+19:                                               ; preds = %7, %19
+  %.pn70 = phi ptr [ %3, %7 ], [ %.0, %19 ]
+  %.04869 = phi i32 [ %4, %7 ], [ %31, %19 ]
+  %.04968 = phi i32 [ %18, %7 ], [ %.1, %19 ]
+  %.05067 = phi i32 [ %13, %7 ], [ %.151, %19 ]
+  %.05366 = phi i32 [ %18, %7 ], [ %.154, %19 ]
+  %.05565 = phi i32 [ %13, %7 ], [ %spec.select, %19 ]
   %.0 = getelementptr inbounds i8, ptr %.pn70, i64 8
-  %18 = load <2 x float>, ptr %.0, align 4
-  %19 = fpext <2 x float> %18 to <2 x double>
-  %20 = fadd <2 x double> %19, <double 5.000000e-01, double 5.000000e-01>
-  %21 = fptosi <2 x double> %20 to <2 x i32>
-  %22 = add nsw <2 x i32> %13, %21
-  %23 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %17, <2 x i32> %22)
-  %24 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %16, <2 x i32> %22)
-  %25 = add nsw i32 %.04869, -2
-  %26 = icmp ugt i32 %.04869, 3
-  br i1 %26, label %15, label %27, !llvm.loop !11
+  %20 = getelementptr inbounds i8, ptr %.pn70, i64 12
+  %21 = load float, ptr %.0, align 4
+  %22 = fpext float %21 to double
+  %23 = fadd double %22, 5.000000e-01
+  %24 = fptosi double %23 to i32
+  %25 = add nsw i32 %24, %1
+  %26 = load float, ptr %20, align 4
+  %27 = fpext float %26 to double
+  %28 = fadd double %27, 5.000000e-01
+  %29 = fptosi double %28 to i32
+  %30 = add nsw i32 %29, %2
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.05565, i32 %25)
+  %.154 = tail call i32 @llvm.smin.i32(i32 %.05366, i32 %30)
+  %.151 = tail call i32 @llvm.smax.i32(i32 %.05067, i32 %25)
+  %.1 = tail call i32 @llvm.smax.i32(i32 %.04968, i32 %30)
+  %31 = add nsw i32 %.04869, -2
+  %32 = icmp ugt i32 %.04869, 3
+  br i1 %32, label %19, label %33, !llvm.loop !11
 
-27:                                               ; preds = %15
-  %28 = add nsw <2 x i32> %24, <i32 1, i32 1>
-  %29 = icmp slt <2 x i32> %28, %23
-  %30 = extractelement <2 x i1> %29, i64 0
-  %31 = extractelement <2 x i32> %28, i64 0
-  %32 = extractelement <2 x i32> %24, i64 0
-  %spec.select64 = select i1 %30, i32 %32, i32 %31
-  %33 = extractelement <2 x i1> %29, i64 1
-  %34 = extractelement <2 x i32> %28, i64 1
-  %35 = extractelement <2 x i32> %24, i64 1
-  %.2 = select i1 %33, i32 %35, i32 %34
-  %36 = load i32, ptr %0, align 4
-  %37 = extractelement <2 x i32> %23, i64 0
-  %38 = icmp slt i32 %36, %37
-  br i1 %38, label %39, label %40
+33:                                               ; preds = %19
+  %34 = add nsw i32 %.151, 1
+  %35 = icmp slt i32 %34, %spec.select
+  %spec.select64 = select i1 %35, i32 %.151, i32 %34
+  %36 = add nsw i32 %.1, 1
+  %37 = icmp slt i32 %36, %.154
+  %.2 = select i1 %37, i32 %.1, i32 %36
+  %38 = load i32, ptr %0, align 4
+  %39 = icmp slt i32 %38, %spec.select
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %27
-  store i32 %37, ptr %0, align 4
-  br label %40
+40:                                               ; preds = %33
+  store i32 %spec.select, ptr %0, align 4
+  br label %41
 
-40:                                               ; preds = %39, %27
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = extractelement <2 x i32> %23, i64 1
-  %44 = icmp slt i32 %42, %43
+41:                                               ; preds = %40, %33
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp slt i32 %43, %.154
   br i1 %44, label %45, label %46
 
-45:                                               ; preds = %40
-  store i32 %43, ptr %41, align 4
+45:                                               ; preds = %41
+  store i32 %.154, ptr %42, align 4
   br label %46
 
-46:                                               ; preds = %45, %40
+46:                                               ; preds = %45, %41
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, %spec.select64
@@ -676,19 +684,23 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   %52 = getelementptr inbounds i8, ptr %0, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, %.2
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %62
 
 55:                                               ; preds = %51
   store i32 %.2, ptr %52, align 4
-  br label %59
+  br label %62
 
 56:                                               ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  %58 = load <2 x i32>, ptr %0, align 4
-  store <2 x i32> %58, ptr %57, align 4
-  br label %59
+  %57 = load i32, ptr %0, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %57, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %60, ptr %61, align 4
+  br label %62
 
-59:                                               ; preds = %51, %55, %56
+62:                                               ; preds = %51, %55, %56
   ret void
 }
 
@@ -1281,10 +1293,10 @@ define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #5
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #5
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -127,7 +127,7 @@ sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, 
   %49 = icmp eq i32 %.fr60, 2
   %50 = tail call i32 @agnnodes(ptr noundef %0) #12
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %203, label %51
+  br i1 %.not, label %198, label %51
 
 51:                                               ; preds = %sfdp_init_graph.exit
   %52 = tail call ptr @spring_electrical_control_new() #12
@@ -308,7 +308,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %142 = load i32, ptr %3, align 8
   %143 = icmp eq i32 %142, 18
   %or.cond = and i1 %143, %49
-  br i1 %or.cond, label %144, label %156
+  br i1 %or.cond, label %144, label %158
 
 144:                                              ; preds = %tuneControl.exit
   %145 = getelementptr inbounds i8, ptr %3, i64 16
@@ -322,125 +322,118 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %151 = call { <2 x float>, i8 } @sepFactor(ptr noundef %0) #12
   %.fca.1.extract = extractvalue { <2 x float>, i8 } %151, 1
   %152 = trunc i8 %.fca.1.extract to i1
-  br i1 %152, label %153, label %159
+  br i1 %152, label %153, label %161
 
 153:                                              ; preds = %144
   %.fca.0.extract = extractvalue { <2 x float>, i8 } %151, 0
-  %154 = fpext <2 x float> %.fca.0.extract to <2 x double>
-  %155 = fdiv <2 x double> %154, <double 7.200000e+01, double 7.200000e+01>
-  br label %159
+  %.sroa.020.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
+  %154 = fpext float %.sroa.020.0.vec.extract to double
+  %155 = fdiv double %154, 7.200000e+01
+  %.sroa.020.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
+  %156 = fpext float %.sroa.020.4.vec.extract to double
+  %157 = fdiv double %156, 7.200000e+01
+  br label %161
 
-156:                                              ; preds = %tuneControl.exit
-  %157 = getelementptr inbounds i8, ptr %52, i64 100
-  store i32 -1, ptr %157, align 4
-  %158 = xor i1 %49, true
-  br label %159
+158:                                              ; preds = %tuneControl.exit
+  %159 = getelementptr inbounds i8, ptr %52, i64 100
+  store i32 -1, ptr %159, align 4
+  %160 = xor i1 %49, true
+  br label %161
 
-159:                                              ; preds = %144, %153, %156
-  %.048 = phi i1 [ true, %153 ], [ true, %144 ], [ %158, %156 ]
-  %160 = phi <2 x double> [ %155, %153 ], [ <double 0x3FAC71C71C71C71C, double 0x3FAC71C71C71C71C>, %144 ], [ <double 0x3FAC71C71C71C71C, double 0x3FAC71C71C71C71C>, %156 ]
-  %161 = load i8, ptr @Verbose, align 1
-  %.not50 = icmp eq i8 %161, 0
-  br i1 %.not50, label %163, label %162
+161:                                              ; preds = %144, %153, %158
+  %.sroa.017.0 = phi double [ %155, %153 ], [ 0x3FAC71C71C71C71C, %144 ], [ 0x3FAC71C71C71C71C, %158 ]
+  %.sroa.4.0 = phi double [ %157, %153 ], [ 0x3FAC71C71C71C71C, %144 ], [ 0x3FAC71C71C71C71C, %158 ]
+  %.048 = phi i1 [ true, %153 ], [ true, %144 ], [ %160, %158 ]
+  %162 = load i8, ptr @Verbose, align 1
+  %.not50 = icmp eq i8 %162, 0
+  br i1 %.not50, label %164, label %163
 
-162:                                              ; preds = %159
+163:                                              ; preds = %161
   call void @spring_electrical_control_print(ptr noundef nonnull %52) #12
-  br label %163
+  br label %164
 
-163:                                              ; preds = %162, %159
-  %164 = call ptr @ccomps(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #12
-  %165 = load i64, ptr %4, align 8
-  %166 = icmp eq i64 %165, 1
-  br i1 %166, label %167, label %173
+164:                                              ; preds = %163, %161
+  %165 = call ptr @ccomps(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #12
+  %166 = load i64, ptr %4, align 8
+  %167 = icmp eq i64 %166, 1
+  br i1 %167, label %168, label %172
 
-167:                                              ; preds = %163
-  %168 = extractelement <2 x double> %160, i64 0
-  %169 = extractelement <2 x double> %160, i64 1
-  call fastcc void @sfdpLayout(ptr noundef %0, ptr noundef nonnull %52, double %168, double %169)
-  br i1 %.048, label %172, label %170
+168:                                              ; preds = %164
+  call fastcc void @sfdpLayout(ptr noundef %0, ptr noundef nonnull %52, double %.sroa.017.0, double %.sroa.4.0)
+  br i1 %.048, label %171, label %169
 
-170:                                              ; preds = %167
-  %171 = call i32 @removeOverlapWith(ptr noundef %0, ptr noundef nonnull %3) #12
-  br label %172
+169:                                              ; preds = %168
+  %170 = call i32 @removeOverlapWith(ptr noundef %0, ptr noundef nonnull %3) #12
+  br label %171
 
-172:                                              ; preds = %170, %167
+171:                                              ; preds = %169, %168
   call void @spline_edges(ptr noundef %0) #12
-  br label %195
+  br label %190
 
-173:                                              ; preds = %163
-  %174 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %5) #12
-  %175 = getelementptr inbounds i8, ptr %5, i64 12
-  store i8 1, ptr %175, align 4
-  %176 = load i64, ptr %4, align 8
-  %.not59 = icmp eq i64 %176, 0
+172:                                              ; preds = %164
+  %173 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %5) #12
+  %174 = getelementptr inbounds i8, ptr %5, i64 12
+  store i8 1, ptr %174, align 4
+  %175 = load i64, ptr %4, align 8
+  %.not59 = icmp eq i64 %175, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %173
-  br i1 %.048, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
+.lr.ph:                                           ; preds = %172
+  br i1 %.048, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %177 = extractelement <2 x double> %160, i64 0
-  %178 = extractelement <2 x double> %160, i64 1
-  br label %.lr.ph.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %.04754.us = phi i64 [ %179, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %176 = getelementptr inbounds ptr, ptr %165, i64 %.04754.us
+  %177 = load ptr, ptr %176, align 8
+  %178 = call i64 @graphviz_node_induce(ptr noundef %177, ptr noundef null) #12
+  call fastcc void @sfdpLayout(ptr noundef %177, ptr noundef nonnull %52, double %.sroa.017.0, double %.sroa.4.0)
+  call void @setEdgeType(ptr noundef %177, i32 noundef 2) #12
+  call void @spline_edges(ptr noundef %177) #12
+  %179 = add nuw i64 %.04754.us, 1
+  %180 = load i64, ptr %4, align 8
+  %181 = icmp ult i64 %179, %180
+  br i1 %181, label %.lr.ph.split.us, label %._crit_edge
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %179 = extractelement <2 x double> %160, i64 0
-  %180 = extractelement <2 x double> %160, i64 1
-  br label %.lr.ph.split.us
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %.04754 = phi i64 [ %186, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %182 = getelementptr inbounds ptr, ptr %165, i64 %.04754
+  %183 = load ptr, ptr %182, align 8
+  %184 = call i64 @graphviz_node_induce(ptr noundef %183, ptr noundef null) #12
+  call fastcc void @sfdpLayout(ptr noundef %183, ptr noundef nonnull %52, double %.sroa.017.0, double %.sroa.4.0)
+  %185 = call i32 @removeOverlapWith(ptr noundef %183, ptr noundef nonnull %3) #12
+  call void @setEdgeType(ptr noundef %183, i32 noundef 2) #12
+  call void @spline_edges(ptr noundef %183) #12
+  %186 = add nuw i64 %.04754, 1
+  %187 = load i64, ptr %4, align 8
+  %188 = icmp ult i64 %186, %187
+  br i1 %188, label %.lr.ph.split, label %._crit_edge
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.04754.us = phi i64 [ %184, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %181 = getelementptr inbounds ptr, ptr %164, i64 %.04754.us
-  %182 = load ptr, ptr %181, align 8
-  %183 = call i64 @graphviz_node_induce(ptr noundef %182, ptr noundef null) #12
-  call fastcc void @sfdpLayout(ptr noundef %182, ptr noundef nonnull %52, double %179, double %180)
-  call void @setEdgeType(ptr noundef %182, i32 noundef 2) #12
-  call void @spline_edges(ptr noundef %182) #12
-  %184 = add nuw i64 %.04754.us, 1
-  %185 = load i64, ptr %4, align 8
-  %186 = icmp ult i64 %184, %185
-  br i1 %186, label %.lr.ph.split.us, label %._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %172
+  %.lcssa = phi i64 [ 0, %172 ], [ %180, %.lr.ph.split.us ], [ %187, %.lr.ph.split ]
+  %189 = call i32 @packSubgraphs(i64 noundef %.lcssa, ptr noundef %165, ptr noundef %0, ptr noundef nonnull %5) #12
+  br label %190
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.04754 = phi i64 [ %191, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %187 = getelementptr inbounds ptr, ptr %164, i64 %.04754
-  %188 = load ptr, ptr %187, align 8
-  %189 = call i64 @graphviz_node_induce(ptr noundef %188, ptr noundef null) #12
-  call fastcc void @sfdpLayout(ptr noundef %188, ptr noundef nonnull %52, double %177, double %178)
-  %190 = call i32 @removeOverlapWith(ptr noundef %188, ptr noundef nonnull %3) #12
-  call void @setEdgeType(ptr noundef %188, i32 noundef 2) #12
-  call void @spline_edges(ptr noundef %188) #12
-  %191 = add nuw i64 %.04754, 1
-  %192 = load i64, ptr %4, align 8
-  %193 = icmp ult i64 %191, %192
-  br i1 %193, label %.lr.ph.split, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %173
-  %.lcssa = phi i64 [ 0, %173 ], [ %185, %.lr.ph.split.us ], [ %192, %.lr.ph.split ]
-  %194 = call i32 @packSubgraphs(i64 noundef %.lcssa, ptr noundef %164, ptr noundef %0, ptr noundef nonnull %5) #12
-  br label %195
-
-195:                                              ; preds = %._crit_edge, %172
-  %196 = load i64, ptr %4, align 8
-  %.not61 = icmp eq i64 %196, 0
+190:                                              ; preds = %._crit_edge, %171
+  %191 = load i64, ptr %4, align 8
+  %.not61 = icmp eq i64 %191, 0
   br i1 %.not61, label %._crit_edge58, label %.lr.ph57
 
-.lr.ph57:                                         ; preds = %195, %.lr.ph57
-  %.055 = phi i64 [ %200, %.lr.ph57 ], [ 0, %195 ]
-  %197 = getelementptr inbounds ptr, ptr %164, i64 %.055
-  %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @agdelete(ptr noundef %0, ptr noundef %198) #12
-  %200 = add nuw i64 %.055, 1
-  %201 = load i64, ptr %4, align 8
-  %202 = icmp ult i64 %200, %201
-  br i1 %202, label %.lr.ph57, label %._crit_edge58
+.lr.ph57:                                         ; preds = %190, %.lr.ph57
+  %.055 = phi i64 [ %195, %.lr.ph57 ], [ 0, %190 ]
+  %192 = getelementptr inbounds ptr, ptr %165, i64 %.055
+  %193 = load ptr, ptr %192, align 8
+  %194 = call i32 @agdelete(ptr noundef %0, ptr noundef %193) #12
+  %195 = add nuw i64 %.055, 1
+  %196 = load i64, ptr %4, align 8
+  %197 = icmp ult i64 %195, %196
+  br i1 %197, label %.lr.ph57, label %._crit_edge58
 
-._crit_edge58:                                    ; preds = %.lr.ph57, %195
-  call void @free(ptr noundef %164) #12
+._crit_edge58:                                    ; preds = %.lr.ph57, %190
+  call void @free(ptr noundef %165) #12
   call void @spring_electrical_control_delete(ptr noundef nonnull %52) #12
-  br label %203
+  br label %198
 
-203:                                              ; preds = %._crit_edge58, %sfdp_init_graph.exit
+198:                                              ; preds = %._crit_edge58, %sfdp_init_graph.exit
   call void @dotneato_postprocess(ptr noundef %0) #12
   ret void
 }

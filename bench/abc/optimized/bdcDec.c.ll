@@ -1491,239 +1491,246 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   %28 = load ptr, ptr %18, align 8
   %29 = tail call i32 @Bdc_DecomposeOr(ptr noundef %0, ptr noundef %1, ptr noundef %27, ptr noundef %28)
   %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = load <2 x ptr>, ptr %30, align 8
-  %32 = shufflevector <2 x ptr> %31, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %32, ptr %30, align 8
-  %33 = load ptr, ptr %21, align 8
-  %34 = load ptr, ptr %24, align 8
-  %35 = tail call i32 @Bdc_DecomposeOr(ptr noundef %0, ptr noundef %1, ptr noundef %33, ptr noundef %34)
-  %36 = load <2 x ptr>, ptr %30, align 8
-  %37 = shufflevector <2 x ptr> %36, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %37, ptr %30, align 8
-  %38 = load ptr, ptr %21, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load <2 x ptr>, ptr %39, align 8
-  %41 = shufflevector <2 x ptr> %40, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %41, ptr %39, align 8
-  %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load <2 x ptr>, ptr %43, align 8
-  %45 = shufflevector <2 x ptr> %44, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %45, ptr %43, align 8
-  %46 = icmp eq i32 %29, 0
-  %47 = icmp eq i32 %35, 0
-  %or.cond = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %51
-
-48:                                               ; preds = %4
-  %49 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %50 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br label %139
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = load ptr, ptr %32, align 8
+  store ptr %33, ptr %30, align 8
+  store ptr %31, ptr %32, align 8
+  %34 = load ptr, ptr %21, align 8
+  %35 = load ptr, ptr %24, align 8
+  %36 = tail call i32 @Bdc_DecomposeOr(ptr noundef %0, ptr noundef %1, ptr noundef %34, ptr noundef %35)
+  %37 = load ptr, ptr %30, align 8
+  %38 = load ptr, ptr %32, align 8
+  store ptr %38, ptr %30, align 8
+  store ptr %37, ptr %32, align 8
+  %39 = load ptr, ptr %21, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %40, align 8
+  store ptr %41, ptr %42, align 8
+  %44 = load ptr, ptr %24, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %45, align 8
+  store ptr %46, ptr %47, align 8
+  %49 = icmp eq i32 %29, 0
+  %50 = icmp eq i32 %36, 0
+  %or.cond = select i1 %49, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %54
 
 51:                                               ; preds = %4
-  br i1 %46, label %70, label %52
+  %52 = load ptr, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  %53 = load ptr, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  br label %142
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %15, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  %55 = load i32, ptr %54, align 4
-  %.not90 = icmp eq i32 %55, 0
-  br i1 %.not90, label %61, label %56
+54:                                               ; preds = %4
+  br i1 %49, label %73, label %55
 
-56:                                               ; preds = %52
-  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %53)
-  %57 = load ptr, ptr %15, align 8
-  %58 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %57) #7
-  %59 = icmp ne ptr %58, null
-  %60 = zext i1 %59 to i32
-  br label %61
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %15, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4
+  %.not90 = icmp eq i32 %58, 0
+  br i1 %.not90, label %64, label %59
 
-61:                                               ; preds = %56, %52
-  %.184 = phi i32 [ %60, %56 ], [ 0, %52 ]
-  %62 = load ptr, ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
-  %64 = load i32, ptr %63, align 4
-  %.not91 = icmp eq i32 %64, 0
-  br i1 %.not91, label %70, label %65
+59:                                               ; preds = %55
+  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %56)
+  %60 = load ptr, ptr %15, align 8
+  %61 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %60) #7
+  %62 = icmp ne ptr %61, null
+  %63 = zext i1 %62 to i32
+  br label %64
 
-65:                                               ; preds = %61
-  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %62)
-  %66 = load ptr, ptr %18, align 8
-  %67 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %66) #7
-  %68 = icmp ne ptr %67, null
-  %69 = zext i1 %68 to i32
-  br label %70
+64:                                               ; preds = %59, %55
+  %.184 = phi i32 [ %63, %59 ], [ 0, %55 ]
+  %65 = load ptr, ptr %18, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = load i32, ptr %66, align 4
+  %.not91 = icmp eq i32 %67, 0
+  br i1 %.not91, label %73, label %68
 
-70:                                               ; preds = %61, %65, %51
-  %.083 = phi i32 [ %.184, %65 ], [ %.184, %61 ], [ 0, %51 ]
-  %.082 = phi i32 [ %69, %65 ], [ 0, %61 ], [ 0, %51 ]
-  br i1 %47, label %89, label %71
+68:                                               ; preds = %64
+  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %65)
+  %69 = load ptr, ptr %18, align 8
+  %70 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %69) #7
+  %71 = icmp ne ptr %70, null
+  %72 = zext i1 %71 to i32
+  br label %73
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
-  %74 = load i32, ptr %73, align 4
-  %.not93 = icmp eq i32 %74, 0
-  br i1 %.not93, label %80, label %75
+73:                                               ; preds = %64, %68, %54
+  %.083 = phi i32 [ %.184, %68 ], [ %.184, %64 ], [ 0, %54 ]
+  %.082 = phi i32 [ %72, %68 ], [ 0, %64 ], [ 0, %54 ]
+  br i1 %50, label %92, label %74
 
-75:                                               ; preds = %71
-  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %72)
-  %76 = load ptr, ptr %21, align 8
-  %77 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %76) #7
-  %78 = icmp ne ptr %77, null
-  %79 = zext i1 %78 to i32
-  br label %80
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %21, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = load i32, ptr %76, align 4
+  %.not93 = icmp eq i32 %77, 0
+  br i1 %.not93, label %83, label %78
 
-80:                                               ; preds = %75, %71
-  %.1 = phi i32 [ %79, %75 ], [ 0, %71 ]
-  %81 = load ptr, ptr %24, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4
-  %.not94 = icmp eq i32 %83, 0
-  br i1 %.not94, label %89, label %84
+78:                                               ; preds = %74
+  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %75)
+  %79 = load ptr, ptr %21, align 8
+  %80 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %79) #7
+  %81 = icmp ne ptr %80, null
+  %82 = zext i1 %81 to i32
+  br label %83
 
-84:                                               ; preds = %80
-  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %81)
-  %85 = load ptr, ptr %24, align 8
-  %86 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %85) #7
-  %87 = icmp ne ptr %86, null
-  %88 = zext i1 %87 to i32
-  br label %89
+83:                                               ; preds = %78, %74
+  %.1 = phi i32 [ %82, %78 ], [ 0, %74 ]
+  %84 = load ptr, ptr %24, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %86 = load i32, ptr %85, align 4
+  %.not94 = icmp eq i32 %86, 0
+  br i1 %.not94, label %92, label %87
 
-89:                                               ; preds = %80, %84, %70
-  %.081 = phi i32 [ %.1, %84 ], [ %.1, %80 ], [ 0, %70 ]
-  %.0 = phi i32 [ %88, %84 ], [ 0, %80 ], [ 0, %70 ]
-  %90 = add nuw nsw i32 %.082, %.083
-  %91 = add nuw nsw i32 %.0, %.081
-  %92 = icmp ugt i32 %90, %91
-  br i1 %92, label %93, label %102
+87:                                               ; preds = %83
+  tail call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %84)
+  %88 = load ptr, ptr %24, align 8
+  %89 = tail call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %88) #7
+  %90 = icmp ne ptr %89, null
+  %91 = zext i1 %90 to i32
+  br label %92
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 280
-  %95 = load i32, ptr %94, align 8
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 272
+92:                                               ; preds = %83, %87, %73
+  %.081 = phi i32 [ %.1, %87 ], [ %.1, %83 ], [ 0, %73 ]
+  %.0 = phi i32 [ %91, %87 ], [ 0, %83 ], [ 0, %73 ]
+  %93 = add nuw nsw i32 %.082, %.083
+  %94 = add nuw nsw i32 %.0, %.081
+  %95 = icmp ugt i32 %93, %94
+  br i1 %95, label %96, label %105
+
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %0, i64 280
   %98 = load i32, ptr %97, align 8
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 8
-  %100 = load ptr, ptr %15, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 272
+  %101 = load i32, ptr %100, align 8
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %100, align 8
+  %103 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %101 = load ptr, ptr %18, align 8
+  %104 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %139
+  br label %142
 
-102:                                              ; preds = %89
-  %103 = icmp ult i32 %90, %91
-  br i1 %103, label %104, label %113
+105:                                              ; preds = %92
+  %106 = icmp ult i32 %93, %94
+  br i1 %106, label %107, label %116
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 280
-  %106 = load i32, ptr %105, align 8
-  %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %105, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 268
-  %109 = load i32, ptr %108, align 4
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds i8, ptr %0, i64 280
+  %109 = load i32, ptr %108, align 8
   %110 = add nsw i32 %109, 1
-  store i32 %110, ptr %108, align 4
-  %111 = load ptr, ptr %21, align 8
+  store i32 %110, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 268
+  %112 = load i32, ptr %111, align 4
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %111, align 4
+  %114 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %112 = load ptr, ptr %24, align 8
+  %115 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %139
+  br label %142
 
-113:                                              ; preds = %102
-  %114 = icmp sgt i32 %29, %35
-  br i1 %114, label %115, label %127
+116:                                              ; preds = %105
+  %117 = icmp sgt i32 %29, %36
+  br i1 %117, label %118, label %130
 
-115:                                              ; preds = %113
-  %116 = icmp slt i32 %29, 1000
-  br i1 %116, label %117, label %121
+118:                                              ; preds = %116
+  %119 = icmp slt i32 %29, 1000
+  br i1 %119, label %120, label %124
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 276
-  %119 = load i32, ptr %118, align 4
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %118, align 4
-  br label %121
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %0, i64 276
+  %122 = load i32, ptr %121, align 4
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %121, align 4
+  br label %124
 
-121:                                              ; preds = %117, %115
-  %122 = getelementptr inbounds i8, ptr %0, i64 272
-  %123 = load i32, ptr %122, align 8
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %122, align 8
-  %125 = load ptr, ptr %15, align 8
+124:                                              ; preds = %120, %118
+  %125 = getelementptr inbounds i8, ptr %0, i64 272
+  %126 = load i32, ptr %125, align 8
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %125, align 8
+  %128 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %126 = load ptr, ptr %18, align 8
+  %129 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %139
+  br label %142
 
-127:                                              ; preds = %113
-  %128 = icmp slt i32 %35, 1000
-  br i1 %128, label %129, label %133
+130:                                              ; preds = %116
+  %131 = icmp slt i32 %36, 1000
+  br i1 %131, label %132, label %136
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %0, i64 276
-  %131 = load i32, ptr %130, align 4
-  %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %130, align 4
-  br label %133
+132:                                              ; preds = %130
+  %133 = getelementptr inbounds i8, ptr %0, i64 276
+  %134 = load i32, ptr %133, align 4
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %133, align 4
+  br label %136
 
-133:                                              ; preds = %129, %127
-  %134 = getelementptr inbounds i8, ptr %0, i64 268
-  %135 = load i32, ptr %134, align 4
-  %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %134, align 4
-  %137 = load ptr, ptr %21, align 8
+136:                                              ; preds = %132, %130
+  %137 = getelementptr inbounds i8, ptr %0, i64 268
+  %138 = load i32, ptr %137, align 4
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %137, align 4
+  %140 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %137, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %140, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %138 = load ptr, ptr %24, align 8
+  %141 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %138, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %141, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %139
+  br label %142
 
-139:                                              ; preds = %133, %121, %104, %93, %48
-  %.085 = phi i32 [ 6, %48 ], [ 4, %93 ], [ 3, %104 ], [ 4, %121 ], [ 3, %133 ]
+142:                                              ; preds = %136, %124, %107, %96, %51
+  %.085 = phi i32 [ 6, %51 ], [ 4, %96 ], [ 3, %107 ], [ 4, %124 ], [ 3, %136 ]
   ret i32 %.085
 }
 
@@ -2213,52 +2220,57 @@ Kit_TruthOr.exit.loopexit:                        ; preds = %select.unfold.i79
 Kit_TruthOr.exit:                                 ; preds = %Kit_TruthOr.exit.loopexit, %134
   %154 = phi ptr [ %.pre, %Kit_TruthOr.exit.loopexit ], [ %135, %134 ]
   store i32 3, ptr %19, align 8
-  %155 = load <2 x ptr>, ptr %21, align 8
-  %156 = ptrtoint <2 x ptr> %155 to <2 x i64>
-  %157 = xor <2 x i64> %156, <i64 1, i64 1>
-  %158 = inttoptr <2 x i64> %157 to <2 x ptr>
-  store <2 x ptr> %158, ptr %21, align 8
-  %159 = load i32, ptr %140, align 8
-  %160 = icmp slt i32 %159, 6
-  %161 = add nsw i32 %159, -5
-  %162 = shl nuw i32 1, %161
-  %spec.select.i82 = select i1 %160, i32 1, i32 %162
-  %163 = icmp sgt i32 %spec.select.i82, 0
-  br i1 %163, label %select.unfold.preheader.i83, label %Kit_TruthNot.exit87
+  %155 = load ptr, ptr %21, align 8
+  %156 = ptrtoint ptr %155 to i64
+  %157 = xor i64 %156, 1
+  %158 = inttoptr i64 %157 to ptr
+  store ptr %158, ptr %21, align 8
+  %159 = load ptr, ptr %22, align 8
+  %160 = ptrtoint ptr %159 to i64
+  %161 = xor i64 %160, 1
+  %162 = inttoptr i64 %161 to ptr
+  store ptr %162, ptr %22, align 8
+  %163 = load i32, ptr %140, align 8
+  %164 = icmp slt i32 %163, 6
+  %165 = add nsw i32 %163, -5
+  %166 = shl nuw i32 1, %165
+  %spec.select.i82 = select i1 %164, i32 1, i32 %166
+  %167 = icmp sgt i32 %spec.select.i82, 0
+  br i1 %167, label %select.unfold.preheader.i83, label %Kit_TruthNot.exit87
 
 select.unfold.preheader.i83:                      ; preds = %Kit_TruthOr.exit
-  %164 = zext nneg i32 %spec.select.i82 to i64
+  %168 = zext nneg i32 %spec.select.i82 to i64
   br label %select.unfold.i84
 
 select.unfold.i84:                                ; preds = %select.unfold.i84, %select.unfold.preheader.i83
-  %indvars.iv.i85 = phi i64 [ %164, %select.unfold.preheader.i83 ], [ %indvars.iv.next.i86, %select.unfold.i84 ]
+  %indvars.iv.i85 = phi i64 [ %168, %select.unfold.preheader.i83 ], [ %indvars.iv.next.i86, %select.unfold.i84 ]
   %indvars.iv.next.i86 = add nsw i64 %indvars.iv.i85, -1
-  %165 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv.next.i86
-  %166 = load i32, ptr %165, align 4
-  %167 = xor i32 %166, -1
-  store i32 %167, ptr %165, align 4
-  %168 = icmp ugt i64 %indvars.iv.i85, 1
-  br i1 %168, label %select.unfold.i84, label %Kit_TruthNot.exit87, !llvm.loop !9
+  %169 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv.next.i86
+  %170 = load i32, ptr %169, align 4
+  %171 = xor i32 %170, -1
+  store i32 %171, ptr %169, align 4
+  %172 = icmp ugt i64 %indvars.iv.i85, 1
+  br i1 %172, label %select.unfold.i84, label %Kit_TruthNot.exit87, !llvm.loop !9
 
 Kit_TruthNot.exit87:                              ; preds = %select.unfold.i84, %Kit_TruthOr.exit
-  %169 = ptrtoint ptr %19 to i64
-  %170 = xor i64 %169, 1
-  %171 = inttoptr i64 %170 to ptr
+  %173 = ptrtoint ptr %19 to i64
+  %174 = xor i64 %173, 1
+  %175 = inttoptr i64 %174 to ptr
   br label %Kit_TruthAnd.exit
 
 Kit_TruthAnd.exit:                                ; preds = %select.unfold.i74, %114, %Kit_TruthNot.exit65, %Kit_TruthNot.exit87
-  %.0 = phi ptr [ %171, %Kit_TruthNot.exit87 ], [ %19, %Kit_TruthNot.exit65 ], [ %19, %114 ], [ %19, %select.unfold.i74 ]
-  %172 = ptrtoint ptr %.0 to i64
-  %173 = and i64 %172, -2
-  %174 = inttoptr i64 %173 to ptr
-  %175 = getelementptr inbounds i8, ptr %174, i64 32
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 8
-  %178 = load i32, ptr %177, align 8
-  %179 = tail call i32 @Kit_TruthSupport(ptr noundef %176, i32 noundef %178) #7
-  %180 = getelementptr inbounds i8, ptr %174, i64 24
-  store i32 %179, ptr %180, align 8
-  tail call void @Bdc_TableAdd(ptr noundef %0, ptr noundef %174) #7
+  %.0 = phi ptr [ %175, %Kit_TruthNot.exit87 ], [ %19, %Kit_TruthNot.exit65 ], [ %19, %114 ], [ %19, %select.unfold.i74 ]
+  %176 = ptrtoint ptr %.0 to i64
+  %177 = and i64 %176, -2
+  %178 = inttoptr i64 %177 to ptr
+  %179 = getelementptr inbounds i8, ptr %178, i64 32
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %182 = load i32, ptr %181, align 8
+  %183 = tail call i32 @Kit_TruthSupport(ptr noundef %180, i32 noundef %182) #7
+  %184 = getelementptr inbounds i8, ptr %178, i64 24
+  store i32 %183, ptr %184, align 8
+  tail call void @Bdc_TableAdd(ptr noundef %0, ptr noundef %178) #7
   br label %Bdc_FunNew.exit.thread
 
 Bdc_FunNew.exit.thread:                           ; preds = %4, %9, %Kit_TruthAnd.exit

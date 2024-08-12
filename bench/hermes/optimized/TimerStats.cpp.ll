@@ -1182,45 +1182,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
-  %8 = sub nsw <2 x i64> %7, %5
-  %9 = sitofp <2 x i64> %8 to <2 x double>
-  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+06>
-  %11 = load ptr, ptr %stat_.i.i, align 8
-  %12 = load <2 x double>, ptr %11, align 8
-  %13 = fadd <2 x double> %10, %12
-  store <2 x double> %13, ptr %11, align 8
-  %14 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %14, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %5 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %5
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %6 = load ptr, ptr %stat_.i.i, align 8
+  %7 = load double, ptr %6, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %7
+  store double %add.i.i.i, ptr %6, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %8
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %9 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %15 = load <2 x double>, ptr %total_.i.i, align 8
-  %16 = fadd <2 x double> %10, %15
-  store <2 x double> %16, ptr %total_.i.i, align 8
+  %10 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %10
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %11 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %11
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %14, ptr %timerStack_.i, align 8
+  store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1298,45 +1308,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
-  %8 = sub nsw <2 x i64> %7, %5
-  %9 = sitofp <2 x i64> %8 to <2 x double>
-  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+06>
-  %11 = load ptr, ptr %stat_.i.i, align 8
-  %12 = load <2 x double>, ptr %11, align 8
-  %13 = fadd <2 x double> %10, %12
-  store <2 x double> %13, ptr %11, align 8
-  %14 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %14, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %5 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %5
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %6 = load ptr, ptr %stat_.i.i, align 8
+  %7 = load double, ptr %6, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %7
+  store double %add.i.i.i, ptr %6, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %8
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %9 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %15 = load <2 x double>, ptr %total_.i.i, align 8
-  %16 = fadd <2 x double> %10, %15
-  store <2 x double> %16, ptr %total_.i.i, align 8
+  %10 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %10
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %11 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %11
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %14, ptr %timerStack_.i, align 8
+  store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1390,45 +1410,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
-  %8 = sub nsw <2 x i64> %7, %5
-  %9 = sitofp <2 x i64> %8 to <2 x double>
-  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+06>
-  %11 = load ptr, ptr %stat_.i.i, align 8
-  %12 = load <2 x double>, ptr %11, align 8
-  %13 = fadd <2 x double> %10, %12
-  store <2 x double> %13, ptr %11, align 8
-  %14 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i6 = icmp eq ptr %14, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %5 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %5
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %6 = load ptr, ptr %stat_.i.i, align 8
+  %7 = load double, ptr %6, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %7
+  store double %add.i.i.i, ptr %6, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %8
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %9 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i6 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i6, label %if.then.i.i7, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i7:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %15 = load <2 x double>, ptr %total_.i.i, align 8
-  %16 = fadd <2 x double> %10, %15
-  store <2 x double> %16, ptr %total_.i.i, align 8
+  %10 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %10
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %11 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %11
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i7
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %14, ptr %timerStack_.i, align 8
+  store ptr %9, ptr %timerStack_.i, align 8
   ret i1 %call2.i1
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1754,20 +1784,22 @@ entry:
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !40
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !40
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
+  %1 = load ptr, ptr %ho, align 8, !noalias !40
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ho, i64 8
-  %drt_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
-  %plainHO_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 32
-  %1 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  %2 = load <2 x ptr>, ptr %ho, align 8, !noalias !40
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ho, i8 0, i64 16, i1 false), !noalias !40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !40
+  %drt_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
   store ptr %this, ptr %drt_.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  store <2 x ptr> %2, ptr %plainHO_.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %plainHO_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 32
+  store ptr %1, ptr %plainHO_.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 40
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1790,12 +1822,12 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i2.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !40
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !40
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %1) #21, !noalias !40
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1818,11 +1850,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %cmp6.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
 
 if.then7.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !40
+  %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #21, !noalias !40
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1843,10 +1875,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i2.i.i.i.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !40
+  %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !noalias !40
   %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %1) #21, !noalias !40
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #21, !noalias !40
   br label %_ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit
 
 _ZSt11make_sharedIN8facebook6hermes12_GLOBAL__N_115TimedHostObjectEJRNS2_12TimedRuntimeESt10shared_ptrINS0_3jsi10HostObjectEERNS2_12RuntimeStatsEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1955,15 +1987,17 @@ entry:
   call void %1(ptr nonnull sret(%"class.std::shared_ptr.10") align 8 %dho, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   %2 = load ptr, ptr %dho, align 8
   %plainHO_ = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %plainHO_, align 8
+  store ptr %3, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %4 = load <2 x ptr>, ptr %plainHO_, align 8
-  store <2 x ptr> %4, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2153,19 +2187,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14setNativeStateERKNS0_6ObjectESt10shared_ptrINS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef %state) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.13", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.13", align 8
   %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
+  %1 = load ptr, ptr %state, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %state, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %state, align 8
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2453,102 +2488,104 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E17createArrayBufferESt10shared_ptrINS0_13MutableBufferEE(ptr noalias sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %buffer) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.16", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.16", align 8
   %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
+  %1 = load ptr, ptr %buffer, align 8
+  store ptr %1, ptr %agg.tmp, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %1 = load <2 x ptr>, ptr %buffer, align 8
+  %2 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  store ptr %2, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %buffer, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 432
-  %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp)
+  %3 = load ptr, ptr %vfn, align 8
+  invoke void %3(ptr sret(%"class.facebook::jsi::ArrayBuffer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %3 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %4, 4294967297
-  %5 = trunc i64 %4 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
+  %6 = trunc i64 %5 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %7 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %7, 0
+  %8 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %5, -1
+  %add.i.i.i.i.i = add nsw i32 %6, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %5, %if.then.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %11 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %11, -1
+  %12 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %12, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %13 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %11, %if.then.i.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %13 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br label %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #21
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2897,45 +2934,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
-  %8 = sub nsw <2 x i64> %7, %5
-  %9 = sitofp <2 x i64> %8 to <2 x double>
-  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+06>
-  %11 = load ptr, ptr %stat_.i.i, align 8
-  %12 = load <2 x double>, ptr %11, align 8
-  %13 = fadd <2 x double> %10, %12
-  store <2 x double> %13, ptr %11, align 8
-  %14 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %14, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %5 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %5
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %6 = load ptr, ptr %stat_.i.i, align 8
+  %7 = load double, ptr %6, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %7
+  store double %add.i.i.i, ptr %6, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %8
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %9 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %15 = load <2 x double>, ptr %total_.i.i, align 8
-  %16 = fadd <2 x double> %10, %15
-  store <2 x double> %16, ptr %total_.i.i, align 8
+  %10 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %10
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %11 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %11
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %14, ptr %timerStack_.i, align 8
+  store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2989,45 +3036,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %5 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %6 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %7 = insertelement <2 x i64> %6, i64 %call.i1.i, i64 1
-  %8 = sub nsw <2 x i64> %7, %5
-  %9 = sitofp <2 x i64> %8 to <2 x double>
-  %10 = fdiv <2 x double> %9, <double 1.000000e+09, double 1.000000e+06>
-  %11 = load ptr, ptr %stat_.i.i, align 8
-  %12 = load <2 x double>, ptr %11, align 8
-  %13 = fadd <2 x double> %10, %12
-  store <2 x double> %13, ptr %11, align 8
-  %14 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %14, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %5 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %5
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %6 = load ptr, ptr %stat_.i.i, align 8
+  %7 = load double, ptr %6, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %7
+  store double %add.i.i.i, ptr %6, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %8
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %9 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %9, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %15 = load <2 x double>, ptr %total_.i.i, align 8
-  %16 = fadd <2 x double> %10, %15
-  store <2 x double> %16, ptr %total_.i.i, align 8
+  %10 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %10
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %11 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %11
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #20
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %14, ptr %timerStack_.i, align 8
+  store ptr %9, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13incomingTimerEPKc.exit
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4270,35 +4327,45 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZN8faceboo
 call.i.i.noexc.i.i.i:                             ; preds = %for.body.i.i.i.i
   %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21, !noalias !86
   %wallTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 32
+  %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !86
+  %sub.i.i.i.i.i.i.i = sub nsw i64 %call2.i.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i
+  %conv.i.i.i.i.i.i.i.i = sitofp i64 %sub.i.i.i.i.i.i.i to double
+  %div.i.i.i.i.i.i.i.i = fdiv double %conv.i.i.i.i.i.i.i.i, 1.000000e+09
   %cpuTimeStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 40
-  %2 = load <2 x i64>, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !86
-  %3 = insertelement <2 x i64> poison, i64 %call2.i.i.i.i.i, i64 0
-  %4 = insertelement <2 x i64> %3, i64 %call.i.i6.i.i.i, i64 1
-  %5 = sub nsw <2 x i64> %4, %2
-  %6 = sitofp <2 x i64> %5 to <2 x double>
-  %7 = fdiv <2 x double> %6, <double 1.000000e+09, double 1.000000e+06>
+  %2 = load i64, ptr %cpuTimeStart_.i.i.i.i.i, align 8, !noalias !86
+  %sub.i.i.i.i.i.i = sub nsw i64 %call.i.i6.i.i.i, %2
+  %conv.i.i.i1.i.i.i.i.i = sitofp i64 %sub.i.i.i.i.i.i to double
+  %div.i.i.i2.i.i.i.i.i = fdiv double %conv.i.i.i1.i.i.i.i.i, 1.000000e+06
   %stat_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 16
-  %8 = load ptr, ptr %stat_.i.i.i.i.i, align 8, !noalias !86
-  %9 = load <2 x double>, ptr %8, align 8, !noalias !86
-  %10 = fadd <2 x double> %7, %9
-  store <2 x double> %10, ptr %8, align 8, !noalias !86
+  %3 = load ptr, ptr %stat_.i.i.i.i.i, align 8, !noalias !86
+  %4 = load double, ptr %3, align 8, !noalias !86
+  %add.i.i.i.i.i.i = fadd double %div.i.i.i.i.i.i.i.i, %4
+  store double %add.i.i.i.i.i.i, ptr %3, align 8, !noalias !86
+  %cpuDuration.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load double, ptr %cpuDuration.i.i.i.i.i.i, align 8, !noalias !86
+  %add2.i.i.i.i.i.i = fadd double %div.i.i.i2.i.i.i.i.i, %5
+  store double %add2.i.i.i.i.i.i, ptr %cpuDuration.i.i.i.i.i.i, align 8, !noalias !86
   %parent_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 24
-  %11 = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !86
-  %tobool.not.i.i.i.i.i = icmp eq ptr %11, null
+  %6 = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !86
+  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimer5flushEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.i.noexc.i.i.i
   %runtimeStats_.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.05.i.i.i.i, i64 8
-  %12 = load ptr, ptr %runtimeStats_.i.i.i.i.i, align 8, !noalias !86
-  %total_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 48
-  %13 = load <2 x double>, ptr %total_.i.i.i.i.i, align 8, !noalias !86
-  %14 = fadd <2 x double> %7, %13
-  store <2 x double> %14, ptr %total_.i.i.i.i.i, align 8, !noalias !86
+  %7 = load ptr, ptr %runtimeStats_.i.i.i.i.i, align 8, !noalias !86
+  %total_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = load double, ptr %total_.i.i.i.i.i, align 8, !noalias !86
+  %add.i3.i.i.i.i.i = fadd double %div.i.i.i.i.i.i.i.i, %8
+  store double %add.i3.i.i.i.i.i, ptr %total_.i.i.i.i.i, align 8, !noalias !86
+  %cpuDuration.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
+  %9 = load double, ptr %cpuDuration.i4.i.i.i.i.i, align 8, !noalias !86
+  %add2.i5.i.i.i.i.i = fadd double %div.i.i.i2.i.i.i.i.i, %9
+  store double %add2.i5.i.i.i.i.i, ptr %cpuDuration.i4.i.i.i.i.i, align 8, !noalias !86
   %cursor.0.pre.i.i.i.i = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !86
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimer5flushEv.exit.i.i.i.i
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimer5flushEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %call.i.i.noexc.i.i.i
-  %cursor.0.i.i.i.i = phi ptr [ %11, %call.i.i.noexc.i.i.i ], [ %cursor.0.pre.i.i.i.i, %if.then.i.i.i.i.i ]
+  %cursor.0.i.i.i.i = phi ptr [ %6, %call.i.i.noexc.i.i.i ], [ %cursor.0.pre.i.i.i.i, %if.then.i.i.i.i.i ]
   store i64 %call2.i.i.i.i.i, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !86
   store i64 %call.i.i6.i.i.i, ptr %cpuTimeStart_.i.i.i.i.i, align 8, !noalias !86
   %cmp.not.i.i.i.i = icmp eq ptr %cursor.0.i.i.i.i, null
@@ -4306,33 +4373,33 @@ _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimer5flushEv.exit.i.i.i.i: 
 
 invoke.cont.i.i.i:                                ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimer5flushEv.exit.i.i.i.i, %entry
   %rts_.val.i.i.i = load double, ptr %rts_.i.i.i, align 8, !noalias !86
-  %15 = getelementptr i8, ptr %call.val, i64 48
-  %rts_.val1.i.i.i = load double, ptr %15, align 8, !noalias !86
+  %10 = getelementptr i8, ptr %call.val, i64 48
+  %rts_.val1.i.i.i = load double, ptr %10, align 8, !noalias !86
   %sub.i.i.i.i = fsub double %rts_.val1.i.i.i, %rts_.val.i.i.i
   store double %sub.i.i.i.i, ptr %ref.tmp.i.i.i, align 8, !noalias !86
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i)
           to label %invoke.cont6.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  %16 = getelementptr i8, ptr %call.val, i64 72
-  %rts_.val2.i.i.i = load double, ptr %16, align 8, !noalias !86
+  %11 = getelementptr i8, ptr %call.val, i64 72
+  %rts_.val2.i.i.i = load double, ptr %11, align 8, !noalias !86
   store double %rts_.val2.i.i.i, ptr %ref.tmp7.i.i.i, align 8, !noalias !86
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.i.i.i)
           to label %invoke.cont11.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
 
 invoke.cont11.i.i.i:                              ; preds = %invoke.cont6.i.i.i
-  %17 = getelementptr i8, ptr %call.val, i64 32
-  %rts_.val3.i.i.i = load double, ptr %17, align 8, !noalias !86
-  %18 = getelementptr i8, ptr %call.val, i64 56
-  %rts_.val4.i.i.i = load double, ptr %18, align 8, !noalias !86
+  %12 = getelementptr i8, ptr %call.val, i64 32
+  %rts_.val3.i.i.i = load double, ptr %12, align 8, !noalias !86
+  %13 = getelementptr i8, ptr %call.val, i64 56
+  %rts_.val4.i.i.i = load double, ptr %13, align 8, !noalias !86
   %sub.i7.i.i.i = fsub double %rts_.val4.i.i.i, %rts_.val3.i.i.i
   store double %sub.i7.i.i.i, ptr %ref.tmp12.i.i.i, align 8, !noalias !86
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.i.i.i)
           to label %invoke.cont16.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
 
 invoke.cont16.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %19 = getelementptr i8, ptr %call.val, i64 80
-  %rts_.val5.i.i.i = load double, ptr %19, align 8, !noalias !86
+  %14 = getelementptr i8, ptr %call.val, i64 80
+  %rts_.val5.i.i.i = load double, ptr %14, align 8, !noalias !86
   store double %rts_.val5.i.i.i, ptr %ref.tmp17.i.i.i, align 8, !noalias !86
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIdEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17.i.i.i)
           to label %_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlRNS1_7RuntimeERKS2_PS8_mE_JS7_S9_SA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !76
@@ -4349,22 +4416,22 @@ lpad.loopexit.split-lp.i.i.i:                     ; preds = %invoke.cont16.i.i.i
   br label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %lpad.loopexit.split-lp.i.i.i, %lpad.loopexit.i.i.i
-  %20 = phi ptr [ %1, %lpad.loopexit.i.i.i ], [ %.pre.i.i, %lpad.loopexit.split-lp.i.i.i ]
+  %15 = phi ptr [ %1, %lpad.loopexit.i.i.i ], [ %.pre.i.i, %lpad.loopexit.split-lp.i.i.i ]
   %lpad.phi.i.i.i = phi { ptr, i32 } [ %lpad.loopexit1.i.i.i, %lpad.loopexit.i.i.i ], [ %lpad.loopexit.split-lp2.i.i.i, %lpad.loopexit.split-lp.i.i.i ]
-  %tobool.not.i.i8.i.i.i = icmp eq ptr %20, null
+  %tobool.not.i.i8.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i8.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i, label %if.then.i.i9.i.i.i
 
 if.then.i.i9.i.i.i:                               ; preds = %lpad.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %20, align 8, !noalias !76
-  %21 = load ptr, ptr %vtable.i.i.i.i.i, align 8, !noalias !76
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %vtable.i.i.i.i.i = load ptr, ptr %15, align 8, !noalias !76
+  %16 = load ptr, ptr %vtable.i.i.i.i.i, align 8, !noalias !76
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i, !noalias !76
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i9.i.i.i
-  %22 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #20
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i9.i.i.i, %lpad.i.i.i
@@ -4377,8 +4444,8 @@ _ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes12_GLOBAL__N_112TimedRuntime3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp17.i.i.i), !noalias !85
   store i32 7, ptr %agg.result, align 8, !alias.scope !76
   %data_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %24 = load ptr, ptr %ref.tmp.i, align 8, !noalias !76
-  store ptr %24, ptr %data_.i.i, align 8, !alias.scope !76
+  %19 = load ptr, ptr %ref.tmp.i, align 8, !noalias !76
+  store ptr %19, ptr %data_.i.i, align 8, !alias.scope !76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -4878,48 +4945,58 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   %call2.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %wallTimeStart_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load <2 x i64>, ptr %wallTimeStart_.i, align 8
-  %1 = insertelement <2 x i64> poison, i64 %call2.i, i64 0
-  %2 = insertelement <2 x i64> %1, i64 %call.i1, i64 1
-  %3 = sub nsw <2 x i64> %2, %0
-  %4 = sitofp <2 x i64> %3 to <2 x double>
-  %5 = fdiv <2 x double> %4, <double 1.000000e+09, double 1.000000e+06>
+  %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %wallTimeStart_.i, align 8
+  %sub.i.i.i = sub nsw i64 %call2.i, %retval.sroa.0.0.copyload.i1.i.i
+  %conv.i.i.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i.i = fdiv double %conv.i.i.i.i, 1.000000e+09
+  %cpuTimeStart_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = load i64, ptr %cpuTimeStart_.i, align 8
+  %sub.i.i = sub nsw i64 %call.i1, %0
+  %conv.i.i.i1.i = sitofp i64 %sub.i.i to double
+  %div.i.i.i2.i = fdiv double %conv.i.i.i1.i, 1.000000e+06
   %stat_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %stat_.i, align 8
-  %7 = load <2 x double>, ptr %6, align 8
-  %8 = fadd <2 x double> %5, %7
-  store <2 x double> %8, ptr %6, align 8
+  %1 = load ptr, ptr %stat_.i, align 8
+  %2 = load double, ptr %1, align 8
+  %add.i.i = fadd double %div.i.i.i.i, %2
+  store double %add.i.i, ptr %1, align 8
+  %cpuDuration.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load double, ptr %cpuDuration.i.i, align 8
+  %add2.i.i = fadd double %div.i.i.i2.i, %3
+  store double %add2.i.i, ptr %cpuDuration.i.i, align 8
   %parent_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load ptr, ptr %parent_.i, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %4 = load ptr, ptr %parent_.i, align 8
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %call.i.noexc
   %runtimeStats_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %10 = load ptr, ptr %runtimeStats_.i, align 8
-  %total_.i = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load <2 x double>, ptr %total_.i, align 8
-  %12 = fadd <2 x double> %5, %11
-  store <2 x double> %12, ptr %total_.i, align 8
+  %5 = load ptr, ptr %runtimeStats_.i, align 8
+  %total_.i = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = load double, ptr %total_.i, align 8
+  %add.i3.i = fadd double %div.i.i.i.i, %6
+  store double %add.i3.i, ptr %total_.i, align 8
+  %cpuDuration.i4.i = getelementptr inbounds i8, ptr %5, i64 56
+  %7 = load double, ptr %cpuDuration.i4.i, align 8
+  %add2.i5.i = fadd double %div.i.i.i2.i, %7
+  store double %add2.i5.i, ptr %cpuDuration.i4.i, align 8
   %.pre = load ptr, ptr %parent_.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %call.i.noexc
-  %13 = phi ptr [ %.pre, %if.then.i ], [ %9, %call.i.noexc ]
-  %cpuTimeStart_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %8 = phi ptr [ %.pre, %if.then.i ], [ %4, %call.i.noexc ]
   store i64 %call2.i, ptr %wallTimeStart_.i, align 8
   store i64 %call.i1, ptr %cpuTimeStart_.i, align 8
   %runtimeStats_ = getelementptr inbounds i8, ptr %this, i64 8
-  %14 = load ptr, ptr %runtimeStats_, align 8
-  %timerStack_ = getelementptr inbounds i8, ptr %14, i64 72
-  store ptr %13, ptr %timerStack_, align 8
+  %9 = load ptr, ptr %runtimeStats_, align 8
+  %timerStack_ = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr %8, ptr %timerStack_, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #20
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #20
   unreachable
 }
 
@@ -4932,17 +5009,18 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook3jsi6Object20createFromHostObjectERNS0_7RuntimeESt10shared_ptrINS0_10HostObjectEE(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef %ho) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.10", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.10", align 8
+  %0 = load ptr, ptr %ho, align 8
+  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %ho, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %ho, align 8
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5478,45 +5556,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
-  %10 = sub nsw <2 x i64> %9, %7
-  %11 = sitofp <2 x i64> %10 to <2 x double>
-  %12 = fdiv <2 x double> %11, <double 1.000000e+09, double 1.000000e+06>
-  %13 = load ptr, ptr %stat_.i.i, align 8
-  %14 = load <2 x double>, ptr %13, align 8
-  %15 = fadd <2 x double> %12, %14
-  store <2 x double> %15, ptr %13, align 8
-  %16 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %16, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %7 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %7
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %8 = load ptr, ptr %stat_.i.i, align 8
+  %9 = load double, ptr %8, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %9
+  store double %add.i.i.i, ptr %8, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %10
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %11 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %11, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %17 = load <2 x double>, ptr %total_.i.i, align 8
-  %18 = fadd <2 x double> %12, %17
-  store <2 x double> %18, ptr %total_.i.i, align 8
+  %12 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %12
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %13 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %13
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %16, ptr %timerStack_.i, align 8
+  store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
-  %21 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5572,45 +5660,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
-  %10 = sub nsw <2 x i64> %9, %7
-  %11 = sitofp <2 x i64> %10 to <2 x double>
-  %12 = fdiv <2 x double> %11, <double 1.000000e+09, double 1.000000e+06>
-  %13 = load ptr, ptr %stat_.i.i, align 8
-  %14 = load <2 x double>, ptr %13, align 8
-  %15 = fadd <2 x double> %12, %14
-  store <2 x double> %15, ptr %13, align 8
-  %16 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %16, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %7 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %7
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %8 = load ptr, ptr %stat_.i.i, align 8
+  %9 = load double, ptr %8, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %9
+  store double %add.i.i.i, ptr %8, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %10
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %11 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %11, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %17 = load <2 x double>, ptr %total_.i.i, align 8
-  %18 = fadd <2 x double> %12, %17
-  store <2 x double> %18, ptr %total_.i.i, align 8
+  %12 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %12
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %13 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %13
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %16, ptr %timerStack_.i, align 8
+  store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
-  %21 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5666,45 +5764,55 @@ invoke.cont:                                      ; preds = %_ZN8facebook6hermes
 
 call.i.noexc.i:                                   ; preds = %invoke.cont
   %call2.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %7 = load <2 x i64>, ptr %wallTimeStart_.i.i, align 8
-  %8 = insertelement <2 x i64> poison, i64 %call2.i.i, i64 0
-  %9 = insertelement <2 x i64> %8, i64 %call.i1.i, i64 1
-  %10 = sub nsw <2 x i64> %9, %7
-  %11 = sitofp <2 x i64> %10 to <2 x double>
-  %12 = fdiv <2 x double> %11, <double 1.000000e+09, double 1.000000e+06>
-  %13 = load ptr, ptr %stat_.i.i, align 8
-  %14 = load <2 x double>, ptr %13, align 8
-  %15 = fadd <2 x double> %12, %14
-  store <2 x double> %15, ptr %13, align 8
-  %16 = load ptr, ptr %parent_.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %16, null
+  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %wallTimeStart_.i.i, align 8
+  %sub.i.i.i.i = sub nsw i64 %call2.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
+  %conv.i.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i.i = fdiv double %conv.i.i.i.i.i, 1.000000e+09
+  %7 = load i64, ptr %cpuTimeStart_.i.i, align 8
+  %sub.i.i.i = sub nsw i64 %call.i1.i, %7
+  %conv.i.i.i1.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i2.i.i = fdiv double %conv.i.i.i1.i.i, 1.000000e+06
+  %8 = load ptr, ptr %stat_.i.i, align 8
+  %9 = load double, ptr %8, align 8
+  %add.i.i.i = fadd double %div.i.i.i.i.i, %9
+  store double %add.i.i.i, ptr %8, align 8
+  %cpuDuration.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load double, ptr %cpuDuration.i.i.i, align 8
+  %add2.i.i.i = fadd double %div.i.i.i2.i.i, %10
+  store double %add2.i.i.i, ptr %cpuDuration.i.i.i, align 8
+  %11 = load ptr, ptr %parent_.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %11, null
   %.pre = load ptr, ptr %runtimeStats_.i.i, align 8
   br i1 %tobool.not.i.i5, label %if.then.i.i6, label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 if.then.i.i6:                                     ; preds = %call.i.noexc.i
   %total_.i.i = getelementptr inbounds i8, ptr %.pre, i64 48
-  %17 = load <2 x double>, ptr %total_.i.i, align 8
-  %18 = fadd <2 x double> %12, %17
-  store <2 x double> %18, ptr %total_.i.i, align 8
+  %12 = load double, ptr %total_.i.i, align 8
+  %add.i3.i.i = fadd double %div.i.i.i.i.i, %12
+  store double %add.i3.i.i, ptr %total_.i.i, align 8
+  %cpuDuration.i4.i.i = getelementptr inbounds i8, ptr %.pre, i64 56
+  %13 = load double, ptr %cpuDuration.i4.i.i, align 8
+  %add2.i5.i.i = fadd double %div.i.i.i2.i.i, %13
+  store double %add2.i5.i.i, ptr %cpuDuration.i4.i.i, align 8
   br label %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev.exit: ; preds = %call.i.noexc.i, %if.then.i.i6
   %timerStack_.i = getelementptr inbounds i8, ptr %.pre, i64 72
-  store ptr %16, ptr %timerStack_.i, align 8
+  store ptr %11, ptr %timerStack_.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats13outgoingTimerEPKc.exit
-  %21 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer) #21
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5942,44 +6050,54 @@ invoke.cont.i.i.i:                                ; preds = %_ZNKSt8functionIFN8
 
 call.i.noexc.i.i.i.i:                             ; preds = %invoke.cont.i.i.i
   %call2.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %7 = load <2 x i64>, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !177
-  %8 = insertelement <2 x i64> poison, i64 %call2.i.i.i.i.i, i64 0
-  %9 = insertelement <2 x i64> %8, i64 %call.i1.i.i.i.i, i64 1
-  %10 = sub nsw <2 x i64> %9, %7
-  %11 = sitofp <2 x i64> %10 to <2 x double>
-  %12 = fdiv <2 x double> %11, <double 1.000000e+09, double 1.000000e+06>
-  %13 = load ptr, ptr %stat_.i.i.i.i.i, align 8, !noalias !177
-  %14 = load <2 x double>, ptr %13, align 8
-  %15 = fadd <2 x double> %12, %14
-  store <2 x double> %15, ptr %13, align 8
-  %16 = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !177
-  %tobool.not.i.i7.i.i.i = icmp eq ptr %16, null
+  %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr %wallTimeStart_.i.i.i.i.i, align 8, !noalias !177
+  %sub.i.i.i.i.i.i.i = sub nsw i64 %call2.i.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i
+  %conv.i.i.i.i.i.i.i.i = sitofp i64 %sub.i.i.i.i.i.i.i to double
+  %div.i.i.i.i.i.i.i.i = fdiv double %conv.i.i.i.i.i.i.i.i, 1.000000e+09
+  %7 = load i64, ptr %cpuTimeStart_.i.i.i.i.i, align 8, !noalias !177
+  %sub.i.i.i.i.i.i = sub nsw i64 %call.i1.i.i.i.i, %7
+  %conv.i.i.i1.i.i.i.i.i = sitofp i64 %sub.i.i.i.i.i.i to double
+  %div.i.i.i2.i.i.i.i.i = fdiv double %conv.i.i.i1.i.i.i.i.i, 1.000000e+06
+  %8 = load ptr, ptr %stat_.i.i.i.i.i, align 8, !noalias !177
+  %9 = load double, ptr %8, align 8
+  %add.i.i.i.i.i.i = fadd double %div.i.i.i.i.i.i.i.i, %9
+  store double %add.i.i.i.i.i.i, ptr %8, align 8
+  %cpuDuration.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load double, ptr %cpuDuration.i.i.i.i.i.i, align 8
+  %add2.i.i.i.i.i.i = fadd double %div.i.i.i2.i.i.i.i.i, %10
+  store double %add2.i.i.i.i.i.i, ptr %cpuDuration.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %parent_.i.i.i.i.i, align 8, !noalias !177
+  %tobool.not.i.i7.i.i.i = icmp eq ptr %11, null
   %.pre.i.i.i = load ptr, ptr %runtimeStats_.i.i.i.i.i, align 8, !noalias !177
   br i1 %tobool.not.i.i7.i.i.i, label %if.then.i.i8.i.i.i, label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
 
 if.then.i.i8.i.i.i:                               ; preds = %call.i.noexc.i.i.i.i
   %total_.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 48
-  %17 = load <2 x double>, ptr %total_.i.i.i.i.i, align 8
-  %18 = fadd <2 x double> %12, %17
-  store <2 x double> %18, ptr %total_.i.i.i.i.i, align 8
+  %12 = load double, ptr %total_.i.i.i.i.i, align 8
+  %add.i3.i.i.i.i.i = fadd double %div.i.i.i.i.i.i.i.i, %12
+  store double %add.i3.i.i.i.i.i, ptr %total_.i.i.i.i.i, align 8
+  %cpuDuration.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 56
+  %13 = load double, ptr %cpuDuration.i4.i.i.i.i.i, align 8
+  %add2.i5.i.i.i.i.i = fadd double %div.i.i.i2.i.i.i.i.i, %13
+  store double %add2.i5.i.i.i.i.i, ptr %cpuDuration.i4.i.i.i.i.i, align 8
   br label %_ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i.i.i
-  %19 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i, %if.then.i.i1.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN8facebook6hermes12_GLOBAL__N_112RuntimeStats9RAIITimerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %timer.i.i.i) #21
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %16
 
 _ZSt10__invoke_rIN8facebook3jsi5ValueERNS0_6hermes12_GLOBAL__N_117TimedHostFunctionEJRNS1_7RuntimeERKS2_PS9_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit: ; preds = %call.i.noexc.i.i.i.i, %if.then.i.i8.i.i.i
   %timerStack_.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 72
-  store ptr %16, ptr %timerStack_.i.i.i.i, align 8
+  store ptr %11, ptr %timerStack_.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %timer.i.i.i), !noalias !172
   ret void
 }

@@ -434,6 +434,12 @@ if.then.i:                                        ; preds = %if.end21
 
 tdefl_init.exit:                                  ; preds = %if.end21, %if.then.i
   %m_total_lz_bytes.i = getelementptr inbounds i8, ptr %call18, i64 84
+  %m_dict_size.i = getelementptr inbounds i8, ptr %call18, i64 44
+  store i32 0, ptr %m_dict_size.i, align 4
+  %m_lookahead_size.i = getelementptr inbounds i8, ptr %call18, i64 40
+  store i32 0, ptr %m_lookahead_size.i, align 8
+  %m_lookahead_pos.i = getelementptr inbounds i8, ptr %call18, i64 36
+  store i32 0, ptr %m_lookahead_pos.i, align 4
   %m_output_flush_ofs.i = getelementptr inbounds i8, ptr %call18, i64 112
   %m_lz_code_buf.i = getelementptr inbounds i8, ptr %call18, i64 37546
   %add.ptr.i = getelementptr inbounds i8, ptr %call18, i64 37547
@@ -459,7 +465,7 @@ tdefl_init.exit:                                  ; preds = %if.end21, %if.then.
   %m_saved_match_dist.i = getelementptr inbounds i8, ptr %call18, i64 100
   store i32 0, ptr %m_saved_match_dist.i, align 4
   %m_adler32.i = getelementptr inbounds i8, ptr %call18, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32.i, align 8
+  store i32 1, ptr %m_adler32.i, align 8
   %m_pIn_buf.i = getelementptr inbounds i8, ptr %call18, i64 136
   %m_pSrc.i = getelementptr inbounds i8, ptr %call18, i64 176
   %m_huff_count.i = getelementptr inbounds i8, ptr %call18, i64 33226
@@ -578,6 +584,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %m_total_lz_bytes = getelementptr inbounds i8, ptr %d, i64 84
+  %m_dict_size = getelementptr inbounds i8, ptr %d, i64 44
+  store i32 0, ptr %m_dict_size, align 4
+  %m_lookahead_size = getelementptr inbounds i8, ptr %d, i64 40
+  store i32 0, ptr %m_lookahead_size, align 8
+  %m_lookahead_pos = getelementptr inbounds i8, ptr %d, i64 36
+  store i32 0, ptr %m_lookahead_pos, align 4
   %m_output_flush_ofs = getelementptr inbounds i8, ptr %d, i64 112
   %m_lz_code_buf = getelementptr inbounds i8, ptr %d, i64 37546
   %add.ptr = getelementptr inbounds i8, ptr %d, i64 37547
@@ -603,7 +615,7 @@ if.end:                                           ; preds = %if.then, %entry
   %m_saved_match_dist = getelementptr inbounds i8, ptr %d, i64 100
   store i32 0, ptr %m_saved_match_dist, align 4
   %m_adler32 = getelementptr inbounds i8, ptr %d, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32, align 8
+  store i32 1, ptr %m_adler32, align 8
   %m_pIn_buf = getelementptr inbounds i8, ptr %d, i64 136
   %m_pSrc = getelementptr inbounds i8, ptr %d, i64 176
   %m_huff_count = getelementptr inbounds i8, ptr %d, i64 33226
@@ -702,6 +714,12 @@ if.then.i:                                        ; preds = %if.end
 
 tdefl_init.exit:                                  ; preds = %if.end, %if.then.i
   %m_total_lz_bytes.i = getelementptr inbounds i8, ptr %0, i64 84
+  %m_dict_size.i = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 0, ptr %m_dict_size.i, align 4
+  %m_lookahead_size.i = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %m_lookahead_size.i, align 8
+  %m_lookahead_pos.i = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %m_lookahead_pos.i, align 4
   %m_output_flush_ofs.i = getelementptr inbounds i8, ptr %0, i64 112
   %m_lz_code_buf.i = getelementptr inbounds i8, ptr %0, i64 37546
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 37547
@@ -727,7 +745,7 @@ tdefl_init.exit:                                  ; preds = %if.end, %if.then.i
   %m_saved_match_dist.i = getelementptr inbounds i8, ptr %0, i64 100
   store i32 0, ptr %m_saved_match_dist.i, align 4
   %m_adler32.i = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32.i, align 8
+  store i32 1, ptr %m_adler32.i, align 8
   %m_pIn_buf.i = getelementptr inbounds i8, ptr %0, i64 136
   %m_pSrc.i = getelementptr inbounds i8, ptr %0, i64 176
   %m_huff_count.i = getelementptr inbounds i8, ptr %0, i64 33226
@@ -1318,10 +1336,22 @@ if.end5.i:                                        ; preds = %if.end16.i
   store ptr %call.i, ptr %state.i, align 8
   %m_flags.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 28800, i32 44, i32 12, i32 1>, ptr %m_flags.i.i, align 8
+  store i32 28800, ptr %m_flags.i.i, align 8
+  %m_max_probes.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
+  store i32 44, ptr %m_max_probes.i.i, align 4
+  %m_greedy_parsing.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
+  store i32 1, ptr %m_greedy_parsing.i.i, align 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store i32 12, ptr %arrayidx8.i.i, align 4
   %m_hash.i.i = getelementptr inbounds i8, ptr %call.i, i64 168618
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65536) %m_hash.i.i, i8 0, i64 65536, i1 false)
   %m_total_lz_bytes.i.i = getelementptr inbounds i8, ptr %call.i, i64 84
+  %m_dict_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 44
+  store i32 0, ptr %m_dict_size.i.i, align 4
+  %m_lookahead_size.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  store i32 0, ptr %m_lookahead_size.i.i, align 8
+  %m_lookahead_pos.i.i = getelementptr inbounds i8, ptr %call.i, i64 36
+  store i32 0, ptr %m_lookahead_pos.i.i, align 4
   %m_output_flush_ofs.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %m_lz_code_buf.i.i = getelementptr inbounds i8, ptr %call.i, i64 37546
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 37547
@@ -1347,7 +1377,7 @@ if.end5.i:                                        ; preds = %if.end16.i
   %m_saved_match_dist.i.i = getelementptr inbounds i8, ptr %call.i, i64 100
   store i32 0, ptr %m_saved_match_dist.i.i, align 4
   %m_adler32.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32.i.i, align 8
+  store i32 1, ptr %m_adler32.i.i, align 8
   %m_pIn_buf.i.i = getelementptr inbounds i8, ptr %call.i, i64 136
   %m_pSrc.i.i = getelementptr inbounds i8, ptr %call.i, i64 176
   %m_huff_count.i.i = getelementptr inbounds i8, ptr %call.i, i64 33226
@@ -1460,9 +1490,15 @@ if.end15:                                         ; preds = %if.end11
   store ptr %call, ptr %state, align 8
   store i32 0, ptr %call, align 8
   %m_dict_ofs = getelementptr inbounds i8, ptr %call, i64 11000
+  store i32 0, ptr %m_dict_ofs, align 8
+  %m_dict_avail = getelementptr inbounds i8, ptr %call, i64 11004
+  store i32 0, ptr %m_dict_avail, align 4
   %m_last_status = getelementptr inbounds i8, ptr %call, i64 43788
   store i32 1, ptr %m_last_status, align 4
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %m_dict_ofs, align 8
+  %m_first_call = getelementptr inbounds i8, ptr %call, i64 11008
+  store i32 1, ptr %m_first_call, align 8
+  %m_has_flushed = getelementptr inbounds i8, ptr %call, i64 11012
+  store i32 0, ptr %m_has_flushed, align 4
   %m_window_bits = getelementptr inbounds i8, ptr %call, i64 11016
   store i32 %window_bits, ptr %m_window_bits, align 8
   br label %return
@@ -1519,9 +1555,15 @@ if.end15.i:                                       ; preds = %if.end11.i
   store ptr %call.i, ptr %state.i, align 8
   store i32 0, ptr %call.i, align 8
   %m_dict_ofs.i = getelementptr inbounds i8, ptr %call.i, i64 11000
+  store i32 0, ptr %m_dict_ofs.i, align 8
+  %m_dict_avail.i = getelementptr inbounds i8, ptr %call.i, i64 11004
+  store i32 0, ptr %m_dict_avail.i, align 4
   %m_last_status.i = getelementptr inbounds i8, ptr %call.i, i64 43788
   store i32 1, ptr %m_last_status.i, align 4
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %m_dict_ofs.i, align 8
+  %m_first_call.i = getelementptr inbounds i8, ptr %call.i, i64 11008
+  store i32 1, ptr %m_first_call.i, align 8
+  %m_has_flushed.i = getelementptr inbounds i8, ptr %call.i, i64 11012
+  store i32 0, ptr %m_has_flushed.i, align 4
   %m_window_bits.i = getelementptr inbounds i8, ptr %call.i, i64 11016
   store i32 15, ptr %m_window_bits.i, align 8
   br label %mz_inflateInit2.exit
@@ -4619,9 +4661,15 @@ if.end5:                                          ; preds = %if.end11.i.i
   store ptr %call.i, ptr %state.i.i, align 8
   store i32 0, ptr %call.i, align 8
   %m_dict_ofs.i.i = getelementptr inbounds i8, ptr %call.i, i64 11000
+  store i32 0, ptr %m_dict_ofs.i.i, align 8
+  %m_dict_avail.i.i = getelementptr inbounds i8, ptr %call.i, i64 11004
+  store i32 0, ptr %m_dict_avail.i.i, align 4
   %m_last_status.i.i = getelementptr inbounds i8, ptr %call.i, i64 43788
   store i32 1, ptr %m_last_status.i.i, align 4
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %m_dict_ofs.i.i, align 8
+  %m_first_call.i.i = getelementptr inbounds i8, ptr %call.i, i64 11008
+  store i32 1, ptr %m_first_call.i.i, align 8
+  %m_has_flushed.i.i = getelementptr inbounds i8, ptr %call.i, i64 11012
+  store i32 0, ptr %m_has_flushed.i.i, align 4
   %m_window_bits.i.i = getelementptr inbounds i8, ptr %call.i, i64 11016
   store i32 15, ptr %m_window_bits.i.i, align 8
   %call6 = call i32 @mz_inflate(ptr noundef nonnull %stream, i32 noundef 4)
@@ -6754,6 +6802,12 @@ if.then.i:                                        ; preds = %if.end5
 
 tdefl_init.exit:                                  ; preds = %if.end5, %if.then.i
   %m_total_lz_bytes.i = getelementptr inbounds i8, ptr %call, i64 84
+  %m_dict_size.i = getelementptr inbounds i8, ptr %call, i64 44
+  store i32 0, ptr %m_dict_size.i, align 4
+  %m_lookahead_size.i = getelementptr inbounds i8, ptr %call, i64 40
+  store i32 0, ptr %m_lookahead_size.i, align 8
+  %m_lookahead_pos.i = getelementptr inbounds i8, ptr %call, i64 36
+  store i32 0, ptr %m_lookahead_pos.i, align 4
   %m_output_flush_ofs.i = getelementptr inbounds i8, ptr %call, i64 112
   %m_lz_code_buf.i = getelementptr inbounds i8, ptr %call, i64 37546
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 37547
@@ -6779,7 +6833,7 @@ tdefl_init.exit:                                  ; preds = %if.end5, %if.then.i
   %m_saved_match_dist.i = getelementptr inbounds i8, ptr %call, i64 100
   store i32 0, ptr %m_saved_match_dist.i, align 4
   %m_adler32.i = getelementptr inbounds i8, ptr %call, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32.i, align 8
+  store i32 1, ptr %m_adler32.i, align 8
   %m_pIn_buf.i = getelementptr inbounds i8, ptr %call, i64 136
   %m_pSrc.i = getelementptr inbounds i8, ptr %call, i64 176
   %m_huff_count.i = getelementptr inbounds i8, ptr %call, i64 33226
@@ -7036,6 +7090,12 @@ for.end:                                          ; preds = %tdefl_output_buffer
   %m_hash.i = getelementptr inbounds i8, ptr %call, i64 168618
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65536) %m_hash.i, i8 0, i64 65536, i1 false)
   %m_total_lz_bytes.i = getelementptr inbounds i8, ptr %call, i64 84
+  %m_dict_size.i = getelementptr inbounds i8, ptr %call, i64 44
+  store i32 0, ptr %m_dict_size.i, align 4
+  %m_lookahead_size.i = getelementptr inbounds i8, ptr %call, i64 40
+  store i32 0, ptr %m_lookahead_size.i, align 8
+  %m_lookahead_pos.i = getelementptr inbounds i8, ptr %call, i64 36
+  store i32 0, ptr %m_lookahead_pos.i, align 4
   %m_output_flush_ofs.i = getelementptr inbounds i8, ptr %call, i64 112
   %m_lz_code_buf.i = getelementptr inbounds i8, ptr %call, i64 37546
   %add.ptr.i41 = getelementptr inbounds i8, ptr %call, i64 37547
@@ -7061,7 +7121,7 @@ for.end:                                          ; preds = %tdefl_output_buffer
   %m_saved_match_dist.i = getelementptr inbounds i8, ptr %call, i64 100
   store i32 0, ptr %m_saved_match_dist.i, align 4
   %m_adler32.i = getelementptr inbounds i8, ptr %call, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %m_adler32.i, align 8
+  store i32 1, ptr %m_adler32.i, align 8
   %m_pIn_buf.i = getelementptr inbounds i8, ptr %call, i64 136
   %m_pSrc.i = getelementptr inbounds i8, ptr %call, i64 176
   %m_huff_count.i = getelementptr inbounds i8, ptr %call, i64 33226
@@ -7114,8 +7174,37 @@ if.end41:                                         ; preds = %for.end35
   %17 = load i64, ptr %out_buf, align 8
   %sub42 = add i64 %17, -41
   store i64 %sub42, ptr %pLen_out, align 8
+  store i8 -119, ptr %pnghdr, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %pnghdr, i64 1
+  store i8 80, ptr %arrayinit.element, align 1
+  %arrayinit.element43 = getelementptr inbounds i8, ptr %pnghdr, i64 2
+  store i8 78, ptr %arrayinit.element43, align 2
+  %arrayinit.element44 = getelementptr inbounds i8, ptr %pnghdr, i64 3
+  store i8 71, ptr %arrayinit.element44, align 1
+  %arrayinit.element45 = getelementptr inbounds i8, ptr %pnghdr, i64 4
+  store i8 13, ptr %arrayinit.element45, align 4
+  %arrayinit.element46 = getelementptr inbounds i8, ptr %pnghdr, i64 5
+  store i8 10, ptr %arrayinit.element46, align 1
+  %arrayinit.element47 = getelementptr inbounds i8, ptr %pnghdr, i64 6
+  store i8 26, ptr %arrayinit.element47, align 2
+  %arrayinit.element48 = getelementptr inbounds i8, ptr %pnghdr, i64 7
+  store i8 10, ptr %arrayinit.element48, align 1
+  %arrayinit.element49 = getelementptr inbounds i8, ptr %pnghdr, i64 8
+  store i8 0, ptr %arrayinit.element49, align 8
+  %arrayinit.element50 = getelementptr inbounds i8, ptr %pnghdr, i64 9
+  store i8 0, ptr %arrayinit.element50, align 1
+  %arrayinit.element51 = getelementptr inbounds i8, ptr %pnghdr, i64 10
+  store i8 0, ptr %arrayinit.element51, align 2
+  %arrayinit.element52 = getelementptr inbounds i8, ptr %pnghdr, i64 11
+  store i8 13, ptr %arrayinit.element52, align 1
   %arrayinit.element53 = getelementptr inbounds i8, ptr %pnghdr, i64 12
-  store <16 x i8> <i8 -119, i8 80, i8 78, i8 71, i8 13, i8 10, i8 26, i8 10, i8 0, i8 0, i8 0, i8 13, i8 73, i8 72, i8 68, i8 82>, ptr %pnghdr, align 16
+  store i8 73, ptr %arrayinit.element53, align 4
+  %arrayinit.element54 = getelementptr inbounds i8, ptr %pnghdr, i64 13
+  store i8 72, ptr %arrayinit.element54, align 1
+  %arrayinit.element55 = getelementptr inbounds i8, ptr %pnghdr, i64 14
+  store i8 68, ptr %arrayinit.element55, align 2
+  %arrayinit.element56 = getelementptr inbounds i8, ptr %pnghdr, i64 15
+  store i8 82, ptr %arrayinit.element56, align 1
   %arrayinit.element57 = getelementptr inbounds i8, ptr %pnghdr, i64 16
   store i8 0, ptr %arrayinit.element57, align 16
   %arrayinit.element58 = getelementptr inbounds i8, ptr %pnghdr, i64 17
@@ -7164,7 +7253,13 @@ if.end41:                                         ; preds = %for.end35
   %conv91 = trunc i64 %sub42 to i8
   store i8 %conv91, ptr %arrayinit.element90, align 4
   %arrayinit.element92 = getelementptr inbounds i8, ptr %pnghdr, i64 37
-  store <4 x i8> <i8 73, i8 68, i8 65, i8 84>, ptr %arrayinit.element92, align 1
+  store i8 73, ptr %arrayinit.element92, align 1
+  %arrayinit.element93 = getelementptr inbounds i8, ptr %pnghdr, i64 38
+  store i8 68, ptr %arrayinit.element93, align 2
+  %arrayinit.element94 = getelementptr inbounds i8, ptr %pnghdr, i64 39
+  store i8 65, ptr %arrayinit.element94, align 1
+  %arrayinit.element95 = getelementptr inbounds i8, ptr %pnghdr, i64 40
+  store i8 84, ptr %arrayinit.element95, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %if.end41
@@ -11374,7 +11469,13 @@ if.end162:                                        ; preds = %if.end139, %if.end1
 if.end171:                                        ; preds = %if.end162
   %40 = load i16, ptr %dos_time, align 2
   %41 = load i16, ptr %dos_date, align 2
-  store <4 x i8> <i8 80, i8 75, i8 3, i8 4>, ptr %local_dir_header, align 16
+  store i8 80, ptr %local_dir_header, align 16
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 1
+  store i8 75, ptr %arrayidx2.i.i, align 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 2
+  store i8 3, ptr %arrayidx5.i.i, align 2
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 3
+  store i8 4, ptr %arrayidx8.i.i, align 1
   %add.ptr1.i = getelementptr inbounds i8, ptr %local_dir_header, i64 4
   %tobool.not.i127 = icmp eq i16 %method.0, 0
   %conv.i.i = select i1 %tobool.not.i127, i8 0, i8 20
@@ -11575,11 +11676,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %4 = load <2 x i64>, ptr %m_cur_archive_file_ofs, align 8
-  %5 = insertelement <2 x i64> poison, i64 %conv, i64 0
-  %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> zeroinitializer
-  %7 = add <2 x i64> %4, %6
-  store <2 x i64> %7, ptr %m_cur_archive_file_ofs, align 8
+  %4 = load i64, ptr %m_cur_archive_file_ofs, align 8
+  %add = add i64 %4, %conv
+  store i64 %add, ptr %m_cur_archive_file_ofs, align 8
+  %m_comp_size = getelementptr inbounds i8, ptr %pUser, i64 16
+  %5 = load i64, ptr %m_comp_size, align 8
+  %add7 = add i64 %5, %conv
+  store i64 %add7, ptr %m_comp_size, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -11613,7 +11716,13 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %central_dir_header.34.central_dir_header.34.central_dir_header.34..sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 34
   store i32 0, ptr %central_dir_header.34.central_dir_header.34.central_dir_header.34..sroa_idx, align 2
-  store <4 x i8> <i8 80, i8 75, i8 1, i8 2>, ptr %central_dir_header, align 16
+  store i8 80, ptr %central_dir_header, align 16
+  %central_dir_header.1.central_dir_header.1.central_dir_header.1.arrayidx2.i.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 1
+  store i8 75, ptr %central_dir_header.1.central_dir_header.1.central_dir_header.1.arrayidx2.i.i.sroa_idx, align 1
+  %central_dir_header.2.central_dir_header.2.central_dir_header.2.arrayidx5.i.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 2
+  store i8 1, ptr %central_dir_header.2.central_dir_header.2.central_dir_header.2.arrayidx5.i.i.sroa_idx, align 2
+  %central_dir_header.3.central_dir_header.3.central_dir_header.3.arrayidx8.i.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 3
+  store i8 2, ptr %central_dir_header.3.central_dir_header.3.central_dir_header.3.arrayidx8.i.i.sroa_idx, align 1
   %central_dir_header.4.central_dir_header.4.central_dir_header.4.add.ptr2.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 4
   store i8 91, ptr %central_dir_header.4.central_dir_header.4.central_dir_header.4.add.ptr2.i.sroa_idx, align 4
   %central_dir_header.5.central_dir_header.5.central_dir_header.5.arrayidx3.i.i.sroa_idx = getelementptr inbounds i8, ptr %central_dir_header, i64 5
@@ -12285,7 +12394,13 @@ if.end183:                                        ; preds = %if.end180, %if.end8
 if.end191:                                        ; preds = %if.end183
   %33 = load i16, ptr %dos_time, align 2
   %34 = load i16, ptr %dos_date, align 2
-  store <4 x i8> <i8 80, i8 75, i8 3, i8 4>, ptr %local_dir_header, align 16
+  store i8 80, ptr %local_dir_header, align 16
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 1
+  store i8 75, ptr %arrayidx2.i.i, align 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 2
+  store i8 3, ptr %arrayidx5.i.i, align 2
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %local_dir_header, i64 3
+  store i8 4, ptr %arrayidx8.i.i, align 1
   %add.ptr1.i = getelementptr inbounds i8, ptr %local_dir_header, i64 4
   %tobool.not.i138 = icmp eq i16 %method.0, 0
   %conv.i.i = select i1 %tobool.not.i138, i8 0, i8 20
@@ -12878,7 +12993,13 @@ if.end22:                                         ; preds = %if.end19, %if.end9
   %central_dir_ofs.0 = phi i32 [ %11, %if.end19 ], [ 0, %if.end9 ]
   %central_dir_size.0 = phi i32 [ %10, %if.end19 ], [ 0, %if.end9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %hdr, i8 0, i64 22, i1 false)
-  store <4 x i8> <i8 80, i8 75, i8 5, i8 6>, ptr %hdr, align 16
+  store i8 80, ptr %hdr, align 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %hdr, i64 1
+  store i8 75, ptr %arrayidx2.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %hdr, i64 2
+  store i8 5, ptr %arrayidx5.i, align 2
+  %arrayidx8.i = getelementptr inbounds i8, ptr %hdr, i64 3
+  store i8 6, ptr %arrayidx8.i, align 1
   %add.ptr24 = getelementptr inbounds i8, ptr %hdr, i64 8
   %conv.i = trunc i32 %13 to i8
   store i8 %conv.i, ptr %add.ptr24, align 8
@@ -13720,10 +13841,13 @@ if.end37:                                         ; preds = %if.then28
 
 if.end43:                                         ; preds = %if.end37
   %m_comp_size = getelementptr inbounds i8, ptr %stats, i64 32
+  %3 = load i64, ptr %m_comp_size, align 8
+  %comp_size = getelementptr inbounds i8, ptr %zip, i64 144
+  store i64 %3, ptr %comp_size, align 8
+  %m_uncomp_size = getelementptr inbounds i8, ptr %stats, i64 40
+  %4 = load i64, ptr %m_uncomp_size, align 8
   %uncomp_size = getelementptr inbounds i8, ptr %zip, i64 136
-  %3 = load <2 x i64>, ptr %m_comp_size, align 8
-  %4 = shufflevector <2 x i64> %3, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %4, ptr %uncomp_size, align 8
+  store i64 %4, ptr %uncomp_size, align 8
   %m_crc32 = getelementptr inbounds i8, ptr %stats, i64 24
   %5 = load i32, ptr %m_crc32, align 8
   %uncomp_crc32 = getelementptr inbounds i8, ptr %zip, i64 152
@@ -13975,10 +14099,13 @@ if.end39:                                         ; preds = %zip_strrpl.exit
 if.end43:                                         ; preds = %if.end39
   store i32 %index, ptr %entry19, align 8
   %m_comp_size = getelementptr inbounds i8, ptr %stats, i64 32
+  %10 = load i64, ptr %m_comp_size, align 8
+  %comp_size = getelementptr inbounds i8, ptr %zip, i64 144
+  store i64 %10, ptr %comp_size, align 8
+  %m_uncomp_size = getelementptr inbounds i8, ptr %stats, i64 40
+  %11 = load i64, ptr %m_uncomp_size, align 8
   %uncomp_size = getelementptr inbounds i8, ptr %zip, i64 136
-  %10 = load <2 x i64>, ptr %m_comp_size, align 8
-  %11 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %11, ptr %uncomp_size, align 8
+  store i64 %11, ptr %uncomp_size, align 8
   %m_crc32 = getelementptr inbounds i8, ptr %stats, i64 24
   %12 = load i32, ptr %m_crc32, align 8
   %uncomp_crc32 = getelementptr inbounds i8, ptr %zip, i64 152
@@ -14111,7 +14238,13 @@ if.end29:                                         ; preds = %lor.lhs.false
   %16 = load i32, ptr %uncomp_crc32, align 8
   %method37 = getelementptr inbounds i8, ptr %zip, i64 208
   %17 = load i16, ptr %method37, align 8
-  store <4 x i8> <i8 80, i8 75, i8 3, i8 4>, ptr %header, align 1
+  store i8 80, ptr %header, align 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %zip, i64 169
+  store i8 75, ptr %arrayidx2.i.i, align 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %zip, i64 170
+  store i8 3, ptr %arrayidx5.i.i, align 1
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %zip, i64 171
+  store i8 4, ptr %arrayidx8.i.i, align 1
   %add.ptr1.i = getelementptr inbounds i8, ptr %zip, i64 172
   %tobool.not.i = icmp eq i16 %17, 0
   %conv.i.i = select i1 %tobool.not.i, i8 0, i8 20

@@ -136,9 +136,13 @@ define dso_local void @_ZN19cmCTestBuildCommand5CloneEv(ptr dead_on_unwind noali
 
 _ZNSt10unique_ptrI19cmCTestBuildCommandSt14default_deleteIS0_EED2Ev.exit: ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %11, align 8
   store ptr %3, ptr %0, align 8
   ret void
 }

@@ -2084,76 +2084,85 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %319, %320
   %321 = phi i32 [ %152, %319 ], [ %.pre, %320 ]
   %322 = getelementptr inbounds i8, ptr %0, i64 20
   %323 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 -1>, ptr %323, align 4
+  store i32 0, ptr %323, align 4
+  store i32 -1, ptr %322, align 4
+  %324 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 -1, ptr %324, align 4
+  %325 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 -1, ptr %325, align 4
   store i32 %321, ptr %0, align 4
-  %324 = getelementptr inbounds i8, ptr %0, i64 4
-  %325 = load <2 x i32>, ptr %36, align 8
-  store <2 x i32> %325, ptr %324, align 4
-  %326 = getelementptr inbounds i8, ptr %36, i64 8
-  %327 = load i32, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %327, ptr %328, align 4
-  %329 = getelementptr inbounds i8, ptr %6, i64 12
-  %.val33 = load i8, ptr %329, align 4
-  %330 = trunc i8 %.val33 to i1
-  br i1 %330, label %.preheader.i, label %.preheader1.i
+  %326 = load i32, ptr %36, align 8
+  %327 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %326, ptr %327, align 4
+  %328 = getelementptr inbounds i8, ptr %36, i64 4
+  %329 = load i32, ptr %328, align 4
+  %330 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %329, ptr %330, align 4
+  %331 = getelementptr inbounds i8, ptr %36, i64 8
+  %332 = load i32, ptr %331, align 8
+  %333 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %332, ptr %333, align 4
+  %334 = getelementptr inbounds i8, ptr %6, i64 12
+  %.val33 = load i8, ptr %334, align 4
+  %335 = trunc i8 %.val33 to i1
+  br i1 %335, label %.preheader.i, label %.preheader1.i
 
-.preheader.i:                                     ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %339
-  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %339 ], [ 2, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %.0185.i = phi i32 [ %.1.i, %339 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %331 = getelementptr inbounds [3 x i32], ptr %36, i64 0, i64 %indvars.iv9.i
-  %332 = load i32, ptr %331, align 4
-  %333 = icmp sgt i32 %332, 1
-  br i1 %333, label %334, label %339
+.preheader.i:                                     ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %344
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %344 ], [ 2, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
+  %.0185.i = phi i32 [ %.1.i, %344 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
+  %336 = getelementptr inbounds [3 x i32], ptr %36, i64 0, i64 %indvars.iv9.i
+  %337 = load i32, ptr %336, align 4
+  %338 = icmp sgt i32 %337, 1
+  br i1 %338, label %339, label %344
 
-334:                                              ; preds = %.preheader.i
-  %335 = add nsw i32 %.0185.i, 1
-  %336 = sext i32 %.0185.i to i64
-  %337 = getelementptr inbounds [3 x i32], ptr %322, i64 0, i64 %336
-  %338 = trunc nuw nsw i64 %indvars.iv9.i to i32
-  store i32 %338, ptr %337, align 4
-  br label %339
+339:                                              ; preds = %.preheader.i
+  %340 = add nsw i32 %.0185.i, 1
+  %341 = sext i32 %.0185.i to i64
+  %342 = getelementptr inbounds [3 x i32], ptr %322, i64 0, i64 %341
+  %343 = trunc nuw nsw i64 %indvars.iv9.i to i32
+  store i32 %343, ptr %342, align 4
+  br label %344
 
-339:                                              ; preds = %334, %.preheader.i
-  %.1.i = phi i32 [ %335, %334 ], [ %.0185.i, %.preheader.i ]
+344:                                              ; preds = %339, %.preheader.i
+  %.1.i = phi i32 [ %340, %339 ], [ %.0185.i, %.preheader.i ]
   %indvars.iv.next10.i = add nsw i64 %indvars.iv9.i, -1
   %.not.i44 = icmp eq i64 %indvars.iv9.i, 0
   br i1 %.not.i44, label %.loopexit.i43, label %.preheader.i, !llvm.loop !15
 
-.preheader1.i:                                    ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %348
-  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %348 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %.33.i = phi i32 [ %.4.i, %348 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
-  %340 = getelementptr inbounds [3 x i32], ptr %36, i64 0, i64 %indvars.iv.i40
-  %341 = load i32, ptr %340, align 4
-  %342 = icmp sgt i32 %341, 1
-  br i1 %342, label %343, label %348
+.preheader1.i:                                    ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %353
+  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %353 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
+  %.33.i = phi i32 [ %.4.i, %353 ], [ 0, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
+  %345 = getelementptr inbounds [3 x i32], ptr %36, i64 0, i64 %indvars.iv.i40
+  %346 = load i32, ptr %345, align 4
+  %347 = icmp sgt i32 %346, 1
+  br i1 %347, label %348, label %353
 
-343:                                              ; preds = %.preheader1.i
-  %344 = add nsw i32 %.33.i, 1
-  %345 = sext i32 %.33.i to i64
-  %346 = getelementptr inbounds [3 x i32], ptr %322, i64 0, i64 %345
-  %347 = trunc nuw nsw i64 %indvars.iv.i40 to i32
-  store i32 %347, ptr %346, align 4
-  br label %348
+348:                                              ; preds = %.preheader1.i
+  %349 = add nsw i32 %.33.i, 1
+  %350 = sext i32 %.33.i to i64
+  %351 = getelementptr inbounds [3 x i32], ptr %322, i64 0, i64 %350
+  %352 = trunc nuw nsw i64 %indvars.iv.i40 to i32
+  store i32 %352, ptr %351, align 4
+  br label %353
 
-348:                                              ; preds = %343, %.preheader1.i
-  %.4.i = phi i32 [ %344, %343 ], [ %.33.i, %.preheader1.i ]
+353:                                              ; preds = %348, %.preheader1.i
+  %.4.i = phi i32 [ %349, %348 ], [ %.33.i, %.preheader1.i ]
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
   br i1 %exitcond.not.i42, label %.loopexit.i43, label %.preheader1.i, !llvm.loop !16
 
-.loopexit.i43:                                    ; preds = %348, %339
-  %.2.i = phi i32 [ %.1.i, %339 ], [ %.4.i, %348 ]
-  %349 = icmp eq i32 %.2.i, 0
-  br i1 %349, label %350, label %_ZL10set_dd_dimRKN3gmx11BasicVectorIiEERK10DDSettingsPA3_i.exit
+.loopexit.i43:                                    ; preds = %353, %344
+  %.2.i = phi i32 [ %.1.i, %344 ], [ %.4.i, %353 ]
+  %354 = icmp eq i32 %.2.i, 0
+  br i1 %354, label %355, label %_ZL10set_dd_dimRKN3gmx11BasicVectorIiEERK10DDSettingsPA3_i.exit
 
-350:                                              ; preds = %.loopexit.i43
+355:                                              ; preds = %.loopexit.i43
   store i32 0, ptr %322, align 4
   br label %_ZL10set_dd_dimRKN3gmx11BasicVectorIiEERK10DDSettingsPA3_i.exit
 
-_ZL10set_dd_dimRKN3gmx11BasicVectorIiEERK10DDSettingsPA3_i.exit: ; preds = %.loopexit.i43, %350
-  %351 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.2.i, ptr %351, align 4
+_ZL10set_dd_dimRKN3gmx11BasicVectorIiEERK10DDSettingsPA3_i.exit: ; preds = %.loopexit.i43, %355
+  %356 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.2.i, ptr %356, align 4
   ret void
 }
 

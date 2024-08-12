@@ -266,7 +266,7 @@ entry:
   %ref.tmp5 = alloca %"class.google::LogMessage", align 8
   %content = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %servers = alloca %"class.std::vector", align 16
+  %servers = alloca %"class.std::vector", align 8
   %sstream = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %line = alloca %"class.std::__cxx11::basic_string", align 8
   %address = alloca %"class.folly::SocketAddress", align 8
@@ -286,7 +286,7 @@ entry:
   %agg.tmp128 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp138 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp164 = alloca %"class.google::LogMessage", align 8
-  %agg.tmp191 = alloca %"class.std::vector", align 16
+  %agg.tmp191 = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr @_ZZN8proxygen23FileServerListGenerator13FileGenerator3runENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8vlocal__, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cond.true, label %cond.end
@@ -377,7 +377,7 @@ lpad22:                                           ; preds = %_ZNSt15__exception_
   br label %ehcleanup202
 
 try.cont:                                         ; preds = %cleanup.done
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %servers, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %servers, i8 0, i64 24, i1 false)
   %19 = load ptr, ptr %params_16, align 8
   %fileType = getelementptr inbounds i8, ptr %19, i64 32
   %20 = load i32, ptr %fileType, align 8
@@ -494,7 +494,7 @@ invoke.cont43:                                    ; preds = %if.else.i.i, %call.
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   store i32 -1, ptr %groupId_.i, align 8
   %28 = load ptr, ptr %_M_finish.i.i, align 8
-  %29 = load ptr, ptr %_M_end_of_storage.i.i, align 16
+  %29 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i, label %if.else.i.i22, label %if.then.i.i21
 
@@ -940,7 +940,7 @@ invoke.cont168:                                   ; preds = %invoke.cont165
 invoke.cont170:                                   ; preds = %invoke.cont168
   %_M_finish.i = getelementptr inbounds i8, ptr %servers, i64 8
   %76 = load ptr, ptr %_M_finish.i, align 8
-  %77 = load ptr, ptr %servers, align 16
+  %77 = load ptr, ptr %servers, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %76 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -964,86 +964,89 @@ cleanup.action184:                                ; preds = %invoke.cont175
 cleanup.done185:                                  ; preds = %cond.false154, %cond.end156, %cleanup.action184
   %callback_190 = getelementptr inbounds i8, ptr %this, i64 16
   %79 = load ptr, ptr %callback_190, align 8
-  %80 = load <2 x ptr>, ptr %servers, align 16
-  store <2 x ptr> %80, ptr %agg.tmp191, align 16
+  %80 = load ptr, ptr %servers, align 8
+  store ptr %80, ptr %agg.tmp191, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp191, i64 8
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %servers, i64 8
+  %81 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
+  store ptr %81, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp191, i64 16
   %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %servers, i64 16
-  %81 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 16
-  store ptr %81, ptr %_M_end_of_storage.i.i.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %servers, i8 0, i64 24, i1 false)
+  %82 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
+  store ptr %82, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %servers, i8 0, i64 24, i1 false)
   invoke void @_ZN8proxygen19ServerListGenerator8Callback14resetGeneratorEPNS0_9GeneratorEb(ptr noundef nonnull align 8 dereferenceable(17) %79, ptr noundef null, i1 noundef zeroext false)
           to label %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit unwind label %terminate.lpad.i74
 
 terminate.lpad.i74:                               ; preds = %cleanup.done185
-  %82 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #19
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #19
   unreachable
 
 _ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit: ; preds = %cleanup.done185
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp191, i64 8
   %vtable.i76 = load ptr, ptr %79, align 8
   %vfn.i77 = getelementptr inbounds i8, ptr %vtable.i76, i64 16
-  %84 = load ptr, ptr %vfn.i77, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(17) %79, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp191) #18
-  %85 = load ptr, ptr %agg.tmp191, align 16
-  %86 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %85, %86
+  %85 = load ptr, ptr %vfn.i77, align 8
+  call void %85(ptr noundef nonnull align 8 dereferenceable(17) %79, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp191) #18
+  %86 = load ptr, ptr %agg.tmp191, align 8
+  %87 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %86, %87
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i79, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %85, %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %86, %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit ]
   call void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %__first.addr.04.i.i.i.i) #18
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 144
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %86
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %87
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !12
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
-  %.pr.i = load ptr, ptr %agg.tmp191, align 16
+  %.pr.i = load ptr, ptr %agg.tmp191, align 8
   br label %invoke.cont.i79
 
 invoke.cont.i79:                                  ; preds = %invoke.contthread-pre-split.i, %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit
-  %87 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %85, %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit ]
-  %tobool.not.i.i.i = icmp eq ptr %87, null
+  %88 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %86, %_ZN8proxygen19ServerListGenerator8Callback19serverListAvailableESt6vectorINS0_12ServerConfigESaIS3_EE.exit ]
+  %tobool.not.i.i.i = icmp eq ptr %88, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i79
-  call void @_ZdlPv(ptr noundef nonnull %87) #22
+  call void @_ZdlPv(ptr noundef nonnull %88) #22
   br label %_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i79, %if.then.i.i.i
   %vtable194 = load ptr, ptr %this, align 8
   %vfn195 = getelementptr inbounds i8, ptr %vtable194, i64 8
-  %88 = load ptr, ptr %vfn195, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(24) %this) #18
+  %89 = load ptr, ptr %vfn195, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(24) %this) #18
   br label %cleanup197
 
 cleanup197:                                       ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit73, %cleanup, %_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit
-  %89 = load ptr, ptr %servers, align 16
+  %90 = load ptr, ptr %servers, align 8
   %_M_finish.i80 = getelementptr inbounds i8, ptr %servers, i64 8
-  %90 = load ptr, ptr %_M_finish.i80, align 8
-  %cmp.not3.i.i.i.i81 = icmp eq ptr %89, %90
+  %91 = load ptr, ptr %_M_finish.i80, align 8
+  %cmp.not3.i.i.i.i81 = icmp eq ptr %90, %91
   br i1 %cmp.not3.i.i.i.i81, label %invoke.cont.i88, label %for.body.i.i.i.i82
 
 for.body.i.i.i.i82:                               ; preds = %cleanup197, %for.body.i.i.i.i82
-  %__first.addr.04.i.i.i.i83 = phi ptr [ %incdec.ptr.i.i.i.i84, %for.body.i.i.i.i82 ], [ %89, %cleanup197 ]
+  %__first.addr.04.i.i.i.i83 = phi ptr [ %incdec.ptr.i.i.i.i84, %for.body.i.i.i.i82 ], [ %90, %cleanup197 ]
   call void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %__first.addr.04.i.i.i.i83) #18
   %incdec.ptr.i.i.i.i84 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i83, i64 144
-  %cmp.not.i.i.i.i85 = icmp eq ptr %incdec.ptr.i.i.i.i84, %90
+  %cmp.not.i.i.i.i85 = icmp eq ptr %incdec.ptr.i.i.i.i84, %91
   br i1 %cmp.not.i.i.i.i85, label %invoke.contthread-pre-split.i86, label %for.body.i.i.i.i82, !llvm.loop !12
 
 invoke.contthread-pre-split.i86:                  ; preds = %for.body.i.i.i.i82
-  %.pr.i87 = load ptr, ptr %servers, align 16
+  %.pr.i87 = load ptr, ptr %servers, align 8
   br label %invoke.cont.i88
 
 invoke.cont.i88:                                  ; preds = %invoke.contthread-pre-split.i86, %cleanup197
-  %91 = phi ptr [ %.pr.i87, %invoke.contthread-pre-split.i86 ], [ %89, %cleanup197 ]
-  %tobool.not.i.i.i89 = icmp eq ptr %91, null
+  %92 = phi ptr [ %.pr.i87, %invoke.contthread-pre-split.i86 ], [ %90, %cleanup197 ]
+  %tobool.not.i.i.i89 = icmp eq ptr %92, null
   br i1 %tobool.not.i.i.i89, label %cleanup199, label %if.then.i.i.i90
 
 if.then.i.i.i90:                                  ; preds = %invoke.cont.i88
-  call void @_ZdlPv(ptr noundef nonnull %91) #22
+  call void @_ZdlPv(ptr noundef nonnull %92) #22
   br label %cleanup199
 
 cleanup199:                                       ; preds = %if.then.i.i.i90, %invoke.cont.i88, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
@@ -1051,16 +1054,16 @@ cleanup199:                                       ; preds = %if.then.i.i.i90, %i
   ret void
 
 lpad167:                                          ; preds = %invoke.cont175, %invoke.cont173, %invoke.cont170, %invoke.cont168, %invoke.cont165
-  %92 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %93 = extractvalue { ptr, i32 } %92, 1
-  %94 = extractvalue { ptr, i32 } %92, 0
+  %94 = extractvalue { ptr, i32 } %93, 1
+  %95 = extractvalue { ptr, i32 } %93, 0
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp164) #18
   br label %ehcleanup198
 
 ehcleanup198:                                     ; preds = %lpad167, %catch.dispatch122, %ehcleanup47, %lpad26
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup47 ], [ %93, %lpad167 ], [ %35, %lpad26 ], [ %ehselector.slot.6, %catch.dispatch122 ]
-  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup47 ], [ %94, %lpad167 ], [ %34, %lpad26 ], [ %exn.slot.6, %catch.dispatch122 ]
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup47 ], [ %94, %lpad167 ], [ %35, %lpad26 ], [ %ehselector.slot.6, %catch.dispatch122 ]
+  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup47 ], [ %95, %lpad167 ], [ %34, %lpad26 ], [ %exn.slot.6, %catch.dispatch122 ]
   call void @_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %servers) #18
   br label %ehcleanup202
 
@@ -2055,7 +2058,13 @@ entry:
   %exponent_character_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 24
   store i8 69, ptr %exponent_character_.i.i.i, align 8
   %decimal_in_shortest_low_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 28
-  store <4 x i32> <i32 -6, i32 21, i32 6, i32 1>, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  store i32 -6, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  %decimal_in_shortest_high_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 32
+  store i32 21, ptr %decimal_in_shortest_high_.i.i.i, align 8
+  %max_leading_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 36
+  store i32 6, ptr %max_leading_padding_zeroes_in_precision_mode_.i.i.i, align 4
+  %max_trailing_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 40
+  store i32 1, ptr %max_trailing_padding_zeroes_in_precision_mode_.i.i.i, align 8
   %min_exponent_width_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 44
   store i32 0, ptr %min_exponent_width_.i.i.i, align 4
   store ptr %buffer.i.i, ptr %builder.i.i, align 8

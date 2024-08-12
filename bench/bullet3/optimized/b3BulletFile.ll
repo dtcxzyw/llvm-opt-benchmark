@@ -1674,7 +1674,13 @@ if.then:                                          ; preds = %entry
   %m_headerString = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %header, ptr noundef nonnull align 8 dereferenceable(7) %m_headerString, i64 7, i1 false)
   %arrayidx5 = getelementptr inbounds i8, ptr %header, i64 7
-  store <4 x i8> <i8 95, i8 86, i8 50, i8 55>, ptr %arrayidx5, align 1
+  store i8 95, ptr %arrayidx5, align 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %header, i64 8
+  store i8 86, ptr %arrayidx7, align 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %header, i64 9
+  store i8 50, ptr %arrayidx8, align 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %header, i64 10
+  store i8 55, ptr %arrayidx9, align 1
   %arrayidx10 = getelementptr inbounds i8, ptr %header, i64 11
   store i8 53, ptr %arrayidx10, align 1
   %call12 = call i64 @fwrite(ptr noundef nonnull %header, i64 noundef 12, i64 noundef 1, ptr noundef nonnull %call)

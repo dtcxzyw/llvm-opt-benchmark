@@ -43,67 +43,69 @@ define void @dswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv92 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next93, %.lr.ph83 ]
   %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv92
-  %20 = add nuw nsw i64 %indvars.iv92, 1
-  %21 = getelementptr inbounds double, ptr %1, i64 %20
-  %22 = add nuw nsw i64 %indvars.iv92, 2
-  %23 = getelementptr inbounds double, ptr %1, i64 %22
-  %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds double, ptr %3, i64 %indvars.iv92
+  %20 = load double, ptr %19, align 8
+  %21 = add nuw nsw i64 %indvars.iv92, 1
+  %22 = getelementptr inbounds double, ptr %1, i64 %21
+  %23 = load double, ptr %22, align 8
+  %24 = add nuw nsw i64 %indvars.iv92, 2
+  %25 = getelementptr inbounds double, ptr %1, i64 %24
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %3, i64 %20
-  %28 = getelementptr inbounds double, ptr %3, i64 %22
-  %29 = load <2 x double>, ptr %19, align 8
-  store double %26, ptr %19, align 8
-  %30 = load double, ptr %27, align 8
-  store double %30, ptr %21, align 8
-  %31 = load double, ptr %28, align 8
-  store double %31, ptr %23, align 8
-  store <2 x double> %29, ptr %25, align 8
-  store double %24, ptr %28, align 8
+  %27 = getelementptr inbounds double, ptr %3, i64 %indvars.iv92
+  %28 = load double, ptr %27, align 8
+  store double %28, ptr %19, align 8
+  %29 = getelementptr inbounds double, ptr %3, i64 %21
+  %30 = load double, ptr %29, align 8
+  store double %30, ptr %22, align 8
+  %31 = getelementptr inbounds double, ptr %3, i64 %24
+  %32 = load double, ptr %31, align 8
+  store double %32, ptr %25, align 8
+  store double %20, ptr %27, align 8
+  store double %23, ptr %29, align 8
+  store double %26, ptr %31, align 8
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 3
-  %32 = icmp ult i64 %indvars.iv.next93, %15
-  br i1 %32, label %.lr.ph83, label %.preheader.loopexit, !llvm.loop !4
+  %33 = icmp ult i64 %indvars.iv.next93, %15
+  br i1 %33, label %.lr.ph83, label %.preheader.loopexit, !llvm.loop !4
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv95 = phi i64 [ %18, %.lr.ph85.preheader ], [ %indvars.iv.next96, %.lr.ph85 ]
-  %33 = getelementptr inbounds double, ptr %1, i64 %indvars.iv95
-  %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds double, ptr %3, i64 %indvars.iv95
-  %36 = load double, ptr %35, align 8
-  store double %36, ptr %33, align 8
-  store double %34, ptr %35, align 8
+  %34 = getelementptr inbounds double, ptr %1, i64 %indvars.iv95
+  %35 = load double, ptr %34, align 8
+  %36 = getelementptr inbounds double, ptr %3, i64 %indvars.iv95
+  %37 = load double, ptr %36, align 8
+  store double %37, ptr %34, align 8
+  store double %35, ptr %36, align 8
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
   br i1 %exitcond98.not, label %.loopexit, label %.lr.ph85, !llvm.loop !6
 
 .lr.ph.preheader:                                 ; preds = %10
-  %37 = icmp slt i32 %8, 0
-  %38 = sub nsw i32 1, %6
-  %39 = mul nsw i32 %8, %38
-  %.072 = select i1 %37, i32 %39, i32 0
-  %40 = icmp slt i32 %7, 0
-  %41 = mul nsw i32 %7, %38
-  %.070 = select i1 %40, i32 %41, i32 0
-  %42 = sext i32 %.070 to i64
-  %43 = sext i32 %7 to i64
-  %44 = sext i32 %.072 to i64
-  %45 = sext i32 %8 to i64
+  %38 = icmp slt i32 %8, 0
+  %39 = sub nsw i32 1, %6
+  %40 = mul nsw i32 %8, %39
+  %.072 = select i1 %38, i32 %40, i32 0
+  %41 = icmp slt i32 %7, 0
+  %42 = mul nsw i32 %7, %39
+  %.070 = select i1 %41, i32 %42, i32 0
+  %43 = sext i32 %.070 to i64
+  %44 = sext i32 %7 to i64
+  %45 = sext i32 %.072 to i64
+  %46 = sext i32 %8 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv87 = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next88, %.lr.ph ]
-  %indvars.iv = phi i64 [ %42, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.281 = phi i32 [ 0, %.lr.ph.preheader ], [ %50, %.lr.ph ]
-  %46 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
-  %47 = load double, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %3, i64 %indvars.iv87
-  %49 = load double, ptr %48, align 8
-  store double %49, ptr %46, align 8
-  store double %47, ptr %48, align 8
-  %50 = add nuw nsw i32 %.281, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, %43
-  %indvars.iv.next88 = add nsw i64 %indvars.iv87, %45
-  %exitcond.not = icmp eq i32 %50, %6
+  %indvars.iv87 = phi i64 [ %45, %.lr.ph.preheader ], [ %indvars.iv.next88, %.lr.ph ]
+  %indvars.iv = phi i64 [ %43, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.281 = phi i32 [ 0, %.lr.ph.preheader ], [ %51, %.lr.ph ]
+  %47 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %48 = load double, ptr %47, align 8
+  %49 = getelementptr inbounds double, ptr %3, i64 %indvars.iv87
+  %50 = load double, ptr %49, align 8
+  store double %50, ptr %47, align 8
+  store double %48, ptr %49, align 8
+  %51 = add nuw nsw i32 %.281, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, %44
+  %indvars.iv.next88 = add nsw i64 %indvars.iv87, %46
+  %exitcond.not = icmp eq i32 %51, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph85, %.preheader, %5

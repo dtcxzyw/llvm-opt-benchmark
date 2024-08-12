@@ -833,9 +833,11 @@ _ZSt4fillIPidEvT_S1_RKT0_.exit:
   %3 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %5, align 4
+  store float 1.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  store float 0.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %6, align 4
   %scevgep = getelementptr i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false)
   ret void

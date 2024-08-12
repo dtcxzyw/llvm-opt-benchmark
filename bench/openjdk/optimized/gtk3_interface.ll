@@ -4419,65 +4419,62 @@ gtk3_get_arrow.exit:                              ; preds = %10, %13
   br i1 %or.cond, label %65, label %.thread
 
 65:                                               ; preds = %62
-  %66 = insertelement <2 x i32> poison, i32 %5, i64 0
-  %67 = insertelement <2 x i32> %66, i32 %4, i64 1
-  %68 = sitofp <2 x i32> %67 to <2 x double>
-  %69 = insertelement <2 x i32> poison, i32 %7, i64 0
-  %70 = insertelement <2 x i32> %69, i32 %6, i64 1
-  %71 = insertelement <2 x i32> poison, i32 %.063, i64 0
-  %72 = shufflevector <2 x i32> %71, <2 x i32> poison, <2 x i32> zeroinitializer
-  %73 = sub nsw <2 x i32> %70, %72
-  %74 = sitofp <2 x i32> %73 to <2 x double>
-  %75 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %74, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>)
-  %76 = fadd <2 x double> %75, %68
-  br label %80
+  %66 = sitofp i32 %4 to double
+  %67 = sub nsw i32 %6, %.063
+  %68 = sitofp i32 %67 to double
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double 5.000000e-01, double 5.000000e-01)
+  %70 = fadd double %69, %66
+  %71 = sitofp i32 %5 to double
+  %72 = sub nsw i32 %7, %.063
+  %73 = sitofp i32 %72 to double
+  %74 = tail call double @llvm.fmuladd.f64(double %73, double 5.000000e-01, double 5.000000e-01)
+  %75 = fadd double %74, %71
+  br label %78
 
 .thread:                                          ; preds = %58, %54, %57, %56, %55, %61, %60, %59, %62
   %.06375 = phi i32 [ %.063, %62 ], [ %6, %59 ], [ %6, %60 ], [ %6, %61 ], [ %6, %55 ], [ %6, %56 ], [ %6, %57 ], [ %6, %54 ], [ %6, %58 ]
   %.06473 = phi double [ %.064, %62 ], [ 0.000000e+00, %59 ], [ 0x3FF921FB54442D18, %60 ], [ 0x4012D97C7F3321D2, %61 ], [ 0.000000e+00, %55 ], [ 0x3FF921FB54442D18, %56 ], [ 0x4012D97C7F3321D2, %57 ], [ 0x400921FB54442D18, %54 ], [ 0x400921FB54442D18, %58 ]
-  %77 = insertelement <2 x i32> poison, i32 %5, i64 0
-  %78 = insertelement <2 x i32> %77, i32 %4, i64 1
-  %79 = sitofp <2 x i32> %78 to <2 x double>
-  br label %80
+  %76 = sitofp i32 %4 to double
+  %77 = sitofp i32 %5 to double
+  br label %78
 
-80:                                               ; preds = %.thread, %65
+78:                                               ; preds = %.thread, %65
   %.06374 = phi i32 [ %.063, %65 ], [ %.06375, %.thread ]
   %.06472 = phi double [ %.064, %65 ], [ %.06473, %.thread ]
-  %81 = phi <2 x double> [ %76, %65 ], [ %79, %.thread ]
-  %82 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
-  %83 = tail call ptr %82(ptr noundef %20) #19
-  %84 = load ptr, ptr @fp_gtk_style_context_save, align 8
-  tail call void %84(ptr noundef %83) #19
+  %.062 = phi double [ %75, %65 ], [ %77, %.thread ]
+  %.0 = phi double [ %70, %65 ], [ %76, %.thread ]
+  %79 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
+  %80 = tail call ptr %79(ptr noundef %20) #19
+  %81 = load ptr, ptr @fp_gtk_style_context_save, align 8
+  tail call void %81(ptr noundef %80) #19
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %86, label %85
+  br i1 %.not, label %83, label %82
 
-85:                                               ; preds = %80
-  tail call fastcc void @transform_detail_string(ptr noundef nonnull %3, ptr noundef %83)
-  br label %86
+82:                                               ; preds = %78
+  tail call fastcc void @transform_detail_string(ptr noundef nonnull %3, ptr noundef %80)
+  br label %83
 
-86:                                               ; preds = %85, %80
+83:                                               ; preds = %82, %78
   %switch.tableidx = add i32 %1, -1
-  %87 = icmp ult i32 %switch.tableidx, 6
-  br i1 %87, label %switch.lookup, label %get_gtk_flags.exit
+  %84 = icmp ult i32 %switch.tableidx, 6
+  br i1 %84, label %switch.lookup, label %get_gtk_flags.exit
 
-switch.lookup:                                    ; preds = %86
-  %88 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.gtk3_paint_background, i64 0, i64 %88
+switch.lookup:                                    ; preds = %83
+  %85 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.gtk3_paint_background, i64 0, i64 %85
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_gtk_flags.exit
 
-get_gtk_flags.exit:                               ; preds = %switch.lookup, %86
-  %.0.i = phi i32 [ 0, %86 ], [ %switch.load, %switch.lookup ]
-  %89 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
-  tail call void %89(ptr noundef %83, i32 noundef %.0.i) #19
-  %90 = load ptr, ptr @fp_gtk_render_arrow, align 8
-  %91 = load ptr, ptr @cr, align 8
-  %92 = sitofp i32 %.06374 to double
-  %93 = extractelement <2 x double> %81, i64 0
-  %94 = extractelement <2 x double> %81, i64 1
-  tail call void %90(ptr noundef %83, ptr noundef %91, double noundef %.06472, double noundef %94, double noundef %93, double noundef %92) #19
-  %95 = load ptr, ptr @fp_gtk_style_context_restore, align 8
-  tail call void %95(ptr noundef %83) #19
+get_gtk_flags.exit:                               ; preds = %switch.lookup, %83
+  %.0.i = phi i32 [ 0, %83 ], [ %switch.load, %switch.lookup ]
+  %86 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
+  tail call void %86(ptr noundef %80, i32 noundef %.0.i) #19
+  %87 = load ptr, ptr @fp_gtk_render_arrow, align 8
+  %88 = load ptr, ptr @cr, align 8
+  %89 = sitofp i32 %.06374 to double
+  tail call void %87(ptr noundef %80, ptr noundef %88, double noundef %.06472, double noundef %.0, double noundef %.062, double noundef %89) #19
+  %90 = load ptr, ptr @fp_gtk_style_context_restore, align 8
+  tail call void %90(ptr noundef %80) #19
   ret void
 }
 
@@ -8203,11 +8200,11 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   %9 = alloca %struct.GdkRGBA, align 8
   %10 = alloca %struct.GdkRGBA, align 8
   %11 = alloca %struct.GdkRGBA, align 8
-  %12 = alloca %struct.GdkRGBA, align 16
-  %13 = alloca %struct.GdkRGBA, align 16
+  %12 = alloca %struct.GdkRGBA, align 8
+  %13 = alloca %struct.GdkRGBA, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store double 1.000000e+00, ptr %14, align 8
-  switch i32 %3, label %44 [
+  switch i32 %3, label %52 [
     i32 0, label %15
     i32 2, label %15
     i32 1, label %17
@@ -8215,20 +8212,20 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
     i32 5, label %19
     i32 6, label %22
     i32 7, label %25
-    i32 4, label %41
-    i32 8, label %41
-    i32 9, label %42
+    i32 4, label %48
+    i32 8, label %48
+    i32 9, label %49
   ]
 
 15:                                               ; preds = %4, %4
   %16 = load ptr, ptr @fp_gtk_style_context_get_color, align 8
   tail call void %16(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
-  br label %44
+  br label %52
 
 17:                                               ; preds = %4, %4
   %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8
   tail call void %18(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
-  br label %44
+  br label %52
 
 19:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -8238,7 +8235,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   call void %21(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %10) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call fastcc void @gtk3_style_shade(ptr noundef nonnull %9, ptr noundef nonnull %0, double noundef 1.300000e+00)
-  br label %44
+  br label %52
 
 22:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -8248,7 +8245,7 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   call void %24(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %11) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call fastcc void @gtk3_style_shade(ptr noundef nonnull %9, ptr noundef nonnull %0, double noundef 0x3FE6666666666666)
-  br label %44
+  br label %52
 
 25:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -8273,32 +8270,42 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   call fastcc void @gtk3_style_shade(ptr noundef nonnull %5, ptr noundef nonnull %13, double noundef 0x3FE6666666666666)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %30 = load <2 x double>, ptr %12, align 16
-  %31 = load <2 x double>, ptr %13, align 16
-  %32 = fadd <2 x double> %30, %31
-  %33 = fmul <2 x double> %32, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %33, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 16
-  %35 = load double, ptr %34, align 16
-  %36 = getelementptr inbounds i8, ptr %13, i64 16
-  %37 = load double, ptr %36, align 16
+  %30 = load double, ptr %12, align 8
+  %31 = load double, ptr %13, align 8
+  %32 = fadd double %30, %31
+  %33 = fmul double %32, 5.000000e-01
+  store double %33, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = load double, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %13, i64 8
+  %37 = load double, ptr %36, align 8
   %38 = fadd double %35, %37
   %39 = fmul double %38, 5.000000e-01
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
   store double %39, ptr %40, align 8
-  br label %44
+  %41 = getelementptr inbounds i8, ptr %12, i64 16
+  %42 = load double, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %13, i64 16
+  %44 = load double, ptr %43, align 8
+  %45 = fadd double %42, %44
+  %46 = fmul double %45, 5.000000e-01
+  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %46, ptr %47, align 8
+  br label %52
 
-41:                                               ; preds = %4, %4
+48:                                               ; preds = %4, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %44
+  br label %52
 
-42:                                               ; preds = %4
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store double 1.000000e+00, ptr %43, align 8
-  br label %44
+49:                                               ; preds = %4
+  store double 1.000000e+00, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  store double 1.000000e+00, ptr %51, align 8
+  br label %52
 
-44:                                               ; preds = %42, %41, %25, %22, %19, %17, %15, %4
+52:                                               ; preds = %49, %48, %25, %22, %19, %17, %15, %4
   ret void
 }
 
@@ -8874,9 +8881,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

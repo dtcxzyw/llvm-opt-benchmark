@@ -1594,45 +1594,51 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @arcfour_mic_cksum(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca [16 x i8], align 16
-  %9 = alloca [4 x i8], align 4
+  %9 = alloca [4 x i8], align 1
   %10 = alloca [16 x i8], align 16
   %11 = alloca [16 x i8], align 16
   %12 = alloca ptr, align 8
   %13 = sext i32 %1 to i64
   %14 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull @arcfour_mic_cksum.signature, i64 noundef 13, ptr noundef %0, i64 noundef %13) #6
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %28
+  br i1 %.not, label %15, label %31
 
 15:                                               ; preds = %7
   %16 = call i32 @gcry_md_open(ptr noundef nonnull %12, i32 noundef 1, i32 noundef 0) #6
   %.not14 = icmp eq i32 %16, 0
-  br i1 %.not14, label %17, label %28
+  br i1 %.not14, label %17, label %31
 
 17:                                               ; preds = %15
-  store <4 x i8> <i8 13, i8 0, i8 0, i8 0>, ptr %9, align 4
-  %18 = load ptr, ptr %12, align 8
-  call void @gcry_md_write(ptr noundef %18, ptr noundef nonnull %9, i64 noundef 4) #6
-  %19 = load ptr, ptr %12, align 8
-  call void @gcry_md_write(ptr noundef %19, ptr noundef %3, i64 noundef 8) #6
-  %20 = load ptr, ptr %12, align 8
-  call void @gcry_md_write(ptr noundef %20, ptr noundef %4, i64 noundef 8) #6
+  store i8 13, ptr %9, align 1
+  %18 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 0, ptr %20, align 1
   %21 = load ptr, ptr %12, align 8
-  call void @gcry_md_write(ptr noundef %21, ptr noundef %5, i64 noundef %6) #6
+  call void @gcry_md_write(ptr noundef %21, ptr noundef nonnull %9, i64 noundef 4) #6
   %22 = load ptr, ptr %12, align 8
-  %23 = call ptr @gcry_md_read(ptr noundef %22, i32 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %23, i64 16, i1 false)
+  call void @gcry_md_write(ptr noundef %22, ptr noundef %3, i64 noundef 8) #6
+  %23 = load ptr, ptr %12, align 8
+  call void @gcry_md_write(ptr noundef %23, ptr noundef %4, i64 noundef 8) #6
   %24 = load ptr, ptr %12, align 8
-  call void @gcry_md_close(ptr noundef %24) #6
-  %25 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %8, i64 noundef 16) #6
-  %.not15 = icmp eq i32 %25, 0
-  br i1 %.not15, label %26, label %28
+  call void @gcry_md_write(ptr noundef %24, ptr noundef %5, i64 noundef %6) #6
+  %25 = load ptr, ptr %12, align 8
+  %26 = call ptr @gcry_md_read(ptr noundef %25, i32 noundef 0) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
+  %27 = load ptr, ptr %12, align 8
+  call void @gcry_md_close(ptr noundef %27) #6
+  %28 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %8, i64 noundef 16) #6
+  %.not15 = icmp eq i32 %28, 0
+  br i1 %.not15, label %29, label %31
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %11, align 16
-  store i64 %27, ptr %2, align 1
-  br label %28
+29:                                               ; preds = %17
+  %30 = load i64, ptr %11, align 16
+  store i64 %30, ptr %2, align 1
+  br label %31
 
-28:                                               ; preds = %17, %15, %7, %26
+31:                                               ; preds = %17, %15, %7, %29
   ret void
 }
 

@@ -57,14 +57,14 @@ entry:
   %hostname.i = alloca %"class.std::__cxx11::basic_string", align 8
   %s.i = alloca %"class.rocksdb::Status", align 8
   %memory_allocator = getelementptr inbounds i8, ptr %opts, i64 24
+  %0 = load ptr, ptr %memory_allocator, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %opts, i64 32
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %memory_allocator, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -81,7 +81,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %memory_allocator_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <2 x ptr> %1, ptr %memory_allocator_.i, align 8
+  store ptr %0, ptr %memory_allocator_.i, align 8
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
   %eviction_callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %eviction_callback_.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16ShardedCacheBaseE, i64 16), ptr %this, align 8

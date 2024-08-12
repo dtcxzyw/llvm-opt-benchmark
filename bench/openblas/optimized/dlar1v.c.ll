@@ -599,14 +599,13 @@ thread-pre-split:                                 ; preds = %21, %34
   %446 = phi double [ %444, %440 ], [ %439, %430 ]
   %447 = getelementptr inbounds double, ptr %25, i64 %426
   store double %446, ptr %447, align 8, !tbaa !7
-  %448 = insertelement <2 x double> poison, double %428, i64 0
-  %449 = insertelement <2 x double> %448, double %446, i64 1
-  %450 = fcmp oge <2 x double> %449, zeroinitializer
-  %451 = fneg <2 x double> %449
-  %452 = select <2 x i1> %450, <2 x double> %449, <2 x double> %451
-  %shift = shufflevector <2 x double> %452, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %453 = fadd <2 x double> %452, %shift
-  %454 = extractelement <2 x double> %453, i64 0
+  %448 = fcmp oge double %446, 0.000000e+00
+  %449 = fneg double %446
+  %450 = select i1 %448, double %446, double %449
+  %451 = fcmp oge double %428, 0.000000e+00
+  %452 = fneg double %428
+  %453 = select i1 %451, double %428, double %452
+  %454 = fadd double %453, %450
   %455 = getelementptr inbounds double, ptr %27, i64 %426
   %456 = load double, ptr %455, align 8, !tbaa !7
   %457 = fcmp oge double %456, 0.000000e+00
@@ -706,7 +705,7 @@ thread-pre-split:                                 ; preds = %21, %34
   br label %514
 
 514:                                              ; preds = %554, %509
-  %515 = phi i64 [ %.pre-phi101, %509 ], [ %542, %554 ]
+  %515 = phi i64 [ %.pre-phi101, %509 ], [ %541, %554 ]
   %516 = getelementptr inbounds double, ptr %25, i64 %515
   %517 = load double, ptr %516, align 8, !tbaa !7
   %518 = fcmp oeq double %517, 0.000000e+00
@@ -736,15 +735,14 @@ thread-pre-split:                                 ; preds = %21, %34
   %536 = phi double [ %534, %530 ], [ %529, %519 ]
   %537 = getelementptr i8, ptr %516, i64 8
   store double %536, ptr %537, align 8, !tbaa !7
-  %538 = insertelement <2 x double> poison, double %517, i64 0
-  %539 = insertelement <2 x double> %538, double %536, i64 1
-  %540 = fcmp oge <2 x double> %539, zeroinitializer
-  %541 = fneg <2 x double> %539
-  %542 = add nsw i64 %515, 1
-  %543 = select <2 x i1> %540, <2 x double> %539, <2 x double> %541
-  %shift164 = shufflevector <2 x double> %543, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %544 = fadd <2 x double> %543, %shift164
-  %545 = extractelement <2 x double> %544, i64 0
+  %538 = fcmp oge double %517, 0.000000e+00
+  %539 = fneg double %517
+  %540 = select i1 %538, double %517, double %539
+  %541 = add nsw i64 %515, 1
+  %542 = fcmp oge double %536, 0.000000e+00
+  %543 = fneg double %536
+  %544 = select i1 %542, double %536, double %543
+  %545 = fadd double %540, %544
   %546 = getelementptr inbounds double, ptr %27, i64 %515
   %547 = load double, ptr %546, align 8, !tbaa !7
   %548 = fcmp oge double %547, 0.000000e+00
@@ -759,12 +757,12 @@ thread-pre-split:                                 ; preds = %21, %34
   %555 = load double, ptr %13, align 8, !tbaa !7
   %556 = call double @llvm.fmuladd.f64(double %536, double %536, double %555)
   store double %556, ptr %13, align 8, !tbaa !7
-  %557 = icmp eq i64 %542, %512
+  %557 = icmp eq i64 %541, %512
   br i1 %557, label %.loopexit28, label %514, !llvm.loop !21
 
 .loopexit:                                        ; preds = %535, %480
   %558 = phi i64 [ %481, %480 ], [ %515, %535 ]
-  %559 = phi i64 [ %488, %480 ], [ %542, %535 ]
+  %559 = phi i64 [ %488, %480 ], [ %541, %535 ]
   %560 = trunc i64 %558 to i32
   %561 = getelementptr inbounds double, ptr %25, i64 %559
   store double 0.000000e+00, ptr %561, align 8, !tbaa !7

@@ -2569,14 +2569,17 @@ entry:
   store i32 0, ptr %m_ref.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype10param_size6sparamE, i64 16), ptr %call, align 8
   %m_param.i = getelementptr inbounds i8, ptr %call, i64 16
-  %0 = load <2 x ptr>, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  store <2 x ptr> %0, ptr %m_param.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %p, align 8
+  store ptr %0, ptr %m_param.i, align 8
+  %m_manager.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_manager3.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = load ptr, ptr %m_manager3.i.i, align 8
+  store ptr %1, ptr %m_manager.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8datatype10param_size6sparamC2ER7obj_refI4sort11ast_managerE.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %entry
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
@@ -4743,8 +4746,9 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %for.cond.preheader.i.i.i.i.i, label %_ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i:  ; preds = %invoke.cont
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %2 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
@@ -4753,7 +4757,9 @@ _ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i:  ; preds = %invoke.cont
           to label %call3.i.i.i.noexc unwind label %ehcleanup121.thread
 
 call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i
-  store <2 x i32> %1, ptr %call3.i.i.i29, align 4
+  store i32 %2, ptr %call3.i.i.i29, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i29, i64 4
+  store i32 %1, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i29, i64 8
   %3 = load ptr, ptr %names, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, null

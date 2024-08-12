@@ -5598,40 +5598,68 @@ for.body11.preheader.i:                           ; preds = %sw.bb5.i
 for.body11.i:                                     ; preds = %for.body11.i, %for.body11.preheader.i
   %dec950.i = phi i64 [ %dec9.i, %for.body11.i ], [ %dec947.i, %for.body11.preheader.i ]
   %p.149.i = phi ptr [ %add.ptr22.i, %for.body11.i ], [ %7, %for.body11.preheader.i ]
-  %8 = load <4 x i8>, ptr %p.149.i, align 1
-  %9 = shufflevector <4 x i8> %8, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %9, ptr %p.149.i, align 1
+  %8 = load i8, ptr %p.149.i, align 1
+  %arrayidx14.i = getelementptr i8, ptr %p.149.i, i64 1
+  %9 = load i8, ptr %arrayidx14.i, align 1
+  %arrayidx15.i = getelementptr i8, ptr %p.149.i, i64 3
+  %10 = load i8, ptr %arrayidx15.i, align 1
+  store i8 %10, ptr %p.149.i, align 1
+  %arrayidx17.i = getelementptr i8, ptr %p.149.i, i64 2
+  %11 = load i8, ptr %arrayidx17.i, align 1
+  store i8 %11, ptr %arrayidx14.i, align 1
+  store i8 %9, ptr %arrayidx17.i, align 1
+  store i8 %8, ptr %arrayidx15.i, align 1
   %add.ptr22.i = getelementptr i8, ptr %p.149.i, i64 4
   %dec9.i = add nsw i64 %dec950.i, -1
   %cmp10.not.i = icmp eq i64 %dec950.i, 0
   br i1 %cmp10.not.i, label %array_array_byteswap_impl.exit, label %for.body11.i, !llvm.loop !33
 
 sw.bb24.i:                                        ; preds = %entry
-  %10 = getelementptr i8, ptr %self, i64 16
-  %self.val.i = load i64, ptr %10, align 8
+  %12 = getelementptr i8, ptr %self, i64 16
+  %self.val.i = load i64, ptr %12, align 8
   %dec2843.i = add i64 %self.val.i, -1
   %cmp2944.i = icmp sgt i64 %dec2843.i, -1
   br i1 %cmp2944.i, label %for.body30.preheader.i, label %array_array_byteswap_impl.exit
 
 for.body30.preheader.i:                           ; preds = %sw.bb24.i
   %ob_item25.i = getelementptr inbounds i8, ptr %self, i64 24
-  %11 = load ptr, ptr %ob_item25.i, align 8
+  %13 = load ptr, ptr %ob_item25.i, align 8
   br label %for.body30.i
 
 for.body30.i:                                     ; preds = %for.body30.i, %for.body30.preheader.i
   %dec2846.i = phi i64 [ %dec28.i, %for.body30.i ], [ %dec2843.i, %for.body30.preheader.i ]
-  %p.245.i = phi ptr [ %add.ptr50.i, %for.body30.i ], [ %11, %for.body30.preheader.i ]
-  %12 = load <8 x i8>, ptr %p.245.i, align 1
-  %13 = shufflevector <8 x i8> %12, <8 x i8> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  store <8 x i8> %13, ptr %p.245.i, align 1
+  %p.245.i = phi ptr [ %add.ptr50.i, %for.body30.i ], [ %13, %for.body30.preheader.i ]
+  %14 = load i8, ptr %p.245.i, align 1
+  %arrayidx34.i = getelementptr i8, ptr %p.245.i, i64 1
+  %15 = load i8, ptr %arrayidx34.i, align 1
+  %arrayidx35.i = getelementptr i8, ptr %p.245.i, i64 2
+  %16 = load i8, ptr %arrayidx35.i, align 1
+  %arrayidx36.i = getelementptr i8, ptr %p.245.i, i64 3
+  %17 = load i8, ptr %arrayidx36.i, align 1
+  %arrayidx37.i = getelementptr i8, ptr %p.245.i, i64 7
+  %18 = load i8, ptr %arrayidx37.i, align 1
+  store i8 %18, ptr %p.245.i, align 1
+  %arrayidx39.i = getelementptr i8, ptr %p.245.i, i64 6
+  %19 = load i8, ptr %arrayidx39.i, align 1
+  store i8 %19, ptr %arrayidx34.i, align 1
+  %arrayidx41.i = getelementptr i8, ptr %p.245.i, i64 5
+  %20 = load i8, ptr %arrayidx41.i, align 1
+  store i8 %20, ptr %arrayidx35.i, align 1
+  %arrayidx43.i = getelementptr i8, ptr %p.245.i, i64 4
+  %21 = load i8, ptr %arrayidx43.i, align 1
+  store i8 %21, ptr %arrayidx36.i, align 1
+  store i8 %17, ptr %arrayidx43.i, align 1
+  store i8 %16, ptr %arrayidx41.i, align 1
+  store i8 %15, ptr %arrayidx39.i, align 1
+  store i8 %14, ptr %arrayidx37.i, align 1
   %add.ptr50.i = getelementptr i8, ptr %p.245.i, i64 8
   %dec28.i = add nsw i64 %dec2846.i, -1
   %cmp29.not.i = icmp eq i64 %dec2846.i, 0
   br i1 %cmp29.not.i, label %array_array_byteswap_impl.exit, label %for.body30.i, !llvm.loop !34
 
 sw.default.i:                                     ; preds = %entry
-  %14 = load ptr, ptr @PyExc_RuntimeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.93) #11
+  %22 = load ptr, ptr @PyExc_RuntimeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.93) #11
   br label %array_array_byteswap_impl.exit
 
 array_array_byteswap_impl.exit:                   ; preds = %for.body30.i, %for.body11.i, %for.body.i, %entry, %sw.bb1.i, %sw.bb5.i, %sw.bb24.i, %sw.default.i

@@ -16236,7 +16236,9 @@ entry:
   %init_hook_ran_.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %init_hook_ran_.i.i, align 4
   %async_id_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %async_id_.i.i, align 8
+  store double -1.000000e+00, ptr %async_id_.i.i, align 8
+  %trigger_async_id_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  store double -1.000000e+00, ptr %trigger_async_id_.i.i, align 8
   %cmp.not.i = icmp eq i32 %provider, 0
   br i1 %cmp.not.i, label %do.body9.i, label %_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEdb.exit
 
@@ -16264,7 +16266,9 @@ entry:
   %init_hook_ran_.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %init_hook_ran_.i, align 4
   %async_id_.i = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %async_id_.i, align 8
+  store double -1.000000e+00, ptr %async_id_.i, align 8
+  %trigger_async_id_.i = getelementptr inbounds i8, ptr %this, i64 48
+  store double -1.000000e+00, ptr %trigger_async_id_.i, align 8
   %cmp.not = icmp eq i32 %provider, 0
   br i1 %cmp.not, label %do.body9, label %do.end10
 
@@ -16292,7 +16296,9 @@ entry:
   %init_hook_ran_ = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %init_hook_ran_, align 4
   %async_id_ = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %async_id_, align 8
+  store double -1.000000e+00, ptr %async_id_, align 8
+  %trigger_async_id_ = getelementptr inbounds i8, ptr %this, i64 48
+  store double -1.000000e+00, ptr %trigger_async_id_, align 8
   ret void
 }
 
@@ -16308,7 +16314,9 @@ entry:
   %init_hook_ran_.i.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %init_hook_ran_.i.i, align 4
   %async_id_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %async_id_.i.i, align 8
+  store double -1.000000e+00, ptr %async_id_.i.i, align 8
+  %trigger_async_id_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  store double -1.000000e+00, ptr %trigger_async_id_.i.i, align 8
   %cmp.not.i = icmp eq i32 %provider, 0
   br i1 %cmp.not.i, label %do.body9.i, label %_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEdb.exit
 
@@ -16318,7 +16326,6 @@ do.body9.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEdb.exit: ; preds = %entry
-  %trigger_async_id_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %provider, ptr %provider_type_.i.i, align 8
   tail call void @_ZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %object.coerce, double noundef %execution_async_id, i1 noundef zeroext true)
   store i8 1, ptr %init_hook_ran_.i.i, align 4

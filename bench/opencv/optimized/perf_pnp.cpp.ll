@@ -1158,7 +1158,13 @@ define internal void @_ZN11opencv_testL44gtest_PointsNum_Algo_solvePnP_EvalGener
   %19 = getelementptr inbounds i8, ptr %16, i64 16
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %19, ptr %20, align 8, !noalias !31
-  store <4 x i32> <i32 0, i32 1, i32 4, i32 3>, ptr %16, align 4, !noalias !31
+  store i32 0, ptr %16, align 4, !noalias !31
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i10.i, align 4, !noalias !31
+  %.sroa.3.0..sroa_idx.i11.i = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 4, ptr %.sroa.3.0..sroa_idx.i11.i, align 4, !noalias !31
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 3, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !31
   %21 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %19, ptr %21, align 8, !noalias !31
   store ptr %14, ptr %3, align 8, !alias.scope !32, !noalias !8
@@ -2612,7 +2618,13 @@ define internal void @_ZN11opencv_testL55gtest_PointsNum_Algo_solvePnPSmallPoint
   %19 = getelementptr inbounds i8, ptr %16, i64 16
   %20 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %19, ptr %20, align 8, !noalias !71
-  store <4 x i32> <i32 2, i32 1, i32 3, i32 4>, ptr %16, align 4, !noalias !71
+  store i32 2, ptr %16, align 4, !noalias !71
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !71
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 3, ptr %.sroa.3.0..sroa_idx.i.i, align 4, !noalias !71
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 4, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !71
   %21 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %19, ptr %21, align 8, !noalias !71
   store ptr %14, ptr %3, align 8, !alias.scope !72, !noalias !48

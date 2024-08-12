@@ -31,10 +31,16 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_29FlatImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
+  %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   tail call void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29FlatImageE, i64 16), ptr %this, align 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
+  %max.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 0, ptr %ref.tmp, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 4
+  %y3.i2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i32 -1, ptr %y3.i2.i, align 4
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 

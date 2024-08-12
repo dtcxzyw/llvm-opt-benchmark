@@ -74,9 +74,15 @@ entry:
   %psl_version = alloca [40 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %br_version, ptr noundef nonnull align 16 dereferenceable(40) @__const.curl_version.br_version, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %zst_version, i8 0, i64 40, i1 false)
-  store <4 x i8> <i8 122, i8 115, i8 116, i8 100>, ptr %zst_version, align 16
-  %0 = getelementptr inbounds i8, ptr %zst_version, i64 4
-  store i8 47, ptr %0, align 4
+  store i8 122, ptr %zst_version, align 16
+  %0 = getelementptr inbounds i8, ptr %zst_version, i64 1
+  store i8 115, ptr %0, align 1
+  %1 = getelementptr inbounds i8, ptr %zst_version, i64 2
+  store i8 116, ptr %1, align 2
+  %2 = getelementptr inbounds i8, ptr %zst_version, i64 3
+  store i8 100, ptr %2, align 1
+  %3 = getelementptr inbounds i8, ptr %zst_version, i64 4
+  store i8 47, ptr %3, align 4
   store ptr @.str, ptr %src, align 16
   call void @Curl_ssl_version(ptr noundef nonnull %ssl_version, i64 noundef 200) #7
   %arrayidx4 = getelementptr inbounds i8, ptr %src, i64 8
@@ -128,8 +134,8 @@ for.body:                                         ; preds = %entry, %if.end42
   %outp.025 = phi ptr [ @curl_version.out, %entry ], [ %add.ptr, %if.end42 ]
   %outlen.024 = phi i64 [ 300, %entry ], [ %sub, %if.end42 ]
   %arrayidx38 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx38, align 8
-  %call39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
+  %4 = load ptr, ptr %arrayidx38, align 8
+  %call39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %add = add i64 %call39, 2
   %cmp40.not = icmp ugt i64 %outlen.024, %add
   br i1 %cmp40.not, label %if.end, label %for.end
@@ -146,10 +152,10 @@ if.then41:                                        ; preds = %if.end
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end
-  %2 = phi ptr [ %.pre, %if.then41 ], [ %1, %if.end ]
+  %5 = phi ptr [ %.pre, %if.then41 ], [ %4, %if.end ]
   %outlen.1 = phi i64 [ %dec, %if.then41 ], [ %outlen.024, %if.end ]
   %outp.1 = phi ptr [ %incdec.ptr, %if.then41 ], [ %outp.025, %if.end ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %outp.1, ptr align 1 %2, i64 %call39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %outp.1, ptr align 1 %5, i64 %call39, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %outp.1, i64 %call39
   %sub = sub i64 %outlen.1, %call39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

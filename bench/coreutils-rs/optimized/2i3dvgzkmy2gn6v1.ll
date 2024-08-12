@@ -96,11 +96,11 @@ define hidden void @"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = load <2 x i64>, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i64, ptr %7, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %9 = icmp eq i64 %7, 0
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h36c770a0d6aa21e8E.llvm.687266931824691263.exit"
 
 10:                                               ; preds = %2
@@ -120,7 +120,9 @@ define hidden void @"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h36c770a0d6aa21e8E.llvm.687266931824691263.exit": ; preds = %2
   store ptr %4, ptr %0, align 8, !alias.scope !6, !noalias !13
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %8, ptr %15, align 8, !alias.scope !6, !noalias !13
+  store i64 %6, ptr %15, align 8, !alias.scope !6, !noalias !13
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %8, ptr %16, align 8, !alias.scope !6, !noalias !13
   ret void
 }
 
@@ -3595,7 +3597,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   %8 = alloca {}, align 1
   %9 = alloca { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } } }, align 8
   %10 = alloca { { ptr, ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } }, { ptr, ptr, { { { { ptr, i64 }, i64 }, i64 }, i64 }, { ptr, { ptr, i64, {} } } } }, align 8
-  %11 = alloca { ptr, { ptr, i64, i64, {} } }, align 16
+  %11 = alloca { ptr, { ptr, i64, i64, {} } }, align 8
   %12 = alloca { { { { ptr, i64 }, i64 }, i64 }, i64 }, align 8
   %13 = alloca { ptr, { ptr, i64, i64, {} } }, align 8
   %14 = alloca { { ptr, i64, i64, {} }, { ptr, i64, i64, {} } }, align 8
@@ -3632,21 +3634,25 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  %.sroa.063.0.copyload = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %.sroa.464.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.464.0.copyload = load ptr, ptr %.sroa.464.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx65 = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx65, align 8
+  %27 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %.sroa.464.0.copyload, ptr %27, align 8, !alias.scope !669, !noalias !672
   %.sroa.4.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa_idx.i7, align 16, !alias.scope !669, !noalias !672
+  store i64 %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa_idx.i7, align 8, !alias.scope !669, !noalias !672
   %.sroa.5.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 0, ptr %.sroa.5.0..sroa_idx.i8, align 8, !alias.scope !669, !noalias !672
-  %27 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %27, ptr %11, align 16, !alias.scope !669, !noalias !672
+  store ptr %.sroa.063.0.copyload, ptr %11, align 8, !alias.scope !669, !noalias !672
   call void @_ZN5rayon4iter8plumbing8Producer9fold_with17he3c90c3ed6e2da9cE(ptr noalias nocapture noundef nonnull sret({ ptr, { ptr, i64, i64, {} } }) align 8 dereferenceable(32) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %28 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !alias.scope !674
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %56
+  br label %52
 
 29:                                               ; preds = %22, %25
   %.sink.i = phi i64 [ %26, %25 ], [ %.0.sroa.speculated.i.i, %22 ]
@@ -3801,27 +3807,31 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
 _ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit: ; preds = %43, %47
   %.sroa.053.0.copyload = load ptr, ptr %14, align 8
   %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.355.0.copyload = load i64, ptr %.sroa.355.0..sroa_idx, align 8
   %.sroa.558.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
   %48 = getelementptr inbounds i8, ptr %14, i64 24
   %.sroa.061.0.copyload = load ptr, ptr %48, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.355.0..sroa_idx56 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
-  %49 = load <2 x i64>, ptr %.sroa.355.0..sroa_idx, align 8
-  %50 = load <2 x i64>, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 40
+  %.sroa.362.0.copyload = load i64, ptr %.sroa.362.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
-  %51 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %.sroa.053.0.copyload, i64 %.sroa.558.0.copyload
-  %.not.i13 = icmp eq ptr %51, %.sroa.061.0.copyload
-  %52 = insertelement <2 x i1> poison, i1 %.not.i13, i64 0
-  %53 = shufflevector <2 x i1> %52, <2 x i1> poison, <2 x i32> zeroinitializer
-  %54 = select <2 x i1> %53, <2 x i64> %50, <2 x i64> zeroinitializer
-  %55 = add <2 x i64> %54, %49
+  %49 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %.sroa.053.0.copyload, i64 %.sroa.558.0.copyload
+  %.not.i13 = icmp eq ptr %49, %.sroa.061.0.copyload
+  %50 = select i1 %.not.i13, i64 %.sroa.2.0.copyload, i64 0
+  %.sroa.355.0 = add i64 %50, %.sroa.355.0.copyload
+  %51 = select i1 %.not.i13, i64 %.sroa.362.0.copyload, i64 0
+  %.sroa.558.0 = add i64 %51, %.sroa.558.0.copyload
   store ptr %.sroa.053.0.copyload, ptr %0, align 8, !alias.scope !690, !noalias !694
-  store <2 x i64> %55, ptr %.sroa.355.0..sroa_idx56, align 8, !alias.scope !690, !noalias !694
+  %.sroa.355.0..sroa_idx56 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.355.0, ptr %.sroa.355.0..sroa_idx56, align 8, !alias.scope !690, !noalias !694
+  %.sroa.558.0..sroa_idx59 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.558.0, ptr %.sroa.558.0..sroa_idx59, align 8, !alias.scope !690, !noalias !694
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %56
+  br label %52
 
-56:                                               ; preds = %.critedge, %_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit
+52:                                               ; preds = %.critedge, %_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit
   ret void
 }
 
@@ -6157,27 +6167,31 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN97_$LT$rayon..slice..chunks..ChunksMut$LT$T$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$13with_producer17h0770524e17882fdbE"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64 }, i64 }, i64 }, i64 }, align 8
-  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1187)
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  %8 = load i64, ptr %7, align 8, !alias.scope !1187, !noalias !1190, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = load i64, ptr %10, align 8, !alias.scope !1187, !noalias !1190, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1193
-  store ptr %5, ptr %4, align 8, !noalias !1194
+  store ptr %7, ptr %4, align 8, !noalias !1194
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load <2 x i64>, ptr %6, align 8
-  store <2 x i64> %9, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1194
+  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1194
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1194
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !1190
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1195
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 0, ptr %10, align 8, !noalias !1199
-  %11 = tail call noundef i64 @_ZN4core3cmp6min_by17hdf1ceff4d555c927E.llvm.5712253741694332460(i64 noundef %8, i64 noundef -1), !noalias !1201
-  %12 = tail call noundef i64 @_ZN10rayon_core19current_num_threads17h26a7b7a674baf6e7E(), !noalias !1214
-  %.0.sroa.speculated.i2.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %11, i64 1)
-  %13 = udiv i64 %.sroa.3.0.copyload, %.0.sroa.speculated.i2.i.i.i.i.i
-  %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 %12)
+  store i64 %11, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1195
+  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 0, ptr %12, align 8, !noalias !1199
+  %13 = tail call noundef i64 @_ZN4core3cmp6min_by17hdf1ceff4d555c927E.llvm.5712253741694332460(i64 noundef %11, i64 noundef -1), !noalias !1201
+  %14 = tail call noundef i64 @_ZN10rayon_core19current_num_threads17h26a7b7a674baf6e7E(), !noalias !1214
+  %.0.sroa.speculated.i2.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %13, i64 1)
+  %15 = udiv i64 %.sroa.3.0.copyload, %.0.sroa.speculated.i2.i.i.i.i.i
+  %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %14)
   call void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2606dee7c2aa297aE(ptr noalias nocapture noundef nonnull sret({ ptr, i64, i64, {} }) align 8 dereferenceable(24) %0, i64 noundef %.sroa.3.0.copyload, i1 noundef zeroext false, i64 noundef %spec.store.select.i.i.i.i.i, i64 noundef 1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2), !noalias !1215
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1193
   ret void
@@ -6186,29 +6200,33 @@ define hidden void @"_ZN97_$LT$rayon..slice..chunks..ChunksMut$LT$T$GT$$u20$as$u
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN97_$LT$rayon..slice..chunks..ChunksMut$LT$T$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$13with_producer17h2bb9f1983b35d1f2E"(ptr noalias nocapture noundef sret({ ptr, ptr, i64, {}, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64 }, i64 }, i64 }, i64 }, align 8
-  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1216)
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load i64, ptr %7, align 8, !alias.scope !1216, !noalias !1219, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !1216, !noalias !1219, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1222
-  store ptr %5, ptr %4, align 8, !noalias !1223
+  store ptr %7, ptr %4, align 8, !noalias !1223
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load <2 x i64>, ptr %6, align 8
-  store <2 x i64> %9, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1223
-  %10 = load ptr, ptr %2, align 8, !alias.scope !1216, !noalias !1219, !nonnull !4, !align !5, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !1216, !noalias !1219, !noundef !4
+  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1223
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1223
+  %12 = load ptr, ptr %2, align 8, !alias.scope !1216, !noalias !1219, !nonnull !4, !align !5, !noundef !4
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load i64, ptr %13, align 8, !alias.scope !1216, !noalias !1219, !noundef !4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1224
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 0, ptr %13, align 8, !noalias !1228
-  %14 = tail call noundef i64 @_ZN4core3cmp6min_by17hdf1ceff4d555c927E.llvm.5712253741694332460(i64 noundef %8, i64 noundef -1), !noalias !1230
-  %15 = tail call noundef i64 @_ZN10rayon_core19current_num_threads17h26a7b7a674baf6e7E(), !noalias !1243
-  %.0.sroa.speculated.i2.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 1)
-  %16 = udiv i64 %12, %.0.sroa.speculated.i2.i.i.i.i.i
-  %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 %15)
-  call void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0c64e7bb7bb05c40E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, {}, {} }) align 8 dereferenceable(24) %0, i64 noundef %12, i1 noundef zeroext false, i64 noundef %spec.store.select.i.i.i.i.i, i64 noundef 1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !1244
+  store i64 %11, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1224
+  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 0, ptr %15, align 8, !noalias !1228
+  %16 = tail call noundef i64 @_ZN4core3cmp6min_by17hdf1ceff4d555c927E.llvm.5712253741694332460(i64 noundef %11, i64 noundef -1), !noalias !1230
+  %17 = tail call noundef i64 @_ZN10rayon_core19current_num_threads17h26a7b7a674baf6e7E(), !noalias !1243
+  %.0.sroa.speculated.i2.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %16, i64 1)
+  %18 = udiv i64 %14, %.0.sroa.speculated.i2.i.i.i.i.i
+  %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %17)
+  call void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0c64e7bb7bb05c40E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, {}, {} }) align 8 dereferenceable(24) %0, i64 noundef %14, i1 noundef zeroext false, i64 noundef %spec.store.select.i.i.i.i.i, i64 noundef 1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !1244
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1222
   ret void
 }
@@ -6261,9 +6279,13 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %7
@@ -6293,9 +6315,13 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %7

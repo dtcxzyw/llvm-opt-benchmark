@@ -1128,18 +1128,20 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %1 = phi ptr [ null, %_ZNSt10unique_ptrISt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS8_EESt14default_deleteISA_EE5resetEPSA_.exit ], [ %.pre, %entry.if.end_crit_edge ]
   %2 = phi ptr [ %call3, %_ZNSt10unique_ptrISt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS8_EESt14default_deleteISA_EE5resetEPSA_.exit ], [ %0, %entry.if.end_crit_edge ]
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load ptr, ptr %ex, align 8
-  store ptr %3, ptr %2, align 8
+  %4 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %5 = load ptr, ptr %ex, align 8
+  store ptr %5, ptr %2, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %ex, i64 8
-  %4 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %ex, i64 16
-  %5 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
-  store ptr %4, ptr %_M_finish.i.i.i, align 8
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %1, ptr %ex, align 8
-  store <2 x ptr> %5, ptr %_M_finish.i2.i.i, align 8
+  store ptr %3, ptr %_M_finish.i2.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i4.i.i, align 8
   ret void
 }
 

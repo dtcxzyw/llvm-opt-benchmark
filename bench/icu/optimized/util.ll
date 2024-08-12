@@ -1358,14 +1358,18 @@ if.else83:                                        ; preds = %if.else73
   br i1 %cmp85, label %if.then105, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %land.lhs.true76, %if.else83
-  %54 = insertelement <4 x i32> poison, i32 %c, i64 0
-  %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> zeroinitializer
-  %.fr251 = freeze <4 x i32> %55
-  %56 = add <4 x i32> %.fr251, <i32 -127, i32 -48, i32 -65, i32 -97>
-  %57 = icmp ult <4 x i32> %56, <i32 -94, i32 10, i32 26, i32 26>
-  %58 = bitcast <4 x i1> %57 to i4
-  %.not = icmp eq i4 %58, 0
-  br i1 %.not, label %if.then105, label %lor.lhs.false102
+  %54 = add i32 %c, -127
+  %or.cond1 = icmp ult i32 %54, -94
+  %55 = add nsw i32 %c, -48
+  %or.cond2 = icmp ult i32 %55, 10
+  %or.cond = select i1 %or.cond1, i1 true, i1 %or.cond2
+  %56 = add nsw i32 %c, -65
+  %or.cond3 = icmp ult i32 %56, 26
+  %or.cond60 = select i1 %or.cond, i1 true, i1 %or.cond3
+  %57 = add nsw i32 %c, -97
+  %or.cond4 = icmp ult i32 %57, 26
+  %or.cond61 = select i1 %or.cond60, i1 true, i1 %or.cond4
+  br i1 %or.cond61, label %lor.lhs.false102, label %if.then105
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false86
   %call103 = tail call noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %c)

@@ -1894,15 +1894,15 @@ range_gist_double_sorting_split.exit:             ; preds = %range_gist_fallback
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %441
+  br label %444
 
 320:                                              ; preds = %58
   tail call fastcc void @range_gist_single_sorting_split(ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull %13, i1 noundef zeroext true)
-  br label %441
+  br label %444
 
 321:                                              ; preds = %58
   tail call fastcc void @range_gist_single_sorting_split(ptr noundef %21, ptr noundef nonnull %10, ptr noundef nonnull %13, i1 noundef zeroext false)
-  br label %441
+  br label %444
 
 322:                                              ; preds = %58
   %323 = load i32, ptr %10, align 8
@@ -1990,7 +1990,7 @@ range_gist_fallback_split.exit:                   ; preds = %322, %._crit_edge.l
   store i64 %.0.lcssa.i, ptr %356, align 8
   %357 = getelementptr inbounds i8, ptr %13, i64 48
   store i64 %.030.lcssa.i, ptr %357, align 8
-  br label %441
+  br label %444
 
 358:                                              ; preds = %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %7, i8 0, i64 36, i1 false)
@@ -2000,7 +2000,7 @@ range_gist_fallback_split.exit:                   ; preds = %322, %._crit_edge.l
 
 361:                                              ; preds = %358
   store i32 1, ptr %7, align 16
-  br label %397
+  br label %400
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2039,127 +2039,133 @@ range_gist_fallback_split.exit:                   ; preds = %322, %._crit_edge.l
   store i32 1, ptr %388, align 16
   %389 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 1, ptr %389, align 16
-  br label %397
+  br label %400
 
 390:                                              ; preds = %382, %362
   %391 = icmp sgt i32 %379, 0
   %392 = icmp sgt i32 %378, 0
   %or.cond3 = and i1 %392, %391
-  br i1 %or.cond3, label %393, label %394
+  br i1 %or.cond3, label %393, label %397
 
 393:                                              ; preds = %390
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %7, align 16
-  br label %397
-
-394:                                              ; preds = %390
-  %395 = sext i32 %.2 to i64
-  %396 = getelementptr [9 x i32], ptr %7, i64 0, i64 %395
+  store i32 1, ptr %7, align 16
+  %394 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 1, ptr %394, align 4
+  %395 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 1, ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %396, align 4
-  br label %397
+  br label %400
 
-397:                                              ; preds = %387, %394, %393, %361
-  %398 = load i32, ptr %10, align 8
-  %399 = add i32 %398, 65535
-  %400 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 0, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %13, i64 40
-  store i32 0, ptr %401, align 8
-  %402 = and i32 %399, 65535
-  %.not35.i85 = icmp eq i32 %402, 0
+397:                                              ; preds = %390
+  %398 = sext i32 %.2 to i64
+  %399 = getelementptr [9 x i32], ptr %7, i64 0, i64 %398
+  store i32 1, ptr %399, align 4
+  br label %400
+
+400:                                              ; preds = %387, %397, %393, %361
+  %401 = load i32, ptr %10, align 8
+  %402 = add i32 %401, 65535
+  %403 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 0, ptr %403, align 8
+  %404 = getelementptr inbounds i8, ptr %13, i64 40
+  store i32 0, ptr %404, align 8
+  %405 = and i32 %402, 65535
+  %.not35.i85 = icmp eq i32 %405, 0
   br i1 %.not35.i85, label %range_gist_class_split.exit, label %.lr.ph.i86
 
-.lr.ph.i86:                                       ; preds = %397
-  %403 = trunc i32 %399 to i16
-  br label %404
+.lr.ph.i86:                                       ; preds = %400
+  %406 = trunc i32 %402 to i16
+  br label %407
 
-404:                                              ; preds = %431, %.lr.ph.i86
-  %.038.i87 = phi ptr [ null, %.lr.ph.i86 ], [ %.2.i95, %431 ]
-  %.03037.i88 = phi ptr [ null, %.lr.ph.i86 ], [ %.232.i94, %431 ]
-  %.03336.i89 = phi i16 [ 1, %.lr.ph.i86 ], [ %436, %431 ]
-  %405 = zext i16 %.03336.i89 to i64
-  %406 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %405
-  %407 = load i64, ptr %406, align 8
-  %408 = inttoptr i64 %407 to ptr
-  %409 = tail call ptr @pg_detoast_datum(ptr noundef %408) #10
-  %410 = tail call signext i8 @range_get_flags(ptr noundef %409) #10
-  %411 = zext i8 %410 to i32
-  %412 = and i32 %411, 1
-  %.not.i.i90 = icmp eq i32 %412, 0
-  br i1 %.not.i.i90, label %413, label %get_gist_range_class.exit.i
+407:                                              ; preds = %434, %.lr.ph.i86
+  %.038.i87 = phi ptr [ null, %.lr.ph.i86 ], [ %.2.i95, %434 ]
+  %.03037.i88 = phi ptr [ null, %.lr.ph.i86 ], [ %.232.i94, %434 ]
+  %.03336.i89 = phi i16 [ 1, %.lr.ph.i86 ], [ %439, %434 ]
+  %408 = zext i16 %.03336.i89 to i64
+  %409 = getelementptr [0 x %struct.GISTENTRY], ptr %14, i64 0, i64 %408
+  %410 = load i64, ptr %409, align 8
+  %411 = inttoptr i64 %410 to ptr
+  %412 = tail call ptr @pg_detoast_datum(ptr noundef %411) #10
+  %413 = tail call signext i8 @range_get_flags(ptr noundef %412) #10
+  %414 = zext i8 %413 to i32
+  %415 = and i32 %414, 1
+  %.not.i.i90 = icmp eq i32 %415, 0
+  br i1 %.not.i.i90, label %416, label %get_gist_range_class.exit.i
 
-413:                                              ; preds = %404
-  %414 = lshr i32 %411, 3
-  %.2.i.i107 = and i32 %414, 3
-  %415 = lshr i32 %411, 5
-  %416 = and i32 %415, 4
-  %spec.select11.i.i = or disjoint i32 %.2.i.i107, %416
+416:                                              ; preds = %407
+  %417 = lshr i32 %414, 3
+  %.2.i.i107 = and i32 %417, 3
+  %418 = lshr i32 %414, 5
+  %419 = and i32 %418, 4
+  %spec.select11.i.i = or disjoint i32 %.2.i.i107, %419
   br label %get_gist_range_class.exit.i
 
-get_gist_range_class.exit.i:                      ; preds = %413, %404
-  %.0.i.i = phi i32 [ 8, %404 ], [ %spec.select11.i.i, %413 ]
-  %417 = zext nneg i32 %.0.i.i to i64
-  %418 = getelementptr i32, ptr %7, i64 %417
-  %419 = load i32, ptr %418, align 4
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %426
+get_gist_range_class.exit.i:                      ; preds = %416, %407
+  %.0.i.i = phi i32 [ 8, %407 ], [ %spec.select11.i.i, %416 ]
+  %420 = zext nneg i32 %.0.i.i to i64
+  %421 = getelementptr i32, ptr %7, i64 %420
+  %422 = load i32, ptr %421, align 4
+  %423 = icmp eq i32 %422, 0
+  br i1 %423, label %424, label %429
 
-421:                                              ; preds = %get_gist_range_class.exit.i
-  %422 = load i32, ptr %400, align 8
-  %423 = icmp sgt i32 %422, 0
-  br i1 %423, label %424, label %431
+424:                                              ; preds = %get_gist_range_class.exit.i
+  %425 = load i32, ptr %403, align 8
+  %426 = icmp sgt i32 %425, 0
+  br i1 %426, label %427, label %434
 
-424:                                              ; preds = %421
-  %425 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.038.i87, ptr noundef %409)
+427:                                              ; preds = %424
+  %428 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.038.i87, ptr noundef %412)
   br label %.sink.split.i101
 
-426:                                              ; preds = %get_gist_range_class.exit.i
-  %427 = load i32, ptr %401, align 8
-  %428 = icmp sgt i32 %427, 0
-  br i1 %428, label %429, label %431
+429:                                              ; preds = %get_gist_range_class.exit.i
+  %430 = load i32, ptr %404, align 8
+  %431 = icmp sgt i32 %430, 0
+  br i1 %431, label %432, label %434
 
-429:                                              ; preds = %426
-  %430 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.03037.i88, ptr noundef %409)
+432:                                              ; preds = %429
+  %433 = tail call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.03037.i88, ptr noundef %412)
   br label %.sink.split.i101
 
-.sink.split.i101:                                 ; preds = %429, %424
-  %.sink.i102 = phi ptr [ %401, %429 ], [ %400, %424 ]
-  %.sink46.ph.i103 = phi ptr [ %30, %429 ], [ %13, %424 ]
-  %.232.ph.i104 = phi ptr [ %430, %429 ], [ %.03037.i88, %424 ]
-  %.2.ph.i105 = phi ptr [ %.038.i87, %429 ], [ %425, %424 ]
+.sink.split.i101:                                 ; preds = %432, %427
+  %.sink.i102 = phi ptr [ %404, %432 ], [ %403, %427 ]
+  %.sink46.ph.i103 = phi ptr [ %30, %432 ], [ %13, %427 ]
+  %.232.ph.i104 = phi ptr [ %433, %432 ], [ %.03037.i88, %427 ]
+  %.2.ph.i105 = phi ptr [ %.038.i87, %432 ], [ %428, %427 ]
   %.pre.i106 = load i32, ptr %.sink.i102, align 8
-  br label %431
+  br label %434
 
-431:                                              ; preds = %.sink.split.i101, %426, %421
-  %.sink46.i91 = phi ptr [ %13, %421 ], [ %30, %426 ], [ %.sink46.ph.i103, %.sink.split.i101 ]
-  %.sink45.i92 = phi i32 [ %422, %421 ], [ %427, %426 ], [ %.pre.i106, %.sink.split.i101 ]
-  %.sink44.i93 = phi ptr [ %400, %421 ], [ %401, %426 ], [ %.sink.i102, %.sink.split.i101 ]
-  %.232.i94 = phi ptr [ %.03037.i88, %421 ], [ %409, %426 ], [ %.232.ph.i104, %.sink.split.i101 ]
-  %.2.i95 = phi ptr [ %409, %421 ], [ %.038.i87, %426 ], [ %.2.ph.i105, %.sink.split.i101 ]
-  %432 = load ptr, ptr %.sink46.i91, align 8
-  %433 = add i32 %.sink45.i92, 1
-  store i32 %433, ptr %.sink44.i93, align 8
-  %434 = sext i32 %.sink45.i92 to i64
-  %435 = getelementptr i16, ptr %432, i64 %434
-  store i16 %.03336.i89, ptr %435, align 2
-  %436 = add i16 %.03336.i89, 1
-  %.not.i96 = icmp ugt i16 %436, %403
-  br i1 %.not.i96, label %._crit_edge.loopexit.i97, label %404, !llvm.loop !17
+434:                                              ; preds = %.sink.split.i101, %429, %424
+  %.sink46.i91 = phi ptr [ %13, %424 ], [ %30, %429 ], [ %.sink46.ph.i103, %.sink.split.i101 ]
+  %.sink45.i92 = phi i32 [ %425, %424 ], [ %430, %429 ], [ %.pre.i106, %.sink.split.i101 ]
+  %.sink44.i93 = phi ptr [ %403, %424 ], [ %404, %429 ], [ %.sink.i102, %.sink.split.i101 ]
+  %.232.i94 = phi ptr [ %.03037.i88, %424 ], [ %412, %429 ], [ %.232.ph.i104, %.sink.split.i101 ]
+  %.2.i95 = phi ptr [ %412, %424 ], [ %.038.i87, %429 ], [ %.2.ph.i105, %.sink.split.i101 ]
+  %435 = load ptr, ptr %.sink46.i91, align 8
+  %436 = add i32 %.sink45.i92, 1
+  store i32 %436, ptr %.sink44.i93, align 8
+  %437 = sext i32 %.sink45.i92 to i64
+  %438 = getelementptr i16, ptr %435, i64 %437
+  store i16 %.03336.i89, ptr %438, align 2
+  %439 = add i16 %.03336.i89, 1
+  %.not.i96 = icmp ugt i16 %439, %406
+  br i1 %.not.i96, label %._crit_edge.loopexit.i97, label %407, !llvm.loop !17
 
-._crit_edge.loopexit.i97:                         ; preds = %431
-  %437 = ptrtoint ptr %.2.i95 to i64
-  %438 = ptrtoint ptr %.232.i94 to i64
+._crit_edge.loopexit.i97:                         ; preds = %434
+  %440 = ptrtoint ptr %.2.i95 to i64
+  %441 = ptrtoint ptr %.232.i94 to i64
   br label %range_gist_class_split.exit
 
-range_gist_class_split.exit:                      ; preds = %397, %._crit_edge.loopexit.i97
-  %.030.lcssa.i99 = phi i64 [ 0, %397 ], [ %438, %._crit_edge.loopexit.i97 ]
-  %.0.lcssa.i100 = phi i64 [ 0, %397 ], [ %437, %._crit_edge.loopexit.i97 ]
-  %439 = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %.0.lcssa.i100, ptr %439, align 8
-  %440 = getelementptr inbounds i8, ptr %13, i64 48
-  store i64 %.030.lcssa.i99, ptr %440, align 8
-  br label %441
+range_gist_class_split.exit:                      ; preds = %400, %._crit_edge.loopexit.i97
+  %.030.lcssa.i99 = phi i64 [ 0, %400 ], [ %441, %._crit_edge.loopexit.i97 ]
+  %.0.lcssa.i100 = phi i64 [ 0, %400 ], [ %440, %._crit_edge.loopexit.i97 ]
+  %442 = getelementptr inbounds i8, ptr %13, i64 16
+  store i64 %.0.lcssa.i100, ptr %442, align 8
+  %443 = getelementptr inbounds i8, ptr %13, i64 48
+  store i64 %.030.lcssa.i99, ptr %443, align 8
+  br label %444
 
-441:                                              ; preds = %range_gist_double_sorting_split.exit, %321, %range_gist_fallback_split.exit, %320, %range_gist_class_split.exit
+444:                                              ; preds = %range_gist_double_sorting_split.exit, %321, %range_gist_fallback_split.exit, %320, %range_gist_class_split.exit
   ret i64 %12
 }
 

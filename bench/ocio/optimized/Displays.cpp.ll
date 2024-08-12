@@ -674,12 +674,9 @@ entry:
   %cmp.i.i.i.i = fcmp ogt double %mul.i.i.i, 0.000000e+00
   %.sroa.speculated1.i.i.i = select i1 %cmp.i.i.i.i, double %mul.i.i.i, double 0.000000e+00
   %call3.i.i.i = tail call double @pow(double noundef %.sroa.speculated1.i.i.i, double noundef 0x3FC4640000000000) #19
-  %0 = insertelement <2 x double> poison, double %call3.i.i.i, i64 0
-  %1 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> zeroinitializer
-  %2 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1, <2 x double> <double 0x4032DA0000000000, double 1.868750e+01>, <2 x double> <double 0x3FEAC00000000000, double 1.000000e+00>)
-  %3 = extractelement <2 x double> %2, i64 0
-  %4 = extractelement <2 x double> %2, i64 1
-  %div.i.i.i = fdiv double %3, %4
+  %0 = tail call double @llvm.fmuladd.f64(double %call3.i.i.i, double 0x4032DA0000000000, double 0x3FEAC00000000000)
+  %1 = tail call double @llvm.fmuladd.f64(double %call3.i.i.i, double 1.868750e+01, double 1.000000e+00)
+  %div.i.i.i = fdiv double %0, %1
   %cmp.i2.i.i.i = fcmp ogt double %div.i.i.i, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %cmp.i2.i.i.i, double %div.i.i.i, double 0.000000e+00
   %call8.i.i.i = tail call double @pow(double noundef %.sroa.speculated.i.i.i, double noundef 0x4053B60000000000) #19
@@ -1926,7 +1923,9 @@ invoke.cont4.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 16
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %rgbParams.i.i.i, i64 16
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x double> <double 2.400000e+00, double 5.500000e-02>, ptr %call5.i.i.i.i2.i.i.i.i, align 8
+  store double 2.400000e+00, ptr %call5.i.i.i.i2.i.i.i.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 8
+  store double 5.500000e-02, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %rgbParams.i.i.i, i64 8
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alphaParams.i.i.i, i8 0, i64 24, i1 false)
@@ -1943,7 +1942,9 @@ invoke.cont14.i.i.i:                              ; preds = %invoke.cont4.i.i.i
   %add.ptr.i1.i10.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5.i.i.i, i64 16
   %_M_end_of_storage.i.i11.i.i.i = getelementptr inbounds i8, ptr %alphaParams.i.i.i, i64 16
   store ptr %add.ptr.i1.i10.i.i.i, ptr %_M_end_of_storage.i.i11.i.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i5.i.i.i, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i5.i.i.i, align 8
+  %ref.tmp6.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5.i.i.i, i64 8
+  store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx.i.i.i, align 8
   %_M_finish.i.i13.i.i.i = getelementptr inbounds i8, ptr %alphaParams.i.i.i, i64 8
   store ptr %add.ptr.i1.i10.i.i.i, ptr %_M_finish.i.i13.i.i.i, align 8
   store i32 7, ptr %ref.tmp15.i.i.i, align 4
@@ -3190,7 +3191,9 @@ invoke.cont4.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 16
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %rgbParams.i.i.i, i64 16
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x double> <double 2.400000e+00, double 5.500000e-02>, ptr %call5.i.i.i.i2.i.i.i.i, align 8
+  store double 2.400000e+00, ptr %call5.i.i.i.i2.i.i.i.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i.i.i, i64 8
+  store double 5.500000e-02, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx.i.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %rgbParams.i.i.i, i64 8
   store ptr %add.ptr.i1.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alphaParams.i.i.i, i8 0, i64 24, i1 false)
@@ -3207,7 +3210,9 @@ invoke.cont14.i.i.i:                              ; preds = %invoke.cont4.i.i.i
   %add.ptr.i1.i10.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5.i.i.i, i64 16
   %_M_end_of_storage.i.i11.i.i.i = getelementptr inbounds i8, ptr %alphaParams.i.i.i, i64 16
   store ptr %add.ptr.i1.i10.i.i.i, ptr %_M_end_of_storage.i.i11.i.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i5.i.i.i, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i5.i.i.i, align 8
+  %ref.tmp6.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5.i.i.i, i64 8
+  store double 0.000000e+00, ptr %ref.tmp6.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx.i.i.i, align 8
   %_M_finish.i.i13.i.i.i = getelementptr inbounds i8, ptr %alphaParams.i.i.i, i64 8
   store ptr %add.ptr.i1.i10.i.i.i, ptr %_M_finish.i.i13.i.i.i, align 8
   store i32 9, ptr %ref.tmp15.i.i.i, align 4
@@ -3972,9 +3977,13 @@ invoke.cont.i.i.i:                                ; preds = %entry
           to label %invoke.cont2.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont2.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  store <2 x double> <double 0x3F6E9D761DF2020C, double 0x3F6E9D761DF2020C>, ptr %scale4.i.i.i, align 16
+  store double 0x3F6E9D761DF2020C, ptr %scale4.i.i.i, align 16
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %scale4.i.i.i, i64 8
+  store double 0x3F6E9D761DF2020C, ptr %arrayinit.element.i.i.i, align 8
   %arrayinit.element4.i.i.i = getelementptr inbounds i8, ptr %scale4.i.i.i, i64 16
-  store <2 x double> <double 0x3F6E9D761DF2020C, double 1.000000e+00>, ptr %arrayinit.element4.i.i.i, align 16
+  store double 0x3F6E9D761DF2020C, ptr %arrayinit.element4.i.i.i, align 16
+  %arrayinit.element5.i.i.i = getelementptr inbounds i8, ptr %scale4.i.i.i, i64 24
+  store double 1.000000e+00, ptr %arrayinit.element5.i.i.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13CreateScaleOpERNS_10OpRcPtrVecEPKdNS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %__args, ptr noundef nonnull %scale4.i.i.i, i32 noundef 0)
           to label %invoke.cont6.i.i.i unwind label %lpad.i.i.i
 
@@ -4247,9 +4256,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

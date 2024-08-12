@@ -3035,8 +3035,8 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %wide.trip.count.i = zext i32 %9 to i64
   br label %27
 
-27:                                               ; preds = %289, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %289 ]
+27:                                               ; preds = %298, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %298 ]
   %28 = call ptr @wmem_epan_scope() #13
   %29 = call noalias ptr @wmem_alloc(ptr noundef %28, i64 noundef 8) #13
   %30 = getelementptr %struct._spdu_signal_list_uat, ptr %8, i64 %indvars.iv.i
@@ -3077,13 +3077,13 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %53 = getelementptr inbounds i8, ptr %.0191.i, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %289
+  br i1 %55, label %56, label %298
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds i8, ptr %30, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp ult i32 %58, %52
-  br i1 %59, label %60, label %289
+  br i1 %59, label %60, label %298
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %.0191.i, i64 16
@@ -3271,7 +3271,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   store ptr %189, ptr %190, align 8
   %191 = load i32, ptr %155, align 4
   %.not208.i = icmp eq i32 %191, 0
-  br i1 %.not208.i, label %223, label %192
+  br i1 %.not208.i, label %226, label %192
 
 192:                                              ; preds = %121
   %193 = load ptr, ptr @dynamic_hf_agg_sum, align 8
@@ -3325,191 +3325,209 @@ create_hf_entry.exit.i:                           ; preds = %get_signal_value_na
   %219 = getelementptr inbounds i8, ptr %211, i64 32
   store ptr null, ptr %219, align 8
   %220 = getelementptr inbounds i8, ptr %211, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %211, i64 72
-  store ptr null, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %64, i64 104
-  store ptr %200, ptr %222, align 8
-  br label %223
+  store i32 -1, ptr %220, align 8
+  %221 = getelementptr inbounds i8, ptr %211, i64 60
+  store i32 0, ptr %221, align 4
+  %222 = getelementptr inbounds i8, ptr %211, i64 64
+  store i32 0, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %211, i64 68
+  store i32 -1, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %211, i64 72
+  store ptr null, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %64, i64 104
+  store ptr %200, ptr %225, align 8
+  br label %226
 
-223:                                              ; preds = %create_hf_entry.exit.i, %121
-  %224 = load i32, ptr %158, align 8
-  %.not209.i = icmp eq i32 %224, 0
-  br i1 %.not209.i, label %256, label %225
+226:                                              ; preds = %create_hf_entry.exit.i, %121
+  %227 = load i32, ptr %158, align 8
+  %.not209.i = icmp eq i32 %227, 0
+  br i1 %.not209.i, label %262, label %228
 
-225:                                              ; preds = %223
-  %226 = load ptr, ptr @dynamic_hf_agg_avg, align 8
-  %227 = load i32, ptr @dynamic_hf_agg_avg_number, align 4
-  %228 = add i32 %227, 1
-  store i32 %228, ptr @dynamic_hf_agg_avg_number, align 4
-  %229 = load i32, ptr %30, align 8
-  %230 = load i32, ptr %57, align 8
-  %231 = load ptr, ptr %65, align 8
-  %232 = load ptr, ptr %175, align 8
-  %233 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #15
-  store i32 -1, ptr %233, align 4
+228:                                              ; preds = %226
+  %229 = load ptr, ptr @dynamic_hf_agg_avg, align 8
+  %230 = load i32, ptr @dynamic_hf_agg_avg_number, align 4
+  %231 = add i32 %230, 1
+  store i32 %231, ptr @dynamic_hf_agg_avg_number, align 4
+  %232 = load i32, ptr %30, align 8
+  %233 = load i32, ptr %57, align 8
+  %234 = load ptr, ptr %65, align 8
+  %235 = load ptr, ptr %175, align 8
+  %236 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #15
+  store i32 -1, ptr %236, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %234 = load ptr, ptr @data_spdu_signal_list, align 8
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %get_signal_value_name_config.exit.thread.i214.i, label %get_signal_value_name_config.exit.i211.i
+  %237 = load ptr, ptr @data_spdu_signal_list, align 8
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %get_signal_value_name_config.exit.thread.i214.i, label %get_signal_value_name_config.exit.i211.i
 
-get_signal_value_name_config.exit.thread.i214.i:  ; preds = %225
+get_signal_value_name_config.exit.thread.i214.i:  ; preds = %228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %create_hf_entry.exit215.i
 
-get_signal_value_name_config.exit.i211.i:         ; preds = %225
-  %236 = zext i32 %229 to i64
-  %237 = and i32 %230, 65535
-  %238 = zext nneg i32 %237 to i64
-  %239 = shl nuw nsw i64 %238, 32
-  %240 = or disjoint i64 %239, %236
-  store i64 %240, ptr %2, align 8
-  %241 = load ptr, ptr @data_spdu_signal_value_names, align 8
-  %242 = call ptr @g_hash_table_lookup(ptr noundef %241, ptr noundef nonnull %2) #13
+get_signal_value_name_config.exit.i211.i:         ; preds = %228
+  %239 = zext i32 %232 to i64
+  %240 = and i32 %233, 65535
+  %241 = zext nneg i32 %240 to i64
+  %242 = shl nuw nsw i64 %241, 32
+  %243 = or disjoint i64 %242, %239
+  store i64 %243, ptr %2, align 8
+  %244 = load ptr, ptr @data_spdu_signal_value_names, align 8
+  %245 = call ptr @g_hash_table_lookup(ptr noundef %244, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %create_hf_entry.exit215.i
 
 create_hf_entry.exit215.i:                        ; preds = %get_signal_value_name_config.exit.i211.i, %get_signal_value_name_config.exit.thread.i214.i
-  %243 = zext i32 %227 to i64
-  %244 = getelementptr %struct.hf_register_info, ptr %226, i64 %243
-  store ptr %233, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
-  %246 = getelementptr inbounds i8, ptr %244, i64 40
-  store i64 0, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %244, i64 16
-  %248 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.280, ptr noundef %231) #13
-  store ptr %248, ptr %245, align 8
-  %249 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.131, ptr noundef %232) #13
-  store ptr %249, ptr %247, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, i8 0, i64 16, i1 false)
-  %250 = getelementptr inbounds i8, ptr %244, i64 28
-  store i32 0, ptr %250, align 4
-  %251 = getelementptr inbounds i8, ptr %244, i64 24
-  store i32 23, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %244, i64 32
-  store ptr null, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %244, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %244, i64 72
-  store ptr null, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %64, i64 112
-  store ptr %233, ptr %255, align 8
-  br label %256
+  %246 = zext i32 %230 to i64
+  %247 = getelementptr %struct.hf_register_info, ptr %229, i64 %246
+  store ptr %236, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 8
+  %249 = getelementptr inbounds i8, ptr %247, i64 40
+  store i64 0, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %247, i64 16
+  %251 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.280, ptr noundef %234) #13
+  store ptr %251, ptr %248, align 8
+  %252 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.131, ptr noundef %235) #13
+  store ptr %252, ptr %250, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, i8 0, i64 16, i1 false)
+  %253 = getelementptr inbounds i8, ptr %247, i64 28
+  store i32 0, ptr %253, align 4
+  %254 = getelementptr inbounds i8, ptr %247, i64 24
+  store i32 23, ptr %254, align 8
+  %255 = getelementptr inbounds i8, ptr %247, i64 32
+  store ptr null, ptr %255, align 8
+  %256 = getelementptr inbounds i8, ptr %247, i64 56
+  store i32 -1, ptr %256, align 8
+  %257 = getelementptr inbounds i8, ptr %247, i64 60
+  store i32 0, ptr %257, align 4
+  %258 = getelementptr inbounds i8, ptr %247, i64 64
+  store i32 0, ptr %258, align 8
+  %259 = getelementptr inbounds i8, ptr %247, i64 68
+  store i32 -1, ptr %259, align 4
+  %260 = getelementptr inbounds i8, ptr %247, i64 72
+  store ptr null, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %64, i64 112
+  store ptr %236, ptr %261, align 8
+  br label %262
 
-256:                                              ; preds = %create_hf_entry.exit215.i, %223
-  %257 = load i32, ptr %161, align 4
-  %.not210.i = icmp eq i32 %257, 0
-  br i1 %.not210.i, label %289, label %258
+262:                                              ; preds = %create_hf_entry.exit215.i, %226
+  %263 = load i32, ptr %161, align 4
+  %.not210.i = icmp eq i32 %263, 0
+  br i1 %.not210.i, label %298, label %264
 
-258:                                              ; preds = %256
-  %259 = load ptr, ptr @dynamic_hf_agg_int, align 8
-  %260 = load i32, ptr @dynamic_hf_agg_int_number, align 4
-  %261 = add i32 %260, 1
-  store i32 %261, ptr @dynamic_hf_agg_int_number, align 4
-  %262 = load i32, ptr %30, align 8
-  %263 = load i32, ptr %57, align 8
-  %264 = load ptr, ptr %65, align 8
-  %265 = load ptr, ptr %175, align 8
-  %266 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #15
-  store i32 -1, ptr %266, align 4
+264:                                              ; preds = %262
+  %265 = load ptr, ptr @dynamic_hf_agg_int, align 8
+  %266 = load i32, ptr @dynamic_hf_agg_int_number, align 4
+  %267 = add i32 %266, 1
+  store i32 %267, ptr @dynamic_hf_agg_int_number, align 4
+  %268 = load i32, ptr %30, align 8
+  %269 = load i32, ptr %57, align 8
+  %270 = load ptr, ptr %65, align 8
+  %271 = load ptr, ptr %175, align 8
+  %272 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #15
+  store i32 -1, ptr %272, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  %267 = load ptr, ptr @data_spdu_signal_list, align 8
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %get_signal_value_name_config.exit.thread.i219.i, label %get_signal_value_name_config.exit.i216.i
+  %273 = load ptr, ptr @data_spdu_signal_list, align 8
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %get_signal_value_name_config.exit.thread.i219.i, label %get_signal_value_name_config.exit.i216.i
 
-get_signal_value_name_config.exit.thread.i219.i:  ; preds = %258
+get_signal_value_name_config.exit.thread.i219.i:  ; preds = %264
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %create_hf_entry.exit220.i
 
-get_signal_value_name_config.exit.i216.i:         ; preds = %258
-  %269 = zext i32 %262 to i64
-  %270 = and i32 %263, 65535
-  %271 = zext nneg i32 %270 to i64
-  %272 = shl nuw nsw i64 %271, 32
-  %273 = or disjoint i64 %272, %269
-  store i64 %273, ptr %1, align 8
-  %274 = load ptr, ptr @data_spdu_signal_value_names, align 8
-  %275 = call ptr @g_hash_table_lookup(ptr noundef %274, ptr noundef nonnull %1) #13
+get_signal_value_name_config.exit.i216.i:         ; preds = %264
+  %275 = zext i32 %268 to i64
+  %276 = and i32 %269, 65535
+  %277 = zext nneg i32 %276 to i64
+  %278 = shl nuw nsw i64 %277, 32
+  %279 = or disjoint i64 %278, %275
+  store i64 %279, ptr %1, align 8
+  %280 = load ptr, ptr @data_spdu_signal_value_names, align 8
+  %281 = call ptr @g_hash_table_lookup(ptr noundef %280, ptr noundef nonnull %1) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %create_hf_entry.exit220.i
 
 create_hf_entry.exit220.i:                        ; preds = %get_signal_value_name_config.exit.i216.i, %get_signal_value_name_config.exit.thread.i219.i
-  %276 = zext i32 %260 to i64
-  %277 = getelementptr %struct.hf_register_info, ptr %259, i64 %276
-  store ptr %266, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 8
-  %279 = getelementptr inbounds i8, ptr %277, i64 40
-  store i64 0, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %277, i64 16
-  %281 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.282, ptr noundef %264) #13
-  store ptr %281, ptr %278, align 8
-  %282 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.131, ptr noundef %265) #13
-  store ptr %282, ptr %280, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, i8 0, i64 16, i1 false)
-  %283 = getelementptr inbounds i8, ptr %277, i64 28
-  store i32 0, ptr %283, align 4
-  %284 = getelementptr inbounds i8, ptr %277, i64 24
-  store i32 23, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %277, i64 32
-  store ptr null, ptr %285, align 8
-  %286 = getelementptr inbounds i8, ptr %277, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %277, i64 72
-  store ptr null, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %64, i64 120
-  store ptr %266, ptr %288, align 8
-  br label %289
+  %282 = zext i32 %266 to i64
+  %283 = getelementptr %struct.hf_register_info, ptr %265, i64 %282
+  store ptr %272, ptr %283, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 8
+  %285 = getelementptr inbounds i8, ptr %283, i64 40
+  store i64 0, ptr %285, align 8
+  %286 = getelementptr inbounds i8, ptr %283, i64 16
+  %287 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.282, ptr noundef %270) #13
+  store ptr %287, ptr %284, align 8
+  %288 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.131, ptr noundef %271) #13
+  store ptr %288, ptr %286, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
+  %289 = getelementptr inbounds i8, ptr %283, i64 28
+  store i32 0, ptr %289, align 4
+  %290 = getelementptr inbounds i8, ptr %283, i64 24
+  store i32 23, ptr %290, align 8
+  %291 = getelementptr inbounds i8, ptr %283, i64 32
+  store ptr null, ptr %291, align 8
+  %292 = getelementptr inbounds i8, ptr %283, i64 56
+  store i32 -1, ptr %292, align 8
+  %293 = getelementptr inbounds i8, ptr %283, i64 60
+  store i32 0, ptr %293, align 4
+  %294 = getelementptr inbounds i8, ptr %283, i64 64
+  store i32 0, ptr %294, align 8
+  %295 = getelementptr inbounds i8, ptr %283, i64 68
+  store i32 -1, ptr %295, align 4
+  %296 = getelementptr inbounds i8, ptr %283, i64 72
+  store ptr null, ptr %296, align 8
+  %297 = getelementptr inbounds i8, ptr %64, i64 120
+  store ptr %272, ptr %297, align 8
+  br label %298
 
-289:                                              ; preds = %create_hf_entry.exit220.i, %256, %56, %50
+298:                                              ; preds = %create_hf_entry.exit220.i, %262, %56, %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %290, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i, label %299, label %27, !llvm.loop !9
 
-290:                                              ; preds = %289
-  %291 = load i32, ptr @dynamic_hf_base_raw_number, align 4
-  %.not.i = icmp eq i32 %291, 0
-  br i1 %.not.i, label %295, label %292
+299:                                              ; preds = %298
+  %300 = load i32, ptr @dynamic_hf_base_raw_number, align 4
+  %.not.i = icmp eq i32 %300, 0
+  br i1 %.not.i, label %304, label %301
 
-292:                                              ; preds = %290
-  %293 = load i32, ptr @proto_signal_pdu, align 4
-  %294 = load ptr, ptr @dynamic_hf_base_raw, align 8
-  call void @proto_register_field_array(i32 noundef %293, ptr noundef %294, i32 noundef %291) #13
-  br label %295
+301:                                              ; preds = %299
+  %302 = load i32, ptr @proto_signal_pdu, align 4
+  %303 = load ptr, ptr @dynamic_hf_base_raw, align 8
+  call void @proto_register_field_array(i32 noundef %302, ptr noundef %303, i32 noundef %300) #13
+  br label %304
 
-295:                                              ; preds = %292, %290
-  %296 = load i32, ptr @dynamic_hf_agg_sum_number, align 4
-  %.not205.i = icmp eq i32 %296, 0
-  br i1 %.not205.i, label %300, label %297
+304:                                              ; preds = %301, %299
+  %305 = load i32, ptr @dynamic_hf_agg_sum_number, align 4
+  %.not205.i = icmp eq i32 %305, 0
+  br i1 %.not205.i, label %309, label %306
 
-297:                                              ; preds = %295
-  %298 = load i32, ptr @proto_signal_pdu, align 4
-  %299 = load ptr, ptr @dynamic_hf_agg_sum, align 8
-  call void @proto_register_field_array(i32 noundef %298, ptr noundef %299, i32 noundef %296) #13
-  br label %300
+306:                                              ; preds = %304
+  %307 = load i32, ptr @proto_signal_pdu, align 4
+  %308 = load ptr, ptr @dynamic_hf_agg_sum, align 8
+  call void @proto_register_field_array(i32 noundef %307, ptr noundef %308, i32 noundef %305) #13
+  br label %309
 
-300:                                              ; preds = %297, %295
-  %301 = load i32, ptr @dynamic_hf_agg_avg_number, align 4
-  %.not206.i = icmp eq i32 %301, 0
-  br i1 %.not206.i, label %305, label %302
+309:                                              ; preds = %306, %304
+  %310 = load i32, ptr @dynamic_hf_agg_avg_number, align 4
+  %.not206.i = icmp eq i32 %310, 0
+  br i1 %.not206.i, label %314, label %311
 
-302:                                              ; preds = %300
-  %303 = load i32, ptr @proto_signal_pdu, align 4
-  %304 = load ptr, ptr @dynamic_hf_agg_avg, align 8
-  call void @proto_register_field_array(i32 noundef %303, ptr noundef %304, i32 noundef %301) #13
-  br label %305
+311:                                              ; preds = %309
+  %312 = load i32, ptr @proto_signal_pdu, align 4
+  %313 = load ptr, ptr @dynamic_hf_agg_avg, align 8
+  call void @proto_register_field_array(i32 noundef %312, ptr noundef %313, i32 noundef %310) #13
+  br label %314
 
-305:                                              ; preds = %302, %300
-  %306 = load i32, ptr @dynamic_hf_agg_int_number, align 4
-  %.not207.i = icmp eq i32 %306, 0
-  br i1 %.not207.i, label %post_update_spdu_signal_list_read_in_data.exit, label %307
+314:                                              ; preds = %311, %309
+  %315 = load i32, ptr @dynamic_hf_agg_int_number, align 4
+  %.not207.i = icmp eq i32 %315, 0
+  br i1 %.not207.i, label %post_update_spdu_signal_list_read_in_data.exit, label %316
 
-307:                                              ; preds = %305
-  %308 = load i32, ptr @proto_signal_pdu, align 4
-  %309 = load ptr, ptr @dynamic_hf_agg_int, align 8
-  call void @proto_register_field_array(i32 noundef %308, ptr noundef %309, i32 noundef %306) #13
+316:                                              ; preds = %314
+  %317 = load i32, ptr @proto_signal_pdu, align 4
+  %318 = load ptr, ptr @dynamic_hf_agg_int, align 8
+  call void @proto_register_field_array(i32 noundef %317, ptr noundef %318, i32 noundef %315) #13
   br label %post_update_spdu_signal_list_read_in_data.exit
 
-post_update_spdu_signal_list_read_in_data.exit:   ; preds = %6, %305, %307
+post_update_spdu_signal_list_read_in_data.exit:   ; preds = %6, %314, %316
   ret void
 }
 
@@ -5591,9 +5609,15 @@ switch.lookup:                                    ; preds = %44
   %58 = getelementptr inbounds i8, ptr %26, i64 32
   store ptr %.sink, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %26, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %26, i64 72
-  store ptr null, ptr %60, align 8
+  store i32 -1, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %26, i64 60
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %26, i64 64
+  store i32 0, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %26, i64 68
+  store i32 -1, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %26, i64 72
+  store ptr null, ptr %63, align 8
   ret ptr %11
 }
 

@@ -98,19 +98,23 @@ define zeroext i1 @"_ZN95_$LT$cranelift_codegen_meta..cdsl..formats..Instruction
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats17InstructionFormat9structure17h97497efc21f41bc1E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
-  %6 = load i8, ptr %5, align 8, !range !4, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = load <2 x i64>, ptr %4, align 8
-  call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6ae6ebc92287422eE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %3, ptr nonnull %8, ptr nonnull %11)
-  store i8 %6, ptr %13, align 8
-  store <2 x i64> %14, ptr %12, align 8
+  %5 = load i64, ptr %4, align 8, !noundef !3
+  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = load i8, ptr %6, align 8, !range !4, !noundef !3
+  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = load i64, ptr %8, align 8, !noundef !3
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %11, i64 %13
+  call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6ae6ebc92287422eE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %3, ptr nonnull %11, ptr nonnull %14)
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %5, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 %7, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %9, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 }

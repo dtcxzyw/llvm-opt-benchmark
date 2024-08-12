@@ -4281,7 +4281,7 @@ thread-pre-split971:                              ; preds = %501, %504, %508, %s
     i32 315, label %1658
     i32 317, label %1694
     i32 354, label %1924
-    i32 345, label %1996
+    i32 345, label %1993
   ]
 
 511:                                              ; preds = %thread-pre-split971
@@ -7050,1106 +7050,1123 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %1
   %1925 = getelementptr inbounds i8, ptr %0, i64 224
   %1926 = load ptr, ptr %1925, align 8
   %.not.i910 = icmp eq ptr %1926, null
-  br i1 %.not.i910, label %1929, label %1927
+  br i1 %.not.i910, label %1928, label %1927
 
 1927:                                             ; preds = %1924
-  %1928 = load <4 x i32>, ptr %1926, align 8
+  %.sroa.0.0.copyload.i = load i32, ptr %1926, align 8
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %1926, i64 4
+  %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4
+  %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %1926, i64 8
+  %.sroa.15.0.copyload.i = load i32, ptr %.sroa.15.0..sroa_idx.i, align 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %1926, i64 12
+  %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 4
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %1926, i64 16
   %.sroa.29.0.copyload.i = load i64, ptr %.sroa.29.0..sroa_idx.i, align 8
-  br label %1929
+  br label %1928
 
-1929:                                             ; preds = %1927, %1924
+1928:                                             ; preds = %1927, %1924
+  %.sroa.23.0.i = phi i32 [ %.sroa.23.0.copyload.i, %1927 ], [ 0, %1924 ]
   %.sroa.29.0.i = phi i64 [ %.sroa.29.0.copyload.i, %1927 ], [ 0, %1924 ]
-  %1930 = phi <4 x i32> [ %1928, %1927 ], [ zeroinitializer, %1924 ]
-  %1931 = getelementptr inbounds i8, ptr %0, i64 216
-  %1932 = load ptr, ptr %1931, align 8
-  %.not78.i = icmp eq ptr %1932, null
+  %.sroa.15.0.i = phi i32 [ %.sroa.15.0.copyload.i, %1927 ], [ 0, %1924 ]
+  %.sroa.9.0.i = phi i32 [ %.sroa.9.0.copyload.i, %1927 ], [ 0, %1924 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.0.0.copyload.i, %1927 ], [ 0, %1924 ]
+  %1929 = getelementptr inbounds i8, ptr %0, i64 216
+  %1930 = load ptr, ptr %1929, align 8
+  %.not78.i = icmp eq ptr %1930, null
   br i1 %.not78.i, label %.loopexit.i, label %.preheader.i911
 
-.preheader.i911:                                  ; preds = %1929
-  %1933 = load i32, ptr %1932, align 8
-  %1934 = icmp sgt i32 %1933, 0
-  br i1 %1934, label %.lr.ph.i914, label %.loopexit.i
+.preheader.i911:                                  ; preds = %1928
+  %1931 = load i32, ptr %1930, align 8
+  %1932 = icmp sgt i32 %1931, 0
+  br i1 %1932, label %.lr.ph.i914, label %.loopexit.i
 
 .lr.ph.i914:                                      ; preds = %.preheader.i911
-  %1935 = getelementptr inbounds i8, ptr %1932, i64 8
-  %wide.trip.count.i = zext nneg i32 %1933 to i64
-  br label %1936
+  %1933 = getelementptr inbounds i8, ptr %1930, i64 8
+  %wide.trip.count.i = zext nneg i32 %1931 to i64
+  br label %1934
 
-1936:                                             ; preds = %1936, %.lr.ph.i914
-  %indvars.iv.i915 = phi i64 [ 0, %.lr.ph.i914 ], [ %indvars.iv.next.i916, %1936 ]
-  %.sroa.29.284.i = phi i64 [ %.sroa.29.0.i, %.lr.ph.i914 ], [ %1943, %1936 ]
-  %1937 = phi <4 x i32> [ %1930, %.lr.ph.i914 ], [ %1940, %1936 ]
-  %1938 = getelementptr [0 x %struct.HashInstrumentation], ptr %1935, i64 0, i64 %indvars.iv.i915
-  %1939 = load <4 x i32>, ptr %1938, align 8
-  %1940 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %1937, <4 x i32> %1939)
-  %1941 = getelementptr inbounds i8, ptr %1938, i64 16
-  %1942 = load i64, ptr %1941, align 8
-  %1943 = call i64 @llvm.umax.i64(i64 %.sroa.29.284.i, i64 %1942)
+1934:                                             ; preds = %1934, %.lr.ph.i914
+  %indvars.iv.i915 = phi i64 [ 0, %.lr.ph.i914 ], [ %indvars.iv.next.i916, %1934 ]
+  %.sroa.0.288.i = phi i32 [ %.sroa.0.0.i, %.lr.ph.i914 ], [ %.sroa.0.2..i, %1934 ]
+  %.sroa.9.287.i = phi i32 [ %.sroa.9.0.i, %.lr.ph.i914 ], [ %1939, %1934 ]
+  %.sroa.15.285.i = phi i32 [ %.sroa.15.0.i, %.lr.ph.i914 ], [ %1942, %1934 ]
+  %.sroa.29.284.i = phi i64 [ %.sroa.29.0.i, %.lr.ph.i914 ], [ %1948, %1934 ]
+  %.sroa.23.283.i = phi i32 [ %.sroa.23.0.i, %.lr.ph.i914 ], [ %1945, %1934 ]
+  %1935 = getelementptr [0 x %struct.HashInstrumentation], ptr %1933, i64 0, i64 %indvars.iv.i915
+  %1936 = load i32, ptr %1935, align 8
+  %.sroa.0.2..i = call i32 @llvm.smax.i32(i32 %.sroa.0.288.i, i32 %1936)
+  %1937 = getelementptr inbounds i8, ptr %1935, i64 4
+  %1938 = load i32, ptr %1937, align 4
+  %1939 = call i32 @llvm.smax.i32(i32 %.sroa.9.287.i, i32 %1938)
+  %1940 = getelementptr inbounds i8, ptr %1935, i64 8
+  %1941 = load i32, ptr %1940, align 8
+  %1942 = call i32 @llvm.smax.i32(i32 %.sroa.15.285.i, i32 %1941)
+  %1943 = getelementptr inbounds i8, ptr %1935, i64 12
+  %1944 = load i32, ptr %1943, align 4
+  %1945 = call i32 @llvm.smax.i32(i32 %.sroa.23.283.i, i32 %1944)
+  %1946 = getelementptr inbounds i8, ptr %1935, i64 16
+  %1947 = load i64, ptr %1946, align 8
+  %1948 = call i64 @llvm.umax.i64(i64 %.sroa.29.284.i, i64 %1947)
   %indvars.iv.next.i916 = add nuw nsw i64 %indvars.iv.i915, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i916, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %1936, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.i, label %1934, !llvm.loop !14
 
-.loopexit.i:                                      ; preds = %1936, %.preheader.i911, %1929
-  %.sroa.29.1.i = phi i64 [ %.sroa.29.0.i, %1929 ], [ %.sroa.29.0.i, %.preheader.i911 ], [ %1943, %1936 ]
-  %1944 = phi <4 x i32> [ %1930, %1929 ], [ %1930, %.preheader.i911 ], [ %1940, %1936 ]
-  %1945 = extractelement <4 x i32> %1944, i64 2
-  %1946 = icmp sgt i32 %1945, 0
-  br i1 %1946, label %1947, label %show_scan_qual.exit766
+.loopexit.i:                                      ; preds = %1934, %.preheader.i911, %1928
+  %.sroa.23.1.i = phi i32 [ %.sroa.23.0.i, %1928 ], [ %.sroa.23.0.i, %.preheader.i911 ], [ %1945, %1934 ]
+  %.sroa.29.1.i = phi i64 [ %.sroa.29.0.i, %1928 ], [ %.sroa.29.0.i, %.preheader.i911 ], [ %1948, %1934 ]
+  %.sroa.15.1.i = phi i32 [ %.sroa.15.0.i, %1928 ], [ %.sroa.15.0.i, %.preheader.i911 ], [ %1942, %1934 ]
+  %.sroa.9.1.i = phi i32 [ %.sroa.9.0.i, %1928 ], [ %.sroa.9.0.i, %.preheader.i911 ], [ %1939, %1934 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.i, %1928 ], [ %.sroa.0.0.i, %.preheader.i911 ], [ %.sroa.0.2..i, %1934 ]
+  %1949 = icmp sgt i32 %.sroa.15.1.i, 0
+  br i1 %1949, label %1950, label %show_scan_qual.exit766
 
-1947:                                             ; preds = %.loopexit.i
-  %1948 = add i64 %.sroa.29.1.i, 1023
-  %1949 = lshr i64 %1948, 10
-  %1950 = load i32, ptr %147, align 4
-  %.not79.i = icmp eq i32 %1950, 0
-  br i1 %.not79.i, label %1964, label %1951
+1950:                                             ; preds = %.loopexit.i
+  %1951 = add i64 %.sroa.29.1.i, 1023
+  %1952 = lshr i64 %1951, 10
+  %1953 = load i32, ptr %147, align 4
+  %.not79.i = icmp eq i32 %1953, 0
+  br i1 %.not79.i, label %1964, label %1954
 
-1951:                                             ; preds = %1947
-  %1952 = extractelement <4 x i32> %1944, i64 0
-  %1953 = sext i32 %1952 to i64
+1954:                                             ; preds = %1950
+  %1955 = sext i32 %.sroa.0.1.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  %1954 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1953) #11
+  %1956 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1955) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.316, ptr noundef null, ptr noundef nonnull %23, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  %1955 = extractelement <4 x i32> %1944, i64 1
-  %1956 = sext i32 %1955 to i64
+  %1957 = sext i32 %.sroa.9.1.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %1957 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %22, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1956) #11
+  %1958 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %22, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1957) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.317, ptr noundef null, ptr noundef nonnull %22, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  %1958 = zext nneg i32 %1945 to i64
+  %1959 = zext nneg i32 %.sroa.15.1.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  %1959 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1958) #11
+  %1960 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1959) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.318, ptr noundef null, ptr noundef nonnull %21, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  %1960 = extractelement <4 x i32> %1944, i64 3
-  %1961 = sext i32 %1960 to i64
+  %1961 = sext i32 %.sroa.23.1.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   %1962 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1961) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.319, ptr noundef null, ptr noundef nonnull %20, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  %1963 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1949) #11
+  %1963 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %1952) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %19, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   br label %show_scan_qual.exit766
 
-1964:                                             ; preds = %1947
-  %1965 = extractelement <4 x i32> %1944, i64 3
-  %.not80.i = icmp eq i32 %1965, %1945
-  %1966 = extractelement <4 x i32> %1944, i64 0
-  %1967 = extractelement <4 x i32> %1944, i64 1
-  %.not81.i = icmp eq i32 %1967, %1966
+1964:                                             ; preds = %1950
+  %.not80.i = icmp eq i32 %.sroa.23.1.i, %.sroa.15.1.i
+  %.not81.i = icmp eq i32 %.sroa.9.1.i, %.sroa.0.1.i
   %or.cond.i = select i1 %.not80.i, i1 %.not81.i, i1 false
-  %1968 = load ptr, ptr %4, align 8
-  %1969 = getelementptr inbounds i8, ptr %1968, i64 8
-  %1970 = load i32, ptr %1969, align 8
-  %1971 = icmp eq i32 %1970, 0
-  br i1 %or.cond.i, label %1984, label %1972
+  %1965 = load ptr, ptr %4, align 8
+  %1966 = getelementptr inbounds i8, ptr %1965, i64 8
+  %1967 = load i32, ptr %1966, align 8
+  %1968 = icmp eq i32 %1967, 0
+  br i1 %or.cond.i, label %1981, label %1969
 
-1972:                                             ; preds = %1964
-  br i1 %1971, label %1980, label %1973
+1969:                                             ; preds = %1964
+  br i1 %1968, label %1977, label %1970
 
-1973:                                             ; preds = %1972
-  %1974 = load ptr, ptr %1968, align 8
-  %1975 = add i32 %1970, -1
-  %1976 = sext i32 %1975 to i64
-  %1977 = getelementptr i8, ptr %1974, i64 %1976
-  %1978 = load i8, ptr %1977, align 1
-  %1979 = icmp eq i8 %1978, 10
-  br i1 %1979, label %1980, label %ExplainIndentText.exit.i912
+1970:                                             ; preds = %1969
+  %1971 = load ptr, ptr %1965, align 8
+  %1972 = add i32 %1967, -1
+  %1973 = sext i32 %1972 to i64
+  %1974 = getelementptr i8, ptr %1971, i64 %1973
+  %1975 = load i8, ptr %1974, align 1
+  %1976 = icmp eq i8 %1975, 10
+  br i1 %1976, label %1977, label %ExplainIndentText.exit.i912
 
-1980:                                             ; preds = %1973, %1972
-  %1981 = load i32, ptr %41, align 8
-  %1982 = shl i32 %1981, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1968, i32 noundef %1982) #11
+1977:                                             ; preds = %1970, %1969
+  %1978 = load i32, ptr %41, align 8
+  %1979 = shl i32 %1978, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1965, i32 noundef %1979) #11
   %.pre.i913 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i912
 
-ExplainIndentText.exit.i912:                      ; preds = %1980, %1973
-  %1983 = phi ptr [ %1968, %1973 ], [ %.pre.i913, %1980 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1983, ptr noundef nonnull @.str.320, i32 noundef %1966, i32 noundef %1967, i32 noundef %1945, i32 noundef %1965, i64 noundef %1949) #11
+ExplainIndentText.exit.i912:                      ; preds = %1977, %1970
+  %1980 = phi ptr [ %1965, %1970 ], [ %.pre.i913, %1977 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1980, ptr noundef nonnull @.str.320, i32 noundef %.sroa.0.1.i, i32 noundef %.sroa.9.1.i, i32 noundef %.sroa.15.1.i, i32 noundef %.sroa.23.1.i, i64 noundef %1952) #11
   br label %show_scan_qual.exit766
 
-1984:                                             ; preds = %1964
-  br i1 %1971, label %1992, label %1985
+1981:                                             ; preds = %1964
+  br i1 %1968, label %1989, label %1982
 
-1985:                                             ; preds = %1984
-  %1986 = load ptr, ptr %1968, align 8
-  %1987 = add i32 %1970, -1
-  %1988 = sext i32 %1987 to i64
-  %1989 = getelementptr i8, ptr %1986, i64 %1988
-  %1990 = load i8, ptr %1989, align 1
-  %1991 = icmp eq i8 %1990, 10
-  br i1 %1991, label %1992, label %ExplainIndentText.exit82.i
+1982:                                             ; preds = %1981
+  %1983 = load ptr, ptr %1965, align 8
+  %1984 = add i32 %1967, -1
+  %1985 = sext i32 %1984 to i64
+  %1986 = getelementptr i8, ptr %1983, i64 %1985
+  %1987 = load i8, ptr %1986, align 1
+  %1988 = icmp eq i8 %1987, 10
+  br i1 %1988, label %1989, label %ExplainIndentText.exit82.i
 
-1992:                                             ; preds = %1985, %1984
-  %1993 = load i32, ptr %41, align 8
-  %1994 = shl i32 %1993, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1968, i32 noundef %1994) #11
+1989:                                             ; preds = %1982, %1981
+  %1990 = load i32, ptr %41, align 8
+  %1991 = shl i32 %1990, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1965, i32 noundef %1991) #11
   %.pre97.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit82.i
 
-ExplainIndentText.exit82.i:                       ; preds = %1992, %1985
-  %1995 = phi ptr [ %1968, %1985 ], [ %.pre97.i, %1992 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1995, ptr noundef nonnull @.str.321, i32 noundef %1967, i32 noundef %1965, i64 noundef %1949) #11
+ExplainIndentText.exit82.i:                       ; preds = %1989, %1982
+  %1992 = phi ptr [ %1965, %1982 ], [ %.pre97.i, %1989 ]
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1992, ptr noundef nonnull @.str.321, i32 noundef %.sroa.9.1.i, i32 noundef %.sroa.23.1.i, i64 noundef %1952) #11
   br label %show_scan_qual.exit766
 
-1996:                                             ; preds = %thread-pre-split971
+1993:                                             ; preds = %thread-pre-split971
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  %1997 = load ptr, ptr %37, align 8
+  %1994 = load ptr, ptr %37, align 8
   call void @initStringInfo(ptr noundef nonnull %18) #11
-  %1998 = getelementptr inbounds i8, ptr %4, i64 48
-  %1999 = load ptr, ptr %1998, align 8
-  %.not.i.i917 = icmp eq ptr %1999, null
+  %1995 = getelementptr inbounds i8, ptr %4, i64 48
+  %1996 = load ptr, ptr %1995, align 8
+  %.not.i.i917 = icmp eq ptr %1996, null
   br i1 %.not.i.i917, label %list_length.exit.thread.i919, label %list_length.exit.i918
 
-list_length.exit.i918:                            ; preds = %1996
-  %2000 = getelementptr inbounds i8, ptr %1999, i64 4
-  %2001 = load i32, ptr %2000, align 4
-  %2002 = icmp sgt i32 %2001, 1
-  br i1 %2002, label %2005, label %list_length.exit.thread.i919
+list_length.exit.i918:                            ; preds = %1993
+  %1997 = getelementptr inbounds i8, ptr %1996, i64 4
+  %1998 = load i32, ptr %1997, align 4
+  %1999 = icmp sgt i32 %1998, 1
+  br i1 %1999, label %2002, label %list_length.exit.thread.i919
 
-list_length.exit.thread.i919:                     ; preds = %list_length.exit.i918, %1996
-  %2003 = load i8, ptr %460, align 8
-  %2004 = trunc i8 %2003 to i1
-  br label %2005
+list_length.exit.thread.i919:                     ; preds = %list_length.exit.i918, %1993
+  %2000 = load i8, ptr %460, align 8
+  %2001 = trunc i8 %2000 to i1
+  br label %2002
 
-2005:                                             ; preds = %list_length.exit.thread.i919, %list_length.exit.i918
-  %2006 = phi i1 [ true, %list_length.exit.i918 ], [ %2004, %list_length.exit.thread.i919 ]
-  %2007 = getelementptr inbounds i8, ptr %4, i64 64
+2002:                                             ; preds = %list_length.exit.thread.i919, %list_length.exit.i918
+  %2003 = phi i1 [ true, %list_length.exit.i918 ], [ %2001, %list_length.exit.thread.i919 ]
+  %2004 = getelementptr inbounds i8, ptr %4, i64 64
+  %2005 = load ptr, ptr %2004, align 8
+  %2006 = call ptr @set_deparse_context_plan(ptr noundef %2005, ptr noundef %1994, ptr noundef %1) #11
+  %2007 = getelementptr inbounds i8, ptr %1994, i64 128
   %2008 = load ptr, ptr %2007, align 8
-  %2009 = call ptr @set_deparse_context_plan(ptr noundef %2008, ptr noundef %1997, ptr noundef %1) #11
-  %2010 = getelementptr inbounds i8, ptr %1997, i64 128
-  %2011 = load ptr, ptr %2010, align 8
-  %2012 = getelementptr inbounds i8, ptr %2011, i64 4
-  %.not.i920 = icmp eq ptr %2011, null
+  %2009 = getelementptr inbounds i8, ptr %2008, i64 4
+  %.not.i920 = icmp eq ptr %2008, null
   br i1 %.not.i920, label %._crit_edge.i922, label %.lr.ph.i921
 
-.lr.ph.i921:                                      ; preds = %2005
-  %2013 = getelementptr inbounds i8, ptr %2011, i64 16
-  %2014 = load i32, ptr %2012, align 4
-  %2015 = icmp sgt i32 %2014, 0
-  br i1 %2015, label %.lr.ph101.i, label %._crit_edge.i922
+.lr.ph.i921:                                      ; preds = %2002
+  %2010 = getelementptr inbounds i8, ptr %2008, i64 16
+  %2011 = load i32, ptr %2009, align 4
+  %2012 = icmp sgt i32 %2011, 0
+  br i1 %2012, label %.lr.ph101.i, label %._crit_edge.i922
 
 .lr.ph101.i:                                      ; preds = %.lr.ph.i921, %.lr.ph101.i
   %indvars.iv.i927 = phi i64 [ %indvars.iv.next.i928, %.lr.ph101.i ], [ 0, %.lr.ph.i921 ]
   %.0809799.i = phi ptr [ @.str.41, %.lr.ph101.i ], [ @.str.322, %.lr.ph.i921 ]
-  %2016 = load ptr, ptr %2013, align 8
-  %2017 = getelementptr %union.ListCell, ptr %2016, i64 %indvars.iv.i927
-  %2018 = load ptr, ptr %2017, align 8
+  %2013 = load ptr, ptr %2010, align 8
+  %2014 = getelementptr %union.ListCell, ptr %2013, i64 %indvars.iv.i927
+  %2015 = load ptr, ptr %2014, align 8
   call void @appendStringInfoString(ptr noundef nonnull %18, ptr noundef nonnull %.0809799.i) #11
-  %2019 = call ptr @deparse_expression(ptr noundef %2018, ptr noundef %2009, i1 noundef zeroext %2006, i1 noundef zeroext false) #11
-  call void @appendStringInfoString(ptr noundef nonnull %18, ptr noundef %2019) #11
+  %2016 = call ptr @deparse_expression(ptr noundef %2015, ptr noundef %2006, i1 noundef zeroext %2003, i1 noundef zeroext false) #11
+  call void @appendStringInfoString(ptr noundef nonnull %18, ptr noundef %2016) #11
   %indvars.iv.next.i928 = add nuw nsw i64 %indvars.iv.i927, 1
-  %2020 = load i32, ptr %2012, align 4
-  %2021 = sext i32 %2020 to i64
-  %2022 = icmp slt i64 %indvars.iv.next.i928, %2021
-  br i1 %2022, label %.lr.ph101.i, label %._crit_edge.i922
+  %2017 = load i32, ptr %2009, align 4
+  %2018 = sext i32 %2017 to i64
+  %2019 = icmp slt i64 %indvars.iv.next.i928, %2018
+  br i1 %2019, label %.lr.ph101.i, label %._crit_edge.i922
 
-._crit_edge.i922:                                 ; preds = %.lr.ph101.i, %.lr.ph.i921, %2005
-  %2023 = load i32, ptr %147, align 4
-  %.not85.i = icmp eq i32 %2023, 0
-  br i1 %.not85.i, label %2030, label %2024
+._crit_edge.i922:                                 ; preds = %.lr.ph101.i, %.lr.ph.i921, %2002
+  %2020 = load i32, ptr %147, align 4
+  %.not85.i = icmp eq i32 %2020, 0
+  br i1 %.not85.i, label %2027, label %2021
 
-2024:                                             ; preds = %._crit_edge.i922
-  %2025 = load ptr, ptr %18, align 8
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.323, ptr noundef null, ptr noundef %2025, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  %2026 = getelementptr inbounds i8, ptr %0, i64 353
-  %2027 = load i8, ptr %2026, align 1
-  %2028 = trunc i8 %2027 to i1
-  %2029 = select i1 %2028, ptr @.str.325, ptr @.str.326
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.324, ptr noundef null, ptr noundef nonnull %2029, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  br label %2066
+2021:                                             ; preds = %._crit_edge.i922
+  %2022 = load ptr, ptr %18, align 8
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.323, ptr noundef null, ptr noundef %2022, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
+  %2023 = getelementptr inbounds i8, ptr %0, i64 353
+  %2024 = load i8, ptr %2023, align 1
+  %2025 = trunc i8 %2024 to i1
+  %2026 = select i1 %2025, ptr @.str.325, ptr @.str.326
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.324, ptr noundef null, ptr noundef nonnull %2026, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
+  br label %2063
 
-2030:                                             ; preds = %._crit_edge.i922
-  %2031 = load ptr, ptr %4, align 8
-  %2032 = getelementptr inbounds i8, ptr %2031, i64 8
-  %2033 = load i32, ptr %2032, align 8
-  %2034 = icmp eq i32 %2033, 0
-  br i1 %2034, label %2042, label %2035
+2027:                                             ; preds = %._crit_edge.i922
+  %2028 = load ptr, ptr %4, align 8
+  %2029 = getelementptr inbounds i8, ptr %2028, i64 8
+  %2030 = load i32, ptr %2029, align 8
+  %2031 = icmp eq i32 %2030, 0
+  br i1 %2031, label %2039, label %2032
 
-2035:                                             ; preds = %2030
-  %2036 = load ptr, ptr %2031, align 8
-  %2037 = add i32 %2033, -1
-  %2038 = sext i32 %2037 to i64
-  %2039 = getelementptr i8, ptr %2036, i64 %2038
-  %2040 = load i8, ptr %2039, align 1
-  %2041 = icmp eq i8 %2040, 10
-  br i1 %2041, label %2042, label %ExplainIndentText.exit.i925
+2032:                                             ; preds = %2027
+  %2033 = load ptr, ptr %2028, align 8
+  %2034 = add i32 %2030, -1
+  %2035 = sext i32 %2034 to i64
+  %2036 = getelementptr i8, ptr %2033, i64 %2035
+  %2037 = load i8, ptr %2036, align 1
+  %2038 = icmp eq i8 %2037, 10
+  br i1 %2038, label %2039, label %ExplainIndentText.exit.i925
 
-2042:                                             ; preds = %2035, %2030
-  %2043 = load i32, ptr %41, align 8
-  %2044 = shl i32 %2043, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2031, i32 noundef %2044) #11
+2039:                                             ; preds = %2032, %2027
+  %2040 = load i32, ptr %41, align 8
+  %2041 = shl i32 %2040, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2028, i32 noundef %2041) #11
   %.pre.i926 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i925
 
-ExplainIndentText.exit.i925:                      ; preds = %2042, %2035
-  %2045 = phi ptr [ %2031, %2035 ], [ %.pre.i926, %2042 ]
-  %2046 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2045, ptr noundef nonnull @.str.327, ptr noundef %2046) #11
-  %2047 = load ptr, ptr %4, align 8
-  %2048 = getelementptr inbounds i8, ptr %2047, i64 8
-  %2049 = load i32, ptr %2048, align 8
-  %2050 = icmp eq i32 %2049, 0
-  br i1 %2050, label %2058, label %2051
+ExplainIndentText.exit.i925:                      ; preds = %2039, %2032
+  %2042 = phi ptr [ %2028, %2032 ], [ %.pre.i926, %2039 ]
+  %2043 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2042, ptr noundef nonnull @.str.327, ptr noundef %2043) #11
+  %2044 = load ptr, ptr %4, align 8
+  %2045 = getelementptr inbounds i8, ptr %2044, i64 8
+  %2046 = load i32, ptr %2045, align 8
+  %2047 = icmp eq i32 %2046, 0
+  br i1 %2047, label %2055, label %2048
 
-2051:                                             ; preds = %ExplainIndentText.exit.i925
-  %2052 = load ptr, ptr %2047, align 8
-  %2053 = add i32 %2049, -1
-  %2054 = sext i32 %2053 to i64
-  %2055 = getelementptr i8, ptr %2052, i64 %2054
-  %2056 = load i8, ptr %2055, align 1
-  %2057 = icmp eq i8 %2056, 10
-  br i1 %2057, label %2058, label %ExplainIndentText.exit91.i
+2048:                                             ; preds = %ExplainIndentText.exit.i925
+  %2049 = load ptr, ptr %2044, align 8
+  %2050 = add i32 %2046, -1
+  %2051 = sext i32 %2050 to i64
+  %2052 = getelementptr i8, ptr %2049, i64 %2051
+  %2053 = load i8, ptr %2052, align 1
+  %2054 = icmp eq i8 %2053, 10
+  br i1 %2054, label %2055, label %ExplainIndentText.exit91.i
 
-2058:                                             ; preds = %2051, %ExplainIndentText.exit.i925
-  %2059 = load i32, ptr %41, align 8
-  %2060 = shl i32 %2059, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2047, i32 noundef %2060) #11
+2055:                                             ; preds = %2048, %ExplainIndentText.exit.i925
+  %2056 = load i32, ptr %41, align 8
+  %2057 = shl i32 %2056, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2044, i32 noundef %2057) #11
   %.pre108.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit91.i
 
-ExplainIndentText.exit91.i:                       ; preds = %2058, %2051
-  %2061 = phi ptr [ %2047, %2051 ], [ %.pre108.i, %2058 ]
-  %2062 = getelementptr inbounds i8, ptr %0, i64 353
-  %2063 = load i8, ptr %2062, align 1
-  %2064 = trunc i8 %2063 to i1
-  %2065 = select i1 %2064, ptr @.str.325, ptr @.str.326
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2061, ptr noundef nonnull @.str.328, ptr noundef nonnull %2065) #11
-  br label %2066
+ExplainIndentText.exit91.i:                       ; preds = %2055, %2048
+  %2058 = phi ptr [ %2044, %2048 ], [ %.pre108.i, %2055 ]
+  %2059 = getelementptr inbounds i8, ptr %0, i64 353
+  %2060 = load i8, ptr %2059, align 1
+  %2061 = trunc i8 %2060 to i1
+  %2062 = select i1 %2061, ptr @.str.325, ptr @.str.326
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2058, ptr noundef nonnull @.str.328, ptr noundef nonnull %2062) #11
+  br label %2063
 
-2066:                                             ; preds = %ExplainIndentText.exit91.i, %2024
-  %2067 = load ptr, ptr %18, align 8
-  call void @pfree(ptr noundef %2067) #11
-  %2068 = load i8, ptr %337, align 1
-  %2069 = trunc i8 %2068 to i1
-  br i1 %2069, label %2070, label %show_memoize_info.exit
+2063:                                             ; preds = %ExplainIndentText.exit91.i, %2021
+  %2064 = load ptr, ptr %18, align 8
+  call void @pfree(ptr noundef %2064) #11
+  %2065 = load i8, ptr %337, align 1
+  %2066 = trunc i8 %2065 to i1
+  br i1 %2066, label %2067, label %show_memoize_info.exit
 
-2070:                                             ; preds = %2066
-  %2071 = getelementptr inbounds i8, ptr %0, i64 360
-  %2072 = getelementptr inbounds i8, ptr %0, i64 368
+2067:                                             ; preds = %2063
+  %2068 = getelementptr inbounds i8, ptr %0, i64 360
+  %2069 = getelementptr inbounds i8, ptr %0, i64 368
+  %2070 = load i64, ptr %2069, align 8
+  %.not86.i = icmp eq i64 %2070, 0
+  br i1 %.not86.i, label %2113, label %2071
+
+2071:                                             ; preds = %2067
+  %2072 = getelementptr inbounds i8, ptr %0, i64 392
   %2073 = load i64, ptr %2072, align 8
-  %.not86.i = icmp eq i64 %2073, 0
-  br i1 %.not86.i, label %2116, label %2074
+  %.not87.i = icmp eq i64 %2073, 0
+  br i1 %.not87.i, label %2074, label %2077
 
-2074:                                             ; preds = %2070
-  %2075 = getelementptr inbounds i8, ptr %0, i64 392
+2074:                                             ; preds = %2071
+  %2075 = getelementptr inbounds i8, ptr %0, i64 296
   %2076 = load i64, ptr %2075, align 8
-  %.not87.i = icmp eq i64 %2076, 0
-  br i1 %.not87.i, label %2077, label %2080
+  br label %2077
 
-2077:                                             ; preds = %2074
-  %2078 = getelementptr inbounds i8, ptr %0, i64 296
-  %2079 = load i64, ptr %2078, align 8
-  br label %2080
-
-2080:                                             ; preds = %2077, %2074
-  %.081.in.in.i = phi i64 [ %2079, %2077 ], [ %2076, %2074 ]
+2077:                                             ; preds = %2074, %2071
+  %.081.in.in.i = phi i64 [ %2076, %2074 ], [ %2073, %2071 ]
   %.081.in.i = add i64 %.081.in.in.i, 1023
   %.081.i = lshr i64 %.081.in.i, 10
-  %2081 = load i32, ptr %147, align 4
-  %.not88.i = icmp eq i32 %2081, 0
-  br i1 %.not88.i, label %2094, label %2082
+  %2078 = load i32, ptr %147, align 4
+  %.not88.i = icmp eq i32 %2078, 0
+  br i1 %.not88.i, label %2091, label %2079
 
-2082:                                             ; preds = %2080
-  %2083 = load i64, ptr %2071, align 8
+2079:                                             ; preds = %2077
+  %2080 = load i64, ptr %2068, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %2084 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2083) #11
+  %2081 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2080) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  %2085 = load i64, ptr %2072, align 8
+  %2082 = load i64, ptr %2069, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %2086 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2085) #11
+  %2083 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2082) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %2087 = getelementptr inbounds i8, ptr %0, i64 376
-  %2088 = load i64, ptr %2087, align 8
+  %2084 = getelementptr inbounds i8, ptr %0, i64 376
+  %2085 = load i64, ptr %2084, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %2089 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2088) #11
+  %2086 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2085) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  %2090 = getelementptr inbounds i8, ptr %0, i64 384
-  %2091 = load i64, ptr %2090, align 8
+  %2087 = getelementptr inbounds i8, ptr %0, i64 384
+  %2088 = load i64, ptr %2087, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %2092 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2091) #11
+  %2089 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2088) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %2093 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %.081.i) #11
+  %2090 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %.081.i) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %2116
+  br label %2113
 
-2094:                                             ; preds = %2080
-  %2095 = load ptr, ptr %4, align 8
-  %2096 = getelementptr inbounds i8, ptr %2095, i64 8
-  %2097 = load i32, ptr %2096, align 8
-  %2098 = icmp eq i32 %2097, 0
-  br i1 %2098, label %2106, label %2099
+2091:                                             ; preds = %2077
+  %2092 = load ptr, ptr %4, align 8
+  %2093 = getelementptr inbounds i8, ptr %2092, i64 8
+  %2094 = load i32, ptr %2093, align 8
+  %2095 = icmp eq i32 %2094, 0
+  br i1 %2095, label %2103, label %2096
 
-2099:                                             ; preds = %2094
-  %2100 = load ptr, ptr %2095, align 8
-  %2101 = add i32 %2097, -1
-  %2102 = sext i32 %2101 to i64
-  %2103 = getelementptr i8, ptr %2100, i64 %2102
-  %2104 = load i8, ptr %2103, align 1
-  %2105 = icmp eq i8 %2104, 10
-  br i1 %2105, label %2106, label %ExplainIndentText.exit92.i
+2096:                                             ; preds = %2091
+  %2097 = load ptr, ptr %2092, align 8
+  %2098 = add i32 %2094, -1
+  %2099 = sext i32 %2098 to i64
+  %2100 = getelementptr i8, ptr %2097, i64 %2099
+  %2101 = load i8, ptr %2100, align 1
+  %2102 = icmp eq i8 %2101, 10
+  br i1 %2102, label %2103, label %ExplainIndentText.exit92.i
 
-2106:                                             ; preds = %2099, %2094
-  %2107 = load i32, ptr %41, align 8
-  %2108 = shl i32 %2107, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2095, i32 noundef %2108) #11
+2103:                                             ; preds = %2096, %2091
+  %2104 = load i32, ptr %41, align 8
+  %2105 = shl i32 %2104, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2092, i32 noundef %2105) #11
   %.pre109.i = load ptr, ptr %4, align 8
-  %.pre110.i = load i64, ptr %2072, align 8
+  %.pre110.i = load i64, ptr %2069, align 8
   br label %ExplainIndentText.exit92.i
 
-ExplainIndentText.exit92.i:                       ; preds = %2106, %2099
-  %2109 = phi i64 [ %2073, %2099 ], [ %.pre110.i, %2106 ]
-  %2110 = phi ptr [ %2095, %2099 ], [ %.pre109.i, %2106 ]
-  %2111 = load i64, ptr %2071, align 8
-  %2112 = getelementptr inbounds i8, ptr %0, i64 376
-  %2113 = load i64, ptr %2112, align 8
-  %2114 = getelementptr inbounds i8, ptr %0, i64 384
-  %2115 = load i64, ptr %2114, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2110, ptr noundef nonnull @.str.333, i64 noundef %2111, i64 noundef %2109, i64 noundef %2113, i64 noundef %2115, i64 noundef %.081.i) #11
-  br label %2116
+ExplainIndentText.exit92.i:                       ; preds = %2103, %2096
+  %2106 = phi i64 [ %2070, %2096 ], [ %.pre110.i, %2103 ]
+  %2107 = phi ptr [ %2092, %2096 ], [ %.pre109.i, %2103 ]
+  %2108 = load i64, ptr %2068, align 8
+  %2109 = getelementptr inbounds i8, ptr %0, i64 376
+  %2110 = load i64, ptr %2109, align 8
+  %2111 = getelementptr inbounds i8, ptr %0, i64 384
+  %2112 = load i64, ptr %2111, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2107, ptr noundef nonnull @.str.333, i64 noundef %2108, i64 noundef %2106, i64 noundef %2110, i64 noundef %2112, i64 noundef %.081.i) #11
+  br label %2113
 
-2116:                                             ; preds = %ExplainIndentText.exit92.i, %2082, %2070
-  %2117 = getelementptr inbounds i8, ptr %0, i64 400
-  %2118 = load ptr, ptr %2117, align 8
-  %2119 = icmp eq ptr %2118, null
-  br i1 %2119, label %show_memoize_info.exit, label %.preheader.i924
+2113:                                             ; preds = %ExplainIndentText.exit92.i, %2079, %2067
+  %2114 = getelementptr inbounds i8, ptr %0, i64 400
+  %2115 = load ptr, ptr %2114, align 8
+  %2116 = icmp eq ptr %2115, null
+  br i1 %2116, label %show_memoize_info.exit, label %.preheader.i924
 
-.preheader.i924:                                  ; preds = %2116
-  %2120 = load i32, ptr %2118, align 8
-  %2121 = icmp sgt i32 %2120, 0
-  br i1 %2121, label %.lr.ph103.i, label %show_memoize_info.exit
+.preheader.i924:                                  ; preds = %2113
+  %2117 = load i32, ptr %2115, align 8
+  %2118 = icmp sgt i32 %2117, 0
+  br i1 %2118, label %.lr.ph103.i, label %show_memoize_info.exit
 
-.lr.ph103.i:                                      ; preds = %.preheader.i924, %2177
-  %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %2177 ], [ 0, %.preheader.i924 ]
-  %2122 = phi ptr [ %2178, %2177 ], [ %2118, %.preheader.i924 ]
-  %2123 = getelementptr inbounds i8, ptr %2122, i64 8
-  %2124 = getelementptr [0 x %struct.MemoizeInstrumentation], ptr %2123, i64 0, i64 %indvars.iv105.i
-  %2125 = getelementptr inbounds i8, ptr %2124, i64 8
-  %2126 = load i64, ptr %2125, align 8
-  %2127 = icmp eq i64 %2126, 0
-  br i1 %2127, label %2177, label %2128
+.lr.ph103.i:                                      ; preds = %.preheader.i924, %2174
+  %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %2174 ], [ 0, %.preheader.i924 ]
+  %2119 = phi ptr [ %2175, %2174 ], [ %2115, %.preheader.i924 ]
+  %2120 = getelementptr inbounds i8, ptr %2119, i64 8
+  %2121 = getelementptr [0 x %struct.MemoizeInstrumentation], ptr %2120, i64 0, i64 %indvars.iv105.i
+  %2122 = getelementptr inbounds i8, ptr %2121, i64 8
+  %2123 = load i64, ptr %2122, align 8
+  %2124 = icmp eq i64 %2123, 0
+  br i1 %2124, label %2174, label %2125
 
-2128:                                             ; preds = %.lr.ph103.i
-  %2129 = load ptr, ptr %39, align 8
-  %.not89.i = icmp eq ptr %2129, null
-  br i1 %.not89.i, label %2132, label %2130
+2125:                                             ; preds = %.lr.ph103.i
+  %2126 = load ptr, ptr %39, align 8
+  %.not89.i = icmp eq ptr %2126, null
+  br i1 %.not89.i, label %2129, label %2127
 
-2130:                                             ; preds = %2128
-  %2131 = trunc nuw nsw i64 %indvars.iv105.i to i32
-  call fastcc void @ExplainOpenWorker(i32 noundef %2131, ptr noundef nonnull %4)
-  br label %2132
+2127:                                             ; preds = %2125
+  %2128 = trunc nuw nsw i64 %indvars.iv105.i to i32
+  call fastcc void @ExplainOpenWorker(i32 noundef %2128, ptr noundef nonnull %4)
+  br label %2129
 
-2132:                                             ; preds = %2130, %2128
-  %2133 = getelementptr inbounds i8, ptr %2124, i64 32
-  %2134 = load i64, ptr %2133, align 8
-  %2135 = add i64 %2134, 1023
-  %2136 = lshr i64 %2135, 10
-  %2137 = load i32, ptr %147, align 4
-  %2138 = icmp eq i32 %2137, 0
-  br i1 %2138, label %2139, label %2161
+2129:                                             ; preds = %2127, %2125
+  %2130 = getelementptr inbounds i8, ptr %2121, i64 32
+  %2131 = load i64, ptr %2130, align 8
+  %2132 = add i64 %2131, 1023
+  %2133 = lshr i64 %2132, 10
+  %2134 = load i32, ptr %147, align 4
+  %2135 = icmp eq i32 %2134, 0
+  br i1 %2135, label %2136, label %2158
 
-2139:                                             ; preds = %2132
-  %2140 = load ptr, ptr %4, align 8
-  %2141 = getelementptr inbounds i8, ptr %2140, i64 8
-  %2142 = load i32, ptr %2141, align 8
-  %2143 = icmp eq i32 %2142, 0
-  br i1 %2143, label %2151, label %2144
+2136:                                             ; preds = %2129
+  %2137 = load ptr, ptr %4, align 8
+  %2138 = getelementptr inbounds i8, ptr %2137, i64 8
+  %2139 = load i32, ptr %2138, align 8
+  %2140 = icmp eq i32 %2139, 0
+  br i1 %2140, label %2148, label %2141
 
-2144:                                             ; preds = %2139
-  %2145 = load ptr, ptr %2140, align 8
-  %2146 = add i32 %2142, -1
-  %2147 = sext i32 %2146 to i64
-  %2148 = getelementptr i8, ptr %2145, i64 %2147
-  %2149 = load i8, ptr %2148, align 1
-  %2150 = icmp eq i8 %2149, 10
-  br i1 %2150, label %2151, label %ExplainIndentText.exit93.i
+2141:                                             ; preds = %2136
+  %2142 = load ptr, ptr %2137, align 8
+  %2143 = add i32 %2139, -1
+  %2144 = sext i32 %2143 to i64
+  %2145 = getelementptr i8, ptr %2142, i64 %2144
+  %2146 = load i8, ptr %2145, align 1
+  %2147 = icmp eq i8 %2146, 10
+  br i1 %2147, label %2148, label %ExplainIndentText.exit93.i
 
-2151:                                             ; preds = %2144, %2139
-  %2152 = load i32, ptr %41, align 8
-  %2153 = shl i32 %2152, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2140, i32 noundef %2153) #11
+2148:                                             ; preds = %2141, %2136
+  %2149 = load i32, ptr %41, align 8
+  %2150 = shl i32 %2149, 1
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2137, i32 noundef %2150) #11
   %.pre111.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit93.i
 
-ExplainIndentText.exit93.i:                       ; preds = %2151, %2144
-  %2154 = phi ptr [ %2140, %2144 ], [ %.pre111.i, %2151 ]
-  %2155 = load i64, ptr %2124, align 8
-  %2156 = load i64, ptr %2125, align 8
-  %2157 = getelementptr inbounds i8, ptr %2124, i64 16
-  %2158 = load i64, ptr %2157, align 8
-  %2159 = getelementptr inbounds i8, ptr %2124, i64 24
-  %2160 = load i64, ptr %2159, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2154, ptr noundef nonnull @.str.333, i64 noundef %2155, i64 noundef %2156, i64 noundef %2158, i64 noundef %2160, i64 noundef %2136) #11
-  br label %2173
+ExplainIndentText.exit93.i:                       ; preds = %2148, %2141
+  %2151 = phi ptr [ %2137, %2141 ], [ %.pre111.i, %2148 ]
+  %2152 = load i64, ptr %2121, align 8
+  %2153 = load i64, ptr %2122, align 8
+  %2154 = getelementptr inbounds i8, ptr %2121, i64 16
+  %2155 = load i64, ptr %2154, align 8
+  %2156 = getelementptr inbounds i8, ptr %2121, i64 24
+  %2157 = load i64, ptr %2156, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2151, ptr noundef nonnull @.str.333, i64 noundef %2152, i64 noundef %2153, i64 noundef %2155, i64 noundef %2157, i64 noundef %2133) #11
+  br label %2170
 
-2161:                                             ; preds = %2132
-  %2162 = load i64, ptr %2124, align 8
+2158:                                             ; preds = %2129
+  %2159 = load i64, ptr %2121, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %2163 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2162) #11
+  %2160 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2159) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %2164 = load i64, ptr %2125, align 8
+  %2161 = load i64, ptr %2122, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %2165 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2164) #11
+  %2162 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2161) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  %2166 = getelementptr inbounds i8, ptr %2124, i64 16
-  %2167 = load i64, ptr %2166, align 8
+  %2163 = getelementptr inbounds i8, ptr %2121, i64 16
+  %2164 = load i64, ptr %2163, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2167) #11
+  %2165 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2164) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %2169 = getelementptr inbounds i8, ptr %2124, i64 24
-  %2170 = load i64, ptr %2169, align 8
+  %2166 = getelementptr inbounds i8, ptr %2121, i64 24
+  %2167 = load i64, ptr %2166, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %2171 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2170) #11
+  %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2167) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %2172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2136) #11
+  %2169 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2133) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.273, ptr noundef nonnull @.str.274, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %2173
+  br label %2170
 
-2173:                                             ; preds = %2161, %ExplainIndentText.exit93.i
-  %2174 = load ptr, ptr %39, align 8
-  %.not90.i = icmp eq ptr %2174, null
-  br i1 %.not90.i, label %2177, label %2175
+2170:                                             ; preds = %2158, %ExplainIndentText.exit93.i
+  %2171 = load ptr, ptr %39, align 8
+  %.not90.i = icmp eq ptr %2171, null
+  br i1 %.not90.i, label %2174, label %2172
 
-2175:                                             ; preds = %2173
-  %2176 = trunc nuw nsw i64 %indvars.iv105.i to i32
-  call fastcc void @ExplainCloseWorker(i32 noundef %2176, ptr noundef nonnull %4)
-  br label %2177
+2172:                                             ; preds = %2170
+  %2173 = trunc nuw nsw i64 %indvars.iv105.i to i32
+  call fastcc void @ExplainCloseWorker(i32 noundef %2173, ptr noundef nonnull %4)
+  br label %2174
 
-2177:                                             ; preds = %2175, %2173, %.lr.ph103.i
+2174:                                             ; preds = %2172, %2170, %.lr.ph103.i
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
-  %2178 = load ptr, ptr %2117, align 8
-  %2179 = load i32, ptr %2178, align 8
-  %2180 = sext i32 %2179 to i64
-  %2181 = icmp slt i64 %indvars.iv.next106.i, %2180
-  br i1 %2181, label %.lr.ph103.i, label %show_memoize_info.exit, !llvm.loop !15
+  %2175 = load ptr, ptr %2114, align 8
+  %2176 = load i32, ptr %2175, align 8
+  %2177 = sext i32 %2176 to i64
+  %2178 = icmp slt i64 %indvars.iv.next106.i, %2177
+  br i1 %2178, label %.lr.ph103.i, label %show_memoize_info.exit, !llvm.loop !15
 
-show_memoize_info.exit:                           ; preds = %2177, %2066, %2116, %.preheader.i924
+show_memoize_info.exit:                           ; preds = %2174, %2063, %2113, %.preheader.i924
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %show_scan_qual.exit766
 
-show_scan_qual.exit766:                           ; preds = %1642, %1685, %1464, %1181, %1128, %1075, %987, %947, %907, %883, %761, %553, %ExplainIndentText.exit82.i, %ExplainIndentText.exit.i912, %1951, %.loopexit.i, %1923, %1922, %.preheader.i884, %1605, %1571, %1438, %1435, %.sink.split.i804, %1022, %1019, %.sink.split.i, %778, %772, %769, %635, %632, %thread-pre-split971, %show_upper_qual.exit898, %1693, %show_upper_qual.exit875, %1472, %show_hashagg_info.exit, %1407, %show_upper_qual.exit844, %1189, %show_upper_qual.exit829, %1136, %show_upper_qual.exit814, %1083, %show_scan_qual.exit806.thread, %1047, %show_scan_qual.exit800, %995, %show_scan_qual.exit794, %955, %show_scan_qual.exit789, %915, %show_scan_qual.exit787, %891, %848, %851, %819, %821, %show_scan_qual.exit780, %show_scan_qual.exit770.thread, %678, %show_scan_qual.exit764.thread, %619, %show_scan_qual.exit758, %561, %show_memoize_info.exit, %1647, %show_sort_info.exit
-  %2182 = load ptr, ptr %39, align 8
-  %.not732 = icmp eq ptr %2182, null
-  br i1 %.not732, label %.loopexit1002, label %2183
+show_scan_qual.exit766:                           ; preds = %1642, %1685, %1464, %1181, %1128, %1075, %987, %947, %907, %883, %761, %553, %ExplainIndentText.exit82.i, %ExplainIndentText.exit.i912, %1954, %.loopexit.i, %1923, %1922, %.preheader.i884, %1605, %1571, %1438, %1435, %.sink.split.i804, %1022, %1019, %.sink.split.i, %778, %772, %769, %635, %632, %thread-pre-split971, %show_upper_qual.exit898, %1693, %show_upper_qual.exit875, %1472, %show_hashagg_info.exit, %1407, %show_upper_qual.exit844, %1189, %show_upper_qual.exit829, %1136, %show_upper_qual.exit814, %1083, %show_scan_qual.exit806.thread, %1047, %show_scan_qual.exit800, %995, %show_scan_qual.exit794, %955, %show_scan_qual.exit789, %915, %show_scan_qual.exit787, %891, %848, %851, %819, %821, %show_scan_qual.exit780, %show_scan_qual.exit770.thread, %678, %show_scan_qual.exit764.thread, %619, %show_scan_qual.exit758, %561, %show_memoize_info.exit, %1647, %show_sort_info.exit
+  %2179 = load ptr, ptr %39, align 8
+  %.not732 = icmp eq ptr %2179, null
+  br i1 %.not732, label %.loopexit1002, label %2180
 
-2183:                                             ; preds = %show_scan_qual.exit766
-  %2184 = load i8, ptr %302, align 2
+2180:                                             ; preds = %show_scan_qual.exit766
+  %2181 = load i8, ptr %302, align 2
+  %2182 = trunc i8 %2181 to i1
+  br i1 %2182, label %2183, label %.loopexit1002
+
+2183:                                             ; preds = %2180
+  %2184 = load i8, ptr %460, align 8
   %2185 = trunc i8 %2184 to i1
   br i1 %2185, label %2186, label %.loopexit1002
 
 2186:                                             ; preds = %2183
-  %2187 = load i8, ptr %460, align 8
-  %2188 = trunc i8 %2187 to i1
-  br i1 %2188, label %2189, label %.loopexit1002
-
-2189:                                             ; preds = %2186
-  %2190 = getelementptr inbounds i8, ptr %0, i64 56
-  %2191 = load ptr, ptr %2190, align 8
-  %.not733 = icmp eq ptr %2191, null
+  %2187 = getelementptr inbounds i8, ptr %0, i64 56
+  %2188 = load ptr, ptr %2187, align 8
+  %.not733 = icmp eq ptr %2188, null
   br i1 %.not733, label %.loopexit1002, label %.preheader1001
 
-.preheader1001:                                   ; preds = %2189
-  %2192 = load i32, ptr %2191, align 8
-  %2193 = icmp sgt i32 %2192, 0
-  br i1 %2193, label %.lr.ph1023, label %.loopexit1002
+.preheader1001:                                   ; preds = %2186
+  %2189 = load i32, ptr %2188, align 8
+  %2190 = icmp sgt i32 %2189, 0
+  br i1 %2190, label %.lr.ph1023, label %.loopexit1002
 
 .lr.ph1023:                                       ; preds = %.preheader1001
-  %2194 = getelementptr inbounds i8, ptr %0, i64 16
-  %2195 = getelementptr inbounds i8, ptr %2191, i64 8
-  br label %2196
+  %2191 = getelementptr inbounds i8, ptr %0, i64 16
+  %2192 = getelementptr inbounds i8, ptr %2188, i64 8
+  br label %2193
 
-2196:                                             ; preds = %.lr.ph1023, %2196
-  %indvars.iv1068 = phi i64 [ 0, %.lr.ph1023 ], [ %indvars.iv.next1069, %2196 ]
-  %2197 = trunc nuw nsw i64 %indvars.iv1068 to i32
-  call fastcc void @ExplainOpenWorker(i32 noundef %2197, ptr noundef %4)
-  %2198 = load ptr, ptr %2194, align 8
-  %2199 = getelementptr inbounds i8, ptr %2198, i64 264
-  %2200 = load i32, ptr %2199, align 8
-  %2201 = getelementptr [0 x %struct.JitInstrumentation], ptr %2195, i64 0, i64 %indvars.iv1068
-  call fastcc void @ExplainPrintJIT(ptr noundef %4, i32 noundef %2200, ptr noundef %2201)
-  call fastcc void @ExplainCloseWorker(i32 noundef %2197, ptr noundef %4)
+2193:                                             ; preds = %.lr.ph1023, %2193
+  %indvars.iv1068 = phi i64 [ 0, %.lr.ph1023 ], [ %indvars.iv.next1069, %2193 ]
+  %2194 = trunc nuw nsw i64 %indvars.iv1068 to i32
+  call fastcc void @ExplainOpenWorker(i32 noundef %2194, ptr noundef %4)
+  %2195 = load ptr, ptr %2191, align 8
+  %2196 = getelementptr inbounds i8, ptr %2195, i64 264
+  %2197 = load i32, ptr %2196, align 8
+  %2198 = getelementptr [0 x %struct.JitInstrumentation], ptr %2192, i64 0, i64 %indvars.iv1068
+  call fastcc void @ExplainPrintJIT(ptr noundef %4, i32 noundef %2197, ptr noundef %2198)
+  call fastcc void @ExplainCloseWorker(i32 noundef %2194, ptr noundef %4)
   %indvars.iv.next1069 = add nuw nsw i64 %indvars.iv1068, 1
-  %2202 = load i32, ptr %2191, align 8
-  %2203 = sext i32 %2202 to i64
-  %2204 = icmp slt i64 %indvars.iv.next1069, %2203
-  br i1 %2204, label %2196, label %.loopexit1002, !llvm.loop !16
+  %2199 = load i32, ptr %2188, align 8
+  %2200 = sext i32 %2199 to i64
+  %2201 = icmp slt i64 %indvars.iv.next1069, %2200
+  br i1 %2201, label %2193, label %.loopexit1002, !llvm.loop !16
 
-.loopexit1002:                                    ; preds = %2196, %.preheader1001, %2189, %2186, %2183, %show_scan_qual.exit766
-  %2205 = getelementptr inbounds i8, ptr %4, i64 11
-  %2206 = load i8, ptr %2205, align 1
-  %2207 = trunc i8 %2206 to i1
-  br i1 %2207, label %2208, label %2212
+.loopexit1002:                                    ; preds = %2193, %.preheader1001, %2186, %2183, %2180, %show_scan_qual.exit766
+  %2202 = getelementptr inbounds i8, ptr %4, i64 11
+  %2203 = load i8, ptr %2202, align 1
+  %2204 = trunc i8 %2203 to i1
+  br i1 %2204, label %2205, label %2209
 
-2208:                                             ; preds = %.loopexit1002
-  %2209 = load ptr, ptr %333, align 8
-  %.not734 = icmp eq ptr %2209, null
-  br i1 %.not734, label %2212, label %2210
+2205:                                             ; preds = %.loopexit1002
+  %2206 = load ptr, ptr %333, align 8
+  %.not734 = icmp eq ptr %2206, null
+  br i1 %.not734, label %2209, label %2207
 
-2210:                                             ; preds = %2208
-  %2211 = getelementptr inbounds i8, ptr %2209, i64 248
-  call fastcc void @show_buffer_usage(ptr noundef nonnull %4, ptr noundef nonnull %2211)
-  br label %2212
+2207:                                             ; preds = %2205
+  %2208 = getelementptr inbounds i8, ptr %2206, i64 248
+  call fastcc void @show_buffer_usage(ptr noundef nonnull %4, ptr noundef nonnull %2208)
+  br label %2209
 
-2212:                                             ; preds = %2210, %2208, %.loopexit1002
-  %2213 = getelementptr inbounds i8, ptr %4, i64 12
-  %2214 = load i8, ptr %2213, align 4
-  %2215 = trunc i8 %2214 to i1
-  br i1 %2215, label %2216, label %2220
+2209:                                             ; preds = %2207, %2205, %.loopexit1002
+  %2210 = getelementptr inbounds i8, ptr %4, i64 12
+  %2211 = load i8, ptr %2210, align 4
+  %2212 = trunc i8 %2211 to i1
+  br i1 %2212, label %2213, label %2217
 
-2216:                                             ; preds = %2212
-  %2217 = load ptr, ptr %333, align 8
-  %.not735 = icmp eq ptr %2217, null
-  br i1 %.not735, label %2220, label %2218
+2213:                                             ; preds = %2209
+  %2214 = load ptr, ptr %333, align 8
+  %.not735 = icmp eq ptr %2214, null
+  br i1 %.not735, label %2217, label %2215
 
-2218:                                             ; preds = %2216
-  %2219 = getelementptr inbounds i8, ptr %2217, i64 376
-  call fastcc void @show_wal_usage(ptr noundef nonnull %4, ptr noundef nonnull %2219)
-  br label %2220
+2215:                                             ; preds = %2213
+  %2216 = getelementptr inbounds i8, ptr %2214, i64 376
+  call fastcc void @show_wal_usage(ptr noundef nonnull %4, ptr noundef nonnull %2216)
+  br label %2217
 
-2220:                                             ; preds = %2218, %2216, %2212
-  %2221 = load ptr, ptr %39, align 8
-  %.not736 = icmp eq ptr %2221, null
-  br i1 %.not736, label %.thread979, label %2222
+2217:                                             ; preds = %2215, %2213, %2209
+  %2218 = load ptr, ptr %39, align 8
+  %.not736 = icmp eq ptr %2218, null
+  br i1 %.not736, label %.thread979, label %2219
 
-2222:                                             ; preds = %2220
-  %2223 = load i8, ptr %2205, align 1
+2219:                                             ; preds = %2217
+  %2220 = load i8, ptr %2202, align 1
+  %2221 = trunc i8 %2220 to i1
+  br i1 %2221, label %2225, label %2222
+
+2222:                                             ; preds = %2219
+  %2223 = load i8, ptr %2210, align 4
   %2224 = trunc i8 %2223 to i1
-  br i1 %2224, label %2228, label %2225
+  br i1 %2224, label %2225, label %.loopexit.thread
 
-2225:                                             ; preds = %2222
-  %2226 = load i8, ptr %2213, align 4
+2225:                                             ; preds = %2222, %2219
+  %2226 = load i8, ptr %460, align 8
   %2227 = trunc i8 %2226 to i1
   br i1 %2227, label %2228, label %.loopexit.thread
 
-2228:                                             ; preds = %2225, %2222
-  %2229 = load i8, ptr %460, align 8
-  %2230 = trunc i8 %2229 to i1
-  br i1 %2230, label %2231, label %.loopexit.thread
+2228:                                             ; preds = %2225
+  %2229 = load ptr, ptr %43, align 8
+  %2230 = load i32, ptr %2229, align 8
+  %2231 = icmp sgt i32 %2230, 0
+  br i1 %2231, label %.lr.ph1026, label %.loopexit.thread
 
-2231:                                             ; preds = %2228
-  %2232 = load ptr, ptr %43, align 8
-  %2233 = load i32, ptr %2232, align 8
-  %2234 = icmp sgt i32 %2233, 0
-  br i1 %2234, label %.lr.ph1026, label %.loopexit.thread
+.lr.ph1026:                                       ; preds = %2228
+  %2232 = getelementptr inbounds i8, ptr %2229, i64 8
+  br label %2233
 
-.lr.ph1026:                                       ; preds = %2231
-  %2235 = getelementptr inbounds i8, ptr %2232, i64 8
-  br label %2236
+2233:                                             ; preds = %.lr.ph1026, %2251
+  %2234 = phi i32 [ %2230, %.lr.ph1026 ], [ %2252, %2251 ]
+  %indvars.iv1071 = phi i64 [ 0, %.lr.ph1026 ], [ %indvars.iv.next1072, %2251 ]
+  %2235 = getelementptr [0 x %struct.Instrumentation], ptr %2232, i64 0, i64 %indvars.iv1071
+  %2236 = getelementptr inbounds i8, ptr %2235, i64 224
+  %2237 = load double, ptr %2236, align 8
+  %2238 = fcmp ugt double %2237, 0.000000e+00
+  br i1 %2238, label %2239, label %2251
 
-2236:                                             ; preds = %.lr.ph1026, %2254
-  %2237 = phi i32 [ %2233, %.lr.ph1026 ], [ %2255, %2254 ]
-  %indvars.iv1071 = phi i64 [ 0, %.lr.ph1026 ], [ %indvars.iv.next1072, %2254 ]
-  %2238 = getelementptr [0 x %struct.Instrumentation], ptr %2235, i64 0, i64 %indvars.iv1071
-  %2239 = getelementptr inbounds i8, ptr %2238, i64 224
-  %2240 = load double, ptr %2239, align 8
-  %2241 = fcmp ugt double %2240, 0.000000e+00
-  br i1 %2241, label %2242, label %2254
+2239:                                             ; preds = %2233
+  %2240 = trunc nuw nsw i64 %indvars.iv1071 to i32
+  call fastcc void @ExplainOpenWorker(i32 noundef %2240, ptr noundef %4)
+  %2241 = load i8, ptr %2202, align 1
+  %2242 = trunc i8 %2241 to i1
+  br i1 %2242, label %2243, label %2245
 
-2242:                                             ; preds = %2236
-  %2243 = trunc nuw nsw i64 %indvars.iv1071 to i32
-  call fastcc void @ExplainOpenWorker(i32 noundef %2243, ptr noundef %4)
-  %2244 = load i8, ptr %2205, align 1
-  %2245 = trunc i8 %2244 to i1
-  br i1 %2245, label %2246, label %2248
+2243:                                             ; preds = %2239
+  %2244 = getelementptr inbounds i8, ptr %2235, i64 248
+  call fastcc void @show_buffer_usage(ptr noundef nonnull %4, ptr noundef nonnull %2244)
+  br label %2245
 
-2246:                                             ; preds = %2242
-  %2247 = getelementptr inbounds i8, ptr %2238, i64 248
-  call fastcc void @show_buffer_usage(ptr noundef nonnull %4, ptr noundef nonnull %2247)
-  br label %2248
+2245:                                             ; preds = %2243, %2239
+  %2246 = load i8, ptr %2210, align 4
+  %2247 = trunc i8 %2246 to i1
+  br i1 %2247, label %2248, label %2250
 
-2248:                                             ; preds = %2246, %2242
-  %2249 = load i8, ptr %2213, align 4
-  %2250 = trunc i8 %2249 to i1
-  br i1 %2250, label %2251, label %2253
+2248:                                             ; preds = %2245
+  %2249 = getelementptr inbounds i8, ptr %2235, i64 376
+  call fastcc void @show_wal_usage(ptr noundef nonnull %4, ptr noundef nonnull %2249)
+  br label %2250
 
-2251:                                             ; preds = %2248
-  %2252 = getelementptr inbounds i8, ptr %2238, i64 376
-  call fastcc void @show_wal_usage(ptr noundef nonnull %4, ptr noundef nonnull %2252)
-  br label %2253
+2250:                                             ; preds = %2248, %2245
+  call fastcc void @ExplainCloseWorker(i32 noundef %2240, ptr noundef nonnull %4)
+  %.pre1146 = load i32, ptr %2229, align 8
+  br label %2251
 
-2253:                                             ; preds = %2251, %2248
-  call fastcc void @ExplainCloseWorker(i32 noundef %2243, ptr noundef nonnull %4)
-  %.pre1146 = load i32, ptr %2232, align 8
-  br label %2254
-
-2254:                                             ; preds = %2236, %2253
-  %2255 = phi i32 [ %2237, %2236 ], [ %.pre1146, %2253 ]
+2251:                                             ; preds = %2233, %2250
+  %2252 = phi i32 [ %2234, %2233 ], [ %.pre1146, %2250 ]
   %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
-  %2256 = sext i32 %2255 to i64
-  %2257 = icmp slt i64 %indvars.iv.next1072, %2256
-  br i1 %2257, label %2236, label %.loopexit, !llvm.loop !17
+  %2253 = sext i32 %2252 to i64
+  %2254 = icmp slt i64 %indvars.iv.next1072, %2253
+  br i1 %2254, label %2233, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %2254
+.loopexit:                                        ; preds = %2251
   %.pr978.pre = load ptr, ptr %39, align 8
   %.not737 = icmp eq ptr %.pr978.pre, null
   br i1 %.not737, label %.thread979, label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %2225, %2228, %2231, %.loopexit
-  %.pr9781177 = phi ptr [ %.pr978.pre, %.loopexit ], [ %2221, %2231 ], [ %2221, %2228 ], [ %2221, %2225 ]
+.loopexit.thread:                                 ; preds = %2222, %2225, %2228, %.loopexit
+  %.pr9781177 = phi ptr [ %.pr978.pre, %.loopexit ], [ %2218, %2228 ], [ %2218, %2225 ], [ %2218, %2222 ]
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.341, i1 noundef zeroext false, ptr noundef nonnull %4)
-  %2258 = load i32, ptr %.pr9781177, align 8
-  %2259 = icmp sgt i32 %2258, 0
-  br i1 %2259, label %.lr.ph.i930, label %ExplainFlushWorkersState.exit
+  %2255 = load i32, ptr %.pr9781177, align 8
+  %2256 = icmp sgt i32 %2255, 0
+  br i1 %2256, label %.lr.ph.i930, label %ExplainFlushWorkersState.exit
 
 .lr.ph.i930:                                      ; preds = %.loopexit.thread
-  %2260 = getelementptr inbounds i8, ptr %.pr9781177, i64 8
-  %2261 = getelementptr inbounds i8, ptr %.pr9781177, i64 16
-  br label %2262
+  %2257 = getelementptr inbounds i8, ptr %.pr9781177, i64 8
+  %2258 = getelementptr inbounds i8, ptr %.pr9781177, i64 16
+  br label %2259
 
-2262:                                             ; preds = %2276, %.lr.ph.i930
-  %2263 = phi i32 [ %2258, %.lr.ph.i930 ], [ %2277, %2276 ]
-  %indvars.iv.i931 = phi i64 [ 0, %.lr.ph.i930 ], [ %indvars.iv.next.i932, %2276 ]
-  %2264 = load ptr, ptr %2260, align 8
-  %2265 = getelementptr i8, ptr %2264, i64 %indvars.iv.i931
-  %2266 = load i8, ptr %2265, align 1
-  %2267 = trunc i8 %2266 to i1
-  br i1 %2267, label %2268, label %2276
+2259:                                             ; preds = %2273, %.lr.ph.i930
+  %2260 = phi i32 [ %2255, %.lr.ph.i930 ], [ %2274, %2273 ]
+  %indvars.iv.i931 = phi i64 [ 0, %.lr.ph.i930 ], [ %indvars.iv.next.i932, %2273 ]
+  %2261 = load ptr, ptr %2257, align 8
+  %2262 = getelementptr i8, ptr %2261, i64 %indvars.iv.i931
+  %2263 = load i8, ptr %2262, align 1
+  %2264 = trunc i8 %2263 to i1
+  br i1 %2264, label %2265, label %2273
 
-2268:                                             ; preds = %2262
+2265:                                             ; preds = %2259
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.238, ptr noundef null, i1 noundef zeroext true, ptr noundef %4)
-  %2269 = load ptr, ptr %4, align 8
-  %2270 = load ptr, ptr %2261, align 8
+  %2266 = load ptr, ptr %4, align 8
+  %2267 = load ptr, ptr %2258, align 8
+  %2268 = getelementptr %struct.StringInfoData, ptr %2267, i64 %indvars.iv.i931
+  %2269 = load ptr, ptr %2268, align 8
+  call void @appendStringInfoString(ptr noundef %2266, ptr noundef %2269) #11
+  call void @ExplainCloseGroup(ptr noundef nonnull @.str.238, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %4)
+  %2270 = load ptr, ptr %2258, align 8
   %2271 = getelementptr %struct.StringInfoData, ptr %2270, i64 %indvars.iv.i931
   %2272 = load ptr, ptr %2271, align 8
-  call void @appendStringInfoString(ptr noundef %2269, ptr noundef %2272) #11
-  call void @ExplainCloseGroup(ptr noundef nonnull @.str.238, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %4)
-  %2273 = load ptr, ptr %2261, align 8
-  %2274 = getelementptr %struct.StringInfoData, ptr %2273, i64 %indvars.iv.i931
-  %2275 = load ptr, ptr %2274, align 8
-  call void @pfree(ptr noundef %2275) #11
+  call void @pfree(ptr noundef %2272) #11
   %.pre.i933 = load i32, ptr %.pr9781177, align 8
-  br label %2276
+  br label %2273
 
-2276:                                             ; preds = %2268, %2262
-  %2277 = phi i32 [ %2263, %2262 ], [ %.pre.i933, %2268 ]
+2273:                                             ; preds = %2265, %2259
+  %2274 = phi i32 [ %2260, %2259 ], [ %.pre.i933, %2265 ]
   %indvars.iv.next.i932 = add nuw nsw i64 %indvars.iv.i931, 1
-  %2278 = sext i32 %2277 to i64
-  %2279 = icmp slt i64 %indvars.iv.next.i932, %2278
-  br i1 %2279, label %2262, label %ExplainFlushWorkersState.exit, !llvm.loop !18
+  %2275 = sext i32 %2274 to i64
+  %2276 = icmp slt i64 %indvars.iv.next.i932, %2275
+  br i1 %2276, label %2259, label %ExplainFlushWorkersState.exit, !llvm.loop !18
 
-ExplainFlushWorkersState.exit:                    ; preds = %2276, %.loopexit.thread
+ExplainFlushWorkersState.exit:                    ; preds = %2273, %.loopexit.thread
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.341, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %4)
-  %2280 = getelementptr inbounds i8, ptr %.pr9781177, i64 8
-  %2281 = load ptr, ptr %2280, align 8
-  call void @pfree(ptr noundef %2281) #11
-  %2282 = getelementptr inbounds i8, ptr %.pr9781177, i64 16
-  %2283 = load ptr, ptr %2282, align 8
-  call void @pfree(ptr noundef %2283) #11
-  %2284 = getelementptr inbounds i8, ptr %.pr9781177, i64 24
-  %2285 = load ptr, ptr %2284, align 8
-  call void @pfree(ptr noundef %2285) #11
+  %2277 = getelementptr inbounds i8, ptr %.pr9781177, i64 8
+  %2278 = load ptr, ptr %2277, align 8
+  call void @pfree(ptr noundef %2278) #11
+  %2279 = getelementptr inbounds i8, ptr %.pr9781177, i64 16
+  %2280 = load ptr, ptr %2279, align 8
+  call void @pfree(ptr noundef %2280) #11
+  %2281 = getelementptr inbounds i8, ptr %.pr9781177, i64 24
+  %2282 = load ptr, ptr %2281, align 8
+  call void @pfree(ptr noundef %2282) #11
   call void @pfree(ptr noundef nonnull %.pr9781177) #11
   br label %.thread979
 
-.thread979:                                       ; preds = %2220, %ExplainFlushWorkersState.exit, %.loopexit
+.thread979:                                       ; preds = %2217, %ExplainFlushWorkersState.exit, %.loopexit
   store ptr %40, ptr %39, align 8
-  %2286 = load i32, ptr %38, align 4
-  switch i32 %2286, label %ExplainMissingMembers.exit [
-    i32 318, label %2287
-    i32 319, label %2303
+  %2283 = load i32, ptr %38, align 4
+  switch i32 %2283, label %ExplainMissingMembers.exit [
+    i32 318, label %2284
+    i32 319, label %2300
   ]
 
-2287:                                             ; preds = %.thread979
-  %2288 = getelementptr inbounds i8, ptr %0, i64 208
-  %2289 = load i32, ptr %2288, align 8
-  %2290 = getelementptr inbounds i8, ptr %38, i64 112
-  %2291 = load ptr, ptr %2290, align 8
-  %.not.i934 = icmp eq ptr %2291, null
-  br i1 %.not.i934, label %list_length.exit935, label %2292
+2284:                                             ; preds = %.thread979
+  %2285 = getelementptr inbounds i8, ptr %0, i64 208
+  %2286 = load i32, ptr %2285, align 8
+  %2287 = getelementptr inbounds i8, ptr %38, i64 112
+  %2288 = load ptr, ptr %2287, align 8
+  %.not.i934 = icmp eq ptr %2288, null
+  br i1 %.not.i934, label %list_length.exit935, label %2289
 
-2292:                                             ; preds = %2287
-  %2293 = getelementptr inbounds i8, ptr %2291, i64 4
-  %2294 = load i32, ptr %2293, align 4
+2289:                                             ; preds = %2284
+  %2290 = getelementptr inbounds i8, ptr %2288, i64 4
+  %2291 = load i32, ptr %2290, align 4
   br label %list_length.exit935
 
-list_length.exit935:                              ; preds = %2287, %2292
-  %2295 = phi i32 [ %2294, %2292 ], [ 0, %2287 ]
-  %2296 = icmp slt i32 %2289, %2295
-  br i1 %2296, label %2299, label %2297
+list_length.exit935:                              ; preds = %2284, %2289
+  %2292 = phi i32 [ %2291, %2289 ], [ 0, %2284 ]
+  %2293 = icmp slt i32 %2286, %2292
+  br i1 %2293, label %2296, label %2294
 
-2297:                                             ; preds = %list_length.exit935
-  %2298 = load i32, ptr %147, align 4
-  %.not.i936 = icmp eq i32 %2298, 0
-  br i1 %.not.i936, label %ExplainMissingMembers.exit, label %2299
+2294:                                             ; preds = %list_length.exit935
+  %2295 = load i32, ptr %147, align 4
+  %.not.i936 = icmp eq i32 %2295, 0
+  br i1 %.not.i936, label %ExplainMissingMembers.exit, label %2296
 
-2299:                                             ; preds = %2297, %list_length.exit935
-  %2300 = sub i32 %2295, %2289
-  %2301 = sext i32 %2300 to i64
+2296:                                             ; preds = %2294, %list_length.exit935
+  %2297 = sub i32 %2292, %2286
+  %2298 = sext i32 %2297 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %2302 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2301) #11
+  %2299 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2298) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %ExplainMissingMembers.exit
 
-2303:                                             ; preds = %.thread979
-  %2304 = getelementptr inbounds i8, ptr %0, i64 208
-  %2305 = load i32, ptr %2304, align 8
-  %2306 = getelementptr inbounds i8, ptr %38, i64 112
-  %2307 = load ptr, ptr %2306, align 8
-  %.not.i937 = icmp eq ptr %2307, null
-  br i1 %.not.i937, label %list_length.exit938, label %2308
+2300:                                             ; preds = %.thread979
+  %2301 = getelementptr inbounds i8, ptr %0, i64 208
+  %2302 = load i32, ptr %2301, align 8
+  %2303 = getelementptr inbounds i8, ptr %38, i64 112
+  %2304 = load ptr, ptr %2303, align 8
+  %.not.i937 = icmp eq ptr %2304, null
+  br i1 %.not.i937, label %list_length.exit938, label %2305
 
-2308:                                             ; preds = %2303
-  %2309 = getelementptr inbounds i8, ptr %2307, i64 4
-  %2310 = load i32, ptr %2309, align 4
+2305:                                             ; preds = %2300
+  %2306 = getelementptr inbounds i8, ptr %2304, i64 4
+  %2307 = load i32, ptr %2306, align 4
   br label %list_length.exit938
 
-list_length.exit938:                              ; preds = %2303, %2308
-  %2311 = phi i32 [ %2310, %2308 ], [ 0, %2303 ]
-  %2312 = icmp slt i32 %2305, %2311
-  br i1 %2312, label %2315, label %2313
+list_length.exit938:                              ; preds = %2300, %2305
+  %2308 = phi i32 [ %2307, %2305 ], [ 0, %2300 ]
+  %2309 = icmp slt i32 %2302, %2308
+  br i1 %2309, label %2312, label %2310
 
-2313:                                             ; preds = %list_length.exit938
-  %2314 = load i32, ptr %147, align 4
-  %.not.i939 = icmp eq i32 %2314, 0
-  br i1 %.not.i939, label %ExplainMissingMembers.exit, label %2315
+2310:                                             ; preds = %list_length.exit938
+  %2311 = load i32, ptr %147, align 4
+  %.not.i939 = icmp eq i32 %2311, 0
+  br i1 %.not.i939, label %ExplainMissingMembers.exit, label %2312
 
-2315:                                             ; preds = %2313, %list_length.exit938
-  %2316 = sub i32 %2311, %2305
-  %2317 = sext i32 %2316 to i64
+2312:                                             ; preds = %2310, %list_length.exit938
+  %2313 = sub i32 %2308, %2302
+  %2314 = sext i32 %2313 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %2318 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2317) #11
+  %2315 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.47, i64 noundef %2314) #11
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.342, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %ExplainMissingMembers.exit
 
-ExplainMissingMembers.exit:                       ; preds = %2315, %2313, %2299, %2297, %.thread979
-  %2319 = getelementptr inbounds i8, ptr %0, i64 88
-  %2320 = load ptr, ptr %2319, align 8
-  %.not738 = icmp eq ptr %2320, null
-  br i1 %.not738, label %2321, label %2338
+ExplainMissingMembers.exit:                       ; preds = %2312, %2310, %2296, %2294, %.thread979
+  %2316 = getelementptr inbounds i8, ptr %0, i64 88
+  %2317 = load ptr, ptr %2316, align 8
+  %.not738 = icmp eq ptr %2317, null
+  br i1 %.not738, label %2318, label %2335
 
-2321:                                             ; preds = %ExplainMissingMembers.exit
-  %2322 = getelementptr inbounds i8, ptr %0, i64 72
+2318:                                             ; preds = %ExplainMissingMembers.exit
+  %2319 = getelementptr inbounds i8, ptr %0, i64 72
+  %2320 = load ptr, ptr %2319, align 8
+  %.not739 = icmp eq ptr %2320, null
+  br i1 %.not739, label %2321, label %2335
+
+2321:                                             ; preds = %2318
+  %2322 = getelementptr inbounds i8, ptr %0, i64 80
   %2323 = load ptr, ptr %2322, align 8
-  %.not739 = icmp eq ptr %2323, null
-  br i1 %.not739, label %2324, label %2338
+  %.not740 = icmp eq ptr %2323, null
+  br i1 %.not740, label %2324, label %2335
 
 2324:                                             ; preds = %2321
-  %2325 = getelementptr inbounds i8, ptr %0, i64 80
-  %2326 = load ptr, ptr %2325, align 8
-  %.not740 = icmp eq ptr %2326, null
-  br i1 %.not740, label %2327, label %2338
-
-2327:                                             ; preds = %2324
-  %2328 = load i32, ptr %38, align 4
-  switch i32 %2328, label %2329 [
-    i32 318, label %2338
-    i32 319, label %2338
-    i32 321, label %2338
-    i32 322, label %2338
-    i32 331, label %2338
+  %2325 = load i32, ptr %38, align 4
+  switch i32 %2325, label %2326 [
+    i32 318, label %2335
+    i32 319, label %2335
+    i32 321, label %2335
+    i32 322, label %2335
+    i32 331, label %2335
   ]
 
-2329:                                             ; preds = %2327
-  %2330 = load i32, ptr %0, align 4
-  %2331 = icmp eq i32 %2330, 403
-  br i1 %2331, label %2332, label %2335
+2326:                                             ; preds = %2324
+  %2327 = load i32, ptr %0, align 4
+  %2328 = icmp eq i32 %2327, 403
+  br i1 %2328, label %2329, label %2332
 
-2332:                                             ; preds = %2329
-  %2333 = getelementptr inbounds i8, ptr %0, i64 232
+2329:                                             ; preds = %2326
+  %2330 = getelementptr inbounds i8, ptr %0, i64 232
+  %2331 = load ptr, ptr %2330, align 8
+  %.not741 = icmp eq ptr %2331, null
+  br i1 %.not741, label %2332, label %2335
+
+2332:                                             ; preds = %2326, %2329
+  %2333 = getelementptr inbounds i8, ptr %0, i64 96
   %2334 = load ptr, ptr %2333, align 8
-  %.not741 = icmp eq ptr %2334, null
-  br i1 %.not741, label %2335, label %2338
+  %.not995 = icmp eq ptr %2334, null
+  br i1 %.not995, label %ExplainSubPlans.exit, label %2335
 
-2335:                                             ; preds = %2329, %2332
-  %2336 = getelementptr inbounds i8, ptr %0, i64 96
-  %2337 = load ptr, ptr %2336, align 8
-  %.not995 = icmp eq ptr %2337, null
-  br i1 %.not995, label %ExplainSubPlans.exit, label %2338
-
-2338:                                             ; preds = %2335, %2332, %2327, %2327, %2327, %2327, %2327, %2324, %2321, %ExplainMissingMembers.exit
+2335:                                             ; preds = %2332, %2329, %2324, %2324, %2324, %2324, %2324, %2321, %2318, %ExplainMissingMembers.exit
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.217, i1 noundef zeroext false, ptr noundef nonnull %4)
-  %2339 = call ptr @lcons(ptr noundef nonnull %38, ptr noundef %1) #11
-  %.pre1148 = load ptr, ptr %2319, align 8
+  %2336 = call ptr @lcons(ptr noundef nonnull %38, ptr noundef %1) #11
+  %.pre1148 = load ptr, ptr %2316, align 8
   %.not742 = icmp eq ptr %.pre1148, null
   br i1 %.not742, label %ExplainSubPlans.exit, label %.preheader1000
 
-.preheader1000:                                   ; preds = %2338
-  %2340 = getelementptr inbounds i8, ptr %.pre1148, i64 4
-  %2341 = load i32, ptr %2340, align 4
-  %.not.i9421027 = icmp sgt i32 %2341, 0
+.preheader1000:                                   ; preds = %2335
+  %2337 = getelementptr inbounds i8, ptr %.pre1148, i64 4
+  %2338 = load i32, ptr %2337, align 4
+  %.not.i9421027 = icmp sgt i32 %2338, 0
   br i1 %.not.i9421027, label %.lr.ph1030, label %ExplainSubPlans.exit
 
 .lr.ph1030:                                       ; preds = %.preheader1000
-  %2342 = getelementptr inbounds i8, ptr %.pre1148, i64 16
-  %2343 = getelementptr inbounds i8, ptr %4, i64 72
-  br label %2344
+  %2339 = getelementptr inbounds i8, ptr %.pre1148, i64 16
+  %2340 = getelementptr inbounds i8, ptr %4, i64 72
+  br label %2341
 
-2344:                                             ; preds = %.lr.ph1030, %2364
-  %indvars.iv1074 = phi i64 [ 0, %.lr.ph1030 ], [ %indvars.iv.next1075, %2364 ]
-  %.0.i9411029 = phi ptr [ %2339, %.lr.ph1030 ], [ %.1.i943, %2364 ]
-  %2345 = load ptr, ptr %2342, align 8
-  %2346 = getelementptr %union.ListCell, ptr %2345, i64 %indvars.iv1074
-  %2347 = load ptr, ptr %2346, align 8
-  %2348 = getelementptr inbounds i8, ptr %2347, i64 8
-  %2349 = load ptr, ptr %2348, align 8
-  %2350 = getelementptr inbounds i8, ptr %2349, i64 24
-  %2351 = load i32, ptr %2350, align 8
-  %2352 = load ptr, ptr %2343, align 8
-  %2353 = call zeroext i1 @bms_is_member(i32 noundef %2351, ptr noundef %2352) #11
-  br i1 %2353, label %2364, label %2354
+2341:                                             ; preds = %.lr.ph1030, %2361
+  %indvars.iv1074 = phi i64 [ 0, %.lr.ph1030 ], [ %indvars.iv.next1075, %2361 ]
+  %.0.i9411029 = phi ptr [ %2336, %.lr.ph1030 ], [ %.1.i943, %2361 ]
+  %2342 = load ptr, ptr %2339, align 8
+  %2343 = getelementptr %union.ListCell, ptr %2342, i64 %indvars.iv1074
+  %2344 = load ptr, ptr %2343, align 8
+  %2345 = getelementptr inbounds i8, ptr %2344, i64 8
+  %2346 = load ptr, ptr %2345, align 8
+  %2347 = getelementptr inbounds i8, ptr %2346, i64 24
+  %2348 = load i32, ptr %2347, align 8
+  %2349 = load ptr, ptr %2340, align 8
+  %2350 = call zeroext i1 @bms_is_member(i32 noundef %2348, ptr noundef %2349) #11
+  br i1 %2350, label %2361, label %2351
 
-2354:                                             ; preds = %2344
-  %2355 = load ptr, ptr %2343, align 8
-  %2356 = load i32, ptr %2350, align 8
-  %2357 = call ptr @bms_add_member(ptr noundef %2355, i32 noundef %2356) #11
-  store ptr %2357, ptr %2343, align 8
-  %2358 = call ptr @lcons(ptr noundef nonnull %2349, ptr noundef %.0.i9411029) #11
-  %2359 = getelementptr inbounds i8, ptr %2347, i64 16
-  %2360 = load ptr, ptr %2359, align 8
-  %2361 = getelementptr inbounds i8, ptr %2349, i64 32
-  %2362 = load ptr, ptr %2361, align 8
-  call fastcc void @ExplainNode(ptr noundef %2360, ptr noundef %2358, ptr noundef nonnull @.str.218, ptr noundef %2362, ptr noundef nonnull %4)
-  %2363 = call ptr @list_delete_first(ptr noundef %2358) #11
-  br label %2364
+2351:                                             ; preds = %2341
+  %2352 = load ptr, ptr %2340, align 8
+  %2353 = load i32, ptr %2347, align 8
+  %2354 = call ptr @bms_add_member(ptr noundef %2352, i32 noundef %2353) #11
+  store ptr %2354, ptr %2340, align 8
+  %2355 = call ptr @lcons(ptr noundef nonnull %2346, ptr noundef %.0.i9411029) #11
+  %2356 = getelementptr inbounds i8, ptr %2344, i64 16
+  %2357 = load ptr, ptr %2356, align 8
+  %2358 = getelementptr inbounds i8, ptr %2346, i64 32
+  %2359 = load ptr, ptr %2358, align 8
+  call fastcc void @ExplainNode(ptr noundef %2357, ptr noundef %2355, ptr noundef nonnull @.str.218, ptr noundef %2359, ptr noundef nonnull %4)
+  %2360 = call ptr @list_delete_first(ptr noundef %2355) #11
+  br label %2361
 
-2364:                                             ; preds = %2354, %2344
-  %.1.i943 = phi ptr [ %.0.i9411029, %2344 ], [ %2363, %2354 ]
+2361:                                             ; preds = %2351, %2341
+  %.1.i943 = phi ptr [ %.0.i9411029, %2341 ], [ %2360, %2351 ]
   %indvars.iv.next1075 = add nuw nsw i64 %indvars.iv1074, 1
-  %2365 = load i32, ptr %2340, align 4
-  %2366 = sext i32 %2365 to i64
-  %.not.i942 = icmp slt i64 %indvars.iv.next1075, %2366
-  br i1 %.not.i942, label %2344, label %ExplainSubPlans.exit, !llvm.loop !19
+  %2362 = load i32, ptr %2337, align 4
+  %2363 = sext i32 %2362 to i64
+  %.not.i942 = icmp slt i64 %indvars.iv.next1075, %2363
+  br i1 %.not.i942, label %2341, label %ExplainSubPlans.exit, !llvm.loop !19
 
-ExplainSubPlans.exit:                             ; preds = %2364, %2335, %.preheader1000, %2338
-  %.01181 = phi ptr [ %2339, %.preheader1000 ], [ %2339, %2338 ], [ %1, %2335 ], [ %2339, %2364 ]
-  %2367 = phi i1 [ true, %.preheader1000 ], [ true, %2338 ], [ false, %2335 ], [ true, %2364 ]
-  %2368 = getelementptr inbounds i8, ptr %0, i64 72
-  %2369 = load ptr, ptr %2368, align 8
-  %.not743 = icmp eq ptr %2369, null
-  br i1 %.not743, label %2371, label %2370
+ExplainSubPlans.exit:                             ; preds = %2361, %2332, %.preheader1000, %2335
+  %.01181 = phi ptr [ %2336, %.preheader1000 ], [ %2336, %2335 ], [ %1, %2332 ], [ %2336, %2361 ]
+  %2364 = phi i1 [ true, %.preheader1000 ], [ true, %2335 ], [ false, %2332 ], [ true, %2361 ]
+  %2365 = getelementptr inbounds i8, ptr %0, i64 72
+  %2366 = load ptr, ptr %2365, align 8
+  %.not743 = icmp eq ptr %2366, null
+  br i1 %.not743, label %2368, label %2367
 
-2370:                                             ; preds = %ExplainSubPlans.exit
-  call fastcc void @ExplainNode(ptr noundef nonnull %2369, ptr noundef %.01181, ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %4)
-  br label %2371
+2367:                                             ; preds = %ExplainSubPlans.exit
+  call fastcc void @ExplainNode(ptr noundef nonnull %2366, ptr noundef %.01181, ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %4)
+  br label %2368
 
-2371:                                             ; preds = %2370, %ExplainSubPlans.exit
-  %2372 = getelementptr inbounds i8, ptr %0, i64 80
-  %2373 = load ptr, ptr %2372, align 8
-  %.not744 = icmp eq ptr %2373, null
-  br i1 %.not744, label %2375, label %2374
+2368:                                             ; preds = %2367, %ExplainSubPlans.exit
+  %2369 = getelementptr inbounds i8, ptr %0, i64 80
+  %2370 = load ptr, ptr %2369, align 8
+  %.not744 = icmp eq ptr %2370, null
+  br i1 %.not744, label %2372, label %2371
 
-2374:                                             ; preds = %2371
-  call fastcc void @ExplainNode(ptr noundef nonnull %2373, ptr noundef %.01181, ptr noundef nonnull @.str.167, ptr noundef null, ptr noundef nonnull %4)
-  br label %2375
+2371:                                             ; preds = %2368
+  call fastcc void @ExplainNode(ptr noundef nonnull %2370, ptr noundef %.01181, ptr noundef nonnull @.str.167, ptr noundef null, ptr noundef nonnull %4)
+  br label %2372
 
-2375:                                             ; preds = %2374, %2371
-  %2376 = load i32, ptr %38, align 4
-  switch i32 %2376, label %ExplainMemberNodes.exit [
-    i32 318, label %2377
-    i32 319, label %2385
-    i32 321, label %2393
-    i32 322, label %2401
-    i32 331, label %2409
-    i32 339, label %2412
+2372:                                             ; preds = %2371, %2368
+  %2373 = load i32, ptr %38, align 4
+  switch i32 %2373, label %ExplainMemberNodes.exit [
+    i32 318, label %2374
+    i32 319, label %2382
+    i32 321, label %2390
+    i32 322, label %2398
+    i32 331, label %2406
+    i32 339, label %2409
   ]
 
-2377:                                             ; preds = %2375
-  %2378 = getelementptr inbounds i8, ptr %0, i64 200
-  %2379 = load ptr, ptr %2378, align 8
-  %2380 = getelementptr inbounds i8, ptr %0, i64 208
-  %2381 = load i32, ptr %2380, align 8
-  %2382 = icmp sgt i32 %2381, 0
-  br i1 %2382, label %.lr.ph1047.preheader, label %ExplainMemberNodes.exit
+2374:                                             ; preds = %2372
+  %2375 = getelementptr inbounds i8, ptr %0, i64 200
+  %2376 = load ptr, ptr %2375, align 8
+  %2377 = getelementptr inbounds i8, ptr %0, i64 208
+  %2378 = load i32, ptr %2377, align 8
+  %2379 = icmp sgt i32 %2378, 0
+  br i1 %2379, label %.lr.ph1047.preheader, label %ExplainMemberNodes.exit
 
-.lr.ph1047.preheader:                             ; preds = %2377
-  %wide.trip.count1096 = zext nneg i32 %2381 to i64
+.lr.ph1047.preheader:                             ; preds = %2374
+  %wide.trip.count1096 = zext nneg i32 %2378 to i64
   br label %.lr.ph1047
 
 .lr.ph1047:                                       ; preds = %.lr.ph1047.preheader, %.lr.ph1047
   %indvars.iv1093 = phi i64 [ 0, %.lr.ph1047.preheader ], [ %indvars.iv.next1094, %.lr.ph1047 ]
-  %2383 = getelementptr ptr, ptr %2379, i64 %indvars.iv1093
-  %2384 = load ptr, ptr %2383, align 8
-  call fastcc void @ExplainNode(ptr noundef %2384, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
+  %2380 = getelementptr ptr, ptr %2376, i64 %indvars.iv1093
+  %2381 = load ptr, ptr %2380, align 8
+  call fastcc void @ExplainNode(ptr noundef %2381, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
   %indvars.iv.next1094 = add nuw nsw i64 %indvars.iv1093, 1
   %exitcond1097.not = icmp eq i64 %indvars.iv.next1094, %wide.trip.count1096
   br i1 %exitcond1097.not, label %ExplainMemberNodes.exit, label %.lr.ph1047, !llvm.loop !20
 
-2385:                                             ; preds = %2375
-  %2386 = getelementptr inbounds i8, ptr %0, i64 200
-  %2387 = load ptr, ptr %2386, align 8
-  %2388 = getelementptr inbounds i8, ptr %0, i64 208
-  %2389 = load i32, ptr %2388, align 8
-  %2390 = icmp sgt i32 %2389, 0
-  br i1 %2390, label %.lr.ph1044.preheader, label %ExplainMemberNodes.exit
+2382:                                             ; preds = %2372
+  %2383 = getelementptr inbounds i8, ptr %0, i64 200
+  %2384 = load ptr, ptr %2383, align 8
+  %2385 = getelementptr inbounds i8, ptr %0, i64 208
+  %2386 = load i32, ptr %2385, align 8
+  %2387 = icmp sgt i32 %2386, 0
+  br i1 %2387, label %.lr.ph1044.preheader, label %ExplainMemberNodes.exit
 
-.lr.ph1044.preheader:                             ; preds = %2385
-  %wide.trip.count1091 = zext nneg i32 %2389 to i64
+.lr.ph1044.preheader:                             ; preds = %2382
+  %wide.trip.count1091 = zext nneg i32 %2386 to i64
   br label %.lr.ph1044
 
 .lr.ph1044:                                       ; preds = %.lr.ph1044.preheader, %.lr.ph1044
   %indvars.iv1088 = phi i64 [ 0, %.lr.ph1044.preheader ], [ %indvars.iv.next1089, %.lr.ph1044 ]
-  %2391 = getelementptr ptr, ptr %2387, i64 %indvars.iv1088
-  %2392 = load ptr, ptr %2391, align 8
-  call fastcc void @ExplainNode(ptr noundef %2392, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
+  %2388 = getelementptr ptr, ptr %2384, i64 %indvars.iv1088
+  %2389 = load ptr, ptr %2388, align 8
+  call fastcc void @ExplainNode(ptr noundef %2389, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
   %indvars.iv.next1089 = add nuw nsw i64 %indvars.iv1088, 1
   %exitcond1092.not = icmp eq i64 %indvars.iv.next1089, %wide.trip.count1091
   br i1 %exitcond1092.not, label %ExplainMemberNodes.exit, label %.lr.ph1044, !llvm.loop !20
 
-2393:                                             ; preds = %2375
-  %2394 = getelementptr inbounds i8, ptr %0, i64 200
-  %2395 = load ptr, ptr %2394, align 8
-  %2396 = getelementptr inbounds i8, ptr %0, i64 208
-  %2397 = load i32, ptr %2396, align 8
-  %2398 = icmp sgt i32 %2397, 0
-  br i1 %2398, label %.lr.ph1041.preheader, label %ExplainMemberNodes.exit
+2390:                                             ; preds = %2372
+  %2391 = getelementptr inbounds i8, ptr %0, i64 200
+  %2392 = load ptr, ptr %2391, align 8
+  %2393 = getelementptr inbounds i8, ptr %0, i64 208
+  %2394 = load i32, ptr %2393, align 8
+  %2395 = icmp sgt i32 %2394, 0
+  br i1 %2395, label %.lr.ph1041.preheader, label %ExplainMemberNodes.exit
 
-.lr.ph1041.preheader:                             ; preds = %2393
-  %wide.trip.count1086 = zext nneg i32 %2397 to i64
+.lr.ph1041.preheader:                             ; preds = %2390
+  %wide.trip.count1086 = zext nneg i32 %2394 to i64
   br label %.lr.ph1041
 
 .lr.ph1041:                                       ; preds = %.lr.ph1041.preheader, %.lr.ph1041
   %indvars.iv1083 = phi i64 [ 0, %.lr.ph1041.preheader ], [ %indvars.iv.next1084, %.lr.ph1041 ]
-  %2399 = getelementptr ptr, ptr %2395, i64 %indvars.iv1083
-  %2400 = load ptr, ptr %2399, align 8
-  call fastcc void @ExplainNode(ptr noundef %2400, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
+  %2396 = getelementptr ptr, ptr %2392, i64 %indvars.iv1083
+  %2397 = load ptr, ptr %2396, align 8
+  call fastcc void @ExplainNode(ptr noundef %2397, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
   %indvars.iv.next1084 = add nuw nsw i64 %indvars.iv1083, 1
   %exitcond1087.not = icmp eq i64 %indvars.iv.next1084, %wide.trip.count1086
   br i1 %exitcond1087.not, label %ExplainMemberNodes.exit, label %.lr.ph1041, !llvm.loop !20
 
-2401:                                             ; preds = %2375
-  %2402 = getelementptr inbounds i8, ptr %0, i64 200
-  %2403 = load ptr, ptr %2402, align 8
-  %2404 = getelementptr inbounds i8, ptr %0, i64 208
-  %2405 = load i32, ptr %2404, align 8
-  %2406 = icmp sgt i32 %2405, 0
-  br i1 %2406, label %.lr.ph1038.preheader, label %ExplainMemberNodes.exit
+2398:                                             ; preds = %2372
+  %2399 = getelementptr inbounds i8, ptr %0, i64 200
+  %2400 = load ptr, ptr %2399, align 8
+  %2401 = getelementptr inbounds i8, ptr %0, i64 208
+  %2402 = load i32, ptr %2401, align 8
+  %2403 = icmp sgt i32 %2402, 0
+  br i1 %2403, label %.lr.ph1038.preheader, label %ExplainMemberNodes.exit
 
-.lr.ph1038.preheader:                             ; preds = %2401
-  %wide.trip.count = zext nneg i32 %2405 to i64
+.lr.ph1038.preheader:                             ; preds = %2398
+  %wide.trip.count = zext nneg i32 %2402 to i64
   br label %.lr.ph1038
 
 .lr.ph1038:                                       ; preds = %.lr.ph1038.preheader, %.lr.ph1038
   %indvars.iv1080 = phi i64 [ 0, %.lr.ph1038.preheader ], [ %indvars.iv.next1081, %.lr.ph1038 ]
-  %2407 = getelementptr ptr, ptr %2403, i64 %indvars.iv1080
-  %2408 = load ptr, ptr %2407, align 8
-  call fastcc void @ExplainNode(ptr noundef %2408, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
+  %2404 = getelementptr ptr, ptr %2400, i64 %indvars.iv1080
+  %2405 = load ptr, ptr %2404, align 8
+  call fastcc void @ExplainNode(ptr noundef %2405, ptr noundef %.01181, ptr noundef nonnull @.str.343, ptr noundef null, ptr noundef %4)
   %indvars.iv.next1081 = add nuw nsw i64 %indvars.iv1080, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1081, %wide.trip.count
   br i1 %exitcond.not, label %ExplainMemberNodes.exit, label %.lr.ph1038, !llvm.loop !20
 
-2409:                                             ; preds = %2375
-  %2410 = getelementptr inbounds i8, ptr %0, i64 224
-  %2411 = load ptr, ptr %2410, align 8
-  call fastcc void @ExplainNode(ptr noundef %2411, ptr noundef %.01181, ptr noundef nonnull @.str.220, ptr noundef null, ptr noundef nonnull %4)
+2406:                                             ; preds = %2372
+  %2407 = getelementptr inbounds i8, ptr %0, i64 224
+  %2408 = load ptr, ptr %2407, align 8
+  call fastcc void @ExplainNode(ptr noundef %2408, ptr noundef %.01181, ptr noundef nonnull @.str.220, ptr noundef null, ptr noundef nonnull %4)
   br label %ExplainMemberNodes.exit
 
-2412:                                             ; preds = %2375
-  %2413 = getelementptr inbounds i8, ptr %0, i64 232
-  %2414 = load ptr, ptr %2413, align 8
-  %.not.i962 = icmp eq ptr %2414, null
+2409:                                             ; preds = %2372
+  %2410 = getelementptr inbounds i8, ptr %0, i64 232
+  %2411 = load ptr, ptr %2410, align 8
+  %.not.i962 = icmp eq ptr %2411, null
   br i1 %.not.i962, label %ExplainMemberNodes.exit, label %.lr.ph1032
 
-.lr.ph1032:                                       ; preds = %2412
-  %2415 = getelementptr inbounds i8, ptr %2414, i64 4
-  %2416 = load i32, ptr %2415, align 4
-  %.fr = freeze i32 %2416
+.lr.ph1032:                                       ; preds = %2409
+  %2412 = getelementptr inbounds i8, ptr %2411, i64 4
+  %2413 = load i32, ptr %2412, align 4
+  %.fr = freeze i32 %2413
   %.not.i951 = icmp eq i32 %.fr, 1
   %spec.select = select i1 %.not.i951, ptr @.str.345, ptr @.str.344
-  %2417 = getelementptr inbounds i8, ptr %2414, i64 4
-  %2418 = getelementptr inbounds i8, ptr %2414, i64 16
-  %2419 = icmp sgt i32 %.fr, 0
-  br i1 %2419, label %.lr.ph1035, label %ExplainMemberNodes.exit
+  %2414 = getelementptr inbounds i8, ptr %2411, i64 4
+  %2415 = getelementptr inbounds i8, ptr %2411, i64 16
+  %2416 = icmp sgt i32 %.fr, 0
+  br i1 %2416, label %.lr.ph1035, label %ExplainMemberNodes.exit
 
 .lr.ph1035:                                       ; preds = %.lr.ph1032, %.lr.ph1035
   %indvars.iv1077 = phi i64 [ %indvars.iv.next1078, %.lr.ph1035 ], [ 0, %.lr.ph1032 ]
-  %2420 = load ptr, ptr %2418, align 8
-  %2421 = getelementptr %union.ListCell, ptr %2420, i64 %indvars.iv1077
-  %2422 = load ptr, ptr %2421, align 8
-  call fastcc void @ExplainNode(ptr noundef %2422, ptr noundef %.01181, ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef %4)
+  %2417 = load ptr, ptr %2415, align 8
+  %2418 = getelementptr %union.ListCell, ptr %2417, i64 %indvars.iv1077
+  %2419 = load ptr, ptr %2418, align 8
+  call fastcc void @ExplainNode(ptr noundef %2419, ptr noundef %.01181, ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef %4)
   %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
-  %2423 = load i32, ptr %2417, align 4
-  %2424 = sext i32 %2423 to i64
-  %2425 = icmp slt i64 %indvars.iv.next1078, %2424
-  br i1 %2425, label %.lr.ph1035, label %ExplainMemberNodes.exit
+  %2420 = load i32, ptr %2414, align 4
+  %2421 = sext i32 %2420 to i64
+  %2422 = icmp slt i64 %indvars.iv.next1078, %2421
+  br i1 %2422, label %.lr.ph1035, label %ExplainMemberNodes.exit
 
-ExplainMemberNodes.exit:                          ; preds = %.lr.ph1035, %.lr.ph1038, %.lr.ph1041, %.lr.ph1044, %.lr.ph1047, %2412, %.lr.ph1032, %2401, %2393, %2385, %2377, %2375, %2409
-  %2426 = getelementptr inbounds i8, ptr %0, i64 96
-  %2427 = load ptr, ptr %2426, align 8
-  %.not745 = icmp eq ptr %2427, null
+ExplainMemberNodes.exit:                          ; preds = %.lr.ph1035, %.lr.ph1038, %.lr.ph1041, %.lr.ph1044, %.lr.ph1047, %2409, %.lr.ph1032, %2398, %2390, %2382, %2374, %2372, %2406
+  %2423 = getelementptr inbounds i8, ptr %0, i64 96
+  %2424 = load ptr, ptr %2423, align 8
+  %.not745 = icmp eq ptr %2424, null
   br i1 %.not745, label %ExplainSubPlans.exit961, label %.preheader
 
 .preheader:                                       ; preds = %ExplainMemberNodes.exit
-  %2428 = getelementptr inbounds i8, ptr %2427, i64 4
-  %2429 = load i32, ptr %2428, align 4
-  %.not.i9581048 = icmp sgt i32 %2429, 0
+  %2425 = getelementptr inbounds i8, ptr %2424, i64 4
+  %2426 = load i32, ptr %2425, align 4
+  %.not.i9581048 = icmp sgt i32 %2426, 0
   br i1 %.not.i9581048, label %.lr.ph1051, label %ExplainSubPlans.exit961
 
 .lr.ph1051:                                       ; preds = %.preheader
-  %2430 = getelementptr inbounds i8, ptr %2427, i64 16
-  %2431 = getelementptr inbounds i8, ptr %4, i64 72
-  br label %2432
+  %2427 = getelementptr inbounds i8, ptr %2424, i64 16
+  %2428 = getelementptr inbounds i8, ptr %4, i64 72
+  br label %2429
 
-2432:                                             ; preds = %.lr.ph1051, %2452
-  %indvars.iv1098 = phi i64 [ 0, %.lr.ph1051 ], [ %indvars.iv.next1099, %2452 ]
-  %.0.i9571050 = phi ptr [ %.01181, %.lr.ph1051 ], [ %.1.i960, %2452 ]
-  %2433 = load ptr, ptr %2430, align 8
-  %2434 = getelementptr %union.ListCell, ptr %2433, i64 %indvars.iv1098
-  %2435 = load ptr, ptr %2434, align 8
-  %2436 = getelementptr inbounds i8, ptr %2435, i64 8
-  %2437 = load ptr, ptr %2436, align 8
-  %2438 = getelementptr inbounds i8, ptr %2437, i64 24
-  %2439 = load i32, ptr %2438, align 8
-  %2440 = load ptr, ptr %2431, align 8
-  %2441 = call zeroext i1 @bms_is_member(i32 noundef %2439, ptr noundef %2440) #11
-  br i1 %2441, label %2452, label %2442
+2429:                                             ; preds = %.lr.ph1051, %2449
+  %indvars.iv1098 = phi i64 [ 0, %.lr.ph1051 ], [ %indvars.iv.next1099, %2449 ]
+  %.0.i9571050 = phi ptr [ %.01181, %.lr.ph1051 ], [ %.1.i960, %2449 ]
+  %2430 = load ptr, ptr %2427, align 8
+  %2431 = getelementptr %union.ListCell, ptr %2430, i64 %indvars.iv1098
+  %2432 = load ptr, ptr %2431, align 8
+  %2433 = getelementptr inbounds i8, ptr %2432, i64 8
+  %2434 = load ptr, ptr %2433, align 8
+  %2435 = getelementptr inbounds i8, ptr %2434, i64 24
+  %2436 = load i32, ptr %2435, align 8
+  %2437 = load ptr, ptr %2428, align 8
+  %2438 = call zeroext i1 @bms_is_member(i32 noundef %2436, ptr noundef %2437) #11
+  br i1 %2438, label %2449, label %2439
 
-2442:                                             ; preds = %2432
-  %2443 = load ptr, ptr %2431, align 8
-  %2444 = load i32, ptr %2438, align 8
-  %2445 = call ptr @bms_add_member(ptr noundef %2443, i32 noundef %2444) #11
-  store ptr %2445, ptr %2431, align 8
-  %2446 = call ptr @lcons(ptr noundef nonnull %2437, ptr noundef %.0.i9571050) #11
-  %2447 = getelementptr inbounds i8, ptr %2435, i64 16
-  %2448 = load ptr, ptr %2447, align 8
-  %2449 = getelementptr inbounds i8, ptr %2437, i64 32
-  %2450 = load ptr, ptr %2449, align 8
-  call fastcc void @ExplainNode(ptr noundef %2448, ptr noundef %2446, ptr noundef nonnull @.str.221, ptr noundef %2450, ptr noundef nonnull %4)
-  %2451 = call ptr @list_delete_first(ptr noundef %2446) #11
-  br label %2452
+2439:                                             ; preds = %2429
+  %2440 = load ptr, ptr %2428, align 8
+  %2441 = load i32, ptr %2435, align 8
+  %2442 = call ptr @bms_add_member(ptr noundef %2440, i32 noundef %2441) #11
+  store ptr %2442, ptr %2428, align 8
+  %2443 = call ptr @lcons(ptr noundef nonnull %2434, ptr noundef %.0.i9571050) #11
+  %2444 = getelementptr inbounds i8, ptr %2432, i64 16
+  %2445 = load ptr, ptr %2444, align 8
+  %2446 = getelementptr inbounds i8, ptr %2434, i64 32
+  %2447 = load ptr, ptr %2446, align 8
+  call fastcc void @ExplainNode(ptr noundef %2445, ptr noundef %2443, ptr noundef nonnull @.str.221, ptr noundef %2447, ptr noundef nonnull %4)
+  %2448 = call ptr @list_delete_first(ptr noundef %2443) #11
+  br label %2449
 
-2452:                                             ; preds = %2442, %2432
-  %.1.i960 = phi ptr [ %.0.i9571050, %2432 ], [ %2451, %2442 ]
+2449:                                             ; preds = %2439, %2429
+  %.1.i960 = phi ptr [ %.0.i9571050, %2429 ], [ %2448, %2439 ]
   %indvars.iv.next1099 = add nuw nsw i64 %indvars.iv1098, 1
-  %2453 = load i32, ptr %2428, align 4
-  %2454 = sext i32 %2453 to i64
-  %.not.i958 = icmp slt i64 %indvars.iv.next1099, %2454
-  br i1 %.not.i958, label %2432, label %ExplainSubPlans.exit961, !llvm.loop !19
+  %2450 = load i32, ptr %2425, align 4
+  %2451 = sext i32 %2450 to i64
+  %.not.i958 = icmp slt i64 %indvars.iv.next1099, %2451
+  br i1 %.not.i958, label %2429, label %ExplainSubPlans.exit961, !llvm.loop !19
 
-ExplainSubPlans.exit961:                          ; preds = %2452, %.preheader, %ExplainMemberNodes.exit
-  br i1 %2367, label %2455, label %2457
+ExplainSubPlans.exit961:                          ; preds = %2449, %.preheader, %ExplainMemberNodes.exit
+  br i1 %2364, label %2452, label %2454
 
-2455:                                             ; preds = %ExplainSubPlans.exit961
-  %2456 = call ptr @list_delete_first(ptr noundef %.01181) #11
+2452:                                             ; preds = %ExplainSubPlans.exit961
+  %2453 = call ptr @list_delete_first(ptr noundef %.01181) #11
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.217, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %4)
-  br label %2457
+  br label %2454
 
-2457:                                             ; preds = %2455, %ExplainSubPlans.exit961
-  %2458 = load i32, ptr %147, align 4
-  %2459 = icmp eq i32 %2458, 0
-  br i1 %2459, label %2460, label %2461
+2454:                                             ; preds = %2452, %ExplainSubPlans.exit961
+  %2455 = load i32, ptr %147, align 4
+  %2456 = icmp eq i32 %2455, 0
+  br i1 %2456, label %2457, label %2458
 
-2460:                                             ; preds = %2457
+2457:                                             ; preds = %2454
   store i32 %42, ptr %41, align 8
-  br label %2461
+  br label %2458
 
-2461:                                             ; preds = %2460, %2457
+2458:                                             ; preds = %2457, %2454
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.152, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %4)
   ret void
 }
@@ -10841,10 +10858,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.smax.v4i32(<4 x i32>, <4 x i32>) #10
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

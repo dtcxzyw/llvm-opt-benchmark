@@ -1430,17 +1430,18 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !36
-  %2 = load ptr, ptr %storage_.i.i, align 8, !noalias !36
-  %is_cpu_.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !36
+  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !36
+  %is_cpu_.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i, i8 0, i64 16, i1 false)
   %3 = load i8, ptr %is_cpu_.i, align 1
   %tobool.i = trunc i8 %3 to i1
-  %is_mutable_.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i, align 8
   %tobool2.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null
   %div.i = sdiv i64 %offset, 8
@@ -1538,7 +1539,9 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.end36.i, %invoke.cont5
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <2 x ptr> %1, ptr %storage_.i.i6, align 8
+  store ptr %1, ptr %storage_.i.i6, align 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %if.then
@@ -2394,23 +2397,26 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !50
-  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !50
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !50
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !50
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !47
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !47
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !47
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !47
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !47
   store ptr null, ptr %agg.result, align 8, !alias.scope !47
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !47
+  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !47
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !47
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -2949,23 +2955,26 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !61
-  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !61
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !61
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !61
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !58
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !58
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !58
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !58
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !58
   store ptr null, ptr %agg.result, align 8, !alias.scope !58
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !58
+  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !58
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !58
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -3504,23 +3513,26 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !72
-  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !72
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !72
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !72
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !69
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !69
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !69
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !69
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !69
   store ptr null, ptr %agg.result, align 8, !alias.scope !69
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !69
+  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !69
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !69
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -4059,23 +4071,26 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !83
-  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !83
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !83
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !83
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !80
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !80
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !80
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !80
   store ptr null, ptr %agg.result, align 8, !alias.scope !80
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !80
+  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !80
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !80
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -4618,23 +4633,26 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !94
-  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !94
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %1 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !94
+  %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8, !noalias !94
+  %is_cpu_.i.i = getelementptr inbounds i8, ptr %1, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !91
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !91
   %tobool.i.i = trunc i8 %3 to i1
-  %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %is_mutable_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !91
   %tobool2.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool.i.i, i1 %tobool2.i.i, i1 false
-  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %data_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %data_.i.i, align 8, !noalias !91
   %cond.i.i = select i1 %5, ptr %6, ptr null
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef readonly %left, i64 noundef %left_offset, ptr noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !91
   store ptr null, ptr %agg.result, align 8, !alias.scope !91
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !91
+  %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %storage_.i.i6.i, align 8, !alias.scope !91
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !91
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i

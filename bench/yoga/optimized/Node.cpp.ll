@@ -85,7 +85,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(244) %context_, i8 0, i64 244, i1 false)
   store i24 4161, ptr %alignContent_.i, align 1
   %flex_.i = getelementptr inbounds i8, ptr %this, i64 52
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %flex_.i, align 4
+  store float 0x7FF8000000000000, ptr %flex_.i, align 4
+  %flexGrow_.i = getelementptr inbounds i8, ptr %this, i64 56
+  store float 0x7FF8000000000000, ptr %flexGrow_.i, align 8
   %flexShrink_.i = getelementptr inbounds i8, ptr %this, i64 60
   store float 0x7FF8000000000000, ptr %flexShrink_.i, align 4
   %flexBasis_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -171,32 +173,46 @@ _ZN8facebook4yoga5StyleC2Ev.exit:                 ; preds = %arrayinit.body79.i
 arrayinit.body.i3:                                ; preds = %arrayinit.body.i3, %_ZN8facebook4yoga5StyleC2Ev.exit
   %arrayinit.cur.idx.i4 = phi i64 [ 20, %_ZN8facebook4yoga5StyleC2Ev.exit ], [ %arrayinit.cur.add.i6, %arrayinit.body.i3 ]
   %arrayinit.cur.ptr.i5 = getelementptr inbounds i8, ptr %layout_, i64 %arrayinit.cur.idx.i4
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i5, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i5, align 4
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i5, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i, align 4
   %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i5, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
   %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i5, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
   %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i5, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i, align 4
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i5, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i6 = add nuw nsw i64 %arrayinit.cur.idx.i4, 24
   %arrayinit.done.i7 = icmp eq i64 %arrayinit.cur.add.i6, 212
   br i1 %arrayinit.done.i7, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i3
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i3
   %cachedLayout.i = getelementptr inbounds i8, ptr %this, i64 464
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 8
+  store float -1.000000e+00, ptr %cachedLayout.i, align 8
+  %availableHeight4.i = getelementptr inbounds i8, ptr %this, i64 468
+  store float -1.000000e+00, ptr %availableHeight4.i, align 4
   %widthSizingMode5.i = getelementptr inbounds i8, ptr %this, i64 472
   store i32 1, ptr %widthSizingMode5.i, align 8
   %heightSizingMode6.i = getelementptr inbounds i8, ptr %this, i64 476
   store i32 1, ptr %heightSizingMode6.i, align 4
   %computedWidth7.i = getelementptr inbounds i8, ptr %this, i64 480
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 8
+  store float -1.000000e+00, ptr %computedWidth7.i, align 8
+  %computedHeight8.i = getelementptr inbounds i8, ptr %this, i64 484
+  store float -1.000000e+00, ptr %computedHeight8.i, align 4
   %direction_.i = getelementptr inbounds i8, ptr %this, i64 488
   %bf.load.i8 = load i8, ptr %direction_.i, align 8
   %bf.clear10.i = and i8 %bf.load.i8, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 8
   %dimensions_.i9 = getelementptr inbounds i8, ptr %this, i64 492
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i9, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i9, align 4
+  %arrayinit.element.i10 = getelementptr inbounds i8, ptr %this, i64 496
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i10, align 8
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %this, i64 500
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %this, i64 504
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 8
   %position_.i = getelementptr inbounds i8, ptr %this, i64 508
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
   %lineIndex_ = getelementptr inbounds i8, ptr %this, i64 576
@@ -278,7 +294,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(244) %context_, i8 0, i64 244, i1 false)
   store i24 4161, ptr %alignContent_.i, align 1
   %flex_.i = getelementptr inbounds i8, ptr %this, i64 52
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %flex_.i, align 4
+  store float 0x7FF8000000000000, ptr %flex_.i, align 4
+  %flexGrow_.i = getelementptr inbounds i8, ptr %this, i64 56
+  store float 0x7FF8000000000000, ptr %flexGrow_.i, align 8
   %flexShrink_.i = getelementptr inbounds i8, ptr %this, i64 60
   store float 0x7FF8000000000000, ptr %flexShrink_.i, align 4
   %flexBasis_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -364,32 +382,46 @@ _ZN8facebook4yoga5StyleC2Ev.exit:                 ; preds = %arrayinit.body79.i
 arrayinit.body.i18:                               ; preds = %arrayinit.body.i18, %_ZN8facebook4yoga5StyleC2Ev.exit
   %arrayinit.cur.idx.i19 = phi i64 [ 20, %_ZN8facebook4yoga5StyleC2Ev.exit ], [ %arrayinit.cur.add.i21, %arrayinit.body.i18 ]
   %arrayinit.cur.ptr.i20 = getelementptr inbounds i8, ptr %layout_, i64 %arrayinit.cur.idx.i19
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayinit.cur.ptr.i20, align 4
+  store float -1.000000e+00, ptr %arrayinit.cur.ptr.i20, align 4
+  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i20, i64 4
+  store float -1.000000e+00, ptr %availableHeight.i, align 4
   %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i20, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
   %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i20, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
   %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i20, i64 16
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth.i, align 4
+  store float -1.000000e+00, ptr %computedWidth.i, align 4
+  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i20, i64 20
+  store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i21 = add nuw nsw i64 %arrayinit.cur.idx.i19, 24
   %arrayinit.done.i22 = icmp eq i64 %arrayinit.cur.add.i21, 212
   br i1 %arrayinit.done.i22, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSEOS5_.exit, label %arrayinit.body.i18
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSEOS5_.exit: ; preds = %arrayinit.body.i18
   %cachedLayout.i = getelementptr inbounds i8, ptr %this, i64 464
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %cachedLayout.i, align 8
+  store float -1.000000e+00, ptr %cachedLayout.i, align 8
+  %availableHeight4.i = getelementptr inbounds i8, ptr %this, i64 468
+  store float -1.000000e+00, ptr %availableHeight4.i, align 4
   %widthSizingMode5.i = getelementptr inbounds i8, ptr %this, i64 472
   store i32 1, ptr %widthSizingMode5.i, align 8
   %heightSizingMode6.i = getelementptr inbounds i8, ptr %this, i64 476
   store i32 1, ptr %heightSizingMode6.i, align 4
   %computedWidth7.i = getelementptr inbounds i8, ptr %this, i64 480
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %computedWidth7.i, align 8
+  store float -1.000000e+00, ptr %computedWidth7.i, align 8
+  %computedHeight8.i = getelementptr inbounds i8, ptr %this, i64 484
+  store float -1.000000e+00, ptr %computedHeight8.i, align 4
   %direction_.i = getelementptr inbounds i8, ptr %this, i64 488
   %bf.load.i23 = load i8, ptr %direction_.i, align 8
   %bf.clear10.i = and i8 %bf.load.i23, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 8
   %dimensions_.i24 = getelementptr inbounds i8, ptr %this, i64 492
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %dimensions_.i24, align 4
+  store float 0x7FF8000000000000, ptr %dimensions_.i24, align 4
+  %arrayinit.element.i25 = getelementptr inbounds i8, ptr %this, i64 496
+  store float 0x7FF8000000000000, ptr %arrayinit.element.i25, align 8
+  %measuredDimensions_.i = getelementptr inbounds i8, ptr %this, i64 500
+  store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %this, i64 504
+  store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 8
   %position_.i = getelementptr inbounds i8, ptr %this, i64 508
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
   %lineIndex_ = getelementptr inbounds i8, ptr %this, i64 576
@@ -5660,11 +5692,14 @@ entry:
   %children_2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 592
   %4 = load ptr, ptr %children_, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
-  %5 = load <2 x ptr>, ptr %children_2.i, align 8
-  store <2 x ptr> %5, ptr %children_, align 8
+  %5 = load ptr, ptr %children_2.i, align 8
+  store ptr %5, ptr %children_, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 600
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 608
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_2.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8facebook4yoga4NodeaSEOS1_.exit.thread, label %_ZN8facebook4yoga4NodeaSEOS1_.exit

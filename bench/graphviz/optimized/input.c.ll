@@ -2291,7 +2291,7 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   store i8 0, ptr %6, align 1
   %7 = tail call ptr @agget(ptr noundef %0, ptr noundef %1) #21
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %42, label %8
+  br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %3
   %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.155, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
@@ -2302,49 +2302,56 @@ define internal fastcc zeroext i1 @getdoubles2ptf(ptr noundef %0, ptr noundef %1
   %13 = load double, ptr %5, align 8
   %14 = fcmp ogt double %13, 0.000000e+00
   %or.cond3 = select i1 %or.cond, i1 %14, i1 false
-  br i1 %or.cond3, label %15, label %27
+  br i1 %or.cond3, label %15, label %31
 
 15:                                               ; preds = %8
-  %16 = insertelement <2 x double> poison, double %11, i64 0
-  %17 = insertelement <2 x double> %16, double %13, i64 1
-  %18 = fmul <2 x double> %17, <double 7.200000e+01, double 7.200000e+01>
-  %19 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %17, <2 x double> <double 7.200000e+01, double 7.200000e+01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>)
-  %20 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %17, <2 x double> <double 7.200000e+01, double 7.200000e+01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>)
-  %21 = fcmp ult <2 x double> %18, zeroinitializer
-  %22 = select <2 x i1> %21, <2 x double> %20, <2 x double> %19
-  %23 = fptosi <2 x double> %22 to <2 x i32>
-  %24 = sitofp <2 x i32> %23 to <2 x double>
-  store <2 x double> %24, ptr %2, align 8
-  %25 = load i8, ptr %6, align 1
-  %26 = icmp eq i8 %25, 33
-  br label %42
+  %16 = fmul double %11, 7.200000e+01
+  %17 = fcmp ult double %16, 0.000000e+00
+  %18 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double 5.000000e-01)
+  %19 = call double @llvm.fmuladd.f64(double %11, double 7.200000e+01, double -5.000000e-01)
+  %.in18 = select i1 %17, double %19, double %18
+  %20 = fptosi double %.in18 to i32
+  %21 = sitofp i32 %20 to double
+  store double %21, ptr %2, align 8
+  %22 = fmul double %13, 7.200000e+01
+  %23 = fcmp ult double %22, 0.000000e+00
+  %24 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double 5.000000e-01)
+  %25 = call double @llvm.fmuladd.f64(double %13, double 7.200000e+01, double -5.000000e-01)
+  %.in19 = select i1 %23, double %25, double %24
+  %26 = fptosi double %.in19 to i32
+  %27 = sitofp i32 %26 to double
+  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %27, ptr %28, align 8
+  %29 = load i8, ptr %6, align 1
+  %30 = icmp eq i8 %29, 33
+  br label %46
 
-27:                                               ; preds = %8
+31:                                               ; preds = %8
   store i8 0, ptr %6, align 1
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.156, ptr noundef nonnull %4, ptr noundef nonnull %6) #21
-  %29 = icmp sgt i32 %28, 0
-  %30 = load double, ptr %4, align 8
-  %31 = fcmp ogt double %30, 0.000000e+00
-  %or.cond5 = select i1 %29, i1 %31, i1 false
-  br i1 %or.cond5, label %32, label %42
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.156, ptr noundef nonnull %4, ptr noundef nonnull %6) #21
+  %33 = icmp sgt i32 %32, 0
+  %34 = load double, ptr %4, align 8
+  %35 = fcmp ogt double %34, 0.000000e+00
+  %or.cond5 = select i1 %33, i1 %35, i1 false
+  br i1 %or.cond5, label %36, label %46
 
-32:                                               ; preds = %27
-  %33 = fmul double %30, 7.200000e+01
-  %34 = fcmp ult double %33, 0.000000e+00
-  %35 = call double @llvm.fmuladd.f64(double %30, double 7.200000e+01, double 5.000000e-01)
-  %36 = call double @llvm.fmuladd.f64(double %30, double 7.200000e+01, double -5.000000e-01)
-  %.in = select i1 %34, double %36, double %35
-  %37 = fptosi double %.in to i32
-  %38 = sitofp i32 %37 to double
-  store double %38, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %38, ptr %39, align 8
-  %40 = load i8, ptr %6, align 1
-  %41 = icmp eq i8 %40, 33
-  br label %42
+36:                                               ; preds = %31
+  %37 = fmul double %34, 7.200000e+01
+  %38 = fcmp ult double %37, 0.000000e+00
+  %39 = call double @llvm.fmuladd.f64(double %34, double 7.200000e+01, double 5.000000e-01)
+  %40 = call double @llvm.fmuladd.f64(double %34, double 7.200000e+01, double -5.000000e-01)
+  %.in = select i1 %38, double %40, double %39
+  %41 = fptosi double %.in to i32
+  %42 = sitofp i32 %41 to double
+  store double %42, ptr %2, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %42, ptr %43, align 8
+  %44 = load i8, ptr %6, align 1
+  %45 = icmp eq i8 %44, 33
+  br label %46
 
-42:                                               ; preds = %32, %15, %27, %3
-  %.0 = phi i1 [ false, %27 ], [ false, %3 ], [ %26, %15 ], [ %41, %32 ]
+46:                                               ; preds = %36, %15, %31, %3
+  %.0 = phi i1 [ false, %31 ], [ false, %3 ], [ %30, %15 ], [ %45, %36 ]
   ret i1 %.0
 }
 
@@ -2354,12 +2361,12 @@ declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #5
 define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.32) #21
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %79, label %3
+  br i1 %.not, label %77, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %2, align 1
   %.not52 = icmp eq i8 %4, 0
-  br i1 %.not52, label %79, label %5
+  br i1 %.not52, label %77, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2440,15 +2447,18 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   store i8 %.1, ptr %47, align 1
   %48 = tail call ptr @agroot(ptr noundef nonnull %0) #21
   %49 = icmp eq ptr %48, %0
-  br i1 %49, label %79, label %50
+  br i1 %49, label %77, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %22, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 40
-  %55 = load <2 x double>, ptr %54, align 8
-  %56 = fadd <2 x double> %55, <double 1.600000e+01, double 8.000000e+00>
+  %.sroa.0.0.copyload = load double, ptr %54, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 48
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
+  %55 = fadd double %.sroa.0.0.copyload, 1.600000e+01
+  %56 = fadd double %.sroa.5.0.copyload, 8.000000e+00
   %57 = tail call ptr @agroot(ptr noundef nonnull %0) #21
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
@@ -2467,24 +2477,24 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %69 = and i8 %68, 2
   %. = zext nneg i8 %69 to i64
   %70 = getelementptr inbounds [4 x %struct.pointf_s], ptr %66, i64 0, i64 %.
-  store <2 x double> %56, ptr %70, align 8
-  br label %79
+  store double %55, ptr %70, align 8
+  %.sroa.5.0..sroa_idx3 = getelementptr inbounds i8, ptr %70, i64 8
+  store double %56, ptr %.sroa.5.0..sroa_idx3, align 8
+  br label %77
 
 71:                                               ; preds = %50
   %72 = and i8 %65, 1
   %.not60 = icmp eq i8 %72, 0
   %.61 = select i1 %.not60, i64 3, i64 1
   %73 = getelementptr inbounds [4 x %struct.pointf_s], ptr %66, i64 0, i64 %.61
-  %74 = extractelement <2 x double> %56, i64 1
-  store double %74, ptr %73, align 8
-  %75 = load ptr, ptr %22, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 64
-  %77 = getelementptr inbounds [4 x %struct.pointf_s], ptr %76, i64 0, i64 %.61, i32 1
-  %78 = extractelement <2 x double> %56, i64 0
-  store double %78, ptr %77, align 8
-  br label %79
+  store double %56, ptr %73, align 8
+  %74 = load ptr, ptr %22, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 64
+  %76 = getelementptr inbounds [4 x %struct.pointf_s], ptr %75, i64 0, i64 %.61, i32 1
+  store double %55, ptr %76, align 8
+  br label %77
 
-79:                                               ; preds = %67, %71, %45, %3, %1
+77:                                               ; preds = %67, %71, %45, %3, %1
   ret void
 }
 
@@ -2761,9 +2771,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #19
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

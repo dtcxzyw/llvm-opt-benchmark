@@ -661,7 +661,7 @@ entry:
   %ref.tmp96 = alloca %"class.std::allocator.0", align 1
   %ref.tmp111 = alloca i64, align 8
   %iMode = alloca i32, align 4
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %path = alloca %struct.aiString, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #18
   %call.i156 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1786,8 +1786,9 @@ invoke.cont406:                                   ; preds = %invoke.cont403
           to label %invoke.cont413 unwind label %lpad49.loopexit
 
 invoke.cont413:                                   ; preds = %invoke.cont406
-  store <2 x float> <float 0x3FA99999A0000000, float 0x3FA99999A0000000>, ptr %clr, align 8
-  store float 0x3FA99999A0000000, ptr %b.i, align 8
+  store float 0x3FA99999A0000000, ptr %clr, align 4
+  store float 0x3FA99999A0000000, ptr %g.i, align 4
+  store float 0x3FA99999A0000000, ptr %b.i, align 4
   %call.i228229 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call404, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont415 unwind label %lpad49.loopexit
 
@@ -1795,9 +1796,9 @@ invoke.cont415:                                   ; preds = %invoke.cont413
   %call417 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i225) #18
   %tobool418.not = icmp eq i64 %call417, 0
   %. = select i1 %tobool418.not, float 0x3FE3333340000000, float 1.000000e+00
-  store float %., ptr %clr, align 8
+  store float %., ptr %clr, align 4
   store float %., ptr %g.i, align 4
-  store float %., ptr %b.i, align 8
+  store float %., ptr %b.i, align 4
   %call.i230231 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call404, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont428 unwind label %lpad49.loopexit
 
@@ -1862,7 +1863,13 @@ for.end441:                                       ; preds = %for.end441.loopexit
   %ref.tmp442.sroa.2.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1032
   %ref.tmp442.sroa.7.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1052
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp442.sroa.2.0.mTransformation.sroa_idx, i8 0, i64 20, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %ref.tmp442.sroa.7.0.mTransformation.sroa_idx, align 4
+  store float 1.000000e+00, ptr %ref.tmp442.sroa.7.0.mTransformation.sroa_idx, align 4
+  %ref.tmp442.sroa.8.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1056
+  store float 0.000000e+00, ptr %ref.tmp442.sroa.8.0.mTransformation.sroa_idx, align 4
+  %ref.tmp442.sroa.9.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1060
+  store float 0.000000e+00, ptr %ref.tmp442.sroa.9.0.mTransformation.sroa_idx, align 4
+  %ref.tmp442.sroa.10.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1064
+  store float -1.000000e+00, ptr %ref.tmp442.sroa.10.0.mTransformation.sroa_idx, align 4
   %ref.tmp442.sroa.11.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1068
   %ref.tmp442.sroa.16.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %156, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp442.sroa.11.0.mTransformation.sroa_idx, i8 0, i64 20, i1 false)

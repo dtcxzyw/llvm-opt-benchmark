@@ -315,117 +315,117 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %8 = alloca %union.YYSTYPE, align 8
   %9 = alloca %"struct.gmx::SelectionLocation", align 8
   %10 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %11 = alloca %"class.std::shared_ptr", align 16
+  %11 = alloca %"class.std::shared_ptr", align 8
   %12 = alloca %"class.std::shared_ptr", align 8
   %13 = alloca %"class.std::shared_ptr", align 8
   %14 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %15 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %16 = alloca %"class.std::shared_ptr", align 8
   %17 = alloca %"class.std::shared_ptr", align 8
-  %18 = alloca %"class.std::shared_ptr", align 16
+  %18 = alloca %"class.std::shared_ptr", align 8
   %19 = alloca %"class.std::unique_ptr", align 8
   %20 = alloca %"class.std::shared_ptr", align 8
   %21 = alloca %"class.std::shared_ptr", align 8
-  %22 = alloca %"class.std::shared_ptr", align 16
-  %23 = alloca %"class.std::shared_ptr", align 16
+  %22 = alloca %"class.std::shared_ptr", align 8
+  %23 = alloca %"class.std::shared_ptr", align 8
   %24 = alloca %"class.std::shared_ptr", align 8
   %25 = alloca %"class.std::unique_ptr", align 8
-  %26 = alloca %"class.std::shared_ptr", align 16
+  %26 = alloca %"class.std::shared_ptr", align 8
   %27 = alloca %"class.std::shared_ptr", align 8
   %28 = alloca %"class.std::unique_ptr", align 8
-  %29 = alloca %"class.std::shared_ptr", align 16
+  %29 = alloca %"class.std::shared_ptr", align 8
   %30 = alloca %"class.std::shared_ptr", align 8
   %31 = alloca %"class.std::unique_ptr", align 8
-  %32 = alloca %"class.std::shared_ptr", align 16
+  %32 = alloca %"class.std::shared_ptr", align 8
   %33 = alloca %"class.std::shared_ptr", align 8
   %34 = alloca %"class.std::unique_ptr", align 8
-  %35 = alloca %"class.std::shared_ptr", align 16
+  %35 = alloca %"class.std::shared_ptr", align 8
   %36 = alloca %"class.std::shared_ptr", align 8
-  %37 = alloca %"class.std::shared_ptr", align 16
+  %37 = alloca %"class.std::shared_ptr", align 8
   %38 = alloca %"class.std::shared_ptr", align 8
-  %39 = alloca %"class.std::shared_ptr", align 16
+  %39 = alloca %"class.std::shared_ptr", align 8
   %40 = alloca %"class.std::unique_ptr.2", align 8
   %41 = alloca %"class.std::shared_ptr", align 8
   %42 = alloca %"class.std::shared_ptr", align 8
-  %43 = alloca %"class.std::shared_ptr", align 16
-  %44 = alloca %"class.std::shared_ptr", align 16
+  %43 = alloca %"class.std::shared_ptr", align 8
+  %44 = alloca %"class.std::shared_ptr", align 8
   %45 = alloca %"class.std::shared_ptr", align 8
   %46 = alloca %"class.std::shared_ptr", align 8
-  %47 = alloca %"class.std::shared_ptr", align 16
-  %48 = alloca %"class.std::shared_ptr", align 16
+  %47 = alloca %"class.std::shared_ptr", align 8
+  %48 = alloca %"class.std::shared_ptr", align 8
   %49 = alloca %"class.std::shared_ptr", align 8
   %50 = alloca %"class.std::shared_ptr", align 8
-  %51 = alloca %"class.std::shared_ptr", align 16
-  %52 = alloca %"class.std::shared_ptr", align 16
+  %51 = alloca %"class.std::shared_ptr", align 8
+  %52 = alloca %"class.std::shared_ptr", align 8
   %53 = alloca %"class.std::unique_ptr", align 8
-  %54 = alloca %"class.std::shared_ptr", align 16
+  %54 = alloca %"class.std::shared_ptr", align 8
   %55 = alloca %"class.std::shared_ptr", align 8
   %56 = alloca %"class.std::shared_ptr", align 8
   %57 = alloca %"class.std::unique_ptr", align 8
-  %58 = alloca %"class.std::shared_ptr", align 16
-  %59 = alloca %"class.std::shared_ptr", align 16
+  %58 = alloca %"class.std::shared_ptr", align 8
+  %59 = alloca %"class.std::shared_ptr", align 8
   %60 = alloca %"class.std::unique_ptr", align 8
-  %61 = alloca %"class.std::shared_ptr", align 16
+  %61 = alloca %"class.std::shared_ptr", align 8
   %62 = alloca %"class.std::unique_ptr.13", align 8
   %63 = alloca %"class.std::unique_ptr", align 8
-  %64 = alloca %"class.std::shared_ptr", align 16
+  %64 = alloca %"class.std::shared_ptr", align 8
   %65 = alloca %"class.std::unique_ptr.13", align 8
   %66 = alloca %"class.std::unique_ptr", align 8
-  %67 = alloca %"class.std::shared_ptr", align 16
+  %67 = alloca %"class.std::shared_ptr", align 8
   %68 = alloca %"class.std::unique_ptr.13", align 8
   %69 = alloca %"class.std::unique_ptr", align 8
-  %70 = alloca %"class.std::shared_ptr", align 16
+  %70 = alloca %"class.std::shared_ptr", align 8
   %71 = alloca %"class.std::unique_ptr.13", align 8
   %72 = alloca %"class.std::unique_ptr", align 8
-  %73 = alloca %"class.std::shared_ptr", align 16
+  %73 = alloca %"class.std::shared_ptr", align 8
   %74 = alloca %"class.std::unique_ptr.2", align 8
-  %75 = alloca %"class.std::shared_ptr", align 16
-  %76 = alloca %"class.std::shared_ptr", align 16
-  %77 = alloca %"class.std::shared_ptr", align 16
-  %78 = alloca %"class.std::shared_ptr", align 16
+  %75 = alloca %"class.std::shared_ptr", align 8
+  %76 = alloca %"class.std::shared_ptr", align 8
+  %77 = alloca %"class.std::shared_ptr", align 8
+  %78 = alloca %"class.std::shared_ptr", align 8
   %79 = alloca %"class.std::unique_ptr", align 8
-  %80 = alloca %"class.std::shared_ptr", align 16
+  %80 = alloca %"class.std::shared_ptr", align 8
   %81 = alloca %"class.std::unique_ptr.13", align 8
   %82 = alloca %"class.std::unique_ptr", align 8
-  %83 = alloca %"class.std::shared_ptr", align 16
+  %83 = alloca %"class.std::shared_ptr", align 8
   %84 = alloca %"class.std::shared_ptr", align 8
   %85 = alloca %"class.std::unique_ptr", align 8
-  %86 = alloca %"class.std::shared_ptr", align 16
+  %86 = alloca %"class.std::shared_ptr", align 8
   %87 = alloca %"class.std::unique_ptr.2", align 8
-  %88 = alloca %"class.std::shared_ptr", align 16
+  %88 = alloca %"class.std::shared_ptr", align 8
   %89 = alloca %"class.std::shared_ptr", align 8
   %90 = alloca %"class.std::shared_ptr", align 8
-  %91 = alloca %"class.std::shared_ptr", align 16
+  %91 = alloca %"class.std::shared_ptr", align 8
   %92 = alloca %"class.std::shared_ptr", align 8
   %93 = alloca %"class.std::shared_ptr", align 8
-  %94 = alloca %"class.std::shared_ptr", align 16
+  %94 = alloca %"class.std::shared_ptr", align 8
   %95 = alloca %"class.std::shared_ptr", align 8
   %96 = alloca %"class.std::shared_ptr", align 8
-  %97 = alloca %"class.std::shared_ptr", align 16
+  %97 = alloca %"class.std::shared_ptr", align 8
   %98 = alloca %"class.std::shared_ptr", align 8
   %99 = alloca %"class.std::shared_ptr", align 8
-  %100 = alloca %"class.std::shared_ptr", align 16
+  %100 = alloca %"class.std::shared_ptr", align 8
   %101 = alloca %"class.std::shared_ptr", align 8
   %102 = alloca %"class.std::shared_ptr", align 8
-  %103 = alloca %"class.std::shared_ptr", align 16
+  %103 = alloca %"class.std::shared_ptr", align 8
   %104 = alloca %"class.std::shared_ptr", align 8
   %105 = alloca %"class.std::shared_ptr", align 8
-  %106 = alloca %"class.std::shared_ptr", align 16
-  %107 = alloca %"class.std::shared_ptr", align 16
+  %106 = alloca %"class.std::shared_ptr", align 8
+  %107 = alloca %"class.std::shared_ptr", align 8
   %108 = alloca %"class.std::unique_ptr", align 8
-  %109 = alloca %"class.std::shared_ptr", align 16
+  %109 = alloca %"class.std::shared_ptr", align 8
   %110 = alloca %"class.std::unique_ptr.13", align 8
-  %111 = alloca %"class.std::shared_ptr", align 16
-  %112 = alloca %"class.std::shared_ptr", align 16
+  %111 = alloca %"class.std::shared_ptr", align 8
+  %112 = alloca %"class.std::shared_ptr", align 8
   %113 = alloca %"class.std::unique_ptr.2", align 8
   %114 = alloca %"class.std::unique_ptr", align 8
-  %115 = alloca %"class.std::shared_ptr", align 16
+  %115 = alloca %"class.std::shared_ptr", align 8
   %116 = alloca %"class.std::shared_ptr", align 8
-  %117 = alloca %"class.std::shared_ptr", align 16
+  %117 = alloca %"class.std::shared_ptr", align 8
   %118 = alloca %"class.std::shared_ptr", align 8
-  %119 = alloca %"class.std::shared_ptr", align 16
+  %119 = alloca %"class.std::shared_ptr", align 8
   %120 = alloca %"class.std::shared_ptr", align 8
-  %121 = alloca %"class.std::shared_ptr", align 16
+  %121 = alloca %"class.std::shared_ptr", align 8
   %122 = alloca %"class.std::shared_ptr", align 8
   %123 = alloca %"class.std::unique_ptr.2", align 8
   %124 = alloca %"class.std::unique_ptr.2", align 8
@@ -520,8 +520,8 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %.pre1479 = load ptr, ptr %172, align 8
   br label %193
 
-189:                                              ; preds = %2521, %2525, %2664, %351
-  %.1 = phi i32 [ %.8, %2664 ], [ %.7, %2521 ], [ %.7, %2525 ], [ -2, %351 ]
+189:                                              ; preds = %2601, %2605, %2744, %351
+  %.1 = phi i32 [ %.8, %2744 ], [ %.7, %2601 ], [ %.7, %2605 ], [ -2, %351 ]
   %190 = getelementptr inbounds i8, ptr %0, i64 424
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 2
@@ -553,7 +553,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %210 = ashr exact i64 %209, 1
   %211 = add nsw i64 %210, 1
   %212 = icmp ugt i64 %202, 9999
-  br i1 %212, label %2665, label %213
+  br i1 %212, label %2745, label %213
 
 213:                                              ; preds = %206
   %214 = shl nuw nsw i64 %202, 1
@@ -564,7 +564,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %217 = add nuw nsw i64 %216, 14
   %218 = call noalias ptr @malloc(i64 noundef %217) #20
   %.not1002 = icmp eq ptr %218, null
-  br i1 %.not1002, label %2665, label %219
+  br i1 %.not1002, label %2745, label %219
 
 219:                                              ; preds = %213
   %220 = shl i64 %211, 1
@@ -669,12 +669,12 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 274:                                              ; preds = %272
   %275 = load i32, ptr @_gmx_sel_yydebug, align 4
   %.not1008 = icmp eq i32 %275, 0
-  br i1 %.not1008, label %2718, label %276
+  br i1 %.not1008, label %2798, label %276
 
 276:                                              ; preds = %274
   %277 = load ptr, ptr @stderr, align 8
   %278 = call i64 @fwrite(ptr nonnull @.str.3, i64 24, i64 1, ptr %277) #22
-  br label %2718
+  br label %2798
 
 279:                                              ; preds = %272
   store i32 0, ptr %160, align 8
@@ -842,7 +842,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %366 = load i8, ptr %365, align 1
   %367 = zext i8 %366 to i32
   %368 = icmp eq i8 %366, 0
-  br i1 %368, label %2529, label %369
+  br i1 %368, label %2609, label %369
 
 369:                                              ; preds = %361, %331
   %.2749 = phi i32 [ %367, %361 ], [ %332, %331 ]
@@ -931,96 +931,96 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br i1 %exitcond.not.i, label %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit: ; preds = %.lr.ph.i, %396, %393
-  switch i32 %.2749, label %2458 [
+  switch i32 %.2749, label %2538 [
     i32 2, label %423
     i32 3, label %442
-    i32 4, label %485
-    i32 5, label %489
-    i32 6, label %514
-    i32 7, label %530
-    i32 8, label %563
-    i32 9, label %596
-    i32 10, label %623
-    i32 11, label %652
-    i32 12, label %681
-    i32 13, label %710
-    i32 14, label %739
-    i32 15, label %742
-    i32 16, label %772
-    i32 17, label %776
-    i32 18, label %815
-    i32 19, label %818
-    i32 20, label %822
-    i32 21, label %825
-    i32 22, label %829
-    i32 23, label %833
-    i32 24, label %836
-    i32 25, label %839
-    i32 26, label %842
-    i32 27, label %888
-    i32 28, label %946
-    i32 29, label %1004
-    i32 30, label %1008
-    i32 31, label %1050
-    i32 32, label %1073
-    i32 33, label %1096
-    i32 34, label %1097
-    i32 35, label %1100
-    i32 36, label %1101
-    i32 37, label %1102
-    i32 38, label %1103
-    i32 39, label %1132
-    i32 40, label %1169
-    i32 41, label %1208
-    i32 42, label %1245
-    i32 43, label %1282
-    i32 44, label %1330
-    i32 45, label %1378
-    i32 46, label %1407
-    i32 47, label %1444
-    i32 48, label %1481
-    i32 49, label %1515
-    i32 50, label %1549
-    i32 51, label %1583
-    i32 52, label %1617
-    i32 53, label %1644
-    i32 54, label %1678
-    i32 55, label %1682
-    i32 56, label %1730
-    i32 57, label %1759
-    i32 58, label %1787
-    i32 59, label %1791
-    i32 60, label %1823
-    i32 61, label %1858
-    i32 62, label %1885
-    i32 63, label %1912
-    i32 64, label %1939
-    i32 65, label %1942
-    i32 66, label %1946
-    i32 67, label %1969
-    i32 68, label %2002
-    i32 69, label %2028
-    i32 70, label %2031
-    i32 71, label %2035
-    i32 72, label %2058
-    i32 73, label %2091
-    i32 74, label %2124
-    i32 75, label %2127
-    i32 76, label %2131
-    i32 77, label %2157
-    i32 78, label %2190
-    i32 79, label %2223
-    i32 80, label %2246
-    i32 81, label %2269
-    i32 82, label %2292
-    i32 83, label %2315
-    i32 84, label %2318
-    i32 85, label %2340
-    i32 86, label %2362
-    i32 87, label %2382
-    i32 88, label %2385
-    i32 89, label %2409
-    i32 90, label %2434
+    i32 4, label %487
+    i32 5, label %491
+    i32 6, label %516
+    i32 7, label %532
+    i32 8, label %567
+    i32 9, label %602
+    i32 10, label %631
+    i32 11, label %662
+    i32 12, label %693
+    i32 13, label %724
+    i32 14, label %755
+    i32 15, label %758
+    i32 16, label %790
+    i32 17, label %794
+    i32 18, label %835
+    i32 19, label %838
+    i32 20, label %842
+    i32 21, label %845
+    i32 22, label %849
+    i32 23, label %853
+    i32 24, label %856
+    i32 25, label %859
+    i32 26, label %862
+    i32 27, label %910
+    i32 28, label %970
+    i32 29, label %1030
+    i32 30, label %1034
+    i32 31, label %1078
+    i32 32, label %1103
+    i32 33, label %1128
+    i32 34, label %1129
+    i32 35, label %1132
+    i32 36, label %1133
+    i32 37, label %1134
+    i32 38, label %1135
+    i32 39, label %1166
+    i32 40, label %1205
+    i32 41, label %1246
+    i32 42, label %1285
+    i32 43, label %1324
+    i32 44, label %1374
+    i32 45, label %1424
+    i32 46, label %1455
+    i32 47, label %1494
+    i32 48, label %1533
+    i32 49, label %1569
+    i32 50, label %1605
+    i32 51, label %1641
+    i32 52, label %1677
+    i32 53, label %1706
+    i32 54, label %1742
+    i32 55, label %1746
+    i32 56, label %1796
+    i32 57, label %1827
+    i32 58, label %1857
+    i32 59, label %1861
+    i32 60, label %1895
+    i32 61, label %1932
+    i32 62, label %1961
+    i32 63, label %1990
+    i32 64, label %2019
+    i32 65, label %2022
+    i32 66, label %2026
+    i32 67, label %2049
+    i32 68, label %2082
+    i32 69, label %2108
+    i32 70, label %2111
+    i32 71, label %2115
+    i32 72, label %2138
+    i32 73, label %2171
+    i32 74, label %2204
+    i32 75, label %2207
+    i32 76, label %2211
+    i32 77, label %2237
+    i32 78, label %2270
+    i32 79, label %2303
+    i32 80, label %2326
+    i32 81, label %2349
+    i32 82, label %2372
+    i32 83, label %2395
+    i32 84, label %2398
+    i32 85, label %2420
+    i32 86, label %2442
+    i32 87, label %2462
+    i32 88, label %2465
+    i32 89, label %2489
+    i32 90, label %2514
   ]
 
 423:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
@@ -1030,7 +1030,7 @@ _ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit: ; preds = %.l
 _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit: ; preds = %423
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %424, i8 0, i64 16, i1 false)
   store ptr %424, ptr %8, align 8
-  br label %2458
+  br label %2538
 
 425:                                              ; preds = %423
   %426 = landingpad { ptr, i32 }
@@ -1039,7 +1039,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit: ; preds =
   %428 = extractvalue { ptr, i32 } %426, 1
   %429 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %430 = icmp eq i32 %428, %429
-  br i1 %430, label %431, label %2719
+  br i1 %430, label %431, label %2799
 
 431:                                              ; preds = %425
   %432 = call ptr @__cxa_begin_catch(ptr %427) #21
@@ -1075,5804 +1075,5930 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %433, %435
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296: ; preds = %436, %441
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
 442:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
   %443 = load ptr, ptr %374, align 8
   %444 = load ptr, ptr %443, align 8
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %444)
-          to label %445 unwind label %461
+          to label %445 unwind label %463
 
 445:                                              ; preds = %442
   %446 = load ptr, ptr %374, align 8
   %447 = getelementptr inbounds i8, ptr %446, i64 -8
   %448 = load ptr, ptr %447, align 8
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %448)
-          to label %449 unwind label %463
+          to label %449 unwind label %465
 
 449:                                              ; preds = %445
   invoke void @_Z25_gmx_sel_append_selectionRKSt10shared_ptrIN3gmx20SelectionTreeElementEES2_Pv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %13, ptr noundef %4)
-          to label %450 unwind label %465
+          to label %450 unwind label %467
 
 450:                                              ; preds = %449
   %451 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %452 unwind label %467
+          to label %452 unwind label %469
 
 452:                                              ; preds = %450
-  %453 = getelementptr inbounds i8, ptr %11, i64 8
-  %454 = load <2 x ptr>, ptr %11, align 16
-  store ptr null, ptr %453, align 8
-  store <2 x ptr> %454, ptr %451, align 8
-  store ptr null, ptr %11, align 16
+  %453 = load ptr, ptr %11, align 8
+  store ptr %453, ptr %451, align 8
+  %454 = getelementptr inbounds i8, ptr %451, i64 8
+  %455 = getelementptr inbounds i8, ptr %11, i64 8
+  %456 = load ptr, ptr %455, align 8
+  store ptr null, ptr %455, align 8
+  store ptr %456, ptr %454, align 8
+  store ptr null, ptr %11, align 8
   store ptr %451, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
-  %455 = invoke noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef %4)
-          to label %456 unwind label %461
+  %457 = invoke noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef %4)
+          to label %458 unwind label %463
 
-456:                                              ; preds = %452
-  br i1 %455, label %457, label %2458
+458:                                              ; preds = %452
+  br i1 %457, label %459, label %2538
 
-457:                                              ; preds = %456
-  %458 = load ptr, ptr %8, align 8
-  %459 = icmp eq ptr %458, null
-  br i1 %459, label %.loopexit, label %460
+459:                                              ; preds = %458
+  %460 = load ptr, ptr %8, align 8
+  %461 = icmp eq ptr %460, null
+  br i1 %461, label %.loopexit, label %462
 
-460:                                              ; preds = %457
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %458) #21
-  call void @_ZdlPv(ptr noundef nonnull %458) #25
+462:                                              ; preds = %459
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %460) #21
+  call void @_ZdlPv(ptr noundef nonnull %460) #25
   br label %.loopexit
 
-461:                                              ; preds = %452, %442
-  %462 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %471
-
-463:                                              ; preds = %445
+463:                                              ; preds = %452, %442
   %464 = landingpad { ptr, i32 }
-          cleanup
           catch ptr @_ZTISt9exception
-  br label %470
+  br label %473
 
-465:                                              ; preds = %449
+465:                                              ; preds = %445
   %466 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %469
+  br label %472
 
-467:                                              ; preds = %450
+467:                                              ; preds = %449
   %468 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
-  br label %469
-
-469:                                              ; preds = %467, %465
-  %.pn1191 = phi { ptr, i32 } [ %468, %467 ], [ %466, %465 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
-  br label %470
-
-470:                                              ; preds = %469, %463
-  %.pn1191.pn = phi { ptr, i32 } [ %.pn1191, %469 ], [ %464, %463 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
   br label %471
 
-471:                                              ; preds = %470, %461
-  %.pn1194 = phi { ptr, i32 } [ %462, %461 ], [ %.pn1191.pn, %470 ]
+469:                                              ; preds = %450
+  %470 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
+  br label %471
+
+471:                                              ; preds = %469, %467
+  %.pn1191 = phi { ptr, i32 } [ %470, %469 ], [ %468, %467 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
+  br label %472
+
+472:                                              ; preds = %471, %465
+  %.pn1191.pn = phi { ptr, i32 } [ %.pn1191, %471 ], [ %466, %465 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
+  br label %473
+
+473:                                              ; preds = %472, %463
+  %.pn1194 = phi { ptr, i32 } [ %464, %463 ], [ %.pn1191.pn, %472 ]
   %.1763 = extractvalue { ptr, i32 } %.pn1194, 0
   %.1773 = extractvalue { ptr, i32 } %.pn1194, 1
-  %472 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %473 = icmp eq i32 %.1773, %472
-  br i1 %473, label %474, label %2719
+  %474 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %475 = icmp eq i32 %.1773, %474
+  br i1 %475, label %476, label %2799
 
-474:                                              ; preds = %471
-  %475 = call ptr @__cxa_begin_catch(ptr %.1763) #21
+476:                                              ; preds = %473
+  %477 = call ptr @__cxa_begin_catch(ptr %.1763) #21
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %14) #21
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %476 unwind label %479
-
-476:                                              ; preds = %474
-  %477 = load ptr, ptr %14, align 8
-  %.not.i1297 = icmp eq ptr %477, null
-  br i1 %.not.i1297, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298, label %478
+          to label %478 unwind label %481
 
 478:                                              ; preds = %476
+  %479 = load ptr, ptr %14, align 8
+  %.not.i1297 = icmp eq ptr %479, null
+  br i1 %.not.i1297, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298, label %480
+
+480:                                              ; preds = %478
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298: ; preds = %476, %478
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298: ; preds = %478, %480
   call void @__cxa_end_catch()
   br label %.loopexit
 
-479:                                              ; preds = %474
-  %480 = landingpad { ptr, i32 }
+481:                                              ; preds = %476
+  %482 = landingpad { ptr, i32 }
           cleanup
-  %481 = extractvalue { ptr, i32 } %480, 0
-  %482 = extractvalue { ptr, i32 } %480, 1
-  %483 = load ptr, ptr %14, align 8
-  %.not.i1299 = icmp eq ptr %483, null
-  br i1 %.not.i1299, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, label %484
+  %483 = extractvalue { ptr, i32 } %482, 0
+  %484 = extractvalue { ptr, i32 } %482, 1
+  %485 = load ptr, ptr %14, align 8
+  %.not.i1299 = icmp eq ptr %485, null
+  br i1 %.not.i1299, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, label %486
 
-484:                                              ; preds = %479
+486:                                              ; preds = %481
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300: ; preds = %479, %484
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300: ; preds = %481, %486
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-485:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %486 = load ptr, ptr %374, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 -8
-  %488 = load ptr, ptr %487, align 8
-  store ptr %488, ptr %8, align 8
-  br label %2458
+487:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %488 = load ptr, ptr %374, align 8
+  %489 = getelementptr inbounds i8, ptr %488, i64 -8
+  %490 = load ptr, ptr %489, align 8
+  store ptr %490, ptr %8, align 8
+  br label %2538
 
-489:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+491:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
   invoke void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef %4)
-          to label %490 unwind label %495
+          to label %492 unwind label %497
 
-490:                                              ; preds = %489
-  %491 = invoke noundef zeroext i1 @_Z27_gmx_selparser_handle_errorPv(ptr noundef %4)
-          to label %492 unwind label %495
+492:                                              ; preds = %491
+  %493 = invoke noundef zeroext i1 @_Z27_gmx_selparser_handle_errorPv(ptr noundef %4)
+          to label %494 unwind label %497
 
-492:                                              ; preds = %490
-  br i1 %491, label %493, label %.loopexit
+494:                                              ; preds = %492
+  br i1 %493, label %495, label %.loopexit
 
-493:                                              ; preds = %492
-  %494 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %494, align 8
+495:                                              ; preds = %494
+  %496 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %496, align 8
   invoke void @_Z28_gmx_sel_lexer_clear_pselstrPv(ptr noundef %4)
-          to label %506 unwind label %495
+          to label %508 unwind label %497
 
-495:                                              ; preds = %506, %493, %490, %489
-  %496 = landingpad { ptr, i32 }
+497:                                              ; preds = %508, %495, %492, %491
+  %498 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  %497 = extractvalue { ptr, i32 } %496, 0
-  %498 = extractvalue { ptr, i32 } %496, 1
-  %499 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %500 = icmp eq i32 %498, %499
-  br i1 %500, label %501, label %2719
+  %499 = extractvalue { ptr, i32 } %498, 0
+  %500 = extractvalue { ptr, i32 } %498, 1
+  %501 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %502 = icmp eq i32 %500, %501
+  br i1 %502, label %503, label %2799
 
-501:                                              ; preds = %495
-  %502 = call ptr @__cxa_begin_catch(ptr %497) #21
+503:                                              ; preds = %497
+  %504 = call ptr @__cxa_begin_catch(ptr %499) #21
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %15) #21
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %503 unwind label %508
-
-503:                                              ; preds = %501
-  %504 = load ptr, ptr %15, align 8
-  %.not.i1301 = icmp eq ptr %504, null
-  br i1 %.not.i1301, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302, label %505
+          to label %505 unwind label %510
 
 505:                                              ; preds = %503
+  %506 = load ptr, ptr %15, align 8
+  %.not.i1301 = icmp eq ptr %506, null
+  br i1 %.not.i1301, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302, label %507
+
+507:                                              ; preds = %505
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302: ; preds = %503, %505
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302: ; preds = %505, %507
   call void @__cxa_end_catch()
   br label %.loopexit
 
-506:                                              ; preds = %493
-  %507 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303 unwind label %495
+508:                                              ; preds = %495
+  %509 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303 unwind label %497
 
-_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303: ; preds = %506
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %507, i8 0, i64 16, i1 false)
-  store ptr %507, ptr %8, align 8
-  br label %2458
+_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303: ; preds = %508
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %509, i8 0, i64 16, i1 false)
+  store ptr %509, ptr %8, align 8
+  br label %2538
 
-508:                                              ; preds = %501
-  %509 = landingpad { ptr, i32 }
+510:                                              ; preds = %503
+  %511 = landingpad { ptr, i32 }
           cleanup
-  %510 = extractvalue { ptr, i32 } %509, 0
-  %511 = extractvalue { ptr, i32 } %509, 1
-  %512 = load ptr, ptr %15, align 8
-  %.not.i1304 = icmp eq ptr %512, null
-  br i1 %.not.i1304, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, label %513
+  %512 = extractvalue { ptr, i32 } %511, 0
+  %513 = extractvalue { ptr, i32 } %511, 1
+  %514 = load ptr, ptr %15, align 8
+  %.not.i1304 = icmp eq ptr %514, null
+  br i1 %.not.i1304, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, label %515
 
-513:                                              ; preds = %508
+515:                                              ; preds = %510
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305: ; preds = %508, %513
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305: ; preds = %510, %515
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-514:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %515 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306 unwind label %516
+516:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %517 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306 unwind label %518
 
-_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306: ; preds = %514
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %515, i8 0, i64 16, i1 false)
-  store ptr %515, ptr %8, align 8
-  br label %2458
+_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306: ; preds = %516
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %517, i8 0, i64 16, i1 false)
+  store ptr %517, ptr %8, align 8
+  br label %2538
 
-516:                                              ; preds = %514
-  %517 = landingpad { ptr, i32 }
+518:                                              ; preds = %516
+  %519 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  %518 = extractvalue { ptr, i32 } %517, 0
-  %519 = extractvalue { ptr, i32 } %517, 1
-  %520 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %521 = icmp eq i32 %519, %520
-  br i1 %521, label %522, label %2719
+  %520 = extractvalue { ptr, i32 } %519, 0
+  %521 = extractvalue { ptr, i32 } %519, 1
+  %522 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %523 = icmp eq i32 %521, %522
+  br i1 %523, label %524, label %2799
 
-522:                                              ; preds = %516
-  %523 = call ptr @__cxa_begin_catch(ptr %518) #21
-  %524 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %523)
-          to label %525 unwind label %526
+524:                                              ; preds = %518
+  %525 = call ptr @__cxa_begin_catch(ptr %520) #21
+  %526 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %525)
+          to label %527 unwind label %528
 
-525:                                              ; preds = %522
+527:                                              ; preds = %524
   call void @__cxa_end_catch()
-  br i1 %524, label %2555, label %.loopexit
+  br i1 %526, label %2635, label %.loopexit
 
-526:                                              ; preds = %522
-  %527 = landingpad { ptr, i32 }
+528:                                              ; preds = %524
+  %529 = landingpad { ptr, i32 }
           cleanup
-  %528 = extractvalue { ptr, i32 } %527, 0
-  %529 = extractvalue { ptr, i32 } %527, 1
+  %530 = extractvalue { ptr, i32 } %529, 0
+  %531 = extractvalue { ptr, i32 } %529, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-530:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %531 = load ptr, ptr %374, align 8
-  %532 = load i32, ptr %531, align 8
-  invoke void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %16, i32 noundef %532, ptr noundef %4)
-          to label %533 unwind label %536
+532:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %533 = load ptr, ptr %374, align 8
+  %534 = load i32, ptr %533, align 8
+  invoke void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %16, i32 noundef %534, ptr noundef %4)
+          to label %535 unwind label %538
 
-533:                                              ; preds = %530
+535:                                              ; preds = %532
   invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef null, ptr noundef %4)
-          to label %534 unwind label %538
+          to label %536 unwind label %540
 
-534:                                              ; preds = %533
-  %535 = load ptr, ptr %17, align 8
-  %.not1465.not = icmp eq ptr %535, null
-  br i1 %.not1465.not, label %.critedge, label %540
+536:                                              ; preds = %535
+  %537 = load ptr, ptr %17, align 8
+  %.not1465.not = icmp eq ptr %537, null
+  br i1 %.not1465.not, label %.critedge, label %542
 
-536:                                              ; preds = %530
-  %537 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %552
-
-538:                                              ; preds = %533
+538:                                              ; preds = %532
   %539 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %556
+
+540:                                              ; preds = %535
+  %541 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %551
+  br label %555
 
-540:                                              ; preds = %534
+542:                                              ; preds = %536
   invoke void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %18, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %4)
-          to label %541 unwind label %546
+          to label %543 unwind label %550
 
-541:                                              ; preds = %540
-  %542 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %543 unwind label %548
+543:                                              ; preds = %542
+  %544 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %545 unwind label %552
 
-543:                                              ; preds = %541
-  %544 = getelementptr inbounds i8, ptr %18, i64 8
-  %545 = load <2 x ptr>, ptr %18, align 16
-  store ptr null, ptr %544, align 8
-  store <2 x ptr> %545, ptr %542, align 8
-  store ptr null, ptr %18, align 16
-  store ptr %542, ptr %8, align 8
+545:                                              ; preds = %543
+  %546 = load ptr, ptr %18, align 8
+  store ptr %546, ptr %544, align 8
+  %547 = getelementptr inbounds i8, ptr %544, i64 8
+  %548 = getelementptr inbounds i8, ptr %18, i64 8
+  %549 = load ptr, ptr %548, align 8
+  store ptr null, ptr %548, align 8
+  store ptr %549, ptr %547, align 8
+  store ptr null, ptr %18, align 8
+  store ptr %544, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
-  br label %2458
+  br label %2538
 
-546:                                              ; preds = %540
-  %547 = landingpad { ptr, i32 }
+550:                                              ; preds = %542
+  %551 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %550
+  br label %554
 
-548:                                              ; preds = %541
-  %549 = landingpad { ptr, i32 }
+552:                                              ; preds = %543
+  %553 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
-  br label %550
+  br label %554
 
-550:                                              ; preds = %548, %546
-  %.pn1186 = phi { ptr, i32 } [ %549, %548 ], [ %547, %546 ]
+554:                                              ; preds = %552, %550
+  %.pn1186 = phi { ptr, i32 } [ %553, %552 ], [ %551, %550 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
-  br label %551
+  br label %555
 
-551:                                              ; preds = %550, %538
-  %.pn1186.pn = phi { ptr, i32 } [ %.pn1186, %550 ], [ %539, %538 ]
+555:                                              ; preds = %554, %540
+  %.pn1186.pn = phi { ptr, i32 } [ %.pn1186, %554 ], [ %541, %540 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
-  br label %552
+  br label %556
 
-552:                                              ; preds = %551, %536
-  %.pn1186.pn.pn = phi { ptr, i32 } [ %.pn1186.pn, %551 ], [ %537, %536 ]
+556:                                              ; preds = %555, %538
+  %.pn1186.pn.pn = phi { ptr, i32 } [ %.pn1186.pn, %555 ], [ %539, %538 ]
   %.4766 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 0
   %.4776 = extractvalue { ptr, i32 } %.pn1186.pn.pn, 1
-  %553 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %554 = icmp eq i32 %.4776, %553
-  br i1 %554, label %555, label %2719
+  %557 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %558 = icmp eq i32 %.4776, %557
+  br i1 %558, label %559, label %2799
 
-555:                                              ; preds = %552
-  %556 = call ptr @__cxa_begin_catch(ptr %.4766) #21
-  %557 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %556)
-          to label %558 unwind label %559
+559:                                              ; preds = %556
+  %560 = call ptr @__cxa_begin_catch(ptr %.4766) #21
+  %561 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %560)
+          to label %562 unwind label %563
 
-558:                                              ; preds = %555
+562:                                              ; preds = %559
   call void @__cxa_end_catch()
-  br i1 %557, label %2555, label %.loopexit
+  br i1 %561, label %2635, label %.loopexit
 
-559:                                              ; preds = %555
-  %560 = landingpad { ptr, i32 }
+563:                                              ; preds = %559
+  %564 = landingpad { ptr, i32 }
           cleanup
-  %561 = extractvalue { ptr, i32 } %560, 0
-  %562 = extractvalue { ptr, i32 } %560, 1
+  %565 = extractvalue { ptr, i32 } %564, 0
+  %566 = extractvalue { ptr, i32 } %564, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-563:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %564 = load ptr, ptr %374, align 8
-  %565 = load ptr, ptr %564, align 8
-  store ptr %565, ptr %19, align 8
-  invoke void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %20, ptr noundef %565, ptr noundef %4)
-          to label %566 unwind label %569
+567:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %568 = load ptr, ptr %374, align 8
+  %569 = load ptr, ptr %568, align 8
+  store ptr %569, ptr %19, align 8
+  invoke void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %20, ptr noundef %569, ptr noundef %4)
+          to label %570 unwind label %573
 
-566:                                              ; preds = %563
+570:                                              ; preds = %567
   invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef null, ptr noundef %4)
-          to label %567 unwind label %571
+          to label %571 unwind label %575
 
-567:                                              ; preds = %566
-  %568 = load ptr, ptr %21, align 8
-  %.not1464.not = icmp eq ptr %568, null
-  br i1 %.not1464.not, label %.critedge1467, label %573
-
-569:                                              ; preds = %563
-  %570 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %585
-
-571:                                              ; preds = %566
-  %572 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %584
+571:                                              ; preds = %570
+  %572 = load ptr, ptr %21, align 8
+  %.not1464.not = icmp eq ptr %572, null
+  br i1 %.not1464.not, label %.critedge1467, label %577
 
 573:                                              ; preds = %567
+  %574 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %591
+
+575:                                              ; preds = %570
+  %576 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %590
+
+577:                                              ; preds = %571
   invoke void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %22, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %4)
-          to label %574 unwind label %579
+          to label %578 unwind label %585
 
-574:                                              ; preds = %573
-  %575 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %576 unwind label %581
+578:                                              ; preds = %577
+  %579 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %580 unwind label %587
 
-576:                                              ; preds = %574
-  %577 = getelementptr inbounds i8, ptr %22, i64 8
-  %578 = load <2 x ptr>, ptr %22, align 16
-  store ptr null, ptr %577, align 8
-  store <2 x ptr> %578, ptr %575, align 8
-  store ptr null, ptr %22, align 16
-  store ptr %575, ptr %8, align 8
+580:                                              ; preds = %578
+  %581 = load ptr, ptr %22, align 8
+  store ptr %581, ptr %579, align 8
+  %582 = getelementptr inbounds i8, ptr %579, i64 8
+  %583 = getelementptr inbounds i8, ptr %22, i64 8
+  %584 = load ptr, ptr %583, align 8
+  store ptr null, ptr %583, align 8
+  store ptr %584, ptr %582, align 8
+  store ptr null, ptr %22, align 8
+  store ptr %579, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
-  br label %2458
+  br label %2538
 
-579:                                              ; preds = %573
-  %580 = landingpad { ptr, i32 }
+585:                                              ; preds = %577
+  %586 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %583
+  br label %589
 
-581:                                              ; preds = %574
-  %582 = landingpad { ptr, i32 }
+587:                                              ; preds = %578
+  %588 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
-  br label %583
+  br label %589
 
-583:                                              ; preds = %581, %579
-  %.pn1182 = phi { ptr, i32 } [ %582, %581 ], [ %580, %579 ]
+589:                                              ; preds = %587, %585
+  %.pn1182 = phi { ptr, i32 } [ %588, %587 ], [ %586, %585 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
-  br label %584
+  br label %590
 
-584:                                              ; preds = %583, %571
-  %.pn1182.pn = phi { ptr, i32 } [ %.pn1182, %583 ], [ %572, %571 ]
+590:                                              ; preds = %589, %575
+  %.pn1182.pn = phi { ptr, i32 } [ %.pn1182, %589 ], [ %576, %575 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
-  br label %585
+  br label %591
 
-585:                                              ; preds = %584, %569
-  %.pn1182.pn.pn = phi { ptr, i32 } [ %.pn1182.pn, %584 ], [ %570, %569 ]
+591:                                              ; preds = %590, %573
+  %.pn1182.pn.pn = phi { ptr, i32 } [ %.pn1182.pn, %590 ], [ %574, %573 ]
   %.7769 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 0
   %.7779 = extractvalue { ptr, i32 } %.pn1182.pn.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
-  %586 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %587 = icmp eq i32 %.7779, %586
-  br i1 %587, label %588, label %2719
+  %592 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %593 = icmp eq i32 %.7779, %592
+  br i1 %593, label %594, label %2799
 
-588:                                              ; preds = %585
-  %589 = call ptr @__cxa_begin_catch(ptr %.7769) #21
-  %590 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %589)
-          to label %591 unwind label %592
+594:                                              ; preds = %591
+  %595 = call ptr @__cxa_begin_catch(ptr %.7769) #21
+  %596 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %595)
+          to label %597 unwind label %598
 
-591:                                              ; preds = %588
+597:                                              ; preds = %594
   call void @__cxa_end_catch()
-  br i1 %590, label %2555, label %.loopexit
+  br i1 %596, label %2635, label %.loopexit
 
-592:                                              ; preds = %588
-  %593 = landingpad { ptr, i32 }
+598:                                              ; preds = %594
+  %599 = landingpad { ptr, i32 }
           cleanup
-  %594 = extractvalue { ptr, i32 } %593, 0
-  %595 = extractvalue { ptr, i32 } %593, 1
+  %600 = extractvalue { ptr, i32 } %599, 0
+  %601 = extractvalue { ptr, i32 } %599, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-596:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %597 = load ptr, ptr %374, align 8
-  %598 = load ptr, ptr %597, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %598)
-          to label %599 unwind label %605
+602:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %603 = load ptr, ptr %374, align 8
+  %604 = load ptr, ptr %603, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef %604)
+          to label %605 unwind label %613
 
-599:                                              ; preds = %596
+605:                                              ; preds = %602
   invoke void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %23, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %4)
-          to label %600 unwind label %607
+          to label %606 unwind label %615
 
-600:                                              ; preds = %599
-  %601 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %602 unwind label %609
+606:                                              ; preds = %605
+  %607 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %608 unwind label %617
 
-602:                                              ; preds = %600
-  %603 = getelementptr inbounds i8, ptr %23, i64 8
-  %604 = load <2 x ptr>, ptr %23, align 16
-  store ptr null, ptr %603, align 8
-  store <2 x ptr> %604, ptr %601, align 8
-  store ptr null, ptr %23, align 16
-  store ptr %601, ptr %8, align 8
+608:                                              ; preds = %606
+  %609 = load ptr, ptr %23, align 8
+  store ptr %609, ptr %607, align 8
+  %610 = getelementptr inbounds i8, ptr %607, i64 8
+  %611 = getelementptr inbounds i8, ptr %23, i64 8
+  %612 = load ptr, ptr %611, align 8
+  store ptr null, ptr %611, align 8
+  store ptr %612, ptr %610, align 8
+  store ptr null, ptr %23, align 8
+  store ptr %607, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
-  br label %2458
+  br label %2538
 
-605:                                              ; preds = %596
-  %606 = landingpad { ptr, i32 }
+613:                                              ; preds = %602
+  %614 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %612
+  br label %620
 
-607:                                              ; preds = %599
-  %608 = landingpad { ptr, i32 }
+615:                                              ; preds = %605
+  %616 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %611
+  br label %619
 
-609:                                              ; preds = %600
-  %610 = landingpad { ptr, i32 }
+617:                                              ; preds = %606
+  %618 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #21
-  br label %611
+  br label %619
 
-611:                                              ; preds = %609, %607
-  %.pn1179 = phi { ptr, i32 } [ %610, %609 ], [ %608, %607 ]
+619:                                              ; preds = %617, %615
+  %.pn1179 = phi { ptr, i32 } [ %618, %617 ], [ %616, %615 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
-  br label %612
+  br label %620
 
-612:                                              ; preds = %611, %605
-  %.pn1179.pn = phi { ptr, i32 } [ %.pn1179, %611 ], [ %606, %605 ]
+620:                                              ; preds = %619, %613
+  %.pn1179.pn = phi { ptr, i32 } [ %.pn1179, %619 ], [ %614, %613 ]
   %.10 = extractvalue { ptr, i32 } %.pn1179.pn, 0
   %.10782 = extractvalue { ptr, i32 } %.pn1179.pn, 1
-  %613 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %614 = icmp eq i32 %.10782, %613
-  br i1 %614, label %615, label %2719
+  %621 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %622 = icmp eq i32 %.10782, %621
+  br i1 %622, label %623, label %2799
 
-615:                                              ; preds = %612
-  %616 = call ptr @__cxa_begin_catch(ptr %.10) #21
-  %617 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %616)
-          to label %618 unwind label %619
+623:                                              ; preds = %620
+  %624 = call ptr @__cxa_begin_catch(ptr %.10) #21
+  %625 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %624)
+          to label %626 unwind label %627
 
-618:                                              ; preds = %615
+626:                                              ; preds = %623
   call void @__cxa_end_catch()
-  br i1 %617, label %2555, label %.loopexit
+  br i1 %625, label %2635, label %.loopexit
 
-619:                                              ; preds = %615
-  %620 = landingpad { ptr, i32 }
+627:                                              ; preds = %623
+  %628 = landingpad { ptr, i32 }
           cleanup
-  %621 = extractvalue { ptr, i32 } %620, 0
-  %622 = extractvalue { ptr, i32 } %620, 1
+  %629 = extractvalue { ptr, i32 } %628, 0
+  %630 = extractvalue { ptr, i32 } %628, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-623:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %624 = load ptr, ptr %374, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 -8
-  %626 = load ptr, ptr %625, align 8
-  store ptr %626, ptr %25, align 8
-  %627 = load ptr, ptr %624, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %627)
-          to label %628 unwind label %634
+631:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %632 = load ptr, ptr %374, align 8
+  %633 = getelementptr inbounds i8, ptr %632, i64 -8
+  %634 = load ptr, ptr %633, align 8
+  store ptr %634, ptr %25, align 8
+  %635 = load ptr, ptr %632, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %635)
+          to label %636 unwind label %644
 
-628:                                              ; preds = %623
-  invoke void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %26, ptr noundef %626, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %4)
-          to label %629 unwind label %636
+636:                                              ; preds = %631
+  invoke void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %26, ptr noundef %634, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %4)
+          to label %637 unwind label %646
 
-629:                                              ; preds = %628
-  %630 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %631 unwind label %638
+637:                                              ; preds = %636
+  %638 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %639 unwind label %648
 
-631:                                              ; preds = %629
-  %632 = getelementptr inbounds i8, ptr %26, i64 8
-  %633 = load <2 x ptr>, ptr %26, align 16
-  store ptr null, ptr %632, align 8
-  store <2 x ptr> %633, ptr %630, align 8
-  store ptr null, ptr %26, align 16
-  store ptr %630, ptr %8, align 8
+639:                                              ; preds = %637
+  %640 = load ptr, ptr %26, align 8
+  store ptr %640, ptr %638, align 8
+  %641 = getelementptr inbounds i8, ptr %638, i64 8
+  %642 = getelementptr inbounds i8, ptr %26, i64 8
+  %643 = load ptr, ptr %642, align 8
+  store ptr null, ptr %642, align 8
+  store ptr %643, ptr %641, align 8
+  store ptr null, ptr %26, align 8
+  store ptr %638, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #21
-  br label %2458
+  br label %2538
 
-634:                                              ; preds = %623
-  %635 = landingpad { ptr, i32 }
+644:                                              ; preds = %631
+  %645 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %641
+  br label %651
 
-636:                                              ; preds = %628
-  %637 = landingpad { ptr, i32 }
+646:                                              ; preds = %636
+  %647 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %640
+  br label %650
 
-638:                                              ; preds = %629
-  %639 = landingpad { ptr, i32 }
+648:                                              ; preds = %637
+  %649 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #21
-  br label %640
+  br label %650
 
-640:                                              ; preds = %638, %636
-  %.pn1176 = phi { ptr, i32 } [ %639, %638 ], [ %637, %636 ]
+650:                                              ; preds = %648, %646
+  %.pn1176 = phi { ptr, i32 } [ %649, %648 ], [ %647, %646 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #21
-  br label %641
+  br label %651
 
-641:                                              ; preds = %640, %634
-  %.pn1176.pn = phi { ptr, i32 } [ %.pn1176, %640 ], [ %635, %634 ]
+651:                                              ; preds = %650, %644
+  %.pn1176.pn = phi { ptr, i32 } [ %.pn1176, %650 ], [ %645, %644 ]
   %.12 = extractvalue { ptr, i32 } %.pn1176.pn, 0
   %.12784 = extractvalue { ptr, i32 } %.pn1176.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #21
-  %642 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %643 = icmp eq i32 %.12784, %642
-  br i1 %643, label %644, label %2719
+  %652 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %653 = icmp eq i32 %.12784, %652
+  br i1 %653, label %654, label %2799
 
-644:                                              ; preds = %641
-  %645 = call ptr @__cxa_begin_catch(ptr %.12) #21
-  %646 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %645)
-          to label %647 unwind label %648
+654:                                              ; preds = %651
+  %655 = call ptr @__cxa_begin_catch(ptr %.12) #21
+  %656 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %655)
+          to label %657 unwind label %658
 
-647:                                              ; preds = %644
+657:                                              ; preds = %654
   call void @__cxa_end_catch()
-  br i1 %646, label %2555, label %.loopexit
+  br i1 %656, label %2635, label %.loopexit
 
-648:                                              ; preds = %644
-  %649 = landingpad { ptr, i32 }
+658:                                              ; preds = %654
+  %659 = landingpad { ptr, i32 }
           cleanup
-  %650 = extractvalue { ptr, i32 } %649, 0
-  %651 = extractvalue { ptr, i32 } %649, 1
+  %660 = extractvalue { ptr, i32 } %659, 0
+  %661 = extractvalue { ptr, i32 } %659, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-652:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %653 = load ptr, ptr %374, align 8
-  %654 = getelementptr inbounds i8, ptr %653, i64 -16
-  %655 = load ptr, ptr %654, align 8
-  store ptr %655, ptr %28, align 8
-  %656 = load ptr, ptr %653, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef %656)
-          to label %657 unwind label %663
+662:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %663 = load ptr, ptr %374, align 8
+  %664 = getelementptr inbounds i8, ptr %663, i64 -16
+  %665 = load ptr, ptr %664, align 8
+  store ptr %665, ptr %28, align 8
+  %666 = load ptr, ptr %663, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef %666)
+          to label %667 unwind label %675
 
-657:                                              ; preds = %652
-  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %29, ptr noundef %655, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %4)
-          to label %658 unwind label %665
+667:                                              ; preds = %662
+  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %29, ptr noundef %665, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %4)
+          to label %668 unwind label %677
 
-658:                                              ; preds = %657
-  %659 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %660 unwind label %667
+668:                                              ; preds = %667
+  %669 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %670 unwind label %679
 
-660:                                              ; preds = %658
-  %661 = getelementptr inbounds i8, ptr %29, i64 8
-  %662 = load <2 x ptr>, ptr %29, align 16
-  store ptr null, ptr %661, align 8
-  store <2 x ptr> %662, ptr %659, align 8
-  store ptr null, ptr %29, align 16
-  store ptr %659, ptr %8, align 8
+670:                                              ; preds = %668
+  %671 = load ptr, ptr %29, align 8
+  store ptr %671, ptr %669, align 8
+  %672 = getelementptr inbounds i8, ptr %669, i64 8
+  %673 = getelementptr inbounds i8, ptr %29, i64 8
+  %674 = load ptr, ptr %673, align 8
+  store ptr null, ptr %673, align 8
+  store ptr %674, ptr %672, align 8
+  store ptr null, ptr %29, align 8
+  store ptr %669, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
-  br label %2458
+  br label %2538
 
-663:                                              ; preds = %652
-  %664 = landingpad { ptr, i32 }
+675:                                              ; preds = %662
+  %676 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %670
+  br label %682
 
-665:                                              ; preds = %657
-  %666 = landingpad { ptr, i32 }
+677:                                              ; preds = %667
+  %678 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %669
+  br label %681
 
-667:                                              ; preds = %658
-  %668 = landingpad { ptr, i32 }
+679:                                              ; preds = %668
+  %680 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #21
-  br label %669
+  br label %681
 
-669:                                              ; preds = %667, %665
-  %.pn1173 = phi { ptr, i32 } [ %668, %667 ], [ %666, %665 ]
+681:                                              ; preds = %679, %677
+  %.pn1173 = phi { ptr, i32 } [ %680, %679 ], [ %678, %677 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #21
-  br label %670
+  br label %682
 
-670:                                              ; preds = %669, %663
-  %.pn1173.pn = phi { ptr, i32 } [ %.pn1173, %669 ], [ %664, %663 ]
+682:                                              ; preds = %681, %675
+  %.pn1173.pn = phi { ptr, i32 } [ %.pn1173, %681 ], [ %676, %675 ]
   %.14 = extractvalue { ptr, i32 } %.pn1173.pn, 0
   %.14786 = extractvalue { ptr, i32 } %.pn1173.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
-  %671 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %672 = icmp eq i32 %.14786, %671
-  br i1 %672, label %673, label %2719
+  %683 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %684 = icmp eq i32 %.14786, %683
+  br i1 %684, label %685, label %2799
 
-673:                                              ; preds = %670
-  %674 = call ptr @__cxa_begin_catch(ptr %.14) #21
-  %675 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %674)
-          to label %676 unwind label %677
+685:                                              ; preds = %682
+  %686 = call ptr @__cxa_begin_catch(ptr %.14) #21
+  %687 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %686)
+          to label %688 unwind label %689
 
-676:                                              ; preds = %673
+688:                                              ; preds = %685
   call void @__cxa_end_catch()
-  br i1 %675, label %2555, label %.loopexit
+  br i1 %687, label %2635, label %.loopexit
 
-677:                                              ; preds = %673
-  %678 = landingpad { ptr, i32 }
+689:                                              ; preds = %685
+  %690 = landingpad { ptr, i32 }
           cleanup
-  %679 = extractvalue { ptr, i32 } %678, 0
-  %680 = extractvalue { ptr, i32 } %678, 1
+  %691 = extractvalue { ptr, i32 } %690, 0
+  %692 = extractvalue { ptr, i32 } %690, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-681:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %682 = load ptr, ptr %374, align 8
-  %683 = getelementptr inbounds i8, ptr %682, i64 -16
-  %684 = load ptr, ptr %683, align 8
-  store ptr %684, ptr %31, align 8
-  %685 = load ptr, ptr %682, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %685)
-          to label %686 unwind label %692
+693:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %694 = load ptr, ptr %374, align 8
+  %695 = getelementptr inbounds i8, ptr %694, i64 -16
+  %696 = load ptr, ptr %695, align 8
+  store ptr %696, ptr %31, align 8
+  %697 = load ptr, ptr %694, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %697)
+          to label %698 unwind label %706
 
-686:                                              ; preds = %681
-  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %32, ptr noundef %684, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %4)
-          to label %687 unwind label %694
+698:                                              ; preds = %693
+  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %32, ptr noundef %696, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %4)
+          to label %699 unwind label %708
 
-687:                                              ; preds = %686
-  %688 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %689 unwind label %696
+699:                                              ; preds = %698
+  %700 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %701 unwind label %710
 
-689:                                              ; preds = %687
-  %690 = getelementptr inbounds i8, ptr %32, i64 8
-  %691 = load <2 x ptr>, ptr %32, align 16
-  store ptr null, ptr %690, align 8
-  store <2 x ptr> %691, ptr %688, align 8
-  store ptr null, ptr %32, align 16
-  store ptr %688, ptr %8, align 8
+701:                                              ; preds = %699
+  %702 = load ptr, ptr %32, align 8
+  store ptr %702, ptr %700, align 8
+  %703 = getelementptr inbounds i8, ptr %700, i64 8
+  %704 = getelementptr inbounds i8, ptr %32, i64 8
+  %705 = load ptr, ptr %704, align 8
+  store ptr null, ptr %704, align 8
+  store ptr %705, ptr %703, align 8
+  store ptr null, ptr %32, align 8
+  store ptr %700, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #21
-  br label %2458
+  br label %2538
 
-692:                                              ; preds = %681
-  %693 = landingpad { ptr, i32 }
+706:                                              ; preds = %693
+  %707 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %699
+  br label %713
 
-694:                                              ; preds = %686
-  %695 = landingpad { ptr, i32 }
+708:                                              ; preds = %698
+  %709 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %698
+  br label %712
 
-696:                                              ; preds = %687
-  %697 = landingpad { ptr, i32 }
+710:                                              ; preds = %699
+  %711 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
-  br label %698
+  br label %712
 
-698:                                              ; preds = %696, %694
-  %.pn1170 = phi { ptr, i32 } [ %697, %696 ], [ %695, %694 ]
+712:                                              ; preds = %710, %708
+  %.pn1170 = phi { ptr, i32 } [ %711, %710 ], [ %709, %708 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #21
-  br label %699
+  br label %713
 
-699:                                              ; preds = %698, %692
-  %.pn1170.pn = phi { ptr, i32 } [ %.pn1170, %698 ], [ %693, %692 ]
+713:                                              ; preds = %712, %706
+  %.pn1170.pn = phi { ptr, i32 } [ %.pn1170, %712 ], [ %707, %706 ]
   %.16 = extractvalue { ptr, i32 } %.pn1170.pn, 0
   %.16788 = extractvalue { ptr, i32 } %.pn1170.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #21
-  %700 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %701 = icmp eq i32 %.16788, %700
-  br i1 %701, label %702, label %2719
+  %714 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %715 = icmp eq i32 %.16788, %714
+  br i1 %715, label %716, label %2799
 
-702:                                              ; preds = %699
-  %703 = call ptr @__cxa_begin_catch(ptr %.16) #21
-  %704 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %703)
-          to label %705 unwind label %706
+716:                                              ; preds = %713
+  %717 = call ptr @__cxa_begin_catch(ptr %.16) #21
+  %718 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %717)
+          to label %719 unwind label %720
 
-705:                                              ; preds = %702
+719:                                              ; preds = %716
   call void @__cxa_end_catch()
-  br i1 %704, label %2555, label %.loopexit
+  br i1 %718, label %2635, label %.loopexit
 
-706:                                              ; preds = %702
-  %707 = landingpad { ptr, i32 }
+720:                                              ; preds = %716
+  %721 = landingpad { ptr, i32 }
           cleanup
-  %708 = extractvalue { ptr, i32 } %707, 0
-  %709 = extractvalue { ptr, i32 } %707, 1
+  %722 = extractvalue { ptr, i32 } %721, 0
+  %723 = extractvalue { ptr, i32 } %721, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-710:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %711 = load ptr, ptr %374, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 -16
-  %713 = load ptr, ptr %712, align 8
-  store ptr %713, ptr %34, align 8
-  %714 = load ptr, ptr %711, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef %714)
-          to label %715 unwind label %721
+724:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %725 = load ptr, ptr %374, align 8
+  %726 = getelementptr inbounds i8, ptr %725, i64 -16
+  %727 = load ptr, ptr %726, align 8
+  store ptr %727, ptr %34, align 8
+  %728 = load ptr, ptr %725, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef %728)
+          to label %729 unwind label %737
 
-715:                                              ; preds = %710
-  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %35, ptr noundef %713, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %4)
-          to label %716 unwind label %723
+729:                                              ; preds = %724
+  invoke void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %35, ptr noundef %727, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %4)
+          to label %730 unwind label %739
 
-716:                                              ; preds = %715
-  %717 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %718 unwind label %725
+730:                                              ; preds = %729
+  %731 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %732 unwind label %741
 
-718:                                              ; preds = %716
-  %719 = getelementptr inbounds i8, ptr %35, i64 8
-  %720 = load <2 x ptr>, ptr %35, align 16
-  store ptr null, ptr %719, align 8
-  store <2 x ptr> %720, ptr %717, align 8
-  store ptr null, ptr %35, align 16
-  store ptr %717, ptr %8, align 8
+732:                                              ; preds = %730
+  %733 = load ptr, ptr %35, align 8
+  store ptr %733, ptr %731, align 8
+  %734 = getelementptr inbounds i8, ptr %731, i64 8
+  %735 = getelementptr inbounds i8, ptr %35, i64 8
+  %736 = load ptr, ptr %735, align 8
+  store ptr null, ptr %735, align 8
+  store ptr %736, ptr %734, align 8
+  store ptr null, ptr %35, align 8
+  store ptr %731, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #21
-  br label %2458
+  br label %2538
 
-721:                                              ; preds = %710
-  %722 = landingpad { ptr, i32 }
+737:                                              ; preds = %724
+  %738 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %728
+  br label %744
 
-723:                                              ; preds = %715
-  %724 = landingpad { ptr, i32 }
+739:                                              ; preds = %729
+  %740 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %727
+  br label %743
 
-725:                                              ; preds = %716
-  %726 = landingpad { ptr, i32 }
+741:                                              ; preds = %730
+  %742 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #21
-  br label %727
+  br label %743
 
-727:                                              ; preds = %725, %723
-  %.pn1167 = phi { ptr, i32 } [ %726, %725 ], [ %724, %723 ]
+743:                                              ; preds = %741, %739
+  %.pn1167 = phi { ptr, i32 } [ %742, %741 ], [ %740, %739 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #21
-  br label %728
+  br label %744
 
-728:                                              ; preds = %727, %721
-  %.pn1167.pn = phi { ptr, i32 } [ %.pn1167, %727 ], [ %722, %721 ]
+744:                                              ; preds = %743, %737
+  %.pn1167.pn = phi { ptr, i32 } [ %.pn1167, %743 ], [ %738, %737 ]
   %.18 = extractvalue { ptr, i32 } %.pn1167.pn, 0
   %.18790 = extractvalue { ptr, i32 } %.pn1167.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #21
-  %729 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %730 = icmp eq i32 %.18790, %729
-  br i1 %730, label %731, label %2719
+  %745 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %746 = icmp eq i32 %.18790, %745
+  br i1 %746, label %747, label %2799
 
-731:                                              ; preds = %728
-  %732 = call ptr @__cxa_begin_catch(ptr %.18) #21
-  %733 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %732)
-          to label %734 unwind label %735
+747:                                              ; preds = %744
+  %748 = call ptr @__cxa_begin_catch(ptr %.18) #21
+  %749 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %748)
+          to label %750 unwind label %751
 
-734:                                              ; preds = %731
+750:                                              ; preds = %747
   call void @__cxa_end_catch()
-  br i1 %733, label %2555, label %.loopexit
+  br i1 %749, label %2635, label %.loopexit
 
-735:                                              ; preds = %731
-  %736 = landingpad { ptr, i32 }
+751:                                              ; preds = %747
+  %752 = landingpad { ptr, i32 }
           cleanup
-  %737 = extractvalue { ptr, i32 } %736, 0
-  %738 = extractvalue { ptr, i32 } %736, 1
+  %753 = extractvalue { ptr, i32 } %752, 0
+  %754 = extractvalue { ptr, i32 } %752, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-739:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %740 = load ptr, ptr %374, align 8
-  %741 = load ptr, ptr %740, align 8
-  store ptr %741, ptr %8, align 8
-  br label %2458
+755:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %756 = load ptr, ptr %374, align 8
+  %757 = load ptr, ptr %756, align 8
+  store ptr %757, ptr %8, align 8
+  br label %2538
 
-742:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %743 = load ptr, ptr %374, align 8
-  %744 = load ptr, ptr %743, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef %744)
-          to label %745 unwind label %754
+758:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %759 = load ptr, ptr %374, align 8
+  %760 = load ptr, ptr %759, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef %760)
+          to label %761 unwind label %772
 
-745:                                              ; preds = %742
+761:                                              ; preds = %758
   invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef null, ptr noundef %4)
-          to label %746 unwind label %756
+          to label %762 unwind label %774
 
-746:                                              ; preds = %745
-  %747 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %748 unwind label %758
+762:                                              ; preds = %761
+  %763 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %764 unwind label %776
 
-748:                                              ; preds = %746
-  %749 = getelementptr inbounds i8, ptr %37, i64 8
-  %750 = load <2 x ptr>, ptr %37, align 16
-  store ptr null, ptr %749, align 8
-  store <2 x ptr> %750, ptr %747, align 8
-  store ptr null, ptr %37, align 16
-  store ptr %747, ptr %8, align 8
+764:                                              ; preds = %762
+  %765 = load ptr, ptr %37, align 8
+  store ptr %765, ptr %763, align 8
+  %766 = getelementptr inbounds i8, ptr %763, i64 8
+  %767 = getelementptr inbounds i8, ptr %37, i64 8
+  %768 = load ptr, ptr %767, align 8
+  store ptr null, ptr %767, align 8
+  store ptr %768, ptr %766, align 8
+  store ptr null, ptr %37, align 8
+  store ptr %763, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #21
-  %751 = load ptr, ptr %8, align 8
-  %752 = load ptr, ptr %751, align 8
-  %.not1463 = icmp eq ptr %752, null
-  br i1 %.not1463, label %753, label %2458
+  %769 = load ptr, ptr %8, align 8
+  %770 = load ptr, ptr %769, align 8
+  %.not1463 = icmp eq ptr %770, null
+  br i1 %.not1463, label %771, label %2538
 
-753:                                              ; preds = %748
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %751) #21
-  call void @_ZdlPv(ptr noundef nonnull %751) #25
-  br label %2555
+771:                                              ; preds = %764
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %769) #21
+  call void @_ZdlPv(ptr noundef nonnull %769) #25
+  br label %2635
 
-754:                                              ; preds = %742
-  %755 = landingpad { ptr, i32 }
+772:                                              ; preds = %758
+  %773 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %761
+  br label %779
 
-756:                                              ; preds = %745
-  %757 = landingpad { ptr, i32 }
+774:                                              ; preds = %761
+  %775 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %760
+  br label %778
 
-758:                                              ; preds = %746
-  %759 = landingpad { ptr, i32 }
+776:                                              ; preds = %762
+  %777 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #21
-  br label %760
+  br label %778
 
-760:                                              ; preds = %758, %756
-  %.pn1164 = phi { ptr, i32 } [ %759, %758 ], [ %757, %756 ]
+778:                                              ; preds = %776, %774
+  %.pn1164 = phi { ptr, i32 } [ %777, %776 ], [ %775, %774 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #21
-  br label %761
+  br label %779
 
-761:                                              ; preds = %760, %754
-  %.pn1164.pn = phi { ptr, i32 } [ %.pn1164, %760 ], [ %755, %754 ]
+779:                                              ; preds = %778, %772
+  %.pn1164.pn = phi { ptr, i32 } [ %.pn1164, %778 ], [ %773, %772 ]
   %.20 = extractvalue { ptr, i32 } %.pn1164.pn, 0
   %.20792 = extractvalue { ptr, i32 } %.pn1164.pn, 1
-  %762 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %763 = icmp eq i32 %.20792, %762
-  br i1 %763, label %764, label %2719
+  %780 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %781 = icmp eq i32 %.20792, %780
+  br i1 %781, label %782, label %2799
 
-764:                                              ; preds = %761
-  %765 = call ptr @__cxa_begin_catch(ptr %.20) #21
-  %766 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %765)
-          to label %767 unwind label %768
+782:                                              ; preds = %779
+  %783 = call ptr @__cxa_begin_catch(ptr %.20) #21
+  %784 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %783)
+          to label %785 unwind label %786
 
-767:                                              ; preds = %764
+785:                                              ; preds = %782
   call void @__cxa_end_catch()
-  br i1 %766, label %2555, label %.loopexit
+  br i1 %784, label %2635, label %.loopexit
 
-768:                                              ; preds = %764
-  %769 = landingpad { ptr, i32 }
+786:                                              ; preds = %782
+  %787 = landingpad { ptr, i32 }
           cleanup
-  %770 = extractvalue { ptr, i32 } %769, 0
-  %771 = extractvalue { ptr, i32 } %769, 1
+  %788 = extractvalue { ptr, i32 } %787, 0
+  %789 = extractvalue { ptr, i32 } %787, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-772:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %773 = load ptr, ptr %374, align 8
-  %774 = getelementptr inbounds i8, ptr %773, i64 -8
-  %775 = load ptr, ptr %774, align 8
-  store ptr %775, ptr %8, align 8
-  br label %2458
+790:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %791 = load ptr, ptr %374, align 8
+  %792 = getelementptr inbounds i8, ptr %791, i64 -8
+  %793 = load ptr, ptr %792, align 8
+  store ptr %793, ptr %8, align 8
+  br label %2538
 
-776:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %777 = load ptr, ptr %374, align 8
-  %778 = getelementptr inbounds i8, ptr %777, i64 -8
-  %779 = load ptr, ptr %778, align 8
-  %780 = load ptr, ptr %777, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef %780)
-          to label %781 unwind label %794
+794:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %795 = load ptr, ptr %374, align 8
+  %796 = getelementptr inbounds i8, ptr %795, i64 -8
+  %797 = load ptr, ptr %796, align 8
+  %798 = load ptr, ptr %795, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef %798)
+          to label %799 unwind label %814
 
-781:                                              ; preds = %776
-  %782 = load ptr, ptr %374, align 8
-  %783 = getelementptr inbounds i8, ptr %782, i64 -16
-  %784 = load ptr, ptr %783, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef %784)
-          to label %785 unwind label %796
+799:                                              ; preds = %794
+  %800 = load ptr, ptr %374, align 8
+  %801 = getelementptr inbounds i8, ptr %800, i64 -16
+  %802 = load ptr, ptr %801, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef %802)
+          to label %803 unwind label %816
 
-785:                                              ; preds = %781
-  invoke void @_Z22_gmx_sel_init_modifierP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EERKSt10shared_ptrINS4_20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %39, ptr noundef %779, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %4)
-          to label %786 unwind label %798
+803:                                              ; preds = %799
+  invoke void @_Z22_gmx_sel_init_modifierP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EERKSt10shared_ptrINS4_20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %39, ptr noundef %797, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %4)
+          to label %804 unwind label %818
 
-786:                                              ; preds = %785
-  %787 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %788 unwind label %800
+804:                                              ; preds = %803
+  %805 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %806 unwind label %820
 
-788:                                              ; preds = %786
-  %789 = getelementptr inbounds i8, ptr %39, i64 8
-  %790 = load <2 x ptr>, ptr %39, align 16
-  store ptr null, ptr %789, align 8
-  store <2 x ptr> %790, ptr %787, align 8
-  store ptr null, ptr %39, align 16
-  store ptr %787, ptr %8, align 8
+806:                                              ; preds = %804
+  %807 = load ptr, ptr %39, align 8
+  store ptr %807, ptr %805, align 8
+  %808 = getelementptr inbounds i8, ptr %805, i64 8
+  %809 = getelementptr inbounds i8, ptr %39, i64 8
+  %810 = load ptr, ptr %809, align 8
+  store ptr null, ptr %809, align 8
+  store ptr %810, ptr %808, align 8
+  store ptr null, ptr %39, align 8
+  store ptr %805, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #21
-  %791 = load ptr, ptr %8, align 8
-  %792 = load ptr, ptr %791, align 8
-  %.not1462 = icmp eq ptr %792, null
-  br i1 %.not1462, label %793, label %2458
+  %811 = load ptr, ptr %8, align 8
+  %812 = load ptr, ptr %811, align 8
+  %.not1462 = icmp eq ptr %812, null
+  br i1 %.not1462, label %813, label %2538
 
-793:                                              ; preds = %788
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %791) #21
-  call void @_ZdlPv(ptr noundef nonnull %791) #25
-  br label %2555
+813:                                              ; preds = %806
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %811) #21
+  call void @_ZdlPv(ptr noundef nonnull %811) #25
+  br label %2635
 
-794:                                              ; preds = %776
-  %795 = landingpad { ptr, i32 }
+814:                                              ; preds = %794
+  %815 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %804
+  br label %824
 
-796:                                              ; preds = %781
-  %797 = landingpad { ptr, i32 }
+816:                                              ; preds = %799
+  %817 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %803
+  br label %823
 
-798:                                              ; preds = %785
-  %799 = landingpad { ptr, i32 }
+818:                                              ; preds = %803
+  %819 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %802
+  br label %822
 
-800:                                              ; preds = %786
-  %801 = landingpad { ptr, i32 }
+820:                                              ; preds = %804
+  %821 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #21
-  br label %802
+  br label %822
 
-802:                                              ; preds = %800, %798
-  %.pn1160 = phi { ptr, i32 } [ %801, %800 ], [ %799, %798 ]
+822:                                              ; preds = %820, %818
+  %.pn1160 = phi { ptr, i32 } [ %821, %820 ], [ %819, %818 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #21
-  br label %803
+  br label %823
 
-803:                                              ; preds = %802, %796
-  %.pn1160.pn = phi { ptr, i32 } [ %.pn1160, %802 ], [ %797, %796 ]
+823:                                              ; preds = %822, %816
+  %.pn1160.pn = phi { ptr, i32 } [ %.pn1160, %822 ], [ %817, %816 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #21
-  br label %804
+  br label %824
 
-804:                                              ; preds = %803, %794
-  %.pn1160.pn.pn = phi { ptr, i32 } [ %.pn1160.pn, %803 ], [ %795, %794 ]
+824:                                              ; preds = %823, %814
+  %.pn1160.pn.pn = phi { ptr, i32 } [ %.pn1160.pn, %823 ], [ %815, %814 ]
   %.22 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 0
   %.22794 = extractvalue { ptr, i32 } %.pn1160.pn.pn, 1
-  %805 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %806 = icmp eq i32 %.22794, %805
-  br i1 %806, label %807, label %2719
+  %825 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %826 = icmp eq i32 %.22794, %825
+  br i1 %826, label %827, label %2799
 
-807:                                              ; preds = %804
-  %808 = call ptr @__cxa_begin_catch(ptr %.22) #21
-  %809 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %808)
-          to label %810 unwind label %811
+827:                                              ; preds = %824
+  %828 = call ptr @__cxa_begin_catch(ptr %.22) #21
+  %829 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %828)
+          to label %830 unwind label %831
 
-810:                                              ; preds = %807
+830:                                              ; preds = %827
   call void @__cxa_end_catch()
-  br i1 %809, label %2555, label %.loopexit
+  br i1 %829, label %2635, label %.loopexit
 
-811:                                              ; preds = %807
-  %812 = landingpad { ptr, i32 }
+831:                                              ; preds = %827
+  %832 = landingpad { ptr, i32 }
           cleanup
-  %813 = extractvalue { ptr, i32 } %812, 0
-  %814 = extractvalue { ptr, i32 } %812, 1
+  %833 = extractvalue { ptr, i32 } %832, 0
+  %834 = extractvalue { ptr, i32 } %832, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-815:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %816 = load ptr, ptr %374, align 8
-  %817 = load i32, ptr %816, align 8
-  store i32 %817, ptr %8, align 8
-  br label %2458
+835:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %836 = load ptr, ptr %374, align 8
+  %837 = load i32, ptr %836, align 8
+  store i32 %837, ptr %8, align 8
+  br label %2538
 
-818:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %819 = load ptr, ptr %374, align 8
-  %820 = load i32, ptr %819, align 8
-  %821 = sub nsw i32 0, %820
-  store i32 %821, ptr %8, align 8
-  br label %2458
-
-822:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %823 = load ptr, ptr %374, align 8
-  %824 = load float, ptr %823, align 8
-  store float %824, ptr %8, align 8
-  br label %2458
-
-825:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %826 = load ptr, ptr %374, align 8
-  %827 = load float, ptr %826, align 8
-  %828 = fneg float %827
-  store float %828, ptr %8, align 8
-  br label %2458
-
-829:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %830 = load ptr, ptr %374, align 8
-  %831 = load i32, ptr %830, align 8
-  %832 = sitofp i32 %831 to float
-  store float %832, ptr %8, align 8
-  br label %2458
-
-833:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %834 = load ptr, ptr %374, align 8
-  %835 = load float, ptr %834, align 8
-  store float %835, ptr %8, align 8
-  br label %2458
-
-836:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %837 = load ptr, ptr %374, align 8
-  %838 = load ptr, ptr %837, align 8
-  store ptr %838, ptr %8, align 8
-  br label %2458
-
-839:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %840 = load ptr, ptr %374, align 8
-  %841 = load ptr, ptr %840, align 8
-  store ptr %841, ptr %8, align 8
-  br label %2458
+838:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %839 = load ptr, ptr %374, align 8
+  %840 = load i32, ptr %839, align 8
+  %841 = sub nsw i32 0, %840
+  store i32 %841, ptr %8, align 8
+  br label %2538
 
 842:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
   %843 = load ptr, ptr %374, align 8
-  %844 = load ptr, ptr %843, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef %844)
-          to label %845 unwind label %868
+  %844 = load float, ptr %843, align 8
+  store float %844, ptr %8, align 8
+  br label %2538
 
-845:                                              ; preds = %842
-  %846 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
-          to label %847 unwind label %870
+845:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %846 = load ptr, ptr %374, align 8
+  %847 = load float, ptr %846, align 8
+  %848 = fneg float %847
+  store float %848, ptr %8, align 8
+  br label %2538
 
-847:                                              ; preds = %845
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %846, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %848 unwind label %872
+849:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %850 = load ptr, ptr %374, align 8
+  %851 = load i32, ptr %850, align 8
+  %852 = sitofp i32 %851 to float
+  store float %852, ptr %8, align 8
+  br label %2538
 
-848:                                              ; preds = %847
-  store ptr %846, ptr %43, align 16
-  %849 = getelementptr inbounds i8, ptr %43, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %849, ptr noundef nonnull %846)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit unwind label %870
+853:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %854 = load ptr, ptr %374, align 8
+  %855 = load float, ptr %854, align 8
+  store float %855, ptr %8, align 8
+  br label %2538
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit: ; preds = %848
-  %850 = load ptr, ptr %43, align 16
-  %851 = getelementptr inbounds i8, ptr %850, i64 48
-  store i32 0, ptr %851, align 8
-  %852 = getelementptr inbounds i8, ptr %850, i64 96
-  %853 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %852, ptr noundef nonnull align 8 dereferenceable(16) %42) #21
-  %854 = getelementptr inbounds i8, ptr %44, i64 8
-  %855 = load ptr, ptr %849, align 8
-  %856 = load <2 x ptr>, ptr %43, align 16
-  store <2 x ptr> %856, ptr %44, align 16
-  %.not.i.i.i = icmp eq ptr %855, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %857
+856:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %857 = load ptr, ptr %374, align 8
+  %858 = load ptr, ptr %857, align 8
+  store ptr %858, ptr %8, align 8
+  br label %2538
 
-857:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit
-  %858 = getelementptr inbounds i8, ptr %855, i64 8
-  %859 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %859, 0
-  br i1 %.not.i.i.i.i, label %863, label %860
+859:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %860 = load ptr, ptr %374, align 8
+  %861 = load ptr, ptr %860, align 8
+  store ptr %861, ptr %8, align 8
+  br label %2538
 
-860:                                              ; preds = %857
-  %861 = load i32, ptr %858, align 4
-  %862 = add nsw i32 %861, 1
-  store i32 %862, ptr %858, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+862:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %863 = load ptr, ptr %374, align 8
+  %864 = load ptr, ptr %863, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef %864)
+          to label %865 unwind label %890
 
-863:                                              ; preds = %857
-  %864 = atomicrmw volatile add ptr %858, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+865:                                              ; preds = %862
+  %866 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %867 unwind label %892
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit, %860, %863
-  %865 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %866 unwind label %874
+867:                                              ; preds = %865
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %866, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %868 unwind label %894
 
-866:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %867 = load <2 x ptr>, ptr %44, align 16
-  store ptr null, ptr %854, align 8
-  store <2 x ptr> %867, ptr %865, align 8
-  store ptr null, ptr %44, align 16
-  store ptr %865, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #21
-  br label %2458
+868:                                              ; preds = %867
+  store ptr %866, ptr %43, align 8
+  %869 = getelementptr inbounds i8, ptr %43, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %869, ptr noundef nonnull %866)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit unwind label %892
 
-868:                                              ; preds = %842
-  %869 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %877
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit: ; preds = %868
+  %870 = load ptr, ptr %43, align 8
+  %871 = getelementptr inbounds i8, ptr %870, i64 48
+  store i32 0, ptr %871, align 8
+  %872 = getelementptr inbounds i8, ptr %870, i64 96
+  %873 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %872, ptr noundef nonnull align 8 dereferenceable(16) %42) #21
+  %874 = load ptr, ptr %43, align 8
+  store ptr %874, ptr %44, align 8
+  %875 = getelementptr inbounds i8, ptr %44, i64 8
+  %876 = load ptr, ptr %869, align 8
+  store ptr %876, ptr %875, align 8
+  %.not.i.i.i = icmp eq ptr %876, null
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %877
 
-870:                                              ; preds = %848, %845
-  %871 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %876
-
-872:                                              ; preds = %847
-  %873 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %846) #25
-  br label %876
-
-874:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %875 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #21
-  br label %876
-
-876:                                              ; preds = %874, %872, %870
-  %.pn1157 = phi { ptr, i32 } [ %875, %874 ], [ %871, %870 ], [ %873, %872 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #21
-  br label %877
-
-877:                                              ; preds = %876, %868
-  %.pn1157.pn = phi { ptr, i32 } [ %.pn1157, %876 ], [ %869, %868 ]
-  %.25 = extractvalue { ptr, i32 } %.pn1157.pn, 0
-  %.25797 = extractvalue { ptr, i32 } %.pn1157.pn, 1
-  %878 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %879 = icmp eq i32 %.25797, %878
-  br i1 %879, label %880, label %2719
+877:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit
+  %878 = getelementptr inbounds i8, ptr %876, i64 8
+  %879 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %879, 0
+  br i1 %.not.i.i.i.i, label %883, label %880
 
 880:                                              ; preds = %877
-  %881 = call ptr @__cxa_begin_catch(ptr %.25) #21
-  %882 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %881)
-          to label %883 unwind label %884
+  %881 = load i32, ptr %878, align 4
+  %882 = add nsw i32 %881, 1
+  store i32 %882, ptr %878, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
-883:                                              ; preds = %880
+883:                                              ; preds = %877
+  %884 = atomicrmw volatile add ptr %878, i32 1 acq_rel, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit, %880, %883
+  %885 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %886 unwind label %896
+
+886:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+  %887 = load ptr, ptr %44, align 8
+  store ptr %887, ptr %885, align 8
+  %888 = getelementptr inbounds i8, ptr %885, i64 8
+  %889 = load ptr, ptr %875, align 8
+  store ptr null, ptr %875, align 8
+  store ptr %889, ptr %888, align 8
+  store ptr null, ptr %44, align 8
+  store ptr %885, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #21
+  br label %2538
+
+890:                                              ; preds = %862
+  %891 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %899
+
+892:                                              ; preds = %868, %865
+  %893 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %898
+
+894:                                              ; preds = %867
+  %895 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZdlPv(ptr noundef nonnull %866) #25
+  br label %898
+
+896:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+  %897 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #21
+  br label %898
+
+898:                                              ; preds = %896, %894, %892
+  %.pn1157 = phi { ptr, i32 } [ %897, %896 ], [ %893, %892 ], [ %895, %894 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #21
+  br label %899
+
+899:                                              ; preds = %898, %890
+  %.pn1157.pn = phi { ptr, i32 } [ %.pn1157, %898 ], [ %891, %890 ]
+  %.25 = extractvalue { ptr, i32 } %.pn1157.pn, 0
+  %.25797 = extractvalue { ptr, i32 } %.pn1157.pn, 1
+  %900 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %901 = icmp eq i32 %.25797, %900
+  br i1 %901, label %902, label %2799
+
+902:                                              ; preds = %899
+  %903 = call ptr @__cxa_begin_catch(ptr %.25) #21
+  %904 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %903)
+          to label %905 unwind label %906
+
+905:                                              ; preds = %902
   call void @__cxa_end_catch()
-  br i1 %882, label %2555, label %.loopexit
+  br i1 %904, label %2635, label %.loopexit
 
-884:                                              ; preds = %880
-  %885 = landingpad { ptr, i32 }
+906:                                              ; preds = %902
+  %907 = landingpad { ptr, i32 }
           cleanup
-  %886 = extractvalue { ptr, i32 } %885, 0
-  %887 = extractvalue { ptr, i32 } %885, 1
+  %908 = extractvalue { ptr, i32 } %907, 0
+  %909 = extractvalue { ptr, i32 } %907, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-888:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %889 = load ptr, ptr %374, align 8
-  %890 = getelementptr inbounds i8, ptr %889, i64 -16
-  %891 = load ptr, ptr %890, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef %891)
-          to label %892 unwind label %923
+910:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %911 = load ptr, ptr %374, align 8
+  %912 = getelementptr inbounds i8, ptr %911, i64 -16
+  %913 = load ptr, ptr %912, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef %913)
+          to label %914 unwind label %947
 
-892:                                              ; preds = %888
-  %893 = load ptr, ptr %374, align 8
-  %894 = load ptr, ptr %893, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef %894)
-          to label %895 unwind label %925
+914:                                              ; preds = %910
+  %915 = load ptr, ptr %374, align 8
+  %916 = load ptr, ptr %915, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef %916)
+          to label %917 unwind label %949
 
-895:                                              ; preds = %892
-  %896 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
-          to label %897 unwind label %927
+917:                                              ; preds = %914
+  %918 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %919 unwind label %951
 
-897:                                              ; preds = %895
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %896, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %898 unwind label %929
+919:                                              ; preds = %917
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %918, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %920 unwind label %953
 
-898:                                              ; preds = %897
-  store ptr %896, ptr %47, align 16
-  %899 = getelementptr inbounds i8, ptr %47, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %899, ptr noundef nonnull %896)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317 unwind label %927
+920:                                              ; preds = %919
+  store ptr %918, ptr %47, align 8
+  %921 = getelementptr inbounds i8, ptr %47, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %921, ptr noundef nonnull %918)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317 unwind label %951
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317: ; preds = %898
-  %900 = load ptr, ptr %47, align 16
-  %901 = getelementptr inbounds i8, ptr %900, i64 48
-  store i32 1, ptr %901, align 8
-  %902 = getelementptr inbounds i8, ptr %900, i64 96
-  %903 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %902, ptr noundef nonnull align 8 dereferenceable(16) %45) #21
-  %904 = load ptr, ptr %47, align 16
-  %905 = getelementptr inbounds i8, ptr %904, i64 96
-  %906 = load ptr, ptr %905, align 8
-  %907 = getelementptr inbounds i8, ptr %906, i64 112
-  %908 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %907, ptr noundef nonnull align 8 dereferenceable(16) %46) #21
-  %909 = getelementptr inbounds i8, ptr %48, i64 8
-  %910 = load ptr, ptr %899, align 8
-  %911 = load <2 x ptr>, ptr %47, align 16
-  store <2 x ptr> %911, ptr %48, align 16
-  %.not.i.i.i1318 = icmp eq ptr %910, null
-  br i1 %.not.i.i.i1318, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320, label %912
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317: ; preds = %920
+  %922 = load ptr, ptr %47, align 8
+  %923 = getelementptr inbounds i8, ptr %922, i64 48
+  store i32 1, ptr %923, align 8
+  %924 = getelementptr inbounds i8, ptr %922, i64 96
+  %925 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %924, ptr noundef nonnull align 8 dereferenceable(16) %45) #21
+  %926 = load ptr, ptr %47, align 8
+  %927 = getelementptr inbounds i8, ptr %926, i64 96
+  %928 = load ptr, ptr %927, align 8
+  %929 = getelementptr inbounds i8, ptr %928, i64 112
+  %930 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %929, ptr noundef nonnull align 8 dereferenceable(16) %46) #21
+  %931 = load ptr, ptr %47, align 8
+  store ptr %931, ptr %48, align 8
+  %932 = getelementptr inbounds i8, ptr %48, i64 8
+  %933 = load ptr, ptr %921, align 8
+  store ptr %933, ptr %932, align 8
+  %.not.i.i.i1318 = icmp eq ptr %933, null
+  br i1 %.not.i.i.i1318, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320, label %934
 
-912:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317
-  %913 = getelementptr inbounds i8, ptr %910, i64 8
-  %914 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i1319 = icmp eq i8 %914, 0
-  br i1 %.not.i.i.i.i1319, label %918, label %915
+934:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317
+  %935 = getelementptr inbounds i8, ptr %933, i64 8
+  %936 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1319 = icmp eq i8 %936, 0
+  br i1 %.not.i.i.i.i1319, label %940, label %937
 
-915:                                              ; preds = %912
-  %916 = load i32, ptr %913, align 4
-  %917 = add nsw i32 %916, 1
-  store i32 %917, ptr %913, align 4
+937:                                              ; preds = %934
+  %938 = load i32, ptr %935, align 4
+  %939 = add nsw i32 %938, 1
+  store i32 %939, ptr %935, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
 
-918:                                              ; preds = %912
-  %919 = atomicrmw volatile add ptr %913, i32 1 acq_rel, align 4
+940:                                              ; preds = %934
+  %941 = atomicrmw volatile add ptr %935, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317, %915, %918
-  %920 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %921 unwind label %931
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317, %937, %940
+  %942 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %943 unwind label %955
 
-921:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
-  %922 = load <2 x ptr>, ptr %48, align 16
-  store ptr null, ptr %909, align 8
-  store <2 x ptr> %922, ptr %920, align 8
-  store ptr null, ptr %48, align 16
-  store ptr %920, ptr %8, align 8
+943:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
+  %944 = load ptr, ptr %48, align 8
+  store ptr %944, ptr %942, align 8
+  %945 = getelementptr inbounds i8, ptr %942, i64 8
+  %946 = load ptr, ptr %932, align 8
+  store ptr null, ptr %932, align 8
+  store ptr %946, ptr %945, align 8
+  store ptr null, ptr %48, align 8
+  store ptr %942, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #21
-  br label %2458
+  br label %2538
 
-923:                                              ; preds = %888
-  %924 = landingpad { ptr, i32 }
+947:                                              ; preds = %910
+  %948 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %935
+  br label %959
 
-925:                                              ; preds = %892
-  %926 = landingpad { ptr, i32 }
+949:                                              ; preds = %914
+  %950 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %934
+  br label %958
 
-927:                                              ; preds = %898, %895
-  %928 = landingpad { ptr, i32 }
+951:                                              ; preds = %920, %917
+  %952 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %933
+  br label %957
 
-929:                                              ; preds = %897
-  %930 = landingpad { ptr, i32 }
+953:                                              ; preds = %919
+  %954 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %896) #25
-  br label %933
+  call void @_ZdlPv(ptr noundef nonnull %918) #25
+  br label %957
 
-931:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
-  %932 = landingpad { ptr, i32 }
+955:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320
+  %956 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #21
-  br label %933
+  br label %957
 
-933:                                              ; preds = %931, %929, %927
-  %.pn1153 = phi { ptr, i32 } [ %932, %931 ], [ %928, %927 ], [ %930, %929 ]
+957:                                              ; preds = %955, %953, %951
+  %.pn1153 = phi { ptr, i32 } [ %956, %955 ], [ %952, %951 ], [ %954, %953 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #21
-  br label %934
+  br label %958
 
-934:                                              ; preds = %933, %925
-  %.pn1153.pn = phi { ptr, i32 } [ %.pn1153, %933 ], [ %926, %925 ]
+958:                                              ; preds = %957, %949
+  %.pn1153.pn = phi { ptr, i32 } [ %.pn1153, %957 ], [ %950, %949 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #21
-  br label %935
+  br label %959
 
-935:                                              ; preds = %934, %923
-  %.pn1153.pn.pn = phi { ptr, i32 } [ %.pn1153.pn, %934 ], [ %924, %923 ]
+959:                                              ; preds = %958, %947
+  %.pn1153.pn.pn = phi { ptr, i32 } [ %.pn1153.pn, %958 ], [ %948, %947 ]
   %.27 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 0
   %.27799 = extractvalue { ptr, i32 } %.pn1153.pn.pn, 1
-  %936 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %937 = icmp eq i32 %.27799, %936
-  br i1 %937, label %938, label %2719
+  %960 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %961 = icmp eq i32 %.27799, %960
+  br i1 %961, label %962, label %2799
 
-938:                                              ; preds = %935
-  %939 = call ptr @__cxa_begin_catch(ptr %.27) #21
-  %940 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %939)
-          to label %941 unwind label %942
+962:                                              ; preds = %959
+  %963 = call ptr @__cxa_begin_catch(ptr %.27) #21
+  %964 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %963)
+          to label %965 unwind label %966
 
-941:                                              ; preds = %938
+965:                                              ; preds = %962
   call void @__cxa_end_catch()
-  br i1 %940, label %2555, label %.loopexit
+  br i1 %964, label %2635, label %.loopexit
 
-942:                                              ; preds = %938
-  %943 = landingpad { ptr, i32 }
+966:                                              ; preds = %962
+  %967 = landingpad { ptr, i32 }
           cleanup
-  %944 = extractvalue { ptr, i32 } %943, 0
-  %945 = extractvalue { ptr, i32 } %943, 1
+  %968 = extractvalue { ptr, i32 } %967, 0
+  %969 = extractvalue { ptr, i32 } %967, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-946:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %947 = load ptr, ptr %374, align 8
-  %948 = getelementptr inbounds i8, ptr %947, i64 -16
-  %949 = load ptr, ptr %948, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef %949)
-          to label %950 unwind label %981
+970:                                              ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %971 = load ptr, ptr %374, align 8
+  %972 = getelementptr inbounds i8, ptr %971, i64 -16
+  %973 = load ptr, ptr %972, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef %973)
+          to label %974 unwind label %1007
 
-950:                                              ; preds = %946
-  %951 = load ptr, ptr %374, align 8
-  %952 = load ptr, ptr %951, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef %952)
-          to label %953 unwind label %983
+974:                                              ; preds = %970
+  %975 = load ptr, ptr %374, align 8
+  %976 = load ptr, ptr %975, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef %976)
+          to label %977 unwind label %1009
 
-953:                                              ; preds = %950
-  %954 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
-          to label %955 unwind label %985
+977:                                              ; preds = %974
+  %978 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %979 unwind label %1011
 
-955:                                              ; preds = %953
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %954, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %956 unwind label %987
+979:                                              ; preds = %977
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %978, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %980 unwind label %1013
 
-956:                                              ; preds = %955
-  store ptr %954, ptr %51, align 16
-  %957 = getelementptr inbounds i8, ptr %51, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %957, ptr noundef nonnull %954)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322 unwind label %985
+980:                                              ; preds = %979
+  store ptr %978, ptr %51, align 8
+  %981 = getelementptr inbounds i8, ptr %51, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %981, ptr noundef nonnull %978)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322 unwind label %1011
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322: ; preds = %956
-  %958 = load ptr, ptr %51, align 16
-  %959 = getelementptr inbounds i8, ptr %958, i64 48
-  store i32 2, ptr %959, align 8
-  %960 = getelementptr inbounds i8, ptr %958, i64 96
-  %961 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %960, ptr noundef nonnull align 8 dereferenceable(16) %49) #21
-  %962 = load ptr, ptr %51, align 16
-  %963 = getelementptr inbounds i8, ptr %962, i64 96
-  %964 = load ptr, ptr %963, align 8
-  %965 = getelementptr inbounds i8, ptr %964, i64 112
-  %966 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %965, ptr noundef nonnull align 8 dereferenceable(16) %50) #21
-  %967 = getelementptr inbounds i8, ptr %52, i64 8
-  %968 = load ptr, ptr %957, align 8
-  %969 = load <2 x ptr>, ptr %51, align 16
-  store <2 x ptr> %969, ptr %52, align 16
-  %.not.i.i.i1323 = icmp eq ptr %968, null
-  br i1 %.not.i.i.i1323, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325, label %970
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322: ; preds = %980
+  %982 = load ptr, ptr %51, align 8
+  %983 = getelementptr inbounds i8, ptr %982, i64 48
+  store i32 2, ptr %983, align 8
+  %984 = getelementptr inbounds i8, ptr %982, i64 96
+  %985 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %984, ptr noundef nonnull align 8 dereferenceable(16) %49) #21
+  %986 = load ptr, ptr %51, align 8
+  %987 = getelementptr inbounds i8, ptr %986, i64 96
+  %988 = load ptr, ptr %987, align 8
+  %989 = getelementptr inbounds i8, ptr %988, i64 112
+  %990 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %989, ptr noundef nonnull align 8 dereferenceable(16) %50) #21
+  %991 = load ptr, ptr %51, align 8
+  store ptr %991, ptr %52, align 8
+  %992 = getelementptr inbounds i8, ptr %52, i64 8
+  %993 = load ptr, ptr %981, align 8
+  store ptr %993, ptr %992, align 8
+  %.not.i.i.i1323 = icmp eq ptr %993, null
+  br i1 %.not.i.i.i1323, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325, label %994
 
-970:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322
-  %971 = getelementptr inbounds i8, ptr %968, i64 8
-  %972 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i1324 = icmp eq i8 %972, 0
-  br i1 %.not.i.i.i.i1324, label %976, label %973
+994:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322
+  %995 = getelementptr inbounds i8, ptr %993, i64 8
+  %996 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1324 = icmp eq i8 %996, 0
+  br i1 %.not.i.i.i.i1324, label %1000, label %997
 
-973:                                              ; preds = %970
-  %974 = load i32, ptr %971, align 4
-  %975 = add nsw i32 %974, 1
-  store i32 %975, ptr %971, align 4
+997:                                              ; preds = %994
+  %998 = load i32, ptr %995, align 4
+  %999 = add nsw i32 %998, 1
+  store i32 %999, ptr %995, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
 
-976:                                              ; preds = %970
-  %977 = atomicrmw volatile add ptr %971, i32 1 acq_rel, align 4
+1000:                                             ; preds = %994
+  %1001 = atomicrmw volatile add ptr %995, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322, %973, %976
-  %978 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %979 unwind label %989
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322, %997, %1000
+  %1002 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1003 unwind label %1015
 
-979:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
-  %980 = load <2 x ptr>, ptr %52, align 16
-  store ptr null, ptr %967, align 8
-  store <2 x ptr> %980, ptr %978, align 8
-  store ptr null, ptr %52, align 16
-  store ptr %978, ptr %8, align 8
+1003:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
+  %1004 = load ptr, ptr %52, align 8
+  store ptr %1004, ptr %1002, align 8
+  %1005 = getelementptr inbounds i8, ptr %1002, i64 8
+  %1006 = load ptr, ptr %992, align 8
+  store ptr null, ptr %992, align 8
+  store ptr %1006, ptr %1005, align 8
+  store ptr null, ptr %52, align 8
+  store ptr %1002, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
-  br label %2458
+  br label %2538
 
-981:                                              ; preds = %946
-  %982 = landingpad { ptr, i32 }
+1007:                                             ; preds = %970
+  %1008 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %993
+  br label %1019
 
-983:                                              ; preds = %950
-  %984 = landingpad { ptr, i32 }
+1009:                                             ; preds = %974
+  %1010 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %992
+  br label %1018
 
-985:                                              ; preds = %956, %953
-  %986 = landingpad { ptr, i32 }
+1011:                                             ; preds = %980, %977
+  %1012 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %991
+  br label %1017
 
-987:                                              ; preds = %955
-  %988 = landingpad { ptr, i32 }
+1013:                                             ; preds = %979
+  %1014 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %954) #25
-  br label %991
+  call void @_ZdlPv(ptr noundef nonnull %978) #25
+  br label %1017
 
-989:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
-  %990 = landingpad { ptr, i32 }
+1015:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325
+  %1016 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #21
-  br label %991
+  br label %1017
 
-991:                                              ; preds = %989, %987, %985
-  %.pn1149 = phi { ptr, i32 } [ %990, %989 ], [ %986, %985 ], [ %988, %987 ]
+1017:                                             ; preds = %1015, %1013, %1011
+  %.pn1149 = phi { ptr, i32 } [ %1016, %1015 ], [ %1012, %1011 ], [ %1014, %1013 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #21
-  br label %992
+  br label %1018
 
-992:                                              ; preds = %991, %983
-  %.pn1149.pn = phi { ptr, i32 } [ %.pn1149, %991 ], [ %984, %983 ]
+1018:                                             ; preds = %1017, %1009
+  %.pn1149.pn = phi { ptr, i32 } [ %.pn1149, %1017 ], [ %1010, %1009 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
-  br label %993
+  br label %1019
 
-993:                                              ; preds = %992, %981
-  %.pn1149.pn.pn = phi { ptr, i32 } [ %.pn1149.pn, %992 ], [ %982, %981 ]
+1019:                                             ; preds = %1018, %1007
+  %.pn1149.pn.pn = phi { ptr, i32 } [ %.pn1149.pn, %1018 ], [ %1008, %1007 ]
   %.30 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 0
   %.30802 = extractvalue { ptr, i32 } %.pn1149.pn.pn, 1
-  %994 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %995 = icmp eq i32 %.30802, %994
-  br i1 %995, label %996, label %2719
+  %1020 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1021 = icmp eq i32 %.30802, %1020
+  br i1 %1021, label %1022, label %2799
 
-996:                                              ; preds = %993
-  %997 = call ptr @__cxa_begin_catch(ptr %.30) #21
-  %998 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %997)
-          to label %999 unwind label %1000
+1022:                                             ; preds = %1019
+  %1023 = call ptr @__cxa_begin_catch(ptr %.30) #21
+  %1024 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1023)
+          to label %1025 unwind label %1026
 
-999:                                              ; preds = %996
+1025:                                             ; preds = %1022
   call void @__cxa_end_catch()
-  br i1 %998, label %2555, label %.loopexit
+  br i1 %1024, label %2635, label %.loopexit
 
-1000:                                             ; preds = %996
-  %1001 = landingpad { ptr, i32 }
+1026:                                             ; preds = %1022
+  %1027 = landingpad { ptr, i32 }
           cleanup
-  %1002 = extractvalue { ptr, i32 } %1001, 0
-  %1003 = extractvalue { ptr, i32 } %1001, 1
+  %1028 = extractvalue { ptr, i32 } %1027, 0
+  %1029 = extractvalue { ptr, i32 } %1027, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1004:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1005 = load ptr, ptr %374, align 8
-  %1006 = getelementptr inbounds i8, ptr %1005, i64 -8
-  %1007 = load ptr, ptr %1006, align 8
-  store ptr %1007, ptr %8, align 8
-  br label %2458
+1030:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1031 = load ptr, ptr %374, align 8
+  %1032 = getelementptr inbounds i8, ptr %1031, i64 -8
+  %1033 = load ptr, ptr %1032, align 8
+  store ptr %1033, ptr %8, align 8
+  br label %2538
 
-1008:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1009 = load ptr, ptr %374, align 8
-  %1010 = getelementptr inbounds i8, ptr %1009, i64 -8
-  %1011 = load ptr, ptr %1010, align 8
-  store ptr %1011, ptr %53, align 8
-  %1012 = getelementptr inbounds i8, ptr %1009, i64 -16
-  %1013 = load ptr, ptr %1012, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef %1013)
-          to label %1014 unwind label %1028
+1034:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1035 = load ptr, ptr %374, align 8
+  %1036 = getelementptr inbounds i8, ptr %1035, i64 -8
+  %1037 = load ptr, ptr %1036, align 8
+  store ptr %1037, ptr %53, align 8
+  %1038 = getelementptr inbounds i8, ptr %1035, i64 -16
+  %1039 = load ptr, ptr %1038, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef %1039)
+          to label %1040 unwind label %1056
 
-1014:                                             ; preds = %1008
-  %1015 = load ptr, ptr %374, align 8
-  %1016 = load ptr, ptr %1015, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef %1016)
-          to label %1017 unwind label %1030
+1040:                                             ; preds = %1034
+  %1041 = load ptr, ptr %374, align 8
+  %1042 = load ptr, ptr %1041, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef %1042)
+          to label %1043 unwind label %1058
 
-1017:                                             ; preds = %1014
-  %1018 = load ptr, ptr %374, align 8
-  %1019 = getelementptr inbounds i8, ptr %1018, i64 -8
-  %1020 = load ptr, ptr %1019, align 8
-  invoke void @_Z24_gmx_sel_init_comparisonRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_PKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %1020, ptr noundef %4)
-          to label %1021 unwind label %1032
+1043:                                             ; preds = %1040
+  %1044 = load ptr, ptr %374, align 8
+  %1045 = getelementptr inbounds i8, ptr %1044, i64 -8
+  %1046 = load ptr, ptr %1045, align 8
+  invoke void @_Z24_gmx_sel_init_comparisonRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_PKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %54, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %1046, ptr noundef %4)
+          to label %1047 unwind label %1060
 
-1021:                                             ; preds = %1017
-  %1022 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1023 unwind label %1034
+1047:                                             ; preds = %1043
+  %1048 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1049 unwind label %1062
 
-1023:                                             ; preds = %1021
-  %1024 = getelementptr inbounds i8, ptr %54, i64 8
-  %1025 = load <2 x ptr>, ptr %54, align 16
-  store ptr null, ptr %1024, align 8
-  store <2 x ptr> %1025, ptr %1022, align 8
-  store ptr null, ptr %54, align 16
-  store ptr %1022, ptr %8, align 8
+1049:                                             ; preds = %1047
+  %1050 = load ptr, ptr %54, align 8
+  store ptr %1050, ptr %1048, align 8
+  %1051 = getelementptr inbounds i8, ptr %1048, i64 8
+  %1052 = getelementptr inbounds i8, ptr %54, i64 8
+  %1053 = load ptr, ptr %1052, align 8
+  store ptr null, ptr %1052, align 8
+  store ptr %1053, ptr %1051, align 8
+  store ptr null, ptr %54, align 8
+  store ptr %1048, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
-  %1026 = load ptr, ptr %8, align 8
-  %1027 = load ptr, ptr %1026, align 8
-  %.not1461 = icmp eq ptr %1027, null
-  br i1 %.not1461, label %1038, label %.thread
+  %1054 = load ptr, ptr %8, align 8
+  %1055 = load ptr, ptr %1054, align 8
+  %.not1461 = icmp eq ptr %1055, null
+  br i1 %.not1461, label %1066, label %.thread
 
-.thread:                                          ; preds = %1023
+.thread:                                          ; preds = %1049
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
-  br label %2458
+  br label %2538
 
-1028:                                             ; preds = %1008
-  %1029 = landingpad { ptr, i32 }
+1056:                                             ; preds = %1034
+  %1057 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1039
+  br label %1067
 
-1030:                                             ; preds = %1014
-  %1031 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1037
-
-1032:                                             ; preds = %1017
-  %1033 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1036
-
-1034:                                             ; preds = %1021
-  %1035 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #21
-  br label %1036
-
-1036:                                             ; preds = %1034, %1032
-  %.pn1145 = phi { ptr, i32 } [ %1035, %1034 ], [ %1033, %1032 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
-  br label %1037
-
-1037:                                             ; preds = %1036, %1030
-  %.pn1145.pn = phi { ptr, i32 } [ %.pn1145, %1036 ], [ %1031, %1030 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
-  br label %1039
-
-1038:                                             ; preds = %1023
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1026) #21
-  call void @_ZdlPv(ptr noundef nonnull %1026) #25
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
-  br label %2555
-
-1039:                                             ; preds = %1037, %1028
-  %.pn1145.pn.pn = phi { ptr, i32 } [ %.pn1145.pn, %1037 ], [ %1029, %1028 ]
-  %.33 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 0
-  %.33805 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 1
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
-  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1041 = icmp eq i32 %.33805, %1040
-  br i1 %1041, label %1042, label %2719
-
-1042:                                             ; preds = %1039
-  %1043 = call ptr @__cxa_begin_catch(ptr %.33) #21
-  %1044 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1043)
-          to label %1045 unwind label %1046
-
-1045:                                             ; preds = %1042
-  call void @__cxa_end_catch()
-  br i1 %1044, label %2555, label %.loopexit
-
-1046:                                             ; preds = %1042
-  %1047 = landingpad { ptr, i32 }
-          cleanup
-  %1048 = extractvalue { ptr, i32 } %1047, 0
-  %1049 = extractvalue { ptr, i32 } %1047, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1050:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1051 = load ptr, ptr %374, align 8
-  %1052 = load ptr, ptr %1051, align 8
-  store ptr %1052, ptr %57, align 8
-  invoke void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %58, ptr noundef %1052, ptr noundef %4)
-          to label %1053 unwind label %1058
-
-1053:                                             ; preds = %1050
-  %1054 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1055 unwind label %1060
-
-1055:                                             ; preds = %1053
-  %1056 = getelementptr inbounds i8, ptr %58, i64 8
-  %1057 = load <2 x ptr>, ptr %58, align 16
-  store ptr null, ptr %1056, align 8
-  store <2 x ptr> %1057, ptr %1054, align 8
-  store ptr null, ptr %58, align 16
-  store ptr %1054, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #21
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #21
-  br label %2458
-
-1058:                                             ; preds = %1050
+1058:                                             ; preds = %1040
   %1059 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1062
+  br label %1065
 
-1060:                                             ; preds = %1053
+1060:                                             ; preds = %1043
   %1061 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #21
-  br label %1062
+  br label %1064
 
-1062:                                             ; preds = %1060, %1058
-  %.pn1143 = phi { ptr, i32 } [ %1061, %1060 ], [ %1059, %1058 ]
+1062:                                             ; preds = %1047
+  %1063 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #21
+  br label %1064
+
+1064:                                             ; preds = %1062, %1060
+  %.pn1145 = phi { ptr, i32 } [ %1063, %1062 ], [ %1061, %1060 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %56) #21
+  br label %1065
+
+1065:                                             ; preds = %1064, %1058
+  %.pn1145.pn = phi { ptr, i32 } [ %.pn1145, %1064 ], [ %1059, %1058 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
+  br label %1067
+
+1066:                                             ; preds = %1049
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1054) #21
+  call void @_ZdlPv(ptr noundef nonnull %1054) #25
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
+  br label %2635
+
+1067:                                             ; preds = %1065, %1056
+  %.pn1145.pn.pn = phi { ptr, i32 } [ %.pn1145.pn, %1065 ], [ %1057, %1056 ]
+  %.33 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 0
+  %.33805 = extractvalue { ptr, i32 } %.pn1145.pn.pn, 1
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #21
+  %1068 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1069 = icmp eq i32 %.33805, %1068
+  br i1 %1069, label %1070, label %2799
+
+1070:                                             ; preds = %1067
+  %1071 = call ptr @__cxa_begin_catch(ptr %.33) #21
+  %1072 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1071)
+          to label %1073 unwind label %1074
+
+1073:                                             ; preds = %1070
+  call void @__cxa_end_catch()
+  br i1 %1072, label %2635, label %.loopexit
+
+1074:                                             ; preds = %1070
+  %1075 = landingpad { ptr, i32 }
+          cleanup
+  %1076 = extractvalue { ptr, i32 } %1075, 0
+  %1077 = extractvalue { ptr, i32 } %1075, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1078:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1079 = load ptr, ptr %374, align 8
+  %1080 = load ptr, ptr %1079, align 8
+  store ptr %1080, ptr %57, align 8
+  invoke void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %58, ptr noundef %1080, ptr noundef %4)
+          to label %1081 unwind label %1088
+
+1081:                                             ; preds = %1078
+  %1082 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1083 unwind label %1090
+
+1083:                                             ; preds = %1081
+  %1084 = load ptr, ptr %58, align 8
+  store ptr %1084, ptr %1082, align 8
+  %1085 = getelementptr inbounds i8, ptr %1082, i64 8
+  %1086 = getelementptr inbounds i8, ptr %58, i64 8
+  %1087 = load ptr, ptr %1086, align 8
+  store ptr null, ptr %1086, align 8
+  store ptr %1087, ptr %1085, align 8
+  store ptr null, ptr %58, align 8
+  store ptr %1082, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #21
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #21
+  br label %2538
+
+1088:                                             ; preds = %1078
+  %1089 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1092
+
+1090:                                             ; preds = %1081
+  %1091 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #21
+  br label %1092
+
+1092:                                             ; preds = %1090, %1088
+  %.pn1143 = phi { ptr, i32 } [ %1091, %1090 ], [ %1089, %1088 ]
   %.36 = extractvalue { ptr, i32 } %.pn1143, 0
   %.36808 = extractvalue { ptr, i32 } %.pn1143, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #21
-  %1063 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1064 = icmp eq i32 %.36808, %1063
-  br i1 %1064, label %1065, label %2719
+  %1093 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1094 = icmp eq i32 %.36808, %1093
+  br i1 %1094, label %1095, label %2799
 
-1065:                                             ; preds = %1062
-  %1066 = call ptr @__cxa_begin_catch(ptr %.36) #21
-  %1067 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1066)
-          to label %1068 unwind label %1069
+1095:                                             ; preds = %1092
+  %1096 = call ptr @__cxa_begin_catch(ptr %.36) #21
+  %1097 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1096)
+          to label %1098 unwind label %1099
 
-1068:                                             ; preds = %1065
+1098:                                             ; preds = %1095
   call void @__cxa_end_catch()
-  br i1 %1067, label %2555, label %.loopexit
+  br i1 %1097, label %2635, label %.loopexit
 
-1069:                                             ; preds = %1065
-  %1070 = landingpad { ptr, i32 }
+1099:                                             ; preds = %1095
+  %1100 = landingpad { ptr, i32 }
           cleanup
-  %1071 = extractvalue { ptr, i32 } %1070, 0
-  %1072 = extractvalue { ptr, i32 } %1070, 1
+  %1101 = extractvalue { ptr, i32 } %1100, 0
+  %1102 = extractvalue { ptr, i32 } %1100, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1073:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1074 = load ptr, ptr %374, align 8
-  %1075 = load i32, ptr %1074, align 8
-  invoke void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %59, i32 noundef %1075, ptr noundef %4)
-          to label %1076 unwind label %1081
-
-1076:                                             ; preds = %1073
-  %1077 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1078 unwind label %1083
-
-1078:                                             ; preds = %1076
-  %1079 = getelementptr inbounds i8, ptr %59, i64 8
-  %1080 = load <2 x ptr>, ptr %59, align 16
-  store ptr null, ptr %1079, align 8
-  store <2 x ptr> %1080, ptr %1077, align 8
-  store ptr null, ptr %59, align 16
-  store ptr %1077, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %59) #21
-  br label %2458
-
-1081:                                             ; preds = %1073
-  %1082 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1085
-
-1083:                                             ; preds = %1076
-  %1084 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %59) #21
-  br label %1085
-
-1085:                                             ; preds = %1083, %1081
-  %.pn1141 = phi { ptr, i32 } [ %1084, %1083 ], [ %1082, %1081 ]
-  %.37 = extractvalue { ptr, i32 } %.pn1141, 0
-  %.37809 = extractvalue { ptr, i32 } %.pn1141, 1
-  %1086 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1087 = icmp eq i32 %.37809, %1086
-  br i1 %1087, label %1088, label %2719
-
-1088:                                             ; preds = %1085
-  %1089 = call ptr @__cxa_begin_catch(ptr %.37) #21
-  %1090 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1089)
-          to label %1091 unwind label %1092
-
-1091:                                             ; preds = %1088
-  call void @__cxa_end_catch()
-  br i1 %1090, label %2555, label %.loopexit
-
-1092:                                             ; preds = %1088
-  %1093 = landingpad { ptr, i32 }
-          cleanup
-  %1094 = extractvalue { ptr, i32 } %1093, 0
-  %1095 = extractvalue { ptr, i32 } %1093, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1096:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  store ptr null, ptr %8, align 8
-  br label %2458
-
-1097:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1098 = load ptr, ptr %374, align 8
-  %1099 = load ptr, ptr %1098, align 8
-  store ptr %1099, ptr %8, align 8
-  br label %2458
-
-1100:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  store i32 3, ptr %8, align 8
-  br label %2458
-
-1101:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  store i32 2, ptr %8, align 8
-  br label %2458
-
-1102:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  store i32 1, ptr %8, align 8
-  br label %2458
+          to label %2799 unwind label %2802
 
 1103:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
   %1104 = load ptr, ptr %374, align 8
-  %1105 = getelementptr inbounds i8, ptr %1104, i64 -8
-  %1106 = load ptr, ptr %1105, align 8
-  store ptr %1106, ptr %60, align 8
-  %1107 = load ptr, ptr %1104, align 8
+  %1105 = load i32, ptr %1104, align 8
+  invoke void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %59, i32 noundef %1105, ptr noundef %4)
+          to label %1106 unwind label %1113
+
+1106:                                             ; preds = %1103
+  %1107 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1108 unwind label %1115
+
+1108:                                             ; preds = %1106
+  %1109 = load ptr, ptr %59, align 8
+  store ptr %1109, ptr %1107, align 8
+  %1110 = getelementptr inbounds i8, ptr %1107, i64 8
+  %1111 = getelementptr inbounds i8, ptr %59, i64 8
+  %1112 = load ptr, ptr %1111, align 8
+  store ptr null, ptr %1111, align 8
+  store ptr %1112, ptr %1110, align 8
+  store ptr null, ptr %59, align 8
+  store ptr %1107, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %59) #21
+  br label %2538
+
+1113:                                             ; preds = %1103
+  %1114 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1117
+
+1115:                                             ; preds = %1106
+  %1116 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %59) #21
+  br label %1117
+
+1117:                                             ; preds = %1115, %1113
+  %.pn1141 = phi { ptr, i32 } [ %1116, %1115 ], [ %1114, %1113 ]
+  %.37 = extractvalue { ptr, i32 } %.pn1141, 0
+  %.37809 = extractvalue { ptr, i32 } %.pn1141, 1
+  %1118 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1119 = icmp eq i32 %.37809, %1118
+  br i1 %1119, label %1120, label %2799
+
+1120:                                             ; preds = %1117
+  %1121 = call ptr @__cxa_begin_catch(ptr %.37) #21
+  %1122 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1121)
+          to label %1123 unwind label %1124
+
+1123:                                             ; preds = %1120
+  call void @__cxa_end_catch()
+  br i1 %1122, label %2635, label %.loopexit
+
+1124:                                             ; preds = %1120
+  %1125 = landingpad { ptr, i32 }
+          cleanup
+  %1126 = extractvalue { ptr, i32 } %1125, 0
+  %1127 = extractvalue { ptr, i32 } %1125, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1128:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  store ptr null, ptr %8, align 8
+  br label %2538
+
+1129:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1130 = load ptr, ptr %374, align 8
+  %1131 = load ptr, ptr %1130, align 8
+  store ptr %1131, ptr %8, align 8
+  br label %2538
+
+1132:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  store i32 3, ptr %8, align 8
+  br label %2538
+
+1133:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  store i32 2, ptr %8, align 8
+  br label %2538
+
+1134:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  store i32 1, ptr %8, align 8
+  br label %2538
+
+1135:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1136 = load ptr, ptr %374, align 8
+  %1137 = getelementptr inbounds i8, ptr %1136, i64 -8
+  %1138 = load ptr, ptr %1137, align 8
+  store ptr %1138, ptr %60, align 8
+  %1139 = load ptr, ptr %1136, align 8
   store ptr null, ptr %62, align 8
-  %1108 = load ptr, ptr %1105, align 8
-  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %61, ptr noundef %1107, ptr noundef nonnull %62, ptr noundef %1108, ptr noundef %4)
-          to label %1109 unwind label %1116
+  %1140 = load ptr, ptr %1137, align 8
+  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %61, ptr noundef %1139, ptr noundef nonnull %62, ptr noundef %1140, ptr noundef %4)
+          to label %1141 unwind label %1150
 
-1109:                                             ; preds = %1103
-  %1110 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1111 unwind label %1118
+1141:                                             ; preds = %1135
+  %1142 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1143 unwind label %1152
 
-1111:                                             ; preds = %1109
-  %1112 = getelementptr inbounds i8, ptr %61, i64 8
-  %1113 = load <2 x ptr>, ptr %61, align 16
-  store ptr null, ptr %1112, align 8
-  store <2 x ptr> %1113, ptr %1110, align 8
-  store ptr null, ptr %61, align 16
-  store ptr %1110, ptr %8, align 8
+1143:                                             ; preds = %1141
+  %1144 = load ptr, ptr %61, align 8
+  store ptr %1144, ptr %1142, align 8
+  %1145 = getelementptr inbounds i8, ptr %1142, i64 8
+  %1146 = getelementptr inbounds i8, ptr %61, i64 8
+  %1147 = load ptr, ptr %1146, align 8
+  store ptr null, ptr %1146, align 8
+  store ptr %1147, ptr %1145, align 8
+  store ptr null, ptr %61, align 8
+  store ptr %1142, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %61) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
-  %1114 = load ptr, ptr %8, align 8
-  %1115 = load ptr, ptr %1114, align 8
-  %.not1460 = icmp eq ptr %1115, null
-  br i1 %.not1460, label %1127, label %.thread1401
+  %1148 = load ptr, ptr %8, align 8
+  %1149 = load ptr, ptr %1148, align 8
+  %.not1460 = icmp eq ptr %1149, null
+  br i1 %.not1460, label %1161, label %.thread1401
 
-.thread1401:                                      ; preds = %1111
+.thread1401:                                      ; preds = %1143
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
-  br label %2458
+  br label %2538
 
-1116:                                             ; preds = %1103
-  %1117 = landingpad { ptr, i32 }
+1150:                                             ; preds = %1135
+  %1151 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1120
+  br label %1154
 
-1118:                                             ; preds = %1109
-  %1119 = landingpad { ptr, i32 }
+1152:                                             ; preds = %1141
+  %1153 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %61) #21
-  br label %1120
+  br label %1154
 
-1120:                                             ; preds = %1118, %1116
-  %.pn1139 = phi { ptr, i32 } [ %1119, %1118 ], [ %1117, %1116 ]
+1154:                                             ; preds = %1152, %1150
+  %.pn1139 = phi { ptr, i32 } [ %1153, %1152 ], [ %1151, %1150 ]
   %.38 = extractvalue { ptr, i32 } %.pn1139, 0
   %.38810 = extractvalue { ptr, i32 } %.pn1139, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
-  %1121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1122 = icmp eq i32 %.38810, %1121
-  br i1 %1122, label %1123, label %2719
+  %1155 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1156 = icmp eq i32 %.38810, %1155
+  br i1 %1156, label %1157, label %2799
 
-1123:                                             ; preds = %1120
-  %1124 = call ptr @__cxa_begin_catch(ptr %.38) #21
-  %1125 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1124)
-          to label %1126 unwind label %1128
+1157:                                             ; preds = %1154
+  %1158 = call ptr @__cxa_begin_catch(ptr %.38) #21
+  %1159 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1158)
+          to label %1160 unwind label %1162
 
-1126:                                             ; preds = %1123
+1160:                                             ; preds = %1157
   call void @__cxa_end_catch()
-  br i1 %1125, label %2555, label %.loopexit
+  br i1 %1159, label %2635, label %.loopexit
 
-1127:                                             ; preds = %1111
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1114) #21
-  call void @_ZdlPv(ptr noundef nonnull %1114) #25
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
-  br label %2555
-
-1128:                                             ; preds = %1123
-  %1129 = landingpad { ptr, i32 }
-          cleanup
-  %1130 = extractvalue { ptr, i32 } %1129, 0
-  %1131 = extractvalue { ptr, i32 } %1129, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1132:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1133 = load ptr, ptr %374, align 8
-  %1134 = getelementptr inbounds i8, ptr %1133, i64 -16
-  %1135 = load ptr, ptr %1134, align 8
-  store ptr %1135, ptr %63, align 8
-  %1136 = getelementptr inbounds i8, ptr %1133, i64 -8
-  %1137 = load ptr, ptr %1136, align 8
-  %1138 = load ptr, ptr %1133, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef %1138)
-          to label %1139 unwind label %1150
-
-1139:                                             ; preds = %1132
-  %1140 = load ptr, ptr %374, align 8
-  %1141 = getelementptr inbounds i8, ptr %1140, i64 -16
-  %1142 = load ptr, ptr %1141, align 8
-  invoke void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %64, ptr noundef %1137, i32 noundef 0, ptr noundef nonnull %65, ptr noundef %1142, ptr noundef %4)
-          to label %1143 unwind label %1152
-
-1143:                                             ; preds = %1139
-  %1144 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1145 unwind label %1154
-
-1145:                                             ; preds = %1143
-  %1146 = getelementptr inbounds i8, ptr %64, i64 8
-  %1147 = load <2 x ptr>, ptr %64, align 16
-  store ptr null, ptr %1146, align 8
-  store <2 x ptr> %1147, ptr %1144, align 8
-  store ptr null, ptr %64, align 16
-  store ptr %1144, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #21
-  %1148 = load ptr, ptr %8, align 8
-  %1149 = load ptr, ptr %1148, align 8
-  %.not1459 = icmp eq ptr %1149, null
-  br i1 %.not1459, label %1157, label %.thread1404
-
-.thread1404:                                      ; preds = %1145
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
-  br label %2458
-
-1150:                                             ; preds = %1132
-  %1151 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1158
-
-1152:                                             ; preds = %1139
-  %1153 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1156
-
-1154:                                             ; preds = %1143
-  %1155 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64) #21
-  br label %1156
-
-1156:                                             ; preds = %1154, %1152
-  %.pn1136 = phi { ptr, i32 } [ %1155, %1154 ], [ %1153, %1152 ]
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #21
-  br label %1158
-
-1157:                                             ; preds = %1145
+1161:                                             ; preds = %1143
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1148) #21
   call void @_ZdlPv(ptr noundef nonnull %1148) #25
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
-  br label %2555
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
+  br label %2635
 
-1158:                                             ; preds = %1156, %1150
-  %.pn1136.pn = phi { ptr, i32 } [ %.pn1136, %1156 ], [ %1151, %1150 ]
+1162:                                             ; preds = %1157
+  %1163 = landingpad { ptr, i32 }
+          cleanup
+  %1164 = extractvalue { ptr, i32 } %1163, 0
+  %1165 = extractvalue { ptr, i32 } %1163, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1166:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1167 = load ptr, ptr %374, align 8
+  %1168 = getelementptr inbounds i8, ptr %1167, i64 -16
+  %1169 = load ptr, ptr %1168, align 8
+  store ptr %1169, ptr %63, align 8
+  %1170 = getelementptr inbounds i8, ptr %1167, i64 -8
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = load ptr, ptr %1167, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef %1172)
+          to label %1173 unwind label %1186
+
+1173:                                             ; preds = %1166
+  %1174 = load ptr, ptr %374, align 8
+  %1175 = getelementptr inbounds i8, ptr %1174, i64 -16
+  %1176 = load ptr, ptr %1175, align 8
+  invoke void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %64, ptr noundef %1171, i32 noundef 0, ptr noundef nonnull %65, ptr noundef %1176, ptr noundef %4)
+          to label %1177 unwind label %1188
+
+1177:                                             ; preds = %1173
+  %1178 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1179 unwind label %1190
+
+1179:                                             ; preds = %1177
+  %1180 = load ptr, ptr %64, align 8
+  store ptr %1180, ptr %1178, align 8
+  %1181 = getelementptr inbounds i8, ptr %1178, i64 8
+  %1182 = getelementptr inbounds i8, ptr %64, i64 8
+  %1183 = load ptr, ptr %1182, align 8
+  store ptr null, ptr %1182, align 8
+  store ptr %1183, ptr %1181, align 8
+  store ptr null, ptr %64, align 8
+  store ptr %1178, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #21
+  %1184 = load ptr, ptr %8, align 8
+  %1185 = load ptr, ptr %1184, align 8
+  %.not1459 = icmp eq ptr %1185, null
+  br i1 %.not1459, label %1193, label %.thread1404
+
+.thread1404:                                      ; preds = %1179
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
+  br label %2538
+
+1186:                                             ; preds = %1166
+  %1187 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1194
+
+1188:                                             ; preds = %1173
+  %1189 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1192
+
+1190:                                             ; preds = %1177
+  %1191 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64) #21
+  br label %1192
+
+1192:                                             ; preds = %1190, %1188
+  %.pn1136 = phi { ptr, i32 } [ %1191, %1190 ], [ %1189, %1188 ]
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #21
+  br label %1194
+
+1193:                                             ; preds = %1179
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1184) #21
+  call void @_ZdlPv(ptr noundef nonnull %1184) #25
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
+  br label %2635
+
+1194:                                             ; preds = %1192, %1186
+  %.pn1136.pn = phi { ptr, i32 } [ %.pn1136, %1192 ], [ %1187, %1186 ]
   %.39 = extractvalue { ptr, i32 } %.pn1136.pn, 0
   %.39811 = extractvalue { ptr, i32 } %.pn1136.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
-  %1159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1160 = icmp eq i32 %.39811, %1159
-  br i1 %1160, label %1161, label %2719
+  %1195 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1196 = icmp eq i32 %.39811, %1195
+  br i1 %1196, label %1197, label %2799
 
-1161:                                             ; preds = %1158
-  %1162 = call ptr @__cxa_begin_catch(ptr %.39) #21
-  %1163 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1162)
-          to label %1164 unwind label %1165
+1197:                                             ; preds = %1194
+  %1198 = call ptr @__cxa_begin_catch(ptr %.39) #21
+  %1199 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1198)
+          to label %1200 unwind label %1201
 
-1164:                                             ; preds = %1161
+1200:                                             ; preds = %1197
   call void @__cxa_end_catch()
-  br i1 %1163, label %2555, label %.loopexit
+  br i1 %1199, label %2635, label %.loopexit
 
-1165:                                             ; preds = %1161
-  %1166 = landingpad { ptr, i32 }
+1201:                                             ; preds = %1197
+  %1202 = landingpad { ptr, i32 }
           cleanup
-  %1167 = extractvalue { ptr, i32 } %1166, 0
-  %1168 = extractvalue { ptr, i32 } %1166, 1
+  %1203 = extractvalue { ptr, i32 } %1202, 0
+  %1204 = extractvalue { ptr, i32 } %1202, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1169:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1170 = load ptr, ptr %374, align 8
-  %1171 = getelementptr inbounds i8, ptr %1170, i64 -24
-  %1172 = load ptr, ptr %1171, align 8
-  store ptr %1172, ptr %66, align 8
-  %1173 = getelementptr inbounds i8, ptr %1170, i64 -16
-  %1174 = load ptr, ptr %1173, align 8
-  %1175 = getelementptr inbounds i8, ptr %1170, i64 -8
-  %1176 = load i32, ptr %1175, align 8
-  %1177 = load ptr, ptr %1170, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef %1177)
-          to label %1178 unwind label %1189
+1205:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1206 = load ptr, ptr %374, align 8
+  %1207 = getelementptr inbounds i8, ptr %1206, i64 -24
+  %1208 = load ptr, ptr %1207, align 8
+  store ptr %1208, ptr %66, align 8
+  %1209 = getelementptr inbounds i8, ptr %1206, i64 -16
+  %1210 = load ptr, ptr %1209, align 8
+  %1211 = getelementptr inbounds i8, ptr %1206, i64 -8
+  %1212 = load i32, ptr %1211, align 8
+  %1213 = load ptr, ptr %1206, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef %1213)
+          to label %1214 unwind label %1227
 
-1178:                                             ; preds = %1169
-  %1179 = load ptr, ptr %374, align 8
-  %1180 = getelementptr inbounds i8, ptr %1179, i64 -24
-  %1181 = load ptr, ptr %1180, align 8
-  invoke void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %67, ptr noundef %1174, i32 noundef %1176, ptr noundef nonnull %68, ptr noundef %1181, ptr noundef %4)
-          to label %1182 unwind label %1191
+1214:                                             ; preds = %1205
+  %1215 = load ptr, ptr %374, align 8
+  %1216 = getelementptr inbounds i8, ptr %1215, i64 -24
+  %1217 = load ptr, ptr %1216, align 8
+  invoke void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %67, ptr noundef %1210, i32 noundef %1212, ptr noundef nonnull %68, ptr noundef %1217, ptr noundef %4)
+          to label %1218 unwind label %1229
 
-1182:                                             ; preds = %1178
-  %1183 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1184 unwind label %1193
+1218:                                             ; preds = %1214
+  %1219 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1220 unwind label %1231
 
-1184:                                             ; preds = %1182
-  %1185 = getelementptr inbounds i8, ptr %67, i64 8
-  %1186 = load <2 x ptr>, ptr %67, align 16
-  store ptr null, ptr %1185, align 8
-  store <2 x ptr> %1186, ptr %1183, align 8
-  store ptr null, ptr %67, align 16
-  store ptr %1183, ptr %8, align 8
+1220:                                             ; preds = %1218
+  %1221 = load ptr, ptr %67, align 8
+  store ptr %1221, ptr %1219, align 8
+  %1222 = getelementptr inbounds i8, ptr %1219, i64 8
+  %1223 = getelementptr inbounds i8, ptr %67, i64 8
+  %1224 = load ptr, ptr %1223, align 8
+  store ptr null, ptr %1223, align 8
+  store ptr %1224, ptr %1222, align 8
+  store ptr null, ptr %67, align 8
+  store ptr %1219, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #21
-  %1187 = load ptr, ptr %8, align 8
-  %1188 = load ptr, ptr %1187, align 8
-  %.not1458 = icmp eq ptr %1188, null
-  br i1 %.not1458, label %1196, label %.thread1407
+  %1225 = load ptr, ptr %8, align 8
+  %1226 = load ptr, ptr %1225, align 8
+  %.not1458 = icmp eq ptr %1226, null
+  br i1 %.not1458, label %1234, label %.thread1407
 
-.thread1407:                                      ; preds = %1184
+.thread1407:                                      ; preds = %1220
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #21
-  br label %2458
+  br label %2538
 
-1189:                                             ; preds = %1169
-  %1190 = landingpad { ptr, i32 }
+1227:                                             ; preds = %1205
+  %1228 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1197
+  br label %1235
 
-1191:                                             ; preds = %1178
-  %1192 = landingpad { ptr, i32 }
+1229:                                             ; preds = %1214
+  %1230 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1195
+  br label %1233
 
-1193:                                             ; preds = %1182
-  %1194 = landingpad { ptr, i32 }
+1231:                                             ; preds = %1218
+  %1232 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %67) #21
-  br label %1195
+  br label %1233
 
-1195:                                             ; preds = %1193, %1191
-  %.pn1133 = phi { ptr, i32 } [ %1194, %1193 ], [ %1192, %1191 ]
+1233:                                             ; preds = %1231, %1229
+  %.pn1133 = phi { ptr, i32 } [ %1232, %1231 ], [ %1230, %1229 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #21
-  br label %1197
+  br label %1235
 
-1196:                                             ; preds = %1184
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1187) #21
-  call void @_ZdlPv(ptr noundef nonnull %1187) #25
+1234:                                             ; preds = %1220
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1225) #21
+  call void @_ZdlPv(ptr noundef nonnull %1225) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #21
-  br label %2555
+  br label %2635
 
-1197:                                             ; preds = %1195, %1189
-  %.pn1133.pn = phi { ptr, i32 } [ %.pn1133, %1195 ], [ %1190, %1189 ]
+1235:                                             ; preds = %1233, %1227
+  %.pn1133.pn = phi { ptr, i32 } [ %.pn1133, %1233 ], [ %1228, %1227 ]
   %.41 = extractvalue { ptr, i32 } %.pn1133.pn, 0
   %.41813 = extractvalue { ptr, i32 } %.pn1133.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #21
-  %1198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1199 = icmp eq i32 %.41813, %1198
-  br i1 %1199, label %1200, label %2719
+  %1236 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1237 = icmp eq i32 %.41813, %1236
+  br i1 %1237, label %1238, label %2799
 
-1200:                                             ; preds = %1197
-  %1201 = call ptr @__cxa_begin_catch(ptr %.41) #21
-  %1202 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1201)
-          to label %1203 unwind label %1204
+1238:                                             ; preds = %1235
+  %1239 = call ptr @__cxa_begin_catch(ptr %.41) #21
+  %1240 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1239)
+          to label %1241 unwind label %1242
 
-1203:                                             ; preds = %1200
+1241:                                             ; preds = %1238
   call void @__cxa_end_catch()
-  br i1 %1202, label %2555, label %.loopexit
+  br i1 %1240, label %2635, label %.loopexit
 
-1204:                                             ; preds = %1200
-  %1205 = landingpad { ptr, i32 }
+1242:                                             ; preds = %1238
+  %1243 = landingpad { ptr, i32 }
           cleanup
-  %1206 = extractvalue { ptr, i32 } %1205, 0
-  %1207 = extractvalue { ptr, i32 } %1205, 1
+  %1244 = extractvalue { ptr, i32 } %1243, 0
+  %1245 = extractvalue { ptr, i32 } %1243, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1208:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1209 = load ptr, ptr %374, align 8
-  %1210 = getelementptr inbounds i8, ptr %1209, i64 -16
-  %1211 = load ptr, ptr %1210, align 8
-  store ptr %1211, ptr %69, align 8
-  %1212 = getelementptr inbounds i8, ptr %1209, i64 -8
-  %1213 = load ptr, ptr %1212, align 8
-  %1214 = load ptr, ptr %1209, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef %1214)
-          to label %1215 unwind label %1226
+1246:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1247 = load ptr, ptr %374, align 8
+  %1248 = getelementptr inbounds i8, ptr %1247, i64 -16
+  %1249 = load ptr, ptr %1248, align 8
+  store ptr %1249, ptr %69, align 8
+  %1250 = getelementptr inbounds i8, ptr %1247, i64 -8
+  %1251 = load ptr, ptr %1250, align 8
+  %1252 = load ptr, ptr %1247, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef %1252)
+          to label %1253 unwind label %1266
 
-1215:                                             ; preds = %1208
-  %1216 = load ptr, ptr %374, align 8
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 -16
-  %1218 = load ptr, ptr %1217, align 8
-  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %70, ptr noundef %1213, ptr noundef nonnull %71, ptr noundef %1218, ptr noundef %4)
-          to label %1219 unwind label %1228
+1253:                                             ; preds = %1246
+  %1254 = load ptr, ptr %374, align 8
+  %1255 = getelementptr inbounds i8, ptr %1254, i64 -16
+  %1256 = load ptr, ptr %1255, align 8
+  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %70, ptr noundef %1251, ptr noundef nonnull %71, ptr noundef %1256, ptr noundef %4)
+          to label %1257 unwind label %1268
 
-1219:                                             ; preds = %1215
-  %1220 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1221 unwind label %1230
+1257:                                             ; preds = %1253
+  %1258 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1259 unwind label %1270
 
-1221:                                             ; preds = %1219
-  %1222 = getelementptr inbounds i8, ptr %70, i64 8
-  %1223 = load <2 x ptr>, ptr %70, align 16
-  store ptr null, ptr %1222, align 8
-  store <2 x ptr> %1223, ptr %1220, align 8
-  store ptr null, ptr %70, align 16
-  store ptr %1220, ptr %8, align 8
+1259:                                             ; preds = %1257
+  %1260 = load ptr, ptr %70, align 8
+  store ptr %1260, ptr %1258, align 8
+  %1261 = getelementptr inbounds i8, ptr %1258, i64 8
+  %1262 = getelementptr inbounds i8, ptr %70, i64 8
+  %1263 = load ptr, ptr %1262, align 8
+  store ptr null, ptr %1262, align 8
+  store ptr %1263, ptr %1261, align 8
+  store ptr null, ptr %70, align 8
+  store ptr %1258, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %70) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #21
-  %1224 = load ptr, ptr %8, align 8
-  %1225 = load ptr, ptr %1224, align 8
-  %.not1457 = icmp eq ptr %1225, null
-  br i1 %.not1457, label %1233, label %.thread1410
+  %1264 = load ptr, ptr %8, align 8
+  %1265 = load ptr, ptr %1264, align 8
+  %.not1457 = icmp eq ptr %1265, null
+  br i1 %.not1457, label %1273, label %.thread1410
 
-.thread1410:                                      ; preds = %1221
+.thread1410:                                      ; preds = %1259
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #21
-  br label %2458
+  br label %2538
 
-1226:                                             ; preds = %1208
-  %1227 = landingpad { ptr, i32 }
+1266:                                             ; preds = %1246
+  %1267 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1234
+  br label %1274
 
-1228:                                             ; preds = %1215
-  %1229 = landingpad { ptr, i32 }
+1268:                                             ; preds = %1253
+  %1269 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1232
+  br label %1272
 
-1230:                                             ; preds = %1219
-  %1231 = landingpad { ptr, i32 }
+1270:                                             ; preds = %1257
+  %1271 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %70) #21
-  br label %1232
+  br label %1272
 
-1232:                                             ; preds = %1230, %1228
-  %.pn1130 = phi { ptr, i32 } [ %1231, %1230 ], [ %1229, %1228 ]
+1272:                                             ; preds = %1270, %1268
+  %.pn1130 = phi { ptr, i32 } [ %1271, %1270 ], [ %1269, %1268 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #21
-  br label %1234
+  br label %1274
 
-1233:                                             ; preds = %1221
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1224) #21
-  call void @_ZdlPv(ptr noundef nonnull %1224) #25
+1273:                                             ; preds = %1259
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1264) #21
+  call void @_ZdlPv(ptr noundef nonnull %1264) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #21
-  br label %2555
+  br label %2635
 
-1234:                                             ; preds = %1232, %1226
-  %.pn1130.pn = phi { ptr, i32 } [ %.pn1130, %1232 ], [ %1227, %1226 ]
+1274:                                             ; preds = %1272, %1266
+  %.pn1130.pn = phi { ptr, i32 } [ %.pn1130, %1272 ], [ %1267, %1266 ]
   %.43 = extractvalue { ptr, i32 } %.pn1130.pn, 0
   %.43815 = extractvalue { ptr, i32 } %.pn1130.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #21
-  %1235 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1236 = icmp eq i32 %.43815, %1235
-  br i1 %1236, label %1237, label %2719
+  %1275 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1276 = icmp eq i32 %.43815, %1275
+  br i1 %1276, label %1277, label %2799
 
-1237:                                             ; preds = %1234
-  %1238 = call ptr @__cxa_begin_catch(ptr %.43) #21
-  %1239 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1238)
-          to label %1240 unwind label %1241
+1277:                                             ; preds = %1274
+  %1278 = call ptr @__cxa_begin_catch(ptr %.43) #21
+  %1279 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1278)
+          to label %1280 unwind label %1281
 
-1240:                                             ; preds = %1237
+1280:                                             ; preds = %1277
   call void @__cxa_end_catch()
-  br i1 %1239, label %2555, label %.loopexit
+  br i1 %1279, label %2635, label %.loopexit
 
-1241:                                             ; preds = %1237
-  %1242 = landingpad { ptr, i32 }
+1281:                                             ; preds = %1277
+  %1282 = landingpad { ptr, i32 }
           cleanup
-  %1243 = extractvalue { ptr, i32 } %1242, 0
-  %1244 = extractvalue { ptr, i32 } %1242, 1
+  %1283 = extractvalue { ptr, i32 } %1282, 0
+  %1284 = extractvalue { ptr, i32 } %1282, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1245:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1246 = load ptr, ptr %374, align 8
-  %1247 = getelementptr inbounds i8, ptr %1246, i64 -16
-  %1248 = load ptr, ptr %1247, align 8
-  store ptr %1248, ptr %72, align 8
-  %1249 = getelementptr inbounds i8, ptr %1246, i64 -8
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = load ptr, ptr %1246, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef %1251)
-          to label %1252 unwind label %1263
+1285:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1286 = load ptr, ptr %374, align 8
+  %1287 = getelementptr inbounds i8, ptr %1286, i64 -16
+  %1288 = load ptr, ptr %1287, align 8
+  store ptr %1288, ptr %72, align 8
+  %1289 = getelementptr inbounds i8, ptr %1286, i64 -8
+  %1290 = load ptr, ptr %1289, align 8
+  %1291 = load ptr, ptr %1286, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef %1291)
+          to label %1292 unwind label %1305
 
-1252:                                             ; preds = %1245
-  %1253 = load ptr, ptr %374, align 8
-  %1254 = getelementptr inbounds i8, ptr %1253, i64 -16
-  %1255 = load ptr, ptr %1254, align 8
-  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %73, ptr noundef %1250, ptr noundef nonnull %74, ptr noundef %1255, ptr noundef %4)
-          to label %1256 unwind label %1265
+1292:                                             ; preds = %1285
+  %1293 = load ptr, ptr %374, align 8
+  %1294 = getelementptr inbounds i8, ptr %1293, i64 -16
+  %1295 = load ptr, ptr %1294, align 8
+  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %73, ptr noundef %1290, ptr noundef nonnull %74, ptr noundef %1295, ptr noundef %4)
+          to label %1296 unwind label %1307
 
-1256:                                             ; preds = %1252
-  %1257 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1258 unwind label %1267
+1296:                                             ; preds = %1292
+  %1297 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1298 unwind label %1309
 
-1258:                                             ; preds = %1256
-  %1259 = getelementptr inbounds i8, ptr %73, i64 8
-  %1260 = load <2 x ptr>, ptr %73, align 16
-  store ptr null, ptr %1259, align 8
-  store <2 x ptr> %1260, ptr %1257, align 8
-  store ptr null, ptr %73, align 16
-  store ptr %1257, ptr %8, align 8
+1298:                                             ; preds = %1296
+  %1299 = load ptr, ptr %73, align 8
+  store ptr %1299, ptr %1297, align 8
+  %1300 = getelementptr inbounds i8, ptr %1297, i64 8
+  %1301 = getelementptr inbounds i8, ptr %73, i64 8
+  %1302 = load ptr, ptr %1301, align 8
+  store ptr null, ptr %1301, align 8
+  store ptr %1302, ptr %1300, align 8
+  store ptr null, ptr %73, align 8
+  store ptr %1297, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #21
-  %1261 = load ptr, ptr %8, align 8
-  %1262 = load ptr, ptr %1261, align 8
-  %.not1456 = icmp eq ptr %1262, null
-  br i1 %.not1456, label %1270, label %.thread1413
+  %1303 = load ptr, ptr %8, align 8
+  %1304 = load ptr, ptr %1303, align 8
+  %.not1456 = icmp eq ptr %1304, null
+  br i1 %.not1456, label %1312, label %.thread1413
 
-.thread1413:                                      ; preds = %1258
+.thread1413:                                      ; preds = %1298
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #21
-  br label %2458
+  br label %2538
 
-1263:                                             ; preds = %1245
-  %1264 = landingpad { ptr, i32 }
+1305:                                             ; preds = %1285
+  %1306 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1271
+  br label %1313
 
-1265:                                             ; preds = %1252
-  %1266 = landingpad { ptr, i32 }
+1307:                                             ; preds = %1292
+  %1308 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1269
+  br label %1311
 
-1267:                                             ; preds = %1256
-  %1268 = landingpad { ptr, i32 }
+1309:                                             ; preds = %1296
+  %1310 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #21
-  br label %1269
+  br label %1311
 
-1269:                                             ; preds = %1267, %1265
-  %.pn1127 = phi { ptr, i32 } [ %1268, %1267 ], [ %1266, %1265 ]
+1311:                                             ; preds = %1309, %1307
+  %.pn1127 = phi { ptr, i32 } [ %1310, %1309 ], [ %1308, %1307 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #21
-  br label %1271
+  br label %1313
 
-1270:                                             ; preds = %1258
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1261) #21
-  call void @_ZdlPv(ptr noundef nonnull %1261) #25
+1312:                                             ; preds = %1298
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1303) #21
+  call void @_ZdlPv(ptr noundef nonnull %1303) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #21
-  br label %2555
+  br label %2635
 
-1271:                                             ; preds = %1269, %1263
-  %.pn1127.pn = phi { ptr, i32 } [ %.pn1127, %1269 ], [ %1264, %1263 ]
+1313:                                             ; preds = %1311, %1305
+  %.pn1127.pn = phi { ptr, i32 } [ %.pn1127, %1311 ], [ %1306, %1305 ]
   %.45 = extractvalue { ptr, i32 } %.pn1127.pn, 0
   %.45817 = extractvalue { ptr, i32 } %.pn1127.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #21
-  %1272 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1273 = icmp eq i32 %.45817, %1272
-  br i1 %1273, label %1274, label %2719
+  %1314 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1315 = icmp eq i32 %.45817, %1314
+  br i1 %1315, label %1316, label %2799
 
-1274:                                             ; preds = %1271
-  %1275 = call ptr @__cxa_begin_catch(ptr %.45) #21
-  %1276 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1275)
-          to label %1277 unwind label %1278
+1316:                                             ; preds = %1313
+  %1317 = call ptr @__cxa_begin_catch(ptr %.45) #21
+  %1318 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1317)
+          to label %1319 unwind label %1320
 
-1277:                                             ; preds = %1274
+1319:                                             ; preds = %1316
   call void @__cxa_end_catch()
-  br i1 %1276, label %2555, label %.loopexit
+  br i1 %1318, label %2635, label %.loopexit
 
-1278:                                             ; preds = %1274
-  %1279 = landingpad { ptr, i32 }
+1320:                                             ; preds = %1316
+  %1321 = landingpad { ptr, i32 }
           cleanup
-  %1280 = extractvalue { ptr, i32 } %1279, 0
-  %1281 = extractvalue { ptr, i32 } %1279, 1
+  %1322 = extractvalue { ptr, i32 } %1321, 0
+  %1323 = extractvalue { ptr, i32 } %1321, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1282:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1283 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
-          to label %1284 unwind label %1310
+1324:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1325 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %1326 unwind label %1354
 
-1284:                                             ; preds = %1282
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1283, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %1285 unwind label %1312
+1326:                                             ; preds = %1324
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1325, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %1327 unwind label %1356
 
-1285:                                             ; preds = %1284
-  store ptr %1283, ptr %75, align 16
-  %1286 = getelementptr inbounds i8, ptr %75, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1286, ptr noundef nonnull %1283)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335 unwind label %1310
+1327:                                             ; preds = %1326
+  store ptr %1325, ptr %75, align 8
+  %1328 = getelementptr inbounds i8, ptr %75, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1328, ptr noundef nonnull %1325)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335 unwind label %1354
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335: ; preds = %1285
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335: ; preds = %1327
   invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 1)
-          to label %1287 unwind label %1314
+          to label %1329 unwind label %1358
 
-1287:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335
-  %1288 = load ptr, ptr %75, align 16
-  %1289 = getelementptr inbounds i8, ptr %1288, i64 8
-  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1289, i32 noundef 1)
-          to label %1290 unwind label %1314
-
-1290:                                             ; preds = %1287
-  %1291 = load ptr, ptr %374, align 8
-  %1292 = load i32, ptr %1291, align 8
-  %1293 = load ptr, ptr %75, align 16
-  %1294 = getelementptr inbounds i8, ptr %1293, i64 16
-  %1295 = load ptr, ptr %1294, align 8
-  store i32 %1292, ptr %1295, align 4
-  %1296 = getelementptr inbounds i8, ptr %76, i64 8
-  %1297 = load ptr, ptr %1286, align 8
-  %1298 = load <2 x ptr>, ptr %75, align 16
-  store <2 x ptr> %1298, ptr %76, align 16
-  %.not.i.i.i1336 = icmp eq ptr %1297, null
-  br i1 %.not.i.i.i1336, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338, label %1299
-
-1299:                                             ; preds = %1290
-  %1300 = getelementptr inbounds i8, ptr %1297, i64 8
-  %1301 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i1337 = icmp eq i8 %1301, 0
-  br i1 %.not.i.i.i.i1337, label %1305, label %1302
-
-1302:                                             ; preds = %1299
-  %1303 = load i32, ptr %1300, align 4
-  %1304 = add nsw i32 %1303, 1
-  store i32 %1304, ptr %1300, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
-
-1305:                                             ; preds = %1299
-  %1306 = atomicrmw volatile add ptr %1300, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
-
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338: ; preds = %1290, %1302, %1305
-  %1307 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1308 unwind label %1316
-
-1308:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
-  %1309 = load <2 x ptr>, ptr %76, align 16
-  store ptr null, ptr %1296, align 8
-  store <2 x ptr> %1309, ptr %1307, align 8
-  store ptr null, ptr %76, align 16
-  store ptr %1307, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
-  br label %2458
-
-1310:                                             ; preds = %1285, %1282
-  %1311 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1319
-
-1312:                                             ; preds = %1284
-  %1313 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %1283) #25
-  br label %1319
-
-1314:                                             ; preds = %1287, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335
-  %1315 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1318
-
-1316:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
-  %1317 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
-  br label %1318
-
-1318:                                             ; preds = %1316, %1314
-  %.pn1124 = phi { ptr, i32 } [ %1317, %1316 ], [ %1315, %1314 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
-  br label %1319
-
-1319:                                             ; preds = %1318, %1312, %1310
-  %.pn1124.pn = phi { ptr, i32 } [ %.pn1124, %1318 ], [ %1311, %1310 ], [ %1313, %1312 ]
-  %.47 = extractvalue { ptr, i32 } %.pn1124.pn, 0
-  %.47819 = extractvalue { ptr, i32 } %.pn1124.pn, 1
-  %1320 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1321 = icmp eq i32 %.47819, %1320
-  br i1 %1321, label %1322, label %2719
-
-1322:                                             ; preds = %1319
-  %1323 = call ptr @__cxa_begin_catch(ptr %.47) #21
-  %1324 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1323)
-          to label %1325 unwind label %1326
-
-1325:                                             ; preds = %1322
-  call void @__cxa_end_catch()
-  br i1 %1324, label %2555, label %.loopexit
-
-1326:                                             ; preds = %1322
-  %1327 = landingpad { ptr, i32 }
-          cleanup
-  %1328 = extractvalue { ptr, i32 } %1327, 0
-  %1329 = extractvalue { ptr, i32 } %1327, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1330:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1331 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+1329:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335
+  %1330 = load ptr, ptr %75, align 8
+  %1331 = getelementptr inbounds i8, ptr %1330, i64 8
+  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1331, i32 noundef 1)
           to label %1332 unwind label %1358
 
-1332:                                             ; preds = %1330
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1331, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %1333 unwind label %1360
+1332:                                             ; preds = %1329
+  %1333 = load ptr, ptr %374, align 8
+  %1334 = load i32, ptr %1333, align 8
+  %1335 = load ptr, ptr %75, align 8
+  %1336 = getelementptr inbounds i8, ptr %1335, i64 16
+  %1337 = load ptr, ptr %1336, align 8
+  store i32 %1334, ptr %1337, align 4
+  %1338 = load ptr, ptr %75, align 8
+  store ptr %1338, ptr %76, align 8
+  %1339 = getelementptr inbounds i8, ptr %76, i64 8
+  %1340 = load ptr, ptr %1328, align 8
+  store ptr %1340, ptr %1339, align 8
+  %.not.i.i.i1336 = icmp eq ptr %1340, null
+  br i1 %.not.i.i.i1336, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338, label %1341
 
-1333:                                             ; preds = %1332
-  store ptr %1331, ptr %77, align 16
-  %1334 = getelementptr inbounds i8, ptr %77, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1334, ptr noundef nonnull %1331)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340 unwind label %1358
+1341:                                             ; preds = %1332
+  %1342 = getelementptr inbounds i8, ptr %1340, i64 8
+  %1343 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1337 = icmp eq i8 %1343, 0
+  br i1 %.not.i.i.i.i1337, label %1347, label %1344
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340: ; preds = %1333
-  invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 2)
-          to label %1335 unwind label %1362
+1344:                                             ; preds = %1341
+  %1345 = load i32, ptr %1342, align 4
+  %1346 = add nsw i32 %1345, 1
+  store i32 %1346, ptr %1342, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
 
-1335:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340
-  %1336 = load ptr, ptr %77, align 16
-  %1337 = getelementptr inbounds i8, ptr %1336, i64 8
-  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1337, i32 noundef 1)
-          to label %1338 unwind label %1362
+1347:                                             ; preds = %1341
+  %1348 = atomicrmw volatile add ptr %1342, i32 1 acq_rel, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
 
-1338:                                             ; preds = %1335
-  %1339 = load ptr, ptr %374, align 8
-  %1340 = load float, ptr %1339, align 8
-  %1341 = load ptr, ptr %77, align 16
-  %1342 = getelementptr inbounds i8, ptr %1341, i64 16
-  %1343 = load ptr, ptr %1342, align 8
-  store float %1340, ptr %1343, align 4
-  %1344 = getelementptr inbounds i8, ptr %78, i64 8
-  %1345 = load ptr, ptr %1334, align 8
-  %1346 = load <2 x ptr>, ptr %77, align 16
-  store <2 x ptr> %1346, ptr %78, align 16
-  %.not.i.i.i1341 = icmp eq ptr %1345, null
-  br i1 %.not.i.i.i1341, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343, label %1347
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338: ; preds = %1332, %1344, %1347
+  %1349 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1350 unwind label %1360
 
-1347:                                             ; preds = %1338
-  %1348 = getelementptr inbounds i8, ptr %1345, i64 8
-  %1349 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i1342 = icmp eq i8 %1349, 0
-  br i1 %.not.i.i.i.i1342, label %1353, label %1350
+1350:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
+  %1351 = load ptr, ptr %76, align 8
+  store ptr %1351, ptr %1349, align 8
+  %1352 = getelementptr inbounds i8, ptr %1349, i64 8
+  %1353 = load ptr, ptr %1339, align 8
+  store ptr null, ptr %1339, align 8
+  store ptr %1353, ptr %1352, align 8
+  store ptr null, ptr %76, align 8
+  store ptr %1349, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  br label %2538
 
-1350:                                             ; preds = %1347
-  %1351 = load i32, ptr %1348, align 4
-  %1352 = add nsw i32 %1351, 1
-  store i32 %1352, ptr %1348, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
-
-1353:                                             ; preds = %1347
-  %1354 = atomicrmw volatile add ptr %1348, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
-
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %1338, %1350, %1353
-  %1355 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1356 unwind label %1364
-
-1356:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
-  %1357 = load <2 x ptr>, ptr %78, align 16
-  store ptr null, ptr %1344, align 8
-  store <2 x ptr> %1357, ptr %1355, align 8
-  store ptr null, ptr %78, align 16
-  store ptr %1355, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
-  br label %2458
-
-1358:                                             ; preds = %1333, %1330
-  %1359 = landingpad { ptr, i32 }
+1354:                                             ; preds = %1327, %1324
+  %1355 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1367
+  br label %1363
 
-1360:                                             ; preds = %1332
+1356:                                             ; preds = %1326
+  %1357 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZdlPv(ptr noundef nonnull %1325) #25
+  br label %1363
+
+1358:                                             ; preds = %1329, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335
+  %1359 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1362
+
+1360:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338
   %1361 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %1331) #25
-  br label %1367
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
+  br label %1362
 
-1362:                                             ; preds = %1335, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340
-  %1363 = landingpad { ptr, i32 }
+1362:                                             ; preds = %1360, %1358
+  %.pn1124 = phi { ptr, i32 } [ %1361, %1360 ], [ %1359, %1358 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  br label %1363
+
+1363:                                             ; preds = %1362, %1356, %1354
+  %.pn1124.pn = phi { ptr, i32 } [ %.pn1124, %1362 ], [ %1355, %1354 ], [ %1357, %1356 ]
+  %.47 = extractvalue { ptr, i32 } %.pn1124.pn, 0
+  %.47819 = extractvalue { ptr, i32 } %.pn1124.pn, 1
+  %1364 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1365 = icmp eq i32 %.47819, %1364
+  br i1 %1365, label %1366, label %2799
+
+1366:                                             ; preds = %1363
+  %1367 = call ptr @__cxa_begin_catch(ptr %.47) #21
+  %1368 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1367)
+          to label %1369 unwind label %1370
+
+1369:                                             ; preds = %1366
+  call void @__cxa_end_catch()
+  br i1 %1368, label %2635, label %.loopexit
+
+1370:                                             ; preds = %1366
+  %1371 = landingpad { ptr, i32 }
+          cleanup
+  %1372 = extractvalue { ptr, i32 } %1371, 0
+  %1373 = extractvalue { ptr, i32 } %1371, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1374:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1375 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %1376 unwind label %1404
+
+1376:                                             ; preds = %1374
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1375, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %1377 unwind label %1406
+
+1377:                                             ; preds = %1376
+  store ptr %1375, ptr %77, align 8
+  %1378 = getelementptr inbounds i8, ptr %77, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1378, ptr noundef nonnull %1375)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340 unwind label %1404
+
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340: ; preds = %1377
+  invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 2)
+          to label %1379 unwind label %1408
+
+1379:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340
+  %1380 = load ptr, ptr %77, align 8
+  %1381 = getelementptr inbounds i8, ptr %1380, i64 8
+  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1381, i32 noundef 1)
+          to label %1382 unwind label %1408
+
+1382:                                             ; preds = %1379
+  %1383 = load ptr, ptr %374, align 8
+  %1384 = load float, ptr %1383, align 8
+  %1385 = load ptr, ptr %77, align 8
+  %1386 = getelementptr inbounds i8, ptr %1385, i64 16
+  %1387 = load ptr, ptr %1386, align 8
+  store float %1384, ptr %1387, align 4
+  %1388 = load ptr, ptr %77, align 8
+  store ptr %1388, ptr %78, align 8
+  %1389 = getelementptr inbounds i8, ptr %78, i64 8
+  %1390 = load ptr, ptr %1378, align 8
+  store ptr %1390, ptr %1389, align 8
+  %.not.i.i.i1341 = icmp eq ptr %1390, null
+  br i1 %.not.i.i.i1341, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343, label %1391
+
+1391:                                             ; preds = %1382
+  %1392 = getelementptr inbounds i8, ptr %1390, i64 8
+  %1393 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1342 = icmp eq i8 %1393, 0
+  br i1 %.not.i.i.i.i1342, label %1397, label %1394
+
+1394:                                             ; preds = %1391
+  %1395 = load i32, ptr %1392, align 4
+  %1396 = add nsw i32 %1395, 1
+  store i32 %1396, ptr %1392, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
+
+1397:                                             ; preds = %1391
+  %1398 = atomicrmw volatile add ptr %1392, i32 1 acq_rel, align 4
+  br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
+
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343: ; preds = %1382, %1394, %1397
+  %1399 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1400 unwind label %1410
+
+1400:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
+  %1401 = load ptr, ptr %78, align 8
+  store ptr %1401, ptr %1399, align 8
+  %1402 = getelementptr inbounds i8, ptr %1399, i64 8
+  %1403 = load ptr, ptr %1389, align 8
+  store ptr null, ptr %1389, align 8
+  store ptr %1403, ptr %1402, align 8
+  store ptr null, ptr %78, align 8
+  store ptr %1399, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
+  br label %2538
+
+1404:                                             ; preds = %1377, %1374
+  %1405 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1413
+
+1406:                                             ; preds = %1376
+  %1407 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1366
+  call void @_ZdlPv(ptr noundef nonnull %1375) #25
+  br label %1413
 
-1364:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
-  %1365 = landingpad { ptr, i32 }
+1408:                                             ; preds = %1379, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340
+  %1409 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1412
+
+1410:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343
+  %1411 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #21
-  br label %1366
+  br label %1412
 
-1366:                                             ; preds = %1364, %1362
-  %.pn1121 = phi { ptr, i32 } [ %1365, %1364 ], [ %1363, %1362 ]
+1412:                                             ; preds = %1410, %1408
+  %.pn1121 = phi { ptr, i32 } [ %1411, %1410 ], [ %1409, %1408 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
-  br label %1367
+  br label %1413
 
-1367:                                             ; preds = %1366, %1360, %1358
-  %.pn1121.pn = phi { ptr, i32 } [ %.pn1121, %1366 ], [ %1359, %1358 ], [ %1361, %1360 ]
+1413:                                             ; preds = %1412, %1406, %1404
+  %.pn1121.pn = phi { ptr, i32 } [ %.pn1121, %1412 ], [ %1405, %1404 ], [ %1407, %1406 ]
   %.49 = extractvalue { ptr, i32 } %.pn1121.pn, 0
   %.49821 = extractvalue { ptr, i32 } %.pn1121.pn, 1
-  %1368 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1369 = icmp eq i32 %.49821, %1368
-  br i1 %1369, label %1370, label %2719
+  %1414 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1415 = icmp eq i32 %.49821, %1414
+  br i1 %1415, label %1416, label %2799
 
-1370:                                             ; preds = %1367
-  %1371 = call ptr @__cxa_begin_catch(ptr %.49) #21
-  %1372 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1371)
-          to label %1373 unwind label %1374
+1416:                                             ; preds = %1413
+  %1417 = call ptr @__cxa_begin_catch(ptr %.49) #21
+  %1418 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1417)
+          to label %1419 unwind label %1420
 
-1373:                                             ; preds = %1370
+1419:                                             ; preds = %1416
   call void @__cxa_end_catch()
-  br i1 %1372, label %2555, label %.loopexit
+  br i1 %1418, label %2635, label %.loopexit
 
-1374:                                             ; preds = %1370
-  %1375 = landingpad { ptr, i32 }
+1420:                                             ; preds = %1416
+  %1421 = landingpad { ptr, i32 }
           cleanup
-  %1376 = extractvalue { ptr, i32 } %1375, 0
-  %1377 = extractvalue { ptr, i32 } %1375, 1
+  %1422 = extractvalue { ptr, i32 } %1421, 0
+  %1423 = extractvalue { ptr, i32 } %1421, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1378:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1379 = load ptr, ptr %374, align 8
-  %1380 = getelementptr inbounds i8, ptr %1379, i64 -8
-  %1381 = load ptr, ptr %1380, align 8
-  store ptr %1381, ptr %79, align 8
-  %1382 = load ptr, ptr %1379, align 8
+1424:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1425 = load ptr, ptr %374, align 8
+  %1426 = getelementptr inbounds i8, ptr %1425, i64 -8
+  %1427 = load ptr, ptr %1426, align 8
+  store ptr %1427, ptr %79, align 8
+  %1428 = load ptr, ptr %1425, align 8
   store ptr null, ptr %81, align 8
-  %1383 = load ptr, ptr %1380, align 8
-  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %80, ptr noundef %1382, ptr noundef nonnull %81, ptr noundef %1383, ptr noundef %4)
-          to label %1384 unwind label %1391
+  %1429 = load ptr, ptr %1426, align 8
+  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %80, ptr noundef %1428, ptr noundef nonnull %81, ptr noundef %1429, ptr noundef %4)
+          to label %1430 unwind label %1439
 
-1384:                                             ; preds = %1378
-  %1385 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1386 unwind label %1393
+1430:                                             ; preds = %1424
+  %1431 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1432 unwind label %1441
 
-1386:                                             ; preds = %1384
-  %1387 = getelementptr inbounds i8, ptr %80, i64 8
-  %1388 = load <2 x ptr>, ptr %80, align 16
-  store ptr null, ptr %1387, align 8
-  store <2 x ptr> %1388, ptr %1385, align 8
-  store ptr null, ptr %80, align 16
-  store ptr %1385, ptr %8, align 8
+1432:                                             ; preds = %1430
+  %1433 = load ptr, ptr %80, align 8
+  store ptr %1433, ptr %1431, align 8
+  %1434 = getelementptr inbounds i8, ptr %1431, i64 8
+  %1435 = getelementptr inbounds i8, ptr %80, i64 8
+  %1436 = load ptr, ptr %1435, align 8
+  store ptr null, ptr %1435, align 8
+  store ptr %1436, ptr %1434, align 8
+  store ptr null, ptr %80, align 8
+  store ptr %1431, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #21
-  %1389 = load ptr, ptr %8, align 8
-  %1390 = load ptr, ptr %1389, align 8
-  %.not1455 = icmp eq ptr %1390, null
-  br i1 %.not1455, label %1402, label %.thread1416
+  %1437 = load ptr, ptr %8, align 8
+  %1438 = load ptr, ptr %1437, align 8
+  %.not1455 = icmp eq ptr %1438, null
+  br i1 %.not1455, label %1450, label %.thread1416
 
-.thread1416:                                      ; preds = %1386
+.thread1416:                                      ; preds = %1432
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #21
-  br label %2458
+  br label %2538
 
-1391:                                             ; preds = %1378
-  %1392 = landingpad { ptr, i32 }
+1439:                                             ; preds = %1424
+  %1440 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1395
+  br label %1443
 
-1393:                                             ; preds = %1384
-  %1394 = landingpad { ptr, i32 }
+1441:                                             ; preds = %1430
+  %1442 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #21
-  br label %1395
+  br label %1443
 
-1395:                                             ; preds = %1393, %1391
-  %.pn1119 = phi { ptr, i32 } [ %1394, %1393 ], [ %1392, %1391 ]
+1443:                                             ; preds = %1441, %1439
+  %.pn1119 = phi { ptr, i32 } [ %1442, %1441 ], [ %1440, %1439 ]
   %.51 = extractvalue { ptr, i32 } %.pn1119, 0
   %.51823 = extractvalue { ptr, i32 } %.pn1119, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #21
-  %1396 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1397 = icmp eq i32 %.51823, %1396
-  br i1 %1397, label %1398, label %2719
+  %1444 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1445 = icmp eq i32 %.51823, %1444
+  br i1 %1445, label %1446, label %2799
 
-1398:                                             ; preds = %1395
-  %1399 = call ptr @__cxa_begin_catch(ptr %.51) #21
-  %1400 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1399)
-          to label %1401 unwind label %1403
+1446:                                             ; preds = %1443
+  %1447 = call ptr @__cxa_begin_catch(ptr %.51) #21
+  %1448 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1447)
+          to label %1449 unwind label %1451
 
-1401:                                             ; preds = %1398
+1449:                                             ; preds = %1446
   call void @__cxa_end_catch()
-  br i1 %1400, label %2555, label %.loopexit
+  br i1 %1448, label %2635, label %.loopexit
 
-1402:                                             ; preds = %1386
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1389) #21
-  call void @_ZdlPv(ptr noundef nonnull %1389) #25
+1450:                                             ; preds = %1432
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1437) #21
+  call void @_ZdlPv(ptr noundef nonnull %1437) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #21
-  br label %2555
+  br label %2635
 
-1403:                                             ; preds = %1398
-  %1404 = landingpad { ptr, i32 }
+1451:                                             ; preds = %1446
+  %1452 = landingpad { ptr, i32 }
           cleanup
-  %1405 = extractvalue { ptr, i32 } %1404, 0
-  %1406 = extractvalue { ptr, i32 } %1404, 1
+  %1453 = extractvalue { ptr, i32 } %1452, 0
+  %1454 = extractvalue { ptr, i32 } %1452, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1407:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1408 = load ptr, ptr %374, align 8
-  %1409 = getelementptr inbounds i8, ptr %1408, i64 -24
-  %1410 = load ptr, ptr %1409, align 8
-  store ptr %1410, ptr %82, align 8
-  %1411 = getelementptr inbounds i8, ptr %1408, i64 -16
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = load ptr, ptr %1408, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr noundef %1413)
-          to label %1414 unwind label %1425
+1455:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1456 = load ptr, ptr %374, align 8
+  %1457 = getelementptr inbounds i8, ptr %1456, i64 -24
+  %1458 = load ptr, ptr %1457, align 8
+  store ptr %1458, ptr %82, align 8
+  %1459 = getelementptr inbounds i8, ptr %1456, i64 -16
+  %1460 = load ptr, ptr %1459, align 8
+  %1461 = load ptr, ptr %1456, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %84, ptr noundef %1461)
+          to label %1462 unwind label %1475
 
-1414:                                             ; preds = %1407
-  %1415 = load ptr, ptr %374, align 8
-  %1416 = getelementptr inbounds i8, ptr %1415, i64 -24
-  %1417 = load ptr, ptr %1416, align 8
-  invoke void @_Z24_gmx_sel_init_keyword_ofP19gmx_ana_selmethod_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %83, ptr noundef %1412, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef %1417, ptr noundef %4)
-          to label %1418 unwind label %1427
+1462:                                             ; preds = %1455
+  %1463 = load ptr, ptr %374, align 8
+  %1464 = getelementptr inbounds i8, ptr %1463, i64 -24
+  %1465 = load ptr, ptr %1464, align 8
+  invoke void @_Z24_gmx_sel_init_keyword_ofP19gmx_ana_selmethod_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %83, ptr noundef %1460, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef %1465, ptr noundef %4)
+          to label %1466 unwind label %1477
 
-1418:                                             ; preds = %1414
-  %1419 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1420 unwind label %1429
+1466:                                             ; preds = %1462
+  %1467 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1468 unwind label %1479
 
-1420:                                             ; preds = %1418
-  %1421 = getelementptr inbounds i8, ptr %83, i64 8
-  %1422 = load <2 x ptr>, ptr %83, align 16
-  store ptr null, ptr %1421, align 8
-  store <2 x ptr> %1422, ptr %1419, align 8
-  store ptr null, ptr %83, align 16
-  store ptr %1419, ptr %8, align 8
+1468:                                             ; preds = %1466
+  %1469 = load ptr, ptr %83, align 8
+  store ptr %1469, ptr %1467, align 8
+  %1470 = getelementptr inbounds i8, ptr %1467, i64 8
+  %1471 = getelementptr inbounds i8, ptr %83, i64 8
+  %1472 = load ptr, ptr %1471, align 8
+  store ptr null, ptr %1471, align 8
+  store ptr %1472, ptr %1470, align 8
+  store ptr null, ptr %83, align 8
+  store ptr %1467, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %83) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %84) #21
-  %1423 = load ptr, ptr %8, align 8
-  %1424 = load ptr, ptr %1423, align 8
-  %.not1454 = icmp eq ptr %1424, null
-  br i1 %.not1454, label %1432, label %.thread1419
+  %1473 = load ptr, ptr %8, align 8
+  %1474 = load ptr, ptr %1473, align 8
+  %.not1454 = icmp eq ptr %1474, null
+  br i1 %.not1454, label %1482, label %.thread1419
 
-.thread1419:                                      ; preds = %1420
+.thread1419:                                      ; preds = %1468
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #21
-  br label %2458
+  br label %2538
 
-1425:                                             ; preds = %1407
-  %1426 = landingpad { ptr, i32 }
+1475:                                             ; preds = %1455
+  %1476 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1433
+  br label %1483
 
-1427:                                             ; preds = %1414
-  %1428 = landingpad { ptr, i32 }
+1477:                                             ; preds = %1462
+  %1478 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1431
+  br label %1481
 
-1429:                                             ; preds = %1418
-  %1430 = landingpad { ptr, i32 }
+1479:                                             ; preds = %1466
+  %1480 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %83) #21
-  br label %1431
+  br label %1481
 
-1431:                                             ; preds = %1429, %1427
-  %.pn1116 = phi { ptr, i32 } [ %1430, %1429 ], [ %1428, %1427 ]
+1481:                                             ; preds = %1479, %1477
+  %.pn1116 = phi { ptr, i32 } [ %1480, %1479 ], [ %1478, %1477 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %84) #21
-  br label %1433
+  br label %1483
 
-1432:                                             ; preds = %1420
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1423) #21
-  call void @_ZdlPv(ptr noundef nonnull %1423) #25
+1482:                                             ; preds = %1468
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1473) #21
+  call void @_ZdlPv(ptr noundef nonnull %1473) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #21
-  br label %2555
+  br label %2635
 
-1433:                                             ; preds = %1431, %1425
-  %.pn1116.pn = phi { ptr, i32 } [ %.pn1116, %1431 ], [ %1426, %1425 ]
+1483:                                             ; preds = %1481, %1475
+  %.pn1116.pn = phi { ptr, i32 } [ %.pn1116, %1481 ], [ %1476, %1475 ]
   %.52 = extractvalue { ptr, i32 } %.pn1116.pn, 0
   %.52824 = extractvalue { ptr, i32 } %.pn1116.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #21
-  %1434 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1435 = icmp eq i32 %.52824, %1434
-  br i1 %1435, label %1436, label %2719
+  %1484 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1485 = icmp eq i32 %.52824, %1484
+  br i1 %1485, label %1486, label %2799
 
-1436:                                             ; preds = %1433
-  %1437 = call ptr @__cxa_begin_catch(ptr %.52) #21
-  %1438 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1437)
-          to label %1439 unwind label %1440
+1486:                                             ; preds = %1483
+  %1487 = call ptr @__cxa_begin_catch(ptr %.52) #21
+  %1488 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1487)
+          to label %1489 unwind label %1490
 
-1439:                                             ; preds = %1436
+1489:                                             ; preds = %1486
   call void @__cxa_end_catch()
-  br i1 %1438, label %2555, label %.loopexit
+  br i1 %1488, label %2635, label %.loopexit
 
-1440:                                             ; preds = %1436
-  %1441 = landingpad { ptr, i32 }
+1490:                                             ; preds = %1486
+  %1491 = landingpad { ptr, i32 }
           cleanup
-  %1442 = extractvalue { ptr, i32 } %1441, 0
-  %1443 = extractvalue { ptr, i32 } %1441, 1
+  %1492 = extractvalue { ptr, i32 } %1491, 0
+  %1493 = extractvalue { ptr, i32 } %1491, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1444:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1445 = load ptr, ptr %374, align 8
-  %1446 = getelementptr inbounds i8, ptr %1445, i64 -16
-  %1447 = load ptr, ptr %1446, align 8
-  store ptr %1447, ptr %85, align 8
-  %1448 = getelementptr inbounds i8, ptr %1445, i64 -8
-  %1449 = load ptr, ptr %1448, align 8
-  %1450 = load ptr, ptr %1445, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef %1450)
-          to label %1451 unwind label %1462
+1494:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1495 = load ptr, ptr %374, align 8
+  %1496 = getelementptr inbounds i8, ptr %1495, i64 -16
+  %1497 = load ptr, ptr %1496, align 8
+  store ptr %1497, ptr %85, align 8
+  %1498 = getelementptr inbounds i8, ptr %1495, i64 -8
+  %1499 = load ptr, ptr %1498, align 8
+  %1500 = load ptr, ptr %1495, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef %1500)
+          to label %1501 unwind label %1514
 
-1451:                                             ; preds = %1444
-  %1452 = load ptr, ptr %374, align 8
-  %1453 = getelementptr inbounds i8, ptr %1452, i64 -16
-  %1454 = load ptr, ptr %1453, align 8
-  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %86, ptr noundef %1449, ptr noundef nonnull %87, ptr noundef %1454, ptr noundef %4)
-          to label %1455 unwind label %1464
+1501:                                             ; preds = %1494
+  %1502 = load ptr, ptr %374, align 8
+  %1503 = getelementptr inbounds i8, ptr %1502, i64 -16
+  %1504 = load ptr, ptr %1503, align 8
+  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %86, ptr noundef %1499, ptr noundef nonnull %87, ptr noundef %1504, ptr noundef %4)
+          to label %1505 unwind label %1516
 
-1455:                                             ; preds = %1451
-  %1456 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1457 unwind label %1466
+1505:                                             ; preds = %1501
+  %1506 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1507 unwind label %1518
 
-1457:                                             ; preds = %1455
-  %1458 = getelementptr inbounds i8, ptr %86, i64 8
-  %1459 = load <2 x ptr>, ptr %86, align 16
-  store ptr null, ptr %1458, align 8
-  store <2 x ptr> %1459, ptr %1456, align 8
-  store ptr null, ptr %86, align 16
-  store ptr %1456, ptr %8, align 8
+1507:                                             ; preds = %1505
+  %1508 = load ptr, ptr %86, align 8
+  store ptr %1508, ptr %1506, align 8
+  %1509 = getelementptr inbounds i8, ptr %1506, i64 8
+  %1510 = getelementptr inbounds i8, ptr %86, i64 8
+  %1511 = load ptr, ptr %1510, align 8
+  store ptr null, ptr %1510, align 8
+  store ptr %1511, ptr %1509, align 8
+  store ptr null, ptr %86, align 8
+  store ptr %1506, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #21
-  %1460 = load ptr, ptr %8, align 8
-  %1461 = load ptr, ptr %1460, align 8
-  %.not1453 = icmp eq ptr %1461, null
-  br i1 %.not1453, label %1469, label %.thread1422
+  %1512 = load ptr, ptr %8, align 8
+  %1513 = load ptr, ptr %1512, align 8
+  %.not1453 = icmp eq ptr %1513, null
+  br i1 %.not1453, label %1521, label %.thread1422
 
-.thread1422:                                      ; preds = %1457
+.thread1422:                                      ; preds = %1507
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #21
-  br label %2458
+  br label %2538
 
-1462:                                             ; preds = %1444
-  %1463 = landingpad { ptr, i32 }
+1514:                                             ; preds = %1494
+  %1515 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1470
+  br label %1522
 
-1464:                                             ; preds = %1451
-  %1465 = landingpad { ptr, i32 }
+1516:                                             ; preds = %1501
+  %1517 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1468
+  br label %1520
 
-1466:                                             ; preds = %1455
-  %1467 = landingpad { ptr, i32 }
+1518:                                             ; preds = %1505
+  %1519 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
-  br label %1468
+  br label %1520
 
-1468:                                             ; preds = %1466, %1464
-  %.pn1113 = phi { ptr, i32 } [ %1467, %1466 ], [ %1465, %1464 ]
+1520:                                             ; preds = %1518, %1516
+  %.pn1113 = phi { ptr, i32 } [ %1519, %1518 ], [ %1517, %1516 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #21
-  br label %1470
+  br label %1522
 
-1469:                                             ; preds = %1457
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1460) #21
-  call void @_ZdlPv(ptr noundef nonnull %1460) #25
+1521:                                             ; preds = %1507
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1512) #21
+  call void @_ZdlPv(ptr noundef nonnull %1512) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #21
-  br label %2555
+  br label %2635
 
-1470:                                             ; preds = %1468, %1462
-  %.pn1113.pn = phi { ptr, i32 } [ %.pn1113, %1468 ], [ %1463, %1462 ]
+1522:                                             ; preds = %1520, %1514
+  %.pn1113.pn = phi { ptr, i32 } [ %.pn1113, %1520 ], [ %1515, %1514 ]
   %.54 = extractvalue { ptr, i32 } %.pn1113.pn, 0
   %.54826 = extractvalue { ptr, i32 } %.pn1113.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #21
-  %1471 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1472 = icmp eq i32 %.54826, %1471
-  br i1 %1472, label %1473, label %2719
+  %1523 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1524 = icmp eq i32 %.54826, %1523
+  br i1 %1524, label %1525, label %2799
 
-1473:                                             ; preds = %1470
-  %1474 = call ptr @__cxa_begin_catch(ptr %.54) #21
-  %1475 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1474)
-          to label %1476 unwind label %1477
+1525:                                             ; preds = %1522
+  %1526 = call ptr @__cxa_begin_catch(ptr %.54) #21
+  %1527 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1526)
+          to label %1528 unwind label %1529
 
-1476:                                             ; preds = %1473
+1528:                                             ; preds = %1525
   call void @__cxa_end_catch()
-  br i1 %1475, label %2555, label %.loopexit
+  br i1 %1527, label %2635, label %.loopexit
 
-1477:                                             ; preds = %1473
-  %1478 = landingpad { ptr, i32 }
+1529:                                             ; preds = %1525
+  %1530 = landingpad { ptr, i32 }
           cleanup
-  %1479 = extractvalue { ptr, i32 } %1478, 0
-  %1480 = extractvalue { ptr, i32 } %1478, 1
+  %1531 = extractvalue { ptr, i32 } %1530, 0
+  %1532 = extractvalue { ptr, i32 } %1530, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1481:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1482 = load ptr, ptr %374, align 8
-  %1483 = getelementptr inbounds i8, ptr %1482, i64 -16
-  %1484 = load ptr, ptr %1483, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef %1484)
-          to label %1485 unwind label %1494
+1533:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1534 = load ptr, ptr %374, align 8
+  %1535 = getelementptr inbounds i8, ptr %1534, i64 -16
+  %1536 = load ptr, ptr %1535, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef %1536)
+          to label %1537 unwind label %1548
 
-1485:                                             ; preds = %1481
-  %1486 = load ptr, ptr %374, align 8
-  %1487 = load ptr, ptr %1486, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef %1487)
-          to label %1488 unwind label %1496
+1537:                                             ; preds = %1533
+  %1538 = load ptr, ptr %374, align 8
+  %1539 = load ptr, ptr %1538, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr noundef %1539)
+          to label %1540 unwind label %1550
 
-1488:                                             ; preds = %1485
+1540:                                             ; preds = %1537
   invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %88, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i8 noundef signext 43, ptr noundef %4)
-          to label %1489 unwind label %1498
+          to label %1541 unwind label %1552
 
-1489:                                             ; preds = %1488
-  %1490 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1491 unwind label %1500
+1541:                                             ; preds = %1540
+  %1542 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1543 unwind label %1554
 
-1491:                                             ; preds = %1489
-  %1492 = getelementptr inbounds i8, ptr %88, i64 8
-  %1493 = load <2 x ptr>, ptr %88, align 16
-  store ptr null, ptr %1492, align 8
-  store <2 x ptr> %1493, ptr %1490, align 8
-  store ptr null, ptr %88, align 16
-  store ptr %1490, ptr %8, align 8
+1543:                                             ; preds = %1541
+  %1544 = load ptr, ptr %88, align 8
+  store ptr %1544, ptr %1542, align 8
+  %1545 = getelementptr inbounds i8, ptr %1542, i64 8
+  %1546 = getelementptr inbounds i8, ptr %88, i64 8
+  %1547 = load ptr, ptr %1546, align 8
+  store ptr null, ptr %1546, align 8
+  store ptr %1547, ptr %1545, align 8
+  store ptr null, ptr %88, align 8
+  store ptr %1542, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %88) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %90) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %89) #21
-  br label %2458
+  br label %2538
 
-1494:                                             ; preds = %1481
-  %1495 = landingpad { ptr, i32 }
+1548:                                             ; preds = %1533
+  %1549 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1504
+  br label %1558
 
-1496:                                             ; preds = %1485
-  %1497 = landingpad { ptr, i32 }
+1550:                                             ; preds = %1537
+  %1551 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1503
+  br label %1557
 
-1498:                                             ; preds = %1488
-  %1499 = landingpad { ptr, i32 }
+1552:                                             ; preds = %1540
+  %1553 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1502
+  br label %1556
 
-1500:                                             ; preds = %1489
-  %1501 = landingpad { ptr, i32 }
+1554:                                             ; preds = %1541
+  %1555 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %88) #21
-  br label %1502
+  br label %1556
 
-1502:                                             ; preds = %1500, %1498
-  %.pn1109 = phi { ptr, i32 } [ %1501, %1500 ], [ %1499, %1498 ]
+1556:                                             ; preds = %1554, %1552
+  %.pn1109 = phi { ptr, i32 } [ %1555, %1554 ], [ %1553, %1552 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %90) #21
-  br label %1503
+  br label %1557
 
-1503:                                             ; preds = %1502, %1496
-  %.pn1109.pn = phi { ptr, i32 } [ %.pn1109, %1502 ], [ %1497, %1496 ]
+1557:                                             ; preds = %1556, %1550
+  %.pn1109.pn = phi { ptr, i32 } [ %.pn1109, %1556 ], [ %1551, %1550 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %89) #21
-  br label %1504
+  br label %1558
 
-1504:                                             ; preds = %1503, %1494
-  %.pn1109.pn.pn = phi { ptr, i32 } [ %.pn1109.pn, %1503 ], [ %1495, %1494 ]
+1558:                                             ; preds = %1557, %1548
+  %.pn1109.pn.pn = phi { ptr, i32 } [ %.pn1109.pn, %1557 ], [ %1549, %1548 ]
   %.56 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 0
   %.56828 = extractvalue { ptr, i32 } %.pn1109.pn.pn, 1
-  %1505 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1506 = icmp eq i32 %.56828, %1505
-  br i1 %1506, label %1507, label %2719
+  %1559 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1560 = icmp eq i32 %.56828, %1559
+  br i1 %1560, label %1561, label %2799
 
-1507:                                             ; preds = %1504
-  %1508 = call ptr @__cxa_begin_catch(ptr %.56) #21
-  %1509 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1508)
-          to label %1510 unwind label %1511
+1561:                                             ; preds = %1558
+  %1562 = call ptr @__cxa_begin_catch(ptr %.56) #21
+  %1563 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1562)
+          to label %1564 unwind label %1565
 
-1510:                                             ; preds = %1507
+1564:                                             ; preds = %1561
   call void @__cxa_end_catch()
-  br i1 %1509, label %2555, label %.loopexit
+  br i1 %1563, label %2635, label %.loopexit
 
-1511:                                             ; preds = %1507
-  %1512 = landingpad { ptr, i32 }
+1565:                                             ; preds = %1561
+  %1566 = landingpad { ptr, i32 }
           cleanup
-  %1513 = extractvalue { ptr, i32 } %1512, 0
-  %1514 = extractvalue { ptr, i32 } %1512, 1
+  %1567 = extractvalue { ptr, i32 } %1566, 0
+  %1568 = extractvalue { ptr, i32 } %1566, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1515:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1516 = load ptr, ptr %374, align 8
-  %1517 = getelementptr inbounds i8, ptr %1516, i64 -16
-  %1518 = load ptr, ptr %1517, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef %1518)
-          to label %1519 unwind label %1528
+1569:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1570 = load ptr, ptr %374, align 8
+  %1571 = getelementptr inbounds i8, ptr %1570, i64 -16
+  %1572 = load ptr, ptr %1571, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef %1572)
+          to label %1573 unwind label %1584
 
-1519:                                             ; preds = %1515
-  %1520 = load ptr, ptr %374, align 8
-  %1521 = load ptr, ptr %1520, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef %1521)
-          to label %1522 unwind label %1530
+1573:                                             ; preds = %1569
+  %1574 = load ptr, ptr %374, align 8
+  %1575 = load ptr, ptr %1574, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef %1575)
+          to label %1576 unwind label %1586
 
-1522:                                             ; preds = %1519
+1576:                                             ; preds = %1573
   invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %91, ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %93, i8 noundef signext 45, ptr noundef %4)
-          to label %1523 unwind label %1532
+          to label %1577 unwind label %1588
 
-1523:                                             ; preds = %1522
-  %1524 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1525 unwind label %1534
+1577:                                             ; preds = %1576
+  %1578 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1579 unwind label %1590
 
-1525:                                             ; preds = %1523
-  %1526 = getelementptr inbounds i8, ptr %91, i64 8
-  %1527 = load <2 x ptr>, ptr %91, align 16
-  store ptr null, ptr %1526, align 8
-  store <2 x ptr> %1527, ptr %1524, align 8
-  store ptr null, ptr %91, align 16
-  store ptr %1524, ptr %8, align 8
+1579:                                             ; preds = %1577
+  %1580 = load ptr, ptr %91, align 8
+  store ptr %1580, ptr %1578, align 8
+  %1581 = getelementptr inbounds i8, ptr %1578, i64 8
+  %1582 = getelementptr inbounds i8, ptr %91, i64 8
+  %1583 = load ptr, ptr %1582, align 8
+  store ptr null, ptr %1582, align 8
+  store ptr %1583, ptr %1581, align 8
+  store ptr null, ptr %91, align 8
+  store ptr %1578, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %91) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %93) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #21
-  br label %2458
+  br label %2538
 
-1528:                                             ; preds = %1515
-  %1529 = landingpad { ptr, i32 }
+1584:                                             ; preds = %1569
+  %1585 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1538
+  br label %1594
 
-1530:                                             ; preds = %1519
-  %1531 = landingpad { ptr, i32 }
+1586:                                             ; preds = %1573
+  %1587 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1537
+  br label %1593
 
-1532:                                             ; preds = %1522
-  %1533 = landingpad { ptr, i32 }
+1588:                                             ; preds = %1576
+  %1589 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1536
+  br label %1592
 
-1534:                                             ; preds = %1523
-  %1535 = landingpad { ptr, i32 }
+1590:                                             ; preds = %1577
+  %1591 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %91) #21
-  br label %1536
+  br label %1592
 
-1536:                                             ; preds = %1534, %1532
-  %.pn1105 = phi { ptr, i32 } [ %1535, %1534 ], [ %1533, %1532 ]
+1592:                                             ; preds = %1590, %1588
+  %.pn1105 = phi { ptr, i32 } [ %1591, %1590 ], [ %1589, %1588 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %93) #21
-  br label %1537
+  br label %1593
 
-1537:                                             ; preds = %1536, %1530
-  %.pn1105.pn = phi { ptr, i32 } [ %.pn1105, %1536 ], [ %1531, %1530 ]
+1593:                                             ; preds = %1592, %1586
+  %.pn1105.pn = phi { ptr, i32 } [ %.pn1105, %1592 ], [ %1587, %1586 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #21
-  br label %1538
+  br label %1594
 
-1538:                                             ; preds = %1537, %1528
-  %.pn1105.pn.pn = phi { ptr, i32 } [ %.pn1105.pn, %1537 ], [ %1529, %1528 ]
+1594:                                             ; preds = %1593, %1584
+  %.pn1105.pn.pn = phi { ptr, i32 } [ %.pn1105.pn, %1593 ], [ %1585, %1584 ]
   %.59 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 0
   %.59831 = extractvalue { ptr, i32 } %.pn1105.pn.pn, 1
-  %1539 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1540 = icmp eq i32 %.59831, %1539
-  br i1 %1540, label %1541, label %2719
+  %1595 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1596 = icmp eq i32 %.59831, %1595
+  br i1 %1596, label %1597, label %2799
 
-1541:                                             ; preds = %1538
-  %1542 = call ptr @__cxa_begin_catch(ptr %.59) #21
-  %1543 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1542)
-          to label %1544 unwind label %1545
+1597:                                             ; preds = %1594
+  %1598 = call ptr @__cxa_begin_catch(ptr %.59) #21
+  %1599 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1598)
+          to label %1600 unwind label %1601
 
-1544:                                             ; preds = %1541
+1600:                                             ; preds = %1597
   call void @__cxa_end_catch()
-  br i1 %1543, label %2555, label %.loopexit
+  br i1 %1599, label %2635, label %.loopexit
 
-1545:                                             ; preds = %1541
-  %1546 = landingpad { ptr, i32 }
+1601:                                             ; preds = %1597
+  %1602 = landingpad { ptr, i32 }
           cleanup
-  %1547 = extractvalue { ptr, i32 } %1546, 0
-  %1548 = extractvalue { ptr, i32 } %1546, 1
+  %1603 = extractvalue { ptr, i32 } %1602, 0
+  %1604 = extractvalue { ptr, i32 } %1602, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1549:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1550 = load ptr, ptr %374, align 8
-  %1551 = getelementptr inbounds i8, ptr %1550, i64 -16
-  %1552 = load ptr, ptr %1551, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef %1552)
-          to label %1553 unwind label %1562
+1605:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1606 = load ptr, ptr %374, align 8
+  %1607 = getelementptr inbounds i8, ptr %1606, i64 -16
+  %1608 = load ptr, ptr %1607, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef %1608)
+          to label %1609 unwind label %1620
 
-1553:                                             ; preds = %1549
-  %1554 = load ptr, ptr %374, align 8
-  %1555 = load ptr, ptr %1554, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef %1555)
-          to label %1556 unwind label %1564
-
-1556:                                             ; preds = %1553
-  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %94, ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %96, i8 noundef signext 42, ptr noundef %4)
-          to label %1557 unwind label %1566
-
-1557:                                             ; preds = %1556
-  %1558 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1559 unwind label %1568
-
-1559:                                             ; preds = %1557
-  %1560 = getelementptr inbounds i8, ptr %94, i64 8
-  %1561 = load <2 x ptr>, ptr %94, align 16
-  store ptr null, ptr %1560, align 8
-  store <2 x ptr> %1561, ptr %1558, align 8
-  store ptr null, ptr %94, align 16
-  store ptr %1558, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #21
-  br label %2458
-
-1562:                                             ; preds = %1549
-  %1563 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1572
-
-1564:                                             ; preds = %1553
-  %1565 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1571
-
-1566:                                             ; preds = %1556
-  %1567 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1570
-
-1568:                                             ; preds = %1557
-  %1569 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #21
-  br label %1570
-
-1570:                                             ; preds = %1568, %1566
-  %.pn1101 = phi { ptr, i32 } [ %1569, %1568 ], [ %1567, %1566 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
-  br label %1571
-
-1571:                                             ; preds = %1570, %1564
-  %.pn1101.pn = phi { ptr, i32 } [ %.pn1101, %1570 ], [ %1565, %1564 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #21
-  br label %1572
-
-1572:                                             ; preds = %1571, %1562
-  %.pn1101.pn.pn = phi { ptr, i32 } [ %.pn1101.pn, %1571 ], [ %1563, %1562 ]
-  %.62 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 0
-  %.62834 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 1
-  %1573 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1574 = icmp eq i32 %.62834, %1573
-  br i1 %1574, label %1575, label %2719
-
-1575:                                             ; preds = %1572
-  %1576 = call ptr @__cxa_begin_catch(ptr %.62) #21
-  %1577 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1576)
-          to label %1578 unwind label %1579
-
-1578:                                             ; preds = %1575
-  call void @__cxa_end_catch()
-  br i1 %1577, label %2555, label %.loopexit
-
-1579:                                             ; preds = %1575
-  %1580 = landingpad { ptr, i32 }
-          cleanup
-  %1581 = extractvalue { ptr, i32 } %1580, 0
-  %1582 = extractvalue { ptr, i32 } %1580, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1583:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1584 = load ptr, ptr %374, align 8
-  %1585 = getelementptr inbounds i8, ptr %1584, i64 -16
-  %1586 = load ptr, ptr %1585, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef %1586)
-          to label %1587 unwind label %1596
-
-1587:                                             ; preds = %1583
-  %1588 = load ptr, ptr %374, align 8
-  %1589 = load ptr, ptr %1588, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %99, ptr noundef %1589)
-          to label %1590 unwind label %1598
-
-1590:                                             ; preds = %1587
-  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %97, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %99, i8 noundef signext 47, ptr noundef %4)
-          to label %1591 unwind label %1600
-
-1591:                                             ; preds = %1590
-  %1592 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1593 unwind label %1602
-
-1593:                                             ; preds = %1591
-  %1594 = getelementptr inbounds i8, ptr %97, i64 8
-  %1595 = load <2 x ptr>, ptr %97, align 16
-  store ptr null, ptr %1594, align 8
-  store <2 x ptr> %1595, ptr %1592, align 8
-  store ptr null, ptr %97, align 16
-  store ptr %1592, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #21
-  br label %2458
-
-1596:                                             ; preds = %1583
-  %1597 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1606
-
-1598:                                             ; preds = %1587
-  %1599 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1605
-
-1600:                                             ; preds = %1590
-  %1601 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1604
-
-1602:                                             ; preds = %1591
-  %1603 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
-  br label %1604
-
-1604:                                             ; preds = %1602, %1600
-  %.pn1097 = phi { ptr, i32 } [ %1603, %1602 ], [ %1601, %1600 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
-  br label %1605
-
-1605:                                             ; preds = %1604, %1598
-  %.pn1097.pn = phi { ptr, i32 } [ %.pn1097, %1604 ], [ %1599, %1598 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #21
-  br label %1606
-
-1606:                                             ; preds = %1605, %1596
-  %.pn1097.pn.pn = phi { ptr, i32 } [ %.pn1097.pn, %1605 ], [ %1597, %1596 ]
-  %.65 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 0
-  %.65837 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 1
-  %1607 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1608 = icmp eq i32 %.65837, %1607
-  br i1 %1608, label %1609, label %2719
-
-1609:                                             ; preds = %1606
-  %1610 = call ptr @__cxa_begin_catch(ptr %.65) #21
-  %1611 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1610)
-          to label %1612 unwind label %1613
+1609:                                             ; preds = %1605
+  %1610 = load ptr, ptr %374, align 8
+  %1611 = load ptr, ptr %1610, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef %1611)
+          to label %1612 unwind label %1622
 
 1612:                                             ; preds = %1609
-  call void @__cxa_end_catch()
-  br i1 %1611, label %2555, label %.loopexit
+  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %94, ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %96, i8 noundef signext 42, ptr noundef %4)
+          to label %1613 unwind label %1624
 
-1613:                                             ; preds = %1609
-  %1614 = landingpad { ptr, i32 }
-          cleanup
-  %1615 = extractvalue { ptr, i32 } %1614, 0
-  %1616 = extractvalue { ptr, i32 } %1614, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+1613:                                             ; preds = %1612
+  %1614 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1615 unwind label %1626
 
-1617:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1618 = load ptr, ptr %374, align 8
+1615:                                             ; preds = %1613
+  %1616 = load ptr, ptr %94, align 8
+  store ptr %1616, ptr %1614, align 8
+  %1617 = getelementptr inbounds i8, ptr %1614, i64 8
+  %1618 = getelementptr inbounds i8, ptr %94, i64 8
   %1619 = load ptr, ptr %1618, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef %1619)
-          to label %1620 unwind label %1626
+  store ptr null, ptr %1618, align 8
+  store ptr %1619, ptr %1617, align 8
+  store ptr null, ptr %94, align 8
+  store ptr %1614, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #21
+  br label %2538
 
-1620:                                             ; preds = %1617
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %100, ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i8 noundef signext 45, ptr noundef %4)
-          to label %1621 unwind label %1628
+1620:                                             ; preds = %1605
+  %1621 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1630
 
-1621:                                             ; preds = %1620
-  %1622 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1623 unwind label %1630
+1622:                                             ; preds = %1609
+  %1623 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1629
 
-1623:                                             ; preds = %1621
-  %1624 = getelementptr inbounds i8, ptr %100, i64 8
-  %1625 = load <2 x ptr>, ptr %100, align 16
-  store ptr null, ptr %1624, align 8
-  store <2 x ptr> %1625, ptr %1622, align 8
-  store ptr null, ptr %100, align 16
-  store ptr %1622, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #21
-  br label %2458
+1624:                                             ; preds = %1612
+  %1625 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1628
 
-1626:                                             ; preds = %1617
+1626:                                             ; preds = %1613
   %1627 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1633
-
-1628:                                             ; preds = %1620
-  %1629 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1632
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #21
+  br label %1628
 
-1630:                                             ; preds = %1621
-  %1631 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #21
-  br label %1632
+1628:                                             ; preds = %1626, %1624
+  %.pn1101 = phi { ptr, i32 } [ %1627, %1626 ], [ %1625, %1624 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #21
+  br label %1629
 
-1632:                                             ; preds = %1630, %1628
-  %.pn1094 = phi { ptr, i32 } [ %1631, %1630 ], [ %1629, %1628 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #21
-  br label %1633
+1629:                                             ; preds = %1628, %1622
+  %.pn1101.pn = phi { ptr, i32 } [ %.pn1101, %1628 ], [ %1623, %1622 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #21
+  br label %1630
 
-1633:                                             ; preds = %1632, %1626
-  %.pn1094.pn = phi { ptr, i32 } [ %.pn1094, %1632 ], [ %1627, %1626 ]
-  %.68 = extractvalue { ptr, i32 } %.pn1094.pn, 0
-  %.68840 = extractvalue { ptr, i32 } %.pn1094.pn, 1
-  %1634 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1635 = icmp eq i32 %.68840, %1634
-  br i1 %1635, label %1636, label %2719
+1630:                                             ; preds = %1629, %1620
+  %.pn1101.pn.pn = phi { ptr, i32 } [ %.pn1101.pn, %1629 ], [ %1621, %1620 ]
+  %.62 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 0
+  %.62834 = extractvalue { ptr, i32 } %.pn1101.pn.pn, 1
+  %1631 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1632 = icmp eq i32 %.62834, %1631
+  br i1 %1632, label %1633, label %2799
+
+1633:                                             ; preds = %1630
+  %1634 = call ptr @__cxa_begin_catch(ptr %.62) #21
+  %1635 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1634)
+          to label %1636 unwind label %1637
 
 1636:                                             ; preds = %1633
-  %1637 = call ptr @__cxa_begin_catch(ptr %.68) #21
-  %1638 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1637)
-          to label %1639 unwind label %1640
-
-1639:                                             ; preds = %1636
   call void @__cxa_end_catch()
-  br i1 %1638, label %2555, label %.loopexit
+  br i1 %1635, label %2635, label %.loopexit
 
-1640:                                             ; preds = %1636
-  %1641 = landingpad { ptr, i32 }
+1637:                                             ; preds = %1633
+  %1638 = landingpad { ptr, i32 }
           cleanup
-  %1642 = extractvalue { ptr, i32 } %1641, 0
-  %1643 = extractvalue { ptr, i32 } %1641, 1
+  %1639 = extractvalue { ptr, i32 } %1638, 0
+  %1640 = extractvalue { ptr, i32 } %1638, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1644:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1645 = load ptr, ptr %374, align 8
-  %1646 = getelementptr inbounds i8, ptr %1645, i64 -16
+1641:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1642 = load ptr, ptr %374, align 8
+  %1643 = getelementptr inbounds i8, ptr %1642, i64 -16
+  %1644 = load ptr, ptr %1643, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef %1644)
+          to label %1645 unwind label %1656
+
+1645:                                             ; preds = %1641
+  %1646 = load ptr, ptr %374, align 8
   %1647 = load ptr, ptr %1646, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef %1647)
-          to label %1648 unwind label %1657
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %99, ptr noundef %1647)
+          to label %1648 unwind label %1658
 
-1648:                                             ; preds = %1644
-  %1649 = load ptr, ptr %374, align 8
-  %1650 = load ptr, ptr %1649, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef %1650)
-          to label %1651 unwind label %1659
+1648:                                             ; preds = %1645
+  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %97, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %99, i8 noundef signext 47, ptr noundef %4)
+          to label %1649 unwind label %1660
 
-1651:                                             ; preds = %1648
+1649:                                             ; preds = %1648
+  %1650 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1651 unwind label %1662
+
+1651:                                             ; preds = %1649
+  %1652 = load ptr, ptr %97, align 8
+  store ptr %1652, ptr %1650, align 8
+  %1653 = getelementptr inbounds i8, ptr %1650, i64 8
+  %1654 = getelementptr inbounds i8, ptr %97, i64 8
+  %1655 = load ptr, ptr %1654, align 8
+  store ptr null, ptr %1654, align 8
+  store ptr %1655, ptr %1653, align 8
+  store ptr null, ptr %97, align 8
+  store ptr %1650, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #21
+  br label %2538
+
+1656:                                             ; preds = %1641
+  %1657 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1666
+
+1658:                                             ; preds = %1645
+  %1659 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1665
+
+1660:                                             ; preds = %1648
+  %1661 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1664
+
+1662:                                             ; preds = %1649
+  %1663 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #21
+  br label %1664
+
+1664:                                             ; preds = %1662, %1660
+  %.pn1097 = phi { ptr, i32 } [ %1663, %1662 ], [ %1661, %1660 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
+  br label %1665
+
+1665:                                             ; preds = %1664, %1658
+  %.pn1097.pn = phi { ptr, i32 } [ %.pn1097, %1664 ], [ %1659, %1658 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #21
+  br label %1666
+
+1666:                                             ; preds = %1665, %1656
+  %.pn1097.pn.pn = phi { ptr, i32 } [ %.pn1097.pn, %1665 ], [ %1657, %1656 ]
+  %.65 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 0
+  %.65837 = extractvalue { ptr, i32 } %.pn1097.pn.pn, 1
+  %1667 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1668 = icmp eq i32 %.65837, %1667
+  br i1 %1668, label %1669, label %2799
+
+1669:                                             ; preds = %1666
+  %1670 = call ptr @__cxa_begin_catch(ptr %.65) #21
+  %1671 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1670)
+          to label %1672 unwind label %1673
+
+1672:                                             ; preds = %1669
+  call void @__cxa_end_catch()
+  br i1 %1671, label %2635, label %.loopexit
+
+1673:                                             ; preds = %1669
+  %1674 = landingpad { ptr, i32 }
+          cleanup
+  %1675 = extractvalue { ptr, i32 } %1674, 0
+  %1676 = extractvalue { ptr, i32 } %1674, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1677:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1678 = load ptr, ptr %374, align 8
+  %1679 = load ptr, ptr %1678, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef %1679)
+          to label %1680 unwind label %1688
+
+1680:                                             ; preds = %1677
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
+  invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %100, ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i8 noundef signext 45, ptr noundef %4)
+          to label %1681 unwind label %1690
+
+1681:                                             ; preds = %1680
+  %1682 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1683 unwind label %1692
+
+1683:                                             ; preds = %1681
+  %1684 = load ptr, ptr %100, align 8
+  store ptr %1684, ptr %1682, align 8
+  %1685 = getelementptr inbounds i8, ptr %1682, i64 8
+  %1686 = getelementptr inbounds i8, ptr %100, i64 8
+  %1687 = load ptr, ptr %1686, align 8
+  store ptr null, ptr %1686, align 8
+  store ptr %1687, ptr %1685, align 8
+  store ptr null, ptr %100, align 8
+  store ptr %1682, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #21
+  br label %2538
+
+1688:                                             ; preds = %1677
+  %1689 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1695
+
+1690:                                             ; preds = %1680
+  %1691 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1694
+
+1692:                                             ; preds = %1681
+  %1693 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #21
+  br label %1694
+
+1694:                                             ; preds = %1692, %1690
+  %.pn1094 = phi { ptr, i32 } [ %1693, %1692 ], [ %1691, %1690 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #21
+  br label %1695
+
+1695:                                             ; preds = %1694, %1688
+  %.pn1094.pn = phi { ptr, i32 } [ %.pn1094, %1694 ], [ %1689, %1688 ]
+  %.68 = extractvalue { ptr, i32 } %.pn1094.pn, 0
+  %.68840 = extractvalue { ptr, i32 } %.pn1094.pn, 1
+  %1696 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1697 = icmp eq i32 %.68840, %1696
+  br i1 %1697, label %1698, label %2799
+
+1698:                                             ; preds = %1695
+  %1699 = call ptr @__cxa_begin_catch(ptr %.68) #21
+  %1700 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1699)
+          to label %1701 unwind label %1702
+
+1701:                                             ; preds = %1698
+  call void @__cxa_end_catch()
+  br i1 %1700, label %2635, label %.loopexit
+
+1702:                                             ; preds = %1698
+  %1703 = landingpad { ptr, i32 }
+          cleanup
+  %1704 = extractvalue { ptr, i32 } %1703, 0
+  %1705 = extractvalue { ptr, i32 } %1703, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1706:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1707 = load ptr, ptr %374, align 8
+  %1708 = getelementptr inbounds i8, ptr %1707, i64 -16
+  %1709 = load ptr, ptr %1708, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef %1709)
+          to label %1710 unwind label %1721
+
+1710:                                             ; preds = %1706
+  %1711 = load ptr, ptr %374, align 8
+  %1712 = load ptr, ptr %1711, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef %1712)
+          to label %1713 unwind label %1723
+
+1713:                                             ; preds = %1710
   invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %103, ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %105, i8 noundef signext 94, ptr noundef %4)
-          to label %1652 unwind label %1661
+          to label %1714 unwind label %1725
 
-1652:                                             ; preds = %1651
-  %1653 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1654 unwind label %1663
+1714:                                             ; preds = %1713
+  %1715 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1716 unwind label %1727
 
-1654:                                             ; preds = %1652
-  %1655 = getelementptr inbounds i8, ptr %103, i64 8
-  %1656 = load <2 x ptr>, ptr %103, align 16
-  store ptr null, ptr %1655, align 8
-  store <2 x ptr> %1656, ptr %1653, align 8
-  store ptr null, ptr %103, align 16
-  store ptr %1653, ptr %8, align 8
+1716:                                             ; preds = %1714
+  %1717 = load ptr, ptr %103, align 8
+  store ptr %1717, ptr %1715, align 8
+  %1718 = getelementptr inbounds i8, ptr %1715, i64 8
+  %1719 = getelementptr inbounds i8, ptr %103, i64 8
+  %1720 = load ptr, ptr %1719, align 8
+  store ptr null, ptr %1719, align 8
+  store ptr %1720, ptr %1718, align 8
+  store ptr null, ptr %103, align 8
+  store ptr %1715, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #21
-  br label %2458
+  br label %2538
 
-1657:                                             ; preds = %1644
-  %1658 = landingpad { ptr, i32 }
+1721:                                             ; preds = %1706
+  %1722 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1667
+  br label %1731
 
-1659:                                             ; preds = %1648
-  %1660 = landingpad { ptr, i32 }
+1723:                                             ; preds = %1710
+  %1724 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1666
+  br label %1730
 
-1661:                                             ; preds = %1651
-  %1662 = landingpad { ptr, i32 }
+1725:                                             ; preds = %1713
+  %1726 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1665
+  br label %1729
 
-1663:                                             ; preds = %1652
-  %1664 = landingpad { ptr, i32 }
+1727:                                             ; preds = %1714
+  %1728 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #21
-  br label %1665
+  br label %1729
 
-1665:                                             ; preds = %1663, %1661
-  %.pn1090 = phi { ptr, i32 } [ %1664, %1663 ], [ %1662, %1661 ]
+1729:                                             ; preds = %1727, %1725
+  %.pn1090 = phi { ptr, i32 } [ %1728, %1727 ], [ %1726, %1725 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #21
-  br label %1666
+  br label %1730
 
-1666:                                             ; preds = %1665, %1659
-  %.pn1090.pn = phi { ptr, i32 } [ %.pn1090, %1665 ], [ %1660, %1659 ]
+1730:                                             ; preds = %1729, %1723
+  %.pn1090.pn = phi { ptr, i32 } [ %.pn1090, %1729 ], [ %1724, %1723 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #21
-  br label %1667
+  br label %1731
 
-1667:                                             ; preds = %1666, %1657
-  %.pn1090.pn.pn = phi { ptr, i32 } [ %.pn1090.pn, %1666 ], [ %1658, %1657 ]
+1731:                                             ; preds = %1730, %1721
+  %.pn1090.pn.pn = phi { ptr, i32 } [ %.pn1090.pn, %1730 ], [ %1722, %1721 ]
   %.70 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 0
   %.70842 = extractvalue { ptr, i32 } %.pn1090.pn.pn, 1
-  %1668 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1669 = icmp eq i32 %.70842, %1668
-  br i1 %1669, label %1670, label %2719
+  %1732 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1733 = icmp eq i32 %.70842, %1732
+  br i1 %1733, label %1734, label %2799
 
-1670:                                             ; preds = %1667
-  %1671 = call ptr @__cxa_begin_catch(ptr %.70) #21
-  %1672 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1671)
-          to label %1673 unwind label %1674
+1734:                                             ; preds = %1731
+  %1735 = call ptr @__cxa_begin_catch(ptr %.70) #21
+  %1736 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1735)
+          to label %1737 unwind label %1738
 
-1673:                                             ; preds = %1670
+1737:                                             ; preds = %1734
   call void @__cxa_end_catch()
-  br i1 %1672, label %2555, label %.loopexit
+  br i1 %1736, label %2635, label %.loopexit
 
-1674:                                             ; preds = %1670
-  %1675 = landingpad { ptr, i32 }
+1738:                                             ; preds = %1734
+  %1739 = landingpad { ptr, i32 }
           cleanup
-  %1676 = extractvalue { ptr, i32 } %1675, 0
-  %1677 = extractvalue { ptr, i32 } %1675, 1
+  %1740 = extractvalue { ptr, i32 } %1739, 0
+  %1741 = extractvalue { ptr, i32 } %1739, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1678:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1679 = load ptr, ptr %374, align 8
-  %1680 = getelementptr inbounds i8, ptr %1679, i64 -8
-  %1681 = load ptr, ptr %1680, align 8
-  store ptr %1681, ptr %8, align 8
-  br label %2458
+1742:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1743 = load ptr, ptr %374, align 8
+  %1744 = getelementptr inbounds i8, ptr %1743, i64 -8
+  %1745 = load ptr, ptr %1744, align 8
+  store ptr %1745, ptr %8, align 8
+  br label %2538
 
-1682:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1683 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
-          to label %1684 unwind label %1710
+1746:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1747 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #24
+          to label %1748 unwind label %1776
 
-1684:                                             ; preds = %1682
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1683, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %1685 unwind label %1712
+1748:                                             ; preds = %1746
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %1747, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %1749 unwind label %1778
 
-1685:                                             ; preds = %1684
-  store ptr %1683, ptr %106, align 16
-  %1686 = getelementptr inbounds i8, ptr %106, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1686, ptr noundef nonnull %1683)
-          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354 unwind label %1710
+1749:                                             ; preds = %1748
+  store ptr %1747, ptr %106, align 8
+  %1750 = getelementptr inbounds i8, ptr %106, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %1750, ptr noundef nonnull %1747)
+          to label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354 unwind label %1776
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354: ; preds = %1685
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354: ; preds = %1749
   invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %106, i32 noundef 3)
-          to label %1687 unwind label %1714
+          to label %1751 unwind label %1780
 
-1687:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354
-  %1688 = load ptr, ptr %106, align 16
-  %1689 = getelementptr inbounds i8, ptr %1688, i64 8
-  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1689, i32 noundef 1)
-          to label %1690 unwind label %1714
+1751:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354
+  %1752 = load ptr, ptr %106, align 8
+  %1753 = getelementptr inbounds i8, ptr %1752, i64 8
+  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %1753, i32 noundef 1)
+          to label %1754 unwind label %1780
 
-1690:                                             ; preds = %1687
-  %1691 = load ptr, ptr %374, align 8
-  %1692 = load ptr, ptr %1691, align 8
-  %1693 = load ptr, ptr %106, align 16
-  %1694 = getelementptr inbounds i8, ptr %1693, i64 16
-  %1695 = load ptr, ptr %1694, align 8
-  store ptr %1692, ptr %1695, align 8
-  %1696 = getelementptr inbounds i8, ptr %107, i64 8
-  %1697 = load ptr, ptr %1686, align 8
-  %1698 = load <2 x ptr>, ptr %106, align 16
-  store <2 x ptr> %1698, ptr %107, align 16
-  %.not.i.i.i1355 = icmp eq ptr %1697, null
-  br i1 %.not.i.i.i1355, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357, label %1699
+1754:                                             ; preds = %1751
+  %1755 = load ptr, ptr %374, align 8
+  %1756 = load ptr, ptr %1755, align 8
+  %1757 = load ptr, ptr %106, align 8
+  %1758 = getelementptr inbounds i8, ptr %1757, i64 16
+  %1759 = load ptr, ptr %1758, align 8
+  store ptr %1756, ptr %1759, align 8
+  %1760 = load ptr, ptr %106, align 8
+  store ptr %1760, ptr %107, align 8
+  %1761 = getelementptr inbounds i8, ptr %107, i64 8
+  %1762 = load ptr, ptr %1750, align 8
+  store ptr %1762, ptr %1761, align 8
+  %.not.i.i.i1355 = icmp eq ptr %1762, null
+  br i1 %.not.i.i.i1355, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357, label %1763
 
-1699:                                             ; preds = %1690
-  %1700 = getelementptr inbounds i8, ptr %1697, i64 8
-  %1701 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i1356 = icmp eq i8 %1701, 0
-  br i1 %.not.i.i.i.i1356, label %1705, label %1702
+1763:                                             ; preds = %1754
+  %1764 = getelementptr inbounds i8, ptr %1762, i64 8
+  %1765 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1356 = icmp eq i8 %1765, 0
+  br i1 %.not.i.i.i.i1356, label %1769, label %1766
 
-1702:                                             ; preds = %1699
-  %1703 = load i32, ptr %1700, align 4
-  %1704 = add nsw i32 %1703, 1
-  store i32 %1704, ptr %1700, align 4
+1766:                                             ; preds = %1763
+  %1767 = load i32, ptr %1764, align 4
+  %1768 = add nsw i32 %1767, 1
+  store i32 %1768, ptr %1764, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
 
-1705:                                             ; preds = %1699
-  %1706 = atomicrmw volatile add ptr %1700, i32 1 acq_rel, align 4
+1769:                                             ; preds = %1763
+  %1770 = atomicrmw volatile add ptr %1764, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %1690, %1702, %1705
-  %1707 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1708 unwind label %1716
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357: ; preds = %1754, %1766, %1769
+  %1771 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1772 unwind label %1782
 
-1708:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
-  %1709 = load <2 x ptr>, ptr %107, align 16
-  store ptr null, ptr %1696, align 8
-  store <2 x ptr> %1709, ptr %1707, align 8
-  store ptr null, ptr %107, align 16
-  store ptr %1707, ptr %8, align 8
+1772:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
+  %1773 = load ptr, ptr %107, align 8
+  store ptr %1773, ptr %1771, align 8
+  %1774 = getelementptr inbounds i8, ptr %1771, i64 8
+  %1775 = load ptr, ptr %1761, align 8
+  store ptr null, ptr %1761, align 8
+  store ptr %1775, ptr %1774, align 8
+  store ptr null, ptr %107, align 8
+  store ptr %1771, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %107) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #21
-  br label %2458
+  br label %2538
 
-1710:                                             ; preds = %1685, %1682
-  %1711 = landingpad { ptr, i32 }
+1776:                                             ; preds = %1749, %1746
+  %1777 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1719
+  br label %1785
 
-1712:                                             ; preds = %1684
-  %1713 = landingpad { ptr, i32 }
+1778:                                             ; preds = %1748
+  %1779 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZdlPv(ptr noundef nonnull %1683) #25
-  br label %1719
+  call void @_ZdlPv(ptr noundef nonnull %1747) #25
+  br label %1785
 
-1714:                                             ; preds = %1687, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354
-  %1715 = landingpad { ptr, i32 }
+1780:                                             ; preds = %1751, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354
+  %1781 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1718
+  br label %1784
 
-1716:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
-  %1717 = landingpad { ptr, i32 }
+1782:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357
+  %1783 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %107) #21
-  br label %1718
+  br label %1784
 
-1718:                                             ; preds = %1716, %1714
-  %.pn1087 = phi { ptr, i32 } [ %1717, %1716 ], [ %1715, %1714 ]
+1784:                                             ; preds = %1782, %1780
+  %.pn1087 = phi { ptr, i32 } [ %1783, %1782 ], [ %1781, %1780 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #21
-  br label %1719
+  br label %1785
 
-1719:                                             ; preds = %1718, %1712, %1710
-  %.pn1087.pn = phi { ptr, i32 } [ %.pn1087, %1718 ], [ %1711, %1710 ], [ %1713, %1712 ]
+1785:                                             ; preds = %1784, %1778, %1776
+  %.pn1087.pn = phi { ptr, i32 } [ %.pn1087, %1784 ], [ %1777, %1776 ], [ %1779, %1778 ]
   %.73 = extractvalue { ptr, i32 } %.pn1087.pn, 0
   %.73845 = extractvalue { ptr, i32 } %.pn1087.pn, 1
-  %1720 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1721 = icmp eq i32 %.73845, %1720
-  br i1 %1721, label %1722, label %2719
+  %1786 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1787 = icmp eq i32 %.73845, %1786
+  br i1 %1787, label %1788, label %2799
 
-1722:                                             ; preds = %1719
-  %1723 = call ptr @__cxa_begin_catch(ptr %.73) #21
-  %1724 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1723)
-          to label %1725 unwind label %1726
+1788:                                             ; preds = %1785
+  %1789 = call ptr @__cxa_begin_catch(ptr %.73) #21
+  %1790 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1789)
+          to label %1791 unwind label %1792
 
-1725:                                             ; preds = %1722
+1791:                                             ; preds = %1788
   call void @__cxa_end_catch()
-  br i1 %1724, label %2555, label %.loopexit
+  br i1 %1790, label %2635, label %.loopexit
 
-1726:                                             ; preds = %1722
-  %1727 = landingpad { ptr, i32 }
+1792:                                             ; preds = %1788
+  %1793 = landingpad { ptr, i32 }
           cleanup
-  %1728 = extractvalue { ptr, i32 } %1727, 0
-  %1729 = extractvalue { ptr, i32 } %1727, 1
+  %1794 = extractvalue { ptr, i32 } %1793, 0
+  %1795 = extractvalue { ptr, i32 } %1793, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1730:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1731 = load ptr, ptr %374, align 8
-  %1732 = getelementptr inbounds i8, ptr %1731, i64 -8
-  %1733 = load ptr, ptr %1732, align 8
-  store ptr %1733, ptr %108, align 8
-  %1734 = load ptr, ptr %1731, align 8
+1796:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1797 = load ptr, ptr %374, align 8
+  %1798 = getelementptr inbounds i8, ptr %1797, i64 -8
+  %1799 = load ptr, ptr %1798, align 8
+  store ptr %1799, ptr %108, align 8
+  %1800 = load ptr, ptr %1797, align 8
   store ptr null, ptr %110, align 8
-  %1735 = load ptr, ptr %1732, align 8
-  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %109, ptr noundef %1734, ptr noundef nonnull %110, ptr noundef %1735, ptr noundef %4)
-          to label %1736 unwind label %1743
+  %1801 = load ptr, ptr %1798, align 8
+  invoke void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %109, ptr noundef %1800, ptr noundef nonnull %110, ptr noundef %1801, ptr noundef %4)
+          to label %1802 unwind label %1811
 
-1736:                                             ; preds = %1730
-  %1737 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1738 unwind label %1745
+1802:                                             ; preds = %1796
+  %1803 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1804 unwind label %1813
 
-1738:                                             ; preds = %1736
-  %1739 = getelementptr inbounds i8, ptr %109, i64 8
-  %1740 = load <2 x ptr>, ptr %109, align 16
-  store ptr null, ptr %1739, align 8
-  store <2 x ptr> %1740, ptr %1737, align 8
-  store ptr null, ptr %109, align 16
-  store ptr %1737, ptr %8, align 8
+1804:                                             ; preds = %1802
+  %1805 = load ptr, ptr %109, align 8
+  store ptr %1805, ptr %1803, align 8
+  %1806 = getelementptr inbounds i8, ptr %1803, i64 8
+  %1807 = getelementptr inbounds i8, ptr %109, i64 8
+  %1808 = load ptr, ptr %1807, align 8
+  store ptr null, ptr %1807, align 8
+  store ptr %1808, ptr %1806, align 8
+  store ptr null, ptr %109, align 8
+  store ptr %1803, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #21
-  %1741 = load ptr, ptr %8, align 8
-  %1742 = load ptr, ptr %1741, align 8
-  %.not1452 = icmp eq ptr %1742, null
-  br i1 %.not1452, label %1754, label %.thread1425
+  %1809 = load ptr, ptr %8, align 8
+  %1810 = load ptr, ptr %1809, align 8
+  %.not1452 = icmp eq ptr %1810, null
+  br i1 %.not1452, label %1822, label %.thread1425
 
-.thread1425:                                      ; preds = %1738
+.thread1425:                                      ; preds = %1804
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #21
-  br label %2458
+  br label %2538
 
-1743:                                             ; preds = %1730
-  %1744 = landingpad { ptr, i32 }
+1811:                                             ; preds = %1796
+  %1812 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1747
+  br label %1815
 
-1745:                                             ; preds = %1736
-  %1746 = landingpad { ptr, i32 }
+1813:                                             ; preds = %1802
+  %1814 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #21
-  br label %1747
+  br label %1815
 
-1747:                                             ; preds = %1745, %1743
-  %.pn1085 = phi { ptr, i32 } [ %1746, %1745 ], [ %1744, %1743 ]
+1815:                                             ; preds = %1813, %1811
+  %.pn1085 = phi { ptr, i32 } [ %1814, %1813 ], [ %1812, %1811 ]
   %.75 = extractvalue { ptr, i32 } %.pn1085, 0
   %.75847 = extractvalue { ptr, i32 } %.pn1085, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #21
-  %1748 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1749 = icmp eq i32 %.75847, %1748
-  br i1 %1749, label %1750, label %2719
-
-1750:                                             ; preds = %1747
-  %1751 = call ptr @__cxa_begin_catch(ptr %.75) #21
-  %1752 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1751)
-          to label %1753 unwind label %1755
-
-1753:                                             ; preds = %1750
-  call void @__cxa_end_catch()
-  br i1 %1752, label %2555, label %.loopexit
-
-1754:                                             ; preds = %1738
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1741) #21
-  call void @_ZdlPv(ptr noundef nonnull %1741) #25
-  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #21
-  br label %2555
-
-1755:                                             ; preds = %1750
-  %1756 = landingpad { ptr, i32 }
-          cleanup
-  %1757 = extractvalue { ptr, i32 } %1756, 0
-  %1758 = extractvalue { ptr, i32 } %1756, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1759:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1760 = load ptr, ptr %374, align 8
-  %1761 = getelementptr inbounds i8, ptr %1760, i64 -40
-  %1762 = load float, ptr %1761, align 8
-  %1763 = getelementptr inbounds i8, ptr %1760, i64 -24
-  %1764 = load float, ptr %1763, align 8
-  %1765 = getelementptr inbounds i8, ptr %1760, i64 -8
-  %1766 = load float, ptr %1765, align 8
-  invoke void @_Z28_gmx_sel_init_const_positionfffPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %111, float noundef %1762, float noundef %1764, float noundef %1766, ptr noundef %4)
-          to label %1767 unwind label %1772
-
-1767:                                             ; preds = %1759
-  %1768 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1769 unwind label %1774
-
-1769:                                             ; preds = %1767
-  %1770 = getelementptr inbounds i8, ptr %111, i64 8
-  %1771 = load <2 x ptr>, ptr %111, align 16
-  store ptr null, ptr %1770, align 8
-  store <2 x ptr> %1771, ptr %1768, align 8
-  store ptr null, ptr %111, align 16
-  store ptr %1768, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #21
-  br label %2458
-
-1772:                                             ; preds = %1759
-  %1773 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1776
-
-1774:                                             ; preds = %1767
-  %1775 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #21
-  br label %1776
-
-1776:                                             ; preds = %1774, %1772
-  %.pn1083 = phi { ptr, i32 } [ %1775, %1774 ], [ %1773, %1772 ]
-  %.76 = extractvalue { ptr, i32 } %.pn1083, 0
-  %.76848 = extractvalue { ptr, i32 } %.pn1083, 1
-  %1777 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1778 = icmp eq i32 %.76848, %1777
-  br i1 %1778, label %1779, label %2719
-
-1779:                                             ; preds = %1776
-  %1780 = call ptr @__cxa_begin_catch(ptr %.76) #21
-  %1781 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1780)
-          to label %1782 unwind label %1783
-
-1782:                                             ; preds = %1779
-  call void @__cxa_end_catch()
-  br i1 %1781, label %2555, label %.loopexit
-
-1783:                                             ; preds = %1779
-  %1784 = landingpad { ptr, i32 }
-          cleanup
-  %1785 = extractvalue { ptr, i32 } %1784, 0
-  %1786 = extractvalue { ptr, i32 } %1784, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1787:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1788 = load ptr, ptr %374, align 8
-  %1789 = getelementptr inbounds i8, ptr %1788, i64 -8
-  %1790 = load ptr, ptr %1789, align 8
-  store ptr %1790, ptr %8, align 8
-  br label %2458
-
-1791:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1792 = load ptr, ptr %374, align 8
-  %1793 = getelementptr inbounds i8, ptr %1792, i64 -8
-  %1794 = load ptr, ptr %1793, align 8
-  %1795 = load ptr, ptr %1792, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef %1795)
-          to label %1796 unwind label %1805
-
-1796:                                             ; preds = %1791
-  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %112, ptr noundef %1794, ptr noundef nonnull %113, ptr noundef null, ptr noundef %4)
-          to label %1797 unwind label %1807
-
-1797:                                             ; preds = %1796
-  %1798 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1799 unwind label %1809
-
-1799:                                             ; preds = %1797
-  %1800 = getelementptr inbounds i8, ptr %112, i64 8
-  %1801 = load <2 x ptr>, ptr %112, align 16
-  store ptr null, ptr %1800, align 8
-  store <2 x ptr> %1801, ptr %1798, align 8
-  store ptr null, ptr %112, align 16
-  store ptr %1798, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #21
-  %1802 = load ptr, ptr %8, align 8
-  %1803 = load ptr, ptr %1802, align 8
-  %.not1451 = icmp eq ptr %1803, null
-  br i1 %.not1451, label %1804, label %2458
-
-1804:                                             ; preds = %1799
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1802) #21
-  call void @_ZdlPv(ptr noundef nonnull %1802) #25
-  br label %2555
-
-1805:                                             ; preds = %1791
-  %1806 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1812
-
-1807:                                             ; preds = %1796
-  %1808 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1811
-
-1809:                                             ; preds = %1797
-  %1810 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #21
-  br label %1811
-
-1811:                                             ; preds = %1809, %1807
-  %.pn1080 = phi { ptr, i32 } [ %1810, %1809 ], [ %1808, %1807 ]
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #21
-  br label %1812
-
-1812:                                             ; preds = %1811, %1805
-  %.pn1080.pn = phi { ptr, i32 } [ %.pn1080, %1811 ], [ %1806, %1805 ]
-  %.77 = extractvalue { ptr, i32 } %.pn1080.pn, 0
-  %.77849 = extractvalue { ptr, i32 } %.pn1080.pn, 1
-  %1813 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1814 = icmp eq i32 %.77849, %1813
-  br i1 %1814, label %1815, label %2719
-
-1815:                                             ; preds = %1812
-  %1816 = call ptr @__cxa_begin_catch(ptr %.77) #21
-  %1817 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1816)
-          to label %1818 unwind label %1819
+  %1816 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1817 = icmp eq i32 %.75847, %1816
+  br i1 %1817, label %1818, label %2799
 
 1818:                                             ; preds = %1815
+  %1819 = call ptr @__cxa_begin_catch(ptr %.75) #21
+  %1820 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1819)
+          to label %1821 unwind label %1823
+
+1821:                                             ; preds = %1818
   call void @__cxa_end_catch()
-  br i1 %1817, label %2555, label %.loopexit
+  br i1 %1820, label %2635, label %.loopexit
 
-1819:                                             ; preds = %1815
-  %1820 = landingpad { ptr, i32 }
+1822:                                             ; preds = %1804
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1809) #21
+  call void @_ZdlPv(ptr noundef nonnull %1809) #25
+  call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #21
+  br label %2635
+
+1823:                                             ; preds = %1818
+  %1824 = landingpad { ptr, i32 }
           cleanup
-  %1821 = extractvalue { ptr, i32 } %1820, 0
-  %1822 = extractvalue { ptr, i32 } %1820, 1
+  %1825 = extractvalue { ptr, i32 } %1824, 0
+  %1826 = extractvalue { ptr, i32 } %1824, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1823:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1824 = load ptr, ptr %374, align 8
-  %1825 = getelementptr inbounds i8, ptr %1824, i64 -16
-  %1826 = load ptr, ptr %1825, align 8
-  store ptr %1826, ptr %114, align 8
-  %1827 = load ptr, ptr %1824, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef %1827)
-          to label %1828 unwind label %1839
+1827:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1828 = load ptr, ptr %374, align 8
+  %1829 = getelementptr inbounds i8, ptr %1828, i64 -40
+  %1830 = load float, ptr %1829, align 8
+  %1831 = getelementptr inbounds i8, ptr %1828, i64 -24
+  %1832 = load float, ptr %1831, align 8
+  %1833 = getelementptr inbounds i8, ptr %1828, i64 -8
+  %1834 = load float, ptr %1833, align 8
+  invoke void @_Z28_gmx_sel_init_const_positionfffPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %111, float noundef %1830, float noundef %1832, float noundef %1834, ptr noundef %4)
+          to label %1835 unwind label %1842
 
-1828:                                             ; preds = %1823
-  %1829 = load ptr, ptr %374, align 8
-  %1830 = getelementptr inbounds i8, ptr %1829, i64 -16
-  %1831 = load ptr, ptr %1830, align 8
-  invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef %1831, ptr noundef %4)
-          to label %1832 unwind label %1841
+1835:                                             ; preds = %1827
+  %1836 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1837 unwind label %1844
 
-1832:                                             ; preds = %1828
-  %1833 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1834 unwind label %1843
+1837:                                             ; preds = %1835
+  %1838 = load ptr, ptr %111, align 8
+  store ptr %1838, ptr %1836, align 8
+  %1839 = getelementptr inbounds i8, ptr %1836, i64 8
+  %1840 = getelementptr inbounds i8, ptr %111, i64 8
+  %1841 = load ptr, ptr %1840, align 8
+  store ptr null, ptr %1840, align 8
+  store ptr %1841, ptr %1839, align 8
+  store ptr null, ptr %111, align 8
+  store ptr %1836, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #21
+  br label %2538
 
-1834:                                             ; preds = %1832
-  %1835 = getelementptr inbounds i8, ptr %115, i64 8
-  %1836 = load <2 x ptr>, ptr %115, align 16
-  store ptr null, ptr %1835, align 8
-  store <2 x ptr> %1836, ptr %1833, align 8
-  store ptr null, ptr %115, align 16
-  store ptr %1833, ptr %8, align 8
+1842:                                             ; preds = %1827
+  %1843 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1846
+
+1844:                                             ; preds = %1835
+  %1845 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #21
+  br label %1846
+
+1846:                                             ; preds = %1844, %1842
+  %.pn1083 = phi { ptr, i32 } [ %1845, %1844 ], [ %1843, %1842 ]
+  %.76 = extractvalue { ptr, i32 } %.pn1083, 0
+  %.76848 = extractvalue { ptr, i32 } %.pn1083, 1
+  %1847 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1848 = icmp eq i32 %.76848, %1847
+  br i1 %1848, label %1849, label %2799
+
+1849:                                             ; preds = %1846
+  %1850 = call ptr @__cxa_begin_catch(ptr %.76) #21
+  %1851 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1850)
+          to label %1852 unwind label %1853
+
+1852:                                             ; preds = %1849
+  call void @__cxa_end_catch()
+  br i1 %1851, label %2635, label %.loopexit
+
+1853:                                             ; preds = %1849
+  %1854 = landingpad { ptr, i32 }
+          cleanup
+  %1855 = extractvalue { ptr, i32 } %1854, 0
+  %1856 = extractvalue { ptr, i32 } %1854, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1857:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1858 = load ptr, ptr %374, align 8
+  %1859 = getelementptr inbounds i8, ptr %1858, i64 -8
+  %1860 = load ptr, ptr %1859, align 8
+  store ptr %1860, ptr %8, align 8
+  br label %2538
+
+1861:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1862 = load ptr, ptr %374, align 8
+  %1863 = getelementptr inbounds i8, ptr %1862, i64 -8
+  %1864 = load ptr, ptr %1863, align 8
+  %1865 = load ptr, ptr %1862, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef %1865)
+          to label %1866 unwind label %1877
+
+1866:                                             ; preds = %1861
+  invoke void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %112, ptr noundef %1864, ptr noundef nonnull %113, ptr noundef null, ptr noundef %4)
+          to label %1867 unwind label %1879
+
+1867:                                             ; preds = %1866
+  %1868 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1869 unwind label %1881
+
+1869:                                             ; preds = %1867
+  %1870 = load ptr, ptr %112, align 8
+  store ptr %1870, ptr %1868, align 8
+  %1871 = getelementptr inbounds i8, ptr %1868, i64 8
+  %1872 = getelementptr inbounds i8, ptr %112, i64 8
+  %1873 = load ptr, ptr %1872, align 8
+  store ptr null, ptr %1872, align 8
+  store ptr %1873, ptr %1871, align 8
+  store ptr null, ptr %112, align 8
+  store ptr %1868, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #21
+  %1874 = load ptr, ptr %8, align 8
+  %1875 = load ptr, ptr %1874, align 8
+  %.not1451 = icmp eq ptr %1875, null
+  br i1 %.not1451, label %1876, label %2538
+
+1876:                                             ; preds = %1869
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1874) #21
+  call void @_ZdlPv(ptr noundef nonnull %1874) #25
+  br label %2635
+
+1877:                                             ; preds = %1861
+  %1878 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1884
+
+1879:                                             ; preds = %1866
+  %1880 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1883
+
+1881:                                             ; preds = %1867
+  %1882 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #21
+  br label %1883
+
+1883:                                             ; preds = %1881, %1879
+  %.pn1080 = phi { ptr, i32 } [ %1882, %1881 ], [ %1880, %1879 ]
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #21
+  br label %1884
+
+1884:                                             ; preds = %1883, %1877
+  %.pn1080.pn = phi { ptr, i32 } [ %.pn1080, %1883 ], [ %1878, %1877 ]
+  %.77 = extractvalue { ptr, i32 } %.pn1080.pn, 0
+  %.77849 = extractvalue { ptr, i32 } %.pn1080.pn, 1
+  %1885 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1886 = icmp eq i32 %.77849, %1885
+  br i1 %1886, label %1887, label %2799
+
+1887:                                             ; preds = %1884
+  %1888 = call ptr @__cxa_begin_catch(ptr %.77) #21
+  %1889 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1888)
+          to label %1890 unwind label %1891
+
+1890:                                             ; preds = %1887
+  call void @__cxa_end_catch()
+  br i1 %1889, label %2635, label %.loopexit
+
+1891:                                             ; preds = %1887
+  %1892 = landingpad { ptr, i32 }
+          cleanup
+  %1893 = extractvalue { ptr, i32 } %1892, 0
+  %1894 = extractvalue { ptr, i32 } %1892, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1895:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1896 = load ptr, ptr %374, align 8
+  %1897 = getelementptr inbounds i8, ptr %1896, i64 -16
+  %1898 = load ptr, ptr %1897, align 8
+  store ptr %1898, ptr %114, align 8
+  %1899 = load ptr, ptr %1896, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef %1899)
+          to label %1900 unwind label %1913
+
+1900:                                             ; preds = %1895
+  %1901 = load ptr, ptr %374, align 8
+  %1902 = getelementptr inbounds i8, ptr %1901, i64 -16
+  %1903 = load ptr, ptr %1902, align 8
+  invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef %1903, ptr noundef %4)
+          to label %1904 unwind label %1915
+
+1904:                                             ; preds = %1900
+  %1905 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1906 unwind label %1917
+
+1906:                                             ; preds = %1904
+  %1907 = load ptr, ptr %115, align 8
+  store ptr %1907, ptr %1905, align 8
+  %1908 = getelementptr inbounds i8, ptr %1905, i64 8
+  %1909 = getelementptr inbounds i8, ptr %115, i64 8
+  %1910 = load ptr, ptr %1909, align 8
+  store ptr null, ptr %1909, align 8
+  store ptr %1910, ptr %1908, align 8
+  store ptr null, ptr %115, align 8
+  store ptr %1905, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %116) #21
-  %1837 = load ptr, ptr %8, align 8
-  %1838 = load ptr, ptr %1837, align 8
-  %.not1450 = icmp eq ptr %1838, null
-  br i1 %.not1450, label %1846, label %.thread1428
+  %1911 = load ptr, ptr %8, align 8
+  %1912 = load ptr, ptr %1911, align 8
+  %.not1450 = icmp eq ptr %1912, null
+  br i1 %.not1450, label %1920, label %.thread1428
 
-.thread1428:                                      ; preds = %1834
+.thread1428:                                      ; preds = %1906
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #21
-  br label %2458
+  br label %2538
 
-1839:                                             ; preds = %1823
-  %1840 = landingpad { ptr, i32 }
+1913:                                             ; preds = %1895
+  %1914 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1847
+  br label %1921
 
-1841:                                             ; preds = %1828
-  %1842 = landingpad { ptr, i32 }
+1915:                                             ; preds = %1900
+  %1916 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1845
+  br label %1919
 
-1843:                                             ; preds = %1832
-  %1844 = landingpad { ptr, i32 }
+1917:                                             ; preds = %1904
+  %1918 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #21
-  br label %1845
+  br label %1919
 
-1845:                                             ; preds = %1843, %1841
-  %.pn1077 = phi { ptr, i32 } [ %1844, %1843 ], [ %1842, %1841 ]
+1919:                                             ; preds = %1917, %1915
+  %.pn1077 = phi { ptr, i32 } [ %1918, %1917 ], [ %1916, %1915 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %116) #21
-  br label %1847
+  br label %1921
 
-1846:                                             ; preds = %1834
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1837) #21
-  call void @_ZdlPv(ptr noundef nonnull %1837) #25
+1920:                                             ; preds = %1906
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1911) #21
+  call void @_ZdlPv(ptr noundef nonnull %1911) #25
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #21
-  br label %2555
+  br label %2635
 
-1847:                                             ; preds = %1845, %1839
-  %.pn1077.pn = phi { ptr, i32 } [ %.pn1077, %1845 ], [ %1840, %1839 ]
+1921:                                             ; preds = %1919, %1913
+  %.pn1077.pn = phi { ptr, i32 } [ %.pn1077, %1919 ], [ %1914, %1913 ]
   %.79 = extractvalue { ptr, i32 } %.pn1077.pn, 0
   %.79851 = extractvalue { ptr, i32 } %.pn1077.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #21
-  %1848 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1849 = icmp eq i32 %.79851, %1848
-  br i1 %1849, label %1850, label %2719
+  %1922 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1923 = icmp eq i32 %.79851, %1922
+  br i1 %1923, label %1924, label %2799
 
-1850:                                             ; preds = %1847
-  %1851 = call ptr @__cxa_begin_catch(ptr %.79) #21
-  %1852 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1851)
-          to label %1853 unwind label %1854
+1924:                                             ; preds = %1921
+  %1925 = call ptr @__cxa_begin_catch(ptr %.79) #21
+  %1926 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1925)
+          to label %1927 unwind label %1928
 
-1853:                                             ; preds = %1850
+1927:                                             ; preds = %1924
   call void @__cxa_end_catch()
-  br i1 %1852, label %2555, label %.loopexit
+  br i1 %1926, label %2635, label %.loopexit
 
-1854:                                             ; preds = %1850
-  %1855 = landingpad { ptr, i32 }
+1928:                                             ; preds = %1924
+  %1929 = landingpad { ptr, i32 }
           cleanup
-  %1856 = extractvalue { ptr, i32 } %1855, 0
-  %1857 = extractvalue { ptr, i32 } %1855, 1
+  %1930 = extractvalue { ptr, i32 } %1929, 0
+  %1931 = extractvalue { ptr, i32 } %1929, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1858:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1859 = load ptr, ptr %374, align 8
-  %1860 = load ptr, ptr %1859, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef %1860)
-          to label %1861 unwind label %1867
+1932:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1933 = load ptr, ptr %374, align 8
+  %1934 = load ptr, ptr %1933, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef %1934)
+          to label %1935 unwind label %1943
 
-1861:                                             ; preds = %1858
+1935:                                             ; preds = %1932
   invoke void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %117, ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef %4)
-          to label %1862 unwind label %1869
+          to label %1936 unwind label %1945
 
-1862:                                             ; preds = %1861
-  %1863 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1864 unwind label %1871
+1936:                                             ; preds = %1935
+  %1937 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1938 unwind label %1947
 
-1864:                                             ; preds = %1862
-  %1865 = getelementptr inbounds i8, ptr %117, i64 8
-  %1866 = load <2 x ptr>, ptr %117, align 16
-  store ptr null, ptr %1865, align 8
-  store <2 x ptr> %1866, ptr %1863, align 8
-  store ptr null, ptr %117, align 16
-  store ptr %1863, ptr %8, align 8
+1938:                                             ; preds = %1936
+  %1939 = load ptr, ptr %117, align 8
+  store ptr %1939, ptr %1937, align 8
+  %1940 = getelementptr inbounds i8, ptr %1937, i64 8
+  %1941 = getelementptr inbounds i8, ptr %117, i64 8
+  %1942 = load ptr, ptr %1941, align 8
+  store ptr null, ptr %1941, align 8
+  store ptr %1942, ptr %1940, align 8
+  store ptr null, ptr %117, align 8
+  store ptr %1937, ptr %8, align 8
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %117) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %118) #21
-  br label %2458
+  br label %2538
 
-1867:                                             ; preds = %1858
-  %1868 = landingpad { ptr, i32 }
+1943:                                             ; preds = %1932
+  %1944 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %1874
+  br label %1950
 
-1869:                                             ; preds = %1861
-  %1870 = landingpad { ptr, i32 }
+1945:                                             ; preds = %1935
+  %1946 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1873
+  br label %1949
 
-1871:                                             ; preds = %1862
-  %1872 = landingpad { ptr, i32 }
+1947:                                             ; preds = %1936
+  %1948 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %117) #21
-  br label %1873
+  br label %1949
 
-1873:                                             ; preds = %1871, %1869
-  %.pn1074 = phi { ptr, i32 } [ %1872, %1871 ], [ %1870, %1869 ]
+1949:                                             ; preds = %1947, %1945
+  %.pn1074 = phi { ptr, i32 } [ %1948, %1947 ], [ %1946, %1945 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %118) #21
-  br label %1874
+  br label %1950
 
-1874:                                             ; preds = %1873, %1867
-  %.pn1074.pn = phi { ptr, i32 } [ %.pn1074, %1873 ], [ %1868, %1867 ]
+1950:                                             ; preds = %1949, %1943
+  %.pn1074.pn = phi { ptr, i32 } [ %.pn1074, %1949 ], [ %1944, %1943 ]
   %.81 = extractvalue { ptr, i32 } %.pn1074.pn, 0
   %.81853 = extractvalue { ptr, i32 } %.pn1074.pn, 1
-  %1875 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1876 = icmp eq i32 %.81853, %1875
-  br i1 %1876, label %1877, label %2719
+  %1951 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1952 = icmp eq i32 %.81853, %1951
+  br i1 %1952, label %1953, label %2799
 
-1877:                                             ; preds = %1874
-  %1878 = call ptr @__cxa_begin_catch(ptr %.81) #21
-  %1879 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1878)
-          to label %1880 unwind label %1881
+1953:                                             ; preds = %1950
+  %1954 = call ptr @__cxa_begin_catch(ptr %.81) #21
+  %1955 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1954)
+          to label %1956 unwind label %1957
 
-1880:                                             ; preds = %1877
+1956:                                             ; preds = %1953
   call void @__cxa_end_catch()
-  br i1 %1879, label %2555, label %.loopexit
+  br i1 %1955, label %2635, label %.loopexit
 
-1881:                                             ; preds = %1877
-  %1882 = landingpad { ptr, i32 }
+1957:                                             ; preds = %1953
+  %1958 = landingpad { ptr, i32 }
           cleanup
-  %1883 = extractvalue { ptr, i32 } %1882, 0
-  %1884 = extractvalue { ptr, i32 } %1882, 1
+  %1959 = extractvalue { ptr, i32 } %1958, 0
+  %1960 = extractvalue { ptr, i32 } %1958, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-1885:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1886 = load ptr, ptr %374, align 8
-  %1887 = load ptr, ptr %1886, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef %1887)
-          to label %1888 unwind label %1894
-
-1888:                                             ; preds = %1885
-  invoke void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %119, ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef %4)
-          to label %1889 unwind label %1896
-
-1889:                                             ; preds = %1888
-  %1890 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1891 unwind label %1898
-
-1891:                                             ; preds = %1889
-  %1892 = getelementptr inbounds i8, ptr %119, i64 8
-  %1893 = load <2 x ptr>, ptr %119, align 16
-  store ptr null, ptr %1892, align 8
-  store <2 x ptr> %1893, ptr %1890, align 8
-  store ptr null, ptr %119, align 16
-  store ptr %1890, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #21
-  br label %2458
-
-1894:                                             ; preds = %1885
-  %1895 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1901
-
-1896:                                             ; preds = %1888
-  %1897 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1900
-
-1898:                                             ; preds = %1889
-  %1899 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #21
-  br label %1900
-
-1900:                                             ; preds = %1898, %1896
-  %.pn1071 = phi { ptr, i32 } [ %1899, %1898 ], [ %1897, %1896 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #21
-  br label %1901
-
-1901:                                             ; preds = %1900, %1894
-  %.pn1071.pn = phi { ptr, i32 } [ %.pn1071, %1900 ], [ %1895, %1894 ]
-  %.83 = extractvalue { ptr, i32 } %.pn1071.pn, 0
-  %.83855 = extractvalue { ptr, i32 } %.pn1071.pn, 1
-  %1902 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1903 = icmp eq i32 %.83855, %1902
-  br i1 %1903, label %1904, label %2719
-
-1904:                                             ; preds = %1901
-  %1905 = call ptr @__cxa_begin_catch(ptr %.83) #21
-  %1906 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1905)
-          to label %1907 unwind label %1908
-
-1907:                                             ; preds = %1904
-  call void @__cxa_end_catch()
-  br i1 %1906, label %2555, label %.loopexit
-
-1908:                                             ; preds = %1904
-  %1909 = landingpad { ptr, i32 }
-          cleanup
-  %1910 = extractvalue { ptr, i32 } %1909, 0
-  %1911 = extractvalue { ptr, i32 } %1909, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1912:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1913 = load ptr, ptr %374, align 8
-  %1914 = load ptr, ptr %1913, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef %1914)
-          to label %1915 unwind label %1921
-
-1915:                                             ; preds = %1912
-  invoke void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %121, ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef %4)
-          to label %1916 unwind label %1923
-
-1916:                                             ; preds = %1915
-  %1917 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %1918 unwind label %1925
-
-1918:                                             ; preds = %1916
-  %1919 = getelementptr inbounds i8, ptr %121, i64 8
-  %1920 = load <2 x ptr>, ptr %121, align 16
-  store ptr null, ptr %1919, align 8
-  store <2 x ptr> %1920, ptr %1917, align 8
-  store ptr null, ptr %121, align 16
-  store ptr %1917, ptr %8, align 8
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #21
-  br label %2458
-
-1921:                                             ; preds = %1912
-  %1922 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1928
-
-1923:                                             ; preds = %1915
-  %1924 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1927
-
-1925:                                             ; preds = %1916
-  %1926 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
-  br label %1927
-
-1927:                                             ; preds = %1925, %1923
-  %.pn1068 = phi { ptr, i32 } [ %1926, %1925 ], [ %1924, %1923 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #21
-  br label %1928
-
-1928:                                             ; preds = %1927, %1921
-  %.pn1068.pn = phi { ptr, i32 } [ %.pn1068, %1927 ], [ %1922, %1921 ]
-  %.85 = extractvalue { ptr, i32 } %.pn1068.pn, 0
-  %.85857 = extractvalue { ptr, i32 } %.pn1068.pn, 1
-  %1929 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1930 = icmp eq i32 %.85857, %1929
-  br i1 %1930, label %1931, label %2719
-
-1931:                                             ; preds = %1928
-  %1932 = call ptr @__cxa_begin_catch(ptr %.85) #21
-  %1933 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1932)
-          to label %1934 unwind label %1935
-
-1934:                                             ; preds = %1931
-  call void @__cxa_end_catch()
-  br i1 %1933, label %2555, label %.loopexit
-
-1935:                                             ; preds = %1931
-  %1936 = landingpad { ptr, i32 }
-          cleanup
-  %1937 = extractvalue { ptr, i32 } %1936, 0
-  %1938 = extractvalue { ptr, i32 } %1936, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1939:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1940 = load ptr, ptr %374, align 8
-  %1941 = load ptr, ptr %1940, align 8
-  store ptr %1941, ptr %8, align 8
-  br label %2458
-
-1942:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1943 = load ptr, ptr %374, align 8
-  %1944 = getelementptr inbounds i8, ptr %1943, i64 -8
-  %1945 = load ptr, ptr %1944, align 8
-  store ptr %1945, ptr %8, align 8
-  br label %2458
-
-1946:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %1947 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %1948 unwind label %1954
-
-1948:                                             ; preds = %1946
-  %1949 = getelementptr inbounds i8, ptr %1947, i64 8
-  store ptr %1947, ptr %1949, align 8, !noalias !12
-  store ptr %1947, ptr %1947, align 8, !noalias !12
-  %1950 = getelementptr inbounds i8, ptr %1947, i64 16
-  store i64 0, ptr %1950, align 8, !noalias !12
-  store ptr %1947, ptr %123, align 8, !alias.scope !12
-  %1951 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %1952 unwind label %1956
-
-1952:                                             ; preds = %1948
-  %1953 = ptrtoint ptr %1947 to i64
-  store i64 %1953, ptr %1951, align 8
-  store ptr null, ptr %123, align 8
-  store ptr %1951, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #21
-  br label %2458
-
-1954:                                             ; preds = %1946
-  %1955 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1958
-
-1956:                                             ; preds = %1948
-  %1957 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #21
-  br label %1958
-
-1958:                                             ; preds = %1956, %1954
-  %.pn1066 = phi { ptr, i32 } [ %1957, %1956 ], [ %1955, %1954 ]
-  %.87 = extractvalue { ptr, i32 } %.pn1066, 0
-  %.87859 = extractvalue { ptr, i32 } %.pn1066, 1
-  %1959 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1960 = icmp eq i32 %.87859, %1959
-  br i1 %1960, label %1961, label %2719
-
-1961:                                             ; preds = %1958
-  %1962 = call ptr @__cxa_begin_catch(ptr %.87) #21
-  %1963 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1962)
-          to label %1964 unwind label %1965
+1961:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1962 = load ptr, ptr %374, align 8
+  %1963 = load ptr, ptr %1962, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef %1963)
+          to label %1964 unwind label %1972
 
 1964:                                             ; preds = %1961
+  invoke void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %119, ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef %4)
+          to label %1965 unwind label %1974
+
+1965:                                             ; preds = %1964
+  %1966 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1967 unwind label %1976
+
+1967:                                             ; preds = %1965
+  %1968 = load ptr, ptr %119, align 8
+  store ptr %1968, ptr %1966, align 8
+  %1969 = getelementptr inbounds i8, ptr %1966, i64 8
+  %1970 = getelementptr inbounds i8, ptr %119, i64 8
+  %1971 = load ptr, ptr %1970, align 8
+  store ptr null, ptr %1970, align 8
+  store ptr %1971, ptr %1969, align 8
+  store ptr null, ptr %119, align 8
+  store ptr %1966, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #21
+  br label %2538
+
+1972:                                             ; preds = %1961
+  %1973 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %1979
+
+1974:                                             ; preds = %1964
+  %1975 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %1978
+
+1976:                                             ; preds = %1965
+  %1977 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #21
+  br label %1978
+
+1978:                                             ; preds = %1976, %1974
+  %.pn1071 = phi { ptr, i32 } [ %1977, %1976 ], [ %1975, %1974 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #21
+  br label %1979
+
+1979:                                             ; preds = %1978, %1972
+  %.pn1071.pn = phi { ptr, i32 } [ %.pn1071, %1978 ], [ %1973, %1972 ]
+  %.83 = extractvalue { ptr, i32 } %.pn1071.pn, 0
+  %.83855 = extractvalue { ptr, i32 } %.pn1071.pn, 1
+  %1980 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %1981 = icmp eq i32 %.83855, %1980
+  br i1 %1981, label %1982, label %2799
+
+1982:                                             ; preds = %1979
+  %1983 = call ptr @__cxa_begin_catch(ptr %.83) #21
+  %1984 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1983)
+          to label %1985 unwind label %1986
+
+1985:                                             ; preds = %1982
   call void @__cxa_end_catch()
-  br i1 %1963, label %2555, label %.loopexit
+  br i1 %1984, label %2635, label %.loopexit
 
-1965:                                             ; preds = %1961
-  %1966 = landingpad { ptr, i32 }
-          cleanup
-  %1967 = extractvalue { ptr, i32 } %1966, 0
-  %1968 = extractvalue { ptr, i32 } %1966, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-1969:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %1970 = load ptr, ptr %374, align 8
-  %1971 = getelementptr inbounds i8, ptr %1970, i64 -8
-  %1972 = load ptr, ptr %1971, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %124, ptr noundef %1972)
-          to label %1973 unwind label %1982
-
-1973:                                             ; preds = %1969
-  %1974 = load ptr, ptr %124, align 8
-  %1975 = load ptr, ptr %374, align 8
-  %1976 = load ptr, ptr %1975, align 8
-  invoke fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %125, ptr noundef %1976)
-          to label %1977 unwind label %1984
-
-1977:                                             ; preds = %1973
-  invoke void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %1974, ptr noundef nonnull align 8 dereferenceable(48) %125)
-          to label %1978 unwind label %1986
-
-1978:                                             ; preds = %1977
-  call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #21
-  %1979 = load i64, ptr %124, align 8
-  store i64 %1979, ptr %126, align 8
-  store ptr null, ptr %124, align 8
-  %1980 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %1981 unwind label %1988
-
-1981:                                             ; preds = %1978
-  store i64 %1979, ptr %1980, align 8
-  store ptr null, ptr %126, align 8
-  store ptr %1980, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %124) #21
-  br label %2458
-
-1982:                                             ; preds = %1969
-  %1983 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %1991
-
-1984:                                             ; preds = %1973
-  %1985 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %1990
-
-1986:                                             ; preds = %1977
+1986:                                             ; preds = %1982
   %1987 = landingpad { ptr, i32 }
           cleanup
+  %1988 = extractvalue { ptr, i32 } %1987, 0
+  %1989 = extractvalue { ptr, i32 } %1987, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+1990:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %1991 = load ptr, ptr %374, align 8
+  %1992 = load ptr, ptr %1991, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %122, ptr noundef %1992)
+          to label %1993 unwind label %2001
+
+1993:                                             ; preds = %1990
+  invoke void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %121, ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef %4)
+          to label %1994 unwind label %2003
+
+1994:                                             ; preds = %1993
+  %1995 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+          to label %1996 unwind label %2005
+
+1996:                                             ; preds = %1994
+  %1997 = load ptr, ptr %121, align 8
+  store ptr %1997, ptr %1995, align 8
+  %1998 = getelementptr inbounds i8, ptr %1995, i64 8
+  %1999 = getelementptr inbounds i8, ptr %121, i64 8
+  %2000 = load ptr, ptr %1999, align 8
+  store ptr null, ptr %1999, align 8
+  store ptr %2000, ptr %1998, align 8
+  store ptr null, ptr %121, align 8
+  store ptr %1995, ptr %8, align 8
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #21
+  br label %2538
+
+2001:                                             ; preds = %1990
+  %2002 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2008
+
+2003:                                             ; preds = %1993
+  %2004 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2007
+
+2005:                                             ; preds = %1994
+  %2006 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
+  br label %2007
+
+2007:                                             ; preds = %2005, %2003
+  %.pn1068 = phi { ptr, i32 } [ %2006, %2005 ], [ %2004, %2003 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #21
+  br label %2008
+
+2008:                                             ; preds = %2007, %2001
+  %.pn1068.pn = phi { ptr, i32 } [ %.pn1068, %2007 ], [ %2002, %2001 ]
+  %.85 = extractvalue { ptr, i32 } %.pn1068.pn, 0
+  %.85857 = extractvalue { ptr, i32 } %.pn1068.pn, 1
+  %2009 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2010 = icmp eq i32 %.85857, %2009
+  br i1 %2010, label %2011, label %2799
+
+2011:                                             ; preds = %2008
+  %2012 = call ptr @__cxa_begin_catch(ptr %.85) #21
+  %2013 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2012)
+          to label %2014 unwind label %2015
+
+2014:                                             ; preds = %2011
+  call void @__cxa_end_catch()
+  br i1 %2013, label %2635, label %.loopexit
+
+2015:                                             ; preds = %2011
+  %2016 = landingpad { ptr, i32 }
+          cleanup
+  %2017 = extractvalue { ptr, i32 } %2016, 0
+  %2018 = extractvalue { ptr, i32 } %2016, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2019:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2020 = load ptr, ptr %374, align 8
+  %2021 = load ptr, ptr %2020, align 8
+  store ptr %2021, ptr %8, align 8
+  br label %2538
+
+2022:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2023 = load ptr, ptr %374, align 8
+  %2024 = getelementptr inbounds i8, ptr %2023, i64 -8
+  %2025 = load ptr, ptr %2024, align 8
+  store ptr %2025, ptr %8, align 8
+  br label %2538
+
+2026:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  %2027 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %2028 unwind label %2034
+
+2028:                                             ; preds = %2026
+  %2029 = getelementptr inbounds i8, ptr %2027, i64 8
+  store ptr %2027, ptr %2029, align 8, !noalias !12
+  store ptr %2027, ptr %2027, align 8, !noalias !12
+  %2030 = getelementptr inbounds i8, ptr %2027, i64 16
+  store i64 0, ptr %2030, align 8, !noalias !12
+  store ptr %2027, ptr %123, align 8, !alias.scope !12
+  %2031 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2032 unwind label %2036
+
+2032:                                             ; preds = %2028
+  %2033 = ptrtoint ptr %2027 to i64
+  store i64 %2033, ptr %2031, align 8
+  store ptr null, ptr %123, align 8
+  store ptr %2031, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #21
+  br label %2538
+
+2034:                                             ; preds = %2026
+  %2035 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2038
+
+2036:                                             ; preds = %2028
+  %2037 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #21
+  br label %2038
+
+2038:                                             ; preds = %2036, %2034
+  %.pn1066 = phi { ptr, i32 } [ %2037, %2036 ], [ %2035, %2034 ]
+  %.87 = extractvalue { ptr, i32 } %.pn1066, 0
+  %.87859 = extractvalue { ptr, i32 } %.pn1066, 1
+  %2039 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2040 = icmp eq i32 %.87859, %2039
+  br i1 %2040, label %2041, label %2799
+
+2041:                                             ; preds = %2038
+  %2042 = call ptr @__cxa_begin_catch(ptr %.87) #21
+  %2043 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2042)
+          to label %2044 unwind label %2045
+
+2044:                                             ; preds = %2041
+  call void @__cxa_end_catch()
+  br i1 %2043, label %2635, label %.loopexit
+
+2045:                                             ; preds = %2041
+  %2046 = landingpad { ptr, i32 }
+          cleanup
+  %2047 = extractvalue { ptr, i32 } %2046, 0
+  %2048 = extractvalue { ptr, i32 } %2046, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2049:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2050 = load ptr, ptr %374, align 8
+  %2051 = getelementptr inbounds i8, ptr %2050, i64 -8
+  %2052 = load ptr, ptr %2051, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %124, ptr noundef %2052)
+          to label %2053 unwind label %2062
+
+2053:                                             ; preds = %2049
+  %2054 = load ptr, ptr %124, align 8
+  %2055 = load ptr, ptr %374, align 8
+  %2056 = load ptr, ptr %2055, align 8
+  invoke fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %125, ptr noundef %2056)
+          to label %2057 unwind label %2064
+
+2057:                                             ; preds = %2053
+  invoke void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2054, ptr noundef nonnull align 8 dereferenceable(48) %125)
+          to label %2058 unwind label %2066
+
+2058:                                             ; preds = %2057
+  call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #21
+  %2059 = load i64, ptr %124, align 8
+  store i64 %2059, ptr %126, align 8
+  store ptr null, ptr %124, align 8
+  %2060 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2061 unwind label %2068
+
+2061:                                             ; preds = %2058
+  store i64 %2059, ptr %2060, align 8
+  store ptr null, ptr %126, align 8
+  store ptr %2060, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %124) #21
+  br label %2538
+
+2062:                                             ; preds = %2049
+  %2063 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2071
+
+2064:                                             ; preds = %2053
+  %2065 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2070
+
+2066:                                             ; preds = %2057
+  %2067 = landingpad { ptr, i32 }
+          cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #21
-  br label %1990
+  br label %2070
 
-1988:                                             ; preds = %1978
-  %1989 = landingpad { ptr, i32 }
+2068:                                             ; preds = %2058
+  %2069 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #21
-  br label %1990
+  br label %2070
 
-1990:                                             ; preds = %1988, %1986, %1984
-  %.pn1063 = phi { ptr, i32 } [ %1989, %1988 ], [ %1987, %1986 ], [ %1985, %1984 ]
+2070:                                             ; preds = %2068, %2066, %2064
+  %.pn1063 = phi { ptr, i32 } [ %2069, %2068 ], [ %2067, %2066 ], [ %2065, %2064 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %124) #21
-  br label %1991
+  br label %2071
 
-1991:                                             ; preds = %1990, %1982
-  %.pn1063.pn = phi { ptr, i32 } [ %.pn1063, %1990 ], [ %1983, %1982 ]
+2071:                                             ; preds = %2070, %2062
+  %.pn1063.pn = phi { ptr, i32 } [ %.pn1063, %2070 ], [ %2063, %2062 ]
   %.88 = extractvalue { ptr, i32 } %.pn1063.pn, 0
   %.88860 = extractvalue { ptr, i32 } %.pn1063.pn, 1
-  %1992 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %1993 = icmp eq i32 %.88860, %1992
-  br i1 %1993, label %1994, label %2719
+  %2072 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2073 = icmp eq i32 %.88860, %2072
+  br i1 %2073, label %2074, label %2799
 
-1994:                                             ; preds = %1991
-  %1995 = call ptr @__cxa_begin_catch(ptr %.88) #21
-  %1996 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %1995)
-          to label %1997 unwind label %1998
+2074:                                             ; preds = %2071
+  %2075 = call ptr @__cxa_begin_catch(ptr %.88) #21
+  %2076 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2075)
+          to label %2077 unwind label %2078
 
-1997:                                             ; preds = %1994
+2077:                                             ; preds = %2074
   call void @__cxa_end_catch()
-  br i1 %1996, label %2555, label %.loopexit
+  br i1 %2076, label %2635, label %.loopexit
 
-1998:                                             ; preds = %1994
-  %1999 = landingpad { ptr, i32 }
+2078:                                             ; preds = %2074
+  %2079 = landingpad { ptr, i32 }
           cleanup
-  %2000 = extractvalue { ptr, i32 } %1999, 0
-  %2001 = extractvalue { ptr, i32 } %1999, 1
+  %2080 = extractvalue { ptr, i32 } %2079, 0
+  %2081 = extractvalue { ptr, i32 } %2079, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2002:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2003 = load ptr, ptr %374, align 8
-  %2004 = getelementptr inbounds i8, ptr %2003, i64 -8
-  %2005 = load ptr, ptr %2004, align 8
-  store ptr %2005, ptr %127, align 8
-  %2006 = load ptr, ptr %2003, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef %2006)
-          to label %2007 unwind label %2010
+2082:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2083 = load ptr, ptr %374, align 8
+  %2084 = getelementptr inbounds i8, ptr %2083, i64 -8
+  %2085 = load ptr, ptr %2084, align 8
+  store ptr %2085, ptr %127, align 8
+  %2086 = load ptr, ptr %2083, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %129, ptr noundef %2086)
+          to label %2087 unwind label %2090
 
-2007:                                             ; preds = %2002
-  invoke void @_ZN3gmx24SelectionParserParameter6createEPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserParameter") align 8 %128, ptr noundef %2005, ptr noundef nonnull %129, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2008 unwind label %2012
+2087:                                             ; preds = %2082
+  invoke void @_ZN3gmx24SelectionParserParameter6createEPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserParameter") align 8 %128, ptr noundef %2085, ptr noundef nonnull %129, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %2088 unwind label %2092
 
-2008:                                             ; preds = %2007
+2088:                                             ; preds = %2087
   invoke fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %128)
-          to label %2009 unwind label %2014
+          to label %2089 unwind label %2094
 
-2009:                                             ; preds = %2008
+2089:                                             ; preds = %2088
   call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %128) #21
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %129) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %127) #21
-  br label %2458
+  br label %2538
 
-2010:                                             ; preds = %2002
-  %2011 = landingpad { ptr, i32 }
+2090:                                             ; preds = %2082
+  %2091 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2017
+  br label %2097
 
-2012:                                             ; preds = %2007
-  %2013 = landingpad { ptr, i32 }
+2092:                                             ; preds = %2087
+  %2093 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2016
+  br label %2096
 
-2014:                                             ; preds = %2008
-  %2015 = landingpad { ptr, i32 }
+2094:                                             ; preds = %2088
+  %2095 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %128) #21
-  br label %2016
+  br label %2096
 
-2016:                                             ; preds = %2014, %2012
-  %.pn1060 = phi { ptr, i32 } [ %2015, %2014 ], [ %2013, %2012 ]
+2096:                                             ; preds = %2094, %2092
+  %.pn1060 = phi { ptr, i32 } [ %2095, %2094 ], [ %2093, %2092 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %129) #21
-  br label %2017
+  br label %2097
 
-2017:                                             ; preds = %2016, %2010
-  %.pn1060.pn = phi { ptr, i32 } [ %.pn1060, %2016 ], [ %2011, %2010 ]
+2097:                                             ; preds = %2096, %2090
+  %.pn1060.pn = phi { ptr, i32 } [ %.pn1060, %2096 ], [ %2091, %2090 ]
   %.90 = extractvalue { ptr, i32 } %.pn1060.pn, 0
   %.90862 = extractvalue { ptr, i32 } %.pn1060.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %127) #21
-  %2018 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2019 = icmp eq i32 %.90862, %2018
-  br i1 %2019, label %2020, label %2719
+  %2098 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2099 = icmp eq i32 %.90862, %2098
+  br i1 %2099, label %2100, label %2799
 
-2020:                                             ; preds = %2017
-  %2021 = call ptr @__cxa_begin_catch(ptr %.90) #21
-  %2022 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2021)
-          to label %2023 unwind label %2024
-
-2023:                                             ; preds = %2020
-  call void @__cxa_end_catch()
-  br i1 %2022, label %2555, label %.loopexit
-
-2024:                                             ; preds = %2020
-  %2025 = landingpad { ptr, i32 }
-          cleanup
-  %2026 = extractvalue { ptr, i32 } %2025, 0
-  %2027 = extractvalue { ptr, i32 } %2025, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2028:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2029 = load ptr, ptr %374, align 8
-  %2030 = load ptr, ptr %2029, align 8
-  store ptr %2030, ptr %8, align 8
-  br label %2458
-
-2031:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2032 = load ptr, ptr %374, align 8
-  %2033 = getelementptr inbounds i8, ptr %2032, i64 -8
-  %2034 = load ptr, ptr %2033, align 8
-  store ptr %2034, ptr %8, align 8
-  br label %2458
-
-2035:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %2036 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-          to label %2037 unwind label %2043
-
-2037:                                             ; preds = %2035
-  %2038 = getelementptr inbounds i8, ptr %2036, i64 8
-  store ptr %2036, ptr %2038, align 8, !noalias !19
-  store ptr %2036, ptr %2036, align 8, !noalias !19
-  %2039 = getelementptr inbounds i8, ptr %2036, i64 16
-  store i64 0, ptr %2039, align 8, !noalias !19
-  store ptr %2036, ptr %130, align 8, !alias.scope !19
-  %2040 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2041 unwind label %2045
-
-2041:                                             ; preds = %2037
-  %2042 = ptrtoint ptr %2036 to i64
-  store i64 %2042, ptr %2040, align 8
-  store ptr null, ptr %130, align 8
-  store ptr %2040, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #21
-  br label %2458
-
-2043:                                             ; preds = %2035
-  %2044 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2047
-
-2045:                                             ; preds = %2037
-  %2046 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #21
-  br label %2047
-
-2047:                                             ; preds = %2045, %2043
-  %.pn1058 = phi { ptr, i32 } [ %2046, %2045 ], [ %2044, %2043 ]
-  %.92 = extractvalue { ptr, i32 } %.pn1058, 0
-  %.92864 = extractvalue { ptr, i32 } %.pn1058, 1
-  %2048 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2049 = icmp eq i32 %.92864, %2048
-  br i1 %2049, label %2050, label %2719
-
-2050:                                             ; preds = %2047
-  %2051 = call ptr @__cxa_begin_catch(ptr %.92) #21
-  %2052 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2051)
-          to label %2053 unwind label %2054
-
-2053:                                             ; preds = %2050
-  call void @__cxa_end_catch()
-  br i1 %2052, label %2555, label %.loopexit
-
-2054:                                             ; preds = %2050
-  %2055 = landingpad { ptr, i32 }
-          cleanup
-  %2056 = extractvalue { ptr, i32 } %2055, 0
-  %2057 = extractvalue { ptr, i32 } %2055, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2058:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2059 = load ptr, ptr %374, align 8
-  %2060 = getelementptr inbounds i8, ptr %2059, i64 -8
-  %2061 = load ptr, ptr %2060, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %131, ptr noundef %2061)
-          to label %2062 unwind label %2071
-
-2062:                                             ; preds = %2058
-  %2063 = load ptr, ptr %131, align 8
-  %2064 = load ptr, ptr %374, align 8
-  %2065 = load ptr, ptr %2064, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %132, ptr noundef %2065)
-          to label %2066 unwind label %2073
-
-2066:                                             ; preds = %2062
-  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2063, ptr noundef nonnull align 8 dereferenceable(76) %132)
-          to label %2067 unwind label %2075
-
-2067:                                             ; preds = %2066
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %132) #21
-  %2068 = load i64, ptr %131, align 8
-  store i64 %2068, ptr %133, align 8
-  store ptr null, ptr %131, align 8
-  %2069 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2070 unwind label %2077
-
-2070:                                             ; preds = %2067
-  store i64 %2068, ptr %2069, align 8
-  store ptr null, ptr %133, align 8
-  store ptr %2069, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %131) #21
-  br label %2458
-
-2071:                                             ; preds = %2058
-  %2072 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2080
-
-2073:                                             ; preds = %2062
-  %2074 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %2079
-
-2075:                                             ; preds = %2066
-  %2076 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %132) #21
-  br label %2079
-
-2077:                                             ; preds = %2067
-  %2078 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #21
-  br label %2079
-
-2079:                                             ; preds = %2077, %2075, %2073
-  %.pn1055 = phi { ptr, i32 } [ %2078, %2077 ], [ %2076, %2075 ], [ %2074, %2073 ]
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %131) #21
-  br label %2080
-
-2080:                                             ; preds = %2079, %2071
-  %.pn1055.pn = phi { ptr, i32 } [ %.pn1055, %2079 ], [ %2072, %2071 ]
-  %.93 = extractvalue { ptr, i32 } %.pn1055.pn, 0
-  %.93865 = extractvalue { ptr, i32 } %.pn1055.pn, 1
-  %2081 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2082 = icmp eq i32 %.93865, %2081
-  br i1 %2082, label %2083, label %2719
-
-2083:                                             ; preds = %2080
-  %2084 = call ptr @__cxa_begin_catch(ptr %.93) #21
-  %2085 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2084)
-          to label %2086 unwind label %2087
-
-2086:                                             ; preds = %2083
-  call void @__cxa_end_catch()
-  br i1 %2085, label %2555, label %.loopexit
-
-2087:                                             ; preds = %2083
-  %2088 = landingpad { ptr, i32 }
-          cleanup
-  %2089 = extractvalue { ptr, i32 } %2088, 0
-  %2090 = extractvalue { ptr, i32 } %2088, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2091:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2092 = load ptr, ptr %374, align 8
-  %2093 = getelementptr inbounds i8, ptr %2092, i64 -16
-  %2094 = load ptr, ptr %2093, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %134, ptr noundef %2094)
-          to label %2095 unwind label %2104
-
-2095:                                             ; preds = %2091
-  %2096 = load ptr, ptr %134, align 8
-  %2097 = load ptr, ptr %374, align 8
-  %2098 = load ptr, ptr %2097, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef %2098)
-          to label %2099 unwind label %2106
-
-2099:                                             ; preds = %2095
-  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2096, ptr noundef nonnull align 8 dereferenceable(76) %135)
-          to label %2100 unwind label %2108
-
-2100:                                             ; preds = %2099
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %135) #21
-  %2101 = load i64, ptr %134, align 8
-  store i64 %2101, ptr %136, align 8
-  store ptr null, ptr %134, align 8
-  %2102 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2103 unwind label %2110
+2100:                                             ; preds = %2097
+  %2101 = call ptr @__cxa_begin_catch(ptr %.90) #21
+  %2102 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2101)
+          to label %2103 unwind label %2104
 
 2103:                                             ; preds = %2100
-  store i64 %2101, ptr %2102, align 8
-  store ptr null, ptr %136, align 8
-  store ptr %2102, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %136) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %134) #21
-  br label %2458
+  call void @__cxa_end_catch()
+  br i1 %2102, label %2635, label %.loopexit
 
-2104:                                             ; preds = %2091
+2104:                                             ; preds = %2100
   %2105 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2113
+          cleanup
+  %2106 = extractvalue { ptr, i32 } %2105, 0
+  %2107 = extractvalue { ptr, i32 } %2105, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
 
-2106:                                             ; preds = %2095
-  %2107 = landingpad { ptr, i32 }
+2108:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2109 = load ptr, ptr %374, align 8
+  %2110 = load ptr, ptr %2109, align 8
+  store ptr %2110, ptr %8, align 8
+  br label %2538
+
+2111:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2112 = load ptr, ptr %374, align 8
+  %2113 = getelementptr inbounds i8, ptr %2112, i64 -8
+  %2114 = load ptr, ptr %2113, align 8
+  store ptr %2114, ptr %8, align 8
+  br label %2538
+
+2115:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %2116 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+          to label %2117 unwind label %2123
+
+2117:                                             ; preds = %2115
+  %2118 = getelementptr inbounds i8, ptr %2116, i64 8
+  store ptr %2116, ptr %2118, align 8, !noalias !19
+  store ptr %2116, ptr %2116, align 8, !noalias !19
+  %2119 = getelementptr inbounds i8, ptr %2116, i64 16
+  store i64 0, ptr %2119, align 8, !noalias !19
+  store ptr %2116, ptr %130, align 8, !alias.scope !19
+  %2120 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2121 unwind label %2125
+
+2121:                                             ; preds = %2117
+  %2122 = ptrtoint ptr %2116 to i64
+  store i64 %2122, ptr %2120, align 8
+  store ptr null, ptr %130, align 8
+  store ptr %2120, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #21
+  br label %2538
+
+2123:                                             ; preds = %2115
+  %2124 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2127
+
+2125:                                             ; preds = %2117
+  %2126 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2112
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #21
+  br label %2127
 
-2108:                                             ; preds = %2099
-  %2109 = landingpad { ptr, i32 }
+2127:                                             ; preds = %2125, %2123
+  %.pn1058 = phi { ptr, i32 } [ %2126, %2125 ], [ %2124, %2123 ]
+  %.92 = extractvalue { ptr, i32 } %.pn1058, 0
+  %.92864 = extractvalue { ptr, i32 } %.pn1058, 1
+  %2128 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2129 = icmp eq i32 %.92864, %2128
+  br i1 %2129, label %2130, label %2799
+
+2130:                                             ; preds = %2127
+  %2131 = call ptr @__cxa_begin_catch(ptr %.92) #21
+  %2132 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2131)
+          to label %2133 unwind label %2134
+
+2133:                                             ; preds = %2130
+  call void @__cxa_end_catch()
+  br i1 %2132, label %2635, label %.loopexit
+
+2134:                                             ; preds = %2130
+  %2135 = landingpad { ptr, i32 }
+          cleanup
+  %2136 = extractvalue { ptr, i32 } %2135, 0
+  %2137 = extractvalue { ptr, i32 } %2135, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2138:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2139 = load ptr, ptr %374, align 8
+  %2140 = getelementptr inbounds i8, ptr %2139, i64 -8
+  %2141 = load ptr, ptr %2140, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %131, ptr noundef %2141)
+          to label %2142 unwind label %2151
+
+2142:                                             ; preds = %2138
+  %2143 = load ptr, ptr %131, align 8
+  %2144 = load ptr, ptr %374, align 8
+  %2145 = load ptr, ptr %2144, align 8
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %132, ptr noundef %2145)
+          to label %2146 unwind label %2153
+
+2146:                                             ; preds = %2142
+  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2143, ptr noundef nonnull align 8 dereferenceable(76) %132)
+          to label %2147 unwind label %2155
+
+2147:                                             ; preds = %2146
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %132) #21
+  %2148 = load i64, ptr %131, align 8
+  store i64 %2148, ptr %133, align 8
+  store ptr null, ptr %131, align 8
+  %2149 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2150 unwind label %2157
+
+2150:                                             ; preds = %2147
+  store i64 %2148, ptr %2149, align 8
+  store ptr null, ptr %133, align 8
+  store ptr %2149, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %131) #21
+  br label %2538
+
+2151:                                             ; preds = %2138
+  %2152 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2160
+
+2153:                                             ; preds = %2142
+  %2154 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2159
+
+2155:                                             ; preds = %2146
+  %2156 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %132) #21
+  br label %2159
+
+2157:                                             ; preds = %2147
+  %2158 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #21
+  br label %2159
+
+2159:                                             ; preds = %2157, %2155, %2153
+  %.pn1055 = phi { ptr, i32 } [ %2158, %2157 ], [ %2156, %2155 ], [ %2154, %2153 ]
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %131) #21
+  br label %2160
+
+2160:                                             ; preds = %2159, %2151
+  %.pn1055.pn = phi { ptr, i32 } [ %.pn1055, %2159 ], [ %2152, %2151 ]
+  %.93 = extractvalue { ptr, i32 } %.pn1055.pn, 0
+  %.93865 = extractvalue { ptr, i32 } %.pn1055.pn, 1
+  %2161 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2162 = icmp eq i32 %.93865, %2161
+  br i1 %2162, label %2163, label %2799
+
+2163:                                             ; preds = %2160
+  %2164 = call ptr @__cxa_begin_catch(ptr %.93) #21
+  %2165 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2164)
+          to label %2166 unwind label %2167
+
+2166:                                             ; preds = %2163
+  call void @__cxa_end_catch()
+  br i1 %2165, label %2635, label %.loopexit
+
+2167:                                             ; preds = %2163
+  %2168 = landingpad { ptr, i32 }
+          cleanup
+  %2169 = extractvalue { ptr, i32 } %2168, 0
+  %2170 = extractvalue { ptr, i32 } %2168, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2171:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2172 = load ptr, ptr %374, align 8
+  %2173 = getelementptr inbounds i8, ptr %2172, i64 -16
+  %2174 = load ptr, ptr %2173, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %134, ptr noundef %2174)
+          to label %2175 unwind label %2184
+
+2175:                                             ; preds = %2171
+  %2176 = load ptr, ptr %134, align 8
+  %2177 = load ptr, ptr %374, align 8
+  %2178 = load ptr, ptr %2177, align 8
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef %2178)
+          to label %2179 unwind label %2186
+
+2179:                                             ; preds = %2175
+  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2176, ptr noundef nonnull align 8 dereferenceable(76) %135)
+          to label %2180 unwind label %2188
+
+2180:                                             ; preds = %2179
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %135) #21
+  %2181 = load i64, ptr %134, align 8
+  store i64 %2181, ptr %136, align 8
+  store ptr null, ptr %134, align 8
+  %2182 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2183 unwind label %2190
+
+2183:                                             ; preds = %2180
+  store i64 %2181, ptr %2182, align 8
+  store ptr null, ptr %136, align 8
+  store ptr %2182, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %136) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %134) #21
+  br label %2538
+
+2184:                                             ; preds = %2171
+  %2185 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2193
+
+2186:                                             ; preds = %2175
+  %2187 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2192
+
+2188:                                             ; preds = %2179
+  %2189 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %135) #21
-  br label %2112
+  br label %2192
 
-2110:                                             ; preds = %2100
-  %2111 = landingpad { ptr, i32 }
+2190:                                             ; preds = %2180
+  %2191 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %136) #21
-  br label %2112
+  br label %2192
 
-2112:                                             ; preds = %2110, %2108, %2106
-  %.pn1052 = phi { ptr, i32 } [ %2111, %2110 ], [ %2109, %2108 ], [ %2107, %2106 ]
+2192:                                             ; preds = %2190, %2188, %2186
+  %.pn1052 = phi { ptr, i32 } [ %2191, %2190 ], [ %2189, %2188 ], [ %2187, %2186 ]
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %134) #21
-  br label %2113
+  br label %2193
 
-2113:                                             ; preds = %2112, %2104
-  %.pn1052.pn = phi { ptr, i32 } [ %.pn1052, %2112 ], [ %2105, %2104 ]
+2193:                                             ; preds = %2192, %2184
+  %.pn1052.pn = phi { ptr, i32 } [ %.pn1052, %2192 ], [ %2185, %2184 ]
   %.95 = extractvalue { ptr, i32 } %.pn1052.pn, 0
   %.95867 = extractvalue { ptr, i32 } %.pn1052.pn, 1
-  %2114 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2115 = icmp eq i32 %.95867, %2114
-  br i1 %2115, label %2116, label %2719
+  %2194 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2195 = icmp eq i32 %.95867, %2194
+  br i1 %2195, label %2196, label %2799
 
-2116:                                             ; preds = %2113
-  %2117 = call ptr @__cxa_begin_catch(ptr %.95) #21
-  %2118 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2117)
-          to label %2119 unwind label %2120
+2196:                                             ; preds = %2193
+  %2197 = call ptr @__cxa_begin_catch(ptr %.95) #21
+  %2198 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2197)
+          to label %2199 unwind label %2200
 
-2119:                                             ; preds = %2116
+2199:                                             ; preds = %2196
   call void @__cxa_end_catch()
-  br i1 %2118, label %2555, label %.loopexit
+  br i1 %2198, label %2635, label %.loopexit
 
-2120:                                             ; preds = %2116
-  %2121 = landingpad { ptr, i32 }
+2200:                                             ; preds = %2196
+  %2201 = landingpad { ptr, i32 }
           cleanup
-  %2122 = extractvalue { ptr, i32 } %2121, 0
-  %2123 = extractvalue { ptr, i32 } %2121, 1
+  %2202 = extractvalue { ptr, i32 } %2201, 0
+  %2203 = extractvalue { ptr, i32 } %2201, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2124:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2125 = load ptr, ptr %374, align 8
-  %2126 = load ptr, ptr %2125, align 8
-  store ptr %2126, ptr %8, align 8
-  br label %2458
+2204:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2205 = load ptr, ptr %374, align 8
+  %2206 = load ptr, ptr %2205, align 8
+  store ptr %2206, ptr %8, align 8
+  br label %2538
 
-2127:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2128 = load ptr, ptr %374, align 8
-  %2129 = getelementptr inbounds i8, ptr %2128, i64 -8
-  %2130 = load ptr, ptr %2129, align 8
-  store ptr %2130, ptr %8, align 8
-  br label %2458
+2207:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2208 = load ptr, ptr %374, align 8
+  %2209 = getelementptr inbounds i8, ptr %2208, i64 -8
+  %2210 = load ptr, ptr %2209, align 8
+  store ptr %2210, ptr %8, align 8
+  br label %2538
 
-2131:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2132 = load ptr, ptr %374, align 8
-  %2133 = load ptr, ptr %2132, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %138, ptr noundef %2133)
-          to label %2134 unwind label %2139
+2211:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2212 = load ptr, ptr %374, align 8
+  %2213 = load ptr, ptr %2212, align 8
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %138, ptr noundef %2213)
+          to label %2214 unwind label %2219
 
-2134:                                             ; preds = %2131
+2214:                                             ; preds = %2211
   invoke void @_ZN3gmx20SelectionParserValue10createListB5cxx11ERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.13") align 8 %137, ptr noundef nonnull align 8 dereferenceable(76) %138)
-          to label %2135 unwind label %2141
+          to label %2215 unwind label %2221
 
-2135:                                             ; preds = %2134
-  %2136 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2137 unwind label %2143
+2215:                                             ; preds = %2214
+  %2216 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2217 unwind label %2223
 
-2137:                                             ; preds = %2135
-  %2138 = load i64, ptr %137, align 8
-  store i64 %2138, ptr %2136, align 8
+2217:                                             ; preds = %2215
+  %2218 = load i64, ptr %137, align 8
+  store i64 %2218, ptr %2216, align 8
   store ptr null, ptr %137, align 8
-  store ptr %2136, ptr %8, align 8
+  store ptr %2216, ptr %8, align 8
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %137) #21
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %138) #21
-  br label %2458
+  br label %2538
 
-2139:                                             ; preds = %2131
-  %2140 = landingpad { ptr, i32 }
+2219:                                             ; preds = %2211
+  %2220 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %2146
+  br label %2226
 
-2141:                                             ; preds = %2134
-  %2142 = landingpad { ptr, i32 }
+2221:                                             ; preds = %2214
+  %2222 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2145
+  br label %2225
 
-2143:                                             ; preds = %2135
-  %2144 = landingpad { ptr, i32 }
+2223:                                             ; preds = %2215
+  %2224 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %137) #21
-  br label %2145
+  br label %2225
 
-2145:                                             ; preds = %2143, %2141
-  %.pn1049 = phi { ptr, i32 } [ %2144, %2143 ], [ %2142, %2141 ]
+2225:                                             ; preds = %2223, %2221
+  %.pn1049 = phi { ptr, i32 } [ %2224, %2223 ], [ %2222, %2221 ]
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %138) #21
-  br label %2146
+  br label %2226
 
-2146:                                             ; preds = %2145, %2139
-  %.pn1049.pn = phi { ptr, i32 } [ %.pn1049, %2145 ], [ %2140, %2139 ]
+2226:                                             ; preds = %2225, %2219
+  %.pn1049.pn = phi { ptr, i32 } [ %.pn1049, %2225 ], [ %2220, %2219 ]
   %.97 = extractvalue { ptr, i32 } %.pn1049.pn, 0
   %.97869 = extractvalue { ptr, i32 } %.pn1049.pn, 1
-  %2147 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2148 = icmp eq i32 %.97869, %2147
-  br i1 %2148, label %2149, label %2719
+  %2227 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2228 = icmp eq i32 %.97869, %2227
+  br i1 %2228, label %2229, label %2799
 
-2149:                                             ; preds = %2146
-  %2150 = call ptr @__cxa_begin_catch(ptr %.97) #21
-  %2151 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2150)
-          to label %2152 unwind label %2153
+2229:                                             ; preds = %2226
+  %2230 = call ptr @__cxa_begin_catch(ptr %.97) #21
+  %2231 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2230)
+          to label %2232 unwind label %2233
 
-2152:                                             ; preds = %2149
+2232:                                             ; preds = %2229
   call void @__cxa_end_catch()
-  br i1 %2151, label %2555, label %.loopexit
+  br i1 %2231, label %2635, label %.loopexit
 
-2153:                                             ; preds = %2149
-  %2154 = landingpad { ptr, i32 }
+2233:                                             ; preds = %2229
+  %2234 = landingpad { ptr, i32 }
           cleanup
-  %2155 = extractvalue { ptr, i32 } %2154, 0
-  %2156 = extractvalue { ptr, i32 } %2154, 1
+  %2235 = extractvalue { ptr, i32 } %2234, 0
+  %2236 = extractvalue { ptr, i32 } %2234, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2157:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2158 = load ptr, ptr %374, align 8
-  %2159 = getelementptr inbounds i8, ptr %2158, i64 -8
-  %2160 = load ptr, ptr %2159, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %139, ptr noundef %2160)
-          to label %2161 unwind label %2170
+2237:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2238 = load ptr, ptr %374, align 8
+  %2239 = getelementptr inbounds i8, ptr %2238, i64 -8
+  %2240 = load ptr, ptr %2239, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %139, ptr noundef %2240)
+          to label %2241 unwind label %2250
 
-2161:                                             ; preds = %2157
-  %2162 = load ptr, ptr %139, align 8
-  %2163 = load ptr, ptr %374, align 8
-  %2164 = load ptr, ptr %2163, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %140, ptr noundef %2164)
-          to label %2165 unwind label %2172
+2241:                                             ; preds = %2237
+  %2242 = load ptr, ptr %139, align 8
+  %2243 = load ptr, ptr %374, align 8
+  %2244 = load ptr, ptr %2243, align 8
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %140, ptr noundef %2244)
+          to label %2245 unwind label %2252
 
-2165:                                             ; preds = %2161
-  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2162, ptr noundef nonnull align 8 dereferenceable(76) %140)
-          to label %2166 unwind label %2174
+2245:                                             ; preds = %2241
+  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2242, ptr noundef nonnull align 8 dereferenceable(76) %140)
+          to label %2246 unwind label %2254
 
-2166:                                             ; preds = %2165
+2246:                                             ; preds = %2245
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %140) #21
-  %2167 = load i64, ptr %139, align 8
-  store i64 %2167, ptr %141, align 8
+  %2247 = load i64, ptr %139, align 8
+  store i64 %2247, ptr %141, align 8
   store ptr null, ptr %139, align 8
-  %2168 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2169 unwind label %2176
-
-2169:                                             ; preds = %2166
-  store i64 %2167, ptr %2168, align 8
-  store ptr null, ptr %141, align 8
-  store ptr %2168, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #21
-  br label %2458
-
-2170:                                             ; preds = %2157
-  %2171 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2179
-
-2172:                                             ; preds = %2161
-  %2173 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %2178
-
-2174:                                             ; preds = %2165
-  %2175 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %140) #21
-  br label %2178
-
-2176:                                             ; preds = %2166
-  %2177 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #21
-  br label %2178
-
-2178:                                             ; preds = %2176, %2174, %2172
-  %.pn1046 = phi { ptr, i32 } [ %2177, %2176 ], [ %2175, %2174 ], [ %2173, %2172 ]
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #21
-  br label %2179
-
-2179:                                             ; preds = %2178, %2170
-  %.pn1046.pn = phi { ptr, i32 } [ %.pn1046, %2178 ], [ %2171, %2170 ]
-  %.99 = extractvalue { ptr, i32 } %.pn1046.pn, 0
-  %.99871 = extractvalue { ptr, i32 } %.pn1046.pn, 1
-  %2180 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2181 = icmp eq i32 %.99871, %2180
-  br i1 %2181, label %2182, label %2719
-
-2182:                                             ; preds = %2179
-  %2183 = call ptr @__cxa_begin_catch(ptr %.99) #21
-  %2184 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2183)
-          to label %2185 unwind label %2186
-
-2185:                                             ; preds = %2182
-  call void @__cxa_end_catch()
-  br i1 %2184, label %2555, label %.loopexit
-
-2186:                                             ; preds = %2182
-  %2187 = landingpad { ptr, i32 }
-          cleanup
-  %2188 = extractvalue { ptr, i32 } %2187, 0
-  %2189 = extractvalue { ptr, i32 } %2187, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2190:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2191 = load ptr, ptr %374, align 8
-  %2192 = getelementptr inbounds i8, ptr %2191, i64 -16
-  %2193 = load ptr, ptr %2192, align 8
-  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef %2193)
-          to label %2194 unwind label %2203
-
-2194:                                             ; preds = %2190
-  %2195 = load ptr, ptr %142, align 8
-  %2196 = load ptr, ptr %374, align 8
-  %2197 = load ptr, ptr %2196, align 8
-  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %143, ptr noundef %2197)
-          to label %2198 unwind label %2205
-
-2198:                                             ; preds = %2194
-  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2195, ptr noundef nonnull align 8 dereferenceable(76) %143)
-          to label %2199 unwind label %2207
-
-2199:                                             ; preds = %2198
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %143) #21
-  %2200 = load i64, ptr %142, align 8
-  store i64 %2200, ptr %144, align 8
-  store ptr null, ptr %142, align 8
-  %2201 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %2202 unwind label %2209
-
-2202:                                             ; preds = %2199
-  store i64 %2200, ptr %2201, align 8
-  store ptr null, ptr %144, align 8
-  store ptr %2201, ptr %8, align 8
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #21
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #21
-  br label %2458
-
-2203:                                             ; preds = %2190
-  %2204 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2212
-
-2205:                                             ; preds = %2194
-  %2206 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %2211
-
-2207:                                             ; preds = %2198
-  %2208 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %143) #21
-  br label %2211
-
-2209:                                             ; preds = %2199
-  %2210 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #21
-  br label %2211
-
-2211:                                             ; preds = %2209, %2207, %2205
-  %.pn1043 = phi { ptr, i32 } [ %2210, %2209 ], [ %2208, %2207 ], [ %2206, %2205 ]
-  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #21
-  br label %2212
-
-2212:                                             ; preds = %2211, %2203
-  %.pn1043.pn = phi { ptr, i32 } [ %.pn1043, %2211 ], [ %2204, %2203 ]
-  %.101 = extractvalue { ptr, i32 } %.pn1043.pn, 0
-  %.101873 = extractvalue { ptr, i32 } %.pn1043.pn, 1
-  %2213 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2214 = icmp eq i32 %.101873, %2213
-  br i1 %2214, label %2215, label %2719
-
-2215:                                             ; preds = %2212
-  %2216 = call ptr @__cxa_begin_catch(ptr %.101) #21
-  %2217 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2216)
-          to label %2218 unwind label %2219
-
-2218:                                             ; preds = %2215
-  call void @__cxa_end_catch()
-  br i1 %2217, label %2555, label %.loopexit
-
-2219:                                             ; preds = %2215
-  %2220 = landingpad { ptr, i32 }
-          cleanup
-  %2221 = extractvalue { ptr, i32 } %2220, 0
-  %2222 = extractvalue { ptr, i32 } %2220, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2223:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2224 = load ptr, ptr %374, align 8
-  %2225 = load ptr, ptr %2224, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef %2225)
-          to label %2226 unwind label %2228
-
-2226:                                             ; preds = %2223
-  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %145, ptr noundef nonnull align 8 dereferenceable(16) %146)
-          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit unwind label %2230
-
-_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit: ; preds = %2226
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %145)
-          to label %2227 unwind label %2232
-
-2227:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %145) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #21
-  br label %2458
-
-2228:                                             ; preds = %2223
-  %2229 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2235
-
-2230:                                             ; preds = %2226
-  %2231 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  br label %2234
-
-2232:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
-  %2233 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %145) #21
-  br label %2234
-
-2234:                                             ; preds = %2232, %2230
-  %.pn1040 = phi { ptr, i32 } [ %2233, %2232 ], [ %2231, %2230 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #21
-  br label %2235
-
-2235:                                             ; preds = %2234, %2228
-  %.pn1040.pn = phi { ptr, i32 } [ %.pn1040, %2234 ], [ %2229, %2228 ]
-  %.103 = extractvalue { ptr, i32 } %.pn1040.pn, 0
-  %.103875 = extractvalue { ptr, i32 } %.pn1040.pn, 1
-  %2236 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2237 = icmp eq i32 %.103875, %2236
-  br i1 %2237, label %2238, label %2719
-
-2238:                                             ; preds = %2235
-  %2239 = call ptr @__cxa_begin_catch(ptr %.103) #21
-  %2240 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2239)
-          to label %2241 unwind label %2242
-
-2241:                                             ; preds = %2238
-  call void @__cxa_end_catch()
-  br i1 %2240, label %2555, label %.loopexit
-
-2242:                                             ; preds = %2238
-  %2243 = landingpad { ptr, i32 }
-          cleanup
-  %2244 = extractvalue { ptr, i32 } %2243, 0
-  %2245 = extractvalue { ptr, i32 } %2243, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2246:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2247 = load ptr, ptr %374, align 8
-  %2248 = load ptr, ptr %2247, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %148, ptr noundef %2248)
-          to label %2249 unwind label %2251
+  %2248 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2249 unwind label %2256
 
 2249:                                             ; preds = %2246
-  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %147, ptr noundef nonnull align 8 dereferenceable(16) %148)
-          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372 unwind label %2253
+  store i64 %2247, ptr %2248, align 8
+  store ptr null, ptr %141, align 8
+  store ptr %2248, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #21
+  br label %2538
 
-_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372: ; preds = %2249
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %147)
-          to label %2250 unwind label %2255
+2250:                                             ; preds = %2237
+  %2251 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2259
 
-2250:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %147) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #21
-  br label %2458
-
-2251:                                             ; preds = %2246
-  %2252 = landingpad { ptr, i32 }
+2252:                                             ; preds = %2241
+  %2253 = landingpad { ptr, i32 }
+          cleanup
           catch ptr @_ZTISt9exception
   br label %2258
 
-2253:                                             ; preds = %2249
-  %2254 = landingpad { ptr, i32 }
+2254:                                             ; preds = %2245
+  %2255 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2257
-
-2255:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372
-  %2256 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %147) #21
-  br label %2257
-
-2257:                                             ; preds = %2255, %2253
-  %.pn1037 = phi { ptr, i32 } [ %2256, %2255 ], [ %2254, %2253 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #21
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %140) #21
   br label %2258
 
-2258:                                             ; preds = %2257, %2251
-  %.pn1037.pn = phi { ptr, i32 } [ %.pn1037, %2257 ], [ %2252, %2251 ]
-  %.105 = extractvalue { ptr, i32 } %.pn1037.pn, 0
-  %.105877 = extractvalue { ptr, i32 } %.pn1037.pn, 1
-  %2259 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2260 = icmp eq i32 %.105877, %2259
-  br i1 %2260, label %2261, label %2719
+2256:                                             ; preds = %2246
+  %2257 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #21
+  br label %2258
 
-2261:                                             ; preds = %2258
-  %2262 = call ptr @__cxa_begin_catch(ptr %.105) #21
-  %2263 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2262)
-          to label %2264 unwind label %2265
+2258:                                             ; preds = %2256, %2254, %2252
+  %.pn1046 = phi { ptr, i32 } [ %2257, %2256 ], [ %2255, %2254 ], [ %2253, %2252 ]
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #21
+  br label %2259
 
-2264:                                             ; preds = %2261
+2259:                                             ; preds = %2258, %2250
+  %.pn1046.pn = phi { ptr, i32 } [ %.pn1046, %2258 ], [ %2251, %2250 ]
+  %.99 = extractvalue { ptr, i32 } %.pn1046.pn, 0
+  %.99871 = extractvalue { ptr, i32 } %.pn1046.pn, 1
+  %2260 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2261 = icmp eq i32 %.99871, %2260
+  br i1 %2261, label %2262, label %2799
+
+2262:                                             ; preds = %2259
+  %2263 = call ptr @__cxa_begin_catch(ptr %.99) #21
+  %2264 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2263)
+          to label %2265 unwind label %2266
+
+2265:                                             ; preds = %2262
   call void @__cxa_end_catch()
-  br i1 %2263, label %2555, label %.loopexit
+  br i1 %2264, label %2635, label %.loopexit
 
-2265:                                             ; preds = %2261
-  %2266 = landingpad { ptr, i32 }
+2266:                                             ; preds = %2262
+  %2267 = landingpad { ptr, i32 }
           cleanup
-  %2267 = extractvalue { ptr, i32 } %2266, 0
-  %2268 = extractvalue { ptr, i32 } %2266, 1
+  %2268 = extractvalue { ptr, i32 } %2267, 0
+  %2269 = extractvalue { ptr, i32 } %2267, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2269:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2270 = load ptr, ptr %374, align 8
-  %2271 = load ptr, ptr %2270, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %150, ptr noundef %2271)
-          to label %2272 unwind label %2274
+2270:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2271 = load ptr, ptr %374, align 8
+  %2272 = getelementptr inbounds i8, ptr %2271, i64 -16
+  %2273 = load ptr, ptr %2272, align 8
+  invoke fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef %2273)
+          to label %2274 unwind label %2283
 
-2272:                                             ; preds = %2269
-  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %149, ptr noundef nonnull align 8 dereferenceable(16) %150)
-          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373 unwind label %2276
+2274:                                             ; preds = %2270
+  %2275 = load ptr, ptr %142, align 8
+  %2276 = load ptr, ptr %374, align 8
+  %2277 = load ptr, ptr %2276, align 8
+  invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %143, ptr noundef %2277)
+          to label %2278 unwind label %2285
 
-_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373: ; preds = %2272
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %149)
-          to label %2273 unwind label %2278
+2278:                                             ; preds = %2274
+  invoke void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %2275, ptr noundef nonnull align 8 dereferenceable(76) %143)
+          to label %2279 unwind label %2287
 
-2273:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %149) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #21
-  br label %2458
+2279:                                             ; preds = %2278
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %143) #21
+  %2280 = load i64, ptr %142, align 8
+  store i64 %2280, ptr %144, align 8
+  store ptr null, ptr %142, align 8
+  %2281 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+          to label %2282 unwind label %2289
 
-2274:                                             ; preds = %2269
-  %2275 = landingpad { ptr, i32 }
+2282:                                             ; preds = %2279
+  store i64 %2280, ptr %2281, align 8
+  store ptr null, ptr %144, align 8
+  store ptr %2281, ptr %8, align 8
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #21
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #21
+  br label %2538
+
+2283:                                             ; preds = %2270
+  %2284 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %2281
+  br label %2292
 
-2276:                                             ; preds = %2272
-  %2277 = landingpad { ptr, i32 }
+2285:                                             ; preds = %2274
+  %2286 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2280
+  br label %2291
 
-2278:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373
-  %2279 = landingpad { ptr, i32 }
+2287:                                             ; preds = %2278
+  %2288 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %149) #21
-  br label %2280
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %143) #21
+  br label %2291
 
-2280:                                             ; preds = %2278, %2276
-  %.pn1034 = phi { ptr, i32 } [ %2279, %2278 ], [ %2277, %2276 ]
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #21
-  br label %2281
-
-2281:                                             ; preds = %2280, %2274
-  %.pn1034.pn = phi { ptr, i32 } [ %.pn1034, %2280 ], [ %2275, %2274 ]
-  %.107 = extractvalue { ptr, i32 } %.pn1034.pn, 0
-  %.107879 = extractvalue { ptr, i32 } %.pn1034.pn, 1
-  %2282 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2283 = icmp eq i32 %.107879, %2282
-  br i1 %2283, label %2284, label %2719
-
-2284:                                             ; preds = %2281
-  %2285 = call ptr @__cxa_begin_catch(ptr %.107) #21
-  %2286 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2285)
-          to label %2287 unwind label %2288
-
-2287:                                             ; preds = %2284
-  call void @__cxa_end_catch()
-  br i1 %2286, label %2555, label %.loopexit
-
-2288:                                             ; preds = %2284
-  %2289 = landingpad { ptr, i32 }
+2289:                                             ; preds = %2279
+  %2290 = landingpad { ptr, i32 }
           cleanup
-  %2290 = extractvalue { ptr, i32 } %2289, 0
-  %2291 = extractvalue { ptr, i32 } %2289, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          catch ptr @_ZTISt9exception
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #21
+  br label %2291
 
-2292:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2293 = load ptr, ptr %374, align 8
-  %2294 = load ptr, ptr %2293, align 8
-  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %152, ptr noundef %2294)
-          to label %2295 unwind label %2297
+2291:                                             ; preds = %2289, %2287, %2285
+  %.pn1043 = phi { ptr, i32 } [ %2290, %2289 ], [ %2288, %2287 ], [ %2286, %2285 ]
+  call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #21
+  br label %2292
+
+2292:                                             ; preds = %2291, %2283
+  %.pn1043.pn = phi { ptr, i32 } [ %.pn1043, %2291 ], [ %2284, %2283 ]
+  %.101 = extractvalue { ptr, i32 } %.pn1043.pn, 0
+  %.101873 = extractvalue { ptr, i32 } %.pn1043.pn, 1
+  %2293 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2294 = icmp eq i32 %.101873, %2293
+  br i1 %2294, label %2295, label %2799
 
 2295:                                             ; preds = %2292
-  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %151, ptr noundef nonnull align 8 dereferenceable(16) %152)
-          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374 unwind label %2299
+  %2296 = call ptr @__cxa_begin_catch(ptr %.101) #21
+  %2297 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2296)
+          to label %2298 unwind label %2299
 
-_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374: ; preds = %2295
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %151)
-          to label %2296 unwind label %2301
-
-2296:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %151) #21
-  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #21
-  br label %2458
-
-2297:                                             ; preds = %2292
-  %2298 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2304
+2298:                                             ; preds = %2295
+  call void @__cxa_end_catch()
+  br i1 %2297, label %2635, label %.loopexit
 
 2299:                                             ; preds = %2295
   %2300 = landingpad { ptr, i32 }
           cleanup
-          catch ptr @_ZTISt9exception
-  br label %2303
+  %2301 = extractvalue { ptr, i32 } %2300, 0
+  %2302 = extractvalue { ptr, i32 } %2300, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
 
-2301:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374
-  %2302 = landingpad { ptr, i32 }
+2303:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2304 = load ptr, ptr %374, align 8
+  %2305 = load ptr, ptr %2304, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef %2305)
+          to label %2306 unwind label %2308
+
+2306:                                             ; preds = %2303
+  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %145, ptr noundef nonnull align 8 dereferenceable(16) %146)
+          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit unwind label %2310
+
+_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit: ; preds = %2306
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %145)
+          to label %2307 unwind label %2312
+
+2307:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %145) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #21
+  br label %2538
+
+2308:                                             ; preds = %2303
+  %2309 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2315
+
+2310:                                             ; preds = %2306
+  %2311 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2314
+
+2312:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
+  %2313 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %145) #21
+  br label %2314
+
+2314:                                             ; preds = %2312, %2310
+  %.pn1040 = phi { ptr, i32 } [ %2313, %2312 ], [ %2311, %2310 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #21
+  br label %2315
+
+2315:                                             ; preds = %2314, %2308
+  %.pn1040.pn = phi { ptr, i32 } [ %.pn1040, %2314 ], [ %2309, %2308 ]
+  %.103 = extractvalue { ptr, i32 } %.pn1040.pn, 0
+  %.103875 = extractvalue { ptr, i32 } %.pn1040.pn, 1
+  %2316 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2317 = icmp eq i32 %.103875, %2316
+  br i1 %2317, label %2318, label %2799
+
+2318:                                             ; preds = %2315
+  %2319 = call ptr @__cxa_begin_catch(ptr %.103) #21
+  %2320 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2319)
+          to label %2321 unwind label %2322
+
+2321:                                             ; preds = %2318
+  call void @__cxa_end_catch()
+  br i1 %2320, label %2635, label %.loopexit
+
+2322:                                             ; preds = %2318
+  %2323 = landingpad { ptr, i32 }
+          cleanup
+  %2324 = extractvalue { ptr, i32 } %2323, 0
+  %2325 = extractvalue { ptr, i32 } %2323, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2326:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2327 = load ptr, ptr %374, align 8
+  %2328 = load ptr, ptr %2327, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %148, ptr noundef %2328)
+          to label %2329 unwind label %2331
+
+2329:                                             ; preds = %2326
+  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %147, ptr noundef nonnull align 8 dereferenceable(16) %148)
+          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372 unwind label %2333
+
+_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372: ; preds = %2329
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %147)
+          to label %2330 unwind label %2335
+
+2330:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %147) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #21
+  br label %2538
+
+2331:                                             ; preds = %2326
+  %2332 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2338
+
+2333:                                             ; preds = %2329
+  %2334 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2337
+
+2335:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1372
+  %2336 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %147) #21
+  br label %2337
+
+2337:                                             ; preds = %2335, %2333
+  %.pn1037 = phi { ptr, i32 } [ %2336, %2335 ], [ %2334, %2333 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #21
+  br label %2338
+
+2338:                                             ; preds = %2337, %2331
+  %.pn1037.pn = phi { ptr, i32 } [ %.pn1037, %2337 ], [ %2332, %2331 ]
+  %.105 = extractvalue { ptr, i32 } %.pn1037.pn, 0
+  %.105877 = extractvalue { ptr, i32 } %.pn1037.pn, 1
+  %2339 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2340 = icmp eq i32 %.105877, %2339
+  br i1 %2340, label %2341, label %2799
+
+2341:                                             ; preds = %2338
+  %2342 = call ptr @__cxa_begin_catch(ptr %.105) #21
+  %2343 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2342)
+          to label %2344 unwind label %2345
+
+2344:                                             ; preds = %2341
+  call void @__cxa_end_catch()
+  br i1 %2343, label %2635, label %.loopexit
+
+2345:                                             ; preds = %2341
+  %2346 = landingpad { ptr, i32 }
+          cleanup
+  %2347 = extractvalue { ptr, i32 } %2346, 0
+  %2348 = extractvalue { ptr, i32 } %2346, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2349:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2350 = load ptr, ptr %374, align 8
+  %2351 = load ptr, ptr %2350, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %150, ptr noundef %2351)
+          to label %2352 unwind label %2354
+
+2352:                                             ; preds = %2349
+  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %149, ptr noundef nonnull align 8 dereferenceable(16) %150)
+          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373 unwind label %2356
+
+_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373: ; preds = %2352
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %149)
+          to label %2353 unwind label %2358
+
+2353:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %149) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #21
+  br label %2538
+
+2354:                                             ; preds = %2349
+  %2355 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2361
+
+2356:                                             ; preds = %2352
+  %2357 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2360
+
+2358:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1373
+  %2359 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %149) #21
+  br label %2360
+
+2360:                                             ; preds = %2358, %2356
+  %.pn1034 = phi { ptr, i32 } [ %2359, %2358 ], [ %2357, %2356 ]
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #21
+  br label %2361
+
+2361:                                             ; preds = %2360, %2354
+  %.pn1034.pn = phi { ptr, i32 } [ %.pn1034, %2360 ], [ %2355, %2354 ]
+  %.107 = extractvalue { ptr, i32 } %.pn1034.pn, 0
+  %.107879 = extractvalue { ptr, i32 } %.pn1034.pn, 1
+  %2362 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2363 = icmp eq i32 %.107879, %2362
+  br i1 %2363, label %2364, label %2799
+
+2364:                                             ; preds = %2361
+  %2365 = call ptr @__cxa_begin_catch(ptr %.107) #21
+  %2366 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2365)
+          to label %2367 unwind label %2368
+
+2367:                                             ; preds = %2364
+  call void @__cxa_end_catch()
+  br i1 %2366, label %2635, label %.loopexit
+
+2368:                                             ; preds = %2364
+  %2369 = landingpad { ptr, i32 }
+          cleanup
+  %2370 = extractvalue { ptr, i32 } %2369, 0
+  %2371 = extractvalue { ptr, i32 } %2369, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2372:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2373 = load ptr, ptr %374, align 8
+  %2374 = load ptr, ptr %2373, align 8
+  invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable align 8 %152, ptr noundef %2374)
+          to label %2375 unwind label %2377
+
+2375:                                             ; preds = %2372
+  invoke void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76) %151, ptr noundef nonnull align 8 dereferenceable(16) %152)
+          to label %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374 unwind label %2379
+
+_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374: ; preds = %2375
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %151)
+          to label %2376 unwind label %2381
+
+2376:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %151) #21
+  call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #21
+  br label %2538
+
+2377:                                             ; preds = %2372
+  %2378 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2384
+
+2379:                                             ; preds = %2375
+  %2380 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  br label %2383
+
+2381:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1374
+  %2382 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %151) #21
-  br label %2303
+  br label %2383
 
-2303:                                             ; preds = %2301, %2299
-  %.pn1031 = phi { ptr, i32 } [ %2302, %2301 ], [ %2300, %2299 ]
+2383:                                             ; preds = %2381, %2379
+  %.pn1031 = phi { ptr, i32 } [ %2382, %2381 ], [ %2380, %2379 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #21
-  br label %2304
+  br label %2384
 
-2304:                                             ; preds = %2303, %2297
-  %.pn1031.pn = phi { ptr, i32 } [ %.pn1031, %2303 ], [ %2298, %2297 ]
+2384:                                             ; preds = %2383, %2377
+  %.pn1031.pn = phi { ptr, i32 } [ %.pn1031, %2383 ], [ %2378, %2377 ]
   %.109 = extractvalue { ptr, i32 } %.pn1031.pn, 0
   %.109881 = extractvalue { ptr, i32 } %.pn1031.pn, 1
-  %2305 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2306 = icmp eq i32 %.109881, %2305
-  br i1 %2306, label %2307, label %2719
+  %2385 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2386 = icmp eq i32 %.109881, %2385
+  br i1 %2386, label %2387, label %2799
 
-2307:                                             ; preds = %2304
-  %2308 = call ptr @__cxa_begin_catch(ptr %.109) #21
-  %2309 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2308)
-          to label %2310 unwind label %2311
+2387:                                             ; preds = %2384
+  %2388 = call ptr @__cxa_begin_catch(ptr %.109) #21
+  %2389 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2388)
+          to label %2390 unwind label %2391
 
-2310:                                             ; preds = %2307
+2390:                                             ; preds = %2387
   call void @__cxa_end_catch()
-  br i1 %2309, label %2555, label %.loopexit
+  br i1 %2389, label %2635, label %.loopexit
 
-2311:                                             ; preds = %2307
-  %2312 = landingpad { ptr, i32 }
+2391:                                             ; preds = %2387
+  %2392 = landingpad { ptr, i32 }
           cleanup
-  %2313 = extractvalue { ptr, i32 } %2312, 0
-  %2314 = extractvalue { ptr, i32 } %2312, 1
+  %2393 = extractvalue { ptr, i32 } %2392, 0
+  %2394 = extractvalue { ptr, i32 } %2392, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2315:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2316 = load ptr, ptr %374, align 8
-  %2317 = load ptr, ptr %2316, align 8
-  store ptr %2317, ptr %8, align 8
-  br label %2458
+2395:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2396 = load ptr, ptr %374, align 8
+  %2397 = load ptr, ptr %2396, align 8
+  store ptr %2397, ptr %8, align 8
+  br label %2538
 
-2318:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2319 = load ptr, ptr %374, align 8
-  %2320 = load i32, ptr %2319, align 8
+2398:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2399 = load ptr, ptr %374, align 8
+  %2400 = load i32, ptr %2399, align 8
   invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %153, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2321 unwind label %2325
+          to label %2401 unwind label %2405
 
-2321:                                             ; preds = %2318
-  %2322 = getelementptr inbounds i8, ptr %153, i64 56
-  %2323 = getelementptr inbounds i8, ptr %153, i64 60
-  store i32 %2320, ptr %2323, align 4, !alias.scope !20
-  store i32 %2320, ptr %2322, align 8, !alias.scope !20
+2401:                                             ; preds = %2398
+  %2402 = getelementptr inbounds i8, ptr %153, i64 56
+  %2403 = getelementptr inbounds i8, ptr %153, i64 60
+  store i32 %2400, ptr %2403, align 4, !alias.scope !20
+  store i32 %2400, ptr %2402, align 8, !alias.scope !20
   invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %153)
-          to label %2324 unwind label %2327
+          to label %2404 unwind label %2407
 
-2324:                                             ; preds = %2321
+2404:                                             ; preds = %2401
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %153) #21
-  br label %2458
+  br label %2538
 
-2325:                                             ; preds = %2318
-  %2326 = landingpad { ptr, i32 }
+2405:                                             ; preds = %2398
+  %2406 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %2329
+  br label %2409
 
-2327:                                             ; preds = %2321
-  %2328 = landingpad { ptr, i32 }
+2407:                                             ; preds = %2401
+  %2408 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %153) #21
-  br label %2329
+  br label %2409
 
-2329:                                             ; preds = %2327, %2325
-  %.pn1029 = phi { ptr, i32 } [ %2328, %2327 ], [ %2326, %2325 ]
+2409:                                             ; preds = %2407, %2405
+  %.pn1029 = phi { ptr, i32 } [ %2408, %2407 ], [ %2406, %2405 ]
   %.111 = extractvalue { ptr, i32 } %.pn1029, 0
   %.111883 = extractvalue { ptr, i32 } %.pn1029, 1
-  %2330 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2331 = icmp eq i32 %.111883, %2330
-  br i1 %2331, label %2332, label %2719
+  %2410 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2411 = icmp eq i32 %.111883, %2410
+  br i1 %2411, label %2412, label %2799
 
-2332:                                             ; preds = %2329
-  %2333 = call ptr @__cxa_begin_catch(ptr %.111) #21
-  %2334 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2333)
-          to label %2335 unwind label %2336
+2412:                                             ; preds = %2409
+  %2413 = call ptr @__cxa_begin_catch(ptr %.111) #21
+  %2414 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2413)
+          to label %2415 unwind label %2416
 
-2335:                                             ; preds = %2332
+2415:                                             ; preds = %2412
   call void @__cxa_end_catch()
-  br i1 %2334, label %2555, label %.loopexit
+  br i1 %2414, label %2635, label %.loopexit
 
-2336:                                             ; preds = %2332
-  %2337 = landingpad { ptr, i32 }
+2416:                                             ; preds = %2412
+  %2417 = landingpad { ptr, i32 }
           cleanup
-  %2338 = extractvalue { ptr, i32 } %2337, 0
-  %2339 = extractvalue { ptr, i32 } %2337, 1
+  %2418 = extractvalue { ptr, i32 } %2417, 0
+  %2419 = extractvalue { ptr, i32 } %2417, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2340:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2341 = load ptr, ptr %374, align 8
-  %2342 = load float, ptr %2341, align 8
+2420:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2421 = load ptr, ptr %374, align 8
+  %2422 = load float, ptr %2421, align 8
   invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %154, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2343 unwind label %2347
+          to label %2423 unwind label %2427
 
-2343:                                             ; preds = %2340
-  %2344 = getelementptr inbounds i8, ptr %154, i64 56
-  %2345 = getelementptr inbounds i8, ptr %154, i64 60
-  store float %2342, ptr %2345, align 4, !alias.scope !23
-  store float %2342, ptr %2344, align 8, !alias.scope !23
+2423:                                             ; preds = %2420
+  %2424 = getelementptr inbounds i8, ptr %154, i64 56
+  %2425 = getelementptr inbounds i8, ptr %154, i64 60
+  store float %2422, ptr %2425, align 4, !alias.scope !23
+  store float %2422, ptr %2424, align 8, !alias.scope !23
   invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %154)
-          to label %2346 unwind label %2349
+          to label %2426 unwind label %2429
 
-2346:                                             ; preds = %2343
+2426:                                             ; preds = %2423
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %154) #21
-  br label %2458
+  br label %2538
 
-2347:                                             ; preds = %2340
-  %2348 = landingpad { ptr, i32 }
+2427:                                             ; preds = %2420
+  %2428 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  br label %2351
+  br label %2431
 
-2349:                                             ; preds = %2343
-  %2350 = landingpad { ptr, i32 }
+2429:                                             ; preds = %2423
+  %2430 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %154) #21
-  br label %2351
+  br label %2431
 
-2351:                                             ; preds = %2349, %2347
-  %.pn1027 = phi { ptr, i32 } [ %2350, %2349 ], [ %2348, %2347 ]
+2431:                                             ; preds = %2429, %2427
+  %.pn1027 = phi { ptr, i32 } [ %2430, %2429 ], [ %2428, %2427 ]
   %.112 = extractvalue { ptr, i32 } %.pn1027, 0
   %.112884 = extractvalue { ptr, i32 } %.pn1027, 1
-  %2352 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2353 = icmp eq i32 %.112884, %2352
-  br i1 %2353, label %2354, label %2719
+  %2432 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2433 = icmp eq i32 %.112884, %2432
+  br i1 %2433, label %2434, label %2799
 
-2354:                                             ; preds = %2351
-  %2355 = call ptr @__cxa_begin_catch(ptr %.112) #21
-  %2356 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2355)
-          to label %2357 unwind label %2358
+2434:                                             ; preds = %2431
+  %2435 = call ptr @__cxa_begin_catch(ptr %.112) #21
+  %2436 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2435)
+          to label %2437 unwind label %2438
 
-2357:                                             ; preds = %2354
+2437:                                             ; preds = %2434
   call void @__cxa_end_catch()
-  br i1 %2356, label %2555, label %.loopexit
+  br i1 %2436, label %2635, label %.loopexit
 
-2358:                                             ; preds = %2354
-  %2359 = landingpad { ptr, i32 }
+2438:                                             ; preds = %2434
+  %2439 = landingpad { ptr, i32 }
           cleanup
-  %2360 = extractvalue { ptr, i32 } %2359, 0
-  %2361 = extractvalue { ptr, i32 } %2359, 1
+  %2440 = extractvalue { ptr, i32 } %2439, 0
+  %2441 = extractvalue { ptr, i32 } %2439, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2362:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2363 = load ptr, ptr %374, align 8
-  %2364 = load ptr, ptr %2363, align 8
-  store ptr %2364, ptr %155, align 8
-  invoke void @_ZN3gmx20SelectionParserValue12createStringEPKcRKNS_17SelectionLocationE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserValue") align 8 %156, ptr noundef %2364, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2365 unwind label %2367
+2442:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2443 = load ptr, ptr %374, align 8
+  %2444 = load ptr, ptr %2443, align 8
+  store ptr %2444, ptr %155, align 8
+  invoke void @_ZN3gmx20SelectionParserValue12createStringEPKcRKNS_17SelectionLocationE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserValue") align 8 %156, ptr noundef %2444, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %2445 unwind label %2447
 
-2365:                                             ; preds = %2362
+2445:                                             ; preds = %2442
   invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %156)
-          to label %2366 unwind label %2369
+          to label %2446 unwind label %2449
 
-2366:                                             ; preds = %2365
+2446:                                             ; preds = %2445
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %156) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #21
-  br label %2458
+  br label %2538
 
-2367:                                             ; preds = %2362
-  %2368 = landingpad { ptr, i32 }
+2447:                                             ; preds = %2442
+  %2448 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %2371
+  br label %2451
 
-2369:                                             ; preds = %2365
-  %2370 = landingpad { ptr, i32 }
+2449:                                             ; preds = %2445
+  %2450 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %156) #21
-  br label %2371
+  br label %2451
 
-2371:                                             ; preds = %2369, %2367
-  %.pn1025 = phi { ptr, i32 } [ %2370, %2369 ], [ %2368, %2367 ]
+2451:                                             ; preds = %2449, %2447
+  %.pn1025 = phi { ptr, i32 } [ %2450, %2449 ], [ %2448, %2447 ]
   %.113 = extractvalue { ptr, i32 } %.pn1025, 0
   %.113885 = extractvalue { ptr, i32 } %.pn1025, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #21
-  %2372 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2373 = icmp eq i32 %.113885, %2372
-  br i1 %2373, label %2374, label %2719
+  %2452 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2453 = icmp eq i32 %.113885, %2452
+  br i1 %2453, label %2454, label %2799
 
-2374:                                             ; preds = %2371
-  %2375 = call ptr @__cxa_begin_catch(ptr %.113) #21
-  %2376 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2375)
-          to label %2377 unwind label %2378
+2454:                                             ; preds = %2451
+  %2455 = call ptr @__cxa_begin_catch(ptr %.113) #21
+  %2456 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2455)
+          to label %2457 unwind label %2458
 
-2377:                                             ; preds = %2374
+2457:                                             ; preds = %2454
   call void @__cxa_end_catch()
-  br i1 %2376, label %2555, label %.loopexit
+  br i1 %2456, label %2635, label %.loopexit
 
-2378:                                             ; preds = %2374
-  %2379 = landingpad { ptr, i32 }
+2458:                                             ; preds = %2454
+  %2459 = landingpad { ptr, i32 }
           cleanup
-  %2380 = extractvalue { ptr, i32 } %2379, 0
-  %2381 = extractvalue { ptr, i32 } %2379, 1
+  %2460 = extractvalue { ptr, i32 } %2459, 0
+  %2461 = extractvalue { ptr, i32 } %2459, 1
   invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
+          to label %2799 unwind label %2802
 
-2382:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2383 = load ptr, ptr %374, align 8
-  %2384 = load ptr, ptr %2383, align 8
-  store ptr %2384, ptr %8, align 8
-  br label %2458
-
-2385:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2386 = load ptr, ptr %374, align 8
-  %2387 = getelementptr inbounds i8, ptr %2386, i64 -16
-  %2388 = load i32, ptr %2387, align 8
-  %2389 = load i32, ptr %2386, align 8
-  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %157, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2390 unwind label %2394
-
-2390:                                             ; preds = %2385
-  %2391 = getelementptr inbounds i8, ptr %157, i64 56
-  store i32 %2388, ptr %2391, align 8, !alias.scope !26
-  %2392 = getelementptr inbounds i8, ptr %157, i64 60
-  store i32 %2389, ptr %2392, align 4, !alias.scope !26
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %157)
-          to label %2393 unwind label %2396
-
-2393:                                             ; preds = %2390
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %157) #21
-  br label %2458
-
-2394:                                             ; preds = %2385
-  %2395 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2398
-
-2396:                                             ; preds = %2390
-  %2397 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %157) #21
-  br label %2398
-
-2398:                                             ; preds = %2396, %2394
-  %.pn1023 = phi { ptr, i32 } [ %2397, %2396 ], [ %2395, %2394 ]
-  %.114 = extractvalue { ptr, i32 } %.pn1023, 0
-  %.114886 = extractvalue { ptr, i32 } %.pn1023, 1
-  %2399 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2400 = icmp eq i32 %.114886, %2399
-  br i1 %2400, label %2401, label %2719
-
-2401:                                             ; preds = %2398
-  %2402 = call ptr @__cxa_begin_catch(ptr %.114) #21
-  %2403 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2402)
-          to label %2404 unwind label %2405
-
-2404:                                             ; preds = %2401
-  call void @__cxa_end_catch()
-  br i1 %2403, label %2555, label %.loopexit
-
-2405:                                             ; preds = %2401
-  %2406 = landingpad { ptr, i32 }
-          cleanup
-  %2407 = extractvalue { ptr, i32 } %2406, 0
-  %2408 = extractvalue { ptr, i32 } %2406, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2409:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2410 = load ptr, ptr %374, align 8
-  %2411 = getelementptr inbounds i8, ptr %2410, i64 -16
-  %2412 = load i32, ptr %2411, align 8
-  %2413 = load float, ptr %2410, align 8
-  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %158, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2414 unwind label %2419
-
-2414:                                             ; preds = %2409
-  %2415 = sitofp i32 %2412 to float
-  %2416 = getelementptr inbounds i8, ptr %158, i64 56
-  store float %2415, ptr %2416, align 8, !alias.scope !29
-  %2417 = getelementptr inbounds i8, ptr %158, i64 60
-  store float %2413, ptr %2417, align 4, !alias.scope !29
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %158)
-          to label %2418 unwind label %2421
-
-2418:                                             ; preds = %2414
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %158) #21
-  br label %2458
-
-2419:                                             ; preds = %2409
-  %2420 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2423
-
-2421:                                             ; preds = %2414
-  %2422 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %158) #21
-  br label %2423
-
-2423:                                             ; preds = %2421, %2419
-  %.pn1021 = phi { ptr, i32 } [ %2422, %2421 ], [ %2420, %2419 ]
-  %.115 = extractvalue { ptr, i32 } %.pn1021, 0
-  %.115887 = extractvalue { ptr, i32 } %.pn1021, 1
-  %2424 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2425 = icmp eq i32 %.115887, %2424
-  br i1 %2425, label %2426, label %2719
-
-2426:                                             ; preds = %2423
-  %2427 = call ptr @__cxa_begin_catch(ptr %.115) #21
-  %2428 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2427)
-          to label %2429 unwind label %2430
-
-2429:                                             ; preds = %2426
-  call void @__cxa_end_catch()
-  br i1 %2428, label %2555, label %.loopexit
-
-2430:                                             ; preds = %2426
-  %2431 = landingpad { ptr, i32 }
-          cleanup
-  %2432 = extractvalue { ptr, i32 } %2431, 0
-  %2433 = extractvalue { ptr, i32 } %2431, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2434:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2435 = load ptr, ptr %374, align 8
-  %2436 = getelementptr inbounds i8, ptr %2435, i64 -16
-  %2437 = load float, ptr %2436, align 8
-  %2438 = load float, ptr %2435, align 8
-  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %159, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %2439 unwind label %2443
-
-2439:                                             ; preds = %2434
-  %2440 = getelementptr inbounds i8, ptr %159, i64 56
-  store float %2437, ptr %2440, align 8, !alias.scope !32
-  %2441 = getelementptr inbounds i8, ptr %159, i64 60
-  store float %2438, ptr %2441, align 4, !alias.scope !32
-  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %159)
-          to label %2442 unwind label %2445
-
-2442:                                             ; preds = %2439
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %159) #21
-  br label %2458
-
-2443:                                             ; preds = %2434
-  %2444 = landingpad { ptr, i32 }
-          catch ptr @_ZTISt9exception
-  br label %2447
-
-2445:                                             ; preds = %2439
-  %2446 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %159) #21
-  br label %2447
-
-2447:                                             ; preds = %2445, %2443
-  %.pn = phi { ptr, i32 } [ %2446, %2445 ], [ %2444, %2443 ]
-  %.116 = extractvalue { ptr, i32 } %.pn, 0
-  %.116888 = extractvalue { ptr, i32 } %.pn, 1
-  %2448 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %2449 = icmp eq i32 %.116888, %2448
-  br i1 %2449, label %2450, label %2719
-
-2450:                                             ; preds = %2447
-  %2451 = call ptr @__cxa_begin_catch(ptr %.116) #21
-  %2452 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2451)
-          to label %2453 unwind label %2454
-
-2453:                                             ; preds = %2450
-  call void @__cxa_end_catch()
-  br i1 %2452, label %2555, label %.loopexit
-
-2454:                                             ; preds = %2450
-  %2455 = landingpad { ptr, i32 }
-          cleanup
-  %2456 = extractvalue { ptr, i32 } %2455, 0
-  %2457 = extractvalue { ptr, i32 } %2455, 1
-  invoke void @__cxa_end_catch()
-          to label %2719 unwind label %2722
-
-2458:                                             ; preds = %543, %576, %.thread1428, %.thread1425, %.thread1422, %.thread1419, %.thread1416, %.thread1413, %.thread1410, %.thread1407, %.thread1404, %.thread1401, %.thread, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit, %485, %602, %631, %660, %689, %718, %739, %772, %815, %818, %822, %825, %829, %833, %836, %839, %866, %921, %979, %1004, %1055, %1078, %1096, %1097, %1100, %1101, %1102, %1308, %1356, %1491, %1525, %1559, %1593, %1623, %1654, %1678, %1708, %1769, %1787, %1864, %1891, %1918, %1939, %1942, %1952, %1981, %2009, %2028, %2031, %2041, %2070, %2103, %2124, %2127, %2137, %2169, %2202, %2227, %2250, %2273, %2296, %2315, %2324, %2346, %2366, %2382, %2393, %2418, %2442, %456, %748, %788, %1799, %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
-  %2459 = load i32, ptr @_gmx_sel_yydebug, align 4
-  %.not1196 = icmp eq i32 %2459, 0
-  br i1 %.not1196, label %2473, label %2460
-
-2460:                                             ; preds = %2458
-  %2461 = load ptr, ptr @stderr, align 8
-  %2462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2461, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10) #23
-  %2463 = load ptr, ptr @stderr, align 8
-  %2464 = getelementptr inbounds [91 x i8], ptr @_ZL4yyr1, i64 0, i64 %370
-  %2465 = load i8, ptr %2464, align 1
-  %2466 = icmp eq i32 %.2749, 0
-  %.str.18..str.19.i1376 = select i1 %2466, ptr @.str.18, ptr @.str.19
-  %2467 = zext i8 %2465 to i64
-  %2468 = getelementptr inbounds [75 x ptr], ptr @_ZL7yytname, i64 0, i64 %2467
-  %2469 = load ptr, ptr %2468, align 8
-  %2470 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2463, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i1376, ptr noundef %2469) #23
-  %2471 = call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %2463) #22
-  %fputc.i1377 = call i32 @fputc(i32 41, ptr %2463)
-  %2472 = load ptr, ptr @stderr, align 8
-  %fputc1197 = call i32 @fputc(i32 10, ptr %2472)
-  %.pre1477 = load i32, ptr @_gmx_sel_yydebug, align 4
-  br label %2473
-
-2473:                                             ; preds = %2458, %2460
-  %2474 = phi i32 [ 0, %2458 ], [ %.pre1477, %2460 ]
-  %2475 = load ptr, ptr %374, align 8
-  %2476 = zext i8 %372 to i64
-  %2477 = sub nsw i64 0, %2476
-  %2478 = getelementptr inbounds %union.YYSTYPE, ptr %2475, i64 %2477
-  store ptr %2478, ptr %374, align 8
-  %2479 = getelementptr inbounds i8, ptr %0, i64 424
-  %2480 = load ptr, ptr %2479, align 8
-  %2481 = getelementptr inbounds i16, ptr %2480, i64 %2477
-  store ptr %2481, ptr %2479, align 8
-  %2482 = getelementptr inbounds i8, ptr %0, i64 3656
-  %2483 = load ptr, ptr %2482, align 8
-  %2484 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2483, i64 %2477
-  store ptr %2484, ptr %2482, align 8
-  %.not1198 = icmp eq i32 %2474, 0
-  br i1 %.not1198, label %2496, label %2485
-
-2485:                                             ; preds = %2473
-  %2486 = getelementptr inbounds i8, ptr %0, i64 416
-  %2487 = load ptr, ptr %2486, align 8
-  %2488 = load ptr, ptr @stderr, align 8
-  %2489 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2488) #22
-  %.not4.i = icmp ugt ptr %2487, %2481
-  br i1 %.not4.i, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i1378
-
-.lr.ph.i1378:                                     ; preds = %2485, %.lr.ph.i1378
-  %.05.i = phi ptr [ %2494, %.lr.ph.i1378 ], [ %2487, %2485 ]
-  %2490 = load i16, ptr %.05.i, align 2
-  %2491 = sext i16 %2490 to i32
-  %2492 = load ptr, ptr @stderr, align 8
-  %2493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2492, ptr noundef nonnull @.str.99, i32 noundef %2491) #23
-  %2494 = getelementptr inbounds i8, ptr %.05.i, i64 2
-  %.not.i1379 = icmp ugt ptr %2494, %2481
-  br i1 %.not.i1379, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i1378, !llvm.loop !35
-
-_ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i1378, %2485
-  %2495 = load ptr, ptr @stderr, align 8
-  %fputc.i1380 = call i32 @fputc(i32 10, ptr %2495)
-  %.pre1478 = load ptr, ptr %374, align 8
-  br label %2496
-
-2496:                                             ; preds = %2473, %_ZL14yy_stack_printPsS_.exit
-  %2497 = phi ptr [ %2478, %2473 ], [ %.pre1478, %_ZL14yy_stack_printPsS_.exit ]
-  %2498 = getelementptr inbounds i8, ptr %2497, i64 8
-  store ptr %2498, ptr %374, align 8
-  %2499 = load i64, ptr %8, align 8
-  store i64 %2499, ptr %2498, align 8
-  %2500 = load ptr, ptr %2482, align 8
-  %2501 = getelementptr inbounds i8, ptr %2500, i64 8
-  store ptr %2501, ptr %2482, align 8
-  %2502 = load i64, ptr %9, align 8
-  store i64 %2502, ptr %2501, align 4
-  %2503 = getelementptr inbounds [91 x i8], ptr @_ZL4yyr1, i64 0, i64 %370
-  %2504 = load i8, ptr %2503, align 1
-  %2505 = zext i8 %2504 to i64
-  %2506 = add nsw i64 %2505, -49
-  %2507 = getelementptr inbounds [25 x i8], ptr @_ZL7yypgoto, i64 0, i64 %2506
-  %2508 = load i8, ptr %2507, align 1
-  %2509 = sext i8 %2508 to i32
-  %2510 = load ptr, ptr %2479, align 8
-  %2511 = load i16, ptr %2510, align 2
-  %2512 = sext i16 %2511 to i32
-  %2513 = add nsw i32 %2512, %2509
-  %2514 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %2513, ptr %2514, align 4
-  %or.cond1289 = icmp ult i32 %2513, 368
-  br i1 %or.cond1289, label %2515, label %2525
-
-2515:                                             ; preds = %2496
-  %2516 = zext nneg i32 %2513 to i64
-  %2517 = getelementptr inbounds [368 x i16], ptr @_ZL7yycheck, i64 0, i64 %2516
-  %2518 = load i16, ptr %2517, align 2
-  %2519 = load i16, ptr %2510, align 2
-  %2520 = icmp eq i16 %2518, %2519
-  br i1 %2520, label %2521, label %2525
-
-2521:                                             ; preds = %2515
-  %2522 = getelementptr inbounds [368 x i16], ptr @_ZL7yytable, i64 0, i64 %2516
-  %2523 = load i16, ptr %2522, align 2
-  %2524 = sext i16 %2523 to i32
-  store i32 %2524, ptr %2514, align 4
-  br label %189
-
-2525:                                             ; preds = %2515, %2496
-  %2526 = getelementptr inbounds [25 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %2506
-  %2527 = load i16, ptr %2526, align 2
-  %2528 = sext i16 %2527 to i32
-  store i32 %2528, ptr %2514, align 4
-  br label %189
-
-2529:                                             ; preds = %361
-  %2530 = icmp eq i32 %.4, -2
-  br i1 %2530, label %2538, label %2531
-
-2531:                                             ; preds = %2529
-  %2532 = icmp ult i32 %.4, 289
-  br i1 %2532, label %2533, label %2538
-
-2533:                                             ; preds = %2531
-  %2534 = zext nneg i32 %.4 to i64
-  %2535 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %2534
-  %2536 = load i8, ptr %2535, align 1
-  %2537 = zext i8 %2536 to i32
+2462:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2463 = load ptr, ptr %374, align 8
+  %2464 = load ptr, ptr %2463, align 8
+  store ptr %2464, ptr %8, align 8
   br label %2538
 
-2538:                                             ; preds = %2533, %2531, %2529
-  %2539 = phi i32 [ -2, %2529 ], [ %2537, %2533 ], [ 2, %2531 ]
-  %2540 = getelementptr inbounds i8, ptr %0, i64 8
-  %2541 = load i32, ptr %2540, align 8
-  %.not1199 = icmp eq i32 %2541, 0
-  br i1 %.not1199, label %2542, label %2545
+2465:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2466 = load ptr, ptr %374, align 8
+  %2467 = getelementptr inbounds i8, ptr %2466, i64 -16
+  %2468 = load i32, ptr %2467, align 8
+  %2469 = load i32, ptr %2466, align 8
+  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %157, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %2470 unwind label %2474
 
-2542:                                             ; preds = %2538
-  %2543 = load i32, ptr %0, align 8
-  %2544 = add nsw i32 %2543, 1
-  store i32 %2544, ptr %0, align 8
+2470:                                             ; preds = %2465
+  %2471 = getelementptr inbounds i8, ptr %157, i64 56
+  store i32 %2468, ptr %2471, align 8, !alias.scope !26
+  %2472 = getelementptr inbounds i8, ptr %157, i64 60
+  store i32 %2469, ptr %2472, align 4, !alias.scope !26
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %157)
+          to label %2473 unwind label %2476
+
+2473:                                             ; preds = %2470
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %157) #21
+  br label %2538
+
+2474:                                             ; preds = %2465
+  %2475 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2478
+
+2476:                                             ; preds = %2470
+  %2477 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %157) #21
+  br label %2478
+
+2478:                                             ; preds = %2476, %2474
+  %.pn1023 = phi { ptr, i32 } [ %2477, %2476 ], [ %2475, %2474 ]
+  %.114 = extractvalue { ptr, i32 } %.pn1023, 0
+  %.114886 = extractvalue { ptr, i32 } %.pn1023, 1
+  %2479 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2480 = icmp eq i32 %.114886, %2479
+  br i1 %2480, label %2481, label %2799
+
+2481:                                             ; preds = %2478
+  %2482 = call ptr @__cxa_begin_catch(ptr %.114) #21
+  %2483 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2482)
+          to label %2484 unwind label %2485
+
+2484:                                             ; preds = %2481
+  call void @__cxa_end_catch()
+  br i1 %2483, label %2635, label %.loopexit
+
+2485:                                             ; preds = %2481
+  %2486 = landingpad { ptr, i32 }
+          cleanup
+  %2487 = extractvalue { ptr, i32 } %2486, 0
+  %2488 = extractvalue { ptr, i32 } %2486, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2489:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2490 = load ptr, ptr %374, align 8
+  %2491 = getelementptr inbounds i8, ptr %2490, i64 -16
+  %2492 = load i32, ptr %2491, align 8
+  %2493 = load float, ptr %2490, align 8
+  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %158, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %2494 unwind label %2499
+
+2494:                                             ; preds = %2489
+  %2495 = sitofp i32 %2492 to float
+  %2496 = getelementptr inbounds i8, ptr %158, i64 56
+  store float %2495, ptr %2496, align 8, !alias.scope !29
+  %2497 = getelementptr inbounds i8, ptr %158, i64 60
+  store float %2493, ptr %2497, align 4, !alias.scope !29
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %158)
+          to label %2498 unwind label %2501
+
+2498:                                             ; preds = %2494
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %158) #21
+  br label %2538
+
+2499:                                             ; preds = %2489
+  %2500 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2503
+
+2501:                                             ; preds = %2494
+  %2502 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %158) #21
+  br label %2503
+
+2503:                                             ; preds = %2501, %2499
+  %.pn1021 = phi { ptr, i32 } [ %2502, %2501 ], [ %2500, %2499 ]
+  %.115 = extractvalue { ptr, i32 } %.pn1021, 0
+  %.115887 = extractvalue { ptr, i32 } %.pn1021, 1
+  %2504 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2505 = icmp eq i32 %.115887, %2504
+  br i1 %2505, label %2506, label %2799
+
+2506:                                             ; preds = %2503
+  %2507 = call ptr @__cxa_begin_catch(ptr %.115) #21
+  %2508 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2507)
+          to label %2509 unwind label %2510
+
+2509:                                             ; preds = %2506
+  call void @__cxa_end_catch()
+  br i1 %2508, label %2635, label %.loopexit
+
+2510:                                             ; preds = %2506
+  %2511 = landingpad { ptr, i32 }
+          cleanup
+  %2512 = extractvalue { ptr, i32 } %2511, 0
+  %2513 = extractvalue { ptr, i32 } %2511, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2514:                                             ; preds = %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2515 = load ptr, ptr %374, align 8
+  %2516 = getelementptr inbounds i8, ptr %2515, i64 -16
+  %2517 = load float, ptr %2516, align 8
+  %2518 = load float, ptr %2515, align 8
+  invoke void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %159, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %9)
+          to label %2519 unwind label %2523
+
+2519:                                             ; preds = %2514
+  %2520 = getelementptr inbounds i8, ptr %159, i64 56
+  store float %2517, ptr %2520, align 8, !alias.scope !32
+  %2521 = getelementptr inbounds i8, ptr %159, i64 60
+  store float %2518, ptr %2521, align 4, !alias.scope !32
+  invoke fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %159)
+          to label %2522 unwind label %2525
+
+2522:                                             ; preds = %2519
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %159) #21
+  br label %2538
+
+2523:                                             ; preds = %2514
+  %2524 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %2527
+
+2525:                                             ; preds = %2519
+  %2526 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %159) #21
+  br label %2527
+
+2527:                                             ; preds = %2525, %2523
+  %.pn = phi { ptr, i32 } [ %2526, %2525 ], [ %2524, %2523 ]
+  %.116 = extractvalue { ptr, i32 } %.pn, 0
+  %.116888 = extractvalue { ptr, i32 } %.pn, 1
+  %2528 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
+  %2529 = icmp eq i32 %.116888, %2528
+  br i1 %2529, label %2530, label %2799
+
+2530:                                             ; preds = %2527
+  %2531 = call ptr @__cxa_begin_catch(ptr %.116) #21
+  %2532 = invoke noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef %4, ptr noundef %2531)
+          to label %2533 unwind label %2534
+
+2533:                                             ; preds = %2530
+  call void @__cxa_end_catch()
+  br i1 %2532, label %2635, label %.loopexit
+
+2534:                                             ; preds = %2530
+  %2535 = landingpad { ptr, i32 }
+          cleanup
+  %2536 = extractvalue { ptr, i32 } %2535, 0
+  %2537 = extractvalue { ptr, i32 } %2535, 1
+  invoke void @__cxa_end_catch()
+          to label %2799 unwind label %2802
+
+2538:                                             ; preds = %545, %580, %.thread1428, %.thread1425, %.thread1422, %.thread1419, %.thread1416, %.thread1413, %.thread1410, %.thread1407, %.thread1404, %.thread1401, %.thread, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1306, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1303, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit, %487, %608, %639, %670, %701, %732, %755, %790, %835, %838, %842, %845, %849, %853, %856, %859, %886, %943, %1003, %1030, %1083, %1108, %1128, %1129, %1132, %1133, %1134, %1350, %1400, %1543, %1579, %1615, %1651, %1683, %1716, %1742, %1772, %1837, %1857, %1938, %1967, %1996, %2019, %2022, %2032, %2061, %2089, %2108, %2111, %2121, %2150, %2183, %2204, %2207, %2217, %2249, %2282, %2307, %2330, %2353, %2376, %2395, %2404, %2426, %2446, %2462, %2473, %2498, %2522, %458, %764, %806, %1869, %_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv.exit
+  %2539 = load i32, ptr @_gmx_sel_yydebug, align 4
+  %.not1196 = icmp eq i32 %2539, 0
+  br i1 %.not1196, label %2553, label %2540
+
+2540:                                             ; preds = %2538
+  %2541 = load ptr, ptr @stderr, align 8
+  %2542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2541, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10) #23
+  %2543 = load ptr, ptr @stderr, align 8
+  %2544 = getelementptr inbounds [91 x i8], ptr @_ZL4yyr1, i64 0, i64 %370
+  %2545 = load i8, ptr %2544, align 1
+  %2546 = icmp eq i32 %.2749, 0
+  %.str.18..str.19.i1376 = select i1 %2546, ptr @.str.18, ptr @.str.19
+  %2547 = zext i8 %2545 to i64
+  %2548 = getelementptr inbounds [75 x ptr], ptr @_ZL7yytname, i64 0, i64 %2547
+  %2549 = load ptr, ptr %2548, align 8
+  %2550 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2543, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.18..str.19.i1376, ptr noundef %2549) #23
+  %2551 = call i64 @fwrite(ptr nonnull @.str.20, i64 2, i64 1, ptr %2543) #22
+  %fputc.i1377 = call i32 @fputc(i32 41, ptr %2543)
+  %2552 = load ptr, ptr @stderr, align 8
+  %fputc1197 = call i32 @fputc(i32 10, ptr %2552)
+  %.pre1477 = load i32, ptr @_gmx_sel_yydebug, align 4
+  br label %2553
+
+2553:                                             ; preds = %2538, %2540
+  %2554 = phi i32 [ 0, %2538 ], [ %.pre1477, %2540 ]
+  %2555 = load ptr, ptr %374, align 8
+  %2556 = zext i8 %372 to i64
+  %2557 = sub nsw i64 0, %2556
+  %2558 = getelementptr inbounds %union.YYSTYPE, ptr %2555, i64 %2557
+  store ptr %2558, ptr %374, align 8
+  %2559 = getelementptr inbounds i8, ptr %0, i64 424
+  %2560 = load ptr, ptr %2559, align 8
+  %2561 = getelementptr inbounds i16, ptr %2560, i64 %2557
+  store ptr %2561, ptr %2559, align 8
+  %2562 = getelementptr inbounds i8, ptr %0, i64 3656
+  %2563 = load ptr, ptr %2562, align 8
+  %2564 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2563, i64 %2557
+  store ptr %2564, ptr %2562, align 8
+  %.not1198 = icmp eq i32 %2554, 0
+  br i1 %.not1198, label %2576, label %2565
+
+2565:                                             ; preds = %2553
+  %2566 = getelementptr inbounds i8, ptr %0, i64 416
+  %2567 = load ptr, ptr %2566, align 8
+  %2568 = load ptr, ptr @stderr, align 8
+  %2569 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2568) #22
+  %.not4.i = icmp ugt ptr %2567, %2561
+  br i1 %.not4.i, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i1378
+
+.lr.ph.i1378:                                     ; preds = %2565, %.lr.ph.i1378
+  %.05.i = phi ptr [ %2574, %.lr.ph.i1378 ], [ %2567, %2565 ]
+  %2570 = load i16, ptr %.05.i, align 2
+  %2571 = sext i16 %2570 to i32
+  %2572 = load ptr, ptr @stderr, align 8
+  %2573 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2572, ptr noundef nonnull @.str.99, i32 noundef %2571) #23
+  %2574 = getelementptr inbounds i8, ptr %.05.i, i64 2
+  %.not.i1379 = icmp ugt ptr %2574, %2561
+  br i1 %.not.i1379, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i1378, !llvm.loop !35
+
+_ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i1378, %2565
+  %2575 = load ptr, ptr @stderr, align 8
+  %fputc.i1380 = call i32 @fputc(i32 10, ptr %2575)
+  %.pre1478 = load ptr, ptr %374, align 8
+  br label %2576
+
+2576:                                             ; preds = %2553, %_ZL14yy_stack_printPsS_.exit
+  %2577 = phi ptr [ %2558, %2553 ], [ %.pre1478, %_ZL14yy_stack_printPsS_.exit ]
+  %2578 = getelementptr inbounds i8, ptr %2577, i64 8
+  store ptr %2578, ptr %374, align 8
+  %2579 = load i64, ptr %8, align 8
+  store i64 %2579, ptr %2578, align 8
+  %2580 = load ptr, ptr %2562, align 8
+  %2581 = getelementptr inbounds i8, ptr %2580, i64 8
+  store ptr %2581, ptr %2562, align 8
+  %2582 = load i64, ptr %9, align 8
+  store i64 %2582, ptr %2581, align 4
+  %2583 = getelementptr inbounds [91 x i8], ptr @_ZL4yyr1, i64 0, i64 %370
+  %2584 = load i8, ptr %2583, align 1
+  %2585 = zext i8 %2584 to i64
+  %2586 = add nsw i64 %2585, -49
+  %2587 = getelementptr inbounds [25 x i8], ptr @_ZL7yypgoto, i64 0, i64 %2586
+  %2588 = load i8, ptr %2587, align 1
+  %2589 = sext i8 %2588 to i32
+  %2590 = load ptr, ptr %2559, align 8
+  %2591 = load i16, ptr %2590, align 2
+  %2592 = sext i16 %2591 to i32
+  %2593 = add nsw i32 %2592, %2589
+  %2594 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %2593, ptr %2594, align 4
+  %or.cond1289 = icmp ult i32 %2593, 368
+  br i1 %or.cond1289, label %2595, label %2605
+
+2595:                                             ; preds = %2576
+  %2596 = zext nneg i32 %2593 to i64
+  %2597 = getelementptr inbounds [368 x i16], ptr @_ZL7yycheck, i64 0, i64 %2596
+  %2598 = load i16, ptr %2597, align 2
+  %2599 = load i16, ptr %2590, align 2
+  %2600 = icmp eq i16 %2598, %2599
+  br i1 %2600, label %2601, label %2605
+
+2601:                                             ; preds = %2595
+  %2602 = getelementptr inbounds [368 x i16], ptr @_ZL7yytable, i64 0, i64 %2596
+  %2603 = load i16, ptr %2602, align 2
+  %2604 = sext i16 %2603 to i32
+  store i32 %2604, ptr %2594, align 4
+  br label %189
+
+2605:                                             ; preds = %2595, %2576
+  %2606 = getelementptr inbounds [25 x i16], ptr @_ZL9yydefgoto, i64 0, i64 %2586
+  %2607 = load i16, ptr %2606, align 2
+  %2608 = sext i16 %2607 to i32
+  store i32 %2608, ptr %2594, align 4
+  br label %189
+
+2609:                                             ; preds = %361
+  %2610 = icmp eq i32 %.4, -2
+  br i1 %2610, label %2618, label %2611
+
+2611:                                             ; preds = %2609
+  %2612 = icmp ult i32 %.4, 289
+  br i1 %2612, label %2613, label %2618
+
+2613:                                             ; preds = %2611
+  %2614 = zext nneg i32 %.4 to i64
+  %2615 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %2614
+  %2616 = load i8, ptr %2615, align 1
+  %2617 = zext i8 %2616 to i32
+  br label %2618
+
+2618:                                             ; preds = %2613, %2611, %2609
+  %2619 = phi i32 [ -2, %2609 ], [ %2617, %2613 ], [ 2, %2611 ]
+  %2620 = getelementptr inbounds i8, ptr %0, i64 8
+  %2621 = load i32, ptr %2620, align 8
+  %.not1199 = icmp eq i32 %2621, 0
+  br i1 %.not1199, label %2622, label %2625
+
+2622:                                             ; preds = %2618
+  %2623 = load i32, ptr %0, align 8
+  %2624 = add nsw i32 %2623, 1
+  store i32 %2624, ptr %0, align 8
   call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.11)
-  %.pr = load i32, ptr %2540, align 8
-  br label %2545
+  %.pr = load i32, ptr %2620, align 8
+  br label %2625
 
-2545:                                             ; preds = %2542, %2538
-  %2546 = phi i32 [ %.pr, %2542 ], [ %2541, %2538 ]
-  %2547 = getelementptr inbounds i8, ptr %0, i64 3672
-  %2548 = load i64, ptr %7, align 8
-  store i64 %2548, ptr %2547, align 8
-  %2549 = icmp eq i32 %2546, 3
-  br i1 %2549, label %2550, label %2586
+2625:                                             ; preds = %2622, %2618
+  %2626 = phi i32 [ %.pr, %2622 ], [ %2621, %2618 ]
+  %2627 = getelementptr inbounds i8, ptr %0, i64 3672
+  %2628 = load i64, ptr %7, align 8
+  store i64 %2628, ptr %2627, align 8
+  %2629 = icmp eq i32 %2626, 3
+  br i1 %2629, label %2630, label %2666
 
-2550:                                             ; preds = %2545
-  %2551 = icmp slt i32 %.4, 1
-  br i1 %2551, label %2552, label %2554
+2630:                                             ; preds = %2625
+  %2631 = icmp slt i32 %.4, 1
+  br i1 %2631, label %2632, label %2634
 
-2552:                                             ; preds = %2550
-  %2553 = icmp eq i32 %.4, 0
-  br i1 %2553, label %.thread1441, label %2586
+2632:                                             ; preds = %2630
+  %2633 = icmp eq i32 %.4, 0
+  br i1 %2633, label %.thread1441, label %2666
 
-2554:                                             ; preds = %2550
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.12, i32 noundef %2539, ptr noundef nonnull %6)
-  br label %2586
+2634:                                             ; preds = %2630
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.12, i32 noundef %2619, ptr noundef nonnull %6)
+  br label %2666
 
-.critedge:                                        ; preds = %534
+.critedge:                                        ; preds = %536
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
-  br label %2555
+  br label %2635
 
-.critedge1467:                                    ; preds = %567
+.critedge1467:                                    ; preds = %571
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
-  br label %2555
+  br label %2635
 
-2555:                                             ; preds = %.critedge1467, %.critedge, %1846, %1754, %1469, %1432, %1402, %1270, %1233, %1196, %1157, %1127, %1038, %2453, %2429, %2404, %2377, %2357, %2335, %2310, %2287, %2264, %2241, %2218, %2185, %2152, %2119, %2086, %2053, %2023, %1997, %1964, %1934, %1907, %1880, %1853, %1818, %1782, %1753, %1725, %1673, %1639, %1612, %1578, %1544, %1510, %1476, %1439, %1401, %1373, %1325, %1277, %1240, %1203, %1164, %1126, %1091, %1068, %1045, %999, %941, %883, %810, %767, %734, %705, %676, %647, %618, %591, %558, %525, %1804, %793, %753
-  %2556 = getelementptr inbounds i8, ptr %0, i64 3656
-  %2557 = load ptr, ptr %2556, align 8
-  %2558 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2557, i64 %377
-  %2559 = getelementptr inbounds i8, ptr %0, i64 3672
-  %2560 = load i64, ptr %2558, align 4
-  store i64 %2560, ptr %2559, align 8
-  %2561 = load ptr, ptr %374, align 8
-  %2562 = zext i8 %372 to i64
-  %2563 = sub nsw i64 0, %2562
-  %2564 = getelementptr inbounds %union.YYSTYPE, ptr %2561, i64 %2563
-  store ptr %2564, ptr %374, align 8
-  %2565 = getelementptr inbounds i8, ptr %0, i64 424
-  %2566 = load ptr, ptr %2565, align 8
-  %2567 = getelementptr inbounds i16, ptr %2566, i64 %2563
-  store ptr %2567, ptr %2565, align 8
-  %2568 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2557, i64 %2563
-  store ptr %2568, ptr %2556, align 8
-  %2569 = load i32, ptr @_gmx_sel_yydebug, align 4
-  %.not1190 = icmp eq i32 %2569, 0
-  br i1 %.not1190, label %2581, label %2570
+2635:                                             ; preds = %.critedge1467, %.critedge, %1920, %1822, %1521, %1482, %1450, %1312, %1273, %1234, %1193, %1161, %1066, %2533, %2509, %2484, %2457, %2437, %2415, %2390, %2367, %2344, %2321, %2298, %2265, %2232, %2199, %2166, %2133, %2103, %2077, %2044, %2014, %1985, %1956, %1927, %1890, %1852, %1821, %1791, %1737, %1701, %1672, %1636, %1600, %1564, %1528, %1489, %1449, %1419, %1369, %1319, %1280, %1241, %1200, %1160, %1123, %1098, %1073, %1025, %965, %905, %830, %785, %750, %719, %688, %657, %626, %597, %562, %527, %1876, %813, %771
+  %2636 = getelementptr inbounds i8, ptr %0, i64 3656
+  %2637 = load ptr, ptr %2636, align 8
+  %2638 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2637, i64 %377
+  %2639 = getelementptr inbounds i8, ptr %0, i64 3672
+  %2640 = load i64, ptr %2638, align 4
+  store i64 %2640, ptr %2639, align 8
+  %2641 = load ptr, ptr %374, align 8
+  %2642 = zext i8 %372 to i64
+  %2643 = sub nsw i64 0, %2642
+  %2644 = getelementptr inbounds %union.YYSTYPE, ptr %2641, i64 %2643
+  store ptr %2644, ptr %374, align 8
+  %2645 = getelementptr inbounds i8, ptr %0, i64 424
+  %2646 = load ptr, ptr %2645, align 8
+  %2647 = getelementptr inbounds i16, ptr %2646, i64 %2643
+  store ptr %2647, ptr %2645, align 8
+  %2648 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2637, i64 %2643
+  store ptr %2648, ptr %2636, align 8
+  %2649 = load i32, ptr @_gmx_sel_yydebug, align 4
+  %.not1190 = icmp eq i32 %2649, 0
+  br i1 %.not1190, label %2661, label %2650
 
-2570:                                             ; preds = %2555
-  %2571 = getelementptr inbounds i8, ptr %0, i64 416
-  %2572 = load ptr, ptr %2571, align 8
-  %2573 = load ptr, ptr @stderr, align 8
-  %2574 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2573) #22
-  %.not4.i1381 = icmp ugt ptr %2572, %2567
+2650:                                             ; preds = %2635
+  %2651 = getelementptr inbounds i8, ptr %0, i64 416
+  %2652 = load ptr, ptr %2651, align 8
+  %2653 = load ptr, ptr @stderr, align 8
+  %2654 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2653) #22
+  %.not4.i1381 = icmp ugt ptr %2652, %2647
   br i1 %.not4.i1381, label %_ZL14yy_stack_printPsS_.exit1386, label %.lr.ph.i1382
 
-.lr.ph.i1382:                                     ; preds = %2570, %.lr.ph.i1382
-  %.05.i1383 = phi ptr [ %2579, %.lr.ph.i1382 ], [ %2572, %2570 ]
-  %2575 = load i16, ptr %.05.i1383, align 2
-  %2576 = sext i16 %2575 to i32
-  %2577 = load ptr, ptr @stderr, align 8
-  %2578 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2577, ptr noundef nonnull @.str.99, i32 noundef %2576) #23
-  %2579 = getelementptr inbounds i8, ptr %.05.i1383, i64 2
-  %.not.i1384 = icmp ugt ptr %2579, %2567
+.lr.ph.i1382:                                     ; preds = %2650, %.lr.ph.i1382
+  %.05.i1383 = phi ptr [ %2659, %.lr.ph.i1382 ], [ %2652, %2650 ]
+  %2655 = load i16, ptr %.05.i1383, align 2
+  %2656 = sext i16 %2655 to i32
+  %2657 = load ptr, ptr @stderr, align 8
+  %2658 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2657, ptr noundef nonnull @.str.99, i32 noundef %2656) #23
+  %2659 = getelementptr inbounds i8, ptr %.05.i1383, i64 2
+  %.not.i1384 = icmp ugt ptr %2659, %2647
   br i1 %.not.i1384, label %_ZL14yy_stack_printPsS_.exit1386, label %.lr.ph.i1382, !llvm.loop !35
 
-_ZL14yy_stack_printPsS_.exit1386:                 ; preds = %.lr.ph.i1382, %2570
-  %2580 = load ptr, ptr @stderr, align 8
-  %fputc.i1385 = call i32 @fputc(i32 10, ptr %2580)
-  %.pre1476 = load ptr, ptr %2565, align 8
-  br label %2581
+_ZL14yy_stack_printPsS_.exit1386:                 ; preds = %.lr.ph.i1382, %2650
+  %2660 = load ptr, ptr @stderr, align 8
+  %fputc.i1385 = call i32 @fputc(i32 10, ptr %2660)
+  %.pre1476 = load ptr, ptr %2645, align 8
+  br label %2661
 
-2581:                                             ; preds = %2555, %_ZL14yy_stack_printPsS_.exit1386
-  %2582 = phi ptr [ %2567, %2555 ], [ %.pre1476, %_ZL14yy_stack_printPsS_.exit1386 ]
-  %2583 = load i16, ptr %2582, align 2
-  %2584 = sext i16 %2583 to i32
-  %2585 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %2584, ptr %2585, align 4
-  br label %2586
+2661:                                             ; preds = %2635, %_ZL14yy_stack_printPsS_.exit1386
+  %2662 = phi ptr [ %2647, %2635 ], [ %.pre1476, %_ZL14yy_stack_printPsS_.exit1386 ]
+  %2663 = load i16, ptr %2662, align 2
+  %2664 = sext i16 %2663 to i32
+  %2665 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %2664, ptr %2665, align 4
+  br label %2666
 
-2586:                                             ; preds = %2545, %2552, %2554, %2581
-  %.8 = phi i32 [ %.4, %2552 ], [ -2, %2554 ], [ %.4, %2545 ], [ %.7, %2581 ]
-  %2587 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 3, ptr %2587, align 8
-  %2588 = getelementptr inbounds i8, ptr %0, i64 4
-  %2589 = getelementptr inbounds i8, ptr %0, i64 424
-  %2590 = getelementptr inbounds i8, ptr %0, i64 416
-  %2591 = getelementptr inbounds i8, ptr %0, i64 3656
-  %2592 = getelementptr inbounds i8, ptr %0, i64 3672
-  %2593 = getelementptr inbounds i8, ptr %0, i64 2040
-  br label %2594
+2666:                                             ; preds = %2625, %2632, %2634, %2661
+  %.8 = phi i32 [ %.4, %2632 ], [ -2, %2634 ], [ %.4, %2625 ], [ %.7, %2661 ]
+  %2667 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 3, ptr %2667, align 8
+  %2668 = getelementptr inbounds i8, ptr %0, i64 4
+  %2669 = getelementptr inbounds i8, ptr %0, i64 424
+  %2670 = getelementptr inbounds i8, ptr %0, i64 416
+  %2671 = getelementptr inbounds i8, ptr %0, i64 3656
+  %2672 = getelementptr inbounds i8, ptr %0, i64 3672
+  %2673 = getelementptr inbounds i8, ptr %0, i64 2040
+  br label %2674
 
-2594:                                             ; preds = %.backedge, %2586
-  %2595 = load i32, ptr %2588, align 4
-  %2596 = sext i32 %2595 to i64
-  %2597 = getelementptr inbounds [154 x i16], ptr @_ZL6yypact, i64 0, i64 %2596
-  %2598 = load i16, ptr %2597, align 2
-  %2599 = icmp sgt i16 %2598, -2
-  br i1 %2599, label %2600, label %2610
+2674:                                             ; preds = %.backedge, %2666
+  %2675 = load i32, ptr %2668, align 4
+  %2676 = sext i32 %2675 to i64
+  %2677 = getelementptr inbounds [154 x i16], ptr @_ZL6yypact, i64 0, i64 %2676
+  %2678 = load i16, ptr %2677, align 2
+  %2679 = icmp sgt i16 %2678, -2
+  br i1 %2679, label %2680, label %2690
 
-2600:                                             ; preds = %2594
-  %2601 = sext i16 %2598 to i64
-  %2602 = add nsw i64 %2601, 1
-  %2603 = getelementptr inbounds [368 x i16], ptr @_ZL7yycheck, i64 0, i64 %2602
-  %2604 = load i16, ptr %2603, align 2
-  %2605 = icmp eq i16 %2604, 1
-  br i1 %2605, label %2606, label %2610
+2680:                                             ; preds = %2674
+  %2681 = sext i16 %2678 to i64
+  %2682 = add nsw i64 %2681, 1
+  %2683 = getelementptr inbounds [368 x i16], ptr @_ZL7yycheck, i64 0, i64 %2682
+  %2684 = load i16, ptr %2683, align 2
+  %2685 = icmp eq i16 %2684, 1
+  br i1 %2685, label %2686, label %2690
 
-2606:                                             ; preds = %2600
-  %2607 = getelementptr inbounds [368 x i16], ptr @_ZL7yytable, i64 0, i64 %2602
-  %2608 = load i16, ptr %2607, align 2
-  %2609 = icmp sgt i16 %2608, 0
-  br i1 %2609, label %2640, label %2610
+2686:                                             ; preds = %2680
+  %2687 = getelementptr inbounds [368 x i16], ptr @_ZL7yytable, i64 0, i64 %2682
+  %2688 = load i16, ptr %2687, align 2
+  %2689 = icmp sgt i16 %2688, 0
+  br i1 %2689, label %2720, label %2690
 
-2610:                                             ; preds = %2600, %2606, %2594
-  %2611 = load ptr, ptr %2589, align 8
-  %2612 = load ptr, ptr %2590, align 8
-  %2613 = icmp eq ptr %2611, %2612
-  br i1 %2613, label %.loopexit, label %2614
+2690:                                             ; preds = %2680, %2686, %2674
+  %2691 = load ptr, ptr %2669, align 8
+  %2692 = load ptr, ptr %2670, align 8
+  %2693 = icmp eq ptr %2691, %2692
+  br i1 %2693, label %.loopexit, label %2694
 
-2614:                                             ; preds = %2610
-  %2615 = load ptr, ptr %2591, align 8
-  %2616 = load i64, ptr %2615, align 4
-  store i64 %2616, ptr %2592, align 8
-  %2617 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2596
-  %2618 = load i8, ptr %2617, align 1
-  %2619 = zext i8 %2618 to i32
-  %2620 = load ptr, ptr %2593, align 8
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.13, i32 noundef %2619, ptr noundef %2620)
-  %2621 = load ptr, ptr %2593, align 8
-  %2622 = getelementptr inbounds i8, ptr %2621, i64 -8
-  store ptr %2622, ptr %2593, align 8
-  %2623 = load ptr, ptr %2589, align 8
-  %2624 = getelementptr inbounds i8, ptr %2623, i64 -2
-  store ptr %2624, ptr %2589, align 8
-  %2625 = load ptr, ptr %2591, align 8
-  %2626 = getelementptr inbounds i8, ptr %2625, i64 -8
-  store ptr %2626, ptr %2591, align 8
-  %2627 = load i16, ptr %2624, align 2
-  %2628 = sext i16 %2627 to i32
-  store i32 %2628, ptr %2588, align 4
-  %2629 = load i32, ptr @_gmx_sel_yydebug, align 4
-  %.not1202 = icmp eq i32 %2629, 0
-  br i1 %.not1202, label %.backedge, label %2630
+2694:                                             ; preds = %2690
+  %2695 = load ptr, ptr %2671, align 8
+  %2696 = load i64, ptr %2695, align 4
+  store i64 %2696, ptr %2672, align 8
+  %2697 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2676
+  %2698 = load i8, ptr %2697, align 1
+  %2699 = zext i8 %2698 to i32
+  %2700 = load ptr, ptr %2673, align 8
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.13, i32 noundef %2699, ptr noundef %2700)
+  %2701 = load ptr, ptr %2673, align 8
+  %2702 = getelementptr inbounds i8, ptr %2701, i64 -8
+  store ptr %2702, ptr %2673, align 8
+  %2703 = load ptr, ptr %2669, align 8
+  %2704 = getelementptr inbounds i8, ptr %2703, i64 -2
+  store ptr %2704, ptr %2669, align 8
+  %2705 = load ptr, ptr %2671, align 8
+  %2706 = getelementptr inbounds i8, ptr %2705, i64 -8
+  store ptr %2706, ptr %2671, align 8
+  %2707 = load i16, ptr %2704, align 2
+  %2708 = sext i16 %2707 to i32
+  store i32 %2708, ptr %2668, align 4
+  %2709 = load i32, ptr @_gmx_sel_yydebug, align 4
+  %.not1202 = icmp eq i32 %2709, 0
+  br i1 %.not1202, label %.backedge, label %2710
 
-.backedge:                                        ; preds = %2614, %_ZL14yy_stack_printPsS_.exit1392
-  br label %2594, !llvm.loop !36
+.backedge:                                        ; preds = %2694, %_ZL14yy_stack_printPsS_.exit1392
+  br label %2674, !llvm.loop !36
 
-2630:                                             ; preds = %2614
-  %2631 = load ptr, ptr %2590, align 8
-  %2632 = load ptr, ptr @stderr, align 8
-  %2633 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2632) #22
-  %.not4.i1387 = icmp ugt ptr %2631, %2624
+2710:                                             ; preds = %2694
+  %2711 = load ptr, ptr %2670, align 8
+  %2712 = load ptr, ptr @stderr, align 8
+  %2713 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2712) #22
+  %.not4.i1387 = icmp ugt ptr %2711, %2704
   br i1 %.not4.i1387, label %_ZL14yy_stack_printPsS_.exit1392, label %.lr.ph.i1388
 
-.lr.ph.i1388:                                     ; preds = %2630, %.lr.ph.i1388
-  %.05.i1389 = phi ptr [ %2638, %.lr.ph.i1388 ], [ %2631, %2630 ]
-  %2634 = load i16, ptr %.05.i1389, align 2
-  %2635 = sext i16 %2634 to i32
-  %2636 = load ptr, ptr @stderr, align 8
-  %2637 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2636, ptr noundef nonnull @.str.99, i32 noundef %2635) #23
-  %2638 = getelementptr inbounds i8, ptr %.05.i1389, i64 2
-  %.not.i1390 = icmp ugt ptr %2638, %2624
+.lr.ph.i1388:                                     ; preds = %2710, %.lr.ph.i1388
+  %.05.i1389 = phi ptr [ %2718, %.lr.ph.i1388 ], [ %2711, %2710 ]
+  %2714 = load i16, ptr %.05.i1389, align 2
+  %2715 = sext i16 %2714 to i32
+  %2716 = load ptr, ptr @stderr, align 8
+  %2717 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2716, ptr noundef nonnull @.str.99, i32 noundef %2715) #23
+  %2718 = getelementptr inbounds i8, ptr %.05.i1389, i64 2
+  %.not.i1390 = icmp ugt ptr %2718, %2704
   br i1 %.not.i1390, label %_ZL14yy_stack_printPsS_.exit1392, label %.lr.ph.i1388, !llvm.loop !35
 
-_ZL14yy_stack_printPsS_.exit1392:                 ; preds = %.lr.ph.i1388, %2630
-  %2639 = load ptr, ptr @stderr, align 8
-  %fputc.i1391 = call i32 @fputc(i32 10, ptr %2639)
+_ZL14yy_stack_printPsS_.exit1392:                 ; preds = %.lr.ph.i1388, %2710
+  %2719 = load ptr, ptr @stderr, align 8
+  %fputc.i1391 = call i32 @fputc(i32 10, ptr %2719)
   br label %.backedge
 
-2640:                                             ; preds = %2606
-  %2641 = zext nneg i16 %2608 to i32
-  %2642 = load ptr, ptr %2593, align 8
-  %2643 = getelementptr inbounds i8, ptr %2642, i64 8
-  store ptr %2643, ptr %2593, align 8
-  %2644 = load i64, ptr %6, align 8
-  store i64 %2644, ptr %2643, align 8
-  %2645 = getelementptr inbounds i8, ptr %0, i64 3680
-  %2646 = load i64, ptr %7, align 8
-  store i64 %2646, ptr %2645, align 8
-  %2647 = load i32, ptr %2592, align 8
-  store i32 %2647, ptr %9, align 8
-  %2648 = lshr i64 %2646, 32
-  %2649 = trunc nuw i64 %2648 to i32
-  %2650 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %2649, ptr %2650, align 4
+2720:                                             ; preds = %2686
+  %2721 = zext nneg i16 %2688 to i32
+  %2722 = load ptr, ptr %2673, align 8
+  %2723 = getelementptr inbounds i8, ptr %2722, i64 8
+  store ptr %2723, ptr %2673, align 8
+  %2724 = load i64, ptr %6, align 8
+  store i64 %2724, ptr %2723, align 8
+  %2725 = getelementptr inbounds i8, ptr %0, i64 3680
+  %2726 = load i64, ptr %7, align 8
+  store i64 %2726, ptr %2725, align 8
+  %2727 = load i32, ptr %2672, align 8
+  store i32 %2727, ptr %9, align 8
+  %2728 = lshr i64 %2726, 32
+  %2729 = trunc nuw i64 %2728 to i32
+  %2730 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %2729, ptr %2730, align 4
   call void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  %2651 = load ptr, ptr %2591, align 8
-  %2652 = getelementptr inbounds i8, ptr %2651, i64 8
-  store ptr %2652, ptr %2591, align 8
-  %2653 = load i64, ptr %9, align 8
-  store i64 %2653, ptr %2652, align 4
-  %2654 = load i32, ptr @_gmx_sel_yydebug, align 4
-  %.not1200 = icmp eq i32 %2654, 0
-  br i1 %.not1200, label %2664, label %2655
+  %2731 = load ptr, ptr %2671, align 8
+  %2732 = getelementptr inbounds i8, ptr %2731, i64 8
+  store ptr %2732, ptr %2671, align 8
+  %2733 = load i64, ptr %9, align 8
+  store i64 %2733, ptr %2732, align 4
+  %2734 = load i32, ptr @_gmx_sel_yydebug, align 4
+  %.not1200 = icmp eq i32 %2734, 0
+  br i1 %.not1200, label %2744, label %2735
 
-2655:                                             ; preds = %2640
-  %2656 = load ptr, ptr @stderr, align 8
-  %2657 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2656, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #23
-  %2658 = load ptr, ptr @stderr, align 8
-  %2659 = zext nneg i16 %2608 to i64
-  %2660 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2659
-  %2661 = load i8, ptr %2660, align 1
-  %2662 = zext i8 %2661 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr noundef %2658, i32 noundef %2662)
-  %2663 = load ptr, ptr @stderr, align 8
-  %fputc1201 = call i32 @fputc(i32 10, ptr %2663)
-  br label %2664
+2735:                                             ; preds = %2720
+  %2736 = load ptr, ptr @stderr, align 8
+  %2737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2736, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #23
+  %2738 = load ptr, ptr @stderr, align 8
+  %2739 = zext nneg i16 %2688 to i64
+  %2740 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2739
+  %2741 = load i8, ptr %2740, align 1
+  %2742 = zext i8 %2741 to i32
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr noundef %2738, i32 noundef %2742)
+  %2743 = load ptr, ptr @stderr, align 8
+  %fputc1201 = call i32 @fputc(i32 10, ptr %2743)
+  br label %2744
 
-2664:                                             ; preds = %2640, %2655
-  store i32 %2641, ptr %2588, align 4
+2744:                                             ; preds = %2720, %2735
+  store i32 %2721, ptr %2668, align 4
   br label %189
 
-2665:                                             ; preds = %213, %206
+2745:                                             ; preds = %213, %206
   call fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.14)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2610, %2453, %2429, %2404, %2377, %2357, %2335, %2310, %2287, %2264, %2241, %2218, %2185, %2152, %2119, %2086, %2053, %2023, %1997, %1964, %1934, %1907, %1880, %1853, %1818, %1782, %1753, %1725, %1673, %1639, %1612, %1578, %1544, %1510, %1476, %1439, %1401, %1373, %1325, %1277, %1240, %1203, %1164, %1126, %1091, %1068, %1045, %999, %941, %883, %810, %767, %734, %705, %676, %647, %618, %591, %558, %525, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %249, %492, %261, %460, %457, %2665
-  %.8761 = phi i32 [ 0, %2665 ], [ 0, %261 ], [ %373, %457 ], [ %373, %460 ], [ 0, %249 ], [ %373, %2453 ], [ %373, %2429 ], [ %373, %2404 ], [ %373, %2377 ], [ %373, %2357 ], [ %373, %2335 ], [ %373, %2310 ], [ %373, %2287 ], [ %373, %2264 ], [ %373, %2241 ], [ %373, %2218 ], [ %373, %2185 ], [ %373, %2152 ], [ %373, %2119 ], [ %373, %2086 ], [ %373, %2053 ], [ %373, %2023 ], [ %373, %1997 ], [ %373, %1964 ], [ %373, %1934 ], [ %373, %1907 ], [ %373, %1880 ], [ %373, %1853 ], [ %373, %1818 ], [ %373, %1782 ], [ %373, %1753 ], [ %373, %1725 ], [ %373, %1673 ], [ %373, %1639 ], [ %373, %1612 ], [ %373, %1578 ], [ %373, %1544 ], [ %373, %1510 ], [ %373, %1476 ], [ %373, %1439 ], [ %373, %1401 ], [ %373, %1373 ], [ %373, %1325 ], [ %373, %1277 ], [ %373, %1240 ], [ %373, %1203 ], [ %373, %1164 ], [ %373, %1126 ], [ %373, %1091 ], [ %373, %1068 ], [ %373, %1045 ], [ %373, %999 ], [ %373, %941 ], [ %373, %883 ], [ %373, %810 ], [ %373, %767 ], [ %373, %734 ], [ %373, %705 ], [ %373, %676 ], [ %373, %647 ], [ %373, %618 ], [ %373, %591 ], [ %373, %558 ], [ %373, %525 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %373, %492 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 0, %2610 ]
-  %.1751 = phi i32 [ 2, %2665 ], [ 0, %261 ], [ 0, %457 ], [ 0, %460 ], [ 1, %249 ], [ 1, %2453 ], [ 1, %2429 ], [ 1, %2404 ], [ 1, %2377 ], [ 1, %2357 ], [ 1, %2335 ], [ 1, %2310 ], [ 1, %2287 ], [ 1, %2264 ], [ 1, %2241 ], [ 1, %2218 ], [ 1, %2185 ], [ 1, %2152 ], [ 1, %2119 ], [ 1, %2086 ], [ 1, %2053 ], [ 1, %2023 ], [ 1, %1997 ], [ 1, %1964 ], [ 1, %1934 ], [ 1, %1907 ], [ 1, %1880 ], [ 1, %1853 ], [ 1, %1818 ], [ 1, %1782 ], [ 1, %1753 ], [ 1, %1725 ], [ 1, %1673 ], [ 1, %1639 ], [ 1, %1612 ], [ 1, %1578 ], [ 1, %1544 ], [ 1, %1510 ], [ 1, %1476 ], [ 1, %1439 ], [ 1, %1401 ], [ 1, %1373 ], [ 1, %1325 ], [ 1, %1277 ], [ 1, %1240 ], [ 1, %1203 ], [ 1, %1164 ], [ 1, %1126 ], [ 1, %1091 ], [ 1, %1068 ], [ 1, %1045 ], [ 1, %999 ], [ 1, %941 ], [ 1, %883 ], [ 1, %810 ], [ 1, %767 ], [ 1, %734 ], [ 1, %705 ], [ 1, %676 ], [ 1, %647 ], [ 1, %618 ], [ 1, %591 ], [ 1, %558 ], [ 1, %525 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ 1, %492 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 1, %2610 ]
-  %.9 = phi i32 [ %.0, %2665 ], [ %.0, %261 ], [ %.7, %457 ], [ %.7, %460 ], [ %.0, %249 ], [ %.7, %2453 ], [ %.7, %2429 ], [ %.7, %2404 ], [ %.7, %2377 ], [ %.7, %2357 ], [ %.7, %2335 ], [ %.7, %2310 ], [ %.7, %2287 ], [ %.7, %2264 ], [ %.7, %2241 ], [ %.7, %2218 ], [ %.7, %2185 ], [ %.7, %2152 ], [ %.7, %2119 ], [ %.7, %2086 ], [ %.7, %2053 ], [ %.7, %2023 ], [ %.7, %1997 ], [ %.7, %1964 ], [ %.7, %1934 ], [ %.7, %1907 ], [ %.7, %1880 ], [ %.7, %1853 ], [ %.7, %1818 ], [ %.7, %1782 ], [ %.7, %1753 ], [ %.7, %1725 ], [ %.7, %1673 ], [ %.7, %1639 ], [ %.7, %1612 ], [ %.7, %1578 ], [ %.7, %1544 ], [ %.7, %1510 ], [ %.7, %1476 ], [ %.7, %1439 ], [ %.7, %1401 ], [ %.7, %1373 ], [ %.7, %1325 ], [ %.7, %1277 ], [ %.7, %1240 ], [ %.7, %1203 ], [ %.7, %1164 ], [ %.7, %1126 ], [ %.7, %1091 ], [ %.7, %1068 ], [ %.7, %1045 ], [ %.7, %999 ], [ %.7, %941 ], [ %.7, %883 ], [ %.7, %810 ], [ %.7, %767 ], [ %.7, %734 ], [ %.7, %705 ], [ %.7, %676 ], [ %.7, %647 ], [ %.7, %618 ], [ %.7, %591 ], [ %.7, %558 ], [ %.7, %525 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %.7, %492 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %.8, %2610 ]
+.loopexit:                                        ; preds = %2690, %2533, %2509, %2484, %2457, %2437, %2415, %2390, %2367, %2344, %2321, %2298, %2265, %2232, %2199, %2166, %2133, %2103, %2077, %2044, %2014, %1985, %1956, %1927, %1890, %1852, %1821, %1791, %1737, %1701, %1672, %1636, %1600, %1564, %1528, %1489, %1449, %1419, %1369, %1319, %1280, %1241, %1200, %1160, %1123, %1098, %1073, %1025, %965, %905, %830, %785, %750, %719, %688, %657, %626, %597, %562, %527, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %249, %494, %261, %462, %459, %2745
+  %.8761 = phi i32 [ 0, %2745 ], [ 0, %261 ], [ %373, %459 ], [ %373, %462 ], [ 0, %249 ], [ %373, %2533 ], [ %373, %2509 ], [ %373, %2484 ], [ %373, %2457 ], [ %373, %2437 ], [ %373, %2415 ], [ %373, %2390 ], [ %373, %2367 ], [ %373, %2344 ], [ %373, %2321 ], [ %373, %2298 ], [ %373, %2265 ], [ %373, %2232 ], [ %373, %2199 ], [ %373, %2166 ], [ %373, %2133 ], [ %373, %2103 ], [ %373, %2077 ], [ %373, %2044 ], [ %373, %2014 ], [ %373, %1985 ], [ %373, %1956 ], [ %373, %1927 ], [ %373, %1890 ], [ %373, %1852 ], [ %373, %1821 ], [ %373, %1791 ], [ %373, %1737 ], [ %373, %1701 ], [ %373, %1672 ], [ %373, %1636 ], [ %373, %1600 ], [ %373, %1564 ], [ %373, %1528 ], [ %373, %1489 ], [ %373, %1449 ], [ %373, %1419 ], [ %373, %1369 ], [ %373, %1319 ], [ %373, %1280 ], [ %373, %1241 ], [ %373, %1200 ], [ %373, %1160 ], [ %373, %1123 ], [ %373, %1098 ], [ %373, %1073 ], [ %373, %1025 ], [ %373, %965 ], [ %373, %905 ], [ %373, %830 ], [ %373, %785 ], [ %373, %750 ], [ %373, %719 ], [ %373, %688 ], [ %373, %657 ], [ %373, %626 ], [ %373, %597 ], [ %373, %562 ], [ %373, %527 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %373, %494 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 0, %2690 ]
+  %.1751 = phi i32 [ 2, %2745 ], [ 0, %261 ], [ 0, %459 ], [ 0, %462 ], [ 1, %249 ], [ 1, %2533 ], [ 1, %2509 ], [ 1, %2484 ], [ 1, %2457 ], [ 1, %2437 ], [ 1, %2415 ], [ 1, %2390 ], [ 1, %2367 ], [ 1, %2344 ], [ 1, %2321 ], [ 1, %2298 ], [ 1, %2265 ], [ 1, %2232 ], [ 1, %2199 ], [ 1, %2166 ], [ 1, %2133 ], [ 1, %2103 ], [ 1, %2077 ], [ 1, %2044 ], [ 1, %2014 ], [ 1, %1985 ], [ 1, %1956 ], [ 1, %1927 ], [ 1, %1890 ], [ 1, %1852 ], [ 1, %1821 ], [ 1, %1791 ], [ 1, %1737 ], [ 1, %1701 ], [ 1, %1672 ], [ 1, %1636 ], [ 1, %1600 ], [ 1, %1564 ], [ 1, %1528 ], [ 1, %1489 ], [ 1, %1449 ], [ 1, %1419 ], [ 1, %1369 ], [ 1, %1319 ], [ 1, %1280 ], [ 1, %1241 ], [ 1, %1200 ], [ 1, %1160 ], [ 1, %1123 ], [ 1, %1098 ], [ 1, %1073 ], [ 1, %1025 ], [ 1, %965 ], [ 1, %905 ], [ 1, %830 ], [ 1, %785 ], [ 1, %750 ], [ 1, %719 ], [ 1, %688 ], [ 1, %657 ], [ 1, %626 ], [ 1, %597 ], [ 1, %562 ], [ 1, %527 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ 1, %494 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ 1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ 1, %2690 ]
+  %.9 = phi i32 [ %.0, %2745 ], [ %.0, %261 ], [ %.7, %459 ], [ %.7, %462 ], [ %.0, %249 ], [ %.7, %2533 ], [ %.7, %2509 ], [ %.7, %2484 ], [ %.7, %2457 ], [ %.7, %2437 ], [ %.7, %2415 ], [ %.7, %2390 ], [ %.7, %2367 ], [ %.7, %2344 ], [ %.7, %2321 ], [ %.7, %2298 ], [ %.7, %2265 ], [ %.7, %2232 ], [ %.7, %2199 ], [ %.7, %2166 ], [ %.7, %2133 ], [ %.7, %2103 ], [ %.7, %2077 ], [ %.7, %2044 ], [ %.7, %2014 ], [ %.7, %1985 ], [ %.7, %1956 ], [ %.7, %1927 ], [ %.7, %1890 ], [ %.7, %1852 ], [ %.7, %1821 ], [ %.7, %1791 ], [ %.7, %1737 ], [ %.7, %1701 ], [ %.7, %1672 ], [ %.7, %1636 ], [ %.7, %1600 ], [ %.7, %1564 ], [ %.7, %1528 ], [ %.7, %1489 ], [ %.7, %1449 ], [ %.7, %1419 ], [ %.7, %1369 ], [ %.7, %1319 ], [ %.7, %1280 ], [ %.7, %1241 ], [ %.7, %1200 ], [ %.7, %1160 ], [ %.7, %1123 ], [ %.7, %1098 ], [ %.7, %1073 ], [ %.7, %1025 ], [ %.7, %965 ], [ %.7, %905 ], [ %.7, %830 ], [ %.7, %785 ], [ %.7, %750 ], [ %.7, %719 ], [ %.7, %688 ], [ %.7, %657 ], [ %.7, %626 ], [ %.7, %597 ], [ %.7, %562 ], [ %.7, %527 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1302 ], [ %.7, %494 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1298 ], [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ], [ %.8, %2690 ]
   %.not1203 = icmp eq i32 %.9, -2
-  br i1 %.not1203, label %2674, label %2666
+  br i1 %.not1203, label %2754, label %2746
 
-2666:                                             ; preds = %.loopexit
-  %2667 = icmp ult i32 %.9, 289
-  br i1 %2667, label %.thread1441, label %2672
+2746:                                             ; preds = %.loopexit
+  %2747 = icmp ult i32 %.9, 289
+  br i1 %2747, label %.thread1441, label %2752
 
-.thread1441:                                      ; preds = %2552, %2666
-  %.876114361449 = phi i32 [ %.8761, %2666 ], [ 0, %2552 ]
-  %.175114381447 = phi i32 [ %.1751, %2666 ], [ 1, %2552 ]
-  %.914401445 = phi i32 [ %.9, %2666 ], [ 0, %2552 ]
-  %2668 = zext nneg i32 %.914401445 to i64
-  %2669 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %2668
-  %2670 = load i8, ptr %2669, align 1
-  %2671 = zext i8 %2670 to i32
-  br label %2672
+.thread1441:                                      ; preds = %2632, %2746
+  %.876114361449 = phi i32 [ %.8761, %2746 ], [ 0, %2632 ]
+  %.175114381447 = phi i32 [ %.1751, %2746 ], [ 1, %2632 ]
+  %.914401445 = phi i32 [ %.9, %2746 ], [ 0, %2632 ]
+  %2748 = zext nneg i32 %.914401445 to i64
+  %2749 = getelementptr inbounds [289 x i8], ptr @_ZL11yytranslate, i64 0, i64 %2748
+  %2750 = load i8, ptr %2749, align 1
+  %2751 = zext i8 %2750 to i32
+  br label %2752
 
-2672:                                             ; preds = %2666, %.thread1441
-  %.876114361448 = phi i32 [ %.876114361449, %.thread1441 ], [ %.8761, %2666 ]
-  %.175114381446 = phi i32 [ %.175114381447, %.thread1441 ], [ %.1751, %2666 ]
-  %2673 = phi i32 [ %2671, %.thread1441 ], [ 2, %2666 ]
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.15, i32 noundef %2673, ptr noundef nonnull %6)
-  br label %2674
+2752:                                             ; preds = %2746, %.thread1441
+  %.876114361448 = phi i32 [ %.876114361449, %.thread1441 ], [ %.8761, %2746 ]
+  %.175114381446 = phi i32 [ %.175114381447, %.thread1441 ], [ %.1751, %2746 ]
+  %2753 = phi i32 [ %2751, %.thread1441 ], [ 2, %2746 ]
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.15, i32 noundef %2753, ptr noundef nonnull %6)
+  br label %2754
 
-2674:                                             ; preds = %2672, %.loopexit
-  %.17511439 = phi i32 [ %.175114381446, %2672 ], [ %.1751, %.loopexit ]
-  %.87611437 = phi i32 [ %.876114361448, %2672 ], [ %.8761, %.loopexit ]
-  %2675 = getelementptr inbounds i8, ptr %0, i64 2040
-  %2676 = load ptr, ptr %2675, align 8
+2754:                                             ; preds = %2752, %.loopexit
+  %.17511439 = phi i32 [ %.175114381446, %2752 ], [ %.1751, %.loopexit ]
+  %.87611437 = phi i32 [ %.876114361448, %2752 ], [ %.8761, %.loopexit ]
+  %2755 = getelementptr inbounds i8, ptr %0, i64 2040
+  %2756 = load ptr, ptr %2755, align 8
   %narrow = sub nsw i32 0, %.87611437
-  %2677 = sext i32 %narrow to i64
-  %2678 = getelementptr inbounds %union.YYSTYPE, ptr %2676, i64 %2677
-  store ptr %2678, ptr %2675, align 8
-  %2679 = getelementptr inbounds i8, ptr %0, i64 424
-  %2680 = load ptr, ptr %2679, align 8
-  %2681 = getelementptr inbounds i16, ptr %2680, i64 %2677
-  store ptr %2681, ptr %2679, align 8
-  %2682 = getelementptr inbounds i8, ptr %0, i64 3656
-  %2683 = load ptr, ptr %2682, align 8
-  %2684 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2683, i64 %2677
-  store ptr %2684, ptr %2682, align 8
-  %2685 = load i32, ptr @_gmx_sel_yydebug, align 4
-  %.not1204 = icmp eq i32 %2685, 0
-  br i1 %.not1204, label %2697, label %2686
+  %2757 = sext i32 %narrow to i64
+  %2758 = getelementptr inbounds %union.YYSTYPE, ptr %2756, i64 %2757
+  store ptr %2758, ptr %2755, align 8
+  %2759 = getelementptr inbounds i8, ptr %0, i64 424
+  %2760 = load ptr, ptr %2759, align 8
+  %2761 = getelementptr inbounds i16, ptr %2760, i64 %2757
+  store ptr %2761, ptr %2759, align 8
+  %2762 = getelementptr inbounds i8, ptr %0, i64 3656
+  %2763 = load ptr, ptr %2762, align 8
+  %2764 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2763, i64 %2757
+  store ptr %2764, ptr %2762, align 8
+  %2765 = load i32, ptr @_gmx_sel_yydebug, align 4
+  %.not1204 = icmp eq i32 %2765, 0
+  br i1 %.not1204, label %2777, label %2766
 
-2686:                                             ; preds = %2674
-  %2687 = getelementptr inbounds i8, ptr %0, i64 416
-  %2688 = load ptr, ptr %2687, align 8
-  %2689 = load ptr, ptr @stderr, align 8
-  %2690 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2689) #22
-  %.not4.i1393 = icmp ugt ptr %2688, %2681
+2766:                                             ; preds = %2754
+  %2767 = getelementptr inbounds i8, ptr %0, i64 416
+  %2768 = load ptr, ptr %2767, align 8
+  %2769 = load ptr, ptr @stderr, align 8
+  %2770 = call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %2769) #22
+  %.not4.i1393 = icmp ugt ptr %2768, %2761
   br i1 %.not4.i1393, label %_ZL14yy_stack_printPsS_.exit1398, label %.lr.ph.i1394
 
-.lr.ph.i1394:                                     ; preds = %2686, %.lr.ph.i1394
-  %.05.i1395 = phi ptr [ %2695, %.lr.ph.i1394 ], [ %2688, %2686 ]
-  %2691 = load i16, ptr %.05.i1395, align 2
-  %2692 = sext i16 %2691 to i32
-  %2693 = load ptr, ptr @stderr, align 8
-  %2694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2693, ptr noundef nonnull @.str.99, i32 noundef %2692) #23
-  %2695 = getelementptr inbounds i8, ptr %.05.i1395, i64 2
-  %.not.i1396 = icmp ugt ptr %2695, %2681
+.lr.ph.i1394:                                     ; preds = %2766, %.lr.ph.i1394
+  %.05.i1395 = phi ptr [ %2775, %.lr.ph.i1394 ], [ %2768, %2766 ]
+  %2771 = load i16, ptr %.05.i1395, align 2
+  %2772 = sext i16 %2771 to i32
+  %2773 = load ptr, ptr @stderr, align 8
+  %2774 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2773, ptr noundef nonnull @.str.99, i32 noundef %2772) #23
+  %2775 = getelementptr inbounds i8, ptr %.05.i1395, i64 2
+  %.not.i1396 = icmp ugt ptr %2775, %2761
   br i1 %.not.i1396, label %_ZL14yy_stack_printPsS_.exit1398, label %.lr.ph.i1394, !llvm.loop !35
 
-_ZL14yy_stack_printPsS_.exit1398:                 ; preds = %.lr.ph.i1394, %2686
-  %2696 = load ptr, ptr @stderr, align 8
-  %fputc.i1397 = call i32 @fputc(i32 10, ptr %2696)
-  %.pre1487 = load ptr, ptr %2679, align 8
-  br label %2697
+_ZL14yy_stack_printPsS_.exit1398:                 ; preds = %.lr.ph.i1394, %2766
+  %2776 = load ptr, ptr @stderr, align 8
+  %fputc.i1397 = call i32 @fputc(i32 10, ptr %2776)
+  %.pre1487 = load ptr, ptr %2759, align 8
+  br label %2777
 
-2697:                                             ; preds = %2674, %_ZL14yy_stack_printPsS_.exit1398
-  %2698 = phi ptr [ %2681, %2674 ], [ %.pre1487, %_ZL14yy_stack_printPsS_.exit1398 ]
-  %2699 = getelementptr inbounds i8, ptr %0, i64 416
-  %2700 = load ptr, ptr %2699, align 8
-  %.not12051472 = icmp eq ptr %2698, %2700
+2777:                                             ; preds = %2754, %_ZL14yy_stack_printPsS_.exit1398
+  %2778 = phi ptr [ %2761, %2754 ], [ %.pre1487, %_ZL14yy_stack_printPsS_.exit1398 ]
+  %2779 = getelementptr inbounds i8, ptr %0, i64 416
+  %2780 = load ptr, ptr %2779, align 8
+  %.not12051472 = icmp eq ptr %2778, %2780
   br i1 %.not12051472, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %2697
-  %.pre1488 = load ptr, ptr %2675, align 8
+.lr.ph.preheader:                                 ; preds = %2777
+  %.pre1488 = load ptr, ptr %2755, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %2701 = phi ptr [ %2709, %.lr.ph ], [ %.pre1488, %.lr.ph.preheader ]
-  %2702 = phi ptr [ %2711, %.lr.ph ], [ %2698, %.lr.ph.preheader ]
-  %2703 = load i16, ptr %2702, align 2
-  %2704 = sext i16 %2703 to i64
-  %2705 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2704
-  %2706 = load i8, ptr %2705, align 1
-  %2707 = zext i8 %2706 to i32
-  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.16, i32 noundef %2707, ptr noundef %2701)
-  %2708 = load ptr, ptr %2675, align 8
-  %2709 = getelementptr inbounds i8, ptr %2708, i64 -8
-  store ptr %2709, ptr %2675, align 8
-  %2710 = load ptr, ptr %2679, align 8
-  %2711 = getelementptr inbounds i8, ptr %2710, i64 -2
-  store ptr %2711, ptr %2679, align 8
-  %2712 = load ptr, ptr %2682, align 8
-  %2713 = getelementptr inbounds i8, ptr %2712, i64 -8
-  store ptr %2713, ptr %2682, align 8
-  %2714 = load ptr, ptr %2699, align 8
-  %.not1205 = icmp eq ptr %2711, %2714
+  %2781 = phi ptr [ %2789, %.lr.ph ], [ %.pre1488, %.lr.ph.preheader ]
+  %2782 = phi ptr [ %2791, %.lr.ph ], [ %2778, %.lr.ph.preheader ]
+  %2783 = load i16, ptr %2782, align 2
+  %2784 = sext i16 %2783 to i64
+  %2785 = getelementptr inbounds [154 x i8], ptr @_ZL6yystos, i64 0, i64 %2784
+  %2786 = load i8, ptr %2785, align 1
+  %2787 = zext i8 %2786 to i32
+  call fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef nonnull @.str.16, i32 noundef %2787, ptr noundef %2781)
+  %2788 = load ptr, ptr %2755, align 8
+  %2789 = getelementptr inbounds i8, ptr %2788, i64 -8
+  store ptr %2789, ptr %2755, align 8
+  %2790 = load ptr, ptr %2759, align 8
+  %2791 = getelementptr inbounds i8, ptr %2790, i64 -2
+  store ptr %2791, ptr %2759, align 8
+  %2792 = load ptr, ptr %2762, align 8
+  %2793 = getelementptr inbounds i8, ptr %2792, i64 -8
+  store ptr %2793, ptr %2762, align 8
+  %2794 = load ptr, ptr %2779, align 8
+  %.not1205 = icmp eq ptr %2791, %2794
   br i1 %.not1205, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph, %2697
-  %.lcssa = phi ptr [ %2700, %2697 ], [ %2714, %.lr.ph ]
-  %2715 = getelementptr inbounds i8, ptr %0, i64 12
-  %.not1206 = icmp eq ptr %.lcssa, %2715
-  br i1 %.not1206, label %2717, label %2716
+._crit_edge:                                      ; preds = %.lr.ph, %2777
+  %.lcssa = phi ptr [ %2780, %2777 ], [ %2794, %.lr.ph ]
+  %2795 = getelementptr inbounds i8, ptr %0, i64 12
+  %.not1206 = icmp eq ptr %.lcssa, %2795
+  br i1 %.not1206, label %2797, label %2796
 
-2716:                                             ; preds = %._crit_edge
+2796:                                             ; preds = %._crit_edge
   call void @free(ptr noundef %.lcssa) #21
-  br label %2717
+  br label %2797
 
-2717:                                             ; preds = %2716, %._crit_edge
+2797:                                             ; preds = %2796, %._crit_edge
   store i32 1, ptr %160, align 8
-  br label %2718
+  br label %2798
 
-2718:                                             ; preds = %276, %274, %2717
-  %.0750 = phi i32 [ %.17511439, %2717 ], [ 4, %274 ], [ 4, %276 ]
+2798:                                             ; preds = %276, %274, %2797
+  %.0750 = phi i32 [ %.17511439, %2797 ], [ 4, %274 ], [ 4, %276 ]
   ret i32 %.0750
 
-2719:                                             ; preds = %2454, %2430, %2405, %2378, %2358, %2336, %2311, %2288, %2265, %2242, %2219, %2186, %2153, %2120, %2087, %2054, %2024, %1998, %1965, %1935, %1908, %1881, %1854, %1819, %1783, %1755, %1726, %1674, %1640, %1613, %1579, %1545, %1511, %1477, %1440, %1403, %1374, %1326, %1278, %1241, %1204, %1165, %1128, %1092, %1069, %1046, %1000, %942, %884, %811, %768, %735, %706, %677, %648, %619, %592, %559, %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296, %2447, %2423, %2398, %2371, %2351, %2329, %2304, %2281, %2258, %2235, %2212, %2179, %2146, %2113, %2080, %2047, %2017, %1991, %1958, %1928, %1901, %1874, %1847, %1812, %1776, %1747, %1719, %1667, %1633, %1606, %1572, %1538, %1504, %1470, %1433, %1395, %1367, %1319, %1271, %1234, %1197, %1158, %1120, %1085, %1062, %1039, %993, %935, %877, %804, %761, %728, %699, %670, %641, %612, %585, %552, %516, %495, %471, %425
-  %.0772 = phi i32 [ %2457, %2454 ], [ %.116888, %2447 ], [ %2433, %2430 ], [ %.115887, %2423 ], [ %2408, %2405 ], [ %.114886, %2398 ], [ %2381, %2378 ], [ %.113885, %2371 ], [ %2361, %2358 ], [ %.112884, %2351 ], [ %2339, %2336 ], [ %.111883, %2329 ], [ %2314, %2311 ], [ %.109881, %2304 ], [ %2291, %2288 ], [ %.107879, %2281 ], [ %2268, %2265 ], [ %.105877, %2258 ], [ %2245, %2242 ], [ %.103875, %2235 ], [ %2222, %2219 ], [ %.101873, %2212 ], [ %2189, %2186 ], [ %.99871, %2179 ], [ %2156, %2153 ], [ %.97869, %2146 ], [ %2123, %2120 ], [ %.95867, %2113 ], [ %2090, %2087 ], [ %.93865, %2080 ], [ %2057, %2054 ], [ %.92864, %2047 ], [ %2027, %2024 ], [ %.90862, %2017 ], [ %2001, %1998 ], [ %.88860, %1991 ], [ %1968, %1965 ], [ %.87859, %1958 ], [ %1938, %1935 ], [ %.85857, %1928 ], [ %1911, %1908 ], [ %.83855, %1901 ], [ %1884, %1881 ], [ %.81853, %1874 ], [ %1857, %1854 ], [ %.79851, %1847 ], [ %1822, %1819 ], [ %.77849, %1812 ], [ %1786, %1783 ], [ %.76848, %1776 ], [ %1758, %1755 ], [ %.75847, %1747 ], [ %1729, %1726 ], [ %.73845, %1719 ], [ %1677, %1674 ], [ %.70842, %1667 ], [ %1643, %1640 ], [ %.68840, %1633 ], [ %1616, %1613 ], [ %.65837, %1606 ], [ %1582, %1579 ], [ %.62834, %1572 ], [ %1548, %1545 ], [ %.59831, %1538 ], [ %1514, %1511 ], [ %.56828, %1504 ], [ %1480, %1477 ], [ %.54826, %1470 ], [ %1443, %1440 ], [ %.52824, %1433 ], [ %1406, %1403 ], [ %.51823, %1395 ], [ %1377, %1374 ], [ %.49821, %1367 ], [ %1329, %1326 ], [ %.47819, %1319 ], [ %1281, %1278 ], [ %.45817, %1271 ], [ %1244, %1241 ], [ %.43815, %1234 ], [ %1207, %1204 ], [ %.41813, %1197 ], [ %1168, %1165 ], [ %.39811, %1158 ], [ %1131, %1128 ], [ %.38810, %1120 ], [ %1095, %1092 ], [ %.37809, %1085 ], [ %1072, %1069 ], [ %.36808, %1062 ], [ %1049, %1046 ], [ %.33805, %1039 ], [ %1003, %1000 ], [ %.30802, %993 ], [ %945, %942 ], [ %.27799, %935 ], [ %887, %884 ], [ %.25797, %877 ], [ %814, %811 ], [ %.22794, %804 ], [ %771, %768 ], [ %.20792, %761 ], [ %738, %735 ], [ %.18790, %728 ], [ %709, %706 ], [ %.16788, %699 ], [ %680, %677 ], [ %.14786, %670 ], [ %651, %648 ], [ %.12784, %641 ], [ %622, %619 ], [ %.10782, %612 ], [ %595, %592 ], [ %.7779, %585 ], [ %562, %559 ], [ %.4776, %552 ], [ %529, %526 ], [ %519, %516 ], [ %511, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %498, %495 ], [ %482, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1773, %471 ], [ %439, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %428, %425 ]
-  %.0762 = phi ptr [ %2456, %2454 ], [ %.116, %2447 ], [ %2432, %2430 ], [ %.115, %2423 ], [ %2407, %2405 ], [ %.114, %2398 ], [ %2380, %2378 ], [ %.113, %2371 ], [ %2360, %2358 ], [ %.112, %2351 ], [ %2338, %2336 ], [ %.111, %2329 ], [ %2313, %2311 ], [ %.109, %2304 ], [ %2290, %2288 ], [ %.107, %2281 ], [ %2267, %2265 ], [ %.105, %2258 ], [ %2244, %2242 ], [ %.103, %2235 ], [ %2221, %2219 ], [ %.101, %2212 ], [ %2188, %2186 ], [ %.99, %2179 ], [ %2155, %2153 ], [ %.97, %2146 ], [ %2122, %2120 ], [ %.95, %2113 ], [ %2089, %2087 ], [ %.93, %2080 ], [ %2056, %2054 ], [ %.92, %2047 ], [ %2026, %2024 ], [ %.90, %2017 ], [ %2000, %1998 ], [ %.88, %1991 ], [ %1967, %1965 ], [ %.87, %1958 ], [ %1937, %1935 ], [ %.85, %1928 ], [ %1910, %1908 ], [ %.83, %1901 ], [ %1883, %1881 ], [ %.81, %1874 ], [ %1856, %1854 ], [ %.79, %1847 ], [ %1821, %1819 ], [ %.77, %1812 ], [ %1785, %1783 ], [ %.76, %1776 ], [ %1757, %1755 ], [ %.75, %1747 ], [ %1728, %1726 ], [ %.73, %1719 ], [ %1676, %1674 ], [ %.70, %1667 ], [ %1642, %1640 ], [ %.68, %1633 ], [ %1615, %1613 ], [ %.65, %1606 ], [ %1581, %1579 ], [ %.62, %1572 ], [ %1547, %1545 ], [ %.59, %1538 ], [ %1513, %1511 ], [ %.56, %1504 ], [ %1479, %1477 ], [ %.54, %1470 ], [ %1442, %1440 ], [ %.52, %1433 ], [ %1405, %1403 ], [ %.51, %1395 ], [ %1376, %1374 ], [ %.49, %1367 ], [ %1328, %1326 ], [ %.47, %1319 ], [ %1280, %1278 ], [ %.45, %1271 ], [ %1243, %1241 ], [ %.43, %1234 ], [ %1206, %1204 ], [ %.41, %1197 ], [ %1167, %1165 ], [ %.39, %1158 ], [ %1130, %1128 ], [ %.38, %1120 ], [ %1094, %1092 ], [ %.37, %1085 ], [ %1071, %1069 ], [ %.36, %1062 ], [ %1048, %1046 ], [ %.33, %1039 ], [ %1002, %1000 ], [ %.30, %993 ], [ %944, %942 ], [ %.27, %935 ], [ %886, %884 ], [ %.25, %877 ], [ %813, %811 ], [ %.22, %804 ], [ %770, %768 ], [ %.20, %761 ], [ %737, %735 ], [ %.18, %728 ], [ %708, %706 ], [ %.16, %699 ], [ %679, %677 ], [ %.14, %670 ], [ %650, %648 ], [ %.12, %641 ], [ %621, %619 ], [ %.10, %612 ], [ %594, %592 ], [ %.7769, %585 ], [ %561, %559 ], [ %.4766, %552 ], [ %528, %526 ], [ %518, %516 ], [ %510, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %497, %495 ], [ %481, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1763, %471 ], [ %438, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %427, %425 ]
-  %2720 = insertvalue { ptr, i32 } poison, ptr %.0762, 0
-  %2721 = insertvalue { ptr, i32 } %2720, i32 %.0772, 1
-  resume { ptr, i32 } %2721
+2799:                                             ; preds = %2534, %2510, %2485, %2458, %2438, %2416, %2391, %2368, %2345, %2322, %2299, %2266, %2233, %2200, %2167, %2134, %2104, %2078, %2045, %2015, %1986, %1957, %1928, %1891, %1853, %1823, %1792, %1738, %1702, %1673, %1637, %1601, %1565, %1529, %1490, %1451, %1420, %1370, %1320, %1281, %1242, %1201, %1162, %1124, %1099, %1074, %1026, %966, %906, %831, %786, %751, %720, %689, %658, %627, %598, %563, %528, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296, %2527, %2503, %2478, %2451, %2431, %2409, %2384, %2361, %2338, %2315, %2292, %2259, %2226, %2193, %2160, %2127, %2097, %2071, %2038, %2008, %1979, %1950, %1921, %1884, %1846, %1815, %1785, %1731, %1695, %1666, %1630, %1594, %1558, %1522, %1483, %1443, %1413, %1363, %1313, %1274, %1235, %1194, %1154, %1117, %1092, %1067, %1019, %959, %899, %824, %779, %744, %713, %682, %651, %620, %591, %556, %518, %497, %473, %425
+  %.0772 = phi i32 [ %2537, %2534 ], [ %.116888, %2527 ], [ %2513, %2510 ], [ %.115887, %2503 ], [ %2488, %2485 ], [ %.114886, %2478 ], [ %2461, %2458 ], [ %.113885, %2451 ], [ %2441, %2438 ], [ %.112884, %2431 ], [ %2419, %2416 ], [ %.111883, %2409 ], [ %2394, %2391 ], [ %.109881, %2384 ], [ %2371, %2368 ], [ %.107879, %2361 ], [ %2348, %2345 ], [ %.105877, %2338 ], [ %2325, %2322 ], [ %.103875, %2315 ], [ %2302, %2299 ], [ %.101873, %2292 ], [ %2269, %2266 ], [ %.99871, %2259 ], [ %2236, %2233 ], [ %.97869, %2226 ], [ %2203, %2200 ], [ %.95867, %2193 ], [ %2170, %2167 ], [ %.93865, %2160 ], [ %2137, %2134 ], [ %.92864, %2127 ], [ %2107, %2104 ], [ %.90862, %2097 ], [ %2081, %2078 ], [ %.88860, %2071 ], [ %2048, %2045 ], [ %.87859, %2038 ], [ %2018, %2015 ], [ %.85857, %2008 ], [ %1989, %1986 ], [ %.83855, %1979 ], [ %1960, %1957 ], [ %.81853, %1950 ], [ %1931, %1928 ], [ %.79851, %1921 ], [ %1894, %1891 ], [ %.77849, %1884 ], [ %1856, %1853 ], [ %.76848, %1846 ], [ %1826, %1823 ], [ %.75847, %1815 ], [ %1795, %1792 ], [ %.73845, %1785 ], [ %1741, %1738 ], [ %.70842, %1731 ], [ %1705, %1702 ], [ %.68840, %1695 ], [ %1676, %1673 ], [ %.65837, %1666 ], [ %1640, %1637 ], [ %.62834, %1630 ], [ %1604, %1601 ], [ %.59831, %1594 ], [ %1568, %1565 ], [ %.56828, %1558 ], [ %1532, %1529 ], [ %.54826, %1522 ], [ %1493, %1490 ], [ %.52824, %1483 ], [ %1454, %1451 ], [ %.51823, %1443 ], [ %1423, %1420 ], [ %.49821, %1413 ], [ %1373, %1370 ], [ %.47819, %1363 ], [ %1323, %1320 ], [ %.45817, %1313 ], [ %1284, %1281 ], [ %.43815, %1274 ], [ %1245, %1242 ], [ %.41813, %1235 ], [ %1204, %1201 ], [ %.39811, %1194 ], [ %1165, %1162 ], [ %.38810, %1154 ], [ %1127, %1124 ], [ %.37809, %1117 ], [ %1102, %1099 ], [ %.36808, %1092 ], [ %1077, %1074 ], [ %.33805, %1067 ], [ %1029, %1026 ], [ %.30802, %1019 ], [ %969, %966 ], [ %.27799, %959 ], [ %909, %906 ], [ %.25797, %899 ], [ %834, %831 ], [ %.22794, %824 ], [ %789, %786 ], [ %.20792, %779 ], [ %754, %751 ], [ %.18790, %744 ], [ %723, %720 ], [ %.16788, %713 ], [ %692, %689 ], [ %.14786, %682 ], [ %661, %658 ], [ %.12784, %651 ], [ %630, %627 ], [ %.10782, %620 ], [ %601, %598 ], [ %.7779, %591 ], [ %566, %563 ], [ %.4776, %556 ], [ %531, %528 ], [ %521, %518 ], [ %513, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %500, %497 ], [ %484, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1773, %473 ], [ %439, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %428, %425 ]
+  %.0762 = phi ptr [ %2536, %2534 ], [ %.116, %2527 ], [ %2512, %2510 ], [ %.115, %2503 ], [ %2487, %2485 ], [ %.114, %2478 ], [ %2460, %2458 ], [ %.113, %2451 ], [ %2440, %2438 ], [ %.112, %2431 ], [ %2418, %2416 ], [ %.111, %2409 ], [ %2393, %2391 ], [ %.109, %2384 ], [ %2370, %2368 ], [ %.107, %2361 ], [ %2347, %2345 ], [ %.105, %2338 ], [ %2324, %2322 ], [ %.103, %2315 ], [ %2301, %2299 ], [ %.101, %2292 ], [ %2268, %2266 ], [ %.99, %2259 ], [ %2235, %2233 ], [ %.97, %2226 ], [ %2202, %2200 ], [ %.95, %2193 ], [ %2169, %2167 ], [ %.93, %2160 ], [ %2136, %2134 ], [ %.92, %2127 ], [ %2106, %2104 ], [ %.90, %2097 ], [ %2080, %2078 ], [ %.88, %2071 ], [ %2047, %2045 ], [ %.87, %2038 ], [ %2017, %2015 ], [ %.85, %2008 ], [ %1988, %1986 ], [ %.83, %1979 ], [ %1959, %1957 ], [ %.81, %1950 ], [ %1930, %1928 ], [ %.79, %1921 ], [ %1893, %1891 ], [ %.77, %1884 ], [ %1855, %1853 ], [ %.76, %1846 ], [ %1825, %1823 ], [ %.75, %1815 ], [ %1794, %1792 ], [ %.73, %1785 ], [ %1740, %1738 ], [ %.70, %1731 ], [ %1704, %1702 ], [ %.68, %1695 ], [ %1675, %1673 ], [ %.65, %1666 ], [ %1639, %1637 ], [ %.62, %1630 ], [ %1603, %1601 ], [ %.59, %1594 ], [ %1567, %1565 ], [ %.56, %1558 ], [ %1531, %1529 ], [ %.54, %1522 ], [ %1492, %1490 ], [ %.52, %1483 ], [ %1453, %1451 ], [ %.51, %1443 ], [ %1422, %1420 ], [ %.49, %1413 ], [ %1372, %1370 ], [ %.47, %1363 ], [ %1322, %1320 ], [ %.45, %1313 ], [ %1283, %1281 ], [ %.43, %1274 ], [ %1244, %1242 ], [ %.41, %1235 ], [ %1203, %1201 ], [ %.39, %1194 ], [ %1164, %1162 ], [ %.38, %1154 ], [ %1126, %1124 ], [ %.37, %1117 ], [ %1101, %1099 ], [ %.36, %1092 ], [ %1076, %1074 ], [ %.33, %1067 ], [ %1028, %1026 ], [ %.30, %1019 ], [ %968, %966 ], [ %.27, %959 ], [ %908, %906 ], [ %.25, %899 ], [ %833, %831 ], [ %.22, %824 ], [ %788, %786 ], [ %.20, %779 ], [ %753, %751 ], [ %.18, %744 ], [ %722, %720 ], [ %.16, %713 ], [ %691, %689 ], [ %.14, %682 ], [ %660, %658 ], [ %.12, %651 ], [ %629, %627 ], [ %.10, %620 ], [ %600, %598 ], [ %.7769, %591 ], [ %565, %563 ], [ %.4766, %556 ], [ %530, %528 ], [ %520, %518 ], [ %512, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305 ], [ %499, %497 ], [ %483, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300 ], [ %.1763, %473 ], [ %438, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296 ], [ %427, %425 ]
+  %2800 = insertvalue { ptr, i32 } poison, ptr %.0762, 0
+  %2801 = insertvalue { ptr, i32 } %2800, i32 %.0772, 1
+  resume { ptr, i32 } %2801
 
-2722:                                             ; preds = %2454, %2430, %2405, %2378, %2358, %2336, %2311, %2288, %2265, %2242, %2219, %2186, %2153, %2120, %2087, %2054, %2024, %1998, %1965, %1935, %1908, %1881, %1854, %1819, %1783, %1755, %1726, %1674, %1640, %1613, %1579, %1545, %1511, %1477, %1440, %1403, %1374, %1326, %1278, %1241, %1204, %1165, %1128, %1092, %1069, %1046, %1000, %942, %884, %811, %768, %735, %706, %677, %648, %619, %592, %559, %526, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296
-  %2723 = landingpad { ptr, i32 }
+2802:                                             ; preds = %2534, %2510, %2485, %2458, %2438, %2416, %2391, %2368, %2345, %2322, %2299, %2266, %2233, %2200, %2167, %2134, %2104, %2078, %2045, %2015, %1986, %1957, %1928, %1891, %1853, %1823, %1792, %1738, %1702, %1673, %1637, %1601, %1565, %1529, %1490, %1451, %1420, %1370, %1320, %1281, %1242, %1201, %1162, %1124, %1099, %1074, %1026, %966, %906, %831, %786, %751, %720, %689, %658, %627, %598, %563, %528, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1305, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1296
+  %2803 = landingpad { ptr, i32 }
           catch ptr null
-  %2724 = extractvalue { ptr, i32 } %2723, 0
-  call void @__clang_call_terminate(ptr %2724) #26
+  %2804 = extractvalue { ptr, i32 } %2803, 0
+  call void @__clang_call_terminate(ptr %2804) #26
   unreachable
 }
 
@@ -6929,8 +7055,12 @@ define internal fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementE
   unreachable
 
 _ZNSt10unique_ptrISt10shared_ptrIN3gmx20SelectionTreeElementEESt14default_deleteIS3_EED2Ev.exit: ; preds = %2
-  %3 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %3, ptr %0, align 8
+  %3 = load ptr, ptr %1, align 8
+  store ptr %3, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %4, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   ret void
 }
@@ -7301,15 +7431,18 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaI
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %5 = getelementptr inbounds i8, ptr %3, i64 48
   %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = load <2 x i64>, ptr %6, align 8
-  store <2 x i64> %8, ptr %5, align 8
-  store ptr null, ptr %7, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0) #21
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8
+  store i64 %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 56
+  %9 = getelementptr inbounds i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8
+  store i64 %10, ptr %8, align 8
+  store ptr null, ptr %9, align 8
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0) #21
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = add i64 %12, 1
+  store i64 %13, ptr %11, align 8
   ret void
 }
 
@@ -7326,10 +7459,13 @@ _ZNSt10unique_ptrIN3gmx24SelectionParserParameterESt14default_deleteIS1_EED2Ev.e
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 32
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %3, align 8
-  store ptr null, ptr %5, align 8
+  %5 = load i64, ptr %4, align 8
+  store i64 %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = load i64, ptr %7, align 8
+  store i64 %8, ptr %6, align 8
+  store ptr null, ptr %7, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   ret void
@@ -7359,10 +7495,13 @@ define internal fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(p
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
-  %7 = load <2 x i64>, ptr %5, align 8
-  store <2 x i64> %7, ptr %4, align 8
-  store ptr null, ptr %6, align 8
+  %6 = load i64, ptr %5, align 8
+  store i64 %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = load i64, ptr %8, align 8
+  store i64 %9, ptr %7, align 8
+  store ptr null, ptr %8, align 8
   store ptr %3, ptr %0, align 8
   ret void
 }
@@ -7404,22 +7543,25 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_E
   store i32 %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load <2 x ptr>, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store <2 x ptr> %9, ptr %6, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8
+  store ptr null, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, i64 20, i1 false)
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
+  %14 = getelementptr inbounds i8, ptr %3, i64 72
+  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 20, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0) #21
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, 1
-  store i64 %16, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, 1
+  store i64 %18, ptr %16, align 8
   ret void
 }
 
@@ -7437,91 +7579,94 @@ define internal fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dea
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  store <2 x ptr> %8, ptr %5, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load ptr, ptr %9, align 8
+  store ptr null, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, i64 20, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %13 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit, label %14
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #21
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, i64 20, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
+  %15 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit, label %16
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load atomic i64, ptr %15 acquire, align 8
-  %17 = icmp eq i64 %16, 4294967297
-  %18 = trunc i64 %16 to i32
-  br i1 %17, label %19, label %24
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = load atomic i64, ptr %17 acquire, align 8
+  %19 = icmp eq i64 %18, 4294967297
+  %20 = trunc i64 %18 to i32
+  br i1 %19, label %21, label %26
 
-19:                                               ; preds = %14
-  store i32 0, ptr %15, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 0, ptr %20, align 4
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
+21:                                               ; preds = %16
+  store i32 0, ptr %17, align 8
+  %22 = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 0, ptr %22, align 4
+  %23 = load ptr, ptr %15, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
 
-24:                                               ; preds = %14
-  %25 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %28, label %26
+26:                                               ; preds = %16
+  %27 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %30, label %28
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %18, -1
-  store i32 %27, ptr %15, align 4
-  br label %30
+28:                                               ; preds = %26
+  %29 = add nsw i32 %20, -1
+  store i32 %29, ptr %17, align 4
+  br label %32
 
-28:                                               ; preds = %24
-  %29 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
-  br label %30
+30:                                               ; preds = %26
+  %31 = atomicrmw volatile add ptr %17, i32 -1 acq_rel, align 4
+  br label %32
 
-30:                                               ; preds = %28, %26
-  %.0.i.i.i.i.i.i.i = phi i32 [ %18, %26 ], [ %29, %28 ]
-  %31 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %31, label %32, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit
+32:                                               ; preds = %30, %28
+  %.0.i.i.i.i.i.i.i = phi i32 [ %20, %28 ], [ %31, %30 ]
+  %33 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %33, label %34, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
-  %36 = getelementptr inbounds i8, ptr %13, i64 12
-  %37 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %41, label %38
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %15, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
+  %38 = getelementptr inbounds i8, ptr %15, i64 12
+  %39 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %39, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %43, label %40
 
-38:                                               ; preds = %32
-  %39 = load i32, ptr %36, align 4
-  %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %36, align 4
-  br label %43
+40:                                               ; preds = %34
+  %41 = load i32, ptr %38, align 4
+  %42 = add nsw i32 %41, -1
+  store i32 %42, ptr %38, align 4
+  br label %45
 
-41:                                               ; preds = %32
-  %42 = atomicrmw volatile add ptr %36, i32 -1 acq_rel, align 4
-  br label %43
+43:                                               ; preds = %34
+  %44 = atomicrmw volatile add ptr %38, i32 -1 acq_rel, align 4
+  br label %45
 
-43:                                               ; preds = %41, %38
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %39, %38 ], [ %42, %41 ]
-  %44 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %44, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit
+45:                                               ; preds = %43, %40
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %41, %40 ], [ %44, %43 ]
+  %46 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %46, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %43, %19
-  %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %45, %21
+  %47 = load ptr, ptr %15, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
   br label %_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %3, %30, %43, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+_ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %3, %32, %45, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   ret void
 }
@@ -7636,17 +7781,20 @@ define internal fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr n
   store i32 %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  store <2 x ptr> %8, ptr %5, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = load ptr, ptr %9, align 8
+  store ptr null, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, i64 20, i1 false)
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #21
+  %13 = getelementptr inbounds i8, ptr %3, i64 56
+  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, i64 20, i1 false)
   store ptr %3, ptr %0, align 8
   ret void
 }
@@ -7769,16 +7917,17 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %9, i64 8
   %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 16
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = load <2 x ptr>, ptr %38, align 8
-  store <2 x ptr> %42, ptr %37, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %41, null
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %40, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx17InvalidInputErrorC2ERKS0_.exit, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
   %45 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i15 = icmp eq i8 %45, 0
   br i1 %.not.i.i.i.i.i.i.i15, label %49, label %46
@@ -7802,7 +7951,7 @@ _ZN3gmx17InvalidInputErrorC2ERKS0_.exit:          ; preds = %36, %46, %49
   %54 = load ptr, ptr %37, align 8, !noalias !40
   store ptr %54, ptr %53, align 8, !noalias !40
   %55 = getelementptr inbounds i8, ptr %51, i64 16
-  %56 = load ptr, ptr %39, align 8, !noalias !40
+  %56 = load ptr, ptr %40, align 8, !noalias !40
   store ptr %56, ptr %55, align 8, !noalias !40
   %.not.i.i.i.i.i.i.i16 = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i.i.i.i16, label %_ZSt18make_exception_ptrIN3gmx17InvalidInputErrorEENSt15__exception_ptr13exception_ptrET_.exit, label %57
@@ -7840,7 +7989,7 @@ _ZSt18make_exception_ptrIN3gmx17InvalidInputErrorEENSt15__exception_ptr13excepti
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %65, %67
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %9, align 8
-  %68 = load ptr, ptr %39, align 8
+  %68 = load ptr, ptr %40, align 8
   %.not.i.i.i.i.i.i17 = icmp eq ptr %68, null
   br i1 %.not.i.i.i.i.i.i17, label %_ZN3gmx17InvalidInputErrorD2Ev.exit, label %69
 
@@ -7915,7 +8064,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN3gmx17InvalidInputErrorD2Ev.exit:              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %85, %98, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %5, align 8
-  %103 = load ptr, ptr %40, align 8
+  %103 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i.i19 = icmp eq ptr %103, null
   br i1 %.not.i.i.i.i.i.i19, label %_ZN3gmx17InvalidInputErrorD2Ev.exit25, label %104
 
@@ -9299,51 +9448,53 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_E
   store i32 %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %10, ptr %6, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i, label %11
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i, label %12
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %17, label %14
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %18, label %15
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4
+15:                                               ; preds = %12
+  %16 = load i32, ptr %13, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %13, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
 
-17:                                               ; preds = %11
-  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+18:                                               ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i: ; preds = %17, %14, %2
-  %19 = getelementptr inbounds i8, ptr %3, i64 40
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i: ; preds = %18, %15, %2
+  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9_M_insertIJRKS2_EEEvSt14_List_iteratorIS2_EDpOT_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exit9.i.i
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exit9.i.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 
 _ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9_M_insertIJRKS2_EEEvSt14_List_iteratorIS2_EDpOT_.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %3, i64 72
-  %23 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %23, i64 20, i1 false)
+  %23 = getelementptr inbounds i8, ptr %3, i64 72
+  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(20) %24, i64 20, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0) #21
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %25, align 8
   ret void
 }
 

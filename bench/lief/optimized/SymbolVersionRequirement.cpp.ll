@@ -400,29 +400,31 @@ declare void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4LIEF3ELF24SymbolVersionRequirementaSES1_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  %11 = load <2 x ptr>, ptr %3, align 8
-  store ptr %8, ptr %3, align 8
-  %12 = load ptr, ptr %9, align 8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %10, align 8
-  store ptr %13, ptr %6, align 8
-  store <2 x ptr> %11, ptr %4, align 8
-  store ptr %7, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i16, ptr %14, align 8
-  %17 = load i16, ptr %15, align 2
-  store i16 %17, ptr %14, align 8
-  store i16 %16, ptr %15, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #10
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  store ptr %5, ptr %4, align 8
+  store ptr %7, ptr %11, align 8
+  store ptr %9, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = load i16, ptr %15, align 8
+  %18 = load i16, ptr %16, align 2
+  store i16 %18, ptr %15, align 8
+  store i16 %17, ptr %16, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #10
   ret ptr %0
 }
 
@@ -430,29 +432,31 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4LIEF3ELF24SymbolVers
 define void @_ZN4LIEF3ELF24SymbolVersionRequirement4swapERS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  %11 = load <2 x ptr>, ptr %3, align 8
-  store ptr %8, ptr %3, align 8
-  %12 = load ptr, ptr %9, align 8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %10, align 8
-  store ptr %13, ptr %6, align 8
-  store <2 x ptr> %11, ptr %4, align 8
-  store ptr %7, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i16, ptr %14, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  store ptr %5, ptr %4, align 8
+  store ptr %7, ptr %11, align 8
+  store ptr %9, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load i16, ptr %15, align 8
-  store i16 %17, ptr %14, align 8
-  store i16 %16, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #10
+  %18 = load i16, ptr %16, align 8
+  store i16 %18, ptr %15, align 8
+  store i16 %17, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #10
   ret void
 }
 

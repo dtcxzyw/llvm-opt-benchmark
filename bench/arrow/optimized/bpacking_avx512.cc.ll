@@ -573,15 +573,22 @@ for.body31.i:                                     ; preds = %_ZN5arrow8internal1
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %in.addr.32458.i, i64 4
   %ret.0.copyload.i49.i.i = load i32, ptr %add.ptr21.i.i, align 4
   %or.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i49.i.i, i32 %ret.0.copyload.i.i196.i, i32 2)
-  %16 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i.i196.i, i64 0
-  %17 = shufflevector <8 x i32> %16, <8 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i.i = insertelement <16 x i32> %17, i32 %ret.0.copyload.i.i196.i, i64 8
+  %vecinit.i.i.i.i197.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i196.i, i64 0
+  %vecinit1.i.i.i.i.i = insertelement <16 x i32> %vecinit.i.i.i.i197.i, i32 %ret.0.copyload.i.i196.i, i64 1
+  %vecinit2.i.i.i.i.i = insertelement <16 x i32> %vecinit1.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 2
+  %vecinit3.i.i.i.i.i = insertelement <16 x i32> %vecinit2.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 3
+  %vecinit4.i.i.i.i.i = insertelement <16 x i32> %vecinit3.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 4
+  %vecinit5.i.i.i.i.i = insertelement <16 x i32> %vecinit4.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 5
+  %vecinit6.i.i.i.i.i = insertelement <16 x i32> %vecinit5.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 6
+  %vecinit7.i.i.i.i.i = insertelement <16 x i32> %vecinit6.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 7
+  %vecinit8.i.i.i.i.i = insertelement <16 x i32> %vecinit7.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 8
   %vecinit9.i.i.i.i.i = insertelement <16 x i32> %vecinit8.i.i.i.i.i, i32 %ret.0.copyload.i.i196.i, i64 9
   %vecinit10.i.i.i.i.i = insertelement <16 x i32> %vecinit9.i.i.i.i.i, i32 %or.i.i, i64 10
-  %18 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i49.i.i, i64 0
-  %19 = shufflevector <4 x i32> %18, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i.i126 = shufflevector <16 x i32> %vecinit10.i.i.i.i.i, <16 x i32> %19, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %vecinit15.i.i.i.i198.i = insertelement <16 x i32> %vecinit14.i.i.i.i.i126, i32 %ret.0.copyload.i49.i.i, i64 15
+  %vecinit11.i.i.i.i.i = insertelement <16 x i32> %vecinit10.i.i.i.i.i, i32 %ret.0.copyload.i49.i.i, i64 11
+  %vecinit12.i.i.i.i.i = insertelement <16 x i32> %vecinit11.i.i.i.i.i, i32 %ret.0.copyload.i49.i.i, i64 12
+  %vecinit13.i.i.i.i.i = insertelement <16 x i32> %vecinit12.i.i.i.i.i, i32 %ret.0.copyload.i49.i.i, i64 13
+  %vecinit14.i.i.i.i.i = insertelement <16 x i32> %vecinit13.i.i.i.i.i, i32 %ret.0.copyload.i49.i.i, i64 14
+  %vecinit15.i.i.i.i198.i = insertelement <16 x i32> %vecinit14.i.i.i.i.i, i32 %ret.0.copyload.i49.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i194.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i195.i)
   store <16 x i32> %vecinit15.i.i.i.i198.i, ptr %self_buffer.i.i.i.i.i194.i, align 64
@@ -591,10 +598,10 @@ for.body31.i:                                     ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i199.i:                          ; preds = %for.body.i.i.i.i.i199.i, %for.body31.i
   %i.05.i.i.i.i.i200.i = phi i64 [ 0, %for.body31.i ], [ %inc.i.i.i.i.i204.i, %for.body.i.i.i.i.i199.i ]
   %arrayidx2.i.i.i.i.i201.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i194.i, i64 0, i64 %i.05.i.i.i.i.i200.i
-  %20 = load i32, ptr %arrayidx2.i.i.i.i.i201.i, align 4
+  %16 = load i32, ptr %arrayidx2.i.i.i.i.i201.i, align 4
   %arrayidx3.i.i.i.i.i202.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i195.i, i64 0, i64 %i.05.i.i.i.i.i200.i
-  %21 = load i32, ptr %arrayidx3.i.i.i.i.i202.i, align 4
-  %shr.i.i.i.i.i.i203.i = lshr i32 %20, %21
+  %17 = load i32, ptr %arrayidx3.i.i.i.i.i202.i, align 4
+  %shr.i.i.i.i.i.i203.i = lshr i32 %16, %17
   store i32 %shr.i.i.i.i.i.i203.i, ptr %arrayidx2.i.i.i.i.i201.i, align 4
   %inc.i.i.i.i.i204.i = add nuw nsw i64 %i.05.i.i.i.i.i200.i, 1
   %exitcond.not.i.i.i.i.i205.i = icmp eq i64 %inc.i.i.i.i.i204.i, 16
@@ -603,23 +610,30 @@ for.body.i.i.i.i.i199.i:                          ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i206.i: ; preds = %for.body.i.i.i.i.i199.i
   %add.ptr34.idx.i = shl nsw i64 %indvars.iv2670.i, 7
   %add.ptr34.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr34.idx.i
-  %22 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i194.i, align 64
+  %18 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i194.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i194.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i195.i)
-  %and.i.i.i.i.i207.i = and <8 x i64> %22, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i.i207.i = and <8 x i64> %18, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
   store <8 x i64> %and.i.i.i.i.i207.i, ptr %add.ptr34.i, align 1
   %ret.0.copyload.i56.i.i = load i32, ptr %add.ptr21.i.i, align 4
   %add.ptr62.i.i = getelementptr inbounds i8, ptr %in.addr.32458.i, i64 8
   %ret.0.copyload.i62.i.i = load i32, ptr %add.ptr62.i.i, align 4
   %or65.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i.i, i32 %ret.0.copyload.i56.i.i, i32 1)
-  %23 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i56.i.i, i64 0
-  %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i77.i.i = insertelement <16 x i32> %24, i32 %ret.0.copyload.i56.i.i, i64 4
+  %vecinit.i.i.i73.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i56.i.i, i64 0
+  %vecinit1.i.i.i74.i.i = insertelement <16 x i32> %vecinit.i.i.i73.i.i, i32 %ret.0.copyload.i56.i.i, i64 1
+  %vecinit2.i.i.i75.i.i = insertelement <16 x i32> %vecinit1.i.i.i74.i.i, i32 %ret.0.copyload.i56.i.i, i64 2
+  %vecinit3.i.i.i76.i.i = insertelement <16 x i32> %vecinit2.i.i.i75.i.i, i32 %ret.0.copyload.i56.i.i, i64 3
+  %vecinit4.i.i.i77.i.i = insertelement <16 x i32> %vecinit3.i.i.i76.i.i, i32 %ret.0.copyload.i56.i.i, i64 4
   %vecinit5.i.i.i78.i.i = insertelement <16 x i32> %vecinit4.i.i.i77.i.i, i32 %or65.i.i, i64 5
-  %25 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i62.i.i, i64 0
-  %26 = shufflevector <8 x i32> %25, <8 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i86.i.i125 = shufflevector <16 x i32> %vecinit5.i.i.i78.i.i, <16 x i32> %26, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison>
-  %vecinit14.i.i.i87.i.i = insertelement <16 x i32> %vecinit13.i.i.i86.i.i125, i32 %ret.0.copyload.i62.i.i, i64 14
+  %vecinit6.i.i.i79.i.i = insertelement <16 x i32> %vecinit5.i.i.i78.i.i, i32 %ret.0.copyload.i62.i.i, i64 6
+  %vecinit7.i.i.i80.i.i = insertelement <16 x i32> %vecinit6.i.i.i79.i.i, i32 %ret.0.copyload.i62.i.i, i64 7
+  %vecinit8.i.i.i81.i.i = insertelement <16 x i32> %vecinit7.i.i.i80.i.i, i32 %ret.0.copyload.i62.i.i, i64 8
+  %vecinit9.i.i.i82.i.i = insertelement <16 x i32> %vecinit8.i.i.i81.i.i, i32 %ret.0.copyload.i62.i.i, i64 9
+  %vecinit10.i.i.i83.i.i = insertelement <16 x i32> %vecinit9.i.i.i82.i.i, i32 %ret.0.copyload.i62.i.i, i64 10
+  %vecinit11.i.i.i84.i.i = insertelement <16 x i32> %vecinit10.i.i.i83.i.i, i32 %ret.0.copyload.i62.i.i, i64 11
+  %vecinit12.i.i.i85.i.i = insertelement <16 x i32> %vecinit11.i.i.i84.i.i, i32 %ret.0.copyload.i62.i.i, i64 12
+  %vecinit13.i.i.i86.i.i = insertelement <16 x i32> %vecinit12.i.i.i85.i.i, i32 %ret.0.copyload.i62.i.i, i64 13
+  %vecinit14.i.i.i87.i.i = insertelement <16 x i32> %vecinit13.i.i.i86.i.i, i32 %ret.0.copyload.i62.i.i, i64 14
   %vecinit15.i.i.i88.i.i = insertelement <16 x i32> %vecinit14.i.i.i87.i.i, i32 %ret.0.copyload.i62.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i89.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i90.i.i)
@@ -630,10 +644,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i206.i: ; preds = %for.body.i.i
 for.body.i.i.i.i92.i.i:                           ; preds = %for.body.i.i.i.i92.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i206.i
   %i.05.i.i.i.i93.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i206.i ], [ %inc.i.i.i.i97.i.i, %for.body.i.i.i.i92.i.i ]
   %arrayidx2.i.i.i.i94.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i89.i.i, i64 0, i64 %i.05.i.i.i.i93.i.i
-  %27 = load i32, ptr %arrayidx2.i.i.i.i94.i.i, align 4
+  %19 = load i32, ptr %arrayidx2.i.i.i.i94.i.i, align 4
   %arrayidx3.i.i.i.i95.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i90.i.i, i64 0, i64 %i.05.i.i.i.i93.i.i
-  %28 = load i32, ptr %arrayidx3.i.i.i.i95.i.i, align 4
-  %shr.i.i.i.i.i96.i.i = lshr i32 %27, %28
+  %20 = load i32, ptr %arrayidx3.i.i.i.i95.i.i, align 4
+  %shr.i.i.i.i.i96.i.i = lshr i32 %19, %20
   store i32 %shr.i.i.i.i.i96.i.i, ptr %arrayidx2.i.i.i.i94.i.i, align 4
   %inc.i.i.i.i97.i.i = add nuw nsw i64 %i.05.i.i.i.i93.i.i, 1
   %exitcond.not.i.i.i.i98.i.i = icmp eq i64 %inc.i.i.i.i97.i.i, 16
@@ -641,10 +655,10 @@ for.body.i.i.i.i92.i.i:                           ; preds = %for.body.i.i.i.i92.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack3_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i92.i.i
   %add.ptr47.i208.i = getelementptr inbounds i8, ptr %add.ptr34.i, i64 64
-  %29 = load <8 x i64>, ptr %self_buffer.i.i.i.i89.i.i, align 64
+  %21 = load <8 x i64>, ptr %self_buffer.i.i.i.i89.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i89.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i90.i.i)
-  %and.i.i.i.i101.i.i = and <8 x i64> %29, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i101.i.i = and <8 x i64> %21, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
   store <8 x i64> %and.i.i.i.i101.i.i, ptr %add.ptr47.i208.i, align 1
   %add.ptr102.i.i = getelementptr inbounds i8, ptr %in.addr.32458.i, i64 12
   %indvars.iv.next2671.i = add nuw nsw i64 %indvars.iv2670.i, 1
@@ -654,21 +668,38 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 for.body43.i:                                     ; preds = %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack4_32EPKjPj.exit.i, %for.body43.preheader.i
   %indvars.iv2664.i = phi i64 [ 0, %for.body43.preheader.i ], [ %indvars.iv.next2665.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack4_32EPKjPj.exit.i ]
   %in.addr.42455.i = phi ptr [ %in, %for.body43.preheader.i ], [ %add.ptr95.i252.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack4_32EPKjPj.exit.i ]
-  %30 = load <2 x i32>, ptr %in.addr.42455.i, align 4
-  %31 = shufflevector <2 x i32> %30, <2 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %ret.0.copyload.i.i213.i = load i32, ptr %in.addr.42455.i, align 4
+  %add.ptr15.i.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 4
+  %ret.0.copyload.i44.i.i = load i32, ptr %add.ptr15.i.i, align 4
+  %vecinit.i.i.i.i214.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i213.i, i64 0
+  %vecinit1.i.i.i.i215.i = insertelement <16 x i32> %vecinit.i.i.i.i214.i, i32 %ret.0.copyload.i.i213.i, i64 1
+  %vecinit2.i.i.i.i216.i = insertelement <16 x i32> %vecinit1.i.i.i.i215.i, i32 %ret.0.copyload.i.i213.i, i64 2
+  %vecinit3.i.i.i.i217.i = insertelement <16 x i32> %vecinit2.i.i.i.i216.i, i32 %ret.0.copyload.i.i213.i, i64 3
+  %vecinit4.i.i.i.i218.i = insertelement <16 x i32> %vecinit3.i.i.i.i217.i, i32 %ret.0.copyload.i.i213.i, i64 4
+  %vecinit5.i.i.i.i219.i = insertelement <16 x i32> %vecinit4.i.i.i.i218.i, i32 %ret.0.copyload.i.i213.i, i64 5
+  %vecinit6.i.i.i.i220.i = insertelement <16 x i32> %vecinit5.i.i.i.i219.i, i32 %ret.0.copyload.i.i213.i, i64 6
+  %vecinit7.i.i.i.i221.i = insertelement <16 x i32> %vecinit6.i.i.i.i220.i, i32 %ret.0.copyload.i.i213.i, i64 7
+  %vecinit8.i.i.i.i222.i = insertelement <16 x i32> %vecinit7.i.i.i.i221.i, i32 %ret.0.copyload.i44.i.i, i64 8
+  %vecinit9.i.i.i.i223.i = insertelement <16 x i32> %vecinit8.i.i.i.i222.i, i32 %ret.0.copyload.i44.i.i, i64 9
+  %vecinit10.i.i.i.i224.i = insertelement <16 x i32> %vecinit9.i.i.i.i223.i, i32 %ret.0.copyload.i44.i.i, i64 10
+  %vecinit11.i.i.i.i225.i = insertelement <16 x i32> %vecinit10.i.i.i.i224.i, i32 %ret.0.copyload.i44.i.i, i64 11
+  %vecinit12.i.i.i.i226.i = insertelement <16 x i32> %vecinit11.i.i.i.i225.i, i32 %ret.0.copyload.i44.i.i, i64 12
+  %vecinit13.i.i.i.i227.i = insertelement <16 x i32> %vecinit12.i.i.i.i226.i, i32 %ret.0.copyload.i44.i.i, i64 13
+  %vecinit14.i.i.i.i228.i = insertelement <16 x i32> %vecinit13.i.i.i.i227.i, i32 %ret.0.copyload.i44.i.i, i64 14
+  %vecinit15.i.i.i.i229.i = insertelement <16 x i32> %vecinit14.i.i.i.i228.i, i32 %ret.0.copyload.i44.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i211.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i212.i)
-  store <16 x i32> %31, ptr %self_buffer.i.i.i.i.i211.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i229.i, ptr %self_buffer.i.i.i.i.i211.i, align 64
   store <8 x i64> <i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312, i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312>, ptr %other_buffer.i.i.i.i.i212.i, align 64
   br label %for.body.i.i.i.i.i230.i
 
 for.body.i.i.i.i.i230.i:                          ; preds = %for.body.i.i.i.i.i230.i, %for.body43.i
   %i.05.i.i.i.i.i231.i = phi i64 [ 0, %for.body43.i ], [ %inc.i.i.i.i.i235.i, %for.body.i.i.i.i.i230.i ]
   %arrayidx2.i.i.i.i.i232.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i211.i, i64 0, i64 %i.05.i.i.i.i.i231.i
-  %32 = load i32, ptr %arrayidx2.i.i.i.i.i232.i, align 4
+  %22 = load i32, ptr %arrayidx2.i.i.i.i.i232.i, align 4
   %arrayidx3.i.i.i.i.i233.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i212.i, i64 0, i64 %i.05.i.i.i.i.i231.i
-  %33 = load i32, ptr %arrayidx3.i.i.i.i.i233.i, align 4
-  %shr.i.i.i.i.i.i234.i = lshr i32 %32, %33
+  %23 = load i32, ptr %arrayidx3.i.i.i.i.i233.i, align 4
+  %shr.i.i.i.i.i.i234.i = lshr i32 %22, %23
   store i32 %shr.i.i.i.i.i.i234.i, ptr %arrayidx2.i.i.i.i.i232.i, align 4
   %inc.i.i.i.i.i235.i = add nuw nsw i64 %i.05.i.i.i.i.i231.i, 1
   %exitcond.not.i.i.i.i.i236.i = icmp eq i64 %inc.i.i.i.i.i235.i, 16
@@ -677,27 +708,44 @@ for.body.i.i.i.i.i230.i:                          ; preds = %for.body.i.i.i.i.i2
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i237.i: ; preds = %for.body.i.i.i.i.i230.i
   %add.ptr46.idx.i = shl nsw i64 %indvars.iv2664.i, 7
   %add.ptr46.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr46.idx.i
-  %34 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i211.i, align 64
+  %24 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i211.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i211.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i212.i)
-  %and.i.i.i.i.i238.i = and <8 x i64> %34, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i.i238.i = and <8 x i64> %24, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
   store <8 x i64> %and.i.i.i.i.i238.i, ptr %add.ptr46.i, align 1
   %add.ptr47.i239.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 8
-  %35 = load <2 x i32>, ptr %add.ptr47.i239.i, align 4
-  %36 = shufflevector <2 x i32> %35, <2 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %ret.0.copyload.i53.i240.i = load i32, ptr %add.ptr47.i239.i, align 4
+  %add.ptr63.i.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 12
+  %ret.0.copyload.i61.i.i = load i32, ptr %add.ptr63.i.i, align 4
+  %vecinit.i.i.i69.i241.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i53.i240.i, i64 0
+  %vecinit1.i.i.i70.i.i = insertelement <16 x i32> %vecinit.i.i.i69.i241.i, i32 %ret.0.copyload.i53.i240.i, i64 1
+  %vecinit2.i.i.i71.i.i = insertelement <16 x i32> %vecinit1.i.i.i70.i.i, i32 %ret.0.copyload.i53.i240.i, i64 2
+  %vecinit3.i.i.i72.i.i = insertelement <16 x i32> %vecinit2.i.i.i71.i.i, i32 %ret.0.copyload.i53.i240.i, i64 3
+  %vecinit4.i.i.i73.i.i = insertelement <16 x i32> %vecinit3.i.i.i72.i.i, i32 %ret.0.copyload.i53.i240.i, i64 4
+  %vecinit5.i.i.i74.i.i = insertelement <16 x i32> %vecinit4.i.i.i73.i.i, i32 %ret.0.copyload.i53.i240.i, i64 5
+  %vecinit6.i.i.i75.i.i = insertelement <16 x i32> %vecinit5.i.i.i74.i.i, i32 %ret.0.copyload.i53.i240.i, i64 6
+  %vecinit7.i.i.i76.i.i = insertelement <16 x i32> %vecinit6.i.i.i75.i.i, i32 %ret.0.copyload.i53.i240.i, i64 7
+  %vecinit8.i.i.i77.i.i = insertelement <16 x i32> %vecinit7.i.i.i76.i.i, i32 %ret.0.copyload.i61.i.i, i64 8
+  %vecinit9.i.i.i78.i.i = insertelement <16 x i32> %vecinit8.i.i.i77.i.i, i32 %ret.0.copyload.i61.i.i, i64 9
+  %vecinit10.i.i.i79.i.i = insertelement <16 x i32> %vecinit9.i.i.i78.i.i, i32 %ret.0.copyload.i61.i.i, i64 10
+  %vecinit11.i.i.i80.i.i = insertelement <16 x i32> %vecinit10.i.i.i79.i.i, i32 %ret.0.copyload.i61.i.i, i64 11
+  %vecinit12.i.i.i81.i.i = insertelement <16 x i32> %vecinit11.i.i.i80.i.i, i32 %ret.0.copyload.i61.i.i, i64 12
+  %vecinit13.i.i.i82.i.i = insertelement <16 x i32> %vecinit12.i.i.i81.i.i, i32 %ret.0.copyload.i61.i.i, i64 13
+  %vecinit14.i.i.i83.i.i = insertelement <16 x i32> %vecinit13.i.i.i82.i.i, i32 %ret.0.copyload.i61.i.i, i64 14
+  %vecinit15.i.i.i84.i242.i = insertelement <16 x i32> %vecinit14.i.i.i83.i.i, i32 %ret.0.copyload.i61.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i209.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i210.i)
-  store <16 x i32> %36, ptr %self_buffer.i.i.i.i85.i209.i, align 64
+  store <16 x i32> %vecinit15.i.i.i84.i242.i, ptr %self_buffer.i.i.i.i85.i209.i, align 64
   store <8 x i64> <i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312, i64 17179869184, i64 51539607560, i64 85899345936, i64 120259084312>, ptr %other_buffer.i.i.i.i86.i210.i, align 64
   br label %for.body.i.i.i.i88.i243.i
 
 for.body.i.i.i.i88.i243.i:                        ; preds = %for.body.i.i.i.i88.i243.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i237.i
   %i.05.i.i.i.i89.i244.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i237.i ], [ %inc.i.i.i.i93.i248.i, %for.body.i.i.i.i88.i243.i ]
   %arrayidx2.i.i.i.i90.i245.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i85.i209.i, i64 0, i64 %i.05.i.i.i.i89.i244.i
-  %37 = load i32, ptr %arrayidx2.i.i.i.i90.i245.i, align 4
+  %25 = load i32, ptr %arrayidx2.i.i.i.i90.i245.i, align 4
   %arrayidx3.i.i.i.i91.i246.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i86.i210.i, i64 0, i64 %i.05.i.i.i.i89.i244.i
-  %38 = load i32, ptr %arrayidx3.i.i.i.i91.i246.i, align 4
-  %shr.i.i.i.i.i92.i247.i = lshr i32 %37, %38
+  %26 = load i32, ptr %arrayidx3.i.i.i.i91.i246.i, align 4
+  %shr.i.i.i.i.i92.i247.i = lshr i32 %25, %26
   store i32 %shr.i.i.i.i.i92.i247.i, ptr %arrayidx2.i.i.i.i90.i245.i, align 4
   %inc.i.i.i.i93.i248.i = add nuw nsw i64 %i.05.i.i.i.i89.i244.i, 1
   %exitcond.not.i.i.i.i94.i249.i = icmp eq i64 %inc.i.i.i.i93.i248.i, 16
@@ -705,10 +753,10 @@ for.body.i.i.i.i88.i243.i:                        ; preds = %for.body.i.i.i.i88.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack4_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i88.i243.i
   %add.ptr45.i250.i = getelementptr inbounds i8, ptr %add.ptr46.i, i64 64
-  %39 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i209.i, align 64
+  %27 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i209.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i209.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i210.i)
-  %and.i.i.i.i97.i251.i = and <8 x i64> %39, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i97.i251.i = and <8 x i64> %27, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
   store <8 x i64> %and.i.i.i.i97.i251.i, ptr %add.ptr45.i250.i, align 1
   %add.ptr95.i252.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 16
   %indvars.iv.next2665.i = add nuw nsw i64 %indvars.iv2664.i, 1
@@ -725,16 +773,19 @@ for.body55.i:                                     ; preds = %_ZN5arrow8internal1
   %add.ptr28.i.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 8
   %ret.0.copyload.i54.i.i = load i32, ptr %add.ptr28.i.i, align 4
   %or31.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i54.i.i, i32 %ret.0.copyload.i47.i.i, i32 4)
-  %40 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i255.i, i64 0
-  %41 = shufflevector <4 x i32> %40, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i261.i = insertelement <16 x i32> %41, i32 %ret.0.copyload.i.i255.i, i64 4
+  %vecinit.i.i.i.i257.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i255.i, i64 0
+  %vecinit1.i.i.i.i258.i = insertelement <16 x i32> %vecinit.i.i.i.i257.i, i32 %ret.0.copyload.i.i255.i, i64 1
+  %vecinit2.i.i.i.i259.i = insertelement <16 x i32> %vecinit1.i.i.i.i258.i, i32 %ret.0.copyload.i.i255.i, i64 2
+  %vecinit3.i.i.i.i260.i = insertelement <16 x i32> %vecinit2.i.i.i.i259.i, i32 %ret.0.copyload.i.i255.i, i64 3
+  %vecinit4.i.i.i.i261.i = insertelement <16 x i32> %vecinit3.i.i.i.i260.i, i32 %ret.0.copyload.i.i255.i, i64 4
   %vecinit5.i.i.i.i262.i = insertelement <16 x i32> %vecinit4.i.i.i.i261.i, i32 %ret.0.copyload.i.i255.i, i64 5
   %vecinit6.i.i.i.i263.i = insertelement <16 x i32> %vecinit5.i.i.i.i262.i, i32 %or.i256.i, i64 6
   %vecinit7.i.i.i.i264.i = insertelement <16 x i32> %vecinit6.i.i.i.i263.i, i32 %ret.0.copyload.i47.i.i, i64 7
-  %42 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i47.i.i, i64 0
-  %43 = shufflevector <4 x i32> %42, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i.i268.i129 = shufflevector <16 x i32> %vecinit7.i.i.i.i264.i, <16 x i32> %43, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i269.i = insertelement <16 x i32> %vecinit11.i.i.i.i268.i129, i32 %or31.i.i, i64 12
+  %vecinit8.i.i.i.i265.i = insertelement <16 x i32> %vecinit7.i.i.i.i264.i, i32 %ret.0.copyload.i47.i.i, i64 8
+  %vecinit9.i.i.i.i266.i = insertelement <16 x i32> %vecinit8.i.i.i.i265.i, i32 %ret.0.copyload.i47.i.i, i64 9
+  %vecinit10.i.i.i.i267.i = insertelement <16 x i32> %vecinit9.i.i.i.i266.i, i32 %ret.0.copyload.i47.i.i, i64 10
+  %vecinit11.i.i.i.i268.i = insertelement <16 x i32> %vecinit10.i.i.i.i267.i, i32 %ret.0.copyload.i47.i.i, i64 11
+  %vecinit12.i.i.i.i269.i = insertelement <16 x i32> %vecinit11.i.i.i.i268.i, i32 %or31.i.i, i64 12
   %vecinit13.i.i.i.i270.i = insertelement <16 x i32> %vecinit12.i.i.i.i269.i, i32 %ret.0.copyload.i54.i.i, i64 13
   %vecinit14.i.i.i.i271.i = insertelement <16 x i32> %vecinit13.i.i.i.i270.i, i32 %ret.0.copyload.i54.i.i, i64 14
   %vecinit15.i.i.i.i272.i = insertelement <16 x i32> %vecinit14.i.i.i.i271.i, i32 %ret.0.copyload.i54.i.i, i64 15
@@ -747,10 +798,10 @@ for.body55.i:                                     ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i273.i:                          ; preds = %for.body.i.i.i.i.i273.i, %for.body55.i
   %i.05.i.i.i.i.i274.i = phi i64 [ 0, %for.body55.i ], [ %inc.i.i.i.i.i278.i, %for.body.i.i.i.i.i273.i ]
   %arrayidx2.i.i.i.i.i275.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i253.i, i64 0, i64 %i.05.i.i.i.i.i274.i
-  %44 = load i32, ptr %arrayidx2.i.i.i.i.i275.i, align 4
+  %28 = load i32, ptr %arrayidx2.i.i.i.i.i275.i, align 4
   %arrayidx3.i.i.i.i.i276.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i254.i, i64 0, i64 %i.05.i.i.i.i.i274.i
-  %45 = load i32, ptr %arrayidx3.i.i.i.i.i276.i, align 4
-  %shr.i.i.i.i.i.i277.i = lshr i32 %44, %45
+  %29 = load i32, ptr %arrayidx3.i.i.i.i.i276.i, align 4
+  %shr.i.i.i.i.i.i277.i = lshr i32 %28, %29
   store i32 %shr.i.i.i.i.i.i277.i, ptr %arrayidx2.i.i.i.i.i275.i, align 4
   %inc.i.i.i.i.i278.i = add nuw nsw i64 %i.05.i.i.i.i.i274.i, 1
   %exitcond.not.i.i.i.i.i279.i = icmp eq i64 %inc.i.i.i.i.i278.i, 16
@@ -759,10 +810,10 @@ for.body.i.i.i.i.i273.i:                          ; preds = %for.body.i.i.i.i.i2
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i: ; preds = %for.body.i.i.i.i.i273.i
   %add.ptr58.idx.i = shl nsw i64 %indvars.iv2658.i, 7
   %add.ptr58.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr58.idx.i
-  %46 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i253.i, align 64
+  %30 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i253.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i253.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i254.i)
-  %and.i.i.i.i.i281.i = and <8 x i64> %46, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i.i281.i = and <8 x i64> %30, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
   store <8 x i64> %and.i.i.i.i.i281.i, ptr %add.ptr58.i, align 1
   %ret.0.copyload.i59.i.i = load i32, ptr %add.ptr28.i.i, align 4
   %add.ptr63.i282.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 12
@@ -771,19 +822,21 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i: ; preds = %for.body.i.i
   %add.ptr80.i.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 16
   %ret.0.copyload.i70.i.i = load i32, ptr %add.ptr80.i.i, align 4
   %or83.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i.i, i32 %ret.0.copyload.i63.i.i, i32 3)
-  %vecinit.i.i.i77.i.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i59.i.i, i64 0
+  %vecinit.i.i.i77.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i59.i.i, i64 0
   %vecinit1.i.i.i78.i.i = insertelement <16 x i32> %vecinit.i.i.i77.i.i, i32 %ret.0.copyload.i59.i.i, i64 1
   %vecinit2.i.i.i79.i.i = insertelement <16 x i32> %vecinit1.i.i.i78.i.i, i32 %ret.0.copyload.i59.i.i, i64 2
   %vecinit3.i.i.i80.i.i = insertelement <16 x i32> %vecinit2.i.i.i79.i.i, i32 %or66.i.i, i64 3
-  %47 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i63.i.i, i64 0
-  %48 = shufflevector <4 x i32> %47, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i84.i.i127 = shufflevector <16 x i32> %vecinit3.i.i.i80.i.i, <16 x i32> %48, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i85.i.i = insertelement <16 x i32> %vecinit7.i.i.i84.i.i127, i32 %ret.0.copyload.i63.i.i, i64 8
+  %vecinit4.i.i.i81.i.i = insertelement <16 x i32> %vecinit3.i.i.i80.i.i, i32 %ret.0.copyload.i63.i.i, i64 4
+  %vecinit5.i.i.i82.i.i = insertelement <16 x i32> %vecinit4.i.i.i81.i.i, i32 %ret.0.copyload.i63.i.i, i64 5
+  %vecinit6.i.i.i83.i.i = insertelement <16 x i32> %vecinit5.i.i.i82.i.i, i32 %ret.0.copyload.i63.i.i, i64 6
+  %vecinit7.i.i.i84.i.i = insertelement <16 x i32> %vecinit6.i.i.i83.i.i, i32 %ret.0.copyload.i63.i.i, i64 7
+  %vecinit8.i.i.i85.i.i = insertelement <16 x i32> %vecinit7.i.i.i84.i.i, i32 %ret.0.copyload.i63.i.i, i64 8
   %vecinit9.i.i.i86.i.i = insertelement <16 x i32> %vecinit8.i.i.i85.i.i, i32 %or83.i.i, i64 9
-  %49 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i70.i.i, i64 0
-  %50 = shufflevector <4 x i32> %49, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i90.i.i128 = shufflevector <16 x i32> %vecinit9.i.i.i86.i.i, <16 x i32> %50, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison>
-  %vecinit14.i.i.i91.i.i = insertelement <16 x i32> %vecinit13.i.i.i90.i.i128, i32 %ret.0.copyload.i70.i.i, i64 14
+  %vecinit10.i.i.i87.i.i = insertelement <16 x i32> %vecinit9.i.i.i86.i.i, i32 %ret.0.copyload.i70.i.i, i64 10
+  %vecinit11.i.i.i88.i.i = insertelement <16 x i32> %vecinit10.i.i.i87.i.i, i32 %ret.0.copyload.i70.i.i, i64 11
+  %vecinit12.i.i.i89.i.i = insertelement <16 x i32> %vecinit11.i.i.i88.i.i, i32 %ret.0.copyload.i70.i.i, i64 12
+  %vecinit13.i.i.i90.i.i = insertelement <16 x i32> %vecinit12.i.i.i89.i.i, i32 %ret.0.copyload.i70.i.i, i64 13
+  %vecinit14.i.i.i91.i.i = insertelement <16 x i32> %vecinit13.i.i.i90.i.i, i32 %ret.0.copyload.i70.i.i, i64 14
   %vecinit15.i.i.i92.i.i = insertelement <16 x i32> %vecinit14.i.i.i91.i.i, i32 %ret.0.copyload.i70.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i.i)
@@ -794,10 +847,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i: ; preds = %for.body.i.i
 for.body.i.i.i.i96.i.i:                           ; preds = %for.body.i.i.i.i96.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i
   %i.05.i.i.i.i97.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i ], [ %inc.i.i.i.i101.i.i, %for.body.i.i.i.i96.i.i ]
   %arrayidx2.i.i.i.i98.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i93.i.i, i64 0, i64 %i.05.i.i.i.i97.i.i
-  %51 = load i32, ptr %arrayidx2.i.i.i.i98.i.i, align 4
+  %31 = load i32, ptr %arrayidx2.i.i.i.i98.i.i, align 4
   %arrayidx3.i.i.i.i99.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i94.i.i, i64 0, i64 %i.05.i.i.i.i97.i.i
-  %52 = load i32, ptr %arrayidx3.i.i.i.i99.i.i, align 4
-  %shr.i.i.i.i.i100.i.i = lshr i32 %51, %52
+  %32 = load i32, ptr %arrayidx3.i.i.i.i99.i.i, align 4
+  %shr.i.i.i.i.i100.i.i = lshr i32 %31, %32
   store i32 %shr.i.i.i.i.i100.i.i, ptr %arrayidx2.i.i.i.i98.i.i, align 4
   %inc.i.i.i.i101.i.i = add nuw nsw i64 %i.05.i.i.i.i97.i.i, 1
   %exitcond.not.i.i.i.i102.i.i = icmp eq i64 %inc.i.i.i.i101.i.i, 16
@@ -805,10 +858,10 @@ for.body.i.i.i.i96.i.i:                           ; preds = %for.body.i.i.i.i96.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack5_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i96.i.i
   %add.ptr52.i.i = getelementptr inbounds i8, ptr %add.ptr58.i, i64 64
-  %53 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i.i, align 64
+  %33 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i.i)
-  %and.i.i.i.i105.i.i = and <8 x i64> %53, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i105.i.i = and <8 x i64> %33, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
   store <8 x i64> %and.i.i.i.i105.i.i, ptr %add.ptr52.i.i, align 1
   %add.ptr112.i.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 20
   %indvars.iv.next2659.i = add nuw nsw i64 %indvars.iv2658.i, 1
@@ -825,19 +878,22 @@ for.body67.i:                                     ; preds = %_ZN5arrow8internal1
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 8
   %ret.0.copyload.i52.i.i = load i32, ptr %add.ptr24.i.i, align 4
   %or27.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i52.i.i, i32 %ret.0.copyload.i46.i.i, i32 4)
-  %54 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i287.i, i64 0
-  %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i293.i = insertelement <16 x i32> %55, i32 %ret.0.copyload.i.i287.i, i64 4
+  %vecinit.i.i.i.i289.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i287.i, i64 0
+  %vecinit1.i.i.i.i290.i = insertelement <16 x i32> %vecinit.i.i.i.i289.i, i32 %ret.0.copyload.i.i287.i, i64 1
+  %vecinit2.i.i.i.i291.i = insertelement <16 x i32> %vecinit1.i.i.i.i290.i, i32 %ret.0.copyload.i.i287.i, i64 2
+  %vecinit3.i.i.i.i292.i = insertelement <16 x i32> %vecinit2.i.i.i.i291.i, i32 %ret.0.copyload.i.i287.i, i64 3
+  %vecinit4.i.i.i.i293.i = insertelement <16 x i32> %vecinit3.i.i.i.i292.i, i32 %ret.0.copyload.i.i287.i, i64 4
   %vecinit5.i.i.i.i294.i = insertelement <16 x i32> %vecinit4.i.i.i.i293.i, i32 %or.i288.i, i64 5
   %vecinit6.i.i.i.i295.i = insertelement <16 x i32> %vecinit5.i.i.i.i294.i, i32 %ret.0.copyload.i46.i.i, i64 6
   %vecinit7.i.i.i.i296.i = insertelement <16 x i32> %vecinit6.i.i.i.i295.i, i32 %ret.0.copyload.i46.i.i, i64 7
   %vecinit8.i.i.i.i297.i = insertelement <16 x i32> %vecinit7.i.i.i.i296.i, i32 %ret.0.copyload.i46.i.i, i64 8
   %vecinit9.i.i.i.i298.i = insertelement <16 x i32> %vecinit8.i.i.i.i297.i, i32 %ret.0.copyload.i46.i.i, i64 9
   %vecinit10.i.i.i.i299.i = insertelement <16 x i32> %vecinit9.i.i.i.i298.i, i32 %or27.i.i, i64 10
-  %56 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i52.i.i, i64 0
-  %57 = shufflevector <4 x i32> %56, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i303.i131 = shufflevector <16 x i32> %vecinit10.i.i.i.i299.i, <16 x i32> %57, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %vecinit15.i.i.i.i304.i = insertelement <16 x i32> %vecinit14.i.i.i.i303.i131, i32 %ret.0.copyload.i52.i.i, i64 15
+  %vecinit11.i.i.i.i300.i = insertelement <16 x i32> %vecinit10.i.i.i.i299.i, i32 %ret.0.copyload.i52.i.i, i64 11
+  %vecinit12.i.i.i.i301.i = insertelement <16 x i32> %vecinit11.i.i.i.i300.i, i32 %ret.0.copyload.i52.i.i, i64 12
+  %vecinit13.i.i.i.i302.i = insertelement <16 x i32> %vecinit12.i.i.i.i301.i, i32 %ret.0.copyload.i52.i.i, i64 13
+  %vecinit14.i.i.i.i303.i = insertelement <16 x i32> %vecinit13.i.i.i.i302.i, i32 %ret.0.copyload.i52.i.i, i64 14
+  %vecinit15.i.i.i.i304.i = insertelement <16 x i32> %vecinit14.i.i.i.i303.i, i32 %ret.0.copyload.i52.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i285.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i286.i)
   store <16 x i32> %vecinit15.i.i.i.i304.i, ptr %self_buffer.i.i.i.i.i285.i, align 64
@@ -847,10 +903,10 @@ for.body67.i:                                     ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i305.i:                          ; preds = %for.body.i.i.i.i.i305.i, %for.body67.i
   %i.05.i.i.i.i.i306.i = phi i64 [ 0, %for.body67.i ], [ %inc.i.i.i.i.i310.i, %for.body.i.i.i.i.i305.i ]
   %arrayidx2.i.i.i.i.i307.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i285.i, i64 0, i64 %i.05.i.i.i.i.i306.i
-  %58 = load i32, ptr %arrayidx2.i.i.i.i.i307.i, align 4
+  %34 = load i32, ptr %arrayidx2.i.i.i.i.i307.i, align 4
   %arrayidx3.i.i.i.i.i308.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i286.i, i64 0, i64 %i.05.i.i.i.i.i306.i
-  %59 = load i32, ptr %arrayidx3.i.i.i.i.i308.i, align 4
-  %shr.i.i.i.i.i.i309.i = lshr i32 %58, %59
+  %35 = load i32, ptr %arrayidx3.i.i.i.i.i308.i, align 4
+  %shr.i.i.i.i.i.i309.i = lshr i32 %34, %35
   store i32 %shr.i.i.i.i.i.i309.i, ptr %arrayidx2.i.i.i.i.i307.i, align 4
   %inc.i.i.i.i.i310.i = add nuw nsw i64 %i.05.i.i.i.i.i306.i, 1
   %exitcond.not.i.i.i.i.i311.i = icmp eq i64 %inc.i.i.i.i.i310.i, 16
@@ -859,10 +915,10 @@ for.body.i.i.i.i.i305.i:                          ; preds = %for.body.i.i.i.i.i3
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i: ; preds = %for.body.i.i.i.i.i305.i
   %add.ptr70.idx.i = shl nsw i64 %indvars.iv2652.i, 7
   %add.ptr70.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr70.idx.i
-  %60 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i285.i, align 64
+  %36 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i285.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i285.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i286.i)
-  %and.i.i.i.i.i313.i = and <8 x i64> %60, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i.i313.i = and <8 x i64> %36, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
   store <8 x i64> %and.i.i.i.i.i313.i, ptr %add.ptr70.i, align 1
   %add.ptr54.i.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 12
   %ret.0.copyload.i59.i314.i = load i32, ptr %add.ptr54.i.i, align 4
@@ -872,19 +928,22 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i: ; preds = %for.body.i.i
   %add.ptr82.i.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 20
   %ret.0.copyload.i71.i.i = load i32, ptr %add.ptr82.i.i, align 4
   %or85.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i71.i.i, i32 %ret.0.copyload.i65.i.i, i32 4)
-  %61 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i59.i314.i, i64 0
-  %62 = shufflevector <4 x i32> %61, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i81.i319.i = insertelement <16 x i32> %62, i32 %ret.0.copyload.i59.i314.i, i64 4
+  %vecinit.i.i.i77.i315.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i59.i314.i, i64 0
+  %vecinit1.i.i.i78.i316.i = insertelement <16 x i32> %vecinit.i.i.i77.i315.i, i32 %ret.0.copyload.i59.i314.i, i64 1
+  %vecinit2.i.i.i79.i317.i = insertelement <16 x i32> %vecinit1.i.i.i78.i316.i, i32 %ret.0.copyload.i59.i314.i, i64 2
+  %vecinit3.i.i.i80.i318.i = insertelement <16 x i32> %vecinit2.i.i.i79.i317.i, i32 %ret.0.copyload.i59.i314.i, i64 3
+  %vecinit4.i.i.i81.i319.i = insertelement <16 x i32> %vecinit3.i.i.i80.i318.i, i32 %ret.0.copyload.i59.i314.i, i64 4
   %vecinit5.i.i.i82.i320.i = insertelement <16 x i32> %vecinit4.i.i.i81.i319.i, i32 %or70.i.i, i64 5
   %vecinit6.i.i.i83.i321.i = insertelement <16 x i32> %vecinit5.i.i.i82.i320.i, i32 %ret.0.copyload.i65.i.i, i64 6
   %vecinit7.i.i.i84.i322.i = insertelement <16 x i32> %vecinit6.i.i.i83.i321.i, i32 %ret.0.copyload.i65.i.i, i64 7
   %vecinit8.i.i.i85.i323.i = insertelement <16 x i32> %vecinit7.i.i.i84.i322.i, i32 %ret.0.copyload.i65.i.i, i64 8
   %vecinit9.i.i.i86.i324.i = insertelement <16 x i32> %vecinit8.i.i.i85.i323.i, i32 %ret.0.copyload.i65.i.i, i64 9
   %vecinit10.i.i.i87.i325.i = insertelement <16 x i32> %vecinit9.i.i.i86.i324.i, i32 %or85.i.i, i64 10
-  %63 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i71.i.i, i64 0
-  %64 = shufflevector <4 x i32> %63, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i91.i329.i130 = shufflevector <16 x i32> %vecinit10.i.i.i87.i325.i, <16 x i32> %64, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %vecinit15.i.i.i92.i330.i = insertelement <16 x i32> %vecinit14.i.i.i91.i329.i130, i32 %ret.0.copyload.i71.i.i, i64 15
+  %vecinit11.i.i.i88.i326.i = insertelement <16 x i32> %vecinit10.i.i.i87.i325.i, i32 %ret.0.copyload.i71.i.i, i64 11
+  %vecinit12.i.i.i89.i327.i = insertelement <16 x i32> %vecinit11.i.i.i88.i326.i, i32 %ret.0.copyload.i71.i.i, i64 12
+  %vecinit13.i.i.i90.i328.i = insertelement <16 x i32> %vecinit12.i.i.i89.i327.i, i32 %ret.0.copyload.i71.i.i, i64 13
+  %vecinit14.i.i.i91.i329.i = insertelement <16 x i32> %vecinit13.i.i.i90.i328.i, i32 %ret.0.copyload.i71.i.i, i64 14
+  %vecinit15.i.i.i92.i330.i = insertelement <16 x i32> %vecinit14.i.i.i91.i329.i, i32 %ret.0.copyload.i71.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i283.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i284.i)
   store <16 x i32> %vecinit15.i.i.i92.i330.i, ptr %self_buffer.i.i.i.i93.i283.i, align 64
@@ -894,10 +953,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i: ; preds = %for.body.i.i
 for.body.i.i.i.i96.i331.i:                        ; preds = %for.body.i.i.i.i96.i331.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i
   %i.05.i.i.i.i97.i332.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i ], [ %inc.i.i.i.i101.i336.i, %for.body.i.i.i.i96.i331.i ]
   %arrayidx2.i.i.i.i98.i333.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i93.i283.i, i64 0, i64 %i.05.i.i.i.i97.i332.i
-  %65 = load i32, ptr %arrayidx2.i.i.i.i98.i333.i, align 4
+  %37 = load i32, ptr %arrayidx2.i.i.i.i98.i333.i, align 4
   %arrayidx3.i.i.i.i99.i334.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i94.i284.i, i64 0, i64 %i.05.i.i.i.i97.i332.i
-  %66 = load i32, ptr %arrayidx3.i.i.i.i99.i334.i, align 4
-  %shr.i.i.i.i.i100.i335.i = lshr i32 %65, %66
+  %38 = load i32, ptr %arrayidx3.i.i.i.i99.i334.i, align 4
+  %shr.i.i.i.i.i100.i335.i = lshr i32 %37, %38
   store i32 %shr.i.i.i.i.i100.i335.i, ptr %arrayidx2.i.i.i.i98.i333.i, align 4
   %inc.i.i.i.i101.i336.i = add nuw nsw i64 %i.05.i.i.i.i97.i332.i, 1
   %exitcond.not.i.i.i.i102.i337.i = icmp eq i64 %inc.i.i.i.i101.i336.i, 16
@@ -905,10 +964,10 @@ for.body.i.i.i.i96.i331.i:                        ; preds = %for.body.i.i.i.i96.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack6_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i96.i331.i
   %add.ptr52.i338.i = getelementptr inbounds i8, ptr %add.ptr70.i, i64 64
-  %67 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i283.i, align 64
+  %39 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i283.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i283.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i284.i)
-  %and.i.i.i.i105.i339.i = and <8 x i64> %67, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i105.i339.i = and <8 x i64> %39, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
   store <8 x i64> %and.i.i.i.i105.i339.i, ptr %add.ptr52.i338.i, align 1
   %add.ptr112.i340.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 24
   %indvars.iv.next2653.i = add nuw nsw i64 %indvars.iv2652.i, 1
@@ -928,9 +987,11 @@ for.body79.i:                                     ; preds = %_ZN5arrow8internal1
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %in.addr.72446.i, i64 12
   %ret.0.copyload.i58.i.i = load i32, ptr %add.ptr35.i.i, align 4
   %or38.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i58.i.i, i32 %ret.0.copyload.i53.i346.i, i32 5)
-  %68 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i343.i, i64 0
-  %69 = shufflevector <4 x i32> %68, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i351.i = insertelement <16 x i32> %69, i32 %or.i345.i, i64 4
+  %vecinit.i.i.i.i347.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i343.i, i64 0
+  %vecinit1.i.i.i.i348.i = insertelement <16 x i32> %vecinit.i.i.i.i347.i, i32 %ret.0.copyload.i.i343.i, i64 1
+  %vecinit2.i.i.i.i349.i = insertelement <16 x i32> %vecinit1.i.i.i.i348.i, i32 %ret.0.copyload.i.i343.i, i64 2
+  %vecinit3.i.i.i.i350.i = insertelement <16 x i32> %vecinit2.i.i.i.i349.i, i32 %ret.0.copyload.i.i343.i, i64 3
+  %vecinit4.i.i.i.i351.i = insertelement <16 x i32> %vecinit3.i.i.i.i350.i, i32 %or.i345.i, i64 4
   %vecinit5.i.i.i.i352.i = insertelement <16 x i32> %vecinit4.i.i.i.i351.i, i32 %ret.0.copyload.i47.i344.i, i64 5
   %vecinit6.i.i.i.i353.i = insertelement <16 x i32> %vecinit5.i.i.i.i352.i, i32 %ret.0.copyload.i47.i344.i, i64 6
   %vecinit7.i.i.i.i354.i = insertelement <16 x i32> %vecinit6.i.i.i.i353.i, i32 %ret.0.copyload.i47.i344.i, i64 7
@@ -951,10 +1012,10 @@ for.body79.i:                                     ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i363.i:                          ; preds = %for.body.i.i.i.i.i363.i, %for.body79.i
   %i.05.i.i.i.i.i364.i = phi i64 [ 0, %for.body79.i ], [ %inc.i.i.i.i.i368.i, %for.body.i.i.i.i.i363.i ]
   %arrayidx2.i.i.i.i.i365.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i341.i, i64 0, i64 %i.05.i.i.i.i.i364.i
-  %70 = load i32, ptr %arrayidx2.i.i.i.i.i365.i, align 4
+  %40 = load i32, ptr %arrayidx2.i.i.i.i.i365.i, align 4
   %arrayidx3.i.i.i.i.i366.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i342.i, i64 0, i64 %i.05.i.i.i.i.i364.i
-  %71 = load i32, ptr %arrayidx3.i.i.i.i.i366.i, align 4
-  %shr.i.i.i.i.i.i367.i = lshr i32 %70, %71
+  %41 = load i32, ptr %arrayidx3.i.i.i.i.i366.i, align 4
+  %shr.i.i.i.i.i.i367.i = lshr i32 %40, %41
   store i32 %shr.i.i.i.i.i.i367.i, ptr %arrayidx2.i.i.i.i.i365.i, align 4
   %inc.i.i.i.i.i368.i = add nuw nsw i64 %i.05.i.i.i.i.i364.i, 1
   %exitcond.not.i.i.i.i.i369.i = icmp eq i64 %inc.i.i.i.i.i368.i, 16
@@ -963,10 +1024,10 @@ for.body.i.i.i.i.i363.i:                          ; preds = %for.body.i.i.i.i.i3
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i370.i: ; preds = %for.body.i.i.i.i.i363.i
   %add.ptr82.idx.i = shl nsw i64 %indvars.iv2646.i, 7
   %add.ptr82.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr82.idx.i
-  %72 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i341.i, align 64
+  %42 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i341.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i341.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i342.i)
-  %and.i.i.i.i.i371.i = and <8 x i64> %72, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i.i371.i = and <8 x i64> %42, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
   store <8 x i64> %and.i.i.i.i.i371.i, ptr %add.ptr82.i, align 1
   %ret.0.copyload.i62.i372.i = load i32, ptr %add.ptr35.i.i, align 4
   %add.ptr66.i.i = getelementptr inbounds i8, ptr %in.addr.72446.i, i64 16
@@ -990,22 +1051,23 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i370.i: ; preds = %for.body.i.i
   %vecinit9.i.i.i90.i.i = insertelement <16 x i32> %vecinit8.i.i.i89.i.i, i32 %ret.0.copyload.i70.i374.i, i64 9
   %vecinit10.i.i.i91.i.i = insertelement <16 x i32> %vecinit9.i.i.i90.i.i, i32 %ret.0.copyload.i70.i374.i, i64 10
   %vecinit11.i.i.i92.i.i = insertelement <16 x i32> %vecinit10.i.i.i91.i.i, i32 %or97.i.i, i64 11
-  %73 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i76.i.i, i64 0
-  %74 = shufflevector <4 x i32> %73, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit15.i.i.i96.i.i132 = shufflevector <16 x i32> %vecinit11.i.i.i92.i.i, <16 x i32> %74, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 16, i32 17, i32 18, i32 19>
+  %vecinit12.i.i.i93.i.i = insertelement <16 x i32> %vecinit11.i.i.i92.i.i, i32 %ret.0.copyload.i76.i.i, i64 12
+  %vecinit13.i.i.i94.i.i = insertelement <16 x i32> %vecinit12.i.i.i93.i.i, i32 %ret.0.copyload.i76.i.i, i64 13
+  %vecinit14.i.i.i95.i.i = insertelement <16 x i32> %vecinit13.i.i.i94.i.i, i32 %ret.0.copyload.i76.i.i, i64 14
+  %vecinit15.i.i.i96.i.i = insertelement <16 x i32> %vecinit14.i.i.i95.i.i, i32 %ret.0.copyload.i76.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i97.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i98.i.i)
-  store <16 x i32> %vecinit15.i.i.i96.i.i132, ptr %self_buffer.i.i.i.i97.i.i, align 64
+  store <16 x i32> %vecinit15.i.i.i96.i.i, ptr %self_buffer.i.i.i.i97.i.i, align 64
   store <8 x i64> <i64 98784247824, i64 21474836480, i64 81604378636, i64 4294967296, i64 64424509448, i64 22, i64 47244640260, i64 107374182418>, ptr %other_buffer.i.i.i.i98.i.i, align 64
   br label %for.body.i.i.i.i100.i.i
 
 for.body.i.i.i.i100.i.i:                          ; preds = %for.body.i.i.i.i100.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i370.i
   %i.05.i.i.i.i101.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i370.i ], [ %inc.i.i.i.i105.i.i, %for.body.i.i.i.i100.i.i ]
   %arrayidx2.i.i.i.i102.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i97.i.i, i64 0, i64 %i.05.i.i.i.i101.i.i
-  %75 = load i32, ptr %arrayidx2.i.i.i.i102.i.i, align 4
+  %43 = load i32, ptr %arrayidx2.i.i.i.i102.i.i, align 4
   %arrayidx3.i.i.i.i103.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i98.i.i, i64 0, i64 %i.05.i.i.i.i101.i.i
-  %76 = load i32, ptr %arrayidx3.i.i.i.i103.i.i, align 4
-  %shr.i.i.i.i.i104.i.i = lshr i32 %75, %76
+  %44 = load i32, ptr %arrayidx3.i.i.i.i103.i.i, align 4
+  %shr.i.i.i.i.i104.i.i = lshr i32 %43, %44
   store i32 %shr.i.i.i.i.i104.i.i, ptr %arrayidx2.i.i.i.i102.i.i, align 4
   %inc.i.i.i.i105.i.i = add nuw nsw i64 %i.05.i.i.i.i101.i.i, 1
   %exitcond.not.i.i.i.i106.i.i = icmp eq i64 %inc.i.i.i.i105.i.i, 16
@@ -1013,10 +1075,10 @@ for.body.i.i.i.i100.i.i:                          ; preds = %for.body.i.i.i.i100
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack7_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i100.i.i
   %add.ptr57.i.i = getelementptr inbounds i8, ptr %add.ptr82.i, i64 64
-  %77 = load <8 x i64>, ptr %self_buffer.i.i.i.i97.i.i, align 64
+  %45 = load <8 x i64>, ptr %self_buffer.i.i.i.i97.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i97.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i98.i.i)
-  %and.i.i.i.i109.i.i = and <8 x i64> %77, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i109.i.i = and <8 x i64> %45, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
   store <8 x i64> %and.i.i.i.i109.i.i, ptr %add.ptr57.i.i, align 1
   %add.ptr122.i.i = getelementptr inbounds i8, ptr %in.addr.72446.i, i64 28
   %indvars.iv.next2647.i = add nuw nsw i64 %indvars.iv2646.i, 1
@@ -1026,21 +1088,42 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
 for.body91.i:                                     ; preds = %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack8_32EPKjPj.exit.i, %for.body91.preheader.i
   %indvars.iv2640.i = phi i64 [ 0, %for.body91.preheader.i ], [ %indvars.iv.next2641.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack8_32EPKjPj.exit.i ]
   %in.addr.82443.i = phi ptr [ %in, %for.body91.preheader.i ], [ %add.ptr95.i437.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack8_32EPKjPj.exit.i ]
-  %78 = load <4 x i32>, ptr %in.addr.82443.i, align 4
-  %79 = shufflevector <4 x i32> %78, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3>
+  %ret.0.copyload.i.i379.i = load i32, ptr %in.addr.82443.i, align 4
+  %add.ptr7.i.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 4
+  %ret.0.copyload.i40.i.i = load i32, ptr %add.ptr7.i.i, align 4
+  %add.ptr15.i380.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 8
+  %ret.0.copyload.i44.i381.i = load i32, ptr %add.ptr15.i380.i, align 4
+  %add.ptr23.i.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 12
+  %ret.0.copyload.i48.i.i = load i32, ptr %add.ptr23.i.i, align 4
+  %vecinit.i.i.i.i382.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i379.i, i64 0
+  %vecinit1.i.i.i.i383.i = insertelement <16 x i32> %vecinit.i.i.i.i382.i, i32 %ret.0.copyload.i.i379.i, i64 1
+  %vecinit2.i.i.i.i384.i = insertelement <16 x i32> %vecinit1.i.i.i.i383.i, i32 %ret.0.copyload.i.i379.i, i64 2
+  %vecinit3.i.i.i.i385.i = insertelement <16 x i32> %vecinit2.i.i.i.i384.i, i32 %ret.0.copyload.i.i379.i, i64 3
+  %vecinit4.i.i.i.i386.i = insertelement <16 x i32> %vecinit3.i.i.i.i385.i, i32 %ret.0.copyload.i40.i.i, i64 4
+  %vecinit5.i.i.i.i387.i = insertelement <16 x i32> %vecinit4.i.i.i.i386.i, i32 %ret.0.copyload.i40.i.i, i64 5
+  %vecinit6.i.i.i.i388.i = insertelement <16 x i32> %vecinit5.i.i.i.i387.i, i32 %ret.0.copyload.i40.i.i, i64 6
+  %vecinit7.i.i.i.i389.i = insertelement <16 x i32> %vecinit6.i.i.i.i388.i, i32 %ret.0.copyload.i40.i.i, i64 7
+  %vecinit8.i.i.i.i390.i = insertelement <16 x i32> %vecinit7.i.i.i.i389.i, i32 %ret.0.copyload.i44.i381.i, i64 8
+  %vecinit9.i.i.i.i391.i = insertelement <16 x i32> %vecinit8.i.i.i.i390.i, i32 %ret.0.copyload.i44.i381.i, i64 9
+  %vecinit10.i.i.i.i392.i = insertelement <16 x i32> %vecinit9.i.i.i.i391.i, i32 %ret.0.copyload.i44.i381.i, i64 10
+  %vecinit11.i.i.i.i393.i = insertelement <16 x i32> %vecinit10.i.i.i.i392.i, i32 %ret.0.copyload.i44.i381.i, i64 11
+  %vecinit12.i.i.i.i394.i = insertelement <16 x i32> %vecinit11.i.i.i.i393.i, i32 %ret.0.copyload.i48.i.i, i64 12
+  %vecinit13.i.i.i.i395.i = insertelement <16 x i32> %vecinit12.i.i.i.i394.i, i32 %ret.0.copyload.i48.i.i, i64 13
+  %vecinit14.i.i.i.i396.i = insertelement <16 x i32> %vecinit13.i.i.i.i395.i, i32 %ret.0.copyload.i48.i.i, i64 14
+  %vecinit15.i.i.i.i397.i = insertelement <16 x i32> %vecinit14.i.i.i.i396.i, i32 %ret.0.copyload.i48.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i377.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i378.i)
-  store <16 x i32> %79, ptr %self_buffer.i.i.i.i.i377.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i397.i, ptr %self_buffer.i.i.i.i.i377.i, align 64
   store <8 x i64> <i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120>, ptr %other_buffer.i.i.i.i.i378.i, align 64
   br label %for.body.i.i.i.i.i398.i
 
 for.body.i.i.i.i.i398.i:                          ; preds = %for.body.i.i.i.i.i398.i, %for.body91.i
   %i.05.i.i.i.i.i399.i = phi i64 [ 0, %for.body91.i ], [ %inc.i.i.i.i.i403.i, %for.body.i.i.i.i.i398.i ]
   %arrayidx2.i.i.i.i.i400.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i377.i, i64 0, i64 %i.05.i.i.i.i.i399.i
-  %80 = load i32, ptr %arrayidx2.i.i.i.i.i400.i, align 4
+  %46 = load i32, ptr %arrayidx2.i.i.i.i.i400.i, align 4
   %arrayidx3.i.i.i.i.i401.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i378.i, i64 0, i64 %i.05.i.i.i.i.i399.i
-  %81 = load i32, ptr %arrayidx3.i.i.i.i.i401.i, align 4
-  %shr.i.i.i.i.i.i402.i = lshr i32 %80, %81
+  %47 = load i32, ptr %arrayidx3.i.i.i.i.i401.i, align 4
+  %shr.i.i.i.i.i.i402.i = lshr i32 %46, %47
   store i32 %shr.i.i.i.i.i.i402.i, ptr %arrayidx2.i.i.i.i.i400.i, align 4
   %inc.i.i.i.i.i403.i = add nuw nsw i64 %i.05.i.i.i.i.i399.i, 1
   %exitcond.not.i.i.i.i.i404.i = icmp eq i64 %inc.i.i.i.i.i403.i, 16
@@ -1049,27 +1132,48 @@ for.body.i.i.i.i.i398.i:                          ; preds = %for.body.i.i.i.i.i3
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i405.i: ; preds = %for.body.i.i.i.i.i398.i
   %add.ptr94.idx.i = shl nsw i64 %indvars.iv2640.i, 7
   %add.ptr94.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr94.idx.i
-  %82 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i377.i, align 64
+  %48 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i377.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i377.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i378.i)
-  %and.i.i.i.i.i406.i = and <8 x i64> %82, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i.i406.i = and <8 x i64> %48, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
   store <8 x i64> %and.i.i.i.i.i406.i, ptr %add.ptr94.i, align 1
   %add.ptr47.i407.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 16
-  %83 = load <4 x i32>, ptr %add.ptr47.i407.i, align 4
-  %84 = shufflevector <4 x i32> %83, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3>
+  %ret.0.copyload.i53.i408.i = load i32, ptr %add.ptr47.i407.i, align 4
+  %add.ptr55.i.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 20
+  %ret.0.copyload.i57.i.i = load i32, ptr %add.ptr55.i.i, align 4
+  %add.ptr63.i409.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 24
+  %ret.0.copyload.i61.i410.i = load i32, ptr %add.ptr63.i409.i, align 4
+  %add.ptr71.i.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 28
+  %ret.0.copyload.i65.i411.i = load i32, ptr %add.ptr71.i.i, align 4
+  %vecinit.i.i.i69.i412.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i53.i408.i, i64 0
+  %vecinit1.i.i.i70.i413.i = insertelement <16 x i32> %vecinit.i.i.i69.i412.i, i32 %ret.0.copyload.i53.i408.i, i64 1
+  %vecinit2.i.i.i71.i414.i = insertelement <16 x i32> %vecinit1.i.i.i70.i413.i, i32 %ret.0.copyload.i53.i408.i, i64 2
+  %vecinit3.i.i.i72.i415.i = insertelement <16 x i32> %vecinit2.i.i.i71.i414.i, i32 %ret.0.copyload.i53.i408.i, i64 3
+  %vecinit4.i.i.i73.i416.i = insertelement <16 x i32> %vecinit3.i.i.i72.i415.i, i32 %ret.0.copyload.i57.i.i, i64 4
+  %vecinit5.i.i.i74.i417.i = insertelement <16 x i32> %vecinit4.i.i.i73.i416.i, i32 %ret.0.copyload.i57.i.i, i64 5
+  %vecinit6.i.i.i75.i418.i = insertelement <16 x i32> %vecinit5.i.i.i74.i417.i, i32 %ret.0.copyload.i57.i.i, i64 6
+  %vecinit7.i.i.i76.i419.i = insertelement <16 x i32> %vecinit6.i.i.i75.i418.i, i32 %ret.0.copyload.i57.i.i, i64 7
+  %vecinit8.i.i.i77.i420.i = insertelement <16 x i32> %vecinit7.i.i.i76.i419.i, i32 %ret.0.copyload.i61.i410.i, i64 8
+  %vecinit9.i.i.i78.i421.i = insertelement <16 x i32> %vecinit8.i.i.i77.i420.i, i32 %ret.0.copyload.i61.i410.i, i64 9
+  %vecinit10.i.i.i79.i422.i = insertelement <16 x i32> %vecinit9.i.i.i78.i421.i, i32 %ret.0.copyload.i61.i410.i, i64 10
+  %vecinit11.i.i.i80.i423.i = insertelement <16 x i32> %vecinit10.i.i.i79.i422.i, i32 %ret.0.copyload.i61.i410.i, i64 11
+  %vecinit12.i.i.i81.i424.i = insertelement <16 x i32> %vecinit11.i.i.i80.i423.i, i32 %ret.0.copyload.i65.i411.i, i64 12
+  %vecinit13.i.i.i82.i425.i = insertelement <16 x i32> %vecinit12.i.i.i81.i424.i, i32 %ret.0.copyload.i65.i411.i, i64 13
+  %vecinit14.i.i.i83.i426.i = insertelement <16 x i32> %vecinit13.i.i.i82.i425.i, i32 %ret.0.copyload.i65.i411.i, i64 14
+  %vecinit15.i.i.i84.i427.i = insertelement <16 x i32> %vecinit14.i.i.i83.i426.i, i32 %ret.0.copyload.i65.i411.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i375.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i376.i)
-  store <16 x i32> %84, ptr %self_buffer.i.i.i.i85.i375.i, align 64
+  store <16 x i32> %vecinit15.i.i.i84.i427.i, ptr %self_buffer.i.i.i.i85.i375.i, align 64
   store <8 x i64> <i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120, i64 34359738368, i64 103079215120>, ptr %other_buffer.i.i.i.i86.i376.i, align 64
   br label %for.body.i.i.i.i88.i428.i
 
 for.body.i.i.i.i88.i428.i:                        ; preds = %for.body.i.i.i.i88.i428.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i405.i
   %i.05.i.i.i.i89.i429.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i405.i ], [ %inc.i.i.i.i93.i433.i, %for.body.i.i.i.i88.i428.i ]
   %arrayidx2.i.i.i.i90.i430.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i85.i375.i, i64 0, i64 %i.05.i.i.i.i89.i429.i
-  %85 = load i32, ptr %arrayidx2.i.i.i.i90.i430.i, align 4
+  %49 = load i32, ptr %arrayidx2.i.i.i.i90.i430.i, align 4
   %arrayidx3.i.i.i.i91.i431.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i86.i376.i, i64 0, i64 %i.05.i.i.i.i89.i429.i
-  %86 = load i32, ptr %arrayidx3.i.i.i.i91.i431.i, align 4
-  %shr.i.i.i.i.i92.i432.i = lshr i32 %85, %86
+  %50 = load i32, ptr %arrayidx3.i.i.i.i91.i431.i, align 4
+  %shr.i.i.i.i.i92.i432.i = lshr i32 %49, %50
   store i32 %shr.i.i.i.i.i92.i432.i, ptr %arrayidx2.i.i.i.i90.i430.i, align 4
   %inc.i.i.i.i93.i433.i = add nuw nsw i64 %i.05.i.i.i.i89.i429.i, 1
   %exitcond.not.i.i.i.i94.i434.i = icmp eq i64 %inc.i.i.i.i93.i433.i, 16
@@ -1077,10 +1181,10 @@ for.body.i.i.i.i88.i428.i:                        ; preds = %for.body.i.i.i.i88.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack8_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i88.i428.i
   %add.ptr45.i435.i = getelementptr inbounds i8, ptr %add.ptr94.i, i64 64
-  %87 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i375.i, align 64
+  %51 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i375.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i375.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i376.i)
-  %and.i.i.i.i97.i436.i = and <8 x i64> %87, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i97.i436.i = and <8 x i64> %51, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
   store <8 x i64> %and.i.i.i.i97.i436.i, ptr %add.ptr45.i435.i, align 1
   %add.ptr95.i437.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 32
   %indvars.iv.next2641.i = add nuw nsw i64 %indvars.iv2640.i, 1
@@ -1128,10 +1232,10 @@ for.body103.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i463.i:                          ; preds = %for.body.i.i.i.i.i463.i, %for.body103.i
   %i.05.i.i.i.i.i464.i = phi i64 [ 0, %for.body103.i ], [ %inc.i.i.i.i.i468.i, %for.body.i.i.i.i.i463.i ]
   %arrayidx2.i.i.i.i.i465.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i438.i, i64 0, i64 %i.05.i.i.i.i.i464.i
-  %88 = load i32, ptr %arrayidx2.i.i.i.i.i465.i, align 4
+  %52 = load i32, ptr %arrayidx2.i.i.i.i.i465.i, align 4
   %arrayidx3.i.i.i.i.i466.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i439.i, i64 0, i64 %i.05.i.i.i.i.i464.i
-  %89 = load i32, ptr %arrayidx3.i.i.i.i.i466.i, align 4
-  %shr.i.i.i.i.i.i467.i = lshr i32 %88, %89
+  %53 = load i32, ptr %arrayidx3.i.i.i.i.i466.i, align 4
+  %shr.i.i.i.i.i.i467.i = lshr i32 %52, %53
   store i32 %shr.i.i.i.i.i.i467.i, ptr %arrayidx2.i.i.i.i.i465.i, align 4
   %inc.i.i.i.i.i468.i = add nuw nsw i64 %i.05.i.i.i.i.i464.i, 1
   %exitcond.not.i.i.i.i.i469.i = icmp eq i64 %inc.i.i.i.i.i468.i, 16
@@ -1140,10 +1244,10 @@ for.body.i.i.i.i.i463.i:                          ; preds = %for.body.i.i.i.i.i4
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i470.i: ; preds = %for.body.i.i.i.i.i463.i
   %add.ptr106.idx.i = shl nsw i64 %indvars.iv2634.i, 7
   %add.ptr106.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr106.idx.i
-  %90 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i438.i, align 64
+  %54 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i438.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i438.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i439.i)
-  %and.i.i.i.i.i471.i = and <8 x i64> %90, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i.i471.i = and <8 x i64> %54, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
   store <8 x i64> %and.i.i.i.i.i471.i, ptr %add.ptr106.i, align 1
   %ret.0.copyload.i65.i472.i = load i32, ptr %add.ptr42.i.i, align 4
   %add.ptr69.i.i = getelementptr inbounds i8, ptr %in.addr.92440.i, i64 20
@@ -1183,10 +1287,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i470.i: ; preds = %for.body.i.i
 for.body.i.i.i.i104.i.i:                          ; preds = %for.body.i.i.i.i104.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i470.i
   %i.05.i.i.i.i105.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i470.i ], [ %inc.i.i.i.i109.i.i, %for.body.i.i.i.i104.i.i ]
   %arrayidx2.i.i.i.i106.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i101.i.i, i64 0, i64 %i.05.i.i.i.i105.i.i
-  %91 = load i32, ptr %arrayidx2.i.i.i.i106.i.i, align 4
+  %55 = load i32, ptr %arrayidx2.i.i.i.i106.i.i, align 4
   %arrayidx3.i.i.i.i107.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i102.i.i, i64 0, i64 %i.05.i.i.i.i105.i.i
-  %92 = load i32, ptr %arrayidx3.i.i.i.i107.i.i, align 4
-  %shr.i.i.i.i.i108.i.i = lshr i32 %91, %92
+  %56 = load i32, ptr %arrayidx3.i.i.i.i107.i.i, align 4
+  %shr.i.i.i.i.i108.i.i = lshr i32 %55, %56
   store i32 %shr.i.i.i.i.i108.i.i, ptr %arrayidx2.i.i.i.i106.i.i, align 4
   %inc.i.i.i.i109.i.i = add nuw nsw i64 %i.05.i.i.i.i105.i.i, 1
   %exitcond.not.i.i.i.i110.i.i = icmp eq i64 %inc.i.i.i.i109.i.i, 16
@@ -1194,10 +1298,10 @@ for.body.i.i.i.i104.i.i:                          ; preds = %for.body.i.i.i.i104
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack9_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i104.i.i
   %add.ptr62.i476.i = getelementptr inbounds i8, ptr %add.ptr106.i, i64 64
-  %93 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i.i, align 64
+  %57 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i.i)
-  %and.i.i.i.i113.i.i = and <8 x i64> %93, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i113.i.i = and <8 x i64> %57, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
   store <8 x i64> %and.i.i.i.i113.i.i, ptr %add.ptr62.i476.i, align 1
   %add.ptr132.i.i = getelementptr inbounds i8, ptr %in.addr.92440.i, i64 36
   %indvars.iv.next2635.i = add nuw nsw i64 %indvars.iv2634.i, 1
@@ -1245,10 +1349,10 @@ for.body115.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i503.i:                          ; preds = %for.body.i.i.i.i.i503.i, %for.body115.i
   %i.05.i.i.i.i.i504.i = phi i64 [ 0, %for.body115.i ], [ %inc.i.i.i.i.i508.i, %for.body.i.i.i.i.i503.i ]
   %arrayidx2.i.i.i.i.i505.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i479.i, i64 0, i64 %i.05.i.i.i.i.i504.i
-  %94 = load i32, ptr %arrayidx2.i.i.i.i.i505.i, align 4
+  %58 = load i32, ptr %arrayidx2.i.i.i.i.i505.i, align 4
   %arrayidx3.i.i.i.i.i506.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i480.i, i64 0, i64 %i.05.i.i.i.i.i504.i
-  %95 = load i32, ptr %arrayidx3.i.i.i.i.i506.i, align 4
-  %shr.i.i.i.i.i.i507.i = lshr i32 %94, %95
+  %59 = load i32, ptr %arrayidx3.i.i.i.i.i506.i, align 4
+  %shr.i.i.i.i.i.i507.i = lshr i32 %58, %59
   store i32 %shr.i.i.i.i.i.i507.i, ptr %arrayidx2.i.i.i.i.i505.i, align 4
   %inc.i.i.i.i.i508.i = add nuw nsw i64 %i.05.i.i.i.i.i504.i, 1
   %exitcond.not.i.i.i.i.i509.i = icmp eq i64 %inc.i.i.i.i.i508.i, 16
@@ -1257,10 +1361,10 @@ for.body.i.i.i.i.i503.i:                          ; preds = %for.body.i.i.i.i.i5
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i510.i: ; preds = %for.body.i.i.i.i.i503.i
   %add.ptr118.idx.i = shl nsw i64 %indvars.iv2628.i, 7
   %add.ptr118.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr118.idx.i
-  %96 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i479.i, align 64
+  %60 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i479.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i479.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i480.i)
-  %and.i.i.i.i.i511.i = and <8 x i64> %96, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i.i511.i = and <8 x i64> %60, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
   store <8 x i64> %and.i.i.i.i.i511.i, ptr %add.ptr118.i, align 1
   %add.ptr64.i.i = getelementptr inbounds i8, ptr %in.addr.102437.i, i64 20
   %ret.0.copyload.i65.i512.i = load i32, ptr %add.ptr64.i.i, align 4
@@ -1301,10 +1405,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i510.i: ; preds = %for.body.i.i
 for.body.i.i.i.i104.i533.i:                       ; preds = %for.body.i.i.i.i104.i533.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i510.i
   %i.05.i.i.i.i105.i534.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i510.i ], [ %inc.i.i.i.i109.i538.i, %for.body.i.i.i.i104.i533.i ]
   %arrayidx2.i.i.i.i106.i535.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i101.i477.i, i64 0, i64 %i.05.i.i.i.i105.i534.i
-  %97 = load i32, ptr %arrayidx2.i.i.i.i106.i535.i, align 4
+  %61 = load i32, ptr %arrayidx2.i.i.i.i106.i535.i, align 4
   %arrayidx3.i.i.i.i107.i536.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i102.i478.i, i64 0, i64 %i.05.i.i.i.i105.i534.i
-  %98 = load i32, ptr %arrayidx3.i.i.i.i107.i536.i, align 4
-  %shr.i.i.i.i.i108.i537.i = lshr i32 %97, %98
+  %62 = load i32, ptr %arrayidx3.i.i.i.i107.i536.i, align 4
+  %shr.i.i.i.i.i108.i537.i = lshr i32 %61, %62
   store i32 %shr.i.i.i.i.i108.i537.i, ptr %arrayidx2.i.i.i.i106.i535.i, align 4
   %inc.i.i.i.i109.i538.i = add nuw nsw i64 %i.05.i.i.i.i105.i534.i, 1
   %exitcond.not.i.i.i.i110.i539.i = icmp eq i64 %inc.i.i.i.i109.i538.i, 16
@@ -1312,10 +1416,10 @@ for.body.i.i.i.i104.i533.i:                       ; preds = %for.body.i.i.i.i104
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack10_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i104.i533.i
   %add.ptr62.i540.i = getelementptr inbounds i8, ptr %add.ptr118.i, i64 64
-  %99 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i477.i, align 64
+  %63 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i477.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i477.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i478.i)
-  %and.i.i.i.i113.i541.i = and <8 x i64> %99, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i113.i541.i = and <8 x i64> %63, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
   store <8 x i64> %and.i.i.i.i113.i541.i, ptr %add.ptr62.i540.i, align 1
   %add.ptr132.i542.i = getelementptr inbounds i8, ptr %in.addr.102437.i, i64 40
   %indvars.iv.next2629.i = add nuw nsw i64 %indvars.iv2628.i, 1
@@ -1366,10 +1470,10 @@ for.body127.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i569.i:                          ; preds = %for.body.i.i.i.i.i569.i, %for.body127.i
   %i.05.i.i.i.i.i570.i = phi i64 [ 0, %for.body127.i ], [ %inc.i.i.i.i.i574.i, %for.body.i.i.i.i.i569.i ]
   %arrayidx2.i.i.i.i.i571.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i543.i, i64 0, i64 %i.05.i.i.i.i.i570.i
-  %100 = load i32, ptr %arrayidx2.i.i.i.i.i571.i, align 4
+  %64 = load i32, ptr %arrayidx2.i.i.i.i.i571.i, align 4
   %arrayidx3.i.i.i.i.i572.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i544.i, i64 0, i64 %i.05.i.i.i.i.i570.i
-  %101 = load i32, ptr %arrayidx3.i.i.i.i.i572.i, align 4
-  %shr.i.i.i.i.i.i573.i = lshr i32 %100, %101
+  %65 = load i32, ptr %arrayidx3.i.i.i.i.i572.i, align 4
+  %shr.i.i.i.i.i.i573.i = lshr i32 %64, %65
   store i32 %shr.i.i.i.i.i.i573.i, ptr %arrayidx2.i.i.i.i.i571.i, align 4
   %inc.i.i.i.i.i574.i = add nuw nsw i64 %i.05.i.i.i.i.i570.i, 1
   %exitcond.not.i.i.i.i.i575.i = icmp eq i64 %inc.i.i.i.i.i574.i, 16
@@ -1378,10 +1482,10 @@ for.body.i.i.i.i.i569.i:                          ; preds = %for.body.i.i.i.i.i5
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i576.i: ; preds = %for.body.i.i.i.i.i569.i
   %add.ptr130.idx.i = shl nsw i64 %indvars.iv2622.i, 7
   %add.ptr130.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr130.idx.i
-  %102 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i543.i, align 64
+  %66 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i543.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i543.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i544.i)
-  %and.i.i.i.i.i577.i = and <8 x i64> %102, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i.i577.i = and <8 x i64> %66, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
   store <8 x i64> %and.i.i.i.i.i577.i, ptr %add.ptr130.i, align 1
   %ret.0.copyload.i68.i.i = load i32, ptr %add.ptr47.i551.i, align 4
   %add.ptr74.i.i = getelementptr inbounds i8, ptr %in.addr.112434.i, i64 24
@@ -1424,10 +1528,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i576.i: ; preds = %for.body.i.i
 for.body.i.i.i.i108.i.i:                          ; preds = %for.body.i.i.i.i108.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i576.i
   %i.05.i.i.i.i109.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i576.i ], [ %inc.i.i.i.i113.i.i, %for.body.i.i.i.i108.i.i ]
   %arrayidx2.i.i.i.i110.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i105.i.i, i64 0, i64 %i.05.i.i.i.i109.i.i
-  %103 = load i32, ptr %arrayidx2.i.i.i.i110.i.i, align 4
+  %67 = load i32, ptr %arrayidx2.i.i.i.i110.i.i, align 4
   %arrayidx3.i.i.i.i111.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i106.i.i, i64 0, i64 %i.05.i.i.i.i109.i.i
-  %104 = load i32, ptr %arrayidx3.i.i.i.i111.i.i, align 4
-  %shr.i.i.i.i.i112.i.i = lshr i32 %103, %104
+  %68 = load i32, ptr %arrayidx3.i.i.i.i111.i.i, align 4
+  %shr.i.i.i.i.i112.i.i = lshr i32 %67, %68
   store i32 %shr.i.i.i.i.i112.i.i, ptr %arrayidx2.i.i.i.i110.i.i, align 4
   %inc.i.i.i.i113.i.i = add nuw nsw i64 %i.05.i.i.i.i109.i.i, 1
   %exitcond.not.i.i.i.i114.i.i = icmp eq i64 %inc.i.i.i.i113.i.i, 16
@@ -1435,10 +1539,10 @@ for.body.i.i.i.i108.i.i:                          ; preds = %for.body.i.i.i.i108
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack11_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i108.i.i
   %add.ptr67.i579.i = getelementptr inbounds i8, ptr %add.ptr130.i, i64 64
-  %105 = load <8 x i64>, ptr %self_buffer.i.i.i.i105.i.i, align 64
+  %69 = load <8 x i64>, ptr %self_buffer.i.i.i.i105.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i105.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i106.i.i)
-  %and.i.i.i.i117.i.i = and <8 x i64> %105, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i117.i.i = and <8 x i64> %69, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
   store <8 x i64> %and.i.i.i.i117.i.i, ptr %add.ptr67.i579.i, align 1
   %add.ptr142.i.i = getelementptr inbounds i8, ptr %in.addr.112434.i, i64 44
   %indvars.iv.next2623.i = add nuw nsw i64 %indvars.iv2622.i, 1
@@ -1488,10 +1592,10 @@ for.body139.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i612.i:                          ; preds = %for.body.i.i.i.i.i612.i, %for.body139.i
   %i.05.i.i.i.i.i613.i = phi i64 [ 0, %for.body139.i ], [ %inc.i.i.i.i.i617.i, %for.body.i.i.i.i.i612.i ]
   %arrayidx2.i.i.i.i.i614.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i582.i, i64 0, i64 %i.05.i.i.i.i.i613.i
-  %106 = load i32, ptr %arrayidx2.i.i.i.i.i614.i, align 4
+  %70 = load i32, ptr %arrayidx2.i.i.i.i.i614.i, align 4
   %arrayidx3.i.i.i.i.i615.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i583.i, i64 0, i64 %i.05.i.i.i.i.i613.i
-  %107 = load i32, ptr %arrayidx3.i.i.i.i.i615.i, align 4
-  %shr.i.i.i.i.i.i616.i = lshr i32 %106, %107
+  %71 = load i32, ptr %arrayidx3.i.i.i.i.i615.i, align 4
+  %shr.i.i.i.i.i.i616.i = lshr i32 %70, %71
   store i32 %shr.i.i.i.i.i.i616.i, ptr %arrayidx2.i.i.i.i.i614.i, align 4
   %inc.i.i.i.i.i617.i = add nuw nsw i64 %i.05.i.i.i.i.i613.i, 1
   %exitcond.not.i.i.i.i.i618.i = icmp eq i64 %inc.i.i.i.i.i617.i, 16
@@ -1500,10 +1604,10 @@ for.body.i.i.i.i.i612.i:                          ; preds = %for.body.i.i.i.i.i6
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i619.i: ; preds = %for.body.i.i.i.i.i612.i
   %add.ptr142.idx.i = shl nsw i64 %indvars.iv2616.i, 7
   %add.ptr142.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr142.idx.i
-  %108 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i582.i, align 64
+  %72 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i582.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i582.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i583.i)
-  %and.i.i.i.i.i620.i = and <8 x i64> %108, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i.i620.i = and <8 x i64> %72, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
   store <8 x i64> %and.i.i.i.i.i620.i, ptr %add.ptr142.i, align 1
   %add.ptr64.i621.i = getelementptr inbounds i8, ptr %in.addr.122431.i, i64 24
   %ret.0.copyload.i65.i622.i = load i32, ptr %add.ptr64.i621.i, align 4
@@ -1546,10 +1650,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i619.i: ; preds = %for.body.i.i
 for.body.i.i.i.i104.i646.i:                       ; preds = %for.body.i.i.i.i104.i646.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i619.i
   %i.05.i.i.i.i105.i647.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i619.i ], [ %inc.i.i.i.i109.i651.i, %for.body.i.i.i.i104.i646.i ]
   %arrayidx2.i.i.i.i106.i648.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i101.i580.i, i64 0, i64 %i.05.i.i.i.i105.i647.i
-  %109 = load i32, ptr %arrayidx2.i.i.i.i106.i648.i, align 4
+  %73 = load i32, ptr %arrayidx2.i.i.i.i106.i648.i, align 4
   %arrayidx3.i.i.i.i107.i649.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i102.i581.i, i64 0, i64 %i.05.i.i.i.i105.i647.i
-  %110 = load i32, ptr %arrayidx3.i.i.i.i107.i649.i, align 4
-  %shr.i.i.i.i.i108.i650.i = lshr i32 %109, %110
+  %74 = load i32, ptr %arrayidx3.i.i.i.i107.i649.i, align 4
+  %shr.i.i.i.i.i108.i650.i = lshr i32 %73, %74
   store i32 %shr.i.i.i.i.i108.i650.i, ptr %arrayidx2.i.i.i.i106.i648.i, align 4
   %inc.i.i.i.i109.i651.i = add nuw nsw i64 %i.05.i.i.i.i105.i647.i, 1
   %exitcond.not.i.i.i.i110.i652.i = icmp eq i64 %inc.i.i.i.i109.i651.i, 16
@@ -1557,10 +1661,10 @@ for.body.i.i.i.i104.i646.i:                       ; preds = %for.body.i.i.i.i104
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack12_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i104.i646.i
   %add.ptr62.i653.i = getelementptr inbounds i8, ptr %add.ptr142.i, i64 64
-  %111 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i580.i, align 64
+  %75 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i580.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i580.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i581.i)
-  %and.i.i.i.i113.i654.i = and <8 x i64> %111, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i113.i654.i = and <8 x i64> %75, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
   store <8 x i64> %and.i.i.i.i113.i654.i, ptr %add.ptr62.i653.i, align 1
   %add.ptr132.i655.i = getelementptr inbounds i8, ptr %in.addr.122431.i, i64 48
   %indvars.iv.next2617.i = add nuw nsw i64 %indvars.iv2616.i, 1
@@ -1614,10 +1718,10 @@ for.body151.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i685.i:                          ; preds = %for.body.i.i.i.i.i685.i, %for.body151.i
   %i.05.i.i.i.i.i686.i = phi i64 [ 0, %for.body151.i ], [ %inc.i.i.i.i.i690.i, %for.body.i.i.i.i.i685.i ]
   %arrayidx2.i.i.i.i.i687.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i656.i, i64 0, i64 %i.05.i.i.i.i.i686.i
-  %112 = load i32, ptr %arrayidx2.i.i.i.i.i687.i, align 4
+  %76 = load i32, ptr %arrayidx2.i.i.i.i.i687.i, align 4
   %arrayidx3.i.i.i.i.i688.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i657.i, i64 0, i64 %i.05.i.i.i.i.i686.i
-  %113 = load i32, ptr %arrayidx3.i.i.i.i.i688.i, align 4
-  %shr.i.i.i.i.i.i689.i = lshr i32 %112, %113
+  %77 = load i32, ptr %arrayidx3.i.i.i.i.i688.i, align 4
+  %shr.i.i.i.i.i.i689.i = lshr i32 %76, %77
   store i32 %shr.i.i.i.i.i.i689.i, ptr %arrayidx2.i.i.i.i.i687.i, align 4
   %inc.i.i.i.i.i690.i = add nuw nsw i64 %i.05.i.i.i.i.i686.i, 1
   %exitcond.not.i.i.i.i.i691.i = icmp eq i64 %inc.i.i.i.i.i690.i, 16
@@ -1626,10 +1730,10 @@ for.body.i.i.i.i.i685.i:                          ; preds = %for.body.i.i.i.i.i6
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i692.i: ; preds = %for.body.i.i.i.i.i685.i
   %add.ptr154.idx.i = shl nsw i64 %indvars.iv2610.i, 7
   %add.ptr154.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr154.idx.i
-  %114 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i656.i, align 64
+  %78 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i656.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i656.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i657.i)
-  %and.i.i.i.i.i693.i = and <8 x i64> %114, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i.i693.i = and <8 x i64> %78, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
   store <8 x i64> %and.i.i.i.i.i693.i, ptr %add.ptr154.i, align 1
   %ret.0.copyload.i71.i694.i = load i32, ptr %add.ptr52.i667.i, align 4
   %add.ptr79.i695.i = getelementptr inbounds i8, ptr %in.addr.132428.i, i64 28
@@ -1675,10 +1779,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i692.i: ; preds = %for.body.i.i
 for.body.i.i.i.i112.i.i:                          ; preds = %for.body.i.i.i.i112.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i692.i
   %i.05.i.i.i.i113.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i692.i ], [ %inc.i.i.i.i117.i.i, %for.body.i.i.i.i112.i.i ]
   %arrayidx2.i.i.i.i114.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i109.i.i, i64 0, i64 %i.05.i.i.i.i113.i.i
-  %115 = load i32, ptr %arrayidx2.i.i.i.i114.i.i, align 4
+  %79 = load i32, ptr %arrayidx2.i.i.i.i114.i.i, align 4
   %arrayidx3.i.i.i.i115.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i110.i.i, i64 0, i64 %i.05.i.i.i.i113.i.i
-  %116 = load i32, ptr %arrayidx3.i.i.i.i115.i.i, align 4
-  %shr.i.i.i.i.i116.i.i = lshr i32 %115, %116
+  %80 = load i32, ptr %arrayidx3.i.i.i.i115.i.i, align 4
+  %shr.i.i.i.i.i116.i.i = lshr i32 %79, %80
   store i32 %shr.i.i.i.i.i116.i.i, ptr %arrayidx2.i.i.i.i114.i.i, align 4
   %inc.i.i.i.i117.i.i = add nuw nsw i64 %i.05.i.i.i.i113.i.i, 1
   %exitcond.not.i.i.i.i118.i.i = icmp eq i64 %inc.i.i.i.i117.i.i, 16
@@ -1686,10 +1790,10 @@ for.body.i.i.i.i112.i.i:                          ; preds = %for.body.i.i.i.i112
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack13_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i112.i.i
   %add.ptr72.i.i = getelementptr inbounds i8, ptr %add.ptr154.i, i64 64
-  %117 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i.i, align 64
+  %81 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i109.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i110.i.i)
-  %and.i.i.i.i121.i.i = and <8 x i64> %117, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i121.i.i = and <8 x i64> %81, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
   store <8 x i64> %and.i.i.i.i121.i.i, ptr %add.ptr72.i.i, align 1
   %add.ptr152.i.i = getelementptr inbounds i8, ptr %in.addr.132428.i, i64 52
   %indvars.iv.next2611.i = add nuw nsw i64 %indvars.iv2610.i, 1
@@ -1743,10 +1847,10 @@ for.body163.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i734.i:                          ; preds = %for.body.i.i.i.i.i734.i, %for.body163.i
   %i.05.i.i.i.i.i735.i = phi i64 [ 0, %for.body163.i ], [ %inc.i.i.i.i.i739.i, %for.body.i.i.i.i.i734.i ]
   %arrayidx2.i.i.i.i.i736.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i703.i, i64 0, i64 %i.05.i.i.i.i.i735.i
-  %118 = load i32, ptr %arrayidx2.i.i.i.i.i736.i, align 4
+  %82 = load i32, ptr %arrayidx2.i.i.i.i.i736.i, align 4
   %arrayidx3.i.i.i.i.i737.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i704.i, i64 0, i64 %i.05.i.i.i.i.i735.i
-  %119 = load i32, ptr %arrayidx3.i.i.i.i.i737.i, align 4
-  %shr.i.i.i.i.i.i738.i = lshr i32 %118, %119
+  %83 = load i32, ptr %arrayidx3.i.i.i.i.i737.i, align 4
+  %shr.i.i.i.i.i.i738.i = lshr i32 %82, %83
   store i32 %shr.i.i.i.i.i.i738.i, ptr %arrayidx2.i.i.i.i.i736.i, align 4
   %inc.i.i.i.i.i739.i = add nuw nsw i64 %i.05.i.i.i.i.i735.i, 1
   %exitcond.not.i.i.i.i.i740.i = icmp eq i64 %inc.i.i.i.i.i739.i, 16
@@ -1755,10 +1859,10 @@ for.body.i.i.i.i.i734.i:                          ; preds = %for.body.i.i.i.i.i7
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i741.i: ; preds = %for.body.i.i.i.i.i734.i
   %add.ptr166.idx.i = shl nsw i64 %indvars.iv2604.i, 7
   %add.ptr166.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr166.idx.i
-  %120 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i703.i, align 64
+  %84 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i703.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i703.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i704.i)
-  %and.i.i.i.i.i742.i = and <8 x i64> %120, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i.i742.i = and <8 x i64> %84, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
   store <8 x i64> %and.i.i.i.i.i742.i, ptr %add.ptr166.i, align 1
   %add.ptr74.i743.i = getelementptr inbounds i8, ptr %in.addr.142425.i, i64 28
   %ret.0.copyload.i71.i744.i = load i32, ptr %add.ptr74.i743.i, align 4
@@ -1805,10 +1909,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i741.i: ; preds = %for.body.i.i
 for.body.i.i.i.i112.i773.i:                       ; preds = %for.body.i.i.i.i112.i773.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i741.i
   %i.05.i.i.i.i113.i774.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i741.i ], [ %inc.i.i.i.i117.i778.i, %for.body.i.i.i.i112.i773.i ]
   %arrayidx2.i.i.i.i114.i775.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i109.i701.i, i64 0, i64 %i.05.i.i.i.i113.i774.i
-  %121 = load i32, ptr %arrayidx2.i.i.i.i114.i775.i, align 4
+  %85 = load i32, ptr %arrayidx2.i.i.i.i114.i775.i, align 4
   %arrayidx3.i.i.i.i115.i776.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i110.i702.i, i64 0, i64 %i.05.i.i.i.i113.i774.i
-  %122 = load i32, ptr %arrayidx3.i.i.i.i115.i776.i, align 4
-  %shr.i.i.i.i.i116.i777.i = lshr i32 %121, %122
+  %86 = load i32, ptr %arrayidx3.i.i.i.i115.i776.i, align 4
+  %shr.i.i.i.i.i116.i777.i = lshr i32 %85, %86
   store i32 %shr.i.i.i.i.i116.i777.i, ptr %arrayidx2.i.i.i.i114.i775.i, align 4
   %inc.i.i.i.i117.i778.i = add nuw nsw i64 %i.05.i.i.i.i113.i774.i, 1
   %exitcond.not.i.i.i.i118.i779.i = icmp eq i64 %inc.i.i.i.i117.i778.i, 16
@@ -1816,10 +1920,10 @@ for.body.i.i.i.i112.i773.i:                       ; preds = %for.body.i.i.i.i112
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack14_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i112.i773.i
   %add.ptr72.i780.i = getelementptr inbounds i8, ptr %add.ptr166.i, i64 64
-  %123 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i701.i, align 64
+  %87 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i701.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i109.i701.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i110.i702.i)
-  %and.i.i.i.i121.i781.i = and <8 x i64> %123, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i121.i781.i = and <8 x i64> %87, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
   store <8 x i64> %and.i.i.i.i121.i781.i, ptr %add.ptr72.i780.i, align 1
   %add.ptr152.i782.i = getelementptr inbounds i8, ptr %in.addr.142425.i, i64 56
   %indvars.iv.next2605.i = add nuw nsw i64 %indvars.iv2604.i, 1
@@ -1876,10 +1980,10 @@ for.body175.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i816.i:                          ; preds = %for.body.i.i.i.i.i816.i, %for.body175.i
   %i.05.i.i.i.i.i817.i = phi i64 [ 0, %for.body175.i ], [ %inc.i.i.i.i.i821.i, %for.body.i.i.i.i.i816.i ]
   %arrayidx2.i.i.i.i.i818.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i783.i, i64 0, i64 %i.05.i.i.i.i.i817.i
-  %124 = load i32, ptr %arrayidx2.i.i.i.i.i818.i, align 4
+  %88 = load i32, ptr %arrayidx2.i.i.i.i.i818.i, align 4
   %arrayidx3.i.i.i.i.i819.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i784.i, i64 0, i64 %i.05.i.i.i.i.i817.i
-  %125 = load i32, ptr %arrayidx3.i.i.i.i.i819.i, align 4
-  %shr.i.i.i.i.i.i820.i = lshr i32 %124, %125
+  %89 = load i32, ptr %arrayidx3.i.i.i.i.i819.i, align 4
+  %shr.i.i.i.i.i.i820.i = lshr i32 %88, %89
   store i32 %shr.i.i.i.i.i.i820.i, ptr %arrayidx2.i.i.i.i.i818.i, align 4
   %inc.i.i.i.i.i821.i = add nuw nsw i64 %i.05.i.i.i.i.i817.i, 1
   %exitcond.not.i.i.i.i.i822.i = icmp eq i64 %inc.i.i.i.i.i821.i, 16
@@ -1888,10 +1992,10 @@ for.body.i.i.i.i.i816.i:                          ; preds = %for.body.i.i.i.i.i8
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i823.i: ; preds = %for.body.i.i.i.i.i816.i
   %add.ptr178.idx.i = shl nsw i64 %indvars.iv2598.i, 7
   %add.ptr178.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr178.idx.i
-  %126 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i783.i, align 64
+  %90 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i783.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i783.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i784.i)
-  %and.i.i.i.i.i824.i = and <8 x i64> %126, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i.i824.i = and <8 x i64> %90, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
   store <8 x i64> %and.i.i.i.i.i824.i, ptr %add.ptr178.i, align 1
   %ret.0.copyload.i74.i825.i = load i32, ptr %add.ptr57.i798.i, align 4
   %add.ptr84.i826.i = getelementptr inbounds i8, ptr %in.addr.152422.i, i64 32
@@ -1940,10 +2044,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i823.i: ; preds = %for.body.i.i
 for.body.i.i.i.i116.i.i:                          ; preds = %for.body.i.i.i.i116.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i823.i
   %i.05.i.i.i.i117.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i823.i ], [ %inc.i.i.i.i121.i.i, %for.body.i.i.i.i116.i.i ]
   %arrayidx2.i.i.i.i118.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i113.i.i, i64 0, i64 %i.05.i.i.i.i117.i.i
-  %127 = load i32, ptr %arrayidx2.i.i.i.i118.i.i, align 4
+  %91 = load i32, ptr %arrayidx2.i.i.i.i118.i.i, align 4
   %arrayidx3.i.i.i.i119.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i114.i.i, i64 0, i64 %i.05.i.i.i.i117.i.i
-  %128 = load i32, ptr %arrayidx3.i.i.i.i119.i.i, align 4
-  %shr.i.i.i.i.i120.i.i = lshr i32 %127, %128
+  %92 = load i32, ptr %arrayidx3.i.i.i.i119.i.i, align 4
+  %shr.i.i.i.i.i120.i.i = lshr i32 %91, %92
   store i32 %shr.i.i.i.i.i120.i.i, ptr %arrayidx2.i.i.i.i118.i.i, align 4
   %inc.i.i.i.i121.i.i = add nuw nsw i64 %i.05.i.i.i.i117.i.i, 1
   %exitcond.not.i.i.i.i122.i.i = icmp eq i64 %inc.i.i.i.i121.i.i, 16
@@ -1951,10 +2055,10 @@ for.body.i.i.i.i116.i.i:                          ; preds = %for.body.i.i.i.i116
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack15_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i116.i.i
   %add.ptr77.i.i = getelementptr inbounds i8, ptr %add.ptr178.i, i64 64
-  %129 = load <8 x i64>, ptr %self_buffer.i.i.i.i113.i.i, align 64
+  %93 = load <8 x i64>, ptr %self_buffer.i.i.i.i113.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i113.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i114.i.i)
-  %and.i.i.i.i125.i.i = and <8 x i64> %129, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i125.i.i = and <8 x i64> %93, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
   store <8 x i64> %and.i.i.i.i125.i.i, ptr %add.ptr77.i.i, align 1
   %add.ptr162.i.i = getelementptr inbounds i8, ptr %in.addr.152422.i, i64 60
   %indvars.iv.next2599.i = add nuw nsw i64 %indvars.iv2598.i, 1
@@ -1964,21 +2068,50 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 for.body187.i:                                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack16_32EPKjPj.exit.i, %for.body187.preheader.i
   %indvars.iv2592.i = phi i64 [ 0, %for.body187.preheader.i ], [ %indvars.iv.next2593.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack16_32EPKjPj.exit.i ]
   %in.addr.162419.i = phi ptr [ %in, %for.body187.preheader.i ], [ %add.ptr95.i909.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack16_32EPKjPj.exit.i ]
-  %130 = load <8 x i32>, ptr %in.addr.162419.i, align 4
-  %131 = shufflevector <8 x i32> %130, <8 x i32> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
+  %ret.0.copyload.i.i837.i = load i32, ptr %in.addr.162419.i, align 4
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 4
+  %ret.0.copyload.i38.i.i = load i32, ptr %add.ptr3.i.i, align 4
+  %add.ptr7.i838.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 8
+  %ret.0.copyload.i40.i839.i = load i32, ptr %add.ptr7.i838.i, align 4
+  %add.ptr11.i840.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 12
+  %ret.0.copyload.i42.i.i = load i32, ptr %add.ptr11.i840.i, align 4
+  %add.ptr15.i841.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 16
+  %ret.0.copyload.i44.i842.i = load i32, ptr %add.ptr15.i841.i, align 4
+  %add.ptr19.i.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 20
+  %ret.0.copyload.i46.i843.i = load i32, ptr %add.ptr19.i.i, align 4
+  %add.ptr23.i844.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 24
+  %ret.0.copyload.i48.i845.i = load i32, ptr %add.ptr23.i844.i, align 4
+  %add.ptr27.i846.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 28
+  %ret.0.copyload.i50.i.i = load i32, ptr %add.ptr27.i846.i, align 4
+  %vecinit.i.i.i.i847.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i837.i, i64 0
+  %vecinit1.i.i.i.i848.i = insertelement <16 x i32> %vecinit.i.i.i.i847.i, i32 %ret.0.copyload.i.i837.i, i64 1
+  %vecinit2.i.i.i.i849.i = insertelement <16 x i32> %vecinit1.i.i.i.i848.i, i32 %ret.0.copyload.i38.i.i, i64 2
+  %vecinit3.i.i.i.i850.i = insertelement <16 x i32> %vecinit2.i.i.i.i849.i, i32 %ret.0.copyload.i38.i.i, i64 3
+  %vecinit4.i.i.i.i851.i = insertelement <16 x i32> %vecinit3.i.i.i.i850.i, i32 %ret.0.copyload.i40.i839.i, i64 4
+  %vecinit5.i.i.i.i852.i = insertelement <16 x i32> %vecinit4.i.i.i.i851.i, i32 %ret.0.copyload.i40.i839.i, i64 5
+  %vecinit6.i.i.i.i853.i = insertelement <16 x i32> %vecinit5.i.i.i.i852.i, i32 %ret.0.copyload.i42.i.i, i64 6
+  %vecinit7.i.i.i.i854.i = insertelement <16 x i32> %vecinit6.i.i.i.i853.i, i32 %ret.0.copyload.i42.i.i, i64 7
+  %vecinit8.i.i.i.i855.i = insertelement <16 x i32> %vecinit7.i.i.i.i854.i, i32 %ret.0.copyload.i44.i842.i, i64 8
+  %vecinit9.i.i.i.i856.i = insertelement <16 x i32> %vecinit8.i.i.i.i855.i, i32 %ret.0.copyload.i44.i842.i, i64 9
+  %vecinit10.i.i.i.i857.i = insertelement <16 x i32> %vecinit9.i.i.i.i856.i, i32 %ret.0.copyload.i46.i843.i, i64 10
+  %vecinit11.i.i.i.i858.i = insertelement <16 x i32> %vecinit10.i.i.i.i857.i, i32 %ret.0.copyload.i46.i843.i, i64 11
+  %vecinit12.i.i.i.i859.i = insertelement <16 x i32> %vecinit11.i.i.i.i858.i, i32 %ret.0.copyload.i48.i845.i, i64 12
+  %vecinit13.i.i.i.i860.i = insertelement <16 x i32> %vecinit12.i.i.i.i859.i, i32 %ret.0.copyload.i48.i845.i, i64 13
+  %vecinit14.i.i.i.i861.i = insertelement <16 x i32> %vecinit13.i.i.i.i860.i, i32 %ret.0.copyload.i50.i.i, i64 14
+  %vecinit15.i.i.i.i862.i = insertelement <16 x i32> %vecinit14.i.i.i.i861.i, i32 %ret.0.copyload.i50.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i835.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i836.i)
-  store <16 x i32> %131, ptr %self_buffer.i.i.i.i.i835.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i862.i, ptr %self_buffer.i.i.i.i.i835.i, align 64
   store <8 x i64> <i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736>, ptr %other_buffer.i.i.i.i.i836.i, align 64
   br label %for.body.i.i.i.i.i863.i
 
 for.body.i.i.i.i.i863.i:                          ; preds = %for.body.i.i.i.i.i863.i, %for.body187.i
   %i.05.i.i.i.i.i864.i = phi i64 [ 0, %for.body187.i ], [ %inc.i.i.i.i.i868.i, %for.body.i.i.i.i.i863.i ]
   %arrayidx2.i.i.i.i.i865.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i835.i, i64 0, i64 %i.05.i.i.i.i.i864.i
-  %132 = load i32, ptr %arrayidx2.i.i.i.i.i865.i, align 4
+  %94 = load i32, ptr %arrayidx2.i.i.i.i.i865.i, align 4
   %arrayidx3.i.i.i.i.i866.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i836.i, i64 0, i64 %i.05.i.i.i.i.i864.i
-  %133 = load i32, ptr %arrayidx3.i.i.i.i.i866.i, align 4
-  %shr.i.i.i.i.i.i867.i = lshr i32 %132, %133
+  %95 = load i32, ptr %arrayidx3.i.i.i.i.i866.i, align 4
+  %shr.i.i.i.i.i.i867.i = lshr i32 %94, %95
   store i32 %shr.i.i.i.i.i.i867.i, ptr %arrayidx2.i.i.i.i.i865.i, align 4
   %inc.i.i.i.i.i868.i = add nuw nsw i64 %i.05.i.i.i.i.i864.i, 1
   %exitcond.not.i.i.i.i.i869.i = icmp eq i64 %inc.i.i.i.i.i868.i, 16
@@ -1987,27 +2120,56 @@ for.body.i.i.i.i.i863.i:                          ; preds = %for.body.i.i.i.i.i8
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i: ; preds = %for.body.i.i.i.i.i863.i
   %add.ptr190.idx.i = shl nsw i64 %indvars.iv2592.i, 7
   %add.ptr190.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr190.idx.i
-  %134 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i835.i, align 64
+  %96 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i835.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i835.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i836.i)
-  %and.i.i.i.i.i871.i = and <8 x i64> %134, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i.i871.i = and <8 x i64> %96, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
   store <8 x i64> %and.i.i.i.i.i871.i, ptr %add.ptr190.i, align 1
   %add.ptr47.i872.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 32
-  %135 = load <8 x i32>, ptr %add.ptr47.i872.i, align 4
-  %136 = shufflevector <8 x i32> %135, <8 x i32> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
+  %ret.0.copyload.i53.i873.i = load i32, ptr %add.ptr47.i872.i, align 4
+  %add.ptr51.i.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 36
+  %ret.0.copyload.i55.i.i = load i32, ptr %add.ptr51.i.i, align 4
+  %add.ptr55.i874.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 40
+  %ret.0.copyload.i57.i875.i = load i32, ptr %add.ptr55.i874.i, align 4
+  %add.ptr59.i.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 44
+  %ret.0.copyload.i59.i876.i = load i32, ptr %add.ptr59.i.i, align 4
+  %add.ptr63.i877.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 48
+  %ret.0.copyload.i61.i878.i = load i32, ptr %add.ptr63.i877.i, align 4
+  %add.ptr67.i879.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 52
+  %ret.0.copyload.i63.i880.i = load i32, ptr %add.ptr67.i879.i, align 4
+  %add.ptr71.i881.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 56
+  %ret.0.copyload.i65.i882.i = load i32, ptr %add.ptr71.i881.i, align 4
+  %add.ptr75.i.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 60
+  %ret.0.copyload.i67.i883.i = load i32, ptr %add.ptr75.i.i, align 4
+  %vecinit.i.i.i69.i884.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i53.i873.i, i64 0
+  %vecinit1.i.i.i70.i885.i = insertelement <16 x i32> %vecinit.i.i.i69.i884.i, i32 %ret.0.copyload.i53.i873.i, i64 1
+  %vecinit2.i.i.i71.i886.i = insertelement <16 x i32> %vecinit1.i.i.i70.i885.i, i32 %ret.0.copyload.i55.i.i, i64 2
+  %vecinit3.i.i.i72.i887.i = insertelement <16 x i32> %vecinit2.i.i.i71.i886.i, i32 %ret.0.copyload.i55.i.i, i64 3
+  %vecinit4.i.i.i73.i888.i = insertelement <16 x i32> %vecinit3.i.i.i72.i887.i, i32 %ret.0.copyload.i57.i875.i, i64 4
+  %vecinit5.i.i.i74.i889.i = insertelement <16 x i32> %vecinit4.i.i.i73.i888.i, i32 %ret.0.copyload.i57.i875.i, i64 5
+  %vecinit6.i.i.i75.i890.i = insertelement <16 x i32> %vecinit5.i.i.i74.i889.i, i32 %ret.0.copyload.i59.i876.i, i64 6
+  %vecinit7.i.i.i76.i891.i = insertelement <16 x i32> %vecinit6.i.i.i75.i890.i, i32 %ret.0.copyload.i59.i876.i, i64 7
+  %vecinit8.i.i.i77.i892.i = insertelement <16 x i32> %vecinit7.i.i.i76.i891.i, i32 %ret.0.copyload.i61.i878.i, i64 8
+  %vecinit9.i.i.i78.i893.i = insertelement <16 x i32> %vecinit8.i.i.i77.i892.i, i32 %ret.0.copyload.i61.i878.i, i64 9
+  %vecinit10.i.i.i79.i894.i = insertelement <16 x i32> %vecinit9.i.i.i78.i893.i, i32 %ret.0.copyload.i63.i880.i, i64 10
+  %vecinit11.i.i.i80.i895.i = insertelement <16 x i32> %vecinit10.i.i.i79.i894.i, i32 %ret.0.copyload.i63.i880.i, i64 11
+  %vecinit12.i.i.i81.i896.i = insertelement <16 x i32> %vecinit11.i.i.i80.i895.i, i32 %ret.0.copyload.i65.i882.i, i64 12
+  %vecinit13.i.i.i82.i897.i = insertelement <16 x i32> %vecinit12.i.i.i81.i896.i, i32 %ret.0.copyload.i65.i882.i, i64 13
+  %vecinit14.i.i.i83.i898.i = insertelement <16 x i32> %vecinit13.i.i.i82.i897.i, i32 %ret.0.copyload.i67.i883.i, i64 14
+  %vecinit15.i.i.i84.i899.i = insertelement <16 x i32> %vecinit14.i.i.i83.i898.i, i32 %ret.0.copyload.i67.i883.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i833.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i834.i)
-  store <16 x i32> %136, ptr %self_buffer.i.i.i.i85.i833.i, align 64
+  store <16 x i32> %vecinit15.i.i.i84.i899.i, ptr %self_buffer.i.i.i.i85.i833.i, align 64
   store <8 x i64> <i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736>, ptr %other_buffer.i.i.i.i86.i834.i, align 64
   br label %for.body.i.i.i.i88.i900.i
 
 for.body.i.i.i.i88.i900.i:                        ; preds = %for.body.i.i.i.i88.i900.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i
   %i.05.i.i.i.i89.i901.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i ], [ %inc.i.i.i.i93.i905.i, %for.body.i.i.i.i88.i900.i ]
   %arrayidx2.i.i.i.i90.i902.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i85.i833.i, i64 0, i64 %i.05.i.i.i.i89.i901.i
-  %137 = load i32, ptr %arrayidx2.i.i.i.i90.i902.i, align 4
+  %97 = load i32, ptr %arrayidx2.i.i.i.i90.i902.i, align 4
   %arrayidx3.i.i.i.i91.i903.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i86.i834.i, i64 0, i64 %i.05.i.i.i.i89.i901.i
-  %138 = load i32, ptr %arrayidx3.i.i.i.i91.i903.i, align 4
-  %shr.i.i.i.i.i92.i904.i = lshr i32 %137, %138
+  %98 = load i32, ptr %arrayidx3.i.i.i.i91.i903.i, align 4
+  %shr.i.i.i.i.i92.i904.i = lshr i32 %97, %98
   store i32 %shr.i.i.i.i.i92.i904.i, ptr %arrayidx2.i.i.i.i90.i902.i, align 4
   %inc.i.i.i.i93.i905.i = add nuw nsw i64 %i.05.i.i.i.i89.i901.i, 1
   %exitcond.not.i.i.i.i94.i906.i = icmp eq i64 %inc.i.i.i.i93.i905.i, 16
@@ -2015,10 +2177,10 @@ for.body.i.i.i.i88.i900.i:                        ; preds = %for.body.i.i.i.i88.
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack16_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i88.i900.i
   %add.ptr45.i907.i = getelementptr inbounds i8, ptr %add.ptr190.i, i64 64
-  %139 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i833.i, align 64
+  %99 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i833.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i833.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i834.i)
-  %and.i.i.i.i97.i908.i = and <8 x i64> %139, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i97.i908.i = and <8 x i64> %99, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
   store <8 x i64> %and.i.i.i.i97.i908.i, ptr %add.ptr45.i907.i, align 1
   %add.ptr95.i909.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 64
   %indvars.iv.next2593.i = add nuw nsw i64 %indvars.iv2592.i, 1
@@ -2078,10 +2240,10 @@ for.body199.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i943.i:                          ; preds = %for.body.i.i.i.i.i943.i, %for.body199.i
   %i.05.i.i.i.i.i944.i = phi i64 [ 0, %for.body199.i ], [ %inc.i.i.i.i.i948.i, %for.body.i.i.i.i.i943.i ]
   %arrayidx2.i.i.i.i.i945.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i910.i, i64 0, i64 %i.05.i.i.i.i.i944.i
-  %140 = load i32, ptr %arrayidx2.i.i.i.i.i945.i, align 4
+  %100 = load i32, ptr %arrayidx2.i.i.i.i.i945.i, align 4
   %arrayidx3.i.i.i.i.i946.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i911.i, i64 0, i64 %i.05.i.i.i.i.i944.i
-  %141 = load i32, ptr %arrayidx3.i.i.i.i.i946.i, align 4
-  %shr.i.i.i.i.i.i947.i = lshr i32 %140, %141
+  %101 = load i32, ptr %arrayidx3.i.i.i.i.i946.i, align 4
+  %shr.i.i.i.i.i.i947.i = lshr i32 %100, %101
   store i32 %shr.i.i.i.i.i.i947.i, ptr %arrayidx2.i.i.i.i.i945.i, align 4
   %inc.i.i.i.i.i948.i = add nuw nsw i64 %i.05.i.i.i.i.i944.i, 1
   %exitcond.not.i.i.i.i.i949.i = icmp eq i64 %inc.i.i.i.i.i948.i, 16
@@ -2090,10 +2252,10 @@ for.body.i.i.i.i.i943.i:                          ; preds = %for.body.i.i.i.i.i9
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i950.i: ; preds = %for.body.i.i.i.i.i943.i
   %add.ptr202.idx.i = shl nsw i64 %indvars.iv2586.i, 7
   %add.ptr202.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr202.idx.i
-  %142 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i910.i, align 64
+  %102 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i910.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i910.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i911.i)
-  %and.i.i.i.i.i951.i = and <8 x i64> %142, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i.i951.i = and <8 x i64> %102, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
   store <8 x i64> %and.i.i.i.i.i951.i, ptr %add.ptr202.i, align 1
   %ret.0.copyload.i77.i952.i = load i32, ptr %add.ptr64.i925.i, align 4
   %add.ptr87.i.i = getelementptr inbounds i8, ptr %in.addr.172416.i, i64 36
@@ -2145,10 +2307,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i950.i: ; preds = %for.body.i.i
 for.body.i.i.i.i120.i.i:                          ; preds = %for.body.i.i.i.i120.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i950.i
   %i.05.i.i.i.i121.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i950.i ], [ %inc.i.i.i.i125.i.i, %for.body.i.i.i.i120.i.i ]
   %arrayidx2.i.i.i.i122.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i117.i.i, i64 0, i64 %i.05.i.i.i.i121.i.i
-  %143 = load i32, ptr %arrayidx2.i.i.i.i122.i.i, align 4
+  %103 = load i32, ptr %arrayidx2.i.i.i.i122.i.i, align 4
   %arrayidx3.i.i.i.i123.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i118.i.i, i64 0, i64 %i.05.i.i.i.i121.i.i
-  %144 = load i32, ptr %arrayidx3.i.i.i.i123.i.i, align 4
-  %shr.i.i.i.i.i124.i.i = lshr i32 %143, %144
+  %104 = load i32, ptr %arrayidx3.i.i.i.i123.i.i, align 4
+  %shr.i.i.i.i.i124.i.i = lshr i32 %103, %104
   store i32 %shr.i.i.i.i.i124.i.i, ptr %arrayidx2.i.i.i.i122.i.i, align 4
   %inc.i.i.i.i125.i.i = add nuw nsw i64 %i.05.i.i.i.i121.i.i, 1
   %exitcond.not.i.i.i.i126.i.i = icmp eq i64 %inc.i.i.i.i125.i.i, 16
@@ -2156,10 +2318,10 @@ for.body.i.i.i.i120.i.i:                          ; preds = %for.body.i.i.i.i120
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack17_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i120.i.i
   %add.ptr82.i961.i = getelementptr inbounds i8, ptr %add.ptr202.i, i64 64
-  %145 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i.i, align 64
+  %105 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i.i)
-  %and.i.i.i.i129.i.i = and <8 x i64> %145, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i129.i.i = and <8 x i64> %105, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
   store <8 x i64> %and.i.i.i.i129.i.i, ptr %add.ptr82.i961.i, align 1
   %add.ptr172.i.i = getelementptr inbounds i8, ptr %in.addr.172416.i, i64 68
   %indvars.iv.next2587.i = add nuw nsw i64 %indvars.iv2586.i, 1
@@ -2219,10 +2381,10 @@ for.body211.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i1003.i:                         ; preds = %for.body.i.i.i.i.i1003.i, %for.body211.i
   %i.05.i.i.i.i.i1004.i = phi i64 [ 0, %for.body211.i ], [ %inc.i.i.i.i.i1008.i, %for.body.i.i.i.i.i1003.i ]
   %arrayidx2.i.i.i.i.i1005.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i964.i, i64 0, i64 %i.05.i.i.i.i.i1004.i
-  %146 = load i32, ptr %arrayidx2.i.i.i.i.i1005.i, align 4
+  %106 = load i32, ptr %arrayidx2.i.i.i.i.i1005.i, align 4
   %arrayidx3.i.i.i.i.i1006.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i965.i, i64 0, i64 %i.05.i.i.i.i.i1004.i
-  %147 = load i32, ptr %arrayidx3.i.i.i.i.i1006.i, align 4
-  %shr.i.i.i.i.i.i1007.i = lshr i32 %146, %147
+  %107 = load i32, ptr %arrayidx3.i.i.i.i.i1006.i, align 4
+  %shr.i.i.i.i.i.i1007.i = lshr i32 %106, %107
   store i32 %shr.i.i.i.i.i.i1007.i, ptr %arrayidx2.i.i.i.i.i1005.i, align 4
   %inc.i.i.i.i.i1008.i = add nuw nsw i64 %i.05.i.i.i.i.i1004.i, 1
   %exitcond.not.i.i.i.i.i1009.i = icmp eq i64 %inc.i.i.i.i.i1008.i, 16
@@ -2231,10 +2393,10 @@ for.body.i.i.i.i.i1003.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1010.i: ; preds = %for.body.i.i.i.i.i1003.i
   %add.ptr214.idx.i = shl nsw i64 %indvars.iv2580.i, 7
   %add.ptr214.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr214.idx.i
-  %148 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i964.i, align 64
+  %108 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i964.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i964.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i965.i)
-  %and.i.i.i.i.i1011.i = and <8 x i64> %148, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i.i1011.i = and <8 x i64> %108, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
   store <8 x i64> %and.i.i.i.i.i1011.i, ptr %add.ptr214.i, align 1
   %add.ptr84.i1012.i = getelementptr inbounds i8, ptr %in.addr.182413.i, i64 36
   %ret.0.copyload.i77.i1013.i = load i32, ptr %add.ptr84.i1012.i, align 4
@@ -2287,10 +2449,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1010.i: ; preds = %for.body.i.
 for.body.i.i.i.i120.i1048.i:                      ; preds = %for.body.i.i.i.i120.i1048.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1010.i
   %i.05.i.i.i.i121.i1049.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1010.i ], [ %inc.i.i.i.i125.i1053.i, %for.body.i.i.i.i120.i1048.i ]
   %arrayidx2.i.i.i.i122.i1050.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i117.i962.i, i64 0, i64 %i.05.i.i.i.i121.i1049.i
-  %149 = load i32, ptr %arrayidx2.i.i.i.i122.i1050.i, align 4
+  %109 = load i32, ptr %arrayidx2.i.i.i.i122.i1050.i, align 4
   %arrayidx3.i.i.i.i123.i1051.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i118.i963.i, i64 0, i64 %i.05.i.i.i.i121.i1049.i
-  %150 = load i32, ptr %arrayidx3.i.i.i.i123.i1051.i, align 4
-  %shr.i.i.i.i.i124.i1052.i = lshr i32 %149, %150
+  %110 = load i32, ptr %arrayidx3.i.i.i.i123.i1051.i, align 4
+  %shr.i.i.i.i.i124.i1052.i = lshr i32 %109, %110
   store i32 %shr.i.i.i.i.i124.i1052.i, ptr %arrayidx2.i.i.i.i122.i1050.i, align 4
   %inc.i.i.i.i125.i1053.i = add nuw nsw i64 %i.05.i.i.i.i121.i1049.i, 1
   %exitcond.not.i.i.i.i126.i1054.i = icmp eq i64 %inc.i.i.i.i125.i1053.i, 16
@@ -2298,10 +2460,10 @@ for.body.i.i.i.i120.i1048.i:                      ; preds = %for.body.i.i.i.i120
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack18_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i120.i1048.i
   %add.ptr82.i1055.i = getelementptr inbounds i8, ptr %add.ptr214.i, i64 64
-  %151 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i962.i, align 64
+  %111 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i962.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i962.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i963.i)
-  %and.i.i.i.i129.i1056.i = and <8 x i64> %151, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i129.i1056.i = and <8 x i64> %111, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
   store <8 x i64> %and.i.i.i.i129.i1056.i, ptr %add.ptr82.i1055.i, align 1
   %add.ptr172.i1057.i = getelementptr inbounds i8, ptr %in.addr.182413.i, i64 72
   %indvars.iv.next2581.i = add nuw nsw i64 %indvars.iv2580.i, 1
@@ -2319,44 +2481,40 @@ for.body223.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i59.i1065.i = load i32, ptr %add.ptr10.i1064.i, align 4
   %or13.i1066.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i59.i1065.i, i32 %ret.0.copyload.i56.i1062.i, i32 7)
   %add.ptr19.i1067.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 12
+  %ret.0.copyload.i62.i1068.i = load i32, ptr %add.ptr19.i1067.i, align 4
+  %or22.i1069.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1068.i, i32 %ret.0.copyload.i59.i1065.i, i32 1)
   %add.ptr26.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 16
   %ret.0.copyload.i64.i1070.i = load i32, ptr %add.ptr26.i.i, align 4
-  %152 = load <2 x i32>, ptr %add.ptr19.i1067.i, align 4
-  %153 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i59.i1065.i, i64 0
-  %154 = shufflevector <2 x i32> %153, <2 x i32> %152, <2 x i32> <i32 0, i32 2>
-  %155 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %152, <2 x i32> %154, <2 x i32> <i32 1, i32 14>)
+  %or29.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i64.i1070.i, i32 %ret.0.copyload.i62.i1068.i, i32 14)
   %add.ptr35.i1071.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 20
   %ret.0.copyload.i67.i1072.i = load i32, ptr %add.ptr35.i1071.i, align 4
   %or38.i1073.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i67.i1072.i, i32 %ret.0.copyload.i64.i1070.i, i32 8)
   %add.ptr44.i1074.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 24
+  %ret.0.copyload.i70.i1075.i = load i32, ptr %add.ptr44.i1074.i, align 4
+  %or47.i1076.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i1075.i, i32 %ret.0.copyload.i67.i1072.i, i32 2)
   %add.ptr51.i1077.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 28
   %ret.0.copyload.i72.i1078.i = load i32, ptr %add.ptr51.i1077.i, align 4
-  %156 = load <2 x i32>, ptr %add.ptr44.i1074.i, align 4
-  %157 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i67.i1072.i, i64 0
-  %158 = shufflevector <2 x i32> %157, <2 x i32> %156, <2 x i32> <i32 0, i32 2>
-  %159 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %156, <2 x i32> %158, <2 x i32> <i32 2, i32 15>)
+  %or54.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i1078.i, i32 %ret.0.copyload.i70.i1075.i, i32 15)
   %add.ptr60.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 32
   %ret.0.copyload.i75.i1079.i = load i32, ptr %add.ptr60.i.i, align 4
   %or63.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i75.i1079.i, i32 %ret.0.copyload.i72.i1078.i, i32 9)
   %add.ptr69.i1080.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 36
   %ret.0.copyload.i78.i1081.i = load i32, ptr %add.ptr69.i1080.i, align 4
   %or72.i1082.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i1081.i, i32 %ret.0.copyload.i75.i1079.i, i32 3)
-  %vecinit.i.i.i.i1083.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1060.i, i64 0
+  %vecinit.i.i.i.i1083.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1060.i, i64 0
   %vecinit1.i.i.i.i1084.i = insertelement <16 x i32> %vecinit.i.i.i.i1083.i, i32 %or.i1063.i, i64 1
   %vecinit2.i.i.i.i1085.i = insertelement <16 x i32> %vecinit1.i.i.i.i1084.i, i32 %ret.0.copyload.i56.i1062.i, i64 2
   %vecinit3.i.i.i.i1086.i = insertelement <16 x i32> %vecinit2.i.i.i.i1085.i, i32 %or13.i1066.i, i64 3
   %vecinit4.i.i.i.i1087.i = insertelement <16 x i32> %vecinit3.i.i.i.i1086.i, i32 %ret.0.copyload.i59.i1065.i, i64 4
-  %160 = shufflevector <2 x i32> %155, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i.i1089.i135 = shufflevector <16 x i32> %vecinit4.i.i.i.i1087.i, <16 x i32> %160, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %161 = shufflevector <2 x i32> %152, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %162 = shufflevector <16 x i32> %vecinit6.i.i.i.i1089.i135, <16 x i32> %161, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i1091.i = insertelement <16 x i32> %162, i32 %or38.i1073.i, i64 8
+  %vecinit5.i.i.i.i1088.i = insertelement <16 x i32> %vecinit4.i.i.i.i1087.i, i32 %or22.i1069.i, i64 5
+  %vecinit6.i.i.i.i1089.i = insertelement <16 x i32> %vecinit5.i.i.i.i1088.i, i32 %or29.i.i, i64 6
+  %vecinit7.i.i.i.i1090.i = insertelement <16 x i32> %vecinit6.i.i.i.i1089.i, i32 %ret.0.copyload.i64.i1070.i, i64 7
+  %vecinit8.i.i.i.i1091.i = insertelement <16 x i32> %vecinit7.i.i.i.i1090.i, i32 %or38.i1073.i, i64 8
   %vecinit9.i.i.i.i1092.i = insertelement <16 x i32> %vecinit8.i.i.i.i1091.i, i32 %ret.0.copyload.i67.i1072.i, i64 9
-  %163 = shufflevector <2 x i32> %159, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i.i1094.i134 = shufflevector <16 x i32> %vecinit9.i.i.i.i1092.i, <16 x i32> %163, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %164 = shufflevector <2 x i32> %156, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %165 = shufflevector <16 x i32> %vecinit11.i.i.i.i1094.i134, <16 x i32> %164, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 17, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i.i1096.i = insertelement <16 x i32> %165, i32 %or63.i.i, i64 13
+  %vecinit10.i.i.i.i1093.i = insertelement <16 x i32> %vecinit9.i.i.i.i1092.i, i32 %or47.i1076.i, i64 10
+  %vecinit11.i.i.i.i1094.i = insertelement <16 x i32> %vecinit10.i.i.i.i1093.i, i32 %or54.i.i, i64 11
+  %vecinit12.i.i.i.i1095.i = insertelement <16 x i32> %vecinit11.i.i.i.i1094.i, i32 %ret.0.copyload.i72.i1078.i, i64 12
+  %vecinit13.i.i.i.i1096.i = insertelement <16 x i32> %vecinit12.i.i.i.i1095.i, i32 %or63.i.i, i64 13
   %vecinit14.i.i.i.i1097.i = insertelement <16 x i32> %vecinit13.i.i.i.i1096.i, i32 %ret.0.copyload.i75.i1079.i, i64 14
   %vecinit15.i.i.i.i1098.i = insertelement <16 x i32> %vecinit14.i.i.i.i1097.i, i32 %or72.i1082.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1058.i)
@@ -2368,10 +2526,10 @@ for.body223.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i1099.i:                         ; preds = %for.body.i.i.i.i.i1099.i, %for.body223.i
   %i.05.i.i.i.i.i1100.i = phi i64 [ 0, %for.body223.i ], [ %inc.i.i.i.i.i1104.i, %for.body.i.i.i.i.i1099.i ]
   %arrayidx2.i.i.i.i.i1101.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1058.i, i64 0, i64 %i.05.i.i.i.i.i1100.i
-  %166 = load i32, ptr %arrayidx2.i.i.i.i.i1101.i, align 4
+  %112 = load i32, ptr %arrayidx2.i.i.i.i.i1101.i, align 4
   %arrayidx3.i.i.i.i.i1102.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1059.i, i64 0, i64 %i.05.i.i.i.i.i1100.i
-  %167 = load i32, ptr %arrayidx3.i.i.i.i.i1102.i, align 4
-  %shr.i.i.i.i.i.i1103.i = lshr i32 %166, %167
+  %113 = load i32, ptr %arrayidx3.i.i.i.i.i1102.i, align 4
+  %shr.i.i.i.i.i.i1103.i = lshr i32 %112, %113
   store i32 %shr.i.i.i.i.i.i1103.i, ptr %arrayidx2.i.i.i.i.i1101.i, align 4
   %inc.i.i.i.i.i1104.i = add nuw nsw i64 %i.05.i.i.i.i.i1100.i, 1
   %exitcond.not.i.i.i.i.i1105.i = icmp eq i64 %inc.i.i.i.i.i1104.i, 16
@@ -2380,10 +2538,10 @@ for.body.i.i.i.i.i1099.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i: ; preds = %for.body.i.i.i.i.i1099.i
   %add.ptr226.idx.i = shl nsw i64 %indvars.iv2574.i, 7
   %add.ptr226.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr226.idx.i
-  %168 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1058.i, align 64
+  %114 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1058.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1058.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1059.i)
-  %and.i.i.i.i.i1107.i = and <8 x i64> %168, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i.i1107.i = and <8 x i64> %114, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
   store <8 x i64> %and.i.i.i.i.i1107.i, ptr %add.ptr226.i, align 1
   %ret.0.copyload.i80.i1108.i = load i32, ptr %add.ptr69.i1080.i, align 4
   %add.ptr92.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 40
@@ -2393,12 +2551,11 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i: ; preds = %for.body.i.
   %ret.0.copyload.i84.i1110.i = load i32, ptr %add.ptr101.i.i, align 4
   %or104.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1110.i, i32 %ret.0.copyload.i81.i1109.i, i32 10)
   %add.ptr110.i1111.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 48
+  %ret.0.copyload.i87.i1112.i = load i32, ptr %add.ptr110.i1111.i, align 4
+  %or113.i1113.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1112.i, i32 %ret.0.copyload.i84.i1110.i, i32 4)
   %add.ptr117.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 52
   %ret.0.copyload.i89.i.i = load i32, ptr %add.ptr117.i.i, align 4
-  %169 = load <2 x i32>, ptr %add.ptr110.i1111.i, align 4
-  %170 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i84.i1110.i, i64 0
-  %171 = shufflevector <2 x i32> %170, <2 x i32> %169, <2 x i32> <i32 0, i32 2>
-  %172 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %169, <2 x i32> %171, <2 x i32> <i32 4, i32 17>)
+  %or120.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i89.i.i, i32 %ret.0.copyload.i87.i1112.i, i32 17)
   %add.ptr126.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 56
   %ret.0.copyload.i92.i.i = load i32, ptr %add.ptr126.i.i, align 4
   %or129.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i.i, i32 %ret.0.copyload.i89.i.i, i32 11)
@@ -2414,15 +2571,14 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i: ; preds = %for.body.i.
   %add.ptr160.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 72
   %ret.0.copyload.i103.i.i = load i32, ptr %add.ptr160.i.i, align 4
   %or163.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i103.i.i, i32 %ret.0.copyload.i100.i.i, i32 6)
-  %vecinit.i.i.i105.i.i = insertelement <16 x i32> poison, i32 %or95.i.i, i64 0
+  %vecinit.i.i.i105.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or95.i.i, i64 0
   %vecinit1.i.i.i106.i.i = insertelement <16 x i32> %vecinit.i.i.i105.i.i, i32 %ret.0.copyload.i81.i1109.i, i64 1
   %vecinit2.i.i.i107.i.i = insertelement <16 x i32> %vecinit1.i.i.i106.i.i, i32 %or104.i.i, i64 2
   %vecinit3.i.i.i108.i.i = insertelement <16 x i32> %vecinit2.i.i.i107.i.i, i32 %ret.0.copyload.i84.i1110.i, i64 3
-  %173 = shufflevector <2 x i32> %172, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit5.i.i.i110.i.i133 = shufflevector <16 x i32> %vecinit3.i.i.i108.i.i, <16 x i32> %173, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %174 = shufflevector <2 x i32> %169, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %175 = shufflevector <16 x i32> %vecinit5.i.i.i110.i.i133, <16 x i32> %174, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i112.i.i = insertelement <16 x i32> %175, i32 %or129.i.i, i64 7
+  %vecinit4.i.i.i109.i.i = insertelement <16 x i32> %vecinit3.i.i.i108.i.i, i32 %or113.i1113.i, i64 4
+  %vecinit5.i.i.i110.i.i = insertelement <16 x i32> %vecinit4.i.i.i109.i.i, i32 %or120.i.i, i64 5
+  %vecinit6.i.i.i111.i.i = insertelement <16 x i32> %vecinit5.i.i.i110.i.i, i32 %ret.0.copyload.i89.i.i, i64 6
+  %vecinit7.i.i.i112.i.i = insertelement <16 x i32> %vecinit6.i.i.i111.i.i, i32 %or129.i.i, i64 7
   %vecinit8.i.i.i113.i.i = insertelement <16 x i32> %vecinit7.i.i.i112.i.i, i32 %ret.0.copyload.i92.i.i, i64 8
   %vecinit9.i.i.i114.i.i = insertelement <16 x i32> %vecinit8.i.i.i113.i.i, i32 %or138.i.i, i64 9
   %vecinit10.i.i.i115.i.i = insertelement <16 x i32> %vecinit9.i.i.i114.i.i, i32 %or145.i.i, i64 10
@@ -2440,10 +2596,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i: ; preds = %for.body.i.
 for.body.i.i.i.i124.i.i:                          ; preds = %for.body.i.i.i.i124.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i
   %i.05.i.i.i.i125.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i ], [ %inc.i.i.i.i129.i.i, %for.body.i.i.i.i124.i.i ]
   %arrayidx2.i.i.i.i126.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i121.i.i, i64 0, i64 %i.05.i.i.i.i125.i.i
-  %176 = load i32, ptr %arrayidx2.i.i.i.i126.i.i, align 4
+  %115 = load i32, ptr %arrayidx2.i.i.i.i126.i.i, align 4
   %arrayidx3.i.i.i.i127.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i122.i.i, i64 0, i64 %i.05.i.i.i.i125.i.i
-  %177 = load i32, ptr %arrayidx3.i.i.i.i127.i.i, align 4
-  %shr.i.i.i.i.i128.i.i = lshr i32 %176, %177
+  %116 = load i32, ptr %arrayidx3.i.i.i.i127.i.i, align 4
+  %shr.i.i.i.i.i128.i.i = lshr i32 %115, %116
   store i32 %shr.i.i.i.i.i128.i.i, ptr %arrayidx2.i.i.i.i126.i.i, align 4
   %inc.i.i.i.i129.i.i = add nuw nsw i64 %i.05.i.i.i.i125.i.i, 1
   %exitcond.not.i.i.i.i130.i.i = icmp eq i64 %inc.i.i.i.i129.i.i, 16
@@ -2451,10 +2607,10 @@ for.body.i.i.i.i124.i.i:                          ; preds = %for.body.i.i.i.i124
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack19_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i124.i.i
   %add.ptr87.i1115.i = getelementptr inbounds i8, ptr %add.ptr226.i, i64 64
-  %178 = load <8 x i64>, ptr %self_buffer.i.i.i.i121.i.i, align 64
+  %117 = load <8 x i64>, ptr %self_buffer.i.i.i.i121.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i121.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i122.i.i)
-  %and.i.i.i.i133.i.i = and <8 x i64> %178, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i133.i.i = and <8 x i64> %117, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
   store <8 x i64> %and.i.i.i.i133.i.i, ptr %add.ptr87.i1115.i, align 1
   %add.ptr182.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 76
   %indvars.iv.next2575.i = add nuw nsw i64 %indvars.iv2574.i, 1
@@ -2469,12 +2625,11 @@ for.body235.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i54.i1122.i = load i32, ptr %add.ptr3.i1121.i, align 4
   %or.i1123.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i54.i1122.i, i32 %ret.0.copyload.i.i1120.i, i32 12)
   %add.ptr10.i1124.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 8
+  %ret.0.copyload.i57.i1125.i = load i32, ptr %add.ptr10.i1124.i, align 4
+  %or13.i1126.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i57.i1125.i, i32 %ret.0.copyload.i54.i1122.i, i32 4)
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 12
   %ret.0.copyload.i59.i1127.i = load i32, ptr %add.ptr17.i.i, align 4
-  %179 = load <2 x i32>, ptr %add.ptr10.i1124.i, align 4
-  %180 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i54.i1122.i, i64 0
-  %181 = shufflevector <2 x i32> %180, <2 x i32> %179, <2 x i32> <i32 0, i32 2>
-  %182 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %179, <2 x i32> %181, <2 x i32> <i32 4, i32 16>)
+  %or20.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i59.i1127.i, i32 %ret.0.copyload.i57.i1125.i, i32 16)
   %add.ptr26.i1128.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 16
   %ret.0.copyload.i62.i1129.i = load i32, ptr %add.ptr26.i1128.i, align 4
   %or29.i1130.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1129.i, i32 %ret.0.copyload.i59.i1127.i, i32 8)
@@ -2484,32 +2639,29 @@ for.body235.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i66.i1134.i = load i32, ptr %add.ptr37.i1133.i, align 4
   %or40.i1135.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1134.i, i32 %ret.0.copyload.i64.i1132.i, i32 12)
   %add.ptr46.i1136.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 28
+  %ret.0.copyload.i69.i1137.i = load i32, ptr %add.ptr46.i1136.i, align 4
+  %or49.i1138.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i69.i1137.i, i32 %ret.0.copyload.i66.i1134.i, i32 4)
   %add.ptr53.i1139.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 32
   %ret.0.copyload.i71.i1140.i = load i32, ptr %add.ptr53.i1139.i, align 4
-  %183 = load <2 x i32>, ptr %add.ptr46.i1136.i, align 4
-  %184 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i66.i1134.i, i64 0
-  %185 = shufflevector <2 x i32> %184, <2 x i32> %183, <2 x i32> <i32 0, i32 2>
-  %186 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %183, <2 x i32> %185, <2 x i32> <i32 4, i32 16>)
+  %or56.i1141.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i71.i1140.i, i32 %ret.0.copyload.i69.i1137.i, i32 16)
   %add.ptr62.i1142.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 36
   %ret.0.copyload.i74.i1143.i = load i32, ptr %add.ptr62.i1142.i, align 4
   %or65.i1144.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i1143.i, i32 %ret.0.copyload.i71.i1140.i, i32 8)
-  %vecinit.i.i.i.i1145.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1120.i, i64 0
+  %vecinit.i.i.i.i1145.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1120.i, i64 0
   %vecinit1.i.i.i.i1146.i = insertelement <16 x i32> %vecinit.i.i.i.i1145.i, i32 %or.i1123.i, i64 1
   %vecinit2.i.i.i.i1147.i = insertelement <16 x i32> %vecinit1.i.i.i.i1146.i, i32 %ret.0.copyload.i54.i1122.i, i64 2
-  %187 = shufflevector <2 x i32> %182, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1149.i139 = shufflevector <16 x i32> %vecinit2.i.i.i.i1147.i, <16 x i32> %187, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %188 = shufflevector <2 x i32> %179, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %189 = shufflevector <16 x i32> %vecinit4.i.i.i.i1149.i139, <16 x i32> %188, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i.i1151.i = insertelement <16 x i32> %189, i32 %or29.i1130.i, i64 6
+  %vecinit3.i.i.i.i1148.i = insertelement <16 x i32> %vecinit2.i.i.i.i1147.i, i32 %or13.i1126.i, i64 3
+  %vecinit4.i.i.i.i1149.i = insertelement <16 x i32> %vecinit3.i.i.i.i1148.i, i32 %or20.i.i, i64 4
+  %vecinit5.i.i.i.i1150.i = insertelement <16 x i32> %vecinit4.i.i.i.i1149.i, i32 %ret.0.copyload.i59.i1127.i, i64 5
+  %vecinit6.i.i.i.i1151.i = insertelement <16 x i32> %vecinit5.i.i.i.i1150.i, i32 %or29.i1130.i, i64 6
   %vecinit7.i.i.i.i1152.i = insertelement <16 x i32> %vecinit6.i.i.i.i1151.i, i32 %ret.0.copyload.i62.i1129.i, i64 7
   %vecinit8.i.i.i.i1153.i = insertelement <16 x i32> %vecinit7.i.i.i.i1152.i, i32 %ret.0.copyload.i64.i1132.i, i64 8
   %vecinit9.i.i.i.i1154.i = insertelement <16 x i32> %vecinit8.i.i.i.i1153.i, i32 %or40.i1135.i, i64 9
   %vecinit10.i.i.i.i1155.i = insertelement <16 x i32> %vecinit9.i.i.i.i1154.i, i32 %ret.0.copyload.i66.i1134.i, i64 10
-  %190 = shufflevector <2 x i32> %186, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i1157.i138 = shufflevector <16 x i32> %vecinit10.i.i.i.i1155.i, <16 x i32> %190, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %191 = shufflevector <2 x i32> %183, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %192 = shufflevector <16 x i32> %vecinit12.i.i.i.i1157.i138, <16 x i32> %191, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 17, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i1159.i = insertelement <16 x i32> %192, i32 %or65.i1144.i, i64 14
+  %vecinit11.i.i.i.i1156.i = insertelement <16 x i32> %vecinit10.i.i.i.i1155.i, i32 %or49.i1138.i, i64 11
+  %vecinit12.i.i.i.i1157.i = insertelement <16 x i32> %vecinit11.i.i.i.i1156.i, i32 %or56.i1141.i, i64 12
+  %vecinit13.i.i.i.i1158.i = insertelement <16 x i32> %vecinit12.i.i.i.i1157.i, i32 %ret.0.copyload.i71.i1140.i, i64 13
+  %vecinit14.i.i.i.i1159.i = insertelement <16 x i32> %vecinit13.i.i.i.i1158.i, i32 %or65.i1144.i, i64 14
   %vecinit15.i.i.i.i1160.i = insertelement <16 x i32> %vecinit14.i.i.i.i1159.i, i32 %ret.0.copyload.i74.i1143.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1118.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1119.i)
@@ -2520,10 +2672,10 @@ for.body235.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i1161.i:                         ; preds = %for.body.i.i.i.i.i1161.i, %for.body235.i
   %i.05.i.i.i.i.i1162.i = phi i64 [ 0, %for.body235.i ], [ %inc.i.i.i.i.i1166.i, %for.body.i.i.i.i.i1161.i ]
   %arrayidx2.i.i.i.i.i1163.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1118.i, i64 0, i64 %i.05.i.i.i.i.i1162.i
-  %193 = load i32, ptr %arrayidx2.i.i.i.i.i1163.i, align 4
+  %118 = load i32, ptr %arrayidx2.i.i.i.i.i1163.i, align 4
   %arrayidx3.i.i.i.i.i1164.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1119.i, i64 0, i64 %i.05.i.i.i.i.i1162.i
-  %194 = load i32, ptr %arrayidx3.i.i.i.i.i1164.i, align 4
-  %shr.i.i.i.i.i.i1165.i = lshr i32 %193, %194
+  %119 = load i32, ptr %arrayidx3.i.i.i.i.i1164.i, align 4
+  %shr.i.i.i.i.i.i1165.i = lshr i32 %118, %119
   store i32 %shr.i.i.i.i.i.i1165.i, ptr %arrayidx2.i.i.i.i.i1163.i, align 4
   %inc.i.i.i.i.i1166.i = add nuw nsw i64 %i.05.i.i.i.i.i1162.i, 1
   %exitcond.not.i.i.i.i.i1167.i = icmp eq i64 %inc.i.i.i.i.i1166.i, 16
@@ -2532,10 +2684,10 @@ for.body.i.i.i.i.i1161.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i: ; preds = %for.body.i.i.i.i.i1161.i
   %add.ptr238.idx.i = shl nsw i64 %indvars.iv2568.i, 7
   %add.ptr238.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr238.idx.i
-  %195 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1118.i, align 64
+  %120 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1118.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1118.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1119.i)
-  %and.i.i.i.i.i1169.i = and <8 x i64> %195, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i.i1169.i = and <8 x i64> %120, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
   store <8 x i64> %and.i.i.i.i.i1169.i, ptr %add.ptr238.i, align 1
   %add.ptr84.i1170.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 40
   %ret.0.copyload.i77.i1171.i = load i32, ptr %add.ptr84.i1170.i, align 4
@@ -2543,12 +2695,11 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i: ; preds = %for.body.i.
   %ret.0.copyload.i79.i1173.i = load i32, ptr %add.ptr89.i1172.i, align 4
   %or92.i1174.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i79.i1173.i, i32 %ret.0.copyload.i77.i1171.i, i32 12)
   %add.ptr98.i1175.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 48
+  %ret.0.copyload.i82.i1176.i = load i32, ptr %add.ptr98.i1175.i, align 4
+  %or101.i1177.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i1176.i, i32 %ret.0.copyload.i79.i1173.i, i32 4)
   %add.ptr105.i1178.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 52
   %ret.0.copyload.i84.i1179.i = load i32, ptr %add.ptr105.i1178.i, align 4
-  %196 = load <2 x i32>, ptr %add.ptr98.i1175.i, align 4
-  %197 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i79.i1173.i, i64 0
-  %198 = shufflevector <2 x i32> %197, <2 x i32> %196, <2 x i32> <i32 0, i32 2>
-  %199 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %196, <2 x i32> %198, <2 x i32> <i32 4, i32 16>)
+  %or108.i1180.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1179.i, i32 %ret.0.copyload.i82.i1176.i, i32 16)
   %add.ptr114.i1181.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 56
   %ret.0.copyload.i87.i1182.i = load i32, ptr %add.ptr114.i1181.i, align 4
   %or117.i1183.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1182.i, i32 %ret.0.copyload.i84.i1179.i, i32 8)
@@ -2558,32 +2709,29 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i: ; preds = %for.body.i.
   %ret.0.copyload.i91.i1186.i = load i32, ptr %add.ptr125.i.i, align 4
   %or128.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i91.i1186.i, i32 %ret.0.copyload.i89.i1185.i, i32 12)
   %add.ptr134.i.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 68
+  %ret.0.copyload.i94.i1187.i = load i32, ptr %add.ptr134.i.i, align 4
+  %or137.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i94.i1187.i, i32 %ret.0.copyload.i91.i1186.i, i32 4)
   %add.ptr141.i1188.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 72
   %ret.0.copyload.i96.i1189.i = load i32, ptr %add.ptr141.i1188.i, align 4
-  %200 = load <2 x i32>, ptr %add.ptr134.i.i, align 4
-  %201 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i91.i1186.i, i64 0
-  %202 = shufflevector <2 x i32> %201, <2 x i32> %200, <2 x i32> <i32 0, i32 2>
-  %203 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %200, <2 x i32> %202, <2 x i32> <i32 4, i32 16>)
+  %or144.i1190.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i96.i1189.i, i32 %ret.0.copyload.i94.i1187.i, i32 16)
   %add.ptr150.i1191.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 76
   %ret.0.copyload.i99.i1192.i = load i32, ptr %add.ptr150.i1191.i, align 4
   %or153.i1193.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1192.i, i32 %ret.0.copyload.i96.i1189.i, i32 8)
-  %vecinit.i.i.i101.i1194.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i77.i1171.i, i64 0
+  %vecinit.i.i.i101.i1194.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i77.i1171.i, i64 0
   %vecinit1.i.i.i102.i1195.i = insertelement <16 x i32> %vecinit.i.i.i101.i1194.i, i32 %or92.i1174.i, i64 1
   %vecinit2.i.i.i103.i1196.i = insertelement <16 x i32> %vecinit1.i.i.i102.i1195.i, i32 %ret.0.copyload.i79.i1173.i, i64 2
-  %204 = shufflevector <2 x i32> %199, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i105.i1198.i137 = shufflevector <16 x i32> %vecinit2.i.i.i103.i1196.i, <16 x i32> %204, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %205 = shufflevector <2 x i32> %196, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %206 = shufflevector <16 x i32> %vecinit4.i.i.i105.i1198.i137, <16 x i32> %205, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i107.i1200.i = insertelement <16 x i32> %206, i32 %or117.i1183.i, i64 6
+  %vecinit3.i.i.i104.i1197.i = insertelement <16 x i32> %vecinit2.i.i.i103.i1196.i, i32 %or101.i1177.i, i64 3
+  %vecinit4.i.i.i105.i1198.i = insertelement <16 x i32> %vecinit3.i.i.i104.i1197.i, i32 %or108.i1180.i, i64 4
+  %vecinit5.i.i.i106.i1199.i = insertelement <16 x i32> %vecinit4.i.i.i105.i1198.i, i32 %ret.0.copyload.i84.i1179.i, i64 5
+  %vecinit6.i.i.i107.i1200.i = insertelement <16 x i32> %vecinit5.i.i.i106.i1199.i, i32 %or117.i1183.i, i64 6
   %vecinit7.i.i.i108.i1201.i = insertelement <16 x i32> %vecinit6.i.i.i107.i1200.i, i32 %ret.0.copyload.i87.i1182.i, i64 7
   %vecinit8.i.i.i109.i1202.i = insertelement <16 x i32> %vecinit7.i.i.i108.i1201.i, i32 %ret.0.copyload.i89.i1185.i, i64 8
   %vecinit9.i.i.i110.i1203.i = insertelement <16 x i32> %vecinit8.i.i.i109.i1202.i, i32 %or128.i.i, i64 9
   %vecinit10.i.i.i111.i1204.i = insertelement <16 x i32> %vecinit9.i.i.i110.i1203.i, i32 %ret.0.copyload.i91.i1186.i, i64 10
-  %207 = shufflevector <2 x i32> %203, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i113.i1206.i136 = shufflevector <16 x i32> %vecinit10.i.i.i111.i1204.i, <16 x i32> %207, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %208 = shufflevector <2 x i32> %200, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %209 = shufflevector <16 x i32> %vecinit12.i.i.i113.i1206.i136, <16 x i32> %208, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 17, i32 poison, i32 poison>
-  %vecinit14.i.i.i115.i1208.i = insertelement <16 x i32> %209, i32 %or153.i1193.i, i64 14
+  %vecinit11.i.i.i112.i1205.i = insertelement <16 x i32> %vecinit10.i.i.i111.i1204.i, i32 %or137.i.i, i64 11
+  %vecinit12.i.i.i113.i1206.i = insertelement <16 x i32> %vecinit11.i.i.i112.i1205.i, i32 %or144.i1190.i, i64 12
+  %vecinit13.i.i.i114.i1207.i = insertelement <16 x i32> %vecinit12.i.i.i113.i1206.i, i32 %ret.0.copyload.i96.i1189.i, i64 13
+  %vecinit14.i.i.i115.i1208.i = insertelement <16 x i32> %vecinit13.i.i.i114.i1207.i, i32 %or153.i1193.i, i64 14
   %vecinit15.i.i.i116.i1209.i = insertelement <16 x i32> %vecinit14.i.i.i115.i1208.i, i32 %ret.0.copyload.i99.i1192.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1116.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1117.i)
@@ -2594,10 +2742,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i: ; preds = %for.body.i.
 for.body.i.i.i.i120.i1210.i:                      ; preds = %for.body.i.i.i.i120.i1210.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i
   %i.05.i.i.i.i121.i1211.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i ], [ %inc.i.i.i.i125.i1215.i, %for.body.i.i.i.i120.i1210.i ]
   %arrayidx2.i.i.i.i122.i1212.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i117.i1116.i, i64 0, i64 %i.05.i.i.i.i121.i1211.i
-  %210 = load i32, ptr %arrayidx2.i.i.i.i122.i1212.i, align 4
+  %121 = load i32, ptr %arrayidx2.i.i.i.i122.i1212.i, align 4
   %arrayidx3.i.i.i.i123.i1213.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i118.i1117.i, i64 0, i64 %i.05.i.i.i.i121.i1211.i
-  %211 = load i32, ptr %arrayidx3.i.i.i.i123.i1213.i, align 4
-  %shr.i.i.i.i.i124.i1214.i = lshr i32 %210, %211
+  %122 = load i32, ptr %arrayidx3.i.i.i.i123.i1213.i, align 4
+  %shr.i.i.i.i.i124.i1214.i = lshr i32 %121, %122
   store i32 %shr.i.i.i.i.i124.i1214.i, ptr %arrayidx2.i.i.i.i122.i1212.i, align 4
   %inc.i.i.i.i125.i1215.i = add nuw nsw i64 %i.05.i.i.i.i121.i1211.i, 1
   %exitcond.not.i.i.i.i126.i1216.i = icmp eq i64 %inc.i.i.i.i125.i1215.i, 16
@@ -2605,10 +2753,10 @@ for.body.i.i.i.i120.i1210.i:                      ; preds = %for.body.i.i.i.i120
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack20_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i120.i1210.i
   %add.ptr82.i1217.i = getelementptr inbounds i8, ptr %add.ptr238.i, i64 64
-  %212 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1116.i, align 64
+  %123 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1116.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1116.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1117.i)
-  %and.i.i.i.i129.i1218.i = and <8 x i64> %212, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i129.i1218.i = and <8 x i64> %123, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
   store <8 x i64> %and.i.i.i.i129.i1218.i, ptr %add.ptr82.i1217.i, align 1
   %add.ptr172.i1219.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 80
   %indvars.iv.next2569.i = add nuw nsw i64 %indvars.iv2568.i, 1
@@ -2623,50 +2771,48 @@ for.body247.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i58.i1224.i = load i32, ptr %add.ptr3.i1223.i, align 4
   %or.i1225.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i58.i1224.i, i32 %ret.0.copyload.i.i1222.i, i32 11)
   %add.ptr10.i1226.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 8
-  %213 = load <2 x i32>, ptr %add.ptr10.i1226.i, align 4
-  %214 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i58.i1224.i, i64 0
-  %215 = shufflevector <2 x i32> %214, <2 x i32> %213, <2 x i32> <i32 0, i32 2>
-  %216 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %213, <2 x i32> %215, <2 x i32> <i32 1, i32 12>)
+  %ret.0.copyload.i61.i1227.i = load i32, ptr %add.ptr10.i1226.i, align 4
+  %or13.i1228.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i61.i1227.i, i32 %ret.0.copyload.i58.i1224.i, i32 1)
+  %add.ptr17.i1229.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 12
+  %ret.0.copyload.i63.i1230.i = load i32, ptr %add.ptr17.i1229.i, align 4
+  %or20.i1231.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i63.i1230.i, i32 %ret.0.copyload.i61.i1227.i, i32 12)
   %add.ptr26.i1232.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 16
-  %217 = load <2 x i32>, ptr %add.ptr26.i1232.i, align 4
-  %218 = shufflevector <2 x i32> %213, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %219 = shufflevector <2 x i32> %218, <2 x i32> %217, <2 x i32> <i32 0, i32 2>
-  %220 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %217, <2 x i32> %219, <2 x i32> <i32 2, i32 13>)
+  %ret.0.copyload.i66.i1233.i = load i32, ptr %add.ptr26.i1232.i, align 4
+  %or29.i1234.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1233.i, i32 %ret.0.copyload.i63.i1230.i, i32 2)
+  %add.ptr33.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 20
+  %ret.0.copyload.i68.i1235.i = load i32, ptr %add.ptr33.i.i, align 4
+  %or36.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1235.i, i32 %ret.0.copyload.i66.i1233.i, i32 13)
   %add.ptr42.i1236.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 24
-  %221 = load <2 x i32>, ptr %add.ptr42.i1236.i, align 4
-  %222 = shufflevector <2 x i32> %217, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %223 = shufflevector <2 x i32> %222, <2 x i32> %221, <2 x i32> <i32 0, i32 2>
-  %224 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %221, <2 x i32> %223, <2 x i32> <i32 3, i32 14>)
+  %ret.0.copyload.i71.i1237.i = load i32, ptr %add.ptr42.i1236.i, align 4
+  %or45.i1238.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i71.i1237.i, i32 %ret.0.copyload.i68.i1235.i, i32 3)
+  %add.ptr49.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 28
+  %ret.0.copyload.i73.i1239.i = load i32, ptr %add.ptr49.i.i, align 4
+  %or52.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i73.i1239.i, i32 %ret.0.copyload.i71.i1237.i, i32 14)
   %add.ptr58.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 32
+  %ret.0.copyload.i76.i1240.i = load i32, ptr %add.ptr58.i.i, align 4
+  %or61.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i76.i1240.i, i32 %ret.0.copyload.i73.i1239.i, i32 4)
   %add.ptr65.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 36
   %ret.0.copyload.i78.i1241.i = load i32, ptr %add.ptr65.i.i, align 4
-  %225 = load <2 x i32>, ptr %add.ptr58.i.i, align 4
-  %226 = shufflevector <2 x i32> %221, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %227 = shufflevector <2 x i32> %226, <2 x i32> %225, <2 x i32> <i32 0, i32 2>
-  %228 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %225, <2 x i32> %227, <2 x i32> <i32 4, i32 15>)
+  %or68.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i1241.i, i32 %ret.0.copyload.i76.i1240.i, i32 15)
   %add.ptr74.i1242.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 40
   %ret.0.copyload.i81.i1243.i = load i32, ptr %add.ptr74.i1242.i, align 4
   %or77.i1244.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i81.i1243.i, i32 %ret.0.copyload.i78.i1241.i, i32 5)
-  %vecinit.i.i.i.i1245.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1222.i, i64 0
+  %vecinit.i.i.i.i1245.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1222.i, i64 0
   %vecinit1.i.i.i.i1246.i = insertelement <16 x i32> %vecinit.i.i.i.i1245.i, i32 %or.i1225.i, i64 1
   %vecinit2.i.i.i.i1247.i = insertelement <16 x i32> %vecinit1.i.i.i.i1246.i, i32 %ret.0.copyload.i58.i1224.i, i64 2
-  %229 = shufflevector <2 x i32> %216, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1249.i147 = shufflevector <16 x i32> %vecinit2.i.i.i.i1247.i, <16 x i32> %229, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %230 = shufflevector <2 x i32> %213, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %231 = shufflevector <16 x i32> %vecinit4.i.i.i.i1249.i147, <16 x i32> %230, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %232 = shufflevector <2 x i32> %220, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i.i1252.i146 = shufflevector <16 x i32> %231, <16 x i32> %232, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %233 = shufflevector <2 x i32> %217, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %234 = shufflevector <16 x i32> %vecinit7.i.i.i.i1252.i146, <16 x i32> %233, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %235 = shufflevector <2 x i32> %224, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i.i1255.i145 = shufflevector <16 x i32> %234, <16 x i32> %235, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %236 = shufflevector <2 x i32> %221, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %237 = shufflevector <16 x i32> %vecinit10.i.i.i.i1255.i145, <16 x i32> %236, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %238 = shufflevector <2 x i32> %228, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i.i1258.i144 = shufflevector <16 x i32> %237, <16 x i32> %238, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 16, i32 17, i32 poison, i32 poison>
-  %239 = shufflevector <2 x i32> %225, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %240 = shufflevector <16 x i32> %vecinit13.i.i.i.i1258.i144, <16 x i32> %239, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 17, i32 poison>
-  %vecinit15.i.i.i.i1260.i = insertelement <16 x i32> %240, i32 %or77.i1244.i, i64 15
+  %vecinit3.i.i.i.i1248.i = insertelement <16 x i32> %vecinit2.i.i.i.i1247.i, i32 %or13.i1228.i, i64 3
+  %vecinit4.i.i.i.i1249.i = insertelement <16 x i32> %vecinit3.i.i.i.i1248.i, i32 %or20.i1231.i, i64 4
+  %vecinit5.i.i.i.i1250.i = insertelement <16 x i32> %vecinit4.i.i.i.i1249.i, i32 %ret.0.copyload.i63.i1230.i, i64 5
+  %vecinit6.i.i.i.i1251.i = insertelement <16 x i32> %vecinit5.i.i.i.i1250.i, i32 %or29.i1234.i, i64 6
+  %vecinit7.i.i.i.i1252.i = insertelement <16 x i32> %vecinit6.i.i.i.i1251.i, i32 %or36.i.i, i64 7
+  %vecinit8.i.i.i.i1253.i = insertelement <16 x i32> %vecinit7.i.i.i.i1252.i, i32 %ret.0.copyload.i68.i1235.i, i64 8
+  %vecinit9.i.i.i.i1254.i = insertelement <16 x i32> %vecinit8.i.i.i.i1253.i, i32 %or45.i1238.i, i64 9
+  %vecinit10.i.i.i.i1255.i = insertelement <16 x i32> %vecinit9.i.i.i.i1254.i, i32 %or52.i.i, i64 10
+  %vecinit11.i.i.i.i1256.i = insertelement <16 x i32> %vecinit10.i.i.i.i1255.i, i32 %ret.0.copyload.i73.i1239.i, i64 11
+  %vecinit12.i.i.i.i1257.i = insertelement <16 x i32> %vecinit11.i.i.i.i1256.i, i32 %or61.i.i, i64 12
+  %vecinit13.i.i.i.i1258.i = insertelement <16 x i32> %vecinit12.i.i.i.i1257.i, i32 %or68.i.i, i64 13
+  %vecinit14.i.i.i.i1259.i = insertelement <16 x i32> %vecinit13.i.i.i.i1258.i, i32 %ret.0.copyload.i78.i1241.i, i64 14
+  %vecinit15.i.i.i.i1260.i = insertelement <16 x i32> %vecinit14.i.i.i.i1259.i, i32 %or77.i1244.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1220.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1221.i)
   store <16 x i32> %vecinit15.i.i.i.i1260.i, ptr %self_buffer.i.i.i.i.i1220.i, align 64
@@ -2676,10 +2822,10 @@ for.body247.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i1261.i:                         ; preds = %for.body.i.i.i.i.i1261.i, %for.body247.i
   %i.05.i.i.i.i.i1262.i = phi i64 [ 0, %for.body247.i ], [ %inc.i.i.i.i.i1266.i, %for.body.i.i.i.i.i1261.i ]
   %arrayidx2.i.i.i.i.i1263.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1220.i, i64 0, i64 %i.05.i.i.i.i.i1262.i
-  %241 = load i32, ptr %arrayidx2.i.i.i.i.i1263.i, align 4
+  %124 = load i32, ptr %arrayidx2.i.i.i.i.i1263.i, align 4
   %arrayidx3.i.i.i.i.i1264.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1221.i, i64 0, i64 %i.05.i.i.i.i.i1262.i
-  %242 = load i32, ptr %arrayidx3.i.i.i.i.i1264.i, align 4
-  %shr.i.i.i.i.i.i1265.i = lshr i32 %241, %242
+  %125 = load i32, ptr %arrayidx3.i.i.i.i.i1264.i, align 4
+  %shr.i.i.i.i.i.i1265.i = lshr i32 %124, %125
   store i32 %shr.i.i.i.i.i.i1265.i, ptr %arrayidx2.i.i.i.i.i1263.i, align 4
   %inc.i.i.i.i.i1266.i = add nuw nsw i64 %i.05.i.i.i.i.i1262.i, 1
   %exitcond.not.i.i.i.i.i1267.i = icmp eq i64 %inc.i.i.i.i.i1266.i, 16
@@ -2688,59 +2834,57 @@ for.body.i.i.i.i.i1261.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1268.i: ; preds = %for.body.i.i.i.i.i1261.i
   %add.ptr250.idx.i = shl nsw i64 %indvars.iv2562.i, 7
   %add.ptr250.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr250.idx.i
-  %243 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1220.i, align 64
+  %126 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1220.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1220.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1221.i)
-  %and.i.i.i.i.i1269.i = and <8 x i64> %243, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i.i1269.i = and <8 x i64> %126, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
   store <8 x i64> %and.i.i.i.i.i1269.i, ptr %add.ptr250.i, align 1
   %ret.0.copyload.i83.i1270.i = load i32, ptr %add.ptr74.i1242.i, align 4
   %add.ptr97.i1271.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 44
   %ret.0.copyload.i84.i1272.i = load i32, ptr %add.ptr97.i1271.i, align 4
   %or100.i1273.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1272.i, i32 %ret.0.copyload.i83.i1270.i, i32 16)
   %add.ptr106.i1274.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 48
-  %244 = load <2 x i32>, ptr %add.ptr106.i1274.i, align 4
-  %245 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i84.i1272.i, i64 0
-  %246 = shufflevector <2 x i32> %245, <2 x i32> %244, <2 x i32> <i32 0, i32 2>
-  %247 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %244, <2 x i32> %246, <2 x i32> <i32 6, i32 17>)
+  %ret.0.copyload.i87.i1275.i = load i32, ptr %add.ptr106.i1274.i, align 4
+  %or109.i1276.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1275.i, i32 %ret.0.copyload.i84.i1272.i, i32 6)
+  %add.ptr113.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 52
+  %ret.0.copyload.i89.i1277.i = load i32, ptr %add.ptr113.i.i, align 4
+  %or116.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i89.i1277.i, i32 %ret.0.copyload.i87.i1275.i, i32 17)
   %add.ptr122.i1278.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 56
-  %248 = load <2 x i32>, ptr %add.ptr122.i1278.i, align 4
-  %249 = shufflevector <2 x i32> %244, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %250 = shufflevector <2 x i32> %249, <2 x i32> %248, <2 x i32> <i32 0, i32 2>
-  %251 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %248, <2 x i32> %250, <2 x i32> <i32 7, i32 18>)
+  %ret.0.copyload.i92.i1279.i = load i32, ptr %add.ptr122.i1278.i, align 4
+  %or125.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i1279.i, i32 %ret.0.copyload.i89.i1277.i, i32 7)
+  %add.ptr129.i1280.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 60
+  %ret.0.copyload.i94.i1281.i = load i32, ptr %add.ptr129.i1280.i, align 4
+  %or132.i1282.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i94.i1281.i, i32 %ret.0.copyload.i92.i1279.i, i32 18)
   %add.ptr138.i1283.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 64
-  %252 = load <2 x i32>, ptr %add.ptr138.i1283.i, align 4
-  %253 = shufflevector <2 x i32> %248, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %254 = shufflevector <2 x i32> %253, <2 x i32> %252, <2 x i32> <i32 0, i32 2>
-  %255 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %252, <2 x i32> %254, <2 x i32> <i32 8, i32 19>)
+  %ret.0.copyload.i97.i1284.i = load i32, ptr %add.ptr138.i1283.i, align 4
+  %or141.i1285.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1284.i, i32 %ret.0.copyload.i94.i1281.i, i32 8)
+  %add.ptr145.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 68
+  %ret.0.copyload.i99.i1286.i = load i32, ptr %add.ptr145.i.i, align 4
+  %or148.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1286.i, i32 %ret.0.copyload.i97.i1284.i, i32 19)
   %add.ptr154.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 72
+  %ret.0.copyload.i102.i.i = load i32, ptr %add.ptr154.i.i, align 4
+  %or157.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i.i, i32 %ret.0.copyload.i99.i1286.i, i32 9)
   %add.ptr161.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 76
   %ret.0.copyload.i104.i.i = load i32, ptr %add.ptr161.i.i, align 4
-  %256 = load <2 x i32>, ptr %add.ptr154.i.i, align 4
-  %257 = shufflevector <2 x i32> %252, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %258 = shufflevector <2 x i32> %257, <2 x i32> %256, <2 x i32> <i32 0, i32 2>
-  %259 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %256, <2 x i32> %258, <2 x i32> <i32 9, i32 20>)
+  %or164.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i.i, i32 %ret.0.copyload.i102.i.i, i32 20)
   %add.ptr170.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 80
   %ret.0.copyload.i107.i.i = load i32, ptr %add.ptr170.i.i, align 4
   %or173.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i.i, i32 %ret.0.copyload.i104.i.i, i32 10)
-  %vecinit.i.i.i109.i.i = insertelement <16 x i32> poison, i32 %or100.i1273.i, i64 0
+  %vecinit.i.i.i109.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or100.i1273.i, i64 0
   %vecinit1.i.i.i110.i.i = insertelement <16 x i32> %vecinit.i.i.i109.i.i, i32 %ret.0.copyload.i84.i1272.i, i64 1
-  %260 = shufflevector <2 x i32> %247, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit3.i.i.i112.i.i143 = shufflevector <16 x i32> %vecinit1.i.i.i110.i.i, <16 x i32> %260, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %261 = shufflevector <2 x i32> %244, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %262 = shufflevector <16 x i32> %vecinit3.i.i.i112.i.i143, <16 x i32> %261, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %263 = shufflevector <2 x i32> %251, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i115.i.i142 = shufflevector <16 x i32> %262, <16 x i32> %263, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %264 = shufflevector <2 x i32> %248, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %265 = shufflevector <16 x i32> %vecinit6.i.i.i115.i.i142, <16 x i32> %264, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %266 = shufflevector <2 x i32> %255, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i118.i.i141 = shufflevector <16 x i32> %265, <16 x i32> %266, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %267 = shufflevector <2 x i32> %252, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %268 = shufflevector <16 x i32> %vecinit9.i.i.i118.i.i141, <16 x i32> %267, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %269 = shufflevector <2 x i32> %259, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i121.i.i140 = shufflevector <16 x i32> %268, <16 x i32> %269, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %270 = shufflevector <2 x i32> %256, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %271 = shufflevector <16 x i32> %vecinit12.i.i.i121.i.i140, <16 x i32> %270, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 17, i32 poison, i32 poison>
-  %vecinit14.i.i.i123.i.i = insertelement <16 x i32> %271, i32 %or173.i.i, i64 14
+  %vecinit2.i.i.i111.i.i = insertelement <16 x i32> %vecinit1.i.i.i110.i.i, i32 %or109.i1276.i, i64 2
+  %vecinit3.i.i.i112.i.i = insertelement <16 x i32> %vecinit2.i.i.i111.i.i, i32 %or116.i.i, i64 3
+  %vecinit4.i.i.i113.i.i = insertelement <16 x i32> %vecinit3.i.i.i112.i.i, i32 %ret.0.copyload.i89.i1277.i, i64 4
+  %vecinit5.i.i.i114.i.i = insertelement <16 x i32> %vecinit4.i.i.i113.i.i, i32 %or125.i.i, i64 5
+  %vecinit6.i.i.i115.i.i = insertelement <16 x i32> %vecinit5.i.i.i114.i.i, i32 %or132.i1282.i, i64 6
+  %vecinit7.i.i.i116.i.i = insertelement <16 x i32> %vecinit6.i.i.i115.i.i, i32 %ret.0.copyload.i94.i1281.i, i64 7
+  %vecinit8.i.i.i117.i.i = insertelement <16 x i32> %vecinit7.i.i.i116.i.i, i32 %or141.i1285.i, i64 8
+  %vecinit9.i.i.i118.i.i = insertelement <16 x i32> %vecinit8.i.i.i117.i.i, i32 %or148.i.i, i64 9
+  %vecinit10.i.i.i119.i.i = insertelement <16 x i32> %vecinit9.i.i.i118.i.i, i32 %ret.0.copyload.i99.i1286.i, i64 10
+  %vecinit11.i.i.i120.i.i = insertelement <16 x i32> %vecinit10.i.i.i119.i.i, i32 %or157.i.i, i64 11
+  %vecinit12.i.i.i121.i.i = insertelement <16 x i32> %vecinit11.i.i.i120.i.i, i32 %or164.i.i, i64 12
+  %vecinit13.i.i.i122.i.i = insertelement <16 x i32> %vecinit12.i.i.i121.i.i, i32 %ret.0.copyload.i104.i.i, i64 13
+  %vecinit14.i.i.i123.i.i = insertelement <16 x i32> %vecinit13.i.i.i122.i.i, i32 %or173.i.i, i64 14
   %vecinit15.i.i.i124.i.i = insertelement <16 x i32> %vecinit14.i.i.i123.i.i, i32 %ret.0.copyload.i107.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i.i)
@@ -2751,10 +2895,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1268.i: ; preds = %for.body.i.
 for.body.i.i.i.i128.i.i:                          ; preds = %for.body.i.i.i.i128.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1268.i
   %i.05.i.i.i.i129.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1268.i ], [ %inc.i.i.i.i133.i.i, %for.body.i.i.i.i128.i.i ]
   %arrayidx2.i.i.i.i130.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i125.i.i, i64 0, i64 %i.05.i.i.i.i129.i.i
-  %272 = load i32, ptr %arrayidx2.i.i.i.i130.i.i, align 4
+  %127 = load i32, ptr %arrayidx2.i.i.i.i130.i.i, align 4
   %arrayidx3.i.i.i.i131.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i126.i.i, i64 0, i64 %i.05.i.i.i.i129.i.i
-  %273 = load i32, ptr %arrayidx3.i.i.i.i131.i.i, align 4
-  %shr.i.i.i.i.i132.i.i = lshr i32 %272, %273
+  %128 = load i32, ptr %arrayidx3.i.i.i.i131.i.i, align 4
+  %shr.i.i.i.i.i132.i.i = lshr i32 %127, %128
   store i32 %shr.i.i.i.i.i132.i.i, ptr %arrayidx2.i.i.i.i130.i.i, align 4
   %inc.i.i.i.i133.i.i = add nuw nsw i64 %i.05.i.i.i.i129.i.i, 1
   %exitcond.not.i.i.i.i134.i.i = icmp eq i64 %inc.i.i.i.i133.i.i, 16
@@ -2762,10 +2906,10 @@ for.body.i.i.i.i128.i.i:                          ; preds = %for.body.i.i.i.i128
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack21_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i128.i.i
   %add.ptr92.i1287.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 64
-  %274 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i.i, align 64
+  %129 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i.i)
-  %and.i.i.i.i137.i.i = and <8 x i64> %274, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i137.i.i = and <8 x i64> %129, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
   store <8 x i64> %and.i.i.i.i137.i.i, ptr %add.ptr92.i1287.i, align 1
   %add.ptr192.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 84
   %indvars.iv.next2563.i = add nuw nsw i64 %indvars.iv2562.i, 1
@@ -2777,17 +2921,17 @@ for.body259.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.222401.i = phi ptr [ %in, %for.body259.preheader.i ], [ %add.ptr192.i1391.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack22_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i1292.i = load i32, ptr %in.addr.222401.i, align 4
   %add.ptr3.i1293.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 4
-  %275 = load <2 x i32>, ptr %add.ptr3.i1293.i, align 4
-  %276 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i.i1292.i, i64 0
-  %277 = shufflevector <2 x i32> %276, <2 x i32> %275, <2 x i32> <i32 0, i32 2>
-  %278 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %275, <2 x i32> %277, <2 x i32> <i32 10, i32 20>)
+  %ret.0.copyload.i58.i1294.i = load i32, ptr %add.ptr3.i1293.i, align 4
+  %or.i1295.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i58.i1294.i, i32 %ret.0.copyload.i.i1292.i, i32 10)
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 8
+  %ret.0.copyload.i60.i1296.i = load i32, ptr %add.ptr8.i.i, align 4
+  %or11.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i60.i1296.i, i32 %ret.0.copyload.i58.i1294.i, i32 20)
   %add.ptr17.i1297.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 12
+  %ret.0.copyload.i63.i1298.i = load i32, ptr %add.ptr17.i1297.i, align 4
+  %or20.i1299.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i63.i1298.i, i32 %ret.0.copyload.i60.i1296.i, i32 8)
   %add.ptr24.i1300.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 16
   %ret.0.copyload.i65.i1301.i = load i32, ptr %add.ptr24.i1300.i, align 4
-  %279 = load <2 x i32>, ptr %add.ptr17.i1297.i, align 4
-  %280 = shufflevector <2 x i32> %275, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %281 = shufflevector <2 x i32> %280, <2 x i32> %279, <2 x i32> <i32 0, i32 2>
-  %282 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %279, <2 x i32> %281, <2 x i32> <i32 8, i32 18>)
+  %or27.i1302.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i65.i1301.i, i32 %ret.0.copyload.i63.i1298.i, i32 18)
   %add.ptr33.i1303.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 20
   %ret.0.copyload.i68.i1304.i = load i32, ptr %add.ptr33.i1303.i, align 4
   %or36.i1305.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1304.i, i32 %ret.0.copyload.i65.i1301.i, i32 6)
@@ -2795,48 +2939,46 @@ for.body259.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i70.i1307.i = load i32, ptr %add.ptr40.i1306.i, align 4
   %or43.i1308.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i1307.i, i32 %ret.0.copyload.i68.i1304.i, i32 16)
   %add.ptr49.i1309.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 28
-  %283 = load <2 x i32>, ptr %add.ptr49.i1309.i, align 4
-  %284 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i70.i1307.i, i64 0
-  %285 = shufflevector <2 x i32> %284, <2 x i32> %283, <2 x i32> <i32 0, i32 2>
-  %286 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %283, <2 x i32> %285, <2 x i32> <i32 4, i32 14>)
+  %ret.0.copyload.i73.i1310.i = load i32, ptr %add.ptr49.i1309.i, align 4
+  %or52.i1311.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i73.i1310.i, i32 %ret.0.copyload.i70.i1307.i, i32 4)
+  %add.ptr56.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 32
+  %ret.0.copyload.i75.i1312.i = load i32, ptr %add.ptr56.i.i, align 4
+  %or59.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i75.i1312.i, i32 %ret.0.copyload.i73.i1310.i, i32 14)
   %add.ptr65.i1313.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 36
-  %287 = load <2 x i32>, ptr %add.ptr65.i1313.i, align 4
-  %288 = shufflevector <2 x i32> %283, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %289 = shufflevector <2 x i32> %288, <2 x i32> %287, <2 x i32> <i32 0, i32 2>
-  %290 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %287, <2 x i32> %289, <2 x i32> <i32 2, i32 12>)
-  %vecinit.i.i.i.i1318.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1292.i, i64 0
-  %291 = shufflevector <2 x i32> %278, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit2.i.i.i.i1320.i155 = shufflevector <16 x i32> %vecinit.i.i.i.i1318.i, <16 x i32> %291, <16 x i32> <i32 0, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %292 = shufflevector <2 x i32> %275, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %293 = shufflevector <16 x i32> %vecinit2.i.i.i.i1320.i155, <16 x i32> %292, <16 x i32> <i32 0, i32 1, i32 2, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %294 = shufflevector <2 x i32> %282, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit5.i.i.i.i1323.i154 = shufflevector <16 x i32> %293, <16 x i32> %294, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %295 = shufflevector <2 x i32> %279, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %296 = shufflevector <16 x i32> %vecinit5.i.i.i.i1323.i154, <16 x i32> %295, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i.i1325.i = insertelement <16 x i32> %296, i32 %or36.i1305.i, i64 7
+  %ret.0.copyload.i78.i1314.i = load i32, ptr %add.ptr65.i1313.i, align 4
+  %or68.i1315.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i1314.i, i32 %ret.0.copyload.i75.i1312.i, i32 2)
+  %add.ptr72.i1316.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 40
+  %ret.0.copyload.i80.i1317.i = load i32, ptr %add.ptr72.i1316.i, align 4
+  %or75.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i1317.i, i32 %ret.0.copyload.i78.i1314.i, i32 12)
+  %vecinit.i.i.i.i1318.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1292.i, i64 0
+  %vecinit1.i.i.i.i1319.i = insertelement <16 x i32> %vecinit.i.i.i.i1318.i, i32 %or.i1295.i, i64 1
+  %vecinit2.i.i.i.i1320.i = insertelement <16 x i32> %vecinit1.i.i.i.i1319.i, i32 %or11.i.i, i64 2
+  %vecinit3.i.i.i.i1321.i = insertelement <16 x i32> %vecinit2.i.i.i.i1320.i, i32 %ret.0.copyload.i60.i1296.i, i64 3
+  %vecinit4.i.i.i.i1322.i = insertelement <16 x i32> %vecinit3.i.i.i.i1321.i, i32 %or20.i1299.i, i64 4
+  %vecinit5.i.i.i.i1323.i = insertelement <16 x i32> %vecinit4.i.i.i.i1322.i, i32 %or27.i1302.i, i64 5
+  %vecinit6.i.i.i.i1324.i = insertelement <16 x i32> %vecinit5.i.i.i.i1323.i, i32 %ret.0.copyload.i65.i1301.i, i64 6
+  %vecinit7.i.i.i.i1325.i = insertelement <16 x i32> %vecinit6.i.i.i.i1324.i, i32 %or36.i1305.i, i64 7
   %vecinit8.i.i.i.i1326.i = insertelement <16 x i32> %vecinit7.i.i.i.i1325.i, i32 %or43.i1308.i, i64 8
   %vecinit9.i.i.i.i1327.i = insertelement <16 x i32> %vecinit8.i.i.i.i1326.i, i32 %ret.0.copyload.i70.i1307.i, i64 9
-  %297 = shufflevector <2 x i32> %286, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i.i1329.i153 = shufflevector <16 x i32> %vecinit9.i.i.i.i1327.i, <16 x i32> %297, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %298 = shufflevector <2 x i32> %283, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %299 = shufflevector <16 x i32> %vecinit11.i.i.i.i1329.i153, <16 x i32> %298, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 17, i32 poison, i32 poison, i32 poison>
-  %300 = shufflevector <2 x i32> %290, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i1332.i152 = shufflevector <16 x i32> %299, <16 x i32> %300, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %301 = shufflevector <2 x i32> %287, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %302 = shufflevector <16 x i32> %vecinit14.i.i.i.i1332.i152, <16 x i32> %301, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %vecinit10.i.i.i.i1328.i = insertelement <16 x i32> %vecinit9.i.i.i.i1327.i, i32 %or52.i1311.i, i64 10
+  %vecinit11.i.i.i.i1329.i = insertelement <16 x i32> %vecinit10.i.i.i.i1328.i, i32 %or59.i.i, i64 11
+  %vecinit12.i.i.i.i1330.i = insertelement <16 x i32> %vecinit11.i.i.i.i1329.i, i32 %ret.0.copyload.i75.i1312.i, i64 12
+  %vecinit13.i.i.i.i1331.i = insertelement <16 x i32> %vecinit12.i.i.i.i1330.i, i32 %or68.i1315.i, i64 13
+  %vecinit14.i.i.i.i1332.i = insertelement <16 x i32> %vecinit13.i.i.i.i1331.i, i32 %or75.i.i, i64 14
+  %vecinit15.i.i.i.i1333.i = insertelement <16 x i32> %vecinit14.i.i.i.i1332.i, i32 %ret.0.copyload.i80.i1317.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1290.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1291.i)
-  store <16 x i32> %302, ptr %self_buffer.i.i.i.i.i1290.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1333.i, ptr %self_buffer.i.i.i.i.i1290.i, align 64
   store <8 x i64> <i64 0, i64 8589934592, i64 0, i64 4, i64 25769803776, i64 0, i64 8, i64 42949672960>, ptr %other_buffer.i.i.i.i.i1291.i, align 64
   br label %for.body.i.i.i.i.i1334.i
 
 for.body.i.i.i.i.i1334.i:                         ; preds = %for.body.i.i.i.i.i1334.i, %for.body259.i
   %i.05.i.i.i.i.i1335.i = phi i64 [ 0, %for.body259.i ], [ %inc.i.i.i.i.i1339.i, %for.body.i.i.i.i.i1334.i ]
   %arrayidx2.i.i.i.i.i1336.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1290.i, i64 0, i64 %i.05.i.i.i.i.i1335.i
-  %303 = load i32, ptr %arrayidx2.i.i.i.i.i1336.i, align 4
+  %130 = load i32, ptr %arrayidx2.i.i.i.i.i1336.i, align 4
   %arrayidx3.i.i.i.i.i1337.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1291.i, i64 0, i64 %i.05.i.i.i.i.i1335.i
-  %304 = load i32, ptr %arrayidx3.i.i.i.i.i1337.i, align 4
-  %shr.i.i.i.i.i.i1338.i = lshr i32 %303, %304
+  %131 = load i32, ptr %arrayidx3.i.i.i.i.i1337.i, align 4
+  %shr.i.i.i.i.i.i1338.i = lshr i32 %130, %131
   store i32 %shr.i.i.i.i.i.i1338.i, ptr %arrayidx2.i.i.i.i.i1336.i, align 4
   %inc.i.i.i.i.i1339.i = add nuw nsw i64 %i.05.i.i.i.i.i1335.i, 1
   %exitcond.not.i.i.i.i.i1340.i = icmp eq i64 %inc.i.i.i.i.i1339.i, 16
@@ -2845,25 +2987,25 @@ for.body.i.i.i.i.i1334.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1341.i: ; preds = %for.body.i.i.i.i.i1334.i
   %add.ptr262.idx.i = shl nsw i64 %indvars.iv2556.i, 7
   %add.ptr262.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr262.idx.i
-  %305 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1290.i, align 64
+  %132 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1290.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1290.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1291.i)
-  %and.i.i.i.i.i1342.i = and <8 x i64> %305, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i.i1342.i = and <8 x i64> %132, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
   store <8 x i64> %and.i.i.i.i.i1342.i, ptr %add.ptr262.i, align 1
   %add.ptr94.i1343.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 44
   %ret.0.copyload.i83.i1344.i = load i32, ptr %add.ptr94.i1343.i, align 4
   %add.ptr99.i1345.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 48
-  %306 = load <2 x i32>, ptr %add.ptr99.i1345.i, align 4
-  %307 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i83.i1344.i, i64 0
-  %308 = shufflevector <2 x i32> %307, <2 x i32> %306, <2 x i32> <i32 0, i32 2>
-  %309 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %306, <2 x i32> %308, <2 x i32> <i32 10, i32 20>)
+  %ret.0.copyload.i85.i1346.i = load i32, ptr %add.ptr99.i1345.i, align 4
+  %or102.i1347.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i85.i1346.i, i32 %ret.0.copyload.i83.i1344.i, i32 10)
+  %add.ptr106.i1348.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 52
+  %ret.0.copyload.i87.i1349.i = load i32, ptr %add.ptr106.i1348.i, align 4
+  %or109.i1350.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1349.i, i32 %ret.0.copyload.i85.i1346.i, i32 20)
   %add.ptr115.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 56
+  %ret.0.copyload.i90.i1351.i = load i32, ptr %add.ptr115.i.i, align 4
+  %or118.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i1351.i, i32 %ret.0.copyload.i87.i1349.i, i32 8)
   %add.ptr122.i1352.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 60
   %ret.0.copyload.i92.i1353.i = load i32, ptr %add.ptr122.i1352.i, align 4
-  %310 = load <2 x i32>, ptr %add.ptr115.i.i, align 4
-  %311 = shufflevector <2 x i32> %306, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %312 = shufflevector <2 x i32> %311, <2 x i32> %310, <2 x i32> <i32 0, i32 2>
-  %313 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %310, <2 x i32> %312, <2 x i32> <i32 8, i32 18>)
+  %or125.i1354.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i1353.i, i32 %ret.0.copyload.i90.i1351.i, i32 18)
   %add.ptr131.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 64
   %ret.0.copyload.i95.i1355.i = load i32, ptr %add.ptr131.i.i, align 4
   %or134.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i95.i1355.i, i32 %ret.0.copyload.i92.i1353.i, i32 6)
@@ -2871,48 +3013,46 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1341.i: ; preds = %for.body.i.
   %ret.0.copyload.i97.i1357.i = load i32, ptr %add.ptr138.i1356.i, align 4
   %or141.i1358.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1357.i, i32 %ret.0.copyload.i95.i1355.i, i32 16)
   %add.ptr147.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 72
-  %314 = load <2 x i32>, ptr %add.ptr147.i.i, align 4
-  %315 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i97.i1357.i, i64 0
-  %316 = shufflevector <2 x i32> %315, <2 x i32> %314, <2 x i32> <i32 0, i32 2>
-  %317 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %314, <2 x i32> %316, <2 x i32> <i32 4, i32 14>)
+  %ret.0.copyload.i100.i1359.i = load i32, ptr %add.ptr147.i.i, align 4
+  %or150.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i100.i1359.i, i32 %ret.0.copyload.i97.i1357.i, i32 4)
+  %add.ptr154.i1360.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 76
+  %ret.0.copyload.i102.i1361.i = load i32, ptr %add.ptr154.i1360.i, align 4
+  %or157.i1362.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i1361.i, i32 %ret.0.copyload.i100.i1359.i, i32 14)
   %add.ptr163.i.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 80
-  %318 = load <2 x i32>, ptr %add.ptr163.i.i, align 4
-  %319 = shufflevector <2 x i32> %314, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %320 = shufflevector <2 x i32> %319, <2 x i32> %318, <2 x i32> <i32 0, i32 2>
-  %321 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %318, <2 x i32> %320, <2 x i32> <i32 2, i32 12>)
-  %vecinit.i.i.i109.i1366.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i83.i1344.i, i64 0
-  %322 = shufflevector <2 x i32> %309, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit2.i.i.i111.i1368.i151 = shufflevector <16 x i32> %vecinit.i.i.i109.i1366.i, <16 x i32> %322, <16 x i32> <i32 0, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %323 = shufflevector <2 x i32> %306, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %324 = shufflevector <16 x i32> %vecinit2.i.i.i111.i1368.i151, <16 x i32> %323, <16 x i32> <i32 0, i32 1, i32 2, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %325 = shufflevector <2 x i32> %313, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit5.i.i.i114.i1371.i150 = shufflevector <16 x i32> %324, <16 x i32> %325, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %326 = shufflevector <2 x i32> %310, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %327 = shufflevector <16 x i32> %vecinit5.i.i.i114.i1371.i150, <16 x i32> %326, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i116.i1373.i = insertelement <16 x i32> %327, i32 %or134.i.i, i64 7
+  %ret.0.copyload.i105.i.i = load i32, ptr %add.ptr163.i.i, align 4
+  %or166.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i105.i.i, i32 %ret.0.copyload.i102.i1361.i, i32 2)
+  %add.ptr170.i1363.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 84
+  %ret.0.copyload.i107.i1364.i = load i32, ptr %add.ptr170.i1363.i, align 4
+  %or173.i1365.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i1364.i, i32 %ret.0.copyload.i105.i.i, i32 12)
+  %vecinit.i.i.i109.i1366.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i83.i1344.i, i64 0
+  %vecinit1.i.i.i110.i1367.i = insertelement <16 x i32> %vecinit.i.i.i109.i1366.i, i32 %or102.i1347.i, i64 1
+  %vecinit2.i.i.i111.i1368.i = insertelement <16 x i32> %vecinit1.i.i.i110.i1367.i, i32 %or109.i1350.i, i64 2
+  %vecinit3.i.i.i112.i1369.i = insertelement <16 x i32> %vecinit2.i.i.i111.i1368.i, i32 %ret.0.copyload.i87.i1349.i, i64 3
+  %vecinit4.i.i.i113.i1370.i = insertelement <16 x i32> %vecinit3.i.i.i112.i1369.i, i32 %or118.i.i, i64 4
+  %vecinit5.i.i.i114.i1371.i = insertelement <16 x i32> %vecinit4.i.i.i113.i1370.i, i32 %or125.i1354.i, i64 5
+  %vecinit6.i.i.i115.i1372.i = insertelement <16 x i32> %vecinit5.i.i.i114.i1371.i, i32 %ret.0.copyload.i92.i1353.i, i64 6
+  %vecinit7.i.i.i116.i1373.i = insertelement <16 x i32> %vecinit6.i.i.i115.i1372.i, i32 %or134.i.i, i64 7
   %vecinit8.i.i.i117.i1374.i = insertelement <16 x i32> %vecinit7.i.i.i116.i1373.i, i32 %or141.i1358.i, i64 8
   %vecinit9.i.i.i118.i1375.i = insertelement <16 x i32> %vecinit8.i.i.i117.i1374.i, i32 %ret.0.copyload.i97.i1357.i, i64 9
-  %328 = shufflevector <2 x i32> %317, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i120.i1377.i149 = shufflevector <16 x i32> %vecinit9.i.i.i118.i1375.i, <16 x i32> %328, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %329 = shufflevector <2 x i32> %314, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %330 = shufflevector <16 x i32> %vecinit11.i.i.i120.i1377.i149, <16 x i32> %329, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 17, i32 poison, i32 poison, i32 poison>
-  %331 = shufflevector <2 x i32> %321, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i123.i1380.i148 = shufflevector <16 x i32> %330, <16 x i32> %331, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %332 = shufflevector <2 x i32> %318, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %333 = shufflevector <16 x i32> %vecinit14.i.i.i123.i1380.i148, <16 x i32> %332, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %vecinit10.i.i.i119.i1376.i = insertelement <16 x i32> %vecinit9.i.i.i118.i1375.i, i32 %or150.i.i, i64 10
+  %vecinit11.i.i.i120.i1377.i = insertelement <16 x i32> %vecinit10.i.i.i119.i1376.i, i32 %or157.i1362.i, i64 11
+  %vecinit12.i.i.i121.i1378.i = insertelement <16 x i32> %vecinit11.i.i.i120.i1377.i, i32 %ret.0.copyload.i102.i1361.i, i64 12
+  %vecinit13.i.i.i122.i1379.i = insertelement <16 x i32> %vecinit12.i.i.i121.i1378.i, i32 %or166.i.i, i64 13
+  %vecinit14.i.i.i123.i1380.i = insertelement <16 x i32> %vecinit13.i.i.i122.i1379.i, i32 %or173.i1365.i, i64 14
+  %vecinit15.i.i.i124.i1381.i = insertelement <16 x i32> %vecinit14.i.i.i123.i1380.i, i32 %ret.0.copyload.i107.i1364.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i1288.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i1289.i)
-  store <16 x i32> %333, ptr %self_buffer.i.i.i.i125.i1288.i, align 64
+  store <16 x i32> %vecinit15.i.i.i124.i1381.i, ptr %self_buffer.i.i.i.i125.i1288.i, align 64
   store <8 x i64> <i64 0, i64 8589934592, i64 0, i64 4, i64 25769803776, i64 0, i64 8, i64 42949672960>, ptr %other_buffer.i.i.i.i126.i1289.i, align 64
   br label %for.body.i.i.i.i128.i1382.i
 
 for.body.i.i.i.i128.i1382.i:                      ; preds = %for.body.i.i.i.i128.i1382.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1341.i
   %i.05.i.i.i.i129.i1383.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1341.i ], [ %inc.i.i.i.i133.i1387.i, %for.body.i.i.i.i128.i1382.i ]
   %arrayidx2.i.i.i.i130.i1384.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i125.i1288.i, i64 0, i64 %i.05.i.i.i.i129.i1383.i
-  %334 = load i32, ptr %arrayidx2.i.i.i.i130.i1384.i, align 4
+  %133 = load i32, ptr %arrayidx2.i.i.i.i130.i1384.i, align 4
   %arrayidx3.i.i.i.i131.i1385.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i126.i1289.i, i64 0, i64 %i.05.i.i.i.i129.i1383.i
-  %335 = load i32, ptr %arrayidx3.i.i.i.i131.i1385.i, align 4
-  %shr.i.i.i.i.i132.i1386.i = lshr i32 %334, %335
+  %134 = load i32, ptr %arrayidx3.i.i.i.i131.i1385.i, align 4
+  %shr.i.i.i.i.i132.i1386.i = lshr i32 %133, %134
   store i32 %shr.i.i.i.i.i132.i1386.i, ptr %arrayidx2.i.i.i.i130.i1384.i, align 4
   %inc.i.i.i.i133.i1387.i = add nuw nsw i64 %i.05.i.i.i.i129.i1383.i, 1
   %exitcond.not.i.i.i.i134.i1388.i = icmp eq i64 %inc.i.i.i.i133.i1387.i, 16
@@ -2920,10 +3060,10 @@ for.body.i.i.i.i128.i1382.i:                      ; preds = %for.body.i.i.i.i128
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack22_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i128.i1382.i
   %add.ptr92.i1389.i = getelementptr inbounds i8, ptr %add.ptr262.i, i64 64
-  %336 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i1288.i, align 64
+  %135 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i1288.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i1288.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i1289.i)
-  %and.i.i.i.i137.i1390.i = and <8 x i64> %336, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i137.i1390.i = and <8 x i64> %135, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
   store <8 x i64> %and.i.i.i.i137.i1390.i, ptr %add.ptr92.i1389.i, align 1
   %add.ptr192.i1391.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 88
   %indvars.iv.next2557.i = add nuw nsw i64 %indvars.iv2556.i, 1
@@ -2935,60 +3075,54 @@ for.body271.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.232398.i = phi ptr [ %in, %for.body271.preheader.i ], [ %add.ptr202.i.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack23_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i1394.i = load i32, ptr %in.addr.232398.i, align 4
   %add.ptr3.i1395.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 4
+  %ret.0.copyload.i60.i1396.i = load i32, ptr %add.ptr3.i1395.i, align 4
+  %or.i1397.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i60.i1396.i, i32 %ret.0.copyload.i.i1394.i, i32 9)
   %add.ptr8.i1398.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 8
   %ret.0.copyload.i62.i1399.i = load i32, ptr %add.ptr8.i1398.i, align 4
-  %337 = load <2 x i32>, ptr %add.ptr3.i1395.i, align 4
-  %338 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i.i1394.i, i64 0
-  %339 = shufflevector <2 x i32> %338, <2 x i32> %337, <2 x i32> <i32 0, i32 2>
-  %340 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %337, <2 x i32> %339, <2 x i32> <i32 9, i32 18>)
+  %or11.i1400.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1399.i, i32 %ret.0.copyload.i60.i1396.i, i32 18)
   %add.ptr17.i1401.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 12
   %ret.0.copyload.i65.i1402.i = load i32, ptr %add.ptr17.i1401.i, align 4
   %or20.i1403.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i65.i1402.i, i32 %ret.0.copyload.i62.i1399.i, i32 4)
   %add.ptr24.i1404.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 16
-  %341 = load <2 x i32>, ptr %add.ptr24.i1404.i, align 4
-  %342 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i65.i1402.i, i64 0
-  %343 = shufflevector <2 x i32> %342, <2 x i32> %341, <2 x i32> <i32 0, i32 2>
-  %344 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %341, <2 x i32> %343, <2 x i32> <i32 13, i32 22>)
+  %ret.0.copyload.i67.i1405.i = load i32, ptr %add.ptr24.i1404.i, align 4
+  %or27.i1406.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i67.i1405.i, i32 %ret.0.copyload.i65.i1402.i, i32 13)
+  %add.ptr31.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 20
+  %ret.0.copyload.i69.i1407.i = load i32, ptr %add.ptr31.i.i, align 4
+  %or34.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i69.i1407.i, i32 %ret.0.copyload.i67.i1405.i, i32 22)
   %add.ptr40.i1408.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 24
+  %ret.0.copyload.i72.i1409.i = load i32, ptr %add.ptr40.i1408.i, align 4
+  %or43.i1410.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i1409.i, i32 %ret.0.copyload.i69.i1407.i, i32 8)
   %add.ptr47.i1411.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 28
   %ret.0.copyload.i74.i1412.i = load i32, ptr %add.ptr47.i1411.i, align 4
-  %345 = load <2 x i32>, ptr %add.ptr40.i1408.i, align 4
-  %346 = shufflevector <2 x i32> %341, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %347 = shufflevector <2 x i32> %346, <2 x i32> %345, <2 x i32> <i32 0, i32 2>
-  %348 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %345, <2 x i32> %347, <2 x i32> <i32 8, i32 17>)
+  %or50.i1413.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i1412.i, i32 %ret.0.copyload.i72.i1409.i, i32 17)
   %add.ptr56.i1414.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 32
   %ret.0.copyload.i77.i1415.i = load i32, ptr %add.ptr56.i1414.i, align 4
   %or59.i1416.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i77.i1415.i, i32 %ret.0.copyload.i74.i1412.i, i32 3)
   %add.ptr63.i1417.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 36
+  %ret.0.copyload.i79.i1418.i = load i32, ptr %add.ptr63.i1417.i, align 4
+  %or66.i1419.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i79.i1418.i, i32 %ret.0.copyload.i77.i1415.i, i32 12)
   %add.ptr70.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 40
   %ret.0.copyload.i81.i1420.i = load i32, ptr %add.ptr70.i.i, align 4
-  %349 = load <2 x i32>, ptr %add.ptr63.i1417.i, align 4
-  %350 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i77.i1415.i, i64 0
-  %351 = shufflevector <2 x i32> %350, <2 x i32> %349, <2 x i32> <i32 0, i32 2>
-  %352 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %349, <2 x i32> %351, <2 x i32> <i32 12, i32 21>)
+  %or73.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i81.i1420.i, i32 %ret.0.copyload.i79.i1418.i, i32 21)
   %add.ptr79.i1421.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 44
   %ret.0.copyload.i84.i1422.i = load i32, ptr %add.ptr79.i1421.i, align 4
   %or82.i1423.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1422.i, i32 %ret.0.copyload.i81.i1420.i, i32 7)
-  %vecinit.i.i.i.i1424.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1394.i, i64 0
-  %353 = shufflevector <2 x i32> %340, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit2.i.i.i.i1426.i163 = shufflevector <16 x i32> %vecinit.i.i.i.i1424.i, <16 x i32> %353, <16 x i32> <i32 0, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %354 = shufflevector <2 x i32> %337, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %355 = shufflevector <16 x i32> %vecinit2.i.i.i.i1426.i163, <16 x i32> %354, <16 x i32> <i32 0, i32 1, i32 2, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1428.i = insertelement <16 x i32> %355, i32 %or20.i1403.i, i64 4
-  %356 = shufflevector <2 x i32> %344, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i.i1430.i162 = shufflevector <16 x i32> %vecinit4.i.i.i.i1428.i, <16 x i32> %356, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %357 = shufflevector <2 x i32> %341, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %358 = shufflevector <16 x i32> %vecinit6.i.i.i.i1430.i162, <16 x i32> %357, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %359 = shufflevector <2 x i32> %348, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i.i1433.i161 = shufflevector <16 x i32> %358, <16 x i32> %359, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %360 = shufflevector <2 x i32> %345, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %361 = shufflevector <16 x i32> %vecinit9.i.i.i.i1433.i161, <16 x i32> %360, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i.i1435.i = insertelement <16 x i32> %361, i32 %or59.i1416.i, i64 11
-  %362 = shufflevector <2 x i32> %352, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i.i1437.i160 = shufflevector <16 x i32> %vecinit11.i.i.i.i1435.i, <16 x i32> %362, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 16, i32 17, i32 poison, i32 poison>
-  %363 = shufflevector <2 x i32> %349, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %364 = shufflevector <16 x i32> %vecinit13.i.i.i.i1437.i160, <16 x i32> %363, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 17, i32 poison>
-  %vecinit15.i.i.i.i1439.i = insertelement <16 x i32> %364, i32 %or82.i1423.i, i64 15
+  %vecinit.i.i.i.i1424.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1394.i, i64 0
+  %vecinit1.i.i.i.i1425.i = insertelement <16 x i32> %vecinit.i.i.i.i1424.i, i32 %or.i1397.i, i64 1
+  %vecinit2.i.i.i.i1426.i = insertelement <16 x i32> %vecinit1.i.i.i.i1425.i, i32 %or11.i1400.i, i64 2
+  %vecinit3.i.i.i.i1427.i = insertelement <16 x i32> %vecinit2.i.i.i.i1426.i, i32 %ret.0.copyload.i62.i1399.i, i64 3
+  %vecinit4.i.i.i.i1428.i = insertelement <16 x i32> %vecinit3.i.i.i.i1427.i, i32 %or20.i1403.i, i64 4
+  %vecinit5.i.i.i.i1429.i = insertelement <16 x i32> %vecinit4.i.i.i.i1428.i, i32 %or27.i1406.i, i64 5
+  %vecinit6.i.i.i.i1430.i = insertelement <16 x i32> %vecinit5.i.i.i.i1429.i, i32 %or34.i.i, i64 6
+  %vecinit7.i.i.i.i1431.i = insertelement <16 x i32> %vecinit6.i.i.i.i1430.i, i32 %ret.0.copyload.i69.i1407.i, i64 7
+  %vecinit8.i.i.i.i1432.i = insertelement <16 x i32> %vecinit7.i.i.i.i1431.i, i32 %or43.i1410.i, i64 8
+  %vecinit9.i.i.i.i1433.i = insertelement <16 x i32> %vecinit8.i.i.i.i1432.i, i32 %or50.i1413.i, i64 9
+  %vecinit10.i.i.i.i1434.i = insertelement <16 x i32> %vecinit9.i.i.i.i1433.i, i32 %ret.0.copyload.i74.i1412.i, i64 10
+  %vecinit11.i.i.i.i1435.i = insertelement <16 x i32> %vecinit10.i.i.i.i1434.i, i32 %or59.i1416.i, i64 11
+  %vecinit12.i.i.i.i1436.i = insertelement <16 x i32> %vecinit11.i.i.i.i1435.i, i32 %or66.i1419.i, i64 12
+  %vecinit13.i.i.i.i1437.i = insertelement <16 x i32> %vecinit12.i.i.i.i1436.i, i32 %or73.i.i, i64 13
+  %vecinit14.i.i.i.i1438.i = insertelement <16 x i32> %vecinit13.i.i.i.i1437.i, i32 %ret.0.copyload.i81.i1420.i, i64 14
+  %vecinit15.i.i.i.i1439.i = insertelement <16 x i32> %vecinit14.i.i.i.i1438.i, i32 %or82.i1423.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1392.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1393.i)
   store <16 x i32> %vecinit15.i.i.i.i1439.i, ptr %self_buffer.i.i.i.i.i1392.i, align 64
@@ -2998,10 +3132,10 @@ for.body271.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i1440.i:                         ; preds = %for.body.i.i.i.i.i1440.i, %for.body271.i
   %i.05.i.i.i.i.i1441.i = phi i64 [ 0, %for.body271.i ], [ %inc.i.i.i.i.i1445.i, %for.body.i.i.i.i.i1440.i ]
   %arrayidx2.i.i.i.i.i1442.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1392.i, i64 0, i64 %i.05.i.i.i.i.i1441.i
-  %365 = load i32, ptr %arrayidx2.i.i.i.i.i1442.i, align 4
+  %136 = load i32, ptr %arrayidx2.i.i.i.i.i1442.i, align 4
   %arrayidx3.i.i.i.i.i1443.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1393.i, i64 0, i64 %i.05.i.i.i.i.i1441.i
-  %366 = load i32, ptr %arrayidx3.i.i.i.i.i1443.i, align 4
-  %shr.i.i.i.i.i.i1444.i = lshr i32 %365, %366
+  %137 = load i32, ptr %arrayidx3.i.i.i.i.i1443.i, align 4
+  %shr.i.i.i.i.i.i1444.i = lshr i32 %136, %137
   store i32 %shr.i.i.i.i.i.i1444.i, ptr %arrayidx2.i.i.i.i.i1442.i, align 4
   %inc.i.i.i.i.i1445.i = add nuw nsw i64 %i.05.i.i.i.i.i1441.i, 1
   %exitcond.not.i.i.i.i.i1446.i = icmp eq i64 %inc.i.i.i.i.i1445.i, 16
@@ -3010,10 +3144,10 @@ for.body.i.i.i.i.i1440.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1447.i: ; preds = %for.body.i.i.i.i.i1440.i
   %add.ptr274.idx.i = shl nsw i64 %indvars.iv2550.i, 7
   %add.ptr274.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr274.idx.i
-  %367 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1392.i, align 64
+  %138 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1392.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1392.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1393.i)
-  %and.i.i.i.i.i1448.i = and <8 x i64> %367, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i.i1448.i = and <8 x i64> %138, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
   store <8 x i64> %and.i.i.i.i.i1448.i, ptr %add.ptr274.i, align 1
   %ret.0.copyload.i86.i1449.i = load i32, ptr %add.ptr79.i1421.i, align 4
   %add.ptr102.i1450.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 48
@@ -3023,63 +3157,61 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1447.i: ; preds = %for.body.i.
   %ret.0.copyload.i90.i1454.i = load i32, ptr %add.ptr111.i1453.i, align 4
   %or114.i1455.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i1454.i, i32 %ret.0.copyload.i87.i1451.i, i32 2)
   %add.ptr118.i1456.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 56
-  %368 = load <2 x i32>, ptr %add.ptr118.i1456.i, align 4
-  %369 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i90.i1454.i, i64 0
-  %370 = shufflevector <2 x i32> %369, <2 x i32> %368, <2 x i32> <i32 0, i32 2>
-  %371 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %368, <2 x i32> %370, <2 x i32> <i32 11, i32 20>)
+  %ret.0.copyload.i92.i1457.i = load i32, ptr %add.ptr118.i1456.i, align 4
+  %or121.i1458.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i1457.i, i32 %ret.0.copyload.i90.i1454.i, i32 11)
+  %add.ptr125.i1459.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 60
+  %ret.0.copyload.i94.i1460.i = load i32, ptr %add.ptr125.i1459.i, align 4
+  %or128.i1461.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i94.i1460.i, i32 %ret.0.copyload.i92.i1457.i, i32 20)
   %add.ptr134.i1462.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 64
+  %ret.0.copyload.i97.i1463.i = load i32, ptr %add.ptr134.i1462.i, align 4
+  %or137.i1464.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1463.i, i32 %ret.0.copyload.i94.i1460.i, i32 6)
   %add.ptr141.i1465.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 68
   %ret.0.copyload.i99.i1466.i = load i32, ptr %add.ptr141.i1465.i, align 4
-  %372 = load <2 x i32>, ptr %add.ptr134.i1462.i, align 4
-  %373 = shufflevector <2 x i32> %368, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %374 = shufflevector <2 x i32> %373, <2 x i32> %372, <2 x i32> <i32 0, i32 2>
-  %375 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %372, <2 x i32> %374, <2 x i32> <i32 6, i32 15>)
+  %or144.i1467.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1466.i, i32 %ret.0.copyload.i97.i1463.i, i32 15)
   %add.ptr150.i1468.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 72
   %ret.0.copyload.i102.i1469.i = load i32, ptr %add.ptr150.i1468.i, align 4
   %or153.i1470.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i1469.i, i32 %ret.0.copyload.i99.i1466.i, i32 1)
   %add.ptr157.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 76
-  %376 = load <2 x i32>, ptr %add.ptr157.i.i, align 4
-  %377 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i102.i1469.i, i64 0
-  %378 = shufflevector <2 x i32> %377, <2 x i32> %376, <2 x i32> <i32 0, i32 2>
-  %379 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %376, <2 x i32> %378, <2 x i32> <i32 10, i32 19>)
+  %ret.0.copyload.i104.i1471.i = load i32, ptr %add.ptr157.i.i, align 4
+  %or160.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i1471.i, i32 %ret.0.copyload.i102.i1469.i, i32 10)
+  %add.ptr164.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 80
+  %ret.0.copyload.i106.i.i = load i32, ptr %add.ptr164.i.i, align 4
+  %or167.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i106.i.i, i32 %ret.0.copyload.i104.i1471.i, i32 19)
   %add.ptr173.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 84
-  %380 = load <2 x i32>, ptr %add.ptr173.i.i, align 4
-  %381 = shufflevector <2 x i32> %376, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %382 = shufflevector <2 x i32> %381, <2 x i32> %380, <2 x i32> <i32 0, i32 2>
-  %383 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %380, <2 x i32> %382, <2 x i32> <i32 5, i32 14>)
-  %vecinit.i.i.i113.i.i = insertelement <16 x i32> poison, i32 %or105.i1452.i, i64 0
+  %ret.0.copyload.i109.i.i = load i32, ptr %add.ptr173.i.i, align 4
+  %or176.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i.i, i32 %ret.0.copyload.i106.i.i, i32 5)
+  %add.ptr180.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 88
+  %ret.0.copyload.i111.i.i = load i32, ptr %add.ptr180.i.i, align 4
+  %or183.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i.i, i32 %ret.0.copyload.i109.i.i, i32 14)
+  %vecinit.i.i.i113.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or105.i1452.i, i64 0
   %vecinit1.i.i.i114.i.i = insertelement <16 x i32> %vecinit.i.i.i113.i.i, i32 %ret.0.copyload.i87.i1451.i, i64 1
   %vecinit2.i.i.i115.i.i = insertelement <16 x i32> %vecinit1.i.i.i114.i.i, i32 %or114.i1455.i, i64 2
-  %384 = shufflevector <2 x i32> %371, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i117.i.i159 = shufflevector <16 x i32> %vecinit2.i.i.i115.i.i, <16 x i32> %384, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %385 = shufflevector <2 x i32> %368, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %386 = shufflevector <16 x i32> %vecinit4.i.i.i117.i.i159, <16 x i32> %385, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %387 = shufflevector <2 x i32> %375, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i120.i.i158 = shufflevector <16 x i32> %386, <16 x i32> %387, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %388 = shufflevector <2 x i32> %372, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %389 = shufflevector <16 x i32> %vecinit7.i.i.i120.i.i158, <16 x i32> %388, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i122.i.i = insertelement <16 x i32> %389, i32 %or153.i1470.i, i64 9
-  %390 = shufflevector <2 x i32> %379, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i124.i.i157 = shufflevector <16 x i32> %vecinit9.i.i.i122.i.i, <16 x i32> %390, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %391 = shufflevector <2 x i32> %376, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %392 = shufflevector <16 x i32> %vecinit11.i.i.i124.i.i157, <16 x i32> %391, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 17, i32 poison, i32 poison, i32 poison>
-  %393 = shufflevector <2 x i32> %383, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i127.i.i156 = shufflevector <16 x i32> %392, <16 x i32> %393, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %394 = shufflevector <2 x i32> %380, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %395 = shufflevector <16 x i32> %vecinit14.i.i.i127.i.i156, <16 x i32> %394, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %vecinit3.i.i.i116.i.i = insertelement <16 x i32> %vecinit2.i.i.i115.i.i, i32 %or121.i1458.i, i64 3
+  %vecinit4.i.i.i117.i.i = insertelement <16 x i32> %vecinit3.i.i.i116.i.i, i32 %or128.i1461.i, i64 4
+  %vecinit5.i.i.i118.i.i = insertelement <16 x i32> %vecinit4.i.i.i117.i.i, i32 %ret.0.copyload.i94.i1460.i, i64 5
+  %vecinit6.i.i.i119.i.i = insertelement <16 x i32> %vecinit5.i.i.i118.i.i, i32 %or137.i1464.i, i64 6
+  %vecinit7.i.i.i120.i.i = insertelement <16 x i32> %vecinit6.i.i.i119.i.i, i32 %or144.i1467.i, i64 7
+  %vecinit8.i.i.i121.i.i = insertelement <16 x i32> %vecinit7.i.i.i120.i.i, i32 %ret.0.copyload.i99.i1466.i, i64 8
+  %vecinit9.i.i.i122.i.i = insertelement <16 x i32> %vecinit8.i.i.i121.i.i, i32 %or153.i1470.i, i64 9
+  %vecinit10.i.i.i123.i.i = insertelement <16 x i32> %vecinit9.i.i.i122.i.i, i32 %or160.i.i, i64 10
+  %vecinit11.i.i.i124.i.i = insertelement <16 x i32> %vecinit10.i.i.i123.i.i, i32 %or167.i.i, i64 11
+  %vecinit12.i.i.i125.i.i = insertelement <16 x i32> %vecinit11.i.i.i124.i.i, i32 %ret.0.copyload.i106.i.i, i64 12
+  %vecinit13.i.i.i126.i.i = insertelement <16 x i32> %vecinit12.i.i.i125.i.i, i32 %or176.i.i, i64 13
+  %vecinit14.i.i.i127.i.i = insertelement <16 x i32> %vecinit13.i.i.i126.i.i, i32 %or183.i.i, i64 14
+  %vecinit15.i.i.i128.i.i = insertelement <16 x i32> %vecinit14.i.i.i127.i.i, i32 %ret.0.copyload.i111.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i129.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i130.i.i)
-  store <16 x i32> %395, ptr %self_buffer.i.i.i.i129.i.i, align 64
+  store <16 x i32> %vecinit15.i.i.i128.i.i, ptr %self_buffer.i.i.i.i129.i.i, align 64
   store <8 x i64> <i64 30064771072, i64 0, i64 12884901888, i64 0, i64 8, i64 0, i64 4, i64 38654705664>, ptr %other_buffer.i.i.i.i130.i.i, align 64
   br label %for.body.i.i.i.i132.i.i
 
 for.body.i.i.i.i132.i.i:                          ; preds = %for.body.i.i.i.i132.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1447.i
   %i.05.i.i.i.i133.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1447.i ], [ %inc.i.i.i.i137.i.i, %for.body.i.i.i.i132.i.i ]
   %arrayidx2.i.i.i.i134.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i129.i.i, i64 0, i64 %i.05.i.i.i.i133.i.i
-  %396 = load i32, ptr %arrayidx2.i.i.i.i134.i.i, align 4
+  %139 = load i32, ptr %arrayidx2.i.i.i.i134.i.i, align 4
   %arrayidx3.i.i.i.i135.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i130.i.i, i64 0, i64 %i.05.i.i.i.i133.i.i
-  %397 = load i32, ptr %arrayidx3.i.i.i.i135.i.i, align 4
-  %shr.i.i.i.i.i136.i.i = lshr i32 %396, %397
+  %140 = load i32, ptr %arrayidx3.i.i.i.i135.i.i, align 4
+  %shr.i.i.i.i.i136.i.i = lshr i32 %139, %140
   store i32 %shr.i.i.i.i.i136.i.i, ptr %arrayidx2.i.i.i.i134.i.i, align 4
   %inc.i.i.i.i137.i.i = add nuw nsw i64 %i.05.i.i.i.i133.i.i, 1
   %exitcond.not.i.i.i.i138.i.i = icmp eq i64 %inc.i.i.i.i137.i.i, 16
@@ -3087,10 +3219,10 @@ for.body.i.i.i.i132.i.i:                          ; preds = %for.body.i.i.i.i132
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack23_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i132.i.i
   %add.ptr97.i1472.i = getelementptr inbounds i8, ptr %add.ptr274.i, i64 64
-  %398 = load <8 x i64>, ptr %self_buffer.i.i.i.i129.i.i, align 64
+  %141 = load <8 x i64>, ptr %self_buffer.i.i.i.i129.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i129.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i130.i.i)
-  %and.i.i.i.i141.i.i = and <8 x i64> %398, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i141.i.i = and <8 x i64> %141, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
   store <8 x i64> %and.i.i.i.i141.i.i, ptr %add.ptr97.i1472.i, align 1
   %add.ptr202.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 92
   %indvars.iv.next2551.i = add nuw nsw i64 %indvars.iv2550.i, 1
@@ -3100,57 +3232,66 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
 for.body283.i:                                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack24_32EPKjPj.exit.i, %for.body283.preheader.i
   %indvars.iv2544.i = phi i64 [ 0, %for.body283.preheader.i ], [ %indvars.iv.next2545.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack24_32EPKjPj.exit.i ]
   %in.addr.242395.i = phi ptr [ %in, %for.body283.preheader.i ], [ %add.ptr172.i1588.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack24_32EPKjPj.exit.i ]
+  %ret.0.copyload.i.i1477.i = load i32, ptr %in.addr.242395.i, align 4
+  %add.ptr3.i1478.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 4
+  %ret.0.copyload.i54.i1479.i = load i32, ptr %add.ptr3.i1478.i, align 4
+  %or.i1480.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i54.i1479.i, i32 %ret.0.copyload.i.i1477.i, i32 8)
   %add.ptr8.i1481.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 8
-  %399 = load <2 x i32>, ptr %add.ptr8.i1481.i, align 4
-  %400 = load <2 x i32>, ptr %in.addr.242395.i, align 4
-  %401 = shufflevector <2 x i32> %399, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %402 = shufflevector <2 x i32> %401, <2 x i32> %400, <2 x i32> <i32 3, i32 1>
-  %403 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %402, <2 x i32> %400, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i56.i1482.i = load i32, ptr %add.ptr8.i1481.i, align 4
+  %or11.i1483.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i56.i1482.i, i32 %ret.0.copyload.i54.i1479.i, i32 16)
+  %add.ptr14.i1484.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 12
+  %ret.0.copyload.i58.i1485.i = load i32, ptr %add.ptr14.i1484.i, align 4
   %add.ptr19.i1486.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 16
-  %404 = load <2 x i32>, ptr %add.ptr19.i1486.i, align 4
-  %405 = shufflevector <2 x i32> %401, <2 x i32> %404, <2 x i32> <i32 0, i32 2>
-  %406 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %404, <2 x i32> %405, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i60.i1487.i = load i32, ptr %add.ptr19.i1486.i, align 4
+  %or22.i1488.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i60.i1487.i, i32 %ret.0.copyload.i58.i1485.i, i32 8)
+  %add.ptr26.i1489.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 20
+  %ret.0.copyload.i62.i1490.i = load i32, ptr %add.ptr26.i1489.i, align 4
+  %or29.i1491.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1490.i, i32 %ret.0.copyload.i60.i1487.i, i32 16)
   %add.ptr32.i1492.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 24
+  %ret.0.copyload.i64.i1493.i = load i32, ptr %add.ptr32.i1492.i, align 4
+  %add.ptr37.i1494.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 28
+  %ret.0.copyload.i66.i1495.i = load i32, ptr %add.ptr37.i1494.i, align 4
+  %or40.i1496.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1495.i, i32 %ret.0.copyload.i64.i1493.i, i32 8)
   %add.ptr44.i1497.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 32
-  %407 = load <2 x i32>, ptr %add.ptr44.i1497.i, align 4
-  %408 = load <2 x i32>, ptr %add.ptr32.i1492.i, align 4
-  %409 = shufflevector <2 x i32> %407, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %410 = shufflevector <2 x i32> %409, <2 x i32> %408, <2 x i32> <i32 3, i32 1>
-  %411 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %410, <2 x i32> %408, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i68.i1498.i = load i32, ptr %add.ptr44.i1497.i, align 4
+  %or47.i1499.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1498.i, i32 %ret.0.copyload.i66.i1495.i, i32 16)
+  %add.ptr50.i1500.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 36
+  %ret.0.copyload.i70.i1501.i = load i32, ptr %add.ptr50.i1500.i, align 4
   %add.ptr55.i1502.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 40
-  %412 = load <2 x i32>, ptr %add.ptr55.i1502.i, align 4
-  %413 = shufflevector <2 x i32> %409, <2 x i32> %412, <2 x i32> <i32 0, i32 2>
-  %414 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %412, <2 x i32> %413, <2 x i32> <i32 8, i32 16>)
-  %vecinit2.i.i.i.i1510.i175 = shufflevector <2 x i32> %400, <2 x i32> %403, <16 x i32> <i32 0, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %415 = shufflevector <2 x i32> %399, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1512.i174 = shufflevector <16 x i32> %vecinit2.i.i.i.i1510.i175, <16 x i32> %415, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %416 = shufflevector <2 x i32> %406, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i.i1514.i173 = shufflevector <16 x i32> %vecinit4.i.i.i.i1512.i174, <16 x i32> %416, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %417 = shufflevector <2 x i32> %404, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %418 = shufflevector <16 x i32> %vecinit6.i.i.i.i1514.i173, <16 x i32> %417, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %419 = shufflevector <2 x i32> %408, <2 x i32> poison, <16 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %420 = shufflevector <16 x i32> %418, <16 x i32> %419, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %421 = shufflevector <2 x i32> %411, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i.i1518.i172 = shufflevector <16 x i32> %420, <16 x i32> %421, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %422 = shufflevector <2 x i32> %407, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i1520.i171 = shufflevector <16 x i32> %vecinit10.i.i.i.i1518.i172, <16 x i32> %422, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %423 = shufflevector <2 x i32> %414, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i1522.i170 = shufflevector <16 x i32> %vecinit12.i.i.i.i1520.i171, <16 x i32> %423, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %424 = shufflevector <2 x i32> %412, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %425 = shufflevector <16 x i32> %vecinit14.i.i.i.i1522.i170, <16 x i32> %424, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i72.i1503.i = load i32, ptr %add.ptr55.i1502.i, align 4
+  %or58.i1504.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i1503.i, i32 %ret.0.copyload.i70.i1501.i, i32 8)
+  %add.ptr62.i1505.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 44
+  %ret.0.copyload.i74.i1506.i = load i32, ptr %add.ptr62.i1505.i, align 4
+  %or65.i1507.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i1506.i, i32 %ret.0.copyload.i72.i1503.i, i32 16)
+  %vecinit.i.i.i.i1508.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1477.i, i64 0
+  %vecinit1.i.i.i.i1509.i = insertelement <16 x i32> %vecinit.i.i.i.i1508.i, i32 %or.i1480.i, i64 1
+  %vecinit2.i.i.i.i1510.i = insertelement <16 x i32> %vecinit1.i.i.i.i1509.i, i32 %or11.i1483.i, i64 2
+  %vecinit3.i.i.i.i1511.i = insertelement <16 x i32> %vecinit2.i.i.i.i1510.i, i32 %ret.0.copyload.i56.i1482.i, i64 3
+  %vecinit4.i.i.i.i1512.i = insertelement <16 x i32> %vecinit3.i.i.i.i1511.i, i32 %ret.0.copyload.i58.i1485.i, i64 4
+  %vecinit5.i.i.i.i1513.i = insertelement <16 x i32> %vecinit4.i.i.i.i1512.i, i32 %or22.i1488.i, i64 5
+  %vecinit6.i.i.i.i1514.i = insertelement <16 x i32> %vecinit5.i.i.i.i1513.i, i32 %or29.i1491.i, i64 6
+  %vecinit7.i.i.i.i1515.i = insertelement <16 x i32> %vecinit6.i.i.i.i1514.i, i32 %ret.0.copyload.i62.i1490.i, i64 7
+  %vecinit8.i.i.i.i1516.i = insertelement <16 x i32> %vecinit7.i.i.i.i1515.i, i32 %ret.0.copyload.i64.i1493.i, i64 8
+  %vecinit9.i.i.i.i1517.i = insertelement <16 x i32> %vecinit8.i.i.i.i1516.i, i32 %or40.i1496.i, i64 9
+  %vecinit10.i.i.i.i1518.i = insertelement <16 x i32> %vecinit9.i.i.i.i1517.i, i32 %or47.i1499.i, i64 10
+  %vecinit11.i.i.i.i1519.i = insertelement <16 x i32> %vecinit10.i.i.i.i1518.i, i32 %ret.0.copyload.i68.i1498.i, i64 11
+  %vecinit12.i.i.i.i1520.i = insertelement <16 x i32> %vecinit11.i.i.i.i1519.i, i32 %ret.0.copyload.i70.i1501.i, i64 12
+  %vecinit13.i.i.i.i1521.i = insertelement <16 x i32> %vecinit12.i.i.i.i1520.i, i32 %or58.i1504.i, i64 13
+  %vecinit14.i.i.i.i1522.i = insertelement <16 x i32> %vecinit13.i.i.i.i1521.i, i32 %or65.i1507.i, i64 14
+  %vecinit15.i.i.i.i1523.i = insertelement <16 x i32> %vecinit14.i.i.i.i1522.i, i32 %ret.0.copyload.i74.i1506.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1475.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1476.i)
-  store <16 x i32> %425, ptr %self_buffer.i.i.i.i.i1475.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1523.i, ptr %self_buffer.i.i.i.i.i1475.i, align 64
   store <8 x i64> <i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368>, ptr %other_buffer.i.i.i.i.i1476.i, align 64
   br label %for.body.i.i.i.i.i1524.i
 
 for.body.i.i.i.i.i1524.i:                         ; preds = %for.body.i.i.i.i.i1524.i, %for.body283.i
   %i.05.i.i.i.i.i1525.i = phi i64 [ 0, %for.body283.i ], [ %inc.i.i.i.i.i1529.i, %for.body.i.i.i.i.i1524.i ]
   %arrayidx2.i.i.i.i.i1526.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1475.i, i64 0, i64 %i.05.i.i.i.i.i1525.i
-  %426 = load i32, ptr %arrayidx2.i.i.i.i.i1526.i, align 4
+  %142 = load i32, ptr %arrayidx2.i.i.i.i.i1526.i, align 4
   %arrayidx3.i.i.i.i.i1527.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1476.i, i64 0, i64 %i.05.i.i.i.i.i1525.i
-  %427 = load i32, ptr %arrayidx3.i.i.i.i.i1527.i, align 4
-  %shr.i.i.i.i.i.i1528.i = lshr i32 %426, %427
+  %143 = load i32, ptr %arrayidx3.i.i.i.i.i1527.i, align 4
+  %shr.i.i.i.i.i.i1528.i = lshr i32 %142, %143
   store i32 %shr.i.i.i.i.i.i1528.i, ptr %arrayidx2.i.i.i.i.i1526.i, align 4
   %inc.i.i.i.i.i1529.i = add nuw nsw i64 %i.05.i.i.i.i.i1525.i, 1
   %exitcond.not.i.i.i.i.i1530.i = icmp eq i64 %inc.i.i.i.i.i1529.i, 16
@@ -3159,63 +3300,72 @@ for.body.i.i.i.i.i1524.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1531.i: ; preds = %for.body.i.i.i.i.i1524.i
   %add.ptr286.idx.i = shl nsw i64 %indvars.iv2544.i, 7
   %add.ptr286.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr286.idx.i
-  %428 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1475.i, align 64
+  %144 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1475.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1475.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1476.i)
-  %and.i.i.i.i.i1532.i = and <8 x i64> %428, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i.i1532.i = and <8 x i64> %144, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
   store <8 x i64> %and.i.i.i.i.i1532.i, ptr %add.ptr286.i, align 1
   %add.ptr84.i1533.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 48
+  %ret.0.copyload.i77.i1534.i = load i32, ptr %add.ptr84.i1533.i, align 4
+  %add.ptr89.i1535.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 52
+  %ret.0.copyload.i79.i1536.i = load i32, ptr %add.ptr89.i1535.i, align 4
+  %or92.i1537.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i79.i1536.i, i32 %ret.0.copyload.i77.i1534.i, i32 8)
   %add.ptr96.i1538.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 56
-  %429 = load <2 x i32>, ptr %add.ptr96.i1538.i, align 4
-  %430 = load <2 x i32>, ptr %add.ptr84.i1533.i, align 4
-  %431 = shufflevector <2 x i32> %429, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %432 = shufflevector <2 x i32> %431, <2 x i32> %430, <2 x i32> <i32 3, i32 1>
-  %433 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %432, <2 x i32> %430, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i81.i1539.i = load i32, ptr %add.ptr96.i1538.i, align 4
+  %or99.i1540.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i81.i1539.i, i32 %ret.0.copyload.i79.i1536.i, i32 16)
+  %add.ptr102.i1541.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 60
+  %ret.0.copyload.i83.i1542.i = load i32, ptr %add.ptr102.i1541.i, align 4
   %add.ptr107.i1543.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 64
-  %434 = load <2 x i32>, ptr %add.ptr107.i1543.i, align 4
-  %435 = shufflevector <2 x i32> %431, <2 x i32> %434, <2 x i32> <i32 0, i32 2>
-  %436 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %434, <2 x i32> %435, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i85.i1544.i = load i32, ptr %add.ptr107.i1543.i, align 4
+  %or110.i1545.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i85.i1544.i, i32 %ret.0.copyload.i83.i1542.i, i32 8)
+  %add.ptr114.i1546.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 68
+  %ret.0.copyload.i87.i1547.i = load i32, ptr %add.ptr114.i1546.i, align 4
+  %or117.i1548.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1547.i, i32 %ret.0.copyload.i85.i1544.i, i32 16)
   %add.ptr120.i1549.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 72
+  %ret.0.copyload.i89.i1550.i = load i32, ptr %add.ptr120.i1549.i, align 4
+  %add.ptr125.i1551.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 76
+  %ret.0.copyload.i91.i1552.i = load i32, ptr %add.ptr125.i1551.i, align 4
+  %or128.i1553.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i91.i1552.i, i32 %ret.0.copyload.i89.i1550.i, i32 8)
   %add.ptr132.i1554.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 80
-  %437 = load <2 x i32>, ptr %add.ptr132.i1554.i, align 4
-  %438 = load <2 x i32>, ptr %add.ptr120.i1549.i, align 4
-  %439 = shufflevector <2 x i32> %437, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %440 = shufflevector <2 x i32> %439, <2 x i32> %438, <2 x i32> <i32 3, i32 1>
-  %441 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %440, <2 x i32> %438, <2 x i32> <i32 8, i32 16>)
+  %ret.0.copyload.i93.i1555.i = load i32, ptr %add.ptr132.i1554.i, align 4
+  %or135.i1556.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i93.i1555.i, i32 %ret.0.copyload.i91.i1552.i, i32 16)
+  %add.ptr138.i1557.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 84
+  %ret.0.copyload.i95.i1558.i = load i32, ptr %add.ptr138.i1557.i, align 4
   %add.ptr143.i.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 88
-  %442 = load <2 x i32>, ptr %add.ptr143.i.i, align 4
-  %443 = shufflevector <2 x i32> %439, <2 x i32> %442, <2 x i32> <i32 0, i32 2>
-  %444 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %442, <2 x i32> %443, <2 x i32> <i32 8, i32 16>)
-  %vecinit2.i.i.i103.i1565.i169 = shufflevector <2 x i32> %430, <2 x i32> %433, <16 x i32> <i32 0, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %445 = shufflevector <2 x i32> %429, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i105.i1567.i168 = shufflevector <16 x i32> %vecinit2.i.i.i103.i1565.i169, <16 x i32> %445, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %446 = shufflevector <2 x i32> %436, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i107.i1569.i167 = shufflevector <16 x i32> %vecinit4.i.i.i105.i1567.i168, <16 x i32> %446, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %447 = shufflevector <2 x i32> %434, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %448 = shufflevector <16 x i32> %vecinit6.i.i.i107.i1569.i167, <16 x i32> %447, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %449 = shufflevector <2 x i32> %438, <2 x i32> poison, <16 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %450 = shufflevector <16 x i32> %448, <16 x i32> %449, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %451 = shufflevector <2 x i32> %441, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i111.i1573.i166 = shufflevector <16 x i32> %450, <16 x i32> %451, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %452 = shufflevector <2 x i32> %437, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i113.i1575.i165 = shufflevector <16 x i32> %vecinit10.i.i.i111.i1573.i166, <16 x i32> %452, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %453 = shufflevector <2 x i32> %444, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i115.i1577.i164 = shufflevector <16 x i32> %vecinit12.i.i.i113.i1575.i165, <16 x i32> %453, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %454 = shufflevector <2 x i32> %442, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %455 = shufflevector <16 x i32> %vecinit14.i.i.i115.i1577.i164, <16 x i32> %454, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i97.i1559.i = load i32, ptr %add.ptr143.i.i, align 4
+  %or146.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1559.i, i32 %ret.0.copyload.i95.i1558.i, i32 8)
+  %add.ptr150.i1560.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 92
+  %ret.0.copyload.i99.i1561.i = load i32, ptr %add.ptr150.i1560.i, align 4
+  %or153.i1562.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1561.i, i32 %ret.0.copyload.i97.i1559.i, i32 16)
+  %vecinit.i.i.i101.i1563.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i77.i1534.i, i64 0
+  %vecinit1.i.i.i102.i1564.i = insertelement <16 x i32> %vecinit.i.i.i101.i1563.i, i32 %or92.i1537.i, i64 1
+  %vecinit2.i.i.i103.i1565.i = insertelement <16 x i32> %vecinit1.i.i.i102.i1564.i, i32 %or99.i1540.i, i64 2
+  %vecinit3.i.i.i104.i1566.i = insertelement <16 x i32> %vecinit2.i.i.i103.i1565.i, i32 %ret.0.copyload.i81.i1539.i, i64 3
+  %vecinit4.i.i.i105.i1567.i = insertelement <16 x i32> %vecinit3.i.i.i104.i1566.i, i32 %ret.0.copyload.i83.i1542.i, i64 4
+  %vecinit5.i.i.i106.i1568.i = insertelement <16 x i32> %vecinit4.i.i.i105.i1567.i, i32 %or110.i1545.i, i64 5
+  %vecinit6.i.i.i107.i1569.i = insertelement <16 x i32> %vecinit5.i.i.i106.i1568.i, i32 %or117.i1548.i, i64 6
+  %vecinit7.i.i.i108.i1570.i = insertelement <16 x i32> %vecinit6.i.i.i107.i1569.i, i32 %ret.0.copyload.i87.i1547.i, i64 7
+  %vecinit8.i.i.i109.i1571.i = insertelement <16 x i32> %vecinit7.i.i.i108.i1570.i, i32 %ret.0.copyload.i89.i1550.i, i64 8
+  %vecinit9.i.i.i110.i1572.i = insertelement <16 x i32> %vecinit8.i.i.i109.i1571.i, i32 %or128.i1553.i, i64 9
+  %vecinit10.i.i.i111.i1573.i = insertelement <16 x i32> %vecinit9.i.i.i110.i1572.i, i32 %or135.i1556.i, i64 10
+  %vecinit11.i.i.i112.i1574.i = insertelement <16 x i32> %vecinit10.i.i.i111.i1573.i, i32 %ret.0.copyload.i93.i1555.i, i64 11
+  %vecinit12.i.i.i113.i1575.i = insertelement <16 x i32> %vecinit11.i.i.i112.i1574.i, i32 %ret.0.copyload.i95.i1558.i, i64 12
+  %vecinit13.i.i.i114.i1576.i = insertelement <16 x i32> %vecinit12.i.i.i113.i1575.i, i32 %or146.i.i, i64 13
+  %vecinit14.i.i.i115.i1577.i = insertelement <16 x i32> %vecinit13.i.i.i114.i1576.i, i32 %or153.i1562.i, i64 14
+  %vecinit15.i.i.i116.i1578.i = insertelement <16 x i32> %vecinit14.i.i.i115.i1577.i, i32 %ret.0.copyload.i99.i1561.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1473.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1474.i)
-  store <16 x i32> %455, ptr %self_buffer.i.i.i.i117.i1473.i, align 64
+  store <16 x i32> %vecinit15.i.i.i116.i1578.i, ptr %self_buffer.i.i.i.i117.i1473.i, align 64
   store <8 x i64> <i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368, i64 0, i64 34359738368>, ptr %other_buffer.i.i.i.i118.i1474.i, align 64
   br label %for.body.i.i.i.i120.i1579.i
 
 for.body.i.i.i.i120.i1579.i:                      ; preds = %for.body.i.i.i.i120.i1579.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1531.i
   %i.05.i.i.i.i121.i1580.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1531.i ], [ %inc.i.i.i.i125.i1584.i, %for.body.i.i.i.i120.i1579.i ]
   %arrayidx2.i.i.i.i122.i1581.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i117.i1473.i, i64 0, i64 %i.05.i.i.i.i121.i1580.i
-  %456 = load i32, ptr %arrayidx2.i.i.i.i122.i1581.i, align 4
+  %145 = load i32, ptr %arrayidx2.i.i.i.i122.i1581.i, align 4
   %arrayidx3.i.i.i.i123.i1582.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i118.i1474.i, i64 0, i64 %i.05.i.i.i.i121.i1580.i
-  %457 = load i32, ptr %arrayidx3.i.i.i.i123.i1582.i, align 4
-  %shr.i.i.i.i.i124.i1583.i = lshr i32 %456, %457
+  %146 = load i32, ptr %arrayidx3.i.i.i.i123.i1582.i, align 4
+  %shr.i.i.i.i.i124.i1583.i = lshr i32 %145, %146
   store i32 %shr.i.i.i.i.i124.i1583.i, ptr %arrayidx2.i.i.i.i122.i1581.i, align 4
   %inc.i.i.i.i125.i1584.i = add nuw nsw i64 %i.05.i.i.i.i121.i1580.i, 1
   %exitcond.not.i.i.i.i126.i1585.i = icmp eq i64 %inc.i.i.i.i125.i1584.i, 16
@@ -3223,10 +3373,10 @@ for.body.i.i.i.i120.i1579.i:                      ; preds = %for.body.i.i.i.i120
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack24_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i120.i1579.i
   %add.ptr82.i1586.i = getelementptr inbounds i8, ptr %add.ptr286.i, i64 64
-  %458 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1473.i, align 64
+  %147 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1473.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1473.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1474.i)
-  %and.i.i.i.i129.i1587.i = and <8 x i64> %458, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i129.i1587.i = and <8 x i64> %147, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
   store <8 x i64> %and.i.i.i.i129.i1587.i, ptr %add.ptr82.i1586.i, align 1
   %add.ptr172.i1588.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 96
   %indvars.iv.next2545.i = add nuw nsw i64 %indvars.iv2544.i, 1
@@ -3241,61 +3391,67 @@ for.body295.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i62.i1593.i = load i32, ptr %add.ptr3.i1592.i, align 4
   %or.i1594.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1593.i, i32 %ret.0.copyload.i.i1591.i, i32 7)
   %add.ptr8.i1595.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 8
-  %459 = load <2 x i32>, ptr %add.ptr8.i1595.i, align 4
-  %460 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i62.i1593.i, i64 0
-  %461 = shufflevector <2 x i32> %460, <2 x i32> %459, <2 x i32> <i32 0, i32 2>
-  %462 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %459, <2 x i32> %461, <2 x i32> <i32 14, i32 21>)
+  %ret.0.copyload.i64.i1596.i = load i32, ptr %add.ptr8.i1595.i, align 4
+  %or11.i1597.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i64.i1596.i, i32 %ret.0.copyload.i62.i1593.i, i32 14)
+  %add.ptr15.i1598.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 12
+  %ret.0.copyload.i66.i1599.i = load i32, ptr %add.ptr15.i1598.i, align 4
+  %or18.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1599.i, i32 %ret.0.copyload.i64.i1596.i, i32 21)
   %add.ptr24.i1600.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 16
+  %ret.0.copyload.i69.i1601.i = load i32, ptr %add.ptr24.i1600.i, align 4
+  %or27.i1602.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i69.i1601.i, i32 %ret.0.copyload.i66.i1599.i, i32 3)
+  %add.ptr31.i1603.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 20
+  %ret.0.copyload.i71.i1604.i = load i32, ptr %add.ptr31.i1603.i, align 4
+  %or34.i1605.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i71.i1604.i, i32 %ret.0.copyload.i69.i1601.i, i32 10)
+  %add.ptr38.i1606.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 24
+  %ret.0.copyload.i73.i1607.i = load i32, ptr %add.ptr38.i1606.i, align 4
+  %or41.i1608.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i73.i1607.i, i32 %ret.0.copyload.i71.i1604.i, i32 17)
   %add.ptr45.i1609.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 28
   %ret.0.copyload.i75.i1610.i = load i32, ptr %add.ptr45.i1609.i, align 4
-  %463 = load <4 x i32>, ptr %add.ptr24.i1600.i, align 4
-  %464 = shufflevector <2 x i32> %459, <2 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %465 = shufflevector <4 x i32> %464, <4 x i32> %463, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %466 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %463, <4 x i32> %465, <4 x i32> <i32 3, i32 10, i32 17, i32 24>)
+  %or48.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i75.i1610.i, i32 %ret.0.copyload.i73.i1607.i, i32 24)
   %add.ptr54.i1611.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 32
   %ret.0.copyload.i78.i1612.i = load i32, ptr %add.ptr54.i1611.i, align 4
   %or57.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i1612.i, i32 %ret.0.copyload.i75.i1610.i, i32 6)
   %add.ptr61.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 36
-  %467 = load <2 x i32>, ptr %add.ptr61.i.i, align 4
-  %468 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i78.i1612.i, i64 0
-  %469 = shufflevector <2 x i32> %468, <2 x i32> %467, <2 x i32> <i32 0, i32 2>
-  %470 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %467, <2 x i32> %469, <2 x i32> <i32 13, i32 20>)
+  %ret.0.copyload.i80.i1613.i = load i32, ptr %add.ptr61.i.i, align 4
+  %or64.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i1613.i, i32 %ret.0.copyload.i78.i1612.i, i32 13)
+  %add.ptr68.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 40
+  %ret.0.copyload.i82.i1614.i = load i32, ptr %add.ptr68.i.i, align 4
+  %or71.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i1614.i, i32 %ret.0.copyload.i80.i1613.i, i32 20)
   %add.ptr77.i1615.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 44
+  %ret.0.copyload.i85.i1616.i = load i32, ptr %add.ptr77.i1615.i, align 4
+  %or80.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i85.i1616.i, i32 %ret.0.copyload.i82.i1614.i, i32 2)
   %add.ptr84.i1617.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 48
-  %471 = load <2 x i32>, ptr %add.ptr77.i1615.i, align 4
-  %472 = shufflevector <2 x i32> %467, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %473 = shufflevector <2 x i32> %472, <2 x i32> %471, <2 x i32> <i32 0, i32 2>
-  %474 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %471, <2 x i32> %473, <2 x i32> <i32 2, i32 9>)
-  %vecinit.i.i.i.i1620.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1591.i, i64 0
+  %ret.0.copyload.i87.i1618.i = load i32, ptr %add.ptr84.i1617.i, align 4
+  %or87.i1619.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i1618.i, i32 %ret.0.copyload.i85.i1616.i, i32 9)
+  %vecinit.i.i.i.i1620.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1591.i, i64 0
   %vecinit1.i.i.i.i1621.i = insertelement <16 x i32> %vecinit.i.i.i.i1620.i, i32 %or.i1594.i, i64 1
-  %475 = shufflevector <2 x i32> %462, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit3.i.i.i.i1623.i182 = shufflevector <16 x i32> %vecinit1.i.i.i.i1621.i, <16 x i32> %475, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %476 = shufflevector <2 x i32> %459, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %477 = shufflevector <16 x i32> %vecinit3.i.i.i.i1623.i182, <16 x i32> %476, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %478 = shufflevector <4 x i32> %466, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i1628.i179 = shufflevector <16 x i32> %477, <16 x i32> %478, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %479 = shufflevector <4 x i32> %463, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %480 = shufflevector <16 x i32> %vecinit8.i.i.i.i1628.i179, <16 x i32> %479, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i.i1630.i = insertelement <16 x i32> %480, i32 %or57.i.i, i64 10
-  %481 = shufflevector <2 x i32> %470, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i1632.i181 = shufflevector <16 x i32> %vecinit10.i.i.i.i1630.i, <16 x i32> %481, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 poison, i32 poison, i32 poison>
-  %482 = shufflevector <2 x i32> %467, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %483 = shufflevector <16 x i32> %vecinit12.i.i.i.i1632.i181, <16 x i32> %482, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 17, i32 poison, i32 poison>
-  %484 = shufflevector <2 x i32> %474, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit15.i.i.i.i1635.i180 = shufflevector <16 x i32> %483, <16 x i32> %484, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 16, i32 17>
+  %vecinit2.i.i.i.i1622.i = insertelement <16 x i32> %vecinit1.i.i.i.i1621.i, i32 %or11.i1597.i, i64 2
+  %vecinit3.i.i.i.i1623.i = insertelement <16 x i32> %vecinit2.i.i.i.i1622.i, i32 %or18.i.i, i64 3
+  %vecinit4.i.i.i.i1624.i = insertelement <16 x i32> %vecinit3.i.i.i.i1623.i, i32 %ret.0.copyload.i66.i1599.i, i64 4
+  %vecinit5.i.i.i.i1625.i = insertelement <16 x i32> %vecinit4.i.i.i.i1624.i, i32 %or27.i1602.i, i64 5
+  %vecinit6.i.i.i.i1626.i = insertelement <16 x i32> %vecinit5.i.i.i.i1625.i, i32 %or34.i1605.i, i64 6
+  %vecinit7.i.i.i.i1627.i = insertelement <16 x i32> %vecinit6.i.i.i.i1626.i, i32 %or41.i1608.i, i64 7
+  %vecinit8.i.i.i.i1628.i = insertelement <16 x i32> %vecinit7.i.i.i.i1627.i, i32 %or48.i.i, i64 8
+  %vecinit9.i.i.i.i1629.i = insertelement <16 x i32> %vecinit8.i.i.i.i1628.i, i32 %ret.0.copyload.i75.i1610.i, i64 9
+  %vecinit10.i.i.i.i1630.i = insertelement <16 x i32> %vecinit9.i.i.i.i1629.i, i32 %or57.i.i, i64 10
+  %vecinit11.i.i.i.i1631.i = insertelement <16 x i32> %vecinit10.i.i.i.i1630.i, i32 %or64.i.i, i64 11
+  %vecinit12.i.i.i.i1632.i = insertelement <16 x i32> %vecinit11.i.i.i.i1631.i, i32 %or71.i.i, i64 12
+  %vecinit13.i.i.i.i1633.i = insertelement <16 x i32> %vecinit12.i.i.i.i1632.i, i32 %ret.0.copyload.i82.i1614.i, i64 13
+  %vecinit14.i.i.i.i1634.i = insertelement <16 x i32> %vecinit13.i.i.i.i1633.i, i32 %or80.i.i, i64 14
+  %vecinit15.i.i.i.i1635.i = insertelement <16 x i32> %vecinit14.i.i.i.i1634.i, i32 %or87.i1619.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1589.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1590.i)
-  store <16 x i32> %vecinit15.i.i.i.i1635.i180, ptr %self_buffer.i.i.i.i.i1589.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1635.i, ptr %self_buffer.i.i.i.i.i1589.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 4, i64 0, i64 4294967296, i64 0, i64 21474836480, i64 0>, ptr %other_buffer.i.i.i.i.i1590.i, align 64
   br label %for.body.i.i.i.i.i1636.i
 
 for.body.i.i.i.i.i1636.i:                         ; preds = %for.body.i.i.i.i.i1636.i, %for.body295.i
   %i.05.i.i.i.i.i1637.i = phi i64 [ 0, %for.body295.i ], [ %inc.i.i.i.i.i1641.i, %for.body.i.i.i.i.i1636.i ]
   %arrayidx2.i.i.i.i.i1638.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1589.i, i64 0, i64 %i.05.i.i.i.i.i1637.i
-  %485 = load i32, ptr %arrayidx2.i.i.i.i.i1638.i, align 4
+  %148 = load i32, ptr %arrayidx2.i.i.i.i.i1638.i, align 4
   %arrayidx3.i.i.i.i.i1639.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1590.i, i64 0, i64 %i.05.i.i.i.i.i1637.i
-  %486 = load i32, ptr %arrayidx3.i.i.i.i.i1639.i, align 4
-  %shr.i.i.i.i.i.i1640.i = lshr i32 %485, %486
+  %149 = load i32, ptr %arrayidx3.i.i.i.i.i1639.i, align 4
+  %shr.i.i.i.i.i.i1640.i = lshr i32 %148, %149
   store i32 %shr.i.i.i.i.i.i1640.i, ptr %arrayidx2.i.i.i.i.i1638.i, align 4
   %inc.i.i.i.i.i1641.i = add nuw nsw i64 %i.05.i.i.i.i.i1637.i, 1
   %exitcond.not.i.i.i.i.i1642.i = icmp eq i64 %inc.i.i.i.i.i1641.i, 16
@@ -3304,70 +3460,77 @@ for.body.i.i.i.i.i1636.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1643.i: ; preds = %for.body.i.i.i.i.i1636.i
   %add.ptr298.idx.i = shl nsw i64 %indvars.iv2538.i, 7
   %add.ptr298.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr298.idx.i
-  %487 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1589.i, align 64
+  %150 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1589.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1589.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1590.i)
-  %and.i.i.i.i.i1644.i = and <8 x i64> %487, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i.i1644.i = and <8 x i64> %150, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
   store <8 x i64> %and.i.i.i.i.i1644.i, ptr %add.ptr298.i, align 1
   %ret.0.copyload.i89.i1645.i = load i32, ptr %add.ptr84.i1617.i, align 4
   %add.ptr107.i1646.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 52
+  %ret.0.copyload.i90.i1647.i = load i32, ptr %add.ptr107.i1646.i, align 4
+  %or110.i1648.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i1647.i, i32 %ret.0.copyload.i89.i1645.i, i32 16)
   %add.ptr114.i1649.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 56
   %ret.0.copyload.i92.i1650.i = load i32, ptr %add.ptr114.i1649.i, align 4
-  %488 = load <2 x i32>, ptr %add.ptr107.i1646.i, align 4
-  %489 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i89.i1645.i, i64 0
-  %490 = shufflevector <2 x i32> %489, <2 x i32> %488, <2 x i32> <i32 0, i32 2>
-  %491 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %488, <2 x i32> %490, <2 x i32> <i32 16, i32 23>)
+  %or117.i1651.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i1650.i, i32 %ret.0.copyload.i90.i1647.i, i32 23)
   %add.ptr123.i1652.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 60
   %ret.0.copyload.i95.i1653.i = load i32, ptr %add.ptr123.i1652.i, align 4
   %or126.i1654.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i95.i1653.i, i32 %ret.0.copyload.i92.i1650.i, i32 5)
   %add.ptr130.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 64
-  %492 = load <2 x i32>, ptr %add.ptr130.i.i, align 4
-  %493 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i95.i1653.i, i64 0
-  %494 = shufflevector <2 x i32> %493, <2 x i32> %492, <2 x i32> <i32 0, i32 2>
-  %495 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %492, <2 x i32> %494, <2 x i32> <i32 12, i32 19>)
+  %ret.0.copyload.i97.i1655.i = load i32, ptr %add.ptr130.i.i, align 4
+  %or133.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1655.i, i32 %ret.0.copyload.i95.i1653.i, i32 12)
+  %add.ptr137.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 68
+  %ret.0.copyload.i99.i1656.i = load i32, ptr %add.ptr137.i.i, align 4
+  %or140.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1656.i, i32 %ret.0.copyload.i97.i1655.i, i32 19)
   %add.ptr146.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 72
+  %ret.0.copyload.i102.i1657.i = load i32, ptr %add.ptr146.i.i, align 4
+  %or149.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i1657.i, i32 %ret.0.copyload.i99.i1656.i, i32 1)
+  %add.ptr153.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 76
+  %ret.0.copyload.i104.i1658.i = load i32, ptr %add.ptr153.i.i, align 4
+  %or156.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i1658.i, i32 %ret.0.copyload.i102.i1657.i, i32 8)
+  %add.ptr160.i1659.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 80
+  %ret.0.copyload.i106.i1660.i = load i32, ptr %add.ptr160.i1659.i, align 4
+  %or163.i1661.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i106.i1660.i, i32 %ret.0.copyload.i104.i1658.i, i32 15)
   %add.ptr167.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 84
   %ret.0.copyload.i108.i.i = load i32, ptr %add.ptr167.i.i, align 4
-  %496 = load <4 x i32>, ptr %add.ptr146.i.i, align 4
-  %497 = shufflevector <2 x i32> %492, <2 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %498 = shufflevector <4 x i32> %497, <4 x i32> %496, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %499 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %496, <4 x i32> %498, <4 x i32> <i32 1, i32 8, i32 15, i32 22>)
+  %or170.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i108.i.i, i32 %ret.0.copyload.i106.i1660.i, i32 22)
   %add.ptr176.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 88
   %ret.0.copyload.i111.i1662.i = load i32, ptr %add.ptr176.i.i, align 4
   %or179.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i1662.i, i32 %ret.0.copyload.i108.i.i, i32 4)
   %add.ptr183.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 92
-  %500 = load <2 x i32>, ptr %add.ptr183.i.i, align 4
-  %501 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i111.i1662.i, i64 0
-  %502 = shufflevector <2 x i32> %501, <2 x i32> %500, <2 x i32> <i32 0, i32 2>
-  %503 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %500, <2 x i32> %502, <2 x i32> <i32 11, i32 18>)
-  %504 = shufflevector <2 x i32> %491, <2 x i32> %488, <16 x i32> <i32 0, i32 1, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit3.i.i.i120.i.i = insertelement <16 x i32> %504, i32 %or126.i1654.i, i64 3
-  %505 = shufflevector <2 x i32> %495, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit5.i.i.i122.i.i178 = shufflevector <16 x i32> %vecinit3.i.i.i120.i.i, <16 x i32> %505, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %506 = shufflevector <2 x i32> %492, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %507 = shufflevector <16 x i32> %vecinit5.i.i.i122.i.i178, <16 x i32> %506, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %508 = shufflevector <4 x i32> %499, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i127.i.i176 = shufflevector <16 x i32> %507, <16 x i32> %508, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %509 = shufflevector <4 x i32> %496, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %510 = shufflevector <16 x i32> %vecinit10.i.i.i127.i.i176, <16 x i32> %509, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 19, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i129.i.i = insertelement <16 x i32> %510, i32 %or179.i.i, i64 12
-  %511 = shufflevector <2 x i32> %503, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i131.i.i177 = shufflevector <16 x i32> %vecinit12.i.i.i129.i.i, <16 x i32> %511, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %512 = shufflevector <2 x i32> %500, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %513 = shufflevector <16 x i32> %vecinit14.i.i.i131.i.i177, <16 x i32> %512, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i113.i.i = load i32, ptr %add.ptr183.i.i, align 4
+  %or186.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i.i, i32 %ret.0.copyload.i111.i1662.i, i32 11)
+  %add.ptr190.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 96
+  %ret.0.copyload.i115.i.i = load i32, ptr %add.ptr190.i.i, align 4
+  %or193.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i.i, i32 %ret.0.copyload.i113.i.i, i32 18)
+  %vecinit.i.i.i117.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or110.i1648.i, i64 0
+  %vecinit1.i.i.i118.i.i = insertelement <16 x i32> %vecinit.i.i.i117.i.i, i32 %or117.i1651.i, i64 1
+  %vecinit2.i.i.i119.i.i = insertelement <16 x i32> %vecinit1.i.i.i118.i.i, i32 %ret.0.copyload.i92.i1650.i, i64 2
+  %vecinit3.i.i.i120.i.i = insertelement <16 x i32> %vecinit2.i.i.i119.i.i, i32 %or126.i1654.i, i64 3
+  %vecinit4.i.i.i121.i.i = insertelement <16 x i32> %vecinit3.i.i.i120.i.i, i32 %or133.i.i, i64 4
+  %vecinit5.i.i.i122.i.i = insertelement <16 x i32> %vecinit4.i.i.i121.i.i, i32 %or140.i.i, i64 5
+  %vecinit6.i.i.i123.i.i = insertelement <16 x i32> %vecinit5.i.i.i122.i.i, i32 %ret.0.copyload.i99.i1656.i, i64 6
+  %vecinit7.i.i.i124.i.i = insertelement <16 x i32> %vecinit6.i.i.i123.i.i, i32 %or149.i.i, i64 7
+  %vecinit8.i.i.i125.i.i = insertelement <16 x i32> %vecinit7.i.i.i124.i.i, i32 %or156.i.i, i64 8
+  %vecinit9.i.i.i126.i.i = insertelement <16 x i32> %vecinit8.i.i.i125.i.i, i32 %or163.i1661.i, i64 9
+  %vecinit10.i.i.i127.i.i = insertelement <16 x i32> %vecinit9.i.i.i126.i.i, i32 %or170.i.i, i64 10
+  %vecinit11.i.i.i128.i.i = insertelement <16 x i32> %vecinit10.i.i.i127.i.i, i32 %ret.0.copyload.i108.i.i, i64 11
+  %vecinit12.i.i.i129.i.i = insertelement <16 x i32> %vecinit11.i.i.i128.i.i, i32 %or179.i.i, i64 12
+  %vecinit13.i.i.i130.i.i = insertelement <16 x i32> %vecinit12.i.i.i129.i.i, i32 %or186.i.i, i64 13
+  %vecinit14.i.i.i131.i.i = insertelement <16 x i32> %vecinit13.i.i.i130.i.i, i32 %or193.i.i, i64 14
+  %vecinit15.i.i.i132.i.i = insertelement <16 x i32> %vecinit14.i.i.i131.i.i, i32 %ret.0.copyload.i115.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i.i)
-  store <16 x i32> %513, ptr %self_buffer.i.i.i.i133.i.i, align 64
+  store <16 x i32> %vecinit15.i.i.i132.i.i, ptr %self_buffer.i.i.i.i133.i.i, align 64
   store <8 x i64> <i64 0, i64 2, i64 0, i64 6, i64 0, i64 12884901888, i64 0, i64 30064771072>, ptr %other_buffer.i.i.i.i134.i.i, align 64
   br label %for.body.i.i.i.i136.i.i
 
 for.body.i.i.i.i136.i.i:                          ; preds = %for.body.i.i.i.i136.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1643.i
   %i.05.i.i.i.i137.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1643.i ], [ %inc.i.i.i.i141.i.i, %for.body.i.i.i.i136.i.i ]
   %arrayidx2.i.i.i.i138.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i133.i.i, i64 0, i64 %i.05.i.i.i.i137.i.i
-  %514 = load i32, ptr %arrayidx2.i.i.i.i138.i.i, align 4
+  %151 = load i32, ptr %arrayidx2.i.i.i.i138.i.i, align 4
   %arrayidx3.i.i.i.i139.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i134.i.i, i64 0, i64 %i.05.i.i.i.i137.i.i
-  %515 = load i32, ptr %arrayidx3.i.i.i.i139.i.i, align 4
-  %shr.i.i.i.i.i140.i.i = lshr i32 %514, %515
+  %152 = load i32, ptr %arrayidx3.i.i.i.i139.i.i, align 4
+  %shr.i.i.i.i.i140.i.i = lshr i32 %151, %152
   store i32 %shr.i.i.i.i.i140.i.i, ptr %arrayidx2.i.i.i.i138.i.i, align 4
   %inc.i.i.i.i141.i.i = add nuw nsw i64 %i.05.i.i.i.i137.i.i, 1
   %exitcond.not.i.i.i.i142.i.i = icmp eq i64 %inc.i.i.i.i141.i.i, 16
@@ -3375,10 +3538,10 @@ for.body.i.i.i.i136.i.i:                          ; preds = %for.body.i.i.i.i136
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack25_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i136.i.i
   %add.ptr102.i1663.i = getelementptr inbounds i8, ptr %add.ptr298.i, i64 64
-  %516 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i.i, align 64
+  %153 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i.i)
-  %and.i.i.i.i145.i.i = and <8 x i64> %516, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i145.i.i = and <8 x i64> %153, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
   store <8 x i64> %and.i.i.i.i145.i.i, ptr %add.ptr102.i1663.i, align 1
   %add.ptr212.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 100
   %indvars.iv.next2539.i = add nuw nsw i64 %indvars.iv2538.i, 1
@@ -3390,50 +3553,70 @@ for.body307.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.262389.i = phi ptr [ %in, %for.body307.preheader.i ], [ %add.ptr212.i1785.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack26_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i1668.i = load i32, ptr %in.addr.262389.i, align 4
   %add.ptr3.i1669.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 4
+  %ret.0.copyload.i62.i1670.i = load i32, ptr %add.ptr3.i1669.i, align 4
+  %or.i1671.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1670.i, i32 %ret.0.copyload.i.i1668.i, i32 6)
+  %add.ptr8.i1672.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 8
+  %ret.0.copyload.i64.i1673.i = load i32, ptr %add.ptr8.i1672.i, align 4
+  %or11.i1674.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i64.i1673.i, i32 %ret.0.copyload.i62.i1670.i, i32 12)
+  %add.ptr15.i1675.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 12
+  %ret.0.copyload.i66.i1676.i = load i32, ptr %add.ptr15.i1675.i, align 4
+  %or18.i1677.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1676.i, i32 %ret.0.copyload.i64.i1673.i, i32 18)
   %add.ptr22.i1678.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 16
   %ret.0.copyload.i68.i1679.i = load i32, ptr %add.ptr22.i1678.i, align 4
-  %517 = load <4 x i32>, ptr %add.ptr3.i1669.i, align 4
-  %518 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i1668.i, i64 0
-  %519 = shufflevector <4 x i32> %518, <4 x i32> %517, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %520 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %517, <4 x i32> %519, <4 x i32> <i32 6, i32 12, i32 18, i32 24>)
+  %or25.i1680.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1679.i, i32 %ret.0.copyload.i66.i1676.i, i32 24)
   %add.ptr31.i1681.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 20
+  %ret.0.copyload.i71.i1682.i = load i32, ptr %add.ptr31.i1681.i, align 4
+  %or34.i1683.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i71.i1682.i, i32 %ret.0.copyload.i68.i1679.i, i32 4)
+  %add.ptr38.i1684.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 24
+  %ret.0.copyload.i73.i1685.i = load i32, ptr %add.ptr38.i1684.i, align 4
+  %or41.i1686.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i73.i1685.i, i32 %ret.0.copyload.i71.i1682.i, i32 10)
+  %add.ptr45.i1687.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 28
+  %ret.0.copyload.i75.i1688.i = load i32, ptr %add.ptr45.i1687.i, align 4
+  %or48.i1689.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i75.i1688.i, i32 %ret.0.copyload.i73.i1685.i, i32 16)
   %add.ptr52.i1690.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 32
   %ret.0.copyload.i77.i1691.i = load i32, ptr %add.ptr52.i1690.i, align 4
-  %521 = load <4 x i32>, ptr %add.ptr31.i1681.i, align 4
-  %522 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i68.i1679.i, i64 0
-  %523 = shufflevector <4 x i32> %522, <4 x i32> %521, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %524 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %521, <4 x i32> %523, <4 x i32> <i32 4, i32 10, i32 16, i32 22>)
+  %or55.i1692.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i77.i1691.i, i32 %ret.0.copyload.i75.i1688.i, i32 22)
   %add.ptr61.i1693.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 36
-  %525 = load <4 x i32>, ptr %add.ptr61.i1693.i, align 4
-  %526 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i77.i1691.i, i64 0
-  %527 = shufflevector <4 x i32> %526, <4 x i32> %525, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %528 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %525, <4 x i32> %527, <4 x i32> <i32 2, i32 8, i32 14, i32 20>)
-  %vecinit.i.i.i.i1704.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1668.i, i64 0
-  %529 = shufflevector <4 x i32> %520, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1708.i186 = shufflevector <16 x i32> %vecinit.i.i.i.i1704.i, <16 x i32> %529, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %530 = shufflevector <4 x i32> %517, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %531 = shufflevector <16 x i32> %vecinit4.i.i.i.i1708.i186, <16 x i32> %530, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %532 = shufflevector <4 x i32> %524, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i.i1713.i187 = shufflevector <16 x i32> %531, <16 x i32> %532, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %533 = shufflevector <4 x i32> %521, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %534 = shufflevector <16 x i32> %vecinit9.i.i.i.i1713.i187, <16 x i32> %533, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %535 = shufflevector <4 x i32> %528, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i1718.i188 = shufflevector <16 x i32> %534, <16 x i32> %535, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %536 = shufflevector <4 x i32> %525, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %537 = shufflevector <16 x i32> %vecinit14.i.i.i.i1718.i188, <16 x i32> %536, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 19>
+  %ret.0.copyload.i80.i1694.i = load i32, ptr %add.ptr61.i1693.i, align 4
+  %or64.i1695.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i1694.i, i32 %ret.0.copyload.i77.i1691.i, i32 2)
+  %add.ptr68.i1696.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 40
+  %ret.0.copyload.i82.i1697.i = load i32, ptr %add.ptr68.i1696.i, align 4
+  %or71.i1698.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i1697.i, i32 %ret.0.copyload.i80.i1694.i, i32 8)
+  %add.ptr75.i1699.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 44
+  %ret.0.copyload.i84.i1700.i = load i32, ptr %add.ptr75.i1699.i, align 4
+  %or78.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1700.i, i32 %ret.0.copyload.i82.i1697.i, i32 14)
+  %add.ptr82.i1701.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 48
+  %ret.0.copyload.i86.i1702.i = load i32, ptr %add.ptr82.i1701.i, align 4
+  %or85.i1703.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i86.i1702.i, i32 %ret.0.copyload.i84.i1700.i, i32 20)
+  %vecinit.i.i.i.i1704.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1668.i, i64 0
+  %vecinit1.i.i.i.i1705.i = insertelement <16 x i32> %vecinit.i.i.i.i1704.i, i32 %or.i1671.i, i64 1
+  %vecinit2.i.i.i.i1706.i = insertelement <16 x i32> %vecinit1.i.i.i.i1705.i, i32 %or11.i1674.i, i64 2
+  %vecinit3.i.i.i.i1707.i = insertelement <16 x i32> %vecinit2.i.i.i.i1706.i, i32 %or18.i1677.i, i64 3
+  %vecinit4.i.i.i.i1708.i = insertelement <16 x i32> %vecinit3.i.i.i.i1707.i, i32 %or25.i1680.i, i64 4
+  %vecinit5.i.i.i.i1709.i = insertelement <16 x i32> %vecinit4.i.i.i.i1708.i, i32 %ret.0.copyload.i68.i1679.i, i64 5
+  %vecinit6.i.i.i.i1710.i = insertelement <16 x i32> %vecinit5.i.i.i.i1709.i, i32 %or34.i1683.i, i64 6
+  %vecinit7.i.i.i.i1711.i = insertelement <16 x i32> %vecinit6.i.i.i.i1710.i, i32 %or41.i1686.i, i64 7
+  %vecinit8.i.i.i.i1712.i = insertelement <16 x i32> %vecinit7.i.i.i.i1711.i, i32 %or48.i1689.i, i64 8
+  %vecinit9.i.i.i.i1713.i = insertelement <16 x i32> %vecinit8.i.i.i.i1712.i, i32 %or55.i1692.i, i64 9
+  %vecinit10.i.i.i.i1714.i = insertelement <16 x i32> %vecinit9.i.i.i.i1713.i, i32 %ret.0.copyload.i77.i1691.i, i64 10
+  %vecinit11.i.i.i.i1715.i = insertelement <16 x i32> %vecinit10.i.i.i.i1714.i, i32 %or64.i1695.i, i64 11
+  %vecinit12.i.i.i.i1716.i = insertelement <16 x i32> %vecinit11.i.i.i.i1715.i, i32 %or71.i1698.i, i64 12
+  %vecinit13.i.i.i.i1717.i = insertelement <16 x i32> %vecinit12.i.i.i.i1716.i, i32 %or78.i.i, i64 13
+  %vecinit14.i.i.i.i1718.i = insertelement <16 x i32> %vecinit13.i.i.i.i1717.i, i32 %or85.i1703.i, i64 14
+  %vecinit15.i.i.i.i1719.i = insertelement <16 x i32> %vecinit14.i.i.i.i1718.i, i32 %ret.0.copyload.i86.i1702.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1666.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1667.i)
-  store <16 x i32> %537, ptr %self_buffer.i.i.i.i.i1666.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1719.i, ptr %self_buffer.i.i.i.i.i1666.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 8589934592, i64 0, i64 0, i64 4, i64 0, i64 25769803776>, ptr %other_buffer.i.i.i.i.i1667.i, align 64
   br label %for.body.i.i.i.i.i1720.i
 
 for.body.i.i.i.i.i1720.i:                         ; preds = %for.body.i.i.i.i.i1720.i, %for.body307.i
   %i.05.i.i.i.i.i1721.i = phi i64 [ 0, %for.body307.i ], [ %inc.i.i.i.i.i1725.i, %for.body.i.i.i.i.i1720.i ]
   %arrayidx2.i.i.i.i.i1722.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1666.i, i64 0, i64 %i.05.i.i.i.i.i1721.i
-  %538 = load i32, ptr %arrayidx2.i.i.i.i.i1722.i, align 4
+  %154 = load i32, ptr %arrayidx2.i.i.i.i.i1722.i, align 4
   %arrayidx3.i.i.i.i.i1723.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1667.i, i64 0, i64 %i.05.i.i.i.i.i1721.i
-  %539 = load i32, ptr %arrayidx3.i.i.i.i.i1723.i, align 4
-  %shr.i.i.i.i.i.i1724.i = lshr i32 %538, %539
+  %155 = load i32, ptr %arrayidx3.i.i.i.i.i1723.i, align 4
+  %shr.i.i.i.i.i.i1724.i = lshr i32 %154, %155
   store i32 %shr.i.i.i.i.i.i1724.i, ptr %arrayidx2.i.i.i.i.i1722.i, align 4
   %inc.i.i.i.i.i1725.i = add nuw nsw i64 %i.05.i.i.i.i.i1721.i, 1
   %exitcond.not.i.i.i.i.i1726.i = icmp eq i64 %inc.i.i.i.i.i1725.i, 16
@@ -3442,58 +3625,78 @@ for.body.i.i.i.i.i1720.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1727.i: ; preds = %for.body.i.i.i.i.i1720.i
   %add.ptr310.idx.i = shl nsw i64 %indvars.iv2532.i, 7
   %add.ptr310.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr310.idx.i
-  %540 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1666.i, align 64
+  %156 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1666.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1666.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1667.i)
-  %and.i.i.i.i.i1728.i = and <8 x i64> %540, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i.i1728.i = and <8 x i64> %156, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
   store <8 x i64> %and.i.i.i.i.i1728.i, ptr %add.ptr310.i, align 1
   %add.ptr104.i.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 52
   %ret.0.copyload.i89.i1729.i = load i32, ptr %add.ptr104.i.i, align 4
   %add.ptr109.i.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 56
+  %ret.0.copyload.i91.i1730.i = load i32, ptr %add.ptr109.i.i, align 4
+  %or112.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i91.i1730.i, i32 %ret.0.copyload.i89.i1729.i, i32 6)
+  %add.ptr116.i1731.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 60
+  %ret.0.copyload.i93.i1732.i = load i32, ptr %add.ptr116.i1731.i, align 4
+  %or119.i1733.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i93.i1732.i, i32 %ret.0.copyload.i91.i1730.i, i32 12)
+  %add.ptr123.i1734.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 64
+  %ret.0.copyload.i95.i1735.i = load i32, ptr %add.ptr123.i1734.i, align 4
+  %or126.i1736.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i95.i1735.i, i32 %ret.0.copyload.i93.i1732.i, i32 18)
   %add.ptr130.i1737.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 68
   %ret.0.copyload.i97.i1738.i = load i32, ptr %add.ptr130.i1737.i, align 4
-  %541 = load <4 x i32>, ptr %add.ptr109.i.i, align 4
-  %542 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i89.i1729.i, i64 0
-  %543 = shufflevector <4 x i32> %542, <4 x i32> %541, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %544 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %541, <4 x i32> %543, <4 x i32> <i32 6, i32 12, i32 18, i32 24>)
+  %or133.i1739.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1738.i, i32 %ret.0.copyload.i95.i1735.i, i32 24)
   %add.ptr139.i.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 72
+  %ret.0.copyload.i100.i1740.i = load i32, ptr %add.ptr139.i.i, align 4
+  %or142.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i100.i1740.i, i32 %ret.0.copyload.i97.i1738.i, i32 4)
+  %add.ptr146.i1741.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 76
+  %ret.0.copyload.i102.i1742.i = load i32, ptr %add.ptr146.i1741.i, align 4
+  %or149.i1743.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i1742.i, i32 %ret.0.copyload.i100.i1740.i, i32 10)
+  %add.ptr153.i1744.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 80
+  %ret.0.copyload.i104.i1745.i = load i32, ptr %add.ptr153.i1744.i, align 4
+  %or156.i1746.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i1745.i, i32 %ret.0.copyload.i102.i1742.i, i32 16)
   %add.ptr160.i1747.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 84
   %ret.0.copyload.i106.i1748.i = load i32, ptr %add.ptr160.i1747.i, align 4
-  %545 = load <4 x i32>, ptr %add.ptr139.i.i, align 4
-  %546 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i97.i1738.i, i64 0
-  %547 = shufflevector <4 x i32> %546, <4 x i32> %545, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %548 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %545, <4 x i32> %547, <4 x i32> <i32 4, i32 10, i32 16, i32 22>)
+  %or163.i1749.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i106.i1748.i, i32 %ret.0.copyload.i104.i1745.i, i32 22)
   %add.ptr169.i.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 88
-  %549 = load <4 x i32>, ptr %add.ptr169.i.i, align 4
-  %550 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i106.i1748.i, i64 0
-  %551 = shufflevector <4 x i32> %550, <4 x i32> %549, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %552 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %549, <4 x i32> %551, <4 x i32> <i32 2, i32 8, i32 14, i32 20>)
-  %vecinit.i.i.i117.i1760.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i89.i1729.i, i64 0
-  %553 = shufflevector <4 x i32> %544, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i121.i1764.i183 = shufflevector <16 x i32> %vecinit.i.i.i117.i1760.i, <16 x i32> %553, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %554 = shufflevector <4 x i32> %541, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %555 = shufflevector <16 x i32> %vecinit4.i.i.i121.i1764.i183, <16 x i32> %554, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %556 = shufflevector <4 x i32> %548, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i126.i1769.i184 = shufflevector <16 x i32> %555, <16 x i32> %556, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %557 = shufflevector <4 x i32> %545, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %558 = shufflevector <16 x i32> %vecinit9.i.i.i126.i1769.i184, <16 x i32> %557, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %559 = shufflevector <4 x i32> %552, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i131.i1774.i185 = shufflevector <16 x i32> %558, <16 x i32> %559, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %560 = shufflevector <4 x i32> %549, <4 x i32> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %561 = shufflevector <16 x i32> %vecinit14.i.i.i131.i1774.i185, <16 x i32> %560, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 19>
+  %ret.0.copyload.i109.i1750.i = load i32, ptr %add.ptr169.i.i, align 4
+  %or172.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i1750.i, i32 %ret.0.copyload.i106.i1748.i, i32 2)
+  %add.ptr176.i1751.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 92
+  %ret.0.copyload.i111.i1752.i = load i32, ptr %add.ptr176.i1751.i, align 4
+  %or179.i1753.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i1752.i, i32 %ret.0.copyload.i109.i1750.i, i32 8)
+  %add.ptr183.i1754.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 96
+  %ret.0.copyload.i113.i1755.i = load i32, ptr %add.ptr183.i1754.i, align 4
+  %or186.i1756.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i1755.i, i32 %ret.0.copyload.i111.i1752.i, i32 14)
+  %add.ptr190.i1757.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 100
+  %ret.0.copyload.i115.i1758.i = load i32, ptr %add.ptr190.i1757.i, align 4
+  %or193.i1759.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i1758.i, i32 %ret.0.copyload.i113.i1755.i, i32 20)
+  %vecinit.i.i.i117.i1760.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i89.i1729.i, i64 0
+  %vecinit1.i.i.i118.i1761.i = insertelement <16 x i32> %vecinit.i.i.i117.i1760.i, i32 %or112.i.i, i64 1
+  %vecinit2.i.i.i119.i1762.i = insertelement <16 x i32> %vecinit1.i.i.i118.i1761.i, i32 %or119.i1733.i, i64 2
+  %vecinit3.i.i.i120.i1763.i = insertelement <16 x i32> %vecinit2.i.i.i119.i1762.i, i32 %or126.i1736.i, i64 3
+  %vecinit4.i.i.i121.i1764.i = insertelement <16 x i32> %vecinit3.i.i.i120.i1763.i, i32 %or133.i1739.i, i64 4
+  %vecinit5.i.i.i122.i1765.i = insertelement <16 x i32> %vecinit4.i.i.i121.i1764.i, i32 %ret.0.copyload.i97.i1738.i, i64 5
+  %vecinit6.i.i.i123.i1766.i = insertelement <16 x i32> %vecinit5.i.i.i122.i1765.i, i32 %or142.i.i, i64 6
+  %vecinit7.i.i.i124.i1767.i = insertelement <16 x i32> %vecinit6.i.i.i123.i1766.i, i32 %or149.i1743.i, i64 7
+  %vecinit8.i.i.i125.i1768.i = insertelement <16 x i32> %vecinit7.i.i.i124.i1767.i, i32 %or156.i1746.i, i64 8
+  %vecinit9.i.i.i126.i1769.i = insertelement <16 x i32> %vecinit8.i.i.i125.i1768.i, i32 %or163.i1749.i, i64 9
+  %vecinit10.i.i.i127.i1770.i = insertelement <16 x i32> %vecinit9.i.i.i126.i1769.i, i32 %ret.0.copyload.i106.i1748.i, i64 10
+  %vecinit11.i.i.i128.i1771.i = insertelement <16 x i32> %vecinit10.i.i.i127.i1770.i, i32 %or172.i.i, i64 11
+  %vecinit12.i.i.i129.i1772.i = insertelement <16 x i32> %vecinit11.i.i.i128.i1771.i, i32 %or179.i1753.i, i64 12
+  %vecinit13.i.i.i130.i1773.i = insertelement <16 x i32> %vecinit12.i.i.i129.i1772.i, i32 %or186.i1756.i, i64 13
+  %vecinit14.i.i.i131.i1774.i = insertelement <16 x i32> %vecinit13.i.i.i130.i1773.i, i32 %or193.i1759.i, i64 14
+  %vecinit15.i.i.i132.i1775.i = insertelement <16 x i32> %vecinit14.i.i.i131.i1774.i, i32 %ret.0.copyload.i115.i1758.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1664.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1665.i)
-  store <16 x i32> %561, ptr %self_buffer.i.i.i.i133.i1664.i, align 64
+  store <16 x i32> %vecinit15.i.i.i132.i1775.i, ptr %self_buffer.i.i.i.i133.i1664.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 8589934592, i64 0, i64 0, i64 4, i64 0, i64 25769803776>, ptr %other_buffer.i.i.i.i134.i1665.i, align 64
   br label %for.body.i.i.i.i136.i1776.i
 
 for.body.i.i.i.i136.i1776.i:                      ; preds = %for.body.i.i.i.i136.i1776.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1727.i
   %i.05.i.i.i.i137.i1777.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1727.i ], [ %inc.i.i.i.i141.i1781.i, %for.body.i.i.i.i136.i1776.i ]
   %arrayidx2.i.i.i.i138.i1778.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i133.i1664.i, i64 0, i64 %i.05.i.i.i.i137.i1777.i
-  %562 = load i32, ptr %arrayidx2.i.i.i.i138.i1778.i, align 4
+  %157 = load i32, ptr %arrayidx2.i.i.i.i138.i1778.i, align 4
   %arrayidx3.i.i.i.i139.i1779.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i134.i1665.i, i64 0, i64 %i.05.i.i.i.i137.i1777.i
-  %563 = load i32, ptr %arrayidx3.i.i.i.i139.i1779.i, align 4
-  %shr.i.i.i.i.i140.i1780.i = lshr i32 %562, %563
+  %158 = load i32, ptr %arrayidx3.i.i.i.i139.i1779.i, align 4
+  %shr.i.i.i.i.i140.i1780.i = lshr i32 %157, %158
   store i32 %shr.i.i.i.i.i140.i1780.i, ptr %arrayidx2.i.i.i.i138.i1778.i, align 4
   %inc.i.i.i.i141.i1781.i = add nuw nsw i64 %i.05.i.i.i.i137.i1777.i, 1
   %exitcond.not.i.i.i.i142.i1782.i = icmp eq i64 %inc.i.i.i.i141.i1781.i, 16
@@ -3501,10 +3704,10 @@ for.body.i.i.i.i136.i1776.i:                      ; preds = %for.body.i.i.i.i136
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack26_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i136.i1776.i
   %add.ptr102.i1783.i = getelementptr inbounds i8, ptr %add.ptr310.i, i64 64
-  %564 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1664.i, align 64
+  %159 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1664.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1664.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1665.i)
-  %and.i.i.i.i145.i1784.i = and <8 x i64> %564, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i145.i1784.i = and <8 x i64> %159, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
   store <8 x i64> %and.i.i.i.i145.i1784.i, ptr %add.ptr102.i1783.i, align 1
   %add.ptr212.i1785.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 104
   %indvars.iv.next2533.i = add nuw nsw i64 %indvars.iv2532.i, 1
@@ -3516,22 +3719,32 @@ for.body319.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.272386.i = phi ptr [ %in, %for.body319.preheader.i ], [ %add.ptr222.i.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack27_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i1788.i = load i32, ptr %in.addr.272386.i, align 4
   %add.ptr3.i1789.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 4
+  %ret.0.copyload.i64.i1790.i = load i32, ptr %add.ptr3.i1789.i, align 4
+  %or.i1791.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i64.i1790.i, i32 %ret.0.copyload.i.i1788.i, i32 5)
+  %add.ptr8.i1792.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 8
+  %ret.0.copyload.i66.i1793.i = load i32, ptr %add.ptr8.i1792.i, align 4
+  %or11.i1794.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1793.i, i32 %ret.0.copyload.i64.i1790.i, i32 10)
+  %add.ptr15.i1795.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 12
+  %ret.0.copyload.i68.i1796.i = load i32, ptr %add.ptr15.i1795.i, align 4
+  %or18.i1797.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1796.i, i32 %ret.0.copyload.i66.i1793.i, i32 15)
   %add.ptr22.i1798.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 16
   %ret.0.copyload.i70.i1799.i = load i32, ptr %add.ptr22.i1798.i, align 4
-  %565 = load <4 x i32>, ptr %add.ptr3.i1789.i, align 4
-  %566 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i1788.i, i64 0
-  %567 = shufflevector <4 x i32> %566, <4 x i32> %565, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %568 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %565, <4 x i32> %567, <4 x i32> <i32 5, i32 10, i32 15, i32 20>)
+  %or25.i1800.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i1799.i, i32 %ret.0.copyload.i68.i1796.i, i32 20)
   %add.ptr29.i1801.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 20
   %ret.0.copyload.i72.i1802.i = load i32, ptr %add.ptr29.i1801.i, align 4
   %or32.i1803.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i1802.i, i32 %ret.0.copyload.i70.i1799.i, i32 25)
   %add.ptr38.i1804.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 24
+  %ret.0.copyload.i75.i1805.i = load i32, ptr %add.ptr38.i1804.i, align 4
+  %or41.i1806.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i75.i1805.i, i32 %ret.0.copyload.i72.i1802.i, i32 3)
+  %add.ptr45.i1807.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 28
+  %ret.0.copyload.i77.i1808.i = load i32, ptr %add.ptr45.i1807.i, align 4
+  %or48.i1809.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i77.i1808.i, i32 %ret.0.copyload.i75.i1805.i, i32 8)
+  %add.ptr52.i1810.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 32
+  %ret.0.copyload.i79.i1811.i = load i32, ptr %add.ptr52.i1810.i, align 4
+  %or55.i1812.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i79.i1811.i, i32 %ret.0.copyload.i77.i1808.i, i32 13)
   %add.ptr59.i1813.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 36
   %ret.0.copyload.i81.i1814.i = load i32, ptr %add.ptr59.i1813.i, align 4
-  %569 = load <4 x i32>, ptr %add.ptr38.i1804.i, align 4
-  %570 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i72.i1802.i, i64 0
-  %571 = shufflevector <4 x i32> %570, <4 x i32> %569, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %572 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %569, <4 x i32> %571, <4 x i32> <i32 3, i32 8, i32 13, i32 18>)
+  %or62.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i81.i1814.i, i32 %ret.0.copyload.i79.i1811.i, i32 18)
   %add.ptr66.i1815.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 40
   %ret.0.copyload.i83.i1816.i = load i32, ptr %add.ptr66.i1815.i, align 4
   %or69.i1817.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i83.i1816.i, i32 %ret.0.copyload.i81.i1814.i, i32 23)
@@ -3539,36 +3752,40 @@ for.body319.i:                                    ; preds = %_ZN5arrow8internal1
   %ret.0.copyload.i86.i1819.i = load i32, ptr %add.ptr75.i1818.i, align 4
   %or78.i1820.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i86.i1819.i, i32 %ret.0.copyload.i83.i1816.i, i32 1)
   %add.ptr82.i1821.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 48
+  %ret.0.copyload.i88.i1822.i = load i32, ptr %add.ptr82.i1821.i, align 4
+  %or85.i1823.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i88.i1822.i, i32 %ret.0.copyload.i86.i1819.i, i32 6)
   %add.ptr89.i1824.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 52
-  %573 = load <2 x i32>, ptr %add.ptr82.i1821.i, align 4
-  %574 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i86.i1819.i, i64 0
-  %575 = shufflevector <2 x i32> %574, <2 x i32> %573, <2 x i32> <i32 0, i32 2>
-  %576 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %573, <2 x i32> %575, <2 x i32> <i32 6, i32 11>)
-  %vecinit.i.i.i.i1827.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1788.i, i64 0
-  %577 = shufflevector <4 x i32> %568, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1831.i192 = shufflevector <16 x i32> %vecinit.i.i.i.i1827.i, <16 x i32> %577, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit5.i.i.i.i1832.i = insertelement <16 x i32> %vecinit4.i.i.i.i1831.i192, i32 %or32.i1803.i, i64 5
+  %ret.0.copyload.i90.i1825.i = load i32, ptr %add.ptr89.i1824.i, align 4
+  %or92.i1826.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i1825.i, i32 %ret.0.copyload.i88.i1822.i, i32 11)
+  %vecinit.i.i.i.i1827.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1788.i, i64 0
+  %vecinit1.i.i.i.i1828.i = insertelement <16 x i32> %vecinit.i.i.i.i1827.i, i32 %or.i1791.i, i64 1
+  %vecinit2.i.i.i.i1829.i = insertelement <16 x i32> %vecinit1.i.i.i.i1828.i, i32 %or11.i1794.i, i64 2
+  %vecinit3.i.i.i.i1830.i = insertelement <16 x i32> %vecinit2.i.i.i.i1829.i, i32 %or18.i1797.i, i64 3
+  %vecinit4.i.i.i.i1831.i = insertelement <16 x i32> %vecinit3.i.i.i.i1830.i, i32 %or25.i1800.i, i64 4
+  %vecinit5.i.i.i.i1832.i = insertelement <16 x i32> %vecinit4.i.i.i.i1831.i, i32 %or32.i1803.i, i64 5
   %vecinit6.i.i.i.i1833.i = insertelement <16 x i32> %vecinit5.i.i.i.i1832.i, i32 %ret.0.copyload.i72.i1802.i, i64 6
-  %578 = shufflevector <4 x i32> %572, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit10.i.i.i.i1837.i193 = shufflevector <16 x i32> %vecinit6.i.i.i.i1833.i, <16 x i32> %578, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i.i1838.i = insertelement <16 x i32> %vecinit10.i.i.i.i1837.i193, i32 %or69.i1817.i, i64 11
+  %vecinit7.i.i.i.i1834.i = insertelement <16 x i32> %vecinit6.i.i.i.i1833.i, i32 %or41.i1806.i, i64 7
+  %vecinit8.i.i.i.i1835.i = insertelement <16 x i32> %vecinit7.i.i.i.i1834.i, i32 %or48.i1809.i, i64 8
+  %vecinit9.i.i.i.i1836.i = insertelement <16 x i32> %vecinit8.i.i.i.i1835.i, i32 %or55.i1812.i, i64 9
+  %vecinit10.i.i.i.i1837.i = insertelement <16 x i32> %vecinit9.i.i.i.i1836.i, i32 %or62.i.i, i64 10
+  %vecinit11.i.i.i.i1838.i = insertelement <16 x i32> %vecinit10.i.i.i.i1837.i, i32 %or69.i1817.i, i64 11
   %vecinit12.i.i.i.i1839.i = insertelement <16 x i32> %vecinit11.i.i.i.i1838.i, i32 %ret.0.copyload.i83.i1816.i, i64 12
   %vecinit13.i.i.i.i1840.i = insertelement <16 x i32> %vecinit12.i.i.i.i1839.i, i32 %or78.i1820.i, i64 13
-  %579 = shufflevector <2 x i32> %576, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit15.i.i.i.i1842.i194 = shufflevector <16 x i32> %vecinit13.i.i.i.i1840.i, <16 x i32> %579, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 16, i32 17>
+  %vecinit14.i.i.i.i1841.i = insertelement <16 x i32> %vecinit13.i.i.i.i1840.i, i32 %or85.i1823.i, i64 14
+  %vecinit15.i.i.i.i1842.i = insertelement <16 x i32> %vecinit14.i.i.i.i1841.i, i32 %or92.i1826.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1786.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1787.i)
-  store <16 x i32> %vecinit15.i.i.i.i1842.i194, ptr %self_buffer.i.i.i.i.i1786.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1842.i, ptr %self_buffer.i.i.i.i.i1786.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 2, i64 0, i64 0, i64 4, i64 0>, ptr %other_buffer.i.i.i.i.i1787.i, align 64
   br label %for.body.i.i.i.i.i1843.i
 
 for.body.i.i.i.i.i1843.i:                         ; preds = %for.body.i.i.i.i.i1843.i, %for.body319.i
   %i.05.i.i.i.i.i1844.i = phi i64 [ 0, %for.body319.i ], [ %inc.i.i.i.i.i1848.i, %for.body.i.i.i.i.i1843.i ]
   %arrayidx2.i.i.i.i.i1845.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1786.i, i64 0, i64 %i.05.i.i.i.i.i1844.i
-  %580 = load i32, ptr %arrayidx2.i.i.i.i.i1845.i, align 4
+  %160 = load i32, ptr %arrayidx2.i.i.i.i.i1845.i, align 4
   %arrayidx3.i.i.i.i.i1846.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1787.i, i64 0, i64 %i.05.i.i.i.i.i1844.i
-  %581 = load i32, ptr %arrayidx3.i.i.i.i.i1846.i, align 4
-  %shr.i.i.i.i.i.i1847.i = lshr i32 %580, %581
+  %161 = load i32, ptr %arrayidx3.i.i.i.i.i1846.i, align 4
+  %shr.i.i.i.i.i.i1847.i = lshr i32 %160, %161
   store i32 %shr.i.i.i.i.i.i1847.i, ptr %arrayidx2.i.i.i.i.i1845.i, align 4
   %inc.i.i.i.i.i1848.i = add nuw nsw i64 %i.05.i.i.i.i.i1844.i, 1
   %exitcond.not.i.i.i.i.i1849.i = icmp eq i64 %inc.i.i.i.i.i1848.i, 16
@@ -3577,52 +3794,66 @@ for.body.i.i.i.i.i1843.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1850.i: ; preds = %for.body.i.i.i.i.i1843.i
   %add.ptr322.idx.i = shl nsw i64 %indvars.iv2526.i, 7
   %add.ptr322.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr322.idx.i
-  %582 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1786.i, align 64
+  %162 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1786.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1786.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1787.i)
-  %and.i.i.i.i.i1851.i = and <8 x i64> %582, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i.i1851.i = and <8 x i64> %162, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
   store <8 x i64> %and.i.i.i.i.i1851.i, ptr %add.ptr322.i, align 1
   %ret.0.copyload.i92.i1852.i = load i32, ptr %add.ptr89.i1824.i, align 4
   %add.ptr112.i1853.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 56
   %ret.0.copyload.i93.i1854.i = load i32, ptr %add.ptr112.i1853.i, align 4
   %or115.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i93.i1854.i, i32 %ret.0.copyload.i92.i1852.i, i32 16)
   %add.ptr119.i1855.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 60
-  %583 = load <2 x i32>, ptr %add.ptr119.i1855.i, align 4
-  %584 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i93.i1854.i, i64 0
-  %585 = shufflevector <2 x i32> %584, <2 x i32> %583, <2 x i32> <i32 0, i32 2>
-  %586 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %583, <2 x i32> %585, <2 x i32> <i32 21, i32 26>)
+  %ret.0.copyload.i95.i1856.i = load i32, ptr %add.ptr119.i1855.i, align 4
+  %or122.i1857.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i95.i1856.i, i32 %ret.0.copyload.i93.i1854.i, i32 21)
+  %add.ptr126.i1858.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 64
+  %ret.0.copyload.i97.i1859.i = load i32, ptr %add.ptr126.i1858.i, align 4
+  %or129.i1860.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1859.i, i32 %ret.0.copyload.i95.i1856.i, i32 26)
   %add.ptr135.i1861.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 68
+  %ret.0.copyload.i100.i1862.i = load i32, ptr %add.ptr135.i1861.i, align 4
+  %or138.i1863.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i100.i1862.i, i32 %ret.0.copyload.i97.i1859.i, i32 4)
+  %add.ptr142.i1864.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 72
+  %ret.0.copyload.i102.i1865.i = load i32, ptr %add.ptr142.i1864.i, align 4
+  %or145.i1866.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i1865.i, i32 %ret.0.copyload.i100.i1862.i, i32 9)
+  %add.ptr149.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 76
+  %ret.0.copyload.i104.i1867.i = load i32, ptr %add.ptr149.i.i, align 4
+  %or152.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i1867.i, i32 %ret.0.copyload.i102.i1865.i, i32 14)
   %add.ptr156.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 80
   %ret.0.copyload.i106.i1868.i = load i32, ptr %add.ptr156.i.i, align 4
-  %587 = load <4 x i32>, ptr %add.ptr135.i1861.i, align 4
-  %588 = shufflevector <2 x i32> %583, <2 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %589 = shufflevector <4 x i32> %588, <4 x i32> %587, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %590 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %587, <4 x i32> %589, <4 x i32> <i32 4, i32 9, i32 14, i32 19>)
+  %or159.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i106.i1868.i, i32 %ret.0.copyload.i104.i1867.i, i32 19)
   %add.ptr163.i1869.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 84
   %ret.0.copyload.i108.i1870.i = load i32, ptr %add.ptr163.i1869.i, align 4
   %or166.i1871.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i108.i1870.i, i32 %ret.0.copyload.i106.i1868.i, i32 24)
   %add.ptr172.i1872.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 88
+  %ret.0.copyload.i111.i1873.i = load i32, ptr %add.ptr172.i1872.i, align 4
+  %or175.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i1873.i, i32 %ret.0.copyload.i108.i1870.i, i32 2)
+  %add.ptr179.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 92
+  %ret.0.copyload.i113.i1874.i = load i32, ptr %add.ptr179.i.i, align 4
+  %or182.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i1874.i, i32 %ret.0.copyload.i111.i1873.i, i32 7)
+  %add.ptr186.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 96
+  %ret.0.copyload.i115.i1875.i = load i32, ptr %add.ptr186.i.i, align 4
+  %or189.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i1875.i, i32 %ret.0.copyload.i113.i1874.i, i32 12)
   %add.ptr193.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 100
   %ret.0.copyload.i117.i.i = load i32, ptr %add.ptr193.i.i, align 4
-  %591 = load <4 x i32>, ptr %add.ptr172.i1872.i, align 4
-  %592 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i108.i1870.i, i64 0
-  %593 = shufflevector <4 x i32> %592, <4 x i32> %591, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %594 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %591, <4 x i32> %593, <4 x i32> <i32 2, i32 7, i32 12, i32 17>)
+  %or196.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i117.i.i, i32 %ret.0.copyload.i115.i1875.i, i32 17)
   %add.ptr200.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 104
   %ret.0.copyload.i119.i.i = load i32, ptr %add.ptr200.i.i, align 4
   %or203.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i119.i.i, i32 %ret.0.copyload.i117.i.i, i32 22)
-  %vecinit.i.i.i121.i.i = insertelement <16 x i32> poison, i32 %or115.i.i, i64 0
-  %595 = shufflevector <2 x i32> %586, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit2.i.i.i123.i.i191 = shufflevector <16 x i32> %vecinit.i.i.i121.i.i, <16 x i32> %595, <16 x i32> <i32 0, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %596 = shufflevector <2 x i32> %583, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %597 = shufflevector <16 x i32> %vecinit2.i.i.i123.i.i191, <16 x i32> %596, <16 x i32> <i32 0, i32 1, i32 2, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %598 = shufflevector <4 x i32> %590, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit7.i.i.i128.i.i189 = shufflevector <16 x i32> %597, <16 x i32> %598, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i129.i.i = insertelement <16 x i32> %vecinit7.i.i.i128.i.i189, i32 %or166.i1871.i, i64 8
+  %vecinit.i.i.i121.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or115.i.i, i64 0
+  %vecinit1.i.i.i122.i.i = insertelement <16 x i32> %vecinit.i.i.i121.i.i, i32 %or122.i1857.i, i64 1
+  %vecinit2.i.i.i123.i.i = insertelement <16 x i32> %vecinit1.i.i.i122.i.i, i32 %or129.i1860.i, i64 2
+  %vecinit3.i.i.i124.i.i = insertelement <16 x i32> %vecinit2.i.i.i123.i.i, i32 %ret.0.copyload.i97.i1859.i, i64 3
+  %vecinit4.i.i.i125.i.i = insertelement <16 x i32> %vecinit3.i.i.i124.i.i, i32 %or138.i1863.i, i64 4
+  %vecinit5.i.i.i126.i.i = insertelement <16 x i32> %vecinit4.i.i.i125.i.i, i32 %or145.i1866.i, i64 5
+  %vecinit6.i.i.i127.i.i = insertelement <16 x i32> %vecinit5.i.i.i126.i.i, i32 %or152.i.i, i64 6
+  %vecinit7.i.i.i128.i.i = insertelement <16 x i32> %vecinit6.i.i.i127.i.i, i32 %or159.i.i, i64 7
+  %vecinit8.i.i.i129.i.i = insertelement <16 x i32> %vecinit7.i.i.i128.i.i, i32 %or166.i1871.i, i64 8
   %vecinit9.i.i.i130.i.i = insertelement <16 x i32> %vecinit8.i.i.i129.i.i, i32 %ret.0.copyload.i108.i1870.i, i64 9
-  %599 = shufflevector <4 x i32> %594, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i134.i.i190 = shufflevector <16 x i32> %vecinit9.i.i.i130.i.i, <16 x i32> %599, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison>
-  %vecinit14.i.i.i135.i.i = insertelement <16 x i32> %vecinit13.i.i.i134.i.i190, i32 %or203.i.i, i64 14
+  %vecinit10.i.i.i131.i.i = insertelement <16 x i32> %vecinit9.i.i.i130.i.i, i32 %or175.i.i, i64 10
+  %vecinit11.i.i.i132.i.i = insertelement <16 x i32> %vecinit10.i.i.i131.i.i, i32 %or182.i.i, i64 11
+  %vecinit12.i.i.i133.i.i = insertelement <16 x i32> %vecinit11.i.i.i132.i.i, i32 %or189.i.i, i64 12
+  %vecinit13.i.i.i134.i.i = insertelement <16 x i32> %vecinit12.i.i.i133.i.i, i32 %or196.i.i, i64 13
+  %vecinit14.i.i.i135.i.i = insertelement <16 x i32> %vecinit13.i.i.i134.i.i, i32 %or203.i.i, i64 14
   %vecinit15.i.i.i136.i.i = insertelement <16 x i32> %vecinit14.i.i.i135.i.i, i32 %ret.0.copyload.i119.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i137.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i138.i.i)
@@ -3633,10 +3864,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1850.i: ; preds = %for.body.i.
 for.body.i.i.i.i140.i.i:                          ; preds = %for.body.i.i.i.i140.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1850.i
   %i.05.i.i.i.i141.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1850.i ], [ %inc.i.i.i.i145.i.i, %for.body.i.i.i.i140.i.i ]
   %arrayidx2.i.i.i.i142.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i137.i.i, i64 0, i64 %i.05.i.i.i.i141.i.i
-  %600 = load i32, ptr %arrayidx2.i.i.i.i142.i.i, align 4
+  %163 = load i32, ptr %arrayidx2.i.i.i.i142.i.i, align 4
   %arrayidx3.i.i.i.i143.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i138.i.i, i64 0, i64 %i.05.i.i.i.i141.i.i
-  %601 = load i32, ptr %arrayidx3.i.i.i.i143.i.i, align 4
-  %shr.i.i.i.i.i144.i.i = lshr i32 %600, %601
+  %164 = load i32, ptr %arrayidx3.i.i.i.i143.i.i, align 4
+  %shr.i.i.i.i.i144.i.i = lshr i32 %163, %164
   store i32 %shr.i.i.i.i.i144.i.i, ptr %arrayidx2.i.i.i.i142.i.i, align 4
   %inc.i.i.i.i145.i.i = add nuw nsw i64 %i.05.i.i.i.i141.i.i, 1
   %exitcond.not.i.i.i.i146.i.i = icmp eq i64 %inc.i.i.i.i145.i.i, 16
@@ -3644,10 +3875,10 @@ for.body.i.i.i.i140.i.i:                          ; preds = %for.body.i.i.i.i140
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack27_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i140.i.i
   %add.ptr107.i1876.i = getelementptr inbounds i8, ptr %add.ptr322.i, i64 64
-  %602 = load <8 x i64>, ptr %self_buffer.i.i.i.i137.i.i, align 64
+  %165 = load <8 x i64>, ptr %self_buffer.i.i.i.i137.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i137.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i138.i.i)
-  %and.i.i.i.i149.i.i = and <8 x i64> %602, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i149.i.i = and <8 x i64> %165, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
   store <8 x i64> %and.i.i.i.i149.i.i, ptr %add.ptr107.i1876.i, align 1
   %add.ptr222.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 108
   %indvars.iv.next2527.i = add nuw nsw i64 %indvars.iv2526.i, 1
@@ -3659,58 +3890,72 @@ for.body331.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.282383.i = phi ptr [ %in, %for.body331.preheader.i ], [ %add.ptr212.i2004.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack28_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i1881.i = load i32, ptr %in.addr.282383.i, align 4
   %add.ptr3.i1882.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 4
+  %ret.0.copyload.i62.i1883.i = load i32, ptr %add.ptr3.i1882.i, align 4
+  %or.i1884.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i62.i1883.i, i32 %ret.0.copyload.i.i1881.i, i32 4)
+  %add.ptr8.i1885.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 8
+  %ret.0.copyload.i64.i1886.i = load i32, ptr %add.ptr8.i1885.i, align 4
+  %or11.i1887.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i64.i1886.i, i32 %ret.0.copyload.i62.i1883.i, i32 8)
+  %add.ptr15.i1888.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 12
+  %ret.0.copyload.i66.i1889.i = load i32, ptr %add.ptr15.i1888.i, align 4
+  %or18.i1890.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i1889.i, i32 %ret.0.copyload.i64.i1886.i, i32 12)
   %add.ptr22.i1891.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 16
   %ret.0.copyload.i68.i1892.i = load i32, ptr %add.ptr22.i1891.i, align 4
-  %603 = load <4 x i32>, ptr %add.ptr3.i1882.i, align 4
-  %604 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i.i1881.i, i64 0
-  %605 = shufflevector <4 x i32> %604, <4 x i32> %603, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %606 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %603, <4 x i32> %605, <4 x i32> <i32 4, i32 8, i32 12, i32 16>)
+  %or25.i1893.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i1892.i, i32 %ret.0.copyload.i66.i1889.i, i32 16)
   %add.ptr29.i1894.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 20
-  %607 = load <2 x i32>, ptr %add.ptr29.i1894.i, align 4
-  %608 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i68.i1892.i, i64 0
-  %609 = shufflevector <2 x i32> %608, <2 x i32> %607, <2 x i32> <i32 0, i32 2>
-  %610 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %607, <2 x i32> %609, <2 x i32> <i32 20, i32 24>)
+  %ret.0.copyload.i70.i1895.i = load i32, ptr %add.ptr29.i1894.i, align 4
+  %or32.i1896.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i1895.i, i32 %ret.0.copyload.i68.i1892.i, i32 20)
+  %add.ptr36.i1897.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 24
+  %ret.0.copyload.i72.i1898.i = load i32, ptr %add.ptr36.i1897.i, align 4
+  %or39.i1899.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i1898.i, i32 %ret.0.copyload.i70.i1895.i, i32 24)
   %add.ptr42.i1900.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 28
   %ret.0.copyload.i74.i1901.i = load i32, ptr %add.ptr42.i1900.i, align 4
   %add.ptr47.i1902.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 32
+  %ret.0.copyload.i76.i1903.i = load i32, ptr %add.ptr47.i1902.i, align 4
+  %or50.i1904.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i76.i1903.i, i32 %ret.0.copyload.i74.i1901.i, i32 4)
+  %add.ptr54.i1905.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 36
+  %ret.0.copyload.i78.i1906.i = load i32, ptr %add.ptr54.i1905.i, align 4
+  %or57.i1907.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i1906.i, i32 %ret.0.copyload.i76.i1903.i, i32 8)
+  %add.ptr61.i1908.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 40
+  %ret.0.copyload.i80.i1909.i = load i32, ptr %add.ptr61.i1908.i, align 4
+  %or64.i1910.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i1909.i, i32 %ret.0.copyload.i78.i1906.i, i32 12)
   %add.ptr68.i1911.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 44
   %ret.0.copyload.i82.i1912.i = load i32, ptr %add.ptr68.i1911.i, align 4
-  %611 = load <4 x i32>, ptr %add.ptr47.i1902.i, align 4
-  %612 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i74.i1901.i, i64 0
-  %613 = shufflevector <4 x i32> %612, <4 x i32> %611, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %614 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %611, <4 x i32> %613, <4 x i32> <i32 4, i32 8, i32 12, i32 16>)
+  %or71.i1913.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i1912.i, i32 %ret.0.copyload.i80.i1909.i, i32 16)
   %add.ptr75.i1914.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 48
-  %615 = load <2 x i32>, ptr %add.ptr75.i1914.i, align 4
-  %616 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i82.i1912.i, i64 0
-  %617 = shufflevector <2 x i32> %616, <2 x i32> %615, <2 x i32> <i32 0, i32 2>
-  %618 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %615, <2 x i32> %617, <2 x i32> <i32 20, i32 24>)
-  %vecinit.i.i.i.i1920.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i1881.i, i64 0
-  %619 = shufflevector <4 x i32> %606, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i.i1924.i199 = shufflevector <16 x i32> %vecinit.i.i.i.i1920.i, <16 x i32> %619, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %620 = shufflevector <2 x i32> %610, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i.i1926.i202 = shufflevector <16 x i32> %vecinit4.i.i.i.i1924.i199, <16 x i32> %620, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %621 = shufflevector <2 x i32> %607, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %622 = shufflevector <16 x i32> %vecinit6.i.i.i.i1926.i202, <16 x i32> %621, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i1928.i = insertelement <16 x i32> %622, i32 %ret.0.copyload.i74.i1901.i, i64 8
-  %623 = shufflevector <4 x i32> %614, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i1932.i200 = shufflevector <16 x i32> %vecinit8.i.i.i.i1928.i, <16 x i32> %623, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison>
-  %624 = shufflevector <2 x i32> %618, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i1934.i201 = shufflevector <16 x i32> %vecinit12.i.i.i.i1932.i200, <16 x i32> %624, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %625 = shufflevector <2 x i32> %615, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %626 = shufflevector <16 x i32> %vecinit14.i.i.i.i1934.i201, <16 x i32> %625, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i84.i1915.i = load i32, ptr %add.ptr75.i1914.i, align 4
+  %or78.i1916.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i1915.i, i32 %ret.0.copyload.i82.i1912.i, i32 20)
+  %add.ptr82.i1917.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 52
+  %ret.0.copyload.i86.i1918.i = load i32, ptr %add.ptr82.i1917.i, align 4
+  %or85.i1919.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i86.i1918.i, i32 %ret.0.copyload.i84.i1915.i, i32 24)
+  %vecinit.i.i.i.i1920.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i1881.i, i64 0
+  %vecinit1.i.i.i.i1921.i = insertelement <16 x i32> %vecinit.i.i.i.i1920.i, i32 %or.i1884.i, i64 1
+  %vecinit2.i.i.i.i1922.i = insertelement <16 x i32> %vecinit1.i.i.i.i1921.i, i32 %or11.i1887.i, i64 2
+  %vecinit3.i.i.i.i1923.i = insertelement <16 x i32> %vecinit2.i.i.i.i1922.i, i32 %or18.i1890.i, i64 3
+  %vecinit4.i.i.i.i1924.i = insertelement <16 x i32> %vecinit3.i.i.i.i1923.i, i32 %or25.i1893.i, i64 4
+  %vecinit5.i.i.i.i1925.i = insertelement <16 x i32> %vecinit4.i.i.i.i1924.i, i32 %or32.i1896.i, i64 5
+  %vecinit6.i.i.i.i1926.i = insertelement <16 x i32> %vecinit5.i.i.i.i1925.i, i32 %or39.i1899.i, i64 6
+  %vecinit7.i.i.i.i1927.i = insertelement <16 x i32> %vecinit6.i.i.i.i1926.i, i32 %ret.0.copyload.i72.i1898.i, i64 7
+  %vecinit8.i.i.i.i1928.i = insertelement <16 x i32> %vecinit7.i.i.i.i1927.i, i32 %ret.0.copyload.i74.i1901.i, i64 8
+  %vecinit9.i.i.i.i1929.i = insertelement <16 x i32> %vecinit8.i.i.i.i1928.i, i32 %or50.i1904.i, i64 9
+  %vecinit10.i.i.i.i1930.i = insertelement <16 x i32> %vecinit9.i.i.i.i1929.i, i32 %or57.i1907.i, i64 10
+  %vecinit11.i.i.i.i1931.i = insertelement <16 x i32> %vecinit10.i.i.i.i1930.i, i32 %or64.i1910.i, i64 11
+  %vecinit12.i.i.i.i1932.i = insertelement <16 x i32> %vecinit11.i.i.i.i1931.i, i32 %or71.i1913.i, i64 12
+  %vecinit13.i.i.i.i1933.i = insertelement <16 x i32> %vecinit12.i.i.i.i1932.i, i32 %or78.i1916.i, i64 13
+  %vecinit14.i.i.i.i1934.i = insertelement <16 x i32> %vecinit13.i.i.i.i1933.i, i32 %or85.i1919.i, i64 14
+  %vecinit15.i.i.i.i1935.i = insertelement <16 x i32> %vecinit14.i.i.i.i1934.i, i32 %ret.0.copyload.i86.i1918.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1879.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1880.i)
-  store <16 x i32> %626, ptr %self_buffer.i.i.i.i.i1879.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i1935.i, ptr %self_buffer.i.i.i.i.i1879.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 17179869184, i64 0, i64 0, i64 0, i64 17179869184>, ptr %other_buffer.i.i.i.i.i1880.i, align 64
   br label %for.body.i.i.i.i.i1936.i
 
 for.body.i.i.i.i.i1936.i:                         ; preds = %for.body.i.i.i.i.i1936.i, %for.body331.i
   %i.05.i.i.i.i.i1937.i = phi i64 [ 0, %for.body331.i ], [ %inc.i.i.i.i.i1941.i, %for.body.i.i.i.i.i1936.i ]
   %arrayidx2.i.i.i.i.i1938.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i1879.i, i64 0, i64 %i.05.i.i.i.i.i1937.i
-  %627 = load i32, ptr %arrayidx2.i.i.i.i.i1938.i, align 4
+  %166 = load i32, ptr %arrayidx2.i.i.i.i.i1938.i, align 4
   %arrayidx3.i.i.i.i.i1939.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i1880.i, i64 0, i64 %i.05.i.i.i.i.i1937.i
-  %628 = load i32, ptr %arrayidx3.i.i.i.i.i1939.i, align 4
-  %shr.i.i.i.i.i.i1940.i = lshr i32 %627, %628
+  %167 = load i32, ptr %arrayidx3.i.i.i.i.i1939.i, align 4
+  %shr.i.i.i.i.i.i1940.i = lshr i32 %166, %167
   store i32 %shr.i.i.i.i.i.i1940.i, ptr %arrayidx2.i.i.i.i.i1938.i, align 4
   %inc.i.i.i.i.i1941.i = add nuw nsw i64 %i.05.i.i.i.i.i1937.i, 1
   %exitcond.not.i.i.i.i.i1942.i = icmp eq i64 %inc.i.i.i.i.i1941.i, 16
@@ -3719,66 +3964,80 @@ for.body.i.i.i.i.i1936.i:                         ; preds = %for.body.i.i.i.i.i1
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1943.i: ; preds = %for.body.i.i.i.i.i1936.i
   %add.ptr334.idx.i = shl nsw i64 %indvars.iv2520.i, 7
   %add.ptr334.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr334.idx.i
-  %629 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1879.i, align 64
+  %168 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1879.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1879.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1880.i)
-  %and.i.i.i.i.i1944.i = and <8 x i64> %629, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i.i1944.i = and <8 x i64> %168, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
   store <8 x i64> %and.i.i.i.i.i1944.i, ptr %add.ptr334.i, align 1
   %add.ptr104.i1945.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 56
   %ret.0.copyload.i89.i1946.i = load i32, ptr %add.ptr104.i1945.i, align 4
   %add.ptr109.i1947.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 60
+  %ret.0.copyload.i91.i1948.i = load i32, ptr %add.ptr109.i1947.i, align 4
+  %or112.i1949.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i91.i1948.i, i32 %ret.0.copyload.i89.i1946.i, i32 4)
+  %add.ptr116.i1950.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 64
+  %ret.0.copyload.i93.i1951.i = load i32, ptr %add.ptr116.i1950.i, align 4
+  %or119.i1952.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i93.i1951.i, i32 %ret.0.copyload.i91.i1948.i, i32 8)
+  %add.ptr123.i1953.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 68
+  %ret.0.copyload.i95.i1954.i = load i32, ptr %add.ptr123.i1953.i, align 4
+  %or126.i1955.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i95.i1954.i, i32 %ret.0.copyload.i93.i1951.i, i32 12)
   %add.ptr130.i1956.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 72
   %ret.0.copyload.i97.i1957.i = load i32, ptr %add.ptr130.i1956.i, align 4
-  %630 = load <4 x i32>, ptr %add.ptr109.i1947.i, align 4
-  %631 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i89.i1946.i, i64 0
-  %632 = shufflevector <4 x i32> %631, <4 x i32> %630, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %633 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %630, <4 x i32> %632, <4 x i32> <i32 4, i32 8, i32 12, i32 16>)
+  %or133.i1958.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i1957.i, i32 %ret.0.copyload.i95.i1954.i, i32 16)
   %add.ptr137.i1959.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 76
-  %634 = load <2 x i32>, ptr %add.ptr137.i1959.i, align 4
-  %635 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i97.i1957.i, i64 0
-  %636 = shufflevector <2 x i32> %635, <2 x i32> %634, <2 x i32> <i32 0, i32 2>
-  %637 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %634, <2 x i32> %636, <2 x i32> <i32 20, i32 24>)
+  %ret.0.copyload.i99.i1960.i = load i32, ptr %add.ptr137.i1959.i, align 4
+  %or140.i1961.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i1960.i, i32 %ret.0.copyload.i97.i1957.i, i32 20)
+  %add.ptr144.i.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 80
+  %ret.0.copyload.i101.i.i = load i32, ptr %add.ptr144.i.i, align 4
+  %or147.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i101.i.i, i32 %ret.0.copyload.i99.i1960.i, i32 24)
   %add.ptr150.i1962.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 84
   %ret.0.copyload.i103.i1963.i = load i32, ptr %add.ptr150.i1962.i, align 4
   %add.ptr155.i.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 88
+  %ret.0.copyload.i105.i1964.i = load i32, ptr %add.ptr155.i.i, align 4
+  %or158.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i105.i1964.i, i32 %ret.0.copyload.i103.i1963.i, i32 4)
+  %add.ptr162.i1965.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 92
+  %ret.0.copyload.i107.i1966.i = load i32, ptr %add.ptr162.i1965.i, align 4
+  %or165.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i1966.i, i32 %ret.0.copyload.i105.i1964.i, i32 8)
+  %add.ptr169.i1967.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 96
+  %ret.0.copyload.i109.i1968.i = load i32, ptr %add.ptr169.i1967.i, align 4
+  %or172.i1969.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i1968.i, i32 %ret.0.copyload.i107.i1966.i, i32 12)
   %add.ptr176.i1970.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 100
   %ret.0.copyload.i111.i1971.i = load i32, ptr %add.ptr176.i1970.i, align 4
-  %638 = load <4 x i32>, ptr %add.ptr155.i.i, align 4
-  %639 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i103.i1963.i, i64 0
-  %640 = shufflevector <4 x i32> %639, <4 x i32> %638, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %641 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %638, <4 x i32> %640, <4 x i32> <i32 4, i32 8, i32 12, i32 16>)
+  %or179.i1972.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i1971.i, i32 %ret.0.copyload.i109.i1968.i, i32 16)
   %add.ptr183.i1973.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 104
-  %642 = load <2 x i32>, ptr %add.ptr183.i1973.i, align 4
-  %643 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i111.i1971.i, i64 0
-  %644 = shufflevector <2 x i32> %643, <2 x i32> %642, <2 x i32> <i32 0, i32 2>
-  %645 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %642, <2 x i32> %644, <2 x i32> <i32 20, i32 24>)
-  %vecinit.i.i.i117.i1979.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i89.i1946.i, i64 0
-  %646 = shufflevector <4 x i32> %633, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i121.i1983.i195 = shufflevector <16 x i32> %vecinit.i.i.i117.i1979.i, <16 x i32> %646, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %647 = shufflevector <2 x i32> %637, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit6.i.i.i123.i1985.i198 = shufflevector <16 x i32> %vecinit4.i.i.i121.i1983.i195, <16 x i32> %647, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 16, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %648 = shufflevector <2 x i32> %634, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %649 = shufflevector <16 x i32> %vecinit6.i.i.i123.i1985.i198, <16 x i32> %648, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 17, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i125.i1987.i = insertelement <16 x i32> %649, i32 %ret.0.copyload.i103.i1963.i, i64 8
-  %650 = shufflevector <4 x i32> %641, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i129.i1991.i196 = shufflevector <16 x i32> %vecinit8.i.i.i125.i1987.i, <16 x i32> %650, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison>
-  %651 = shufflevector <2 x i32> %645, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i131.i1993.i197 = shufflevector <16 x i32> %vecinit12.i.i.i129.i1991.i196, <16 x i32> %651, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %652 = shufflevector <2 x i32> %642, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %653 = shufflevector <16 x i32> %vecinit14.i.i.i131.i1993.i197, <16 x i32> %652, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i113.i1974.i = load i32, ptr %add.ptr183.i1973.i, align 4
+  %or186.i1975.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i1974.i, i32 %ret.0.copyload.i111.i1971.i, i32 20)
+  %add.ptr190.i1976.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 108
+  %ret.0.copyload.i115.i1977.i = load i32, ptr %add.ptr190.i1976.i, align 4
+  %or193.i1978.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i1977.i, i32 %ret.0.copyload.i113.i1974.i, i32 24)
+  %vecinit.i.i.i117.i1979.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i89.i1946.i, i64 0
+  %vecinit1.i.i.i118.i1980.i = insertelement <16 x i32> %vecinit.i.i.i117.i1979.i, i32 %or112.i1949.i, i64 1
+  %vecinit2.i.i.i119.i1981.i = insertelement <16 x i32> %vecinit1.i.i.i118.i1980.i, i32 %or119.i1952.i, i64 2
+  %vecinit3.i.i.i120.i1982.i = insertelement <16 x i32> %vecinit2.i.i.i119.i1981.i, i32 %or126.i1955.i, i64 3
+  %vecinit4.i.i.i121.i1983.i = insertelement <16 x i32> %vecinit3.i.i.i120.i1982.i, i32 %or133.i1958.i, i64 4
+  %vecinit5.i.i.i122.i1984.i = insertelement <16 x i32> %vecinit4.i.i.i121.i1983.i, i32 %or140.i1961.i, i64 5
+  %vecinit6.i.i.i123.i1985.i = insertelement <16 x i32> %vecinit5.i.i.i122.i1984.i, i32 %or147.i.i, i64 6
+  %vecinit7.i.i.i124.i1986.i = insertelement <16 x i32> %vecinit6.i.i.i123.i1985.i, i32 %ret.0.copyload.i101.i.i, i64 7
+  %vecinit8.i.i.i125.i1987.i = insertelement <16 x i32> %vecinit7.i.i.i124.i1986.i, i32 %ret.0.copyload.i103.i1963.i, i64 8
+  %vecinit9.i.i.i126.i1988.i = insertelement <16 x i32> %vecinit8.i.i.i125.i1987.i, i32 %or158.i.i, i64 9
+  %vecinit10.i.i.i127.i1989.i = insertelement <16 x i32> %vecinit9.i.i.i126.i1988.i, i32 %or165.i.i, i64 10
+  %vecinit11.i.i.i128.i1990.i = insertelement <16 x i32> %vecinit10.i.i.i127.i1989.i, i32 %or172.i1969.i, i64 11
+  %vecinit12.i.i.i129.i1991.i = insertelement <16 x i32> %vecinit11.i.i.i128.i1990.i, i32 %or179.i1972.i, i64 12
+  %vecinit13.i.i.i130.i1992.i = insertelement <16 x i32> %vecinit12.i.i.i129.i1991.i, i32 %or186.i1975.i, i64 13
+  %vecinit14.i.i.i131.i1993.i = insertelement <16 x i32> %vecinit13.i.i.i130.i1992.i, i32 %or193.i1978.i, i64 14
+  %vecinit15.i.i.i132.i1994.i = insertelement <16 x i32> %vecinit14.i.i.i131.i1993.i, i32 %ret.0.copyload.i115.i1977.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1877.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1878.i)
-  store <16 x i32> %653, ptr %self_buffer.i.i.i.i133.i1877.i, align 64
+  store <16 x i32> %vecinit15.i.i.i132.i1994.i, ptr %self_buffer.i.i.i.i133.i1877.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 17179869184, i64 0, i64 0, i64 0, i64 17179869184>, ptr %other_buffer.i.i.i.i134.i1878.i, align 64
   br label %for.body.i.i.i.i136.i1995.i
 
 for.body.i.i.i.i136.i1995.i:                      ; preds = %for.body.i.i.i.i136.i1995.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1943.i
   %i.05.i.i.i.i137.i1996.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1943.i ], [ %inc.i.i.i.i141.i2000.i, %for.body.i.i.i.i136.i1995.i ]
   %arrayidx2.i.i.i.i138.i1997.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i133.i1877.i, i64 0, i64 %i.05.i.i.i.i137.i1996.i
-  %654 = load i32, ptr %arrayidx2.i.i.i.i138.i1997.i, align 4
+  %169 = load i32, ptr %arrayidx2.i.i.i.i138.i1997.i, align 4
   %arrayidx3.i.i.i.i139.i1998.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i134.i1878.i, i64 0, i64 %i.05.i.i.i.i137.i1996.i
-  %655 = load i32, ptr %arrayidx3.i.i.i.i139.i1998.i, align 4
-  %shr.i.i.i.i.i140.i1999.i = lshr i32 %654, %655
+  %170 = load i32, ptr %arrayidx3.i.i.i.i139.i1998.i, align 4
+  %shr.i.i.i.i.i140.i1999.i = lshr i32 %169, %170
   store i32 %shr.i.i.i.i.i140.i1999.i, ptr %arrayidx2.i.i.i.i138.i1997.i, align 4
   %inc.i.i.i.i141.i2000.i = add nuw nsw i64 %i.05.i.i.i.i137.i1996.i, 1
   %exitcond.not.i.i.i.i142.i2001.i = icmp eq i64 %inc.i.i.i.i141.i2000.i, 16
@@ -3786,10 +4045,10 @@ for.body.i.i.i.i136.i1995.i:                      ; preds = %for.body.i.i.i.i136
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack28_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i136.i1995.i
   %add.ptr102.i2002.i = getelementptr inbounds i8, ptr %add.ptr334.i, i64 64
-  %656 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1877.i, align 64
+  %171 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1877.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1877.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1878.i)
-  %and.i.i.i.i145.i2003.i = and <8 x i64> %656, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i145.i2003.i = and <8 x i64> %171, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
   store <8 x i64> %and.i.i.i.i145.i2003.i, ptr %add.ptr102.i2002.i, align 1
   %add.ptr212.i2004.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 112
   %indvars.iv.next2521.i = add nuw nsw i64 %indvars.iv2520.i, 1
@@ -3801,33 +4060,63 @@ for.body343.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.292380.i = phi ptr [ %in, %for.body343.preheader.i ], [ %add.ptr232.i.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack29_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i2007.i = load i32, ptr %in.addr.292380.i, align 4
   %add.ptr3.i2008.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 4
+  %ret.0.copyload.i66.i2009.i = load i32, ptr %add.ptr3.i2008.i, align 4
+  %or.i2010.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i2009.i, i32 %ret.0.copyload.i.i2007.i, i32 3)
+  %add.ptr8.i2011.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 8
+  %ret.0.copyload.i68.i2012.i = load i32, ptr %add.ptr8.i2011.i, align 4
+  %or11.i2013.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i2012.i, i32 %ret.0.copyload.i66.i2009.i, i32 6)
+  %add.ptr15.i2014.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 12
+  %ret.0.copyload.i70.i2015.i = load i32, ptr %add.ptr15.i2014.i, align 4
+  %or18.i2016.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i2015.i, i32 %ret.0.copyload.i68.i2012.i, i32 9)
+  %add.ptr22.i2017.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 16
+  %ret.0.copyload.i72.i2018.i = load i32, ptr %add.ptr22.i2017.i, align 4
+  %or25.i2019.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i2018.i, i32 %ret.0.copyload.i70.i2015.i, i32 12)
+  %add.ptr29.i2020.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 20
+  %ret.0.copyload.i74.i2021.i = load i32, ptr %add.ptr29.i2020.i, align 4
+  %or32.i2022.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i2021.i, i32 %ret.0.copyload.i72.i2018.i, i32 15)
+  %add.ptr36.i2023.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 24
+  %ret.0.copyload.i76.i2024.i = load i32, ptr %add.ptr36.i2023.i, align 4
+  %or39.i2025.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i76.i2024.i, i32 %ret.0.copyload.i74.i2021.i, i32 18)
+  %add.ptr43.i2026.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 28
+  %ret.0.copyload.i78.i2027.i = load i32, ptr %add.ptr43.i2026.i, align 4
+  %or46.i2028.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i2027.i, i32 %ret.0.copyload.i76.i2024.i, i32 21)
   %add.ptr50.i2029.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 32
   %ret.0.copyload.i80.i2030.i = load i32, ptr %add.ptr50.i2029.i, align 4
-  %657 = load <8 x i32>, ptr %add.ptr3.i2008.i, align 4
-  %658 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i.i2007.i, i64 0
-  %659 = shufflevector <8 x i32> %658, <8 x i32> %657, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %660 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %657, <8 x i32> %659, <8 x i32> <i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21, i32 24>)
+  %or53.i2031.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i2030.i, i32 %ret.0.copyload.i78.i2027.i, i32 24)
   %add.ptr57.i2032.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 36
   %ret.0.copyload.i82.i2033.i = load i32, ptr %add.ptr57.i2032.i, align 4
   %or60.i2034.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i2033.i, i32 %ret.0.copyload.i80.i2030.i, i32 27)
   %add.ptr66.i2035.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 40
+  %ret.0.copyload.i85.i2036.i = load i32, ptr %add.ptr66.i2035.i, align 4
+  %or69.i2037.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i85.i2036.i, i32 %ret.0.copyload.i82.i2033.i, i32 1)
+  %add.ptr73.i2038.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 44
+  %ret.0.copyload.i87.i2039.i = load i32, ptr %add.ptr73.i2038.i, align 4
+  %or76.i2040.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i87.i2039.i, i32 %ret.0.copyload.i85.i2036.i, i32 4)
+  %add.ptr80.i2041.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 48
+  %ret.0.copyload.i89.i2042.i = load i32, ptr %add.ptr80.i2041.i, align 4
+  %or83.i2043.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i89.i2042.i, i32 %ret.0.copyload.i87.i2039.i, i32 7)
   %add.ptr87.i2044.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 52
   %ret.0.copyload.i91.i2045.i = load i32, ptr %add.ptr87.i2044.i, align 4
-  %661 = load <4 x i32>, ptr %add.ptr66.i2035.i, align 4
-  %662 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i82.i2033.i, i64 0
-  %663 = shufflevector <4 x i32> %662, <4 x i32> %661, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %664 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %661, <4 x i32> %663, <4 x i32> <i32 1, i32 4, i32 7, i32 10>)
+  %or90.i2046.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i91.i2045.i, i32 %ret.0.copyload.i89.i2042.i, i32 10)
   %add.ptr94.i2047.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 56
   %ret.0.copyload.i93.i2048.i = load i32, ptr %add.ptr94.i2047.i, align 4
   %or97.i2049.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i93.i2048.i, i32 %ret.0.copyload.i91.i2045.i, i32 13)
-  %vecinit.i.i.i.i2050.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i2007.i, i64 0
-  %665 = shufflevector <8 x i32> %660, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i2058.i204 = shufflevector <16 x i32> %vecinit.i.i.i.i2050.i, <16 x i32> %665, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit9.i.i.i.i2059.i = insertelement <16 x i32> %vecinit8.i.i.i.i2058.i204, i32 %or60.i2034.i, i64 9
+  %vecinit.i.i.i.i2050.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i2007.i, i64 0
+  %vecinit1.i.i.i.i2051.i = insertelement <16 x i32> %vecinit.i.i.i.i2050.i, i32 %or.i2010.i, i64 1
+  %vecinit2.i.i.i.i2052.i = insertelement <16 x i32> %vecinit1.i.i.i.i2051.i, i32 %or11.i2013.i, i64 2
+  %vecinit3.i.i.i.i2053.i = insertelement <16 x i32> %vecinit2.i.i.i.i2052.i, i32 %or18.i2016.i, i64 3
+  %vecinit4.i.i.i.i2054.i = insertelement <16 x i32> %vecinit3.i.i.i.i2053.i, i32 %or25.i2019.i, i64 4
+  %vecinit5.i.i.i.i2055.i = insertelement <16 x i32> %vecinit4.i.i.i.i2054.i, i32 %or32.i2022.i, i64 5
+  %vecinit6.i.i.i.i2056.i = insertelement <16 x i32> %vecinit5.i.i.i.i2055.i, i32 %or39.i2025.i, i64 6
+  %vecinit7.i.i.i.i2057.i = insertelement <16 x i32> %vecinit6.i.i.i.i2056.i, i32 %or46.i2028.i, i64 7
+  %vecinit8.i.i.i.i2058.i = insertelement <16 x i32> %vecinit7.i.i.i.i2057.i, i32 %or53.i2031.i, i64 8
+  %vecinit9.i.i.i.i2059.i = insertelement <16 x i32> %vecinit8.i.i.i.i2058.i, i32 %or60.i2034.i, i64 9
   %vecinit10.i.i.i.i2060.i = insertelement <16 x i32> %vecinit9.i.i.i.i2059.i, i32 %ret.0.copyload.i82.i2033.i, i64 10
-  %666 = shufflevector <4 x i32> %664, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i2064.i205 = shufflevector <16 x i32> %vecinit10.i.i.i.i2060.i, <16 x i32> %666, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 16, i32 17, i32 18, i32 19, i32 poison>
-  %vecinit15.i.i.i.i2065.i = insertelement <16 x i32> %vecinit14.i.i.i.i2064.i205, i32 %or97.i2049.i, i64 15
+  %vecinit11.i.i.i.i2061.i = insertelement <16 x i32> %vecinit10.i.i.i.i2060.i, i32 %or69.i2037.i, i64 11
+  %vecinit12.i.i.i.i2062.i = insertelement <16 x i32> %vecinit11.i.i.i.i2061.i, i32 %or76.i2040.i, i64 12
+  %vecinit13.i.i.i.i2063.i = insertelement <16 x i32> %vecinit12.i.i.i.i2062.i, i32 %or83.i2043.i, i64 13
+  %vecinit14.i.i.i.i2064.i = insertelement <16 x i32> %vecinit13.i.i.i.i2063.i, i32 %or90.i2046.i, i64 14
+  %vecinit15.i.i.i.i2065.i = insertelement <16 x i32> %vecinit14.i.i.i.i2064.i, i32 %or97.i2049.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2005.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2006.i)
   store <16 x i32> %vecinit15.i.i.i.i2065.i, ptr %self_buffer.i.i.i.i.i2005.i, align 64
@@ -3837,10 +4126,10 @@ for.body343.i:                                    ; preds = %_ZN5arrow8internal1
 for.body.i.i.i.i.i2066.i:                         ; preds = %for.body.i.i.i.i.i2066.i, %for.body343.i
   %i.05.i.i.i.i.i2067.i = phi i64 [ 0, %for.body343.i ], [ %inc.i.i.i.i.i2071.i, %for.body.i.i.i.i.i2066.i ]
   %arrayidx2.i.i.i.i.i2068.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i2005.i, i64 0, i64 %i.05.i.i.i.i.i2067.i
-  %667 = load i32, ptr %arrayidx2.i.i.i.i.i2068.i, align 4
+  %172 = load i32, ptr %arrayidx2.i.i.i.i.i2068.i, align 4
   %arrayidx3.i.i.i.i.i2069.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i2006.i, i64 0, i64 %i.05.i.i.i.i.i2067.i
-  %668 = load i32, ptr %arrayidx3.i.i.i.i.i2069.i, align 4
-  %shr.i.i.i.i.i.i2070.i = lshr i32 %667, %668
+  %173 = load i32, ptr %arrayidx3.i.i.i.i.i2069.i, align 4
+  %shr.i.i.i.i.i.i2070.i = lshr i32 %172, %173
   store i32 %shr.i.i.i.i.i.i2070.i, ptr %arrayidx2.i.i.i.i.i2068.i, align 4
   %inc.i.i.i.i.i2071.i = add nuw nsw i64 %i.05.i.i.i.i.i2067.i, 1
   %exitcond.not.i.i.i.i.i2072.i = icmp eq i64 %inc.i.i.i.i.i2071.i, 16
@@ -3849,38 +4138,69 @@ for.body.i.i.i.i.i2066.i:                         ; preds = %for.body.i.i.i.i.i2
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2073.i: ; preds = %for.body.i.i.i.i.i2066.i
   %add.ptr346.idx.i = shl nsw i64 %indvars.iv2514.i, 7
   %add.ptr346.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr346.idx.i
-  %669 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2005.i, align 64
+  %174 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2005.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2005.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2006.i)
-  %and.i.i.i.i.i2074.i = and <8 x i64> %669, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i.i2074.i = and <8 x i64> %174, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
   store <8 x i64> %and.i.i.i.i.i2074.i, ptr %add.ptr346.i, align 1
   %ret.0.copyload.i95.i2075.i = load i32, ptr %add.ptr94.i2047.i, align 4
   %add.ptr117.i2076.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 60
+  %ret.0.copyload.i96.i2077.i = load i32, ptr %add.ptr117.i2076.i, align 4
+  %or120.i2078.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i96.i2077.i, i32 %ret.0.copyload.i95.i2075.i, i32 16)
+  %add.ptr124.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 64
+  %ret.0.copyload.i98.i.i = load i32, ptr %add.ptr124.i.i, align 4
+  %or127.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i98.i.i, i32 %ret.0.copyload.i96.i2077.i, i32 19)
+  %add.ptr131.i2079.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 68
+  %ret.0.copyload.i100.i2080.i = load i32, ptr %add.ptr131.i2079.i, align 4
+  %or134.i2081.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i100.i2080.i, i32 %ret.0.copyload.i98.i.i, i32 22)
   %add.ptr138.i2082.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 72
   %ret.0.copyload.i102.i2083.i = load i32, ptr %add.ptr138.i2082.i, align 4
-  %670 = load <4 x i32>, ptr %add.ptr117.i2076.i, align 4
-  %671 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i95.i2075.i, i64 0
-  %672 = shufflevector <4 x i32> %671, <4 x i32> %670, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %673 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %670, <4 x i32> %672, <4 x i32> <i32 16, i32 19, i32 22, i32 25>)
+  %or141.i2084.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i102.i2083.i, i32 %ret.0.copyload.i100.i2080.i, i32 25)
   %add.ptr145.i2085.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 76
   %ret.0.copyload.i104.i2086.i = load i32, ptr %add.ptr145.i2085.i, align 4
   %or148.i2087.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i104.i2086.i, i32 %ret.0.copyload.i102.i2083.i, i32 28)
   %add.ptr154.i2088.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 80
+  %ret.0.copyload.i107.i2089.i = load i32, ptr %add.ptr154.i2088.i, align 4
+  %or157.i2090.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i2089.i, i32 %ret.0.copyload.i104.i2086.i, i32 2)
+  %add.ptr161.i2091.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 84
+  %ret.0.copyload.i109.i2092.i = load i32, ptr %add.ptr161.i2091.i, align 4
+  %or164.i2093.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i2092.i, i32 %ret.0.copyload.i107.i2089.i, i32 5)
+  %add.ptr168.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 88
+  %ret.0.copyload.i111.i2094.i = load i32, ptr %add.ptr168.i.i, align 4
+  %or171.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i2094.i, i32 %ret.0.copyload.i109.i2092.i, i32 8)
+  %add.ptr175.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 92
+  %ret.0.copyload.i113.i2095.i = load i32, ptr %add.ptr175.i.i, align 4
+  %or178.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i2095.i, i32 %ret.0.copyload.i111.i2094.i, i32 11)
+  %add.ptr182.i2096.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 96
+  %ret.0.copyload.i115.i2097.i = load i32, ptr %add.ptr182.i2096.i, align 4
+  %or185.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i2097.i, i32 %ret.0.copyload.i113.i2095.i, i32 14)
+  %add.ptr189.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 100
+  %ret.0.copyload.i117.i2098.i = load i32, ptr %add.ptr189.i.i, align 4
+  %or192.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i117.i2098.i, i32 %ret.0.copyload.i115.i2097.i, i32 17)
+  %add.ptr196.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 104
+  %ret.0.copyload.i119.i2099.i = load i32, ptr %add.ptr196.i.i, align 4
+  %or199.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i119.i2099.i, i32 %ret.0.copyload.i117.i2098.i, i32 20)
   %add.ptr203.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 108
   %ret.0.copyload.i121.i.i = load i32, ptr %add.ptr203.i.i, align 4
-  %674 = load <8 x i32>, ptr %add.ptr154.i2088.i, align 4
-  %675 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i104.i2086.i, i64 0
-  %676 = shufflevector <8 x i32> %675, <8 x i32> %674, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %677 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %674, <8 x i32> %676, <8 x i32> <i32 2, i32 5, i32 8, i32 11, i32 14, i32 17, i32 20, i32 23>)
+  %or206.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i121.i.i, i32 %ret.0.copyload.i119.i2099.i, i32 23)
   %add.ptr210.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 112
   %ret.0.copyload.i123.i.i = load i32, ptr %add.ptr210.i.i, align 4
   %or213.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i123.i.i, i32 %ret.0.copyload.i121.i.i, i32 26)
-  %678 = shufflevector <4 x i32> %673, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit4.i.i.i129.i.i = insertelement <16 x i32> %678, i32 %or148.i2087.i, i64 4
+  %vecinit.i.i.i125.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or120.i2078.i, i64 0
+  %vecinit1.i.i.i126.i.i = insertelement <16 x i32> %vecinit.i.i.i125.i.i, i32 %or127.i.i, i64 1
+  %vecinit2.i.i.i127.i.i = insertelement <16 x i32> %vecinit1.i.i.i126.i.i, i32 %or134.i2081.i, i64 2
+  %vecinit3.i.i.i128.i.i = insertelement <16 x i32> %vecinit2.i.i.i127.i.i, i32 %or141.i2084.i, i64 3
+  %vecinit4.i.i.i129.i.i = insertelement <16 x i32> %vecinit3.i.i.i128.i.i, i32 %or148.i2087.i, i64 4
   %vecinit5.i.i.i130.i.i = insertelement <16 x i32> %vecinit4.i.i.i129.i.i, i32 %ret.0.copyload.i104.i2086.i, i64 5
-  %679 = shufflevector <8 x i32> %677, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i138.i.i203 = shufflevector <16 x i32> %vecinit5.i.i.i130.i.i, <16 x i32> %679, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison>
-  %vecinit14.i.i.i139.i.i = insertelement <16 x i32> %vecinit13.i.i.i138.i.i203, i32 %or213.i.i, i64 14
+  %vecinit6.i.i.i131.i.i = insertelement <16 x i32> %vecinit5.i.i.i130.i.i, i32 %or157.i2090.i, i64 6
+  %vecinit7.i.i.i132.i.i = insertelement <16 x i32> %vecinit6.i.i.i131.i.i, i32 %or164.i2093.i, i64 7
+  %vecinit8.i.i.i133.i.i = insertelement <16 x i32> %vecinit7.i.i.i132.i.i, i32 %or171.i.i, i64 8
+  %vecinit9.i.i.i134.i.i = insertelement <16 x i32> %vecinit8.i.i.i133.i.i, i32 %or178.i.i, i64 9
+  %vecinit10.i.i.i135.i.i = insertelement <16 x i32> %vecinit9.i.i.i134.i.i, i32 %or185.i.i, i64 10
+  %vecinit11.i.i.i136.i.i = insertelement <16 x i32> %vecinit10.i.i.i135.i.i, i32 %or192.i.i, i64 11
+  %vecinit12.i.i.i137.i.i = insertelement <16 x i32> %vecinit11.i.i.i136.i.i, i32 %or199.i.i, i64 12
+  %vecinit13.i.i.i138.i.i = insertelement <16 x i32> %vecinit12.i.i.i137.i.i, i32 %or206.i.i, i64 13
+  %vecinit14.i.i.i139.i.i = insertelement <16 x i32> %vecinit13.i.i.i138.i.i, i32 %or213.i.i, i64 14
   %vecinit15.i.i.i140.i.i = insertelement <16 x i32> %vecinit14.i.i.i139.i.i, i32 %ret.0.copyload.i123.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i.i)
@@ -3891,10 +4211,10 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2073.i: ; preds = %for.body.i.
 for.body.i.i.i.i144.i.i:                          ; preds = %for.body.i.i.i.i144.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2073.i
   %i.05.i.i.i.i145.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2073.i ], [ %inc.i.i.i.i149.i.i, %for.body.i.i.i.i144.i.i ]
   %arrayidx2.i.i.i.i146.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i141.i.i, i64 0, i64 %i.05.i.i.i.i145.i.i
-  %680 = load i32, ptr %arrayidx2.i.i.i.i146.i.i, align 4
+  %175 = load i32, ptr %arrayidx2.i.i.i.i146.i.i, align 4
   %arrayidx3.i.i.i.i147.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i142.i.i, i64 0, i64 %i.05.i.i.i.i145.i.i
-  %681 = load i32, ptr %arrayidx3.i.i.i.i147.i.i, align 4
-  %shr.i.i.i.i.i148.i.i = lshr i32 %680, %681
+  %176 = load i32, ptr %arrayidx3.i.i.i.i147.i.i, align 4
+  %shr.i.i.i.i.i148.i.i = lshr i32 %175, %176
   store i32 %shr.i.i.i.i.i148.i.i, ptr %arrayidx2.i.i.i.i146.i.i, align 4
   %inc.i.i.i.i149.i.i = add nuw nsw i64 %i.05.i.i.i.i145.i.i, 1
   %exitcond.not.i.i.i.i150.i.i = icmp eq i64 %inc.i.i.i.i149.i.i, 16
@@ -3902,10 +4222,10 @@ for.body.i.i.i.i144.i.i:                          ; preds = %for.body.i.i.i.i144
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack29_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i144.i.i
   %add.ptr112.i2100.i = getelementptr inbounds i8, ptr %add.ptr346.i, i64 64
-  %682 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i.i, align 64
+  %177 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i.i)
-  %and.i.i.i.i153.i.i = and <8 x i64> %682, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i153.i.i = and <8 x i64> %177, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
   store <8 x i64> %and.i.i.i.i153.i.i, ptr %add.ptr112.i2100.i, align 1
   %add.ptr232.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 116
   %indvars.iv.next2515.i = add nuw nsw i64 %indvars.iv2514.i, 1
@@ -3917,46 +4237,76 @@ for.body355.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.302377.i = phi ptr [ %in, %for.body355.preheader.i ], [ %add.ptr232.i2236.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack30_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i2105.i = load i32, ptr %in.addr.302377.i, align 4
   %add.ptr3.i2106.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 4
+  %ret.0.copyload.i66.i2107.i = load i32, ptr %add.ptr3.i2106.i, align 4
+  %or.i2108.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i66.i2107.i, i32 %ret.0.copyload.i.i2105.i, i32 2)
+  %add.ptr8.i2109.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 8
+  %ret.0.copyload.i68.i2110.i = load i32, ptr %add.ptr8.i2109.i, align 4
+  %or11.i2111.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i2110.i, i32 %ret.0.copyload.i66.i2107.i, i32 4)
+  %add.ptr15.i2112.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 12
+  %ret.0.copyload.i70.i2113.i = load i32, ptr %add.ptr15.i2112.i, align 4
+  %or18.i2114.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i2113.i, i32 %ret.0.copyload.i68.i2110.i, i32 6)
+  %add.ptr22.i2115.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 16
+  %ret.0.copyload.i72.i2116.i = load i32, ptr %add.ptr22.i2115.i, align 4
+  %or25.i2117.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i2116.i, i32 %ret.0.copyload.i70.i2113.i, i32 8)
+  %add.ptr29.i2118.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 20
+  %ret.0.copyload.i74.i2119.i = load i32, ptr %add.ptr29.i2118.i, align 4
+  %or32.i2120.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i2119.i, i32 %ret.0.copyload.i72.i2116.i, i32 10)
+  %add.ptr36.i2121.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 24
+  %ret.0.copyload.i76.i2122.i = load i32, ptr %add.ptr36.i2121.i, align 4
+  %or39.i2123.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i76.i2122.i, i32 %ret.0.copyload.i74.i2119.i, i32 12)
+  %add.ptr43.i2124.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 28
+  %ret.0.copyload.i78.i2125.i = load i32, ptr %add.ptr43.i2124.i, align 4
+  %or46.i2126.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i2125.i, i32 %ret.0.copyload.i76.i2122.i, i32 14)
   %add.ptr50.i2127.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 32
   %ret.0.copyload.i80.i2128.i = load i32, ptr %add.ptr50.i2127.i, align 4
-  %683 = load <8 x i32>, ptr %add.ptr3.i2106.i, align 4
-  %684 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i.i2105.i, i64 0
-  %685 = shufflevector <8 x i32> %684, <8 x i32> %683, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %686 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %683, <8 x i32> %685, <8 x i32> <i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16>)
+  %or53.i2129.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i2128.i, i32 %ret.0.copyload.i78.i2125.i, i32 16)
   %add.ptr57.i2130.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 36
+  %ret.0.copyload.i82.i2131.i = load i32, ptr %add.ptr57.i2130.i, align 4
+  %or60.i2132.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i2131.i, i32 %ret.0.copyload.i80.i2128.i, i32 18)
+  %add.ptr64.i2133.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 40
+  %ret.0.copyload.i84.i2134.i = load i32, ptr %add.ptr64.i2133.i, align 4
+  %or67.i2135.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i2134.i, i32 %ret.0.copyload.i82.i2131.i, i32 20)
+  %add.ptr71.i2136.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 44
+  %ret.0.copyload.i86.i2137.i = load i32, ptr %add.ptr71.i2136.i, align 4
+  %or74.i2138.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i86.i2137.i, i32 %ret.0.copyload.i84.i2134.i, i32 22)
   %add.ptr78.i.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 48
   %ret.0.copyload.i88.i2139.i = load i32, ptr %add.ptr78.i.i, align 4
-  %687 = load <4 x i32>, ptr %add.ptr57.i2130.i, align 4
-  %688 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i80.i2128.i, i64 0
-  %689 = shufflevector <4 x i32> %688, <4 x i32> %687, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %690 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %687, <4 x i32> %689, <4 x i32> <i32 18, i32 20, i32 22, i32 24>)
+  %or81.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i88.i2139.i, i32 %ret.0.copyload.i86.i2137.i, i32 24)
   %add.ptr85.i2140.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 52
-  %691 = load <2 x i32>, ptr %add.ptr85.i2140.i, align 4
-  %692 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i88.i2139.i, i64 0
-  %693 = shufflevector <2 x i32> %692, <2 x i32> %691, <2 x i32> <i32 0, i32 2>
-  %694 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %691, <2 x i32> %693, <2 x i32> <i32 26, i32 28>)
-  %vecinit.i.i.i.i2146.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i2105.i, i64 0
-  %695 = shufflevector <8 x i32> %686, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i2154.i209 = shufflevector <16 x i32> %vecinit.i.i.i.i2146.i, <16 x i32> %695, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %696 = shufflevector <4 x i32> %690, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i2158.i210 = shufflevector <16 x i32> %vecinit8.i.i.i.i2154.i209, <16 x i32> %696, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison>
-  %697 = shufflevector <2 x i32> %694, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i.i2160.i211 = shufflevector <16 x i32> %vecinit12.i.i.i.i2158.i210, <16 x i32> %697, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %698 = shufflevector <2 x i32> %691, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %699 = shufflevector <16 x i32> %vecinit14.i.i.i.i2160.i211, <16 x i32> %698, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i90.i2141.i = load i32, ptr %add.ptr85.i2140.i, align 4
+  %or88.i2142.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i2141.i, i32 %ret.0.copyload.i88.i2139.i, i32 26)
+  %add.ptr92.i2143.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 56
+  %ret.0.copyload.i92.i2144.i = load i32, ptr %add.ptr92.i2143.i, align 4
+  %or95.i2145.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i2144.i, i32 %ret.0.copyload.i90.i2141.i, i32 28)
+  %vecinit.i.i.i.i2146.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i2105.i, i64 0
+  %vecinit1.i.i.i.i2147.i = insertelement <16 x i32> %vecinit.i.i.i.i2146.i, i32 %or.i2108.i, i64 1
+  %vecinit2.i.i.i.i2148.i = insertelement <16 x i32> %vecinit1.i.i.i.i2147.i, i32 %or11.i2111.i, i64 2
+  %vecinit3.i.i.i.i2149.i = insertelement <16 x i32> %vecinit2.i.i.i.i2148.i, i32 %or18.i2114.i, i64 3
+  %vecinit4.i.i.i.i2150.i = insertelement <16 x i32> %vecinit3.i.i.i.i2149.i, i32 %or25.i2117.i, i64 4
+  %vecinit5.i.i.i.i2151.i = insertelement <16 x i32> %vecinit4.i.i.i.i2150.i, i32 %or32.i2120.i, i64 5
+  %vecinit6.i.i.i.i2152.i = insertelement <16 x i32> %vecinit5.i.i.i.i2151.i, i32 %or39.i2123.i, i64 6
+  %vecinit7.i.i.i.i2153.i = insertelement <16 x i32> %vecinit6.i.i.i.i2152.i, i32 %or46.i2126.i, i64 7
+  %vecinit8.i.i.i.i2154.i = insertelement <16 x i32> %vecinit7.i.i.i.i2153.i, i32 %or53.i2129.i, i64 8
+  %vecinit9.i.i.i.i2155.i = insertelement <16 x i32> %vecinit8.i.i.i.i2154.i, i32 %or60.i2132.i, i64 9
+  %vecinit10.i.i.i.i2156.i = insertelement <16 x i32> %vecinit9.i.i.i.i2155.i, i32 %or67.i2135.i, i64 10
+  %vecinit11.i.i.i.i2157.i = insertelement <16 x i32> %vecinit10.i.i.i.i2156.i, i32 %or74.i2138.i, i64 11
+  %vecinit12.i.i.i.i2158.i = insertelement <16 x i32> %vecinit11.i.i.i.i2157.i, i32 %or81.i.i, i64 12
+  %vecinit13.i.i.i.i2159.i = insertelement <16 x i32> %vecinit12.i.i.i.i2158.i, i32 %or88.i2142.i, i64 13
+  %vecinit14.i.i.i.i2160.i = insertelement <16 x i32> %vecinit13.i.i.i.i2159.i, i32 %or95.i2145.i, i64 14
+  %vecinit15.i.i.i.i2161.i = insertelement <16 x i32> %vecinit14.i.i.i.i2160.i, i32 %ret.0.copyload.i92.i2144.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2103.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2104.i)
-  store <16 x i32> %699, ptr %self_buffer.i.i.i.i.i2103.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i2161.i, ptr %self_buffer.i.i.i.i.i2103.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8589934592>, ptr %other_buffer.i.i.i.i.i2104.i, align 64
   br label %for.body.i.i.i.i.i2162.i
 
 for.body.i.i.i.i.i2162.i:                         ; preds = %for.body.i.i.i.i.i2162.i, %for.body355.i
   %i.05.i.i.i.i.i2163.i = phi i64 [ 0, %for.body355.i ], [ %inc.i.i.i.i.i2167.i, %for.body.i.i.i.i.i2162.i ]
   %arrayidx2.i.i.i.i.i2164.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i2103.i, i64 0, i64 %i.05.i.i.i.i.i2163.i
-  %700 = load i32, ptr %arrayidx2.i.i.i.i.i2164.i, align 4
+  %178 = load i32, ptr %arrayidx2.i.i.i.i.i2164.i, align 4
   %arrayidx3.i.i.i.i.i2165.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i2104.i, i64 0, i64 %i.05.i.i.i.i.i2163.i
-  %701 = load i32, ptr %arrayidx3.i.i.i.i.i2165.i, align 4
-  %shr.i.i.i.i.i.i2166.i = lshr i32 %700, %701
+  %179 = load i32, ptr %arrayidx3.i.i.i.i.i2165.i, align 4
+  %shr.i.i.i.i.i.i2166.i = lshr i32 %178, %179
   store i32 %shr.i.i.i.i.i.i2166.i, ptr %arrayidx2.i.i.i.i.i2164.i, align 4
   %inc.i.i.i.i.i2167.i = add nuw nsw i64 %i.05.i.i.i.i.i2163.i, 1
   %exitcond.not.i.i.i.i.i2168.i = icmp eq i64 %inc.i.i.i.i.i2167.i, 16
@@ -3965,54 +4315,84 @@ for.body.i.i.i.i.i2162.i:                         ; preds = %for.body.i.i.i.i.i2
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2169.i: ; preds = %for.body.i.i.i.i.i2162.i
   %add.ptr358.idx.i = shl nsw i64 %indvars.iv2508.i, 7
   %add.ptr358.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr358.idx.i
-  %702 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2103.i, align 64
+  %180 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2103.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2103.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2104.i)
-  %and.i.i.i.i.i2170.i = and <8 x i64> %702, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i.i2170.i = and <8 x i64> %180, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
   store <8 x i64> %and.i.i.i.i.i2170.i, ptr %add.ptr358.i, align 1
   %add.ptr114.i2171.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 60
   %ret.0.copyload.i95.i2172.i = load i32, ptr %add.ptr114.i2171.i, align 4
   %add.ptr119.i2173.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 64
+  %ret.0.copyload.i97.i2174.i = load i32, ptr %add.ptr119.i2173.i, align 4
+  %or122.i2175.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i97.i2174.i, i32 %ret.0.copyload.i95.i2172.i, i32 2)
+  %add.ptr126.i2176.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 68
+  %ret.0.copyload.i99.i2177.i = load i32, ptr %add.ptr126.i2176.i, align 4
+  %or129.i2178.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i2177.i, i32 %ret.0.copyload.i97.i2174.i, i32 4)
+  %add.ptr133.i.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 72
+  %ret.0.copyload.i101.i2179.i = load i32, ptr %add.ptr133.i.i, align 4
+  %or136.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i101.i2179.i, i32 %ret.0.copyload.i99.i2177.i, i32 6)
+  %add.ptr140.i.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 76
+  %ret.0.copyload.i103.i2180.i = load i32, ptr %add.ptr140.i.i, align 4
+  %or143.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i103.i2180.i, i32 %ret.0.copyload.i101.i2179.i, i32 8)
+  %add.ptr147.i2181.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 80
+  %ret.0.copyload.i105.i2182.i = load i32, ptr %add.ptr147.i2181.i, align 4
+  %or150.i2183.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i105.i2182.i, i32 %ret.0.copyload.i103.i2180.i, i32 10)
+  %add.ptr154.i2184.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 84
+  %ret.0.copyload.i107.i2185.i = load i32, ptr %add.ptr154.i2184.i, align 4
+  %or157.i2186.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i2185.i, i32 %ret.0.copyload.i105.i2182.i, i32 12)
+  %add.ptr161.i2187.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 88
+  %ret.0.copyload.i109.i2188.i = load i32, ptr %add.ptr161.i2187.i, align 4
+  %or164.i2189.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i2188.i, i32 %ret.0.copyload.i107.i2185.i, i32 14)
   %add.ptr168.i2190.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 92
   %ret.0.copyload.i111.i2191.i = load i32, ptr %add.ptr168.i2190.i, align 4
-  %703 = load <8 x i32>, ptr %add.ptr119.i2173.i, align 4
-  %704 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i95.i2172.i, i64 0
-  %705 = shufflevector <8 x i32> %704, <8 x i32> %703, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %706 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %703, <8 x i32> %705, <8 x i32> <i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16>)
+  %or171.i2192.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i2191.i, i32 %ret.0.copyload.i109.i2188.i, i32 16)
   %add.ptr175.i2193.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 96
+  %ret.0.copyload.i113.i2194.i = load i32, ptr %add.ptr175.i2193.i, align 4
+  %or178.i2195.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i2194.i, i32 %ret.0.copyload.i111.i2191.i, i32 18)
+  %add.ptr182.i2196.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 100
+  %ret.0.copyload.i115.i2197.i = load i32, ptr %add.ptr182.i2196.i, align 4
+  %or185.i2198.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i2197.i, i32 %ret.0.copyload.i113.i2194.i, i32 20)
+  %add.ptr189.i2199.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 104
+  %ret.0.copyload.i117.i2200.i = load i32, ptr %add.ptr189.i2199.i, align 4
+  %or192.i2201.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i117.i2200.i, i32 %ret.0.copyload.i115.i2197.i, i32 22)
   %add.ptr196.i2202.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 108
   %ret.0.copyload.i119.i2203.i = load i32, ptr %add.ptr196.i2202.i, align 4
-  %707 = load <4 x i32>, ptr %add.ptr175.i2193.i, align 4
-  %708 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i111.i2191.i, i64 0
-  %709 = shufflevector <4 x i32> %708, <4 x i32> %707, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %710 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %707, <4 x i32> %709, <4 x i32> <i32 18, i32 20, i32 22, i32 24>)
+  %or199.i2204.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i119.i2203.i, i32 %ret.0.copyload.i117.i2200.i, i32 24)
   %add.ptr203.i2205.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 112
-  %711 = load <2 x i32>, ptr %add.ptr203.i2205.i, align 4
-  %712 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i119.i2203.i, i64 0
-  %713 = shufflevector <2 x i32> %712, <2 x i32> %711, <2 x i32> <i32 0, i32 2>
-  %714 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %711, <2 x i32> %713, <2 x i32> <i32 26, i32 28>)
-  %vecinit.i.i.i125.i2211.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i95.i2172.i, i64 0
-  %715 = shufflevector <8 x i32> %706, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i133.i2219.i206 = shufflevector <16 x i32> %vecinit.i.i.i125.i2211.i, <16 x i32> %715, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %716 = shufflevector <4 x i32> %710, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i137.i2223.i207 = shufflevector <16 x i32> %vecinit8.i.i.i133.i2219.i206, <16 x i32> %716, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison>
-  %717 = shufflevector <2 x i32> %714, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i139.i2225.i208 = shufflevector <16 x i32> %vecinit12.i.i.i137.i2223.i207, <16 x i32> %717, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %718 = shufflevector <2 x i32> %711, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %719 = shufflevector <16 x i32> %vecinit14.i.i.i139.i2225.i208, <16 x i32> %718, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i121.i2206.i = load i32, ptr %add.ptr203.i2205.i, align 4
+  %or206.i2207.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i121.i2206.i, i32 %ret.0.copyload.i119.i2203.i, i32 26)
+  %add.ptr210.i2208.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 116
+  %ret.0.copyload.i123.i2209.i = load i32, ptr %add.ptr210.i2208.i, align 4
+  %or213.i2210.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i123.i2209.i, i32 %ret.0.copyload.i121.i2206.i, i32 28)
+  %vecinit.i.i.i125.i2211.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i95.i2172.i, i64 0
+  %vecinit1.i.i.i126.i2212.i = insertelement <16 x i32> %vecinit.i.i.i125.i2211.i, i32 %or122.i2175.i, i64 1
+  %vecinit2.i.i.i127.i2213.i = insertelement <16 x i32> %vecinit1.i.i.i126.i2212.i, i32 %or129.i2178.i, i64 2
+  %vecinit3.i.i.i128.i2214.i = insertelement <16 x i32> %vecinit2.i.i.i127.i2213.i, i32 %or136.i.i, i64 3
+  %vecinit4.i.i.i129.i2215.i = insertelement <16 x i32> %vecinit3.i.i.i128.i2214.i, i32 %or143.i.i, i64 4
+  %vecinit5.i.i.i130.i2216.i = insertelement <16 x i32> %vecinit4.i.i.i129.i2215.i, i32 %or150.i2183.i, i64 5
+  %vecinit6.i.i.i131.i2217.i = insertelement <16 x i32> %vecinit5.i.i.i130.i2216.i, i32 %or157.i2186.i, i64 6
+  %vecinit7.i.i.i132.i2218.i = insertelement <16 x i32> %vecinit6.i.i.i131.i2217.i, i32 %or164.i2189.i, i64 7
+  %vecinit8.i.i.i133.i2219.i = insertelement <16 x i32> %vecinit7.i.i.i132.i2218.i, i32 %or171.i2192.i, i64 8
+  %vecinit9.i.i.i134.i2220.i = insertelement <16 x i32> %vecinit8.i.i.i133.i2219.i, i32 %or178.i2195.i, i64 9
+  %vecinit10.i.i.i135.i2221.i = insertelement <16 x i32> %vecinit9.i.i.i134.i2220.i, i32 %or185.i2198.i, i64 10
+  %vecinit11.i.i.i136.i2222.i = insertelement <16 x i32> %vecinit10.i.i.i135.i2221.i, i32 %or192.i2201.i, i64 11
+  %vecinit12.i.i.i137.i2223.i = insertelement <16 x i32> %vecinit11.i.i.i136.i2222.i, i32 %or199.i2204.i, i64 12
+  %vecinit13.i.i.i138.i2224.i = insertelement <16 x i32> %vecinit12.i.i.i137.i2223.i, i32 %or206.i2207.i, i64 13
+  %vecinit14.i.i.i139.i2225.i = insertelement <16 x i32> %vecinit13.i.i.i138.i2224.i, i32 %or213.i2210.i, i64 14
+  %vecinit15.i.i.i140.i2226.i = insertelement <16 x i32> %vecinit14.i.i.i139.i2225.i, i32 %ret.0.copyload.i123.i2209.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i2101.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i2102.i)
-  store <16 x i32> %719, ptr %self_buffer.i.i.i.i141.i2101.i, align 64
+  store <16 x i32> %vecinit15.i.i.i140.i2226.i, ptr %self_buffer.i.i.i.i141.i2101.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8589934592>, ptr %other_buffer.i.i.i.i142.i2102.i, align 64
   br label %for.body.i.i.i.i144.i2227.i
 
 for.body.i.i.i.i144.i2227.i:                      ; preds = %for.body.i.i.i.i144.i2227.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2169.i
   %i.05.i.i.i.i145.i2228.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2169.i ], [ %inc.i.i.i.i149.i2232.i, %for.body.i.i.i.i144.i2227.i ]
   %arrayidx2.i.i.i.i146.i2229.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i141.i2101.i, i64 0, i64 %i.05.i.i.i.i145.i2228.i
-  %720 = load i32, ptr %arrayidx2.i.i.i.i146.i2229.i, align 4
+  %181 = load i32, ptr %arrayidx2.i.i.i.i146.i2229.i, align 4
   %arrayidx3.i.i.i.i147.i2230.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i142.i2102.i, i64 0, i64 %i.05.i.i.i.i145.i2228.i
-  %721 = load i32, ptr %arrayidx3.i.i.i.i147.i2230.i, align 4
-  %shr.i.i.i.i.i148.i2231.i = lshr i32 %720, %721
+  %182 = load i32, ptr %arrayidx3.i.i.i.i147.i2230.i, align 4
+  %shr.i.i.i.i.i148.i2231.i = lshr i32 %181, %182
   store i32 %shr.i.i.i.i.i148.i2231.i, ptr %arrayidx2.i.i.i.i146.i2229.i, align 4
   %inc.i.i.i.i149.i2232.i = add nuw nsw i64 %i.05.i.i.i.i145.i2228.i, 1
   %exitcond.not.i.i.i.i150.i2233.i = icmp eq i64 %inc.i.i.i.i149.i2232.i, 16
@@ -4020,10 +4400,10 @@ for.body.i.i.i.i144.i2227.i:                      ; preds = %for.body.i.i.i.i144
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack30_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i144.i2227.i
   %add.ptr112.i2234.i = getelementptr inbounds i8, ptr %add.ptr358.i, i64 64
-  %722 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i2101.i, align 64
+  %183 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i2101.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i2101.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i2102.i)
-  %and.i.i.i.i153.i2235.i = and <8 x i64> %722, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i153.i2235.i = and <8 x i64> %183, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
   store <8 x i64> %and.i.i.i.i153.i2235.i, ptr %add.ptr112.i2234.i, align 1
   %add.ptr232.i2236.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 120
   %indvars.iv.next2509.i = add nuw nsw i64 %indvars.iv2508.i, 1
@@ -4035,49 +4415,79 @@ for.body367.i:                                    ; preds = %_ZN5arrow8internal1
   %in.addr.312374.i = phi ptr [ %in, %for.body367.preheader.i ], [ %add.ptr242.i.i, %_ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack31_32EPKjPj.exit.i ]
   %ret.0.copyload.i.i2239.i = load i32, ptr %in.addr.312374.i, align 4
   %add.ptr3.i2240.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 4
+  %ret.0.copyload.i68.i2241.i = load i32, ptr %add.ptr3.i2240.i, align 4
+  %or.i2242.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i68.i2241.i, i32 %ret.0.copyload.i.i2239.i, i32 1)
+  %add.ptr8.i2243.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 8
+  %ret.0.copyload.i70.i2244.i = load i32, ptr %add.ptr8.i2243.i, align 4
+  %or11.i2245.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i70.i2244.i, i32 %ret.0.copyload.i68.i2241.i, i32 2)
+  %add.ptr15.i2246.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 12
+  %ret.0.copyload.i72.i2247.i = load i32, ptr %add.ptr15.i2246.i, align 4
+  %or18.i2248.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i72.i2247.i, i32 %ret.0.copyload.i70.i2244.i, i32 3)
+  %add.ptr22.i2249.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 16
+  %ret.0.copyload.i74.i2250.i = load i32, ptr %add.ptr22.i2249.i, align 4
+  %or25.i2251.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i74.i2250.i, i32 %ret.0.copyload.i72.i2247.i, i32 4)
+  %add.ptr29.i2252.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 20
+  %ret.0.copyload.i76.i2253.i = load i32, ptr %add.ptr29.i2252.i, align 4
+  %or32.i2254.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i76.i2253.i, i32 %ret.0.copyload.i74.i2250.i, i32 5)
+  %add.ptr36.i2255.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 24
+  %ret.0.copyload.i78.i2256.i = load i32, ptr %add.ptr36.i2255.i, align 4
+  %or39.i2257.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i78.i2256.i, i32 %ret.0.copyload.i76.i2253.i, i32 6)
+  %add.ptr43.i2258.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 28
+  %ret.0.copyload.i80.i2259.i = load i32, ptr %add.ptr43.i2258.i, align 4
+  %or46.i2260.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i80.i2259.i, i32 %ret.0.copyload.i78.i2256.i, i32 7)
   %add.ptr50.i2261.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 32
   %ret.0.copyload.i82.i2262.i = load i32, ptr %add.ptr50.i2261.i, align 4
-  %723 = load <8 x i32>, ptr %add.ptr3.i2240.i, align 4
-  %724 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i.i2239.i, i64 0
-  %725 = shufflevector <8 x i32> %724, <8 x i32> %723, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %726 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %723, <8 x i32> %725, <8 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8>)
+  %or53.i2263.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i82.i2262.i, i32 %ret.0.copyload.i80.i2259.i, i32 8)
   %add.ptr57.i2264.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 36
+  %ret.0.copyload.i84.i2265.i = load i32, ptr %add.ptr57.i2264.i, align 4
+  %or60.i2266.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i84.i2265.i, i32 %ret.0.copyload.i82.i2262.i, i32 9)
+  %add.ptr64.i2267.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 40
+  %ret.0.copyload.i86.i2268.i = load i32, ptr %add.ptr64.i2267.i, align 4
+  %or67.i2269.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i86.i2268.i, i32 %ret.0.copyload.i84.i2265.i, i32 10)
+  %add.ptr71.i2270.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 44
+  %ret.0.copyload.i88.i2271.i = load i32, ptr %add.ptr71.i2270.i, align 4
+  %or74.i2272.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i88.i2271.i, i32 %ret.0.copyload.i86.i2268.i, i32 11)
   %add.ptr78.i2273.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 48
   %ret.0.copyload.i90.i2274.i = load i32, ptr %add.ptr78.i2273.i, align 4
-  %727 = load <4 x i32>, ptr %add.ptr57.i2264.i, align 4
-  %728 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i82.i2262.i, i64 0
-  %729 = shufflevector <4 x i32> %728, <4 x i32> %727, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %730 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %727, <4 x i32> %729, <4 x i32> <i32 9, i32 10, i32 11, i32 12>)
+  %or81.i2275.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i90.i2274.i, i32 %ret.0.copyload.i88.i2271.i, i32 12)
   %add.ptr85.i2276.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 52
   %ret.0.copyload.i92.i2277.i = load i32, ptr %add.ptr85.i2276.i, align 4
   %or88.i2278.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i92.i2277.i, i32 %ret.0.copyload.i90.i2274.i, i32 13)
   %add.ptr92.i2279.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 56
+  %ret.0.copyload.i94.i2280.i = load i32, ptr %add.ptr92.i2279.i, align 4
+  %or95.i2281.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i94.i2280.i, i32 %ret.0.copyload.i92.i2277.i, i32 14)
   %add.ptr99.i2282.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 60
-  %731 = load <2 x i32>, ptr %add.ptr92.i2279.i, align 4
-  %732 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i92.i2277.i, i64 0
-  %733 = shufflevector <2 x i32> %732, <2 x i32> %731, <2 x i32> <i32 0, i32 2>
-  %734 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %731, <2 x i32> %733, <2 x i32> <i32 14, i32 15>)
-  %vecinit.i.i.i.i2285.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i.i2239.i, i64 0
-  %735 = shufflevector <8 x i32> %726, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit8.i.i.i.i2293.i214 = shufflevector <16 x i32> %vecinit.i.i.i.i2285.i, <16 x i32> %735, <16 x i32> <i32 0, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %736 = shufflevector <4 x i32> %730, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i.i2297.i215 = shufflevector <16 x i32> %vecinit8.i.i.i.i2293.i214, <16 x i32> %736, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison>
-  %vecinit13.i.i.i.i2298.i = insertelement <16 x i32> %vecinit12.i.i.i.i2297.i215, i32 %or88.i2278.i, i64 13
-  %737 = shufflevector <2 x i32> %734, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit15.i.i.i.i2300.i216 = shufflevector <16 x i32> %vecinit13.i.i.i.i2298.i, <16 x i32> %737, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 16, i32 17>
+  %ret.0.copyload.i96.i2283.i = load i32, ptr %add.ptr99.i2282.i, align 4
+  %or102.i2284.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i96.i2283.i, i32 %ret.0.copyload.i94.i2280.i, i32 15)
+  %vecinit.i.i.i.i2285.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %ret.0.copyload.i.i2239.i, i64 0
+  %vecinit1.i.i.i.i2286.i = insertelement <16 x i32> %vecinit.i.i.i.i2285.i, i32 %or.i2242.i, i64 1
+  %vecinit2.i.i.i.i2287.i = insertelement <16 x i32> %vecinit1.i.i.i.i2286.i, i32 %or11.i2245.i, i64 2
+  %vecinit3.i.i.i.i2288.i = insertelement <16 x i32> %vecinit2.i.i.i.i2287.i, i32 %or18.i2248.i, i64 3
+  %vecinit4.i.i.i.i2289.i = insertelement <16 x i32> %vecinit3.i.i.i.i2288.i, i32 %or25.i2251.i, i64 4
+  %vecinit5.i.i.i.i2290.i = insertelement <16 x i32> %vecinit4.i.i.i.i2289.i, i32 %or32.i2254.i, i64 5
+  %vecinit6.i.i.i.i2291.i = insertelement <16 x i32> %vecinit5.i.i.i.i2290.i, i32 %or39.i2257.i, i64 6
+  %vecinit7.i.i.i.i2292.i = insertelement <16 x i32> %vecinit6.i.i.i.i2291.i, i32 %or46.i2260.i, i64 7
+  %vecinit8.i.i.i.i2293.i = insertelement <16 x i32> %vecinit7.i.i.i.i2292.i, i32 %or53.i2263.i, i64 8
+  %vecinit9.i.i.i.i2294.i = insertelement <16 x i32> %vecinit8.i.i.i.i2293.i, i32 %or60.i2266.i, i64 9
+  %vecinit10.i.i.i.i2295.i = insertelement <16 x i32> %vecinit9.i.i.i.i2294.i, i32 %or67.i2269.i, i64 10
+  %vecinit11.i.i.i.i2296.i = insertelement <16 x i32> %vecinit10.i.i.i.i2295.i, i32 %or74.i2272.i, i64 11
+  %vecinit12.i.i.i.i2297.i = insertelement <16 x i32> %vecinit11.i.i.i.i2296.i, i32 %or81.i2275.i, i64 12
+  %vecinit13.i.i.i.i2298.i = insertelement <16 x i32> %vecinit12.i.i.i.i2297.i, i32 %or88.i2278.i, i64 13
+  %vecinit14.i.i.i.i2299.i = insertelement <16 x i32> %vecinit13.i.i.i.i2298.i, i32 %or95.i2281.i, i64 14
+  %vecinit15.i.i.i.i2300.i = insertelement <16 x i32> %vecinit14.i.i.i.i2299.i, i32 %or102.i2284.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2237.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2238.i)
-  store <16 x i32> %vecinit15.i.i.i.i2300.i216, ptr %self_buffer.i.i.i.i.i2237.i, align 64
+  store <16 x i32> %vecinit15.i.i.i.i2300.i, ptr %self_buffer.i.i.i.i.i2237.i, align 64
   store <8 x i64> zeroinitializer, ptr %other_buffer.i.i.i.i.i2238.i, align 64
   br label %for.body.i.i.i.i.i2301.i
 
 for.body.i.i.i.i.i2301.i:                         ; preds = %for.body.i.i.i.i.i2301.i, %for.body367.i
   %i.05.i.i.i.i.i2302.i = phi i64 [ 0, %for.body367.i ], [ %inc.i.i.i.i.i2306.i, %for.body.i.i.i.i.i2301.i ]
   %arrayidx2.i.i.i.i.i2303.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i.i2237.i, i64 0, i64 %i.05.i.i.i.i.i2302.i
-  %738 = load i32, ptr %arrayidx2.i.i.i.i.i2303.i, align 4
+  %184 = load i32, ptr %arrayidx2.i.i.i.i.i2303.i, align 4
   %arrayidx3.i.i.i.i.i2304.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i.i2238.i, i64 0, i64 %i.05.i.i.i.i.i2302.i
-  %739 = load i32, ptr %arrayidx3.i.i.i.i.i2304.i, align 4
-  %shr.i.i.i.i.i.i2305.i = lshr i32 %738, %739
+  %185 = load i32, ptr %arrayidx3.i.i.i.i.i2304.i, align 4
+  %shr.i.i.i.i.i.i2305.i = lshr i32 %184, %185
   store i32 %shr.i.i.i.i.i.i2305.i, ptr %arrayidx2.i.i.i.i.i2303.i, align 4
   %inc.i.i.i.i.i2306.i = add nuw nsw i64 %i.05.i.i.i.i.i2302.i, 1
   %exitcond.not.i.i.i.i.i2307.i = icmp eq i64 %inc.i.i.i.i.i2306.i, 16
@@ -4086,55 +4496,86 @@ for.body.i.i.i.i.i2301.i:                         ; preds = %for.body.i.i.i.i.i2
 _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2308.i: ; preds = %for.body.i.i.i.i.i2301.i
   %add.ptr370.idx.i = shl nsw i64 %indvars.iv2502.i, 7
   %add.ptr370.i = getelementptr inbounds i8, ptr %out, i64 %add.ptr370.idx.i
-  %740 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2237.i, align 64
+  %186 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2237.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2237.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2238.i)
-  %and.i.i.i.i.i2309.i = and <8 x i64> %740, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i.i2309.i = and <8 x i64> %186, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
   store <8 x i64> %and.i.i.i.i.i2309.i, ptr %add.ptr370.i, align 1
   %ret.0.copyload.i98.i2310.i = load i32, ptr %add.ptr99.i2282.i, align 4
   %add.ptr122.i2311.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 64
+  %ret.0.copyload.i99.i2312.i = load i32, ptr %add.ptr122.i2311.i, align 4
+  %or125.i2313.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i99.i2312.i, i32 %ret.0.copyload.i98.i2310.i, i32 16)
+  %add.ptr129.i2314.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 68
+  %ret.0.copyload.i101.i2315.i = load i32, ptr %add.ptr129.i2314.i, align 4
+  %or132.i2316.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i101.i2315.i, i32 %ret.0.copyload.i99.i2312.i, i32 17)
+  %add.ptr136.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 72
+  %ret.0.copyload.i103.i2317.i = load i32, ptr %add.ptr136.i.i, align 4
+  %or139.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i103.i2317.i, i32 %ret.0.copyload.i101.i2315.i, i32 18)
+  %add.ptr143.i2318.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 76
+  %ret.0.copyload.i105.i2319.i = load i32, ptr %add.ptr143.i2318.i, align 4
+  %or146.i2320.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i105.i2319.i, i32 %ret.0.copyload.i103.i2317.i, i32 19)
+  %add.ptr150.i2321.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 80
+  %ret.0.copyload.i107.i2322.i = load i32, ptr %add.ptr150.i2321.i, align 4
+  %or153.i2323.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i107.i2322.i, i32 %ret.0.copyload.i105.i2319.i, i32 20)
+  %add.ptr157.i2324.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 84
+  %ret.0.copyload.i109.i2325.i = load i32, ptr %add.ptr157.i2324.i, align 4
+  %or160.i2326.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i109.i2325.i, i32 %ret.0.copyload.i107.i2322.i, i32 21)
+  %add.ptr164.i2327.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 88
+  %ret.0.copyload.i111.i2328.i = load i32, ptr %add.ptr164.i2327.i, align 4
+  %or167.i2329.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i111.i2328.i, i32 %ret.0.copyload.i109.i2325.i, i32 22)
   %add.ptr171.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 92
   %ret.0.copyload.i113.i2330.i = load i32, ptr %add.ptr171.i.i, align 4
-  %741 = load <8 x i32>, ptr %add.ptr122.i2311.i, align 4
-  %742 = insertelement <8 x i32> poison, i32 %ret.0.copyload.i98.i2310.i, i64 0
-  %743 = shufflevector <8 x i32> %742, <8 x i32> %741, <8 x i32> <i32 0, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14>
-  %744 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %741, <8 x i32> %743, <8 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>)
+  %or174.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i113.i2330.i, i32 %ret.0.copyload.i111.i2328.i, i32 23)
   %add.ptr178.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 96
+  %ret.0.copyload.i115.i2331.i = load i32, ptr %add.ptr178.i.i, align 4
+  %or181.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i115.i2331.i, i32 %ret.0.copyload.i113.i2330.i, i32 24)
+  %add.ptr185.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 100
+  %ret.0.copyload.i117.i2332.i = load i32, ptr %add.ptr185.i.i, align 4
+  %or188.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i117.i2332.i, i32 %ret.0.copyload.i115.i2331.i, i32 25)
+  %add.ptr192.i2333.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 104
+  %ret.0.copyload.i119.i2334.i = load i32, ptr %add.ptr192.i2333.i, align 4
+  %or195.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i119.i2334.i, i32 %ret.0.copyload.i117.i2332.i, i32 26)
   %add.ptr199.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 108
   %ret.0.copyload.i121.i2335.i = load i32, ptr %add.ptr199.i.i, align 4
-  %745 = load <4 x i32>, ptr %add.ptr178.i.i, align 4
-  %746 = insertelement <4 x i32> poison, i32 %ret.0.copyload.i113.i2330.i, i64 0
-  %747 = shufflevector <4 x i32> %746, <4 x i32> %745, <4 x i32> <i32 0, i32 4, i32 5, i32 6>
-  %748 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %745, <4 x i32> %747, <4 x i32> <i32 24, i32 25, i32 26, i32 27>)
+  %or202.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i121.i2335.i, i32 %ret.0.copyload.i119.i2334.i, i32 27)
   %add.ptr206.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 112
   %ret.0.copyload.i123.i2336.i = load i32, ptr %add.ptr206.i.i, align 4
   %or209.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i123.i2336.i, i32 %ret.0.copyload.i121.i2335.i, i32 28)
   %add.ptr213.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 116
-  %749 = load <2 x i32>, ptr %add.ptr213.i.i, align 4
-  %750 = insertelement <2 x i32> poison, i32 %ret.0.copyload.i123.i2336.i, i64 0
-  %751 = shufflevector <2 x i32> %750, <2 x i32> %749, <2 x i32> <i32 0, i32 2>
-  %752 = tail call <2 x i32> @llvm.fshl.v2i32(<2 x i32> %749, <2 x i32> %751, <2 x i32> <i32 29, i32 30>)
-  %753 = shufflevector <8 x i32> %744, <8 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %754 = shufflevector <4 x i32> %748, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit11.i.i.i140.i.i212 = shufflevector <16 x i32> %753, <16 x i32> %754, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 16, i32 17, i32 18, i32 19, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit12.i.i.i141.i.i = insertelement <16 x i32> %vecinit11.i.i.i140.i.i212, i32 %or209.i.i, i64 12
-  %755 = shufflevector <2 x i32> %752, <2 x i32> poison, <16 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %vecinit14.i.i.i143.i.i213 = shufflevector <16 x i32> %vecinit12.i.i.i141.i.i, <16 x i32> %755, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 16, i32 17, i32 poison>
-  %756 = shufflevector <2 x i32> %749, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %757 = shufflevector <16 x i32> %vecinit14.i.i.i143.i.i213, <16 x i32> %756, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 17>
+  %ret.0.copyload.i125.i.i = load i32, ptr %add.ptr213.i.i, align 4
+  %or216.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i125.i.i, i32 %ret.0.copyload.i123.i2336.i, i32 29)
+  %add.ptr220.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 120
+  %ret.0.copyload.i127.i.i = load i32, ptr %add.ptr220.i.i, align 4
+  %or223.i.i = tail call i32 @llvm.fshl.i32(i32 %ret.0.copyload.i127.i.i, i32 %ret.0.copyload.i125.i.i, i32 30)
+  %vecinit.i.i.i129.i.i = insertelement <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef, i32 undef>, i32 %or125.i2313.i, i64 0
+  %vecinit1.i.i.i130.i.i = insertelement <16 x i32> %vecinit.i.i.i129.i.i, i32 %or132.i2316.i, i64 1
+  %vecinit2.i.i.i131.i.i = insertelement <16 x i32> %vecinit1.i.i.i130.i.i, i32 %or139.i.i, i64 2
+  %vecinit3.i.i.i132.i.i = insertelement <16 x i32> %vecinit2.i.i.i131.i.i, i32 %or146.i2320.i, i64 3
+  %vecinit4.i.i.i133.i.i = insertelement <16 x i32> %vecinit3.i.i.i132.i.i, i32 %or153.i2323.i, i64 4
+  %vecinit5.i.i.i134.i.i = insertelement <16 x i32> %vecinit4.i.i.i133.i.i, i32 %or160.i2326.i, i64 5
+  %vecinit6.i.i.i135.i.i = insertelement <16 x i32> %vecinit5.i.i.i134.i.i, i32 %or167.i2329.i, i64 6
+  %vecinit7.i.i.i136.i.i = insertelement <16 x i32> %vecinit6.i.i.i135.i.i, i32 %or174.i.i, i64 7
+  %vecinit8.i.i.i137.i.i = insertelement <16 x i32> %vecinit7.i.i.i136.i.i, i32 %or181.i.i, i64 8
+  %vecinit9.i.i.i138.i.i = insertelement <16 x i32> %vecinit8.i.i.i137.i.i, i32 %or188.i.i, i64 9
+  %vecinit10.i.i.i139.i.i = insertelement <16 x i32> %vecinit9.i.i.i138.i.i, i32 %or195.i.i, i64 10
+  %vecinit11.i.i.i140.i.i = insertelement <16 x i32> %vecinit10.i.i.i139.i.i, i32 %or202.i.i, i64 11
+  %vecinit12.i.i.i141.i.i = insertelement <16 x i32> %vecinit11.i.i.i140.i.i, i32 %or209.i.i, i64 12
+  %vecinit13.i.i.i142.i.i = insertelement <16 x i32> %vecinit12.i.i.i141.i.i, i32 %or216.i.i, i64 13
+  %vecinit14.i.i.i143.i.i = insertelement <16 x i32> %vecinit13.i.i.i142.i.i, i32 %or223.i.i, i64 14
+  %vecinit15.i.i.i144.i.i = insertelement <16 x i32> %vecinit14.i.i.i143.i.i, i32 %ret.0.copyload.i127.i.i, i64 15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i145.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i146.i.i)
-  store <16 x i32> %757, ptr %self_buffer.i.i.i.i145.i.i, align 64
+  store <16 x i32> %vecinit15.i.i.i144.i.i, ptr %self_buffer.i.i.i.i145.i.i, align 64
   store <8 x i64> <i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296>, ptr %other_buffer.i.i.i.i146.i.i, align 64
   br label %for.body.i.i.i.i148.i.i
 
 for.body.i.i.i.i148.i.i:                          ; preds = %for.body.i.i.i.i148.i.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2308.i
   %i.05.i.i.i.i149.i.i = phi i64 [ 0, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2308.i ], [ %inc.i.i.i.i153.i.i, %for.body.i.i.i.i148.i.i ]
   %arrayidx2.i.i.i.i150.i.i = getelementptr inbounds [16 x i32], ptr %self_buffer.i.i.i.i145.i.i, i64 0, i64 %i.05.i.i.i.i149.i.i
-  %758 = load i32, ptr %arrayidx2.i.i.i.i150.i.i, align 4
+  %187 = load i32, ptr %arrayidx2.i.i.i.i150.i.i, align 4
   %arrayidx3.i.i.i.i151.i.i = getelementptr inbounds [16 x i32], ptr %other_buffer.i.i.i.i146.i.i, i64 0, i64 %i.05.i.i.i.i149.i.i
-  %759 = load i32, ptr %arrayidx3.i.i.i.i151.i.i, align 4
-  %shr.i.i.i.i.i152.i.i = lshr i32 %758, %759
+  %188 = load i32, ptr %arrayidx3.i.i.i.i151.i.i, align 4
+  %shr.i.i.i.i.i152.i.i = lshr i32 %187, %188
   store i32 %shr.i.i.i.i.i152.i.i, ptr %arrayidx2.i.i.i.i150.i.i, align 4
   %inc.i.i.i.i153.i.i = add nuw nsw i64 %i.05.i.i.i.i149.i.i, 1
   %exitcond.not.i.i.i.i154.i.i = icmp eq i64 %inc.i.i.i.i153.i.i, 16
@@ -4142,10 +4583,10 @@ for.body.i.i.i.i148.i.i:                          ; preds = %for.body.i.i.i.i148
 
 _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack31_32EPKjPj.exit.i: ; preds = %for.body.i.i.i.i148.i.i
   %add.ptr117.i2337.i = getelementptr inbounds i8, ptr %add.ptr370.i, i64 64
-  %760 = load <8 x i64>, ptr %self_buffer.i.i.i.i145.i.i, align 64
+  %189 = load <8 x i64>, ptr %self_buffer.i.i.i.i145.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i145.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i146.i.i)
-  %and.i.i.i.i157.i.i = and <8 x i64> %760, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i157.i.i = and <8 x i64> %189, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
   store <8 x i64> %and.i.i.i.i157.i.i, ptr %add.ptr117.i2337.i, align 1
   %add.ptr242.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 124
   %indvars.iv.next2503.i = add nuw nsw i64 %indvars.iv2502.i, 1
@@ -4184,15 +4625,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.fshl.v2i32(<2 x i32>, <2 x i32>, <2 x i32>) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i32> @llvm.fshl.v8i32(<8 x i32>, <8 x i32>, <8 x i32>) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -114,7 +114,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #1 personality ptr @__gxx_p
   %46 = load i64, ptr %45, align 8
   call void @_ZN5Catch7SectionC1ERKNS_14SourceLineInfoENS_9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %44, i64 %46, ptr noundef null)
   %47 = invoke noundef zeroext i1 @_ZNK5Catch7SectioncvbEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
-          to label %48 unwind label %65
+          to label %48 unwind label %66
 
 48:                                               ; preds = %0
   br i1 %47, label %49, label %_ZN5Catch16AssertionHandlerD2Ev.exit112
@@ -122,966 +122,968 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #1 personality ptr @__gxx_p
 49:                                               ; preds = %48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %50 = getelementptr inbounds i8, ptr %4, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %50, align 4
+  store float 1.000000e+00, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %4, i64 24
+  store float 1.000000e+00, ptr %51, align 8
   invoke void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, float noundef 0.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull %6)
-          to label %51 unwind label %65
+          to label %52 unwind label %66
 
-51:                                               ; preds = %49
+52:                                               ; preds = %49
   store ptr @.str, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 19, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 19, ptr %53, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull @.str.5, i64 26, i32 noundef 1)
-          to label %53 unwind label %65
+          to label %54 unwind label %66
 
-53:                                               ; preds = %51
-  %54 = load float, ptr %6, align 4
+54:                                               ; preds = %52
+  %55 = load float, ptr %6, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %10, double noundef 0.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit unwind label %67
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit unwind label %68
 
-_ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %53
-  %55 = fpext float %54 to double
-  %56 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %10, double noundef %55)
-          to label %57 unwind label %67
+_ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %54
+  %56 = fpext float %55 to double
+  %57 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %10, double noundef %56)
+          to label %58 unwind label %68
 
-57:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit
-  %58 = zext i1 %56 to i8
-  %59 = getelementptr inbounds i8, ptr %9, i64 8
-  store i8 1, ptr %59, align 8, !alias.scope !5
-  %60 = getelementptr inbounds i8, ptr %9, i64 9
-  store i8 %58, ptr %60, align 1, !alias.scope !5
+58:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit
+  %59 = zext i1 %57 to i8
+  %60 = getelementptr inbounds i8, ptr %9, i64 8
+  store i8 1, ptr %60, align 8, !alias.scope !5
+  %61 = getelementptr inbounds i8, ptr %9, i64 9
+  store i8 %59, ptr %61, align 1, !alias.scope !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %9, align 8, !alias.scope !5
-  %61 = getelementptr inbounds i8, ptr %9, i64 12
-  store float %54, ptr %61, align 4, !alias.scope !5
-  %62 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr @.str.12, ptr %62, align 8, !alias.scope !5
+  %62 = getelementptr inbounds i8, ptr %9, i64 12
+  store float %55, ptr %62, align 4, !alias.scope !5
+  %63 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @.str.12, ptr %63, align 8, !alias.scope !5
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !5
-  %63 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %10, ptr %63, align 8, !alias.scope !5
+  %64 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %10, ptr %64, align 8, !alias.scope !5
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(10) %9)
-          to label %64 unwind label %69
+          to label %65 unwind label %70
 
-64:                                               ; preds = %57
+65:                                               ; preds = %58
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %9) #9
-  br label %74
+  br label %75
 
-65:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit108, %_ZN5Catch16AssertionHandlerD2Ev.exit104, %286, %_ZN5Catch16AssertionHandlerD2Ev.exit100, %_ZN5Catch16AssertionHandlerD2Ev.exit96, %_ZN5Catch16AssertionHandlerD2Ev.exit92, %168, %_ZN5Catch16AssertionHandlerD2Ev.exit89, %_ZN5Catch16AssertionHandlerD2Ev.exit85, %_ZN5Catch16AssertionHandlerD2Ev.exit, %51, %49, %0
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit108, %_ZN5Catch16AssertionHandlerD2Ev.exit104, %287, %_ZN5Catch16AssertionHandlerD2Ev.exit100, %_ZN5Catch16AssertionHandlerD2Ev.exit96, %_ZN5Catch16AssertionHandlerD2Ev.exit92, %169, %_ZN5Catch16AssertionHandlerD2Ev.exit89, %_ZN5Catch16AssertionHandlerD2Ev.exit85, %_ZN5Catch16AssertionHandlerD2Ev.exit, %52, %49, %0
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %409
+  br label %410
 
-67:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit, %53
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit, %54
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  br label %71
+  br label %72
 
-69:                                               ; preds = %57
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %58
+  %71 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %9) #9
-  br label %71
+  br label %72
 
-71:                                               ; preds = %69, %67
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
+72:                                               ; preds = %70, %68
+  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
   %.1 = extractvalue { ptr, i32 } %.pn, 0
-  %72 = call ptr @__cxa_begin_catch(ptr %.1) #9
+  %73 = call ptr @__cxa_begin_catch(ptr %.1) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %73 unwind label %102
+          to label %74 unwind label %103
 
-73:                                               ; preds = %71
+74:                                               ; preds = %72
   invoke void @__cxa_end_catch()
-          to label %74 unwind label %104
+          to label %75 unwind label %105
 
-74:                                               ; preds = %73, %64
+75:                                               ; preds = %74, %65
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %75 unwind label %104
+          to label %76 unwind label %105
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %7, i64 59
-  %77 = load i8, ptr %76, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %_ZN5Catch16AssertionHandlerD2Ev.exit, label %79
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds i8, ptr %7, i64 59
+  %78 = load i8, ptr %77, align 1
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %_ZN5Catch16AssertionHandlerD2Ev.exit, label %80
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %7, i64 64
-  %81 = load ptr, ptr %80, align 8
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %7, i64 64
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 160
-  %84 = load ptr, ptr %83, align 8
-  invoke void %84(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(52) %7)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit unwind label %85
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 160
+  %85 = load ptr, ptr %84, align 8
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(52) %7)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit unwind label %86
 
-85:                                               ; preds = %79
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %80
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #10
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %75, %79
+_ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %76, %80
   store ptr @.str, ptr %12, align 8
-  %88 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 20, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 20, ptr %89, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr nonnull @.str.6, i64 26, i32 noundef 1)
-          to label %89 unwind label %65
+          to label %90 unwind label %66
 
-89:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
-  %90 = getelementptr inbounds i8, ptr %6, i64 4
-  %91 = load float, ptr %90, align 4
+90:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
+  %91 = getelementptr inbounds i8, ptr %6, i64 4
+  %92 = load float, ptr %91, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %14, double noundef 0.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit82 unwind label %107
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit82 unwind label %108
 
-_ZN5Catch6ApproxC2IivEERKT_.exit82:               ; preds = %89
-  %92 = fpext float %91 to double
-  %93 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %14, double noundef %92)
-          to label %94 unwind label %107
+_ZN5Catch6ApproxC2IivEERKT_.exit82:               ; preds = %90
+  %93 = fpext float %92 to double
+  %94 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %14, double noundef %93)
+          to label %95 unwind label %108
 
-94:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit82
-  %95 = zext i1 %93 to i8
-  %96 = getelementptr inbounds i8, ptr %13, i64 8
-  store i8 1, ptr %96, align 8, !alias.scope !8
-  %97 = getelementptr inbounds i8, ptr %13, i64 9
-  store i8 %95, ptr %97, align 1, !alias.scope !8
+95:                                               ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit82
+  %96 = zext i1 %94 to i8
+  %97 = getelementptr inbounds i8, ptr %13, i64 8
+  store i8 1, ptr %97, align 8, !alias.scope !8
+  %98 = getelementptr inbounds i8, ptr %13, i64 9
+  store i8 %96, ptr %98, align 1, !alias.scope !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !8
-  %98 = getelementptr inbounds i8, ptr %13, i64 12
-  store float %91, ptr %98, align 4, !alias.scope !8
-  %99 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr @.str.12, ptr %99, align 8, !alias.scope !8
+  %99 = getelementptr inbounds i8, ptr %13, i64 12
+  store float %92, ptr %99, align 4, !alias.scope !8
+  %100 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr @.str.12, ptr %100, align 8, !alias.scope !8
   %.sroa.2.0..sroa_idx.i.i83 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i83, align 8, !alias.scope !8
-  %100 = getelementptr inbounds i8, ptr %13, i64 32
-  store ptr %14, ptr %100, align 8, !alias.scope !8
+  %101 = getelementptr inbounds i8, ptr %13, i64 32
+  store ptr %14, ptr %101, align 8, !alias.scope !8
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(10) %13)
-          to label %101 unwind label %109
+          to label %102 unwind label %110
 
-101:                                              ; preds = %94
+102:                                              ; preds = %95
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %13) #9
-  br label %114
+  br label %115
 
-102:                                              ; preds = %71
-  %103 = landingpad { ptr, i32 }
+103:                                              ; preds = %72
+  %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %410
+          to label %107 unwind label %411
 
-104:                                              ; preds = %74, %73
-  %105 = landingpad { ptr, i32 }
+105:                                              ; preds = %75, %74
+  %106 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
-106:                                              ; preds = %102, %104
-  %.pn55 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
+107:                                              ; preds = %103, %105
+  %.pn55 = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #9
-  br label %409
+  br label %410
 
-107:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit82, %89
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit82, %90
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  br label %111
+  br label %112
 
-109:                                              ; preds = %94
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %95
+  %111 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %13) #9
-  br label %111
+  br label %112
 
-111:                                              ; preds = %109, %107
-  %.pn57 = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ]
+112:                                              ; preds = %110, %108
+  %.pn57 = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
   %.3 = extractvalue { ptr, i32 } %.pn57, 0
-  %112 = call ptr @__cxa_begin_catch(ptr %.3) #9
+  %113 = call ptr @__cxa_begin_catch(ptr %.3) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
-          to label %113 unwind label %142
+          to label %114 unwind label %143
 
-113:                                              ; preds = %111
+114:                                              ; preds = %112
   invoke void @__cxa_end_catch()
-          to label %114 unwind label %144
+          to label %115 unwind label %145
 
-114:                                              ; preds = %113, %101
+115:                                              ; preds = %114, %102
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
-          to label %115 unwind label %144
+          to label %116 unwind label %145
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %11, i64 59
-  %117 = load i8, ptr %116, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %_ZN5Catch16AssertionHandlerD2Ev.exit85, label %119
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds i8, ptr %11, i64 59
+  %118 = load i8, ptr %117, align 1
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %_ZN5Catch16AssertionHandlerD2Ev.exit85, label %120
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %11, i64 64
-  %121 = load ptr, ptr %120, align 8
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds i8, ptr %11, i64 64
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 160
-  %124 = load ptr, ptr %123, align 8
-  invoke void %124(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull align 8 dereferenceable(52) %11)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit85 unwind label %125
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 160
+  %125 = load ptr, ptr %124, align 8
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull align 8 dereferenceable(52) %11)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit85 unwind label %126
 
-125:                                              ; preds = %119
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %120
+  %127 = landingpad { ptr, i32 }
           catch ptr null
-  %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #10
+  %128 = extractvalue { ptr, i32 } %127, 0
+  call void @__clang_call_terminate(ptr %128) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit85:           ; preds = %115, %119
+_ZN5Catch16AssertionHandlerD2Ev.exit85:           ; preds = %116, %120
   store ptr @.str, ptr %16, align 8
-  %128 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 21, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %16, i64 8
+  store i64 21, ptr %129, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr nonnull @.str.7, i64 26, i32 noundef 1)
-          to label %129 unwind label %65
+          to label %130 unwind label %66
 
-129:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit85
-  %130 = getelementptr inbounds i8, ptr %6, i64 8
-  %131 = load float, ptr %130, align 4
+130:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit85
+  %131 = getelementptr inbounds i8, ptr %6, i64 8
+  %132 = load float, ptr %131, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %18, double noundef 1.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit86 unwind label %147
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit86 unwind label %148
 
-_ZN5Catch6ApproxC2IivEERKT_.exit86:               ; preds = %129
-  %132 = fpext float %131 to double
-  %133 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %18, double noundef %132)
-          to label %134 unwind label %147
+_ZN5Catch6ApproxC2IivEERKT_.exit86:               ; preds = %130
+  %133 = fpext float %132 to double
+  %134 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %18, double noundef %133)
+          to label %135 unwind label %148
 
-134:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit86
-  %135 = zext i1 %133 to i8
-  %136 = getelementptr inbounds i8, ptr %17, i64 8
-  store i8 1, ptr %136, align 8, !alias.scope !11
-  %137 = getelementptr inbounds i8, ptr %17, i64 9
-  store i8 %135, ptr %137, align 1, !alias.scope !11
+135:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit86
+  %136 = zext i1 %134 to i8
+  %137 = getelementptr inbounds i8, ptr %17, i64 8
+  store i8 1, ptr %137, align 8, !alias.scope !11
+  %138 = getelementptr inbounds i8, ptr %17, i64 9
+  store i8 %136, ptr %138, align 1, !alias.scope !11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %17, align 8, !alias.scope !11
-  %138 = getelementptr inbounds i8, ptr %17, i64 12
-  store float %131, ptr %138, align 4, !alias.scope !11
-  %139 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr @.str.12, ptr %139, align 8, !alias.scope !11
+  %139 = getelementptr inbounds i8, ptr %17, i64 12
+  store float %132, ptr %139, align 4, !alias.scope !11
+  %140 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr @.str.12, ptr %140, align 8, !alias.scope !11
   %.sroa.2.0..sroa_idx.i.i87 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i87, align 8, !alias.scope !11
-  %140 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr %18, ptr %140, align 8, !alias.scope !11
+  %141 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr %18, ptr %141, align 8, !alias.scope !11
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(10) %17)
-          to label %141 unwind label %149
+          to label %142 unwind label %150
 
-141:                                              ; preds = %134
+142:                                              ; preds = %135
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %17) #9
-  br label %154
+  br label %155
 
-142:                                              ; preds = %111
-  %143 = landingpad { ptr, i32 }
+143:                                              ; preds = %112
+  %144 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %146 unwind label %410
+          to label %147 unwind label %411
 
-144:                                              ; preds = %114, %113
-  %145 = landingpad { ptr, i32 }
+145:                                              ; preds = %115, %114
+  %146 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %147
 
-146:                                              ; preds = %142, %144
-  %.pn58 = phi { ptr, i32 } [ %145, %144 ], [ %143, %142 ]
+147:                                              ; preds = %143, %145
+  %.pn58 = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #9
-  br label %409
+  br label %410
 
-147:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit86, %129
-  %148 = landingpad { ptr, i32 }
+148:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit86, %130
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  br label %151
+  br label %152
 
-149:                                              ; preds = %134
-  %150 = landingpad { ptr, i32 }
+150:                                              ; preds = %135
+  %151 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %17) #9
-  br label %151
+  br label %152
 
-151:                                              ; preds = %149, %147
-  %.pn60 = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ]
+152:                                              ; preds = %150, %148
+  %.pn60 = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ]
   %.5 = extractvalue { ptr, i32 } %.pn60, 0
-  %152 = call ptr @__cxa_begin_catch(ptr %.5) #9
+  %153 = call ptr @__cxa_begin_catch(ptr %.5) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %15)
-          to label %153 unwind label %182
+          to label %154 unwind label %183
 
-153:                                              ; preds = %151
+154:                                              ; preds = %152
   invoke void @__cxa_end_catch()
-          to label %154 unwind label %184
+          to label %155 unwind label %185
 
-154:                                              ; preds = %153, %141
+155:                                              ; preds = %154, %142
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %15)
-          to label %155 unwind label %184
+          to label %156 unwind label %185
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %15, i64 59
-  %157 = load i8, ptr %156, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %_ZN5Catch16AssertionHandlerD2Ev.exit89, label %159
+156:                                              ; preds = %155
+  %157 = getelementptr inbounds i8, ptr %15, i64 59
+  %158 = load i8, ptr %157, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %_ZN5Catch16AssertionHandlerD2Ev.exit89, label %160
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %15, i64 64
-  %161 = load ptr, ptr %160, align 8
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds i8, ptr %15, i64 64
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 160
-  %164 = load ptr, ptr %163, align 8
-  invoke void %164(ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef nonnull align 8 dereferenceable(52) %15)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit89 unwind label %165
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 160
+  %165 = load ptr, ptr %164, align 8
+  invoke void %165(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull align 8 dereferenceable(52) %15)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit89 unwind label %166
 
-165:                                              ; preds = %159
-  %166 = landingpad { ptr, i32 }
+166:                                              ; preds = %160
+  %167 = landingpad { ptr, i32 }
           catch ptr null
-  %167 = extractvalue { ptr, i32 } %166, 0
-  call void @__clang_call_terminate(ptr %167) #10
+  %168 = extractvalue { ptr, i32 } %167, 0
+  call void @__clang_call_terminate(ptr %168) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit89:           ; preds = %155, %159
+_ZN5Catch16AssertionHandlerD2Ev.exit89:           ; preds = %156, %160
   invoke void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, float noundef 5.000000e-01, float noundef 1.000000e+00, ptr noundef nonnull %6)
-          to label %168 unwind label %65
+          to label %169 unwind label %66
 
-168:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit89
+169:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit89
   store ptr @.str, ptr %20, align 8
-  %169 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 24, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 24, ptr %170, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr nonnull @.str.8, i64 33, i32 noundef 1)
-          to label %170 unwind label %65
+          to label %171 unwind label %66
 
-170:                                              ; preds = %168
-  %171 = load float, ptr %6, align 4
+171:                                              ; preds = %169
+  %172 = load float, ptr %6, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %22, double noundef 5.000000e-01)
-          to label %_ZN5Catch6ApproxC2IfvEERKT_.exit unwind label %187
+          to label %_ZN5Catch6ApproxC2IfvEERKT_.exit unwind label %188
 
-_ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %170
-  %172 = fpext float %171 to double
-  %173 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %22, double noundef %172)
-          to label %174 unwind label %187
+_ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %171
+  %173 = fpext float %172 to double
+  %174 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %22, double noundef %173)
+          to label %175 unwind label %188
 
-174:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit
-  %175 = zext i1 %173 to i8
-  %176 = getelementptr inbounds i8, ptr %21, i64 8
-  store i8 1, ptr %176, align 8, !alias.scope !14
-  %177 = getelementptr inbounds i8, ptr %21, i64 9
-  store i8 %175, ptr %177, align 1, !alias.scope !14
+175:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit
+  %176 = zext i1 %174 to i8
+  %177 = getelementptr inbounds i8, ptr %21, i64 8
+  store i8 1, ptr %177, align 8, !alias.scope !14
+  %178 = getelementptr inbounds i8, ptr %21, i64 9
+  store i8 %176, ptr %178, align 1, !alias.scope !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !14
-  %178 = getelementptr inbounds i8, ptr %21, i64 12
-  store float %171, ptr %178, align 4, !alias.scope !14
-  %179 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr @.str.12, ptr %179, align 8, !alias.scope !14
+  %179 = getelementptr inbounds i8, ptr %21, i64 12
+  store float %172, ptr %179, align 4, !alias.scope !14
+  %180 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr @.str.12, ptr %180, align 8, !alias.scope !14
   %.sroa.2.0..sroa_idx.i.i90 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i90, align 8, !alias.scope !14
-  %180 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %22, ptr %180, align 8, !alias.scope !14
+  %181 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %22, ptr %181, align 8, !alias.scope !14
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(10) %21)
-          to label %181 unwind label %189
+          to label %182 unwind label %190
 
-181:                                              ; preds = %174
+182:                                              ; preds = %175
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %21) #9
-  br label %194
+  br label %195
 
-182:                                              ; preds = %151
-  %183 = landingpad { ptr, i32 }
+183:                                              ; preds = %152
+  %184 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %186 unwind label %410
+          to label %187 unwind label %411
 
-184:                                              ; preds = %154, %153
-  %185 = landingpad { ptr, i32 }
+185:                                              ; preds = %155, %154
+  %186 = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %187
 
-186:                                              ; preds = %182, %184
-  %.pn61 = phi { ptr, i32 } [ %185, %184 ], [ %183, %182 ]
+187:                                              ; preds = %183, %185
+  %.pn61 = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #9
-  br label %409
+  br label %410
 
-187:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit, %170
-  %188 = landingpad { ptr, i32 }
+188:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit, %171
+  %189 = landingpad { ptr, i32 }
           catch ptr null
-  br label %191
+  br label %192
 
-189:                                              ; preds = %174
-  %190 = landingpad { ptr, i32 }
+190:                                              ; preds = %175
+  %191 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %21) #9
-  br label %191
+  br label %192
 
-191:                                              ; preds = %189, %187
-  %.pn63 = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
+192:                                              ; preds = %190, %188
+  %.pn63 = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ]
   %.7 = extractvalue { ptr, i32 } %.pn63, 0
-  %192 = call ptr @__cxa_begin_catch(ptr %.7) #9
+  %193 = call ptr @__cxa_begin_catch(ptr %.7) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %19)
-          to label %193 unwind label %221
+          to label %194 unwind label %222
 
-193:                                              ; preds = %191
+194:                                              ; preds = %192
   invoke void @__cxa_end_catch()
-          to label %194 unwind label %223
+          to label %195 unwind label %224
 
-194:                                              ; preds = %193, %181
+195:                                              ; preds = %194, %182
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %19)
-          to label %195 unwind label %223
+          to label %196 unwind label %224
 
-195:                                              ; preds = %194
-  %196 = getelementptr inbounds i8, ptr %19, i64 59
-  %197 = load i8, ptr %196, align 1
-  %198 = trunc i8 %197 to i1
-  br i1 %198, label %_ZN5Catch16AssertionHandlerD2Ev.exit92, label %199
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds i8, ptr %19, i64 59
+  %198 = load i8, ptr %197, align 1
+  %199 = trunc i8 %198 to i1
+  br i1 %199, label %_ZN5Catch16AssertionHandlerD2Ev.exit92, label %200
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %19, i64 64
-  %201 = load ptr, ptr %200, align 8
+200:                                              ; preds = %196
+  %201 = getelementptr inbounds i8, ptr %19, i64 64
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 160
-  %204 = load ptr, ptr %203, align 8
-  invoke void %204(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef nonnull align 8 dereferenceable(52) %19)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit92 unwind label %205
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 160
+  %205 = load ptr, ptr %204, align 8
+  invoke void %205(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 8 dereferenceable(52) %19)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit92 unwind label %206
 
-205:                                              ; preds = %199
-  %206 = landingpad { ptr, i32 }
+206:                                              ; preds = %200
+  %207 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #10
+  %208 = extractvalue { ptr, i32 } %207, 0
+  call void @__clang_call_terminate(ptr %208) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit92:           ; preds = %195, %199
+_ZN5Catch16AssertionHandlerD2Ev.exit92:           ; preds = %196, %200
   store ptr @.str, ptr %24, align 8
-  %208 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 25, ptr %208, align 8
+  %209 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 25, ptr %209, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr nonnull @.str.6, i64 26, i32 noundef 1)
-          to label %209 unwind label %65
+          to label %210 unwind label %66
 
-209:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit92
-  %210 = load float, ptr %90, align 4
+210:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit92
+  %211 = load float, ptr %91, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %26, double noundef 0.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit93 unwind label %226
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit93 unwind label %227
 
-_ZN5Catch6ApproxC2IivEERKT_.exit93:               ; preds = %209
-  %211 = fpext float %210 to double
-  %212 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %26, double noundef %211)
-          to label %213 unwind label %226
+_ZN5Catch6ApproxC2IivEERKT_.exit93:               ; preds = %210
+  %212 = fpext float %211 to double
+  %213 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %26, double noundef %212)
+          to label %214 unwind label %227
 
-213:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit93
-  %214 = zext i1 %212 to i8
-  %215 = getelementptr inbounds i8, ptr %25, i64 8
-  store i8 1, ptr %215, align 8, !alias.scope !17
-  %216 = getelementptr inbounds i8, ptr %25, i64 9
-  store i8 %214, ptr %216, align 1, !alias.scope !17
+214:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit93
+  %215 = zext i1 %213 to i8
+  %216 = getelementptr inbounds i8, ptr %25, i64 8
+  store i8 1, ptr %216, align 8, !alias.scope !17
+  %217 = getelementptr inbounds i8, ptr %25, i64 9
+  store i8 %215, ptr %217, align 1, !alias.scope !17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !17
-  %217 = getelementptr inbounds i8, ptr %25, i64 12
-  store float %210, ptr %217, align 4, !alias.scope !17
-  %218 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr @.str.12, ptr %218, align 8, !alias.scope !17
+  %218 = getelementptr inbounds i8, ptr %25, i64 12
+  store float %211, ptr %218, align 4, !alias.scope !17
+  %219 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr @.str.12, ptr %219, align 8, !alias.scope !17
   %.sroa.2.0..sroa_idx.i.i94 = getelementptr inbounds i8, ptr %25, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i94, align 8, !alias.scope !17
-  %219 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %26, ptr %219, align 8, !alias.scope !17
+  %220 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %26, ptr %220, align 8, !alias.scope !17
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(10) %25)
-          to label %220 unwind label %228
+          to label %221 unwind label %229
 
-220:                                              ; preds = %213
+221:                                              ; preds = %214
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %25) #9
-  br label %233
+  br label %234
 
-221:                                              ; preds = %191
-  %222 = landingpad { ptr, i32 }
+222:                                              ; preds = %192
+  %223 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %225 unwind label %410
+          to label %226 unwind label %411
 
-223:                                              ; preds = %194, %193
-  %224 = landingpad { ptr, i32 }
+224:                                              ; preds = %195, %194
+  %225 = landingpad { ptr, i32 }
           cleanup
-  br label %225
+  br label %226
 
-225:                                              ; preds = %221, %223
-  %.pn64 = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ]
+226:                                              ; preds = %222, %224
+  %.pn64 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %19) #9
-  br label %409
+  br label %410
 
-226:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit93, %209
-  %227 = landingpad { ptr, i32 }
+227:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit93, %210
+  %228 = landingpad { ptr, i32 }
           catch ptr null
-  br label %230
+  br label %231
 
-228:                                              ; preds = %213
-  %229 = landingpad { ptr, i32 }
+229:                                              ; preds = %214
+  %230 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %25) #9
-  br label %230
+  br label %231
 
-230:                                              ; preds = %228, %226
-  %.pn66 = phi { ptr, i32 } [ %229, %228 ], [ %227, %226 ]
+231:                                              ; preds = %229, %227
+  %.pn66 = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ]
   %.9 = extractvalue { ptr, i32 } %.pn66, 0
-  %231 = call ptr @__cxa_begin_catch(ptr %.9) #9
+  %232 = call ptr @__cxa_begin_catch(ptr %.9) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %23)
-          to label %232 unwind label %260
+          to label %233 unwind label %261
 
-232:                                              ; preds = %230
+233:                                              ; preds = %231
   invoke void @__cxa_end_catch()
-          to label %233 unwind label %262
+          to label %234 unwind label %263
 
-233:                                              ; preds = %232, %220
+234:                                              ; preds = %233, %221
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %23)
-          to label %234 unwind label %262
+          to label %235 unwind label %263
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %23, i64 59
-  %236 = load i8, ptr %235, align 1
-  %237 = trunc i8 %236 to i1
-  br i1 %237, label %_ZN5Catch16AssertionHandlerD2Ev.exit96, label %238
+235:                                              ; preds = %234
+  %236 = getelementptr inbounds i8, ptr %23, i64 59
+  %237 = load i8, ptr %236, align 1
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %_ZN5Catch16AssertionHandlerD2Ev.exit96, label %239
 
-238:                                              ; preds = %234
-  %239 = getelementptr inbounds i8, ptr %23, i64 64
-  %240 = load ptr, ptr %239, align 8
+239:                                              ; preds = %235
+  %240 = getelementptr inbounds i8, ptr %23, i64 64
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 160
-  %243 = load ptr, ptr %242, align 8
-  invoke void %243(ptr noundef nonnull align 8 dereferenceable(8) %240, ptr noundef nonnull align 8 dereferenceable(52) %23)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit96 unwind label %244
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 160
+  %244 = load ptr, ptr %243, align 8
+  invoke void %244(ptr noundef nonnull align 8 dereferenceable(8) %241, ptr noundef nonnull align 8 dereferenceable(52) %23)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit96 unwind label %245
 
-244:                                              ; preds = %238
-  %245 = landingpad { ptr, i32 }
+245:                                              ; preds = %239
+  %246 = landingpad { ptr, i32 }
           catch ptr null
-  %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #10
+  %247 = extractvalue { ptr, i32 } %246, 0
+  call void @__clang_call_terminate(ptr %247) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit96:           ; preds = %234, %238
+_ZN5Catch16AssertionHandlerD2Ev.exit96:           ; preds = %235, %239
   store ptr @.str, ptr %28, align 8
-  %247 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 26, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %28, i64 8
+  store i64 26, ptr %248, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr nonnull @.str.9, i64 33, i32 noundef 1)
-          to label %248 unwind label %65
+          to label %249 unwind label %66
 
-248:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit96
-  %249 = load float, ptr %130, align 4
+249:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit96
+  %250 = load float, ptr %131, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %30, double noundef 5.000000e-01)
-          to label %_ZN5Catch6ApproxC2IfvEERKT_.exit97 unwind label %265
+          to label %_ZN5Catch6ApproxC2IfvEERKT_.exit97 unwind label %266
 
-_ZN5Catch6ApproxC2IfvEERKT_.exit97:               ; preds = %248
-  %250 = fpext float %249 to double
-  %251 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %30, double noundef %250)
-          to label %252 unwind label %265
+_ZN5Catch6ApproxC2IfvEERKT_.exit97:               ; preds = %249
+  %251 = fpext float %250 to double
+  %252 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %30, double noundef %251)
+          to label %253 unwind label %266
 
-252:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit97
-  %253 = zext i1 %251 to i8
-  %254 = getelementptr inbounds i8, ptr %29, i64 8
-  store i8 1, ptr %254, align 8, !alias.scope !20
-  %255 = getelementptr inbounds i8, ptr %29, i64 9
-  store i8 %253, ptr %255, align 1, !alias.scope !20
+253:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit97
+  %254 = zext i1 %252 to i8
+  %255 = getelementptr inbounds i8, ptr %29, i64 8
+  store i8 1, ptr %255, align 8, !alias.scope !20
+  %256 = getelementptr inbounds i8, ptr %29, i64 9
+  store i8 %254, ptr %256, align 1, !alias.scope !20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !20
-  %256 = getelementptr inbounds i8, ptr %29, i64 12
-  store float %249, ptr %256, align 4, !alias.scope !20
-  %257 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr @.str.12, ptr %257, align 8, !alias.scope !20
+  %257 = getelementptr inbounds i8, ptr %29, i64 12
+  store float %250, ptr %257, align 4, !alias.scope !20
+  %258 = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr @.str.12, ptr %258, align 8, !alias.scope !20
   %.sroa.2.0..sroa_idx.i.i98 = getelementptr inbounds i8, ptr %29, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i98, align 8, !alias.scope !20
-  %258 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %30, ptr %258, align 8, !alias.scope !20
+  %259 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr %30, ptr %259, align 8, !alias.scope !20
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull align 8 dereferenceable(10) %29)
-          to label %259 unwind label %267
+          to label %260 unwind label %268
 
-259:                                              ; preds = %252
+260:                                              ; preds = %253
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %29) #9
-  br label %272
+  br label %273
 
-260:                                              ; preds = %230
-  %261 = landingpad { ptr, i32 }
+261:                                              ; preds = %231
+  %262 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %264 unwind label %410
+          to label %265 unwind label %411
 
-262:                                              ; preds = %233, %232
-  %263 = landingpad { ptr, i32 }
+263:                                              ; preds = %234, %233
+  %264 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %265
 
-264:                                              ; preds = %260, %262
-  %.pn67 = phi { ptr, i32 } [ %263, %262 ], [ %261, %260 ]
+265:                                              ; preds = %261, %263
+  %.pn67 = phi { ptr, i32 } [ %264, %263 ], [ %262, %261 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %23) #9
-  br label %409
+  br label %410
 
-265:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit97, %248
-  %266 = landingpad { ptr, i32 }
+266:                                              ; preds = %_ZN5Catch6ApproxC2IfvEERKT_.exit97, %249
+  %267 = landingpad { ptr, i32 }
           catch ptr null
-  br label %269
+  br label %270
 
-267:                                              ; preds = %252
-  %268 = landingpad { ptr, i32 }
+268:                                              ; preds = %253
+  %269 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %29) #9
-  br label %269
+  br label %270
 
-269:                                              ; preds = %267, %265
-  %.pn69 = phi { ptr, i32 } [ %268, %267 ], [ %266, %265 ]
+270:                                              ; preds = %268, %266
+  %.pn69 = phi { ptr, i32 } [ %269, %268 ], [ %267, %266 ]
   %.11 = extractvalue { ptr, i32 } %.pn69, 0
-  %270 = call ptr @__cxa_begin_catch(ptr %.11) #9
+  %271 = call ptr @__cxa_begin_catch(ptr %.11) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
-          to label %271 unwind label %300
+          to label %272 unwind label %301
 
-271:                                              ; preds = %269
+272:                                              ; preds = %270
   invoke void @__cxa_end_catch()
-          to label %272 unwind label %302
+          to label %273 unwind label %303
 
-272:                                              ; preds = %271, %259
+273:                                              ; preds = %272, %260
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
-          to label %273 unwind label %302
+          to label %274 unwind label %303
 
-273:                                              ; preds = %272
-  %274 = getelementptr inbounds i8, ptr %27, i64 59
-  %275 = load i8, ptr %274, align 1
-  %276 = trunc i8 %275 to i1
-  br i1 %276, label %_ZN5Catch16AssertionHandlerD2Ev.exit100, label %277
+274:                                              ; preds = %273
+  %275 = getelementptr inbounds i8, ptr %27, i64 59
+  %276 = load i8, ptr %275, align 1
+  %277 = trunc i8 %276 to i1
+  br i1 %277, label %_ZN5Catch16AssertionHandlerD2Ev.exit100, label %278
 
-277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %27, i64 64
-  %279 = load ptr, ptr %278, align 8
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds i8, ptr %27, i64 64
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 160
-  %282 = load ptr, ptr %281, align 8
-  invoke void %282(ptr noundef nonnull align 8 dereferenceable(8) %279, ptr noundef nonnull align 8 dereferenceable(52) %27)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit100 unwind label %283
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 160
+  %283 = load ptr, ptr %282, align 8
+  invoke void %283(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef nonnull align 8 dereferenceable(52) %27)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit100 unwind label %284
 
-283:                                              ; preds = %277
-  %284 = landingpad { ptr, i32 }
+284:                                              ; preds = %278
+  %285 = landingpad { ptr, i32 }
           catch ptr null
-  %285 = extractvalue { ptr, i32 } %284, 0
-  call void @__clang_call_terminate(ptr %285) #10
+  %286 = extractvalue { ptr, i32 } %285, 0
+  call void @__clang_call_terminate(ptr %286) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit100:          ; preds = %273, %277
+_ZN5Catch16AssertionHandlerD2Ev.exit100:          ; preds = %274, %278
   invoke void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, float noundef 1.000000e+00, float noundef 1.000000e+00, ptr noundef nonnull %6)
-          to label %286 unwind label %65
+          to label %287 unwind label %66
 
-286:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit100
+287:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit100
   store ptr @.str, ptr %32, align 8
-  %287 = getelementptr inbounds i8, ptr %32, i64 8
-  store i64 29, ptr %287, align 8
+  %288 = getelementptr inbounds i8, ptr %32, i64 8
+  store i64 29, ptr %288, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr nonnull @.str.10, i64 26, i32 noundef 1)
-          to label %288 unwind label %65
+          to label %289 unwind label %66
 
-288:                                              ; preds = %286
-  %289 = load float, ptr %6, align 4
+289:                                              ; preds = %287
+  %290 = load float, ptr %6, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %34, double noundef 1.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit101 unwind label %305
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit101 unwind label %306
 
-_ZN5Catch6ApproxC2IivEERKT_.exit101:              ; preds = %288
-  %290 = fpext float %289 to double
-  %291 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %34, double noundef %290)
-          to label %292 unwind label %305
+_ZN5Catch6ApproxC2IivEERKT_.exit101:              ; preds = %289
+  %291 = fpext float %290 to double
+  %292 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %34, double noundef %291)
+          to label %293 unwind label %306
 
-292:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit101
-  %293 = zext i1 %291 to i8
-  %294 = getelementptr inbounds i8, ptr %33, i64 8
-  store i8 1, ptr %294, align 8, !alias.scope !23
-  %295 = getelementptr inbounds i8, ptr %33, i64 9
-  store i8 %293, ptr %295, align 1, !alias.scope !23
+293:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit101
+  %294 = zext i1 %292 to i8
+  %295 = getelementptr inbounds i8, ptr %33, i64 8
+  store i8 1, ptr %295, align 8, !alias.scope !23
+  %296 = getelementptr inbounds i8, ptr %33, i64 9
+  store i8 %294, ptr %296, align 1, !alias.scope !23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %33, align 8, !alias.scope !23
-  %296 = getelementptr inbounds i8, ptr %33, i64 12
-  store float %289, ptr %296, align 4, !alias.scope !23
-  %297 = getelementptr inbounds i8, ptr %33, i64 16
-  store ptr @.str.12, ptr %297, align 8, !alias.scope !23
+  %297 = getelementptr inbounds i8, ptr %33, i64 12
+  store float %290, ptr %297, align 4, !alias.scope !23
+  %298 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr @.str.12, ptr %298, align 8, !alias.scope !23
   %.sroa.2.0..sroa_idx.i.i102 = getelementptr inbounds i8, ptr %33, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i102, align 8, !alias.scope !23
-  %298 = getelementptr inbounds i8, ptr %33, i64 32
-  store ptr %34, ptr %298, align 8, !alias.scope !23
+  %299 = getelementptr inbounds i8, ptr %33, i64 32
+  store ptr %34, ptr %299, align 8, !alias.scope !23
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(10) %33)
-          to label %299 unwind label %307
+          to label %300 unwind label %308
 
-299:                                              ; preds = %292
+300:                                              ; preds = %293
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %33) #9
-  br label %312
+  br label %313
 
-300:                                              ; preds = %269
-  %301 = landingpad { ptr, i32 }
+301:                                              ; preds = %270
+  %302 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %304 unwind label %410
+          to label %305 unwind label %411
 
-302:                                              ; preds = %272, %271
-  %303 = landingpad { ptr, i32 }
+303:                                              ; preds = %273, %272
+  %304 = landingpad { ptr, i32 }
           cleanup
-  br label %304
+  br label %305
 
-304:                                              ; preds = %300, %302
-  %.pn70 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ]
+305:                                              ; preds = %301, %303
+  %.pn70 = phi { ptr, i32 } [ %304, %303 ], [ %302, %301 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #9
-  br label %409
+  br label %410
 
-305:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit101, %288
-  %306 = landingpad { ptr, i32 }
+306:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit101, %289
+  %307 = landingpad { ptr, i32 }
           catch ptr null
-  br label %309
+  br label %310
 
-307:                                              ; preds = %292
-  %308 = landingpad { ptr, i32 }
+308:                                              ; preds = %293
+  %309 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %33) #9
-  br label %309
+  br label %310
 
-309:                                              ; preds = %307, %305
-  %.pn72 = phi { ptr, i32 } [ %308, %307 ], [ %306, %305 ]
+310:                                              ; preds = %308, %306
+  %.pn72 = phi { ptr, i32 } [ %309, %308 ], [ %307, %306 ]
   %.13 = extractvalue { ptr, i32 } %.pn72, 0
-  %310 = call ptr @__cxa_begin_catch(ptr %.13) #9
+  %311 = call ptr @__cxa_begin_catch(ptr %.13) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %31)
-          to label %311 unwind label %339
+          to label %312 unwind label %340
 
-311:                                              ; preds = %309
+312:                                              ; preds = %310
   invoke void @__cxa_end_catch()
-          to label %312 unwind label %341
+          to label %313 unwind label %342
 
-312:                                              ; preds = %311, %299
+313:                                              ; preds = %312, %300
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %31)
-          to label %313 unwind label %341
+          to label %314 unwind label %342
 
-313:                                              ; preds = %312
-  %314 = getelementptr inbounds i8, ptr %31, i64 59
-  %315 = load i8, ptr %314, align 1
-  %316 = trunc i8 %315 to i1
-  br i1 %316, label %_ZN5Catch16AssertionHandlerD2Ev.exit104, label %317
+314:                                              ; preds = %313
+  %315 = getelementptr inbounds i8, ptr %31, i64 59
+  %316 = load i8, ptr %315, align 1
+  %317 = trunc i8 %316 to i1
+  br i1 %317, label %_ZN5Catch16AssertionHandlerD2Ev.exit104, label %318
 
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds i8, ptr %31, i64 64
-  %319 = load ptr, ptr %318, align 8
+318:                                              ; preds = %314
+  %319 = getelementptr inbounds i8, ptr %31, i64 64
   %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 160
-  %322 = load ptr, ptr %321, align 8
-  invoke void %322(ptr noundef nonnull align 8 dereferenceable(8) %319, ptr noundef nonnull align 8 dereferenceable(52) %31)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit104 unwind label %323
+  %321 = load ptr, ptr %320, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 160
+  %323 = load ptr, ptr %322, align 8
+  invoke void %323(ptr noundef nonnull align 8 dereferenceable(8) %320, ptr noundef nonnull align 8 dereferenceable(52) %31)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit104 unwind label %324
 
-323:                                              ; preds = %317
-  %324 = landingpad { ptr, i32 }
+324:                                              ; preds = %318
+  %325 = landingpad { ptr, i32 }
           catch ptr null
-  %325 = extractvalue { ptr, i32 } %324, 0
-  call void @__clang_call_terminate(ptr %325) #10
+  %326 = extractvalue { ptr, i32 } %325, 0
+  call void @__clang_call_terminate(ptr %326) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit104:          ; preds = %313, %317
+_ZN5Catch16AssertionHandlerD2Ev.exit104:          ; preds = %314, %318
   store ptr @.str, ptr %36, align 8
-  %326 = getelementptr inbounds i8, ptr %36, i64 8
-  store i64 30, ptr %326, align 8
+  %327 = getelementptr inbounds i8, ptr %36, i64 8
+  store i64 30, ptr %327, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr nonnull @.str.6, i64 26, i32 noundef 1)
-          to label %327 unwind label %65
+          to label %328 unwind label %66
 
-327:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit104
-  %328 = load float, ptr %90, align 4
+328:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit104
+  %329 = load float, ptr %91, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %38, double noundef 0.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit105 unwind label %344
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit105 unwind label %345
 
-_ZN5Catch6ApproxC2IivEERKT_.exit105:              ; preds = %327
-  %329 = fpext float %328 to double
-  %330 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %38, double noundef %329)
-          to label %331 unwind label %344
+_ZN5Catch6ApproxC2IivEERKT_.exit105:              ; preds = %328
+  %330 = fpext float %329 to double
+  %331 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %38, double noundef %330)
+          to label %332 unwind label %345
 
-331:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit105
-  %332 = zext i1 %330 to i8
-  %333 = getelementptr inbounds i8, ptr %37, i64 8
-  store i8 1, ptr %333, align 8, !alias.scope !26
-  %334 = getelementptr inbounds i8, ptr %37, i64 9
-  store i8 %332, ptr %334, align 1, !alias.scope !26
+332:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit105
+  %333 = zext i1 %331 to i8
+  %334 = getelementptr inbounds i8, ptr %37, i64 8
+  store i8 1, ptr %334, align 8, !alias.scope !26
+  %335 = getelementptr inbounds i8, ptr %37, i64 9
+  store i8 %333, ptr %335, align 1, !alias.scope !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %37, align 8, !alias.scope !26
-  %335 = getelementptr inbounds i8, ptr %37, i64 12
-  store float %328, ptr %335, align 4, !alias.scope !26
-  %336 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr @.str.12, ptr %336, align 8, !alias.scope !26
+  %336 = getelementptr inbounds i8, ptr %37, i64 12
+  store float %329, ptr %336, align 4, !alias.scope !26
+  %337 = getelementptr inbounds i8, ptr %37, i64 16
+  store ptr @.str.12, ptr %337, align 8, !alias.scope !26
   %.sroa.2.0..sroa_idx.i.i106 = getelementptr inbounds i8, ptr %37, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i106, align 8, !alias.scope !26
-  %337 = getelementptr inbounds i8, ptr %37, i64 32
-  store ptr %38, ptr %337, align 8, !alias.scope !26
+  %338 = getelementptr inbounds i8, ptr %37, i64 32
+  store ptr %38, ptr %338, align 8, !alias.scope !26
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %35, ptr noundef nonnull align 8 dereferenceable(10) %37)
-          to label %338 unwind label %346
+          to label %339 unwind label %347
 
-338:                                              ; preds = %331
+339:                                              ; preds = %332
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %37) #9
-  br label %351
+  br label %352
 
-339:                                              ; preds = %309
-  %340 = landingpad { ptr, i32 }
+340:                                              ; preds = %310
+  %341 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %343 unwind label %410
+          to label %344 unwind label %411
 
-341:                                              ; preds = %312, %311
-  %342 = landingpad { ptr, i32 }
+342:                                              ; preds = %313, %312
+  %343 = landingpad { ptr, i32 }
           cleanup
-  br label %343
+  br label %344
 
-343:                                              ; preds = %339, %341
-  %.pn73 = phi { ptr, i32 } [ %342, %341 ], [ %340, %339 ]
+344:                                              ; preds = %340, %342
+  %.pn73 = phi { ptr, i32 } [ %343, %342 ], [ %341, %340 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #9
-  br label %409
+  br label %410
 
-344:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit105, %327
-  %345 = landingpad { ptr, i32 }
+345:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit105, %328
+  %346 = landingpad { ptr, i32 }
           catch ptr null
-  br label %348
+  br label %349
 
-346:                                              ; preds = %331
-  %347 = landingpad { ptr, i32 }
+347:                                              ; preds = %332
+  %348 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %37) #9
-  br label %348
+  br label %349
 
-348:                                              ; preds = %346, %344
-  %.pn75 = phi { ptr, i32 } [ %347, %346 ], [ %345, %344 ]
+349:                                              ; preds = %347, %345
+  %.pn75 = phi { ptr, i32 } [ %348, %347 ], [ %346, %345 ]
   %.15 = extractvalue { ptr, i32 } %.pn75, 0
-  %349 = call ptr @__cxa_begin_catch(ptr %.15) #9
+  %350 = call ptr @__cxa_begin_catch(ptr %.15) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %35)
-          to label %350 unwind label %378
+          to label %351 unwind label %379
 
-350:                                              ; preds = %348
+351:                                              ; preds = %349
   invoke void @__cxa_end_catch()
-          to label %351 unwind label %380
+          to label %352 unwind label %381
 
-351:                                              ; preds = %350, %338
+352:                                              ; preds = %351, %339
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %35)
-          to label %352 unwind label %380
+          to label %353 unwind label %381
 
-352:                                              ; preds = %351
-  %353 = getelementptr inbounds i8, ptr %35, i64 59
-  %354 = load i8, ptr %353, align 1
-  %355 = trunc i8 %354 to i1
-  br i1 %355, label %_ZN5Catch16AssertionHandlerD2Ev.exit108, label %356
+353:                                              ; preds = %352
+  %354 = getelementptr inbounds i8, ptr %35, i64 59
+  %355 = load i8, ptr %354, align 1
+  %356 = trunc i8 %355 to i1
+  br i1 %356, label %_ZN5Catch16AssertionHandlerD2Ev.exit108, label %357
 
-356:                                              ; preds = %352
-  %357 = getelementptr inbounds i8, ptr %35, i64 64
-  %358 = load ptr, ptr %357, align 8
+357:                                              ; preds = %353
+  %358 = getelementptr inbounds i8, ptr %35, i64 64
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 160
-  %361 = load ptr, ptr %360, align 8
-  invoke void %361(ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(52) %35)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit108 unwind label %362
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 160
+  %362 = load ptr, ptr %361, align 8
+  invoke void %362(ptr noundef nonnull align 8 dereferenceable(8) %359, ptr noundef nonnull align 8 dereferenceable(52) %35)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit108 unwind label %363
 
-362:                                              ; preds = %356
-  %363 = landingpad { ptr, i32 }
+363:                                              ; preds = %357
+  %364 = landingpad { ptr, i32 }
           catch ptr null
-  %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #10
+  %365 = extractvalue { ptr, i32 } %364, 0
+  call void @__clang_call_terminate(ptr %365) #10
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit108:          ; preds = %352, %356
+_ZN5Catch16AssertionHandlerD2Ev.exit108:          ; preds = %353, %357
   store ptr @.str, ptr %40, align 8
-  %365 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 31, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %40, i64 8
+  store i64 31, ptr %366, align 8
   invoke void @_ZN5Catch16AssertionHandlerC1ENS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr nonnull @.str.4, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr nonnull @.str.11, i64 26, i32 noundef 1)
-          to label %366 unwind label %65
+          to label %367 unwind label %66
 
-366:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit108
-  %367 = load float, ptr %130, align 4
+367:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit108
+  %368 = load float, ptr %131, align 4
   invoke void @_ZN5Catch6ApproxC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %42, double noundef 0.000000e+00)
-          to label %_ZN5Catch6ApproxC2IivEERKT_.exit109 unwind label %383
+          to label %_ZN5Catch6ApproxC2IivEERKT_.exit109 unwind label %384
 
-_ZN5Catch6ApproxC2IivEERKT_.exit109:              ; preds = %366
-  %368 = fpext float %367 to double
-  %369 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %42, double noundef %368)
-          to label %370 unwind label %383
+_ZN5Catch6ApproxC2IivEERKT_.exit109:              ; preds = %367
+  %369 = fpext float %368 to double
+  %370 = invoke noundef zeroext i1 @_ZNK5Catch6Approx22equalityComparisonImplEd(ptr noundef nonnull align 8 dereferenceable(32) %42, double noundef %369)
+          to label %371 unwind label %384
 
-370:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit109
-  %371 = zext i1 %369 to i8
-  %372 = getelementptr inbounds i8, ptr %41, i64 8
-  store i8 1, ptr %372, align 8, !alias.scope !29
-  %373 = getelementptr inbounds i8, ptr %41, i64 9
-  store i8 %371, ptr %373, align 1, !alias.scope !29
+371:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit109
+  %372 = zext i1 %370 to i8
+  %373 = getelementptr inbounds i8, ptr %41, i64 8
+  store i8 1, ptr %373, align 8, !alias.scope !29
+  %374 = getelementptr inbounds i8, ptr %41, i64 9
+  store i8 %372, ptr %374, align 1, !alias.scope !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %41, align 8, !alias.scope !29
-  %374 = getelementptr inbounds i8, ptr %41, i64 12
-  store float %367, ptr %374, align 4, !alias.scope !29
-  %375 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr @.str.12, ptr %375, align 8, !alias.scope !29
+  %375 = getelementptr inbounds i8, ptr %41, i64 12
+  store float %368, ptr %375, align 4, !alias.scope !29
+  %376 = getelementptr inbounds i8, ptr %41, i64 16
+  store ptr @.str.12, ptr %376, align 8, !alias.scope !29
   %.sroa.2.0..sroa_idx.i.i110 = getelementptr inbounds i8, ptr %41, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i110, align 8, !alias.scope !29
-  %376 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr %42, ptr %376, align 8, !alias.scope !29
+  %377 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr %42, ptr %377, align 8, !alias.scope !29
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef nonnull align 8 dereferenceable(10) %41)
-          to label %377 unwind label %385
+          to label %378 unwind label %386
 
-377:                                              ; preds = %370
+378:                                              ; preds = %371
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %41) #9
-  br label %390
+  br label %391
 
-378:                                              ; preds = %348
-  %379 = landingpad { ptr, i32 }
+379:                                              ; preds = %349
+  %380 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %382 unwind label %410
+          to label %383 unwind label %411
 
-380:                                              ; preds = %351, %350
-  %381 = landingpad { ptr, i32 }
+381:                                              ; preds = %352, %351
+  %382 = landingpad { ptr, i32 }
           cleanup
-  br label %382
+  br label %383
 
-382:                                              ; preds = %378, %380
-  %.pn76 = phi { ptr, i32 } [ %381, %380 ], [ %379, %378 ]
+383:                                              ; preds = %379, %381
+  %.pn76 = phi { ptr, i32 } [ %382, %381 ], [ %380, %379 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %35) #9
-  br label %409
+  br label %410
 
-383:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit109, %366
-  %384 = landingpad { ptr, i32 }
+384:                                              ; preds = %_ZN5Catch6ApproxC2IivEERKT_.exit109, %367
+  %385 = landingpad { ptr, i32 }
           catch ptr null
-  br label %387
+  br label %388
 
-385:                                              ; preds = %370
-  %386 = landingpad { ptr, i32 }
+386:                                              ; preds = %371
+  %387 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %41) #9
-  br label %387
+  br label %388
 
-387:                                              ; preds = %385, %383
-  %.pn78 = phi { ptr, i32 } [ %386, %385 ], [ %384, %383 ]
+388:                                              ; preds = %386, %384
+  %.pn78 = phi { ptr, i32 } [ %387, %386 ], [ %385, %384 ]
   %.17 = extractvalue { ptr, i32 } %.pn78, 0
-  %388 = call ptr @__cxa_begin_catch(ptr %.17) #9
+  %389 = call ptr @__cxa_begin_catch(ptr %.17) #9
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-          to label %389 unwind label %404
+          to label %390 unwind label %405
 
-389:                                              ; preds = %387
+390:                                              ; preds = %388
   invoke void @__cxa_end_catch()
-          to label %390 unwind label %406
+          to label %391 unwind label %407
 
-390:                                              ; preds = %389, %377
+391:                                              ; preds = %390, %378
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-          to label %391 unwind label %406
+          to label %392 unwind label %407
 
-391:                                              ; preds = %390
-  %392 = getelementptr inbounds i8, ptr %39, i64 59
-  %393 = load i8, ptr %392, align 1
-  %394 = trunc i8 %393 to i1
-  br i1 %394, label %_ZN5Catch16AssertionHandlerD2Ev.exit112, label %395
+392:                                              ; preds = %391
+  %393 = getelementptr inbounds i8, ptr %39, i64 59
+  %394 = load i8, ptr %393, align 1
+  %395 = trunc i8 %394 to i1
+  br i1 %395, label %_ZN5Catch16AssertionHandlerD2Ev.exit112, label %396
 
-395:                                              ; preds = %391
-  %396 = getelementptr inbounds i8, ptr %39, i64 64
-  %397 = load ptr, ptr %396, align 8
+396:                                              ; preds = %392
+  %397 = getelementptr inbounds i8, ptr %39, i64 64
   %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %398, i64 160
-  %400 = load ptr, ptr %399, align 8
-  invoke void %400(ptr noundef nonnull align 8 dereferenceable(8) %397, ptr noundef nonnull align 8 dereferenceable(52) %39)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit112 unwind label %401
+  %399 = load ptr, ptr %398, align 8
+  %400 = getelementptr inbounds i8, ptr %399, i64 160
+  %401 = load ptr, ptr %400, align 8
+  invoke void %401(ptr noundef nonnull align 8 dereferenceable(8) %398, ptr noundef nonnull align 8 dereferenceable(52) %39)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit112 unwind label %402
 
-401:                                              ; preds = %395
-  %402 = landingpad { ptr, i32 }
+402:                                              ; preds = %396
+  %403 = landingpad { ptr, i32 }
           catch ptr null
-  %403 = extractvalue { ptr, i32 } %402, 0
-  call void @__clang_call_terminate(ptr %403) #10
+  %404 = extractvalue { ptr, i32 } %403, 0
+  call void @__clang_call_terminate(ptr %404) #10
   unreachable
 
-404:                                              ; preds = %387
-  %405 = landingpad { ptr, i32 }
+405:                                              ; preds = %388
+  %406 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %408 unwind label %410
+          to label %409 unwind label %411
 
-406:                                              ; preds = %390, %389
-  %407 = landingpad { ptr, i32 }
+407:                                              ; preds = %391, %390
+  %408 = landingpad { ptr, i32 }
           cleanup
-  br label %408
-
-408:                                              ; preds = %404, %406
-  %.pn79 = phi { ptr, i32 } [ %407, %406 ], [ %405, %404 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %39) #9
   br label %409
 
-_ZN5Catch16AssertionHandlerD2Ev.exit112:          ; preds = %395, %391, %48
+409:                                              ; preds = %405, %407
+  %.pn79 = phi { ptr, i32 } [ %408, %407 ], [ %406, %405 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %39) #9
+  br label %410
+
+_ZN5Catch16AssertionHandlerD2Ev.exit112:          ; preds = %396, %392, %48
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #9
   ret void
 
-409:                                              ; preds = %408, %382, %343, %304, %264, %225, %186, %146, %106, %65
-  %.pn79.pn = phi { ptr, i32 } [ %.pn79, %408 ], [ %66, %65 ], [ %.pn76, %382 ], [ %.pn73, %343 ], [ %.pn70, %304 ], [ %.pn67, %264 ], [ %.pn64, %225 ], [ %.pn61, %186 ], [ %.pn58, %146 ], [ %.pn55, %106 ]
+410:                                              ; preds = %409, %383, %344, %305, %265, %226, %187, %147, %107, %66
+  %.pn79.pn = phi { ptr, i32 } [ %.pn79, %409 ], [ %67, %66 ], [ %.pn76, %383 ], [ %.pn73, %344 ], [ %.pn70, %305 ], [ %.pn67, %265 ], [ %.pn64, %226 ], [ %.pn61, %187 ], [ %.pn58, %147 ], [ %.pn55, %107 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #9
   resume { ptr, i32 } %.pn79.pn
 
-410:                                              ; preds = %404, %378, %339, %300, %260, %221, %182, %142, %102
-  %411 = landingpad { ptr, i32 }
+411:                                              ; preds = %405, %379, %340, %301, %261, %222, %183, %143, %103
+  %412 = landingpad { ptr, i32 }
           catch ptr null
-  %412 = extractvalue { ptr, i32 } %411, 0
-  call void @__clang_call_terminate(ptr %412) #10
+  %413 = extractvalue { ptr, i32 } %412, 0
+  call void @__clang_call_terminate(ptr %413) #10
   unreachable
 }
 

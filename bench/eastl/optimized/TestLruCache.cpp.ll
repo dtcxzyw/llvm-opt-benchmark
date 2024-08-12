@@ -4727,7 +4727,9 @@ invoke.cont:
   %m_map = getelementptr inbounds i8, ptr %this, i64 24
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -5408,7 +5410,9 @@ invoke.cont:
   %m_map = getelementptr inbounds i8, ptr %this, i64 24
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 1, ptr %mnBucketCount.i.i, align 8
@@ -6020,7 +6024,9 @@ invoke.cont:
   %m_map = getelementptr inbounds i8, ptr %this, i64 24
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 1, ptr %mnBucketCount.i.i, align 8

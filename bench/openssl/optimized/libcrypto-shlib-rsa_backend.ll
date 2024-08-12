@@ -291,39 +291,38 @@ entry:
   %call.i = tail call ptr @OPENSSL_sk_new_null() #4
   %call.i25 = tail call ptr @OPENSSL_sk_new_null() #4
   %call.i26 = tail call ptr @OPENSSL_sk_new_null() #4
-  %0 = insertelement <4 x ptr> poison, ptr %rsa, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call.i, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call.i25, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call.i26, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %err
+  %cmp = icmp eq ptr %rsa, null
+  %cmp3 = icmp eq ptr %call.i, null
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
+  %cmp5 = icmp eq ptr %call.i25, null
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp5
+  %cmp7 = icmp eq ptr %call.i26, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp7
+  br i1 %or.cond2, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @RSA_get0_key(ptr noundef nonnull %rsa, ptr noundef nonnull %rsa_n, ptr noundef nonnull %rsa_e, ptr noundef nonnull %rsa_d) #4
   %call8 = call i32 @ossl_rsa_get0_all_params(ptr noundef nonnull %rsa, ptr noundef nonnull %call.i, ptr noundef nonnull %call.i25, ptr noundef nonnull %call.i26) #4
-  %6 = load ptr, ptr %rsa_n, align 8
-  %call9 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str, ptr noundef %6) #4
+  %0 = load ptr, ptr %rsa_n, align 8
+  %call9 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str, ptr noundef %0) #4
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %if.end
-  %7 = load ptr, ptr %rsa_e, align 8
-  %call11 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.1, ptr noundef %7) #4
+  %1 = load ptr, ptr %rsa_e, align 8
+  %call11 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.1, ptr noundef %1) #4
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false10
   %tobool15 = icmp ne i32 %include_private, 0
-  %8 = load ptr, ptr %rsa_d, align 8
-  %cmp16 = icmp ne ptr %8, null
+  %2 = load ptr, ptr %rsa_d, align 8
+  %cmp16 = icmp ne ptr %2, null
   %or.cond3 = select i1 %tobool15, i1 %cmp16, i1 false
   br i1 %or.cond3, label %if.then17, label %if.end31
 
 if.then17:                                        ; preds = %if.end14
-  %call18 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #4
+  %call18 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #4
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %err, label %lor.lhs.false20
 
@@ -495,15 +494,14 @@ if.end10:                                         ; preds = %if.then6, %if.then8
   br i1 %tobool.not, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %if.end10
-  %3 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %4 = insertelement <4 x ptr> %3, ptr %call2, i64 1
-  %5 = insertelement <4 x ptr> %4, ptr %call3, i64 2
-  %6 = insertelement <4 x ptr> %5, ptr %call4, i64 3
-  %.fr = freeze <4 x ptr> %6
-  %7 = icmp ne <4 x ptr> %.fr, zeroinitializer
-  %8 = bitcast <4 x i1> %7 to i4
-  %.not = icmp eq i4 %8, 0
-  br i1 %.not, label %err, label %if.then17
+  %cmp11 = icmp ne ptr %call1, null
+  %cmp12 = icmp ne ptr %call2, null
+  %or.cond = select i1 %cmp11, i1 true, i1 %cmp12
+  %cmp14 = icmp ne ptr %call3, null
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp14
+  %cmp16 = icmp ne ptr %call4, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp16
+  br i1 %or.cond2, label %if.then17, label %err
 
 if.then17:                                        ; preds = %land.lhs.true
   %call18 = tail call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %pss_params) #4
@@ -522,14 +520,14 @@ if.then24:                                        ; preds = %if.end22
   %call25 = tail call i32 @ossl_rsa_pss_params_30_maskgenalg(ptr noundef null) #4
   store ptr null, ptr %mgfname, align 8
   %data_type26 = getelementptr inbounds i8, ptr %call2, i64 8
-  %9 = load i32, ptr %data_type26, align 8
-  %cmp27 = icmp eq i32 %9, 4
+  %3 = load i32, ptr %data_type26, align 8
+  %cmp27 = icmp eq i32 %3, 4
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.then24
   %data29 = getelementptr inbounds i8, ptr %call2, i64 16
-  %10 = load ptr, ptr %data29, align 8
-  store ptr %10, ptr %mgfname, align 8
+  %4 = load ptr, ptr %data29, align 8
+  store ptr %4, ptr %mgfname, align 8
   br label %if.end34
 
 if.else:                                          ; preds = %if.then24
@@ -543,9 +541,9 @@ if.else.if.end34_crit_edge:                       ; preds = %if.else
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else.if.end34_crit_edge, %if.then28
-  %11 = phi ptr [ %.pre, %if.else.if.end34_crit_edge ], [ %10, %if.then28 ]
+  %5 = phi ptr [ %.pre, %if.else.if.end34_crit_edge ], [ %4, %if.then28 ]
   %call36 = call ptr @ossl_rsa_mgf_nid2name(i32 noundef %call25) #4
-  %call37 = call i32 @OPENSSL_strcasecmp(ptr noundef %11, ptr noundef %call36) #4
+  %call37 = call i32 @OPENSSL_strcasecmp(ptr noundef %5, ptr noundef %call36) #4
   %cmp38.not = icmp eq i32 %call37, 0
   br i1 %cmp38.not, label %if.end41, label %return
 
@@ -556,14 +554,14 @@ if.end41:                                         ; preds = %if.end34, %if.end22
 if.then43:                                        ; preds = %if.end41
   store ptr null, ptr %mdname, align 8
   %data_type44 = getelementptr inbounds i8, ptr %call1, i64 8
-  %12 = load i32, ptr %data_type44, align 8
-  %cmp45 = icmp eq i32 %12, 4
+  %6 = load i32, ptr %data_type44, align 8
+  %cmp45 = icmp eq i32 %6, 4
   br i1 %cmp45, label %if.then46, label %if.else48
 
 if.then46:                                        ; preds = %if.then43
   %data47 = getelementptr inbounds i8, ptr %call1, i64 16
-  %13 = load ptr, ptr %data47, align 8
-  store ptr %13, ptr %mdname, align 8
+  %7 = load ptr, ptr %data47, align 8
+  store ptr %7, ptr %mdname, align 8
   br label %if.end53
 
 if.else48:                                        ; preds = %if.then43
@@ -576,8 +574,8 @@ if.else48.if.end53_crit_edge:                     ; preds = %if.else48
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else48.if.end53_crit_edge, %if.then46
-  %14 = phi ptr [ %.pre43, %if.else48.if.end53_crit_edge ], [ %13, %if.then46 ]
-  %call54 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %14, ptr noundef %propq.0) #4
+  %8 = phi ptr [ %.pre43, %if.else48.if.end53_crit_edge ], [ %7, %if.then46 ]
+  %call54 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %8, ptr noundef %propq.0) #4
   %cmp55 = icmp eq ptr %call54, null
   br i1 %cmp55, label %err, label %lor.lhs.false56
 
@@ -595,14 +593,14 @@ if.end62:                                         ; preds = %lor.lhs.false56, %i
 if.then64:                                        ; preds = %if.end62
   store ptr null, ptr %mgf1mdname, align 8
   %data_type65 = getelementptr inbounds i8, ptr %call3, i64 8
-  %15 = load i32, ptr %data_type65, align 8
-  %cmp66 = icmp eq i32 %15, 4
+  %9 = load i32, ptr %data_type65, align 8
+  %cmp66 = icmp eq i32 %9, 4
   br i1 %cmp66, label %if.then67, label %if.else69
 
 if.then67:                                        ; preds = %if.then64
   %data68 = getelementptr inbounds i8, ptr %call3, i64 16
-  %16 = load ptr, ptr %data68, align 8
-  store ptr %16, ptr %mgf1mdname, align 8
+  %10 = load ptr, ptr %data68, align 8
+  store ptr %10, ptr %mgf1mdname, align 8
   br label %if.end74
 
 if.else69:                                        ; preds = %if.then64
@@ -615,8 +613,8 @@ if.else69.if.end74_crit_edge:                     ; preds = %if.else69
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else69.if.end74_crit_edge, %if.then67
-  %17 = phi ptr [ %.pre44, %if.else69.if.end74_crit_edge ], [ %16, %if.then67 ]
-  %call75 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %17, ptr noundef %propq.0) #4
+  %11 = phi ptr [ %.pre44, %if.else69.if.end74_crit_edge ], [ %10, %if.then67 ]
+  %call75 = call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef %11, ptr noundef %propq.0) #4
   %cmp76 = icmp eq ptr %call75, null
   br i1 %cmp76, label %err, label %lor.lhs.false77
 
@@ -637,8 +635,8 @@ if.then85:                                        ; preds = %if.end83
   br i1 %tobool87.not, label %err, label %lor.lhs.false88
 
 lor.lhs.false88:                                  ; preds = %if.then85
-  %18 = load i32, ptr %saltlen, align 4
-  %call89 = call i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef nonnull %pss_params, i32 noundef %18) #4
+  %12 = load i32, ptr %saltlen, align 4
+  %call89 = call i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef nonnull %pss_params, i32 noundef %12) #4
   %tobool90.not = icmp ne i32 %call89, 0
   %spec.select = zext i1 %tobool90.not to i32
   br label %err

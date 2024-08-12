@@ -931,577 +931,581 @@ define internal fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0
 9:                                                ; preds = %3
   %10 = load ptr, ptr @MyProc, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 68
-  %12 = load <2 x i32>, ptr %11, align 4
-  br label %13
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 72
+  %14 = load i32, ptr %13, align 4
+  br label %15
 
-13:                                               ; preds = %SummarizeOldestCommittedSxact.exit, %9
-  %14 = load ptr, ptr @MainLWLockArray, align 8
-  %15 = getelementptr i8, ptr %14, i64 3584
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #12
-  %17 = load ptr, ptr @PredXact, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  %21 = icmp eq ptr %19, %17
-  %spec.select.i.i = or i1 %20, %21
-  br i1 %spec.select.i.i, label %CreatePredXact.exit.thread, label %22
+15:                                               ; preds = %SummarizeOldestCommittedSxact.exit, %9
+  %16 = load ptr, ptr @MainLWLockArray, align 8
+  %17 = getelementptr i8, ptr %16, i64 3584
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #12
+  %19 = load ptr, ptr @PredXact, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  %23 = icmp eq ptr %21, %19
+  %spec.select.i.i = or i1 %22, %23
+  br i1 %spec.select.i.i, label %CreatePredXact.exit.thread, label %24
 
-22:                                               ; preds = %13
-  %23 = getelementptr i8, ptr %19, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %19, align 8
-  store ptr %27, ptr %24, align 8
-  %28 = getelementptr i8, ptr %19, i64 -96
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
-  %30 = getelementptr inbounds i8, ptr %17, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %CreatePredXact.exit
+24:                                               ; preds = %15
+  %25 = getelementptr i8, ptr %21, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %21, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %26, ptr %28, align 8
+  %29 = load ptr, ptr %21, align 8
+  store ptr %29, ptr %26, align 8
+  %30 = getelementptr i8, ptr %21, i64 -96
+  %31 = getelementptr inbounds i8, ptr %19, i64 16
+  %32 = getelementptr inbounds i8, ptr %19, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %CreatePredXact.exit
 
-33:                                               ; preds = %22
-  store ptr %29, ptr %29, align 8
-  store ptr %29, ptr %30, align 8
+35:                                               ; preds = %24
+  store ptr %31, ptr %31, align 8
+  store ptr %31, ptr %32, align 8
   br label %CreatePredXact.exit
 
-CreatePredXact.exit:                              ; preds = %22, %33
-  store ptr %29, ptr %23, align 8
-  %34 = load ptr, ptr %29, align 8
-  store ptr %34, ptr %19, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %19, ptr %35, align 8
-  store ptr %19, ptr %29, align 8
-  %.not = icmp eq ptr %28, null
+CreatePredXact.exit:                              ; preds = %24, %35
+  store ptr %31, ptr %25, align 8
+  %36 = load ptr, ptr %31, align 8
+  store ptr %36, ptr %21, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %21, ptr %37, align 8
+  store ptr %21, ptr %31, align 8
+  %.not = icmp eq ptr %30, null
   br i1 %.not, label %CreatePredXact.exit.thread, label %.critedge
 
-CreatePredXact.exit.thread:                       ; preds = %13, %CreatePredXact.exit
-  %36 = load ptr, ptr @MainLWLockArray, align 8
-  %37 = getelementptr i8, ptr %36, i64 3584
-  tail call void @LWLockRelease(ptr noundef %37) #12
+CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact.exit
   %38 = load ptr, ptr @MainLWLockArray, align 8
-  %39 = getelementptr i8, ptr %38, i64 3712
-  %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef %39, i32 noundef 0) #12
-  %41 = load ptr, ptr @FinishedSerializableTransactions, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  %45 = icmp eq ptr %43, %41
-  %spec.select.i.i59 = or i1 %44, %45
-  br i1 %spec.select.i.i59, label %SummarizeOldestCommittedSxact.exit, label %46
+  %39 = getelementptr i8, ptr %38, i64 3584
+  tail call void @LWLockRelease(ptr noundef %39) #12
+  %40 = load ptr, ptr @MainLWLockArray, align 8
+  %41 = getelementptr i8, ptr %40, i64 3712
+  %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #12
+  %43 = load ptr, ptr @FinishedSerializableTransactions, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  %47 = icmp eq ptr %45, %43
+  %spec.select.i.i59 = or i1 %46, %47
+  br i1 %spec.select.i.i59, label %SummarizeOldestCommittedSxact.exit, label %48
 
-46:                                               ; preds = %CreatePredXact.exit.thread
-  %47 = getelementptr i8, ptr %43, i64 -80
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %43, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %49, ptr %51, align 8
-  %52 = load ptr, ptr %43, align 8
-  store ptr %52, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %53 = getelementptr i8, ptr %43, i64 64
-  %54 = load i32, ptr %53, align 8
-  %.not.i = icmp eq i32 %54, 0
-  br i1 %.not.i, label %131, label %55
+48:                                               ; preds = %CreatePredXact.exit.thread
+  %49 = getelementptr i8, ptr %45, i64 -80
+  %50 = getelementptr inbounds i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %45, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr %51, ptr %53, align 8
+  %54 = load ptr, ptr %45, align 8
+  store ptr %54, ptr %51, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  %55 = getelementptr i8, ptr %45, i64 64
+  %56 = load i32, ptr %55, align 8
+  %.not.i = icmp eq i32 %56, 0
+  br i1 %.not.i, label %133, label %57
 
-55:                                               ; preds = %46
-  %56 = getelementptr i8, ptr %43, i64 76
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 32
-  %.not7.i = icmp eq i32 %58, 0
-  br i1 %.not7.i, label %59, label %131
+57:                                               ; preds = %48
+  %58 = getelementptr i8, ptr %45, i64 76
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 32
+  %.not7.i = icmp eq i32 %60, 0
+  br i1 %.not7.i, label %61, label %133
 
-59:                                               ; preds = %55
-  %60 = and i32 %57, 16
-  %.not8.i = icmp eq i32 %60, 0
-  br i1 %.not8.i, label %64, label %61
+61:                                               ; preds = %57
+  %62 = and i32 %59, 16
+  %.not8.i = icmp eq i32 %62, 0
+  br i1 %.not8.i, label %66, label %63
 
-61:                                               ; preds = %59
-  %62 = getelementptr i8, ptr %43, i64 -56
-  %63 = load i64, ptr %62, align 8
-  br label %64
+63:                                               ; preds = %61
+  %64 = getelementptr i8, ptr %45, i64 -56
+  %65 = load i64, ptr %64, align 8
+  br label %66
 
-64:                                               ; preds = %61, %59
-  %65 = phi i64 [ %63, %61 ], [ -1, %59 ]
-  %66 = zext i32 %54 to i64
-  %67 = lshr i64 %66, 10
-  %68 = load i16, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 8), align 8
-  %69 = zext i16 %68 to i64
-  %70 = and i64 %67, %69
-  %71 = load ptr, ptr @SerialSlruCtlData, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr %union.LWLockPadded, ptr %73, i64 %70
-  %75 = load ptr, ptr @MainLWLockArray, align 8
-  %76 = getelementptr i8, ptr %75, i64 6656
-  %77 = tail call zeroext i1 @LWLockAcquire(ptr noundef %76, i32 noundef 0) #12
-  %78 = load ptr, ptr @serialControl, align 8
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %85
+66:                                               ; preds = %63, %61
+  %67 = phi i64 [ %65, %63 ], [ -1, %61 ]
+  %68 = zext i32 %56 to i64
+  %69 = lshr i64 %68, 10
+  %70 = load i16, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 8), align 8
+  %71 = zext i16 %70 to i64
+  %72 = and i64 %69, %71
+  %73 = load ptr, ptr @SerialSlruCtlData, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr %union.LWLockPadded, ptr %75, i64 %72
+  %77 = load ptr, ptr @MainLWLockArray, align 8
+  %78 = getelementptr i8, ptr %77, i64 6656
+  %79 = tail call zeroext i1 @LWLockAcquire(ptr noundef %78, i32 noundef 0) #12
+  %80 = load ptr, ptr @serialControl, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %64
-  %82 = getelementptr inbounds i8, ptr %78, i64 8
-  %83 = load i32, ptr %82, align 4
-  %84 = lshr i32 %83, 10
+83:                                               ; preds = %66
+  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %85 = load i32, ptr %84, align 4
+  %86 = lshr i32 %85, 10
   br label %SerialPagePrecedesLogically.exit.i.i
 
-85:                                               ; preds = %64
-  %86 = icmp ugt i32 %79, 4194302
-  %87 = add nuw nsw i32 %79, 1
-  %narrow.i.i = select i1 %86, i32 0, i32 %87
-  %88 = shl i32 %79, 10
-  %89 = or disjoint i32 %88, 4
-  %.tr8.i.i.i = trunc nuw nsw i64 %67 to i32
-  %90 = shl nuw i32 %.tr8.i.i.i, 10
+87:                                               ; preds = %66
+  %88 = icmp ugt i32 %81, 4194302
+  %89 = add nuw nsw i32 %81, 1
+  %narrow.i.i = select i1 %88, i32 0, i32 %89
+  %90 = shl i32 %81, 10
   %91 = or disjoint i32 %90, 4
-  %92 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %89, i32 noundef %91) #12
-  br i1 %92, label %93, label %SerialPagePrecedesLogically.exit.i.i
+  %.tr8.i.i.i = trunc nuw nsw i64 %69 to i32
+  %92 = shl nuw i32 %.tr8.i.i.i, 10
+  %93 = or disjoint i32 %92, 4
+  %94 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %91, i32 noundef %93) #12
+  br i1 %94, label %95, label %SerialPagePrecedesLogically.exit.i.i
 
-93:                                               ; preds = %85
-  %94 = add i32 %90, 1027
-  %95 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %89, i32 noundef %94) #12
+95:                                               ; preds = %87
+  %96 = add i32 %92, 1027
+  %97 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %91, i32 noundef %96) #12
   br label %SerialPagePrecedesLogically.exit.i.i
 
-SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
-  %.023.in.i.i = phi i32 [ %84, %81 ], [ %narrow.i.i, %85 ], [ %narrow.i.i, %93 ]
-  %.022.i.i = phi i1 [ true, %81 ], [ false, %85 ], [ %95, %93 ]
+SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
+  %.023.in.i.i = phi i32 [ %86, %83 ], [ %narrow.i.i, %87 ], [ %narrow.i.i, %95 ]
+  %.022.i.i = phi i1 [ true, %83 ], [ false, %87 ], [ %97, %95 ]
   %.023.i.i = zext nneg i32 %.023.in.i.i to i64
-  %96 = load ptr, ptr @serialControl, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
-  %98 = load i32, ptr %97, align 4
-  %.not.i.i = icmp eq i32 %98, 0
-  br i1 %.not.i.i, label %101, label %99
+  %98 = load ptr, ptr @serialControl, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = load i32, ptr %99, align 4
+  %.not.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i, label %103, label %101
 
-99:                                               ; preds = %SerialPagePrecedesLogically.exit.i.i
-  %100 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %54, i32 noundef %98) #12
-  br i1 %100, label %._crit_edge30.i.i, label %104
+101:                                              ; preds = %SerialPagePrecedesLogically.exit.i.i
+  %102 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %56, i32 noundef %100) #12
+  br i1 %102, label %._crit_edge30.i.i, label %106
 
-._crit_edge30.i.i:                                ; preds = %99
+._crit_edge30.i.i:                                ; preds = %101
   %.pre.i.i = load ptr, ptr @serialControl, align 8
-  br label %101
+  br label %103
 
-101:                                              ; preds = %._crit_edge30.i.i, %SerialPagePrecedesLogically.exit.i.i
-  %102 = phi ptr [ %.pre.i.i, %._crit_edge30.i.i ], [ %96, %SerialPagePrecedesLogically.exit.i.i ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
-  store i32 %54, ptr %103, align 4
-  br label %104
+103:                                              ; preds = %._crit_edge30.i.i, %SerialPagePrecedesLogically.exit.i.i
+  %104 = phi ptr [ %.pre.i.i, %._crit_edge30.i.i ], [ %98, %SerialPagePrecedesLogically.exit.i.i ]
+  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  store i32 %56, ptr %105, align 4
+  br label %106
 
-104:                                              ; preds = %101, %99
-  br i1 %.022.i.i, label %105, label %.critedge.i.i
+106:                                              ; preds = %103, %101
+  br i1 %.022.i.i, label %107, label %.critedge.i.i
 
-105:                                              ; preds = %104
-  %106 = trunc nuw nsw i64 %67 to i32
-  %107 = load ptr, ptr @serialControl, align 8
-  store i32 %106, ptr %107, align 4
-  %108 = tail call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0) #12
-  %.not2728.i.i = icmp eq i64 %67, %.023.i.i
+107:                                              ; preds = %106
+  %108 = trunc nuw nsw i64 %69 to i32
+  %109 = load ptr, ptr @serialControl, align 8
+  store i32 %108, ptr %109, align 4
+  %110 = tail call zeroext i1 @LWLockAcquire(ptr noundef %76, i32 noundef 0) #12
+  %.not2728.i.i = icmp eq i64 %69, %.023.i.i
   br i1 %.not2728.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %105, %.lr.ph.i.i
-  %.129.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ %.023.i.i, %105 ]
-  %109 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %.129.i.i) #12
-  %110 = icmp ugt i64 %.129.i.i, 4194302
-  %111 = add nuw nsw i64 %.129.i.i, 1
-  %112 = select i1 %110, i64 0, i64 %111
-  %.not27.i.i = icmp eq i64 %112, %67
+.lr.ph.i.i:                                       ; preds = %107, %.lr.ph.i.i
+  %.129.i.i = phi i64 [ %114, %.lr.ph.i.i ], [ %.023.i.i, %107 ]
+  %111 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %.129.i.i) #12
+  %112 = icmp ugt i64 %.129.i.i, 4194302
+  %113 = add nuw nsw i64 %.129.i.i, 1
+  %114 = select i1 %112, i64 0, i64 %113
+  %.not27.i.i = icmp eq i64 %114, %69
   br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %105
-  %113 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %67) #12
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %107
+  %115 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %69) #12
   br label %SerialAdd.exit.i
 
-.critedge.i.i:                                    ; preds = %104
-  %114 = tail call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0) #12
-  %115 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %67, i1 noundef zeroext true, i32 noundef %54) #12
+.critedge.i.i:                                    ; preds = %106
+  %116 = tail call zeroext i1 @LWLockAcquire(ptr noundef %76, i32 noundef 0) #12
+  %117 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %69, i1 noundef zeroext true, i32 noundef %56) #12
   br label %SerialAdd.exit.i
 
 SerialAdd.exit.i:                                 ; preds = %.critedge.i.i, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ %113, %._crit_edge.i.i ], [ %115, %.critedge.i.i ]
-  %116 = load ptr, ptr @SerialSlruCtlData, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = sext i32 %.0.i.i to i64
-  %120 = getelementptr ptr, ptr %118, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = shl nuw nsw i64 %66, 3
-  %123 = and i64 %122, 8184
-  %124 = getelementptr i8, ptr %121, i64 %123
-  store i64 %65, ptr %124, align 8
-  %125 = load ptr, ptr @SerialSlruCtlData, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 24
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr i8, ptr %127, i64 %119
-  store i8 1, ptr %128, align 1
-  tail call void @LWLockRelease(ptr noundef %74) #12
-  %129 = load ptr, ptr @MainLWLockArray, align 8
-  %130 = getelementptr i8, ptr %129, i64 6656
-  tail call void @LWLockRelease(ptr noundef %130) #12
-  br label %131
+  %.0.i.i = phi i32 [ %115, %._crit_edge.i.i ], [ %117, %.critedge.i.i ]
+  %118 = load ptr, ptr @SerialSlruCtlData, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = sext i32 %.0.i.i to i64
+  %122 = getelementptr ptr, ptr %120, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = shl nuw nsw i64 %68, 3
+  %125 = and i64 %124, 8184
+  %126 = getelementptr i8, ptr %123, i64 %125
+  store i64 %67, ptr %126, align 8
+  %127 = load ptr, ptr @SerialSlruCtlData, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr i8, ptr %129, i64 %121
+  store i8 1, ptr %130, align 1
+  tail call void @LWLockRelease(ptr noundef %76) #12
+  %131 = load ptr, ptr @MainLWLockArray, align 8
+  %132 = getelementptr i8, ptr %131, i64 6656
+  tail call void @LWLockRelease(ptr noundef %132) #12
+  br label %133
 
-131:                                              ; preds = %SerialAdd.exit.i, %55, %46
-  tail call fastcc void @ReleaseOneSerializableXact(ptr noundef %47, i1 noundef zeroext false, i1 noundef zeroext true)
+133:                                              ; preds = %SerialAdd.exit.i, %57, %48
+  tail call fastcc void @ReleaseOneSerializableXact(ptr noundef %49, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %SummarizeOldestCommittedSxact.exit
 
-SummarizeOldestCommittedSxact.exit:               ; preds = %CreatePredXact.exit.thread, %131
-  %132 = load ptr, ptr @MainLWLockArray, align 8
-  %133 = getelementptr i8, ptr %132, i64 3712
-  tail call void @LWLockRelease(ptr noundef %133) #12
-  br label %13, !llvm.loop !15
+SummarizeOldestCommittedSxact.exit:               ; preds = %CreatePredXact.exit.thread, %133
+  %134 = load ptr, ptr @MainLWLockArray, align 8
+  %135 = getelementptr i8, ptr %134, i64 3712
+  tail call void @LWLockRelease(ptr noundef %135) #12
+  br label %15, !llvm.loop !15
 
 .critedge:                                        ; preds = %CreatePredXact.exit
   %.not51 = icmp eq ptr %1, null
-  br i1 %.not51, label %134, label %136
-
-134:                                              ; preds = %.critedge
-  %135 = tail call ptr @GetSnapshotData(ptr noundef %0) #12
-  br label %147
+  br i1 %.not51, label %136, label %138
 
 136:                                              ; preds = %.critedge
-  %137 = getelementptr inbounds i8, ptr %0, i64 4
-  %138 = load i32, ptr %137, align 4
-  %139 = tail call zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %138, ptr noundef nonnull %1) #12
-  br i1 %139, label %147, label %140
+  %137 = tail call ptr @GetSnapshotData(ptr noundef %0) #12
+  br label %149
 
-140:                                              ; preds = %136
-  tail call fastcc void @ReleasePredXact(ptr noundef nonnull %28)
-  %141 = load ptr, ptr @MainLWLockArray, align 8
-  %142 = getelementptr i8, ptr %141, i64 3584
-  tail call void @LWLockRelease(ptr noundef %142) #12
-  %143 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %143)
-  %144 = tail call i32 @errcode(i32 noundef 325) #12
-  %145 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #12
-  %146 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28, i32 noundef %2) #12
+138:                                              ; preds = %.critedge
+  %139 = getelementptr inbounds i8, ptr %0, i64 4
+  %140 = load i32, ptr %139, align 4
+  %141 = tail call zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %140, ptr noundef nonnull %1) #12
+  br i1 %141, label %149, label %142
+
+142:                                              ; preds = %138
+  tail call fastcc void @ReleasePredXact(ptr noundef nonnull %30)
+  %143 = load ptr, ptr @MainLWLockArray, align 8
+  %144 = getelementptr i8, ptr %143, i64 3584
+  tail call void @LWLockRelease(ptr noundef %144) #12
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %145)
+  %146 = tail call i32 @errcode(i32 noundef 325) #12
+  %147 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #12
+  %148 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28, i32 noundef %2) #12
   tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 1811, ptr noundef nonnull @__func__.GetSerializableTransactionSnapshotInt) #12
   unreachable
 
-147:                                              ; preds = %136, %134
-  %.048 = phi ptr [ %0, %136 ], [ %135, %134 ]
-  %148 = load i8, ptr @XactReadOnly, align 1
-  %149 = trunc i8 %148 to i1
+149:                                              ; preds = %138, %136
+  %.048 = phi ptr [ %0, %138 ], [ %137, %136 ]
+  %150 = load i8, ptr @XactReadOnly, align 1
+  %151 = trunc i8 %150 to i1
   %.pre = load ptr, ptr @PredXact, align 8
-  br i1 %149, label %150, label %167
+  br i1 %151, label %152, label %169
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %.pre, i64 40
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %167
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %169
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %23, align 8
-  %156 = load ptr, ptr %19, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
-  store ptr %155, ptr %157, align 8
-  %158 = load ptr, ptr %19, align 8
-  store ptr %158, ptr %155, align 8
-  %159 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %ReleasePredXact.exit
+156:                                              ; preds = %152
+  %157 = load ptr, ptr %25, align 8
+  %158 = load ptr, ptr %21, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  store ptr %157, ptr %159, align 8
+  %160 = load ptr, ptr %21, align 8
+  store ptr %160, ptr %157, align 8
+  %161 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %ReleasePredXact.exit
 
-162:                                              ; preds = %154
+164:                                              ; preds = %156
   store ptr %.pre, ptr %.pre, align 8
-  store ptr %.pre, ptr %159, align 8
+  store ptr %.pre, ptr %161, align 8
   br label %ReleasePredXact.exit
 
-ReleasePredXact.exit:                             ; preds = %154, %162
-  store ptr %.pre, ptr %23, align 8
-  %163 = load ptr, ptr %.pre, align 8
-  store ptr %163, ptr %19, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
-  store ptr %19, ptr %164, align 8
-  store ptr %19, ptr %.pre, align 8
-  %165 = load ptr, ptr @MainLWLockArray, align 8
-  %166 = getelementptr i8, ptr %165, i64 3584
-  tail call void @LWLockRelease(ptr noundef %166) #12
-  br label %303
+ReleasePredXact.exit:                             ; preds = %156, %164
+  store ptr %.pre, ptr %25, align 8
+  %165 = load ptr, ptr %.pre, align 8
+  store ptr %165, ptr %21, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  store ptr %21, ptr %166, align 8
+  store ptr %21, ptr %.pre, align 8
+  %167 = load ptr, ptr @MainLWLockArray, align 8
+  %168 = getelementptr i8, ptr %167, i64 3584
+  tail call void @LWLockRelease(ptr noundef %168) #12
+  br label %305
 
-167:                                              ; preds = %150, %147
-  store <2 x i32> %12, ptr %28, align 8
-  %168 = getelementptr inbounds i8, ptr %.pre, i64 48
-  %169 = load i64, ptr %168, align 8
-  %170 = getelementptr i8, ptr %19, i64 -72
-  store i64 %169, ptr %170, align 8
-  %171 = getelementptr i8, ptr %19, i64 -88
-  %172 = getelementptr i8, ptr %19, i64 -64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, i8 -1, i64 16, i1 false)
-  store ptr %172, ptr %172, align 8
-  %173 = getelementptr i8, ptr %19, i64 -56
-  store ptr %172, ptr %173, align 8
-  %174 = getelementptr i8, ptr %19, i64 -48
+169:                                              ; preds = %152, %149
+  store i32 %12, ptr %30, align 8
+  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %21, i64 -92
+  store i32 %14, ptr %.sroa.2.0..sroa_idx, align 4
+  %170 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %171 = load i64, ptr %170, align 8
+  %172 = getelementptr i8, ptr %21, i64 -72
+  store i64 %171, ptr %172, align 8
+  %173 = getelementptr i8, ptr %21, i64 -88
+  %174 = getelementptr i8, ptr %21, i64 -64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, i8 -1, i64 16, i1 false)
   store ptr %174, ptr %174, align 8
-  %175 = getelementptr i8, ptr %19, i64 -40
+  %175 = getelementptr i8, ptr %21, i64 -56
   store ptr %174, ptr %175, align 8
-  %176 = getelementptr i8, ptr %19, i64 32
+  %176 = getelementptr i8, ptr %21, i64 -48
   store ptr %176, ptr %176, align 8
-  %177 = getelementptr i8, ptr %19, i64 40
+  %177 = getelementptr i8, ptr %21, i64 -40
   store ptr %176, ptr %177, align 8
-  %178 = tail call i32 @GetTopTransactionIdIfAny() #12
-  %179 = getelementptr i8, ptr %19, i64 48
-  store i32 %178, ptr %179, align 8
-  %180 = getelementptr i8, ptr %19, i64 52
-  store i32 0, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %.048, i64 4
-  %182 = load i32, ptr %181, align 4
-  %183 = getelementptr i8, ptr %19, i64 56
-  store i32 %182, ptr %183, align 8
-  %184 = load i32, ptr @MyProcPid, align 4
-  %185 = getelementptr i8, ptr %19, i64 64
+  %178 = getelementptr i8, ptr %21, i64 32
+  store ptr %178, ptr %178, align 8
+  %179 = getelementptr i8, ptr %21, i64 40
+  store ptr %178, ptr %179, align 8
+  %180 = tail call i32 @GetTopTransactionIdIfAny() #12
+  %181 = getelementptr i8, ptr %21, i64 48
+  store i32 %180, ptr %181, align 8
+  %182 = getelementptr i8, ptr %21, i64 52
+  store i32 0, ptr %182, align 4
+  %183 = getelementptr inbounds i8, ptr %.048, i64 4
+  %184 = load i32, ptr %183, align 4
+  %185 = getelementptr i8, ptr %21, i64 56
   store i32 %184, ptr %185, align 8
-  %186 = load i32, ptr @MyProcNumber, align 4
-  %187 = getelementptr i8, ptr %19, i64 68
-  store i32 %186, ptr %187, align 4
-  %188 = getelementptr i8, ptr %19, i64 -32
-  store ptr %188, ptr %188, align 8
-  %189 = getelementptr i8, ptr %19, i64 -24
-  store ptr %188, ptr %189, align 8
-  %190 = getelementptr i8, ptr %19, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
-  %191 = getelementptr i8, ptr %19, i64 60
-  store i32 0, ptr %191, align 4
-  %192 = load i8, ptr @XactReadOnly, align 1
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %194, label %255
+  %186 = load i32, ptr @MyProcPid, align 4
+  %187 = getelementptr i8, ptr %21, i64 64
+  store i32 %186, ptr %187, align 8
+  %188 = load i32, ptr @MyProcNumber, align 4
+  %189 = getelementptr i8, ptr %21, i64 68
+  store i32 %188, ptr %189, align 4
+  %190 = getelementptr i8, ptr %21, i64 -32
+  store ptr %190, ptr %190, align 8
+  %191 = getelementptr i8, ptr %21, i64 -24
+  store ptr %190, ptr %191, align 8
+  %192 = getelementptr i8, ptr %21, i64 -16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %192, i8 0, i64 16, i1 false)
+  %193 = getelementptr i8, ptr %21, i64 60
+  store i32 0, ptr %193, align 4
+  %194 = load i8, ptr @XactReadOnly, align 1
+  %195 = trunc i8 %194 to i1
+  br i1 %195, label %196, label %257
 
-194:                                              ; preds = %167
-  store i32 32, ptr %191, align 4
-  %195 = load ptr, ptr @PredXact, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
-  %197 = getelementptr inbounds i8, ptr %195, i64 24
-  %198 = load ptr, ptr %197, align 8
-  %.not52 = icmp eq ptr %198, null
-  %.not536971 = icmp eq ptr %198, %196
+196:                                              ; preds = %169
+  store i32 32, ptr %193, align 4
+  %197 = load ptr, ptr @PredXact, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %199 = getelementptr inbounds i8, ptr %197, i64 24
+  %200 = load ptr, ptr %199, align 8
+  %.not52 = icmp eq ptr %200, null
+  %.not536971 = icmp eq ptr %200, %198
   %.not5369 = select i1 %.not52, i1 true, i1 %.not536971
   br i1 %.not5369, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %194, %236
-  %.sroa.0.070 = phi ptr [ %238, %236 ], [ %198, %194 ]
-  %199 = getelementptr i8, ptr %.sroa.0.070, i64 -96
-  %200 = getelementptr i8, ptr %.sroa.0.070, i64 60
-  %201 = load i32, ptr %200, align 4
-  %202 = and i32 %201, 41
-  %or.cond58 = icmp eq i32 %202, 0
-  br i1 %or.cond58, label %203, label %236
+.lr.ph:                                           ; preds = %196, %238
+  %.sroa.0.070 = phi ptr [ %240, %238 ], [ %200, %196 ]
+  %201 = getelementptr i8, ptr %.sroa.0.070, i64 -96
+  %202 = getelementptr i8, ptr %.sroa.0.070, i64 60
+  %203 = load i32, ptr %202, align 4
+  %204 = and i32 %203, 41
+  %or.cond58 = icmp eq i32 %204, 0
+  br i1 %or.cond58, label %205, label %238
 
-203:                                              ; preds = %.lr.ph
-  %204 = load ptr, ptr @RWConflictPool, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = icmp eq ptr %206, null
-  %208 = icmp eq ptr %206, %204
-  %spec.select.i.i61 = or i1 %207, %208
-  br i1 %spec.select.i.i61, label %209, label %214
+205:                                              ; preds = %.lr.ph
+  %206 = load ptr, ptr @RWConflictPool, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = icmp eq ptr %208, null
+  %210 = icmp eq ptr %208, %206
+  %spec.select.i.i61 = or i1 %209, %210
+  br i1 %spec.select.i.i61, label %211, label %216
 
-209:                                              ; preds = %203
-  %210 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %210)
-  %211 = tail call i32 @errcode(i32 noundef 8389) #12
-  %212 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #12
-  %213 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.30) #12
+211:                                              ; preds = %205
+  %212 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %212)
+  %213 = tail call i32 @errcode(i32 noundef 8389) #12
+  %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #12
+  %215 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.30) #12
   tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 681, ptr noundef nonnull @__func__.SetPossibleUnsafeConflict) #12
   unreachable
 
-214:                                              ; preds = %203
-  %215 = getelementptr inbounds i8, ptr %206, i64 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %206, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %206, align 8
-  store ptr %219, ptr %216, align 8
-  %220 = getelementptr inbounds i8, ptr %206, i64 32
-  store ptr %199, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %206, i64 40
-  store ptr %28, ptr %221, align 8
-  %222 = getelementptr i8, ptr %.sroa.0.070, i64 32
-  %223 = getelementptr i8, ptr %.sroa.0.070, i64 40
-  %224 = load ptr, ptr %223, align 8
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %226, label %dlist_push_tail.exit.i62
+216:                                              ; preds = %205
+  %217 = getelementptr inbounds i8, ptr %208, i64 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = load ptr, ptr %208, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  store ptr %218, ptr %220, align 8
+  %221 = load ptr, ptr %208, align 8
+  store ptr %221, ptr %218, align 8
+  %222 = getelementptr inbounds i8, ptr %208, i64 32
+  store ptr %201, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %208, i64 40
+  store ptr %30, ptr %223, align 8
+  %224 = getelementptr i8, ptr %.sroa.0.070, i64 32
+  %225 = getelementptr i8, ptr %.sroa.0.070, i64 40
+  %226 = load ptr, ptr %225, align 8
+  %227 = icmp eq ptr %226, null
+  br i1 %227, label %228, label %dlist_push_tail.exit.i62
 
-226:                                              ; preds = %214
-  store ptr %222, ptr %222, align 8
-  store ptr %222, ptr %223, align 8
+228:                                              ; preds = %216
+  store ptr %224, ptr %224, align 8
+  store ptr %224, ptr %225, align 8
   br label %dlist_push_tail.exit.i62
 
-dlist_push_tail.exit.i62:                         ; preds = %226, %214
-  store ptr %222, ptr %215, align 8
-  %227 = load ptr, ptr %222, align 8
-  store ptr %227, ptr %206, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 8
-  store ptr %206, ptr %228, align 8
-  store ptr %206, ptr %222, align 8
-  %229 = load ptr, ptr %177, align 8
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %231, label %SetPossibleUnsafeConflict.exit
+dlist_push_tail.exit.i62:                         ; preds = %228, %216
+  store ptr %224, ptr %217, align 8
+  %229 = load ptr, ptr %224, align 8
+  store ptr %229, ptr %208, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  store ptr %208, ptr %230, align 8
+  store ptr %208, ptr %224, align 8
+  %231 = load ptr, ptr %179, align 8
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %233, label %SetPossibleUnsafeConflict.exit
 
-231:                                              ; preds = %dlist_push_tail.exit.i62
-  store ptr %176, ptr %176, align 8
-  store ptr %176, ptr %177, align 8
+233:                                              ; preds = %dlist_push_tail.exit.i62
+  store ptr %178, ptr %178, align 8
+  store ptr %178, ptr %179, align 8
   br label %SetPossibleUnsafeConflict.exit
 
-SetPossibleUnsafeConflict.exit:                   ; preds = %dlist_push_tail.exit.i62, %231
-  %232 = getelementptr inbounds i8, ptr %206, i64 16
-  %233 = getelementptr inbounds i8, ptr %206, i64 24
-  store ptr %176, ptr %233, align 8
-  %234 = load ptr, ptr %176, align 8
-  store ptr %234, ptr %232, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
-  store ptr %232, ptr %235, align 8
-  store ptr %232, ptr %176, align 8
-  br label %236
+SetPossibleUnsafeConflict.exit:                   ; preds = %dlist_push_tail.exit.i62, %233
+  %234 = getelementptr inbounds i8, ptr %208, i64 16
+  %235 = getelementptr inbounds i8, ptr %208, i64 24
+  store ptr %178, ptr %235, align 8
+  %236 = load ptr, ptr %178, align 8
+  store ptr %236, ptr %234, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  store ptr %234, ptr %237, align 8
+  store ptr %234, ptr %178, align 8
+  br label %238
 
-236:                                              ; preds = %.lr.ph, %SetPossibleUnsafeConflict.exit
-  %237 = getelementptr inbounds i8, ptr %.sroa.0.070, i64 8
-  %238 = load ptr, ptr %237, align 8
-  %.not53 = icmp eq ptr %238, %196
+238:                                              ; preds = %.lr.ph, %SetPossibleUnsafeConflict.exit
+  %239 = getelementptr inbounds i8, ptr %.sroa.0.070, i64 8
+  %240 = load ptr, ptr %239, align 8
+  %.not53 = icmp eq ptr %240, %198
   br i1 %.not53, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
-._crit_edge.loopexit:                             ; preds = %236
+._crit_edge.loopexit:                             ; preds = %238
   %.pre73.pre = load ptr, ptr @PredXact, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %194
-  %.pre73 = phi ptr [ %.pre73.pre, %._crit_edge.loopexit ], [ %195, %194 ]
-  %239 = load ptr, ptr %177, align 8
-  %240 = icmp eq ptr %239, null
-  %241 = icmp eq ptr %239, %176
-  %spec.select.i = or i1 %240, %241
-  br i1 %spec.select.i, label %242, label %260
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %196
+  %.pre73 = phi ptr [ %.pre73.pre, %._crit_edge.loopexit ], [ %197, %196 ]
+  %241 = load ptr, ptr %179, align 8
+  %242 = icmp eq ptr %241, null
+  %243 = icmp eq ptr %241, %178
+  %spec.select.i = or i1 %242, %243
+  br i1 %spec.select.i, label %244, label %262
 
-242:                                              ; preds = %._crit_edge
-  %243 = load ptr, ptr %23, align 8
-  %244 = load ptr, ptr %19, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
-  store ptr %243, ptr %245, align 8
-  %246 = load ptr, ptr %19, align 8
-  store ptr %246, ptr %243, align 8
-  %247 = getelementptr inbounds i8, ptr %.pre73, i64 8
-  %248 = load ptr, ptr %247, align 8
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %250, label %ReleasePredXact.exit64
+244:                                              ; preds = %._crit_edge
+  %245 = load ptr, ptr %25, align 8
+  %246 = load ptr, ptr %21, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 8
+  store ptr %245, ptr %247, align 8
+  %248 = load ptr, ptr %21, align 8
+  store ptr %248, ptr %245, align 8
+  %249 = getelementptr inbounds i8, ptr %.pre73, i64 8
+  %250 = load ptr, ptr %249, align 8
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %252, label %ReleasePredXact.exit64
 
-250:                                              ; preds = %242
+252:                                              ; preds = %244
   store ptr %.pre73, ptr %.pre73, align 8
-  store ptr %.pre73, ptr %247, align 8
+  store ptr %.pre73, ptr %249, align 8
   br label %ReleasePredXact.exit64
 
-ReleasePredXact.exit64:                           ; preds = %242, %250
-  store ptr %.pre73, ptr %23, align 8
-  %251 = load ptr, ptr %.pre73, align 8
-  store ptr %251, ptr %19, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 8
-  store ptr %19, ptr %252, align 8
-  store ptr %19, ptr %.pre73, align 8
-  %253 = load ptr, ptr @MainLWLockArray, align 8
-  %254 = getelementptr i8, ptr %253, i64 3584
-  tail call void @LWLockRelease(ptr noundef %254) #12
-  br label %303
+ReleasePredXact.exit64:                           ; preds = %244, %252
+  store ptr %.pre73, ptr %25, align 8
+  %253 = load ptr, ptr %.pre73, align 8
+  store ptr %253, ptr %21, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 8
+  store ptr %21, ptr %254, align 8
+  store ptr %21, ptr %.pre73, align 8
+  %255 = load ptr, ptr @MainLWLockArray, align 8
+  %256 = getelementptr i8, ptr %255, i64 3584
+  tail call void @LWLockRelease(ptr noundef %256) #12
+  br label %305
 
-255:                                              ; preds = %167
-  %256 = load ptr, ptr @PredXact, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 40
-  %258 = load i32, ptr %257, align 8
-  %259 = add i32 %258, 1
-  store i32 %259, ptr %257, align 8
-  br label %260
+257:                                              ; preds = %169
+  %258 = load ptr, ptr @PredXact, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 40
+  %260 = load i32, ptr %259, align 8
+  %261 = add i32 %260, 1
+  store i32 %261, ptr %259, align 8
+  br label %262
 
-260:                                              ; preds = %._crit_edge, %255
-  %261 = phi ptr [ %.pre73, %._crit_edge ], [ %256, %255 ]
-  %262 = getelementptr inbounds i8, ptr %261, i64 32
-  %263 = load i32, ptr %262, align 8
-  %.not54 = icmp eq i32 %263, 0
-  %264 = load i32, ptr %181, align 4
-  br i1 %.not54, label %265, label %289
+262:                                              ; preds = %._crit_edge, %257
+  %263 = phi ptr [ %.pre73, %._crit_edge ], [ %258, %257 ]
+  %264 = getelementptr inbounds i8, ptr %263, i64 32
+  %265 = load i32, ptr %264, align 8
+  %.not54 = icmp eq i32 %265, 0
+  %266 = load i32, ptr %183, align 4
+  br i1 %.not54, label %267, label %291
 
-265:                                              ; preds = %260
-  store i32 %264, ptr %262, align 8
-  %266 = getelementptr inbounds i8, ptr %261, i64 36
-  store i32 1, ptr %266, align 4
-  %267 = load i32, ptr %181, align 4
-  %268 = load ptr, ptr @MainLWLockArray, align 8
-  %269 = getelementptr i8, ptr %268, i64 6656
-  %270 = tail call zeroext i1 @LWLockAcquire(ptr noundef %269, i32 noundef 0) #12
-  %.not.i65 = icmp eq i32 %267, 0
-  br i1 %.not.i65, label %271, label %275
+267:                                              ; preds = %262
+  store i32 %266, ptr %264, align 8
+  %268 = getelementptr inbounds i8, ptr %263, i64 36
+  store i32 1, ptr %268, align 4
+  %269 = load i32, ptr %183, align 4
+  %270 = load ptr, ptr @MainLWLockArray, align 8
+  %271 = getelementptr i8, ptr %270, i64 6656
+  %272 = tail call zeroext i1 @LWLockAcquire(ptr noundef %271, i32 noundef 0) #12
+  %.not.i65 = icmp eq i32 %269, 0
+  br i1 %.not.i65, label %273, label %277
 
-271:                                              ; preds = %265
-  %272 = load ptr, ptr @serialControl, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
-  store i32 0, ptr %273, align 4
-  %274 = getelementptr inbounds i8, ptr %272, i64 4
-  store i32 0, ptr %274, align 4
+273:                                              ; preds = %267
+  %274 = load ptr, ptr @serialControl, align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  store i32 0, ptr %275, align 4
+  %276 = getelementptr inbounds i8, ptr %274, i64 4
+  store i32 0, ptr %276, align 4
   br label %SerialSetActiveSerXmin.exit
 
-275:                                              ; preds = %265
-  %276 = tail call zeroext i1 @RecoveryInProgress() #12
-  %277 = load ptr, ptr @serialControl, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 8
-  br i1 %276, label %279, label %286
+277:                                              ; preds = %267
+  %278 = tail call zeroext i1 @RecoveryInProgress() #12
+  %279 = load ptr, ptr @serialControl, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 8
+  br i1 %278, label %281, label %288
 
-279:                                              ; preds = %275
-  %280 = load i32, ptr %278, align 4
-  %.not5.i = icmp eq i32 %280, 0
-  br i1 %.not5.i, label %283, label %281
+281:                                              ; preds = %277
+  %282 = load i32, ptr %280, align 4
+  %.not5.i = icmp eq i32 %282, 0
+  br i1 %.not5.i, label %285, label %283
 
-281:                                              ; preds = %279
-  %282 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %267, i32 noundef %280) #12
-  br i1 %282, label %._crit_edge.i, label %SerialSetActiveSerXmin.exit
+283:                                              ; preds = %281
+  %284 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %269, i32 noundef %282) #12
+  br i1 %284, label %._crit_edge.i, label %SerialSetActiveSerXmin.exit
 
-._crit_edge.i:                                    ; preds = %281
+._crit_edge.i:                                    ; preds = %283
   %.pre.i = load ptr, ptr @serialControl, align 8
-  br label %283
+  br label %285
 
-283:                                              ; preds = %._crit_edge.i, %279
-  %284 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %277, %279 ]
-  %285 = getelementptr inbounds i8, ptr %284, i64 8
-  store i32 %267, ptr %285, align 4
+285:                                              ; preds = %._crit_edge.i, %281
+  %286 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %279, %281 ]
+  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  store i32 %269, ptr %287, align 4
   br label %SerialSetActiveSerXmin.exit
 
-286:                                              ; preds = %275
-  store i32 %267, ptr %278, align 4
+288:                                              ; preds = %277
+  store i32 %269, ptr %280, align 4
   br label %SerialSetActiveSerXmin.exit
 
-SerialSetActiveSerXmin.exit:                      ; preds = %271, %281, %283, %286
-  %287 = load ptr, ptr @MainLWLockArray, align 8
-  %288 = getelementptr i8, ptr %287, i64 6656
-  tail call void @LWLockRelease(ptr noundef %288) #12
-  br label %295
+SerialSetActiveSerXmin.exit:                      ; preds = %273, %283, %285, %288
+  %289 = load ptr, ptr @MainLWLockArray, align 8
+  %290 = getelementptr i8, ptr %289, i64 6656
+  tail call void @LWLockRelease(ptr noundef %290) #12
+  br label %297
 
-289:                                              ; preds = %260
-  %290 = icmp eq i32 %264, %263
-  br i1 %290, label %291, label %295
+291:                                              ; preds = %262
+  %292 = icmp eq i32 %266, %265
+  br i1 %292, label %293, label %297
 
-291:                                              ; preds = %289
-  %292 = getelementptr inbounds i8, ptr %261, i64 36
-  %293 = load i32, ptr %292, align 4
-  %294 = add i32 %293, 1
-  store i32 %294, ptr %292, align 4
-  br label %295
+293:                                              ; preds = %291
+  %294 = getelementptr inbounds i8, ptr %263, i64 36
+  %295 = load i32, ptr %294, align 4
+  %296 = add i32 %295, 1
+  store i32 %296, ptr %294, align 4
+  br label %297
 
-295:                                              ; preds = %291, %289, %SerialSetActiveSerXmin.exit
-  store ptr %28, ptr @MySerializableXact, align 8
+297:                                              ; preds = %293, %291, %SerialSetActiveSerXmin.exit
+  store ptr %30, ptr @MySerializableXact, align 8
   store i1 false, ptr @MyXactDidWrite, align 1
-  %296 = load ptr, ptr @MainLWLockArray, align 8
-  %297 = getelementptr i8, ptr %296, i64 3584
-  tail call void @LWLockRelease(ptr noundef %297) #12
+  %298 = load ptr, ptr @MainLWLockArray, align 8
+  %299 = getelementptr i8, ptr %298, i64 3584
+  tail call void @LWLockRelease(ptr noundef %299) #12
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
-  %298 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 16, ptr %298, align 8
-  %299 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 24, ptr %299, align 8
-  %300 = load i32, ptr @max_predicate_locks_per_xact, align 4
-  %301 = sext i32 %300 to i64
-  %302 = call ptr @hash_create(ptr noundef nonnull @.str.36, i64 noundef %301, ptr noundef nonnull %4, i32 noundef 40) #12
-  store ptr %302, ptr @LocalPredicateLockHash, align 8
+  %300 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 16, ptr %300, align 8
+  %301 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 24, ptr %301, align 8
+  %302 = load i32, ptr @max_predicate_locks_per_xact, align 4
+  %303 = sext i32 %302 to i64
+  %304 = call ptr @hash_create(ptr noundef nonnull @.str.36, i64 noundef %303, ptr noundef nonnull %4, i32 noundef 40) #12
+  store ptr %304, ptr @LocalPredicateLockHash, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
-  br label %303
+  br label %305
 
-303:                                              ; preds = %295, %ReleasePredXact.exit64, %ReleasePredXact.exit
+305:                                              ; preds = %297, %ReleasePredXact.exit64, %ReleasePredXact.exit
   ret ptr %.048
 }
 
@@ -5894,44 +5898,48 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %2 = load ptr, ptr @MySerializableXact, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %20, label %5
+  br i1 %4, label %23, label %5
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 152
-  %7 = load <2 x i32>, ptr %6, align 8
-  store <2 x i32> %7, ptr %3, align 4
+  %7 = load i32, ptr %6, align 8
+  store i32 %7, ptr %3, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 156
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %9, ptr %10, align 4
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 4, i16 noundef zeroext 0, ptr noundef nonnull %1, i32 noundef 24) #12
-  %8 = load ptr, ptr @MainLWLockArray, align 8
-  %9 = getelementptr i8, ptr %8, i64 3840
-  %10 = call zeroext i1 @LWLockAcquire(ptr noundef %9, i32 noundef 1) #12
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
-  %12 = getelementptr inbounds i8, ptr %2, i64 72
-  %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, null
-  %.not111214 = icmp eq ptr %13, %11
+  %11 = load ptr, ptr @MainLWLockArray, align 8
+  %12 = getelementptr i8, ptr %11, i64 3840
+  %13 = call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 1) #12
+  %14 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  %.not111214 = icmp eq ptr %16, %14
   %.not1112 = select i1 %.not, i1 true, i1 %.not111214
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.sroa.0.013 = phi ptr [ %17, %.lr.ph ], [ %13, %5 ]
-  %14 = getelementptr i8, ptr %.sroa.0.013, i64 -32
+  %.sroa.0.013 = phi ptr [ %20, %.lr.ph ], [ %16, %5 ]
+  %17 = getelementptr i8, ptr %.sroa.0.013, i64 -32
   store i32 1, ptr %1, align 4
-  %15 = load ptr, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  %18 = load ptr, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 4, i16 noundef zeroext 0, ptr noundef nonnull %1, i32 noundef 24) #12
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not11 = icmp eq ptr %17, %11
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %.not11 = icmp eq ptr %20, %14
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %18 = load ptr, ptr @MainLWLockArray, align 8
-  %19 = getelementptr i8, ptr %18, i64 3840
-  call void @LWLockRelease(ptr noundef %19) #12
-  br label %20
+  %21 = load ptr, ptr @MainLWLockArray, align 8
+  %22 = getelementptr i8, ptr %21, i64 3840
+  call void @LWLockRelease(ptr noundef %22) #12
+  br label %23
 
-20:                                               ; preds = %0, %._crit_edge
+23:                                               ; preds = %0, %._crit_edge
   ret void
 }
 

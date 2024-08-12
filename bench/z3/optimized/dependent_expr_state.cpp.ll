@@ -1941,7 +1941,7 @@ define hidden void @_ZN20dependent_expr_state13freeze_suffixEv(ptr noundef nonnu
 entry:
   %visited = alloca %class.ast_mark, align 8
   %es = alloca %class.ptr_vector.44, align 8
-  %d = alloca %class.dependent_expr, align 16
+  %d = alloca %class.dependent_expr, align 8
   %m_suffix_frozen = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %m_suffix_frozen, align 4
   %tobool = trunc i8 %0 to i1
@@ -1986,27 +1986,30 @@ for.body:                                         ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %for.body
+  %5 = load ptr, ptr %call11, align 8
+  store ptr %5, ptr %d, align 8
   %m_fml3.i = getelementptr inbounds i8, ptr %call11, i64 8
-  %5 = load ptr, ptr %m_fml3.i, align 8
-  %6 = load <2 x ptr>, ptr %call11, align 8
-  store <2 x ptr> %6, ptr %d, align 16
+  %6 = load ptr, ptr %m_fml3.i, align 8
+  store ptr %6, ptr %m_fml.i, align 8
   %m_proof4.i = getelementptr inbounds i8, ptr %call11, i64 16
-  %7 = load <2 x ptr>, ptr %m_proof4.i, align 8
-  %8 = load ptr, ptr %m_proof4.i, align 8
-  store <2 x ptr> %7, ptr %m_proof.i, align 16
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %7 = load ptr, ptr %m_proof4.i, align 8
+  store ptr %7, ptr %m_proof.i, align 8
+  %m_dep5.i = getelementptr inbounds i8, ptr %call11, i64 24
+  %8 = load ptr, ptr %m_dep5.i, align 8
+  store ptr %8, ptr %m_dep.i, align 8
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont10
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %9, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  %.pre.i = load ptr, ptr %m_proof.i, align 16
+  %.pre.i = load ptr, ptr %m_proof.i, align 8
   br label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %if.then.i.i, %invoke.cont10
-  %10 = phi ptr [ %8, %invoke.cont10 ], [ %.pre.i, %if.then.i.i ]
+  %10 = phi ptr [ %7, %invoke.cont10 ], [ %.pre.i, %if.then.i.i ]
   %tobool.not.i4.i = icmp eq ptr %10, null
   br i1 %tobool.not.i4.i, label %_ZN11ast_manager7inc_refEP3ast.exit8.i, label %if.then.i5.i
 

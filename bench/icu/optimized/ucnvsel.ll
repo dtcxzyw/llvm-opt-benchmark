@@ -881,16 +881,20 @@ if.end96:                                         ; preds = %if.end86
   store i32 %16, ptr %pvCount, align 8
   %encodings98 = getelementptr inbounds i8, ptr %call88, i64 24
   store ptr %call91, ptr %encodings98, align 8
+  %17 = load i32, ptr %arrayidx89, align 4
   %encodingsCount = getelementptr inbounds i8, ptr %call88, i64 32
-  %17 = load <2 x i32>, ptr %arrayidx89, align 4
-  store <2 x i32> %17, ptr %encodingsCount, align 8
+  store i32 %17, ptr %encodingsCount, align 8
+  %arrayidx100 = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %18 = load i32, ptr %arrayidx100, align 4
+  %encodingStrLength = getelementptr inbounds i8, ptr %call88, i64 36
+  store i32 %18, ptr %encodingStrLength, align 4
   %swapped101 = getelementptr inbounds i8, ptr %call88, i64 40
   store ptr %swapped.0, ptr %swapped101, align 8
-  %18 = load i32, ptr %add.ptr, align 4
-  %call103 = tail call ptr @utrie2_openFromSerialized_75(i32 noundef 0, ptr noundef nonnull %add.ptr87, i32 noundef %18, ptr noundef null, ptr noundef nonnull %status)
+  %19 = load i32, ptr %add.ptr, align 4
+  %call103 = tail call ptr @utrie2_openFromSerialized_75(i32 noundef 0, ptr noundef nonnull %add.ptr87, i32 noundef %19, ptr noundef null, ptr noundef nonnull %status)
   store ptr %call103, ptr %call88, align 8
-  %19 = load i32, ptr %status, align 4
-  %cmp.i97 = icmp slt i32 %19, 1
+  %20 = load i32, ptr %status, align 4
+  %cmp.i97 = icmp slt i32 %20, 1
   br i1 %cmp.i97, label %if.end110, label %if.then109
 
 if.then109:                                       ; preds = %if.end96
@@ -898,18 +902,18 @@ if.then109:                                       ; preds = %if.end96
   br label %return
 
 if.end110:                                        ; preds = %if.end96
-  %20 = load i32, ptr %add.ptr, align 4
-  %idx.ext105 = sext i32 %20 to i64
+  %21 = load i32, ptr %add.ptr, align 4
+  %idx.ext105 = sext i32 %21 to i64
   %add.ptr106 = getelementptr inbounds i8, ptr %add.ptr87, i64 %idx.ext105
   %pv = getelementptr inbounds i8, ptr %call88, i64 8
   store ptr %add.ptr106, ptr %pv, align 8
-  %21 = load i32, ptr %encodingsCount, align 8
-  %cmp116100 = icmp sgt i32 %21, 0
+  %22 = load i32, ptr %encodingsCount, align 8
+  %cmp116100 = icmp sgt i32 %22, 0
   br i1 %cmp116100, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %if.end110
-  %22 = load i32, ptr %pvCount, align 8
-  %mul112 = shl nsw i32 %22, 2
+  %23 = load i32, ptr %pvCount, align 8
+  %mul112 = shl nsw i32 %23, 2
   %idx.ext113 = sext i32 %mul112 to i64
   %add.ptr114 = getelementptr inbounds i8, ptr %add.ptr106, i64 %idx.ext113
   br label %for.body
@@ -917,16 +921,16 @@ for.body.preheader:                               ; preds = %if.end110
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %s.0101 = phi ptr [ %add.ptr114, %for.body.preheader ], [ %add.ptr121, %for.body ]
-  %23 = load ptr, ptr %encodings98, align 8
-  %arrayidx118 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = load ptr, ptr %encodings98, align 8
+  %arrayidx118 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   store ptr %s.0101, ptr %arrayidx118, align 8
   %call119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.0101) #15
   %add120 = add i64 %call119, 1
   %add.ptr121 = getelementptr inbounds i8, ptr %s.0101, i64 %add120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %encodingsCount, align 8
-  %25 = sext i32 %24 to i64
-  %cmp116 = icmp slt i64 %indvars.iv.next, %25
+  %25 = load i32, ptr %encodingsCount, align 8
+  %26 = sext i32 %25 to i64
+  %cmp116 = icmp slt i64 %indvars.iv.next, %26
   br i1 %cmp116, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.body, %if.end110, %entry, %if.then109, %if.then95, %if.then85, %if.then75, %if.then69, %if.then64, %if.then59, %if.then56, %if.then42, %if.then36, %if.then8, %if.then5

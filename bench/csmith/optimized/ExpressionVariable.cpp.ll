@@ -800,21 +800,25 @@ define dso_local void @_ZN18ExpressionVariableC2ERKS_(ptr noundef nonnull align 
 define dso_local noundef nonnull ptr @_ZNK18ExpressionVariable5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1)
-          to label %3 unwind label %7
+          to label %3 unwind label %10
 
 3:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTV18ExpressionVariable, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %6, ptr %4, align 8
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
   ret ptr %2
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #16
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -153,23 +153,22 @@ define internal { double, double } @_ZL17calcofi_e_forward5PJ_LPP8PJconsts(doubl
   %30 = load double, ptr %12, align 8
   %31 = tail call noundef double @_Z7pj_phi2P6pj_ctxdd(ptr noundef %27, double noundef %29, double noundef %30)
   %32 = fadd double %31, 0xBFE312AD613A9096
-  %33 = fsub double %31, %1
-  %34 = insertelement <2 x double> poison, double %33, i64 0
-  %35 = insertelement <2 x double> %34, double %32, i64 1
-  %36 = fmul <2 x double> %35, <double 0x404CA5DC1A63C1F8, double 0x404CA5DC1A63C1F8>
-  %37 = fmul <2 x double> %36, <double 1.500000e+01, double 5.000000e+00>
-  %38 = fdiv <2 x double> %37, <double 0x3FDFFFFFFFFFFFFF, double 0x3FEBB67AE8584CAB>
-  %39 = fadd <2 x double> %38, <double 6.000000e+01, double poison>
-  %40 = fsub <2 x double> <double poison, double 8.000000e+01>, %38
-  %41 = shufflevector <2 x double> %39, <2 x double> %40, <2 x i32> <i32 0, i32 3>
+  %33 = fmul double %32, 0x404CA5DC1A63C1F8
+  %34 = fmul double %33, 5.000000e+00
+  %35 = fdiv double %34, 0x3FEBB67AE8584CAB
+  %36 = fsub double 8.000000e+01, %35
+  %37 = fsub double %31, %1
+  %38 = fmul double %37, 0x404CA5DC1A63C1F8
+  %39 = fmul double %38, 1.500000e+01
+  %40 = fdiv double %39, 0x3FDFFFFFFFFFFFFF
+  %41 = fadd double %40, 6.000000e+01
   br label %42
 
 42:                                               ; preds = %10, %8
-  %43 = phi <2 x double> [ zeroinitializer, %8 ], [ %41, %10 ]
-  %44 = extractelement <2 x double> %43, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %44, 0
-  %45 = extractelement <2 x double> %43, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %45, 1
+  %.sroa.5.0 = phi double [ 0.000000e+00, %8 ], [ %41, %10 ]
+  %.sroa.014.0 = phi double [ 0.000000e+00, %8 ], [ %36, %10 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.014.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -226,23 +225,22 @@ define internal { double, double } @_ZL17calcofi_s_forward5PJ_LPP8PJconsts(doubl
   %23 = tail call double @atan(double noundef %22) #7
   %24 = tail call double @llvm.fmuladd.f64(double %23, double -2.000000e+00, double 0x3FF921FB54442D18)
   %25 = fadd double %24, 0xBFE312AD613A9096
-  %26 = fsub double %24, %1
-  %27 = insertelement <2 x double> poison, double %26, i64 0
-  %28 = insertelement <2 x double> %27, double %25, i64 1
-  %29 = fmul <2 x double> %28, <double 0x404CA5DC1A63C1F8, double 0x404CA5DC1A63C1F8>
-  %30 = fmul <2 x double> %29, <double 1.500000e+01, double 5.000000e+00>
-  %31 = fdiv <2 x double> %30, <double 0x3FDFFFFFFFFFFFFF, double 0x3FEBB67AE8584CAB>
-  %32 = fadd <2 x double> %31, <double 6.000000e+01, double poison>
-  %33 = fsub <2 x double> <double poison, double 8.000000e+01>, %31
-  %34 = shufflevector <2 x double> %32, <2 x double> %33, <2 x i32> <i32 0, i32 3>
+  %26 = fmul double %25, 0x404CA5DC1A63C1F8
+  %27 = fmul double %26, 5.000000e+00
+  %28 = fdiv double %27, 0x3FEBB67AE8584CAB
+  %29 = fsub double 8.000000e+01, %28
+  %30 = fsub double %24, %1
+  %31 = fmul double %30, 0x404CA5DC1A63C1F8
+  %32 = fmul double %31, 1.500000e+01
+  %33 = fdiv double %32, 0x3FDFFFFFFFFFFFFF
+  %34 = fadd double %33, 6.000000e+01
   br label %35
 
 35:                                               ; preds = %10, %8
-  %36 = phi <2 x double> [ zeroinitializer, %8 ], [ %34, %10 ]
-  %37 = extractelement <2 x double> %36, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %37, 0
-  %38 = extractelement <2 x double> %36, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %38, 1
+  %.sroa.5.0 = phi double [ 0.000000e+00, %8 ], [ %34, %10 ]
+  %.sroa.09.0 = phi double [ 0.000000e+00, %8 ], [ %29, %10 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
 }
 

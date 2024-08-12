@@ -255,91 +255,100 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %55 = load i32, ptr @hf_li5g_pld, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %55, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef 0) #2
   %57 = getelementptr inbounds i8, ptr %1, i64 208
-  %58 = load <2 x i32>, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 216
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 232
-  %62 = load <2 x i32>, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 240
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 284
-  %66 = load <2 x i32>, ptr %65, align 4
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %1, i64 212
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %1, i64 216
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 232
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 236
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds i8, ptr %1, i64 240
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 284
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds i8, ptr %1, i64 288
+  %72 = load i32, ptr %71, align 8
   %.not112 = icmp eq ptr %13, null
-  br i1 %.not112, label %71, label %67
+  br i1 %.not112, label %77, label %73
 
-67:                                               ; preds = %._crit_edge
-  %68 = getelementptr inbounds i8, ptr %13, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %.not113 = icmp eq ptr %69, null
-  br i1 %.not113, label %71, label %70
+73:                                               ; preds = %._crit_edge
+  %74 = getelementptr inbounds i8, ptr %13, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %.not113 = icmp eq ptr %75, null
+  br i1 %.not113, label %77, label %76
 
-70:                                               ; preds = %67
-  store ptr null, ptr %68, align 8
-  br label %71
+76:                                               ; preds = %73
+  store ptr null, ptr %74, align 8
+  br label %77
 
-71:                                               ; preds = %70, %67, %._crit_edge
-  %.0 = phi ptr [ %69, %70 ], [ null, %67 ], [ null, %._crit_edge ]
-  %72 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %6, i32 noundef %7) #2
-  %73 = load ptr, ptr @li5g_subdissector_table, align 8
-  %74 = zext i16 %8 to i32
-  %75 = call i32 @dissector_try_uint(ptr noundef %73, i32 noundef %74, ptr noundef %72, ptr noundef nonnull %1, ptr noundef %13) #2
-  %.not114 = icmp eq i32 %75, 0
-  br i1 %.not114, label %76, label %78
+77:                                               ; preds = %76, %73, %._crit_edge
+  %.0 = phi ptr [ %75, %76 ], [ null, %73 ], [ null, %._crit_edge ]
+  %78 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %6, i32 noundef %7) #2
+  %79 = load ptr, ptr @li5g_subdissector_table, align 8
+  %80 = zext i16 %8 to i32
+  %81 = call i32 @dissector_try_uint(ptr noundef %79, i32 noundef %80, ptr noundef %78, ptr noundef nonnull %1, ptr noundef %13) #2
+  %.not114 = icmp eq i32 %81, 0
+  br i1 %.not114, label %82, label %84
 
-76:                                               ; preds = %71
-  %77 = call i32 @call_data_dissector(ptr noundef %72, ptr noundef nonnull %1, ptr noundef %13) #2
-  br label %78
+82:                                               ; preds = %77
+  %83 = call i32 @call_data_dissector(ptr noundef %78, ptr noundef nonnull %1, ptr noundef %13) #2
+  br label %84
 
-78:                                               ; preds = %76, %71
+84:                                               ; preds = %82, %77
   %.not115 = icmp eq ptr %.0, null
-  br i1 %.not115, label %81, label %79
+  br i1 %.not115, label %87, label %85
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr %.0, ptr %80, align 8
-  br label %81
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %.0, ptr %86, align 8
+  br label %87
 
-81:                                               ; preds = %79, %78
-  %82 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  %83 = add i32 %6, %7
-  %84 = icmp ugt i32 %82, %83
-  br i1 %84, label %85, label %88
+87:                                               ; preds = %85, %84
+  %88 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %89 = add i32 %6, %7
+  %90 = icmp ugt i32 %88, %89
+  br i1 %90, label %91, label %94
 
-85:                                               ; preds = %81
-  %86 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %83) #2
-  %87 = call i32 @dissect_li5g(ptr noundef %86, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
-  br label %88
+91:                                               ; preds = %87
+  %92 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %89) #2
+  %93 = call i32 @dissect_li5g(ptr noundef %92, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+  br label %94
 
-88:                                               ; preds = %85, %81
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  %90 = load ptr, ptr %89, align 8
-  call void @col_set_str(ptr noundef %90, i32 noundef 34, ptr noundef nonnull @.str.67) #2
-  %91 = load ptr, ptr %89, align 8
-  call void @col_clear_fence(ptr noundef %91, i32 noundef 25) #2
-  %92 = load ptr, ptr %89, align 8
-  call void @col_clear(ptr noundef %92, i32 noundef 25) #2
-  %93 = load i32, ptr %5, align 4
-  %94 = call ptr @try_val_to_str(i32 noundef %93, ptr noundef nonnull @pdu_type_vals) #2
-  %.not116 = icmp eq ptr %94, null
-  br i1 %.not116, label %97, label %95
+94:                                               ; preds = %91, %87
+  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void @col_set_str(ptr noundef %96, i32 noundef 34, ptr noundef nonnull @.str.67) #2
+  %97 = load ptr, ptr %95, align 8
+  call void @col_clear_fence(ptr noundef %97, i32 noundef 25) #2
+  %98 = load ptr, ptr %95, align 8
+  call void @col_clear(ptr noundef %98, i32 noundef 25) #2
+  %99 = load i32, ptr %5, align 4
+  %100 = call ptr @try_val_to_str(i32 noundef %99, ptr noundef nonnull @pdu_type_vals) #2
+  %.not116 = icmp eq ptr %100, null
+  br i1 %.not116, label %103, label %101
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr %89, align 8
-  call void @col_set_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull %94) #2
-  br label %97
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %95, align 8
+  call void @col_set_str(ptr noundef %102, i32 noundef 25, ptr noundef nonnull %100) #2
+  br label %103
 
-97:                                               ; preds = %95, %88
-  store <2 x i32> %58, ptr %57, align 8
-  store ptr %60, ptr %59, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 224
-  store ptr null, ptr %98, align 8
-  store <2 x i32> %62, ptr %61, align 8
-  store ptr %64, ptr %63, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 248
-  store ptr null, ptr %99, align 8
-  store <2 x i32> %66, ptr %65, align 4
-  %100 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %100
+103:                                              ; preds = %101, %94
+  store i32 %58, ptr %57, align 8
+  store i32 %60, ptr %59, align 4
+  store ptr %62, ptr %61, align 8
+  %104 = getelementptr inbounds i8, ptr %1, i64 224
+  store ptr null, ptr %104, align 8
+  store i32 %64, ptr %63, align 8
+  store i32 %66, ptr %65, align 4
+  store ptr %68, ptr %67, align 8
+  %105 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr null, ptr %105, align 8
+  store i32 %70, ptr %69, align 4
+  store i32 %72, ptr %71, align 8
+  %106 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %106
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

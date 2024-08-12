@@ -953,10 +953,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8
   ret void
@@ -1660,12 +1663,16 @@ _ZNK3gmx4Bias20forceCorrelationGridEv.exit:       ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 88
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
-  %14 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %14, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %13, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = getelementptr inbounds i8, ptr %1, i64 104
+  %15 = load ptr, ptr %11, align 8
+  store ptr %15, ptr %10, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %14, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit, label %_ZN3gmx22CorrelationGridHistoryaSEOS0_.exit
@@ -1674,13 +1681,13 @@ _ZN3gmx22CorrelationGridHistoryaSEOS0_.exit:      ; preds = %_ZNK3gmx4Bias20forc
   call void @_ZdlPv(ptr noundef nonnull %12) #18
   %.pr = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit, label %17
+  br i1 %.not.i.i.i.i, label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit, label %20
 
-17:                                               ; preds = %_ZN3gmx22CorrelationGridHistoryaSEOS0_.exit
+20:                                               ; preds = %_ZN3gmx22CorrelationGridHistoryaSEOS0_.exit
   call void @_ZdlPv(ptr noundef nonnull %.pr) #18
   br label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit
 
-_ZN3gmx22CorrelationGridHistoryD2Ev.exit:         ; preds = %_ZNK3gmx4Bias20forceCorrelationGridEv.exit, %17, %_ZN3gmx22CorrelationGridHistoryaSEOS0_.exit, %5
+_ZN3gmx22CorrelationGridHistoryD2Ev.exit:         ; preds = %_ZNK3gmx4Bias20forceCorrelationGridEv.exit, %20, %_ZN3gmx22CorrelationGridHistoryaSEOS0_.exit, %5
   ret void
 }
 

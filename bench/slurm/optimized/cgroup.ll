@@ -165,11 +165,14 @@ define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 17), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 82), align 2
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 81), align 1
   store float 1.000000e+02, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   store float 1.000000e+02, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   store i64 -2, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   store i64 30, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
-  store <4 x i8> zeroinitializer, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 80), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 83), align 1
   call void @llvm.lifetime.start.p0(i64 1232, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

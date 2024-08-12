@@ -1640,106 +1640,108 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %21 = sdiv i64 %19, %20
   %22 = trunc i64 %21 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 120
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
-  %25 = load <2 x ptr>, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 52
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %29, i64 64
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 60
-  %37 = load i32, ptr %36, align 4
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %30, i64 52
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %30, i64 64
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %30, i64 60
+  %38 = load i32, ptr %37, align 4
   store ptr %6, ptr %23, align 8
-  store ptr @ompi_mpi_byte, ptr %24, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 24
-  %39 = load i32, ptr %38, align 8
-  store i32 %39, ptr %34, align 8
-  %40 = load ptr, ptr %28, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 60
-  store i32 %42, ptr %43, align 4
-  %44 = load ptr, ptr %28, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 40
-  %46 = load i32, ptr %45, align 8
-  %.not = icmp sgt i32 %46, %22
-  %47 = getelementptr inbounds i8, ptr %44, i64 48
+  store ptr @ompi_mpi_byte, ptr %25, align 8
+  %39 = getelementptr inbounds i8, ptr %30, i64 24
+  %40 = load i32, ptr %39, align 8
+  store i32 %40, ptr %35, align 8
+  %41 = load ptr, ptr %29, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = load i32, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %41, i64 60
+  store i32 %43, ptr %44, align 4
+  %45 = load ptr, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %47 = load i32, ptr %46, align 8
+  %.not = icmp sgt i32 %47, %22
+  %48 = getelementptr inbounds i8, ptr %45, i64 48
   %. = select i1 %.not, i32 2, i32 1
-  store i32 %., ptr %47, align 8
-  %48 = load ptr, ptr %28, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 52
-  store i32 %., ptr %49, align 4
+  store i32 %., ptr %48, align 8
+  %49 = load ptr, ptr %29, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 52
+  store i32 %., ptr %50, align 4
   call void @ADIOI_Datatype_iscontig(ptr noundef %6, ptr noundef nonnull %11) #3
   call void @ADIOI_Datatype_iscontig(ptr noundef %3, ptr noundef nonnull %12) #3
-  %50 = load i32, ptr %11, align 4
-  %.not78 = icmp eq i32 %50, 0
-  br i1 %.not78, label %51, label %54
+  %51 = load i32, ptr %11, align 4
+  %.not78 = icmp eq i32 %51, 0
+  br i1 %.not78, label %52, label %55
 
-51:                                               ; preds = %10
-  %52 = call ptr @ADIOI_Flatten_datatype(ptr noundef %6) #3
+52:                                               ; preds = %10
+  %53 = call ptr @ADIOI_Flatten_datatype(ptr noundef %6) #3
   %.pre = load i32, ptr %11, align 4
-  %53 = icmp ne i32 %.pre, 0
-  br label %54
+  %54 = icmp ne i32 %.pre, 0
+  br label %55
 
-54:                                               ; preds = %51, %10
-  %55 = phi i1 [ %53, %51 ], [ true, %10 ]
-  %56 = load i32, ptr %12, align 4
-  %57 = icmp ne i32 %56, 0
-  %or.cond = select i1 %55, i1 %57, i1 false
-  %58 = icmp eq i32 %7, 26
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  br i1 %or.cond, label %60, label %66
+55:                                               ; preds = %52, %10
+  %56 = phi i1 [ %54, %52 ], [ true, %10 ]
+  %57 = load i32, ptr %12, align 4
+  %58 = icmp ne i32 %57, 0
+  %or.cond = select i1 %56, i1 %58, i1 false
+  %59 = icmp eq i32 %7, 26
+  %60 = getelementptr inbounds i8, ptr %0, i64 56
+  br i1 %or.cond, label %61, label %67
 
-60:                                               ; preds = %54
-  store i64 0, ptr %26, align 8
-  %61 = load ptr, ptr %59, align 8
-  br i1 %58, label %62, label %64
+61:                                               ; preds = %55
+  store i64 0, ptr %27, align 8
+  %62 = load ptr, ptr %60, align 8
+  br i1 %59, label %63, label %65
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %61, i64 16
-  br label %72
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  br label %73
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %61, i64 24
-  br label %72
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %62, i64 24
+  br label %73
 
-66:                                               ; preds = %54
-  store i64 %5, ptr %26, align 8
-  %67 = load ptr, ptr %59, align 8
-  br i1 %58, label %68, label %70
+67:                                               ; preds = %55
+  store i64 %5, ptr %27, align 8
+  %68 = load ptr, ptr %60, align 8
+  br i1 %59, label %69, label %71
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %67, i64 72
-  br label %72
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %68, i64 72
+  br label %73
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %67, i64 80
-  br label %72
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds i8, ptr %68, i64 80
+  br label %73
 
-72:                                               ; preds = %68, %70, %62, %64
-  %.sink84 = phi ptr [ %69, %68 ], [ %71, %70 ], [ %63, %62 ], [ %65, %64 ]
-  %.sink82 = phi i64 [ 0, %68 ], [ 0, %70 ], [ %5, %62 ], [ %5, %64 ]
-  %73 = load ptr, ptr %.sink84, align 8
-  call void %73(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %.sink82, ptr noundef %8, ptr noundef %9) #3
-  store <2 x ptr> %25, ptr %24, align 8
-  store i64 %27, ptr %26, align 8
-  %74 = load ptr, ptr %28, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 48
-  store i32 %31, ptr %75, align 8
-  %76 = load ptr, ptr %28, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 52
-  store i32 %33, ptr %77, align 4
-  %78 = load ptr, ptr %28, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 64
-  store i32 %35, ptr %79, align 8
-  %80 = load ptr, ptr %28, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 60
-  store i32 %37, ptr %81, align 4
+73:                                               ; preds = %69, %71, %63, %65
+  %.sink84 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %64, %63 ], [ %66, %65 ]
+  %.sink82 = phi i64 [ 0, %69 ], [ 0, %71 ], [ %5, %63 ], [ %5, %65 ]
+  %74 = load ptr, ptr %.sink84, align 8
+  call void %74(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %.sink82, ptr noundef %8, ptr noundef %9) #3
+  store ptr %24, ptr %23, align 8
+  store ptr %26, ptr %25, align 8
+  store i64 %28, ptr %27, align 8
+  %75 = load ptr, ptr %29, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  store i32 %32, ptr %76, align 8
+  %77 = load ptr, ptr %29, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  store i32 %34, ptr %78, align 4
+  %79 = load ptr, ptr %29, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 64
+  store i32 %36, ptr %80, align 8
+  %81 = load ptr, ptr %29, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 60
+  store i32 %38, ptr %82, align 4
   ret void
 }
 

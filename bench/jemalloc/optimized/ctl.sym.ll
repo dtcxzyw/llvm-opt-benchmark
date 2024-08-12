@@ -33747,29 +33747,32 @@ declare i64 @batch_alloc(ptr noundef, i64 noundef, i64 noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(ptr nocapture noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #9 {
 entry:
-  %t_old.sroa.0 = alloca <2 x ptr>, align 16
+  %t_old = alloca %struct.activity_callback_thunk_s, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i = getelementptr inbounds i8, ptr %tsd, i64 240
-  %0 = load <2 x ptr>, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i, align 8
-  store <2 x ptr> %0, ptr %t_old.sroa.0, align 16
+  %retval.i.sroa.0.0.copyload = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i, align 8
+  %retval.i.sroa.2.0.cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i.sroa_idx = getelementptr inbounds i8, ptr %tsd, i64 248
+  %retval.i.sroa.2.0.copyload = load ptr, ptr %retval.i.sroa.2.0.cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i.sroa_idx, align 8
+  store ptr %retval.i.sroa.0.0.copyload, ptr %t_old, align 8
+  %t_old.8.t_old.8.t_old.8.t_old.8..sroa_idx = getelementptr inbounds i8, ptr %t_old, i64 8
+  store ptr %retval.i.sroa.2.0.copyload, ptr %t_old.8.t_old.8.t_old.8.t_old.8..sroa_idx, align 8
   %cmp = icmp ne ptr %oldp, null
   %cmp1 = icmp ne ptr %oldlenp, null
   %or.cond = and i1 %cmp, %cmp1
   br i1 %or.cond, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %oldlenp, align 8
-  %cmp2.not = icmp eq i64 %1, 16
+  %0 = load i64, ptr %oldlenp, align 8
+  %cmp2.not = icmp eq i64 %0, 16
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 16)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 16 %t_old.sroa.0, i64 %spec.select, i1 false)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 16)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %t_old, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %oldlenp, align 8
   br label %label_return
 
 if.end:                                           ; preds = %if.then
-  %t_old.sroa.0.0.t_old.sroa.0.0.copyload = load <2 x ptr>, ptr %t_old.sroa.0, align 16
-  store <2 x ptr> %t_old.sroa.0.0.t_old.sroa.0.0.copyload, ptr %oldp, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %oldp, ptr noundef nonnull align 8 dereferenceable(16) %t_old, i64 16, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end
@@ -33781,8 +33784,11 @@ if.then10:                                        ; preds = %do.end
   br i1 %cmp11.not, label %do.end15, label %label_return
 
 do.end15:                                         ; preds = %if.then10
-  %2 = load <2 x ptr>, ptr %newp, align 8
-  store <2 x ptr> %2, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i, align 8
+  %t_new.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %newp, i64 8
+  %t_new.sroa.3.0.copyload = load ptr, ptr %t_new.sroa.3.0..sroa_idx, align 8
+  %t_new.sroa.0.0.copyload = load ptr, ptr %newp, align 8
+  store ptr %t_new.sroa.0.0.copyload, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i, align 8
+  store ptr %t_new.sroa.3.0.copyload, ptr %retval.i.sroa.2.0.cant_access_tsd_items_directly_use_a_getter_or_setter_activity_callback_thunk.i.sroa_idx, align 8
   br label %label_return
 
 label_return:                                     ; preds = %do.end, %do.end15, %if.then10, %if.then3

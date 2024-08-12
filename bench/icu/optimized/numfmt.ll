@@ -726,7 +726,13 @@ entry:
   %fGroupingUsed = getelementptr inbounds i8, ptr %this, i64 322
   store i8 1, ptr %fGroupingUsed, align 2
   %fMaxIntegerDigits = getelementptr inbounds i8, ptr %this, i64 324
-  store <4 x i32> <i32 2000000000, i32 1, i32 3, i32 0>, ptr %fMaxIntegerDigits, align 4
+  store i32 2000000000, ptr %fMaxIntegerDigits, align 4
+  %fMinIntegerDigits = getelementptr inbounds i8, ptr %this, i64 328
+  store i32 1, ptr %fMinIntegerDigits, align 8
+  %fMaxFractionDigits = getelementptr inbounds i8, ptr %this, i64 332
+  store i32 3, ptr %fMaxFractionDigits, align 4
+  %fMinFractionDigits = getelementptr inbounds i8, ptr %this, i64 336
+  store i32 0, ptr %fMinFractionDigits, align 8
   %fParseIntegerOnly = getelementptr inbounds i8, ptr %this, i64 340
   store i8 0, ptr %fParseIntegerOnly, align 4
   %fLenient = getelementptr inbounds i8, ptr %this, i64 341

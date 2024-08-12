@@ -417,6 +417,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end40
   %ht_used = getelementptr inbounds i8, ptr %d, i64 24
   %ht_table = getelementptr inbounds i8, ptr %d, i64 8
   %arrayidx158 = getelementptr inbounds i8, ptr %d, i64 16
+  %arrayidx215 = getelementptr inbounds i8, ptr %d, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.end217
@@ -619,9 +620,12 @@ if.end207:                                        ; preds = %cond.end172, %decod
   %35 = load ptr, ptr %arrayidx158, align 8
   %arrayidx210 = getelementptr inbounds ptr, ptr %35, i64 %h.0
   store ptr %de.1, ptr %arrayidx210, align 8
-  %36 = load <2 x i64>, ptr %ht_used, align 8
-  %37 = add <2 x i64> %36, <i64 -1, i64 1>
-  store <2 x i64> %37, ptr %ht_used, align 8
+  %36 = load i64, ptr %ht_used, align 8
+  %dec213 = add i64 %36, -1
+  store i64 %dec213, ptr %ht_used, align 8
+  %37 = load i64, ptr %arrayidx215, align 8
+  %inc216 = add i64 %37, 1
+  store i64 %inc216, ptr %arrayidx215, align 8
   %tobool85.not = icmp eq ptr %retval.0.i103, null
   br i1 %tobool85.not, label %while.end217, label %while.body86, !llvm.loop !8
 

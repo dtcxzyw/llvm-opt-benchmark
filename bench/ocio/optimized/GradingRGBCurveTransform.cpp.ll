@@ -544,15 +544,17 @@ entry:
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !5
   %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr %1(ptr noundef nonnull align 8 dereferenceable(144) %0), !noalias !5
+  %2 = load ptr, ptr %call2.i, align 8, !noalias !5
+  store ptr %2, ptr %agg.result, align 8, !alias.scope !5
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !5
-  %3 = load <2 x ptr>, ptr %call2.i, align 8, !noalias !5
-  store <2 x ptr> %3, ptr %agg.result, align 8, !alias.scope !5
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !5
+  store ptr %3, ptr %_M_refcount.i.i.i, align 8, !alias.scope !5
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData8getValueEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

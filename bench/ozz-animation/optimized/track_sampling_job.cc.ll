@@ -194,7 +194,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  br i1 %8, label %9, label %67
+  br i1 %8, label %9, label %71
 
 9:                                                ; preds = %1
   %10 = load float, ptr %0, align 8
@@ -212,7 +212,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 21:                                               ; preds = %9
   store <2 x float> zeroinitializer, ptr %3, align 4
-  br label %67
+  br label %71
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds float, ptr %15, i64 %17
@@ -264,7 +264,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %49 = getelementptr inbounds %"struct.ozz::math::Float2", ptr %19, i64 %36
   %50 = load i64, ptr %49, align 4
   store i64 %50, ptr %3, align 4
-  br label %67
+  br label %71
 
 51:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %52 = getelementptr inbounds float, ptr %15, i64 %36
@@ -276,16 +276,22 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %58 = fdiv float %56, %57
   %59 = getelementptr inbounds %"struct.ozz::math::Float2", ptr %19, i64 %36
   %60 = getelementptr inbounds %"struct.ozz::math::Float2", ptr %19, i64 %35
-  %61 = load <2 x float>, ptr %60, align 4
-  %62 = load <2 x float>, ptr %59, align 4
-  %63 = fsub <2 x float> %61, %62
-  %64 = insertelement <2 x float> poison, float %58, i64 0
-  %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> zeroinitializer
-  %66 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %63, <2 x float> %65, <2 x float> %62)
-  store <2 x float> %66, ptr %3, align 4
-  br label %67
+  %61 = load float, ptr %60, align 4
+  %62 = load float, ptr %59, align 4
+  %63 = fsub float %61, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %63, float %58, float %62)
+  %65 = getelementptr inbounds i8, ptr %60, i64 4
+  %66 = load float, ptr %65, align 4
+  %67 = getelementptr inbounds i8, ptr %59, i64 4
+  %68 = load float, ptr %67, align 4
+  %69 = fsub float %66, %68
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %58, float %68)
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %64, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %70, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %3, align 4
+  br label %71
 
-67:                                               ; preds = %48, %51, %1, %21
+71:                                               ; preds = %48, %51, %1, %21
   ret i1 %8
 }
 
@@ -321,7 +327,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  br i1 %8, label %9, label %72
+  br i1 %8, label %9, label %76
 
 9:                                                ; preds = %1
   %10 = load float, ptr %0, align 8
@@ -341,7 +347,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   store <2 x float> zeroinitializer, ptr %3, align 4
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store float 0.000000e+00, ptr %.sroa.223.0..sroa_idx, align 4
-  br label %72
+  br label %76
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds float, ptr %15, i64 %17
@@ -392,7 +398,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 48:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %49 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %19, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %49, i64 12, i1 false)
-  br label %72
+  br label %76
 
 50:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %51 = getelementptr inbounds float, ptr %15, i64 %36
@@ -404,24 +410,30 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %57 = fdiv float %55, %56
   %58 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %19, i64 %36
   %59 = getelementptr inbounds %"struct.ozz::math::Float3", ptr %19, i64 %35
-  %60 = load <2 x float>, ptr %59, align 4
-  %61 = load <2 x float>, ptr %58, align 4
-  %62 = fsub <2 x float> %60, %61
-  %63 = insertelement <2 x float> poison, float %57, i64 0
-  %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
-  %65 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %62, <2 x float> %64, <2 x float> %61)
-  %66 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = load float, ptr %59, align 4
+  %61 = load float, ptr %58, align 4
+  %62 = fsub float %60, %61
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
+  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %65 = load float, ptr %64, align 4
+  %66 = getelementptr inbounds i8, ptr %58, i64 4
   %67 = load float, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %58, i64 8
-  %69 = load float, ptr %68, align 4
-  %70 = fsub float %67, %69
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float %57, float %69)
-  store <2 x float> %65, ptr %3, align 4
+  %68 = fsub float %65, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
+  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %73 = load float, ptr %72, align 4
+  %74 = fsub float %71, %73
+  %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %63, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %69, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %3, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store float %71, ptr %.sroa.22.0..sroa_idx, align 4
-  br label %72
+  store float %75, ptr %.sroa.22.0..sroa_idx, align 4
+  br label %76
 
-72:                                               ; preds = %48, %50, %1, %21
+76:                                               ; preds = %48, %50, %1, %21
   ret i1 %8
 }
 
@@ -454,7 +466,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  br i1 %8, label %9, label %72
+  br i1 %8, label %9, label %82
 
 9:                                                ; preds = %1
   %10 = load float, ptr %0, align 8
@@ -472,7 +484,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
 
 21:                                               ; preds = %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %72
+  br label %82
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds float, ptr %15, i64 %17
@@ -523,7 +535,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 48:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %49 = getelementptr inbounds %"struct.ozz::math::Float4", ptr %19, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %49, i64 16, i1 false)
-  br label %72
+  br label %82
 
 50:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %51 = getelementptr inbounds float, ptr %15, i64 %36
@@ -535,24 +547,38 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %57 = fdiv float %55, %56
   %58 = getelementptr inbounds %"struct.ozz::math::Float4", ptr %19, i64 %36
   %59 = getelementptr inbounds %"struct.ozz::math::Float4", ptr %19, i64 %35
-  %60 = load <2 x float>, ptr %59, align 4
-  %61 = load <2 x float>, ptr %58, align 4
-  %62 = fsub <2 x float> %60, %61
-  %63 = insertelement <2 x float> poison, float %57, i64 0
-  %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
-  %65 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %62, <2 x float> %64, <2 x float> %61)
-  %66 = getelementptr inbounds i8, ptr %59, i64 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 8
-  %68 = load <2 x float>, ptr %66, align 4
-  %69 = load <2 x float>, ptr %67, align 4
-  %70 = fsub <2 x float> %68, %69
-  %71 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> %64, <2 x float> %69)
-  store <2 x float> %65, ptr %3, align 4
+  %60 = load float, ptr %59, align 4
+  %61 = load float, ptr %58, align 4
+  %62 = fsub float %60, %61
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
+  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %65 = load float, ptr %64, align 4
+  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %67 = load float, ptr %66, align 4
+  %68 = fsub float %65, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
+  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %73 = load float, ptr %72, align 4
+  %74 = fsub float %71, %73
+  %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
+  %76 = getelementptr inbounds i8, ptr %59, i64 12
+  %77 = load float, ptr %76, align 4
+  %78 = getelementptr inbounds i8, ptr %58, i64 12
+  %79 = load float, ptr %78, align 4
+  %80 = fsub float %77, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %80, float %57, float %79)
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %63, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %69, i64 1
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %75, i64 0
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %81, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %3, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store <2 x float> %71, ptr %.sroa.2.0..sroa_idx, align 4
-  br label %72
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.2.0..sroa_idx, align 4
+  br label %82
 
-72:                                               ; preds = %48, %50, %1, %21
+82:                                               ; preds = %48, %50, %1, %21
   ret i1 %8
 }
 
@@ -585,7 +611,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  br i1 %8, label %9, label %85
+  br i1 %8, label %9, label %91
 
 9:                                                ; preds = %1
   %10 = load float, ptr %0, align 8
@@ -605,7 +631,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   store <2 x float> zeroinitializer, ptr %3, align 4
   %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %.sroa.217.0..sroa_idx, align 4
-  br label %85
+  br label %91
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds float, ptr %15, i64 %17
@@ -656,7 +682,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
 48:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %49 = getelementptr inbounds %"struct.ozz::math::Quaternion", ptr %19, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %49, i64 16, i1 false)
-  br label %85
+  br label %91
 
 50:                                               ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
   %51 = getelementptr inbounds float, ptr %15, i64 %36
@@ -668,38 +694,48 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %57 = fdiv float %55, %56
   %58 = getelementptr inbounds %"struct.ozz::math::Quaternion", ptr %19, i64 %36
   %59 = getelementptr inbounds %"struct.ozz::math::Quaternion", ptr %19, i64 %35
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  %62 = load <2 x float>, ptr %60, align 4
-  %63 = load <2 x float>, ptr %61, align 4
-  %64 = fsub <2 x float> %62, %63
-  %65 = insertelement <2 x float> poison, float %57, i64 0
-  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
-  %67 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %64, <2 x float> %66, <2 x float> %63)
-  %68 = extractelement <2 x float> %67, i64 0
-  %69 = extractelement <2 x float> %67, i64 1
-  %70 = load <2 x float>, ptr %59, align 4
-  %71 = load <2 x float>, ptr %58, align 4
-  %72 = fsub <2 x float> %70, %71
-  %73 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %72, <2 x float> %66, <2 x float> %71)
-  %74 = fmul <2 x float> %73, %73
-  %75 = extractelement <2 x float> %74, i64 1
-  %76 = extractelement <2 x float> %73, i64 0
-  %77 = tail call float @llvm.fmuladd.f32(float %76, float %76, float %75)
-  %78 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %77)
-  %79 = tail call float @llvm.fmuladd.f32(float %69, float %69, float %78)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %79)
-  %80 = fdiv float 1.000000e+00, %sqrt.i
-  %81 = insertelement <2 x float> poison, float %80, i64 0
-  %82 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
-  %83 = fmul <2 x float> %73, %82
-  %84 = fmul <2 x float> %67, %82
-  store <2 x float> %83, ptr %3, align 4
+  %60 = load float, ptr %59, align 4
+  %61 = load float, ptr %58, align 4
+  %62 = fsub float %60, %61
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %57, float %61)
+  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %65 = load float, ptr %64, align 4
+  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %67 = load float, ptr %66, align 4
+  %68 = fsub float %65, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %68, float %57, float %67)
+  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %73 = load float, ptr %72, align 4
+  %74 = fsub float %71, %73
+  %75 = tail call float @llvm.fmuladd.f32(float %74, float %57, float %73)
+  %76 = getelementptr inbounds i8, ptr %59, i64 12
+  %77 = load float, ptr %76, align 4
+  %78 = getelementptr inbounds i8, ptr %58, i64 12
+  %79 = load float, ptr %78, align 4
+  %80 = fsub float %77, %79
+  %81 = tail call float @llvm.fmuladd.f32(float %80, float %57, float %79)
+  %82 = fmul float %69, %69
+  %83 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %82)
+  %84 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %83)
+  %85 = tail call float @llvm.fmuladd.f32(float %81, float %81, float %84)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %85)
+  %86 = fdiv float 1.000000e+00, %sqrt.i
+  %87 = fmul float %63, %86
+  %88 = fmul float %69, %86
+  %89 = fmul float %75, %86
+  %90 = fmul float %81, %86
+  %.sroa.044.0.vec.insert.i = insertelement <2 x float> poison, float %87, i64 0
+  %.sroa.044.4.vec.insert.i = insertelement <2 x float> %.sroa.044.0.vec.insert.i, float %88, i64 1
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %89, i64 0
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %90, i64 1
+  store <2 x float> %.sroa.044.4.vec.insert.i, ptr %3, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store <2 x float> %84, ptr %.sroa.2.0..sroa_idx, align 4
-  br label %85
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.2.0..sroa_idx, align 4
+  br label %91
 
-85:                                               ; preds = %48, %50, %1, %21
+91:                                               ; preds = %48, %50, %1, %21
   ret i1 %8
 }
 
@@ -711,9 +747,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

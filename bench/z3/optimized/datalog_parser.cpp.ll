@@ -1929,10 +1929,13 @@ if.else.i:                                        ; preds = %sw.bb2
 _ZN6dlexer4nextEv.exit:                           ; preds = %if.then.i.i, %if.end6.i.i, %if.else.i
   %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ -1, %if.then.i.i ], [ %retval.0.ph.i.i, %if.end6.i.i ]
   store i8 %storemerge.i, ptr %m_curr_char.i, align 1
+  %8 = load i32, ptr %m_pos.i16, align 8
+  %inc.i = add nsw i32 %8, 1
+  store i32 %inc.i, ptr %m_pos.i16, align 8
   %m_line = getelementptr inbounds i8, ptr %this, i64 20
-  %8 = load <2 x i32>, ptr %m_line, align 4
-  %9 = add nsw <2 x i32> %8, <i32 1, i32 1>
-  store <2 x i32> %9, ptr %m_line, align 4
+  %9 = load i32, ptr %m_line, align 4
+  %inc = add nsw i32 %9, 1
+  store i32 %inc, ptr %m_line, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
@@ -3942,10 +3945,14 @@ if.else.i:                                        ; preds = %if.then
 _ZN6dlexer4nextEv.exit:                           ; preds = %if.then.i.i, %if.end6.i.i, %if.else.i
   %storemerge.i = phi i8 [ %conv.i, %if.else.i ], [ -1, %if.then.i.i ], [ %retval.0.ph.i.i, %if.end6.i.i ]
   store i8 %storemerge.i, ptr %m_curr_char, align 1
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = load i32, ptr %m_pos.i, align 8
+  %inc.i = add nsw i32 %7, 1
+  store i32 %inc.i, ptr %m_pos.i, align 8
   %m_line = getelementptr inbounds i8, ptr %this, i64 20
-  %7 = load <2 x i32>, ptr %m_line, align 4
-  %8 = add nsw <2 x i32> %7, <i32 1, i32 1>
-  store <2 x i32> %8, ptr %m_line, align 4
+  %8 = load i32, ptr %m_line, align 4
+  %inc = add nsw i32 %8, 1
+  store i32 %inc, ptr %m_line, align 4
   %m_pos.i1 = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %m_pos.i1, align 8
   br label %return

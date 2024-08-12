@@ -52,7 +52,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %or.cond9 = or i1 %28, %or.cond7
   %29 = icmp eq ptr %1, null
   %or.cond11 = or i1 %29, %or.cond9
-  br i1 %or.cond11, label %158, label %30
+  br i1 %or.cond11, label %148, label %30
 
 30:                                               ; preds = %16
   store i32 %8, ptr %17, align 8
@@ -70,13 +70,13 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %38 = load i32, ptr %32, align 8
   %39 = load i32, ptr %17, align 8
   %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %41, label %158
+  br i1 %40, label %41, label %148
 
 41:                                               ; preds = %30
   %42 = load i32, ptr %33, align 4
   %43 = load i32, ptr %31, align 4
   %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %45, label %158
+  br i1 %44, label %45, label %148
 
 45:                                               ; preds = %41
   %.not = icmp eq i32 %39, %8
@@ -136,7 +136,7 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %.0111 = phi double [ %72, %67 ], [ %15, %66 ]
   %.0107 = phi i32 [ %42, %67 ], [ %11, %66 ]
   %.not128 = icmp eq i8 %6, 0
-  br i1 %.not128, label %141, label %74
+  br i1 %.not128, label %131, label %74
 
 74:                                               ; preds = %73
   %75 = icmp eq i32 %5, 2
@@ -159,147 +159,141 @@ define hidden void @OGLBlitLoops_IsoBlit(ptr nocapture noundef readnone %0, ptr 
   %84 = load i32, ptr %77, align 8
   %85 = icmp eq i32 %84, 34037
   %86 = sitofp i32 %.0104 to double
-  br i1 %85, label %87, label %96
+  br i1 %85, label %87, label %91
 
 87:                                               ; preds = %83
   %88 = sitofp i32 %.048.i to double
-  %89 = insertelement <2 x i32> poison, i32 %.0106, i64 0
-  %90 = insertelement <2 x i32> %89, i32 %.049.i, i64 1
-  %91 = sitofp <2 x i32> %90 to <2 x double>
-  %92 = insertelement <4 x double> poison, double %86, i64 0
-  %93 = insertelement <4 x double> %92, double %88, i64 1
-  %94 = shufflevector <2 x double> %91, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %95 = shufflevector <4 x double> %93, <4 x double> %94, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  br label %110
+  %89 = sitofp i32 %.0106 to double
+  %90 = sitofp i32 %.049.i to double
+  br label %105
 
-96:                                               ; preds = %83
-  %97 = getelementptr inbounds i8, ptr %18, i64 104
-  %98 = sitofp i32 %.048.i to double
-  %99 = load <2 x i32>, ptr %97, align 8
-  %100 = sitofp <2 x i32> %99 to <2 x double>
-  %101 = shufflevector <2 x double> %100, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %102 = insertelement <2 x i32> poison, i32 %.0106, i64 0
-  %103 = insertelement <2 x i32> %102, i32 %.049.i, i64 1
-  %104 = sitofp <2 x i32> %103 to <2 x double>
-  %105 = insertelement <4 x double> poison, double %86, i64 0
-  %106 = insertelement <4 x double> %105, double %98, i64 1
-  %107 = shufflevector <2 x double> %104, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %108 = shufflevector <4 x double> %106, <4 x double> %107, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %109 = fdiv <4 x double> %108, %101
-  br label %110
+91:                                               ; preds = %83
+  %92 = getelementptr inbounds i8, ptr %18, i64 104
+  %93 = load i32, ptr %92, align 8
+  %94 = sitofp i32 %93 to double
+  %95 = fdiv double %86, %94
+  %96 = sitofp i32 %.048.i to double
+  %97 = getelementptr inbounds i8, ptr %18, i64 108
+  %98 = load i32, ptr %97, align 4
+  %99 = sitofp i32 %98 to double
+  %100 = fdiv double %96, %99
+  %101 = sitofp i32 %.0106 to double
+  %102 = fdiv double %101, %94
+  %103 = sitofp i32 %.049.i to double
+  %104 = fdiv double %103, %99
+  br label %105
 
-110:                                              ; preds = %96, %87
-  %111 = phi <4 x double> [ %95, %87 ], [ %109, %96 ]
-  %112 = load ptr, ptr @j2d_glBindTexture, align 8
-  %113 = getelementptr inbounds i8, ptr %18, i64 100
-  %114 = load i32, ptr %113, align 4
-  call void %112(i32 noundef %84, i32 noundef %114) #6
-  %115 = getelementptr inbounds i8, ptr %1, i64 52
-  %116 = load i32, ptr %115, align 4
-  %.not51.i = icmp eq i32 %116, 8448
-  br i1 %.not51.i, label %119, label %117
+105:                                              ; preds = %91, %87
+  %.047.i = phi double [ %86, %87 ], [ %95, %91 ]
+  %.046.i = phi double [ %88, %87 ], [ %100, %91 ]
+  %.045.i = phi double [ %89, %87 ], [ %102, %91 ]
+  %.0.i = phi double [ %90, %87 ], [ %104, %91 ]
+  %106 = load ptr, ptr @j2d_glBindTexture, align 8
+  %107 = getelementptr inbounds i8, ptr %18, i64 100
+  %108 = load i32, ptr %107, align 4
+  call void %106(i32 noundef %84, i32 noundef %108) #6
+  %109 = getelementptr inbounds i8, ptr %1, i64 52
+  %110 = load i32, ptr %109, align 4
+  %.not51.i = icmp eq i32 %110, 8448
+  br i1 %.not51.i, label %113, label %111
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr @j2d_glTexEnvi, align 8
-  call void %118(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #6
-  store i32 8448, ptr %115, align 4
-  br label %119
+111:                                              ; preds = %105
+  %112 = load ptr, ptr @j2d_glTexEnvi, align 8
+  call void %112(i32 noundef 8960, i32 noundef 8704, i32 noundef 8448) #6
+  store i32 8448, ptr %109, align 4
+  br label %113
 
-119:                                              ; preds = %117, %110
-  %120 = getelementptr inbounds i8, ptr %18, i64 116
-  %121 = load i32, ptr %120, align 4
-  %.not52.i = icmp eq i32 %121, %76
-  br i1 %.not52.i, label %OGLBlitTextureToSurface.exit, label %122
+113:                                              ; preds = %111, %105
+  %114 = getelementptr inbounds i8, ptr %18, i64 116
+  %115 = load i32, ptr %114, align 4
+  %.not52.i = icmp eq i32 %115, %76
+  br i1 %.not52.i, label %OGLBlitTextureToSurface.exit, label %116
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr @j2d_glTexParameteri, align 8
-  %124 = load i32, ptr %77, align 8
-  call void %123(i32 noundef %124, i32 noundef 10240, i32 noundef %76) #6
-  %125 = load ptr, ptr @j2d_glTexParameteri, align 8
-  %126 = load i32, ptr %77, align 8
-  call void %125(i32 noundef %126, i32 noundef 10241, i32 noundef %76) #6
-  store i32 %76, ptr %120, align 4
+116:                                              ; preds = %113
+  %117 = load ptr, ptr @j2d_glTexParameteri, align 8
+  %118 = load i32, ptr %77, align 8
+  call void %117(i32 noundef %118, i32 noundef 10240, i32 noundef %76) #6
+  %119 = load ptr, ptr @j2d_glTexParameteri, align 8
+  %120 = load i32, ptr %77, align 8
+  call void %119(i32 noundef %120, i32 noundef 10241, i32 noundef %76) #6
+  store i32 %76, ptr %114, align 4
   br label %OGLBlitTextureToSurface.exit
 
-OGLBlitTextureToSurface.exit:                     ; preds = %119, %122
-  %127 = load ptr, ptr @j2d_glBegin, align 8
-  call void %127(i32 noundef 7) #6
+OGLBlitTextureToSurface.exit:                     ; preds = %113, %116
+  %121 = load ptr, ptr @j2d_glBegin, align 8
+  call void %121(i32 noundef 7) #6
+  %122 = load ptr, ptr @j2d_glTexCoord2d, align 8
+  call void %122(double noundef %.047.i, double noundef %.046.i) #6
+  %123 = load ptr, ptr @j2d_glVertex2d, align 8
+  call void %123(double noundef %.0108, double noundef %.0109) #6
+  %124 = load ptr, ptr @j2d_glTexCoord2d, align 8
+  call void %124(double noundef %.045.i, double noundef %.046.i) #6
+  %125 = load ptr, ptr @j2d_glVertex2d, align 8
+  call void %125(double noundef %.0110, double noundef %.0109) #6
+  %126 = load ptr, ptr @j2d_glTexCoord2d, align 8
+  call void %126(double noundef %.045.i, double noundef %.0.i) #6
+  %127 = load ptr, ptr @j2d_glVertex2d, align 8
+  call void %127(double noundef %.0110, double noundef %.0111) #6
   %128 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  %129 = extractelement <4 x double> %111, i64 0
-  %130 = extractelement <4 x double> %111, i64 1
-  call void %128(double noundef %129, double noundef %130) #6
-  %131 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %131(double noundef %.0108, double noundef %.0109) #6
-  %132 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  %133 = extractelement <4 x double> %111, i64 2
-  call void %132(double noundef %133, double noundef %130) #6
-  %134 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %134(double noundef %.0110, double noundef %.0109) #6
-  %135 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  %136 = extractelement <4 x double> %111, i64 3
-  call void %135(double noundef %133, double noundef %136) #6
-  %137 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %137(double noundef %.0110, double noundef %.0111) #6
-  %138 = load ptr, ptr @j2d_glTexCoord2d, align 8
-  call void %138(double noundef %129, double noundef %136) #6
-  %139 = load ptr, ptr @j2d_glVertex2d, align 8
-  call void %139(double noundef %.0108, double noundef %.0111) #6
-  %140 = load ptr, ptr @j2d_glEnd, align 8
-  call void %140() #6
-  br label %158
+  call void %128(double noundef %.047.i, double noundef %.0.i) #6
+  %129 = load ptr, ptr @j2d_glVertex2d, align 8
+  call void %129(double noundef %.0108, double noundef %.0111) #6
+  %130 = load ptr, ptr @j2d_glEnd, align 8
+  call void %130() #6
+  br label %148
 
-141:                                              ; preds = %73
+131:                                              ; preds = %73
   %.not129 = icmp eq i8 %4, 0
-  br i1 %.not129, label %142, label %.thread
+  br i1 %.not129, label %132, label %.thread
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
-  %144 = load i32, ptr %143, align 8
-  %145 = lshr i32 %144, 24
-  %146 = and i32 %145, 3
-  switch i32 %146, label %.thread135 [
-    i32 2, label %147
-    i32 1, label %155
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = load i32, ptr %133, align 8
+  %135 = lshr i32 %134, 24
+  %136 = and i32 %135, 3
+  switch i32 %136, label %.thread135 [
+    i32 2, label %137
+    i32 1, label %145
   ]
 
-.thread135:                                       ; preds = %142
+.thread135:                                       ; preds = %132
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br label %157
+  br label %147
 
-147:                                              ; preds = %142
-  %148 = sub nsw i32 %.0106, %.0104
-  %149 = fsub double %.0110, %.0108
-  %150 = fptosi double %149 to i32
-  %.not130 = icmp eq i32 %148, %150
-  br i1 %.not130, label %151, label %.thread
+137:                                              ; preds = %132
+  %138 = sub nsw i32 %.0106, %.0104
+  %139 = fsub double %.0110, %.0108
+  %140 = fptosi double %139 to i32
+  %.not130 = icmp eq i32 %138, %140
+  br i1 %.not130, label %141, label %.thread
 
-151:                                              ; preds = %147
-  %152 = sub nsw i32 %.0107, %.0105
-  %153 = fsub double %.0111, %.0109
-  %154 = fptosi double %153 to i32
-  %.not131 = icmp eq i32 %152, %154
-  br i1 %.not131, label %155, label %.thread
+141:                                              ; preds = %137
+  %142 = sub nsw i32 %.0107, %.0105
+  %143 = fsub double %.0111, %.0109
+  %144 = fptosi double %143 to i32
+  %.not131 = icmp eq i32 %142, %144
+  br i1 %.not131, label %145, label %.thread
 
-.thread:                                          ; preds = %141, %151, %147
+.thread:                                          ; preds = %131, %141, %137
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br label %156
+  br label %146
 
-155:                                              ; preds = %142, %151
+145:                                              ; preds = %132, %141
   %.0.in.in.in = getelementptr inbounds i8, ptr %1, i64 16
   %.0.in.in = load float, ptr %.0.in.in.in, align 8
   %.0.in = fcmp oeq float %.0.in.in, 1.000000e+00
   call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
-  br i1 %.0.in, label %157, label %156
+  br i1 %.0.in, label %147, label %146
 
-156:                                              ; preds = %.thread, %155
+146:                                              ; preds = %.thread, %145
   call fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef nonnull %1, ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %18, i8 noundef zeroext 0, i32 noundef %5, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
-  br label %158
+  br label %148
 
-157:                                              ; preds = %.thread135, %155
+147:                                              ; preds = %.thread135, %145
   call fastcc void @OGLBlitSurfaceToSurface(ptr noundef nonnull %1, ptr noundef nonnull %18, i32 noundef %.0104, i32 noundef %.0105, i32 noundef %.0106, i32 noundef %.0107, double noundef %.0108, double noundef %.0109, double noundef %.0110, double noundef %.0111)
-  br label %158
+  br label %148
 
-158:                                              ; preds = %OGLBlitTextureToSurface.exit, %157, %156, %16, %41, %30
+148:                                              ; preds = %OGLBlitTextureToSurface.exit, %147, %146, %16, %41, %30
   ret void
 }
 

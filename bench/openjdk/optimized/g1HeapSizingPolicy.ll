@@ -369,72 +369,67 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amoun
   %16 = add i64 %9, %15
   %17 = sub i64 %7, %16
   %18 = load i64, ptr @MinHeapFreeRatio, align 8
-  %19 = uitofp i64 %17 to double
-  %20 = load i64, ptr @MaxHeapSize, align 8
-  %21 = uitofp i64 %20 to double
-  %22 = load i64, ptr @MaxHeapFreeRatio, align 8
-  %23 = insertelement <2 x i64> poison, i64 %22, i64 0
-  %24 = insertelement <2 x i64> %23, i64 %18, i64 1
-  %25 = uitofp <2 x i64> %24 to <2 x double>
-  %26 = fdiv <2 x double> %25, <double 1.000000e+02, double 1.000000e+02>
-  %27 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %26
-  %28 = insertelement <2 x double> poison, double %19, i64 0
-  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
-  %30 = fdiv <2 x double> %29, %27
-  %31 = insertelement <2 x double> poison, double %21, i64 0
-  %32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
-  %33 = fcmp olt <2 x double> %30, %32
-  %34 = extractelement <2 x i1> %33, i64 1
-  %35 = extractelement <2 x double> %30, i64 1
-  %36 = select i1 %34, double %35, double %21
-  %37 = fptoui double %36 to i64
-  %38 = extractelement <2 x i1> %33, i64 0
-  %39 = extractelement <2 x double> %30, i64 0
-  %40 = select i1 %38, double %39, double %21
-  %41 = fptoui double %40 to i64
-  %42 = tail call noundef i64 @llvm.umin.i64(i64 %37, i64 %20)
-  %43 = load i64, ptr @MinHeapSize, align 8
-  %44 = tail call noundef i64 @llvm.umax.i64(i64 %41, i64 %43)
-  %45 = icmp ult i64 %7, %42
-  br i1 %45, label %46, label %55
+  %19 = uitofp i64 %18 to double
+  %20 = fdiv double %19, 1.000000e+02
+  %21 = fsub double 1.000000e+00, %20
+  %22 = uitofp i64 %17 to double
+  %23 = fdiv double %22, %21
+  %24 = load i64, ptr @MaxHeapSize, align 8
+  %25 = uitofp i64 %24 to double
+  %26 = fcmp olt double %23, %25
+  %27 = select i1 %26, double %23, double %25
+  %28 = fptoui double %27 to i64
+  %29 = load i64, ptr @MaxHeapFreeRatio, align 8
+  %30 = uitofp i64 %29 to double
+  %31 = fdiv double %30, 1.000000e+02
+  %32 = fsub double 1.000000e+00, %31
+  %33 = fdiv double %22, %32
+  %34 = fcmp olt double %33, %25
+  %35 = select i1 %34, double %33, double %25
+  %36 = fptoui double %35 to i64
+  %37 = tail call noundef i64 @llvm.umin.i64(i64 %28, i64 %24)
+  %38 = load i64, ptr @MinHeapSize, align 8
+  %39 = tail call noundef i64 @llvm.umax.i64(i64 %36, i64 %38)
+  %40 = icmp ult i64 %7, %37
+  br i1 %40, label %41, label %50
 
-46:                                               ; preds = %2
-  %47 = sub nuw i64 %42, %7
-  %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not28 = icmp eq ptr %48, null
-  br i1 %.not28, label %66, label %49
+41:                                               ; preds = %2
+  %42 = sub nuw i64 %37, %7
+  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not28 = icmp eq ptr %43, null
+  br i1 %.not28, label %61, label %44
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
-  %54 = load i64, ptr @MinHeapFreeRatio, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %7, i64 noundef %17, i64 noundef %53, i64 noundef %42, i64 noundef %54)
-  br label %66
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
+  %49 = load i64, ptr @MinHeapFreeRatio, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %7, i64 noundef %17, i64 noundef %48, i64 noundef %37, i64 noundef %49)
+  br label %61
 
-55:                                               ; preds = %2
-  %56 = icmp ugt i64 %7, %44
-  br i1 %56, label %57, label %66
+50:                                               ; preds = %2
+  %51 = icmp ugt i64 %7, %39
+  br i1 %51, label %52, label %61
 
-57:                                               ; preds = %55
-  %58 = sub nuw i64 %7, %44
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %59, null
-  br i1 %.not, label %66, label %60
+52:                                               ; preds = %50
+  %53 = sub nuw i64 %7, %39
+  %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %54, null
+  br i1 %.not, label %61, label %55
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 96
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef i64 %63(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
-  %65 = load i64, ptr @MaxHeapFreeRatio, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %17, i64 noundef %64, i64 noundef %44, i64 noundef %65)
-  br label %66
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
+  %60 = load i64, ptr @MaxHeapFreeRatio, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %17, i64 noundef %59, i64 noundef %39, i64 noundef %60)
+  br label %61
 
-66:                                               ; preds = %55, %60, %57, %49, %46
-  %.sink = phi i8 [ 1, %46 ], [ 1, %49 ], [ 0, %57 ], [ 0, %60 ], [ 1, %55 ]
-  %.0 = phi i64 [ %47, %46 ], [ %47, %49 ], [ %58, %57 ], [ %58, %60 ], [ 0, %55 ]
+61:                                               ; preds = %50, %55, %52, %44, %41
+  %.sink = phi i8 [ 1, %41 ], [ 1, %44 ], [ 0, %52 ], [ 0, %55 ], [ 1, %50 ]
+  %.0 = phi i64 [ %42, %41 ], [ %42, %44 ], [ %53, %52 ], [ %53, %55 ], [ 0, %50 ]
   store i8 %.sink, ptr %1, align 1
   ret i64 %.0
 }

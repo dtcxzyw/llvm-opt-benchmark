@@ -2841,91 +2841,106 @@ define hidden noundef i64 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0edfed
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1cd366182209a798E.llvm.338919531005034474"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8, !noundef !5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = load ptr, ptr %1, align 8, !noundef !5
+  %5 = icmp eq ptr %4, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %3
-  %8 = load i128, ptr %2, align 16, !alias.scope !462, !noalias !465, !noundef !5
+8:                                                ; preds = %3
+  %9 = load i128, ptr %2, align 16, !alias.scope !462, !noalias !465, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i128 %8, ptr %.sroa.5.0..sroa_idx, align 16
-  br label %9
+  store i128 %9, ptr %.sroa.5.0..sroa_idx, align 16
+  br label %10
 
-9:                                                ; preds = %3, %7
-  store <2 x ptr> %4, ptr %0, align 16
+10:                                               ; preds = %3, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
+  store ptr %4, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3002af107cb2b6aaE.llvm.338919531005034474"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8, !noundef !5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = load ptr, ptr %1, align 8, !noundef !5
+  %5 = icmp eq ptr %4, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %3
-  %8 = load i128, ptr %2, align 16, !alias.scope !468, !noalias !471, !noundef !5
+8:                                                ; preds = %3
+  %9 = load i128, ptr %2, align 16, !alias.scope !468, !noalias !471, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i128 %8, ptr %.sroa.5.0..sroa_idx, align 16
-  br label %9
+  store i128 %9, ptr %.sroa.5.0..sroa_idx, align 16
+  br label %10
 
-9:                                                ; preds = %3, %7
-  store <2 x ptr> %4, ptr %0, align 16
+10:                                               ; preds = %3, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
+  store ptr %4, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7a23361ac5719461E.llvm.338919531005034474"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8, !noundef !5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = load ptr, ptr %1, align 8, !noundef !5
+  %5 = icmp eq ptr %4, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %3
-  %8 = load i128, ptr %2, align 16, !alias.scope !474, !noalias !477, !noundef !5
+8:                                                ; preds = %3
+  %9 = load i128, ptr %2, align 16, !alias.scope !474, !noalias !477, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i128 %8, ptr %.sroa.5.0..sroa_idx, align 16
-  br label %9
+  store i128 %9, ptr %.sroa.5.0..sroa_idx, align 16
+  br label %10
 
-9:                                                ; preds = %3, %7
-  store <2 x ptr> %4, ptr %0, align 16
+10:                                               ; preds = %3, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
+  store ptr %4, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9530aec4c170975dE.llvm.338919531005034474"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8, !noundef !5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = load ptr, ptr %1, align 8, !noundef !5
+  %5 = icmp eq ptr %4, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %3
-  %8 = load i128, ptr %2, align 16, !alias.scope !480, !noalias !483, !noundef !5
+8:                                                ; preds = %3
+  %9 = load i128, ptr %2, align 16, !alias.scope !480, !noalias !483, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i128 %8, ptr %.sroa.5.0..sroa_idx, align 16
-  br label %9
+  store i128 %9, ptr %.sroa.5.0..sroa_idx, align 16
+  br label %10
 
-9:                                                ; preds = %3, %7
-  store <2 x ptr> %4, ptr %0, align 16
+10:                                               ; preds = %3, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
+  store ptr %4, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbace6c6abd036ccbE.llvm.338919531005034474"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8, !noundef !5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %9, label %7
+  %4 = load ptr, ptr %1, align 8, !noundef !5
+  %5 = icmp eq ptr %4, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  br i1 %5, label %10, label %8
 
-7:                                                ; preds = %3
-  %8 = load i128, ptr %2, align 16, !alias.scope !486, !noalias !489, !noundef !5
+8:                                                ; preds = %3
+  %9 = load i128, ptr %2, align 16, !alias.scope !486, !noalias !489, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i128 %8, ptr %.sroa.5.0..sroa_idx, align 16
-  br label %9
+  store i128 %9, ptr %.sroa.5.0..sroa_idx, align 16
+  br label %10
 
-9:                                                ; preds = %3, %7
-  store <2 x ptr> %4, ptr %0, align 16
+10:                                               ; preds = %3, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %11, align 8
+  store ptr %4, ptr %0, align 16
   ret void
 }
 

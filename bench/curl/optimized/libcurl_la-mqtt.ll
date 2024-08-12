@@ -124,8 +124,21 @@ if.end35.i:                                       ; preds = %if.end31.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx1.i.i, ptr nonnull readonly align 4 %remain.i, i64 %conv.i, i1 false)
   %6 = getelementptr i8, ptr %call32.i, i64 %conv.i
   %arrayidx2.i.i = getelementptr i8, ptr %6, i64 1
+  store i8 0, ptr %arrayidx2.i.i, align 1
+  %arrayidx5.i.i = getelementptr i8, ptr %6, i64 2
+  store i8 4, ptr %arrayidx5.i.i, align 1
+  %arrayidx8.i.i = getelementptr i8, ptr %6, i64 3
+  store i8 77, ptr %arrayidx8.i.i, align 1
+  %arrayidx11.i.i = getelementptr i8, ptr %6, i64 4
+  store i8 81, ptr %arrayidx11.i.i, align 1
+  %arrayidx14.i.i = getelementptr i8, ptr %6, i64 5
+  store i8 84, ptr %arrayidx14.i.i, align 1
+  %arrayidx17.i.i = getelementptr i8, ptr %6, i64 6
+  store i8 84, ptr %arrayidx17.i.i, align 1
+  %arrayidx20.i.i = getelementptr i8, ptr %6, i64 7
+  store i8 4, ptr %arrayidx20.i.i, align 1
   %arrayidx23.i.i = getelementptr i8, ptr %6, i64 8
-  store <8 x i8> <i8 0, i8 4, i8 77, i8 81, i8 84, i8 84, i8 4, i8 2>, ptr %arrayidx2.i.i, align 1
+  store i8 2, ptr %arrayidx23.i.i, align 1
   %arrayidx26.i.i = getelementptr i8, ptr %6, i64 9
   store i8 0, ptr %arrayidx26.i.i, align 1
   %arrayidx29.i.i = getelementptr i8, ptr %6, i64 10

@@ -1260,7 +1260,13 @@ if.then6:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.end
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #26
-  store <4 x i32> <i32 24, i32 36, i32 2, i32 0>, ptr %call.i, align 4
+  store i32 24, ptr %call.i, align 4
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 36, ptr %flags.i, align 4
+  %index.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  store i32 2, ptr %index.i, align 4
+  %start.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  store i32 0, ptr %start.i, align 4
   %count.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 1, ptr %count.i, align 4
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 20
@@ -2011,7 +2017,13 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #26
-  store <4 x i32> <i32 24, i32 36, i32 2, i32 0>, ptr %call.i, align 4
+  store i32 24, ptr %call.i, align 4
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 36, ptr %flags.i, align 4
+  %index.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  store i32 2, ptr %index.i, align 4
+  %start.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  store i32 0, ptr %start.i, align 4
   %count.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 1, ptr %count.i, align 4
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 20

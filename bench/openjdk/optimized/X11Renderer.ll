@@ -672,155 +672,161 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   %12 = inttoptr i64 %3 to ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds i8, ptr %11, i64 24
-  store <4 x i32> <i32 -32768, i32 -32768, i32 32767, i32 32767>, ptr %13, align 8
-  %14 = icmp eq i64 %3, 0
-  br i1 %14, label %101, label %15
+  store i32 -32768, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 28
+  store i32 -32768, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 32767, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 36
+  store i32 32767, ptr %16, align 4
+  %17 = icmp eq i64 %3, 0
+  br i1 %17, label %104, label %18
 
-15:                                               ; preds = %9
+18:                                               ; preds = %9
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %22, label %16
+  br i1 %.not, label %25, label %19
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 800
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr @path2DWindingRuleID, align 8
-  %21 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %20) #10
-  br label %22
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 800
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr @path2DWindingRuleID, align 8
+  %24 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %23) #10
+  br label %25
 
-22:                                               ; preds = %16, %15
-  %.065 = phi i32 [ %21, %16 ], [ undef, %15 ]
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 760
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr @path2DTypesID, align 8
-  %27 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %26) #10
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 760
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr @path2DFloatCoordsID, align 8
-  %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %31) #10
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %35
+25:                                               ; preds = %19, %18
+  %.065 = phi i32 [ %24, %19 ], [ undef, %18 ]
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 760
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr @path2DTypesID, align 8
+  %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %29) #10
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 760
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @path2DFloatCoordsID, align 8
+  %35 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %34) #10
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-34:                                               ; preds = %22
+37:                                               ; preds = %25
   tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #10
-  br label %101
+  br label %104
 
-35:                                               ; preds = %22
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 800
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr @path2DNumTypesID, align 8
-  %40 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %39) #10
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1368
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %27) #10
-  %45 = icmp slt i32 %44, %40
-  br i1 %45, label %46, label %47
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 800
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr @path2DNumTypesID, align 8
+  %43 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %42) #10
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1368
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef %30) #10
+  %48 = icmp slt i32 %47, %43
+  br i1 %48, label %49, label %50
 
-46:                                               ; preds = %35
+49:                                               ; preds = %38
   tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
-  br label %101
+  br label %104
 
-47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %10, i64 24
-  %49 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %10, i64 1048
-  store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %10, i64 1052
-  store i32 256, ptr %51, align 4
-  %52 = inttoptr i64 %4 to ptr
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 88
-  %55 = load i64, ptr %54, align 8
-  store i64 %55, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr %10, ptr %56, align 8
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 800
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr @sg2dStrokeHintID, align 8
-  %61 = call i32 %59(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %60) #10
-  %62 = load i32, ptr @sunHints_INTVAL_STROKE_PURE, align 4
-  %63 = icmp ne i32 %61, %62
-  %64 = zext i1 %63 to i32
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1368
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 %67(ptr noundef nonnull %0, ptr noundef nonnull %32) #10
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1776
-  %71 = load ptr, ptr %70, align 8
-  %72 = call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef null) #10
-  %.not72 = icmp eq ptr %72, null
-  br i1 %.not72, label %97, label %73
+50:                                               ; preds = %38
+  %51 = getelementptr inbounds i8, ptr %10, i64 24
+  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %10, i64 1048
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %10, i64 1052
+  store i32 256, ptr %54, align 4
+  %55 = inttoptr i64 %4 to ptr
+  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %12, i64 88
+  %58 = load i64, ptr %57, align 8
+  store i64 %58, ptr %10, align 8
+  %59 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr %10, ptr %59, align 8
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 800
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr @sg2dStrokeHintID, align 8
+  %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %63) #10
+  %65 = load i32, ptr @sunHints_INTVAL_STROKE_PURE, align 4
+  %66 = icmp ne i32 %64, %65
+  %67 = zext i1 %66 to i32
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 1368
+  %70 = load ptr, ptr %69, align 8
+  %71 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %35) #10
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 1776
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef null) #10
+  %.not72 = icmp eq ptr %75, null
+  br i1 %.not72, label %100, label %76
 
-73:                                               ; preds = %47
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1776
-  %76 = load ptr, ptr %75, align 8
-  %77 = call ptr %76(ptr noundef nonnull %0, ptr noundef %27, ptr noundef null) #10
-  %.not73 = icmp eq ptr %77, null
-  br i1 %.not73, label %.critedge, label %78
+76:                                               ; preds = %50
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1776
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null) #10
+  %.not73 = icmp eq ptr %80, null
+  br i1 %.not73, label %.critedge, label %81
 
-78:                                               ; preds = %73
-  br i1 %.not, label %82, label %79
+81:                                               ; preds = %76
+  br i1 %.not, label %85, label %82
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr @drawScanline, ptr %80, align 8
-  %81 = call zeroext i8 @doFillPath(ptr noundef nonnull %11, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %72, i32 noundef %68, ptr noundef nonnull %77, i32 noundef %40, i32 noundef %64, i32 noundef %.065) #10
-  br label %85
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr @drawScanline, ptr %83, align 8
+  %84 = call zeroext i8 @doFillPath(ptr noundef nonnull %11, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67, i32 noundef %.065) #10
+  br label %88
 
-82:                                               ; preds = %78
+85:                                               ; preds = %81
   store ptr @storeLine, ptr %11, align 8
-  %83 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @storePoint, ptr %83, align 8
-  %84 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef nonnull @drawSubPath, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %72, i32 noundef %68, ptr noundef nonnull %77, i32 noundef %40, i32 noundef %64) #10
-  br label %85
+  %86 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @storePoint, ptr %86, align 8
+  %87 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef nonnull @drawSubPath, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67) #10
+  br label %88
 
-85:                                               ; preds = %82, %79
-  %.1 = phi i8 [ %81, %79 ], [ %84, %82 ]
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1784
-  %88 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %77, i32 noundef 2) #10
-  %89 = icmp eq i8 %.1, 0
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1784
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %72, i32 noundef 2) #10
-  br i1 %89, label %93, label %97
+88:                                               ; preds = %85, %82
+  %.1 = phi i8 [ %84, %82 ], [ %87, %85 ]
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 1784
+  %91 = load ptr, ptr %90, align 8
+  call void %91(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %80, i32 noundef 2) #10
+  %92 = icmp eq i8 %.1, 0
+  %93 = load ptr, ptr %0, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 1784
+  %95 = load ptr, ptr %94, align 8
+  call void %95(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
+  br i1 %92, label %96, label %100
 
-93:                                               ; preds = %85
+96:                                               ; preds = %88
   call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
-  br label %97
-
-.critedge:                                        ; preds = %73
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1784
-  %96 = load ptr, ptr %95, align 8
-  call void %96(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %72, i32 noundef 2) #10
-  br label %97
-
-97:                                               ; preds = %.critedge, %47, %93, %85
-  %98 = load ptr, ptr %49, align 8
-  %.not75 = icmp eq ptr %98, %48
-  br i1 %.not75, label %100, label %99
-
-99:                                               ; preds = %97
-  call void @free(ptr noundef %98) #10
   br label %100
 
-100:                                              ; preds = %97, %99
-  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #10
-  br label %101
+.critedge:                                        ; preds = %76
+  %97 = load ptr, ptr %0, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 1784
+  %99 = load ptr, ptr %98, align 8
+  call void %99(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
+  br label %100
 
-101:                                              ; preds = %9, %100, %46, %34
+100:                                              ; preds = %.critedge, %50, %96, %88
+  %101 = load ptr, ptr %52, align 8
+  %.not75 = icmp eq ptr %101, %51
+  br i1 %.not75, label %103, label %102
+
+102:                                              ; preds = %100
+  call void @free(ptr noundef %101) #10
+  br label %103
+
+103:                                              ; preds = %100, %102
+  call void @X11SD_DirectRenderNotify(ptr noundef nonnull %0, ptr noundef nonnull %12) #10
+  br label %104
+
+104:                                              ; preds = %9, %103, %49, %37
   ret void
 }
 

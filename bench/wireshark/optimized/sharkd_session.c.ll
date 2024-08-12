@@ -7710,7 +7710,7 @@ define internal noundef i32 @sharkd_session_packet_tap_rtp_analyse_cb(ptr nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call i32 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %3) #17
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %57, label %8
+  br i1 %.not, label %59, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 88
@@ -7741,52 +7741,57 @@ define internal noundef i32 @sharkd_session_packet_tap_rtp_analyse_cb(ptr nounde
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not40 = icmp eq i32 %26, 0
-  br i1 %.not40, label %27, label %32
+  br i1 %.not40, label %27, label %34
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds i8, ptr %0, i64 4944
-  %29 = load <2 x double>, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 4968
+  %29 = load double, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 4952
   %31 = load double, ptr %30, align 8
-  br label %32
+  %32 = getelementptr inbounds i8, ptr %0, i64 4968
+  %33 = load double, ptr %32, align 8
+  br label %34
 
-32:                                               ; preds = %17, %27
-  %33 = phi double [ %31, %27 ], [ 0.000000e+00, %17 ]
-  %34 = phi <2 x double> [ %29, %27 ], [ zeroinitializer, %17 ]
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
-  store <2 x double> %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 24
-  store double %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
-  %41 = load i32, ptr %40, align 8
-  %.not43 = icmp ne i32 %41, 0
-  %42 = zext i1 %.not43 to i32
-  %43 = getelementptr inbounds i8, ptr %10, i64 40
-  store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
-  %45 = tail call double @nstime_to_sec(ptr noundef nonnull %44) #17
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
-  %47 = load double, ptr %46, align 8
-  %48 = fsub double %45, %47
-  %49 = getelementptr inbounds i8, ptr %10, i64 48
-  store double %48, ptr %49, align 8
-  %50 = load i32, ptr %24, align 4
-  %51 = getelementptr inbounds i8, ptr %10, i64 56
-  store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 5120
-  %53 = load i16, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 60
-  store i16 %53, ptr %54, align 4
-  %55 = load ptr, ptr %11, align 8
-  %56 = tail call ptr @g_slist_append(ptr noundef %55, ptr noundef nonnull %10) #17
-  store ptr %56, ptr %11, align 8
-  br label %57
+34:                                               ; preds = %17, %27
+  %.sink45 = phi double [ %29, %27 ], [ 0.000000e+00, %17 ]
+  %.sink = phi double [ %31, %27 ], [ 0.000000e+00, %17 ]
+  %35 = phi double [ %33, %27 ], [ 0.000000e+00, %17 ]
+  %36 = getelementptr inbounds i8, ptr %10, i64 8
+  store double %.sink45, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %10, i64 16
+  store double %.sink, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %10, i64 24
+  store double %35, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %10, i64 32
+  store double %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = load i32, ptr %42, align 8
+  %.not43 = icmp ne i32 %43, 0
+  %44 = zext i1 %.not43 to i32
+  %45 = getelementptr inbounds i8, ptr %10, i64 40
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = tail call double @nstime_to_sec(ptr noundef nonnull %46) #17
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = load double, ptr %48, align 8
+  %50 = fsub double %47, %49
+  %51 = getelementptr inbounds i8, ptr %10, i64 48
+  store double %50, ptr %51, align 8
+  %52 = load i32, ptr %24, align 4
+  %53 = getelementptr inbounds i8, ptr %10, i64 56
+  store i32 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 5120
+  %55 = load i16, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %10, i64 60
+  store i16 %55, ptr %56, align 4
+  %57 = load ptr, ptr %11, align 8
+  %58 = tail call ptr @g_slist_append(ptr noundef %57, ptr noundef nonnull %10) #17
+  store ptr %58, ptr %11, align 8
+  br label %59
 
-57:                                               ; preds = %32, %5
+59:                                               ; preds = %34, %5
   ret i32 1
 }
 
@@ -10698,147 +10703,153 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 20
-  %15 = getelementptr inbounds i8, ptr %6, i64 22
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
-  %17 = getelementptr inbounds i8, ptr %6, i64 28
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
-  %19 = getelementptr inbounds i8, ptr %6, i64 34
-  %20 = getelementptr inbounds i8, ptr %6, i64 36
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
-  br label %22
+  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds i8, ptr %6, i64 20
+  %18 = getelementptr inbounds i8, ptr %6, i64 22
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds i8, ptr %6, i64 28
+  %21 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds i8, ptr %6, i64 34
+  %23 = getelementptr inbounds i8, ptr %6, i64 36
+  %24 = getelementptr inbounds i8, ptr %6, i64 40
+  br label %25
 
-22:                                               ; preds = %.lr.ph, %75
-  %.04763 = phi ptr [ %.04757, %.lr.ph ], [ %.047, %75 ]
-  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %75 ]
-  %.03661 = phi ptr [ null, %.lr.ph ], [ %.137, %75 ]
-  %.03960 = phi i64 [ 4096, %.lr.ph ], [ %.140, %75 ]
-  %.04359 = phi ptr [ %11, %.lr.ph ], [ %.144, %75 ]
-  %23 = load ptr, ptr %.04763, align 8
+25:                                               ; preds = %.lr.ph, %78
+  %.04763 = phi ptr [ %.04757, %.lr.ph ], [ %.047, %78 ]
+  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %78 ]
+  %.03661 = phi ptr [ null, %.lr.ph ], [ %.137, %78 ]
+  %.03960 = phi i64 [ 4096, %.lr.ph ], [ %.140, %78 ]
+  %.04359 = phi ptr [ %11, %.lr.ph ], [ %.144, %78 ]
+  %26 = load ptr, ptr %.04763, align 8
   store ptr null, ptr %5, align 8
-  %24 = call i64 @decode_rtp_packet(ptr noundef %23, ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
-  %25 = icmp eq i64 %24, 0
-  %26 = load i32, ptr %4, align 4
-  %27 = icmp eq i32 %26, 0
-  %or.cond = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond, label %75, label %28
+  %27 = call i64 @decode_rtp_packet(ptr noundef %26, ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
+  %28 = icmp eq i64 %27, 0
+  %29 = load i32, ptr %4, align 4
+  %30 = icmp eq i32 %29, 0
+  %or.cond = select i1 %28, i1 true, i1 %30
+  br i1 %or.cond, label %78, label %31
 
-28:                                               ; preds = %22
-  %29 = icmp eq i32 %.062, 0
-  br i1 %29, label %30, label %36
+31:                                               ; preds = %25
+  %32 = icmp eq i32 %.062, 0
+  br i1 %32, label %33, label %39
 
-30:                                               ; preds = %28
-  store <4 x i32> <i32 1179011410, i32 -1, i32 1163280727, i32 544501094>, ptr %6, align 16
-  store i32 16, ptr %13, align 16
-  store i16 1, ptr %14, align 4
-  %31 = load i32, ptr %3, align 4
-  %32 = trunc i32 %31 to i16
-  store i16 %32, ptr %15, align 2
-  store i32 %26, ptr %16, align 8
-  %33 = shl i32 %26, 1
-  %34 = mul i32 %33, %31
-  store i32 %34, ptr %17, align 4
-  %35 = shl i16 %32, 1
-  store i16 %35, ptr %18, align 16
-  store i16 16, ptr %19, align 2
-  store i32 1635017060, ptr %20, align 4
-  store i32 -1, ptr %21, align 8
+33:                                               ; preds = %31
+  store i32 1179011410, ptr %6, align 16
+  store i32 -1, ptr %13, align 4
+  store i32 1163280727, ptr %14, align 8
+  store i32 544501094, ptr %15, align 4
+  store i32 16, ptr %16, align 16
+  store i16 1, ptr %17, align 4
+  %34 = load i32, ptr %3, align 4
+  %35 = trunc i32 %34 to i16
+  store i16 %35, ptr %18, align 2
+  store i32 %29, ptr %19, align 8
+  %36 = shl i32 %29, 1
+  %37 = mul i32 %36, %34
+  store i32 %37, ptr %20, align 4
+  %38 = shl i16 %35, 1
+  store i16 %38, ptr %21, align 16
+  store i16 16, ptr %22, align 2
+  store i32 1635017060, ptr %23, align 4
+  store i32 -1, ptr %24, align 8
   call void @json_dumper_write_base64(ptr noundef nonnull @dumper, ptr noundef nonnull %6, i64 noundef 44) #17
   %.pre = load i32, ptr %4, align 4
-  br label %36
+  br label %39
 
-36:                                               ; preds = %30, %28
-  %37 = phi i32 [ %.pre, %30 ], [ %26, %28 ]
-  %.2 = phi i32 [ %26, %30 ], [ %.062, %28 ]
-  %38 = load ptr, ptr %5, align 8
-  %.not54 = icmp eq i32 %.2, %37
-  br i1 %.not54, label %74, label %39
+39:                                               ; preds = %33, %31
+  %40 = phi i32 [ %.pre, %33 ], [ %29, %31 ]
+  %.2 = phi i32 [ %29, %33 ], [ %.062, %31 ]
+  %41 = load ptr, ptr %5, align 8
+  %.not54 = icmp eq i32 %.2, %40
+  br i1 %.not54, label %77, label %42
 
-39:                                               ; preds = %36
+42:                                               ; preds = %39
   %.not55 = icmp eq ptr %.03661, null
-  br i1 %.not55, label %40, label %43
+  br i1 %.not55, label %43, label %46
 
-40:                                               ; preds = %39
-  %41 = call ptr @speex_resampler_init(i32 noundef 1, i32 noundef %37, i32 noundef %.2, i32 noundef 10, ptr noundef null) #17
-  %42 = call i32 @speex_resampler_skip_zeros(ptr noundef %41) #17
-  br label %49
+43:                                               ; preds = %42
+  %44 = call ptr @speex_resampler_init(i32 noundef 1, i32 noundef %40, i32 noundef %.2, i32 noundef 10, ptr noundef null) #17
+  %45 = call i32 @speex_resampler_skip_zeros(ptr noundef %44) #17
+  br label %52
 
-43:                                               ; preds = %39
+46:                                               ; preds = %42
   call void @speex_resampler_get_rate(ptr noundef nonnull %.03661, ptr noundef nonnull %2, ptr noundef nonnull %9) #17
-  %44 = load i32, ptr %4, align 4
-  %45 = load i32, ptr %2, align 4
-  %.not56 = icmp eq i32 %44, %45
-  br i1 %.not56, label %49, label %46
+  %47 = load i32, ptr %4, align 4
+  %48 = load i32, ptr %2, align 4
+  %.not56 = icmp eq i32 %47, %48
+  br i1 %.not56, label %52, label %49
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %9, align 4
-  %48 = call i32 @speex_resampler_set_rate(ptr noundef nonnull %.03661, i32 noundef %44, i32 noundef %47) #17
-  br label %49
+49:                                               ; preds = %46
+  %50 = load i32, ptr %9, align 4
+  %51 = call i32 @speex_resampler_set_rate(ptr noundef nonnull %.03661, i32 noundef %47, i32 noundef %50) #17
+  br label %52
 
-49:                                               ; preds = %43, %46, %40
-  %.3 = phi ptr [ %.03661, %46 ], [ %.03661, %43 ], [ %41, %40 ]
-  %50 = getelementptr inbounds i8, ptr %23, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 56
-  %53 = load i32, ptr %52, align 8
-  store i32 %53, ptr %7, align 4
-  %54 = mul i32 %53, %.2
-  %55 = load i32, ptr %4, align 4
-  %56 = udiv i32 %54, %55
-  %57 = urem i32 %.2, %55
-  %58 = icmp ne i32 %57, 0
-  %59 = zext i1 %58 to i32
-  %60 = add i32 %56, %59
-  store i32 %60, ptr %8, align 4
-  %61 = shl i32 %60, 1
-  %62 = zext i32 %61 to i64
-  %63 = icmp ult i64 %.03960, %62
-  br i1 %63, label %.preheader, label %68
+52:                                               ; preds = %46, %49, %43
+  %.3 = phi ptr [ %.03661, %49 ], [ %.03661, %46 ], [ %44, %43 ]
+  %53 = getelementptr inbounds i8, ptr %26, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %56 = load i32, ptr %55, align 8
+  store i32 %56, ptr %7, align 4
+  %57 = mul i32 %56, %.2
+  %58 = load i32, ptr %4, align 4
+  %59 = udiv i32 %57, %58
+  %60 = urem i32 %.2, %58
+  %61 = icmp ne i32 %60, 0
+  %62 = zext i1 %61 to i32
+  %63 = add i32 %59, %62
+  store i32 %63, ptr %8, align 4
+  %64 = shl i32 %63, 1
+  %65 = zext i32 %64 to i64
+  %66 = icmp ult i64 %.03960, %65
+  br i1 %66, label %.preheader, label %71
 
-.preheader:                                       ; preds = %49, %.preheader
-  %.4 = phi i64 [ %65, %.preheader ], [ %.03960, %49 ]
-  %64 = icmp ult i64 %.4, %62
-  %65 = shl nuw nsw i64 %.4, 1
-  br i1 %64, label %.preheader, label %66, !llvm.loop !75
+.preheader:                                       ; preds = %52, %.preheader
+  %.4 = phi i64 [ %68, %.preheader ], [ %.03960, %52 ]
+  %67 = icmp ult i64 %.4, %65
+  %68 = shl nuw nsw i64 %.4, 1
+  br i1 %67, label %.preheader, label %69, !llvm.loop !75
 
-66:                                               ; preds = %.preheader
-  %67 = call ptr @g_realloc(ptr noundef %.04359, i64 noundef %.4) #17
-  br label %68
+69:                                               ; preds = %.preheader
+  %70 = call ptr @g_realloc(ptr noundef %.04359, i64 noundef %.4) #17
+  br label %71
 
-68:                                               ; preds = %66, %49
-  %.346 = phi ptr [ %67, %66 ], [ %.04359, %49 ]
-  %.342 = phi i64 [ %.4, %66 ], [ %.03960, %49 ]
-  %69 = load ptr, ptr %5, align 8
-  %70 = call i32 @speex_resampler_process_int(ptr noundef %.3, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %7, ptr noundef %.346, ptr noundef nonnull %8) #17
-  %71 = load i32, ptr %8, align 4
-  %72 = shl i32 %71, 1
-  %73 = zext i32 %72 to i64
-  br label %74
+71:                                               ; preds = %69, %52
+  %.346 = phi ptr [ %70, %69 ], [ %.04359, %52 ]
+  %.342 = phi i64 [ %.4, %69 ], [ %.03960, %52 ]
+  %72 = load ptr, ptr %5, align 8
+  %73 = call i32 @speex_resampler_process_int(ptr noundef %.3, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %7, ptr noundef %.346, ptr noundef nonnull %8) #17
+  %74 = load i32, ptr %8, align 4
+  %75 = shl i32 %74, 1
+  %76 = zext i32 %75 to i64
+  br label %77
 
-74:                                               ; preds = %68, %36
-  %.049 = phi ptr [ %.346, %68 ], [ %38, %36 ]
-  %.048 = phi i64 [ %73, %68 ], [ %24, %36 ]
-  %.245 = phi ptr [ %.346, %68 ], [ %.04359, %36 ]
-  %.241 = phi i64 [ %.342, %68 ], [ %.03960, %36 ]
-  %.238 = phi ptr [ %.3, %68 ], [ %.03661, %36 ]
+77:                                               ; preds = %71, %39
+  %.049 = phi ptr [ %.346, %71 ], [ %41, %39 ]
+  %.048 = phi i64 [ %76, %71 ], [ %27, %39 ]
+  %.245 = phi ptr [ %.346, %71 ], [ %.04359, %39 ]
+  %.241 = phi i64 [ %.342, %71 ], [ %.03960, %39 ]
+  %.238 = phi ptr [ %.3, %71 ], [ %.03661, %39 ]
   call void @json_dumper_write_base64(ptr noundef nonnull @dumper, ptr noundef %.049, i64 noundef %.048) #17
-  br label %75
+  br label %78
 
-75:                                               ; preds = %22, %74
-  %.144 = phi ptr [ %.245, %74 ], [ %.04359, %22 ]
-  %.140 = phi i64 [ %.241, %74 ], [ %.03960, %22 ]
-  %.137 = phi ptr [ %.238, %74 ], [ %.03661, %22 ]
-  %.1 = phi i32 [ %.2, %74 ], [ %.062, %22 ]
+78:                                               ; preds = %25, %77
+  %.144 = phi ptr [ %.245, %77 ], [ %.04359, %25 ]
+  %.140 = phi i64 [ %.241, %77 ], [ %.03960, %25 ]
+  %.137 = phi ptr [ %.238, %77 ], [ %.03661, %25 ]
+  %.1 = phi i32 [ %.2, %77 ], [ %.062, %25 ]
   %.sink = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %.sink) #17
-  %76 = getelementptr inbounds i8, ptr %.04763, i64 8
-  %.047 = load ptr, ptr %76, align 8
+  %79 = getelementptr inbounds i8, ptr %.04763, i64 8
+  %.047 = load ptr, ptr %79, align 8
   %.not = icmp eq ptr %.047, null
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !76
+  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %75, %1
-  %.043.lcssa = phi ptr [ %11, %1 ], [ %.144, %75 ]
+._crit_edge:                                      ; preds = %78, %1
+  %.043.lcssa = phi ptr [ %11, %1 ], [ %.144, %78 ]
   call void @g_free(ptr noundef %.043.lcssa) #17
   call void @g_hash_table_destroy(ptr noundef %10) #17
   ret void

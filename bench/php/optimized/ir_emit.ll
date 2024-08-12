@@ -1955,68 +1955,68 @@ define hidden range(i32 0, 10243) i32 @ir_get_target_constraints(ptr noundef %0,
     i8 -116, label %10
     i8 -117, label %29
     i8 -113, label %30
-    i8 109, label %33
+    i8 109, label %34
     i8 110, label %.sink.split
-    i8 111, label %35
-    i8 -99, label %39
-    i8 107, label %55
-    i8 112, label %55
-    i8 108, label %80
-    i8 -114, label %98
-    i8 -88, label %108
-    i8 -84, label %116
-    i8 -87, label %129
-    i8 -85, label %141
-    i8 -86, label %141
-    i8 -98, label %141
-    i8 -97, label %141
-    i8 -96, label %141
-    i8 -95, label %141
-    i8 -94, label %141
-    i8 -93, label %141
-    i8 -92, label %141
-    i8 -91, label %141
-    i8 -90, label %141
-    i8 -83, label %184
-    i8 101, label %205
-    i8 69, label %221
-    i8 70, label %228
-    i8 -115, label %247
-    i8 -112, label %248
-    i8 -128, label %248
-    i8 -127, label %248
-    i8 -126, label %248
-    i8 -125, label %248
-    i8 -119, label %248
-    i8 -118, label %248
-    i8 -124, label %249
-    i8 -122, label %267
-    i8 -123, label %291
-    i8 -78, label %309
-    i8 53, label %323
-    i8 -111, label %336
-    i8 -110, label %336
-    i8 31, label %336
-    i8 32, label %336
-    i8 33, label %336
-    i8 34, label %336
-    i8 38, label %336
-    i8 -120, label %337
-    i8 63, label %338
-    i8 61, label %340
-    i8 59, label %340
-    i8 76, label %341
-    i8 105, label %346
-    i8 -82, label %347
-    i8 86, label %347
-    i8 87, label %347
-    i8 103, label %348
-    i8 77, label %349
-    i8 -80, label %350
-    i8 -79, label %352
-    i8 88, label %354
-    i8 82, label %355
-    i8 85, label %357
+    i8 111, label %38
+    i8 -99, label %42
+    i8 107, label %58
+    i8 112, label %58
+    i8 108, label %83
+    i8 -114, label %101
+    i8 -88, label %111
+    i8 -84, label %119
+    i8 -87, label %132
+    i8 -85, label %144
+    i8 -86, label %144
+    i8 -98, label %144
+    i8 -97, label %144
+    i8 -96, label %144
+    i8 -95, label %144
+    i8 -94, label %144
+    i8 -93, label %144
+    i8 -92, label %144
+    i8 -91, label %144
+    i8 -90, label %144
+    i8 -83, label %187
+    i8 101, label %208
+    i8 69, label %224
+    i8 70, label %231
+    i8 -115, label %250
+    i8 -112, label %251
+    i8 -128, label %251
+    i8 -127, label %251
+    i8 -126, label %251
+    i8 -125, label %251
+    i8 -119, label %251
+    i8 -118, label %251
+    i8 -124, label %252
+    i8 -122, label %270
+    i8 -123, label %294
+    i8 -78, label %312
+    i8 53, label %326
+    i8 -111, label %339
+    i8 -110, label %339
+    i8 31, label %339
+    i8 32, label %339
+    i8 33, label %339
+    i8 34, label %339
+    i8 38, label %339
+    i8 -120, label %340
+    i8 63, label %341
+    i8 61, label %343
+    i8 59, label %343
+    i8 76, label %344
+    i8 105, label %349
+    i8 -82, label %350
+    i8 86, label %350
+    i8 87, label %350
+    i8 103, label %351
+    i8 77, label %352
+    i8 -80, label %353
+    i8 -79, label %355
+    i8 88, label %357
+    i8 82, label %358
+    i8 85, label %360
   ]
 
 10:                                               ; preds = %3
@@ -2062,681 +2062,737 @@ define hidden range(i32 0, 10243) i32 @ir_get_target_constraints(ptr noundef %0,
   store i8 -1, ptr %31, align 1
   %32 = getelementptr inbounds i8, ptr %2, i64 17
   store i8 1, ptr %32, align 1
-  store <4 x i8> <i8 3, i8 1, i8 0, i8 0>, ptr %9, align 1
+  store i8 3, ptr %9, align 1
+  %33 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 1, ptr %33, align 1
+  %.sroa.2113.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 0, ptr %.sroa.2113.0..sroa_idx, align 1
+  %.sroa.3114.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 0, ptr %.sroa.3114.0..sroa_idx, align 1
   %.sroa.4115.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.4115.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-33:                                               ; preds = %3
+34:                                               ; preds = %3
   store i8 0, ptr %2, align 1
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 0, ptr %34, align 1
-  store <8 x i8> <i8 2, i8 2, i8 0, i8 1, i8 2, i8 0, i8 0, i8 0>, ptr %9, align 1
+  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 0, ptr %35, align 1
+  store i8 2, ptr %9, align 1
+  %36 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 2, ptr %36, align 1
+  %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 0, ptr %.sroa.2109.0..sroa_idx, align 1
+  %.sroa.3110.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 1, ptr %.sroa.3110.0..sroa_idx, align 1
+  %.sroa.4111.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 2, ptr %.sroa.4111.0..sroa_idx, align 1
+  %37 = getelementptr inbounds i8, ptr %2, i64 7
+  store i8 0, ptr %37, align 1
+  %.sroa.2105.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  store i8 0, ptr %.sroa.2105.0..sroa_idx, align 1
+  %.sroa.3106.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 9
+  store i8 0, ptr %.sroa.3106.0..sroa_idx, align 1
   %.sroa.4107.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
   store i8 3, ptr %.sroa.4107.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-35:                                               ; preds = %3
+38:                                               ; preds = %3
   br label %.sink.split
 
-.sink.split:                                      ; preds = %3, %35
-  %.sink364 = phi i8 [ 2, %35 ], [ 0, %3 ]
-  %.sink361 = phi i8 [ 0, %35 ], [ 2, %3 ]
+.sink.split:                                      ; preds = %3, %38
+  %.sink364 = phi i8 [ 2, %38 ], [ 0, %3 ]
+  %.sink361 = phi i8 [ 0, %38 ], [ 2, %3 ]
   store i8 %.sink364, ptr %2, align 1
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 0, ptr %36, align 1
+  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 0, ptr %39, align 1
   store i8 2, ptr %9, align 1
-  %37 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 %.sink361, ptr %37, align 1
+  %40 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 %.sink361, ptr %40, align 1
   %.sroa.293.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %.sroa.293.0..sroa_idx, align 1
   %.sroa.394.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.394.0..sroa_idx, align 1
   %.sroa.495.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.495.0..sroa_idx, align 1
-  %38 = getelementptr inbounds i8, ptr %2, i64 7
-  store i8 %.sink364, ptr %38, align 1
+  %41 = getelementptr inbounds i8, ptr %2, i64 7
+  store i8 %.sink364, ptr %41, align 1
   %.sroa.289.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i8 0, ptr %.sroa.289.0..sroa_idx, align 1
   %.sroa.390.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 9
   store i8 0, ptr %.sroa.390.0..sroa_idx, align 1
   %.sroa.491.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
   store i8 3, ptr %.sroa.491.0..sroa_idx, align 1
-  br label %39
+  br label %42
 
-39:                                               ; preds = %.sink.split, %3
+42:                                               ; preds = %.sink.split, %3
   %.3334 = phi i32 [ 1541, %3 ], [ 2562, %.sink.split ]
   %.2 = phi i32 [ 0, %3 ], [ 2, %.sink.split ]
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds %struct._ir_insn, ptr %40, i64 %6
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %ir_add_const_tmp_reg.exit
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds %struct._ir_insn, ptr %43, i64 %6
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %ir_add_const_tmp_reg.exit
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %41, i64 4
-  %47 = load i32, ptr %46, align 4
-  %.not353 = icmp eq i32 %47, %43
-  br i1 %.not353, label %ir_add_const_tmp_reg.exit, label %48
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds i8, ptr %44, i64 4
+  %50 = load i32, ptr %49, align 4
+  %.not353 = icmp eq i32 %50, %46
+  br i1 %.not353, label %ir_add_const_tmp_reg.exit, label %51
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %2, i64 3
-  %50 = zext nneg i32 %.2 to i64
-  %51 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %49, i64 0, i64 %50
-  %52 = getelementptr inbounds i8, ptr %41, i64 1
-  %53 = load i8, ptr %52, align 1
-  store i8 2, ptr %51, align 1
-  %.sroa.285.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 %53, ptr %.sroa.285.0..sroa_idx, align 1
-  %.sroa.386.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 2
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %2, i64 3
+  %53 = zext nneg i32 %.2 to i64
+  %54 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %52, i64 0, i64 %53
+  %55 = getelementptr inbounds i8, ptr %44, i64 1
+  %56 = load i8, ptr %55, align 1
+  store i8 2, ptr %54, align 1
+  %.sroa.285.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 1
+  store i8 %56, ptr %.sroa.285.0..sroa_idx, align 1
+  %.sroa.386.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 2
   store i8 0, ptr %.sroa.386.0..sroa_idx, align 1
-  %.sroa.487.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 3
+  %.sroa.487.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 3
   store i8 2, ptr %.sroa.487.0..sroa_idx, align 1
-  %54 = or disjoint i32 %.2, 1
+  %57 = or disjoint i32 %.2, 1
   br label %ir_add_const_tmp_reg.exit
 
-55:                                               ; preds = %3, %3
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds %struct._ir_insn, ptr %56, i64 %6
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %61, label %67
+58:                                               ; preds = %3, %3
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds %struct._ir_insn, ptr %59, i64 %6
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %70
 
-61:                                               ; preds = %55
-  %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds %struct._ir_insn, ptr %56, i64 %62
-  %64 = getelementptr inbounds i8, ptr %2, i64 3
-  %65 = getelementptr inbounds i8, ptr %63, i64 1
-  %66 = load i8, ptr %65, align 1
-  store i8 1, ptr %64, align 1
+64:                                               ; preds = %58
+  %65 = sext i32 %62 to i64
+  %66 = getelementptr inbounds %struct._ir_insn, ptr %59, i64 %65
+  %67 = getelementptr inbounds i8, ptr %2, i64 3
+  %68 = getelementptr inbounds i8, ptr %66, i64 1
+  %69 = load i8, ptr %68, align 1
+  store i8 1, ptr %67, align 1
   %.sroa.280.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %66, ptr %.sroa.280.0..sroa_idx, align 1
+  store i8 %69, ptr %.sroa.280.0..sroa_idx, align 1
   %.sroa.381.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.381.0..sroa_idx, align 1
   %.sroa.482.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.482.0..sroa_idx, align 1
-  br label %72
+  br label %75
 
-67:                                               ; preds = %55
-  %68 = load ptr, ptr %4, align 8
-  %69 = zext nneg i32 %59 to i64
-  %70 = getelementptr inbounds i32, ptr %68, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %.not351 = icmp sgt i32 %71, -1
+70:                                               ; preds = %58
+  %71 = load ptr, ptr %4, align 8
+  %72 = zext nneg i32 %62 to i64
+  %73 = getelementptr inbounds i32, ptr %71, i64 %72
+  %74 = load i32, ptr %73, align 4
+  %.not351 = icmp sgt i32 %74, -1
   %spec.select = select i1 %.not351, i32 2305, i32 1025
-  br label %72
+  br label %75
 
-72:                                               ; preds = %67, %61
-  %.4335 = phi i32 [ 2305, %61 ], [ %spec.select, %67 ]
-  %.3 = phi i32 [ 1, %61 ], [ 0, %67 ]
-  %73 = getelementptr inbounds i8, ptr %57, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %ir_add_const_tmp_reg.exit
+75:                                               ; preds = %70, %64
+  %.4335 = phi i32 [ 2305, %64 ], [ %spec.select, %70 ]
+  %.3 = phi i32 [ 1, %64 ], [ 0, %70 ]
+  %76 = getelementptr inbounds i8, ptr %60, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %79, label %ir_add_const_tmp_reg.exit
 
-76:                                               ; preds = %72
-  %77 = load i32, ptr %58, align 4
-  %.not352 = icmp eq i32 %77, %74
-  br i1 %.not352, label %ir_add_const_tmp_reg.exit, label %78
+79:                                               ; preds = %75
+  %80 = load i32, ptr %61, align 4
+  %.not352 = icmp eq i32 %80, %77
+  br i1 %.not352, label %ir_add_const_tmp_reg.exit, label %81
 
-78:                                               ; preds = %76
-  %79 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %74, i32 noundef 2, i32 noundef %.3, ptr noundef nonnull %2)
+81:                                               ; preds = %79
+  %82 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %77, i32 noundef 2, i32 noundef %.3, ptr noundef nonnull %2)
   br label %ir_add_const_tmp_reg.exit
 
-80:                                               ; preds = %3
-  %81 = load ptr, ptr %0, align 8
+83:                                               ; preds = %3
+  %84 = load ptr, ptr %0, align 8
   %.not = icmp sgt i32 %8, -1
-  br i1 %.not, label %82, label %84
+  br i1 %.not, label %85, label %87
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %2, i64 3
-  store <4 x i8> <i8 3, i8 1, i8 2, i8 3>, ptr %83, align 1
-  br label %84
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 3, ptr %86, align 1
+  %.sroa.276.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 1, ptr %.sroa.276.0..sroa_idx, align 1
+  %.sroa.377.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 2, ptr %.sroa.377.0..sroa_idx, align 1
+  %.sroa.478.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 3, ptr %.sroa.478.0..sroa_idx, align 1
+  br label %87
 
-84:                                               ; preds = %82, %80
-  %.4 = phi i32 [ 0, %80 ], [ 1, %82 ]
-  %85 = getelementptr inbounds %struct._ir_insn, ptr %81, i64 %6, i32 0, i32 1
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %88, label %ir_add_const_tmp_reg.exit
+87:                                               ; preds = %85, %83
+  %.4 = phi i32 [ 0, %83 ], [ 1, %85 ]
+  %88 = getelementptr inbounds %struct._ir_insn, ptr %84, i64 %6, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %91, label %ir_add_const_tmp_reg.exit
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %0, align 8
-  %90 = sext i32 %86 to i64
-  %91 = getelementptr inbounds %struct._ir_insn, ptr %89, i64 %90
-  %92 = getelementptr inbounds i8, ptr %2, i64 3
-  %93 = zext nneg i32 %.4 to i64
-  %94 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %92, i64 0, i64 %93
-  %95 = getelementptr inbounds i8, ptr %91, i64 1
-  %96 = load i8, ptr %95, align 1
-  store i8 1, ptr %94, align 1
-  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 1
-  store i8 %96, ptr %.sroa.272.0..sroa_idx, align 1
-  %.sroa.373.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 2
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %0, align 8
+  %93 = sext i32 %89 to i64
+  %94 = getelementptr inbounds %struct._ir_insn, ptr %92, i64 %93
+  %95 = getelementptr inbounds i8, ptr %2, i64 3
+  %96 = zext nneg i32 %.4 to i64
+  %97 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %95, i64 0, i64 %96
+  %98 = getelementptr inbounds i8, ptr %94, i64 1
+  %99 = load i8, ptr %98, align 1
+  store i8 1, ptr %97, align 1
+  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 1
+  store i8 %99, ptr %.sroa.272.0..sroa_idx, align 1
+  %.sroa.373.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 2
   store i8 0, ptr %.sroa.373.0..sroa_idx, align 1
-  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 3
+  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 3
   store i8 2, ptr %.sroa.474.0..sroa_idx, align 1
-  %97 = add nuw nsw i32 %.4, 1
+  %100 = add nuw nsw i32 %.4, 1
   br label %ir_add_const_tmp_reg.exit
 
-98:                                               ; preds = %3
-  %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds %struct._ir_insn, ptr %99, i64 %6
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %ir_add_const_tmp_reg.exit
+101:                                              ; preds = %3
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds %struct._ir_insn, ptr %102, i64 %6
+  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %107, label %ir_add_const_tmp_reg.exit
 
-104:                                              ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %2, i64 3
-  %106 = getelementptr inbounds i8, ptr %100, i64 1
-  %107 = load i8, ptr %106, align 1
-  store i8 1, ptr %105, align 1
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds i8, ptr %2, i64 3
+  %109 = getelementptr inbounds i8, ptr %103, i64 1
+  %110 = load i8, ptr %109, align 1
+  store i8 1, ptr %108, align 1
   %.sroa.268.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %107, ptr %.sroa.268.0..sroa_idx, align 1
+  store i8 %110, ptr %.sroa.268.0..sroa_idx, align 1
   %.sroa.369.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.369.0..sroa_idx, align 1
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.470.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-108:                                              ; preds = %3
-  %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds %struct._ir_insn, ptr %109, i64 %6, i32 1
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %ir_add_const_tmp_reg.exit
+111:                                              ; preds = %3
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds %struct._ir_insn, ptr %112, i64 %6, i32 1
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %117, label %ir_add_const_tmp_reg.exit
 
-114:                                              ; preds = %108
-  %115 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %112, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %2)
+117:                                              ; preds = %111
+  %118 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %115, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %2)
   br label %ir_add_const_tmp_reg.exit
 
-116:                                              ; preds = %3
-  %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds %struct._ir_insn, ptr %117, i64 %6, i32 1
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp slt i32 %119, 0
-  br i1 %120, label %121, label %123
+119:                                              ; preds = %3
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds %struct._ir_insn, ptr %120, i64 %6, i32 1
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %124, label %126
 
-121:                                              ; preds = %116
-  %122 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %119, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %2)
-  br label %123
+124:                                              ; preds = %119
+  %125 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %122, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %2)
+  br label %126
 
-123:                                              ; preds = %121, %116
-  %.5 = phi i32 [ %122, %121 ], [ 0, %116 ]
-  %124 = getelementptr inbounds i8, ptr %118, i64 4
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %125, 0
-  br i1 %126, label %127, label %ir_add_const_tmp_reg.exit
+126:                                              ; preds = %124, %119
+  %.5 = phi i32 [ %125, %124 ], [ 0, %119 ]
+  %127 = getelementptr inbounds i8, ptr %121, i64 4
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp slt i32 %128, 0
+  br i1 %129, label %130, label %ir_add_const_tmp_reg.exit
 
-127:                                              ; preds = %123
-  %128 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %125, i32 noundef 3, i32 noundef %.5, ptr noundef nonnull %2)
+130:                                              ; preds = %126
+  %131 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %128, i32 noundef 3, i32 noundef %.5, ptr noundef nonnull %2)
   br label %ir_add_const_tmp_reg.exit
 
-129:                                              ; preds = %3
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds %struct._ir_insn, ptr %130, i64 %6, i32 1
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %135, label %ir_add_const_tmp_reg.exit
+132:                                              ; preds = %3
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds %struct._ir_insn, ptr %133, i64 %6, i32 1
+  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %138, label %ir_add_const_tmp_reg.exit
 
-135:                                              ; preds = %129
-  %136 = sext i32 %133 to i64
-  %137 = getelementptr inbounds %struct._ir_insn, ptr %130, i64 %136
-  %138 = getelementptr inbounds i8, ptr %2, i64 3
-  %139 = getelementptr inbounds i8, ptr %137, i64 1
-  %140 = load i8, ptr %139, align 1
-  store i8 3, ptr %138, align 1
+138:                                              ; preds = %132
+  %139 = sext i32 %136 to i64
+  %140 = getelementptr inbounds %struct._ir_insn, ptr %133, i64 %139
+  %141 = getelementptr inbounds i8, ptr %2, i64 3
+  %142 = getelementptr inbounds i8, ptr %140, i64 1
+  %143 = load i8, ptr %142, align 1
+  store i8 3, ptr %141, align 1
   %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %140, ptr %.sroa.264.0..sroa_idx, align 1
+  store i8 %143, ptr %.sroa.264.0..sroa_idx, align 1
   %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.365.0..sroa_idx, align 1
   %.sroa.466.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.466.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-141:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %142 = load ptr, ptr %0, align 8
-  %143 = getelementptr inbounds %struct._ir_insn, ptr %142, i64 %6, i32 1
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %146, label %ir_add_const_tmp_reg.exit
+144:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %145 = load ptr, ptr %0, align 8
+  %146 = getelementptr inbounds %struct._ir_insn, ptr %145, i64 %6, i32 1
+  %147 = load i32, ptr %146, align 8
+  %148 = icmp slt i32 %147, 0
+  br i1 %148, label %149, label %ir_add_const_tmp_reg.exit
 
-146:                                              ; preds = %141
-  %147 = sext i32 %144 to i64
-  %148 = getelementptr inbounds %struct._ir_insn, ptr %142, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 1
-  %150 = load i8, ptr %149, align 1
-  %151 = icmp eq i8 %150, 6
-  br i1 %151, label %152, label %174
+149:                                              ; preds = %144
+  %150 = sext i32 %147 to i64
+  %151 = getelementptr inbounds %struct._ir_insn, ptr %145, i64 %150
+  %152 = getelementptr inbounds i8, ptr %151, i64 1
+  %153 = load i8, ptr %152, align 1
+  %154 = icmp eq i8 %153, 6
+  br i1 %154, label %155, label %177
 
-152:                                              ; preds = %146
-  %153 = load i8, ptr %148, align 8
-  %.off.i.i = add i8 %153, -66
+155:                                              ; preds = %149
+  %156 = load i8, ptr %151, align 8
+  %.off.i.i = add i8 %156, -66
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  %154 = getelementptr i8, ptr %148, i64 8
-  br i1 %switch.i.i, label %155, label %171
+  %157 = getelementptr i8, ptr %151, i64 8
+  br i1 %switch.i.i, label %158, label %174
 
-155:                                              ; preds = %152
-  %.val.i.i = load i32, ptr %154, align 8
-  %156 = tail call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %.val.i.i) #22
-  %157 = getelementptr inbounds i8, ptr %0, i64 328
-  %158 = load ptr, ptr %157, align 8
-  %.not.i.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i.i, label %164, label %159
-
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %158, i64 96
+158:                                              ; preds = %155
+  %.val.i.i = load i32, ptr %157, align 8
+  %159 = tail call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %.val.i.i) #22
+  %160 = getelementptr inbounds i8, ptr %0, i64 328
   %161 = load ptr, ptr %160, align 8
-  %.not10.i.i.i = icmp eq ptr %161, null
-  br i1 %.not10.i.i.i, label %164, label %162
+  %.not.i.i.i = icmp eq ptr %161, null
+  br i1 %.not.i.i.i, label %167, label %162
 
-162:                                              ; preds = %159
-  %163 = tail call ptr %161(ptr noundef nonnull %158, ptr noundef %156, i1 noundef zeroext false) #22
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds i8, ptr %161, i64 96
+  %164 = load ptr, ptr %163, align 8
+  %.not10.i.i.i = icmp eq ptr %164, null
+  br i1 %.not10.i.i.i, label %167, label %165
+
+165:                                              ; preds = %162
+  %166 = tail call ptr %164(ptr noundef nonnull %161, ptr noundef %159, i1 noundef zeroext false) #22
   br label %ir_sym_addr.exit.i.i
 
-164:                                              ; preds = %159, %155
-  %165 = tail call ptr @dlsym(ptr noundef null, ptr noundef %156) #22
+167:                                              ; preds = %162, %158
+  %168 = tail call ptr @dlsym(ptr noundef null, ptr noundef %159) #22
   br label %ir_sym_addr.exit.i.i
 
-ir_sym_addr.exit.i.i:                             ; preds = %164, %162
-  %166 = phi ptr [ %163, %162 ], [ %165, %164 ]
-  %.not.i.i = icmp eq ptr %166, null
-  br i1 %.not.i.i, label %ir_may_fuse_imm.exit.thread10.i, label %167
+ir_sym_addr.exit.i.i:                             ; preds = %167, %165
+  %169 = phi ptr [ %166, %165 ], [ %168, %167 ]
+  %.not.i.i = icmp eq ptr %169, null
+  br i1 %.not.i.i, label %ir_may_fuse_imm.exit.thread10.i, label %170
 
-167:                                              ; preds = %ir_sym_addr.exit.i.i
-  %168 = icmp slt ptr %166, inttoptr (i64 2147483648 to ptr)
-  %169 = icmp sgt ptr %166, inttoptr (i64 -2147483649 to ptr)
-  %170 = and i1 %168, %169
-  br i1 %170, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.thread10.i
+170:                                              ; preds = %ir_sym_addr.exit.i.i
+  %171 = icmp slt ptr %169, inttoptr (i64 2147483648 to ptr)
+  %172 = icmp sgt ptr %169, inttoptr (i64 -2147483649 to ptr)
+  %173 = and i1 %171, %172
+  br i1 %173, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.thread10.i
 
-171:                                              ; preds = %152
-  %172 = load i64, ptr %154, align 8
-  %173 = add i64 %172, 2147483648
-  %spec.select.i.i = icmp ult i64 %173, 4294967296
+174:                                              ; preds = %155
+  %175 = load i64, ptr %157, align 8
+  %176 = add i64 %175, 2147483648
+  %spec.select.i.i = icmp ult i64 %176, 4294967296
   br i1 %spec.select.i.i, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.thread10.i
 
-174:                                              ; preds = %146
-  %175 = zext i8 %150 to i64
-  %176 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %175
-  %177 = load i8, ptr %176, align 1
-  %178 = icmp ult i8 %177, 5
-  br i1 %178, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.i
+177:                                              ; preds = %149
+  %178 = zext i8 %153 to i64
+  %179 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %178
+  %180 = load i8, ptr %179, align 1
+  %181 = icmp ult i8 %180, 5
+  br i1 %181, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.i
 
-ir_may_fuse_imm.exit.i:                           ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %148, i64 8
-  %180 = load i64, ptr %179, align 8
-  %181 = add i64 %180, 2147483648
-  %spec.select19.i.i = icmp ult i64 %181, 4294967296
+ir_may_fuse_imm.exit.i:                           ; preds = %177
+  %182 = getelementptr inbounds i8, ptr %151, i64 8
+  %183 = load i64, ptr %182, align 8
+  %184 = add i64 %183, 2147483648
+  %spec.select19.i.i = icmp ult i64 %184, 4294967296
   br i1 %spec.select19.i.i, label %ir_add_const_tmp_reg.exit, label %ir_may_fuse_imm.exit.thread10.i
 
-ir_may_fuse_imm.exit.thread10.i:                  ; preds = %ir_may_fuse_imm.exit.i, %171, %167, %ir_sym_addr.exit.i.i
-  %182 = getelementptr inbounds i8, ptr %2, i64 3
-  %183 = load i8, ptr %149, align 1
-  store i8 2, ptr %182, align 1
+ir_may_fuse_imm.exit.thread10.i:                  ; preds = %ir_may_fuse_imm.exit.i, %174, %170, %ir_sym_addr.exit.i.i
+  %185 = getelementptr inbounds i8, ptr %2, i64 3
+  %186 = load i8, ptr %152, align 1
+  store i8 2, ptr %185, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %183, ptr %.sroa.2.0..sroa_idx.i, align 1
+  store i8 %186, ptr %.sroa.2.0..sroa_idx.i, align 1
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.3.0..sroa_idx.i, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.4.0..sroa_idx.i, align 1
   br label %ir_add_const_tmp_reg.exit
 
-184:                                              ; preds = %3
-  %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds %struct._ir_insn, ptr %185, i64 %6, i32 1
-  %187 = load i32, ptr %186, align 8
-  %188 = icmp slt i32 %187, 0
-  br i1 %188, label %189, label %191
+187:                                              ; preds = %3
+  %188 = load ptr, ptr %0, align 8
+  %189 = getelementptr inbounds %struct._ir_insn, ptr %188, i64 %6, i32 1
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp slt i32 %190, 0
+  br i1 %191, label %192, label %194
 
-189:                                              ; preds = %184
-  %190 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %187, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %2)
-  br label %191
+192:                                              ; preds = %187
+  %193 = tail call fastcc i32 @ir_add_const_tmp_reg(ptr noundef nonnull %0, i32 noundef %190, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %2)
+  br label %194
 
-191:                                              ; preds = %189, %184
-  %.6 = phi i32 [ %190, %189 ], [ 0, %184 ]
-  %192 = getelementptr inbounds i8, ptr %186, i64 4
-  %193 = load i32, ptr %192, align 4
-  %194 = icmp slt i32 %193, 0
-  br i1 %194, label %195, label %ir_add_const_tmp_reg.exit
+194:                                              ; preds = %192, %187
+  %.6 = phi i32 [ %193, %192 ], [ 0, %187 ]
+  %195 = getelementptr inbounds i8, ptr %189, i64 4
+  %196 = load i32, ptr %195, align 4
+  %197 = icmp slt i32 %196, 0
+  br i1 %197, label %198, label %ir_add_const_tmp_reg.exit
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %0, align 8
-  %197 = sext i32 %193 to i64
-  %198 = getelementptr inbounds %struct._ir_insn, ptr %196, i64 %197
-  %199 = getelementptr inbounds i8, ptr %2, i64 3
-  %200 = sext i32 %.6 to i64
-  %201 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %199, i64 0, i64 %200
-  %202 = getelementptr inbounds i8, ptr %198, i64 1
-  %203 = load i8, ptr %202, align 1
-  store i8 3, ptr %201, align 1
-  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 1
-  store i8 %203, ptr %.sroa.260.0..sroa_idx, align 1
-  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 2
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %0, align 8
+  %200 = sext i32 %196 to i64
+  %201 = getelementptr inbounds %struct._ir_insn, ptr %199, i64 %200
+  %202 = getelementptr inbounds i8, ptr %2, i64 3
+  %203 = sext i32 %.6 to i64
+  %204 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %202, i64 0, i64 %203
+  %205 = getelementptr inbounds i8, ptr %201, i64 1
+  %206 = load i8, ptr %205, align 1
+  store i8 3, ptr %204, align 1
+  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %204, i64 1
+  store i8 %206, ptr %.sroa.260.0..sroa_idx, align 1
+  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %204, i64 2
   store i8 0, ptr %.sroa.361.0..sroa_idx, align 1
-  %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 3
+  %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %204, i64 3
   store i8 2, ptr %.sroa.462.0..sroa_idx, align 1
-  %204 = add nsw i32 %.6, 1
+  %207 = add nsw i32 %.6, 1
   br label %ir_add_const_tmp_reg.exit
 
-205:                                              ; preds = %3
-  %206 = load ptr, ptr %0, align 8
-  %207 = getelementptr inbounds %struct._ir_insn, ptr %206, i64 %6, i32 1
-  %208 = load i32, ptr %207, align 8
-  %209 = icmp slt i32 %208, 0
-  br i1 %209, label %210, label %216
+208:                                              ; preds = %3
+  %209 = load ptr, ptr %0, align 8
+  %210 = getelementptr inbounds %struct._ir_insn, ptr %209, i64 %6, i32 1
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp slt i32 %211, 0
+  br i1 %212, label %213, label %219
 
-210:                                              ; preds = %205
-  %211 = sext i32 %208 to i64
-  %212 = getelementptr inbounds %struct._ir_insn, ptr %206, i64 %211
-  %213 = getelementptr inbounds i8, ptr %2, i64 3
-  %214 = getelementptr inbounds i8, ptr %212, i64 1
-  %215 = load i8, ptr %214, align 1
-  store i8 2, ptr %213, align 1
+213:                                              ; preds = %208
+  %214 = sext i32 %211 to i64
+  %215 = getelementptr inbounds %struct._ir_insn, ptr %209, i64 %214
+  %216 = getelementptr inbounds i8, ptr %2, i64 3
+  %217 = getelementptr inbounds i8, ptr %215, i64 1
+  %218 = load i8, ptr %217, align 1
+  store i8 2, ptr %216, align 1
   %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %215, ptr %.sroa.256.0..sroa_idx, align 1
+  store i8 %218, ptr %.sroa.256.0..sroa_idx, align 1
   %.sroa.357.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.357.0..sroa_idx, align 1
   %.sroa.458.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.458.0..sroa_idx, align 1
-  br label %216
+  br label %219
 
-216:                                              ; preds = %210, %205
-  %.7 = phi i32 [ 1, %210 ], [ 0, %205 ]
-  %217 = getelementptr inbounds i8, ptr %2, i64 3
-  %218 = zext nneg i32 %.7 to i64
-  %219 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %217, i64 0, i64 %218
-  store <4 x i8> <i8 3, i8 6, i8 0, i8 2>, ptr %219, align 1
-  %220 = add nuw nsw i32 %.7, 1
+219:                                              ; preds = %213, %208
+  %.7 = phi i32 [ 1, %213 ], [ 0, %208 ]
+  %220 = getelementptr inbounds i8, ptr %2, i64 3
+  %221 = zext nneg i32 %.7 to i64
+  %222 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %220, i64 0, i64 %221
+  store i8 3, ptr %222, align 1
+  %.sroa.252.0..sroa_idx = getelementptr inbounds i8, ptr %222, i64 1
+  store i8 6, ptr %.sroa.252.0..sroa_idx, align 1
+  %.sroa.353.0..sroa_idx = getelementptr inbounds i8, ptr %222, i64 2
+  store i8 0, ptr %.sroa.353.0..sroa_idx, align 1
+  %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %222, i64 3
+  store i8 2, ptr %.sroa.454.0..sroa_idx, align 1
+  %223 = add nuw nsw i32 %.7, 1
   br label %ir_add_const_tmp_reg.exit
 
-221:                                              ; preds = %3
-  %222 = load ptr, ptr %0, align 8
-  %223 = getelementptr inbounds %struct._ir_insn, ptr %222, i64 %6
-  %224 = getelementptr inbounds i8, ptr %223, i64 1
-  %225 = load i8, ptr %224, align 1
-  %226 = icmp ult i8 %225, 12
-  %.358 = select i1 %226, i8 0, i8 16
+224:                                              ; preds = %3
+  %225 = load ptr, ptr %0, align 8
+  %226 = getelementptr inbounds %struct._ir_insn, ptr %225, i64 %6
+  %227 = getelementptr inbounds i8, ptr %226, i64 1
+  %228 = load i8, ptr %227, align 1
+  %229 = icmp ult i8 %228, 12
+  %.358 = select i1 %229, i8 0, i8 16
   store i8 %.358, ptr %2, align 1
-  %227 = getelementptr inbounds i8, ptr %2, i64 3
-  store <4 x i8> <i8 32, i8 0, i8 1, i8 2>, ptr %227, align 1
-  br label %228
+  %230 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 32, ptr %230, align 1
+  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 0, ptr %.sroa.248.0..sroa_idx, align 1
+  %.sroa.349.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 1, ptr %.sroa.349.0..sroa_idx, align 1
+  %.sroa.450.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 2, ptr %.sroa.450.0..sroa_idx, align 1
+  br label %231
 
-228:                                              ; preds = %221, %3
-  %.1 = phi i32 [ 0, %3 ], [ 1, %221 ]
-  %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds %struct._ir_insn, ptr %229, i64 %6
-  %231 = getelementptr inbounds i8, ptr %230, i64 2
-  %232 = load i16, ptr %231, align 2
-  %233 = icmp ugt i16 %232, 2
-  br i1 %233, label %234, label %ir_add_const_tmp_reg.exit
+231:                                              ; preds = %224, %3
+  %.1 = phi i32 [ 0, %3 ], [ 1, %224 ]
+  %232 = load ptr, ptr %0, align 8
+  %233 = getelementptr inbounds %struct._ir_insn, ptr %232, i64 %6
+  %234 = getelementptr inbounds i8, ptr %233, i64 2
+  %235 = load i16, ptr %234, align 2
+  %236 = icmp ugt i16 %235, 2
+  br i1 %236, label %237, label %ir_add_const_tmp_reg.exit
 
-234:                                              ; preds = %228
-  %235 = getelementptr inbounds i8, ptr %2, i64 15
-  %236 = getelementptr inbounds i8, ptr %2, i64 17
-  store i8 -1, ptr %236, align 1
-  %237 = tail call fastcc i32 @ir_get_args_regs(ptr noundef nonnull %0, ptr noundef nonnull %230, ptr noundef nonnull %235)
-  %238 = trunc i32 %237 to i8
-  store i8 %238, ptr %9, align 1
-  %239 = getelementptr inbounds i8, ptr %230, i64 8
-  %240 = load i32, ptr %239, align 8
-  %241 = icmp slt i32 %240, 0
-  br i1 %241, label %ir_add_const_tmp_reg.exit, label %242
+237:                                              ; preds = %231
+  %238 = getelementptr inbounds i8, ptr %2, i64 15
+  %239 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 -1, ptr %239, align 1
+  %240 = tail call fastcc i32 @ir_get_args_regs(ptr noundef nonnull %0, ptr noundef nonnull %233, ptr noundef nonnull %238)
+  %241 = trunc i32 %240 to i8
+  store i8 %241, ptr %9, align 1
+  %242 = getelementptr inbounds i8, ptr %233, i64 8
+  %243 = load i32, ptr %242, align 8
+  %244 = icmp slt i32 %243, 0
+  br i1 %244, label %ir_add_const_tmp_reg.exit, label %245
 
-242:                                              ; preds = %234
-  %243 = getelementptr inbounds i8, ptr %2, i64 3
-  %244 = zext nneg i32 %.1 to i64
-  %245 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %243, i64 0, i64 %244
-  store <4 x i8> <i8 1, i8 6, i8 0, i8 1>, ptr %245, align 1
-  %246 = add nuw nsw i32 %.1, 1
+245:                                              ; preds = %237
+  %246 = getelementptr inbounds i8, ptr %2, i64 3
+  %247 = zext nneg i32 %.1 to i64
+  %248 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %246, i64 0, i64 %247
+  store i8 1, ptr %248, align 1
+  %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %248, i64 1
+  store i8 6, ptr %.sroa.244.0..sroa_idx, align 1
+  %.sroa.345.0..sroa_idx = getelementptr inbounds i8, ptr %248, i64 2
+  store i8 0, ptr %.sroa.345.0..sroa_idx, align 1
+  %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %248, i64 3
+  store i8 1, ptr %.sroa.446.0..sroa_idx, align 1
+  %249 = add nuw nsw i32 %.1, 1
   br label %ir_add_const_tmp_reg.exit
 
-247:                                              ; preds = %3
+250:                                              ; preds = %3
   br label %ir_add_const_tmp_reg.exit
 
-248:                                              ; preds = %3, %3, %3, %3, %3, %3, %3
+251:                                              ; preds = %3, %3, %3, %3, %3, %3, %3
   br label %ir_add_const_tmp_reg.exit
 
-249:                                              ; preds = %3
-  %250 = load ptr, ptr %0, align 8
-  %251 = getelementptr inbounds %struct._ir_insn, ptr %250, i64 %6
-  %252 = getelementptr inbounds i8, ptr %251, i64 1
-  %253 = load i8, ptr %252, align 1
-  %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %254
+252:                                              ; preds = %3
+  %253 = load ptr, ptr %0, align 8
+  %254 = getelementptr inbounds %struct._ir_insn, ptr %253, i64 %6
+  %255 = getelementptr inbounds i8, ptr %254, i64 1
   %256 = load i8, ptr %255, align 1
-  %257 = icmp eq i8 %256, 8
-  br i1 %257, label %258, label %ir_add_const_tmp_reg.exit
+  %257 = zext i8 %256 to i64
+  %258 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %257
+  %259 = load i8, ptr %258, align 1
+  %260 = icmp eq i8 %259, 8
+  br i1 %260, label %261, label %ir_add_const_tmp_reg.exit
 
-258:                                              ; preds = %249
-  %259 = getelementptr inbounds i8, ptr %251, i64 8
-  %260 = load i32, ptr %259, align 8
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %struct._ir_insn, ptr %250, i64 %261, i32 1
-  %263 = load i64, ptr %262, align 8
-  %264 = add i64 %263, 2147483647
-  %or.cond = icmp ult i64 %264, 4294967296
-  br i1 %or.cond, label %ir_add_const_tmp_reg.exit, label %265
+261:                                              ; preds = %252
+  %262 = getelementptr inbounds i8, ptr %254, i64 8
+  %263 = load i32, ptr %262, align 8
+  %264 = sext i32 %263 to i64
+  %265 = getelementptr inbounds %struct._ir_insn, ptr %253, i64 %264, i32 1
+  %266 = load i64, ptr %265, align 8
+  %267 = add i64 %266, 2147483647
+  %or.cond = icmp ult i64 %267, 4294967296
+  br i1 %or.cond, label %ir_add_const_tmp_reg.exit, label %268
 
-265:                                              ; preds = %258
-  %266 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 2, ptr %266, align 1
+268:                                              ; preds = %261
+  %269 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 2, ptr %269, align 1
   %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %253, ptr %.sroa.238.0..sroa_idx, align 1
+  store i8 %256, ptr %.sroa.238.0..sroa_idx, align 1
   %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.339.0..sroa_idx, align 1
   %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.440.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-267:                                              ; preds = %3
-  %268 = load ptr, ptr %0, align 8
-  %269 = getelementptr inbounds %struct._ir_insn, ptr %268, i64 %6
-  %270 = getelementptr inbounds i8, ptr %269, i64 1
-  %271 = load i8, ptr %270, align 1
-  %272 = zext i8 %271 to i64
-  %273 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %272
+270:                                              ; preds = %3
+  %271 = load ptr, ptr %0, align 8
+  %272 = getelementptr inbounds %struct._ir_insn, ptr %271, i64 %6
+  %273 = getelementptr inbounds i8, ptr %272, i64 1
   %274 = load i8, ptr %273, align 1
-  %275 = icmp eq i8 %274, 8
-  br i1 %275, label %276, label %285
+  %275 = zext i8 %274 to i64
+  %276 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %275
+  %277 = load i8, ptr %276, align 1
+  %278 = icmp eq i8 %277, 8
+  br i1 %278, label %279, label %288
 
-276:                                              ; preds = %267
-  %277 = getelementptr inbounds i8, ptr %269, i64 8
-  %278 = load i32, ptr %277, align 8
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds %struct._ir_insn, ptr %268, i64 %279, i32 1
-  %281 = load i64, ptr %280, align 8
-  %282 = add i64 %281, 2147483647
-  %or.cond3 = icmp ult i64 %282, 4294967296
-  br i1 %or.cond3, label %285, label %283
+279:                                              ; preds = %270
+  %280 = getelementptr inbounds i8, ptr %272, i64 8
+  %281 = load i32, ptr %280, align 8
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds %struct._ir_insn, ptr %271, i64 %282, i32 1
+  %284 = load i64, ptr %283, align 8
+  %285 = add i64 %284, 2147483647
+  %or.cond3 = icmp ult i64 %285, 4294967296
+  br i1 %or.cond3, label %288, label %286
 
-283:                                              ; preds = %276
-  %284 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 2, ptr %284, align 1
+286:                                              ; preds = %279
+  %287 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 2, ptr %287, align 1
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %271, ptr %.sroa.232.0..sroa_idx, align 1
+  store i8 %274, ptr %.sroa.232.0..sroa_idx, align 1
   %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.333.0..sroa_idx, align 1
   %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.434.0..sroa_idx, align 1
-  %.pre = load i8, ptr %270, align 1
-  br label %285
+  %.pre = load i8, ptr %273, align 1
+  br label %288
 
-285:                                              ; preds = %283, %276, %267
-  %286 = phi i8 [ %271, %276 ], [ %.pre, %283 ], [ %271, %267 ]
-  %.9 = phi i32 [ 0, %276 ], [ 1, %283 ], [ 0, %267 ]
-  %287 = getelementptr inbounds i8, ptr %2, i64 3
-  %288 = zext nneg i32 %.9 to i64
-  %289 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %287, i64 0, i64 %288
-  store i8 3, ptr %289, align 1
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 1
-  store i8 %286, ptr %.sroa.228.0..sroa_idx, align 1
-  %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 2
+288:                                              ; preds = %286, %279, %270
+  %289 = phi i8 [ %274, %279 ], [ %.pre, %286 ], [ %274, %270 ]
+  %.9 = phi i32 [ 0, %279 ], [ 1, %286 ], [ 0, %270 ]
+  %290 = getelementptr inbounds i8, ptr %2, i64 3
+  %291 = zext nneg i32 %.9 to i64
+  %292 = getelementptr inbounds [3 x %struct._ir_tmp_reg], ptr %290, i64 0, i64 %291
+  store i8 3, ptr %292, align 1
+  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %292, i64 1
+  store i8 %289, ptr %.sroa.228.0..sroa_idx, align 1
+  %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %292, i64 2
   store i8 1, ptr %.sroa.329.0..sroa_idx, align 1
-  %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 3
+  %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %292, i64 3
   store i8 3, ptr %.sroa.430.0..sroa_idx, align 1
-  %290 = add nuw nsw i32 %.9, 1
+  %293 = add nuw nsw i32 %.9, 1
   br label %ir_add_const_tmp_reg.exit
 
-291:                                              ; preds = %3
-  %292 = load ptr, ptr %0, align 8
-  %293 = getelementptr inbounds %struct._ir_insn, ptr %292, i64 %6
-  %294 = getelementptr inbounds i8, ptr %293, i64 1
-  %295 = load i8, ptr %294, align 1
-  %296 = zext i8 %295 to i64
-  %297 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %296
+294:                                              ; preds = %3
+  %295 = load ptr, ptr %0, align 8
+  %296 = getelementptr inbounds %struct._ir_insn, ptr %295, i64 %6
+  %297 = getelementptr inbounds i8, ptr %296, i64 1
   %298 = load i8, ptr %297, align 1
-  %299 = icmp eq i8 %298, 8
-  br i1 %299, label %300, label %ir_add_const_tmp_reg.exit
+  %299 = zext i8 %298 to i64
+  %300 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %299
+  %301 = load i8, ptr %300, align 1
+  %302 = icmp eq i8 %301, 8
+  br i1 %302, label %303, label %ir_add_const_tmp_reg.exit
 
-300:                                              ; preds = %291
-  %301 = getelementptr inbounds i8, ptr %293, i64 8
-  %302 = load i32, ptr %301, align 8
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds %struct._ir_insn, ptr %292, i64 %303, i32 1
-  %305 = load i64, ptr %304, align 8
-  %306 = add i64 %305, 2147483647
-  %or.cond5 = icmp ult i64 %306, 4294967296
-  br i1 %or.cond5, label %ir_add_const_tmp_reg.exit, label %307
+303:                                              ; preds = %294
+  %304 = getelementptr inbounds i8, ptr %296, i64 8
+  %305 = load i32, ptr %304, align 8
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds %struct._ir_insn, ptr %295, i64 %306, i32 1
+  %308 = load i64, ptr %307, align 8
+  %309 = add i64 %308, 2147483647
+  %or.cond5 = icmp ult i64 %309, 4294967296
+  br i1 %or.cond5, label %ir_add_const_tmp_reg.exit, label %310
 
-307:                                              ; preds = %300
-  %308 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 2, ptr %308, align 1
+310:                                              ; preds = %303
+  %311 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 2, ptr %311, align 1
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %295, ptr %.sroa.223.0..sroa_idx, align 1
+  store i8 %298, ptr %.sroa.223.0..sroa_idx, align 1
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.324.0..sroa_idx, align 1
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.425.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-309:                                              ; preds = %3
-  %310 = load ptr, ptr %0, align 8
-  %311 = getelementptr inbounds %struct._ir_insn, ptr %310, i64 %6
-  %312 = getelementptr inbounds i8, ptr %311, i64 1
-  %313 = load i8, ptr %312, align 1
-  %314 = zext i8 %313 to i64
-  %315 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %314
+312:                                              ; preds = %3
+  %313 = load ptr, ptr %0, align 8
+  %314 = getelementptr inbounds %struct._ir_insn, ptr %313, i64 %6
+  %315 = getelementptr inbounds i8, ptr %314, i64 1
   %316 = load i8, ptr %315, align 1
-  %317 = icmp eq i8 %316, 1
-  %.359 = select i1 %317, i32 257, i32 513
-  %318 = getelementptr inbounds i8, ptr %311, i64 4
-  %319 = load i32, ptr %318, align 4
-  %320 = icmp slt i32 %319, 0
-  br i1 %320, label %321, label %ir_add_const_tmp_reg.exit
+  %317 = zext i8 %316 to i64
+  %318 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %317
+  %319 = load i8, ptr %318, align 1
+  %320 = icmp eq i8 %319, 1
+  %.359 = select i1 %320, i32 257, i32 513
+  %321 = getelementptr inbounds i8, ptr %314, i64 4
+  %322 = load i32, ptr %321, align 4
+  %323 = icmp slt i32 %322, 0
+  br i1 %323, label %324, label %ir_add_const_tmp_reg.exit
 
-321:                                              ; preds = %309
-  %322 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 1, ptr %322, align 1
+324:                                              ; preds = %312
+  %325 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 1, ptr %325, align 1
   %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %313, ptr %.sroa.219.0..sroa_idx, align 1
+  store i8 %316, ptr %.sroa.219.0..sroa_idx, align 1
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 0, ptr %.sroa.320.0..sroa_idx, align 1
   %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 2, ptr %.sroa.421.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-323:                                              ; preds = %3
-  %324 = load ptr, ptr %0, align 8
-  %325 = getelementptr inbounds %struct._ir_insn, ptr %324, i64 %6
-  %326 = getelementptr inbounds i8, ptr %2, i64 3
-  %327 = getelementptr inbounds i8, ptr %325, i64 1
-  %328 = load i8, ptr %327, align 1
-  store i8 2, ptr %326, align 1
+326:                                              ; preds = %3
+  %327 = load ptr, ptr %0, align 8
+  %328 = getelementptr inbounds %struct._ir_insn, ptr %327, i64 %6
+  %329 = getelementptr inbounds i8, ptr %2, i64 3
+  %330 = getelementptr inbounds i8, ptr %328, i64 1
+  %331 = load i8, ptr %330, align 1
+  store i8 2, ptr %329, align 1
   %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %328, ptr %.sroa.215.0..sroa_idx, align 1
+  store i8 %331, ptr %.sroa.215.0..sroa_idx, align 1
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
   store i8 1, ptr %.sroa.316.0..sroa_idx, align 1
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
   store i8 3, ptr %.sroa.417.0..sroa_idx, align 1
-  %329 = load i8, ptr %327, align 1
-  %330 = zext i8 %329 to i64
-  %331 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %330
-  %332 = load i8, ptr %331, align 1
-  %333 = icmp eq i8 %332, 8
-  br i1 %333, label %334, label %ir_add_const_tmp_reg.exit
+  %332 = load i8, ptr %330, align 1
+  %333 = zext i8 %332 to i64
+  %334 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %333
+  %335 = load i8, ptr %334, align 1
+  %336 = icmp eq i8 %335, 8
+  br i1 %336, label %337, label %ir_add_const_tmp_reg.exit
 
-334:                                              ; preds = %323
-  %335 = getelementptr inbounds i8, ptr %2, i64 7
-  store i8 3, ptr %335, align 1
+337:                                              ; preds = %326
+  %338 = getelementptr inbounds i8, ptr %2, i64 7
+  store i8 3, ptr %338, align 1
   %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  store i8 %329, ptr %.sroa.211.0..sroa_idx, align 1
+  store i8 %332, ptr %.sroa.211.0..sroa_idx, align 1
   %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 9
   store i8 1, ptr %.sroa.312.0..sroa_idx, align 1
   %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
   store i8 3, ptr %.sroa.413.0..sroa_idx, align 1
   br label %ir_add_const_tmp_reg.exit
 
-336:                                              ; preds = %3, %3, %3, %3, %3, %3, %3
+339:                                              ; preds = %3, %3, %3, %3, %3, %3, %3
   br label %ir_add_const_tmp_reg.exit
 
-337:                                              ; preds = %3
-  br label %ir_add_const_tmp_reg.exit
-
-338:                                              ; preds = %3
-  %339 = tail call fastcc signext i8 @ir_get_param_reg(ptr noundef nonnull %0, i32 noundef %1)
-  store i8 %339, ptr %2, align 1
-  br label %ir_add_const_tmp_reg.exit
-
-340:                                              ; preds = %3, %3
+340:                                              ; preds = %3
   br label %ir_add_const_tmp_reg.exit
 
 341:                                              ; preds = %3
-  %342 = load ptr, ptr %0, align 8
-  %343 = getelementptr inbounds %struct._ir_insn, ptr %342, i64 %6, i32 1
-  %344 = load i32, ptr %343, align 8
-  %345 = trunc i32 %344 to i8
-  store i8 %345, ptr %2, align 1
+  %342 = tail call fastcc signext i8 @ir_get_param_reg(ptr noundef nonnull %0, i32 noundef %1)
+  store i8 %342, ptr %2, align 1
   br label %ir_add_const_tmp_reg.exit
 
-346:                                              ; preds = %3
-  store i8 0, ptr %2, align 1
+343:                                              ; preds = %3, %3
   br label %ir_add_const_tmp_reg.exit
 
-347:                                              ; preds = %3, %3, %3
-  br label %ir_add_const_tmp_reg.exit
-
-348:                                              ; preds = %3
+344:                                              ; preds = %3
+  %345 = load ptr, ptr %0, align 8
+  %346 = getelementptr inbounds %struct._ir_insn, ptr %345, i64 %6, i32 1
+  %347 = load i32, ptr %346, align 8
+  %348 = trunc i32 %347 to i8
+  store i8 %348, ptr %2, align 1
   br label %ir_add_const_tmp_reg.exit
 
 349:                                              ; preds = %3
+  store i8 0, ptr %2, align 1
   br label %ir_add_const_tmp_reg.exit
 
-350:                                              ; preds = %3
-  %351 = getelementptr inbounds i8, ptr %2, i64 17
-  store i8 0, ptr %351, align 1
-  store i8 3, ptr %9, align 1
+350:                                              ; preds = %3, %3, %3
+  br label %ir_add_const_tmp_reg.exit
+
+351:                                              ; preds = %3
   br label %ir_add_const_tmp_reg.exit
 
 352:                                              ; preds = %3
-  %353 = getelementptr inbounds i8, ptr %2, i64 17
-  store i8 16, ptr %353, align 1
+  br label %ir_add_const_tmp_reg.exit
+
+353:                                              ; preds = %3
+  %354 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 0, ptr %354, align 1
   store i8 3, ptr %9, align 1
   br label %ir_add_const_tmp_reg.exit
 
-354:                                              ; preds = %3
-  br label %ir_add_const_tmp_reg.exit
-
 355:                                              ; preds = %3
-  %356 = getelementptr inbounds i8, ptr %2, i64 3
-  store <4 x i8> <i8 3, i8 6, i8 0, i8 2>, ptr %356, align 1
+  %356 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 16, ptr %356, align 1
+  store i8 3, ptr %9, align 1
   br label %ir_add_const_tmp_reg.exit
 
 357:                                              ; preds = %3
-  %358 = getelementptr inbounds i8, ptr %2, i64 3
-  store <4 x i8> <i8 3, i8 6, i8 0, i8 3>, ptr %358, align 1
   br label %ir_add_const_tmp_reg.exit
 
-ir_add_const_tmp_reg.exit:                        ; preds = %ir_may_fuse_imm.exit.thread10.i, %ir_may_fuse_imm.exit.i, %174, %171, %167, %228, %242, %234, %323, %334, %309, %321, %291, %300, %307, %249, %258, %265, %191, %195, %141, %129, %135, %123, %127, %108, %114, %98, %104, %84, %88, %72, %76, %78, %39, %45, %48, %20, %24, %27, %357, %355, %354, %352, %350, %349, %348, %347, %346, %341, %340, %338, %337, %336, %285, %248, %247, %216, %33, %30, %29, %3
-  %.0331 = phi i32 [ 5377, %3 ], [ 257, %357 ], [ 256, %355 ], [ 0, %354 ], [ 2048, %352 ], [ 2048, %350 ], [ 8192, %349 ], [ 2048, %348 ], [ 2048, %347 ], [ 1, %346 ], [ 2, %341 ], [ 2, %340 ], [ 0, %338 ], [ 265, %337 ], [ 517, %336 ], [ 513, %334 ], [ 513, %323 ], [ %.359, %321 ], [ %.359, %309 ], [ 265, %300 ], [ 265, %307 ], [ 265, %291 ], [ 517, %285 ], [ 517, %258 ], [ 517, %265 ], [ 517, %249 ], [ 517, %248 ], [ 2565, %247 ], [ 1024, %216 ], [ 5120, %195 ], [ 5120, %191 ], [ 1025, %141 ], [ 4096, %135 ], [ 4096, %129 ], [ 5120, %127 ], [ 5120, %123 ], [ 4096, %114 ], [ 4096, %108 ], [ 2305, %104 ], [ 2305, %98 ], [ 2305, %88 ], [ 2305, %84 ], [ 513, %78 ], [ %.4335, %76 ], [ %.4335, %72 ], [ %.3334, %48 ], [ %.3334, %45 ], [ %.3334, %39 ], [ 2562, %33 ], [ %.357, %30 ], [ 513, %29 ], [ %.1332, %27 ], [ %.1332, %24 ], [ %.1332, %20 ], [ 10242, %234 ], [ 10242, %242 ], [ 10242, %228 ], [ 1025, %167 ], [ 1025, %171 ], [ 1025, %174 ], [ 1025, %ir_may_fuse_imm.exit.i ], [ 1025, %ir_may_fuse_imm.exit.thread10.i ]
-  %.0 = phi i32 [ 0, %3 ], [ 1, %357 ], [ 1, %355 ], [ 0, %354 ], [ 0, %352 ], [ 0, %350 ], [ 0, %349 ], [ 0, %348 ], [ 0, %347 ], [ 0, %346 ], [ 0, %341 ], [ 0, %340 ], [ 0, %338 ], [ 0, %337 ], [ 0, %336 ], [ 2, %334 ], [ 1, %323 ], [ 1, %321 ], [ 0, %309 ], [ 0, %300 ], [ 1, %307 ], [ 0, %291 ], [ %290, %285 ], [ 0, %258 ], [ 1, %265 ], [ 0, %249 ], [ 0, %248 ], [ 0, %247 ], [ %220, %216 ], [ %204, %195 ], [ %.6, %191 ], [ 0, %141 ], [ 1, %135 ], [ 0, %129 ], [ %128, %127 ], [ %.5, %123 ], [ %115, %114 ], [ 0, %108 ], [ 1, %104 ], [ 0, %98 ], [ %97, %88 ], [ %.4, %84 ], [ %79, %78 ], [ %.3, %76 ], [ %.3, %72 ], [ %54, %48 ], [ %.2, %45 ], [ %.2, %39 ], [ 2, %33 ], [ 1, %30 ], [ 0, %29 ], [ %28, %27 ], [ 0, %24 ], [ 0, %20 ], [ %.1, %234 ], [ %246, %242 ], [ %.1, %228 ], [ 0, %167 ], [ 0, %171 ], [ 0, %174 ], [ 0, %ir_may_fuse_imm.exit.i ], [ 1, %ir_may_fuse_imm.exit.thread10.i ]
-  %359 = trunc i32 %.0 to i8
-  %360 = getelementptr inbounds i8, ptr %2, i64 1
-  store i8 %359, ptr %360, align 1
+358:                                              ; preds = %3
+  %359 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 3, ptr %359, align 1
+  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 6, ptr %.sroa.27.0..sroa_idx, align 1
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 0, ptr %.sroa.38.0..sroa_idx, align 1
+  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 2, ptr %.sroa.49.0..sroa_idx, align 1
+  br label %ir_add_const_tmp_reg.exit
+
+360:                                              ; preds = %3
+  %361 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 3, ptr %361, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 6, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 0, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 3, ptr %.sroa.4.0..sroa_idx, align 1
+  br label %ir_add_const_tmp_reg.exit
+
+ir_add_const_tmp_reg.exit:                        ; preds = %ir_may_fuse_imm.exit.thread10.i, %ir_may_fuse_imm.exit.i, %177, %174, %170, %231, %245, %237, %326, %337, %312, %324, %294, %303, %310, %252, %261, %268, %194, %198, %144, %132, %138, %126, %130, %111, %117, %101, %107, %87, %91, %75, %79, %81, %42, %48, %51, %20, %24, %27, %360, %358, %357, %355, %353, %352, %351, %350, %349, %344, %343, %341, %340, %339, %288, %251, %250, %219, %34, %30, %29, %3
+  %.0331 = phi i32 [ 5377, %3 ], [ 257, %360 ], [ 256, %358 ], [ 0, %357 ], [ 2048, %355 ], [ 2048, %353 ], [ 8192, %352 ], [ 2048, %351 ], [ 2048, %350 ], [ 1, %349 ], [ 2, %344 ], [ 2, %343 ], [ 0, %341 ], [ 265, %340 ], [ 517, %339 ], [ 513, %337 ], [ 513, %326 ], [ %.359, %324 ], [ %.359, %312 ], [ 265, %303 ], [ 265, %310 ], [ 265, %294 ], [ 517, %288 ], [ 517, %261 ], [ 517, %268 ], [ 517, %252 ], [ 517, %251 ], [ 2565, %250 ], [ 1024, %219 ], [ 5120, %198 ], [ 5120, %194 ], [ 1025, %144 ], [ 4096, %138 ], [ 4096, %132 ], [ 5120, %130 ], [ 5120, %126 ], [ 4096, %117 ], [ 4096, %111 ], [ 2305, %107 ], [ 2305, %101 ], [ 2305, %91 ], [ 2305, %87 ], [ 513, %81 ], [ %.4335, %79 ], [ %.4335, %75 ], [ %.3334, %51 ], [ %.3334, %48 ], [ %.3334, %42 ], [ 2562, %34 ], [ %.357, %30 ], [ 513, %29 ], [ %.1332, %27 ], [ %.1332, %24 ], [ %.1332, %20 ], [ 10242, %237 ], [ 10242, %245 ], [ 10242, %231 ], [ 1025, %170 ], [ 1025, %174 ], [ 1025, %177 ], [ 1025, %ir_may_fuse_imm.exit.i ], [ 1025, %ir_may_fuse_imm.exit.thread10.i ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %360 ], [ 1, %358 ], [ 0, %357 ], [ 0, %355 ], [ 0, %353 ], [ 0, %352 ], [ 0, %351 ], [ 0, %350 ], [ 0, %349 ], [ 0, %344 ], [ 0, %343 ], [ 0, %341 ], [ 0, %340 ], [ 0, %339 ], [ 2, %337 ], [ 1, %326 ], [ 1, %324 ], [ 0, %312 ], [ 0, %303 ], [ 1, %310 ], [ 0, %294 ], [ %293, %288 ], [ 0, %261 ], [ 1, %268 ], [ 0, %252 ], [ 0, %251 ], [ 0, %250 ], [ %223, %219 ], [ %207, %198 ], [ %.6, %194 ], [ 0, %144 ], [ 1, %138 ], [ 0, %132 ], [ %131, %130 ], [ %.5, %126 ], [ %118, %117 ], [ 0, %111 ], [ 1, %107 ], [ 0, %101 ], [ %100, %91 ], [ %.4, %87 ], [ %82, %81 ], [ %.3, %79 ], [ %.3, %75 ], [ %57, %51 ], [ %.2, %48 ], [ %.2, %42 ], [ 2, %34 ], [ 1, %30 ], [ 0, %29 ], [ %28, %27 ], [ 0, %24 ], [ 0, %20 ], [ %.1, %237 ], [ %249, %245 ], [ %.1, %231 ], [ 0, %170 ], [ 0, %174 ], [ 0, %177 ], [ 0, %ir_may_fuse_imm.exit.i ], [ 1, %ir_may_fuse_imm.exit.thread10.i ]
+  %362 = trunc i32 %.0 to i8
+  %363 = getelementptr inbounds i8, ptr %2, i64 1
+  store i8 %362, ptr %363, align 1
   ret i32 %.0331
 }
 
@@ -42949,9 +43005,10 @@ define hidden noundef i32 @ir_match(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %114, label %115, label %ir_match_insn2.exit
 
 115:                                              ; preds = %112
-  %116 = load <2 x i32>, ptr %105, align 4
-  %117 = shufflevector <2 x i32> %116, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %117, ptr %105, align 4
+  %116 = load i32, ptr %105, align 4
+  %117 = load i32, ptr %107, align 8
+  store i32 %117, ptr %105, align 4
+  store i32 %116, ptr %107, align 8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %115, %110
@@ -43707,9 +43764,10 @@ define internal fastcc i32 @ir_match_insn(ptr noundef %0, i32 noundef %1) unname
   br i1 %349, label %350, label %ir_match_fuse_load_cmp_fp.exit
 
 350:                                              ; preds = %346
-  %351 = load <2 x i32>, ptr %347, align 4
-  %352 = shufflevector <2 x i32> %351, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %352, ptr %347, align 4
+  %351 = load i32, ptr %347, align 4
+  %352 = load i32, ptr %334, align 8
+  store i32 %352, ptr %347, align 4
+  store i32 %351, ptr %334, align 8
   br label %ir_match_fuse_load_cmp_fp.exit
 
 353:                                              ; preds = %.thread1218
@@ -55267,9 +55325,10 @@ ir_may_fuse_imm.exit.thread16:                    ; preds = %ir_sym_addr.exit.i,
   br i1 %96, label %97, label %ir_match_fuse_load.exit
 
 97:                                               ; preds = %93
-  %98 = load <2 x i32>, ptr %94, align 4
-  %99 = shufflevector <2 x i32> %98, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %99, ptr %94, align 4
+  %98 = load i32, ptr %94, align 4
+  %99 = load i32, ptr %4, align 8
+  store i32 %99, ptr %94, align 4
+  store i32 %98, ptr %4, align 8
   br label %ir_match_fuse_load.exit
 
 ir_match_fuse_load.exit:                          ; preds = %69, %69, %87, %83, %79, %55, %49, %ir_may_fuse_imm.exit.thread, %ir_may_fuse_imm.exit.thread16, %93, %97
@@ -55364,9 +55423,10 @@ ir_may_fuse_imm.exit.thread11:                    ; preds = %ir_sym_addr.exit.i,
   br i1 %49, label %50, label %ir_may_fuse_imm.exit.thread
 
 50:                                               ; preds = %46
-  %51 = load <2 x i32>, ptr %47, align 4
-  %52 = shufflevector <2 x i32> %51, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %52, ptr %47, align 4
+  %51 = load i32, ptr %47, align 4
+  %52 = load i32, ptr %4, align 8
+  store i32 %52, ptr %47, align 4
+  store i32 %51, ptr %4, align 8
   br label %ir_may_fuse_imm.exit.thread
 
 ir_may_fuse_imm.exit.thread:                      ; preds = %36, %33, %29, %50, %46, %ir_may_fuse_imm.exit.thread11, %ir_may_fuse_imm.exit
@@ -55742,9 +55802,10 @@ ir_may_fuse_imm.exit.thread21:                    ; preds = %ir_sym_addr.exit.i,
   br i1 %96, label %97, label %ir_match_fuse_load.exit
 
 97:                                               ; preds = %93
-  %98 = load <2 x i32>, ptr %94, align 4
-  %99 = shufflevector <2 x i32> %98, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %99, ptr %94, align 4
+  %98 = load i32, ptr %94, align 4
+  %99 = load i32, ptr %4, align 8
+  store i32 %99, ptr %94, align 4
+  store i32 %98, ptr %4, align 8
   %100 = load i8, ptr %1, align 8
   %101 = and i8 %100, -2
   %switch = icmp eq i8 %101, 14
@@ -55862,9 +55923,10 @@ define internal fastcc void @ir_match_fuse_addr(ptr noundef %0, i32 noundef %1) 
   br i1 %30, label %31, label %ir_match_try_revert_lea_to_add.exit
 
 31:                                               ; preds = %28
-  %32 = load <2 x i32>, ptr %21, align 4
-  %33 = shufflevector <2 x i32> %32, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %33, ptr %21, align 4
+  %32 = load i32, ptr %21, align 4
+  %33 = load i32, ptr %23, align 8
+  store i32 %33, ptr %21, align 4
+  store i32 %32, ptr %23, align 8
   br label %ir_match_try_revert_lea_to_add.exit.thread.sink.split
 
 ir_match_try_revert_lea_to_add.exit:              ; preds = %28, %18, %16
@@ -55930,106 +55992,108 @@ define internal fastcc void @ir_match_fuse_load_cmp_fp_br(ptr noundef %0, ptr no
   br i1 %3, label %6, label %7
 
 6:                                                ; preds = %4
-  switch i8 %5, label %12 [
+  switch i8 %5, label %13 [
     i8 16, label %.sink.split
     i8 18, label %.sink.split
   ]
 
 7:                                                ; preds = %4
-  switch i8 %5, label %12 [
+  switch i8 %5, label %13 [
     i8 19, label %.sink.split
     i8 17, label %.sink.split
   ]
 
 .sink.split:                                      ; preds = %7, %7, %6, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = load <2 x i32>, ptr %8, align 4
-  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %10, ptr %8, align 4
-  %11 = xor i8 %5, 3
-  store i8 %11, ptr %1, align 8
-  br label %12
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 4
+  store i32 %9, ptr %10, align 8
+  %12 = xor i8 %5, 3
+  store i8 %12, ptr %1, align 8
+  br label %13
 
-12:                                               ; preds = %.sink.split, %7, %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %30
+13:                                               ; preds = %.sink.split, %7, %6
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %31
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %0, align 8
-  %18 = sext i32 %14 to i64
-  %19 = getelementptr inbounds %struct._ir_insn, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 12
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
-  br i1 %22, label %24, label %27
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %0, align 8
+  %19 = sext i32 %15 to i64
+  %20 = getelementptr inbounds %struct._ir_insn, ptr %18, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 12
+  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  br i1 %23, label %25, label %28
 
-24:                                               ; preds = %16
-  %25 = load i64, ptr %23, align 8
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %30, label %59
+25:                                               ; preds = %17
+  %26 = load i64, ptr %24, align 8
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %31, label %60
 
-27:                                               ; preds = %16
-  %28 = load i32, ptr %23, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %59
+28:                                               ; preds = %17
+  %29 = load i32, ptr %24, align 8
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %60
 
-30:                                               ; preds = %27, %24, %12
-  %31 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef %0, i32 noundef %14, i32 noundef %2)
-  br i1 %31, label %59, label %32
+31:                                               ; preds = %28, %25, %13
+  %32 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef %0, i32 noundef %15, i32 noundef %2)
+  br i1 %32, label %60, label %33
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %50
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %51
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %0, align 8
-  %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds %struct._ir_insn, ptr %37, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp eq i8 %41, 12
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
-  br i1 %42, label %44, label %47
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %0, align 8
+  %39 = sext i32 %35 to i64
+  %40 = getelementptr inbounds %struct._ir_insn, ptr %38, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 12
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  br i1 %43, label %45, label %48
 
-44:                                               ; preds = %36
-  %45 = load i64, ptr %43, align 8
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %50, label %52
+45:                                               ; preds = %37
+  %46 = load i64, ptr %44, align 8
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %51, label %53
 
-47:                                               ; preds = %36
-  %48 = load i32, ptr %43, align 8
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %52
+48:                                               ; preds = %37
+  %49 = load i32, ptr %44, align 8
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %47, %44, %32
-  %51 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef %0, i32 noundef %34, i32 noundef %2)
-  br i1 %51, label %._crit_edge, label %59
+51:                                               ; preds = %48, %45, %33
+  %52 = tail call fastcc zeroext i1 @ir_match_try_fuse_load(ptr noundef %0, i32 noundef %35, i32 noundef %2)
+  br i1 %52, label %._crit_edge, label %60
 
-._crit_edge:                                      ; preds = %50
-  %.pre = load i32, ptr %33, align 4
-  br label %52
+._crit_edge:                                      ; preds = %51
+  %.pre = load i32, ptr %34, align 4
+  br label %53
 
-52:                                               ; preds = %._crit_edge, %47, %44
-  %53 = phi i32 [ %.pre, %._crit_edge ], [ %34, %47 ], [ %34, %44 ]
-  %54 = load i32, ptr %13, align 8
-  store i32 %54, ptr %33, align 4
-  store i32 %53, ptr %13, align 8
-  %55 = load i8, ptr %1, align 8
-  %56 = and i8 %55, -2
-  %switch = icmp eq i8 %56, 14
-  br i1 %switch, label %59, label %57
+53:                                               ; preds = %._crit_edge, %48, %45
+  %54 = phi i32 [ %.pre, %._crit_edge ], [ %35, %48 ], [ %35, %45 ]
+  %55 = load i32, ptr %14, align 8
+  store i32 %55, ptr %34, align 4
+  store i32 %54, ptr %14, align 8
+  %56 = load i8, ptr %1, align 8
+  %57 = and i8 %56, -2
+  %switch = icmp eq i8 %57, 14
+  br i1 %switch, label %60, label %58
 
-57:                                               ; preds = %52
-  %58 = xor i8 %55, 3
-  store i8 %58, ptr %1, align 8
-  br label %59
+58:                                               ; preds = %53
+  %59 = xor i8 %56, 3
+  store i8 %59, ptr %1, align 8
+  br label %60
 
-59:                                               ; preds = %52, %30, %57, %50, %24, %27
+60:                                               ; preds = %53, %31, %58, %51, %25, %28
   ret void
 }
 
@@ -56305,9 +56369,10 @@ define internal fastcc noundef zeroext i1 @ir_match_try_revert_lea_to_add(ptr no
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
-  %17 = load <2 x i32>, ptr %6, align 4
-  %18 = shufflevector <2 x i32> %17, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %18, ptr %6, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = load i32, ptr %8, align 8
+  store i32 %18, ptr %6, align 4
+  store i32 %17, ptr %8, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %16

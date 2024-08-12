@@ -1302,9 +1302,12 @@ ehcleanup58:                                      ; preds = %ehcleanup, %lpad7
   resume { ptr, i32 } %.pn.pn
 
 if.end60:                                         ; preds = %if.then2.i.i.i112, %if.then.i.i.i107, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %87 = load <2 x ptr>, ptr %m_eq, align 8
   %.pr = load ptr, ptr %m_eq, align 8
-  store <2 x ptr> %87, ptr %agg.result, align 8
+  store ptr %.pr, ptr %agg.result, align 8
+  %m_manager.i115 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %87 = load ptr, ptr %m_manager3.i, align 8
+  store ptr %87, ptr %m_manager.i115, align 8
   %tobool.not.i.i116 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i116, label %_ZN7obj_refI3app11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i117
 
@@ -1456,8 +1459,9 @@ invoke.cont:                                      ; preds = %_ZN11ast_manager7in
   br i1 %tobool.not.i, label %invoke.cont4, label %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i
 
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i: ; preds = %invoke.cont
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
   %4 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %4 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
@@ -1466,7 +1470,9 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i: ; preds 
           to label %call3.i.i.noexc unwind label %lpad3
 
 call3.i.i.noexc:                                  ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i
-  store <2 x i32> %3, ptr %call3.i.i25, align 4
+  store i32 %4, ptr %call3.i.i25, align 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i25, i64 4
+  store i32 %3, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i25, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_diff_indices, align 8
   %5 = load ptr, ptr %diff_indices, align 8

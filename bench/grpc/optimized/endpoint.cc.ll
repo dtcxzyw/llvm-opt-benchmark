@@ -597,28 +597,31 @@ if.then17:                                        ; preds = %land.lhs.true14
   %manager_.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load ptr, ptr %manager_.i.i.i36, align 16
   call void %13(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_15, ptr noundef nonnull %agg.tmp) #22
+  %14 = load ptr, ptr %manager_.i.i.i36, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %14 = load <2 x ptr>, ptr %manager_.i.i.i36, align 16
-  store <2 x ptr> %14, ptr %manager_5.i.i.i, align 16
+  store ptr %14, ptr %manager_5.i.i.i, align 16
+  %15 = load ptr, ptr %invoker_.i.i, align 8
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store ptr %15, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i36, align 16
   store ptr null, ptr %invoker_.i.i, align 8
   %vtable = load ptr, ptr %12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
-  %15 = load ptr, ptr %vfn, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %agg.tmp)
+  %16 = load ptr, ptr %vfn, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then17
-  %16 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %16(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #22
+  %17 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #22
   br label %if.end20
 
 lpad:                                             ; preds = %if.then17
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %18(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #22
-  resume { ptr, i32 } %17
+  %19 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %19(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #22
+  resume { ptr, i32 } %18
 
 if.end20:                                         ; preds = %invoke.cont, %land.lhs.true14, %if.then11
   call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %this)
@@ -998,7 +1001,7 @@ _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN9grp
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit unwind label %lpad9.i
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i, %lpad9.i
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad9.i ], [ %36, %lpad.i ], [ %26, %lpad6 ], [ %9, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %lpad9.i ], [ %37, %lpad.i ], [ %26, %lpad6 ], [ %9, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad9.i:                                          ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
@@ -1072,27 +1075,30 @@ if.then6.i:                                       ; preds = %land.lhs.true4.i
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 48
   %32 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %32(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i11) #22
+  %33 = load ptr, ptr %manager_.i.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 16
-  %33 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
-  store <2 x ptr> %33, ptr %manager_5.i.i.i.i, align 16
+  store ptr %33, ptr %manager_5.i.i.i.i, align 16
+  %34 = load ptr, ptr %invoker_.i.i.i, align 8
+  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i11, i64 24
+  store ptr %34, ptr %invoker_6.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %vtable.i14 = load ptr, ptr %31, align 8
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 72
-  %34 = load ptr, ptr %vfn.i15, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %agg.tmp.i11)
+  %35 = load ptr, ptr %vfn.i15, align 8
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %agg.tmp.i11)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then6.i
-  %35 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %35(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
+  %36 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %36(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
   br label %if.end.i13
 
 lpad.i:                                           ; preds = %if.then6.i
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %37(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
+  %38 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %38(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
   br label %common.resume
 
 if.end.i13:                                       ; preds = %invoke.cont.i, %land.lhs.true4.i, %if.then.i
@@ -1309,7 +1315,7 @@ lpad21.i:                                         ; preds = %_ZN17grpc_event_eng
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad7, %ehcleanup.i, %lpad21.i, %lpad.i20
-  %common.resume.op = phi { ptr, i32 } [ %48, %lpad.i20 ], [ %31, %lpad21.i ], [ %.pn.i, %ehcleanup.i ], [ %38, %lpad7 ], [ %8, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %49, %lpad.i20 ], [ %31, %lpad21.i ], [ %.pn.i, %ehcleanup.i ], [ %38, %lpad7 ], [ %8, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit: ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
@@ -1378,27 +1384,30 @@ if.then6.i:                                       ; preds = %land.lhs.true4.i
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 48
   %44 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %44(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i13) #22
+  %45 = load ptr, ptr %manager_.i.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i13, i64 16
-  %45 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
-  store <2 x ptr> %45, ptr %manager_5.i.i.i.i, align 16
+  store ptr %45, ptr %manager_5.i.i.i.i, align 16
+  %46 = load ptr, ptr %invoker_.i.i.i, align 8
+  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i13, i64 24
+  store ptr %46, ptr %invoker_6.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %vtable.i18 = load ptr, ptr %43, align 8
   %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 72
-  %46 = load ptr, ptr %vfn.i19, align 8
-  invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %agg.tmp.i13)
+  %47 = load ptr, ptr %vfn.i19, align 8
+  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %agg.tmp.i13)
           to label %invoke.cont.i21 unwind label %lpad.i20
 
 invoke.cont.i21:                                  ; preds = %if.then6.i
-  %47 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %47(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
+  %48 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %48(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
   br label %if.end.i17
 
 lpad.i20:                                         ; preds = %if.then6.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %49(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
+  %50 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %50(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
   br label %common.resume
 
 if.end.i17:                                       ; preds = %invoke.cont.i21, %land.lhs.true4.i, %if.then.i16

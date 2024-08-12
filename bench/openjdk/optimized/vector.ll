@@ -525,7 +525,7 @@ define hidden void @_ZN11PhaseVector10do_cleanupEv(ptr nocapture noundef nonnull
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %66, label %16
+  br i1 %15, label %67, label %16
 
 16:                                               ; preds = %1
   call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 336)) #6
@@ -536,86 +536,88 @@ define hidden void @_ZN11PhaseVector10do_cleanupEv(ptr nocapture noundef nonnull
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 32
-  %24 = load <2 x ptr>, ptr %23, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1952
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 1960
-  %32 = load ptr, ptr %31, align 8
-  call void @_ZN18PhaseRemoveUselessC1EP8PhaseGVNR16Unique_Node_ListN5Phase11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(68) %32, i32 noundef 2) #6
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 352
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 88
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  %39 = getelementptr inbounds i8, ptr %33, i64 376
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  %.not8 = select i1 %38, i1 %41, i1 false
-  %42 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %44, label %43
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %20, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 1952
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 1960
+  %33 = load ptr, ptr %32, align 8
+  call void @_ZN18PhaseRemoveUselessC1EP8PhaseGVNR16Unique_Node_ListN5Phase11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(68) %33, i32 noundef 2) #6
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 352
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  %40 = getelementptr inbounds i8, ptr %34, i64 376
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  %.not8 = select i1 %39, i1 %42, i1 false
+  %43 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i, label %45, label %44
 
-43:                                               ; preds = %16
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %27) #6
+44:                                               ; preds = %16
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %28) #6
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %22) #6
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %16
-  %45 = load ptr, ptr %23, align 8
-  %.not8.i.i.i.i = icmp eq ptr %45, %25
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %46
+45:                                               ; preds = %44, %16
+  %46 = load ptr, ptr %23, align 8
+  %.not8.i.i.i.i = icmp eq ptr %46, %24
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   store ptr %22, ptr %21, align 8
-  store <2 x ptr> %24, ptr %23, align 8
+  store ptr %24, ptr %23, align 8
+  store ptr %26, ptr %25, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %45, %47
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #6
-  br i1 %.not8, label %47, label %66
+  br i1 %.not8, label %48, label %67
 
-47:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+48:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 312)) #6
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1952
-  %52 = load ptr, ptr %51, align 8
-  %.not.i = icmp eq ptr %49, %52
-  br i1 %.not.i, label %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit, label %53
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1952
+  %53 = load ptr, ptr %52, align 8
+  %.not.i = icmp eq ptr %50, %53
+  br i1 %.not.i, label %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit, label %54
 
-53:                                               ; preds = %47
-  call void @_ZN12PhaseIterGVNC1EP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(2416) %49, ptr noundef %52) #6
-  %.pre = load ptr, ptr %48, align 8
+54:                                               ; preds = %48
+  call void @_ZN12PhaseIterGVNC1EP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(2416) %50, ptr noundef %53) #6
+  %.pre = load ptr, ptr %49, align 8
   br label %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit
 
-_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit: ; preds = %47, %53
-  %54 = phi ptr [ %49, %47 ], [ %.pre, %53 ]
-  call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %54) #6
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 352
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 88
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  %61 = getelementptr inbounds i8, ptr %55, i64 376
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  %.not10 = select i1 %60, i1 %63, i1 false
+_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit: ; preds = %48, %54
+  %55 = phi ptr [ %50, %48 ], [ %.pre, %54 ]
+  call void @_ZN12PhaseIterGVN8optimizeEv(ptr noundef nonnull align 8 dereferenceable(2416) %55) #6
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 352
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 88
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  %62 = getelementptr inbounds i8, ptr %56, i64 376
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  %.not10 = select i1 %61, i1 %64, i1 false
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #6
-  br i1 %.not10, label %64, label %66
+  br i1 %.not10, label %65, label %67
 
-64:                                               ; preds = %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit
-  %65 = load ptr, ptr %5, align 8
-  call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %65, i32 noundef 17, i32 noundef 3, ptr noundef null) #6
-  br label %66
+65:                                               ; preds = %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit
+  %66 = load ptr, ptr %5, align 8
+  call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %66, i32 noundef 17, i32 noundef 3, ptr noundef null) #6
+  br label %67
 
-66:                                               ; preds = %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit, %_ZN12ResourceMarkD2Ev.exit, %1, %64
+67:                                               ; preds = %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit, %_ZN12ResourceMarkD2Ev.exit, %1, %65
   ret void
 }
 

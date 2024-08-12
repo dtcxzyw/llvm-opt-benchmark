@@ -455,7 +455,7 @@ define hidden i32 @psa_load_persistent_key(ptr nocapture noundef %0, ptr nocaptu
 
 psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %71
+  br label %77
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %6, align 4
@@ -463,7 +463,7 @@ psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %14 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #10
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %71, label %16
+  br i1 %15, label %77, label %16
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -553,35 +553,43 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   %56 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %55, ptr %56, align 4
   %57 = getelementptr inbounds i8, ptr %14, i64 16
-  %58 = load <2 x i16>, ptr %57, align 1
-  store <2 x i16> %58, ptr %0, align 4
-  %59 = getelementptr inbounds i8, ptr %14, i64 20
-  %60 = getelementptr inbounds i8, ptr %0, i64 12
-  %61 = load <2 x i32>, ptr %59, align 1
-  store <2 x i32> %61, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %14, i64 28
+  %58 = load i16, ptr %57, align 1
+  store i16 %58, ptr %0, align 4
+  %59 = getelementptr inbounds i8, ptr %14, i64 18
+  %60 = load i16, ptr %59, align 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %60, ptr %61, align 2
+  %62 = getelementptr inbounds i8, ptr %14, i64 20
   %63 = load i32, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 20
+  %64 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %63, ptr %64, align 4
-  %65 = load ptr, ptr %1, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %70, label %67
+  %65 = getelementptr inbounds i8, ptr %14, i64 24
+  %66 = load i32, ptr %65, align 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %66, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %14, i64 28
+  %69 = load i32, ptr %68, align 1
+  %70 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %69, ptr %70, align 4
+  %71 = load ptr, ptr %1, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %76, label %73
 
-67:                                               ; preds = %53
-  %68 = load i64, ptr %2, align 8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %psa_parse_key_data_from_storage.exit.thread
+73:                                               ; preds = %53
+  %74 = load i64, ptr %2, align 8
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %76, label %psa_parse_key_data_from_storage.exit.thread
 
-70:                                               ; preds = %67, %53
+76:                                               ; preds = %73, %53
   br label %psa_parse_key_data_from_storage.exit.thread
 
-psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %67, %70, %psa_crypto_storage_load.exit
-  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %70 ], [ 0, %67 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
+psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %73, %76, %psa_crypto_storage_load.exit
+  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %76 ], [ 0, %73 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %14, i64 noundef %13) #9
   call void @free(ptr noundef nonnull %14) #9
-  br label %71
+  br label %77
 
-71:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
+77:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
   %.0 = phi i32 [ %.018, %psa_parse_key_data_from_storage.exit.thread ], [ %10, %psa_crypto_storage_get_data_length.exit ], [ -141, %11 ]
   ret i32 %.0
 }

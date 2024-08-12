@@ -697,10 +697,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
+  %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %test_case, align 16
+  %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %test_case, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
-  %2 = load <2 x i64>, ptr %test_case, align 16
-  store <2 x i64> %2, ptr %v.i.i.i, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %v.i.i.i, align 16
+  %2 = getelementptr inbounds i8, ptr %v.i.i.i, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i, ptr %2, align 8
   invoke void @_ZNK4absl7uint1288ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %v.i.i.i)
           to label %.noexc unwind label %lpad
 
@@ -2298,10 +2302,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
+  %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %test_case, align 16
+  %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %test_case, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
-  %2 = load <2 x i64>, ptr %test_case, align 16
-  store <2 x i64> %2, ptr %v.i.i.i, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %v.i.i.i, align 16
+  %2 = getelementptr inbounds i8, ptr %v.i.i.i, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i, ptr %2, align 8
   invoke void @_ZNK4absl6int1288ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %v.i.i.i)
           to label %.noexc unwind label %lpad
 

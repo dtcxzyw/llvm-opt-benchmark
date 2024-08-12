@@ -1886,7 +1886,13 @@ define hidden noundef i32 @RIPEMD160_Init(ptr nocapture noundef writeonly %ctx) 
 entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 4
+  store i32 1732584193, ptr %ctx, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -271733879, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 -1732584194, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 271733878, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 -1009589776, ptr %arrayidx8, align 4
   ret i32 1
@@ -1895,12 +1901,18 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @RIPEMD160(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly %out) local_unnamed_addr #0 {
 entry:
-  %ctx = alloca %struct.RIPEMD160state_st, align 16
+  %ctx = alloca %struct.RIPEMD160state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
+  store i32 1732584193, ptr %ctx, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 271733878, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store i32 -1009589776, ptr %arrayidx8.i, align 16
+  store i32 -1009589776, ptr %arrayidx8.i, align 4
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %RIPEMD160_Update.exit, label %if.end37.i
 
@@ -1910,7 +1922,7 @@ if.end37.i:                                       ; preds = %entry
   %Nh.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
-  store i32 %conv6.i, ptr %Nh.i, align 8
+  store i32 %conv6.i, ptr %Nh.i, align 4
   store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %cmp38.not.i = icmp ult i64 %len, 64

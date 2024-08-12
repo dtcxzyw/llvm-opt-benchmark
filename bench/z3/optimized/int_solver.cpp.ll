@@ -3626,8 +3626,11 @@ entry:
   %m_patcher = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %this, ptr %m_patcher, align 8
   %lra.i = getelementptr inbounds i8, ptr %this, i64 176
-  %0 = load <2 x ptr>, ptr %this, align 8
-  store <2 x ptr> %0, ptr %lra.i, align 8
+  %0 = load ptr, ptr %this, align 8
+  store ptr %0, ptr %lra.i, align 8
+  %lrac.i = getelementptr inbounds i8, ptr %this, i64 184
+  %1 = load ptr, ptr %lrac, align 8
+  store ptr %1, ptr %lrac.i, align 8
   %m_number_of_calls = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %m_number_of_calls, align 8
   %m_t = getelementptr inbounds i8, ptr %this, i64 200
@@ -3676,46 +3679,46 @@ invoke.cont5:                                     ; preds = %for.body.i.i.i.i.i.
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %1 = load ptr, ptr %this, align 8
-  %call.i5 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %1)
+  %2 = load ptr, ptr %this, align 8
+  %call.i5 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %2)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %m_hnf_cut_period = getelementptr inbounds i8, ptr %this, i64 480
   %m_hnf_cut_period.i = getelementptr inbounds i8, ptr %call.i5, i64 276
-  %2 = load i32, ptr %m_hnf_cut_period.i, align 4
-  store i32 %2, ptr %m_hnf_cut_period, align 8
+  %3 = load i32, ptr %m_hnf_cut_period.i, align 4
+  store i32 %3, ptr %m_hnf_cut_period, align 8
   %m_cut_vars = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_cut_vars, i8 0, i64 16, i1 false)
-  %3 = load ptr, ptr %this, align 8
-  %m_int_solver.i = getelementptr inbounds i8, ptr %3, i64 1040
+  %4 = load ptr, ptr %this, align 8
+  %m_int_solver.i = getelementptr inbounds i8, ptr %4, i64 1040
   store ptr %this, ptr %m_int_solver.i, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup18
 
 lpad6:                                            ; preds = %invoke.cont5
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad8:                                            ; preds = %invoke.cont7
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2lp10hnf_cutterD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %m_hnf_cutter) #24
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %lpad8, %lpad6
-  %.pn = phi { ptr, i32 } [ %6, %lpad8 ], [ %5, %lpad6 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad8 ], [ %6, %lpad6 ]
   tail call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_k) #24
   tail call void @_ZN2lp8lar_termD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_t) #24
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %ehcleanup16, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup16 ], [ %4, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup16 ], [ %5, %lpad ]
   tail call void @_ZN2lp12int_gcd_testD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %m_gcd) #24
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -4788,8 +4791,9 @@ if.end:                                           ; preds = %invoke.cont7
   br i1 %tobool.not.i.i27, label %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.i, label %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i: ; preds = %if.end
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
+  %11 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
-  %11 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %12 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %12 to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 40
@@ -4798,7 +4802,9 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i: ; preds = %if.end
           to label %call3.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i
-  store <2 x i32> %11, ptr %call3.i.i.i28, align 4
+  store i32 %12, ptr %call3.i.i.i28, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 4
+  store i32 %11, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %ref.tmp, align 8
   %13 = load ptr, ptr %9, align 8

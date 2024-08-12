@@ -3711,26 +3711,26 @@ entry:
   %stfs = alloca %struct.statfs, align 8
   %uinfo = alloca %struct.siginfo_t, align 8
   %info = alloca %struct.siginfo_t, align 8
-  %tms = alloca %struct.tms, align 16
+  %tms = alloca %struct.tms, align 8
   %set = alloca %struct.__sigset_t, align 8
   %oldset = alloca %struct.__sigset_t, align 8
   %set578 = alloca %struct.__sigset_t, align 8
   %set595 = alloca ptr, align 8
   %set607 = alloca %struct.__sigset_t, align 8
-  %uts = alloca %struct.timespec, align 16
+  %uts = alloca %struct.timespec, align 8
   %uinfo608 = alloca %struct.siginfo_t, align 8
   %uinfo643 = alloca %struct.siginfo_t, align 8
   %uinfo655 = alloca %struct.siginfo_t, align 8
-  %rlim = alloca %struct.rlimit, align 16
+  %rlim = alloca %struct.rlimit, align 8
   %rlim710 = alloca %struct.rlimit, align 8
   %rusage = alloca %struct.rusage, align 8
-  %tv = alloca %struct.timeval, align 16
-  %tz = alloca %struct.timezone, align 8
-  %tv759 = alloca %struct.timeval, align 16
-  %tz760 = alloca %struct.timezone, align 8
-  %value = alloca %struct.itimerval, align 16
-  %ovalue = alloca %struct.itimerval, align 16
-  %value1191 = alloca %struct.itimerval, align 16
+  %tv = alloca %struct.timeval, align 8
+  %tz = alloca %struct.timezone, align 4
+  %tv759 = alloca %struct.timeval, align 8
+  %tz760 = alloca %struct.timezone, align 4
+  %value = alloca %struct.itimerval, align 8
+  %ovalue = alloca %struct.itimerval, align 8
+  %value1191 = alloca %struct.itimerval, align 8
   %status = alloca i32, align 4
   %rusage1281 = alloca %struct.rusage, align 8
   %value1331 = alloca %struct.sysinfo, align 8
@@ -3744,9 +3744,9 @@ entry:
   %scha = alloca %struct.sched_attr, align 8
   %scha1850 = alloca %struct.sched_attr, align 8
   %ts1982 = alloca %struct.timespec, align 8
-  %req = alloca %struct.timespec, align 16
+  %req = alloca %struct.timespec, align 8
   %rem = alloca %struct.timespec, align 8
-  %header = alloca %struct.__user_cap_header_struct, align 8
+  %header = alloca %struct.__user_cap_header_struct, align 4
   %data = alloca [2 x %struct.__user_cap_data_struct], align 16
   %off = alloca i64, align 8
   %host_stx = alloca %struct.target_statx, align 8
@@ -3756,22 +3756,22 @@ entry:
   %rgid = alloca i32, align 4
   %egid = alloca i32, align 4
   %sgid = alloca i32, align 4
-  %ts2821 = alloca %struct.timespec, align 16
+  %ts2821 = alloca %struct.timespec, align 8
   %ts2832 = alloca %struct.timespec, align 8
   %ts2843 = alloca %struct.timespec, align 8
-  %ts2854 = alloca %struct.timespec, align 16
+  %ts2854 = alloca %struct.timespec, align 8
   %ts2905 = alloca [2 x %struct.timespec], align 16
-  %posix_mq_attr = alloca %struct.mq_attr, align 16
-  %ts3002 = alloca %struct.timespec, align 16
-  %ts3031 = alloca %struct.timespec, align 16
+  %posix_mq_attr = alloca %struct.mq_attr, align 8
+  %ts3002 = alloca %struct.timespec, align 8
+  %ts3031 = alloca %struct.timespec, align 8
   %prio = alloca i32, align 4
-  %posix_mq_attr_in = alloca %struct.mq_attr, align 16
+  %posix_mq_attr_in = alloca %struct.mq_attr, align 8
   %posix_mq_attr_out = alloca %struct.mq_attr, align 8
   %loff_in = alloca i64, align 8
   %loff_out = alloca i64, align 8
   %ep = alloca %struct.epoll_event, align 4
   %set3291 = alloca ptr, align 8
-  %rnew = alloca %struct.host_rlimit64, align 16
+  %rnew = alloca %struct.host_rlimit64, align 8
   %rold = alloca %struct.host_rlimit64, align 8
   %host_sevp = alloca %struct.sigevent, align 8
   %hspec_new = alloca %struct.itimerspec, align 8
@@ -4871,12 +4871,20 @@ if.then416:                                       ; preds = %get_errno.exit2032
   br i1 %tobool418.not, label %return, label %if.end420
 
 if.end420:                                        ; preds = %if.then416
-  %71 = load <2 x i64>, ptr %tms, align 16
-  store <2 x i64> %71, ptr %call417, align 8
+  %71 = load i64, ptr %tms, align 8
+  store i64 %71, ptr %call417, align 8
+  %tms_stime = getelementptr inbounds i8, ptr %tms, i64 8
+  %72 = load i64, ptr %tms_stime, align 8
+  %tms_stime426 = getelementptr inbounds i8, ptr %call417, i64 8
+  store i64 %72, ptr %tms_stime426, align 8
   %tms_cutime = getelementptr inbounds i8, ptr %tms, i64 16
+  %73 = load i64, ptr %tms_cutime, align 8
   %tms_cutime429 = getelementptr inbounds i8, ptr %call417, i64 16
-  %72 = load <2 x i64>, ptr %tms_cutime, align 16
-  store <2 x i64> %72, ptr %tms_cutime429, align 8
+  store i64 %73, ptr %tms_cutime429, align 8
+  %tms_cstime = getelementptr inbounds i8, ptr %tms, i64 24
+  %74 = load i64, ptr %tms_cstime, align 8
+  %tms_cstime432 = getelementptr inbounds i8, ptr %call417, i64 24
+  store i64 %74, ptr %tms_cstime432, align 8
   br label %return
 
 sw.bb439:                                         ; preds = %entry
@@ -4891,8 +4899,8 @@ if.then442:                                       ; preds = %sw.bb439
 
 if.then.i2037:                                    ; preds = %if.then442
   %call.i2038 = tail call ptr @__errno_location() #26
-  %73 = load i32, ptr %call.i2038, align 4
-  %sub.i2039 = sub i32 0, %73
+  %75 = load i32, ptr %call.i2038, align 4
+  %sub.i2039 = sub i32 0, %75
   %conv.i2040 = sext i32 %sub.i2039 to i64
   br label %return
 
@@ -4910,8 +4918,8 @@ if.end450:                                        ; preds = %if.else446
 
 if.then.i2044:                                    ; preds = %if.end450
   %call.i2045 = tail call ptr @__errno_location() #26
-  %74 = load i32, ptr %call.i2045, align 4
-  %sub.i2046 = sub i32 0, %74
+  %76 = load i32, ptr %call.i2045, align 4
+  %sub.i2046 = sub i32 0, %76
   %conv.i2047 = sext i32 %sub.i2046 to i64
   br label %return
 
@@ -4929,8 +4937,8 @@ if.end460:                                        ; preds = %sw.bb456
 
 if.then.i2051:                                    ; preds = %if.end460
   %call.i2052 = tail call ptr @__errno_location() #26
-  %75 = load i32, ptr %call.i2052, align 4
-  %sub.i2053 = sub i32 0, %75
+  %77 = load i32, ptr %call.i2052, align 4
+  %sub.i2053 = sub i32 0, %77
   %conv.i2054 = sext i32 %sub.i2053 to i64
   br label %return
 
@@ -4956,8 +4964,8 @@ sw.bb473:                                         ; preds = %entry
 
 if.then.i2058:                                    ; preds = %sw.bb473
   %call.i2059 = tail call ptr @__errno_location() #26
-  %76 = load i32, ptr %call.i2059, align 4
-  %sub.i2060 = sub i32 0, %76
+  %78 = load i32, ptr %call.i2059, align 4
+  %sub.i2060 = sub i32 0, %78
   %conv.i2061 = sext i32 %sub.i2060 to i64
   br label %return
 
@@ -4980,8 +4988,8 @@ if.end488:                                        ; preds = %sw.bb484
 
 if.then.i2071:                                    ; preds = %if.end488
   %call.i2072 = tail call ptr @__errno_location() #26
-  %77 = load i32, ptr %call.i2072, align 4
-  %sub.i2073 = sub i32 0, %77
+  %79 = load i32, ptr %call.i2072, align 4
+  %sub.i2073 = sub i32 0, %79
   %conv.i2074 = sext i32 %sub.i2073 to i64
   br label %return
 
@@ -5001,8 +5009,8 @@ if.end498:                                        ; preds = %sw.bb492
 
 if.then.i2078:                                    ; preds = %if.end498
   %call.i2079 = tail call ptr @__errno_location() #26
-  %78 = load i32, ptr %call.i2079, align 4
-  %sub.i2080 = sub i32 0, %78
+  %80 = load i32, ptr %call.i2079, align 4
+  %sub.i2080 = sub i32 0, %80
   br label %get_errno.exit2082
 
 get_errno.exit2082:                               ; preds = %if.end498, %if.then.i2078
@@ -5023,8 +5031,8 @@ sw.bb512:                                         ; preds = %entry
 
 if.then.i2085:                                    ; preds = %sw.bb512
   %call.i2086 = tail call ptr @__errno_location() #26
-  %79 = load i32, ptr %call.i2086, align 4
-  %sub.i2087 = sub i32 0, %79
+  %81 = load i32, ptr %call.i2086, align 4
+  %sub.i2087 = sub i32 0, %81
   %conv.i2088 = sext i32 %sub.i2087 to i64
   br label %return
 
@@ -5036,8 +5044,8 @@ sw.bb516:                                         ; preds = %entry
 
 if.then.i2092:                                    ; preds = %sw.bb516
   %call.i2093 = tail call ptr @__errno_location() #26
-  %80 = load i32, ptr %call.i2093, align 4
-  %sub.i2094 = sub i32 0, %80
+  %82 = load i32, ptr %call.i2093, align 4
+  %sub.i2094 = sub i32 0, %82
   %conv.i2095 = sext i32 %sub.i2094 to i64
   br label %return
 
@@ -5074,8 +5082,8 @@ if.else536:                                       ; preds = %land.lhs.true532, %
 
 if.then.i2099:                                    ; preds = %if.else536
   %call.i2100 = tail call ptr @__errno_location() #26
-  %81 = load i32, ptr %call.i2100, align 4
-  %sub.i2101 = sub i32 0, %81
+  %83 = load i32, ptr %call.i2100, align 4
+  %sub.i2101 = sub i32 0, %83
   %conv.i2102 = sext i32 %sub.i2101 to i64
   br label %return
 
@@ -5128,8 +5136,8 @@ if.end582:                                        ; preds = %sw.bb577
 
 if.then.i2108:                                    ; preds = %if.end582
   %call.i2109 = tail call ptr @__errno_location() #26
-  %82 = load i32, ptr %call.i2109, align 4
-  %sub.i2110 = sub i32 0, %82
+  %84 = load i32, ptr %call.i2109, align 4
+  %sub.i2110 = sub i32 0, %84
   br label %get_errno.exit2112
 
 get_errno.exit2112:                               ; preds = %if.end582, %if.then.i2108
@@ -5157,13 +5165,13 @@ if.then600:                                       ; preds = %sw.bb594
   br label %return
 
 if.end601:                                        ; preds = %sw.bb594
-  %83 = load ptr, ptr %set595, align 8
-  %84 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %85 = load ptr, ptr %84, align 8
-  %opaque.i2115 = getelementptr inbounds i8, ptr %85, i64 624
-  %86 = load ptr, ptr %opaque.i2115, align 16
-  %signal_pending.i2116 = getelementptr inbounds i8, ptr %86, i64 9164
-  %call.i2117 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2116, i64 noundef 130, ptr noundef %83, i64 noundef 8) #27
+  %85 = load ptr, ptr %set595, align 8
+  %86 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %87 = load ptr, ptr %86, align 8
+  %opaque.i2115 = getelementptr inbounds i8, ptr %87, i64 624
+  %88 = load ptr, ptr %opaque.i2115, align 16
+  %signal_pending.i2116 = getelementptr inbounds i8, ptr %88, i64 9164
+  %call.i2117 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2116, i64 noundef 130, ptr noundef %85, i64 noundef 8) #27
   %sext3864 = shl i64 %call.i2117, 32
   %conv603 = ashr exact i64 %sext3864, 32
   %cmp.i2119 = icmp eq i64 %sext3864, -4294967296
@@ -5171,8 +5179,8 @@ if.end601:                                        ; preds = %sw.bb594
 
 if.then.i2121:                                    ; preds = %if.end601
   %call.i2122 = tail call ptr @__errno_location() #26
-  %87 = load i32, ptr %call.i2122, align 4
-  %sub.i2123 = sub i32 0, %87
+  %89 = load i32, ptr %call.i2122, align 4
+  %sub.i2123 = sub i32 0, %89
   %conv.i2124 = sext i32 %sub.i2123 to i64
   br label %get_errno.exit2125
 
@@ -5182,10 +5190,10 @@ get_errno.exit2125:                               ; preds = %if.end601, %if.then
   br i1 %cmp.not.i, label %return, label %if.then.i2126
 
 if.then.i2126:                                    ; preds = %get_errno.exit2125
-  %88 = load ptr, ptr %84, align 8
-  %opaque.i2127 = getelementptr inbounds i8, ptr %88, i64 624
-  %89 = load ptr, ptr %opaque.i2127, align 16
-  %in_sigsuspend.i = getelementptr inbounds i8, ptr %89, i64 9160
+  %90 = load ptr, ptr %86, align 8
+  %opaque.i2127 = getelementptr inbounds i8, ptr %90, i64 624
+  %91 = load ptr, ptr %opaque.i2127, align 16
+  %in_sigsuspend.i = getelementptr inbounds i8, ptr %91, i64 9160
   store i32 1, ptr %in_sigsuspend.i, align 8
   br label %return
 
@@ -5209,17 +5217,21 @@ if.then618:                                       ; preds = %if.end616
   br i1 %tobool.not.i, label %return, label %target_to_host_timespec.exit.thread
 
 target_to_host_timespec.exit.thread:              ; preds = %if.then618
-  %90 = load <2 x i64>, ptr %call.i2129, align 1
-  store <2 x i64> %90, ptr %uts, align 16
+  %call.val.i = load i64, ptr %call.i2129, align 1
+  store i64 %call.val.i, ptr %uts, align 8
+  %tv_nsec.i = getelementptr inbounds i8, ptr %call.i2129, i64 8
+  %tv_nsec.val.i = load i64, ptr %tv_nsec.i, align 1
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %uts, i64 8
+  store i64 %tv_nsec.val.i, ptr %tv_nsec5.i, align 8
   br label %if.end624
 
 if.end624:                                        ; preds = %target_to_host_timespec.exit.thread, %if.end616
   %puts.0 = phi ptr [ null, %if.end616 ], [ %uts, %target_to_host_timespec.exit.thread ]
-  %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %92 = load ptr, ptr %91, align 8
-  %opaque.i2131 = getelementptr inbounds i8, ptr %92, i64 624
-  %93 = load ptr, ptr %opaque.i2131, align 16
-  %signal_pending.i2132 = getelementptr inbounds i8, ptr %93, i64 9164
+  %92 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %93 = load ptr, ptr %92, align 8
+  %opaque.i2131 = getelementptr inbounds i8, ptr %93, i64 624
+  %94 = load ptr, ptr %opaque.i2131, align 16
+  %signal_pending.i2132 = getelementptr inbounds i8, ptr %94, i64 9164
   %call.i2133 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2132, i64 noundef 128, ptr noundef nonnull %set607, ptr noundef nonnull %uinfo608, ptr noundef %puts.0, i64 noundef 8) #27
   %sext3863 = shl i64 %call.i2133, 32
   %conv626 = ashr exact i64 %sext3863, 32
@@ -5228,8 +5240,8 @@ if.end624:                                        ; preds = %target_to_host_time
 
 if.then.i2137:                                    ; preds = %if.end624
   %call.i2138 = tail call ptr @__errno_location() #26
-  %94 = load i32, ptr %call.i2138, align 4
-  %sub.i2139 = sub i32 0, %94
+  %95 = load i32, ptr %call.i2138, align 4
+  %sub.i2139 = sub i32 0, %95
   %conv.i2140 = sext i32 %sub.i2139 to i64
   br label %get_errno.exit2141
 
@@ -5275,8 +5287,8 @@ if.end647:                                        ; preds = %sw.bb642
 
 if.then.i2148:                                    ; preds = %if.end647
   %call.i2149 = tail call ptr @__errno_location() #26
-  %95 = load i32, ptr %call.i2149, align 4
-  %sub.i2150 = sub i32 0, %95
+  %96 = load i32, ptr %call.i2149, align 4
+  %sub.i2150 = sub i32 0, %96
   %conv.i2151 = sext i32 %sub.i2150 to i64
   br label %return
 
@@ -5299,8 +5311,8 @@ if.end659:                                        ; preds = %sw.bb654
 
 if.then.i2157:                                    ; preds = %if.end659
   %call.i2158 = tail call ptr @__errno_location() #26
-  %96 = load i32, ptr %call.i2158, align 4
-  %sub.i2159 = sub i32 0, %96
+  %97 = load i32, ptr %call.i2158, align 4
+  %sub.i2159 = sub i32 0, %97
   %conv.i2160 = sext i32 %sub.i2159 to i64
   br label %return
 
@@ -5326,8 +5338,8 @@ if.end677:                                        ; preds = %sw.bb673
 
 if.then.i2164:                                    ; preds = %if.end677
   %call.i2165 = tail call ptr @__errno_location() #26
-  %97 = load i32, ptr %call.i2165, align 4
-  %sub.i2166 = sub i32 0, %97
+  %98 = load i32, ptr %call.i2165, align 4
+  %sub.i2166 = sub i32 0, %98
   %conv.i2167 = sext i32 %sub.i2166 to i64
   br label %return
 
@@ -5338,8 +5350,12 @@ sw.bb681:                                         ; preds = %entry
   br i1 %tobool685.not, label %return, label %if.end687
 
 if.end687:                                        ; preds = %sw.bb681
-  %98 = load <2 x i64>, ptr %call684, align 8
-  store <2 x i64> %98, ptr %rlim, align 16
+  %99 = load i64, ptr %call684, align 8
+  store i64 %99, ptr %rlim, align 8
+  %rlim_max = getelementptr inbounds i8, ptr %call684, i64 8
+  %100 = load i64, ptr %rlim_max, align 8
+  %rlim_max691 = getelementptr inbounds i8, ptr %rlim, i64 8
+  store i64 %100, ptr %rlim_max691, align 8
   switch i32 %conv682, label %if.then700 [
     i32 9, label %return
     i32 3, label %return
@@ -5354,8 +5370,8 @@ if.then700:                                       ; preds = %if.end687
 
 if.then.i2171:                                    ; preds = %if.then700
   %call.i2172 = tail call ptr @__errno_location() #26
-  %99 = load i32, ptr %call.i2172, align 4
-  %sub.i2173 = sub i32 0, %99
+  %101 = load i32, ptr %call.i2172, align 4
+  %sub.i2173 = sub i32 0, %101
   %conv.i2174 = sext i32 %sub.i2173 to i64
   br label %return
 
@@ -5367,8 +5383,8 @@ sw.bb705:                                         ; preds = %entry
 
 if.then.i2178:                                    ; preds = %sw.bb705
   %call.i2179 = tail call ptr @__errno_location() #26
-  %100 = load i32, ptr %call.i2179, align 4
-  %sub.i2180 = sub i32 0, %100
+  %102 = load i32, ptr %call.i2179, align 4
+  %sub.i2180 = sub i32 0, %102
   br label %get_errno.exit2182
 
 get_errno.exit2182:                               ; preds = %sw.bb705, %if.then.i2178
@@ -5383,12 +5399,12 @@ if.then716:                                       ; preds = %get_errno.exit2182
   br i1 %tobool718.not, label %return, label %if.end720
 
 if.end720:                                        ; preds = %if.then716
-  %101 = load i64, ptr %rlim710, align 8
-  store i64 %101, ptr %call717, align 8
+  %103 = load i64, ptr %rlim710, align 8
+  store i64 %103, ptr %call717, align 8
   %rlim_max724 = getelementptr inbounds i8, ptr %rlim710, i64 8
-  %102 = load i64, ptr %rlim_max724, align 8
+  %104 = load i64, ptr %rlim_max724, align 8
   %rlim_max726 = getelementptr inbounds i8, ptr %call717, i64 8
-  store i64 %102, ptr %rlim_max726, align 8
+  store i64 %104, ptr %rlim_max726, align 8
   br label %return
 
 sw.bb728:                                         ; preds = %entry
@@ -5399,8 +5415,8 @@ sw.bb728:                                         ; preds = %entry
 
 if.then.i2187:                                    ; preds = %sw.bb728
   %call.i2188 = tail call ptr @__errno_location() #26
-  %103 = load i32, ptr %call.i2188, align 4
-  %sub.i2189 = sub i32 0, %103
+  %105 = load i32, ptr %call.i2188, align 4
+  %sub.i2189 = sub i32 0, %105
   br label %get_errno.exit2191
 
 get_errno.exit2191:                               ; preds = %sw.bb728, %if.then.i2187
@@ -5420,8 +5436,8 @@ sw.bb738:                                         ; preds = %entry
 
 if.then.i2196:                                    ; preds = %sw.bb738
   %call.i2197 = tail call ptr @__errno_location() #26
-  %104 = load i32, ptr %call.i2197, align 4
-  %sub.i2198 = sub i32 0, %104
+  %106 = load i32, ptr %call.i2197, align 4
+  %sub.i2198 = sub i32 0, %106
   br label %get_errno.exit2200
 
 get_errno.exit2200:                               ; preds = %sw.bb738, %if.then.i2196
@@ -5440,8 +5456,12 @@ land.lhs.true746:                                 ; preds = %if.then744
   br i1 %tobool.not.i2204, label %return, label %copy_to_user_timeval.exit.thread
 
 copy_to_user_timeval.exit.thread:                 ; preds = %land.lhs.true746
-  %105 = load <2 x i64>, ptr %tv, align 16
-  store <2 x i64> %105, ptr %call.i2203, align 1
+  %107 = load i64, ptr %tv, align 8
+  store i64 %107, ptr %call.i2203, align 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %call.i2203, i64 8
+  %tv_usec3.i = getelementptr inbounds i8, ptr %tv, i64 8
+  %108 = load i64, ptr %tv_usec3.i, align 8
+  store i64 %108, ptr %tv_usec.i, align 1
   br label %if.end750
 
 if.end750:                                        ; preds = %copy_to_user_timeval.exit.thread, %if.then744
@@ -5454,8 +5474,12 @@ land.lhs.true752:                                 ; preds = %if.end750
   br i1 %tobool.not.i2208, label %return, label %copy_to_user_timezone.exit.thread
 
 copy_to_user_timezone.exit.thread:                ; preds = %land.lhs.true752
-  %106 = load <2 x i32>, ptr %tz, align 8
-  store <2 x i32> %106, ptr %call.i2207, align 1
+  %109 = load i32, ptr %tz, align 4
+  store i32 %109, ptr %call.i2207, align 1
+  %tz_dsttime.i = getelementptr inbounds i8, ptr %call.i2207, i64 4
+  %tz_dsttime3.i = getelementptr inbounds i8, ptr %tz, i64 4
+  %110 = load i32, ptr %tz_dsttime3.i, align 4
+  store i32 %110, ptr %tz_dsttime.i, align 1
   br label %return
 
 sw.bb758:                                         ; preds = %entry
@@ -5468,8 +5492,12 @@ if.then762:                                       ; preds = %sw.bb758
   br i1 %tobool.not.i2212, label %return, label %copy_from_user_timeval.exit.thread
 
 copy_from_user_timeval.exit.thread:               ; preds = %if.then762
-  %107 = load <2 x i64>, ptr %call.i2211, align 1
-  store <2 x i64> %107, ptr %tv759, align 16
+  %call.val.i2214 = load i64, ptr %call.i2211, align 1
+  store i64 %call.val.i2214, ptr %tv759, align 8
+  %tv_usec.i2215 = getelementptr inbounds i8, ptr %call.i2211, i64 8
+  %tv_usec.val.i = load i64, ptr %tv_usec.i2215, align 1
+  %tv_usec5.i = getelementptr inbounds i8, ptr %tv759, i64 8
+  store i64 %tv_usec.val.i, ptr %tv_usec5.i, align 8
   br label %if.end767
 
 if.end767:                                        ; preds = %copy_from_user_timeval.exit.thread, %sw.bb758
@@ -5483,8 +5511,12 @@ if.then769:                                       ; preds = %if.end767
   br i1 %tobool.not.i2218, label %return, label %copy_from_user_timezone.exit.thread
 
 copy_from_user_timezone.exit.thread:              ; preds = %if.then769
-  %108 = load <2 x i32>, ptr %call.i2217, align 1
-  store <2 x i32> %108, ptr %tz760, align 8
+  %call.val.i2220 = load i32, ptr %call.i2217, align 1
+  store i32 %call.val.i2220, ptr %tz760, align 4
+  %tz_dsttime.i2221 = getelementptr inbounds i8, ptr %call.i2217, i64 4
+  %tz_dsttime.val.i = load i32, ptr %tz_dsttime.i2221, align 1
+  %tz_dsttime5.i = getelementptr inbounds i8, ptr %tz760, i64 4
+  store i32 %tz_dsttime.val.i, ptr %tz_dsttime5.i, align 4
   br label %if.end774
 
 if.end774:                                        ; preds = %copy_from_user_timezone.exit.thread, %if.end767
@@ -5496,8 +5528,8 @@ if.end774:                                        ; preds = %copy_from_user_time
 
 if.then.i2225:                                    ; preds = %if.end774
   %call.i2226 = tail call ptr @__errno_location() #26
-  %109 = load i32, ptr %call.i2226, align 4
-  %sub.i2227 = sub i32 0, %109
+  %111 = load i32, ptr %call.i2226, align 4
+  %sub.i2227 = sub i32 0, %111
   %conv.i2228 = sext i32 %sub.i2227 to i64
   br label %return
 
@@ -5522,8 +5554,8 @@ if.else788:                                       ; preds = %sw.bb780
 
 if.then.i2232:                                    ; preds = %if.else788
   %call.i2233 = tail call ptr @__errno_location() #26
-  %110 = load i32, ptr %call.i2233, align 4
-  %sub.i2234 = sub i32 0, %110
+  %112 = load i32, ptr %call.i2233, align 4
+  %sub.i2234 = sub i32 0, %112
   %conv.i2235 = sext i32 %sub.i2234 to i64
   br label %return
 
@@ -5545,10 +5577,10 @@ if.else805:                                       ; preds = %if.else802
   br i1 %tobool807.not, label %if.else817, label %if.then808
 
 if.then808:                                       ; preds = %if.else805
-  %111 = load ptr, ptr @exec_path, align 8
-  %call809 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #31
+  %113 = load ptr, ptr @exec_path, align 8
+  %call809 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #31
   %cond816 = tail call i64 @llvm.umin.i64(i64 %call809, i64 %arg4)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call797, ptr align 1 %111, i64 %cond816, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call797, ptr align 1 %113, i64 %cond816, i1 false)
   br label %return
 
 if.else817:                                       ; preds = %if.else805
@@ -5560,8 +5592,8 @@ if.else817:                                       ; preds = %if.else805
 
 if.then.i2239:                                    ; preds = %if.else817
   %call.i2240 = tail call ptr @__errno_location() #26
-  %112 = load i32, ptr %call.i2240, align 4
-  %sub.i2241 = sub i32 0, %112
+  %114 = load i32, ptr %call.i2240, align 4
+  %sub.i2241 = sub i32 0, %114
   %conv.i2242 = sext i32 %sub.i2241 to i64
   br label %return
 
@@ -5579,8 +5611,8 @@ if.end829:                                        ; preds = %sw.bb825
 
 if.then.i2246:                                    ; preds = %if.end829
   %call.i2247 = tail call ptr @__errno_location() #26
-  %113 = load i32, ptr %call.i2247, align 4
-  %sub.i2248 = sub i32 0, %113
+  %115 = load i32, ptr %call.i2247, align 4
+  %sub.i2248 = sub i32 0, %115
   %conv.i2249 = sext i32 %sub.i2248 to i64
   br label %return
 
@@ -5604,8 +5636,8 @@ if.end841:                                        ; preds = %if.then837
 
 if.then.i2255:                                    ; preds = %if.end841
   %call.i2256 = tail call ptr @__errno_location() #26
-  %114 = load i32, ptr %call.i2256, align 4
-  %sub.i2257 = sub i32 0, %114
+  %116 = load i32, ptr %call.i2256, align 4
+  %sub.i2257 = sub i32 0, %116
   %conv.i2258 = sext i32 %sub.i2257 to i64
   br label %return
 
@@ -5621,8 +5653,8 @@ if.else848:                                       ; preds = %sw.bb834
 
 if.then.i2264:                                    ; preds = %if.else848
   %call.i2265 = tail call ptr @__errno_location() #26
-  %115 = load i32, ptr %call.i2265, align 4
-  %sub.i2266 = sub i32 0, %115
+  %117 = load i32, ptr %call.i2265, align 4
+  %sub.i2266 = sub i32 0, %117
   %conv.i2267 = sext i32 %sub.i2266 to i64
   br label %return
 
@@ -5641,8 +5673,8 @@ sw.bb861:                                         ; preds = %entry
 
 if.then.i2271:                                    ; preds = %sw.bb861
   %call.i2272 = tail call ptr @__errno_location() #26
-  %116 = load i32, ptr %call.i2272, align 4
-  %sub.i2273 = sub i32 0, %116
+  %118 = load i32, ptr %call.i2272, align 4
+  %sub.i2273 = sub i32 0, %118
   %conv.i2274 = sext i32 %sub.i2273 to i64
   br label %return
 
@@ -5653,30 +5685,30 @@ sw.bb866:                                         ; preds = %entry
 
 land.lhs.true872:                                 ; preds = %sw.bb866
   %opaque869 = getelementptr i8, ptr %cpu_env, i64 -9552
-  %117 = load ptr, ptr %opaque869, align 16
-  %info873 = getelementptr inbounds i8, ptr %117, i64 48
-  %118 = load ptr, ptr %info873, align 8
-  %stack_limit = getelementptr inbounds i8, ptr %118, i64 64
-  %119 = load i64, ptr %stack_limit, align 8
-  %cmp874.not = icmp ugt i64 %119, %arg1
+  %119 = load ptr, ptr %opaque869, align 16
+  %info873 = getelementptr inbounds i8, ptr %119, i64 48
+  %120 = load ptr, ptr %info873, align 8
+  %stack_limit = getelementptr inbounds i8, ptr %120, i64 64
+  %121 = load i64, ptr %stack_limit, align 8
+  %cmp874.not = icmp ugt i64 %121, %arg1
   br i1 %cmp874.not, label %if.end886, label %land.lhs.true876
 
 land.lhs.true876:                                 ; preds = %land.lhs.true872
-  %start_stack = getelementptr inbounds i8, ptr %118, i64 56
-  %120 = load i64, ptr %start_stack, align 8
-  %cmp878.not = icmp ult i64 %120, %arg1
+  %start_stack = getelementptr inbounds i8, ptr %120, i64 56
+  %122 = load i64, ptr %start_stack, align 8
+  %cmp878.not = icmp ult i64 %122, %arg1
   br i1 %cmp878.not, label %if.end886, label %if.then880
 
 if.then880:                                       ; preds = %land.lhs.true876
   %and881 = and i64 %arg3, -16777217
   %add = add i64 %arg2, %arg1
-  %sub = sub i64 %add, %119
+  %sub = sub i64 %add, %121
   br label %if.end886
 
 if.end886:                                        ; preds = %if.then880, %land.lhs.true876, %land.lhs.true872, %sw.bb866
   %arg3.addr.0 = phi i64 [ %and881, %if.then880 ], [ %arg3, %land.lhs.true876 ], [ %arg3, %land.lhs.true872 ], [ %arg3, %sw.bb866 ]
   %arg2.addr.0 = phi i64 [ %sub, %if.then880 ], [ %arg2, %land.lhs.true876 ], [ %arg2, %land.lhs.true872 ], [ %arg2, %sw.bb866 ]
-  %arg1.addr.0 = phi i64 [ %119, %if.then880 ], [ %arg1, %land.lhs.true876 ], [ %arg1, %land.lhs.true872 ], [ %arg1, %sw.bb866 ]
+  %arg1.addr.0 = phi i64 [ %121, %if.then880 ], [ %arg1, %land.lhs.true876 ], [ %arg1, %land.lhs.true872 ], [ %arg1, %sw.bb866 ]
   %conv887 = trunc i64 %arg3.addr.0 to i32
   %call888 = tail call i32 @target_mprotect(i64 noundef %arg1.addr.0, i64 noundef %arg2.addr.0, i32 noundef %conv887) #27
   %conv889 = sext i32 %call888 to i64
@@ -5685,8 +5717,8 @@ if.end886:                                        ; preds = %if.then880, %land.l
 
 if.then.i2278:                                    ; preds = %if.end886
   %call.i2279 = tail call ptr @__errno_location() #26
-  %121 = load i32, ptr %call.i2279, align 4
-  %sub.i2280 = sub i32 0, %121
+  %123 = load i32, ptr %call.i2279, align 4
+  %sub.i2280 = sub i32 0, %123
   %conv.i2281 = sext i32 %sub.i2280 to i64
   br label %return
 
@@ -5697,57 +5729,57 @@ sw.bb891:                                         ; preds = %entry
 
 if.then.i2285:                                    ; preds = %sw.bb891
   %call.i2286 = tail call ptr @__errno_location() #26
-  %122 = load i32, ptr %call.i2286, align 4
-  %sub.i2287 = sub i32 0, %122
+  %124 = load i32, ptr %call.i2286, align 4
+  %sub.i2287 = sub i32 0, %124
   %conv.i2288 = sext i32 %sub.i2287 to i64
   br label %return
 
 sw.bb895:                                         ; preds = %entry
-  %123 = load i64, ptr @guest_base, align 8
-  %add.i.i2290 = add i64 %123, %arg1
-  %124 = inttoptr i64 %add.i.i2290 to ptr
+  %125 = load i64, ptr @guest_base, align 8
+  %add.i.i2290 = add i64 %125, %arg1
+  %126 = inttoptr i64 %add.i.i2290 to ptr
   %conv10.i = trunc i64 %arg3 to i32
-  %call898 = tail call i32 @msync(ptr noundef %124, i64 noundef %arg2, i32 noundef %conv10.i) #27
+  %call898 = tail call i32 @msync(ptr noundef %126, i64 noundef %arg2, i32 noundef %conv10.i) #27
   %conv899 = sext i32 %call898 to i64
   %cmp.i2291 = icmp eq i32 %call898, -1
   br i1 %cmp.i2291, label %if.then.i2293, label %return
 
 if.then.i2293:                                    ; preds = %sw.bb895
   %call.i2294 = tail call ptr @__errno_location() #26
-  %125 = load i32, ptr %call.i2294, align 4
-  %sub.i2295 = sub i32 0, %125
+  %127 = load i32, ptr %call.i2294, align 4
+  %sub.i2295 = sub i32 0, %127
   %conv.i2296 = sext i32 %sub.i2295 to i64
   br label %return
 
 sw.bb901:                                         ; preds = %entry
-  %126 = load i64, ptr @guest_base, align 8
-  %add.i.i2298 = add i64 %126, %arg1
-  %127 = inttoptr i64 %add.i.i2298 to ptr
-  %call903 = tail call i32 @mlock(ptr noundef %127, i64 noundef %arg2) #27
+  %128 = load i64, ptr @guest_base, align 8
+  %add.i.i2298 = add i64 %128, %arg1
+  %129 = inttoptr i64 %add.i.i2298 to ptr
+  %call903 = tail call i32 @mlock(ptr noundef %129, i64 noundef %arg2) #27
   %conv904 = sext i32 %call903 to i64
   %cmp.i2299 = icmp eq i32 %call903, -1
   br i1 %cmp.i2299, label %if.then.i2301, label %return
 
 if.then.i2301:                                    ; preds = %sw.bb901
   %call.i2302 = tail call ptr @__errno_location() #26
-  %128 = load i32, ptr %call.i2302, align 4
-  %sub.i2303 = sub i32 0, %128
+  %130 = load i32, ptr %call.i2302, align 4
+  %sub.i2303 = sub i32 0, %130
   %conv.i2304 = sext i32 %sub.i2303 to i64
   br label %return
 
 sw.bb906:                                         ; preds = %entry
-  %129 = load i64, ptr @guest_base, align 8
-  %add.i.i2306 = add i64 %129, %arg1
-  %130 = inttoptr i64 %add.i.i2306 to ptr
-  %call908 = tail call i32 @munlock(ptr noundef %130, i64 noundef %arg2) #27
+  %131 = load i64, ptr @guest_base, align 8
+  %add.i.i2306 = add i64 %131, %arg1
+  %132 = inttoptr i64 %add.i.i2306 to ptr
+  %call908 = tail call i32 @munlock(ptr noundef %132, i64 noundef %arg2) #27
   %conv909 = sext i32 %call908 to i64
   %cmp.i2307 = icmp eq i32 %call908, -1
   br i1 %cmp.i2307, label %if.then.i2309, label %return
 
 if.then.i2309:                                    ; preds = %sw.bb906
   %call.i2310 = tail call ptr @__errno_location() #26
-  %131 = load i32, ptr %call.i2310, align 4
-  %sub.i2311 = sub i32 0, %131
+  %133 = load i32, ptr %call.i2310, align 4
+  %sub.i2311 = sub i32 0, %133
   %conv.i2312 = sext i32 %sub.i2311 to i64
   br label %return
 
@@ -5761,8 +5793,8 @@ sw.bb911:                                         ; preds = %entry
 
 if.then.i2316:                                    ; preds = %sw.bb911
   %call.i2317 = tail call ptr @__errno_location() #26
-  %132 = load i32, ptr %call.i2317, align 4
-  %sub.i2318 = sub i32 0, %132
+  %134 = load i32, ptr %call.i2317, align 4
+  %sub.i2318 = sub i32 0, %134
   %conv.i2319 = sext i32 %sub.i2318 to i64
   br label %return
 
@@ -5774,8 +5806,8 @@ sw.bb917:                                         ; preds = %entry
 
 if.then.i2323:                                    ; preds = %sw.bb917
   %call.i2324 = tail call ptr @__errno_location() #26
-  %133 = load i32, ptr %call.i2324, align 4
-  %sub.i2325 = sub i32 0, %133
+  %135 = load i32, ptr %call.i2324, align 4
+  %sub.i2325 = sub i32 0, %135
   %conv.i2326 = sext i32 %sub.i2325 to i64
   br label %return
 
@@ -5792,8 +5824,8 @@ if.end925:                                        ; preds = %sw.bb921
 
 if.then.i2330:                                    ; preds = %if.end925
   %call.i2331 = tail call ptr @__errno_location() #26
-  %134 = load i32, ptr %call.i2331, align 4
-  %sub.i2332 = sub i32 0, %134
+  %136 = load i32, ptr %call.i2331, align 4
+  %sub.i2332 = sub i32 0, %136
   %conv.i2333 = sext i32 %sub.i2332 to i64
   br label %return
 
@@ -5806,8 +5838,8 @@ sw.bb929:                                         ; preds = %entry
 
 if.then.i2337:                                    ; preds = %sw.bb929
   %call.i2338 = tail call ptr @__errno_location() #26
-  %135 = load i32, ptr %call.i2338, align 4
-  %sub.i2339 = sub i32 0, %135
+  %137 = load i32, ptr %call.i2338, align 4
+  %sub.i2339 = sub i32 0, %137
   %conv.i2340 = sext i32 %sub.i2339 to i64
   br label %return
 
@@ -5821,8 +5853,8 @@ sw.bb934:                                         ; preds = %entry
 
 if.then.i2344:                                    ; preds = %sw.bb934
   %call.i2345 = tail call ptr @__errno_location() #26
-  %136 = load i32, ptr %call.i2345, align 4
-  %sub.i2346 = sub i32 0, %136
+  %138 = load i32, ptr %call.i2345, align 4
+  %sub.i2346 = sub i32 0, %138
   %conv.i2347 = sext i32 %sub.i2346 to i64
   br label %return
 
@@ -5841,8 +5873,8 @@ if.end944:                                        ; preds = %sw.bb940
 
 if.then.i2351:                                    ; preds = %if.end944
   %call.i2352 = tail call ptr @__errno_location() #26
-  %137 = load i32, ptr %call.i2352, align 4
-  %sub.i2353 = sub i32 0, %137
+  %139 = load i32, ptr %call.i2352, align 4
+  %sub.i2353 = sub i32 0, %139
   %conv.i2354 = sext i32 %sub.i2353 to i64
   br label %return
 
@@ -5857,12 +5889,12 @@ sw.bb950:                                         ; preds = %entry
   br i1 %cmp956, label %land.lhs.true958, label %if.end967
 
 land.lhs.true958:                                 ; preds = %sw.bb950
-  %138 = load i32, ptr %call951, align 4
-  %cmp960.not = icmp eq i32 %138, 0
+  %140 = load i32, ptr %call951, align 4
+  %cmp960.not = icmp eq i32 %140, 0
   br i1 %cmp960.not, label %if.end967, label %if.then962
 
 if.then962:                                       ; preds = %land.lhs.true958
-  %sub965 = sub i32 0, %138
+  %sub965 = sub i32 0, %140
   %conv966 = sext i32 %sub965 to i64
   br label %return
 
@@ -5881,8 +5913,8 @@ sw.bb969:                                         ; preds = %entry
 
 if.then.i2358:                                    ; preds = %sw.bb969
   %call.i2359 = tail call ptr @__errno_location() #26
-  %139 = load i32, ptr %call.i2359, align 4
-  %sub.i2360 = sub i32 0, %139
+  %141 = load i32, ptr %call.i2359, align 4
+  %sub.i2360 = sub i32 0, %141
   %conv.i2361 = sext i32 %sub.i2360 to i64
   br label %return
 
@@ -5899,8 +5931,8 @@ if.end980:                                        ; preds = %sw.bb976
 
 convert_statfs.sink.split:                        ; preds = %if.end980, %sw.bb1035
   %call.i2375 = tail call ptr @__errno_location() #26
-  %140 = load i32, ptr %call.i2375, align 4
-  %sub.i2376 = sub i32 0, %140
+  %142 = load i32, ptr %call.i2375, align 4
+  %sub.i2376 = sub i32 0, %142
   br label %convert_statfs
 
 convert_statfs:                                   ; preds = %convert_statfs.sink.split, %sw.bb1035, %if.end980
@@ -5915,52 +5947,52 @@ if.then987:                                       ; preds = %convert_statfs
   br i1 %tobool989.not, label %return, label %do.body992
 
 do.body992:                                       ; preds = %if.then987
-  %141 = load i64, ptr %stfs, align 8
-  store i64 %141, ptr %call988, align 1
+  %143 = load i64, ptr %stfs, align 8
+  store i64 %143, ptr %call988, align 1
   %f_bsize = getelementptr inbounds i8, ptr %call988, i64 8
   %f_bsize996 = getelementptr inbounds i8, ptr %stfs, i64 8
-  %142 = load i64, ptr %f_bsize996, align 8
-  store i64 %142, ptr %f_bsize, align 1
+  %144 = load i64, ptr %f_bsize996, align 8
+  store i64 %144, ptr %f_bsize, align 1
   %f_blocks = getelementptr inbounds i8, ptr %call988, i64 16
   %f_blocks999 = getelementptr inbounds i8, ptr %stfs, i64 16
-  %143 = load i64, ptr %f_blocks999, align 8
-  store i64 %143, ptr %f_blocks, align 1
+  %145 = load i64, ptr %f_blocks999, align 8
+  store i64 %145, ptr %f_blocks, align 1
   %f_bfree = getelementptr inbounds i8, ptr %call988, i64 24
   %f_bfree1002 = getelementptr inbounds i8, ptr %stfs, i64 24
-  %144 = load i64, ptr %f_bfree1002, align 8
-  store i64 %144, ptr %f_bfree, align 1
+  %146 = load i64, ptr %f_bfree1002, align 8
+  store i64 %146, ptr %f_bfree, align 1
   %f_bavail = getelementptr inbounds i8, ptr %call988, i64 32
   %f_bavail1005 = getelementptr inbounds i8, ptr %stfs, i64 32
-  %145 = load i64, ptr %f_bavail1005, align 8
-  store i64 %145, ptr %f_bavail, align 1
+  %147 = load i64, ptr %f_bavail1005, align 8
+  store i64 %147, ptr %f_bavail, align 1
   %f_files = getelementptr inbounds i8, ptr %call988, i64 40
   %f_files1008 = getelementptr inbounds i8, ptr %stfs, i64 40
-  %146 = load i64, ptr %f_files1008, align 8
-  store i64 %146, ptr %f_files, align 1
+  %148 = load i64, ptr %f_files1008, align 8
+  store i64 %148, ptr %f_files, align 1
   %f_ffree = getelementptr inbounds i8, ptr %call988, i64 48
   %f_ffree1011 = getelementptr inbounds i8, ptr %stfs, i64 48
-  %147 = load i64, ptr %f_ffree1011, align 8
-  store i64 %147, ptr %f_ffree, align 1
+  %149 = load i64, ptr %f_ffree1011, align 8
+  store i64 %149, ptr %f_ffree, align 1
   %f_fsid = getelementptr inbounds i8, ptr %call988, i64 56
   %f_fsid1014 = getelementptr inbounds i8, ptr %stfs, i64 56
-  %148 = load i32, ptr %f_fsid1014, align 8
-  store i32 %148, ptr %f_fsid, align 1
+  %150 = load i32, ptr %f_fsid1014, align 8
+  store i32 %150, ptr %f_fsid, align 1
   %arrayidx1020 = getelementptr i8, ptr %call988, i64 60
   %arrayidx1023 = getelementptr inbounds i8, ptr %stfs, i64 60
-  %149 = load i32, ptr %arrayidx1023, align 4
-  store i32 %149, ptr %arrayidx1020, align 1
+  %151 = load i32, ptr %arrayidx1023, align 4
+  store i32 %151, ptr %arrayidx1020, align 1
   %f_namelen = getelementptr inbounds i8, ptr %call988, i64 64
   %f_namelen1026 = getelementptr inbounds i8, ptr %stfs, i64 64
-  %150 = load i64, ptr %f_namelen1026, align 8
-  store i64 %150, ptr %f_namelen, align 1
+  %152 = load i64, ptr %f_namelen1026, align 8
+  store i64 %152, ptr %f_namelen, align 1
   %f_frsize = getelementptr inbounds i8, ptr %call988, i64 72
   %f_frsize1029 = getelementptr inbounds i8, ptr %stfs, i64 72
-  %151 = load i64, ptr %f_frsize1029, align 8
-  store i64 %151, ptr %f_frsize, align 1
+  %153 = load i64, ptr %f_frsize1029, align 8
+  store i64 %153, ptr %f_frsize, align 1
   %f_flags = getelementptr inbounds i8, ptr %call988, i64 80
   %f_flags1032 = getelementptr inbounds i8, ptr %stfs, i64 80
-  %152 = load i64, ptr %f_flags1032, align 8
-  store i64 %152, ptr %f_flags, align 1
+  %154 = load i64, ptr %f_flags1032, align 8
+  store i64 %154, ptr %f_flags, align 1
   %f_spare = getelementptr inbounds i8, ptr %call988, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %f_spare, i8 0, i64 32, i1 false)
   br label %return
@@ -6021,8 +6053,8 @@ sw.bb1066:                                        ; preds = %entry
 
 if.then.i2381:                                    ; preds = %sw.bb1066
   %call.i2382 = tail call ptr @__errno_location() #26
-  %153 = load i32, ptr %call.i2382, align 4
-  %sub.i2383 = sub i32 0, %153
+  %155 = load i32, ptr %call.i2382, align 4
+  %sub.i2383 = sub i32 0, %155
   %conv.i2384 = sext i32 %sub.i2383 to i64
   br label %return
 
@@ -6075,8 +6107,8 @@ sw.bb1099:                                        ; preds = %entry
 
 if.then.i2388:                                    ; preds = %sw.bb1099
   %call.i2389 = tail call ptr @__errno_location() #26
-  %154 = load i32, ptr %call.i2389, align 4
-  %sub.i2390 = sub i32 0, %154
+  %156 = load i32, ptr %call.i2389, align 4
+  %sub.i2390 = sub i32 0, %156
   %conv.i2391 = sext i32 %sub.i2390 to i64
   br label %return
 
@@ -6095,8 +6127,8 @@ if.end1109:                                       ; preds = %sw.bb1105
 
 if.then.i2397:                                    ; preds = %if.end1109
   %call.i2398 = tail call ptr @__errno_location() #26
-  %155 = load i32, ptr %call.i2398, align 4
-  %sub.i2399 = sub i32 0, %155
+  %157 = load i32, ptr %call.i2398, align 4
+  %sub.i2399 = sub i32 0, %157
   %conv.i2400 = sext i32 %sub.i2399 to i64
   br label %return
 
@@ -6149,8 +6181,8 @@ sw.bb1132:                                        ; preds = %sw.bb1130, %sw.bb11
 
 if.then.i2406:                                    ; preds = %sw.bb1132
   %call.i2407 = tail call ptr @__errno_location() #26
-  %156 = load i32, ptr %call.i2407, align 4
-  %sub.i2408 = sub i32 0, %156
+  %158 = load i32, ptr %call.i2407, align 4
+  %sub.i2408 = sub i32 0, %158
   %conv.i2409 = sext i32 %sub.i2408 to i64
   br label %return
 
@@ -6178,8 +6210,8 @@ if.end1150:                                       ; preds = %if.end1146
 
 if.then.i2415:                                    ; preds = %if.end1150
   %call.i2416 = tail call ptr @__errno_location() #26
-  %157 = load i32, ptr %call.i2416, align 4
-  %sub.i2417 = sub i32 0, %157
+  %159 = load i32, ptr %call.i2416, align 4
+  %sub.i2417 = sub i32 0, %159
   %conv.i2418 = sext i32 %sub.i2417 to i64
   br label %return
 
@@ -6193,8 +6225,12 @@ if.then1159:                                      ; preds = %sw.bb1157
   br i1 %tobool.not.i2421, label %return, label %lor.lhs.false1162
 
 lor.lhs.false1162:                                ; preds = %if.then1159
-  %158 = load <2 x i64>, ptr %call.i2420, align 1
-  store <2 x i64> %158, ptr %value, align 16
+  %call.val.i2423 = load i64, ptr %call.i2420, align 1
+  store i64 %call.val.i2423, ptr %value, align 8
+  %tv_usec.i2424 = getelementptr inbounds i8, ptr %call.i2420, i64 8
+  %tv_usec.val.i2425 = load i64, ptr %tv_usec.i2424, align 1
+  %tv_usec5.i2426 = getelementptr inbounds i8, ptr %value, i64 8
+  store i64 %tv_usec.val.i2425, ptr %tv_usec5.i2426, align 8
   %add1163 = add i64 %arg2, 16
   %call.i2429 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %add1163, i64 noundef 16, i1 noundef zeroext true) #27
   %tobool.not.i2430 = icmp eq ptr %call.i2429, null
@@ -6202,8 +6238,12 @@ lor.lhs.false1162:                                ; preds = %if.then1159
 
 copy_from_user_timeval.exit2437.thread:           ; preds = %lor.lhs.false1162
   %it_value = getelementptr inbounds i8, ptr %value, i64 16
-  %159 = load <2 x i64>, ptr %call.i2429, align 1
-  store <2 x i64> %159, ptr %it_value, align 16
+  %call.val.i2432 = load i64, ptr %call.i2429, align 1
+  store i64 %call.val.i2432, ptr %it_value, align 8
+  %tv_usec.i2433 = getelementptr inbounds i8, ptr %call.i2429, i64 8
+  %tv_usec.val.i2434 = load i64, ptr %tv_usec.i2433, align 1
+  %tv_usec5.i2435 = getelementptr inbounds i8, ptr %value, i64 24
+  store i64 %tv_usec.val.i2434, ptr %tv_usec5.i2435, align 8
   br label %if.end1169
 
 if.end1169:                                       ; preds = %copy_from_user_timeval.exit2437.thread, %sw.bb1157
@@ -6233,8 +6273,12 @@ if.then1178:                                      ; preds = %get_errno.exit2444
   br i1 %tobool.not.i2448, label %return, label %lor.lhs.false1182
 
 lor.lhs.false1182:                                ; preds = %if.then1178
-  %161 = load <2 x i64>, ptr %ovalue, align 16
-  store <2 x i64> %161, ptr %call.i2447, align 1
+  %161 = load i64, ptr %ovalue, align 8
+  store i64 %161, ptr %call.i2447, align 1
+  %tv_usec.i2450 = getelementptr inbounds i8, ptr %call.i2447, i64 8
+  %tv_usec3.i2451 = getelementptr inbounds i8, ptr %ovalue, i64 8
+  %162 = load i64, ptr %tv_usec3.i2451, align 8
+  store i64 %162, ptr %tv_usec.i2450, align 1
   %add1183 = add i64 %arg3, 16
   %call.i2454 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %add1183, i64 noundef 16, i1 noundef zeroext false) #27
   %tobool.not.i2455 = icmp eq ptr %call.i2454, null
@@ -6242,8 +6286,12 @@ lor.lhs.false1182:                                ; preds = %if.then1178
 
 copy_to_user_timeval.exit2460.thread:             ; preds = %lor.lhs.false1182
   %it_value1184 = getelementptr inbounds i8, ptr %ovalue, i64 16
-  %162 = load <2 x i64>, ptr %it_value1184, align 16
-  store <2 x i64> %162, ptr %call.i2454, align 1
+  %163 = load i64, ptr %it_value1184, align 8
+  store i64 %163, ptr %call.i2454, align 1
+  %tv_usec.i2457 = getelementptr inbounds i8, ptr %call.i2454, i64 8
+  %tv_usec3.i2458 = getelementptr inbounds i8, ptr %ovalue, i64 24
+  %164 = load i64, ptr %tv_usec3.i2458, align 8
+  store i64 %164, ptr %tv_usec.i2457, align 1
   br label %return
 
 sw.bb1190:                                        ; preds = %entry
@@ -6254,8 +6302,8 @@ sw.bb1190:                                        ; preds = %entry
 
 if.then.i2463:                                    ; preds = %sw.bb1190
   %call.i2464 = tail call ptr @__errno_location() #26
-  %163 = load i32, ptr %call.i2464, align 4
-  %sub.i2465 = sub i32 0, %163
+  %165 = load i32, ptr %call.i2464, align 4
+  %sub.i2465 = sub i32 0, %165
   br label %get_errno.exit2467
 
 get_errno.exit2467:                               ; preds = %sw.bb1190, %if.then.i2463
@@ -6272,8 +6320,12 @@ if.then1200:                                      ; preds = %get_errno.exit2467
   br i1 %tobool.not.i2471, label %return, label %lor.lhs.false1204
 
 lor.lhs.false1204:                                ; preds = %if.then1200
-  %164 = load <2 x i64>, ptr %value1191, align 16
-  store <2 x i64> %164, ptr %call.i2470, align 1
+  %166 = load i64, ptr %value1191, align 8
+  store i64 %166, ptr %call.i2470, align 1
+  %tv_usec.i2473 = getelementptr inbounds i8, ptr %call.i2470, i64 8
+  %tv_usec3.i2474 = getelementptr inbounds i8, ptr %value1191, i64 8
+  %167 = load i64, ptr %tv_usec3.i2474, align 8
+  store i64 %167, ptr %tv_usec.i2473, align 1
   %add1205 = add i64 %arg2, 16
   %call.i2477 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %add1205, i64 noundef 16, i1 noundef zeroext false) #27
   %tobool.not.i2478 = icmp eq ptr %call.i2477, null
@@ -6281,8 +6333,12 @@ lor.lhs.false1204:                                ; preds = %if.then1200
 
 copy_to_user_timeval.exit2483.thread:             ; preds = %lor.lhs.false1204
   %it_value1206 = getelementptr inbounds i8, ptr %value1191, i64 16
-  %165 = load <2 x i64>, ptr %it_value1206, align 16
-  store <2 x i64> %165, ptr %call.i2477, align 1
+  %168 = load i64, ptr %it_value1206, align 8
+  store i64 %168, ptr %call.i2477, align 1
+  %tv_usec.i2480 = getelementptr inbounds i8, ptr %call.i2477, i64 8
+  %tv_usec3.i2481 = getelementptr inbounds i8, ptr %value1191, i64 24
+  %169 = load i64, ptr %tv_usec3.i2481, align 8
+  store i64 %169, ptr %tv_usec.i2480, align 1
   br label %return
 
 sw.bb1212:                                        ; preds = %entry
@@ -6293,8 +6349,8 @@ sw.bb1212:                                        ; preds = %entry
 
 if.then.i2486:                                    ; preds = %sw.bb1212
   %call.i2487 = tail call ptr @__errno_location() #26
-  %166 = load i32, ptr %call.i2487, align 4
-  %sub.i2488 = sub i32 0, %166
+  %170 = load i32, ptr %call.i2487, align 4
+  %sub.i2488 = sub i32 0, %170
   br label %get_errno.exit2490
 
 get_errno.exit2490:                               ; preds = %sw.bb1212, %if.then.i2486
@@ -6310,70 +6366,70 @@ if.then1219:                                      ; preds = %get_errno.exit2490
 
 if.end1223:                                       ; preds = %if.then1219
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call1220, i8 0, i64 128, i1 false)
-  %167 = load i64, ptr %st, align 8
-  store i64 %167, ptr %call1220, align 1
+  %171 = load i64, ptr %st, align 8
+  store i64 %171, ptr %call1220, align 1
   %st_ino = getelementptr inbounds i8, ptr %call1220, i64 8
   %st_ino1228 = getelementptr inbounds i8, ptr %st, i64 8
-  %168 = load i64, ptr %st_ino1228, align 8
-  store i64 %168, ptr %st_ino, align 1
+  %172 = load i64, ptr %st_ino1228, align 8
+  store i64 %172, ptr %st_ino, align 1
   %st_mode = getelementptr inbounds i8, ptr %call1220, i64 16
   %st_mode1231 = getelementptr inbounds i8, ptr %st, i64 24
-  %169 = load i32, ptr %st_mode1231, align 8
-  store i32 %169, ptr %st_mode, align 1
+  %173 = load i32, ptr %st_mode1231, align 8
+  store i32 %173, ptr %st_mode, align 1
   %st_uid = getelementptr inbounds i8, ptr %call1220, i64 24
   %st_uid1234 = getelementptr inbounds i8, ptr %st, i64 28
-  %170 = load i32, ptr %st_uid1234, align 4
-  store i32 %170, ptr %st_uid, align 1
+  %174 = load i32, ptr %st_uid1234, align 4
+  store i32 %174, ptr %st_uid, align 1
   %st_gid = getelementptr inbounds i8, ptr %call1220, i64 28
   %st_gid1237 = getelementptr inbounds i8, ptr %st, i64 32
-  %171 = load i32, ptr %st_gid1237, align 8
-  store i32 %171, ptr %st_gid, align 1
+  %175 = load i32, ptr %st_gid1237, align 8
+  store i32 %175, ptr %st_gid, align 1
   %st_nlink = getelementptr inbounds i8, ptr %call1220, i64 20
   %st_nlink1240 = getelementptr inbounds i8, ptr %st, i64 16
-  %172 = load i64, ptr %st_nlink1240, align 8
-  %conv1241 = trunc i64 %172 to i32
+  %176 = load i64, ptr %st_nlink1240, align 8
+  %conv1241 = trunc i64 %176 to i32
   store i32 %conv1241, ptr %st_nlink, align 1
   %st_rdev = getelementptr inbounds i8, ptr %call1220, i64 32
   %st_rdev1244 = getelementptr inbounds i8, ptr %st, i64 40
-  %173 = load i64, ptr %st_rdev1244, align 8
-  store i64 %173, ptr %st_rdev, align 1
+  %177 = load i64, ptr %st_rdev1244, align 8
+  store i64 %177, ptr %st_rdev, align 1
   %st_size = getelementptr inbounds i8, ptr %call1220, i64 48
   %st_size1247 = getelementptr inbounds i8, ptr %st, i64 48
-  %174 = load i64, ptr %st_size1247, align 8
-  store i64 %174, ptr %st_size, align 1
+  %178 = load i64, ptr %st_size1247, align 8
+  store i64 %178, ptr %st_size, align 1
   %st_blksize = getelementptr inbounds i8, ptr %call1220, i64 56
   %st_blksize1250 = getelementptr inbounds i8, ptr %st, i64 56
-  %175 = load i64, ptr %st_blksize1250, align 8
-  %conv1251 = trunc i64 %175 to i32
+  %179 = load i64, ptr %st_blksize1250, align 8
+  %conv1251 = trunc i64 %179 to i32
   store i32 %conv1251, ptr %st_blksize, align 1
   %st_blocks = getelementptr inbounds i8, ptr %call1220, i64 64
   %st_blocks1254 = getelementptr inbounds i8, ptr %st, i64 64
-  %176 = load i64, ptr %st_blocks1254, align 8
-  store i64 %176, ptr %st_blocks, align 1
+  %180 = load i64, ptr %st_blocks1254, align 8
+  store i64 %180, ptr %st_blocks, align 1
   %target_st_atime = getelementptr inbounds i8, ptr %call1220, i64 72
   %st_atim = getelementptr inbounds i8, ptr %st, i64 72
-  %177 = load i64, ptr %st_atim, align 8
-  store i64 %177, ptr %target_st_atime, align 1
+  %181 = load i64, ptr %st_atim, align 8
+  store i64 %181, ptr %target_st_atime, align 1
   %target_st_mtime = getelementptr inbounds i8, ptr %call1220, i64 88
   %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
-  %178 = load i64, ptr %st_mtim, align 8
-  store i64 %178, ptr %target_st_mtime, align 1
+  %182 = load i64, ptr %st_mtim, align 8
+  store i64 %182, ptr %target_st_mtime, align 1
   %target_st_ctime = getelementptr inbounds i8, ptr %call1220, i64 104
   %st_ctim = getelementptr inbounds i8, ptr %st, i64 104
-  %179 = load i64, ptr %st_ctim, align 8
-  store i64 %179, ptr %target_st_ctime, align 1
+  %183 = load i64, ptr %st_ctim, align 8
+  store i64 %183, ptr %target_st_ctime, align 1
   %target_st_atime_nsec = getelementptr inbounds i8, ptr %call1220, i64 80
   %tv_nsec = getelementptr inbounds i8, ptr %st, i64 80
-  %180 = load i64, ptr %tv_nsec, align 8
-  store i64 %180, ptr %target_st_atime_nsec, align 1
+  %184 = load i64, ptr %tv_nsec, align 8
+  store i64 %184, ptr %target_st_atime_nsec, align 1
   %target_st_mtime_nsec = getelementptr inbounds i8, ptr %call1220, i64 96
   %tv_nsec1269 = getelementptr inbounds i8, ptr %st, i64 96
-  %181 = load i64, ptr %tv_nsec1269, align 8
-  store i64 %181, ptr %target_st_mtime_nsec, align 1
+  %185 = load i64, ptr %tv_nsec1269, align 8
+  store i64 %185, ptr %target_st_mtime_nsec, align 1
   %target_st_ctime_nsec = getelementptr inbounds i8, ptr %call1220, i64 112
   %tv_nsec1273 = getelementptr inbounds i8, ptr %st, i64 112
-  %182 = load i64, ptr %tv_nsec1273, align 8
-  store i64 %182, ptr %target_st_ctime_nsec, align 1
+  %186 = load i64, ptr %tv_nsec1273, align 8
+  store i64 %186, ptr %target_st_ctime_nsec, align 1
   br label %return
 
 sw.bb1276:                                        ; preds = %entry
@@ -6384,8 +6440,8 @@ sw.bb1276:                                        ; preds = %entry
 
 if.then.i2495:                                    ; preds = %sw.bb1276
   %call.i2496 = tail call ptr @__errno_location() #26
-  %183 = load i32, ptr %call.i2496, align 4
-  %sub.i2497 = sub i32 0, %183
+  %187 = load i32, ptr %call.i2496, align 4
+  %sub.i2497 = sub i32 0, %187
   %conv.i2498 = sext i32 %sub.i2497 to i64
   br label %return
 
@@ -6394,11 +6450,11 @@ sw.bb1280:                                        ; preds = %entry
   %.rusage1281 = select i1 %tobool1282.not, ptr null, ptr %rusage1281
   %conv1286 = trunc i64 %arg1 to i32
   %conv1287 = trunc i64 %arg3 to i32
-  %184 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %185 = load ptr, ptr %184, align 8
-  %opaque.i2500 = getelementptr inbounds i8, ptr %185, i64 624
-  %186 = load ptr, ptr %opaque.i2500, align 16
-  %signal_pending.i2501 = getelementptr inbounds i8, ptr %186, i64 9164
+  %188 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %189 = load ptr, ptr %188, align 8
+  %opaque.i2500 = getelementptr inbounds i8, ptr %189, i64 624
+  %190 = load ptr, ptr %opaque.i2500, align 16
+  %signal_pending.i2501 = getelementptr inbounds i8, ptr %190, i64 9164
   %call.i2502 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2501, i64 noundef 61, i32 noundef %conv1286, ptr noundef nonnull %status, i32 noundef %conv1287, ptr noundef %.rusage1281) #27
   %sext3855 = shl i64 %call.i2502, 32
   %conv1289 = ashr exact i64 %sext3855, 32
@@ -6407,8 +6463,8 @@ sw.bb1280:                                        ; preds = %entry
 
 if.then.i2506:                                    ; preds = %sw.bb1280
   %call.i2507 = tail call ptr @__errno_location() #26
-  %187 = load i32, ptr %call.i2507, align 4
-  %sub.i2508 = sub i32 0, %187
+  %191 = load i32, ptr %call.i2507, align 4
+  %sub.i2508 = sub i32 0, %191
   %conv.i2509 = sext i32 %sub.i2508 to i64
   br label %get_errno.exit2510
 
@@ -6424,16 +6480,16 @@ if.then1293:                                      ; preds = %get_errno.exit2510
   br i1 %or.cond16, label %if.then1297, label %if.end1313
 
 if.then1297:                                      ; preds = %if.then1293
-  %188 = load i32, ptr %status, align 4
-  %call1298 = call i32 @host_to_target_waitstatus(i32 noundef %188)
+  %192 = load i32, ptr %status, align 4
+  %call1298 = call i32 @host_to_target_waitstatus(i32 noundef %192)
   store i32 %call1298, ptr %status, align 4
   %call1302 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef 4, i1 noundef zeroext false) #27
   %tobool1303.not.not = icmp eq ptr %call1302, null
   br i1 %tobool1303.not.not, label %return, label %do.body1305
 
 do.body1305:                                      ; preds = %if.then1297
-  %189 = load i32, ptr %status, align 4
-  store i32 %189, ptr %call1302, align 1
+  %193 = load i32, ptr %status, align 4
+  store i32 %193, ptr %call1302, align 1
   br label %if.end1313
 
 if.end1313:                                       ; preds = %do.body1305, %if.then1293
@@ -6458,8 +6514,8 @@ if.end1326:                                       ; preds = %sw.bb1322
 
 if.then.i2515:                                    ; preds = %if.end1326
   %call.i2516 = tail call ptr @__errno_location() #26
-  %190 = load i32, ptr %call.i2516, align 4
-  %sub.i2517 = sub i32 0, %190
+  %194 = load i32, ptr %call.i2516, align 4
+  %sub.i2517 = sub i32 0, %194
   %conv.i2518 = sext i32 %sub.i2517 to i64
   br label %return
 
@@ -6470,8 +6526,8 @@ sw.bb1330:                                        ; preds = %entry
 
 if.then.i2522:                                    ; preds = %sw.bb1330
   %call.i2523 = tail call ptr @__errno_location() #26
-  %191 = load i32, ptr %call.i2523, align 4
-  %sub.i2524 = sub i32 0, %191
+  %195 = load i32, ptr %call.i2523, align 4
+  %sub.i2524 = sub i32 0, %195
   br label %get_errno.exit2526
 
 get_errno.exit2526:                               ; preds = %sw.bb1330, %if.then.i2522
@@ -6488,60 +6544,60 @@ if.then1339:                                      ; preds = %get_errno.exit2526
   br i1 %tobool1341.not, label %return, label %do.body1344
 
 do.body1344:                                      ; preds = %if.then1339
-  %192 = load i64, ptr %value1331, align 8
-  store i64 %192, ptr %call1340, align 1
+  %196 = load i64, ptr %value1331, align 8
+  store i64 %196, ptr %call1340, align 1
   %loads = getelementptr inbounds i8, ptr %call1340, i64 8
   %loads1349 = getelementptr inbounds i8, ptr %value1331, i64 8
-  %193 = load i64, ptr %loads1349, align 8
-  store i64 %193, ptr %loads, align 1
+  %197 = load i64, ptr %loads1349, align 8
+  store i64 %197, ptr %loads, align 1
   %arrayidx1354 = getelementptr i8, ptr %call1340, i64 16
   %arrayidx1356 = getelementptr inbounds i8, ptr %value1331, i64 16
-  %194 = load i64, ptr %arrayidx1356, align 8
-  store i64 %194, ptr %arrayidx1354, align 1
+  %198 = load i64, ptr %arrayidx1356, align 8
+  store i64 %198, ptr %arrayidx1354, align 1
   %arrayidx1360 = getelementptr i8, ptr %call1340, i64 24
   %arrayidx1362 = getelementptr inbounds i8, ptr %value1331, i64 24
-  %195 = load i64, ptr %arrayidx1362, align 8
-  store i64 %195, ptr %arrayidx1360, align 1
+  %199 = load i64, ptr %arrayidx1362, align 8
+  store i64 %199, ptr %arrayidx1360, align 1
   %totalram = getelementptr inbounds i8, ptr %call1340, i64 32
   %totalram1365 = getelementptr inbounds i8, ptr %value1331, i64 32
-  %196 = load i64, ptr %totalram1365, align 8
-  store i64 %196, ptr %totalram, align 1
+  %200 = load i64, ptr %totalram1365, align 8
+  store i64 %200, ptr %totalram, align 1
   %freeram = getelementptr inbounds i8, ptr %call1340, i64 40
   %freeram1368 = getelementptr inbounds i8, ptr %value1331, i64 40
-  %197 = load i64, ptr %freeram1368, align 8
-  store i64 %197, ptr %freeram, align 1
+  %201 = load i64, ptr %freeram1368, align 8
+  store i64 %201, ptr %freeram, align 1
   %sharedram = getelementptr inbounds i8, ptr %call1340, i64 48
   %sharedram1371 = getelementptr inbounds i8, ptr %value1331, i64 48
-  %198 = load i64, ptr %sharedram1371, align 8
-  store i64 %198, ptr %sharedram, align 1
+  %202 = load i64, ptr %sharedram1371, align 8
+  store i64 %202, ptr %sharedram, align 1
   %bufferram = getelementptr inbounds i8, ptr %call1340, i64 56
   %bufferram1374 = getelementptr inbounds i8, ptr %value1331, i64 56
-  %199 = load i64, ptr %bufferram1374, align 8
-  store i64 %199, ptr %bufferram, align 1
+  %203 = load i64, ptr %bufferram1374, align 8
+  store i64 %203, ptr %bufferram, align 1
   %totalswap = getelementptr inbounds i8, ptr %call1340, i64 64
   %totalswap1377 = getelementptr inbounds i8, ptr %value1331, i64 64
-  %200 = load i64, ptr %totalswap1377, align 8
-  store i64 %200, ptr %totalswap, align 1
+  %204 = load i64, ptr %totalswap1377, align 8
+  store i64 %204, ptr %totalswap, align 1
   %freeswap = getelementptr inbounds i8, ptr %call1340, i64 72
   %freeswap1380 = getelementptr inbounds i8, ptr %value1331, i64 72
-  %201 = load i64, ptr %freeswap1380, align 8
-  store i64 %201, ptr %freeswap, align 1
+  %205 = load i64, ptr %freeswap1380, align 8
+  store i64 %205, ptr %freeswap, align 1
   %procs = getelementptr inbounds i8, ptr %call1340, i64 80
   %procs1383 = getelementptr inbounds i8, ptr %value1331, i64 80
-  %202 = load i16, ptr %procs1383, align 8
-  store i16 %202, ptr %procs, align 1
+  %206 = load i16, ptr %procs1383, align 8
+  store i16 %206, ptr %procs, align 1
   %totalhigh = getelementptr inbounds i8, ptr %call1340, i64 88
   %totalhigh1386 = getelementptr inbounds i8, ptr %value1331, i64 88
-  %203 = load i64, ptr %totalhigh1386, align 8
-  store i64 %203, ptr %totalhigh, align 1
+  %207 = load i64, ptr %totalhigh1386, align 8
+  store i64 %207, ptr %totalhigh, align 1
   %freehigh = getelementptr inbounds i8, ptr %call1340, i64 96
   %freehigh1389 = getelementptr inbounds i8, ptr %value1331, i64 96
-  %204 = load i64, ptr %freehigh1389, align 8
-  store i64 %204, ptr %freehigh, align 1
+  %208 = load i64, ptr %freehigh1389, align 8
+  store i64 %208, ptr %freehigh, align 1
   %mem_unit = getelementptr inbounds i8, ptr %call1340, i64 104
   %mem_unit1392 = getelementptr inbounds i8, ptr %value1331, i64 104
-  %205 = load i32, ptr %mem_unit1392, align 8
-  store i32 %205, ptr %mem_unit, align 1
+  %209 = load i32, ptr %mem_unit1392, align 8
+  store i32 %209, ptr %mem_unit, align 1
   br label %return
 
 sw.bb1395:                                        ; preds = %entry
@@ -6555,8 +6611,8 @@ sw.bb1395:                                        ; preds = %entry
 
 if.then.i2531:                                    ; preds = %sw.bb1395
   %call.i2532 = tail call ptr @__errno_location() #26
-  %206 = load i32, ptr %call.i2532, align 4
-  %sub.i2533 = sub i32 0, %206
+  %210 = load i32, ptr %call.i2532, align 4
+  %sub.i2533 = sub i32 0, %210
   %conv.i2534 = sext i32 %sub.i2533 to i64
   br label %return
 
@@ -6595,8 +6651,8 @@ sw.bb1419:                                        ; preds = %entry
 
 if.then.i2538:                                    ; preds = %sw.bb1419
   %call.i2539 = tail call ptr @__errno_location() #26
-  %207 = load i32, ptr %call.i2539, align 4
-  %sub.i2540 = sub i32 0, %207
+  %211 = load i32, ptr %call.i2539, align 4
+  %sub.i2540 = sub i32 0, %211
   %conv.i2541 = sext i32 %sub.i2540 to i64
   br label %return
 
@@ -6622,8 +6678,8 @@ sw.bb1433:                                        ; preds = %entry
 
 if.then.i2545:                                    ; preds = %sw.bb1433
   %call.i2546 = tail call ptr @__errno_location() #26
-  %208 = load i32, ptr %call.i2546, align 4
-  %sub.i2547 = sub i32 0, %208
+  %212 = load i32, ptr %call.i2546, align 4
+  %sub.i2547 = sub i32 0, %212
   %conv.i2548 = sext i32 %sub.i2547 to i64
   br label %return
 
@@ -6652,8 +6708,8 @@ sw.bb1449:                                        ; preds = %entry
 
 if.then.i2552:                                    ; preds = %sw.bb1449
   %call.i2553 = tail call ptr @__errno_location() #26
-  %209 = load i32, ptr %call.i2553, align 4
-  %sub.i2554 = sub i32 0, %209
+  %213 = load i32, ptr %call.i2553, align 4
+  %sub.i2554 = sub i32 0, %213
   %conv.i2555 = sext i32 %sub.i2554 to i64
   br label %return
 
@@ -6666,8 +6722,8 @@ sw.bb1454:                                        ; preds = %entry
 
 if.then.i2559:                                    ; preds = %sw.bb1454
   %call.i2560 = tail call ptr @__errno_location() #26
-  %210 = load i32, ptr %call.i2560, align 4
-  %sub.i2561 = sub i32 0, %210
+  %214 = load i32, ptr %call.i2560, align 4
+  %sub.i2561 = sub i32 0, %214
   %conv.i2562 = sext i32 %sub.i2561 to i64
   br label %return
 
@@ -6682,8 +6738,8 @@ sw.bb1459:                                        ; preds = %entry
 
 if.then.i2568:                                    ; preds = %sw.bb1459
   %call.i2569 = tail call ptr @__errno_location() #26
-  %211 = load i32, ptr %call.i2569, align 4
-  %sub.i2570 = sub i32 0, %211
+  %215 = load i32, ptr %call.i2569, align 4
+  %sub.i2570 = sub i32 0, %215
   %conv.i2571 = sext i32 %sub.i2570 to i64
   br label %return
 
@@ -6700,8 +6756,8 @@ if.end1469:                                       ; preds = %sw.bb1465
 
 if.then.i2575:                                    ; preds = %if.end1469
   %call.i2576 = tail call ptr @__errno_location() #26
-  %212 = load i32, ptr %call.i2576, align 4
-  %sub.i2577 = sub i32 0, %212
+  %216 = load i32, ptr %call.i2576, align 4
+  %sub.i2577 = sub i32 0, %216
   %conv.i2578 = sext i32 %sub.i2577 to i64
   br label %return
 
@@ -6717,8 +6773,8 @@ if.end1477:                                       ; preds = %sw.bb1473
 
 if.then.i2582:                                    ; preds = %if.end1477
   %call.i2583 = tail call ptr @__errno_location() #26
-  %213 = load i32, ptr %call.i2583, align 4
-  %sub.i2584 = sub i32 0, %213
+  %217 = load i32, ptr %call.i2583, align 4
+  %sub.i2584 = sub i32 0, %217
   br label %get_errno.exit2586
 
 get_errno.exit2586:                               ; preds = %if.end1477, %if.then.i2582
@@ -6731,18 +6787,18 @@ if.then1483:                                      ; preds = %get_errno.exit2586
   %machine = getelementptr inbounds i8, ptr %call1474, i64 260
   %call1485 = tail call ptr @cpu_to_uname_machine(ptr noundef %cpu_env) #27
   %call1486 = tail call i64 @g_strlcpy(ptr noundef nonnull %machine, ptr noundef %call1485, i64 noundef 65) #27
-  %214 = load ptr, ptr @qemu_uname_release, align 8
-  %tobool1487.not = icmp eq ptr %214, null
+  %218 = load ptr, ptr @qemu_uname_release, align 8
+  %tobool1487.not = icmp eq ptr %218, null
   br i1 %tobool1487.not, label %return, label %land.lhs.true1488
 
 land.lhs.true1488:                                ; preds = %if.then1483
-  %215 = load i8, ptr %214, align 1
-  %tobool1490.not = icmp eq i8 %215, 0
+  %219 = load i8, ptr %218, align 1
+  %tobool1490.not = icmp eq i8 %219, 0
   br i1 %tobool1490.not, label %return, label %if.then1491
 
 if.then1491:                                      ; preds = %land.lhs.true1488
   %release = getelementptr inbounds i8, ptr %call1474, i64 130
-  %call1493 = tail call i64 @g_strlcpy(ptr noundef nonnull %release, ptr noundef nonnull %214, i64 noundef 65) #27
+  %call1493 = tail call i64 @g_strlcpy(ptr noundef nonnull %release, ptr noundef nonnull %218, i64 noundef 65) #27
   br label %return
 
 sw.bb1496:                                        ; preds = %entry
@@ -6757,8 +6813,8 @@ if.end1501:                                       ; preds = %sw.bb1496
 
 if.then.i2591:                                    ; preds = %if.end1501
   %call.i2592 = tail call ptr @__errno_location() #26
-  %216 = load i32, ptr %call.i2592, align 4
-  %sub.i2593 = sub i32 0, %216
+  %220 = load i32, ptr %call.i2592, align 4
+  %sub.i2593 = sub i32 0, %220
   br label %get_errno.exit2595
 
 get_errno.exit2595:                               ; preds = %if.end1501, %if.then.i2591
@@ -6788,8 +6844,8 @@ if.end1519:                                       ; preds = %sw.bb1514
 
 if.then.i2600:                                    ; preds = %if.end1519
   %call.i2601 = tail call ptr @__errno_location() #26
-  %217 = load i32, ptr %call.i2601, align 4
-  %sub.i2602 = sub i32 0, %217
+  %221 = load i32, ptr %call.i2601, align 4
+  %sub.i2602 = sub i32 0, %221
   br label %get_errno.exit2604
 
 get_errno.exit2604:                               ; preds = %if.end1519, %if.then.i2600
@@ -6815,8 +6871,8 @@ sw.bb1531:                                        ; preds = %entry
 
 if.then.i2609:                                    ; preds = %sw.bb1531
   %call.i2610 = tail call ptr @__errno_location() #26
-  %218 = load i32, ptr %call.i2610, align 4
-  %sub.i2611 = sub i32 0, %218
+  %222 = load i32, ptr %call.i2610, align 4
+  %sub.i2611 = sub i32 0, %222
   %conv.i2612 = sext i32 %sub.i2611 to i64
   br label %return
 
@@ -6829,8 +6885,8 @@ sw.bb1536:                                        ; preds = %entry
 
 if.then.i2616:                                    ; preds = %sw.bb1536
   %call.i2617 = tail call ptr @__errno_location() #26
-  %219 = load i32, ptr %call.i2617, align 4
-  %sub.i2618 = sub i32 0, %219
+  %223 = load i32, ptr %call.i2617, align 4
+  %sub.i2618 = sub i32 0, %223
   %conv.i2619 = sext i32 %sub.i2618 to i64
   br label %return
 
@@ -6842,8 +6898,8 @@ sw.bb1541:                                        ; preds = %entry
 
 if.then.i2623:                                    ; preds = %sw.bb1541
   %call.i2624 = tail call ptr @__errno_location() #26
-  %220 = load i32, ptr %call.i2624, align 4
-  %sub.i2625 = sub i32 0, %220
+  %224 = load i32, ptr %call.i2624, align 4
+  %sub.i2625 = sub i32 0, %224
   %conv.i2626 = sext i32 %sub.i2625 to i64
   br label %return
 
@@ -6859,11 +6915,11 @@ sw.bb1548:                                        ; preds = %entry
 sw.bb1550:                                        ; preds = %entry
   %conv1551 = trunc i64 %arg1 to i32
   %conv1552 = trunc i64 %arg2 to i32
-  %221 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %222 = load ptr, ptr %221, align 8
-  %opaque.i2628 = getelementptr inbounds i8, ptr %222, i64 624
-  %223 = load ptr, ptr %opaque.i2628, align 16
-  %signal_pending.i2629 = getelementptr inbounds i8, ptr %223, i64 9164
+  %225 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %226 = load ptr, ptr %225, align 8
+  %opaque.i2628 = getelementptr inbounds i8, ptr %226, i64 624
+  %227 = load ptr, ptr %opaque.i2628, align 16
+  %signal_pending.i2629 = getelementptr inbounds i8, ptr %227, i64 9164
   %call.i2630 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2629, i64 noundef 73, i32 noundef %conv1551, i32 noundef %conv1552) #27
   %sext3853 = shl i64 %call.i2630, 32
   %conv1554 = ashr exact i64 %sext3853, 32
@@ -6872,8 +6928,8 @@ sw.bb1550:                                        ; preds = %entry
 
 if.then.i2634:                                    ; preds = %sw.bb1550
   %call.i2635 = tail call ptr @__errno_location() #26
-  %224 = load i32, ptr %call.i2635, align 4
-  %sub.i2636 = sub i32 0, %224
+  %228 = load i32, ptr %call.i2635, align 4
+  %sub.i2636 = sub i32 0, %228
   %conv.i2637 = sext i32 %sub.i2636 to i64
   br label %return
 
@@ -6885,19 +6941,19 @@ sw.bb1556:                                        ; preds = %entry
 if.then1560:                                      ; preds = %sw.bb1556
   %conv1561 = trunc i64 %arg1 to i32
   %conv1562 = trunc i64 %arg3 to i32
-  %225 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %226 = load ptr, ptr %225, align 8
-  %opaque.i2639 = getelementptr inbounds i8, ptr %226, i64 624
-  %227 = load ptr, ptr %opaque.i2639, align 16
-  %signal_pending.i2640 = getelementptr inbounds i8, ptr %227, i64 9164
+  %229 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %230 = load ptr, ptr %229, align 8
+  %opaque.i2639 = getelementptr inbounds i8, ptr %230, i64 624
+  %231 = load ptr, ptr %opaque.i2639, align 16
+  %signal_pending.i2640 = getelementptr inbounds i8, ptr %231, i64 9164
   %call.i2641 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2640, i64 noundef 19, i32 noundef %conv1561, ptr noundef nonnull %call1557, i32 noundef %conv1562) #27
   %cmp.i2642 = icmp eq i64 %call.i2641, -1
   br i1 %cmp.i2642, label %if.then.i2644, label %get_errno.exit2648
 
 if.then.i2644:                                    ; preds = %if.then1560
   %call.i2645 = tail call ptr @__errno_location() #26
-  %228 = load i32, ptr %call.i2645, align 4
-  %sub.i2646 = sub i32 0, %228
+  %232 = load i32, ptr %call.i2645, align 4
+  %sub.i2646 = sub i32 0, %232
   %conv.i2647 = sext i32 %sub.i2646 to i64
   br label %get_errno.exit2648
 
@@ -6910,8 +6966,8 @@ get_errno.exit2648:                               ; preds = %if.then1560, %if.th
 
 if.else1565:                                      ; preds = %sw.bb1556
   %call1566 = tail call ptr @__errno_location() #26
-  %229 = load i32, ptr %call1566, align 4
-  %sub1568 = sub i32 0, %229
+  %233 = load i32, ptr %call1566, align 4
+  %sub1568 = sub i32 0, %233
   %conv1569 = sext i32 %sub1568 to i64
   br label %return
 
@@ -6923,19 +6979,19 @@ sw.bb1571:                                        ; preds = %entry
 if.then1576:                                      ; preds = %sw.bb1571
   %conv1577 = trunc i64 %arg1 to i32
   %conv1578 = trunc i64 %arg3 to i32
-  %230 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %231 = load ptr, ptr %230, align 8
-  %opaque.i2650 = getelementptr inbounds i8, ptr %231, i64 624
-  %232 = load ptr, ptr %opaque.i2650, align 16
-  %signal_pending.i2651 = getelementptr inbounds i8, ptr %232, i64 9164
+  %234 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %235 = load ptr, ptr %234, align 8
+  %opaque.i2650 = getelementptr inbounds i8, ptr %235, i64 624
+  %236 = load ptr, ptr %opaque.i2650, align 16
+  %signal_pending.i2651 = getelementptr inbounds i8, ptr %236, i64 9164
   %call.i2652 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2651, i64 noundef 20, i32 noundef %conv1577, ptr noundef nonnull %call1573, i32 noundef %conv1578) #27
   %cmp.i2653 = icmp eq i64 %call.i2652, -1
   br i1 %cmp.i2653, label %if.then.i2655, label %get_errno.exit2659
 
 if.then.i2655:                                    ; preds = %if.then1576
   %call.i2656 = tail call ptr @__errno_location() #26
-  %233 = load i32, ptr %call.i2656, align 4
-  %sub.i2657 = sub i32 0, %233
+  %237 = load i32, ptr %call.i2656, align 4
+  %sub.i2657 = sub i32 0, %237
   %conv.i2658 = sext i32 %sub.i2657 to i64
   br label %get_errno.exit2659
 
@@ -6948,8 +7004,8 @@ get_errno.exit2659:                               ; preds = %if.then1576, %if.th
 
 if.else1581:                                      ; preds = %sw.bb1571
   %call1582 = tail call ptr @__errno_location() #26
-  %234 = load i32, ptr %call1582, align 4
-  %sub1584 = sub i32 0, %234
+  %238 = load i32, ptr %call1582, align 4
+  %sub1584 = sub i32 0, %238
   %conv1585 = sext i32 %sub1584 to i64
   br label %return
 
@@ -6961,19 +7017,19 @@ sw.bb1587:                                        ; preds = %entry
 if.then1592:                                      ; preds = %sw.bb1587
   %conv1593 = trunc i64 %arg1 to i32
   %conv1594 = trunc i64 %arg3 to i32
-  %235 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %236 = load ptr, ptr %235, align 8
-  %opaque.i2662 = getelementptr inbounds i8, ptr %236, i64 624
-  %237 = load ptr, ptr %opaque.i2662, align 16
-  %signal_pending.i2663 = getelementptr inbounds i8, ptr %237, i64 9164
+  %239 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %240 = load ptr, ptr %239, align 8
+  %opaque.i2662 = getelementptr inbounds i8, ptr %240, i64 624
+  %241 = load ptr, ptr %opaque.i2662, align 16
+  %signal_pending.i2663 = getelementptr inbounds i8, ptr %241, i64 9164
   %call.i2664 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2663, i64 noundef 295, i32 noundef %conv1593, ptr noundef nonnull %call1589, i32 noundef %conv1594, i64 noundef %arg4, i64 noundef 0) #27
   %cmp.i2665 = icmp eq i64 %call.i2664, -1
   br i1 %cmp.i2665, label %if.then.i2667, label %get_errno.exit2671
 
 if.then.i2667:                                    ; preds = %if.then1592
   %call.i2668 = tail call ptr @__errno_location() #26
-  %238 = load i32, ptr %call.i2668, align 4
-  %sub.i2669 = sub i32 0, %238
+  %242 = load i32, ptr %call.i2668, align 4
+  %sub.i2669 = sub i32 0, %242
   %conv.i2670 = sext i32 %sub.i2669 to i64
   br label %get_errno.exit2671
 
@@ -6986,8 +7042,8 @@ get_errno.exit2671:                               ; preds = %if.then1592, %if.th
 
 if.else1597:                                      ; preds = %sw.bb1587
   %call1598 = tail call ptr @__errno_location() #26
-  %239 = load i32, ptr %call1598, align 4
-  %sub1600 = sub i32 0, %239
+  %243 = load i32, ptr %call1598, align 4
+  %sub1600 = sub i32 0, %243
   %conv1601 = sext i32 %sub1600 to i64
   br label %return
 
@@ -6999,19 +7055,19 @@ sw.bb1603:                                        ; preds = %entry
 if.then1608:                                      ; preds = %sw.bb1603
   %conv1611 = trunc i64 %arg1 to i32
   %conv1612 = trunc i64 %arg3 to i32
-  %240 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %241 = load ptr, ptr %240, align 8
-  %opaque.i2674 = getelementptr inbounds i8, ptr %241, i64 624
-  %242 = load ptr, ptr %opaque.i2674, align 16
-  %signal_pending.i2675 = getelementptr inbounds i8, ptr %242, i64 9164
+  %244 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %245 = load ptr, ptr %244, align 8
+  %opaque.i2674 = getelementptr inbounds i8, ptr %245, i64 624
+  %246 = load ptr, ptr %opaque.i2674, align 16
+  %signal_pending.i2675 = getelementptr inbounds i8, ptr %246, i64 9164
   %call.i2676 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2675, i64 noundef 296, i32 noundef %conv1611, ptr noundef nonnull %call1605, i32 noundef %conv1612, i64 noundef %arg4, i64 noundef 0) #27
   %cmp.i2677 = icmp eq i64 %call.i2676, -1
   br i1 %cmp.i2677, label %if.then.i2679, label %get_errno.exit2683
 
 if.then.i2679:                                    ; preds = %if.then1608
   %call.i2680 = tail call ptr @__errno_location() #26
-  %243 = load i32, ptr %call.i2680, align 4
-  %sub.i2681 = sub i32 0, %243
+  %247 = load i32, ptr %call.i2680, align 4
+  %sub.i2681 = sub i32 0, %247
   %conv.i2682 = sext i32 %sub.i2681 to i64
   br label %get_errno.exit2683
 
@@ -7024,8 +7080,8 @@ get_errno.exit2683:                               ; preds = %if.then1608, %if.th
 
 if.else1615:                                      ; preds = %sw.bb1603
   %call1616 = tail call ptr @__errno_location() #26
-  %244 = load i32, ptr %call1616, align 4
-  %sub1618 = sub i32 0, %244
+  %248 = load i32, ptr %call1616, align 4
+  %sub1618 = sub i32 0, %248
   %conv1619 = sext i32 %sub1618 to i64
   br label %return
 
@@ -7038,8 +7094,8 @@ sw.bb1621:                                        ; preds = %entry
 
 if.then.i2688:                                    ; preds = %sw.bb1621
   %call.i2689 = tail call ptr @__errno_location() #26
-  %245 = load i32, ptr %call.i2689, align 4
-  %sub.i2690 = sub i32 0, %245
+  %249 = load i32, ptr %call.i2689, align 4
+  %sub.i2690 = sub i32 0, %249
   %conv.i2691 = sext i32 %sub.i2690 to i64
   br label %return
 
@@ -7052,8 +7108,8 @@ sw.bb1626:                                        ; preds = %entry
 
 if.then.i2695:                                    ; preds = %sw.bb1626
   %call.i2696 = tail call ptr @__errno_location() #26
-  %246 = load i32, ptr %call.i2696, align 4
-  %sub.i2697 = sub i32 0, %246
+  %250 = load i32, ptr %call.i2696, align 4
+  %sub.i2697 = sub i32 0, %250
   %conv.i2698 = sext i32 %sub.i2697 to i64
   br label %return
 
@@ -7065,10 +7121,10 @@ sw.bb1631:                                        ; preds = %entry
 if.end1635:                                       ; preds = %sw.bb1631
   %conv1638 = trunc i64 %arg2 to i32
   %conv1639 = and i64 %arg2, 4294967288
-  %247 = alloca i8, i64 %conv1639, align 16
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %247, i8 0, i64 %conv1639, i1 false)
+  %251 = alloca i8, i64 %conv1639, align 16
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %251, i8 0, i64 %conv1639, i1 false)
   %conv1641 = trunc i64 %arg1 to i32
-  %call.i2700 = call i64 (i64, ...) @syscall(i64 noundef 204, i32 noundef %conv1641, i32 noundef %conv1638, ptr noundef nonnull %247) #27
+  %call.i2700 = call i64 (i64, ...) @syscall(i64 noundef 204, i32 noundef %conv1641, i32 noundef %conv1638, ptr noundef nonnull %251) #27
   %sext3852 = shl i64 %call.i2700, 32
   %conv1643 = ashr exact i64 %sext3852, 32
   %cmp.i2702 = icmp eq i64 %sext3852, -4294967296
@@ -7076,8 +7132,8 @@ if.end1635:                                       ; preds = %sw.bb1631
 
 if.then.i2704:                                    ; preds = %if.end1635
   %call.i2705 = tail call ptr @__errno_location() #26
-  %248 = load i32, ptr %call.i2705, align 4
-  %sub.i2706 = sub i32 0, %248
+  %252 = load i32, ptr %call.i2705, align 4
+  %sub.i2706 = sub i32 0, %252
   %conv.i2707 = sext i32 %sub.i2706 to i64
   br label %get_errno.exit2708
 
@@ -7100,7 +7156,7 @@ if.then1650:                                      ; preds = %if.then1647
 
 if.end1658:                                       ; preds = %if.then1650, %if.then1647
   %ret.21 = phi i64 [ %retval.0.i2703, %if.then1647 ], [ %arg2, %if.then1650 ]
-  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef nonnull %247, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.21)
+  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef nonnull %251, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.21)
   %tobool1661.not = icmp eq i32 %call1660, 0
   %spec.select1796 = select i1 %tobool1661.not, i64 %ret.21, i64 -14
   br label %return
@@ -7112,8 +7168,8 @@ sw.bb1665:                                        ; preds = %entry
 
 if.end1671:                                       ; preds = %sw.bb1665
   %conv1675 = and i64 %arg2, 4294967288
-  %249 = alloca i8, i64 %conv1675, align 16
-  %call1677 = call fastcc i32 @target_to_host_cpu_mask(ptr noundef nonnull %249, i64 noundef %conv1675, i64 noundef %arg3, i64 noundef %arg2)
+  %253 = alloca i8, i64 %conv1675, align 16
+  %call1677 = call fastcc i32 @target_to_host_cpu_mask(ptr noundef nonnull %253, i64 noundef %conv1675, i64 noundef %arg3, i64 noundef %arg2)
   %tobool1679.not = icmp eq i32 %call1677, 0
   br i1 %tobool1679.not, label %if.end1681, label %if.then1680
 
@@ -7124,7 +7180,7 @@ if.then1680:                                      ; preds = %if.end1671
 if.end1681:                                       ; preds = %if.end1671
   %conv1674 = trunc i64 %arg2 to i32
   %conv1682 = trunc i64 %arg1 to i32
-  %call.i2711 = call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %conv1682, i32 noundef %conv1674, ptr noundef nonnull %249) #27
+  %call.i2711 = call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %conv1682, i32 noundef %conv1674, ptr noundef nonnull %253) #27
   %sext3851 = shl i64 %call.i2711, 32
   %conv1684 = ashr exact i64 %sext3851, 32
   %cmp.i2713 = icmp eq i64 %sext3851, -4294967296
@@ -7132,8 +7188,8 @@ if.end1681:                                       ; preds = %if.end1671
 
 if.then.i2715:                                    ; preds = %if.end1681
   %call.i2716 = tail call ptr @__errno_location() #26
-  %250 = load i32, ptr %call.i2716, align 4
-  %sub.i2717 = sub i32 0, %250
+  %254 = load i32, ptr %call.i2716, align 4
+  %sub.i2717 = sub i32 0, %254
   %conv.i2718 = sext i32 %sub.i2717 to i64
   br label %return
 
@@ -7150,8 +7206,8 @@ sw.bb1686:                                        ; preds = %entry
 
 if.then.i2724:                                    ; preds = %sw.bb1686
   %call.i2725 = tail call ptr @__errno_location() #26
-  %251 = load i32, ptr %call.i2725, align 4
-  %sub.i2726 = sub i32 0, %251
+  %255 = load i32, ptr %call.i2725, align 4
+  %sub.i2726 = sub i32 0, %255
   %conv.i2727 = sext i32 %sub.i2726 to i64
   br label %get_errno.exit2728
 
@@ -7169,8 +7225,8 @@ land.lhs.true1706:                                ; preds = %if.end1704
   br i1 %tobool1711.not.not, label %return, label %do.body1713
 
 do.body1713:                                      ; preds = %land.lhs.true1706
-  %252 = load i32, ptr %cpuid, align 4
-  store i32 %252, ptr %call1710, align 1
+  %256 = load i32, ptr %cpuid, align 4
+  store i32 %256, ptr %call1710, align 1
   br label %if.end1720
 
 if.end1720:                                       ; preds = %do.body1713, %if.end1704
@@ -7182,8 +7238,8 @@ land.lhs.true1722:                                ; preds = %if.end1720
   br i1 %tobool1727.not.not, label %return, label %do.body1729
 
 do.body1729:                                      ; preds = %land.lhs.true1722
-  %253 = load i32, ptr %node1687, align 4
-  store i32 %253, ptr %call1726, align 1
+  %257 = load i32, ptr %node1687, align 4
+  store i32 %257, ptr %call1726, align 1
   br label %return
 
 sw.bb1737:                                        ; preds = %entry
@@ -7196,8 +7252,8 @@ if.end1741:                                       ; preds = %sw.bb1737
   br i1 %tobool1743.not, label %return, label %if.end1745
 
 if.end1745:                                       ; preds = %if.end1741
-  %254 = load i32, ptr %call1742, align 4
-  store i32 %254, ptr %schp, align 4
+  %258 = load i32, ptr %call1742, align 4
+  store i32 %258, ptr %schp, align 4
   %conv1748 = trunc i64 %arg1 to i32
   %call.i2731 = call i64 (i64, ...) @syscall(i64 noundef 142, i32 noundef %conv1748, ptr noundef nonnull %schp) #27
   %sext3849 = shl i64 %call.i2731, 32
@@ -7207,8 +7263,8 @@ if.end1745:                                       ; preds = %if.end1741
 
 if.then.i2735:                                    ; preds = %if.end1745
   %call.i2736 = tail call ptr @__errno_location() #26
-  %255 = load i32, ptr %call.i2736, align 4
-  %sub.i2737 = sub i32 0, %255
+  %259 = load i32, ptr %call.i2736, align 4
+  %sub.i2737 = sub i32 0, %259
   %conv.i2738 = sext i32 %sub.i2737 to i64
   br label %return
 
@@ -7226,8 +7282,8 @@ if.end1758:                                       ; preds = %sw.bb1752
 
 if.then.i2744:                                    ; preds = %if.end1758
   %call.i2745 = tail call ptr @__errno_location() #26
-  %256 = load i32, ptr %call.i2745, align 4
-  %sub.i2746 = sub i32 0, %256
+  %260 = load i32, ptr %call.i2745, align 4
+  %sub.i2746 = sub i32 0, %260
   %conv.i2747 = sext i32 %sub.i2746 to i64
   br label %get_errno.exit2748
 
@@ -7242,8 +7298,8 @@ if.then1765:                                      ; preds = %get_errno.exit2748
   br i1 %tobool1767.not, label %return, label %if.end1769
 
 if.end1769:                                       ; preds = %if.then1765
-  %257 = load i32, ptr %schp1754, align 4
-  store i32 %257, ptr %call1766, align 4
+  %261 = load i32, ptr %schp1754, align 4
+  store i32 %261, ptr %call1766, align 4
   br label %return
 
 sw.bb1774:                                        ; preds = %entry
@@ -7256,8 +7312,8 @@ if.end1780:                                       ; preds = %sw.bb1774
   br i1 %tobool1782.not, label %return, label %if.end1784
 
 if.end1784:                                       ; preds = %if.end1780
-  %258 = load i32, ptr %call1781, align 4
-  store i32 %258, ptr %schp1776, align 4
+  %262 = load i32, ptr %call1781, align 4
+  store i32 %262, ptr %schp1776, align 4
   %conv1788 = trunc i64 %arg1 to i32
   %conv1789 = trunc i64 %arg2 to i32
   %call.i2751 = call i64 (i64, ...) @syscall(i64 noundef 144, i32 noundef %conv1788, i32 noundef %conv1789, ptr noundef nonnull %schp1776) #27
@@ -7268,8 +7324,8 @@ if.end1784:                                       ; preds = %if.end1780
 
 if.then.i2755:                                    ; preds = %if.end1784
   %call.i2756 = tail call ptr @__errno_location() #26
-  %259 = load i32, ptr %call.i2756, align 4
-  %sub.i2757 = sub i32 0, %259
+  %263 = load i32, ptr %call.i2756, align 4
+  %sub.i2757 = sub i32 0, %263
   %conv.i2758 = sext i32 %sub.i2757 to i64
   br label %return
 
@@ -7283,8 +7339,8 @@ sw.bb1793:                                        ; preds = %entry
 
 if.then.i2764:                                    ; preds = %sw.bb1793
   %call.i2765 = tail call ptr @__errno_location() #26
-  %260 = load i32, ptr %call.i2765, align 4
-  %sub.i2766 = sub i32 0, %260
+  %264 = load i32, ptr %call.i2765, align 4
+  %sub.i2766 = sub i32 0, %264
   %conv.i2767 = sext i32 %sub.i2766 to i64
   br label %return
 
@@ -7305,8 +7361,8 @@ if.end1802:                                       ; preds = %sw.bb1798
 
 if.then.i2773:                                    ; preds = %if.end1802
   %call.i2774 = tail call ptr @__errno_location() #26
-  %261 = load i32, ptr %call.i2774, align 4
-  %sub.i2775 = sub i32 0, %261
+  %265 = load i32, ptr %call.i2774, align 4
+  %sub.i2775 = sub i32 0, %265
   %conv.i2776 = sext i32 %sub.i2775 to i64
   br label %get_errno.exit2777
 
@@ -7321,48 +7377,48 @@ if.then1815:                                      ; preds = %get_errno.exit2777
   br i1 %tobool1817.not, label %return, label %if.end1819
 
 if.end1819:                                       ; preds = %if.then1815
-  %262 = load i32, ptr %scha, align 8
-  store i32 %262, ptr %call1816, align 8
+  %266 = load i32, ptr %scha, align 8
+  store i32 %266, ptr %call1816, align 8
   %sched_policy = getelementptr inbounds i8, ptr %scha, i64 4
-  %263 = load i32, ptr %sched_policy, align 4
+  %267 = load i32, ptr %sched_policy, align 4
   %sched_policy1823 = getelementptr inbounds i8, ptr %call1816, i64 4
-  store i32 %263, ptr %sched_policy1823, align 4
+  store i32 %267, ptr %sched_policy1823, align 4
   %sched_flags = getelementptr inbounds i8, ptr %scha, i64 8
-  %264 = load i64, ptr %sched_flags, align 8
+  %268 = load i64, ptr %sched_flags, align 8
   %sched_flags1825 = getelementptr inbounds i8, ptr %call1816, i64 8
-  store i64 %264, ptr %sched_flags1825, align 8
+  store i64 %268, ptr %sched_flags1825, align 8
   %sched_nice = getelementptr inbounds i8, ptr %scha, i64 16
-  %265 = load i32, ptr %sched_nice, align 8
+  %269 = load i32, ptr %sched_nice, align 8
   %sched_nice1827 = getelementptr inbounds i8, ptr %call1816, i64 16
-  store i32 %265, ptr %sched_nice1827, align 8
+  store i32 %269, ptr %sched_nice1827, align 8
   %sched_priority1828 = getelementptr inbounds i8, ptr %scha, i64 20
-  %266 = load i32, ptr %sched_priority1828, align 4
+  %270 = load i32, ptr %sched_priority1828, align 4
   %sched_priority1830 = getelementptr inbounds i8, ptr %call1816, i64 20
-  store i32 %266, ptr %sched_priority1830, align 4
+  store i32 %270, ptr %sched_priority1830, align 4
   %sched_runtime = getelementptr inbounds i8, ptr %scha, i64 24
-  %267 = load i64, ptr %sched_runtime, align 8
+  %271 = load i64, ptr %sched_runtime, align 8
   %sched_runtime1832 = getelementptr inbounds i8, ptr %call1816, i64 24
-  store i64 %267, ptr %sched_runtime1832, align 8
+  store i64 %271, ptr %sched_runtime1832, align 8
   %sched_deadline = getelementptr inbounds i8, ptr %scha, i64 32
-  %268 = load i64, ptr %sched_deadline, align 8
+  %272 = load i64, ptr %sched_deadline, align 8
   %sched_deadline1834 = getelementptr inbounds i8, ptr %call1816, i64 32
-  store i64 %268, ptr %sched_deadline1834, align 8
+  store i64 %272, ptr %sched_deadline1834, align 8
   %sched_period = getelementptr inbounds i8, ptr %scha, i64 40
-  %269 = load i64, ptr %sched_period, align 8
+  %273 = load i64, ptr %sched_period, align 8
   %sched_period1836 = getelementptr inbounds i8, ptr %call1816, i64 40
-  store i64 %269, ptr %sched_period1836, align 8
-  %cmp1839 = icmp ugt i32 %262, 48
+  store i64 %273, ptr %sched_period1836, align 8
+  %cmp1839 = icmp ugt i32 %266, 48
   br i1 %cmp1839, label %if.then1841, label %return
 
 if.then1841:                                      ; preds = %if.end1819
   %sched_util_min = getelementptr inbounds i8, ptr %scha, i64 48
-  %270 = load i32, ptr %sched_util_min, align 8
+  %274 = load i32, ptr %sched_util_min, align 8
   %sched_util_min1843 = getelementptr inbounds i8, ptr %call1816, i64 48
-  store i32 %270, ptr %sched_util_min1843, align 8
+  store i32 %274, ptr %sched_util_min1843, align 8
   %sched_util_max = getelementptr inbounds i8, ptr %scha, i64 52
-  %271 = load i32, ptr %sched_util_max, align 4
+  %275 = load i32, ptr %sched_util_max, align 4
   %sched_util_max1845 = getelementptr inbounds i8, ptr %call1816, i64 52
-  store i32 %271, ptr %sched_util_max1845, align 4
+  store i32 %275, ptr %sched_util_max1845, align 4
   br label %return
 
 sw.bb1848:                                        ; preds = %entry
@@ -7423,33 +7479,45 @@ if.end1918:                                       ; preds = %if.else1899
 if.end1928:                                       ; preds = %if.end1918
   store i32 %spec.store.select18, ptr %scha1850, align 8
   %sched_policy1930 = getelementptr inbounds i8, ptr %call1925, i64 4
-  %272 = load i32, ptr %sched_policy1930, align 4
+  %276 = load i32, ptr %sched_policy1930, align 4
   %sched_policy1932 = getelementptr inbounds i8, ptr %scha1850, i64 4
-  store i32 %272, ptr %sched_policy1932, align 4
+  store i32 %276, ptr %sched_policy1932, align 4
   %sched_flags1933 = getelementptr inbounds i8, ptr %call1925, i64 8
-  %273 = load i64, ptr %sched_flags1933, align 8
+  %277 = load i64, ptr %sched_flags1933, align 8
   %sched_flags1935 = getelementptr inbounds i8, ptr %scha1850, i64 8
-  store i64 %273, ptr %sched_flags1935, align 8
+  store i64 %277, ptr %sched_flags1935, align 8
   %sched_nice1936 = getelementptr inbounds i8, ptr %call1925, i64 16
+  %278 = load i32, ptr %sched_nice1936, align 8
   %sched_nice1938 = getelementptr inbounds i8, ptr %scha1850, i64 16
-  %274 = load <2 x i32>, ptr %sched_nice1936, align 8
-  store <2 x i32> %274, ptr %sched_nice1938, align 8
+  store i32 %278, ptr %sched_nice1938, align 8
+  %sched_priority1939 = getelementptr inbounds i8, ptr %call1925, i64 20
+  %279 = load i32, ptr %sched_priority1939, align 4
+  %sched_priority1941 = getelementptr inbounds i8, ptr %scha1850, i64 20
+  store i32 %279, ptr %sched_priority1941, align 4
   %sched_runtime1942 = getelementptr inbounds i8, ptr %call1925, i64 24
+  %280 = load i64, ptr %sched_runtime1942, align 8
   %sched_runtime1944 = getelementptr inbounds i8, ptr %scha1850, i64 24
-  %275 = load <2 x i64>, ptr %sched_runtime1942, align 8
-  store <2 x i64> %275, ptr %sched_runtime1944, align 8
+  store i64 %280, ptr %sched_runtime1944, align 8
+  %sched_deadline1945 = getelementptr inbounds i8, ptr %call1925, i64 32
+  %281 = load i64, ptr %sched_deadline1945, align 8
+  %sched_deadline1947 = getelementptr inbounds i8, ptr %scha1850, i64 32
+  store i64 %281, ptr %sched_deadline1947, align 8
   %sched_period1948 = getelementptr inbounds i8, ptr %call1925, i64 40
-  %276 = load i64, ptr %sched_period1948, align 8
+  %282 = load i64, ptr %sched_period1948, align 8
   %sched_period1950 = getelementptr inbounds i8, ptr %scha1850, i64 40
-  store i64 %276, ptr %sched_period1950, align 8
+  store i64 %282, ptr %sched_period1950, align 8
   %cmp1952.not = icmp eq i32 %spec.store.select, 48
   br i1 %cmp1952.not, label %if.end1961, label %if.then1954
 
 if.then1954:                                      ; preds = %if.end1928
   %sched_util_min1955 = getelementptr inbounds i8, ptr %call1925, i64 48
+  %283 = load i32, ptr %sched_util_min1955, align 8
   %sched_util_min1957 = getelementptr inbounds i8, ptr %scha1850, i64 48
-  %277 = load <2 x i32>, ptr %sched_util_min1955, align 8
-  store <2 x i32> %277, ptr %sched_util_min1957, align 8
+  store i32 %283, ptr %sched_util_min1957, align 8
+  %sched_util_max1958 = getelementptr inbounds i8, ptr %call1925, i64 52
+  %284 = load i32, ptr %sched_util_max1958, align 4
+  %sched_util_max1960 = getelementptr inbounds i8, ptr %scha1850, i64 52
+  store i32 %284, ptr %sched_util_max1960, align 4
   br label %if.end1961
 
 if.end1961:                                       ; preds = %if.then1954, %if.end1928
@@ -7463,8 +7531,8 @@ if.end1961:                                       ; preds = %if.then1954, %if.en
 
 if.then.i2784:                                    ; preds = %if.end1961
   %call.i2785 = tail call ptr @__errno_location() #26
-  %278 = load i32, ptr %call.i2785, align 4
-  %sub.i2786 = sub i32 0, %278
+  %285 = load i32, ptr %call.i2785, align 4
+  %sub.i2786 = sub i32 0, %285
   %conv.i2787 = sext i32 %sub.i2786 to i64
   br label %return
 
@@ -7476,8 +7544,8 @@ sw.bb1967:                                        ; preds = %entry
 
 if.then.i2791:                                    ; preds = %sw.bb1967
   %call.i2792 = tail call ptr @__errno_location() #26
-  %279 = load i32, ptr %call.i2792, align 4
-  %sub.i2793 = sub i32 0, %279
+  %286 = load i32, ptr %call.i2792, align 4
+  %sub.i2793 = sub i32 0, %286
   %conv.i2794 = sext i32 %sub.i2793 to i64
   br label %return
 
@@ -7490,8 +7558,8 @@ sw.bb1971:                                        ; preds = %entry
 
 if.then.i2798:                                    ; preds = %sw.bb1971
   %call.i2799 = tail call ptr @__errno_location() #26
-  %280 = load i32, ptr %call.i2799, align 4
-  %sub.i2800 = sub i32 0, %280
+  %287 = load i32, ptr %call.i2799, align 4
+  %sub.i2800 = sub i32 0, %287
   %conv.i2801 = sext i32 %sub.i2800 to i64
   br label %return
 
@@ -7504,8 +7572,8 @@ sw.bb1976:                                        ; preds = %entry
 
 if.then.i2805:                                    ; preds = %sw.bb1976
   %call.i2806 = tail call ptr @__errno_location() #26
-  %281 = load i32, ptr %call.i2806, align 4
-  %sub.i2807 = sub i32 0, %281
+  %288 = load i32, ptr %call.i2806, align 4
+  %sub.i2807 = sub i32 0, %288
   %conv.i2808 = sext i32 %sub.i2807 to i64
   br label %return
 
@@ -7517,8 +7585,8 @@ sw.bb1981:                                        ; preds = %entry
 
 if.then.i2812:                                    ; preds = %sw.bb1981
   %call.i2813 = tail call ptr @__errno_location() #26
-  %282 = load i32, ptr %call.i2813, align 4
-  %sub.i2814 = sub i32 0, %282
+  %289 = load i32, ptr %call.i2813, align 4
+  %sub.i2814 = sub i32 0, %289
   br label %get_errno.exit2816
 
 get_errno.exit2816:                               ; preds = %sw.bb1981, %if.then.i2812
@@ -7533,12 +7601,12 @@ if.then1989:                                      ; preds = %get_errno.exit2816
   br i1 %tobool.not.i2820, label %return, label %do.body.i2821
 
 do.body.i2821:                                    ; preds = %if.then1989
-  %283 = load i64, ptr %ts1982, align 8
-  store i64 %283, ptr %call.i2819, align 1
+  %290 = load i64, ptr %ts1982, align 8
+  store i64 %290, ptr %call.i2819, align 1
   %tv_nsec.i2822 = getelementptr inbounds i8, ptr %call.i2819, i64 8
   %tv_nsec3.i = getelementptr inbounds i8, ptr %ts1982, i64 8
-  %284 = load i64, ptr %tv_nsec3.i, align 8
-  store i64 %284, ptr %tv_nsec.i2822, align 1
+  %291 = load i64, ptr %tv_nsec3.i, align 8
+  store i64 %291, ptr %tv_nsec.i2822, align 1
   br label %return
 
 sw.bb1992:                                        ; preds = %entry
@@ -7547,16 +7615,20 @@ sw.bb1992:                                        ; preds = %entry
   br i1 %tobool.not.i2825, label %target_to_host_timespec.exit2832, label %do.body.i2826
 
 do.body.i2826:                                    ; preds = %sw.bb1992
-  %285 = load <2 x i64>, ptr %call.i2824, align 1
-  store <2 x i64> %285, ptr %req, align 16
+  %call.val.i2827 = load i64, ptr %call.i2824, align 1
+  store i64 %call.val.i2827, ptr %req, align 8
+  %tv_nsec.i2828 = getelementptr inbounds i8, ptr %call.i2824, i64 8
+  %tv_nsec.val.i2829 = load i64, ptr %tv_nsec.i2828, align 1
+  %tv_nsec5.i2830 = getelementptr inbounds i8, ptr %req, i64 8
+  store i64 %tv_nsec.val.i2829, ptr %tv_nsec5.i2830, align 8
   br label %target_to_host_timespec.exit2832
 
 target_to_host_timespec.exit2832:                 ; preds = %sw.bb1992, %do.body.i2826
-  %286 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %287 = load ptr, ptr %286, align 8
-  %opaque.i2833 = getelementptr inbounds i8, ptr %287, i64 624
-  %288 = load ptr, ptr %opaque.i2833, align 16
-  %signal_pending.i2834 = getelementptr inbounds i8, ptr %288, i64 9164
+  %292 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %293 = load ptr, ptr %292, align 8
+  %opaque.i2833 = getelementptr inbounds i8, ptr %293, i64 624
+  %294 = load ptr, ptr %opaque.i2833, align 16
+  %signal_pending.i2834 = getelementptr inbounds i8, ptr %294, i64 9164
   %call.i2835 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i2834, i64 noundef 35, ptr noundef nonnull %req, ptr noundef nonnull %rem) #27
   %sext3843 = shl i64 %call.i2835, 32
   %conv1995 = ashr exact i64 %sext3843, 32
@@ -7565,8 +7637,8 @@ target_to_host_timespec.exit2832:                 ; preds = %sw.bb1992, %do.body
 
 if.then.i2839:                                    ; preds = %target_to_host_timespec.exit2832
   %call.i2840 = tail call ptr @__errno_location() #26
-  %289 = load i32, ptr %call.i2840, align 4
-  %sub.i2841 = sub i32 0, %289
+  %295 = load i32, ptr %call.i2840, align 4
+  %sub.i2841 = sub i32 0, %295
   %conv.i2842 = sext i32 %sub.i2841 to i64
   br label %get_errno.exit2843
 
@@ -7583,12 +7655,12 @@ if.then2001:                                      ; preds = %get_errno.exit2843
   br i1 %tobool.not.i2847, label %return, label %do.body.i2848
 
 do.body.i2848:                                    ; preds = %if.then2001
-  %290 = load i64, ptr %rem, align 8
-  store i64 %290, ptr %call.i2846, align 1
+  %296 = load i64, ptr %rem, align 8
+  store i64 %296, ptr %call.i2846, align 1
   %tv_nsec.i2849 = getelementptr inbounds i8, ptr %call.i2846, i64 8
   %tv_nsec3.i2850 = getelementptr inbounds i8, ptr %rem, i64 8
-  %291 = load i64, ptr %tv_nsec3.i2850, align 8
-  store i64 %291, ptr %tv_nsec.i2849, align 1
+  %297 = load i64, ptr %tv_nsec3.i2850, align 8
+  store i64 %297, ptr %tv_nsec.i2849, align 1
   br label %return
 
 sw.bb2004:                                        ; preds = %entry
@@ -7596,8 +7668,8 @@ sw.bb2004:                                        ; preds = %entry
   br label %return
 
 sw.bb2006:                                        ; preds = %entry
-  %292 = or i64 %arg3, %arg2
-  %or.cond20 = icmp eq i64 %292, 0
+  %298 = or i64 %arg3, %arg2
+  %or.cond20 = icmp eq i64 %298, 0
   br i1 %or.cond20, label %if.end2022, label %if.else2017
 
 if.else2017:                                      ; preds = %sw.bb2006
@@ -7614,14 +7686,14 @@ if.end2022:                                       ; preds = %sw.bb2006, %if.else
 
 if.then.i2855:                                    ; preds = %if.end2022
   %call.i2856 = tail call ptr @__errno_location() #26
-  %293 = load i32, ptr %call.i2856, align 4
-  %sub.i2857 = sub i32 0, %293
+  %299 = load i32, ptr %call.i2856, align 4
+  %sub.i2857 = sub i32 0, %299
   %conv.i2858 = sext i32 %sub.i2857 to i64
   br label %return
 
 sw.bb2027:                                        ; preds = %entry
-  %294 = or i64 %arg3, %arg2
-  %or.cond21 = icmp eq i64 %294, 0
+  %300 = or i64 %arg3, %arg2
+  %or.cond21 = icmp eq i64 %300, 0
   br i1 %or.cond21, label %if.end2043, label %if.else2038
 
 if.else2038:                                      ; preds = %sw.bb2027
@@ -7638,8 +7710,8 @@ if.end2043:                                       ; preds = %sw.bb2027, %if.else
 
 if.then.i2862:                                    ; preds = %if.end2043
   %call.i2863 = tail call ptr @__errno_location() #26
-  %295 = load i32, ptr %call.i2863, align 4
-  %sub.i2864 = sub i32 0, %295
+  %301 = load i32, ptr %call.i2863, align 4
+  %sub.i2864 = sub i32 0, %301
   %conv.i2865 = sext i32 %sub.i2864 to i64
   br label %return
 
@@ -7657,8 +7729,8 @@ if.end2052:                                       ; preds = %sw.bb2048
 
 if.then.i2871:                                    ; preds = %if.end2052
   %call.i2872 = tail call ptr @__errno_location() #26
-  %296 = load i32, ptr %call.i2872, align 4
-  %sub.i2873 = sub i32 0, %296
+  %302 = load i32, ptr %call.i2872, align 4
+  %sub.i2873 = sub i32 0, %302
   %conv.i2874 = sext i32 %sub.i2873 to i64
   br label %return
 
@@ -7668,17 +7740,20 @@ sw.bb2056:                                        ; preds = %entry, %entry
   br i1 %tobool2058.not, label %return, label %if.end2060
 
 if.end2060:                                       ; preds = %sw.bb2056
-  %297 = load <2 x i32>, ptr %call2057, align 4
-  %298 = load i32, ptr %call2057, align 4
-  store <2 x i32> %297, ptr %header, align 8
-  %cmp2066.not = icmp ne i32 %298, 429392688
+  %303 = load i32, ptr %call2057, align 4
+  store i32 %303, ptr %header, align 4
+  %pid = getelementptr inbounds i8, ptr %call2057, i64 4
+  %304 = load i32, ptr %pid, align 4
+  %pid2064 = getelementptr inbounds i8, ptr %header, i64 4
+  store i32 %304, ptr %pid2064, align 4
+  %cmp2066.not = icmp ne i32 %303, 429392688
   %spec.select1788 = select i1 %cmp2066.not, i32 2, i32 1
   %tobool2073.not = icmp eq i64 %arg2, 0
   br i1 %tobool2073.not, label %if.end2116, label %if.then2074
 
 if.then2074:                                      ; preds = %if.end2060
-  %299 = zext i1 %cmp2066.not to i32
-  %narrow = shl nuw nsw i32 12, %299
+  %305 = zext i1 %cmp2066.not to i32
+  %narrow = shl nuw nsw i32 12, %305
   %cmp2075 = icmp eq i32 %num, 90
   %conv2078 = zext nneg i32 %narrow to i64
   br i1 %cmp2075, label %if.end2083.thread, label %if.end2083
@@ -7700,17 +7775,17 @@ if.end2083.thread:                                ; preds = %if.then2074
 for.body2093:                                     ; preds = %for.body2093.preheader, %for.body2093
   %indvars.iv3899 = phi i64 [ 0, %for.body2093.preheader ], [ %indvars.iv.next3900, %for.body2093 ]
   %arrayidx2094 = getelementptr %struct.target_user_cap_data, ptr %call2082, i64 %indvars.iv3899
-  %300 = load i32, ptr %arrayidx2094, align 4
+  %306 = load i32, ptr %arrayidx2094, align 4
   %arrayidx2097 = getelementptr [2 x %struct.__user_cap_data_struct], ptr %data, i64 0, i64 %indvars.iv3899
-  store i32 %300, ptr %arrayidx2097, align 4
+  store i32 %306, ptr %arrayidx2097, align 4
   %permitted = getelementptr inbounds i8, ptr %arrayidx2094, i64 4
-  %301 = load i32, ptr %permitted, align 4
+  %307 = load i32, ptr %permitted, align 4
   %permitted2104 = getelementptr inbounds i8, ptr %arrayidx2097, i64 4
-  store i32 %301, ptr %permitted2104, align 4
+  store i32 %307, ptr %permitted2104, align 4
   %inheritable = getelementptr inbounds i8, ptr %arrayidx2094, i64 8
-  %302 = load i32, ptr %inheritable, align 4
+  %308 = load i32, ptr %inheritable, align 4
   %inheritable2110 = getelementptr inbounds i8, ptr %arrayidx2097, i64 8
-  store i32 %302, ptr %inheritable2110, align 4
+  store i32 %308, ptr %inheritable2110, align 4
   %indvars.iv.next3900 = add nuw nsw i64 %indvars.iv3899, 1
   %exitcond3903.not = icmp eq i64 %indvars.iv.next3900, %wide.trip.count3902
   br i1 %exitcond3903.not, label %if.end2116, label %for.body2093, !llvm.loop !21
@@ -7732,8 +7807,8 @@ if.then2119:                                      ; preds = %if.end2083.thread, 
 
 if.then.i2880:                                    ; preds = %if.then2119
   %call.i2881 = tail call ptr @__errno_location() #26
-  %303 = load i32, ptr %call.i2881, align 4
-  %sub.i2882 = sub i32 0, %303
+  %309 = load i32, ptr %call.i2881, align 4
+  %sub.i2882 = sub i32 0, %309
   %conv.i2883 = sext i32 %sub.i2882 to i64
   br label %if.end2127
 
@@ -7746,21 +7821,21 @@ if.else2123:                                      ; preds = %if.end2116
 
 if.then.i2889:                                    ; preds = %if.else2123
   %call.i2890 = tail call ptr @__errno_location() #26
-  %304 = load i32, ptr %call.i2890, align 4
-  %sub.i2891 = sub i32 0, %304
+  %310 = load i32, ptr %call.i2890, align 4
+  %sub.i2891 = sub i32 0, %310
   %conv.i2892 = sext i32 %sub.i2891 to i64
   br label %if.end2127.thread
 
 if.end2127.thread:                                ; preds = %if.else2123, %if.then.i2889
   %ret.23.ph = phi i64 [ %conv.i2892, %if.then.i2889 ], [ %conv2125, %if.else2123 ]
-  %305 = load i32, ptr %header, align 8
-  store i32 %305, ptr %call2057, align 4
+  %311 = load i32, ptr %header, align 4
+  store i32 %311, ptr %call2057, align 4
   br label %return
 
 if.end2127:                                       ; preds = %if.then.i2880, %if.then2119
   %ret.23 = phi i64 [ %conv2121, %if.then2119 ], [ %conv.i2883, %if.then.i2880 ]
-  %306 = load i32, ptr %header, align 8
-  store i32 %306, ptr %call2057, align 4
+  %312 = load i32, ptr %header, align 4
+  store i32 %312, ptr %call2057, align 4
   br i1 %tobool2073.not, label %return, label %for.body2139.preheader
 
 for.body2139.preheader:                           ; preds = %if.end2127
@@ -7770,17 +7845,17 @@ for.body2139.preheader:                           ; preds = %if.end2127
 for.body2139:                                     ; preds = %for.body2139.preheader, %for.body2139
   %indvars.iv3904 = phi i64 [ 0, %for.body2139.preheader ], [ %indvars.iv.next3905, %for.body2139 ]
   %arrayidx2141 = getelementptr [2 x %struct.__user_cap_data_struct], ptr %data, i64 0, i64 %indvars.iv3904
-  %307 = load i32, ptr %arrayidx2141, align 4
+  %313 = load i32, ptr %arrayidx2141, align 4
   %arrayidx2145 = getelementptr %struct.target_user_cap_data, ptr %target_data.03779, i64 %indvars.iv3904
-  store i32 %307, ptr %arrayidx2145, align 4
+  store i32 %313, ptr %arrayidx2145, align 4
   %permitted2149 = getelementptr inbounds i8, ptr %arrayidx2141, i64 4
-  %308 = load i32, ptr %permitted2149, align 4
+  %314 = load i32, ptr %permitted2149, align 4
   %permitted2153 = getelementptr inbounds i8, ptr %arrayidx2145, i64 4
-  store i32 %308, ptr %permitted2153, align 4
+  store i32 %314, ptr %permitted2153, align 4
   %inheritable2156 = getelementptr inbounds i8, ptr %arrayidx2141, i64 8
-  %309 = load i32, ptr %inheritable2156, align 4
+  %315 = load i32, ptr %inheritable2156, align 4
   %inheritable2160 = getelementptr inbounds i8, ptr %arrayidx2145, i64 8
-  store i32 %309, ptr %inheritable2160, align 4
+  store i32 %315, ptr %inheritable2160, align 4
   %indvars.iv.next3905 = add nuw nsw i64 %indvars.iv3904, 1
   %exitcond3909.not = icmp eq i64 %indvars.iv.next3905, %wide.trip.count3908
   br i1 %exitcond3909.not, label %return, label %for.body2139, !llvm.loop !22
@@ -7813,8 +7888,8 @@ if.end2189:                                       ; preds = %if.end2183.thread, 
 
 if.then.i2896:                                    ; preds = %if.end2189
   %call.i2897 = tail call ptr @__errno_location() #26
-  %310 = load i32, ptr %call.i2897, align 4
-  %sub.i2898 = sub i32 0, %310
+  %316 = load i32, ptr %call.i2897, align 4
+  %sub.i2898 = sub i32 0, %316
   %conv.i2899 = sext i32 %sub.i2898 to i64
   br label %get_errno.exit2900
 
@@ -7827,11 +7902,11 @@ get_errno.exit2900:                               ; preds = %if.end2189, %if.the
 if.then2198:                                      ; preds = %get_errno.exit2900
   %call2202 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg3, i64 noundef 8, i1 noundef zeroext false) #27
   %tobool2203.not = icmp eq ptr %call2202, null
-  br i1 %tobool2203.not, label %return, label %311
+  br i1 %tobool2203.not, label %return, label %317
 
-311:                                              ; preds = %if.then2198
-  %312 = load i64, ptr %off, align 8
-  store i64 %312, ptr %call2202, align 1
+317:                                              ; preds = %if.then2198
+  %318 = load i64, ptr %off, align 8
+  store i64 %318, ptr %call2202, align 1
   br label %return
 
 sw.bb2215:                                        ; preds = %entry
@@ -7849,8 +7924,8 @@ if.end2219:                                       ; preds = %sw.bb2215
 
 if.then.i2905:                                    ; preds = %if.end2219
   %call.i2906 = tail call ptr @__errno_location() #26
-  %313 = load i32, ptr %call.i2906, align 4
-  %sub.i2907 = sub i32 0, %313
+  %319 = load i32, ptr %call.i2906, align 4
+  %sub.i2907 = sub i32 0, %319
   br label %get_errno.exit2909
 
 get_errno.exit2909:                               ; preds = %if.end2219, %if.then.i2905
@@ -7880,8 +7955,8 @@ if.end2238:                                       ; preds = %sw.bb2231
 
 if.then.i2916:                                    ; preds = %if.end2238
   %call.i2917 = tail call ptr @__errno_location() #26
-  %314 = load i32, ptr %call.i2917, align 4
-  %sub.i2918 = sub i32 0, %314
+  %320 = load i32, ptr %call.i2917, align 4
+  %sub.i2918 = sub i32 0, %320
   %conv.i2919 = sext i32 %sub.i2918 to i64
   br label %get_errno.exit2920
 
@@ -7907,8 +7982,8 @@ if.end2256:                                       ; preds = %if.end2252
 
 if.then.i2925:                                    ; preds = %if.end2256
   %call.i2926 = tail call ptr @__errno_location() #26
-  %315 = load i32, ptr %call.i2926, align 4
-  %sub.i2927 = sub i32 0, %315
+  %321 = load i32, ptr %call.i2926, align 4
+  %sub.i2927 = sub i32 0, %321
   br label %get_errno.exit2929
 
 get_errno.exit2929:                               ; preds = %if.end2256, %if.then.i2925
@@ -7925,67 +8000,67 @@ if.then2263:                                      ; preds = %get_errno.exit2929
 if.end2267:                                       ; preds = %if.then2263
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %call2264, i8 0, i64 256, i1 false)
   %stx_dev_major = getelementptr inbounds i8, ptr %call2264, i64 136
-  %316 = load i64, ptr %st, align 8
-  %call2270 = call i32 @gnu_dev_major(i64 noundef %316) #26
+  %322 = load i64, ptr %st, align 8
+  %call2270 = call i32 @gnu_dev_major(i64 noundef %322) #26
   store i32 %call2270, ptr %stx_dev_major, align 1
   %stx_dev_minor = getelementptr inbounds i8, ptr %call2264, i64 140
-  %call2274 = call i32 @gnu_dev_minor(i64 noundef %316) #26
+  %call2274 = call i32 @gnu_dev_minor(i64 noundef %322) #26
   store i32 %call2274, ptr %stx_dev_minor, align 1
   %stx_ino = getelementptr inbounds i8, ptr %call2264, i64 32
   %st_ino2277 = getelementptr inbounds i8, ptr %st, i64 8
-  %317 = load i64, ptr %st_ino2277, align 8
-  store i64 %317, ptr %stx_ino, align 1
+  %323 = load i64, ptr %st_ino2277, align 8
+  store i64 %323, ptr %stx_ino, align 1
   %stx_mode = getelementptr inbounds i8, ptr %call2264, i64 28
   %st_mode2280 = getelementptr inbounds i8, ptr %st, i64 24
-  %318 = load i32, ptr %st_mode2280, align 8
-  %conv2281 = trunc i32 %318 to i16
+  %324 = load i32, ptr %st_mode2280, align 8
+  %conv2281 = trunc i32 %324 to i16
   store i16 %conv2281, ptr %stx_mode, align 1
   %stx_uid = getelementptr inbounds i8, ptr %call2264, i64 20
   %st_uid2284 = getelementptr inbounds i8, ptr %st, i64 28
-  %319 = load i32, ptr %st_uid2284, align 4
-  store i32 %319, ptr %stx_uid, align 1
+  %325 = load i32, ptr %st_uid2284, align 4
+  store i32 %325, ptr %stx_uid, align 1
   %stx_gid = getelementptr inbounds i8, ptr %call2264, i64 24
   %st_gid2287 = getelementptr inbounds i8, ptr %st, i64 32
-  %320 = load i32, ptr %st_gid2287, align 8
-  store i32 %320, ptr %stx_gid, align 1
+  %326 = load i32, ptr %st_gid2287, align 8
+  store i32 %326, ptr %stx_gid, align 1
   %stx_nlink = getelementptr inbounds i8, ptr %call2264, i64 16
   %st_nlink2290 = getelementptr inbounds i8, ptr %st, i64 16
-  %321 = load i64, ptr %st_nlink2290, align 8
-  %conv2291 = trunc i64 %321 to i32
+  %327 = load i64, ptr %st_nlink2290, align 8
+  %conv2291 = trunc i64 %327 to i32
   store i32 %conv2291, ptr %stx_nlink, align 1
   %stx_rdev_major = getelementptr inbounds i8, ptr %call2264, i64 128
   %st_rdev2294 = getelementptr inbounds i8, ptr %st, i64 40
-  %322 = load i64, ptr %st_rdev2294, align 8
-  %call2295 = call i32 @gnu_dev_major(i64 noundef %322) #26
+  %328 = load i64, ptr %st_rdev2294, align 8
+  %call2295 = call i32 @gnu_dev_major(i64 noundef %328) #26
   store i32 %call2295, ptr %stx_rdev_major, align 1
   %stx_rdev_minor = getelementptr inbounds i8, ptr %call2264, i64 132
-  %call2299 = call i32 @gnu_dev_minor(i64 noundef %322) #26
+  %call2299 = call i32 @gnu_dev_minor(i64 noundef %328) #26
   store i32 %call2299, ptr %stx_rdev_minor, align 1
   %stx_size = getelementptr inbounds i8, ptr %call2264, i64 40
   %st_size2302 = getelementptr inbounds i8, ptr %st, i64 48
-  %323 = load i64, ptr %st_size2302, align 8
-  store i64 %323, ptr %stx_size, align 1
+  %329 = load i64, ptr %st_size2302, align 8
+  store i64 %329, ptr %stx_size, align 1
   %stx_blksize = getelementptr inbounds i8, ptr %call2264, i64 4
   %st_blksize2305 = getelementptr inbounds i8, ptr %st, i64 56
-  %324 = load i64, ptr %st_blksize2305, align 8
-  %conv2306 = trunc i64 %324 to i32
+  %330 = load i64, ptr %st_blksize2305, align 8
+  %conv2306 = trunc i64 %330 to i32
   store i32 %conv2306, ptr %stx_blksize, align 1
   %stx_blocks = getelementptr inbounds i8, ptr %call2264, i64 48
   %st_blocks2309 = getelementptr inbounds i8, ptr %st, i64 64
-  %325 = load i64, ptr %st_blocks2309, align 8
-  store i64 %325, ptr %stx_blocks, align 1
+  %331 = load i64, ptr %st_blocks2309, align 8
+  store i64 %331, ptr %stx_blocks, align 1
   %stx_atime = getelementptr inbounds i8, ptr %call2264, i64 64
   %st_atim2313 = getelementptr inbounds i8, ptr %st, i64 72
-  %326 = load i64, ptr %st_atim2313, align 8
-  store i64 %326, ptr %stx_atime, align 1
+  %332 = load i64, ptr %st_atim2313, align 8
+  store i64 %332, ptr %stx_atime, align 1
   %stx_mtime = getelementptr inbounds i8, ptr %call2264, i64 112
   %st_mtim2318 = getelementptr inbounds i8, ptr %st, i64 88
-  %327 = load i64, ptr %st_mtim2318, align 8
-  store i64 %327, ptr %stx_mtime, align 1
+  %333 = load i64, ptr %st_mtim2318, align 8
+  store i64 %333, ptr %stx_mtime, align 1
   %stx_ctime = getelementptr inbounds i8, ptr %call2264, i64 96
   %st_ctim2323 = getelementptr inbounds i8, ptr %st, i64 104
-  %328 = load i64, ptr %st_ctim2323, align 8
-  store i64 %328, ptr %stx_ctime, align 1
+  %334 = load i64, ptr %st_ctim2323, align 8
+  store i64 %334, ptr %stx_ctime, align 1
   br label %return
 
 sw.bb2327:                                        ; preds = %entry
@@ -7996,8 +8071,8 @@ sw.bb2327:                                        ; preds = %entry
 
 if.then.i2934:                                    ; preds = %sw.bb2327
   %call.i2935 = tail call ptr @__errno_location() #26
-  %329 = load i32, ptr %call.i2935, align 4
-  %sub.i2936 = sub i32 0, %329
+  %335 = load i32, ptr %call.i2935, align 4
+  %sub.i2936 = sub i32 0, %335
   %conv.i2937 = sext i32 %sub.i2936 to i64
   br label %return
 
@@ -8009,8 +8084,8 @@ sw.bb2332:                                        ; preds = %entry
 
 if.then.i2941:                                    ; preds = %sw.bb2332
   %call.i2942 = tail call ptr @__errno_location() #26
-  %330 = load i32, ptr %call.i2942, align 4
-  %sub.i2943 = sub i32 0, %330
+  %336 = load i32, ptr %call.i2942, align 4
+  %sub.i2943 = sub i32 0, %336
   %conv.i2944 = sext i32 %sub.i2943 to i64
   br label %return
 
@@ -8022,8 +8097,8 @@ sw.bb2337:                                        ; preds = %entry
 
 if.then.i2948:                                    ; preds = %sw.bb2337
   %call.i2949 = tail call ptr @__errno_location() #26
-  %331 = load i32, ptr %call.i2949, align 4
-  %sub.i2950 = sub i32 0, %331
+  %337 = load i32, ptr %call.i2949, align 4
+  %sub.i2950 = sub i32 0, %337
   %conv.i2951 = sext i32 %sub.i2950 to i64
   br label %return
 
@@ -8035,8 +8110,8 @@ sw.bb2342:                                        ; preds = %entry
 
 if.then.i2955:                                    ; preds = %sw.bb2342
   %call.i2956 = tail call ptr @__errno_location() #26
-  %332 = load i32, ptr %call.i2956, align 4
-  %sub.i2957 = sub i32 0, %332
+  %338 = load i32, ptr %call.i2956, align 4
+  %sub.i2957 = sub i32 0, %338
   %conv.i2958 = sext i32 %sub.i2957 to i64
   br label %return
 
@@ -8050,8 +8125,8 @@ sw.bb2347:                                        ; preds = %entry
 
 if.then.i2962:                                    ; preds = %sw.bb2347
   %call.i2963 = tail call ptr @__errno_location() #26
-  %333 = load i32, ptr %call.i2963, align 4
-  %sub.i2964 = sub i32 0, %333
+  %339 = load i32, ptr %call.i2963, align 4
+  %sub.i2964 = sub i32 0, %339
   %conv.i2965 = sext i32 %sub.i2964 to i64
   br label %return
 
@@ -8065,8 +8140,8 @@ sw.bb2355:                                        ; preds = %entry
 
 if.then.i2969:                                    ; preds = %sw.bb2355
   %call.i2970 = tail call ptr @__errno_location() #26
-  %334 = load i32, ptr %call.i2970, align 4
-  %sub.i2971 = sub i32 0, %334
+  %340 = load i32, ptr %call.i2970, align 4
+  %sub.i2971 = sub i32 0, %340
   %conv.i2972 = sext i32 %sub.i2971 to i64
   br label %return
 
@@ -8093,8 +8168,8 @@ if.end2381:                                       ; preds = %if.then2375, %if.en
 
 if.then.i2976:                                    ; preds = %if.end2381
   %call.i2977 = tail call ptr @__errno_location() #26
-  %335 = load i32, ptr %call.i2977, align 4
-  %sub.i2978 = sub i32 0, %335
+  %341 = load i32, ptr %call.i2977, align 4
+  %sub.i2978 = sub i32 0, %341
   br label %get_errno.exit2980
 
 get_errno.exit2980:                               ; preds = %if.end2381, %if.then.i2976
@@ -8122,9 +8197,9 @@ for.body2401.preheader:                           ; preds = %for.cond2397.prehea
 for.body2401:                                     ; preds = %for.body2401.preheader, %for.body2401
   %indvars.iv3894 = phi i64 [ 0, %for.body2401.preheader ], [ %indvars.iv.next3895, %for.body2401 ]
   %arrayidx2403 = getelementptr i32, ptr %grouplist.1, i64 %indvars.iv3894
-  %336 = load i32, ptr %arrayidx2403, align 4
+  %342 = load i32, ptr %arrayidx2403, align 4
   %arrayidx2407 = getelementptr i32, ptr %call2393, i64 %indvars.iv3894
-  store i32 %336, ptr %arrayidx2407, align 4
+  store i32 %342, ptr %arrayidx2407, align 4
   %indvars.iv.next3895 = add nuw nsw i64 %indvars.iv3894, 1
   %exitcond3898.not = icmp eq i64 %indvars.iv.next3895, %wide.trip.count3897
   br i1 %exitcond3898.not, label %cleanup, label %for.body2401, !llvm.loop !23
@@ -8163,9 +8238,9 @@ for.body2444.preheader:                           ; preds = %if.end2434
 for.body2444:                                     ; preds = %for.body2444.preheader, %for.body2444
   %indvars.iv = phi i64 [ 0, %for.body2444.preheader ], [ %indvars.iv.next, %for.body2444 ]
   %arrayidx2446 = getelementptr i32, ptr %call2437, i64 %indvars.iv
-  %337 = load i32, ptr %arrayidx2446, align 4
+  %343 = load i32, ptr %arrayidx2446, align 4
   %arrayidx2450 = getelementptr i32, ptr %call2431, i64 %indvars.iv
-  store i32 %337, ptr %arrayidx2450, align 4
+  store i32 %343, ptr %arrayidx2450, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end2456, label %for.body2444, !llvm.loop !24
@@ -8180,8 +8255,8 @@ if.end2456:                                       ; preds = %for.body2444, %if.e
 
 if.then.i2985:                                    ; preds = %if.end2456
   %call.i2986 = tail call ptr @__errno_location() #26
-  %338 = load i32, ptr %call.i2986, align 4
-  %sub.i2987 = sub i32 0, %338
+  %344 = load i32, ptr %call.i2986, align 4
+  %sub.i2987 = sub i32 0, %344
   %conv.i2988 = sext i32 %sub.i2987 to i64
   br label %cleanup2461
 
@@ -8202,8 +8277,8 @@ sw.bb2462:                                        ; preds = %entry
 
 if.then.i2992:                                    ; preds = %sw.bb2462
   %call.i2993 = tail call ptr @__errno_location() #26
-  %339 = load i32, ptr %call.i2993, align 4
-  %sub.i2994 = sub i32 0, %339
+  %345 = load i32, ptr %call.i2993, align 4
+  %sub.i2994 = sub i32 0, %345
   %conv.i2995 = sext i32 %sub.i2994 to i64
   br label %return
 
@@ -8224,8 +8299,8 @@ if.end2475:                                       ; preds = %sw.bb2471
 
 if.then.i2999:                                    ; preds = %if.end2475
   %call.i3000 = tail call ptr @__errno_location() #26
-  %340 = load i32, ptr %call.i3000, align 4
-  %sub.i3001 = sub i32 0, %340
+  %346 = load i32, ptr %call.i3000, align 4
+  %sub.i3001 = sub i32 0, %346
   %conv.i3002 = sext i32 %sub.i3001 to i64
   br label %return
 
@@ -8241,8 +8316,8 @@ sw.bb2485:                                        ; preds = %entry
 
 if.then.i3008:                                    ; preds = %sw.bb2485
   %call.i3009 = tail call ptr @__errno_location() #26
-  %341 = load i32, ptr %call.i3009, align 4
-  %sub.i3010 = sub i32 0, %341
+  %347 = load i32, ptr %call.i3009, align 4
+  %sub.i3010 = sub i32 0, %347
   %conv.i3011 = sext i32 %sub.i3010 to i64
   br label %return
 
@@ -8253,8 +8328,8 @@ sw.bb2495:                                        ; preds = %entry
 
 if.then.i3015:                                    ; preds = %sw.bb2495
   %call.i3016 = tail call ptr @__errno_location() #26
-  %342 = load i32, ptr %call.i3016, align 4
-  %sub.i3017 = sub i32 0, %342
+  %348 = load i32, ptr %call.i3016, align 4
+  %sub.i3017 = sub i32 0, %348
   br label %get_errno.exit3019
 
 get_errno.exit3019:                               ; preds = %sw.bb2495, %if.then.i3015
@@ -8269,22 +8344,22 @@ if.then2501:                                      ; preds = %get_errno.exit3019
   br i1 %tobool2506.not.not, label %return, label %do.body2508
 
 do.body2508:                                      ; preds = %if.then2501
-  %343 = load i32, ptr %ruid, align 4
-  store i32 %343, ptr %call2505, align 1
+  %349 = load i32, ptr %ruid, align 4
+  store i32 %349, ptr %call2505, align 1
   %call2519 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef 4, i1 noundef zeroext false) #27
   %tobool2520.not.not = icmp eq ptr %call2519, null
   br i1 %tobool2520.not.not, label %return, label %do.body2522
 
 do.body2522:                                      ; preds = %do.body2508
-  %344 = load i32, ptr %euid, align 4
-  store i32 %344, ptr %call2519, align 1
+  %350 = load i32, ptr %euid, align 4
+  store i32 %350, ptr %call2519, align 1
   %call2533 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg3, i64 noundef 4, i1 noundef zeroext false) #27
   %tobool2534.not.not = icmp eq ptr %call2533, null
   br i1 %tobool2534.not.not, label %return, label %do.body2536
 
 do.body2536:                                      ; preds = %do.body2522
-  %345 = load i32, ptr %suid, align 4
-  store i32 %345, ptr %call2533, align 1
+  %351 = load i32, ptr %suid, align 4
+  store i32 %351, ptr %call2533, align 1
   br label %return
 
 sw.bb2546:                                        ; preds = %entry
@@ -8299,8 +8374,8 @@ sw.bb2546:                                        ; preds = %entry
 
 if.then.i3026:                                    ; preds = %sw.bb2546
   %call.i3027 = tail call ptr @__errno_location() #26
-  %346 = load i32, ptr %call.i3027, align 4
-  %sub.i3028 = sub i32 0, %346
+  %352 = load i32, ptr %call.i3027, align 4
+  %sub.i3028 = sub i32 0, %352
   %conv.i3029 = sext i32 %sub.i3028 to i64
   br label %return
 
@@ -8311,8 +8386,8 @@ sw.bb2556:                                        ; preds = %entry
 
 if.then.i3033:                                    ; preds = %sw.bb2556
   %call.i3034 = tail call ptr @__errno_location() #26
-  %347 = load i32, ptr %call.i3034, align 4
-  %sub.i3035 = sub i32 0, %347
+  %353 = load i32, ptr %call.i3034, align 4
+  %sub.i3035 = sub i32 0, %353
   br label %get_errno.exit3037
 
 get_errno.exit3037:                               ; preds = %sw.bb2556, %if.then.i3033
@@ -8327,22 +8402,22 @@ if.then2562:                                      ; preds = %get_errno.exit3037
   br i1 %tobool2567.not.not, label %return, label %do.body2569
 
 do.body2569:                                      ; preds = %if.then2562
-  %348 = load i32, ptr %rgid, align 4
-  store i32 %348, ptr %call2566, align 1
+  %354 = load i32, ptr %rgid, align 4
+  store i32 %354, ptr %call2566, align 1
   %call2580 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef 4, i1 noundef zeroext false) #27
   %tobool2581.not.not = icmp eq ptr %call2580, null
   br i1 %tobool2581.not.not, label %return, label %do.body2583
 
 do.body2583:                                      ; preds = %do.body2569
-  %349 = load i32, ptr %egid, align 4
-  store i32 %349, ptr %call2580, align 1
+  %355 = load i32, ptr %egid, align 4
+  store i32 %355, ptr %call2580, align 1
   %call2594 = call ptr @lock_user(i32 noundef 3, i64 noundef %arg3, i64 noundef 4, i1 noundef zeroext false) #27
   %tobool2595.not.not = icmp eq ptr %call2594, null
   br i1 %tobool2595.not.not, label %return, label %do.body2597
 
 do.body2597:                                      ; preds = %do.body2583
-  %350 = load i32, ptr %sgid, align 4
-  store i32 %350, ptr %call2594, align 1
+  %356 = load i32, ptr %sgid, align 4
+  store i32 %356, ptr %call2594, align 1
   br label %return
 
 sw.bb2607:                                        ; preds = %entry
@@ -8355,8 +8430,8 @@ sw.bb2607:                                        ; preds = %entry
 
 if.then.i3044:                                    ; preds = %sw.bb2607
   %call.i3045 = tail call ptr @__errno_location() #26
-  %351 = load i32, ptr %call.i3045, align 4
-  %sub.i3046 = sub i32 0, %351
+  %357 = load i32, ptr %call.i3045, align 4
+  %sub.i3046 = sub i32 0, %357
   %conv.i3047 = sext i32 %sub.i3046 to i64
   br label %return
 
@@ -8370,8 +8445,8 @@ sw.bb2613:                                        ; preds = %entry
 
 if.then.i3053:                                    ; preds = %sw.bb2613
   %call.i3054 = tail call ptr @__errno_location() #26
-  %352 = load i32, ptr %call.i3054, align 4
-  %sub.i3055 = sub i32 0, %352
+  %358 = load i32, ptr %call.i3054, align 4
+  %sub.i3055 = sub i32 0, %358
   %conv.i3056 = sext i32 %sub.i3055 to i64
   br label %return
 
@@ -8384,8 +8459,8 @@ sw.bb2619:                                        ; preds = %entry
 
 if.then.i3060:                                    ; preds = %sw.bb2619
   %call.i3061 = tail call ptr @__errno_location() #26
-  %353 = load i32, ptr %call.i3061, align 4
-  %sub.i3062 = sub i32 0, %353
+  %359 = load i32, ptr %call.i3061, align 4
+  %sub.i3062 = sub i32 0, %359
   %conv.i3063 = sext i32 %sub.i3062 to i64
   br label %return
 
@@ -8398,8 +8473,8 @@ sw.bb2624:                                        ; preds = %entry
 
 if.then.i3067:                                    ; preds = %sw.bb2624
   %call.i3068 = tail call ptr @__errno_location() #26
-  %354 = load i32, ptr %call.i3068, align 4
-  %sub.i3069 = sub i32 0, %354
+  %360 = load i32, ptr %call.i3068, align 4
+  %sub.i3069 = sub i32 0, %360
   %conv.i3070 = sext i32 %sub.i3069 to i64
   br label %return
 
@@ -8421,8 +8496,8 @@ if.else2637:                                      ; preds = %if.end2633
 
 if.then.i3074:                                    ; preds = %if.else2637
   %call.i3075 = tail call ptr @__errno_location() #26
-  %355 = load i32, ptr %call.i3075, align 4
-  %sub.i3076 = sub i32 0, %355
+  %361 = load i32, ptr %call.i3075, align 4
+  %sub.i3076 = sub i32 0, %361
   %conv.i3077 = sext i32 %sub.i3076 to i64
   br label %return
 
@@ -8448,8 +8523,8 @@ sw.bb2652:                                        ; preds = %entry
 
 if.then.i3083:                                    ; preds = %sw.bb2652
   %call.i3084 = tail call ptr @__errno_location() #26
-  %356 = load i32, ptr %call.i3084, align 4
-  %sub.i3085 = sub i32 0, %356
+  %362 = load i32, ptr %call.i3084, align 4
+  %sub.i3085 = sub i32 0, %362
   %conv.i3086 = sext i32 %sub.i3085 to i64
   br label %return
 
@@ -8461,8 +8536,8 @@ sw.bb2656:                                        ; preds = %entry
 
 if.then.i3090:                                    ; preds = %sw.bb2656
   %call.i3091 = tail call ptr @__errno_location() #26
-  %357 = load i32, ptr %call.i3091, align 4
-  %sub.i3092 = sub i32 0, %357
+  %363 = load i32, ptr %call.i3091, align 4
+  %sub.i3092 = sub i32 0, %363
   %conv.i3093 = sext i32 %sub.i3092 to i64
   br label %return
 
@@ -8492,8 +8567,8 @@ if.then2673:                                      ; preds = %if.then2670
 
 if.then.i3097:                                    ; preds = %if.then2673
   %call.i3098 = tail call ptr @__errno_location() #26
-  %358 = load i32, ptr %call.i3098, align 4
-  %sub.i3099 = sub i32 0, %358
+  %364 = load i32, ptr %call.i3098, align 4
+  %sub.i3099 = sub i32 0, %364
   %conv.i3100 = sext i32 %sub.i3099 to i64
   br label %return
 
@@ -8504,8 +8579,8 @@ if.else2676:                                      ; preds = %if.then2670
 
 if.then.i3104:                                    ; preds = %if.else2676
   %call.i3105 = tail call ptr @__errno_location() #26
-  %359 = load i32, ptr %call.i3105, align 4
-  %sub.i3106 = sub i32 0, %359
+  %365 = load i32, ptr %call.i3105, align 4
+  %sub.i3106 = sub i32 0, %365
   %conv.i3107 = sext i32 %sub.i3106 to i64
   br label %return
 
@@ -8527,8 +8602,8 @@ if.end2690:                                       ; preds = %if.then2685, %sw.bb
 
 if.then.i3111:                                    ; preds = %if.end2690
   %call.i3112 = tail call ptr @__errno_location() #26
-  %360 = load i32, ptr %call.i3112, align 4
-  %sub.i3113 = sub i32 0, %360
+  %366 = load i32, ptr %call.i3112, align 4
+  %sub.i3113 = sub i32 0, %366
   %conv.i3114 = sext i32 %sub.i3113 to i64
   br label %return
 
@@ -8563,8 +8638,8 @@ if.then2710:                                      ; preds = %if.then2707
 
 if.then.i3118:                                    ; preds = %if.then2710
   %call.i3119 = tail call ptr @__errno_location() #26
-  %361 = load i32, ptr %call.i3119, align 4
-  %sub.i3120 = sub i32 0, %361
+  %367 = load i32, ptr %call.i3119, align 4
+  %sub.i3120 = sub i32 0, %367
   %conv.i3121 = sext i32 %sub.i3120 to i64
   br label %return
 
@@ -8576,8 +8651,8 @@ if.else2715:                                      ; preds = %if.then2707
 
 if.then.i3125:                                    ; preds = %if.else2715
   %call.i3126 = tail call ptr @__errno_location() #26
-  %362 = load i32, ptr %call.i3126, align 4
-  %sub.i3127 = sub i32 0, %362
+  %368 = load i32, ptr %call.i3126, align 4
+  %sub.i3127 = sub i32 0, %368
   %conv.i3128 = sext i32 %sub.i3127 to i64
   br label %return
 
@@ -8606,8 +8681,8 @@ if.then2735:                                      ; preds = %if.end2732
 
 if.then.i3132:                                    ; preds = %if.then2735
   %call.i3133 = tail call ptr @__errno_location() #26
-  %363 = load i32, ptr %call.i3133, align 4
-  %sub.i3134 = sub i32 0, %363
+  %369 = load i32, ptr %call.i3133, align 4
+  %sub.i3134 = sub i32 0, %369
   %conv.i3135 = sext i32 %sub.i3134 to i64
   br label %return
 
@@ -8640,8 +8715,8 @@ if.then2761:                                      ; preds = %if.then2758
 
 if.then.i3139:                                    ; preds = %if.then2761
   %call.i3140 = tail call ptr @__errno_location() #26
-  %364 = load i32, ptr %call.i3140, align 4
-  %sub.i3141 = sub i32 0, %364
+  %370 = load i32, ptr %call.i3140, align 4
+  %sub.i3141 = sub i32 0, %370
   %conv.i3142 = sext i32 %sub.i3141 to i64
   br label %return
 
@@ -8652,8 +8727,8 @@ if.else2764:                                      ; preds = %if.then2758
 
 if.then.i3146:                                    ; preds = %if.else2764
   %call.i3147 = tail call ptr @__errno_location() #26
-  %365 = load i32, ptr %call.i3147, align 4
-  %sub.i3148 = sub i32 0, %365
+  %371 = load i32, ptr %call.i3147, align 4
+  %sub.i3148 = sub i32 0, %371
   %conv.i3149 = sext i32 %sub.i3148 to i64
   br label %return
 
@@ -8680,8 +8755,8 @@ if.then2782:                                      ; preds = %if.end2779
 
 if.then.i3153:                                    ; preds = %if.then2782
   %call.i3154 = tail call ptr @__errno_location() #26
-  %366 = load i32, ptr %call.i3154, align 4
-  %sub.i3155 = sub i32 0, %366
+  %372 = load i32, ptr %call.i3154, align 4
+  %sub.i3155 = sub i32 0, %372
   %conv.i3156 = sext i32 %sub.i3155 to i64
   br label %return
 
@@ -8705,8 +8780,8 @@ if.then2798:                                      ; preds = %if.then2795
 
 if.then.i3160:                                    ; preds = %if.then2798
   %call.i3161 = tail call ptr @__errno_location() #26
-  %367 = load i32, ptr %call.i3161, align 4
-  %sub.i3162 = sub i32 0, %367
+  %373 = load i32, ptr %call.i3161, align 4
+  %sub.i3162 = sub i32 0, %373
   %conv.i3163 = sext i32 %sub.i3162 to i64
   br label %return
 
@@ -8718,8 +8793,8 @@ if.else2802:                                      ; preds = %if.then2795
 
 if.then.i3167:                                    ; preds = %if.else2802
   %call.i3168 = tail call ptr @__errno_location() #26
-  %368 = load i32, ptr %call.i3168, align 4
-  %sub.i3169 = sub i32 0, %368
+  %374 = load i32, ptr %call.i3168, align 4
+  %sub.i3169 = sub i32 0, %374
   %conv.i3170 = sext i32 %sub.i3169 to i64
   br label %return
 
@@ -8737,8 +8812,8 @@ if.then2813:                                      ; preds = %sw.bb2809
 
 if.then.i3174:                                    ; preds = %if.then2813
   %call.i3175 = tail call ptr @__errno_location() #26
-  %369 = load i32, ptr %call.i3175, align 4
-  %sub.i3176 = sub i32 0, %369
+  %375 = load i32, ptr %call.i3175, align 4
+  %sub.i3176 = sub i32 0, %375
   %conv.i3177 = sext i32 %sub.i3176 to i64
   br label %return
 
@@ -8748,8 +8823,12 @@ sw.bb2820:                                        ; preds = %entry
   br i1 %tobool.not.i3180, label %return, label %if.then2825
 
 if.then2825:                                      ; preds = %sw.bb2820
-  %370 = load <2 x i64>, ptr %call.i3179, align 1
-  store <2 x i64> %370, ptr %ts2821, align 16
+  %call.val.i3182 = load i64, ptr %call.i3179, align 1
+  store i64 %call.val.i3182, ptr %ts2821, align 8
+  %tv_nsec.i3183 = getelementptr inbounds i8, ptr %call.i3179, i64 8
+  %tv_nsec.val.i3184 = load i64, ptr %tv_nsec.i3183, align 1
+  %tv_nsec5.i3185 = getelementptr inbounds i8, ptr %ts2821, i64 8
+  store i64 %tv_nsec.val.i3184, ptr %tv_nsec5.i3185, align 8
   %conv2826 = trunc i64 %arg1 to i32
   %call2827 = call i32 @clock_settime(i32 noundef %conv2826, ptr noundef nonnull %ts2821) #27
   %conv2828 = sext i32 %call2827 to i64
@@ -8758,8 +8837,8 @@ if.then2825:                                      ; preds = %sw.bb2820
 
 if.then.i3192:                                    ; preds = %if.then2825
   %call.i3193 = tail call ptr @__errno_location() #26
-  %371 = load i32, ptr %call.i3193, align 4
-  %sub.i3194 = sub i32 0, %371
+  %376 = load i32, ptr %call.i3193, align 4
+  %sub.i3194 = sub i32 0, %376
   %conv.i3195 = sext i32 %sub.i3194 to i64
   br label %return
 
@@ -8771,8 +8850,8 @@ sw.bb2831:                                        ; preds = %entry
 
 if.then.i3199:                                    ; preds = %sw.bb2831
   %call.i3200 = tail call ptr @__errno_location() #26
-  %372 = load i32, ptr %call.i3200, align 4
-  %sub.i3201 = sub i32 0, %372
+  %377 = load i32, ptr %call.i3200, align 4
+  %sub.i3201 = sub i32 0, %377
   br label %get_errno.exit3203
 
 get_errno.exit3203:                               ; preds = %sw.bb2831, %if.then.i3199
@@ -8787,12 +8866,12 @@ if.then2839:                                      ; preds = %get_errno.exit3203
   br i1 %tobool.not.i3207, label %return, label %do.body.i3208
 
 do.body.i3208:                                    ; preds = %if.then2839
-  %373 = load i64, ptr %ts2832, align 8
-  store i64 %373, ptr %call.i3206, align 1
+  %378 = load i64, ptr %ts2832, align 8
+  store i64 %378, ptr %call.i3206, align 1
   %tv_nsec.i3209 = getelementptr inbounds i8, ptr %call.i3206, i64 8
   %tv_nsec3.i3210 = getelementptr inbounds i8, ptr %ts2832, i64 8
-  %374 = load i64, ptr %tv_nsec3.i3210, align 8
-  store i64 %374, ptr %tv_nsec.i3209, align 1
+  %379 = load i64, ptr %tv_nsec3.i3210, align 8
+  store i64 %379, ptr %tv_nsec.i3209, align 1
   br label %return
 
 sw.bb2842:                                        ; preds = %entry
@@ -8803,8 +8882,8 @@ sw.bb2842:                                        ; preds = %entry
 
 if.then.i3215:                                    ; preds = %sw.bb2842
   %call.i3216 = tail call ptr @__errno_location() #26
-  %375 = load i32, ptr %call.i3216, align 4
-  %sub.i3217 = sub i32 0, %375
+  %380 = load i32, ptr %call.i3216, align 4
+  %sub.i3217 = sub i32 0, %380
   br label %get_errno.exit3219
 
 get_errno.exit3219:                               ; preds = %sw.bb2842, %if.then.i3215
@@ -8819,12 +8898,12 @@ if.then2850:                                      ; preds = %get_errno.exit3219
   br i1 %tobool.not.i3223, label %return, label %do.body.i3224
 
 do.body.i3224:                                    ; preds = %if.then2850
-  %376 = load i64, ptr %ts2843, align 8
-  store i64 %376, ptr %call.i3222, align 1
+  %381 = load i64, ptr %ts2843, align 8
+  store i64 %381, ptr %call.i3222, align 1
   %tv_nsec.i3225 = getelementptr inbounds i8, ptr %call.i3222, i64 8
   %tv_nsec3.i3226 = getelementptr inbounds i8, ptr %ts2843, i64 8
-  %377 = load i64, ptr %tv_nsec3.i3226, align 8
-  store i64 %377, ptr %tv_nsec.i3225, align 1
+  %382 = load i64, ptr %tv_nsec3.i3226, align 8
+  store i64 %382, ptr %tv_nsec.i3225, align 1
   br label %return
 
 sw.bb2853:                                        ; preds = %entry
@@ -8833,18 +8912,21 @@ sw.bb2853:                                        ; preds = %entry
   br i1 %tobool.not.i3230, label %return, label %if.end2858
 
 if.end2858:                                       ; preds = %sw.bb2853
+  %call.val.i3232 = load i64, ptr %call.i3229, align 1
+  store i64 %call.val.i3232, ptr %ts2854, align 8
+  %tv_nsec.i3233 = getelementptr inbounds i8, ptr %call.i3229, i64 8
+  %tv_nsec.val.i3234 = load i64, ptr %tv_nsec.i3233, align 1
   %tv_nsec5.i3235 = getelementptr inbounds i8, ptr %ts2854, i64 8
-  %378 = load <2 x i64>, ptr %call.i3229, align 1
-  store <2 x i64> %378, ptr %ts2854, align 16
+  store i64 %tv_nsec.val.i3234, ptr %tv_nsec5.i3235, align 8
   %conv2859 = trunc i64 %arg1 to i32
   %conv2860 = trunc i64 %arg2 to i32
   %tobool2861 = icmp ne i64 %arg4, 0
   %ts2854. = select i1 %tobool2861, ptr %ts2854, ptr null
-  %379 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %380 = load ptr, ptr %379, align 8
-  %opaque.i3238 = getelementptr inbounds i8, ptr %380, i64 624
-  %381 = load ptr, ptr %opaque.i3238, align 16
-  %signal_pending.i3239 = getelementptr inbounds i8, ptr %381, i64 9164
+  %383 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %384 = load ptr, ptr %383, align 8
+  %opaque.i3238 = getelementptr inbounds i8, ptr %384, i64 624
+  %385 = load ptr, ptr %opaque.i3238, align 16
+  %signal_pending.i3239 = getelementptr inbounds i8, ptr %385, i64 9164
   %call.i3240 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3239, i64 noundef 230, i32 noundef %conv2859, i32 noundef %conv2860, ptr noundef nonnull %ts2854, ptr noundef %ts2854.) #27
   %sext3833 = shl i64 %call.i3240, 32
   %conv2867 = ashr exact i64 %sext3833, 32
@@ -8853,8 +8935,8 @@ if.end2858:                                       ; preds = %sw.bb2853
 
 if.then.i3244:                                    ; preds = %if.end2858
   %call.i3245 = tail call ptr @__errno_location() #26
-  %382 = load i32, ptr %call.i3245, align 4
-  %sub.i3246 = sub i32 0, %382
+  %386 = load i32, ptr %call.i3245, align 4
+  %sub.i3246 = sub i32 0, %386
   %conv.i3247 = sext i32 %sub.i3246 to i64
   br label %get_errno.exit3248
 
@@ -8862,8 +8944,8 @@ get_errno.exit3248:                               ; preds = %if.end2858, %if.the
   %retval.0.i3243 = phi i64 [ %conv.i3247, %if.then.i3244 ], [ %conv2867, %if.end2858 ]
   %cmp2869 = icmp eq i64 %retval.0.i3243, -4
   %cmp2874 = icmp ne i64 %arg2, 1
-  %383 = and i1 %cmp2874, %cmp2869
-  %or.cond30 = and i1 %tobool2861, %383
+  %387 = and i1 %cmp2874, %cmp2869
+  %or.cond30 = and i1 %tobool2861, %387
   br i1 %or.cond30, label %land.lhs.true2876, label %return
 
 land.lhs.true2876:                                ; preds = %get_errno.exit3248
@@ -8872,17 +8954,17 @@ land.lhs.true2876:                                ; preds = %get_errno.exit3248
   br i1 %tobool.not.i3250, label %return, label %host_to_target_timespec.exit3255.thread
 
 host_to_target_timespec.exit3255.thread:          ; preds = %land.lhs.true2876
-  %384 = load i64, ptr %ts2854, align 16
-  store i64 %384, ptr %call.i3249, align 1
+  %388 = load i64, ptr %ts2854, align 8
+  store i64 %388, ptr %call.i3249, align 1
   %tv_nsec.i3252 = getelementptr inbounds i8, ptr %call.i3249, i64 8
-  %385 = load i64, ptr %tv_nsec5.i3235, align 8
-  store i64 %385, ptr %tv_nsec.i3252, align 1
+  %389 = load i64, ptr %tv_nsec5.i3235, align 8
+  store i64 %389, ptr %tv_nsec.i3252, align 1
   br label %return
 
 sw.bb2881:                                        ; preds = %entry
   %opaque2883 = getelementptr i8, ptr %cpu_env, i64 -9552
-  %386 = load ptr, ptr %opaque2883, align 16
-  %child_tidptr2884 = getelementptr inbounds i8, ptr %386, i64 8
+  %390 = load ptr, ptr %opaque2883, align 16
+  %child_tidptr2884 = getelementptr inbounds i8, ptr %390, i64 8
   store i64 %arg1, ptr %child_tidptr2884, align 8
   %call.i3256 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #27
   %sext3832 = shl i64 %call.i3256, 32
@@ -8892,8 +8974,8 @@ sw.bb2881:                                        ; preds = %entry
 
 if.then.i3260:                                    ; preds = %sw.bb2881
   %call.i3261 = tail call ptr @__errno_location() #26
-  %387 = load i32, ptr %call.i3261, align 4
-  %sub.i3262 = sub i32 0, %387
+  %391 = load i32, ptr %call.i3261, align 4
+  %sub.i3262 = sub i32 0, %391
   %conv.i3263 = sext i32 %sub.i3262 to i64
   br label %return
 
@@ -8901,11 +8983,11 @@ sw.bb2888:                                        ; preds = %entry
   %conv2889 = trunc i64 %arg1 to i32
   %conv2890 = trunc i64 %arg2 to i32
   %call2891 = tail call i32 @target_to_host_signal(i32 noundef %conv2890) #27
-  %388 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %389 = load ptr, ptr %388, align 8
-  %opaque.i3265 = getelementptr inbounds i8, ptr %389, i64 624
-  %390 = load ptr, ptr %opaque.i3265, align 16
-  %signal_pending.i3266 = getelementptr inbounds i8, ptr %390, i64 9164
+  %392 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %393 = load ptr, ptr %392, align 8
+  %opaque.i3265 = getelementptr inbounds i8, ptr %393, i64 624
+  %394 = load ptr, ptr %opaque.i3265, align 16
+  %signal_pending.i3266 = getelementptr inbounds i8, ptr %394, i64 9164
   %call.i3267 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3266, i64 noundef 200, i32 noundef %conv2889, i32 noundef %call2891) #27
   %sext3831 = shl i64 %call.i3267, 32
   %conv2893 = ashr exact i64 %sext3831, 32
@@ -8914,8 +8996,8 @@ sw.bb2888:                                        ; preds = %entry
 
 if.then.i3271:                                    ; preds = %sw.bb2888
   %call.i3272 = tail call ptr @__errno_location() #26
-  %391 = load i32, ptr %call.i3272, align 4
-  %sub.i3273 = sub i32 0, %391
+  %395 = load i32, ptr %call.i3272, align 4
+  %sub.i3273 = sub i32 0, %395
   %conv.i3274 = sext i32 %sub.i3273 to i64
   br label %return
 
@@ -8924,11 +9006,11 @@ sw.bb2895:                                        ; preds = %entry
   %conv2897 = trunc i64 %arg2 to i32
   %conv2898 = trunc i64 %arg3 to i32
   %call2899 = tail call i32 @target_to_host_signal(i32 noundef %conv2898) #27
-  %392 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %393 = load ptr, ptr %392, align 8
-  %opaque.i3276 = getelementptr inbounds i8, ptr %393, i64 624
-  %394 = load ptr, ptr %opaque.i3276, align 16
-  %signal_pending.i3277 = getelementptr inbounds i8, ptr %394, i64 9164
+  %396 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %397 = load ptr, ptr %396, align 8
+  %opaque.i3276 = getelementptr inbounds i8, ptr %397, i64 624
+  %398 = load ptr, ptr %opaque.i3276, align 16
+  %signal_pending.i3277 = getelementptr inbounds i8, ptr %398, i64 9164
   %call.i3278 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3277, i64 noundef 234, i32 noundef %conv2896, i32 noundef %conv2897, i32 noundef %call2899) #27
   %sext3830 = shl i64 %call.i3278, 32
   %conv2901 = ashr exact i64 %sext3830, 32
@@ -8937,8 +9019,8 @@ sw.bb2895:                                        ; preds = %entry
 
 if.then.i3282:                                    ; preds = %sw.bb2895
   %call.i3283 = tail call ptr @__errno_location() #26
-  %395 = load i32, ptr %call.i3283, align 4
-  %sub.i3284 = sub i32 0, %395
+  %399 = load i32, ptr %call.i3283, align 4
+  %sub.i3284 = sub i32 0, %399
   %conv.i3285 = sext i32 %sub.i3284 to i64
   br label %return
 
@@ -8952,8 +9034,12 @@ if.else2908:                                      ; preds = %sw.bb2904
   br i1 %tobool.not.i3288, label %return, label %if.end2913
 
 if.end2913:                                       ; preds = %if.else2908
-  %396 = load <2 x i64>, ptr %call.i3287, align 1
-  store <2 x i64> %396, ptr %ts2905, align 16
+  %call.val.i3290 = load i64, ptr %call.i3287, align 1
+  store i64 %call.val.i3290, ptr %ts2905, align 16
+  %tv_nsec.i3291 = getelementptr inbounds i8, ptr %call.i3287, i64 8
+  %tv_nsec.val.i3292 = load i64, ptr %tv_nsec.i3291, align 1
+  %tv_nsec5.i3293 = getelementptr inbounds i8, ptr %ts2905, i64 8
+  store i64 %tv_nsec.val.i3292, ptr %tv_nsec5.i3293, align 8
   %add2915 = add i64 %arg3, 16
   %call.i3296 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %add2915, i64 noundef 16, i1 noundef zeroext true) #27
   %tobool.not.i3297 = icmp eq ptr %call.i3296, null
@@ -8985,8 +9071,8 @@ if.then2923:                                      ; preds = %if.end2921
 
 if.then.i3309:                                    ; preds = %if.then2923
   %call.i3310 = tail call ptr @__errno_location() #26
-  %397 = load i32, ptr %call.i3310, align 4
-  %sub.i3311 = sub i32 0, %397
+  %400 = load i32, ptr %call.i3310, align 4
+  %sub.i3311 = sub i32 0, %400
   %conv.i3312 = sext i32 %sub.i3311 to i64
   br label %return
 
@@ -9007,8 +9093,8 @@ if.end2933:                                       ; preds = %if.else2929
 
 if.then.i3318:                                    ; preds = %if.end2933
   %call.i3319 = tail call ptr @__errno_location() #26
-  %398 = load i32, ptr %call.i3319, align 4
-  %sub.i3320 = sub i32 0, %398
+  %401 = load i32, ptr %call.i3319, align 4
+  %sub.i3320 = sub i32 0, %401
   %conv.i3321 = sext i32 %sub.i3320 to i64
   br label %return
 
@@ -9029,8 +9115,8 @@ sw.bb2947:                                        ; preds = %entry
 
 if.then.i3325:                                    ; preds = %sw.bb2947
   %call.i3326 = tail call ptr @__errno_location() #26
-  %399 = load i32, ptr %call.i3326, align 4
-  %sub.i3327 = sub i32 0, %399
+  %402 = load i32, ptr %call.i3326, align 4
+  %sub.i3327 = sub i32 0, %402
   br label %get_errno.exit3329
 
 get_errno.exit3329:                               ; preds = %sw.bb2947, %if.then.i3325
@@ -9055,8 +9141,8 @@ sw.bb2958:                                        ; preds = %entry
 
 if.then.i3332:                                    ; preds = %sw.bb2958
   %call.i3333 = tail call ptr @__errno_location() #26
-  %400 = load i32, ptr %call.i3333, align 4
-  %sub.i3334 = sub i32 0, %400
+  %403 = load i32, ptr %call.i3333, align 4
+  %sub.i3334 = sub i32 0, %403
   %conv.i3335 = sext i32 %sub.i3334 to i64
   br label %return
 
@@ -9070,8 +9156,8 @@ sw.bb2966:                                        ; preds = %entry
 
 if.then.i3339:                                    ; preds = %sw.bb2966
   %call.i3340 = tail call ptr @__errno_location() #26
-  %401 = load i32, ptr %call.i3340, align 4
-  %sub.i3341 = sub i32 0, %401
+  %404 = load i32, ptr %call.i3340, align 4
+  %sub.i3341 = sub i32 0, %404
   %conv.i3342 = sext i32 %sub.i3341 to i64
   br label %return
 
@@ -9087,12 +9173,20 @@ if.then2977:                                      ; preds = %sw.bb2972
   br i1 %tobool.not.i3345, label %return, label %copy_from_user_mq_attr.exit.thread
 
 copy_from_user_mq_attr.exit.thread:               ; preds = %if.then2977
-  %402 = load <2 x i64>, ptr %call.i3344, align 1
-  store <2 x i64> %402, ptr %posix_mq_attr, align 16
+  %call.val.i3347 = load i64, ptr %call.i3344, align 1
+  store i64 %call.val.i3347, ptr %posix_mq_attr, align 8
+  %mq_maxmsg.i = getelementptr inbounds i8, ptr %call.i3344, i64 8
+  %mq_maxmsg.val.i = load i64, ptr %mq_maxmsg.i, align 1
+  %mq_maxmsg5.i = getelementptr inbounds i8, ptr %posix_mq_attr, i64 8
+  store i64 %mq_maxmsg.val.i, ptr %mq_maxmsg5.i, align 8
   %mq_msgsize.i = getelementptr inbounds i8, ptr %call.i3344, i64 16
+  %mq_msgsize.val.i = load i64, ptr %mq_msgsize.i, align 1
   %mq_msgsize9.i = getelementptr inbounds i8, ptr %posix_mq_attr, i64 16
-  %403 = load <2 x i64>, ptr %mq_msgsize.i, align 1
-  store <2 x i64> %403, ptr %mq_msgsize9.i, align 16
+  store i64 %mq_msgsize.val.i, ptr %mq_msgsize9.i, align 8
+  %mq_curmsgs.i = getelementptr inbounds i8, ptr %call.i3344, i64 24
+  %mq_curmsgs.val.i = load i64, ptr %mq_curmsgs.i, align 1
+  %mq_curmsgs13.i = getelementptr inbounds i8, ptr %posix_mq_attr, i64 24
+  store i64 %mq_curmsgs.val.i, ptr %mq_curmsgs13.i, align 8
   br label %if.end2983
 
 if.end2983:                                       ; preds = %copy_from_user_mq_attr.exit.thread, %sw.bb2972
@@ -9110,8 +9204,8 @@ if.end2988:                                       ; preds = %if.end2983
 
 if.then.i3351:                                    ; preds = %if.end2988
   %call.i3352 = tail call ptr @__errno_location() #26
-  %404 = load i32, ptr %call.i3352, align 4
-  %sub.i3353 = sub i32 0, %404
+  %405 = load i32, ptr %call.i3352, align 4
+  %sub.i3353 = sub i32 0, %405
   %conv.i3354 = sext i32 %sub.i3353 to i64
   br label %return
 
@@ -9129,8 +9223,8 @@ if.end2997:                                       ; preds = %sw.bb2992
 
 if.then.i3358:                                    ; preds = %if.end2997
   %call.i3359 = tail call ptr @__errno_location() #26
-  %405 = load i32, ptr %call.i3359, align 4
-  %sub.i3360 = sub i32 0, %405
+  %406 = load i32, ptr %call.i3359, align 4
+  %sub.i3360 = sub i32 0, %406
   %conv.i3361 = sext i32 %sub.i3360 to i64
   br label %return
 
@@ -9145,9 +9239,12 @@ if.then3006:                                      ; preds = %sw.bb3001
   br i1 %tobool.not.i3364, label %return, label %if.end3010
 
 if.end3010:                                       ; preds = %if.then3006
+  %call.val.i3366 = load i64, ptr %call.i3363, align 1
+  store i64 %call.val.i3366, ptr %ts3002, align 8
+  %tv_nsec.i3367 = getelementptr inbounds i8, ptr %call.i3363, i64 8
+  %tv_nsec.val.i3368 = load i64, ptr %tv_nsec.i3367, align 1
   %tv_nsec5.i3369 = getelementptr inbounds i8, ptr %ts3002, i64 8
-  %406 = load <2 x i64>, ptr %call.i3363, align 1
-  store <2 x i64> %406, ptr %ts3002, align 16
+  store i64 %tv_nsec.val.i3368, ptr %tv_nsec5.i3369, align 8
   %conv3011 = trunc i64 %arg1 to i32
   %conv3012 = trunc i64 %arg4 to i32
   %407 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -9179,7 +9276,7 @@ land.lhs.true3018:                                ; preds = %get_errno.exit3382
   br i1 %tobool.not.i3386, label %return, label %host_to_target_timespec.exit3391.thread
 
 host_to_target_timespec.exit3391.thread:          ; preds = %land.lhs.true3018
-  %411 = load i64, ptr %ts3002, align 16
+  %411 = load i64, ptr %ts3002, align 8
   store i64 %411, ptr %call.i3385, align 1
   %tv_nsec.i3388 = getelementptr inbounds i8, ptr %call.i3385, i64 8
   %412 = load i64, ptr %tv_nsec5.i3369, align 8
@@ -9218,15 +9315,18 @@ if.then3035:                                      ; preds = %sw.bb3030
   br i1 %tobool.not.i3404, label %return, label %if.end3039
 
 if.end3039:                                       ; preds = %if.then3035
+  %call.val.i3406 = load i64, ptr %call.i3403, align 1
+  store i64 %call.val.i3406, ptr %ts3031, align 8
+  %tv_nsec.i3407 = getelementptr inbounds i8, ptr %call.i3403, i64 8
+  %tv_nsec.val.i3408 = load i64, ptr %tv_nsec.i3407, align 1
   %tv_nsec5.i3409 = getelementptr inbounds i8, ptr %ts3031, i64 8
-  %417 = load <2 x i64>, ptr %call.i3403, align 1
-  store <2 x i64> %417, ptr %ts3031, align 16
+  store i64 %tv_nsec.val.i3408, ptr %tv_nsec5.i3409, align 8
   %conv3040 = trunc i64 %arg1 to i32
-  %418 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %419 = load ptr, ptr %418, align 8
-  %opaque.i3412 = getelementptr inbounds i8, ptr %419, i64 624
-  %420 = load ptr, ptr %opaque.i3412, align 16
-  %signal_pending.i3413 = getelementptr inbounds i8, ptr %420, i64 9164
+  %417 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %418 = load ptr, ptr %417, align 8
+  %opaque.i3412 = getelementptr inbounds i8, ptr %418, i64 624
+  %419 = load ptr, ptr %opaque.i3412, align 16
+  %signal_pending.i3413 = getelementptr inbounds i8, ptr %419, i64 9164
   %call.i3414 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3413, i64 noundef 243, i32 noundef %conv3040, ptr noundef %call3032, i64 noundef %arg3, ptr noundef nonnull %prio, ptr noundef nonnull %ts3031) #27
   %sext3824 = shl i64 %call.i3414, 32
   %conv3042 = ashr exact i64 %sext3824, 32
@@ -9235,8 +9335,8 @@ if.end3039:                                       ; preds = %if.then3035
 
 if.then.i3418:                                    ; preds = %if.end3039
   %call.i3419 = tail call ptr @__errno_location() #26
-  %421 = load i32, ptr %call.i3419, align 4
-  %sub.i3420 = sub i32 0, %421
+  %420 = load i32, ptr %call.i3419, align 4
+  %sub.i3420 = sub i32 0, %420
   %conv.i3421 = sext i32 %sub.i3420 to i64
   br label %get_errno.exit3422
 
@@ -9251,20 +9351,20 @@ land.lhs.true3046:                                ; preds = %get_errno.exit3422
   br i1 %tobool.not.i3426, label %return, label %host_to_target_timespec.exit3431.thread
 
 host_to_target_timespec.exit3431.thread:          ; preds = %land.lhs.true3046
-  %422 = load i64, ptr %ts3031, align 16
-  store i64 %422, ptr %call.i3425, align 1
+  %421 = load i64, ptr %ts3031, align 8
+  store i64 %421, ptr %call.i3425, align 1
   %tv_nsec.i3428 = getelementptr inbounds i8, ptr %call.i3425, i64 8
-  %423 = load i64, ptr %tv_nsec5.i3409, align 8
-  store i64 %423, ptr %tv_nsec.i3428, align 1
+  %422 = load i64, ptr %tv_nsec5.i3409, align 8
+  store i64 %422, ptr %tv_nsec.i3428, align 1
   br label %if.end3056
 
 if.else3051:                                      ; preds = %sw.bb3030
   %conv3052 = trunc i64 %arg1 to i32
-  %424 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %425 = load ptr, ptr %424, align 8
-  %opaque.i3432 = getelementptr inbounds i8, ptr %425, i64 624
-  %426 = load ptr, ptr %opaque.i3432, align 16
-  %signal_pending.i3433 = getelementptr inbounds i8, ptr %426, i64 9164
+  %423 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %424 = load ptr, ptr %423, align 8
+  %opaque.i3432 = getelementptr inbounds i8, ptr %424, i64 624
+  %425 = load ptr, ptr %opaque.i3432, align 16
+  %signal_pending.i3433 = getelementptr inbounds i8, ptr %425, i64 9164
   %call.i3434 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3433, i64 noundef 243, i32 noundef %conv3052, ptr noundef %call3032, i64 noundef %arg3, ptr noundef nonnull %prio, ptr noundef null) #27
   %sext3825 = shl i64 %call.i3434, 32
   %conv3054 = ashr exact i64 %sext3825, 32
@@ -9273,8 +9373,8 @@ if.else3051:                                      ; preds = %sw.bb3030
 
 if.then.i3438:                                    ; preds = %if.else3051
   %call.i3439 = tail call ptr @__errno_location() #26
-  %427 = load i32, ptr %call.i3439, align 4
-  %sub.i3440 = sub i32 0, %427
+  %426 = load i32, ptr %call.i3439, align 4
+  %sub.i3440 = sub i32 0, %426
   %conv.i3441 = sext i32 %sub.i3440 to i64
   br label %if.end3056
 
@@ -9289,8 +9389,8 @@ if.then3059:                                      ; preds = %if.end3056
   br i1 %tobool3064.not, label %return, label %do.body3066
 
 do.body3066:                                      ; preds = %if.then3059
-  %428 = load i32, ptr %prio, align 4
-  store i32 %428, ptr %call3063, align 1
+  %427 = load i32, ptr %prio, align 4
+  store i32 %427, ptr %call3063, align 1
   br label %return
 
 sw.bb3072:                                        ; preds = %entry
@@ -9303,12 +9403,20 @@ if.then3075:                                      ; preds = %sw.bb3072
   br i1 %tobool.not.i3444, label %copy_from_user_mq_attr.exit3457, label %do.body.i3445
 
 do.body.i3445:                                    ; preds = %if.then3075
-  %429 = load <2 x i64>, ptr %call.i3443, align 1
-  store <2 x i64> %429, ptr %posix_mq_attr_in, align 16
+  %call.val.i3446 = load i64, ptr %call.i3443, align 1
+  store i64 %call.val.i3446, ptr %posix_mq_attr_in, align 8
+  %mq_maxmsg.i3447 = getelementptr inbounds i8, ptr %call.i3443, i64 8
+  %mq_maxmsg.val.i3448 = load i64, ptr %mq_maxmsg.i3447, align 1
+  %mq_maxmsg5.i3449 = getelementptr inbounds i8, ptr %posix_mq_attr_in, i64 8
+  store i64 %mq_maxmsg.val.i3448, ptr %mq_maxmsg5.i3449, align 8
   %mq_msgsize.i3450 = getelementptr inbounds i8, ptr %call.i3443, i64 16
+  %mq_msgsize.val.i3451 = load i64, ptr %mq_msgsize.i3450, align 1
   %mq_msgsize9.i3452 = getelementptr inbounds i8, ptr %posix_mq_attr_in, i64 16
-  %430 = load <2 x i64>, ptr %mq_msgsize.i3450, align 1
-  store <2 x i64> %430, ptr %mq_msgsize9.i3452, align 16
+  store i64 %mq_msgsize.val.i3451, ptr %mq_msgsize9.i3452, align 8
+  %mq_curmsgs.i3453 = getelementptr inbounds i8, ptr %call.i3443, i64 24
+  %mq_curmsgs.val.i3454 = load i64, ptr %mq_curmsgs.i3453, align 1
+  %mq_curmsgs13.i3455 = getelementptr inbounds i8, ptr %posix_mq_attr_in, i64 24
+  store i64 %mq_curmsgs.val.i3454, ptr %mq_curmsgs13.i3455, align 8
   br label %copy_from_user_mq_attr.exit3457
 
 copy_from_user_mq_attr.exit3457:                  ; preds = %if.then3075, %do.body.i3445
@@ -9329,8 +9437,8 @@ if.then3084:                                      ; preds = %if.else3081
 
 if.end3090.sink.split:                            ; preds = %if.then3084, %copy_from_user_mq_attr.exit3457
   %call.i3468 = tail call ptr @__errno_location() #26
-  %431 = load i32, ptr %call.i3468, align 4
-  %sub.i3469 = sub i32 0, %431
+  %428 = load i32, ptr %call.i3468, align 4
+  %sub.i3469 = sub i32 0, %428
   br label %if.end3090
 
 if.end3090:                                       ; preds = %if.end3090.sink.split, %if.then3084, %copy_from_user_mq_attr.exit3457
@@ -9347,20 +9455,20 @@ if.then3096:                                      ; preds = %if.end3090
   br i1 %tobool.not.i3473, label %return, label %do.body.i3474
 
 do.body.i3474:                                    ; preds = %if.then3096
-  %432 = load i64, ptr %posix_mq_attr_out, align 8
-  store i64 %432, ptr %call.i3472, align 1
+  %429 = load i64, ptr %posix_mq_attr_out, align 8
+  store i64 %429, ptr %call.i3472, align 1
   %mq_maxmsg.i3475 = getelementptr inbounds i8, ptr %call.i3472, i64 8
   %mq_maxmsg3.i = getelementptr inbounds i8, ptr %posix_mq_attr_out, i64 8
-  %433 = load i64, ptr %mq_maxmsg3.i, align 8
-  store i64 %433, ptr %mq_maxmsg.i3475, align 1
+  %430 = load i64, ptr %mq_maxmsg3.i, align 8
+  store i64 %430, ptr %mq_maxmsg.i3475, align 1
   %mq_msgsize.i3476 = getelementptr inbounds i8, ptr %call.i3472, i64 16
   %mq_msgsize6.i = getelementptr inbounds i8, ptr %posix_mq_attr_out, i64 16
-  %434 = load i64, ptr %mq_msgsize6.i, align 8
-  store i64 %434, ptr %mq_msgsize.i3476, align 1
+  %431 = load i64, ptr %mq_msgsize6.i, align 8
+  store i64 %431, ptr %mq_msgsize.i3476, align 1
   %mq_curmsgs.i3477 = getelementptr inbounds i8, ptr %call.i3472, i64 24
   %mq_curmsgs9.i = getelementptr inbounds i8, ptr %posix_mq_attr_out, i64 24
-  %435 = load i64, ptr %mq_curmsgs9.i, align 8
-  store i64 %435, ptr %mq_curmsgs.i3477, align 1
+  %432 = load i64, ptr %mq_curmsgs9.i, align 8
+  store i64 %432, ptr %mq_curmsgs.i3477, align 1
   br label %return
 
 sw.bb3099:                                        ; preds = %entry
@@ -9373,8 +9481,8 @@ sw.bb3099:                                        ; preds = %entry
 
 if.then.i3481:                                    ; preds = %sw.bb3099
   %call.i3482 = tail call ptr @__errno_location() #26
-  %436 = load i32, ptr %call.i3482, align 4
-  %sub.i3483 = sub i32 0, %436
+  %433 = load i32, ptr %call.i3482, align 4
+  %sub.i3483 = sub i32 0, %433
   %conv.i3484 = sext i32 %sub.i3483 to i64
   br label %return
 
@@ -9418,8 +9526,8 @@ if.end3141:                                       ; preds = %if.end3136, %if.end
 
 if.then.i3488:                                    ; preds = %if.end3141
   %call.i3489 = tail call ptr @__errno_location() #26
-  %437 = load i32, ptr %call.i3489, align 4
-  %sub.i3490 = sub i32 0, %437
+  %434 = load i32, ptr %call.i3489, align 4
+  %sub.i3490 = sub i32 0, %434
   %conv.i3491 = sext i32 %sub.i3490 to i64
   br label %get_errno.exit3492
 
@@ -9433,8 +9541,8 @@ if.then3148:                                      ; preds = %get_errno.exit3492
   br i1 %tobool3153.not.not, label %return, label %do.body3155
 
 do.body3155:                                      ; preds = %if.then3148
-  %438 = load i64, ptr %loff_in, align 8
-  store i64 %438, ptr %call3152, align 1
+  %435 = load i64, ptr %loff_in, align 8
+  store i64 %435, ptr %call3152, align 1
   br label %if.end3163
 
 if.end3163:                                       ; preds = %do.body3155, %get_errno.exit3492
@@ -9446,8 +9554,8 @@ if.then3165:                                      ; preds = %if.end3163
   br i1 %tobool3170.not.not, label %return, label %do.body3172
 
 do.body3172:                                      ; preds = %if.then3165
-  %439 = load i64, ptr %loff_out, align 8
-  store i64 %439, ptr %call3169, align 1
+  %436 = load i64, ptr %loff_out, align 8
+  store i64 %436, ptr %call3169, align 1
   br label %return
 
 sw.bb3181:                                        ; preds = %entry
@@ -9464,8 +9572,8 @@ if.then3186:                                      ; preds = %sw.bb3181
 
 if.then.i3495:                                    ; preds = %if.then3186
   %call.i3496 = tail call ptr @__errno_location() #26
-  %440 = load i32, ptr %call.i3496, align 4
-  %sub.i3497 = sub i32 0, %440
+  %437 = load i32, ptr %call.i3496, align 4
+  %sub.i3497 = sub i32 0, %437
   %conv.i3498 = sext i32 %sub.i3497 to i64
   br label %get_errno.exit3499
 
@@ -9478,22 +9586,22 @@ get_errno.exit3499:                               ; preds = %if.then3186, %if.th
 
 if.else3191:                                      ; preds = %sw.bb3181
   %call3192 = tail call ptr @__errno_location() #26
-  %441 = load i32, ptr %call3192, align 4
-  %sub3194 = sub i32 0, %441
+  %438 = load i32, ptr %call3192, align 4
+  %sub3194 = sub i32 0, %438
   %conv3195 = sext i32 %sub3194 to i64
   br label %return
 
 sw.bb3197:                                        ; preds = %entry
-  %442 = trunc i64 %arg2 to i32
+  %439 = trunc i64 %arg2 to i32
   %conv3211 = trunc i64 %arg1 to i32
-  %call3212 = tail call i32 @eventfd(i32 noundef %conv3211, i32 noundef %442) #27
+  %call3212 = tail call i32 @eventfd(i32 noundef %conv3211, i32 noundef %439) #27
   %cmp.i3502 = icmp eq i32 %call3212, -1
   br i1 %cmp.i3502, label %if.then.i3504, label %get_errno.exit3508
 
 if.then.i3504:                                    ; preds = %sw.bb3197
   %call.i3505 = tail call ptr @__errno_location() #26
-  %443 = load i32, ptr %call.i3505, align 4
-  %sub.i3506 = sub i32 0, %443
+  %440 = load i32, ptr %call.i3505, align 4
+  %sub.i3506 = sub i32 0, %440
   br label %get_errno.exit3508
 
 get_errno.exit3508:                               ; preds = %sw.bb3197, %if.then.i3504
@@ -9516,8 +9624,8 @@ sw.bb3220:                                        ; preds = %entry
 
 if.then.i3511:                                    ; preds = %sw.bb3220
   %call.i3512 = tail call ptr @__errno_location() #26
-  %444 = load i32, ptr %call.i3512, align 4
-  %sub.i3513 = sub i32 0, %444
+  %441 = load i32, ptr %call.i3512, align 4
+  %sub.i3513 = sub i32 0, %441
   %conv.i3514 = sext i32 %sub.i3513 to i64
   br label %return
 
@@ -9531,8 +9639,8 @@ sw.bb3226:                                        ; preds = %entry
 
 if.then.i3518:                                    ; preds = %sw.bb3226
   %call.i3519 = tail call ptr @__errno_location() #26
-  %445 = load i32, ptr %call.i3519, align 4
-  %sub.i3520 = sub i32 0, %445
+  %442 = load i32, ptr %call.i3519, align 4
+  %sub.i3520 = sub i32 0, %442
   %conv.i3521 = sext i32 %sub.i3520 to i64
   br label %return
 
@@ -9552,8 +9660,8 @@ sw.bb3236:                                        ; preds = %entry
 
 if.then.i3525:                                    ; preds = %sw.bb3236
   %call.i3526 = tail call ptr @__errno_location() #26
-  %446 = load i32, ptr %call.i3526, align 4
-  %sub.i3527 = sub i32 0, %446
+  %443 = load i32, ptr %call.i3526, align 4
+  %sub.i3527 = sub i32 0, %443
   %conv.i3528 = sext i32 %sub.i3527 to i64
   br label %return
 
@@ -9571,12 +9679,12 @@ if.then3247:                                      ; preds = %if.then3244
   br i1 %tobool3249.not, label %return, label %if.end3251
 
 if.end3251:                                       ; preds = %if.then3247
-  %447 = load i32, ptr %call3248, align 8
-  store i32 %447, ptr %ep, align 4
+  %444 = load i32, ptr %call3248, align 8
+  store i32 %444, ptr %ep, align 4
   %data3254 = getelementptr inbounds i8, ptr %call3248, i64 8
-  %448 = load i64, ptr %data3254, align 8
+  %445 = load i64, ptr %data3254, align 8
   %data3256 = getelementptr inbounds i8, ptr %ep, i64 4
-  store i64 %448, ptr %data3256, align 4
+  store i64 %445, ptr %data3256, align 4
   br label %if.end3258
 
 if.end3258:                                       ; preds = %if.then3244, %if.end3251, %sw.bb3242
@@ -9591,8 +9699,8 @@ if.end3258:                                       ; preds = %if.then3244, %if.en
 
 if.then.i3532:                                    ; preds = %if.end3258
   %call.i3533 = tail call ptr @__errno_location() #26
-  %449 = load i32, ptr %call.i3533, align 4
-  %sub.i3534 = sub i32 0, %449
+  %446 = load i32, ptr %call.i3533, align 4
+  %sub.i3534 = sub i32 0, %446
   %conv.i3535 = sext i32 %sub.i3534 to i64
   br label %return
 
@@ -9634,13 +9742,13 @@ if.then3293.if.end3300_crit_edge:                 ; preds = %if.then3293
   br label %if.end3300
 
 if.end3300:                                       ; preds = %if.then3293.if.end3300_crit_edge, %sw.bb3290
-  %450 = phi ptr [ %.pre, %if.then3293.if.end3300_crit_edge ], [ null, %sw.bb3290 ]
-  %451 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %452 = load ptr, ptr %451, align 8
-  %opaque.i3537 = getelementptr inbounds i8, ptr %452, i64 624
-  %453 = load ptr, ptr %opaque.i3537, align 16
-  %signal_pending.i3538 = getelementptr inbounds i8, ptr %453, i64 9164
-  %call.i3539 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3538, i64 noundef 281, i32 noundef %conv3268, ptr noundef nonnull %call3286, i32 noundef %conv3269, i32 noundef %conv3270, ptr noundef %450, i64 noundef 8) #27
+  %447 = phi ptr [ %.pre, %if.then3293.if.end3300_crit_edge ], [ null, %sw.bb3290 ]
+  %448 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %449 = load ptr, ptr %448, align 8
+  %opaque.i3537 = getelementptr inbounds i8, ptr %449, i64 624
+  %450 = load ptr, ptr %opaque.i3537, align 16
+  %signal_pending.i3538 = getelementptr inbounds i8, ptr %450, i64 9164
+  %call.i3539 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3538, i64 noundef 281, i32 noundef %conv3268, ptr noundef nonnull %call3286, i32 noundef %conv3269, i32 noundef %conv3270, ptr noundef %447, i64 noundef 8) #27
   %sext3823 = shl i64 %call.i3539, 32
   %conv3302 = ashr exact i64 %sext3823, 32
   %cmp.i3541 = icmp eq i64 %sext3823, -4294967296
@@ -9648,24 +9756,24 @@ if.end3300:                                       ; preds = %if.then3293.if.end3
 
 if.then.i3543:                                    ; preds = %if.end3300
   %call.i3544 = tail call ptr @__errno_location() #26
-  %454 = load i32, ptr %call.i3544, align 4
-  %sub.i3545 = sub i32 0, %454
+  %451 = load i32, ptr %call.i3544, align 4
+  %sub.i3545 = sub i32 0, %451
   %conv.i3546 = sext i32 %sub.i3545 to i64
   br label %get_errno.exit3547
 
 get_errno.exit3547:                               ; preds = %if.end3300, %if.then.i3543
   %retval.0.i3542 = phi i64 [ %conv.i3546, %if.then.i3543 ], [ %conv3302, %if.end3300 ]
-  %455 = load ptr, ptr %set3291, align 8
-  %tobool3304.not = icmp eq ptr %455, null
+  %452 = load ptr, ptr %set3291, align 8
+  %tobool3304.not = icmp eq ptr %452, null
   %cmp.not.i3548 = icmp eq i64 %retval.0.i3542, -512
   %or.cond3816 = select i1 %tobool3304.not, i1 true, i1 %cmp.not.i3548
   br i1 %or.cond3816, label %sw.epilog3309, label %if.then.i3549
 
 if.then.i3549:                                    ; preds = %get_errno.exit3547
-  %456 = load ptr, ptr %451, align 8
-  %opaque.i3550 = getelementptr inbounds i8, ptr %456, i64 624
-  %457 = load ptr, ptr %opaque.i3550, align 16
-  %in_sigsuspend.i3551 = getelementptr inbounds i8, ptr %457, i64 9160
+  %453 = load ptr, ptr %448, align 8
+  %opaque.i3550 = getelementptr inbounds i8, ptr %453, i64 624
+  %454 = load ptr, ptr %opaque.i3550, align 16
+  %in_sigsuspend.i3551 = getelementptr inbounds i8, ptr %454, i64 9160
   store i32 1, ptr %in_sigsuspend.i3551, align 8
   br label %sw.epilog3309
 
@@ -9678,13 +9786,13 @@ for.body3318:                                     ; preds = %sw.epilog3309, %for
   %conv33153879 = phi i64 [ %conv3315, %for.body3318 ], [ 0, %sw.epilog3309 ]
   %i3313.03878 = phi i32 [ %inc3334, %for.body3318 ], [ 0, %sw.epilog3309 ]
   %arrayidx3320 = getelementptr %struct.epoll_event, ptr %call3286, i64 %conv33153879
-  %458 = load i32, ptr %arrayidx3320, align 1
+  %455 = load i32, ptr %arrayidx3320, align 1
   %arrayidx3324 = getelementptr %struct.target_epoll_event, ptr %call3281, i64 %conv33153879
-  store i32 %458, ptr %arrayidx3324, align 8
+  store i32 %455, ptr %arrayidx3324, align 8
   %data3328 = getelementptr inbounds i8, ptr %arrayidx3320, i64 4
-  %459 = load i64, ptr %data3328, align 1
+  %456 = load i64, ptr %data3328, align 1
   %data3332 = getelementptr inbounds i8, ptr %arrayidx3324, i64 8
-  store i64 %459, ptr %data3332, align 8
+  store i64 %456, ptr %data3332, align 8
   %inc3334 = add i32 %i3313.03878, 1
   %conv3315 = sext i32 %inc3334 to i64
   %cmp3316 = icmp sgt i64 %ret.41, %conv3315
@@ -9698,10 +9806,10 @@ sw.bb3339:                                        ; preds = %entry
   %conv3341 = trunc i64 %arg2 to i32
   %tobool3343 = icmp ne i64 %arg3, 0
   %cmp3345 = icmp ne i32 %conv3341, 9
-  %460 = add i32 %conv3341, -4
-  %461 = icmp ult i32 %460, -2
-  %462 = and i1 %cmp3345, %461
-  %or.cond35 = and i1 %tobool3343, %462
+  %457 = add i32 %conv3341, -4
+  %458 = icmp ult i32 %457, -2
+  %459 = and i1 %cmp3345, %458
+  %or.cond35 = and i1 %tobool3343, %459
   br i1 %or.cond35, label %if.then3353, label %if.end3368
 
 if.then3353:                                      ; preds = %sw.bb3339
@@ -9710,8 +9818,12 @@ if.then3353:                                      ; preds = %sw.bb3339
   br i1 %tobool3355.not, label %return, label %do.body3358
 
 do.body3358:                                      ; preds = %if.then3353
-  %463 = load <2 x i64>, ptr %call3354, align 1
-  store <2 x i64> %463, ptr %rnew, align 16
+  %call3354.val = load i64, ptr %call3354, align 1
+  store i64 %call3354.val, ptr %rnew, align 8
+  %rlim_max3364 = getelementptr inbounds i8, ptr %call3354, i64 8
+  %rlim_max3364.val = load i64, ptr %rlim_max3364, align 1
+  %rlim_max3366 = getelementptr inbounds i8, ptr %rnew, i64 8
+  store i64 %rlim_max3364.val, ptr %rlim_max3366, align 8
   br label %if.end3368
 
 if.end3368:                                       ; preds = %do.body3358, %sw.bb3339
@@ -9727,8 +9839,8 @@ if.end3368:                                       ; preds = %do.body3358, %sw.bb
 
 if.then.i3560:                                    ; preds = %if.end3368
   %call.i3561 = tail call ptr @__errno_location() #26
-  %464 = load i32, ptr %call.i3561, align 4
-  %sub.i3562 = sub i32 0, %464
+  %460 = load i32, ptr %call.i3561, align 4
+  %sub.i3562 = sub i32 0, %460
   %conv.i3563 = sext i32 %sub.i3562 to i64
   br label %get_errno.exit3564
 
@@ -9744,12 +9856,12 @@ if.then3382:                                      ; preds = %get_errno.exit3564
   br i1 %tobool3384.not, label %return, label %do.body3387
 
 do.body3387:                                      ; preds = %if.then3382
-  %465 = load i64, ptr %rold, align 8
-  store i64 %465, ptr %call3383, align 1
+  %461 = load i64, ptr %rold, align 8
+  store i64 %461, ptr %call3383, align 1
   %rlim_max3392 = getelementptr inbounds i8, ptr %call3383, i64 8
   %rlim_max3393 = getelementptr inbounds i8, ptr %rold, i64 8
-  %466 = load i64, ptr %rlim_max3393, align 8
-  store i64 %466, ptr %rlim_max3392, align 1
+  %462 = load i64, ptr %rlim_max3393, align 8
+  store i64 %462, ptr %rlim_max3392, align 1
   br label %return
 
 sw.bb3396:                                        ; preds = %entry
@@ -9760,8 +9872,8 @@ sw.bb3396:                                        ; preds = %entry
 while.end.i:                                      ; preds = %for.inc.i, %sw.bb3396
   %indvars.iv.i = phi i64 [ 0, %sw.bb3396 ], [ %indvars.iv.next.i, %for.inc.i ]
   %add.ptr.i3567 = getelementptr i32, ptr @g_posix_timer_allocated, i64 %indvars.iv.i
-  %467 = atomicrmw xchg ptr %add.ptr.i3567, i32 1 seq_cst, align 4
-  %cmp3.i = icmp eq i32 %467, 0
+  %463 = atomicrmw xchg ptr %add.ptr.i3567, i32 1 seq_cst, align 4
+  %cmp3.i = icmp eq i32 %463, 0
   br i1 %cmp3.i, label %next_free_host_timer.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %while.end.i
@@ -9770,7 +9882,7 @@ for.inc.i:                                        ; preds = %while.end.i
   br i1 %exitcond.not.i, label %return, label %while.end.i, !llvm.loop !26
 
 next_free_host_timer.exit:                        ; preds = %while.end.i
-  %468 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %464 = trunc nuw nsw i64 %indvars.iv.i to i32
   %idx.ext = and i64 %indvars.iv.i, 4294967295
   %add.ptr3403 = getelementptr ptr, ptr @g_posix_timers, i64 %idx.ext
   %tobool3404.not = icmp eq i64 %arg2, 0
@@ -9794,8 +9906,8 @@ if.end3411:                                       ; preds = %if.then3405, %next_
 
 if.then.i3572:                                    ; preds = %if.end3411
   %call.i3573 = tail call ptr @__errno_location() #26
-  %469 = load i32, ptr %call.i3573, align 4
-  %sub.i3574 = sub i32 0, %469
+  %465 = load i32, ptr %call.i3573, align 4
+  %sub.i3574 = sub i32 0, %465
   br label %get_errno.exit3576
 
 get_errno.exit3576:                               ; preds = %if.end3411, %if.then.i3572
@@ -9815,20 +9927,20 @@ if.else3417:                                      ; preds = %get_errno.exit3576
   br i1 %tobool3422.not.not, label %if.then3431, label %do.body3424
 
 do.body3424:                                      ; preds = %if.else3417
-  %or3425 = or i32 %468, 212795392
+  %or3425 = or i32 %464, 212795392
   store i32 %or3425, ptr %call3421, align 1
   br label %return
 
 if.then3431:                                      ; preds = %if.else3417
-  %470 = load ptr, ptr %add.ptr3403, align 8
-  %call3432 = call i32 @timer_delete(ptr noundef %470) #27
+  %466 = load ptr, ptr %add.ptr3403, align 8
+  %call3432 = call i32 @timer_delete(ptr noundef %466) #27
   %add.ptr.i3580 = getelementptr i32, ptr @g_posix_timer_allocated, i64 %idx.ext
   store atomic i32 0, ptr %add.ptr.i3580 release, align 4
   br label %return
 
 sw.bb3436:                                        ; preds = %entry
-  %471 = and i64 %arg1, 4294967264
-  %or.cond.i.not.not = icmp ne i64 %471, 212795392
+  %467 = and i64 %arg1, 4294967264
+  %or.cond.i.not.not = icmp ne i64 %467, 212795392
   %cmp3443 = icmp eq i64 %arg3, 0
   %or.cond10 = or i1 %or.cond.i.not.not, %cmp3443
   br i1 %or.cond10, label %return, label %if.else3446
@@ -9836,7 +9948,7 @@ sw.bb3436:                                        ; preds = %entry
 if.else3446:                                      ; preds = %sw.bb3436
   %and2.i = and i64 %arg1, 31
   %arrayidx3448 = getelementptr [32 x ptr], ptr @g_posix_timers, i64 0, i64 %and2.i
-  %472 = load ptr, ptr %arrayidx3448, align 8
+  %468 = load ptr, ptr %arrayidx3448, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hspec_new, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hspec_old, i8 0, i64 32, i1 false)
   %call3449 = call fastcc i64 @target_to_host_itimerspec(ptr noundef nonnull %hspec_new, i64 noundef %arg3)
@@ -9845,14 +9957,14 @@ if.else3446:                                      ; preds = %sw.bb3436
 
 if.end3452:                                       ; preds = %if.else3446
   %conv3453 = trunc i64 %arg2 to i32
-  %call3454 = call i32 @timer_settime(ptr noundef %472, i32 noundef %conv3453, ptr noundef nonnull %hspec_new, ptr noundef nonnull %hspec_old) #27
+  %call3454 = call i32 @timer_settime(ptr noundef %468, i32 noundef %conv3453, ptr noundef nonnull %hspec_new, ptr noundef nonnull %hspec_old) #27
   %cmp.i3584 = icmp eq i32 %call3454, -1
   br i1 %cmp.i3584, label %if.then.i3586, label %get_errno.exit3590
 
 if.then.i3586:                                    ; preds = %if.end3452
   %call.i3587 = tail call ptr @__errno_location() #26
-  %473 = load i32, ptr %call.i3587, align 4
-  %sub.i3588 = sub i32 0, %473
+  %469 = load i32, ptr %call.i3587, align 4
+  %sub.i3588 = sub i32 0, %469
   br label %get_errno.exit3590
 
 get_errno.exit3590:                               ; preds = %if.end3452, %if.then.i3586
@@ -9868,8 +9980,8 @@ land.lhs.true3458:                                ; preds = %get_errno.exit3590
   br label %return
 
 sw.bb3465:                                        ; preds = %entry
-  %474 = and i64 %arg1, 4294967264
-  %or.cond.i3596.not.not = icmp eq i64 %474, 212795392
+  %470 = and i64 %arg1, 4294967264
+  %or.cond.i3596.not.not = icmp eq i64 %470, 212795392
   %and2.i3597 = and i64 %arg1, 65535
   br i1 %or.cond.i3596.not.not, label %if.else3472, label %return
 
@@ -9879,15 +9991,15 @@ if.else3472:                                      ; preds = %sw.bb3465
 
 if.else3475:                                      ; preds = %if.else3472
   %arrayidx3478 = getelementptr [32 x ptr], ptr @g_posix_timers, i64 0, i64 %and2.i3597
-  %475 = load ptr, ptr %arrayidx3478, align 8
-  %call3479 = call i32 @timer_gettime(ptr noundef %475, ptr noundef nonnull %hspec) #27
+  %471 = load ptr, ptr %arrayidx3478, align 8
+  %call3479 = call i32 @timer_gettime(ptr noundef %471, ptr noundef nonnull %hspec) #27
   %cmp.i3599 = icmp eq i32 %call3479, -1
   br i1 %cmp.i3599, label %if.then.i3601, label %get_errno.exit3605
 
 if.then.i3601:                                    ; preds = %if.else3475
   %call.i3602 = tail call ptr @__errno_location() #26
-  %476 = load i32, ptr %call.i3602, align 4
-  %sub.i3603 = sub i32 0, %476
+  %472 = load i32, ptr %call.i3602, align 4
+  %sub.i3603 = sub i32 0, %472
   br label %get_errno.exit3605
 
 get_errno.exit3605:                               ; preds = %if.else3475, %if.then.i3601
@@ -9899,43 +10011,43 @@ get_errno.exit3605:                               ; preds = %if.else3475, %if.th
   br label %return
 
 sw.bb3488:                                        ; preds = %entry
-  %477 = and i64 %arg1, 4294967264
-  %or.cond.i3611.not.not = icmp eq i64 %477, 212795392
+  %473 = and i64 %arg1, 4294967264
+  %or.cond.i3611.not.not = icmp eq i64 %473, 212795392
   br i1 %or.cond.i3611.not.not, label %if.else3495, label %return
 
 if.else3495:                                      ; preds = %sw.bb3488
   %and2.i3612 = and i64 %arg1, 31
   %arrayidx3498 = getelementptr [32 x ptr], ptr @g_posix_timers, i64 0, i64 %and2.i3612
-  %478 = load ptr, ptr %arrayidx3498, align 8
-  %call3499 = tail call i32 @timer_getoverrun(ptr noundef %478) #27
+  %474 = load ptr, ptr %arrayidx3498, align 8
+  %call3499 = tail call i32 @timer_getoverrun(ptr noundef %474) #27
   %conv3500 = sext i32 %call3499 to i64
   %cmp.i3614 = icmp eq i32 %call3499, -1
   br i1 %cmp.i3614, label %if.then.i3616, label %return
 
 if.then.i3616:                                    ; preds = %if.else3495
   %call.i3617 = tail call ptr @__errno_location() #26
-  %479 = load i32, ptr %call.i3617, align 4
-  %sub.i3618 = sub i32 0, %479
+  %475 = load i32, ptr %call.i3617, align 4
+  %sub.i3618 = sub i32 0, %475
   %conv.i3619 = sext i32 %sub.i3618 to i64
   br label %return
 
 sw.bb3503:                                        ; preds = %entry
-  %480 = and i64 %arg1, 4294967264
-  %or.cond.i3626.not.not = icmp eq i64 %480, 212795392
+  %476 = and i64 %arg1, 4294967264
+  %or.cond.i3626.not.not = icmp eq i64 %476, 212795392
   br i1 %or.cond.i3626.not.not, label %if.else3510, label %return
 
 if.else3510:                                      ; preds = %sw.bb3503
   %and2.i3627 = and i64 %arg1, 31
   %arrayidx3513 = getelementptr [32 x ptr], ptr @g_posix_timers, i64 0, i64 %and2.i3627
-  %481 = load ptr, ptr %arrayidx3513, align 8
-  %call3514 = tail call i32 @timer_delete(ptr noundef %481) #27
+  %477 = load ptr, ptr %arrayidx3513, align 8
+  %call3514 = tail call i32 @timer_delete(ptr noundef %477) #27
   %cmp.i3629 = icmp eq i32 %call3514, -1
   br i1 %cmp.i3629, label %if.then.i3631, label %get_errno.exit3635
 
 if.then.i3631:                                    ; preds = %if.else3510
   %call.i3632 = tail call ptr @__errno_location() #26
-  %482 = load i32, ptr %call.i3632, align 4
-  %sub.i3633 = sub i32 0, %482
+  %478 = load i32, ptr %call.i3632, align 4
+  %sub.i3633 = sub i32 0, %478
   br label %get_errno.exit3635
 
 get_errno.exit3635:                               ; preds = %if.else3510, %if.then.i3631
@@ -9955,8 +10067,8 @@ sw.bb3518:                                        ; preds = %entry
 
 if.then.i3640:                                    ; preds = %sw.bb3518
   %call.i3641 = tail call ptr @__errno_location() #26
-  %483 = load i32, ptr %call.i3641, align 4
-  %sub.i3642 = sub i32 0, %483
+  %479 = load i32, ptr %call.i3641, align 4
+  %sub.i3642 = sub i32 0, %479
   br label %get_errno.exit3644
 
 get_errno.exit3644:                               ; preds = %sw.bb3518, %if.then.i3640
@@ -9977,8 +10089,8 @@ sw.bb3530:                                        ; preds = %entry
 
 if.then.i3647:                                    ; preds = %sw.bb3530
   %call.i3648 = tail call ptr @__errno_location() #26
-  %484 = load i32, ptr %call.i3648, align 4
-  %sub.i3649 = sub i32 0, %484
+  %480 = load i32, ptr %call.i3648, align 4
+  %sub.i3649 = sub i32 0, %480
   br label %get_errno.exit3651
 
 get_errno.exit3651:                               ; preds = %sw.bb3530, %if.then.i3647
@@ -10014,8 +10126,8 @@ if.end3549:                                       ; preds = %sw.bb3541, %if.then
 
 if.then.i3654:                                    ; preds = %if.end3549
   %call.i3655 = tail call ptr @__errno_location() #26
-  %485 = load i32, ptr %call.i3655, align 4
-  %sub.i3656 = sub i32 0, %485
+  %481 = load i32, ptr %call.i3655, align 4
+  %sub.i3656 = sub i32 0, %481
   br label %get_errno.exit3658
 
 get_errno.exit3658:                               ; preds = %if.end3549, %if.then.i3654
@@ -10043,8 +10155,8 @@ sw.bb3561:                                        ; preds = %entry
 
 if.then.i3663:                                    ; preds = %sw.bb3561
   %call.i3664 = tail call ptr @__errno_location() #26
-  %486 = load i32, ptr %call.i3664, align 4
-  %sub.i3665 = sub i32 0, %486
+  %482 = load i32, ptr %call.i3664, align 4
+  %sub.i3665 = sub i32 0, %482
   %conv.i3666 = sext i32 %sub.i3665 to i64
   br label %return
 
@@ -10060,8 +10172,8 @@ sw.bb3567:                                        ; preds = %entry
 
 if.then.i3672:                                    ; preds = %sw.bb3567
   %call.i3673 = tail call ptr @__errno_location() #26
-  %487 = load i32, ptr %call.i3673, align 4
-  %sub.i3674 = sub i32 0, %487
+  %483 = load i32, ptr %call.i3673, align 4
+  %sub.i3674 = sub i32 0, %483
   %conv.i3675 = sext i32 %sub.i3674 to i64
   br label %return
 
@@ -10075,8 +10187,8 @@ sw.bb3574:                                        ; preds = %entry
 
 if.then.i3679:                                    ; preds = %sw.bb3574
   %call.i3680 = tail call ptr @__errno_location() #26
-  %488 = load i32, ptr %call.i3680, align 4
-  %sub.i3681 = sub i32 0, %488
+  %484 = load i32, ptr %call.i3680, align 4
+  %sub.i3681 = sub i32 0, %484
   %conv.i3682 = sext i32 %sub.i3681 to i64
   br label %return
 
@@ -10089,8 +10201,8 @@ sw.bb3580:                                        ; preds = %entry
 
 if.then.i3686:                                    ; preds = %sw.bb3580
   %call.i3687 = tail call ptr @__errno_location() #26
-  %489 = load i32, ptr %call.i3687, align 4
-  %sub.i3688 = sub i32 0, %489
+  %485 = load i32, ptr %call.i3687, align 4
+  %sub.i3688 = sub i32 0, %485
   %conv.i3689 = sext i32 %sub.i3688 to i64
   br label %return
 
@@ -10106,8 +10218,8 @@ sw.bb3585:                                        ; preds = %entry
 
 if.then.i3695:                                    ; preds = %sw.bb3585
   %call.i3696 = tail call ptr @__errno_location() #26
-  %490 = load i32, ptr %call.i3696, align 4
-  %sub.i3697 = sub i32 0, %490
+  %486 = load i32, ptr %call.i3696, align 4
+  %sub.i3697 = sub i32 0, %486
   %conv.i3698 = sext i32 %sub.i3697 to i64
   br label %return
 
@@ -10124,8 +10236,8 @@ if.end3596:                                       ; preds = %sw.bb3592
 
 if.then.i3702:                                    ; preds = %if.end3596
   %call.i3703 = tail call ptr @__errno_location() #26
-  %491 = load i32, ptr %call.i3703, align 4
-  %sub.i3704 = sub i32 0, %491
+  %487 = load i32, ptr %call.i3703, align 4
+  %sub.i3704 = sub i32 0, %487
   br label %get_errno.exit3706
 
 get_errno.exit3706:                               ; preds = %if.end3596, %if.then.i3702
@@ -10145,8 +10257,8 @@ sw.bb3602:                                        ; preds = %entry
 
 if.then.i3711:                                    ; preds = %sw.bb3602
   %call.i3712 = tail call ptr @__errno_location() #26
-  %492 = load i32, ptr %call.i3712, align 4
-  %sub.i3713 = sub i32 0, %492
+  %488 = load i32, ptr %call.i3712, align 4
+  %sub.i3713 = sub i32 0, %488
   %conv.i3714 = sext i32 %sub.i3713 to i64
   br label %return
 
@@ -10184,19 +10296,19 @@ if.end3644:                                       ; preds = %if.end3639, %if.end
   %conv3645 = trunc i64 %arg1 to i32
   %conv3646 = trunc i64 %arg3 to i32
   %conv3647 = trunc i64 %arg6 to i32
-  %493 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %494 = load ptr, ptr %493, align 8
-  %opaque.i3716 = getelementptr inbounds i8, ptr %494, i64 624
-  %495 = load ptr, ptr %opaque.i3716, align 16
-  %signal_pending.i3717 = getelementptr inbounds i8, ptr %495, i64 9164
+  %489 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %490 = load ptr, ptr %489, align 8
+  %opaque.i3716 = getelementptr inbounds i8, ptr %490, i64 624
+  %491 = load ptr, ptr %opaque.i3716, align 16
+  %signal_pending.i3717 = getelementptr inbounds i8, ptr %491, i64 9164
   %call.i3718 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i3717, i64 noundef 326, i32 noundef %conv3645, ptr noundef %pinoff.0, i32 noundef %conv3646, ptr noundef %poutoff.0, i64 noundef %arg5, i32 noundef %conv3647) #27
   %cmp.i3719 = icmp eq i64 %call.i3718, -1
   br i1 %cmp.i3719, label %if.then.i3721, label %get_errno.exit3725
 
 if.then.i3721:                                    ; preds = %if.end3644
   %call.i3722 = tail call ptr @__errno_location() #26
-  %496 = load i32, ptr %call.i3722, align 4
-  %sub.i3723 = sub i32 0, %496
+  %492 = load i32, ptr %call.i3722, align 4
+  %sub.i3723 = sub i32 0, %492
   %conv.i3724 = sext i32 %sub.i3723 to i64
   br label %get_errno.exit3725
 
@@ -10214,8 +10326,8 @@ if.then3657:                                      ; preds = %if.then3655
   br i1 %tobool3662.not.not, label %return, label %do.body3664
 
 do.body3664:                                      ; preds = %if.then3657
-  %497 = load i64, ptr %inoff, align 8
-  store i64 %497, ptr %call3661, align 1
+  %493 = load i64, ptr %inoff, align 8
+  store i64 %493, ptr %call3661, align 1
   br label %if.end3672
 
 if.end3672:                                       ; preds = %do.body3664, %if.then3655
@@ -10227,8 +10339,8 @@ if.then3674:                                      ; preds = %if.end3672
   br i1 %tobool3679.not.not, label %return, label %do.body3681
 
 do.body3681:                                      ; preds = %if.then3674
-  %498 = load i64, ptr %outoff, align 8
-  store i64 %498, ptr %call3678, align 1
+  %494 = load i64, ptr %outoff, align 8
+  store i64 %494, ptr %call3678, align 1
   br label %return
 
 sw.bb3691:                                        ; preds = %entry
@@ -10248,8 +10360,8 @@ if.else3699:                                      ; preds = %sw.bb3691
 
 if.then.i3732:                                    ; preds = %if.else3699
   %call.i3733 = tail call ptr @__errno_location() #26
-  %499 = load i32, ptr %call.i3733, align 4
-  %sub.i3734 = sub i32 0, %499
+  %495 = load i32, ptr %call.i3733, align 4
+  %sub.i3734 = sub i32 0, %495
   %conv.i3735 = sext i32 %sub.i3734 to i64
   br label %return
 
@@ -10258,8 +10370,8 @@ sw.bb3704:                                        ; preds = %entry
   br label %return
 
 do.body3707:                                      ; preds = %entry
-  %500 = load i32, ptr @qemu_loglevel, align 4
-  %and.i3737 = and i32 %500, 1024
+  %496 = load i32, ptr @qemu_loglevel, align 4
+  %and.i3737 = and i32 %496, 1024
   %cmp.i3738.not = icmp eq i32 %and.i3737, 0
   br i1 %cmp.i3738.not, label %return, label %if.then3712
 
@@ -10267,8 +10379,8 @@ if.then3712:                                      ; preds = %do.body3707
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.629, i32 noundef %num) #27
   br label %return
 
-return:                                           ; preds = %for.inc.i, %for.body2139, %fd_trans_unregister.exit, %if.end559, %sw.bb3503, %sw.bb3488, %sw.bb3465, %sw.bb3436, %if.then3628, %if.then3610, %if.then3125, %if.then3107, %if.then2172, %if.end2127.thread, %if.then156, %sw.bb2820, %do.body1909, %if.then1902, %do.body1884, %if.then1877, %if.end2127, %land.lhs.true532, %if.else536, %if.then.i2099, %get_errno.exit2032, %if.end420, %if.end280, %if.then.i1948, %if.then271, %if.else3081, %if.end1855, %sw.bb3691, %if.else3699, %if.then.i3732, %if.then.i3711, %sw.bb3602, %if.then.i3695, %sw.bb3585, %if.then.i3686, %sw.bb3580, %if.then.i3679, %sw.bb3574, %if.then.i3672, %sw.bb3567, %if.then.i3663, %sw.bb3561, %if.then.i3616, %if.else3495, %if.end3284, %if.then.i3532, %if.end3258, %if.then.i3525, %sw.bb3236, %if.then.i3518, %sw.bb3226, %if.then.i3511, %sw.bb3220, %if.then.i3481, %sw.bb3099, %do.body.i3474, %if.then3096, %land.lhs.true3046, %if.then3035, %get_errno.exit3382, %host_to_target_timespec.exit3391.thread, %if.else3023, %if.then.i3398, %land.lhs.true3018, %if.then3006, %if.then.i3358, %if.end2997, %if.then.i3351, %if.end2988, %if.then2977, %if.then.i3339, %sw.bb2966, %if.then.i3332, %sw.bb2958, %if.then.i3318, %if.end2933, %if.then.i3309, %if.then2923, %if.end2913, %if.else2908, %if.then.i3282, %sw.bb2895, %if.then.i3271, %sw.bb2888, %if.then.i3260, %sw.bb2881, %get_errno.exit3248, %host_to_target_timespec.exit3255.thread, %land.lhs.true2876, %sw.bb2853, %do.body.i3224, %if.then2850, %do.body.i3208, %if.then2839, %if.then.i3192, %if.then2825, %sw.bb2809, %if.then.i3174, %if.then2813, %sw.bb2788, %if.then2798, %if.then.i3160, %if.else2802, %if.then.i3167, %if.then2782, %if.then.i3153, %if.end2779, %if.end2752, %if.then2761, %if.then.i3139, %if.else2764, %if.then.i3146, %if.then2735, %if.then.i3132, %if.end2732, %if.end2701, %if.then2710, %if.then.i3118, %if.else2715, %if.then.i3125, %if.then.i3111, %if.end2690, %if.end2667, %if.then2673, %if.then.i3097, %if.else2676, %if.then.i3104, %if.then.i3090, %sw.bb2656, %if.then.i3083, %sw.bb2652, %if.end2633, %if.else2637, %if.then.i3074, %if.then.i3067, %sw.bb2624, %if.then.i3060, %sw.bb2619, %if.then.i3053, %sw.bb2613, %if.then.i3044, %sw.bb2607, %if.then.i3026, %sw.bb2546, %if.then.i3008, %sw.bb2485, %if.then.i2999, %if.end2475, %if.then.i2992, %sw.bb2462, %if.then.i2969, %sw.bb2355, %if.then.i2962, %sw.bb2347, %if.then.i2955, %sw.bb2342, %if.then.i2948, %sw.bb2337, %if.then.i2941, %sw.bb2332, %if.then.i2934, %sw.bb2327, %if.end2252, %if.then2246, %311, %if.then2198, %if.end2083.thread, %if.end2083, %if.then.i2871, %if.end2052, %if.then.i2862, %if.end2043, %if.then.i2855, %if.end2022, %do.body.i2848, %if.then2001, %do.body.i2821, %if.then1989, %if.then.i2805, %sw.bb1976, %if.then.i2798, %sw.bb1971, %if.then.i2791, %sw.bb1967, %if.then.i2784, %if.end1961, %if.end1819, %if.then1841, %if.then.i2764, %sw.bb1793, %if.then.i2755, %if.end1784, %if.then.i2735, %if.end1745, %if.then.i2715, %if.end1681, %if.then.i2695, %sw.bb1626, %if.then.i2688, %sw.bb1621, %if.then.i2634, %sw.bb1550, %if.then.i2623, %sw.bb1541, %if.then.i2616, %sw.bb1536, %if.then.i2609, %sw.bb1531, %get_errno.exit2586, %if.then1491, %land.lhs.true1488, %if.then1483, %if.then.i2575, %if.end1469, %if.then.i2568, %sw.bb1459, %if.then.i2559, %sw.bb1454, %if.then.i2552, %sw.bb1449, %if.then.i2545, %sw.bb1433, %if.then.i2538, %sw.bb1419, %if.then.i2531, %sw.bb1395, %if.then.i2515, %if.end1326, %if.then.i2495, %sw.bb1276, %get_errno.exit2467, %copy_to_user_timeval.exit2483.thread, %lor.lhs.false1204, %if.then1200, %get_errno.exit2444, %copy_to_user_timeval.exit2460.thread, %lor.lhs.false1182, %if.then1178, %lor.lhs.false1162, %if.then1159, %if.then.i2415, %if.end1150, %if.then.i2406, %sw.bb1132, %if.then.i2397, %if.end1109, %if.then.i2388, %sw.bb1099, %if.then.i2381, %sw.bb1066, %if.then.i2358, %sw.bb969, %if.then.i2351, %if.end944, %if.then.i2344, %sw.bb934, %if.then.i2337, %sw.bb929, %if.then.i2330, %if.end925, %if.then.i2323, %sw.bb917, %if.then.i2316, %sw.bb911, %if.then.i2309, %sw.bb906, %if.then.i2301, %sw.bb901, %if.then.i2293, %sw.bb895, %if.then.i2285, %sw.bb891, %if.then.i2278, %if.end886, %if.then.i2271, %sw.bb861, %if.then.i2264, %if.else848, %if.then.i2255, %if.end841, %if.then.i2246, %if.end829, %if.then808, %sw.bb794, %if.else802, %if.else817, %if.then.i2239, %sw.bb780, %if.else788, %if.then.i2232, %if.then.i2225, %if.end774, %if.then769, %if.then762, %get_errno.exit2200, %if.end750, %copy_to_user_timezone.exit.thread, %land.lhs.true752, %land.lhs.true746, %if.then.i2171, %if.then700, %if.then.i2164, %if.end677, %if.then.i2157, %if.end659, %if.then.i2148, %if.end647, %if.then618, %if.then.i2126, %get_errno.exit2125, %if.then.i2092, %sw.bb516, %if.then.i2085, %sw.bb512, %if.then.i2071, %if.end488, %if.then.i2058, %sw.bb473, %if.then.i2051, %if.end460, %if.then.i2044, %if.end450, %if.then.i2037, %if.then442, %if.then.i2014, %if.end391, %sw.bb371, %if.else379, %if.then.i2007, %if.then.i1998, %sw.bb364, %if.then.i1987, %sw.bb359, %if.then.i1980, %if.end351, %if.then.i1973, %if.end341, %if.then.i1966, %if.end326, %if.then.i1957, %if.end311, %if.end307, %if.end262.thread, %if.end262, %if.then.i1940, %sw.bb249, %if.then.i1933, %sw.bb244, %if.then.i1926, %if.end238, %if.then.i1919, %if.end230, %if.then.i1912, %if.end212, %if.end193, %if.else200, %if.then.i1905, %if.then.i1875, %sw.bb139, %if.then.i1868, %sw.bb132, %if.then.i1859, %if.end124, %if.then.i1850, %sw.bb110, %if.end86, %if.else87, %if.then.i1834, %if.then.i1814, %if.then63, %get_errno.exit1808, %land.lhs.true47, %if.then51, %if.then.i, %if.then33, %land.lhs.true3458, %if.end1658, %get_errno.exit3725, %if.end3672, %do.body3681, %if.then3674, %if.then3657, %get_errno.exit3605, %do.body3424, %if.end3163, %do.body3172, %if.then3165, %if.then3148, %get_errno.exit3037, %do.body2597, %get_errno.exit3019, %do.body2536, %if.end1720, %do.body1729, %land.lhs.true1722, %land.lhs.true1706, %if.then1315, %if.then1297, %if.then3712, %do.body3707, %sw.bb3592, %land.lhs.true3556, %if.then3543, %land.lhs.true3536, %get_errno.exit3644, %if.then3527, %get_errno.exit3635, %if.else3472, %get_errno.exit3590, %if.else3446, %if.then3416, %get_errno.exit3564, %do.body3387, %if.then3382, %if.then3353, %if.end3278, %sw.bb3265, %if.then3247, %get_errno.exit3508, %if.then3217, %get_errno.exit3499, %if.else3191, %if.end3090, %if.end3056, %if.then3059, %do.body3066, %sw.bb2992, %if.end2983, %get_errno.exit3329, %if.then2955, %if.else2929, %entry, %entry, %get_errno.exit3219, %get_errno.exit3203, %if.then2774, %if.then2747, %if.then2727, %if.then2696, %if.then2685, %if.then2662, %sw.bb2629, %if.then2562, %do.body2569, %do.body2583, %if.then2501, %do.body2508, %do.body2522, %sw.bb2471, %get_errno.exit2929, %if.end2267, %if.then2263, %sw.bb2231, %get_errno.exit2909, %if.then2228, %sw.bb2215, %get_errno.exit2900, %sw.bb2056, %sw.bb2048, %if.else2038, %if.else2017, %get_errno.exit2843, %get_errno.exit2816, %if.end1918, %sw.bb1848, %get_errno.exit2777, %if.then1815, %sw.bb1798, %if.end1780, %sw.bb1774, %get_errno.exit2748, %if.end1769, %if.then1765, %sw.bb1752, %if.end1741, %sw.bb1737, %get_errno.exit2728, %sw.bb1665, %get_errno.exit2708, %if.then1650, %sw.bb1631, %get_errno.exit2683, %if.else1615, %get_errno.exit2671, %if.else1597, %get_errno.exit2659, %if.else1581, %get_errno.exit2648, %if.else1565, %land.lhs.true1526, %sw.bb1514, %if.then1507, %sw.bb1496, %sw.bb1473, %sw.bb1465, %get_errno.exit2526, %do.body1344, %if.then1339, %sw.bb1322, %get_errno.exit2510, %if.end1313, %get_errno.exit2490, %if.end1223, %if.then1219, %sw.bb1130, %if.end1146, %if.end1142, %sw.bb1138, %sw.bb1105, %convert_statfs, %do.body992, %if.then987, %sw.bb976, %sw.bb940, %sw.bb921, %if.then837, %sw.bb825, %get_errno.exit2191, %if.then735, %get_errno.exit2182, %if.end720, %if.then716, %if.end687, %if.end687, %if.end687, %sw.bb681, %sw.bb673, %sw.bb667, %sw.bb654, %sw.bb642, %get_errno.exit2141, %if.end637, %if.then632, %if.end612, %sw.bb606, %get_errno.exit2112, %if.end592, %if.then588, %sw.bb577, %if.end564, %if.end575, %if.then571, %if.then555, %sw.bb548, %land.lhs.true526, %sw.bb520, %get_errno.exit2082, %if.then508, %sw.bb492, %sw.bb484, %sw.bb456, %if.else446, %if.then416, %get_errno.exit2025, %if.then404, %sw.bb387, %sw.bb347, %sw.bb337, %if.end322, %sw.bb318, %if.end303, %sw.bb297, %if.then256, %sw.bb234, %sw.bb226, %sw.bb208, %sw.bb189, %get_errno.exit1900, %if.end187, %if.then183, %get_errno.exit1888, %if.then118, %sw.bb92, %if.end67, %if.else37, %sw.bb, %sw.bb3704, %get_errno.exit3706, %if.end3560, %if.end3540, %if.then3431, %if.then3409, %if.end3338, %sw.bb3232, %sw.bb2941, %sw.bb2649, %sw.bb2642, %cleanup2461, %cleanup, %sw.bb2168, %sw.bb2004, %if.then1897, %if.then1680, %sw.bb1548, %sw.bb1545, %if.end1530, %if.end1513, %sw.bb1447, %sw.bb1443, %sw.bb1439, %sw.bb1429, %sw.bb1425, %sw.bb1415, %sw.bb1410, %sw.bb1406, %sw.bb1402, %sw.bb1124, %sw.bb1119, %sw.bb1114, %sw.bb1094, %sw.bb1089, %sw.bb1084, %sw.bb1080, %sw.bb1076, %sw.bb1072, %sw.bb1061, %sw.bb1058, %sw.bb1055, %sw.bb1051, %sw.bb1047, %sw.bb1043, %sw.bb1040, %if.end967, %if.then962, %sw.bb856, %sw.bb778, %if.end671, %if.then600, %sw.bb479, %sw.bb469, %sw.bb465, %sw.bb408, %sw.bb358, %sw.bb223, %sw.bb218, %sw.bb165, %sw.bb107, %sw.bb105, %get_errno.exit1845
-  %retval.0 = phi i64 [ %call3705, %sw.bb3704 ], [ %retval.0.i3701, %get_errno.exit3706 ], [ %retval.0.i3653, %if.end3560 ], [ %retval.0.i3646, %if.end3540 ], [ %call3406, %if.then3409 ], [ -14, %if.then3431 ], [ %ret.41, %if.end3338 ], [ %call3235, %sw.bb3232 ], [ %conv2946, %sw.bb2941 ], [ %call2651, %sw.bb2649 ], [ %conv2648, %sw.bb2642 ], [ %retval.2, %cleanup2461 ], [ %retval.1, %cleanup ], [ %call2169, %sw.bb2168 ], [ %call2005, %sw.bb2004 ], [ %conv1898, %if.then1897 ], [ %conv1678, %if.then1680 ], [ %call1549, %sw.bb1548 ], [ %conv1547, %sw.bb1545 ], [ %retval.0.i2599, %if.end1530 ], [ %retval.0.i2590, %if.end1513 ], [ %call1448, %sw.bb1447 ], [ %call1446, %sw.bb1443 ], [ %call1442, %sw.bb1439 ], [ %call1432, %sw.bb1429 ], [ %call1428, %sw.bb1425 ], [ %call1418, %sw.bb1415 ], [ %call1414, %sw.bb1410 ], [ %call1409, %sw.bb1406 ], [ %call1405, %sw.bb1402 ], [ %call1129, %sw.bb1124 ], [ %call1123, %sw.bb1119 ], [ %call1118, %sw.bb1114 ], [ %call1098, %sw.bb1094 ], [ %call1093, %sw.bb1089 ], [ %call1088, %sw.bb1084 ], [ %call1083, %sw.bb1080 ], [ %call1079, %sw.bb1076 ], [ %call1075, %sw.bb1072 ], [ %call1065, %sw.bb1061 ], [ %call1060, %sw.bb1058 ], [ %call1057, %sw.bb1055 ], [ %call1054, %sw.bb1051 ], [ %call1050, %sw.bb1047 ], [ %call1046, %sw.bb1043 ], [ %call1042, %sw.bb1040 ], [ %conv966, %if.then962 ], [ %sub968, %if.end967 ], [ %call860, %sw.bb856 ], [ %call779, %sw.bb778 ], [ %call672, %if.end671 ], [ %conv597, %if.then600 ], [ %conv482, %sw.bb479 ], [ %call472, %sw.bb469 ], [ %call468, %sw.bb465 ], [ %call411, %sw.bb408 ], [ 0, %sw.bb358 ], [ %conv225, %sw.bb223 ], [ %conv222, %sw.bb218 ], [ %call166, %sw.bb165 ], [ %call108, %sw.bb107 ], [ %call106, %sw.bb105 ], [ %retval.0.i1840, %get_errno.exit1845 ], [ -512, %sw.bb ], [ -14, %if.else37 ], [ -14, %if.end67 ], [ -14, %sw.bb92 ], [ -14, %if.then118 ], [ %retval.0.i1883, %get_errno.exit1888 ], [ -14, %if.then183 ], [ %retval.0.i1895, %if.end187 ], [ %retval.0.i1895, %get_errno.exit1900 ], [ -14, %sw.bb189 ], [ -14, %sw.bb208 ], [ -14, %sw.bb226 ], [ -14, %sw.bb234 ], [ -14, %if.then256 ], [ -14, %sw.bb297 ], [ -14, %if.end303 ], [ -14, %sw.bb318 ], [ -14, %if.end322 ], [ -14, %sw.bb337 ], [ -14, %sw.bb347 ], [ -14, %sw.bb387 ], [ %retval.0.i2020, %if.then404 ], [ %retval.0.i2020, %get_errno.exit2025 ], [ -14, %if.then416 ], [ -14, %if.else446 ], [ -14, %sw.bb456 ], [ -14, %sw.bb484 ], [ -22, %sw.bb492 ], [ %retval.0.i2077, %if.then508 ], [ %retval.0.i2077, %get_errno.exit2082 ], [ -22, %sw.bb520 ], [ -14, %land.lhs.true526 ], [ -22, %sw.bb548 ], [ -14, %if.then555 ], [ -22, %if.end559 ], [ -14, %if.then571 ], [ %conv566, %if.end575 ], [ %conv566, %if.end564 ], [ -22, %sw.bb577 ], [ -14, %if.then588 ], [ %retval.0.i2107, %if.end592 ], [ %retval.0.i2107, %get_errno.exit2112 ], [ -22, %sw.bb606 ], [ -14, %if.end612 ], [ -14, %if.then632 ], [ %retval.0.i2136, %get_errno.exit2141 ], [ %conv640, %if.end637 ], [ -14, %sw.bb642 ], [ -14, %sw.bb654 ], [ -512, %sw.bb667 ], [ -14, %sw.bb673 ], [ -14, %sw.bb681 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ -14, %if.then716 ], [ %retval.0.i2177, %if.end720 ], [ %retval.0.i2177, %get_errno.exit2182 ], [ %retval.0.i2186, %get_errno.exit2191 ], [ %call736, %if.then735 ], [ -14, %sw.bb825 ], [ -14, %if.then837 ], [ -14, %sw.bb921 ], [ -14, %sw.bb940 ], [ -14, %sw.bb976 ], [ -14, %if.then987 ], [ %ret.14, %do.body992 ], [ %ret.14, %convert_statfs ], [ -14, %sw.bb1105 ], [ -22, %sw.bb1138 ], [ 0, %if.end1142 ], [ -14, %if.end1146 ], [ -22, %sw.bb1130 ], [ -14, %if.then1219 ], [ %retval.0.i2485, %if.end1223 ], [ %retval.0.i2485, %get_errno.exit2490 ], [ %retval.0.i2505, %get_errno.exit2510 ], [ %retval.0.i2505, %if.end1313 ], [ %spec.select1785, %if.then1315 ], [ -14, %sw.bb1322 ], [ -14, %if.then1339 ], [ %retval.0.i2521, %do.body1344 ], [ %retval.0.i2521, %get_errno.exit2526 ], [ -14, %sw.bb1465 ], [ -14, %sw.bb1473 ], [ -14, %sw.bb1496 ], [ -14, %if.then1507 ], [ -14, %sw.bb1514 ], [ -14, %land.lhs.true1526 ], [ %retval.0.i2643, %get_errno.exit2648 ], [ %conv1569, %if.else1565 ], [ %retval.0.i2654, %get_errno.exit2659 ], [ %conv1585, %if.else1581 ], [ %retval.0.i2666, %get_errno.exit2671 ], [ %conv1601, %if.else1597 ], [ %retval.0.i2678, %get_errno.exit2683 ], [ %conv1619, %if.else1615 ], [ -22, %sw.bb1631 ], [ -22, %if.then1650 ], [ %retval.0.i2703, %get_errno.exit2708 ], [ -22, %sw.bb1665 ], [ %retval.0.i2723, %get_errno.exit2728 ], [ -22, %sw.bb1737 ], [ -14, %if.end1741 ], [ -22, %sw.bb1752 ], [ -14, %if.then1765 ], [ %retval.0.i2743, %if.end1769 ], [ %retval.0.i2743, %get_errno.exit2748 ], [ -22, %sw.bb1774 ], [ -14, %if.end1780 ], [ -22, %sw.bb1798 ], [ -14, %if.then1815 ], [ %retval.0.i2772, %get_errno.exit2777 ], [ -22, %sw.bb1848 ], [ -14, %if.end1918 ], [ %retval.0.i2811, %get_errno.exit2816 ], [ %retval.0.i2838, %get_errno.exit2843 ], [ -14, %if.else2017 ], [ -14, %if.else2038 ], [ -14, %sw.bb2048 ], [ -14, %sw.bb2056 ], [ %ret.23, %if.end2127 ], [ %retval.0.i2895, %get_errno.exit2900 ], [ -14, %sw.bb2215 ], [ %retval.0.i2904, %get_errno.exit2909 ], [ %call2229, %if.then2228 ], [ -14, %sw.bb2231 ], [ -14, %if.then2263 ], [ %retval.0.i2924, %if.end2267 ], [ %retval.0.i2924, %get_errno.exit2929 ], [ -14, %sw.bb2471 ], [ -14, %do.body2522 ], [ -14, %do.body2508 ], [ -14, %if.then2501 ], [ -14, %do.body2583 ], [ -14, %do.body2569 ], [ -14, %if.then2562 ], [ -12, %sw.bb2629 ], [ -14, %if.then2662 ], [ -14, %if.then2685 ], [ -14, %if.then2696 ], [ -14, %if.then2727 ], [ -14, %if.then2747 ], [ -14, %if.then2774 ], [ %retval.0.i3198, %get_errno.exit3203 ], [ %retval.0.i3214, %get_errno.exit3219 ], [ -38, %entry ], [ -38, %entry ], [ -14, %if.else2929 ], [ %retval.0.i3324, %if.then2955 ], [ %retval.0.i3324, %get_errno.exit3329 ], [ -14, %if.end2983 ], [ -14, %sw.bb2992 ], [ %ret.38, %do.body3066 ], [ %ret.38, %if.then3059 ], [ %ret.38, %if.end3056 ], [ %ret.39, %if.end3090 ], [ %retval.0.i3494, %get_errno.exit3499 ], [ %conv3195, %if.else3191 ], [ %retval.0.i3503, %if.then3217 ], [ %retval.0.i3503, %get_errno.exit3508 ], [ -14, %if.then3247 ], [ -22, %sw.bb3265 ], [ -14, %if.end3278 ], [ -14, %if.then3353 ], [ -14, %if.then3382 ], [ %retval.0.i3559, %do.body3387 ], [ %retval.0.i3559, %get_errno.exit3564 ], [ %retval.0.i3571, %if.then3416 ], [ 0, %do.body3424 ], [ -14, %if.else3446 ], [ %retval.0.i3585, %get_errno.exit3590 ], [ -14, %if.else3472 ], [ %spec.select1795, %get_errno.exit3605 ], [ %retval.0.i3630, %get_errno.exit3635 ], [ %retval.0.i3639, %if.then3527 ], [ %retval.0.i3639, %get_errno.exit3644 ], [ -14, %land.lhs.true3536 ], [ -14, %if.then3543 ], [ -14, %land.lhs.true3556 ], [ -14, %sw.bb3592 ], [ -38, %do.body3707 ], [ -38, %if.then3712 ], [ -14, %if.then1297 ], [ %spec.select1796, %if.end1658 ], [ -14, %land.lhs.true1706 ], [ -14, %land.lhs.true1722 ], [ %retval.0.i2723, %do.body1729 ], [ %retval.0.i2723, %if.end1720 ], [ %retval.0.i3014, %do.body2536 ], [ %retval.0.i3014, %get_errno.exit3019 ], [ %retval.0.i3032, %do.body2597 ], [ %retval.0.i3032, %get_errno.exit3037 ], [ -14, %if.then3148 ], [ -14, %if.then3165 ], [ %retval.0.i3487, %do.body3172 ], [ %retval.0.i3487, %if.end3163 ], [ %spec.select1797, %land.lhs.true3458 ], [ -14, %if.then3657 ], [ -14, %if.then3674 ], [ %retval.0.i3720, %do.body3681 ], [ %retval.0.i3720, %if.end3672 ], [ %retval.0.i3720, %get_errno.exit3725 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then33 ], [ %call54, %if.then51 ], [ %retval.0.i1803, %land.lhs.true47 ], [ %retval.0.i1803, %get_errno.exit1808 ], [ %conv.i1817, %if.then.i1814 ], [ %call.i1811, %if.then63 ], [ %ret.1, %if.end86 ], [ %conv.i1837, %if.then.i1834 ], [ %call.i1831, %if.else87 ], [ %conv.i1853, %if.then.i1850 ], [ %conv114, %sw.bb110 ], [ %conv.i1862, %if.then.i1859 ], [ %conv130, %if.end124 ], [ %conv.i1871, %if.then.i1868 ], [ %conv137, %sw.bb132 ], [ %conv.i1878, %if.then.i1875 ], [ %conv143, %sw.bb139 ], [ -14, %if.end193 ], [ %conv.i1908, %if.then.i1905 ], [ %conv205, %if.else200 ], [ %conv.i1915, %if.then.i1912 ], [ %conv216, %if.end212 ], [ %conv.i1922, %if.then.i1919 ], [ %conv232, %if.end230 ], [ %conv.i1929, %if.then.i1926 ], [ %conv242, %if.end238 ], [ %conv.i1936, %if.then.i1933 ], [ %call247, %sw.bb244 ], [ %conv.i1943, %if.then.i1940 ], [ %conv251, %sw.bb249 ], [ -14, %if.end262 ], [ -14, %if.end262.thread ], [ -14, %if.end307 ], [ %conv.i1960, %if.then.i1957 ], [ %conv316, %if.end311 ], [ %conv.i1969, %if.then.i1966 ], [ %conv335, %if.end326 ], [ %conv.i1976, %if.then.i1973 ], [ %conv345, %if.end341 ], [ %conv.i1983, %if.then.i1980 ], [ %conv356, %if.end351 ], [ %conv.i1990, %if.then.i1987 ], [ %conv362, %sw.bb359 ], [ %conv.i2001, %if.then.i1998 ], [ %conv369, %sw.bb364 ], [ -14, %sw.bb371 ], [ %conv.i2010, %if.then.i2007 ], [ %conv384, %if.else379 ], [ %conv.i2017, %if.then.i2014 ], [ %conv395, %if.end391 ], [ %conv.i2040, %if.then.i2037 ], [ %conv444, %if.then442 ], [ %conv.i2047, %if.then.i2044 ], [ %conv453, %if.end450 ], [ %conv.i2054, %if.then.i2051 ], [ %conv463, %if.end460 ], [ %conv.i2061, %if.then.i2058 ], [ %conv477, %sw.bb473 ], [ %conv.i2074, %if.then.i2071 ], [ %conv490, %if.end488 ], [ %conv.i2088, %if.then.i2085 ], [ %conv514, %sw.bb512 ], [ %conv.i2095, %if.then.i2092 ], [ %conv518, %sw.bb516 ], [ -512, %get_errno.exit2125 ], [ %retval.0.i2120, %if.then.i2126 ], [ -14, %if.then618 ], [ %conv.i2151, %if.then.i2148 ], [ %conv652, %if.end647 ], [ %conv.i2160, %if.then.i2157 ], [ %conv665, %if.end659 ], [ %conv.i2167, %if.then.i2164 ], [ %conv679, %if.end677 ], [ %conv.i2174, %if.then.i2171 ], [ %conv702, %if.then700 ], [ -14, %land.lhs.true746 ], [ -14, %land.lhs.true752 ], [ %retval.0.i2195, %copy_to_user_timezone.exit.thread ], [ %retval.0.i2195, %if.end750 ], [ %retval.0.i2195, %get_errno.exit2200 ], [ -14, %if.then762 ], [ -14, %if.then769 ], [ %conv.i2228, %if.then.i2225 ], [ %conv776, %if.end774 ], [ -14, %sw.bb780 ], [ %conv.i2235, %if.then.i2232 ], [ %conv791, %if.else788 ], [ %cond816, %if.then808 ], [ -14, %sw.bb794 ], [ -22, %if.else802 ], [ %conv.i2242, %if.then.i2239 ], [ %call820, %if.else817 ], [ %conv.i2249, %if.then.i2246 ], [ %conv832, %if.end829 ], [ %conv.i2258, %if.then.i2255 ], [ %conv846, %if.end841 ], [ %conv.i2267, %if.then.i2264 ], [ %conv853, %if.else848 ], [ %conv.i2274, %if.then.i2271 ], [ %conv864, %sw.bb861 ], [ %conv.i2281, %if.then.i2278 ], [ %conv889, %if.end886 ], [ %conv.i2288, %if.then.i2285 ], [ %call893, %sw.bb891 ], [ %conv.i2296, %if.then.i2293 ], [ %conv899, %sw.bb895 ], [ %conv.i2304, %if.then.i2301 ], [ %conv904, %sw.bb901 ], [ %conv.i2312, %if.then.i2309 ], [ %conv909, %sw.bb906 ], [ %conv.i2319, %if.then.i2316 ], [ %conv915, %sw.bb911 ], [ %conv.i2326, %if.then.i2323 ], [ %conv919, %sw.bb917 ], [ %conv.i2333, %if.then.i2330 ], [ %conv927, %if.end925 ], [ %conv.i2340, %if.then.i2337 ], [ %conv932, %sw.bb929 ], [ %conv.i2347, %if.then.i2344 ], [ %conv938, %sw.bb934 ], [ %conv.i2354, %if.then.i2351 ], [ %conv948, %if.end944 ], [ %conv.i2361, %if.then.i2358 ], [ %conv974, %sw.bb969 ], [ %conv.i2384, %if.then.i2381 ], [ %conv1070, %sw.bb1066 ], [ %conv.i2391, %if.then.i2388 ], [ %conv1103, %sw.bb1099 ], [ %conv.i2400, %if.then.i2397 ], [ %conv1112, %if.end1109 ], [ %conv.i2409, %if.then.i2406 ], [ %conv1136, %sw.bb1132 ], [ %conv.i2418, %if.then.i2415 ], [ %conv1154, %if.end1150 ], [ -14, %if.then1159 ], [ -14, %lor.lhs.false1162 ], [ -14, %if.then1178 ], [ -14, %lor.lhs.false1182 ], [ %retval.0.i2439, %copy_to_user_timeval.exit2460.thread ], [ %retval.0.i2439, %get_errno.exit2444 ], [ -14, %if.then1200 ], [ -14, %lor.lhs.false1204 ], [ %retval.0.i2462, %copy_to_user_timeval.exit2483.thread ], [ %retval.0.i2462, %get_errno.exit2467 ], [ %conv.i2498, %if.then.i2495 ], [ %conv1278, %sw.bb1276 ], [ %conv.i2518, %if.then.i2515 ], [ %conv1328, %if.end1326 ], [ %conv.i2534, %if.then.i2531 ], [ %conv1400, %sw.bb1395 ], [ %conv.i2541, %if.then.i2538 ], [ %conv1423, %sw.bb1419 ], [ %conv.i2548, %if.then.i2545 ], [ %conv1437, %sw.bb1433 ], [ %conv.i2555, %if.then.i2552 ], [ %conv1452, %sw.bb1449 ], [ %conv.i2562, %if.then.i2559 ], [ %conv1457, %sw.bb1454 ], [ %conv.i2571, %if.then.i2568 ], [ %conv1463, %sw.bb1459 ], [ %conv.i2578, %if.then.i2575 ], [ %conv1471, %if.end1469 ], [ %retval.0.i2581, %if.then1483 ], [ %retval.0.i2581, %land.lhs.true1488 ], [ %retval.0.i2581, %if.then1491 ], [ %retval.0.i2581, %get_errno.exit2586 ], [ %conv.i2612, %if.then.i2609 ], [ %conv1534, %sw.bb1531 ], [ %conv.i2619, %if.then.i2616 ], [ %conv1539, %sw.bb1536 ], [ %conv.i2626, %if.then.i2623 ], [ %conv1543, %sw.bb1541 ], [ %conv.i2637, %if.then.i2634 ], [ %conv1554, %sw.bb1550 ], [ %conv.i2691, %if.then.i2688 ], [ %conv1624, %sw.bb1621 ], [ %conv.i2698, %if.then.i2695 ], [ %conv1629, %sw.bb1626 ], [ %conv.i2718, %if.then.i2715 ], [ %conv1684, %if.end1681 ], [ %conv.i2738, %if.then.i2735 ], [ %conv1750, %if.end1745 ], [ %conv.i2758, %if.then.i2755 ], [ %conv1791, %if.end1784 ], [ %conv.i2767, %if.then.i2764 ], [ %conv1796, %sw.bb1793 ], [ %retval.0.i2772, %if.then1841 ], [ %retval.0.i2772, %if.end1819 ], [ %conv.i2787, %if.then.i2784 ], [ %conv1965, %if.end1961 ], [ %conv.i2794, %if.then.i2791 ], [ %conv1969, %sw.bb1967 ], [ %conv.i2801, %if.then.i2798 ], [ %conv1974, %sw.bb1971 ], [ %conv.i2808, %if.then.i2805 ], [ %conv1979, %sw.bb1976 ], [ 0, %do.body.i2821 ], [ -14, %if.then1989 ], [ %retval.0.i2838, %if.then2001 ], [ %retval.0.i2838, %do.body.i2848 ], [ %conv.i2858, %if.then.i2855 ], [ %call2025, %if.end2022 ], [ %conv.i2865, %if.then.i2862 ], [ %call2046, %if.end2043 ], [ %conv.i2874, %if.then.i2871 ], [ %conv2054, %if.end2052 ], [ -14, %if.end2083 ], [ -14, %if.end2083.thread ], [ %retval.0.i2895, %311 ], [ -14, %if.then2198 ], [ -14, %if.then2246 ], [ %retval.0.i2915, %if.end2252 ], [ %conv.i2937, %if.then.i2934 ], [ %conv2330, %sw.bb2327 ], [ %conv.i2944, %if.then.i2941 ], [ %conv2335, %sw.bb2332 ], [ %conv.i2951, %if.then.i2948 ], [ %conv2340, %sw.bb2337 ], [ %conv.i2958, %if.then.i2955 ], [ %conv2345, %sw.bb2342 ], [ %conv.i2965, %if.then.i2962 ], [ %conv2353, %sw.bb2347 ], [ %conv.i2972, %if.then.i2969 ], [ %conv2361, %sw.bb2355 ], [ %conv.i2995, %if.then.i2992 ], [ %conv2469, %sw.bb2462 ], [ %conv.i3002, %if.then.i2999 ], [ %conv2483, %if.end2475 ], [ %conv.i3011, %if.then.i3008 ], [ %conv2493, %sw.bb2485 ], [ %conv.i3029, %if.then.i3026 ], [ %conv2554, %sw.bb2546 ], [ %conv.i3047, %if.then.i3044 ], [ %conv2611, %sw.bb2607 ], [ %conv.i3056, %if.then.i3053 ], [ %conv2617, %sw.bb2613 ], [ %conv.i3063, %if.then.i3060 ], [ %conv2622, %sw.bb2619 ], [ %conv.i3070, %if.then.i3067 ], [ %conv2627, %sw.bb2624 ], [ -14, %if.end2633 ], [ %conv.i3077, %if.then.i3074 ], [ %conv2639, %if.else2637 ], [ %conv.i3086, %if.then.i3083 ], [ %conv2654, %sw.bb2652 ], [ %conv.i3093, %if.then.i3090 ], [ %call2658, %sw.bb2656 ], [ -14, %if.end2667 ], [ %conv.i3100, %if.then.i3097 ], [ %call2674, %if.then2673 ], [ %conv.i3107, %if.then.i3104 ], [ %call2677, %if.else2676 ], [ %conv.i3114, %if.then.i3111 ], [ %call2692, %if.end2690 ], [ -14, %if.end2701 ], [ %conv.i3121, %if.then.i3118 ], [ %conv2713, %if.then2710 ], [ %conv.i3128, %if.then.i3125 ], [ %conv2718, %if.else2715 ], [ %conv.i3135, %if.then.i3132 ], [ %conv2739, %if.then2735 ], [ -14, %if.end2732 ], [ -14, %if.end2752 ], [ %conv.i3142, %if.then.i3139 ], [ %call2762, %if.then2761 ], [ %conv.i3149, %if.then.i3146 ], [ %call2765, %if.else2764 ], [ %conv.i3156, %if.then.i3153 ], [ %call2784, %if.then2782 ], [ -14, %if.end2779 ], [ -14, %sw.bb2788 ], [ %conv.i3163, %if.then.i3160 ], [ %conv2800, %if.then2798 ], [ %conv.i3170, %if.then.i3167 ], [ %conv2804, %if.else2802 ], [ %conv.i3177, %if.then.i3174 ], [ %conv2816, %if.then2813 ], [ -14, %sw.bb2809 ], [ %conv.i3195, %if.then.i3192 ], [ %conv2828, %if.then2825 ], [ 0, %do.body.i3208 ], [ -14, %if.then2839 ], [ %retval.0.i3214, %if.then2850 ], [ %retval.0.i3214, %do.body.i3224 ], [ -14, %sw.bb2853 ], [ -14, %land.lhs.true2876 ], [ -4, %host_to_target_timespec.exit3255.thread ], [ %retval.0.i3243, %get_errno.exit3248 ], [ %conv.i3263, %if.then.i3260 ], [ %conv2886, %sw.bb2881 ], [ %conv.i3274, %if.then.i3271 ], [ %conv2893, %sw.bb2888 ], [ %conv.i3285, %if.then.i3282 ], [ %conv2901, %sw.bb2895 ], [ -14, %if.else2908 ], [ -14, %if.end2913 ], [ %conv.i3312, %if.then.i3309 ], [ %conv2927, %if.then2923 ], [ %conv.i3321, %if.then.i3318 ], [ %conv2938, %if.end2933 ], [ %conv.i3335, %if.then.i3332 ], [ %conv2964, %sw.bb2958 ], [ %conv.i3342, %if.then.i3339 ], [ %conv2970, %sw.bb2966 ], [ -14, %if.then2977 ], [ %conv.i3354, %if.then.i3351 ], [ %conv2990, %if.end2988 ], [ %conv.i3361, %if.then.i3358 ], [ %conv2999, %if.end2997 ], [ -14, %if.then3006 ], [ -14, %land.lhs.true3018 ], [ %retval.0.i3377, %get_errno.exit3382 ], [ %retval.0.i3377, %host_to_target_timespec.exit3391.thread ], [ %conv.i3401, %if.then.i3398 ], [ %conv3027, %if.else3023 ], [ -14, %if.then3035 ], [ -14, %land.lhs.true3046 ], [ 0, %if.then3096 ], [ 0, %do.body.i3474 ], [ %conv.i3484, %if.then.i3481 ], [ %call3103, %sw.bb3099 ], [ %conv.i3514, %if.then.i3511 ], [ %conv3224, %sw.bb3220 ], [ %conv.i3521, %if.then.i3518 ], [ %conv3230, %sw.bb3226 ], [ %conv.i3528, %if.then.i3525 ], [ %conv3240, %sw.bb3236 ], [ %conv.i3535, %if.then.i3532 ], [ %conv3263, %if.end3258 ], [ -12, %if.end3284 ], [ %conv.i3619, %if.then.i3616 ], [ %conv3500, %if.else3495 ], [ %conv.i3666, %if.then.i3663 ], [ %conv3565, %sw.bb3561 ], [ %conv.i3675, %if.then.i3672 ], [ %conv3572, %sw.bb3567 ], [ %conv.i3682, %if.then.i3679 ], [ %conv3578, %sw.bb3574 ], [ %conv.i3689, %if.then.i3686 ], [ %conv3583, %sw.bb3580 ], [ %conv.i3698, %if.then.i3695 ], [ %conv3590, %sw.bb3585 ], [ %conv.i3714, %if.then.i3711 ], [ %conv3606, %sw.bb3602 ], [ -14, %sw.bb3691 ], [ %conv.i3735, %if.then.i3732 ], [ %conv3701, %if.else3699 ], [ -14, %if.end1855 ], [ 0, %if.else3081 ], [ -14, %if.then271 ], [ %conv.i1951, %if.then.i1948 ], [ %ret.4, %if.end280 ], [ %retval.0.i2027, %if.end420 ], [ %retval.0.i2027, %get_errno.exit2032 ], [ -14, %land.lhs.true532 ], [ %conv.i2102, %if.then.i2099 ], [ %conv539, %if.else536 ], [ -14, %if.then1877 ], [ -7, %do.body1884 ], [ -14, %if.then1902 ], [ -7, %do.body1909 ], [ -14, %sw.bb2820 ], [ %retval.0.i1883, %if.then156 ], [ %ret.23.ph, %if.end2127.thread ], [ -14, %if.then2172 ], [ -14, %if.then3107 ], [ -14, %if.then3125 ], [ -14, %if.then3610 ], [ -14, %if.then3628 ], [ -22, %sw.bb3436 ], [ -22, %sw.bb3465 ], [ -22, %sw.bb3488 ], [ -22, %sw.bb3503 ], [ %retval.0.i1883, %fd_trans_unregister.exit ], [ %ret.23, %for.body2139 ], [ -11, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.body2139, %fd_trans_unregister.exit, %if.end559, %sw.bb3503, %sw.bb3488, %sw.bb3465, %sw.bb3436, %if.then3628, %if.then3610, %if.then3125, %if.then3107, %if.then2172, %if.end2127.thread, %if.then156, %sw.bb2820, %do.body1909, %if.then1902, %do.body1884, %if.then1877, %if.end2127, %land.lhs.true532, %if.else536, %if.then.i2099, %get_errno.exit2032, %if.end420, %if.end280, %if.then.i1948, %if.then271, %if.else3081, %if.end1855, %sw.bb3691, %if.else3699, %if.then.i3732, %if.then.i3711, %sw.bb3602, %if.then.i3695, %sw.bb3585, %if.then.i3686, %sw.bb3580, %if.then.i3679, %sw.bb3574, %if.then.i3672, %sw.bb3567, %if.then.i3663, %sw.bb3561, %if.then.i3616, %if.else3495, %if.end3284, %if.then.i3532, %if.end3258, %if.then.i3525, %sw.bb3236, %if.then.i3518, %sw.bb3226, %if.then.i3511, %sw.bb3220, %if.then.i3481, %sw.bb3099, %do.body.i3474, %if.then3096, %land.lhs.true3046, %if.then3035, %get_errno.exit3382, %host_to_target_timespec.exit3391.thread, %if.else3023, %if.then.i3398, %land.lhs.true3018, %if.then3006, %if.then.i3358, %if.end2997, %if.then.i3351, %if.end2988, %if.then2977, %if.then.i3339, %sw.bb2966, %if.then.i3332, %sw.bb2958, %if.then.i3318, %if.end2933, %if.then.i3309, %if.then2923, %if.end2913, %if.else2908, %if.then.i3282, %sw.bb2895, %if.then.i3271, %sw.bb2888, %if.then.i3260, %sw.bb2881, %get_errno.exit3248, %host_to_target_timespec.exit3255.thread, %land.lhs.true2876, %sw.bb2853, %do.body.i3224, %if.then2850, %do.body.i3208, %if.then2839, %if.then.i3192, %if.then2825, %sw.bb2809, %if.then.i3174, %if.then2813, %sw.bb2788, %if.then2798, %if.then.i3160, %if.else2802, %if.then.i3167, %if.then2782, %if.then.i3153, %if.end2779, %if.end2752, %if.then2761, %if.then.i3139, %if.else2764, %if.then.i3146, %if.then2735, %if.then.i3132, %if.end2732, %if.end2701, %if.then2710, %if.then.i3118, %if.else2715, %if.then.i3125, %if.then.i3111, %if.end2690, %if.end2667, %if.then2673, %if.then.i3097, %if.else2676, %if.then.i3104, %if.then.i3090, %sw.bb2656, %if.then.i3083, %sw.bb2652, %if.end2633, %if.else2637, %if.then.i3074, %if.then.i3067, %sw.bb2624, %if.then.i3060, %sw.bb2619, %if.then.i3053, %sw.bb2613, %if.then.i3044, %sw.bb2607, %if.then.i3026, %sw.bb2546, %if.then.i3008, %sw.bb2485, %if.then.i2999, %if.end2475, %if.then.i2992, %sw.bb2462, %if.then.i2969, %sw.bb2355, %if.then.i2962, %sw.bb2347, %if.then.i2955, %sw.bb2342, %if.then.i2948, %sw.bb2337, %if.then.i2941, %sw.bb2332, %if.then.i2934, %sw.bb2327, %if.end2252, %if.then2246, %317, %if.then2198, %if.end2083.thread, %if.end2083, %if.then.i2871, %if.end2052, %if.then.i2862, %if.end2043, %if.then.i2855, %if.end2022, %do.body.i2848, %if.then2001, %do.body.i2821, %if.then1989, %if.then.i2805, %sw.bb1976, %if.then.i2798, %sw.bb1971, %if.then.i2791, %sw.bb1967, %if.then.i2784, %if.end1961, %if.end1819, %if.then1841, %if.then.i2764, %sw.bb1793, %if.then.i2755, %if.end1784, %if.then.i2735, %if.end1745, %if.then.i2715, %if.end1681, %if.then.i2695, %sw.bb1626, %if.then.i2688, %sw.bb1621, %if.then.i2634, %sw.bb1550, %if.then.i2623, %sw.bb1541, %if.then.i2616, %sw.bb1536, %if.then.i2609, %sw.bb1531, %get_errno.exit2586, %if.then1491, %land.lhs.true1488, %if.then1483, %if.then.i2575, %if.end1469, %if.then.i2568, %sw.bb1459, %if.then.i2559, %sw.bb1454, %if.then.i2552, %sw.bb1449, %if.then.i2545, %sw.bb1433, %if.then.i2538, %sw.bb1419, %if.then.i2531, %sw.bb1395, %if.then.i2515, %if.end1326, %if.then.i2495, %sw.bb1276, %get_errno.exit2467, %copy_to_user_timeval.exit2483.thread, %lor.lhs.false1204, %if.then1200, %get_errno.exit2444, %copy_to_user_timeval.exit2460.thread, %lor.lhs.false1182, %if.then1178, %lor.lhs.false1162, %if.then1159, %if.then.i2415, %if.end1150, %if.then.i2406, %sw.bb1132, %if.then.i2397, %if.end1109, %if.then.i2388, %sw.bb1099, %if.then.i2381, %sw.bb1066, %if.then.i2358, %sw.bb969, %if.then.i2351, %if.end944, %if.then.i2344, %sw.bb934, %if.then.i2337, %sw.bb929, %if.then.i2330, %if.end925, %if.then.i2323, %sw.bb917, %if.then.i2316, %sw.bb911, %if.then.i2309, %sw.bb906, %if.then.i2301, %sw.bb901, %if.then.i2293, %sw.bb895, %if.then.i2285, %sw.bb891, %if.then.i2278, %if.end886, %if.then.i2271, %sw.bb861, %if.then.i2264, %if.else848, %if.then.i2255, %if.end841, %if.then.i2246, %if.end829, %if.then808, %sw.bb794, %if.else802, %if.else817, %if.then.i2239, %sw.bb780, %if.else788, %if.then.i2232, %if.then.i2225, %if.end774, %if.then769, %if.then762, %get_errno.exit2200, %if.end750, %copy_to_user_timezone.exit.thread, %land.lhs.true752, %land.lhs.true746, %if.then.i2171, %if.then700, %if.then.i2164, %if.end677, %if.then.i2157, %if.end659, %if.then.i2148, %if.end647, %if.then618, %if.then.i2126, %get_errno.exit2125, %if.then.i2092, %sw.bb516, %if.then.i2085, %sw.bb512, %if.then.i2071, %if.end488, %if.then.i2058, %sw.bb473, %if.then.i2051, %if.end460, %if.then.i2044, %if.end450, %if.then.i2037, %if.then442, %if.then.i2014, %if.end391, %sw.bb371, %if.else379, %if.then.i2007, %if.then.i1998, %sw.bb364, %if.then.i1987, %sw.bb359, %if.then.i1980, %if.end351, %if.then.i1973, %if.end341, %if.then.i1966, %if.end326, %if.then.i1957, %if.end311, %if.end307, %if.end262.thread, %if.end262, %if.then.i1940, %sw.bb249, %if.then.i1933, %sw.bb244, %if.then.i1926, %if.end238, %if.then.i1919, %if.end230, %if.then.i1912, %if.end212, %if.end193, %if.else200, %if.then.i1905, %if.then.i1875, %sw.bb139, %if.then.i1868, %sw.bb132, %if.then.i1859, %if.end124, %if.then.i1850, %sw.bb110, %if.end86, %if.else87, %if.then.i1834, %if.then.i1814, %if.then63, %get_errno.exit1808, %land.lhs.true47, %if.then51, %if.then.i, %if.then33, %land.lhs.true3458, %if.end1658, %get_errno.exit3725, %if.end3672, %do.body3681, %if.then3674, %if.then3657, %get_errno.exit3605, %do.body3424, %if.end3163, %do.body3172, %if.then3165, %if.then3148, %get_errno.exit3037, %do.body2597, %get_errno.exit3019, %do.body2536, %if.end1720, %do.body1729, %land.lhs.true1722, %land.lhs.true1706, %if.then1315, %if.then1297, %if.then3712, %do.body3707, %sw.bb3592, %land.lhs.true3556, %if.then3543, %land.lhs.true3536, %get_errno.exit3644, %if.then3527, %get_errno.exit3635, %if.else3472, %get_errno.exit3590, %if.else3446, %if.then3416, %get_errno.exit3564, %do.body3387, %if.then3382, %if.then3353, %if.end3278, %sw.bb3265, %if.then3247, %get_errno.exit3508, %if.then3217, %get_errno.exit3499, %if.else3191, %if.end3090, %if.end3056, %if.then3059, %do.body3066, %sw.bb2992, %if.end2983, %get_errno.exit3329, %if.then2955, %if.else2929, %entry, %entry, %get_errno.exit3219, %get_errno.exit3203, %if.then2774, %if.then2747, %if.then2727, %if.then2696, %if.then2685, %if.then2662, %sw.bb2629, %if.then2562, %do.body2569, %do.body2583, %if.then2501, %do.body2508, %do.body2522, %sw.bb2471, %get_errno.exit2929, %if.end2267, %if.then2263, %sw.bb2231, %get_errno.exit2909, %if.then2228, %sw.bb2215, %get_errno.exit2900, %sw.bb2056, %sw.bb2048, %if.else2038, %if.else2017, %get_errno.exit2843, %get_errno.exit2816, %if.end1918, %sw.bb1848, %get_errno.exit2777, %if.then1815, %sw.bb1798, %if.end1780, %sw.bb1774, %get_errno.exit2748, %if.end1769, %if.then1765, %sw.bb1752, %if.end1741, %sw.bb1737, %get_errno.exit2728, %sw.bb1665, %get_errno.exit2708, %if.then1650, %sw.bb1631, %get_errno.exit2683, %if.else1615, %get_errno.exit2671, %if.else1597, %get_errno.exit2659, %if.else1581, %get_errno.exit2648, %if.else1565, %land.lhs.true1526, %sw.bb1514, %if.then1507, %sw.bb1496, %sw.bb1473, %sw.bb1465, %get_errno.exit2526, %do.body1344, %if.then1339, %sw.bb1322, %get_errno.exit2510, %if.end1313, %get_errno.exit2490, %if.end1223, %if.then1219, %sw.bb1130, %if.end1146, %if.end1142, %sw.bb1138, %sw.bb1105, %convert_statfs, %do.body992, %if.then987, %sw.bb976, %sw.bb940, %sw.bb921, %if.then837, %sw.bb825, %get_errno.exit2191, %if.then735, %get_errno.exit2182, %if.end720, %if.then716, %if.end687, %if.end687, %if.end687, %sw.bb681, %sw.bb673, %sw.bb667, %sw.bb654, %sw.bb642, %get_errno.exit2141, %if.end637, %if.then632, %if.end612, %sw.bb606, %get_errno.exit2112, %if.end592, %if.then588, %sw.bb577, %if.end564, %if.end575, %if.then571, %if.then555, %sw.bb548, %land.lhs.true526, %sw.bb520, %get_errno.exit2082, %if.then508, %sw.bb492, %sw.bb484, %sw.bb456, %if.else446, %if.then416, %get_errno.exit2025, %if.then404, %sw.bb387, %sw.bb347, %sw.bb337, %if.end322, %sw.bb318, %if.end303, %sw.bb297, %if.then256, %sw.bb234, %sw.bb226, %sw.bb208, %sw.bb189, %get_errno.exit1900, %if.end187, %if.then183, %get_errno.exit1888, %if.then118, %sw.bb92, %if.end67, %if.else37, %sw.bb, %sw.bb3704, %get_errno.exit3706, %if.end3560, %if.end3540, %if.then3431, %if.then3409, %if.end3338, %sw.bb3232, %sw.bb2941, %sw.bb2649, %sw.bb2642, %cleanup2461, %cleanup, %sw.bb2168, %sw.bb2004, %if.then1897, %if.then1680, %sw.bb1548, %sw.bb1545, %if.end1530, %if.end1513, %sw.bb1447, %sw.bb1443, %sw.bb1439, %sw.bb1429, %sw.bb1425, %sw.bb1415, %sw.bb1410, %sw.bb1406, %sw.bb1402, %sw.bb1124, %sw.bb1119, %sw.bb1114, %sw.bb1094, %sw.bb1089, %sw.bb1084, %sw.bb1080, %sw.bb1076, %sw.bb1072, %sw.bb1061, %sw.bb1058, %sw.bb1055, %sw.bb1051, %sw.bb1047, %sw.bb1043, %sw.bb1040, %if.end967, %if.then962, %sw.bb856, %sw.bb778, %if.end671, %if.then600, %sw.bb479, %sw.bb469, %sw.bb465, %sw.bb408, %sw.bb358, %sw.bb223, %sw.bb218, %sw.bb165, %sw.bb107, %sw.bb105, %get_errno.exit1845
+  %retval.0 = phi i64 [ %call3705, %sw.bb3704 ], [ %retval.0.i3701, %get_errno.exit3706 ], [ %retval.0.i3653, %if.end3560 ], [ %retval.0.i3646, %if.end3540 ], [ %call3406, %if.then3409 ], [ -14, %if.then3431 ], [ %ret.41, %if.end3338 ], [ %call3235, %sw.bb3232 ], [ %conv2946, %sw.bb2941 ], [ %call2651, %sw.bb2649 ], [ %conv2648, %sw.bb2642 ], [ %retval.2, %cleanup2461 ], [ %retval.1, %cleanup ], [ %call2169, %sw.bb2168 ], [ %call2005, %sw.bb2004 ], [ %conv1898, %if.then1897 ], [ %conv1678, %if.then1680 ], [ %call1549, %sw.bb1548 ], [ %conv1547, %sw.bb1545 ], [ %retval.0.i2599, %if.end1530 ], [ %retval.0.i2590, %if.end1513 ], [ %call1448, %sw.bb1447 ], [ %call1446, %sw.bb1443 ], [ %call1442, %sw.bb1439 ], [ %call1432, %sw.bb1429 ], [ %call1428, %sw.bb1425 ], [ %call1418, %sw.bb1415 ], [ %call1414, %sw.bb1410 ], [ %call1409, %sw.bb1406 ], [ %call1405, %sw.bb1402 ], [ %call1129, %sw.bb1124 ], [ %call1123, %sw.bb1119 ], [ %call1118, %sw.bb1114 ], [ %call1098, %sw.bb1094 ], [ %call1093, %sw.bb1089 ], [ %call1088, %sw.bb1084 ], [ %call1083, %sw.bb1080 ], [ %call1079, %sw.bb1076 ], [ %call1075, %sw.bb1072 ], [ %call1065, %sw.bb1061 ], [ %call1060, %sw.bb1058 ], [ %call1057, %sw.bb1055 ], [ %call1054, %sw.bb1051 ], [ %call1050, %sw.bb1047 ], [ %call1046, %sw.bb1043 ], [ %call1042, %sw.bb1040 ], [ %conv966, %if.then962 ], [ %sub968, %if.end967 ], [ %call860, %sw.bb856 ], [ %call779, %sw.bb778 ], [ %call672, %if.end671 ], [ %conv597, %if.then600 ], [ %conv482, %sw.bb479 ], [ %call472, %sw.bb469 ], [ %call468, %sw.bb465 ], [ %call411, %sw.bb408 ], [ 0, %sw.bb358 ], [ %conv225, %sw.bb223 ], [ %conv222, %sw.bb218 ], [ %call166, %sw.bb165 ], [ %call108, %sw.bb107 ], [ %call106, %sw.bb105 ], [ %retval.0.i1840, %get_errno.exit1845 ], [ -512, %sw.bb ], [ -14, %if.else37 ], [ -14, %if.end67 ], [ -14, %sw.bb92 ], [ -14, %if.then118 ], [ %retval.0.i1883, %get_errno.exit1888 ], [ -14, %if.then183 ], [ %retval.0.i1895, %if.end187 ], [ %retval.0.i1895, %get_errno.exit1900 ], [ -14, %sw.bb189 ], [ -14, %sw.bb208 ], [ -14, %sw.bb226 ], [ -14, %sw.bb234 ], [ -14, %if.then256 ], [ -14, %sw.bb297 ], [ -14, %if.end303 ], [ -14, %sw.bb318 ], [ -14, %if.end322 ], [ -14, %sw.bb337 ], [ -14, %sw.bb347 ], [ -14, %sw.bb387 ], [ %retval.0.i2020, %if.then404 ], [ %retval.0.i2020, %get_errno.exit2025 ], [ -14, %if.then416 ], [ -14, %if.else446 ], [ -14, %sw.bb456 ], [ -14, %sw.bb484 ], [ -22, %sw.bb492 ], [ %retval.0.i2077, %if.then508 ], [ %retval.0.i2077, %get_errno.exit2082 ], [ -22, %sw.bb520 ], [ -14, %land.lhs.true526 ], [ -22, %sw.bb548 ], [ -14, %if.then555 ], [ -22, %if.end559 ], [ -14, %if.then571 ], [ %conv566, %if.end575 ], [ %conv566, %if.end564 ], [ -22, %sw.bb577 ], [ -14, %if.then588 ], [ %retval.0.i2107, %if.end592 ], [ %retval.0.i2107, %get_errno.exit2112 ], [ -22, %sw.bb606 ], [ -14, %if.end612 ], [ -14, %if.then632 ], [ %retval.0.i2136, %get_errno.exit2141 ], [ %conv640, %if.end637 ], [ -14, %sw.bb642 ], [ -14, %sw.bb654 ], [ -512, %sw.bb667 ], [ -14, %sw.bb673 ], [ -14, %sw.bb681 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ -14, %if.then716 ], [ %retval.0.i2177, %if.end720 ], [ %retval.0.i2177, %get_errno.exit2182 ], [ %retval.0.i2186, %get_errno.exit2191 ], [ %call736, %if.then735 ], [ -14, %sw.bb825 ], [ -14, %if.then837 ], [ -14, %sw.bb921 ], [ -14, %sw.bb940 ], [ -14, %sw.bb976 ], [ -14, %if.then987 ], [ %ret.14, %do.body992 ], [ %ret.14, %convert_statfs ], [ -14, %sw.bb1105 ], [ -22, %sw.bb1138 ], [ 0, %if.end1142 ], [ -14, %if.end1146 ], [ -22, %sw.bb1130 ], [ -14, %if.then1219 ], [ %retval.0.i2485, %if.end1223 ], [ %retval.0.i2485, %get_errno.exit2490 ], [ %retval.0.i2505, %get_errno.exit2510 ], [ %retval.0.i2505, %if.end1313 ], [ %spec.select1785, %if.then1315 ], [ -14, %sw.bb1322 ], [ -14, %if.then1339 ], [ %retval.0.i2521, %do.body1344 ], [ %retval.0.i2521, %get_errno.exit2526 ], [ -14, %sw.bb1465 ], [ -14, %sw.bb1473 ], [ -14, %sw.bb1496 ], [ -14, %if.then1507 ], [ -14, %sw.bb1514 ], [ -14, %land.lhs.true1526 ], [ %retval.0.i2643, %get_errno.exit2648 ], [ %conv1569, %if.else1565 ], [ %retval.0.i2654, %get_errno.exit2659 ], [ %conv1585, %if.else1581 ], [ %retval.0.i2666, %get_errno.exit2671 ], [ %conv1601, %if.else1597 ], [ %retval.0.i2678, %get_errno.exit2683 ], [ %conv1619, %if.else1615 ], [ -22, %sw.bb1631 ], [ -22, %if.then1650 ], [ %retval.0.i2703, %get_errno.exit2708 ], [ -22, %sw.bb1665 ], [ %retval.0.i2723, %get_errno.exit2728 ], [ -22, %sw.bb1737 ], [ -14, %if.end1741 ], [ -22, %sw.bb1752 ], [ -14, %if.then1765 ], [ %retval.0.i2743, %if.end1769 ], [ %retval.0.i2743, %get_errno.exit2748 ], [ -22, %sw.bb1774 ], [ -14, %if.end1780 ], [ -22, %sw.bb1798 ], [ -14, %if.then1815 ], [ %retval.0.i2772, %get_errno.exit2777 ], [ -22, %sw.bb1848 ], [ -14, %if.end1918 ], [ %retval.0.i2811, %get_errno.exit2816 ], [ %retval.0.i2838, %get_errno.exit2843 ], [ -14, %if.else2017 ], [ -14, %if.else2038 ], [ -14, %sw.bb2048 ], [ -14, %sw.bb2056 ], [ %ret.23, %if.end2127 ], [ %retval.0.i2895, %get_errno.exit2900 ], [ -14, %sw.bb2215 ], [ %retval.0.i2904, %get_errno.exit2909 ], [ %call2229, %if.then2228 ], [ -14, %sw.bb2231 ], [ -14, %if.then2263 ], [ %retval.0.i2924, %if.end2267 ], [ %retval.0.i2924, %get_errno.exit2929 ], [ -14, %sw.bb2471 ], [ -14, %do.body2522 ], [ -14, %do.body2508 ], [ -14, %if.then2501 ], [ -14, %do.body2583 ], [ -14, %do.body2569 ], [ -14, %if.then2562 ], [ -12, %sw.bb2629 ], [ -14, %if.then2662 ], [ -14, %if.then2685 ], [ -14, %if.then2696 ], [ -14, %if.then2727 ], [ -14, %if.then2747 ], [ -14, %if.then2774 ], [ %retval.0.i3198, %get_errno.exit3203 ], [ %retval.0.i3214, %get_errno.exit3219 ], [ -38, %entry ], [ -38, %entry ], [ -14, %if.else2929 ], [ %retval.0.i3324, %if.then2955 ], [ %retval.0.i3324, %get_errno.exit3329 ], [ -14, %if.end2983 ], [ -14, %sw.bb2992 ], [ %ret.38, %do.body3066 ], [ %ret.38, %if.then3059 ], [ %ret.38, %if.end3056 ], [ %ret.39, %if.end3090 ], [ %retval.0.i3494, %get_errno.exit3499 ], [ %conv3195, %if.else3191 ], [ %retval.0.i3503, %if.then3217 ], [ %retval.0.i3503, %get_errno.exit3508 ], [ -14, %if.then3247 ], [ -22, %sw.bb3265 ], [ -14, %if.end3278 ], [ -14, %if.then3353 ], [ -14, %if.then3382 ], [ %retval.0.i3559, %do.body3387 ], [ %retval.0.i3559, %get_errno.exit3564 ], [ %retval.0.i3571, %if.then3416 ], [ 0, %do.body3424 ], [ -14, %if.else3446 ], [ %retval.0.i3585, %get_errno.exit3590 ], [ -14, %if.else3472 ], [ %spec.select1795, %get_errno.exit3605 ], [ %retval.0.i3630, %get_errno.exit3635 ], [ %retval.0.i3639, %if.then3527 ], [ %retval.0.i3639, %get_errno.exit3644 ], [ -14, %land.lhs.true3536 ], [ -14, %if.then3543 ], [ -14, %land.lhs.true3556 ], [ -14, %sw.bb3592 ], [ -38, %do.body3707 ], [ -38, %if.then3712 ], [ -14, %if.then1297 ], [ %spec.select1796, %if.end1658 ], [ -14, %land.lhs.true1706 ], [ -14, %land.lhs.true1722 ], [ %retval.0.i2723, %do.body1729 ], [ %retval.0.i2723, %if.end1720 ], [ %retval.0.i3014, %do.body2536 ], [ %retval.0.i3014, %get_errno.exit3019 ], [ %retval.0.i3032, %do.body2597 ], [ %retval.0.i3032, %get_errno.exit3037 ], [ -14, %if.then3148 ], [ -14, %if.then3165 ], [ %retval.0.i3487, %do.body3172 ], [ %retval.0.i3487, %if.end3163 ], [ %spec.select1797, %land.lhs.true3458 ], [ -14, %if.then3657 ], [ -14, %if.then3674 ], [ %retval.0.i3720, %do.body3681 ], [ %retval.0.i3720, %if.end3672 ], [ %retval.0.i3720, %get_errno.exit3725 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then33 ], [ %call54, %if.then51 ], [ %retval.0.i1803, %land.lhs.true47 ], [ %retval.0.i1803, %get_errno.exit1808 ], [ %conv.i1817, %if.then.i1814 ], [ %call.i1811, %if.then63 ], [ %ret.1, %if.end86 ], [ %conv.i1837, %if.then.i1834 ], [ %call.i1831, %if.else87 ], [ %conv.i1853, %if.then.i1850 ], [ %conv114, %sw.bb110 ], [ %conv.i1862, %if.then.i1859 ], [ %conv130, %if.end124 ], [ %conv.i1871, %if.then.i1868 ], [ %conv137, %sw.bb132 ], [ %conv.i1878, %if.then.i1875 ], [ %conv143, %sw.bb139 ], [ -14, %if.end193 ], [ %conv.i1908, %if.then.i1905 ], [ %conv205, %if.else200 ], [ %conv.i1915, %if.then.i1912 ], [ %conv216, %if.end212 ], [ %conv.i1922, %if.then.i1919 ], [ %conv232, %if.end230 ], [ %conv.i1929, %if.then.i1926 ], [ %conv242, %if.end238 ], [ %conv.i1936, %if.then.i1933 ], [ %call247, %sw.bb244 ], [ %conv.i1943, %if.then.i1940 ], [ %conv251, %sw.bb249 ], [ -14, %if.end262 ], [ -14, %if.end262.thread ], [ -14, %if.end307 ], [ %conv.i1960, %if.then.i1957 ], [ %conv316, %if.end311 ], [ %conv.i1969, %if.then.i1966 ], [ %conv335, %if.end326 ], [ %conv.i1976, %if.then.i1973 ], [ %conv345, %if.end341 ], [ %conv.i1983, %if.then.i1980 ], [ %conv356, %if.end351 ], [ %conv.i1990, %if.then.i1987 ], [ %conv362, %sw.bb359 ], [ %conv.i2001, %if.then.i1998 ], [ %conv369, %sw.bb364 ], [ -14, %sw.bb371 ], [ %conv.i2010, %if.then.i2007 ], [ %conv384, %if.else379 ], [ %conv.i2017, %if.then.i2014 ], [ %conv395, %if.end391 ], [ %conv.i2040, %if.then.i2037 ], [ %conv444, %if.then442 ], [ %conv.i2047, %if.then.i2044 ], [ %conv453, %if.end450 ], [ %conv.i2054, %if.then.i2051 ], [ %conv463, %if.end460 ], [ %conv.i2061, %if.then.i2058 ], [ %conv477, %sw.bb473 ], [ %conv.i2074, %if.then.i2071 ], [ %conv490, %if.end488 ], [ %conv.i2088, %if.then.i2085 ], [ %conv514, %sw.bb512 ], [ %conv.i2095, %if.then.i2092 ], [ %conv518, %sw.bb516 ], [ -512, %get_errno.exit2125 ], [ %retval.0.i2120, %if.then.i2126 ], [ -14, %if.then618 ], [ %conv.i2151, %if.then.i2148 ], [ %conv652, %if.end647 ], [ %conv.i2160, %if.then.i2157 ], [ %conv665, %if.end659 ], [ %conv.i2167, %if.then.i2164 ], [ %conv679, %if.end677 ], [ %conv.i2174, %if.then.i2171 ], [ %conv702, %if.then700 ], [ -14, %land.lhs.true746 ], [ -14, %land.lhs.true752 ], [ %retval.0.i2195, %copy_to_user_timezone.exit.thread ], [ %retval.0.i2195, %if.end750 ], [ %retval.0.i2195, %get_errno.exit2200 ], [ -14, %if.then762 ], [ -14, %if.then769 ], [ %conv.i2228, %if.then.i2225 ], [ %conv776, %if.end774 ], [ -14, %sw.bb780 ], [ %conv.i2235, %if.then.i2232 ], [ %conv791, %if.else788 ], [ %cond816, %if.then808 ], [ -14, %sw.bb794 ], [ -22, %if.else802 ], [ %conv.i2242, %if.then.i2239 ], [ %call820, %if.else817 ], [ %conv.i2249, %if.then.i2246 ], [ %conv832, %if.end829 ], [ %conv.i2258, %if.then.i2255 ], [ %conv846, %if.end841 ], [ %conv.i2267, %if.then.i2264 ], [ %conv853, %if.else848 ], [ %conv.i2274, %if.then.i2271 ], [ %conv864, %sw.bb861 ], [ %conv.i2281, %if.then.i2278 ], [ %conv889, %if.end886 ], [ %conv.i2288, %if.then.i2285 ], [ %call893, %sw.bb891 ], [ %conv.i2296, %if.then.i2293 ], [ %conv899, %sw.bb895 ], [ %conv.i2304, %if.then.i2301 ], [ %conv904, %sw.bb901 ], [ %conv.i2312, %if.then.i2309 ], [ %conv909, %sw.bb906 ], [ %conv.i2319, %if.then.i2316 ], [ %conv915, %sw.bb911 ], [ %conv.i2326, %if.then.i2323 ], [ %conv919, %sw.bb917 ], [ %conv.i2333, %if.then.i2330 ], [ %conv927, %if.end925 ], [ %conv.i2340, %if.then.i2337 ], [ %conv932, %sw.bb929 ], [ %conv.i2347, %if.then.i2344 ], [ %conv938, %sw.bb934 ], [ %conv.i2354, %if.then.i2351 ], [ %conv948, %if.end944 ], [ %conv.i2361, %if.then.i2358 ], [ %conv974, %sw.bb969 ], [ %conv.i2384, %if.then.i2381 ], [ %conv1070, %sw.bb1066 ], [ %conv.i2391, %if.then.i2388 ], [ %conv1103, %sw.bb1099 ], [ %conv.i2400, %if.then.i2397 ], [ %conv1112, %if.end1109 ], [ %conv.i2409, %if.then.i2406 ], [ %conv1136, %sw.bb1132 ], [ %conv.i2418, %if.then.i2415 ], [ %conv1154, %if.end1150 ], [ -14, %if.then1159 ], [ -14, %lor.lhs.false1162 ], [ -14, %if.then1178 ], [ -14, %lor.lhs.false1182 ], [ %retval.0.i2439, %copy_to_user_timeval.exit2460.thread ], [ %retval.0.i2439, %get_errno.exit2444 ], [ -14, %if.then1200 ], [ -14, %lor.lhs.false1204 ], [ %retval.0.i2462, %copy_to_user_timeval.exit2483.thread ], [ %retval.0.i2462, %get_errno.exit2467 ], [ %conv.i2498, %if.then.i2495 ], [ %conv1278, %sw.bb1276 ], [ %conv.i2518, %if.then.i2515 ], [ %conv1328, %if.end1326 ], [ %conv.i2534, %if.then.i2531 ], [ %conv1400, %sw.bb1395 ], [ %conv.i2541, %if.then.i2538 ], [ %conv1423, %sw.bb1419 ], [ %conv.i2548, %if.then.i2545 ], [ %conv1437, %sw.bb1433 ], [ %conv.i2555, %if.then.i2552 ], [ %conv1452, %sw.bb1449 ], [ %conv.i2562, %if.then.i2559 ], [ %conv1457, %sw.bb1454 ], [ %conv.i2571, %if.then.i2568 ], [ %conv1463, %sw.bb1459 ], [ %conv.i2578, %if.then.i2575 ], [ %conv1471, %if.end1469 ], [ %retval.0.i2581, %if.then1483 ], [ %retval.0.i2581, %land.lhs.true1488 ], [ %retval.0.i2581, %if.then1491 ], [ %retval.0.i2581, %get_errno.exit2586 ], [ %conv.i2612, %if.then.i2609 ], [ %conv1534, %sw.bb1531 ], [ %conv.i2619, %if.then.i2616 ], [ %conv1539, %sw.bb1536 ], [ %conv.i2626, %if.then.i2623 ], [ %conv1543, %sw.bb1541 ], [ %conv.i2637, %if.then.i2634 ], [ %conv1554, %sw.bb1550 ], [ %conv.i2691, %if.then.i2688 ], [ %conv1624, %sw.bb1621 ], [ %conv.i2698, %if.then.i2695 ], [ %conv1629, %sw.bb1626 ], [ %conv.i2718, %if.then.i2715 ], [ %conv1684, %if.end1681 ], [ %conv.i2738, %if.then.i2735 ], [ %conv1750, %if.end1745 ], [ %conv.i2758, %if.then.i2755 ], [ %conv1791, %if.end1784 ], [ %conv.i2767, %if.then.i2764 ], [ %conv1796, %sw.bb1793 ], [ %retval.0.i2772, %if.then1841 ], [ %retval.0.i2772, %if.end1819 ], [ %conv.i2787, %if.then.i2784 ], [ %conv1965, %if.end1961 ], [ %conv.i2794, %if.then.i2791 ], [ %conv1969, %sw.bb1967 ], [ %conv.i2801, %if.then.i2798 ], [ %conv1974, %sw.bb1971 ], [ %conv.i2808, %if.then.i2805 ], [ %conv1979, %sw.bb1976 ], [ 0, %do.body.i2821 ], [ -14, %if.then1989 ], [ %retval.0.i2838, %if.then2001 ], [ %retval.0.i2838, %do.body.i2848 ], [ %conv.i2858, %if.then.i2855 ], [ %call2025, %if.end2022 ], [ %conv.i2865, %if.then.i2862 ], [ %call2046, %if.end2043 ], [ %conv.i2874, %if.then.i2871 ], [ %conv2054, %if.end2052 ], [ -14, %if.end2083 ], [ -14, %if.end2083.thread ], [ %retval.0.i2895, %317 ], [ -14, %if.then2198 ], [ -14, %if.then2246 ], [ %retval.0.i2915, %if.end2252 ], [ %conv.i2937, %if.then.i2934 ], [ %conv2330, %sw.bb2327 ], [ %conv.i2944, %if.then.i2941 ], [ %conv2335, %sw.bb2332 ], [ %conv.i2951, %if.then.i2948 ], [ %conv2340, %sw.bb2337 ], [ %conv.i2958, %if.then.i2955 ], [ %conv2345, %sw.bb2342 ], [ %conv.i2965, %if.then.i2962 ], [ %conv2353, %sw.bb2347 ], [ %conv.i2972, %if.then.i2969 ], [ %conv2361, %sw.bb2355 ], [ %conv.i2995, %if.then.i2992 ], [ %conv2469, %sw.bb2462 ], [ %conv.i3002, %if.then.i2999 ], [ %conv2483, %if.end2475 ], [ %conv.i3011, %if.then.i3008 ], [ %conv2493, %sw.bb2485 ], [ %conv.i3029, %if.then.i3026 ], [ %conv2554, %sw.bb2546 ], [ %conv.i3047, %if.then.i3044 ], [ %conv2611, %sw.bb2607 ], [ %conv.i3056, %if.then.i3053 ], [ %conv2617, %sw.bb2613 ], [ %conv.i3063, %if.then.i3060 ], [ %conv2622, %sw.bb2619 ], [ %conv.i3070, %if.then.i3067 ], [ %conv2627, %sw.bb2624 ], [ -14, %if.end2633 ], [ %conv.i3077, %if.then.i3074 ], [ %conv2639, %if.else2637 ], [ %conv.i3086, %if.then.i3083 ], [ %conv2654, %sw.bb2652 ], [ %conv.i3093, %if.then.i3090 ], [ %call2658, %sw.bb2656 ], [ -14, %if.end2667 ], [ %conv.i3100, %if.then.i3097 ], [ %call2674, %if.then2673 ], [ %conv.i3107, %if.then.i3104 ], [ %call2677, %if.else2676 ], [ %conv.i3114, %if.then.i3111 ], [ %call2692, %if.end2690 ], [ -14, %if.end2701 ], [ %conv.i3121, %if.then.i3118 ], [ %conv2713, %if.then2710 ], [ %conv.i3128, %if.then.i3125 ], [ %conv2718, %if.else2715 ], [ %conv.i3135, %if.then.i3132 ], [ %conv2739, %if.then2735 ], [ -14, %if.end2732 ], [ -14, %if.end2752 ], [ %conv.i3142, %if.then.i3139 ], [ %call2762, %if.then2761 ], [ %conv.i3149, %if.then.i3146 ], [ %call2765, %if.else2764 ], [ %conv.i3156, %if.then.i3153 ], [ %call2784, %if.then2782 ], [ -14, %if.end2779 ], [ -14, %sw.bb2788 ], [ %conv.i3163, %if.then.i3160 ], [ %conv2800, %if.then2798 ], [ %conv.i3170, %if.then.i3167 ], [ %conv2804, %if.else2802 ], [ %conv.i3177, %if.then.i3174 ], [ %conv2816, %if.then2813 ], [ -14, %sw.bb2809 ], [ %conv.i3195, %if.then.i3192 ], [ %conv2828, %if.then2825 ], [ 0, %do.body.i3208 ], [ -14, %if.then2839 ], [ %retval.0.i3214, %if.then2850 ], [ %retval.0.i3214, %do.body.i3224 ], [ -14, %sw.bb2853 ], [ -14, %land.lhs.true2876 ], [ -4, %host_to_target_timespec.exit3255.thread ], [ %retval.0.i3243, %get_errno.exit3248 ], [ %conv.i3263, %if.then.i3260 ], [ %conv2886, %sw.bb2881 ], [ %conv.i3274, %if.then.i3271 ], [ %conv2893, %sw.bb2888 ], [ %conv.i3285, %if.then.i3282 ], [ %conv2901, %sw.bb2895 ], [ -14, %if.else2908 ], [ -14, %if.end2913 ], [ %conv.i3312, %if.then.i3309 ], [ %conv2927, %if.then2923 ], [ %conv.i3321, %if.then.i3318 ], [ %conv2938, %if.end2933 ], [ %conv.i3335, %if.then.i3332 ], [ %conv2964, %sw.bb2958 ], [ %conv.i3342, %if.then.i3339 ], [ %conv2970, %sw.bb2966 ], [ -14, %if.then2977 ], [ %conv.i3354, %if.then.i3351 ], [ %conv2990, %if.end2988 ], [ %conv.i3361, %if.then.i3358 ], [ %conv2999, %if.end2997 ], [ -14, %if.then3006 ], [ -14, %land.lhs.true3018 ], [ %retval.0.i3377, %get_errno.exit3382 ], [ %retval.0.i3377, %host_to_target_timespec.exit3391.thread ], [ %conv.i3401, %if.then.i3398 ], [ %conv3027, %if.else3023 ], [ -14, %if.then3035 ], [ -14, %land.lhs.true3046 ], [ 0, %if.then3096 ], [ 0, %do.body.i3474 ], [ %conv.i3484, %if.then.i3481 ], [ %call3103, %sw.bb3099 ], [ %conv.i3514, %if.then.i3511 ], [ %conv3224, %sw.bb3220 ], [ %conv.i3521, %if.then.i3518 ], [ %conv3230, %sw.bb3226 ], [ %conv.i3528, %if.then.i3525 ], [ %conv3240, %sw.bb3236 ], [ %conv.i3535, %if.then.i3532 ], [ %conv3263, %if.end3258 ], [ -12, %if.end3284 ], [ %conv.i3619, %if.then.i3616 ], [ %conv3500, %if.else3495 ], [ %conv.i3666, %if.then.i3663 ], [ %conv3565, %sw.bb3561 ], [ %conv.i3675, %if.then.i3672 ], [ %conv3572, %sw.bb3567 ], [ %conv.i3682, %if.then.i3679 ], [ %conv3578, %sw.bb3574 ], [ %conv.i3689, %if.then.i3686 ], [ %conv3583, %sw.bb3580 ], [ %conv.i3698, %if.then.i3695 ], [ %conv3590, %sw.bb3585 ], [ %conv.i3714, %if.then.i3711 ], [ %conv3606, %sw.bb3602 ], [ -14, %sw.bb3691 ], [ %conv.i3735, %if.then.i3732 ], [ %conv3701, %if.else3699 ], [ -14, %if.end1855 ], [ 0, %if.else3081 ], [ -14, %if.then271 ], [ %conv.i1951, %if.then.i1948 ], [ %ret.4, %if.end280 ], [ %retval.0.i2027, %if.end420 ], [ %retval.0.i2027, %get_errno.exit2032 ], [ -14, %land.lhs.true532 ], [ %conv.i2102, %if.then.i2099 ], [ %conv539, %if.else536 ], [ -14, %if.then1877 ], [ -7, %do.body1884 ], [ -14, %if.then1902 ], [ -7, %do.body1909 ], [ -14, %sw.bb2820 ], [ %retval.0.i1883, %if.then156 ], [ %ret.23.ph, %if.end2127.thread ], [ -14, %if.then2172 ], [ -14, %if.then3107 ], [ -14, %if.then3125 ], [ -14, %if.then3610 ], [ -14, %if.then3628 ], [ -22, %sw.bb3436 ], [ -22, %sw.bb3465 ], [ -22, %sw.bb3488 ], [ -22, %sw.bb3503 ], [ %retval.0.i1883, %fd_trans_unregister.exit ], [ %ret.23, %for.body2139 ], [ -11, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -11572,7 +11684,7 @@ return:                                           ; preds = %if.then.i77, %if.en
 define internal fastcc i64 @do_fcntl(i32 noundef %fd, i32 noundef %cmd, i64 noundef %arg) unnamed_addr #2 {
 entry:
   %fl64 = alloca %struct.flock64, align 8
-  %fox = alloca %struct.f_owner_ex, align 8
+  %fox = alloca %struct.f_owner_ex, align 4
   switch i32 %cmd, label %return [
     i32 0, label %if.end
     i32 1, label %if.end
@@ -11639,26 +11751,30 @@ if.end3:                                          ; preds = %do.body.i
   %l_whence14.i = getelementptr inbounds i8, ptr %fl64, i64 2
   store i16 %l_whence.val.i, ptr %l_whence14.i, align 2
   %l_start.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %l_start.val.i = load i64, ptr %l_start.i, align 1
   %l_start18.i = getelementptr inbounds i8, ptr %fl64, i64 8
-  %0 = load <2 x i64>, ptr %l_start.i, align 1
-  store <2 x i64> %0, ptr %l_start18.i, align 8
+  store i64 %l_start.val.i, ptr %l_start18.i, align 8
+  %l_len.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %l_len.val.i = load i64, ptr %l_len.i, align 1
+  %l_len22.i = getelementptr inbounds i8, ptr %fl64, i64 16
+  store i64 %l_len.val.i, ptr %l_len22.i, align 8
   %l_pid.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %l_pid.val.i = load i32, ptr %l_pid.i, align 1
   %l_pid26.i = getelementptr inbounds i8, ptr %fl64, i64 24
   store i32 %l_pid.val.i, ptr %l_pid26.i, align 8
-  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %2 = load ptr, ptr %1, align 8
-  %opaque = getelementptr inbounds i8, ptr %2, i64 624
-  %3 = load ptr, ptr %opaque, align 16
-  %signal_pending = getelementptr inbounds i8, ptr %3, i64 9164
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %1 = load ptr, ptr %0, align 8
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %2 = load ptr, ptr %opaque, align 16
+  %signal_pending = getelementptr inbounds i8, ptr %2, i64 9164
   %call4 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending, i64 noundef 72, i32 noundef %fd, i32 noundef 5, ptr noundef nonnull %fl64) #27
   %cmp.i = icmp eq i64 %call4, -1
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %if.end3
   %call.i61 = tail call ptr @__errno_location() #26
-  %4 = load i32, ptr %call.i61, align 4
-  %sub.i = sub i32 0, %4
+  %3 = load i32, ptr %call.i61, align 4
+  %sub.i = sub i32 0, %3
   %conv.i = sext i32 %sub.i to i64
   br label %get_errno.exit
 
@@ -11688,26 +11804,30 @@ if.end15:                                         ; preds = %do.body.i64
   %l_whence14.i71 = getelementptr inbounds i8, ptr %fl64, i64 2
   store i16 %l_whence.val.i70, ptr %l_whence14.i71, align 2
   %l_start.i72 = getelementptr inbounds i8, ptr %call.i62, i64 8
+  %l_start.val.i73 = load i64, ptr %l_start.i72, align 1
   %l_start18.i74 = getelementptr inbounds i8, ptr %fl64, i64 8
-  %5 = load <2 x i64>, ptr %l_start.i72, align 1
-  store <2 x i64> %5, ptr %l_start18.i74, align 8
+  store i64 %l_start.val.i73, ptr %l_start18.i74, align 8
+  %l_len.i75 = getelementptr inbounds i8, ptr %call.i62, i64 16
+  %l_len.val.i76 = load i64, ptr %l_len.i75, align 1
+  %l_len22.i77 = getelementptr inbounds i8, ptr %fl64, i64 16
+  store i64 %l_len.val.i76, ptr %l_len22.i77, align 8
   %l_pid.i78 = getelementptr inbounds i8, ptr %call.i62, i64 24
   %l_pid.val.i79 = load i32, ptr %l_pid.i78, align 1
   %l_pid26.i80 = getelementptr inbounds i8, ptr %fl64, i64 24
   store i32 %l_pid.val.i79, ptr %l_pid26.i80, align 8
-  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %7 = load ptr, ptr %6, align 8
-  %opaque16 = getelementptr inbounds i8, ptr %7, i64 624
-  %8 = load ptr, ptr %opaque16, align 16
-  %signal_pending17 = getelementptr inbounds i8, ptr %8, i64 9164
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %5 = load ptr, ptr %4, align 8
+  %opaque16 = getelementptr inbounds i8, ptr %5, i64 624
+  %6 = load ptr, ptr %opaque16, align 16
+  %signal_pending17 = getelementptr inbounds i8, ptr %6, i64 9164
   %call18 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending17, i64 noundef 72, i32 noundef %fd, i32 noundef %cmd, ptr noundef nonnull %fl64) #27
   %cmp.i82 = icmp eq i64 %call18, -1
   br i1 %cmp.i82, label %if.then.i84, label %return
 
 if.then.i84:                                      ; preds = %if.end15
   %call.i85 = tail call ptr @__errno_location() #26
-  %9 = load i32, ptr %call.i85, align 4
-  %sub.i86 = sub i32 0, %9
+  %7 = load i32, ptr %call.i85, align 4
+  %sub.i86 = sub i32 0, %7
   %conv.i87 = sext i32 %sub.i86 to i64
   br label %return
 
@@ -11728,26 +11848,30 @@ if.end24:                                         ; preds = %do.body.i91
   %l_whence14.i98 = getelementptr inbounds i8, ptr %fl64, i64 2
   store i16 %l_whence.val.i97, ptr %l_whence14.i98, align 2
   %l_start.i99 = getelementptr inbounds i8, ptr %call.i89, i64 8
+  %l_start.val.i100 = load i64, ptr %l_start.i99, align 1
   %l_start18.i101 = getelementptr inbounds i8, ptr %fl64, i64 8
-  %10 = load <2 x i64>, ptr %l_start.i99, align 1
-  store <2 x i64> %10, ptr %l_start18.i101, align 8
+  store i64 %l_start.val.i100, ptr %l_start18.i101, align 8
+  %l_len.i102 = getelementptr inbounds i8, ptr %call.i89, i64 16
+  %l_len.val.i103 = load i64, ptr %l_len.i102, align 1
+  %l_len22.i104 = getelementptr inbounds i8, ptr %fl64, i64 16
+  store i64 %l_len.val.i103, ptr %l_len22.i104, align 8
   %l_pid.i105 = getelementptr inbounds i8, ptr %call.i89, i64 24
   %l_pid.val.i106 = load i32, ptr %l_pid.i105, align 1
   %l_pid26.i107 = getelementptr inbounds i8, ptr %fl64, i64 24
   store i32 %l_pid.val.i106, ptr %l_pid26.i107, align 8
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %12 = load ptr, ptr %11, align 8
-  %opaque25 = getelementptr inbounds i8, ptr %12, i64 624
-  %13 = load ptr, ptr %opaque25, align 16
-  %signal_pending26 = getelementptr inbounds i8, ptr %13, i64 9164
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %9 = load ptr, ptr %8, align 8
+  %opaque25 = getelementptr inbounds i8, ptr %9, i64 624
+  %10 = load ptr, ptr %opaque25, align 16
+  %signal_pending26 = getelementptr inbounds i8, ptr %10, i64 9164
   %call27 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending26, i64 noundef 72, i32 noundef %fd, i32 noundef %cmd, ptr noundef nonnull %fl64) #27
   %cmp.i108 = icmp eq i64 %call27, -1
   br i1 %cmp.i108, label %if.then.i110, label %get_errno.exit114
 
 if.then.i110:                                     ; preds = %if.end24
   %call.i111 = tail call ptr @__errno_location() #26
-  %14 = load i32, ptr %call.i111, align 4
-  %sub.i112 = sub i32 0, %14
+  %11 = load i32, ptr %call.i111, align 4
+  %sub.i112 = sub i32 0, %11
   %conv.i113 = sext i32 %sub.i112 to i64
   br label %get_errno.exit114
 
@@ -11777,43 +11901,47 @@ if.end38:                                         ; preds = %do.body.i117
   %l_whence14.i124 = getelementptr inbounds i8, ptr %fl64, i64 2
   store i16 %l_whence.val.i123, ptr %l_whence14.i124, align 2
   %l_start.i125 = getelementptr inbounds i8, ptr %call.i115, i64 8
+  %l_start.val.i126 = load i64, ptr %l_start.i125, align 1
   %l_start18.i127 = getelementptr inbounds i8, ptr %fl64, i64 8
-  %15 = load <2 x i64>, ptr %l_start.i125, align 1
-  store <2 x i64> %15, ptr %l_start18.i127, align 8
+  store i64 %l_start.val.i126, ptr %l_start18.i127, align 8
+  %l_len.i128 = getelementptr inbounds i8, ptr %call.i115, i64 16
+  %l_len.val.i129 = load i64, ptr %l_len.i128, align 1
+  %l_len22.i130 = getelementptr inbounds i8, ptr %fl64, i64 16
+  store i64 %l_len.val.i129, ptr %l_len22.i130, align 8
   %l_pid.i131 = getelementptr inbounds i8, ptr %call.i115, i64 24
   %l_pid.val.i132 = load i32, ptr %l_pid.i131, align 1
   %l_pid26.i133 = getelementptr inbounds i8, ptr %fl64, i64 24
   store i32 %l_pid.val.i132, ptr %l_pid26.i133, align 8
-  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %17 = load ptr, ptr %16, align 8
-  %opaque39 = getelementptr inbounds i8, ptr %17, i64 624
-  %18 = load ptr, ptr %opaque39, align 16
-  %signal_pending40 = getelementptr inbounds i8, ptr %18, i64 9164
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %13 = load ptr, ptr %12, align 8
+  %opaque39 = getelementptr inbounds i8, ptr %13, i64 624
+  %14 = load ptr, ptr %opaque39, align 16
+  %signal_pending40 = getelementptr inbounds i8, ptr %14, i64 9164
   %call41 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending40, i64 noundef 72, i32 noundef %fd, i32 noundef %cmd, ptr noundef nonnull %fl64) #27
   %cmp.i135 = icmp eq i64 %call41, -1
   br i1 %cmp.i135, label %if.then.i137, label %return
 
 if.then.i137:                                     ; preds = %if.end38
   %call.i138 = tail call ptr @__errno_location() #26
-  %19 = load i32, ptr %call.i138, align 4
-  %sub.i139 = sub i32 0, %19
+  %15 = load i32, ptr %call.i138, align 4
+  %sub.i139 = sub i32 0, %15
   %conv.i140 = sext i32 %sub.i139 to i64
   br label %return
 
 sw.bb43:                                          ; preds = %if.end
-  %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %21 = load ptr, ptr %20, align 8
-  %opaque44 = getelementptr inbounds i8, ptr %21, i64 624
-  %22 = load ptr, ptr %opaque44, align 16
-  %signal_pending45 = getelementptr inbounds i8, ptr %22, i64 9164
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %17 = load ptr, ptr %16, align 8
+  %opaque44 = getelementptr inbounds i8, ptr %17, i64 624
+  %18 = load ptr, ptr %opaque44, align 16
+  %signal_pending45 = getelementptr inbounds i8, ptr %18, i64 9164
   %call46 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending45, i64 noundef 72, i32 noundef %fd, i32 noundef 3, i64 noundef %arg) #27
   %cmp.i142 = icmp eq i64 %call46, -1
   br i1 %cmp.i142, label %if.then.i144, label %get_errno.exit148
 
 if.then.i144:                                     ; preds = %sw.bb43
   %call.i145 = tail call ptr @__errno_location() #26
-  %23 = load i32, ptr %call.i145, align 4
-  %sub.i146 = sub i32 0, %23
+  %19 = load i32, ptr %call.i145, align 4
+  %sub.i146 = sub i32 0, %19
   %conv.i147 = sext i32 %sub.i146 to i64
   br label %get_errno.exit148
 
@@ -11825,16 +11953,16 @@ get_errno.exit148:                                ; preds = %sw.bb43, %if.then.i
 if.then50:                                        ; preds = %get_errno.exit148
   %conv51 = trunc i64 %retval.0.i143 to i32
   %call52 = tail call i32 @host_to_target_bitmask_len(i32 noundef %conv51, ptr noundef nonnull @fcntl_flags_tbl, i64 noundef 19) #27
-  %24 = or i32 %call52, 32768
-  %or = zext i32 %24 to i64
+  %20 = or i32 %call52, 32768
+  %or = zext i32 %20 to i64
   br label %return
 
 sw.bb55:                                          ; preds = %if.end
-  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %26 = load ptr, ptr %25, align 8
-  %opaque56 = getelementptr inbounds i8, ptr %26, i64 624
-  %27 = load ptr, ptr %opaque56, align 16
-  %signal_pending57 = getelementptr inbounds i8, ptr %27, i64 9164
+  %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %22 = load ptr, ptr %21, align 8
+  %opaque56 = getelementptr inbounds i8, ptr %22, i64 624
+  %23 = load ptr, ptr %opaque56, align 16
+  %signal_pending57 = getelementptr inbounds i8, ptr %23, i64 9164
   %conv58 = trunc i64 %arg to i32
   %call59 = tail call i32 @target_to_host_bitmask_len(i32 noundef %conv58, ptr noundef nonnull @fcntl_flags_tbl, i64 noundef 19) #27
   %call60 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending57, i64 noundef 72, i32 noundef %fd, i32 noundef 4, i32 noundef %call59) #27
@@ -11843,25 +11971,25 @@ sw.bb55:                                          ; preds = %if.end
 
 if.then.i151:                                     ; preds = %sw.bb55
   %call.i152 = tail call ptr @__errno_location() #26
-  %28 = load i32, ptr %call.i152, align 4
-  %sub.i153 = sub i32 0, %28
+  %24 = load i32, ptr %call.i152, align 4
+  %sub.i153 = sub i32 0, %24
   %conv.i154 = sext i32 %sub.i153 to i64
   br label %return
 
 sw.bb62:                                          ; preds = %entry, %if.end
-  %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %30 = load ptr, ptr %29, align 8
-  %opaque63 = getelementptr inbounds i8, ptr %30, i64 624
-  %31 = load ptr, ptr %opaque63, align 16
-  %signal_pending64 = getelementptr inbounds i8, ptr %31, i64 9164
+  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %26 = load ptr, ptr %25, align 8
+  %opaque63 = getelementptr inbounds i8, ptr %26, i64 624
+  %27 = load ptr, ptr %opaque63, align 16
+  %signal_pending64 = getelementptr inbounds i8, ptr %27, i64 9164
   %call65 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending64, i64 noundef 72, i32 noundef %fd, i32 noundef 16, ptr noundef nonnull %fox) #27
   %cmp.i156 = icmp eq i64 %call65, -1
   br i1 %cmp.i156, label %if.then.i158, label %get_errno.exit162
 
 if.then.i158:                                     ; preds = %sw.bb62
   %call.i159 = tail call ptr @__errno_location() #26
-  %32 = load i32, ptr %call.i159, align 4
-  %sub.i160 = sub i32 0, %32
+  %28 = load i32, ptr %call.i159, align 4
+  %sub.i160 = sub i32 0, %28
   %conv.i161 = sext i32 %sub.i160 to i64
   br label %get_errno.exit162
 
@@ -11876,12 +12004,12 @@ if.then69:                                        ; preds = %get_errno.exit162
   br i1 %tobool71.not, label %return, label %if.end73
 
 if.end73:                                         ; preds = %if.then69
-  %33 = load i32, ptr %fox, align 8
-  store i32 %33, ptr %call70, align 4
+  %29 = load i32, ptr %fox, align 4
+  store i32 %29, ptr %call70, align 4
   %pid = getelementptr inbounds i8, ptr %fox, i64 4
-  %34 = load i32, ptr %pid, align 4
+  %30 = load i32, ptr %pid, align 4
   %pid77 = getelementptr inbounds i8, ptr %call70, i64 4
-  store i32 %34, ptr %pid77, align 4
+  store i32 %30, ptr %pid77, align 4
   br label %return
 
 sw.bb79:                                          ; preds = %entry, %if.end
@@ -11890,30 +12018,34 @@ sw.bb79:                                          ; preds = %entry, %if.end
   br i1 %tobool81.not, label %return, label %if.end83
 
 if.end83:                                         ; preds = %sw.bb79
-  %35 = load <2 x i32>, ptr %call80, align 4
-  store <2 x i32> %35, ptr %fox, align 8
-  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %37 = load ptr, ptr %36, align 8
-  %opaque90 = getelementptr inbounds i8, ptr %37, i64 624
-  %38 = load ptr, ptr %opaque90, align 16
-  %signal_pending91 = getelementptr inbounds i8, ptr %38, i64 9164
+  %31 = load i32, ptr %call80, align 4
+  store i32 %31, ptr %fox, align 4
+  %pid87 = getelementptr inbounds i8, ptr %call80, i64 4
+  %32 = load i32, ptr %pid87, align 4
+  %pid89 = getelementptr inbounds i8, ptr %fox, i64 4
+  store i32 %32, ptr %pid89, align 4
+  %33 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %34 = load ptr, ptr %33, align 8
+  %opaque90 = getelementptr inbounds i8, ptr %34, i64 624
+  %35 = load ptr, ptr %opaque90, align 16
+  %signal_pending91 = getelementptr inbounds i8, ptr %35, i64 9164
   %call92 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending91, i64 noundef 72, i32 noundef %fd, i32 noundef 15, ptr noundef nonnull %fox) #27
   %cmp.i163 = icmp eq i64 %call92, -1
   br i1 %cmp.i163, label %if.then.i165, label %return
 
 if.then.i165:                                     ; preds = %if.end83
   %call.i166 = tail call ptr @__errno_location() #26
-  %39 = load i32, ptr %call.i166, align 4
-  %sub.i167 = sub i32 0, %39
+  %36 = load i32, ptr %call.i166, align 4
+  %sub.i167 = sub i32 0, %36
   %conv.i168 = sext i32 %sub.i167 to i64
   br label %return
 
 sw.bb94:                                          ; preds = %entry, %if.end
-  %40 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %41 = load ptr, ptr %40, align 8
-  %opaque95 = getelementptr inbounds i8, ptr %41, i64 624
-  %42 = load ptr, ptr %opaque95, align 16
-  %signal_pending96 = getelementptr inbounds i8, ptr %42, i64 9164
+  %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %38 = load ptr, ptr %37, align 8
+  %opaque95 = getelementptr inbounds i8, ptr %38, i64 624
+  %39 = load ptr, ptr %opaque95, align 16
+  %signal_pending96 = getelementptr inbounds i8, ptr %39, i64 9164
   %conv97 = trunc i64 %arg to i32
   %call98 = tail call i32 @target_to_host_signal(i32 noundef %conv97) #27
   %call99 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending96, i64 noundef 72, i32 noundef %fd, i32 noundef 10, i32 noundef %call98) #27
@@ -11922,25 +12054,25 @@ sw.bb94:                                          ; preds = %entry, %if.end
 
 if.then.i172:                                     ; preds = %sw.bb94
   %call.i173 = tail call ptr @__errno_location() #26
-  %43 = load i32, ptr %call.i173, align 4
-  %sub.i174 = sub i32 0, %43
+  %40 = load i32, ptr %call.i173, align 4
+  %sub.i174 = sub i32 0, %40
   %conv.i175 = sext i32 %sub.i174 to i64
   br label %return
 
 sw.bb101:                                         ; preds = %entry, %if.end
-  %44 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %45 = load ptr, ptr %44, align 8
-  %opaque102 = getelementptr inbounds i8, ptr %45, i64 624
-  %46 = load ptr, ptr %opaque102, align 16
-  %signal_pending103 = getelementptr inbounds i8, ptr %46, i64 9164
+  %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %42 = load ptr, ptr %41, align 8
+  %opaque102 = getelementptr inbounds i8, ptr %42, i64 624
+  %43 = load ptr, ptr %opaque102, align 16
+  %signal_pending103 = getelementptr inbounds i8, ptr %43, i64 9164
   %call104 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending103, i64 noundef 72, i32 noundef %fd, i32 noundef 11, i64 noundef %arg) #27
   %cmp.i177 = icmp eq i64 %call104, -1
   br i1 %cmp.i177, label %if.then.i179, label %get_errno.exit183
 
 if.then.i179:                                     ; preds = %sw.bb101
   %call.i180 = tail call ptr @__errno_location() #26
-  %47 = load i32, ptr %call.i180, align 4
-  %sub.i181 = sub i32 0, %47
+  %44 = load i32, ptr %call.i180, align 4
+  %sub.i181 = sub i32 0, %44
   %conv.i182235 = zext i32 %sub.i181 to i64
   br label %get_errno.exit183
 
@@ -11952,36 +12084,36 @@ get_errno.exit183:                                ; preds = %sw.bb101, %if.then.
   br label %return
 
 sw.bb109:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.end, %if.end
-  %48 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %49 = load ptr, ptr %48, align 8
-  %opaque110 = getelementptr inbounds i8, ptr %49, i64 624
-  %50 = load ptr, ptr %opaque110, align 16
-  %signal_pending111 = getelementptr inbounds i8, ptr %50, i64 9164
+  %45 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %46 = load ptr, ptr %45, align 8
+  %opaque110 = getelementptr inbounds i8, ptr %46, i64 624
+  %47 = load ptr, ptr %opaque110, align 16
+  %signal_pending111 = getelementptr inbounds i8, ptr %47, i64 9164
   %call112 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending111, i64 noundef 72, i32 noundef %fd, i32 noundef %cmd, i64 noundef %arg) #27
   %cmp.i184 = icmp eq i64 %call112, -1
   br i1 %cmp.i184, label %if.then.i186, label %return
 
 if.then.i186:                                     ; preds = %sw.bb109
   %call.i187 = tail call ptr @__errno_location() #26
-  %51 = load i32, ptr %call.i187, align 4
-  %sub.i188 = sub i32 0, %51
+  %48 = load i32, ptr %call.i187, align 4
+  %sub.i188 = sub i32 0, %48
   %conv.i189 = sext i32 %sub.i188 to i64
   br label %return
 
 sw.default:                                       ; preds = %entry, %entry, %if.end
-  %52 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %53 = load ptr, ptr %52, align 8
-  %opaque114 = getelementptr inbounds i8, ptr %53, i64 624
-  %54 = load ptr, ptr %opaque114, align 16
-  %signal_pending115 = getelementptr inbounds i8, ptr %54, i64 9164
+  %49 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %50 = load ptr, ptr %49, align 8
+  %opaque114 = getelementptr inbounds i8, ptr %50, i64 624
+  %51 = load ptr, ptr %opaque114, align 16
+  %signal_pending115 = getelementptr inbounds i8, ptr %51, i64 9164
   %call116 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending115, i64 noundef 72, i32 noundef %fd, i32 noundef %cmd, i64 noundef %arg) #27
   %cmp.i191 = icmp eq i64 %call116, -1
   br i1 %cmp.i191, label %if.then.i193, label %return
 
 if.then.i193:                                     ; preds = %sw.default
   %call.i194 = tail call ptr @__errno_location() #26
-  %55 = load i32, ptr %call.i194, align 4
-  %sub.i195 = sub i32 0, %55
+  %52 = load i32, ptr %call.i194, align 4
+  %sub.i195 = sub i32 0, %52
   %conv.i196 = sext i32 %sub.i195 to i64
   br label %return
 
@@ -12129,7 +12261,7 @@ entry:
   %rfds = alloca %struct.fd_set, align 8
   %wfds = alloca %struct.fd_set, align 8
   %efds = alloca %struct.fd_set, align 8
-  %ts = alloca %struct.timespec, align 16
+  %ts = alloca %struct.timespec, align 8
   %sig = alloca %struct.anon.41, align 8
   %conv = trunc i64 %arg1 to i32
   %tobool.not.i = icmp eq i64 %arg2, 0
@@ -12324,8 +12456,12 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool.not.i117, label %return, label %target_to_host_timespec.exit.thread
 
 target_to_host_timespec.exit.thread:              ; preds = %if.else
-  %9 = load <2 x i64>, ptr %call.i, align 1
-  store <2 x i64> %9, ptr %ts, align 16
+  %call.val.i = load i64, ptr %call.i, align 1
+  store i64 %call.val.i, ptr %ts, align 8
+  %tv_nsec.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tv_nsec.val.i = load i64, ptr %tv_nsec.i, align 1
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %tv_nsec.val.i, ptr %tv_nsec5.i, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %target_to_host_timespec.exit.thread, %if.end10
@@ -12339,14 +12475,14 @@ if.then27:                                        ; preds = %if.end25
   br i1 %tobool29.not, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then27
-  %10 = load i64, ptr %call28, align 8
-  %tobool35.not = icmp eq i64 %10, 0
+  %9 = load i64, ptr %call28, align 8
+  %tobool35.not = icmp eq i64 %9, 0
   br i1 %tobool35.not, label %if.end43, label %if.then36
 
 if.then36:                                        ; preds = %if.end31
   %arrayidx33 = getelementptr i8, ptr %call28, i64 8
-  %11 = load i64, ptr %arrayidx33, align 8
-  %call37 = call i32 @process_sigsuspend_mask(ptr noundef nonnull %sig, i64 noundef %10, i64 noundef %11) #27
+  %10 = load i64, ptr %arrayidx33, align 8
+  %call37 = call i32 @process_sigsuspend_mask(ptr noundef nonnull %sig, i64 noundef %9, i64 noundef %10) #27
   %cmp.not = icmp eq i32 %call37, 0
   br i1 %cmp.not, label %if.end41, label %if.then40
 
@@ -12361,11 +12497,11 @@ if.end41:                                         ; preds = %if.then36
 
 if.end43:                                         ; preds = %if.end31, %if.end41, %if.end25
   %sig_ptr.0 = phi ptr [ %sig, %if.end41 ], [ null, %if.end31 ], [ null, %if.end25 ]
-  %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %13 = load ptr, ptr %12, align 8
-  %opaque.i = getelementptr inbounds i8, ptr %13, i64 624
-  %14 = load ptr, ptr %opaque.i, align 16
-  %signal_pending.i = getelementptr inbounds i8, ptr %14, i64 9164
+  %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %12 = load ptr, ptr %11, align 8
+  %opaque.i = getelementptr inbounds i8, ptr %12, i64 624
+  %13 = load ptr, ptr %opaque.i, align 16
+  %signal_pending.i = getelementptr inbounds i8, ptr %13, i64 9164
   %call.i119 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 270, i32 noundef %conv, ptr noundef %rfds_ptr.0.ph, ptr noundef %wfds_ptr.0.ph, ptr noundef %efds_ptr.0.ph, ptr noundef %ts_ptr.0, ptr noundef %sig_ptr.0) #27
   %sext = shl i64 %call.i119, 32
   %conv46 = ashr exact i64 %sext, 32
@@ -12374,8 +12510,8 @@ if.end43:                                         ; preds = %if.end31, %if.end41
 
 if.then.i121:                                     ; preds = %if.end43
   %call.i122 = tail call ptr @__errno_location() #26
-  %15 = load i32, ptr %call.i122, align 4
-  %sub.i = sub i32 0, %15
+  %14 = load i32, ptr %call.i122, align 4
+  %sub.i = sub i32 0, %14
   %conv.i123 = sext i32 %sub.i to i64
   br label %get_errno.exit
 
@@ -12387,10 +12523,10 @@ get_errno.exit:                                   ; preds = %if.end43, %if.then.
   br i1 %or.cond, label %if.end51, label %if.then.i124
 
 if.then.i124:                                     ; preds = %get_errno.exit
-  %16 = load ptr, ptr %12, align 8
-  %opaque.i125 = getelementptr inbounds i8, ptr %16, i64 624
-  %17 = load ptr, ptr %opaque.i125, align 16
-  %in_sigsuspend.i = getelementptr inbounds i8, ptr %17, i64 9160
+  %15 = load ptr, ptr %11, align 8
+  %opaque.i125 = getelementptr inbounds i8, ptr %15, i64 624
+  %16 = load ptr, ptr %opaque.i125, align 16
+  %in_sigsuspend.i = getelementptr inbounds i8, ptr %16, i64 9160
   store i32 1, ptr %in_sigsuspend.i, align 8
   br label %if.end51
 
@@ -12433,12 +12569,12 @@ land.lhs.true85:                                  ; preds = %land.lhs.true69, %i
   br i1 %tobool.not.i129, label %return, label %host_to_target_timespec.exit.thread
 
 host_to_target_timespec.exit.thread:              ; preds = %land.lhs.true85
-  %18 = load i64, ptr %ts, align 16
-  store i64 %18, ptr %call.i128, align 1
+  %17 = load i64, ptr %ts, align 8
+  store i64 %17, ptr %call.i128, align 1
   %tv_nsec.i131 = getelementptr inbounds i8, ptr %call.i128, i64 8
   %tv_nsec3.i = getelementptr inbounds i8, ptr %ts, i64 8
-  %19 = load i64, ptr %tv_nsec3.i, align 8
-  store i64 %19, ptr %tv_nsec.i131, align 1
+  %18 = load i64, ptr %tv_nsec3.i, align 8
+  store i64 %18, ptr %tv_nsec.i131, align 1
   br label %return
 
 return:                                           ; preds = %land.lhs.true69, %if.end51, %if.else83, %host_to_target_timespec.exit.thread, %land.lhs.true85, %if.else, %if.then.i78, %if.then.i38, %if.then.i, %land.lhs.true62, %land.lhs.true, %if.then27, %if.then40
@@ -14122,9 +14258,9 @@ entry:
   %pki = alloca %struct.in6_pktinfo, align 4
   %ipv6mreq = alloca %struct.ipv6_mreq, align 4
   %icmp6f = alloca %struct.icmp6_filter, align 4
-  %tv = alloca %struct.timeval, align 16
+  %tv = alloca %struct.timeval, align 8
   %fprog = alloca %struct.sock_fprog, align 8
-  %lg = alloca %struct.linger, align 8
+  %lg = alloca %struct.linger, align 4
   switch i32 %level, label %do.body401 [
     i32 6, label %sw.bb
     i32 17, label %sw.bb
@@ -14241,15 +14377,19 @@ if.end66:                                         ; preds = %sw.bb58
   br i1 %tobool.not.i, label %target_to_host_ip_mreq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end66
-  %4 = load <2 x i32>, ptr %call.i171, align 8
-  store <2 x i32> %4, ptr %3, align 16
+  %4 = load i32, ptr %call.i171, align 8
+  store i32 %4, ptr %3, align 16
+  %imr_address.i = getelementptr inbounds i8, ptr %call.i171, i64 4
+  %5 = load i32, ptr %imr_address.i, align 4
+  %imr_address4.i = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %5, ptr %imr_address4.i, align 4
   %cmp.i172 = icmp eq i32 %optlen, 16
   br i1 %cmp.i172, label %if.then8.i, label %target_to_host_ip_mreq.exit
 
 if.then8.i:                                       ; preds = %if.end.i
   %imr_ifindex.i = getelementptr inbounds i8, ptr %call.i171, i64 8
-  %5 = load i64, ptr %imr_ifindex.i, align 8
-  %conv10.i = trunc i64 %5 to i32
+  %6 = load i64, ptr %imr_ifindex.i, align 8
+  %conv10.i = trunc i64 %6 to i32
   %imr_ifindex11.i = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %conv10.i, ptr %imr_ifindex11.i, align 8
   br label %target_to_host_ip_mreq.exit
@@ -14262,8 +14402,8 @@ target_to_host_ip_mreq.exit:                      ; preds = %if.end66, %if.end.i
 
 if.then.i176:                                     ; preds = %target_to_host_ip_mreq.exit
   %call.i177 = tail call ptr @__errno_location() #26
-  %6 = load i32, ptr %call.i177, align 4
-  %sub.i178 = sub i32 0, %6
+  %7 = load i32, ptr %call.i177, align 4
+  %sub.i178 = sub i32 0, %7
   %conv.i179 = sext i32 %sub.i178 to i64
   br label %return
 
@@ -14284,8 +14424,8 @@ if.end82:                                         ; preds = %if.end77
 
 if.then.i183:                                     ; preds = %if.end82
   %call.i184 = tail call ptr @__errno_location() #26
-  %7 = load i32, ptr %call.i184, align 4
-  %sub.i185 = sub i32 0, %7
+  %8 = load i32, ptr %call.i184, align 4
+  %sub.i185 = sub i32 0, %8
   %conv.i186 = sext i32 %sub.i185 to i64
   br label %return
 
@@ -14342,8 +14482,8 @@ if.end107:                                        ; preds = %if.end92
 
 if.then.i190:                                     ; preds = %if.end107
   %call.i191 = tail call ptr @__errno_location() #26
-  %8 = load i32, ptr %call.i191, align 4
-  %sub.i192 = sub i32 0, %8
+  %9 = load i32, ptr %call.i191, align 4
+  %sub.i192 = sub i32 0, %9
   %conv.i193 = sext i32 %sub.i192 to i64
   br label %return
 
@@ -14364,8 +14504,8 @@ if.end120:                                        ; preds = %if.end116
 
 if.then.i197:                                     ; preds = %if.end120
   %call.i198 = tail call ptr @__errno_location() #26
-  %9 = load i32, ptr %call.i198, align 4
-  %sub.i199 = sub i32 0, %9
+  %10 = load i32, ptr %call.i198, align 4
+  %sub.i199 = sub i32 0, %10
   %conv.i200 = sext i32 %sub.i199 to i64
   br label %return
 
@@ -14386,8 +14526,8 @@ if.end135:                                        ; preds = %if.end131
 
 if.then.i204:                                     ; preds = %if.end135
   %call.i205 = tail call ptr @__errno_location() #26
-  %10 = load i32, ptr %call.i205, align 4
-  %sub.i206 = sub i32 0, %10
+  %11 = load i32, ptr %call.i205, align 4
+  %sub.i206 = sub i32 0, %11
   %conv.i207 = sext i32 %sub.i206 to i64
   br label %return
 
@@ -14411,8 +14551,8 @@ for.cond.preheader:                               ; preds = %sw.bb144
 
 if.then.i211:                                     ; preds = %for.cond.preheader
   %call.i212 = tail call ptr @__errno_location() #26
-  %11 = load i32, ptr %call.i212, align 4
-  %sub.i213 = sub i32 0, %11
+  %12 = load i32, ptr %call.i212, align 4
+  %sub.i213 = sub i32 0, %12
   %conv.i214 = sext i32 %sub.i213 to i64
   br label %return
 
@@ -14441,8 +14581,8 @@ if.end187:                                        ; preds = %if.end172
 
 if.then.i218:                                     ; preds = %if.end187
   %call.i219 = tail call ptr @__errno_location() #26
-  %12 = load i32, ptr %call.i219, align 4
-  %sub.i220 = sub i32 0, %12
+  %13 = load i32, ptr %call.i219, align 4
+  %sub.i220 = sub i32 0, %13
   %conv.i221 = sext i32 %sub.i220 to i64
   br label %return
 
@@ -14474,8 +14614,8 @@ if.end204:                                        ; preds = %if.end199
 
 if.then.i225:                                     ; preds = %if.end204
   %call.i226 = tail call ptr @__errno_location() #26
-  %13 = load i32, ptr %call.i226, align 4
-  %sub.i227 = sub i32 0, %13
+  %14 = load i32, ptr %call.i226, align 4
+  %sub.i227 = sub i32 0, %14
   br label %get_errno.exit229
 
 get_errno.exit229:                                ; preds = %if.end204, %if.then.i225
@@ -14492,8 +14632,8 @@ sw.bb208:                                         ; preds = %sw.bb193
 
 if.then.i232:                                     ; preds = %sw.bb208
   %call.i233 = tail call ptr @__errno_location() #26
-  %14 = load i32, ptr %call.i233, align 4
-  %sub.i234 = sub i32 0, %14
+  %15 = load i32, ptr %call.i233, align 4
+  %sub.i234 = sub i32 0, %15
   %conv.i235 = sext i32 %sub.i234 to i64
   br label %return
 
@@ -14536,8 +14676,12 @@ if.end220:                                        ; preds = %set_timeout
   br i1 %tobool.not.i238, label %return, label %if.end224
 
 if.end224:                                        ; preds = %if.end220
-  %15 = load <2 x i64>, ptr %call.i237, align 1
-  store <2 x i64> %15, ptr %tv, align 16
+  %call.val.i = load i64, ptr %call.i237, align 1
+  store i64 %call.val.i, ptr %tv, align 8
+  %tv_usec.i = getelementptr inbounds i8, ptr %call.i237, i64 8
+  %tv_usec.val.i = load i64, ptr %tv_usec.i, align 1
+  %tv_usec5.i = getelementptr inbounds i8, ptr %tv, i64 8
+  store i64 %tv_usec.val.i, ptr %tv_usec5.i, align 8
   %call225 = call i32 @setsockopt(i32 noundef %sockfd, i32 noundef 1, i32 noundef %optname, ptr noundef nonnull %tv, i32 noundef 16) #27
   %conv226 = sext i32 %call225 to i64
   %cmp.i240 = icmp eq i32 %call225, -1
@@ -14657,8 +14801,12 @@ if.end312:                                        ; preds = %sw.bb307
   br i1 %tobool314.not, label %return, label %do.body317
 
 do.body317:                                       ; preds = %if.end312
-  %26 = load <2 x i32>, ptr %call313, align 1
-  store <2 x i32> %26, ptr %lg, align 8
+  %call313.val = load i32, ptr %call313, align 1
+  store i32 %call313.val, ptr %lg, align 4
+  %l_linger = getelementptr inbounds i8, ptr %call313, i64 4
+  %l_linger.val = load i32, ptr %l_linger, align 1
+  %l_linger323 = getelementptr inbounds i8, ptr %lg, i64 4
+  store i32 %l_linger.val, ptr %l_linger323, align 4
   %call325 = call i32 @setsockopt(i32 noundef %sockfd, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %lg, i32 noundef 8) #27
   %conv326 = sext i32 %call325 to i64
   %cmp.i261 = icmp eq i32 %call325, -1
@@ -14666,8 +14814,8 @@ do.body317:                                       ; preds = %if.end312
 
 if.then.i263:                                     ; preds = %do.body317
   %call.i264 = tail call ptr @__errno_location() #26
-  %27 = load i32, ptr %call.i264, align 4
-  %sub.i265 = sub i32 0, %27
+  %26 = load i32, ptr %call.i264, align 4
+  %sub.i265 = sub i32 0, %26
   %conv.i266 = sext i32 %sub.i265 to i64
   br label %return
 
@@ -14690,8 +14838,8 @@ if.end369:                                        ; preds = %if.end354
 
 if.then.i270:                                     ; preds = %if.end369
   %call.i271 = tail call ptr @__errno_location() #26
-  %28 = load i32, ptr %call.i271, align 4
-  %sub.i272 = sub i32 0, %28
+  %27 = load i32, ptr %call.i271, align 4
+  %sub.i272 = sub i32 0, %27
   %conv.i273 = sext i32 %sub.i272 to i64
   br label %return
 
@@ -14728,14 +14876,14 @@ if.end396:                                        ; preds = %if.end381
 
 if.then.i277:                                     ; preds = %if.end396
   %call.i278 = tail call ptr @__errno_location() #26
-  %29 = load i32, ptr %call.i278, align 4
-  %sub.i279 = sub i32 0, %29
+  %28 = load i32, ptr %call.i278, align 4
+  %sub.i279 = sub i32 0, %28
   %conv.i280 = sext i32 %sub.i279 to i64
   br label %return
 
 do.body401:                                       ; preds = %sw.bb11, %sw.bb86, %sw.bb143, %sw.bb166, %sw.bb193, %sw.bb214, %sw.bb373, %entry
-  %30 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %30, 1024
+  %29 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %29, 1024
   %cmp.i282.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i282.not, label %return, label %if.then406
 
@@ -14772,7 +14920,7 @@ declare i32 @semget(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @do_semtimedop(i32 noundef %semid, i64 noundef %ptr, i32 noundef %nsops, i64 noundef %timeout) unnamed_addr #2 {
 entry:
-  %ts = alloca %struct.timespec, align 16
+  %ts = alloca %struct.timespec, align 8
   %tobool.not = icmp eq i64 %timeout, 0
   br i1 %tobool.not, label %if.end10, label %if.else
 
@@ -14782,8 +14930,12 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i, label %return, label %target_to_host_timespec.exit.thread
 
 target_to_host_timespec.exit.thread:              ; preds = %if.else
-  %0 = load <2 x i64>, ptr %call.i, align 1
-  store <2 x i64> %0, ptr %ts, align 16
+  %call.val.i = load i64, ptr %call.i, align 1
+  store i64 %call.val.i, ptr %ts, align 8
+  %tv_nsec.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tv_nsec.val.i = load i64, ptr %tv_nsec.i, align 1
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %tv_nsec.val.i, ptr %tv_nsec5.i, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %target_to_host_timespec.exit.thread, %entry
@@ -14826,11 +14978,11 @@ if.then16:                                        ; preds = %if.end12
   br label %return
 
 if.end17:                                         ; preds = %do.body.i13, %for.cond.preheader.i
-  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %2 = load ptr, ptr %1, align 8
-  %opaque.i = getelementptr inbounds i8, ptr %2, i64 624
-  %3 = load ptr, ptr %opaque.i, align 16
-  %signal_pending.i = getelementptr inbounds i8, ptr %3, i64 9164
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %1 = load ptr, ptr %0, align 8
+  %opaque.i = getelementptr inbounds i8, ptr %1, i64 624
+  %2 = load ptr, ptr %opaque.i, align 16
+  %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
   %call.i15 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 220, i32 noundef %semid, ptr noundef %call13, i32 noundef %nsops, ptr noundef %pts.0) #27
   %sext = shl i64 %call.i15, 32
   %conv19 = ashr exact i64 %sext, 32
@@ -14839,8 +14991,8 @@ if.end17:                                         ; preds = %do.body.i13, %for.c
 
 if.then.i:                                        ; preds = %if.end17
   %call.i18 = tail call ptr @__errno_location() #26
-  %4 = load i32, ptr %call.i18, align 4
-  %sub.i = sub i32 0, %4
+  %3 = load i32, ptr %call.i18, align 4
+  %sub.i = sub i32 0, %3
   %conv.i19 = sext i32 %sub.i to i64
   br label %get_errno.exit
 
@@ -14859,7 +15011,7 @@ define internal fastcc i64 @do_semctl(i32 noundef %semid, i32 noundef %semnum, i
 entry:
   %semid_ds.i89 = alloca %struct.semid_ds, align 8
   %semid_ds.i = alloca %struct.semid_ds, align 8
-  %dsarg = alloca %struct.semid_ds, align 16
+  %dsarg = alloca %struct.semid_ds, align 8
   %seminfo = alloca %struct.seminfo, align 4
   %and = and i32 %cmd, 255
   %trunc = trunc i32 %cmd to i8
@@ -15034,44 +15186,53 @@ if.end.i114:                                      ; preds = %sw.bb14
   br i1 %tobool.not.i.i, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end.i114
+  %8 = load i32, ptr %call.i.i115, align 8
+  store i32 %8, ptr %dsarg, align 8
+  %uid.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 4
+  %9 = load i32, ptr %uid.i.i, align 4
   %uid4.i.i = getelementptr inbounds i8, ptr %dsarg, i64 4
+  store i32 %9, ptr %uid4.i.i, align 4
+  %gid.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 8
+  %10 = load i32, ptr %gid.i.i, align 8
   %gid6.i.i = getelementptr inbounds i8, ptr %dsarg, i64 8
+  store i32 %10, ptr %gid6.i.i, align 8
+  %cuid.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 12
+  %11 = load i32, ptr %cuid.i.i, align 4
   %cuid8.i.i = getelementptr inbounds i8, ptr %dsarg, i64 12
-  %8 = load <4 x i32>, ptr %call.i.i115, align 8
-  store <4 x i32> %8, ptr %dsarg, align 16
+  store i32 %11, ptr %cuid8.i.i, align 4
   %cgid.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 16
-  %9 = load i32, ptr %cgid.i.i, align 8
+  %12 = load i32, ptr %cgid.i.i, align 8
   %cgid10.i.i = getelementptr inbounds i8, ptr %dsarg, i64 16
-  store i32 %9, ptr %cgid10.i.i, align 16
+  store i32 %12, ptr %cgid10.i.i, align 8
   %mode.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 20
-  %10 = load i16, ptr %mode.i.i, align 4
-  %conv.i.i116 = zext i16 %10 to i32
+  %13 = load i16, ptr %mode.i.i, align 4
+  %conv.i.i116 = zext i16 %13 to i32
   %mode12.i.i = getelementptr inbounds i8, ptr %dsarg, i64 20
   store i32 %conv.i.i116, ptr %mode12.i.i, align 4
   %__seq.i.i = getelementptr inbounds i8, ptr %call.i.i115, i64 24
-  %11 = load i16, ptr %__seq.i.i, align 8
+  %14 = load i16, ptr %__seq.i.i, align 8
   %__seq14.i.i = getelementptr inbounds i8, ptr %dsarg, i64 24
-  store i16 %11, ptr %__seq14.i.i, align 8
+  store i16 %14, ptr %__seq14.i.i, align 8
   %sem_nsems.i117 = getelementptr inbounds i8, ptr %call.i112, i64 64
-  %12 = load i64, ptr %sem_nsems.i117, align 8
+  %15 = load i64, ptr %sem_nsems.i117, align 8
   %sem_nsems6.i = getelementptr inbounds i8, ptr %dsarg, i64 80
-  store i64 %12, ptr %sem_nsems6.i, align 16
+  store i64 %15, ptr %sem_nsems6.i, align 8
   %sem_otime.i = getelementptr inbounds i8, ptr %call.i112, i64 48
-  %13 = load i64, ptr %sem_otime.i, align 8
+  %16 = load i64, ptr %sem_otime.i, align 8
   %sem_otime8.i = getelementptr inbounds i8, ptr %dsarg, i64 48
-  store i64 %13, ptr %sem_otime8.i, align 16
+  store i64 %16, ptr %sem_otime8.i, align 8
   %sem_ctime.i = getelementptr inbounds i8, ptr %call.i112, i64 56
-  %14 = load i64, ptr %sem_ctime.i, align 8
+  %17 = load i64, ptr %sem_ctime.i, align 8
   %sem_ctime10.i = getelementptr inbounds i8, ptr %dsarg, i64 64
-  store i64 %14, ptr %sem_ctime10.i, align 16
+  store i64 %17, ptr %sem_ctime10.i, align 8
   %call20 = call i32 (i32, i32, i32, ...) @semctl(i32 noundef %semid, i32 noundef %semnum, i32 noundef %and, ptr nonnull %dsarg) #27
   %cmp.i119 = icmp eq i32 %call20, -1
   br i1 %cmp.i119, label %if.then.i121, label %get_errno.exit125
 
 if.then.i121:                                     ; preds = %if.end18
   %call.i122 = tail call ptr @__errno_location() #26
-  %15 = load i32, ptr %call.i122, align 4
-  %sub.i123 = sub i32 0, %15
+  %18 = load i32, ptr %call.i122, align 4
+  %sub.i123 = sub i32 0, %18
   br label %get_errno.exit125
 
 get_errno.exit125:                                ; preds = %if.end18, %if.then.i121
@@ -15087,36 +15248,36 @@ if.end.i128:                                      ; preds = %get_errno.exit125
   br i1 %tobool.not.i.i130, label %return, label %host_to_target_semid_ds.exit
 
 host_to_target_semid_ds.exit:                     ; preds = %if.end.i128
-  %16 = load i32, ptr %dsarg, align 16
-  store i32 %16, ptr %call.i.i129, align 8
-  %17 = load i32, ptr %uid4.i.i, align 4
+  %19 = load i32, ptr %dsarg, align 8
+  store i32 %19, ptr %call.i.i129, align 8
+  %20 = load i32, ptr %uid4.i.i, align 4
   %uid4.i.i133 = getelementptr inbounds i8, ptr %call.i.i129, i64 4
-  store i32 %17, ptr %uid4.i.i133, align 4
-  %18 = load i32, ptr %gid6.i.i, align 8
+  store i32 %20, ptr %uid4.i.i133, align 4
+  %21 = load i32, ptr %gid6.i.i, align 8
   %gid6.i.i135 = getelementptr inbounds i8, ptr %call.i.i129, i64 8
-  store i32 %18, ptr %gid6.i.i135, align 8
-  %19 = load i32, ptr %cuid8.i.i, align 4
+  store i32 %21, ptr %gid6.i.i135, align 8
+  %22 = load i32, ptr %cuid8.i.i, align 4
   %cuid8.i.i137 = getelementptr inbounds i8, ptr %call.i.i129, i64 12
-  store i32 %19, ptr %cuid8.i.i137, align 4
-  %20 = load i32, ptr %cgid10.i.i, align 16
+  store i32 %22, ptr %cuid8.i.i137, align 4
+  %23 = load i32, ptr %cgid10.i.i, align 8
   %cgid10.i.i139 = getelementptr inbounds i8, ptr %call.i.i129, i64 16
-  store i32 %20, ptr %cgid10.i.i139, align 8
-  %21 = load i32, ptr %mode12.i.i, align 4
-  %conv.i.i141 = trunc i32 %21 to i16
+  store i32 %23, ptr %cgid10.i.i139, align 8
+  %24 = load i32, ptr %mode12.i.i, align 4
+  %conv.i.i141 = trunc i32 %24 to i16
   %mode12.i.i142 = getelementptr inbounds i8, ptr %call.i.i129, i64 20
   store i16 %conv.i.i141, ptr %mode12.i.i142, align 4
-  %22 = load i16, ptr %__seq14.i.i, align 8
+  %25 = load i16, ptr %__seq14.i.i, align 8
   %__seq14.i.i144 = getelementptr inbounds i8, ptr %call.i.i129, i64 24
-  store i16 %22, ptr %__seq14.i.i144, align 8
-  %23 = load i64, ptr %sem_nsems6.i, align 16
+  store i16 %25, ptr %__seq14.i.i144, align 8
+  %26 = load i64, ptr %sem_nsems6.i, align 8
   %sem_nsems6.i146 = getelementptr inbounds i8, ptr %call.i126, i64 64
-  store i64 %23, ptr %sem_nsems6.i146, align 8
-  %24 = load i64, ptr %sem_otime8.i, align 16
+  store i64 %26, ptr %sem_nsems6.i146, align 8
+  %27 = load i64, ptr %sem_otime8.i, align 8
   %sem_otime8.i148 = getelementptr inbounds i8, ptr %call.i126, i64 48
-  store i64 %24, ptr %sem_otime8.i148, align 8
-  %25 = load i64, ptr %sem_ctime10.i, align 16
+  store i64 %27, ptr %sem_otime8.i148, align 8
+  %28 = load i64, ptr %sem_ctime10.i, align 8
   %sem_ctime10.i150 = getelementptr inbounds i8, ptr %call.i126, i64 56
-  store i64 %25, ptr %sem_ctime10.i150, align 8
+  store i64 %28, ptr %sem_ctime10.i150, align 8
   br label %return
 
 sw.bb27:                                          ; preds = %entry, %entry
@@ -15126,8 +15287,8 @@ sw.bb27:                                          ; preds = %entry, %entry
 
 if.then.i154:                                     ; preds = %sw.bb27
   %call.i155 = tail call ptr @__errno_location() #26
-  %26 = load i32, ptr %call.i155, align 4
-  %sub.i156 = sub i32 0, %26
+  %29 = load i32, ptr %call.i155, align 4
+  %sub.i156 = sub i32 0, %29
   br label %get_errno.exit158
 
 get_errno.exit158:                                ; preds = %sw.bb27, %if.then.i154
@@ -15138,44 +15299,44 @@ get_errno.exit158:                                ; preds = %sw.bb27, %if.then.i
 
 host_to_target_seminfo.exit.thread:               ; preds = %get_errno.exit158
   %retval.0.i153 = sext i32 %retval.0.i153.in to i64
-  %27 = load i32, ptr %seminfo, align 4
-  store i32 %27, ptr %call.i159, align 1
+  %30 = load i32, ptr %seminfo, align 4
+  store i32 %30, ptr %call.i159, align 1
   %semmni.i = getelementptr inbounds i8, ptr %call.i159, i64 4
   %semmni3.i = getelementptr inbounds i8, ptr %seminfo, i64 4
-  %28 = load i32, ptr %semmni3.i, align 4
-  store i32 %28, ptr %semmni.i, align 1
+  %31 = load i32, ptr %semmni3.i, align 4
+  store i32 %31, ptr %semmni.i, align 1
   %semmns.i = getelementptr inbounds i8, ptr %call.i159, i64 8
   %semmns6.i = getelementptr inbounds i8, ptr %seminfo, i64 8
-  %29 = load i32, ptr %semmns6.i, align 4
-  store i32 %29, ptr %semmns.i, align 1
+  %32 = load i32, ptr %semmns6.i, align 4
+  store i32 %32, ptr %semmns.i, align 1
   %semmnu.i = getelementptr inbounds i8, ptr %call.i159, i64 12
   %semmnu9.i = getelementptr inbounds i8, ptr %seminfo, i64 12
-  %30 = load i32, ptr %semmnu9.i, align 4
-  store i32 %30, ptr %semmnu.i, align 1
+  %33 = load i32, ptr %semmnu9.i, align 4
+  store i32 %33, ptr %semmnu.i, align 1
   %semmsl.i = getelementptr inbounds i8, ptr %call.i159, i64 16
   %semmsl12.i = getelementptr inbounds i8, ptr %seminfo, i64 16
-  %31 = load i32, ptr %semmsl12.i, align 4
-  store i32 %31, ptr %semmsl.i, align 1
+  %34 = load i32, ptr %semmsl12.i, align 4
+  store i32 %34, ptr %semmsl.i, align 1
   %semopm.i = getelementptr inbounds i8, ptr %call.i159, i64 20
   %semopm15.i = getelementptr inbounds i8, ptr %seminfo, i64 20
-  %32 = load i32, ptr %semopm15.i, align 4
-  store i32 %32, ptr %semopm.i, align 1
+  %35 = load i32, ptr %semopm15.i, align 4
+  store i32 %35, ptr %semopm.i, align 1
   %semume.i = getelementptr inbounds i8, ptr %call.i159, i64 24
   %semume18.i = getelementptr inbounds i8, ptr %seminfo, i64 24
-  %33 = load i32, ptr %semume18.i, align 4
-  store i32 %33, ptr %semume.i, align 1
+  %36 = load i32, ptr %semume18.i, align 4
+  store i32 %36, ptr %semume.i, align 1
   %semusz.i = getelementptr inbounds i8, ptr %call.i159, i64 28
   %semusz21.i = getelementptr inbounds i8, ptr %seminfo, i64 28
-  %34 = load i32, ptr %semusz21.i, align 4
-  store i32 %34, ptr %semusz.i, align 1
+  %37 = load i32, ptr %semusz21.i, align 4
+  store i32 %37, ptr %semusz.i, align 1
   %semvmx.i = getelementptr inbounds i8, ptr %call.i159, i64 32
   %semvmx24.i = getelementptr inbounds i8, ptr %seminfo, i64 32
-  %35 = load i32, ptr %semvmx24.i, align 4
-  store i32 %35, ptr %semvmx.i, align 1
+  %38 = load i32, ptr %semvmx24.i, align 4
+  store i32 %38, ptr %semvmx.i, align 1
   %semaem.i = getelementptr inbounds i8, ptr %call.i159, i64 36
   %semaem27.i = getelementptr inbounds i8, ptr %seminfo, i64 36
-  %36 = load i32, ptr %semaem27.i, align 4
-  store i32 %36, ptr %semaem.i, align 1
+  %39 = load i32, ptr %semaem27.i, align 4
+  store i32 %39, ptr %semaem.i, align 1
   br label %return
 
 sw.bb36:                                          ; preds = %entry, %entry, %entry, %entry
@@ -15186,8 +15347,8 @@ sw.bb36:                                          ; preds = %entry, %entry, %ent
 
 if.then.i165:                                     ; preds = %sw.bb36
   %call.i166 = tail call ptr @__errno_location() #26
-  %37 = load i32, ptr %call.i166, align 4
-  %sub.i167 = sub i32 0, %37
+  %40 = load i32, ptr %call.i166, align 4
+  %sub.i167 = sub i32 0, %40
   %conv.i168 = sext i32 %sub.i167 to i64
   br label %return
 
@@ -15199,7 +15360,7 @@ return:                                           ; preds = %host_to_target_sema
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @do_msgctl(i32 noundef %msgid, i32 noundef %cmd, i64 noundef %ptr) unnamed_addr #2 {
 entry:
-  %dsarg = alloca %struct.msqid_ds, align 16
+  %dsarg = alloca %struct.msqid_ds, align 8
   %msginfo = alloca %struct.msginfo, align 4
   %and = and i32 %cmd, 255
   %trunc = trunc i32 %cmd to i8
@@ -15223,53 +15384,75 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %tobool.not.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
+  %0 = load i32, ptr %call.i.i, align 8
+  store i32 %0, ptr %dsarg, align 8
+  %uid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %1 = load i32, ptr %uid.i.i, align 4
   %uid4.i.i = getelementptr inbounds i8, ptr %dsarg, i64 4
+  store i32 %1, ptr %uid4.i.i, align 4
+  %gid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %2 = load i32, ptr %gid.i.i, align 8
   %gid6.i.i = getelementptr inbounds i8, ptr %dsarg, i64 8
+  store i32 %2, ptr %gid6.i.i, align 8
+  %cuid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %3 = load i32, ptr %cuid.i.i, align 4
   %cuid8.i.i = getelementptr inbounds i8, ptr %dsarg, i64 12
-  %0 = load <4 x i32>, ptr %call.i.i, align 8
-  store <4 x i32> %0, ptr %dsarg, align 16
+  store i32 %3, ptr %cuid8.i.i, align 4
   %cgid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %1 = load i32, ptr %cgid.i.i, align 8
+  %4 = load i32, ptr %cgid.i.i, align 8
   %cgid10.i.i = getelementptr inbounds i8, ptr %dsarg, i64 16
-  store i32 %1, ptr %cgid10.i.i, align 16
+  store i32 %4, ptr %cgid10.i.i, align 8
   %mode.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
-  %2 = load i16, ptr %mode.i.i, align 4
-  %conv.i.i = zext i16 %2 to i32
+  %5 = load i16, ptr %mode.i.i, align 4
+  %conv.i.i = zext i16 %5 to i32
   %mode12.i.i = getelementptr inbounds i8, ptr %dsarg, i64 20
   store i32 %conv.i.i, ptr %mode12.i.i, align 4
   %__seq.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %3 = load i16, ptr %__seq.i.i, align 8
+  %6 = load i16, ptr %__seq.i.i, align 8
   %__seq14.i.i = getelementptr inbounds i8, ptr %dsarg, i64 24
-  store i16 %3, ptr %__seq14.i.i, align 8
+  store i16 %6, ptr %__seq14.i.i, align 8
   %msg_stime.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %7 = load i64, ptr %msg_stime.i, align 8
   %msg_stime6.i = getelementptr inbounds i8, ptr %dsarg, i64 48
+  store i64 %7, ptr %msg_stime6.i, align 8
+  %msg_rtime.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %8 = load i64, ptr %msg_rtime.i, align 8
   %msg_rtime8.i = getelementptr inbounds i8, ptr %dsarg, i64 56
-  %4 = load <2 x i64>, ptr %msg_stime.i, align 8
-  store <2 x i64> %4, ptr %msg_stime6.i, align 16
+  store i64 %8, ptr %msg_rtime8.i, align 8
   %msg_ctime.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %9 = load i64, ptr %msg_ctime.i, align 8
   %msg_ctime10.i = getelementptr inbounds i8, ptr %dsarg, i64 64
+  store i64 %9, ptr %msg_ctime10.i, align 8
+  %__msg_cbytes.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %10 = load i64, ptr %__msg_cbytes.i, align 8
   %__msg_cbytes12.i = getelementptr inbounds i8, ptr %dsarg, i64 72
-  %5 = load <2 x i64>, ptr %msg_ctime.i, align 8
-  store <2 x i64> %5, ptr %msg_ctime10.i, align 16
+  store i64 %10, ptr %__msg_cbytes12.i, align 8
   %msg_qnum.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %11 = load i64, ptr %msg_qnum.i, align 8
   %msg_qnum14.i = getelementptr inbounds i8, ptr %dsarg, i64 80
+  store i64 %11, ptr %msg_qnum14.i, align 8
+  %msg_qbytes.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %12 = load i64, ptr %msg_qbytes.i, align 8
   %msg_qbytes16.i = getelementptr inbounds i8, ptr %dsarg, i64 88
-  %6 = load <2 x i64>, ptr %msg_qnum.i, align 8
-  store <2 x i64> %6, ptr %msg_qnum14.i, align 16
+  store i64 %12, ptr %msg_qbytes16.i, align 8
   %msg_lspid.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %13 = load i64, ptr %msg_lspid.i, align 8
+  %conv.i = trunc i64 %13 to i32
   %msg_lspid18.i = getelementptr inbounds i8, ptr %dsarg, i64 96
+  store i32 %conv.i, ptr %msg_lspid18.i, align 8
+  %msg_lrpid.i = getelementptr inbounds i8, ptr %call.i, i64 104
+  %14 = load i64, ptr %msg_lrpid.i, align 8
+  %conv20.i = trunc i64 %14 to i32
   %msg_lrpid21.i = getelementptr inbounds i8, ptr %dsarg, i64 100
-  %7 = load <2 x i64>, ptr %msg_lspid.i, align 8
-  %8 = trunc <2 x i64> %7 to <2 x i32>
-  store <2 x i32> %8, ptr %msg_lspid18.i, align 16
+  store i32 %conv20.i, ptr %msg_lrpid21.i, align 4
   %call1 = call i32 @msgctl(i32 noundef %msgid, i32 noundef %and, ptr noundef nonnull %dsarg) #27
   %cmp.i = icmp eq i32 %call1, -1
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %if.end
   %call.i10 = tail call ptr @__errno_location() #26
-  %9 = load i32, ptr %call.i10, align 4
-  %sub.i = sub i32 0, %9
+  %15 = load i32, ptr %call.i10, align 4
+  %sub.i = sub i32 0, %15
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %if.end, %if.then.i
@@ -15285,51 +15468,51 @@ if.end.i14:                                       ; preds = %get_errno.exit
   br i1 %tobool.not.i.i16, label %return, label %host_to_target_msqid_ds.exit
 
 host_to_target_msqid_ds.exit:                     ; preds = %if.end.i14
-  %10 = load i32, ptr %dsarg, align 16
-  store i32 %10, ptr %call.i.i15, align 8
-  %11 = load i32, ptr %uid4.i.i, align 4
+  %16 = load i32, ptr %dsarg, align 8
+  store i32 %16, ptr %call.i.i15, align 8
+  %17 = load i32, ptr %uid4.i.i, align 4
   %uid4.i.i19 = getelementptr inbounds i8, ptr %call.i.i15, i64 4
-  store i32 %11, ptr %uid4.i.i19, align 4
-  %12 = load i32, ptr %gid6.i.i, align 8
+  store i32 %17, ptr %uid4.i.i19, align 4
+  %18 = load i32, ptr %gid6.i.i, align 8
   %gid6.i.i21 = getelementptr inbounds i8, ptr %call.i.i15, i64 8
-  store i32 %12, ptr %gid6.i.i21, align 8
-  %13 = load i32, ptr %cuid8.i.i, align 4
+  store i32 %18, ptr %gid6.i.i21, align 8
+  %19 = load i32, ptr %cuid8.i.i, align 4
   %cuid8.i.i23 = getelementptr inbounds i8, ptr %call.i.i15, i64 12
-  store i32 %13, ptr %cuid8.i.i23, align 4
-  %14 = load i32, ptr %cgid10.i.i, align 16
+  store i32 %19, ptr %cuid8.i.i23, align 4
+  %20 = load i32, ptr %cgid10.i.i, align 8
   %cgid10.i.i25 = getelementptr inbounds i8, ptr %call.i.i15, i64 16
-  store i32 %14, ptr %cgid10.i.i25, align 8
-  %15 = load i32, ptr %mode12.i.i, align 4
-  %conv.i.i27 = trunc i32 %15 to i16
+  store i32 %20, ptr %cgid10.i.i25, align 8
+  %21 = load i32, ptr %mode12.i.i, align 4
+  %conv.i.i27 = trunc i32 %21 to i16
   %mode12.i.i28 = getelementptr inbounds i8, ptr %call.i.i15, i64 20
   store i16 %conv.i.i27, ptr %mode12.i.i28, align 4
-  %16 = load i16, ptr %__seq14.i.i, align 8
+  %22 = load i16, ptr %__seq14.i.i, align 8
   %__seq14.i.i30 = getelementptr inbounds i8, ptr %call.i.i15, i64 24
-  store i16 %16, ptr %__seq14.i.i30, align 8
-  %17 = load i64, ptr %msg_stime6.i, align 16
+  store i16 %22, ptr %__seq14.i.i30, align 8
+  %23 = load i64, ptr %msg_stime6.i, align 8
   %msg_stime6.i32 = getelementptr inbounds i8, ptr %call.i12, i64 48
-  store i64 %17, ptr %msg_stime6.i32, align 8
-  %18 = load i64, ptr %msg_rtime8.i, align 8
+  store i64 %23, ptr %msg_stime6.i32, align 8
+  %24 = load i64, ptr %msg_rtime8.i, align 8
   %msg_rtime8.i34 = getelementptr inbounds i8, ptr %call.i12, i64 56
-  store i64 %18, ptr %msg_rtime8.i34, align 8
-  %19 = load i64, ptr %msg_ctime10.i, align 16
+  store i64 %24, ptr %msg_rtime8.i34, align 8
+  %25 = load i64, ptr %msg_ctime10.i, align 8
   %msg_ctime10.i36 = getelementptr inbounds i8, ptr %call.i12, i64 64
-  store i64 %19, ptr %msg_ctime10.i36, align 8
-  %20 = load i64, ptr %__msg_cbytes12.i, align 8
+  store i64 %25, ptr %msg_ctime10.i36, align 8
+  %26 = load i64, ptr %__msg_cbytes12.i, align 8
   %__msg_cbytes12.i38 = getelementptr inbounds i8, ptr %call.i12, i64 72
-  store i64 %20, ptr %__msg_cbytes12.i38, align 8
-  %21 = load i64, ptr %msg_qnum14.i, align 16
+  store i64 %26, ptr %__msg_cbytes12.i38, align 8
+  %27 = load i64, ptr %msg_qnum14.i, align 8
   %msg_qnum14.i40 = getelementptr inbounds i8, ptr %call.i12, i64 80
-  store i64 %21, ptr %msg_qnum14.i40, align 8
-  %22 = load i64, ptr %msg_qbytes16.i, align 8
+  store i64 %27, ptr %msg_qnum14.i40, align 8
+  %28 = load i64, ptr %msg_qbytes16.i, align 8
   %msg_qbytes16.i42 = getelementptr inbounds i8, ptr %call.i12, i64 88
-  store i64 %22, ptr %msg_qbytes16.i42, align 8
-  %23 = load i32, ptr %msg_lspid18.i, align 16
-  %conv.i44 = sext i32 %23 to i64
+  store i64 %28, ptr %msg_qbytes16.i42, align 8
+  %29 = load i32, ptr %msg_lspid18.i, align 8
+  %conv.i44 = sext i32 %29 to i64
   %msg_lspid18.i45 = getelementptr inbounds i8, ptr %call.i12, i64 96
   store i64 %conv.i44, ptr %msg_lspid18.i45, align 8
-  %24 = load i32, ptr %msg_lrpid21.i, align 4
-  %conv19.i = sext i32 %24 to i64
+  %30 = load i32, ptr %msg_lrpid21.i, align 4
+  %conv19.i = sext i32 %30 to i64
   %msg_lrpid21.i47 = getelementptr inbounds i8, ptr %call.i12, i64 104
   store i64 %conv19.i, ptr %msg_lrpid21.i47, align 8
   br label %return
@@ -15342,8 +15525,8 @@ sw.bb7:                                           ; preds = %entry
 
 if.then.i51:                                      ; preds = %sw.bb7
   %call.i52 = tail call ptr @__errno_location() #26
-  %25 = load i32, ptr %call.i52, align 4
-  %sub.i53 = sub i32 0, %25
+  %31 = load i32, ptr %call.i52, align 4
+  %sub.i53 = sub i32 0, %31
   %conv.i54 = sext i32 %sub.i53 to i64
   br label %return
 
@@ -15354,8 +15537,8 @@ sw.bb11:                                          ; preds = %entry, %entry
 
 if.then.i58:                                      ; preds = %sw.bb11
   %call.i59 = tail call ptr @__errno_location() #26
-  %26 = load i32, ptr %call.i59, align 4
-  %sub.i60 = sub i32 0, %26
+  %32 = load i32, ptr %call.i59, align 4
+  %sub.i60 = sub i32 0, %32
   br label %get_errno.exit62
 
 get_errno.exit62:                                 ; preds = %sw.bb11, %if.then.i58
@@ -15366,36 +15549,36 @@ get_errno.exit62:                                 ; preds = %sw.bb11, %if.then.i
 
 host_to_target_msginfo.exit.thread:               ; preds = %get_errno.exit62
   %retval.0.i57 = sext i32 %retval.0.i57.in to i64
-  %27 = load i32, ptr %msginfo, align 4
-  store i32 %27, ptr %call.i63, align 1
+  %33 = load i32, ptr %msginfo, align 4
+  store i32 %33, ptr %call.i63, align 1
   %msgmap.i = getelementptr inbounds i8, ptr %call.i63, i64 4
   %msgmap3.i = getelementptr inbounds i8, ptr %msginfo, i64 4
-  %28 = load i32, ptr %msgmap3.i, align 4
-  store i32 %28, ptr %msgmap.i, align 1
+  %34 = load i32, ptr %msgmap3.i, align 4
+  store i32 %34, ptr %msgmap.i, align 1
   %msgmax.i = getelementptr inbounds i8, ptr %call.i63, i64 8
   %msgmax6.i = getelementptr inbounds i8, ptr %msginfo, i64 8
-  %29 = load i32, ptr %msgmax6.i, align 4
-  store i32 %29, ptr %msgmax.i, align 1
+  %35 = load i32, ptr %msgmax6.i, align 4
+  store i32 %35, ptr %msgmax.i, align 1
   %msgmnb.i = getelementptr inbounds i8, ptr %call.i63, i64 12
   %msgmnb9.i = getelementptr inbounds i8, ptr %msginfo, i64 12
-  %30 = load i32, ptr %msgmnb9.i, align 4
-  store i32 %30, ptr %msgmnb.i, align 1
+  %36 = load i32, ptr %msgmnb9.i, align 4
+  store i32 %36, ptr %msgmnb.i, align 1
   %msgmni.i = getelementptr inbounds i8, ptr %call.i63, i64 16
   %msgmni12.i = getelementptr inbounds i8, ptr %msginfo, i64 16
-  %31 = load i32, ptr %msgmni12.i, align 4
-  store i32 %31, ptr %msgmni.i, align 1
+  %37 = load i32, ptr %msgmni12.i, align 4
+  store i32 %37, ptr %msgmni.i, align 1
   %msgssz.i = getelementptr inbounds i8, ptr %call.i63, i64 20
   %msgssz15.i = getelementptr inbounds i8, ptr %msginfo, i64 20
-  %32 = load i32, ptr %msgssz15.i, align 4
-  store i32 %32, ptr %msgssz.i, align 1
+  %38 = load i32, ptr %msgssz15.i, align 4
+  store i32 %38, ptr %msgssz.i, align 1
   %msgtql.i = getelementptr inbounds i8, ptr %call.i63, i64 24
   %msgtql18.i = getelementptr inbounds i8, ptr %msginfo, i64 24
-  %33 = load i32, ptr %msgtql18.i, align 4
-  store i32 %33, ptr %msgtql.i, align 1
+  %39 = load i32, ptr %msgtql18.i, align 4
+  store i32 %39, ptr %msgtql.i, align 1
   %msgseg.i = getelementptr inbounds i8, ptr %call.i63, i64 28
   %msgseg21.i = getelementptr inbounds i8, ptr %msginfo, i64 28
-  %34 = load i16, ptr %msgseg21.i, align 4
-  store i16 %34, ptr %msgseg.i, align 1
+  %40 = load i16, ptr %msgseg21.i, align 4
+  store i16 %40, ptr %msgseg.i, align 1
   br label %return
 
 return:                                           ; preds = %if.end.i14, %get_errno.exit, %if.end.i, %sw.bb, %entry, %host_to_target_msqid_ds.exit, %sw.bb7, %if.then.i51, %host_to_target_msginfo.exit.thread, %get_errno.exit62
@@ -15531,7 +15714,7 @@ declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @do_shmctl(i32 noundef %shmid, i32 noundef %cmd, i64 noundef %buf) unnamed_addr #2 {
 entry:
-  %dsarg = alloca %struct.shmid_ds, align 16
+  %dsarg = alloca %struct.shmid_ds, align 8
   %shminfo = alloca %struct.shminfo, align 8
   %shm_info = alloca %struct.shm_info, align 8
   %and = and i32 %cmd, 255
@@ -15558,39 +15741,57 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %tobool.not.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
+  %0 = load i32, ptr %call.i.i, align 8
+  store i32 %0, ptr %dsarg, align 8
+  %uid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %1 = load i32, ptr %uid.i.i, align 4
   %uid4.i.i = getelementptr inbounds i8, ptr %dsarg, i64 4
+  store i32 %1, ptr %uid4.i.i, align 4
+  %gid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %2 = load i32, ptr %gid.i.i, align 8
   %gid6.i.i = getelementptr inbounds i8, ptr %dsarg, i64 8
+  store i32 %2, ptr %gid6.i.i, align 8
+  %cuid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %3 = load i32, ptr %cuid.i.i, align 4
   %cuid8.i.i = getelementptr inbounds i8, ptr %dsarg, i64 12
-  %0 = load <4 x i32>, ptr %call.i.i, align 8
-  store <4 x i32> %0, ptr %dsarg, align 16
+  store i32 %3, ptr %cuid8.i.i, align 4
   %cgid.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %1 = load i32, ptr %cgid.i.i, align 8
+  %4 = load i32, ptr %cgid.i.i, align 8
   %cgid10.i.i = getelementptr inbounds i8, ptr %dsarg, i64 16
-  store i32 %1, ptr %cgid10.i.i, align 16
+  store i32 %4, ptr %cgid10.i.i, align 8
   %mode.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
-  %2 = load i16, ptr %mode.i.i, align 4
-  %conv.i.i = zext i16 %2 to i32
+  %5 = load i16, ptr %mode.i.i, align 4
+  %conv.i.i = zext i16 %5 to i32
   %mode12.i.i = getelementptr inbounds i8, ptr %dsarg, i64 20
   store i32 %conv.i.i, ptr %mode12.i.i, align 4
   %__seq.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %3 = load i16, ptr %__seq.i.i, align 8
+  %6 = load i16, ptr %__seq.i.i, align 8
   %__seq14.i.i = getelementptr inbounds i8, ptr %dsarg, i64 24
-  store i16 %3, ptr %__seq14.i.i, align 8
+  store i16 %6, ptr %__seq14.i.i, align 8
   %shm_segsz.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %shm_segsz.val.i = load i64, ptr %shm_segsz.i, align 1
   %shm_segsz6.i = getelementptr inbounds i8, ptr %dsarg, i64 48
+  store i64 %shm_segsz.val.i, ptr %shm_segsz6.i, align 8
+  %shm_atime.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %shm_atime.val.i = load i64, ptr %shm_atime.i, align 1
   %shm_atime9.i = getelementptr inbounds i8, ptr %dsarg, i64 56
-  %4 = load <2 x i64>, ptr %shm_segsz.i, align 1
-  store <2 x i64> %4, ptr %shm_segsz6.i, align 16
+  store i64 %shm_atime.val.i, ptr %shm_atime9.i, align 8
   %shm_dtime.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %shm_dtime.val.i = load i64, ptr %shm_dtime.i, align 1
   %shm_dtime13.i = getelementptr inbounds i8, ptr %dsarg, i64 64
+  store i64 %shm_dtime.val.i, ptr %shm_dtime13.i, align 8
+  %shm_ctime.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %shm_ctime.val.i = load i64, ptr %shm_ctime.i, align 1
   %shm_ctime17.i = getelementptr inbounds i8, ptr %dsarg, i64 72
-  %5 = load <2 x i64>, ptr %shm_dtime.i, align 1
-  store <2 x i64> %5, ptr %shm_dtime13.i, align 16
+  store i64 %shm_ctime.val.i, ptr %shm_ctime17.i, align 8
   %shm_cpid.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %shm_cpid.val.i = load i32, ptr %shm_cpid.i, align 1
   %shm_cpid21.i = getelementptr inbounds i8, ptr %dsarg, i64 80
+  store i32 %shm_cpid.val.i, ptr %shm_cpid21.i, align 8
+  %shm_lpid.i = getelementptr inbounds i8, ptr %call.i, i64 84
+  %shm_lpid.val.i = load i32, ptr %shm_lpid.i, align 1
   %shm_lpid25.i = getelementptr inbounds i8, ptr %dsarg, i64 84
-  %6 = load <2 x i32>, ptr %shm_cpid.i, align 1
-  store <2 x i32> %6, ptr %shm_cpid21.i, align 16
+  store i32 %shm_lpid.val.i, ptr %shm_lpid25.i, align 4
   %shm_nattch.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %shm_nattch.val.i = load i64, ptr %shm_nattch.i, align 1
   %shm_nattch29.i = getelementptr inbounds i8, ptr %dsarg, i64 88
@@ -15618,7 +15819,7 @@ if.end.i16:                                       ; preds = %get_errno.exit
   br i1 %tobool.not.i.i18, label %return, label %host_to_target_shmid_ds.exit
 
 host_to_target_shmid_ds.exit:                     ; preds = %if.end.i16
-  %8 = load i32, ptr %dsarg, align 16
+  %8 = load i32, ptr %dsarg, align 8
   store i32 %8, ptr %call.i.i17, align 8
   %9 = load i32, ptr %uid4.i.i, align 4
   %uid4.i.i21 = getelementptr inbounds i8, ptr %call.i.i17, i64 4
@@ -15629,7 +15830,7 @@ host_to_target_shmid_ds.exit:                     ; preds = %if.end.i16
   %11 = load i32, ptr %cuid8.i.i, align 4
   %cuid8.i.i25 = getelementptr inbounds i8, ptr %call.i.i17, i64 12
   store i32 %11, ptr %cuid8.i.i25, align 4
-  %12 = load i32, ptr %cgid10.i.i, align 16
+  %12 = load i32, ptr %cgid10.i.i, align 8
   %cgid10.i.i27 = getelementptr inbounds i8, ptr %call.i.i17, i64 16
   store i32 %12, ptr %cgid10.i.i27, align 8
   %13 = load i32, ptr %mode12.i.i, align 4
@@ -15640,19 +15841,19 @@ host_to_target_shmid_ds.exit:                     ; preds = %if.end.i16
   %__seq14.i.i32 = getelementptr inbounds i8, ptr %call.i.i17, i64 24
   store i16 %14, ptr %__seq14.i.i32, align 8
   %shm_segsz.i33 = getelementptr inbounds i8, ptr %call.i14, i64 48
-  %15 = load i64, ptr %shm_segsz6.i, align 16
+  %15 = load i64, ptr %shm_segsz6.i, align 8
   store i64 %15, ptr %shm_segsz.i33, align 1
   %shm_atime.i34 = getelementptr inbounds i8, ptr %call.i14, i64 56
   %16 = load i64, ptr %shm_atime9.i, align 8
   store i64 %16, ptr %shm_atime.i34, align 1
   %shm_dtime.i35 = getelementptr inbounds i8, ptr %call.i14, i64 64
-  %17 = load i64, ptr %shm_dtime13.i, align 16
+  %17 = load i64, ptr %shm_dtime13.i, align 8
   store i64 %17, ptr %shm_dtime.i35, align 1
   %shm_ctime.i36 = getelementptr inbounds i8, ptr %call.i14, i64 72
   %18 = load i64, ptr %shm_ctime17.i, align 8
   store i64 %18, ptr %shm_ctime.i36, align 1
   %shm_cpid.i37 = getelementptr inbounds i8, ptr %call.i14, i64 80
-  %19 = load i32, ptr %shm_cpid21.i, align 16
+  %19 = load i32, ptr %shm_cpid21.i, align 8
   store i32 %19, ptr %shm_cpid.i37, align 1
   %shm_lpid.i38 = getelementptr inbounds i8, ptr %call.i14, i64 84
   %20 = load i32, ptr %shm_lpid25.i, align 4
@@ -16382,7 +16583,7 @@ cleanup:                                          ; preds = %if.end38, %for.cond
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @do_ppoll(i64 noundef %arg1, i64 noundef %arg2, i64 noundef %arg3, i64 noundef %arg4, i64 noundef %arg5) unnamed_addr #2 {
 entry:
-  %_timeout_ts = alloca %struct.timespec, align 16
+  %_timeout_ts = alloca %struct.timespec, align 8
   %set = alloca ptr, align 8
   %conv = trunc i64 %arg2 to i32
   %tobool.not = icmp eq i32 %conv, 0
@@ -16432,8 +16633,11 @@ if.else:                                          ; preds = %if.then25
   br i1 %tobool.not.i, label %return, label %target_to_host_timespec.exit.thread
 
 target_to_host_timespec.exit.thread:              ; preds = %if.else
-  %3 = load <2 x i64>, ptr %call.i, align 1
-  store <2 x i64> %3, ptr %_timeout_ts, align 16
+  %call.val.i = load i64, ptr %call.i, align 1
+  store i64 %call.val.i, ptr %_timeout_ts, align 8
+  %tv_nsec.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tv_nsec.val.i = load i64, ptr %tv_nsec.i, align 1
+  store i64 %tv_nsec.val.i, ptr %timeout_ts.0.sroa.gep, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %target_to_host_timespec.exit.thread, %if.then25
@@ -16456,13 +16660,13 @@ if.then47:                                        ; preds = %if.then42
   br label %return
 
 if.end49:                                         ; preds = %if.then42.if.end49_crit_edge, %if.end40
-  %4 = phi ptr [ %.pre, %if.then42.if.end49_crit_edge ], [ null, %if.end40 ]
-  %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %6 = load ptr, ptr %5, align 8
-  %opaque.i = getelementptr inbounds i8, ptr %6, i64 624
-  %7 = load ptr, ptr %opaque.i, align 16
-  %signal_pending.i = getelementptr inbounds i8, ptr %7, i64 9164
-  %call.i52 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 271, ptr noundef %pfd.0, i32 noundef %conv, ptr noundef %timeout_ts.0, ptr noundef %4, i64 noundef 8) #27
+  %3 = phi ptr [ %.pre, %if.then42.if.end49_crit_edge ], [ null, %if.end40 ]
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %5 = load ptr, ptr %4, align 8
+  %opaque.i = getelementptr inbounds i8, ptr %5, i64 624
+  %6 = load ptr, ptr %opaque.i, align 16
+  %signal_pending.i = getelementptr inbounds i8, ptr %6, i64 9164
+  %call.i52 = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i, i64 noundef 271, ptr noundef %pfd.0, i32 noundef %conv, ptr noundef %timeout_ts.0, ptr noundef %3, i64 noundef 8) #27
   %sext = shl i64 %call.i52, 32
   %conv51 = ashr exact i64 %sext, 32
   %cmp.i = icmp eq i64 %sext, -4294967296
@@ -16470,24 +16674,24 @@ if.end49:                                         ; preds = %if.then42.if.end49_
 
 if.then.i:                                        ; preds = %if.end49
   %call.i54 = tail call ptr @__errno_location() #26
-  %8 = load i32, ptr %call.i54, align 4
-  %sub.i = sub i32 0, %8
+  %7 = load i32, ptr %call.i54, align 4
+  %sub.i = sub i32 0, %7
   %conv.i55 = sext i32 %sub.i to i64
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %if.end49, %if.then.i
   %retval.0.i53 = phi i64 [ %conv.i55, %if.then.i ], [ %conv51, %if.end49 ]
-  %9 = load ptr, ptr %set, align 8
-  %tobool53.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %set, align 8
+  %tobool53.not = icmp eq ptr %8, null
   %cmp.not.i = icmp eq i64 %retval.0.i53, -512
   %or.cond71 = select i1 %tobool53.not, i1 true, i1 %cmp.not.i
   br i1 %or.cond71, label %if.end56, label %if.then.i56
 
 if.then.i56:                                      ; preds = %get_errno.exit
-  %10 = load ptr, ptr %5, align 8
-  %opaque.i57 = getelementptr inbounds i8, ptr %10, i64 624
-  %11 = load ptr, ptr %opaque.i57, align 16
-  %in_sigsuspend.i = getelementptr inbounds i8, ptr %11, i64 9160
+  %9 = load ptr, ptr %4, align 8
+  %opaque.i57 = getelementptr inbounds i8, ptr %9, i64 624
+  %10 = load ptr, ptr %opaque.i57, align 16
+  %in_sigsuspend.i = getelementptr inbounds i8, ptr %10, i64 9160
   store i32 1, ptr %in_sigsuspend.i, align 8
   br label %if.end56
 
@@ -16502,11 +16706,11 @@ if.else67:                                        ; preds = %if.end56
   br i1 %tobool.not.i61, label %return, label %host_to_target_timespec.exit.thread
 
 host_to_target_timespec.exit.thread:              ; preds = %if.else67
-  %12 = load i64, ptr %timeout_ts.0, align 16
-  store i64 %12, ptr %call.i60, align 1
+  %11 = load i64, ptr %timeout_ts.0, align 8
+  store i64 %11, ptr %call.i60, align 1
   %tv_nsec.i63 = getelementptr inbounds i8, ptr %call.i60, i64 8
-  %13 = load i64, ptr %timeout_ts.0.sroa.phi, align 8
-  store i64 %13, ptr %tv_nsec.i63, align 1
+  %12 = load i64, ptr %timeout_ts.0.sroa.phi, align 8
+  store i64 %12, ptr %tv_nsec.i63, align 1
   br label %if.end84
 
 if.end84:                                         ; preds = %host_to_target_timespec.exit.thread, %if.end56
@@ -16521,9 +16725,9 @@ for.body91.preheader:                             ; preds = %if.end84
 for.body91:                                       ; preds = %for.body91.preheader, %for.body91
   %indvars.iv77 = phi i64 [ 0, %for.body91.preheader ], [ %indvars.iv.next78, %for.body91 ]
   %revents = getelementptr %struct.pollfd, ptr %pfd.0, i64 %indvars.iv77, i32 2
-  %14 = load i16, ptr %revents, align 2
+  %13 = load i16, ptr %revents, align 2
   %revents97 = getelementptr %struct.target_pollfd, ptr %target_pfd.0, i64 %indvars.iv77, i32 2
-  store i16 %14, ptr %revents97, align 2
+  store i16 %13, ptr %revents97, align 2
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %return, label %for.body91, !llvm.loop !42
@@ -17273,7 +17477,7 @@ declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @do_futex(i64 noundef %uaddr, i32 noundef %op, i32 noundef %val, i64 noundef %timeout, i64 noundef %uaddr2, i32 noundef %val3) unnamed_addr #2 {
 entry:
-  %ts = alloca %struct.timespec, align 16
+  %ts = alloca %struct.timespec, align 8
   %and = and i32 %op, -385
   switch i32 %and, label %return [
     i32 0, label %sw.epilog
@@ -17320,23 +17524,27 @@ cond.false:                                       ; preds = %sw.epilog
   br i1 %tobool.not.i, label %return, label %target_to_host_timespec.exit.thread
 
 target_to_host_timespec.exit.thread:              ; preds = %cond.false
-  %5 = load <2 x i64>, ptr %call.i, align 1
-  store <2 x i64> %5, ptr %ts, align 16
+  %call.val.i = load i64, ptr %call.i, align 1
+  store i64 %call.val.i, ptr %ts, align 8
+  %tv_nsec.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tv_nsec.val.i = load i64, ptr %tv_nsec.i, align 1
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %tv_nsec.val.i, ptr %tv_nsec5.i, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %entry, %entry, %entry, %sw.bb6, %sw.bb10, %target_to_host_timespec.exit.thread, %sw.epilog
   %haddr2.09 = phi ptr [ %haddr2.0, %sw.epilog ], [ %haddr2.0, %target_to_host_timespec.exit.thread ], [ null, %sw.bb6 ], [ %4, %sw.bb10 ], [ null, %entry ], [ null, %entry ], [ null, %entry ], [ null, %entry ]
   %val.addr.07 = phi i32 [ %val, %sw.epilog ], [ %val, %target_to_host_timespec.exit.thread ], [ %call7, %sw.bb6 ], [ %val, %sw.bb10 ], [ %val, %entry ], [ %val, %entry ], [ %val, %entry ], [ %val, %entry ]
   %pts.1 = phi ptr [ null, %sw.epilog ], [ %ts, %target_to_host_timespec.exit.thread ], [ null, %sw.bb6 ], [ %2, %sw.bb10 ], [ null, %entry ], [ null, %entry ], [ null, %entry ], [ null, %entry ]
-  %6 = load i64, ptr @guest_base, align 8
-  %add.i.i15 = add i64 %6, %uaddr
-  %7 = inttoptr i64 %add.i.i15 to ptr
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %9 = load ptr, ptr %8, align 8
-  %opaque.i.i = getelementptr inbounds i8, ptr %9, i64 624
-  %10 = load ptr, ptr %opaque.i.i, align 16
-  %signal_pending.i.i = getelementptr inbounds i8, ptr %10, i64 9164
-  %call.i.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i.i, i64 noundef 202, ptr noundef %7, i32 noundef %op, i32 noundef %val.addr.07, ptr noundef %pts.1, ptr noundef %haddr2.09, i32 noundef %val3) #27
+  %5 = load i64, ptr @guest_base, align 8
+  %add.i.i15 = add i64 %5, %uaddr
+  %6 = inttoptr i64 %add.i.i15 to ptr
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %8 = load ptr, ptr %7, align 8
+  %opaque.i.i = getelementptr inbounds i8, ptr %8, i64 624
+  %9 = load ptr, ptr %opaque.i.i, align 16
+  %signal_pending.i.i = getelementptr inbounds i8, ptr %9, i64 9164
+  %call.i.i = call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending.i.i, i64 noundef 202, ptr noundef %6, i32 noundef %op, i32 noundef %val.addr.07, ptr noundef %pts.1, ptr noundef %haddr2.09, i32 noundef %val3) #27
   %sext.i = shl i64 %call.i.i, 32
   %conv.i = ashr exact i64 %sext.i, 32
   %cmp.i.i = icmp eq i64 %sext.i, -4294967296
@@ -17344,8 +17552,8 @@ if.end18:                                         ; preds = %entry, %entry, %ent
 
 if.then.i.i:                                      ; preds = %if.end18
   %call.i1.i = tail call ptr @__errno_location() #26
-  %11 = load i32, ptr %call.i1.i, align 4
-  %sub.i.i = sub i32 0, %11
+  %10 = load i32, ptr %call.i1.i, align 4
+  %sub.i.i = sub i32 0, %10
   %conv.i23.i = zext i32 %sub.i.i to i64
   br label %do_safe_futex.exit
 

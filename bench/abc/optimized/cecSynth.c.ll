@@ -22,11 +22,23 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Cec_SeqSynthesisSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %0, align 4
-  store <4 x i32> <i32 1000, i32 1, i32 -1, i32 1>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x i32> <i32 1, i32 0, i32 100, i32 0>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %4, align 4
+  store i32 1000, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 100, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 4
   ret void
 }
 
@@ -1675,26 +1687,29 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   %36 = call i32 @sat_solver_solve(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %35, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #19
   %37 = icmp eq i32 %36, -1
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %44
 
 38:                                               ; preds = %Vec_IntStartFull.exit
-  %39 = load <2 x i32>, ptr %5, align 8
-  %40 = xor <2 x i32> %39, <i32 1, i32 1>
-  store <2 x i32> %40, ptr %5, align 8
-  %41 = call i32 @sat_solver_solve(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %35, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #19
-  br label %42
+  %39 = load i32, ptr %5, align 8
+  %40 = xor i32 %39, 1
+  store i32 %40, ptr %5, align 8
+  %41 = load i32, ptr %21, align 4
+  %42 = xor i32 %41, 1
+  store i32 %42, ptr %21, align 4
+  %43 = call i32 @sat_solver_solve(ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %35, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #19
+  br label %44
 
-42:                                               ; preds = %38, %Vec_IntStartFull.exit
-  %.0 = phi i32 [ %41, %38 ], [ %36, %Vec_IntStartFull.exit ]
-  %43 = load ptr, ptr %20, align 8
-  %.not.i26 = icmp eq ptr %43, null
-  br i1 %.not.i26, label %Vec_IntFree.exit, label %44
+44:                                               ; preds = %38, %Vec_IntStartFull.exit
+  %.0 = phi i32 [ %43, %38 ], [ %36, %Vec_IntStartFull.exit ]
+  %45 = load ptr, ptr %20, align 8
+  %.not.i26 = icmp eq ptr %45, null
+  br i1 %.not.i26, label %Vec_IntFree.exit, label %46
 
-44:                                               ; preds = %42
-  call void @free(ptr noundef nonnull %43) #19
+46:                                               ; preds = %44
+  call void @free(ptr noundef nonnull %45) #19
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %42, %44
+Vec_IntFree.exit:                                 ; preds = %44, %46
   call void @free(ptr noundef nonnull %8) #19
   call void @sat_solver_delete(ptr noundef %6) #19
   ret i32 %.0

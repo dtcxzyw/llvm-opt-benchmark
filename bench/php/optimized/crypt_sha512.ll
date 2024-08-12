@@ -1464,51 +1464,72 @@ define internal fastcc noundef ptr @sha512_finish_ctx(ptr nocapture noundef %0, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 16 @fillbuf, i64 %14, i1 false)
   %17 = load i64, ptr %5, align 8
   %18 = shl i64 %17, 3
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
-  %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %17, i64 3)
-  %22 = getelementptr inbounds [256 x i8], ptr %15, i64 0, i64 %.v
-  %23 = insertelement <2 x i64> poison, i64 %21, i64 0
-  %24 = insertelement <2 x i64> %23, i64 %17, i64 1
-  %25 = shl <2 x i64> %24, <i64 56, i64 59>
-  %26 = shl <2 x i64> %24, <i64 40, i64 43>
-  %27 = and <2 x i64> %26, <i64 71776119061217280, i64 71776119061217280>
-  %28 = or disjoint <2 x i64> %27, %25
-  %29 = shl <2 x i64> %24, <i64 24, i64 27>
-  %30 = and <2 x i64> %29, <i64 280375465082880, i64 280375465082880>
-  %31 = or disjoint <2 x i64> %28, %30
-  %32 = shl <2 x i64> %24, <i64 8, i64 11>
-  %33 = and <2 x i64> %32, <i64 1095216660480, i64 1095216660480>
-  %34 = or disjoint <2 x i64> %31, %33
-  %35 = insertelement <2 x i64> %24, i64 %18, i64 1
-  %36 = lshr <2 x i64> %35, <i64 8, i64 8>
-  %37 = and <2 x i64> %36, <i64 4278190080, i64 4278190080>
-  %38 = or disjoint <2 x i64> %34, %37
-  %39 = lshr <2 x i64> %35, <i64 24, i64 24>
-  %40 = and <2 x i64> %39, <i64 16711680, i64 16711680>
-  %41 = or disjoint <2 x i64> %38, %40
-  %42 = lshr <2 x i64> %35, <i64 40, i64 40>
-  %43 = and <2 x i64> %42, <i64 65280, i64 65280>
-  %44 = or disjoint <2 x i64> %41, %43
-  %45 = lshr <2 x i64> %35, <i64 56, i64 56>
-  %46 = or <2 x i64> %44, %45
-  store <2 x i64> %46, ptr %22, align 1
-  %47 = add nuw nsw i64 %.v, 16
-  tail call fastcc void @sha512_process_block(ptr noundef nonnull %15, i64 noundef %47, ptr noundef nonnull %0)
-  br label %48
+  %19 = shl i64 %17, 59
+  %20 = shl i64 %17, 43
+  %21 = and i64 %20, 71776119061217280
+  %22 = or disjoint i64 %21, %19
+  %23 = shl i64 %17, 27
+  %24 = and i64 %23, 280375465082880
+  %25 = or disjoint i64 %22, %24
+  %26 = shl i64 %17, 11
+  %27 = and i64 %26, 1095216660480
+  %28 = or disjoint i64 %25, %27
+  %29 = lshr i64 %18, 8
+  %30 = and i64 %29, 4278190080
+  %31 = or disjoint i64 %28, %30
+  %32 = lshr i64 %18, 24
+  %33 = and i64 %32, 16711680
+  %34 = or disjoint i64 %31, %33
+  %35 = lshr i64 %18, 40
+  %36 = and i64 %35, 65280
+  %37 = or disjoint i64 %34, %36
+  %38 = lshr i64 %18, 56
+  %39 = or i64 %37, %38
+  %40 = or disjoint i64 %.v, 8
+  %41 = getelementptr inbounds [256 x i8], ptr %15, i64 0, i64 %40
+  store i64 %39, ptr %41, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = load i64, ptr %42, align 8
+  %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %17, i64 3)
+  %45 = shl i64 %44, 56
+  %46 = shl i64 %44, 40
+  %47 = and i64 %46, 71776119061217280
+  %48 = or disjoint i64 %47, %45
+  %49 = shl i64 %44, 24
+  %50 = and i64 %49, 280375465082880
+  %51 = or disjoint i64 %48, %50
+  %52 = shl i64 %44, 8
+  %53 = and i64 %52, 1095216660480
+  %54 = or disjoint i64 %51, %53
+  %55 = lshr i64 %44, 8
+  %56 = and i64 %55, 4278190080
+  %57 = or disjoint i64 %54, %56
+  %58 = lshr i64 %44, 24
+  %59 = and i64 %58, 16711680
+  %60 = or disjoint i64 %57, %59
+  %61 = lshr i64 %44, 40
+  %62 = and i64 %61, 65280
+  %63 = or disjoint i64 %60, %62
+  %64 = lshr i64 %44, 56
+  %65 = or i64 %63, %64
+  %66 = getelementptr inbounds [256 x i8], ptr %15, i64 0, i64 %.v
+  store i64 %65, ptr %66, align 1
+  %67 = add nuw nsw i64 %.v, 16
+  tail call fastcc void @sha512_process_block(ptr noundef nonnull %15, i64 noundef %67, ptr noundef nonnull %0)
+  br label %68
 
-48:                                               ; preds = %13, %48
-  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %50 = load i64, ptr %49, align 8
-  %51 = tail call i64 @llvm.bswap.i64(i64 %50)
-  %52 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
-  store i64 %51, ptr %52, align 8
+68:                                               ; preds = %13, %68
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %68 ]
+  %69 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %70 = load i64, ptr %69, align 8
+  %71 = tail call i64 @llvm.bswap.i64(i64 %70)
+  %72 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  store i64 %71, ptr %72, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %53, label %48
+  br i1 %exitcond.not, label %73, label %68
 
-53:                                               ; preds = %48
+73:                                               ; preds = %68
   ret ptr %1
 }
 

@@ -894,7 +894,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @pyurandom(ptr noundef %buffer, i64 noundef %size, i32 noundef %blocking, i32 noundef %raise) unnamed_addr #0 {
 entry:
-  %st.i = alloca %struct.stat, align 16
+  %st.i = alloca %struct.stat, align 8
   %cmp = icmp slt i64 %size, 0
   br i1 %cmp, label %if.then, label %if.end2
 
@@ -1094,7 +1094,7 @@ if.then1.i:                                       ; preds = %if.then.i
   br i1 %tobool3.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.then1.i
-  %9 = load i64, ptr %st.i, align 16
+  %9 = load i64, ptr %st.i, align 8
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 720), align 8
   %cmp4.not.i = icmp eq i64 %9, %10
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then7.i
@@ -1156,8 +1156,11 @@ if.then34.i:                                      ; preds = %if.else31.i
 
 if.else36.i:                                      ; preds = %if.else31.i
   store i32 %call11.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 712), align 8
-  %17 = load <2 x i64>, ptr %st.i, align 16
-  store <2 x i64> %17, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 720), align 8
+  %17 = load i64, ptr %st.i, align 8
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 720), align 8
+  %st_ino38.i = getelementptr inbounds i8, ptr %st.i, i64 8
+  %18 = load i64, ptr %st_ino38.i, align 8
+  store i64 %18, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 728), align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else36.i, %if.then29.i, %if.end8.i
@@ -1174,8 +1177,8 @@ do.body.i:                                        ; preds = %if.end49.i, %if.end
   ]
 
 if.then47.i:                                      ; preds = %do.body.i
-  %18 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call48.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %size.addr.0.i) #6
+  %19 = load ptr, ptr @PyExc_RuntimeError, align 8
+  %call48.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.4, i64 noundef %size.addr.0.i) #6
   br label %dev_urandom.exit
 
 if.end49.i:                                       ; preds = %do.body.i
@@ -1201,8 +1204,8 @@ do.body57.i:                                      ; preds = %land.rhs.i, %do.bod
 
 land.rhs.i:                                       ; preds = %do.body57.i
   %call61.i = tail call ptr @__errno_location() #7
-  %19 = load i32, ptr %call61.i, align 4
-  %cmp62.i = icmp eq i32 %19, 4
+  %20 = load i32, ptr %call61.i, align 4
+  %cmp62.i = icmp eq i32 %20, 4
   br i1 %cmp62.i, label %do.body57.i, label %if.then65.i, !llvm.loop !8
 
 do.end63.i:                                       ; preds = %do.body57.i

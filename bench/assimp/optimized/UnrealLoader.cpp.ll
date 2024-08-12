@@ -347,7 +347,7 @@ entry:
   %ref.tmp367 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp371 = alloca %"class.std::allocator.0", align 1
   %mat = alloca %"struct.Assimp::Unreal::TempMat", align 4
-  %color = alloca %struct.aiColor3D, align 8
+  %color = alloca %struct.aiColor3D, align 4
   %s = alloca %struct.aiString, align 4
   %twosided = alloca i32, align 4
   %opac = alloca float, align 4
@@ -2166,6 +2166,7 @@ invoke.cont536:                                   ; preds = %invoke.cont532
 for.body549.lr.ph:                                ; preds = %invoke.cont536
   %mMeshes544 = getelementptr inbounds i8, ptr %call226, i64 1128
   store ptr %call543, ptr %mMeshes544, align 8
+  %g.i = getelementptr inbounds i8, ptr %color, i64 4
   %b.i = getelementptr inbounds i8, ptr %color, i64 8
   %data.i543 = getelementptr inbounds i8, ptr %s, i64 4
   br label %for.body549
@@ -2285,8 +2286,9 @@ invoke.cont593:                                   ; preds = %invoke.cont590
   %152 = load ptr, ptr %mMaterials, align 8
   %arrayidx597 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv920
   store ptr %call591, ptr %arrayidx597, align 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %color, align 8
-  store float 1.000000e+00, ptr %b.i, align 8
+  store float 1.000000e+00, ptr %color, align 4
+  store float 1.000000e+00, ptr %g.i, align 4
+  store float 1.000000e+00, ptr %b.i, align 4
   store i32 0, ptr %s, align 4
   store i8 0, ptr %data.i543, align 4
   %tex = getelementptr inbounds i8, ptr %add.ptr.i538, i64 4
@@ -2341,8 +2343,9 @@ if.end631:                                        ; preds = %if.else627, %invoke
 if.then636:                                       ; preds = %if.end631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %data.i543, ptr noundef nonnull align 1 dereferenceable(12) @.str.39, i64 12, i1 false)
   store i32 11, ptr %s, align 4
-  store <2 x float> zeroinitializer, ptr %color, align 8
-  store float 0.000000e+00, ptr %b.i, align 8
+  store float 0.000000e+00, ptr %color, align 4
+  store float 0.000000e+00, ptr %g.i, align 4
+  store float 0.000000e+00, ptr %b.i, align 4
   br label %if.end644
 
 if.end644:                                        ; preds = %if.then636, %if.end631

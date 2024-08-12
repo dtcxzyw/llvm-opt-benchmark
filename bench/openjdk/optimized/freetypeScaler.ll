@@ -831,12 +831,12 @@ declare i32 @isNullScalerContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = alloca %struct.FT_Matrix_, align 16
+  %5 = alloca %struct.FT_Matrix_, align 8
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %1, ptr %6, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %36, label %7
+  br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 45
@@ -845,53 +845,61 @@ define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %14, label %10
 
 10:                                               ; preds = %7
-  store i64 65536, ptr %5, align 16
+  store i64 65536, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 13930, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 0, ptr %12, align 16
+  store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 65536, ptr %13, align 8
   call void @FT_Matrix_Multiply(ptr noundef nonnull %3, ptr noundef nonnull %5) #19
   br label %setupTransform.exit
 
 14:                                               ; preds = %7
-  %15 = load <2 x i64>, ptr %3, align 8
-  store <2 x i64> %15, ptr %5, align 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = load <2 x i64>, ptr %16, align 8
-  store <2 x i64> %18, ptr %17, align 16
+  %15 = load i64, ptr %3, align 8
+  store i64 %15, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %23, ptr %24, align 8
   br label %setupTransform.exit
 
 setupTransform.exit:                              ; preds = %10, %14
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = load ptr, ptr %19, align 8
-  call void @FT_Set_Transform(ptr noundef %20, ptr noundef nonnull %5, ptr noundef null) #19
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
-  %23 = load i32, ptr %22, align 8
-  %24 = sext i32 %23 to i64
-  %25 = call i32 @FT_Set_Char_Size(ptr noundef %21, i64 noundef 0, i64 noundef %24, i32 noundef 72, i32 noundef 72) #19
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %32
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = load ptr, ptr %25, align 8
+  call void @FT_Set_Transform(ptr noundef %26, ptr noundef nonnull %5, ptr noundef null) #19
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %29 = load i32, ptr %28, align 8
+  %30 = sext i32 %29 to i64
+  %31 = call i32 @FT_Set_Char_Size(ptr noundef %27, i64 noundef 0, i64 noundef %30, i32 noundef 72, i32 noundef 72) #19
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %38
 
-27:                                               ; preds = %setupTransform.exit
-  %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 160
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @FT_Activate_Size(ptr noundef %30) #19
-  br label %32
+33:                                               ; preds = %setupTransform.exit
+  %34 = load ptr, ptr %25, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 160
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 @FT_Activate_Size(ptr noundef %36) #19
+  br label %38
 
-32:                                               ; preds = %27, %setupTransform.exit
-  %.1 = phi i32 [ %31, %27 ], [ %25, %setupTransform.exit ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @FT_Library_SetLcdFilter(ptr noundef %34, i32 noundef 1) #19
-  br label %36
+38:                                               ; preds = %33, %setupTransform.exit
+  %.1 = phi i32 [ %37, %33 ], [ %31, %setupTransform.exit ]
+  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 @FT_Library_SetLcdFilter(ptr noundef %40, i32 noundef 1) #19
+  br label %42
 
-36:                                               ; preds = %32, %4
-  %.0 = phi i32 [ %.1, %32 ], [ 0, %4 ]
+42:                                               ; preds = %38, %4
+  %.0 = phi i32 [ %.1, %38 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -919,7 +927,7 @@ define float @Java_sun_font_FreetypeFontScaler_getGlyphAdvanceNative(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
-  %8 = alloca %struct.FT_BBox_, align 16
+  %8 = alloca %struct.FT_BBox_, align 8
   %9 = inttoptr i64 %3 to ptr
   %10 = inttoptr i64 %4 to ptr
   %11 = tail call i32 @isNullScalerContext(ptr noundef %9) #19
@@ -1009,289 +1017,296 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
 
 50:                                               ; preds = %48, %42
   %.not160 = icmp eq i8 %6, 0
-  br i1 %.not160, label %91, label %51
+  br i1 %.not160, label %98, label %51
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds i8, ptr %45, i64 144
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 1869968492
-  br i1 %54, label %55, label %74
+  br i1 %54, label %55, label %81
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %45, i64 200
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %56, ptr noundef nonnull %8) #19
   %57 = getelementptr inbounds i8, ptr %8, i64 16
-  %58 = load <2 x i64>, ptr %57, align 16
-  %59 = lshr <2 x i64> %58, <i64 6, i64 6>
-  %60 = load <2 x i64>, ptr %8, align 16
-  %61 = lshr <2 x i64> %60, <i64 6, i64 6>
-  %62 = sub nsw <2 x i64> %59, %61
-  %63 = trunc <2 x i64> %62 to <2 x i32>
-  %64 = icmp sgt <2 x i32> %63, <i32 1024, i32 1024>
-  %65 = extractelement <2 x i1> %64, i64 0
-  %66 = extractelement <2 x i1> %64, i64 1
-  %or.cond3 = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond3, label %67, label %69
+  %58 = load i64, ptr %57, align 8
+  %59 = lshr i64 %58, 6
+  %60 = load i64, ptr %8, align 8
+  %61 = lshr i64 %60, 6
+  %62 = sub nsw i64 %59, %61
+  %63 = trunc i64 %62 to i32
+  %64 = getelementptr inbounds i8, ptr %8, i64 24
+  %65 = load i64, ptr %64, align 8
+  %66 = lshr i64 %65, 6
+  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %68 = load i64, ptr %67, align 8
+  %69 = lshr i64 %68, 6
+  %70 = sub nsw i64 %66, %69
+  %71 = trunc i64 %70 to i32
+  %72 = icmp sgt i32 %63, 1024
+  %73 = icmp sgt i32 %71, 1024
+  %or.cond3 = select i1 %72, i1 true, i1 %73
+  br i1 %or.cond3, label %74, label %76
 
-67:                                               ; preds = %55
-  %68 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+74:                                               ; preds = %55
+  %75 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-69:                                               ; preds = %55
-  %70 = lshr exact i32 %.0148, 16
-  %71 = call i32 @FT_Render_Glyph(ptr noundef nonnull %45, i32 noundef %70) #19
-  %.not161 = icmp eq i32 %71, 0
-  br i1 %.not161, label %74, label %72
+76:                                               ; preds = %55
+  %77 = lshr exact i32 %.0148, 16
+  %78 = call i32 @FT_Render_Glyph(ptr noundef nonnull %45, i32 noundef %77) #19
+  %.not161 = icmp eq i32 %78, 0
+  br i1 %.not161, label %81, label %79
 
-72:                                               ; preds = %69
-  %73 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+79:                                               ; preds = %76
+  %80 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-74:                                               ; preds = %69, %51
-  %75 = getelementptr inbounds i8, ptr %45, i64 152
-  %76 = getelementptr inbounds i8, ptr %45, i64 156
-  %77 = load i32, ptr %76, align 4
-  %78 = trunc i32 %77 to i16
-  %79 = getelementptr inbounds i8, ptr %45, i64 178
-  %80 = load i8, ptr %79, align 2
-  %81 = icmp eq i8 %80, 5
-  %82 = add i16 %78, 6
-  %.0146 = select i1 %81, i16 %82, i16 %78
-  %83 = load i32, ptr %75, align 8
-  %84 = trunc i32 %83 to i16
-  %85 = and i32 %77, 65535
-  %86 = icmp ugt i32 %85, 1024
-  %87 = and i32 %83, 65535
-  %88 = icmp ugt i32 %87, 1024
-  %or.cond6 = select i1 %86, i1 true, i1 %88
-  br i1 %or.cond6, label %89, label %91
+81:                                               ; preds = %76, %51
+  %82 = getelementptr inbounds i8, ptr %45, i64 152
+  %83 = getelementptr inbounds i8, ptr %45, i64 156
+  %84 = load i32, ptr %83, align 4
+  %85 = trunc i32 %84 to i16
+  %86 = getelementptr inbounds i8, ptr %45, i64 178
+  %87 = load i8, ptr %86, align 2
+  %88 = icmp eq i8 %87, 5
+  %89 = add i16 %85, 6
+  %.0146 = select i1 %88, i16 %89, i16 %85
+  %90 = load i32, ptr %82, align 8
+  %91 = trunc i32 %90 to i16
+  %92 = and i32 %84, 65535
+  %93 = icmp ugt i32 %92, 1024
+  %94 = and i32 %90, 65535
+  %95 = icmp ugt i32 %94, 1024
+  %or.cond6 = select i1 %93, i1 true, i1 %95
+  br i1 %or.cond6, label %96, label %98
 
-89:                                               ; preds = %74
-  %90 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+96:                                               ; preds = %81
+  %97 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-91:                                               ; preds = %50, %74
-  %.1 = phi i16 [ %.0146, %74 ], [ 0, %50 ]
-  %.0145 = phi i16 [ %84, %74 ], [ 0, %50 ]
-  %.0144 = phi i16 [ %78, %74 ], [ 0, %50 ]
-  %92 = zext i16 %.1 to i32
-  %93 = zext i16 %.0145 to i32
-  %94 = mul nuw nsw i32 %93, %92
-  %95 = zext nneg i32 %94 to i64
-  %96 = add nuw nsw i64 %95, 40
-  %97 = call noalias ptr @calloc(i64 noundef %96, i64 noundef 1) #20
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %101
+98:                                               ; preds = %50, %81
+  %.1 = phi i16 [ %.0146, %81 ], [ 0, %50 ]
+  %.0145 = phi i16 [ %91, %81 ], [ 0, %50 ]
+  %.0144 = phi i16 [ %85, %81 ], [ 0, %50 ]
+  %99 = zext i16 %.1 to i32
+  %100 = zext i16 %.0145 to i32
+  %101 = mul nuw nsw i32 %100, %99
+  %102 = zext nneg i32 %101 to i64
+  %103 = add nuw nsw i64 %102, 40
+  %104 = call noalias ptr @calloc(i64 noundef %103, i64 noundef 1) #20
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %108
 
-99:                                               ; preds = %91
-  %100 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+106:                                              ; preds = %98
+  %107 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-101:                                              ; preds = %91
-  %102 = getelementptr inbounds i8, ptr %97, i64 24
-  store ptr null, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %97, i64 14
-  store i8 0, ptr %103, align 2
-  %104 = getelementptr inbounds i8, ptr %97, i64 12
-  store i16 %.1, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %97, i64 8
-  store i16 %.0144, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %97, i64 10
-  store i16 %.0145, ptr %106, align 2
-  br i1 %.not160, label %128, label %107
+108:                                              ; preds = %98
+  %109 = getelementptr inbounds i8, ptr %104, i64 24
+  store ptr null, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %104, i64 14
+  store i8 0, ptr %110, align 2
+  %111 = getelementptr inbounds i8, ptr %104, i64 12
+  store i16 %.1, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %104, i64 8
+  store i16 %.0144, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %104, i64 10
+  store i16 %.0145, ptr %113, align 2
+  br i1 %.not160, label %135, label %114
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %45, i64 192
-  %109 = load i32, ptr %108, align 8
-  %110 = sitofp i32 %109 to float
-  %111 = getelementptr inbounds i8, ptr %97, i64 16
-  store float %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %45, i64 196
-  %113 = load i32, ptr %112, align 4
-  %114 = sub nsw i32 0, %113
-  %115 = sitofp i32 %114 to float
-  %116 = getelementptr inbounds i8, ptr %97, i64 20
-  store float %115, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %45, i64 178
-  %118 = load i8, ptr %117, align 2
-  %119 = icmp eq i8 %118, 5
-  %120 = icmp ne i16 %.0144, 0
-  %or.cond9 = and i1 %120, %119
-  br i1 %or.cond9, label %121, label %124
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds i8, ptr %45, i64 192
+  %116 = load i32, ptr %115, align 8
+  %117 = sitofp i32 %116 to float
+  %118 = getelementptr inbounds i8, ptr %104, i64 16
+  store float %117, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %45, i64 196
+  %120 = load i32, ptr %119, align 4
+  %121 = sub nsw i32 0, %120
+  %122 = sitofp i32 %121 to float
+  %123 = getelementptr inbounds i8, ptr %104, i64 20
+  store float %122, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %45, i64 178
+  %125 = load i8, ptr %124, align 2
+  %126 = icmp eq i8 %125, 5
+  %127 = icmp ne i16 %.0144, 0
+  %or.cond9 = and i1 %127, %126
+  br i1 %or.cond9, label %128, label %131
 
-121:                                              ; preds = %107
-  %122 = udiv i16 %.0144, 3
-  %123 = fadd float %110, -1.000000e+00
-  store float %123, ptr %111, align 8
-  %narrow = add nuw nsw i16 %122, 1
-  store i16 %narrow, ptr %105, align 8
-  br label %128
+128:                                              ; preds = %114
+  %129 = udiv i16 %.0144, 3
+  %130 = fadd float %117, -1.000000e+00
+  store float %130, ptr %118, align 8
+  %narrow = add nuw nsw i16 %129, 1
+  store i16 %narrow, ptr %112, align 8
+  br label %135
 
-124:                                              ; preds = %107
-  %125 = icmp eq i8 %118, 6
-  br i1 %125, label %126, label %128
+131:                                              ; preds = %114
+  %132 = icmp eq i8 %125, 6
+  br i1 %132, label %133, label %135
 
-126:                                              ; preds = %124
-  %127 = udiv i16 %.0145, 3
-  store i16 %127, ptr %106, align 2
-  br label %128
+133:                                              ; preds = %131
+  %134 = udiv i16 %.0145, 3
+  store i16 %134, ptr %113, align 2
+  br label %135
 
-128:                                              ; preds = %121, %126, %124, %101
-  %129 = getelementptr inbounds i8, ptr %9, i64 40
-  %130 = load i32, ptr %129, align 8
-  %131 = icmp eq i32 %130, 2
-  br i1 %131, label %132, label %147
+135:                                              ; preds = %128, %133, %131, %108
+  %136 = getelementptr inbounds i8, ptr %9, i64 40
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp eq i32 %137, 2
+  br i1 %138, label %139, label %154
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %45, i64 112
-  %134 = load i64, ptr %133, align 8
-  %135 = sitofp i64 %134 to float
-  %136 = fmul float %135, 0x3EF0000000000000
-  %137 = load i64, ptr %9, align 8
-  %138 = sitofp i64 %137 to float
-  %139 = fmul float %138, 0x3EF0000000000000
-  %140 = fmul float %136, %139
-  store float %140, ptr %97, align 8
-  %141 = getelementptr inbounds i8, ptr %9, i64 16
-  %142 = load i64, ptr %141, align 8
-  %143 = sitofp i64 %142 to float
-  %144 = fmul float %143, 0x3EF0000000000000
-  %145 = fneg float %136
-  %146 = fmul float %144, %145
-  br label %168
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds i8, ptr %45, i64 112
+  %141 = load i64, ptr %140, align 8
+  %142 = sitofp i64 %141 to float
+  %143 = fmul float %142, 0x3EF0000000000000
+  %144 = load i64, ptr %9, align 8
+  %145 = sitofp i64 %144 to float
+  %146 = fmul float %145, 0x3EF0000000000000
+  %147 = fmul float %143, %146
+  store float %147, ptr %104, align 8
+  %148 = getelementptr inbounds i8, ptr %9, i64 16
+  %149 = load i64, ptr %148, align 8
+  %150 = sitofp i64 %149 to float
+  %151 = fmul float %150, 0x3EF0000000000000
+  %152 = fneg float %143
+  %153 = fmul float %151, %152
+  br label %175
 
-147:                                              ; preds = %128
-  %148 = getelementptr inbounds i8, ptr %45, i64 128
-  %149 = getelementptr inbounds i8, ptr %45, i64 136
-  %150 = load i64, ptr %149, align 8
-  %.not163 = icmp eq i64 %150, 0
-  %151 = load i64, ptr %148, align 8
-  br i1 %.not163, label %152, label %155
+154:                                              ; preds = %135
+  %155 = getelementptr inbounds i8, ptr %45, i64 128
+  %156 = getelementptr inbounds i8, ptr %45, i64 136
+  %157 = load i64, ptr %156, align 8
+  %.not163 = icmp eq i64 %157, 0
+  %158 = load i64, ptr %155, align 8
+  br i1 %.not163, label %159, label %162
 
-152:                                              ; preds = %147
-  %153 = sitofp i64 %151 to float
-  %154 = fmul float %153, 1.562500e-02
-  store float %154, ptr %97, align 8
-  br label %168
+159:                                              ; preds = %154
+  %160 = sitofp i64 %158 to float
+  %161 = fmul float %160, 1.562500e-02
+  store float %161, ptr %104, align 8
+  br label %175
 
-155:                                              ; preds = %147
-  %.not164 = icmp eq i64 %151, 0
-  br i1 %.not164, label %156, label %161
+162:                                              ; preds = %154
+  %.not164 = icmp eq i64 %158, 0
+  br i1 %.not164, label %163, label %168
 
-156:                                              ; preds = %155
-  store float 0.000000e+00, ptr %97, align 8
-  %157 = load i64, ptr %149, align 8
-  %158 = sub nsw i64 0, %157
-  %159 = sitofp i64 %158 to float
-  %160 = fmul float %159, 1.562500e-02
-  br label %168
-
-161:                                              ; preds = %155
-  %162 = sitofp i64 %151 to float
-  %163 = fmul float %162, 1.562500e-02
-  store float %163, ptr %97, align 8
-  %164 = load i64, ptr %149, align 8
+163:                                              ; preds = %162
+  store float 0.000000e+00, ptr %104, align 8
+  %164 = load i64, ptr %156, align 8
   %165 = sub nsw i64 0, %164
   %166 = sitofp i64 %165 to float
   %167 = fmul float %166, 1.562500e-02
-  br label %168
+  br label %175
 
-168:                                              ; preds = %152, %161, %156, %132
-  %.sink = phi float [ 0.000000e+00, %152 ], [ %167, %161 ], [ %160, %156 ], [ %146, %132 ]
-  %169 = getelementptr inbounds i8, ptr %97, i64 4
-  store float %.sink, ptr %169, align 4
-  %170 = icmp eq i32 %94, 0
-  br i1 %170, label %171, label %173
+168:                                              ; preds = %162
+  %169 = sitofp i64 %158 to float
+  %170 = fmul float %169, 1.562500e-02
+  store float %170, ptr %104, align 8
+  %171 = load i64, ptr %156, align 8
+  %172 = sub nsw i64 0, %171
+  %173 = sitofp i64 %172 to float
+  %174 = fmul float %173, 1.562500e-02
+  br label %175
 
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %97, i64 32
-  store ptr null, ptr %172, align 8
+175:                                              ; preds = %159, %168, %163, %139
+  %.sink = phi float [ 0.000000e+00, %159 ], [ %174, %168 ], [ %167, %163 ], [ %153, %139 ]
+  %176 = getelementptr inbounds i8, ptr %104, i64 4
+  store float %.sink, ptr %176, align 4
+  %177 = icmp eq i32 %101, 0
+  br i1 %177, label %178, label %180
+
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %104, i64 32
+  store ptr null, ptr %179, align 8
   br label %CopyFTSubpixelToSubpixel.exit
 
-173:                                              ; preds = %168
-  %174 = getelementptr inbounds i8, ptr %97, i64 40
-  %175 = getelementptr inbounds i8, ptr %97, i64 32
-  store ptr %174, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %45, i64 178
-  %177 = load i8, ptr %176, align 2
-  switch i8 %177, label %215 [
-    i8 1, label %178
-    i8 2, label %184
-    i8 4, label %187
-    i8 5, label %193
-    i8 6, label %206
+180:                                              ; preds = %175
+  %181 = getelementptr inbounds i8, ptr %104, i64 40
+  %182 = getelementptr inbounds i8, ptr %104, i64 32
+  store ptr %181, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %45, i64 178
+  %184 = load i8, ptr %183, align 2
+  switch i8 %184, label %222 [
+    i8 1, label %185
+    i8 2, label %191
+    i8 4, label %194
+    i8 5, label %200
+    i8 6, label %213
   ]
 
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %45, i64 168
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %45, i64 160
-  %182 = load i32, ptr %181, align 8
-  %183 = zext i16 %.0144 to i32
-  call fastcc void @CopyBW2Grey8(ptr noundef %180, i32 noundef %182, ptr noundef nonnull %174, i32 noundef %183, i32 noundef %183, i32 noundef %93)
+185:                                              ; preds = %180
+  %186 = getelementptr inbounds i8, ptr %45, i64 168
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %45, i64 160
+  %189 = load i32, ptr %188, align 8
+  %190 = zext i16 %.0144 to i32
+  call fastcc void @CopyBW2Grey8(ptr noundef %187, i32 noundef %189, ptr noundef nonnull %181, i32 noundef %190, i32 noundef %190, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
-184:                                              ; preds = %173
-  %185 = getelementptr inbounds i8, ptr %45, i64 168
-  %186 = load ptr, ptr %185, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %174, ptr align 1 %186, i64 %95, i1 false)
+191:                                              ; preds = %180
+  %192 = getelementptr inbounds i8, ptr %45, i64 168
+  %193 = load ptr, ptr %192, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %193, i64 %102, i1 false)
   br label %CopyFTSubpixelToSubpixel.exit
 
-187:                                              ; preds = %173
-  %188 = getelementptr inbounds i8, ptr %45, i64 168
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %45, i64 160
-  %191 = load i32, ptr %190, align 8
-  %192 = zext i16 %.0144 to i32
-  call fastcc void @CopyGrey4ToGrey8(ptr noundef %189, i32 noundef %191, ptr noundef nonnull %174, i32 noundef %192, i32 noundef %192, i32 noundef %93)
+194:                                              ; preds = %180
+  %195 = getelementptr inbounds i8, ptr %45, i64 168
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %45, i64 160
+  %198 = load i32, ptr %197, align 8
+  %199 = zext i16 %.0144 to i32
+  call fastcc void @CopyGrey4ToGrey8(ptr noundef %196, i32 noundef %198, ptr noundef nonnull %181, i32 noundef %199, i32 noundef %199, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
-193:                                              ; preds = %173
+200:                                              ; preds = %180
   %.not11.i = icmp eq i16 %.0145, 0
   br i1 %.not11.i, label %CopyFTSubpixelToSubpixel.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %193
-  %194 = getelementptr inbounds i8, ptr %97, i64 43
-  %195 = getelementptr inbounds i8, ptr %45, i64 160
-  %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %45, i64 168
-  %198 = load ptr, ptr %197, align 8
-  %199 = zext i16 %.0144 to i64
-  %200 = sext i32 %196 to i64
-  %201 = zext i16 %.1 to i64
-  br label %202
+.lr.ph.i:                                         ; preds = %200
+  %201 = getelementptr inbounds i8, ptr %104, i64 43
+  %202 = getelementptr inbounds i8, ptr %45, i64 160
+  %203 = load i32, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %45, i64 168
+  %205 = load ptr, ptr %204, align 8
+  %206 = zext i16 %.0144 to i64
+  %207 = sext i32 %203 to i64
+  %208 = zext i16 %.1 to i64
+  br label %209
 
-202:                                              ; preds = %202, %.lr.ph.i
-  %.014.i = phi ptr [ %194, %.lr.ph.i ], [ %205, %202 ]
-  %.0913.i = phi ptr [ %198, %.lr.ph.i ], [ %204, %202 ]
-  %.01012.i = phi i32 [ %93, %.lr.ph.i ], [ %203, %202 ]
-  %203 = add nsw i32 %.01012.i, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %.0913.i, i64 %199, i1 false)
-  %204 = getelementptr inbounds i8, ptr %.0913.i, i64 %200
-  %205 = getelementptr inbounds i8, ptr %.014.i, i64 %201
-  %.not.i = icmp eq i32 %203, 0
-  br i1 %.not.i, label %CopyFTSubpixelToSubpixel.exit, label %202, !llvm.loop !6
+209:                                              ; preds = %209, %.lr.ph.i
+  %.014.i = phi ptr [ %201, %.lr.ph.i ], [ %212, %209 ]
+  %.0913.i = phi ptr [ %205, %.lr.ph.i ], [ %211, %209 ]
+  %.01012.i = phi i32 [ %100, %.lr.ph.i ], [ %210, %209 ]
+  %210 = add nsw i32 %.01012.i, -1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %.0913.i, i64 %206, i1 false)
+  %211 = getelementptr inbounds i8, ptr %.0913.i, i64 %207
+  %212 = getelementptr inbounds i8, ptr %.014.i, i64 %208
+  %.not.i = icmp eq i32 %210, 0
+  br i1 %.not.i, label %CopyFTSubpixelToSubpixel.exit, label %209, !llvm.loop !6
 
-206:                                              ; preds = %173
-  %207 = getelementptr inbounds i8, ptr %45, i64 168
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %45, i64 160
-  %210 = load i32, ptr %209, align 8
-  %211 = zext i16 %.0144 to i32
-  %212 = mul nuw nsw i32 %211, 3
-  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %208, i32 noundef %210, ptr noundef nonnull %174, i32 noundef %212, i32 noundef %211, i32 noundef %93)
-  %213 = load i16, ptr %104, align 4
-  %214 = mul i16 %213, 3
-  store i16 %214, ptr %104, align 4
+213:                                              ; preds = %180
+  %214 = getelementptr inbounds i8, ptr %45, i64 168
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds i8, ptr %45, i64 160
+  %217 = load i32, ptr %216, align 8
+  %218 = zext i16 %.0144 to i32
+  %219 = mul nuw nsw i32 %218, 3
+  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %215, i32 noundef %217, ptr noundef nonnull %181, i32 noundef %219, i32 noundef %218, i32 noundef %100)
+  %220 = load i16, ptr %111, align 4
+  %221 = mul i16 %220, 3
+  store i16 %221, ptr %111, align 4
   br label %CopyFTSubpixelToSubpixel.exit
 
-215:                                              ; preds = %173
-  call void @free(ptr noundef nonnull %97) #19
-  %216 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
+222:                                              ; preds = %180
+  call void @free(ptr noundef nonnull %104) #19
+  %223 = call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #20
   br label %CopyFTSubpixelToSubpixel.exit
 
-CopyFTSubpixelToSubpixel.exit:                    ; preds = %202, %193, %171, %184, %215, %206, %187, %178, %99, %89, %72, %67, %40, %18, %14
-  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %68, %67 ], [ %73, %72 ], [ %90, %89 ], [ %100, %99 ], [ %97, %171 ], [ %97, %178 ], [ %97, %184 ], [ %97, %187 ], [ %97, %206 ], [ %216, %215 ], [ %97, %193 ], [ %97, %202 ]
+CopyFTSubpixelToSubpixel.exit:                    ; preds = %209, %200, %178, %191, %222, %213, %194, %185, %106, %96, %79, %74, %40, %18, %14
+  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %107, %106 ], [ %104, %178 ], [ %104, %185 ], [ %104, %191 ], [ %104, %194 ], [ %104, %213 ], [ %223, %222 ], [ %104, %200 ], [ %104, %209 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -2169,23 +2184,27 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %6 to i64
   %39 = getelementptr inbounds %struct.FT_Vector_, ptr %37, i64 %38
-  %40 = load <2 x i64>, ptr %39, align 8
-  %41 = sitofp <2 x i64> %40 to <2 x float>
-  %42 = fmul <2 x float> %41, <float 1.562500e-02, float -1.562500e-02>
-  %43 = fpext <2 x float> %42 to <2 x double>
+  %40 = load i64, ptr %39, align 8
+  %41 = sitofp i64 %40 to float
+  %42 = fmul float %41, 1.562500e-02
+  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = sitofp i64 %44 to float
+  %46 = fmul float %45, -1.562500e-02
+  %47 = fpext float %42 to double
+  %48 = fpext float %46 to double
   br label %getFTOutline.exit.thread
 
 getFTOutline.exit.thread:                         ; preds = %17, %15, %7, %11, %35, %29
-  %44 = phi <2 x double> [ %43, %35 ], [ zeroinitializer, %29 ], [ zeroinitializer, %11 ], [ zeroinitializer, %7 ], [ zeroinitializer, %15 ], [ zeroinitializer, %17 ]
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 224
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 144), align 8
-  %50 = extractelement <2 x double> %44, i64 0
-  %51 = extractelement <2 x double> %44, i64 1
-  %52 = tail call ptr (ptr, ptr, ptr, ...) %47(ptr noundef nonnull %0, ptr noundef %48, ptr noundef %49, double noundef %50, double noundef %51) #19
-  ret ptr %52
+  %.017 = phi double [ %48, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
+  %.0 = phi double [ %47, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 224
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 144), align 8
+  %54 = tail call ptr (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %53, double noundef %.0, double noundef %.017) #19
+  ret ptr %54
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -2224,25 +2243,25 @@ declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64 %.16.val) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %58, label %2
+  br i1 %.not, label %61, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %.not26 = icmp eq i32 %4, 1869968492
-  br i1 %.not26, label %5, label %58
+  br i1 %.not26, label %5, label %61
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %58, label %9
+  br i1 %8, label %61, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %58, label %13
+  br i1 %12, label %61, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2258,15 +2277,16 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   %24 = sdiv i64 %23, 32
   %25 = getelementptr inbounds i8, ptr %0, i64 200
   %26 = tail call i32 @FT_Outline_Embolden(ptr noundef nonnull %25, i64 noundef %24) #19
-  %27 = load <2 x i64>, ptr %6, align 8
-  %28 = insertelement <2 x i64> poison, i64 %24, i64 0
-  %29 = shufflevector <2 x i64> %28, <2 x i64> poison, <2 x i32> zeroinitializer
-  %30 = add nsw <2 x i64> %27, %29
-  store <2 x i64> %30, ptr %6, align 8
+  %27 = load i64, ptr %6, align 8
+  %28 = add nsw i64 %27, %24
+  store i64 %28, ptr %6, align 8
+  %29 = load i64, ptr %10, align 8
+  %30 = add nsw i64 %29, %24
+  store i64 %30, ptr %10, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 112
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %58, label %34
+  br i1 %33, label %61, label %34
 
 34:                                               ; preds = %13
   %35 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2299,17 +2319,21 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   %50 = load i64, ptr %31, align 8
   %51 = add nsw i64 %50, %49
   store i64 %51, ptr %31, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds i8, ptr %0, i64 80
   %53 = load i64, ptr %52, align 8
   %54 = add nsw i64 %53, %24
   store i64 %54, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
-  %56 = load <2 x i64>, ptr %55, align 8
-  %57 = add nsw <2 x i64> %56, %29
-  store <2 x i64> %57, ptr %55, align 8
-  br label %58
+  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %56 = load i64, ptr %55, align 8
+  %57 = add nsw i64 %56, %24
+  store i64 %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = load i64, ptr %58, align 8
+  %60 = add nsw i64 %59, %24
+  store i64 %60, ptr %58, align 8
+  br label %61
 
-58:                                               ; preds = %13, %1, %2, %5, %9, %48
+61:                                               ; preds = %13, %1, %2, %5, %9, %48
   ret void
 }
 

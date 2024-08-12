@@ -136,61 +136,63 @@ define hidden void @_ZN12EventEmitter4emitEP13ObjectSamplerlbb(ptr noundef %0, i
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = load <2 x ptr>, ptr %15, align 8
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
-  %19 = load i64, ptr %18, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = load i64, ptr %19, align 8
   call void @_ZN9EdgeStoreC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %20 = icmp slt i64 %1, 1
-  br i1 %20, label %21, label %31
+  %21 = icmp slt i64 %1, 1
+  br i1 %21, label %22, label %32
 
-21:                                               ; preds = %4
-  %22 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
-  store i64 %22, ptr %6, align 8
+22:                                               ; preds = %4
+  %23 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
+  store i64 %23, ptr %6, align 8
   store ptr %6, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %6, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
-  %25 = load ptr, ptr %9, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
-  %27 = getelementptr inbounds i8, ptr %25, i64 584
-  store ptr %27, ptr %26, align 8
-  %28 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  %29 = getelementptr inbounds i8, ptr %25, i64 704
-  store i64 -1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 712
-  store i64 0, ptr %30, align 8
-  call void @_ZN14JfrThreadLocal18stop_impersonatingEPK6Thread(ptr noundef %25) #10
-  br label %32
+  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = load ptr, ptr %9, align 8
+  store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  %28 = getelementptr inbounds i8, ptr %26, i64 584
+  store ptr %28, ptr %27, align 8
+  %29 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %30 = getelementptr inbounds i8, ptr %26, i64 704
+  store i64 -1, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %26, i64 712
+  store i64 0, ptr %31, align 8
+  call void @_ZN14JfrThreadLocal18stop_impersonatingEPK6Thread(ptr noundef %26) #10
+  br label %33
 
-31:                                               ; preds = %4
+32:                                               ; preds = %4
   call void @_ZN22PathToGcRootsOperationC1EP13ObjectSamplerP9EdgeStorelbb(ptr noundef nonnull align 8 dereferenceable(42) %8, ptr noundef %0, ptr noundef nonnull %5, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #10
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %8) #10
-  br label %32
+  br label %33
 
-32:                                               ; preds = %31, %21
+33:                                               ; preds = %32, %22
   call void @_ZN9EdgeStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %33 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i, label %35, label %34
+  %34 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i, label %36, label %35
 
-34:                                               ; preds = %32
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %19) #10
+35:                                               ; preds = %33
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #10
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %32
-  %36 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i = icmp eq ptr %36, %17
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
+36:                                               ; preds = %35, %33
+  %37 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %37, %16
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
 
-37:                                               ; preds = %35
+38:                                               ; preds = %36
   store ptr %14, ptr %13, align 8
-  store <2 x ptr> %16, ptr %15, align 8
+  store ptr %16, ptr %15, align 8
+  store ptr %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %37
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
   ret void
 }
 
@@ -343,119 +345,122 @@ define hidden void @_ZN12EventEmitter11write_eventEPK12ObjectSampleP9EdgeStore(p
   %9 = load ptr, ptr %0, align 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 17
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 18
-  store i8 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = load i64, ptr %11, align 8
+  %13 = sub nsw i64 %10, %12
+  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = load i64, ptr %14, align 8
+  %16 = sub nsw i64 %10, %15
+  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 17
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %4, i64 18
+  store i8 0, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 %10, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 96
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = load <2 x i64>, ptr %11, align 8
-  %24 = insertelement <2 x i64> poison, i64 %10, i64 0
-  %25 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> zeroinitializer
-  %26 = sub nsw <2 x i64> %25, %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %27 = load i64, ptr %21, align 8
-  store i64 %27, ptr %22, align 8
-  store <2 x i64> %26, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 104
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 64
-  store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 72
-  store i64 %6, ptr %31, align 8
-  %32 = tail call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
-  %33 = load i8, ptr @UseCompressedClassPointers, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
-  br i1 %34, label %36, label %46
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %24, ptr %25, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  %26 = getelementptr inbounds i8, ptr %1, i64 96
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %27, ptr %28, align 8
+  store i64 %13, ptr %21, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
+  store i64 %16, ptr %.sroa.215.0..sroa_idx, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 104
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 64
+  store i64 %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 72
+  store i64 %6, ptr %32, align 8
+  %33 = tail call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
+  %34 = load i8, ptr @UseCompressedClassPointers, align 1
+  %35 = trunc i8 %34 to i1
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  br i1 %35, label %37, label %47
 
-36:                                               ; preds = %3
-  %37 = load i32, ptr %35, align 8
-  %38 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %39 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %40 = ptrtoint ptr %38 to i64
-  %41 = zext i32 %37 to i64
-  %42 = zext nneg i32 %39 to i64
-  %43 = shl i64 %41, %42
-  %44 = add i64 %43, %40
-  %45 = inttoptr i64 %44 to ptr
+37:                                               ; preds = %3
+  %38 = load i32, ptr %36, align 8
+  %39 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %40 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %41 = ptrtoint ptr %39 to i64
+  %42 = zext i32 %38 to i64
+  %43 = zext nneg i32 %40 to i64
+  %44 = shl i64 %42, %43
+  %45 = add i64 %44, %41
+  %46 = inttoptr i64 %45 to ptr
   br label %_ZNK7oopDesc8is_arrayEv.exit.i
 
-46:                                               ; preds = %3
-  %47 = load ptr, ptr %35, align 8
+47:                                               ; preds = %3
+  %48 = load ptr, ptr %36, align 8
   br label %_ZNK7oopDesc8is_arrayEv.exit.i
 
-_ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %46, %36
-  %.0.i.i.i = phi ptr [ %45, %36 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, 4
-  br i1 %50, label %51, label %55
+_ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %47, %37
+  %.0.i.i.i = phi ptr [ %46, %37 ], [ %48, %47 ]
+  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp sgt i32 %50, 4
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
-  %52 = select i1 %34, i64 12, i64 16
-  %53 = getelementptr inbounds i8, ptr %32, i64 %52
-  %54 = load i32, ptr %53, align 4
-  br label %55
+52:                                               ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
+  %53 = select i1 %35, i64 12, i64 16
+  %54 = getelementptr inbounds i8, ptr %33, i64 %53
+  %55 = load i32, ptr %54, align 4
+  br label %56
 
-55:                                               ; preds = %51, %_ZNK7oopDesc8is_arrayEv.exit.i
-  %.0.i = phi i32 [ %54, %51 ], [ -2147483648, %_ZNK7oopDesc8is_arrayEv.exit.i ]
-  %56 = getelementptr inbounds i8, ptr %4, i64 80
-  store i32 %.0.i, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 88
-  store i64 %8, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 72
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 120
-  store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 128
-  store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 64
-  %67 = load i64, ptr %66, align 8
-  tail call void @_ZN14JfrThreadLocal11impersonateEPK6Threadm(ptr noundef %65, i64 noundef %67) #10
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2225), align 1
-  %.not.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit, label %69
+56:                                               ; preds = %52, %_ZNK7oopDesc8is_arrayEv.exit.i
+  %.0.i = phi i32 [ %55, %52 ], [ -2147483648, %_ZNK7oopDesc8is_arrayEv.exit.i ]
+  %57 = getelementptr inbounds i8, ptr %4, i64 80
+  store i32 %.0.i, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 88
+  store i64 %8, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %1, i64 72
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %60, i64 120
+  store i64 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 128
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = load i64, ptr %67, align 8
+  tail call void @_ZN14JfrThreadLocal11impersonateEPK6Threadm(ptr noundef %66, i64 noundef %68) #10
+  %69 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2225), align 1
+  %.not.i.i = icmp eq i8 %69, 0
+  br i1 %.not.i.i, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit, label %70
 
-69:                                               ; preds = %55
-  %70 = icmp eq i64 %10, 0
-  br i1 %70, label %.sink.split.i.i.i, label %71
+70:                                               ; preds = %56
+  %71 = icmp eq i64 %10, 0
+  br i1 %71, label %.sink.split.i.i.i, label %72
 
-71:                                               ; preds = %69
-  %72 = icmp eq i64 %19, 0
-  br i1 %72, label %.sink.split.i.i.i, label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
+72:                                               ; preds = %70
+  %73 = icmp eq i64 %24, 0
+  br i1 %73, label %.sink.split.i.i.i, label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
 
-.sink.split.i.i.i:                                ; preds = %71, %69
-  %.sink2.i.i.i = phi ptr [ %4, %69 ], [ %20, %71 ]
-  %73 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
-  store i64 %73, ptr %.sink2.i.i.i, align 8
+.sink.split.i.i.i:                                ; preds = %72, %70
+  %.sink2.i.i.i = phi ptr [ %4, %70 ], [ %25, %72 ]
+  %74 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
+  store i64 %74, ptr %.sink2.i.i.i, align 8
   br label %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
 
-_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i: ; preds = %.sink.split.i.i.i, %71
-  %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %75) #10
-  br i1 %76, label %77, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
+_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i: ; preds = %.sink.split.i.i.i, %72
+  %75 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call noundef zeroext i1 @_ZN14JfrThreadLocal11is_includedEPK6Thread(ptr noundef %76) #10
+  br i1 %77, label %78, label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
 
-77:                                               ; preds = %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
+78:                                               ; preds = %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i
   call void @_ZN8JfrEventI20EventOldObjectSampleE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %4)
   br label %_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit
 
-_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit: ; preds = %55, %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i, %77
+_ZN8JfrEventI20EventOldObjectSampleE6commitEv.exit: ; preds = %56, %_ZN8JfrEventI20EventOldObjectSampleE12should_writeEv.exit.i, %78
   ret void
 }
 

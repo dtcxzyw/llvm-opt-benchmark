@@ -35,7 +35,13 @@ define void @PHP_MD4InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture r
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 4
+  store i32 1732584193, ptr %0, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %7, align 4
   ret void
 }
 

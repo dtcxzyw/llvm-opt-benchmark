@@ -5448,7 +5448,7 @@ define void @_ZN7t_state14changeNumAtomsEi(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE17resizeWithPaddingEl(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.gmx::BasicVector", align 8
+  %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %_ZN3gmx6detail17computePaddedSizeINS_11BasicVectorIfEEEEll.exit, label %5
 
@@ -5504,16 +5504,18 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   %29 = sub i64 %28, %.pre-phi
   %.neg.i = sdiv exact i64 %29, -12
   %30 = add i64 %.neg.i, %.0.i
-  store <2 x float> zeroinitializer, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
-  store float 0.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %29
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %32, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(12) %3)
+  store float 0.000000e+00, ptr %3, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 4
+  store float 0.000000e+00, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  store float 0.000000e+00, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %26, i64 %29
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S6_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %33, i64 noundef %30, ptr noundef nonnull align 4 dereferenceable(12) %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %34, ptr %35, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %34, i64 %1
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %35, ptr %36, align 8
   ret void
 }
 

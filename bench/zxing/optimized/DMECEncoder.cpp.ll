@@ -810,7 +810,13 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %1, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 5
   store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 16), align 8
-  store <4 x i8> <i8 -28, i8 48, i8 15, i8 111>, ptr %1, align 1
+  store i8 -28, ptr %1, align 1
+  %.sroa.2162.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 48, ptr %.sroa.2162.0..sroa_idx.i, align 1
+  %.sroa.3163.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 15, ptr %.sroa.3163.0..sroa_idx.i, align 1
+  %.sroa.4164.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 111, ptr %.sroa.4164.0..sroa_idx.i, align 1
   %.sroa.5165.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
   store i8 62, ptr %.sroa.5165.0..sroa_idx.i, align 1
   store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8), align 8
@@ -827,7 +833,13 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 7
   store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 40), align 8
-  store <4 x i8> <i8 23, i8 68, i8 -112, i8 -122>, ptr %3, align 1
+  store i8 23, ptr %3, align 1
+  %.sroa.2155.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 68, ptr %.sroa.2155.0..sroa_idx.i, align 1
+  %.sroa.3156.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 -112, ptr %.sroa.3156.0..sroa_idx.i, align 1
+  %.sroa.4157.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 -122, ptr %.sroa.4157.0..sroa_idx.i, align 1
   %.sroa.5158.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i8 -16, ptr %.sroa.5158.0..sroa_idx.i, align 1
   %.sroa.6159.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 5
@@ -848,7 +860,21 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 10
   store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 64), align 8
-  store <8 x i8> <i8 28, i8 24, i8 -71, i8 -90, i8 -33, i8 -8, i8 116, i8 -1>, ptr %8, align 1
+  store i8 28, ptr %8, align 1
+  %.sroa.2145.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 1
+  store i8 24, ptr %.sroa.2145.0..sroa_idx.i, align 1
+  %.sroa.3146.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 2
+  store i8 -71, ptr %.sroa.3146.0..sroa_idx.i, align 1
+  %.sroa.4147.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 3
+  store i8 -90, ptr %.sroa.4147.0..sroa_idx.i, align 1
+  %.sroa.5148.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 4
+  store i8 -33, ptr %.sroa.5148.0..sroa_idx.i, align 1
+  %.sroa.6149.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 5
+  store i8 -8, ptr %.sroa.6149.0..sroa_idx.i, align 1
+  %.sroa.7150.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 6
+  store i8 116, ptr %.sroa.7150.0..sroa_idx.i, align 1
+  %.sroa.8151.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 7
+  store i8 -1, ptr %.sroa.8151.0..sroa_idx.i, align 1
   %.sroa.9152.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
   store i8 110, ptr %.sroa.9152.0..sroa_idx.i, align 1
   %.sroa.10153.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 9
@@ -867,7 +893,21 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 11
   store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 88), align 8
-  store <8 x i8> <i8 -81, i8 -118, i8 -51, i8 12, i8 -62, i8 -88, i8 39, i8 -11>, ptr %13, align 1
+  store i8 -81, ptr %13, align 1
+  %.sroa.2134.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 1
+  store i8 -118, ptr %.sroa.2134.0..sroa_idx.i, align 1
+  %.sroa.3135.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 2
+  store i8 -51, ptr %.sroa.3135.0..sroa_idx.i, align 1
+  %.sroa.4136.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 3
+  store i8 12, ptr %.sroa.4136.0..sroa_idx.i, align 1
+  %.sroa.5137.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 4
+  store i8 -62, ptr %.sroa.5137.0..sroa_idx.i, align 1
+  %.sroa.6138.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 5
+  store i8 -88, ptr %.sroa.6138.0..sroa_idx.i, align 1
+  %.sroa.7139.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 6
+  store i8 39, ptr %.sroa.7139.0..sroa_idx.i, align 1
+  %.sroa.8140.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 7
+  store i8 -11, ptr %.sroa.8140.0..sroa_idx.i, align 1
   %.sroa.9141.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
   store i8 60, ptr %.sroa.9141.0..sroa_idx.i, align 1
   %.sroa.10142.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 9
@@ -888,9 +928,29 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %18, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 12
   store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 112), align 8
-  store <8 x i8> <i8 41, i8 -103, i8 -98, i8 91, i8 61, i8 42, i8 -114, i8 -43>, ptr %18, align 1
+  store i8 41, ptr %18, align 1
+  %.sroa.2122.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 1
+  store i8 -103, ptr %.sroa.2122.0..sroa_idx.i, align 1
+  %.sroa.3123.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 2
+  store i8 -98, ptr %.sroa.3123.0..sroa_idx.i, align 1
+  %.sroa.4124.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 3
+  store i8 91, ptr %.sroa.4124.0..sroa_idx.i, align 1
+  %.sroa.5125.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 4
+  store i8 61, ptr %.sroa.5125.0..sroa_idx.i, align 1
+  %.sroa.6126.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 5
+  store i8 42, ptr %.sroa.6126.0..sroa_idx.i, align 1
+  %.sroa.7127.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 6
+  store i8 -114, ptr %.sroa.7127.0..sroa_idx.i, align 1
+  %.sroa.8128.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 7
+  store i8 -43, ptr %.sroa.8128.0..sroa_idx.i, align 1
   %.sroa.9129.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
-  store <4 x i8> <i8 97, i8 -78, i8 100, i8 -14>, ptr %.sroa.9129.0..sroa_idx.i, align 1
+  store i8 97, ptr %.sroa.9129.0..sroa_idx.i, align 1
+  %.sroa.10130.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 9
+  store i8 -78, ptr %.sroa.10130.0..sroa_idx.i, align 1
+  %.sroa.11131.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 10
+  store i8 100, ptr %.sroa.11131.0..sroa_idx.i, align 1
+  %.sroa.12132.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 11
+  store i8 -14, ptr %.sroa.12132.0..sroa_idx.i, align 1
   store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 104), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), i8 0, i64 24, i1 false)
   %23 = invoke noalias noundef nonnull dereferenceable(14) ptr @_Znwm(i64 noundef 14) #16
@@ -905,9 +965,29 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #11 section ".text.startu
   store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 14
   store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 136), align 8
-  store <8 x i8> <i8 -100, i8 97, i8 -64, i8 -4, i8 95, i8 9, i8 -99, i8 119>, ptr %23, align 1
+  store i8 -100, ptr %23, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 1
+  store i8 97, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 2
+  store i8 -64, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 3
+  store i8 -4, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 4
+  store i8 95, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 5
+  store i8 9, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 6
+  store i8 -99, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 7
+  store i8 119, ptr %.sroa.8.0..sroa_idx.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 8
-  store <4 x i8> <i8 -118, i8 45, i8 18, i8 -70>, ptr %.sroa.9.0..sroa_idx.i, align 1
+  store i8 -118, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 9
+  store i8 45, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 10
+  store i8 18, ptr %.sroa.11.0..sroa_idx.i, align 1
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 11
+  store i8 -70, ptr %.sroa.12.0..sroa_idx.i, align 1
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 12
   store i8 83, ptr %.sroa.13.0..sroa_idx.i, align 1
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 13

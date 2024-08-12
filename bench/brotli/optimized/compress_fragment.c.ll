@@ -8098,15 +8098,25 @@ entry:
   tail call void @BrotliCreateHuffmanTree(ptr noundef nonnull %arrayidx, i64 noundef 64, i32 noundef 14, ptr noundef nonnull %tree, ptr noundef nonnull %arrayidx10) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %tmp_depth3, ptr noundef nonnull align 1 dereferenceable(24) %cmd_depth, i64 24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 7336
+  %add.ptr11 = getelementptr inbounds i8, ptr %s, i64 808
+  %0 = load i64, ptr %add.ptr11, align 1
+  store i64 %0, ptr %add.ptr, align 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %s, i64 7344
   %add.ptr13 = getelementptr inbounds i8, ptr %s, i64 792
+  %1 = load i64, ptr %add.ptr13, align 1
+  store i64 %1, ptr %add.ptr12, align 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %s, i64 7352
+  %add.ptr15 = getelementptr inbounds i8, ptr %s, i64 816
+  %2 = load i64, ptr %add.ptr15, align 1
+  store i64 %2, ptr %add.ptr14, align 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %s, i64 7360
   %add.ptr17 = getelementptr inbounds i8, ptr %s, i64 800
-  %0 = load <4 x i64>, ptr %add.ptr13, align 1
-  %1 = shufflevector <4 x i64> %0, <4 x i64> poison, <4 x i32> <i32 2, i32 0, i32 3, i32 1>
-  store <4 x i64> %1, ptr %add.ptr, align 1
+  %3 = load i64, ptr %add.ptr17, align 1
+  store i64 %3, ptr %add.ptr16, align 1
   %add.ptr18 = getelementptr inbounds i8, ptr %s, i64 7368
   %add.ptr19 = getelementptr inbounds i8, ptr %s, i64 824
-  %2 = load i64, ptr %add.ptr19, align 1
-  store i64 %2, ptr %add.ptr18, align 1
+  %4 = load i64, ptr %add.ptr19, align 1
+  store i64 %4, ptr %add.ptr18, align 1
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %tmp_depth3, i64 noundef 64, ptr noundef nonnull %tmp_bits5) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(48) %cmd_bits, ptr noundef nonnull align 2 dereferenceable(48) %tmp_bits5, i64 48, i1 false)
   %add.ptr20 = getelementptr inbounds i8, ptr %s, i64 944
@@ -8126,47 +8136,47 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr28, ptr noundef nonnull align 2 dereferenceable(16) %add.ptr29, i64 16, i1 false)
   %arrayidx31 = getelementptr inbounds i8, ptr %s, i64 1024
   tail call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %arrayidx10, i64 noundef 64, ptr noundef nonnull %arrayidx31) #8
-  %3 = getelementptr inbounds i8, ptr %s, i64 7320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, i8 0, i64 56, i1 false)
-  %4 = load i64, ptr %cmd_depth, align 1
-  store i64 %4, ptr %tmp_depth3, align 1
+  %5 = getelementptr inbounds i8, ptr %s, i64 7320
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  %6 = load i64, ptr %cmd_depth, align 1
+  store i64 %6, ptr %tmp_depth3, align 1
   %add.ptr32 = getelementptr inbounds i8, ptr %s, i64 7376
   %add.ptr33 = getelementptr inbounds i8, ptr %s, i64 776
-  %5 = load i64, ptr %add.ptr33, align 1
-  store i64 %5, ptr %add.ptr32, align 1
+  %7 = load i64, ptr %add.ptr33, align 1
+  store i64 %7, ptr %add.ptr32, align 1
   %add.ptr34 = getelementptr inbounds i8, ptr %s, i64 7440
   %add.ptr35 = getelementptr inbounds i8, ptr %s, i64 784
-  %6 = load i64, ptr %add.ptr35, align 1
-  store i64 %6, ptr %add.ptr34, align 1
+  %8 = load i64, ptr %add.ptr35, align 1
+  store i64 %8, ptr %add.ptr34, align 1
   %add.ptr36 = getelementptr inbounds i8, ptr %s, i64 7504
-  %7 = load i64, ptr %add.ptr13, align 1
-  store i64 %7, ptr %add.ptr36, align 1
+  %9 = load i64, ptr %add.ptr13, align 1
+  store i64 %9, ptr %add.ptr36, align 1
   %add.ptr38 = getelementptr inbounds i8, ptr %s, i64 7696
-  %8 = load i64, ptr %add.ptr17, align 1
-  store i64 %8, ptr %add.ptr38, align 1
+  %10 = load i64, ptr %add.ptr17, align 1
+  store i64 %10, ptr %add.ptr38, align 1
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %i.065 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %add = or disjoint i64 %i.065, 40
   %arrayidx40 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add
-  %9 = load i8, ptr %arrayidx40, align 1
+  %11 = load i8, ptr %arrayidx40, align 1
   %mul = shl nuw nsw i64 %i.065, 3
   %add41 = or disjoint i64 %mul, 128
   %arrayidx42 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add41
-  store i8 %9, ptr %arrayidx42, align 1
+  store i8 %11, ptr %arrayidx42, align 1
   %add43 = or disjoint i64 %i.065, 48
   %arrayidx44 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add43
-  %10 = load i8, ptr %arrayidx44, align 1
+  %12 = load i8, ptr %arrayidx44, align 1
   %add46 = or disjoint i64 %mul, 256
   %arrayidx47 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add46
-  store i8 %10, ptr %arrayidx47, align 1
+  store i8 %12, ptr %arrayidx47, align 1
   %add48 = or disjoint i64 %i.065, 56
   %arrayidx49 = getelementptr inbounds i8, ptr %cmd_depth, i64 %add48
-  %11 = load i8, ptr %arrayidx49, align 1
+  %13 = load i8, ptr %arrayidx49, align 1
   %add51 = or disjoint i64 %mul, 448
   %arrayidx52 = getelementptr inbounds i8, ptr %tmp_depth3, i64 %add51
-  store i8 %11, ptr %arrayidx52, align 1
+  store i8 %13, ptr %arrayidx52, align 1
   %inc = add nuw nsw i64 %i.065, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19

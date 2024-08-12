@@ -104,22 +104,30 @@ for.body.i:                                       ; preds = %for.end43, %for.bod
   br i1 %exitcond.not.i, label %for.cond59.preheader, label %for.body.i, !llvm.loop !9
 
 for.cond59.preheader:                             ; preds = %for.body.i
-  %4 = load <4 x i32>, ptr %intArray, align 16
-  %.fr124 = freeze <4 x i32> %4
-  %5 = icmp ne <4 x i32> %.fr124, <i32 3, i32 2, i32 6, i32 5>
+  %4 = load i32, ptr %intArray, align 16
+  %cmp64 = icmp ne i32 %4, 3
+  %arrayidx65 = getelementptr inbounds i8, ptr %intArray, i64 4
+  %5 = load i32, ptr %arrayidx65, align 4
+  %cmp66 = icmp ne i32 %5, 2
+  %or.cond.not117.not121 = select i1 %cmp64, i1 true, i1 %cmp66
+  %arrayidx68 = getelementptr inbounds i8, ptr %intArray, i64 8
+  %6 = load i32, ptr %arrayidx68, align 8
+  %cmp69 = icmp ne i32 %6, 6
+  %or.cond1.not116.not120 = select i1 %or.cond.not117.not121, i1 true, i1 %cmp69
+  %arrayidx71 = getelementptr inbounds i8, ptr %intArray, i64 12
+  %7 = load i32, ptr %arrayidx71, align 4
+  %cmp72 = icmp ne i32 %7, 5
+  %or.cond2.not115.not119 = select i1 %or.cond1.not116.not120, i1 true, i1 %cmp72
   %arrayidx74 = getelementptr inbounds i8, ptr %intArray, i64 16
-  %6 = load i32, ptr %arrayidx74, align 16
-  %.fr125 = freeze i32 %6
-  %cmp75 = icmp ne i32 %.fr125, 4
+  %8 = load i32, ptr %arrayidx74, align 16
+  %cmp75 = icmp ne i32 %8, 4
+  %or.cond3.not114.not118 = select i1 %or.cond2.not115.not119, i1 true, i1 %cmp75
   %arrayidx76 = getelementptr inbounds i8, ptr %intArray, i64 20
-  %7 = load i32, ptr %arrayidx76, align 4
-  %.fr = freeze i32 %7
+  %9 = load i32, ptr %arrayidx76, align 4
+  %.fr = freeze i32 %9
   %cmp77.not = icmp ne i32 %.fr, 1
-  %8 = bitcast <4 x i1> %5 to i4
-  %9 = icmp ne i4 %8, 0
-  %op.rdx = or i1 %9, %cmp75
-  %op.rdx123 = or i1 %op.rdx, %cmp77.not
-  %call81 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %op.rdx123, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.5)
+  %or.cond113.not = or i1 %or.cond3.not114.not118, %cmp77.not
+  %call81 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %or.cond113.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.5)
   br label %for.body85
 
 for.body85:                                       ; preds = %for.cond59.preheader, %for.inc86

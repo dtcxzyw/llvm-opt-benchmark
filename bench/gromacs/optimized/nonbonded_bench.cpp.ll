@@ -331,27 +331,29 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118NonbondedBenchmarkESt14default_deleteIS2_
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, i8 0, i64 9, i1 false), !noalias !5
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %6, align 4, !noalias !5
-  %7 = getelementptr inbounds i8, ptr %1, i64 44
-  store i8 0, ptr %7, align 4, !noalias !5
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 0, ptr %8, align 8, !noalias !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 52
-  store i8 0, ptr %9, align 4, !noalias !5
-  %10 = getelementptr inbounds i8, ptr %1, i64 53
-  store i8 0, ptr %10, align 1, !noalias !5
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
-  store i32 1, ptr %11, align 8, !noalias !5
-  %12 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 100, ptr %12, align 4, !noalias !5
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 0, ptr %13, align 8, !noalias !5
-  %14 = getelementptr inbounds i8, ptr %1, i64 68
-  store i8 0, ptr %14, align 4, !noalias !5
-  %15 = getelementptr inbounds i8, ptr %1, i64 69
-  store i8 0, ptr %15, align 1, !noalias !5
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12, !noalias !5
+  store float 1.000000e+00, ptr %6, align 4, !noalias !5
+  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  store float 0.000000e+00, ptr %7, align 8, !noalias !5
+  %8 = getelementptr inbounds i8, ptr %1, i64 44
+  store i8 0, ptr %8, align 4, !noalias !5
+  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  store i32 0, ptr %9, align 8, !noalias !5
+  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  store i8 0, ptr %10, align 4, !noalias !5
+  %11 = getelementptr inbounds i8, ptr %1, i64 53
+  store i8 0, ptr %11, align 1, !noalias !5
+  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  store i32 1, ptr %12, align 8, !noalias !5
+  %13 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 100, ptr %13, align 4, !noalias !5
+  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 0, ptr %14, align 8, !noalias !5
+  %15 = getelementptr inbounds i8, ptr %1, i64 68
+  store i8 0, ptr %15, align 4, !noalias !5
+  %16 = getelementptr inbounds i8, ptr %1, i64 69
+  store i8 0, ptr %16, align 1, !noalias !5
+  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12, !noalias !5
   store ptr %1, ptr %0, align 8
   ret void
 }

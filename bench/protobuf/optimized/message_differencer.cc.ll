@@ -1912,7 +1912,13 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %field_comparator_kind_ = getelementptr inbounds i8, ptr %this, i64 376
   store i32 0, ptr %field_comparator_kind_, align 8
   %report_matches_ = getelementptr inbounds i8, ptr %this, i64 380
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %report_matches_, align 4
+  store i8 0, ptr %report_matches_, align 4
+  %report_moves_ = getelementptr inbounds i8, ptr %this, i64 381
+  store i8 1, ptr %report_moves_, align 1
+  %report_ignores_ = getelementptr inbounds i8, ptr %this, i64 382
+  store i8 1, ptr %report_ignores_, align 2
+  %force_compare_no_presence_ = getelementptr inbounds i8, ptr %this, i64 383
+  store i8 0, ptr %force_compare_no_presence_, align 1
   %output_string_ = getelementptr inbounds i8, ptr %this, i64 384
   store ptr null, ptr %output_string_, align 8
   %match_indices_for_smart_list_callback_ = getelementptr inbounds i8, ptr %this, i64 392
@@ -2828,6 +2834,7 @@ entry:
   %match_indices_for_smart_list_callback_ = getelementptr inbounds i8, ptr %this, i64 392
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -2839,54 +2846,60 @@ if.then.i.i:                                      ; preds = %entry
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %1 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %callback, i64 24
+  %1 = load ptr, ptr %_M_invoker4.i.i, align 8
+  %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   br label %_ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEC2ERKS5_.exit.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #35
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #35
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %if.then.i.i.i, %lpad.i.i
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %3
 
 _ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEC2ERKS5_.exit.i: ; preds = %invoke.cont.i.i, %entry
-  %6 = phi <2 x ptr> [ zeroinitializer, %entry ], [ %1, %invoke.cont.i.i ]
+  %7 = phi ptr [ null, %entry ], [ %1, %invoke.cont.i.i ]
+  %8 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %match_indices_for_smart_list_callback_, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %match_indices_for_smart_list_callback_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 408
-  %7 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
-  %8 = load ptr, ptr %_M_manager3.i.i, align 8
-  store <2 x ptr> %7, ptr %_M_manager.i.i.i, align 8
-  store <2 x ptr> %6, ptr %_M_manager3.i.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr %9, ptr %_M_manager.i.i.i, align 8
+  store ptr %8, ptr %_M_manager3.i.i, align 8
+  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 416
+  %10 = load ptr, ptr %_M_invoker4.i2.i, align 8
+  store ptr %10, ptr %_M_invoker.i.i, align 8
+  store ptr %7, ptr %_M_invoker4.i2.i, align 8
+  %tobool.not.i.i4.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEaSERKS5_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEC2ERKS5_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEaSERKS5_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #35
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #35
   unreachable
 
 _ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEaSERKS5_.exit: ; preds = %_ZNSt8functionIFvPSt6vectorIiSaIiEES3_EEC2ERKS5_.exit.i, %if.then.i.i5.i
@@ -6732,7 +6745,10 @@ while.cond.outer455.backedge:                     ; preds = %if.end153, %if.end2
 if.end160:                                        ; preds = %if.end153
   store ptr null, ptr %field.i, align 8
   store i32 0, ptr %22, align 8
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %unknown_field_number.i, align 8
+  store i32 -1, ptr %unknown_field_number.i, align 8
+  store i32 0, ptr %unknown_field_type.i, align 4
+  store i32 -1, ptr %index.i, align 8
+  store i32 -1, ptr %new_index.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %map_entry1.i, i8 0, i64 32, i1 false)
   store i32 -1, ptr %unknown_field_index1.i, align 8
   store i32 -1, ptr %unknown_field_index2.i, align 4
@@ -9696,7 +9712,13 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN6goog
   %specific_field.sroa.6119.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
   store ptr %repeated_field, ptr %specific_field.sroa.6119.0..sroa_idx, align 8
   %specific_field.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_field.sroa.8.0..sroa_idx, align 8
+  store i32 -1, ptr %specific_field.sroa.8.0..sroa_idx, align 8
+  %specific_field.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 36
+  store i32 0, ptr %specific_field.sroa.9.0..sroa_idx, align 4
+  %specific_field.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
+  store i32 -1, ptr %specific_field.sroa.10.0..sroa_idx, align 8
+  %specific_field.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 44
+  store i32 -1, ptr %specific_field.sroa.11.0..sroa_idx, align 4
   %specific_field.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12, i64 32, i1 false)
   %specific_field.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 80
@@ -9748,7 +9770,13 @@ _ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESa
   %specific_field.sroa.6119.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 24
   store ptr %repeated_field, ptr %specific_field.sroa.6119.0.add.ptr.i.i23.sroa_idx, align 8
   %specific_field.sroa.8.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_field.sroa.8.0.add.ptr.i.i23.sroa_idx, align 8
+  store i32 -1, ptr %specific_field.sroa.8.0.add.ptr.i.i23.sroa_idx, align 8
+  %specific_field.sroa.9.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 36
+  store i32 0, ptr %specific_field.sroa.9.0.add.ptr.i.i23.sroa_idx, align 4
+  %specific_field.sroa.10.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 40
+  store i32 -1, ptr %specific_field.sroa.10.0.add.ptr.i.i23.sroa_idx, align 8
+  %specific_field.sroa.11.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 44
+  store i32 -1, ptr %specific_field.sroa.11.0.add.ptr.i.i23.sroa_idx, align 4
   %specific_field.sroa.12.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12.0.add.ptr.i.i23.sroa_idx, i8 0, i64 32, i1 false)
   %specific_field.sroa.13.0.add.ptr.i.i23.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i23, i64 80
@@ -11599,7 +11627,13 @@ if.then.i:                                        ; preds = %invoke.cont374
   %specific_value_field.sroa.6516.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 24
   store ptr %call28, ptr %specific_value_field.sroa.6516.0..sroa_idx, align 8
   %specific_value_field.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_value_field.sroa.8.0..sroa_idx, align 8
+  store i32 -1, ptr %specific_value_field.sroa.8.0..sroa_idx, align 8
+  %specific_value_field.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 36
+  store i32 0, ptr %specific_value_field.sroa.9.0..sroa_idx, align 4
+  %specific_value_field.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 40
+  store i32 -1, ptr %specific_value_field.sroa.10.0..sroa_idx, align 8
+  %specific_value_field.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 44
+  store i32 -1, ptr %specific_value_field.sroa.11.0..sroa_idx, align 4
   %specific_value_field.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_value_field.sroa.12.0..sroa_idx, i8 0, i64 32, i1 false)
   %specific_value_field.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 80
@@ -11656,7 +11690,13 @@ _ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESa
   %specific_value_field.sroa.6516.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   store ptr %call28, ptr %specific_value_field.sroa.6516.0.add.ptr.i.i.sroa_idx, align 8
   %specific_value_field.sroa.8.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_value_field.sroa.8.0.add.ptr.i.i.sroa_idx, align 8
+  store i32 -1, ptr %specific_value_field.sroa.8.0.add.ptr.i.i.sroa_idx, align 8
+  %specific_value_field.sroa.9.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 36
+  store i32 0, ptr %specific_value_field.sroa.9.0.add.ptr.i.i.sroa_idx, align 4
+  %specific_value_field.sroa.10.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
+  store i32 -1, ptr %specific_value_field.sroa.10.0.add.ptr.i.i.sroa_idx, align 8
+  %specific_value_field.sroa.11.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 44
+  store i32 -1, ptr %specific_value_field.sroa.11.0.add.ptr.i.i.sroa_idx, align 4
   %specific_value_field.sroa.12.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_value_field.sroa.12.0.add.ptr.i.i.sroa_idx, i8 0, i64 32, i1 false)
   %specific_value_field.sroa.13.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 80
@@ -12930,9 +12970,13 @@ if.end36:                                         ; preds = %invoke.cont29, %lan
   %12 = phi i1 [ false, %invoke.cont29 ], [ true, %land.end ]
   %field.i = getelementptr inbounds i8, ptr %specific_field, i64 24
   %unknown_field_number.i = getelementptr inbounds i8, ptr %specific_field, i64 32
+  store i32 -1, ptr %unknown_field_number.i, align 8
+  %unknown_field_type.i = getelementptr inbounds i8, ptr %specific_field, i64 36
+  store i32 0, ptr %unknown_field_type.i, align 4
   %index.i = getelementptr inbounds i8, ptr %specific_field, i64 40
+  store i32 -1, ptr %index.i, align 8
   %new_index.i = getelementptr inbounds i8, ptr %specific_field, i64 44
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %unknown_field_number.i, align 8
+  store i32 -1, ptr %new_index.i, align 4
   %map_entry1.i = getelementptr inbounds i8, ptr %specific_field, i64 48
   %unknown_field_index1.i = getelementptr inbounds i8, ptr %specific_field, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %map_entry1.i, i8 0, i64 32, i1 false)
@@ -18974,7 +19018,13 @@ if.then.i:                                        ; preds = %if.end36
   %specific_field.sroa.663.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
   store ptr %1, ptr %specific_field.sroa.663.0..sroa_idx, align 8
   %specific_field.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_field.sroa.8.0..sroa_idx, align 8
+  store i32 -1, ptr %specific_field.sroa.8.0..sroa_idx, align 8
+  %specific_field.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 36
+  store i32 0, ptr %specific_field.sroa.9.0..sroa_idx, align 4
+  %specific_field.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
+  store i32 -1, ptr %specific_field.sroa.10.0..sroa_idx, align 8
+  %specific_field.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 44
+  store i32 -1, ptr %specific_field.sroa.11.0..sroa_idx, align 4
   %specific_field.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12.0..sroa_idx, i8 0, i64 32, i1 false)
   %specific_field.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 80
@@ -19031,7 +19081,13 @@ _ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESa
   %specific_field.sroa.663.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   store ptr %1, ptr %specific_field.sroa.663.0.add.ptr.i.i.sroa_idx, align 8
   %specific_field.sroa.8.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %specific_field.sroa.8.0.add.ptr.i.i.sroa_idx, align 8
+  store i32 -1, ptr %specific_field.sroa.8.0.add.ptr.i.i.sroa_idx, align 8
+  %specific_field.sroa.9.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 36
+  store i32 0, ptr %specific_field.sroa.9.0.add.ptr.i.i.sroa_idx, align 4
+  %specific_field.sroa.10.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
+  store i32 -1, ptr %specific_field.sroa.10.0.add.ptr.i.i.sroa_idx, align 8
+  %specific_field.sroa.11.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 44
+  store i32 -1, ptr %specific_field.sroa.11.0.add.ptr.i.i.sroa_idx, align 4
   %specific_field.sroa.12.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %specific_field.sroa.12.0.add.ptr.i.i.sroa_idx, i8 0, i64 32, i1 false)
   %specific_field.sroa.13.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 80
@@ -20533,12 +20589,16 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !344, !noalias !341
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !341, !noalias !344
+  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !344, !noalias !341
+  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !341, !noalias !344
+  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %6 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !344, !noalias !341
+  store ptr %6, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !341, !noalias !344
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !344, !noalias !341
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !341, !noalias !344
+  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !344, !noalias !341
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !341, !noalias !344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !344, !noalias !341
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -20556,12 +20616,16 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIS_IPKN
   %__first.addr.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i20 ], [ %__position.coerce, %_ZNSt6vectorIS_IPKN6google8protobuf15FieldDescriptorESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !350, !noalias !347
-  store <2 x ptr> %7, ptr %__cur.07.i.i.i21, align 8, !alias.scope !347, !noalias !350
+  %8 = load ptr, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !350, !noalias !347
+  store ptr %8, ptr %__cur.07.i.i.i21, align 8, !alias.scope !347, !noalias !350
+  %_M_finish.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 8
+  %9 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !350, !noalias !347
+  store ptr %9, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !347, !noalias !350
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !350, !noalias !347
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !347, !noalias !350
+  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i26, align 8, !alias.scope !350, !noalias !347
+  store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !347, !noalias !350
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !350, !noalias !347
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 24
   %incdec.ptr1.i.i.i28 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 24
@@ -20586,28 +20650,28 @@ _ZNSt12_Vector_baseISt6vectorIPKN6google8protobuf15FieldDescriptorESaIS5_EESaIS7
   ret void
 
 lpad17:                                           ; preds = %invoke.cont19
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 invoke.cont19:                                    ; preds = %if.then3.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPKN6google8protobuf15FieldDescriptorEEE8allocateERS5_m.exit.i.i.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #34
+  %13 = extractvalue { ptr, i32 } %12, 0
+  %14 = tail call ptr @__cxa_begin_catch(ptr %13) #34
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #33
   invoke void @__cxa_rethrow() #31
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %11
 
 terminate.lpad:                                   ; preds = %lpad17
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #35
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #35
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -21631,9 +21695,10 @@ if.else34.i:                                      ; preds = %entry
   br i1 %call4.i3.i, label %if.then40.i, label %if.else45.i
 
 if.then40.i:                                      ; preds = %if.else34.i
-  %12 = load <2 x ptr>, ptr %__first.coerce, align 8
-  %13 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %13, ptr %__first.coerce, align 8
+  %12 = load ptr, ptr %__first.coerce, align 8
+  %13 = load ptr, ptr %add.ptr.i1, align 8
+  store ptr %13, ptr %__first.coerce, align 8
+  store ptr %12, ptr %add.ptr.i1, align 8
   br label %while.body.i.preheader
 
 if.else45.i:                                      ; preds = %if.else34.i
@@ -24426,7 +24491,13 @@ _ZN6google8protobuf2io7Printer8WithVarsIN4absl12lts_2023080213flat_hash_mapISt17
   %opts.sroa.1.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 1
   store i32 65792, ptr %opts.sroa.1.0.agg.tmp3.sroa_idx, align 1
   %opts.sroa.4.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 5
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 1>, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx, align 1
+  store i8 0, ptr %opts.sroa.4.0.agg.tmp3.sroa_idx, align 1
+  %opts.sroa.6.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 6
+  store i8 1, ptr %opts.sroa.6.0.agg.tmp3.sroa_idx, align 2
+  %opts.sroa.7.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 7
+  store i8 0, ptr %opts.sroa.7.0.agg.tmp3.sroa_idx, align 1
+  %opts.sroa.8.0.agg.tmp3.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
+  store i8 1, ptr %opts.sroa.8.0.agg.tmp3.sroa_idx, align 8
   invoke void @_ZN6google8protobuf2io7Printer9PrintImplESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308024SpanIKNSt7__cxx1112basic_stringIcS5_SaIcEEEEENS2_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 %text.coerce0, ptr %text.coerce1, ptr null, i64 0, ptr noundef nonnull byval(%"struct.google::protobuf::io::Printer::PrintOptions") align 8 %agg.tmp3)
           to label %if.then.i unwind label %lpad
 

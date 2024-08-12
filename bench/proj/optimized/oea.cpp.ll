@@ -52,7 +52,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_oeaP8PJconsts(ptr no
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %47
+  br label %54
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -70,7 +70,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_oeaP8PJconsts(ptr no
 15:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.2)
   %16 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %47
+  br label %54
 
 17:                                               ; preds = %6
   %18 = load ptr, ptr %0, align 8
@@ -85,7 +85,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_oeaP8PJconsts(ptr no
 24:                                               ; preds = %17
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   %25 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %47
+  br label %54
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr %0, align 8
@@ -101,25 +101,35 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_oeaP8PJconsts(ptr no
   %35 = tail call double @cos(double noundef %34) #7
   %36 = getelementptr inbounds i8, ptr %2, i64 72
   store double %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 40
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
-  %39 = load <2 x double>, ptr %22, align 8
-  %40 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %39
-  store <2 x double> %40, ptr %37, align 8
-  %41 = fmul <2 x double> %40, <double 2.000000e+00, double 2.000000e+00>
-  store <2 x double> %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 56
-  %43 = fmul <2 x double> %39, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL13oea_s_forward5PJ_LPP8PJconsts, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL13oea_s_inverse5PJ_XYP8PJconsts, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %46, align 8
-  br label %47
+  %37 = load double, ptr %13, align 8
+  %38 = fdiv double 1.000000e+00, %37
+  %39 = getelementptr inbounds i8, ptr %2, i64 48
+  store double %38, ptr %39, align 8
+  %40 = load double, ptr %22, align 8
+  %41 = fdiv double 1.000000e+00, %40
+  %42 = getelementptr inbounds i8, ptr %2, i64 40
+  store double %41, ptr %42, align 8
+  %43 = fmul double %38, 2.000000e+00
+  %44 = getelementptr inbounds i8, ptr %2, i64 32
+  store double %43, ptr %44, align 8
+  %45 = fmul double %41, 2.000000e+00
+  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %45, ptr %46, align 8
+  %47 = fmul double %40, 5.000000e-01
+  %48 = getelementptr inbounds i8, ptr %2, i64 56
+  store double %47, ptr %48, align 8
+  %49 = fmul double %37, 5.000000e-01
+  %50 = getelementptr inbounds i8, ptr %2, i64 64
+  store double %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13oea_s_forward5PJ_LPP8PJconsts, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL13oea_s_inverse5PJ_XYP8PJconsts, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %53, align 8
+  br label %54
 
-47:                                               ; preds = %26, %24, %15, %4
+54:                                               ; preds = %26, %24, %15, %4
   %.0 = phi ptr [ %5, %4 ], [ %16, %15 ], [ %25, %24 ], [ %0, %26 ]
   ret ptr %.0
 }

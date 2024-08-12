@@ -464,78 +464,80 @@ _ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit: ; preds
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load <2 x ptr>, ptr %20, align 8
-  %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  %26 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %25) #7, !srcloc !10
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ult i32 %26, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %26) #7, !srcloc !10
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp ult i32 %27, %31
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit, %.lr.ph
-  %32 = phi ptr [ %41, %.lr.ph ], [ %28, %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit ]
-  %.08 = phi i32 [ %40, %.lr.ph ], [ %26, %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = zext i32 %.08 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %1, align 8
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %37) #7
-  %40 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %25) #7, !srcloc !10
-  %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = icmp ult i32 %40, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %33 = phi ptr [ %42, %.lr.ph ], [ %29, %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit ]
+  %.08 = phi i32 [ %41, %.lr.ph ], [ %27, %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = zext i32 %.08 to i64
+  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %1, align 8
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %38) #7
+  %41 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %26) #7, !srcloc !10
+  %42 = load ptr, ptr %28, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp ult i32 %41, %44
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN14ZRootStatTimerC2ERK17ZRootStatSubPhase21ZGenerationIdOptional.exit
-  %45 = load ptr, ptr %19, align 8
-  %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %47, label %46
+  %46 = load ptr, ptr %19, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-46:                                               ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %24) #7
+47:                                               ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %25) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %19) #7
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %._crit_edge
-  %48 = load ptr, ptr %20, align 8
-  %.not8.i.i.i.i = icmp eq ptr %48, %22
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %49
+48:                                               ; preds = %47, %._crit_edge
+  %49 = load ptr, ptr %20, align 8
+  %.not8.i.i.i.i = icmp eq ptr %49, %21
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   store ptr %19, ptr %18, align 8
-  store <2 x ptr> %21, ptr %20, align 8
+  store ptr %21, ptr %20, align 8
+  store ptr %23, ptr %22, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %50 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %_ZN14ZRootStatTimerD2Ev.exit, label %51
+  %51 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %_ZN14ZRootStatTimerD2Ev.exit, label %52
 
-51:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %52 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
-  %53 = extractvalue { i64, i64 } %52, 0
-  store i64 %53, ptr %2, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = extractvalue { i64, i64 } %52, 1
-  store i64 %55, ptr %54, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2) #7
+52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %53 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
+  %54 = extractvalue { i64, i64 } %53, 0
+  store i64 %54, ptr %2, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = extractvalue { i64, i64 } %53, 1
+  store i64 %56, ptr %55, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2) #7
   br label %_ZN14ZRootStatTimerD2Ev.exit
 
-_ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN12ResourceMarkD2Ev.exit, %51
+_ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN12ResourceMarkD2Ev.exit, %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret void
 }

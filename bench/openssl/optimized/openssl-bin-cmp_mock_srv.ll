@@ -466,16 +466,16 @@ declare i32 @OSSL_CMP_SRV_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %cert_req, i32 %certReqId, ptr noundef %crm, ptr nocapture readnone %p10cr, ptr noundef %certOut, ptr noundef %chainOut, ptr noundef %caPubs) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %cert_req, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %certOut, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %chainOut, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %call, null
+  %cmp1 = icmp eq ptr %cert_req, null
+  %or.cond = or i1 %cmp1, %cmp
+  %cmp3 = icmp eq ptr %certOut, null
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %chainOut, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
   %cmp7 = icmp eq ptr %caPubs, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %if.then, label %if.end
+  %or.cond3 = or i1 %cmp7, %or.cond2
+  br i1 %or.cond3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #2
@@ -486,9 +486,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call8 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %cert_req) #2
   %sendError = getelementptr inbounds i8, ptr %call, i64 64
-  %7 = load i32, ptr %sendError, align 8
-  %cmp9 = icmp eq i32 %7, 1
-  %cmp12 = icmp eq i32 %7, %call8
+  %0 = load i32, ptr %sendError, align 8
+  %cmp9 = icmp eq i32 %0, 1
+  %cmp12 = icmp eq i32 %0, %call8
   %or.cond46 = select i1 %cmp9, i1 true, i1 %cmp12
   br i1 %or.cond46, label %if.then13, label %if.end14
 
@@ -503,18 +503,18 @@ if.end14:                                         ; preds = %if.end
   store ptr null, ptr %chainOut, align 8
   store ptr null, ptr %caPubs, align 8
   %pollCount = getelementptr inbounds i8, ptr %call, i64 80
-  %8 = load i32, ptr %pollCount, align 8
-  %cmp15 = icmp sgt i32 %8, 0
+  %1 = load i32, ptr %pollCount, align 8
+  %cmp15 = icmp sgt i32 %1, 0
   %curr_pollCount = getelementptr inbounds i8, ptr %call, i64 84
-  %9 = load i32, ptr %curr_pollCount, align 4
-  %cmp16 = icmp eq i32 %9, 0
+  %2 = load i32, ptr %curr_pollCount, align 4
+  %cmp16 = icmp eq i32 %2, 0
   %or.cond52 = select i1 %cmp15, i1 %cmp16, i1 false
   br i1 %or.cond52, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %if.end14
   %certReq = getelementptr inbounds i8, ptr %call, i64 72
-  %10 = load ptr, ptr %certReq, align 8
-  %cmp18.not = icmp eq ptr %10, null
+  %3 = load ptr, ptr %certReq, align 8
+  %cmp18.not = icmp eq ptr %3, null
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
@@ -534,7 +534,7 @@ if.end25:                                         ; preds = %if.end20
   br label %return
 
 if.end27:                                         ; preds = %if.end14
-  %cmp30.not = icmp slt i32 %9, %8
+  %cmp30.not = icmp slt i32 %2, %1
   br i1 %cmp30.not, label %if.end33, label %if.then31
 
 if.then31:                                        ; preds = %if.end27
@@ -549,8 +549,8 @@ if.end33:                                         ; preds = %if.then31, %if.end2
   br i1 %or.cond4, label %land.lhs.true37, label %if.end50
 
 land.lhs.true37:                                  ; preds = %if.end33
-  %11 = load ptr, ptr %call, align 8
-  %cmp38.not = icmp eq ptr %11, null
+  %4 = load ptr, ptr %call, align 8
+  %cmp38.not = icmp eq ptr %4, null
   br i1 %cmp38.not, label %if.end50, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true37
@@ -565,15 +565,15 @@ if.then42:                                        ; preds = %if.then39
   br label %return
 
 if.end43:                                         ; preds = %if.then39
-  %12 = load ptr, ptr %call, align 8
+  %5 = load ptr, ptr %call, align 8
   %call45 = tail call ptr @OSSL_CRMF_CERTID_get0_issuer(ptr noundef nonnull %call40) #2
   %call46 = tail call ptr @OSSL_CRMF_CERTID_get0_serialNumber(ptr noundef nonnull %call40) #2
-  %cmp.i = icmp eq ptr %12, null
+  %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.end50, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end43
-  %call.i = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %12) #2
-  %call1.i = tail call ptr @X509_get0_serialNumber(ptr noundef nonnull %12) #2
+  %call.i = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %5) #2
+  %call1.i = tail call ptr @X509_get0_serialNumber(ptr noundef nonnull %5) #2
   %cmp2.i = icmp eq ptr %call.i, null
   br i1 %cmp2.i, label %land.rhs.i, label %lor.lhs.false.i
 
@@ -599,60 +599,60 @@ if.then48:                                        ; preds = %lor.lhs.false.i, %r
 
 if.end50:                                         ; preds = %land.rhs.i, %if.end43, %refcert_cmp.exit, %land.lhs.true37, %if.end33
   %certOut51 = getelementptr inbounds i8, ptr %call, i64 8
-  %13 = load ptr, ptr %certOut51, align 8
-  %cmp52.not = icmp eq ptr %13, null
+  %6 = load ptr, ptr %certOut51, align 8
+  %cmp52.not = icmp eq ptr %6, null
   br i1 %cmp52.not, label %if.end58, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end50
-  %call55 = tail call ptr @X509_dup(ptr noundef nonnull %13) #2
+  %call55 = tail call ptr @X509_dup(ptr noundef nonnull %6) #2
   store ptr %call55, ptr %certOut, align 8
   %cmp56 = icmp eq ptr %call55, null
   br i1 %cmp56, label %err, label %if.end58
 
 if.end58:                                         ; preds = %land.lhs.true53, %if.end50
   %chainOut59 = getelementptr inbounds i8, ptr %call, i64 16
-  %14 = load ptr, ptr %chainOut59, align 8
-  %cmp60.not = icmp eq ptr %14, null
+  %7 = load ptr, ptr %chainOut59, align 8
+  %cmp60.not = icmp eq ptr %7, null
   br i1 %cmp60.not, label %if.end66, label %land.lhs.true61
 
 land.lhs.true61:                                  ; preds = %if.end58
-  %call63 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %14) #2
+  %call63 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %7) #2
   store ptr %call63, ptr %chainOut, align 8
   %cmp64 = icmp eq ptr %call63, null
   br i1 %cmp64, label %err, label %if.end66
 
 if.end66:                                         ; preds = %land.lhs.true61, %if.end58
   %caPubsOut = getelementptr inbounds i8, ptr %call, i64 24
-  %15 = load ptr, ptr %caPubsOut, align 8
-  %cmp67.not = icmp eq ptr %15, null
+  %8 = load ptr, ptr %caPubsOut, align 8
+  %cmp67.not = icmp eq ptr %8, null
   br i1 %cmp67.not, label %if.end73, label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %if.end66
-  %call70 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %15) #2
+  %call70 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %8) #2
   store ptr %call70, ptr %caPubs, align 8
   %cmp71 = icmp eq ptr %call70, null
   br i1 %cmp71, label %err, label %if.end73
 
 if.end73:                                         ; preds = %land.lhs.true68, %if.end66
   %statusOut = getelementptr inbounds i8, ptr %call, i64 56
-  %16 = load ptr, ptr %statusOut, align 8
-  %cmp74.not = icmp eq ptr %16, null
+  %9 = load ptr, ptr %statusOut, align 8
+  %cmp74.not = icmp eq ptr %9, null
   br i1 %cmp74.not, label %return, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %if.end73
-  %call77 = tail call ptr @OSSL_CMP_PKISI_dup(ptr noundef nonnull %16) #2
+  %call77 = tail call ptr @OSSL_CMP_PKISI_dup(ptr noundef nonnull %9) #2
   %cmp78 = icmp eq ptr %call77, null
   br i1 %cmp78, label %err, label %return
 
 err:                                              ; preds = %land.lhs.true75, %land.lhs.true68, %land.lhs.true61, %land.lhs.true53
-  %17 = load ptr, ptr %certOut, align 8
-  tail call void @X509_free(ptr noundef %17) #2
+  %10 = load ptr, ptr %certOut, align 8
+  tail call void @X509_free(ptr noundef %10) #2
   store ptr null, ptr %certOut, align 8
-  %18 = load ptr, ptr %chainOut, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %18) #2
+  %11 = load ptr, ptr %chainOut, align 8
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %11) #2
   store ptr null, ptr %chainOut, align 8
-  %19 = load ptr, ptr %caPubs, align 8
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %19) #2
+  %12 = load ptr, ptr %caPubs, align 8
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %12) #2
   store ptr null, ptr %caPubs, align 8
   br label %return
 
@@ -745,14 +745,14 @@ return:                                           ; preds = %if.end14, %if.then1
 define internal range(i32 0, 2) i32 @process_genm(ptr noundef %srv_ctx, ptr noundef %genm, ptr noundef %in, ptr noundef %out) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %genm, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %in, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %out, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %if.then
+  %cmp = icmp eq ptr %call, null
+  %cmp1 = icmp eq ptr %genm, null
+  %or.cond = or i1 %cmp1, %cmp
+  %cmp3 = icmp eq ptr %in, null
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %out, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
+  br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #2
@@ -762,13 +762,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sendError = getelementptr inbounds i8, ptr %call, i64 64
-  %6 = load i32, ptr %sendError, align 8
-  %cmp6 = icmp eq i32 %6, 1
+  %0 = load i32, ptr %sendError, align 8
+  %cmp6 = icmp eq i32 %0, 1
   br i1 %cmp6, label %if.then15, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.end
   %call9 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %genm) #2
-  %cmp10 = icmp eq i32 %6, %call9
+  %cmp10 = icmp eq i32 %0, %call9
   br i1 %cmp10, label %if.then15, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false7
@@ -802,14 +802,14 @@ if.end28:                                         ; preds = %if.then20
   br i1 %cmp31.not, label %if.end36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end28
-  %7 = load ptr, ptr %out, align 8
-  %call34 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %call30) #2
+  %1 = load ptr, ptr %out, align 8
+  %call34 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call30) #2
   %tobool.not = icmp eq i32 %call34, 0
   br i1 %tobool.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %land.lhs.true, %if.end28
-  %8 = load ptr, ptr %out, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef %8) #2
+  %2 = load ptr, ptr %out, align 8
+  tail call void @OPENSSL_sk_free(ptr noundef %2) #2
   br label %return
 
 if.end38:                                         ; preds = %if.end16
@@ -973,14 +973,14 @@ return:                                           ; preds = %return.sink.split, 
 define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %srv_ctx, ptr noundef %pollReq, i32 %certReqId, ptr noundef writeonly %certReq, ptr noundef writeonly %check_after) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
-  %0 = insertelement <4 x ptr> poison, ptr %pollReq, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %certReq, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %check_after, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %if.then
+  %cmp = icmp eq ptr %call, null
+  %cmp1 = icmp eq ptr %pollReq, null
+  %or.cond = or i1 %cmp1, %cmp
+  %cmp3 = icmp eq ptr %certReq, null
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %check_after, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
+  br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #2
@@ -990,13 +990,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sendError = getelementptr inbounds i8, ptr %call, i64 64
-  %6 = load i32, ptr %sendError, align 8
-  %cmp6 = icmp eq i32 %6, 1
+  %0 = load i32, ptr %sendError, align 8
+  %cmp6 = icmp eq i32 %0, 1
   br i1 %cmp6, label %if.then11, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.end
   %call9 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %pollReq) #2
-  %cmp10 = icmp eq i32 %6, %call9
+  %cmp10 = icmp eq i32 %0, %call9
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %lor.lhs.false7, %if.end
@@ -1008,8 +1008,8 @@ if.then11:                                        ; preds = %lor.lhs.false7, %if
 
 if.end12:                                         ; preds = %lor.lhs.false7
   %certReq13 = getelementptr inbounds i8, ptr %call, i64 72
-  %7 = load ptr, ptr %certReq13, align 8
-  %cmp14 = icmp eq ptr %7, null
+  %1 = load ptr, ptr %certReq13, align 8
+  %cmp14 = icmp eq ptr %1, null
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
@@ -1021,24 +1021,24 @@ if.then15:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.end12
   %curr_pollCount = getelementptr inbounds i8, ptr %call, i64 84
-  %8 = load i32, ptr %curr_pollCount, align 4
-  %inc = add nsw i32 %8, 1
+  %2 = load i32, ptr %curr_pollCount, align 4
+  %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %curr_pollCount, align 4
   %pollCount = getelementptr inbounds i8, ptr %call, i64 80
-  %9 = load i32, ptr %pollCount, align 8
-  %cmp17.not = icmp slt i32 %inc, %9
+  %3 = load i32, ptr %pollCount, align 8
+  %cmp17.not = icmp slt i32 %inc, %3
   br i1 %cmp17.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  store ptr %7, ptr %certReq, align 8
+  store ptr %1, ptr %certReq, align 8
   store ptr null, ptr %certReq13, align 8
   br label %if.end21
 
 if.else:                                          ; preds = %if.end16
   store ptr null, ptr %certReq, align 8
   %checkAfterTime = getelementptr inbounds i8, ptr %call, i64 88
-  %10 = load i32, ptr %checkAfterTime, align 8
-  %conv = sext i32 %10 to i64
+  %4 = load i32, ptr %checkAfterTime, align 8
+  %conv = sext i32 %4 to i64
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then18

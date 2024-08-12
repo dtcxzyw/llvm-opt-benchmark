@@ -236,126 +236,128 @@ define hidden void @_ZN17LowMemoryDetector22process_sensor_changesEP10JavaThread
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load <2 x ptr>, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = load i64, ptr %11, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %0) #12
-  %12 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  %13 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %16
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %17
 
-16:                                               ; preds = %.backedge, %.lr.ph
-  %17 = phi ptr [ %12, %.lr.ph ], [ %.pre, %.backedge ]
+17:                                               ; preds = %.backedge, %.lr.ph
+  %18 = phi ptr [ %13, %.lr.ph ], [ %.pre, %.backedge ]
   %.026 = phi i32 [ 0, %.lr.ph ], [ %.026.be, %.backedge ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = zext nneg i32 %.026 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 176
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 184
-  %26 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %39, label %27
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = zext nneg i32 %.026 to i64
+  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 176
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 184
+  %27 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %40, label %28
 
-27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp sgt i32 %29, 0
-  %31 = getelementptr inbounds i8, ptr %24, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp sgt i32 %32, 0
-  %34 = select i1 %30, i1 true, i1 %33
-  br i1 %34, label %35, label %39
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp sgt i32 %30, 0
+  %32 = getelementptr inbounds i8, ptr %25, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp sgt i32 %33, 0
+  %35 = select i1 %31, i1 true, i1 %34
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %27
-  br i1 %33, label %36, label %37
+36:                                               ; preds = %28
+  br i1 %34, label %37, label %38
 
-36:                                               ; preds = %35
-  call void @_ZN10SensorInfo5clearEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %29, ptr noundef %0)
+37:                                               ; preds = %36
+  call void @_ZN10SensorInfo5clearEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %25, i32 noundef %30, ptr noundef %0)
   br label %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit
 
-37:                                               ; preds = %35
-  call void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %29, ptr noundef %0)
+38:                                               ; preds = %36
+  call void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %25, i32 noundef %30, ptr noundef %0)
   br label %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit
 
-_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit: ; preds = %36, %37
-  %38 = load ptr, ptr %15, align 8
-  %.not24 = icmp eq ptr %38, null
-  br i1 %.not24, label %39, label %._crit_edge
+_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit: ; preds = %37, %38
+  %39 = load ptr, ptr %16, align 8
+  %.not24 = icmp eq ptr %39, null
+  br i1 %.not24, label %40, label %._crit_edge
 
-39:                                               ; preds = %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit, %27, %16
-  %.not19 = icmp eq ptr %26, null
-  br i1 %.not19, label %54, label %40
+40:                                               ; preds = %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit, %28, %17
+  %.not19 = icmp eq ptr %27, null
+  br i1 %.not19, label %55, label %41
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %26, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp sgt i32 %42, 0
-  %44 = getelementptr inbounds i8, ptr %26, i64 28
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %45, 0
-  %47 = select i1 %43, i1 true, i1 %46
-  br i1 %47, label %48, label %54
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds i8, ptr %27, i64 24
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  %45 = getelementptr inbounds i8, ptr %27, i64 28
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 0
+  %48 = select i1 %44, i1 true, i1 %47
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %40
-  br i1 %46, label %49, label %50
+49:                                               ; preds = %41
+  br i1 %47, label %50, label %51
 
-49:                                               ; preds = %48
-  call void @_ZN10SensorInfo5clearEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %26, i32 noundef %42, ptr noundef %0)
+50:                                               ; preds = %49
+  call void @_ZN10SensorInfo5clearEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %43, ptr noundef %0)
   br label %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20
 
-50:                                               ; preds = %48
-  call void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %26, i32 noundef %42, ptr noundef %0)
+51:                                               ; preds = %49
+  call void @_ZN10SensorInfo7triggerEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %27, i32 noundef %43, ptr noundef %0)
   br label %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20
 
-_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20: ; preds = %49, %50
-  %51 = load ptr, ptr %15, align 8
-  %.not25 = icmp eq ptr %51, null
-  %52 = add nuw nsw i32 %.026, 1
-  %53 = icmp slt i32 %52, %13
-  %or.cond = select i1 %.not25, i1 %53, i1 false
+_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20: ; preds = %50, %51
+  %52 = load ptr, ptr %16, align 8
+  %.not25 = icmp eq ptr %52, null
+  %53 = add nuw nsw i32 %.026, 1
+  %54 = icmp slt i32 %53, %14
+  %or.cond = select i1 %.not25, i1 %54, i1 false
   br i1 %or.cond, label %.backedge, label %._crit_edge
 
-54:                                               ; preds = %39, %40
+55:                                               ; preds = %40, %41
   %.old = add nuw nsw i32 %.026, 1
-  %.old27 = icmp slt i32 %.old, %13
+  %.old27 = icmp slt i32 %.old, %14
   br i1 %.old27, label %.backedge, label %._crit_edge
 
-.backedge:                                        ; preds = %54, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20
-  %.026.be = phi i32 [ %.old, %54 ], [ %52, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20 ]
+.backedge:                                        ; preds = %55, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20
+  %.026.be = phi i32 [ %.old, %55 ], [ %53, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20 ]
   %.pre = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  br label %16, !llvm.loop !8
+  br label %17, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20, %54, %1
+._crit_edge:                                      ; preds = %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit, %_ZN10SensorInfo24process_pending_requestsEP10JavaThread.exit20, %55, %1
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
-  %55 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i, label %57, label %56
+  %56 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i, label %58, label %57
 
-56:                                               ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %11) #12
+57:                                               ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %12) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %6) #12
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %._crit_edge
-  %58 = load ptr, ptr %7, align 8
-  %.not8.i.i.i.i = icmp eq ptr %58, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %59
+58:                                               ; preds = %57, %._crit_edge
+  %59 = load ptr, ptr %7, align 8
+  %.not8.i.i.i.i = icmp eq ptr %59, %8
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %60
 
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   store ptr %6, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  store ptr %8, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %59
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %58, %60
   ret void
 }
 

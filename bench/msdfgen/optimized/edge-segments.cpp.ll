@@ -158,25 +158,22 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = insertelement <2 x double> poison, double %p1.coerce0, i64 0
-  %5 = insertelement <2 x double> %4, double %p1.coerce1, i64 1
-  %6 = fmul <2 x double> %5, <double 1.500000e+00, double 1.500000e+00>
-  %7 = insertelement <2 x double> poison, double %p0.coerce0, i64 0
-  %8 = insertelement <2 x double> %7, double %p0.coerce1, i64 1
-  %9 = fmul <2 x double> %8, <double 5.000000e-01, double 5.000000e-01>
-  %10 = fsub <2 x double> %6, %9
-  %11 = insertelement <2 x double> poison, double %p2.coerce0, i64 0
-  %12 = insertelement <2 x double> %11, double %p2.coerce1, i64 1
-  %13 = fmul <2 x double> %12, <double 1.500000e+00, double 1.500000e+00>
-  %14 = insertelement <2 x double> poison, double %p3.coerce0, i64 0
-  %15 = insertelement <2 x double> %14, double %p3.coerce1, i64 1
-  %16 = fmul <2 x double> %15, <double 5.000000e-01, double 5.000000e-01>
-  %17 = fsub <2 x double> %13, %16
-  %18 = fcmp oeq <2 x double> %10, %17
-  %19 = extractelement <2 x i1> %18, i64 0
-  %20 = extractelement <2 x i1> %18, i64 1
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %if.then35, label %if.end42
+  %mul.i = fmul double %p1.coerce0, 1.500000e+00
+  %mul1.i = fmul double %p1.coerce1, 1.500000e+00
+  %mul.i15 = fmul double %p0.coerce0, 5.000000e-01
+  %mul1.i16 = fmul double %p0.coerce1, 5.000000e-01
+  %sub.i19 = fsub double %mul.i, %mul.i15
+  %sub3.i20 = fsub double %mul1.i, %mul1.i16
+  %mul.i23 = fmul double %p2.coerce0, 1.500000e+00
+  %mul1.i24 = fmul double %p2.coerce1, 1.500000e+00
+  %mul.i27 = fmul double %p3.coerce0, 5.000000e-01
+  %mul1.i28 = fmul double %p3.coerce1, 5.000000e-01
+  %sub.i31 = fsub double %mul.i23, %mul.i27
+  %sub3.i32 = fsub double %mul1.i24, %mul1.i28
+  %cmp.i = fcmp oeq double %sub.i19, %sub.i31
+  %cmp3.i = fcmp oeq double %sub3.i20, %sub3.i32
+  %4 = select i1 %cmp.i, i1 %cmp3.i, i1 false
+  br i1 %4, label %if.then35, label %if.end42
 
 if.then35:                                        ; preds = %if.end
   %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
@@ -188,7 +185,9 @@ if.then35:                                        ; preds = %if.end
   %p0.sroa.2.0.arrayidx.sroa_idx.i37 = getelementptr inbounds i8, ptr %call36, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i37, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %call36, i64 32
-  store <2 x double> %10, ptr %arrayidx5.i, align 8
+  store double %sub.i19, ptr %arrayidx5.i, align 8
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call36, i64 40
+  store double %sub3.i20, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %call36, i64 48
   store double %p3.coerce0, ptr %arrayidx7.i, align 8
   %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call36, i64 56
@@ -391,18 +390,26 @@ define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneE
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  %1 = load <2 x double>, ptr %p, align 8
-  store <2 x double> %1, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 32
-  %2 = load <2 x double>, ptr %arrayidx4, align 8
-  store <2 x double> %2, ptr %arrayidx4.i, align 8
+  store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx4.i, align 8
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   ret ptr %call
 }
 
@@ -411,22 +418,34 @@ define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5clo
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
   %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  %1 = load <2 x double>, ptr %p, align 8
-  store <2 x double> %1, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %call, i64 32
-  %2 = load <2 x double>, ptr %arrayidx4, align 8
-  store <2 x double> %2, ptr %arrayidx5.i, align 8
+  store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx5.i, align 8
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %call, i64 48
-  %3 = load <2 x double>, ptr %arrayidx7, align 8
-  store <2 x double> %3, ptr %arrayidx7.i, align 8
+  store double %agg.tmp5.sroa.0.0.copyload, ptr %arrayidx7.i, align 8
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  store double %agg.tmp5.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   ret ptr %call
 }
 
@@ -435,26 +454,42 @@ define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp8.sroa.0.0.copyload = load double, ptr %arrayidx10, align 8
+  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx, align 8
   %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  %1 = load <2 x double>, ptr %p, align 8
-  store <2 x double> %1, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
-  %2 = load <2 x double>, ptr %arrayidx4, align 8
-  store <2 x double> %2, ptr %arrayidx6.i, align 8
+  store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx6.i, align 8
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
   %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
-  %3 = load <2 x double>, ptr %arrayidx7, align 8
-  store <2 x double> %3, ptr %arrayidx8.i, align 8
+  store double %agg.tmp5.sroa.0.0.copyload, ptr %arrayidx8.i, align 8
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  store double %agg.tmp5.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
-  %4 = load <2 x double>, ptr %arrayidx10, align 8
-  store <2 x double> %4, ptr %arrayidx10.i, align 8
+  store double %agg.tmp8.sroa.0.0.copyload, ptr %arrayidx10.i, align 8
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
+  store double %agg.tmp8.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   ret ptr %call
 }
 
@@ -501,21 +536,22 @@ entry:
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
-  %0 = load <2 x double>, ptr %p, align 8
-  %1 = load <2 x double>, ptr %arrayidx4, align 8
-  %2 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x double> %3, %0
-  %5 = insertelement <2 x double> poison, double %param, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %1, %6
-  %8 = fadd <2 x double> %4, %7
-  %9 = extractelement <2 x double> %8, i64 0
-  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %9, 0
-  %10 = extractelement <2 x double> %8, i64 1
-  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %10, 1
+  %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
+  %mul1.i.i = fmul double %sub.i, %agg.tmp.sroa.2.0.copyload
+  %mul.i2.i = fmul double %agg.tmp2.sroa.0.0.copyload, %param
+  %mul1.i3.i = fmul double %agg.tmp2.sroa.2.0.copyload, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
+  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %add3.i.i, 1
   ret { double, double } %.fca.1.insert.i7.i
 }
 
@@ -523,29 +559,38 @@ entry:
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
+  %mul.i.i = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
+  %mul1.i.i = fmul double %sub.i, %agg.tmp2.sroa.2.0.copyload
+  %mul.i2.i = fmul double %agg.tmp3.sroa.0.0.copyload, %param
+  %mul1.i3.i = fmul double %agg.tmp3.sroa.2.0.copyload, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load <2 x double>, ptr %p, align 8
-  %1 = load <2 x double>, ptr %arrayidx5, align 8
-  %2 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x double> %3, %0
-  %5 = insertelement <2 x double> poison, double %param, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %1, %6
-  %8 = fadd <2 x double> %4, %7
-  %9 = load <2 x double>, ptr %arrayidx12, align 8
-  %10 = fmul <2 x double> %3, %1
-  %11 = fmul <2 x double> %9, %6
-  %12 = fadd <2 x double> %10, %11
-  %13 = fmul <2 x double> %3, %8
-  %14 = fmul <2 x double> %12, %6
-  %15 = fadd <2 x double> %13, %14
-  %16 = extractelement <2 x double> %15, i64 0
-  %.fca.0.insert.i6.i19 = insertvalue { double, double } poison, double %16, 0
-  %17 = extractelement <2 x double> %15, i64 1
-  %.fca.1.insert.i7.i20 = insertvalue { double, double } %.fca.0.insert.i6.i19, double %17, 1
+  %agg.tmp10.sroa.0.0.copyload = load double, ptr %arrayidx12, align 8
+  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx, align 8
+  %mul.i.i4 = fmul double %sub.i, %agg.tmp3.sroa.0.0.copyload
+  %mul1.i.i5 = fmul double %sub.i, %agg.tmp3.sroa.2.0.copyload
+  %mul.i2.i6 = fmul double %agg.tmp10.sroa.0.0.copyload, %param
+  %mul1.i3.i7 = fmul double %agg.tmp10.sroa.2.0.copyload, %param
+  %add.i.i8 = fadd double %mul.i.i4, %mul.i2.i6
+  %add3.i.i9 = fadd double %mul1.i.i5, %mul1.i3.i7
+  %mul.i.i13 = fmul double %sub.i, %add.i.i
+  %mul1.i.i14 = fmul double %sub.i, %add3.i.i
+  %mul.i2.i15 = fmul double %add.i.i8, %param
+  %mul1.i3.i16 = fmul double %add3.i.i9, %param
+  %add.i.i17 = fadd double %mul.i.i13, %mul.i2.i15
+  %add3.i.i18 = fadd double %mul1.i.i14, %mul1.i3.i16
+  %.fca.0.insert.i6.i19 = insertvalue { double, double } poison, double %add.i.i17, 0
+  %.fca.1.insert.i7.i20 = insertvalue { double, double } %.fca.0.insert.i6.i19, double %add3.i.i18, 1
   ret { double, double } %.fca.1.insert.i7.i20
 }
 
@@ -554,39 +599,59 @@ define dso_local { double, double } @_ZNK7msdfgen12CubicSegment5pointEd(ptr noca
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
+  %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
+  %mul1.i.i = fmul double %sub.i, %agg.tmp.sroa.2.0.copyload
+  %mul.i2.i = fmul double %agg.tmp2.sroa.0.0.copyload, %param
+  %mul1.i3.i = fmul double %agg.tmp2.sroa.2.0.copyload, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  %agg.tmp7.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp7.sroa.2.0.copyload = load double, ptr %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx, align 8
+  %mul.i.i7 = fmul double %sub.i, %agg.tmp7.sroa.0.0.copyload
+  %mul1.i.i8 = fmul double %sub.i, %agg.tmp7.sroa.2.0.copyload
+  %mul.i2.i9 = fmul double %agg.tmp.sroa.0.0.copyload, %param
+  %mul1.i3.i10 = fmul double %agg.tmp.sroa.2.0.copyload, %param
+  %add.i.i11 = fadd double %mul.i2.i9, %mul.i.i7
+  %add3.i.i12 = fadd double %mul1.i3.i10, %mul1.i.i8
+  %mul.i.i16 = fmul double %sub.i, %add.i.i11
+  %mul1.i.i17 = fmul double %sub.i, %add3.i.i12
+  %mul.i2.i18 = fmul double %add.i.i, %param
+  %mul1.i3.i19 = fmul double %add3.i.i, %param
+  %add.i.i20 = fadd double %mul.i2.i18, %mul.i.i16
+  %add3.i.i21 = fadd double %mul1.i3.i19, %mul1.i.i17
   %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %arrayidx4, align 8
-  %2 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x double> %3, %0
-  %5 = insertelement <2 x double> poison, double %param, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %1, %6
-  %8 = fadd <2 x double> %4, %7
-  %9 = load <2 x double>, ptr %p, align 8
-  %10 = fmul <2 x double> %3, %9
-  %11 = fmul <2 x double> %0, %6
-  %12 = fadd <2 x double> %11, %10
-  %13 = fmul <2 x double> %3, %12
-  %14 = fmul <2 x double> %8, %6
-  %15 = fadd <2 x double> %14, %13
-  %16 = load <2 x double>, ptr %arrayidx24, align 8
-  %17 = fmul <2 x double> %3, %1
-  %18 = fmul <2 x double> %16, %6
-  %19 = fadd <2 x double> %17, %18
-  %20 = fmul <2 x double> %3, %8
-  %21 = fmul <2 x double> %19, %6
-  %22 = fadd <2 x double> %20, %21
-  %23 = fmul <2 x double> %3, %15
-  %24 = fmul <2 x double> %22, %6
-  %25 = fadd <2 x double> %23, %24
-  %26 = extractelement <2 x double> %25, i64 0
-  %.fca.0.insert.i6.i49 = insertvalue { double, double } poison, double %26, 0
-  %27 = extractelement <2 x double> %25, i64 1
-  %.fca.1.insert.i7.i50 = insertvalue { double, double } %.fca.0.insert.i6.i49, double %27, 1
+  %agg.tmp22.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
+  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp22.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
+  %mul.i.i25 = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
+  %mul1.i.i26 = fmul double %sub.i, %agg.tmp2.sroa.2.0.copyload
+  %mul.i2.i27 = fmul double %agg.tmp22.sroa.0.0.copyload, %param
+  %mul1.i3.i28 = fmul double %agg.tmp22.sroa.2.0.copyload, %param
+  %add.i.i29 = fadd double %mul.i.i25, %mul.i2.i27
+  %add3.i.i30 = fadd double %mul1.i.i26, %mul1.i3.i28
+  %mul.i.i34 = fmul double %sub.i, %add.i.i
+  %mul1.i.i35 = fmul double %sub.i, %add3.i.i
+  %mul.i2.i36 = fmul double %add.i.i29, %param
+  %mul1.i3.i37 = fmul double %add3.i.i30, %param
+  %add.i.i38 = fadd double %mul.i.i34, %mul.i2.i36
+  %add3.i.i39 = fadd double %mul1.i.i35, %mul1.i3.i37
+  %mul.i.i43 = fmul double %sub.i, %add.i.i20
+  %mul1.i.i44 = fmul double %sub.i, %add3.i.i21
+  %mul.i2.i45 = fmul double %add.i.i38, %param
+  %mul1.i3.i46 = fmul double %add3.i.i39, %param
+  %add.i.i47 = fadd double %mul.i.i43, %mul.i2.i45
+  %add3.i.i48 = fadd double %mul1.i.i44, %mul1.i3.i46
+  %.fca.0.insert.i6.i49 = insertvalue { double, double } poison, double %add.i.i47, 0
+  %.fca.1.insert.i7.i50 = insertvalue { double, double } %.fca.0.insert.i6.i49, double %add3.i.i48, 1
   ret { double, double } %.fca.1.insert.i7.i50
 }
 
@@ -595,13 +660,16 @@ define dso_local { double, double } @_ZNK7msdfgen13LinearSegment9directionEd(ptr
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %p, align 8
-  %2 = fsub <2 x double> %0, %1
-  %3 = extractelement <2 x double> %2, i64 0
-  %.fca.0.insert.i = insertvalue { double, double } poison, double %3, 0
-  %4 = extractelement <2 x double> %2, i64 1
-  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %4, 1
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %.fca.0.insert.i = insertvalue { double, double } poison, double %sub.i, 0
+  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %sub3.i, 1
   ret { double, double } %.fca.1.insert.i
 }
 
@@ -610,33 +678,37 @@ define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment9directionEd(
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp2.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp2.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp7.sroa.0.0.copyload = load double, ptr %arrayidx9, align 8
+  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp7.sroa.2.0.copyload = load double, ptr %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx, align 8
+  %sub.i1 = fsub double %agg.tmp7.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i2 = fsub double %agg.tmp7.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %sub.i5 = fsub double 1.000000e+00, %param
-  %0 = load <2 x double>, ptr %p, align 8
-  %1 = load <2 x double>, ptr %arrayidx9, align 8
-  %2 = load <2 x double>, ptr %arrayidx, align 8
-  %3 = fsub <2 x double> %2, %0
-  %4 = fsub <2 x double> %1, %2
-  %5 = insertelement <2 x double> poison, double %sub.i5, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %6, %3
-  %8 = insertelement <2 x double> poison, double %param, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x double> %4, %9
-  %11 = fadd <2 x double> %7, %10
-  %12 = extractelement <2 x double> %11, i64 0
-  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %12, 0
-  %13 = extractelement <2 x double> %11, i64 1
-  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %13, 1
-  %tobool.i = fcmp oeq double %12, 0.000000e+00
-  %tobool1.i = fcmp oeq double %13, 0.000000e+00
-  %14 = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  %15 = fsub <2 x double> %1, %0
-  %16 = extractelement <2 x double> %15, i64 0
-  %.fca.0.insert.i8 = insertvalue { double, double } poison, double %16, 0
-  %17 = extractelement <2 x double> %15, i64 1
-  %.fca.1.insert.i9 = insertvalue { double, double } %.fca.0.insert.i8, double %17, 1
-  %.fca.1.insert.merged = select i1 %14, { double, double } %.fca.1.insert.i9, { double, double } %.fca.1.insert.i7.i
+  %mul.i.i = fmul double %sub.i5, %sub.i
+  %mul1.i.i = fmul double %sub.i5, %sub3.i
+  %mul.i2.i = fmul double %sub.i1, %param
+  %mul1.i3.i = fmul double %sub3.i2, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
+  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %add3.i.i, 1
+  %tobool.i = fcmp oeq double %add.i.i, 0.000000e+00
+  %tobool1.i = fcmp oeq double %add3.i.i, 0.000000e+00
+  %0 = select i1 %tobool.i, i1 %tobool1.i, i1 false
+  %sub.i6 = fsub double %agg.tmp7.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i7 = fsub double %agg.tmp7.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
+  %.fca.0.insert.i8 = insertvalue { double, double } poison, double %sub.i6, 0
+  %.fca.1.insert.i9 = insertvalue { double, double } %.fca.0.insert.i8, double %sub3.i7, 1
+  %.fca.1.insert.merged = select i1 %0, { double, double } %.fca.1.insert.i9, { double, double } %.fca.1.insert.i7.i
   ret { double, double } %.fca.1.insert.merged
 }
 
@@ -645,42 +717,57 @@ define dso_local { double, double } @_ZNK7msdfgen12CubicSegment9directionEd(ptr 
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
+  %agg.tmp4.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp4.sroa.2.0.copyload = load double, ptr %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp4.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp8.sroa.0.0.copyload = load double, ptr %arrayidx10, align 8
+  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx, align 8
+  %sub.i5 = fsub double %agg.tmp8.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i6 = fsub double %agg.tmp8.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
   %sub.i9 = fsub double 1.000000e+00, %param
+  %mul.i.i = fmul double %sub.i9, %sub.i
+  %mul1.i.i = fmul double %sub.i9, %sub3.i
+  %mul.i2.i = fmul double %sub.i5, %param
+  %mul1.i3.i = fmul double %sub3.i6, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %p, align 8
-  %2 = fsub <2 x double> %0, %1
-  %3 = load <2 x double>, ptr %arrayidx10, align 8
-  %4 = fsub <2 x double> %3, %0
-  %5 = insertelement <2 x double> poison, double %sub.i9, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %6, %2
-  %8 = insertelement <2 x double> poison, double %param, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x double> %4, %9
-  %11 = fadd <2 x double> %7, %10
-  %12 = load <2 x double>, ptr %arrayidx28, align 8
-  %13 = fsub <2 x double> %12, %3
-  %14 = fmul <2 x double> %6, %4
-  %15 = fmul <2 x double> %13, %9
-  %16 = fadd <2 x double> %14, %15
-  %17 = fmul <2 x double> %6, %11
-  %18 = fmul <2 x double> %16, %9
-  %19 = fadd <2 x double> %17, %18
-  %20 = extractelement <2 x double> %19, i64 0
-  %tobool.i = fcmp oeq double %20, 0.000000e+00
-  %21 = extractelement <2 x double> %19, i64 1
-  %tobool1.i = fcmp oeq double %21, 0.000000e+00
-  %22 = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %22, label %if.then, label %return
+  %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx28, align 8
+  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx, align 8
+  %sub.i14 = fsub double %agg.tmp26.sroa.0.0.copyload, %agg.tmp8.sroa.0.0.copyload
+  %sub3.i15 = fsub double %agg.tmp26.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
+  %mul.i.i19 = fmul double %sub.i9, %sub.i5
+  %mul1.i.i20 = fmul double %sub.i9, %sub3.i6
+  %mul.i2.i21 = fmul double %sub.i14, %param
+  %mul1.i3.i22 = fmul double %sub3.i15, %param
+  %add.i.i23 = fadd double %mul.i.i19, %mul.i2.i21
+  %add3.i.i24 = fadd double %mul1.i.i20, %mul1.i3.i22
+  %mul.i.i28 = fmul double %sub.i9, %add.i.i
+  %mul1.i.i29 = fmul double %sub.i9, %add3.i.i
+  %mul.i2.i30 = fmul double %add.i.i23, %param
+  %mul1.i3.i31 = fmul double %add3.i.i24, %param
+  %add.i.i32 = fadd double %mul.i.i28, %mul.i2.i30
+  %add3.i.i33 = fadd double %mul1.i.i29, %mul1.i3.i31
+  %tobool.i = fcmp oeq double %add.i.i32, 0.000000e+00
+  %tobool1.i = fcmp oeq double %add3.i.i33, 0.000000e+00
+  %0 = select i1 %tobool.i, i1 %tobool1.i, i1 false
+  br i1 %0, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %cmp = fcmp oeq double %param, 0.000000e+00
   br i1 %cmp, label %if.then37, label %if.end
 
 if.then37:                                        ; preds = %if.then
-  %23 = fsub <2 x double> %3, %1
+  %sub.i36 = fsub double %agg.tmp8.sroa.0.0.copyload, %agg.tmp4.sroa.0.0.copyload
+  %sub3.i37 = fsub double %agg.tmp8.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -688,15 +775,15 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp45, label %if.then46, label %return
 
 if.then46:                                        ; preds = %if.end
-  %24 = fsub <2 x double> %12, %0
+  %sub.i40 = fsub double %agg.tmp26.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i41 = fsub double %agg.tmp26.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.then46, %if.then37
-  %25 = phi <2 x double> [ %23, %if.then37 ], [ %24, %if.then46 ], [ %19, %if.end ], [ %19, %entry ]
-  %26 = extractelement <2 x double> %25, i64 0
-  %.fca.0.insert.i38.pn = insertvalue { double, double } poison, double %26, 0
-  %27 = extractelement <2 x double> %25, i64 1
-  %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i38.pn, double %27, 1
+  %sub.i36.pn = phi double [ %sub.i36, %if.then37 ], [ %sub.i40, %if.then46 ], [ %add.i.i32, %if.end ], [ %add.i.i32, %entry ]
+  %sub3.i37.pn = phi double [ %sub3.i37, %if.then37 ], [ %sub3.i41, %if.then46 ], [ %add3.i.i33, %if.end ], [ %add3.i.i33, %entry ]
+  %.fca.0.insert.i38.pn = insertvalue { double, double } poison, double %sub.i36.pn, 0
+  %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i38.pn, double %sub3.i37.pn, 1
   ret { double, double } %.fca.1.insert.merged
 }
 
@@ -711,17 +798,24 @@ define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment15directionCh
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %arrayidx5, align 8
-  %2 = fsub <2 x double> %0, %1
-  %3 = load <2 x double>, ptr %p, align 8
-  %4 = fsub <2 x double> %1, %3
-  %5 = fsub <2 x double> %2, %4
-  %6 = extractelement <2 x double> %5, i64 0
-  %.fca.0.insert.i7 = insertvalue { double, double } poison, double %6, 0
-  %7 = extractelement <2 x double> %5, i64 1
-  %.fca.1.insert.i8 = insertvalue { double, double } %.fca.0.insert.i7, double %7, 1
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp2.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp2.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
+  %agg.tmp10.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx, align 8
+  %sub.i1 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp10.sroa.0.0.copyload
+  %sub3.i2 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp10.sroa.2.0.copyload
+  %sub.i5 = fsub double %sub.i, %sub.i1
+  %sub3.i6 = fsub double %sub3.i, %sub3.i2
+  %.fca.0.insert.i7 = insertvalue { double, double } poison, double %sub.i5, 0
+  %.fca.1.insert.i8 = insertvalue { double, double } %.fca.0.insert.i7, double %sub3.i6, 1
   ret { double, double } %.fca.1.insert.i8
 }
 
@@ -730,29 +824,39 @@ define dso_local { double, double } @_ZNK7msdfgen12CubicSegment15directionChange
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp4.sroa.0.0.copyload = load double, ptr %arrayidx6, align 8
+  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp4.sroa.2.0.copyload = load double, ptr %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp4.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
+  %agg.tmp11.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
+  %sub.i1 = fsub double %agg.tmp4.sroa.0.0.copyload, %agg.tmp11.sroa.0.0.copyload
+  %sub3.i2 = fsub double %agg.tmp4.sroa.2.0.copyload, %agg.tmp11.sroa.2.0.copyload
+  %sub.i5 = fsub double %sub.i, %sub.i1
+  %sub3.i6 = fsub double %sub3.i, %sub3.i2
   %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp18.sroa.0.0.copyload = load double, ptr %arrayidx20, align 8
+  %agg.tmp18.sroa.2.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp18.sroa.2.0.copyload = load double, ptr %agg.tmp18.sroa.2.0.arrayidx20.sroa_idx, align 8
+  %sub.i9 = fsub double %agg.tmp18.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i10 = fsub double %agg.tmp18.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
+  %sub.i17 = fsub double %sub.i9, %sub.i
+  %sub3.i18 = fsub double %sub3.i10, %sub3.i
   %sub.i21 = fsub double 1.000000e+00, %param
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %arrayidx6, align 8
-  %2 = fsub <2 x double> %0, %1
-  %3 = load <2 x double>, ptr %p, align 8
-  %4 = fsub <2 x double> %1, %3
-  %5 = fsub <2 x double> %2, %4
-  %6 = load <2 x double>, ptr %arrayidx20, align 8
-  %7 = fsub <2 x double> %6, %0
-  %8 = fsub <2 x double> %7, %2
-  %9 = insertelement <2 x double> poison, double %sub.i21, i64 0
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %11 = fmul <2 x double> %10, %5
-  %12 = insertelement <2 x double> poison, double %param, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x double> %8, %13
-  %15 = fadd <2 x double> %11, %14
-  %16 = extractelement <2 x double> %15, i64 0
-  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %16, 0
-  %17 = extractelement <2 x double> %15, i64 1
-  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %17, 1
+  %mul.i.i = fmul double %sub.i21, %sub.i5
+  %mul1.i.i = fmul double %sub.i21, %sub3.i6
+  %mul.i2.i = fmul double %sub.i17, %param
+  %mul1.i3.i = fmul double %sub3.i18, %param
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  %.fca.0.insert.i6.i = insertvalue { double, double } poison, double %add.i.i, 0
+  %.fca.1.insert.i7.i = insertvalue { double, double } %.fca.0.insert.i6.i, double %add3.i.i, 1
   ret { double, double } %.fca.1.insert.i7.i
 }
 
@@ -786,53 +890,45 @@ entry:
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
   %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %sub.i17 = fsub double %agg.tmp6.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i18 = fsub double %agg.tmp6.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
   %sub.i21 = fsub double %sub.i17, %sub.i
   %sub3.i22 = fsub double %sub3.i18, %sub3.i
   %mul3.i = fmul double %sub3.i, %sub3.i
   %0 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul3.i)
-  %1 = insertelement <2 x double> poison, double %sub3.i22, i64 0
-  %2 = shufflevector <2 x double> %1, <2 x double> poison, <2 x i32> zeroinitializer
-  %3 = insertelement <2 x double> poison, double %sub3.i, i64 0
-  %4 = insertelement <2 x double> %3, double %sub3.i22, i64 1
-  %5 = fmul <2 x double> %2, %4
-  %6 = insertelement <2 x double> poison, double %sub.i21, i64 0
-  %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
-  %8 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %9 = insertelement <2 x double> %8, double %sub.i21, i64 1
-  %10 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %9, <2 x double> %5)
+  %mul3.i25 = fmul double %sub3.i, %sub3.i22
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i21, double %mul3.i25)
+  %mul3.i26 = fmul double %sub3.i22, %sub3.i22
+  %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i21, double %sub.i21, double %mul3.i26)
   %sqrt27 = tail call double @llvm.sqrt.f64(double %0)
-  %11 = extractelement <2 x double> %10, i64 1
-  %sqrt = tail call double @llvm.sqrt.f64(double %11)
-  %12 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i21, %12
-  %13 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i22, double %neg.i)
-  %14 = extractelement <2 x double> %10, i64 0
-  %add = fadd double %0, %14
-  %add29 = fadd double %14, %add
-  %add30 = fadd double %11, %add29
+  %sqrt = tail call double @llvm.sqrt.f64(double %2)
+  %3 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i21, %3
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i22, double %neg.i)
+  %add = fadd double %0, %1
+  %add29 = fadd double %1, %add
+  %add30 = fadd double %2, %add29
   %call31 = tail call double @sqrt(double noundef %add30) #16
-  %add32 = fadd double %14, %11
-  %15 = fneg double %14
-  %neg = fmul double %sqrt27, %15
-  %16 = tail call double @llvm.fmuladd.f64(double %add32, double %call31, double %neg)
-  %mul34 = fmul double %13, %13
-  %17 = tail call double @llvm.fmuladd.f64(double %sqrt, double %call31, double %14)
-  %add36 = fadd double %11, %17
-  %18 = tail call double @llvm.fmuladd.f64(double %sqrt, double %sqrt27, double %14)
-  %div = fdiv double %add36, %18
+  %add32 = fadd double %1, %2
+  %5 = fneg double %1
+  %neg = fmul double %sqrt27, %5
+  %6 = tail call double @llvm.fmuladd.f64(double %add32, double %call31, double %neg)
+  %mul34 = fmul double %4, %4
+  %7 = tail call double @llvm.fmuladd.f64(double %sqrt, double %call31, double %1)
+  %add36 = fadd double %2, %7
+  %8 = tail call double @llvm.fmuladd.f64(double %sqrt, double %sqrt27, double %1)
+  %div = fdiv double %add36, %8
   %call38 = tail call double @log(double noundef %div) #16
   %mul39 = fmul double %call38, %mul34
-  %19 = tail call double @llvm.fmuladd.f64(double %sqrt, double %16, double %mul39)
-  %mul = fmul double %11, %sqrt
-  %div40 = fdiv double %19, %mul
+  %9 = tail call double @llvm.fmuladd.f64(double %sqrt, double %6, double %mul39)
+  %mul = fmul double %2, %sqrt
+  %div40 = fdiv double %9, %mul
   ret double %div40
 }
 
@@ -849,28 +945,22 @@ declare double @log(double noundef) local_unnamed_addr #9
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %param) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load <2 x double>, ptr %p, align 8
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load <2 x double>, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
+  %sub.i = fsub double %origin.coerce0, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %origin.coerce1, %agg.tmp2.sroa.2.0.copyload
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
   %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
-  %2 = insertelement <2 x double> poison, double %origin.coerce0, i64 0
-  %3 = insertelement <2 x double> %2, double %agg.tmp3.sroa.0.0.copyload, i64 1
-  %4 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = fsub <2 x double> %3, %4
-  %6 = insertelement <2 x double> poison, double %origin.coerce1, i64 0
-  %7 = insertelement <2 x double> %6, double %agg.tmp3.sroa.2.0.copyload, i64 1
-  %8 = shufflevector <2 x double> %1, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fsub <2 x double> %7, %8
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %11 = fmul <2 x double> %10, %9
-  %12 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %5, <2 x double> %11)
-  %14 = extractelement <2 x double> %13, i64 0
-  %15 = extractelement <2 x double> %13, i64 1
-  %div = fdiv double %14, %15
+  %sub.i6 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i7 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %mul3.i = fmul double %sub3.i, %sub3.i7
+  %0 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i6, double %mul3.i)
+  %mul3.i10 = fmul double %sub3.i7, %sub3.i7
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i6, double %sub.i6, double %mul3.i10)
+  %div = fdiv double %0, %1
   store double %div, ptr %param, align 8
   %cmp = fcmp ogt double %div, 5.000000e-01
   %idxprom = zext i1 %cmp to i64
@@ -881,65 +971,56 @@ entry:
   %sub.i11 = fsub double %agg.tmp16.sroa.0.0.copyload, %origin.coerce0
   %sub3.i12 = fsub double %agg.tmp16.sroa.2.0.copyload, %origin.coerce1
   %mul4.i = fmul double %sub3.i12, %sub3.i12
-  %16 = tail call double @llvm.fmuladd.f64(double %sub.i11, double %sub.i11, double %mul4.i)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %16)
+  %2 = tail call double @llvm.fmuladd.f64(double %sub.i11, double %sub.i11, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %2)
   %cmp22 = fcmp ogt double %div, 0.000000e+00
   %cmp23 = fcmp olt double %div, 1.000000e+00
   %or.cond = and i1 %cmp22, %cmp23
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %15)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %1)
   br i1 %or.cond, label %if.then, label %entry.if.end30_crit_edge
 
 entry.if.end30_crit_edge:                         ; preds = %entry
-  %17 = extractelement <2 x double> %9, i64 1
-  %.pre42 = fdiv double %17, %sqrt.i.i
+  %.pre42 = fdiv double %sub3.i7, %sqrt.i.i
   br label %if.end30
 
 if.then:                                          ; preds = %entry
-  %tobool.i = fcmp une double %15, 0.000000e+00
-  %18 = extractelement <2 x double> %9, i64 1
-  %div6.i = fdiv double %18, %sqrt.i.i
-  %19 = extractelement <2 x double> %5, i64 1
-  %fneg8.i = fneg double %19
+  %tobool.i = fcmp une double %1, 0.000000e+00
+  %div6.i = fdiv double %sub3.i7, %sqrt.i.i
+  %fneg8.i = fneg double %sub.i6
   %div9.i = fdiv double %fneg8.i, %sqrt.i.i
   %retval.sroa.5.0.i = select i1 %tobool.i, double %div9.i, double -1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div6.i, double 0.000000e+00
-  %20 = extractelement <2 x double> %9, i64 0
-  %mul3.i17 = fmul double %20, %retval.sroa.5.0.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %22 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %21, double %mul3.i17)
-  %23 = tail call double @llvm.fabs.f64(double %22)
-  %cmp28 = fcmp olt double %23, %sqrt.i
+  %mul3.i17 = fmul double %sub3.i, %retval.sroa.5.0.i
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %sub.i, double %mul3.i17)
+  %4 = tail call double @llvm.fabs.f64(double %3)
+  %cmp28 = fcmp olt double %4, %sqrt.i
   br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %entry.if.end30_crit_edge, %if.then
   %div2.i.pre-phi = phi double [ %.pre42, %entry.if.end30_crit_edge ], [ %div6.i, %if.then ]
-  %24 = extractelement <2 x double> %9, i64 0
-  %25 = fneg double %24
-  %26 = extractelement <2 x double> %5, i64 1
-  %neg.i = fmul double %26, %25
-  %27 = extractelement <2 x double> %5, i64 0
-  %28 = extractelement <2 x double> %9, i64 1
-  %29 = tail call noundef double @llvm.fmuladd.f64(double %27, double %28, double %neg.i)
-  %cmp.i = fcmp ogt double %29, 0.000000e+00
-  %30 = fneg double %sqrt.i
-  %mul = select i1 %cmp.i, double %sqrt.i, double %30
-  %tobool.i22 = fcmp une double %15, 0.000000e+00
-  %div.i = fdiv double %26, %sqrt.i.i
+  %5 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i6, %5
+  %6 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i7, double %neg.i)
+  %cmp.i = fcmp ogt double %6, 0.000000e+00
+  %7 = fneg double %sqrt.i
+  %mul = select i1 %cmp.i, double %sqrt.i, double %7
+  %tobool.i22 = fcmp une double %1, 0.000000e+00
+  %div.i = fdiv double %sub.i6, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i22, double %div2.i.pre-phi, double 1.000000e+00
   %retval.sroa.0.0.i23 = select i1 %tobool.i22, double %div.i, double 0.000000e+00
-  %tobool.i29 = fcmp une double %16, 0.000000e+00
+  %tobool.i29 = fcmp une double %2, 0.000000e+00
   %div.i30 = fdiv double %sub.i11, %sqrt.i
   %div2.i31 = fdiv double %sub3.i12, %sqrt.i
   %retval.sroa.3.0.i32 = select i1 %tobool.i29, double %div2.i31, double 1.000000e+00
   %retval.sroa.0.0.i33 = select i1 %tobool.i29, double %div.i30, double 0.000000e+00
   %mul3.i36 = fmul double %retval.sroa.3.0.i, %retval.sroa.3.0.i32
-  %31 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i23, double %retval.sroa.0.0.i33, double %mul3.i36)
-  %32 = tail call double @llvm.fabs.f64(double %31)
+  %8 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i23, double %retval.sroa.0.0.i33, double %mul3.i36)
+  %9 = tail call double @llvm.fabs.f64(double %8)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end30
-  %retval.sroa.0.0 = phi double [ %mul, %if.end30 ], [ %22, %if.then ]
-  %retval.sroa.3.0 = phi double [ %32, %if.end30 ], [ 0.000000e+00, %if.then ]
+  %retval.sroa.0.0 = phi double [ %mul, %if.end30 ], [ %3, %if.then ]
+  %retval.sroa.3.0 = phi double [ %9, %if.end30 ], [ 0.000000e+00, %if.then ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -1119,63 +1200,52 @@ if.then135:                                       ; preds = %if.end133
   %mul4.i.i = fmul double %34, %34
   %35 = call double @llvm.fmuladd.f64(double %33, double %33, double %mul4.i.i)
   %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %35)
+  %tobool.i = fcmp une double %35, 0.000000e+00
   %div.i = fdiv double %33, %sqrt.i.i
+  %div2.i = fdiv double %34, %sqrt.i.i
+  %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
+  %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
+  %tobool.i92 = fcmp une double %11, 0.000000e+00
   %div.i93 = fdiv double %sub.i, %sqrt.i
-  %36 = insertelement <2 x double> poison, double %11, i64 0
-  %37 = insertelement <2 x double> %36, double %35, i64 1
-  %38 = fcmp une <2 x double> %37, zeroinitializer
-  %39 = extractelement <2 x i1> %38, i64 1
-  %retval.sroa.0.0.i = select i1 %39, double %div.i, double 0.000000e+00
-  %40 = insertelement <2 x double> poison, double %sub3.i, i64 0
-  %41 = insertelement <2 x double> %40, double %34, i64 1
-  %42 = insertelement <2 x double> poison, double %sqrt.i, i64 0
-  %43 = insertelement <2 x double> %42, double %sqrt.i.i, i64 1
-  %44 = fdiv <2 x double> %41, %43
-  %45 = select <2 x i1> %38, <2 x double> %44, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %46 = extractelement <2 x i1> %38, i64 0
-  %retval.sroa.0.0.i96 = select i1 %46, double %div.i93, double 0.000000e+00
-  %shift = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %47 = fmul <2 x double> %45, %shift
-  %mul3.i99 = extractelement <2 x double> %47, i64 0
-  %48 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i96, double %mul3.i99)
-  %49 = call double @llvm.fabs.f64(double %48)
+  %div2.i94 = fdiv double %sub3.i, %sqrt.i
+  %retval.sroa.3.0.i95 = select i1 %tobool.i92, double %div2.i94, double 1.000000e+00
+  %retval.sroa.0.0.i96 = select i1 %tobool.i92, double %div.i93, double 0.000000e+00
+  %mul3.i99 = fmul double %retval.sroa.3.0.i95, %retval.sroa.3.0.i
+  %36 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i96, double %mul3.i99)
+  %37 = call double @llvm.fabs.f64(double %36)
   br label %return
 
 if.else:                                          ; preds = %if.end133
   %call149 = call { double, double } %32(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 1.000000e+00)
-  %50 = extractvalue { double, double } %call149, 0
-  %51 = extractvalue { double, double } %call149, 1
+  %38 = extractvalue { double, double } %call149, 0
+  %39 = extractvalue { double, double } %call149, 1
+  %mul4.i.i102 = fmul double %39, %39
+  %40 = call double @llvm.fmuladd.f64(double %38, double %38, double %mul4.i.i102)
+  %sqrt.i.i103 = call noundef double @llvm.sqrt.f64(double %40)
+  %tobool.i104 = fcmp une double %40, 0.000000e+00
+  %div.i105 = fdiv double %38, %sqrt.i.i103
+  %div2.i106 = fdiv double %39, %sqrt.i.i103
+  %retval.sroa.3.0.i107 = select i1 %tobool.i104, double %div2.i106, double 1.000000e+00
+  %retval.sroa.0.0.i108 = select i1 %tobool.i104, double %div.i105, double 0.000000e+00
   %agg.tmp153.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
   %agg.tmp153.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
   %sub.i111 = fsub double %agg.tmp153.sroa.0.0.copyload, %origin.coerce0
   %sub3.i112 = fsub double %agg.tmp153.sroa.2.0.copyload, %origin.coerce1
-  %52 = insertelement <2 x double> poison, double %51, i64 0
-  %53 = insertelement <2 x double> %52, double %sub3.i112, i64 1
-  %54 = fmul <2 x double> %53, %53
-  %55 = insertelement <2 x double> poison, double %50, i64 0
-  %56 = insertelement <2 x double> %55, double %sub.i111, i64 1
-  %57 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %56, <2 x double> %56, <2 x double> %54)
-  %58 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %57)
-  %59 = extractelement <2 x double> %58, i64 0
-  %div.i105 = fdiv double %50, %59
-  %60 = fcmp une <2 x double> %57, zeroinitializer
-  %61 = extractelement <2 x i1> %60, i64 0
-  %retval.sroa.0.0.i108 = select i1 %61, double %div.i105, double 0.000000e+00
-  %62 = extractelement <2 x double> %58, i64 1
-  %div.i119 = fdiv double %sub.i111, %62
-  %63 = fdiv <2 x double> %53, %58
-  %64 = select <2 x i1> %60, <2 x double> %63, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %65 = extractelement <2 x i1> %60, i64 1
-  %retval.sroa.0.0.i122 = select i1 %65, double %div.i119, double 0.000000e+00
-  %shift133 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %66 = fmul <2 x double> %64, %shift133
-  %mul3.i125 = extractelement <2 x double> %66, i64 0
-  %67 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i108, double %retval.sroa.0.0.i122, double %mul3.i125)
-  %68 = call double @llvm.fabs.f64(double %67)
+  %mul4.i.i116 = fmul double %sub3.i112, %sub3.i112
+  %41 = call double @llvm.fmuladd.f64(double %sub.i111, double %sub.i111, double %mul4.i.i116)
+  %sqrt.i.i117 = call noundef double @llvm.sqrt.f64(double %41)
+  %tobool.i118 = fcmp une double %41, 0.000000e+00
+  %div.i119 = fdiv double %sub.i111, %sqrt.i.i117
+  %div2.i120 = fdiv double %sub3.i112, %sqrt.i.i117
+  %retval.sroa.3.0.i121 = select i1 %tobool.i118, double %div2.i120, double 1.000000e+00
+  %retval.sroa.0.0.i122 = select i1 %tobool.i118, double %div.i119, double 0.000000e+00
+  %mul3.i125 = fmul double %retval.sroa.3.0.i107, %retval.sroa.3.0.i121
+  %42 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i108, double %retval.sroa.0.0.i122, double %mul3.i125)
+  %43 = call double @llvm.fabs.f64(double %42)
   br label %return
 
 return:                                           ; preds = %for.end, %if.else, %if.then135
-  %retval.sroa.4.0 = phi double [ %49, %if.then135 ], [ %68, %if.else ], [ 0.000000e+00, %for.end ]
+  %retval.sroa.4.0 = phi double [ %37, %if.then135 ], [ %43, %if.else ], [ 0.000000e+00, %for.end ]
   %.fca.0.insert = insertvalue { double, double } poison, double %minDistance.1.lcssa, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1187,95 +1257,97 @@ declare noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef, double noundef,
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(80) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %param) unnamed_addr #0 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %origin.coerce0
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %origin.coerce1
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
+  %sub.i35 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
+  %sub3.i36 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
   %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp11.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
+  %sub.i39 = fsub double %agg.tmp11.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i40 = fsub double %agg.tmp11.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
+  %sub.i43 = fsub double %sub.i39, %sub.i35
+  %sub3.i44 = fsub double %sub3.i40, %sub3.i36
   %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp22.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
   %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
-  %0 = load <2 x double>, ptr %p, align 8
-  %1 = insertelement <2 x double> poison, double %origin.coerce0, i64 0
-  %2 = insertelement <2 x double> %1, double %origin.coerce1, i64 1
-  %3 = fsub <2 x double> %0, %2
-  %4 = load <2 x double>, ptr %arrayidx5, align 8
-  %5 = fsub <2 x double> %4, %0
-  %6 = load <2 x double>, ptr %arrayidx13, align 8
-  %7 = fsub <2 x double> %6, %4
-  %8 = fsub <2 x double> %7, %5
-  %9 = load <2 x double>, ptr %arrayidx24, align 8
-  %10 = fsub <2 x double> %9, %6
-  %11 = fsub <2 x double> %10, %7
-  %12 = fsub <2 x double> %11, %8
+  %agg.tmp22.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
+  %sub.i47 = fsub double %agg.tmp22.sroa.0.0.copyload, %agg.tmp11.sroa.0.0.copyload
+  %sub3.i48 = fsub double %agg.tmp22.sroa.2.0.copyload, %agg.tmp11.sroa.2.0.copyload
+  %sub.i55 = fsub double %sub.i47, %sub.i39
+  %sub3.i56 = fsub double %sub3.i48, %sub3.i40
+  %sub.i59 = fsub double %sub.i55, %sub.i43
+  %sub3.i60 = fsub double %sub3.i56, %sub3.i44
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %13 = load ptr, ptr %vfn, align 8
-  %call40 = tail call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
-  %14 = extractvalue { double, double } %call40, 0
-  %15 = extractvalue { double, double } %call40, 1
-  %16 = fneg double %15
-  %17 = extractelement <2 x double> %3, i64 0
-  %neg.i = fmul double %17, %16
-  %18 = extractelement <2 x double> %3, i64 1
-  %19 = tail call noundef double @llvm.fmuladd.f64(double %14, double %18, double %neg.i)
-  %cmp.i = fcmp ogt double %19, 0.000000e+00
-  %mul4.i = fmul double %18, %18
-  %20 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %mul4.i)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %20)
-  %21 = fneg double %sqrt.i
-  %mul = select i1 %cmp.i, double %sqrt.i, double %21
-  %mul3.i = fmul double %18, %15
-  %22 = tail call noundef double @llvm.fmuladd.f64(double %17, double %14, double %mul3.i)
-  %fneg = fneg double %22
-  %mul3.i64 = fmul double %15, %15
-  %23 = tail call noundef double @llvm.fmuladd.f64(double %14, double %14, double %mul3.i64)
-  %div = fdiv double %fneg, %23
+  %0 = load ptr, ptr %vfn, align 8
+  %call40 = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
+  %1 = extractvalue { double, double } %call40, 0
+  %2 = extractvalue { double, double } %call40, 1
+  %3 = fneg double %2
+  %neg.i = fmul double %sub.i, %3
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %1, double %sub3.i, double %neg.i)
+  %cmp.i = fcmp ogt double %4, 0.000000e+00
+  %mul4.i = fmul double %sub3.i, %sub3.i
+  %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %5)
+  %6 = fneg double %sqrt.i
+  %mul = select i1 %cmp.i, double %sqrt.i, double %6
+  %mul3.i = fmul double %sub3.i, %2
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %1, double %mul3.i)
+  %fneg = fneg double %7
+  %mul3.i64 = fmul double %2, %2
+  %8 = tail call noundef double @llvm.fmuladd.f64(double %1, double %1, double %mul3.i64)
+  %div = fdiv double %fneg, %8
   store double %div, ptr %param, align 8
   %vtable52 = load ptr, ptr %this, align 8
   %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 48
-  %24 = load ptr, ptr %vfn53, align 8
-  %call54 = tail call { double, double } %24(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
+  %9 = load ptr, ptr %vfn53, align 8
+  %call54 = tail call { double, double } %9(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
   %agg.tmp56.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
   %agg.tmp56.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
   %sub.i65 = fsub double %agg.tmp56.sroa.0.0.copyload, %origin.coerce0
   %sub3.i66 = fsub double %agg.tmp56.sroa.2.0.copyload, %origin.coerce1
   %mul4.i70 = fmul double %sub3.i66, %sub3.i66
-  %25 = tail call double @llvm.fmuladd.f64(double %sub.i65, double %sub.i65, double %mul4.i70)
-  %sqrt.i71 = tail call noundef double @llvm.sqrt.f64(double %25)
-  %26 = tail call double @llvm.fabs.f64(double %sqrt.i)
-  %cmp = fcmp olt double %sqrt.i71, %26
+  %10 = tail call double @llvm.fmuladd.f64(double %sub.i65, double %sub.i65, double %mul4.i70)
+  %sqrt.i71 = tail call noundef double @llvm.sqrt.f64(double %10)
+  %11 = tail call double @llvm.fabs.f64(double %sqrt.i)
+  %cmp = fcmp olt double %sqrt.i71, %11
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %27 = extractvalue { double, double } %call54, 1
-  %28 = extractvalue { double, double } %call54, 0
-  %29 = fneg double %27
-  %neg.i76 = fmul double %sub.i65, %29
-  %30 = tail call noundef double @llvm.fmuladd.f64(double %28, double %sub3.i66, double %neg.i76)
-  %cmp.i77 = fcmp ogt double %30, 0.000000e+00
-  %31 = fneg double %sqrt.i71
-  %mul72 = select i1 %cmp.i77, double %sqrt.i71, double %31
-  %sub.i83 = fsub double %28, %sub.i65
-  %sub3.i84 = fsub double %27, %sub3.i66
-  %mul3.i87 = fmul double %27, %sub3.i84
-  %32 = tail call noundef double @llvm.fmuladd.f64(double %sub.i83, double %28, double %mul3.i87)
-  %mul3.i88 = fmul double %27, %27
-  %33 = tail call noundef double @llvm.fmuladd.f64(double %28, double %28, double %mul3.i88)
-  %div87 = fdiv double %32, %33
+  %12 = extractvalue { double, double } %call54, 1
+  %13 = extractvalue { double, double } %call54, 0
+  %14 = fneg double %12
+  %neg.i76 = fmul double %sub.i65, %14
+  %15 = tail call noundef double @llvm.fmuladd.f64(double %13, double %sub3.i66, double %neg.i76)
+  %cmp.i77 = fcmp ogt double %15, 0.000000e+00
+  %16 = fneg double %sqrt.i71
+  %mul72 = select i1 %cmp.i77, double %sqrt.i71, double %16
+  %sub.i83 = fsub double %13, %sub.i65
+  %sub3.i84 = fsub double %12, %sub3.i66
+  %mul3.i87 = fmul double %12, %sub3.i84
+  %17 = tail call noundef double @llvm.fmuladd.f64(double %sub.i83, double %13, double %mul3.i87)
+  %mul3.i88 = fmul double %12, %12
+  %18 = tail call noundef double @llvm.fmuladd.f64(double %13, double %13, double %mul3.i88)
+  %div87 = fdiv double %17, %18
   store double %div87, ptr %param, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %minDistance.0 = phi double [ %mul72, %if.then ], [ %mul, %entry ]
-  %34 = extractelement <2 x double> %5, i64 0
-  %mul.i109 = fmul double %34, 3.000000e+00
-  %35 = extractelement <2 x double> %5, i64 1
-  %mul1.i110 = fmul double %35, 3.000000e+00
-  %36 = extractelement <2 x double> %8, i64 0
-  %mul.i129 = fmul double %36, 6.000000e+00
-  %37 = extractelement <2 x double> %8, i64 1
-  %mul1.i130 = fmul double %37, 6.000000e+00
-  %38 = insertelement <2 x double> poison, double %mul.i129, i64 0
-  %39 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = insertelement <2 x double> poison, double %mul1.i130, i64 0
-  %41 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %mul.i109 = fmul double %sub.i35, 3.000000e+00
+  %mul1.i110 = fmul double %sub3.i36, 3.000000e+00
+  %mul.i129 = fmul double %sub.i43, 6.000000e+00
+  %mul1.i130 = fmul double %sub3.i44, 6.000000e+00
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc183
@@ -1284,60 +1356,52 @@ for.body:                                         ; preds = %if.end, %for.inc183
   %conv89 = uitofp nneg i32 %i.0221 to double
   %div90 = fmul double %conv89, 2.500000e-01
   %mul95 = fmul double %div90, 3.000000e+00
+  %mul.i = fmul double %sub.i35, %mul95
+  %mul1.i = fmul double %sub3.i36, %mul95
+  %add.i = fadd double %sub.i, %mul.i
+  %add3.i = fadd double %sub3.i, %mul1.i
   %mul101 = fmul double %div90, %mul95
+  %mul.i93 = fmul double %sub.i43, %mul101
+  %mul1.i94 = fmul double %sub3.i44, %mul101
+  %add.i97 = fadd double %add.i, %mul.i93
+  %add3.i98 = fadd double %add3.i, %mul1.i94
   %mul106 = fmul double %div90, %div90
   %mul107 = fmul double %div90, %mul106
-  %42 = insertelement <2 x double> poison, double %mul95, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = fmul <2 x double> %5, %43
-  %45 = fadd <2 x double> %3, %44
-  %46 = insertelement <2 x double> poison, double %mul101, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = fmul <2 x double> %8, %47
-  %49 = fadd <2 x double> %45, %48
-  %50 = insertelement <2 x double> poison, double %mul107, i64 0
-  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
-  %52 = fmul <2 x double> %12, %51
-  %53 = fadd <2 x double> %52, %49
+  %mul.i101 = fmul double %sub.i59, %mul107
+  %mul1.i102 = fmul double %sub3.i60, %mul107
+  %add.i105 = fadd double %mul.i101, %add.i97
+  %add3.i106 = fadd double %mul1.i102, %add3.i98
   br label %for.body113
 
 for.body113:                                      ; preds = %for.body, %for.inc
   %minDistance.2220 = phi double [ %minDistance.1222, %for.body ], [ %minDistance.3, %for.inc ]
   %t.0219 = phi double [ %div90, %for.body ], [ %sub, %for.inc ]
   %step.0218 = phi i32 [ 0, %for.body ], [ %inc, %for.inc ]
-  %54 = phi <2 x double> [ %53, %for.body ], [ %89, %for.inc ]
-  %mul124 = fmul double %t.0219, 3.000000e+00
-  %55 = extractelement <2 x double> %54, i64 0
-  %56 = insertelement <2 x double> poison, double %t.0219, i64 0
-  %57 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
-  %58 = insertelement <2 x double> <double 6.000000e+00, double poison>, double %mul124, i64 1
-  %59 = fmul <2 x double> %57, %58
-  %60 = extractelement <2 x double> %59, i64 0
-  %61 = fmul <2 x double> %8, %59
-  %mul.i113 = extractelement <2 x double> %61, i64 0
-  %mul1.i114 = fmul double %37, %60
+  %qe.sroa.6.0217 = phi double [ %add3.i106, %for.body ], [ %add3.i165, %for.inc ]
+  %qe.sroa.0.0216 = phi double [ %add.i105, %for.body ], [ %add.i164, %for.inc ]
+  %mul119 = fmul double %t.0219, 6.000000e+00
+  %mul.i113 = fmul double %sub.i43, %mul119
+  %mul1.i114 = fmul double %sub3.i44, %mul119
   %add.i117 = fadd double %mul.i109, %mul.i113
   %add3.i118 = fadd double %mul1.i110, %mul1.i114
-  %62 = fmul <2 x double> %39, %59
-  %63 = fmul <2 x double> %41, %59
-  %64 = insertelement <2 x double> %38, double %add.i117, i64 1
-  %65 = fadd <2 x double> %64, %62
-  %66 = insertelement <2 x double> %40, double %add3.i118, i64 1
-  %67 = fadd <2 x double> %66, %63
-  %68 = extractelement <2 x double> %67, i64 1
-  %69 = fmul <2 x double> %54, %67
-  %mul3.i141 = extractelement <2 x double> %69, i64 1
-  %70 = extractelement <2 x double> %65, i64 1
-  %71 = tail call noundef double @llvm.fmuladd.f64(double %55, double %70, double %mul3.i141)
-  %72 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %73 = shufflevector <2 x double> %72, <2 x double> %67, <2 x i32> <i32 0, i32 3>
-  %74 = fmul <2 x double> %73, %67
-  %75 = shufflevector <2 x double> %54, <2 x double> %65, <2 x i32> <i32 0, i32 3>
-  %76 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %75, <2 x double> %65, <2 x double> %74)
-  %shift = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %77 = fadd <2 x double> %76, %shift
-  %add = extractelement <2 x double> %77, i64 0
-  %div146 = fdiv double %71, %add
+  %mul124 = fmul double %t.0219, 3.000000e+00
+  %mul125 = fmul double %t.0219, %mul124
+  %mul.i121 = fmul double %sub.i59, %mul125
+  %mul1.i122 = fmul double %sub3.i60, %mul125
+  %add.i125 = fadd double %add.i117, %mul.i121
+  %add3.i126 = fadd double %add3.i118, %mul1.i122
+  %mul.i133 = fmul double %sub.i59, %mul119
+  %mul1.i134 = fmul double %sub3.i60, %mul119
+  %add.i137 = fadd double %mul.i129, %mul.i133
+  %add3.i138 = fadd double %mul1.i130, %mul1.i134
+  %mul3.i141 = fmul double %qe.sroa.6.0217, %add3.i126
+  %19 = tail call noundef double @llvm.fmuladd.f64(double %qe.sroa.0.0216, double %add.i125, double %mul3.i141)
+  %mul3.i142 = fmul double %add3.i126, %add3.i126
+  %20 = tail call noundef double @llvm.fmuladd.f64(double %add.i125, double %add.i125, double %mul3.i142)
+  %mul3.i143 = fmul double %qe.sroa.6.0217, %add3.i138
+  %21 = tail call noundef double @llvm.fmuladd.f64(double %qe.sroa.0.0216, double %add.i137, double %mul3.i143)
+  %add = fadd double %21, %20
+  %div146 = fdiv double %19, %add
   %sub = fsub double %t.0219, %div146
   %cmp147 = fcmp ole double %sub, 0.000000e+00
   %cmp148 = fcmp oge double %sub, 1.000000e+00
@@ -1346,37 +1410,35 @@ for.body113:                                      ; preds = %for.body, %for.inc
 
 if.end150:                                        ; preds = %for.body113
   %mul156 = fmul double %sub, 3.000000e+00
+  %mul.i144 = fmul double %sub.i35, %mul156
+  %mul1.i145 = fmul double %sub3.i36, %mul156
+  %add.i148 = fadd double %sub.i, %mul.i144
+  %add3.i149 = fadd double %sub3.i, %mul1.i145
   %mul162 = fmul double %sub, %mul156
+  %mul.i152 = fmul double %sub.i43, %mul162
+  %mul1.i153 = fmul double %sub3.i44, %mul162
+  %add.i156 = fadd double %add.i148, %mul.i152
+  %add3.i157 = fadd double %add3.i149, %mul1.i153
   %mul167 = fmul double %sub, %sub
   %mul168 = fmul double %sub, %mul167
-  %78 = insertelement <2 x double> poison, double %mul156, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %5, %79
-  %81 = fadd <2 x double> %3, %80
-  %82 = insertelement <2 x double> poison, double %mul162, i64 0
-  %83 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> zeroinitializer
-  %84 = fmul <2 x double> %8, %83
-  %85 = fadd <2 x double> %81, %84
-  %86 = insertelement <2 x double> poison, double %mul168, i64 0
-  %87 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> zeroinitializer
-  %88 = fmul <2 x double> %12, %87
-  %89 = fadd <2 x double> %88, %85
-  %90 = extractelement <2 x double> %89, i64 1
-  %mul4.i169 = fmul double %90, %90
-  %91 = extractelement <2 x double> %89, i64 0
-  %92 = tail call double @llvm.fmuladd.f64(double %91, double %91, double %mul4.i169)
-  %sqrt.i170 = tail call noundef double @llvm.sqrt.f64(double %92)
-  %93 = tail call double @llvm.fabs.f64(double %minDistance.2220)
-  %cmp174 = fcmp olt double %sqrt.i170, %93
+  %mul.i160 = fmul double %sub.i59, %mul168
+  %mul1.i161 = fmul double %sub3.i60, %mul168
+  %add.i164 = fadd double %mul.i160, %add.i156
+  %add3.i165 = fadd double %mul1.i161, %add3.i157
+  %mul4.i169 = fmul double %add3.i165, %add3.i165
+  %22 = tail call double @llvm.fmuladd.f64(double %add.i164, double %add.i164, double %mul4.i169)
+  %sqrt.i170 = tail call noundef double @llvm.sqrt.f64(double %22)
+  %23 = tail call double @llvm.fabs.f64(double %minDistance.2220)
+  %cmp174 = fcmp olt double %sqrt.i170, %23
   br i1 %cmp174, label %if.then175, label %for.inc
 
 if.then175:                                       ; preds = %if.end150
-  %94 = fneg double %68
-  %neg.i171 = fmul double %91, %94
-  %95 = tail call noundef double @llvm.fmuladd.f64(double %70, double %90, double %neg.i171)
-  %cmp.i172 = fcmp ogt double %95, 0.000000e+00
-  %96 = fneg double %sqrt.i170
-  %mul181 = select i1 %cmp.i172, double %sqrt.i170, double %96
+  %24 = fneg double %add3.i126
+  %neg.i171 = fmul double %add.i164, %24
+  %25 = tail call noundef double @llvm.fmuladd.f64(double %add.i125, double %add3.i165, double %neg.i171)
+  %cmp.i172 = fcmp ogt double %25, 0.000000e+00
+  %26 = fneg double %sqrt.i170
+  %mul181 = select i1 %cmp.i172, double %sqrt.i170, double %26
   store double %sub, ptr %param, align 8
   br label %for.inc
 
@@ -1393,83 +1455,72 @@ for.inc183:                                       ; preds = %for.inc, %for.body1
   br i1 %exitcond223.not, label %for.end185, label %for.body, !llvm.loop !8
 
 for.end185:                                       ; preds = %for.inc183
-  %97 = load double, ptr %param, align 8
-  %cmp186 = fcmp ult double %97, 0.000000e+00
-  %cmp187 = fcmp ugt double %97, 1.000000e+00
+  %27 = load double, ptr %param, align 8
+  %cmp186 = fcmp ult double %27, 0.000000e+00
+  %cmp187 = fcmp ugt double %27, 1.000000e+00
   %or.cond34 = or i1 %cmp186, %cmp187
   br i1 %or.cond34, label %if.end189, label %return
 
 if.end189:                                        ; preds = %for.end185
-  %cmp190 = fcmp olt double %97, 5.000000e-01
+  %cmp190 = fcmp olt double %27, 5.000000e-01
   %vtable194 = load ptr, ptr %this, align 8
   %vfn195 = getelementptr inbounds i8, ptr %vtable194, i64 48
-  %98 = load ptr, ptr %vfn195, align 8
+  %28 = load ptr, ptr %vfn195, align 8
   br i1 %cmp190, label %if.then191, label %if.else
 
 if.then191:                                       ; preds = %if.end189
-  %call196 = tail call { double, double } %98(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
-  %99 = extractvalue { double, double } %call196, 0
-  %100 = extractvalue { double, double } %call196, 1
-  %mul4.i.i = fmul double %100, %100
-  %101 = tail call double @llvm.fmuladd.f64(double %99, double %99, double %mul4.i.i)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %101)
-  %div.i = fdiv double %99, %sqrt.i.i
-  %div.i180 = fdiv double %17, %sqrt.i
-  %102 = insertelement <2 x double> poison, double %20, i64 0
-  %103 = insertelement <2 x double> %102, double %101, i64 1
-  %104 = fcmp une <2 x double> %103, zeroinitializer
-  %105 = extractelement <2 x i1> %104, i64 1
-  %retval.sroa.0.0.i = select i1 %105, double %div.i, double 0.000000e+00
-  %106 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %107 = insertelement <2 x double> %106, double %100, i64 1
-  %108 = insertelement <2 x double> poison, double %sqrt.i, i64 0
-  %109 = insertelement <2 x double> %108, double %sqrt.i.i, i64 1
-  %110 = fdiv <2 x double> %107, %109
-  %111 = select <2 x i1> %104, <2 x double> %110, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %112 = extractelement <2 x i1> %104, i64 0
-  %retval.sroa.0.0.i183 = select i1 %112, double %div.i180, double 0.000000e+00
-  %shift224 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %113 = fmul <2 x double> %111, %shift224
-  %mul3.i186 = extractelement <2 x double> %113, i64 0
-  %114 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i183, double %mul3.i186)
-  %115 = tail call double @llvm.fabs.f64(double %114)
+  %call196 = tail call { double, double } %28(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
+  %29 = extractvalue { double, double } %call196, 0
+  %30 = extractvalue { double, double } %call196, 1
+  %mul4.i.i = fmul double %30, %30
+  %31 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %mul4.i.i)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %31)
+  %tobool.i = fcmp une double %31, 0.000000e+00
+  %div.i = fdiv double %29, %sqrt.i.i
+  %div2.i = fdiv double %30, %sqrt.i.i
+  %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
+  %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
+  %tobool.i179 = fcmp une double %5, 0.000000e+00
+  %div.i180 = fdiv double %sub.i, %sqrt.i
+  %div2.i181 = fdiv double %sub3.i, %sqrt.i
+  %retval.sroa.3.0.i182 = select i1 %tobool.i179, double %div2.i181, double 1.000000e+00
+  %retval.sroa.0.0.i183 = select i1 %tobool.i179, double %div.i180, double 0.000000e+00
+  %mul3.i186 = fmul double %retval.sroa.3.0.i182, %retval.sroa.3.0.i
+  %32 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i183, double %mul3.i186)
+  %33 = tail call double @llvm.fabs.f64(double %32)
   br label %return
 
 if.else:                                          ; preds = %if.end189
-  %call205 = tail call { double, double } %98(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
-  %116 = extractvalue { double, double } %call205, 0
-  %117 = extractvalue { double, double } %call205, 1
+  %call205 = tail call { double, double } %28(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
+  %34 = extractvalue { double, double } %call205, 0
+  %35 = extractvalue { double, double } %call205, 1
+  %mul4.i.i189 = fmul double %35, %35
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %mul4.i.i189)
+  %sqrt.i.i190 = tail call noundef double @llvm.sqrt.f64(double %36)
+  %tobool.i191 = fcmp une double %36, 0.000000e+00
+  %div.i192 = fdiv double %34, %sqrt.i.i190
+  %div2.i193 = fdiv double %35, %sqrt.i.i190
+  %retval.sroa.3.0.i194 = select i1 %tobool.i191, double %div2.i193, double 1.000000e+00
+  %retval.sroa.0.0.i195 = select i1 %tobool.i191, double %div.i192, double 0.000000e+00
   %agg.tmp209.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
   %agg.tmp209.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
   %sub.i198 = fsub double %agg.tmp209.sroa.0.0.copyload, %origin.coerce0
   %sub3.i199 = fsub double %agg.tmp209.sroa.2.0.copyload, %origin.coerce1
-  %118 = insertelement <2 x double> poison, double %117, i64 0
-  %119 = insertelement <2 x double> %118, double %sub3.i199, i64 1
-  %120 = fmul <2 x double> %119, %119
-  %121 = insertelement <2 x double> poison, double %116, i64 0
-  %122 = insertelement <2 x double> %121, double %sub.i198, i64 1
-  %123 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %122, <2 x double> %122, <2 x double> %120)
-  %124 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %123)
-  %125 = extractelement <2 x double> %124, i64 0
-  %div.i192 = fdiv double %116, %125
-  %126 = fcmp une <2 x double> %123, zeroinitializer
-  %127 = extractelement <2 x i1> %126, i64 0
-  %retval.sroa.0.0.i195 = select i1 %127, double %div.i192, double 0.000000e+00
-  %128 = extractelement <2 x double> %124, i64 1
-  %div.i206 = fdiv double %sub.i198, %128
-  %129 = fdiv <2 x double> %119, %124
-  %130 = select <2 x i1> %126, <2 x double> %129, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %131 = extractelement <2 x i1> %126, i64 1
-  %retval.sroa.0.0.i209 = select i1 %131, double %div.i206, double 0.000000e+00
-  %shift225 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %132 = fmul <2 x double> %130, %shift225
-  %mul3.i212 = extractelement <2 x double> %132, i64 0
-  %133 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i195, double %retval.sroa.0.0.i209, double %mul3.i212)
-  %134 = tail call double @llvm.fabs.f64(double %133)
+  %mul4.i.i203 = fmul double %sub3.i199, %sub3.i199
+  %37 = tail call double @llvm.fmuladd.f64(double %sub.i198, double %sub.i198, double %mul4.i.i203)
+  %sqrt.i.i204 = tail call noundef double @llvm.sqrt.f64(double %37)
+  %tobool.i205 = fcmp une double %37, 0.000000e+00
+  %div.i206 = fdiv double %sub.i198, %sqrt.i.i204
+  %div2.i207 = fdiv double %sub3.i199, %sqrt.i.i204
+  %retval.sroa.3.0.i208 = select i1 %tobool.i205, double %div2.i207, double 1.000000e+00
+  %retval.sroa.0.0.i209 = select i1 %tobool.i205, double %div.i206, double 0.000000e+00
+  %mul3.i212 = fmul double %retval.sroa.3.0.i194, %retval.sroa.3.0.i208
+  %38 = tail call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i195, double %retval.sroa.0.0.i209, double %mul3.i212)
+  %39 = tail call double @llvm.fabs.f64(double %38)
   br label %return
 
 return:                                           ; preds = %for.end185, %if.else, %if.then191
-  %retval.sroa.4.0 = phi double [ %115, %if.then191 ], [ %134, %if.else ], [ 0.000000e+00, %for.end185 ]
+  %retval.sroa.4.0 = phi double [ %33, %if.then191 ], [ %39, %if.else ], [ 0.000000e+00, %for.end185 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %minDistance.2.lcssa, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1716,16 +1767,12 @@ if.then167:                                       ; preds = %if.end158.thread, %
   br label %if.end190
 
 if.else169:                                       ; preds = %if.then165
-  %20 = load double, ptr %y2, align 8
-  %21 = insertelement <2 x double> poison, double %18, i64 0
-  %22 = insertelement <2 x double> %21, double %20, i64 1
-  %23 = insertelement <2 x double> poison, double %y, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = fsub <2 x double> %22, %24
-  %26 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %25)
-  %27 = extractelement <2 x double> %26, i64 0
-  %28 = extractelement <2 x double> %26, i64 1
-  %cmp178 = fcmp olt double %27, %28
+  %sub173 = fsub double %18, %y
+  %20 = call double @llvm.fabs.f64(double %sub173)
+  %21 = load double, ptr %y2, align 8
+  %sub177 = fsub double %21, %y
+  %22 = call double @llvm.fabs.f64(double %sub177)
+  %cmp178 = fcmp olt double %20, %22
   br i1 %cmp178, label %if.then179, label %if.else169.if.end185_crit_edge
 
 if.else169.if.end185_crit_edge:                   ; preds = %if.else169
@@ -1733,10 +1780,10 @@ if.else169.if.end185_crit_edge:                   ; preds = %if.else169
   br label %if.end185
 
 if.then179:                                       ; preds = %if.else169
-  %29 = load double, ptr %arrayidx44, align 8
+  %23 = load double, ptr %arrayidx44, align 8
   %idxprom183 = sext i32 %total.3 to i64
   %arrayidx184 = getelementptr inbounds double, ptr %x, i64 %idxprom183
-  store double %29, ptr %arrayidx184, align 8
+  store double %23, ptr %arrayidx184, align 8
   br label %if.end185
 
 if.end185:                                        ; preds = %if.else169.if.end185_crit_edge, %if.then179
@@ -2006,16 +2053,12 @@ if.then261:                                       ; preds = %if.end252.thread, %
   br label %if.end284
 
 if.else263:                                       ; preds = %if.then259
-  %27 = load double, ptr %y2, align 8
-  %28 = insertelement <2 x double> poison, double %25, i64 0
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = insertelement <2 x double> poison, double %y, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fsub <2 x double> %29, %31
-  %33 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %32)
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = extractelement <2 x double> %33, i64 1
-  %cmp272 = fcmp olt double %34, %35
+  %sub267 = fsub double %25, %y
+  %27 = call double @llvm.fabs.f64(double %sub267)
+  %28 = load double, ptr %y2, align 8
+  %sub271 = fsub double %28, %y
+  %29 = call double @llvm.fabs.f64(double %sub271)
+  %cmp272 = fcmp olt double %27, %29
   br i1 %cmp272, label %if.then273, label %if.else263.if.end279_crit_edge
 
 if.else263.if.end279_crit_edge:                   ; preds = %if.else263
@@ -2023,10 +2066,10 @@ if.else263.if.end279_crit_edge:                   ; preds = %if.else263
   br label %if.end279
 
 if.then273:                                       ; preds = %if.else263
-  %36 = load double, ptr %arrayidx71, align 8
+  %30 = load double, ptr %arrayidx71, align 8
   %idxprom277 = sext i32 %total.3 to i64
   %arrayidx278 = getelementptr inbounds double, ptr %x, i64 %idxprom277
-  store double %36, ptr %arrayidx278, align 8
+  store double %30, ptr %arrayidx278, align 8
   br label %if.end279
 
 if.end279:                                        ; preds = %if.else263.if.end279_crit_edge, %if.then273
@@ -2643,44 +2686,39 @@ entry:
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
+  %0 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i5, %0
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load <2 x double>, ptr %arrayidx4, align 8
-  %1 = extractelement <2 x double> %0, i64 0
-  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %1
-  %2 = extractelement <2 x double> %0, i64 1
-  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
-  %3 = fneg double %sub3.i
-  %4 = load <2 x double>, ptr %arrayidx34, align 8
-  %5 = fsub <2 x double> %4, %0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %7 = insertelement <2 x double> %6, double %sub.i5, i64 0
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x double> %7, %9
-  %11 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = insertelement <2 x double> %5, double %sub3.i6, i64 0
-  %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %13, <2 x double> %10)
-  %15 = extractelement <2 x double> %14, i64 0
-  %16 = extractelement <2 x double> %14, i64 1
-  %div = fdiv double %15, %16
-  %17 = insertelement <2 x double> poison, double %div, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = fmul <2 x double> %5, %18
-  %20 = fadd <2 x double> %0, %19
-  store <2 x double> %20, ptr %arrayidx4, align 8
+  %agg.tmp32.sroa.0.0.copyload = load double, ptr %arrayidx34, align 8
+  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
+  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %neg.i17 = fmul double %sub.i13, %0
+  %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %div = fdiv double %1, %2
+  %mul.i = fmul double %sub.i13, %div
+  %mul1.i = fmul double %sub3.i14, %div
+  %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
+  store double %add.i, ptr %arrayidx4, align 8
+  %add4.i = fadd double %agg.tmp2.sroa.2.0.copyload, %mul1.i
+  store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %p, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %21 = extractelement <2 x double> %20, i64 0
-  %sub.i24 = fsub double %to.coerce0, %21
-  %22 = extractelement <2 x double> %20, i64 1
-  %sub3.i25 = fsub double %to.coerce1, %22
+  %sub.i24 = fsub double %to.coerce0, %add.i
+  %sub3.i25 = fsub double %to.coerce1, %add4.i
   %mul3.i = fmul double %sub3.i, %sub3.i25
-  %23 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %23, 0.000000e+00
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %3, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2695,15 +2733,19 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
+  %sub.i = fsub double %to.coerce0, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i = fsub double %to.coerce1, %agg.tmp3.sroa.2.0.copyload
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load <2 x double>, ptr %p, align 8
-  %1 = insertelement <2 x double> poison, double %to.coerce0, i64 0
-  %2 = insertelement <2 x double> %1, double %to.coerce1, i64 1
-  %3 = fsub <2 x double> %2, %0
-  %4 = load <2 x double>, ptr %arrayidx5, align 8
-  %5 = fadd <2 x double> %3, %4
-  store <2 x double> %5, ptr %arrayidx5, align 8
+  %0 = load double, ptr %arrayidx5, align 8
+  %add.i = fadd double %sub.i, %0
+  store double %add.i, ptr %arrayidx5, align 8
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %1 = load double, ptr %y3.i, align 8
+  %add4.i = fadd double %sub3.i, %1
+  store double %add4.i, ptr %y3.i, align 8
   store double %to.coerce0, ptr %p, align 8
   store double %to.coerce1, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
@@ -2729,43 +2771,38 @@ entry:
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
+  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %0 = load <2 x double>, ptr %arrayidx4, align 8
-  %1 = extractelement <2 x double> %0, i64 0
-  %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %1
-  %2 = extractelement <2 x double> %0, i64 1
-  %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origP1, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
-  %3 = fneg double %sub3.i
-  %4 = load <2 x double>, ptr %p, align 8
-  %5 = fsub <2 x double> %4, %0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %7 = insertelement <2 x double> %6, double %sub.i5, i64 0
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x double> %7, %9
-  %11 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = insertelement <2 x double> %5, double %sub3.i6, i64 0
-  %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %13, <2 x double> %10)
-  %15 = extractelement <2 x double> %14, i64 0
-  %16 = extractelement <2 x double> %14, i64 1
-  %div = fdiv double %15, %16
-  %17 = insertelement <2 x double> poison, double %div, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = fmul <2 x double> %5, %18
-  %20 = fadd <2 x double> %0, %19
-  store <2 x double> %20, ptr %arrayidx4, align 8
+  %0 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i5, %0
+  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
+  %agg.tmp32.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
+  %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
+  %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
+  %neg.i17 = fmul double %sub.i13, %0
+  %2 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i14, double %neg.i17)
+  %div = fdiv double %1, %2
+  %mul.i = fmul double %sub.i13, %div
+  %mul1.i = fmul double %sub3.i14, %div
+  %add.i = fadd double %agg.tmp2.sroa.0.0.copyload, %mul.i
+  store double %add.i, ptr %arrayidx4, align 8
+  %add4.i = fadd double %agg.tmp2.sroa.2.0.copyload, %mul1.i
+  store double %add4.i, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   store double %to.coerce0, ptr %arrayidx, align 8
   store double %to.coerce1, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %21 = extractelement <2 x double> %20, i64 0
-  %sub.i24 = fsub double %to.coerce0, %21
-  %22 = extractelement <2 x double> %20, i64 1
-  %sub3.i25 = fsub double %to.coerce1, %22
+  %sub.i24 = fsub double %to.coerce0, %add.i
+  %sub3.i25 = fsub double %to.coerce1, %add4.i
   %mul3.i = fmul double %sub3.i, %sub3.i25
-  %23 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
-  %cmp = fcmp olt double %23, 0.000000e+00
+  %3 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i24, double %mul3.i)
+  %cmp = fcmp olt double %3, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -2780,15 +2817,19 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
   %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
+  %sub.i = fsub double %to.coerce0, %agg.tmp3.sroa.0.0.copyload
+  %sub3.i = fsub double %to.coerce1, %agg.tmp3.sroa.2.0.copyload
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = insertelement <2 x double> poison, double %to.coerce0, i64 0
-  %2 = insertelement <2 x double> %1, double %to.coerce1, i64 1
-  %3 = fsub <2 x double> %2, %0
-  %4 = load <2 x double>, ptr %arrayidx5, align 8
-  %5 = fadd <2 x double> %3, %4
-  store <2 x double> %5, ptr %arrayidx5, align 8
+  %0 = load double, ptr %arrayidx5, align 8
+  %add.i = fadd double %sub.i, %0
+  store double %add.i, ptr %arrayidx5, align 8
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = load double, ptr %y3.i, align 8
+  %add4.i = fadd double %sub3.i, %1
+  store double %add4.i, ptr %y3.i, align 8
   store double %to.coerce0, ptr %arrayidx, align 8
   store double %to.coerce1, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
@@ -2799,103 +2840,111 @@ define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSeg
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load <2 x double>, ptr %p, align 8
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %1 = load ptr, ptr %vfn, align 8
-  %call3 = invoke { double, double } %1(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
+  %0 = load ptr, ptr %vfn, align 8
+  %call3 = invoke { double, double } %0(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  %2 = extractvalue { double, double } %call3, 0
-  %3 = extractvalue { double, double } %call3, 1
+  %1 = extractvalue { double, double } %call3, 0
+  %2 = extractvalue { double, double } %call3, 1
   %color = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i32, ptr %color, align 8
+  %3 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 %4, ptr %color.i.i, align 8
+  store i32 %3, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  store <2 x double> %0, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 32
-  store double %2, ptr %arrayidx4.i, align 8
+  store double %1, ptr %arrayidx4.i, align 8
   %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
-  store double %3, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
+  store double %2, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
-  %5 = load ptr, ptr %vfn8, align 8
-  %call11 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
+  %4 = load ptr, ptr %vfn8, align 8
+  %call11 = invoke { double, double } %4(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont4
   %vtable13 = load ptr, ptr %this, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 40
-  %6 = load ptr, ptr %vfn14, align 8
-  %call16 = invoke { double, double } %6(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
+  %5 = load ptr, ptr %vfn14, align 8
+  %call16 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont18 unwind label %lpad9
 
 invoke.cont18:                                    ; preds = %invoke.cont10
-  %7 = extractvalue { double, double } %call11, 1
-  %8 = extractvalue { double, double } %call11, 0
-  %9 = extractvalue { double, double } %call16, 0
-  %10 = extractvalue { double, double } %call16, 1
-  %11 = load i32, ptr %color, align 8
+  %6 = extractvalue { double, double } %call11, 1
+  %7 = extractvalue { double, double } %call11, 0
+  %8 = extractvalue { double, double } %call16, 0
+  %9 = extractvalue { double, double } %call16, 1
+  %10 = load i32, ptr %color, align 8
   %color.i.i2 = getelementptr inbounds i8, ptr %call5, i64 8
-  store i32 %11, ptr %color.i.i2, align 8
+  store i32 %10, ptr %color.i.i2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call5, align 8
   %scevgep.i3 = getelementptr inbounds i8, ptr %call5, i64 16
-  store double %8, ptr %scevgep.i3, align 8
+  store double %7, ptr %scevgep.i3, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i4 = getelementptr inbounds i8, ptr %call5, i64 24
-  store double %7, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i4, align 8
+  store double %6, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i4, align 8
   %arrayidx4.i5 = getelementptr inbounds i8, ptr %call5, i64 32
-  store double %9, ptr %arrayidx4.i5, align 8
+  store double %8, ptr %arrayidx4.i5, align 8
   %p1.sroa.2.0.arrayidx4.sroa_idx.i6 = getelementptr inbounds i8, ptr %call5, i64 40
-  store double %10, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i6, align 8
+  store double %9, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i6, align 8
   store ptr %call5, ptr %part1, align 8
   %call19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable21 = load ptr, ptr %this, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 40
-  %12 = load ptr, ptr %vfn22, align 8
-  %call25 = invoke { double, double } %12(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
+  %11 = load ptr, ptr %vfn22, align 8
+  %call25 = invoke { double, double } %11(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont30 unwind label %lpad23
 
 invoke.cont30:                                    ; preds = %invoke.cont18
-  %13 = extractvalue { double, double } %call25, 0
-  %14 = extractvalue { double, double } %call25, 1
+  %12 = extractvalue { double, double } %call25, 0
+  %13 = extractvalue { double, double } %call25, 1
   %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 32
-  %15 = load i32, ptr %color, align 8
+  %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx28, align 8
+  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx, align 8
+  %14 = load i32, ptr %color, align 8
   %color.i.i7 = getelementptr inbounds i8, ptr %call19, i64 8
-  store i32 %15, ptr %color.i.i7, align 8
+  store i32 %14, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call19, align 8
   %scevgep.i8 = getelementptr inbounds i8, ptr %call19, i64 16
-  store double %13, ptr %scevgep.i8, align 8
+  store double %12, ptr %scevgep.i8, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds i8, ptr %call19, i64 24
-  store double %14, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i9, align 8
+  store double %13, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i9, align 8
   %arrayidx4.i10 = getelementptr inbounds i8, ptr %call19, i64 32
-  %16 = load <2 x double>, ptr %arrayidx28, align 8
-  store <2 x double> %16, ptr %arrayidx4.i10, align 8
+  store double %agg.tmp26.sroa.0.0.copyload, ptr %arrayidx4.i10, align 8
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i11 = getelementptr inbounds i8, ptr %call19, i64 40
+  store double %agg.tmp26.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i11, align 8
   store ptr %call19, ptr %part2, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad9:                                            ; preds = %invoke.cont10, %invoke.cont4
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad23:                                           ; preds = %invoke.cont18
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad23, %lpad9, %lpad
   %call19.sink = phi ptr [ %call19, %lpad23 ], [ %call5, %lpad9 ], [ %call, %lpad ]
-  %.pn = phi { ptr, i32 } [ %19, %lpad23 ], [ %18, %lpad9 ], [ %17, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad23 ], [ %16, %lpad9 ], [ %15, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call19.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -2905,129 +2954,163 @@ define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11Edge
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load <2 x double>, ptr %p, align 8
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = load <2 x double>, ptr %arrayidx8, align 8
+  %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %2 = load ptr, ptr %vfn, align 8
-  %call12 = invoke { double, double } %2(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
+  %0 = load ptr, ptr %vfn, align 8
+  %call12 = invoke { double, double } %0(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %3 = fmul <2 x double> %1, <double 0x3FD5555555555555, double 0x3FD5555555555555>
-  %4 = extractvalue { double, double } %call12, 0
-  %5 = extractvalue { double, double } %call12, 1
+  %mul1.i3.i = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i = fmul double %agg.tmp.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  %mul.i2.i = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i = fmul double %agg.tmp.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %1 = extractvalue { double, double } %call12, 0
+  %2 = extractvalue { double, double } %call12, 1
   %color = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i32, ptr %color, align 8
+  %3 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 %6, ptr %color.i.i, align 8
+  store i32 %3, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  store <2 x double> %0, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %call, i64 32
-  %7 = fmul <2 x double> %0, <double 0x3FE5555555555556, double 0x3FE5555555555556>
-  %8 = fadd <2 x double> %7, %3
-  store <2 x double> %8, ptr %arrayidx5.i, align 8
+  store double %add.i.i, ptr %arrayidx5.i, align 8
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %add3.i.i, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %call, i64 48
-  store double %4, ptr %arrayidx7.i, align 8
+  store double %1, ptr %arrayidx7.i, align 8
   %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
-  store double %5, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
+  store double %2, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable16 = load ptr, ptr %this, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 40
-  %9 = load ptr, ptr %vfn17, align 8
-  %call20 = invoke { double, double } %9(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
+  %4 = load ptr, ptr %vfn17, align 8
+  %call20 = invoke { double, double } %4(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont40 unwind label %lpad18
 
 invoke.cont40:                                    ; preds = %invoke.cont13
+  %agg.tmp23.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp23.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
+  %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 48
-  %10 = load <2 x double>, ptr %p, align 8
-  %11 = load <2 x double>, ptr %arrayidx8, align 8
-  %12 = load <2 x double>, ptr %arrayidx37, align 8
+  %agg.tmp35.sroa.0.0.copyload = load double, ptr %arrayidx37, align 8
+  %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp35.sroa.2.0.copyload = load double, ptr %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx, align 8
   %vtable43 = load ptr, ptr %this, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 40
-  %13 = load ptr, ptr %vfn44, align 8
-  %call46 = invoke { double, double } %13(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
+  %5 = load ptr, ptr %vfn44, align 8
+  %call46 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont48 unwind label %lpad18
 
 invoke.cont48:                                    ; preds = %invoke.cont40
-  %14 = fmul <2 x double> %12, <double 0x3FDC71C71C71C71C, double 0x3FDC71C71C71C71C>
-  %15 = fmul <2 x double> %11, <double 0x3FE1C71C71C71C72, double 0x3FE1C71C71C71C72>
-  %16 = fmul <2 x double> %10, <double 0x3FDC71C71C71C71C, double 0x3FDC71C71C71C71C>
-  %17 = extractvalue { double, double } %call20, 1
-  %18 = extractvalue { double, double } %call20, 0
-  %19 = extractvalue { double, double } %call46, 0
-  %20 = extractvalue { double, double } %call46, 1
-  %21 = load i32, ptr %color, align 8
+  %mul1.i3.i13 = fmul double %agg.tmp35.sroa.2.0.copyload, 0x3FDC71C71C71C71C
+  %mul1.i3.i5 = fmul double %agg.tmp26.sroa.2.0.copyload, 0x3FE1C71C71C71C72
+  %add3.i.i15 = fadd double %mul1.i3.i5, %mul1.i3.i13
+  %mul1.i3.i21 = fmul double %add3.i.i15, 5.000000e-01
+  %mul1.i.i3 = fmul double %agg.tmp23.sroa.2.0.copyload, 0x3FDC71C71C71C71C
+  %add3.i.i7 = fadd double %mul1.i.i3, %mul1.i3.i5
+  %mul1.i.i19 = fmul double %add3.i.i7, 5.000000e-01
+  %add3.i.i23 = fadd double %mul1.i.i19, %mul1.i3.i21
+  %mul.i2.i12 = fmul double %agg.tmp35.sroa.0.0.copyload, 0x3FDC71C71C71C71C
+  %mul.i2.i4 = fmul double %agg.tmp26.sroa.0.0.copyload, 0x3FE1C71C71C71C72
+  %add.i.i14 = fadd double %mul.i2.i4, %mul.i2.i12
+  %mul.i2.i20 = fmul double %add.i.i14, 5.000000e-01
+  %mul.i.i2 = fmul double %agg.tmp23.sroa.0.0.copyload, 0x3FDC71C71C71C71C
+  %add.i.i6 = fadd double %mul.i.i2, %mul.i2.i4
+  %mul.i.i18 = fmul double %add.i.i6, 5.000000e-01
+  %add.i.i22 = fadd double %mul.i.i18, %mul.i2.i20
+  %6 = extractvalue { double, double } %call20, 1
+  %7 = extractvalue { double, double } %call20, 0
+  %8 = extractvalue { double, double } %call46, 0
+  %9 = extractvalue { double, double } %call46, 1
+  %10 = load i32, ptr %color, align 8
   %color.i.i26 = getelementptr inbounds i8, ptr %call14, i64 8
-  store i32 %21, ptr %color.i.i26, align 8
+  store i32 %10, ptr %color.i.i26, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call14, align 8
   %scevgep.i27 = getelementptr inbounds i8, ptr %call14, i64 16
-  store double %18, ptr %scevgep.i27, align 8
+  store double %7, ptr %scevgep.i27, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds i8, ptr %call14, i64 24
-  store double %17, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i28, align 8
+  store double %6, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i28, align 8
   %arrayidx5.i29 = getelementptr inbounds i8, ptr %call14, i64 32
-  %22 = fadd <2 x double> %15, %14
-  %23 = fmul <2 x double> %22, <double 5.000000e-01, double 5.000000e-01>
-  %24 = fadd <2 x double> %16, %15
-  %25 = fmul <2 x double> %24, <double 5.000000e-01, double 5.000000e-01>
-  %26 = fadd <2 x double> %25, %23
-  store <2 x double> %26, ptr %arrayidx5.i29, align 8
+  store double %add.i.i22, ptr %arrayidx5.i29, align 8
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i30 = getelementptr inbounds i8, ptr %call14, i64 40
+  store double %add3.i.i23, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i30, align 8
   %arrayidx7.i31 = getelementptr inbounds i8, ptr %call14, i64 48
-  store double %19, ptr %arrayidx7.i31, align 8
+  store double %8, ptr %arrayidx7.i31, align 8
   %p2.sroa.2.0.arrayidx7.sroa_idx.i32 = getelementptr inbounds i8, ptr %call14, i64 56
-  store double %20, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i32, align 8
+  store double %9, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i32, align 8
   store ptr %call14, ptr %part1, align 8
   %call49 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable51 = load ptr, ptr %this, align 8
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
-  %27 = load ptr, ptr %vfn52, align 8
-  %call55 = invoke { double, double } %27(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
+  %11 = load ptr, ptr %vfn52, align 8
+  %call55 = invoke { double, double } %11(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont69 unwind label %lpad53
 
 invoke.cont69:                                    ; preds = %invoke.cont48
-  %28 = extractvalue { double, double } %call55, 1
-  %29 = extractvalue { double, double } %call55, 0
-  %30 = load i32, ptr %color, align 8
+  %agg.tmp57.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp57.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %agg.tmp60.sroa.0.0.copyload = load double, ptr %arrayidx37, align 8
+  %agg.tmp60.sroa.2.0.copyload = load double, ptr %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx, align 8
+  %mul.i.i33 = fmul double %agg.tmp57.sroa.0.0.copyload, 0x3FD5555555555556
+  %mul1.i.i34 = fmul double %agg.tmp57.sroa.2.0.copyload, 0x3FD5555555555556
+  %mul.i2.i35 = fmul double %agg.tmp60.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul1.i3.i36 = fmul double %agg.tmp60.sroa.2.0.copyload, 0x3FE5555555555555
+  %add.i.i37 = fadd double %mul.i.i33, %mul.i2.i35
+  %add3.i.i38 = fadd double %mul1.i.i34, %mul1.i3.i36
+  %12 = extractvalue { double, double } %call55, 1
+  %13 = extractvalue { double, double } %call55, 0
+  %14 = load i32, ptr %color, align 8
   %color.i.i41 = getelementptr inbounds i8, ptr %call49, i64 8
-  store i32 %30, ptr %color.i.i41, align 8
+  store i32 %14, ptr %color.i.i41, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call49, align 8
   %scevgep.i42 = getelementptr inbounds i8, ptr %call49, i64 16
-  store double %29, ptr %scevgep.i42, align 8
+  store double %13, ptr %scevgep.i42, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i43 = getelementptr inbounds i8, ptr %call49, i64 24
-  store double %28, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i43, align 8
+  store double %12, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i43, align 8
   %arrayidx5.i44 = getelementptr inbounds i8, ptr %call49, i64 32
-  %31 = load <2 x double>, ptr %arrayidx8, align 8
-  %32 = load <2 x double>, ptr %arrayidx37, align 8
-  %33 = fmul <2 x double> %31, <double 0x3FD5555555555556, double 0x3FD5555555555556>
-  %34 = fmul <2 x double> %32, <double 0x3FE5555555555555, double 0x3FE5555555555555>
-  %35 = fadd <2 x double> %33, %34
-  store <2 x double> %35, ptr %arrayidx5.i44, align 8
+  store double %add.i.i37, ptr %arrayidx5.i44, align 8
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i45 = getelementptr inbounds i8, ptr %call49, i64 40
+  store double %add3.i.i38, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i45, align 8
   %arrayidx7.i46 = getelementptr inbounds i8, ptr %call49, i64 48
-  store <2 x double> %32, ptr %arrayidx7.i46, align 8
+  store double %agg.tmp60.sroa.0.0.copyload, ptr %arrayidx7.i46, align 8
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i47 = getelementptr inbounds i8, ptr %call49, i64 56
+  store double %agg.tmp60.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i47, align 8
   store ptr %call49, ptr %part2, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %36 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad18:                                           ; preds = %invoke.cont40, %invoke.cont13
-  %37 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad53:                                           ; preds = %invoke.cont48
-  %38 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad53, %lpad18, %lpad
   %call49.sink = phi ptr [ %call49, %lpad53 ], [ %call14, %lpad18 ], [ %call, %lpad ]
-  %.pn = phi { ptr, i32 } [ %38, %lpad53 ], [ %37, %lpad18 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad53 ], [ %16, %lpad18 ], [ %15, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call49.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -3037,226 +3120,285 @@ define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegm
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load <2 x double>, ptr %p, align 8
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
   %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load <2 x double>, ptr %arrayidx8, align 8
-  %2 = extractelement <2 x double> %0, i64 0
-  %3 = extractelement <2 x double> %1, i64 0
-  %cmp.i = fcmp oeq double %2, %3
-  %4 = fcmp oeq <2 x double> %0, %1
-  %cmp3.i = extractelement <2 x i1> %4, i64 1
-  %5 = select i1 %cmp.i, i1 %cmp3.i, i1 false
-  %6 = fmul <2 x double> %0, <double 0x3FE5555555555556, double 0x3FE5555555555556>
-  %7 = fmul <2 x double> %1, <double 0x3FD5555555555555, double 0x3FD5555555555555>
-  %8 = fadd <2 x double> %6, %7
-  %9 = select i1 %5, <2 x double> %0, <2 x double> %8
+  %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %cmp.i = fcmp oeq double %agg.tmp.sroa.0.0.copyload, %agg.tmp6.sroa.0.0.copyload
+  %cmp3.i = fcmp oeq double %agg.tmp.sroa.2.0.copyload, %agg.tmp6.sroa.2.0.copyload
+  %0 = select i1 %cmp.i, i1 %cmp3.i, i1 false
+  br i1 %0, label %invoke.cont39, label %invoke.cont18
+
+invoke.cont18:                                    ; preds = %entry
+  %mul.i.i = fmul double %agg.tmp.sroa.0.0.copyload, 0x3FE5555555555556
+  %mul1.i.i = fmul double %agg.tmp.sroa.2.0.copyload, 0x3FE5555555555556
+  %mul.i2.i = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul1.i3.i = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FD5555555555555
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
+  br label %invoke.cont39
+
+invoke.cont39:                                    ; preds = %invoke.cont18, %entry
+  %agg.tmp2.sroa.0.0 = phi double [ %add.i.i, %invoke.cont18 ], [ %agg.tmp.sroa.0.0.copyload, %entry ]
+  %agg.tmp2.sroa.3.0 = phi double [ %add3.i.i, %invoke.cont18 ], [ %agg.tmp.sroa.2.0.copyload, %entry ]
   %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp34.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
   %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp34.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %10 = load ptr, ptr %vfn, align 8
-  %call43 = invoke { double, double } %10(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
+  %1 = load ptr, ptr %vfn, align 8
+  %call43 = invoke { double, double } %1(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont44 unwind label %lpad
 
-invoke.cont44:                                    ; preds = %entry
-  %11 = extractvalue { double, double } %call43, 0
-  %12 = extractvalue { double, double } %call43, 1
+invoke.cont44:                                    ; preds = %invoke.cont39
+  %mul1.i3.i13 = fmul double %agg.tmp34.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i11 = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i15 = fadd double %mul1.i.i11, %mul1.i3.i13
+  %mul1.i3.i21 = fmul double %add3.i.i15, 0x3FD5555555555555
+  %mul1.i3.i5 = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i3 = fmul double %agg.tmp.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i7 = fadd double %mul1.i.i3, %mul1.i3.i5
+  %mul1.i.i19 = fmul double %add3.i.i7, 0x3FE5555555555556
+  %add3.i.i23 = fadd double %mul1.i.i19, %mul1.i3.i21
+  %mul.i2.i12 = fmul double %agg.tmp34.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i10 = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i14 = fadd double %mul.i.i10, %mul.i2.i12
+  %mul.i2.i20 = fmul double %add.i.i14, 0x3FD5555555555555
+  %mul.i2.i4 = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i2 = fmul double %agg.tmp.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i6 = fadd double %mul.i.i2, %mul.i2.i4
+  %mul.i.i18 = fmul double %add.i.i6, 0x3FE5555555555556
+  %add.i.i22 = fadd double %mul.i.i18, %mul.i2.i20
+  %2 = extractvalue { double, double } %call43, 0
+  %3 = extractvalue { double, double } %call43, 1
   %color = getelementptr inbounds i8, ptr %this, i64 8
-  %13 = load i32, ptr %color, align 8
+  %4 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 %13, ptr %color.i.i, align 8
+  store i32 %4, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
-  store <2 x double> %0, ptr %scevgep.i, align 8
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
-  store <2 x double> %9, ptr %arrayidx6.i, align 8
+  store double %agg.tmp2.sroa.0.0, ptr %arrayidx6.i, align 8
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %agg.tmp2.sroa.3.0, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
   %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
-  %14 = insertelement <2 x double> %1, double %agg.tmp34.sroa.0.0.copyload, i64 0
-  %15 = fmul <2 x double> %14, <double 0x3FD5555555555555, double 0x3FD5555555555555>
-  %16 = shufflevector <2 x double> %1, <2 x double> %0, <2 x i32> <i32 0, i32 3>
-  %17 = fmul <2 x double> %16, <double 0x3FE5555555555556, double 0x3FE5555555555556>
-  %18 = fadd <2 x double> %17, %15
-  %19 = fmul <2 x double> %18, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %20 = fmul <2 x double> %1, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %21 = insertelement <2 x double> %0, double %agg.tmp34.sroa.2.0.copyload, i64 1
-  %22 = fmul <2 x double> %21, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %23 = fadd <2 x double> %20, %22
-  %24 = fmul <2 x double> %23, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %25 = fadd <2 x double> %19, %24
-  store <2 x double> %25, ptr %arrayidx8.i, align 8
+  store double %add.i.i22, ptr %arrayidx8.i, align 8
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  store double %add3.i.i23, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
-  store double %11, ptr %arrayidx10.i, align 8
+  store double %2, ptr %arrayidx10.i, align 8
   %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
-  store double %12, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
+  store double %3, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call45 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable47 = load ptr, ptr %this, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 40
-  %26 = load ptr, ptr %vfn48, align 8
-  %call51 = invoke { double, double } %26(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
+  %5 = load ptr, ptr %vfn48, align 8
+  %call51 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont140 unwind label %lpad49
 
 invoke.cont140:                                   ; preds = %invoke.cont44
-  %27 = load <2 x double>, ptr %p, align 8
+  %agg.tmp55.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp55.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %28 = load <2 x double>, ptr %arrayidx8, align 8
-  %29 = load <2 x double>, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %agg.tmp58.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp58.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %agg.tmp67.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
   %agg.tmp67.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
   %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 64
-  %30 = load <2 x double>, ptr %arrayidx90, align 8
+  %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx90, align 8
   %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx, align 8
   %vtable143 = load ptr, ptr %this, align 8
   %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 40
-  %31 = load ptr, ptr %vfn144, align 8
-  %call146 = invoke { double, double } %31(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
+  %6 = load ptr, ptr %vfn144, align 8
+  %call146 = invoke { double, double } %6(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont148 unwind label %lpad49
 
 invoke.cont148:                                   ; preds = %invoke.cont140
-  %32 = insertelement <2 x double> %27, double %agg.tmp88.sroa.2.0.copyload, i64 1
-  %33 = fmul <2 x double> %32, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %34 = insertelement <2 x double> %28, double %agg.tmp67.sroa.2.0.copyload, i64 1
-  %35 = fmul <2 x double> %34, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %36 = fmul <2 x double> %34, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %37 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %38 = insertelement <2 x double> %30, double %agg.tmp55.sroa.2.0.copyload, i64 1
-  %39 = fmul <2 x double> %38, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %40 = fmul <2 x double> %32, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %41 = fmul <2 x double> %34, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %42 = insertelement <2 x double> %37, double %agg.tmp67.sroa.2.0.copyload, i64 1
-  %43 = fmul <2 x double> %42, <double 0x3FD5555555555555, double 0x3FD5555555555555>
-  %44 = shufflevector <2 x double> %28, <2 x double> %29, <2 x i32> <i32 0, i32 2>
-  %45 = fmul <2 x double> %44, <double 0x3FE5555555555556, double 0x3FE5555555555556>
-  %46 = fmul <2 x double> %29, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %48 = fmul <2 x double> %38, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %49 = extractvalue { double, double } %call51, 1
-  %50 = extractvalue { double, double } %call51, 0
-  %51 = extractvalue { double, double } %call146, 0
-  %52 = extractvalue { double, double } %call146, 1
-  %53 = load i32, ptr %color, align 8
+  %mul1.i3.i117 = fmul double %agg.tmp88.sroa.2.0.copyload, 0x3FE5555555555555
+  %mul1.i.i115 = fmul double %agg.tmp67.sroa.2.0.copyload, 0x3FD5555555555556
+  %add3.i.i119 = fadd double %mul1.i.i115, %mul1.i3.i117
+  %mul1.i3.i125 = fmul double %add3.i.i119, 0x3FE5555555555555
+  %mul1.i3.i93 = fmul double %agg.tmp67.sroa.2.0.copyload, 0x3FE5555555555555
+  %mul1.i.i91 = fmul double %agg.tmp58.sroa.2.0.copyload, 0x3FD5555555555556
+  %add3.i.i95 = fadd double %mul1.i.i91, %mul1.i3.i93
+  %mul1.i.i123 = fmul double %add3.i.i95, 0x3FD5555555555556
+  %add3.i.i127 = fadd double %mul1.i.i123, %mul1.i3.i125
+  %mul1.i3.i133 = fmul double %add3.i.i127, 0x3FD5555555555555
+  %mul1.i3.i101 = fmul double %add3.i.i95, 0x3FE5555555555555
+  %mul1.i3.i85 = fmul double %agg.tmp58.sroa.2.0.copyload, 0x3FE5555555555555
+  %mul1.i.i83 = fmul double %agg.tmp55.sroa.2.0.copyload, 0x3FD5555555555556
+  %add3.i.i87 = fadd double %mul1.i.i83, %mul1.i3.i85
+  %mul1.i.i99 = fmul double %add3.i.i87, 0x3FD5555555555556
+  %add3.i.i103 = fadd double %mul1.i.i99, %mul1.i3.i101
+  %mul1.i.i131 = fmul double %add3.i.i103, 0x3FE5555555555556
+  %add3.i.i135 = fadd double %mul1.i.i131, %mul1.i3.i133
+  %mul.i2.i116 = fmul double %agg.tmp88.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul.i.i114 = fmul double %agg.tmp67.sroa.0.0.copyload, 0x3FD5555555555556
+  %add.i.i118 = fadd double %mul.i.i114, %mul.i2.i116
+  %mul.i2.i124 = fmul double %add.i.i118, 0x3FE5555555555555
+  %mul.i2.i92 = fmul double %agg.tmp67.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul.i.i90 = fmul double %agg.tmp58.sroa.0.0.copyload, 0x3FD5555555555556
+  %add.i.i94 = fadd double %mul.i.i90, %mul.i2.i92
+  %mul.i.i122 = fmul double %add.i.i94, 0x3FD5555555555556
+  %add.i.i126 = fadd double %mul.i.i122, %mul.i2.i124
+  %mul.i2.i132 = fmul double %add.i.i126, 0x3FD5555555555555
+  %mul.i2.i100 = fmul double %add.i.i94, 0x3FE5555555555555
+  %mul.i2.i84 = fmul double %agg.tmp58.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul.i.i82 = fmul double %agg.tmp55.sroa.0.0.copyload, 0x3FD5555555555556
+  %add.i.i86 = fadd double %mul.i.i82, %mul.i2.i84
+  %mul.i.i98 = fmul double %add.i.i86, 0x3FD5555555555556
+  %add.i.i102 = fadd double %mul.i.i98, %mul.i2.i100
+  %mul.i.i130 = fmul double %add.i.i102, 0x3FE5555555555556
+  %add.i.i134 = fadd double %mul.i.i130, %mul.i2.i132
+  %mul1.i3.i61 = fmul double %agg.tmp88.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i59 = fmul double %agg.tmp67.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i63 = fadd double %mul1.i.i59, %mul1.i3.i61
+  %mul1.i3.i69 = fmul double %add3.i.i63, 0x3FD5555555555555
+  %mul1.i3.i37 = fmul double %agg.tmp67.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i35 = fmul double %agg.tmp58.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i39 = fadd double %mul1.i.i35, %mul1.i3.i37
+  %mul1.i.i67 = fmul double %add3.i.i39, 0x3FE5555555555556
+  %add3.i.i71 = fadd double %mul1.i.i67, %mul1.i3.i69
+  %mul1.i3.i77 = fmul double %add3.i.i71, 0x3FE5555555555555
+  %mul1.i3.i45 = fmul double %add3.i.i39, 0x3FD5555555555555
+  %mul1.i3.i29 = fmul double %agg.tmp58.sroa.2.0.copyload, 0x3FD5555555555555
+  %mul1.i.i27 = fmul double %agg.tmp55.sroa.2.0.copyload, 0x3FE5555555555556
+  %add3.i.i31 = fadd double %mul1.i.i27, %mul1.i3.i29
+  %mul1.i.i43 = fmul double %add3.i.i31, 0x3FE5555555555556
+  %add3.i.i47 = fadd double %mul1.i.i43, %mul1.i3.i45
+  %mul1.i.i75 = fmul double %add3.i.i47, 0x3FD5555555555556
+  %add3.i.i79 = fadd double %mul1.i.i75, %mul1.i3.i77
+  %mul.i2.i60 = fmul double %agg.tmp88.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i58 = fmul double %agg.tmp67.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i62 = fadd double %mul.i.i58, %mul.i2.i60
+  %mul.i2.i68 = fmul double %add.i.i62, 0x3FD5555555555555
+  %mul.i2.i36 = fmul double %agg.tmp67.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i34 = fmul double %agg.tmp58.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i38 = fadd double %mul.i.i34, %mul.i2.i36
+  %mul.i.i66 = fmul double %add.i.i38, 0x3FE5555555555556
+  %add.i.i70 = fadd double %mul.i.i66, %mul.i2.i68
+  %mul.i2.i76 = fmul double %add.i.i70, 0x3FE5555555555555
+  %mul.i2.i44 = fmul double %add.i.i38, 0x3FD5555555555555
+  %mul.i2.i28 = fmul double %agg.tmp58.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul.i.i26 = fmul double %agg.tmp55.sroa.0.0.copyload, 0x3FE5555555555556
+  %add.i.i30 = fadd double %mul.i.i26, %mul.i2.i28
+  %mul.i.i42 = fmul double %add.i.i30, 0x3FE5555555555556
+  %add.i.i46 = fadd double %mul.i.i42, %mul.i2.i44
+  %mul.i.i74 = fmul double %add.i.i46, 0x3FD5555555555556
+  %add.i.i78 = fadd double %mul.i.i74, %mul.i2.i76
+  %7 = extractvalue { double, double } %call51, 1
+  %8 = extractvalue { double, double } %call51, 0
+  %9 = extractvalue { double, double } %call146, 0
+  %10 = extractvalue { double, double } %call146, 1
+  %11 = load i32, ptr %color, align 8
   %color.i.i138 = getelementptr inbounds i8, ptr %call45, i64 8
-  store i32 %53, ptr %color.i.i138, align 8
+  store i32 %11, ptr %color.i.i138, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call45, align 8
   %scevgep.i139 = getelementptr inbounds i8, ptr %call45, i64 16
-  store double %50, ptr %scevgep.i139, align 8
+  store double %8, ptr %scevgep.i139, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i140 = getelementptr inbounds i8, ptr %call45, i64 24
-  store double %49, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i140, align 8
+  store double %7, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i140, align 8
   %arrayidx6.i141 = getelementptr inbounds i8, ptr %call45, i64 32
-  %54 = fadd <2 x double> %48, %47
-  %55 = fmul <2 x double> %54, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %56 = fadd <2 x double> %45, %43
-  %57 = fmul <2 x double> %56, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %58 = fadd <2 x double> %55, %57
-  %59 = fmul <2 x double> %58, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %60 = fmul <2 x double> %56, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %61 = fadd <2 x double> %41, %40
-  %62 = fmul <2 x double> %61, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %63 = fadd <2 x double> %60, %62
-  %64 = fmul <2 x double> %63, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %65 = fadd <2 x double> %59, %64
-  store <2 x double> %65, ptr %arrayidx6.i141, align 8
+  store double %add.i.i78, ptr %arrayidx6.i141, align 8
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i142 = getelementptr inbounds i8, ptr %call45, i64 40
+  store double %add3.i.i79, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i142, align 8
   %arrayidx8.i143 = getelementptr inbounds i8, ptr %call45, i64 48
-  %66 = fmul <2 x double> %37, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %67 = fadd <2 x double> %39, %66
-  %68 = fmul <2 x double> %67, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %69 = fmul <2 x double> %37, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %70 = fadd <2 x double> %69, %36
-  %71 = fmul <2 x double> %70, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %72 = fadd <2 x double> %68, %71
-  %73 = fmul <2 x double> %72, <double 0x3FD5555555555555, double 0x3FE5555555555556>
-  %74 = fmul <2 x double> %70, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %75 = fadd <2 x double> %35, %33
-  %76 = fmul <2 x double> %75, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %77 = fadd <2 x double> %74, %76
-  %78 = fmul <2 x double> %77, <double 0x3FE5555555555556, double 0x3FD5555555555555>
-  %79 = fadd <2 x double> %73, %78
-  store <2 x double> %79, ptr %arrayidx8.i143, align 8
+  store double %add.i.i134, ptr %arrayidx8.i143, align 8
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i144 = getelementptr inbounds i8, ptr %call45, i64 56
+  store double %add3.i.i135, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i144, align 8
   %arrayidx10.i145 = getelementptr inbounds i8, ptr %call45, i64 64
-  store double %51, ptr %arrayidx10.i145, align 8
+  store double %9, ptr %arrayidx10.i145, align 8
   %p3.sroa.2.0.arrayidx10.sroa_idx.i146 = getelementptr inbounds i8, ptr %call45, i64 72
-  store double %52, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i146, align 8
+  store double %10, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i146, align 8
   store ptr %call45, ptr %part1, align 8
   %call149 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable151 = load ptr, ptr %this, align 8
   %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 40
-  %80 = load ptr, ptr %vfn152, align 8
-  %call155 = invoke { double, double } %80(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
+  %12 = load ptr, ptr %vfn152, align 8
+  %call155 = invoke { double, double } %12(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont175 unwind label %lpad153
 
 invoke.cont175:                                   ; preds = %invoke.cont148
-  %81 = extractvalue { double, double } %call155, 0
-  %82 = extractvalue { double, double } %call155, 1
+  %13 = extractvalue { double, double } %call155, 0
+  %14 = extractvalue { double, double } %call155, 1
   %agg.tmp158.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp158.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %agg.tmp161.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
+  %agg.tmp161.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
+  %mul.i.i147 = fmul double %agg.tmp158.sroa.0.0.copyload, 0x3FD5555555555556
+  %mul1.i.i148 = fmul double %agg.tmp158.sroa.2.0.copyload, 0x3FD5555555555556
+  %mul.i2.i149 = fmul double %agg.tmp161.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul1.i3.i150 = fmul double %agg.tmp161.sroa.2.0.copyload, 0x3FE5555555555555
+  %add.i.i151 = fadd double %mul.i.i147, %mul.i2.i149
+  %add3.i.i152 = fadd double %mul1.i.i148, %mul1.i3.i150
+  %agg.tmp170.sroa.0.0.copyload = load double, ptr %arrayidx90, align 8
   %agg.tmp170.sroa.2.0.copyload = load double, ptr %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx, align 8
-  %83 = load i32, ptr %color, align 8
+  %mul.i.i155 = fmul double %agg.tmp161.sroa.0.0.copyload, 0x3FD5555555555556
+  %mul1.i.i156 = fmul double %agg.tmp161.sroa.2.0.copyload, 0x3FD5555555555556
+  %mul.i2.i157 = fmul double %agg.tmp170.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul1.i3.i158 = fmul double %agg.tmp170.sroa.2.0.copyload, 0x3FE5555555555555
+  %add.i.i159 = fadd double %mul.i.i155, %mul.i2.i157
+  %add3.i.i160 = fadd double %mul1.i.i156, %mul1.i3.i158
+  %mul.i.i163 = fmul double %add.i.i151, 0x3FD5555555555556
+  %mul1.i.i164 = fmul double %add3.i.i152, 0x3FD5555555555556
+  %mul.i2.i165 = fmul double %add.i.i159, 0x3FE5555555555555
+  %mul1.i3.i166 = fmul double %add3.i.i160, 0x3FE5555555555555
+  %add.i.i167 = fadd double %mul.i.i163, %mul.i2.i165
+  %add3.i.i168 = fadd double %mul1.i.i164, %mul1.i3.i166
+  %cmp.i171 = fcmp oeq double %agg.tmp161.sroa.0.0.copyload, %agg.tmp170.sroa.0.0.copyload
+  %cmp3.i172 = fcmp oeq double %agg.tmp161.sroa.2.0.copyload, %agg.tmp170.sroa.2.0.copyload
+  %15 = select i1 %cmp.i171, i1 %cmp3.i172, i1 false
+  %agg.tmp177.sroa.0.0 = select i1 %15, double %agg.tmp170.sroa.0.0.copyload, double %add.i.i159
+  %agg.tmp177.sroa.3.0 = select i1 %15, double %agg.tmp170.sroa.2.0.copyload, double %add3.i.i160
+  %16 = load i32, ptr %color, align 8
   %color.i.i181 = getelementptr inbounds i8, ptr %call149, i64 8
-  store i32 %83, ptr %color.i.i181, align 8
+  store i32 %16, ptr %color.i.i181, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call149, align 8
   %scevgep.i182 = getelementptr inbounds i8, ptr %call149, i64 16
-  store double %81, ptr %scevgep.i182, align 8
+  store double %13, ptr %scevgep.i182, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i183 = getelementptr inbounds i8, ptr %call149, i64 24
-  store double %82, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i183, align 8
+  store double %14, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i183, align 8
   %arrayidx6.i184 = getelementptr inbounds i8, ptr %call149, i64 32
-  %84 = load <2 x double>, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
-  %agg.tmp161.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
-  %85 = load <2 x double>, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
-  %86 = fmul <2 x double> %84, <double 0x3FD5555555555556, double 0x3FD5555555555556>
-  %87 = shufflevector <2 x double> %85, <2 x double> %84, <2 x i32> <i32 0, i32 3>
-  %88 = fmul <2 x double> %87, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %89 = fmul <2 x double> %85, <double 0x3FE5555555555555, double 0x3FE5555555555555>
-  %90 = insertelement <2 x double> poison, double %agg.tmp170.sroa.2.0.copyload, i64 0
-  %91 = insertelement <2 x double> %90, double %agg.tmp158.sroa.0.0.copyload, i64 1
-  %92 = fmul <2 x double> %91, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %93 = fadd <2 x double> %86, %89
-  %94 = fadd <2 x double> %88, %92
-  %95 = fmul <2 x double> %93, <double 0x3FD5555555555556, double 0x3FE5555555555555>
-  %96 = fmul <2 x double> %94, <double 0x3FE5555555555555, double 0x3FD5555555555556>
-  %97 = fadd <2 x double> %95, %96
-  %98 = extractelement <2 x double> %85, i64 1
-  %cmp.i171 = fcmp oeq double %agg.tmp161.sroa.0.0.copyload, %98
-  %99 = extractelement <2 x double> %85, i64 0
-  %cmp3.i172 = fcmp oeq double %99, %agg.tmp170.sroa.2.0.copyload
-  %100 = select i1 %cmp.i171, i1 %cmp3.i172, i1 false
-  %101 = extractelement <2 x double> %93, i64 1
-  %agg.tmp177.sroa.0.0 = select i1 %100, double %98, double %101
-  %102 = extractelement <2 x double> %94, i64 0
-  %agg.tmp177.sroa.3.0 = select i1 %100, double %agg.tmp170.sroa.2.0.copyload, double %102
-  %103 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %103, ptr %arrayidx6.i184, align 8
+  store double %add.i.i167, ptr %arrayidx6.i184, align 8
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i185 = getelementptr inbounds i8, ptr %call149, i64 40
+  store double %add3.i.i168, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i185, align 8
   %arrayidx8.i186 = getelementptr inbounds i8, ptr %call149, i64 48
   store double %agg.tmp177.sroa.0.0, ptr %arrayidx8.i186, align 8
   %p2.sroa.2.0.arrayidx8.sroa_idx.i187 = getelementptr inbounds i8, ptr %call149, i64 56
   store double %agg.tmp177.sroa.3.0, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i187, align 8
   %arrayidx10.i188 = getelementptr inbounds i8, ptr %call149, i64 64
-  store double %98, ptr %arrayidx10.i188, align 8
+  store double %agg.tmp170.sroa.0.0.copyload, ptr %arrayidx10.i188, align 8
   %p3.sroa.2.0.arrayidx10.sroa_idx.i189 = getelementptr inbounds i8, ptr %call149, i64 72
   store double %agg.tmp170.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i189, align 8
   store ptr %call149, ptr %part2, align 8
   ret void
 
-lpad:                                             ; preds = %entry
-  %104 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %invoke.cont39
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad49:                                           ; preds = %invoke.cont140, %invoke.cont44
-  %105 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad153:                                          ; preds = %invoke.cont148
-  %106 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad153, %lpad49, %lpad
   %call149.sink = phi ptr [ %call149, %lpad153 ], [ %call45, %lpad49 ], [ %call, %lpad ]
-  %.pn = phi { ptr, i32 } [ %106, %lpad153 ], [ %105, %lpad49 ], [ %104, %lpad ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad153 ], [ %18, %lpad49 ], [ %17, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call149.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -3266,30 +3408,50 @@ define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14co
 invoke.cont22:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %mul.i.i = fmul double %agg.tmp.sroa.0.0.copyload, 0x3FD5555555555556
+  %mul1.i.i = fmul double %agg.tmp.sroa.2.0.copyload, 0x3FD5555555555556
+  %mul.i2.i = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FE5555555555555
+  %mul1.i3.i = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FE5555555555555
+  %add.i.i = fadd double %mul.i.i, %mul.i2.i
+  %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp14.sroa.0.0.copyload = load double, ptr %arrayidx16, align 8
+  %agg.tmp14.sroa.2.0.arrayidx16.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp14.sroa.2.0.copyload = load double, ptr %agg.tmp14.sroa.2.0.arrayidx16.sroa_idx, align 8
+  %mul.i.i1 = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FE5555555555556
+  %mul1.i.i2 = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FE5555555555556
+  %mul.i2.i3 = fmul double %agg.tmp14.sroa.0.0.copyload, 0x3FD5555555555555
+  %mul1.i3.i4 = fmul double %agg.tmp14.sroa.2.0.copyload, 0x3FD5555555555555
+  %add.i.i5 = fadd double %mul.i.i1, %mul.i2.i3
+  %add3.i.i6 = fadd double %mul1.i.i2, %mul1.i3.i4
   %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
-  %1 = load <2 x double>, ptr %p, align 8
-  %2 = load <2 x double>, ptr %arrayidx8, align 8
-  %3 = fmul <2 x double> %1, <double 0x3FD5555555555556, double 0x3FD5555555555556>
-  %4 = fmul <2 x double> %2, <double 0x3FE5555555555555, double 0x3FE5555555555555>
-  %5 = fadd <2 x double> %3, %4
-  store <2 x double> %1, ptr %scevgep.i, align 8
-  store <2 x double> %5, ptr %arrayidx6.i, align 8
+  store double %add.i.i, ptr %arrayidx6.i, align 8
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  store double %add3.i.i, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
   %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
-  %6 = load <2 x double>, ptr %arrayidx16, align 8
-  %7 = fmul <2 x double> %6, <double 0x3FD5555555555555, double 0x3FD5555555555555>
-  %8 = fmul <2 x double> %2, <double 0x3FE5555555555556, double 0x3FE5555555555556>
-  %9 = fadd <2 x double> %8, %7
-  store <2 x double> %9, ptr %arrayidx8.i, align 8
+  store double %add.i.i5, ptr %arrayidx8.i, align 8
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  store double %add3.i.i6, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
-  store <2 x double> %6, ptr %arrayidx10.i, align 8
+  store double %agg.tmp14.sroa.0.0.copyload, ptr %arrayidx10.i, align 8
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
+  store double %agg.tmp14.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   ret ptr %call
 }
 
@@ -3308,79 +3470,75 @@ entry:
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %3)
   %tobool.i = fcmp une double %3, 0.000000e+00
   %fneg.i = fneg double %2
-  %4 = insertelement <2 x double> poison, double %fneg.i, i64 0
-  %5 = insertelement <2 x double> %4, double %1, i64 1
-  %6 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
-  %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
-  %8 = fdiv <2 x double> %5, %7
-  %9 = insertelement <2 x i1> poison, i1 %tobool.i, i64 0
-  %10 = shufflevector <2 x i1> %9, <2 x i1> poison, <2 x i32> zeroinitializer
-  %11 = select <2 x i1> %10, <2 x double> %8, <2 x double> <double 0.000000e+00, double 1.000000e+00>
+  %div.i = fdiv double %fneg.i, %sqrt.i.i
+  %div4.i = fdiv double %1, %sqrt.i.i
+  %retval.sroa.5.0.i = select i1 %tobool.i, double %div4.i, double 1.000000e+00
+  %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable5 = load ptr, ptr %this, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 56
-  %12 = load ptr, ptr %vfn6, align 8
-  %call7 = tail call { double, double } %12(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
-  %13 = extractvalue { double, double } %call7, 0
-  %14 = extractvalue { double, double } %call7, 1
-  %sub.i = fsub double %13, %1
-  %sub3.i = fsub double %14, %2
-  %15 = extractelement <2 x double> %11, i64 1
-  %mul3.i = fmul double %sub3.i, %15
-  %16 = extractelement <2 x double> %11, i64 0
-  %17 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %16, double %mul3.i)
+  %4 = load ptr, ptr %vfn6, align 8
+  %call7 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
+  %5 = extractvalue { double, double } %call7, 0
+  %6 = extractvalue { double, double } %call7, 1
+  %sub.i = fsub double %5, %1
+  %sub3.i = fsub double %6, %2
+  %mul3.i = fmul double %sub3.i, %retval.sroa.5.0.i
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %retval.sroa.0.0.i, double %mul3.i)
   switch i32 %param, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb24
   ]
 
 sw.bb:                                            ; preds = %entry
-  %cmp.i = fcmp ogt double %17, 0.000000e+00
+  %cmp.i = fcmp ogt double %7, 0.000000e+00
   %conv.i = zext i1 %cmp.i to i32
-  %cmp1.i = fcmp olt double %17, 0.000000e+00
+  %cmp1.i = fcmp olt double %7, 0.000000e+00
   %conv2.neg.i = sext i1 %cmp1.i to i32
   %sub.i9 = add nsw i32 %conv2.neg.i, %conv.i
   %conv17 = sitofp i32 %sub.i9 to double
-  %18 = tail call double @llvm.fabs.f64(double %17)
-  %sqrt = tail call double @llvm.sqrt.f64(double %18)
+  %8 = tail call double @llvm.fabs.f64(double %7)
+  %sqrt = tail call double @llvm.sqrt.f64(double %8)
   %mul = fmul double %sqrt, %conv17
+  %mul.i = fmul double %retval.sroa.0.0.i, %mul
+  %mul1.i = fmul double %retval.sroa.5.0.i, %mul
+  %add.i = fadd double %1, %mul.i
+  %add3.i = fadd double %2, %mul1.i
+  %mul.i14 = fmul double %add.i, %amount
+  %mul1.i15 = fmul double %add3.i, %amount
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
-  %19 = insertelement <2 x double> poison, double %mul, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fmul <2 x double> %11, %20
-  %22 = insertelement <2 x double> poison, double %1, i64 0
-  %23 = insertelement <2 x double> %22, double %2, i64 1
-  %24 = fadd <2 x double> %23, %21
-  %25 = insertelement <2 x double> poison, double %amount, i64 0
-  %26 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x double> %24, %26
-  %28 = load <2 x double>, ptr %arrayidx, align 8
-  %29 = fadd <2 x double> %27, %28
-  store <2 x double> %29, ptr %arrayidx, align 8
+  %9 = load double, ptr %arrayidx, align 8
+  %add.i18 = fadd double %mul.i14, %9
+  store double %add.i18, ptr %arrayidx, align 8
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %10 = load double, ptr %y3.i, align 8
+  %add4.i = fadd double %mul1.i15, %10
+  store double %add4.i, ptr %y3.i, align 8
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
-  %cmp.i19 = fcmp ogt double %17, 0.000000e+00
+  %cmp.i19 = fcmp ogt double %7, 0.000000e+00
   %conv.i20 = zext i1 %cmp.i19 to i32
-  %cmp1.i21 = fcmp olt double %17, 0.000000e+00
+  %cmp1.i21 = fcmp olt double %7, 0.000000e+00
   %conv2.neg.i22 = sext i1 %cmp1.i21 to i32
   %sub.i23 = add nsw i32 %conv2.neg.i22, %conv.i20
   %conv30 = sitofp i32 %sub.i23 to double
-  %30 = tail call double @llvm.fabs.f64(double %17)
-  %sqrt38 = tail call double @llvm.sqrt.f64(double %30)
+  %11 = tail call double @llvm.fabs.f64(double %7)
+  %sqrt38 = tail call double @llvm.sqrt.f64(double %11)
   %mul32 = fmul double %sqrt38, %conv30
+  %mul.i24 = fmul double %retval.sroa.0.0.i, %mul32
+  %mul1.i25 = fmul double %retval.sroa.5.0.i, %mul32
+  %sub.i28 = fsub double %1, %mul.i24
+  %sub3.i29 = fsub double %2, %mul1.i25
+  %mul.i32 = fmul double %sub.i28, %amount
+  %mul1.i33 = fmul double %sub3.i29, %amount
   %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 48
-  %31 = insertelement <2 x double> poison, double %mul32, i64 0
-  %32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
-  %33 = fmul <2 x double> %11, %32
-  %34 = insertelement <2 x double> poison, double %1, i64 0
-  %35 = insertelement <2 x double> %34, double %2, i64 1
-  %36 = fsub <2 x double> %35, %33
-  %37 = insertelement <2 x double> poison, double %amount, i64 0
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  %39 = fmul <2 x double> %36, %38
-  %40 = load <2 x double>, ptr %arrayidx38, align 8
-  %41 = fsub <2 x double> %40, %39
-  store <2 x double> %41, ptr %arrayidx38, align 8
+  %12 = load double, ptr %arrayidx38, align 8
+  %sub.i36 = fsub double %12, %mul.i32
+  store double %sub.i36, ptr %arrayidx38, align 8
+  %y3.i37 = getelementptr inbounds i8, ptr %this, i64 56
+  %13 = load double, ptr %y3.i37, align 8
+  %sub4.i = fsub double %13, %mul1.i33
+  store double %sub4.i, ptr %y3.i37, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb24, %sw.bb, %entry
@@ -3446,15 +3604,6 @@ declare void @llvm.trap() #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -275,148 +275,151 @@ define linkonce_odr noundef zeroext i1 @_ZNK3vcg4ShotIfNS_8Matrix44IfEEEeqERKS3_
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = load <2 x i32>, ptr %7, align 4
-  %10 = load <2 x i32>, ptr %8, align 4
-  %11 = icmp eq <2 x i32> %9, %10
-  %12 = extractelement <2 x i1> %11, i64 0
-  %13 = extractelement <2 x i1> %11, i64 1
-  %14 = select i1 %12, i1 %13, i1 false
-  br i1 %14, label %15, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+  %9 = load i32, ptr %7, align 4
+  %10 = load i32, ptr %8, align 4
+  %11 = icmp eq i32 %9, %10
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %13, %15
+  %17 = select i1 %11, i1 %16, i1 false
+  br i1 %17, label %18, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
-  %18 = load float, ptr %16, align 4
-  %19 = load float, ptr %17, align 4
-  %20 = fcmp oeq float %18, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = load float, ptr %23, align 4
-  %25 = fcmp oeq float %22, %24
-  %26 = select i1 %20, i1 %25, i1 false
-  br i1 %26, label %27, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+18:                                               ; preds = %6
+  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = load float, ptr %19, align 4
+  %22 = load float, ptr %20, align 4
+  %23 = fcmp oeq float %21, %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = load float, ptr %26, align 4
+  %28 = fcmp oeq float %25, %27
+  %29 = select i1 %23, i1 %28, i1 false
+  br i1 %29, label %30, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
-  %30 = load float, ptr %28, align 4
-  %31 = load float, ptr %29, align 4
-  %32 = fcmp oeq float %30, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
-  %36 = load float, ptr %35, align 4
-  %37 = fcmp oeq float %34, %36
-  %38 = select i1 %32, i1 %37, i1 false
-  br i1 %38, label %39, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %33 = load float, ptr %31, align 4
+  %34 = load float, ptr %32, align 4
+  %35 = fcmp oeq float %33, %34
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = load float, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = load float, ptr %38, align 4
+  %40 = fcmp oeq float %37, %39
+  %41 = select i1 %35, i1 %40, i1 false
+  br i1 %41, label %42, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-39:                                               ; preds = %27
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
-  %41 = getelementptr inbounds i8, ptr %1, i64 28
-  %42 = load float, ptr %40, align 4
-  %43 = load float, ptr %41, align 4
-  %44 = fcmp oeq float %42, %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
-  %48 = load float, ptr %47, align 4
-  %49 = fcmp oeq float %46, %48
-  %50 = select i1 %44, i1 %49, i1 false
-  br i1 %50, label %51, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+42:                                               ; preds = %30
+  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds i8, ptr %1, i64 28
+  %45 = load float, ptr %43, align 4
+  %46 = load float, ptr %44, align 4
+  %47 = fcmp oeq float %45, %46
+  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = load float, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load float, ptr %50, align 4
+  %52 = fcmp oeq float %49, %51
+  %53 = select i1 %47, i1 %52, i1 false
+  br i1 %53, label %54, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-51:                                               ; preds = %39
-  %52 = getelementptr inbounds i8, ptr %0, i64 36
-  %53 = getelementptr inbounds i8, ptr %1, i64 36
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds i8, ptr %0, i64 36
+  %56 = getelementptr inbounds i8, ptr %1, i64 36
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %51
-  %.011.i.i.i.i.i.i = phi ptr [ %53, %51 ], [ %57, %.lr.ph.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i = phi i64 [ 0, %51 ], [ %.0810.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 %.0810.i.i.i.i.idx.i.i
-  %54 = load float, ptr %.0810.i.i.i.i.ptr.i.i, align 4
-  %55 = load float, ptr %.011.i.i.i.i.i.i, align 4
-  %56 = fcmp oeq float %54, %55
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %54
+  %.011.i.i.i.i.i.i = phi ptr [ %56, %54 ], [ %60, %.lr.ph.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i = phi i64 [ 0, %54 ], [ %.0810.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 %.0810.i.i.i.i.idx.i.i
+  %57 = load float, ptr %.0810.i.i.i.i.ptr.i.i, align 4
+  %58 = load float, ptr %.011.i.i.i.i.i.i, align 4
+  %59 = fcmp oeq float %57, %58
   %.0810.i.i.i.i.add.i.i = add nuw nsw i64 %.0810.i.i.i.i.idx.i.i, 4
-  %57 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 4
+  %60 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp ne i64 %.0810.i.i.i.i.add.i.i, 16
-  %or.cond.not.i.i = select i1 %56, i1 %.not.i.i.i.i.i.i, i1 false
+  %or.cond.not.i.i = select i1 %59, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %.lr.ph.i.i.i.i.i.i, label %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i, !llvm.loop !5
 
 _ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i:      ; preds = %.lr.ph.i.i.i.i.i.i
-  br i1 %56, label %_ZNK3vcg6CameraIfEeqERKS1_.exit, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+  br i1 %59, label %_ZNK3vcg6CameraIfEeqERKS1_.exit, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 52
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 52
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %59, %61
-  br i1 %62, label %63, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+  %61 = getelementptr inbounds i8, ptr %0, i64 52
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds i8, ptr %1, i64 52
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %62, %64
+  br i1 %65, label %66, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-63:                                               ; preds = %_ZNK3vcg6CameraIfEeqERKS1_.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 56
-  %65 = getelementptr inbounds i8, ptr %1, i64 56
+66:                                               ; preds = %_ZNK3vcg6CameraIfEeqERKS1_.exit
+  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %68 = getelementptr inbounds i8, ptr %1, i64 56
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %76, %63
-  %indvars.iv20.i.i = phi i64 [ 0, %63 ], [ %indvars.iv.next21.i.i, %76 ]
-  %66 = phi i1 [ false, %63 ], [ %77, %76 ]
-  %67 = shl nuw nsw i64 %indvars.iv20.i.i, 2
-  br label %69
+.preheader.i.i:                                   ; preds = %79, %66
+  %indvars.iv20.i.i = phi i64 [ 0, %66 ], [ %indvars.iv.next21.i.i, %79 ]
+  %69 = phi i1 [ false, %66 ], [ %80, %79 ]
+  %70 = shl nuw nsw i64 %indvars.iv20.i.i, 2
+  br label %72
 
-68:                                               ; preds = %69
+71:                                               ; preds = %72
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %76, label %69, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %79, label %72, !llvm.loop !7
 
-69:                                               ; preds = %68, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %68 ]
-  %70 = add nuw nsw i64 %indvars.iv.i.i, %67
-  %71 = getelementptr inbounds [16 x float], ptr %64, i64 0, i64 %70
-  %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [16 x float], ptr %65, i64 0, i64 %70
-  %74 = load float, ptr %73, align 4
-  %75 = fcmp une float %72, %74
-  br i1 %75, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i, label %68
+72:                                               ; preds = %71, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %71 ]
+  %73 = add nuw nsw i64 %indvars.iv.i.i, %70
+  %74 = getelementptr inbounds [16 x float], ptr %67, i64 0, i64 %73
+  %75 = load float, ptr %74, align 4
+  %76 = getelementptr inbounds [16 x float], ptr %68, i64 0, i64 %73
+  %77 = load float, ptr %76, align 4
+  %78 = fcmp une float %75, %77
+  br i1 %78, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i, label %71
 
-76:                                               ; preds = %68
+79:                                               ; preds = %71
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %77 = icmp ugt i64 %indvars.iv20.i.i, 2
+  %80 = icmp ugt i64 %indvars.iv20.i.i, 2
   %exitcond22.i.i = icmp eq i64 %indvars.iv.next21.i.i, 4
   br i1 %exitcond22.i.i, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i, label %.preheader.i.i, !llvm.loop !8
 
-_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i:              ; preds = %76, %69
-  %78 = phi i1 [ %66, %69 ], [ %77, %76 ]
-  br i1 %78, label %79, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i:              ; preds = %79, %72
+  %81 = phi i1 [ %69, %72 ], [ %80, %79 ]
+  br i1 %81, label %82, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-79:                                               ; preds = %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i
-  %80 = getelementptr inbounds i8, ptr %0, i64 120
-  %81 = getelementptr inbounds i8, ptr %1, i64 120
-  %82 = load float, ptr %80, align 4
-  %83 = load float, ptr %81, align 4
-  %84 = fcmp oeq float %82, %83
-  br i1 %84, label %85, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+82:                                               ; preds = %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i
+  %83 = getelementptr inbounds i8, ptr %0, i64 120
+  %84 = getelementptr inbounds i8, ptr %1, i64 120
+  %85 = load float, ptr %83, align 4
+  %86 = load float, ptr %84, align 4
+  %87 = fcmp oeq float %85, %86
+  br i1 %87, label %88, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %0, i64 124
-  %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 124
-  %89 = load float, ptr %88, align 4
-  %90 = fcmp oeq float %87, %89
-  br i1 %90, label %91, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds i8, ptr %0, i64 124
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %1, i64 124
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oeq float %90, %92
+  br i1 %93, label %94, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %0, i64 128
-  %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 128
-  %95 = load float, ptr %94, align 4
-  %96 = fcmp oeq float %93, %95
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds i8, ptr %0, i64 128
+  %96 = load float, ptr %95, align 4
+  %97 = getelementptr inbounds i8, ptr %1, i64 128
+  %98 = load float, ptr %97, align 4
+  %99 = fcmp oeq float %96, %98
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
-_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit: ; preds = %2, %6, %15, %27, %39, %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i, %91, %85, %79, %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i, %_ZNK3vcg6CameraIfEeqERKS1_.exit
-  %97 = phi i1 [ false, %_ZNK3vcg6CameraIfEeqERKS1_.exit ], [ false, %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i ], [ false, %85 ], [ false, %79 ], [ %96, %91 ], [ false, %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i ], [ false, %39 ], [ false, %27 ], [ false, %15 ], [ false, %6 ], [ false, %2 ]
-  ret i1 %97
+_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit: ; preds = %2, %6, %18, %30, %42, %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i, %94, %88, %82, %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i, %_ZNK3vcg6CameraIfEeqERKS1_.exit
+  %100 = phi i1 [ false, %_ZNK3vcg6CameraIfEeqERKS1_.exit ], [ false, %_ZNK3vcg8Matrix44IfEeqERKS1_.exit.i ], [ false, %88 ], [ false, %82 ], [ %99, %94 ], [ false, %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i ], [ false, %42 ], [ false, %30 ], [ false, %18 ], [ false, %6 ], [ false, %2 ]
+  ret i1 %100
 }
 
 ; Function Attrs: nobuiltin nounwind

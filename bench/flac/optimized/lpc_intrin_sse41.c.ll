@@ -53,7 +53,17 @@ for.body1072.lr.ph:                               ; preds = %for.cond1070.prehea
   %arrayidx1186 = getelementptr inbounds i8, ptr %qlp_coeff, i64 60
   %arrayidx1193 = getelementptr inbounds i8, ptr %qlp_coeff, i64 56
   %arrayidx1200 = getelementptr inbounds i8, ptr %qlp_coeff, i64 52
+  %arrayidx1207 = getelementptr inbounds i8, ptr %qlp_coeff, i64 48
+  %arrayidx1213 = getelementptr inbounds i8, ptr %qlp_coeff, i64 44
+  %arrayidx1219 = getelementptr inbounds i8, ptr %qlp_coeff, i64 40
+  %arrayidx1225 = getelementptr inbounds i8, ptr %qlp_coeff, i64 36
+  %arrayidx1231 = getelementptr inbounds i8, ptr %qlp_coeff, i64 32
+  %arrayidx1237 = getelementptr inbounds i8, ptr %qlp_coeff, i64 28
+  %arrayidx1243 = getelementptr inbounds i8, ptr %qlp_coeff, i64 24
   %arrayidx1249 = getelementptr inbounds i8, ptr %qlp_coeff, i64 20
+  %arrayidx1255 = getelementptr inbounds i8, ptr %qlp_coeff, i64 16
+  %arrayidx1261 = getelementptr inbounds i8, ptr %qlp_coeff, i64 12
+  %arrayidx1267 = getelementptr inbounds i8, ptr %qlp_coeff, i64 8
   %arrayidx1273 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
   %wide.trip.count = zext nneg i32 %data_len to i64
   br label %for.body1072
@@ -1165,34 +1175,80 @@ sw.bb1199:                                        ; preds = %sw.bb1192, %for.bod
 
 sw.bb1206:                                        ; preds = %sw.bb1199, %for.body1072
   %sum.31 = phi i32 [ 0, %for.body1072 ], [ %add1205, %sw.bb1199 ]
-  %215 = getelementptr i32, ptr %data, i64 %indvars.iv
-  %arrayidx1210 = getelementptr i8, ptr %215, i64 -52
-  %216 = load <8 x i32>, ptr %arrayidx1249, align 4
-  %217 = shufflevector <8 x i32> %216, <8 x i32> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %218 = load <8 x i32>, ptr %arrayidx1210, align 4
-  %219 = mul nsw <8 x i32> %218, %217
-  %arrayidx1258 = getelementptr i8, ptr %215, i64 -20
-  %220 = load <4 x i32>, ptr %arrayidx1273, align 4
-  %221 = shufflevector <4 x i32> %220, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %222 = load <4 x i32>, ptr %arrayidx1258, align 4
-  %223 = mul nsw <4 x i32> %222, %221
-  %224 = load i32, ptr %qlp_coeff, align 4
-  %arrayidx1282 = getelementptr i8, ptr %215, i64 -4
-  %225 = load i32, ptr %arrayidx1282, align 4
-  %mul1283 = mul nsw i32 %225, %224
-  %226 = tail call i32 @llvm.vector.reduce.add.v8i32(<8 x i32> %219)
-  %227 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %223)
-  %op.rdx = add i32 %226, %227
-  %op.rdx909 = add i32 %op.rdx, %mul1283
-  %op.rdx910 = add i32 %op.rdx909, %sum.31
+  %215 = load i32, ptr %arrayidx1207, align 4
+  %216 = getelementptr i32, ptr %data, i64 %indvars.iv
+  %arrayidx1210 = getelementptr i8, ptr %216, i64 -52
+  %217 = load i32, ptr %arrayidx1210, align 4
+  %mul1211 = mul nsw i32 %217, %215
+  %add1212 = add nsw i32 %mul1211, %sum.31
+  %218 = load i32, ptr %arrayidx1213, align 4
+  %arrayidx1216 = getelementptr i8, ptr %216, i64 -48
+  %219 = load i32, ptr %arrayidx1216, align 4
+  %mul1217 = mul nsw i32 %219, %218
+  %add1218 = add nsw i32 %add1212, %mul1217
+  %220 = load i32, ptr %arrayidx1219, align 4
+  %arrayidx1222 = getelementptr i8, ptr %216, i64 -44
+  %221 = load i32, ptr %arrayidx1222, align 4
+  %mul1223 = mul nsw i32 %221, %220
+  %add1224 = add nsw i32 %add1218, %mul1223
+  %222 = load i32, ptr %arrayidx1225, align 4
+  %arrayidx1228 = getelementptr i8, ptr %216, i64 -40
+  %223 = load i32, ptr %arrayidx1228, align 4
+  %mul1229 = mul nsw i32 %223, %222
+  %add1230 = add nsw i32 %add1224, %mul1229
+  %224 = load i32, ptr %arrayidx1231, align 4
+  %arrayidx1234 = getelementptr i8, ptr %216, i64 -36
+  %225 = load i32, ptr %arrayidx1234, align 4
+  %mul1235 = mul nsw i32 %225, %224
+  %add1236 = add nsw i32 %add1230, %mul1235
+  %226 = load i32, ptr %arrayidx1237, align 4
+  %arrayidx1240 = getelementptr i8, ptr %216, i64 -32
+  %227 = load i32, ptr %arrayidx1240, align 4
+  %mul1241 = mul nsw i32 %227, %226
+  %add1242 = add nsw i32 %add1236, %mul1241
+  %228 = load i32, ptr %arrayidx1243, align 4
+  %arrayidx1246 = getelementptr i8, ptr %216, i64 -28
+  %229 = load i32, ptr %arrayidx1246, align 4
+  %mul1247 = mul nsw i32 %229, %228
+  %add1248 = add nsw i32 %add1242, %mul1247
+  %230 = load i32, ptr %arrayidx1249, align 4
+  %arrayidx1252 = getelementptr i8, ptr %216, i64 -24
+  %231 = load i32, ptr %arrayidx1252, align 4
+  %mul1253 = mul nsw i32 %231, %230
+  %add1254 = add nsw i32 %add1248, %mul1253
+  %232 = load i32, ptr %arrayidx1255, align 4
+  %arrayidx1258 = getelementptr i8, ptr %216, i64 -20
+  %233 = load i32, ptr %arrayidx1258, align 4
+  %mul1259 = mul nsw i32 %233, %232
+  %add1260 = add nsw i32 %add1254, %mul1259
+  %234 = load i32, ptr %arrayidx1261, align 4
+  %arrayidx1264 = getelementptr i8, ptr %216, i64 -16
+  %235 = load i32, ptr %arrayidx1264, align 4
+  %mul1265 = mul nsw i32 %235, %234
+  %add1266 = add nsw i32 %add1260, %mul1265
+  %236 = load i32, ptr %arrayidx1267, align 4
+  %arrayidx1270 = getelementptr i8, ptr %216, i64 -12
+  %237 = load i32, ptr %arrayidx1270, align 4
+  %mul1271 = mul nsw i32 %237, %236
+  %add1272 = add nsw i32 %add1266, %mul1271
+  %238 = load i32, ptr %arrayidx1273, align 4
+  %arrayidx1276 = getelementptr i8, ptr %216, i64 -8
+  %239 = load i32, ptr %arrayidx1276, align 4
+  %mul1277 = mul nsw i32 %239, %238
+  %add1278 = add nsw i32 %add1272, %mul1277
+  %240 = load i32, ptr %qlp_coeff, align 4
+  %arrayidx1282 = getelementptr i8, ptr %216, i64 -4
+  %241 = load i32, ptr %arrayidx1282, align 4
+  %mul1283 = mul nsw i32 %241, %240
+  %add1284 = add nsw i32 %add1278, %mul1283
   br label %sw.epilog1285
 
 sw.epilog1285:                                    ; preds = %sw.bb1206, %for.body1072
-  %sum.12 = phi i32 [ 0, %for.body1072 ], [ %op.rdx910, %sw.bb1206 ]
+  %sum.12 = phi i32 [ 0, %for.body1072 ], [ %add1284, %sw.bb1206 ]
   %arrayidx1287 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
-  %228 = load i32, ptr %arrayidx1287, align 4
+  %242 = load i32, ptr %arrayidx1287, align 4
   %shr1288 = ashr i32 %sum.12, %lp_quantization
-  %sub1289 = sub nsw i32 %228, %shr1288
+  %sub1289 = sub nsw i32 %242, %shr1288
   %arrayidx1291 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   store i32 %sub1289, ptr %arrayidx1291, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1206,15 +1262,8 @@ if.end1295:                                       ; preds = %sw.epilog1285, %sw.
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.sse2.psra.d(<4 x i32>, <4 x i32>) #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v8i32(<8 x i32>) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #2
-
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+sse4.1,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -585,18 +585,23 @@ for.body77.i:                                     ; preds = %for.body77.i, %for.
   %indvars.iv288.i = phi i64 [ 0, %for.body77.preheader.i ], [ %indvars.iv.next289.i, %for.body77.i ]
   %dst.addr.1282.i = phi ptr [ %dst.addr.0.lcssa.i, %for.body77.preheader.i ], [ %add.ptr94.i, %for.body77.i ]
   %arrayidx80.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %indvars.iv288.i
-  %145 = load <2 x float>, ptr %arrayidx80.i, align 16
-  store <2 x float> %145, ptr %dst.addr.1282.i, align 4
-  %146 = or disjoint i64 %indvars.iv288.i, 2
-  %arrayidx88.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %146
-  %147 = load float, ptr %arrayidx88.i, align 8
+  %145 = load float, ptr %arrayidx80.i, align 16
+  store float %145, ptr %dst.addr.1282.i, align 4
+  %146 = or disjoint i64 %indvars.iv288.i, 1
+  %arrayidx84.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %146
+  %147 = load float, ptr %arrayidx84.i, align 4
+  %arrayidx85.i = getelementptr inbounds i8, ptr %dst.addr.1282.i, i64 4
+  store float %147, ptr %arrayidx85.i, align 4
+  %148 = or disjoint i64 %indvars.iv288.i, 2
+  %arrayidx88.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %148
+  %149 = load float, ptr %arrayidx88.i, align 8
   %arrayidx89.i = getelementptr inbounds i8, ptr %dst.addr.1282.i, i64 8
-  store float %147, ptr %arrayidx89.i, align 4
-  %148 = or disjoint i64 %indvars.iv288.i, 3
-  %arrayidx92.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %148
-  %149 = load float, ptr %arrayidx92.i, align 4
+  store float %149, ptr %arrayidx89.i, align 4
+  %150 = or disjoint i64 %indvars.iv288.i, 3
+  %arrayidx92.i = getelementptr inbounds [16 x float], ptr %out_buf.i, i64 0, i64 %150
+  %151 = load float, ptr %arrayidx92.i, align 4
   %arrayidx93.i = getelementptr inbounds i8, ptr %dst.addr.1282.i, i64 12
-  store float %149, ptr %arrayidx93.i, align 4
+  store float %151, ptr %arrayidx93.i, align 4
   %add.ptr94.i = getelementptr inbounds i8, ptr %dst.addr.1282.i, i64 16
   %indvars.iv.next289.i = add nuw nsw i64 %indvars.iv288.i, 4
   %cmp76.i = icmp ult i64 %indvars.iv.next289.i, %144

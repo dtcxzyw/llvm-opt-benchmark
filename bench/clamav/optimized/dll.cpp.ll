@@ -56,9 +56,13 @@ define noundef ptr @RAROpenArchive(ptr nocapture noundef %0) local_unnamed_addr 
   %17 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %2, i64 36
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
-  %20 = load <2 x i32>, ptr %18, align 4
-  store <2 x i32> %20, ptr %19, align 1
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %19, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %22, ptr %23, align 1
   ret ptr %14
 }
 
@@ -789,25 +793,45 @@ define i32 @RARReadHeader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %6 = getelementptr inbounds i8, ptr %3, i64 5120
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 260)
   %7 = getelementptr inbounds i8, ptr %3, i64 10240
-  %8 = getelementptr inbounds i8, ptr %1, i64 520
-  %9 = load <2 x i32>, ptr %7, align 1
-  store <2 x i32> %9, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 10252
+  %8 = load i32, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 520
+  store i32 %8, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 10244
   %11 = load i32, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 528
+  %12 = getelementptr inbounds i8, ptr %1, i64 524
   store i32 %11, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 10260
-  %14 = getelementptr inbounds i8, ptr %1, i64 532
-  %15 = load <4 x i32>, ptr %13, align 1
-  store <4 x i32> %15, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 10276
-  %17 = getelementptr inbounds i8, ptr %1, i64 548
-  %18 = load <2 x i32>, ptr %16, align 1
-  store <2 x i32> %18, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 568
-  store i32 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 572
-  store i32 0, ptr %20, align 1
+  %13 = getelementptr inbounds i8, ptr %3, i64 10252
+  %14 = load i32, ptr %13, align 1
+  %15 = getelementptr inbounds i8, ptr %1, i64 528
+  store i32 %14, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 10260
+  %17 = load i32, ptr %16, align 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 532
+  store i32 %17, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 10264
+  %20 = load i32, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 536
+  store i32 %20, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 10268
+  %23 = load i32, ptr %22, align 1
+  %24 = getelementptr inbounds i8, ptr %1, i64 540
+  store i32 %23, ptr %24, align 1
+  %25 = getelementptr inbounds i8, ptr %3, i64 10272
+  %26 = load i32, ptr %25, align 1
+  %27 = getelementptr inbounds i8, ptr %1, i64 544
+  store i32 %26, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %3, i64 10276
+  %29 = load i32, ptr %28, align 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 548
+  store i32 %29, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %3, i64 10280
+  %32 = load i32, ptr %31, align 1
+  %33 = getelementptr inbounds i8, ptr %1, i64 552
+  store i32 %32, ptr %33, align 1
+  %34 = getelementptr inbounds i8, ptr %1, i64 568
+  store i32 0, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 572
+  store i32 0, ptr %35, align 1
   ret i32 %4
 }
 

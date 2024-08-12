@@ -783,8 +783,12 @@ define internal fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr nou
   %36 = getelementptr inbounds i8, ptr %0, i64 176
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 168
-  %39 = load <2 x i64>, ptr %38, align 8
-  store <2 x i64> %39, ptr %35, align 8
+  %.val = load i64, ptr %38, align 8
+  %39 = getelementptr i8, ptr %37, i64 176
+  %.val24 = load i64, ptr %39, align 8
+  store i64 %.val, ptr %35, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
+  store i64 %.val24, ptr %.sroa.2.0..sroa_idx, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 504
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %27, i64 32

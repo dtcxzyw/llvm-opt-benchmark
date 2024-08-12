@@ -805,7 +805,13 @@ do.end:                                           ; preds = %do.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4llvh3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) %this) unnamed_addr #1 align 2 {
 entry:
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4
+  store i32 1732584193, ptr %this, align 4
+  %b = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 -271733879, ptr %b, align 4
+  %c = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 -1732584194, ptr %c, align 4
+  %d = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 271733878, ptr %d, align 4
   %hi = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %hi, align 4
   %lo = getelementptr inbounds i8, ptr %this, i64 20
@@ -1118,38 +1124,41 @@ if.then6.i:                                       ; preds = %if.then2.i
 if.end8.i:                                        ; preds = %if.then6.i, %if.then2.i
   %2 = phi ptr [ %.pre.i, %if.then6.i ], [ %.pre2, %if.then2.i ]
   store ptr %2, ptr %Str, align 8
-  %3 = load <2 x i32>, ptr %Size.i.i.i.i.i.i.i, align 8
-  store <2 x i32> %3, ptr %Size.i.i, align 8
+  %3 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
+  store i32 %3, ptr %Size.i.i, align 8
+  %4 = load i32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
+  %Capacity11.i = getelementptr inbounds i8, ptr %Str, i64 12
+  store i32 %4, ptr %Capacity11.i, align 4
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %ref.tmp, align 8
   store i32 0, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   br label %return.sink.split.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %4 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %conv.i30.i = zext i32 %4 to i64
+  %5 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
+  %conv.i30.i = zext i32 %5 to i64
   %Size.i31.i = getelementptr inbounds i8, ptr %Str, i64 8
-  %5 = load i32, ptr %Size.i31.i, align 8
-  %conv.i32.i = zext i32 %5 to i64
-  %cmp15.not.i = icmp ult i32 %5, %4
+  %6 = load i32, ptr %Size.i31.i, align 8
+  %conv.i32.i = zext i32 %6 to i64
+  %cmp15.not.i = icmp ult i32 %6, %5
   br i1 %cmp15.not.i, label %if.end24.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end12.i
-  %tobool.not.i = icmp eq i32 %4, 0
+  %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %if.end22.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then16.i
-  %6 = load ptr, ptr %Str, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %6, ptr align 1 %.pre2, i64 %conv.i30.i, i1 false)
+  %7 = load ptr, ptr %Str, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %7, ptr align 1 %.pre2, i64 %conv.i30.i, i1 false)
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then.i.i.i.i.i.i, %if.then16.i
-  store i32 %4, ptr %Size.i31.i, align 8
+  store i32 %5, ptr %Size.i31.i, align 8
   br label %return.sink.split.i
 
 if.end24.i:                                       ; preds = %if.end12.i
   %Capacity.i38.i = getelementptr inbounds i8, ptr %Str, i64 12
-  %7 = load i32, ptr %Capacity.i38.i, align 4
-  %cmp26.i = icmp ult i32 %7, %4
+  %8 = load i32, ptr %Capacity.i38.i, align 4
+  %cmp26.i = icmp ult i32 %8, %5
   br i1 %cmp26.i, label %if.then27.i, label %if.else.i
 
 if.then27.i:                                      ; preds = %if.end24.i
@@ -1159,32 +1168,32 @@ if.then27.i:                                      ; preds = %if.end24.i
   br label %if.end37.i
 
 if.else.i:                                        ; preds = %if.end24.i
-  %tobool30.not.i = icmp eq i32 %5, 0
+  %tobool30.not.i = icmp eq i32 %6, 0
   br i1 %tobool30.not.i, label %if.end37.i, label %if.then.i.i.i.i.i47.i
 
 if.then.i.i.i.i.i47.i:                            ; preds = %if.else.i
-  %8 = load ptr, ptr %Str, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %8, ptr align 1 %.pre2, i64 %conv.i32.i, i1 false)
+  %9 = load ptr, ptr %Str, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %.pre2, i64 %conv.i32.i, i1 false)
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then.i.i.i.i.i47.i, %if.else.i, %if.then27.i
   %CurSize.0.i = phi i64 [ 0, %if.then27.i ], [ 0, %if.else.i ], [ %conv.i32.i, %if.then.i.i.i.i.i47.i ]
-  %9 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %conv.i51.i = zext i32 %9 to i64
+  %10 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
+  %conv.i51.i = zext i32 %10 to i64
   %cmp.not.i.i.i = icmp eq i64 %CurSize.0.i, %conv.i51.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i, label %if.then.i.i.i1
 
 if.then.i.i.i1:                                   ; preds = %if.end37.i
-  %10 = load ptr, ptr %ref.tmp, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %10, i64 %CurSize.0.i
-  %11 = load ptr, ptr %Str, align 8
-  %add.ptr42.i = getelementptr inbounds i8, ptr %11, i64 %CurSize.0.i
+  %11 = load ptr, ptr %ref.tmp, align 8
+  %add.ptr39.i = getelementptr inbounds i8, ptr %11, i64 %CurSize.0.i
+  %12 = load ptr, ptr %Str, align 8
+  %add.ptr42.i = getelementptr inbounds i8, ptr %12, i64 %CurSize.0.i
   %gepdiff.i = sub nsw i64 %conv.i51.i, %CurSize.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i, ptr align 1 %add.ptr39.i, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i: ; preds = %if.then.i.i.i1, %if.end37.i
-  store i32 %4, ptr %Size.i31.i, align 8
+  store i32 %5, ptr %Size.i31.i, align 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i, %if.end22.i, %if.end8.i
@@ -1193,12 +1202,12 @@ return.sink.split.i:                              ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh15SmallVectorImplIcEaSEOS1_.exit
 
 _ZN4llvh15SmallVectorImplIcEaSEOS1_.exit:         ; preds = %_ZNK4llvh3MD59MD5Result6digestEv.exit, %return.sink.split.i
-  %12 = phi ptr [ %.pre2, %_ZNK4llvh3MD59MD5Result6digestEv.exit ], [ %.pre, %return.sink.split.i ]
-  %cmp.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i.i
+  %13 = phi ptr [ %.pre2, %_ZNK4llvh3MD59MD5Result6digestEv.exit ], [ %.pre, %return.sink.split.i ]
+  %cmp.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj32EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4llvh15SmallVectorImplIcEaSEOS1_.exit
-  call void @free(ptr noundef %12) #16
+  call void @free(ptr noundef %13) #16
   br label %_ZN4llvh11SmallStringILj32EED2Ev.exit
 
 _ZN4llvh11SmallStringILj32EED2Ev.exit:            ; preds = %_ZN4llvh15SmallVectorImplIcEaSEOS1_.exit, %if.then.i.i.i
@@ -1208,8 +1217,14 @@ _ZN4llvh11SmallStringILj32EED2Ev.exit:            ; preds = %_ZN4llvh15SmallVect
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden { i64, i64 } @_ZN4llvh3MD54hashENS_8ArrayRefIhEE(ptr %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #8 align 2 {
 if.end21.i:
-  %Hash = alloca %"class.llvh::MD5", align 16
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %Hash, align 16
+  %Hash = alloca %"class.llvh::MD5", align 8
+  store i32 1732584193, ptr %Hash, align 8
+  %b.i = getelementptr inbounds i8, ptr %Hash, i64 4
+  store i32 -271733879, ptr %b.i, align 4
+  %c.i = getelementptr inbounds i8, ptr %Hash, i64 8
+  store i32 -1732584194, ptr %c.i, align 8
+  %d.i = getelementptr inbounds i8, ptr %Hash, i64 12
+  store i32 271733878, ptr %d.i, align 4
   %hi.i = getelementptr inbounds i8, ptr %Hash, i64 16
   %lo.i = getelementptr inbounds i8, ptr %Hash, i64 20
   %0 = trunc i64 %Data.coerce1 to i32
@@ -1217,7 +1232,7 @@ if.end21.i:
   store i32 %conv3.i, ptr %lo.i, align 4
   %shr.i = lshr i64 %Data.coerce1, 29
   %1 = trunc i64 %shr.i to i32
-  store i32 %1, ptr %hi.i, align 16
+  store i32 %1, ptr %hi.i, align 8
   %cmp22.i = icmp ugt i64 %Data.coerce1, 63
   br i1 %cmp22.i, label %if.then23.i, label %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit
 
@@ -1252,7 +1267,6 @@ if.then.i:                                        ; preds = %_ZN4llvh3MD56update
 _ZN4llvh3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit, %if.then.i
   %free.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i7, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
   %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i5, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
-  %c.i = getelementptr inbounds i8, ptr %Hash, i64 8
   %arrayidx7.i = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %used.0.i
   %sub8.i = add nsw i64 %free.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7.i, i8 0, i64 %sub8.i, i1 false)
@@ -1261,13 +1275,13 @@ _ZN4llvh3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvh3MD56update
   store i32 %shl.i, ptr %lo.i, align 4
   %arrayidx11.i = getelementptr inbounds i8, ptr %Hash, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx11.i, i64 1) ]
-  store i32 %shl.i, ptr %arrayidx11.i, align 16
+  store i32 %shl.i, ptr %arrayidx11.i, align 8
   %arrayidx14.i = getelementptr inbounds i8, ptr %Hash, i64 84
-  %4 = load i32, ptr %hi.i, align 16
+  %4 = load i32, ptr %hi.i, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14.i, i64 1) ]
   store i32 %4, ptr %arrayidx14.i, align 4
   %call19.i = call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr nonnull %buffer30.i, i64 64)
-  %5 = load i64, ptr %Hash, align 16
+  %5 = load i64, ptr %Hash, align 8
   %6 = load i64, ptr %c.i, align 8
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %5, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %6, 1

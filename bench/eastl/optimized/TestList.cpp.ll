@@ -12088,10 +12088,10 @@ entry:
   %ref.tmp317 = alloca %"class.eastl::allocator", align 1
   %b318 = alloca %"class.eastl::list.2", align 8
   %ref351 = alloca %"class.eastl::list.2", align 8
-  %ref.tmp353 = alloca [4 x i32], align 16
+  %ref.tmp353 = alloca [4 x i32], align 4
   %ref.tmp360 = alloca %"class.eastl::allocator", align 1
   %a361 = alloca %"class.eastl::list.2", align 8
-  %ref.tmp363 = alloca [4 x i32], align 16
+  %ref.tmp363 = alloca [4 x i32], align 4
   %ref.tmp371 = alloca %"class.eastl::allocator", align 1
   %ref394 = alloca %"class.eastl::list.2", align 8
   %ref.tmp396 = alloca [5 x i32], align 4
@@ -12202,7 +12202,7 @@ entry:
   %ref.tmp1166 = alloca [10 x i32], align 4
   %ref.tmp1171 = alloca %"class.eastl::allocator", align 1
   %to_insert = alloca %"class.eastl::list.2", align 8
-  %ref.tmp1197 = alloca [4 x i32], align 16
+  %ref.tmp1197 = alloca [4 x i32], align 4
   %ref.tmp1205 = alloca %"class.eastl::allocator", align 1
   %ref1206 = alloca %"class.eastl::list.2", align 8
   %ref.tmp1208 = alloca [14 x i32], align 4
@@ -12216,7 +12216,7 @@ entry:
   %a1261 = alloca %"class.eastl::list.2", align 8
   %ref.tmp1263 = alloca [10 x i32], align 4
   %ref.tmp1268 = alloca %"class.eastl::allocator", align 1
-  %ref.tmp1277 = alloca [4 x i32], align 16
+  %ref.tmp1277 = alloca [4 x i32], align 4
   %ref1294 = alloca %"class.eastl::list.2", align 8
   %ref.tmp1296 = alloca [10 x i32], align 4
   %ref.tmp1301 = alloca %"class.eastl::allocator", align 1
@@ -12383,7 +12383,7 @@ entry:
   %ref.tmp2277 = alloca [10 x i32], align 4
   %ref.tmp2282 = alloca %"class.eastl::allocator", align 1
   %list3 = alloca %"class.eastl::list.2", align 8
-  %ref.tmp2287 = alloca [4 x i32], align 16
+  %ref.tmp2287 = alloca [4 x i32], align 4
   %ref.tmp2295 = alloca %"class.eastl::allocator", align 1
   store i32 0, ptr %nErrorCount, align 4
   call void @_ZN5eastl4listIiNS_9allocatorEEC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %l)
@@ -13697,9 +13697,21 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i592: ; preds = %_ZN5eastl4listIiNS
   br i1 %cmp.not.i.i.i594, label %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit596, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i592, !llvm.loop !100
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit596:      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i592, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit590
-  store <4 x i32> <i32 42, i32 42, i32 42, i32 42>, ptr %ref.tmp353, align 16
+  store i32 42, ptr %ref.tmp353, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp353, i64 4
+  store i32 42, ptr %arrayinit.element, align 4
+  %arrayinit.element355 = getelementptr inbounds i8, ptr %ref.tmp353, i64 8
+  store i32 42, ptr %arrayinit.element355, align 4
+  %arrayinit.element356 = getelementptr inbounds i8, ptr %ref.tmp353, i64 12
+  store i32 42, ptr %arrayinit.element356, align 4
   call void @_ZN5eastl4listIiNS_9allocatorEEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %ref351, ptr nonnull %ref.tmp353, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp360)
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp363, align 16
+  store i32 0, ptr %ref.tmp363, align 4
+  %arrayinit.element365 = getelementptr inbounds i8, ptr %ref.tmp363, i64 4
+  store i32 1, ptr %arrayinit.element365, align 4
+  %arrayinit.element366 = getelementptr inbounds i8, ptr %ref.tmp363, i64 8
+  store i32 2, ptr %arrayinit.element366, align 4
+  %arrayinit.element367 = getelementptr inbounds i8, ptr %ref.tmp363, i64 12
+  store i32 3, ptr %arrayinit.element367, align 4
   invoke void @_ZN5eastl4listIiNS_9allocatorEEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %a361, ptr nonnull %ref.tmp363, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp371)
           to label %invoke.cont374 unwind label %lpad372
 
@@ -17434,7 +17446,13 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1941: ; preds = %_ZN5eastl4listIiN
   br i1 %cmp.not.i.i.i1943, label %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1945, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1941, !llvm.loop !100
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1945:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1941, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1939
-  store <4 x i32> <i32 42, i32 42, i32 42, i32 42>, ptr %ref.tmp1197, align 16
+  store i32 42, ptr %ref.tmp1197, align 4
+  %arrayinit.element1199 = getelementptr inbounds i8, ptr %ref.tmp1197, i64 4
+  store i32 42, ptr %arrayinit.element1199, align 4
+  %arrayinit.element1200 = getelementptr inbounds i8, ptr %ref.tmp1197, i64 8
+  store i32 42, ptr %arrayinit.element1200, align 4
+  %arrayinit.element1201 = getelementptr inbounds i8, ptr %ref.tmp1197, i64 12
+  store i32 42, ptr %arrayinit.element1201, align 4
   call void @_ZN5eastl4listIiNS_9allocatorEEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %to_insert, ptr nonnull %ref.tmp1197, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1205)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %ref.tmp1208, ptr noundef nonnull align 4 dereferenceable(56) @constinit.99, i64 56, i1 false)
   invoke void @_ZN5eastl4listIiNS_9allocatorEEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %ref1206, ptr nonnull %ref.tmp1208, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1213)
@@ -17598,7 +17616,13 @@ while.body.i.i.i2003:                             ; preds = %while.body.i.i.i200
   br i1 %tobool.not.i.i.i2006, label %invoke.cont1274, label %while.body.i.i.i2003, !llvm.loop !394
 
 invoke.cont1274:                                  ; preds = %while.body.i.i.i2003
-  store <4 x i32> <i32 42, i32 42, i32 42, i32 42>, ptr %ref.tmp1277, align 16
+  store i32 42, ptr %ref.tmp1277, align 4
+  %arrayinit.element1279 = getelementptr inbounds i8, ptr %ref.tmp1277, i64 4
+  store i32 42, ptr %arrayinit.element1279, align 4
+  %arrayinit.element1280 = getelementptr inbounds i8, ptr %ref.tmp1277, i64 8
+  store i32 42, ptr %arrayinit.element1280, align 4
+  %arrayinit.element1281 = getelementptr inbounds i8, ptr %ref.tmp1277, i64 12
+  store i32 42, ptr %arrayinit.element1281, align 4
   %mpPrev.i.i2008 = getelementptr inbounds i8, ptr %744, i64 8
   %mSize.i.i.i2011 = getelementptr inbounds i8, ptr %a1261, i64 16
   br label %for.body.i.i2012
@@ -21128,7 +21152,13 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3426:     ; preds = %_ZN5eastl9allocator
           to label %invoke.cont2285 unwind label %lpad2283
 
 invoke.cont2285:                                  ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit3426
-  store <4 x i32> <i32 5, i32 6, i32 7, i32 8>, ptr %ref.tmp2287, align 16
+  store i32 5, ptr %ref.tmp2287, align 4
+  %arrayinit.element2289 = getelementptr inbounds i8, ptr %ref.tmp2287, i64 4
+  store i32 6, ptr %arrayinit.element2289, align 4
+  %arrayinit.element2290 = getelementptr inbounds i8, ptr %ref.tmp2287, i64 8
+  store i32 7, ptr %arrayinit.element2290, align 4
+  %arrayinit.element2291 = getelementptr inbounds i8, ptr %ref.tmp2287, i64 12
+  store i32 8, ptr %arrayinit.element2291, align 4
   invoke void @_ZN5eastl4listIiNS_9allocatorEEC1ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %list3, ptr nonnull %ref.tmp2287, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2295)
           to label %invoke.cont2298 unwind label %lpad2296
 

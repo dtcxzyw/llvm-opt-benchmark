@@ -403,8 +403,14 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
+  %incdec.ptr = getelementptr inbounds i8, ptr %p, i64 1
+  store i8 78, ptr %p, align 1
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %p, i64 2
+  store i8 85, ptr %incdec.ptr, align 1
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %p, i64 3
+  store i8 76, ptr %incdec.ptr1, align 1
   %incdec.ptr3 = getelementptr inbounds i8, ptr %p, i64 4
-  store <4 x i8> <i8 78, i8 85, i8 76, i8 76>, ptr %p, align 1
+  store i8 76, ptr %incdec.ptr2, align 1
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -617,8 +623,14 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
   br i1 %cmp.i7, label %if.then.i9, label %if.end.i
 
 if.then.i9:                                       ; preds = %lj_buf_more.exit
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
+  store i8 78, ptr %retval.i.0, align 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %retval.i.0, i64 2
+  store i8 85, ptr %incdec.ptr.i, align 1
+  %incdec.ptr2.i = getelementptr inbounds i8, ptr %retval.i.0, i64 3
+  store i8 76, ptr %incdec.ptr1.i, align 1
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %retval.i.0, i64 4
-  store <4 x i8> <i8 78, i8 85, i8 76, i8 76>, ptr %retval.i.0, align 1
+  store i8 76, ptr %incdec.ptr2.i, align 1
   br label %lj_strfmt_wptr.exit
 
 if.end.i:                                         ; preds = %lj_buf_more.exit
@@ -1910,8 +1922,14 @@ lj_buf_more.exit.i128:                            ; preds = %if.then.i.i131, %sw
   br i1 %cmp.i7.i, label %if.then.i9.i, label %if.end.i.i
 
 if.then.i9.i:                                     ; preds = %lj_buf_more.exit.i128
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %retval.i.0.i129, i64 1
+  store i8 78, ptr %retval.i.0.i129, align 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %retval.i.0.i129, i64 2
+  store i8 85, ptr %incdec.ptr.i.i, align 1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.i.0.i129, i64 3
+  store i8 76, ptr %incdec.ptr1.i.i, align 1
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %retval.i.0.i129, i64 4
-  store <4 x i8> <i8 78, i8 85, i8 76, i8 76>, ptr %retval.i.0.i129, align 1
+  store i8 76, ptr %incdec.ptr2.i.i, align 1
   br label %lj_strfmt_putptr.exit
 
 if.end.i.i:                                       ; preds = %lj_buf_more.exit.i128
@@ -2069,8 +2087,14 @@ if.else66:                                        ; preds = %land.lhs.true, %con
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else66
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 3
+  store i8 78, ptr %incdec.ptr49, align 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 4
+  store i8 85, ptr %incdec.ptr.i, align 1
+  %incdec.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 5
+  store i8 76, ptr %incdec.ptr1.i, align 1
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i77, i64 6
-  store <4 x i8> <i8 78, i8 85, i8 76, i8 76>, ptr %incdec.ptr49, align 1
+  store i8 76, ptr %incdec.ptr2.i, align 1
   br label %if.end
 
 if.end.i:                                         ; preds = %if.else66
@@ -2410,8 +2434,14 @@ lj_buf_more.exit.i:                               ; preds = %if.then.i.i52, %vaa
   br i1 %cmp.i7.i, label %if.then.i9.i, label %if.end.i.i
 
 if.then.i9.i:                                     ; preds = %lj_buf_more.exit.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  store i8 78, ptr %retval.i.0.i, align 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 2
+  store i8 85, ptr %incdec.ptr.i.i, align 1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 3
+  store i8 76, ptr %incdec.ptr1.i.i, align 1
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
-  store <4 x i8> <i8 78, i8 85, i8 76, i8 76>, ptr %retval.i.0.i, align 1
+  store i8 76, ptr %incdec.ptr2.i.i, align 1
   br label %lj_strfmt_putptr.exit
 
 if.end.i.i:                                       ; preds = %lj_buf_more.exit.i

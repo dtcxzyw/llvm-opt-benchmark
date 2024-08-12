@@ -151,8 +151,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN7rocksdb17OffpeakTimeOption24SetFromOffpeakTimeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %offpeak_time_string) local_unnamed_addr #0 align 2 {
 entry:
   %daily_offpeak_start_time_utc = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load i32, ptr %daily_offpeak_start_time_utc, align 8
   %daily_offpeak_end_time_utc = getelementptr inbounds i8, ptr %this, i64 36
-  %0 = load <2 x i32>, ptr %daily_offpeak_start_time_utc, align 8
+  %1 = load i32, ptr %daily_offpeak_end_time_utc, align 4
   %call = tail call noundef zeroext i1 @_ZN7rocksdb23TryParseTimeRangeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS8_(ptr noundef nonnull align 8 dereferenceable(32) %offpeak_time_string, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_start_time_utc, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_end_time_utc)
   br i1 %call, label %if.then, label %if.else
 
@@ -161,7 +162,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store <2 x i32> %0, ptr %daily_offpeak_start_time_utc, align 8
+  store i32 %0, ptr %daily_offpeak_start_time_utc, align 8
+  store i32 %1, ptr %daily_offpeak_end_time_utc, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

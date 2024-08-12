@@ -1194,28 +1194,34 @@ define dso_local void @uv_loadavg(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %10 = icmp eq i32 %9, 3
-  br i1 %10, label %24, label %11
+  br i1 %10, label %29, label %11
 
 11:                                               ; preds = %6, %1
   %12 = call i32 @sysinfo(ptr noundef nonnull %2) #14
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %24, label %14
+  br i1 %13, label %29, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load <2 x i64>, ptr %15, align 8
-  %17 = uitofp <2 x i64> %16 to <2 x double>
-  %18 = fmul <2 x double> %17, <double 0x3EF0000000000000, double 0x3EF0000000000000>
-  store <2 x double> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = load i64, ptr %15, align 8
+  %17 = uitofp i64 %16 to double
+  %18 = fmul double %17, 0x3EF0000000000000
+  store double %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = uitofp i64 %20 to double
   %22 = fmul double %21, 0x3EF0000000000000
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   store double %22, ptr %23, align 8
-  br label %24
+  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = uitofp i64 %25 to double
+  %27 = fmul double %26, 0x3EF0000000000000
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %27, ptr %28, align 8
+  br label %29
 
-24:                                               ; preds = %11, %6, %14
+29:                                               ; preds = %11, %6, %14
   ret void
 }
 

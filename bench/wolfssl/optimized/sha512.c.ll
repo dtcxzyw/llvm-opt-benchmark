@@ -568,10 +568,12 @@ for.body.i35:                                     ; preds = %for.body.i35, %if.e
   br i1 %exitcond.not.i41, label %ByteReverseWords64.exit42, label %for.body.i35, !llvm.loop !4
 
 ByteReverseWords64.exit42:                        ; preds = %for.body.i35
+  %7 = load i64, ptr %hiLen, align 8
   %arrayidx42 = getelementptr inbounds i8, ptr %sha512, i64 176
-  %7 = load <2 x i64>, ptr %loLen, align 8
-  %8 = shufflevector <2 x i64> %7, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %8, ptr %arrayidx42, align 8
+  store i64 %7, ptr %arrayidx42, align 8
+  %8 = load i64, ptr %loLen, align 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %sha512, i64 184
+  store i64 %8, ptr %arrayidx45, align 8
   tail call fastcc void @_Transform_Sha512(ptr noundef nonnull %sha512)
   br label %for.body.i43
 

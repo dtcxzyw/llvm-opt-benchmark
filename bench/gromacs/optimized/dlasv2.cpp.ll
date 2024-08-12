@@ -29,7 +29,7 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 20:                                               ; preds = %16
   store double %.0152, ptr %3, align 8
   store double %.0150, ptr %4, align 8
-  br label %101
+  br label %87
 
 21:                                               ; preds = %16
   %22 = fcmp ogt double %18, %.0150
@@ -90,7 +90,7 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %54, ptr %4, align 8
   %55 = tail call noundef double @llvm.fabs.f64(double %43)
   %56 = fcmp olt double %55, 0x10000000000000
-  br i1 %56, label %57, label %74
+  br i1 %56, label %57, label %70
 
 57:                                               ; preds = %32
   %58 = fcmp ogt double %.0153, 0.000000e+00
@@ -101,61 +101,45 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %61 = fcmp ogt double %17, 0.000000e+00
   %62 = fneg double %60
   %63 = select i1 %61, double %60, double %62
-  br label %87
+  br label %78
 
 64:                                               ; preds = %57
   %65 = fneg double %33
   %66 = select i1 %58, double %33, double %65
-  %67 = insertelement <2 x double> poison, double %17, i64 0
-  %68 = insertelement <2 x double> %67, double %41, i64 1
-  %69 = insertelement <2 x double> poison, double %66, i64 0
-  %70 = insertelement <2 x double> %69, double %42, i64 1
-  %71 = fdiv <2 x double> %68, %70
-  %shift = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %72 = fadd <2 x double> %71, %shift
-  %73 = extractelement <2 x double> %72, i64 0
+  %67 = fdiv double %17, %66
+  %68 = fdiv double %41, %42
+  %69 = fadd double %67, %68
+  br label %78
+
+70:                                               ; preds = %32
+  %71 = fadd double %42, %sqrt
+  %72 = fdiv double %41, %71
+  %73 = fadd double %.0136, %.0137
+  %74 = fdiv double %41, %73
+  %75 = fadd double %74, %72
+  %76 = fadd double %52, 1.000000e+00
+  %77 = fmul double %75, %76
+  br label %78
+
+78:                                               ; preds = %59, %64, %70
+  %.0149 = phi double [ %63, %59 ], [ %69, %64 ], [ %77, %70 ]
+  %79 = tail call double @llvm.fmuladd.f64(double %.0149, double %.0149, double 4.000000e+00)
+  %sqrt175 = tail call double @llvm.sqrt.f64(double %79)
+  %80 = fdiv double 2.000000e+00, %sqrt175
+  %81 = fdiv double %.0149, %sqrt175
+  %82 = tail call double @llvm.fmuladd.f64(double %81, double %41, double %80)
+  %83 = fdiv double %82, %52
+  %84 = fdiv double %.0151, %.0153
+  %85 = fmul double %84, %81
+  %86 = fdiv double %85, %52
   br label %87
 
-74:                                               ; preds = %32
-  %75 = insertelement <2 x double> poison, double %.0136, i64 0
-  %76 = insertelement <2 x double> %75, double %42, i64 1
-  %77 = insertelement <2 x double> poison, double %.0137, i64 0
-  %78 = insertelement <2 x double> %77, double %sqrt, i64 1
-  %79 = fadd <2 x double> %76, %78
-  %80 = insertelement <2 x double> poison, double %41, i64 0
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = fdiv <2 x double> %81, %79
-  %shift197 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %83 = fadd <2 x double> %82, %shift197
-  %84 = extractelement <2 x double> %83, i64 0
-  %85 = fadd double %52, 1.000000e+00
-  %86 = fmul double %84, %85
-  br label %87
-
-87:                                               ; preds = %59, %64, %74
-  %.0149 = phi double [ %63, %59 ], [ %73, %64 ], [ %86, %74 ]
-  %88 = tail call double @llvm.fmuladd.f64(double %.0149, double %.0149, double 4.000000e+00)
-  %sqrt175 = tail call double @llvm.sqrt.f64(double %88)
-  %89 = fdiv double 2.000000e+00, %sqrt175
-  %90 = insertelement <2 x double> poison, double %.0151, i64 0
-  %91 = insertelement <2 x double> %90, double %.0149, i64 1
-  %92 = insertelement <2 x double> poison, double %.0153, i64 0
-  %93 = insertelement <2 x double> %92, double %sqrt175, i64 1
-  %94 = fdiv <2 x double> %91, %93
-  %95 = extractelement <2 x double> %94, i64 1
-  %96 = tail call double @llvm.fmuladd.f64(double %95, double %41, double %89)
-  %97 = fdiv double %96, %52
-  %98 = extractelement <2 x double> %94, i64 0
-  %99 = fmul double %98, %95
-  %100 = fdiv double %99, %52
-  br label %101
-
-101:                                              ; preds = %87, %20
-  %.0147 = phi double [ 1.000000e+00, %20 ], [ %97, %87 ]
-  %.0145 = phi double [ 1.000000e+00, %20 ], [ %89, %87 ]
-  %.0143 = phi double [ 0.000000e+00, %20 ], [ %100, %87 ]
-  %.0141 = phi double [ 0.000000e+00, %20 ], [ %95, %87 ]
-  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %87 ]
+87:                                               ; preds = %78, %20
+  %.0147 = phi double [ 1.000000e+00, %20 ], [ %83, %78 ]
+  %.0145 = phi double [ 1.000000e+00, %20 ], [ %80, %78 ]
+  %.0143 = phi double [ 0.000000e+00, %20 ], [ %86, %78 ]
+  %.0141 = phi double [ 0.000000e+00, %20 ], [ %81, %78 ]
+  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %78 ]
   %.0141..0147 = select i1 %14, double %.0141, double %.0147
   %.0145..0143 = select i1 %14, double %.0145, double %.0143
   %.0143..0145 = select i1 %14, double %.0143, double %.0145
@@ -164,60 +148,60 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %.0145..0143, ptr %7, align 8
   store double %.0143..0145, ptr %6, align 8
   store double %.0147..0141, ptr %5, align 8
-  switch i32 %.1139, label %103 [
+  switch i32 %.1139, label %89 [
     i32 1, label %.thread169
     i32 2, label %.thread172
   ]
 
-.thread169:                                       ; preds = %101
-  %102 = load double, ptr %6, align 8
+.thread169:                                       ; preds = %87
+  %88 = load double, ptr %6, align 8
   br label %.thread172
 
-103:                                              ; preds = %101
+89:                                               ; preds = %87
   br label %.thread172
 
-.thread172:                                       ; preds = %101, %.thread, %.thread169, %103
-  %.0147..0141185.sink = phi double [ %102, %.thread169 ], [ %.0147..0141, %103 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %101 ]
-  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %103 ], [ %8, %.thread ], [ %8, %101 ]
-  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %103 ], [ %1, %.thread ], [ %1, %101 ]
-  %104 = fcmp ogt double %.0147..0141185.sink, 0.000000e+00
-  %105 = load double, ptr %.sink196, align 8
+.thread172:                                       ; preds = %87, %.thread, %.thread169, %89
+  %.0147..0141185.sink = phi double [ %88, %.thread169 ], [ %.0147..0141, %89 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %87 ]
+  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %89 ], [ %8, %.thread ], [ %8, %87 ]
+  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %89 ], [ %1, %.thread ], [ %1, %87 ]
+  %90 = fcmp ogt double %.0147..0141185.sink, 0.000000e+00
+  %91 = load double, ptr %.sink196, align 8
+  %92 = fcmp ogt double %91, 0.000000e+00
+  %93 = select i1 %92, double 1.000000e+00, double -1.000000e+00
+  %94 = fneg double %93
+  %95 = select i1 %90, double %93, double %94
+  %96 = load double, ptr %.sink, align 8
+  %97 = fcmp ogt double %96, 0.000000e+00
+  %98 = fneg double %95
+  %99 = select i1 %97, double %95, double %98
+  %100 = fcmp olt double %99, 0.000000e+00
+  br i1 %100, label %101, label %104
+
+101:                                              ; preds = %.thread172
+  %102 = load double, ptr %4, align 8
+  %103 = fneg double %102
+  store double %103, ptr %4, align 8
+  br label %104
+
+104:                                              ; preds = %101, %.thread172
+  %105 = load double, ptr %0, align 8
   %106 = fcmp ogt double %105, 0.000000e+00
-  %107 = select i1 %106, double 1.000000e+00, double -1.000000e+00
-  %108 = fneg double %107
-  %109 = select i1 %104, double %107, double %108
-  %110 = load double, ptr %.sink, align 8
-  %111 = fcmp ogt double %110, 0.000000e+00
-  %112 = fneg double %109
-  %113 = select i1 %111, double %109, double %112
-  %114 = fcmp olt double %113, 0.000000e+00
-  br i1 %114, label %115, label %118
+  %107 = fneg double %99
+  %108 = select i1 %106, double %99, double %107
+  %109 = load double, ptr %2, align 8
+  %110 = fcmp ogt double %109, 0.000000e+00
+  %111 = fneg double %108
+  %112 = select i1 %110, double %108, double %111
+  %113 = fcmp olt double %112, 0.000000e+00
+  br i1 %113, label %114, label %117
 
-115:                                              ; preds = %.thread172
-  %116 = load double, ptr %4, align 8
-  %117 = fneg double %116
-  store double %117, ptr %4, align 8
-  br label %118
+114:                                              ; preds = %104
+  %115 = load double, ptr %3, align 8
+  %116 = fneg double %115
+  store double %116, ptr %3, align 8
+  br label %117
 
-118:                                              ; preds = %115, %.thread172
-  %119 = load double, ptr %0, align 8
-  %120 = fcmp ogt double %119, 0.000000e+00
-  %121 = fneg double %113
-  %122 = select i1 %120, double %113, double %121
-  %123 = load double, ptr %2, align 8
-  %124 = fcmp ogt double %123, 0.000000e+00
-  %125 = fneg double %122
-  %126 = select i1 %124, double %122, double %125
-  %127 = fcmp olt double %126, 0.000000e+00
-  br i1 %127, label %128, label %131
-
-128:                                              ; preds = %118
-  %129 = load double, ptr %3, align 8
-  %130 = fneg double %129
-  store double %130, ptr %3, align 8
-  br label %131
-
-131:                                              ; preds = %128, %118
+117:                                              ; preds = %114, %104
   ret void
 }
 

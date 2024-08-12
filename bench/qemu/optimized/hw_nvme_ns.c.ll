@@ -821,10 +821,15 @@ if.then41.i.i:                                    ; preds = %for.end.i.i
 nvme_ns_zoned_init_state.exit.i:                  ; preds = %if.then41.i.i, %for.end.i.i
   %call.i35 = call noalias dereferenceable_or_null(4096) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4096) #15
   %max_active_zones.i36 = getelementptr inbounds i8, ptr %ns, i64 8728
+  %79 = load i32, ptr %max_active_zones.i36, align 8
+  %sub.i = add i32 %79, -1
   %mar.i = getelementptr inbounds i8, ptr %call.i35, i64 4
-  %79 = load <2 x i32>, ptr %max_active_zones.i36, align 8
-  %80 = add <2 x i32> %79, <i32 -1, i32 -1>
-  store <2 x i32> %80, ptr %mar.i, align 1
+  store i32 %sub.i, ptr %mar.i, align 1
+  %max_open_zones.i37 = getelementptr inbounds i8, ptr %ns, i64 8732
+  %80 = load i32, ptr %max_open_zones.i37, align 4
+  %sub3.i = add i32 %80, -1
+  %mor.i = getelementptr inbounds i8, ptr %call.i35, i64 8
+  store i32 %sub3.i, ptr %mor.i, align 1
   store i16 0, ptr %call.i35, align 1
   %cross_zone_read.i = getelementptr inbounds i8, ptr %ns, i64 8706
   %81 = load i8, ptr %cross_zone_read.i, align 2

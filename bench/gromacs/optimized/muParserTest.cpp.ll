@@ -7532,11 +7532,13 @@ define noundef i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noun
           to label %154 unwind label %278
 
 154:                                              ; preds = %152
+  store double 1.000000e+00, ptr %48, align 16
   %155 = getelementptr inbounds i8, ptr %48, i64 8
-  store <2 x double> <double 1.000000e+00, double 2.000000e+00>, ptr %48, align 16
+  store double 2.000000e+00, ptr %155, align 8
   %156 = getelementptr inbounds i8, ptr %48, i64 16
+  store double 3.000000e+00, ptr %156, align 16
   %157 = getelementptr inbounds i8, ptr %48, i64 24
-  store <2 x double> <double 3.000000e+00, double 4.000000e+00>, ptr %156, align 16
+  store double 4.000000e+00, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %48, i64 32
   store double 5.000000e+00, ptr %158, align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #23
@@ -20106,14 +20108,17 @@ define noundef i32 @_ZN2mu4Test12ParserTester7EqnTestERKNSt7__cxx1112basic_strin
   %189 = load i32, ptr @_ZN2mu4Test12ParserTester8c_iCountE, align 4
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr @_ZN2mu4Test12ParserTester8c_iCountE, align 4
+  store double -9.990000e+02, ptr %46, align 16
   %191 = getelementptr inbounds i8, ptr %46, i64 8
-  store <2 x double> <double -9.990000e+02, double -9.980000e+02>, ptr %46, align 16
+  store double -9.980000e+02, ptr %191, align 8
   %192 = getelementptr inbounds i8, ptr %46, i64 16
+  store double -9.970000e+02, ptr %192, align 16
   %193 = getelementptr inbounds i8, ptr %46, i64 24
-  store <2 x double> <double -9.970000e+02, double -9.960000e+02>, ptr %192, align 16
+  store double -9.960000e+02, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %46, i64 32
+  store double -9.950000e+02, ptr %194, align 16
   %195 = getelementptr inbounds i8, ptr %46, i64 40
-  store <2 x double> <double -9.950000e+02, double -9.940000e+02>, ptr %194, align 16
+  store double -9.940000e+02, ptr %195, align 8
   invoke void @_ZN2mu6ParserC1Ev(ptr noundef nonnull align 8 dereferenceable(596) %47)
           to label %196 unwind label %.thread494
 

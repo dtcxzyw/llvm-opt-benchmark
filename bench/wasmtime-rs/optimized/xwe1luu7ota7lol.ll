@@ -784,26 +784,30 @@ define hidden void @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u2
   call void @"_ZN87_$LT$serde..de..impls..range..RangeVisitor$LT$Idx$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hdfafb5f767cddc55E.llvm.7452288157325931747"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.f0df93c23dc24f26cef2943a21b4b551.25.llvm.12642593798105491766, i64 noundef 12, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 2)
   %4 = load i32, ptr %3, align 8, !range !247, !noundef !11
   %trunc = trunc nuw i32 %4 to i1
-  br i1 %trunc, label %9, label %5
+  br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = load <2 x i32>, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !noundef !11
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load i32, ptr %8, align 8, !noundef !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store <2 x i32> %8, ptr %7, align 4
-  br label %13
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %7, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %9, ptr %11, align 8
+  br label %16
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !11, !align !12, !noundef !11
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %12, align 8
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load ptr, ptr %13, align 8, !nonnull !11, !align !12, !noundef !11
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %13
+  br label %16
 
-13:                                               ; preds = %9, %5
-  %.sink = phi i32 [ 1, %9 ], [ 0, %5 ]
+16:                                               ; preds = %12, %5
+  %.sink = phi i32 [ 1, %12 ], [ 0, %5 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }
@@ -815,26 +819,30 @@ define hidden void @"_ZN5serde2de5impls87_$LT$impl$u20$serde..de..Deserialize$u2
   call void @"_ZN87_$LT$serde..de..impls..range..RangeVisitor$LT$Idx$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h559d4cb6bcd7a3e3E.llvm.7452288157325931747"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.f0df93c23dc24f26cef2943a21b4b551.25.llvm.12642593798105491766, i64 noundef 12, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 2)
   %4 = load i32, ptr %3, align 8, !range !247, !noundef !11
   %trunc = trunc nuw i32 %4 to i1
-  br i1 %trunc, label %9, label %5
+  br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = load <2 x i32>, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !noundef !11
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load i32, ptr %8, align 8, !noundef !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store <2 x i32> %8, ptr %7, align 4
-  br label %13
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %7, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %9, ptr %11, align 8
+  br label %16
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !11, !align !12, !noundef !11
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %12, align 8
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load ptr, ptr %13, align 8, !nonnull !11, !align !12, !noundef !11
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %13
+  br label %16
 
-13:                                               ; preds = %9, %5
-  %.sink = phi i32 [ 1, %9 ], [ 0, %5 ]
+16:                                               ; preds = %12, %5
+  %.sink = phi i32 [ 1, %12 ], [ 0, %5 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }

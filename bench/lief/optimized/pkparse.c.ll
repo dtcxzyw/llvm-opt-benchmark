@@ -157,14 +157,14 @@ define hidden i32 @mbedtls_pk_parse_keyfile(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = alloca %struct.mbedtls_pk_context, align 16
-  %9 = alloca %struct.mbedtls_pk_context, align 16
-  %10 = alloca %struct.mbedtls_pk_context, align 16
-  %11 = alloca %struct.mbedtls_pk_context, align 16
+  %8 = alloca %struct.mbedtls_pk_context, align 8
+  %9 = alloca %struct.mbedtls_pk_context, align 8
+  %10 = alloca %struct.mbedtls_pk_context, align 8
+  %11 = alloca %struct.mbedtls_pk_context, align 8
   %12 = alloca i64, align 8
   %13 = alloca %struct.mbedtls_pem_context, align 8
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %108, label %15
+  br i1 %14, label %116, label %15
 
 15:                                               ; preds = %7
   call void @mbedtls_pem_init(ptr noundef nonnull %13) #10
@@ -176,242 +176,254 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 19:                                               ; preds = %15
   %20 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %12) #10
-  switch i32 %20, label %36 [
+  switch i32 %20, label %38 [
     i32 0, label %21
-    i32 -4992, label %108
-    i32 -4864, label %35
-    i32 -4224, label %37
+    i32 -4992, label %116
+    i32 -4864, label %37
+    i32 -4224, label %39
   ]
 
 21:                                               ; preds = %19
   %22 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #10
   %23 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %22) #10
   %.not122 = icmp eq i32 %23, 0
-  br i1 %.not122, label %24, label %33
+  br i1 %.not122, label %24, label %35
 
 24:                                               ; preds = %21
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %26, ptr %11, align 16
-  %27 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %11) #10
-  %cond.i = icmp eq i32 %27, 1
-  %28 = load ptr, ptr %25, align 8
-  %.0.i = select i1 %cond.i, ptr %28, ptr null
+  store ptr %25, ptr %11, align 8
+  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %27, ptr %28, align 8
+  %29 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %11) #10
+  %cond.i = icmp eq i32 %29, 1
+  %30 = load ptr, ptr %28, align 8
+  %.0.i = select i1 %cond.i, ptr %30, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 8
-  %31 = load i64, ptr %30, align 8
-  %32 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i, ptr noundef %29, i64 noundef %31)
-  %.not123 = icmp eq i32 %32, 0
-  br i1 %.not123, label %34, label %33
+  %31 = load ptr, ptr %13, align 8
+  %32 = getelementptr inbounds i8, ptr %13, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i, ptr noundef %31, i64 noundef %33)
+  %.not123 = icmp eq i32 %34, 0
+  br i1 %.not123, label %36, label %35
 
-33:                                               ; preds = %24, %21
-  %.1 = phi i32 [ %23, %21 ], [ %32, %24 ]
+35:                                               ; preds = %24, %21
+  %.1 = phi i32 [ %23, %21 ], [ %34, %24 ]
   call void @mbedtls_pk_free(ptr noundef %0) #10
-  br label %34
+  br label %36
 
-34:                                               ; preds = %33, %24
-  %.2 = phi i32 [ %.1, %33 ], [ 0, %24 ]
+36:                                               ; preds = %35, %24
+  %.2 = phi i32 [ %.1, %35 ], [ 0, %24 ]
   call void @mbedtls_pem_free(ptr noundef nonnull %13) #10
-  br label %108
-
-35:                                               ; preds = %19
-  br label %108
-
-36:                                               ; preds = %19
-  br label %108
+  br label %116
 
 37:                                               ; preds = %19
+  br label %116
+
+38:                                               ; preds = %19
+  br label %116
+
+39:                                               ; preds = %19
   %.pr = load i8, ptr %17, align 1
   %.not111 = icmp eq i8 %.pr, 0
-  br i1 %.not111, label %38, label %.thread142
+  br i1 %.not111, label %40, label %.thread142
 
-38:                                               ; preds = %37
-  %39 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %12) #10
-  switch i32 %39, label %55 [
-    i32 0, label %40
-    i32 -4992, label %108
-    i32 -4864, label %54
+40:                                               ; preds = %39
+  %41 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %12) #10
+  switch i32 %41, label %59 [
+    i32 0, label %42
+    i32 -4992, label %116
+    i32 -4864, label %58
     i32 -4224, label %.thread133
   ]
 
-40:                                               ; preds = %38
-  %41 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #10
-  %42 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %41) #10
-  %.not120 = icmp eq i32 %42, 0
-  br i1 %.not120, label %43, label %52
+42:                                               ; preds = %40
+  %43 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #10
+  %44 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %43) #10
+  %.not120 = icmp eq i32 %44, 0
+  br i1 %.not120, label %45, label %56
 
-43:                                               ; preds = %40
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %44 = getelementptr inbounds i8, ptr %10, i64 8
-  %45 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %45, ptr %10, align 16
-  %46 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #10
-  %.off.i = add i32 %46, -2
+  store ptr %46, ptr %10, align 8
+  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %48, ptr %49, align 8
+  %50 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #10
+  %.off.i = add i32 %50, -2
   %switch.i = icmp ult i32 %.off.i, 3
-  %47 = load ptr, ptr %44, align 8
-  %.0.i124 = select i1 %switch.i, ptr %47, ptr null
+  %51 = load ptr, ptr %49, align 8
+  %.0.i124 = select i1 %switch.i, ptr %51, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds i8, ptr %13, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i124, ptr noundef %48, i64 noundef %50, ptr noundef %5, ptr noundef %6)
-  %.not121 = icmp eq i32 %51, 0
-  br i1 %.not121, label %53, label %52
+  %52 = load ptr, ptr %13, align 8
+  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i124, ptr noundef %52, i64 noundef %54, ptr noundef %5, ptr noundef %6)
+  %.not121 = icmp eq i32 %55, 0
+  br i1 %.not121, label %57, label %56
 
-52:                                               ; preds = %43, %40
-  %.4 = phi i32 [ %42, %40 ], [ %51, %43 ]
+56:                                               ; preds = %45, %42
+  %.4 = phi i32 [ %44, %42 ], [ %55, %45 ]
   call void @mbedtls_pk_free(ptr noundef %0) #10
-  br label %53
+  br label %57
 
-53:                                               ; preds = %52, %43
-  %.5 = phi i32 [ %.4, %52 ], [ 0, %43 ]
+57:                                               ; preds = %56, %45
+  %.5 = phi i32 [ %.4, %56 ], [ 0, %45 ]
   call void @mbedtls_pem_free(ptr noundef nonnull %13) #10
-  br label %108
+  br label %116
 
-54:                                               ; preds = %38
-  br label %108
+58:                                               ; preds = %40
+  br label %116
 
-55:                                               ; preds = %38
-  br label %108
+59:                                               ; preds = %40
+  br label %116
 
-.thread133:                                       ; preds = %38
+.thread133:                                       ; preds = %40
   %.pr147 = load i8, ptr %17, align 1
   %.not113 = icmp eq i8 %.pr147, 0
-  br i1 %.not113, label %56, label %.thread142
+  br i1 %.not113, label %60, label %.thread142
 
-56:                                               ; preds = %.thread133
-  %57 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %12) #10
-  switch i32 %57, label %108 [
-    i32 0, label %58
-    i32 -4224, label %65
+60:                                               ; preds = %.thread133
+  %61 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %12) #10
+  switch i32 %61, label %116 [
+    i32 0, label %62
+    i32 -4224, label %69
   ]
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %13, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %59, i64 noundef %61, ptr noundef %5, ptr noundef %6)
-  %.not119 = icmp eq i32 %62, 0
-  br i1 %.not119, label %64, label %63
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %13, align 8
+  %64 = getelementptr inbounds i8, ptr %13, i64 8
+  %65 = load i64, ptr %64, align 8
+  %66 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %63, i64 noundef %65, ptr noundef %5, ptr noundef %6)
+  %.not119 = icmp eq i32 %66, 0
+  br i1 %.not119, label %68, label %67
 
-63:                                               ; preds = %58
+67:                                               ; preds = %62
   call void @mbedtls_pk_free(ptr noundef %0) #10
-  br label %64
+  br label %68
 
-64:                                               ; preds = %63, %58
+68:                                               ; preds = %67, %62
   call void @mbedtls_pem_free(ptr noundef nonnull %13) #10
-  br label %108
+  br label %116
 
-65:                                               ; preds = %56
+69:                                               ; preds = %60
   %.pr138 = load i8, ptr %17, align 1
   %.not115 = icmp eq i8 %.pr138, 0
-  br i1 %.not115, label %66, label %.thread142
+  br i1 %.not115, label %70, label %.thread142
 
-66:                                               ; preds = %65
-  %67 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %12) #10
-  switch i32 %67, label %108 [
-    i32 0, label %68
+70:                                               ; preds = %69
+  %71 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %13, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %12) #10
+  switch i32 %71, label %116 [
+    i32 0, label %72
     i32 -4224, label %.thread142
   ]
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %13, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = call fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %69, i64 noundef %71, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
-  %.not118 = icmp eq i32 %72, 0
-  br i1 %.not118, label %74, label %73
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr inbounds i8, ptr %13, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = call fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %73, i64 noundef %75, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
+  %.not118 = icmp eq i32 %76, 0
+  br i1 %.not118, label %78, label %77
 
-73:                                               ; preds = %68
+77:                                               ; preds = %72
   call void @mbedtls_pk_free(ptr noundef %0) #10
-  br label %74
+  br label %78
 
-74:                                               ; preds = %73, %68
+78:                                               ; preds = %77, %72
   call void @mbedtls_pem_free(ptr noundef nonnull %13) #10
-  br label %108
+  br label %116
 
-.thread142:                                       ; preds = %37, %15, %.thread133, %65, %66
+.thread142:                                       ; preds = %39, %15, %.thread133, %69, %70
   %.not117 = icmp eq i64 %4, 0
-  br i1 %.not117, label %.thread144, label %75
+  br i1 %.not117, label %.thread144, label %79
 
-75:                                               ; preds = %.thread142
-  %76 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #11
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %108, label %78
+79:                                               ; preds = %.thread142
+  %80 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #11
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %116, label %82
 
-78:                                               ; preds = %75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %79 = call fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef nonnull %76, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %76, i64 noundef %2) #10
-  call void @free(ptr noundef nonnull %76) #10
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %108, label %.thread144
-
-.thread144:                                       ; preds = %.thread142, %78
-  %.8146 = phi i32 [ %79, %78 ], [ -4224, %.thread142 ]
-  call void @mbedtls_pk_free(ptr noundef %0) #10
-  call void @mbedtls_pk_init(ptr noundef %0) #10
-  %81 = icmp eq i32 %.8146, -15232
-  br i1 %81, label %108, label %82
-
-82:                                               ; preds = %.thread144
-  %83 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
+82:                                               ; preds = %79
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %1, i64 %2, i1 false)
+  %83 = call fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef nonnull %80, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %80, i64 noundef %2) #10
+  call void @free(ptr noundef nonnull %80) #10
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %108, label %85
+  br i1 %84, label %116, label %.thread144
 
-85:                                               ; preds = %82
+.thread144:                                       ; preds = %.thread142, %82
+  %.8146 = phi i32 [ %83, %82 ], [ -4224, %.thread142 ]
   call void @mbedtls_pk_free(ptr noundef %0) #10
   call void @mbedtls_pk_init(ptr noundef %0) #10
-  %86 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #10
-  %87 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %86) #10
+  %85 = icmp eq i32 %.8146, -15232
+  br i1 %85, label %116, label %86
+
+86:                                               ; preds = %.thread144
+  %87 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %96
+  br i1 %88, label %116, label %89
 
-89:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %90 = getelementptr inbounds i8, ptr %9, i64 8
-  %91 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %91, ptr %9, align 16
-  %92 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %9) #10
-  %cond.i125 = icmp eq i32 %92, 1
-  %93 = load ptr, ptr %90, align 8
-  %.0.i126 = select i1 %cond.i125, ptr %93, ptr null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %94 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i126, ptr noundef nonnull %1, i64 noundef %2)
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %108, label %96
-
-96:                                               ; preds = %89, %85
+89:                                               ; preds = %86
   call void @mbedtls_pk_free(ptr noundef %0) #10
   call void @mbedtls_pk_init(ptr noundef %0) #10
-  %97 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #10
-  %98 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %97) #10
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %107
+  %90 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #10
+  %91 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %90) #10
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %102
 
-100:                                              ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %101 = getelementptr inbounds i8, ptr %8, i64 8
-  %102 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %102, ptr %8, align 16
-  %103 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
-  %.off.i127 = add i32 %103, -2
-  %switch.i128 = icmp ult i32 %.off.i127, 3
-  %104 = load ptr, ptr %101, align 8
-  %.0.i129 = select i1 %switch.i128, ptr %104, ptr null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %105 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i129, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %108, label %107
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  store ptr %94, ptr %9, align 8
+  %97 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %96, ptr %97, align 8
+  %98 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %9) #10
+  %cond.i125 = icmp eq i32 %98, 1
+  %99 = load ptr, ptr %97, align 8
+  %.0.i126 = select i1 %cond.i125, ptr %99, ptr null
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  %100 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i126, ptr noundef nonnull %1, i64 noundef %2)
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %116, label %102
 
-107:                                              ; preds = %100, %96
+102:                                              ; preds = %93, %89
   call void @mbedtls_pk_free(ptr noundef %0) #10
-  br label %108
+  call void @mbedtls_pk_init(ptr noundef %0) #10
+  %103 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #10
+  %104 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %103) #10
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %115
 
-108:                                              ; preds = %100, %89, %82, %.thread144, %78, %75, %66, %56, %38, %19, %7, %107, %74, %64, %55, %54, %53, %36, %35, %34
-  %.0 = phi i32 [ %.2, %34 ], [ -15360, %35 ], [ %20, %36 ], [ %.5, %53 ], [ -15360, %54 ], [ %39, %55 ], [ %62, %64 ], [ %72, %74 ], [ -15616, %107 ], [ -15616, %7 ], [ -15232, %19 ], [ -15232, %38 ], [ %57, %56 ], [ %67, %66 ], [ -16256, %75 ], [ 0, %78 ], [ -15232, %.thread144 ], [ 0, %82 ], [ 0, %89 ], [ 0, %100 ]
+106:                                              ; preds = %102
+  %107 = load ptr, ptr %0, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = load ptr, ptr %108, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  store ptr %107, ptr %8, align 8
+  %110 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %109, ptr %110, align 8
+  %111 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
+  %.off.i127 = add i32 %111, -2
+  %switch.i128 = icmp ult i32 %.off.i127, 3
+  %112 = load ptr, ptr %110, align 8
+  %.0.i129 = select i1 %switch.i128, ptr %112, ptr null
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  %113 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i129, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %116, label %115
+
+115:                                              ; preds = %106, %102
+  call void @mbedtls_pk_free(ptr noundef %0) #10
+  br label %116
+
+116:                                              ; preds = %106, %93, %86, %.thread144, %82, %79, %70, %60, %40, %19, %7, %115, %78, %68, %59, %58, %57, %38, %37, %36
+  %.0 = phi i32 [ %.2, %36 ], [ -15360, %37 ], [ %20, %38 ], [ %.5, %57 ], [ -15360, %58 ], [ %41, %59 ], [ %66, %68 ], [ %76, %78 ], [ -15616, %115 ], [ -15616, %7 ], [ -15232, %19 ], [ -15232, %40 ], [ %61, %60 ], [ %71, %70 ], [ -16256, %79 ], [ 0, %82 ], [ -15232, %.thread144 ], [ 0, %86 ], [ 0, %93 ], [ 0, %106 ]
   ret i32 %.0
 }
 
@@ -441,13 +453,13 @@ define hidden i32 @mbedtls_pk_parse_public_keyfile(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.mbedtls_pk_context, align 16
-  %5 = alloca %struct.mbedtls_pk_context, align 16
+  %4 = alloca %struct.mbedtls_pk_context, align 8
+  %5 = alloca %struct.mbedtls_pk_context, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.mbedtls_pem_context, align 8
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %61, label %10
+  br i1 %9, label %65, label %10
 
 10:                                               ; preds = %3
   call void @mbedtls_pem_init(ptr noundef nonnull %8) #10
@@ -459,9 +471,9 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 
 14:                                               ; preds = %10
   %15 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %8, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #10
-  switch i32 %15, label %36 [
+  switch i32 %15, label %38 [
     i32 0, label %16
-    i32 -4224, label %37
+    i32 -4224, label %39
   ]
 
 16:                                               ; preds = %14
@@ -473,7 +485,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 
 20:                                               ; preds = %16
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
 21:                                               ; preds = %16
   %22 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef nonnull %18) #10
@@ -482,110 +494,116 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 
 23:                                               ; preds = %21
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  %30 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %30, ptr %5, align 16
-  %31 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
-  %cond.i = icmp eq i32 %31, 1
-  %32 = load ptr, ptr %29, align 8
-  %.0.i = select i1 %cond.i, ptr %32, ptr null
+  store ptr %29, ptr %5, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
+  %cond.i = icmp eq i32 %33, 1
+  %34 = load ptr, ptr %32, align 8
+  %.0.i = select i1 %cond.i, ptr %34, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %33 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %6, ptr noundef %28, ptr noundef %.0.i)
-  %.not50 = icmp eq i32 %33, 0
-  br i1 %.not50, label %35, label %34
+  %35 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %6, ptr noundef %28, ptr noundef %.0.i)
+  %.not50 = icmp eq i32 %35, 0
+  br i1 %.not50, label %37, label %36
 
-34:                                               ; preds = %24
+36:                                               ; preds = %24
   call void @mbedtls_pk_free(ptr noundef nonnull %0) #10
-  br label %35
+  br label %37
 
-35:                                               ; preds = %34, %24
+37:                                               ; preds = %36, %24
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
-36:                                               ; preds = %14
+38:                                               ; preds = %14
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
-37:                                               ; preds = %14
+39:                                               ; preds = %14
   %.pr = load i8, ptr %12, align 1
   %.not45 = icmp eq i8 %.pr, 0
-  br i1 %.not45, label %38, label %.thread56
+  br i1 %.not45, label %40, label %.thread56
 
-38:                                               ; preds = %37
-  %39 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %8, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #10
-  switch i32 %39, label %46 [
-    i32 0, label %40
+40:                                               ; preds = %39
+  %41 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %8, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #10
+  switch i32 %41, label %48 [
+    i32 0, label %42
     i32 -4224, label %.thread56
   ]
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %8, align 8
-  store ptr %41, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 %43
-  %45 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef %44, ptr noundef %0)
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %8, align 8
+  store ptr %43, ptr %6, align 8
+  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 %45
+  %47 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef %46, ptr noundef %0)
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
-46:                                               ; preds = %38
+48:                                               ; preds = %40
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  br label %61
+  br label %65
 
-.thread56:                                        ; preds = %10, %37, %38
+.thread56:                                        ; preds = %10, %39, %40
   call void @mbedtls_pem_free(ptr noundef nonnull %8) #10
-  %47 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #10
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %61, label %49
+  %49 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #10
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %65, label %51
 
-49:                                               ; preds = %.thread56
-  %50 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef nonnull %47) #10
-  %.not47 = icmp eq i32 %50, 0
-  br i1 %.not47, label %51, label %61
+51:                                               ; preds = %.thread56
+  %52 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef nonnull %49) #10
+  %.not47 = icmp eq i32 %52, 0
+  br i1 %.not47, label %53, label %65
 
-51:                                               ; preds = %49
+53:                                               ; preds = %51
   store ptr %1, ptr %6, align 8
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
-  %53 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %53, ptr %4, align 16
-  %54 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
-  %cond.i51 = icmp eq i32 %54, 1
-  %55 = load ptr, ptr %52, align 8
-  %.0.i52 = select i1 %cond.i51, ptr %55, ptr null
+  store ptr %54, ptr %4, align 8
+  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %56, ptr %57, align 8
+  %58 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
+  %cond.i51 = icmp eq i32 %58, 1
+  %59 = load ptr, ptr %57, align 8
+  %.0.i52 = select i1 %cond.i51, ptr %59, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %56 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef %.0.i52)
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+  %60 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef %.0.i52)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %65, label %62
 
-58:                                               ; preds = %51
+62:                                               ; preds = %53
   call void @mbedtls_pk_free(ptr noundef nonnull %0) #10
-  %.not48 = icmp eq i32 %56, -15202
-  br i1 %.not48, label %59, label %61
+  %.not48 = icmp eq i32 %60, -15202
+  br i1 %.not48, label %63, label %65
 
-59:                                               ; preds = %58
+63:                                               ; preds = %62
   store ptr %1, ptr %6, align 8
-  %60 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %0)
-  br label %61
+  %64 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %0)
+  br label %65
 
-61:                                               ; preds = %58, %51, %49, %.thread56, %3, %59, %46, %40, %36, %35, %23, %20
-  %.036 = phi i32 [ -15488, %20 ], [ %22, %23 ], [ %33, %35 ], [ %15, %36 ], [ %45, %40 ], [ %39, %46 ], [ %60, %59 ], [ -15616, %3 ], [ -15488, %.thread56 ], [ %50, %49 ], [ 0, %51 ], [ %56, %58 ]
+65:                                               ; preds = %62, %53, %51, %.thread56, %3, %63, %48, %42, %38, %37, %23, %20
+  %.036 = phi i32 [ -15488, %20 ], [ %22, %23 ], [ %35, %37 ], [ %15, %38 ], [ %47, %42 ], [ %41, %48 ], [ %64, %63 ], [ -15616, %3 ], [ -15488, %.thread56 ], [ %52, %51 ], [ 0, %53 ], [ %60, %62 ]
   ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pk_parse_subpubkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.mbedtls_pk_context, align 16
-  %5 = alloca %struct.mbedtls_pk_context, align 16
-  %6 = alloca %struct.mbedtls_pk_context, align 16
+  %4 = alloca %struct.mbedtls_pk_context, align 8
+  %5 = alloca %struct.mbedtls_pk_context, align 8
+  %6 = alloca %struct.mbedtls_pk_context, align 8
   %7 = alloca %struct.mbedtls_asn1_buf, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.mbedtls_asn1_buf, align 8
@@ -597,7 +615,7 @@ define hidden i32 @mbedtls_pk_parse_subpubkey(ptr noundef %0, ptr noundef %1, pt
 
 12:                                               ; preds = %3
   %13 = add nsw i32 %11, -15616
-  br label %72
+  br label %77
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %0, align 8
@@ -639,13 +657,13 @@ pk_get_pk_alg.exit.thread52:                      ; preds = %21, %26
 pk_get_pk_alg.exit.thread:                        ; preds = %19, %24, %26
   %.0.i.ph = phi i32 [ -14976, %26 ], [ -14976, %24 ], [ -15488, %19 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %72
+  br label %77
 
 pk_get_pk_alg.exit:                               ; preds = %14
   %29 = add nsw i32 %18, -14976
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %.not39 = icmp eq i32 %29, 0
-  br i1 %.not39, label %30, label %72
+  br i1 %.not39, label %30, label %77
 
 30:                                               ; preds = %pk_get_pk_alg.exit.thread52, %pk_get_pk_alg.exit
   %31 = call i32 @mbedtls_asn1_get_bitstring_null(ptr noundef nonnull %0, ptr noundef %17, ptr noundef nonnull %8) #10
@@ -654,95 +672,103 @@ pk_get_pk_alg.exit:                               ; preds = %14
 
 32:                                               ; preds = %30
   %33 = add nsw i32 %31, -15104
-  br label %72
+  br label %77
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %0, align 8
   %36 = load i64, ptr %8, align 8
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %.not41 = icmp eq ptr %37, %17
-  br i1 %.not41, label %38, label %72
+  br i1 %.not41, label %38, label %77
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %10, align 4
   %40 = call ptr @mbedtls_pk_info_from_type(i32 noundef %39) #10
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %72, label %42
+  br i1 %41, label %77, label %42
 
 42:                                               ; preds = %38
   %43 = call i32 @mbedtls_pk_setup(ptr noundef %2, ptr noundef nonnull %40) #10
   %.not42 = icmp eq i32 %43, 0
-  br i1 %.not42, label %44, label %72
+  br i1 %.not42, label %44, label %77
 
 44:                                               ; preds = %42
   %45 = load i32, ptr %10, align 4
   %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %53
+  br i1 %46, label %47, label %55
 
 47:                                               ; preds = %44
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
-  %49 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %49, ptr %6, align 16
-  %50 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
-  %cond.i = icmp eq i32 %50, 1
-  %51 = load ptr, ptr %48, align 8
-  %.0.i45 = select i1 %cond.i, ptr %51, ptr null
+  store ptr %48, ptr %6, align 8
+  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %50, ptr %51, align 8
+  %52 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
+  %cond.i = icmp eq i32 %52, 1
+  %53 = load ptr, ptr %51, align 8
+  %.0.i45 = select i1 %cond.i, ptr %53, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %52 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %.0.i45)
-  br label %68
+  %54 = call fastcc i32 @pk_get_rsapubkey(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %.0.i45)
+  br label %73
 
-53:                                               ; preds = %44
-  %54 = and i32 %45, -2
-  %or.cond = icmp eq i32 %54, 2
-  br i1 %or.cond, label %55, label %.thread
+55:                                               ; preds = %44
+  %56 = and i32 %45, -2
+  %or.cond = icmp eq i32 %56, 2
+  br i1 %or.cond, label %57, label %.thread
 
-55:                                               ; preds = %53
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
-  %57 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %57, ptr %5, align 16
-  %58 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
-  %.off.i = add i32 %58, -2
+  store ptr %58, ptr %5, align 8
+  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
+  %.off.i = add i32 %62, -2
   %switch.i = icmp ult i32 %.off.i, 3
-  %59 = load ptr, ptr %56, align 8
-  %.0.i46 = select i1 %switch.i, ptr %59, ptr null
+  %63 = load ptr, ptr %61, align 8
+  %.0.i46 = select i1 %switch.i, ptr %63, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %60 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %9, ptr noundef %.0.i46)
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.thread
+  %64 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %9, ptr noundef %.0.i46)
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %.thread
 
-62:                                               ; preds = %55
+66:                                               ; preds = %57
+  %67 = load ptr, ptr %2, align 8
+  %68 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
-  %64 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %64, ptr %4, align 16
-  %65 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
-  %.off.i47 = add i32 %65, -2
+  store ptr %67, ptr %4, align 8
+  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %68, ptr %69, align 8
+  %70 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
+  %.off.i47 = add i32 %70, -2
   %switch.i48 = icmp ult i32 %.off.i47, 3
-  %66 = load ptr, ptr %63, align 8
-  %.0.i49 = select i1 %switch.i48, ptr %66, ptr null
+  %71 = load ptr, ptr %69, align 8
+  %.0.i49 = select i1 %switch.i48, ptr %71, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %67 = call fastcc i32 @pk_get_ecpubkey(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %.0.i49)
-  br label %68
+  %72 = call fastcc i32 @pk_get_ecpubkey(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %.0.i49)
+  br label %73
 
-68:                                               ; preds = %62, %47
-  %.030 = phi i32 [ %52, %47 ], [ %67, %62 ]
-  %69 = icmp eq i32 %.030, 0
-  br i1 %69, label %70, label %.thread
+73:                                               ; preds = %66, %47
+  %.030 = phi i32 [ %54, %47 ], [ %72, %66 ]
+  %74 = icmp eq i32 %.030, 0
+  br i1 %74, label %75, label %.thread
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %0, align 8
-  %.not43 = icmp eq ptr %71, %17
-  br i1 %.not43, label %72, label %.thread
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %0, align 8
+  %.not43 = icmp eq ptr %76, %17
+  br i1 %.not43, label %77, label %.thread
 
-.thread:                                          ; preds = %70, %53, %55, %68
-  %.1.ph = phi i32 [ %.030, %68 ], [ -15488, %53 ], [ %60, %55 ], [ -15206, %70 ]
+.thread:                                          ; preds = %75, %55, %57, %73
+  %.1.ph = phi i32 [ %.030, %73 ], [ -15488, %55 ], [ %64, %57 ], [ -15206, %75 ]
   call void @mbedtls_pk_free(ptr noundef %2) #10
-  br label %72
+  br label %77
 
-72:                                               ; preds = %70, %34, %pk_get_pk_alg.exit.thread, %.thread, %42, %38, %pk_get_pk_alg.exit, %32, %12
-  %.0 = phi i32 [ %13, %12 ], [ %33, %32 ], [ %29, %pk_get_pk_alg.exit ], [ -15488, %38 ], [ %43, %42 ], [ %.1.ph, %.thread ], [ %.0.i.ph, %pk_get_pk_alg.exit.thread ], [ -15206, %34 ], [ 0, %70 ]
+77:                                               ; preds = %75, %34, %pk_get_pk_alg.exit.thread, %.thread, %42, %38, %pk_get_pk_alg.exit, %32, %12
+  %.0 = phi i32 [ %13, %12 ], [ %33, %32 ], [ %29, %pk_get_pk_alg.exit ], [ -15488, %38 ], [ %43, %42 ], [ %.1.ph, %.thread ], [ %.0.i.ph, %pk_get_pk_alg.exit.thread ], [ -15206, %34 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -1551,9 +1577,9 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = alloca %struct.mbedtls_pk_context, align 16
-  %7 = alloca %struct.mbedtls_pk_context, align 16
-  %8 = alloca %struct.mbedtls_pk_context, align 16
+  %6 = alloca %struct.mbedtls_pk_context, align 8
+  %7 = alloca %struct.mbedtls_pk_context, align 8
+  %8 = alloca %struct.mbedtls_pk_context, align 8
   %9 = alloca %struct.mbedtls_asn1_buf, align 8
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -1569,7 +1595,7 @@ define internal fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, p
 
 17:                                               ; preds = %5
   %18 = add nsw i32 %16, -15616
-  br label %83
+  br label %88
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr %13, align 8
@@ -1581,12 +1607,12 @@ define internal fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, p
 
 24:                                               ; preds = %19
   %25 = add nsw i32 %23, -15616
-  br label %83
+  br label %88
 
 26:                                               ; preds = %19
   %27 = load i32, ptr %10, align 4
   %.not36 = icmp eq i32 %27, 0
-  br i1 %.not36, label %28, label %83
+  br i1 %.not36, label %28, label %88
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -1625,13 +1651,13 @@ pk_get_pk_alg.exit.thread50:                      ; preds = %32, %37
 pk_get_pk_alg.exit.thread:                        ; preds = %30, %35, %37
   %.0.i.ph = phi i32 [ -14976, %37 ], [ -14976, %35 ], [ -15488, %30 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %83
+  br label %88
 
 pk_get_pk_alg.exit:                               ; preds = %28
   %40 = add nsw i32 %29, -14976
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %.not37 = icmp eq i32 %40, 0
-  br i1 %.not37, label %41, label %83
+  br i1 %.not37, label %41, label %88
 
 41:                                               ; preds = %pk_get_pk_alg.exit.thread50, %pk_get_pk_alg.exit
   %42 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %13, ptr noundef %22, ptr noundef nonnull %11, i32 noundef 4) #10
@@ -1640,93 +1666,101 @@ pk_get_pk_alg.exit:                               ; preds = %28
 
 43:                                               ; preds = %41
   %44 = add nsw i32 %42, -15616
-  br label %83
+  br label %88
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %11, align 8
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %83, label %48
+  br i1 %47, label %88, label %48
 
 48:                                               ; preds = %45
   %49 = load i32, ptr %14, align 4
   %50 = call ptr @mbedtls_pk_info_from_type(i32 noundef %49) #10
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %83, label %52
+  br i1 %51, label %88, label %52
 
 52:                                               ; preds = %48
   %53 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef nonnull %50) #10
   %.not39 = icmp eq i32 %53, 0
-  br i1 %.not39, label %54, label %83
+  br i1 %.not39, label %54, label %88
 
 54:                                               ; preds = %52
   %55 = load i32, ptr %14, align 4
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %57, label %66
+  br i1 %56, label %57, label %68
 
 57:                                               ; preds = %54
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %58 = getelementptr inbounds i8, ptr %8, i64 8
-  %59 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %59, ptr %8, align 16
-  %60 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
-  %cond.i = icmp eq i32 %60, 1
-  %61 = load ptr, ptr %58, align 8
-  %.0.i43 = select i1 %cond.i, ptr %61, ptr null
+  store ptr %58, ptr %8, align 8
+  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
+  %cond.i = icmp eq i32 %62, 1
+  %63 = load ptr, ptr %61, align 8
+  %.0.i43 = select i1 %cond.i, ptr %63, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %62 = load ptr, ptr %13, align 8
-  %63 = load i64, ptr %11, align 8
-  %64 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i43, ptr noundef %62, i64 noundef %63)
-  %.not42 = icmp eq i32 %64, 0
-  br i1 %.not42, label %83, label %65
+  %64 = load ptr, ptr %13, align 8
+  %65 = load i64, ptr %11, align 8
+  %66 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i43, ptr noundef %64, i64 noundef %65)
+  %.not42 = icmp eq i32 %66, 0
+  br i1 %.not42, label %88, label %67
 
-65:                                               ; preds = %57
+67:                                               ; preds = %57
   call void @mbedtls_pk_free(ptr noundef nonnull %0) #10
-  br label %83
+  br label %88
 
-66:                                               ; preds = %54
-  %67 = and i32 %55, -2
-  %or.cond = icmp eq i32 %67, 2
-  br i1 %or.cond, label %68, label %83
+68:                                               ; preds = %54
+  %69 = and i32 %55, -2
+  %or.cond = icmp eq i32 %69, 2
+  br i1 %or.cond, label %70, label %88
 
-68:                                               ; preds = %66
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
-  %70 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %70, ptr %7, align 16
-  %71 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #10
-  %.off.i = add i32 %71, -2
+  store ptr %71, ptr %7, align 8
+  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %73, ptr %74, align 8
+  %75 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #10
+  %.off.i = add i32 %75, -2
   %switch.i = icmp ult i32 %.off.i, 3
-  %72 = load ptr, ptr %69, align 8
-  %.0.i44 = select i1 %switch.i, ptr %72, ptr null
+  %76 = load ptr, ptr %74, align 8
+  %.0.i44 = select i1 %switch.i, ptr %76, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %73 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %12, ptr noundef %.0.i44)
-  %.not40 = icmp eq i32 %73, 0
-  br i1 %.not40, label %74, label %82
+  %77 = call fastcc i32 @pk_use_ecparams(ptr noundef nonnull %12, ptr noundef %.0.i44)
+  %.not40 = icmp eq i32 %77, 0
+  br i1 %.not40, label %78, label %87
 
-74:                                               ; preds = %68
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %0, align 8
+  %80 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
-  %76 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %76, ptr %6, align 16
-  %77 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
-  %.off.i45 = add i32 %77, -2
+  store ptr %79, ptr %6, align 8
+  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %80, ptr %81, align 8
+  %82 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
+  %.off.i45 = add i32 %82, -2
   %switch.i46 = icmp ult i32 %.off.i45, 3
-  %78 = load ptr, ptr %75, align 8
-  %.0.i47 = select i1 %switch.i46, ptr %78, ptr null
+  %83 = load ptr, ptr %81, align 8
+  %.0.i47 = select i1 %switch.i46, ptr %83, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %79 = load ptr, ptr %13, align 8
-  %80 = load i64, ptr %11, align 8
-  %81 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i47, ptr noundef %79, i64 noundef %80, ptr noundef %3, ptr noundef %4)
-  %.not41 = icmp eq i32 %81, 0
-  br i1 %.not41, label %83, label %82
+  %84 = load ptr, ptr %13, align 8
+  %85 = load i64, ptr %11, align 8
+  %86 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i47, ptr noundef %84, i64 noundef %85, ptr noundef %3, ptr noundef %4)
+  %.not41 = icmp eq i32 %86, 0
+  br i1 %.not41, label %88, label %87
 
-82:                                               ; preds = %74, %68
-  %.024 = phi i32 [ %73, %68 ], [ %81, %74 ]
+87:                                               ; preds = %78, %70
+  %.024 = phi i32 [ %77, %70 ], [ %86, %78 ]
   call void @mbedtls_pk_free(ptr noundef nonnull %0) #10
-  br label %83
+  br label %88
 
-83:                                               ; preds = %45, %pk_get_pk_alg.exit.thread, %26, %57, %74, %66, %52, %48, %pk_get_pk_alg.exit, %82, %65, %43, %24, %17
-  %.0 = phi i32 [ %18, %17 ], [ %25, %24 ], [ %44, %43 ], [ %64, %65 ], [ %.024, %82 ], [ %40, %pk_get_pk_alg.exit ], [ -15488, %48 ], [ %53, %52 ], [ -15488, %66 ], [ 0, %74 ], [ 0, %57 ], [ -15744, %26 ], [ %.0.i.ph, %pk_get_pk_alg.exit.thread ], [ -15712, %45 ]
+88:                                               ; preds = %45, %pk_get_pk_alg.exit.thread, %26, %57, %78, %68, %52, %48, %pk_get_pk_alg.exit, %87, %67, %43, %24, %17
+  %.0 = phi i32 [ %18, %17 ], [ %25, %24 ], [ %44, %43 ], [ %66, %67 ], [ %.024, %87 ], [ %40, %pk_get_pk_alg.exit ], [ -15488, %48 ], [ %53, %52 ], [ -15488, %68 ], [ 0, %78 ], [ 0, %57 ], [ -15744, %26 ], [ %.0.i.ph, %pk_get_pk_alg.exit.thread ], [ -15712, %45 ]
   ret i32 %.0
 }
 

@@ -81,24 +81,24 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %unprotected_bytes, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %unprotected_bytes_size, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %protected_output_frames, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
+  %cmp1 = icmp eq ptr %0, null
+  %cmp3 = icmp eq ptr %unprotected_bytes, null
+  %or.cond = or i1 %cmp3, %cmp1
+  %cmp5 = icmp eq ptr %unprotected_bytes_size, null
+  %or.cond1 = or i1 %cmp5, %or.cond
+  %cmp7 = icmp eq ptr %protected_output_frames, null
+  %or.cond2 = or i1 %cmp7, %or.cond1
   %cmp9 = icmp eq ptr %protected_output_frames_size, null
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp ne i4 %6, 0
-  %op.rdx = or i1 %7, %cmp9
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %cmp9, %or.cond2
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %0, align 8
-  %cmp11 = icmp eq ptr %8, null
+  %1 = load ptr, ptr %0, align 8
+  %cmp11 = icmp eq ptr %1, null
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %call = tail call noundef i32 %8(ptr noundef nonnull %self, ptr noundef nonnull %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %protected_output_frames_size)
+  %call = tail call noundef i32 %1(ptr noundef nonnull %self, ptr noundef nonnull %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %protected_output_frames_size)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end13
@@ -114,23 +114,23 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %protected_output_frames, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %protected_output_frames_size, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %still_pending_size, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
-  %6 = bitcast <4 x i1> %5 to i4
-  %.not = icmp eq i4 %6, 0
-  br i1 %.not, label %if.end, label %return
+  %cmp1 = icmp eq ptr %0, null
+  %cmp3 = icmp eq ptr %protected_output_frames, null
+  %or.cond = or i1 %cmp3, %cmp1
+  %cmp5 = icmp eq ptr %protected_output_frames_size, null
+  %or.cond1 = or i1 %cmp5, %or.cond
+  %cmp7 = icmp eq ptr %still_pending_size, null
+  %or.cond2 = or i1 %cmp7, %or.cond1
+  br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %protect_flush = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %protect_flush, align 8
-  %cmp9 = icmp eq ptr %7, null
+  %1 = load ptr, ptr %protect_flush, align 8
+  %cmp9 = icmp eq ptr %1, null
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  %call = tail call noundef i32 %7(ptr noundef nonnull %self, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %protected_output_frames_size, ptr noundef nonnull %still_pending_size)
+  %call = tail call noundef i32 %1(ptr noundef nonnull %self, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %protected_output_frames_size, ptr noundef nonnull %still_pending_size)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end11
@@ -146,25 +146,25 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %self, align 8
-  %1 = insertelement <4 x ptr> poison, ptr %protected_frames_bytes, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %0, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %protected_frames_bytes_size, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %unprotected_bytes, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
+  %cmp1 = icmp eq ptr %0, null
+  %cmp3 = icmp eq ptr %protected_frames_bytes, null
+  %or.cond = or i1 %cmp3, %cmp1
+  %cmp5 = icmp eq ptr %protected_frames_bytes_size, null
+  %or.cond1 = or i1 %cmp5, %or.cond
+  %cmp7 = icmp eq ptr %unprotected_bytes, null
+  %or.cond2 = or i1 %cmp7, %or.cond1
   %cmp9 = icmp eq ptr %unprotected_bytes_size, null
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp ne i4 %6, 0
-  %op.rdx = or i1 %7, %cmp9
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %cmp9, %or.cond2
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %unprotect = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load ptr, ptr %unprotect, align 8
-  %cmp11 = icmp eq ptr %8, null
+  %1 = load ptr, ptr %unprotect, align 8
+  %cmp11 = icmp eq ptr %1, null
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %call = tail call noundef i32 %8(ptr noundef nonnull %self, ptr noundef nonnull %protected_frames_bytes, ptr noundef nonnull %protected_frames_bytes_size, ptr noundef nonnull %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size)
+  %call = tail call noundef i32 %1(ptr noundef nonnull %self, ptr noundef nonnull %protected_frames_bytes, ptr noundef nonnull %protected_frames_bytes_size, ptr noundef nonnull %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end13

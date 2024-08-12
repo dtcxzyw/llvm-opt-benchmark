@@ -118,13 +118,14 @@ thread-pre-split:                                 ; preds = %33
   %70 = getelementptr inbounds i32, ptr %30, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = add nsw i32 %71, 1
-  %73 = shl nuw i64 %69, 1
-  %74 = and i64 %73, 4294967294
-  %75 = getelementptr i32, ptr %61, i64 %74
-  %76 = insertelement <2 x i32> poison, i32 %71, i64 0
-  %77 = insertelement <2 x i32> %76, i32 %72, i64 1
-  %78 = sdiv <2 x i32> %77, <i32 2, i32 2>
-  store <2 x i32> %78, ptr %75, align 4, !tbaa !3
+  %73 = sdiv i32 %72, 2
+  %74 = shl nuw i64 %69, 1
+  %75 = and i64 %74, 4294967294
+  %76 = getelementptr inbounds i32, ptr %30, i64 %75
+  store i32 %73, ptr %76, align 4, !tbaa !3
+  %77 = sdiv i32 %71, 2
+  %78 = getelementptr i32, ptr %61, i64 %75
+  store i32 %77, ptr %78, align 4, !tbaa !3
   %79 = add nsw i64 %69, -1
   %80 = icmp ugt i64 %69, 1
   br i1 %80, label %68, label %.loopexit31, !llvm.loop !7

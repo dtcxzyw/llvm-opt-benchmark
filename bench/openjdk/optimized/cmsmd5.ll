@@ -11,19 +11,25 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @cmsMD5alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 96) #8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %8, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %0, ptr %5, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 0, ptr %7, align 4
-  br label %8
+  store i32 1732584193, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -271733879, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 -1732584194, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 271733878, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 0, ptr %10, align 4
+  br label %11
 
-8:                                                ; preds = %1, %4
+11:                                               ; preds = %1, %4
   ret ptr %2
 }
 
@@ -682,14 +688,18 @@ define hidden void @cmsMD5finish(ptr nocapture noundef writeonly %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %15, %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
-  %20 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %20, ptr %19, align 8
+  %19 = load i32, ptr %3, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  store i32 %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  store i32 %22, ptr %23, align 4
   tail call fastcc void @cmsMD5_Transform(ptr noundef nonnull %1, ptr noundef nonnull %7)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
-  %22 = load ptr, ptr %21, align 8
-  tail call void @_cmsFree(ptr noundef %22, ptr noundef nonnull %1) #8
+  %24 = getelementptr inbounds i8, ptr %1, i64 88
+  %25 = load ptr, ptr %24, align 8
+  tail call void @_cmsFree(ptr noundef %25, ptr noundef nonnull %1) #8
   ret void
 }
 
@@ -733,72 +743,81 @@ define hidden range(i32 0, 2) i32 @cmsMD5computeID(ptr noundef %0) local_unnamed
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %16, i64 88
   store ptr %4, ptr %19, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  %21 = getelementptr inbounds i8, ptr %16, i64 20
-  %22 = load i32, ptr %2, align 4
-  %23 = shl i32 %22, 3
-  store i32 %23, ptr %20, align 8
-  %24 = lshr i32 %22, 29
-  store i32 %24, ptr %21, align 4
-  %25 = icmp ugt i32 %22, 63
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
+  store i32 1732584193, ptr %16, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 -271733879, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 -1732584194, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 271733878, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %16, i64 16
+  %24 = getelementptr inbounds i8, ptr %16, i64 20
+  %25 = load i32, ptr %2, align 4
+  %26 = shl i32 %25, 3
+  store i32 %26, ptr %23, align 8
+  %27 = lshr i32 %25, 29
+  store i32 %27, ptr %24, align 4
+  %28 = icmp ugt i32 %25, 63
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
-  br label %27
+  %29 = getelementptr inbounds i8, ptr %16, i64 24
+  br label %30
 
-27:                                               ; preds = %27, %.lr.ph.i
-  %.144.i = phi ptr [ %11, %.lr.ph.i ], [ %28, %27 ]
-  %.13843.i = phi i32 [ %22, %.lr.ph.i ], [ %29, %27 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 1 dereferenceable(64) %.144.i, i64 64, i1 false)
-  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %26)
-  %28 = getelementptr inbounds i8, ptr %.144.i, i64 64
-  %29 = add i32 %.13843.i, -64
-  %30 = icmp ugt i32 %29, 63
-  br i1 %30, label %27, label %._crit_edge.i, !llvm.loop !6
+30:                                               ; preds = %30, %.lr.ph.i
+  %.144.i = phi ptr [ %11, %.lr.ph.i ], [ %31, %30 ]
+  %.13843.i = phi i32 [ %25, %.lr.ph.i ], [ %32, %30 ]
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 1 dereferenceable(64) %.144.i, i64 64, i1 false)
+  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %29)
+  %31 = getelementptr inbounds i8, ptr %.144.i, i64 64
+  %32 = add i32 %.13843.i, -64
+  %33 = icmp ugt i32 %32, 63
+  br i1 %33, label %30, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %27, %18
-  %.138.lcssa.i = phi i32 [ %22, %18 ], [ %29, %27 ]
-  %.1.lcssa.i = phi ptr [ %11, %18 ], [ %28, %27 ]
-  %31 = getelementptr inbounds i8, ptr %16, i64 24
-  %32 = zext nneg i32 %.138.lcssa.i to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %.1.lcssa.i, i64 %32, i1 false)
+._crit_edge.i:                                    ; preds = %30, %18
+  %.138.lcssa.i = phi i32 [ %25, %18 ], [ %32, %30 ]
+  %.1.lcssa.i = phi ptr [ %11, %18 ], [ %31, %30 ]
+  %34 = getelementptr inbounds i8, ptr %16, i64 24
+  %35 = zext nneg i32 %.138.lcssa.i to i64
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %.1.lcssa.i, i64 %35, i1 false)
   call void @_cmsFree(ptr noundef %4, ptr noundef nonnull %11) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3760) %0, ptr noundef nonnull align 8 dereferenceable(3760) %3, i64 3760, i1 false)
-  %33 = load i32, ptr %20, align 8
-  %34 = lshr i32 %33, 3
-  %35 = and i32 %34, 63
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %31, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
-  store i8 -128, ptr %37, align 1
-  %39 = xor i32 %35, 63
-  %40 = icmp ult i32 %39, 8
-  br i1 %40, label %41, label %43
+  %36 = load i32, ptr %23, align 8
+  %37 = lshr i32 %36, 3
+  %38 = and i32 %37, 63
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %34, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -128, ptr %40, align 1
+  %42 = xor i32 %38, 63
+  %43 = icmp ult i32 %42, 8
+  br i1 %43, label %44, label %46
 
-41:                                               ; preds = %._crit_edge.i
-  %42 = zext nneg i32 %39 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %38, i8 0, i64 %42, i1 false)
-  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %31)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
+44:                                               ; preds = %._crit_edge.i
+  %45 = zext nneg i32 %42 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %45, i1 false)
+  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %34)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
   br label %cmsMD5finish.exit
 
-43:                                               ; preds = %._crit_edge.i
-  %44 = sub nsw i32 55, %35
-  %45 = zext nneg i32 %44 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %38, i8 0, i64 %45, i1 false)
+46:                                               ; preds = %._crit_edge.i
+  %47 = sub nsw i32 55, %38
+  %48 = zext nneg i32 %47 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 0, i64 %48, i1 false)
   br label %cmsMD5finish.exit
 
-cmsMD5finish.exit:                                ; preds = %41, %43
-  %46 = getelementptr inbounds i8, ptr %16, i64 80
-  %47 = load <2 x i32>, ptr %20, align 8
-  store <2 x i32> %47, ptr %46, align 8
-  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %31)
+cmsMD5finish.exit:                                ; preds = %44, %46
+  %49 = load i32, ptr %23, align 8
+  %50 = getelementptr inbounds i8, ptr %16, i64 80
+  store i32 %49, ptr %50, align 8
+  %51 = load i32, ptr %24, align 4
+  %52 = getelementptr inbounds i8, ptr %16, i64 84
+  store i32 %51, ptr %52, align 4
+  call fastcc void @cmsMD5_Transform(ptr noundef nonnull %16, ptr noundef nonnull %34)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
-  %48 = load ptr, ptr %19, align 8
-  call void @_cmsFree(ptr noundef %48, ptr noundef nonnull %16) #8
-  br label %49
+  %53 = load ptr, ptr %19, align 8
+  call void @_cmsFree(ptr noundef %53, ptr noundef nonnull %16) #8
+  br label %54
 
 cmsMD5alloc.exit.thread:                          ; preds = %15, %13
   call void @_cmsFree(ptr noundef %4, ptr noundef nonnull %11) #8
@@ -806,9 +825,9 @@ cmsMD5alloc.exit.thread:                          ; preds = %15, %13
 
 .thread:                                          ; preds = %1, %9, %cmsMD5alloc.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3760) %0, ptr noundef nonnull align 8 dereferenceable(3760) %3, i64 3760, i1 false)
-  br label %49
+  br label %54
 
-49:                                               ; preds = %.thread, %cmsMD5finish.exit
+54:                                               ; preds = %.thread, %cmsMD5finish.exit
   %.0 = phi i32 [ 0, %.thread ], [ 1, %cmsMD5finish.exit ]
   ret i32 %.0
 }

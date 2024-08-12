@@ -4148,13 +4148,19 @@ if.then.i3.i:
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.then.i3.i
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i5, i64 4
+  store i32 6, ptr %m_capacity.i.i.i, align 4
   store ptr %call2.i.i.i5, ptr %m_ptr.i, align 8
   %bf.load.i4.i = load i8, ptr %m_kind.i, align 4
   %bf.clear.i5.i = and i8 %bf.load.i4.i, -4
   %bf.set5.i.i = or disjoint i8 %bf.clear.i5.i, 1
   store i8 %bf.set5.i.i, ptr %m_kind.i, align 4
   store i32 1, ptr %m_int_min, align 8
-  store <4 x i32> <i32 1, i32 6, i32 -2147483648, i32 0>, ptr %call2.i.i.i5, align 4
+  %m_digits.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i5, i64 8
+  store i32 -2147483648, ptr %m_digits.i.i.i, align 4
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %call2.i.i.i5, i64 12
+  store i32 0, ptr %arrayidx20.i.i, align 4
+  store i32 1, ptr %call2.i.i.i5, align 4
   store i32 1, ptr %one, align 8
   %m_kind.i6 = getelementptr inbounds i8, ptr %one, i64 4
   store i8 0, ptr %m_kind.i6, align 4

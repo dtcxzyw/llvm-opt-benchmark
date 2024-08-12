@@ -1075,7 +1075,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %53, label %3
+  br i1 %.not, label %56, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1101,7 +1101,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionRe
 19:                                               ; preds = %3
   %20 = tail call noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN5ZXing8NullableINS2_6Pdf41721DetectionResultColumnEEEmEET_S8_T0_(ptr noundef %5, i64 noundef %1)
   store ptr %20, ptr %4, align 8
-  br label %53
+  br label %56
 
 21:                                               ; preds = %3
   %22 = icmp ult i64 %17, %1
@@ -1128,21 +1128,21 @@ _ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #15
   tail call void @_ZdlPv(ptr noundef nonnull %27) #14
   invoke void @__cxa_rethrow() #12
-          to label %58 unwind label %33
+          to label %61 unwind label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %54 unwind label %55
+          to label %57 unwind label %58
 
 _ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %_ZNKSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE12_M_check_lenEmPKc.exit
   %.not10.i.i.i = icmp eq ptr %6, %5
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %27, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit ]
-  %.0911.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit ]
+  %.012.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i ], [ %27, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit ]
+  %.0911.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %35 = load i8, ptr %.0911.i.i.i, align 8, !alias.scope !20, !noalias !17
@@ -1153,52 +1153,56 @@ _ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResult
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(120) %38, i64 120, i1 false), !alias.scope !22
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 128
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 128
-  %41 = load <2 x ptr>, ptr %40, align 8, !alias.scope !20, !noalias !17
-  store <2 x ptr> %41, ptr %39, align 8, !alias.scope !17, !noalias !20
-  %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 144
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 144
+  %41 = load ptr, ptr %40, align 8, !alias.scope !20, !noalias !17
+  store ptr %41, ptr %39, align 8, !alias.scope !17, !noalias !20
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 136
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 136
   %44 = load ptr, ptr %43, align 8, !alias.scope !20, !noalias !17
   store ptr %44, ptr %42, align 8, !alias.scope !17, !noalias !20
+  %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 144
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 144
+  %47 = load ptr, ptr %46, align 8, !alias.scope !20, !noalias !17
+  store ptr %47, ptr %45, align 8, !alias.scope !17, !noalias !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false), !alias.scope !20, !noalias !17
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 152
-  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 152
-  %47 = load i32, ptr %46, align 8, !alias.scope !20, !noalias !17
-  store i32 %47, ptr %45, align 8, !alias.scope !17, !noalias !20
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 160
-  %49 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 160
-  %.not.i.i.i = icmp eq ptr %48, %5
+  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 152
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 152
+  %50 = load i32, ptr %49, align 8, !alias.scope !20, !noalias !17
+  store i32 %50, ptr %48, align 8, !alias.scope !17, !noalias !20
+  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 160
+  %52 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 160
+  %.not.i.i.i = icmp eq ptr %51, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit
   %.not.i30 = icmp eq ptr %6, null
-  br i1 %.not.i30, label %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31, label %50
+  br i1 %.not.i30, label %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31, label %53
 
-50:                                               ; preds = %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
+53:                                               ; preds = %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31
 
-_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31: ; preds = %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %50
+_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31: ; preds = %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %53
   store ptr %27, ptr %0, align 8
-  %51 = getelementptr inbounds %"class.ZXing::Nullable.1", ptr %28, i64 %1
-  store ptr %51, ptr %4, align 8
-  %52 = getelementptr inbounds %"class.ZXing::Nullable.1", ptr %27, i64 %25
-  store ptr %52, ptr %11, align 8
-  br label %53
+  %54 = getelementptr inbounds %"class.ZXing::Nullable.1", ptr %28, i64 %1
+  store ptr %54, ptr %4, align 8
+  %55 = getelementptr inbounds %"class.ZXing::Nullable.1", ptr %27, i64 %25
+  store ptr %55, ptr %11, align 8
+  br label %56
 
-53:                                               ; preds = %19, %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31, %2
+56:                                               ; preds = %19, %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit31, %2
   ret void
 
-54:                                               ; preds = %33
+57:                                               ; preds = %33
   resume { ptr, i32 } %34
 
-55:                                               ; preds = %33
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %33
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #16
+  %60 = extractvalue { ptr, i32 } %59, 0
+  tail call void @__clang_call_terminate(ptr %60) #16
   unreachable
 
-58:                                               ; preds = %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit
+61:                                               ; preds = %_ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE13_M_deallocateEPS4_m.exit
   unreachable
 }
 

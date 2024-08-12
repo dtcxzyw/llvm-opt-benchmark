@@ -4093,14 +4093,20 @@ if.end327:                                        ; preds = %if.then313, %_ZNK2v
   %retval.i52.sroa.0.0.copyload.i = load ptr, ptr %resource_name_.i.i, align 8, !noalias !6
   store ptr %retval.i52.sroa.0.0.copyload.i, ptr %resource_name.i40.i, align 8, !alias.scope !6
   %resource_line_offset.i.i = getelementptr inbounds i8, ptr %source, i64 16
-  %206 = load <2 x i32>, ptr %resource_line_offset_.i.i, align 8, !noalias !6
-  store <2 x i32> %206, ptr %resource_line_offset.i.i, align 8, !alias.scope !6
+  %206 = load i32, ptr %resource_line_offset_.i.i, align 8, !noalias !6
+  store i32 %206, ptr %resource_line_offset.i.i, align 8, !alias.scope !6
+  %resource_column_offset.i.i = getelementptr inbounds i8, ptr %source, i64 20
+  %207 = load i32, ptr %resource_column_offset_.i.i, align 4, !noalias !6
+  store i32 %207, ptr %resource_column_offset.i.i, align 4, !alias.scope !6
   %resource_options.i.i = getelementptr inbounds i8, ptr %source, i64 24
   %retval.i62.sroa.0.0.copyload.i = load i32, ptr %options_.i.i, align 8, !noalias !6
   store i32 %retval.i62.sroa.0.0.copyload.i, ptr %resource_options.i.i, align 8, !alias.scope !6
   %source_map_url.i41.i = getelementptr inbounds i8, ptr %source, i64 32
-  %207 = load <2 x ptr>, ptr %source_map_url_.i.i, align 8, !noalias !6
-  store <2 x ptr> %207, ptr %source_map_url.i41.i, align 8, !alias.scope !6
+  %retval.i.sroa.0.0.copyload.i = load ptr, ptr %source_map_url_.i.i, align 8, !noalias !6
+  store ptr %retval.i.sroa.0.0.copyload.i, ptr %source_map_url.i41.i, align 8, !alias.scope !6
+  %host_defined_options.i42.i = getelementptr inbounds i8, ptr %source, i64 40
+  %retval.i66.sroa.0.0.copyload.i = load ptr, ptr %host_defined_options_.i.i, align 8, !noalias !6
+  store ptr %retval.i66.sroa.0.0.copyload.i, ptr %host_defined_options.i42.i, align 8, !alias.scope !6
   %cached_data.i.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %cached_data.0, ptr %cached_data.i.i, align 8, !alias.scope !6
   %consume_cache_task19.i.i = getelementptr inbounds i8, ptr %source, i64 56
@@ -4866,8 +4872,13 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit508: ; preds = %if.then.i5
   %resource_name_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 8
   store ptr %filename.sroa.0.090, ptr %resource_name_.i.i, align 8, !noalias !26
   %resource_line_offset_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 16
+  store i32 0, ptr %resource_line_offset_.i.i, align 8, !noalias !26
+  %resource_column_offset_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 20
+  store i32 0, ptr %resource_column_offset_.i.i, align 4, !noalias !26
   %options_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 24
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 -1>, ptr %resource_line_offset_.i.i, align 8, !noalias !26
+  store i32 1, ptr %options_.i.i, align 8, !noalias !26
+  %script_id_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 28
+  store i32 -1, ptr %script_id_.i.i, align 4, !noalias !26
   %source_map_url_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 32
   store ptr null, ptr %source_map_url_.i.i, align 8, !noalias !26
   %host_defined_options_.i.i = getelementptr inbounds i8, ptr %origin.i, i64 40
@@ -4878,14 +4889,20 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit508: ; preds = %if.then.i5
   %retval.i52.sroa.0.0.copyload.i = load ptr, ptr %resource_name_.i.i, align 8, !noalias !26
   store ptr %retval.i52.sroa.0.0.copyload.i, ptr %resource_name.i40.i, align 8, !alias.scope !26
   %resource_line_offset.i.i = getelementptr inbounds i8, ptr %source, i64 16
-  %72 = load <2 x i32>, ptr %resource_line_offset_.i.i, align 8, !noalias !26
-  store <2 x i32> %72, ptr %resource_line_offset.i.i, align 8, !alias.scope !26
+  %72 = load i32, ptr %resource_line_offset_.i.i, align 8, !noalias !26
+  store i32 %72, ptr %resource_line_offset.i.i, align 8, !alias.scope !26
+  %resource_column_offset.i.i = getelementptr inbounds i8, ptr %source, i64 20
+  %73 = load i32, ptr %resource_column_offset_.i.i, align 4, !noalias !26
+  store i32 %73, ptr %resource_column_offset.i.i, align 4, !alias.scope !26
   %resource_options.i.i = getelementptr inbounds i8, ptr %source, i64 24
   %retval.i62.sroa.0.0.copyload.i = load i32, ptr %options_.i.i, align 8, !noalias !26
   store i32 %retval.i62.sroa.0.0.copyload.i, ptr %resource_options.i.i, align 8, !alias.scope !26
   %source_map_url.i41.i = getelementptr inbounds i8, ptr %source, i64 32
-  %73 = load <2 x ptr>, ptr %source_map_url_.i.i, align 8, !noalias !26
-  store <2 x ptr> %73, ptr %source_map_url.i41.i, align 8, !alias.scope !26
+  %retval.i.sroa.0.0.copyload.i = load ptr, ptr %source_map_url_.i.i, align 8, !noalias !26
+  store ptr %retval.i.sroa.0.0.copyload.i, ptr %source_map_url.i41.i, align 8, !alias.scope !26
+  %host_defined_options.i42.i = getelementptr inbounds i8, ptr %source, i64 40
+  %retval.i66.sroa.0.0.copyload.i = load ptr, ptr %host_defined_options_.i.i, align 8, !noalias !26
+  store ptr %retval.i66.sroa.0.0.copyload.i, ptr %host_defined_options.i42.i, align 8, !alias.scope !26
   %cached_data.i.i = getelementptr inbounds i8, ptr %source, i64 48
   %consume_cache_task19.i.i = getelementptr inbounds i8, ptr %source, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cached_data.i.i, i8 0, i64 32, i1 false)
@@ -7204,14 +7221,20 @@ if.end324:                                        ; preds = %if.then309, %if.end
   %retval.i1859.sroa.0.0.copyload = load ptr, ptr %resource_name_.i, align 8
   store ptr %retval.i1859.sroa.0.0.copyload, ptr %resource_name.i1157, align 8
   %resource_line_offset.i = getelementptr inbounds i8, ptr %source, i64 16
-  %162 = load <2 x i32>, ptr %resource_line_offset_.i, align 8
-  store <2 x i32> %162, ptr %resource_line_offset.i, align 8
+  %162 = load i32, ptr %resource_line_offset_.i, align 8
+  store i32 %162, ptr %resource_line_offset.i, align 8
+  %resource_column_offset.i = getelementptr inbounds i8, ptr %source, i64 20
+  %163 = load i32, ptr %resource_column_offset_.i, align 4
+  store i32 %163, ptr %resource_column_offset.i, align 4
   %resource_options.i = getelementptr inbounds i8, ptr %source, i64 24
   %retval.i1869.sroa.0.0.copyload = load i32, ptr %options_.i, align 8
   store i32 %retval.i1869.sroa.0.0.copyload, ptr %resource_options.i, align 8
   %source_map_url.i1160 = getelementptr inbounds i8, ptr %source, i64 32
-  %163 = load <2 x ptr>, ptr %source_map_url_.i, align 8
-  store <2 x ptr> %163, ptr %source_map_url.i1160, align 8
+  %retval.i1191.sroa.0.0.copyload = load ptr, ptr %source_map_url_.i, align 8
+  store ptr %retval.i1191.sroa.0.0.copyload, ptr %source_map_url.i1160, align 8
+  %host_defined_options.i1161 = getelementptr inbounds i8, ptr %source, i64 40
+  %retval.i1873.sroa.0.0.copyload = load ptr, ptr %host_defined_options_.i, align 8
+  store ptr %retval.i1873.sroa.0.0.copyload, ptr %host_defined_options.i1161, align 8
   %cached_data.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %cached_data.0, ptr %cached_data.i, align 8
   %consume_cache_task19.i = getelementptr inbounds i8, ptr %source, i64 56
@@ -8661,9 +8684,15 @@ entry:
   %resource_name_.i = getelementptr inbounds i8, ptr %script_origin, i64 8
   store ptr %filename.coerce, ptr %resource_name_.i, align 8
   %resource_line_offset_.i = getelementptr inbounds i8, ptr %script_origin, i64 16
+  store i32 0, ptr %resource_line_offset_.i, align 8
+  %resource_column_offset_.i = getelementptr inbounds i8, ptr %script_origin, i64 20
+  store i32 0, ptr %resource_column_offset_.i, align 4
   %options_.i = getelementptr inbounds i8, ptr %script_origin, i64 24
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 -1>, ptr %resource_line_offset_.i, align 8
+  store i32 1, ptr %options_.i, align 8
+  %script_id_.i = getelementptr inbounds i8, ptr %script_origin, i64 28
+  store i32 -1, ptr %script_id_.i, align 4
   %source_map_url_.i = getelementptr inbounds i8, ptr %script_origin, i64 32
+  %host_defined_options_.i = getelementptr inbounds i8, ptr %script_origin, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %source_map_url_.i, i8 0, i64 16, i1 false)
   call void @_ZNK2v812ScriptOrigin24VerifyHostDefinedOptionsEv(ptr noundef nonnull align 8 dereferenceable(48) %script_origin) #21
   store ptr %content.coerce, ptr %script_source, align 8
@@ -8671,14 +8700,20 @@ entry:
   %retval.i69.sroa.0.0.copyload = load ptr, ptr %resource_name_.i, align 8
   store ptr %retval.i69.sroa.0.0.copyload, ptr %resource_name.i51, align 8
   %resource_line_offset.i = getelementptr inbounds i8, ptr %script_source, i64 16
-  %0 = load <2 x i32>, ptr %resource_line_offset_.i, align 8
-  store <2 x i32> %0, ptr %resource_line_offset.i, align 8
+  %0 = load i32, ptr %resource_line_offset_.i, align 8
+  store i32 %0, ptr %resource_line_offset.i, align 8
+  %resource_column_offset.i = getelementptr inbounds i8, ptr %script_source, i64 20
+  %1 = load i32, ptr %resource_column_offset_.i, align 4
+  store i32 %1, ptr %resource_column_offset.i, align 4
   %resource_options.i = getelementptr inbounds i8, ptr %script_source, i64 24
   %retval.i79.sroa.0.0.copyload = load i32, ptr %options_.i, align 8
   store i32 %retval.i79.sroa.0.0.copyload, ptr %resource_options.i, align 8
   %source_map_url.i53 = getelementptr inbounds i8, ptr %script_source, i64 32
-  %1 = load <2 x ptr>, ptr %source_map_url_.i, align 8
-  store <2 x ptr> %1, ptr %source_map_url.i53, align 8
+  %retval.i.sroa.0.0.copyload = load ptr, ptr %source_map_url_.i, align 8
+  store ptr %retval.i.sroa.0.0.copyload, ptr %source_map_url.i53, align 8
+  %host_defined_options.i54 = getelementptr inbounds i8, ptr %script_source, i64 40
+  %retval.i83.sroa.0.0.copyload = load ptr, ptr %host_defined_options_.i, align 8
+  store ptr %retval.i83.sroa.0.0.copyload, ptr %host_defined_options.i54, align 8
   %cached_data.i = getelementptr inbounds i8, ptr %script_source, i64 48
   %consume_cache_task19.i = getelementptr inbounds i8, ptr %script_source, i64 56
   %_M_finish.i = getelementptr inbounds i8, ptr %parameters, i64 8
@@ -9274,14 +9309,20 @@ entry:
   %retval.i52.sroa.0.0.copyload = load ptr, ptr %resource_name_.i, align 8
   store ptr %retval.i52.sroa.0.0.copyload, ptr %resource_name.i40, align 8
   %resource_line_offset.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %0 = load <2 x i32>, ptr %resource_line_offset_.i, align 8
-  store <2 x i32> %0, ptr %resource_line_offset.i, align 8
+  %0 = load i32, ptr %resource_line_offset_.i, align 8
+  store i32 %0, ptr %resource_line_offset.i, align 8
+  %resource_column_offset.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %1 = load i32, ptr %resource_column_offset_.i, align 4
+  store i32 %1, ptr %resource_column_offset.i, align 4
   %resource_options.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %retval.i62.sroa.0.0.copyload = load i32, ptr %options_.i, align 8
   store i32 %retval.i62.sroa.0.0.copyload, ptr %resource_options.i, align 8
   %source_map_url.i41 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %1 = load <2 x ptr>, ptr %source_map_url_.i, align 8
-  store <2 x ptr> %1, ptr %source_map_url.i41, align 8
+  %retval.i.sroa.0.0.copyload = load ptr, ptr %source_map_url_.i, align 8
+  store ptr %retval.i.sroa.0.0.copyload, ptr %source_map_url.i41, align 8
+  %host_defined_options.i42 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %retval.i66.sroa.0.0.copyload = load ptr, ptr %host_defined_options_.i, align 8
+  store ptr %retval.i66.sroa.0.0.copyload, ptr %host_defined_options.i42, align 8
   %cached_data.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr %cached_data, ptr %cached_data.i, align 8
   %consume_cache_task19.i = getelementptr inbounds i8, ptr %agg.result, i64 56

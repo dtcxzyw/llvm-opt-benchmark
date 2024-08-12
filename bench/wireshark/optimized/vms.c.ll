@@ -223,7 +223,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = alloca %struct.tm, align 16
+  %11 = alloca %struct.tm, align 8
   %12 = alloca [4 x i8], align 4
   %13 = alloca ptr, align 8
   store i32 0, ptr %8, align 4
@@ -232,11 +232,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   %14 = getelementptr inbounds i8, ptr %11, i64 20
   store i32 1970, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 0, ptr %15, align 16
+  store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 1, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 4
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %11, align 16
+  store i32 1, ptr %18, align 4
+  store i32 1, ptr %11, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 240
   %.pre.i = load ptr, ptr @g_ascii_table, align 8
   br label %20
@@ -461,7 +464,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   %108 = trunc i64 %107 to i32
   %109 = sub i32 %108, ptrtoint (ptr @parse_vms_packet.months to i32)
   %110 = sdiv i32 %109, 3
-  store i32 %110, ptr %15, align 16
+  store i32 %110, ptr %15, align 8
   br label %111
 
 111:                                              ; preds = %106, %104
@@ -469,7 +472,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   %113 = add i32 %112, -1900
   store i32 %113, ptr %14, align 4
   %114 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 -1, ptr %114, align 16
+  store i32 -1, ptr %114, align 8
   store i32 0, ptr %1, align 8
   %115 = call ptr @wtap_block_create(i32 noundef 5) #7
   %116 = getelementptr inbounds i8, ptr %1, i64 232

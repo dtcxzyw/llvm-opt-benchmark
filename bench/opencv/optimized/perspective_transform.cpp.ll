@@ -61,7 +61,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform28quadrilateralToQuadrilatera
   %19 = alloca %"class.zxing::Ref", align 8
   call void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEffffffff(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %18, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8)
   invoke void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEffffffff(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %19, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16)
-          to label %20 unwind label %135
+          to label %20 unwind label %125
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %19, align 8
@@ -79,7 +79,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform28quadrilateralToQuadrilatera
 _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %27 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-          to label %28 unwind label %137
+          to label %28 unwind label %127
 
 28:                                               ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit
   %29 = getelementptr inbounds i8, ptr %21, i64 12
@@ -90,206 +90,202 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
   %34 = load float, ptr %33, align 8, !noalias !4
   %35 = getelementptr inbounds i8, ptr %22, i64 16
   %36 = load float, ptr %35, align 8, !noalias !4
-  %37 = getelementptr inbounds i8, ptr %21, i64 36
-  %38 = load float, ptr %37, align 4, !noalias !4
-  %39 = getelementptr inbounds i8, ptr %22, i64 20
+  %37 = fmul float %34, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %30, float %32, float %37)
+  %39 = getelementptr inbounds i8, ptr %21, i64 36
   %40 = load float, ptr %39, align 4, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %22, i64 24
-  %42 = load float, ptr %41, align 8, !noalias !4
-  %43 = getelementptr inbounds i8, ptr %22, i64 28
-  %44 = load float, ptr %43, align 4, !noalias !4
-  %45 = getelementptr inbounds i8, ptr %22, i64 32
-  %46 = load float, ptr %45, align 8, !noalias !4
-  %47 = getelementptr inbounds i8, ptr %22, i64 36
-  %48 = load float, ptr %47, align 4, !noalias !4
-  %49 = getelementptr inbounds i8, ptr %22, i64 40
-  %50 = load float, ptr %49, align 8, !noalias !4
-  %51 = getelementptr inbounds i8, ptr %22, i64 44
-  %52 = load float, ptr %51, align 4, !noalias !4
-  %53 = getelementptr inbounds i8, ptr %21, i64 16
-  %54 = getelementptr inbounds i8, ptr %21, i64 28
-  %55 = getelementptr inbounds i8, ptr %21, i64 40
-  %56 = load <2 x float>, ptr %53, align 8, !noalias !4
-  %57 = load <2 x float>, ptr %54, align 4, !noalias !4
-  %58 = load <2 x float>, ptr %55, align 8, !noalias !4
-  %59 = extractelement <2 x float> %57, i64 1
-  %60 = fmul float %50, %59
-  %61 = extractelement <2 x float> %56, i64 1
-  %62 = tail call float @llvm.fmuladd.f32(float %61, float %48, float %60)
-  %63 = extractelement <2 x float> %58, i64 1
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float %52, float %62)
-  %65 = getelementptr inbounds i8, ptr %27, i64 8
+  %41 = getelementptr inbounds i8, ptr %22, i64 20
+  %42 = load float, ptr %41, align 4, !noalias !4
+  %43 = tail call float @llvm.fmuladd.f32(float %40, float %42, float %38)
+  %44 = getelementptr inbounds i8, ptr %22, i64 24
+  %45 = load float, ptr %44, align 8, !noalias !4
+  %46 = getelementptr inbounds i8, ptr %22, i64 28
+  %47 = load float, ptr %46, align 4, !noalias !4
+  %48 = fmul float %34, %47
+  %49 = tail call float @llvm.fmuladd.f32(float %30, float %45, float %48)
+  %50 = getelementptr inbounds i8, ptr %22, i64 32
+  %51 = load float, ptr %50, align 8, !noalias !4
+  %52 = tail call float @llvm.fmuladd.f32(float %40, float %51, float %49)
+  %53 = getelementptr inbounds i8, ptr %22, i64 36
+  %54 = load float, ptr %53, align 4, !noalias !4
+  %55 = getelementptr inbounds i8, ptr %22, i64 40
+  %56 = load float, ptr %55, align 8, !noalias !4
+  %57 = fmul float %34, %56
+  %58 = tail call float @llvm.fmuladd.f32(float %30, float %54, float %57)
+  %59 = getelementptr inbounds i8, ptr %22, i64 44
+  %60 = load float, ptr %59, align 4, !noalias !4
+  %61 = tail call float @llvm.fmuladd.f32(float %40, float %60, float %58)
+  %62 = getelementptr inbounds i8, ptr %21, i64 16
+  %63 = load float, ptr %62, align 8, !noalias !4
+  %64 = getelementptr inbounds i8, ptr %21, i64 28
+  %65 = load float, ptr %64, align 4, !noalias !4
+  %66 = fmul float %36, %65
+  %67 = tail call float @llvm.fmuladd.f32(float %63, float %32, float %66)
+  %68 = getelementptr inbounds i8, ptr %21, i64 40
+  %69 = load float, ptr %68, align 8, !noalias !4
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float %42, float %67)
+  %71 = fmul float %47, %65
+  %72 = tail call float @llvm.fmuladd.f32(float %63, float %45, float %71)
+  %73 = tail call float @llvm.fmuladd.f32(float %69, float %51, float %72)
+  %74 = fmul float %56, %65
+  %75 = tail call float @llvm.fmuladd.f32(float %63, float %54, float %74)
+  %76 = tail call float @llvm.fmuladd.f32(float %69, float %60, float %75)
+  %77 = getelementptr inbounds i8, ptr %21, i64 20
+  %78 = load float, ptr %77, align 4, !noalias !4
+  %79 = getelementptr inbounds i8, ptr %21, i64 32
+  %80 = load float, ptr %79, align 8, !noalias !4
+  %81 = fmul float %36, %80
+  %82 = tail call float @llvm.fmuladd.f32(float %78, float %32, float %81)
+  %83 = getelementptr inbounds i8, ptr %21, i64 44
+  %84 = load float, ptr %83, align 4, !noalias !4
+  %85 = tail call float @llvm.fmuladd.f32(float %84, float %42, float %82)
+  %86 = fmul float %47, %80
+  %87 = tail call float @llvm.fmuladd.f32(float %78, float %45, float %86)
+  %88 = tail call float @llvm.fmuladd.f32(float %84, float %51, float %87)
+  %89 = fmul float %56, %80
+  %90 = tail call float @llvm.fmuladd.f32(float %78, float %54, float %89)
+  %91 = tail call float @llvm.fmuladd.f32(float %84, float %60, float %90)
+  %92 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %27, align 8, !noalias !4
-  %66 = getelementptr inbounds i8, ptr %27, i64 12
-  %67 = insertelement <4 x float> poison, float %34, i64 0
-  %68 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %69 = shufflevector <4 x float> %67, <4 x float> %68, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %71 = insertelement <4 x float> poison, float %36, i64 0
-  %72 = insertelement <4 x float> %71, float %44, i64 1
-  %73 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %74 = fmul <4 x float> %70, %73
-  %75 = insertelement <4 x float> poison, float %30, i64 0
-  %76 = shufflevector <2 x float> %56, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %77 = shufflevector <4 x float> %75, <4 x float> %76, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %78 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %79 = insertelement <4 x float> poison, float %32, i64 0
-  %80 = insertelement <4 x float> %79, float %42, i64 1
-  %81 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %82 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %78, <4 x float> %81, <4 x float> %74)
-  %83 = insertelement <4 x float> poison, float %38, i64 0
-  %84 = shufflevector <2 x float> %58, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %85 = shufflevector <4 x float> %83, <4 x float> %84, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %87 = insertelement <4 x float> poison, float %40, i64 0
-  %88 = insertelement <4 x float> %87, float %46, i64 1
-  %89 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %90 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %86, <4 x float> %89, <4 x float> %82)
-  store <4 x float> %90, ptr %66, align 4, !noalias !4
-  %91 = getelementptr inbounds i8, ptr %27, i64 28
-  %92 = insertelement <4 x float> poison, float %44, i64 0
-  %93 = insertelement <4 x float> %92, float %50, i64 1
-  %94 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %95 = insertelement <4 x float> %68, float %34, i64 1
-  %96 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %97 = fmul <4 x float> %94, %96
-  %98 = insertelement <4 x float> %76, float %30, i64 1
-  %99 = shufflevector <4 x float> %98, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %100 = insertelement <4 x float> poison, float %42, i64 0
-  %101 = insertelement <4 x float> %100, float %48, i64 1
-  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %103 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %99, <4 x float> %102, <4 x float> %97)
-  %104 = insertelement <4 x float> %84, float %38, i64 1
-  %105 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %106 = insertelement <4 x float> poison, float %46, i64 0
-  %107 = insertelement <4 x float> %106, float %52, i64 1
-  %108 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %109 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %105, <4 x float> %108, <4 x float> %103)
-  %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %110, ptr %91, align 4, !noalias !4
-  %111 = getelementptr inbounds i8, ptr %27, i64 44
-  store float %64, ptr %111, align 4, !noalias !4
-  store i32 1, ptr %65, align 8, !noalias !4
+  %93 = getelementptr inbounds i8, ptr %27, i64 12
+  store float %43, ptr %93, align 4, !noalias !4
+  %94 = getelementptr inbounds i8, ptr %27, i64 16
+  store float %70, ptr %94, align 8, !noalias !4
+  %95 = getelementptr inbounds i8, ptr %27, i64 20
+  store float %85, ptr %95, align 4, !noalias !4
+  %96 = getelementptr inbounds i8, ptr %27, i64 24
+  store float %52, ptr %96, align 8, !noalias !4
+  %97 = getelementptr inbounds i8, ptr %27, i64 28
+  store float %73, ptr %97, align 4, !noalias !4
+  %98 = getelementptr inbounds i8, ptr %27, i64 32
+  store float %88, ptr %98, align 8, !noalias !4
+  %99 = getelementptr inbounds i8, ptr %27, i64 36
+  store float %61, ptr %99, align 4, !noalias !4
+  %100 = getelementptr inbounds i8, ptr %27, i64 40
+  store float %76, ptr %100, align 8, !noalias !4
+  %101 = getelementptr inbounds i8, ptr %27, i64 44
+  store float %91, ptr %101, align 4, !noalias !4
+  store i32 1, ptr %92, align 8, !noalias !4
   store ptr %27, ptr %0, align 8, !alias.scope !4
-  %112 = getelementptr inbounds i8, ptr %22, i64 8
-  %113 = load i32, ptr %112, align 8
-  %114 = add i32 %113, -1
-  store i32 %114, ptr %112, align 8
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
+  %102 = getelementptr inbounds i8, ptr %22, i64 8
+  %103 = load i32, ptr %102, align 8
+  %104 = add i32 %103, -1
+  store i32 %104, ptr %102, align 8
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
-116:                                              ; preds = %28
-  store i32 -559026175, ptr %112, align 8
-  %117 = load ptr, ptr %22, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8
-  tail call void %119(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
+106:                                              ; preds = %28
+  store i32 -559026175, ptr %102, align 8
+  %107 = load ptr, ptr %22, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = load ptr, ptr %108, align 8
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %116, %28
-  %120 = getelementptr inbounds i8, ptr %21, i64 8
-  %121 = load i32, ptr %120, align 8
-  %122 = add i32 %121, -1
-  store i32 %122, ptr %120, align 8
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
+  %110 = getelementptr inbounds i8, ptr %21, i64 8
+  %111 = load i32, ptr %110, align 8
+  %112 = add i32 %111, -1
+  store i32 %112, ptr %110, align 8
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
 
-124:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
-  store i32 -559026175, ptr %120, align 8
-  %125 = load ptr, ptr %21, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  tail call void %127(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
+114:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
+  store i32 -559026175, ptr %110, align 8
+  %115 = load ptr, ptr %21, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8
+  tail call void %117(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22: ; preds = %124, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
-  %128 = load i32, ptr %112, align 8
-  %129 = add i32 %128, -1
-  store i32 %129, ptr %112, align 8
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22: ; preds = %114, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
+  %118 = load i32, ptr %102, align 8
+  %119 = add i32 %118, -1
+  store i32 %119, ptr %102, align 8
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24
 
-131:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
-  store i32 -559026175, ptr %112, align 8
-  %132 = load ptr, ptr %22, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8
-  tail call void %134(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
+121:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
+  store i32 -559026175, ptr %102, align 8
+  %122 = load ptr, ptr %22, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22, %131
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22, %121
   ret void
 
-135:                                              ; preds = %17
-  %136 = landingpad { ptr, i32 }
+125:                                              ; preds = %17
+  %126 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %18, align 8
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
 
-137:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit
-  %138 = landingpad { ptr, i32 }
+127:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit
+  %128 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, label %139
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, label %129
 
-139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %22, i64 8
-  %141 = load i32, ptr %140, align 8
-  %142 = add i32 %141, -1
-  store i32 %142, ptr %140, align 8
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
+129:                                              ; preds = %127
+  %130 = getelementptr inbounds i8, ptr %22, i64 8
+  %131 = load i32, ptr %130, align 8
+  %132 = add i32 %131, -1
+  store i32 %132, ptr %130, align 8
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
 
-144:                                              ; preds = %139
-  store i32 -559026175, ptr %140, align 8
-  %145 = load ptr, ptr %22, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
+134:                                              ; preds = %129
+  store i32 -559026175, ptr %130, align 8
+  %135 = load ptr, ptr %22, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  tail call void %137(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %144, %139, %137
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %134, %129, %127
   %.not.i27 = icmp eq ptr %21, null
-  br i1 %.not.i27, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, label %148
+  br i1 %.not.i27, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, label %138
 
-148:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
-  %149 = getelementptr inbounds i8, ptr %21, i64 8
+138:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
+  %139 = getelementptr inbounds i8, ptr %21, i64 8
+  %140 = load i32, ptr %139, align 8
+  %141 = add i32 %140, -1
+  store i32 %141, ptr %139, align 8
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
+
+143:                                              ; preds = %138
+  store i32 -559026175, ptr %139, align 8
+  %144 = load ptr, ptr %21, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  tail call void %146(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
+  br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
+
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %143, %138, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, %125
+  %147 = phi ptr [ %.pre, %125 ], [ %22, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %22, %138 ], [ %22, %143 ]
+  %.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %128, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %128, %138 ], [ %128, %143 ]
+  %.not.i29 = icmp eq ptr %147, null
+  br i1 %.not.i29, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30, label %148
+
+148:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
+  %149 = getelementptr inbounds i8, ptr %147, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = add i32 %150, -1
   store i32 %151, ptr %149, align 8
   %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
+  br i1 %152, label %153, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30
 
 153:                                              ; preds = %148
   store i32 -559026175, ptr %149, align 8
-  %154 = load ptr, ptr %21, align 8
+  %154 = load ptr, ptr %147, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
-  tail call void %156(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
-  br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
-
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %153, %148, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, %135
-  %157 = phi ptr [ %.pre, %135 ], [ %22, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %22, %148 ], [ %22, %153 ]
-  %.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %138, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %138, %148 ], [ %138, %153 ]
-  %.not.i29 = icmp eq ptr %157, null
-  br i1 %.not.i29, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30, label %158
-
-158:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
-  %159 = getelementptr inbounds i8, ptr %157, i64 8
-  %160 = load i32, ptr %159, align 8
-  %161 = add i32 %160, -1
-  store i32 %161, ptr %159, align 8
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30
-
-163:                                              ; preds = %158
-  store i32 -559026175, ptr %159, align 8
-  %164 = load ptr, ptr %157, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull align 8 dereferenceable(12) %157) #10
+  tail call void %156(ptr noundef nonnull align 8 dereferenceable(12) %147) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30: ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, %158, %163
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30: ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, %148, %153
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -300,183 +296,199 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %12 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-          to label %13 unwind label %60
+          to label %13 unwind label %74
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %11, i64 28
   %15 = load float, ptr %14, align 4, !noalias !7
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
-  %17 = fneg float %15
-  %18 = getelementptr inbounds i8, ptr %11, i64 12
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 12
-  %21 = load <4 x float>, ptr %16, align 8, !noalias !7
-  %22 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 0, i32 1>
-  %23 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %24 = insertelement <4 x float> %23, float %15, i64 2
-  %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %26 = insertelement <4 x float> poison, float %15, i64 0
-  %27 = getelementptr inbounds i8, ptr %12, i64 28
-  %28 = load <4 x float>, ptr %18, align 4, !noalias !7
-  %29 = extractelement <4 x float> %28, i64 0
-  %30 = fneg float %29
-  %31 = shufflevector <4 x float> %21, <4 x float> %28, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
-  %32 = fneg <4 x float> %31
-  %33 = fmul <4 x float> %25, %32
-  %34 = shufflevector <4 x float> %26, <4 x float> %28, <4 x i32> <i32 0, i32 6, i32 5, i32 poison>
-  %35 = shufflevector <4 x float> %34, <4 x float> %21, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %36 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %35, <4 x float> %22, <4 x float> %33)
-  %37 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 1>
-  %38 = shufflevector <4 x float> %32, <4 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 poison, i32 2>
-  %39 = insertelement <4 x float> %38, float %17, i64 0
-  %40 = insertelement <4 x float> %39, float %30, i64 1
-  %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
-  %42 = fmul <4 x float> %37, %41
-  %43 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 2, i32 0>
-  %44 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 poison, i32 2>
-  %45 = shufflevector <4 x float> %44, <4 x float> %28, <4 x i32> <i32 0, i32 1, i32 7, i32 3>
-  %46 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %28, <4 x float> %45, <4 x float> %43)
-  %shift = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 poison, i32 3, i32 poison, i32 poison>
-  %47 = fmul <4 x float> %shift, %32
-  %48 = extractelement <4 x float> %47, i64 1
-  %49 = tail call float @llvm.fmuladd.f32(float %29, float %15, float %48)
+  %16 = getelementptr inbounds i8, ptr %11, i64 44
+  %17 = load float, ptr %16, align 4, !noalias !7
+  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %19 = load float, ptr %18, align 8, !noalias !7
+  %20 = getelementptr inbounds i8, ptr %11, i64 40
+  %21 = load float, ptr %20, align 8, !noalias !7
+  %22 = fneg float %19
+  %23 = fmul float %21, %22
+  %24 = tail call float @llvm.fmuladd.f32(float %15, float %17, float %23)
+  %25 = getelementptr inbounds i8, ptr %11, i64 36
+  %26 = load float, ptr %25, align 4, !noalias !7
+  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  %28 = load float, ptr %27, align 8, !noalias !7
+  %29 = fneg float %28
+  %30 = fmul float %17, %29
+  %31 = tail call float @llvm.fmuladd.f32(float %19, float %26, float %30)
+  %32 = fneg float %15
+  %33 = fmul float %26, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %28, float %21, float %33)
+  %35 = getelementptr inbounds i8, ptr %11, i64 20
+  %36 = load float, ptr %35, align 4, !noalias !7
+  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %38 = load float, ptr %37, align 8, !noalias !7
+  %39 = fneg float %38
+  %40 = fmul float %17, %39
+  %41 = tail call float @llvm.fmuladd.f32(float %36, float %21, float %40)
+  %42 = getelementptr inbounds i8, ptr %11, i64 12
+  %43 = load float, ptr %42, align 4, !noalias !7
+  %44 = fneg float %36
+  %45 = fmul float %26, %44
+  %46 = tail call float @llvm.fmuladd.f32(float %43, float %17, float %45)
+  %47 = fneg float %43
+  %48 = fmul float %21, %47
+  %49 = tail call float @llvm.fmuladd.f32(float %38, float %26, float %48)
+  %50 = fmul float %15, %44
+  %51 = tail call float @llvm.fmuladd.f32(float %38, float %19, float %50)
+  %52 = fmul float %19, %47
+  %53 = tail call float @llvm.fmuladd.f32(float %36, float %28, float %52)
+  %54 = fmul float %28, %39
+  %55 = tail call float @llvm.fmuladd.f32(float %43, float %15, float %54)
+  %56 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %12, align 8, !noalias !7
-  store <4 x float> %36, ptr %20, align 4, !noalias !7
-  %50 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 1>
-  store <4 x float> %50, ptr %27, align 4, !noalias !7
-  %51 = getelementptr inbounds i8, ptr %12, i64 44
-  store float %49, ptr %51, align 4, !noalias !7
-  store i32 1, ptr %19, align 8, !noalias !7
+  %57 = getelementptr inbounds i8, ptr %12, i64 12
+  store float %24, ptr %57, align 4, !noalias !7
+  %58 = getelementptr inbounds i8, ptr %12, i64 16
+  store float %41, ptr %58, align 8, !noalias !7
+  %59 = getelementptr inbounds i8, ptr %12, i64 20
+  store float %51, ptr %59, align 4, !noalias !7
+  %60 = getelementptr inbounds i8, ptr %12, i64 24
+  store float %31, ptr %60, align 8, !noalias !7
+  %61 = getelementptr inbounds i8, ptr %12, i64 28
+  store float %46, ptr %61, align 4, !noalias !7
+  %62 = getelementptr inbounds i8, ptr %12, i64 32
+  store float %53, ptr %62, align 8, !noalias !7
+  %63 = getelementptr inbounds i8, ptr %12, i64 36
+  store float %34, ptr %63, align 4, !noalias !7
+  %64 = getelementptr inbounds i8, ptr %12, i64 40
+  store float %49, ptr %64, align 8, !noalias !7
+  %65 = getelementptr inbounds i8, ptr %12, i64 44
+  store float %55, ptr %65, align 4, !noalias !7
+  store i32 1, ptr %56, align 8, !noalias !7
   store ptr %12, ptr %0, align 8, !alias.scope !7
-  %52 = getelementptr inbounds i8, ptr %11, i64 8
-  %53 = load i32, ptr %52, align 8
-  %54 = add i32 %53, -1
-  store i32 %54, ptr %52, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
+  %66 = getelementptr inbounds i8, ptr %11, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %66, align 8
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
-56:                                               ; preds = %13
-  store i32 -559026175, ptr %52, align 8
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
+70:                                               ; preds = %13
+  store i32 -559026175, ptr %66, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %56
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %70
   ret void
 
-60:                                               ; preds = %9
-  %61 = landingpad { ptr, i32 }
+74:                                               ; preds = %9
+  %75 = landingpad { ptr, i32 }
           cleanup
   %.not.i9 = icmp eq ptr %11, null
-  br i1 %.not.i9, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10, label %62
+  br i1 %.not.i9, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10, label %76
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %11, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = add i32 %64, -1
-  store i32 %65, ptr %63, align 8
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds i8, ptr %11, i64 8
+  %78 = load i32, ptr %77, align 8
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %77, align 8
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10
 
-67:                                               ; preds = %62
-  store i32 -559026175, ptr %63, align 8
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
+81:                                               ; preds = %76
+  store i32 -559026175, ptr %77, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10
 
-_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10: ; preds = %60, %62, %67
-  resume { ptr, i32 } %61
+_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10: ; preds = %74, %76, %81
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEffffffff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %10 = insertelement <2 x float> poison, float %1, i64 0
-  %11 = insertelement <2 x float> %10, float %2, i64 1
-  %12 = insertelement <2 x float> poison, float %3, i64 0
-  %13 = insertelement <2 x float> %12, float %4, i64 1
-  %14 = fsub <2 x float> %11, %13
-  %15 = insertelement <2 x float> poison, float %5, i64 0
-  %16 = insertelement <2 x float> %15, float %6, i64 1
-  %17 = fadd <2 x float> %14, %16
-  %18 = insertelement <2 x float> poison, float %7, i64 0
-  %19 = insertelement <2 x float> %18, float %8, i64 1
-  %20 = fsub <2 x float> %17, %19
-  %21 = extractelement <2 x float> %20, i64 0
-  %22 = tail call float @llvm.fabs.f32(float %21)
-  %23 = fpext float %22 to double
-  %24 = fcmp ugt double %23, 0x3EB0C6F7A0B5ED8D
-  br i1 %24, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, label %25
+  %10 = fsub float %1, %3
+  %11 = fadd float %10, %5
+  %12 = fsub float %11, %7
+  %13 = fsub float %2, %4
+  %14 = fadd float %13, %6
+  %15 = fsub float %14, %8
+  %16 = tail call float @llvm.fabs.f32(float %12)
+  %17 = fpext float %16 to double
+  %18 = fcmp ugt double %17, 0x3EB0C6F7A0B5ED8D
+  br i1 %18, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, label %19
 
-25:                                               ; preds = %9
-  %26 = extractelement <2 x float> %20, i64 1
-  %27 = tail call float @llvm.fabs.f32(float %26)
-  %28 = fpext float %27 to double
-  %29 = fcmp ugt double %28, 0x3EB0C6F7A0B5ED8D
-  br i1 %29, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit
+19:                                               ; preds = %9
+  %20 = tail call float @llvm.fabs.f32(float %15)
+  %21 = fpext float %20 to double
+  %22 = fcmp ugt double %21, 0x3EB0C6F7A0B5ED8D
+  br i1 %22, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit
 
-_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit: ; preds = %25
-  %30 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  %31 = fsub <2 x float> %13, %11
-  %32 = fsub <2 x float> %16, %13
-  br label %59
+_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit: ; preds = %19
+  %23 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %24 = fsub float %3, %1
+  %25 = fsub float %5, %3
+  %26 = fsub float %4, %2
+  %27 = fsub float %6, %4
+  br label %51
 
-_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69: ; preds = %25, %9
-  %33 = insertelement <2 x float> %19, float %3, i64 0
-  %34 = fsub <2 x float> %33, %16
-  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %36 = fsub float %7, %5
-  %37 = fsub float %4, %6
-  %38 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %39 = insertelement <2 x float> %38, float %36, i64 0
-  %40 = fneg <2 x float> %39
-  %41 = extractelement <2 x float> %40, i64 0
-  %42 = fmul float %37, %41
-  %43 = extractelement <2 x float> %34, i64 0
-  %44 = extractelement <2 x float> %34, i64 1
-  %45 = tail call float @llvm.fmuladd.f32(float %43, float %44, float %42)
-  %46 = insertelement <2 x float> %38, float %37, i64 1
-  %47 = fmul <2 x float> %46, %40
-  %48 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %35, <2 x float> %20, <2 x float> %47)
-  %49 = insertelement <2 x float> poison, float %45, i64 0
-  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = fdiv <2 x float> %48, %50
-  %52 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  %53 = fsub <2 x float> %13, %11
-  %54 = fsub <2 x float> %19, %11
-  %55 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
-  %56 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %55, <2 x float> %13, <2 x float> %53)
-  %57 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %58 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %57, <2 x float> %19, <2 x float> %54)
-  br label %59
+_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69: ; preds = %19, %9
+  %28 = fsub float %3, %5
+  %29 = fsub float %7, %5
+  %30 = fsub float %4, %6
+  %31 = fsub float %8, %6
+  %32 = fneg float %29
+  %33 = fmul float %30, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %28, float %31, float %33)
+  %35 = fmul float %15, %32
+  %36 = tail call float @llvm.fmuladd.f32(float %12, float %31, float %35)
+  %37 = fdiv float %36, %34
+  %38 = fneg float %12
+  %39 = fmul float %30, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %28, float %15, float %39)
+  %41 = fdiv float %40, %34
+  %42 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %43 = fsub float %3, %1
+  %44 = tail call float @llvm.fmuladd.f32(float %37, float %3, float %43)
+  %45 = fsub float %7, %1
+  %46 = tail call float @llvm.fmuladd.f32(float %41, float %7, float %45)
+  %47 = fsub float %4, %2
+  %48 = tail call float @llvm.fmuladd.f32(float %37, float %4, float %47)
+  %49 = fsub float %8, %2
+  %50 = tail call float @llvm.fmuladd.f32(float %41, float %8, float %49)
+  br label %51
 
-59:                                               ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit
-  %.sink95 = phi ptr [ %52, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %30, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
-  %60 = phi <2 x float> [ %56, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %31, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
-  %61 = phi <2 x float> [ %58, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %32, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
-  %62 = phi <2 x float> [ %51, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ zeroinitializer, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
-  %63 = getelementptr inbounds i8, ptr %.sink95, i64 8
+51:                                               ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit
+  %.sink95 = phi ptr [ %42, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %23, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink91 = phi float [ %44, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %24, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink88 = phi float [ %48, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %26, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink85 = phi float [ %37, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ 0.000000e+00, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink82 = phi float [ %46, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %25, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink79 = phi float [ %50, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %27, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %.sink76 = phi float [ %41, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ 0.000000e+00, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
+  %52 = getelementptr inbounds i8, ptr %.sink95, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %.sink95, align 8
-  %64 = getelementptr inbounds i8, ptr %.sink95, i64 12
-  store <2 x float> %60, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %.sink95, i64 20
-  %66 = extractelement <2 x float> %62, i64 0
-  store float %66, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %.sink95, i64 24
-  store <2 x float> %61, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %.sink95, i64 32
-  %69 = extractelement <2 x float> %62, i64 1
-  store float %69, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.sink95, i64 36
-  store float %1, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %.sink95, i64 40
-  store float %2, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %.sink95, i64 44
-  store float 1.000000e+00, ptr %72, align 4
-  store i32 1, ptr %63, align 8
+  %53 = getelementptr inbounds i8, ptr %.sink95, i64 12
+  store float %.sink91, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %.sink95, i64 16
+  store float %.sink88, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %.sink95, i64 20
+  store float %.sink85, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.sink95, i64 24
+  store float %.sink82, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %.sink95, i64 28
+  store float %.sink79, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %.sink95, i64 32
+  store float %.sink76, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %.sink95, i64 36
+  store float %1, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %.sink95, i64 40
+  store float %2, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %.sink95, i64 44
+  store float 1.000000e+00, ptr %61, align 4
+  store i32 1, ptr %52, align 8
   store ptr %.sink95, ptr %0, align 8
   ret void
 }
@@ -496,86 +508,82 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %10 = load float, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load float, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
-  %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 20
+  %13 = fmul float %10, %12
+  %14 = tail call float @llvm.fmuladd.f32(float %5, float %8, float %13)
+  %15 = getelementptr inbounds i8, ptr %1, i64 36
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
-  %18 = load float, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 28
-  %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 32
-  %22 = load float, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 36
-  %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 40
-  %26 = load float, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 44
-  %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = getelementptr inbounds i8, ptr %1, i64 28
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load <2 x float>, ptr %29, align 8
-  %33 = load <2 x float>, ptr %30, align 4
-  %34 = load <2 x float>, ptr %31, align 8
-  %35 = extractelement <2 x float> %33, i64 1
-  %36 = fmul float %26, %35
-  %37 = extractelement <2 x float> %32, i64 1
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float %24, float %36)
-  %39 = extractelement <2 x float> %34, i64 1
-  %40 = tail call float @llvm.fmuladd.f32(float %39, float %28, float %38)
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 20
+  %18 = load float, ptr %17, align 4
+  %19 = tail call float @llvm.fmuladd.f32(float %16, float %18, float %14)
+  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = load float, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %6, i64 28
+  %23 = load float, ptr %22, align 4
+  %24 = fmul float %10, %23
+  %25 = tail call float @llvm.fmuladd.f32(float %5, float %21, float %24)
+  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  %27 = load float, ptr %26, align 8
+  %28 = tail call float @llvm.fmuladd.f32(float %16, float %27, float %25)
+  %29 = getelementptr inbounds i8, ptr %6, i64 36
+  %30 = load float, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %6, i64 40
+  %32 = load float, ptr %31, align 8
+  %33 = fmul float %10, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %5, float %30, float %33)
+  %35 = getelementptr inbounds i8, ptr %6, i64 44
+  %36 = load float, ptr %35, align 4
+  %37 = tail call float @llvm.fmuladd.f32(float %16, float %36, float %34)
+  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = load float, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 28
+  %41 = load float, ptr %40, align 4
+  %42 = fmul float %12, %41
+  %43 = tail call float @llvm.fmuladd.f32(float %39, float %8, float %42)
+  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = load float, ptr %44, align 8
+  %46 = tail call float @llvm.fmuladd.f32(float %45, float %18, float %43)
+  %47 = fmul float %23, %41
+  %48 = tail call float @llvm.fmuladd.f32(float %39, float %21, float %47)
+  %49 = tail call float @llvm.fmuladd.f32(float %45, float %27, float %48)
+  %50 = fmul float %32, %41
+  %51 = tail call float @llvm.fmuladd.f32(float %39, float %30, float %50)
+  %52 = tail call float @llvm.fmuladd.f32(float %45, float %36, float %51)
+  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %54 = load float, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %56 = load float, ptr %55, align 8
+  %57 = fmul float %12, %56
+  %58 = tail call float @llvm.fmuladd.f32(float %54, float %8, float %57)
+  %59 = getelementptr inbounds i8, ptr %1, i64 44
+  %60 = load float, ptr %59, align 4
+  %61 = tail call float @llvm.fmuladd.f32(float %60, float %18, float %58)
+  %62 = fmul float %23, %56
+  %63 = tail call float @llvm.fmuladd.f32(float %54, float %21, float %62)
+  %64 = tail call float @llvm.fmuladd.f32(float %60, float %27, float %63)
+  %65 = fmul float %32, %56
+  %66 = tail call float @llvm.fmuladd.f32(float %54, float %30, float %65)
+  %67 = tail call float @llvm.fmuladd.f32(float %60, float %36, float %66)
+  %68 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 12
-  %43 = insertelement <4 x float> poison, float %10, i64 0
-  %44 = shufflevector <2 x float> %33, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %45 = shufflevector <4 x float> %43, <4 x float> %44, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %46 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %47 = insertelement <4 x float> poison, float %12, i64 0
-  %48 = insertelement <4 x float> %47, float %20, i64 1
-  %49 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %50 = fmul <4 x float> %46, %49
-  %51 = insertelement <4 x float> poison, float %5, i64 0
-  %52 = shufflevector <2 x float> %32, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %53 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %55 = insertelement <4 x float> poison, float %8, i64 0
-  %56 = insertelement <4 x float> %55, float %18, i64 1
-  %57 = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %58 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %54, <4 x float> %57, <4 x float> %50)
-  %59 = insertelement <4 x float> poison, float %14, i64 0
-  %60 = shufflevector <2 x float> %34, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %61 = shufflevector <4 x float> %59, <4 x float> %60, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %63 = insertelement <4 x float> poison, float %16, i64 0
-  %64 = insertelement <4 x float> %63, float %22, i64 1
-  %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %66 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %62, <4 x float> %65, <4 x float> %58)
-  store <4 x float> %66, ptr %42, align 4
-  %67 = getelementptr inbounds i8, ptr %3, i64 28
-  %68 = insertelement <4 x float> poison, float %20, i64 0
-  %69 = insertelement <4 x float> %68, float %26, i64 1
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %71 = insertelement <4 x float> %44, float %10, i64 1
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %73 = fmul <4 x float> %70, %72
-  %74 = insertelement <4 x float> %52, float %5, i64 1
-  %75 = shufflevector <4 x float> %74, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %76 = insertelement <4 x float> poison, float %18, i64 0
-  %77 = insertelement <4 x float> %76, float %24, i64 1
-  %78 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %79 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %75, <4 x float> %78, <4 x float> %73)
-  %80 = insertelement <4 x float> %60, float %14, i64 1
-  %81 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %82 = insertelement <4 x float> poison, float %22, i64 0
-  %83 = insertelement <4 x float> %82, float %28, i64 1
-  %84 = shufflevector <4 x float> %83, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %85 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %81, <4 x float> %84, <4 x float> %79)
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %86, ptr %67, align 4
-  %87 = getelementptr inbounds i8, ptr %3, i64 44
-  store float %40, ptr %87, align 4
-  store i32 1, ptr %41, align 8
+  %69 = getelementptr inbounds i8, ptr %3, i64 12
+  store float %19, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  store float %46, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %3, i64 20
+  store float %61, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %3, i64 24
+  store float %28, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %3, i64 28
+  store float %49, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %3, i64 32
+  store float %64, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %3, i64 36
+  store float %37, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %3, i64 40
+  store float %52, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %3, i64 44
+  store float %67, ptr %77, align 4
+  store i32 1, ptr %68, align 8
   store ptr %3, ptr %0, align 8
   ret void
 }
@@ -595,48 +603,67 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = fneg float %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 44
+  %6 = load float, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = load float, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = load float, ptr %9, align 8
+  %11 = fneg float %8
+  %12 = fmul float %10, %11
+  %13 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %12)
+  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = load float, ptr %16, align 8
+  %18 = fneg float %17
+  %19 = fmul float %6, %18
+  %20 = tail call float @llvm.fmuladd.f32(float %8, float %15, float %19)
+  %21 = fneg float %4
+  %22 = fmul float %15, %21
+  %23 = tail call float @llvm.fmuladd.f32(float %17, float %10, float %22)
+  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = load float, ptr %26, align 8
+  %28 = fneg float %27
+  %29 = fmul float %6, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %25, float %10, float %29)
+  %31 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = load float, ptr %31, align 4
+  %33 = fneg float %25
+  %34 = fmul float %15, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %6, float %34)
+  %36 = fneg float %32
+  %37 = fmul float %10, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %27, float %15, float %37)
+  %39 = fmul float %4, %33
+  %40 = tail call float @llvm.fmuladd.f32(float %27, float %8, float %39)
+  %41 = fmul float %8, %36
+  %42 = tail call float @llvm.fmuladd.f32(float %25, float %17, float %41)
+  %43 = fmul float %17, %28
+  %44 = tail call float @llvm.fmuladd.f32(float %32, float %4, float %43)
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
-  %10 = load <4 x float>, ptr %5, align 8
-  %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 0, i32 1>
-  %12 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %13 = insertelement <4 x float> %12, float %4, i64 2
-  %14 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %15 = insertelement <4 x float> poison, float %4, i64 0
-  %16 = getelementptr inbounds i8, ptr %2, i64 28
-  %17 = load <4 x float>, ptr %7, align 4
-  %18 = extractelement <4 x float> %17, i64 0
-  %19 = fneg float %18
-  %20 = shufflevector <4 x float> %10, <4 x float> %17, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
-  %21 = fneg <4 x float> %20
-  %22 = fmul <4 x float> %14, %21
-  %23 = shufflevector <4 x float> %15, <4 x float> %17, <4 x i32> <i32 0, i32 6, i32 5, i32 poison>
-  %24 = shufflevector <4 x float> %23, <4 x float> %10, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %25 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %24, <4 x float> %11, <4 x float> %22)
-  %26 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 1>
-  %27 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 poison, i32 2>
-  %28 = insertelement <4 x float> %27, float %6, i64 0
-  %29 = insertelement <4 x float> %28, float %19, i64 1
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
-  %31 = fmul <4 x float> %26, %30
-  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 2, i32 0>
-  %33 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 3, i32 1, i32 poison, i32 2>
-  %34 = shufflevector <4 x float> %33, <4 x float> %17, <4 x i32> <i32 0, i32 1, i32 7, i32 3>
-  %35 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %17, <4 x float> %34, <4 x float> %32)
-  %shift = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 poison, i32 3, i32 poison, i32 poison>
-  %36 = fmul <4 x float> %shift, %21
-  %37 = extractelement <4 x float> %36, i64 1
-  %38 = tail call float @llvm.fmuladd.f32(float %18, float %4, float %37)
-  store <4 x float> %25, ptr %9, align 4
-  %39 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 1>
-  store <4 x float> %39, ptr %16, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 44
-  store float %38, ptr %40, align 4
-  store i32 1, ptr %8, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %13, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %30, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 20
+  store float %40, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %2, i64 24
+  store float %20, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 28
+  store float %35, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %2, i64 32
+  store float %42, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 36
+  store float %23, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %2, i64 40
+  store float %38, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 44
+  store float %44, ptr %54, align 4
+  store i32 1, ptr %45, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -723,12 +750,6 @@ declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

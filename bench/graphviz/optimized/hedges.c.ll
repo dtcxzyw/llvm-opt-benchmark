@@ -156,7 +156,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = icmp eq ptr %4, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %70, label %9
+  br i1 %or.cond, label %64, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 48
@@ -164,7 +164,7 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %12 = getelementptr inbounds i8, ptr %6, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %70, label %15
+  br i1 %14, label %64, label %15
 
 15:                                               ; preds = %9
   %16 = load double, ptr %4, align 8
@@ -178,74 +178,69 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
   %24 = tail call double @llvm.fmuladd.f64(double %16, double %18, double %23)
   %25 = tail call double @llvm.fabs.f64(double %24)
   %or.cond3 = fcmp olt double %25, 1.000000e-10
-  br i1 %or.cond3, label %70, label %26
+  br i1 %or.cond3, label %64, label %26
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 16
   %30 = load double, ptr %29, align 8
-  %31 = insertelement <2 x double> poison, double %30, i64 0
-  %32 = insertelement <2 x double> %31, double %28, i64 1
-  %33 = fneg <2 x double> %32
-  %34 = insertelement <2 x double> poison, double %20, i64 0
-  %35 = insertelement <2 x double> %34, double %21, i64 1
-  %36 = fmul <2 x double> %35, %33
-  %37 = insertelement <2 x double> poison, double %28, i64 0
-  %38 = insertelement <2 x double> %37, double %30, i64 1
-  %39 = insertelement <2 x double> poison, double %18, i64 0
-  %40 = insertelement <2 x double> %39, double %16, i64 1
-  %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %38, <2 x double> %40, <2 x double> %36)
-  %42 = insertelement <2 x double> poison, double %24, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = fdiv <2 x double> %41, %43
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
-  %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
-  %48 = load double, ptr %47, align 8
-  %49 = fcmp olt double %46, %48
-  br i1 %49, label %57, label %50
+  %31 = fneg double %30
+  %32 = fmul double %20, %31
+  %33 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %32)
+  %34 = fdiv double %33, %24
+  %35 = fneg double %28
+  %36 = fmul double %21, %35
+  %37 = tail call double @llvm.fmuladd.f64(double %30, double %16, double %36)
+  %38 = fdiv double %37, %24
+  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %13, i64 8
+  %42 = load double, ptr %41, align 8
+  %43 = fcmp olt double %40, %42
+  br i1 %43, label %51, label %44
 
-50:                                               ; preds = %26
-  %51 = fcmp oeq double %46, %48
-  br i1 %51, label %52, label %56
+44:                                               ; preds = %26
+  %45 = fcmp oeq double %40, %42
+  br i1 %45, label %46, label %50
 
-52:                                               ; preds = %50
-  %53 = load double, ptr %11, align 8
-  %54 = load double, ptr %13, align 8
-  %55 = fcmp olt double %53, %54
-  br i1 %55, label %57, label %56
+46:                                               ; preds = %44
+  %47 = load double, ptr %11, align 8
+  %48 = load double, ptr %13, align 8
+  %49 = fcmp olt double %47, %48
+  br i1 %49, label %51, label %50
 
-56:                                               ; preds = %52, %50
-  br label %57
+50:                                               ; preds = %46, %44
+  br label %51
 
-57:                                               ; preds = %26, %52, %56
-  %58 = phi ptr [ %13, %56 ], [ %11, %52 ], [ %11, %26 ]
-  %.048 = phi ptr [ %1, %56 ], [ %0, %52 ], [ %0, %26 ]
-  %59 = load double, ptr %58, align 8
-  %60 = extractelement <2 x double> %44, i64 0
-  %61 = fcmp ult double %60, %59
-  %62 = getelementptr inbounds i8, ptr %.048, i64 28
-  %63 = load i8, ptr %62, align 4
-  br i1 %61, label %.critedge, label %64
+51:                                               ; preds = %26, %46, %50
+  %52 = phi ptr [ %13, %50 ], [ %11, %46 ], [ %11, %26 ]
+  %.048 = phi ptr [ %1, %50 ], [ %0, %46 ], [ %0, %26 ]
+  %53 = load double, ptr %52, align 8
+  %54 = fcmp ult double %34, %53
+  %55 = getelementptr inbounds i8, ptr %.048, i64 28
+  %56 = load i8, ptr %55, align 4
+  br i1 %54, label %.critedge, label %57
 
-64:                                               ; preds = %57
-  %65 = icmp eq i8 %63, 0
-  br i1 %65, label %70, label %67
+57:                                               ; preds = %51
+  %58 = icmp eq i8 %56, 0
+  br i1 %58, label %64, label %60
 
-.critedge:                                        ; preds = %57
-  %66 = icmp eq i8 %63, 1
-  br i1 %66, label %70, label %67
+.critedge:                                        ; preds = %51
+  %59 = icmp eq i8 %56, 1
+  br i1 %59, label %64, label %60
 
-67:                                               ; preds = %64, %.critedge
-  %68 = tail call ptr @getsite() #13
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
-  store i32 0, ptr %69, align 8
-  store <2 x double> %44, ptr %68, align 8
-  br label %70
+60:                                               ; preds = %57, %.critedge
+  %61 = tail call ptr @getsite() #13
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  store i32 0, ptr %62, align 8
+  store double %34, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  store double %38, ptr %63, align 8
+  br label %64
 
-70:                                               ; preds = %64, %.critedge, %15, %9, %2, %67
-  %.0 = phi ptr [ %68, %67 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %64 ]
+64:                                               ; preds = %57, %.critedge, %15, %9, %2, %60
+  %.0 = phi ptr [ %61, %60 ], [ null, %2 ], [ null, %9 ], [ null, %15 ], [ null, %.critedge ], [ null, %57 ]
   ret ptr %.0
 }
 
@@ -728,9 +723,6 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

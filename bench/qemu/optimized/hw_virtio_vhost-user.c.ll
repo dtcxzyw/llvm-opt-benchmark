@@ -2866,9 +2866,12 @@ if.end43:                                         ; preds = %if.end34
   %addr44 = getelementptr inbounds i8, ptr %inflight, i64 8
   store ptr %call38, ptr %addr44, align 8
   store i32 %call30, ptr %inflight, align 8
+  %12 = load i64, ptr %payload, align 4
   %size48 = getelementptr inbounds i8, ptr %inflight, i64 16
-  %12 = load <2 x i64>, ptr %payload, align 4
-  store <2 x i64> %12, ptr %size48, align 8
+  store i64 %12, ptr %size48, align 8
+  %13 = load i64, ptr %mmap_offset, align 4
+  %offset = getelementptr inbounds i8, ptr %inflight, i64 24
+  store i64 %13, ptr %offset, align 8
   %queue_size51 = getelementptr inbounds i8, ptr %inflight, i64 32
   store i16 %queue_size, ptr %queue_size51, align 8
   br label %return
@@ -2891,20 +2894,24 @@ entry:
   store i32 24, ptr %size, align 4
   %payload = getelementptr inbounds i8, ptr %msg, i64 12
   %size1 = getelementptr inbounds i8, ptr %inflight, i64 16
-  %1 = load <2 x i64>, ptr %size1, align 8
-  store <2 x i64> %1, ptr %payload, align 4
+  %1 = load i64, ptr %size1, align 8
+  store i64 %1, ptr %payload, align 4
+  %mmap_offset = getelementptr inbounds i8, ptr %msg, i64 20
+  %offset = getelementptr inbounds i8, ptr %inflight, i64 24
+  %2 = load i64, ptr %offset, align 8
+  store i64 %2, ptr %mmap_offset, align 4
   %num_queues = getelementptr inbounds i8, ptr %msg, i64 28
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
-  %2 = load i32, ptr %nvqs, align 8
-  %conv = trunc i32 %2 to i16
+  %3 = load i32, ptr %nvqs, align 8
+  %conv = trunc i32 %3 to i16
   store i16 %conv, ptr %num_queues, align 4
   %queue_size = getelementptr inbounds i8, ptr %msg, i64 30
   %queue_size2 = getelementptr inbounds i8, ptr %inflight, i64 32
-  %3 = load i16, ptr %queue_size2, align 8
-  store i16 %3, ptr %queue_size, align 2
+  %4 = load i16, ptr %queue_size2, align 8
+  store i16 %4, ptr %queue_size, align 2
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
-  %4 = load i64, ptr %protocol_features, align 8
-  %and.i = and i64 %4, 4096
+  %5 = load i64, ptr %protocol_features, align 8
+  %and.i = and i64 %5, 4096
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %return, label %if.end
 
@@ -4926,6 +4933,7 @@ if.then:                                          ; preds = %scrub_shadow_region
 for.body.lr.ph.i22:                               ; preds = %if.then
   %43 = load ptr, ptr %opaque, align 8
   %region4.i = getelementptr inbounds i8, ptr %msg, i64 20
+  %region_buffer.sroa.2.0.region4.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 28
   %region_buffer.sroa.3.0.region4.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 36
   %region_buffer.sroa.4.0.region4.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 44
   %flags.i.i = getelementptr inbounds i8, ptr %msg, i64 4
@@ -4959,8 +4967,11 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i22,
 vhost_user_fill_msg_region.exit.us.i:             ; preds = %for.body.us.i
   store i32 38, ptr %msg, align 1
   %52 = load i64, ptr %userspace_addr.us.i, align 8
-  %53 = load <2 x i64>, ptr %45, align 8
-  store <2 x i64> %53, ptr %region4.i, align 1
+  %memory_size.i.us.i = getelementptr inbounds i8, ptr %45, i64 8
+  %53 = load i64, ptr %memory_size.i.us.i, align 8
+  %54 = load i64, ptr %45, align 8
+  store i64 %54, ptr %region4.i, align 1
+  store i64 %53, ptr %region_buffer.sroa.2.0.region4.sroa_idx.i, align 1
   store i64 %52, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
   %call5.us.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
@@ -4969,29 +4980,29 @@ vhost_user_fill_msg_region.exit.us.i:             ; preds = %for.body.us.i
 
 if.end.us.i:                                      ; preds = %vhost_user_fill_msg_region.exit.us.i
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i.i)
-  %54 = load i32, ptr %flags.i.i, align 1
-  %and.i.us.i = and i32 %54, 8
+  %55 = load i32, ptr %flags.i.i, align 1
+  %and.i.us.i = and i32 %55, 8
   %cmp.i19.us.i = icmp eq i32 %and.i.us.i, 0
   br i1 %cmp.i19.us.i, label %process_message_reply.exit.us.i, label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %if.end.us.i
   %dev.val.i.us.i = load ptr, ptr %opaque, align 8
-  %55 = getelementptr i8, ptr %dev.val.i.us.i, i64 8
-  %dev.val.val.i.us.i = load ptr, ptr %55, align 8
+  %56 = getelementptr i8, ptr %dev.val.i.us.i, i64 8
+  %dev.val.val.i.us.i = load ptr, ptr %56, align 8
   %dev.val.val.val.i.us.i = load ptr, ptr %dev.val.val.i.us.i, align 8
   %call.i20.us.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.us.i, ptr noundef nonnull %msg_reply.i.i)
   %cmp1.i.us.i = icmp slt i32 %call.i20.us.i, 0
   br i1 %cmp1.i.us.i, label %process_message_reply.exit.thread.i, label %if.end3.i.us.i
 
 if.end3.i.us.i:                                   ; preds = %if.end.i.us.i
-  %56 = load i32, ptr %msg_reply.i.i, align 4
-  %57 = load i32, ptr %msg, align 1
-  %cmp7.not.i.us.i = icmp eq i32 %56, %57
+  %57 = load i32, ptr %msg_reply.i.i, align 4
+  %58 = load i32, ptr %msg, align 1
+  %cmp7.not.i.us.i = icmp eq i32 %57, %58
   br i1 %cmp7.not.i.us.i, label %if.end13.i.us.i, label %if.then8.i.i
 
 if.end13.i.us.i:                                  ; preds = %if.end3.i.us.i
-  %58 = load i64, ptr %payload.i.i, align 4
-  %tobool.not.i.us.i = icmp eq i64 %58, 0
+  %59 = load i64, ptr %payload.i.i, align 4
+  %tobool.not.i.us.i = icmp eq i64 %59, 0
   br i1 %tobool.not.i.us.i, label %process_message_reply.exit.us.i, label %process_message_reply.exit.thread.i
 
 process_message_reply.exit.us.i:                  ; preds = %if.end13.i.us.i, %if.end.us.i
@@ -5004,14 +5015,14 @@ if.end14.us.i:                                    ; preds = %process_message_rep
   %add.us.i = add i32 %46, 1
   %idxprom18.us.i = sext i32 %add.us.i to i64
   %arrayidx19.us.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i23, i64 0, i64 %idxprom18.us.i
-  %59 = load i32, ptr %num_shadow_regions.i24, align 4
-  %60 = xor i32 %46, -1
-  %sub21.us.i = add i32 %59, %60
+  %60 = load i32, ptr %num_shadow_regions.i24, align 4
+  %61 = xor i32 %46, -1
+  %sub21.us.i = add i32 %60, %61
   %conv.us.i = sext i32 %sub21.us.i to i64
   %mul.us.i = shl nsw i64 %conv.us.i, 5
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx16.us.i, ptr align 8 %arrayidx19.us.i, i64 %mul.us.i, i1 false)
-  %61 = load i32, ptr %num_shadow_regions.i24, align 4
-  %dec.us.i = add i32 %61, -1
+  %62 = load i32, ptr %num_shadow_regions.i24, align 4
+  %dec.us.i = add i32 %62, -1
   store i32 %dec.us.i, ptr %num_shadow_regions.i24, align 4
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, -1
   %cmp.us.i = icmp sgt i64 %indvars.iv36.i, 0
@@ -5020,37 +5031,40 @@ if.end14.us.i:                                    ; preds = %process_message_rep
 for.body.i25:                                     ; preds = %for.body.lr.ph.i22, %if.end14.i
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i36, %if.end14.i ], [ %44, %for.body.lr.ph.i22 ]
   %arrayidx.i27 = getelementptr %struct.scrub_regions, ptr %rem_reg, i64 %indvars.iv.i26
-  %62 = load ptr, ptr %arrayidx.i27, align 16
+  %63 = load ptr, ptr %arrayidx.i27, align 16
   %reg_idx.i28 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 8
-  %63 = load i32, ptr %reg_idx.i28, align 8
-  %userspace_addr.i29 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load i64, ptr %userspace_addr.i29, align 8
-  %65 = inttoptr i64 %64 to ptr
-  %call.i.i30 = call ptr @memory_region_from_host(ptr noundef %65, ptr noundef nonnull %offset.i20) #14
+  %64 = load i32, ptr %reg_idx.i28, align 8
+  %userspace_addr.i29 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load i64, ptr %userspace_addr.i29, align 8
+  %66 = inttoptr i64 %65 to ptr
+  %call.i.i30 = call ptr @memory_region_from_host(ptr noundef %66, ptr noundef nonnull %offset.i20) #14
   %call1.i.i31 = call i32 @memory_region_get_fd(ptr noundef %call.i.i30) #14
   %ram_block.i.i32 = getelementptr inbounds i8, ptr %call.i.i30, i64 56
-  %66 = load ptr, ptr %ram_block.i.i32, align 8
-  %fd_offset.i.i33 = getelementptr inbounds i8, ptr %66, i64 368
-  %67 = load i64, ptr %fd_offset.i.i33, align 8
-  %68 = load i64, ptr %offset.i20, align 8
-  %add.i.i34 = add i64 %68, %67
+  %67 = load ptr, ptr %ram_block.i.i32, align 8
+  %fd_offset.i.i33 = getelementptr inbounds i8, ptr %67, i64 368
+  %68 = load i64, ptr %fd_offset.i.i33, align 8
+  %69 = load i64, ptr %offset.i20, align 8
+  %add.i.i34 = add i64 %69, %68
   store i64 %add.i.i34, ptr %offset.i20, align 8
   %cmp3.i = icmp sgt i32 %call1.i.i31, 0
   br i1 %cmp3.i, label %vhost_user_fill_msg_region.exit.i, label %if.end14.i
 
 vhost_user_fill_msg_region.exit.i:                ; preds = %for.body.i25
   store i32 38, ptr %msg, align 1
-  %69 = load i64, ptr %userspace_addr.i29, align 8
-  %70 = load <2 x i64>, ptr %62, align 8
-  store <2 x i64> %70, ptr %region4.i, align 1
-  store i64 %69, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
+  %70 = load i64, ptr %userspace_addr.i29, align 8
+  %memory_size.i.i38 = getelementptr inbounds i8, ptr %63, i64 8
+  %71 = load i64, ptr %memory_size.i.i38, align 8
+  %72 = load i64, ptr %63, align 8
+  store i64 %72, ptr %region4.i, align 1
+  store i64 %71, ptr %region_buffer.sroa.2.0.region4.sroa_idx.i, align 1
+  store i64 %70, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
   %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %send_remove_regions.exit.thread, label %if.end14.i
 
 if.then8.i.i:                                     ; preds = %if.end3.i.us.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %57, i32 noundef %56) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %58, i32 noundef %57) #14
   br label %process_message_reply.exit.thread.i
 
 process_message_reply.exit.thread.i:              ; preds = %if.end13.i.us.i, %if.end.i.us.i, %if.then8.i.i
@@ -5059,19 +5073,19 @@ process_message_reply.exit.thread.i:              ; preds = %if.end13.i.us.i, %i
   br label %send_remove_regions.exit.thread
 
 if.end14.i:                                       ; preds = %vhost_user_fill_msg_region.exit.i, %for.body.i25
-  %idxprom15.i = sext i32 %63 to i64
+  %idxprom15.i = sext i32 %64 to i64
   %arrayidx16.i35 = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i23, i64 0, i64 %idxprom15.i
-  %add.i = add i32 %63, 1
+  %add.i = add i32 %64, 1
   %idxprom18.i = sext i32 %add.i to i64
   %arrayidx19.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i23, i64 0, i64 %idxprom18.i
-  %71 = load i32, ptr %num_shadow_regions.i24, align 4
-  %72 = xor i32 %63, -1
-  %sub21.i = add i32 %71, %72
+  %73 = load i32, ptr %num_shadow_regions.i24, align 4
+  %74 = xor i32 %64, -1
+  %sub21.i = add i32 %73, %74
   %conv.i = sext i32 %sub21.i to i64
   %mul.i = shl nsw i64 %conv.i, 5
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx16.i35, ptr align 8 %arrayidx19.i, i64 %mul.i, i1 false)
-  %73 = load i32, ptr %num_shadow_regions.i24, align 4
-  %dec.i = add i32 %73, -1
+  %75 = load i32, ptr %num_shadow_regions.i24, align 4
+  %dec.i = add i32 %75, -1
   store i32 %dec.i, ptr %num_shadow_regions.i24, align 4
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i26, -1
   %cmp.i37 = icmp sgt i64 %indvars.iv.i26, 0
@@ -5098,11 +5112,12 @@ if.then10:                                        ; preds = %if.end8
   br i1 %cmp86.i, label %for.body.lr.ph.i43, label %send_add_regions.exit
 
 for.body.lr.ph.i43:                               ; preds = %if.then10
-  %74 = load ptr, ptr %opaque, align 8
-  %region_rb_offset79.i = getelementptr inbounds i8, ptr %74, i64 4208
-  %region_rb82.i = getelementptr inbounds i8, ptr %74, i64 4200
+  %76 = load ptr, ptr %opaque, align 8
+  %region_rb_offset79.i = getelementptr inbounds i8, ptr %76, i64 4208
+  %region_rb82.i = getelementptr inbounds i8, ptr %76, i64 4200
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %region14.i = getelementptr inbounds i8, ptr %msg, i64 20
+  %region_buffer.sroa.2.0.region14.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 28
   %region_buffer.sroa.3.0.region14.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 36
   %region_buffer.sroa.4.0.region14.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 44
   %flags.i.i44 = getelementptr inbounds i8, ptr %msg, i64 4
@@ -5111,31 +5126,31 @@ for.body.lr.ph.i43:                               ; preds = %if.then10
   %size.i = getelementptr inbounds i8, ptr %msg_reply.i, i64 8
   %userspace_addr52.i = getelementptr inbounds i8, ptr %msg_reply.i, i64 36
   %tv_usec.i.i69.i = getelementptr inbounds i8, ptr %_now.i.i56.i, i64 8
-  %shadow_regions.i47 = getelementptr inbounds i8, ptr %74, i64 4224
-  %num_shadow_regions.i48 = getelementptr inbounds i8, ptr %74, i64 4220
+  %shadow_regions.i47 = getelementptr inbounds i8, ptr %76, i64 4224
+  %num_shadow_regions.i48 = getelementptr inbounds i8, ptr %76, i64 4220
   %wide.trip.count.i = zext nneg i32 %add_idx.0.lcssa.i to i64
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %if.end86.i, %for.body.lr.ph.i43
   %indvars.iv.i50 = phi i64 [ 0, %for.body.lr.ph.i43 ], [ %indvars.iv.next.i60, %if.end86.i ]
   %arrayidx.i51 = getelementptr %struct.scrub_regions, ptr %add_reg, i64 %indvars.iv.i50
-  %75 = load ptr, ptr %arrayidx.i51, align 16
+  %77 = load ptr, ptr %arrayidx.i51, align 16
   %reg_idx4.i = getelementptr inbounds i8, ptr %arrayidx.i51, i64 8
-  %76 = load i32, ptr %reg_idx4.i, align 8
+  %78 = load i32, ptr %reg_idx4.i, align 8
   %fd_idx.i52 = getelementptr inbounds i8, ptr %arrayidx.i51, i64 12
-  %77 = load i32, ptr %fd_idx.i52, align 4
-  %userspace_addr.i53 = getelementptr inbounds i8, ptr %75, i64 16
-  %78 = load i64, ptr %userspace_addr.i53, align 8
-  %79 = inttoptr i64 %78 to ptr
-  %call.i.i54 = call ptr @memory_region_from_host(ptr noundef %79, ptr noundef nonnull %offset.i40) #14
+  %79 = load i32, ptr %fd_idx.i52, align 4
+  %userspace_addr.i53 = getelementptr inbounds i8, ptr %77, i64 16
+  %80 = load i64, ptr %userspace_addr.i53, align 8
+  %81 = inttoptr i64 %80 to ptr
+  %call.i.i54 = call ptr @memory_region_from_host(ptr noundef %81, ptr noundef nonnull %offset.i40) #14
   %call1.i.i55 = call i32 @memory_region_get_fd(ptr noundef %call.i.i54) #14
   store i32 %call1.i.i55, ptr %fd.i, align 4
   %ram_block.i.i56 = getelementptr inbounds i8, ptr %call.i.i54, i64 56
-  %80 = load ptr, ptr %ram_block.i.i56, align 8
-  %fd_offset.i.i57 = getelementptr inbounds i8, ptr %80, i64 368
-  %81 = load i64, ptr %fd_offset.i.i57, align 8
-  %82 = load i64, ptr %offset.i40, align 8
-  %add.i.i58 = add i64 %82, %81
+  %82 = load ptr, ptr %ram_block.i.i56, align 8
+  %fd_offset.i.i57 = getelementptr inbounds i8, ptr %82, i64 368
+  %83 = load i64, ptr %fd_offset.i.i57, align 8
+  %84 = load i64, ptr %offset.i40, align 8
+  %add.i.i58 = add i64 %84, %83
   store i64 %add.i.i58, ptr %offset.i40, align 8
   %cmp7.i = icmp sgt i32 %call1.i.i55, 0
   br i1 %cmp7.i, label %if.then.i61, label %if.else76.i
@@ -5145,64 +5160,67 @@ if.then.i61:                                      ; preds = %for.body.i49
 
 if.then8.i:                                       ; preds = %if.then.i61
   %name.i = getelementptr inbounds i8, ptr %call.i.i54, i64 232
-  %83 = load ptr, ptr %name.i, align 8
-  %memory_size.i = getelementptr inbounds i8, ptr %75, i64 8
-  %84 = load i64, ptr %memory_size.i, align 8
-  %85 = load i64, ptr %75, align 8
-  %86 = load i64, ptr %userspace_addr.i53, align 8
+  %85 = load ptr, ptr %name.i, align 8
+  %memory_size.i = getelementptr inbounds i8, ptr %77, i64 8
+  %86 = load i64, ptr %memory_size.i, align 8
+  %87 = load i64, ptr %77, align 8
+  %88 = load i64, ptr %userspace_addr.i53, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %87 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %87, 0
-  %88 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_WITHFD_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %88, 0
+  %89 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %89, 0
+  %90 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_WITHFD_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %90, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_vhost_user_set_mem_table_withfd.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then8.i
-  %89 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %89, 32768
+  %91 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %91, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_vhost_user_set_mem_table_withfd.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %90 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %90 to i1
+  %92 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %92 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = call i32 @qemu_get_thread_id() #14
-  %91 = load i64, ptr %_now.i.i.i, align 8
-  %92 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i.i, i64 noundef %91, i64 noundef %92, i32 noundef %77, ptr noundef %83, i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %add.i.i58) #14
+  %93 = load i64, ptr %_now.i.i.i, align 8
+  %94 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i.i, i64 noundef %93, i64 noundef %94, i32 noundef %79, ptr noundef %85, i64 noundef %86, i64 noundef %87, i64 noundef %88, i64 noundef %add.i.i58) #14
   br label %trace_vhost_user_set_mem_table_withfd.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %77, ptr noundef %83, i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %add.i.i58) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %79, ptr noundef %85, i64 noundef %86, i64 noundef %87, i64 noundef %88, i64 noundef %add.i.i58) #14
   br label %trace_vhost_user_set_mem_table_withfd.exit.i
 
 trace_vhost_user_set_mem_table_withfd.exit.i:     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then8.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %93 = load i64, ptr %offset.i40, align 8
-  %94 = load ptr, ptr %region_rb_offset79.i, align 8
-  %idxprom10.i = sext i32 %76 to i64
-  %arrayidx11.i = getelementptr i64, ptr %94, i64 %idxprom10.i
-  store i64 %93, ptr %arrayidx11.i, align 8
-  %95 = load ptr, ptr %ram_block.i.i56, align 8
-  %96 = load ptr, ptr %region_rb82.i, align 8
-  %arrayidx13.i = getelementptr ptr, ptr %96, i64 %idxprom10.i
-  store ptr %95, ptr %arrayidx13.i, align 8
+  %95 = load i64, ptr %offset.i40, align 8
+  %96 = load ptr, ptr %region_rb_offset79.i, align 8
+  %idxprom10.i = sext i32 %78 to i64
+  %arrayidx11.i = getelementptr i64, ptr %96, i64 %idxprom10.i
+  store i64 %95, ptr %arrayidx11.i, align 8
+  %97 = load ptr, ptr %ram_block.i.i56, align 8
+  %98 = load ptr, ptr %region_rb82.i, align 8
+  %arrayidx13.i = getelementptr ptr, ptr %98, i64 %idxprom10.i
+  store ptr %97, ptr %arrayidx13.i, align 8
   %.pre.i = load i64, ptr %offset.i40, align 8
   br label %vhost_user_fill_msg_region.exit.i62
 
 vhost_user_fill_msg_region.exit.i62:              ; preds = %trace_vhost_user_set_mem_table_withfd.exit.i, %if.then.i61
-  %97 = phi i64 [ %add.i.i58, %if.then.i61 ], [ %.pre.i, %trace_vhost_user_set_mem_table_withfd.exit.i ]
+  %99 = phi i64 [ %add.i.i58, %if.then.i61 ], [ %.pre.i, %trace_vhost_user_set_mem_table_withfd.exit.i ]
   store i32 37, ptr %msg, align 1
-  %98 = load i64, ptr %userspace_addr.i53, align 8
-  %99 = load <2 x i64>, ptr %75, align 8
-  store <2 x i64> %99, ptr %region14.i, align 1
-  store i64 %98, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
-  store i64 %97, ptr %region_buffer.sroa.4.0.region14.sroa_idx.i, align 1
+  %100 = load i64, ptr %userspace_addr.i53, align 8
+  %memory_size.i.i63 = getelementptr inbounds i8, ptr %77, i64 8
+  %101 = load i64, ptr %memory_size.i.i63, align 8
+  %102 = load i64, ptr %77, align 8
+  store i64 %102, ptr %region14.i, align 1
+  store i64 %101, ptr %region_buffer.sroa.2.0.region14.sroa_idx.i, align 1
+  store i64 %100, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
+  store i64 %99, ptr %region_buffer.sroa.4.0.region14.sroa_idx.i, align 1
   %call15.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fd.i, i32 noundef 1)
   %cmp16.i = icmp slt i32 %call15.i, 0
   br i1 %cmp16.i, label %send_add_regions.exit.thread, label %if.end18.i
@@ -5212,76 +5230,76 @@ if.end18.i:                                       ; preds = %vhost_user_fill_msg
 
 if.then20.i:                                      ; preds = %if.end18.i
   %dev.val.i = load ptr, ptr %opaque, align 8
-  %100 = getelementptr i8, ptr %dev.val.i, i64 8
-  %dev.val.val.i = load ptr, ptr %100, align 8
+  %103 = getelementptr i8, ptr %dev.val.i, i64 8
+  %dev.val.val.i = load ptr, ptr %103, align 8
   %dev.val.val.val.i = load ptr, ptr %dev.val.val.i, align 8
   %call21.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i, ptr noundef nonnull %msg_reply.i)
   %cmp22.i = icmp slt i32 %call21.i, 0
   br i1 %cmp22.i, label %send_add_regions.exit.thread, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i
-  %101 = load i64, ptr %region26.i, align 4
-  %102 = load i32, ptr %msg_reply.i, align 4
-  %cmp30.not.i = icmp eq i32 %102, 37
+  %104 = load i64, ptr %region26.i, align 4
+  %105 = load i32, ptr %msg_reply.i, align 4
+  %cmp30.not.i = icmp eq i32 %105, 37
   br i1 %cmp30.not.i, label %if.end34.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.end24.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.64, ptr noundef nonnull @__func__.send_add_regions, i32 noundef 37, i32 noundef %102) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.64, ptr noundef nonnull @__func__.send_add_regions, i32 noundef 37, i32 noundef %105) #14
   br label %send_add_regions.exit.thread
 
 if.end34.i:                                       ; preds = %if.end24.i
-  %103 = load i32, ptr %size.i, align 4
-  %104 = load i32, ptr %size, align 1
-  %cmp38.not.i = icmp eq i32 %103, %104
+  %106 = load i32, ptr %size.i, align 4
+  %107 = load i32, ptr %size, align 1
+  %cmp38.not.i = icmp eq i32 %106, %107
   br i1 %cmp38.not.i, label %if.end44.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end34.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__.send_add_regions, i32 noundef %103, i32 noundef %104) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__.send_add_regions, i32 noundef %106, i32 noundef %107) #14
   br label %send_add_regions.exit.thread
 
 if.end44.i:                                       ; preds = %if.end34.i
-  %105 = load ptr, ptr %mem41.i, align 8
-  %regions.i67 = getelementptr inbounds i8, ptr %105, i64 8
-  %idxprom45.i = sext i32 %76 to i64
+  %108 = load ptr, ptr %mem41.i, align 8
+  %regions.i67 = getelementptr inbounds i8, ptr %108, i64 8
+  %idxprom45.i = sext i32 %78 to i64
   %arrayidx46.i = getelementptr [0 x %struct.vhost_memory_region], ptr %regions.i67, i64 0, i64 %idxprom45.i
-  %106 = load i64, ptr %arrayidx46.i, align 8
-  %cmp48.i = icmp eq i64 %101, %106
+  %109 = load i64, ptr %arrayidx46.i, align 8
+  %cmp48.i = icmp eq i64 %104, %109
   br i1 %cmp48.i, label %if.then49.i, label %if.else.i68
 
 if.then49.i:                                      ; preds = %if.end44.i
-  %107 = load i64, ptr %userspace_addr52.i, align 4
+  %110 = load i64, ptr %userspace_addr52.i, align 4
   %arrayidx54.i = getelementptr i64, ptr %shadow_pcb, i64 %idxprom45.i
-  store i64 %107, ptr %arrayidx54.i, align 8
-  %108 = load i64, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
+  store i64 %110, ptr %arrayidx54.i, align 8
+  %111 = load i64, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56.i)
-  %109 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i57.i = icmp ne i32 %109, 0
-  %110 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_POSTCOPY_DSTATE, align 2
-  %tobool4.i.i58.i = icmp ne i16 %110, 0
+  %112 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i57.i = icmp ne i32 %112, 0
+  %113 = load i16, ptr @_TRACE_VHOST_USER_SET_MEM_TABLE_POSTCOPY_DSTATE, align 2
+  %tobool4.i.i58.i = icmp ne i16 %113, 0
   %or.cond.i.i59.i = select i1 %tobool.i.i57.i, i1 %tobool4.i.i58.i, i1 false
   br i1 %or.cond.i.i59.i, label %land.lhs.true5.i.i60.i, label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 land.lhs.true5.i.i60.i:                           ; preds = %if.then49.i
-  %111 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i61.i = and i32 %111, 32768
+  %114 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i61.i = and i32 %114, 32768
   %cmp.i.not.i.i62.i = icmp eq i32 %and.i.i.i61.i, 0
   br i1 %cmp.i.not.i.i62.i, label %trace_vhost_user_set_mem_table_postcopy.exit.i, label %if.then.i.i63.i
 
 if.then.i.i63.i:                                  ; preds = %land.lhs.true5.i.i60.i
-  %112 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i64.i = trunc i8 %112 to i1
+  %115 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i64.i = trunc i8 %115 to i1
   br i1 %tobool7.i.i64.i, label %if.then8.i.i66.i, label %if.else.i.i65.i
 
 if.then8.i.i66.i:                                 ; preds = %if.then.i.i63.i
   %call9.i.i67.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56.i, ptr noundef null) #14
   %call10.i.i68.i = call i32 @qemu_get_thread_id() #14
-  %113 = load i64, ptr %_now.i.i56.i, align 8
-  %114 = load i64, ptr %tv_usec.i.i69.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i68.i, i64 noundef %113, i64 noundef %114, i64 noundef %107, i64 noundef %108, i32 noundef %77, i32 noundef %76) #14
+  %116 = load i64, ptr %_now.i.i56.i, align 8
+  %117 = load i64, ptr %tv_usec.i.i69.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i68.i, i64 noundef %116, i64 noundef %117, i64 noundef %110, i64 noundef %111, i32 noundef %79, i32 noundef %78) #14
   br label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 if.else.i.i65.i:                                  ; preds = %if.then.i.i63.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i64 noundef %107, i64 noundef %108, i32 noundef %77, i32 noundef %76) #14
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i64 noundef %110, i64 noundef %111, i32 noundef %79, i32 noundef %78) #14
   br label %trace_vhost_user_set_mem_table_postcopy.exit.i
 
 trace_vhost_user_set_mem_table_postcopy.exit.i:   ; preds = %if.else.i.i65.i, %if.then8.i.i66.i, %land.lhs.true5.i.i60.i, %if.then49.i
@@ -5289,7 +5307,7 @@ trace_vhost_user_set_mem_table_postcopy.exit.i:   ; preds = %if.else.i.i65.i, %i
   br label %if.end86.i
 
 if.else.i68:                                      ; preds = %if.end44.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.send_add_regions, i64 noundef %101, i64 noundef %106) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.send_add_regions, i64 noundef %104, i64 noundef %109) #14
   br label %send_add_regions.exit.thread
 
 if.else67.i:                                      ; preds = %if.end18.i
@@ -5297,33 +5315,33 @@ if.else67.i:                                      ; preds = %if.end18.i
 
 if.then69.i:                                      ; preds = %if.else67.i
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg_reply.i.i39)
-  %115 = load i32, ptr %flags.i.i44, align 1
-  %and.i.i = and i32 %115, 8
+  %118 = load i32, ptr %flags.i.i44, align 1
+  %and.i.i = and i32 %118, 8
   %cmp.i70.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i70.i, label %process_message_reply.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then69.i
   %dev.val.i.i = load ptr, ptr %opaque, align 8
-  %116 = getelementptr i8, ptr %dev.val.i.i, i64 8
-  %dev.val.val.i.i = load ptr, ptr %116, align 8
+  %119 = getelementptr i8, ptr %dev.val.i.i, i64 8
+  %dev.val.val.i.i = load ptr, ptr %119, align 8
   %dev.val.val.val.i.i = load ptr, ptr %dev.val.val.i.i, align 8
   %call.i71.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i, ptr noundef nonnull %msg_reply.i.i39)
   %cmp1.i.i = icmp slt i32 %call.i71.i, 0
   br i1 %cmp1.i.i, label %process_message_reply.exit.thread.i65, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %117 = load i32, ptr %msg_reply.i.i39, align 4
-  %118 = load i32, ptr %msg, align 1
-  %cmp7.not.i.i = icmp eq i32 %117, %118
+  %120 = load i32, ptr %msg_reply.i.i39, align 4
+  %121 = load i32, ptr %msg, align 1
+  %cmp7.not.i.i = icmp eq i32 %120, %121
   br i1 %cmp7.not.i.i, label %if.end13.i.i, label %if.then8.i.i64
 
 if.then8.i.i64:                                   ; preds = %if.end3.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %118, i32 noundef %117) #14
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef %121, i32 noundef %120) #14
   br label %process_message_reply.exit.thread.i65
 
 if.end13.i.i:                                     ; preds = %if.end3.i.i
-  %119 = load i64, ptr %payload.i.i45, align 4
-  %tobool.not.i.i = icmp eq i64 %119, 0
+  %122 = load i64, ptr %payload.i.i45, align 4
+  %tobool.not.i.i = icmp eq i64 %122, 0
   br i1 %tobool.not.i.i, label %process_message_reply.exit.i, label %process_message_reply.exit.thread.i65
 
 process_message_reply.exit.thread.i65:            ; preds = %if.end13.i.i, %if.end.i.i, %if.then8.i.i64
@@ -5339,29 +5357,29 @@ if.else76.i:                                      ; preds = %for.body.i49
   br i1 %track_ramblocks, label %if.then78.i, label %if.end86.i
 
 if.then78.i:                                      ; preds = %if.else76.i
-  %120 = load ptr, ptr %region_rb_offset79.i, align 8
-  %idxprom80.i = sext i32 %76 to i64
-  %arrayidx81.i = getelementptr i64, ptr %120, i64 %idxprom80.i
+  %123 = load ptr, ptr %region_rb_offset79.i, align 8
+  %idxprom80.i = sext i32 %78 to i64
+  %arrayidx81.i = getelementptr i64, ptr %123, i64 %idxprom80.i
   store i64 0, ptr %arrayidx81.i, align 8
-  %121 = load ptr, ptr %region_rb82.i, align 8
-  %arrayidx84.i = getelementptr ptr, ptr %121, i64 %idxprom80.i
+  %124 = load ptr, ptr %region_rb82.i, align 8
+  %arrayidx84.i = getelementptr ptr, ptr %124, i64 %idxprom80.i
   store ptr null, ptr %arrayidx84.i, align 8
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then78.i, %if.else76.i, %process_message_reply.exit.i, %if.else67.i, %trace_vhost_user_set_mem_table_postcopy.exit.i
-  %122 = load i64, ptr %75, align 8
-  %123 = load i32, ptr %num_shadow_regions.i48, align 4
-  %idxprom88.i = sext i32 %123 to i64
+  %125 = load i64, ptr %77, align 8
+  %126 = load i32, ptr %num_shadow_regions.i48, align 4
+  %idxprom88.i = sext i32 %126 to i64
   %arrayidx89.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i
-  store i64 %122, ptr %arrayidx89.i, align 8
-  %124 = load i64, ptr %userspace_addr.i53, align 8
+  store i64 %125, ptr %arrayidx89.i, align 8
+  %127 = load i64, ptr %userspace_addr.i53, align 8
   %userspace_addr96.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i, i32 2
-  store i64 %124, ptr %userspace_addr96.i, align 8
-  %memory_size97.i = getelementptr inbounds i8, ptr %75, i64 8
-  %125 = load i64, ptr %memory_size97.i, align 8
+  store i64 %127, ptr %userspace_addr96.i, align 8
+  %memory_size97.i = getelementptr inbounds i8, ptr %77, i64 8
+  %128 = load i64, ptr %memory_size97.i, align 8
   %memory_size102.i = getelementptr [512 x %struct.vhost_memory_region], ptr %shadow_regions.i47, i64 0, i64 %idxprom88.i, i32 1
-  store i64 %125, ptr %memory_size102.i, align 8
-  %inc.i59 = add i32 %123, 1
+  store i64 %128, ptr %memory_size102.i, align 8
+  %inc.i59 = add i32 %126, 1
   store i32 %inc.i59, ptr %num_shadow_regions.i48, align 4
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i
@@ -5430,7 +5448,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %track_ramblocks, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %2 = phi ptr [ %30, %for.inc.us ], [ %0, %for.body.lr.ph ]
+  %2 = phi ptr [ %31, %for.inc.us ], [ %0, %for.body.lr.ph ]
   %i.031.us = phi i32 [ %inc29.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %regions.us = getelementptr inbounds i8, ptr %2, i64 8
   %idx.ext.us = sext i32 %i.031.us to i64
@@ -5515,52 +5533,55 @@ trace_vhost_user_set_mem_table_withfd.exit.us:    ; preds = %if.then8.i.i.us, %i
   store ptr %23, ptr %arrayidx8.us, align 8
   %25 = load i64, ptr %offset, align 8
   %26 = load i64, ptr %userspace_addr.us, align 8
-  %27 = load i64, ptr %fd_num, align 8
-  %arrayidx16.us = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions15, i64 0, i64 %27
-  %28 = load <2 x i64>, ptr %add.ptr.us, align 8
-  store <2 x i64> %28, ptr %arrayidx16.us, align 1
+  %27 = load i64, ptr %memory_size.us, align 8
+  %28 = load i64, ptr %add.ptr.us, align 8
+  %29 = load i64, ptr %fd_num, align 8
+  %arrayidx16.us = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions15, i64 0, i64 %29
+  store i64 %28, ptr %arrayidx16.us, align 1
+  %region_buffer.sroa.2.0.arrayidx16.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx16.us, i64 8
+  store i64 %27, ptr %region_buffer.sroa.2.0.arrayidx16.sroa_idx.us, align 1
   %region_buffer.sroa.3.0.arrayidx16.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx16.us, i64 16
   store i64 %26, ptr %region_buffer.sroa.3.0.arrayidx16.sroa_idx.us, align 1
   %region_buffer.sroa.4.0.arrayidx16.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx16.us, i64 24
   store i64 %25, ptr %region_buffer.sroa.4.0.arrayidx16.sroa_idx.us, align 1
-  %29 = load i64, ptr %fd_num, align 8
-  %inc.us = add i64 %29, 1
+  %30 = load i64, ptr %fd_num, align 8
+  %inc.us = add i64 %30, 1
   store i64 %inc.us, ptr %fd_num, align 8
-  %arrayidx17.us = getelementptr i32, ptr %fds, i64 %29
+  %arrayidx17.us = getelementptr i32, ptr %fds, i64 %30
   store i32 %call1.i.us, ptr %arrayidx17.us, align 4
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %trace_vhost_user_set_mem_table_withfd.exit.us, %if.else18.us
   %inc29.us = add nuw i32 %i.031.us, 1
-  %30 = load ptr, ptr %mem, align 8
-  %31 = load i32, ptr %30, align 8
-  %cmp.us = icmp ult i32 %inc29.us, %31
+  %31 = load ptr, ptr %mem, align 8
+  %32 = load i32, ptr %31, align 8
+  %cmp.us = icmp ult i32 %inc29.us, %32
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %32 = phi ptr [ %42, %for.inc ], [ %0, %for.body.lr.ph ]
+  %33 = phi ptr [ %44, %for.inc ], [ %0, %for.body.lr.ph ]
   %i.031 = phi i32 [ %inc29, %for.inc ], [ 0, %for.body.lr.ph ]
-  %regions = getelementptr inbounds i8, ptr %32, i64 8
+  %regions = getelementptr inbounds i8, ptr %33, i64 8
   %idx.ext = sext i32 %i.031 to i64
   %add.ptr = getelementptr %struct.vhost_memory_region, ptr %regions, i64 %idx.ext
   %userspace_addr = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %33 = load i64, ptr %userspace_addr, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %call.i = call ptr @memory_region_from_host(ptr noundef %34, ptr noundef nonnull %offset) #14
+  %34 = load i64, ptr %userspace_addr, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %call.i = call ptr @memory_region_from_host(ptr noundef %35, ptr noundef nonnull %offset) #14
   %call1.i = call i32 @memory_region_get_fd(ptr noundef %call.i) #14
   %ram_block.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  %35 = load ptr, ptr %ram_block.i, align 8
-  %fd_offset.i = getelementptr inbounds i8, ptr %35, i64 368
-  %36 = load i64, ptr %fd_offset.i, align 8
-  %37 = load i64, ptr %offset, align 8
-  %add.i = add i64 %37, %36
+  %36 = load ptr, ptr %ram_block.i, align 8
+  %fd_offset.i = getelementptr inbounds i8, ptr %36, i64 368
+  %37 = load i64, ptr %fd_offset.i, align 8
+  %38 = load i64, ptr %offset, align 8
+  %add.i = add i64 %38, %37
   store i64 %add.i, ptr %offset, align 8
   %cmp2 = icmp sgt i32 %call1.i, 0
   br i1 %cmp2, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %38 = load i64, ptr %fd_num, align 8
-  %cmp10 = icmp eq i64 %38, 8
+  %39 = load i64, ptr %fd_num, align 8
+  %cmp10 = icmp eq i64 %39, 8
   br i1 %cmp10, label %if.then12, label %if.end14
 
 if.else:                                          ; preds = %if.then.us
@@ -5580,35 +5601,39 @@ if.else.i:                                        ; preds = %if.end14
   unreachable
 
 vhost_user_fill_msg_region.exit:                  ; preds = %if.end14
-  %39 = load i64, ptr %userspace_addr, align 8
-  %arrayidx16 = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions15, i64 0, i64 %38
-  %40 = load <2 x i64>, ptr %add.ptr, align 8
-  store <2 x i64> %40, ptr %arrayidx16, align 1
+  %40 = load i64, ptr %userspace_addr, align 8
+  %memory_size.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %41 = load i64, ptr %memory_size.i, align 8
+  %42 = load i64, ptr %add.ptr, align 8
+  %arrayidx16 = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions15, i64 0, i64 %39
+  store i64 %42, ptr %arrayidx16, align 1
+  %region_buffer.sroa.2.0.arrayidx16.sroa_idx = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  store i64 %41, ptr %region_buffer.sroa.2.0.arrayidx16.sroa_idx, align 1
   %region_buffer.sroa.3.0.arrayidx16.sroa_idx = getelementptr inbounds i8, ptr %arrayidx16, i64 16
-  store i64 %39, ptr %region_buffer.sroa.3.0.arrayidx16.sroa_idx, align 1
+  store i64 %40, ptr %region_buffer.sroa.3.0.arrayidx16.sroa_idx, align 1
   %region_buffer.sroa.4.0.arrayidx16.sroa_idx = getelementptr inbounds i8, ptr %arrayidx16, i64 24
   store i64 %add.i, ptr %region_buffer.sroa.4.0.arrayidx16.sroa_idx, align 1
-  %41 = load i64, ptr %fd_num, align 8
-  %inc = add i64 %41, 1
+  %43 = load i64, ptr %fd_num, align 8
+  %inc = add i64 %43, 1
   store i64 %inc, ptr %fd_num, align 8
-  %arrayidx17 = getelementptr i32, ptr %fds, i64 %41
+  %arrayidx17 = getelementptr i32, ptr %fds, i64 %43
   store i32 %call1.i, ptr %arrayidx17, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %vhost_user_fill_msg_region.exit
   %inc29 = add nuw i32 %i.031, 1
-  %42 = load ptr, ptr %mem, align 8
-  %43 = load i32, ptr %42, align 8
-  %cmp = icmp ult i32 %inc29, %43
+  %44 = load ptr, ptr %mem, align 8
+  %45 = load i32, ptr %44, align 8
+  %cmp = icmp ult i32 %inc29, %45
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %44 = load i64, ptr %fd_num, align 8
-  %conv30 = trunc i64 %44 to i32
+  %46 = load i64, ptr %fd_num, align 8
+  %conv30 = trunc i64 %46 to i32
   %payload31 = getelementptr inbounds i8, ptr %msg, i64 12
   store i32 %conv30, ptr %payload31, align 1
-  %45 = load i64, ptr %fd_num, align 8
-  %tobool33.not = icmp eq i64 %45, 0
+  %47 = load i64, ptr %fd_num, align 8
+  %tobool33.not = icmp eq i64 %47, 0
   br i1 %tobool33.not, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %for.end
@@ -5618,10 +5643,10 @@ if.then34:                                        ; preds = %for.end
 if.end35:                                         ; preds = %for.end
   %size = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 8, ptr %size, align 1
-  %46 = load i64, ptr %fd_num, align 8
-  %.tr = trunc i64 %46 to i32
-  %47 = shl i32 %.tr, 5
-  %conv45 = or disjoint i32 %47, 8
+  %48 = load i64, ptr %fd_num, align 8
+  %.tr = trunc i64 %48 to i32
+  %49 = shl i32 %.tr, 5
+  %conv45 = or disjoint i32 %49, 8
   store i32 %conv45, ptr %size, align 1
   br label %return
 

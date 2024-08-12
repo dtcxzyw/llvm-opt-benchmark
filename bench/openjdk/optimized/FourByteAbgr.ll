@@ -1113,61 +1113,69 @@ define hidden void @IntArgbToFourByteAbgrXorBlit(ptr noundef %0, ptr noundef %1,
   %22 = sext i32 %19 to i64
   br label %23
 
-23:                                               ; preds = %52, %8
-  %.051 = phi ptr [ %1, %8 ], [ %56, %52 ]
-  %.050 = phi ptr [ %0, %8 ], [ %54, %52 ]
-  %.0 = phi i32 [ %3, %8 ], [ %57, %52 ]
+23:                                               ; preds = %57, %8
+  %.051 = phi ptr [ %1, %8 ], [ %61, %57 ]
+  %.050 = phi ptr [ %0, %8 ], [ %59, %57 ]
+  %.0 = phi i32 [ %3, %8 ], [ %62, %57 ]
   br label %24
 
-24:                                               ; preds = %44, %23
-  %.053 = phi i32 [ %2, %23 ], [ %51, %44 ]
-  %.152 = phi ptr [ %.051, %23 ], [ %50, %44 ]
-  %.1 = phi ptr [ %.050, %23 ], [ %47, %44 ]
+24:                                               ; preds = %49, %23
+  %.053 = phi i32 [ %2, %23 ], [ %56, %49 ]
+  %.152 = phi ptr [ %.051, %23 ], [ %55, %49 ]
+  %.1 = phi ptr [ %.050, %23 ], [ %52, %49 ]
   %25 = load i32, ptr %.1, align 4
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %44, label %27
+  br i1 %26, label %49, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 8)
   %29 = xor i32 %28, %10
   %30 = and i32 %29, %21
-  %31 = lshr i32 %30, 8
-  %32 = lshr i32 %30, 16
-  %33 = lshr i32 %30, 24
-  %34 = load <4 x i8>, ptr %.152, align 1
-  %35 = trunc i32 %30 to i8
-  %36 = insertelement <4 x i8> poison, i8 %35, i64 0
-  %37 = trunc i32 %31 to i8
-  %38 = insertelement <4 x i8> %36, i8 %37, i64 1
-  %39 = trunc i32 %32 to i8
-  %40 = insertelement <4 x i8> %38, i8 %39, i64 2
-  %41 = trunc nuw i32 %33 to i8
-  %42 = insertelement <4 x i8> %40, i8 %41, i64 3
-  %43 = xor <4 x i8> %34, %42
-  store <4 x i8> %43, ptr %.152, align 1
-  br label %44
+  %31 = load i8, ptr %.152, align 1
+  %32 = trunc i32 %30 to i8
+  %33 = xor i8 %31, %32
+  store i8 %33, ptr %.152, align 1
+  %34 = lshr i32 %30, 8
+  %35 = getelementptr inbounds i8, ptr %.152, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = trunc i32 %34 to i8
+  %38 = xor i8 %36, %37
+  store i8 %38, ptr %35, align 1
+  %39 = lshr i32 %30, 16
+  %40 = getelementptr inbounds i8, ptr %.152, i64 2
+  %41 = load i8, ptr %40, align 1
+  %42 = trunc i32 %39 to i8
+  %43 = xor i8 %41, %42
+  store i8 %43, ptr %40, align 1
+  %44 = lshr i32 %30, 24
+  %45 = getelementptr inbounds i8, ptr %.152, i64 3
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc nuw i32 %44 to i8
+  %48 = xor i8 %46, %47
+  store i8 %48, ptr %45, align 1
+  br label %49
 
-44:                                               ; preds = %24, %27
-  %45 = ptrtoint ptr %.1 to i64
-  %46 = add nsw i64 %45, 4
-  %47 = inttoptr i64 %46 to ptr
-  %48 = ptrtoint ptr %.152 to i64
-  %49 = add nsw i64 %48, 4
-  %50 = inttoptr i64 %49 to ptr
-  %51 = add i32 %.053, -1
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %52, label %24, !llvm.loop !39
+49:                                               ; preds = %24, %27
+  %50 = ptrtoint ptr %.1 to i64
+  %51 = add nsw i64 %50, 4
+  %52 = inttoptr i64 %51 to ptr
+  %53 = ptrtoint ptr %.152 to i64
+  %54 = add nsw i64 %53, 4
+  %55 = inttoptr i64 %54 to ptr
+  %56 = add i32 %.053, -1
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %57, label %24, !llvm.loop !39
 
-52:                                               ; preds = %44
-  %53 = add nsw i64 %46, %20
-  %54 = inttoptr i64 %53 to ptr
-  %55 = add nsw i64 %49, %22
-  %56 = inttoptr i64 %55 to ptr
-  %57 = add i32 %.0, -1
-  %.not57 = icmp eq i32 %57, 0
-  br i1 %.not57, label %58, label %23, !llvm.loop !40
+57:                                               ; preds = %49
+  %58 = add nsw i64 %51, %20
+  %59 = inttoptr i64 %58 to ptr
+  %60 = add nsw i64 %54, %22
+  %61 = inttoptr i64 %60 to ptr
+  %62 = add i32 %.0, -1
+  %.not57 = icmp eq i32 %62, 0
+  br i1 %.not57, label %63, label %23, !llvm.loop !40
 
-58:                                               ; preds = %52
+63:                                               ; preds = %57
   ret void
 }
 

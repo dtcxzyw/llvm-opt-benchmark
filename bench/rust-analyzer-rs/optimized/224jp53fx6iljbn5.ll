@@ -1876,17 +1876,24 @@ define hidden void @_ZN6parser9token_set8TokenSet3new17h7314c434172fc72dE(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6parser9token_set8TokenSet5union17h941af2fd20b79124E(ptr noalias nocapture noundef writeonly sret({ [3 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = or i64 %7, %5
-  %9 = load <2 x i64>, ptr %1, align 8
-  %10 = load <2 x i64>, ptr %2, align 8
-  %11 = or <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %0, align 8
+  %4 = load i64, ptr %1, align 8, !noundef !4
+  %5 = load i64, ptr %2, align 8, !noundef !4
+  %6 = or i64 %5, %4
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !noundef !4
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = or i64 %10, %8
+  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = or i64 %15, %13
+  store i64 %6, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %16, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 

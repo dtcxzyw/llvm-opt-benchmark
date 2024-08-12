@@ -78,8 +78,8 @@ return:                                           ; preds = %if.end20, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
 entry:
-  %tweak.i = alloca %union.anon.0, align 16
-  %scratch.i = alloca %union.anon.0, align 16
+  %tweak.i = alloca %union.anon.0, align 8
+  %scratch.i = alloca %union.anon.0, align 8
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   %xts = getelementptr inbounds i8, ptr %0, i64 496
@@ -105,7 +105,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %3 = load i32, ptr %encrypt, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tweak.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tweak.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   %block2.i = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %block2.i, align 8
   call void %4(ptr noundef nonnull %tweak.i, ptr noundef nonnull %tweak.i, ptr noundef nonnull %2) #8
@@ -120,26 +120,39 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
 
 while.body.lr.ph.i:                               ; preds = %lor.lhs.false8
   %arrayidx10.i = getelementptr inbounds i8, ptr %tweak.i, i64 8
+  %arrayidx12.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
   %block1.i = getelementptr inbounds i8, ptr %0, i64 512
-  %5 = load <2 x i64>, ptr %tweak.i, align 16
+  %.pre.i = load i64, ptr %tweak.i, align 8
+  %.pre61.i = load i64, ptr %arrayidx10.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end27.i, %while.body.lr.ph.i
+  %5 = phi i64 [ %.pre61.i, %while.body.lr.ph.i ], [ %or.i, %if.end27.i ]
+  %6 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %xor33.i, %if.end27.i ]
   %inp.addr.051.i = phi ptr [ %in, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end27.i ]
   %out.addr.050.i = phi ptr [ %out, %while.body.lr.ph.i ], [ %add.ptr23.i, %if.end27.i ]
   %len.addr.149.i = phi i64 [ %len.addr.0.i, %while.body.lr.ph.i ], [ %sub24.i, %if.end27.i ]
-  %6 = phi <2 x i64> [ %5, %while.body.lr.ph.i ], [ %17, %if.end27.i ]
-  %7 = load <2 x i64>, ptr %inp.addr.051.i, align 8
-  %8 = xor <2 x i64> %7, %6
-  store <2 x i64> %8, ptr %scratch.i, align 16
+  %7 = load i64, ptr %inp.addr.051.i, align 8
+  %xor.i = xor i64 %7, %6
+  store i64 %xor.i, ptr %scratch.i, align 8
+  %arrayidx9.i = getelementptr inbounds i8, ptr %inp.addr.051.i, i64 8
+  %8 = load i64, ptr %arrayidx9.i, align 8
+  %xor11.i = xor i64 %8, %5
+  store i64 %xor11.i, ptr %arrayidx12.i, align 8
   %9 = load ptr, ptr %block1.i, align 8
   %10 = load ptr, ptr %xts, align 8
   call void %9(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %10) #8
-  %11 = load <2 x i64>, ptr %tweak.i, align 16
-  %12 = load <2 x i64>, ptr %scratch.i, align 16
-  %13 = xor <2 x i64> %12, %11
-  store <2 x i64> %13, ptr %scratch.i, align 16
-  store <2 x i64> %13, ptr %out.addr.050.i, align 8
+  %11 = load i64, ptr %tweak.i, align 8
+  %12 = load i64, ptr %scratch.i, align 8
+  %xor17.i = xor i64 %12, %11
+  store i64 %xor17.i, ptr %scratch.i, align 8
+  store i64 %xor17.i, ptr %out.addr.050.i, align 8
+  %13 = load i64, ptr %arrayidx10.i, align 8
+  %14 = load i64, ptr %arrayidx12.i, align 8
+  %xor21.i = xor i64 %14, %13
+  store i64 %xor21.i, ptr %arrayidx12.i, align 8
+  %arrayidx22.i = getelementptr inbounds i8, ptr %out.addr.050.i, i64 8
+  store i64 %xor21.i, ptr %arrayidx22.i, align 8
   %sub24.i = add i64 %len.addr.149.i, -16
   %cmp25.i = icmp eq i64 %sub24.i, 0
   br i1 %cmp25.i, label %CRYPTO_xts128_encrypt.exit, label %if.end27.i
@@ -147,25 +160,22 @@ while.body.i:                                     ; preds = %if.end27.i, %while.
 if.end27.i:                                       ; preds = %while.body.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %out.addr.050.i, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %inp.addr.051.i, i64 16
-  %14 = extractelement <2 x i64> %11, i64 1
-  %isneg44.i = icmp slt i64 %14, 0
+  %isneg44.i = icmp slt i64 %13, 0
   %and.i = select i1 %isneg44.i, i64 135, i64 0
-  %15 = extractelement <2 x i64> %11, i64 0
-  %shl.i = shl i64 %15, 1
+  %shl.i = shl i64 %11, 1
   %xor33.i = xor i64 %and.i, %shl.i
-  store i64 %xor33.i, ptr %tweak.i, align 16
-  %or.i = call i64 @llvm.fshl.i64(i64 %14, i64 %15, i64 1)
+  store i64 %xor33.i, ptr %tweak.i, align 8
+  %or.i = call i64 @llvm.fshl.i64(i64 %13, i64 %11, i64 1)
   store i64 %or.i, ptr %arrayidx10.i, align 8
   %cmp6.i = icmp ugt i64 %sub24.i, 15
-  %16 = insertelement <2 x i64> poison, i64 %xor33.i, i64 0
-  %17 = insertelement <2 x i64> %16, i64 %or.i, i64 1
   br i1 %cmp6.i, label %while.body.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %if.end27.i, %lor.lhs.false8
+  %15 = phi i64 [ undef, %lor.lhs.false8 ], [ %xor21.i, %if.end27.i ]
+  %16 = phi i64 [ undef, %lor.lhs.false8 ], [ %xor17.i, %if.end27.i ]
   %len.addr.1.lcssa.i = phi i64 [ %len.addr.0.i, %lor.lhs.false8 ], [ %sub24.i, %if.end27.i ]
   %out.addr.0.lcssa.i = phi ptr [ %out, %lor.lhs.false8 ], [ %add.ptr23.i, %if.end27.i ]
   %inp.addr.0.lcssa.i = phi ptr [ %in, %lor.lhs.false8 ], [ %add.ptr.i, %if.end27.i ]
-  %18 = phi <2 x i64> [ undef, %lor.lhs.false8 ], [ %13, %if.end27.i ]
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
@@ -176,66 +186,78 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %conv4159.i = phi i64 [ %conv41.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %i.058.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx44.i = getelementptr inbounds i8, ptr %inp.addr.0.lcssa.i, i64 %conv4159.i
-  %19 = load i8, ptr %arrayidx44.i, align 1
+  %17 = load i8, ptr %arrayidx44.i, align 1
   %arrayidx46.i = getelementptr inbounds [16 x i8], ptr %scratch.i, i64 0, i64 %conv4159.i
-  %20 = load i8, ptr %arrayidx46.i, align 1
+  %18 = load i8, ptr %arrayidx46.i, align 1
   %arrayidx48.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i, i64 %conv4159.i
-  store i8 %20, ptr %arrayidx48.i, align 1
-  store i8 %19, ptr %arrayidx46.i, align 1
+  store i8 %18, ptr %arrayidx48.i, align 1
+  store i8 %17, ptr %arrayidx46.i, align 1
   %inc.i = add i32 %i.058.i, 1
   %conv41.i = zext i32 %inc.i to i64
   %cmp42.i = icmp ugt i64 %len.addr.1.lcssa.i, %conv41.i
   br i1 %cmp42.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !9
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %21 = load <2 x i64>, ptr %scratch.i, align 16
+  %.pre64.i = load i64, ptr %scratch.i, align 8
+  %arrayidx55.phi.trans.insert.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
+  %.pre65.i = load i64, ptr %arrayidx55.phi.trans.insert.i, align 8
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %22 = phi <2 x i64> [ %21, %for.end.loopexit.i ], [ %18, %for.cond.preheader.i ]
-  %23 = load <2 x i64>, ptr %tweak.i, align 16
-  %24 = xor <2 x i64> %23, %22
-  store <2 x i64> %24, ptr %scratch.i, align 16
+  %19 = phi i64 [ %.pre65.i, %for.end.loopexit.i ], [ %15, %for.cond.preheader.i ]
+  %20 = phi i64 [ %.pre64.i, %for.end.loopexit.i ], [ %16, %for.cond.preheader.i ]
+  %21 = load i64, ptr %tweak.i, align 8
+  %xor53.i = xor i64 %21, %20
+  store i64 %xor53.i, ptr %scratch.i, align 8
+  %arrayidx54.i = getelementptr inbounds i8, ptr %tweak.i, i64 8
+  %22 = load i64, ptr %arrayidx54.i, align 8
+  %arrayidx55.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
+  %xor56.i = xor i64 %22, %19
+  store i64 %xor56.i, ptr %arrayidx55.i, align 8
   %block157.i = getelementptr inbounds i8, ptr %0, i64 512
-  %25 = load ptr, ptr %block157.i, align 8
-  %26 = load ptr, ptr %xts, align 8
-  call void %25(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %26) #8
-  %27 = load <2 x i64>, ptr %tweak.i, align 16
-  %28 = load <2 x i64>, ptr %scratch.i, align 16
-  %29 = xor <2 x i64> %28, %27
-  store <2 x i64> %29, ptr %scratch.i, align 16
+  %23 = load ptr, ptr %block157.i, align 8
+  %24 = load ptr, ptr %xts, align 8
+  call void %23(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %24) #8
+  %25 = load i64, ptr %tweak.i, align 8
+  %26 = load i64, ptr %scratch.i, align 8
+  %xor63.i = xor i64 %26, %25
+  store i64 %xor63.i, ptr %scratch.i, align 8
+  %27 = load i64, ptr %arrayidx54.i, align 8
+  %28 = load i64, ptr %arrayidx55.i, align 8
+  %xor66.i = xor i64 %28, %27
+  store i64 %xor66.i, ptr %arrayidx55.i, align 8
   %add.ptr67.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr67.i, ptr noundef nonnull align 16 dereferenceable(16) %scratch.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr67.i, ptr noundef nonnull align 8 dereferenceable(16) %scratch.i, i64 16, i1 false)
   br label %CRYPTO_xts128_encrypt.exit
 
 if.else.i:                                        ; preds = %while.end.i
   %arrayidx71.i = getelementptr inbounds i8, ptr %tweak.i, i64 12
-  %30 = load i32, ptr %arrayidx71.i, align 4
-  %isneg.i = icmp slt i32 %30, 0
+  %29 = load i32, ptr %arrayidx71.i, align 4
+  %isneg.i = icmp slt i32 %29, 0
   %and73.i = select i1 %isneg.i, i64 135, i64 0
-  %31 = load i64, ptr %tweak.i, align 16
-  %shl78.i = shl i64 %31, 1
+  %30 = load i64, ptr %tweak.i, align 8
+  %shl78.i = shl i64 %30, 1
   %xor80.i = xor i64 %shl78.i, %and73.i
   %arrayidx82.i = getelementptr inbounds i8, ptr %tweak.i, i64 8
-  %32 = load i64, ptr %arrayidx82.i, align 8
-  %or85.i = call i64 @llvm.fshl.i64(i64 %32, i64 %31, i64 1)
-  %33 = load i64, ptr %inp.addr.0.lcssa.i, align 8
-  %xor89.i = xor i64 %33, %xor80.i
-  store i64 %xor89.i, ptr %scratch.i, align 16
+  %31 = load i64, ptr %arrayidx82.i, align 8
+  %or85.i = call i64 @llvm.fshl.i64(i64 %31, i64 %30, i64 1)
+  %32 = load i64, ptr %inp.addr.0.lcssa.i, align 8
+  %xor89.i = xor i64 %32, %xor80.i
+  store i64 %xor89.i, ptr %scratch.i, align 8
   %arrayidx91.i = getelementptr inbounds i8, ptr %inp.addr.0.lcssa.i, i64 8
-  %34 = load i64, ptr %arrayidx91.i, align 8
-  %xor93.i = xor i64 %34, %or85.i
+  %33 = load i64, ptr %arrayidx91.i, align 8
+  %xor93.i = xor i64 %33, %or85.i
   %arrayidx94.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
   store i64 %xor93.i, ptr %arrayidx94.i, align 8
   %block195.i = getelementptr inbounds i8, ptr %0, i64 512
-  %35 = load ptr, ptr %block195.i, align 8
-  %36 = load ptr, ptr %xts, align 8
-  call void %35(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %36) #8
-  %37 = load i64, ptr %scratch.i, align 16
-  %xor101.i = xor i64 %37, %xor80.i
-  store i64 %xor101.i, ptr %scratch.i, align 16
-  %38 = load i64, ptr %arrayidx94.i, align 8
-  %xor104.i = xor i64 %38, %or85.i
+  %34 = load ptr, ptr %block195.i, align 8
+  %35 = load ptr, ptr %xts, align 8
+  call void %34(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %35) #8
+  %36 = load i64, ptr %scratch.i, align 8
+  %xor101.i = xor i64 %36, %xor80.i
+  store i64 %xor101.i, ptr %scratch.i, align 8
+  %37 = load i64, ptr %arrayidx94.i, align 8
+  %xor104.i = xor i64 %37, %or85.i
   store i64 %xor104.i, ptr %arrayidx94.i, align 8
   %cmp10754.not.i = icmp eq i64 %len.addr.1.lcssa.i, 0
   br i1 %cmp10754.not.i, label %for.end122.i, label %for.body109.i
@@ -246,38 +268,43 @@ for.body109.i:                                    ; preds = %if.else.i, %for.bod
   %add.i = add i32 %i.155.i, 16
   %idxprom111.i = zext i32 %add.i to i64
   %arrayidx112.i = getelementptr inbounds i8, ptr %inp.addr.0.lcssa.i, i64 %idxprom111.i
-  %39 = load i8, ptr %arrayidx112.i, align 1
+  %38 = load i8, ptr %arrayidx112.i, align 1
   %arrayidx114.i = getelementptr inbounds [16 x i8], ptr %scratch.i, i64 0, i64 %conv10656.i
-  %40 = load i8, ptr %arrayidx114.i, align 1
+  %39 = load i8, ptr %arrayidx114.i, align 1
   %arrayidx117.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i, i64 %idxprom111.i
-  store i8 %40, ptr %arrayidx117.i, align 1
-  store i8 %39, ptr %arrayidx114.i, align 1
+  store i8 %39, ptr %arrayidx117.i, align 1
+  store i8 %38, ptr %arrayidx114.i, align 1
   %inc121.i = add i32 %i.155.i, 1
   %conv106.i = zext i32 %inc121.i to i64
   %cmp107.i = icmp ugt i64 %len.addr.1.lcssa.i, %conv106.i
   br i1 %cmp107.i, label %for.body109.i, label %for.end122.loopexit.i, !llvm.loop !10
 
 for.end122.loopexit.i:                            ; preds = %for.body109.i
-  %.pre62.i = load i64, ptr %scratch.i, align 16
+  %.pre62.i = load i64, ptr %scratch.i, align 8
   %.pre63.i = load i64, ptr %arrayidx94.i, align 8
   br label %for.end122.i
 
 for.end122.i:                                     ; preds = %for.end122.loopexit.i, %if.else.i
-  %41 = phi i64 [ %.pre63.i, %for.end122.loopexit.i ], [ %xor104.i, %if.else.i ]
-  %42 = phi i64 [ %.pre62.i, %for.end122.loopexit.i ], [ %xor101.i, %if.else.i ]
-  %43 = load i64, ptr %tweak.i, align 16
-  %xor125.i = xor i64 %43, %42
-  store i64 %xor125.i, ptr %scratch.i, align 16
-  %44 = load i64, ptr %arrayidx82.i, align 8
-  %xor128.i = xor i64 %44, %41
+  %40 = phi i64 [ %.pre63.i, %for.end122.loopexit.i ], [ %xor104.i, %if.else.i ]
+  %41 = phi i64 [ %.pre62.i, %for.end122.loopexit.i ], [ %xor101.i, %if.else.i ]
+  %42 = load i64, ptr %tweak.i, align 8
+  %xor125.i = xor i64 %42, %41
+  store i64 %xor125.i, ptr %scratch.i, align 8
+  %43 = load i64, ptr %arrayidx82.i, align 8
+  %xor128.i = xor i64 %43, %40
   store i64 %xor128.i, ptr %arrayidx94.i, align 8
-  %45 = load ptr, ptr %block195.i, align 8
-  %46 = load ptr, ptr %xts, align 8
-  call void %45(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %46) #8
-  %47 = load <2 x i64>, ptr %scratch.i, align 16
-  %48 = load <2 x i64>, ptr %tweak.i, align 16
-  %49 = xor <2 x i64> %48, %47
-  store <2 x i64> %49, ptr %out.addr.0.lcssa.i, align 8
+  %44 = load ptr, ptr %block195.i, align 8
+  %45 = load ptr, ptr %xts, align 8
+  call void %44(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %45) #8
+  %46 = load i64, ptr %scratch.i, align 8
+  %47 = load i64, ptr %tweak.i, align 8
+  %xor135.i = xor i64 %47, %46
+  store i64 %xor135.i, ptr %out.addr.0.lcssa.i, align 8
+  %48 = load i64, ptr %arrayidx94.i, align 8
+  %49 = load i64, ptr %arrayidx82.i, align 8
+  %xor139.i = xor i64 %49, %48
+  %arrayidx140.i = getelementptr inbounds i8, ptr %out.addr.0.lcssa.i, i64 8
+  store i64 %xor139.i, ptr %arrayidx140.i, align 8
   br label %CRYPTO_xts128_encrypt.exit
 
 CRYPTO_xts128_encrypt.exit:                       ; preds = %while.body.i, %for.end.i, %for.end122.i

@@ -4536,18 +4536,19 @@ invoke.cont:
   store ptr null, ptr %4, align 16, !tbaa !158
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 64
   %call_2.i = getelementptr inbounds i8, ptr %f, i64 48
+  %5 = load ptr, ptr %call_2.i, align 16, !tbaa !128
+  store ptr %5, ptr %call_.i, align 16, !tbaa !128
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 72
   %exec_3.i = getelementptr inbounds i8, ptr %f, i64 56
-  %5 = load ptr, ptr %exec_3.i, align 8, !tbaa !129
-  %6 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !127
-  store <2 x ptr> %6, ptr %call_.i, align 16, !tbaa !127
+  %6 = load ptr, ptr %exec_3.i, align 8, !tbaa !129
+  store ptr %6, ptr %exec_.i, align 8, !tbaa !129
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !128
   store ptr null, ptr %exec_3.i, align 8, !tbaa !129
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont
-  %call.i.i = call noundef i64 %5(i32 noundef 0, ptr noundef nonnull %f, ptr noundef nonnull %4) #25
+  %call.i.i = call noundef i64 %6(i32 noundef 0, ptr noundef nonnull %f, ptr noundef nonnull %4) #25
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %invoke.cont
@@ -4566,16 +4567,18 @@ call2.i.noexc:                                    ; preds = %_ZN5folly8FunctionI
   %8 = getelementptr inbounds i8, ptr %call2.i6, i64 16
   store ptr null, ptr %8, align 16, !tbaa !158
   %call_.i.i.i = getelementptr inbounds i8, ptr %call2.i6, i64 64
-  %9 = load ptr, ptr %exec_.i, align 8, !tbaa !129
-  %10 = load <2 x ptr>, ptr %call_.i, align 16, !tbaa !127
-  store <2 x ptr> %10, ptr %call_.i.i.i, align 16, !tbaa !127
+  %9 = load ptr, ptr %call_.i, align 16, !tbaa !128
+  store ptr %9, ptr %call_.i.i.i, align 16, !tbaa !128
+  %exec_.i.i.i = getelementptr inbounds i8, ptr %call2.i6, i64 72
+  %10 = load ptr, ptr %exec_.i, align 8, !tbaa !129
+  store ptr %10, ptr %exec_.i.i.i, align 8, !tbaa !129
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_.i, align 16, !tbaa !128
   store ptr null, ptr %exec_.i, align 8, !tbaa !129
-  %tobool.not.i.i.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call2.i.noexc
-  %call.i.i.i.i = call noundef i64 %9(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %8) #25
+  %call.i.i.i.i = call noundef i64 %10(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %8) #25
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i, %call2.i.noexc

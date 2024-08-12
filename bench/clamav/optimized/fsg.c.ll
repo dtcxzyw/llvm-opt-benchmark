@@ -56,9 +56,9 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %13 = ptrtoint ptr %1 to i64
   %14 = add nuw i32 %5, 1
   %wide.trip.count = zext i32 %14 to i64
-  br label %27
+  br label %31
 
-.preheader107:                                    ; preds = %38
+.preheader107:                                    ; preds = %42
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader, label %.preheader106.us.preheader
 
@@ -70,69 +70,75 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %.pre = load i32, ptr %4, align 4
   br label %15
 
-15:                                               ; preds = %.preheader106.us, %25
-  %16 = phi i32 [ %.pre, %.preheader106.us ], [ %26, %25 ]
-  %indvars.iv120 = phi i64 [ 0, %.preheader106.us ], [ %indvars.iv.next121, %25 ]
-  %.189112.us = phi i32 [ 0, %.preheader106.us ], [ %.290.us, %25 ]
+15:                                               ; preds = %.preheader106.us, %29
+  %16 = phi i32 [ %.pre, %.preheader106.us ], [ %30, %29 ]
+  %indvars.iv120 = phi i64 [ 0, %.preheader106.us ], [ %indvars.iv.next121, %29 ]
+  %.189112.us = phi i32 [ 0, %.preheader106.us ], [ %.290.us, %29 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %17 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv.next121
   %18 = load i32, ptr %17, align 4
   %.not102.us = icmp ugt i32 %16, %18
-  br i1 %.not102.us, label %19, label %25
+  br i1 %.not102.us, label %19, label %29
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv120
   %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %20, i64 12
+  %24 = load i32, ptr %23, align 4
   store i32 %18, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
-  %23 = load <2 x i32>, ptr %22, align 4
+  %25 = getelementptr inbounds i8, ptr %17, i64 12
+  %26 = load i32, ptr %25, align 4
+  store i32 %26, ptr %23, align 4
+  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %21, align 4
   store i32 %16, ptr %17, align 4
-  %24 = load <2 x i32>, ptr %21, align 4
-  store <2 x i32> %23, ptr %21, align 4
-  store <2 x i32> %24, ptr %22, align 4
-  br label %25
+  store i32 %22, ptr %27, align 4
+  store i32 %24, ptr %25, align 4
+  br label %29
 
-25:                                               ; preds = %19, %15
-  %26 = phi i32 [ %18, %15 ], [ %16, %19 ]
+29:                                               ; preds = %19, %15
+  %30 = phi i32 [ %18, %15 ], [ %16, %19 ]
   %.290.us = phi i32 [ %.189112.us, %15 ], [ 1, %19 ]
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
   br i1 %exitcond124.not, label %..loopexit_crit_edge.us, label %15
 
-..loopexit_crit_edge.us:                          ; preds = %25
+..loopexit_crit_edge.us:                          ; preds = %29
   %.not98.us = icmp eq i32 %.290.us, 0
   br i1 %.not98.us, label %.preheader, label %.preheader106.us
 
-27:                                               ; preds = %.lr.ph, %38
-  %28 = phi ptr [ %1, %.lr.ph ], [ %41, %38 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.091110 = phi i32 [ 0, %.lr.ph ], [ %46, %38 ]
-  %29 = load ptr, ptr %10, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %.neg103 = sub i64 %12, %30
-  %31 = trunc i64 %.neg103 to i32
-  %32 = add i32 %31, %2
-  %33 = ptrtoint ptr %28 to i64
-  %.neg104 = sub i64 %13, %33
-  %34 = trunc i64 %.neg104 to i32
-  %35 = add i32 %34, %3
-  %36 = call i32 @cli_unfsg(ptr noundef %29, ptr noundef %28, i32 noundef %32, i32 noundef %35, ptr noundef nonnull %10, ptr noundef nonnull %11) #2
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %.loopexit108, label %38
+31:                                               ; preds = %.lr.ph, %42
+  %32 = phi ptr [ %1, %.lr.ph ], [ %45, %42 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %.091110 = phi i32 [ 0, %.lr.ph ], [ %50, %42 ]
+  %33 = load ptr, ptr %10, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %.neg103 = sub i64 %12, %34
+  %35 = trunc i64 %.neg103 to i32
+  %36 = add i32 %35, %2
+  %37 = ptrtoint ptr %32 to i64
+  %.neg104 = sub i64 %13, %37
+  %38 = trunc i64 %.neg104 to i32
+  %39 = add i32 %38, %3
+  %40 = call i32 @cli_unfsg(ptr noundef %33, ptr noundef %32, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %10, ptr noundef nonnull %11) #2
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %.loopexit108, label %42
 
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store i32 %.091110, ptr %40, align 4
-  %41 = load ptr, ptr %11, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %33
-  %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %39, i64 12
-  store i32 %44, ptr %45, align 4
-  %46 = add i32 %.091110, %44
+42:                                               ; preds = %31
+  %43 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 %.091110, ptr %44, align 4
+  %45 = load ptr, ptr %11, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %46, %37
+  %48 = trunc i64 %47 to i32
+  %49 = getelementptr inbounds i8, ptr %43, i64 12
+  store i32 %48, ptr %49, align 4
+  %50 = add i32 %.091110, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader107, label %27
+  br i1 %exitcond.not, label %.preheader107, label %31
 
 .preheader:                                       ; preds = %..loopexit_crit_edge.us, %.preheader107
   br i1 %.not109, label %.preheader.._crit_edge_crit_edge, label %.lr.ph118.preheader
@@ -142,63 +148,63 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br label %._crit_edge
 
 .lr.ph118.preheader:                              ; preds = %.preheader
-  %47 = zext nneg i32 %5 to i64
-  %48 = add nuw i32 %5, 1
-  %wide.trip.count128 = zext i32 %48 to i64
-  %49 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %47, i32 1
-  %.phi.trans.insert = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %47
+  %51 = zext nneg i32 %5 to i64
+  %52 = add nuw i32 %5, 1
+  %wide.trip.count128 = zext i32 %52 to i64
+  %53 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %51, i32 1
+  %.phi.trans.insert = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %51
   br label %.lr.ph118
 
-.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %59
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next126, %59 ]
-  %.092116 = phi i32 [ %3, %.lr.ph118.preheader ], [ %.193, %59 ]
-  %.not101 = icmp eq i64 %indvars.iv125, %47
-  br i1 %.not101, label %58, label %50
+.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %63
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next126, %63 ]
+  %.092116 = phi i32 [ %3, %.lr.ph118.preheader ], [ %.193, %63 ]
+  %.not101 = icmp eq i64 %indvars.iv125, %51
+  br i1 %.not101, label %62, label %54
 
-50:                                               ; preds = %.lr.ph118
-  %51 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
-  %52 = getelementptr inbounds i8, ptr %51, i64 36
-  %53 = load i32, ptr %52, align 4
-  %54 = load i32, ptr %51, align 4
-  %55 = sub i32 %53, %54
-  %56 = getelementptr inbounds i8, ptr %51, i64 4
-  store i32 %55, ptr %56, align 4
-  %.neg = sub i32 %.092116, %53
-  %57 = add i32 %.neg, %54
-  br label %59
+54:                                               ; preds = %.lr.ph118
+  %55 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %56 = getelementptr inbounds i8, ptr %55, i64 36
+  %57 = load i32, ptr %56, align 4
+  %58 = load i32, ptr %55, align 4
+  %59 = sub i32 %57, %58
+  %60 = getelementptr inbounds i8, ptr %55, i64 4
+  store i32 %59, ptr %60, align 4
+  %.neg = sub i32 %.092116, %57
+  %61 = add i32 %.neg, %58
+  br label %63
 
-58:                                               ; preds = %.lr.ph118
-  store i32 %.092116, ptr %49, align 4
+62:                                               ; preds = %.lr.ph118
+  store i32 %.092116, ptr %53, align 4
   %.pre130 = load i32, ptr %.phi.trans.insert, align 4
-  br label %59
+  br label %63
 
-59:                                               ; preds = %58, %50
-  %60 = phi i32 [ %55, %50 ], [ %.092116, %58 ]
-  %61 = phi i32 [ %54, %50 ], [ %.pre130, %58 ]
-  %.193 = phi i32 [ %57, %50 ], [ %.092116, %58 ]
-  %62 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %62, i64 12
-  %66 = load i32, ptr %65, align 4
-  %67 = trunc nuw nsw i64 %indvars.iv125 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %67, i32 noundef %61, i32 noundef %60, i32 noundef %64, i32 noundef %66) #2
+63:                                               ; preds = %62, %54
+  %64 = phi i32 [ %59, %54 ], [ %.092116, %62 ]
+  %65 = phi i32 [ %58, %54 ], [ %.pre130, %62 ]
+  %.193 = phi i32 [ %61, %54 ], [ %.092116, %62 ]
+  %66 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds i8, ptr %66, i64 12
+  %70 = load i32, ptr %69, align 4
+  %71 = trunc nuw nsw i64 %indvars.iv125 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %71, i32 noundef %65, i32 noundef %64, i32 noundef %68, i32 noundef %70) #2
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %._crit_edge, label %.lr.ph118
 
-._crit_edge:                                      ; preds = %59, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre134, %.preheader.._crit_edge_crit_edge ], [ %48, %59 ]
-  %68 = call i32 @cli_rebuildpe(ptr noundef %1, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef %8) #2
-  %.not100 = icmp eq i32 %68, 0
-  br i1 %.not100, label %69, label %.loopexit108
+._crit_edge:                                      ; preds = %63, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre134, %.preheader.._crit_edge_crit_edge ], [ %52, %63 ]
+  %72 = call i32 @cli_rebuildpe(ptr noundef %1, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef %8) #2
+  %.not100 = icmp eq i32 %72, 0
+  br i1 %.not100, label %73, label %.loopexit108
 
-69:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #2
   br label %.loopexit108
 
-.loopexit108:                                     ; preds = %27, %._crit_edge, %69
-  %.0 = phi i32 [ 0, %69 ], [ 1, %._crit_edge ], [ -1, %27 ]
+.loopexit108:                                     ; preds = %31, %._crit_edge, %73
+  %.0 = phi i32 [ 0, %73 ], [ 1, %._crit_edge ], [ -1, %31 ]
   ret i32 %.0
 }
 

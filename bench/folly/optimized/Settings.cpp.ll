@@ -5544,6 +5544,7 @@ _ZNSt10shared_ptrIvEaSERKS0_.exit:                ; preds = %if.end9.i.i.i, %ent
   %publish_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #25
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !12
@@ -5588,15 +5589,17 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %invoke.cont.i.i, %_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %publish_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !50
-  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !50
-  store <2 x ptr> %21, ptr %_M_manager.i.i.i, align 8, !tbaa !50
+  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !50
+  store ptr %21, ptr %_M_manager.i.i.i, align 8, !tbaa !50
+  %_M_invoker4.i3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %22 = load ptr, ptr %_M_invoker4.i3.i, align 8, !tbaa !50
+  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !50
   store <2 x ptr> %20, ptr %_M_manager3.i.i, align 8, !tbaa !50
-  %tobool.not.i.i = icmp eq ptr %22, null
+  %tobool.not.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEEaSERKS1_.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvvEEaSERKS1_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i5.i

@@ -63,14 +63,18 @@ define dso_local i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %0, i64 nounde
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
+  %.sroa.532.0.copyload = load i32, ptr %.sroa.532.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.834.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 36
   %.sroa.834.0.copyload = load i32, ptr %.sroa.834.0..sroa_idx, align 4
   store i32 %.sroa.0.0.copyload31, ptr %8, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.sroa.4.0.copyload, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %8, i64 8
-  %21 = load <2 x i32>, ptr %.sroa.532.0..sroa_idx, align 4
-  store <2 x i32> %21, ptr %20, align 8
+  store i32 %.sroa.532.0.copyload, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %.sroa.6.0.copyload, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %8, i64 16
   store double 1.000000e+00, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 32
@@ -827,14 +831,14 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 45:                                               ; preds = %6
   %46 = icmp sgt i32 %43, 0
-  br i1 %46, label %47, label %213
+  br i1 %46, label %47, label %211
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr @stderr, align 8
   %49 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 21, i64 1, ptr %48) #11
   %50 = load ptr, ptr @stderr, align 8
   %51 = tail call i32 @fflush(ptr noundef %50)
-  br label %213
+  br label %211
 
 52:                                               ; preds = %6
   %53 = icmp ugt i32 %40, 10
@@ -842,14 +846,14 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 54:                                               ; preds = %52
   %55 = icmp sgt i32 %43, 0
-  br i1 %55, label %56, label %213
+  br i1 %55, label %56, label %211
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr @stderr, align 8
   %58 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 16, i64 1, ptr %57) #11
   %59 = load ptr, ptr @stderr, align 8
   %60 = tail call i32 @fflush(ptr noundef %59)
-  br label %213
+  br label %211
 
 61:                                               ; preds = %52
   %62 = icmp ult i32 %22, %19
@@ -859,14 +863,14 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 64:                                               ; preds = %61
   %65 = icmp sgt i32 %43, 0
-  br i1 %65, label %66, label %213
+  br i1 %65, label %66, label %211
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @stderr, align 8
   %68 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 12, i64 1, ptr %67) #11
   %69 = load ptr, ptr @stderr, align 8
   %70 = tail call i32 @fflush(ptr noundef %69)
-  br label %213
+  br label %211
 
 71:                                               ; preds = %61
   %72 = icmp eq i32 %4, 0
@@ -874,14 +878,14 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 73:                                               ; preds = %71
   %74 = icmp sgt i32 %43, 0
-  br i1 %74, label %75, label %213
+  br i1 %74, label %75, label %211
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @stderr, align 8
   %77 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 44, i64 1, ptr %76) #11
   %78 = load ptr, ptr @stderr, align 8
   %79 = tail call i32 @fflush(ptr noundef %78)
-  br label %213
+  br label %211
 
 80:                                               ; preds = %71
   %81 = icmp ult i64 %1, 256
@@ -889,14 +893,14 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 
 82:                                               ; preds = %80
   %83 = icmp sgt i32 %43, 0
-  br i1 %83, label %84, label %213
+  br i1 %83, label %84, label %211
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr @stderr, align 8
   %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.2, i32 noundef 256) #12
   %87 = load ptr, ptr @stderr, align 8
   %88 = tail call i32 @fflush(ptr noundef %87)
-  br label %213
+  br label %211
 
 89:                                               ; preds = %80
   %90 = icmp ugt i32 %10, 1
@@ -906,7 +910,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
   %92 = zext i32 %10 to i64
   %93 = tail call ptr @POOL_create(i64 noundef %92, i64 noundef 1) #13
   %.not = icmp eq ptr %93, null
-  br i1 %.not, label %213, label %94
+  br i1 %.not, label %211, label %94
 
 94:                                               ; preds = %91, %89
   %.0131 = phi ptr [ %93, %91 ], [ null, %89 ]
@@ -976,7 +980,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
 126:                                              ; preds = %121, %.split.us
   call void @COVER_best_destroy(ptr noundef nonnull %7) #13
   call void @POOL_free(ptr noundef %.0131) #13
-  br label %213
+  br label %211
 
 127:                                              ; preds = %117
   br i1 %.not155192, label %128, label %.lr.ph
@@ -1027,7 +1031,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
   call void @free(ptr noundef %148) #13
   store ptr null, ptr %111, align 8
   call void @POOL_free(ptr noundef %.0131) #13
-  br label %213
+  br label %211
 
 149:                                              ; preds = %138
   store ptr %8, ptr %132, align 8
@@ -1167,36 +1171,42 @@ FASTCOVER_checkParameters.exit:                   ; preds = %158
 202:                                              ; preds = %198
   call void @COVER_best_destroy(ptr noundef nonnull %7) #13
   call void @POOL_free(ptr noundef %.0131) #13
-  br label %213
+  br label %211
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds i8, ptr %7, i64 24
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.0176.0.copyload = load i32, ptr %206, align 8
+  %.sroa.4177.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 36
+  %.sroa.4177.0.copyload = load i32, ptr %.sroa.4177.0..sroa_idx, align 4
   %.sroa.5178.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  %.sroa.5178.0.copyload = load i32, ptr %.sroa.5178.0..sroa_idx, align 8
+  %.sroa.6179.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 44
+  %.sroa.6179.0.copyload = load i32, ptr %.sroa.6179.0..sroa_idx, align 4
   %.sroa.7180.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
   %.sroa.7180.0.copyload = load double, ptr %.sroa.7180.0..sroa_idx, align 8
   %.sroa.8181.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
   %.sroa.8181.0.copyload = load i32, ptr %.sroa.8181.0..sroa_idx, align 8
-  %207 = load <2 x i32>, ptr %206, align 8
-  store <2 x i32> %207, ptr %5, align 8
-  %208 = load <2 x i32>, ptr %.sroa.5178.0..sroa_idx, align 8
-  store <2 x i32> %208, ptr %24, align 4
+  store i32 %.sroa.0176.0.copyload, ptr %5, align 8
+  store i32 %.sroa.4177.0.copyload, ptr %15, align 4
+  store i32 %.sroa.5178.0.copyload, ptr %24, align 4
+  store i32 %.sroa.6179.0.copyload, ptr %9, align 8
   store double %.sroa.7180.0.copyload, ptr %11, align 8
   store i32 %38, ptr %35, align 8
   store i32 %41, ptr %39, align 8
-  %209 = getelementptr inbounds i8, ptr %5, i64 44
-  %210 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %209, ptr noundef nonnull align 8 dereferenceable(12) %210, i64 12, i1 false)
+  %207 = getelementptr inbounds i8, ptr %5, i64 44
+  %208 = getelementptr inbounds i8, ptr %7, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %207, ptr noundef nonnull align 8 dereferenceable(12) %208, i64 12, i1 false)
   store i32 %.sroa.8181.0.copyload, ptr %.sroa.8169.0..sroa_idx, align 4
-  %211 = getelementptr inbounds i8, ptr %7, i64 16
-  %212 = load ptr, ptr %211, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %212, i64 %205, i1 false)
+  %209 = getelementptr inbounds i8, ptr %7, i64 16
+  %210 = load ptr, ptr %209, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %210, i64 %205, i1 false)
   call void @COVER_best_destroy(ptr noundef nonnull %7) #13
   call void @POOL_free(ptr noundef %.0131) #13
-  br label %213
+  br label %211
 
-213:                                              ; preds = %91, %82, %84, %73, %75, %64, %66, %54, %56, %45, %47, %203, %202, %146, %126
+211:                                              ; preds = %91, %82, %84, %73, %75, %64, %66, %54, %56, %45, %47, %203, %202, %146, %126
   %.0 = phi i64 [ %118, %126 ], [ -64, %146 ], [ %200, %202 ], [ %205, %203 ], [ -42, %47 ], [ -42, %45 ], [ -42, %56 ], [ -42, %54 ], [ -42, %66 ], [ -42, %64 ], [ -72, %75 ], [ -72, %73 ], [ -70, %84 ], [ -70, %82 ], [ -64, %91 ]
   ret i64 %.0
 }

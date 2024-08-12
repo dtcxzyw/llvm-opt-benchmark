@@ -451,14 +451,14 @@ entry:
 define linkonce_odr void @_ZNK8facebook5velox24HyperLogLogTypeFactories7getTypeEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox15HyperLogLogType3getEv(), !noalias !7
+  %0 = load ptr, ptr %call.i, align 8, !noalias !7
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !7
-  %1 = load <2 x ptr>, ptr %call.i, align 8, !noalias !7
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !7
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox15HyperLogLogTypeEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -474,7 +474,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNSt10shared_ptrIKN8facebook5velox15HyperLogLogTypeEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook5velox15HyperLogLogTypeEED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %entry
-  store <2 x ptr> %1, ptr %agg.result, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
   ret void
 }
 
@@ -571,7 +573,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox15HyperLogLogTypeELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox15HyperLogLogType3getEv() local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.16", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr.16", align 8
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox15HyperLogLogType3getEvE8instance acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
@@ -597,13 +599,15 @@ invoke.cont2:                                     ; preds = %init
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
+  %4 = load ptr, ptr %ref.tmp, align 8
+  store ptr %4, ptr @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %4 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %5 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
-  store <2 x ptr> %4, ptr @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance, align 8
-  store ptr null, ptr %ref.tmp, align 16
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance, i64 8), align 8
+  store ptr null, ptr %ref.tmp, align 8
   call void @_ZNSt10shared_ptrIN8facebook5velox15HyperLogLogTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
-  %5 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt10shared_ptrIKN8facebook5velox15HyperLogLogTypeEED2Ev, ptr nonnull @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance, ptr nonnull @__dso_handle) #13
+  %6 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt10shared_ptrIKN8facebook5velox15HyperLogLogTypeEED2Ev, ptr nonnull @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance, ptr nonnull @__dso_handle) #13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox15HyperLogLogType3getEvE8instance) #13
   br label %init.end
 
@@ -611,10 +615,10 @@ init.end:                                         ; preds = %invoke.cont3, %init
   ret ptr @_ZZN8facebook5velox15HyperLogLogType3getEvE8instance
 
 lpad:                                             ; preds = %invoke.cont2, %init
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox15HyperLogLogType3getEvE8instance) #13
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: nofree nounwind

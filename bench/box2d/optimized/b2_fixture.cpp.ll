@@ -281,8 +281,8 @@ declare void @_ZN12b2BroadPhase12DestroyProxyEi(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9b2Fixture11SynchronizeEP12b2BroadPhaseRK11b2TransformS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %broadPhase, ptr noundef nonnull align 4 dereferenceable(16) %transform1, ptr noundef nonnull align 4 dereferenceable(16) %transform2) local_unnamed_addr #4 align 2 {
 entry:
-  %aabb1 = alloca %struct.b2AABB, align 8
-  %aabb2 = alloca %struct.b2AABB, align 8
+  %aabb1 = alloca %struct.b2AABB, align 4
+  %aabb2 = alloca %struct.b2AABB, align 4
   %displacement = alloca %struct.b2Vec2, align 8
   %m_proxyCount = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %m_proxyCount, align 8
@@ -292,8 +292,12 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %m_proxies = getelementptr inbounds i8, ptr %this, i64 48
   %m_shape = getelementptr inbounds i8, ptr %this, i64 24
+  %y.i.i = getelementptr inbounds i8, ptr %aabb1, i64 4
+  %y2.i.i = getelementptr inbounds i8, ptr %aabb2, i64 4
   %upperBound.i = getelementptr inbounds i8, ptr %aabb1, i64 8
   %upperBound5.i = getelementptr inbounds i8, ptr %aabb2, i64 8
+  %y.i5.i = getelementptr inbounds i8, ptr %aabb1, i64 12
+  %y2.i6.i = getelementptr inbounds i8, ptr %aabb2, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -313,34 +317,57 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 48
   %7 = load ptr, ptr %vfn7, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %aabb2, ptr noundef nonnull align 4 dereferenceable(16) %transform2, i32 noundef %6)
-  %8 = load <2 x float>, ptr %aabb1, align 8
-  %9 = load <2 x float>, ptr %aabb2, align 8
-  %10 = fcmp olt <2 x float> %8, %9
-  %11 = select <2 x i1> %10, <2 x float> %8, <2 x float> %9
-  store <2 x float> %11, ptr %add.ptr, align 4
-  %12 = load <2 x float>, ptr %upperBound.i, align 8
-  %13 = load <2 x float>, ptr %upperBound5.i, align 8
-  %14 = fcmp ogt <2 x float> %12, %13
-  %15 = select <2 x i1> %14, <2 x float> %12, <2 x float> %13
+  %8 = load float, ptr %aabb1, align 4
+  %9 = load float, ptr %aabb2, align 4
+  %cmp.i.i.i = fcmp olt float %8, %9
+  %cond.i.i.i = select i1 %cmp.i.i.i, float %8, float %9
+  %10 = load float, ptr %y.i.i, align 4
+  %11 = load float, ptr %y2.i.i, align 4
+  %cmp.i3.i.i = fcmp olt float %10, %11
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %10, float %11
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond.i.i.i, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond.i4.i.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %add.ptr, align 4
+  %12 = load float, ptr %upperBound.i, align 4
+  %13 = load float, ptr %upperBound5.i, align 4
+  %cmp.i.i3.i = fcmp ogt float %12, %13
+  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %12, float %13
+  %14 = load float, ptr %y.i5.i, align 4
+  %15 = load float, ptr %y2.i6.i, align 4
+  %cmp.i3.i7.i = fcmp ogt float %14, %15
+  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %14, float %15
+  %retval.sroa.0.0.vec.insert.i9.i = insertelement <2 x float> poison, float %cond.i.i4.i, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i, float %cond.i4.i8.i, i64 1
   %upperBound7.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  store <2 x float> %15, ptr %upperBound7.i, align 4
-  %16 = load <2 x float>, ptr %aabb2, align 8
-  %17 = load <2 x float>, ptr %upperBound5.i, align 8
-  %18 = fadd <2 x float> %16, %17
-  %19 = fmul <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
-  %20 = load <2 x float>, ptr %aabb1, align 8
-  %21 = load <2 x float>, ptr %upperBound.i, align 8
-  %22 = fadd <2 x float> %20, %21
-  %23 = fmul <2 x float> %22, <float 5.000000e-01, float 5.000000e-01>
-  %24 = fsub <2 x float> %19, %23
-  store <2 x float> %24, ptr %displacement, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i, ptr %upperBound7.i, align 4
+  %16 = load float, ptr %aabb2, align 4
+  %17 = load float, ptr %upperBound5.i, align 4
+  %add.i.i = fadd float %16, %17
+  %18 = load float, ptr %y2.i.i, align 4
+  %19 = load float, ptr %y2.i6.i, align 4
+  %add3.i.i = fadd float %18, %19
+  %mul.i.i = fmul float %add.i.i, 5.000000e-01
+  %mul1.i.i = fmul float %add3.i.i, 5.000000e-01
+  %20 = load float, ptr %aabb1, align 4
+  %21 = load float, ptr %upperBound.i, align 4
+  %add.i.i11 = fadd float %20, %21
+  %22 = load float, ptr %y.i.i, align 4
+  %23 = load float, ptr %y.i5.i, align 4
+  %add3.i.i14 = fadd float %22, %23
+  %mul.i.i15 = fmul float %add.i.i11, 5.000000e-01
+  %mul1.i.i16 = fmul float %add3.i.i14, 5.000000e-01
+  %sub.i = fsub float %mul.i.i, %mul.i.i15
+  %sub3.i = fsub float %mul1.i.i, %mul1.i.i16
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %sub3.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %displacement, align 8
   %proxyId = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %25 = load i32, ptr %proxyId, align 4
-  call void @_ZN12b2BroadPhase9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(76) %broadPhase, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr, ptr noundef nonnull align 4 dereferenceable(8) %displacement)
+  %24 = load i32, ptr %proxyId, align 4
+  call void @_ZN12b2BroadPhase9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(76) %broadPhase, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr, ptr noundef nonnull align 4 dereferenceable(8) %displacement)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr %m_proxyCount, align 8
-  %27 = sext i32 %26 to i64
-  %cmp3 = icmp slt i64 %indvars.iv.next, %27
+  %25 = load i32, ptr %m_proxyCount, align 8
+  %26 = sext i32 %25 to i64
+  %cmp3 = icmp slt i64 %indvars.iv.next, %26
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry

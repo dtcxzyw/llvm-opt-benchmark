@@ -769,325 +769,331 @@ define internal noundef ptr @H5O__efl_decode(ptr noundef %0, ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__efl_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %3, align 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = load i64, ptr %8, align 8
-  %10 = trunc i64 %9 to i8
-  store i8 %10, ptr %7, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 5
-  %12 = load i64, ptr %8, align 8
-  %13 = lshr i64 %12, 8
-  %14 = trunc i64 %13 to i8
-  store i8 %14, ptr %11, align 1
-  %15 = getelementptr inbounds i8, ptr %3, i64 6
-  %16 = load i64, ptr %8, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 1, ptr %3, align 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 0, ptr %8, align 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 0, ptr %9, align 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i8
+  store i8 %13, ptr %10, align 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 5
+  %15 = load i64, ptr %11, align 8
+  %16 = lshr i64 %15, 8
   %17 = trunc i64 %16 to i8
-  store i8 %17, ptr %15, align 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 7
-  %19 = load i64, ptr %8, align 8
-  %20 = lshr i64 %19, 8
-  %21 = trunc i64 %20 to i8
-  store i8 %21, ptr %18, align 1
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %22, ptr %6, align 8
-  %23 = load i64, ptr %4, align 8
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %23) #10
-  %24 = load i64, ptr %8, align 8
-  %.not = icmp eq i64 %24, 0
+  store i8 %17, ptr %14, align 1
+  %18 = getelementptr inbounds i8, ptr %3, i64 6
+  %19 = load i64, ptr %11, align 8
+  %20 = trunc i64 %19 to i8
+  store i8 %20, ptr %18, align 1
+  %21 = getelementptr inbounds i8, ptr %3, i64 7
+  %22 = load i64, ptr %11, align 8
+  %23 = lshr i64 %22, 8
+  %24 = trunc i64 %23 to i8
+  store i8 %24, ptr %21, align 1
+  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %25, ptr %6, align 8
+  %26 = load i64, ptr %4, align 8
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %26) #10
+  %27 = load i64, ptr %11, align 8
+  %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
-  br label %26
+  %28 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %29
 
-26:                                               ; preds = %.lr.ph, %203
-  %.091101 = phi i64 [ 0, %.lr.ph ], [ %204, %203 ]
-  %27 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
-  switch i8 %27, label %85 [
-    i8 4, label %28
-    i8 8, label %57
-    i8 2, label %70
+29:                                               ; preds = %.lr.ph, %206
+  %.091101 = phi i64 [ 0, %.lr.ph ], [ %207, %206 ]
+  %30 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
+  switch i8 %30, label %88 [
+    i8 4, label %31
+    i8 8, label %60
+    i8 2, label %73
   ]
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %29, i64 %.091101
-  %31 = load i64, ptr %30, align 8
-  %32 = trunc i64 %31 to i8
-  %33 = load ptr, ptr %6, align 8
-  store i8 %32, ptr %33, align 1
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store ptr %35, ptr %6, align 8
-  %36 = load ptr, ptr %25, align 8
-  %37 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %36, i64 %.091101
-  %38 = load i64, ptr %37, align 8
-  %39 = lshr i64 %38, 8
-  %40 = trunc i64 %39 to i8
-  store i8 %40, ptr %35, align 1
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store ptr %42, ptr %6, align 8
-  %43 = load ptr, ptr %25, align 8
-  %44 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %43, i64 %.091101
-  %45 = load i64, ptr %44, align 8
-  %46 = lshr i64 %45, 16
-  %47 = trunc i64 %46 to i8
-  store i8 %47, ptr %42, align 1
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  store ptr %49, ptr %6, align 8
-  %50 = load ptr, ptr %25, align 8
-  %51 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %50, i64 %.091101
-  %52 = load i64, ptr %51, align 8
-  %53 = lshr i64 %52, 24
-  %54 = trunc i64 %53 to i8
-  store i8 %54, ptr %49, align 1
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
-  store ptr %56, ptr %6, align 8
-  br label %85
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %28, align 8
+  %33 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %32, i64 %.091101
+  %34 = load i64, ptr %33, align 8
+  %35 = trunc i64 %34 to i8
+  %36 = load ptr, ptr %6, align 8
+  store i8 %35, ptr %36, align 1
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store ptr %38, ptr %6, align 8
+  %39 = load ptr, ptr %28, align 8
+  %40 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %39, i64 %.091101
+  %41 = load i64, ptr %40, align 8
+  %42 = lshr i64 %41, 8
+  %43 = trunc i64 %42 to i8
+  store i8 %43, ptr %38, align 1
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store ptr %45, ptr %6, align 8
+  %46 = load ptr, ptr %28, align 8
+  %47 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %46, i64 %.091101
+  %48 = load i64, ptr %47, align 8
+  %49 = lshr i64 %48, 16
+  %50 = trunc i64 %49 to i8
+  store i8 %50, ptr %45, align 1
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store ptr %52, ptr %6, align 8
+  %53 = load ptr, ptr %28, align 8
+  %54 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %53, i64 %.091101
+  %55 = load i64, ptr %54, align 8
+  %56 = lshr i64 %55, 24
+  %57 = trunc i64 %56 to i8
+  store i8 %57, ptr %52, align 1
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  store ptr %59, ptr %6, align 8
+  br label %88
 
-57:                                               ; preds = %26
-  %58 = load ptr, ptr %25, align 8
-  %59 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %58, i64 %.091101
-  %60 = load i64, ptr %59, align 8
-  %61 = load ptr, ptr %6, align 8
-  br label %62
+60:                                               ; preds = %29
+  %61 = load ptr, ptr %28, align 8
+  %62 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %61, i64 %.091101
+  %63 = load i64, ptr %62, align 8
+  %64 = load ptr, ptr %6, align 8
+  br label %65
 
-62:                                               ; preds = %57, %62
-  %.08694 = phi ptr [ %61, %57 ], [ %64, %62 ]
-  %.08893 = phi i64 [ 0, %57 ], [ %65, %62 ]
-  %.09092 = phi i64 [ %60, %57 ], [ %66, %62 ]
-  %63 = trunc i64 %.09092 to i8
-  %64 = getelementptr inbounds i8, ptr %.08694, i64 1
-  store i8 %63, ptr %.08694, align 1
-  %65 = add nuw nsw i64 %.08893, 1
-  %66 = lshr i64 %.09092, 8
-  %exitcond.not = icmp eq i64 %65, 8
-  br i1 %exitcond.not, label %67, label %62
+65:                                               ; preds = %60, %65
+  %.08694 = phi ptr [ %64, %60 ], [ %67, %65 ]
+  %.08893 = phi i64 [ 0, %60 ], [ %68, %65 ]
+  %.09092 = phi i64 [ %63, %60 ], [ %69, %65 ]
+  %66 = trunc i64 %.09092 to i8
+  %67 = getelementptr inbounds i8, ptr %.08694, i64 1
+  store i8 %66, ptr %.08694, align 1
+  %68 = add nuw nsw i64 %.08893, 1
+  %69 = lshr i64 %.09092, 8
+  %exitcond.not = icmp eq i64 %68, 8
+  br i1 %exitcond.not, label %70, label %65
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  store ptr %69, ptr %6, align 8
-  br label %85
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  store ptr %72, ptr %6, align 8
+  br label %88
 
-70:                                               ; preds = %26
-  %71 = load ptr, ptr %25, align 8
-  %72 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %71, i64 %.091101
-  %73 = load i64, ptr %72, align 8
-  %74 = trunc i64 %73 to i8
-  %75 = load ptr, ptr %6, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
-  store ptr %77, ptr %6, align 8
-  %78 = load ptr, ptr %25, align 8
-  %79 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %78, i64 %.091101
-  %80 = load i64, ptr %79, align 8
-  %81 = lshr i64 %80, 8
-  %82 = trunc i64 %81 to i8
-  store i8 %82, ptr %77, align 1
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
-  store ptr %84, ptr %6, align 8
-  br label %85
+73:                                               ; preds = %29
+  %74 = load ptr, ptr %28, align 8
+  %75 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %74, i64 %.091101
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i8
+  %78 = load ptr, ptr %6, align 8
+  store i8 %77, ptr %78, align 1
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  store ptr %80, ptr %6, align 8
+  %81 = load ptr, ptr %28, align 8
+  %82 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %81, i64 %.091101
+  %83 = load i64, ptr %82, align 8
+  %84 = lshr i64 %83, 8
+  %85 = trunc i64 %84 to i8
+  store i8 %85, ptr %80, align 1
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  store ptr %87, ptr %6, align 8
+  br label %88
 
-85:                                               ; preds = %26, %70, %67, %28
-  %86 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
-  switch i8 %86, label %144 [
-    i8 4, label %87
-    i8 8, label %116
-    i8 2, label %129
+88:                                               ; preds = %29, %73, %70, %31
+  %89 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
+  switch i8 %89, label %147 [
+    i8 4, label %90
+    i8 8, label %119
+    i8 2, label %132
   ]
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %25, align 8
-  %89 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %88, i64 %.091101, i32 2
-  %90 = load i64, ptr %89, align 8
-  %91 = trunc i64 %90 to i8
-  %92 = load ptr, ptr %6, align 8
-  store i8 %91, ptr %92, align 1
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
-  store ptr %94, ptr %6, align 8
-  %95 = load ptr, ptr %25, align 8
-  %96 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %95, i64 %.091101, i32 2
-  %97 = load i64, ptr %96, align 8
-  %98 = lshr i64 %97, 8
-  %99 = trunc i64 %98 to i8
-  store i8 %99, ptr %94, align 1
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1
-  store ptr %101, ptr %6, align 8
-  %102 = load ptr, ptr %25, align 8
-  %103 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %102, i64 %.091101, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = lshr i64 %104, 16
-  %106 = trunc i64 %105 to i8
-  store i8 %106, ptr %101, align 1
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 1
-  store ptr %108, ptr %6, align 8
-  %109 = load ptr, ptr %25, align 8
-  %110 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %109, i64 %.091101, i32 2
-  %111 = load i64, ptr %110, align 8
-  %112 = lshr i64 %111, 24
-  %113 = trunc i64 %112 to i8
-  store i8 %113, ptr %108, align 1
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1
-  store ptr %115, ptr %6, align 8
-  br label %144
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %28, align 8
+  %92 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %91, i64 %.091101, i32 2
+  %93 = load i64, ptr %92, align 8
+  %94 = trunc i64 %93 to i8
+  %95 = load ptr, ptr %6, align 8
+  store i8 %94, ptr %95, align 1
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  store ptr %97, ptr %6, align 8
+  %98 = load ptr, ptr %28, align 8
+  %99 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %98, i64 %.091101, i32 2
+  %100 = load i64, ptr %99, align 8
+  %101 = lshr i64 %100, 8
+  %102 = trunc i64 %101 to i8
+  store i8 %102, ptr %97, align 1
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 1
+  store ptr %104, ptr %6, align 8
+  %105 = load ptr, ptr %28, align 8
+  %106 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %105, i64 %.091101, i32 2
+  %107 = load i64, ptr %106, align 8
+  %108 = lshr i64 %107, 16
+  %109 = trunc i64 %108 to i8
+  store i8 %109, ptr %104, align 1
+  %110 = load ptr, ptr %6, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 1
+  store ptr %111, ptr %6, align 8
+  %112 = load ptr, ptr %28, align 8
+  %113 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %112, i64 %.091101, i32 2
+  %114 = load i64, ptr %113, align 8
+  %115 = lshr i64 %114, 24
+  %116 = trunc i64 %115 to i8
+  store i8 %116, ptr %111, align 1
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 1
+  store ptr %118, ptr %6, align 8
+  br label %147
 
-116:                                              ; preds = %85
-  %117 = load ptr, ptr %25, align 8
-  %118 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %117, i64 %.091101, i32 2
-  %119 = load i64, ptr %118, align 8
-  %120 = load ptr, ptr %6, align 8
-  br label %121
+119:                                              ; preds = %88
+  %120 = load ptr, ptr %28, align 8
+  %121 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %120, i64 %.091101, i32 2
+  %122 = load i64, ptr %121, align 8
+  %123 = load ptr, ptr %6, align 8
+  br label %124
 
-121:                                              ; preds = %116, %121
-  %.08197 = phi ptr [ %120, %116 ], [ %123, %121 ]
-  %.08396 = phi i64 [ 0, %116 ], [ %124, %121 ]
-  %.08595 = phi i64 [ %119, %116 ], [ %125, %121 ]
-  %122 = trunc i64 %.08595 to i8
-  %123 = getelementptr inbounds i8, ptr %.08197, i64 1
-  store i8 %122, ptr %.08197, align 1
-  %124 = add nuw nsw i64 %.08396, 1
-  %125 = lshr i64 %.08595, 8
-  %exitcond102.not = icmp eq i64 %124, 8
-  br i1 %exitcond102.not, label %126, label %121
+124:                                              ; preds = %119, %124
+  %.08197 = phi ptr [ %123, %119 ], [ %126, %124 ]
+  %.08396 = phi i64 [ 0, %119 ], [ %127, %124 ]
+  %.08595 = phi i64 [ %122, %119 ], [ %128, %124 ]
+  %125 = trunc i64 %.08595 to i8
+  %126 = getelementptr inbounds i8, ptr %.08197, i64 1
+  store i8 %125, ptr %.08197, align 1
+  %127 = add nuw nsw i64 %.08396, 1
+  %128 = lshr i64 %.08595, 8
+  %exitcond102.not = icmp eq i64 %127, 8
+  br i1 %exitcond102.not, label %129, label %124
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
-  store ptr %128, ptr %6, align 8
-  br label %144
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %6, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  store ptr %131, ptr %6, align 8
+  br label %147
 
-129:                                              ; preds = %85
-  %130 = load ptr, ptr %25, align 8
-  %131 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %130, i64 %.091101, i32 2
-  %132 = load i64, ptr %131, align 8
-  %133 = trunc i64 %132 to i8
-  %134 = load ptr, ptr %6, align 8
-  store i8 %133, ptr %134, align 1
-  %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1
-  store ptr %136, ptr %6, align 8
-  %137 = load ptr, ptr %25, align 8
-  %138 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %137, i64 %.091101, i32 2
-  %139 = load i64, ptr %138, align 8
-  %140 = lshr i64 %139, 8
-  %141 = trunc i64 %140 to i8
-  store i8 %141, ptr %136, align 1
-  %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 1
-  store ptr %143, ptr %6, align 8
-  br label %144
+132:                                              ; preds = %88
+  %133 = load ptr, ptr %28, align 8
+  %134 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %133, i64 %.091101, i32 2
+  %135 = load i64, ptr %134, align 8
+  %136 = trunc i64 %135 to i8
+  %137 = load ptr, ptr %6, align 8
+  store i8 %136, ptr %137, align 1
+  %138 = load ptr, ptr %6, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 1
+  store ptr %139, ptr %6, align 8
+  %140 = load ptr, ptr %28, align 8
+  %141 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %140, i64 %.091101, i32 2
+  %142 = load i64, ptr %141, align 8
+  %143 = lshr i64 %142, 8
+  %144 = trunc i64 %143 to i8
+  store i8 %144, ptr %139, align 1
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 1
+  store ptr %146, ptr %6, align 8
+  br label %147
 
-144:                                              ; preds = %85, %129, %126, %87
-  %145 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
-  switch i8 %145, label %203 [
-    i8 4, label %146
-    i8 8, label %175
-    i8 2, label %188
+147:                                              ; preds = %88, %132, %129, %90
+  %148 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #10
+  switch i8 %148, label %206 [
+    i8 4, label %149
+    i8 8, label %178
+    i8 2, label %191
   ]
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr %25, align 8
-  %148 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %147, i64 %.091101, i32 3
-  %149 = load i64, ptr %148, align 8
-  %150 = trunc i64 %149 to i8
-  %151 = load ptr, ptr %6, align 8
-  store i8 %150, ptr %151, align 1
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 1
-  store ptr %153, ptr %6, align 8
-  %154 = load ptr, ptr %25, align 8
-  %155 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %154, i64 %.091101, i32 3
-  %156 = load i64, ptr %155, align 8
-  %157 = lshr i64 %156, 8
-  %158 = trunc i64 %157 to i8
-  store i8 %158, ptr %153, align 1
-  %159 = load ptr, ptr %6, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1
-  store ptr %160, ptr %6, align 8
-  %161 = load ptr, ptr %25, align 8
-  %162 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %161, i64 %.091101, i32 3
-  %163 = load i64, ptr %162, align 8
-  %164 = lshr i64 %163, 16
-  %165 = trunc i64 %164 to i8
-  store i8 %165, ptr %160, align 1
-  %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 1
-  store ptr %167, ptr %6, align 8
-  %168 = load ptr, ptr %25, align 8
-  %169 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %168, i64 %.091101, i32 3
-  %170 = load i64, ptr %169, align 8
-  %171 = lshr i64 %170, 24
-  %172 = trunc i64 %171 to i8
-  store i8 %172, ptr %167, align 1
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 1
-  store ptr %174, ptr %6, align 8
-  br label %203
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %28, align 8
+  %151 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %150, i64 %.091101, i32 3
+  %152 = load i64, ptr %151, align 8
+  %153 = trunc i64 %152 to i8
+  %154 = load ptr, ptr %6, align 8
+  store i8 %153, ptr %154, align 1
+  %155 = load ptr, ptr %6, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 1
+  store ptr %156, ptr %6, align 8
+  %157 = load ptr, ptr %28, align 8
+  %158 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %157, i64 %.091101, i32 3
+  %159 = load i64, ptr %158, align 8
+  %160 = lshr i64 %159, 8
+  %161 = trunc i64 %160 to i8
+  store i8 %161, ptr %156, align 1
+  %162 = load ptr, ptr %6, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 1
+  store ptr %163, ptr %6, align 8
+  %164 = load ptr, ptr %28, align 8
+  %165 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %164, i64 %.091101, i32 3
+  %166 = load i64, ptr %165, align 8
+  %167 = lshr i64 %166, 16
+  %168 = trunc i64 %167 to i8
+  store i8 %168, ptr %163, align 1
+  %169 = load ptr, ptr %6, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 1
+  store ptr %170, ptr %6, align 8
+  %171 = load ptr, ptr %28, align 8
+  %172 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %171, i64 %.091101, i32 3
+  %173 = load i64, ptr %172, align 8
+  %174 = lshr i64 %173, 24
+  %175 = trunc i64 %174 to i8
+  store i8 %175, ptr %170, align 1
+  %176 = load ptr, ptr %6, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 1
+  store ptr %177, ptr %6, align 8
+  br label %206
 
-175:                                              ; preds = %144
-  %176 = load ptr, ptr %25, align 8
-  %177 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %176, i64 %.091101, i32 3
-  %178 = load i64, ptr %177, align 8
-  %179 = load ptr, ptr %6, align 8
-  br label %180
+178:                                              ; preds = %147
+  %179 = load ptr, ptr %28, align 8
+  %180 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %179, i64 %.091101, i32 3
+  %181 = load i64, ptr %180, align 8
+  %182 = load ptr, ptr %6, align 8
+  br label %183
 
-180:                                              ; preds = %175, %180
-  %.0100 = phi ptr [ %179, %175 ], [ %182, %180 ]
-  %.07899 = phi i64 [ 0, %175 ], [ %183, %180 ]
-  %.08098 = phi i64 [ %178, %175 ], [ %184, %180 ]
-  %181 = trunc i64 %.08098 to i8
-  %182 = getelementptr inbounds i8, ptr %.0100, i64 1
-  store i8 %181, ptr %.0100, align 1
-  %183 = add nuw nsw i64 %.07899, 1
-  %184 = lshr i64 %.08098, 8
-  %exitcond103.not = icmp eq i64 %183, 8
-  br i1 %exitcond103.not, label %185, label %180
+183:                                              ; preds = %178, %183
+  %.0100 = phi ptr [ %182, %178 ], [ %185, %183 ]
+  %.07899 = phi i64 [ 0, %178 ], [ %186, %183 ]
+  %.08098 = phi i64 [ %181, %178 ], [ %187, %183 ]
+  %184 = trunc i64 %.08098 to i8
+  %185 = getelementptr inbounds i8, ptr %.0100, i64 1
+  store i8 %184, ptr %.0100, align 1
+  %186 = add nuw nsw i64 %.07899, 1
+  %187 = lshr i64 %.08098, 8
+  %exitcond103.not = icmp eq i64 %186, 8
+  br i1 %exitcond103.not, label %188, label %183
 
-185:                                              ; preds = %180
-  %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  store ptr %187, ptr %6, align 8
-  br label %203
+188:                                              ; preds = %183
+  %189 = load ptr, ptr %6, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  store ptr %190, ptr %6, align 8
+  br label %206
 
-188:                                              ; preds = %144
-  %189 = load ptr, ptr %25, align 8
-  %190 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %189, i64 %.091101, i32 3
-  %191 = load i64, ptr %190, align 8
-  %192 = trunc i64 %191 to i8
-  %193 = load ptr, ptr %6, align 8
-  store i8 %192, ptr %193, align 1
-  %194 = load ptr, ptr %6, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 1
-  store ptr %195, ptr %6, align 8
-  %196 = load ptr, ptr %25, align 8
-  %197 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %196, i64 %.091101, i32 3
-  %198 = load i64, ptr %197, align 8
-  %199 = lshr i64 %198, 8
-  %200 = trunc i64 %199 to i8
-  store i8 %200, ptr %195, align 1
-  %201 = load ptr, ptr %6, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 1
-  store ptr %202, ptr %6, align 8
-  br label %203
+191:                                              ; preds = %147
+  %192 = load ptr, ptr %28, align 8
+  %193 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %192, i64 %.091101, i32 3
+  %194 = load i64, ptr %193, align 8
+  %195 = trunc i64 %194 to i8
+  %196 = load ptr, ptr %6, align 8
+  store i8 %195, ptr %196, align 1
+  %197 = load ptr, ptr %6, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 1
+  store ptr %198, ptr %6, align 8
+  %199 = load ptr, ptr %28, align 8
+  %200 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %199, i64 %.091101, i32 3
+  %201 = load i64, ptr %200, align 8
+  %202 = lshr i64 %201, 8
+  %203 = trunc i64 %202 to i8
+  store i8 %203, ptr %198, align 1
+  %204 = load ptr, ptr %6, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 1
+  store ptr %205, ptr %6, align 8
+  br label %206
 
-203:                                              ; preds = %144, %188, %185, %146
-  %204 = add nuw i64 %.091101, 1
-  %205 = load i64, ptr %8, align 8
-  %206 = icmp ult i64 %204, %205
-  br i1 %206, label %26, label %._crit_edge
+206:                                              ; preds = %147, %191, %188, %149
+  %207 = add nuw i64 %.091101, 1
+  %208 = load i64, ptr %11, align 8
+  %209 = icmp ult i64 %207, %208
+  br i1 %209, label %29, label %._crit_edge
 
-._crit_edge:                                      ; preds = %203, %5
+._crit_edge:                                      ; preds = %206, %5
   ret i32 0
 }
 

@@ -85,29 +85,35 @@ invoke.cont29:
   %m_lastError = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_lastError) #14
   %m_charset = getelementptr inbounds i8, ptr %this, i64 40
-  store <4 x i32> <i32 3, i32 0, i32 14, i32 19>, ptr %m_charset, align 8, !noalias !4
+  store i32 3, ptr %m_charset, align 8, !noalias !4
+  %m_strFmt = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 0, ptr %m_strFmt, align 4, !noalias !7
+  %m_boolFmt = getelementptr inbounds i8, ptr %this, i64 48
+  store i32 14, ptr %m_boolFmt, align 8, !noalias !10
+  %m_boolLengthFmt = getelementptr inbounds i8, ptr %this, i64 52
+  store i32 19, ptr %m_boolLengthFmt, align 4, !noalias !13
   %m_boolCaseFmt = getelementptr inbounds i8, ptr %this, i64 56
-  store i32 17, ptr %m_boolCaseFmt, align 8, !noalias !5
+  store i32 17, ptr %m_boolCaseFmt, align 8, !noalias !16
   %m_nullFmt = getelementptr inbounds i8, ptr %this, i64 60
-  store i32 12, ptr %m_nullFmt, align 4, !noalias !8
+  store i32 12, ptr %m_nullFmt, align 4, !noalias !19
   %m_intFmt = getelementptr inbounds i8, ptr %this, i64 64
-  store i32 21, ptr %m_intFmt, align 8, !noalias !11
+  store i32 21, ptr %m_intFmt, align 8, !noalias !22
   %m_indent = getelementptr inbounds i8, ptr %this, i64 72
-  store i64 2, ptr %m_indent, align 8, !noalias !14
+  store i64 2, ptr %m_indent, align 8, !noalias !25
   %m_preCommentIndent = getelementptr inbounds i8, ptr %this, i64 80
-  store i64 2, ptr %m_preCommentIndent, align 8, !noalias !17
+  store i64 2, ptr %m_preCommentIndent, align 8, !noalias !28
   %m_postCommentIndent = getelementptr inbounds i8, ptr %this, i64 88
-  store i64 1, ptr %m_postCommentIndent, align 8, !noalias !20
+  store i64 1, ptr %m_postCommentIndent, align 8, !noalias !31
   %m_seqFmt = getelementptr inbounds i8, ptr %this, i64 96
-  store i32 29, ptr %m_seqFmt, align 8, !noalias !23
+  store i32 29, ptr %m_seqFmt, align 8, !noalias !34
   %m_mapFmt = getelementptr inbounds i8, ptr %this, i64 100
-  store i32 29, ptr %m_mapFmt, align 4, !noalias !26
+  store i32 29, ptr %m_mapFmt, align 4, !noalias !37
   %m_mapKeyFmt = getelementptr inbounds i8, ptr %this, i64 104
-  store i32 0, ptr %m_mapKeyFmt, align 8, !noalias !29
+  store i32 0, ptr %m_mapKeyFmt, align 8, !noalias !40
   %m_floatPrecision = getelementptr inbounds i8, ptr %this, i64 112
-  store i64 9, ptr %m_floatPrecision, align 8, !noalias !32
+  store i64 9, ptr %m_floatPrecision, align 8, !noalias !43
   %m_doublePrecision = getelementptr inbounds i8, ptr %this, i64 120
-  store i64 17, ptr %m_doublePrecision, align 8, !noalias !35
+  store i64 17, ptr %m_doublePrecision, align 8, !noalias !46
   %m_modifiedSettings = getelementptr inbounds i8, ptr %this, i64 128
   %m_docCount = getelementptr inbounds i8, ptr %this, i64 216
   store i64 0, ptr %m_docCount, align 8
@@ -176,7 +182,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEE
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %.pre2.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4YAML14SettingChanges5clearEv.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4YAML14SettingChanges5clearEv.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !49
 
 _ZN4YAML14SettingChanges5clearEv.exit:            ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
   store ptr %.pre.i, ptr %_M_finish.i.i.i, align 8
@@ -201,7 +207,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEE
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre.i
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !49
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %this, align 8
@@ -249,7 +255,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EE
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !40
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !51
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %m_groups, align 8
@@ -831,7 +837,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEE
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %.pre2.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !49
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i
   store ptr %.pre.i.i, ptr %_M_finish.i.i.i.i, align 8
@@ -895,7 +901,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEE
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %.pre2.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !49
 
 invoke.cont.i.i.i:                                ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
   store ptr %.pre.i, ptr %_M_finish.i.i.i, align 8
@@ -979,11 +985,15 @@ invoke.cont:                                      ; preds = %cond.false, %_ZN4YA
   br i1 %cmp.i4, label %_ZN4YAML14SettingChangesaSEOS0_.exit, label %_ZN4YAML14SettingChanges5clearEv.exit.i
 
 _ZN4YAML14SettingChanges5clearEv.exit.i:          ; preds = %invoke.cont
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call5, i64 40
   %_M_end_of_storage.i4.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 144
   %.pre21 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.phi.trans.insert, align 8
+  %_M_finish.i2.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 136
+  %.pre20 = load ptr, ptr %_M_finish.i2.i.i.i.i.phi.trans.insert, align 8
+  %.pre19 = load ptr, ptr %m_modifiedSettings, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5, i64 48
-  %14 = load <2 x ptr>, ptr %m_modifiedSettings, align 8
-  store <2 x ptr> %14, ptr %modifiedSettings.i, align 8
+  store ptr %.pre19, ptr %modifiedSettings.i, align 8
+  store ptr %.pre20, ptr %_M_finish.i.i.i.i, align 8
   store ptr %.pre21, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_modifiedSettings, i8 0, i64 24, i1 false)
   br label %_ZN4YAML14SettingChangesaSEOS0_.exit
@@ -993,27 +1003,27 @@ _ZN4YAML14SettingChangesaSEOS0_.exit:             ; preds = %invoke.cont, %_ZN4Y
 
 _ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i: ; preds = %_ZN4YAML14SettingChangesaSEOS0_.exit
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
-  %15 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %flowType.i.i = getelementptr inbounds i8, ptr %15, i64 4
-  %16 = load i32, ptr %flowType.i.i, align 4
-  %cmp.i6 = icmp eq i32 %16, 1
+  %14 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %flowType.i.i = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = load i32, ptr %flowType.i.i, align 4
+  %cmp.i6 = icmp eq i32 %15, 1
   br i1 %cmp.i6, label %if.else, label %if.end.i7
 
 if.end.i7:                                        ; preds = %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i, %_ZN4YAML14SettingChangesaSEOS0_.exit
   %cmp2.i = icmp eq i32 %type, 1
   %m_seqFmt.i = getelementptr inbounds i8, ptr %this, i64 96
-  %17 = load i32, ptr %m_seqFmt.i, align 8
+  %16 = load i32, ptr %m_seqFmt.i, align 8
   %m_mapFmt.i = getelementptr inbounds i8, ptr %this, i64 100
-  %18 = load i32, ptr %m_mapFmt.i, align 4
-  %retval.0.i = select i1 %cmp2.i, i32 %17, i32 %18
+  %17 = load i32, ptr %m_mapFmt.i, align 4
+  %retval.0.i = select i1 %cmp2.i, i32 %16, i32 %17
   %cmp = icmp eq i32 %retval.0.i, 29
   br i1 %cmp, label %invoke.cont14, label %if.else
 
 lpad8:                                            ; preds = %cond.true.i.i, %if.then.i.i13
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pGroup) #14
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
 if.else:                                          ; preds = %_ZNK4YAML12EmitterState16CurGroupFlowTypeEv.exit.i, %if.end.i7
   br label %invoke.cont14
@@ -1022,18 +1032,18 @@ invoke.cont14:                                    ; preds = %if.end.i7, %if.else
   %storemerge = phi i32 [ 1, %if.else ], [ 2, %if.end.i7 ]
   store i32 %storemerge, ptr %flowType.i, align 4
   %m_indent.i = getelementptr inbounds i8, ptr %this, i64 72
-  %20 = load i64, ptr %m_indent.i, align 8
+  %19 = load i64, ptr %m_indent.i, align 8
   %indent17 = getelementptr inbounds i8, ptr %call5, i64 8
-  store i64 %20, ptr %indent17, align 8
+  store i64 %19, ptr %indent17, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %21 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %8, %21
+  %20 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %8, %20
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont19.thread
 
 invoke.cont19.thread:                             ; preds = %invoke.cont14
   store i64 %13, ptr %8, align 8
-  %22 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %21 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev.exit
 
@@ -1056,8 +1066,8 @@ _ZNKSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EE
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %23 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
-  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %23
+  %22 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 1152921504606846975)
+  %cond.i.i = select i1 %cmp7.i.i, i64 1152921504606846975, i64 %22
   %cmp.not.i.i12 = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i12, label %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -1075,15 +1085,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_delete
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %24 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !44, !noalias !41
-  store i64 %24, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !41, !noalias !44
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !44, !noalias !41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  %23 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !55, !noalias !52
+  store i64 %23, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !52, !noalias !55
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !55, !noalias !52
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %8
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !46
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -1460,7 +1470,7 @@ _ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEE
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %.pre2.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !49
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZSt8_DestroyISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i.i
   store ptr %.pre.i.i, ptr %_M_finish.i.i.i.i, align 8
@@ -1705,14 +1715,14 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %m_modifiedSettings = getelementptr inbounds i8, ptr %this, i64 128
-  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i, align 8, !noalias !47
+  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !58
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i, align 8, !noalias !58
   %m_pCurSetting.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !47
+  store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !58
   %m_oldSetting.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %0 = load i32, ptr %fmt, align 4, !noalias !47
-  store i32 %0, ptr %m_oldSetting.i.i, align 8, !noalias !47
-  store i32 %value, ptr %fmt, align 4, !noalias !47
+  %0 = load i32, ptr %fmt, align 4, !noalias !58
+  store i32 %0, ptr %m_oldSetting.i.i, align 8, !noalias !58
+  store i32 %value, ptr %fmt, align 4, !noalias !58
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -1769,15 +1779,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteI
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
-  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !50, !noalias !53
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !53, !noalias !50
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !61, !noalias !64
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !66
 
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -1802,15 +1812,15 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8: 
   br label %eh.resume
 
 _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16: ; preds = %entry
-  store i32 %value, ptr %fmt, align 4, !noalias !56
+  store i32 %value, ptr %fmt, align 4, !noalias !67
   %m_globalModifiedSettings = getelementptr inbounds i8, ptr %this, i64 152
-  %call.i17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i17, align 8, !noalias !59
+  %call.i17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !70
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeINS_13EMITTER_MANIPEEE, i64 16), ptr %call.i17, align 8, !noalias !70
   %m_pCurSetting.i.i18 = getelementptr inbounds i8, ptr %call.i17, i64 8
-  store ptr %fmt, ptr %m_pCurSetting.i.i18, align 8, !noalias !59
+  store ptr %fmt, ptr %m_pCurSetting.i.i18, align 8, !noalias !70
   %m_oldSetting.i.i19 = getelementptr inbounds i8, ptr %call.i17, i64 16
-  store i32 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !59
-  store i32 %value, ptr %fmt, align 4, !noalias !59
+  store i32 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !70
+  store i32 %value, ptr %fmt, align 4, !noalias !70
   %_M_finish.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load ptr, ptr %_M_finish.i.i.i20, align 8
   %_M_end_of_storage.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 168
@@ -1867,15 +1877,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteI
 for.body.i.i.i.i.i62:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, %for.body.i.i.i.i.i62
   %__cur.07.i.i.i.i.i63 = phi ptr [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ], [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
   %__first.addr.06.i.i.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i.i.i65, %for.body.i.i.i.i.i62 ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !65, !noalias !62
-  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !62, !noalias !65
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !65, !noalias !62
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !76, !noalias !73
+  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !73, !noalias !76
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !76, !noalias !73
   %incdec.ptr.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i64, i64 8
   %incdec.ptr1.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i63, i64 8
   %cmp.not.i.i.i.i.i67 = icmp eq ptr %incdec.ptr.i.i.i.i.i65, %10
-  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !66
 
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78: ; preds = %for.body.i.i.i.i.i62, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58
   %__cur.0.lcssa.i.i.i.i.i69 = phi ptr [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ], [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ]
@@ -1937,14 +1947,14 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %m_modifiedSettings = getelementptr inbounds i8, ptr %this, i64 128
-  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !67
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i, align 8, !noalias !67
+  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !78
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i, align 8, !noalias !78
   %m_pCurSetting.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !67
+  store ptr %fmt, ptr %m_pCurSetting.i.i, align 8, !noalias !78
   %m_oldSetting.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %0 = load i64, ptr %fmt, align 8, !noalias !67
-  store i64 %0, ptr %m_oldSetting.i.i, align 8, !noalias !67
-  store i64 %value, ptr %fmt, align 8, !noalias !67
+  %0 = load i64, ptr %fmt, align 8, !noalias !78
+  store i64 %0, ptr %m_oldSetting.i.i, align 8, !noalias !78
+  store i64 %value, ptr %fmt, align 8, !noalias !78
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2001,15 +2011,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteI
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
-  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !70, !noalias !73
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  %8 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !84, !noalias !81
+  store i64 %8, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !81, !noalias !84
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !84, !noalias !81
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i.i, !llvm.loop !66
 
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -2034,15 +2044,15 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit8: 
   br label %eh.resume
 
 _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit16: ; preds = %entry
-  store i64 %value, ptr %fmt, align 8, !noalias !75
+  store i64 %value, ptr %fmt, align 8, !noalias !86
   %m_globalModifiedSettings = getelementptr inbounds i8, ptr %this, i64 152
-  %call.i17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !78
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i17, align 8, !noalias !78
+  %call.i17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !89
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13SettingChangeImEE, i64 16), ptr %call.i17, align 8, !noalias !89
   %m_pCurSetting.i.i18 = getelementptr inbounds i8, ptr %call.i17, i64 8
-  store ptr %fmt, ptr %m_pCurSetting.i.i18, align 8, !noalias !78
+  store ptr %fmt, ptr %m_pCurSetting.i.i18, align 8, !noalias !89
   %m_oldSetting.i.i19 = getelementptr inbounds i8, ptr %call.i17, i64 16
-  store i64 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !78
-  store i64 %value, ptr %fmt, align 8, !noalias !78
+  store i64 %value, ptr %m_oldSetting.i.i19, align 8, !noalias !89
+  store i64 %value, ptr %fmt, align 8, !noalias !89
   %_M_finish.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load ptr, ptr %_M_finish.i.i.i20, align 8
   %_M_end_of_storage.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 168
@@ -2099,15 +2109,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteI
 for.body.i.i.i.i.i62:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58, %for.body.i.i.i.i.i62
   %__cur.07.i.i.i.i.i63 = phi ptr [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ], [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
   %__first.addr.06.i.i.i.i.i64 = phi ptr [ %incdec.ptr.i.i.i.i.i65, %for.body.i.i.i.i.i62 ], [ %14, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !84, !noalias !81
-  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !81, !noalias !84
-  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !84, !noalias !81
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  %17 = load i64, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !95, !noalias !92
+  store i64 %17, ptr %__cur.07.i.i.i.i.i63, align 8, !alias.scope !92, !noalias !95
+  store ptr null, ptr %__first.addr.06.i.i.i.i.i64, align 8, !alias.scope !95, !noalias !92
   %incdec.ptr.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i64, i64 8
   %incdec.ptr1.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i63, i64 8
   %cmp.not.i.i.i.i.i67 = icmp eq ptr %incdec.ptr.i.i.i.i.i65, %10
-  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !55
+  br i1 %cmp.not.i.i.i.i.i67, label %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78, label %for.body.i.i.i.i.i62, !llvm.loop !66
 
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i78: ; preds = %for.body.i.i.i.i.i62, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58
   %__cur.0.lcssa.i.i.i.i.i69 = phi ptr [ %cond.i10.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i58 ], [ %incdec.ptr1.i.i.i.i.i66, %for.body.i.i.i.i.i62 ]
@@ -2303,80 +2313,80 @@ attributes #18 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!7 = distinct !{!7, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!10 = distinct !{!10, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!13 = distinct !{!13, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!16 = distinct !{!16, !"_ZN4YAML7SettingImE3setERKm"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!19 = distinct !{!19, !"_ZN4YAML7SettingImE3setERKm"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!22 = distinct !{!22, !"_ZN4YAML7SettingImE3setERKm"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!25 = distinct !{!25, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!28 = distinct !{!28, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!31 = distinct !{!31, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!34 = distinct !{!34, !"_ZN4YAML7SettingImE3setERKm"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!37 = distinct !{!37, !"_ZN4YAML7SettingImE3setERKm"}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: %__dest"}
-!43 = distinct !{!43, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: %__orig"}
-!46 = distinct !{!46, !39}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!49 = distinct !{!49, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!55 = distinct !{!55, !39}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!58 = distinct !{!58, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
-!61 = distinct !{!61, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!64 = distinct !{!64, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!65 = !{!66}
-!66 = distinct !{!66, !64, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!6 = distinct !{!6, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!9 = distinct !{!9, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!12 = distinct !{!12, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!15 = distinct !{!15, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!18 = distinct !{!18, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!21 = distinct !{!21, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!24 = distinct !{!24, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!27 = distinct !{!27, !"_ZN4YAML7SettingImE3setERKm"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!30 = distinct !{!30, !"_ZN4YAML7SettingImE3setERKm"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!33 = distinct !{!33, !"_ZN4YAML7SettingImE3setERKm"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!36 = distinct !{!36, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!39 = distinct !{!39, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!42 = distinct !{!42, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!45 = distinct !{!45, !"_ZN4YAML7SettingImE3setERKm"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!48 = distinct !{!48, !"_ZN4YAML7SettingImE3setERKm"}
+!49 = distinct !{!49, !50}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = distinct !{!51, !50}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: %__dest"}
+!54 = distinct !{!54, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!55 = !{!56}
+!56 = distinct !{!56, !54, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: %__orig"}
+!57 = distinct !{!57, !50}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!60 = distinct !{!60, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!63 = distinct !{!63, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!64 = !{!65}
+!65 = distinct !{!65, !63, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!66 = distinct !{!66, !50}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!69 = distinct !{!69, !"_ZN4YAML7SettingImE3setERKm"}
+!68 = distinct !{!68, !69, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!69 = distinct !{!69, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!72 = distinct !{!72, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!71 = distinct !{!71, !72, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_: %agg.result"}
+!72 = distinct !{!72, !"_ZN4YAML7SettingINS_13EMITTER_MANIPEE3setERKS1_"}
 !73 = !{!74}
-!74 = distinct !{!74, !72, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
-!77 = distinct !{!77, !"_ZN4YAML7SettingImE3setERKm"}
+!74 = distinct !{!74, !75, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!75 = distinct !{!75, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!76 = !{!77}
+!77 = distinct !{!77, !75, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
 !78 = !{!79}
 !79 = distinct !{!79, !80, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
 !80 = distinct !{!80, !"_ZN4YAML7SettingImE3setERKm"}
@@ -2385,3 +2395,14 @@ attributes #18 = { noreturn }
 !83 = distinct !{!83, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !84 = !{!85}
 !85 = distinct !{!85, !83, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!88 = distinct !{!88, !"_ZN4YAML7SettingImE3setERKm"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4YAML7SettingImE3setERKm: %agg.result"}
+!91 = distinct !{!91, !"_ZN4YAML7SettingImE3setERKm"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!94 = distinct !{!94, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!95 = !{!96}
+!96 = distinct !{!96, !94, !"_ZSt19__relocate_object_aISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}

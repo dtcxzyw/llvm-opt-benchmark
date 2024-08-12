@@ -57,100 +57,84 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 define internal { double, double } @_ZL15nicol_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
   %4 = tail call double @llvm.fabs.f64(double %0)
   %5 = fcmp olt double %4, 1.000000e-10
-  %6 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %1, i64 1
-  br i1 %5, label %80, label %7
+  br i1 %5, label %66, label %6
 
-7:                                                ; preds = %3
-  %8 = tail call double @llvm.fabs.f64(double %1)
-  %9 = fcmp olt double %8, 1.000000e-10
-  %10 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %0, i64 0
-  br i1 %9, label %80, label %11
+6:                                                ; preds = %3
+  %7 = tail call double @llvm.fabs.f64(double %1)
+  %8 = fcmp olt double %7, 1.000000e-10
+  br i1 %8, label %66, label %9
 
-11:                                               ; preds = %7
-  %12 = fadd double %4, 0xBFF921FB54442D18
-  %13 = tail call double @llvm.fabs.f64(double %12)
-  %14 = fcmp olt double %13, 1.000000e-10
-  br i1 %14, label %15, label %22
+9:                                                ; preds = %6
+  %10 = fadd double %4, 0xBFF921FB54442D18
+  %11 = tail call double @llvm.fabs.f64(double %10)
+  %12 = fcmp olt double %11, 1.000000e-10
+  br i1 %12, label %13, label %18
 
-15:                                               ; preds = %11
-  %16 = tail call double @cos(double noundef %1) #7
-  %17 = tail call double @sin(double noundef %1) #7
-  %18 = insertelement <2 x double> poison, double %16, i64 0
-  %19 = insertelement <2 x double> %18, double %17, i64 1
-  %20 = insertelement <2 x double> %10, double 0x3FF921FB54442D18, i64 1
-  %21 = fmul <2 x double> %19, %20
-  br label %80
+13:                                               ; preds = %9
+  %14 = tail call double @cos(double noundef %1) #7
+  %15 = fmul double %14, %0
+  %16 = tail call double @sin(double noundef %1) #7
+  %17 = fmul double %16, 0x3FF921FB54442D18
+  br label %66
 
-22:                                               ; preds = %11
-  %23 = fadd double %8, 0xBFF921FB54442D18
-  %24 = tail call double @llvm.fabs.f64(double %23)
-  %25 = fcmp olt double %24, 1.000000e-10
-  br i1 %25, label %80, label %26
+18:                                               ; preds = %9
+  %19 = fadd double %7, 0xBFF921FB54442D18
+  %20 = tail call double @llvm.fabs.f64(double %19)
+  %21 = fcmp olt double %20, 1.000000e-10
+  br i1 %21, label %66, label %22
 
-26:                                               ; preds = %22
-  %27 = insertelement <2 x double> <double 0x3FF921FB54442D18, double poison>, double %0, i64 1
-  %28 = insertelement <2 x double> <double poison, double 0x3FF921FB54442D18>, double %0, i64 0
-  %29 = fdiv <2 x double> %27, %28
-  %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = fsub <2 x double> %29, %shift
-  %31 = extractelement <2 x double> %30, i64 0
-  %32 = fdiv double %1, 0x3FF921FB54442D18
-  %33 = fneg double %32
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double %32, double 1.000000e+00)
-  %35 = tail call double @sin(double noundef %1) #7
-  %36 = fsub double %35, %32
-  %37 = fmul double %31, %35
-  %38 = tail call double @cos(double noundef %1) #7
-  %39 = fmul double %38, %38
-  %40 = insertelement <2 x double> %6, double %0, i64 0
-  %41 = fcmp olt <2 x double> %40, zeroinitializer
-  %42 = fmul double %35, %35
-  %43 = fdiv double %34, %36
-  %44 = fdiv double %31, %43
+22:                                               ; preds = %18
+  %23 = fdiv double 0x3FF921FB54442D18, %0
+  %24 = fdiv double %0, 0x3FF921FB54442D18
+  %25 = fsub double %23, %24
+  %26 = fdiv double %1, 0x3FF921FB54442D18
+  %27 = fneg double %26
+  %28 = tail call double @llvm.fmuladd.f64(double %27, double %26, double 1.000000e+00)
+  %29 = tail call double @sin(double noundef %1) #7
+  %30 = fsub double %29, %26
+  %31 = fdiv double %28, %30
+  %32 = fdiv double %25, %31
+  %33 = fmul double %32, %32
+  %34 = fmul double %25, %29
+  %35 = fdiv double %34, %31
+  %36 = tail call double @llvm.fmuladd.f64(double %25, double -5.000000e-01, double %35)
+  %37 = fadd double %33, 1.000000e+00
+  %38 = fdiv double %36, %37
+  %39 = fdiv double %29, %33
+  %40 = tail call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double %39)
+  %41 = fdiv double 1.000000e+00, %33
+  %42 = fadd double %41, 1.000000e+00
+  %43 = fdiv double %40, %42
+  %44 = tail call double @cos(double noundef %1) #7
   %45 = fmul double %44, %44
-  %46 = insertelement <2 x double> poison, double %37, i64 0
-  %47 = insertelement <2 x double> %46, double %35, i64 1
-  %48 = insertelement <2 x double> poison, double %43, i64 0
-  %49 = insertelement <2 x double> %48, double %45, i64 1
-  %50 = fdiv <2 x double> %47, %49
-  %51 = insertelement <2 x double> %30, double %43, i64 1
-  %52 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> <double -5.000000e-01, double 5.000000e-01>, <2 x double> %50)
-  %53 = fdiv double 1.000000e+00, %45
-  %54 = insertelement <2 x double> poison, double %45, i64 0
-  %55 = insertelement <2 x double> %54, double %53, i64 1
-  %56 = fadd <2 x double> %55, <double 1.000000e+00, double 1.000000e+00>
-  %57 = fdiv <2 x double> %52, %56
-  %58 = extractelement <2 x double> %56, i64 0
-  %59 = fdiv double %39, %58
-  %60 = extractelement <2 x double> %57, i64 0
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double %60, double %59)
-  %sqrt = tail call double @llvm.sqrt.f64(double %61)
-  %62 = fneg double %sqrt
-  %63 = fdiv double %42, %45
-  %64 = tail call double @llvm.fmuladd.f64(double %43, double %35, double %63)
-  %65 = fadd double %64, -1.000000e+00
-  %66 = fneg double %65
-  %67 = extractelement <2 x double> %56, i64 1
-  %68 = fdiv double %66, %67
-  %69 = extractelement <2 x double> %57, i64 1
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double %69, double %68)
-  %71 = tail call double @sqrt(double noundef %70) #7
-  %72 = fneg double %71
-  %73 = insertelement <2 x double> poison, double %62, i64 0
-  %74 = insertelement <2 x double> %73, double %71, i64 1
-  %75 = insertelement <2 x double> poison, double %sqrt, i64 0
-  %76 = insertelement <2 x double> %75, double %72, i64 1
-  %77 = select <2 x i1> %41, <2 x double> %74, <2 x double> %76
-  %78 = fadd <2 x double> %57, %77
-  %79 = fmul <2 x double> %78, <double 0x3FF921FB54442D18, double 0x3FF921FB54442D18>
-  br label %80
+  %46 = fdiv double %45, %37
+  %47 = tail call double @llvm.fmuladd.f64(double %38, double %38, double %46)
+  %sqrt = tail call double @llvm.sqrt.f64(double %47)
+  %48 = fcmp olt double %0, 0.000000e+00
+  %49 = fneg double %sqrt
+  %50 = select i1 %48, double %49, double %sqrt
+  %51 = fadd double %38, %50
+  %52 = fmul double %51, 0x3FF921FB54442D18
+  %53 = fmul double %29, %29
+  %54 = fdiv double %53, %33
+  %55 = tail call double @llvm.fmuladd.f64(double %31, double %29, double %54)
+  %56 = fadd double %55, -1.000000e+00
+  %57 = fneg double %56
+  %58 = fdiv double %57, %42
+  %59 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %58)
+  %60 = tail call double @sqrt(double noundef %59) #7
+  %61 = fcmp olt double %1, 0.000000e+00
+  %62 = fneg double %60
+  %63 = select i1 %61, double %60, double %62
+  %64 = fadd double %63, %43
+  %65 = fmul double %64, 0x3FF921FB54442D18
+  br label %66
 
-80:                                               ; preds = %22, %7, %3, %26, %15
-  %81 = phi <2 x double> [ %21, %15 ], [ %79, %26 ], [ %6, %3 ], [ %10, %7 ], [ %6, %22 ]
-  %82 = extractelement <2 x double> %81, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %82, 0
-  %83 = extractelement <2 x double> %81, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %83, 1
+66:                                               ; preds = %18, %6, %3, %22, %13
+  %.sroa.13.0 = phi double [ %17, %13 ], [ %65, %22 ], [ %1, %3 ], [ 0.000000e+00, %6 ], [ %1, %18 ]
+  %.sroa.044.0 = phi double [ %15, %13 ], [ %52, %22 ], [ 0.000000e+00, %3 ], [ %0, %6 ], [ 0.000000e+00, %18 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.044.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.13.0, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -171,9 +155,6 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

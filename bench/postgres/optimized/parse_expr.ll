@@ -5625,7 +5625,7 @@ define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, 
 37:                                               ; preds = %18
   %38 = load ptr, ptr %16, align 8
   tail call void @transformWindowFuncCall(ptr noundef %0, ptr noundef nonnull %19, ptr noundef %38) #9
-  br label %53
+  br label %56
 
 39:                                               ; preds = %14
   %40 = tail call noundef ptr @palloc0(i64 noundef 96) #9
@@ -5637,28 +5637,34 @@ define internal fastcc noundef ptr @transformJsonAggConstructor(ptr noundef %0, 
   %43 = getelementptr inbounds i8, ptr %40, i64 64
   store ptr %15, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %40, i64 72
-  store <4 x i8> <i8 0, i8 0, i8 110, i8 0>, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 80
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 84
-  store i32 -1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %40, i64 88
-  store i32 -1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 92
-  store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
-  %52 = load ptr, ptr %51, align 8
-  tail call void @transformAggregateCall(ptr noundef %0, ptr noundef nonnull %40, ptr noundef %3, ptr noundef %52, i1 noundef zeroext false) #9
-  br label %53
+  store i8 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %40, i64 73
+  store i8 0, ptr %45, align 1
+  %46 = getelementptr inbounds i8, ptr %40, i64 74
+  store i8 110, ptr %46, align 2
+  %47 = getelementptr inbounds i8, ptr %40, i64 75
+  store i8 0, ptr %47, align 1
+  %48 = getelementptr inbounds i8, ptr %40, i64 80
+  store i32 0, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %40, i64 84
+  store i32 -1, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %40, i64 88
+  store i32 -1, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %40, i64 92
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8
+  tail call void @transformAggregateCall(ptr noundef %0, ptr noundef nonnull %40, ptr noundef %3, ptr noundef %55, i1 noundef zeroext false) #9
+  br label %56
 
-53:                                               ; preds = %39, %37
+56:                                               ; preds = %39, %37
   %.0 = phi ptr [ %19, %37 ], [ %40, %39 ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
-  %55 = load i32, ptr %54, align 8
-  %56 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef %6, ptr noundef null, ptr noundef nonnull %.0, ptr noundef %2, i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %55)
-  ret ptr %56
+  %57 = getelementptr inbounds i8, ptr %1, i64 40
+  %58 = load i32, ptr %57, align 8
+  %59 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef %6, ptr noundef null, ptr noundef nonnull %.0, ptr noundef %2, i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %58)
+  ret ptr %59
 }
 
 declare ptr @transformWhereClause(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

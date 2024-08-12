@@ -54,14 +54,38 @@ define hidden noundef i32 @mbedtls_sha256_starts(ptr nocapture noundef writeonly
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
   %4 = icmp eq i32 %1, 0
-  %5 = select i1 %4, <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>
-  %6 = select i1 %4, <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %2, %5
+  %.sink26 = phi i32 [ -1056596264, %5 ], [ 1779033703, %2 ]
+  %.sink25 = phi i32 [ 914150663, %5 ], [ -1150833019, %2 ]
+  %.sink24 = phi i32 [ 812702999, %5 ], [ 1013904242, %2 ]
+  %.sink23 = phi i32 [ -150054599, %5 ], [ -1521486534, %2 ]
+  %.sink22 = phi i32 [ -4191439, %5 ], [ 1359893119, %2 ]
+  %.sink21 = phi i32 [ 1750603025, %5 ], [ -1694144372, %2 ]
+  %.sink20 = phi i32 [ 1694076839, %5 ], [ 528734635, %2 ]
+  %.sink = phi i32 [ -1090891868, %5 ], [ 1541459225, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> %5, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x i32> %6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %1, ptr %9, align 4
+  store i32 %.sink26, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.sink25, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sink24, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.sink23, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.sink22, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %.sink21, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %.sink20, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %.sink, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %1, ptr %15, align 4
   ret i32 0
 }
 
@@ -1213,71 +1237,94 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @mbedtls_sha256(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #2 {
-mbedtls_sha256_starts.exit:
-  %4 = alloca %struct.mbedtls_sha256_context, align 4
-  %5 = icmp eq i32 %3, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %4, i8 0, i64 104, i1 false)
-  %6 = select i1 %5, <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>
-  %7 = select i1 %5, <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  store <4 x i32> %6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  store <4 x i32> %7, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 104
-  store i32 %3, ptr %10, align 4
-  %11 = icmp eq i64 %1, 0
-  br i1 %11, label %26, label %12
+  %5 = alloca %struct.mbedtls_sha256_context, align 4
+  %6 = icmp eq i32 %3, 0
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %5, i8 0, i64 104, i1 false)
+  br i1 %6, label %mbedtls_sha256_starts.exit, label %7
 
-12:                                               ; preds = %mbedtls_sha256_starts.exit
-  %13 = trunc i64 %1 to i32
-  store i32 %13, ptr %4, align 4
-  %14 = icmp ugt i64 %1, 63
-  br i1 %14, label %.lr.ph.i.preheader.i, label %._crit_edge.thread.i
+7:                                                ; preds = %4
+  br label %mbedtls_sha256_starts.exit
 
-.lr.ph.i.preheader.i:                             ; preds = %12, %21
-  %.152.i = phi ptr [ %22, %21 ], [ %0, %12 ]
-  %.14051.i = phi i64 [ %23, %21 ], [ %1, %12 ]
+mbedtls_sha256_starts.exit:                       ; preds = %4, %7
+  %.sink26.i = phi i32 [ -1056596264, %7 ], [ 1779033703, %4 ]
+  %.sink25.i = phi i32 [ 914150663, %7 ], [ -1150833019, %4 ]
+  %.sink24.i = phi i32 [ 812702999, %7 ], [ 1013904242, %4 ]
+  %.sink23.i = phi i32 [ -150054599, %7 ], [ -1521486534, %4 ]
+  %.sink22.i = phi i32 [ -4191439, %7 ], [ 1359893119, %4 ]
+  %.sink21.i = phi i32 [ 1750603025, %7 ], [ -1694144372, %4 ]
+  %.sink20.i = phi i32 [ 1694076839, %7 ], [ 528734635, %4 ]
+  %.sink.i = phi i32 [ -1090891868, %7 ], [ 1541459225, %4 ]
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sink26.i, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %.sink25.i, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %.sink24.i, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %.sink23.i, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %.sink22.i, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 %.sink21.i, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 %.sink20.i, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %5, i64 36
+  store i32 %.sink.i, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 104
+  store i32 %3, ptr %16, align 4
+  %17 = icmp eq i64 %1, 0
+  br i1 %17, label %32, label %18
+
+18:                                               ; preds = %mbedtls_sha256_starts.exit
+  %19 = trunc i64 %1 to i32
+  store i32 %19, ptr %5, align 4
+  %20 = icmp ugt i64 %1, 63
+  br i1 %20, label %.lr.ph.i.preheader.i, label %._crit_edge.thread.i
+
+.lr.ph.i.preheader.i:                             ; preds = %18, %27
+  %.152.i = phi ptr [ %28, %27 ], [ %0, %18 ]
+  %.14051.i = phi i64 [ %29, %27 ], [ %1, %18 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.012.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0711.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ %.14051.i, %.lr.ph.i.preheader.i ]
-  %.0810.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %.152.i, %.lr.ph.i.preheader.i ]
-  %15 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %4, ptr noundef %.0810.i.i)
-  %16 = getelementptr inbounds i8, ptr %.0810.i.i, i64 64
-  %17 = add i64 %.0711.i.i, -64
-  %18 = add i64 %.012.i.i, 64
-  %19 = icmp ugt i64 %17, 63
-  br i1 %19, label %.lr.ph.i.i, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !9
+  %.012.i.i = phi i64 [ %24, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.0711.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ %.14051.i, %.lr.ph.i.preheader.i ]
+  %.0810.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %.152.i, %.lr.ph.i.preheader.i ]
+  %21 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %5, ptr noundef %.0810.i.i)
+  %22 = getelementptr inbounds i8, ptr %.0810.i.i, i64 64
+  %23 = add i64 %.0711.i.i, -64
+  %24 = add i64 %.012.i.i, 64
+  %25 = icmp ugt i64 %23, 63
+  br i1 %25, label %.lr.ph.i.i, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !9
 
 mbedtls_internal_sha256_process_many.exit.i:      ; preds = %.lr.ph.i.i
-  %20 = icmp eq i64 %18, 0
-  br i1 %20, label %mbedtls_sha256_update.exit, label %21
+  %26 = icmp eq i64 %24, 0
+  br i1 %26, label %mbedtls_sha256_update.exit, label %27
 
-21:                                               ; preds = %mbedtls_internal_sha256_process_many.exit.i
-  %22 = getelementptr inbounds i8, ptr %.152.i, i64 %18
-  %23 = sub i64 %.14051.i, %18
-  %24 = icmp ugt i64 %23, 63
-  br i1 %24, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
+27:                                               ; preds = %mbedtls_internal_sha256_process_many.exit.i
+  %28 = getelementptr inbounds i8, ptr %.152.i, i64 %24
+  %29 = sub i64 %.14051.i, %24
+  %30 = icmp ugt i64 %29, 63
+  br i1 %30, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %21
-  %.not48.i = icmp eq i64 %23, 0
-  br i1 %.not48.i, label %26, label %._crit_edge.thread.i
+._crit_edge.i:                                    ; preds = %27
+  %.not48.i = icmp eq i64 %29, 0
+  br i1 %.not48.i, label %32, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %12, %._crit_edge.i
-  %.1.lcssa.i10 = phi ptr [ %22, %._crit_edge.i ], [ %0, %12 ]
-  %.140.lcssa.i9 = phi i64 [ %23, %._crit_edge.i ], [ %1, %12 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr align 1 %.1.lcssa.i10, i64 %.140.lcssa.i9, i1 false)
-  br label %26
+._crit_edge.thread.i:                             ; preds = %18, %._crit_edge.i
+  %.1.lcssa.i10 = phi ptr [ %28, %._crit_edge.i ], [ %0, %18 ]
+  %.140.lcssa.i9 = phi i64 [ %29, %._crit_edge.i ], [ %1, %18 ]
+  %31 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr align 1 %.1.lcssa.i10, i64 %.140.lcssa.i9, i1 false)
+  br label %32
 
-26:                                               ; preds = %mbedtls_sha256_starts.exit, %._crit_edge.thread.i, %._crit_edge.i
-  %27 = call i32 @mbedtls_sha256_finish(ptr noundef nonnull %4, ptr noundef %2)
+32:                                               ; preds = %mbedtls_sha256_starts.exit, %._crit_edge.thread.i, %._crit_edge.i
+  %33 = call i32 @mbedtls_sha256_finish(ptr noundef nonnull %5, ptr noundef %2)
   br label %mbedtls_sha256_update.exit
 
-mbedtls_sha256_update.exit:                       ; preds = %mbedtls_internal_sha256_process_many.exit.i, %26
-  %.0 = phi i32 [ 0, %26 ], [ -1, %mbedtls_internal_sha256_process_many.exit.i ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 108) #12
+mbedtls_sha256_update.exit:                       ; preds = %mbedtls_internal_sha256_process_many.exit.i, %32
+  %.0 = phi i32 [ 0, %32 ], [ -1, %mbedtls_internal_sha256_process_many.exit.i ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 108) #12
   ret i32 %.0
 }
 
@@ -1291,11 +1338,11 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) loc
 
 6:                                                ; preds = %1
   %.not42 = icmp eq i32 %0, 0
-  br i1 %.not42, label %66, label %7
+  br i1 %.not42, label %72, label %7
 
 7:                                                ; preds = %6
   %puts43 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %66
+  br label %72
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1303,9 +1350,15 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) loc
   %.not37 = icmp eq i32 %0, 0
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %13 = getelementptr inbounds i8, ptr %3, i64 104
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds i8, ptr %3, i64 20
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds i8, ptr %3, i64 28
+  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds i8, ptr %3, i64 36
+  %19 = getelementptr inbounds i8, ptr %3, i64 104
+  %20 = getelementptr inbounds i8, ptr %3, i64 40
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %8
@@ -1313,160 +1366,178 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha256_self_test(i32 noundef %0) loc
   %indvars86 = trunc i64 %indvars.iv to i32
   %.urem = add nsw i32 %indvars86, -3
   %.cmp = icmp ult i64 %indvars.iv, 3
-  %15 = select i1 %.cmp, i32 %indvars86, i32 %.urem
-  %16 = zext i1 %.cmp to i32
-  br i1 %.not37, label %mbedtls_sha256_starts.exit, label %17
+  %21 = select i1 %.cmp, i32 %indvars86, i32 %.urem
+  %22 = zext i1 %.cmp to i32
+  br i1 %.not37, label %27, label %23
 
-17:                                               ; preds = %.backedge
-  %18 = select i1 %.cmp, i32 224, i32 256
-  %19 = add nuw nsw i32 %15, 1
-  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %18, i32 noundef %19)
-  br label %mbedtls_sha256_starts.exit
+23:                                               ; preds = %.backedge
+  %24 = select i1 %.cmp, i32 224, i32 256
+  %25 = add nuw nsw i32 %21, 1
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %24, i32 noundef %25)
+  br label %27
 
-mbedtls_sha256_starts.exit:                       ; preds = %17, %.backedge
+27:                                               ; preds = %23, %.backedge
   store i32 0, ptr %3, align 4
   store i32 0, ptr %10, align 4
-  %21 = select i1 %.cmp, <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>
-  %22 = select i1 %.cmp, <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>
-  store <4 x i32> %21, ptr %11, align 4
-  store <4 x i32> %22, ptr %12, align 4
-  store i32 %16, ptr %13, align 4
-  %23 = icmp eq i32 %15, 2
-  br i1 %23, label %24, label %._crit_edge.thread.i52
+  br i1 %.cmp, label %28, label %mbedtls_sha256_starts.exit
 
-24:                                               ; preds = %mbedtls_sha256_starts.exit
+28:                                               ; preds = %27
+  br label %mbedtls_sha256_starts.exit
+
+mbedtls_sha256_starts.exit:                       ; preds = %27, %28
+  %.sink26.i = phi i32 [ -1056596264, %28 ], [ 1779033703, %27 ]
+  %.sink25.i = phi i32 [ 914150663, %28 ], [ -1150833019, %27 ]
+  %.sink24.i = phi i32 [ 812702999, %28 ], [ 1013904242, %27 ]
+  %.sink23.i = phi i32 [ -150054599, %28 ], [ -1521486534, %27 ]
+  %.sink22.i = phi i32 [ -4191439, %28 ], [ 1359893119, %27 ]
+  %.sink21.i = phi i32 [ 1750603025, %28 ], [ -1694144372, %27 ]
+  %.sink20.i = phi i32 [ 1694076839, %28 ], [ 528734635, %27 ]
+  %.sink.i = phi i32 [ -1090891868, %28 ], [ 1541459225, %27 ]
+  store i32 %.sink26.i, ptr %11, align 4
+  store i32 %.sink25.i, ptr %12, align 4
+  store i32 %.sink24.i, ptr %13, align 4
+  store i32 %.sink23.i, ptr %14, align 4
+  store i32 %.sink22.i, ptr %15, align 4
+  store i32 %.sink21.i, ptr %16, align 4
+  store i32 %.sink20.i, ptr %17, align 4
+  store i32 %.sink.i, ptr %18, align 4
+  store i32 %22, ptr %19, align 4
+  %29 = icmp eq i32 %21, 2
+  br i1 %29, label %30, label %._crit_edge.thread.i52
+
+30:                                               ; preds = %mbedtls_sha256_starts.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1000) %4, i8 97, i64 1000, i1 false)
-  br label %25
+  br label %31
 
-25:                                               ; preds = %24, %52
-  %.02980 = phi i32 [ 0, %24 ], [ %53, %52 ]
-  %26 = load i32, ptr %3, align 4
-  %27 = and i32 %26, 63
-  %28 = sub nuw nsw i32 64, %27
-  %29 = zext nneg i32 %28 to i64
-  %30 = add i32 %26, 1000
-  store i32 %30, ptr %3, align 4
-  %31 = icmp ugt i32 %26, -1001
-  br i1 %31, label %32, label %35
+31:                                               ; preds = %30, %58
+  %.02980 = phi i32 [ 0, %30 ], [ %59, %58 ]
+  %32 = load i32, ptr %3, align 4
+  %33 = and i32 %32, 63
+  %34 = sub nuw nsw i32 64, %33
+  %35 = zext nneg i32 %34 to i64
+  %36 = add i32 %32, 1000
+  store i32 %36, ptr %3, align 4
+  %37 = icmp ugt i32 %32, -1001
+  br i1 %37, label %38, label %41
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr %10, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %10, align 4
-  br label %35
+38:                                               ; preds = %31
+  %39 = load i32, ptr %10, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %10, align 4
+  br label %41
 
-35:                                               ; preds = %32, %25
-  %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %.lr.ph.i.preheader.i.preheader, label %36
+41:                                               ; preds = %38, %31
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %.lr.ph.i.preheader.i.preheader, label %42
 
-36:                                               ; preds = %35
-  %37 = zext nneg i32 %27 to i64
-  %38 = getelementptr inbounds i8, ptr %14, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %29, i1 false)
-  %39 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef nonnull %14)
-  %40 = getelementptr inbounds i8, ptr %4, i64 %29
-  %41 = sub nuw nsw i64 1000, %29
+42:                                               ; preds = %41
+  %43 = zext nneg i32 %33 to i64
+  %44 = getelementptr inbounds i8, ptr %20, i64 %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %35, i1 false)
+  %45 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef nonnull %20)
+  %46 = getelementptr inbounds i8, ptr %4, i64 %35
+  %47 = sub nuw nsw i64 1000, %35
   br label %.lr.ph.i.preheader.i.preheader
 
-.lr.ph.i.preheader.i.preheader:                   ; preds = %36, %35
-  %.152.i.ph = phi ptr [ %4, %35 ], [ %40, %36 ]
-  %.14051.i.ph = phi i64 [ 1000, %35 ], [ %41, %36 ]
+.lr.ph.i.preheader.i.preheader:                   ; preds = %42, %41
+  %.152.i.ph = phi ptr [ %4, %41 ], [ %46, %42 ]
+  %.14051.i.ph = phi i64 [ 1000, %41 ], [ %47, %42 ]
   br label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.preheader.i.preheader, %48
-  %.152.i = phi ptr [ %49, %48 ], [ %.152.i.ph, %.lr.ph.i.preheader.i.preheader ]
-  %.14051.i = phi i64 [ %50, %48 ], [ %.14051.i.ph, %.lr.ph.i.preheader.i.preheader ]
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.preheader.i.preheader, %54
+  %.152.i = phi ptr [ %55, %54 ], [ %.152.i.ph, %.lr.ph.i.preheader.i.preheader ]
+  %.14051.i = phi i64 [ %56, %54 ], [ %.14051.i.ph, %.lr.ph.i.preheader.i.preheader ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.012.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0711.i.i = phi i64 [ %44, %.lr.ph.i.i ], [ %.14051.i, %.lr.ph.i.preheader.i ]
-  %.0810.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %.152.i, %.lr.ph.i.preheader.i ]
-  %42 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef %.0810.i.i)
-  %43 = getelementptr inbounds i8, ptr %.0810.i.i, i64 64
-  %44 = add i64 %.0711.i.i, -64
-  %45 = add i64 %.012.i.i, 64
-  %46 = icmp ugt i64 %44, 63
-  br i1 %46, label %.lr.ph.i.i, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !9
+  %.012.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %.0711.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ %.14051.i, %.lr.ph.i.preheader.i ]
+  %.0810.i.i = phi ptr [ %49, %.lr.ph.i.i ], [ %.152.i, %.lr.ph.i.preheader.i ]
+  %48 = call i32 @mbedtls_internal_sha256_process(ptr noundef nonnull %3, ptr noundef %.0810.i.i)
+  %49 = getelementptr inbounds i8, ptr %.0810.i.i, i64 64
+  %50 = add i64 %.0711.i.i, -64
+  %51 = add i64 %.012.i.i, 64
+  %52 = icmp ugt i64 %50, 63
+  br i1 %52, label %.lr.ph.i.i, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !9
 
 mbedtls_internal_sha256_process_many.exit.i:      ; preds = %.lr.ph.i.i
-  %47 = icmp eq i64 %45, 0
-  br i1 %47, label %mbedtls_sha256_update.exit, label %48
+  %53 = icmp eq i64 %51, 0
+  br i1 %53, label %mbedtls_sha256_update.exit, label %54
 
-48:                                               ; preds = %mbedtls_internal_sha256_process_many.exit.i
-  %49 = getelementptr inbounds i8, ptr %.152.i, i64 %45
-  %50 = sub i64 %.14051.i, %45
-  %51 = icmp ugt i64 %50, 63
-  br i1 %51, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
+54:                                               ; preds = %mbedtls_internal_sha256_process_many.exit.i
+  %55 = getelementptr inbounds i8, ptr %.152.i, i64 %51
+  %56 = sub i64 %.14051.i, %51
+  %57 = icmp ugt i64 %56, 63
+  br i1 %57, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %48
-  %.not48.i = icmp eq i64 %50, 0
-  br i1 %.not48.i, label %52, label %._crit_edge.thread.i
+._crit_edge.i:                                    ; preds = %54
+  %.not48.i = icmp eq i64 %56, 0
+  br i1 %.not48.i, label %58, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr nonnull align 1 %49, i64 %50, i1 false)
-  br label %52
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 1 %55, i64 %56, i1 false)
+  br label %58
 
-52:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %53 = add nuw nsw i32 %.02980, 1
-  %exitcond.not = icmp eq i32 %53, 1000
-  br i1 %exitcond.not, label %mbedtls_sha256_update.exit65.thread, label %25, !llvm.loop !11
+58:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  %59 = add nuw nsw i32 %.02980, 1
+  %exitcond.not = icmp eq i32 %59, 1000
+  br i1 %exitcond.not, label %mbedtls_sha256_update.exit65.thread, label %31, !llvm.loop !11
 
 ._crit_edge.thread.i52:                           ; preds = %mbedtls_sha256_starts.exit
-  %54 = zext nneg i32 %15 to i64
-  %55 = getelementptr inbounds [3 x i64], ptr @sha256_test_buflen, i64 0, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds [3 x [57 x i8]], ptr @sha256_test_buf, i64 0, i64 %54
-  %58 = trunc i64 %56 to i32
-  store i32 %58, ptr %3, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr nonnull align 1 %57, i64 %56, i1 false)
+  %60 = zext nneg i32 %21 to i64
+  %61 = getelementptr inbounds [3 x i64], ptr @sha256_test_buflen, i64 0, i64 %60
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds [3 x [57 x i8]], ptr @sha256_test_buf, i64 0, i64 %60
+  %64 = trunc i64 %62 to i32
+  store i32 %64, ptr %3, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 1 %63, i64 %62, i1 false)
   br label %mbedtls_sha256_update.exit65.thread
 
-mbedtls_sha256_update.exit65.thread:              ; preds = %52, %._crit_edge.thread.i52
-  %59 = call i32 @mbedtls_sha256_finish(ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %60 = getelementptr inbounds [6 x [32 x i8]], ptr @sha256_test_sum, i64 0, i64 %indvars.iv
-  %61 = select i1 %.cmp, i64 28, i64 32
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %2, ptr noundef nonnull dereferenceable(28) %60, i64 %61)
+mbedtls_sha256_update.exit65.thread:              ; preds = %58, %._crit_edge.thread.i52
+  %65 = call i32 @mbedtls_sha256_finish(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %66 = getelementptr inbounds [6 x [32 x i8]], ptr @sha256_test_sum, i64 0, i64 %indvars.iv
+  %67 = select i1 %.cmp, i64 28, i64 32
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %2, ptr noundef nonnull dereferenceable(28) %66, i64 %67)
   %.not39 = icmp eq i32 %bcmp, 0
-  br i1 %.not39, label %62, label %mbedtls_sha256_update.exit
+  br i1 %.not39, label %68, label %mbedtls_sha256_update.exit
 
-62:                                               ; preds = %mbedtls_sha256_update.exit65.thread
-  br i1 %.not37, label %63, label %.thread
+68:                                               ; preds = %mbedtls_sha256_update.exit65.thread
+  br i1 %.not37, label %69, label %.thread
 
-63:                                               ; preds = %62
+69:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond87.not, label %.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %63, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %63 ], [ %indvars.iv.next88, %.thread ]
+.backedge.backedge:                               ; preds = %69, %.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %69 ], [ %indvars.iv.next88, %.thread ]
   br label %.backedge, !llvm.loop !12
 
-.thread:                                          ; preds = %62
+.thread:                                          ; preds = %68
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv, 1
   %exitcond87.not89 = icmp eq i64 %indvars.iv.next88, 6
-  br i1 %exitcond87.not89, label %64, label %.backedge.backedge
+  br i1 %exitcond87.not89, label %70, label %.backedge.backedge
 
-64:                                               ; preds = %.thread
+70:                                               ; preds = %.thread
   %putchar = tail call i32 @putchar(i32 10)
   br label %.loopexit
 
 mbedtls_sha256_update.exit:                       ; preds = %mbedtls_sha256_update.exit65.thread, %mbedtls_internal_sha256_process_many.exit.i
   %.1 = phi i32 [ -1, %mbedtls_internal_sha256_process_many.exit.i ], [ 1, %mbedtls_sha256_update.exit65.thread ]
-  br i1 %.not37, label %.loopexit, label %65
+  br i1 %.not37, label %.loopexit, label %71
 
-65:                                               ; preds = %mbedtls_sha256_update.exit
+71:                                               ; preds = %mbedtls_sha256_update.exit
   %puts41 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %mbedtls_sha256_update.exit, %65, %64
-  %.2 = phi i32 [ %.1, %65 ], [ %.1, %mbedtls_sha256_update.exit ], [ 0, %64 ], [ 0, %63 ]
+.loopexit:                                        ; preds = %69, %mbedtls_sha256_update.exit, %71, %70
+  %.2 = phi i32 [ %.1, %71 ], [ %.1, %mbedtls_sha256_update.exit ], [ 0, %70 ], [ 0, %69 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 108) #12
   call void @free(ptr noundef %4) #12
-  br label %66
+  br label %72
 
-66:                                               ; preds = %6, %7, %.loopexit
+72:                                               ; preds = %6, %7, %.loopexit
   %.0 = phi i32 [ %.2, %.loopexit ], [ 1, %7 ], [ 1, %6 ]
   ret i32 %.0
 }

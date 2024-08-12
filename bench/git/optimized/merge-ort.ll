@@ -4879,62 +4879,64 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %9 = load i32, ptr %call_depth, align 8
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %call_depth, align 8
-  %10 = load <2 x ptr>, ptr %branch1, align 8
+  %10 = load ptr, ptr %branch1, align 8
+  %11 = load ptr, ptr %branch2, align 8
   store ptr @.str.128, ptr %branch1, align 8
   store ptr @.str.129, ptr %branch2, align 8
   call fastcc void @merge_ort_internal(ptr noundef %opt, ptr noundef null, ptr noundef %merged_merge_bases.140, ptr noundef nonnull %next.041, ptr noundef %result)
-  %11 = load i32, ptr %result, align 8
-  %cmp = icmp slt i32 %11, 0
+  %12 = load i32, ptr %result, align 8
+  %cmp = icmp slt i32 %12, 0
   br i1 %cmp, label %return, label %if.end19
 
 if.end19:                                         ; preds = %for.body
-  store <2 x ptr> %10, ptr %branch1, align 8
-  %12 = load ptr, ptr %priv, align 8
-  %call_depth23 = getelementptr inbounds i8, ptr %12, i64 2432
-  %13 = load i32, ptr %call_depth23, align 8
-  %dec = add nsw i32 %13, -1
+  store ptr %10, ptr %branch1, align 8
+  store ptr %11, ptr %branch2, align 8
+  %13 = load ptr, ptr %priv, align 8
+  %call_depth23 = getelementptr inbounds i8, ptr %13, i64 2432
+  %14 = load i32, ptr %call_depth23, align 8
+  %dec = add nsw i32 %14, -1
   store i32 %dec, ptr %call_depth23, align 8
-  %14 = load ptr, ptr %opt, align 8
-  %15 = load ptr, ptr %tree25, align 8
-  %call.i33 = call ptr @alloc_commit_node(ptr noundef %14) #18
+  %15 = load ptr, ptr %opt, align 8
+  %16 = load ptr, ptr %tree25, align 8
+  %call.i33 = call ptr @alloc_commit_node(ptr noundef %15) #18
   call void @set_merge_remote_desc(ptr noundef %call.i33, ptr noundef nonnull @.str.130, ptr noundef %call.i33) #18
   %maybe_tree.i.i34 = getelementptr inbounds i8, ptr %call.i33, i64 56
-  store ptr %15, ptr %maybe_tree.i.i34, align 8
+  store ptr %16, ptr %maybe_tree.i.i34, align 8
   %bf.load.i35 = load i32, ptr %call.i33, align 8
   %bf.set.i36 = or i32 %bf.load.i35, 1
   store i32 %bf.set.i36, ptr %call.i33, align 8
   %parents = getelementptr inbounds i8, ptr %call.i33, i64 48
   %call27 = call ptr @commit_list_insert(ptr noundef %merged_merge_bases.140, ptr noundef nonnull %parents) #18
-  %16 = load ptr, ptr %parents, align 8
-  %next29 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %parents, align 8
+  %next29 = getelementptr inbounds i8, ptr %17, i64 8
   %call30 = call ptr @commit_list_insert(ptr noundef nonnull %next.041, ptr noundef nonnull %next29) #18
-  %17 = load ptr, ptr %priv, align 8
-  call void @strmap_partial_clear(ptr noundef %17, i32 noundef 0) #18, !callees !15
-  %conflicted.i = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = load ptr, ptr %priv, align 8
+  call void @strmap_partial_clear(ptr noundef %18, i32 noundef 0) #18, !callees !15
+  %conflicted.i = getelementptr inbounds i8, ptr %18, i64 64
   call void @strmap_partial_clear(ptr noundef nonnull %conflicted.i, i32 noundef 0) #18, !callees !15
-  %cache_nr.i = getelementptr inbounds i8, ptr %17, i64 2172
-  %18 = load i32, ptr %cache_nr.i, align 4
-  %tobool6.not.i = icmp eq i32 %18, 0
+  %cache_nr.i = getelementptr inbounds i8, ptr %18, i64 2172
+  %19 = load i32, ptr %cache_nr.i, align 4
+  %tobool6.not.i = icmp eq i32 %19, 0
   br i1 %tobool6.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end19
-  %attr_index.i = getelementptr inbounds i8, ptr %17, i64 2160
+  %attr_index.i = getelementptr inbounds i8, ptr %18, i64 2160
   call void @discard_index(ptr noundef nonnull %attr_index.i) #18
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end19
-  %dirs_removed.i = getelementptr inbounds i8, ptr %17, i64 264
-  %dir_renames.i = getelementptr inbounds i8, ptr %17, i64 672
-  %relevant_sources.i = getelementptr inbounds i8, ptr %17, i64 864
-  %cached_pairs_valid_side.i = getelementptr inbounds i8, ptr %17, i64 1568
-  %cached_target_names.i = getelementptr inbounds i8, ptr %17, i64 1768
-  %cached_pairs.i = getelementptr inbounds i8, ptr %17, i64 1576
-  %cached_irrelevant.i = getelementptr inbounds i8, ptr %17, i64 1960
-  %dir_rename_count.i = getelementptr inbounds i8, ptr %17, i64 480
+  %dirs_removed.i = getelementptr inbounds i8, ptr %18, i64 264
+  %dir_renames.i = getelementptr inbounds i8, ptr %18, i64 672
+  %relevant_sources.i = getelementptr inbounds i8, ptr %18, i64 864
+  %cached_pairs_valid_side.i = getelementptr inbounds i8, ptr %18, i64 1568
+  %cached_target_names.i = getelementptr inbounds i8, ptr %18, i64 1768
+  %cached_pairs.i = getelementptr inbounds i8, ptr %18, i64 1576
+  %cached_irrelevant.i = getelementptr inbounds i8, ptr %18, i64 1960
+  %dir_rename_count.i = getelementptr inbounds i8, ptr %18, i64 480
   br label %for.body.i
 
 for.cond34.preheader.i:                           ; preds = %for.inc.i
-  %deferred.i = getelementptr inbounds i8, ptr %17, i64 1080
+  %deferred.i = getelementptr inbounds i8, ptr %18, i64 1080
   br label %for.body36.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
@@ -4945,10 +4947,10 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   call void @strmap_partial_clear(ptr noundef nonnull %arrayidx9.i, i32 noundef 0) #18, !callees !15
   %arrayidx11.i = getelementptr inbounds [3 x %struct.strintmap], ptr %relevant_sources.i, i64 0, i64 %indvars.iv.i
   call void @strmap_partial_clear(ptr noundef nonnull %arrayidx11.i, i32 noundef 0) #18
-  %19 = load i32, ptr %cached_pairs_valid_side.i, align 8
-  %20 = zext i32 %19 to i64
-  %cmp15.not.i = icmp eq i64 %indvars.iv.i, %20
-  %cmp17.not.i = icmp eq i32 %19, -1
+  %20 = load i32, ptr %cached_pairs_valid_side.i, align 8
+  %21 = zext i32 %20 to i64
+  %cmp15.not.i = icmp eq i64 %indvars.iv.i, %21
+  %cmp17.not.i = icmp eq i32 %20, -1
   %or.cond.i = or i1 %cmp17.not.i, %cmp15.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then18.i
 
@@ -4982,17 +4984,17 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
 
 clear_or_reinit_internal_opts.exit:               ; preds = %for.body36.i
   store i32 0, ptr %cached_pairs_valid_side.i, align 8
-  %dir_rename_mask.i = getelementptr inbounds i8, ptr %17, i64 1512
+  %dir_rename_mask.i = getelementptr inbounds i8, ptr %18, i64 1512
   %bf.load.i37 = load i8, ptr %dir_rename_mask.i, align 8
   %bf.clear.i = and i8 %bf.load.i37, -8
   store i8 %bf.clear.i, ptr %dir_rename_mask.i, align 8
-  %pool.i = getelementptr inbounds i8, ptr %17, i64 128
+  %pool.i = getelementptr inbounds i8, ptr %18, i64 128
   call void @mem_pool_discard(ptr noundef nonnull %pool.i, i32 noundef 0) #18
-  %conflicted_submodules.i = getelementptr inbounds i8, ptr %17, i64 2440
+  %conflicted_submodules.i = getelementptr inbounds i8, ptr %18, i64 2440
   call void @string_list_clear_func(ptr noundef nonnull %conflicted_submodules.i, ptr noundef nonnull @conflicted_submodule_item_free) #18
-  %callback_data.i = getelementptr inbounds i8, ptr %17, i64 1520
-  %21 = load ptr, ptr %callback_data.i, align 8
-  call void @free(ptr noundef %21) #18
+  %callback_data.i = getelementptr inbounds i8, ptr %18, i64 1520
+  %22 = load ptr, ptr %callback_data.i, align 8
+  call void @free(ptr noundef %22) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback_data.i, i8 0, i64 16, i1 false)
   %call32 = call ptr @pop_commit(ptr noundef nonnull %merge_bases.addr) #18
   %tobool15.not = icmp eq ptr %call32, null
@@ -5002,12 +5004,12 @@ for.end:                                          ; preds = %clear_or_reinit_int
   %merged_merge_bases.1.lcssa = phi ptr [ %merged_merge_bases.0, %if.end13 ], [ %call.i33, %clear_or_reinit_internal_opts.exit ]
   %ancestor = getelementptr inbounds i8, ptr %opt, i64 8
   store ptr %ancestor_name.0, ptr %ancestor, align 8
-  %22 = load ptr, ptr %opt, align 8
-  %call34 = call ptr @repo_get_commit_tree(ptr noundef %22, ptr noundef %merged_merge_bases.1.lcssa) #18
   %23 = load ptr, ptr %opt, align 8
-  %call36 = call ptr @repo_get_commit_tree(ptr noundef %23, ptr noundef %h1) #18
+  %call34 = call ptr @repo_get_commit_tree(ptr noundef %23, ptr noundef %merged_merge_bases.1.lcssa) #18
   %24 = load ptr, ptr %opt, align 8
-  %call38 = call ptr @repo_get_commit_tree(ptr noundef %24, ptr noundef %h2) #18
+  %call36 = call ptr @repo_get_commit_tree(ptr noundef %24, ptr noundef %h1) #18
+  %25 = load ptr, ptr %opt, align 8
+  %call38 = call ptr @repo_get_commit_tree(ptr noundef %25, ptr noundef %h2) #18
   call fastcc void @merge_ort_nonrecursive_internal(ptr noundef nonnull %opt, ptr noundef %call34, ptr noundef %call36, ptr noundef %call38, ptr noundef %result)
   call void @strbuf_release(ptr noundef nonnull %merge_base_abbrev) #18
   store ptr null, ptr %ancestor, align 8

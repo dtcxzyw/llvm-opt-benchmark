@@ -8377,10 +8377,13 @@ if.then15:                                        ; preds = %if.end13
 if.end19:                                         ; preds = %if.then15, %if.end13
   %9 = load i64, ptr %length_.i, align 8
   %bytes_received = getelementptr inbounds i8, ptr %this, i64 2944
-  %10 = load <2 x i64>, ptr %bytes_received, align 8
-  %11 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %9, i64 0
-  %12 = add <2 x i64> %10, %11
-  store <2 x i64> %12, ptr %bytes_received, align 8
+  %10 = load i64, ptr %bytes_received, align 8
+  %add = add i64 %10, %9
+  store i64 %add, ptr %bytes_received, align 8
+  %packets_received = getelementptr inbounds i8, ptr %this, i64 2952
+  %11 = load i64, ptr %packets_received, align 8
+  %inc = add i64 %11, 1
+  store i64 %inc, ptr %packets_received, align 8
   %receipt_time_.i = getelementptr inbounds i8, ptr %packet, i64 32
   %retval.sroa.0.0.copyload.i = load i64, ptr %receipt_time_.i, align 8
   %time_of_last_received_packet_ = getelementptr inbounds i8, ptr %this, i64 3160
@@ -8388,8 +8391,8 @@ if.end19:                                         ; preds = %if.then15, %if.end1
   store ptr %this, ptr %alarm_delayer, align 8
   %already_delayed_.i = getelementptr inbounds i8, ptr %alarm_delayer, i64 8
   %delay_setting_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1284
-  %13 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
-  %frombool.i = and i8 %13, 1
+  %12 = load i8, ptr %delay_setting_retransmission_alarm_.i, align 4
+  %frombool.i = and i8 %12, 1
   store i8 %frombool.i, ptr %already_delayed_.i, align 8
   store i8 1, ptr %delay_setting_retransmission_alarm_.i, align 4
   %framer_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -8401,14 +8404,14 @@ invoke.cont:                                      ; preds = %if.end19
 
 if.then24:                                        ; preds = %invoke.cont
   %error_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %14 = load i32, ptr %error_.i, align 8
-  %cmp28 = icmp eq i32 %14, 12
+  %13 = load i32, ptr %error_.i, align 8
+  %cmp28 = icmp eq i32 %13, 12
   br i1 %cmp28, label %if.then29, label %cleanup
 
 if.then29:                                        ; preds = %if.then24
   %encryption_level_ = getelementptr inbounds i8, ptr %this, i64 473
-  %15 = load i8, ptr %encryption_level_, align 1
-  %cmp30.not = icmp eq i8 %15, 2
+  %14 = load i8, ptr %encryption_level_, align 1
+  %cmp30.not = icmp eq i8 %14, 2
   br i1 %cmp30.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then29
@@ -8416,36 +8419,36 @@ land.lhs.true:                                    ; preds = %if.then29
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 768
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 736
   %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 792
-  %16 = load ptr, ptr %_M_node.i.i, align 8
+  %15 = load ptr, ptr %_M_node.i.i, align 8
   %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 760
-  %17 = load ptr, ptr %_M_node1.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
+  %16 = load ptr, ptr %_M_node1.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %tobool.i.i = icmp ne ptr %16, null
+  %tobool.i.i = icmp ne ptr %15, null
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
-  %18 = load ptr, ptr %_M_finish.i, align 8
+  %17 = load ptr, ptr %_M_finish.i, align 8
   %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 776
-  %19 = load ptr, ptr %_M_first.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %19 to i64
+  %18 = load ptr, ptr %_M_first.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
   %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 752
-  %20 = load ptr, ptr %_M_last.i.i, align 8
-  %21 = load ptr, ptr %_M_start.i, align 8
-  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %21 to i64
+  %19 = load ptr, ptr %_M_last.i.i, align 8
+  %20 = load ptr, ptr %_M_start.i, align 8
+  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 3
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
   %max_undecryptable_packets_ = getelementptr inbounds i8, ptr %this, i64 800
-  %22 = load i64, ptr %max_undecryptable_packets_, align 8
-  %cmp32 = icmp ult i64 %add12.i.i, %22
+  %21 = load i64, ptr %max_undecryptable_packets_, align 8
+  %cmp32 = icmp ult i64 %add12.i.i, %21
   br i1 %cmp32, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %land.lhs.true
@@ -8455,17 +8458,17 @@ if.then33:                                        ; preds = %land.lhs.true
 
 call.i.noexc:                                     ; preds = %if.then33
   store ptr %call.i22, ptr %ref.tmp.i, align 8
-  %23 = load ptr, ptr %_M_finish.i, align 8
+  %22 = load ptr, ptr %_M_finish.i, align 8
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 784
-  %24 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 -8
-  %cmp.not.i.i.i = icmp eq ptr %23, %add.ptr.i.i.i
+  %23 = load ptr, ptr %_M_last.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %23, i64 -8
+  %cmp.not.i.i.i = icmp eq ptr %22, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
-  store ptr %call.i22, ptr %23, align 8
-  %25 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %call.i22, ptr %22, align 8
+  %24 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i, align 8
   br label %_ZN3net14QuicConnection24QueueUndecryptablePacketERKNS_19QuicEncryptedPacketE.exit
 
@@ -8478,56 +8481,56 @@ _ZN3net14QuicConnection24QueueUndecryptablePacketERKNS_19QuicEncryptedPacketE.ex
   br label %cleanup
 
 lpad:                                             ; preds = %call10.i.noexc, %if.end4.i, %if.then2.i, %if.end.i27, %if.else.i, %call4.i.noexc, %if.then3.i, %if.else.i.i.i, %if.then33, %if.end63, %if.then57, %land.lhs.true50, %if.then37, %if.end19
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %alarm_delayer) #22
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %25
 
 if.else:                                          ; preds = %land.lhs.true, %if.then29
-  %27 = load ptr, ptr %debug_visitor_, align 8
-  %cmp36.not = icmp eq ptr %27, null
+  %26 = load ptr, ptr %debug_visitor_, align 8
+  %cmp36.not = icmp eq ptr %26, null
   br i1 %cmp36.not, label %cleanup, label %if.then37
 
 if.then37:                                        ; preds = %if.else
-  %vtable39 = load ptr, ptr %27, align 8
+  %vtable39 = load ptr, ptr %26, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 80
-  %28 = load ptr, ptr %vfn40, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %27 = load ptr, ptr %vfn40, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %cleanup unwind label %lpad
 
 if.end46:                                         ; preds = %invoke.cont
   %packets_processed = getelementptr inbounds i8, ptr %this, i64 2960
-  %29 = load i64, ptr %packets_processed, align 8
-  %inc48 = add i64 %29, 1
+  %28 = load i64, ptr %packets_processed, align 8
+  %inc48 = add i64 %28, 1
   store i64 %inc48, ptr %packets_processed, align 8
   %active_peer_migration_type_ = getelementptr inbounds i8, ptr %this, i64 568
-  %30 = load i32, ptr %active_peer_migration_type_, align 8
-  %cmp49.not = icmp eq i32 %30, 0
+  %29 = load i32, ptr %active_peer_migration_type_, align 8
+  %cmp49.not = icmp eq i32 %29, 0
   br i1 %cmp49.not, label %if.end63, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %if.end46
   %sent_packet_manager_ = getelementptr inbounds i8, ptr %this, i64 3192
-  %31 = load ptr, ptr %sent_packet_manager_, align 8
+  %30 = load ptr, ptr %sent_packet_manager_, align 8
   %path_id = getelementptr inbounds i8, ptr %this, i64 672
-  %32 = load i8, ptr %path_id, align 8
-  %vtable52 = load ptr, ptr %31, align 8
+  %31 = load i8, ptr %path_id, align 8
+  %vtable52 = load ptr, ptr %30, align 8
   %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 248
-  %33 = load ptr, ptr %vfn53, align 8
-  %call55 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef zeroext %32)
+  %32 = load ptr, ptr %vfn53, align 8
+  %call55 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %30, i8 noundef zeroext %31)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %land.lhs.true50
   %highest_packet_sent_before_peer_migration_ = getelementptr inbounds i8, ptr %this, i64 576
-  %34 = load i64, ptr %highest_packet_sent_before_peer_migration_, align 8
-  %cmp56 = icmp ugt i64 %call55, %34
+  %33 = load i64, ptr %highest_packet_sent_before_peer_migration_, align 8
+  %cmp56 = icmp ugt i64 %call55, %33
   br i1 %cmp56, label %if.then57, label %if.end63
 
 if.then57:                                        ; preds = %invoke.cont54
-  %35 = load i8, ptr %path_id, align 8
+  %34 = load i8, ptr %path_id, align 8
   %vtable60 = load ptr, ptr %this, align 8
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 368
-  %36 = load ptr, ptr %vfn61, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %35)
+  %35 = load ptr, ptr %vfn61, align 8
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(3372) %this, i8 noundef zeroext %34)
           to label %if.end63 unwind label %lpad
 
 if.end63:                                         ; preds = %if.then57, %invoke.cont54, %if.end46
@@ -8535,32 +8538,32 @@ if.end63:                                         ; preds = %if.then57, %invoke.
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %if.end63
-  %37 = load i8, ptr %connected_, align 8
-  %tobool.i = trunc i8 %37 to i1
+  %36 = load i8, ptr %connected_, align 8
+  %tobool.i = trunc i8 %36 to i1
   br i1 %tobool.i, label %if.end.i, label %invoke.cont65
 
 if.end.i:                                         ; preds = %invoke.cont64
   %defer_send_in_response_to_packets_.i = getelementptr inbounds i8, ptr %this, i64 1286
-  %38 = load i8, ptr %defer_send_in_response_to_packets_.i, align 2
-  %tobool2.i = trunc i8 %38 to i1
+  %37 = load i8, ptr %defer_send_in_response_to_packets_.i, align 2
+  %tobool2.i = trunc i8 %37 to i1
   br i1 %tobool2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %send_alarm_.i = getelementptr inbounds i8, ptr %this, i64 2352
-  %39 = load ptr, ptr %send_alarm_.i, align 8
+  %38 = load ptr, ptr %send_alarm_.i, align 8
   %clock_.i = getelementptr inbounds i8, ptr %this, i64 480
-  %40 = load ptr, ptr %clock_.i, align 8
-  %vtable.i = load ptr, ptr %40, align 8
+  %39 = load ptr, ptr %clock_.i, align 8
+  %vtable.i = load ptr, ptr %39, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %41 = load ptr, ptr %vfn.i, align 8
-  %call4.i23 = invoke i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %40)
+  %40 = load ptr, ptr %vfn.i, align 8
+  %call4.i23 = invoke i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %if.then3.i
-  %42 = ptrtoint ptr %39 to i64
-  %and.i.i.i = and i64 %42, -2
-  %43 = inttoptr i64 %and.i.i.i to ptr
-  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 %call4.i23, i64 0, i64 0)
+  %41 = ptrtoint ptr %38 to i64
+  %and.i.i.i = and i64 %41, -2
+  %42 = inttoptr i64 %and.i.i.i to ptr
+  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 %call4.i23, i64 0, i64 0)
           to label %invoke.cont65 unwind label %lpad
 
 if.else.i:                                        ; preds = %if.end.i
@@ -8569,75 +8572,75 @@ if.else.i:                                        ; preds = %if.end.i
 
 invoke.cont65:                                    ; preds = %invoke.cont64, %call4.i.noexc, %if.else.i
   %perspective_.i = getelementptr inbounds i8, ptr %this, i64 3204
-  %44 = load i32, ptr %perspective_.i, align 4
-  %cmp.i26 = icmp eq i32 %44, 0
+  %43 = load i32, ptr %perspective_.i, align 4
+  %cmp.i26 = icmp eq i32 %43, 0
   br i1 %cmp.i26, label %cleanup, label %if.end.i27
 
 if.end.i27:                                       ; preds = %invoke.cont65
   %visitor_.i = getelementptr inbounds i8, ptr %this, i64 2392
-  %45 = load ptr, ptr %visitor_.i, align 8
-  %vtable.i28 = load ptr, ptr %45, align 8
+  %44 = load ptr, ptr %visitor_.i, align 8
+  %vtable.i28 = load ptr, ptr %44, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 136
-  %46 = load ptr, ptr %vfn.i29, align 8
-  %call.i33 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8) %45)
+  %45 = load ptr, ptr %vfn.i29, align 8
+  %call.i33 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %call.i.noexc32 unwind label %lpad
 
 call.i.noexc32:                                   ; preds = %if.end.i27
   %ping_alarm_5.i = getelementptr inbounds i8, ptr %this, i64 2376
-  %47 = load ptr, ptr %ping_alarm_5.i, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %and.i.i1.i = and i64 %48, -2
-  %49 = inttoptr i64 %and.i.i1.i to ptr
+  %46 = load ptr, ptr %ping_alarm_5.i, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %and.i.i1.i = and i64 %47, -2
+  %48 = inttoptr i64 %and.i.i1.i to ptr
   br i1 %call.i33, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %call.i.noexc32
-  invoke void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %49)
+  invoke void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
           to label %cleanup unwind label %lpad
 
 if.end4.i:                                        ; preds = %call.i.noexc32
   %clock_.i30 = getelementptr inbounds i8, ptr %this, i64 480
-  %50 = load ptr, ptr %clock_.i30, align 8
-  %vtable8.i = load ptr, ptr %50, align 8
+  %49 = load ptr, ptr %clock_.i30, align 8
+  %vtable8.i = load ptr, ptr %49, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 16
-  %51 = load ptr, ptr %vfn9.i, align 8
-  %call10.i35 = invoke i64 %51(ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %50 = load ptr, ptr %vfn9.i, align 8
+  %call10.i35 = invoke i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %49)
           to label %call10.i.noexc unwind label %lpad
 
 call10.i.noexc:                                   ; preds = %if.end4.i
   %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 1296
   %agg.tmp11.sroa.2.0.copyload.i = load i64, ptr %agg.tmp11.sroa.2.0.ping_timeout_.sroa_idx.i, align 8
   %add.i.i31 = add nsw i64 %agg.tmp11.sroa.2.0.copyload.i, %call10.i35
-  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 %add.i.i31, i64 0, i64 1000000)
+  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 %add.i.i31, i64 0, i64 1000000)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont65, %if.then2.i, %call10.i.noexc, %_ZN3net14QuicConnection24QueueUndecryptablePacketERKNS_19QuicEncryptedPacketE.exit, %if.then24, %if.else, %if.then37
   store ptr null, ptr %current_packet_data_, align 8
-  %tobool.i38 = trunc i8 %13 to i1
+  %tobool.i38 = trunc i8 %12 to i1
   br i1 %tobool.i38, label %cleanup.cont, label %if.end.i39
 
 if.end.i39:                                       ; preds = %cleanup
   store i8 0, ptr %delay_setting_retransmission_alarm_.i, align 4
   %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
-  %52 = load i8, ptr %pending_retransmission_alarm_.i, align 1
-  %tobool3.i = trunc i8 %52 to i1
+  %51 = load i8, ptr %pending_retransmission_alarm_.i, align 1
+  %tobool3.i = trunc i8 %51 to i1
   br i1 %tobool3.i, label %if.end.i.i, label %cleanup.cont
 
 if.end.i.i:                                       ; preds = %if.end.i39
   %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %this, i64 3192
-  %53 = load ptr, ptr %sent_packet_manager_.i.i, align 8
-  %vtable.i.i = load ptr, ptr %53, align 8
+  %52 = load ptr, ptr %sent_packet_manager_.i.i, align 8
+  %vtable.i.i = load ptr, ptr %52, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 144
-  %54 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i1.i = invoke i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %53)
+  %53 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i1.i = invoke i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i
 
 call2.i.noexc.i:                                  ; preds = %if.end.i.i
   %retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 2344
-  %55 = load ptr, ptr %retransmission_alarm_.i.i, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %and.i.i.i.i = and i64 %56, -2
-  %57 = inttoptr i64 %and.i.i.i.i to ptr
-  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 %call2.i1.i, i64 0, i64 1000)
+  %54 = load ptr, ptr %retransmission_alarm_.i.i, align 8
+  %55 = ptrtoint ptr %54 to i64
+  %and.i.i.i.i = and i64 %55, -2
+  %56 = inttoptr i64 %and.i.i.i.i to ptr
+  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 %call2.i1.i, i64 0, i64 1000)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %call2.i.noexc.i
@@ -8645,10 +8648,10 @@ invoke.cont.i:                                    ; preds = %call2.i.noexc.i
   br label %cleanup.cont
 
 terminate.lpad.i:                                 ; preds = %call2.i.noexc.i, %if.end.i.i
-  %58 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #25
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #25
   unreachable
 
 cleanup.cont:                                     ; preds = %invoke.cont.i, %if.end.i39, %cleanup, %entry
@@ -9976,52 +9979,59 @@ if.then222:                                       ; preds = %if.end220
 if.end236:                                        ; preds = %if.then222, %if.end220
   %conv237 = ashr i64 %call115, 32
   %stats_238 = getelementptr inbounds i8, ptr %this, i64 2912
-  %116 = load <2 x i64>, ptr %stats_238, align 8
-  %117 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %conv237, i64 0
-  %118 = add <2 x i64> %116, %117
-  store <2 x i64> %118, ptr %stats_238, align 8
-  %119 = load i8, ptr %transmission_type152, align 1
-  %cmp243.not = icmp eq i8 %119, 0
+  %116 = load i64, ptr %stats_238, align 8
+  %add = add i64 %116, %conv237
+  store i64 %add, ptr %stats_238, align 8
+  %packets_sent = getelementptr inbounds i8, ptr %this, i64 2920
+  %117 = load i64, ptr %packets_sent, align 8
+  %inc240 = add i64 %117, 1
+  store i64 %inc240, ptr %packets_sent, align 8
+  %118 = load i8, ptr %transmission_type152, align 1
+  %cmp243.not = icmp eq i8 %118, 0
   br i1 %cmp243.not, label %if.end250, label %if.then244
 
 if.then244:                                       ; preds = %if.end236
   %bytes_retransmitted = getelementptr inbounds i8, ptr %this, i64 2976
-  %120 = load <2 x i64>, ptr %bytes_retransmitted, align 8
-  %121 = add <2 x i64> %120, %117
-  store <2 x i64> %121, ptr %bytes_retransmitted, align 8
+  %119 = load i64, ptr %bytes_retransmitted, align 8
+  %add247 = add i64 %119, %conv237
+  store i64 %add247, ptr %bytes_retransmitted, align 8
+  %packets_retransmitted = getelementptr inbounds i8, ptr %this, i64 2984
+  %120 = load i64, ptr %packets_retransmitted, align 8
+  %inc249 = add i64 %120, 1
+  store i64 %inc249, ptr %packets_retransmitted, align 8
   br label %if.end250
 
 if.end250:                                        ; preds = %if.then244, %if.end236
-  %122 = load i8, ptr @FLAGS_graceful_emsgsize_on_mtu_probe, align 1
-  %tobool251 = trunc i8 %122 to i1
+  %121 = load i8, ptr @FLAGS_graceful_emsgsize_on_mtu_probe, align 1
+  %tobool251 = trunc i8 %121 to i1
   %cmp254 = icmp eq i32 %result.sroa.0.0.extract.trunc, 2
   %cmp256 = icmp eq i64 %result.sroa.5.0.extract.shift, 4294967154
-  %123 = and i1 %cmp256, %tobool251
-  %or.cond2 = and i1 %cmp254, %123
+  %122 = and i1 %cmp256, %tobool251
+  %or.cond2 = and i1 %cmp254, %122
   br i1 %or.cond2, label %land.lhs.true257, label %if.end265
 
 land.lhs.true257:                                 ; preds = %if.end250
-  %124 = load ptr, ptr %retransmittable_frames.i, align 8
-  %125 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i101 = icmp eq ptr %124, %125
+  %123 = load ptr, ptr %retransmittable_frames.i, align 8
+  %124 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i101 = icmp eq ptr %123, %124
   br i1 %cmp.i.i101, label %land.lhs.true259, label %if.then268
 
 land.lhs.true259:                                 ; preds = %land.lhs.true257
-  %126 = load i16, ptr %encrypted_length54, align 8
-  %conv261 = zext i16 %126 to i64
+  %125 = load i16, ptr %encrypted_length54, align 8
+  %conv261 = zext i16 %125 to i64
   %long_term_mtu_ = getelementptr inbounds i8, ptr %this, i64 3344
-  %127 = load i64, ptr %long_term_mtu_, align 8
-  %cmp262 = icmp ult i64 %127, %conv261
+  %126 = load i64, ptr %long_term_mtu_, align 8
+  %cmp262 = icmp ult i64 %126, %conv261
   br i1 %cmp262, label %if.then263, label %if.then268
 
 if.then263:                                       ; preds = %land.lhs.true259
   store i64 0, ptr %mtu_discovery_target_.i, align 8
   %mtu_discovery_alarm_ = getelementptr inbounds i8, ptr %this, i64 2384
-  %128 = load ptr, ptr %mtu_discovery_alarm_, align 8
-  %129 = ptrtoint ptr %128 to i64
-  %and.i.i102 = and i64 %129, -2
-  %130 = inttoptr i64 %and.i.i102 to ptr
-  tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %130)
+  %127 = load ptr, ptr %mtu_discovery_alarm_, align 8
+  %128 = ptrtoint ptr %127 to i64
+  %and.i.i102 = and i64 %128, -2
+  %129 = inttoptr i64 %and.i.i102 to ptr
+  tail call void @_ZN3net9QuicAlarm6CancelEv(ptr noundef nonnull align 8 dereferenceable(24) %129)
   br label %return
 
 if.end265:                                        ; preds = %if.end250

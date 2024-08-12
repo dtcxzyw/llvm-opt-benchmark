@@ -1793,7 +1793,7 @@ pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exi
 ; Function Attrs: nofree nounwind uwtable
 define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.PrintfTarget, align 8
-  %6 = alloca [8 x i8], align 4
+  %6 = alloca [8 x i8], align 1
   %7 = alloca [64 x i8], align 16
   store ptr %0, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1816,7 +1816,7 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 .thread:                                          ; preds = %4
   store i32 5136718, ptr %7, align 16
-  br label %36
+  br label %39
 
 18:                                               ; preds = %4
   %19 = fcmp olt double %3, 0.000000e+00
@@ -1840,63 +1840,69 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 26:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.1, i64 9, i1 false) #16
-  br label %31
+  br label %34
 
 27:                                               ; preds = %23
-  store <4 x i8> <i8 37, i8 46, i8 42, i8 103>, ptr %6, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 4
-  store i8 0, ptr %28, align 4
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 64, ptr noundef nonnull %6, i32 noundef %.010, double noundef %.018) #16
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.thread26, label %31
+  store i8 37, ptr %6, align 1
+  %28 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 46, ptr %28, align 1
+  %29 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 42, ptr %29, align 1
+  %30 = getelementptr inbounds i8, ptr %6, i64 3
+  store i8 103, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %6, i64 4
+  store i8 0, ptr %31, align 1
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 64, ptr noundef nonnull %6, i32 noundef %.010, double noundef %.018) #16
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %.thread26, label %34
 
 .thread26:                                        ; preds = %27
   store i8 0, ptr %0, align 1
-  br label %43
+  br label %46
 
-31:                                               ; preds = %26, %27
-  %.0 = phi i32 [ 8, %26 ], [ %29, %27 ]
-  br i1 %.not14, label %36, label %32
+34:                                               ; preds = %26, %27
+  %.0 = phi i32 [ 8, %26 ], [ %32, %27 ]
+  br i1 %.not14, label %39, label %35
 
-32:                                               ; preds = %31
+35:                                               ; preds = %34
   %.not.i = icmp eq ptr %10, null
   %.not7.i = icmp ugt ptr %10, %0
   %or.cond.i = or i1 %.not.i, %.not7.i
-  br i1 %or.cond.i, label %34, label %33
+  br i1 %or.cond.i, label %37, label %36
 
-33:                                               ; preds = %32
+36:                                               ; preds = %35
   store i32 1, ptr %13, align 8
-  br label %36
+  br label %39
 
-34:                                               ; preds = %32
-  %35 = getelementptr i8, ptr %0, i64 1
-  store ptr %35, ptr %5, align 8
+37:                                               ; preds = %35
+  %38 = getelementptr i8, ptr %0, i64 1
+  store ptr %38, ptr %5, align 8
   store i8 %.1, ptr %0, align 1
-  br label %36
+  br label %39
 
-36:                                               ; preds = %31, %.thread, %33, %34
-  %.022 = phi i32 [ 3, %.thread ], [ %.0, %31 ], [ %.0, %33 ], [ %.0, %34 ]
+39:                                               ; preds = %34, %.thread, %36, %37
+  %.022 = phi i32 [ 3, %.thread ], [ %.0, %34 ], [ %.0, %36 ], [ %.0, %37 ]
   call fastcc void @dostr(ptr noundef nonnull %7, i32 noundef %.022, ptr noundef nonnull %5)
   %.pre = load ptr, ptr %5, align 8
   %.pre23 = load i8, ptr %14, align 4
   %.pre24 = load ptr, ptr %8, align 8
   %.pre25 = load i32, ptr %13, align 8
   %.pre23.fr = freeze i8 %.pre23
-  %37 = trunc i8 %.pre23.fr to i1
+  %40 = trunc i8 %.pre23.fr to i1
   store i8 0, ptr %.pre, align 1
-  %38 = ptrtoint ptr %.pre to i64
-  %39 = ptrtoint ptr %.pre24 to i64
-  %40 = sub i64 %38, %39
-  %41 = trunc i64 %40 to i32
-  %42 = add i32 %.pre25, %41
-  br i1 %37, label %43, label %44
+  %41 = ptrtoint ptr %.pre to i64
+  %42 = ptrtoint ptr %.pre24 to i64
+  %43 = sub i64 %41, %42
+  %44 = trunc i64 %43 to i32
+  %45 = add i32 %.pre25, %44
+  br i1 %40, label %46, label %47
 
-43:                                               ; preds = %.thread26, %36
-  br label %44
+46:                                               ; preds = %.thread26, %39
+  br label %47
 
-44:                                               ; preds = %36, %43
-  %45 = phi i32 [ -1, %43 ], [ %42, %36 ]
-  ret i32 %45
+47:                                               ; preds = %39, %46
+  %48 = phi i32 [ -1, %46 ], [ %45, %39 ]
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

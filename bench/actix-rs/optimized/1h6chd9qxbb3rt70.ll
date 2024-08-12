@@ -3471,25 +3471,29 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
           cleanup
   %7 = getelementptr inbounds i8, ptr %1, i64 72
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #22
-          to label %14 unwind label %12
+          to label %17 unwind label %15
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   %9 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = load ptr, ptr %9, align 8, !align !108, !noundef !57
+  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load <2 x ptr>, ptr %9, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %12, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
-12:                                               ; preds = %5
-  %13 = landingpad { ptr, i32 }
+15:                                               ; preds = %5
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-14:                                               ; preds = %5
+17:                                               ; preds = %5
   resume { ptr, i32 } %6
 }
 
@@ -3508,24 +3512,28 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1) #22
-          to label %13 unwind label %11
+          to label %16 unwind label %14
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  %9 = load ptr, ptr %1, align 8, !align !108, !noundef !57
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %11, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+14:                                               ; preds = %6
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-13:                                               ; preds = %6
+16:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -3562,7 +3570,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
 .body:                                            ; preds = %10
   %13 = getelementptr inbounds i8, ptr %1, i64 64
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #22
-          to label %25 unwind label %23
+          to label %28 unwind label %26
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8, !alias.scope !598, !noalias !595, !nonnull !57, !align !108, !noundef !57
@@ -3573,6 +3581,9 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false), !alias.scope !600
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = load ptr, ptr %20, align 8, !align !108, !noundef !57
+  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = load ptr, ptr %22, align 8
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.dbbffb139a2c72a9e1736cc2ad7f2541.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -3586,19 +3597,20 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   store ptr %18, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9, i64 40, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  %22 = load <2 x ptr>, ptr %20, align 8
-  store <2 x ptr> %22, ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %21, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %23, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.9)
   ret void
 
-23:                                               ; preds = %.body
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %.body
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-25:                                               ; preds = %.body
+28:                                               ; preds = %.body
   resume { ptr, i32 } %7
 }
 
@@ -3634,7 +3646,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
 .body:                                            ; preds = %9
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #22
-          to label %21 unwind label %19
+          to label %24 unwind label %22
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %3, align 8, !alias.scope !604, !noalias !601, !align !56, !noundef !57
@@ -3642,24 +3654,28 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !alias.scope !606
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = load ptr, ptr %16, align 8, !align !108, !noundef !57
+  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = load ptr, ptr %18, align 8
   store i64 0, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %14, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = load <2 x ptr>, ptr %16, align 8
-  store <2 x ptr> %18, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %19, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
   ret void
 
-19:                                               ; preds = %.body
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %.body
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-21:                                               ; preds = %.body
+24:                                               ; preds = %.body
   resume { ptr, i32 } %6
 }
 
@@ -3702,7 +3718,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
 .body:                                            ; preds = %10
   %14 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #22
-          to label %23 unwind label %21
+          to label %26 unwind label %24
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %4, align 8, !alias.scope !610, !noalias !607, !align !56, !noundef !57
@@ -3711,25 +3727,29 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !alias.scope !612
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
   %18 = getelementptr inbounds i8, ptr %1, i64 88
+  %19 = load ptr, ptr %18, align 8, !align !108, !noundef !57
+  %20 = getelementptr inbounds i8, ptr %1, i64 96
+  %21 = load ptr, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %16, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  %20 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %20, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %19, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %21, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
   ret void
 
-21:                                               ; preds = %.body
-  %22 = landingpad { ptr, i32 }
+24:                                               ; preds = %.body
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-23:                                               ; preds = %.body
+26:                                               ; preds = %.body
   resume { ptr, i32 } %7
 }
 
@@ -3748,24 +3768,28 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1) #22
-          to label %13 unwind label %11
+          to label %16 unwind label %14
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3)
+  %9 = load ptr, ptr %1, align 8, !align !108, !noundef !57
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %11, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+14:                                               ; preds = %6
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-13:                                               ; preds = %6
+16:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -3801,7 +3825,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
 .body:                                            ; preds = %9
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #22
-          to label %21 unwind label %19
+          to label %24 unwind label %22
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %3, align 8, !alias.scope !616, !noalias !613, !align !56, !noundef !57
@@ -3809,6 +3833,9 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !alias.scope !618
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = load ptr, ptr %16, align 8, !align !108, !noundef !57
+  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = load ptr, ptr %18, align 8
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.dbbffb139a2c72a9e1736cc2ad7f2541.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -3820,19 +3847,20 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   store ptr %14, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = load <2 x ptr>, ptr %16, align 8
-  store <2 x ptr> %18, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %17, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %19, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8)
   ret void
 
-19:                                               ; preds = %.body
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %.body
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-21:                                               ; preds = %.body
+24:                                               ; preds = %.body
   resume { ptr, i32 } %6
 }
 
@@ -3906,29 +3934,33 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8set_
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %16, %15 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17hd9a3833296650a2bE.llvm.14700172292964297094"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #22
-          to label %37 unwind label %35
+          to label %40 unwind label %38
 
 "_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E.exit": ; preds = %3, %"_ZN4core3ptr195drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$actix_http..body..message_body..MessageBody$u2b$Error$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$$GT$17h2f7870d1ce79aacdE.llvm.8740116509709696285.exit.i.i", %19
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   %32 = getelementptr inbounds i8, ptr %1, i64 88
+  %33 = load ptr, ptr %32, align 8, !align !108, !noundef !57
+  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  %35 = load ptr, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
-  %34 = load <2 x ptr>, ptr %32, align 8
-  store <2 x ptr> %34, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %35, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+38:                                               ; preds = %.body
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-37:                                               ; preds = %.body
+40:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

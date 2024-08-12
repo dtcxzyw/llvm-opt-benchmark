@@ -86,8 +86,14 @@ if.end7:                                          ; preds = %if.end
   store i64 2048, ptr %pbits, align 8
   %qbits = getelementptr inbounds i8, ptr %call2, i64 32
   store i64 224, ptr %qbits, align 8
+  %gen_type = getelementptr inbounds i8, ptr %call2, i64 60
+  store i32 2, ptr %gen_type, align 4
   %gindex = getelementptr inbounds i8, ptr %call2, i64 56
-  store <4 x i32> <i32 -1, i32 2, i32 -1, i32 0>, ptr %gindex, align 8
+  store i32 -1, ptr %gindex, align 8
+  %pcounter = getelementptr inbounds i8, ptr %call2, i64 64
+  store i32 -1, ptr %pcounter, align 8
+  %hindex = getelementptr inbounds i8, ptr %call2, i64 68
+  store i32 0, ptr %hindex, align 4
   %call813 = tail call i32 @dsa_gen_set_params(ptr noundef nonnull %call2, ptr noundef %params)
   %tobool9.not = icmp eq i32 %call813, 0
   br i1 %tobool9.not, label %if.then10, label %return

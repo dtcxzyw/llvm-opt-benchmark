@@ -211,24 +211,33 @@ entry:
   %cmp.i = icmp ugt i16 %3, 19
   %isBigEndian.i = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian.i, align 2
-  %.fr5 = freeze i8 %4
+  %cmp2.i = icmp eq i8 %4, 0
+  %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
   %charsetFamily.i = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily.i, align 1
-  %.fr4 = freeze i8 %5
+  %cmp5.i = icmp eq i8 %5, 0
+  %or.cond12.i = select i1 %or.cond.i, i1 %cmp5.i, i1 false
   %dataFormat7.i = getelementptr inbounds i8, ptr %pInfo, i64 8
-  %6 = load <4 x i8>, ptr %dataFormat7.i, align 2
-  %.fr = freeze <4 x i8> %6
+  %6 = load i8, ptr %dataFormat7.i, align 2
+  %cmp11.i = icmp eq i8 %6, 69
+  %or.cond13.i = select i1 %or.cond12.i, i1 %cmp11.i, i1 false
+  %arrayidx14.i = getelementptr inbounds i8, ptr %pInfo, i64 9
+  %7 = load i8, ptr %arrayidx14.i, align 1
+  %cmp18.i = icmp eq i8 %7, 109
+  %or.cond14.i = select i1 %or.cond13.i, i1 %cmp18.i, i1 false
+  %arrayidx21.i = getelementptr inbounds i8, ptr %pInfo, i64 10
+  %8 = load i8, ptr %arrayidx21.i, align 2
+  %cmp25.i = icmp eq i8 %8, 111
+  %or.cond15.i = select i1 %or.cond14.i, i1 %cmp25.i, i1 false
+  %arrayidx28.i = getelementptr inbounds i8, ptr %pInfo, i64 11
+  %9 = load i8, ptr %arrayidx28.i, align 1
+  %cmp32.i = icmp eq i8 %9, 106
+  %or.cond16.i = select i1 %or.cond15.i, i1 %cmp32.i, i1 false
   %formatVersion.i = getelementptr inbounds i8, ptr %pInfo, i64 12
-  %7 = load i8, ptr %formatVersion.i, align 2
-  %cmp37.i = icmp eq i8 %7, 1
-  %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %8 = icmp eq i32 %.fr.scalar, 1785687365
-  %9 = or i8 %.fr5, %.fr4
-  %10 = icmp eq i8 %9, 0
-  %11 = and i1 %8, %10
-  %12 = and i1 %cmp.i, %11
-  %op.rdx3 = select i1 %12, i1 %cmp37.i, i1 false
-  %conv43.i = zext i1 %op.rdx3 to i8
+  %10 = load i8, ptr %formatVersion.i, align 2
+  %cmp37.i = icmp eq i8 %10, 1
+  %or.cond17.i = select i1 %or.cond16.i, i1 %cmp37.i, i1 false
+  %conv43.i = zext i1 %or.cond17.i to i8
   ret i8 %conv43.i
 }
 

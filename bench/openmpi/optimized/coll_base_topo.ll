@@ -225,118 +225,122 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocap
   %.val68 = load i32, ptr %4, align 4
   %5 = tail call noalias dereferenceable_or_null(148) ptr @malloc(i64 noundef 148) #11
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %57, label %6
+  br i1 %.not, label %58, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = getelementptr inbounds i8, ptr %5, i64 4
-  %9 = add nsw i32 %.val.val, -1
-  store i32 %9, ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
-  store <4 x i32> <i32 2, i32 0, i32 -1, i32 0>, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 2, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 0, ptr %9, align 4
+  %10 = add nsw i32 %.val.val, -1
+  store i32 %10, ptr %5, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 -1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 0, ptr %7, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 -1, ptr %12, align 4
-  %13 = ashr i32 %.val.val, 1
-  %14 = icmp sgt i32 %.val.val, 1
-  %15 = add nsw i32 %.val.val, -2
-  %16 = icmp sgt i32 %.val.val, 2
-  %17 = add nsw i32 %13, -1
-  %.05769 = select i1 %14, i32 %15, i32 -1
-  %.05670 = select i1 %16, i32 %17, i32 -1
-  %18 = icmp eq i32 %.val68, %9
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 -1, ptr %13, align 4
+  %14 = ashr i32 %.val.val, 1
+  %15 = icmp sgt i32 %.val.val, 1
+  %16 = add nsw i32 %.val.val, -2
+  %17 = icmp sgt i32 %.val.val, 2
+  %18 = add nsw i32 %14, -1
+  %.05769 = select i1 %15, i32 %16, i32 -1
+  %.05670 = select i1 %17, i32 %18, i32 -1
+  %19 = icmp eq i32 %.val68, %10
+  br i1 %19, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %45, %6
-  %.059.lcssa = phi i32 [ 0, %6 ], [ %.160, %45 ]
-  %.057.lcssa = phi i32 [ %.05769, %6 ], [ %.057, %45 ]
-  %.056.lcssa = phi i32 [ %.05670, %6 ], [ %.056, %45 ]
-  %19 = icmp sgt i32 %.057.lcssa, -1
-  br i1 %19, label %20, label %23
+._crit_edge:                                      ; preds = %46, %6
+  %.059.lcssa = phi i32 [ 0, %6 ], [ %.160, %46 ]
+  %.057.lcssa = phi i32 [ %.05769, %6 ], [ %.057, %46 ]
+  %.056.lcssa = phi i32 [ %.05670, %6 ], [ %.056, %46 ]
+  %20 = icmp sgt i32 %.057.lcssa, -1
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %._crit_edge
-  %21 = add nsw i32 %.057.lcssa, %.059.lcssa
-  store i32 %21, ptr %11, align 4
-  %22 = icmp sgt i32 %21, -1
-  br label %23
+21:                                               ; preds = %._crit_edge
+  %22 = add nsw i32 %.057.lcssa, %.059.lcssa
+  store i32 %22, ptr %12, align 4
+  %23 = icmp sgt i32 %22, -1
+  br label %24
 
-23:                                               ; preds = %20, %._crit_edge
-  %24 = phi i1 [ %22, %20 ], [ false, %._crit_edge ]
-  %25 = icmp sgt i32 %.056.lcssa, -1
-  br i1 %25, label %26, label %condstore.split
+24:                                               ; preds = %21, %._crit_edge
+  %25 = phi i1 [ %23, %21 ], [ false, %._crit_edge ]
+  %26 = icmp sgt i32 %.056.lcssa, -1
+  br i1 %26, label %27, label %condstore.split
 
-26:                                               ; preds = %23
-  %27 = add nsw i32 %.056.lcssa, %.059.lcssa
-  store i32 %27, ptr %12, align 4
-  %28 = icmp sgt i32 %27, -1
+27:                                               ; preds = %24
+  %28 = add nsw i32 %.056.lcssa, %.059.lcssa
+  store i32 %28, ptr %13, align 4
+  %29 = icmp sgt i32 %28, -1
   br label %condstore.split
 
-.lr.ph:                                           ; preds = %6, %45
-  %.05676 = phi i32 [ %.056, %45 ], [ %.05670, %6 ]
-  %.05775 = phi i32 [ %.057, %45 ], [ %.05769, %6 ]
-  %29 = phi i32 [ %46, %45 ], [ %13, %6 ]
-  %.05874 = phi i32 [ %.1, %45 ], [ %9, %6 ]
-  %.05973 = phi i32 [ %.160, %45 ], [ 0, %6 ]
-  %.06172 = phi i32 [ %.162, %45 ], [ %.val.val, %6 ]
-  %.06371 = phi i32 [ %.164, %45 ], [ %.val68, %6 ]
-  %30 = icmp sgt i32 %.06371, %.05676
-  br i1 %30, label %31, label %41
+.lr.ph:                                           ; preds = %6, %46
+  %.05676 = phi i32 [ %.056, %46 ], [ %.05670, %6 ]
+  %.05775 = phi i32 [ %.057, %46 ], [ %.05769, %6 ]
+  %30 = phi i32 [ %47, %46 ], [ %14, %6 ]
+  %.05874 = phi i32 [ %.1, %46 ], [ %10, %6 ]
+  %.05973 = phi i32 [ %.160, %46 ], [ 0, %6 ]
+  %.06172 = phi i32 [ %.162, %46 ], [ %.val.val, %6 ]
+  %.06371 = phi i32 [ %.164, %46 ], [ %.val68, %6 ]
+  %31 = icmp sgt i32 %.06371, %.05676
+  br i1 %31, label %32, label %42
 
-31:                                               ; preds = %.lr.ph
-  %32 = icmp eq i32 %.06371, %.05775
-  br i1 %32, label %33, label %35
+32:                                               ; preds = %.lr.ph
+  %33 = icmp eq i32 %.06371, %.05775
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %31
-  %34 = add nsw i32 %.05874, %.05973
-  store i32 %34, ptr %10, align 4
-  br label %35
+34:                                               ; preds = %32
+  %35 = add nsw i32 %.05874, %.05973
+  store i32 %35, ptr %11, align 4
+  br label %36
 
-35:                                               ; preds = %33, %31
-  %36 = xor i32 %29, -1
-  %37 = add i32 %.06172, %36
-  %38 = add nsw i32 %.05973, %29
-  %39 = sub nsw i32 %.06371, %29
-  %40 = add nsw i32 %37, -1
-  br label %45
+36:                                               ; preds = %34, %32
+  %37 = xor i32 %30, -1
+  %38 = add i32 %.06172, %37
+  %39 = add nsw i32 %.05973, %30
+  %40 = sub nsw i32 %.06371, %30
+  %41 = add nsw i32 %38, -1
+  br label %46
 
-41:                                               ; preds = %.lr.ph
-  %42 = icmp eq i32 %.06371, %.05676
-  br i1 %42, label %43, label %45
+42:                                               ; preds = %.lr.ph
+  %43 = icmp eq i32 %.06371, %.05676
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %41
-  %44 = add nsw i32 %.05874, %.05973
-  store i32 %44, ptr %10, align 4
-  br label %45
+44:                                               ; preds = %42
+  %45 = add nsw i32 %.05874, %.05973
+  store i32 %45, ptr %11, align 4
+  br label %46
 
-45:                                               ; preds = %41, %43, %35
-  %.164 = phi i32 [ %39, %35 ], [ %.05676, %43 ], [ %.06371, %41 ]
-  %.162 = phi i32 [ %37, %35 ], [ %29, %43 ], [ %29, %41 ]
-  %.160 = phi i32 [ %38, %35 ], [ %.05973, %43 ], [ %.05973, %41 ]
-  %.1 = phi i32 [ %40, %35 ], [ %.05676, %43 ], [ %.05676, %41 ]
-  %46 = ashr i32 %.162, 1
-  %47 = icmp sgt i32 %.162, 1
-  %48 = add nsw i32 %.1, -1
-  %49 = icmp sgt i32 %.1, 1
-  %50 = add nsw i32 %46, -1
-  %.057 = select i1 %47, i32 %48, i32 -1
-  %51 = and i1 %47, %49
-  %.056 = select i1 %51, i32 %50, i32 -1
-  %52 = icmp eq i32 %.164, %.1
-  br i1 %52, label %._crit_edge, label %.lr.ph
+46:                                               ; preds = %42, %44, %36
+  %.164 = phi i32 [ %40, %36 ], [ %.05676, %44 ], [ %.06371, %42 ]
+  %.162 = phi i32 [ %38, %36 ], [ %30, %44 ], [ %30, %42 ]
+  %.160 = phi i32 [ %39, %36 ], [ %.05973, %44 ], [ %.05973, %42 ]
+  %.1 = phi i32 [ %41, %36 ], [ %.05676, %44 ], [ %.05676, %42 ]
+  %47 = ashr i32 %.162, 1
+  %48 = icmp sgt i32 %.162, 1
+  %49 = add nsw i32 %.1, -1
+  %50 = icmp sgt i32 %.1, 1
+  %51 = add nsw i32 %47, -1
+  %.057 = select i1 %48, i32 %49, i32 -1
+  %52 = and i1 %48, %50
+  %.056 = select i1 %52, i32 %51, i32 -1
+  %53 = icmp eq i32 %.164, %.1
+  br i1 %53, label %._crit_edge, label %.lr.ph
 
-condstore.split:                                  ; preds = %23, %26
-  %53 = phi i1 [ false, %23 ], [ %28, %26 ]
-  %54 = or i1 %24, %53
-  br i1 %54, label %55, label %57
+condstore.split:                                  ; preds = %24, %27
+  %54 = phi i1 [ false, %24 ], [ %29, %27 ]
+  %55 = or i1 %25, %54
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %condstore.split
-  %56 = select i1 %53, i1 %24, i1 false
-  %simplifycfg.merge = select i1 %56, i32 2, i32 1
+56:                                               ; preds = %condstore.split
+  %57 = select i1 %54, i1 %25, i1 false
+  %simplifycfg.merge = select i1 %57, i32 2, i32 1
   store i32 %simplifycfg.merge, ptr %7, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %55, %condstore.split, %1
+58:                                               ; preds = %56, %condstore.split, %1
   ret ptr %5
 }
 

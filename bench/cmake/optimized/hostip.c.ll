@@ -684,7 +684,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %20, %16
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #12
-  br label %141
+  br label %147
 
 24:                                               ; preds = %20, %5
   store ptr null, ptr %4, align 8
@@ -736,7 +736,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br label %47
 
 47:                                               ; preds = %45, %43
-  br i1 %.not78, label %48, label %139
+  br i1 %.not78, label %48, label %145
 
 48:                                               ; preds = %47
   store i32 0, ptr %9, align 4
@@ -755,7 +755,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   %57 = tail call i32 %52(ptr noundef %54, ptr noundef null, ptr noundef %56) #12
   tail call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext false) #12
   %.not84 = icmp eq i32 %57, 0
-  br i1 %.not84, label %58, label %141
+  br i1 %.not84, label %58, label %147
 
 58:                                               ; preds = %51, %48
   %59 = call i32 @inet_pton(i32 noundef 2, ptr noundef %1, ptr noundef nonnull %10) #12
@@ -765,7 +765,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 61:                                               ; preds = %58
   %62 = call ptr @Curl_ip2addr(i32 noundef 2, ptr noundef nonnull %10, ptr noundef %1, i32 noundef %2) #12
   %.not86 = icmp eq ptr %62, null
-  br i1 %.not86, label %141, label %.thread99
+  br i1 %.not86, label %147, label %.thread99
 
 63:                                               ; preds = %58
   %64 = call i32 @inet_pton(i32 noundef 10, ptr noundef %1, ptr noundef nonnull %11) #12
@@ -775,7 +775,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 66:                                               ; preds = %63
   %67 = call ptr @Curl_ip2addr(i32 noundef 10, ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #12
   %.not85 = icmp eq ptr %67, null
-  br i1 %.not85, label %141, label %.thread99
+  br i1 %.not85, label %147, label %.thread99
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds i8, ptr %13, i64 1151
@@ -785,7 +785,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 72:                                               ; preds = %68
   %73 = call zeroext i1 @Curl_ipv6works(ptr noundef nonnull %0)
-  br i1 %73, label %74, label %141
+  br i1 %73, label %74, label %147
 
 74:                                               ; preds = %72, %68
   %75 = call i32 @curl_strequal(ptr noundef %1, ptr noundef nonnull @.str.4) #12
@@ -794,7 +794,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 76:                                               ; preds = %74
   %77 = call fastcc zeroext i1 @tailmatch(ptr noundef %1)
-  br i1 %77, label %78, label %110
+  br i1 %77, label %78, label %116
 
 78:                                               ; preds = %76, %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -814,160 +814,172 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %get_localhost.exit, label %88
 
 88:                                               ; preds = %84
-  store <4 x i32> <i32 0, i32 2, i32 1, i32 6>, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 16
-  store i32 16, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 48
-  %91 = getelementptr inbounds i8, ptr %87, i64 32
-  store ptr %90, ptr %91, align 8
-  store i16 2, ptr %90, align 2
+  store i32 0, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %87, i64 4
+  store i32 2, ptr %89, align 4
+  %90 = getelementptr inbounds i8, ptr %87, i64 8
+  store i32 1, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %87, i64 12
+  store i32 6, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %87, i64 16
+  store i32 16, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %87, i64 48
+  %94 = getelementptr inbounds i8, ptr %87, i64 32
+  store ptr %93, ptr %94, align 8
+  store i16 2, ptr %93, align 2
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 50
   store i16 %81, ptr %.sroa.3.0..sroa_idx.i, align 2
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 52
   store i32 %.sroa.4.4.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 2
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 56
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 2
-  %92 = getelementptr inbounds i8, ptr %87, i64 64
-  %93 = getelementptr inbounds i8, ptr %87, i64 24
-  store ptr %92, ptr %93, align 8
-  %94 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %95 = getelementptr inbounds i8, ptr %87, i64 64
+  %96 = getelementptr inbounds i8, ptr %87, i64 24
+  store ptr %95, ptr %96, align 8
+  %97 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %95 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
-  %96 = load ptr, ptr @Curl_ccalloc, align 8
-  %97 = add i64 %95, 77
-  %98 = call ptr %96(i64 noundef 1, i64 noundef %97) #12
-  %.not.i.i = icmp eq ptr %98, null
-  br i1 %.not.i.i, label %get_localhost6.exit.thread.i, label %99
+  %98 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
+  %99 = load ptr, ptr @Curl_ccalloc, align 8
+  %100 = add i64 %98, 77
+  %101 = call ptr %99(i64 noundef 1, i64 noundef %100) #12
+  %.not.i.i = icmp eq ptr %101, null
+  br i1 %.not.i.i, label %get_localhost6.exit.thread.i, label %102
 
-99:                                               ; preds = %88
-  %100 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull @.str.24, ptr noundef nonnull %6) #12
-  %101 = icmp slt i32 %100, 1
-  br i1 %101, label %get_localhost6.exit.thread.i, label %102
+102:                                              ; preds = %88
+  %103 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull @.str.24, ptr noundef nonnull %6) #12
+  %104 = icmp slt i32 %103, 1
+  br i1 %104, label %get_localhost6.exit.thread.i, label %105
 
-get_localhost6.exit.thread.i:                     ; preds = %99, %88
+get_localhost6.exit.thread.i:                     ; preds = %102, %88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %get_localhost.exit
 
-102:                                              ; preds = %99
+105:                                              ; preds = %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  store <4 x i32> <i32 0, i32 10, i32 1, i32 6>, ptr %98, align 8
-  %103 = getelementptr inbounds i8, ptr %98, i64 16
-  store i32 28, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 40
-  store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %98, i64 48
-  %106 = getelementptr inbounds i8, ptr %98, i64 32
-  store ptr %105, ptr %106, align 8
-  store i16 10, ptr %105, align 2
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %98, i64 50
+  store i32 0, ptr %101, align 8
+  %106 = getelementptr inbounds i8, ptr %101, i64 4
+  store i32 10, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %101, i64 8
+  store i32 1, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %101, i64 12
+  store i32 6, ptr %108, align 4
+  %109 = getelementptr inbounds i8, ptr %101, i64 16
+  store i32 28, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %101, i64 40
+  store ptr null, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %101, i64 48
+  %112 = getelementptr inbounds i8, ptr %101, i64 32
+  store ptr %111, ptr %112, align 8
+  store i16 10, ptr %111, align 2
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 50
   store i16 %81, ptr %.sroa.2.0..sroa_idx.i.i, align 2
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %98, i64 52
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 52
   store i32 0, ptr %.sroa.3.0..sroa_idx.i.i, align 2
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %98, i64 56
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i.i, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %98, i64 72
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 72
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2
-  %107 = getelementptr inbounds i8, ptr %98, i64 76
-  %108 = getelementptr inbounds i8, ptr %98, i64 24
-  store ptr %107, ptr %108, align 8
-  %109 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %113 = getelementptr inbounds i8, ptr %101, i64 76
+  %114 = getelementptr inbounds i8, ptr %101, i64 24
+  store ptr %113, ptr %114, align 8
+  %115 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  store ptr %87, ptr %104, align 8
+  store ptr %87, ptr %110, align 8
   br label %get_localhost.exit
 
-get_localhost.exit:                               ; preds = %78, %84, %get_localhost6.exit.thread.i, %102
-  %.0.i = phi ptr [ %98, %102 ], [ null, %78 ], [ null, %84 ], [ %87, %get_localhost6.exit.thread.i ]
+get_localhost.exit:                               ; preds = %78, %84, %get_localhost6.exit.thread.i, %105
+  %.0.i = phi ptr [ %101, %105 ], [ null, %78 ], [ null, %84 ], [ %87, %get_localhost6.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %121
+  br label %127
 
-110:                                              ; preds = %76
-  br i1 %3, label %111, label %117
+116:                                              ; preds = %76
+  br i1 %3, label %117, label %123
 
-111:                                              ; preds = %110
-  %112 = getelementptr inbounds i8, ptr %0, i64 2642
-  %113 = load i64, ptr %112, align 2
-  %114 = and i64 %113, 562949953421312
-  %.not89 = icmp eq i64 %114, 0
-  br i1 %.not89, label %117, label %115
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds i8, ptr %0, i64 2642
+  %119 = load i64, ptr %118, align 2
+  %120 = and i64 %119, 562949953421312
+  %.not89 = icmp eq i64 %120, 0
+  br i1 %.not89, label %123, label %121
 
-115:                                              ; preds = %111
-  %116 = call ptr @Curl_doh(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9) #12
-  br label %121
+121:                                              ; preds = %117
+  %122 = call ptr @Curl_doh(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9) #12
+  br label %127
 
-117:                                              ; preds = %111, %110
-  %118 = call zeroext i1 @Curl_ipvalid(ptr noundef nonnull %0, ptr noundef nonnull %13) #12
-  br i1 %118, label %119, label %141
+123:                                              ; preds = %117, %116
+  %124 = call zeroext i1 @Curl_ipvalid(ptr noundef nonnull %0, ptr noundef nonnull %13) #12
+  br i1 %124, label %125, label %147
 
-119:                                              ; preds = %117
-  %120 = call ptr @Curl_getaddrinfo(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9) #12
-  br label %121
+125:                                              ; preds = %123
+  %126 = call ptr @Curl_getaddrinfo(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %9) #12
+  br label %127
 
-121:                                              ; preds = %get_localhost.exit, %119, %115
-  %.170 = phi ptr [ %.0.i, %get_localhost.exit ], [ %116, %115 ], [ %120, %119 ]
+127:                                              ; preds = %get_localhost.exit, %125, %121
+  %.170 = phi ptr [ %.0.i, %get_localhost.exit ], [ %122, %121 ], [ %126, %125 ]
   %.not90 = icmp eq ptr %.170, null
-  br i1 %.not90, label %122, label %.thread99
+  br i1 %.not90, label %128, label %.thread99
 
-122:                                              ; preds = %121
-  %123 = load i32, ptr %9, align 4
-  %.not91 = icmp eq i32 %123, 0
-  br i1 %.not91, label %139, label %124
+128:                                              ; preds = %127
+  %129 = load i32, ptr %9, align 4
+  %.not91 = icmp eq i32 %129, 0
+  br i1 %.not91, label %145, label %130
 
-124:                                              ; preds = %122
-  %125 = call i32 @Curl_resolv_check(ptr noundef nonnull %0, ptr noundef nonnull %8)
-  %.not92 = icmp eq i32 %125, 0
-  br i1 %.not92, label %126, label %141
+130:                                              ; preds = %128
+  %131 = call i32 @Curl_resolv_check(ptr noundef nonnull %0, ptr noundef nonnull %8)
+  %.not92 = icmp eq i32 %131, 0
+  br i1 %.not92, label %132, label %147
 
-126:                                              ; preds = %124
-  %127 = load ptr, ptr %8, align 8
-  %.not93 = icmp eq ptr %127, null
+132:                                              ; preds = %130
+  %133 = load ptr, ptr %8, align 8
+  %.not93 = icmp eq ptr %133, null
   %. = zext i1 %.not93 to i32
-  br label %139
+  br label %145
 
-.thread99:                                        ; preds = %61, %66, %121
-  %.170102 = phi ptr [ %.170, %121 ], [ %67, %66 ], [ %62, %61 ]
-  %128 = load ptr, ptr %28, align 8
-  %.not94 = icmp eq ptr %128, null
-  br i1 %.not94, label %131, label %129
+.thread99:                                        ; preds = %61, %66, %127
+  %.170102 = phi ptr [ %.170, %127 ], [ %67, %66 ], [ %62, %61 ]
+  %134 = load ptr, ptr %28, align 8
+  %.not94 = icmp eq ptr %134, null
+  br i1 %.not94, label %137, label %135
 
-129:                                              ; preds = %.thread99
-  %130 = call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 2) #12
-  br label %131
+135:                                              ; preds = %.thread99
+  %136 = call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 2) #12
+  br label %137
 
-131:                                              ; preds = %129, %.thread99
-  %132 = call ptr @Curl_cache_addr(ptr noundef nonnull %0, ptr noundef nonnull %.170102, ptr noundef %1, i64 noundef 0, i32 noundef %2)
-  store ptr %132, ptr %8, align 8
-  %133 = load ptr, ptr %28, align 8
-  %.not95 = icmp eq ptr %133, null
-  br i1 %.not95, label %136, label %134
+137:                                              ; preds = %135, %.thread99
+  %138 = call ptr @Curl_cache_addr(ptr noundef nonnull %0, ptr noundef nonnull %.170102, ptr noundef %1, i64 noundef 0, i32 noundef %2)
+  store ptr %138, ptr %8, align 8
+  %139 = load ptr, ptr %28, align 8
+  %.not95 = icmp eq ptr %139, null
+  br i1 %.not95, label %142, label %140
 
-134:                                              ; preds = %131
-  %135 = call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 3) #12
-  br label %136
+140:                                              ; preds = %137
+  %141 = call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 3) #12
+  br label %142
 
-136:                                              ; preds = %134, %131
-  %.not96 = icmp eq ptr %132, null
-  br i1 %.not96, label %137, label %138
+142:                                              ; preds = %140, %137
+  %.not96 = icmp eq ptr %138, null
+  br i1 %.not96, label %143, label %144
 
-137:                                              ; preds = %136
+143:                                              ; preds = %142
   call void @Curl_freeaddrinfo(ptr noundef nonnull %.170102) #12
   %.pre = load ptr, ptr %8, align 8
-  br label %139
+  br label %145
 
-138:                                              ; preds = %136
-  call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef nonnull %132)
-  br label %139
+144:                                              ; preds = %142
+  call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef nonnull %138)
+  br label %145
 
-139:                                              ; preds = %126, %122, %138, %137, %47
-  %140 = phi ptr [ %33, %47 ], [ %132, %138 ], [ %.pre, %137 ], [ null, %122 ], [ %127, %126 ]
-  %.1 = phi i32 [ %.068, %47 ], [ 0, %138 ], [ %.068, %137 ], [ %.068, %122 ], [ %., %126 ]
-  store ptr %140, ptr %4, align 8
-  br label %141
+145:                                              ; preds = %132, %128, %144, %143, %47
+  %146 = phi ptr [ %33, %47 ], [ %138, %144 ], [ %.pre, %143 ], [ null, %128 ], [ %133, %132 ]
+  %.1 = phi i32 [ %.068, %47 ], [ 0, %144 ], [ %.068, %143 ], [ %.068, %128 ], [ %., %132 ]
+  store ptr %146, ptr %4, align 8
+  br label %147
 
-141:                                              ; preds = %124, %117, %72, %66, %61, %51, %139, %23
-  %.0 = phi i32 [ -1, %23 ], [ %.1, %139 ], [ -1, %51 ], [ -1, %61 ], [ -1, %66 ], [ -1, %72 ], [ -1, %117 ], [ -1, %124 ]
+147:                                              ; preds = %130, %123, %72, %66, %61, %51, %145, %23
+  %.0 = phi i32 [ -1, %23 ], [ %.1, %145 ], [ -1, %51 ], [ -1, %61 ], [ -1, %66 ], [ -1, %72 ], [ -1, %123 ], [ -1, %130 ]
   ret i32 %.0
 }
 

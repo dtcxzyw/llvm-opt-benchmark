@@ -1925,9 +1925,10 @@ define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIP5t_sidN9__gn
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = load <2 x i64>, ptr %0, align 4
-  %29 = shufflevector <2 x i64> %28, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %29, ptr %0, align 4
+  %28 = load i64, ptr %0, align 4
+  %29 = load i64, ptr %10, align 4
+  store i64 %29, ptr %0, align 4
+  store i64 %28, ptr %10, align 4
   br label %_ZSt22__move_median_to_firstIP5t_sidN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_SA_SA_SA_T0_.exit.preheader
 
 30:                                               ; preds = %25

@@ -1025,7 +1025,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br i1 %or.cond, label %.preheader, label %localnets_free.exit
 
 .preheader:                                       ; preds = %1, %localnet.exit
-  %.015 = phi ptr [ %61, %localnet.exit ], [ %2, %1 ]
+  %.015 = phi ptr [ %75, %localnet.exit ], [ %2, %1 ]
   %7 = getelementptr inbounds i8, ptr %.015, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #16
@@ -1048,7 +1048,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 
 15:                                               ; preds = %12
   %16 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27) #13
-  br label %56
+  br label %70
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %14, i64 40
@@ -1059,7 +1059,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 
 21:                                               ; preds = %17
   tail call void @free(ptr noundef nonnull %14) #13
-  br label %56
+  br label %70
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %18, align 8
@@ -1102,64 +1102,85 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 39:                                               ; preds = %36, %32
   %40 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef %.0, ptr noundef %spec.store.select) #13
   tail call void @free(ptr noundef nonnull %14) #13
-  br label %56
+  br label %70
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %14, i64 24
+  %43 = getelementptr inbounds i8, ptr %14, i64 36
+  %44 = getelementptr inbounds i8, ptr %14, i64 32
+  %45 = getelementptr inbounds i8, ptr %14, i64 28
   %.not55.i = icmp eq i32 %.04453.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
-  %.054.i = phi i32 [ %51, %.lr.ph.i ], [ 0, %41 ]
-  %43 = and i32 %.054.i, 31
-  %44 = xor i32 %43, 31
-  %45 = shl nuw i32 1, %44
-  %46 = lshr i32 %.054.i, 5
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = or i32 %45, %49
-  store i32 %50, ptr %48, align 4
-  %51 = add nuw i32 %.054.i, 1
-  %exitcond.not.i = icmp eq i32 %51, %.04453.i
+  %.054.i = phi i32 [ %54, %.lr.ph.i ], [ 0, %41 ]
+  %46 = and i32 %.054.i, 31
+  %47 = xor i32 %46, 31
+  %48 = shl nuw i32 1, %47
+  %49 = lshr i32 %.054.i, 5
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = or i32 %48, %52
+  store i32 %53, ptr %51, align 4
+  %54 = add nuw i32 %.054.i, 1
+  %exitcond.not.i = icmp eq i32 %54, %.04453.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %52 = load <4 x i32>, ptr %42, align 8
+  %.pre.i = load i32, ptr %42, align 8
+  %.pre56.i = load i32, ptr %45, align 4
+  %.pre57.i = load i32, ptr %44, align 8
+  %.pre58.i = load i32, ptr %43, align 4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %41
-  %53 = phi <4 x i32> [ %52, %._crit_edge.loopexit.i ], [ zeroinitializer, %41 ]
-  %54 = load <4 x i32>, ptr %19, align 8
-  %55 = and <4 x i32> %54, %53
-  store <4 x i32> %55, ptr %19, align 8
+  %55 = phi i32 [ %.pre58.i, %._crit_edge.loopexit.i ], [ 0, %41 ]
+  %56 = phi i32 [ %.pre57.i, %._crit_edge.loopexit.i ], [ 0, %41 ]
+  %57 = phi i32 [ %.pre56.i, %._crit_edge.loopexit.i ], [ 0, %41 ]
+  %58 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ 0, %41 ]
+  %59 = load i32, ptr %19, align 8
+  %60 = and i32 %59, %58
+  store i32 %60, ptr %19, align 8
+  %61 = getelementptr inbounds i8, ptr %14, i64 12
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, %57
+  store i32 %63, ptr %61, align 4
+  %64 = getelementptr inbounds i8, ptr %14, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, %56
+  store i32 %66, ptr %64, align 8
+  %67 = getelementptr inbounds i8, ptr %14, i64 20
+  %68 = load i32, ptr %67, align 4
+  %69 = and i32 %68, %55
+  store i32 %69, ptr %67, align 4
   br label %localnet.exit
 
-56:                                               ; preds = %21, %39, %15
+70:                                               ; preds = %21, %39, %15
   %.pr.i = load ptr, ptr @lnet, align 8
   %.not1.i = icmp eq ptr %.pr.i, null
   br i1 %.not1.i, label %localnets_free.exit, label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %56, %.lr.ph.i21
-  %57 = phi ptr [ %58, %.lr.ph.i21 ], [ %.pr.i, %56 ]
-  %58 = load ptr, ptr %57, align 8
-  tail call void @free(ptr noundef nonnull %57) #13
-  store ptr %58, ptr @lnet, align 8
-  %.not.i22 = icmp eq ptr %58, null
+.lr.ph.i21:                                       ; preds = %70, %.lr.ph.i21
+  %71 = phi ptr [ %72, %.lr.ph.i21 ], [ %.pr.i, %70 ]
+  %72 = load ptr, ptr %71, align 8
+  tail call void @free(ptr noundef nonnull %71) #13
+  store ptr %72, ptr @lnet, align 8
+  %.not.i22 = icmp eq ptr %72, null
   br i1 %.not.i22, label %localnets_free.exit, label %.lr.ph.i21
 
 localnet.exit:                                    ; preds = %._crit_edge.i, %25
-  %59 = load ptr, ptr @lnet, align 8
-  store ptr %59, ptr %14, align 8
+  %73 = load ptr, ptr @lnet, align 8
+  store ptr %73, ptr %14, align 8
   store ptr %14, ptr @lnet, align 8
-  %60 = getelementptr inbounds i8, ptr %.015, i64 48
-  %61 = load ptr, ptr %60, align 8
-  %.old1.not = icmp eq ptr %61, null
+  %74 = getelementptr inbounds i8, ptr %.015, i64 48
+  %75 = load ptr, ptr %74, align 8
+  %.old1.not = icmp eq ptr %75, null
   br i1 %.old1.not, label %localnets_free.exit, label %.preheader
 
-localnets_free.exit:                              ; preds = %localnet.exit, %.lr.ph.i21, %56, %1
-  %.014 = phi i32 [ 0, %1 ], [ 1, %56 ], [ 1, %.lr.ph.i21 ], [ 0, %localnet.exit ]
+localnets_free.exit:                              ; preds = %localnet.exit, %.lr.ph.i21, %70, %1
+  %.014 = phi i32 [ 0, %1 ], [ 1, %70 ], [ 1, %.lr.ph.i21 ], [ 0, %localnet.exit ]
   ret i32 %.014
 }
 

@@ -262,7 +262,13 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %xend.i121 = getelementptr inbounds i8, ptr %roi, i64 4
   %sub.i122 = sub nsw i32 %26, %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %maxerror, i8 0, i64 40, i1 false)
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp, align 4
+  store i8 11, ptr %agg.tmp, align 4
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  store i8 1, ptr %aggregate.i, align 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  store i8 0, ptr %vecsemantics.i, align 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  store i8 0, ptr %reserved.i, align 1
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   store i32 0, ptr %arraylen4.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpecC1EiiiNS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %sub.i122, i32 noundef %sub.i, i32 noundef 3, ptr noundef nonnull %agg.tmp) #16
@@ -1577,20 +1583,32 @@ entry:
   %5 = getelementptr inbounds i8, ptr %__functor, i64 8
   %6 = load ptr, ptr %5, align 8
   %zbegin.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 4
-  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 12
-  %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  %7 = load <4 x i32>, ptr %zbegin.i.i.i, align 4
+  %7 = load i32, ptr %zbegin.i.i.i, align 4
+  %zend.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = load i32, ptr %zend.i.i.i, align 4
+  %chbegin.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = load i32, ptr %chbegin.i.i.i, align 4
+  %chend.i.i.i = getelementptr inbounds i8, ptr %6, i64 28
+  %10 = load i32, ptr %chend.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   store i32 %conv.i.i.i, ptr %agg.tmp1.i.i.i, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 4
   store i32 %conv2.i.i.i, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i, align 4
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store i32 %conv3.i.i.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 12
   store i32 %conv4.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i, align 4
-  store <4 x i32> %7, ptr %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  store i32 %7, ptr %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.6.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 20
+  store i32 %8, ptr %agg.tmp.sroa.6.0.agg.tmp1.sroa_idx.i.i.i, align 4
+  %agg.tmp.sroa.7.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  store i32 %9, ptr %agg.tmp.sroa.7.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.8.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 28
+  store i32 %10, ptr %agg.tmp.sroa.8.0.agg.tmp1.sroa_idx.i.i.i, align 4
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
+  %11 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -1599,8 +1617,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i.i)
+  %12 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   ret void
 }
@@ -1910,7 +1928,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8channelsERNS_8
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_18XYZToLABERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %__args) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %r.i.i.i.i = alloca [3 x float], align 8
+  %r.i.i.i.i = alloca [3 x float], align 4
   %f.i.i.i.i = alloca [3 x float], align 4
   %a.i.i.i = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::Iterator", align 8
   %agg.tmp1.i.i = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -1927,6 +1945,7 @@ entry:
   %m_z.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 68
   %m_rng_zend.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 56
   %m_proxydata.i.i.i.i = getelementptr inbounds i8, ptr %a.i.i.i, i64 112
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %r.i.i.i.i, i64 4
   %arrayinit.element2.i.i.i.i = getelementptr inbounds i8, ptr %r.i.i.i.i, i64 8
   %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %f.i.i.i.i, i64 4
   %arrayidx14.i.i.i.i = getelementptr inbounds i8, ptr %f.i.i.i.i, i64 8
@@ -1988,15 +2007,19 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 
 invoke.cont17.i.i.i:                              ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i.i.i, %land.lhs.true3.i.i.i.i, %land.lhs.true.i.i.i.i, %for.cond.i.i.i
   %11 = load ptr, ptr %m_proxydata.i.i.i.i, align 8
+  %12 = load float, ptr %11, align 4
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = load float, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i.i3.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load float, ptr %arrayidx.i.i3.i.i.i, align 4
+  %14 = load float, ptr %arrayidx.i.i3.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %r.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %f.i.i.i.i)
-  %13 = load <2 x float>, ptr %11, align 4
-  %14 = fdiv <2 x float> %13, <float 0x3FEE6A3BC0000000, float 0x3FF00000C0000000>
-  store <2 x float> %14, ptr %r.i.i.i.i, align 8, !noalias !25
-  %div3.i.i.i.i = fdiv float %12, 0x3FF16C6A80000000
-  store float %div3.i.i.i.i, ptr %arrayinit.element2.i.i.i.i, align 8, !noalias !25
+  %div.i.i.i.i = fdiv float %12, 0x3FEE6A3BC0000000
+  store float %div.i.i.i.i, ptr %r.i.i.i.i, align 4, !noalias !25
+  %div1.i.i.i.i = fdiv float %13, 0x3FF00000C0000000
+  store float %div1.i.i.i.i, ptr %arrayinit.element.i.i.i.i, align 4, !noalias !25
+  %div3.i.i.i.i = fdiv float %14, 0x3FF16C6A80000000
+  store float %div3.i.i.i.i, ptr %arrayinit.element2.i.i.i.i, align 4, !noalias !25
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %invoke.cont17.i.i.i

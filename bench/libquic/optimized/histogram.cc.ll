@@ -3486,7 +3486,13 @@ entry:
   %name_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %name, ptr %name_.i.i, align 8
   %histogram_type_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store <4 x i32> <i32 2, i32 1, i32 2, i32 3>, ptr %histogram_type_.i.i, align 8
+  store i32 2, ptr %histogram_type_.i.i, align 8
+  %minimum_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  store i32 1, ptr %minimum_.i.i, align 4
+  %maximum_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  store i32 2, ptr %maximum_.i.i, align 8
+  %bucket_count_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 28
+  store i32 3, ptr %bucket_count_.i.i, align 4
   %flags_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store i32 %flags, ptr %flags_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16BooleanHistogram7FactoryE, i64 16), ptr %ref.tmp, align 8
@@ -3536,7 +3542,13 @@ invoke.cont:                                      ; preds = %if.end.i
   %name_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %ref.tmp, ptr %name_.i.i.i, align 8
   %histogram_type_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <4 x i32> <i32 2, i32 1, i32 2, i32 3>, ptr %histogram_type_.i.i.i, align 8
+  store i32 2, ptr %histogram_type_.i.i.i, align 8
+  %minimum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 20
+  store i32 1, ptr %minimum_.i.i.i, align 4
+  %maximum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  store i32 2, ptr %maximum_.i.i.i, align 8
+  %bucket_count_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
+  store i32 3, ptr %bucket_count_.i.i.i, align 4
   %flags_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i32 %flags, ptr %flags_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16BooleanHistogram7FactoryE, i64 16), ptr %ref.tmp.i, align 8
@@ -3666,7 +3678,13 @@ if.end:                                           ; preds = %invoke.cont
   %name_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %histogram_name, ptr %name_.i.i.i, align 8
   %histogram_type_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store <4 x i32> <i32 2, i32 1, i32 2, i32 3>, ptr %histogram_type_.i.i.i, align 8
+  store i32 2, ptr %histogram_type_.i.i.i, align 8
+  %minimum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 20
+  store i32 1, ptr %minimum_.i.i.i, align 4
+  %maximum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  store i32 2, ptr %maximum_.i.i.i, align 8
+  %bucket_count_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
+  store i32 3, ptr %bucket_count_.i.i.i, align 4
   %flags_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i32 %1, ptr %flags_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16BooleanHistogram7FactoryE, i64 16), ptr %ref.tmp.i, align 8
@@ -3740,7 +3758,13 @@ cleanup.done:                                     ; preds = %_ZN4base15CustomHis
   %name_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr %name, ptr %name_.i.i, align 8
   %histogram_type_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %histogram_type_.i.i, align 8
+  store i32 3, ptr %histogram_type_.i.i, align 8
+  %minimum_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 20
+  store i32 0, ptr %minimum_.i.i, align 4
+  %maximum_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
+  store i32 0, ptr %maximum_.i.i, align 8
+  %bucket_count_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 28
+  store i32 0, ptr %bucket_count_.i.i, align 4
   %flags_.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 32
   store i32 %flags, ptr %flags_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15CustomHistogram7FactoryE, i64 16), ptr %ref.tmp7, align 8
@@ -3882,7 +3906,13 @@ cleanup.done.i:                                   ; preds = %.noexc3, %_ZN4base1
   %name_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   store ptr %ref.tmp, ptr %name_.i.i.i, align 8
   %histogram_type_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %histogram_type_.i.i.i, align 8
+  store i32 3, ptr %histogram_type_.i.i.i, align 8
+  %minimum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 20
+  store i32 0, ptr %minimum_.i.i.i, align 4
+  %maximum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 24
+  store i32 0, ptr %maximum_.i.i.i, align 8
+  %bucket_count_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 28
+  store i32 0, ptr %bucket_count_.i.i.i, align 4
   %flags_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 32
   store i32 %flags, ptr %flags_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15CustomHistogram7FactoryE, i64 16), ptr %ref.tmp7.i, align 8
@@ -4391,7 +4421,13 @@ cleanup.done.i:                                   ; preds = %.noexc, %_ZN4base15
   %name_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   store ptr %histogram_name, ptr %name_.i.i.i, align 8
   %histogram_type_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %histogram_type_.i.i.i, align 8
+  store i32 3, ptr %histogram_type_.i.i.i, align 8
+  %minimum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 20
+  store i32 0, ptr %minimum_.i.i.i, align 4
+  %maximum_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 24
+  store i32 0, ptr %maximum_.i.i.i, align 8
+  %bucket_count_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 28
+  store i32 0, ptr %bucket_count_.i.i.i, align 4
   %flags_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 32
   store i32 %13, ptr %flags_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15CustomHistogram7FactoryE, i64 16), ptr %ref.tmp7.i, align 8

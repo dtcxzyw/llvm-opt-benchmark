@@ -3782,10 +3782,22 @@ _ZN7glslang18TBuiltInParseablesC2Ev.exit:         ; preds = %7
   store ptr @.str.75, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 640
   store ptr @.str.76, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 844
-  store <4 x i32> <i32 1, i32 2, i32 3, i32 3>, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 860
-  store <4 x i32> <i32 2, i32 1, i32 2, i32 2>, ptr %27, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 848
+  store i32 2, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 852
+  store i32 3, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 856
+  store i32 3, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 844
+  store i32 1, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 860
+  store i32 2, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 864
+  store i32 1, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 868
+  store i32 2, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 872
+  store i32 2, ptr %33, align 8
   ret void
 }
 

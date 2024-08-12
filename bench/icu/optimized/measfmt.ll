@@ -3248,12 +3248,14 @@ if.end60:                                         ; preds = %invoke.cont54
   br i1 %or.cond, label %if.then63, label %cleanup
 
 if.then63:                                        ; preds = %if.end60
+  %18 = load i32, ptr %fBeginIndex.i30, align 4
+  %add = add nsw i32 %18, %17
   %fBeginIndex.i41 = getelementptr inbounds i8, ptr %pos, i64 12
-  %18 = load <2 x i32>, ptr %fBeginIndex.i30, align 4
-  %19 = insertelement <2 x i32> poison, i32 %17, i64 0
-  %20 = shufflevector <2 x i32> %19, <2 x i32> poison, <2 x i32> zeroinitializer
-  %21 = add nsw <2 x i32> %18, %20
-  store <2 x i32> %21, ptr %fBeginIndex.i41, align 4
+  store i32 %add, ptr %fBeginIndex.i41, align 4
+  %19 = load i32, ptr %fEndIndex.i31, align 8
+  %add69 = add nsw i32 %19, %17
+  %fEndIndex.i43 = getelementptr inbounds i8, ptr %pos, i64 16
+  store i32 %add69, ptr %fEndIndex.i43, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont29, %if.end60, %if.then63, %invoke.cont54
@@ -3261,13 +3263,13 @@ cleanup:                                          ; preds = %invoke.cont29, %if.
   br i1 %isnull.i, label %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup
-  %22 = getelementptr inbounds i8, ptr %7, i64 -8
-  %23 = load i64, ptr %22, align 8
-  %arraydestroy.isempty.i = icmp eq i64 %23, 0
+  %20 = getelementptr inbounds i8, ptr %7, i64 -8
+  %21 = load i64, ptr %20, align 8
+  %arraydestroy.isempty.i = icmp eq i64 %21, 0
   br i1 %arraydestroy.isempty.i, label %arraydestroy.done2.i, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 %23
+  %delete.end.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 %21
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %arraydestroy.body.preheader.i
@@ -3278,7 +3280,7 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.i, label %arraydestroy.body.i
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i, %delete.notnull.i
-  call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %22) #16
+  call void @_ZN6icu_757UMemorydaEPv(ptr noundef nonnull %20) #16
   br label %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit
 
 _ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit: ; preds = %cleanup, %arraydestroy.done2.i

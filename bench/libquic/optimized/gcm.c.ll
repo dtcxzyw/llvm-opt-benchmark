@@ -171,13 +171,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3 {
 entry:
-  %0 = load <2 x i32>, ptr @OPENSSL_ia32cap_P, align 16
-  %1 = and <2 x i32> %0, <i32 16777216, i32 2>
-  %2 = icmp ne <2 x i32> %1, zeroinitializer
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  %land.ext = zext i1 %5 to i32
+  %0 = load i32, ptr @OPENSSL_ia32cap_P, align 16
+  %and = and i32 %0, 16777216
+  %tobool = icmp ne i32 %and, 0
+  %1 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %and1 = and i32 %1, 2
+  %tobool2 = icmp ne i32 %and1, 0
+  %2 = select i1 %tobool, i1 %tobool2, i1 false
+  %land.ext = zext i1 %2 to i32
   ret i32 %land.ext
 }
 
@@ -1519,10 +1520,15 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   %Htable19 = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi12, ptr noundef nonnull %Htable19) #6
   %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %9 = load <2 x i64>, ptr %EK0, align 8
-  %10 = load <2 x i64>, ptr %Xi12, align 8
-  %11 = xor <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %Xi12, align 8
+  %9 = load i64, ptr %EK0, align 8
+  %10 = load i64, ptr %Xi12, align 8
+  %xor24 = xor i64 %10, %9
+  store i64 %xor24, ptr %Xi12, align 8
+  %arrayidx26 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %11 = load i64, ptr %arrayidx26, align 8
+  %12 = load i64, ptr %arrayidx15, align 8
+  %xor29 = xor i64 %12, %11
+  store i64 %xor29, ptr %arrayidx15, align 8
   %tobool30 = icmp ne ptr %tag, null
   %cmp = icmp ult i64 %len, 17
   %or.cond = and i1 %tobool30, %cmp
@@ -1583,10 +1589,15 @@ CRYPTO_gcm128_finish.exit:                        ; preds = %lor.lhs.false.i, %i
   %Htable19.i = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void %2(ptr noundef nonnull %Xi12.i, ptr noundef nonnull %Htable19.i) #6
   %EK0.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %9 = load <2 x i64>, ptr %EK0.i, align 8
-  %10 = load <2 x i64>, ptr %Xi12.i, align 8
-  %11 = xor <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %Xi12.i, align 8
+  %9 = load i64, ptr %EK0.i, align 8
+  %10 = load i64, ptr %Xi12.i, align 8
+  %xor24.i = xor i64 %10, %9
+  store i64 %xor24.i, ptr %Xi12.i, align 8
+  %arrayidx26.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %11 = load i64, ptr %arrayidx26.i, align 8
+  %12 = load i64, ptr %arrayidx15.i, align 8
+  %xor29.i = xor i64 %12, %11
+  store i64 %xor29.i, ptr %arrayidx15.i, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %len, i64 16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tag, ptr nonnull align 8 %Xi12.i, i64 %cond, i1 false)
   ret void

@@ -64,19 +64,17 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.not21, label %for.end20, label %for.body11
 
 for.body11:                                       ; preds = %for.end, %for.body11
-  %3 = phi double [ %6, %for.body11 ], [ 0.000000e+00, %for.end ]
+  %3 = phi double [ %9, %for.body11 ], [ 0.000000e+00, %for.end ]
+  %4 = phi double [ %8, %for.body11 ], [ 0.000000e+00, %for.end ]
+  %5 = phi double [ %7, %for.body11 ], [ 0.000000e+00, %for.end ]
   %__begin25.024 = phi ptr [ %incdec.ptr19, %for.body11 ], [ %data_points.coerce0, %for.end ]
-  %4 = phi <2 x double> [ %11, %for.body11 ], [ zeroinitializer, %for.end ]
-  %5 = load double, ptr %__begin25.024, align 8
-  %sub = fsub double %5, %div
-  %6 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %3)
+  %6 = load double, ptr %__begin25.024, align 8
+  %sub = fsub double %6, %div
+  %7 = tail call double @llvm.fmuladd.f64(double %sub, double %sub, double %5)
   %mul = fmul double %sub, %sub
+  %8 = tail call double @llvm.fmuladd.f64(double %mul, double %sub, double %4)
   %mul16 = fmul double %sub, %mul
-  %7 = insertelement <2 x double> poison, double %mul, i64 0
-  %8 = insertelement <2 x double> %7, double %mul16, i64 1
-  %9 = insertelement <2 x double> poison, double %sub, i64 0
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %10, <2 x double> %4)
+  %9 = tail call double @llvm.fmuladd.f64(double %mul16, double %sub, double %3)
   %incdec.ptr19 = getelementptr inbounds i8, ptr %__begin25.024, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr19, %add.ptr.i
   br i1 %cmp10.not, label %for.end20, label %for.body11
@@ -84,22 +82,23 @@ for.body11:                                       ; preds = %for.end, %for.body1
 for.end20:                                        ; preds = %for.body11, %for.end.thread, %for.end
   %conv32 = phi double [ %conv, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %conv, %for.body11 ]
   %sub22 = phi i64 [ %1, %for.end ], [ -1, %for.end.thread ], [ %1, %for.body11 ]
-  %12 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %6, %for.body11 ]
-  %13 = phi <2 x double> [ zeroinitializer, %for.end ], [ zeroinitializer, %for.end.thread ], [ %11, %for.body11 ]
+  %10 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %9, %for.body11 ]
+  %11 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %8, %for.body11 ]
+  %12 = phi double [ 0.000000e+00, %for.end ], [ 0.000000e+00, %for.end.thread ], [ %7, %for.body11 ]
   %conv23 = uitofp i64 %sub22 to double
   %variance24 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %div25 = fdiv double %12, %conv23
   store double %div25, ptr %variance24, align 8
   %skewness28 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %14 = insertelement <2 x double> poison, double %conv32, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = fdiv <2 x double> %13, %15
+  %div29 = fdiv double %11, %conv32
   %call31 = tail call double @pow(double noundef %div25, double noundef 1.500000e+00) #15
+  %div33 = fdiv double %div29, %call31
+  store double %div33, ptr %skewness28, align 8
+  %kurtosis36 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %div37 = fdiv double %10, %conv32
   %square = fmul double %div25, %div25
-  %17 = insertelement <2 x double> poison, double %call31, i64 0
-  %18 = insertelement <2 x double> %17, double %square, i64 1
-  %19 = fdiv <2 x double> %16, %18
-  store <2 x double> %19, ptr %skewness28, align 8
+  %div41 = fdiv double %div37, %square
+  store double %div41, ptr %kurtosis36, align 8
   ret void
 }
 
@@ -570,30 +569,29 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %3 = tail call double @llvm.fmuladd.f64(double %sub4, double %sub4, double -3.000000e+00)
   %div9 = fdiv double %3, 6.000000e+00
-  %4 = insertelement <2 x double> poison, double %q, i64 0
-  %5 = insertelement <2 x double> %4, double %p, i64 1
-  %6 = fadd <2 x double> %5, %5
-  %7 = fadd <2 x double> %6, <double -1.000000e+00, double -1.000000e+00>
-  %8 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %7
-  %9 = extractelement <2 x double> %8, i64 1
-  %div15 = fdiv double 2.000000e+00, %9
-  %10 = extractelement <2 x double> %8, i64 0
-  %add16 = fadd double %div15, %10
+  %add = fadd double %p, %p
+  %sub10 = fadd double %add, -1.000000e+00
+  %div11 = fdiv double 1.000000e+00, %sub10
+  %add12 = fadd double %q, %q
+  %sub13 = fadd double %add12, -1.000000e+00
+  %div14 = fdiv double 1.000000e+00, %sub13
+  %div15 = fdiv double 2.000000e+00, %div11
+  %add16 = fadd double %div15, %div14
   %add17 = fadd double %add16, %div9
   %call18 = tail call double @sqrt(double noundef %add17) #15
   %mul19 = fmul double %sub4, %call18
   %div20 = fdiv double %mul19, %add16
-  %sub21 = fsub double %10, %9
+  %sub21 = fsub double %div14, %div11
   %add22 = fadd double %div9, 0x3FEAAAAAAAAAAAAB
   %mul23 = fmul double %add16, 3.000000e+00
-  %div24 = fdiv double %10, %mul23
+  %div24 = fdiv double %div14, %mul23
   %sub25 = fsub double %add22, %div24
   %neg = fneg double %sub21
-  %11 = tail call double @llvm.fmuladd.f64(double %neg, double %sub25, double %div20)
-  %add27 = fadd double %11, %11
+  %4 = tail call double @llvm.fmuladd.f64(double %neg, double %sub25, double %div20)
+  %add27 = fadd double %4, %4
   %call28 = tail call double @exp(double noundef %add27) #15
-  %12 = tail call double @llvm.fmuladd.f64(double %q, double %call28, double %p)
-  %div30 = fdiv double %p, %12
+  %5 = tail call double @llvm.fmuladd.f64(double %q, double %call28, double %p)
+  %div30 = fdiv double %p, %5
   br label %if.end67
 
 if.else:                                          ; preds = %if.end
@@ -602,9 +600,9 @@ if.else:                                          ; preds = %if.end
   %div34 = fdiv double 1.000000e+00, %mul33
   %sub35 = fsub double 1.000000e+00, %div34
   %call36 = tail call double @sqrt(double noundef %div34) #15
-  %13 = tail call double @llvm.fmuladd.f64(double %sub4, double %call36, double %sub35)
-  %mul38 = fmul double %13, %13
-  %mul39 = fmul double %13, %mul38
+  %6 = tail call double @llvm.fmuladd.f64(double %sub4, double %call36, double %sub35)
+  %mul38 = fmul double %6, %6
+  %mul39 = fmul double %6, %mul38
   %mul40 = fmul double %add31, %mul39
   %cmp41 = fcmp ugt double %mul40, 0.000000e+00
   br i1 %cmp41, label %if.else50, label %if.then42
@@ -620,8 +618,8 @@ if.then42:                                        ; preds = %if.else
   br label %if.end67
 
 if.else50:                                        ; preds = %if.else
-  %14 = tail call double @llvm.fmuladd.f64(double %p, double 4.000000e+00, double %add31)
-  %sub52 = fadd double %14, -2.000000e+00
+  %7 = tail call double @llvm.fmuladd.f64(double %p, double 4.000000e+00, double %add31)
+  %sub52 = fadd double %7, -2.000000e+00
   %div53 = fdiv double %sub52, %mul40
   %cmp54 = fcmp ugt double %div53, 1.000000e+00
   br i1 %cmp54, label %if.else61, label %if.then55
@@ -660,19 +658,19 @@ if.else79:                                        ; preds = %if.end129, %if.end6
 
 if.else84:                                        ; preds = %if.else79
   %call85 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %value.1100, double noundef %p, double noundef %q, double noundef %beta)
-  %15 = tail call double @llvm.fabs.f64(double %call85)
-  %16 = fcmp ueq double %15, 0x7FF0000000000000
-  br i1 %16, label %common.ret122, label %if.end90
+  %8 = tail call double @llvm.fabs.f64(double %call85)
+  %9 = fcmp ueq double %8, 0x7FF0000000000000
+  br i1 %9, label %common.ret122, label %if.end90
 
 if.end90:                                         ; preds = %if.else79, %if.else84
   %y74.0 = phi double [ %call85, %if.else84 ], [ %value.1100, %if.else79 ]
   %sub91 = fsub double %y74.0, %alpha
   %call92 = tail call double @log(double noundef %value.1100) #15
-  %17 = tail call double @llvm.fmuladd.f64(double %sub71, double %call92, double %beta)
+  %10 = tail call double @llvm.fmuladd.f64(double %sub71, double %call92, double %beta)
   %sub94 = fsub double 1.000000e+00, %value.1100
   %call95 = tail call double @log(double noundef %sub94) #15
-  %18 = tail call double @llvm.fmuladd.f64(double %sub73, double %call95, double %17)
-  %call97 = tail call double @exp(double noundef %18) #15
+  %11 = tail call double @llvm.fmuladd.f64(double %sub73, double %call95, double %10)
+  %call97 = tail call double @exp(double noundef %11) #15
   %mul98 = fmul double %sub91, %call97
   %mul123 = fmul double %mul98, %mul98
   %mul123.fr = freeze double %mul123
@@ -774,9 +772,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

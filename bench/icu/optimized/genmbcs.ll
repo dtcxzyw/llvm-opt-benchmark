@@ -1864,8 +1864,11 @@ _ZL14removeFallbackP8MBCSDataj.exit:              ; preds = %lor.lhs.false109
   %sub.i = add nsw i32 %31, -1
   %idxprom5.i = sext i32 %sub.i to i64
   %arrayidx6.i = getelementptr inbounds %struct._MBCSToUFallback, ptr %toUFallbacks.i, i64 %idxprom5.i
-  %33 = load <2 x i32>, ptr %arrayidx6.i, align 4
-  store <2 x i32> %33, ptr %arrayidx.i, align 4
+  %33 = load i32, ptr %arrayidx6.i, align 4
+  store i32 %33, ptr %arrayidx.i, align 4
+  %codePoint14.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
+  %34 = load i32, ptr %codePoint14.i, align 4
+  store i32 %34, ptr %codePoint.i, align 4
   store i32 %sub.i, ptr %countToUFallbacks.i, align 8
   %cmp111.not = icmp eq i32 %32, -1
   br i1 %cmp111.not, label %if.end127, label %if.then112
@@ -1876,20 +1879,20 @@ if.then112:                                       ; preds = %_ZL14removeFallback
   br i1 %cmp114, label %if.then115, label %if.else119
 
 if.then115:                                       ; preds = %if.then112
-  %34 = load ptr, ptr @stderr, align 8
+  %35 = load ptr, ptr @stderr, align 8
   %call117 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.13, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %old.1) #15
+  %call118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.13, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %old.1) #15
   br label %return
 
 if.else119:                                       ; preds = %if.then112
-  %35 = load i8, ptr @VERBOSE, align 1
-  %tobool120.not = icmp eq i8 %35, 0
+  %36 = load i8, ptr @VERBOSE, align 1
+  %tobool120.not = icmp eq i8 %36, 0
   br i1 %tobool120.not, label %if.end127, label %if.then121
 
 if.then121:                                       ; preds = %if.else119
-  %36 = load ptr, ptr @stderr, align 8
+  %37 = load ptr, ptr @stderr, align 8
   %call123 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %old.1) #15
+  %call124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %old.1) #15
   br label %if.end127
 
 if.end127:                                        ; preds = %lor.lhs.false109, %if.then121, %if.else119, %_ZL14removeFallbackP8MBCSDataj.exit
@@ -1897,9 +1900,9 @@ if.end127:                                        ; preds = %lor.lhs.false109, %
   br i1 %cmp128, label %if.then129, label %if.end133
 
 if.then129:                                       ; preds = %if.end127
-  %37 = load ptr, ptr @stderr, align 8
+  %38 = load ptr, ptr @stderr, align 8
   %call131 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.15, i32 noundef %c, ptr noundef nonnull %buffer) #15
+  %call132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.15, i32 noundef %c, ptr noundef nonnull %buffer) #15
   br label %return
 
 if.end133:                                        ; preds = %if.end127
@@ -1907,17 +1910,17 @@ if.end133:                                        ; preds = %if.end127
   br i1 %cmp135, label %if.then136, label %if.else145
 
 if.then136:                                       ; preds = %if.end133
-  %38 = load ptr, ptr %unicodeCodeUnits, align 8
-  %arrayidx139 = getelementptr inbounds i16, ptr %38, i64 %idxprom105
-  %39 = load i16, ptr %arrayidx139, align 2
-  %cmp141 = icmp eq i16 %39, -2
+  %39 = load ptr, ptr %unicodeCodeUnits, align 8
+  %arrayidx139 = getelementptr inbounds i16, ptr %39, i64 %idxprom105
+  %40 = load i16, ptr %arrayidx139, align 2
+  %cmp141 = icmp eq i16 %40, -2
   br i1 %cmp141, label %if.then142, label %return
 
 if.then142:                                       ; preds = %if.then136
   %toUFallbacks.i156 = getelementptr inbounds i8, ptr %mbcsData, i64 40
   %countToUFallbacks.i157 = getelementptr inbounds i8, ptr %mbcsData, i64 65576
-  %40 = load i32, ptr %countToUFallbacks.i157, align 8
-  %call.i158 = call i32 @ucm_findFallback(ptr noundef nonnull %toUFallbacks.i156, i32 noundef %40, i32 noundef %add104)
+  %41 = load i32, ptr %countToUFallbacks.i157, align 8
+  %call.i158 = call i32 @ucm_findFallback(ptr noundef nonnull %toUFallbacks.i156, i32 noundef %41, i32 noundef %add104)
   %cmp.i159 = icmp sgt i32 %call.i158, -1
   br i1 %cmp.i159, label %if.then.i162, label %if.else.i
 
@@ -1928,29 +1931,29 @@ if.then.i162:                                     ; preds = %if.then142
   br label %return
 
 if.else.i:                                        ; preds = %if.then142
-  %41 = load i32, ptr %countToUFallbacks.i157, align 8
-  %cmp3.i = icmp sgt i32 %41, 8191
+  %42 = load i32, ptr %countToUFallbacks.i157, align 8
+  %cmp3.i = icmp sgt i32 %42, 8191
   br i1 %cmp3.i, label %if.then4.i, label %if.else6.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %42 = load ptr, ptr @stderr, align 8
-  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.17, i32 noundef %c) #15
+  %43 = load ptr, ptr @stderr, align 8
+  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.17, i32 noundef %c) #15
   br label %return
 
 if.else6.i:                                       ; preds = %if.else.i
-  %idxprom8.i = sext i32 %41 to i64
+  %idxprom8.i = sext i32 %42 to i64
   %arrayidx9.i = getelementptr inbounds [8192 x %struct._MBCSToUFallback], ptr %toUFallbacks.i156, i64 0, i64 %idxprom8.i
   store i32 %add104, ptr %arrayidx9.i, align 8
   %codePoint14.i160 = getelementptr inbounds i8, ptr %arrayidx9.i, i64 4
   store i32 %c, ptr %codePoint14.i160, align 4
-  %add.i = add nsw i32 %41, 1
+  %add.i = add nsw i32 %42, 1
   store i32 %add.i, ptr %countToUFallbacks.i157, align 8
   br label %return
 
 if.else145:                                       ; preds = %if.end133
   %conv146 = trunc i32 %c to i16
-  %43 = load ptr, ptr %unicodeCodeUnits, align 8
-  %arrayidx149 = getelementptr inbounds i16, ptr %43, i64 %idxprom105
+  %44 = load ptr, ptr %unicodeCodeUnits, align 8
+  %arrayidx149 = getelementptr inbounds i16, ptr %44, i64 %idxprom105
   store i16 %conv146, ptr %arrayidx149, align 2
   br label %return
 
@@ -1958,20 +1961,20 @@ sw.bb151:                                         ; preds = %if.end30
   %conv153 = and i32 %.lcssa, 65535
   %add154 = add i32 %conv153, %offset.0.lcssa
   %unicodeCodeUnits155 = getelementptr inbounds i8, ptr %mbcsData, i64 65584
-  %44 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %45 = load ptr, ptr %unicodeCodeUnits155, align 8
   %idxprom156 = zext i32 %add154 to i64
-  %arrayidx157 = getelementptr inbounds i16, ptr %44, i64 %idxprom156
-  %45 = load i16, ptr %arrayidx157, align 2
-  %conv158 = zext i16 %45 to i32
-  %cmp159 = icmp ult i16 %45, -2
+  %arrayidx157 = getelementptr inbounds i16, ptr %45, i64 %idxprom156
+  %46 = load i16, ptr %arrayidx157, align 2
+  %conv158 = zext i16 %46 to i32
+  %cmp159 = icmp ult i16 %46, -2
   br i1 %cmp159, label %if.then160, label %if.end198
 
 if.then160:                                       ; preds = %sw.bb151
-  %cmp161 = icmp ult i16 %45, -10240
+  %cmp161 = icmp ult i16 %46, -10240
   br i1 %cmp161, label %if.end183, label %if.else163
 
 if.else163:                                       ; preds = %if.then160
-  %cmp164 = icmp ult i16 %45, -8192
+  %cmp164 = icmp ult i16 %46, -8192
   br i1 %cmp164, label %if.then165, label %if.else176
 
 if.then165:                                       ; preds = %if.else163
@@ -1980,19 +1983,19 @@ if.then165:                                       ; preds = %if.else163
   %add168 = add nuw nsw i32 %shl167, 65536
   %add170 = add i32 %add154, 1
   %idxprom171 = zext i32 %add170 to i64
-  %arrayidx172 = getelementptr inbounds i16, ptr %44, i64 %idxprom171
-  %46 = load i16, ptr %arrayidx172, align 2
-  %47 = and i16 %46, 1023
-  %and174 = zext nneg i16 %47 to i32
+  %arrayidx172 = getelementptr inbounds i16, ptr %45, i64 %idxprom171
+  %47 = load i16, ptr %arrayidx172, align 2
+  %48 = and i16 %47, 1023
+  %and174 = zext nneg i16 %48 to i32
   %add175 = or disjoint i32 %add168, %and174
   br label %if.end183
 
 if.else176:                                       ; preds = %if.else163
   %add178 = add i32 %add154, 1
   %idxprom179 = zext i32 %add178 to i64
-  %arrayidx180 = getelementptr inbounds i16, ptr %44, i64 %idxprom179
-  %48 = load i16, ptr %arrayidx180, align 2
-  %conv181 = zext i16 %48 to i32
+  %arrayidx180 = getelementptr inbounds i16, ptr %45, i64 %idxprom179
+  %49 = load i16, ptr %arrayidx180, align 2
+  %conv181 = zext i16 %49 to i32
   br label %if.end183
 
 if.end183:                                        ; preds = %if.then160, %if.then165, %if.else176
@@ -2001,20 +2004,20 @@ if.end183:                                        ; preds = %if.then160, %if.the
   br i1 %cmp185, label %if.then186, label %if.else190
 
 if.then186:                                       ; preds = %if.end183
-  %49 = load ptr, ptr @stderr, align 8
+  %50 = load ptr, ptr @stderr, align 8
   %call188 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.13, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %real.0) #15
+  %call189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.13, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %real.0) #15
   br label %return
 
 if.else190:                                       ; preds = %if.end183
-  %50 = load i8, ptr @VERBOSE, align 1
-  %tobool191.not = icmp eq i8 %50, 0
+  %51 = load i8, ptr @VERBOSE, align 1
+  %tobool191.not = icmp eq i8 %51, 0
   br i1 %tobool191.not, label %if.else233, label %if.then192
 
 if.then192:                                       ; preds = %if.else190
-  %51 = load ptr, ptr @stderr, align 8
+  %52 = load ptr, ptr @stderr, align 8
   %call194 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.14, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %real.0) #15
+  %call195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.14, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %real.0) #15
   br label %if.else233
 
 if.end198:                                        ; preds = %sw.bb151
@@ -2029,24 +2032,24 @@ if.then208:                                       ; preds = %if.else206
   %inc210 = add i32 %add154, 1
   store i16 -8191, ptr %arrayidx157, align 2
   %conv213 = trunc i32 %c to i16
-  %52 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %53 = load ptr, ptr %unicodeCodeUnits155, align 8
   %idxprom215 = zext i32 %inc210 to i64
-  %arrayidx216 = getelementptr inbounds i16, ptr %52, i64 %idxprom215
+  %arrayidx216 = getelementptr inbounds i16, ptr %53, i64 %idxprom215
   store i16 %conv213, ptr %arrayidx216, align 2
   br label %return
 
 if.else217:                                       ; preds = %if.else206
   %shr218 = lshr i32 %c, 10
-  %53 = trunc i32 %shr218 to i16
-  %conv220 = add i16 %53, -9280
+  %54 = trunc i32 %shr218 to i16
+  %conv220 = add i16 %54, -9280
   %inc222 = add i32 %add154, 1
   store i16 %conv220, ptr %arrayidx157, align 2
-  %54 = trunc i32 %c to i16
-  %55 = and i16 %54, 1023
-  %conv227 = or disjoint i16 %55, -9216
-  %56 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %55 = trunc i32 %c to i16
+  %56 = and i16 %55, 1023
+  %conv227 = or disjoint i16 %56, -9216
+  %57 = load ptr, ptr %unicodeCodeUnits155, align 8
   %idxprom229 = zext i32 %inc222 to i64
-  %arrayidx230 = getelementptr inbounds i16, ptr %56, i64 %idxprom229
+  %arrayidx230 = getelementptr inbounds i16, ptr %57, i64 %idxprom229
   store i16 %conv227, ptr %arrayidx230, align 2
   br label %return
 
@@ -2056,8 +2059,8 @@ if.else233:                                       ; preds = %if.else190, %if.the
 
 if.then235:                                       ; preds = %if.else233
   %conv236 = trunc i32 %c to i16
-  %57 = load ptr, ptr %unicodeCodeUnits155, align 8
-  %arrayidx239 = getelementptr inbounds i16, ptr %57, i64 %idxprom156
+  %58 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %arrayidx239 = getelementptr inbounds i16, ptr %58, i64 %idxprom156
   store i16 %conv236, ptr %arrayidx239, align 2
   br label %return
 
@@ -2066,38 +2069,38 @@ if.else240:                                       ; preds = %if.else233
   br i1 %cmp241, label %if.then242, label %if.else251
 
 if.then242:                                       ; preds = %if.else240
-  %58 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %59 = load ptr, ptr %unicodeCodeUnits155, align 8
   %inc244 = add i32 %add154, 1
-  %arrayidx246 = getelementptr inbounds i16, ptr %58, i64 %idxprom156
+  %arrayidx246 = getelementptr inbounds i16, ptr %59, i64 %idxprom156
   store i16 -8192, ptr %arrayidx246, align 2
   %conv247 = trunc nuw i32 %c to i16
-  %59 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %60 = load ptr, ptr %unicodeCodeUnits155, align 8
   %idxprom249 = zext i32 %inc244 to i64
-  %arrayidx250 = getelementptr inbounds i16, ptr %59, i64 %idxprom249
+  %arrayidx250 = getelementptr inbounds i16, ptr %60, i64 %idxprom249
   store i16 %conv247, ptr %arrayidx250, align 2
   br label %return
 
 if.else251:                                       ; preds = %if.else240
   %shr252 = lshr i32 %c, 10
-  %60 = trunc i32 %shr252 to i16
-  %conv254 = add i16 %60, -10304
-  %61 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %61 = trunc i32 %shr252 to i16
+  %conv254 = add i16 %61, -10304
+  %62 = load ptr, ptr %unicodeCodeUnits155, align 8
   %inc256 = add i32 %add154, 1
-  %arrayidx258 = getelementptr inbounds i16, ptr %61, i64 %idxprom156
+  %arrayidx258 = getelementptr inbounds i16, ptr %62, i64 %idxprom156
   store i16 %conv254, ptr %arrayidx258, align 2
-  %62 = trunc i32 %c to i16
-  %63 = and i16 %62, 1023
-  %conv261 = or disjoint i16 %63, -9216
-  %64 = load ptr, ptr %unicodeCodeUnits155, align 8
+  %63 = trunc i32 %c to i16
+  %64 = and i16 %63, 1023
+  %conv261 = or disjoint i16 %64, -9216
+  %65 = load ptr, ptr %unicodeCodeUnits155, align 8
   %idxprom263 = zext i32 %inc256 to i64
-  %arrayidx264 = getelementptr inbounds i16, ptr %64, i64 %idxprom263
+  %arrayidx264 = getelementptr inbounds i16, ptr %65, i64 %idxprom263
   store i16 %conv261, ptr %arrayidx264, align 2
   br label %return
 
 sw.default:                                       ; preds = %if.end30
-  %65 = load ptr, ptr @stderr, align 8
+  %66 = load ptr, ptr @stderr, align 8
   %call269 = call fastcc noundef ptr @_ZL10printBytesPcPKhi(ptr noundef nonnull %buffer, ptr noundef nonnull %bytes, i32 noundef %length)
-  %call270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.16, i32 noundef %.lcssa, ptr noundef nonnull %buffer, i32 noundef %c) #15
+  %call270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.16, i32 noundef %.lcssa, ptr noundef nonnull %buffer, i32 noundef %c) #15
   br label %return
 
 return:                                           ; preds = %if.else6.i, %if.then4.i, %if.then.i162, %if.end73, %if.then136, %if.else145, %if.then235, %if.else251, %if.then242, %if.else217, %if.then208, %sw.default, %if.then186, %if.then129, %if.then115, %if.then62, %sw.bb40, %sw.bb36, %sw.bb, %_ZL10printBytesPcPKhi.exit154, %_ZL10printBytesPcPKhi.exit, %if.then

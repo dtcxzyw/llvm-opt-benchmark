@@ -1782,11 +1782,19 @@ define void @_ZN2cv21DetectionBasedTracker10ParametersC2Ev(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv21DetectionBasedTracker15InnerParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) unnamed_addr #11 align 2 {
-  store <4 x i32> <i32 4, i32 6, i32 3, i32 3>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x float> <float 2.000000e+00, float 0x3FEB333340000000>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store float 0x3FE99999A0000000, ptr %3, align 4
+  store i32 4, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 6, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 3, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 3, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store float 2.000000e+00, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store float 0x3FEB333340000000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store float 0x3FE99999A0000000, ptr %7, align 4
   ret void
 }
 
@@ -4829,7 +4837,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 15:                                               ; preds = %5, %3
   store i32 3, ptr %2, align 4
-  br label %156
+  br label %168
 
 16:                                               ; preds = %5
   %17 = zext nneg i32 %1 to i64
@@ -4843,7 +4851,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 23:                                               ; preds = %16
   store i32 0, ptr %2, align 4
-  br label %156
+  br label %168
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %18, i64 28
@@ -4855,7 +4863,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 30:                                               ; preds = %24
   store i32 2, ptr %2, align 4
-  br label %156
+  br label %168
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %18, i64 8
@@ -4871,7 +4879,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 41:                                               ; preds = %31
   store i32 3, ptr %2, align 4
-  br label %156
+  br label %168
 
 42:                                               ; preds = %31
   %43 = getelementptr inbounds i8, ptr %0, i64 112
@@ -4894,7 +4902,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %60 = trunc i64 %59 to i32
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %60, i32 %39)
   %61 = icmp sgt i32 %51, 0
-  br i1 %61, label %.lr.ph.preheader, label %81
+  br i1 %61, label %.lr.ph.preheader, label %84
 
 .lr.ph.preheader:                                 ; preds = %42
   %.sroa.speculated186 = tail call i32 @llvm.smin.i32(i32 %51, i32 %39)
@@ -4906,149 +4914,173 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.066210 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %77, %.lr.ph ]
-  %64 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %75, %.lr.ph ]
-  %65 = xor i64 %indvars.iv, -1
-  %66 = getelementptr %"class.cv::Rect_", ptr %63, i64 %65, i32 2
-  %67 = getelementptr inbounds float, ptr %46, i64 %indvars.iv
-  %68 = load float, ptr %67, align 4
-  %69 = load <2 x i32>, ptr %66, align 4
-  %70 = sitofp <2 x i32> %69 to <2 x float>
-  %71 = insertelement <2 x float> poison, float %68, i64 0
-  %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
-  %73 = fmul <2 x float> %72, %70
-  %74 = fpext <2 x float> %73 to <2 x double>
-  %75 = fadd <2 x double> %64, %74
-  %76 = fpext float %68 to double
-  %77 = fadd double %.066210, %76
+  %.0212 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %73, %.lr.ph ]
+  %.064211 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %79, %.lr.ph ]
+  %.066210 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %81, %.lr.ph ]
+  %64 = xor i64 %indvars.iv, -1
+  %65 = getelementptr %"class.cv::Rect_", ptr %63, i64 %64
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load i32, ptr %66, align 4
+  %68 = sitofp i32 %67 to float
+  %69 = getelementptr inbounds float, ptr %46, i64 %indvars.iv
+  %70 = load float, ptr %69, align 4
+  %71 = fmul float %70, %68
+  %72 = fpext float %71 to double
+  %73 = fadd double %.0212, %72
+  %74 = getelementptr inbounds i8, ptr %65, i64 12
+  %75 = load i32, ptr %74, align 4
+  %76 = sitofp i32 %75 to float
+  %77 = fmul float %70, %76
+  %78 = fpext float %77 to double
+  %79 = fadd double %.064211, %78
+  %80 = fpext float %70 to double
+  %81 = fadd double %.066210, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %78 = insertelement <2 x double> poison, double %77, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fdiv <2 x double> %75, %79
-  br label %87
+  %82 = fdiv double %73, %81
+  %83 = fdiv double %79, %81
+  br label %94
 
-81:                                               ; preds = %42
-  %82 = add nuw nsw i64 %38, 4294967295
-  %83 = and i64 %82, 4294967295
-  %84 = getelementptr inbounds %"class.cv::Rect_", ptr %34, i64 %83, i32 2
-  %85 = load <2 x i32>, ptr %84, align 4
-  %86 = sitofp <2 x i32> %85 to <2 x double>
-  br label %87
+84:                                               ; preds = %42
+  %85 = add nuw nsw i64 %38, 4294967295
+  %86 = and i64 %85, 4294967295
+  %87 = getelementptr inbounds %"class.cv::Rect_", ptr %34, i64 %86
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load i32, ptr %88, align 4
+  %90 = sitofp i32 %89 to double
+  %91 = getelementptr inbounds i8, ptr %87, i64 12
+  %92 = load i32, ptr %91, align 4
+  %93 = sitofp i32 %92 to double
+  br label %94
 
-87:                                               ; preds = %81, %._crit_edge
-  %88 = phi <2 x double> [ %80, %._crit_edge ], [ %86, %81 ]
-  %89 = icmp sgt i32 %60, 0
-  br i1 %89, label %.lr.ph218.preheader, label %116
+94:                                               ; preds = %84, %._crit_edge
+  %.165 = phi double [ %83, %._crit_edge ], [ %93, %84 ]
+  %.1 = phi double [ %82, %._crit_edge ], [ %90, %84 ]
+  %95 = icmp sgt i32 %60, 0
+  br i1 %95, label %.lr.ph218.preheader, label %129
 
-.lr.ph218.preheader:                              ; preds = %87
-  %90 = and i64 %38, 2147483647
+.lr.ph218.preheader:                              ; preds = %94
+  %96 = and i64 %38, 2147483647
   %smax229 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 1)
   %wide.trip.count230 = zext nneg i32 %smax229 to i64
-  %91 = getelementptr %"class.cv::Rect_", ptr %34, i64 %90
+  %97 = getelementptr %"class.cv::Rect_", ptr %34, i64 %96
   br label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %.lr.ph218
   %indvars.iv226 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next227, %.lr.ph218 ]
-  %.068217 = phi double [ 0.000000e+00, %.lr.ph218.preheader ], [ %110, %.lr.ph218 ]
-  %.sroa.0169.0215 = phi <2 x float> [ zeroinitializer, %.lr.ph218.preheader ], [ %108, %.lr.ph218 ]
-  %92 = xor i64 %indvars.iv226, -1
-  %93 = getelementptr %"class.cv::Rect_", ptr %91, i64 %92
-  %94 = load <2 x i32>, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %93, i64 8
-  %96 = getelementptr inbounds float, ptr %55, i64 %indvars.iv226
-  %97 = load float, ptr %96, align 4
-  %98 = load <2 x i32>, ptr %95, align 4
-  %99 = add nsw <2 x i32> %98, %94
-  %100 = sitofp <2 x i32> %94 to <2 x float>
-  %101 = fmul <2 x float> %100, <float 5.000000e-01, float 5.000000e-01>
-  %102 = sitofp <2 x i32> %99 to <2 x float>
-  %103 = fmul <2 x float> %102, <float 5.000000e-01, float 5.000000e-01>
-  %104 = fadd <2 x float> %101, %103
-  %105 = insertelement <2 x float> poison, float %97, i64 0
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> zeroinitializer
-  %107 = fmul <2 x float> %106, %104
-  %108 = fadd <2 x float> %.sroa.0169.0215, %107
-  %109 = fpext float %97 to double
-  %110 = fadd double %.068217, %109
+  %.068217 = phi double [ 0.000000e+00, %.lr.ph218.preheader ], [ %124, %.lr.ph218 ]
+  %.sroa.0169.0215 = phi <2 x float> [ zeroinitializer, %.lr.ph218.preheader ], [ %.sroa.0.4.vec.insert.i111, %.lr.ph218 ]
+  %98 = xor i64 %indvars.iv226, -1
+  %99 = getelementptr %"class.cv::Rect_", ptr %97, i64 %98
+  %100 = load i64, ptr %99, align 4
+  %.sroa.0167.0.extract.trunc = trunc i64 %100 to i32
+  %.sroa.2168.0.extract.shift = lshr i64 %100, 32
+  %.sroa.2168.0.extract.trunc = trunc nuw i64 %.sroa.2168.0.extract.shift to i32
+  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %102 = load i32, ptr %101, align 4
+  %103 = add nsw i32 %102, %.sroa.0167.0.extract.trunc
+  %104 = getelementptr inbounds i8, ptr %99, i64 12
+  %105 = load i32, ptr %104, align 4
+  %106 = add nsw i32 %105, %.sroa.2168.0.extract.trunc
+  %107 = sitofp i32 %.sroa.0167.0.extract.trunc to float
+  %108 = sitofp i32 %.sroa.2168.0.extract.trunc to float
+  %109 = fmul float %107, 5.000000e-01
+  %110 = fmul float %108, 5.000000e-01
+  %111 = sitofp i32 %103 to float
+  %112 = sitofp i32 %106 to float
+  %113 = fmul float %111, 5.000000e-01
+  %114 = fmul float %112, 5.000000e-01
+  %115 = fadd float %109, %113
+  %116 = fadd float %110, %114
+  %117 = getelementptr inbounds float, ptr %55, i64 %indvars.iv226
+  %118 = load float, ptr %117, align 4
+  %119 = fmul float %118, %115
+  %120 = fmul float %118, %116
+  %.sroa.0169.0.vec.extract = extractelement <2 x float> %.sroa.0169.0215, i64 0
+  %.sroa.0169.4.vec.extract = extractelement <2 x float> %.sroa.0169.0215, i64 1
+  %121 = fadd float %.sroa.0169.0.vec.extract, %119
+  %122 = fadd float %.sroa.0169.4.vec.extract, %120
+  %.sroa.0.0.vec.insert.i110 = insertelement <2 x float> poison, float %121, i64 0
+  %.sroa.0.4.vec.insert.i111 = insertelement <2 x float> %.sroa.0.0.vec.insert.i110, float %122, i64 1
+  %123 = fpext float %118 to double
+  %124 = fadd double %.068217, %123
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count230
   br i1 %exitcond231.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !50
 
 ._crit_edge219:                                   ; preds = %.lr.ph218
-  %111 = fdiv double 1.000000e+00, %110
-  %112 = fptrunc double %111 to float
-  %113 = insertelement <2 x float> poison, float %112, i64 0
-  %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
-  %115 = fmul <2 x float> %108, %114
-  br label %137
+  %125 = fdiv double 1.000000e+00, %124
+  %126 = fptrunc double %125 to float
+  %127 = fmul float %121, %126
+  %.sroa.0169.0.vec.insert176 = insertelement <2 x float> poison, float %127, i64 0
+  %128 = fmul float %122, %126
+  %.sroa.0169.4.vec.insert183 = insertelement <2 x float> %.sroa.0169.0.vec.insert176, float %128, i64 1
+  br label %150
 
-116:                                              ; preds = %87
-  %117 = shl i64 %37, 28
-  %sext = add i64 %117, -4294967296
-  %118 = ashr i64 %sext, 32
-  %119 = getelementptr inbounds %"class.cv::Rect_", ptr %34, i64 %118
-  %120 = load i64, ptr %119, align 4
-  %.sroa.0144.0.extract.trunc = trunc i64 %120 to i32
-  %.sroa.2145.0.extract.shift = lshr i64 %120, 32
+129:                                              ; preds = %94
+  %130 = shl i64 %37, 28
+  %sext = add i64 %130, -4294967296
+  %131 = ashr i64 %sext, 32
+  %132 = getelementptr inbounds %"class.cv::Rect_", ptr %34, i64 %131
+  %133 = load i64, ptr %132, align 4
+  %.sroa.0144.0.extract.trunc = trunc i64 %133 to i32
+  %.sroa.2145.0.extract.shift = lshr i64 %133, 32
   %.sroa.2145.0.extract.trunc = trunc nuw i64 %.sroa.2145.0.extract.shift to i32
-  %121 = getelementptr inbounds i8, ptr %119, i64 8
-  %122 = load i32, ptr %121, align 4
-  %123 = add nsw i32 %122, %.sroa.0144.0.extract.trunc
-  %124 = getelementptr inbounds i8, ptr %119, i64 12
-  %125 = load i32, ptr %124, align 4
-  %126 = add nsw i32 %125, %.sroa.2145.0.extract.trunc
-  %127 = insertelement <2 x i32> poison, i32 %.sroa.0144.0.extract.trunc, i64 0
-  %128 = insertelement <2 x i32> %127, i32 %123, i64 1
-  %129 = sitofp <2 x i32> %128 to <2 x float>
-  %130 = fmul <2 x float> %129, <float 5.000000e-01, float 5.000000e-01>
-  %131 = insertelement <2 x i32> poison, i32 %.sroa.2145.0.extract.trunc, i64 0
-  %132 = insertelement <2 x i32> %131, i32 %126, i64 1
-  %133 = sitofp <2 x i32> %132 to <2 x float>
-  %134 = fmul <2 x float> %133, <float 5.000000e-01, float 5.000000e-01>
-  %shift = shufflevector <2 x float> %130, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %135 = fadd <2 x float> %130, %shift
-  %shift242 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %136 = fadd <2 x float> %134, %shift242
-  %.sroa.0.4.vec.insert.i125 = shufflevector <2 x float> %135, <2 x float> %136, <2 x i32> <i32 0, i32 2>
-  br label %137
+  %134 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, %.sroa.0144.0.extract.trunc
+  %137 = getelementptr inbounds i8, ptr %132, i64 12
+  %138 = load i32, ptr %137, align 4
+  %139 = add nsw i32 %138, %.sroa.2145.0.extract.trunc
+  %140 = sitofp i32 %.sroa.0144.0.extract.trunc to float
+  %141 = sitofp i32 %.sroa.2145.0.extract.trunc to float
+  %142 = fmul float %140, 5.000000e-01
+  %143 = fmul float %141, 5.000000e-01
+  %144 = sitofp i32 %136 to float
+  %145 = sitofp i32 %139 to float
+  %146 = fmul float %144, 5.000000e-01
+  %147 = fmul float %145, 5.000000e-01
+  %148 = fadd float %142, %146
+  %149 = fadd float %143, %147
+  %.sroa.0.0.vec.insert.i124 = insertelement <2 x float> poison, float %148, i64 0
+  %.sroa.0.4.vec.insert.i125 = insertelement <2 x float> %.sroa.0.0.vec.insert.i124, float %149, i64 1
+  br label %150
 
-137:                                              ; preds = %116, %._crit_edge219
-  %.sroa.0169.1 = phi <2 x float> [ %115, %._crit_edge219 ], [ %.sroa.0.4.vec.insert.i125, %116 ]
-  %138 = extractelement <2 x double> %88, i64 0
-  %139 = fptrunc double %138 to float
-  %140 = fmul float %139, 5.000000e-01
-  %141 = extractelement <2 x double> %88, i64 1
-  %142 = fptrunc double %141 to float
-  %143 = fmul float %142, 5.000000e-01
+150:                                              ; preds = %129, %._crit_edge219
+  %.sroa.0169.1 = phi <2 x float> [ %.sroa.0169.4.vec.insert183, %._crit_edge219 ], [ %.sroa.0.4.vec.insert.i125, %129 ]
+  %151 = fptrunc double %.1 to float
+  %152 = fmul float %151, 5.000000e-01
+  %153 = fptrunc double %.165 to float
+  %154 = fmul float %153, 5.000000e-01
   %.sroa.0169.0.vec.extract171 = extractelement <2 x float> %.sroa.0169.1, i64 0
   %.sroa.0169.4.vec.extract178 = extractelement <2 x float> %.sroa.0169.1, i64 1
-  %144 = fsub float %.sroa.0169.0.vec.extract171, %140
-  %145 = fsub float %.sroa.0169.4.vec.extract178, %143
-  %146 = insertelement <4 x float> poison, float %144, i64 0
-  %147 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %146)
-  %148 = insertelement <4 x float> poison, float %145, i64 0
-  %149 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %148)
-  %150 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %88)
-  %151 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %152 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %151)
-  %.sroa.7.8.insert.ext = zext i32 %150 to i64
-  %.sroa.7.12.insert.ext = zext i32 %152 to i64
+  %155 = fsub float %.sroa.0169.0.vec.extract171, %152
+  %156 = fsub float %.sroa.0169.4.vec.extract178, %154
+  %157 = insertelement <4 x float> poison, float %155, i64 0
+  %158 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %157)
+  %159 = insertelement <4 x float> poison, float %156, i64 0
+  %160 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %159)
+  %161 = insertelement <2 x double> poison, double %.1, i64 0
+  %162 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %161)
+  %163 = insertelement <2 x double> poison, double %.165, i64 0
+  %164 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %163)
+  %.sroa.7.8.insert.ext = zext i32 %162 to i64
+  %.sroa.7.12.insert.ext = zext i32 %164 to i64
   %.sroa.7.12.insert.shift = shl nuw i64 %.sroa.7.12.insert.ext, 32
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.7.12.insert.shift, %.sroa.7.8.insert.ext
   store i32 1, ptr %2, align 4
-  %153 = zext i32 %149 to i64
-  %154 = shl nuw i64 %153, 32
-  %155 = zext i32 %147 to i64
-  br label %156
+  %165 = zext i32 %160 to i64
+  %166 = shl nuw i64 %165, 32
+  %167 = zext i32 %158 to i64
+  br label %168
 
-156:                                              ; preds = %137, %41, %30, %23, %15
-  %.sroa.7.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %.sroa.7.12.insert.insert, %137 ], [ 0, %23 ]
-  %.sroa.0198.sroa.6.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %154, %137 ], [ 0, %23 ]
-  %.sroa.0198.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %155, %137 ], [ 0, %23 ]
+168:                                              ; preds = %150, %41, %30, %23, %15
+  %.sroa.7.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %.sroa.7.12.insert.insert, %150 ], [ 0, %23 ]
+  %.sroa.0198.sroa.6.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %166, %150 ], [ 0, %23 ]
+  %.sroa.0198.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %41 ], [ %167, %150 ], [ 0, %23 ]
   %.sroa.0198.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0198.sroa.0.0, %.sroa.0198.sroa.6.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0198.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
@@ -5598,80 +5630,92 @@ _ZNKSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE12_M_check_lenE
 _ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::DetectionBasedTracker::TrackedObject", ptr %23, i64 %19
-  %25 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = load ptr, ptr %2, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
-  %30 = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
+  %32 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %33, i64 12, i1 false)
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ]
+  %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %31 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !55, !noalias !52
-  store <2 x ptr> %31, ptr %.012.i.i.i.i, align 8, !alias.scope !52, !noalias !55
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %34 = load ptr, ptr %33, align 8, !alias.scope !55, !noalias !52
-  store ptr %34, ptr %32, align 8, !alias.scope !52, !noalias !55
+  %34 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !55, !noalias !52
+  store ptr %34, ptr %.012.i.i.i.i, align 8, !alias.scope !52, !noalias !55
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %37 = load ptr, ptr %36, align 8, !alias.scope !55, !noalias !52
+  store ptr %37, ptr %35, align 8, !alias.scope !52, !noalias !55
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !55, !noalias !52
+  store ptr %40, ptr %38, align 8, !alias.scope !52, !noalias !55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !55, !noalias !52
-  %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false), !alias.scope !57
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %37, %1
+  %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false), !alias.scope !57
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %43, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ], [ %38, %.lr.ph.i.i.i.i ]
-  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allocateEm.exit ], [ %44, %.lr.ph.i.i.i.i ]
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %47, %.lr.ph.i.i.i.i17 ], [ %39, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %46, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %56, %.lr.ph.i.i.i.i17 ], [ %45, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %55, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %40 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !62, !noalias !59
-  store <2 x ptr> %40, ptr %.012.i.i.i.i18, align 8, !alias.scope !59, !noalias !62
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %43 = load ptr, ptr %42, align 8, !alias.scope !62, !noalias !59
-  store ptr %43, ptr %41, align 8, !alias.scope !59, !noalias !62
+  %46 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !62, !noalias !59
+  store ptr %46, ptr %.012.i.i.i.i18, align 8, !alias.scope !59, !noalias !62
+  %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %49 = load ptr, ptr %48, align 8, !alias.scope !62, !noalias !59
+  store ptr %49, ptr %47, align 8, !alias.scope !59, !noalias !62
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %52 = load ptr, ptr %51, align 8, !alias.scope !62, !noalias !59
+  store ptr %52, ptr %50, align 8, !alias.scope !59, !noalias !62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false), !alias.scope !64
-  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
-  %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
-  %.not.i.i.i.i20 = icmp eq ptr %46, %5
+  %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
+  %54 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false), !alias.scope !64
+  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
+  %56 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
+  %.not.i.i.i.i20 = icmp eq ptr %55, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !58
 
 _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %39, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %47, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %45, %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %56, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE13_M_deallocateEPS2_m.exit, label %48
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE13_M_deallocateEPS2_m.exit, label %57
 
-48:                                               ; preds = %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
+57:                                               ; preds = %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %48
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %57
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %50 = getelementptr inbounds %"struct.cv::DetectionBasedTracker::TrackedObject", ptr %23, i64 %16
-  store ptr %50, ptr %49, align 8
+  %59 = getelementptr inbounds %"struct.cv::DetectionBasedTracker::TrackedObject", ptr %23, i64 %16
+  store ptr %59, ptr %58, align 8
   ret void
 }
 

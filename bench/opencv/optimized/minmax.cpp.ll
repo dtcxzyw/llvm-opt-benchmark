@@ -667,57 +667,60 @@ define void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr 
 
 17:                                               ; preds = %16
   %18 = icmp eq i32 %8, 2
-  br i1 %18, label %.thread, label %19
+  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  br i1 %18, label %.thread, label %20
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 0, ptr %20, align 4
+20:                                               ; preds = %17
+  store i32 0, ptr %19, align 4
   br label %21
 
-21:                                               ; preds = %19, %16
+21:                                               ; preds = %20, %16
   %.not22 = icmp eq ptr %4, null
-  br i1 %.not22, label %30, label %24
+  br i1 %.not22, label %31, label %24
 
 .thread:                                          ; preds = %17
-  %22 = load <2 x i32>, ptr %3, align 4
-  %23 = shufflevector <2 x i32> %22, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %23, ptr %3, align 4
+  %22 = load i32, ptr %3, align 4
+  %23 = load i32, ptr %19, align 4
+  store i32 %23, ptr %3, align 4
+  store i32 %22, ptr %19, align 4
   %.not2223 = icmp eq ptr %4, null
-  br i1 %.not2223, label %30, label %.thread24
+  br i1 %.not2223, label %31, label %.thread24
 
 24:                                               ; preds = %21
   %25 = icmp eq i32 %8, 2
-  br i1 %25, label %.thread24, label %28
+  br i1 %25, label %.thread24, label %29
 
 .thread24:                                        ; preds = %.thread, %24
-  %26 = load <2 x i32>, ptr %4, align 4
-  %27 = shufflevector <2 x i32> %26, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %27, ptr %4, align 4
-  br label %30
+  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = load i32, ptr %4, align 4
+  %28 = load i32, ptr %26, align 4
+  store i32 %28, ptr %4, align 4
+  store i32 %27, ptr %26, align 4
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 0, ptr %29, align 4
-  br label %30
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 0, ptr %30, align 4
+  br label %31
 
-30:                                               ; preds = %.thread, %.thread24, %28, %21
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = load i32, ptr %31, align 8
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %33
+31:                                               ; preds = %.thread, %.thread24, %29, %21
+  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = load i32, ptr %32, align 8
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %34
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %7)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %34
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %35
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #15
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #15
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %30, %33
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %31, %34
   ret void
 }
 

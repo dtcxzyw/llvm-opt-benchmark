@@ -542,7 +542,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
-  %8 = alloca %struct.MemoryContextCounters, align 16
+  %8 = alloca %struct.MemoryContextCounters, align 8
   store i32 %1, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -550,7 +550,7 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %2, ptr @MemoryContextStatsPrint, ptr null
   call void %12(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %7, ptr noundef %4, i1 noundef zeroext %5) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %.03439 = load ptr, ptr %14, align 8
   %.not40 = icmp eq ptr %.03439, null
@@ -582,7 +582,7 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
 ._crit_edge:                                      ; preds = %20, %6
   %.033.lcssa = phi i32 [ 0, %6 ], [ %22, %20 ]
   %23 = icmp sgt i32 %.033.lcssa, %3
-  br i1 %23, label %24, label %68
+  br i1 %23, label %24, label %78
 
 24:                                               ; preds = %._crit_edge
   br i1 %2, label %25, label %58
@@ -608,8 +608,8 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %31 = load ptr, ptr @stderr, align 8
   %32 = sub i32 %.033.lcssa, %3
   %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = load i64, ptr %33, align 16
-  %35 = load i64, ptr %8, align 16
+  %34 = load i64, ptr %33, align 8
+  %35 = load i64, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %8, i64 8
@@ -628,8 +628,8 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
   %47 = load i32, ptr %7, align 4
   %48 = sub i32 %.033.lcssa, %3
   %49 = getelementptr inbounds i8, ptr %8, i64 16
-  %50 = load i64, ptr %49, align 16
-  %51 = load i64, ptr %8, align 16
+  %50 = load i64, ptr %49, align 8
+  %51 = load i64, ptr %8, align 8
   %52 = getelementptr inbounds i8, ptr %8, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %8, i64 8
@@ -641,22 +641,34 @@ define internal fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noun
 
 58:                                               ; preds = %._crit_edge46, %42, %44, %24
   %.not38 = icmp eq ptr %4, null
-  br i1 %.not38, label %68, label %59
+  br i1 %.not38, label %78, label %59
 
 59:                                               ; preds = %58
-  %60 = load <2 x i64>, ptr %8, align 16
-  %61 = load <2 x i64>, ptr %4, align 8
-  %62 = add <2 x i64> %61, %60
-  store <2 x i64> %62, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 16
-  %64 = getelementptr inbounds i8, ptr %4, i64 16
-  %65 = load <2 x i64>, ptr %63, align 16
-  %66 = load <2 x i64>, ptr %64, align 8
-  %67 = add <2 x i64> %66, %65
-  store <2 x i64> %67, ptr %64, align 8
-  br label %68
+  %60 = load i64, ptr %8, align 8
+  %61 = load i64, ptr %4, align 8
+  %62 = add i64 %61, %60
+  store i64 %62, ptr %4, align 8
+  %63 = getelementptr inbounds i8, ptr %8, i64 8
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %66, %64
+  store i64 %67, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %8, i64 16
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %4, i64 16
+  %71 = load i64, ptr %70, align 8
+  %72 = add i64 %71, %69
+  store i64 %72, ptr %70, align 8
+  %73 = getelementptr inbounds i8, ptr %8, i64 24
+  %74 = load i64, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %4, i64 24
+  %76 = load i64, ptr %75, align 8
+  %77 = add i64 %76, %74
+  store i64 %77, ptr %75, align 8
+  br label %78
 
-68:                                               ; preds = %58, %59, %._crit_edge
+78:                                               ; preds = %58, %59, %._crit_edge
   ret void
 }
 

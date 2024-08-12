@@ -102,10 +102,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_29InputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(257) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %header = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %isTiled = getelementptr inbounds i8, ptr %this, i64 100
   store i8 0, ptr %isTiled, align 4
@@ -403,7 +405,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_29InputFileC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %fileName, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 4
   %_iex_replace_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29InputFileE, i64 16), ptr %this, align 8
@@ -415,7 +417,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   %header.i = getelementptr inbounds i8, ptr %call, i64 40
-  store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8
+  store float 0.000000e+00, ptr %ref.tmp.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
   invoke void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header.i, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -1381,7 +1385,7 @@ declare void @_ZN7Imf_3_216GenericInputFileD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_29InputFileC2ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 4
   %_iex_replace_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29InputFileE, i64 16), ptr %this, align 8
@@ -1393,7 +1397,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   %header.i = getelementptr inbounds i8, ptr %call, i64 40
-  store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8
+  store float 0.000000e+00, ptr %ref.tmp.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
   invoke void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header.i, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -1723,7 +1729,7 @@ declare noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_29InputFileC2EPNS_13InputPartDataE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %part) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2", align 4
   tail call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_29InputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -1736,7 +1742,9 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   %header.i = getelementptr inbounds i8, ptr %call, i64 40
-  store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8
+  store float 0.000000e+00, ptr %ref.tmp.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
   invoke void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header.i, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %invoke.cont3 unwind label %lpad2
 

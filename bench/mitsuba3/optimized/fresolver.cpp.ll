@@ -1297,52 +1297,57 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   store ptr %28, ptr %30, align 8
   %31 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %storemerge.i, i64 %.0.i
   store ptr %31, ptr %19, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
-  %33 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %33, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %32, align 8
+  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = load ptr, ptr %1, align 8
+  store ptr %34, ptr %28, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %32, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %36 = getelementptr inbounds i8, ptr %28, i64 24
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
-  %38 = load i8, ptr %37, align 8
-  %39 = and i8 %38, 1
-  store i8 %39, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %40, ptr %29, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = load ptr, ptr %0, align 8
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = ashr exact i64 %45, 5
-  %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %28, i64 %47
-  invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba10filesystem4pathEEES4_EEvRT_PT0_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %42, ptr noundef %41, ptr noundef nonnull %48)
-          to label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i unwind label %53
+  %39 = getelementptr inbounds i8, ptr %28, i64 24
+  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = load i8, ptr %40, align 8
+  %42 = and i8 %41, 1
+  store i8 %42, ptr %39, align 8
+  %43 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr %43, ptr %29, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = load ptr, ptr %0, align 8
+  %46 = ptrtoint ptr %44 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 5
+  %50 = sub nsw i64 0, %49
+  %51 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %28, i64 %50
+  invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba10filesystem4pathEEES4_EEvRT_PT0_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %45, ptr noundef %44, ptr noundef nonnull %51)
+          to label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i unwind label %56
 
 _ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i: ; preds = %27
-  %49 = load ptr, ptr %0, align 8
-  store ptr %48, ptr %0, align 8
-  %50 = load <2 x ptr>, ptr %29, align 8
-  %51 = load ptr, ptr %29, align 8
-  store <2 x ptr> %50, ptr %5, align 8
-  %.not.i5 = icmp eq ptr %49, null
-  br i1 %.not.i5, label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev.exit, label %52
+  %52 = load ptr, ptr %0, align 8
+  store ptr %51, ptr %0, align 8
+  %53 = load ptr, ptr %29, align 8
+  store ptr %53, ptr %5, align 8
+  %54 = load ptr, ptr %19, align 8
+  store ptr %54, ptr %4, align 8
+  %.not.i5 = icmp eq ptr %52, null
+  br i1 %.not.i5, label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev.exit, label %55
 
-52:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %49) #15
+55:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %52) #15
   br label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, %52
-  ret ptr %51
+_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, %55
+  ret ptr %53
 
-53:                                               ; preds = %27
-  %54 = landingpad { ptr, i32 }
+56:                                               ; preds = %27
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

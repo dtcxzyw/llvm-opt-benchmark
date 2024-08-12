@@ -5758,7 +5758,7 @@ define noundef i64 @_ZN5faiss19OnDiskInvertedLists12merge_from_1EPKNS_13Inverted
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noundef nonnull align 8 dereferenceable(156) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = alloca %"class.std::vector.5", align 16
+  %5 = alloca %"class.std::vector.5", align 8
   %6 = alloca %"class.std::allocator.7", align 1
   %.not = icmp ugt i64 %1, %2
   br i1 %.not, label %10, label %7
@@ -5790,7 +5790,7 @@ define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noun
 
 20:                                               ; preds = %16
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
-          to label %41 unwind label %21
+          to label %44 unwind label %21
 
 21:                                               ; preds = %20, %14, %10
   %22 = landingpad { ptr, i32 }
@@ -5811,35 +5811,40 @@ define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noun
 26:                                               ; preds = %7
   %27 = sub i64 %2, %1
   call void @_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %28 = load ptr, ptr %5, align 16
+  %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds %"struct.faiss::OnDiskOneList", ptr %30, i64 %1
   %32 = mul i64 %27, 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %31, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %35 = load <2 x ptr>, ptr %5, align 16
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  %37 = load ptr, ptr %36, align 16
-  store ptr %37, ptr %33, align 8
-  %38 = load <2 x ptr>, ptr %29, align 8
-  %39 = load ptr, ptr %29, align 8
-  store <2 x ptr> %35, ptr %29, align 8
-  store <2 x ptr> %38, ptr %5, align 16
-  store ptr %34, ptr %36, align 16
+  %33 = load ptr, ptr %29, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %5, align 8
+  store ptr %38, ptr %29, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %34, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %36, align 8
+  store ptr %33, ptr %5, align 8
+  store ptr %35, ptr %39, align 8
+  store ptr %37, ptr %41, align 8
   store i64 %27, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit, label %40
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit, label %43
 
-40:                                               ; preds = %26
-  call void @_ZdlPv(ptr noundef nonnull %39) #24
+43:                                               ; preds = %26
+  call void @_ZdlPv(ptr noundef nonnull %33) #24
   br label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit: ; preds = %26, %40
+_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit: ; preds = %26, %43
   ret void
 
-41:                                               ; preds = %20
+44:                                               ; preds = %20
   unreachable
 }
 

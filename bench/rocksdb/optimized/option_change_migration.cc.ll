@@ -663,20 +663,23 @@ invoke.cont15:                                    ; preds = %if.end13
 if.then.i9:                                       ; preds = %invoke.cont15
   %8 = load i8, ptr %ref.tmp, align 8
   store i8 %8, ptr %agg.result, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %9 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %9, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %10 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %10, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %11 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i = and i8 %11, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %12 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -738,20 +741,23 @@ invoke.cont.i21:                                  ; preds = %invoke.cont17
 
 if.then.i31:                                      ; preds = %.noexc28
   store i8 %19, ptr %agg.result, align 8
+  store i8 0, ptr %ref.tmp20, align 8
   %subcode_.i32 = getelementptr inbounds i8, ptr %ref.tmp20, i64 1
   %21 = load i8, ptr %subcode_.i32, align 1
   %subcode_4.i33 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %21, ptr %subcode_4.i33, align 1
+  store i8 0, ptr %subcode_.i32, align 1
   %sev_.i34 = getelementptr inbounds i8, ptr %ref.tmp20, i64 2
   %22 = load i8, ptr %sev_.i34, align 2
   %sev_6.i35 = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %22, ptr %sev_6.i35, align 2
+  store i8 0, ptr %sev_.i34, align 2
   %retryable_.i36 = getelementptr inbounds i8, ptr %ref.tmp20, i64 3
   %23 = load i8, ptr %retryable_.i36, align 1
   %retryable_8.i37 = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i38 = and i8 %23, 1
   store i8 %frombool.i38, ptr %retryable_8.i37, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp20, align 8
+  store i8 0, ptr %retryable_.i36, align 1
   %data_loss_.i39 = getelementptr inbounds i8, ptr %ref.tmp20, i64 4
   %24 = load i8, ptr %data_loss_.i39, align 4
   %data_loss_11.i40 = getelementptr inbounds i8, ptr %agg.result, i64 4

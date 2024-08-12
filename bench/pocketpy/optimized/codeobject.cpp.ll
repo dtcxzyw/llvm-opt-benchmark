@@ -117,7 +117,13 @@ _ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit: ; preds = %3, %11, %14
 
 _ZNSt6vectorIN4pkpy9CodeBlockESaIS1_EE9push_backEOS1_.exit: ; preds = %17
   %39 = getelementptr inbounds i8, ptr %0, i64 312
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 0>, ptr %38, align 4
+  store i32 0, ptr %38, align 4
+  %.sroa.3.0..sroa_idx21 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 -1, ptr %.sroa.3.0..sroa_idx21, align 4
+  %.sroa.4.0..sroa_idx23 = getelementptr inbounds i8, ptr %38, i64 8
+  store i32 0, ptr %.sroa.4.0..sroa_idx23, align 4
+  %.sroa.5.0..sroa_idx25 = getelementptr inbounds i8, ptr %38, i64 12
+  store i32 0, ptr %.sroa.5.0..sroa_idx25, align 4
   %.sroa.6.0..sroa_idx27 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 -1, ptr %.sroa.6.0..sroa_idx27, align 4
   %.sroa.7.0..sroa_idx29 = getelementptr inbounds i8, ptr %38, i64 20

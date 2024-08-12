@@ -11,11 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation18TrackTriggeringJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  store <2 x float> zeroinitializer, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store float 0.000000e+00, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void
 }
 

@@ -843,8 +843,10 @@ cond.false42:                                     ; preds = %cond.end
   br label %cond.end43
 
 cond.end43:                                       ; preds = %cond.false42, %cond.true41
+  %idx = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load i64, ptr %idx, align 8
   %count = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = load <2 x i64>, ptr %count, align 8
+  %8 = load i64, ptr %count, align 8
   %call = call fastcc i64 @dgram_pair_write_inner(ptr noundef nonnull %0, ptr noundef nonnull %hdr, i64 noundef 232)
   %cmp46.not = icmp eq i64 %call, 232
   br i1 %cmp46.not, label %lor.lhs.false, label %if.then51
@@ -855,7 +857,8 @@ lor.lhs.false:                                    ; preds = %cond.end43
   br i1 %cmp49.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %lor.lhs.false, %cond.end43
-  store <2 x i64> %7, ptr %count, align 8
+  store i64 %7, ptr %idx, align 8
+  store i64 %8, ptr %count, align 8
   br i1 %tobool.not, label %if.then58, label %return
 
 if.then58:                                        ; preds = %if.then51

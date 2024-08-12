@@ -440,13 +440,14 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
   %3 = trunc i64 %2 to i32
   tail call void @srand(i32 noundef %3) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 340
+  store float 0.000000e+00, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   store float 0.000000e+00, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 336
-  store <2 x float> zeroinitializer, ptr %6, align 8
+  store float 0.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 176
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %151 [
+  switch i32 %8, label %150 [
     i32 0, label %.preheader
     i32 1, label %.preheader35
     i32 2, label %.preheader36
@@ -462,7 +463,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
 .lr.ph:                                           ; preds = %.preheader36
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr inbounds i8, ptr %0, i64 216
-  br label %86
+  br label %85
 
 .preheader35:                                     ; preds = %1
   %14 = getelementptr inbounds i8, ptr %0, i64 56
@@ -474,7 +475,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
 .lr.ph40:                                         ; preds = %.preheader35
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = getelementptr inbounds i8, ptr %0, i64 216
-  br label %69
+  br label %68
 
 .preheader:                                       ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 56
@@ -534,178 +535,182 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr n
 
 ._crit_edge44.loopexit:                           ; preds = %38
   %49 = trunc i64 %46 to i32
-  %50 = load <2 x float>, ptr %6, align 8
+  %.pre = load float, ptr %6, align 8
+  %.pre67 = load float, ptr %4, align 4
   %.pre68 = load float, ptr %5, align 8
-  %51 = uitofp i32 %49 to float
+  %50 = uitofp i32 %49 to float
   br label %._crit_edge44
 
 ._crit_edge44:                                    ; preds = %._crit_edge44.loopexit, %.preheader
-  %52 = phi float [ 0.000000e+00, %.preheader ], [ %.pre68, %._crit_edge44.loopexit ]
-  %.lcssa37 = phi float [ 0.000000e+00, %.preheader ], [ %51, %._crit_edge44.loopexit ]
-  %53 = phi <2 x float> [ zeroinitializer, %.preheader ], [ %50, %._crit_edge44.loopexit ]
-  %54 = insertelement <2 x float> poison, float %.lcssa37, i64 0
-  %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
-  %56 = fdiv <2 x float> %53, %55
-  store <2 x float> %56, ptr %6, align 8
-  %57 = fdiv float %52, %.lcssa37
-  store float %57, ptr %5, align 8
-  %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
-  %59 = load float, ptr %6, align 8
-  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %58, float noundef %59)
-  %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull @.str.1)
-  %62 = load float, ptr %4, align 4
-  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %61, float noundef %62)
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.1)
-  %65 = load float, ptr %5, align 8
-  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %64, float noundef %65)
-  %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull @.str.1)
-  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %105
+  %51 = phi float [ 0.000000e+00, %.preheader ], [ %.pre68, %._crit_edge44.loopexit ]
+  %52 = phi float [ 0.000000e+00, %.preheader ], [ %.pre67, %._crit_edge44.loopexit ]
+  %53 = phi float [ 0.000000e+00, %.preheader ], [ %.pre, %._crit_edge44.loopexit ]
+  %.lcssa37 = phi float [ 0.000000e+00, %.preheader ], [ %50, %._crit_edge44.loopexit ]
+  %54 = fdiv float %53, %.lcssa37
+  store float %54, ptr %6, align 8
+  %55 = fdiv float %52, %.lcssa37
+  store float %55, ptr %4, align 4
+  %56 = fdiv float %51, %.lcssa37
+  store float %56, ptr %5, align 8
+  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
+  %58 = load float, ptr %6, align 8
+  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %57, float noundef %58)
+  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.1)
+  %61 = load float, ptr %4, align 4
+  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %60, float noundef %61)
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.1)
+  %64 = load float, ptr %5, align 8
+  %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %63, float noundef %64)
+  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull @.str.1)
+  %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %104
 
-69:                                               ; preds = %.lr.ph40, %69
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next59, %69 ]
-  %70 = phi i32 [ %16, %.lr.ph40 ], [ %83, %69 ]
-  %71 = trunc nuw i64 %indvars.iv58 to i32
-  %72 = urem i32 %71, 3
-  %73 = load i64, ptr %17, align 8
-  %74 = trunc i64 %73 to i32
-  %75 = urem i32 %71, %74
-  %76 = add i32 %75, %72
-  %77 = urem i32 %76, 3
-  %78 = mul i32 %77, %70
-  %79 = add i32 %78, %71
-  %80 = load ptr, ptr %18, align 8
-  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv58
-  store i32 %79, ptr %81, align 4
+68:                                               ; preds = %.lr.ph40, %68
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next59, %68 ]
+  %69 = phi i32 [ %16, %.lr.ph40 ], [ %82, %68 ]
+  %70 = trunc nuw i64 %indvars.iv58 to i32
+  %71 = urem i32 %70, 3
+  %72 = load i64, ptr %17, align 8
+  %73 = trunc i64 %72 to i32
+  %74 = urem i32 %70, %73
+  %75 = add i32 %74, %71
+  %76 = urem i32 %75, 3
+  %77 = mul i32 %76, %69
+  %78 = add i32 %77, %70
+  %79 = load ptr, ptr %18, align 8
+  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv58
+  store i32 %78, ptr %80, align 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %82 = load i64, ptr %14, align 8
-  %83 = trunc i64 %82 to i32
-  %84 = and i64 %82, 4294967295
-  %85 = icmp ult i64 %indvars.iv.next59, %84
-  br i1 %85, label %69, label %._crit_edge41, !llvm.loop !31
+  %81 = load i64, ptr %14, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = and i64 %81, 4294967295
+  %84 = icmp ult i64 %indvars.iv.next59, %83
+  br i1 %84, label %68, label %._crit_edge41, !llvm.loop !31
 
-._crit_edge41:                                    ; preds = %69, %.preheader35
+._crit_edge41:                                    ; preds = %68, %.preheader35
+  store float 0x3FD5555560000000, ptr %4, align 4
   store float 0x3FD5555560000000, ptr %5, align 8
-  store <2 x float> <float 0x3FD5555560000000, float 0x3FD5555560000000>, ptr %6, align 8
-  br label %105
+  store float 0x3FD5555560000000, ptr %6, align 8
+  br label %104
 
-86:                                               ; preds = %.lr.ph, %86
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %87 = phi i32 [ %11, %.lr.ph ], [ %102, %86 ]
-  %88 = load i64, ptr %12, align 8
-  %89 = trunc i64 %88 to i32
-  %90 = trunc nuw i64 %indvars.iv to i32
-  %91 = udiv i32 %90, %89
-  %92 = trunc i32 %91 to i1
-  %93 = select i1 %92, i32 %87, i32 0
-  %94 = add i32 %93, %90
-  %95 = urem i32 %90, %89
-  %96 = trunc i32 %95 to i1
-  %97 = select i1 %96, i32 %87, i32 0
-  %98 = add i32 %94, %97
-  %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv
-  store i32 %98, ptr %100, align 4
+85:                                               ; preds = %.lr.ph, %85
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
+  %86 = phi i32 [ %11, %.lr.ph ], [ %101, %85 ]
+  %87 = load i64, ptr %12, align 8
+  %88 = trunc i64 %87 to i32
+  %89 = trunc nuw i64 %indvars.iv to i32
+  %90 = udiv i32 %89, %88
+  %91 = trunc i32 %90 to i1
+  %92 = select i1 %91, i32 %86, i32 0
+  %93 = add i32 %92, %89
+  %94 = urem i32 %89, %88
+  %95 = trunc i32 %94 to i1
+  %96 = select i1 %95, i32 %86, i32 0
+  %97 = add i32 %93, %96
+  %98 = load ptr, ptr %13, align 8
+  %99 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv
+  store i32 %97, ptr %99, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = load i64, ptr %9, align 8
-  %102 = trunc i64 %101 to i32
-  %103 = and i64 %101, 4294967295
-  %104 = icmp ult i64 %indvars.iv.next, %103
-  br i1 %104, label %86, label %._crit_edge, !llvm.loop !32
+  %100 = load i64, ptr %9, align 8
+  %101 = trunc i64 %100 to i32
+  %102 = and i64 %100, 4294967295
+  %103 = icmp ult i64 %indvars.iv.next, %102
+  br i1 %103, label %85, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %86, %.preheader36
+._crit_edge:                                      ; preds = %85, %.preheader36
   store float 2.500000e-01, ptr %5, align 8
-  store <2 x float> <float 2.500000e-01, float 5.000000e-01>, ptr %6, align 8
-  br label %105
+  store float 2.500000e-01, ptr %6, align 8
+  store float 5.000000e-01, ptr %4, align 4
+  br label %104
 
-105:                                              ; preds = %._crit_edge, %._crit_edge41, %._crit_edge44
-  %106 = getelementptr inbounds i8, ptr %0, i64 224
-  %107 = getelementptr inbounds i8, ptr %0, i64 232
-  %108 = load i64, ptr %106, align 8
-  %.not3.i.i = icmp eq i64 %108, 0
+104:                                              ; preds = %._crit_edge, %._crit_edge41, %._crit_edge44
+  %105 = getelementptr inbounds i8, ptr %0, i64 224
+  %106 = getelementptr inbounds i8, ptr %0, i64 232
+  %107 = load i64, ptr %105, align 8
+  %.not3.i.i = icmp eq i64 %107, 0
   br i1 %.not3.i.i, label %_ZNSt8valarrayIfEaSERKf.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %105
-  %109 = load ptr, ptr %107, align 8
-  %110 = shl nuw i64 %108, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %109, i8 0, i64 %110, i1 false), !alias.scope !33
+.lr.ph.i.i.preheader:                             ; preds = %104
+  %108 = load ptr, ptr %106, align 8
+  %109 = shl nuw i64 %107, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %108, i8 0, i64 %109, i1 false), !alias.scope !33
   br label %_ZNSt8valarrayIfEaSERKf.exit
 
-_ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheader, %105
-  %111 = getelementptr inbounds i8, ptr %0, i64 56
-  %112 = load i64, ptr %111, align 8
-  %113 = and i64 %112, 4294967295
-  %.not55 = icmp eq i64 %113, 0
+_ZNSt8valarrayIfEaSERKf.exit:                     ; preds = %.lr.ph.i.i.preheader, %104
+  %110 = getelementptr inbounds i8, ptr %0, i64 56
+  %111 = load i64, ptr %110, align 8
+  %112 = and i64 %111, 4294967295
+  %.not55 = icmp eq i64 %112, 0
   br i1 %.not55, label %._crit_edge47, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %_ZNSt8valarrayIfEaSERKf.exit
-  %114 = getelementptr inbounds i8, ptr %0, i64 216
-  br label %115
+  %113 = getelementptr inbounds i8, ptr %0, i64 216
+  br label %114
 
-115:                                              ; preds = %.lr.ph46, %115
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next65, %115 ]
-  %116 = load ptr, ptr %114, align 8
-  %117 = getelementptr inbounds i32, ptr %116, i64 %indvars.iv64
-  %118 = load i32, ptr %117, align 4
-  %119 = zext i32 %118 to i64
-  %120 = load ptr, ptr %107, align 8
-  %121 = getelementptr inbounds float, ptr %120, i64 %119
-  store float 1.000000e+00, ptr %121, align 4
+114:                                              ; preds = %.lr.ph46, %114
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next65, %114 ]
+  %115 = load ptr, ptr %113, align 8
+  %116 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv64
+  %117 = load i32, ptr %116, align 4
+  %118 = zext i32 %117 to i64
+  %119 = load ptr, ptr %106, align 8
+  %120 = getelementptr inbounds float, ptr %119, i64 %118
+  store float 1.000000e+00, ptr %120, align 4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %122 = load i64, ptr %111, align 8
-  %123 = and i64 %122, 4294967295
-  %124 = icmp ult i64 %indvars.iv.next65, %123
-  br i1 %124, label %115, label %._crit_edge47, !llvm.loop !36
+  %121 = load i64, ptr %110, align 8
+  %122 = and i64 %121, 4294967295
+  %123 = icmp ult i64 %indvars.iv.next65, %122
+  br i1 %123, label %114, label %._crit_edge47, !llvm.loop !36
 
-._crit_edge47:                                    ; preds = %115, %_ZNSt8valarrayIfEaSERKf.exit
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
-  %126 = load ptr, ptr %107, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 312
-  %128 = load ptr, ptr %127, align 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %125, ptr noundef nonnull %126, ptr noundef nonnull %128, i32 noundef 0)
-  %129 = load ptr, ptr %107, align 8
-  %130 = load i64, ptr %111, align 8
-  %131 = and i64 %130, 4294967295
-  %132 = getelementptr inbounds float, ptr %129, i64 %131
-  %133 = load ptr, ptr %127, align 8
-  %134 = getelementptr inbounds float, ptr %133, i64 %131
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %125, ptr noundef nonnull %132, ptr noundef nonnull %134, i32 noundef 0)
-  %135 = load ptr, ptr %107, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 64
-  %137 = load i64, ptr %136, align 8
-  %138 = and i64 %137, 4294967295
-  %139 = getelementptr inbounds float, ptr %135, i64 %138
-  %140 = load ptr, ptr %127, align 8
-  %141 = getelementptr inbounds float, ptr %140, i64 %138
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %125, ptr noundef nonnull %139, ptr noundef nonnull %141, i32 noundef 0)
-  %142 = load i64, ptr %111, align 8
-  %143 = trunc i64 %142 to i32
-  %.not56 = icmp eq i32 %143, 0
+._crit_edge47:                                    ; preds = %114, %_ZNSt8valarrayIfEaSERKf.exit
+  %124 = getelementptr inbounds i8, ptr %0, i64 8
+  %125 = load ptr, ptr %106, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 312
+  %127 = load ptr, ptr %126, align 8
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %124, ptr noundef nonnull %125, ptr noundef nonnull %127, i32 noundef 0)
+  %128 = load ptr, ptr %106, align 8
+  %129 = load i64, ptr %110, align 8
+  %130 = and i64 %129, 4294967295
+  %131 = getelementptr inbounds float, ptr %128, i64 %130
+  %132 = load ptr, ptr %126, align 8
+  %133 = getelementptr inbounds float, ptr %132, i64 %130
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %124, ptr noundef nonnull %131, ptr noundef nonnull %133, i32 noundef 0)
+  %134 = load ptr, ptr %106, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 64
+  %136 = load i64, ptr %135, align 8
+  %137 = and i64 %136, 4294967295
+  %138 = getelementptr inbounds float, ptr %134, i64 %137
+  %139 = load ptr, ptr %126, align 8
+  %140 = getelementptr inbounds float, ptr %139, i64 %137
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter23_spatiotemporalLPfilterEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %124, ptr noundef nonnull %138, ptr noundef nonnull %140, i32 noundef 0)
+  %141 = load i64, ptr %110, align 8
+  %142 = trunc i64 %141 to i32
+  %.not56 = icmp eq i32 %142, 0
   br i1 %.not56, label %._crit_edge52, label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %._crit_edge47
-  %144 = load ptr, ptr %127, align 8
-  %145 = mul i32 %143, 3
-  %umax = tail call i32 @llvm.umax.i32(i32 %145, i32 1)
+  %143 = load ptr, ptr %126, align 8
+  %144 = mul i32 %142, 3
+  %umax = tail call i32 @llvm.umax.i32(i32 %144, i32 1)
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
-  %.049 = phi i32 [ %148, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
-  %.02848 = phi ptr [ %149, %.lr.ph51 ], [ %144, %.lr.ph51.preheader ]
-  %146 = load float, ptr %.02848, align 4
-  %147 = fdiv float 1.000000e+00, %146
-  store float %147, ptr %.02848, align 4
-  %148 = add nuw i32 %.049, 1
-  %149 = getelementptr inbounds i8, ptr %.02848, i64 4
-  %exitcond.not = icmp eq i32 %148, %umax
+  %.049 = phi i32 [ %147, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
+  %.02848 = phi ptr [ %148, %.lr.ph51 ], [ %143, %.lr.ph51.preheader ]
+  %145 = load float, ptr %.02848, align 4
+  %146 = fdiv float 1.000000e+00, %145
+  store float %146, ptr %.02848, align 4
+  %147 = add nuw i32 %.049, 1
+  %148 = getelementptr inbounds i8, ptr %.02848, i64 4
+  %exitcond.not = icmp eq i32 %147, %umax
   br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !37
 
 ._crit_edge52:                                    ; preds = %.lr.ph51, %._crit_edge47
-  %150 = getelementptr inbounds i8, ptr %0, i64 348
-  store i8 1, ptr %150, align 4
-  br label %151
+  %149 = getelementptr inbounds i8, ptr %0, i64 348
+  store i8 1, ptr %149, align 4
+  br label %150
 
-151:                                              ; preds = %1, %._crit_edge52
+150:                                              ; preds = %1, %._crit_edge52
   ret void
 }
 
@@ -3156,31 +3161,36 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausa
   %12 = and i64 %11, 4294967295
   %13 = getelementptr inbounds float, ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %0, i64 172
-  %16 = load float, ptr %15, align 4
+  %15 = load i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = load i64, ptr %17, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = getelementptr inbounds i8, ptr %0, i64 172
+  %21 = load float, ptr %20, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired11RetinaColor50Parallel_adaptiveVerticalAnticausalFilter_multGainE, i64 16), ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %13, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
-  %20 = load <2 x i64>, ptr %14, align 8
-  %21 = trunc <2 x i64> %20 to <2 x i32>
-  store <2 x i32> %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
-  store float %16, ptr %22, align 8
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %13, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 %16, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 %19, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  store float %21, ptr %26, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef -1.000000e+00)
-          to label %23 unwind label %24
+          to label %27 unwind label %28
 
-23:                                               ; preds = %4
+27:                                               ; preds = %4
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   ret void
 
-24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
+28:                                               ; preds = %4
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3212,17 +3222,17 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor16_computeGradientEPKf(ptr n
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %11 = phi i64 [ %4, %.preheader.lr.ph ], [ %92, %._crit_edge ]
-  %12 = phi i64 [ %.pre, %.preheader.lr.ph ], [ %93, %._crit_edge ]
-  %.044 = phi i32 [ 2, %.preheader.lr.ph ], [ %94, %._crit_edge ]
+  %11 = phi i64 [ %4, %.preheader.lr.ph ], [ %87, %._crit_edge ]
+  %12 = phi i64 [ %.pre, %.preheader.lr.ph ], [ %88, %._crit_edge ]
+  %.044 = phi i32 [ 2, %.preheader.lr.ph ], [ %89, %._crit_edge ]
   %13 = trunc i64 %12 to i32
   %14 = add i32 %13, -5
   %15 = icmp ult i32 %14, -3
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %16 = phi i32 [ %89, %.lr.ph ], [ %13, %.preheader ]
-  %.04243 = phi i32 [ %87, %.lr.ph ], [ 2, %.preheader ]
+  %16 = phi i32 [ %84, %.lr.ph ], [ %13, %.preheader ]
+  %.04243 = phi i32 [ %82, %.lr.ph ], [ 2, %.preheader ]
   %17 = mul i32 %16, %.044
   %18 = add i32 %17, %.04243
   %19 = add i32 %18, %16
@@ -3233,89 +3243,84 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor16_computeGradientEPKf(ptr n
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds float, ptr %1, i64 %24
   %26 = load float, ptr %25, align 4
-  %27 = add i32 %18, 1
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %1, i64 %28
-  %30 = load float, ptr %29, align 4
-  %31 = add i32 %18, -1
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %1, i64 %32
-  %34 = load float, ptr %33, align 4
-  %35 = zext i32 %18 to i64
-  %36 = getelementptr inbounds float, ptr %1, i64 %35
-  %37 = load float, ptr %36, align 4
-  %38 = shl i32 %16, 1
-  %39 = sub i32 %18, %38
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %1, i64 %40
-  %42 = load float, ptr %41, align 4
-  %43 = add i32 %18, -2
+  %27 = fsub float %22, %26
+  %28 = tail call float @llvm.fabs.f32(float %27)
+  %29 = add i32 %18, 1
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds float, ptr %1, i64 %30
+  %32 = load float, ptr %31, align 4
+  %33 = add i32 %18, -1
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %1, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = fsub float %32, %36
+  %38 = tail call float @llvm.fabs.f32(float %37)
+  %39 = zext i32 %18 to i64
+  %40 = getelementptr inbounds float, ptr %1, i64 %39
+  %41 = load float, ptr %40, align 4
+  %42 = shl i32 %16, 1
+  %43 = sub i32 %18, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds float, ptr %1, i64 %44
   %46 = load float, ptr %45, align 4
-  %47 = add i32 %18, %38
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %1, i64 %48
-  %50 = load float, ptr %49, align 4
-  %51 = insertelement <2 x float> poison, float %42, i64 0
-  %52 = insertelement <2 x float> %51, float %50, i64 1
-  %53 = insertelement <2 x float> poison, float %37, i64 0
-  %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
-  %55 = fsub <2 x float> %52, %54
-  %56 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %55)
-  %57 = add i32 %18, 2
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds float, ptr %1, i64 %58
-  %60 = load float, ptr %59, align 4
-  %61 = insertelement <2 x float> poison, float %46, i64 0
-  %62 = insertelement <2 x float> %61, float %60, i64 1
-  %63 = fsub <2 x float> %62, %54
-  %64 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %63)
-  %65 = insertelement <2 x float> poison, float %30, i64 0
-  %66 = insertelement <2 x float> %65, float %22, i64 1
-  %67 = insertelement <2 x float> poison, float %34, i64 0
-  %68 = insertelement <2 x float> %67, float %26, i64 1
-  %69 = fsub <2 x float> %66, %68
-  %70 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %69)
-  %71 = shufflevector <2 x float> %64, <2 x float> %56, <2 x i32> <i32 0, i32 2>
-  %72 = shufflevector <2 x float> %64, <2 x float> %56, <2 x i32> <i32 1, i32 3>
-  %73 = fadd <2 x float> %71, %72
-  %74 = fmul <2 x float> %73, <float 2.500000e-01, float 2.500000e-01>
-  %75 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %74)
-  %76 = extractelement <2 x float> %75, i64 0
-  %77 = extractelement <2 x float> %75, i64 1
-  %78 = fcmp olt float %76, %77
-  %79 = load i64, ptr %9, align 8
-  %80 = trunc i64 %79 to i32
-  %81 = add i32 %18, %80
-  %82 = zext i32 %81 to i64
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds float, ptr %83, i64 %82
-  %. = select i1 %78, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
-  %.50 = select i1 %78, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
-  store float %., ptr %84, align 4
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds float, ptr %85, i64 %35
-  store float %.50, ptr %86, align 4
-  %87 = add nuw i32 %.04243, 1
-  %88 = load i64, ptr %8, align 8
-  %89 = trunc i64 %88 to i32
-  %90 = add i32 %89, -2
-  %91 = icmp ult i32 %87, %90
-  br i1 %91, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !120
+  %47 = fsub float %41, %46
+  %48 = tail call float @llvm.fabs.f32(float %47)
+  %49 = add i32 %18, -2
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds float, ptr %1, i64 %50
+  %52 = load float, ptr %51, align 4
+  %53 = fsub float %41, %52
+  %54 = tail call float @llvm.fabs.f32(float %53)
+  %55 = add i32 %18, %42
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds float, ptr %1, i64 %56
+  %58 = load float, ptr %57, align 4
+  %59 = fsub float %58, %41
+  %60 = tail call float @llvm.fabs.f32(float %59)
+  %61 = add i32 %18, 2
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds float, ptr %1, i64 %62
+  %64 = load float, ptr %63, align 4
+  %65 = fsub float %64, %41
+  %66 = tail call float @llvm.fabs.f32(float %65)
+  %67 = fadd float %54, %66
+  %68 = fmul float %67, 2.500000e-01
+  %69 = tail call float @llvm.fmuladd.f32(float %38, float 5.000000e-01, float %68)
+  %70 = fadd float %48, %60
+  %71 = fmul float %70, 2.500000e-01
+  %72 = tail call float @llvm.fmuladd.f32(float %28, float 5.000000e-01, float %71)
+  %73 = fcmp olt float %69, %72
+  %74 = load i64, ptr %9, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = add i32 %18, %75
+  %77 = zext i32 %76 to i64
+  %78 = load ptr, ptr %10, align 8
+  %79 = getelementptr inbounds float, ptr %78, i64 %77
+  %. = select i1 %73, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
+  %.50 = select i1 %73, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
+  store float %., ptr %79, align 4
+  %80 = load ptr, ptr %10, align 8
+  %81 = getelementptr inbounds float, ptr %80, i64 %39
+  store float %.50, ptr %81, align 4
+  %82 = add nuw i32 %.04243, 1
+  %83 = load i64, ptr %8, align 8
+  %84 = trunc i64 %83 to i32
+  %85 = add i32 %84, -2
+  %86 = icmp ult i32 %82, %85
+  br i1 %86, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !120
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre46 = load i64, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %92 = phi i64 [ %.pre46, %._crit_edge.loopexit ], [ %11, %.preheader ]
-  %93 = phi i64 [ %88, %._crit_edge.loopexit ], [ %12, %.preheader ]
-  %94 = add nuw i32 %.044, 1
-  %95 = trunc i64 %92 to i32
-  %96 = add i32 %95, -2
-  %97 = icmp ult i32 %94, %96
-  br i1 %97, label %.preheader, label %._crit_edge45, !llvm.loop !121
+  %87 = phi i64 [ %.pre46, %._crit_edge.loopexit ], [ %11, %.preheader ]
+  %88 = phi i64 [ %83, %._crit_edge.loopexit ], [ %12, %.preheader ]
+  %89 = add nuw i32 %.044, 1
+  %90 = trunc i64 %87 to i32
+  %91 = add i32 %90, -2
+  %92 = icmp ult i32 %89, %91
+  br i1 %92, label %.preheader, label %._crit_edge45, !llvm.loop !121
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %2
   ret void
@@ -3539,16 +3544,16 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor24Parallel_com
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %11 = phi i32 [ %5, %.preheader.lr.ph ], [ %90, %._crit_edge ]
-  %12 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %91, %._crit_edge ]
-  %.035 = phi i32 [ %3, %.preheader.lr.ph ], [ %92, %._crit_edge ]
+  %11 = phi i32 [ %5, %.preheader.lr.ph ], [ %85, %._crit_edge ]
+  %12 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %86, %._crit_edge ]
+  %.035 = phi i32 [ %3, %.preheader.lr.ph ], [ %87, %._crit_edge ]
   %13 = add i32 %12, -5
   %14 = icmp ult i32 %13, -3
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %15 = phi i32 [ %87, %.lr.ph ], [ %12, %.preheader ]
-  %.03233 = phi i32 [ %86, %.lr.ph ], [ 2, %.preheader ]
+  %15 = phi i32 [ %82, %.lr.ph ], [ %12, %.preheader ]
+  %.03233 = phi i32 [ %81, %.lr.ph ], [ 2, %.preheader ]
   %16 = mul i32 %15, %.035
   %17 = add i32 %16, %.03233
   %18 = load ptr, ptr %7, align 8
@@ -3560,84 +3565,79 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor24Parallel_com
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds float, ptr %18, i64 %24
   %26 = load float, ptr %25, align 4
-  %27 = add i32 %17, 1
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %18, i64 %28
-  %30 = load float, ptr %29, align 4
-  %31 = add i32 %17, -1
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds float, ptr %18, i64 %32
-  %34 = load float, ptr %33, align 4
-  %35 = zext i32 %17 to i64
-  %36 = getelementptr inbounds float, ptr %18, i64 %35
-  %37 = load float, ptr %36, align 4
-  %38 = load i32, ptr %8, align 4
-  %39 = sub i32 %17, %38
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %18, i64 %40
-  %42 = load float, ptr %41, align 4
-  %43 = add i32 %17, -2
+  %27 = fsub float %22, %26
+  %28 = tail call float @llvm.fabs.f32(float %27)
+  %29 = add i32 %17, 1
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds float, ptr %18, i64 %30
+  %32 = load float, ptr %31, align 4
+  %33 = add i32 %17, -1
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %18, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = fsub float %32, %36
+  %38 = tail call float @llvm.fabs.f32(float %37)
+  %39 = zext i32 %17 to i64
+  %40 = getelementptr inbounds float, ptr %18, i64 %39
+  %41 = load float, ptr %40, align 4
+  %42 = load i32, ptr %8, align 4
+  %43 = sub i32 %17, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds float, ptr %18, i64 %44
   %46 = load float, ptr %45, align 4
-  %47 = add i32 %38, %17
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %18, i64 %48
-  %50 = load float, ptr %49, align 4
-  %51 = insertelement <2 x float> poison, float %42, i64 0
-  %52 = insertelement <2 x float> %51, float %50, i64 1
-  %53 = insertelement <2 x float> poison, float %37, i64 0
-  %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
-  %55 = fsub <2 x float> %52, %54
-  %56 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %55)
-  %57 = add i32 %17, 2
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds float, ptr %18, i64 %58
-  %60 = load float, ptr %59, align 4
-  %61 = insertelement <2 x float> poison, float %46, i64 0
-  %62 = insertelement <2 x float> %61, float %60, i64 1
-  %63 = fsub <2 x float> %62, %54
-  %64 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %63)
-  %65 = insertelement <2 x float> poison, float %30, i64 0
-  %66 = insertelement <2 x float> %65, float %22, i64 1
-  %67 = insertelement <2 x float> poison, float %34, i64 0
-  %68 = insertelement <2 x float> %67, float %26, i64 1
-  %69 = fsub <2 x float> %66, %68
-  %70 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %69)
-  %71 = shufflevector <2 x float> %64, <2 x float> %56, <2 x i32> <i32 0, i32 2>
-  %72 = shufflevector <2 x float> %64, <2 x float> %56, <2 x i32> <i32 1, i32 3>
-  %73 = fadd <2 x float> %71, %72
-  %74 = fmul <2 x float> %73, <float 2.500000e-01, float 2.500000e-01>
-  %75 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %74)
-  %76 = extractelement <2 x float> %75, i64 0
-  %77 = extractelement <2 x float> %75, i64 1
-  %78 = fcmp olt float %76, %77
+  %47 = fsub float %41, %46
+  %48 = tail call float @llvm.fabs.f32(float %47)
+  %49 = add i32 %17, -2
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds float, ptr %18, i64 %50
+  %52 = load float, ptr %51, align 4
+  %53 = fsub float %41, %52
+  %54 = tail call float @llvm.fabs.f32(float %53)
+  %55 = add i32 %42, %17
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds float, ptr %18, i64 %56
+  %58 = load float, ptr %57, align 4
+  %59 = fsub float %58, %41
+  %60 = tail call float @llvm.fabs.f32(float %59)
+  %61 = add i32 %17, 2
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds float, ptr %18, i64 %62
+  %64 = load float, ptr %63, align 4
+  %65 = fsub float %64, %41
+  %66 = tail call float @llvm.fabs.f32(float %65)
+  %67 = fadd float %54, %66
+  %68 = fmul float %67, 2.500000e-01
+  %69 = tail call float @llvm.fmuladd.f32(float %38, float 5.000000e-01, float %68)
+  %70 = fadd float %48, %60
+  %71 = fmul float %70, 2.500000e-01
+  %72 = tail call float @llvm.fmuladd.f32(float %28, float 5.000000e-01, float %71)
+  %73 = fcmp olt float %69, %72
+  %74 = load ptr, ptr %9, align 8
+  %75 = load i32, ptr %10, align 4
+  %76 = add i32 %75, %17
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds float, ptr %74, i64 %77
+  %. = select i1 %73, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
+  %.41 = select i1 %73, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
+  store float %., ptr %78, align 4
   %79 = load ptr, ptr %9, align 8
-  %80 = load i32, ptr %10, align 4
-  %81 = add i32 %80, %17
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds float, ptr %79, i64 %82
-  %. = select i1 %78, float 0x3FAEB851E0000000, float 0x3FE23D70A0000000
-  %.41 = select i1 %78, float 0x3FE23D70A0000000, float 0x3FAEB851E0000000
-  store float %., ptr %83, align 4
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds float, ptr %84, i64 %35
-  store float %.41, ptr %85, align 4
-  %86 = add nuw i32 %.03233, 1
-  %87 = load i32, ptr %6, align 8
-  %88 = add i32 %87, -2
-  %89 = icmp ult i32 %86, %88
-  br i1 %89, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !123
+  %80 = getelementptr inbounds float, ptr %79, i64 %39
+  store float %.41, ptr %80, align 4
+  %81 = add nuw i32 %.03233, 1
+  %82 = load i32, ptr %6, align 8
+  %83 = add i32 %82, -2
+  %84 = icmp ult i32 %81, %83
+  br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !123
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre37 = load i32, ptr %4, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %90 = phi i32 [ %.pre37, %._crit_edge.loopexit ], [ %11, %.preheader ]
-  %91 = phi i32 [ %87, %._crit_edge.loopexit ], [ %12, %.preheader ]
-  %92 = add nsw i32 %.035, 1
-  %.not = icmp eq i32 %92, %90
+  %85 = phi i32 [ %.pre37, %._crit_edge.loopexit ], [ %11, %.preheader ]
+  %86 = phi i32 [ %82, %._crit_edge.loopexit ], [ %12, %.preheader ]
+  %87 = add nsw i32 %.035, 1
+  %.not = icmp eq i32 %87, %85
   br i1 %.not, label %._crit_edge36, label %.preheader, !llvm.loop !124
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %2
@@ -3894,12 +3894,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

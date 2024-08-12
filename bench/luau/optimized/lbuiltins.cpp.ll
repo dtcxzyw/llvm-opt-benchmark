@@ -2343,10 +2343,11 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_vectorP9lua_StateP10lua
   %23 = load double, ptr %2, align 8
   %24 = load double, ptr %4, align 8
   %25 = load double, ptr %22, align 8
-  %26 = insertelement <2 x double> poison, double %23, i64 0
-  %27 = insertelement <2 x double> %26, double %24, i64 1
-  %28 = fptrunc <2 x double> %27 to <2 x float>
-  store <2 x float> %28, ptr %1, align 4
+  %26 = fptrunc double %23 to float
+  store float %26, ptr %1, align 4
+  %27 = fptrunc double %24 to float
+  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %27, ptr %28, align 4
   %29 = fptrunc double %25 to float
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   store float %29, ptr %30, align 4

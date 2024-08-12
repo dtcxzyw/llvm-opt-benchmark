@@ -5837,16 +5837,20 @@ sw.bb17:                                          ; preds = %tailrecurse
   %element.i = getelementptr inbounds i8, ptr %type.tr, i64 4
   %9 = load i32, ptr %element.i, align 4, !noalias !57
   %struct_def.i = getelementptr inbounds i8, ptr %type.tr, i64 8
+  %10 = load ptr, ptr %struct_def.i, align 8, !noalias !57
+  %enum_def.i = getelementptr inbounds i8, ptr %type.tr, i64 16
+  %11 = load ptr, ptr %enum_def.i, align 8, !noalias !57
   %fixed_length.i = getelementptr inbounds i8, ptr %type.tr, i64 24
-  %10 = load i16, ptr %fixed_length.i, align 8, !noalias !57
+  %12 = load i16, ptr %fixed_length.i, align 8, !noalias !57
   store i32 %9, ptr %vec_type, align 8, !alias.scope !57
   %element.i.i = getelementptr inbounds i8, ptr %vec_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !57
   %struct_def.i.i = getelementptr inbounds i8, ptr %vec_type, i64 8
-  %11 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !57
-  store <2 x ptr> %11, ptr %struct_def.i.i, align 8, !alias.scope !57
+  store ptr %10, ptr %struct_def.i.i, align 8, !alias.scope !57
+  %enum_def.i.i = getelementptr inbounds i8, ptr %vec_type, i64 16
+  store ptr %11, ptr %enum_def.i.i, align 8, !alias.scope !57
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vec_type, i64 24
-  store i16 %10, ptr %fixed_length.i.i, align 8, !alias.scope !57
+  store i16 %12, ptr %fixed_length.i.i, align 8, !alias.scope !57
   switch i32 %9, label %sw.epilog [
     i32 0, label %sw.bb19
     i32 1, label %sw.bb24
@@ -5870,116 +5874,116 @@ sw.bb17:                                          ; preds = %tailrecurse
   ]
 
 sw.bb19:                                          ; preds = %sw.bb17
-  %12 = load i32, ptr %val, align 4
-  %call2.i = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %13 = load i32, ptr %val, align 4
+  %call2.i = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool21.not = icmp eq ptr %call2.i, null
   br i1 %tobool21.not, label %sw.epilog, label %return
 
 sw.bb24:                                          ; preds = %sw.bb17
-  %13 = load i32, ptr %val, align 4
-  %call2.i162 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %14 = load i32, ptr %val, align 4
+  %call2.i162 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool27.not = icmp eq ptr %call2.i162, null
   br i1 %tobool27.not, label %sw.epilog, label %return
 
 sw.bb30:                                          ; preds = %sw.bb17
-  %14 = load i32, ptr %val, align 4
-  %call2.i163 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %15 = load i32, ptr %val, align 4
+  %call2.i163 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool33.not = icmp eq ptr %call2.i163, null
   br i1 %tobool33.not, label %sw.epilog, label %return
 
 sw.bb36:                                          ; preds = %sw.bb17
-  %15 = load i32, ptr %val, align 4
-  %call2.i164 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIajEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %16 = load i32, ptr %val, align 4
+  %call2.i164 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIajEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool39.not = icmp eq ptr %call2.i164, null
   br i1 %tobool39.not, label %sw.epilog, label %return
 
 sw.bb42:                                          ; preds = %sw.bb17
-  %16 = load i32, ptr %val, align 4
-  %call2.i165 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %17 = load i32, ptr %val, align 4
+  %call2.i165 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIhjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool45.not = icmp eq ptr %call2.i165, null
   br i1 %tobool45.not, label %sw.epilog, label %return
 
 sw.bb48:                                          ; preds = %sw.bb17
-  %17 = load i32, ptr %val, align 4
-  %call2.i166 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIsjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %18 = load i32, ptr %val, align 4
+  %call2.i166 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIsjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool51.not = icmp eq ptr %call2.i166, null
   br i1 %tobool51.not, label %sw.epilog, label %return
 
 sw.bb54:                                          ; preds = %sw.bb17
-  %18 = load i32, ptr %val, align 4
-  %call2.i167 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorItjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %19 = load i32, ptr %val, align 4
+  %call2.i167 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorItjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool57.not = icmp eq ptr %call2.i167, null
   br i1 %tobool57.not, label %sw.epilog, label %return
 
 sw.bb60:                                          ; preds = %sw.bb17
-  %19 = load i32, ptr %val, align 4
-  %call2.i168 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIijEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %20 = load i32, ptr %val, align 4
+  %call2.i168 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIijEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool63.not = icmp eq ptr %call2.i168, null
   br i1 %tobool63.not, label %sw.epilog, label %return
 
 sw.bb66:                                          ; preds = %sw.bb17
-  %20 = load i32, ptr %val, align 4
-  %call2.i169 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIjjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %21 = load i32, ptr %val, align 4
+  %call2.i169 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIjjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool69.not = icmp eq ptr %call2.i169, null
   br i1 %tobool69.not, label %sw.epilog, label %return
 
 sw.bb72:                                          ; preds = %sw.bb17
-  %21 = load i32, ptr %val, align 4
-  %call2.i170 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIljEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %22 = load i32, ptr %val, align 4
+  %call2.i170 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIljEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool75.not = icmp eq ptr %call2.i170, null
   br i1 %tobool75.not, label %sw.epilog, label %return
 
 sw.bb78:                                          ; preds = %sw.bb17
-  %22 = load i32, ptr %val, align 4
-  %call2.i171 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorImjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %23 = load i32, ptr %val, align 4
+  %call2.i171 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorImjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool81.not = icmp eq ptr %call2.i171, null
   br i1 %tobool81.not, label %sw.epilog, label %return
 
 sw.bb84:                                          ; preds = %sw.bb17
-  %23 = load i32, ptr %val, align 4
-  %call2.i172 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIfjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %24 = load i32, ptr %val, align 4
+  %call2.i172 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIfjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool87.not = icmp eq ptr %call2.i172, null
   br i1 %tobool87.not, label %sw.epilog, label %return
 
 sw.bb90:                                          ; preds = %sw.bb17
-  %24 = load i32, ptr %val, align 4
-  %call2.i173 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIdjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %25 = load i32, ptr %val, align 4
+  %call2.i173 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIdjEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool93.not = icmp eq ptr %call2.i173, null
   br i1 %tobool93.not, label %sw.epilog, label %return
 
 sw.bb96:                                          ; preds = %sw.bb17
-  %25 = load i32, ptr %val, align 4
-  %call2.i174 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %26 = load i32, ptr %val, align 4
+  %call2.i174 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool99.not = icmp eq ptr %call2.i174, null
   br i1 %tobool99.not, label %sw.epilog, label %return
 
 sw.bb102:                                         ; preds = %sw.bb17
-  %26 = load i32, ptr %val, align 4
-  %call2.i176 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %27 = load i32, ptr %val, align 4
+  %call2.i176 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool105.not = icmp eq ptr %call2.i176, null
   br i1 %tobool105.not, label %sw.epilog, label %return
 
 sw.bb108:                                         ; preds = %sw.bb17
-  %27 = load i32, ptr %val, align 4
-  %call2.i178 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_8Offset64IvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %28 = load i32, ptr %val, align 4
+  %call2.i178 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_8Offset64IvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool111.not = icmp eq ptr %call2.i178, null
   br i1 %tobool111.not, label %sw.epilog, label %return
 
 sw.bb114:                                         ; preds = %sw.bb17
-  %28 = load i32, ptr %val, align 4
-  %call2.i180 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %29 = load i32, ptr %val, align 4
+  %call2.i180 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool117.not = icmp eq ptr %call2.i180, null
   br i1 %tobool117.not, label %sw.epilog, label %return
 
 sw.bb120:                                         ; preds = %sw.bb17
-  %29 = load i32, ptr %val, align 4
-  %call2.i182 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %30 = load i32, ptr %val, align 4
+  %call2.i182 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorINS_6OffsetIvEEjEEjEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %30, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool123.not = icmp eq ptr %call2.i182, null
   br i1 %tobool123.not, label %sw.epilog, label %return
 
 sw.bb126:                                         ; preds = %sw.bb17
-  %30 = load i32, ptr %val, align 4
-  %call2.i183 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIijEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %30, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
+  %31 = load i32, ptr %val, align 4
+  %call2.i183 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_6VectorIijEEjEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %val, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(26) %vec_type, i32 noundef %indent, ptr noundef %prev_val.tr)
   %tobool129.not = icmp eq ptr %call2.i183, null
   br i1 %tobool129.not, label %sw.epilog, label %return
 
@@ -5989,19 +5993,23 @@ sw.epilog:                                        ; preds = %sw.bb126, %sw.bb120
 sw.bb132:                                         ; preds = %tailrecurse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %element.i184 = getelementptr inbounds i8, ptr %type.tr, i64 4
-  %31 = load i32, ptr %element.i184, align 4, !noalias !60
+  %32 = load i32, ptr %element.i184, align 4, !noalias !60
   %struct_def.i185 = getelementptr inbounds i8, ptr %type.tr, i64 8
+  %33 = load ptr, ptr %struct_def.i185, align 8, !noalias !60
+  %enum_def.i186 = getelementptr inbounds i8, ptr %type.tr, i64 16
+  %34 = load ptr, ptr %enum_def.i186, align 8, !noalias !60
   %fixed_length.i187 = getelementptr inbounds i8, ptr %type.tr, i64 24
-  %32 = load i16, ptr %fixed_length.i187, align 8
-  store i32 %31, ptr %vec_type133, align 8, !alias.scope !60
+  %35 = load i16, ptr %fixed_length.i187, align 8
+  store i32 %32, ptr %vec_type133, align 8, !alias.scope !60
   %element.i.i188 = getelementptr inbounds i8, ptr %vec_type133, i64 4
   store i32 0, ptr %element.i.i188, align 4, !alias.scope !60
   %struct_def.i.i189 = getelementptr inbounds i8, ptr %vec_type133, i64 8
-  %33 = load <2 x ptr>, ptr %struct_def.i185, align 8, !noalias !60
-  store <2 x ptr> %33, ptr %struct_def.i.i189, align 8, !alias.scope !60
+  store ptr %33, ptr %struct_def.i.i189, align 8, !alias.scope !60
+  %enum_def.i.i190 = getelementptr inbounds i8, ptr %vec_type133, i64 16
+  store ptr %34, ptr %enum_def.i.i190, align 8, !alias.scope !60
   %fixed_length.i.i191 = getelementptr inbounds i8, ptr %vec_type133, i64 24
-  store i16 %32, ptr %fixed_length.i.i191, align 8, !alias.scope !60
-  switch i32 %31, label %sw.epilog261 [
+  store i16 %35, ptr %fixed_length.i.i191, align 8, !alias.scope !60
+  switch i32 %32, label %sw.epilog261 [
     i32 0, label %sw.bb135
     i32 1, label %sw.bb141
     i32 2, label %sw.bb148
@@ -6023,92 +6031,92 @@ sw.bb132:                                         ; preds = %tailrecurse
   ]
 
 sw.bb135:                                         ; preds = %sw.bb132
-  %call.i192 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i192 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool138.not = icmp eq ptr %call.i192, null
   br i1 %tobool138.not, label %sw.epilog261, label %return
 
 sw.bb141:                                         ; preds = %sw.bb132
-  %call.i193 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i193 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool145.not = icmp eq ptr %call.i193, null
   br i1 %tobool145.not, label %sw.epilog261, label %return
 
 sw.bb148:                                         ; preds = %sw.bb132
-  %call.i194 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i194 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool152.not = icmp eq ptr %call.i194, null
   br i1 %tobool152.not, label %sw.epilog261, label %return
 
 sw.bb155:                                         ; preds = %sw.bb132
-  %call.i195 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIaLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i195 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIaLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool159.not = icmp eq ptr %call.i195, null
   br i1 %tobool159.not, label %sw.epilog261, label %return
 
 sw.bb162:                                         ; preds = %sw.bb132
-  %call.i196 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i196 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIhLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(65535) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool166.not = icmp eq ptr %call.i196, null
   br i1 %tobool166.not, label %sw.epilog261, label %return
 
 sw.bb169:                                         ; preds = %sw.bb132
-  %call.i197 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIsLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(131070) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i197 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIsLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(131070) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool173.not = icmp eq ptr %call.i197, null
   br i1 %tobool173.not, label %sw.epilog261, label %return
 
 sw.bb176:                                         ; preds = %sw.bb132
-  %call.i198 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayItLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(131070) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i198 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayItLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(131070) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool180.not = icmp eq ptr %call.i198, null
   br i1 %tobool180.not, label %sw.epilog261, label %return
 
 sw.bb183:                                         ; preds = %sw.bb132
-  %call.i199 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIiLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i199 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIiLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool187.not = icmp eq ptr %call.i199, null
   br i1 %tobool187.not, label %sw.epilog261, label %return
 
 sw.bb190:                                         ; preds = %sw.bb132
-  %call.i200 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIjLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i200 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIjLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool194.not = icmp eq ptr %call.i200, null
   br i1 %tobool194.not, label %sw.epilog261, label %return
 
 sw.bb197:                                         ; preds = %sw.bb132
-  %call.i201 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIlLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i201 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIlLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool201.not = icmp eq ptr %call.i201, null
   br i1 %tobool201.not, label %sw.epilog261, label %return
 
 sw.bb204:                                         ; preds = %sw.bb132
-  %call.i202 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayImLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i202 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayImLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool208.not = icmp eq ptr %call.i202, null
   br i1 %tobool208.not, label %sw.epilog261, label %return
 
 sw.bb211:                                         ; preds = %sw.bb132
-  %call.i203 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIfLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i203 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIfLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(262140) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool215.not = icmp eq ptr %call.i203, null
   br i1 %tobool215.not, label %sw.epilog261, label %return
 
 sw.bb218:                                         ; preds = %sw.bb132
-  %call.i204 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIdLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i204 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayIdLt65535EEEtEEPKcNS_14PrintScalarTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(524280) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool222.not = icmp eq ptr %call.i204, null
   br i1 %tobool222.not, label %sw.epilog261, label %return
 
 sw.bb225:                                         ; preds = %sw.bb132
-  %call.i205 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i205 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool229.not = icmp eq ptr %call.i205, null
   br i1 %tobool229.not, label %sw.epilog261, label %return
 
 sw.bb232:                                         ; preds = %sw.bb132
-  %call.i206 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i206 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool236.not = icmp eq ptr %call.i206, null
   br i1 %tobool236.not, label %sw.epilog261, label %return
 
 sw.bb239:                                         ; preds = %sw.bb132
-  %call.i207 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_8Offset64IvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i207 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_8Offset64IvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool243.not = icmp eq ptr %call.i207, null
   br i1 %tobool243.not, label %sw.epilog261, label %return
 
 sw.bb246:                                         ; preds = %sw.bb132
-  %call.i208 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i208 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool250.not = icmp eq ptr %call.i208, null
   br i1 %tobool250.not, label %sw.epilog261, label %return
 
 sw.bb253:                                         ; preds = %sw.bb132
-  %call.i209 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %32, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
+  %call.i209 = call noundef ptr @_ZN11flatbuffers11JsonPrinter14PrintContainerINS_5ArrayINS_6OffsetIvEELt65535EEEtEEPKcNS_15PrintPointerTagERKT_T0_RKNS_4TypeEiPKh(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %val, i16 noundef zeroext %35, ptr noundef nonnull align 8 dereferenceable(26) %vec_type133, i32 noundef %indent, ptr noundef null)
   %tobool257.not = icmp eq ptr %call.i209, null
   br i1 %tobool257.not, label %sw.epilog261, label %return
 

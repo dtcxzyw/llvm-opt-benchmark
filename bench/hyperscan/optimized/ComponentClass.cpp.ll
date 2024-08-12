@@ -109,7 +109,7 @@ entry:
   %ref.tmp254 = alloca %"class.ue2::CodePointSet", align 8
   %ref.tmp259 = alloca %"class.ue2::CodePointSet", align 8
   %ref.tmp264 = alloca %"class.ue2::CharReach", align 8
-  %ref.tmp265 = alloca %"class.ue2::CharReach", align 16
+  %ref.tmp265 = alloca %"class.ue2::CharReach", align 8
   %ref.tmp267 = alloca %"class.ue2::CodePointSet", align 8
   %ref.tmp272 = alloca %"class.ue2::CodePointSet", align 8
   %ref.tmp277 = alloca %"class.ue2::CodePointSet", align 8
@@ -879,16 +879,28 @@ sw.bb263:                                         ; preds = %entry, %entry
   call void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseModeE(ptr nonnull sret(%"class.ue2::CharReach") align 8 %ref.tmp265, i32 noundef 8, ptr noundef nonnull align 1 dereferenceable(6) %mode)
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp264, i64 32, i1 false)
-  %18 = load <2 x i64>, ptr %ref.tmp265, align 16, !noalias !32
-  %19 = load <2 x i64>, ptr %agg.result, align 8, !alias.scope !32
-  %20 = or <2 x i64> %19, %18
-  store <2 x i64> %20, ptr %agg.result, align 8, !alias.scope !32
+  %18 = load i64, ptr %ref.tmp265, align 8, !noalias !32
+  %19 = load i64, ptr %agg.result, align 8, !alias.scope !32
+  %or.i.i177 = or i64 %19, %18
+  store i64 %or.i.i177, ptr %agg.result, align 8, !alias.scope !32
+  %arrayidx.i.i19.i.i178 = getelementptr inbounds i8, ptr %ref.tmp265, i64 8
+  %20 = load i64, ptr %arrayidx.i.i19.i.i178, align 8, !noalias !32
+  %arrayidx.i.i20.i.i179 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %21 = load i64, ptr %arrayidx.i.i20.i.i179, align 8, !alias.scope !32
+  %or10.i.i180 = or i64 %21, %20
+  store i64 %or10.i.i180, ptr %arrayidx.i.i20.i.i179, align 8, !alias.scope !32
   %arrayidx.i.i21.i.i181 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
+  %22 = load i64, ptr %arrayidx.i.i21.i.i181, align 8, !noalias !32
   %arrayidx.i.i22.i.i182 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %21 = load <2 x i64>, ptr %arrayidx.i.i21.i.i181, align 16, !noalias !32
-  %22 = load <2 x i64>, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
-  %23 = or <2 x i64> %22, %21
-  store <2 x i64> %23, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
+  %23 = load i64, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
+  %or17.i.i183 = or i64 %23, %22
+  store i64 %or17.i.i183, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
+  %arrayidx.i.i23.i.i184 = getelementptr inbounds i8, ptr %ref.tmp265, i64 24
+  %24 = load i64, ptr %arrayidx.i.i23.i.i184, align 8, !noalias !32
+  %arrayidx.i.i24.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %25 = load i64, ptr %arrayidx.i.i24.i.i185, align 8, !alias.scope !32
+  %or24.i.i186 = or i64 %25, %24
+  store i64 %or24.i.i186, ptr %arrayidx.i.i24.i.i185, align 8, !alias.scope !32
   br label %return
 
 sw.bb266:                                         ; preds = %entry
@@ -1498,8 +1510,8 @@ sw.bb766:                                         ; preds = %entry
 for.body.i.i.i187:                                ; preds = %for.body.i.i.i187, %sw.bb766
   %__begin0.0.idx5.i.i.i188 = phi i64 [ 0, %sw.bb766 ], [ %__begin0.0.add.i.i.i191, %for.body.i.i.i187 ]
   %__begin0.0.ptr.i.i.i189 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i188
-  %24 = load i64, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
-  %not.i.i.i190 = xor i64 %24, -1
+  %26 = load i64, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
+  %not.i.i.i190 = xor i64 %26, -1
   store i64 %not.i.i.i190, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
   %__begin0.0.add.i.i.i191 = add nuw nsw i64 %__begin0.0.idx5.i.i.i188, 8
   %cmp.not.i.i.i192 = icmp eq i64 %__begin0.0.add.i.i.i191, 32

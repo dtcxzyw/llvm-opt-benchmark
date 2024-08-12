@@ -13,7 +13,7 @@ define range(i32 0, 2) i32 @WebPConfigInitInternal(ptr noundef %0, i32 noundef %
   %.not = icmp ne i32 %.mask, 512
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %.not
-  br i1 %or.cond, label %33, label %6
+  br i1 %or.cond, label %41, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -25,76 +25,96 @@ define range(i32 0, 2) i32 @WebPConfigInitInternal(ptr noundef %0, i32 noundef %
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 4, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 50, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 60, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 1, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x i32> <i32 4, i32 50, i32 60, i32 0>, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 100, ptr %18, align 4
-  store <4 x i32> <i32 1, i32 0, i32 1, i32 1>, ptr %14, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  store <4 x i32> <i32 100, i32 1, i32 0, i32 0>, ptr %19, align 4
-  store i32 0, ptr %0, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 4, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 100, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %21, align 4
-  store <4 x i32> zeroinitializer, ptr %15, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 100, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 0, ptr %24, align 4
-  switch i32 %1, label %31 [
-    i32 1, label %25
-    i32 2, label %26
-    i32 3, label %28
-    i32 4, label %29
-    i32 5, label %30
+  %23 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 1, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 100, ptr %26, align 4
+  store i32 0, ptr %0, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 100, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 0, ptr %33, align 4
+  switch i32 %1, label %39 [
+    i32 1, label %34
+    i32 2, label %35
+    i32 3, label %36
+    i32 4, label %37
+    i32 5, label %38
   ]
 
-25:                                               ; preds = %6
+34:                                               ; preds = %6
   store i32 80, ptr %11, align 4
   store i32 4, ptr %13, align 4
   store i32 35, ptr %12, align 4
-  br label %31
+  br label %39
 
-26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+35:                                               ; preds = %6
   store i32 80, ptr %11, align 4
   store i32 3, ptr %13, align 4
   store i32 30, ptr %12, align 4
-  store i32 2, ptr %27, align 4
-  br label %31
+  store i32 2, ptr %21, align 4
+  br label %39
 
-28:                                               ; preds = %6
+36:                                               ; preds = %6
   store i32 25, ptr %11, align 4
   store i32 6, ptr %13, align 4
   store i32 10, ptr %12, align 4
-  br label %31
+  br label %39
 
-29:                                               ; preds = %6
+37:                                               ; preds = %6
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  br label %31
+  br label %39
 
-30:                                               ; preds = %6
+38:                                               ; preds = %6
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
   store i32 2, ptr %16, align 4
-  br label %31
+  br label %39
 
-31:                                               ; preds = %6, %30, %29, %28, %26, %25
-  %32 = tail call i32 @WebPValidateConfig(ptr noundef nonnull %0)
-  br label %33
+39:                                               ; preds = %6, %38, %37, %36, %35, %34
+  %40 = tail call i32 @WebPValidateConfig(ptr noundef nonnull %0)
+  br label %41
 
-33:                                               ; preds = %4, %31
-  %.0 = phi i32 [ %32, %31 ], [ 0, %4 ]
+41:                                               ; preds = %4, %39
+  %.0 = phi i32 [ %40, %39 ], [ 0, %4 ]
   ret i32 %.0
 }
 

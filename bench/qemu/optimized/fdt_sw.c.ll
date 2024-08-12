@@ -17,14 +17,20 @@ if.end2:                                          ; preds = %if.end
   %conv = zext nneg i32 %bufsize to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %buf, i8 0, i64 %conv, i1 false)
   store i32 302117423, ptr %buf, align 4
+  %version.i = getelementptr inbounds i8, ptr %buf, i64 20
+  store i32 285212672, ptr %version.i, align 4
   %rev.i.i = shl nuw nsw i32 %flags, 24
   %last_comp_version.i = getelementptr inbounds i8, ptr %buf, i64 24
   store i32 %rev.i.i, ptr %last_comp_version.i, align 4
   %rev.i.i12 = tail call noundef i32 @llvm.bswap.i32(i32 %bufsize)
   %totalsize.i = getelementptr inbounds i8, ptr %buf, i64 4
   store i32 %rev.i.i12, ptr %totalsize.i, align 4
+  %off_mem_rsvmap.i = getelementptr inbounds i8, ptr %buf, i64 16
+  store i32 805306368, ptr %off_mem_rsvmap.i, align 4
   %off_dt_struct.i = getelementptr inbounds i8, ptr %buf, i64 8
-  store <4 x i32> <i32 805306368, i32 0, i32 805306368, i32 285212672>, ptr %off_dt_struct.i, align 4
+  store i32 805306368, ptr %off_dt_struct.i, align 4
+  %off_dt_strings.i = getelementptr inbounds i8, ptr %buf, i64 12
+  store i32 0, ptr %off_dt_strings.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end2
@@ -45,13 +51,19 @@ if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %bufsize to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %buf, i8 0, i64 %conv.i, i1 false)
   store i32 302117423, ptr %buf, align 4
+  %version.i.i = getelementptr inbounds i8, ptr %buf, i64 20
+  store i32 285212672, ptr %version.i.i, align 4
   %last_comp_version.i.i = getelementptr inbounds i8, ptr %buf, i64 24
   store i32 0, ptr %last_comp_version.i.i, align 4
   %rev.i.i12.i = tail call noundef i32 @llvm.bswap.i32(i32 %bufsize)
   %totalsize.i.i = getelementptr inbounds i8, ptr %buf, i64 4
   store i32 %rev.i.i12.i, ptr %totalsize.i.i, align 4
+  %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %buf, i64 16
+  store i32 805306368, ptr %off_mem_rsvmap.i.i, align 4
   %off_dt_struct.i.i = getelementptr inbounds i8, ptr %buf, i64 8
-  store <4 x i32> <i32 805306368, i32 0, i32 805306368, i32 285212672>, ptr %off_dt_struct.i.i, align 4
+  store i32 805306368, ptr %off_dt_struct.i.i, align 4
+  %off_dt_strings.i.i = getelementptr inbounds i8, ptr %buf, i64 12
+  store i32 0, ptr %off_dt_strings.i.i, align 4
   br label %fdt_create_with_flags.exit
 
 fdt_create_with_flags.exit:                       ; preds = %entry, %if.end.i

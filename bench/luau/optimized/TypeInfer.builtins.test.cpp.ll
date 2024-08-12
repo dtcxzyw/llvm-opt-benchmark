@@ -27752,10 +27752,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #18
   br label %.body
 
-99:                                               ; preds = %882, %844, %739, %701, %596, %558, %453, %415, %310, %272, %167, %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3271fEvEUlPSoE_ED2Ev.exit.i, %78, %69
+99:                                               ; preds = %892, %854, %747, %709, %602, %564, %457, %419, %312, %274, %167, %_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3271fEvEUlPSoE_ED2Ev.exit.i, %78, %69
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %988
+  br label %1000
 
 101:                                              ; preds = %79
   %102 = landingpad { ptr, i32 }
@@ -27806,7 +27806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %118 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %149 unwind label %989
+          to label %149 unwind label %1001
 
 119:                                              ; preds = %121, %113, %112
   %120 = landingpad { ptr, i32 }
@@ -27899,13 +27899,13 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_
 150:                                              ; preds = %149, %103, %101
   %.pn49.pn.i = phi { ptr, i32 } [ %.pn49.i, %149 ], [ %104, %103 ], [ %102, %101 ]
   call void @_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_3271fEvEUlPSoE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
-  br label %988
+  br label %1000
 
 151:                                              ; preds = %133
   %152 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #18
-  br label %988
+  br label %1000
 
 153:                                              ; preds = %146, %141, %134
   %154 = landingpad { ptr, i32 }
@@ -27934,12 +27934,12 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_
   %163 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %246 unwind label %989
+          to label %248 unwind label %1001
 
 164:                                              ; preds = %166, %158, %157
   %165 = landingpad { ptr, i32 }
           cleanup
-  br label %246
+  br label %248
 
 166:                                              ; preds = %161, %160
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
@@ -27957,12 +27957,12 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_
 
 171:                                              ; preds = %167
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %26, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 919, ptr noundef nonnull @.str.388, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %172 unwind label %247
+          to label %172 unwind label %249
 
 172:                                              ; preds = %171
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #18
   invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef %73, ptr noundef %75)
-          to label %173 unwind label %249
+          to label %173 unwind label %251
 
 173:                                              ; preds = %172
   store i32 0, ptr %28, align 8
@@ -27973,2015 +27973,2033 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %176) #18
   %177 = getelementptr inbounds i8, ptr %28, i64 64
   %178 = getelementptr inbounds i8, ptr %29, i64 56
-  %179 = getelementptr inbounds i8, ptr %29, i64 64
-  %180 = load <2 x ptr>, ptr %178, align 8
-  store ptr null, ptr %179, align 8
-  store <2 x ptr> %180, ptr %177, align 8
+  %179 = load ptr, ptr %178, align 8
+  store ptr %179, ptr %177, align 8
+  %180 = getelementptr inbounds i8, ptr %28, i64 72
+  %181 = getelementptr inbounds i8, ptr %29, i64 64
+  %182 = load ptr, ptr %181, align 8
+  store ptr null, ptr %181, align 8
+  store ptr %182, ptr %180, align 8
   store ptr null, ptr %178, align 8
-  %181 = load ptr, ptr %13, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 48
+  %183 = load ptr, ptr %13, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %183 = load i32, ptr %28, align 8
-  %184 = load i32, ptr %182, align 8
-  %185 = icmp eq i32 %183, %184
-  br i1 %185, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabit6
+  %185 = load i32, ptr %28, align 8
+  %186 = load i32, ptr %184, align 8
+  %187 = icmp eq i32 %185, %186
+  br i1 %187, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabit6
 
 _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabit6: ; preds = %173
-  %186 = getelementptr inbounds i8, ptr %26, i64 40
-  store i8 1, ptr %186, align 8
-  br label %200
+  %188 = getelementptr inbounds i8, ptr %26, i64 40
+  store i8 1, ptr %188, align 8
+  br label %202
 
 _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite: ; preds = %173
-  %187 = sext i32 %183 to i64
-  %188 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %187
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %181, i64 56
-  %191 = invoke noundef zeroext i1 %189(ptr noundef nonnull %174, ptr noundef nonnull %190)
-          to label %.noexc89.i unwind label %251
+  %189 = sext i32 %185 to i64
+  %190 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %189
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %183, i64 56
+  %193 = invoke noundef zeroext i1 %191(ptr noundef nonnull %174, ptr noundef nonnull %192)
+          to label %.noexc89.i unwind label %253
 
 .noexc89.i:                                       ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite
-  %192 = xor i1 %191, true
-  %193 = getelementptr inbounds i8, ptr %26, i64 40
-  %194 = zext i1 %192 to i8
-  store i8 %194, ptr %193, align 8
-  br i1 %191, label %195, label %200
+  %194 = xor i1 %193, true
+  %195 = getelementptr inbounds i8, ptr %26, i64 40
+  %196 = zext i1 %194 to i8
+  store i8 %196, ptr %195, align 8
+  br i1 %193, label %197, label %202
 
-195:                                              ; preds = %.noexc89.i
-  %196 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc90.i unwind label %251
+197:                                              ; preds = %.noexc89.i
+  %198 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc90.i unwind label %253
 
-.noexc90.i:                                       ; preds = %195
-  %197 = getelementptr inbounds i8, ptr %196, i64 108
-  %198 = load i8, ptr %197, align 4
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %200, label %203
+.noexc90.i:                                       ; preds = %197
+  %199 = getelementptr inbounds i8, ptr %198, i64 108
+  %200 = load i8, ptr %199, align 4
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %202, label %205
 
-200:                                              ; preds = %.noexc90.i, %.noexc89.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabit6
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %11, ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %182)
-          to label %.noexc91.i unwind label %251
+202:                                              ; preds = %.noexc90.i, %.noexc89.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabit6
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %11, ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %184)
+          to label %.noexc91.i unwind label %253
 
-.noexc91.i:                                       ; preds = %200
-  %201 = getelementptr inbounds i8, ptr %26, i64 72
-  %202 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %201, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+.noexc91.i:                                       ; preds = %202
+  %203 = getelementptr inbounds i8, ptr %26, i64 72
+  %204 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %203, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  br label %203
+  br label %205
 
-203:                                              ; preds = %.noexc91.i, %.noexc90.i
+205:                                              ; preds = %.noexc91.i, %.noexc90.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %204 = load i32, ptr %28, align 8
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %205
-  %207 = load ptr, ptr %206, align 8
-  invoke void %207(ptr noundef nonnull %174)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC unwind label %208
+  %206 = load i32, ptr %28, align 8
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %207
+  %209 = load ptr, ptr %208, align 8
+  invoke void %209(ptr noundef nonnull %174)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC unwind label %210
 
-208:                                              ; preds = %203
-  %209 = landingpad { ptr, i32 }
+210:                                              ; preds = %205
+  %211 = landingpad { ptr, i32 }
           catch ptr null
-  %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #16
+  %212 = extractvalue { ptr, i32 } %211, 0
+  call void @__clang_call_terminate(ptr %212) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC: ; preds = %203
-  %211 = load ptr, ptr %179, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %211, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4Luau12TypeMismatchD2Ev.exit.i, label %212
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC: ; preds = %205
+  %213 = load ptr, ptr %181, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %213, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4Luau12TypeMismatchD2Ev.exit.i, label %214
 
-212:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC
-  %213 = getelementptr inbounds i8, ptr %211, i64 8
-  %214 = load atomic i64, ptr %213 acquire, align 8
-  %215 = icmp eq i64 %214, 4294967297
-  %216 = trunc i64 %214 to i32
-  br i1 %215, label %217, label %222
+214:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC
+  %215 = getelementptr inbounds i8, ptr %213, i64 8
+  %216 = load atomic i64, ptr %215 acquire, align 8
+  %217 = icmp eq i64 %216, 4294967297
+  %218 = trunc i64 %216 to i32
+  br i1 %217, label %219, label %224
 
-217:                                              ; preds = %212
-  store i32 0, ptr %213, align 8
-  %218 = getelementptr inbounds i8, ptr %211, i64 12
-  store i32 0, ptr %218, align 4
-  %219 = load ptr, ptr %211, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 16
-  %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef nonnull align 8 dereferenceable(16) %211) #18
+219:                                              ; preds = %214
+  store i32 0, ptr %215, align 8
+  %220 = getelementptr inbounds i8, ptr %213, i64 12
+  store i32 0, ptr %220, align 4
+  %221 = load ptr, ptr %213, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %223 = load ptr, ptr %222, align 8
+  call void %223(ptr noundef nonnull align 8 dereferenceable(16) %213) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
 
-222:                                              ; preds = %212
-  %223 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %223, 0
-  br i1 %.not.i.i.i.i.i.i, label %226, label %224
+224:                                              ; preds = %214
+  %225 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %225, 0
+  br i1 %.not.i.i.i.i.i.i, label %228, label %226
 
-224:                                              ; preds = %222
-  %225 = add nsw i32 %216, -1
-  store i32 %225, ptr %213, align 4
-  br label %228
+226:                                              ; preds = %224
+  %227 = add nsw i32 %218, -1
+  store i32 %227, ptr %215, align 4
+  br label %230
 
-226:                                              ; preds = %222
-  %227 = atomicrmw volatile add ptr %213, i32 -1 acq_rel, align 4
-  br label %228
+228:                                              ; preds = %224
+  %229 = atomicrmw volatile add ptr %215, i32 -1 acq_rel, align 4
+  br label %230
 
-228:                                              ; preds = %226, %224
-  %.0.i.i.i.i.i.i = phi i32 [ %216, %224 ], [ %227, %226 ]
-  %229 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %229, label %230, label %_ZN4Luau12TypeMismatchD2Ev.exit.i
+230:                                              ; preds = %228, %226
+  %.0.i.i.i.i.i.i = phi i32 [ %218, %226 ], [ %229, %228 ]
+  %231 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %231, label %232, label %_ZN4Luau12TypeMismatchD2Ev.exit.i
 
-230:                                              ; preds = %228
-  %231 = load ptr, ptr %211, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 16
-  %233 = load ptr, ptr %232, align 8
-  call void %233(ptr noundef nonnull align 8 dereferenceable(16) %211) #18
-  %234 = getelementptr inbounds i8, ptr %211, i64 12
-  %235 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %235, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %239, label %236
+232:                                              ; preds = %230
+  %233 = load ptr, ptr %213, align 8
+  %234 = getelementptr inbounds i8, ptr %233, i64 16
+  %235 = load ptr, ptr %234, align 8
+  call void %235(ptr noundef nonnull align 8 dereferenceable(16) %213) #18
+  %236 = getelementptr inbounds i8, ptr %213, i64 12
+  %237 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %237, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %241, label %238
 
-236:                                              ; preds = %230
-  %237 = load i32, ptr %234, align 4
-  %238 = add nsw i32 %237, -1
-  store i32 %238, ptr %234, align 4
-  br label %241
+238:                                              ; preds = %232
+  %239 = load i32, ptr %236, align 4
+  %240 = add nsw i32 %239, -1
+  store i32 %240, ptr %236, align 4
+  br label %243
 
-239:                                              ; preds = %230
-  %240 = atomicrmw volatile add ptr %234, i32 -1 acq_rel, align 4
-  br label %241
+241:                                              ; preds = %232
+  %242 = atomicrmw volatile add ptr %236, i32 -1 acq_rel, align 4
+  br label %243
 
-241:                                              ; preds = %239, %236
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %237, %236 ], [ %240, %239 ]
-  %242 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %242, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZN4Luau12TypeMismatchD2Ev.exit.i
+243:                                              ; preds = %241, %238
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %239, %238 ], [ %242, %241 ]
+  %244 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %244, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZN4Luau12TypeMismatchD2Ev.exit.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %241, %217
-  %243 = load ptr, ptr %211, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 24
-  %245 = load ptr, ptr %244, align 8
-  call void %245(ptr noundef nonnull align 8 dereferenceable(16) %211) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %243, %219
+  %245 = load ptr, ptr %213, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 24
+  %247 = load ptr, ptr %246, align 8
+  call void %247(ptr noundef nonnull align 8 dereferenceable(16) %213) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit.i:                ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %241, %228, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC
+_ZN4Luau12TypeMismatchD2Ev.exit.i:                ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %243, %230, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #18
-  br label %263
+  br label %265
 
-246:                                              ; preds = %164, %162
+248:                                              ; preds = %164, %162
   %.pn52.i = phi { ptr, i32 } [ %165, %164 ], [ %163, %162 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %23) #18
-  br label %988
+  br label %1000
 
-247:                                              ; preds = %171
-  %248 = landingpad { ptr, i32 }
+249:                                              ; preds = %171
+  %250 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #18
-  br label %988
+  br label %1000
 
-249:                                              ; preds = %172
-  %250 = landingpad { ptr, i32 }
-          catch ptr null
-  br label %260
-
-251:                                              ; preds = %200, %195, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite
+251:                                              ; preds = %172
   %252 = landingpad { ptr, i32 }
           catch ptr null
-  %253 = load i32, ptr %28, align 8
-  %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %254
-  %256 = load ptr, ptr %255, align 8
-  invoke void %256(ptr noundef nonnull %174)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93 unwind label %257
+  br label %262
 
-257:                                              ; preds = %251
-  %258 = landingpad { ptr, i32 }
+253:                                              ; preds = %202, %197, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabite
+  %254 = landingpad { ptr, i32 }
           catch ptr null
-  %259 = extractvalue { ptr, i32 } %258, 0
-  call void @__clang_call_terminate(ptr %259) #16
+  %255 = load i32, ptr %28, align 8
+  %256 = sext i32 %255 to i64
+  %257 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %256
+  %258 = load ptr, ptr %257, align 8
+  invoke void %258(ptr noundef nonnull %174)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93 unwind label %259
+
+259:                                              ; preds = %253
+  %260 = landingpad { ptr, i32 }
+          catch ptr null
+  %261 = extractvalue { ptr, i32 } %260, 0
+  call void @__clang_call_terminate(ptr %261) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93: ; preds = %251
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93: ; preds = %253
   call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %29) #18
-  br label %260
+  br label %262
 
-260:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93, %249
-  %.pn54.i = phi { ptr, i32 } [ %252, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93 ], [ %250, %249 ]
+262:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93, %251
+  %.pn54.i = phi { ptr, i32 } [ %254, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWher93 ], [ %252, %251 ]
   %.7.i = extractvalue { ptr, i32 } %.pn54.i, 0
-  %261 = call ptr @__cxa_begin_catch(ptr %.7.i) #18
+  %263 = call ptr @__cxa_begin_catch(ptr %.7.i) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
-          to label %262 unwind label %267
+          to label %264 unwind label %269
 
-262:                                              ; preds = %260
+264:                                              ; preds = %262
   invoke void @__cxa_end_catch()
-          to label %263 unwind label %269
+          to label %265 unwind label %271
 
-263:                                              ; preds = %262, %_ZN4Luau12TypeMismatchD2Ev.exit.i
-  %264 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
-          to label %265 unwind label %269
+265:                                              ; preds = %264, %_ZN4Luau12TypeMismatchD2Ev.exit.i
+  %266 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
+          to label %267 unwind label %271
 
-265:                                              ; preds = %263
-  br i1 %264, label %266, label %271
+267:                                              ; preds = %265
+  br i1 %266, label %268, label %273
 
-266:                                              ; preds = %265
+268:                                              ; preds = %267
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !373
-  br label %271
+  br label %273
 
-267:                                              ; preds = %260
-  %268 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %293 unwind label %989
-
-269:                                              ; preds = %271, %263, %262
+269:                                              ; preds = %262
   %270 = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  invoke void @__cxa_end_catch()
+          to label %295 unwind label %1001
 
-271:                                              ; preds = %266, %265
+271:                                              ; preds = %273, %265, %264
+  %272 = landingpad { ptr, i32 }
+          cleanup
+  br label %295
+
+273:                                              ; preds = %268, %267
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
-          to label %272 unwind label %269
+          to label %274 unwind label %271
 
-272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %26, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %273) #18
-  %274 = getelementptr inbounds i8, ptr %26, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #18
-  %275 = getelementptr inbounds i8, ptr %26, i64 48
+274:                                              ; preds = %273
+  %275 = getelementptr inbounds i8, ptr %26, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %275) #18
+  %276 = getelementptr inbounds i8, ptr %26, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #18
+  %277 = getelementptr inbounds i8, ptr %26, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %277) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
-          to label %276 unwind label %99
+          to label %278 unwind label %99
 
-276:                                              ; preds = %272
+278:                                              ; preds = %274
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 921, ptr noundef nonnull @.str.389, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
-          to label %277 unwind label %294
+          to label %279 unwind label %296
 
-277:                                              ; preds = %276
+279:                                              ; preds = %278
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
   store i64 124554051585, ptr %32, align 8
-  %278 = getelementptr inbounds i8, ptr %32, i64 8
-  store i64 154618822657, ptr %278, align 8
-  %279 = load ptr, ptr %13, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 160
+  %280 = getelementptr inbounds i8, ptr %32, i64 8
+  store i64 154618822657, ptr %280, align 8
+  %281 = load ptr, ptr %13, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 160
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  %281 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %280)
-          to label %.noexc94.i unwind label %296
+  %283 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %282)
+          to label %.noexc94.i unwind label %298
 
-.noexc94.i:                                       ; preds = %277
-  %282 = xor i1 %281, true
-  %283 = getelementptr inbounds i8, ptr %30, i64 40
-  %284 = zext i1 %282 to i8
-  store i8 %284, ptr %283, align 8
-  br i1 %281, label %285, label %290
+.noexc94.i:                                       ; preds = %279
+  %284 = xor i1 %283, true
+  %285 = getelementptr inbounds i8, ptr %30, i64 40
+  %286 = zext i1 %284 to i8
+  store i8 %286, ptr %285, align 8
+  br i1 %283, label %287, label %292
 
-285:                                              ; preds = %.noexc94.i
-  %286 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc95.i unwind label %296
+287:                                              ; preds = %.noexc94.i
+  %288 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc95.i unwind label %298
 
-.noexc95.i:                                       ; preds = %285
-  %287 = getelementptr inbounds i8, ptr %286, i64 108
-  %288 = load i8, ptr %287, align 4
-  %289 = trunc i8 %288 to i1
-  br i1 %289, label %290, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i
+.noexc95.i:                                       ; preds = %287
+  %289 = getelementptr inbounds i8, ptr %288, i64 108
+  %290 = load i8, ptr %289, align 4
+  %291 = trunc i8 %290 to i1
+  br i1 %291, label %292, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i
 
-290:                                              ; preds = %.noexc95.i, %.noexc94.i
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %10, ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %280)
-          to label %.noexc96.i unwind label %296
+292:                                              ; preds = %.noexc95.i, %.noexc94.i
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %10, ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %282)
+          to label %.noexc96.i unwind label %298
 
-.noexc96.i:                                       ; preds = %290
-  %291 = getelementptr inbounds i8, ptr %30, i64 72
-  %292 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %291, ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+.noexc96.i:                                       ; preds = %292
+  %293 = getelementptr inbounds i8, ptr %30, i64 72
+  %294 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %293, ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   br label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i
 
 _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i: ; preds = %.noexc96.i, %.noexc95.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %301
+  br label %303
 
-293:                                              ; preds = %269, %267
-  %.pn55.i = phi { ptr, i32 } [ %270, %269 ], [ %268, %267 ]
+295:                                              ; preds = %271, %269
+  %.pn55.i = phi { ptr, i32 } [ %272, %271 ], [ %270, %269 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #18
-  br label %988
+  br label %1000
 
-294:                                              ; preds = %276
-  %295 = landingpad { ptr, i32 }
+296:                                              ; preds = %278
+  %297 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #18
-  br label %988
+  br label %1000
 
-296:                                              ; preds = %290, %285, %277
-  %297 = landingpad { ptr, i32 }
+298:                                              ; preds = %292, %287, %279
+  %299 = landingpad { ptr, i32 }
           catch ptr null
-  %298 = extractvalue { ptr, i32 } %297, 0
-  %299 = call ptr @__cxa_begin_catch(ptr %298) #18
+  %300 = extractvalue { ptr, i32 } %299, 0
+  %301 = call ptr @__cxa_begin_catch(ptr %300) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
-          to label %300 unwind label %305
+          to label %302 unwind label %307
 
-300:                                              ; preds = %296
+302:                                              ; preds = %298
   invoke void @__cxa_end_catch()
-          to label %301 unwind label %307
+          to label %303 unwind label %309
 
-301:                                              ; preds = %300, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i
-  %302 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
-          to label %303 unwind label %307
+303:                                              ; preds = %302, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit97.i
+  %304 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
+          to label %305 unwind label %309
 
-303:                                              ; preds = %301
-  br i1 %302, label %304, label %309
+305:                                              ; preds = %303
+  br i1 %304, label %306, label %311
 
-304:                                              ; preds = %303
+306:                                              ; preds = %305
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !374
-  br label %309
+  br label %311
 
-305:                                              ; preds = %296
-  %306 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %389 unwind label %989
-
-307:                                              ; preds = %309, %301, %300
+307:                                              ; preds = %298
   %308 = landingpad { ptr, i32 }
           cleanup
-  br label %389
+  invoke void @__cxa_end_catch()
+          to label %393 unwind label %1001
 
-309:                                              ; preds = %304, %303
+309:                                              ; preds = %311, %303, %302
+  %310 = landingpad { ptr, i32 }
+          cleanup
+  br label %393
+
+311:                                              ; preds = %306, %305
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
-          to label %310 unwind label %307
+          to label %312 unwind label %309
 
-310:                                              ; preds = %309
-  %311 = getelementptr inbounds i8, ptr %30, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #18
-  %312 = getelementptr inbounds i8, ptr %30, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %312) #18
-  %313 = getelementptr inbounds i8, ptr %30, i64 48
+312:                                              ; preds = %311
+  %313 = getelementptr inbounds i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #18
+  %314 = getelementptr inbounds i8, ptr %30, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #18
+  %315 = getelementptr inbounds i8, ptr %30, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %315) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull @.str)
-          to label %314 unwind label %99
+          to label %316 unwind label %99
 
-314:                                              ; preds = %310
+316:                                              ; preds = %312
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %33, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 922, ptr noundef nonnull @.str.390, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %315 unwind label %390
+          to label %317 unwind label %394
 
-315:                                              ; preds = %314
+317:                                              ; preds = %316
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #18
   invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef %75, ptr noundef %73)
-          to label %316 unwind label %392
+          to label %318 unwind label %396
 
-316:                                              ; preds = %315
+318:                                              ; preds = %317
   store i32 0, ptr %35, align 8
-  %317 = getelementptr inbounds i8, ptr %35, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %317, ptr noundef nonnull align 8 dereferenceable(20) %36, i64 20, i1 false)
-  %318 = getelementptr inbounds i8, ptr %35, i64 32
-  %319 = getelementptr inbounds i8, ptr %36, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull align 8 dereferenceable(32) %319) #18
-  %320 = getelementptr inbounds i8, ptr %35, i64 64
-  %321 = getelementptr inbounds i8, ptr %36, i64 56
-  %322 = getelementptr inbounds i8, ptr %36, i64 64
-  %323 = load <2 x ptr>, ptr %321, align 8
-  store ptr null, ptr %322, align 8
-  store <2 x ptr> %323, ptr %320, align 8
-  store ptr null, ptr %321, align 8
-  %324 = load ptr, ptr %13, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 208
+  %319 = getelementptr inbounds i8, ptr %35, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %319, ptr noundef nonnull align 8 dereferenceable(20) %36, i64 20, i1 false)
+  %320 = getelementptr inbounds i8, ptr %35, i64 32
+  %321 = getelementptr inbounds i8, ptr %36, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef nonnull align 8 dereferenceable(32) %321) #18
+  %322 = getelementptr inbounds i8, ptr %35, i64 64
+  %323 = getelementptr inbounds i8, ptr %36, i64 56
+  %324 = load ptr, ptr %323, align 8
+  store ptr %324, ptr %322, align 8
+  %325 = getelementptr inbounds i8, ptr %35, i64 72
+  %326 = getelementptr inbounds i8, ptr %36, i64 64
+  %327 = load ptr, ptr %326, align 8
+  store ptr null, ptr %326, align 8
+  store ptr %327, ptr %325, align 8
+  store ptr null, ptr %323, align 8
+  %328 = load ptr, ptr %13, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %326 = load i32, ptr %35, align 8
-  %327 = load i32, ptr %325, align 8
-  %328 = icmp eq i32 %326, %327
-  br i1 %328, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99
+  %330 = load i32, ptr %35, align 8
+  %331 = load i32, ptr %329, align 8
+  %332 = icmp eq i32 %330, %331
+  br i1 %332, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99: ; preds = %316
-  %329 = getelementptr inbounds i8, ptr %33, i64 40
-  store i8 1, ptr %329, align 8
-  br label %343
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99: ; preds = %318
+  %333 = getelementptr inbounds i8, ptr %33, i64 40
+  store i8 1, ptr %333, align 8
+  br label %347
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101: ; preds = %316
-  %330 = sext i32 %326 to i64
-  %331 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %330
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %324, i64 216
-  %334 = invoke noundef zeroext i1 %332(ptr noundef nonnull %317, ptr noundef nonnull %333)
-          to label %.noexc102.i unwind label %394
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101: ; preds = %318
+  %334 = sext i32 %330 to i64
+  %335 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %334
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds i8, ptr %328, i64 216
+  %338 = invoke noundef zeroext i1 %336(ptr noundef nonnull %319, ptr noundef nonnull %337)
+          to label %.noexc102.i unwind label %398
 
 .noexc102.i:                                      ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101
-  %335 = xor i1 %334, true
-  %336 = getelementptr inbounds i8, ptr %33, i64 40
-  %337 = zext i1 %335 to i8
-  store i8 %337, ptr %336, align 8
-  br i1 %334, label %338, label %343
+  %339 = xor i1 %338, true
+  %340 = getelementptr inbounds i8, ptr %33, i64 40
+  %341 = zext i1 %339 to i8
+  store i8 %341, ptr %340, align 8
+  br i1 %338, label %342, label %347
 
-338:                                              ; preds = %.noexc102.i
-  %339 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc103.i unwind label %394
+342:                                              ; preds = %.noexc102.i
+  %343 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc103.i unwind label %398
 
-.noexc103.i:                                      ; preds = %338
-  %340 = getelementptr inbounds i8, ptr %339, i64 108
-  %341 = load i8, ptr %340, align 4
-  %342 = trunc i8 %341 to i1
-  br i1 %342, label %343, label %346
+.noexc103.i:                                      ; preds = %342
+  %344 = getelementptr inbounds i8, ptr %343, i64 108
+  %345 = load i8, ptr %344, align 4
+  %346 = trunc i8 %345 to i1
+  br i1 %346, label %347, label %350
 
-343:                                              ; preds = %.noexc103.i, %.noexc102.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %9, ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %325)
-          to label %.noexc104.i unwind label %394
+347:                                              ; preds = %.noexc103.i, %.noexc102.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhabi99
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %9, ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %329)
+          to label %.noexc104.i unwind label %398
 
-.noexc104.i:                                      ; preds = %343
-  %344 = getelementptr inbounds i8, ptr %33, i64 72
-  %345 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %344, ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+.noexc104.i:                                      ; preds = %347
+  %348 = getelementptr inbounds i8, ptr %33, i64 72
+  %349 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  br label %346
+  br label %350
 
-346:                                              ; preds = %.noexc104.i, %.noexc103.i
+350:                                              ; preds = %.noexc104.i, %.noexc103.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %347 = load i32, ptr %35, align 8
-  %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %348
-  %350 = load ptr, ptr %349, align 8
-  invoke void %350(ptr noundef nonnull %317)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108 unwind label %351
+  %351 = load i32, ptr %35, align 8
+  %352 = sext i32 %351 to i64
+  %353 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %352
+  %354 = load ptr, ptr %353, align 8
+  invoke void %354(ptr noundef nonnull %319)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108 unwind label %355
 
-351:                                              ; preds = %346
-  %352 = landingpad { ptr, i32 }
+355:                                              ; preds = %350
+  %356 = landingpad { ptr, i32 }
           catch ptr null
-  %353 = extractvalue { ptr, i32 } %352, 0
-  call void @__clang_call_terminate(ptr %353) #16
+  %357 = extractvalue { ptr, i32 } %356, 0
+  call void @__clang_call_terminate(ptr %357) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108: ; preds = %346
-  %354 = load ptr, ptr %322, align 8
-  %.not.i.i.i.i109.i = icmp eq ptr %354, null
-  br i1 %.not.i.i.i.i109.i, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i, label %355
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108: ; preds = %350
+  %358 = load ptr, ptr %326, align 8
+  %.not.i.i.i.i109.i = icmp eq ptr %358, null
+  br i1 %.not.i.i.i.i109.i, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i, label %359
 
-355:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108
-  %356 = getelementptr inbounds i8, ptr %354, i64 8
-  %357 = load atomic i64, ptr %356 acquire, align 8
-  %358 = icmp eq i64 %357, 4294967297
-  %359 = trunc i64 %357 to i32
-  br i1 %358, label %360, label %365
+359:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108
+  %360 = getelementptr inbounds i8, ptr %358, i64 8
+  %361 = load atomic i64, ptr %360 acquire, align 8
+  %362 = icmp eq i64 %361, 4294967297
+  %363 = trunc i64 %361 to i32
+  br i1 %362, label %364, label %369
 
-360:                                              ; preds = %355
-  store i32 0, ptr %356, align 8
-  %361 = getelementptr inbounds i8, ptr %354, i64 12
-  store i32 0, ptr %361, align 4
-  %362 = load ptr, ptr %354, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 16
-  %364 = load ptr, ptr %363, align 8
-  call void %364(ptr noundef nonnull align 8 dereferenceable(16) %354) #18
+364:                                              ; preds = %359
+  store i32 0, ptr %360, align 8
+  %365 = getelementptr inbounds i8, ptr %358, i64 12
+  store i32 0, ptr %365, align 4
+  %366 = load ptr, ptr %358, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 16
+  %368 = load ptr, ptr %367, align 8
+  call void %368(ptr noundef nonnull align 8 dereferenceable(16) %358) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i
 
-365:                                              ; preds = %355
-  %366 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i110.i = icmp eq i8 %366, 0
-  br i1 %.not.i.i.i.i.i110.i, label %369, label %367
+369:                                              ; preds = %359
+  %370 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i110.i = icmp eq i8 %370, 0
+  br i1 %.not.i.i.i.i.i110.i, label %373, label %371
 
-367:                                              ; preds = %365
-  %368 = add nsw i32 %359, -1
-  store i32 %368, ptr %356, align 4
-  br label %371
+371:                                              ; preds = %369
+  %372 = add nsw i32 %363, -1
+  store i32 %372, ptr %360, align 4
+  br label %375
 
-369:                                              ; preds = %365
-  %370 = atomicrmw volatile add ptr %356, i32 -1 acq_rel, align 4
-  br label %371
+373:                                              ; preds = %369
+  %374 = atomicrmw volatile add ptr %360, i32 -1 acq_rel, align 4
+  br label %375
 
-371:                                              ; preds = %369, %367
-  %.0.i.i.i.i.i111.i = phi i32 [ %359, %367 ], [ %370, %369 ]
-  %372 = icmp eq i32 %.0.i.i.i.i.i111.i, 1
-  br i1 %372, label %373, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i
+375:                                              ; preds = %373, %371
+  %.0.i.i.i.i.i111.i = phi i32 [ %363, %371 ], [ %374, %373 ]
+  %376 = icmp eq i32 %.0.i.i.i.i.i111.i, 1
+  br i1 %376, label %377, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i
 
-373:                                              ; preds = %371
-  %374 = load ptr, ptr %354, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 16
-  %376 = load ptr, ptr %375, align 8
-  call void %376(ptr noundef nonnull align 8 dereferenceable(16) %354) #18
-  %377 = getelementptr inbounds i8, ptr %354, i64 12
-  %378 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i112.i = icmp eq i8 %378, 0
-  br i1 %.not.i.i.i.i.i.i.i112.i, label %382, label %379
+377:                                              ; preds = %375
+  %378 = load ptr, ptr %358, align 8
+  %379 = getelementptr inbounds i8, ptr %378, i64 16
+  %380 = load ptr, ptr %379, align 8
+  call void %380(ptr noundef nonnull align 8 dereferenceable(16) %358) #18
+  %381 = getelementptr inbounds i8, ptr %358, i64 12
+  %382 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i112.i = icmp eq i8 %382, 0
+  br i1 %.not.i.i.i.i.i.i.i112.i, label %386, label %383
 
-379:                                              ; preds = %373
-  %380 = load i32, ptr %377, align 4
-  %381 = add nsw i32 %380, -1
-  store i32 %381, ptr %377, align 4
-  br label %384
+383:                                              ; preds = %377
+  %384 = load i32, ptr %381, align 4
+  %385 = add nsw i32 %384, -1
+  store i32 %385, ptr %381, align 4
+  br label %388
 
-382:                                              ; preds = %373
-  %383 = atomicrmw volatile add ptr %377, i32 -1 acq_rel, align 4
-  br label %384
+386:                                              ; preds = %377
+  %387 = atomicrmw volatile add ptr %381, i32 -1 acq_rel, align 4
+  br label %388
 
-384:                                              ; preds = %382, %379
-  %.0.i.i.i.i.i.i.i113.i = phi i32 [ %380, %379 ], [ %383, %382 ]
-  %385 = icmp eq i32 %.0.i.i.i.i.i.i.i113.i, 1
-  br i1 %385, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i
+388:                                              ; preds = %386, %383
+  %.0.i.i.i.i.i.i.i113.i = phi i32 [ %384, %383 ], [ %387, %386 ]
+  %389 = icmp eq i32 %.0.i.i.i.i.i.i.i113.i, 1
+  br i1 %389, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i, label %_ZN4Luau12TypeMismatchD2Ev.exit115.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i: ; preds = %384, %360
-  %386 = load ptr, ptr %354, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 24
-  %388 = load ptr, ptr %387, align 8
-  call void %388(ptr noundef nonnull align 8 dereferenceable(16) %354) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i: ; preds = %388, %364
+  %390 = load ptr, ptr %358, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 24
+  %392 = load ptr, ptr %391, align 8
+  call void %392(ptr noundef nonnull align 8 dereferenceable(16) %358) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit115.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit115.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i, %384, %371, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %319) #18
-  br label %406
+_ZN4Luau12TypeMismatchD2Ev.exit115.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114.i, %388, %375, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe108
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %321) #18
+  br label %410
 
-389:                                              ; preds = %307, %305
-  %.pn57.i = phi { ptr, i32 } [ %308, %307 ], [ %306, %305 ]
+393:                                              ; preds = %309, %307
+  %.pn57.i = phi { ptr, i32 } [ %310, %309 ], [ %308, %307 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %30) #18
-  br label %988
+  br label %1000
 
-390:                                              ; preds = %314
-  %391 = landingpad { ptr, i32 }
+394:                                              ; preds = %316
+  %395 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #18
-  br label %988
+  br label %1000
 
-392:                                              ; preds = %315
-  %393 = landingpad { ptr, i32 }
+396:                                              ; preds = %317
+  %397 = landingpad { ptr, i32 }
           catch ptr null
-  br label %403
+  br label %407
 
-394:                                              ; preds = %343, %338, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101
-  %395 = landingpad { ptr, i32 }
+398:                                              ; preds = %347, %342, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab101
+  %399 = landingpad { ptr, i32 }
           catch ptr null
-  %396 = load i32, ptr %35, align 8
-  %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %397
-  %399 = load ptr, ptr %398, align 8
-  invoke void %399(ptr noundef nonnull %317)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117 unwind label %400
+  %400 = load i32, ptr %35, align 8
+  %401 = sext i32 %400 to i64
+  %402 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %401
+  %403 = load ptr, ptr %402, align 8
+  invoke void %403(ptr noundef nonnull %319)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117 unwind label %404
 
-400:                                              ; preds = %394
-  %401 = landingpad { ptr, i32 }
+404:                                              ; preds = %398
+  %405 = landingpad { ptr, i32 }
           catch ptr null
-  %402 = extractvalue { ptr, i32 } %401, 0
-  call void @__clang_call_terminate(ptr %402) #16
+  %406 = extractvalue { ptr, i32 } %405, 0
+  call void @__clang_call_terminate(ptr %406) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117: ; preds = %394
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117: ; preds = %398
   call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %36) #18
-  br label %403
+  br label %407
 
-403:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117, %392
-  %.pn59.i = phi { ptr, i32 } [ %395, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117 ], [ %393, %392 ]
+407:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117, %396
+  %.pn59.i = phi { ptr, i32 } [ %399, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe117 ], [ %397, %396 ]
   %.10.i = extractvalue { ptr, i32 } %.pn59.i, 0
-  %404 = call ptr @__cxa_begin_catch(ptr %.10.i) #18
+  %408 = call ptr @__cxa_begin_catch(ptr %.10.i) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
-          to label %405 unwind label %410
+          to label %409 unwind label %414
 
-405:                                              ; preds = %403
+409:                                              ; preds = %407
   invoke void @__cxa_end_catch()
-          to label %406 unwind label %412
+          to label %410 unwind label %416
 
-406:                                              ; preds = %405, %_ZN4Luau12TypeMismatchD2Ev.exit115.i
-  %407 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
-          to label %408 unwind label %412
+410:                                              ; preds = %409, %_ZN4Luau12TypeMismatchD2Ev.exit115.i
+  %411 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
+          to label %412 unwind label %416
 
-408:                                              ; preds = %406
-  br i1 %407, label %409, label %414
+412:                                              ; preds = %410
+  br i1 %411, label %413, label %418
 
-409:                                              ; preds = %408
+413:                                              ; preds = %412
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !375
-  br label %414
+  br label %418
 
-410:                                              ; preds = %403
-  %411 = landingpad { ptr, i32 }
+414:                                              ; preds = %407
+  %415 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %436 unwind label %989
+          to label %440 unwind label %1001
 
-412:                                              ; preds = %414, %406, %405
-  %413 = landingpad { ptr, i32 }
+416:                                              ; preds = %418, %410, %409
+  %417 = landingpad { ptr, i32 }
           cleanup
-  br label %436
+  br label %440
 
-414:                                              ; preds = %409, %408
+418:                                              ; preds = %413, %412
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
-          to label %415 unwind label %412
+          to label %419 unwind label %416
 
-415:                                              ; preds = %414
-  %416 = getelementptr inbounds i8, ptr %33, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %416) #18
-  %417 = getelementptr inbounds i8, ptr %33, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %417) #18
-  %418 = getelementptr inbounds i8, ptr %33, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %418) #18
+419:                                              ; preds = %418
+  %420 = getelementptr inbounds i8, ptr %33, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %420) #18
+  %421 = getelementptr inbounds i8, ptr %33, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %421) #18
+  %422 = getelementptr inbounds i8, ptr %33, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %422) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
-          to label %419 unwind label %99
+          to label %423 unwind label %99
 
-419:                                              ; preds = %415
+423:                                              ; preds = %419
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 924, ptr noundef nonnull @.str.391, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
-          to label %420 unwind label %437
+          to label %424 unwind label %441
 
-420:                                              ; preds = %419
+424:                                              ; preds = %423
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #18
   store i64 163208757249, ptr %39, align 8
-  %421 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 180388626433, ptr %421, align 8
-  %422 = load ptr, ptr %13, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 320
+  %425 = getelementptr inbounds i8, ptr %39, i64 8
+  store i64 180388626433, ptr %425, align 8
+  %426 = load ptr, ptr %13, align 8
+  %427 = getelementptr inbounds i8, ptr %426, i64 320
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %424 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %423)
-          to label %.noexc118.i unwind label %439
+  %428 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %427)
+          to label %.noexc118.i unwind label %443
 
-.noexc118.i:                                      ; preds = %420
-  %425 = xor i1 %424, true
-  %426 = getelementptr inbounds i8, ptr %37, i64 40
-  %427 = zext i1 %425 to i8
-  store i8 %427, ptr %426, align 8
-  br i1 %424, label %428, label %433
+.noexc118.i:                                      ; preds = %424
+  %429 = xor i1 %428, true
+  %430 = getelementptr inbounds i8, ptr %37, i64 40
+  %431 = zext i1 %429 to i8
+  store i8 %431, ptr %430, align 8
+  br i1 %428, label %432, label %437
 
-428:                                              ; preds = %.noexc118.i
-  %429 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc119.i unwind label %439
+432:                                              ; preds = %.noexc118.i
+  %433 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc119.i unwind label %443
 
-.noexc119.i:                                      ; preds = %428
-  %430 = getelementptr inbounds i8, ptr %429, i64 108
-  %431 = load i8, ptr %430, align 4
-  %432 = trunc i8 %431 to i1
-  br i1 %432, label %433, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i
+.noexc119.i:                                      ; preds = %432
+  %434 = getelementptr inbounds i8, ptr %433, i64 108
+  %435 = load i8, ptr %434, align 4
+  %436 = trunc i8 %435 to i1
+  br i1 %436, label %437, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i
 
-433:                                              ; preds = %.noexc119.i, %.noexc118.i
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %8, ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %423)
-          to label %.noexc120.i unwind label %439
+437:                                              ; preds = %.noexc119.i, %.noexc118.i
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %8, ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %427)
+          to label %.noexc120.i unwind label %443
 
-.noexc120.i:                                      ; preds = %433
-  %434 = getelementptr inbounds i8, ptr %37, i64 72
-  %435 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %434, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+.noexc120.i:                                      ; preds = %437
+  %438 = getelementptr inbounds i8, ptr %37, i64 72
+  %439 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %438, ptr noundef nonnull align 8 dereferenceable(24) %8) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
   br label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i
 
 _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i: ; preds = %.noexc120.i, %.noexc119.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %444
+  br label %448
 
-436:                                              ; preds = %412, %410
-  %.pn60.i = phi { ptr, i32 } [ %413, %412 ], [ %411, %410 ]
+440:                                              ; preds = %416, %414
+  %.pn60.i = phi { ptr, i32 } [ %417, %416 ], [ %415, %414 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %33) #18
-  br label %988
+  br label %1000
 
-437:                                              ; preds = %419
-  %438 = landingpad { ptr, i32 }
+441:                                              ; preds = %423
+  %442 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #18
-  br label %988
+  br label %1000
 
-439:                                              ; preds = %433, %428, %420
-  %440 = landingpad { ptr, i32 }
+443:                                              ; preds = %437, %432, %424
+  %444 = landingpad { ptr, i32 }
           catch ptr null
-  %441 = extractvalue { ptr, i32 } %440, 0
-  %442 = call ptr @__cxa_begin_catch(ptr %441) #18
+  %445 = extractvalue { ptr, i32 } %444, 0
+  %446 = call ptr @__cxa_begin_catch(ptr %445) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %37)
-          to label %443 unwind label %448
+          to label %447 unwind label %452
 
-443:                                              ; preds = %439
+447:                                              ; preds = %443
   invoke void @__cxa_end_catch()
-          to label %444 unwind label %450
+          to label %448 unwind label %454
 
-444:                                              ; preds = %443, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i
-  %445 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %37)
-          to label %446 unwind label %450
+448:                                              ; preds = %447, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit121.i
+  %449 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %37)
+          to label %450 unwind label %454
 
-446:                                              ; preds = %444
-  br i1 %445, label %447, label %452
+450:                                              ; preds = %448
+  br i1 %449, label %451, label %456
 
-447:                                              ; preds = %446
+451:                                              ; preds = %450
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !376
-  br label %452
+  br label %456
 
-448:                                              ; preds = %439
-  %449 = landingpad { ptr, i32 }
+452:                                              ; preds = %443
+  %453 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %532 unwind label %989
+          to label %538 unwind label %1001
 
-450:                                              ; preds = %452, %444, %443
-  %451 = landingpad { ptr, i32 }
+454:                                              ; preds = %456, %448, %447
+  %455 = landingpad { ptr, i32 }
           cleanup
-  br label %532
+  br label %538
 
-452:                                              ; preds = %447, %446
+456:                                              ; preds = %451, %450
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %37)
-          to label %453 unwind label %450
+          to label %457 unwind label %454
 
-453:                                              ; preds = %452
-  %454 = getelementptr inbounds i8, ptr %37, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %454) #18
-  %455 = getelementptr inbounds i8, ptr %37, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %455) #18
-  %456 = getelementptr inbounds i8, ptr %37, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %456) #18
+457:                                              ; preds = %456
+  %458 = getelementptr inbounds i8, ptr %37, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %458) #18
+  %459 = getelementptr inbounds i8, ptr %37, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %459) #18
+  %460 = getelementptr inbounds i8, ptr %37, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %460) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull @.str)
-          to label %457 unwind label %99
+          to label %461 unwind label %99
 
-457:                                              ; preds = %453
+461:                                              ; preds = %457
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %40, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 925, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %41)
-          to label %458 unwind label %533
+          to label %462 unwind label %539
 
-458:                                              ; preds = %457
+462:                                              ; preds = %461
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #18
   invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %43, ptr noundef %73, ptr noundef %77)
-          to label %459 unwind label %535
+          to label %463 unwind label %541
 
-459:                                              ; preds = %458
+463:                                              ; preds = %462
   store i32 0, ptr %42, align 8
-  %460 = getelementptr inbounds i8, ptr %42, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %460, ptr noundef nonnull align 8 dereferenceable(20) %43, i64 20, i1 false)
-  %461 = getelementptr inbounds i8, ptr %42, i64 32
-  %462 = getelementptr inbounds i8, ptr %43, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %462) #18
-  %463 = getelementptr inbounds i8, ptr %42, i64 64
-  %464 = getelementptr inbounds i8, ptr %43, i64 56
-  %465 = getelementptr inbounds i8, ptr %43, i64 64
-  %466 = load <2 x ptr>, ptr %464, align 8
-  store ptr null, ptr %465, align 8
-  store <2 x ptr> %466, ptr %463, align 8
-  store ptr null, ptr %464, align 8
-  %467 = load ptr, ptr %13, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 368
+  %464 = getelementptr inbounds i8, ptr %42, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %464, ptr noundef nonnull align 8 dereferenceable(20) %43, i64 20, i1 false)
+  %465 = getelementptr inbounds i8, ptr %42, i64 32
+  %466 = getelementptr inbounds i8, ptr %43, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %465, ptr noundef nonnull align 8 dereferenceable(32) %466) #18
+  %467 = getelementptr inbounds i8, ptr %42, i64 64
+  %468 = getelementptr inbounds i8, ptr %43, i64 56
+  %469 = load ptr, ptr %468, align 8
+  store ptr %469, ptr %467, align 8
+  %470 = getelementptr inbounds i8, ptr %42, i64 72
+  %471 = getelementptr inbounds i8, ptr %43, i64 64
+  %472 = load ptr, ptr %471, align 8
+  store ptr null, ptr %471, align 8
+  store ptr %472, ptr %470, align 8
+  store ptr null, ptr %468, align 8
+  %473 = load ptr, ptr %13, align 8
+  %474 = getelementptr inbounds i8, ptr %473, i64 368
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %469 = load i32, ptr %42, align 8
-  %470 = load i32, ptr %468, align 8
-  %471 = icmp eq i32 %469, %470
-  br i1 %471, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123
+  %475 = load i32, ptr %42, align 8
+  %476 = load i32, ptr %474, align 8
+  %477 = icmp eq i32 %475, %476
+  br i1 %477, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123: ; preds = %459
-  %472 = getelementptr inbounds i8, ptr %40, i64 40
-  store i8 1, ptr %472, align 8
-  br label %486
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123: ; preds = %463
+  %478 = getelementptr inbounds i8, ptr %40, i64 40
+  store i8 1, ptr %478, align 8
+  br label %492
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125: ; preds = %459
-  %473 = sext i32 %469 to i64
-  %474 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %473
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds i8, ptr %467, i64 376
-  %477 = invoke noundef zeroext i1 %475(ptr noundef nonnull %460, ptr noundef nonnull %476)
-          to label %.noexc126.i unwind label %537
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125: ; preds = %463
+  %479 = sext i32 %475 to i64
+  %480 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %479
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds i8, ptr %473, i64 376
+  %483 = invoke noundef zeroext i1 %481(ptr noundef nonnull %464, ptr noundef nonnull %482)
+          to label %.noexc126.i unwind label %543
 
 .noexc126.i:                                      ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125
-  %478 = xor i1 %477, true
-  %479 = getelementptr inbounds i8, ptr %40, i64 40
-  %480 = zext i1 %478 to i8
-  store i8 %480, ptr %479, align 8
-  br i1 %477, label %481, label %486
+  %484 = xor i1 %483, true
+  %485 = getelementptr inbounds i8, ptr %40, i64 40
+  %486 = zext i1 %484 to i8
+  store i8 %486, ptr %485, align 8
+  br i1 %483, label %487, label %492
 
-481:                                              ; preds = %.noexc126.i
-  %482 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc127.i unwind label %537
+487:                                              ; preds = %.noexc126.i
+  %488 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc127.i unwind label %543
 
-.noexc127.i:                                      ; preds = %481
-  %483 = getelementptr inbounds i8, ptr %482, i64 108
-  %484 = load i8, ptr %483, align 4
-  %485 = trunc i8 %484 to i1
-  br i1 %485, label %486, label %489
+.noexc127.i:                                      ; preds = %487
+  %489 = getelementptr inbounds i8, ptr %488, i64 108
+  %490 = load i8, ptr %489, align 4
+  %491 = trunc i8 %490 to i1
+  br i1 %491, label %492, label %495
 
-486:                                              ; preds = %.noexc127.i, %.noexc126.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %7, ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %468)
-          to label %.noexc128.i unwind label %537
+492:                                              ; preds = %.noexc127.i, %.noexc126.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab123
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %7, ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %474)
+          to label %.noexc128.i unwind label %543
 
-.noexc128.i:                                      ; preds = %486
-  %487 = getelementptr inbounds i8, ptr %40, i64 72
-  %488 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %487, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+.noexc128.i:                                      ; preds = %492
+  %493 = getelementptr inbounds i8, ptr %40, i64 72
+  %494 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %493, ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
-  br label %489
+  br label %495
 
-489:                                              ; preds = %.noexc128.i, %.noexc127.i
+495:                                              ; preds = %.noexc128.i, %.noexc127.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %490 = load i32, ptr %42, align 8
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %491
-  %493 = load ptr, ptr %492, align 8
-  invoke void %493(ptr noundef nonnull %460)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132 unwind label %494
+  %496 = load i32, ptr %42, align 8
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %497
+  %499 = load ptr, ptr %498, align 8
+  invoke void %499(ptr noundef nonnull %464)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132 unwind label %500
 
-494:                                              ; preds = %489
-  %495 = landingpad { ptr, i32 }
+500:                                              ; preds = %495
+  %501 = landingpad { ptr, i32 }
           catch ptr null
-  %496 = extractvalue { ptr, i32 } %495, 0
-  call void @__clang_call_terminate(ptr %496) #16
+  %502 = extractvalue { ptr, i32 } %501, 0
+  call void @__clang_call_terminate(ptr %502) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132: ; preds = %489
-  %497 = load ptr, ptr %465, align 8
-  %.not.i.i.i.i133.i = icmp eq ptr %497, null
-  br i1 %.not.i.i.i.i133.i, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i, label %498
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132: ; preds = %495
+  %503 = load ptr, ptr %471, align 8
+  %.not.i.i.i.i133.i = icmp eq ptr %503, null
+  br i1 %.not.i.i.i.i133.i, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i, label %504
 
-498:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132
-  %499 = getelementptr inbounds i8, ptr %497, i64 8
-  %500 = load atomic i64, ptr %499 acquire, align 8
-  %501 = icmp eq i64 %500, 4294967297
-  %502 = trunc i64 %500 to i32
-  br i1 %501, label %503, label %508
+504:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132
+  %505 = getelementptr inbounds i8, ptr %503, i64 8
+  %506 = load atomic i64, ptr %505 acquire, align 8
+  %507 = icmp eq i64 %506, 4294967297
+  %508 = trunc i64 %506 to i32
+  br i1 %507, label %509, label %514
 
-503:                                              ; preds = %498
-  store i32 0, ptr %499, align 8
-  %504 = getelementptr inbounds i8, ptr %497, i64 12
-  store i32 0, ptr %504, align 4
-  %505 = load ptr, ptr %497, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 16
-  %507 = load ptr, ptr %506, align 8
-  call void %507(ptr noundef nonnull align 8 dereferenceable(16) %497) #18
+509:                                              ; preds = %504
+  store i32 0, ptr %505, align 8
+  %510 = getelementptr inbounds i8, ptr %503, i64 12
+  store i32 0, ptr %510, align 4
+  %511 = load ptr, ptr %503, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 16
+  %513 = load ptr, ptr %512, align 8
+  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %503) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i
 
-508:                                              ; preds = %498
-  %509 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i134.i = icmp eq i8 %509, 0
-  br i1 %.not.i.i.i.i.i134.i, label %512, label %510
-
-510:                                              ; preds = %508
-  %511 = add nsw i32 %502, -1
-  store i32 %511, ptr %499, align 4
-  br label %514
-
-512:                                              ; preds = %508
-  %513 = atomicrmw volatile add ptr %499, i32 -1 acq_rel, align 4
-  br label %514
-
-514:                                              ; preds = %512, %510
-  %.0.i.i.i.i.i135.i = phi i32 [ %502, %510 ], [ %513, %512 ]
-  %515 = icmp eq i32 %.0.i.i.i.i.i135.i, 1
-  br i1 %515, label %516, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i
+514:                                              ; preds = %504
+  %515 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i134.i = icmp eq i8 %515, 0
+  br i1 %.not.i.i.i.i.i134.i, label %518, label %516
 
 516:                                              ; preds = %514
-  %517 = load ptr, ptr %497, align 8
-  %518 = getelementptr inbounds i8, ptr %517, i64 16
-  %519 = load ptr, ptr %518, align 8
-  call void %519(ptr noundef nonnull align 8 dereferenceable(16) %497) #18
-  %520 = getelementptr inbounds i8, ptr %497, i64 12
-  %521 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i136.i = icmp eq i8 %521, 0
-  br i1 %.not.i.i.i.i.i.i.i136.i, label %525, label %522
+  %517 = add nsw i32 %508, -1
+  store i32 %517, ptr %505, align 4
+  br label %520
 
-522:                                              ; preds = %516
-  %523 = load i32, ptr %520, align 4
-  %524 = add nsw i32 %523, -1
-  store i32 %524, ptr %520, align 4
-  br label %527
+518:                                              ; preds = %514
+  %519 = atomicrmw volatile add ptr %505, i32 -1 acq_rel, align 4
+  br label %520
 
-525:                                              ; preds = %516
-  %526 = atomicrmw volatile add ptr %520, i32 -1 acq_rel, align 4
-  br label %527
+520:                                              ; preds = %518, %516
+  %.0.i.i.i.i.i135.i = phi i32 [ %508, %516 ], [ %519, %518 ]
+  %521 = icmp eq i32 %.0.i.i.i.i.i135.i, 1
+  br i1 %521, label %522, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i
 
-527:                                              ; preds = %525, %522
-  %.0.i.i.i.i.i.i.i137.i = phi i32 [ %523, %522 ], [ %526, %525 ]
-  %528 = icmp eq i32 %.0.i.i.i.i.i.i.i137.i, 1
-  br i1 %528, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i
+522:                                              ; preds = %520
+  %523 = load ptr, ptr %503, align 8
+  %524 = getelementptr inbounds i8, ptr %523, i64 16
+  %525 = load ptr, ptr %524, align 8
+  call void %525(ptr noundef nonnull align 8 dereferenceable(16) %503) #18
+  %526 = getelementptr inbounds i8, ptr %503, i64 12
+  %527 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i136.i = icmp eq i8 %527, 0
+  br i1 %.not.i.i.i.i.i.i.i136.i, label %531, label %528
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i: ; preds = %527, %503
-  %529 = load ptr, ptr %497, align 8
-  %530 = getelementptr inbounds i8, ptr %529, i64 24
-  %531 = load ptr, ptr %530, align 8
-  call void %531(ptr noundef nonnull align 8 dereferenceable(16) %497) #18
+528:                                              ; preds = %522
+  %529 = load i32, ptr %526, align 4
+  %530 = add nsw i32 %529, -1
+  store i32 %530, ptr %526, align 4
+  br label %533
+
+531:                                              ; preds = %522
+  %532 = atomicrmw volatile add ptr %526, i32 -1 acq_rel, align 4
+  br label %533
+
+533:                                              ; preds = %531, %528
+  %.0.i.i.i.i.i.i.i137.i = phi i32 [ %529, %528 ], [ %532, %531 ]
+  %534 = icmp eq i32 %.0.i.i.i.i.i.i.i137.i, 1
+  br i1 %534, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i, label %_ZN4Luau12TypeMismatchD2Ev.exit139.i
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i: ; preds = %533, %509
+  %535 = load ptr, ptr %503, align 8
+  %536 = getelementptr inbounds i8, ptr %535, i64 24
+  %537 = load ptr, ptr %536, align 8
+  call void %537(ptr noundef nonnull align 8 dereferenceable(16) %503) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit139.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit139.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i, %527, %514, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %462) #18
-  br label %549
+_ZN4Luau12TypeMismatchD2Ev.exit139.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i138.i, %533, %520, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe132
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %466) #18
+  br label %555
 
-532:                                              ; preds = %450, %448
-  %.pn62.i = phi { ptr, i32 } [ %451, %450 ], [ %449, %448 ]
+538:                                              ; preds = %454, %452
+  %.pn62.i = phi { ptr, i32 } [ %455, %454 ], [ %453, %452 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %37) #18
-  br label %988
+  br label %1000
 
-533:                                              ; preds = %457
-  %534 = landingpad { ptr, i32 }
+539:                                              ; preds = %461
+  %540 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #18
-  br label %988
+  br label %1000
 
-535:                                              ; preds = %458
-  %536 = landingpad { ptr, i32 }
+541:                                              ; preds = %462
+  %542 = landingpad { ptr, i32 }
           catch ptr null
-  br label %546
+  br label %552
 
-537:                                              ; preds = %486, %481, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125
-  %538 = landingpad { ptr, i32 }
-          catch ptr null
-  %539 = load i32, ptr %42, align 8
-  %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %540
-  %542 = load ptr, ptr %541, align 8
-  invoke void %542(ptr noundef nonnull %460)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141 unwind label %543
-
-543:                                              ; preds = %537
+543:                                              ; preds = %492, %487, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab125
   %544 = landingpad { ptr, i32 }
           catch ptr null
-  %545 = extractvalue { ptr, i32 } %544, 0
-  call void @__clang_call_terminate(ptr %545) #16
+  %545 = load i32, ptr %42, align 8
+  %546 = sext i32 %545 to i64
+  %547 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %546
+  %548 = load ptr, ptr %547, align 8
+  invoke void %548(ptr noundef nonnull %464)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141 unwind label %549
+
+549:                                              ; preds = %543
+  %550 = landingpad { ptr, i32 }
+          catch ptr null
+  %551 = extractvalue { ptr, i32 } %550, 0
+  call void @__clang_call_terminate(ptr %551) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141: ; preds = %537
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141: ; preds = %543
   call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %43) #18
-  br label %546
+  br label %552
 
-546:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141, %535
-  %.pn64.i = phi { ptr, i32 } [ %538, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141 ], [ %536, %535 ]
+552:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141, %541
+  %.pn64.i = phi { ptr, i32 } [ %544, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe141 ], [ %542, %541 ]
   %.13.i = extractvalue { ptr, i32 } %.pn64.i, 0
-  %547 = call ptr @__cxa_begin_catch(ptr %.13.i) #18
+  %553 = call ptr @__cxa_begin_catch(ptr %.13.i) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %40)
-          to label %548 unwind label %553
+          to label %554 unwind label %559
 
-548:                                              ; preds = %546
+554:                                              ; preds = %552
   invoke void @__cxa_end_catch()
-          to label %549 unwind label %555
+          to label %555 unwind label %561
 
-549:                                              ; preds = %548, %_ZN4Luau12TypeMismatchD2Ev.exit139.i
-  %550 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %40)
-          to label %551 unwind label %555
+555:                                              ; preds = %554, %_ZN4Luau12TypeMismatchD2Ev.exit139.i
+  %556 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %40)
+          to label %557 unwind label %561
 
-551:                                              ; preds = %549
-  br i1 %550, label %552, label %557
-
-552:                                              ; preds = %551
-  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !377
-  br label %557
-
-553:                                              ; preds = %546
-  %554 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %579 unwind label %989
-
-555:                                              ; preds = %557, %549, %548
-  %556 = landingpad { ptr, i32 }
-          cleanup
-  br label %579
-
-557:                                              ; preds = %552, %551
-  invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %40)
-          to label %558 unwind label %555
+557:                                              ; preds = %555
+  br i1 %556, label %558, label %563
 
 558:                                              ; preds = %557
-  %559 = getelementptr inbounds i8, ptr %40, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %559) #18
-  %560 = getelementptr inbounds i8, ptr %40, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %560) #18
-  %561 = getelementptr inbounds i8, ptr %40, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %561) #18
+  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !377
+  br label %563
+
+559:                                              ; preds = %552
+  %560 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %585 unwind label %1001
+
+561:                                              ; preds = %563, %555, %554
+  %562 = landingpad { ptr, i32 }
+          cleanup
+  br label %585
+
+563:                                              ; preds = %558, %557
+  invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %40)
+          to label %564 unwind label %561
+
+564:                                              ; preds = %563
+  %565 = getelementptr inbounds i8, ptr %40, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %565) #18
+  %566 = getelementptr inbounds i8, ptr %40, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %566) #18
+  %567 = getelementptr inbounds i8, ptr %40, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %567) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
-          to label %562 unwind label %99
+          to label %568 unwind label %99
 
-562:                                              ; preds = %558
+568:                                              ; preds = %564
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 927, ptr noundef nonnull @.str.393, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
-          to label %563 unwind label %580
+          to label %569 unwind label %586
 
-563:                                              ; preds = %562
+569:                                              ; preds = %568
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #18
   store i64 137438953474, ptr %46, align 8
-  %564 = getelementptr inbounds i8, ptr %46, i64 8
-  store i64 141733920770, ptr %564, align 8
-  %565 = load ptr, ptr %13, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 480
+  %570 = getelementptr inbounds i8, ptr %46, i64 8
+  store i64 141733920770, ptr %570, align 8
+  %571 = load ptr, ptr %13, align 8
+  %572 = getelementptr inbounds i8, ptr %571, i64 480
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %567 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %566)
-          to label %.noexc142.i unwind label %582
+  %573 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %572)
+          to label %.noexc142.i unwind label %588
 
-.noexc142.i:                                      ; preds = %563
-  %568 = xor i1 %567, true
-  %569 = getelementptr inbounds i8, ptr %44, i64 40
-  %570 = zext i1 %568 to i8
-  store i8 %570, ptr %569, align 8
-  br i1 %567, label %571, label %576
+.noexc142.i:                                      ; preds = %569
+  %574 = xor i1 %573, true
+  %575 = getelementptr inbounds i8, ptr %44, i64 40
+  %576 = zext i1 %574 to i8
+  store i8 %576, ptr %575, align 8
+  br i1 %573, label %577, label %582
 
-571:                                              ; preds = %.noexc142.i
-  %572 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc143.i unwind label %582
+577:                                              ; preds = %.noexc142.i
+  %578 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc143.i unwind label %588
 
-.noexc143.i:                                      ; preds = %571
-  %573 = getelementptr inbounds i8, ptr %572, i64 108
-  %574 = load i8, ptr %573, align 4
-  %575 = trunc i8 %574 to i1
-  br i1 %575, label %576, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i
+.noexc143.i:                                      ; preds = %577
+  %579 = getelementptr inbounds i8, ptr %578, i64 108
+  %580 = load i8, ptr %579, align 4
+  %581 = trunc i8 %580 to i1
+  br i1 %581, label %582, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i
 
-576:                                              ; preds = %.noexc143.i, %.noexc142.i
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %6, ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %566)
-          to label %.noexc144.i unwind label %582
+582:                                              ; preds = %.noexc143.i, %.noexc142.i
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %6, ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %572)
+          to label %.noexc144.i unwind label %588
 
-.noexc144.i:                                      ; preds = %576
-  %577 = getelementptr inbounds i8, ptr %44, i64 72
-  %578 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %577, ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+.noexc144.i:                                      ; preds = %582
+  %583 = getelementptr inbounds i8, ptr %44, i64 72
+  %584 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %583, ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   br label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i
 
 _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i: ; preds = %.noexc144.i, %.noexc143.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %587
+  br label %593
 
-579:                                              ; preds = %555, %553
-  %.pn65.i = phi { ptr, i32 } [ %556, %555 ], [ %554, %553 ]
+585:                                              ; preds = %561, %559
+  %.pn65.i = phi { ptr, i32 } [ %562, %561 ], [ %560, %559 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %40) #18
-  br label %988
+  br label %1000
 
-580:                                              ; preds = %562
-  %581 = landingpad { ptr, i32 }
+586:                                              ; preds = %568
+  %587 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #18
-  br label %988
+  br label %1000
 
-582:                                              ; preds = %576, %571, %563
-  %583 = landingpad { ptr, i32 }
+588:                                              ; preds = %582, %577, %569
+  %589 = landingpad { ptr, i32 }
           catch ptr null
-  %584 = extractvalue { ptr, i32 } %583, 0
-  %585 = call ptr @__cxa_begin_catch(ptr %584) #18
+  %590 = extractvalue { ptr, i32 } %589, 0
+  %591 = call ptr @__cxa_begin_catch(ptr %590) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
-          to label %586 unwind label %591
+          to label %592 unwind label %597
 
-586:                                              ; preds = %582
+592:                                              ; preds = %588
   invoke void @__cxa_end_catch()
-          to label %587 unwind label %593
+          to label %593 unwind label %599
 
-587:                                              ; preds = %586, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i
-  %588 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
-          to label %589 unwind label %593
+593:                                              ; preds = %592, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit145.i
+  %594 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
+          to label %595 unwind label %599
 
-589:                                              ; preds = %587
-  br i1 %588, label %590, label %595
-
-590:                                              ; preds = %589
-  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !378
-  br label %595
-
-591:                                              ; preds = %582
-  %592 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %675 unwind label %989
-
-593:                                              ; preds = %595, %587, %586
-  %594 = landingpad { ptr, i32 }
-          cleanup
-  br label %675
-
-595:                                              ; preds = %590, %589
-  invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
-          to label %596 unwind label %593
+595:                                              ; preds = %593
+  br i1 %594, label %596, label %601
 
 596:                                              ; preds = %595
-  %597 = getelementptr inbounds i8, ptr %44, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %597) #18
-  %598 = getelementptr inbounds i8, ptr %44, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %598) #18
-  %599 = getelementptr inbounds i8, ptr %44, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %599) #18
-  invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull @.str)
-          to label %600 unwind label %99
+  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !378
+  br label %601
 
-600:                                              ; preds = %596
-  invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %47, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 928, ptr noundef nonnull @.str.394, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %48)
-          to label %601 unwind label %676
+597:                                              ; preds = %588
+  %598 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %683 unwind label %1001
 
-601:                                              ; preds = %600
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #18
-  invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef %73, ptr noundef %75)
-          to label %602 unwind label %678
+599:                                              ; preds = %601, %593, %592
+  %600 = landingpad { ptr, i32 }
+          cleanup
+  br label %683
+
+601:                                              ; preds = %596, %595
+  invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %44)
+          to label %602 unwind label %599
 
 602:                                              ; preds = %601
+  %603 = getelementptr inbounds i8, ptr %44, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %603) #18
+  %604 = getelementptr inbounds i8, ptr %44, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %604) #18
+  %605 = getelementptr inbounds i8, ptr %44, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %605) #18
+  invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull @.str)
+          to label %606 unwind label %99
+
+606:                                              ; preds = %602
+  invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %47, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 928, ptr noundef nonnull @.str.394, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %48)
+          to label %607 unwind label %684
+
+607:                                              ; preds = %606
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #18
+  invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef %73, ptr noundef %75)
+          to label %608 unwind label %686
+
+608:                                              ; preds = %607
   store i32 0, ptr %49, align 8
-  %603 = getelementptr inbounds i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %603, ptr noundef nonnull align 8 dereferenceable(20) %50, i64 20, i1 false)
-  %604 = getelementptr inbounds i8, ptr %49, i64 32
-  %605 = getelementptr inbounds i8, ptr %50, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %604, ptr noundef nonnull align 8 dereferenceable(32) %605) #18
-  %606 = getelementptr inbounds i8, ptr %49, i64 64
-  %607 = getelementptr inbounds i8, ptr %50, i64 56
-  %608 = getelementptr inbounds i8, ptr %50, i64 64
-  %609 = load <2 x ptr>, ptr %607, align 8
-  store ptr null, ptr %608, align 8
-  store <2 x ptr> %609, ptr %606, align 8
-  store ptr null, ptr %607, align 8
-  %610 = load ptr, ptr %13, align 8
-  %611 = getelementptr inbounds i8, ptr %610, i64 528
+  %609 = getelementptr inbounds i8, ptr %49, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %609, ptr noundef nonnull align 8 dereferenceable(20) %50, i64 20, i1 false)
+  %610 = getelementptr inbounds i8, ptr %49, i64 32
+  %611 = getelementptr inbounds i8, ptr %50, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %610, ptr noundef nonnull align 8 dereferenceable(32) %611) #18
+  %612 = getelementptr inbounds i8, ptr %49, i64 64
+  %613 = getelementptr inbounds i8, ptr %50, i64 56
+  %614 = load ptr, ptr %613, align 8
+  store ptr %614, ptr %612, align 8
+  %615 = getelementptr inbounds i8, ptr %49, i64 72
+  %616 = getelementptr inbounds i8, ptr %50, i64 64
+  %617 = load ptr, ptr %616, align 8
+  store ptr null, ptr %616, align 8
+  store ptr %617, ptr %615, align 8
+  store ptr null, ptr %613, align 8
+  %618 = load ptr, ptr %13, align 8
+  %619 = getelementptr inbounds i8, ptr %618, i64 528
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %612 = load i32, ptr %49, align 8
-  %613 = load i32, ptr %611, align 8
-  %614 = icmp eq i32 %612, %613
-  br i1 %614, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147
+  %620 = load i32, ptr %49, align 8
+  %621 = load i32, ptr %619, align 8
+  %622 = icmp eq i32 %620, %621
+  br i1 %622, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147: ; preds = %602
-  %615 = getelementptr inbounds i8, ptr %47, i64 40
-  store i8 1, ptr %615, align 8
-  br label %629
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147: ; preds = %608
+  %623 = getelementptr inbounds i8, ptr %47, i64 40
+  store i8 1, ptr %623, align 8
+  br label %637
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149: ; preds = %602
-  %616 = sext i32 %612 to i64
-  %617 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %616
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %610, i64 536
-  %620 = invoke noundef zeroext i1 %618(ptr noundef nonnull %603, ptr noundef nonnull %619)
-          to label %.noexc150.i unwind label %680
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149: ; preds = %608
+  %624 = sext i32 %620 to i64
+  %625 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %624
+  %626 = load ptr, ptr %625, align 8
+  %627 = getelementptr inbounds i8, ptr %618, i64 536
+  %628 = invoke noundef zeroext i1 %626(ptr noundef nonnull %609, ptr noundef nonnull %627)
+          to label %.noexc150.i unwind label %688
 
 .noexc150.i:                                      ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149
-  %621 = xor i1 %620, true
-  %622 = getelementptr inbounds i8, ptr %47, i64 40
-  %623 = zext i1 %621 to i8
-  store i8 %623, ptr %622, align 8
-  br i1 %620, label %624, label %629
+  %629 = xor i1 %628, true
+  %630 = getelementptr inbounds i8, ptr %47, i64 40
+  %631 = zext i1 %629 to i8
+  store i8 %631, ptr %630, align 8
+  br i1 %628, label %632, label %637
 
-624:                                              ; preds = %.noexc150.i
-  %625 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc151.i unwind label %680
+632:                                              ; preds = %.noexc150.i
+  %633 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc151.i unwind label %688
 
-.noexc151.i:                                      ; preds = %624
-  %626 = getelementptr inbounds i8, ptr %625, i64 108
-  %627 = load i8, ptr %626, align 4
-  %628 = trunc i8 %627 to i1
-  br i1 %628, label %629, label %632
+.noexc151.i:                                      ; preds = %632
+  %634 = getelementptr inbounds i8, ptr %633, i64 108
+  %635 = load i8, ptr %634, align 4
+  %636 = trunc i8 %635 to i1
+  br i1 %636, label %637, label %640
 
-629:                                              ; preds = %.noexc151.i, %.noexc150.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %5, ptr noundef nonnull align 8 dereferenceable(112) %49, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %611)
-          to label %.noexc152.i unwind label %680
+637:                                              ; preds = %.noexc151.i, %.noexc150.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab147
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %5, ptr noundef nonnull align 8 dereferenceable(112) %49, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %619)
+          to label %.noexc152.i unwind label %688
 
-.noexc152.i:                                      ; preds = %629
-  %630 = getelementptr inbounds i8, ptr %47, i64 72
-  %631 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %630, ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+.noexc152.i:                                      ; preds = %637
+  %638 = getelementptr inbounds i8, ptr %47, i64 72
+  %639 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %638, ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  br label %632
+  br label %640
 
-632:                                              ; preds = %.noexc152.i, %.noexc151.i
+640:                                              ; preds = %.noexc152.i, %.noexc151.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %633 = load i32, ptr %49, align 8
-  %634 = sext i32 %633 to i64
-  %635 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %634
-  %636 = load ptr, ptr %635, align 8
-  invoke void %636(ptr noundef nonnull %603)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156 unwind label %637
+  %641 = load i32, ptr %49, align 8
+  %642 = sext i32 %641 to i64
+  %643 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %642
+  %644 = load ptr, ptr %643, align 8
+  invoke void %644(ptr noundef nonnull %609)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156 unwind label %645
 
-637:                                              ; preds = %632
-  %638 = landingpad { ptr, i32 }
+645:                                              ; preds = %640
+  %646 = landingpad { ptr, i32 }
           catch ptr null
-  %639 = extractvalue { ptr, i32 } %638, 0
-  call void @__clang_call_terminate(ptr %639) #16
+  %647 = extractvalue { ptr, i32 } %646, 0
+  call void @__clang_call_terminate(ptr %647) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156: ; preds = %632
-  %640 = load ptr, ptr %608, align 8
-  %.not.i.i.i.i157.i = icmp eq ptr %640, null
-  br i1 %.not.i.i.i.i157.i, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i, label %641
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156: ; preds = %640
+  %648 = load ptr, ptr %616, align 8
+  %.not.i.i.i.i157.i = icmp eq ptr %648, null
+  br i1 %.not.i.i.i.i157.i, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i, label %649
 
-641:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156
-  %642 = getelementptr inbounds i8, ptr %640, i64 8
-  %643 = load atomic i64, ptr %642 acquire, align 8
-  %644 = icmp eq i64 %643, 4294967297
-  %645 = trunc i64 %643 to i32
-  br i1 %644, label %646, label %651
+649:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156
+  %650 = getelementptr inbounds i8, ptr %648, i64 8
+  %651 = load atomic i64, ptr %650 acquire, align 8
+  %652 = icmp eq i64 %651, 4294967297
+  %653 = trunc i64 %651 to i32
+  br i1 %652, label %654, label %659
 
-646:                                              ; preds = %641
-  store i32 0, ptr %642, align 8
-  %647 = getelementptr inbounds i8, ptr %640, i64 12
-  store i32 0, ptr %647, align 4
-  %648 = load ptr, ptr %640, align 8
-  %649 = getelementptr inbounds i8, ptr %648, i64 16
-  %650 = load ptr, ptr %649, align 8
-  call void %650(ptr noundef nonnull align 8 dereferenceable(16) %640) #18
+654:                                              ; preds = %649
+  store i32 0, ptr %650, align 8
+  %655 = getelementptr inbounds i8, ptr %648, i64 12
+  store i32 0, ptr %655, align 4
+  %656 = load ptr, ptr %648, align 8
+  %657 = getelementptr inbounds i8, ptr %656, i64 16
+  %658 = load ptr, ptr %657, align 8
+  call void %658(ptr noundef nonnull align 8 dereferenceable(16) %648) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i
 
-651:                                              ; preds = %641
-  %652 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i158.i = icmp eq i8 %652, 0
-  br i1 %.not.i.i.i.i.i158.i, label %655, label %653
+659:                                              ; preds = %649
+  %660 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i158.i = icmp eq i8 %660, 0
+  br i1 %.not.i.i.i.i.i158.i, label %663, label %661
 
-653:                                              ; preds = %651
-  %654 = add nsw i32 %645, -1
-  store i32 %654, ptr %642, align 4
-  br label %657
+661:                                              ; preds = %659
+  %662 = add nsw i32 %653, -1
+  store i32 %662, ptr %650, align 4
+  br label %665
 
-655:                                              ; preds = %651
-  %656 = atomicrmw volatile add ptr %642, i32 -1 acq_rel, align 4
-  br label %657
+663:                                              ; preds = %659
+  %664 = atomicrmw volatile add ptr %650, i32 -1 acq_rel, align 4
+  br label %665
 
-657:                                              ; preds = %655, %653
-  %.0.i.i.i.i.i159.i = phi i32 [ %645, %653 ], [ %656, %655 ]
-  %658 = icmp eq i32 %.0.i.i.i.i.i159.i, 1
-  br i1 %658, label %659, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i
+665:                                              ; preds = %663, %661
+  %.0.i.i.i.i.i159.i = phi i32 [ %653, %661 ], [ %664, %663 ]
+  %666 = icmp eq i32 %.0.i.i.i.i.i159.i, 1
+  br i1 %666, label %667, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i
 
-659:                                              ; preds = %657
-  %660 = load ptr, ptr %640, align 8
-  %661 = getelementptr inbounds i8, ptr %660, i64 16
-  %662 = load ptr, ptr %661, align 8
-  call void %662(ptr noundef nonnull align 8 dereferenceable(16) %640) #18
-  %663 = getelementptr inbounds i8, ptr %640, i64 12
-  %664 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i160.i = icmp eq i8 %664, 0
-  br i1 %.not.i.i.i.i.i.i.i160.i, label %668, label %665
+667:                                              ; preds = %665
+  %668 = load ptr, ptr %648, align 8
+  %669 = getelementptr inbounds i8, ptr %668, i64 16
+  %670 = load ptr, ptr %669, align 8
+  call void %670(ptr noundef nonnull align 8 dereferenceable(16) %648) #18
+  %671 = getelementptr inbounds i8, ptr %648, i64 12
+  %672 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i160.i = icmp eq i8 %672, 0
+  br i1 %.not.i.i.i.i.i.i.i160.i, label %676, label %673
 
-665:                                              ; preds = %659
-  %666 = load i32, ptr %663, align 4
-  %667 = add nsw i32 %666, -1
-  store i32 %667, ptr %663, align 4
-  br label %670
+673:                                              ; preds = %667
+  %674 = load i32, ptr %671, align 4
+  %675 = add nsw i32 %674, -1
+  store i32 %675, ptr %671, align 4
+  br label %678
 
-668:                                              ; preds = %659
-  %669 = atomicrmw volatile add ptr %663, i32 -1 acq_rel, align 4
-  br label %670
+676:                                              ; preds = %667
+  %677 = atomicrmw volatile add ptr %671, i32 -1 acq_rel, align 4
+  br label %678
 
-670:                                              ; preds = %668, %665
-  %.0.i.i.i.i.i.i.i161.i = phi i32 [ %666, %665 ], [ %669, %668 ]
-  %671 = icmp eq i32 %.0.i.i.i.i.i.i.i161.i, 1
-  br i1 %671, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i
+678:                                              ; preds = %676, %673
+  %.0.i.i.i.i.i.i.i161.i = phi i32 [ %674, %673 ], [ %677, %676 ]
+  %679 = icmp eq i32 %.0.i.i.i.i.i.i.i161.i, 1
+  br i1 %679, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i, label %_ZN4Luau12TypeMismatchD2Ev.exit163.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i: ; preds = %670, %646
-  %672 = load ptr, ptr %640, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 24
-  %674 = load ptr, ptr %673, align 8
-  call void %674(ptr noundef nonnull align 8 dereferenceable(16) %640) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i: ; preds = %678, %654
+  %680 = load ptr, ptr %648, align 8
+  %681 = getelementptr inbounds i8, ptr %680, i64 24
+  %682 = load ptr, ptr %681, align 8
+  call void %682(ptr noundef nonnull align 8 dereferenceable(16) %648) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit163.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit163.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i, %670, %657, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %605) #18
-  br label %692
-
-675:                                              ; preds = %593, %591
-  %.pn67.i = phi { ptr, i32 } [ %594, %593 ], [ %592, %591 ]
-  call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %44) #18
-  br label %988
-
-676:                                              ; preds = %600
-  %677 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #18
-  br label %988
-
-678:                                              ; preds = %601
-  %679 = landingpad { ptr, i32 }
-          catch ptr null
-  br label %689
-
-680:                                              ; preds = %629, %624, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149
-  %681 = landingpad { ptr, i32 }
-          catch ptr null
-  %682 = load i32, ptr %49, align 8
-  %683 = sext i32 %682 to i64
-  %684 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %683
-  %685 = load ptr, ptr %684, align 8
-  invoke void %685(ptr noundef nonnull %603)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165 unwind label %686
-
-686:                                              ; preds = %680
-  %687 = landingpad { ptr, i32 }
-          catch ptr null
-  %688 = extractvalue { ptr, i32 } %687, 0
-  call void @__clang_call_terminate(ptr %688) #16
-  unreachable
-
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165: ; preds = %680
-  call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %50) #18
-  br label %689
-
-689:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165, %678
-  %.pn69.i = phi { ptr, i32 } [ %681, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165 ], [ %679, %678 ]
-  %.16.i = extractvalue { ptr, i32 } %.pn69.i, 0
-  %690 = call ptr @__cxa_begin_catch(ptr %.16.i) #18
-  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %47)
-          to label %691 unwind label %696
-
-691:                                              ; preds = %689
-  invoke void @__cxa_end_catch()
-          to label %692 unwind label %698
-
-692:                                              ; preds = %691, %_ZN4Luau12TypeMismatchD2Ev.exit163.i
-  %693 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %47)
-          to label %694 unwind label %698
-
-694:                                              ; preds = %692
-  br i1 %693, label %695, label %700
-
-695:                                              ; preds = %694
-  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !379
+_ZN4Luau12TypeMismatchD2Ev.exit163.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i162.i, %678, %665, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe156
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %611) #18
   br label %700
 
-696:                                              ; preds = %689
-  %697 = landingpad { ptr, i32 }
+683:                                              ; preds = %599, %597
+  %.pn67.i = phi { ptr, i32 } [ %600, %599 ], [ %598, %597 ]
+  call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %44) #18
+  br label %1000
+
+684:                                              ; preds = %606
+  %685 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #18
+  br label %1000
+
+686:                                              ; preds = %607
+  %687 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %697
+
+688:                                              ; preds = %637, %632, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab149
+  %689 = landingpad { ptr, i32 }
+          catch ptr null
+  %690 = load i32, ptr %49, align 8
+  %691 = sext i32 %690 to i64
+  %692 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %691
+  %693 = load ptr, ptr %692, align 8
+  invoke void %693(ptr noundef nonnull %609)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165 unwind label %694
+
+694:                                              ; preds = %688
+  %695 = landingpad { ptr, i32 }
+          catch ptr null
+  %696 = extractvalue { ptr, i32 } %695, 0
+  call void @__clang_call_terminate(ptr %696) #16
+  unreachable
+
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165: ; preds = %688
+  call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %50) #18
+  br label %697
+
+697:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165, %686
+  %.pn69.i = phi { ptr, i32 } [ %689, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe165 ], [ %687, %686 ]
+  %.16.i = extractvalue { ptr, i32 } %.pn69.i, 0
+  %698 = call ptr @__cxa_begin_catch(ptr %.16.i) #18
+  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %47)
+          to label %699 unwind label %704
+
+699:                                              ; preds = %697
+  invoke void @__cxa_end_catch()
+          to label %700 unwind label %706
+
+700:                                              ; preds = %699, %_ZN4Luau12TypeMismatchD2Ev.exit163.i
+  %701 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %47)
+          to label %702 unwind label %706
+
+702:                                              ; preds = %700
+  br i1 %701, label %703, label %708
+
+703:                                              ; preds = %702
+  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !379
+  br label %708
+
+704:                                              ; preds = %697
+  %705 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %722 unwind label %989
+          to label %730 unwind label %1001
 
-698:                                              ; preds = %700, %692, %691
-  %699 = landingpad { ptr, i32 }
+706:                                              ; preds = %708, %700, %699
+  %707 = landingpad { ptr, i32 }
           cleanup
-  br label %722
+  br label %730
 
-700:                                              ; preds = %695, %694
+708:                                              ; preds = %703, %702
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %47)
-          to label %701 unwind label %698
+          to label %709 unwind label %706
 
-701:                                              ; preds = %700
-  %702 = getelementptr inbounds i8, ptr %47, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %702) #18
-  %703 = getelementptr inbounds i8, ptr %47, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %703) #18
-  %704 = getelementptr inbounds i8, ptr %47, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %704) #18
+709:                                              ; preds = %708
+  %710 = getelementptr inbounds i8, ptr %47, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %710) #18
+  %711 = getelementptr inbounds i8, ptr %47, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %711) #18
+  %712 = getelementptr inbounds i8, ptr %47, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %712) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
-          to label %705 unwind label %99
+          to label %713 unwind label %99
 
-705:                                              ; preds = %701
+713:                                              ; preds = %709
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 930, ptr noundef nonnull @.str.395, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
-          to label %706 unwind label %723
+          to label %714 unwind label %731
 
-706:                                              ; preds = %705
+714:                                              ; preds = %713
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #18
   store i64 150323855362, ptr %53, align 8
-  %707 = getelementptr inbounds i8, ptr %53, i64 8
-  store i64 180388626434, ptr %707, align 8
-  %708 = load ptr, ptr %13, align 8
-  %709 = getelementptr inbounds i8, ptr %708, i64 640
+  %715 = getelementptr inbounds i8, ptr %53, i64 8
+  store i64 180388626434, ptr %715, align 8
+  %716 = load ptr, ptr %13, align 8
+  %717 = getelementptr inbounds i8, ptr %716, i64 640
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %710 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %709)
-          to label %.noexc166.i unwind label %725
+  %718 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %717)
+          to label %.noexc166.i unwind label %733
 
-.noexc166.i:                                      ; preds = %706
-  %711 = xor i1 %710, true
-  %712 = getelementptr inbounds i8, ptr %51, i64 40
-  %713 = zext i1 %711 to i8
-  store i8 %713, ptr %712, align 8
-  br i1 %710, label %714, label %719
+.noexc166.i:                                      ; preds = %714
+  %719 = xor i1 %718, true
+  %720 = getelementptr inbounds i8, ptr %51, i64 40
+  %721 = zext i1 %719 to i8
+  store i8 %721, ptr %720, align 8
+  br i1 %718, label %722, label %727
 
-714:                                              ; preds = %.noexc166.i
-  %715 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc167.i unwind label %725
+722:                                              ; preds = %.noexc166.i
+  %723 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc167.i unwind label %733
 
-.noexc167.i:                                      ; preds = %714
-  %716 = getelementptr inbounds i8, ptr %715, i64 108
-  %717 = load i8, ptr %716, align 4
-  %718 = trunc i8 %717 to i1
-  br i1 %718, label %719, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i
+.noexc167.i:                                      ; preds = %722
+  %724 = getelementptr inbounds i8, ptr %723, i64 108
+  %725 = load i8, ptr %724, align 4
+  %726 = trunc i8 %725 to i1
+  br i1 %726, label %727, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i
 
-719:                                              ; preds = %.noexc167.i, %.noexc166.i
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %709)
-          to label %.noexc168.i unwind label %725
+727:                                              ; preds = %.noexc167.i, %.noexc166.i
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %717)
+          to label %.noexc168.i unwind label %733
 
-.noexc168.i:                                      ; preds = %719
-  %720 = getelementptr inbounds i8, ptr %51, i64 72
-  %721 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %720, ptr noundef nonnull align 8 dereferenceable(24) %4) #18
+.noexc168.i:                                      ; preds = %727
+  %728 = getelementptr inbounds i8, ptr %51, i64 72
+  %729 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %728, ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   br label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i
 
 _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i: ; preds = %.noexc168.i, %.noexc167.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %730
-
-722:                                              ; preds = %698, %696
-  %.pn70.i = phi { ptr, i32 } [ %699, %698 ], [ %697, %696 ]
-  call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %47) #18
-  br label %988
-
-723:                                              ; preds = %705
-  %724 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #18
-  br label %988
-
-725:                                              ; preds = %719, %714, %706
-  %726 = landingpad { ptr, i32 }
-          catch ptr null
-  %727 = extractvalue { ptr, i32 } %726, 0
-  %728 = call ptr @__cxa_begin_catch(ptr %727) #18
-  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
-          to label %729 unwind label %734
-
-729:                                              ; preds = %725
-  invoke void @__cxa_end_catch()
-          to label %730 unwind label %736
-
-730:                                              ; preds = %729, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i
-  %731 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
-          to label %732 unwind label %736
-
-732:                                              ; preds = %730
-  br i1 %731, label %733, label %738
-
-733:                                              ; preds = %732
-  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !380
   br label %738
 
-734:                                              ; preds = %725
-  %735 = landingpad { ptr, i32 }
+730:                                              ; preds = %706, %704
+  %.pn70.i = phi { ptr, i32 } [ %707, %706 ], [ %705, %704 ]
+  call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %47) #18
+  br label %1000
+
+731:                                              ; preds = %713
+  %732 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #18
+  br label %1000
+
+733:                                              ; preds = %727, %722, %714
+  %734 = landingpad { ptr, i32 }
+          catch ptr null
+  %735 = extractvalue { ptr, i32 } %734, 0
+  %736 = call ptr @__cxa_begin_catch(ptr %735) #18
+  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
+          to label %737 unwind label %742
+
+737:                                              ; preds = %733
+  invoke void @__cxa_end_catch()
+          to label %738 unwind label %744
+
+738:                                              ; preds = %737, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit169.i
+  %739 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
+          to label %740 unwind label %744
+
+740:                                              ; preds = %738
+  br i1 %739, label %741, label %746
+
+741:                                              ; preds = %740
+  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !380
+  br label %746
+
+742:                                              ; preds = %733
+  %743 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %818 unwind label %989
+          to label %828 unwind label %1001
 
-736:                                              ; preds = %738, %730, %729
-  %737 = landingpad { ptr, i32 }
+744:                                              ; preds = %746, %738, %737
+  %745 = landingpad { ptr, i32 }
           cleanup
-  br label %818
+  br label %828
 
-738:                                              ; preds = %733, %732
+746:                                              ; preds = %741, %740
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
-          to label %739 unwind label %736
+          to label %747 unwind label %744
 
-739:                                              ; preds = %738
-  %740 = getelementptr inbounds i8, ptr %51, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %740) #18
-  %741 = getelementptr inbounds i8, ptr %51, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %741) #18
-  %742 = getelementptr inbounds i8, ptr %51, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %742) #18
+747:                                              ; preds = %746
+  %748 = getelementptr inbounds i8, ptr %51, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %748) #18
+  %749 = getelementptr inbounds i8, ptr %51, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %749) #18
+  %750 = getelementptr inbounds i8, ptr %51, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %750) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull @.str)
-          to label %743 unwind label %99
+          to label %751 unwind label %99
 
-743:                                              ; preds = %739
+751:                                              ; preds = %747
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %54, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 931, ptr noundef nonnull @.str.396, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %55)
-          to label %744 unwind label %819
+          to label %752 unwind label %829
 
-744:                                              ; preds = %743
+752:                                              ; preds = %751
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #18
   invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %57, ptr noundef %75, ptr noundef %73)
-          to label %745 unwind label %821
+          to label %753 unwind label %831
 
-745:                                              ; preds = %744
+753:                                              ; preds = %752
   store i32 0, ptr %56, align 8
-  %746 = getelementptr inbounds i8, ptr %56, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %746, ptr noundef nonnull align 8 dereferenceable(20) %57, i64 20, i1 false)
-  %747 = getelementptr inbounds i8, ptr %56, i64 32
-  %748 = getelementptr inbounds i8, ptr %57, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %747, ptr noundef nonnull align 8 dereferenceable(32) %748) #18
-  %749 = getelementptr inbounds i8, ptr %56, i64 64
-  %750 = getelementptr inbounds i8, ptr %57, i64 56
-  %751 = getelementptr inbounds i8, ptr %57, i64 64
-  %752 = load <2 x ptr>, ptr %750, align 8
-  store ptr null, ptr %751, align 8
-  store <2 x ptr> %752, ptr %749, align 8
-  store ptr null, ptr %750, align 8
-  %753 = load ptr, ptr %13, align 8
-  %754 = getelementptr inbounds i8, ptr %753, i64 688
+  %754 = getelementptr inbounds i8, ptr %56, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %754, ptr noundef nonnull align 8 dereferenceable(20) %57, i64 20, i1 false)
+  %755 = getelementptr inbounds i8, ptr %56, i64 32
+  %756 = getelementptr inbounds i8, ptr %57, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %755, ptr noundef nonnull align 8 dereferenceable(32) %756) #18
+  %757 = getelementptr inbounds i8, ptr %56, i64 64
+  %758 = getelementptr inbounds i8, ptr %57, i64 56
+  %759 = load ptr, ptr %758, align 8
+  store ptr %759, ptr %757, align 8
+  %760 = getelementptr inbounds i8, ptr %56, i64 72
+  %761 = getelementptr inbounds i8, ptr %57, i64 64
+  %762 = load ptr, ptr %761, align 8
+  store ptr null, ptr %761, align 8
+  store ptr %762, ptr %760, align 8
+  store ptr null, ptr %758, align 8
+  %763 = load ptr, ptr %13, align 8
+  %764 = getelementptr inbounds i8, ptr %763, i64 688
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %755 = load i32, ptr %56, align 8
-  %756 = load i32, ptr %754, align 8
-  %757 = icmp eq i32 %755, %756
-  br i1 %757, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171
+  %765 = load i32, ptr %56, align 8
+  %766 = load i32, ptr %764, align 8
+  %767 = icmp eq i32 %765, %766
+  br i1 %767, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171: ; preds = %745
-  %758 = getelementptr inbounds i8, ptr %54, i64 40
-  store i8 1, ptr %758, align 8
-  br label %772
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171: ; preds = %753
+  %768 = getelementptr inbounds i8, ptr %54, i64 40
+  store i8 1, ptr %768, align 8
+  br label %782
 
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173: ; preds = %745
-  %759 = sext i32 %755 to i64
-  %760 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %759
-  %761 = load ptr, ptr %760, align 8
-  %762 = getelementptr inbounds i8, ptr %753, i64 696
-  %763 = invoke noundef zeroext i1 %761(ptr noundef nonnull %746, ptr noundef nonnull %762)
-          to label %.noexc174.i unwind label %823
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173: ; preds = %753
+  %769 = sext i32 %765 to i64
+  %770 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %769
+  %771 = load ptr, ptr %770, align 8
+  %772 = getelementptr inbounds i8, ptr %763, i64 696
+  %773 = invoke noundef zeroext i1 %771(ptr noundef nonnull %754, ptr noundef nonnull %772)
+          to label %.noexc174.i unwind label %833
 
 .noexc174.i:                                      ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173
-  %764 = xor i1 %763, true
-  %765 = getelementptr inbounds i8, ptr %54, i64 40
-  %766 = zext i1 %764 to i8
-  store i8 %766, ptr %765, align 8
-  br i1 %763, label %767, label %772
+  %774 = xor i1 %773, true
+  %775 = getelementptr inbounds i8, ptr %54, i64 40
+  %776 = zext i1 %774 to i8
+  store i8 %776, ptr %775, align 8
+  br i1 %773, label %777, label %782
 
-767:                                              ; preds = %.noexc174.i
-  %768 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc175.i unwind label %823
+777:                                              ; preds = %.noexc174.i
+  %778 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc175.i unwind label %833
 
-.noexc175.i:                                      ; preds = %767
-  %769 = getelementptr inbounds i8, ptr %768, i64 108
-  %770 = load i8, ptr %769, align 4
-  %771 = trunc i8 %770 to i1
-  br i1 %771, label %772, label %775
+.noexc175.i:                                      ; preds = %777
+  %779 = getelementptr inbounds i8, ptr %778, i64 108
+  %780 = load i8, ptr %779, align 4
+  %781 = trunc i8 %780 to i1
+  br i1 %781, label %782, label %785
 
-772:                                              ; preds = %.noexc175.i, %.noexc174.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %56, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %754)
-          to label %.noexc176.i unwind label %823
+782:                                              ; preds = %.noexc175.i, %.noexc174.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab171
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %3, ptr noundef nonnull align 8 dereferenceable(112) %56, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %764)
+          to label %.noexc176.i unwind label %833
 
-.noexc176.i:                                      ; preds = %772
-  %773 = getelementptr inbounds i8, ptr %54, i64 72
-  %774 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %773, ptr noundef nonnull align 8 dereferenceable(24) %3) #18
+.noexc176.i:                                      ; preds = %782
+  %783 = getelementptr inbounds i8, ptr %54, i64 72
+  %784 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
-  br label %775
+  br label %785
 
-775:                                              ; preds = %.noexc176.i, %.noexc175.i
+785:                                              ; preds = %.noexc176.i, %.noexc175.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %776 = load i32, ptr %56, align 8
-  %777 = sext i32 %776 to i64
-  %778 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %777
-  %779 = load ptr, ptr %778, align 8
-  invoke void %779(ptr noundef nonnull %746)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180 unwind label %780
+  %786 = load i32, ptr %56, align 8
+  %787 = sext i32 %786 to i64
+  %788 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %787
+  %789 = load ptr, ptr %788, align 8
+  invoke void %789(ptr noundef nonnull %754)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180 unwind label %790
 
-780:                                              ; preds = %775
-  %781 = landingpad { ptr, i32 }
+790:                                              ; preds = %785
+  %791 = landingpad { ptr, i32 }
           catch ptr null
-  %782 = extractvalue { ptr, i32 } %781, 0
-  call void @__clang_call_terminate(ptr %782) #16
+  %792 = extractvalue { ptr, i32 } %791, 0
+  call void @__clang_call_terminate(ptr %792) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180: ; preds = %775
-  %783 = load ptr, ptr %751, align 8
-  %.not.i.i.i.i181.i = icmp eq ptr %783, null
-  br i1 %.not.i.i.i.i181.i, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i, label %784
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180: ; preds = %785
+  %793 = load ptr, ptr %761, align 8
+  %.not.i.i.i.i181.i = icmp eq ptr %793, null
+  br i1 %.not.i.i.i.i181.i, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i, label %794
 
-784:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180
-  %785 = getelementptr inbounds i8, ptr %783, i64 8
-  %786 = load atomic i64, ptr %785 acquire, align 8
-  %787 = icmp eq i64 %786, 4294967297
-  %788 = trunc i64 %786 to i32
-  br i1 %787, label %789, label %794
+794:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180
+  %795 = getelementptr inbounds i8, ptr %793, i64 8
+  %796 = load atomic i64, ptr %795 acquire, align 8
+  %797 = icmp eq i64 %796, 4294967297
+  %798 = trunc i64 %796 to i32
+  br i1 %797, label %799, label %804
 
-789:                                              ; preds = %784
-  store i32 0, ptr %785, align 8
-  %790 = getelementptr inbounds i8, ptr %783, i64 12
-  store i32 0, ptr %790, align 4
-  %791 = load ptr, ptr %783, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 16
-  %793 = load ptr, ptr %792, align 8
-  call void %793(ptr noundef nonnull align 8 dereferenceable(16) %783) #18
+799:                                              ; preds = %794
+  store i32 0, ptr %795, align 8
+  %800 = getelementptr inbounds i8, ptr %793, i64 12
+  store i32 0, ptr %800, align 4
+  %801 = load ptr, ptr %793, align 8
+  %802 = getelementptr inbounds i8, ptr %801, i64 16
+  %803 = load ptr, ptr %802, align 8
+  call void %803(ptr noundef nonnull align 8 dereferenceable(16) %793) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i
 
-794:                                              ; preds = %784
-  %795 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i182.i = icmp eq i8 %795, 0
-  br i1 %.not.i.i.i.i.i182.i, label %798, label %796
+804:                                              ; preds = %794
+  %805 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i182.i = icmp eq i8 %805, 0
+  br i1 %.not.i.i.i.i.i182.i, label %808, label %806
 
-796:                                              ; preds = %794
-  %797 = add nsw i32 %788, -1
-  store i32 %797, ptr %785, align 4
-  br label %800
+806:                                              ; preds = %804
+  %807 = add nsw i32 %798, -1
+  store i32 %807, ptr %795, align 4
+  br label %810
 
-798:                                              ; preds = %794
-  %799 = atomicrmw volatile add ptr %785, i32 -1 acq_rel, align 4
-  br label %800
+808:                                              ; preds = %804
+  %809 = atomicrmw volatile add ptr %795, i32 -1 acq_rel, align 4
+  br label %810
 
-800:                                              ; preds = %798, %796
-  %.0.i.i.i.i.i183.i = phi i32 [ %788, %796 ], [ %799, %798 ]
-  %801 = icmp eq i32 %.0.i.i.i.i.i183.i, 1
-  br i1 %801, label %802, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i
+810:                                              ; preds = %808, %806
+  %.0.i.i.i.i.i183.i = phi i32 [ %798, %806 ], [ %809, %808 ]
+  %811 = icmp eq i32 %.0.i.i.i.i.i183.i, 1
+  br i1 %811, label %812, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i
 
-802:                                              ; preds = %800
-  %803 = load ptr, ptr %783, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 16
-  %805 = load ptr, ptr %804, align 8
-  call void %805(ptr noundef nonnull align 8 dereferenceable(16) %783) #18
-  %806 = getelementptr inbounds i8, ptr %783, i64 12
-  %807 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i184.i = icmp eq i8 %807, 0
-  br i1 %.not.i.i.i.i.i.i.i184.i, label %811, label %808
+812:                                              ; preds = %810
+  %813 = load ptr, ptr %793, align 8
+  %814 = getelementptr inbounds i8, ptr %813, i64 16
+  %815 = load ptr, ptr %814, align 8
+  call void %815(ptr noundef nonnull align 8 dereferenceable(16) %793) #18
+  %816 = getelementptr inbounds i8, ptr %793, i64 12
+  %817 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i184.i = icmp eq i8 %817, 0
+  br i1 %.not.i.i.i.i.i.i.i184.i, label %821, label %818
 
-808:                                              ; preds = %802
-  %809 = load i32, ptr %806, align 4
-  %810 = add nsw i32 %809, -1
-  store i32 %810, ptr %806, align 4
-  br label %813
+818:                                              ; preds = %812
+  %819 = load i32, ptr %816, align 4
+  %820 = add nsw i32 %819, -1
+  store i32 %820, ptr %816, align 4
+  br label %823
 
-811:                                              ; preds = %802
-  %812 = atomicrmw volatile add ptr %806, i32 -1 acq_rel, align 4
-  br label %813
+821:                                              ; preds = %812
+  %822 = atomicrmw volatile add ptr %816, i32 -1 acq_rel, align 4
+  br label %823
 
-813:                                              ; preds = %811, %808
-  %.0.i.i.i.i.i.i.i185.i = phi i32 [ %809, %808 ], [ %812, %811 ]
-  %814 = icmp eq i32 %.0.i.i.i.i.i.i.i185.i, 1
-  br i1 %814, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i
+823:                                              ; preds = %821, %818
+  %.0.i.i.i.i.i.i.i185.i = phi i32 [ %819, %818 ], [ %822, %821 ]
+  %824 = icmp eq i32 %.0.i.i.i.i.i.i.i185.i, 1
+  br i1 %824, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i, label %_ZN4Luau12TypeMismatchD2Ev.exit187.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i: ; preds = %813, %789
-  %815 = load ptr, ptr %783, align 8
-  %816 = getelementptr inbounds i8, ptr %815, i64 24
-  %817 = load ptr, ptr %816, align 8
-  call void %817(ptr noundef nonnull align 8 dereferenceable(16) %783) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i: ; preds = %823, %799
+  %825 = load ptr, ptr %793, align 8
+  %826 = getelementptr inbounds i8, ptr %825, i64 24
+  %827 = load ptr, ptr %826, align 8
+  call void %827(ptr noundef nonnull align 8 dereferenceable(16) %793) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit187.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit187.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i, %813, %800, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %748) #18
-  br label %835
+_ZN4Luau12TypeMismatchD2Ev.exit187.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i186.i, %823, %810, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe180
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %756) #18
+  br label %845
 
-818:                                              ; preds = %736, %734
-  %.pn72.i = phi { ptr, i32 } [ %737, %736 ], [ %735, %734 ]
+828:                                              ; preds = %744, %742
+  %.pn72.i = phi { ptr, i32 } [ %745, %744 ], [ %743, %742 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %51) #18
-  br label %988
+  br label %1000
 
-819:                                              ; preds = %743
-  %820 = landingpad { ptr, i32 }
+829:                                              ; preds = %751
+  %830 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #18
-  br label %988
+  br label %1000
 
-821:                                              ; preds = %744
-  %822 = landingpad { ptr, i32 }
+831:                                              ; preds = %752
+  %832 = landingpad { ptr, i32 }
           catch ptr null
-  br label %832
+  br label %842
 
-823:                                              ; preds = %772, %767, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173
-  %824 = landingpad { ptr, i32 }
+833:                                              ; preds = %782, %777, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab173
+  %834 = landingpad { ptr, i32 }
           catch ptr null
-  %825 = load i32, ptr %56, align 8
-  %826 = sext i32 %825 to i64
-  %827 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %826
-  %828 = load ptr, ptr %827, align 8
-  invoke void %828(ptr noundef nonnull %746)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189 unwind label %829
+  %835 = load i32, ptr %56, align 8
+  %836 = sext i32 %835 to i64
+  %837 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %836
+  %838 = load ptr, ptr %837, align 8
+  invoke void %838(ptr noundef nonnull %754)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189 unwind label %839
 
-829:                                              ; preds = %823
-  %830 = landingpad { ptr, i32 }
+839:                                              ; preds = %833
+  %840 = landingpad { ptr, i32 }
           catch ptr null
-  %831 = extractvalue { ptr, i32 } %830, 0
-  call void @__clang_call_terminate(ptr %831) #16
+  %841 = extractvalue { ptr, i32 } %840, 0
+  call void @__clang_call_terminate(ptr %841) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189: ; preds = %823
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189: ; preds = %833
   call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %57) #18
-  br label %832
+  br label %842
 
-832:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189, %821
-  %.pn74.i = phi { ptr, i32 } [ %824, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189 ], [ %822, %821 ]
+842:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189, %831
+  %.pn74.i = phi { ptr, i32 } [ %834, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe189 ], [ %832, %831 ]
   %.19.i = extractvalue { ptr, i32 } %.pn74.i, 0
-  %833 = call ptr @__cxa_begin_catch(ptr %.19.i) #18
+  %843 = call ptr @__cxa_begin_catch(ptr %.19.i) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %54)
-          to label %834 unwind label %839
+          to label %844 unwind label %849
 
-834:                                              ; preds = %832
+844:                                              ; preds = %842
   invoke void @__cxa_end_catch()
-          to label %835 unwind label %841
+          to label %845 unwind label %851
 
-835:                                              ; preds = %834, %_ZN4Luau12TypeMismatchD2Ev.exit187.i
-  %836 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %54)
-          to label %837 unwind label %841
+845:                                              ; preds = %844, %_ZN4Luau12TypeMismatchD2Ev.exit187.i
+  %846 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %54)
+          to label %847 unwind label %851
 
-837:                                              ; preds = %835
-  br i1 %836, label %838, label %843
+847:                                              ; preds = %845
+  br i1 %846, label %848, label %853
 
-838:                                              ; preds = %837
+848:                                              ; preds = %847
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !381
-  br label %843
+  br label %853
 
-839:                                              ; preds = %832
-  %840 = landingpad { ptr, i32 }
+849:                                              ; preds = %842
+  %850 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %865 unwind label %989
+          to label %875 unwind label %1001
 
-841:                                              ; preds = %843, %835, %834
-  %842 = landingpad { ptr, i32 }
+851:                                              ; preds = %853, %845, %844
+  %852 = landingpad { ptr, i32 }
           cleanup
-  br label %865
+  br label %875
 
-843:                                              ; preds = %838, %837
+853:                                              ; preds = %848, %847
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %54)
-          to label %844 unwind label %841
+          to label %854 unwind label %851
 
-844:                                              ; preds = %843
-  %845 = getelementptr inbounds i8, ptr %54, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %845) #18
-  %846 = getelementptr inbounds i8, ptr %54, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %846) #18
-  %847 = getelementptr inbounds i8, ptr %54, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %847) #18
+854:                                              ; preds = %853
+  %855 = getelementptr inbounds i8, ptr %54, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %855) #18
+  %856 = getelementptr inbounds i8, ptr %54, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %856) #18
+  %857 = getelementptr inbounds i8, ptr %54, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %857) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
-          to label %848 unwind label %99
+          to label %858 unwind label %99
 
-848:                                              ; preds = %844
+858:                                              ; preds = %854
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 933, ptr noundef nonnull @.str.397, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
-          to label %849 unwind label %866
+          to label %859 unwind label %876
 
-849:                                              ; preds = %848
+859:                                              ; preds = %858
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #18
   store i64 188978561026, ptr %60, align 8
-  %850 = getelementptr inbounds i8, ptr %60, i64 8
-  store i64 206158430210, ptr %850, align 8
-  %851 = load ptr, ptr %13, align 8
-  %852 = getelementptr inbounds i8, ptr %851, i64 800
+  %860 = getelementptr inbounds i8, ptr %60, i64 8
+  store i64 206158430210, ptr %860, align 8
+  %861 = load ptr, ptr %13, align 8
+  %862 = getelementptr inbounds i8, ptr %861, i64 800
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %853 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull align 4 dereferenceable(16) %852)
-          to label %.noexc190.i unwind label %868
+  %863 = invoke noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull align 4 dereferenceable(16) %862)
+          to label %.noexc190.i unwind label %878
 
-.noexc190.i:                                      ; preds = %849
-  %854 = xor i1 %853, true
-  %855 = getelementptr inbounds i8, ptr %58, i64 40
-  %856 = zext i1 %854 to i8
-  store i8 %856, ptr %855, align 8
-  br i1 %853, label %857, label %862
+.noexc190.i:                                      ; preds = %859
+  %864 = xor i1 %863, true
+  %865 = getelementptr inbounds i8, ptr %58, i64 40
+  %866 = zext i1 %864 to i8
+  store i8 %866, ptr %865, align 8
+  br i1 %863, label %867, label %872
 
-857:                                              ; preds = %.noexc190.i
-  %858 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc191.i unwind label %868
+867:                                              ; preds = %.noexc190.i
+  %868 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc191.i unwind label %878
 
-.noexc191.i:                                      ; preds = %857
-  %859 = getelementptr inbounds i8, ptr %858, i64 108
-  %860 = load i8, ptr %859, align 4
-  %861 = trunc i8 %860 to i1
-  br i1 %861, label %862, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i
+.noexc191.i:                                      ; preds = %867
+  %869 = getelementptr inbounds i8, ptr %868, i64 108
+  %870 = load i8, ptr %869, align 4
+  %871 = trunc i8 %870 to i1
+  br i1 %871, label %872, label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i
 
-862:                                              ; preds = %.noexc191.i, %.noexc190.i
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %2, ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %852)
-          to label %.noexc192.i unwind label %868
+872:                                              ; preds = %.noexc191.i, %.noexc190.i
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau8LocationES3_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %2, ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull @.str.237, ptr noundef nonnull align 4 dereferenceable(16) %862)
+          to label %.noexc192.i unwind label %878
 
-.noexc192.i:                                      ; preds = %862
-  %863 = getelementptr inbounds i8, ptr %58, i64 72
-  %864 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %863, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+.noexc192.i:                                      ; preds = %872
+  %873 = getelementptr inbounds i8, ptr %58, i64 72
+  %874 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %873, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   br label %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i
 
 _ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i: ; preds = %.noexc192.i, %.noexc191.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %873
+  br label %883
 
-865:                                              ; preds = %841, %839
-  %.pn75.i = phi { ptr, i32 } [ %842, %841 ], [ %840, %839 ]
+875:                                              ; preds = %851, %849
+  %.pn75.i = phi { ptr, i32 } [ %852, %851 ], [ %850, %849 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %54) #18
-  br label %988
+  br label %1000
 
-866:                                              ; preds = %848
-  %867 = landingpad { ptr, i32 }
+876:                                              ; preds = %858
+  %877 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #18
-  br label %988
+  br label %1000
 
-868:                                              ; preds = %862, %857, %849
-  %869 = landingpad { ptr, i32 }
+878:                                              ; preds = %872, %867, %859
+  %879 = landingpad { ptr, i32 }
           catch ptr null
-  %870 = extractvalue { ptr, i32 } %869, 0
-  %871 = call ptr @__cxa_begin_catch(ptr %870) #18
+  %880 = extractvalue { ptr, i32 } %879, 0
+  %881 = call ptr @__cxa_begin_catch(ptr %880) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %58)
-          to label %872 unwind label %877
+          to label %882 unwind label %887
 
-872:                                              ; preds = %868
+882:                                              ; preds = %878
   invoke void @__cxa_end_catch()
-          to label %873 unwind label %879
+          to label %883 unwind label %889
 
-873:                                              ; preds = %872, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i
-  %874 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %58)
-          to label %875 unwind label %879
+883:                                              ; preds = %882, %_ZN7doctest6detail13ResultBuilder13binary_assertILi0EN4Luau8LocationES4_EEbRKT0_RKT1_.exit193.i
+  %884 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %58)
+          to label %885 unwind label %889
 
-875:                                              ; preds = %873
-  br i1 %874, label %876, label %881
+885:                                              ; preds = %883
+  br i1 %884, label %886, label %891
 
-876:                                              ; preds = %875
+886:                                              ; preds = %885
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !382
-  br label %881
+  br label %891
 
-877:                                              ; preds = %868
-  %878 = landingpad { ptr, i32 }
+887:                                              ; preds = %878
+  %888 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %961 unwind label %989
+          to label %973 unwind label %1001
 
-879:                                              ; preds = %881, %873, %872
-  %880 = landingpad { ptr, i32 }
+889:                                              ; preds = %891, %883, %882
+  %890 = landingpad { ptr, i32 }
           cleanup
-  br label %961
+  br label %973
 
-881:                                              ; preds = %876, %875
+891:                                              ; preds = %886, %885
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %58)
-          to label %882 unwind label %879
+          to label %892 unwind label %889
 
-882:                                              ; preds = %881
-  %883 = getelementptr inbounds i8, ptr %58, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %883) #18
-  %884 = getelementptr inbounds i8, ptr %58, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %884) #18
-  %885 = getelementptr inbounds i8, ptr %58, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %885) #18
+892:                                              ; preds = %891
+  %893 = getelementptr inbounds i8, ptr %58, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %893) #18
+  %894 = getelementptr inbounds i8, ptr %58, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %894) #18
+  %895 = getelementptr inbounds i8, ptr %58, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %895) #18
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull @.str)
-          to label %886 unwind label %99
+          to label %896 unwind label %99
 
-886:                                              ; preds = %882
+896:                                              ; preds = %892
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %61, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 934, ptr noundef nonnull @.str.398, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %62)
-          to label %887 unwind label %962
+          to label %897 unwind label %974
 
-887:                                              ; preds = %886
+897:                                              ; preds = %896
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #18
   invoke void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr noundef %73, ptr noundef %77)
-          to label %888 unwind label %964
+          to label %898 unwind label %976
 
-888:                                              ; preds = %887
+898:                                              ; preds = %897
   store i32 0, ptr %63, align 8
-  %889 = getelementptr inbounds i8, ptr %63, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %889, ptr noundef nonnull align 8 dereferenceable(20) %64, i64 20, i1 false)
-  %890 = getelementptr inbounds i8, ptr %63, i64 32
-  %891 = getelementptr inbounds i8, ptr %64, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %890, ptr noundef nonnull align 8 dereferenceable(32) %891) #18
-  %892 = getelementptr inbounds i8, ptr %63, i64 64
-  %893 = getelementptr inbounds i8, ptr %64, i64 56
-  %894 = getelementptr inbounds i8, ptr %64, i64 64
-  %895 = load <2 x ptr>, ptr %893, align 8
-  store ptr null, ptr %894, align 8
-  store <2 x ptr> %895, ptr %892, align 8
-  store ptr null, ptr %893, align 8
-  %896 = load ptr, ptr %13, align 8
-  %897 = getelementptr inbounds i8, ptr %896, i64 848
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
-  %898 = load i32, ptr %63, align 8
-  %899 = load i32, ptr %897, align 8
-  %900 = icmp eq i32 %898, %899
-  br i1 %900, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195
-
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195: ; preds = %888
-  %901 = getelementptr inbounds i8, ptr %61, i64 40
-  store i8 1, ptr %901, align 8
-  br label %915
-
-_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197: ; preds = %888
-  %902 = sext i32 %898 to i64
-  %903 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %902
+  %899 = getelementptr inbounds i8, ptr %63, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %899, ptr noundef nonnull align 8 dereferenceable(20) %64, i64 20, i1 false)
+  %900 = getelementptr inbounds i8, ptr %63, i64 32
+  %901 = getelementptr inbounds i8, ptr %64, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %900, ptr noundef nonnull align 8 dereferenceable(32) %901) #18
+  %902 = getelementptr inbounds i8, ptr %63, i64 64
+  %903 = getelementptr inbounds i8, ptr %64, i64 56
   %904 = load ptr, ptr %903, align 8
-  %905 = getelementptr inbounds i8, ptr %896, i64 856
-  %906 = invoke noundef zeroext i1 %904(ptr noundef nonnull %889, ptr noundef nonnull %905)
-          to label %.noexc198.i unwind label %966
+  store ptr %904, ptr %902, align 8
+  %905 = getelementptr inbounds i8, ptr %63, i64 72
+  %906 = getelementptr inbounds i8, ptr %64, i64 64
+  %907 = load ptr, ptr %906, align 8
+  store ptr null, ptr %906, align 8
+  store ptr %907, ptr %905, align 8
+  store ptr null, ptr %903, align 8
+  %908 = load ptr, ptr %13, align 8
+  %909 = getelementptr inbounds i8, ptr %908, i64 848
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
+  %910 = load i32, ptr %63, align 8
+  %911 = load i32, ptr %909, align 8
+  %912 = icmp eq i32 %910, %911
+  br i1 %912, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197, label %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195
+
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195: ; preds = %898
+  %913 = getelementptr inbounds i8, ptr %61, i64 40
+  store i8 1, ptr %913, align 8
+  br label %927
+
+_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197: ; preds = %898
+  %914 = sext i32 %910 to i64
+  %915 = getelementptr inbounds [47 x ptr], ptr @_ZZNK4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEeqERKS1C_E5table, i64 0, i64 %914
+  %916 = load ptr, ptr %915, align 8
+  %917 = getelementptr inbounds i8, ptr %908, i64 856
+  %918 = invoke noundef zeroext i1 %916(ptr noundef nonnull %899, ptr noundef nonnull %917)
+          to label %.noexc198.i unwind label %978
 
 .noexc198.i:                                      ; preds = %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197
-  %907 = xor i1 %906, true
-  %908 = getelementptr inbounds i8, ptr %61, i64 40
-  %909 = zext i1 %907 to i8
-  store i8 %909, ptr %908, align 8
-  br i1 %906, label %910, label %915
+  %919 = xor i1 %918, true
+  %920 = getelementptr inbounds i8, ptr %61, i64 40
+  %921 = zext i1 %919 to i8
+  store i8 %921, ptr %920, align 8
+  br i1 %918, label %922, label %927
 
-910:                                              ; preds = %.noexc198.i
-  %911 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
-          to label %.noexc199.i unwind label %966
+922:                                              ; preds = %.noexc198.i
+  %923 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
+          to label %.noexc199.i unwind label %978
 
-.noexc199.i:                                      ; preds = %910
-  %912 = getelementptr inbounds i8, ptr %911, i64 108
-  %913 = load i8, ptr %912, align 4
-  %914 = trunc i8 %913 to i1
-  br i1 %914, label %915, label %918
+.noexc199.i:                                      ; preds = %922
+  %924 = getelementptr inbounds i8, ptr %923, i64 108
+  %925 = load i8, ptr %924, align 4
+  %926 = trunc i8 %925 to i1
+  br i1 %926, label %927, label %930
 
-915:                                              ; preds = %.noexc199.i, %.noexc198.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195
-  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %1, ptr noundef nonnull align 8 dereferenceable(112) %63, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %897)
-          to label %.noexc200.i unwind label %966
+927:                                              ; preds = %.noexc199.i, %.noexc198.i, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab195
+  invoke void @_ZN7doctest6detail19stringifyBinaryExprIN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21UninhabitedTypeFamilyENS2_25UninhabitedTypePackFamilyENS2_17WhereClauseNeededENS2_21PackWhereClauseNeededENS2_24CheckedFunctionCallErrorENS2_32NonStrictFunctionDefinitionErrorENS2_23PropertyAccessViolationENS2_28CheckedFunctionIncorrectArgsENS2_25UnexpectedTypeInSubtypingENS2_29UnexpectedTypePackInSubtypingENS2_37ExplicitFunctionAnnotationRecommendedEEEES1F_EENS_6StringERKT_PKcRKT0_(ptr dead_on_unwind nonnull writable sret(%"class.doctest::String") align 8 %1, ptr noundef nonnull align 8 dereferenceable(112) %63, ptr noundef nonnull @.str.237, ptr noundef nonnull align 8 dereferenceable(112) %909)
+          to label %.noexc200.i unwind label %978
 
-.noexc200.i:                                      ; preds = %915
-  %916 = getelementptr inbounds i8, ptr %61, i64 72
-  %917 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %916, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
+.noexc200.i:                                      ; preds = %927
+  %928 = getelementptr inbounds i8, ptr %61, i64 72
+  %929 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6StringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %928, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #18
-  br label %918
+  br label %930
 
-918:                                              ; preds = %.noexc200.i, %.noexc199.i
+930:                                              ; preds = %.noexc200.i, %.noexc199.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  %919 = load i32, ptr %63, align 8
-  %920 = sext i32 %919 to i64
-  %921 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %920
-  %922 = load ptr, ptr %921, align 8
-  invoke void %922(ptr noundef nonnull %889)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204 unwind label %923
+  %931 = load i32, ptr %63, align 8
+  %932 = sext i32 %931 to i64
+  %933 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %932
+  %934 = load ptr, ptr %933, align 8
+  invoke void %934(ptr noundef nonnull %899)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204 unwind label %935
 
-923:                                              ; preds = %918
-  %924 = landingpad { ptr, i32 }
+935:                                              ; preds = %930
+  %936 = landingpad { ptr, i32 }
           catch ptr null
-  %925 = extractvalue { ptr, i32 } %924, 0
-  call void @__clang_call_terminate(ptr %925) #16
+  %937 = extractvalue { ptr, i32 } %936, 0
+  call void @__clang_call_terminate(ptr %937) #16
   unreachable
 
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204: ; preds = %918
-  %926 = load ptr, ptr %894, align 8
-  %.not.i.i.i.i205.i = icmp eq ptr %926, null
-  br i1 %.not.i.i.i.i205.i, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i, label %927
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204: ; preds = %930
+  %938 = load ptr, ptr %906, align 8
+  %.not.i.i.i.i205.i = icmp eq ptr %938, null
+  br i1 %.not.i.i.i.i205.i, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i, label %939
 
-927:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204
-  %928 = getelementptr inbounds i8, ptr %926, i64 8
-  %929 = load atomic i64, ptr %928 acquire, align 8
-  %930 = icmp eq i64 %929, 4294967297
-  %931 = trunc i64 %929 to i32
-  br i1 %930, label %932, label %937
+939:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204
+  %940 = getelementptr inbounds i8, ptr %938, i64 8
+  %941 = load atomic i64, ptr %940 acquire, align 8
+  %942 = icmp eq i64 %941, 4294967297
+  %943 = trunc i64 %941 to i32
+  br i1 %942, label %944, label %949
 
-932:                                              ; preds = %927
-  store i32 0, ptr %928, align 8
-  %933 = getelementptr inbounds i8, ptr %926, i64 12
-  store i32 0, ptr %933, align 4
-  %934 = load ptr, ptr %926, align 8
-  %935 = getelementptr inbounds i8, ptr %934, i64 16
-  %936 = load ptr, ptr %935, align 8
-  call void %936(ptr noundef nonnull align 8 dereferenceable(16) %926) #18
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i
-
-937:                                              ; preds = %927
-  %938 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i206.i = icmp eq i8 %938, 0
-  br i1 %.not.i.i.i.i.i206.i, label %941, label %939
-
-939:                                              ; preds = %937
-  %940 = add nsw i32 %931, -1
-  store i32 %940, ptr %928, align 4
-  br label %943
-
-941:                                              ; preds = %937
-  %942 = atomicrmw volatile add ptr %928, i32 -1 acq_rel, align 4
-  br label %943
-
-943:                                              ; preds = %941, %939
-  %.0.i.i.i.i.i207.i = phi i32 [ %931, %939 ], [ %942, %941 ]
-  %944 = icmp eq i32 %.0.i.i.i.i.i207.i, 1
-  br i1 %944, label %945, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i
-
-945:                                              ; preds = %943
-  %946 = load ptr, ptr %926, align 8
+944:                                              ; preds = %939
+  store i32 0, ptr %940, align 8
+  %945 = getelementptr inbounds i8, ptr %938, i64 12
+  store i32 0, ptr %945, align 4
+  %946 = load ptr, ptr %938, align 8
   %947 = getelementptr inbounds i8, ptr %946, i64 16
   %948 = load ptr, ptr %947, align 8
-  call void %948(ptr noundef nonnull align 8 dereferenceable(16) %926) #18
-  %949 = getelementptr inbounds i8, ptr %926, i64 12
+  call void %948(ptr noundef nonnull align 8 dereferenceable(16) %938) #18
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i
+
+949:                                              ; preds = %939
   %950 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i208.i = icmp eq i8 %950, 0
-  br i1 %.not.i.i.i.i.i.i.i208.i, label %954, label %951
+  %.not.i.i.i.i.i206.i = icmp eq i8 %950, 0
+  br i1 %.not.i.i.i.i.i206.i, label %953, label %951
 
-951:                                              ; preds = %945
-  %952 = load i32, ptr %949, align 4
-  %953 = add nsw i32 %952, -1
-  store i32 %953, ptr %949, align 4
-  br label %956
+951:                                              ; preds = %949
+  %952 = add nsw i32 %943, -1
+  store i32 %952, ptr %940, align 4
+  br label %955
 
-954:                                              ; preds = %945
-  %955 = atomicrmw volatile add ptr %949, i32 -1 acq_rel, align 4
-  br label %956
+953:                                              ; preds = %949
+  %954 = atomicrmw volatile add ptr %940, i32 -1 acq_rel, align 4
+  br label %955
 
-956:                                              ; preds = %954, %951
-  %.0.i.i.i.i.i.i.i209.i = phi i32 [ %952, %951 ], [ %955, %954 ]
-  %957 = icmp eq i32 %.0.i.i.i.i.i.i.i209.i, 1
-  br i1 %957, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i
+955:                                              ; preds = %953, %951
+  %.0.i.i.i.i.i207.i = phi i32 [ %943, %951 ], [ %954, %953 ]
+  %956 = icmp eq i32 %.0.i.i.i.i.i207.i, 1
+  br i1 %956, label %957, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i: ; preds = %956, %932
-  %958 = load ptr, ptr %926, align 8
-  %959 = getelementptr inbounds i8, ptr %958, i64 24
+957:                                              ; preds = %955
+  %958 = load ptr, ptr %938, align 8
+  %959 = getelementptr inbounds i8, ptr %958, i64 16
   %960 = load ptr, ptr %959, align 8
-  call void %960(ptr noundef nonnull align 8 dereferenceable(16) %926) #18
+  call void %960(ptr noundef nonnull align 8 dereferenceable(16) %938) #18
+  %961 = getelementptr inbounds i8, ptr %938, i64 12
+  %962 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i208.i = icmp eq i8 %962, 0
+  br i1 %.not.i.i.i.i.i.i.i208.i, label %966, label %963
+
+963:                                              ; preds = %957
+  %964 = load i32, ptr %961, align 4
+  %965 = add nsw i32 %964, -1
+  store i32 %965, ptr %961, align 4
+  br label %968
+
+966:                                              ; preds = %957
+  %967 = atomicrmw volatile add ptr %961, i32 -1 acq_rel, align 4
+  br label %968
+
+968:                                              ; preds = %966, %963
+  %.0.i.i.i.i.i.i.i209.i = phi i32 [ %964, %963 ], [ %967, %966 ]
+  %969 = icmp eq i32 %.0.i.i.i.i.i.i.i209.i, 1
+  br i1 %969, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i, label %_ZN4Luau12TypeMismatchD2Ev.exit211.i
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i: ; preds = %968, %944
+  %970 = load ptr, ptr %938, align 8
+  %971 = getelementptr inbounds i8, ptr %970, i64 24
+  %972 = load ptr, ptr %971, align 8
+  call void %972(ptr noundef nonnull align 8 dereferenceable(16) %938) #18
   br label %_ZN4Luau12TypeMismatchD2Ev.exit211.i
 
-_ZN4Luau12TypeMismatchD2Ev.exit211.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i, %956, %943, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %891) #18
-  br label %978
+_ZN4Luau12TypeMismatchD2Ev.exit211.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210.i, %968, %955, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe204
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %901) #18
+  br label %990
 
-961:                                              ; preds = %879, %877
-  %.pn77.i = phi { ptr, i32 } [ %880, %879 ], [ %878, %877 ]
+973:                                              ; preds = %889, %887
+  %.pn77.i = phi { ptr, i32 } [ %890, %889 ], [ %888, %887 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %58) #18
-  br label %988
+  br label %1000
 
-962:                                              ; preds = %886
-  %963 = landingpad { ptr, i32 }
+974:                                              ; preds = %896
+  %975 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #18
-  br label %988
+  br label %1000
 
-964:                                              ; preds = %887
-  %965 = landingpad { ptr, i32 }
+976:                                              ; preds = %897
+  %977 = landingpad { ptr, i32 }
           catch ptr null
-  br label %975
-
-966:                                              ; preds = %915, %910, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197
-  %967 = landingpad { ptr, i32 }
-          catch ptr null
-  %968 = load i32, ptr %63, align 8
-  %969 = sext i32 %968 to i64
-  %970 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %969
-  %971 = load ptr, ptr %970, align 8
-  invoke void %971(ptr noundef nonnull %889)
-          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213 unwind label %972
-
-972:                                              ; preds = %966
-  %973 = landingpad { ptr, i32 }
-          catch ptr null
-  %974 = extractvalue { ptr, i32 } %973, 0
-  call void @__clang_call_terminate(ptr %974) #16
-  unreachable
-
-_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213: ; preds = %966
-  call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %64) #18
-  br label %975
-
-975:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213, %964
-  %.pn79.i = phi { ptr, i32 } [ %967, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213 ], [ %965, %964 ]
-  %.22.i = extractvalue { ptr, i32 } %.pn79.i, 0
-  %976 = call ptr @__cxa_begin_catch(ptr %.22.i) #18
-  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
-          to label %977 unwind label %982
-
-977:                                              ; preds = %975
-  invoke void @__cxa_end_catch()
-          to label %978 unwind label %984
-
-978:                                              ; preds = %977, %_ZN4Luau12TypeMismatchD2Ev.exit211.i
-  %979 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
-          to label %980 unwind label %984
-
-980:                                              ; preds = %978
-  br i1 %979, label %981, label %986
-
-981:                                              ; preds = %980
-  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !383
-  br label %986
-
-982:                                              ; preds = %975
-  %983 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %987 unwind label %989
-
-984:                                              ; preds = %986, %978, %977
-  %985 = landingpad { ptr, i32 }
-          cleanup
   br label %987
 
-986:                                              ; preds = %981, %980
+978:                                              ; preds = %927, %922, %_ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_12TypeMismatchENS2_13UnknownSymbolENS2_15UnknownPropertyENS2_9NotATableENS2_17CannotExtendTableENS2_24OnlyTablesCanHaveMethodsENS2_23DuplicateTypeDefinitionENS2_13CountMismatchENS2_23FunctionDoesNotTakeSelfENS2_20FunctionRequiresSelfENS2_17OccursCheckFailedENS2_14UnknownRequireENS2_30IncorrectGenericParameterCountENS2_11SyntaxErrorENS2_14CodeTooComplexENS2_21UnificationTooComplexENS2_27UnknownPropButFoundLikePropENS2_12GenericErrorENS2_13InternalErrorENS2_21CannotCallNonFunctionENS2_16ExtraInformationENS2_17DeprecatedApiUsedENS2_25ModuleHasCyclicDependencyENS2_14IllegalRequireENS2_29FunctionExitsWithoutReturningENS2_25DuplicateGenericParameterENS2_19CannotAssignToNeverENS2_26CannotInferBinaryOperationENS2_17MissingPropertiesENS2_27SwappedGenericTypeParameterENS2_19OptionalValueAccessENS2_20MissingUnionPropertyENS2_17TypesAreUnrelatedENS2_23NormalizationTooComplexENS2_16TypePackMismatchENS2_36DynamicPropertyLookupOnClassesUnsafeENS2_21Uninhab197
+  %979 = landingpad { ptr, i32 }
+          catch ptr null
+  %980 = load i32, ptr %63, align 8
+  %981 = sext i32 %980 to i64
+  %982 = getelementptr inbounds [47 x ptr], ptr @_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEE9tableDtorE, i64 0, i64 %981
+  %983 = load ptr, ptr %982, align 8
+  invoke void %983(ptr noundef nonnull %899)
+          to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213 unwind label %984
+
+984:                                              ; preds = %978
+  %985 = landingpad { ptr, i32 }
+          catch ptr null
+  %986 = extractvalue { ptr, i32 } %985, 0
+  call void @__clang_call_terminate(ptr %986) #16
+  unreachable
+
+_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213: ; preds = %978
+  call void @_ZN4Luau12TypeMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %64) #18
+  br label %987
+
+987:                                              ; preds = %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213, %976
+  %.pn79.i = phi { ptr, i32 } [ %979, %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhe213 ], [ %977, %976 ]
+  %.22.i = extractvalue { ptr, i32 } %.pn79.i, 0
+  %988 = call ptr @__cxa_begin_catch(ptr %.22.i) #18
+  invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
+          to label %989 unwind label %994
+
+989:                                              ; preds = %987
+  invoke void @__cxa_end_catch()
+          to label %990 unwind label %996
+
+990:                                              ; preds = %989, %_ZN4Luau12TypeMismatchD2Ev.exit211.i
+  %991 = invoke noundef zeroext i1 @_ZN7doctest6detail13ResultBuilder3logEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
+          to label %992 unwind label %996
+
+992:                                              ; preds = %990
+  br i1 %991, label %993, label %998
+
+993:                                              ; preds = %992
+  call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !383
+  br label %998
+
+994:                                              ; preds = %987
+  %995 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %999 unwind label %1001
+
+996:                                              ; preds = %998, %990, %989
+  %997 = landingpad { ptr, i32 }
+          cleanup
+  br label %999
+
+998:                                              ; preds = %993, %992
   invoke void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
-          to label %992 unwind label %984
+          to label %1004 unwind label %996
 
-987:                                              ; preds = %984, %982
-  %.pn80.i = phi { ptr, i32 } [ %985, %984 ], [ %983, %982 ]
+999:                                              ; preds = %996, %994
+  %.pn80.i = phi { ptr, i32 } [ %997, %996 ], [ %995, %994 ]
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %61) #18
-  br label %988
+  br label %1000
 
-988:                                              ; preds = %987, %962, %961, %866, %865, %819, %818, %723, %722, %676, %675, %580, %579, %533, %532, %437, %436, %390, %389, %294, %293, %247, %246, %151, %150, %99
-  %.pn80.pn.i = phi { ptr, i32 } [ %.pn80.i, %987 ], [ %963, %962 ], [ %100, %99 ], [ %.pn77.i, %961 ], [ %867, %866 ], [ %.pn75.i, %865 ], [ %820, %819 ], [ %.pn72.i, %818 ], [ %724, %723 ], [ %.pn70.i, %722 ], [ %677, %676 ], [ %.pn67.i, %675 ], [ %581, %580 ], [ %.pn65.i, %579 ], [ %534, %533 ], [ %.pn62.i, %532 ], [ %438, %437 ], [ %.pn60.i, %436 ], [ %391, %390 ], [ %.pn57.i, %389 ], [ %295, %294 ], [ %.pn55.i, %293 ], [ %248, %247 ], [ %.pn52.i, %246 ], [ %152, %151 ], [ %.pn49.pn.i, %150 ]
+1000:                                             ; preds = %999, %974, %973, %876, %875, %829, %828, %731, %730, %684, %683, %586, %585, %539, %538, %441, %440, %394, %393, %296, %295, %249, %248, %151, %150, %99
+  %.pn80.pn.i = phi { ptr, i32 } [ %.pn80.i, %999 ], [ %975, %974 ], [ %100, %99 ], [ %.pn77.i, %973 ], [ %877, %876 ], [ %.pn75.i, %875 ], [ %830, %829 ], [ %.pn72.i, %828 ], [ %732, %731 ], [ %.pn70.i, %730 ], [ %685, %684 ], [ %.pn67.i, %683 ], [ %587, %586 ], [ %.pn65.i, %585 ], [ %540, %539 ], [ %.pn62.i, %538 ], [ %442, %441 ], [ %.pn60.i, %440 ], [ %395, %394 ], [ %.pn57.i, %393 ], [ %297, %296 ], [ %.pn55.i, %295 ], [ %250, %249 ], [ %.pn52.i, %248 ], [ %152, %151 ], [ %.pn49.pn.i, %150 ]
   call void @_ZN4Luau11CheckResultD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18
   br label %.body
 
-989:                                              ; preds = %982, %877, %839, %734, %696, %591, %553, %448, %410, %305, %267, %162, %117
-  %990 = landingpad { ptr, i32 }
+1001:                                             ; preds = %994, %887, %849, %742, %704, %597, %559, %452, %414, %307, %269, %162, %117
+  %1002 = landingpad { ptr, i32 }
           catch ptr null
-  %991 = extractvalue { ptr, i32 } %990, 0
-  call void @__clang_call_terminate(ptr %991) #16
+  %1003 = extractvalue { ptr, i32 } %1002, 0
+  call void @__clang_call_terminate(ptr %1003) #16
   unreachable
 
-992:                                              ; preds = %986
-  %993 = getelementptr inbounds i8, ptr %61, i64 112
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %993) #18
-  %994 = getelementptr inbounds i8, ptr %61, i64 72
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %994) #18
-  %995 = getelementptr inbounds i8, ptr %61, i64 48
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %995) #18
+1004:                                             ; preds = %998
+  %1005 = getelementptr inbounds i8, ptr %61, i64 112
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1005) #18
+  %1006 = getelementptr inbounds i8, ptr %61, i64 72
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1006) #18
+  %1007 = getelementptr inbounds i8, ptr %61, i64 48
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1007) #18
   call void @_ZN4Luau11CheckResultD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -30038,8 +30056,8 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   call void @_ZN4Luau7FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %65) #18
   ret void
 
-.body:                                            ; preds = %.body.i, %988
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn80.pn.i, %988 ], [ %.pn.i, %.body.i ]
+.body:                                            ; preds = %.body.i, %1000
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn80.pn.i, %1000 ], [ %.pn.i, %.body.i ]
   call void @_ZN4Luau7FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %65) #18
   resume { ptr, i32 } %eh.lpad-body
 }

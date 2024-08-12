@@ -59,8 +59,8 @@ entry:
 define dso_local noundef zeroext i1 @_ZN3net13NullEncrypter13EncryptPacketEhmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PcPmm(ptr nocapture nonnull readnone align 8 %this, i8 zeroext %0, i64 %1, ptr %associated_data.coerce0, i64 %associated_data.coerce1, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %plaintext, ptr noundef %output, ptr nocapture noundef writeonly %output_length, i64 noundef %max_output_length) unnamed_addr #1 align 2 {
 entry:
   %associated_data = alloca %"class.base::BasicStringPiece", align 8
-  %hash = alloca %"class.net::uint128", align 16
-  %agg.tmp = alloca %"class.net::uint128", align 16
+  %hash = alloca %"class.net::uint128", align 8
+  %agg.tmp = alloca %"class.net::uint128", align 8
   store ptr %associated_data.coerce0, ptr %associated_data, align 8
   %2 = getelementptr inbounds i8, ptr %associated_data, i64 8
   store i64 %associated_data.coerce1, ptr %2, align 8
@@ -81,8 +81,12 @@ if.end:                                           ; preds = %entry
   %call10 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   %call11 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %call10, i64 %call11, i1 false)
-  %3 = load <2 x i64>, ptr %hash, align 16
-  store <2 x i64> %3, ptr %agg.tmp, align 16
+  %3 = load i64, ptr %hash, align 8
+  store i64 %3, ptr %agg.tmp, align 8
+  %hi_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %hi_3.i = getelementptr inbounds i8, ptr %hash, i64 8
+  %4 = load i64, ptr %hi_3.i, align 8
+  store i64 %4, ptr %hi_.i, align 8
   call void @_ZN3net9QuicUtils21SerializeUint128ShortENS_7uint128EPh(ptr noundef nonnull %agg.tmp, ptr noundef %output)
   store i64 %add, ptr %output_length, align 8
   br label %return

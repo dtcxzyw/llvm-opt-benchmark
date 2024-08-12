@@ -39,18 +39,33 @@ if.end:                                           ; preds = %qrtas_call.exit
   %1 = getelementptr inbounds i8, ptr %tm, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 32, i1 false)
   %arrayidx2 = getelementptr inbounds i8, ptr %ret, i64 4
+  %2 = load i32, ptr %arrayidx2, align 4
+  %sub = add i32 %2, -1900
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  store i32 %sub, ptr %tm_year, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %ret, i64 8
+  %3 = load i32, ptr %arrayidx3, align 8
+  %sub4 = add i32 %3, -1
   %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
-  %2 = load <2 x i32>, ptr %arrayidx2, align 4
-  %3 = add <2 x i32> %2, <i32 -1900, i32 -1>
-  %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %4, ptr %tm_mon, align 8
+  store i32 %sub4, ptr %tm_mon, align 8
   %arrayidx5 = getelementptr inbounds i8, ptr %ret, i64 12
-  %5 = load <4 x i32>, ptr %arrayidx5, align 4
-  %6 = shufflevector <4 x i32> %5, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %6, ptr %tm, align 8
+  %4 = load i32, ptr %arrayidx5, align 4
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  store i32 %4, ptr %tm_mday, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %ret, i64 16
+  %5 = load i32, ptr %arrayidx6, align 16
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  store i32 %5, ptr %tm_hour, align 8
+  %arrayidx7 = getelementptr inbounds i8, ptr %ret, i64 20
+  %6 = load i32, ptr %arrayidx7, align 4
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  store i32 %6, ptr %tm_min, align 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %ret, i64 24
+  %7 = load i32, ptr %arrayidx8, align 8
+  store i32 %7, ptr %tm, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %ret, i64 28
-  %7 = load i32, ptr %arrayidx9, align 4
-  store i32 %7, ptr %ns, align 4
+  %8 = load i32, ptr %arrayidx9, align 4
+  store i32 %8, ptr %ns, align 4
   br label %return
 
 return:                                           ; preds = %qrtas_call.exit, %if.end

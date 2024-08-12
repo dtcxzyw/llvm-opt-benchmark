@@ -610,7 +610,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %24 = alloca [48 x i8], align 8
   %25 = alloca [24 x i8], align 8
   %26 = alloca [48 x i8], align 8
-  %27 = alloca [40 x i8], align 16
+  %27 = alloca [40 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [24 x i8], align 8
   %30 = alloca [24 x i8], align 8
@@ -838,7 +838,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %177 ], [ false, %210 ], [ true, %169 ]
   %.pn417 = phi { ptr, i32 } [ %178, %177 ], [ %202, %210 ], [ %.pn.pn, %169 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %99) #11
-          to label %479 unwind label %207
+          to label %477 unwind label %207
 
 177:                                              ; preds = %472, %183, %182, %173
   %.sroa.0198.4 = phi i1 [ true, %182 ], [ false, %183 ], [ true, %173 ], [ true, %472 ]
@@ -881,7 +881,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 
 191:                                              ; preds = %472, %189
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %99)
-          to label %482 unwind label %.thread438
+          to label %480 unwind label %.thread438
 
 192:                                              ; preds = %183
   %193 = load i8, ptr %35, align 1
@@ -949,7 +949,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store i8 %193, ptr %.sroa.13.0..sroa_idx, align 1
   br label %211
 
-207:                                              ; preds = %496, %494, %493, %492, %473, %457, %415, %397, %379, %349, %317, %214, %210, %209, %201, %176, %169
+207:                                              ; preds = %494, %492, %491, %490, %473, %457, %415, %397, %379, %349, %317, %214, %210, %209, %201, %176, %169
   %208 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -963,7 +963,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %30) #11
           to label %176 unwind label %207
 
-211:                                              ; preds = %491, %204
+211:                                              ; preds = %489, %204
   ret void
 
 212:                                              ; preds = %174
@@ -1782,106 +1782,114 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
           to label %214 unwind label %207
 
 475:                                              ; preds = %213
+  %.sroa.014.0.copyload = load i64, ptr %27, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa.316.sroa.0.0.copyload = load i64, ptr %.sroa.316.0..sroa_idx, align 8
   %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
-  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 16
+  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 8
   %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
+  %.sroa.316.sroa.5.0.copyload = load i64, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
+  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 32
+  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8
   %476 = getelementptr inbounds i8, ptr %0, i64 8
-  %477 = load <2 x i64>, ptr %27, align 16
-  store <2 x i64> %477, ptr %476, align 8
+  store i64 %.sroa.014.0.copyload, ptr %476, align 8
+  %.sroa.2234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.316.sroa.0.0.copyload, ptr %.sroa.2234.0..sroa_idx, align 8
   %.sroa.3235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.316.sroa.4.0.copyload, ptr %.sroa.3235.0..sroa_idx, align 8
   %.sroa.4236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %478 = load <2 x i64>, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
-  store <2 x i64> %478, ptr %.sroa.4236.0..sroa_idx, align 8
+  store i64 %.sroa.316.sroa.5.0.copyload, ptr %.sroa.4236.0..sroa_idx, align 8
+  %.sroa.5237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sroa.518.0.copyload, ptr %.sroa.5237.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %472
 
-479:                                              ; preds = %176
-  %480 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %480, label %492, label %.thread1199
+477:                                              ; preds = %176
+  %478 = trunc nuw i8 %.sroa.0197.3 to i1
+  br i1 %478, label %490, label %.thread1199
 
 .thread438:                                       ; preds = %191
-  %481 = landingpad { ptr, i32 }
+  %479 = landingpad { ptr, i32 }
+          cleanup
+  br label %490
+
+480:                                              ; preds = %191
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100)
+          to label %483 unwind label %.thread445
+
+481:                                              ; preds = %490
+  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
+  br i1 %.pre1193, label %491, label %.thread1199
+
+.thread445:                                       ; preds = %480
+  %482 = landingpad { ptr, i32 }
+          cleanup
+  br label %491
+
+483:                                              ; preds = %480
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
+          to label %486 unwind label %.thread452
+
+.thread1199:                                      ; preds = %481, %477
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %481 ], [ %.sroa.0198.3, %477 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %481 ], [ %.pn417, %477 ]
+  br i1 %.sroa.0198.9.ph, label %494, label %493
+
+484:                                              ; preds = %491
+  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
+  br i1 %.pre, label %492, label %487
+
+.thread452:                                       ; preds = %483
+  %485 = landingpad { ptr, i32 }
           cleanup
   br label %492
 
-482:                                              ; preds = %191
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100)
-          to label %485 unwind label %.thread445
+486:                                              ; preds = %483
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
+          to label %489 unwind label %.thread458
 
-483:                                              ; preds = %492
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %493, label %.thread1199
+487:                                              ; preds = %492, %484
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %492 ], [ %.sroa.0198.8450, %484 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423457, %492 ], [ %.pn421451, %484 ]
+  br i1 %.sroa.0198.10, label %494, label %493
 
-.thread445:                                       ; preds = %482
-  %484 = landingpad { ptr, i32 }
-          cleanup
-  br label %493
-
-485:                                              ; preds = %482
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %488 unwind label %.thread452
-
-.thread1199:                                      ; preds = %483, %479
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %483 ], [ %.sroa.0198.3, %479 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %483 ], [ %.pn417, %479 ]
-  br i1 %.sroa.0198.9.ph, label %496, label %495
-
-486:                                              ; preds = %493
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %494, label %489
-
-.thread452:                                       ; preds = %485
-  %487 = landingpad { ptr, i32 }
+.thread458:                                       ; preds = %486
+  %488 = landingpad { ptr, i32 }
           cleanup
   br label %494
 
-488:                                              ; preds = %485
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
-          to label %491 unwind label %.thread458
-
-489:                                              ; preds = %494, %486
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %494 ], [ %.sroa.0198.8450, %486 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %494 ], [ %.pn421451, %486 ]
-  br i1 %.sroa.0198.10, label %496, label %495
-
-.thread458:                                       ; preds = %488
-  %490 = landingpad { ptr, i32 }
-          cleanup
-  br label %496
-
-491:                                              ; preds = %488
+489:                                              ; preds = %486
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %103)
   br label %211
 
-492:                                              ; preds = %.thread438, %479
-  %.pn419444 = phi { ptr, i32 } [ %481, %.thread438 ], [ %.pn417, %479 ]
-  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %479 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %479 ]
+490:                                              ; preds = %.thread438, %477
+  %.pn419444 = phi { ptr, i32 } [ %479, %.thread438 ], [ %.pn417, %477 ]
+  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %477 ]
+  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %477 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100) #11
-          to label %483 unwind label %207
+          to label %481 unwind label %207
 
-493:                                              ; preds = %.thread445, %483
-  %.pn421451 = phi { ptr, i32 } [ %484, %.thread445 ], [ %.pn419444, %483 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %483 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %483 ]
+491:                                              ; preds = %.thread445, %481
+  %.pn421451 = phi { ptr, i32 } [ %482, %.thread445 ], [ %.pn419444, %481 ]
+  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %481 ]
+  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %481 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %486 unwind label %207
+          to label %484 unwind label %207
 
-494:                                              ; preds = %.thread452, %486
-  %.pn423457 = phi { ptr, i32 } [ %487, %.thread452 ], [ %.pn421451, %486 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %486 ]
+492:                                              ; preds = %.thread452, %484
+  %.pn423457 = phi { ptr, i32 } [ %485, %.thread452 ], [ %.pn421451, %484 ]
+  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %484 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %489 unwind label %207
+          to label %487 unwind label %207
 
-495:                                              ; preds = %.thread1199, %496, %489
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %496 ], [ %.pn425, %489 ], [ %.pn423.ph, %.thread1199 ]
+493:                                              ; preds = %.thread1199, %494, %487
+  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %494 ], [ %.pn425, %487 ], [ %.pn423.ph, %.thread1199 ]
   resume { ptr, i32 } %.pn425461
 
-496:                                              ; preds = %.thread1199, %.thread458, %489
-  %.pn425462 = phi { ptr, i32 } [ %490, %.thread458 ], [ %.pn425, %489 ], [ %.pn423.ph, %.thread1199 ]
+494:                                              ; preds = %.thread1199, %.thread458, %487
+  %.pn425462 = phi { ptr, i32 } [ %488, %.thread458 ], [ %.pn425, %487 ], [ %.pn423.ph, %.thread1199 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %103) #11
-          to label %495 unwind label %207
+          to label %493 unwind label %207
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1910,7 +1918,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %23 = alloca [48 x i8], align 8
   %24 = alloca [24 x i8], align 8
   %25 = alloca [48 x i8], align 8
-  %26 = alloca [40 x i8], align 16
+  %26 = alloca [40 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [24 x i8], align 8
@@ -2138,7 +2146,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %176 ], [ false, %209 ], [ true, %168 ]
   %.pn417 = phi { ptr, i32 } [ %177, %176 ], [ %201, %209 ], [ %.pn.pn, %168 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98) #11
-          to label %478 unwind label %206
+          to label %476 unwind label %206
 
 176:                                              ; preds = %471, %182, %181, %172
   %.sroa.0198.4 = phi i1 [ true, %181 ], [ false, %182 ], [ true, %172 ], [ true, %471 ]
@@ -2181,7 +2189,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 
 190:                                              ; preds = %471, %188
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98)
-          to label %481 unwind label %.thread438
+          to label %479 unwind label %.thread438
 
 191:                                              ; preds = %182
   %192 = load i8, ptr %34, align 1
@@ -2249,7 +2257,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store i8 %192, ptr %.sroa.13.0..sroa_idx, align 1
   br label %210
 
-206:                                              ; preds = %495, %493, %492, %491, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
+206:                                              ; preds = %493, %491, %490, %489, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
   %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -2263,7 +2271,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %29) #11
           to label %175 unwind label %206
 
-210:                                              ; preds = %490, %203
+210:                                              ; preds = %488, %203
   ret void
 
 211:                                              ; preds = %173
@@ -3082,106 +3090,114 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
           to label %213 unwind label %206
 
 474:                                              ; preds = %212
+  %.sroa.014.0.copyload = load i64, ptr %26, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.316.sroa.0.0.copyload = load i64, ptr %.sroa.316.0..sroa_idx, align 8
   %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
-  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 16
+  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 8
   %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %26, i64 24
+  %.sroa.316.sroa.5.0.copyload = load i64, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
+  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 32
+  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8
   %475 = getelementptr inbounds i8, ptr %0, i64 8
-  %476 = load <2 x i64>, ptr %26, align 16
-  store <2 x i64> %476, ptr %475, align 8
+  store i64 %.sroa.014.0.copyload, ptr %475, align 8
+  %.sroa.2234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.316.sroa.0.0.copyload, ptr %.sroa.2234.0..sroa_idx, align 8
   %.sroa.3235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.316.sroa.4.0.copyload, ptr %.sroa.3235.0..sroa_idx, align 8
   %.sroa.4236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %477 = load <2 x i64>, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
-  store <2 x i64> %477, ptr %.sroa.4236.0..sroa_idx, align 8
+  store i64 %.sroa.316.sroa.5.0.copyload, ptr %.sroa.4236.0..sroa_idx, align 8
+  %.sroa.5237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sroa.518.0.copyload, ptr %.sroa.5237.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %471
 
-478:                                              ; preds = %175
-  %479 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %479, label %491, label %.thread1199
+476:                                              ; preds = %175
+  %477 = trunc nuw i8 %.sroa.0197.3 to i1
+  br i1 %477, label %489, label %.thread1199
 
 .thread438:                                       ; preds = %190
-  %480 = landingpad { ptr, i32 }
+  %478 = landingpad { ptr, i32 }
+          cleanup
+  br label %489
+
+479:                                              ; preds = %190
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
+          to label %482 unwind label %.thread445
+
+480:                                              ; preds = %489
+  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
+  br i1 %.pre1193, label %490, label %.thread1199
+
+.thread445:                                       ; preds = %479
+  %481 = landingpad { ptr, i32 }
+          cleanup
+  br label %490
+
+482:                                              ; preds = %479
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
+          to label %485 unwind label %.thread452
+
+.thread1199:                                      ; preds = %480, %476
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %480 ], [ %.sroa.0198.3, %476 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %480 ], [ %.pn417, %476 ]
+  br i1 %.sroa.0198.9.ph, label %493, label %492
+
+483:                                              ; preds = %490
+  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
+  br i1 %.pre, label %491, label %486
+
+.thread452:                                       ; preds = %482
+  %484 = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-481:                                              ; preds = %190
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
-          to label %484 unwind label %.thread445
+485:                                              ; preds = %482
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
+          to label %488 unwind label %.thread458
 
-482:                                              ; preds = %491
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %492, label %.thread1199
+486:                                              ; preds = %491, %483
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %491 ], [ %.sroa.0198.8450, %483 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423457, %491 ], [ %.pn421451, %483 ]
+  br i1 %.sroa.0198.10, label %493, label %492
 
-.thread445:                                       ; preds = %481
-  %483 = landingpad { ptr, i32 }
-          cleanup
-  br label %492
-
-484:                                              ; preds = %481
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
-          to label %487 unwind label %.thread452
-
-.thread1199:                                      ; preds = %482, %478
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %482 ], [ %.sroa.0198.3, %478 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %482 ], [ %.pn417, %478 ]
-  br i1 %.sroa.0198.9.ph, label %495, label %494
-
-485:                                              ; preds = %492
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %493, label %488
-
-.thread452:                                       ; preds = %484
-  %486 = landingpad { ptr, i32 }
+.thread458:                                       ; preds = %485
+  %487 = landingpad { ptr, i32 }
           cleanup
   br label %493
 
-487:                                              ; preds = %484
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %490 unwind label %.thread458
-
-488:                                              ; preds = %493, %485
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %493 ], [ %.sroa.0198.8450, %485 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %493 ], [ %.pn421451, %485 ]
-  br i1 %.sroa.0198.10, label %495, label %494
-
-.thread458:                                       ; preds = %487
-  %489 = landingpad { ptr, i32 }
-          cleanup
-  br label %495
-
-490:                                              ; preds = %487
+488:                                              ; preds = %485
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
   br label %210
 
-491:                                              ; preds = %.thread438, %478
-  %.pn419444 = phi { ptr, i32 } [ %480, %.thread438 ], [ %.pn417, %478 ]
-  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %478 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %478 ]
+489:                                              ; preds = %.thread438, %476
+  %.pn419444 = phi { ptr, i32 } [ %478, %.thread438 ], [ %.pn417, %476 ]
+  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %476 ]
+  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %476 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99) #11
-          to label %482 unwind label %206
+          to label %480 unwind label %206
 
-492:                                              ; preds = %.thread445, %482
-  %.pn421451 = phi { ptr, i32 } [ %483, %.thread445 ], [ %.pn419444, %482 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %482 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %482 ]
+490:                                              ; preds = %.thread445, %480
+  %.pn421451 = phi { ptr, i32 } [ %481, %.thread445 ], [ %.pn419444, %480 ]
+  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %480 ]
+  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %480 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100) #11
-          to label %485 unwind label %206
+          to label %483 unwind label %206
 
-493:                                              ; preds = %.thread452, %485
-  %.pn423457 = phi { ptr, i32 } [ %486, %.thread452 ], [ %.pn421451, %485 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %485 ]
+491:                                              ; preds = %.thread452, %483
+  %.pn423457 = phi { ptr, i32 } [ %484, %.thread452 ], [ %.pn421451, %483 ]
+  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %483 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %488 unwind label %206
+          to label %486 unwind label %206
 
-494:                                              ; preds = %.thread1199, %495, %488
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %495 ], [ %.pn425, %488 ], [ %.pn423.ph, %.thread1199 ]
+492:                                              ; preds = %.thread1199, %493, %486
+  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %493 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
   resume { ptr, i32 } %.pn425461
 
-495:                                              ; preds = %.thread1199, %.thread458, %488
-  %.pn425462 = phi { ptr, i32 } [ %489, %.thread458 ], [ %.pn425, %488 ], [ %.pn423.ph, %.thread1199 ]
+493:                                              ; preds = %.thread1199, %.thread458, %486
+  %.pn425462 = phi { ptr, i32 } [ %487, %.thread458 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %494 unwind label %206
+          to label %492 unwind label %206
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3210,7 +3226,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %23 = alloca [48 x i8], align 8
   %24 = alloca [24 x i8], align 8
   %25 = alloca [48 x i8], align 8
-  %26 = alloca [40 x i8], align 16
+  %26 = alloca [40 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [24 x i8], align 8
@@ -3438,7 +3454,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %176 ], [ false, %209 ], [ true, %168 ]
   %.pn417 = phi { ptr, i32 } [ %177, %176 ], [ %201, %209 ], [ %.pn.pn, %168 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98) #11
-          to label %478 unwind label %206
+          to label %476 unwind label %206
 
 176:                                              ; preds = %471, %182, %181, %172
   %.sroa.0198.4 = phi i1 [ true, %181 ], [ false, %182 ], [ true, %172 ], [ true, %471 ]
@@ -3481,7 +3497,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 
 190:                                              ; preds = %471, %188
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98)
-          to label %481 unwind label %.thread438
+          to label %479 unwind label %.thread438
 
 191:                                              ; preds = %182
   %192 = load i8, ptr %34, align 1
@@ -3549,7 +3565,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store i8 %192, ptr %.sroa.13.0..sroa_idx, align 1
   br label %210
 
-206:                                              ; preds = %495, %493, %492, %491, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
+206:                                              ; preds = %493, %491, %490, %489, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
   %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -3563,7 +3579,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %29) #11
           to label %175 unwind label %206
 
-210:                                              ; preds = %490, %203
+210:                                              ; preds = %488, %203
   ret void
 
 211:                                              ; preds = %173
@@ -4382,106 +4398,114 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
           to label %213 unwind label %206
 
 474:                                              ; preds = %212
+  %.sroa.014.0.copyload = load i64, ptr %26, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.316.sroa.0.0.copyload = load i64, ptr %.sroa.316.0..sroa_idx, align 8
   %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
-  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 16
+  %.sroa.316.sroa.4.0.copyload = load ptr, ptr %.sroa.316.sroa.4.0..sroa.316.0..sroa_idx.sroa_idx, align 8
   %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %26, i64 24
+  %.sroa.316.sroa.5.0.copyload = load i64, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
+  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 32
+  %.sroa.518.0.copyload = load i64, ptr %.sroa.518.0..sroa_idx, align 8
   %475 = getelementptr inbounds i8, ptr %0, i64 8
-  %476 = load <2 x i64>, ptr %26, align 16
-  store <2 x i64> %476, ptr %475, align 8
+  store i64 %.sroa.014.0.copyload, ptr %475, align 8
+  %.sroa.2234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.316.sroa.0.0.copyload, ptr %.sroa.2234.0..sroa_idx, align 8
   %.sroa.3235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.316.sroa.4.0.copyload, ptr %.sroa.3235.0..sroa_idx, align 8
   %.sroa.4236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %477 = load <2 x i64>, ptr %.sroa.316.sroa.5.0..sroa.316.0..sroa_idx.sroa_idx, align 8
-  store <2 x i64> %477, ptr %.sroa.4236.0..sroa_idx, align 8
+  store i64 %.sroa.316.sroa.5.0.copyload, ptr %.sroa.4236.0..sroa_idx, align 8
+  %.sroa.5237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sroa.518.0.copyload, ptr %.sroa.5237.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %471
 
-478:                                              ; preds = %175
-  %479 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %479, label %491, label %.thread1199
+476:                                              ; preds = %175
+  %477 = trunc nuw i8 %.sroa.0197.3 to i1
+  br i1 %477, label %489, label %.thread1199
 
 .thread438:                                       ; preds = %190
-  %480 = landingpad { ptr, i32 }
+  %478 = landingpad { ptr, i32 }
+          cleanup
+  br label %489
+
+479:                                              ; preds = %190
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
+          to label %482 unwind label %.thread445
+
+480:                                              ; preds = %489
+  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
+  br i1 %.pre1193, label %490, label %.thread1199
+
+.thread445:                                       ; preds = %479
+  %481 = landingpad { ptr, i32 }
+          cleanup
+  br label %490
+
+482:                                              ; preds = %479
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
+          to label %485 unwind label %.thread452
+
+.thread1199:                                      ; preds = %480, %476
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %480 ], [ %.sroa.0198.3, %476 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %480 ], [ %.pn417, %476 ]
+  br i1 %.sroa.0198.9.ph, label %493, label %492
+
+483:                                              ; preds = %490
+  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
+  br i1 %.pre, label %491, label %486
+
+.thread452:                                       ; preds = %482
+  %484 = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-481:                                              ; preds = %190
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
-          to label %484 unwind label %.thread445
+485:                                              ; preds = %482
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
+          to label %488 unwind label %.thread458
 
-482:                                              ; preds = %491
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %492, label %.thread1199
+486:                                              ; preds = %491, %483
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %491 ], [ %.sroa.0198.8450, %483 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423457, %491 ], [ %.pn421451, %483 ]
+  br i1 %.sroa.0198.10, label %493, label %492
 
-.thread445:                                       ; preds = %481
-  %483 = landingpad { ptr, i32 }
-          cleanup
-  br label %492
-
-484:                                              ; preds = %481
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
-          to label %487 unwind label %.thread452
-
-.thread1199:                                      ; preds = %482, %478
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %482 ], [ %.sroa.0198.3, %478 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %482 ], [ %.pn417, %478 ]
-  br i1 %.sroa.0198.9.ph, label %495, label %494
-
-485:                                              ; preds = %492
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %493, label %488
-
-.thread452:                                       ; preds = %484
-  %486 = landingpad { ptr, i32 }
+.thread458:                                       ; preds = %485
+  %487 = landingpad { ptr, i32 }
           cleanup
   br label %493
 
-487:                                              ; preds = %484
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %490 unwind label %.thread458
-
-488:                                              ; preds = %493, %485
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %493 ], [ %.sroa.0198.8450, %485 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %493 ], [ %.pn421451, %485 ]
-  br i1 %.sroa.0198.10, label %495, label %494
-
-.thread458:                                       ; preds = %487
-  %489 = landingpad { ptr, i32 }
-          cleanup
-  br label %495
-
-490:                                              ; preds = %487
+488:                                              ; preds = %485
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
   br label %210
 
-491:                                              ; preds = %.thread438, %478
-  %.pn419444 = phi { ptr, i32 } [ %480, %.thread438 ], [ %.pn417, %478 ]
-  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %478 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %478 ]
+489:                                              ; preds = %.thread438, %476
+  %.pn419444 = phi { ptr, i32 } [ %478, %.thread438 ], [ %.pn417, %476 ]
+  %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %476 ]
+  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %476 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99) #11
-          to label %482 unwind label %206
+          to label %480 unwind label %206
 
-492:                                              ; preds = %.thread445, %482
-  %.pn421451 = phi { ptr, i32 } [ %483, %.thread445 ], [ %.pn419444, %482 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %482 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %482 ]
+490:                                              ; preds = %.thread445, %480
+  %.pn421451 = phi { ptr, i32 } [ %481, %.thread445 ], [ %.pn419444, %480 ]
+  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %480 ]
+  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %480 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100) #11
-          to label %485 unwind label %206
+          to label %483 unwind label %206
 
-493:                                              ; preds = %.thread452, %485
-  %.pn423457 = phi { ptr, i32 } [ %486, %.thread452 ], [ %.pn421451, %485 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %485 ]
+491:                                              ; preds = %.thread452, %483
+  %.pn423457 = phi { ptr, i32 } [ %484, %.thread452 ], [ %.pn421451, %483 ]
+  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %483 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %488 unwind label %206
+          to label %486 unwind label %206
 
-494:                                              ; preds = %.thread1199, %495, %488
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %495 ], [ %.pn425, %488 ], [ %.pn423.ph, %.thread1199 ]
+492:                                              ; preds = %.thread1199, %493, %486
+  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %493 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
   resume { ptr, i32 } %.pn425461
 
-495:                                              ; preds = %.thread1199, %.thread458, %488
-  %.pn425462 = phi { ptr, i32 } [ %489, %.thread458 ], [ %.pn425, %488 ], [ %.pn423.ph, %.thread1199 ]
+493:                                              ; preds = %.thread1199, %.thread458, %486
+  %.pn425462 = phi { ptr, i32 } [ %487, %.thread458 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %494 unwind label %206
+          to label %492 unwind label %206
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

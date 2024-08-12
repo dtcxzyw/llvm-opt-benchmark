@@ -116,7 +116,13 @@ if.end:                                           ; preds = %ikcp_malloc.exit
   store i32 0, ptr %probe_wait, align 8
   %snd_wnd = getelementptr inbounds i8, ptr %retval.0.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %snd_una, i8 0, i64 20, i1 false)
-  store <4 x i32> <i32 32, i32 128, i32 128, i32 0>, ptr %snd_wnd, align 8
+  store i32 32, ptr %snd_wnd, align 8
+  %rcv_wnd = getelementptr inbounds i8, ptr %retval.0.i, i64 60
+  store i32 128, ptr %rcv_wnd, align 4
+  %rmt_wnd = getelementptr inbounds i8, ptr %retval.0.i, i64 64
+  store i32 128, ptr %rmt_wnd, align 8
+  %cwnd = getelementptr inbounds i8, ptr %retval.0.i, i64 68
+  store i32 0, ptr %cwnd, align 4
   %incr = getelementptr inbounds i8, ptr %retval.0.i, i64 128
   store i32 0, ptr %incr, align 8
   %probe = getelementptr inbounds i8, ptr %retval.0.i, i64 72
@@ -180,11 +186,22 @@ if.end12:                                         ; preds = %ikcp_malloc.exit73
   %state = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   store i32 0, ptr %state, align 4
   %acklist = getelementptr inbounds i8, ptr %retval.0.i, i64 200
+  %rx_srtt = getelementptr inbounds i8, ptr %retval.0.i, i64 44
+  store i32 0, ptr %rx_srtt, align 4
+  %rx_rttval = getelementptr inbounds i8, ptr %retval.0.i, i64 40
+  store i32 0, ptr %rx_rttval, align 8
+  %rx_rto = getelementptr inbounds i8, ptr %retval.0.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %nrcv_buf, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %acklist, i8 0, i64 16, i1 false)
+  store i32 200, ptr %rx_rto, align 8
   %rx_minrto = getelementptr inbounds i8, ptr %retval.0.i, i64 52
   store i32 100, ptr %rx_minrto, align 4
   %current = getelementptr inbounds i8, ptr %retval.0.i, i64 76
+  store i32 0, ptr %current, align 4
+  %interval = getelementptr inbounds i8, ptr %retval.0.i, i64 80
+  store i32 100, ptr %interval, align 8
+  %ts_flush = getelementptr inbounds i8, ptr %retval.0.i, i64 84
+  store i32 100, ptr %ts_flush, align 4
   %nodelay = getelementptr inbounds i8, ptr %retval.0.i, i64 108
   store i32 0, ptr %nodelay, align 4
   %updated = getelementptr inbounds i8, ptr %retval.0.i, i64 112
@@ -192,14 +209,15 @@ if.end12:                                         ; preds = %ikcp_malloc.exit73
   %logmask = getelementptr inbounds i8, ptr %retval.0.i, i64 248
   store i32 0, ptr %logmask, align 8
   %ssthresh = getelementptr inbounds i8, ptr %retval.0.i, i64 36
-  store <4 x i32> <i32 2, i32 0, i32 0, i32 200>, ptr %ssthresh, align 4
+  store i32 2, ptr %ssthresh, align 4
   %fastresend = getelementptr inbounds i8, ptr %retval.0.i, i64 232
   store i32 0, ptr %fastresend, align 8
   %fastlimit = getelementptr inbounds i8, ptr %retval.0.i, i64 236
   store i32 5, ptr %fastlimit, align 4
   %nocwnd = getelementptr inbounds i8, ptr %retval.0.i, i64 240
   store i32 0, ptr %nocwnd, align 8
-  store <4 x i32> <i32 0, i32 100, i32 100, i32 0>, ptr %current, align 4
+  %xmit = getelementptr inbounds i8, ptr %retval.0.i, i64 88
+  store i32 0, ptr %xmit, align 8
   %dead_link = getelementptr inbounds i8, ptr %retval.0.i, i64 124
   store i32 20, ptr %dead_link, align 4
   %output = getelementptr inbounds i8, ptr %retval.0.i, i64 256

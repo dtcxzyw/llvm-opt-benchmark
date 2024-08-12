@@ -73,19 +73,21 @@ entry:
   %cmp.i = icmp uge ptr %stat, @_mi_stats_main
   %cmp1.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i, i1 %cmp1.i, i1 false
+  %count = getelementptr inbounds i8, ptr %stat, i64 8
   br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %count = getelementptr inbounds i8, ptr %stat, i64 8
   %1 = atomicrmw add ptr %count, i64 1 monotonic, align 8
   %2 = atomicrmw add ptr %stat, i64 %amount monotonic, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = load <2 x i64>, ptr %stat, align 8
-  %4 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %amount, i64 0
-  %5 = add <2 x i64> %3, %4
-  store <2 x i64> %5, ptr %stat, align 8
+  %3 = load i64, ptr %count, align 8
+  %inc = add nsw i64 %3, 1
+  store i64 %inc, ptr %count, align 8
+  %4 = load i64, ptr %stat, align 8
+  %add = add i64 %4, %amount
+  store i64 %add, ptr %stat, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

@@ -1041,7 +1041,13 @@ define internal void @_GLOBAL__sub_I_oil.cpp() #8 section ".text.startup" person
   store ptr %3, ptr @colorSpace, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %4, ptr getelementptr inbounds (i8, ptr @colorSpace, i64 16), align 8
-  store <4 x i32> <i32 6, i32 40, i32 82, i32 32>, ptr %3, align 4
+  store i32 6, ptr %3, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 40, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 82, ptr %.sroa.3.0..sroa_idx.i, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 32, ptr %.sroa.4.0..sroa_idx.i, align 4
   store ptr %4, ptr getelementptr inbounds (i8, ptr @colorSpace, i64 8), align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIiSaIiEED2Ev, ptr nonnull @colorSpace, ptr nonnull @__dso_handle) #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)

@@ -371,7 +371,13 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !5
 
 if.end:                                           ; preds = %entry
-  store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %macaddr, align 1
+  store i8 82, ptr %macaddr, align 1
+  %arrayidx6 = getelementptr i8, ptr %macaddr, i64 1
+  store i8 84, ptr %arrayidx6, align 1
+  %arrayidx8 = getelementptr i8, ptr %macaddr, i64 2
+  store i8 0, ptr %arrayidx8, align 1
+  %arrayidx10 = getelementptr i8, ptr %macaddr, i64 3
+  store i8 18, ptr %arrayidx10, align 1
   %arrayidx12 = getelementptr i8, ptr %macaddr, i64 4
   store i8 52, ptr %arrayidx12, align 1
   br label %for.body.i11
@@ -3547,7 +3553,13 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %if.end41
-  store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
+  store i8 82, ptr %arrayidx, align 8
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx, i64 1
+  store i8 84, ptr %arrayidx6.i, align 1
+  %arrayidx8.i = getelementptr i8, ptr %arrayidx, i64 2
+  store i8 0, ptr %arrayidx8.i, align 2
+  %arrayidx10.i = getelementptr i8, ptr %arrayidx, i64 3
+  store i8 18, ptr %arrayidx10.i, align 1
   %arrayidx12.i = getelementptr i8, ptr %arrayidx, i64 4
   store i8 52, ptr %arrayidx12.i, align 4
   br label %for.body.i11.i
@@ -4328,7 +4340,13 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i.i, label %qemu_macaddr_default_if_unset.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i41:                                       ; preds = %if.end51
-  store <4 x i8> <i8 82, i8 84, i8 0, i8 18>, ptr %arrayidx, align 8
+  store i8 82, ptr %arrayidx, align 8
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx, i64 1
+  store i8 84, ptr %arrayidx6.i, align 1
+  %arrayidx8.i = getelementptr i8, ptr %arrayidx, i64 2
+  store i8 0, ptr %arrayidx8.i, align 2
+  %arrayidx10.i = getelementptr i8, ptr %arrayidx, i64 3
+  store i8 18, ptr %arrayidx10.i, align 1
   %arrayidx12.i = getelementptr i8, ptr %arrayidx, i64 4
   store i8 52, ptr %arrayidx12.i, align 4
   br label %for.body.i11.i

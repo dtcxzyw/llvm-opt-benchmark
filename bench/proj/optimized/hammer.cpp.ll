@@ -55,7 +55,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hammerP8PJconsts(ptr
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %49
+  br label %48
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -81,7 +81,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hammerP8PJconsts(ptr
 20:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   %21 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %49
+  br label %48
 
 22:                                               ; preds = %6
   store double 5.000000e-01, ptr %2, align 8
@@ -109,26 +109,26 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hammerP8PJconsts(ptr
 36:                                               ; preds = %28
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
   %37 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %49
+  br label %48
 
 38:                                               ; preds = %23, %28
   %39 = phi double [ %33, %28 ], [ 1.000000e+00, %23 ]
   %40 = getelementptr inbounds i8, ptr %2, i64 8
-  %41 = load double, ptr %2, align 8
-  %42 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %39, i64 0
-  %43 = insertelement <2 x double> poison, double %41, i64 0
-  %44 = insertelement <2 x double> %43, double %39, i64 1
-  %45 = fdiv <2 x double> %42, %44
-  store <2 x double> %45, ptr %40, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL16hammer_s_forward5PJ_LPP8PJconsts, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL16hammer_s_inverse5PJ_XYP8PJconsts, ptr %48, align 8
-  br label %49
+  %41 = fdiv double 1.000000e+00, %39
+  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %41, ptr %42, align 8
+  %43 = load double, ptr %2, align 8
+  %44 = fdiv double %39, %43
+  store double %44, ptr %40, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL16hammer_s_forward5PJ_LPP8PJconsts, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL16hammer_s_inverse5PJ_XYP8PJconsts, ptr %47, align 8
+  br label %48
 
-49:                                               ; preds = %38, %36, %20, %4
+48:                                               ; preds = %38, %36, %20, %4
   %.0 = phi ptr [ %5, %4 ], [ %21, %20 ], [ %37, %36 ], [ %0, %38 ]
   ret ptr %.0
 }
@@ -149,7 +149,7 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL16hammer_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
-  %4 = alloca %union.PJ_COORD, align 16
+  %4 = alloca %union.PJ_COORD, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double @cos(double noundef %1) #6
@@ -158,40 +158,37 @@ define internal { double, double } @_ZL16hammer_s_forward5PJ_LPP8PJconsts(double
   %10 = tail call double @cos(double noundef %9) #6
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %10, double 1.000000e+00)
   %12 = fcmp oeq double %11, 0.000000e+00
-  br i1 %12, label %13, label %16
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
   %14 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
-  %15 = load <2 x double>, ptr %4, align 16
-  br label %34
+  %.sroa.015.0.copyload = load double, ptr %4, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.316.0.copyload = load double, ptr %.sroa.316.0..sroa_idx, align 8
+  br label %29
 
-16:                                               ; preds = %3
-  %17 = fdiv double 2.000000e+00, %11
-  %18 = tail call double @sqrt(double noundef %17) #6
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = load double, ptr %19, align 8
-  %21 = fmul double %18, %20
+15:                                               ; preds = %3
+  %16 = fdiv double 2.000000e+00, %11
+  %17 = tail call double @sqrt(double noundef %16) #6
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = load double, ptr %18, align 8
+  %20 = fmul double %17, %19
+  %21 = fmul double %7, %20
   %22 = tail call double @sin(double noundef %9) #6
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
-  %24 = load double, ptr %23, align 8
-  %25 = insertelement <2 x double> poison, double %7, i64 0
-  %26 = insertelement <2 x double> %25, double %18, i64 1
-  %27 = insertelement <2 x double> poison, double %21, i64 0
-  %28 = insertelement <2 x double> %27, double %24, i64 1
-  %29 = fmul <2 x double> %26, %28
-  %30 = tail call double @sin(double noundef %1) #6
-  %31 = insertelement <2 x double> poison, double %22, i64 0
-  %32 = insertelement <2 x double> %31, double %30, i64 1
-  %33 = fmul <2 x double> %32, %29
-  br label %34
+  %23 = fmul double %22, %21
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load double, ptr %24, align 8
+  %26 = fmul double %17, %25
+  %27 = tail call double @sin(double noundef %1) #6
+  %28 = fmul double %26, %27
+  br label %29
 
-34:                                               ; preds = %16, %13
-  %35 = phi <2 x double> [ %15, %13 ], [ %33, %16 ]
-  %36 = extractelement <2 x double> %35, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %36, 0
-  %37 = extractelement <2 x double> %35, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %37, 1
+29:                                               ; preds = %15, %13
+  %.sroa.015.0 = phi double [ %.sroa.015.0.copyload, %13 ], [ %23, %15 ]
+  %.sroa.316.0 = phi double [ %.sroa.316.0.copyload, %13 ], [ %28, %15 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.015.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.316.0, 1
   ret { double, double } %.fca.1.insert
 }
 

@@ -3372,18 +3372,24 @@ define dso_local void @_ZN7doctest8toStringEy(ptr dead_on_unwind noalias writabl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7doctest6ApproxC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #2 align 2 {
-  store <2 x double> <double 0x3EE9000000000000, double 1.000000e+00>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %1, ptr %3, align 8
+  store double 0x3EE9000000000000, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK7doctest6ApproxclEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.doctest::Approx") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %2, ptr %4, align 8
-  %5 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %5, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %2, ptr %5, align 8
+  %6 = load double, ptr %1, align 8
+  store double %6, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load double, ptr %7, align 8
+  store double %8, ptr %4, align 8
   ret void
 }
 
@@ -29911,8 +29917,8 @@ define internal fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTest
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i unwind label %10
 
-common.resume.i:                                  ; preds = %65, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %66, %65 ]
+common.resume.i:                                  ; preds = %71, %10
+  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op.i
 
 10:                                               ; preds = %8
@@ -29961,7 +29967,7 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13J
   %30 = phi ptr [ %29, %27 ], [ null, %_ZNKSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE12_M_check_lenEmPKc.exit.i.i ]
   %31 = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter::JUnitTestCaseData::JUnitTestCase", ptr %30, i64 %21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %.noexc.i.i unwind label %61
+          to label %.noexc.i.i unwind label %67
 
 .noexc.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
   %32 = getelementptr inbounds i8, ptr %31, i64 32
@@ -29980,8 +29986,8 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13J
   br i1 %22, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i ], [ %30, %35 ]
-  %.092.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %.val.i.i, %35 ]
+  %.03.i.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i ], [ %30, %35 ]
+  %.092.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i ], [ %.val.i.i, %35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i) #9
@@ -29994,87 +30000,95 @@ _ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13J
   store double %41, ptr %39, align 8, !alias.scope !226, !noalias !229
   %42 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 72
   %43 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 72
-  %44 = load <2 x ptr>, ptr %43, align 8, !alias.scope !229, !noalias !226
-  store <2 x ptr> %44, ptr %42, align 8, !alias.scope !226, !noalias !229
-  %45 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 88
-  %46 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 88
+  %44 = load ptr, ptr %43, align 8, !alias.scope !229, !noalias !226
+  store ptr %44, ptr %42, align 8, !alias.scope !226, !noalias !229
+  %45 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 80
+  %46 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 80
   %47 = load ptr, ptr %46, align 8, !alias.scope !229, !noalias !226
   store ptr %47, ptr %45, align 8, !alias.scope !226, !noalias !229
+  %48 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 88
+  %49 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 88
+  %50 = load ptr, ptr %49, align 8, !alias.scope !229, !noalias !226
+  store ptr %50, ptr %48, align 8, !alias.scope !226, !noalias !229
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
-  %48 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 96
-  %49 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 96
-  %50 = load <2 x ptr>, ptr %49, align 8, !alias.scope !229, !noalias !226
-  store <2 x ptr> %50, ptr %48, align 8, !alias.scope !226, !noalias !229
-  %51 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 112
-  %52 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 112
+  %51 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 96
+  %52 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 96
   %53 = load ptr, ptr %52, align 8, !alias.scope !229, !noalias !226
   store ptr %53, ptr %51, align 8, !alias.scope !226, !noalias !229
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
+  %54 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 104
+  %55 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 104
+  %56 = load ptr, ptr %55, align 8, !alias.scope !229, !noalias !226
+  store ptr %56, ptr %54, align 8, !alias.scope !226, !noalias !229
+  %57 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 112
+  %58 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 112
+  %59 = load ptr, ptr %58, align 8, !alias.scope !229, !noalias !226
+  store ptr %59, ptr %57, align 8, !alias.scope !226, !noalias !229
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false), !alias.scope !229, !noalias !226
   tail call fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.092.i.i.i.i.i) #9
-  %54 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 120
-  %55 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 120
-  %.not.i.i.i.i.i = icmp eq ptr %54, %5
+  %60 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 120
+  %61 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 120
+  %.not.i.i.i.i.i = icmp eq ptr %60, %5
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !231
 
 _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i: ; preds = %.lr.ph.i.i.i.i.i, %35
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %30, %35 ], [ %55, %.lr.ph.i.i.i.i.i ]
-  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %30, %35 ], [ %61, %.lr.ph.i.i.i.i.i ]
+  %62 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
   %.not.i38.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i38.i.i, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %57
+  br i1 %.not.i38.i.i, label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %63
 
-57:                                               ; preds = %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i
-  %58 = load ptr, ptr %6, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %59, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %60) #46
+63:                                               ; preds = %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i
+  %64 = load ptr, ptr %6, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = sub i64 %65, %17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %66) #46
   br label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
-  %62 = landingpad { ptr, i32 }
+67:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
+  %68 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %61, %33
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %62, %61 ], [ %34, %33 ]
-  %63 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
-  %64 = tail call ptr @__cxa_begin_catch(ptr %63) #9
+.body.i.i:                                        ; preds = %67, %33
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %68, %67 ], [ %34, %33 ]
+  %69 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
+  %70 = tail call ptr @__cxa_begin_catch(ptr %69) #9
   %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %.thread.i.i, label %67
+  br i1 %.not.i.i, label %.thread.i.i, label %73
 
 .thread.i.i:                                      ; preds = %.body.i.i
   tail call fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %31) #9
   br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
 
-65:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
-  %66 = landingpad { ptr, i32 }
+71:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
+  %72 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume.i unwind label %69
+          to label %common.resume.i unwind label %75
 
-67:                                               ; preds = %.body.i.i
-  %68 = mul nuw nsw i64 %26, 120
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %68) #46
+73:                                               ; preds = %.body.i.i
+  %74 = mul nuw nsw i64 %26, 120
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %74) #46
   br label %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
 
-_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i: ; preds = %67, %.thread.i.i
+_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i: ; preds = %73, %.thread.i.i
   invoke void @__cxa_rethrow() #47
-          to label %72 unwind label %65
+          to label %78 unwind label %71
 
-69:                                               ; preds = %65
-  %70 = landingpad { ptr, i32 }
+75:                                               ; preds = %71
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #50
+  %77 = extractvalue { ptr, i32 } %76, 0
+  tail call void @__clang_call_terminate(ptr %77) #50
   unreachable
 
-72:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
+78:                                               ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE13_M_deallocateEPS4_m.exit42.i.i
   unreachable
 
-_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %57, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i
+_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit37.i.i
   store ptr %30, ptr %0, align 8
-  store ptr %56, ptr %4, align 8
-  %73 = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter::JUnitTestCaseData::JUnitTestCase", ptr %30, i64 %26
-  store ptr %73, ptr %6, align 8
+  store ptr %62, ptr %4, align 8
+  %79 = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter::JUnitTestCaseData::JUnitTestCase", ptr %30, i64 %26
+  store ptr %79, ptr %6, align 8
   br label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEERS4_DpOT_.exit
 
 _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEERS4_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i, %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
@@ -35183,9 +35197,10 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = load <2 x ptr>, ptr %0, align 8
-  %36 = shufflevector <2 x ptr> %35, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %36, ptr %0, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = load ptr, ptr %10, align 8
+  store ptr %36, ptr %0, align 8
+  store ptr %35, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN7doctest6detail8TestCaseESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_SH_SH_T0_.exit.preheader
 
 37:                                               ; preds = %31

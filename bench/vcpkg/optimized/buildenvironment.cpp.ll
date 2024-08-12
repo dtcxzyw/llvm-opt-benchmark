@@ -40,33 +40,34 @@ $_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA23_KcRA4_S5_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5vcpkg14make_cmake_cmdERKNS_10VcpkgPathsERKNS_4PathEOSt6vectorINS_13CMakeVariableESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Command") align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::vector", align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %9, ptr %5, align 16
+  %5 = alloca %"class.std::vector", align 8
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %10, align 16
+  store ptr %12, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %.not.i = icmp eq ptr %8, %12
+  %.not.i = icmp eq ptr %9, %12
   br i1 %.not.i, label %17, label %14
 
 14:                                               ; preds = %4
-  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr nonnull @.str, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @.str, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %14
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr %16, ptr %6, align 8
+  store ptr %16, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 17:                                               ; preds = %4
-  invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA15_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %8, ptr noundef nonnull align 1 dereferenceable(15) @.str, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA15_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %9, ptr noundef nonnull align 1 dereferenceable(15) @.str, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit unwind label %65
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit: ; preds = %17, %.noexc
@@ -74,8 +75,8 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
           to label %19 unwind label %65
 
 19:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %10, align 16
+  %20 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %10, align 8
   %.not.i10 = icmp eq ptr %20, %21
   br i1 %.not.i10, label %25, label %22
 
@@ -84,9 +85,9 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
           to label %.noexc12 unwind label %65
 
 .noexc12:                                         ; preds = %22
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 32
-  store ptr %24, ptr %6, align 8
+  store ptr %24, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 25:                                               ; preds = %19
@@ -98,8 +99,8 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEE
           to label %27 unwind label %65
 
 27:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %10, align 16
+  %28 = load ptr, ptr %7, align 8
+  %29 = load ptr, ptr %10, align 8
   %.not.i14 = icmp eq ptr %28, %29
   br i1 %.not.i14, label %33, label %30
 
@@ -108,9 +109,9 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEE
           to label %.noexc16 unwind label %65
 
 .noexc16:                                         ; preds = %30
-  %31 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %32, ptr %6, align 8
+  store ptr %32, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18
 
 33:                                               ; preds = %27
@@ -122,8 +123,8 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
           to label %35 unwind label %65
 
 35:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18
-  %36 = load ptr, ptr %6, align 8
-  %37 = load ptr, ptr %10, align 16
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %10, align 8
   %.not.i19 = icmp eq ptr %36, %37
   br i1 %.not.i19, label %41, label %38
 
@@ -132,9 +133,9 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
           to label %.noexc21 unwind label %65
 
 .noexc21:                                         ; preds = %38
-  %39 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %7, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %40, ptr %6, align 8
+  store ptr %40, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 41:                                               ; preds = %35
@@ -142,14 +143,14 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
           to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %65
 
 ._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge: ; preds = %41
-  %.pre = load ptr, ptr %6, align 8
+  %.pre = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit: ; preds = %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge, %.noexc21
   %42 = phi ptr [ %.pre, %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge ], [ %40, %.noexc21 ]
   %43 = getelementptr inbounds i8, ptr %1, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %10, align 16
+  %45 = load ptr, ptr %10, align 8
   %.not.i23 = icmp eq ptr %42, %45
   br i1 %.not.i23, label %49, label %46
 
@@ -158,9 +159,9 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEE
           to label %.noexc25 unwind label %65
 
 .noexc25:                                         ; preds = %46
-  %47 = load ptr, ptr %6, align 8
+  %47 = load ptr, ptr %7, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %48, ptr %6, align 8
+  store ptr %48, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 49:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
@@ -168,12 +169,12 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEE
           to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %65
 
 ._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge: ; preds = %49
-  %.pre31 = load ptr, ptr %6, align 8
+  %.pre31 = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit: ; preds = %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge, %.noexc25
   %50 = phi ptr [ %.pre31, %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge ], [ %48, %.noexc25 ]
-  %51 = load ptr, ptr %10, align 16
+  %51 = load ptr, ptr %10, align 8
   %.not.i27 = icmp eq ptr %50, %51
   br i1 %.not.i27, label %55, label %52
 
@@ -182,9 +183,9 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEE
           to label %.noexc29 unwind label %65
 
 .noexc29:                                         ; preds = %52
-  %53 = load ptr, ptr %6, align 8
+  %53 = load ptr, ptr %7, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 32
-  store ptr %54, ptr %6, align 8
+  store ptr %54, ptr %7, align 8
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit
 
 55:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
@@ -201,8 +202,8 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1
           to label %59 unwind label %65
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr %5, align 16
-  %61 = load ptr, ptr %6, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i = icmp eq ptr %60, %61
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -214,7 +215,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %5, align 16
+  %.pr.i = load ptr, ptr %5, align 8
   br label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %59

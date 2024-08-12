@@ -98,7 +98,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef %1)
   %20 = alloca %"class.cv::Mat", align 8
   %21 = alloca %"class.cv::_OutputArray", align 8
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
-  %23 = alloca %"class.cv::Scalar_", align 16
+  %23 = alloca %"class.cv::Scalar_", align 8
   %24 = alloca %"class.std::__cxx11::basic_string", align 8
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %"class.std::allocator", align 1
@@ -291,10 +291,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %87 = getelementptr inbounds i8, ptr %4, i64 8
   %88 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
   %89 = getelementptr inbounds i8, ptr %27, i64 16
   %90 = getelementptr inbounds i8, ptr %27, i64 20
   %91 = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 24
   br label %92
 
 92:                                               ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit62, %79
@@ -382,8 +385,10 @@ _ZNSt16allocator_traitsISaIN2cv3dpm11DPMDetector15ObjectDetectionEEE8allocateERS
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %113
   %125 = phi ptr [ null, %113 ], [ %122, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %113 ], [ %124, %.lr.ph.i.i.i.i.i ]
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr %23, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.3.0..sroa_idx, align 16
+  store double 0.000000e+00, ptr %23, align 8
+  store double 2.550000e+02, ptr %.sroa.2.0..sroa_idx, align 8
+  store double 2.550000e+02, ptr %.sroa.3.0..sroa_idx, align 8
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %126 unwind label %157
 
@@ -425,7 +430,8 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EEC2ERKS5_.exit: ; pre
   store i32 50397184, ptr %4, align 8
   store ptr %15, ptr %87, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.500000e+02, double 0.000000e+00>, ptr %.sroa.3.0..sroa_idx.i, align 8
+  store double 2.500000e+02, ptr %.sroa.3.0..sroa_idx.i, align 8
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 8
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 214748364810, i32 noundef 1, double noundef 2.000000e+00, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %137 unwind label %.loopexit.split-lp
 
@@ -914,7 +920,9 @@ define hidden void @_Z9drawBoxesRN2cv3MatESt6vectorINS_3dpm11DPMDetector15Object
   store ptr %0, ptr %26, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.500000e+02, double 0.000000e+00>, ptr %.sroa.3.0..sroa_idx, align 8
+  store double 2.500000e+02, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
   call void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 214748364810, i32 noundef 1, double noundef 2.000000e+00, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
   ret void
 }

@@ -195,9 +195,12 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load <2 x i32>, ptr %object, align 8
+  %is_last = getelementptr inbounds i8, ptr %object, i64 4
+  %1 = load i32, ptr %is_last, align 4
+  %is_last1 = getelementptr inbounds i8, ptr %call, i64 4
+  store i32 %1, ptr %is_last1, align 4
   %2 = load i32, ptr %object, align 8
-  store <2 x i32> %1, ptr %call, align 8
+  store i32 %2, ptr %call, align 8
   %length = getelementptr inbounds i8, ptr %object, i64 8
   %3 = load i32, ptr %length, align 8
   %length4 = getelementptr inbounds i8, ptr %call, i64 8
@@ -433,7 +436,7 @@ if.then84:                                        ; preds = %vorbiscomment_entry
   store ptr null, ptr %comments79160, align 8
   %num_comments86 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 0, ptr %num_comments86, align 8
-  tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
+  tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
   tail call void @free(ptr noundef %call) #28
   br label %return
 
@@ -523,7 +526,7 @@ cuesheet_track_array_copy_.exit:                  ; preds = %for.inc.i113
 if.then111:                                       ; preds = %cuesheet_track_array_delete_.exit.i, %if.else100
   %tracks106163 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr null, ptr %tracks106163, align 8
-  tail call void @FLAC__metadata_object_delete_data(ptr noundef nonnull %call)
+  tail call void @FLAC__metadata_object_delete_data(ptr noundef %call)
   tail call void @free(ptr noundef %call) #28
   br label %return
 
@@ -565,29 +568,41 @@ if.end132:                                        ; preds = %if.end125
   tail call void @free(ptr noundef %27) #28
   store ptr %call.i124, ptr %description, align 8
   %width = getelementptr inbounds i8, ptr %object, i64 40
+  %28 = load i32, ptr %width, align 8
   %width135 = getelementptr inbounds i8, ptr %call, i64 40
-  %28 = load <4 x i32>, ptr %width, align 8
-  store <4 x i32> %28, ptr %width135, align 8
+  store i32 %28, ptr %width135, align 8
+  %height = getelementptr inbounds i8, ptr %object, i64 44
+  %29 = load i32, ptr %height, align 4
+  %height138 = getelementptr inbounds i8, ptr %call, i64 44
+  store i32 %29, ptr %height138, align 4
+  %depth = getelementptr inbounds i8, ptr %object, i64 48
+  %30 = load i32, ptr %depth, align 8
+  %depth141 = getelementptr inbounds i8, ptr %call, i64 48
+  store i32 %30, ptr %depth141, align 8
+  %colors = getelementptr inbounds i8, ptr %object, i64 52
+  %31 = load i32, ptr %colors, align 4
+  %colors144 = getelementptr inbounds i8, ptr %call, i64 52
+  store i32 %31, ptr %colors144, align 4
   %data_length = getelementptr inbounds i8, ptr %object, i64 56
-  %29 = load i32, ptr %data_length, align 8
+  %32 = load i32, ptr %data_length, align 8
   %data_length147 = getelementptr inbounds i8, ptr %call, i64 56
-  store i32 %29, ptr %data_length147, align 8
+  store i32 %32, ptr %data_length147, align 8
   %data149 = getelementptr inbounds i8, ptr %call, i64 64
   %data151 = getelementptr inbounds i8, ptr %object, i64 64
-  %30 = load ptr, ptr %data151, align 8
-  %cmp.i129 = icmp ne i32 %29, 0
-  %cmp1.i130 = icmp ne ptr %30, null
+  %33 = load ptr, ptr %data151, align 8
+  %cmp.i129 = icmp ne i32 %32, 0
+  %cmp1.i130 = icmp ne ptr %33, null
   %or.cond.i131 = and i1 %cmp.i129, %cmp1.i130
   br i1 %or.cond.i131, label %if.then.i135, label %copy_bytes_.exit140
 
 if.then.i135:                                     ; preds = %if.end132
-  %conv.i136 = zext i32 %29 to i64
+  %conv.i136 = zext i32 %32 to i64
   %call.i.i137 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i136) #27
   %cmp2.i138 = icmp eq ptr %call.i.i137, null
   br i1 %cmp2.i138, label %if.then156, label %if.end.i139
 
 if.end.i139:                                      ; preds = %if.then.i135
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull readonly align 1 %30, i64 %conv.i136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i137, ptr nonnull readonly align 1 %33, i64 %conv.i136, i1 false)
   br label %copy_bytes_.exit140
 
 copy_bytes_.exit140:                              ; preds = %if.end132, %if.end.i139
@@ -603,9 +618,9 @@ if.then156:                                       ; preds = %if.then.i135
 sw.default:                                       ; preds = %if.then
   %data158 = getelementptr inbounds i8, ptr %call, i64 16
   %data160 = getelementptr inbounds i8, ptr %object, i64 16
-  %31 = load ptr, ptr %data160, align 8
+  %34 = load ptr, ptr %data160, align 8
   %cmp.i141 = icmp ne i32 %3, 0
-  %cmp1.i142 = icmp ne ptr %31, null
+  %cmp1.i142 = icmp ne ptr %34, null
   %or.cond.i143 = and i1 %cmp.i141, %cmp1.i142
   br i1 %or.cond.i143, label %if.then.i147, label %copy_bytes_.exit152
 
@@ -616,7 +631,7 @@ if.then.i147:                                     ; preds = %sw.default
   br i1 %cmp2.i150, label %if.then165, label %if.end.i151
 
 if.end.i151:                                      ; preds = %if.then.i147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull readonly align 1 %31, i64 %conv.i148, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i149, ptr nonnull readonly align 1 %34, i64 %conv.i148, i1 false)
   br label %copy_bytes_.exit152
 
 copy_bytes_.exit152:                              ; preds = %sw.default, %if.end.i151
@@ -4310,7 +4325,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  store <4 x i8> <i8 102, i8 76, i8 97, i8 67>, ptr %buffer, align 1
+  store i8 102, ptr %buffer, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %buffer, i64 1
+  store i8 76, ptr %arrayidx3, align 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %buffer, i64 2
+  store i8 97, ptr %arrayidx4, align 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %buffer, i64 3
+  store i8 67, ptr %arrayidx5, align 1
   store i64 4, ptr %bytes, align 8
   store i32 0, ptr %tell, align 4
   br label %return

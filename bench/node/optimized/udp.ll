@@ -680,37 +680,39 @@ if.end36:                                         ; preds = %if.end15, %if.end27
   %13 = load i32, ptr %nbufs18, align 8
   %call42 = call i64 @uv__count_bufs(ptr noundef %12, i32 noundef %13) #10
   %send_queue_size = getelementptr inbounds i8, ptr %handle, i64 96
-  %14 = load <2 x i64>, ptr %send_queue_size, align 8
-  %15 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %call42, i64 0
-  %16 = add <2 x i64> %14, %15
-  store <2 x i64> %16, ptr %send_queue_size, align 8
+  %14 = load i64, ptr %send_queue_size, align 8
+  %add = add i64 %14, %call42
+  store i64 %add, ptr %send_queue_size, align 8
+  %15 = load i64, ptr %send_queue_count, align 8
+  %inc44 = add i64 %15, 1
+  store i64 %inc44, ptr %send_queue_count, align 8
   %write_queue = getelementptr inbounds i8, ptr %handle, i64 184
   %queue = getelementptr inbounds i8, ptr %req, i64 80
   store ptr %write_queue, ptr %queue, align 8
   %prev.i = getelementptr inbounds i8, ptr %handle, i64 192
-  %17 = load ptr, ptr %prev.i, align 8
+  %16 = load ptr, ptr %prev.i, align 8
   %prev1.i = getelementptr inbounds i8, ptr %req, i64 88
-  store ptr %17, ptr %prev1.i, align 8
-  store ptr %queue, ptr %17, align 8
+  store ptr %16, ptr %prev1.i, align 8
+  store ptr %queue, ptr %16, align 8
   store ptr %queue, ptr %prev.i, align 8
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
-  %18 = load i32, ptr %flags, align 8
-  %and = and i32 %18, 4
+  %17 = load i32, ptr %flags, align 8
+  %and = and i32 %17, 4
   %cmp46.not = icmp eq i32 %and, 0
   br i1 %cmp46.not, label %if.end49, label %do.end61
 
 if.end49:                                         ; preds = %if.end36
-  %or = or disjoint i32 %18, 4
+  %or = or disjoint i32 %17, 4
   store i32 %or, ptr %flags, align 8
-  %and52 = and i32 %18, 8
+  %and52 = and i32 %17, 8
   %cmp53.not = icmp eq i32 %and52, 0
   br i1 %cmp53.not, label %do.end61, label %do.body56
 
 do.body56:                                        ; preds = %if.end49
-  %19 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i32, ptr %active_handles, align 8
-  %inc58 = add i32 %20, 1
+  %18 = load ptr, ptr %loop, align 8
+  %active_handles = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load i32, ptr %active_handles, align 8
+  %inc58 = add i32 %19, 1
   store i32 %inc58, ptr %active_handles, align 8
   br label %do.end61
 
@@ -718,27 +720,27 @@ do.end61:                                         ; preds = %if.end49, %do.body5
   br i1 %cmp, label %land.lhs.true, label %if.else73
 
 land.lhs.true:                                    ; preds = %do.end61
-  %21 = load i32, ptr %flags, align 8
-  %and64 = and i32 %21, 16777216
+  %20 = load i32, ptr %flags, align 8
+  %and64 = and i32 %20, 16777216
   %tobool65.not = icmp eq i32 %and64, 0
   br i1 %tobool65.not, label %if.then66, label %if.else73
 
 if.then66:                                        ; preds = %land.lhs.true
   call fastcc void @uv__udp_sendmsg(ptr noundef nonnull %handle)
-  %22 = load ptr, ptr %write_queue, align 8
-  %cmp.i.not = icmp eq ptr %22, %write_queue
+  %21 = load ptr, ptr %write_queue, align 8
+  %cmp.i.not = icmp eq ptr %21, %write_queue
   br i1 %cmp.i.not, label %return, label %if.then70
 
 if.then70:                                        ; preds = %if.then66
-  %23 = load ptr, ptr %loop, align 8
+  %22 = load ptr, ptr %loop, align 8
   %io_watcher = getelementptr inbounds i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %23, ptr noundef nonnull %io_watcher, i32 noundef 4) #10
+  call void @uv__io_start(ptr noundef %22, ptr noundef nonnull %io_watcher, i32 noundef 4) #10
   br label %return
 
 if.else73:                                        ; preds = %land.lhs.true, %do.end61
-  %24 = load ptr, ptr %loop, align 8
+  %23 = load ptr, ptr %loop, align 8
   %io_watcher75 = getelementptr inbounds i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %24, ptr noundef nonnull %io_watcher75, i32 noundef 4) #10
+  call void @uv__io_start(ptr noundef %23, ptr noundef nonnull %io_watcher75, i32 noundef 4) #10
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread44, %if.else73, %if.then70, %if.then66, %uv__udp_maybe_deferred_bind.exit, %do.body32

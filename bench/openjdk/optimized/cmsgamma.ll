@@ -644,52 +644,58 @@ define hidden ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %
   %5 = icmp eq i32 %1, 0
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %31, label %7
+  br i1 %or.cond, label %34, label %7
 
 7:                                                ; preds = %3
-  store <2 x float> <float 0xC480F0CF00000000, float 0.000000e+00>, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  store double 1.000000e+00, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = load float, ptr %2, align 4
-  %12 = fpext float %11 to double
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
-  store double %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
-  store double 0.000000e+00, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 112
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 120
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 208
-  store i32 %1, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 216
-  store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 224
-  store <2 x float> <float 1.000000e+00, float 0x4480F0CF00000000>, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 232
-  store i32 6, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 240
-  store double 1.000000e+00, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 248
-  %23 = add i32 %1, -1
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds float, ptr %2, i64 %24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %26 = load float, ptr %25, align 4
-  %27 = fpext float %26 to double
-  %28 = getelementptr inbounds i8, ptr %4, i64 264
-  store double %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 272
-  store double 0.000000e+00, ptr %29, align 16
-  %30 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4)
-  br label %31
+  store float 0xC480F0CF00000000, ptr %4, align 16
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 6, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  store double 1.000000e+00, ptr %10, align 16
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %12 = load float, ptr %2, align 4
+  %13 = fpext float %12 to double
+  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  store double %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  store double 0.000000e+00, ptr %15, align 16
+  %16 = getelementptr inbounds i8, ptr %4, i64 112
+  store float 0.000000e+00, ptr %16, align 16
+  %17 = getelementptr inbounds i8, ptr %4, i64 116
+  store float 1.000000e+00, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 120
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 208
+  store i32 %1, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %4, i64 216
+  store ptr %2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 224
+  store float 1.000000e+00, ptr %21, align 16
+  %22 = getelementptr inbounds i8, ptr %4, i64 228
+  store float 0x4480F0CF00000000, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %4, i64 232
+  store i32 6, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 240
+  store double 1.000000e+00, ptr %24, align 16
+  %25 = getelementptr inbounds i8, ptr %4, i64 248
+  %26 = add i32 %1, -1
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds float, ptr %2, i64 %27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %29 = load float, ptr %28, align 4
+  %30 = fpext float %29 to double
+  %31 = getelementptr inbounds i8, ptr %4, i64 264
+  store double %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 272
+  store double 0.000000e+00, ptr %32, align 16
+  %33 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4)
+  br label %34
 
-31:                                               ; preds = %3, %7
-  %.0 = phi ptr [ %30, %7 ], [ null, %3 ]
+34:                                               ; preds = %3, %7
+  %.0 = phi ptr [ %33, %7 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -748,30 +754,32 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
 
 IsInSet.exit38.thread.i:                          ; preds = %17
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str, i32 noundef %1) #13
-  br label %28
+  br label %29
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph.i33.i
   %indvars.iv.i34.lcssa.sink.i = phi i64 [ %indvars.iv.i34.i, %.lr.ph.i33.i ], [ %indvars.iv.i.i, %.lr.ph.i.i ]
   %.0.ph.i = phi ptr [ @DefaultCurves, %.lr.ph.i33.i ], [ %.02049.i, %.lr.ph.i.i ]
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 104, i1 false)
-  store <2 x float> <float 0xC480F0CF00000000, float 0x4480F0CF00000000>, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.0.ph.i, i64 84
+  store float 0xC480F0CF00000000, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0x4480F0CF00000000, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %.0.ph.i, i64 84
   %sext = shl i64 %indvars.iv.i34.lcssa.sink.i, 32
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds [20 x i32], ptr %20, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = shl i32 %23, 3
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = zext i32 %24 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %2, i64 %26, i1 false)
-  %27 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
-  br label %28
+  %22 = ashr exact i64 %sext, 32
+  %23 = getelementptr inbounds [20 x i32], ptr %21, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = shl i32 %24, 3
+  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = zext i32 %25 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %2, i64 %27, i1 false)
+  %28 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4)
+  br label %29
 
-28:                                               ; preds = %.loopexit, %IsInSet.exit38.thread.i
-  %.0 = phi ptr [ null, %IsInSet.exit38.thread.i ], [ %27, %.loopexit ]
+29:                                               ; preds = %.loopexit, %IsInSet.exit38.thread.i
+  %.0 = phi ptr [ null, %IsInSet.exit38.thread.i ], [ %28, %.loopexit ]
   ret ptr %.0
 }
 
@@ -989,49 +997,55 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not, label %.thread, label %20
 
 20:                                               ; preds = %._crit_edge
-  store <2 x float> <float 0xC480F0CF00000000, float 0.000000e+00>, ptr %5, align 16
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 6, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store double 1.000000e+00, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %24 = load float, ptr %9, align 4
-  %25 = fpext float %24 to double
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  store double %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 48
-  store double 0.000000e+00, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 112
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 120
-  store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 208
-  store i32 %3, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 216
-  store ptr %9, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 224
-  store <2 x float> <float 1.000000e+00, float 0x4480F0CF00000000>, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %5, i64 232
-  store i32 6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 240
-  store double 1.000000e+00, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %5, i64 248
-  %36 = add i32 %3, -1
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds float, ptr %9, i64 %37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %39 = load float, ptr %38, align 4
-  %40 = fpext float %39 to double
-  %41 = getelementptr inbounds i8, ptr %5, i64 264
-  store double %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 272
-  store double 0.000000e+00, ptr %42, align 16
-  %43 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
+  store float 0xC480F0CF00000000, ptr %5, align 16
+  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  store float 0.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 6, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 1.000000e+00, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  %25 = load float, ptr %9, align 4
+  %26 = fpext float %25 to double
+  %27 = getelementptr inbounds i8, ptr %5, i64 40
+  store double %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 48
+  store double 0.000000e+00, ptr %28, align 16
+  %29 = getelementptr inbounds i8, ptr %5, i64 112
+  store float 0.000000e+00, ptr %29, align 16
+  %30 = getelementptr inbounds i8, ptr %5, i64 116
+  store float 1.000000e+00, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %5, i64 120
+  store i32 0, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 208
+  store i32 %3, ptr %32, align 16
+  %33 = getelementptr inbounds i8, ptr %5, i64 216
+  store ptr %9, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 224
+  store float 1.000000e+00, ptr %34, align 16
+  %35 = getelementptr inbounds i8, ptr %5, i64 228
+  store float 0x4480F0CF00000000, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %5, i64 232
+  store i32 6, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 240
+  store double 1.000000e+00, ptr %37, align 16
+  %38 = getelementptr inbounds i8, ptr %5, i64 248
+  %39 = add i32 %3, -1
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds float, ptr %9, i64 %40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  %42 = load float, ptr %41, align 4
+  %43 = fpext float %42 to double
+  %44 = getelementptr inbounds i8, ptr %5, i64 264
+  store double %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %5, i64 272
+  store double 0.000000e+00, ptr %45, align 16
+  %46 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %20, %._crit_edge
-  %.0.i = phi ptr [ %43, %20 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %.0.i = phi ptr [ %46, %20 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %5)
   call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #13
   br label %.thread.thread39

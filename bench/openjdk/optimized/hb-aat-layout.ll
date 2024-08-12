@@ -926,122 +926,126 @@ _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.th
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %54 = getelementptr inbounds i8, ptr %1, i64 76
   %wide.trip.count = zext i32 %21 to i64
-  br label %54
+  br label %55
 
-54:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
+55:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
-  %.01218 = phi ptr [ %51, %.lr.ph ], [ %106, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
-  %55 = load i32, ptr %25, align 4
-  %56 = zext i32 %55 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %56
-  br i1 %.not.i, label %58, label %57
+  %.01218 = phi ptr [ %51, %.lr.ph ], [ %108, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
+  %56 = load i32, ptr %25, align 4
+  %57 = zext i32 %56 to i64
+  %.not.i = icmp ult i64 %indvars.iv, %57
+  br i1 %.not.i, label %59, label %58
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
   br label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds %struct.hb_vector_t.178, ptr %59, i64 %indvars.iv
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %52, align 8
+  %61 = getelementptr inbounds %struct.hb_vector_t.178, ptr %60, i64 %indvars.iv
   br label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
 
-_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit: ; preds = %57, %58
-  %.0.i = phi ptr [ @_hb_CrapPool, %57 ], [ %60, %58 ]
-  %61 = tail call noundef i32 @_ZNK3AAT5ChainINS_13ExtendedTypesEE13compile_flagsEPK20hb_aat_map_builder_t(ptr noundef nonnull align 1 dereferenceable(28) %.01218, ptr noundef %1)
-  %62 = load <2 x i32>, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = load i32, ptr %.0.i, align 8
-  %.not.i13 = icmp slt i32 %64, %65
-  br i1 %.not.i13, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i, label %66
+_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit: ; preds = %58, %59
+  %.0.i = phi ptr [ @_hb_CrapPool, %58 ], [ %61, %59 ]
+  %62 = tail call noundef i32 @_ZNK3AAT5ChainINS_13ExtendedTypesEE13compile_flagsEPK20hb_aat_map_builder_t(ptr noundef nonnull align 1 dereferenceable(28) %.01218, ptr noundef %1)
+  %63 = load i32, ptr %53, align 8
+  %64 = load i32, ptr %54, align 4
+  %65 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = load i32, ptr %.0.i, align 8
+  %.not.i13 = icmp slt i32 %66, %67
+  br i1 %.not.i13, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i, label %68
 
-66:                                               ; preds = %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
-  %67 = add i32 %64, 1
-  %68 = icmp slt i32 %65, 0
-  br i1 %68, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, label %69
+68:                                               ; preds = %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
+  %69 = add i32 %66, 1
+  %70 = icmp slt i32 %67, 0
+  br i1 %70, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, label %71
 
-69:                                               ; preds = %66
-  %.not.i.i14 = icmp ult i32 %65, %67
+71:                                               ; preds = %68
+  %.not.i.i14 = icmp ult i32 %67, %69
   br i1 %.not.i.i14, label %.preheader.i.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-.preheader.i.i:                                   ; preds = %69, %.preheader.i.i
-  %.142.i.i = phi i32 [ %72, %.preheader.i.i ], [ %65, %69 ]
-  %70 = lshr i32 %.142.i.i, 1
-  %71 = add i32 %.142.i.i, 8
-  %72 = add i32 %71, %70
-  %73 = icmp ult i32 %72, %67
-  br i1 %73, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
+.preheader.i.i:                                   ; preds = %71, %.preheader.i.i
+  %.142.i.i = phi i32 [ %74, %.preheader.i.i ], [ %67, %71 ]
+  %72 = lshr i32 %.142.i.i, 1
+  %73 = add i32 %.142.i.i, 8
+  %74 = add i32 %73, %72
+  %75 = icmp ult i32 %74, %69
+  br i1 %75, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
-  %74 = icmp ugt i32 %72, 357913941
-  br i1 %74, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %76 = icmp ugt i32 %74, 357913941
+  br i1 %76, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %75 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = zext nneg i32 %72 to i64
-  %78 = mul nuw nsw i64 %77, 12
-  %79 = tail call ptr @realloc(ptr noundef %76, i64 noundef %78) #21
-  %.not43.i.i = icmp eq ptr %79, null
-  br i1 %.not43.i.i, label %80, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i
+  %77 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = zext nneg i32 %74 to i64
+  %80 = mul nuw nsw i64 %79, 12
+  %81 = tail call ptr @realloc(ptr noundef %78, i64 noundef %80) #21
+  %.not43.i.i = icmp eq ptr %81, null
+  br i1 %.not43.i.i, label %82, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i
 
-80:                                               ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  %81 = load i32, ptr %.0.i, align 8
-  %.not21.i.i = icmp ugt i32 %72, %81
+82:                                               ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %83 = load i32, ptr %.0.i, align 8
+  %.not21.i.i = icmp ugt i32 %74, %83
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i: ; preds = %80, %.thread.i.i
-  %.01538.sink.i.ph.in.i = phi i32 [ %65, %.thread.i.i ], [ %81, %80 ]
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i: ; preds = %82, %.thread.i.i
+  %.01538.sink.i.ph.in.i = phi i32 [ %67, %.thread.i.i ], [ %83, %82 ]
   %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
   store i32 %.01538.sink.i.ph.i, ptr %.0.i, align 8
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  store ptr %79, ptr %75, align 8
-  store i32 %72, ptr %.0.i, align 8
+  store ptr %81, ptr %77, align 8
+  store i32 %74, ptr %.0.i, align 8
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, %66
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i, %80, %69, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
-  %82 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %63, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %63, align 4
-  %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds %"struct.hb_aat_map_t::range_flags_t", ptr %83, i64 %86
-  store i32 %61, ptr %87, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 4
-  store <2 x i32> %62, ptr %.sroa.2.0..sroa_idx, align 4
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i, %82, %71, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
+  %84 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %65, align 4
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %65, align 4
+  %88 = zext i32 %86 to i64
+  %89 = getelementptr inbounds %"struct.hb_aat_map_t::range_flags_t", ptr %85, i64 %88
+  store i32 %62, ptr %89, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 4
+  store i32 %63, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
+  store i32 %64, ptr %.sroa.3.0..sroa_idx, align 4
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
-  %88 = getelementptr inbounds i8, ptr %.01218, i64 4
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i64
-  %91 = shl nuw nsw i64 %90, 24
-  %92 = getelementptr inbounds i8, ptr %.01218, i64 5
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i64
-  %95 = shl nuw nsw i64 %94, 16
-  %96 = or disjoint i64 %95, %91
-  %97 = getelementptr inbounds i8, ptr %.01218, i64 6
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i64
-  %100 = shl nuw nsw i64 %99, 8
-  %101 = or disjoint i64 %96, %100
-  %102 = getelementptr inbounds i8, ptr %.01218, i64 7
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i64
-  %105 = or disjoint i64 %101, %104
-  %106 = getelementptr inbounds i8, ptr %.01218, i64 %105
+  %90 = getelementptr inbounds i8, ptr %.01218, i64 4
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i64
+  %93 = shl nuw nsw i64 %92, 24
+  %94 = getelementptr inbounds i8, ptr %.01218, i64 5
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i64
+  %97 = shl nuw nsw i64 %96, 16
+  %98 = or disjoint i64 %97, %93
+  %99 = getelementptr inbounds i8, ptr %.01218, i64 6
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl nuw nsw i64 %101, 8
+  %103 = or disjoint i64 %98, %102
+  %104 = getelementptr inbounds i8, ptr %.01218, i64 7
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i64
+  %107 = or disjoint i64 %103, %106
+  %108 = getelementptr inbounds i8, ptr %.01218, i64 %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread, label %54, !llvm.loop !11
+  br i1 %exitcond.not, label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread, label %55, !llvm.loop !11
 
 _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread16, %3
   ret void
@@ -1136,122 +1140,126 @@ _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.th
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = getelementptr inbounds i8, ptr %2, i64 8
   %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %54 = getelementptr inbounds i8, ptr %1, i64 76
   %wide.trip.count = zext i32 %21 to i64
-  br label %54
+  br label %55
 
-54:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
+55:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
-  %.01218 = phi ptr [ %51, %.lr.ph ], [ %106, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
-  %55 = load i32, ptr %25, align 4
-  %56 = zext i32 %55 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %56
-  br i1 %.not.i, label %58, label %57
+  %.01218 = phi ptr [ %51, %.lr.ph ], [ %108, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit ]
+  %56 = load i32, ptr %25, align 4
+  %57 = zext i32 %56 to i64
+  %.not.i = icmp ult i64 %indvars.iv, %57
+  br i1 %.not.i, label %59, label %58
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
   br label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds %struct.hb_vector_t.178, ptr %59, i64 %indvars.iv
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %52, align 8
+  %61 = getelementptr inbounds %struct.hb_vector_t.178, ptr %60, i64 %indvars.iv
   br label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
 
-_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit: ; preds = %57, %58
-  %.0.i = phi ptr [ @_hb_CrapPool, %57 ], [ %60, %58 ]
-  %61 = tail call noundef i32 @_ZNK3AAT5ChainINS_13ObsoleteTypesEE13compile_flagsEPK20hb_aat_map_builder_t(ptr noundef nonnull align 1 dereferenceable(24) %.01218, ptr noundef %1)
-  %62 = load <2 x i32>, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %64 = load i32, ptr %63, align 4
-  %65 = load i32, ptr %.0.i, align 8
-  %.not.i13 = icmp slt i32 %64, %65
-  br i1 %.not.i13, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i, label %66
+_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit: ; preds = %58, %59
+  %.0.i = phi ptr [ @_hb_CrapPool, %58 ], [ %61, %59 ]
+  %62 = tail call noundef i32 @_ZNK3AAT5ChainINS_13ObsoleteTypesEE13compile_flagsEPK20hb_aat_map_builder_t(ptr noundef nonnull align 1 dereferenceable(24) %.01218, ptr noundef %1)
+  %63 = load i32, ptr %53, align 8
+  %64 = load i32, ptr %54, align 4
+  %65 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = load i32, ptr %.0.i, align 8
+  %.not.i13 = icmp slt i32 %66, %67
+  br i1 %.not.i13, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i, label %68
 
-66:                                               ; preds = %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
-  %67 = add i32 %64, 1
-  %68 = icmp slt i32 %65, 0
-  br i1 %68, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, label %69
+68:                                               ; preds = %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
+  %69 = add i32 %66, 1
+  %70 = icmp slt i32 %67, 0
+  br i1 %70, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, label %71
 
-69:                                               ; preds = %66
-  %.not.i.i14 = icmp ult i32 %65, %67
+71:                                               ; preds = %68
+  %.not.i.i14 = icmp ult i32 %67, %69
   br i1 %.not.i.i14, label %.preheader.i.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-.preheader.i.i:                                   ; preds = %69, %.preheader.i.i
-  %.142.i.i = phi i32 [ %72, %.preheader.i.i ], [ %65, %69 ]
-  %70 = lshr i32 %.142.i.i, 1
-  %71 = add i32 %.142.i.i, 8
-  %72 = add i32 %71, %70
-  %73 = icmp ult i32 %72, %67
-  br i1 %73, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
+.preheader.i.i:                                   ; preds = %71, %.preheader.i.i
+  %.142.i.i = phi i32 [ %74, %.preheader.i.i ], [ %67, %71 ]
+  %72 = lshr i32 %.142.i.i, 1
+  %73 = add i32 %.142.i.i, 8
+  %74 = add i32 %73, %72
+  %75 = icmp ult i32 %74, %69
+  br i1 %75, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !10
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
-  %74 = icmp ugt i32 %72, 357913941
-  br i1 %74, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %76 = icmp ugt i32 %74, 357913941
+  br i1 %76, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %75 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = zext nneg i32 %72 to i64
-  %78 = mul nuw nsw i64 %77, 12
-  %79 = tail call ptr @realloc(ptr noundef %76, i64 noundef %78) #21
-  %.not43.i.i = icmp eq ptr %79, null
-  br i1 %.not43.i.i, label %80, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i
+  %77 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = zext nneg i32 %74 to i64
+  %80 = mul nuw nsw i64 %79, 12
+  %81 = tail call ptr @realloc(ptr noundef %78, i64 noundef %80) #21
+  %.not43.i.i = icmp eq ptr %81, null
+  br i1 %.not43.i.i, label %82, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i
 
-80:                                               ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  %81 = load i32, ptr %.0.i, align 8
-  %.not21.i.i = icmp ugt i32 %72, %81
+82:                                               ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %83 = load i32, ptr %.0.i, align 8
+  %.not21.i.i = icmp ugt i32 %74, %83
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i: ; preds = %80, %.thread.i.i
-  %.01538.sink.i.ph.in.i = phi i32 [ %65, %.thread.i.i ], [ %81, %80 ]
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i: ; preds = %82, %.thread.i.i
+  %.01538.sink.i.ph.in.i = phi i32 [ %67, %.thread.i.i ], [ %83, %82 ]
   %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
   store i32 %.01538.sink.i.ph.i, ptr %.0.i, align 8
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  store ptr %79, ptr %75, align 8
-  store i32 %72, ptr %.0.i, align 8
+  store ptr %81, ptr %77, align 8
+  store i32 %74, ptr %.0.i, align 8
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, %66
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread9.i, %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
 
-_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i, %80, %69, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
-  %82 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %63, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %63, align 4
-  %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds %"struct.hb_aat_map_t::range_flags_t", ptr %83, i64 %86
-  store i32 %61, ptr %87, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 4
-  store <2 x i32> %62, ptr %.sroa.2.0..sroa_idx, align 4
+_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.i, %82, %71, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EEixEi.exit
+  %84 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %65, align 4
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %65, align 4
+  %88 = zext i32 %86 to i64
+  %89 = getelementptr inbounds %"struct.hb_aat_map_t::range_flags_t", ptr %85, i64 %88
+  store i32 %62, ptr %89, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 4
+  store i32 %63, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
+  store i32 %64, ptr %.sroa.3.0..sroa_idx, align 4
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit
 
 _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE5allocEjb.exit.thread.i
-  %88 = getelementptr inbounds i8, ptr %.01218, i64 4
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i64
-  %91 = shl nuw nsw i64 %90, 24
-  %92 = getelementptr inbounds i8, ptr %.01218, i64 5
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i64
-  %95 = shl nuw nsw i64 %94, 16
-  %96 = or disjoint i64 %95, %91
-  %97 = getelementptr inbounds i8, ptr %.01218, i64 6
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i64
-  %100 = shl nuw nsw i64 %99, 8
-  %101 = or disjoint i64 %96, %100
-  %102 = getelementptr inbounds i8, ptr %.01218, i64 7
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i64
-  %105 = or disjoint i64 %101, %104
-  %106 = getelementptr inbounds i8, ptr %.01218, i64 %105
+  %90 = getelementptr inbounds i8, ptr %.01218, i64 4
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i64
+  %93 = shl nuw nsw i64 %92, 24
+  %94 = getelementptr inbounds i8, ptr %.01218, i64 5
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i64
+  %97 = shl nuw nsw i64 %96, 16
+  %98 = or disjoint i64 %97, %93
+  %99 = getelementptr inbounds i8, ptr %.01218, i64 6
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl nuw nsw i64 %101, 8
+  %103 = or disjoint i64 %98, %102
+  %104 = getelementptr inbounds i8, ptr %.01218, i64 7
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i64
+  %107 = or disjoint i64 %103, %106
+  %108 = getelementptr inbounds i8, ptr %.01218, i64 %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread, label %54, !llvm.loop !12
+  br i1 %exitcond.not, label %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread, label %55, !llvm.loop !12
 
 _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread: ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4pushIJS1_EEEPS1_DpOT_.exit, %_ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE6resizeEibb.exit.thread16, %3
   ret void
@@ -28464,8 +28472,8 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit.i: ; preds = %40, %30
   store i32 0, ptr %43, align 4
   br label %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
 
-common.resume:                                    ; preds = %221, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %222, %221 ]
+common.resume:                                    ; preds = %233, %44
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %234, %233 ]
   tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -28481,7 +28489,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 272
   %50 = invoke noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
-          to label %51 unwind label %221
+          to label %51 unwind label %233
 
 51:                                               ; preds = %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
   %52 = load ptr, ptr %50, align 8
@@ -28497,7 +28505,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %58 = load ptr, ptr %16, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 272
   %60 = invoke noundef nonnull align 8 dereferenceable(536) ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %221
+          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %233
 
 _ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit: ; preds = %51
   %61 = getelementptr inbounds i8, ptr %0, i64 248
@@ -28698,68 +28706,92 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %_ZN24hb_set_digest_
   %187 = load i32, ptr %186, align 8
   store i32 %187, ptr %185, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 300
-  store <4 x i32> <i32 1, i32 -1, i32 0, i32 64>, ptr %188, align 4
-  %189 = load i8, ptr %62, align 1
-  %190 = zext i8 %189 to i32
-  %191 = shl nuw nsw i32 %190, 8
-  %192 = load i8, ptr %66, align 1
+  store i32 1, ptr %188, align 4
+  %189 = getelementptr inbounds i8, ptr %0, i64 304
+  store i32 -1, ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %0, i64 308
+  store i32 0, ptr %190, align 4
+  %191 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 64, ptr %191, align 8
+  %192 = load i8, ptr %62, align 1
   %193 = zext i8 %192 to i32
-  %194 = or disjoint i32 %191, %193
-  %cond.i10 = icmp eq i32 %194, 1
-  br i1 %cond.i10, label %195, label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
+  %194 = shl nuw nsw i32 %193, 8
+  %195 = load i8, ptr %66, align 1
+  %196 = zext i8 %195 to i32
+  %197 = or disjoint i32 %194, %196
+  %cond.i10 = icmp eq i32 %197, 1
+  br i1 %cond.i10, label %198, label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
 
-195:                                              ; preds = %_ZNK11hb_buffer_t6digestEv.exit
-  %196 = getelementptr inbounds i8, ptr %62, i64 4
-  %197 = load i8, ptr %196, align 1
-  %198 = zext i8 %197 to i32
-  %199 = shl nuw nsw i32 %198, 8
-  %200 = getelementptr inbounds i8, ptr %62, i64 5
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  %203 = or disjoint i32 %199, %202
-  %204 = icmp ne i32 %203, 0
-  %205 = zext i1 %204 to i8
+198:                                              ; preds = %_ZNK11hb_buffer_t6digestEv.exit
+  %199 = getelementptr inbounds i8, ptr %62, i64 4
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = shl nuw nsw i32 %201, 8
+  %203 = getelementptr inbounds i8, ptr %62, i64 5
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i32
+  %206 = or disjoint i32 %202, %205
+  %207 = icmp ne i32 %206, 0
+  %208 = zext i1 %207 to i8
   br label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
 
-_ZNK2OT4GDEF17has_glyph_classesEv.exit:           ; preds = %195, %_ZNK11hb_buffer_t6digestEv.exit
-  %.0.i11 = phi i8 [ %205, %195 ], [ 0, %_ZNK11hb_buffer_t6digestEv.exit ]
-  %206 = getelementptr inbounds i8, ptr %0, i64 316
-  store i8 %.0.i11, ptr %206, align 4
-  %207 = getelementptr inbounds i8, ptr %0, i64 317
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %207, align 1
-  %208 = getelementptr inbounds i8, ptr %0, i64 324
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 0>, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %0, ptr %209, align 8
-  %210 = load ptr, ptr %19, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 88
-  %212 = load i32, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %212, ptr %213, align 8
+_ZNK2OT4GDEF17has_glyph_classesEv.exit:           ; preds = %198, %_ZNK11hb_buffer_t6digestEv.exit
+  %.0.i11 = phi i8 [ %208, %198 ], [ 0, %_ZNK11hb_buffer_t6digestEv.exit ]
+  %209 = getelementptr inbounds i8, ptr %0, i64 316
+  store i8 %.0.i11, ptr %209, align 4
+  %210 = getelementptr inbounds i8, ptr %0, i64 317
+  store i8 1, ptr %210, align 1
+  %211 = getelementptr inbounds i8, ptr %0, i64 318
+  store i8 1, ptr %211, align 2
+  %212 = getelementptr inbounds i8, ptr %0, i64 319
+  store i8 0, ptr %212, align 1
+  %213 = getelementptr inbounds i8, ptr %0, i64 320
+  store i8 0, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %0, i64 324
+  store i32 1, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %0, i64 328
+  store i32 -1, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %0, i64 332
+  store i32 -1, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %0, i64 336
+  store i32 0, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %0, ptr %218, align 8
+  %219 = load ptr, ptr %19, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 88
+  %221 = load i32, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %221, ptr %222, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 8
-  %214 = zext i1 %109 to i8
-  store i8 %214, ptr %8, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 1, ptr %215, align 1
+  %223 = zext i1 %109 to i8
+  store i8 %223, ptr %8, align 8
+  %224 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 1, ptr %224, align 1
   store i32 1, ptr %7, align 4
-  %216 = getelementptr inbounds i8, ptr %0, i64 34
-  store i8 0, ptr %216, align 2
-  %217 = getelementptr inbounds i8, ptr %0, i64 35
-  store i8 0, ptr %217, align 1
-  %218 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %0, ptr %218, align 8
-  %219 = load i32, ptr %211, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 %219, ptr %220, align 8
+  %225 = getelementptr inbounds i8, ptr %0, i64 34
+  store i8 0, ptr %225, align 2
+  %226 = getelementptr inbounds i8, ptr %0, i64 35
+  store i8 0, ptr %226, align 1
+  %227 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %0, ptr %227, align 8
+  %228 = load i32, ptr %220, align 8
+  %229 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 %228, ptr %229, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 0, ptr %10, align 8
+  store i8 1, ptr %12, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 97
+  store i8 1, ptr %230, align 1
   store i32 -1, ptr %11, align 4
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %12, align 8
+  %231 = getelementptr inbounds i8, ptr %0, i64 98
+  store i8 0, ptr %231, align 2
+  %232 = getelementptr inbounds i8, ptr %0, i64 99
+  store i8 0, ptr %232, align 1
   ret void
 
-221:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
-  %222 = landingpad { ptr, i32 }
+233:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
+  %234 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }

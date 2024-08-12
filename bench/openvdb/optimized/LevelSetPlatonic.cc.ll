@@ -178,6 +178,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %qua, i8 0, i64 24, i1 false)
   %0 = add i32 %faceCount, -4
   %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %ref.tmp382.sink4792.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp376, i64 8
+  %ref.tmp382.sink4792.sroa.gep4793 = getelementptr inbounds i8, ptr %ref.tmp382, i64 8
   switch i32 %1, label %if.else346 [
     i32 0, label %cond.true.i.i.i.i
     i32 1, label %cond.true.i.i.i.i295
@@ -193,7 +195,9 @@ cond.true.i.i.i.i:                                ; preds = %entry
           to label %cond.true.i.i.i.i34 unwind label %lpad
 
 cond.true.i.i.i.i34:                              ; preds = %cond.true.i.i.i.i
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %call5.i.i.i.i.i.i14, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i14, align 4
+  %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 4
+  store float 1.000000e+00, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 4
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 8
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 12
@@ -205,7 +209,9 @@ cond.true.i.i.i.i34:                              ; preds = %cond.true.i.i.i.i
 
 invoke.cont4:                                     ; preds = %cond.true.i.i.i.i34
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 12
-  store <2 x float> <float 0xBFEE2B8080000000, float 0xBFD5554620000000>, ptr %add.ptr.i.i.i38, align 4
+  store float 0xBFEE2B8080000000, ptr %add.ptr.i.i.i38, align 4
+  %ref.tmp2.sroa.3.0.add.ptr.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 16
+  store float 0xBFD5554620000000, ptr %ref.tmp2.sroa.3.0.add.ptr.i.i.i38.sroa_idx, align 4
   %ref.tmp2.sroa.4.0.add.ptr.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 20
   store float 0.000000e+00, ptr %ref.tmp2.sroa.4.0.add.ptr.i.i.i38.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i14, i64 12, i1 false)
@@ -220,7 +226,9 @@ invoke.cont4:                                     ; preds = %cond.true.i.i.i.i34
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i74: ; preds = %invoke.cont4
   %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 24
-  store <2 x float> <float 0x3FDE2B8080000000, float 0xBFD5554620000000>, ptr %add.ptr.i.i.i76, align 4
+  store float 0x3FDE2B8080000000, ptr %add.ptr.i.i.i76, align 4
+  %ref.tmp5.sroa.3.0.add.ptr.i.i.i76.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 28
+  store float 0xBFD5554620000000, ptr %ref.tmp5.sroa.3.0.add.ptr.i.i.i76.sroa_idx, align 4
   %ref.tmp5.sroa.4.0.add.ptr.i.i.i76.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 32
   store float 0x3FEA20BFA0000000, ptr %ref.tmp5.sroa.4.0.add.ptr.i.i.i76.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i89, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i51, i64 24, i1 false)
@@ -230,7 +238,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i80, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i84 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 48
   store ptr %add.ptr19.i.i.i84, ptr %_M_end_of_storage.i.i, align 8
-  store <2 x float> <float 0x3FDE2B8080000000, float 0xBFD5554620000000>, ptr %incdec.ptr.i.i.i80, align 4
+  store float 0x3FDE2B8080000000, ptr %incdec.ptr.i.i.i80, align 4
+  %ref.tmp8.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 40
+  store float 0xBFD5554620000000, ptr %ref.tmp8.sroa.3.0..sroa_idx, align 4
   %ref.tmp8.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 44
   store float 0xBFEA20BFA0000000, ptr %ref.tmp8.sroa.4.0..sroa_idx, align 4
   %2 = load ptr, ptr %_M_finish.i.i, align 8
@@ -540,7 +550,9 @@ cond.true.i.i.i.i295:                             ; preds = %entry
           to label %cond.true.i.i.i.i333 unwind label %lpad
 
 cond.true.i.i.i.i333:                             ; preds = %cond.true.i.i.i.i295
-  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %call5.i.i.i.i.i.i312, align 4
+  store float -5.000000e-01, ptr %call5.i.i.i.i.i.i312, align 4
+  %ref.tmp25.sroa.3.0.add.ptr.i.i.i299.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 4
+  store float -5.000000e-01, ptr %ref.tmp25.sroa.3.0.add.ptr.i.i.i299.sroa_idx, align 4
   %ref.tmp25.sroa.4.0.add.ptr.i.i.i299.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 8
   store float -5.000000e-01, ptr %ref.tmp25.sroa.4.0.add.ptr.i.i.i299.sroa_idx, align 4
   %incdec.ptr.i.i.i303 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 12
@@ -552,7 +564,9 @@ cond.true.i.i.i.i333:                             ; preds = %cond.true.i.i.i.i29
 
 invoke.cont30:                                    ; preds = %cond.true.i.i.i.i333
   %add.ptr.i.i.i337 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 12
-  store <2 x float> <float 5.000000e-01, float -5.000000e-01>, ptr %add.ptr.i.i.i337, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i337, align 4
+  %ref.tmp28.sroa.3.0.add.ptr.i.i.i337.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 16
+  store float -5.000000e-01, ptr %ref.tmp28.sroa.3.0.add.ptr.i.i.i337.sroa_idx, align 4
   %ref.tmp28.sroa.4.0.add.ptr.i.i.i337.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 20
   store float -5.000000e-01, ptr %ref.tmp28.sroa.4.0.add.ptr.i.i.i337.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i350, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i312, i64 12, i1 false)
@@ -567,7 +581,9 @@ invoke.cont30:                                    ; preds = %cond.true.i.i.i.i33
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i373: ; preds = %invoke.cont30
   %add.ptr.i.i.i375 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 24
-  store <2 x float> <float 5.000000e-01, float -5.000000e-01>, ptr %add.ptr.i.i.i375, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i375, align 4
+  %ref.tmp31.sroa.3.0.add.ptr.i.i.i375.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 28
+  store float -5.000000e-01, ptr %ref.tmp31.sroa.3.0.add.ptr.i.i.i375.sroa_idx, align 4
   %ref.tmp31.sroa.4.0.add.ptr.i.i.i375.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 32
   store float 5.000000e-01, ptr %ref.tmp31.sroa.4.0.add.ptr.i.i.i375.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i388, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i350, i64 24, i1 false)
@@ -577,7 +593,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i379, ptr %_M_finish.i.i278, align 8
   %add.ptr19.i.i.i383 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 48
   store ptr %add.ptr19.i.i.i383, ptr %_M_end_of_storage.i.i279, align 8
-  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %incdec.ptr.i.i.i379, align 4
+  store float -5.000000e-01, ptr %incdec.ptr.i.i.i379, align 4
+  %ref.tmp34.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 40
+  store float -5.000000e-01, ptr %ref.tmp34.sroa.3.0..sroa_idx, align 4
   %ref.tmp34.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 44
   store float 5.000000e-01, ptr %ref.tmp34.sroa.4.0..sroa_idx, align 4
   %24 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -588,7 +606,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i432, label %if.else.i.i435, label %if.then.i.i433
 
 if.then.i.i433:                                   ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i373
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %incdec.ptr.i.i396, align 4
+  store float -5.000000e-01, ptr %incdec.ptr.i.i396, align 4
+  %ref.tmp37.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i396, i64 4
+  store float 5.000000e-01, ptr %ref.tmp37.sroa.3.0..sroa_idx, align 4
   %ref.tmp37.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i396, i64 8
   store float -5.000000e-01, ptr %ref.tmp37.sroa.4.0..sroa_idx, align 4
   %25 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -623,7 +643,9 @@ cond.true.i.i.i.i447:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i449: ; preds = %cond.true.i.i.i.i447, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i440
   %cond.i10.i.i.i450 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i440 ], [ %call5.i.i.i.i.i.i464, %cond.true.i.i.i.i447 ]
   %add.ptr.i.i.i451 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i450, i64 %sub.ptr.div.i.i.i.i.i441
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i451, align 4
+  store float -5.000000e-01, ptr %add.ptr.i.i.i451, align 4
+  %ref.tmp37.sroa.3.0.add.ptr.i.i.i451.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i451, i64 4
+  store float 5.000000e-01, ptr %ref.tmp37.sroa.3.0.add.ptr.i.i.i451.sroa_idx, align 4
   %ref.tmp37.sroa.4.0.add.ptr.i.i.i451.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i451, i64 8
   store float -5.000000e-01, ptr %ref.tmp37.sroa.4.0.add.ptr.i.i.i451.sroa_idx, align 4
   %cmp.i.i.i.i.i.i452 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i438, 0
@@ -657,7 +679,9 @@ invoke.cont39:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i470, label %if.else.i.i473, label %if.then.i.i471
 
 if.then.i.i471:                                   ; preds = %invoke.cont39
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %29, align 4
+  store float 5.000000e-01, ptr %29, align 4
+  %ref.tmp40.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
+  store float 5.000000e-01, ptr %ref.tmp40.sroa.3.0..sroa_idx, align 4
   %ref.tmp40.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store float -5.000000e-01, ptr %ref.tmp40.sroa.4.0..sroa_idx, align 4
   %30 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -692,7 +716,9 @@ cond.true.i.i.i.i485:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i487: ; preds = %cond.true.i.i.i.i485, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i478
   %cond.i10.i.i.i488 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i478 ], [ %call5.i.i.i.i.i.i502, %cond.true.i.i.i.i485 ]
   %add.ptr.i.i.i489 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i488, i64 %sub.ptr.div.i.i.i.i.i479
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i489, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i489, align 4
+  %ref.tmp40.sroa.3.0.add.ptr.i.i.i489.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i489, i64 4
+  store float 5.000000e-01, ptr %ref.tmp40.sroa.3.0.add.ptr.i.i.i489.sroa_idx, align 4
   %ref.tmp40.sroa.4.0.add.ptr.i.i.i489.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i489, i64 8
   store float -5.000000e-01, ptr %ref.tmp40.sroa.4.0.add.ptr.i.i.i489.sroa_idx, align 4
   %cmp.i.i.i.i.i.i490 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i476, 0
@@ -726,7 +752,9 @@ invoke.cont42:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i508, label %if.else.i.i511, label %if.then.i.i509
 
 if.then.i.i509:                                   ; preds = %invoke.cont42
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %34, align 4
+  store float 5.000000e-01, ptr %34, align 4
+  %ref.tmp43.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 4
+  store float 5.000000e-01, ptr %ref.tmp43.sroa.3.0..sroa_idx, align 4
   %ref.tmp43.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
   store float 5.000000e-01, ptr %ref.tmp43.sroa.4.0..sroa_idx, align 4
   %35 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -761,7 +789,9 @@ cond.true.i.i.i.i523:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i525: ; preds = %cond.true.i.i.i.i523, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i516
   %cond.i10.i.i.i526 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i516 ], [ %call5.i.i.i.i.i.i540, %cond.true.i.i.i.i523 ]
   %add.ptr.i.i.i527 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i526, i64 %sub.ptr.div.i.i.i.i.i517
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i527, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i527, align 4
+  %ref.tmp43.sroa.3.0.add.ptr.i.i.i527.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i527, i64 4
+  store float 5.000000e-01, ptr %ref.tmp43.sroa.3.0.add.ptr.i.i.i527.sroa_idx, align 4
   %ref.tmp43.sroa.4.0.add.ptr.i.i.i527.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i527, i64 8
   store float 5.000000e-01, ptr %ref.tmp43.sroa.4.0.add.ptr.i.i.i527.sroa_idx, align 4
   %cmp.i.i.i.i.i.i528 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i514, 0
@@ -795,7 +825,9 @@ invoke.cont45:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i546, label %if.else.i.i549, label %if.then.i.i547
 
 if.then.i.i547:                                   ; preds = %invoke.cont45
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %39, align 4
+  store float -5.000000e-01, ptr %39, align 4
+  %ref.tmp46.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 4
+  store float 5.000000e-01, ptr %ref.tmp46.sroa.3.0..sroa_idx, align 4
   %ref.tmp46.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
   store float 5.000000e-01, ptr %ref.tmp46.sroa.4.0..sroa_idx, align 4
   %40 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -829,7 +861,9 @@ cond.true.i.i.i.i561:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i563: ; preds = %cond.true.i.i.i.i561, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i554
   %cond.i10.i.i.i564 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i554 ], [ %call5.i.i.i.i.i.i578, %cond.true.i.i.i.i561 ]
   %add.ptr.i.i.i565 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i564, i64 %sub.ptr.div.i.i.i.i.i555
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i565, align 4
+  store float -5.000000e-01, ptr %add.ptr.i.i.i565, align 4
+  %ref.tmp46.sroa.3.0.add.ptr.i.i.i565.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i565, i64 4
+  store float 5.000000e-01, ptr %ref.tmp46.sroa.3.0.add.ptr.i.i.i565.sroa_idx, align 4
   %ref.tmp46.sroa.4.0.add.ptr.i.i.i565.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i565, i64 8
   store float 5.000000e-01, ptr %ref.tmp46.sroa.4.0.add.ptr.i.i.i565.sroa_idx, align 4
   %cmp.i.i.i.i.i.i566 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i552, 0
@@ -865,7 +899,13 @@ invoke.cont48:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i584, label %if.else.i.i587, label %if.then.i.i585
 
 if.then.i.i585:                                   ; preds = %invoke.cont48
-  store <4 x i32> <i32 1, i32 0, i32 4, i32 5>, ptr %43, align 4
+  store i32 1, ptr %43, align 4
+  %ref.tmp49.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 4
+  store i32 0, ptr %ref.tmp49.sroa.3.0..sroa_idx, align 4
+  %ref.tmp49.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 4, ptr %ref.tmp49.sroa.4.0..sroa_idx, align 4
+  %ref.tmp49.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 12
+  store i32 5, ptr %ref.tmp49.sroa.5.0..sroa_idx, align 4
   %45 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i586 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %incdec.ptr.i.i586, ptr %_M_finish.i.i582, align 8
@@ -898,7 +938,13 @@ cond.true.i.i.i.i598:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i598, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i10.i.i.i600 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i612, %cond.true.i.i.i.i598 ]
   %add.ptr.i.i.i601 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i600, i64 %sub.ptr.div.i.i.i.i.i592
-  store <4 x i32> <i32 1, i32 0, i32 4, i32 5>, ptr %add.ptr.i.i.i601, align 4
+  store i32 1, ptr %add.ptr.i.i.i601, align 4
+  %ref.tmp49.sroa.3.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 4
+  store i32 0, ptr %ref.tmp49.sroa.3.0.add.ptr.i.i.i601.sroa_idx, align 4
+  %ref.tmp49.sroa.4.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 8
+  store i32 4, ptr %ref.tmp49.sroa.4.0.add.ptr.i.i.i601.sroa_idx, align 4
+  %ref.tmp49.sroa.5.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 12
+  store i32 5, ptr %ref.tmp49.sroa.5.0.add.ptr.i.i.i601.sroa_idx, align 4
   %cmp.i.i.i.i.i.i602 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i590, 0
   br i1 %cmp.i.i.i.i.i.i602, label %if.then.i.i.i.i.i.i608, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
@@ -930,7 +976,13 @@ invoke.cont51:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i618, label %if.else.i.i621, label %if.then.i.i619
 
 if.then.i.i619:                                   ; preds = %invoke.cont51
-  store <4 x i32> <i32 2, i32 1, i32 5, i32 6>, ptr %49, align 4
+  store i32 2, ptr %49, align 4
+  %ref.tmp52.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 1, ptr %ref.tmp52.sroa.3.0..sroa_idx, align 4
+  %ref.tmp52.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  store i32 5, ptr %ref.tmp52.sroa.4.0..sroa_idx, align 4
+  %ref.tmp52.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 12
+  store i32 6, ptr %ref.tmp52.sroa.5.0..sroa_idx, align 4
   %50 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i620 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %incdec.ptr.i.i620, ptr %_M_finish.i.i582, align 8
@@ -963,7 +1015,13 @@ cond.true.i.i.i.i633:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i635: ; preds = %cond.true.i.i.i.i633, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i626
   %cond.i10.i.i.i636 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i626 ], [ %call5.i.i.i.i.i.i650, %cond.true.i.i.i.i633 ]
   %add.ptr.i.i.i637 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i636, i64 %sub.ptr.div.i.i.i.i.i627
-  store <4 x i32> <i32 2, i32 1, i32 5, i32 6>, ptr %add.ptr.i.i.i637, align 4
+  store i32 2, ptr %add.ptr.i.i.i637, align 4
+  %ref.tmp52.sroa.3.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 4
+  store i32 1, ptr %ref.tmp52.sroa.3.0.add.ptr.i.i.i637.sroa_idx, align 4
+  %ref.tmp52.sroa.4.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 8
+  store i32 5, ptr %ref.tmp52.sroa.4.0.add.ptr.i.i.i637.sroa_idx, align 4
+  %ref.tmp52.sroa.5.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 12
+  store i32 6, ptr %ref.tmp52.sroa.5.0.add.ptr.i.i.i637.sroa_idx, align 4
   %cmp.i.i.i.i.i.i638 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i624, 0
   br i1 %cmp.i.i.i.i.i.i638, label %if.then.i.i.i.i.i.i646, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i639
 
@@ -995,7 +1053,13 @@ invoke.cont54:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i657, label %if.else.i.i660, label %if.then.i.i658
 
 if.then.i.i658:                                   ; preds = %invoke.cont54
-  store <4 x i32> <i32 3, i32 2, i32 6, i32 7>, ptr %54, align 4
+  store i32 3, ptr %54, align 4
+  %ref.tmp55.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
+  store i32 2, ptr %ref.tmp55.sroa.3.0..sroa_idx, align 4
+  %ref.tmp55.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  store i32 6, ptr %ref.tmp55.sroa.4.0..sroa_idx, align 4
+  %ref.tmp55.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 12
+  store i32 7, ptr %ref.tmp55.sroa.5.0..sroa_idx, align 4
   %55 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i659 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %incdec.ptr.i.i659, ptr %_M_finish.i.i582, align 8
@@ -1028,7 +1092,13 @@ cond.true.i.i.i.i672:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i674: ; preds = %cond.true.i.i.i.i672, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i665
   %cond.i10.i.i.i675 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i665 ], [ %call5.i.i.i.i.i.i689, %cond.true.i.i.i.i672 ]
   %add.ptr.i.i.i676 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i675, i64 %sub.ptr.div.i.i.i.i.i666
-  store <4 x i32> <i32 3, i32 2, i32 6, i32 7>, ptr %add.ptr.i.i.i676, align 4
+  store i32 3, ptr %add.ptr.i.i.i676, align 4
+  %ref.tmp55.sroa.3.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 4
+  store i32 2, ptr %ref.tmp55.sroa.3.0.add.ptr.i.i.i676.sroa_idx, align 4
+  %ref.tmp55.sroa.4.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 8
+  store i32 6, ptr %ref.tmp55.sroa.4.0.add.ptr.i.i.i676.sroa_idx, align 4
+  %ref.tmp55.sroa.5.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 12
+  store i32 7, ptr %ref.tmp55.sroa.5.0.add.ptr.i.i.i676.sroa_idx, align 4
   %cmp.i.i.i.i.i.i677 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i663, 0
   br i1 %cmp.i.i.i.i.i.i677, label %if.then.i.i.i.i.i.i685, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i678
 
@@ -1060,7 +1130,13 @@ invoke.cont57:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i696, label %if.else.i.i699, label %if.then.i.i697
 
 if.then.i.i697:                                   ; preds = %invoke.cont57
-  store <4 x i32> <i32 0, i32 3, i32 7, i32 4>, ptr %59, align 4
+  store i32 0, ptr %59, align 4
+  %ref.tmp58.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 3, ptr %ref.tmp58.sroa.3.0..sroa_idx, align 4
+  %ref.tmp58.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  store i32 7, ptr %ref.tmp58.sroa.4.0..sroa_idx, align 4
+  %ref.tmp58.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 12
+  store i32 4, ptr %ref.tmp58.sroa.5.0..sroa_idx, align 4
   %60 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i698 = getelementptr inbounds i8, ptr %60, i64 16
   store ptr %incdec.ptr.i.i698, ptr %_M_finish.i.i582, align 8
@@ -1093,7 +1169,13 @@ cond.true.i.i.i.i711:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i713: ; preds = %cond.true.i.i.i.i711, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i704
   %cond.i10.i.i.i714 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i704 ], [ %call5.i.i.i.i.i.i728, %cond.true.i.i.i.i711 ]
   %add.ptr.i.i.i715 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i714, i64 %sub.ptr.div.i.i.i.i.i705
-  store <4 x i32> <i32 0, i32 3, i32 7, i32 4>, ptr %add.ptr.i.i.i715, align 4
+  store i32 0, ptr %add.ptr.i.i.i715, align 4
+  %ref.tmp58.sroa.3.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 4
+  store i32 3, ptr %ref.tmp58.sroa.3.0.add.ptr.i.i.i715.sroa_idx, align 4
+  %ref.tmp58.sroa.4.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 8
+  store i32 7, ptr %ref.tmp58.sroa.4.0.add.ptr.i.i.i715.sroa_idx, align 4
+  %ref.tmp58.sroa.5.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 12
+  store i32 4, ptr %ref.tmp58.sroa.5.0.add.ptr.i.i.i715.sroa_idx, align 4
   %cmp.i.i.i.i.i.i716 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i702, 0
   br i1 %cmp.i.i.i.i.i.i716, label %if.then.i.i.i.i.i.i724, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i717
 
@@ -1125,7 +1207,13 @@ invoke.cont60:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i735, label %if.else.i.i738, label %if.then.i.i736
 
 if.then.i.i736:                                   ; preds = %invoke.cont60
-  store <4 x i32> <i32 2, i32 3, i32 0, i32 1>, ptr %64, align 4
+  store i32 2, ptr %64, align 4
+  %ref.tmp61.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 4
+  store i32 3, ptr %ref.tmp61.sroa.3.0..sroa_idx, align 4
+  %ref.tmp61.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 0, ptr %ref.tmp61.sroa.4.0..sroa_idx, align 4
+  %ref.tmp61.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 12
+  store i32 1, ptr %ref.tmp61.sroa.5.0..sroa_idx, align 4
   %65 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i737 = getelementptr inbounds i8, ptr %65, i64 16
   store ptr %incdec.ptr.i.i737, ptr %_M_finish.i.i582, align 8
@@ -1158,7 +1246,13 @@ cond.true.i.i.i.i750:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i752: ; preds = %cond.true.i.i.i.i750, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i743
   %cond.i10.i.i.i753 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i743 ], [ %call5.i.i.i.i.i.i767, %cond.true.i.i.i.i750 ]
   %add.ptr.i.i.i754 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i753, i64 %sub.ptr.div.i.i.i.i.i744
-  store <4 x i32> <i32 2, i32 3, i32 0, i32 1>, ptr %add.ptr.i.i.i754, align 4
+  store i32 2, ptr %add.ptr.i.i.i754, align 4
+  %ref.tmp61.sroa.3.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 4
+  store i32 3, ptr %ref.tmp61.sroa.3.0.add.ptr.i.i.i754.sroa_idx, align 4
+  %ref.tmp61.sroa.4.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 8
+  store i32 0, ptr %ref.tmp61.sroa.4.0.add.ptr.i.i.i754.sroa_idx, align 4
+  %ref.tmp61.sroa.5.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 12
+  store i32 1, ptr %ref.tmp61.sroa.5.0.add.ptr.i.i.i754.sroa_idx, align 4
   %cmp.i.i.i.i.i.i755 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i741, 0
   br i1 %cmp.i.i.i.i.i.i755, label %if.then.i.i.i.i.i.i763, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i756
 
@@ -1190,7 +1284,13 @@ invoke.cont63:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i774, label %if.else.i.i777, label %if.then.i.i775
 
 if.then.i.i775:                                   ; preds = %invoke.cont63
-  store <4 x i32> <i32 5, i32 4, i32 7, i32 6>, ptr %69, align 4
+  store i32 5, ptr %69, align 4
+  %ref.tmp64.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 4
+  store i32 4, ptr %ref.tmp64.sroa.3.0..sroa_idx, align 4
+  %ref.tmp64.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 8
+  store i32 7, ptr %ref.tmp64.sroa.4.0..sroa_idx, align 4
+  %ref.tmp64.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 12
+  store i32 6, ptr %ref.tmp64.sroa.5.0..sroa_idx, align 4
   %70 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i776 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %incdec.ptr.i.i776, ptr %_M_finish.i.i582, align 8
@@ -1222,7 +1322,13 @@ cond.true.i.i.i.i789:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i791: ; preds = %cond.true.i.i.i.i789, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i782
   %cond.i10.i.i.i792 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i782 ], [ %call5.i.i.i.i.i.i806, %cond.true.i.i.i.i789 ]
   %add.ptr.i.i.i793 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i792, i64 %sub.ptr.div.i.i.i.i.i783
-  store <4 x i32> <i32 5, i32 4, i32 7, i32 6>, ptr %add.ptr.i.i.i793, align 4
+  store i32 5, ptr %add.ptr.i.i.i793, align 4
+  %ref.tmp64.sroa.3.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 4
+  store i32 4, ptr %ref.tmp64.sroa.3.0.add.ptr.i.i.i793.sroa_idx, align 4
+  %ref.tmp64.sroa.4.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 8
+  store i32 7, ptr %ref.tmp64.sroa.4.0.add.ptr.i.i.i793.sroa_idx, align 4
+  %ref.tmp64.sroa.5.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 12
+  store i32 6, ptr %ref.tmp64.sroa.5.0.add.ptr.i.i.i793.sroa_idx, align 4
   %cmp.i.i.i.i.i.i794 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i780, 0
   br i1 %cmp.i.i.i.i.i.i794, label %if.then.i.i.i.i.i.i802, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i795
 
@@ -1254,7 +1360,9 @@ cond.true.i.i.i.i827:                             ; preds = %entry
           to label %cond.true.i.i.i.i865 unwind label %lpad
 
 cond.true.i.i.i.i865:                             ; preds = %cond.true.i.i.i.i827
-  store <2 x float> zeroinitializer, ptr %call5.i.i.i.i.i.i844, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i844, align 4
+  %ref.tmp70.sroa.3.0.add.ptr.i.i.i831.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 4
+  store float 0.000000e+00, ptr %ref.tmp70.sroa.3.0.add.ptr.i.i.i831.sroa_idx, align 4
   %ref.tmp70.sroa.4.0.add.ptr.i.i.i831.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 8
   store float -1.000000e+00, ptr %ref.tmp70.sroa.4.0.add.ptr.i.i.i831.sroa_idx, align 4
   %incdec.ptr.i.i.i835 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 12
@@ -1266,7 +1374,9 @@ cond.true.i.i.i.i865:                             ; preds = %cond.true.i.i.i.i82
 
 invoke.cont75:                                    ; preds = %cond.true.i.i.i.i865
   %add.ptr.i.i.i869 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 12
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %add.ptr.i.i.i869, align 4
+  store float 1.000000e+00, ptr %add.ptr.i.i.i869, align 4
+  %ref.tmp73.sroa.3.0.add.ptr.i.i.i869.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 16
+  store float 0.000000e+00, ptr %ref.tmp73.sroa.3.0.add.ptr.i.i.i869.sroa_idx, align 4
   %ref.tmp73.sroa.4.0.add.ptr.i.i.i869.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 20
   store float 0.000000e+00, ptr %ref.tmp73.sroa.4.0.add.ptr.i.i.i869.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i882, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i844, i64 12, i1 false)
@@ -1281,7 +1391,9 @@ invoke.cont75:                                    ; preds = %cond.true.i.i.i.i86
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i905: ; preds = %invoke.cont75
   %add.ptr.i.i.i907 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 24
-  store <2 x float> zeroinitializer, ptr %add.ptr.i.i.i907, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i907, align 4
+  %ref.tmp76.sroa.3.0.add.ptr.i.i.i907.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 28
+  store float 0.000000e+00, ptr %ref.tmp76.sroa.3.0.add.ptr.i.i.i907.sroa_idx, align 4
   %ref.tmp76.sroa.4.0.add.ptr.i.i.i907.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 32
   store float 1.000000e+00, ptr %ref.tmp76.sroa.4.0.add.ptr.i.i.i907.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i920, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i882, i64 24, i1 false)
@@ -1291,7 +1403,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i911, ptr %_M_finish.i.i810, align 8
   %add.ptr19.i.i.i915 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 48
   store ptr %add.ptr19.i.i.i915, ptr %_M_end_of_storage.i.i811, align 8
-  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr %incdec.ptr.i.i.i911, align 4
+  store float -1.000000e+00, ptr %incdec.ptr.i.i.i911, align 4
+  %ref.tmp79.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 40
+  store float 0.000000e+00, ptr %ref.tmp79.sroa.3.0..sroa_idx, align 4
   %ref.tmp79.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 44
   store float 0.000000e+00, ptr %ref.tmp79.sroa.4.0..sroa_idx, align 4
   %73 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -1302,7 +1416,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i964, label %if.else.i.i967, label %if.then.i.i965
 
 if.then.i.i965:                                   ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i905
-  store <2 x float> <float 0.000000e+00, float -1.000000e+00>, ptr %incdec.ptr.i.i928, align 4
+  store float 0.000000e+00, ptr %incdec.ptr.i.i928, align 4
+  %ref.tmp82.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i928, i64 4
+  store float -1.000000e+00, ptr %ref.tmp82.sroa.3.0..sroa_idx, align 4
   %ref.tmp82.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i928, i64 8
   store float 0.000000e+00, ptr %ref.tmp82.sroa.4.0..sroa_idx, align 4
   %74 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -1337,7 +1453,9 @@ cond.true.i.i.i.i979:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i981: ; preds = %cond.true.i.i.i.i979, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i972
   %cond.i10.i.i.i982 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i972 ], [ %call5.i.i.i.i.i.i996, %cond.true.i.i.i.i979 ]
   %add.ptr.i.i.i983 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i982, i64 %sub.ptr.div.i.i.i.i.i973
-  store <2 x float> <float 0.000000e+00, float -1.000000e+00>, ptr %add.ptr.i.i.i983, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i983, align 4
+  %ref.tmp82.sroa.3.0.add.ptr.i.i.i983.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i983, i64 4
+  store float -1.000000e+00, ptr %ref.tmp82.sroa.3.0.add.ptr.i.i.i983.sroa_idx, align 4
   %ref.tmp82.sroa.4.0.add.ptr.i.i.i983.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i983, i64 8
   store float 0.000000e+00, ptr %ref.tmp82.sroa.4.0.add.ptr.i.i.i983.sroa_idx, align 4
   %cmp.i.i.i.i.i.i984 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i970, 0
@@ -1371,7 +1489,9 @@ invoke.cont84:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1002, label %if.else.i.i1005, label %if.then.i.i1003
 
 if.then.i.i1003:                                  ; preds = %invoke.cont84
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %78, align 4
+  store float 0.000000e+00, ptr %78, align 4
+  %ref.tmp85.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 4
+  store float 1.000000e+00, ptr %ref.tmp85.sroa.3.0..sroa_idx, align 4
   %ref.tmp85.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
   store float 0.000000e+00, ptr %ref.tmp85.sroa.4.0..sroa_idx, align 4
   %79 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -1405,7 +1525,9 @@ cond.true.i.i.i.i1017:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1019: ; preds = %cond.true.i.i.i.i1017, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1010
   %cond.i10.i.i.i1020 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1010 ], [ %call5.i.i.i.i.i.i1034, %cond.true.i.i.i.i1017 ]
   %add.ptr.i.i.i1021 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1020, i64 %sub.ptr.div.i.i.i.i.i1011
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %add.ptr.i.i.i1021, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1021, align 4
+  %ref.tmp85.sroa.3.0.add.ptr.i.i.i1021.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1021, i64 4
+  store float 1.000000e+00, ptr %ref.tmp85.sroa.3.0.add.ptr.i.i.i1021.sroa_idx, align 4
   %ref.tmp85.sroa.4.0.add.ptr.i.i.i1021.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1021, i64 8
   store float 0.000000e+00, ptr %ref.tmp85.sroa.4.0.add.ptr.i.i.i1021.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1022 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1008, 0
@@ -2024,7 +2146,9 @@ cond.true.i.i.i.i1359:                            ; preds = %entry
           to label %cond.true.i.i.i.i1397 unwind label %lpad
 
 cond.true.i.i.i.i1397:                            ; preds = %cond.true.i.i.i.i1359
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %call5.i.i.i.i.i.i1376, align 4
+  store float 0x3FD6AF1C20000000, ptr %call5.i.i.i.i.i.i1376, align 4
+  %ref.tmp115.sroa.3.0.add.ptr.i.i.i1363.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp115.sroa.3.0.add.ptr.i.i.i1363.sroa_idx, align 4
   %ref.tmp115.sroa.4.0.add.ptr.i.i.i1363.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp115.sroa.4.0.add.ptr.i.i.i1363.sroa_idx, align 4
   %incdec.ptr.i.i.i1367 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 12
@@ -2036,7 +2160,9 @@ cond.true.i.i.i.i1397:                            ; preds = %cond.true.i.i.i.i13
 
 invoke.cont120:                                   ; preds = %cond.true.i.i.i.i1397
   %add.ptr.i.i.i1401 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 12
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFC7D9F3C0000000>, ptr %add.ptr.i.i.i1401, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1401, align 4
+  %ref.tmp118.sroa.3.0.add.ptr.i.i.i1401.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 16
+  store float 0xBFC7D9F3C0000000, ptr %ref.tmp118.sroa.3.0.add.ptr.i.i.i1401.sroa_idx, align 4
   %ref.tmp118.sroa.4.0.add.ptr.i.i.i1401.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 20
   store float 0xBFE9424F20000000, ptr %ref.tmp118.sroa.4.0.add.ptr.i.i.i1401.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i1414, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i1376, i64 12, i1 false)
@@ -2051,7 +2177,9 @@ invoke.cont120:                                   ; preds = %cond.true.i.i.i.i13
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1437: ; preds = %invoke.cont120
   %add.ptr.i.i.i1439 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 24
-  store <2 x float> <float 0.000000e+00, float 0xBFE34BD2E0000000>, ptr %add.ptr.i.i.i1439, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1439, align 4
+  %ref.tmp121.sroa.3.0.add.ptr.i.i.i1439.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 28
+  store float 0xBFE34BD2E0000000, ptr %ref.tmp121.sroa.3.0.add.ptr.i.i.i1439.sroa_idx, align 4
   %ref.tmp121.sroa.4.0.add.ptr.i.i.i1439.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 32
   store float 0xBFE9424F40000000, ptr %ref.tmp121.sroa.4.0.add.ptr.i.i.i1439.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i1452, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i1414, i64 24, i1 false)
@@ -2061,7 +2189,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i1443, ptr %_M_finish.i.i1342, align 8
   %add.ptr19.i.i.i1447 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 48
   store ptr %add.ptr19.i.i.i1447, ptr %_M_end_of_storage.i.i1343, align 8
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFC7D9F3C0000000>, ptr %incdec.ptr.i.i.i1443, align 4
+  store float 0xBFE25A0D20000000, ptr %incdec.ptr.i.i.i1443, align 4
+  %ref.tmp124.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 40
+  store float 0xBFC7D9F3C0000000, ptr %ref.tmp124.sroa.3.0..sroa_idx, align 4
   %ref.tmp124.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 44
   store float 0xBFE9424F20000000, ptr %ref.tmp124.sroa.4.0..sroa_idx, align 4
   %122 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2072,7 +2202,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i1496, label %if.else.i.i1499, label %if.then.i.i1497
 
 if.then.i.i1497:                                  ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1437
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %incdec.ptr.i.i1460, align 4
+  store float 0xBFD6AF1C20000000, ptr %incdec.ptr.i.i1460, align 4
+  %ref.tmp127.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i1460, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp127.sroa.3.0..sroa_idx, align 4
   %ref.tmp127.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i1460, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp127.sroa.4.0..sroa_idx, align 4
   %123 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2107,7 +2239,9 @@ cond.true.i.i.i.i1511:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1513: ; preds = %cond.true.i.i.i.i1511, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1504
   %cond.i10.i.i.i1514 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1504 ], [ %call5.i.i.i.i.i.i1528, %cond.true.i.i.i.i1511 ]
   %add.ptr.i.i.i1515 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1514, i64 %sub.ptr.div.i.i.i.i.i1505
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %add.ptr.i.i.i1515, align 4
+  store float 0xBFD6AF1C20000000, ptr %add.ptr.i.i.i1515, align 4
+  %ref.tmp127.sroa.3.0.add.ptr.i.i.i1515.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1515, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp127.sroa.3.0.add.ptr.i.i.i1515.sroa_idx, align 4
   %ref.tmp127.sroa.4.0.add.ptr.i.i.i1515.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1515, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp127.sroa.4.0.add.ptr.i.i.i1515.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1516 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1502, 0
@@ -2141,7 +2275,9 @@ invoke.cont129:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1534, label %if.else.i.i1537, label %if.then.i.i1535
 
 if.then.i.i1535:                                  ; preds = %invoke.cont129
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FE9425080000000>, ptr %127, align 4
+  store float 0xBFE25A0D20000000, ptr %127, align 4
+  %ref.tmp130.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %127, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp130.sroa.3.0..sroa_idx, align 4
   %ref.tmp130.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %127, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp130.sroa.4.0..sroa_idx, align 4
   %128 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2176,7 +2312,9 @@ cond.true.i.i.i.i1549:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1551: ; preds = %cond.true.i.i.i.i1549, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1542
   %cond.i10.i.i.i1552 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1542 ], [ %call5.i.i.i.i.i.i1566, %cond.true.i.i.i.i1549 ]
   %add.ptr.i.i.i1553 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1552, i64 %sub.ptr.div.i.i.i.i.i1543
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FE9425080000000>, ptr %add.ptr.i.i.i1553, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i1553, align 4
+  %ref.tmp130.sroa.3.0.add.ptr.i.i.i1553.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1553, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp130.sroa.3.0.add.ptr.i.i.i1553.sroa_idx, align 4
   %ref.tmp130.sroa.4.0.add.ptr.i.i.i1553.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1553, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp130.sroa.4.0.add.ptr.i.i.i1553.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1554 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1540, 0
@@ -2210,7 +2348,9 @@ invoke.cont132:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1572, label %if.else.i.i1575, label %if.then.i.i1573
 
 if.then.i.i1573:                                  ; preds = %invoke.cont132
-  store <2 x float> <float 0xBFEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %132, align 4
+  store float 0xBFEDB19B20000000, ptr %132, align 4
+  %ref.tmp133.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp133.sroa.3.0..sroa_idx, align 4
   %ref.tmp133.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp133.sroa.4.0..sroa_idx, align 4
   %133 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2245,7 +2385,9 @@ cond.true.i.i.i.i1587:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1589: ; preds = %cond.true.i.i.i.i1587, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1580
   %cond.i10.i.i.i1590 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1580 ], [ %call5.i.i.i.i.i.i1604, %cond.true.i.i.i.i1587 ]
   %add.ptr.i.i.i1591 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1590, i64 %sub.ptr.div.i.i.i.i.i1581
-  store <2 x float> <float 0xBFEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %add.ptr.i.i.i1591, align 4
+  store float 0xBFEDB19B20000000, ptr %add.ptr.i.i.i1591, align 4
+  %ref.tmp133.sroa.3.0.add.ptr.i.i.i1591.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1591, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp133.sroa.3.0.add.ptr.i.i.i1591.sroa_idx, align 4
   %ref.tmp133.sroa.4.0.add.ptr.i.i.i1591.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1591, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp133.sroa.4.0.add.ptr.i.i.i1591.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1592 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1578, 0
@@ -2279,7 +2421,9 @@ invoke.cont135:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1610, label %if.else.i.i1613, label %if.then.i.i1611
 
 if.then.i.i1611:                                  ; preds = %invoke.cont135
-  store <2 x float> <float 0.000000e+00, float 0xBFEF38CD80000000>, ptr %137, align 4
+  store float 0.000000e+00, ptr %137, align 4
+  %ref.tmp136.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 4
+  store float 0xBFEF38CD80000000, ptr %ref.tmp136.sroa.3.0..sroa_idx, align 4
   %ref.tmp136.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 8
   store float 0xBFC7D9F400000000, ptr %ref.tmp136.sroa.4.0..sroa_idx, align 4
   %138 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2314,7 +2458,9 @@ cond.true.i.i.i.i1625:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1627: ; preds = %cond.true.i.i.i.i1625, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1618
   %cond.i10.i.i.i1628 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1618 ], [ %call5.i.i.i.i.i.i1642, %cond.true.i.i.i.i1625 ]
   %add.ptr.i.i.i1629 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1628, i64 %sub.ptr.div.i.i.i.i.i1619
-  store <2 x float> <float 0.000000e+00, float 0xBFEF38CD80000000>, ptr %add.ptr.i.i.i1629, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1629, align 4
+  %ref.tmp136.sroa.3.0.add.ptr.i.i.i1629.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1629, i64 4
+  store float 0xBFEF38CD80000000, ptr %ref.tmp136.sroa.3.0.add.ptr.i.i.i1629.sroa_idx, align 4
   %ref.tmp136.sroa.4.0.add.ptr.i.i.i1629.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1629, i64 8
   store float 0xBFC7D9F400000000, ptr %ref.tmp136.sroa.4.0.add.ptr.i.i.i1629.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1630 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1616, 0
@@ -2348,7 +2494,9 @@ invoke.cont138:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1648, label %if.else.i.i1651, label %if.then.i.i1649
 
 if.then.i.i1649:                                  ; preds = %invoke.cont138
-  store <2 x float> <float 0x3FEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %142, align 4
+  store float 0x3FEDB19B20000000, ptr %142, align 4
+  %ref.tmp139.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp139.sroa.3.0..sroa_idx, align 4
   %ref.tmp139.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp139.sroa.4.0..sroa_idx, align 4
   %143 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2383,7 +2531,9 @@ cond.true.i.i.i.i1663:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1665: ; preds = %cond.true.i.i.i.i1663, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1656
   %cond.i10.i.i.i1666 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1656 ], [ %call5.i.i.i.i.i.i1680, %cond.true.i.i.i.i1663 ]
   %add.ptr.i.i.i1667 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1666, i64 %sub.ptr.div.i.i.i.i.i1657
-  store <2 x float> <float 0x3FEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %add.ptr.i.i.i1667, align 4
+  store float 0x3FEDB19B20000000, ptr %add.ptr.i.i.i1667, align 4
+  %ref.tmp139.sroa.3.0.add.ptr.i.i.i1667.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1667, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp139.sroa.3.0.add.ptr.i.i.i1667.sroa_idx, align 4
   %ref.tmp139.sroa.4.0.add.ptr.i.i.i1667.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1667, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp139.sroa.4.0.add.ptr.i.i.i1667.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1668 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1654, 0
@@ -2417,7 +2567,9 @@ invoke.cont141:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1686, label %if.else.i.i1689, label %if.then.i.i1687
 
 if.then.i.i1687:                                  ; preds = %invoke.cont141
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FE9425080000000>, ptr %147, align 4
+  store float 0x3FE25A0D20000000, ptr %147, align 4
+  %ref.tmp142.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %147, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp142.sroa.3.0..sroa_idx, align 4
   %ref.tmp142.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %147, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp142.sroa.4.0..sroa_idx, align 4
   %148 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2452,7 +2604,9 @@ cond.true.i.i.i.i1701:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1703: ; preds = %cond.true.i.i.i.i1701, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1694
   %cond.i10.i.i.i1704 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1694 ], [ %call5.i.i.i.i.i.i1718, %cond.true.i.i.i.i1701 ]
   %add.ptr.i.i.i1705 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1704, i64 %sub.ptr.div.i.i.i.i.i1695
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FE9425080000000>, ptr %add.ptr.i.i.i1705, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1705, align 4
+  %ref.tmp142.sroa.3.0.add.ptr.i.i.i1705.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1705, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp142.sroa.3.0.add.ptr.i.i.i1705.sroa_idx, align 4
   %ref.tmp142.sroa.4.0.add.ptr.i.i.i1705.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1705, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp142.sroa.4.0.add.ptr.i.i.i1705.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1706 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1692, 0
@@ -2486,7 +2640,9 @@ invoke.cont144:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1724, label %if.else.i.i1727, label %if.then.i.i1725
 
 if.then.i.i1725:                                  ; preds = %invoke.cont144
-  store <2 x float> <float 0.000000e+00, float 0x3FEF38CD60000000>, ptr %152, align 4
+  store float 0.000000e+00, ptr %152, align 4
+  %ref.tmp145.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %152, i64 4
+  store float 0x3FEF38CD60000000, ptr %ref.tmp145.sroa.3.0..sroa_idx, align 4
   %ref.tmp145.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %152, i64 8
   store float 0x3FC7D9F400000000, ptr %ref.tmp145.sroa.4.0..sroa_idx, align 4
   %153 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2521,7 +2677,9 @@ cond.true.i.i.i.i1739:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1741: ; preds = %cond.true.i.i.i.i1739, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1732
   %cond.i10.i.i.i1742 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1732 ], [ %call5.i.i.i.i.i.i1756, %cond.true.i.i.i.i1739 ]
   %add.ptr.i.i.i1743 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1742, i64 %sub.ptr.div.i.i.i.i.i1733
-  store <2 x float> <float 0.000000e+00, float 0x3FEF38CD60000000>, ptr %add.ptr.i.i.i1743, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1743, align 4
+  %ref.tmp145.sroa.3.0.add.ptr.i.i.i1743.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1743, i64 4
+  store float 0x3FEF38CD60000000, ptr %ref.tmp145.sroa.3.0.add.ptr.i.i.i1743.sroa_idx, align 4
   %ref.tmp145.sroa.4.0.add.ptr.i.i.i1743.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1743, i64 8
   store float 0x3FC7D9F400000000, ptr %ref.tmp145.sroa.4.0.add.ptr.i.i.i1743.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1744 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1730, 0
@@ -2555,7 +2713,9 @@ invoke.cont147:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1762, label %if.else.i.i1765, label %if.then.i.i1763
 
 if.then.i.i1763:                                  ; preds = %invoke.cont147
-  store <2 x float> <float 0xBFEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %157, align 4
+  store float 0xBFEDB19B20000000, ptr %157, align 4
+  %ref.tmp148.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp148.sroa.3.0..sroa_idx, align 4
   %ref.tmp148.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp148.sroa.4.0..sroa_idx, align 4
   %158 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2590,7 +2750,9 @@ cond.true.i.i.i.i1777:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1779: ; preds = %cond.true.i.i.i.i1777, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1770
   %cond.i10.i.i.i1780 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1770 ], [ %call5.i.i.i.i.i.i1794, %cond.true.i.i.i.i1777 ]
   %add.ptr.i.i.i1781 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1780, i64 %sub.ptr.div.i.i.i.i.i1771
-  store <2 x float> <float 0xBFEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %add.ptr.i.i.i1781, align 4
+  store float 0xBFEDB19B20000000, ptr %add.ptr.i.i.i1781, align 4
+  %ref.tmp148.sroa.3.0.add.ptr.i.i.i1781.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1781, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp148.sroa.3.0.add.ptr.i.i.i1781.sroa_idx, align 4
   %ref.tmp148.sroa.4.0.add.ptr.i.i.i1781.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1781, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp148.sroa.4.0.add.ptr.i.i.i1781.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1782 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1768, 0
@@ -2624,7 +2786,9 @@ invoke.cont150:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1800, label %if.else.i.i1803, label %if.then.i.i1801
 
 if.then.i.i1801:                                  ; preds = %invoke.cont150
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFE9425080000000>, ptr %162, align 4
+  store float 0xBFE25A0D20000000, ptr %162, align 4
+  %ref.tmp151.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %162, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp151.sroa.3.0..sroa_idx, align 4
   %ref.tmp151.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %162, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp151.sroa.4.0..sroa_idx, align 4
   %163 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2659,7 +2823,9 @@ cond.true.i.i.i.i1815:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1817: ; preds = %cond.true.i.i.i.i1815, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1808
   %cond.i10.i.i.i1818 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1808 ], [ %call5.i.i.i.i.i.i1832, %cond.true.i.i.i.i1815 ]
   %add.ptr.i.i.i1819 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1818, i64 %sub.ptr.div.i.i.i.i.i1809
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFE9425080000000>, ptr %add.ptr.i.i.i1819, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i1819, align 4
+  %ref.tmp151.sroa.3.0.add.ptr.i.i.i1819.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1819, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp151.sroa.3.0.add.ptr.i.i.i1819.sroa_idx, align 4
   %ref.tmp151.sroa.4.0.add.ptr.i.i.i1819.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1819, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp151.sroa.4.0.add.ptr.i.i.i1819.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1820 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1806, 0
@@ -2693,7 +2859,9 @@ invoke.cont153:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1838, label %if.else.i.i1841, label %if.then.i.i1839
 
 if.then.i.i1839:                                  ; preds = %invoke.cont153
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFE9425080000000>, ptr %167, align 4
+  store float 0x3FE25A0D20000000, ptr %167, align 4
+  %ref.tmp154.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp154.sroa.3.0..sroa_idx, align 4
   %ref.tmp154.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp154.sroa.4.0..sroa_idx, align 4
   %168 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2728,7 +2896,9 @@ cond.true.i.i.i.i1853:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1855: ; preds = %cond.true.i.i.i.i1853, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1846
   %cond.i10.i.i.i1856 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1846 ], [ %call5.i.i.i.i.i.i1870, %cond.true.i.i.i.i1853 ]
   %add.ptr.i.i.i1857 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1856, i64 %sub.ptr.div.i.i.i.i.i1847
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFE9425080000000>, ptr %add.ptr.i.i.i1857, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1857, align 4
+  %ref.tmp154.sroa.3.0.add.ptr.i.i.i1857.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1857, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp154.sroa.3.0.add.ptr.i.i.i1857.sroa_idx, align 4
   %ref.tmp154.sroa.4.0.add.ptr.i.i.i1857.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1857, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp154.sroa.4.0.add.ptr.i.i.i1857.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1858 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1844, 0
@@ -2762,7 +2932,9 @@ invoke.cont156:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1876, label %if.else.i.i1879, label %if.then.i.i1877
 
 if.then.i.i1877:                                  ; preds = %invoke.cont156
-  store <2 x float> <float 0x3FEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %172, align 4
+  store float 0x3FEDB19B20000000, ptr %172, align 4
+  %ref.tmp157.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp157.sroa.3.0..sroa_idx, align 4
   %ref.tmp157.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp157.sroa.4.0..sroa_idx, align 4
   %173 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2797,7 +2969,9 @@ cond.true.i.i.i.i1891:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1893: ; preds = %cond.true.i.i.i.i1891, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1884
   %cond.i10.i.i.i1894 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1884 ], [ %call5.i.i.i.i.i.i1908, %cond.true.i.i.i.i1891 ]
   %add.ptr.i.i.i1895 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1894, i64 %sub.ptr.div.i.i.i.i.i1885
-  store <2 x float> <float 0x3FEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %add.ptr.i.i.i1895, align 4
+  store float 0x3FEDB19B20000000, ptr %add.ptr.i.i.i1895, align 4
+  %ref.tmp157.sroa.3.0.add.ptr.i.i.i1895.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1895, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp157.sroa.3.0.add.ptr.i.i.i1895.sroa_idx, align 4
   %ref.tmp157.sroa.4.0.add.ptr.i.i.i1895.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1895, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp157.sroa.4.0.add.ptr.i.i.i1895.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1896 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1882, 0
@@ -2831,7 +3005,9 @@ invoke.cont159:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1914, label %if.else.i.i1917, label %if.then.i.i1915
 
 if.then.i.i1915:                                  ; preds = %invoke.cont159
-  store <2 x float> <float 0.000000e+00, float 0x3FE34BD2E0000000>, ptr %177, align 4
+  store float 0.000000e+00, ptr %177, align 4
+  %ref.tmp160.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 4
+  store float 0x3FE34BD2E0000000, ptr %ref.tmp160.sroa.3.0..sroa_idx, align 4
   %ref.tmp160.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 8
   store float 0x3FE9424F40000000, ptr %ref.tmp160.sroa.4.0..sroa_idx, align 4
   %178 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2866,7 +3042,9 @@ cond.true.i.i.i.i1929:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1931: ; preds = %cond.true.i.i.i.i1929, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1922
   %cond.i10.i.i.i1932 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1922 ], [ %call5.i.i.i.i.i.i1946, %cond.true.i.i.i.i1929 ]
   %add.ptr.i.i.i1933 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1932, i64 %sub.ptr.div.i.i.i.i.i1923
-  store <2 x float> <float 0.000000e+00, float 0x3FE34BD2E0000000>, ptr %add.ptr.i.i.i1933, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1933, align 4
+  %ref.tmp160.sroa.3.0.add.ptr.i.i.i1933.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1933, i64 4
+  store float 0x3FE34BD2E0000000, ptr %ref.tmp160.sroa.3.0.add.ptr.i.i.i1933.sroa_idx, align 4
   %ref.tmp160.sroa.4.0.add.ptr.i.i.i1933.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1933, i64 8
   store float 0x3FE9424F40000000, ptr %ref.tmp160.sroa.4.0.add.ptr.i.i.i1933.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1934 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1920, 0
@@ -2900,7 +3078,9 @@ invoke.cont162:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1952, label %if.else.i.i1955, label %if.then.i.i1953
 
 if.then.i.i1953:                                  ; preds = %invoke.cont162
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %182, align 4
+  store float 0x3FE25A0D20000000, ptr %182, align 4
+  %ref.tmp163.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %182, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp163.sroa.3.0..sroa_idx, align 4
   %ref.tmp163.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %182, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp163.sroa.4.0..sroa_idx, align 4
   %183 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -2935,7 +3115,9 @@ cond.true.i.i.i.i1967:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1969: ; preds = %cond.true.i.i.i.i1967, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1960
   %cond.i10.i.i.i1970 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1960 ], [ %call5.i.i.i.i.i.i1984, %cond.true.i.i.i.i1967 ]
   %add.ptr.i.i.i1971 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1970, i64 %sub.ptr.div.i.i.i.i.i1961
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %add.ptr.i.i.i1971, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1971, align 4
+  %ref.tmp163.sroa.3.0.add.ptr.i.i.i1971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1971, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp163.sroa.3.0.add.ptr.i.i.i1971.sroa_idx, align 4
   %ref.tmp163.sroa.4.0.add.ptr.i.i.i1971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1971, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp163.sroa.4.0.add.ptr.i.i.i1971.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1972 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1958, 0
@@ -2969,7 +3151,9 @@ invoke.cont165:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1990, label %if.else.i.i1993, label %if.then.i.i1991
 
 if.then.i.i1991:                                  ; preds = %invoke.cont165
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %187, align 4
+  store float 0x3FD6AF1C20000000, ptr %187, align 4
+  %ref.tmp166.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp166.sroa.3.0..sroa_idx, align 4
   %ref.tmp166.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp166.sroa.4.0..sroa_idx, align 4
   %188 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -3004,7 +3188,9 @@ cond.true.i.i.i.i2005:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2007: ; preds = %cond.true.i.i.i.i2005, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1998
   %cond.i10.i.i.i2008 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1998 ], [ %call5.i.i.i.i.i.i2022, %cond.true.i.i.i.i2005 ]
   %add.ptr.i.i.i2009 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2008, i64 %sub.ptr.div.i.i.i.i.i1999
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %add.ptr.i.i.i2009, align 4
+  store float 0x3FD6AF1C20000000, ptr %add.ptr.i.i.i2009, align 4
+  %ref.tmp166.sroa.3.0.add.ptr.i.i.i2009.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2009, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp166.sroa.3.0.add.ptr.i.i.i2009.sroa_idx, align 4
   %ref.tmp166.sroa.4.0.add.ptr.i.i.i2009.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2009, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp166.sroa.4.0.add.ptr.i.i.i2009.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2010 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1996, 0
@@ -3038,7 +3224,9 @@ invoke.cont168:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2028, label %if.else.i.i2031, label %if.then.i.i2029
 
 if.then.i.i2029:                                  ; preds = %invoke.cont168
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %192, align 4
+  store float 0xBFD6AF1C20000000, ptr %192, align 4
+  %ref.tmp169.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp169.sroa.3.0..sroa_idx, align 4
   %ref.tmp169.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp169.sroa.4.0..sroa_idx, align 4
   %193 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -3073,7 +3261,9 @@ cond.true.i.i.i.i2043:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2045: ; preds = %cond.true.i.i.i.i2043, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2036
   %cond.i10.i.i.i2046 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2036 ], [ %call5.i.i.i.i.i.i2060, %cond.true.i.i.i.i2043 ]
   %add.ptr.i.i.i2047 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2046, i64 %sub.ptr.div.i.i.i.i.i2037
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %add.ptr.i.i.i2047, align 4
+  store float 0xBFD6AF1C20000000, ptr %add.ptr.i.i.i2047, align 4
+  %ref.tmp169.sroa.3.0.add.ptr.i.i.i2047.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2047, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp169.sroa.3.0.add.ptr.i.i.i2047.sroa_idx, align 4
   %ref.tmp169.sroa.4.0.add.ptr.i.i.i2047.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2047, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp169.sroa.4.0.add.ptr.i.i.i2047.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2048 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2034, 0
@@ -3107,7 +3297,9 @@ invoke.cont171:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2066, label %if.else.i.i2069, label %if.then.i.i2067
 
 if.then.i.i2067:                                  ; preds = %invoke.cont171
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %197, align 4
+  store float 0xBFE25A0D20000000, ptr %197, align 4
+  %ref.tmp172.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %197, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp172.sroa.3.0..sroa_idx, align 4
   %ref.tmp172.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %197, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp172.sroa.4.0..sroa_idx, align 4
   %198 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -3141,7 +3333,9 @@ cond.true.i.i.i.i2081:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2083: ; preds = %cond.true.i.i.i.i2081, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2074
   %cond.i10.i.i.i2084 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2074 ], [ %call5.i.i.i.i.i.i2098, %cond.true.i.i.i.i2081 ]
   %add.ptr.i.i.i2085 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2084, i64 %sub.ptr.div.i.i.i.i.i2075
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %add.ptr.i.i.i2085, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i2085, align 4
+  %ref.tmp172.sroa.3.0.add.ptr.i.i.i2085.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2085, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp172.sroa.3.0.add.ptr.i.i.i2085.sroa_idx, align 4
   %ref.tmp172.sroa.4.0.add.ptr.i.i.i2085.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2085, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp172.sroa.4.0.add.ptr.i.i.i2085.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2086 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2072, 0
@@ -3177,7 +3371,13 @@ invoke.cont174:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2105, label %if.else.i.i2108, label %if.then.i.i2106
 
 if.then.i.i2106:                                  ; preds = %invoke.cont174
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %201, align 4
+  store i32 0, ptr %201, align 4
+  %ref.tmp175.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 4
+  store i32 1, ptr %ref.tmp175.sroa.3.0..sroa_idx, align 4
+  %ref.tmp175.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 8
+  store i32 2, ptr %ref.tmp175.sroa.4.0..sroa_idx, align 4
+  %ref.tmp175.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 12
+  store i32 3, ptr %ref.tmp175.sroa.5.0..sroa_idx, align 4
   %203 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2107 = getelementptr inbounds i8, ptr %203, i64 16
   store ptr %incdec.ptr.i.i2107, ptr %_M_finish.i.i2103, align 8
@@ -3209,7 +3409,13 @@ cond.true.i.i.i.i2120:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2122: ; preds = %cond.true.i.i.i.i2120, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2113
   %cond.i10.i.i.i2123 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2113 ], [ %call5.i.i.i.i.i.i2137, %cond.true.i.i.i.i2120 ]
   %add.ptr.i.i.i2124 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2123, i64 %sub.ptr.div.i.i.i.i.i2114
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %add.ptr.i.i.i2124, align 4
+  store i32 0, ptr %add.ptr.i.i.i2124, align 4
+  %ref.tmp175.sroa.3.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 4
+  store i32 1, ptr %ref.tmp175.sroa.3.0.add.ptr.i.i.i2124.sroa_idx, align 4
+  %ref.tmp175.sroa.4.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 8
+  store i32 2, ptr %ref.tmp175.sroa.4.0.add.ptr.i.i.i2124.sroa_idx, align 4
+  %ref.tmp175.sroa.5.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 12
+  store i32 3, ptr %ref.tmp175.sroa.5.0.add.ptr.i.i.i2124.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2125 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2111, 0
   br i1 %cmp.i.i.i.i.i.i2125, label %if.then.i.i.i.i.i.i2133, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2126
 
@@ -3315,7 +3521,13 @@ invoke.cont180:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2182, label %if.else.i.i2185, label %if.then.i.i2183
 
 if.then.i.i2183:                                  ; preds = %invoke.cont180
-  store <4 x i32> <i32 0, i32 4, i32 5, i32 10>, ptr %211, align 4
+  store i32 0, ptr %211, align 4
+  %ref.tmp181.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 4
+  store i32 4, ptr %ref.tmp181.sroa.3.0..sroa_idx, align 4
+  %ref.tmp181.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 8
+  store i32 5, ptr %ref.tmp181.sroa.4.0..sroa_idx, align 4
+  %ref.tmp181.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 12
+  store i32 10, ptr %ref.tmp181.sroa.5.0..sroa_idx, align 4
   %213 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2184 = getelementptr inbounds i8, ptr %213, i64 16
   store ptr %incdec.ptr.i.i2184, ptr %_M_finish.i.i2103, align 8
@@ -3347,7 +3559,13 @@ cond.true.i.i.i.i2197:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2199: ; preds = %cond.true.i.i.i.i2197, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2190
   %cond.i10.i.i.i2200 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2190 ], [ %call5.i.i.i.i.i.i2214, %cond.true.i.i.i.i2197 ]
   %add.ptr.i.i.i2201 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2200, i64 %sub.ptr.div.i.i.i.i.i2191
-  store <4 x i32> <i32 0, i32 4, i32 5, i32 10>, ptr %add.ptr.i.i.i2201, align 4
+  store i32 0, ptr %add.ptr.i.i.i2201, align 4
+  %ref.tmp181.sroa.3.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 4
+  store i32 4, ptr %ref.tmp181.sroa.3.0.add.ptr.i.i.i2201.sroa_idx, align 4
+  %ref.tmp181.sroa.4.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 8
+  store i32 5, ptr %ref.tmp181.sroa.4.0.add.ptr.i.i.i2201.sroa_idx, align 4
+  %ref.tmp181.sroa.5.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 12
+  store i32 10, ptr %ref.tmp181.sroa.5.0.add.ptr.i.i.i2201.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2202 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2188, 0
   br i1 %cmp.i.i.i.i.i.i2202, label %if.then.i.i.i.i.i.i2210, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2203
 
@@ -3451,7 +3669,13 @@ invoke.cont186:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2259, label %if.else.i.i2262, label %if.then.i.i2260
 
 if.then.i.i2260:                                  ; preds = %invoke.cont186
-  store <4 x i32> <i32 0, i32 9, i32 14, i32 8>, ptr %221, align 4
+  store i32 0, ptr %221, align 4
+  %ref.tmp187.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 4
+  store i32 9, ptr %ref.tmp187.sroa.3.0..sroa_idx, align 4
+  %ref.tmp187.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 8
+  store i32 14, ptr %ref.tmp187.sroa.4.0..sroa_idx, align 4
+  %ref.tmp187.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 12
+  store i32 8, ptr %ref.tmp187.sroa.5.0..sroa_idx, align 4
   %223 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2261 = getelementptr inbounds i8, ptr %223, i64 16
   store ptr %incdec.ptr.i.i2261, ptr %_M_finish.i.i2103, align 8
@@ -3483,7 +3707,13 @@ cond.true.i.i.i.i2274:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2276: ; preds = %cond.true.i.i.i.i2274, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2267
   %cond.i10.i.i.i2277 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2267 ], [ %call5.i.i.i.i.i.i2291, %cond.true.i.i.i.i2274 ]
   %add.ptr.i.i.i2278 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2277, i64 %sub.ptr.div.i.i.i.i.i2268
-  store <4 x i32> <i32 0, i32 9, i32 14, i32 8>, ptr %add.ptr.i.i.i2278, align 4
+  store i32 0, ptr %add.ptr.i.i.i2278, align 4
+  %ref.tmp187.sroa.3.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 4
+  store i32 9, ptr %ref.tmp187.sroa.3.0.add.ptr.i.i.i2278.sroa_idx, align 4
+  %ref.tmp187.sroa.4.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 8
+  store i32 14, ptr %ref.tmp187.sroa.4.0.add.ptr.i.i.i2278.sroa_idx, align 4
+  %ref.tmp187.sroa.5.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 12
+  store i32 8, ptr %ref.tmp187.sroa.5.0.add.ptr.i.i.i2278.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2279 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2265, 0
   br i1 %cmp.i.i.i.i.i.i2279, label %if.then.i.i.i.i.i.i2287, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2280
 
@@ -3587,7 +3817,13 @@ invoke.cont192:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2336, label %if.else.i.i2339, label %if.then.i.i2337
 
 if.then.i.i2337:                                  ; preds = %invoke.cont192
-  store <4 x i32> <i32 1, i32 8, i32 13, i32 7>, ptr %231, align 4
+  store i32 1, ptr %231, align 4
+  %ref.tmp193.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 4
+  store i32 8, ptr %ref.tmp193.sroa.3.0..sroa_idx, align 4
+  %ref.tmp193.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 8
+  store i32 13, ptr %ref.tmp193.sroa.4.0..sroa_idx, align 4
+  %ref.tmp193.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 12
+  store i32 7, ptr %ref.tmp193.sroa.5.0..sroa_idx, align 4
   %233 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2338 = getelementptr inbounds i8, ptr %233, i64 16
   store ptr %incdec.ptr.i.i2338, ptr %_M_finish.i.i2103, align 8
@@ -3619,7 +3855,13 @@ cond.true.i.i.i.i2351:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2353: ; preds = %cond.true.i.i.i.i2351, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2344
   %cond.i10.i.i.i2354 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2344 ], [ %call5.i.i.i.i.i.i2368, %cond.true.i.i.i.i2351 ]
   %add.ptr.i.i.i2355 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2354, i64 %sub.ptr.div.i.i.i.i.i2345
-  store <4 x i32> <i32 1, i32 8, i32 13, i32 7>, ptr %add.ptr.i.i.i2355, align 4
+  store i32 1, ptr %add.ptr.i.i.i2355, align 4
+  %ref.tmp193.sroa.3.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 4
+  store i32 8, ptr %ref.tmp193.sroa.3.0.add.ptr.i.i.i2355.sroa_idx, align 4
+  %ref.tmp193.sroa.4.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 8
+  store i32 13, ptr %ref.tmp193.sroa.4.0.add.ptr.i.i.i2355.sroa_idx, align 4
+  %ref.tmp193.sroa.5.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 12
+  store i32 7, ptr %ref.tmp193.sroa.5.0.add.ptr.i.i.i2355.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2356 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2342, 0
   br i1 %cmp.i.i.i.i.i.i2356, label %if.then.i.i.i.i.i.i2364, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2357
 
@@ -3723,7 +3965,13 @@ invoke.cont198:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2413, label %if.else.i.i2416, label %if.then.i.i2414
 
 if.then.i.i2414:                                  ; preds = %invoke.cont198
-  store <4 x i32> <i32 2, i32 7, i32 12, i32 6>, ptr %241, align 4
+  store i32 2, ptr %241, align 4
+  %ref.tmp199.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 4
+  store i32 7, ptr %ref.tmp199.sroa.3.0..sroa_idx, align 4
+  %ref.tmp199.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 8
+  store i32 12, ptr %ref.tmp199.sroa.4.0..sroa_idx, align 4
+  %ref.tmp199.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 12
+  store i32 6, ptr %ref.tmp199.sroa.5.0..sroa_idx, align 4
   %243 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2415 = getelementptr inbounds i8, ptr %243, i64 16
   store ptr %incdec.ptr.i.i2415, ptr %_M_finish.i.i2103, align 8
@@ -3755,7 +4003,13 @@ cond.true.i.i.i.i2428:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2430: ; preds = %cond.true.i.i.i.i2428, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2421
   %cond.i10.i.i.i2431 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2421 ], [ %call5.i.i.i.i.i.i2445, %cond.true.i.i.i.i2428 ]
   %add.ptr.i.i.i2432 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2431, i64 %sub.ptr.div.i.i.i.i.i2422
-  store <4 x i32> <i32 2, i32 7, i32 12, i32 6>, ptr %add.ptr.i.i.i2432, align 4
+  store i32 2, ptr %add.ptr.i.i.i2432, align 4
+  %ref.tmp199.sroa.3.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 4
+  store i32 7, ptr %ref.tmp199.sroa.3.0.add.ptr.i.i.i2432.sroa_idx, align 4
+  %ref.tmp199.sroa.4.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 8
+  store i32 12, ptr %ref.tmp199.sroa.4.0.add.ptr.i.i.i2432.sroa_idx, align 4
+  %ref.tmp199.sroa.5.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 12
+  store i32 6, ptr %ref.tmp199.sroa.5.0.add.ptr.i.i.i2432.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2433 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2419, 0
   br i1 %cmp.i.i.i.i.i.i2433, label %if.then.i.i.i.i.i.i2441, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2434
 
@@ -3859,7 +4113,13 @@ invoke.cont204:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2490, label %if.else.i.i2493, label %if.then.i.i2491
 
 if.then.i.i2491:                                  ; preds = %invoke.cont204
-  store <4 x i32> <i32 3, i32 6, i32 11, i32 5>, ptr %251, align 4
+  store i32 3, ptr %251, align 4
+  %ref.tmp205.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 4
+  store i32 6, ptr %ref.tmp205.sroa.3.0..sroa_idx, align 4
+  %ref.tmp205.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 8
+  store i32 11, ptr %ref.tmp205.sroa.4.0..sroa_idx, align 4
+  %ref.tmp205.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 12
+  store i32 5, ptr %ref.tmp205.sroa.5.0..sroa_idx, align 4
   %253 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2492 = getelementptr inbounds i8, ptr %253, i64 16
   store ptr %incdec.ptr.i.i2492, ptr %_M_finish.i.i2103, align 8
@@ -3891,7 +4151,13 @@ cond.true.i.i.i.i2505:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2507: ; preds = %cond.true.i.i.i.i2505, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2498
   %cond.i10.i.i.i2508 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2498 ], [ %call5.i.i.i.i.i.i2522, %cond.true.i.i.i.i2505 ]
   %add.ptr.i.i.i2509 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2508, i64 %sub.ptr.div.i.i.i.i.i2499
-  store <4 x i32> <i32 3, i32 6, i32 11, i32 5>, ptr %add.ptr.i.i.i2509, align 4
+  store i32 3, ptr %add.ptr.i.i.i2509, align 4
+  %ref.tmp205.sroa.3.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 4
+  store i32 6, ptr %ref.tmp205.sroa.3.0.add.ptr.i.i.i2509.sroa_idx, align 4
+  %ref.tmp205.sroa.4.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 8
+  store i32 11, ptr %ref.tmp205.sroa.4.0.add.ptr.i.i.i2509.sroa_idx, align 4
+  %ref.tmp205.sroa.5.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 12
+  store i32 5, ptr %ref.tmp205.sroa.5.0.add.ptr.i.i.i2509.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2510 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2496, 0
   br i1 %cmp.i.i.i.i.i.i2510, label %if.then.i.i.i.i.i.i2518, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2511
 
@@ -3995,7 +4261,13 @@ invoke.cont210:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2567, label %if.else.i.i2570, label %if.then.i.i2568
 
 if.then.i.i2568:                                  ; preds = %invoke.cont210
-  store <4 x i32> <i32 5, i32 11, i32 19, i32 15>, ptr %261, align 4
+  store i32 5, ptr %261, align 4
+  %ref.tmp211.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 4
+  store i32 11, ptr %ref.tmp211.sroa.3.0..sroa_idx, align 4
+  %ref.tmp211.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 8
+  store i32 19, ptr %ref.tmp211.sroa.4.0..sroa_idx, align 4
+  %ref.tmp211.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 12
+  store i32 15, ptr %ref.tmp211.sroa.5.0..sroa_idx, align 4
   %263 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2569 = getelementptr inbounds i8, ptr %263, i64 16
   store ptr %incdec.ptr.i.i2569, ptr %_M_finish.i.i2103, align 8
@@ -4027,7 +4299,13 @@ cond.true.i.i.i.i2582:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2584: ; preds = %cond.true.i.i.i.i2582, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2575
   %cond.i10.i.i.i2585 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2575 ], [ %call5.i.i.i.i.i.i2599, %cond.true.i.i.i.i2582 ]
   %add.ptr.i.i.i2586 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2585, i64 %sub.ptr.div.i.i.i.i.i2576
-  store <4 x i32> <i32 5, i32 11, i32 19, i32 15>, ptr %add.ptr.i.i.i2586, align 4
+  store i32 5, ptr %add.ptr.i.i.i2586, align 4
+  %ref.tmp211.sroa.3.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 4
+  store i32 11, ptr %ref.tmp211.sroa.3.0.add.ptr.i.i.i2586.sroa_idx, align 4
+  %ref.tmp211.sroa.4.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 8
+  store i32 19, ptr %ref.tmp211.sroa.4.0.add.ptr.i.i.i2586.sroa_idx, align 4
+  %ref.tmp211.sroa.5.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 12
+  store i32 15, ptr %ref.tmp211.sroa.5.0.add.ptr.i.i.i2586.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2587 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2573, 0
   br i1 %cmp.i.i.i.i.i.i2587, label %if.then.i.i.i.i.i.i2595, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2588
 
@@ -4131,7 +4409,13 @@ invoke.cont216:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2644, label %if.else.i.i2647, label %if.then.i.i2645
 
 if.then.i.i2645:                                  ; preds = %invoke.cont216
-  store <4 x i32> <i32 6, i32 12, i32 18, i32 19>, ptr %271, align 4
+  store i32 6, ptr %271, align 4
+  %ref.tmp217.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 4
+  store i32 12, ptr %ref.tmp217.sroa.3.0..sroa_idx, align 4
+  %ref.tmp217.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 8
+  store i32 18, ptr %ref.tmp217.sroa.4.0..sroa_idx, align 4
+  %ref.tmp217.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 12
+  store i32 19, ptr %ref.tmp217.sroa.5.0..sroa_idx, align 4
   %273 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2646 = getelementptr inbounds i8, ptr %273, i64 16
   store ptr %incdec.ptr.i.i2646, ptr %_M_finish.i.i2103, align 8
@@ -4163,7 +4447,13 @@ cond.true.i.i.i.i2659:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2661: ; preds = %cond.true.i.i.i.i2659, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2652
   %cond.i10.i.i.i2662 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2652 ], [ %call5.i.i.i.i.i.i2676, %cond.true.i.i.i.i2659 ]
   %add.ptr.i.i.i2663 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2662, i64 %sub.ptr.div.i.i.i.i.i2653
-  store <4 x i32> <i32 6, i32 12, i32 18, i32 19>, ptr %add.ptr.i.i.i2663, align 4
+  store i32 6, ptr %add.ptr.i.i.i2663, align 4
+  %ref.tmp217.sroa.3.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 4
+  store i32 12, ptr %ref.tmp217.sroa.3.0.add.ptr.i.i.i2663.sroa_idx, align 4
+  %ref.tmp217.sroa.4.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 8
+  store i32 18, ptr %ref.tmp217.sroa.4.0.add.ptr.i.i.i2663.sroa_idx, align 4
+  %ref.tmp217.sroa.5.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 12
+  store i32 19, ptr %ref.tmp217.sroa.5.0.add.ptr.i.i.i2663.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2664 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2650, 0
   br i1 %cmp.i.i.i.i.i.i2664, label %if.then.i.i.i.i.i.i2672, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2665
 
@@ -4267,7 +4557,13 @@ invoke.cont222:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2721, label %if.else.i.i2724, label %if.then.i.i2722
 
 if.then.i.i2722:                                  ; preds = %invoke.cont222
-  store <4 x i32> <i32 7, i32 13, i32 17, i32 18>, ptr %281, align 4
+  store i32 7, ptr %281, align 4
+  %ref.tmp223.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 4
+  store i32 13, ptr %ref.tmp223.sroa.3.0..sroa_idx, align 4
+  %ref.tmp223.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 8
+  store i32 17, ptr %ref.tmp223.sroa.4.0..sroa_idx, align 4
+  %ref.tmp223.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 12
+  store i32 18, ptr %ref.tmp223.sroa.5.0..sroa_idx, align 4
   %283 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2723 = getelementptr inbounds i8, ptr %283, i64 16
   store ptr %incdec.ptr.i.i2723, ptr %_M_finish.i.i2103, align 8
@@ -4299,7 +4595,13 @@ cond.true.i.i.i.i2736:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2738: ; preds = %cond.true.i.i.i.i2736, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2729
   %cond.i10.i.i.i2739 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2729 ], [ %call5.i.i.i.i.i.i2753, %cond.true.i.i.i.i2736 ]
   %add.ptr.i.i.i2740 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2739, i64 %sub.ptr.div.i.i.i.i.i2730
-  store <4 x i32> <i32 7, i32 13, i32 17, i32 18>, ptr %add.ptr.i.i.i2740, align 4
+  store i32 7, ptr %add.ptr.i.i.i2740, align 4
+  %ref.tmp223.sroa.3.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 4
+  store i32 13, ptr %ref.tmp223.sroa.3.0.add.ptr.i.i.i2740.sroa_idx, align 4
+  %ref.tmp223.sroa.4.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 8
+  store i32 17, ptr %ref.tmp223.sroa.4.0.add.ptr.i.i.i2740.sroa_idx, align 4
+  %ref.tmp223.sroa.5.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 12
+  store i32 18, ptr %ref.tmp223.sroa.5.0.add.ptr.i.i.i2740.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2741 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2727, 0
   br i1 %cmp.i.i.i.i.i.i2741, label %if.then.i.i.i.i.i.i2749, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2742
 
@@ -4403,7 +4705,13 @@ invoke.cont228:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2798, label %if.else.i.i2801, label %if.then.i.i2799
 
 if.then.i.i2799:                                  ; preds = %invoke.cont228
-  store <4 x i32> <i32 8, i32 14, i32 16, i32 17>, ptr %291, align 4
+  store i32 8, ptr %291, align 4
+  %ref.tmp229.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 4
+  store i32 14, ptr %ref.tmp229.sroa.3.0..sroa_idx, align 4
+  %ref.tmp229.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 8
+  store i32 16, ptr %ref.tmp229.sroa.4.0..sroa_idx, align 4
+  %ref.tmp229.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 12
+  store i32 17, ptr %ref.tmp229.sroa.5.0..sroa_idx, align 4
   %293 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2800 = getelementptr inbounds i8, ptr %293, i64 16
   store ptr %incdec.ptr.i.i2800, ptr %_M_finish.i.i2103, align 8
@@ -4435,7 +4743,13 @@ cond.true.i.i.i.i2813:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2815: ; preds = %cond.true.i.i.i.i2813, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2806
   %cond.i10.i.i.i2816 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2806 ], [ %call5.i.i.i.i.i.i2830, %cond.true.i.i.i.i2813 ]
   %add.ptr.i.i.i2817 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2816, i64 %sub.ptr.div.i.i.i.i.i2807
-  store <4 x i32> <i32 8, i32 14, i32 16, i32 17>, ptr %add.ptr.i.i.i2817, align 4
+  store i32 8, ptr %add.ptr.i.i.i2817, align 4
+  %ref.tmp229.sroa.3.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 4
+  store i32 14, ptr %ref.tmp229.sroa.3.0.add.ptr.i.i.i2817.sroa_idx, align 4
+  %ref.tmp229.sroa.4.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 8
+  store i32 16, ptr %ref.tmp229.sroa.4.0.add.ptr.i.i.i2817.sroa_idx, align 4
+  %ref.tmp229.sroa.5.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 12
+  store i32 17, ptr %ref.tmp229.sroa.5.0.add.ptr.i.i.i2817.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2818 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2804, 0
   br i1 %cmp.i.i.i.i.i.i2818, label %if.then.i.i.i.i.i.i2826, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2819
 
@@ -4539,7 +4853,13 @@ invoke.cont234:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2875, label %if.else.i.i2878, label %if.then.i.i2876
 
 if.then.i.i2876:                                  ; preds = %invoke.cont234
-  store <4 x i32> <i32 9, i32 10, i32 15, i32 16>, ptr %301, align 4
+  store i32 9, ptr %301, align 4
+  %ref.tmp235.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 4
+  store i32 10, ptr %ref.tmp235.sroa.3.0..sroa_idx, align 4
+  %ref.tmp235.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 8
+  store i32 15, ptr %ref.tmp235.sroa.4.0..sroa_idx, align 4
+  %ref.tmp235.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 12
+  store i32 16, ptr %ref.tmp235.sroa.5.0..sroa_idx, align 4
   %303 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2877 = getelementptr inbounds i8, ptr %303, i64 16
   store ptr %incdec.ptr.i.i2877, ptr %_M_finish.i.i2103, align 8
@@ -4571,7 +4891,13 @@ cond.true.i.i.i.i2890:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2892: ; preds = %cond.true.i.i.i.i2890, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2883
   %cond.i10.i.i.i2893 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2883 ], [ %call5.i.i.i.i.i.i2907, %cond.true.i.i.i.i2890 ]
   %add.ptr.i.i.i2894 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2893, i64 %sub.ptr.div.i.i.i.i.i2884
-  store <4 x i32> <i32 9, i32 10, i32 15, i32 16>, ptr %add.ptr.i.i.i2894, align 4
+  store i32 9, ptr %add.ptr.i.i.i2894, align 4
+  %ref.tmp235.sroa.3.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 4
+  store i32 10, ptr %ref.tmp235.sroa.3.0.add.ptr.i.i.i2894.sroa_idx, align 4
+  %ref.tmp235.sroa.4.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 8
+  store i32 15, ptr %ref.tmp235.sroa.4.0.add.ptr.i.i.i2894.sroa_idx, align 4
+  %ref.tmp235.sroa.5.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 12
+  store i32 16, ptr %ref.tmp235.sroa.5.0.add.ptr.i.i.i2894.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2895 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2881, 0
   br i1 %cmp.i.i.i.i.i.i2895, label %if.then.i.i.i.i.i.i2903, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2896
 
@@ -4675,7 +5001,13 @@ invoke.cont240:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2952, label %if.else.i.i2955, label %if.then.i.i2953
 
 if.then.i.i2953:                                  ; preds = %invoke.cont240
-  store <4 x i32> <i32 15, i32 19, i32 18, i32 17>, ptr %311, align 4
+  store i32 15, ptr %311, align 4
+  %ref.tmp241.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 4
+  store i32 19, ptr %ref.tmp241.sroa.3.0..sroa_idx, align 4
+  %ref.tmp241.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 8
+  store i32 18, ptr %ref.tmp241.sroa.4.0..sroa_idx, align 4
+  %ref.tmp241.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 12
+  store i32 17, ptr %ref.tmp241.sroa.5.0..sroa_idx, align 4
   %313 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2954 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %incdec.ptr.i.i2954, ptr %_M_finish.i.i2103, align 8
@@ -4707,7 +5039,13 @@ cond.true.i.i.i.i2967:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2969: ; preds = %cond.true.i.i.i.i2967, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2960
   %cond.i10.i.i.i2970 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2960 ], [ %call5.i.i.i.i.i.i2984, %cond.true.i.i.i.i2967 ]
   %add.ptr.i.i.i2971 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2970, i64 %sub.ptr.div.i.i.i.i.i2961
-  store <4 x i32> <i32 15, i32 19, i32 18, i32 17>, ptr %add.ptr.i.i.i2971, align 4
+  store i32 15, ptr %add.ptr.i.i.i2971, align 4
+  %ref.tmp241.sroa.3.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 4
+  store i32 19, ptr %ref.tmp241.sroa.3.0.add.ptr.i.i.i2971.sroa_idx, align 4
+  %ref.tmp241.sroa.4.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 8
+  store i32 18, ptr %ref.tmp241.sroa.4.0.add.ptr.i.i.i2971.sroa_idx, align 4
+  %ref.tmp241.sroa.5.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 12
+  store i32 17, ptr %ref.tmp241.sroa.5.0.add.ptr.i.i.i2971.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2972 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2958, 0
   br i1 %cmp.i.i.i.i.i.i2972, label %if.then.i.i.i.i.i.i2980, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2973
 
@@ -4811,7 +5149,9 @@ cond.true.i.i.i.i3043:                            ; preds = %entry
           to label %cond.true.i.i.i.i3081 unwind label %lpad
 
 cond.true.i.i.i.i3081:                            ; preds = %cond.true.i.i.i.i3043
-  store <2 x float> zeroinitializer, ptr %call5.i.i.i.i.i.i3060, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i3060, align 4
+  %ref.tmp250.sroa.3.0.add.ptr.i.i.i3047.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 4
+  store float 0.000000e+00, ptr %ref.tmp250.sroa.3.0.add.ptr.i.i.i3047.sroa_idx, align 4
   %ref.tmp250.sroa.4.0.add.ptr.i.i.i3047.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 8
   store float -1.000000e+00, ptr %ref.tmp250.sroa.4.0.add.ptr.i.i.i3047.sroa_idx, align 4
   %incdec.ptr.i.i.i3051 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 12
@@ -4823,7 +5163,9 @@ cond.true.i.i.i.i3081:                            ; preds = %cond.true.i.i.i.i30
 
 invoke.cont255:                                   ; preds = %cond.true.i.i.i.i3081
   %add.ptr.i.i.i3085 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 12
-  store <2 x float> <float 0.000000e+00, float 0x3FEC9F2620000000>, ptr %add.ptr.i.i.i3085, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3085, align 4
+  %ref.tmp253.sroa.3.0.add.ptr.i.i.i3085.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 16
+  store float 0x3FEC9F2620000000, ptr %ref.tmp253.sroa.3.0.add.ptr.i.i.i3085.sroa_idx, align 4
   %ref.tmp253.sroa.4.0.add.ptr.i.i.i3085.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 20
   store float 0xBFDC9F23E0000000, ptr %ref.tmp253.sroa.4.0.add.ptr.i.i.i3085.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i3098, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i3060, i64 12, i1 false)
@@ -4838,7 +5180,9 @@ invoke.cont255:                                   ; preds = %cond.true.i.i.i.i30
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3121: ; preds = %invoke.cont255
   %add.ptr.i.i.i3123 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 24
-  store <2 x float> <float 0x3FEB388820000000, float 0x3FD1B06F20000000>, ptr %add.ptr.i.i.i3123, align 4
+  store float 0x3FEB388820000000, ptr %add.ptr.i.i.i3123, align 4
+  %ref.tmp256.sroa.3.0.add.ptr.i.i.i3123.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 28
+  store float 0x3FD1B06F20000000, ptr %ref.tmp256.sroa.3.0.add.ptr.i.i.i3123.sroa_idx, align 4
   %ref.tmp256.sroa.4.0.add.ptr.i.i.i3123.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 32
   store float 0xBFDC9F2420000000, ptr %ref.tmp256.sroa.4.0.add.ptr.i.i.i3123.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i3136, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i3098, i64 24, i1 false)
@@ -4848,7 +5192,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i3127, ptr %_M_finish.i.i3026, align 8
   %add.ptr19.i.i.i3131 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 48
   store ptr %add.ptr19.i.i.i3131, ptr %_M_end_of_storage.i.i3027, align 8
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %incdec.ptr.i.i.i3127, align 4
+  store float 0x3FE0D2CA40000000, ptr %incdec.ptr.i.i.i3127, align 4
+  %ref.tmp259.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 40
+  store float 0xBFE727C9C0000000, ptr %ref.tmp259.sroa.3.0..sroa_idx, align 4
   %ref.tmp259.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 44
   store float 0xBFDC9F2460000000, ptr %ref.tmp259.sroa.4.0..sroa_idx, align 4
   %321 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -4859,7 +5205,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i3180, label %if.else.i.i3183, label %if.then.i.i3181
 
 if.then.i.i3181:                                  ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3121
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %incdec.ptr.i.i3144, align 4
+  store float 0xBFE0D2CA40000000, ptr %incdec.ptr.i.i3144, align 4
+  %ref.tmp262.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i3144, i64 4
+  store float 0xBFE727C9C0000000, ptr %ref.tmp262.sroa.3.0..sroa_idx, align 4
   %ref.tmp262.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i3144, i64 8
   store float 0xBFDC9F2460000000, ptr %ref.tmp262.sroa.4.0..sroa_idx, align 4
   %322 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -4894,7 +5242,9 @@ cond.true.i.i.i.i3195:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3197: ; preds = %cond.true.i.i.i.i3195, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3188
   %cond.i10.i.i.i3198 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3188 ], [ %call5.i.i.i.i.i.i3212, %cond.true.i.i.i.i3195 ]
   %add.ptr.i.i.i3199 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3198, i64 %sub.ptr.div.i.i.i.i.i3189
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %add.ptr.i.i.i3199, align 4
+  store float 0xBFE0D2CA40000000, ptr %add.ptr.i.i.i3199, align 4
+  %ref.tmp262.sroa.3.0.add.ptr.i.i.i3199.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3199, i64 4
+  store float 0xBFE727C9C0000000, ptr %ref.tmp262.sroa.3.0.add.ptr.i.i.i3199.sroa_idx, align 4
   %ref.tmp262.sroa.4.0.add.ptr.i.i.i3199.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3199, i64 8
   store float 0xBFDC9F2460000000, ptr %ref.tmp262.sroa.4.0.add.ptr.i.i.i3199.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3200 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3186, 0
@@ -4928,7 +5278,9 @@ invoke.cont264:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3218, label %if.else.i.i3221, label %if.then.i.i3219
 
 if.then.i.i3219:                                  ; preds = %invoke.cont264
-  store <2 x float> <float 0xBFEB388820000000, float 0x3FD1B06F20000000>, ptr %326, align 4
+  store float 0xBFEB388820000000, ptr %326, align 4
+  %ref.tmp265.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 4
+  store float 0x3FD1B06F20000000, ptr %ref.tmp265.sroa.3.0..sroa_idx, align 4
   %ref.tmp265.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 8
   store float 0xBFDC9F2420000000, ptr %ref.tmp265.sroa.4.0..sroa_idx, align 4
   %327 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -4963,7 +5315,9 @@ cond.true.i.i.i.i3233:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3235: ; preds = %cond.true.i.i.i.i3233, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3226
   %cond.i10.i.i.i3236 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3226 ], [ %call5.i.i.i.i.i.i3250, %cond.true.i.i.i.i3233 ]
   %add.ptr.i.i.i3237 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3236, i64 %sub.ptr.div.i.i.i.i.i3227
-  store <2 x float> <float 0xBFEB388820000000, float 0x3FD1B06F20000000>, ptr %add.ptr.i.i.i3237, align 4
+  store float 0xBFEB388820000000, ptr %add.ptr.i.i.i3237, align 4
+  %ref.tmp265.sroa.3.0.add.ptr.i.i.i3237.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3237, i64 4
+  store float 0x3FD1B06F20000000, ptr %ref.tmp265.sroa.3.0.add.ptr.i.i.i3237.sroa_idx, align 4
   %ref.tmp265.sroa.4.0.add.ptr.i.i.i3237.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3237, i64 8
   store float 0xBFDC9F2420000000, ptr %ref.tmp265.sroa.4.0.add.ptr.i.i.i3237.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3238 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3224, 0
@@ -4997,7 +5351,9 @@ invoke.cont267:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3256, label %if.else.i.i3259, label %if.then.i.i3257
 
 if.then.i.i3257:                                  ; preds = %invoke.cont267
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %331, align 4
+  store float 0xBFE0D2CA40000000, ptr %331, align 4
+  %ref.tmp268.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp268.sroa.3.0..sroa_idx, align 4
   %ref.tmp268.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp268.sroa.4.0..sroa_idx, align 4
   %332 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5032,7 +5388,9 @@ cond.true.i.i.i.i3271:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3273: ; preds = %cond.true.i.i.i.i3271, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3264
   %cond.i10.i.i.i3274 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3264 ], [ %call5.i.i.i.i.i.i3288, %cond.true.i.i.i.i3271 ]
   %add.ptr.i.i.i3275 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3274, i64 %sub.ptr.div.i.i.i.i.i3265
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %add.ptr.i.i.i3275, align 4
+  store float 0xBFE0D2CA40000000, ptr %add.ptr.i.i.i3275, align 4
+  %ref.tmp268.sroa.3.0.add.ptr.i.i.i3275.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3275, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp268.sroa.3.0.add.ptr.i.i.i3275.sroa_idx, align 4
   %ref.tmp268.sroa.4.0.add.ptr.i.i.i3275.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3275, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp268.sroa.4.0.add.ptr.i.i.i3275.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3276 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3262, 0
@@ -5066,7 +5424,9 @@ invoke.cont270:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3294, label %if.else.i.i3297, label %if.then.i.i3295
 
 if.then.i.i3295:                                  ; preds = %invoke.cont270
-  store <2 x float> <float 0xBFEB388820000000, float 0xBFD1B06F20000000>, ptr %336, align 4
+  store float 0xBFEB388820000000, ptr %336, align 4
+  %ref.tmp271.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp271.sroa.3.0..sroa_idx, align 4
   %ref.tmp271.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp271.sroa.4.0..sroa_idx, align 4
   %337 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5101,7 +5461,9 @@ cond.true.i.i.i.i3309:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3311: ; preds = %cond.true.i.i.i.i3309, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3302
   %cond.i10.i.i.i3312 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3302 ], [ %call5.i.i.i.i.i.i3326, %cond.true.i.i.i.i3309 ]
   %add.ptr.i.i.i3313 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3312, i64 %sub.ptr.div.i.i.i.i.i3303
-  store <2 x float> <float 0xBFEB388820000000, float 0xBFD1B06F20000000>, ptr %add.ptr.i.i.i3313, align 4
+  store float 0xBFEB388820000000, ptr %add.ptr.i.i.i3313, align 4
+  %ref.tmp271.sroa.3.0.add.ptr.i.i.i3313.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3313, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp271.sroa.3.0.add.ptr.i.i.i3313.sroa_idx, align 4
   %ref.tmp271.sroa.4.0.add.ptr.i.i.i3313.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3313, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp271.sroa.4.0.add.ptr.i.i.i3313.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3314 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3300, 0
@@ -5135,7 +5497,9 @@ invoke.cont273:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3332, label %if.else.i.i3335, label %if.then.i.i3333
 
 if.then.i.i3333:                                  ; preds = %invoke.cont273
-  store <2 x float> <float 0.000000e+00, float 0xBFEC9F2620000000>, ptr %341, align 4
+  store float 0.000000e+00, ptr %341, align 4
+  %ref.tmp274.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %341, i64 4
+  store float 0xBFEC9F2620000000, ptr %ref.tmp274.sroa.3.0..sroa_idx, align 4
   %ref.tmp274.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %341, i64 8
   store float 0x3FDC9F23E0000000, ptr %ref.tmp274.sroa.4.0..sroa_idx, align 4
   %342 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5170,7 +5534,9 @@ cond.true.i.i.i.i3347:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3349: ; preds = %cond.true.i.i.i.i3347, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3340
   %cond.i10.i.i.i3350 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3340 ], [ %call5.i.i.i.i.i.i3364, %cond.true.i.i.i.i3347 ]
   %add.ptr.i.i.i3351 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3350, i64 %sub.ptr.div.i.i.i.i.i3341
-  store <2 x float> <float 0.000000e+00, float 0xBFEC9F2620000000>, ptr %add.ptr.i.i.i3351, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3351, align 4
+  %ref.tmp274.sroa.3.0.add.ptr.i.i.i3351.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3351, i64 4
+  store float 0xBFEC9F2620000000, ptr %ref.tmp274.sroa.3.0.add.ptr.i.i.i3351.sroa_idx, align 4
   %ref.tmp274.sroa.4.0.add.ptr.i.i.i3351.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3351, i64 8
   store float 0x3FDC9F23E0000000, ptr %ref.tmp274.sroa.4.0.add.ptr.i.i.i3351.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3352 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3338, 0
@@ -5204,7 +5570,9 @@ invoke.cont276:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3370, label %if.else.i.i3373, label %if.then.i.i3371
 
 if.then.i.i3371:                                  ; preds = %invoke.cont276
-  store <2 x float> <float 0x3FEB388820000000, float 0xBFD1B06F20000000>, ptr %346, align 4
+  store float 0x3FEB388820000000, ptr %346, align 4
+  %ref.tmp277.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp277.sroa.3.0..sroa_idx, align 4
   %ref.tmp277.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp277.sroa.4.0..sroa_idx, align 4
   %347 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5239,7 +5607,9 @@ cond.true.i.i.i.i3385:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3387: ; preds = %cond.true.i.i.i.i3385, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3378
   %cond.i10.i.i.i3388 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3378 ], [ %call5.i.i.i.i.i.i3402, %cond.true.i.i.i.i3385 ]
   %add.ptr.i.i.i3389 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3388, i64 %sub.ptr.div.i.i.i.i.i3379
-  store <2 x float> <float 0x3FEB388820000000, float 0xBFD1B06F20000000>, ptr %add.ptr.i.i.i3389, align 4
+  store float 0x3FEB388820000000, ptr %add.ptr.i.i.i3389, align 4
+  %ref.tmp277.sroa.3.0.add.ptr.i.i.i3389.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3389, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp277.sroa.3.0.add.ptr.i.i.i3389.sroa_idx, align 4
   %ref.tmp277.sroa.4.0.add.ptr.i.i.i3389.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3389, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp277.sroa.4.0.add.ptr.i.i.i3389.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3390 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3376, 0
@@ -5273,7 +5643,9 @@ invoke.cont279:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3408, label %if.else.i.i3411, label %if.then.i.i3409
 
 if.then.i.i3409:                                  ; preds = %invoke.cont279
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %351, align 4
+  store float 0x3FE0D2CA40000000, ptr %351, align 4
+  %ref.tmp280.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp280.sroa.3.0..sroa_idx, align 4
   %ref.tmp280.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp280.sroa.4.0..sroa_idx, align 4
   %352 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5308,7 +5680,9 @@ cond.true.i.i.i.i3423:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3425: ; preds = %cond.true.i.i.i.i3423, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3416
   %cond.i10.i.i.i3426 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3416 ], [ %call5.i.i.i.i.i.i3440, %cond.true.i.i.i.i3423 ]
   %add.ptr.i.i.i3427 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3426, i64 %sub.ptr.div.i.i.i.i.i3417
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %add.ptr.i.i.i3427, align 4
+  store float 0x3FE0D2CA40000000, ptr %add.ptr.i.i.i3427, align 4
+  %ref.tmp280.sroa.3.0.add.ptr.i.i.i3427.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3427, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp280.sroa.3.0.add.ptr.i.i.i3427.sroa_idx, align 4
   %ref.tmp280.sroa.4.0.add.ptr.i.i.i3427.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3427, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp280.sroa.4.0.add.ptr.i.i.i3427.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3428 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3414, 0
@@ -5342,7 +5716,9 @@ invoke.cont282:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3446, label %if.else.i.i3449, label %if.then.i.i3447
 
 if.then.i.i3447:                                  ; preds = %invoke.cont282
-  store <2 x float> zeroinitializer, ptr %356, align 4
+  store float 0.000000e+00, ptr %356, align 4
+  %ref.tmp283.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 4
+  store float 0.000000e+00, ptr %ref.tmp283.sroa.3.0..sroa_idx, align 4
   %ref.tmp283.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 8
   store float 1.000000e+00, ptr %ref.tmp283.sroa.4.0..sroa_idx, align 4
   %357 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -5376,7 +5752,9 @@ cond.true.i.i.i.i3461:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3463: ; preds = %cond.true.i.i.i.i3461, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3454
   %cond.i10.i.i.i3464 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3454 ], [ %call5.i.i.i.i.i.i3478, %cond.true.i.i.i.i3461 ]
   %add.ptr.i.i.i3465 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3464, i64 %sub.ptr.div.i.i.i.i.i3455
-  store <2 x float> zeroinitializer, ptr %add.ptr.i.i.i3465, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3465, align 4
+  %ref.tmp283.sroa.3.0.add.ptr.i.i.i3465.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3465, i64 4
+  store float 0.000000e+00, ptr %ref.tmp283.sroa.3.0.add.ptr.i.i.i3465.sroa_idx, align 4
   %ref.tmp283.sroa.4.0.add.ptr.i.i.i3465.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3465, i64 8
   store float 1.000000e+00, ptr %ref.tmp283.sroa.4.0.add.ptr.i.i.i3465.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3466 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3452, 0
@@ -6929,31 +7307,37 @@ if.end359:                                        ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp3614716.not, label %for.end, label %invoke.cont368.lr.ph
 
 invoke.cont368.lr.ph:                             ; preds = %if.end359
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %center, i64 4
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %center, i64 8
-  %466 = insertelement <2 x float> poison, float %scale, i64 0
-  %467 = shufflevector <2 x float> %466, <2 x float> poison, <2 x i32> zeroinitializer
   br label %invoke.cont368
 
 invoke.cont368:                                   ; preds = %invoke.cont368.lr.ph, %invoke.cont368
-  %468 = phi ptr [ %465, %invoke.cont368.lr.ph ], [ %474, %invoke.cont368 ]
+  %466 = phi ptr [ %465, %invoke.cont368.lr.ph ], [ %471, %invoke.cont368 ]
   %i.04717 = phi i64 [ 0, %invoke.cont368.lr.ph ], [ %inc, %invoke.cont368 ]
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %468, i64 %i.04717
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %466, i64 %i.04717
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %add.ptr.i, align 4
   %retval.sroa.6.0.v.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %retval.sroa.6.0.copyload.i.i = load float, ptr %retval.sroa.6.0.v.sroa_idx.i.i, align 4
+  %retval.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 0
+  %mul.i.i.i = fmul float %retval.sroa.0.0.vec.extract.i.i, %scale
+  %retval.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 1
+  %mul4.i.i.i = fmul float %retval.sroa.0.4.vec.extract.i.i, %scale
   %mul7.i.i.i = fmul float %retval.sroa.6.0.copyload.i.i, %scale
-  %469 = fmul <2 x float> %retval.sroa.0.0.copyload.i.i, %467
-  %470 = load <2 x float>, ptr %center, align 4
-  %471 = fadd <2 x float> %469, %470
-  %472 = load float, ptr %arrayidx.i.i3.i.i, align 4
-  %add9.i.i = fadd float %mul7.i.i.i, %472
-  store <2 x float> %471, ptr %add.ptr.i, align 4
+  %467 = load float, ptr %center, align 4
+  %add.i.i = fadd float %mul.i.i.i, %467
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i.i, i64 0
+  %468 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %add5.i.i = fadd float %mul4.i.i.i, %468
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %add5.i.i, i64 1
+  %469 = load float, ptr %arrayidx.i.i3.i.i, align 4
+  %add9.i.i = fadd float %mul7.i.i.i, %469
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i, align 4
   store float %add9.i.i, ptr %retval.sroa.6.0.v.sroa_idx.i.i, align 4
   %inc = add nuw i64 %i.04717, 1
-  %473 = load ptr, ptr %_M_finish.i, align 8
-  %474 = load ptr, ptr %vtx, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %473 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %474 to i64
+  %470 = load ptr, ptr %_M_finish.i, align 8
+  %471 = load ptr, ptr %vtx, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %470 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %471 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %cmp361 = icmp ult i64 %inc, %sub.ptr.div.i
@@ -6966,164 +7350,168 @@ for.end:                                          ; preds = %invoke.cont368, %if
 
 if.then375:                                       ; preds = %for.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04util15NullInterrupterE, i64 16), ptr %tmp, align 8
-  %475 = load ptr, ptr %xform, align 8
-  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp376, ptr noundef nonnull align 8 dereferenceable(8) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %475, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
+  %472 = load ptr, ptr %xform, align 8
+  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp376, ptr noundef nonnull align 8 dereferenceable(8) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %472, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
           to label %nrvo.skipdtor unwind label %lpad378
 
 lpad378:                                          ; preds = %if.then375
-  %476 = landingpad { ptr, i32 }
+  %473 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.else381:                                       ; preds = %for.end
-  %477 = load ptr, ptr %xform, align 8
-  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp382, ptr noundef nonnull align 8 dereferenceable(8) %interrupt, ptr noundef nonnull align 8 dereferenceable(16) %477, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
+  %474 = load ptr, ptr %xform, align 8
+  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp382, ptr noundef nonnull align 8 dereferenceable(8) %interrupt, ptr noundef nonnull align 8 dereferenceable(16) %474, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
           to label %nrvo.skipdtor unwind label %lpad384
 
 lpad384:                                          ; preds = %if.else381
-  %478 = landingpad { ptr, i32 }
+  %475 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 nrvo.skipdtor:                                    ; preds = %if.else381, %if.then375
+  %ref.tmp382.sink4792.sroa.phi = phi ptr [ %ref.tmp382.sink4792.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4792.sroa.gep4793, %if.else381 ]
   %ref.tmp382.sink4792 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
-  %479 = load <2 x ptr>, ptr %ref.tmp382.sink4792, align 8
+  %.sink4791 = load ptr, ptr %ref.tmp382.sink4792, align 8
+  %476 = load ptr, ptr %ref.tmp382.sink4792.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4792, i8 0, i64 16, i1 false)
-  store <2 x ptr> %479, ptr %agg.result, align 8
-  %480 = load ptr, ptr %qua, align 8
-  %tobool.not.i.i.i = icmp eq ptr %480, null
+  store ptr %.sink4791, ptr %agg.result, align 8
+  %_M_refcount3.i.i.i4249 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %476, ptr %_M_refcount3.i.i.i4249, align 8
+  %477 = load ptr, ptr %qua, align 8
+  %tobool.not.i.i.i = icmp eq ptr %477, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit, label %if.then.i.i.i4313
 
 if.then.i.i.i4313:                                ; preds = %nrvo.skipdtor
-  call void @_ZdlPv(ptr noundef nonnull %480) #16
+  call void @_ZdlPv(ptr noundef nonnull %477) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit: ; preds = %nrvo.skipdtor, %if.then.i.i.i4313
-  %481 = load ptr, ptr %tri, align 8
-  %tobool.not.i.i.i4314 = icmp eq ptr %481, null
+  %478 = load ptr, ptr %tri, align 8
+  %tobool.not.i.i.i4314 = icmp eq ptr %478, null
   br i1 %tobool.not.i.i.i4314, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit, label %if.then.i.i.i4315
 
 if.then.i.i.i4315:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %481) #16
+  call void @_ZdlPv(ptr noundef nonnull %478) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit, %if.then.i.i.i4315
-  %482 = load ptr, ptr %vtx, align 8
-  %tobool.not.i.i.i4316 = icmp eq ptr %482, null
+  %479 = load ptr, ptr %vtx, align 8
+  %tobool.not.i.i.i4316 = icmp eq ptr %479, null
   br i1 %tobool.not.i.i.i4316, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit, label %if.then.i.i.i4317
 
 if.then.i.i.i4317:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %482) #16
+  call void @_ZdlPv(ptr noundef nonnull %479) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit, %if.then.i.i.i4317
   %_M_refcount.i.i4318 = getelementptr inbounds i8, ptr %xform, i64 8
-  %483 = load ptr, ptr %_M_refcount.i.i4318, align 8
-  %cmp.not.i.i.i4319 = icmp eq ptr %483, null
+  %480 = load ptr, ptr %_M_refcount.i.i4318, align 8
+  %cmp.not.i.i.i4319 = icmp eq ptr %480, null
   br i1 %cmp.not.i.i.i4319, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit, label %if.then.i.i.i4320
 
 if.then.i.i.i4320:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit
-  %_M_use_count.i.i.i.i4321 = getelementptr inbounds i8, ptr %483, i64 8
-  %484 = load atomic i64, ptr %_M_use_count.i.i.i.i4321 acquire, align 8
-  %cmp.i.i.i.i4322 = icmp eq i64 %484, 4294967297
-  %485 = trunc i64 %484 to i32
+  %_M_use_count.i.i.i.i4321 = getelementptr inbounds i8, ptr %480, i64 8
+  %481 = load atomic i64, ptr %_M_use_count.i.i.i.i4321 acquire, align 8
+  %cmp.i.i.i.i4322 = icmp eq i64 %481, 4294967297
+  %482 = trunc i64 %481 to i32
   br i1 %cmp.i.i.i.i4322, label %if.then.i.i.i.i4345, label %if.end.i.i.i.i4323
 
 if.then.i.i.i.i4345:                              ; preds = %if.then.i.i.i4320
   store i32 0, ptr %_M_use_count.i.i.i.i4321, align 8
-  %_M_weak_count.i.i.i.i4346 = getelementptr inbounds i8, ptr %483, i64 12
+  %_M_weak_count.i.i.i.i4346 = getelementptr inbounds i8, ptr %480, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i4346, align 4
-  %vtable.i.i.i.i4347 = load ptr, ptr %483, align 8
+  %vtable.i.i.i.i4347 = load ptr, ptr %480, align 8
   %vfn.i.i.i.i4348 = getelementptr inbounds i8, ptr %vtable.i.i.i.i4347, i64 16
-  %486 = load ptr, ptr %vfn.i.i.i.i4348, align 8
-  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
+  %483 = load ptr, ptr %vfn.i.i.i.i4348, align 8
+  call void %483(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
   br label %if.end8.sink.split.i.i.i.i4340
 
 if.end.i.i.i.i4323:                               ; preds = %if.then.i.i.i4320
-  %487 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i4324 = icmp eq i8 %487, 0
+  %484 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i4324 = icmp eq i8 %484, 0
   br i1 %tobool.i.not.i.i.i.i4324, label %if.else.i.i.i.i.i4344, label %if.then.i.i.i.i.i4325
 
 if.then.i.i.i.i.i4325:                            ; preds = %if.end.i.i.i.i4323
-  %add.i.i.i.i.i4326 = add nsw i32 %485, -1
+  %add.i.i.i.i.i4326 = add nsw i32 %482, -1
   store i32 %add.i.i.i.i.i4326, ptr %_M_use_count.i.i.i.i4321, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
 
 if.else.i.i.i.i.i4344:                            ; preds = %if.end.i.i.i.i4323
-  %488 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i4321, i32 -1 acq_rel, align 4
+  %485 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i4321, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327: ; preds = %if.else.i.i.i.i.i4344, %if.then.i.i.i.i.i4325
-  %retval.i.0.i.i.i.i4328 = phi i32 [ %485, %if.then.i.i.i.i.i4325 ], [ %488, %if.else.i.i.i.i.i4344 ]
+  %retval.i.0.i.i.i.i4328 = phi i32 [ %482, %if.then.i.i.i.i.i4325 ], [ %485, %if.else.i.i.i.i.i4344 ]
   %cmp6.i.i.i.i4329 = icmp eq i32 %retval.i.0.i.i.i.i4328, 1
   br i1 %cmp6.i.i.i.i4329, label %if.then7.i.i.i.i4330, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 if.then7.i.i.i.i4330:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
-  %vtable.i.i.i.i.i.i4331 = load ptr, ptr %483, align 8
+  %vtable.i.i.i.i.i.i4331 = load ptr, ptr %480, align 8
   %vfn.i.i.i.i.i.i4332 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i4331, i64 16
-  %489 = load ptr, ptr %vfn.i.i.i.i.i.i4332, align 8
-  call void %489(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
-  %_M_weak_count.i.i.i.i.i.i4333 = getelementptr inbounds i8, ptr %483, i64 12
-  %490 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i4334 = icmp eq i8 %490, 0
+  %486 = load ptr, ptr %vfn.i.i.i.i.i.i4332, align 8
+  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
+  %_M_weak_count.i.i.i.i.i.i4333 = getelementptr inbounds i8, ptr %480, i64 12
+  %487 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i4334 = icmp eq i8 %487, 0
   br i1 %tobool.i.not.i.i.i.i.i.i4334, label %if.else.i.i.i.i.i.i.i4343, label %if.then.i.i.i.i.i.i.i4335
 
 if.then.i.i.i.i.i.i.i4335:                        ; preds = %if.then7.i.i.i.i4330
-  %491 = load i32, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
-  %add.i.i.i.i.i.i.i4336 = add nsw i32 %491, -1
+  %488 = load i32, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
+  %add.i.i.i.i.i.i.i4336 = add nsw i32 %488, -1
   store i32 %add.i.i.i.i.i.i.i4336, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337
 
 if.else.i.i.i.i.i.i.i4343:                        ; preds = %if.then7.i.i.i.i4330
-  %492 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i4333, i32 -1 acq_rel, align 4
+  %489 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i4333, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337: ; preds = %if.else.i.i.i.i.i.i.i4343, %if.then.i.i.i.i.i.i.i4335
-  %retval.i.0.i.i.i.i.i.i4338 = phi i32 [ %491, %if.then.i.i.i.i.i.i.i4335 ], [ %492, %if.else.i.i.i.i.i.i.i4343 ]
+  %retval.i.0.i.i.i.i.i.i4338 = phi i32 [ %488, %if.then.i.i.i.i.i.i.i4335 ], [ %489, %if.else.i.i.i.i.i.i.i4343 ]
   %cmp.i.i.i.i.i.i4339 = icmp eq i32 %retval.i.0.i.i.i.i.i.i4338, 1
   br i1 %cmp.i.i.i.i.i.i4339, label %if.end8.sink.split.i.i.i.i4340, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i4340:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337, %if.then.i.i.i.i4345
-  %vtable2.i.i.i.i.i.i4341 = load ptr, ptr %483, align 8
+  %vtable2.i.i.i.i.i.i4341 = load ptr, ptr %480, align 8
   %vfn3.i.i.i.i.i.i4342 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i4341, i64 24
-  %493 = load ptr, ptr %vfn3.i.i.i.i.i.i4342, align 8
-  call void %493(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
+  %490 = load ptr, ptr %vfn3.i.i.i.i.i.i4342, align 8
+  call void %490(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337, %if.end8.sink.split.i.i.i.i4340
   ret void
 
 ehcleanup:                                        ; preds = %lpad384, %lpad378
-  %.pn10 = phi { ptr, i32 } [ %476, %lpad378 ], [ %478, %lpad384 ]
+  %.pn10 = phi { ptr, i32 } [ %473, %lpad378 ], [ %475, %lpad384 ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04GridINS1_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #18
   br label %ehcleanup388
 
 ehcleanup388:                                     ; preds = %ehcleanup, %lpad354, %lpad
   %.pn12 = phi { ptr, i32 } [ %23, %lpad ], [ %.pn10, %ehcleanup ], [ %463, %lpad354 ]
-  %494 = load ptr, ptr %qua, align 8
-  %tobool.not.i.i.i4349 = icmp eq ptr %494, null
+  %491 = load ptr, ptr %qua, align 8
+  %tobool.not.i.i.i4349 = icmp eq ptr %491, null
   br i1 %tobool.not.i.i.i4349, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351, label %if.then.i.i.i4350
 
 if.then.i.i.i4350:                                ; preds = %ehcleanup388
-  call void @_ZdlPv(ptr noundef nonnull %494) #16
+  call void @_ZdlPv(ptr noundef nonnull %491) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351: ; preds = %ehcleanup388, %if.then.i.i.i4350
-  %495 = load ptr, ptr %tri, align 8
-  %tobool.not.i.i.i4352 = icmp eq ptr %495, null
+  %492 = load ptr, ptr %tri, align 8
+  %tobool.not.i.i.i4352 = icmp eq ptr %492, null
   br i1 %tobool.not.i.i.i4352, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354, label %if.then.i.i.i4353
 
 if.then.i.i.i4353:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351
-  call void @_ZdlPv(ptr noundef nonnull %495) #16
+  call void @_ZdlPv(ptr noundef nonnull %492) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351, %if.then.i.i.i4353
-  %496 = load ptr, ptr %vtx, align 8
-  %tobool.not.i.i.i4355 = icmp eq ptr %496, null
+  %493 = load ptr, ptr %vtx, align 8
+  %tobool.not.i.i.i4355 = icmp eq ptr %493, null
   br i1 %tobool.not.i.i.i4355, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357, label %if.then.i.i.i4356
 
 if.then.i.i.i4356:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354
-  call void @_ZdlPv(ptr noundef nonnull %496) #16
+  call void @_ZdlPv(ptr noundef nonnull %493) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354, %if.then.i.i.i4356
@@ -7361,6 +7749,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %qua, i8 0, i64 24, i1 false)
   %0 = add i32 %faceCount, -4
   %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
+  %ref.tmp382.sink4792.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp376, i64 8
+  %ref.tmp382.sink4792.sroa.gep4793 = getelementptr inbounds i8, ptr %ref.tmp382, i64 8
   switch i32 %1, label %if.else346 [
     i32 0, label %cond.true.i.i.i.i
     i32 1, label %cond.true.i.i.i.i295
@@ -7376,7 +7766,9 @@ cond.true.i.i.i.i:                                ; preds = %entry
           to label %cond.true.i.i.i.i34 unwind label %lpad
 
 cond.true.i.i.i.i34:                              ; preds = %cond.true.i.i.i.i
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %call5.i.i.i.i.i.i14, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i14, align 4
+  %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 4
+  store float 1.000000e+00, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 4
   %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 8
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i.sroa_idx, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 12
@@ -7388,7 +7780,9 @@ cond.true.i.i.i.i34:                              ; preds = %cond.true.i.i.i.i
 
 invoke.cont4:                                     ; preds = %cond.true.i.i.i.i34
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 12
-  store <2 x float> <float 0xBFEE2B8080000000, float 0xBFD5554620000000>, ptr %add.ptr.i.i.i38, align 4
+  store float 0xBFEE2B8080000000, ptr %add.ptr.i.i.i38, align 4
+  %ref.tmp2.sroa.3.0.add.ptr.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 16
+  store float 0xBFD5554620000000, ptr %ref.tmp2.sroa.3.0.add.ptr.i.i.i38.sroa_idx, align 4
   %ref.tmp2.sroa.4.0.add.ptr.i.i.i38.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i51, i64 20
   store float 0.000000e+00, ptr %ref.tmp2.sroa.4.0.add.ptr.i.i.i38.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i51, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i14, i64 12, i1 false)
@@ -7403,7 +7797,9 @@ invoke.cont4:                                     ; preds = %cond.true.i.i.i.i34
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i74: ; preds = %invoke.cont4
   %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 24
-  store <2 x float> <float 0x3FDE2B8080000000, float 0xBFD5554620000000>, ptr %add.ptr.i.i.i76, align 4
+  store float 0x3FDE2B8080000000, ptr %add.ptr.i.i.i76, align 4
+  %ref.tmp5.sroa.3.0.add.ptr.i.i.i76.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 28
+  store float 0xBFD5554620000000, ptr %ref.tmp5.sroa.3.0.add.ptr.i.i.i76.sroa_idx, align 4
   %ref.tmp5.sroa.4.0.add.ptr.i.i.i76.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 32
   store float 0x3FEA20BFA0000000, ptr %ref.tmp5.sroa.4.0.add.ptr.i.i.i76.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i89, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i51, i64 24, i1 false)
@@ -7413,7 +7809,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i80, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i84 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 48
   store ptr %add.ptr19.i.i.i84, ptr %_M_end_of_storage.i.i, align 8
-  store <2 x float> <float 0x3FDE2B8080000000, float 0xBFD5554620000000>, ptr %incdec.ptr.i.i.i80, align 4
+  store float 0x3FDE2B8080000000, ptr %incdec.ptr.i.i.i80, align 4
+  %ref.tmp8.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 40
+  store float 0xBFD5554620000000, ptr %ref.tmp8.sroa.3.0..sroa_idx, align 4
   %ref.tmp8.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i89, i64 44
   store float 0xBFEA20BFA0000000, ptr %ref.tmp8.sroa.4.0..sroa_idx, align 4
   %2 = load ptr, ptr %_M_finish.i.i, align 8
@@ -7723,7 +8121,9 @@ cond.true.i.i.i.i295:                             ; preds = %entry
           to label %cond.true.i.i.i.i333 unwind label %lpad
 
 cond.true.i.i.i.i333:                             ; preds = %cond.true.i.i.i.i295
-  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %call5.i.i.i.i.i.i312, align 4
+  store float -5.000000e-01, ptr %call5.i.i.i.i.i.i312, align 4
+  %ref.tmp25.sroa.3.0.add.ptr.i.i.i299.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 4
+  store float -5.000000e-01, ptr %ref.tmp25.sroa.3.0.add.ptr.i.i.i299.sroa_idx, align 4
   %ref.tmp25.sroa.4.0.add.ptr.i.i.i299.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 8
   store float -5.000000e-01, ptr %ref.tmp25.sroa.4.0.add.ptr.i.i.i299.sroa_idx, align 4
   %incdec.ptr.i.i.i303 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i312, i64 12
@@ -7735,7 +8135,9 @@ cond.true.i.i.i.i333:                             ; preds = %cond.true.i.i.i.i29
 
 invoke.cont30:                                    ; preds = %cond.true.i.i.i.i333
   %add.ptr.i.i.i337 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 12
-  store <2 x float> <float 5.000000e-01, float -5.000000e-01>, ptr %add.ptr.i.i.i337, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i337, align 4
+  %ref.tmp28.sroa.3.0.add.ptr.i.i.i337.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 16
+  store float -5.000000e-01, ptr %ref.tmp28.sroa.3.0.add.ptr.i.i.i337.sroa_idx, align 4
   %ref.tmp28.sroa.4.0.add.ptr.i.i.i337.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i350, i64 20
   store float -5.000000e-01, ptr %ref.tmp28.sroa.4.0.add.ptr.i.i.i337.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i350, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i312, i64 12, i1 false)
@@ -7750,7 +8152,9 @@ invoke.cont30:                                    ; preds = %cond.true.i.i.i.i33
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i373: ; preds = %invoke.cont30
   %add.ptr.i.i.i375 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 24
-  store <2 x float> <float 5.000000e-01, float -5.000000e-01>, ptr %add.ptr.i.i.i375, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i375, align 4
+  %ref.tmp31.sroa.3.0.add.ptr.i.i.i375.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 28
+  store float -5.000000e-01, ptr %ref.tmp31.sroa.3.0.add.ptr.i.i.i375.sroa_idx, align 4
   %ref.tmp31.sroa.4.0.add.ptr.i.i.i375.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 32
   store float 5.000000e-01, ptr %ref.tmp31.sroa.4.0.add.ptr.i.i.i375.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i388, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i350, i64 24, i1 false)
@@ -7760,7 +8164,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i379, ptr %_M_finish.i.i278, align 8
   %add.ptr19.i.i.i383 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 48
   store ptr %add.ptr19.i.i.i383, ptr %_M_end_of_storage.i.i279, align 8
-  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %incdec.ptr.i.i.i379, align 4
+  store float -5.000000e-01, ptr %incdec.ptr.i.i.i379, align 4
+  %ref.tmp34.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 40
+  store float -5.000000e-01, ptr %ref.tmp34.sroa.3.0..sroa_idx, align 4
   %ref.tmp34.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i388, i64 44
   store float 5.000000e-01, ptr %ref.tmp34.sroa.4.0..sroa_idx, align 4
   %24 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -7771,7 +8177,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i432, label %if.else.i.i435, label %if.then.i.i433
 
 if.then.i.i433:                                   ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i373
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %incdec.ptr.i.i396, align 4
+  store float -5.000000e-01, ptr %incdec.ptr.i.i396, align 4
+  %ref.tmp37.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i396, i64 4
+  store float 5.000000e-01, ptr %ref.tmp37.sroa.3.0..sroa_idx, align 4
   %ref.tmp37.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i396, i64 8
   store float -5.000000e-01, ptr %ref.tmp37.sroa.4.0..sroa_idx, align 4
   %25 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -7806,7 +8214,9 @@ cond.true.i.i.i.i447:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i449: ; preds = %cond.true.i.i.i.i447, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i440
   %cond.i10.i.i.i450 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i440 ], [ %call5.i.i.i.i.i.i464, %cond.true.i.i.i.i447 ]
   %add.ptr.i.i.i451 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i450, i64 %sub.ptr.div.i.i.i.i.i441
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i451, align 4
+  store float -5.000000e-01, ptr %add.ptr.i.i.i451, align 4
+  %ref.tmp37.sroa.3.0.add.ptr.i.i.i451.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i451, i64 4
+  store float 5.000000e-01, ptr %ref.tmp37.sroa.3.0.add.ptr.i.i.i451.sroa_idx, align 4
   %ref.tmp37.sroa.4.0.add.ptr.i.i.i451.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i451, i64 8
   store float -5.000000e-01, ptr %ref.tmp37.sroa.4.0.add.ptr.i.i.i451.sroa_idx, align 4
   %cmp.i.i.i.i.i.i452 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i438, 0
@@ -7840,7 +8250,9 @@ invoke.cont39:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i470, label %if.else.i.i473, label %if.then.i.i471
 
 if.then.i.i471:                                   ; preds = %invoke.cont39
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %29, align 4
+  store float 5.000000e-01, ptr %29, align 4
+  %ref.tmp40.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
+  store float 5.000000e-01, ptr %ref.tmp40.sroa.3.0..sroa_idx, align 4
   %ref.tmp40.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store float -5.000000e-01, ptr %ref.tmp40.sroa.4.0..sroa_idx, align 4
   %30 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -7875,7 +8287,9 @@ cond.true.i.i.i.i485:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i487: ; preds = %cond.true.i.i.i.i485, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i478
   %cond.i10.i.i.i488 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i478 ], [ %call5.i.i.i.i.i.i502, %cond.true.i.i.i.i485 ]
   %add.ptr.i.i.i489 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i488, i64 %sub.ptr.div.i.i.i.i.i479
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i489, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i489, align 4
+  %ref.tmp40.sroa.3.0.add.ptr.i.i.i489.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i489, i64 4
+  store float 5.000000e-01, ptr %ref.tmp40.sroa.3.0.add.ptr.i.i.i489.sroa_idx, align 4
   %ref.tmp40.sroa.4.0.add.ptr.i.i.i489.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i489, i64 8
   store float -5.000000e-01, ptr %ref.tmp40.sroa.4.0.add.ptr.i.i.i489.sroa_idx, align 4
   %cmp.i.i.i.i.i.i490 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i476, 0
@@ -7909,7 +8323,9 @@ invoke.cont42:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i508, label %if.else.i.i511, label %if.then.i.i509
 
 if.then.i.i509:                                   ; preds = %invoke.cont42
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %34, align 4
+  store float 5.000000e-01, ptr %34, align 4
+  %ref.tmp43.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 4
+  store float 5.000000e-01, ptr %ref.tmp43.sroa.3.0..sroa_idx, align 4
   %ref.tmp43.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
   store float 5.000000e-01, ptr %ref.tmp43.sroa.4.0..sroa_idx, align 4
   %35 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -7944,7 +8360,9 @@ cond.true.i.i.i.i523:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i525: ; preds = %cond.true.i.i.i.i523, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i516
   %cond.i10.i.i.i526 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i516 ], [ %call5.i.i.i.i.i.i540, %cond.true.i.i.i.i523 ]
   %add.ptr.i.i.i527 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i526, i64 %sub.ptr.div.i.i.i.i.i517
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i527, align 4
+  store float 5.000000e-01, ptr %add.ptr.i.i.i527, align 4
+  %ref.tmp43.sroa.3.0.add.ptr.i.i.i527.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i527, i64 4
+  store float 5.000000e-01, ptr %ref.tmp43.sroa.3.0.add.ptr.i.i.i527.sroa_idx, align 4
   %ref.tmp43.sroa.4.0.add.ptr.i.i.i527.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i527, i64 8
   store float 5.000000e-01, ptr %ref.tmp43.sroa.4.0.add.ptr.i.i.i527.sroa_idx, align 4
   %cmp.i.i.i.i.i.i528 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i514, 0
@@ -7978,7 +8396,9 @@ invoke.cont45:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i546, label %if.else.i.i549, label %if.then.i.i547
 
 if.then.i.i547:                                   ; preds = %invoke.cont45
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %39, align 4
+  store float -5.000000e-01, ptr %39, align 4
+  %ref.tmp46.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 4
+  store float 5.000000e-01, ptr %ref.tmp46.sroa.3.0..sroa_idx, align 4
   %ref.tmp46.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
   store float 5.000000e-01, ptr %ref.tmp46.sroa.4.0..sroa_idx, align 4
   %40 = load ptr, ptr %_M_finish.i.i278, align 8
@@ -8012,7 +8432,9 @@ cond.true.i.i.i.i561:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i563: ; preds = %cond.true.i.i.i.i561, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i554
   %cond.i10.i.i.i564 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i554 ], [ %call5.i.i.i.i.i.i578, %cond.true.i.i.i.i561 ]
   %add.ptr.i.i.i565 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i564, i64 %sub.ptr.div.i.i.i.i.i555
-  store <2 x float> <float -5.000000e-01, float 5.000000e-01>, ptr %add.ptr.i.i.i565, align 4
+  store float -5.000000e-01, ptr %add.ptr.i.i.i565, align 4
+  %ref.tmp46.sroa.3.0.add.ptr.i.i.i565.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i565, i64 4
+  store float 5.000000e-01, ptr %ref.tmp46.sroa.3.0.add.ptr.i.i.i565.sroa_idx, align 4
   %ref.tmp46.sroa.4.0.add.ptr.i.i.i565.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i565, i64 8
   store float 5.000000e-01, ptr %ref.tmp46.sroa.4.0.add.ptr.i.i.i565.sroa_idx, align 4
   %cmp.i.i.i.i.i.i566 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i552, 0
@@ -8048,7 +8470,13 @@ invoke.cont48:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i584, label %if.else.i.i587, label %if.then.i.i585
 
 if.then.i.i585:                                   ; preds = %invoke.cont48
-  store <4 x i32> <i32 1, i32 0, i32 4, i32 5>, ptr %43, align 4
+  store i32 1, ptr %43, align 4
+  %ref.tmp49.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 4
+  store i32 0, ptr %ref.tmp49.sroa.3.0..sroa_idx, align 4
+  %ref.tmp49.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  store i32 4, ptr %ref.tmp49.sroa.4.0..sroa_idx, align 4
+  %ref.tmp49.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 12
+  store i32 5, ptr %ref.tmp49.sroa.5.0..sroa_idx, align 4
   %45 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i586 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %incdec.ptr.i.i586, ptr %_M_finish.i.i582, align 8
@@ -8081,7 +8509,13 @@ cond.true.i.i.i.i598:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i598, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i10.i.i.i600 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i612, %cond.true.i.i.i.i598 ]
   %add.ptr.i.i.i601 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i600, i64 %sub.ptr.div.i.i.i.i.i592
-  store <4 x i32> <i32 1, i32 0, i32 4, i32 5>, ptr %add.ptr.i.i.i601, align 4
+  store i32 1, ptr %add.ptr.i.i.i601, align 4
+  %ref.tmp49.sroa.3.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 4
+  store i32 0, ptr %ref.tmp49.sroa.3.0.add.ptr.i.i.i601.sroa_idx, align 4
+  %ref.tmp49.sroa.4.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 8
+  store i32 4, ptr %ref.tmp49.sroa.4.0.add.ptr.i.i.i601.sroa_idx, align 4
+  %ref.tmp49.sroa.5.0.add.ptr.i.i.i601.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i601, i64 12
+  store i32 5, ptr %ref.tmp49.sroa.5.0.add.ptr.i.i.i601.sroa_idx, align 4
   %cmp.i.i.i.i.i.i602 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i590, 0
   br i1 %cmp.i.i.i.i.i.i602, label %if.then.i.i.i.i.i.i608, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
@@ -8113,7 +8547,13 @@ invoke.cont51:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i618, label %if.else.i.i621, label %if.then.i.i619
 
 if.then.i.i619:                                   ; preds = %invoke.cont51
-  store <4 x i32> <i32 2, i32 1, i32 5, i32 6>, ptr %49, align 4
+  store i32 2, ptr %49, align 4
+  %ref.tmp52.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 4
+  store i32 1, ptr %ref.tmp52.sroa.3.0..sroa_idx, align 4
+  %ref.tmp52.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  store i32 5, ptr %ref.tmp52.sroa.4.0..sroa_idx, align 4
+  %ref.tmp52.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 12
+  store i32 6, ptr %ref.tmp52.sroa.5.0..sroa_idx, align 4
   %50 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i620 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %incdec.ptr.i.i620, ptr %_M_finish.i.i582, align 8
@@ -8146,7 +8586,13 @@ cond.true.i.i.i.i633:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i635: ; preds = %cond.true.i.i.i.i633, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i626
   %cond.i10.i.i.i636 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i626 ], [ %call5.i.i.i.i.i.i650, %cond.true.i.i.i.i633 ]
   %add.ptr.i.i.i637 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i636, i64 %sub.ptr.div.i.i.i.i.i627
-  store <4 x i32> <i32 2, i32 1, i32 5, i32 6>, ptr %add.ptr.i.i.i637, align 4
+  store i32 2, ptr %add.ptr.i.i.i637, align 4
+  %ref.tmp52.sroa.3.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 4
+  store i32 1, ptr %ref.tmp52.sroa.3.0.add.ptr.i.i.i637.sroa_idx, align 4
+  %ref.tmp52.sroa.4.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 8
+  store i32 5, ptr %ref.tmp52.sroa.4.0.add.ptr.i.i.i637.sroa_idx, align 4
+  %ref.tmp52.sroa.5.0.add.ptr.i.i.i637.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i637, i64 12
+  store i32 6, ptr %ref.tmp52.sroa.5.0.add.ptr.i.i.i637.sroa_idx, align 4
   %cmp.i.i.i.i.i.i638 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i624, 0
   br i1 %cmp.i.i.i.i.i.i638, label %if.then.i.i.i.i.i.i646, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i639
 
@@ -8178,7 +8624,13 @@ invoke.cont54:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i657, label %if.else.i.i660, label %if.then.i.i658
 
 if.then.i.i658:                                   ; preds = %invoke.cont54
-  store <4 x i32> <i32 3, i32 2, i32 6, i32 7>, ptr %54, align 4
+  store i32 3, ptr %54, align 4
+  %ref.tmp55.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
+  store i32 2, ptr %ref.tmp55.sroa.3.0..sroa_idx, align 4
+  %ref.tmp55.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  store i32 6, ptr %ref.tmp55.sroa.4.0..sroa_idx, align 4
+  %ref.tmp55.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 12
+  store i32 7, ptr %ref.tmp55.sroa.5.0..sroa_idx, align 4
   %55 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i659 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %incdec.ptr.i.i659, ptr %_M_finish.i.i582, align 8
@@ -8211,7 +8663,13 @@ cond.true.i.i.i.i672:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i674: ; preds = %cond.true.i.i.i.i672, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i665
   %cond.i10.i.i.i675 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i665 ], [ %call5.i.i.i.i.i.i689, %cond.true.i.i.i.i672 ]
   %add.ptr.i.i.i676 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i675, i64 %sub.ptr.div.i.i.i.i.i666
-  store <4 x i32> <i32 3, i32 2, i32 6, i32 7>, ptr %add.ptr.i.i.i676, align 4
+  store i32 3, ptr %add.ptr.i.i.i676, align 4
+  %ref.tmp55.sroa.3.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 4
+  store i32 2, ptr %ref.tmp55.sroa.3.0.add.ptr.i.i.i676.sroa_idx, align 4
+  %ref.tmp55.sroa.4.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 8
+  store i32 6, ptr %ref.tmp55.sroa.4.0.add.ptr.i.i.i676.sroa_idx, align 4
+  %ref.tmp55.sroa.5.0.add.ptr.i.i.i676.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i676, i64 12
+  store i32 7, ptr %ref.tmp55.sroa.5.0.add.ptr.i.i.i676.sroa_idx, align 4
   %cmp.i.i.i.i.i.i677 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i663, 0
   br i1 %cmp.i.i.i.i.i.i677, label %if.then.i.i.i.i.i.i685, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i678
 
@@ -8243,7 +8701,13 @@ invoke.cont57:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i696, label %if.else.i.i699, label %if.then.i.i697
 
 if.then.i.i697:                                   ; preds = %invoke.cont57
-  store <4 x i32> <i32 0, i32 3, i32 7, i32 4>, ptr %59, align 4
+  store i32 0, ptr %59, align 4
+  %ref.tmp58.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 3, ptr %ref.tmp58.sroa.3.0..sroa_idx, align 4
+  %ref.tmp58.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  store i32 7, ptr %ref.tmp58.sroa.4.0..sroa_idx, align 4
+  %ref.tmp58.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 12
+  store i32 4, ptr %ref.tmp58.sroa.5.0..sroa_idx, align 4
   %60 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i698 = getelementptr inbounds i8, ptr %60, i64 16
   store ptr %incdec.ptr.i.i698, ptr %_M_finish.i.i582, align 8
@@ -8276,7 +8740,13 @@ cond.true.i.i.i.i711:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i713: ; preds = %cond.true.i.i.i.i711, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i704
   %cond.i10.i.i.i714 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i704 ], [ %call5.i.i.i.i.i.i728, %cond.true.i.i.i.i711 ]
   %add.ptr.i.i.i715 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i714, i64 %sub.ptr.div.i.i.i.i.i705
-  store <4 x i32> <i32 0, i32 3, i32 7, i32 4>, ptr %add.ptr.i.i.i715, align 4
+  store i32 0, ptr %add.ptr.i.i.i715, align 4
+  %ref.tmp58.sroa.3.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 4
+  store i32 3, ptr %ref.tmp58.sroa.3.0.add.ptr.i.i.i715.sroa_idx, align 4
+  %ref.tmp58.sroa.4.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 8
+  store i32 7, ptr %ref.tmp58.sroa.4.0.add.ptr.i.i.i715.sroa_idx, align 4
+  %ref.tmp58.sroa.5.0.add.ptr.i.i.i715.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i715, i64 12
+  store i32 4, ptr %ref.tmp58.sroa.5.0.add.ptr.i.i.i715.sroa_idx, align 4
   %cmp.i.i.i.i.i.i716 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i702, 0
   br i1 %cmp.i.i.i.i.i.i716, label %if.then.i.i.i.i.i.i724, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i717
 
@@ -8308,7 +8778,13 @@ invoke.cont60:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i735, label %if.else.i.i738, label %if.then.i.i736
 
 if.then.i.i736:                                   ; preds = %invoke.cont60
-  store <4 x i32> <i32 2, i32 3, i32 0, i32 1>, ptr %64, align 4
+  store i32 2, ptr %64, align 4
+  %ref.tmp61.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 4
+  store i32 3, ptr %ref.tmp61.sroa.3.0..sroa_idx, align 4
+  %ref.tmp61.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 0, ptr %ref.tmp61.sroa.4.0..sroa_idx, align 4
+  %ref.tmp61.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 12
+  store i32 1, ptr %ref.tmp61.sroa.5.0..sroa_idx, align 4
   %65 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i737 = getelementptr inbounds i8, ptr %65, i64 16
   store ptr %incdec.ptr.i.i737, ptr %_M_finish.i.i582, align 8
@@ -8341,7 +8817,13 @@ cond.true.i.i.i.i750:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i752: ; preds = %cond.true.i.i.i.i750, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i743
   %cond.i10.i.i.i753 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i743 ], [ %call5.i.i.i.i.i.i767, %cond.true.i.i.i.i750 ]
   %add.ptr.i.i.i754 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i753, i64 %sub.ptr.div.i.i.i.i.i744
-  store <4 x i32> <i32 2, i32 3, i32 0, i32 1>, ptr %add.ptr.i.i.i754, align 4
+  store i32 2, ptr %add.ptr.i.i.i754, align 4
+  %ref.tmp61.sroa.3.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 4
+  store i32 3, ptr %ref.tmp61.sroa.3.0.add.ptr.i.i.i754.sroa_idx, align 4
+  %ref.tmp61.sroa.4.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 8
+  store i32 0, ptr %ref.tmp61.sroa.4.0.add.ptr.i.i.i754.sroa_idx, align 4
+  %ref.tmp61.sroa.5.0.add.ptr.i.i.i754.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i754, i64 12
+  store i32 1, ptr %ref.tmp61.sroa.5.0.add.ptr.i.i.i754.sroa_idx, align 4
   %cmp.i.i.i.i.i.i755 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i741, 0
   br i1 %cmp.i.i.i.i.i.i755, label %if.then.i.i.i.i.i.i763, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i756
 
@@ -8373,7 +8855,13 @@ invoke.cont63:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i774, label %if.else.i.i777, label %if.then.i.i775
 
 if.then.i.i775:                                   ; preds = %invoke.cont63
-  store <4 x i32> <i32 5, i32 4, i32 7, i32 6>, ptr %69, align 4
+  store i32 5, ptr %69, align 4
+  %ref.tmp64.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 4
+  store i32 4, ptr %ref.tmp64.sroa.3.0..sroa_idx, align 4
+  %ref.tmp64.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 8
+  store i32 7, ptr %ref.tmp64.sroa.4.0..sroa_idx, align 4
+  %ref.tmp64.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 12
+  store i32 6, ptr %ref.tmp64.sroa.5.0..sroa_idx, align 4
   %70 = load ptr, ptr %_M_finish.i.i582, align 8
   %incdec.ptr.i.i776 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %incdec.ptr.i.i776, ptr %_M_finish.i.i582, align 8
@@ -8405,7 +8893,13 @@ cond.true.i.i.i.i789:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i791: ; preds = %cond.true.i.i.i.i789, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i782
   %cond.i10.i.i.i792 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i782 ], [ %call5.i.i.i.i.i.i806, %cond.true.i.i.i.i789 ]
   %add.ptr.i.i.i793 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i792, i64 %sub.ptr.div.i.i.i.i.i783
-  store <4 x i32> <i32 5, i32 4, i32 7, i32 6>, ptr %add.ptr.i.i.i793, align 4
+  store i32 5, ptr %add.ptr.i.i.i793, align 4
+  %ref.tmp64.sroa.3.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 4
+  store i32 4, ptr %ref.tmp64.sroa.3.0.add.ptr.i.i.i793.sroa_idx, align 4
+  %ref.tmp64.sroa.4.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 8
+  store i32 7, ptr %ref.tmp64.sroa.4.0.add.ptr.i.i.i793.sroa_idx, align 4
+  %ref.tmp64.sroa.5.0.add.ptr.i.i.i793.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i793, i64 12
+  store i32 6, ptr %ref.tmp64.sroa.5.0.add.ptr.i.i.i793.sroa_idx, align 4
   %cmp.i.i.i.i.i.i794 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i780, 0
   br i1 %cmp.i.i.i.i.i.i794, label %if.then.i.i.i.i.i.i802, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i795
 
@@ -8437,7 +8931,9 @@ cond.true.i.i.i.i827:                             ; preds = %entry
           to label %cond.true.i.i.i.i865 unwind label %lpad
 
 cond.true.i.i.i.i865:                             ; preds = %cond.true.i.i.i.i827
-  store <2 x float> zeroinitializer, ptr %call5.i.i.i.i.i.i844, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i844, align 4
+  %ref.tmp70.sroa.3.0.add.ptr.i.i.i831.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 4
+  store float 0.000000e+00, ptr %ref.tmp70.sroa.3.0.add.ptr.i.i.i831.sroa_idx, align 4
   %ref.tmp70.sroa.4.0.add.ptr.i.i.i831.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 8
   store float -1.000000e+00, ptr %ref.tmp70.sroa.4.0.add.ptr.i.i.i831.sroa_idx, align 4
   %incdec.ptr.i.i.i835 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i844, i64 12
@@ -8449,7 +8945,9 @@ cond.true.i.i.i.i865:                             ; preds = %cond.true.i.i.i.i82
 
 invoke.cont75:                                    ; preds = %cond.true.i.i.i.i865
   %add.ptr.i.i.i869 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 12
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %add.ptr.i.i.i869, align 4
+  store float 1.000000e+00, ptr %add.ptr.i.i.i869, align 4
+  %ref.tmp73.sroa.3.0.add.ptr.i.i.i869.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 16
+  store float 0.000000e+00, ptr %ref.tmp73.sroa.3.0.add.ptr.i.i.i869.sroa_idx, align 4
   %ref.tmp73.sroa.4.0.add.ptr.i.i.i869.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i882, i64 20
   store float 0.000000e+00, ptr %ref.tmp73.sroa.4.0.add.ptr.i.i.i869.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i882, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i844, i64 12, i1 false)
@@ -8464,7 +8962,9 @@ invoke.cont75:                                    ; preds = %cond.true.i.i.i.i86
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i905: ; preds = %invoke.cont75
   %add.ptr.i.i.i907 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 24
-  store <2 x float> zeroinitializer, ptr %add.ptr.i.i.i907, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i907, align 4
+  %ref.tmp76.sroa.3.0.add.ptr.i.i.i907.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 28
+  store float 0.000000e+00, ptr %ref.tmp76.sroa.3.0.add.ptr.i.i.i907.sroa_idx, align 4
   %ref.tmp76.sroa.4.0.add.ptr.i.i.i907.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 32
   store float 1.000000e+00, ptr %ref.tmp76.sroa.4.0.add.ptr.i.i.i907.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i920, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i882, i64 24, i1 false)
@@ -8474,7 +8974,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i911, ptr %_M_finish.i.i810, align 8
   %add.ptr19.i.i.i915 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 48
   store ptr %add.ptr19.i.i.i915, ptr %_M_end_of_storage.i.i811, align 8
-  store <2 x float> <float -1.000000e+00, float 0.000000e+00>, ptr %incdec.ptr.i.i.i911, align 4
+  store float -1.000000e+00, ptr %incdec.ptr.i.i.i911, align 4
+  %ref.tmp79.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 40
+  store float 0.000000e+00, ptr %ref.tmp79.sroa.3.0..sroa_idx, align 4
   %ref.tmp79.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i920, i64 44
   store float 0.000000e+00, ptr %ref.tmp79.sroa.4.0..sroa_idx, align 4
   %73 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -8485,7 +8987,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i964, label %if.else.i.i967, label %if.then.i.i965
 
 if.then.i.i965:                                   ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i905
-  store <2 x float> <float 0.000000e+00, float -1.000000e+00>, ptr %incdec.ptr.i.i928, align 4
+  store float 0.000000e+00, ptr %incdec.ptr.i.i928, align 4
+  %ref.tmp82.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i928, i64 4
+  store float -1.000000e+00, ptr %ref.tmp82.sroa.3.0..sroa_idx, align 4
   %ref.tmp82.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i928, i64 8
   store float 0.000000e+00, ptr %ref.tmp82.sroa.4.0..sroa_idx, align 4
   %74 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -8520,7 +9024,9 @@ cond.true.i.i.i.i979:                             ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i981: ; preds = %cond.true.i.i.i.i979, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i972
   %cond.i10.i.i.i982 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i972 ], [ %call5.i.i.i.i.i.i996, %cond.true.i.i.i.i979 ]
   %add.ptr.i.i.i983 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i982, i64 %sub.ptr.div.i.i.i.i.i973
-  store <2 x float> <float 0.000000e+00, float -1.000000e+00>, ptr %add.ptr.i.i.i983, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i983, align 4
+  %ref.tmp82.sroa.3.0.add.ptr.i.i.i983.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i983, i64 4
+  store float -1.000000e+00, ptr %ref.tmp82.sroa.3.0.add.ptr.i.i.i983.sroa_idx, align 4
   %ref.tmp82.sroa.4.0.add.ptr.i.i.i983.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i983, i64 8
   store float 0.000000e+00, ptr %ref.tmp82.sroa.4.0.add.ptr.i.i.i983.sroa_idx, align 4
   %cmp.i.i.i.i.i.i984 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i970, 0
@@ -8554,7 +9060,9 @@ invoke.cont84:                                    ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1002, label %if.else.i.i1005, label %if.then.i.i1003
 
 if.then.i.i1003:                                  ; preds = %invoke.cont84
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %78, align 4
+  store float 0.000000e+00, ptr %78, align 4
+  %ref.tmp85.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 4
+  store float 1.000000e+00, ptr %ref.tmp85.sroa.3.0..sroa_idx, align 4
   %ref.tmp85.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
   store float 0.000000e+00, ptr %ref.tmp85.sroa.4.0..sroa_idx, align 4
   %79 = load ptr, ptr %_M_finish.i.i810, align 8
@@ -8588,7 +9096,9 @@ cond.true.i.i.i.i1017:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1019: ; preds = %cond.true.i.i.i.i1017, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1010
   %cond.i10.i.i.i1020 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1010 ], [ %call5.i.i.i.i.i.i1034, %cond.true.i.i.i.i1017 ]
   %add.ptr.i.i.i1021 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1020, i64 %sub.ptr.div.i.i.i.i.i1011
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %add.ptr.i.i.i1021, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1021, align 4
+  %ref.tmp85.sroa.3.0.add.ptr.i.i.i1021.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1021, i64 4
+  store float 1.000000e+00, ptr %ref.tmp85.sroa.3.0.add.ptr.i.i.i1021.sroa_idx, align 4
   %ref.tmp85.sroa.4.0.add.ptr.i.i.i1021.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1021, i64 8
   store float 0.000000e+00, ptr %ref.tmp85.sroa.4.0.add.ptr.i.i.i1021.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1022 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1008, 0
@@ -9207,7 +9717,9 @@ cond.true.i.i.i.i1359:                            ; preds = %entry
           to label %cond.true.i.i.i.i1397 unwind label %lpad
 
 cond.true.i.i.i.i1397:                            ; preds = %cond.true.i.i.i.i1359
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %call5.i.i.i.i.i.i1376, align 4
+  store float 0x3FD6AF1C20000000, ptr %call5.i.i.i.i.i.i1376, align 4
+  %ref.tmp115.sroa.3.0.add.ptr.i.i.i1363.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp115.sroa.3.0.add.ptr.i.i.i1363.sroa_idx, align 4
   %ref.tmp115.sroa.4.0.add.ptr.i.i.i1363.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp115.sroa.4.0.add.ptr.i.i.i1363.sroa_idx, align 4
   %incdec.ptr.i.i.i1367 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1376, i64 12
@@ -9219,7 +9731,9 @@ cond.true.i.i.i.i1397:                            ; preds = %cond.true.i.i.i.i13
 
 invoke.cont120:                                   ; preds = %cond.true.i.i.i.i1397
   %add.ptr.i.i.i1401 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 12
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFC7D9F3C0000000>, ptr %add.ptr.i.i.i1401, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1401, align 4
+  %ref.tmp118.sroa.3.0.add.ptr.i.i.i1401.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 16
+  store float 0xBFC7D9F3C0000000, ptr %ref.tmp118.sroa.3.0.add.ptr.i.i.i1401.sroa_idx, align 4
   %ref.tmp118.sroa.4.0.add.ptr.i.i.i1401.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1414, i64 20
   store float 0xBFE9424F20000000, ptr %ref.tmp118.sroa.4.0.add.ptr.i.i.i1401.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i1414, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i1376, i64 12, i1 false)
@@ -9234,7 +9748,9 @@ invoke.cont120:                                   ; preds = %cond.true.i.i.i.i13
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1437: ; preds = %invoke.cont120
   %add.ptr.i.i.i1439 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 24
-  store <2 x float> <float 0.000000e+00, float 0xBFE34BD2E0000000>, ptr %add.ptr.i.i.i1439, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1439, align 4
+  %ref.tmp121.sroa.3.0.add.ptr.i.i.i1439.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 28
+  store float 0xBFE34BD2E0000000, ptr %ref.tmp121.sroa.3.0.add.ptr.i.i.i1439.sroa_idx, align 4
   %ref.tmp121.sroa.4.0.add.ptr.i.i.i1439.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 32
   store float 0xBFE9424F40000000, ptr %ref.tmp121.sroa.4.0.add.ptr.i.i.i1439.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i1452, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i1414, i64 24, i1 false)
@@ -9244,7 +9760,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i1443, ptr %_M_finish.i.i1342, align 8
   %add.ptr19.i.i.i1447 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 48
   store ptr %add.ptr19.i.i.i1447, ptr %_M_end_of_storage.i.i1343, align 8
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFC7D9F3C0000000>, ptr %incdec.ptr.i.i.i1443, align 4
+  store float 0xBFE25A0D20000000, ptr %incdec.ptr.i.i.i1443, align 4
+  %ref.tmp124.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 40
+  store float 0xBFC7D9F3C0000000, ptr %ref.tmp124.sroa.3.0..sroa_idx, align 4
   %ref.tmp124.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1452, i64 44
   store float 0xBFE9424F20000000, ptr %ref.tmp124.sroa.4.0..sroa_idx, align 4
   %122 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9255,7 +9773,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i1496, label %if.else.i.i1499, label %if.then.i.i1497
 
 if.then.i.i1497:                                  ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1437
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %incdec.ptr.i.i1460, align 4
+  store float 0xBFD6AF1C20000000, ptr %incdec.ptr.i.i1460, align 4
+  %ref.tmp127.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i1460, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp127.sroa.3.0..sroa_idx, align 4
   %ref.tmp127.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i1460, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp127.sroa.4.0..sroa_idx, align 4
   %123 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9290,7 +9810,9 @@ cond.true.i.i.i.i1511:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1513: ; preds = %cond.true.i.i.i.i1511, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1504
   %cond.i10.i.i.i1514 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1504 ], [ %call5.i.i.i.i.i.i1528, %cond.true.i.i.i.i1511 ]
   %add.ptr.i.i.i1515 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1514, i64 %sub.ptr.div.i.i.i.i.i1505
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0x3FDF38CE20000000>, ptr %add.ptr.i.i.i1515, align 4
+  store float 0xBFD6AF1C20000000, ptr %add.ptr.i.i.i1515, align 4
+  %ref.tmp127.sroa.3.0.add.ptr.i.i.i1515.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1515, i64 4
+  store float 0x3FDF38CE20000000, ptr %ref.tmp127.sroa.3.0.add.ptr.i.i.i1515.sroa_idx, align 4
   %ref.tmp127.sroa.4.0.add.ptr.i.i.i1515.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1515, i64 8
   store float 0xBFE9424F00000000, ptr %ref.tmp127.sroa.4.0.add.ptr.i.i.i1515.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1516 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1502, 0
@@ -9324,7 +9846,9 @@ invoke.cont129:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1534, label %if.else.i.i1537, label %if.then.i.i1535
 
 if.then.i.i1535:                                  ; preds = %invoke.cont129
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FE9425080000000>, ptr %127, align 4
+  store float 0xBFE25A0D20000000, ptr %127, align 4
+  %ref.tmp130.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %127, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp130.sroa.3.0..sroa_idx, align 4
   %ref.tmp130.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %127, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp130.sroa.4.0..sroa_idx, align 4
   %128 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9359,7 +9883,9 @@ cond.true.i.i.i.i1549:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1551: ; preds = %cond.true.i.i.i.i1549, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1542
   %cond.i10.i.i.i1552 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1542 ], [ %call5.i.i.i.i.i.i1566, %cond.true.i.i.i.i1549 ]
   %add.ptr.i.i.i1553 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1552, i64 %sub.ptr.div.i.i.i.i.i1543
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FE9425080000000>, ptr %add.ptr.i.i.i1553, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i1553, align 4
+  %ref.tmp130.sroa.3.0.add.ptr.i.i.i1553.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1553, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp130.sroa.3.0.add.ptr.i.i.i1553.sroa_idx, align 4
   %ref.tmp130.sroa.4.0.add.ptr.i.i.i1553.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1553, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp130.sroa.4.0.add.ptr.i.i.i1553.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1554 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1540, 0
@@ -9393,7 +9919,9 @@ invoke.cont132:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1572, label %if.else.i.i1575, label %if.then.i.i1573
 
 if.then.i.i1573:                                  ; preds = %invoke.cont132
-  store <2 x float> <float 0xBFEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %132, align 4
+  store float 0xBFEDB19B20000000, ptr %132, align 4
+  %ref.tmp133.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp133.sroa.3.0..sroa_idx, align 4
   %ref.tmp133.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp133.sroa.4.0..sroa_idx, align 4
   %133 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9428,7 +9956,9 @@ cond.true.i.i.i.i1587:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1589: ; preds = %cond.true.i.i.i.i1587, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1580
   %cond.i10.i.i.i1590 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1580 ], [ %call5.i.i.i.i.i.i1604, %cond.true.i.i.i.i1587 ]
   %add.ptr.i.i.i1591 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1590, i64 %sub.ptr.div.i.i.i.i.i1581
-  store <2 x float> <float 0xBFEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %add.ptr.i.i.i1591, align 4
+  store float 0xBFEDB19B20000000, ptr %add.ptr.i.i.i1591, align 4
+  %ref.tmp133.sroa.3.0.add.ptr.i.i.i1591.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1591, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp133.sroa.3.0.add.ptr.i.i.i1591.sroa_idx, align 4
   %ref.tmp133.sroa.4.0.add.ptr.i.i.i1591.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1591, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp133.sroa.4.0.add.ptr.i.i.i1591.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1592 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1578, 0
@@ -9462,7 +9992,9 @@ invoke.cont135:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1610, label %if.else.i.i1613, label %if.then.i.i1611
 
 if.then.i.i1611:                                  ; preds = %invoke.cont135
-  store <2 x float> <float 0.000000e+00, float 0xBFEF38CD80000000>, ptr %137, align 4
+  store float 0.000000e+00, ptr %137, align 4
+  %ref.tmp136.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 4
+  store float 0xBFEF38CD80000000, ptr %ref.tmp136.sroa.3.0..sroa_idx, align 4
   %ref.tmp136.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 8
   store float 0xBFC7D9F400000000, ptr %ref.tmp136.sroa.4.0..sroa_idx, align 4
   %138 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9497,7 +10029,9 @@ cond.true.i.i.i.i1625:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1627: ; preds = %cond.true.i.i.i.i1625, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1618
   %cond.i10.i.i.i1628 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1618 ], [ %call5.i.i.i.i.i.i1642, %cond.true.i.i.i.i1625 ]
   %add.ptr.i.i.i1629 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1628, i64 %sub.ptr.div.i.i.i.i.i1619
-  store <2 x float> <float 0.000000e+00, float 0xBFEF38CD80000000>, ptr %add.ptr.i.i.i1629, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1629, align 4
+  %ref.tmp136.sroa.3.0.add.ptr.i.i.i1629.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1629, i64 4
+  store float 0xBFEF38CD80000000, ptr %ref.tmp136.sroa.3.0.add.ptr.i.i.i1629.sroa_idx, align 4
   %ref.tmp136.sroa.4.0.add.ptr.i.i.i1629.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1629, i64 8
   store float 0xBFC7D9F400000000, ptr %ref.tmp136.sroa.4.0.add.ptr.i.i.i1629.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1630 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1616, 0
@@ -9531,7 +10065,9 @@ invoke.cont138:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1648, label %if.else.i.i1651, label %if.then.i.i1649
 
 if.then.i.i1649:                                  ; preds = %invoke.cont138
-  store <2 x float> <float 0x3FEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %142, align 4
+  store float 0x3FEDB19B20000000, ptr %142, align 4
+  %ref.tmp139.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp139.sroa.3.0..sroa_idx, align 4
   %ref.tmp139.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp139.sroa.4.0..sroa_idx, align 4
   %143 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9566,7 +10102,9 @@ cond.true.i.i.i.i1663:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1665: ; preds = %cond.true.i.i.i.i1663, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1656
   %cond.i10.i.i.i1666 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1656 ], [ %call5.i.i.i.i.i.i1680, %cond.true.i.i.i.i1663 ]
   %add.ptr.i.i.i1667 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1666, i64 %sub.ptr.div.i.i.i.i.i1657
-  store <2 x float> <float 0x3FEDB19B20000000, float 0xBFD34BD2E0000000>, ptr %add.ptr.i.i.i1667, align 4
+  store float 0x3FEDB19B20000000, ptr %add.ptr.i.i.i1667, align 4
+  %ref.tmp139.sroa.3.0.add.ptr.i.i.i1667.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1667, i64 4
+  store float 0xBFD34BD2E0000000, ptr %ref.tmp139.sroa.3.0.add.ptr.i.i.i1667.sroa_idx, align 4
   %ref.tmp139.sroa.4.0.add.ptr.i.i.i1667.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1667, i64 8
   store float 0xBFC7D9F3C0000000, ptr %ref.tmp139.sroa.4.0.add.ptr.i.i.i1667.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1668 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1654, 0
@@ -9600,7 +10138,9 @@ invoke.cont141:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1686, label %if.else.i.i1689, label %if.then.i.i1687
 
 if.then.i.i1687:                                  ; preds = %invoke.cont141
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FE9425080000000>, ptr %147, align 4
+  store float 0x3FE25A0D20000000, ptr %147, align 4
+  %ref.tmp142.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %147, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp142.sroa.3.0..sroa_idx, align 4
   %ref.tmp142.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %147, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp142.sroa.4.0..sroa_idx, align 4
   %148 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9635,7 +10175,9 @@ cond.true.i.i.i.i1701:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1703: ; preds = %cond.true.i.i.i.i1701, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1694
   %cond.i10.i.i.i1704 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1694 ], [ %call5.i.i.i.i.i.i1718, %cond.true.i.i.i.i1701 ]
   %add.ptr.i.i.i1705 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1704, i64 %sub.ptr.div.i.i.i.i.i1695
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FE9425080000000>, ptr %add.ptr.i.i.i1705, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1705, align 4
+  %ref.tmp142.sroa.3.0.add.ptr.i.i.i1705.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1705, i64 4
+  store float 0x3FE9425080000000, ptr %ref.tmp142.sroa.3.0.add.ptr.i.i.i1705.sroa_idx, align 4
   %ref.tmp142.sroa.4.0.add.ptr.i.i.i1705.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1705, i64 8
   store float 0xBFC7D9F320000000, ptr %ref.tmp142.sroa.4.0.add.ptr.i.i.i1705.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1706 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1692, 0
@@ -9669,7 +10211,9 @@ invoke.cont144:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1724, label %if.else.i.i1727, label %if.then.i.i1725
 
 if.then.i.i1725:                                  ; preds = %invoke.cont144
-  store <2 x float> <float 0.000000e+00, float 0x3FEF38CD60000000>, ptr %152, align 4
+  store float 0.000000e+00, ptr %152, align 4
+  %ref.tmp145.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %152, i64 4
+  store float 0x3FEF38CD60000000, ptr %ref.tmp145.sroa.3.0..sroa_idx, align 4
   %ref.tmp145.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %152, i64 8
   store float 0x3FC7D9F400000000, ptr %ref.tmp145.sroa.4.0..sroa_idx, align 4
   %153 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9704,7 +10248,9 @@ cond.true.i.i.i.i1739:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1741: ; preds = %cond.true.i.i.i.i1739, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1732
   %cond.i10.i.i.i1742 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1732 ], [ %call5.i.i.i.i.i.i1756, %cond.true.i.i.i.i1739 ]
   %add.ptr.i.i.i1743 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1742, i64 %sub.ptr.div.i.i.i.i.i1733
-  store <2 x float> <float 0.000000e+00, float 0x3FEF38CD60000000>, ptr %add.ptr.i.i.i1743, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1743, align 4
+  %ref.tmp145.sroa.3.0.add.ptr.i.i.i1743.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1743, i64 4
+  store float 0x3FEF38CD60000000, ptr %ref.tmp145.sroa.3.0.add.ptr.i.i.i1743.sroa_idx, align 4
   %ref.tmp145.sroa.4.0.add.ptr.i.i.i1743.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1743, i64 8
   store float 0x3FC7D9F400000000, ptr %ref.tmp145.sroa.4.0.add.ptr.i.i.i1743.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1744 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1730, 0
@@ -9738,7 +10284,9 @@ invoke.cont147:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1762, label %if.else.i.i1765, label %if.then.i.i1763
 
 if.then.i.i1763:                                  ; preds = %invoke.cont147
-  store <2 x float> <float 0xBFEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %157, align 4
+  store float 0xBFEDB19B20000000, ptr %157, align 4
+  %ref.tmp148.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp148.sroa.3.0..sroa_idx, align 4
   %ref.tmp148.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp148.sroa.4.0..sroa_idx, align 4
   %158 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9773,7 +10321,9 @@ cond.true.i.i.i.i1777:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1779: ; preds = %cond.true.i.i.i.i1777, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1770
   %cond.i10.i.i.i1780 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1770 ], [ %call5.i.i.i.i.i.i1794, %cond.true.i.i.i.i1777 ]
   %add.ptr.i.i.i1781 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1780, i64 %sub.ptr.div.i.i.i.i.i1771
-  store <2 x float> <float 0xBFEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %add.ptr.i.i.i1781, align 4
+  store float 0xBFEDB19B20000000, ptr %add.ptr.i.i.i1781, align 4
+  %ref.tmp148.sroa.3.0.add.ptr.i.i.i1781.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1781, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp148.sroa.3.0.add.ptr.i.i.i1781.sroa_idx, align 4
   %ref.tmp148.sroa.4.0.add.ptr.i.i.i1781.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1781, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp148.sroa.4.0.add.ptr.i.i.i1781.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1782 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1768, 0
@@ -9807,7 +10357,9 @@ invoke.cont150:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1800, label %if.else.i.i1803, label %if.then.i.i1801
 
 if.then.i.i1801:                                  ; preds = %invoke.cont150
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFE9425080000000>, ptr %162, align 4
+  store float 0xBFE25A0D20000000, ptr %162, align 4
+  %ref.tmp151.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %162, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp151.sroa.3.0..sroa_idx, align 4
   %ref.tmp151.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %162, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp151.sroa.4.0..sroa_idx, align 4
   %163 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9842,7 +10394,9 @@ cond.true.i.i.i.i1815:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1817: ; preds = %cond.true.i.i.i.i1815, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1808
   %cond.i10.i.i.i1818 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1808 ], [ %call5.i.i.i.i.i.i1832, %cond.true.i.i.i.i1815 ]
   %add.ptr.i.i.i1819 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1818, i64 %sub.ptr.div.i.i.i.i.i1809
-  store <2 x float> <float 0xBFE25A0D20000000, float 0xBFE9425080000000>, ptr %add.ptr.i.i.i1819, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i1819, align 4
+  %ref.tmp151.sroa.3.0.add.ptr.i.i.i1819.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1819, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp151.sroa.3.0.add.ptr.i.i.i1819.sroa_idx, align 4
   %ref.tmp151.sroa.4.0.add.ptr.i.i.i1819.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1819, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp151.sroa.4.0.add.ptr.i.i.i1819.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1820 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1806, 0
@@ -9876,7 +10430,9 @@ invoke.cont153:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1838, label %if.else.i.i1841, label %if.then.i.i1839
 
 if.then.i.i1839:                                  ; preds = %invoke.cont153
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFE9425080000000>, ptr %167, align 4
+  store float 0x3FE25A0D20000000, ptr %167, align 4
+  %ref.tmp154.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp154.sroa.3.0..sroa_idx, align 4
   %ref.tmp154.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp154.sroa.4.0..sroa_idx, align 4
   %168 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9911,7 +10467,9 @@ cond.true.i.i.i.i1853:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1855: ; preds = %cond.true.i.i.i.i1853, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1846
   %cond.i10.i.i.i1856 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1846 ], [ %call5.i.i.i.i.i.i1870, %cond.true.i.i.i.i1853 ]
   %add.ptr.i.i.i1857 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1856, i64 %sub.ptr.div.i.i.i.i.i1847
-  store <2 x float> <float 0x3FE25A0D20000000, float 0xBFE9425080000000>, ptr %add.ptr.i.i.i1857, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1857, align 4
+  %ref.tmp154.sroa.3.0.add.ptr.i.i.i1857.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1857, i64 4
+  store float 0xBFE9425080000000, ptr %ref.tmp154.sroa.3.0.add.ptr.i.i.i1857.sroa_idx, align 4
   %ref.tmp154.sroa.4.0.add.ptr.i.i.i1857.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1857, i64 8
   store float 0x3FC7D9F320000000, ptr %ref.tmp154.sroa.4.0.add.ptr.i.i.i1857.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1858 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1844, 0
@@ -9945,7 +10503,9 @@ invoke.cont156:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1876, label %if.else.i.i1879, label %if.then.i.i1877
 
 if.then.i.i1877:                                  ; preds = %invoke.cont156
-  store <2 x float> <float 0x3FEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %172, align 4
+  store float 0x3FEDB19B20000000, ptr %172, align 4
+  %ref.tmp157.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp157.sroa.3.0..sroa_idx, align 4
   %ref.tmp157.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp157.sroa.4.0..sroa_idx, align 4
   %173 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -9980,7 +10540,9 @@ cond.true.i.i.i.i1891:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1893: ; preds = %cond.true.i.i.i.i1891, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1884
   %cond.i10.i.i.i1894 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1884 ], [ %call5.i.i.i.i.i.i1908, %cond.true.i.i.i.i1891 ]
   %add.ptr.i.i.i1895 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1894, i64 %sub.ptr.div.i.i.i.i.i1885
-  store <2 x float> <float 0x3FEDB19B20000000, float 0x3FD34BD2E0000000>, ptr %add.ptr.i.i.i1895, align 4
+  store float 0x3FEDB19B20000000, ptr %add.ptr.i.i.i1895, align 4
+  %ref.tmp157.sroa.3.0.add.ptr.i.i.i1895.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1895, i64 4
+  store float 0x3FD34BD2E0000000, ptr %ref.tmp157.sroa.3.0.add.ptr.i.i.i1895.sroa_idx, align 4
   %ref.tmp157.sroa.4.0.add.ptr.i.i.i1895.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1895, i64 8
   store float 0x3FC7D9F3C0000000, ptr %ref.tmp157.sroa.4.0.add.ptr.i.i.i1895.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1896 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1882, 0
@@ -10014,7 +10576,9 @@ invoke.cont159:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1914, label %if.else.i.i1917, label %if.then.i.i1915
 
 if.then.i.i1915:                                  ; preds = %invoke.cont159
-  store <2 x float> <float 0.000000e+00, float 0x3FE34BD2E0000000>, ptr %177, align 4
+  store float 0.000000e+00, ptr %177, align 4
+  %ref.tmp160.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 4
+  store float 0x3FE34BD2E0000000, ptr %ref.tmp160.sroa.3.0..sroa_idx, align 4
   %ref.tmp160.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 8
   store float 0x3FE9424F40000000, ptr %ref.tmp160.sroa.4.0..sroa_idx, align 4
   %178 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -10049,7 +10613,9 @@ cond.true.i.i.i.i1929:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1931: ; preds = %cond.true.i.i.i.i1929, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1922
   %cond.i10.i.i.i1932 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1922 ], [ %call5.i.i.i.i.i.i1946, %cond.true.i.i.i.i1929 ]
   %add.ptr.i.i.i1933 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1932, i64 %sub.ptr.div.i.i.i.i.i1923
-  store <2 x float> <float 0.000000e+00, float 0x3FE34BD2E0000000>, ptr %add.ptr.i.i.i1933, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i1933, align 4
+  %ref.tmp160.sroa.3.0.add.ptr.i.i.i1933.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1933, i64 4
+  store float 0x3FE34BD2E0000000, ptr %ref.tmp160.sroa.3.0.add.ptr.i.i.i1933.sroa_idx, align 4
   %ref.tmp160.sroa.4.0.add.ptr.i.i.i1933.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1933, i64 8
   store float 0x3FE9424F40000000, ptr %ref.tmp160.sroa.4.0.add.ptr.i.i.i1933.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1934 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1920, 0
@@ -10083,7 +10649,9 @@ invoke.cont162:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1952, label %if.else.i.i1955, label %if.then.i.i1953
 
 if.then.i.i1953:                                  ; preds = %invoke.cont162
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %182, align 4
+  store float 0x3FE25A0D20000000, ptr %182, align 4
+  %ref.tmp163.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %182, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp163.sroa.3.0..sroa_idx, align 4
   %ref.tmp163.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %182, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp163.sroa.4.0..sroa_idx, align 4
   %183 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -10118,7 +10686,9 @@ cond.true.i.i.i.i1967:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i1969: ; preds = %cond.true.i.i.i.i1967, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1960
   %cond.i10.i.i.i1970 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1960 ], [ %call5.i.i.i.i.i.i1984, %cond.true.i.i.i.i1967 ]
   %add.ptr.i.i.i1971 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i1970, i64 %sub.ptr.div.i.i.i.i.i1961
-  store <2 x float> <float 0x3FE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %add.ptr.i.i.i1971, align 4
+  store float 0x3FE25A0D20000000, ptr %add.ptr.i.i.i1971, align 4
+  %ref.tmp163.sroa.3.0.add.ptr.i.i.i1971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1971, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp163.sroa.3.0.add.ptr.i.i.i1971.sroa_idx, align 4
   %ref.tmp163.sroa.4.0.add.ptr.i.i.i1971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i1971, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp163.sroa.4.0.add.ptr.i.i.i1971.sroa_idx, align 4
   %cmp.i.i.i.i.i.i1972 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1958, 0
@@ -10152,7 +10722,9 @@ invoke.cont165:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i1990, label %if.else.i.i1993, label %if.then.i.i1991
 
 if.then.i.i1991:                                  ; preds = %invoke.cont165
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %187, align 4
+  store float 0x3FD6AF1C20000000, ptr %187, align 4
+  %ref.tmp166.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp166.sroa.3.0..sroa_idx, align 4
   %ref.tmp166.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp166.sroa.4.0..sroa_idx, align 4
   %188 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -10187,7 +10759,9 @@ cond.true.i.i.i.i2005:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2007: ; preds = %cond.true.i.i.i.i2005, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1998
   %cond.i10.i.i.i2008 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i1998 ], [ %call5.i.i.i.i.i.i2022, %cond.true.i.i.i.i2005 ]
   %add.ptr.i.i.i2009 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2008, i64 %sub.ptr.div.i.i.i.i.i1999
-  store <2 x float> <float 0x3FD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %add.ptr.i.i.i2009, align 4
+  store float 0x3FD6AF1C20000000, ptr %add.ptr.i.i.i2009, align 4
+  %ref.tmp166.sroa.3.0.add.ptr.i.i.i2009.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2009, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp166.sroa.3.0.add.ptr.i.i.i2009.sroa_idx, align 4
   %ref.tmp166.sroa.4.0.add.ptr.i.i.i2009.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2009, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp166.sroa.4.0.add.ptr.i.i.i2009.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2010 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i1996, 0
@@ -10221,7 +10795,9 @@ invoke.cont168:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2028, label %if.else.i.i2031, label %if.then.i.i2029
 
 if.then.i.i2029:                                  ; preds = %invoke.cont168
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %192, align 4
+  store float 0xBFD6AF1C20000000, ptr %192, align 4
+  %ref.tmp169.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp169.sroa.3.0..sroa_idx, align 4
   %ref.tmp169.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp169.sroa.4.0..sroa_idx, align 4
   %193 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -10256,7 +10832,9 @@ cond.true.i.i.i.i2043:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2045: ; preds = %cond.true.i.i.i.i2043, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2036
   %cond.i10.i.i.i2046 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2036 ], [ %call5.i.i.i.i.i.i2060, %cond.true.i.i.i.i2043 ]
   %add.ptr.i.i.i2047 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2046, i64 %sub.ptr.div.i.i.i.i.i2037
-  store <2 x float> <float 0xBFD6AF1C20000000, float 0xBFDF38CE20000000>, ptr %add.ptr.i.i.i2047, align 4
+  store float 0xBFD6AF1C20000000, ptr %add.ptr.i.i.i2047, align 4
+  %ref.tmp169.sroa.3.0.add.ptr.i.i.i2047.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2047, i64 4
+  store float 0xBFDF38CE20000000, ptr %ref.tmp169.sroa.3.0.add.ptr.i.i.i2047.sroa_idx, align 4
   %ref.tmp169.sroa.4.0.add.ptr.i.i.i2047.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2047, i64 8
   store float 0x3FE9424F00000000, ptr %ref.tmp169.sroa.4.0.add.ptr.i.i.i2047.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2048 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2034, 0
@@ -10290,7 +10868,9 @@ invoke.cont171:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2066, label %if.else.i.i2069, label %if.then.i.i2067
 
 if.then.i.i2067:                                  ; preds = %invoke.cont171
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %197, align 4
+  store float 0xBFE25A0D20000000, ptr %197, align 4
+  %ref.tmp172.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %197, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp172.sroa.3.0..sroa_idx, align 4
   %ref.tmp172.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %197, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp172.sroa.4.0..sroa_idx, align 4
   %198 = load ptr, ptr %_M_finish.i.i1342, align 8
@@ -10324,7 +10904,9 @@ cond.true.i.i.i.i2081:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i2083: ; preds = %cond.true.i.i.i.i2081, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2074
   %cond.i10.i.i.i2084 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2074 ], [ %call5.i.i.i.i.i.i2098, %cond.true.i.i.i.i2081 ]
   %add.ptr.i.i.i2085 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i2084, i64 %sub.ptr.div.i.i.i.i.i2075
-  store <2 x float> <float 0xBFE25A0D20000000, float 0x3FC7D9F3C0000000>, ptr %add.ptr.i.i.i2085, align 4
+  store float 0xBFE25A0D20000000, ptr %add.ptr.i.i.i2085, align 4
+  %ref.tmp172.sroa.3.0.add.ptr.i.i.i2085.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2085, i64 4
+  store float 0x3FC7D9F3C0000000, ptr %ref.tmp172.sroa.3.0.add.ptr.i.i.i2085.sroa_idx, align 4
   %ref.tmp172.sroa.4.0.add.ptr.i.i.i2085.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2085, i64 8
   store float 0x3FE9424F20000000, ptr %ref.tmp172.sroa.4.0.add.ptr.i.i.i2085.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2086 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2072, 0
@@ -10360,7 +10942,13 @@ invoke.cont174:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2105, label %if.else.i.i2108, label %if.then.i.i2106
 
 if.then.i.i2106:                                  ; preds = %invoke.cont174
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %201, align 4
+  store i32 0, ptr %201, align 4
+  %ref.tmp175.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 4
+  store i32 1, ptr %ref.tmp175.sroa.3.0..sroa_idx, align 4
+  %ref.tmp175.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 8
+  store i32 2, ptr %ref.tmp175.sroa.4.0..sroa_idx, align 4
+  %ref.tmp175.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 12
+  store i32 3, ptr %ref.tmp175.sroa.5.0..sroa_idx, align 4
   %203 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2107 = getelementptr inbounds i8, ptr %203, i64 16
   store ptr %incdec.ptr.i.i2107, ptr %_M_finish.i.i2103, align 8
@@ -10392,7 +10980,13 @@ cond.true.i.i.i.i2120:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2122: ; preds = %cond.true.i.i.i.i2120, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2113
   %cond.i10.i.i.i2123 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2113 ], [ %call5.i.i.i.i.i.i2137, %cond.true.i.i.i.i2120 ]
   %add.ptr.i.i.i2124 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2123, i64 %sub.ptr.div.i.i.i.i.i2114
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %add.ptr.i.i.i2124, align 4
+  store i32 0, ptr %add.ptr.i.i.i2124, align 4
+  %ref.tmp175.sroa.3.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 4
+  store i32 1, ptr %ref.tmp175.sroa.3.0.add.ptr.i.i.i2124.sroa_idx, align 4
+  %ref.tmp175.sroa.4.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 8
+  store i32 2, ptr %ref.tmp175.sroa.4.0.add.ptr.i.i.i2124.sroa_idx, align 4
+  %ref.tmp175.sroa.5.0.add.ptr.i.i.i2124.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2124, i64 12
+  store i32 3, ptr %ref.tmp175.sroa.5.0.add.ptr.i.i.i2124.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2125 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2111, 0
   br i1 %cmp.i.i.i.i.i.i2125, label %if.then.i.i.i.i.i.i2133, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2126
 
@@ -10498,7 +11092,13 @@ invoke.cont180:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2182, label %if.else.i.i2185, label %if.then.i.i2183
 
 if.then.i.i2183:                                  ; preds = %invoke.cont180
-  store <4 x i32> <i32 0, i32 4, i32 5, i32 10>, ptr %211, align 4
+  store i32 0, ptr %211, align 4
+  %ref.tmp181.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 4
+  store i32 4, ptr %ref.tmp181.sroa.3.0..sroa_idx, align 4
+  %ref.tmp181.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 8
+  store i32 5, ptr %ref.tmp181.sroa.4.0..sroa_idx, align 4
+  %ref.tmp181.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 12
+  store i32 10, ptr %ref.tmp181.sroa.5.0..sroa_idx, align 4
   %213 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2184 = getelementptr inbounds i8, ptr %213, i64 16
   store ptr %incdec.ptr.i.i2184, ptr %_M_finish.i.i2103, align 8
@@ -10530,7 +11130,13 @@ cond.true.i.i.i.i2197:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2199: ; preds = %cond.true.i.i.i.i2197, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2190
   %cond.i10.i.i.i2200 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2190 ], [ %call5.i.i.i.i.i.i2214, %cond.true.i.i.i.i2197 ]
   %add.ptr.i.i.i2201 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2200, i64 %sub.ptr.div.i.i.i.i.i2191
-  store <4 x i32> <i32 0, i32 4, i32 5, i32 10>, ptr %add.ptr.i.i.i2201, align 4
+  store i32 0, ptr %add.ptr.i.i.i2201, align 4
+  %ref.tmp181.sroa.3.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 4
+  store i32 4, ptr %ref.tmp181.sroa.3.0.add.ptr.i.i.i2201.sroa_idx, align 4
+  %ref.tmp181.sroa.4.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 8
+  store i32 5, ptr %ref.tmp181.sroa.4.0.add.ptr.i.i.i2201.sroa_idx, align 4
+  %ref.tmp181.sroa.5.0.add.ptr.i.i.i2201.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2201, i64 12
+  store i32 10, ptr %ref.tmp181.sroa.5.0.add.ptr.i.i.i2201.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2202 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2188, 0
   br i1 %cmp.i.i.i.i.i.i2202, label %if.then.i.i.i.i.i.i2210, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2203
 
@@ -10634,7 +11240,13 @@ invoke.cont186:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2259, label %if.else.i.i2262, label %if.then.i.i2260
 
 if.then.i.i2260:                                  ; preds = %invoke.cont186
-  store <4 x i32> <i32 0, i32 9, i32 14, i32 8>, ptr %221, align 4
+  store i32 0, ptr %221, align 4
+  %ref.tmp187.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 4
+  store i32 9, ptr %ref.tmp187.sroa.3.0..sroa_idx, align 4
+  %ref.tmp187.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 8
+  store i32 14, ptr %ref.tmp187.sroa.4.0..sroa_idx, align 4
+  %ref.tmp187.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 12
+  store i32 8, ptr %ref.tmp187.sroa.5.0..sroa_idx, align 4
   %223 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2261 = getelementptr inbounds i8, ptr %223, i64 16
   store ptr %incdec.ptr.i.i2261, ptr %_M_finish.i.i2103, align 8
@@ -10666,7 +11278,13 @@ cond.true.i.i.i.i2274:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2276: ; preds = %cond.true.i.i.i.i2274, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2267
   %cond.i10.i.i.i2277 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2267 ], [ %call5.i.i.i.i.i.i2291, %cond.true.i.i.i.i2274 ]
   %add.ptr.i.i.i2278 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2277, i64 %sub.ptr.div.i.i.i.i.i2268
-  store <4 x i32> <i32 0, i32 9, i32 14, i32 8>, ptr %add.ptr.i.i.i2278, align 4
+  store i32 0, ptr %add.ptr.i.i.i2278, align 4
+  %ref.tmp187.sroa.3.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 4
+  store i32 9, ptr %ref.tmp187.sroa.3.0.add.ptr.i.i.i2278.sroa_idx, align 4
+  %ref.tmp187.sroa.4.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 8
+  store i32 14, ptr %ref.tmp187.sroa.4.0.add.ptr.i.i.i2278.sroa_idx, align 4
+  %ref.tmp187.sroa.5.0.add.ptr.i.i.i2278.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2278, i64 12
+  store i32 8, ptr %ref.tmp187.sroa.5.0.add.ptr.i.i.i2278.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2279 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2265, 0
   br i1 %cmp.i.i.i.i.i.i2279, label %if.then.i.i.i.i.i.i2287, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2280
 
@@ -10770,7 +11388,13 @@ invoke.cont192:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2336, label %if.else.i.i2339, label %if.then.i.i2337
 
 if.then.i.i2337:                                  ; preds = %invoke.cont192
-  store <4 x i32> <i32 1, i32 8, i32 13, i32 7>, ptr %231, align 4
+  store i32 1, ptr %231, align 4
+  %ref.tmp193.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 4
+  store i32 8, ptr %ref.tmp193.sroa.3.0..sroa_idx, align 4
+  %ref.tmp193.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 8
+  store i32 13, ptr %ref.tmp193.sroa.4.0..sroa_idx, align 4
+  %ref.tmp193.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 12
+  store i32 7, ptr %ref.tmp193.sroa.5.0..sroa_idx, align 4
   %233 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2338 = getelementptr inbounds i8, ptr %233, i64 16
   store ptr %incdec.ptr.i.i2338, ptr %_M_finish.i.i2103, align 8
@@ -10802,7 +11426,13 @@ cond.true.i.i.i.i2351:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2353: ; preds = %cond.true.i.i.i.i2351, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2344
   %cond.i10.i.i.i2354 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2344 ], [ %call5.i.i.i.i.i.i2368, %cond.true.i.i.i.i2351 ]
   %add.ptr.i.i.i2355 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2354, i64 %sub.ptr.div.i.i.i.i.i2345
-  store <4 x i32> <i32 1, i32 8, i32 13, i32 7>, ptr %add.ptr.i.i.i2355, align 4
+  store i32 1, ptr %add.ptr.i.i.i2355, align 4
+  %ref.tmp193.sroa.3.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 4
+  store i32 8, ptr %ref.tmp193.sroa.3.0.add.ptr.i.i.i2355.sroa_idx, align 4
+  %ref.tmp193.sroa.4.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 8
+  store i32 13, ptr %ref.tmp193.sroa.4.0.add.ptr.i.i.i2355.sroa_idx, align 4
+  %ref.tmp193.sroa.5.0.add.ptr.i.i.i2355.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2355, i64 12
+  store i32 7, ptr %ref.tmp193.sroa.5.0.add.ptr.i.i.i2355.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2356 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2342, 0
   br i1 %cmp.i.i.i.i.i.i2356, label %if.then.i.i.i.i.i.i2364, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2357
 
@@ -10906,7 +11536,13 @@ invoke.cont198:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2413, label %if.else.i.i2416, label %if.then.i.i2414
 
 if.then.i.i2414:                                  ; preds = %invoke.cont198
-  store <4 x i32> <i32 2, i32 7, i32 12, i32 6>, ptr %241, align 4
+  store i32 2, ptr %241, align 4
+  %ref.tmp199.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 4
+  store i32 7, ptr %ref.tmp199.sroa.3.0..sroa_idx, align 4
+  %ref.tmp199.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 8
+  store i32 12, ptr %ref.tmp199.sroa.4.0..sroa_idx, align 4
+  %ref.tmp199.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 12
+  store i32 6, ptr %ref.tmp199.sroa.5.0..sroa_idx, align 4
   %243 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2415 = getelementptr inbounds i8, ptr %243, i64 16
   store ptr %incdec.ptr.i.i2415, ptr %_M_finish.i.i2103, align 8
@@ -10938,7 +11574,13 @@ cond.true.i.i.i.i2428:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2430: ; preds = %cond.true.i.i.i.i2428, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2421
   %cond.i10.i.i.i2431 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2421 ], [ %call5.i.i.i.i.i.i2445, %cond.true.i.i.i.i2428 ]
   %add.ptr.i.i.i2432 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2431, i64 %sub.ptr.div.i.i.i.i.i2422
-  store <4 x i32> <i32 2, i32 7, i32 12, i32 6>, ptr %add.ptr.i.i.i2432, align 4
+  store i32 2, ptr %add.ptr.i.i.i2432, align 4
+  %ref.tmp199.sroa.3.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 4
+  store i32 7, ptr %ref.tmp199.sroa.3.0.add.ptr.i.i.i2432.sroa_idx, align 4
+  %ref.tmp199.sroa.4.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 8
+  store i32 12, ptr %ref.tmp199.sroa.4.0.add.ptr.i.i.i2432.sroa_idx, align 4
+  %ref.tmp199.sroa.5.0.add.ptr.i.i.i2432.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2432, i64 12
+  store i32 6, ptr %ref.tmp199.sroa.5.0.add.ptr.i.i.i2432.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2433 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2419, 0
   br i1 %cmp.i.i.i.i.i.i2433, label %if.then.i.i.i.i.i.i2441, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2434
 
@@ -11042,7 +11684,13 @@ invoke.cont204:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2490, label %if.else.i.i2493, label %if.then.i.i2491
 
 if.then.i.i2491:                                  ; preds = %invoke.cont204
-  store <4 x i32> <i32 3, i32 6, i32 11, i32 5>, ptr %251, align 4
+  store i32 3, ptr %251, align 4
+  %ref.tmp205.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 4
+  store i32 6, ptr %ref.tmp205.sroa.3.0..sroa_idx, align 4
+  %ref.tmp205.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 8
+  store i32 11, ptr %ref.tmp205.sroa.4.0..sroa_idx, align 4
+  %ref.tmp205.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 12
+  store i32 5, ptr %ref.tmp205.sroa.5.0..sroa_idx, align 4
   %253 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2492 = getelementptr inbounds i8, ptr %253, i64 16
   store ptr %incdec.ptr.i.i2492, ptr %_M_finish.i.i2103, align 8
@@ -11074,7 +11722,13 @@ cond.true.i.i.i.i2505:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2507: ; preds = %cond.true.i.i.i.i2505, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2498
   %cond.i10.i.i.i2508 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2498 ], [ %call5.i.i.i.i.i.i2522, %cond.true.i.i.i.i2505 ]
   %add.ptr.i.i.i2509 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2508, i64 %sub.ptr.div.i.i.i.i.i2499
-  store <4 x i32> <i32 3, i32 6, i32 11, i32 5>, ptr %add.ptr.i.i.i2509, align 4
+  store i32 3, ptr %add.ptr.i.i.i2509, align 4
+  %ref.tmp205.sroa.3.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 4
+  store i32 6, ptr %ref.tmp205.sroa.3.0.add.ptr.i.i.i2509.sroa_idx, align 4
+  %ref.tmp205.sroa.4.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 8
+  store i32 11, ptr %ref.tmp205.sroa.4.0.add.ptr.i.i.i2509.sroa_idx, align 4
+  %ref.tmp205.sroa.5.0.add.ptr.i.i.i2509.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2509, i64 12
+  store i32 5, ptr %ref.tmp205.sroa.5.0.add.ptr.i.i.i2509.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2510 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2496, 0
   br i1 %cmp.i.i.i.i.i.i2510, label %if.then.i.i.i.i.i.i2518, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2511
 
@@ -11178,7 +11832,13 @@ invoke.cont210:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2567, label %if.else.i.i2570, label %if.then.i.i2568
 
 if.then.i.i2568:                                  ; preds = %invoke.cont210
-  store <4 x i32> <i32 5, i32 11, i32 19, i32 15>, ptr %261, align 4
+  store i32 5, ptr %261, align 4
+  %ref.tmp211.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 4
+  store i32 11, ptr %ref.tmp211.sroa.3.0..sroa_idx, align 4
+  %ref.tmp211.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 8
+  store i32 19, ptr %ref.tmp211.sroa.4.0..sroa_idx, align 4
+  %ref.tmp211.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 12
+  store i32 15, ptr %ref.tmp211.sroa.5.0..sroa_idx, align 4
   %263 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2569 = getelementptr inbounds i8, ptr %263, i64 16
   store ptr %incdec.ptr.i.i2569, ptr %_M_finish.i.i2103, align 8
@@ -11210,7 +11870,13 @@ cond.true.i.i.i.i2582:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2584: ; preds = %cond.true.i.i.i.i2582, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2575
   %cond.i10.i.i.i2585 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2575 ], [ %call5.i.i.i.i.i.i2599, %cond.true.i.i.i.i2582 ]
   %add.ptr.i.i.i2586 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2585, i64 %sub.ptr.div.i.i.i.i.i2576
-  store <4 x i32> <i32 5, i32 11, i32 19, i32 15>, ptr %add.ptr.i.i.i2586, align 4
+  store i32 5, ptr %add.ptr.i.i.i2586, align 4
+  %ref.tmp211.sroa.3.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 4
+  store i32 11, ptr %ref.tmp211.sroa.3.0.add.ptr.i.i.i2586.sroa_idx, align 4
+  %ref.tmp211.sroa.4.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 8
+  store i32 19, ptr %ref.tmp211.sroa.4.0.add.ptr.i.i.i2586.sroa_idx, align 4
+  %ref.tmp211.sroa.5.0.add.ptr.i.i.i2586.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2586, i64 12
+  store i32 15, ptr %ref.tmp211.sroa.5.0.add.ptr.i.i.i2586.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2587 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2573, 0
   br i1 %cmp.i.i.i.i.i.i2587, label %if.then.i.i.i.i.i.i2595, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2588
 
@@ -11314,7 +11980,13 @@ invoke.cont216:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2644, label %if.else.i.i2647, label %if.then.i.i2645
 
 if.then.i.i2645:                                  ; preds = %invoke.cont216
-  store <4 x i32> <i32 6, i32 12, i32 18, i32 19>, ptr %271, align 4
+  store i32 6, ptr %271, align 4
+  %ref.tmp217.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 4
+  store i32 12, ptr %ref.tmp217.sroa.3.0..sroa_idx, align 4
+  %ref.tmp217.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 8
+  store i32 18, ptr %ref.tmp217.sroa.4.0..sroa_idx, align 4
+  %ref.tmp217.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 12
+  store i32 19, ptr %ref.tmp217.sroa.5.0..sroa_idx, align 4
   %273 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2646 = getelementptr inbounds i8, ptr %273, i64 16
   store ptr %incdec.ptr.i.i2646, ptr %_M_finish.i.i2103, align 8
@@ -11346,7 +12018,13 @@ cond.true.i.i.i.i2659:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2661: ; preds = %cond.true.i.i.i.i2659, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2652
   %cond.i10.i.i.i2662 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2652 ], [ %call5.i.i.i.i.i.i2676, %cond.true.i.i.i.i2659 ]
   %add.ptr.i.i.i2663 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2662, i64 %sub.ptr.div.i.i.i.i.i2653
-  store <4 x i32> <i32 6, i32 12, i32 18, i32 19>, ptr %add.ptr.i.i.i2663, align 4
+  store i32 6, ptr %add.ptr.i.i.i2663, align 4
+  %ref.tmp217.sroa.3.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 4
+  store i32 12, ptr %ref.tmp217.sroa.3.0.add.ptr.i.i.i2663.sroa_idx, align 4
+  %ref.tmp217.sroa.4.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 8
+  store i32 18, ptr %ref.tmp217.sroa.4.0.add.ptr.i.i.i2663.sroa_idx, align 4
+  %ref.tmp217.sroa.5.0.add.ptr.i.i.i2663.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2663, i64 12
+  store i32 19, ptr %ref.tmp217.sroa.5.0.add.ptr.i.i.i2663.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2664 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2650, 0
   br i1 %cmp.i.i.i.i.i.i2664, label %if.then.i.i.i.i.i.i2672, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2665
 
@@ -11450,7 +12128,13 @@ invoke.cont222:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2721, label %if.else.i.i2724, label %if.then.i.i2722
 
 if.then.i.i2722:                                  ; preds = %invoke.cont222
-  store <4 x i32> <i32 7, i32 13, i32 17, i32 18>, ptr %281, align 4
+  store i32 7, ptr %281, align 4
+  %ref.tmp223.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 4
+  store i32 13, ptr %ref.tmp223.sroa.3.0..sroa_idx, align 4
+  %ref.tmp223.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 8
+  store i32 17, ptr %ref.tmp223.sroa.4.0..sroa_idx, align 4
+  %ref.tmp223.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 12
+  store i32 18, ptr %ref.tmp223.sroa.5.0..sroa_idx, align 4
   %283 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2723 = getelementptr inbounds i8, ptr %283, i64 16
   store ptr %incdec.ptr.i.i2723, ptr %_M_finish.i.i2103, align 8
@@ -11482,7 +12166,13 @@ cond.true.i.i.i.i2736:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2738: ; preds = %cond.true.i.i.i.i2736, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2729
   %cond.i10.i.i.i2739 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2729 ], [ %call5.i.i.i.i.i.i2753, %cond.true.i.i.i.i2736 ]
   %add.ptr.i.i.i2740 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2739, i64 %sub.ptr.div.i.i.i.i.i2730
-  store <4 x i32> <i32 7, i32 13, i32 17, i32 18>, ptr %add.ptr.i.i.i2740, align 4
+  store i32 7, ptr %add.ptr.i.i.i2740, align 4
+  %ref.tmp223.sroa.3.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 4
+  store i32 13, ptr %ref.tmp223.sroa.3.0.add.ptr.i.i.i2740.sroa_idx, align 4
+  %ref.tmp223.sroa.4.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 8
+  store i32 17, ptr %ref.tmp223.sroa.4.0.add.ptr.i.i.i2740.sroa_idx, align 4
+  %ref.tmp223.sroa.5.0.add.ptr.i.i.i2740.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2740, i64 12
+  store i32 18, ptr %ref.tmp223.sroa.5.0.add.ptr.i.i.i2740.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2741 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2727, 0
   br i1 %cmp.i.i.i.i.i.i2741, label %if.then.i.i.i.i.i.i2749, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2742
 
@@ -11586,7 +12276,13 @@ invoke.cont228:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2798, label %if.else.i.i2801, label %if.then.i.i2799
 
 if.then.i.i2799:                                  ; preds = %invoke.cont228
-  store <4 x i32> <i32 8, i32 14, i32 16, i32 17>, ptr %291, align 4
+  store i32 8, ptr %291, align 4
+  %ref.tmp229.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 4
+  store i32 14, ptr %ref.tmp229.sroa.3.0..sroa_idx, align 4
+  %ref.tmp229.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 8
+  store i32 16, ptr %ref.tmp229.sroa.4.0..sroa_idx, align 4
+  %ref.tmp229.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 12
+  store i32 17, ptr %ref.tmp229.sroa.5.0..sroa_idx, align 4
   %293 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2800 = getelementptr inbounds i8, ptr %293, i64 16
   store ptr %incdec.ptr.i.i2800, ptr %_M_finish.i.i2103, align 8
@@ -11618,7 +12314,13 @@ cond.true.i.i.i.i2813:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2815: ; preds = %cond.true.i.i.i.i2813, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2806
   %cond.i10.i.i.i2816 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2806 ], [ %call5.i.i.i.i.i.i2830, %cond.true.i.i.i.i2813 ]
   %add.ptr.i.i.i2817 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2816, i64 %sub.ptr.div.i.i.i.i.i2807
-  store <4 x i32> <i32 8, i32 14, i32 16, i32 17>, ptr %add.ptr.i.i.i2817, align 4
+  store i32 8, ptr %add.ptr.i.i.i2817, align 4
+  %ref.tmp229.sroa.3.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 4
+  store i32 14, ptr %ref.tmp229.sroa.3.0.add.ptr.i.i.i2817.sroa_idx, align 4
+  %ref.tmp229.sroa.4.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 8
+  store i32 16, ptr %ref.tmp229.sroa.4.0.add.ptr.i.i.i2817.sroa_idx, align 4
+  %ref.tmp229.sroa.5.0.add.ptr.i.i.i2817.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2817, i64 12
+  store i32 17, ptr %ref.tmp229.sroa.5.0.add.ptr.i.i.i2817.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2818 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2804, 0
   br i1 %cmp.i.i.i.i.i.i2818, label %if.then.i.i.i.i.i.i2826, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2819
 
@@ -11722,7 +12424,13 @@ invoke.cont234:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2875, label %if.else.i.i2878, label %if.then.i.i2876
 
 if.then.i.i2876:                                  ; preds = %invoke.cont234
-  store <4 x i32> <i32 9, i32 10, i32 15, i32 16>, ptr %301, align 4
+  store i32 9, ptr %301, align 4
+  %ref.tmp235.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 4
+  store i32 10, ptr %ref.tmp235.sroa.3.0..sroa_idx, align 4
+  %ref.tmp235.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 8
+  store i32 15, ptr %ref.tmp235.sroa.4.0..sroa_idx, align 4
+  %ref.tmp235.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 12
+  store i32 16, ptr %ref.tmp235.sroa.5.0..sroa_idx, align 4
   %303 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2877 = getelementptr inbounds i8, ptr %303, i64 16
   store ptr %incdec.ptr.i.i2877, ptr %_M_finish.i.i2103, align 8
@@ -11754,7 +12462,13 @@ cond.true.i.i.i.i2890:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2892: ; preds = %cond.true.i.i.i.i2890, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2883
   %cond.i10.i.i.i2893 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2883 ], [ %call5.i.i.i.i.i.i2907, %cond.true.i.i.i.i2890 ]
   %add.ptr.i.i.i2894 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2893, i64 %sub.ptr.div.i.i.i.i.i2884
-  store <4 x i32> <i32 9, i32 10, i32 15, i32 16>, ptr %add.ptr.i.i.i2894, align 4
+  store i32 9, ptr %add.ptr.i.i.i2894, align 4
+  %ref.tmp235.sroa.3.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 4
+  store i32 10, ptr %ref.tmp235.sroa.3.0.add.ptr.i.i.i2894.sroa_idx, align 4
+  %ref.tmp235.sroa.4.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 8
+  store i32 15, ptr %ref.tmp235.sroa.4.0.add.ptr.i.i.i2894.sroa_idx, align 4
+  %ref.tmp235.sroa.5.0.add.ptr.i.i.i2894.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2894, i64 12
+  store i32 16, ptr %ref.tmp235.sroa.5.0.add.ptr.i.i.i2894.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2895 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2881, 0
   br i1 %cmp.i.i.i.i.i.i2895, label %if.then.i.i.i.i.i.i2903, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2896
 
@@ -11858,7 +12572,13 @@ invoke.cont240:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i2952, label %if.else.i.i2955, label %if.then.i.i2953
 
 if.then.i.i2953:                                  ; preds = %invoke.cont240
-  store <4 x i32> <i32 15, i32 19, i32 18, i32 17>, ptr %311, align 4
+  store i32 15, ptr %311, align 4
+  %ref.tmp241.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 4
+  store i32 19, ptr %ref.tmp241.sroa.3.0..sroa_idx, align 4
+  %ref.tmp241.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 8
+  store i32 18, ptr %ref.tmp241.sroa.4.0..sroa_idx, align 4
+  %ref.tmp241.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 12
+  store i32 17, ptr %ref.tmp241.sroa.5.0..sroa_idx, align 4
   %313 = load ptr, ptr %_M_finish.i.i2103, align 8
   %incdec.ptr.i.i2954 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr %incdec.ptr.i.i2954, ptr %_M_finish.i.i2103, align 8
@@ -11890,7 +12610,13 @@ cond.true.i.i.i.i2967:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_M_allocateEm.exit.i.i.i2969: ; preds = %cond.true.i.i.i.i2967, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2960
   %cond.i10.i.i.i2970 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i2960 ], [ %call5.i.i.i.i.i.i2984, %cond.true.i.i.i.i2967 ]
   %add.ptr.i.i.i2971 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec4", ptr %cond.i10.i.i.i2970, i64 %sub.ptr.div.i.i.i.i.i2961
-  store <4 x i32> <i32 15, i32 19, i32 18, i32 17>, ptr %add.ptr.i.i.i2971, align 4
+  store i32 15, ptr %add.ptr.i.i.i2971, align 4
+  %ref.tmp241.sroa.3.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 4
+  store i32 19, ptr %ref.tmp241.sroa.3.0.add.ptr.i.i.i2971.sroa_idx, align 4
+  %ref.tmp241.sroa.4.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 8
+  store i32 18, ptr %ref.tmp241.sroa.4.0.add.ptr.i.i.i2971.sroa_idx, align 4
+  %ref.tmp241.sroa.5.0.add.ptr.i.i.i2971.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i2971, i64 12
+  store i32 17, ptr %ref.tmp241.sroa.5.0.add.ptr.i.i.i2971.sroa_idx, align 4
   %cmp.i.i.i.i.i.i2972 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i2958, 0
   br i1 %cmp.i.i.i.i.i.i2972, label %if.then.i.i.i.i.i.i2980, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i2973
 
@@ -11994,7 +12720,9 @@ cond.true.i.i.i.i3043:                            ; preds = %entry
           to label %cond.true.i.i.i.i3081 unwind label %lpad
 
 cond.true.i.i.i.i3081:                            ; preds = %cond.true.i.i.i.i3043
-  store <2 x float> zeroinitializer, ptr %call5.i.i.i.i.i.i3060, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i.i.i3060, align 4
+  %ref.tmp250.sroa.3.0.add.ptr.i.i.i3047.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 4
+  store float 0.000000e+00, ptr %ref.tmp250.sroa.3.0.add.ptr.i.i.i3047.sroa_idx, align 4
   %ref.tmp250.sroa.4.0.add.ptr.i.i.i3047.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 8
   store float -1.000000e+00, ptr %ref.tmp250.sroa.4.0.add.ptr.i.i.i3047.sroa_idx, align 4
   %incdec.ptr.i.i.i3051 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3060, i64 12
@@ -12006,7 +12734,9 @@ cond.true.i.i.i.i3081:                            ; preds = %cond.true.i.i.i.i30
 
 invoke.cont255:                                   ; preds = %cond.true.i.i.i.i3081
   %add.ptr.i.i.i3085 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 12
-  store <2 x float> <float 0.000000e+00, float 0x3FEC9F2620000000>, ptr %add.ptr.i.i.i3085, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3085, align 4
+  %ref.tmp253.sroa.3.0.add.ptr.i.i.i3085.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 16
+  store float 0x3FEC9F2620000000, ptr %ref.tmp253.sroa.3.0.add.ptr.i.i.i3085.sroa_idx, align 4
   %ref.tmp253.sroa.4.0.add.ptr.i.i.i3085.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3098, i64 20
   store float 0xBFDC9F23E0000000, ptr %ref.tmp253.sroa.4.0.add.ptr.i.i.i3085.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i3098, ptr noundef nonnull align 4 dereferenceable(12) %call5.i.i.i.i.i.i3060, i64 12, i1 false)
@@ -12021,7 +12751,9 @@ invoke.cont255:                                   ; preds = %cond.true.i.i.i.i30
 
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3121: ; preds = %invoke.cont255
   %add.ptr.i.i.i3123 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 24
-  store <2 x float> <float 0x3FEB388820000000, float 0x3FD1B06F20000000>, ptr %add.ptr.i.i.i3123, align 4
+  store float 0x3FEB388820000000, ptr %add.ptr.i.i.i3123, align 4
+  %ref.tmp256.sroa.3.0.add.ptr.i.i.i3123.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 28
+  store float 0x3FD1B06F20000000, ptr %ref.tmp256.sroa.3.0.add.ptr.i.i.i3123.sroa_idx, align 4
   %ref.tmp256.sroa.4.0.add.ptr.i.i.i3123.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 32
   store float 0xBFDC9F2420000000, ptr %ref.tmp256.sroa.4.0.add.ptr.i.i.i3123.sroa_idx, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i3136, ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i.i.i3098, i64 24, i1 false)
@@ -12031,7 +12763,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   store ptr %incdec.ptr.i.i.i3127, ptr %_M_finish.i.i3026, align 8
   %add.ptr19.i.i.i3131 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 48
   store ptr %add.ptr19.i.i.i3131, ptr %_M_end_of_storage.i.i3027, align 8
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %incdec.ptr.i.i.i3127, align 4
+  store float 0x3FE0D2CA40000000, ptr %incdec.ptr.i.i.i3127, align 4
+  %ref.tmp259.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 40
+  store float 0xBFE727C9C0000000, ptr %ref.tmp259.sroa.3.0..sroa_idx, align 4
   %ref.tmp259.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i3136, i64 44
   store float 0xBFDC9F2460000000, ptr %ref.tmp259.sroa.4.0..sroa_idx, align 4
   %321 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12042,7 +12776,9 @@ _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.
   br i1 %cmp.not.i.i3180, label %if.else.i.i3183, label %if.then.i.i3181
 
 if.then.i.i3181:                                  ; preds = %_ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3121
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %incdec.ptr.i.i3144, align 4
+  store float 0xBFE0D2CA40000000, ptr %incdec.ptr.i.i3144, align 4
+  %ref.tmp262.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i3144, i64 4
+  store float 0xBFE727C9C0000000, ptr %ref.tmp262.sroa.3.0..sroa_idx, align 4
   %ref.tmp262.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i3144, i64 8
   store float 0xBFDC9F2460000000, ptr %ref.tmp262.sroa.4.0..sroa_idx, align 4
   %322 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12077,7 +12813,9 @@ cond.true.i.i.i.i3195:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3197: ; preds = %cond.true.i.i.i.i3195, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3188
   %cond.i10.i.i.i3198 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3188 ], [ %call5.i.i.i.i.i.i3212, %cond.true.i.i.i.i3195 ]
   %add.ptr.i.i.i3199 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3198, i64 %sub.ptr.div.i.i.i.i.i3189
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0xBFE727C9C0000000>, ptr %add.ptr.i.i.i3199, align 4
+  store float 0xBFE0D2CA40000000, ptr %add.ptr.i.i.i3199, align 4
+  %ref.tmp262.sroa.3.0.add.ptr.i.i.i3199.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3199, i64 4
+  store float 0xBFE727C9C0000000, ptr %ref.tmp262.sroa.3.0.add.ptr.i.i.i3199.sroa_idx, align 4
   %ref.tmp262.sroa.4.0.add.ptr.i.i.i3199.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3199, i64 8
   store float 0xBFDC9F2460000000, ptr %ref.tmp262.sroa.4.0.add.ptr.i.i.i3199.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3200 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3186, 0
@@ -12111,7 +12849,9 @@ invoke.cont264:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3218, label %if.else.i.i3221, label %if.then.i.i3219
 
 if.then.i.i3219:                                  ; preds = %invoke.cont264
-  store <2 x float> <float 0xBFEB388820000000, float 0x3FD1B06F20000000>, ptr %326, align 4
+  store float 0xBFEB388820000000, ptr %326, align 4
+  %ref.tmp265.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 4
+  store float 0x3FD1B06F20000000, ptr %ref.tmp265.sroa.3.0..sroa_idx, align 4
   %ref.tmp265.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 8
   store float 0xBFDC9F2420000000, ptr %ref.tmp265.sroa.4.0..sroa_idx, align 4
   %327 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12146,7 +12886,9 @@ cond.true.i.i.i.i3233:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3235: ; preds = %cond.true.i.i.i.i3233, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3226
   %cond.i10.i.i.i3236 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3226 ], [ %call5.i.i.i.i.i.i3250, %cond.true.i.i.i.i3233 ]
   %add.ptr.i.i.i3237 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3236, i64 %sub.ptr.div.i.i.i.i.i3227
-  store <2 x float> <float 0xBFEB388820000000, float 0x3FD1B06F20000000>, ptr %add.ptr.i.i.i3237, align 4
+  store float 0xBFEB388820000000, ptr %add.ptr.i.i.i3237, align 4
+  %ref.tmp265.sroa.3.0.add.ptr.i.i.i3237.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3237, i64 4
+  store float 0x3FD1B06F20000000, ptr %ref.tmp265.sroa.3.0.add.ptr.i.i.i3237.sroa_idx, align 4
   %ref.tmp265.sroa.4.0.add.ptr.i.i.i3237.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3237, i64 8
   store float 0xBFDC9F2420000000, ptr %ref.tmp265.sroa.4.0.add.ptr.i.i.i3237.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3238 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3224, 0
@@ -12180,7 +12922,9 @@ invoke.cont267:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3256, label %if.else.i.i3259, label %if.then.i.i3257
 
 if.then.i.i3257:                                  ; preds = %invoke.cont267
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %331, align 4
+  store float 0xBFE0D2CA40000000, ptr %331, align 4
+  %ref.tmp268.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp268.sroa.3.0..sroa_idx, align 4
   %ref.tmp268.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp268.sroa.4.0..sroa_idx, align 4
   %332 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12215,7 +12959,9 @@ cond.true.i.i.i.i3271:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3273: ; preds = %cond.true.i.i.i.i3271, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3264
   %cond.i10.i.i.i3274 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3264 ], [ %call5.i.i.i.i.i.i3288, %cond.true.i.i.i.i3271 ]
   %add.ptr.i.i.i3275 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3274, i64 %sub.ptr.div.i.i.i.i.i3265
-  store <2 x float> <float 0xBFE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %add.ptr.i.i.i3275, align 4
+  store float 0xBFE0D2CA40000000, ptr %add.ptr.i.i.i3275, align 4
+  %ref.tmp268.sroa.3.0.add.ptr.i.i.i3275.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3275, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp268.sroa.3.0.add.ptr.i.i.i3275.sroa_idx, align 4
   %ref.tmp268.sroa.4.0.add.ptr.i.i.i3275.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3275, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp268.sroa.4.0.add.ptr.i.i.i3275.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3276 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3262, 0
@@ -12249,7 +12995,9 @@ invoke.cont270:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3294, label %if.else.i.i3297, label %if.then.i.i3295
 
 if.then.i.i3295:                                  ; preds = %invoke.cont270
-  store <2 x float> <float 0xBFEB388820000000, float 0xBFD1B06F20000000>, ptr %336, align 4
+  store float 0xBFEB388820000000, ptr %336, align 4
+  %ref.tmp271.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp271.sroa.3.0..sroa_idx, align 4
   %ref.tmp271.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp271.sroa.4.0..sroa_idx, align 4
   %337 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12284,7 +13032,9 @@ cond.true.i.i.i.i3309:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3311: ; preds = %cond.true.i.i.i.i3309, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3302
   %cond.i10.i.i.i3312 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3302 ], [ %call5.i.i.i.i.i.i3326, %cond.true.i.i.i.i3309 ]
   %add.ptr.i.i.i3313 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3312, i64 %sub.ptr.div.i.i.i.i.i3303
-  store <2 x float> <float 0xBFEB388820000000, float 0xBFD1B06F20000000>, ptr %add.ptr.i.i.i3313, align 4
+  store float 0xBFEB388820000000, ptr %add.ptr.i.i.i3313, align 4
+  %ref.tmp271.sroa.3.0.add.ptr.i.i.i3313.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3313, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp271.sroa.3.0.add.ptr.i.i.i3313.sroa_idx, align 4
   %ref.tmp271.sroa.4.0.add.ptr.i.i.i3313.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3313, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp271.sroa.4.0.add.ptr.i.i.i3313.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3314 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3300, 0
@@ -12318,7 +13068,9 @@ invoke.cont273:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3332, label %if.else.i.i3335, label %if.then.i.i3333
 
 if.then.i.i3333:                                  ; preds = %invoke.cont273
-  store <2 x float> <float 0.000000e+00, float 0xBFEC9F2620000000>, ptr %341, align 4
+  store float 0.000000e+00, ptr %341, align 4
+  %ref.tmp274.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %341, i64 4
+  store float 0xBFEC9F2620000000, ptr %ref.tmp274.sroa.3.0..sroa_idx, align 4
   %ref.tmp274.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %341, i64 8
   store float 0x3FDC9F23E0000000, ptr %ref.tmp274.sroa.4.0..sroa_idx, align 4
   %342 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12353,7 +13105,9 @@ cond.true.i.i.i.i3347:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3349: ; preds = %cond.true.i.i.i.i3347, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3340
   %cond.i10.i.i.i3350 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3340 ], [ %call5.i.i.i.i.i.i3364, %cond.true.i.i.i.i3347 ]
   %add.ptr.i.i.i3351 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3350, i64 %sub.ptr.div.i.i.i.i.i3341
-  store <2 x float> <float 0.000000e+00, float 0xBFEC9F2620000000>, ptr %add.ptr.i.i.i3351, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3351, align 4
+  %ref.tmp274.sroa.3.0.add.ptr.i.i.i3351.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3351, i64 4
+  store float 0xBFEC9F2620000000, ptr %ref.tmp274.sroa.3.0.add.ptr.i.i.i3351.sroa_idx, align 4
   %ref.tmp274.sroa.4.0.add.ptr.i.i.i3351.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3351, i64 8
   store float 0x3FDC9F23E0000000, ptr %ref.tmp274.sroa.4.0.add.ptr.i.i.i3351.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3352 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3338, 0
@@ -12387,7 +13141,9 @@ invoke.cont276:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3370, label %if.else.i.i3373, label %if.then.i.i3371
 
 if.then.i.i3371:                                  ; preds = %invoke.cont276
-  store <2 x float> <float 0x3FEB388820000000, float 0xBFD1B06F20000000>, ptr %346, align 4
+  store float 0x3FEB388820000000, ptr %346, align 4
+  %ref.tmp277.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp277.sroa.3.0..sroa_idx, align 4
   %ref.tmp277.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp277.sroa.4.0..sroa_idx, align 4
   %347 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12422,7 +13178,9 @@ cond.true.i.i.i.i3385:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3387: ; preds = %cond.true.i.i.i.i3385, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3378
   %cond.i10.i.i.i3388 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3378 ], [ %call5.i.i.i.i.i.i3402, %cond.true.i.i.i.i3385 ]
   %add.ptr.i.i.i3389 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3388, i64 %sub.ptr.div.i.i.i.i.i3379
-  store <2 x float> <float 0x3FEB388820000000, float 0xBFD1B06F20000000>, ptr %add.ptr.i.i.i3389, align 4
+  store float 0x3FEB388820000000, ptr %add.ptr.i.i.i3389, align 4
+  %ref.tmp277.sroa.3.0.add.ptr.i.i.i3389.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3389, i64 4
+  store float 0xBFD1B06F20000000, ptr %ref.tmp277.sroa.3.0.add.ptr.i.i.i3389.sroa_idx, align 4
   %ref.tmp277.sroa.4.0.add.ptr.i.i.i3389.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3389, i64 8
   store float 0x3FDC9F2420000000, ptr %ref.tmp277.sroa.4.0.add.ptr.i.i.i3389.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3390 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3376, 0
@@ -12456,7 +13214,9 @@ invoke.cont279:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3408, label %if.else.i.i3411, label %if.then.i.i3409
 
 if.then.i.i3409:                                  ; preds = %invoke.cont279
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %351, align 4
+  store float 0x3FE0D2CA40000000, ptr %351, align 4
+  %ref.tmp280.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp280.sroa.3.0..sroa_idx, align 4
   %ref.tmp280.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp280.sroa.4.0..sroa_idx, align 4
   %352 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12491,7 +13251,9 @@ cond.true.i.i.i.i3423:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3425: ; preds = %cond.true.i.i.i.i3423, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3416
   %cond.i10.i.i.i3426 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3416 ], [ %call5.i.i.i.i.i.i3440, %cond.true.i.i.i.i3423 ]
   %add.ptr.i.i.i3427 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3426, i64 %sub.ptr.div.i.i.i.i.i3417
-  store <2 x float> <float 0x3FE0D2CA40000000, float 0x3FE727C9C0000000>, ptr %add.ptr.i.i.i3427, align 4
+  store float 0x3FE0D2CA40000000, ptr %add.ptr.i.i.i3427, align 4
+  %ref.tmp280.sroa.3.0.add.ptr.i.i.i3427.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3427, i64 4
+  store float 0x3FE727C9C0000000, ptr %ref.tmp280.sroa.3.0.add.ptr.i.i.i3427.sroa_idx, align 4
   %ref.tmp280.sroa.4.0.add.ptr.i.i.i3427.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3427, i64 8
   store float 0x3FDC9F2460000000, ptr %ref.tmp280.sroa.4.0.add.ptr.i.i.i3427.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3428 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3414, 0
@@ -12525,7 +13287,9 @@ invoke.cont282:                                   ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp.not.i.i3446, label %if.else.i.i3449, label %if.then.i.i3447
 
 if.then.i.i3447:                                  ; preds = %invoke.cont282
-  store <2 x float> zeroinitializer, ptr %356, align 4
+  store float 0.000000e+00, ptr %356, align 4
+  %ref.tmp283.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 4
+  store float 0.000000e+00, ptr %ref.tmp283.sroa.3.0..sroa_idx, align 4
   %ref.tmp283.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 8
   store float 1.000000e+00, ptr %ref.tmp283.sroa.4.0..sroa_idx, align 4
   %357 = load ptr, ptr %_M_finish.i.i3026, align 8
@@ -12559,7 +13323,9 @@ cond.true.i.i.i.i3461:                            ; preds = %_ZNKSt6vectorIN7ope
 _ZNSt12_Vector_baseIN7openvdb5v11_04math4Vec3IfEESaIS4_EE11_M_allocateEm.exit.i.i.i3463: ; preds = %cond.true.i.i.i.i3461, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3454
   %cond.i10.i.i.i3464 = phi ptr [ null, %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i3454 ], [ %call5.i.i.i.i.i.i3478, %cond.true.i.i.i.i3461 ]
   %add.ptr.i.i.i3465 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %cond.i10.i.i.i3464, i64 %sub.ptr.div.i.i.i.i.i3455
-  store <2 x float> zeroinitializer, ptr %add.ptr.i.i.i3465, align 4
+  store float 0.000000e+00, ptr %add.ptr.i.i.i3465, align 4
+  %ref.tmp283.sroa.3.0.add.ptr.i.i.i3465.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3465, i64 4
+  store float 0.000000e+00, ptr %ref.tmp283.sroa.3.0.add.ptr.i.i.i3465.sroa_idx, align 4
   %ref.tmp283.sroa.4.0.add.ptr.i.i.i3465.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i3465, i64 8
   store float 1.000000e+00, ptr %ref.tmp283.sroa.4.0.add.ptr.i.i.i3465.sroa_idx, align 4
   %cmp.i.i.i.i.i.i3466 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i3452, 0
@@ -14112,31 +14878,37 @@ if.end359:                                        ; preds = %_ZNSt6vectorIN7open
   br i1 %cmp3614716.not, label %for.end, label %invoke.cont368.lr.ph
 
 invoke.cont368.lr.ph:                             ; preds = %if.end359
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %center, i64 4
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %center, i64 8
-  %466 = insertelement <2 x float> poison, float %scale, i64 0
-  %467 = shufflevector <2 x float> %466, <2 x float> poison, <2 x i32> zeroinitializer
   br label %invoke.cont368
 
 invoke.cont368:                                   ; preds = %invoke.cont368.lr.ph, %invoke.cont368
-  %468 = phi ptr [ %465, %invoke.cont368.lr.ph ], [ %474, %invoke.cont368 ]
+  %466 = phi ptr [ %465, %invoke.cont368.lr.ph ], [ %471, %invoke.cont368 ]
   %i.04717 = phi i64 [ 0, %invoke.cont368.lr.ph ], [ %inc, %invoke.cont368 ]
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %468, i64 %i.04717
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.16", ptr %466, i64 %i.04717
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %add.ptr.i, align 4
   %retval.sroa.6.0.v.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %retval.sroa.6.0.copyload.i.i = load float, ptr %retval.sroa.6.0.v.sroa_idx.i.i, align 4
+  %retval.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 0
+  %mul.i.i.i = fmul float %retval.sroa.0.0.vec.extract.i.i, %scale
+  %retval.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i, i64 1
+  %mul4.i.i.i = fmul float %retval.sroa.0.4.vec.extract.i.i, %scale
   %mul7.i.i.i = fmul float %retval.sroa.6.0.copyload.i.i, %scale
-  %469 = fmul <2 x float> %retval.sroa.0.0.copyload.i.i, %467
-  %470 = load <2 x float>, ptr %center, align 4
-  %471 = fadd <2 x float> %469, %470
-  %472 = load float, ptr %arrayidx.i.i3.i.i, align 4
-  %add9.i.i = fadd float %mul7.i.i.i, %472
-  store <2 x float> %471, ptr %add.ptr.i, align 4
+  %467 = load float, ptr %center, align 4
+  %add.i.i = fadd float %mul.i.i.i, %467
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i.i, i64 0
+  %468 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %add5.i.i = fadd float %mul4.i.i.i, %468
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %add5.i.i, i64 1
+  %469 = load float, ptr %arrayidx.i.i3.i.i, align 4
+  %add9.i.i = fadd float %mul7.i.i.i, %469
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i, align 4
   store float %add9.i.i, ptr %retval.sroa.6.0.v.sroa_idx.i.i, align 4
   %inc = add nuw i64 %i.04717, 1
-  %473 = load ptr, ptr %_M_finish.i, align 8
-  %474 = load ptr, ptr %vtx, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %473 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %474 to i64
+  %470 = load ptr, ptr %_M_finish.i, align 8
+  %471 = load ptr, ptr %vtx, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %470 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %471 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %cmp361 = icmp ult i64 %inc, %sub.ptr.div.i
@@ -14149,164 +14921,168 @@ for.end:                                          ; preds = %invoke.cont368, %if
 
 if.then375:                                       ; preds = %for.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04util15NullInterrupterE, i64 16), ptr %tmp, align 8
-  %475 = load ptr, ptr %xform, align 8
-  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.24") align 8 %ref.tmp376, ptr noundef nonnull align 8 dereferenceable(8) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %475, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
+  %472 = load ptr, ptr %xform, align 8
+  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.24") align 8 %ref.tmp376, ptr noundef nonnull align 8 dereferenceable(8) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %472, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
           to label %nrvo.skipdtor unwind label %lpad378
 
 lpad378:                                          ; preds = %if.then375
-  %476 = landingpad { ptr, i32 }
+  %473 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.else381:                                       ; preds = %for.end
-  %477 = load ptr, ptr %xform, align 8
-  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.24") align 8 %ref.tmp382, ptr noundef nonnull align 8 dereferenceable(8) %interrupt, ptr noundef nonnull align 8 dereferenceable(16) %477, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
+  %474 = load ptr, ptr %xform, align 8
+  invoke void @_ZN7openvdb5v11_05tools14meshToLevelSetINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEENT_3PtrERT0_RKNS0_4math9TransformERKSt6vectorINSL_4Vec3IfEESaISR_EERKSP_INSQ_IjEESaISW_EERKSP_INSL_4Vec4IjEESaIS12_EEf(ptr nonnull sret(%"class.std::shared_ptr.24") align 8 %ref.tmp382, ptr noundef nonnull align 8 dereferenceable(8) %interrupt, ptr noundef nonnull align 8 dereferenceable(16) %474, ptr noundef nonnull align 8 dereferenceable(24) %vtx, ptr noundef nonnull align 8 dereferenceable(24) %tri, ptr noundef nonnull align 8 dereferenceable(24) %qua, float noundef %halfWidth)
           to label %nrvo.skipdtor unwind label %lpad384
 
 lpad384:                                          ; preds = %if.else381
-  %478 = landingpad { ptr, i32 }
+  %475 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 nrvo.skipdtor:                                    ; preds = %if.else381, %if.then375
+  %ref.tmp382.sink4792.sroa.phi = phi ptr [ %ref.tmp382.sink4792.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4792.sroa.gep4793, %if.else381 ]
   %ref.tmp382.sink4792 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
-  %479 = load <2 x ptr>, ptr %ref.tmp382.sink4792, align 8
+  %.sink4791 = load ptr, ptr %ref.tmp382.sink4792, align 8
+  %476 = load ptr, ptr %ref.tmp382.sink4792.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4792, i8 0, i64 16, i1 false)
-  store <2 x ptr> %479, ptr %agg.result, align 8
-  %480 = load ptr, ptr %qua, align 8
-  %tobool.not.i.i.i = icmp eq ptr %480, null
+  store ptr %.sink4791, ptr %agg.result, align 8
+  %_M_refcount3.i.i.i4249 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %476, ptr %_M_refcount3.i.i.i4249, align 8
+  %477 = load ptr, ptr %qua, align 8
+  %tobool.not.i.i.i = icmp eq ptr %477, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit, label %if.then.i.i.i4313
 
 if.then.i.i.i4313:                                ; preds = %nrvo.skipdtor
-  call void @_ZdlPv(ptr noundef nonnull %480) #16
+  call void @_ZdlPv(ptr noundef nonnull %477) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit: ; preds = %nrvo.skipdtor, %if.then.i.i.i4313
-  %481 = load ptr, ptr %tri, align 8
-  %tobool.not.i.i.i4314 = icmp eq ptr %481, null
+  %478 = load ptr, ptr %tri, align 8
+  %tobool.not.i.i.i4314 = icmp eq ptr %478, null
   br i1 %tobool.not.i.i.i4314, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit, label %if.then.i.i.i4315
 
 if.then.i.i.i4315:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %481) #16
+  call void @_ZdlPv(ptr noundef nonnull %478) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit, %if.then.i.i.i4315
-  %482 = load ptr, ptr %vtx, align 8
-  %tobool.not.i.i.i4316 = icmp eq ptr %482, null
+  %479 = load ptr, ptr %vtx, align 8
+  %tobool.not.i.i.i4316 = icmp eq ptr %479, null
   br i1 %tobool.not.i.i.i4316, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit, label %if.then.i.i.i4317
 
 if.then.i.i.i4317:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %482) #16
+  call void @_ZdlPv(ptr noundef nonnull %479) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit, %if.then.i.i.i4317
   %_M_refcount.i.i4318 = getelementptr inbounds i8, ptr %xform, i64 8
-  %483 = load ptr, ptr %_M_refcount.i.i4318, align 8
-  %cmp.not.i.i.i4319 = icmp eq ptr %483, null
+  %480 = load ptr, ptr %_M_refcount.i.i4318, align 8
+  %cmp.not.i.i.i4319 = icmp eq ptr %480, null
   br i1 %cmp.not.i.i.i4319, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit, label %if.then.i.i.i4320
 
 if.then.i.i.i4320:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit
-  %_M_use_count.i.i.i.i4321 = getelementptr inbounds i8, ptr %483, i64 8
-  %484 = load atomic i64, ptr %_M_use_count.i.i.i.i4321 acquire, align 8
-  %cmp.i.i.i.i4322 = icmp eq i64 %484, 4294967297
-  %485 = trunc i64 %484 to i32
+  %_M_use_count.i.i.i.i4321 = getelementptr inbounds i8, ptr %480, i64 8
+  %481 = load atomic i64, ptr %_M_use_count.i.i.i.i4321 acquire, align 8
+  %cmp.i.i.i.i4322 = icmp eq i64 %481, 4294967297
+  %482 = trunc i64 %481 to i32
   br i1 %cmp.i.i.i.i4322, label %if.then.i.i.i.i4345, label %if.end.i.i.i.i4323
 
 if.then.i.i.i.i4345:                              ; preds = %if.then.i.i.i4320
   store i32 0, ptr %_M_use_count.i.i.i.i4321, align 8
-  %_M_weak_count.i.i.i.i4346 = getelementptr inbounds i8, ptr %483, i64 12
+  %_M_weak_count.i.i.i.i4346 = getelementptr inbounds i8, ptr %480, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i4346, align 4
-  %vtable.i.i.i.i4347 = load ptr, ptr %483, align 8
+  %vtable.i.i.i.i4347 = load ptr, ptr %480, align 8
   %vfn.i.i.i.i4348 = getelementptr inbounds i8, ptr %vtable.i.i.i.i4347, i64 16
-  %486 = load ptr, ptr %vfn.i.i.i.i4348, align 8
-  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
+  %483 = load ptr, ptr %vfn.i.i.i.i4348, align 8
+  call void %483(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
   br label %if.end8.sink.split.i.i.i.i4340
 
 if.end.i.i.i.i4323:                               ; preds = %if.then.i.i.i4320
-  %487 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i4324 = icmp eq i8 %487, 0
+  %484 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i4324 = icmp eq i8 %484, 0
   br i1 %tobool.i.not.i.i.i.i4324, label %if.else.i.i.i.i.i4344, label %if.then.i.i.i.i.i4325
 
 if.then.i.i.i.i.i4325:                            ; preds = %if.end.i.i.i.i4323
-  %add.i.i.i.i.i4326 = add nsw i32 %485, -1
+  %add.i.i.i.i.i4326 = add nsw i32 %482, -1
   store i32 %add.i.i.i.i.i4326, ptr %_M_use_count.i.i.i.i4321, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
 
 if.else.i.i.i.i.i4344:                            ; preds = %if.end.i.i.i.i4323
-  %488 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i4321, i32 -1 acq_rel, align 4
+  %485 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i4321, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327: ; preds = %if.else.i.i.i.i.i4344, %if.then.i.i.i.i.i4325
-  %retval.i.0.i.i.i.i4328 = phi i32 [ %485, %if.then.i.i.i.i.i4325 ], [ %488, %if.else.i.i.i.i.i4344 ]
+  %retval.i.0.i.i.i.i4328 = phi i32 [ %482, %if.then.i.i.i.i.i4325 ], [ %485, %if.else.i.i.i.i.i4344 ]
   %cmp6.i.i.i.i4329 = icmp eq i32 %retval.i.0.i.i.i.i4328, 1
   br i1 %cmp6.i.i.i.i4329, label %if.then7.i.i.i.i4330, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 if.then7.i.i.i.i4330:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327
-  %vtable.i.i.i.i.i.i4331 = load ptr, ptr %483, align 8
+  %vtable.i.i.i.i.i.i4331 = load ptr, ptr %480, align 8
   %vfn.i.i.i.i.i.i4332 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i4331, i64 16
-  %489 = load ptr, ptr %vfn.i.i.i.i.i.i4332, align 8
-  call void %489(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
-  %_M_weak_count.i.i.i.i.i.i4333 = getelementptr inbounds i8, ptr %483, i64 12
-  %490 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i4334 = icmp eq i8 %490, 0
+  %486 = load ptr, ptr %vfn.i.i.i.i.i.i4332, align 8
+  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
+  %_M_weak_count.i.i.i.i.i.i4333 = getelementptr inbounds i8, ptr %480, i64 12
+  %487 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i4334 = icmp eq i8 %487, 0
   br i1 %tobool.i.not.i.i.i.i.i.i4334, label %if.else.i.i.i.i.i.i.i4343, label %if.then.i.i.i.i.i.i.i4335
 
 if.then.i.i.i.i.i.i.i4335:                        ; preds = %if.then7.i.i.i.i4330
-  %491 = load i32, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
-  %add.i.i.i.i.i.i.i4336 = add nsw i32 %491, -1
+  %488 = load i32, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
+  %add.i.i.i.i.i.i.i4336 = add nsw i32 %488, -1
   store i32 %add.i.i.i.i.i.i.i4336, ptr %_M_weak_count.i.i.i.i.i.i4333, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337
 
 if.else.i.i.i.i.i.i.i4343:                        ; preds = %if.then7.i.i.i.i4330
-  %492 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i4333, i32 -1 acq_rel, align 4
+  %489 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i4333, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337: ; preds = %if.else.i.i.i.i.i.i.i4343, %if.then.i.i.i.i.i.i.i4335
-  %retval.i.0.i.i.i.i.i.i4338 = phi i32 [ %491, %if.then.i.i.i.i.i.i.i4335 ], [ %492, %if.else.i.i.i.i.i.i.i4343 ]
+  %retval.i.0.i.i.i.i.i.i4338 = phi i32 [ %488, %if.then.i.i.i.i.i.i.i4335 ], [ %489, %if.else.i.i.i.i.i.i.i4343 ]
   %cmp.i.i.i.i.i.i4339 = icmp eq i32 %retval.i.0.i.i.i.i.i.i4338, 1
   br i1 %cmp.i.i.i.i.i.i4339, label %if.end8.sink.split.i.i.i.i4340, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i4340:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337, %if.then.i.i.i.i4345
-  %vtable2.i.i.i.i.i.i4341 = load ptr, ptr %483, align 8
+  %vtable2.i.i.i.i.i.i4341 = load ptr, ptr %480, align 8
   %vfn3.i.i.i.i.i.i4342 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i4341, i64 24
-  %493 = load ptr, ptr %vfn3.i.i.i.i.i.i4342, align 8
-  call void %493(ptr noundef nonnull align 8 dereferenceable(16) %483) #18
+  %490 = load ptr, ptr %vfn3.i.i.i.i.i.i4342, align 8
+  call void %490(ptr noundef nonnull align 8 dereferenceable(16) %480) #18
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4327, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i4337, %if.end8.sink.split.i.i.i.i4340
   ret void
 
 ehcleanup:                                        ; preds = %lpad384, %lpad378
-  %.pn10 = phi { ptr, i32 } [ %476, %lpad378 ], [ %478, %lpad384 ]
+  %.pn10 = phi { ptr, i32 } [ %473, %lpad378 ], [ %475, %lpad384 ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04GridINS1_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #18
   br label %ehcleanup388
 
 ehcleanup388:                                     ; preds = %ehcleanup, %lpad354, %lpad
   %.pn12 = phi { ptr, i32 } [ %23, %lpad ], [ %.pn10, %ehcleanup ], [ %463, %lpad354 ]
-  %494 = load ptr, ptr %qua, align 8
-  %tobool.not.i.i.i4349 = icmp eq ptr %494, null
+  %491 = load ptr, ptr %qua, align 8
+  %tobool.not.i.i.i4349 = icmp eq ptr %491, null
   br i1 %tobool.not.i.i.i4349, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351, label %if.then.i.i.i4350
 
 if.then.i.i.i4350:                                ; preds = %ehcleanup388
-  call void @_ZdlPv(ptr noundef nonnull %494) #16
+  call void @_ZdlPv(ptr noundef nonnull %491) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351: ; preds = %ehcleanup388, %if.then.i.i.i4350
-  %495 = load ptr, ptr %tri, align 8
-  %tobool.not.i.i.i4352 = icmp eq ptr %495, null
+  %492 = load ptr, ptr %tri, align 8
+  %tobool.not.i.i.i4352 = icmp eq ptr %492, null
   br i1 %tobool.not.i.i.i4352, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354, label %if.then.i.i.i4353
 
 if.then.i.i.i4353:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351
-  call void @_ZdlPv(ptr noundef nonnull %495) #16
+  call void @_ZdlPv(ptr noundef nonnull %492) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec4IjEESaIS4_EED2Ev.exit4351, %if.then.i.i.i4353
-  %496 = load ptr, ptr %vtx, align 8
-  %tobool.not.i.i.i4355 = icmp eq ptr %496, null
+  %493 = load ptr, ptr %vtx, align 8
+  %tobool.not.i.i.i4355 = icmp eq ptr %493, null
   br i1 %tobool.not.i.i.i4355, label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357, label %if.then.i.i.i4356
 
 if.then.i.i.i4356:                                ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354
-  call void @_ZdlPv(ptr noundef nonnull %496) #16
+  call void @_ZdlPv(ptr noundef nonnull %493) #16
   br label %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357
 
 _ZNSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EED2Ev.exit4357: ; preds = %_ZNSt6vectorIN7openvdb5v11_04math4Vec3IjEESaIS4_EED2Ev.exit4354, %if.then.i.i.i4356

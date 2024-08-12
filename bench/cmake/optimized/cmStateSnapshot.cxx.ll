@@ -2519,7 +2519,7 @@ declare void @_ZN13cmDefinitions11MakeClosureEN12cmLinkedTreeIS_E8iteratorES2_(p
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::vector.3", align 16
+  %4 = alloca %"class.std::vector.3", align 8
   %5 = alloca %"class.std::reverse_iterator", align 8
   %6 = alloca %"class.std::reverse_iterator", align 8
   %7 = alloca %"class.std::reverse_iterator", align 8
@@ -2573,27 +2573,30 @@ _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaI
 24:                                               ; preds = %_ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_M_allocateEm.exit.i.i
   %25 = getelementptr inbounds %class.BT, ptr %20, i64 %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
-  store ptr %25, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
-  %30 = load <2 x ptr>, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load ptr, ptr %29, align 8
   store ptr %20, ptr %1, align 8
-  store ptr %21, ptr %26, align 8
-  store <2 x ptr> %30, ptr %4, align 16
-  store ptr %28, ptr %29, align 16
+  store ptr %21, ptr %27, align 8
+  store ptr %25, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %26, ptr %4, align 8
+  store ptr %28, ptr %31, align 8
+  store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #24
-  %31 = load ptr, ptr %26, align 8
-  %32 = load ptr, ptr %1, align 8
-  %33 = ptrtoint ptr %31 to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
-  %36 = sdiv exact i64 %35, 48
-  store i64 %36, ptr %2, align 8
+  %33 = load ptr, ptr %27, align 8
+  %34 = load ptr, ptr %1, align 8
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = sdiv exact i64 %37, 48
+  store i64 %38, ptr %2, align 8
   ret void
 
 .body:                                            ; preds = %22, %23

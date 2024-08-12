@@ -212,6 +212,11 @@ if.end20:                                         ; preds = %if.end14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ncsets, i8 0, i64 20, i1 false)
   store i32 %and, ptr %cflags26, align 8
   %iflags = getelementptr inbounds i8, ptr %call11, i64 72
+  store i32 0, ptr %iflags, align 8
+  %nbol = getelementptr inbounds i8, ptr %call11, i64 76
+  store i32 0, ptr %nbol, align 4
+  %neol = getelementptr inbounds i8, ptr %call11, i64 80
+  store i32 0, ptr %neol, align 8
   %must = getelementptr inbounds i8, ptr %call11, i64 96
   store ptr null, ptr %must, align 8
   %mlen = getelementptr inbounds i8, ptr %call11, i64 104
@@ -219,7 +224,7 @@ if.end20:                                         ; preds = %if.end14
   %nsub = getelementptr inbounds i8, ptr %call11, i64 112
   store i64 0, ptr %nsub, align 8
   %ncategories = getelementptr inbounds i8, ptr %call11, i64 84
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %iflags, align 8
+  store i32 1, ptr %ncategories, align 4
   %catspace = getelementptr inbounds i8, ptr %call11, i64 136
   %arrayidx27 = getelementptr inbounds i8, ptr %call11, i64 264
   %categories = getelementptr inbounds i8, ptr %call11, i64 88
@@ -774,7 +779,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @p_ere(ptr noundef %p, i32 noundef %stop) unnamed_addr #0 {
 entry:
-  %bracket.i = alloca [4 x i8], align 4
+  %bracket.i = alloca [4 x i8], align 1
   %slen = getelementptr inbounds i8, ptr %p, i64 40
   %end = getelementptr inbounds i8, ptr %p, i64 8
   %error.i411 = getelementptr inbounds i8, ptr %p, i64 16
@@ -784,6 +789,8 @@ entry:
   %pbegin90.i = getelementptr inbounds i8, ptr %p, i64 64
   %g98.i = getelementptr inbounds i8, ptr %p, i64 56
   %add.ptr.i550 = getelementptr inbounds i8, ptr %bracket.i, i64 3
+  %arrayidx4.i = getelementptr inbounds i8, ptr %bracket.i, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %bracket.i, i64 2
   %0 = load i64, ptr %slen, align 8
   %1 = load ptr, ptr %p, align 8
   %2 = load ptr, ptr %end, align 8
@@ -1249,7 +1256,10 @@ if.then58.i:                                      ; preds = %sw.bb55.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bracket.i)
   store ptr %bracket.i, ptr %p, align 8
   store ptr %add.ptr.i550, ptr %end, align 8
-  store <4 x i8> <i8 94, i8 10, i8 93, i8 0>, ptr %bracket.i, align 4
+  store i8 94, ptr %bracket.i, align 1
+  store i8 10, ptr %arrayidx4.i, align 1
+  store i8 93, ptr %arrayidx5.i, align 1
+  store i8 0, ptr %add.ptr.i550, align 1
   call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %incdec.ptr.i, ptr %p, align 8
   store ptr %6, ptr %end, align 8
@@ -2639,7 +2649,7 @@ if.end37:                                         ; preds = %if.then32, %if.end4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @p_bre(ptr noundef %p, i32 noundef %end1, i32 noundef %end2) unnamed_addr #0 {
 entry:
-  %bracket.i = alloca [4 x i8], align 4
+  %bracket.i = alloca [4 x i8], align 1
   %slen = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i64, ptr %slen, align 8
   %1 = load ptr, ptr %p, align 8
@@ -2751,6 +2761,8 @@ land.lhs.true14.lr.ph:                            ; preds = %if.end
   %pbegin93.i = getelementptr inbounds i8, ptr %p, i64 64
   %g104.i = getelementptr inbounds i8, ptr %p, i64 56
   %add.ptr.i413 = getelementptr inbounds i8, ptr %bracket.i, i64 3
+  %arrayidx4.i = getelementptr inbounds i8, ptr %bracket.i, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %bracket.i, i64 2
   br label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true14.lr.ph, %p_simp_re.exit
@@ -2850,7 +2862,10 @@ if.then9.i:                                       ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bracket.i)
   store ptr %bracket.i, ptr %p, align 8
   store ptr %add.ptr.i413, ptr %end, align 8
-  store <4 x i8> <i8 94, i8 10, i8 93, i8 0>, ptr %bracket.i, align 4
+  store i8 94, ptr %bracket.i, align 1
+  store i8 10, ptr %arrayidx4.i, align 1
+  store i8 93, ptr %arrayidx5.i, align 1
+  store i8 0, ptr %add.ptr.i413, align 1
   call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %30, ptr %p, align 8
   store ptr %29, ptr %end, align 8
@@ -5714,41 +5729,43 @@ othercase.exit:                                   ; preds = %if.then.i, %if.else
 
 if.then:                                          ; preds = %othercase.exit
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %bracket.i)
+  %6 = load ptr, ptr %p, align 8
   %end.i = getelementptr inbounds i8, ptr %p, i64 8
+  %7 = load ptr, ptr %end.i, align 8
   %conv.i = trunc i32 %ch to i8
+  store ptr %bracket.i, ptr %p, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %bracket.i, i64 2
+  store ptr %add.ptr.i, ptr %end.i, align 8
   store i8 %conv.i, ptr %bracket.i, align 1
   %arrayidx6.i = getelementptr inbounds i8, ptr %bracket.i, i64 1
   store i8 93, ptr %arrayidx6.i, align 1
   store i8 0, ptr %add.ptr.i, align 1
-  %6 = load <2 x ptr>, ptr %p, align 8
-  store ptr %bracket.i, ptr %p, align 8
-  store ptr %add.ptr.i, ptr %end.i, align 8
   call fastcc void @p_bracket(ptr noundef nonnull %p) #21
-  store <2 x ptr> %6, ptr %p, align 8
+  store ptr %6, ptr %p, align 8
+  store ptr %7, ptr %end.i, align 8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %bracket.i)
   br label %if.end22
 
 if.else:                                          ; preds = %entry.if.else_crit_edge, %othercase.exit, %land.lhs.true
   %.pre-phi = phi i32 [ %.pre, %entry.if.else_crit_edge ], [ %conv2, %othercase.exit ], [ %conv2, %land.lhs.true ]
   %error.i = getelementptr inbounds i8, ptr %p, i64 16
-  %7 = load i32, ptr %error.i, align 8
-  %cmp.not.i = icmp eq i32 %7, 0
+  %8 = load i32, ptr %error.i, align 8
+  %cmp.not.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i, label %if.end.i, label %doemit.exit
 
 if.end.i:                                         ; preds = %if.else
   %slen.i = getelementptr inbounds i8, ptr %p, i64 40
-  %8 = load i64, ptr %slen.i, align 8
+  %9 = load i64, ptr %slen.i, align 8
   %ssize.i = getelementptr inbounds i8, ptr %p, i64 32
-  %9 = load i64, ptr %ssize.i, align 8
-  %cmp1.not.i = icmp slt i64 %8, %9
+  %10 = load i64, ptr %ssize.i, align 8
+  %cmp1.not.i = icmp slt i64 %9, %10
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %add.i = add nsw i64 %9, 1
+  %add.i = add nsw i64 %10, 1
   %div.i = sdiv i64 %add.i, 2
   %mul.i = mul nsw i64 %div.i, 3
-  %cmp.not.i.i = icmp slt i64 %9, %mul.i
+  %cmp.not.i.i = icmp slt i64 %10, %mul.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end4.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
@@ -5764,15 +5781,15 @@ seterr.exit.i.i:                                  ; preds = %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %strip.i.i = getelementptr inbounds i8, ptr %p, i64 24
-  %10 = load ptr, ptr %strip.i.i, align 8
+  %11 = load ptr, ptr %strip.i.i, align 8
   %mul.i.i = mul i64 %div.i, 24
-  %call4.i.i = tail call ptr @realloc(ptr noundef %10, i64 noundef %mul.i.i) #19
+  %call4.i.i = tail call ptr @realloc(ptr noundef %11, i64 noundef %mul.i.i) #19
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  %11 = load i32, ptr %error.i, align 8
-  %cmp.i11.i.i = icmp eq i32 %11, 0
+  %12 = load i32, ptr %error.i, align 8
+  %cmp.i11.i.i = icmp eq i32 %12, 0
   br i1 %cmp.i11.i.i, label %if.then.i13.i.i, label %seterr.exit14.i.i
 
 if.then.i13.i.i:                                  ; preds = %if.then6.i.i
@@ -5791,31 +5808,31 @@ if.end8.i.i:                                      ; preds = %if.end3.i.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end8.i.i, %seterr.exit14.i.i, %seterr.exit.i.i, %if.then2.i, %if.end.i
-  %12 = or disjoint i32 %.pre-phi, 268435456
-  %or.i = zext nneg i32 %12 to i64
+  %13 = or disjoint i32 %.pre-phi, 268435456
+  %or.i = zext nneg i32 %13 to i64
   %strip.i = getelementptr inbounds i8, ptr %p, i64 24
-  %13 = load ptr, ptr %strip.i, align 8
-  %14 = load i64, ptr %slen.i, align 8
-  %inc.i = add nsw i64 %14, 1
+  %14 = load ptr, ptr %strip.i, align 8
+  %15 = load i64, ptr %slen.i, align 8
+  %inc.i = add nsw i64 %15, 1
   store i64 %inc.i, ptr %slen.i, align 8
-  %arrayidx.i12 = getelementptr inbounds i64, ptr %13, i64 %14
+  %arrayidx.i12 = getelementptr inbounds i64, ptr %14, i64 %15
   store i64 %or.i, ptr %arrayidx.i12, align 8
   br label %doemit.exit
 
 doemit.exit:                                      ; preds = %if.else, %if.end4.i
   %idxprom12 = sext i32 %ch to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %1, i64 %idxprom12
-  %15 = load i8, ptr %arrayidx13, align 1
-  %cmp15 = icmp eq i8 %15, 0
+  %16 = load i8, ptr %arrayidx13, align 1
+  %cmp15 = icmp eq i8 %16, 0
   br i1 %cmp15, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %doemit.exit
-  %16 = load ptr, ptr %g, align 8
-  %ncategories = getelementptr inbounds i8, ptr %16, i64 84
-  %17 = load i32, ptr %ncategories, align 4
-  %inc = add nsw i32 %17, 1
+  %17 = load ptr, ptr %g, align 8
+  %ncategories = getelementptr inbounds i8, ptr %17, i64 84
+  %18 = load i32, ptr %ncategories, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %ncategories, align 4
-  %conv19 = trunc i32 %17 to i8
+  %conv19 = trunc i32 %18 to i8
   store i8 %conv19, ptr %arrayidx13, align 1
   br label %if.end22
 
@@ -6823,18 +6840,20 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define internal fastcc void @bothcases(ptr noundef %p, i32 noundef %ch) unnamed_addr #0 {
 entry:
   %bracket = alloca [3 x i8], align 1
+  %0 = load ptr, ptr %p, align 8
   %end = getelementptr inbounds i8, ptr %p, i64 8
+  %1 = load ptr, ptr %end, align 8
   %conv = trunc i32 %ch to i8
+  store ptr %bracket, ptr %p, align 8
   %add.ptr = getelementptr inbounds i8, ptr %bracket, i64 2
+  store ptr %add.ptr, ptr %end, align 8
   store i8 %conv, ptr %bracket, align 1
   %arrayidx6 = getelementptr inbounds i8, ptr %bracket, i64 1
   store i8 93, ptr %arrayidx6, align 1
   store i8 0, ptr %add.ptr, align 1
-  %0 = load <2 x ptr>, ptr %p, align 8
-  store ptr %bracket, ptr %p, align 8
-  store ptr %add.ptr, ptr %end, align 8
   call fastcc void @p_bracket(ptr noundef nonnull %p)
-  store <2 x ptr> %0, ptr %p, align 8
+  store ptr %0, ptr %p, align 8
+  store ptr %1, ptr %end, align 8
   ret void
 }
 

@@ -27661,16 +27661,17 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %config.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %config3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %config3.i.i.i, align 8, !tbaa !410, !noalias !425
+  store ptr %0, ptr %config.i.i.i, align 8, !tbaa !410, !alias.scope !425
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !387, !noalias !425
-  %1 = load <2 x ptr>, ptr %config3.i.i.i, align 8, !tbaa !32, !noalias !425
-  store <2 x ptr> %1, ptr %config.i.i.i, align 8, !tbaa !32, !alias.scope !425
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !387, !noalias !425
+  store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !387, !alias.scope !425
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEE13get_allocatorEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !399, !noalias !425
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -32209,11 +32210,13 @@ if.then.i:                                        ; preds = %_ZN4test18throwing_
   unreachable
 
 _ZNSt6vectorImN4test18throwing_allocatorImEEE17_S_check_init_lenEmRKS2_.exit: ; preds = %_ZN4test18throwing_allocatorImED2Ev.exit.i, %if.then7.i.i.i.i.i, %if.then.i.i.i.i2.i
+  %.pr = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !387
   %config.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %config3.i.i.i = getelementptr inbounds i8, ptr %__a, i64 8
-  %.pr = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !387
-  %11 = load <2 x ptr>, ptr %config3.i.i.i, align 8, !tbaa !32
-  store <2 x ptr> %11, ptr %config.i.i.i, align 8, !tbaa !32
+  %11 = load ptr, ptr %config3.i.i.i, align 8, !tbaa !410
+  store ptr %11, ptr %config.i.i.i, align 8, !tbaa !410
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %.pr, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !387
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseImN4test18throwing_allocatorImEEE12_Vector_implC2ERKS2_.exit.i, label %if.then.i.i.i.i.i.i5
 

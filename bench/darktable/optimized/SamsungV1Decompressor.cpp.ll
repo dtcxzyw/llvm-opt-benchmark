@@ -264,396 +264,415 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %4 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #19
   store i16 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %4, i64 2
-  %6 = getelementptr inbounds i8, ptr %4, i64 18
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
-  br label %8
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 6
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 10
+  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds i8, ptr %4, i64 14
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  br label %15
 
-8:                                                ; preds = %8, %1
-  %9 = phi i16 [ 0, %1 ], [ %13, %8 ]
-  %10 = phi i64 [ 2, %1 ], [ %18, %8 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
-  store i16 %9, ptr %11, align 1, !tbaa.struct !87
-  %12 = getelementptr i8, ptr %5, i64 %10
-  %13 = load i16, ptr %4, align 1
-  %14 = insertelement <8 x i16> poison, i16 %13, i64 0
-  %15 = shufflevector <8 x i16> %14, <8 x i16> poison, <8 x i32> zeroinitializer
-  store <8 x i16> %15, ptr %12, align 1
-  %16 = getelementptr i8, ptr %6, i64 %10
-  store i16 %13, ptr %16, align 1, !tbaa.struct !87
-  %17 = getelementptr i8, ptr %7, i64 %10
-  store i16 %13, ptr %17, align 1, !tbaa.struct !87
-  %18 = add nuw nsw i64 %10, 22
-  %19 = icmp eq i64 %18, 2048
-  br i1 %19, label %20, label %8, !llvm.loop !88
+15:                                               ; preds = %15, %1
+  %16 = phi i16 [ 0, %1 ], [ %20, %15 ]
+  %17 = phi i64 [ 2, %1 ], [ %30, %15 ]
+  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  store i16 %16, ptr %18, align 1, !tbaa.struct !87
+  %19 = getelementptr i8, ptr %5, i64 %17
+  %20 = load i16, ptr %4, align 1
+  store i16 %20, ptr %19, align 1, !tbaa.struct !87
+  %21 = getelementptr i8, ptr %6, i64 %17
+  store i16 %20, ptr %21, align 1, !tbaa.struct !87
+  %22 = getelementptr i8, ptr %7, i64 %17
+  store i16 %20, ptr %22, align 1, !tbaa.struct !87
+  %23 = getelementptr i8, ptr %8, i64 %17
+  store i16 %20, ptr %23, align 1, !tbaa.struct !87
+  %24 = getelementptr i8, ptr %9, i64 %17
+  store i16 %20, ptr %24, align 1, !tbaa.struct !87
+  %25 = getelementptr i8, ptr %10, i64 %17
+  store i16 %20, ptr %25, align 1, !tbaa.struct !87
+  %26 = getelementptr i8, ptr %11, i64 %17
+  store i16 %20, ptr %26, align 1, !tbaa.struct !87
+  %27 = getelementptr i8, ptr %12, i64 %17
+  store i16 %20, ptr %27, align 1, !tbaa.struct !87
+  %28 = getelementptr i8, ptr %13, i64 %17
+  store i16 %20, ptr %28, align 1, !tbaa.struct !87
+  %29 = getelementptr i8, ptr %14, i64 %17
+  store i16 %20, ptr %29, align 1, !tbaa.struct !87
+  %30 = add nuw nsw i64 %17, 22
+  %31 = icmp eq i64 %30, 2048
+  br i1 %31, label %32, label %15, !llvm.loop !88
 
-20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %4, i64 64
-  %22 = getelementptr inbounds i8, ptr %4, i64 128
-  %23 = getelementptr inbounds i8, ptr %4, i64 192
+32:                                               ; preds = %15
+  %33 = getelementptr inbounds i8, ptr %4, i64 64
+  %34 = getelementptr inbounds i8, ptr %4, i64 128
+  %35 = getelementptr inbounds i8, ptr %4, i64 192
   store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %4, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %21, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %22, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %23, align 1, !tbaa !13
-  %24 = getelementptr inbounds i8, ptr %4, i64 256
-  %25 = getelementptr inbounds i8, ptr %4, i64 320
-  %26 = getelementptr inbounds i8, ptr %4, i64 384
-  %27 = getelementptr inbounds i8, ptr %4, i64 448
-  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %24, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %25, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %26, align 1, !tbaa !13
-  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %27, align 1, !tbaa !13
-  %28 = getelementptr inbounds i8, ptr %4, i64 512
-  %29 = getelementptr inbounds i8, ptr %4, i64 576
-  %30 = getelementptr inbounds i8, ptr %4, i64 640
-  %31 = getelementptr inbounds i8, ptr %4, i64 704
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %28, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %29, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %30, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %31, align 1, !tbaa !13
-  %32 = getelementptr inbounds i8, ptr %4, i64 768
-  %33 = getelementptr inbounds i8, ptr %4, i64 832
-  %34 = getelementptr inbounds i8, ptr %4, i64 896
-  %35 = getelementptr inbounds i8, ptr %4, i64 960
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %32, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %33, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %34, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %35, align 1, !tbaa !13
-  %36 = getelementptr inbounds i8, ptr %4, i64 1024
-  %37 = getelementptr inbounds i8, ptr %4, i64 1088
-  %38 = getelementptr inbounds i8, ptr %4, i64 1152
-  %39 = getelementptr inbounds i8, ptr %4, i64 1216
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %36, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %37, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %38, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %39, align 1, !tbaa !13
-  %40 = getelementptr inbounds i8, ptr %4, i64 1280
-  %41 = getelementptr inbounds i8, ptr %4, i64 1344
-  %42 = getelementptr inbounds i8, ptr %4, i64 1408
-  %43 = getelementptr inbounds i8, ptr %4, i64 1472
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %40, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %41, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %42, align 1, !tbaa !13
-  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %43, align 1, !tbaa !13
-  %44 = getelementptr inbounds i8, ptr %4, i64 1536
-  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %44, align 1, !tbaa !13
-  %45 = getelementptr inbounds i8, ptr %4, i64 1568
-  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %45, align 1, !tbaa !13
-  %46 = getelementptr inbounds i8, ptr %4, i64 1600
-  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %46, align 1, !tbaa !13
-  %47 = getelementptr inbounds i8, ptr %4, i64 1632
-  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %47, align 1, !tbaa !13
-  %48 = getelementptr inbounds i8, ptr %4, i64 1664
-  store <32 x i8> <i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0>, ptr %48, align 1, !tbaa !13
-  %49 = getelementptr inbounds i8, ptr %4, i64 1696
-  store <32 x i8> <i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 9, i8 11, i8 9, i8 11, i8 10, i8 12, i8 10, i8 13>, ptr %49, align 1, !tbaa !13
-  %50 = getelementptr inbounds i8, ptr %4, i64 1728
-  store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %50, align 1, !tbaa !13
-  %51 = getelementptr inbounds i8, ptr %4, i64 1760
-  store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %51, align 1, !tbaa !13
-  %52 = getelementptr inbounds i8, ptr %4, i64 1792
-  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %52, align 1, !tbaa !13
-  %53 = getelementptr inbounds i8, ptr %4, i64 1824
-  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %53, align 1, !tbaa !13
-  %54 = getelementptr inbounds i8, ptr %4, i64 1856
-  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %54, align 1, !tbaa !13
-  %55 = getelementptr inbounds i8, ptr %4, i64 1888
-  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %55, align 1, !tbaa !13
-  %56 = getelementptr inbounds i8, ptr %4, i64 1920
-  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %56, align 1, !tbaa !13
-  %57 = getelementptr inbounds i8, ptr %4, i64 1952
-  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %57, align 1, !tbaa !13
-  %58 = getelementptr inbounds i8, ptr %4, i64 1984
-  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %58, align 1, !tbaa !13
-  %59 = getelementptr inbounds i8, ptr %4, i64 2016
-  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %59, align 1, !tbaa !13
-  %60 = load ptr, ptr %0, align 8, !tbaa !6
-  %61 = getelementptr inbounds i8, ptr %60, i64 560
-  %62 = load ptr, ptr %61, align 8, !tbaa !90, !noalias !91, !nonnull !94, !noundef !94
-  %63 = getelementptr inbounds i8, ptr %60, i64 584
-  %64 = load i32, ptr %63, align 8, !tbaa !16, !noalias !91
-  %65 = getelementptr inbounds i8, ptr %60, i64 600
-  %66 = load i32, ptr %65, align 8, !tbaa !95, !noalias !91
-  %67 = mul nsw i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %60, i64 604
-  %69 = load i32, ptr %68, align 4, !tbaa !96, !noalias !91
-  %70 = getelementptr inbounds i8, ptr %60, i64 48
-  %71 = load i32, ptr %70, align 8, !tbaa !97, !noalias !91
-  %72 = ashr i32 %71, 1
-  %73 = mul nuw nsw i32 %72, %69
-  %74 = icmp sgt i32 %67, -1
-  tail call void @llvm.assume(i1 %74)
-  %75 = icmp sgt i32 %69, -1
-  tail call void @llvm.assume(i1 %75)
-  %76 = icmp ugt i32 %71, 1
-  tail call void @llvm.assume(i1 %76)
-  %77 = icmp sgt i32 %72, -1
-  tail call void @llvm.assume(i1 %77)
-  %78 = icmp uge i32 %72, %67
-  tail call void @llvm.assume(i1 %78)
-  %79 = icmp eq i32 %67, 0
-  %80 = icmp ne i32 %69, 0
-  %81 = xor i1 %79, %80
-  tail call void @llvm.assume(i1 %81)
-  %82 = and i32 %67, 31
-  %83 = icmp eq i32 %82, 0
-  tail call void @llvm.assume(i1 %83)
-  %84 = and i32 %69, 1
-  %85 = icmp eq i32 %84, 0
-  tail call void @llvm.assume(i1 %85)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
-  %87 = load i32, ptr %86, align 8, !tbaa !98
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
-  %89 = load i32, ptr %88, align 8, !tbaa !103
-  %90 = icmp uge i32 %89, %87
+  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %33, align 1, !tbaa !13
+  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %34, align 1, !tbaa !13
+  store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %35, align 1, !tbaa !13
+  %36 = getelementptr inbounds i8, ptr %4, i64 256
+  %37 = getelementptr inbounds i8, ptr %4, i64 320
+  %38 = getelementptr inbounds i8, ptr %4, i64 384
+  %39 = getelementptr inbounds i8, ptr %4, i64 448
+  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %36, align 1, !tbaa !13
+  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %37, align 1, !tbaa !13
+  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %38, align 1, !tbaa !13
+  store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %39, align 1, !tbaa !13
+  %40 = getelementptr inbounds i8, ptr %4, i64 512
+  %41 = getelementptr inbounds i8, ptr %4, i64 576
+  %42 = getelementptr inbounds i8, ptr %4, i64 640
+  %43 = getelementptr inbounds i8, ptr %4, i64 704
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %40, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %41, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %42, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %43, align 1, !tbaa !13
+  %44 = getelementptr inbounds i8, ptr %4, i64 768
+  %45 = getelementptr inbounds i8, ptr %4, i64 832
+  %46 = getelementptr inbounds i8, ptr %4, i64 896
+  %47 = getelementptr inbounds i8, ptr %4, i64 960
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %44, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %45, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %46, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %47, align 1, !tbaa !13
+  %48 = getelementptr inbounds i8, ptr %4, i64 1024
+  %49 = getelementptr inbounds i8, ptr %4, i64 1088
+  %50 = getelementptr inbounds i8, ptr %4, i64 1152
+  %51 = getelementptr inbounds i8, ptr %4, i64 1216
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %48, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %49, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %50, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %51, align 1, !tbaa !13
+  %52 = getelementptr inbounds i8, ptr %4, i64 1280
+  %53 = getelementptr inbounds i8, ptr %4, i64 1344
+  %54 = getelementptr inbounds i8, ptr %4, i64 1408
+  %55 = getelementptr inbounds i8, ptr %4, i64 1472
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %52, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %53, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %54, align 1, !tbaa !13
+  store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %55, align 1, !tbaa !13
+  %56 = getelementptr inbounds i8, ptr %4, i64 1536
+  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %56, align 1, !tbaa !13
+  %57 = getelementptr inbounds i8, ptr %4, i64 1568
+  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %57, align 1, !tbaa !13
+  %58 = getelementptr inbounds i8, ptr %4, i64 1600
+  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %58, align 1, !tbaa !13
+  %59 = getelementptr inbounds i8, ptr %4, i64 1632
+  store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %59, align 1, !tbaa !13
+  %60 = getelementptr inbounds i8, ptr %4, i64 1664
+  store <32 x i8> <i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0>, ptr %60, align 1, !tbaa !13
+  %61 = getelementptr inbounds i8, ptr %4, i64 1696
+  store <32 x i8> <i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 9, i8 11, i8 9, i8 11, i8 10, i8 12, i8 10, i8 13>, ptr %61, align 1, !tbaa !13
+  %62 = getelementptr inbounds i8, ptr %4, i64 1728
+  store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %62, align 1, !tbaa !13
+  %63 = getelementptr inbounds i8, ptr %4, i64 1760
+  store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %63, align 1, !tbaa !13
+  %64 = getelementptr inbounds i8, ptr %4, i64 1792
+  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %64, align 1, !tbaa !13
+  %65 = getelementptr inbounds i8, ptr %4, i64 1824
+  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %65, align 1, !tbaa !13
+  %66 = getelementptr inbounds i8, ptr %4, i64 1856
+  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %66, align 1, !tbaa !13
+  %67 = getelementptr inbounds i8, ptr %4, i64 1888
+  store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %67, align 1, !tbaa !13
+  %68 = getelementptr inbounds i8, ptr %4, i64 1920
+  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %68, align 1, !tbaa !13
+  %69 = getelementptr inbounds i8, ptr %4, i64 1952
+  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %69, align 1, !tbaa !13
+  %70 = getelementptr inbounds i8, ptr %4, i64 1984
+  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %70, align 1, !tbaa !13
+  %71 = getelementptr inbounds i8, ptr %4, i64 2016
+  store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %71, align 1, !tbaa !13
+  %72 = load ptr, ptr %0, align 8, !tbaa !6
+  %73 = getelementptr inbounds i8, ptr %72, i64 560
+  %74 = load ptr, ptr %73, align 8, !tbaa !90, !noalias !91, !nonnull !94, !noundef !94
+  %75 = getelementptr inbounds i8, ptr %72, i64 584
+  %76 = load i32, ptr %75, align 8, !tbaa !16, !noalias !91
+  %77 = getelementptr inbounds i8, ptr %72, i64 600
+  %78 = load i32, ptr %77, align 8, !tbaa !95, !noalias !91
+  %79 = mul nsw i32 %78, %76
+  %80 = getelementptr inbounds i8, ptr %72, i64 604
+  %81 = load i32, ptr %80, align 4, !tbaa !96, !noalias !91
+  %82 = getelementptr inbounds i8, ptr %72, i64 48
+  %83 = load i32, ptr %82, align 8, !tbaa !97, !noalias !91
+  %84 = ashr i32 %83, 1
+  %85 = mul nuw nsw i32 %84, %81
+  %86 = icmp sgt i32 %79, -1
+  tail call void @llvm.assume(i1 %86)
+  %87 = icmp sgt i32 %81, -1
+  tail call void @llvm.assume(i1 %87)
+  %88 = icmp ugt i32 %83, 1
+  tail call void @llvm.assume(i1 %88)
+  %89 = icmp sgt i32 %84, -1
+  tail call void @llvm.assume(i1 %89)
+  %90 = icmp uge i32 %84, %79
   tail call void @llvm.assume(i1 %90)
-  %91 = icmp sgt i32 %89, -1
-  tail call void @llvm.assume(i1 %91)
-  %92 = icmp sgt i32 %87, -1
-  tail call void @llvm.assume(i1 %92)
-  %93 = sub nsw i32 %89, %87
-  %94 = zext nneg i32 %87 to i64
-  %95 = zext i32 %93 to i64
-  %96 = add nuw nsw i64 %95, %94
-  %97 = zext nneg i32 %89 to i64
-  %98 = icmp ugt i64 %96, %97
-  br i1 %98, label %222, label %99
-
-99:                                               ; preds = %20
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !104, !nonnull !94, !noundef !94
-  %102 = icmp sgt i32 %93, -1
+  %91 = icmp eq i32 %79, 0
+  %92 = icmp ne i32 %81, 0
+  %93 = xor i1 %91, %92
+  tail call void @llvm.assume(i1 %93)
+  %94 = and i32 %79, 31
+  %95 = icmp eq i32 %94, 0
+  tail call void @llvm.assume(i1 %95)
+  %96 = and i32 %81, 1
+  %97 = icmp eq i32 %96, 0
+  tail call void @llvm.assume(i1 %97)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %99 = load i32, ptr %98, align 8, !tbaa !98
+  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = load i32, ptr %100, align 8, !tbaa !103
+  %102 = icmp uge i32 %101, %99
   tail call void @llvm.assume(i1 %102)
-  %103 = getelementptr inbounds i8, ptr %101, i64 %94
+  %103 = icmp sgt i32 %101, -1
+  tail call void @llvm.assume(i1 %103)
+  %104 = icmp sgt i32 %99, -1
+  tail call void @llvm.assume(i1 %104)
+  %105 = sub nsw i32 %101, %99
+  %106 = zext nneg i32 %99 to i64
+  %107 = zext i32 %105 to i64
+  %108 = add nuw nsw i64 %107, %106
+  %109 = zext nneg i32 %101 to i64
+  %110 = icmp ugt i64 %108, %109
+  br i1 %110, label %234, label %111
+
+111:                                              ; preds = %32
+  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !104, !nonnull !94, !noundef !94
+  %114 = icmp sgt i32 %105, -1
+  tail call void @llvm.assume(i1 %114)
+  %115 = getelementptr inbounds i8, ptr %113, i64 %106
   store i32 0, ptr %2, align 4
-  %104 = icmp ult i32 %93, 4
-  br i1 %104, label %222, label %105
+  %116 = icmp ult i32 %105, 4
+  br i1 %116, label %234, label %117
 
-105:                                              ; preds = %99
-  %106 = icmp eq i32 %69, 0
-  br i1 %106, label %.loopexit, label %107
+117:                                              ; preds = %111
+  %118 = icmp eq i32 %81, 0
+  br i1 %118, label %.loopexit, label %119
 
-107:                                              ; preds = %105
-  %108 = add nuw nsw i32 %93, 8
-  br i1 %79, label %109, label %111
+119:                                              ; preds = %117
+  %120 = add nuw nsw i32 %105, 8
+  br i1 %91, label %121, label %123
 
-109:                                              ; preds = %107
-  %110 = icmp eq i32 %69, 2
-  tail call void @llvm.assume(i1 %110)
+121:                                              ; preds = %119
+  %122 = icmp eq i32 %81, 2
+  tail call void @llvm.assume(i1 %122)
   br label %.loopexit
 
-111:                                              ; preds = %107
-  %112 = zext nneg i32 %72 to i64
-  %113 = zext nneg i32 %69 to i64
-  %114 = zext nneg i32 %67 to i64
-  br label %115
+123:                                              ; preds = %119
+  %124 = zext nneg i32 %84 to i64
+  %125 = zext nneg i32 %81 to i64
+  %126 = zext nneg i32 %79 to i64
+  br label %127
 
-115:                                              ; preds = %219, %111
-  %116 = phi i64 [ %220, %219 ], [ 0, %111 ]
-  %117 = phi i64 [ %207, %219 ], [ 0, %111 ]
-  %118 = phi i32 [ %206, %219 ], [ 0, %111 ]
-  %119 = phi i32 [ %173, %219 ], [ 0, %111 ]
+127:                                              ; preds = %231, %123
+  %128 = phi i64 [ %232, %231 ], [ 0, %123 ]
+  %129 = phi i64 [ %219, %231 ], [ 0, %123 ]
+  %130 = phi i32 [ %218, %231 ], [ 0, %123 ]
+  %131 = phi i32 [ %185, %231 ], [ 0, %123 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8
-  %120 = icmp ugt i64 %116, 1
-  br i1 %120, label %121, label %132
+  %132 = icmp ugt i64 %128, 1
+  br i1 %132, label %133, label %144
 
-121:                                              ; preds = %115
-  %122 = add nsw i64 %116, -2
-  %123 = trunc i64 %122 to i32
-  %124 = icmp ugt i32 %69, %123
-  tail call void @llvm.assume(i1 %124)
-  %125 = mul nsw i64 %122, %112
-  %126 = trunc i64 %125 to i32
-  %127 = add i32 %67, %126
-  %128 = icmp ule i32 %127, %73
-  tail call void @llvm.assume(i1 %128)
-  %129 = getelementptr inbounds i16, ptr %62, i64 %125
-  %130 = load <2 x i16>, ptr %129, align 2, !tbaa !105
-  %131 = zext <2 x i16> %130 to <2 x i32>
-  store <2 x i32> %131, ptr %3, align 8
-  br label %132
-
-132:                                              ; preds = %121, %115
-  %133 = mul nuw nsw i64 %116, %112
-  %134 = trunc i64 %133 to i32
-  %135 = add i32 %67, %134
-  %136 = icmp ule i32 %135, %73
-  %137 = getelementptr inbounds i16, ptr %62, i64 %133
-  br label %138
-
-138:                                              ; preds = %214, %132
-  %139 = phi i64 [ 0, %132 ], [ %217, %214 ]
-  %140 = phi i64 [ %117, %132 ], [ %207, %214 ]
-  %141 = phi i32 [ %118, %132 ], [ %206, %214 ]
-  %142 = phi i32 [ %119, %132 ], [ %173, %214 ]
-  %143 = icmp ult i32 %141, 65
-  tail call void @llvm.assume(i1 %143)
-  %144 = icmp ult i32 %141, 23
-  br i1 %144, label %145, label %172
-
-145:                                              ; preds = %138
-  %146 = add nuw nsw i32 %142, 4
-  %147 = icmp ugt i32 %146, %93
-  br i1 %147, label %151, label %148
-
-148:                                              ; preds = %145
-  %149 = zext nneg i32 %142 to i64
-  %150 = getelementptr inbounds i8, ptr %103, i64 %149
-  br label %162
-
-151:                                              ; preds = %145
-  %152 = icmp ugt i32 %142, %108
-  br i1 %152, label %228, label %153
-
-153:                                              ; preds = %151
-  store i32 0, ptr %2, align 4
-  %154 = tail call i32 @llvm.umin.i32(i32 %93, i32 %142)
-  %155 = add nuw nsw i32 %154, 4
-  %156 = tail call i32 @llvm.umin.i32(i32 %155, i32 %93)
-  %157 = sub nsw i32 %156, %154
-  %158 = icmp ult i32 %157, 5
-  tail call void @llvm.assume(i1 %158)
-  %159 = zext nneg i32 %154 to i64
-  %160 = getelementptr inbounds i8, ptr %103, i64 %159
-  %161 = zext nneg i32 %157 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 1 %160, i64 %161, i1 false)
-  br label %162
-
-162:                                              ; preds = %153, %148
-  %163 = phi ptr [ %2, %153 ], [ %150, %148 ]
-  %164 = load i32, ptr %163, align 1
-  %165 = tail call i32 @llvm.bswap.i32(i32 %164)
-  %166 = zext i32 %165 to i64
-  %167 = or disjoint i32 %141, 32
-  %168 = sub nuw nsw i32 32, %141
-  %169 = zext nneg i32 %168 to i64
-  %170 = shl nuw i64 %166, %169
-  %171 = or i64 %170, %140
-  br label %172
-
-172:                                              ; preds = %162, %138
-  %173 = phi i32 [ %146, %162 ], [ %142, %138 ]
-  %174 = phi i64 [ %171, %162 ], [ %140, %138 ]
-  %175 = phi i32 [ %167, %162 ], [ %141, %138 ]
-  %176 = lshr i64 %174, 54
-  %177 = getelementptr inbounds %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %4, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !107
-  %179 = zext nneg i8 %178 to i32
-  %180 = icmp ult i8 %178, 33
-  tail call void @llvm.assume(i1 %180)
-  %181 = icmp uge i32 %175, %179
-  tail call void @llvm.assume(i1 %181)
-  %182 = sub nsw i32 %175, %179
-  %183 = zext nneg i8 %178 to i64
-  %184 = shl i64 %174, %183
-  %185 = getelementptr inbounds i8, ptr %177, i64 1
-  %186 = load i8, ptr %185, align 1, !tbaa !109
-  %187 = icmp eq i8 %186, 0
-  br i1 %187, label %205, label %188
-
-188:                                              ; preds = %172
-  %189 = zext nneg i8 %186 to i32
-  %190 = icmp ult i32 %182, 65
-  tail call void @llvm.assume(i1 %190)
-  %191 = icmp ult i8 %186, 33
-  tail call void @llvm.assume(i1 %191)
-  %192 = icmp uge i32 %182, %189
-  tail call void @llvm.assume(i1 %192)
-  %193 = sub nuw nsw i32 64, %189
-  %194 = zext nneg i32 %193 to i64
-  %195 = lshr i64 %184, %194
-  %196 = trunc i64 %195 to i32
-  %197 = sub nsw i32 %182, %189
-  %198 = zext nneg i8 %186 to i64
-  %199 = shl i64 %184, %198
-  %200 = icmp sgt i64 %184, -1
-  %201 = shl nsw i32 -1, %189
-  %202 = add nuw nsw i32 %201, 1
-  %203 = select i1 %200, i32 %202, i32 0
-  %204 = add i32 %203, %196
-  br label %205
-
-205:                                              ; preds = %188, %172
-  %206 = phi i32 [ %182, %172 ], [ %197, %188 ]
-  %207 = phi i64 [ %184, %172 ], [ %199, %188 ]
-  %208 = phi i32 [ 0, %172 ], [ %204, %188 ]
-  %209 = and i64 %139, 1
-  %210 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %209
-  %211 = load i32, ptr %210, align 4, !tbaa !14
-  %212 = add nsw i32 %211, %208
-  store i32 %212, ptr %210, align 4, !tbaa !14
-  %213 = icmp ult i32 %212, 4096
-  br i1 %213, label %214, label %230
-
-214:                                              ; preds = %205
+133:                                              ; preds = %127
+  %134 = add nsw i64 %128, -2
+  %135 = trunc i64 %134 to i32
+  %136 = icmp ugt i32 %81, %135
   tail call void @llvm.assume(i1 %136)
-  %215 = getelementptr inbounds i16, ptr %137, i64 %139
-  %216 = trunc nuw nsw i32 %212 to i16
-  store i16 %216, ptr %215, align 2, !tbaa !105
-  %217 = add nuw nsw i64 %139, 1
-  %218 = icmp eq i64 %217, %114
-  br i1 %218, label %219, label %138, !llvm.loop !110
+  %137 = mul nsw i64 %134, %124
+  %138 = trunc i64 %137 to i32
+  %139 = add i32 %79, %138
+  %140 = icmp ule i32 %139, %85
+  tail call void @llvm.assume(i1 %140)
+  %141 = getelementptr inbounds i16, ptr %74, i64 %137
+  %142 = load <2 x i16>, ptr %141, align 2, !tbaa !105
+  %143 = zext <2 x i16> %142 to <2 x i32>
+  store <2 x i32> %143, ptr %3, align 8
+  br label %144
 
-219:                                              ; preds = %214
+144:                                              ; preds = %133, %127
+  %145 = mul nuw nsw i64 %128, %124
+  %146 = trunc i64 %145 to i32
+  %147 = add i32 %79, %146
+  %148 = icmp ule i32 %147, %85
+  %149 = getelementptr inbounds i16, ptr %74, i64 %145
+  br label %150
+
+150:                                              ; preds = %226, %144
+  %151 = phi i64 [ 0, %144 ], [ %229, %226 ]
+  %152 = phi i64 [ %129, %144 ], [ %219, %226 ]
+  %153 = phi i32 [ %130, %144 ], [ %218, %226 ]
+  %154 = phi i32 [ %131, %144 ], [ %185, %226 ]
+  %155 = icmp ult i32 %153, 65
+  tail call void @llvm.assume(i1 %155)
+  %156 = icmp ult i32 %153, 23
+  br i1 %156, label %157, label %184
+
+157:                                              ; preds = %150
+  %158 = add nuw nsw i32 %154, 4
+  %159 = icmp ugt i32 %158, %105
+  br i1 %159, label %163, label %160
+
+160:                                              ; preds = %157
+  %161 = zext nneg i32 %154 to i64
+  %162 = getelementptr inbounds i8, ptr %115, i64 %161
+  br label %174
+
+163:                                              ; preds = %157
+  %164 = icmp ugt i32 %154, %120
+  br i1 %164, label %240, label %165
+
+165:                                              ; preds = %163
+  store i32 0, ptr %2, align 4
+  %166 = tail call i32 @llvm.umin.i32(i32 %105, i32 %154)
+  %167 = add nuw nsw i32 %166, 4
+  %168 = tail call i32 @llvm.umin.i32(i32 %167, i32 %105)
+  %169 = sub nsw i32 %168, %166
+  %170 = icmp ult i32 %169, 5
+  tail call void @llvm.assume(i1 %170)
+  %171 = zext nneg i32 %166 to i64
+  %172 = getelementptr inbounds i8, ptr %115, i64 %171
+  %173 = zext nneg i32 %169 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 1 %172, i64 %173, i1 false)
+  br label %174
+
+174:                                              ; preds = %165, %160
+  %175 = phi ptr [ %2, %165 ], [ %162, %160 ]
+  %176 = load i32, ptr %175, align 1
+  %177 = tail call i32 @llvm.bswap.i32(i32 %176)
+  %178 = zext i32 %177 to i64
+  %179 = or disjoint i32 %153, 32
+  %180 = sub nuw nsw i32 32, %153
+  %181 = zext nneg i32 %180 to i64
+  %182 = shl nuw i64 %178, %181
+  %183 = or i64 %182, %152
+  br label %184
+
+184:                                              ; preds = %174, %150
+  %185 = phi i32 [ %158, %174 ], [ %154, %150 ]
+  %186 = phi i64 [ %183, %174 ], [ %152, %150 ]
+  %187 = phi i32 [ %179, %174 ], [ %153, %150 ]
+  %188 = lshr i64 %186, 54
+  %189 = getelementptr inbounds %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %4, i64 %188
+  %190 = load i8, ptr %189, align 1, !tbaa !107
+  %191 = zext nneg i8 %190 to i32
+  %192 = icmp ult i8 %190, 33
+  tail call void @llvm.assume(i1 %192)
+  %193 = icmp uge i32 %187, %191
+  tail call void @llvm.assume(i1 %193)
+  %194 = sub nsw i32 %187, %191
+  %195 = zext nneg i8 %190 to i64
+  %196 = shl i64 %186, %195
+  %197 = getelementptr inbounds i8, ptr %189, i64 1
+  %198 = load i8, ptr %197, align 1, !tbaa !109
+  %199 = icmp eq i8 %198, 0
+  br i1 %199, label %217, label %200
+
+200:                                              ; preds = %184
+  %201 = zext nneg i8 %198 to i32
+  %202 = icmp ult i32 %194, 65
+  tail call void @llvm.assume(i1 %202)
+  %203 = icmp ult i8 %198, 33
+  tail call void @llvm.assume(i1 %203)
+  %204 = icmp uge i32 %194, %201
+  tail call void @llvm.assume(i1 %204)
+  %205 = sub nuw nsw i32 64, %201
+  %206 = zext nneg i32 %205 to i64
+  %207 = lshr i64 %196, %206
+  %208 = trunc i64 %207 to i32
+  %209 = sub nsw i32 %194, %201
+  %210 = zext nneg i8 %198 to i64
+  %211 = shl i64 %196, %210
+  %212 = icmp sgt i64 %196, -1
+  %213 = shl nsw i32 -1, %201
+  %214 = add nuw nsw i32 %213, 1
+  %215 = select i1 %212, i32 %214, i32 0
+  %216 = add i32 %215, %208
+  br label %217
+
+217:                                              ; preds = %200, %184
+  %218 = phi i32 [ %194, %184 ], [ %209, %200 ]
+  %219 = phi i64 [ %196, %184 ], [ %211, %200 ]
+  %220 = phi i32 [ 0, %184 ], [ %216, %200 ]
+  %221 = and i64 %151, 1
+  %222 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4, !tbaa !14
+  %224 = add nsw i32 %223, %220
+  store i32 %224, ptr %222, align 4, !tbaa !14
+  %225 = icmp ult i32 %224, 4096
+  br i1 %225, label %226, label %242
+
+226:                                              ; preds = %217
+  tail call void @llvm.assume(i1 %148)
+  %227 = getelementptr inbounds i16, ptr %149, i64 %151
+  %228 = trunc nuw nsw i32 %224 to i16
+  store i16 %228, ptr %227, align 2, !tbaa !105
+  %229 = add nuw nsw i64 %151, 1
+  %230 = icmp eq i64 %229, %126
+  br i1 %230, label %231, label %150, !llvm.loop !110
+
+231:                                              ; preds = %226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  %220 = add nuw nsw i64 %116, 1
-  %221 = icmp eq i64 %220, %113
-  br i1 %221, label %.loopexit, label %115, !llvm.loop !111
+  %232 = add nuw nsw i64 %128, 1
+  %233 = icmp eq i64 %232, %125
+  br i1 %233, label %.loopexit, label %127, !llvm.loop !111
 
-222:                                              ; preds = %99, %20
-  %223 = phi ptr [ @.str.7, %20 ], [ @.str.10, %99 ]
-  %224 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %20 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKhEE, %99 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %223, ptr noundef nonnull %224) #16
-          to label %225 unwind label %226
+234:                                              ; preds = %111, %32
+  %235 = phi ptr [ @.str.7, %32 ], [ @.str.10, %111 ]
+  %236 = phi ptr [ @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj, %32 ], [ @__PRETTY_FUNCTION__._ZN8rawspeed26BitStreamerReplenisherBaseINS_14BitStreamerMSBEEC2ENS_10Array1DRefIKhEE, %111 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull %235, ptr noundef nonnull %236) #16
+          to label %237 unwind label %238
 
-225:                                              ; preds = %222
+237:                                              ; preds = %234
   unreachable
 
-.loopexit:                                        ; preds = %219, %109, %105
+.loopexit:                                        ; preds = %231, %121, %117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   tail call void @_ZdlPv(ptr noundef nonnull %4) #20
   ret void
 
-226:                                              ; preds = %222
-  %227 = landingpad { ptr, i32 }
+238:                                              ; preds = %234
+  %239 = landingpad { ptr, i32 }
           cleanup
-  br label %238
+  br label %250
 
-228:                                              ; preds = %151
+240:                                              ; preds = %163
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv) #16
-          to label %229 unwind label %232
+          to label %241 unwind label %244
 
-229:                                              ; preds = %228
+241:                                              ; preds = %240
   unreachable
 
-230:                                              ; preds = %205
+242:                                              ; preds = %217
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed21SamsungV1Decompressor10decompressEv) #16
-          to label %231 unwind label %234
+          to label %243 unwind label %246
 
-231:                                              ; preds = %230
+243:                                              ; preds = %242
   unreachable
 
-232:                                              ; preds = %228
-  %233 = landingpad { ptr, i32 }
+244:                                              ; preds = %240
+  %245 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %248
 
-234:                                              ; preds = %230
-  %235 = landingpad { ptr, i32 }
+246:                                              ; preds = %242
+  %247 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %248
 
-236:                                              ; preds = %234, %232
-  %237 = phi { ptr, i32 } [ %235, %234 ], [ %233, %232 ]
+248:                                              ; preds = %246, %244
+  %249 = phi { ptr, i32 } [ %247, %246 ], [ %245, %244 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  br label %238
+  br label %250
 
-238:                                              ; preds = %236, %226
-  %239 = phi { ptr, i32 } [ %237, %236 ], [ %227, %226 ]
+250:                                              ; preds = %248, %238
+  %251 = phi { ptr, i32 } [ %249, %248 ], [ %239, %238 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   tail call void @_ZdlPv(ptr noundef nonnull %4) #20
-  resume { ptr, i32 } %239
+  resume { ptr, i32 } %251
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

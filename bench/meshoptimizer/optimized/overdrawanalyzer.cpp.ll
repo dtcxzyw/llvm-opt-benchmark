@@ -416,42 +416,38 @@ if.end:                                           ; preds = %if.then, %entry
   %v2y.addr.0 = phi float [ %v3y, %if.then ], [ %v2y, %entry ]
   %v2x.addr.0 = phi float [ %v3x, %if.then ], [ %v2x, %entry ]
   %v1z.addr.0 = phi float [ %sub, %if.then ], [ %v1z, %entry ]
-  %7 = insertelement <4 x float> poison, float %v2x.addr.0, i64 0
-  %8 = insertelement <4 x float> %7, float %v1x, i64 1
-  %9 = insertelement <4 x float> %8, float %v3x.addr.0, i64 2
-  %10 = insertelement <4 x float> %9, float %v3y.addr.0, i64 3
-  %11 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %10, <4 x float> <float 1.600000e+01, float 1.600000e+01, float 1.600000e+01, float 1.600000e+01>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %12 = insertelement <2 x float> poison, float %v2y.addr.0, i64 0
-  %13 = insertelement <2 x float> %12, float %v1y, i64 1
-  %14 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %13, <2 x float> <float 1.600000e+01, float 1.600000e+01>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %15 = fptosi <2 x float> %14 to <2 x i32>
-  %16 = fptosi <4 x float> %11 to <4 x i32>
-  %17 = extractelement <4 x i32> %16, i64 0
-  %18 = extractelement <4 x i32> %16, i64 2
-  %cond = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
-  %19 = extractelement <4 x i32> %16, i64 1
-  %conv2.cond = tail call i32 @llvm.smin.i32(i32 %cond, i32 %19)
+  %7 = tail call float @llvm.fmuladd.f32(float %v1x, float 1.600000e+01, float 5.000000e-01)
+  %conv2 = fptosi float %7 to i32
+  %8 = tail call float @llvm.fmuladd.f32(float %v2x.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv3 = fptosi float %8 to i32
+  %9 = tail call float @llvm.fmuladd.f32(float %v3x.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv4 = fptosi float %9 to i32
+  %10 = tail call float @llvm.fmuladd.f32(float %v1y, float 1.600000e+01, float 5.000000e-01)
+  %conv5 = fptosi float %10 to i32
+  %11 = tail call float @llvm.fmuladd.f32(float %v2y.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv6 = fptosi float %11 to i32
+  %12 = tail call float @llvm.fmuladd.f32(float %v3y.addr.0, float 1.600000e+01, float 5.000000e-01)
+  %conv7 = fptosi float %12 to i32
+  %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv4)
+  %conv2.cond = tail call i32 @llvm.smin.i32(i32 %cond, i32 %conv2)
   %cmp19 = icmp sgt i32 %conv2.cond, 8
   %add36 = add nsw i32 %conv2.cond, 7
   %shr37 = ashr i32 %add36, 4
   %cond40 = select i1 %cmp19, i32 %shr37, i32 0
-  %cond45 = tail call i32 @llvm.smax.i32(i32 %17, i32 %18)
-  %cond55 = tail call i32 @llvm.smax.i32(i32 %cond45, i32 %19)
+  %cond45 = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv4)
+  %cond55 = tail call i32 @llvm.smax.i32(i32 %cond45, i32 %conv2)
   %cmp58 = icmp slt i32 %cond55, 4089
   %add75 = add nsw i32 %cond55, 7
   %shr76 = ashr i32 %add75, 4
   %cond79 = select i1 %cmp58, i32 %shr76, i32 256
-  %20 = extractelement <4 x i32> %16, i64 3
-  %21 = extractelement <2 x i32> %15, i64 0
-  %cond84 = tail call i32 @llvm.smin.i32(i32 %21, i32 %20)
-  %22 = extractelement <2 x i32> %15, i64 1
-  %cond94 = tail call i32 @llvm.smin.i32(i32 %cond84, i32 %22)
+  %cond84 = tail call i32 @llvm.smin.i32(i32 %conv6, i32 %conv7)
+  %cond94 = tail call i32 @llvm.smin.i32(i32 %cond84, i32 %conv5)
   %cmp97 = icmp sgt i32 %cond94, 8
   %add114 = add nsw i32 %cond94, 7
   %shr115 = ashr i32 %add114, 4
   %cond118 = select i1 %cmp97, i32 %shr115, i32 0
-  %cond123 = tail call i32 @llvm.smax.i32(i32 %21, i32 %20)
-  %cond133 = tail call i32 @llvm.smax.i32(i32 %cond123, i32 %22)
+  %cond123 = tail call i32 @llvm.smax.i32(i32 %conv6, i32 %conv7)
+  %cond133 = tail call i32 @llvm.smax.i32(i32 %cond123, i32 %conv5)
   %cmp136 = icmp slt i32 %cond133, 4089
   %add153 = add nsw i32 %cond133, 7
   %shr154 = ashr i32 %add153, 4
@@ -460,95 +456,85 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp214166, label %for.cond215.preheader.lr.ph, label %for.end259
 
 for.cond215.preheader.lr.ph:                      ; preds = %if.end
-  %23 = shufflevector <4 x i32> %16, <4 x i32> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 poison>
-  %24 = shufflevector <2 x i32> %15, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %25 = shufflevector <4 x i32> %23, <4 x i32> %24, <4 x i32> <i32 0, i32 1, i32 2, i32 5>
-  %26 = sub nsw <4 x i32> %16, %25
-  %27 = shufflevector <4 x i32> %16, <4 x i32> poison, <2 x i32> <i32 3, i32 poison>
-  %28 = shufflevector <2 x i32> %27, <2 x i32> %15, <2 x i32> <i32 0, i32 2>
-  %29 = sub nsw <2 x i32> %15, %28
+  %sub160 = sub nsw i32 %conv4, %conv2
+  %sub163 = sub nsw i32 %conv7, %conv5
+  %sub159 = sub nsw i32 %conv3, %conv4
+  %sub162 = sub nsw i32 %conv6, %conv7
+  %sub158 = sub nsw i32 %conv2, %conv3
+  %sub161 = sub nsw i32 %conv5, %conv6
   %cmp216160 = icmp slt i32 %cond40, %cond79
   %idxprom223 = zext i1 %cmp to i64
   %overdraw = getelementptr inbounds i8, ptr %buffer, i64 524288
-  %30 = extractelement <2 x i32> %29, i64 1
-  %shl242 = shl i32 %30, 4
-  %31 = extractelement <2 x i32> %29, i64 0
-  %shl244 = shl i32 %31, 4
-  %32 = extractelement <4 x i32> %26, i64 3
-  %shl246 = shl i32 %32, 4
-  %33 = extractelement <4 x i32> %26, i64 1
-  %shl250 = shl i32 %33, 4
-  %34 = extractelement <4 x i32> %26, i64 0
-  %shl252 = shl i32 %34, 4
-  %35 = extractelement <4 x i32> %26, i64 2
-  %shl254 = shl i32 %35, 4
+  %shl242 = shl i32 %sub161, 4
+  %shl244 = shl i32 %sub162, 4
+  %shl246 = shl i32 %sub163, 4
+  %shl250 = shl i32 %sub158, 4
+  %shl252 = shl i32 %sub159, 4
+  %shl254 = shl i32 %sub160, 4
   br i1 %cmp216160, label %for.cond215.preheader.us.preheader, label %for.end259
 
 for.cond215.preheader.us.preheader:               ; preds = %for.cond215.preheader.lr.ph
   %shl185 = shl nsw i32 %cond118, 4
   %add186 = or disjoint i32 %shl185, 8
-  %sub187 = sub nsw i32 %add186, %22
-  %mul = mul nsw i32 %sub187, %33
-  %36 = icmp sgt <2 x i32> %29, <i32 -1, i32 -1>
-  %cmp165 = icmp ne i32 %22, %21
-  %37 = icmp slt <4 x i32> %26, <i32 1, i32 1, i32 1, i32 -1>
-  %38 = extractelement <4 x i1> %37, i64 1
-  %.not172 = select i1 %cmp165, i1 true, i1 %38
-  %39 = extractelement <2 x i1> %36, i64 1
-  %narrow.not = select i1 %39, i1 %.not172, i1 false
+  %sub187 = sub nsw i32 %add186, %conv5
+  %mul = mul nsw i32 %sub187, %sub158
+  %cmp164 = icmp sgt i32 %sub161, -1
+  %cmp165 = icmp ne i32 %conv5, %conv6
+  %cmp166 = icmp slt i32 %sub158, 1
+  %.not172 = select i1 %cmp165, i1 true, i1 %cmp166
+  %narrow.not = select i1 %cmp164, i1 %.not172, i1 false
   %sub190 = sext i1 %narrow.not to i32
   %add191 = add i32 %mul, %sub190
   %shl = shl nsw i32 %cond40, 4
   %add184 = or disjoint i32 %shl, 8
-  %sub188 = sub nsw i32 %add184, %19
-  %mul189 = mul nsw i32 %sub188, %30
+  %sub188 = sub nsw i32 %add184, %conv2
+  %mul189 = mul nsw i32 %sub188, %sub161
   %sub192 = sub i32 %add191, %mul189
-  %sub193 = sub nsw i32 %add186, %21
-  %mul194 = mul nsw i32 %sub193, %34
-  %cmp170 = icmp ne i32 %21, %20
-  %40 = extractelement <4 x i1> %37, i64 0
-  %.not173 = select i1 %cmp170, i1 true, i1 %40
-  %41 = extractelement <2 x i1> %36, i64 0
-  %narrow158.not = select i1 %41, i1 %.not173, i1 false
+  %sub193 = sub nsw i32 %add186, %conv6
+  %mul194 = mul nsw i32 %sub193, %sub159
+  %cmp168 = icmp sgt i32 %sub162, -1
+  %cmp170 = icmp ne i32 %conv6, %conv7
+  %cmp172 = icmp slt i32 %sub159, 1
+  %.not173 = select i1 %cmp170, i1 true, i1 %cmp172
+  %narrow158.not = select i1 %cmp168, i1 %.not173, i1 false
   %sub197 = sext i1 %narrow158.not to i32
   %add198 = add i32 %mul194, %sub197
-  %sub195.neg = sub i32 %17, %add184
-  %mul196.neg = mul i32 %sub195.neg, %31
+  %sub195.neg = sub i32 %conv3, %add184
+  %mul196.neg = mul i32 %sub195.neg, %sub162
   %sub199 = add i32 %add198, %mul196.neg
-  %sub200 = sub nsw i32 %add186, %20
-  %mul201 = mul nsw i32 %sub200, %35
-  %cmp178 = icmp ne i32 %20, %22
-  %42 = extractelement <4 x i1> %37, i64 2
-  %.not174 = select i1 %cmp178, i1 true, i1 %42
-  %43 = extractelement <4 x i32> %26, i64 3
-  %44 = icmp sgt i32 %43, -1
-  %narrow159.not = select i1 %44, i1 %.not174, i1 false
+  %sub200 = sub nsw i32 %add186, %conv7
+  %mul201 = mul nsw i32 %sub200, %sub160
+  %cmp176 = icmp sgt i32 %sub163, -1
+  %cmp178 = icmp ne i32 %conv7, %conv5
+  %cmp180 = icmp slt i32 %sub160, 1
+  %.not174 = select i1 %cmp178, i1 true, i1 %cmp180
+  %narrow159.not = select i1 %cmp176, i1 %.not174, i1 false
   %sub204 = sext i1 %narrow159.not to i32
   %add205 = add i32 %mul201, %sub204
-  %sub202.neg = sub i32 %18, %add184
-  %mul203.neg = mul i32 %sub202.neg, %32
+  %sub202.neg = sub i32 %conv4, %add184
+  %mul203.neg = mul i32 %sub202.neg, %sub163
   %sub206 = add i32 %add205, %mul203.neg
   %conv208 = sitofp i32 %sub188 to float
   %conv211 = sitofp i32 %sub187 to float
   %mul212 = fmul float %DZy.0, %conv211
-  %45 = tail call float @llvm.fmuladd.f32(float %DZx.0, float %conv208, float %mul212)
-  %46 = tail call float @llvm.fmuladd.f32(float %45, float 6.250000e-02, float %v1z.addr.0)
-  %47 = sext i32 %cond40 to i64
-  %48 = sext i32 %cond118 to i64
+  %13 = tail call float @llvm.fmuladd.f32(float %DZx.0, float %conv208, float %mul212)
+  %14 = tail call float @llvm.fmuladd.f32(float %13, float 6.250000e-02, float %v1z.addr.0)
+  %15 = sext i32 %cond40 to i64
+  %16 = sext i32 %cond118 to i64
   %wide.trip.count180 = sext i32 %cond157 to i64
   %wide.trip.count = sext i32 %cond79 to i64
   br label %for.cond215.preheader.us
 
 for.cond215.preheader.us:                         ; preds = %for.cond215.preheader.us.preheader, %for.cond215.for.end_crit_edge.us
-  %indvars.iv177 = phi i64 [ %48, %for.cond215.preheader.us.preheader ], [ %indvars.iv.next178, %for.cond215.for.end_crit_edge.us ]
-  %ZY.0170.us = phi float [ %46, %for.cond215.preheader.us.preheader ], [ %add256.us, %for.cond215.for.end_crit_edge.us ]
+  %indvars.iv177 = phi i64 [ %16, %for.cond215.preheader.us.preheader ], [ %indvars.iv.next178, %for.cond215.for.end_crit_edge.us ]
+  %ZY.0170.us = phi float [ %14, %for.cond215.preheader.us.preheader ], [ %add256.us, %for.cond215.for.end_crit_edge.us ]
   %CY3.0169.us = phi i32 [ %sub206, %for.cond215.preheader.us.preheader ], [ %add255.us, %for.cond215.for.end_crit_edge.us ]
   %CY2.0168.us = phi i32 [ %sub199, %for.cond215.preheader.us.preheader ], [ %add253.us, %for.cond215.for.end_crit_edge.us ]
   %CY1.0167.us = phi i32 [ %sub192, %for.cond215.preheader.us.preheader ], [ %add251.us, %for.cond215.for.end_crit_edge.us ]
   br label %for.body217.us
 
 for.body217.us:                                   ; preds = %for.cond215.preheader.us, %if.end241.us
-  %indvars.iv = phi i64 [ %47, %for.cond215.preheader.us ], [ %indvars.iv.next, %if.end241.us ]
+  %indvars.iv = phi i64 [ %15, %for.cond215.preheader.us ], [ %indvars.iv.next, %if.end241.us ]
   %ZX.0164.us = phi float [ %ZY.0170.us, %for.cond215.preheader.us ], [ %add248.us, %if.end241.us ]
   %CX3.0163.us = phi i32 [ %CY3.0169.us, %for.cond215.preheader.us ], [ %sub247.us, %if.end241.us ]
   %CX2.0162.us = phi i32 [ %CY2.0168.us, %for.cond215.preheader.us ], [ %sub245.us, %if.end241.us ]
@@ -560,15 +546,15 @@ for.body217.us:                                   ; preds = %for.cond215.prehead
 
 if.then220.us:                                    ; preds = %for.body217.us
   %arrayidx224.us = getelementptr inbounds [256 x [256 x [2 x float]]], ptr %buffer, i64 0, i64 %indvars.iv177, i64 %indvars.iv, i64 %idxprom223
-  %49 = load float, ptr %arrayidx224.us, align 4
-  %cmp225.us = fcmp ult float %ZX.0164.us, %49
+  %17 = load float, ptr %arrayidx224.us, align 4
+  %cmp225.us = fcmp ult float %ZX.0164.us, %17
   br i1 %cmp225.us, label %if.end241.us, label %if.then226.us
 
 if.then226.us:                                    ; preds = %if.then220.us
   store float %ZX.0164.us, ptr %arrayidx224.us, align 4
   %arrayidx239.us = getelementptr inbounds [256 x [256 x [2 x i32]]], ptr %overdraw, i64 0, i64 %indvars.iv177, i64 %indvars.iv, i64 %idxprom223
-  %50 = load i32, ptr %arrayidx239.us, align 4
-  %inc.us = add i32 %50, 1
+  %18 = load i32, ptr %arrayidx239.us, align 4
+  %inc.us = add i32 %18, 1
   store i32 %inc.us, ptr %arrayidx239.us, align 4
   br label %if.end241.us
 
@@ -650,12 +636,6 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

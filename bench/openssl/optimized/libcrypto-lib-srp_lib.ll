@@ -114,16 +114,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_server_key(ptr noundef %A, ptr noundef %v, ptr noundef %u, ptr noundef %b, ptr noundef %N) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %A, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %u, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %v, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %b, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %u, null
+  %cmp1 = icmp eq ptr %A, null
+  %or.cond = or i1 %cmp1, %cmp
+  %cmp3 = icmp eq ptr %v, null
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %b, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
   %cmp7 = icmp eq ptr %N, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %cmp7, %or.cond2
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @BN_CTX_new() #4
@@ -188,14 +188,14 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_B_ex(ptr noundef %b, ptr noundef %N, ptr noundef %g, ptr noundef %v, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %b, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %N, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %g, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %v, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %lor.lhs.false6, label %return
+  %cmp = icmp eq ptr %b, null
+  %cmp1 = icmp eq ptr %N, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %g, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %v, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  br i1 %or.cond2, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %entry
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %libctx) #4
@@ -447,18 +447,18 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define ptr @SRP_Calc_client_key_ex(ptr noundef %N, ptr noundef %B, ptr noundef %g, ptr noundef %x, ptr noundef %a, ptr noundef %u, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %B, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %u, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %N, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %g, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %u, null
+  %cmp1 = icmp eq ptr %B, null
+  %or.cond = or i1 %cmp1, %cmp
+  %cmp3 = icmp eq ptr %N, null
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %g, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
   %cmp7 = icmp eq ptr %x, null
+  %or.cond3 = or i1 %cmp7, %or.cond2
   %cmp9 = icmp eq ptr %a, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  %op.rdx40 = or i1 %op.rdx, %cmp9
-  br i1 %op.rdx40, label %return, label %lor.lhs.false10
+  %or.cond4 = or i1 %cmp9, %or.cond3
+  br i1 %or.cond4, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %entry
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %libctx) #4

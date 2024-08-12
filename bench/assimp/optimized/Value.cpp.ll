@@ -32,7 +32,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 
 $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 
-@_ZN10ODDLParserL3endE = internal global %"class.ODDLParser::Value::Iterator" zeroinitializer, align 16
+@_ZN10ODDLParserL3endE = internal global %"class.ODDLParser::Value::Iterator" zeroinitializer, align 8
 @.str = private unnamed_addr constant [6 x i8] c"None\0A\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"Not supported\0A\00", align 1
@@ -142,20 +142,22 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load <2 x ptr>, ptr @_ZN10ODDLParserL3endE, align 16
+  %2 = load ptr, ptr @_ZN10ODDLParserL3endE, align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ODDLParserL3endE, i64 8), align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %m_next.i = getelementptr inbounds i8, ptr %1, i64 24
-  %3 = load ptr, ptr %m_next.i, align 8
-  store ptr %3, ptr %m_current, align 8
-  %4 = insertelement <2 x ptr> poison, ptr %3, i64 0
-  %5 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <2 x i32> zeroinitializer
+  %4 = load ptr, ptr %m_next.i, align 8
+  store ptr %4, ptr %m_current, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %6 = phi <2 x ptr> [ %2, %if.then ], [ %5, %if.end ]
-  store <2 x ptr> %6, ptr %agg.result, align 8
+  %.sink2 = phi ptr [ %2, %if.then ], [ %4, %if.end ]
+  %.sink = phi ptr [ %3, %if.then ], [ %4, %if.end ]
+  store ptr %.sink2, ptr %agg.result, align 8
+  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %.sink, ptr %5, align 8
   ret void
 }
 

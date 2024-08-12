@@ -1488,9 +1488,13 @@ if.end8.i:                                        ; preds = %if.end.i
 
 sw.bb9.i:                                         ; preds = %if.end8.i
   %initialValue.i.i = getelementptr inbounds i8, ptr %trie, i64 40
-  %2 = load <2 x i32>, ptr %initialValue.i.i, align 8
-  %3 = and <2 x i32> %2, <i32 65535, i32 65535>
-  store <2 x i32> %3, ptr %initialValue.i.i, align 8
+  %2 = load i32, ptr %initialValue.i.i, align 8
+  %and.i.i = and i32 %2, 65535
+  store i32 %and.i.i, ptr %initialValue.i.i, align 8
+  %errorValue.i.i = getelementptr inbounds i8, ptr %trie, i64 44
+  %3 = load i32, ptr %errorValue.i.i, align 4
+  %and2.i.i = and i32 %3, 65535
+  store i32 %and2.i.i, ptr %errorValue.i.i, align 4
   %highValue.i.i = getelementptr inbounds i8, ptr %trie, i64 52
   %4 = load i32, ptr %highValue.i.i, align 4
   %and3.i.i = and i32 %4, 65535
@@ -1551,9 +1555,13 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 sw.bb10.i:                                        ; preds = %if.end8.i
   %initialValue.i69.i = getelementptr inbounds i8, ptr %trie, i64 40
-  %14 = load <2 x i32>, ptr %initialValue.i69.i, align 8
-  %15 = and <2 x i32> %14, <i32 255, i32 255>
-  store <2 x i32> %15, ptr %initialValue.i69.i, align 8
+  %14 = load i32, ptr %initialValue.i69.i, align 8
+  %and.i70.i = and i32 %14, 255
+  store i32 %and.i70.i, ptr %initialValue.i69.i, align 8
+  %errorValue.i71.i = getelementptr inbounds i8, ptr %trie, i64 44
+  %15 = load i32, ptr %errorValue.i71.i, align 4
+  %and2.i72.i = and i32 %15, 255
+  store i32 %and2.i72.i, ptr %errorValue.i71.i, align 4
   %highValue.i73.i = getelementptr inbounds i8, ptr %trie, i64 52
   %16 = load i32, ptr %highValue.i73.i, align 4
   %and3.i74.i = and i32 %16, 255
@@ -2868,9 +2876,12 @@ for.inc.i.i.i:                                    ; preds = %while.body.i189.i.i
 
 if.end27.i.i.i:                                   ; preds = %for.inc.i.i.i
   %shift.i.i180.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 16
+  store i32 12, ptr %shift.i.i180.i.i, align 8
   %mask.i.i181.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 20
+  store i32 4095, ptr %mask.i.i181.i.i, align 4
+  store i32 6007, ptr %length.i.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24028) %.pre.i.i134.ph.i.i, i8 0, i64 24028, i1 false)
-  store <4 x i32> <i32 6007, i32 12, i32 4095, i32 32>, ptr %length.i.i.i.i, align 4
+  store i32 32, ptr %blockLength.i.i.i.i, align 8
   call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendItEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %fastIndex.i.i.i, i32 noundef 0, i32 noundef 0, i32 noundef %shr.i115.i.i)
   %cond.i.i.i = select i1 %cmp11.not.i, i32 4096, i32 0
   %153 = load i32, ptr %highStart.i.i.i, align 8

@@ -83,22 +83,22 @@ $_ZTV12MachTempNode = comdat any
 @_VECTMASK_REG_K6_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
 @_VECTMASK_REG_K7_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
 @_INT_FLAGS_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
-@_FLOAT_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_STACK_OR_FLOAT_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_FLOAT_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_STACK_OR_FLOAT_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_DOUBLE_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_STACK_OR_DOUBLE_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_DOUBLE_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_STACK_OR_DOUBLE_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORS_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORS_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORD_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORD_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORX_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORX_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORY_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
-@_VECTORY_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 16
+@_FLOAT_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_STACK_OR_FLOAT_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_FLOAT_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_STACK_OR_FLOAT_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_DOUBLE_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_STACK_OR_DOUBLE_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_DOUBLE_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_STACK_OR_DOUBLE_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORS_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORS_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORD_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORD_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORX_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORX_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORY_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
+@_VECTORY_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
 @_VECTORZ_REG_EVEX_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
 @_VECTORZ_REG_LEGACY_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
 @_XMM0_REG_mask = hidden local_unnamed_addr global %class.RegMask zeroinitializer, align 8
@@ -108804,9 +108804,15 @@ __cxx_global_var_init.30.exit:                    ; preds = %318, %.lr.ph.i.i178
   br i1 %exitcond.not.i.i188, label %__cxx_global_var_init.31.exit, label %.lr.ph.i.i185, !llvm.loop !271
 
 __cxx_global_var_init.31.exit:                    ; preds = %330, %.lr.ph.i.i185, %335
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_FLOAT_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 16), align 16
-  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_FLOAT_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 32), align 8
   store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_LEGACY_mask, i64 92), align 4
@@ -108841,12 +108847,21 @@ __cxx_global_var_init.31.exit:                    ; preds = %330, %.lr.ph.i.i185
   br i1 %exitcond.not.i.i195, label %__cxx_global_var_init.32.exit, label %.lr.ph.i.i192, !llvm.loop !271
 
 __cxx_global_var_init.32.exit:                    ; preds = %342, %.lr.ph.i.i192, %347
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 16), align 16
-  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 32), align 8
   store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 40), i8 0, i64 32, i1 false)
-  store <4 x i32> <i32 -65536, i32 -1, i32 -1, i32 -1>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 72), align 8
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 76), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 80), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 84), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 88), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, i64 92), align 4
   br label %349
@@ -108880,11 +108895,23 @@ __cxx_global_var_init.32.exit:                    ; preds = %342, %.lr.ph.i.i192
   br i1 %exitcond.not.i.i202, label %__cxx_global_var_init.33.exit, label %.lr.ph.i.i199, !llvm.loop !271
 
 __cxx_global_var_init.33.exit:                    ; preds = %354, %.lr.ph.i.i199, %359
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_FLOAT_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 48), align 16
-  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_FLOAT_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 32), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 36), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 40), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 44), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 48), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 52), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 56), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 60), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 64), align 8
   store i32 65537, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_FLOAT_REG_EVEX_mask, i64 92), align 4
@@ -108919,12 +108946,30 @@ __cxx_global_var_init.33.exit:                    ; preds = %354, %.lr.ph.i.i199
   br i1 %exitcond.not.i.i209, label %__cxx_global_var_init.34.exit, label %.lr.ph.i.i206, !llvm.loop !271
 
 __cxx_global_var_init.34.exit:                    ; preds = %366, %.lr.ph.i.i206, %371
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 48), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 -65536, i32 -1>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 64), align 16
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 10>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 80), align 16
+  store i32 0, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 32), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 36), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 40), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 44), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 48), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 52), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 56), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 60), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 64), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 68), align 4
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 76), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 80), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 84), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 88), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_STACK_OR_FLOAT_REG_EVEX_mask, i64 92), align 4
   br label %373
 
 373:                                              ; preds = %378, %__cxx_global_var_init.34.exit
@@ -108956,9 +109001,15 @@ __cxx_global_var_init.34.exit:                    ; preds = %366, %.lr.ph.i.i206
   br i1 %exitcond.not.i.i216, label %__cxx_global_var_init.35.exit, label %.lr.ph.i.i213, !llvm.loop !271
 
 __cxx_global_var_init.35.exit:                    ; preds = %378, %.lr.ph.i.i213, %383
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_DOUBLE_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 16), align 16
-  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_DOUBLE_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 32), align 8
   store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_LEGACY_mask, i64 92), align 4
@@ -108993,12 +109044,21 @@ __cxx_global_var_init.35.exit:                    ; preds = %378, %.lr.ph.i.i213
   br i1 %exitcond.not.i.i223, label %__cxx_global_var_init.36.exit, label %.lr.ph.i.i220, !llvm.loop !271
 
 __cxx_global_var_init.36.exit:                    ; preds = %390, %.lr.ph.i.i220, %395
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 16), align 16
-  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 32), align 8
   store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 40), i8 0, i64 32, i1 false)
-  store <4 x i32> <i32 -65536, i32 -1, i32 -1, i32 -1>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 72), align 8
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 76), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 80), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 84), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 88), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, i64 92), align 4
   br label %397
@@ -109032,11 +109092,23 @@ __cxx_global_var_init.36.exit:                    ; preds = %390, %.lr.ph.i.i220
   br i1 %exitcond.not.i.i230, label %__cxx_global_var_init.37.exit, label %.lr.ph.i.i227, !llvm.loop !271
 
 __cxx_global_var_init.37.exit:                    ; preds = %402, %.lr.ph.i.i227, %407
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_DOUBLE_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 48), align 16
-  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_DOUBLE_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 32), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 36), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 40), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 44), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 48), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 52), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 56), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 60), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 64), align 8
   store i32 196611, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_DOUBLE_REG_EVEX_mask, i64 92), align 4
@@ -109071,12 +109143,30 @@ __cxx_global_var_init.37.exit:                    ; preds = %402, %.lr.ph.i.i227
   br i1 %exitcond.not.i.i237, label %__cxx_global_var_init.38.exit, label %.lr.ph.i.i234, !llvm.loop !271
 
 __cxx_global_var_init.38.exit:                    ; preds = %414, %.lr.ph.i.i234, %419
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 48), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 -65536, i32 -1>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 64), align 16
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 10>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 80), align 16
+  store i32 0, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 32), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 36), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 40), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 44), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 48), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 52), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 56), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 60), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 64), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 68), align 4
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 76), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 80), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 84), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 88), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_STACK_OR_DOUBLE_REG_EVEX_mask, i64 92), align 4
   br label %421
 
 421:                                              ; preds = %426, %__cxx_global_var_init.38.exit
@@ -109108,9 +109198,15 @@ __cxx_global_var_init.38.exit:                    ; preds = %414, %.lr.ph.i.i234
   br i1 %exitcond.not.i.i244, label %__cxx_global_var_init.39.exit, label %.lr.ph.i.i241, !llvm.loop !271
 
 __cxx_global_var_init.39.exit:                    ; preds = %426, %.lr.ph.i.i241, %431
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_VECTORS_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 16), align 16
-  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_VECTORS_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 32), align 8
   store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_LEGACY_mask, i64 92), align 4
@@ -109145,11 +109241,23 @@ __cxx_global_var_init.39.exit:                    ; preds = %426, %.lr.ph.i.i241
   br i1 %exitcond.not.i.i251, label %__cxx_global_var_init.40.exit, label %.lr.ph.i.i248, !llvm.loop !271
 
 __cxx_global_var_init.40.exit:                    ; preds = %438, %.lr.ph.i.i248, %443
-  store <4 x i32> <i32 0, i32 0, i32 65537, i32 65537>, ptr @_VECTORS_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 65537, i32 65537, i32 65537, i32 65537>, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 48), align 16
-  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_VECTORS_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 4), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 8), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 12), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 16), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 20), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 24), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 28), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 32), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 36), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 40), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 44), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 48), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 52), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 56), align 8
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 60), align 4
+  store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 64), align 8
   store i32 65537, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORS_REG_EVEX_mask, i64 92), align 4
@@ -109184,9 +109292,15 @@ __cxx_global_var_init.40.exit:                    ; preds = %438, %.lr.ph.i.i248
   br i1 %exitcond.not.i.i258, label %__cxx_global_var_init.41.exit, label %.lr.ph.i.i255, !llvm.loop !271
 
 __cxx_global_var_init.41.exit:                    ; preds = %450, %.lr.ph.i.i255, %455
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_VECTORD_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 16), align 16
-  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_VECTORD_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 32), align 8
   store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_LEGACY_mask, i64 92), align 4
@@ -109221,11 +109335,23 @@ __cxx_global_var_init.41.exit:                    ; preds = %450, %.lr.ph.i.i255
   br i1 %exitcond.not.i.i265, label %__cxx_global_var_init.42.exit, label %.lr.ph.i.i262, !llvm.loop !271
 
 __cxx_global_var_init.42.exit:                    ; preds = %462, %.lr.ph.i.i262, %467
-  store <4 x i32> <i32 0, i32 0, i32 196611, i32 196611>, ptr @_VECTORD_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 196611, i32 196611, i32 196611, i32 196611>, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 48), align 16
-  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_VECTORD_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 4), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 8), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 12), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 16), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 20), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 24), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 28), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 32), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 36), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 40), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 44), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 48), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 52), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 56), align 8
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 60), align 4
+  store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 64), align 8
   store i32 196611, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORD_REG_EVEX_mask, i64 92), align 4
@@ -109260,9 +109386,15 @@ __cxx_global_var_init.42.exit:                    ; preds = %462, %.lr.ph.i.i262
   br i1 %exitcond.not.i.i272, label %__cxx_global_var_init.43.exit, label %.lr.ph.i.i269, !llvm.loop !271
 
 __cxx_global_var_init.43.exit:                    ; preds = %474, %.lr.ph.i.i269, %479
-  store <4 x i32> <i32 0, i32 0, i32 983055, i32 983055>, ptr @_VECTORX_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 983055, i32 983055, i32 983055, i32 983055>, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 16), align 16
-  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_VECTORX_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 4), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 8), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 12), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 16), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 20), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 24), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 28), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 32), align 8
   store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_LEGACY_mask, i64 92), align 4
@@ -109297,11 +109429,23 @@ __cxx_global_var_init.43.exit:                    ; preds = %474, %.lr.ph.i.i269
   br i1 %exitcond.not.i.i279, label %__cxx_global_var_init.44.exit, label %.lr.ph.i.i276, !llvm.loop !271
 
 __cxx_global_var_init.44.exit:                    ; preds = %486, %.lr.ph.i.i276, %491
-  store <4 x i32> <i32 0, i32 0, i32 983055, i32 983055>, ptr @_VECTORX_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 983055, i32 983055, i32 983055, i32 983055>, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 983055, i32 983055, i32 983055, i32 983055>, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 983055, i32 983055, i32 983055, i32 983055>, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 48), align 16
-  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_VECTORX_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 4), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 8), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 12), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 16), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 20), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 24), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 28), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 32), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 36), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 40), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 44), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 48), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 52), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 56), align 8
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 60), align 4
+  store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 64), align 8
   store i32 983055, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORX_REG_EVEX_mask, i64 92), align 4
@@ -109336,9 +109480,15 @@ __cxx_global_var_init.44.exit:                    ; preds = %486, %.lr.ph.i.i276
   br i1 %exitcond.not.i.i286, label %__cxx_global_var_init.45.exit, label %.lr.ph.i.i283, !llvm.loop !271
 
 __cxx_global_var_init.45.exit:                    ; preds = %498, %.lr.ph.i.i283, %503
-  store <4 x i32> <i32 0, i32 0, i32 16711935, i32 16711935>, ptr @_VECTORY_REG_LEGACY_mask, align 16
-  store <4 x i32> <i32 16711935, i32 16711935, i32 16711935, i32 16711935>, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 16), align 16
-  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 32), align 16
+  store i32 0, ptr @_VECTORY_REG_LEGACY_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 4), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 8), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 12), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 16), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 20), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 24), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 28), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 32), align 8
   store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 40), i8 0, i64 52, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_LEGACY_mask, i64 92), align 4
@@ -109373,11 +109523,23 @@ __cxx_global_var_init.45.exit:                    ; preds = %498, %.lr.ph.i.i283
   br i1 %exitcond.not.i.i293, label %__cxx_global_var_init.46.exit, label %.lr.ph.i.i290, !llvm.loop !271
 
 __cxx_global_var_init.46.exit:                    ; preds = %510, %.lr.ph.i.i290, %515
-  store <4 x i32> <i32 0, i32 0, i32 16711935, i32 16711935>, ptr @_VECTORY_REG_EVEX_mask, align 16
-  store <4 x i32> <i32 16711935, i32 16711935, i32 16711935, i32 16711935>, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 16), align 16
-  store <4 x i32> <i32 16711935, i32 16711935, i32 16711935, i32 16711935>, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 32), align 16
-  store <4 x i32> <i32 16711935, i32 16711935, i32 16711935, i32 16711935>, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 48), align 16
-  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 64), align 16
+  store i32 0, ptr @_VECTORY_REG_EVEX_mask, align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 4), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 8), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 12), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 16), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 20), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 24), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 28), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 32), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 36), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 40), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 44), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 48), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 52), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 56), align 8
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 60), align 4
+  store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 64), align 8
   store i32 16711935, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 68), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 72), i8 0, i64 20, i1 false)
   store i32 10, ptr getelementptr inbounds (i8, ptr @_VECTORY_REG_EVEX_mask, i64 92), align 4
@@ -109554,7 +109716,10 @@ __cxx_global_var_init.50.exit:                    ; preds = %558, %.lr.ph.i.i318
 
 __cxx_global_var_init.51.exit:                    ; preds = %570, %.lr.ph.i.i325, %575
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) @_STACK_OR_STACK_SLOTS_mask, i8 0, i64 72, i1 false)
-  store <4 x i32> <i32 -65536, i32 -1, i32 -1, i32 -1>, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 72), align 8
+  store i32 -65536, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 76), align 4
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 80), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 84), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 88), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 92), align 4
   br label %577

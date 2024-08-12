@@ -986,9 +986,9 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %entry, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i16 @_ZN4node6crypto17RandomPrimeTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomPrimeConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %params, ptr nocapture readnone %unused, ptr nocapture noundef writeonly %result) local_unnamed_addr #5 align 2 {
 entry:
-  %store = alloca %"class.std::shared_ptr.286", align 16
+  %store = alloca %"class.std::shared_ptr.286", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.289", align 8
-  %agg.tmp18 = alloca %"class.std::shared_ptr.286", align 16
+  %agg.tmp18 = alloca %"class.std::shared_ptr.286", align 8
   %prime = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %prime, align 8
   %call1 = tail call i32 @BN_num_bits(ptr noundef %0) #17
@@ -1011,7 +1011,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i: ; preds = %entry
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
   store ptr null, ptr %ref.tmp, align 8
   %3 = load ptr, ptr %prime, align 8
-  %4 = load ptr, ptr %store, align 16
+  %4 = load ptr, ptr %store, align 8
   %call7 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %call9 = call i32 @BN_bn2binpad(ptr noundef %3, ptr noundef %call7, i32 noundef %div) #17
   %cmp.not = icmp eq i32 %div, %call9
@@ -1024,16 +1024,17 @@ do.body13:                                        ; preds = %_ZNSt10unique_ptrIN
 
 do.end15:                                         ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
   %5 = load ptr, ptr %isolate_.i, align 8
+  %6 = load ptr, ptr %store, align 8
+  store ptr %6, ptr %agg.tmp18, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %store, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %7 = load <2 x ptr>, ptr %store, align 16
-  store <2 x ptr> %7, ptr %agg.tmp18, align 16
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %7, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end15
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5807,15 +5808,18 @@ _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
   %params_.i.i = getelementptr inbounds i8, ptr %call10, i64 248
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto17RandomPrimeConfigE, i64 16), ptr %params_.i.i, align 8
   %prime.i.i.i = getelementptr inbounds i8, ptr %call10, i64 256
-  %rem3.i.i.i = getelementptr inbounds i8, ptr %params, i64 16
-  %20 = load <2 x i64>, ptr %prime.i, align 8
+  %20 = load i64, ptr %prime.i, align 8
+  store i64 %20, ptr %prime.i.i.i, align 8
   store ptr null, ptr %prime.i, align 8
-  store <2 x i64> %20, ptr %prime.i.i.i, align 8
+  %rem.i.i.i = getelementptr inbounds i8, ptr %call10, i64 264
+  %rem3.i.i.i = getelementptr inbounds i8, ptr %params, i64 16
+  %21 = load i64, ptr %rem3.i.i.i, align 8
+  store i64 %21, ptr %rem.i.i.i, align 8
   store ptr null, ptr %rem3.i.i.i, align 8
   %add.i.i.i = getelementptr inbounds i8, ptr %call10, i64 272
   %add4.i.i.i = getelementptr inbounds i8, ptr %params, i64 24
-  %21 = load i64, ptr %add4.i.i.i, align 8
-  store i64 %21, ptr %add.i.i.i, align 8
+  %22 = load i64, ptr %add4.i.i.i, align 8
+  store i64 %22, ptr %add.i.i.i, align 8
   %bits.i.i.i = getelementptr inbounds i8, ptr %call10, i64 280
   %bits5.i.i.i = getelementptr inbounds i8, ptr %params, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %bits.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %bits5.i.i.i, i64 5, i1 false)
@@ -5849,21 +5853,21 @@ _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.e
   %add.i12 = phi ptr [ %add.i10, %cleanup.thread ], [ %add.i, %if.then.i.i8 ], [ %add.i, %cleanup ]
   store ptr null, ptr %add.i12, align 8
   %rem.i = getelementptr inbounds i8, ptr %params, i64 16
-  %22 = load ptr, ptr %rem.i, align 8
-  %cmp.not.i1.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %rem.i, align 8
+  %cmp.not.i1.i = icmp eq ptr %23, null
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit3.i, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit.i
-  tail call void @BN_free(ptr noundef nonnull %22) #17
+  tail call void @BN_free(ptr noundef nonnull %23) #17
   br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit3.i
 
 _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit3.i: ; preds = %if.then.i2.i, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit.i
-  %23 = load ptr, ptr %prime.i, align 8
-  %cmp.not.i4.i = icmp eq ptr %23, null
+  %24 = load ptr, ptr %prime.i, align 8
+  %cmp.not.i4.i = icmp eq ptr %24, null
   br i1 %cmp.not.i4.i, label %_ZN4node6crypto17RandomPrimeConfigD2Ev.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit3.i
-  tail call void @BN_free(ptr noundef nonnull %23) #17
+  tail call void @BN_free(ptr noundef nonnull %24) #17
   br label %_ZN4node6crypto17RandomPrimeConfigD2Ev.exit
 
 _ZN4node6crypto17RandomPrimeConfigD2Ev.exit:      ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit3.i, %if.then.i5.i

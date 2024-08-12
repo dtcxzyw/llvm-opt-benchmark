@@ -3980,10 +3980,10 @@ entry:
   %ref.tmp191 = alloca %"class.std::vector.78", align 8
   %agg.tmp207 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp209 = alloca %"class.std::vector.78", align 8
-  %pn = alloca %"class.std::shared_ptr", align 16
+  %pn = alloca %"class.std::shared_ptr", align 8
   %agg.tmp216 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp241 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp243 = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp243 = alloca %"class.std::shared_ptr", align 8
   %agg.tmp258 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -5346,16 +5346,17 @@ if.then13.i.i811:                                 ; preds = %if.else.i.i809
           to label %invoke.cont242 unwind label %lpad222
 
 invoke.cont242:                                   ; preds = %if.else.i.i809, %if.then.i.i813, %if.then13.i.i811
+  %151 = load ptr, ptr %pn, align 8
+  store ptr %151, ptr %agg.tmp243, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp243, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pn, i64 8
-  %151 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %152 = load <2 x ptr>, ptr %pn, align 16
-  store <2 x ptr> %152, ptr %agg.tmp243, align 16
-  %cmp.not.i.i.i = icmp eq ptr %151, null
+  %152 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %152, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %152, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i820
 
 if.then.i.i.i820:                                 ; preds = %invoke.cont242
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %151, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %152, i64 8
   %153 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %153, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i822, label %if.then.i.i.i.i.i821

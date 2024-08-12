@@ -5721,7 +5721,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10cmCTestBZR12StatusParser1
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   %13 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %10, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(520) %10)
-  br i1 %13, label %14, label %105
+  br i1 %13, label %14, label %104
 
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !80
@@ -5761,7 +5761,7 @@ common.resume:                                    ; preds = %.body, %26
 _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !80
   %28 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
-          to label %29 unwind label %97
+          to label %29 unwind label %96
 
 29:                                               ; preds = %_ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit
   %30 = load i8, ptr %28, align 1
@@ -5798,7 +5798,7 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
 44:                                               ; preds = %41, %34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !86
   %45 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
-          to label %46 unwind label %99
+          to label %46 unwind label %98
 
 46:                                               ; preds = %44
   %47 = load i8, ptr %45, align 1
@@ -5835,7 +5835,7 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
 61:                                               ; preds = %58, %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !92
   %62 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0)
-          to label %63 unwind label %101
+          to label %63 unwind label %100
 
 63:                                               ; preds = %61
   %64 = load i8, ptr %62, align 1
@@ -5876,7 +5876,7 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
 
 80:                                               ; preds = %78
   invoke void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc unwind label %103
+          to label %.noexc unwind label %102
 
 .noexc:                                           ; preds = %80
   %81 = icmp eq i8 %30, 67
@@ -5886,71 +5886,73 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %18, %25
   %83 = icmp eq i8 %30, 43
   %84 = and i8 %30, -3
   %85 = icmp eq i8 %84, 80
-  %86 = insertelement <4 x i8> poison, i8 %47, i64 0
-  %87 = shufflevector <4 x i8> %86, <4 x i8> poison, <4 x i32> zeroinitializer
-  %88 = icmp eq <4 x i8> %87, <i8 77, i8 75, i8 78, i8 68>
-  %89 = icmp eq i8 %64, 42
-  %90 = bitcast <4 x i1> %88 to i4
-  %91 = icmp ne i4 %90, 0
-  %op.rdx = or i1 %91, %83
-  %op.rdx16 = or i1 %85, %89
-  %op.rdx17 = or i1 %op.rdx, %op.rdx16
-  br i1 %op.rdx17, label %.sink.split.i, label %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %or.cond5.i = or i1 %83, %85
+  %86 = icmp eq i8 %47, 77
+  %or.cond8.i = or i1 %or.cond5.i, %86
+  %87 = icmp eq i8 %47, 75
+  %or.cond11.i = or i1 %87, %or.cond8.i
+  %88 = icmp eq i8 %47, 78
+  %or.cond14.i = or i1 %88, %or.cond11.i
+  %89 = icmp eq i8 %47, 68
+  %or.cond17.i = or i1 %89, %or.cond14.i
+  %90 = icmp eq i8 %64, 42
+  %or.cond20.i = or i1 %or.cond17.i, %90
+  br i1 %or.cond20.i, label %.sink.split.i, label %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 .sink.split.i:                                    ; preds = %82, %.noexc
   %.sink29.i = phi i32 [ 2, %.noexc ], [ 1, %82 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %91 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 80
-  %96 = load ptr, ptr %95, align 8
-  invoke void %96(ptr noundef nonnull align 8 dereferenceable(784) %93, i32 noundef %.sink29.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %103
+  %94 = getelementptr inbounds i8, ptr %93, i64 80
+  %95 = load ptr, ptr %94, align 8
+  invoke void %95(ptr noundef nonnull align 8 dereferenceable(784) %92, i32 noundef %.sink29.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %102
 
 _ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %82, %78, %.sink.split.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  br label %105
+  br label %104
 
-97:                                               ; preds = %_ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %_ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit
+  %97 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-99:                                               ; preds = %44
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %44
+  %99 = landingpad { ptr, i32 }
           cleanup
   br label %.body9
 
-101:                                              ; preds = %61
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %61
+  %101 = landingpad { ptr, i32 }
           cleanup
   br label %.body12
 
-103:                                              ; preds = %.sink.split.i, %80
-  %104 = landingpad { ptr, i32 }
+102:                                              ; preds = %.sink.split.i, %80
+  %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   br label %.body12
 
-.body12:                                          ; preds = %101, %76, %103
-  %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ], [ %77, %76 ]
+.body12:                                          ; preds = %100, %76, %102
+  %.pn = phi { ptr, i32 } [ %103, %102 ], [ %101, %100 ], [ %77, %76 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %.body9
 
-.body9:                                           ; preds = %99, %59, %.body12
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body12 ], [ %100, %99 ], [ %60, %59 ]
+.body9:                                           ; preds = %98, %59, %.body12
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body12 ], [ %99, %98 ], [ %60, %59 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   br label %.body
 
-.body:                                            ; preds = %97, %42, %.body9
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body9 ], [ %98, %97 ], [ %43, %42 ]
+.body:                                            ; preds = %96, %42, %.body9
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body9 ], [ %97, %96 ], [ %43, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %common.resume
 
-105:                                              ; preds = %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %1
+104:                                              ; preds = %_ZN10cmCTestBZR12StatusParser6DoPathEcccNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %1
   ret i1 true
 }
 

@@ -154,9 +154,13 @@ entry:
   %read_crc16 = getelementptr inbounds i8, ptr %br, i64 28
   store i32 %conv, ptr %read_crc16, align 4
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
+  %0 = load i32, ptr %consumed_words, align 4
   %crc16_offset = getelementptr inbounds i8, ptr %br, i64 32
-  %0 = load <2 x i32>, ptr %consumed_words, align 4
-  store <2 x i32> %0, ptr %crc16_offset, align 8
+  store i32 %0, ptr %crc16_offset, align 8
+  %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
+  %1 = load i32, ptr %consumed_bits, align 8
+  %crc16_align = getelementptr inbounds i8, ptr %br, i64 36
+  store i32 %1, ptr %crc16_align, align 4
   ret void
 }
 

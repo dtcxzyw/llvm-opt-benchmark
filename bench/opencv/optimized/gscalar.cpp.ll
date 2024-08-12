@@ -460,64 +460,72 @@ define void @_ZN2cv7GScalarC2EONS_7Scalar_IdEE(ptr noundef nonnull align 8 deref
   %4 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #13
   store i64 1, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x double>, ptr %7, align 8
-  store <2 x double> %9, ptr %8, align 8
+  %6 = load double, ptr %1, align 8
+  store double %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load double, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store double %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  store double %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  store double %14, ptr %15, align 8
   invoke void @_ZN2cv7GOriginC1ENS_6GShapeENS_4util7variantIJNS2_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEEE(ptr noundef nonnull align 8 dereferenceable(180) %4, i32 noundef 1, ptr noundef nonnull %3)
-          to label %10 unwind label %18
+          to label %16 unwind label %24
 
-10:                                               ; preds = %2
+16:                                               ; preds = %2
   store ptr %4, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv7GOriginEEET_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %4)
-          to label %_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit unwind label %18
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv7GOriginEEET_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %4)
+          to label %_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit unwind label %24
 
-_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit: ; preds = %10
-  %12 = load i64, ptr %3, align 8
-  %13 = getelementptr inbounds [4 x ptr], ptr @constinit.2, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr noundef nonnull %5)
-          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit unwind label %15
+_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit: ; preds = %16
+  %18 = load i64, ptr %3, align 8
+  %19 = getelementptr inbounds [4 x ptr], ptr @constinit.2, i64 0, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  invoke void %20(ptr noundef nonnull %5)
+          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit unwind label %21
 
-15:                                               ; preds = %_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit
-  %16 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN2cv7GOriginEEC2IS1_vEEPT_.exit
   ret void
 
-18:                                               ; preds = %10, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %10 ]
-  %19 = landingpad { ptr, i32 }
+24:                                               ; preds = %16, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %16 ]
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %20 = load i64, ptr %3, align 8
-  %21 = getelementptr inbounds [4 x ptr], ptr @constinit.2, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  invoke void %22(ptr noundef nonnull %5)
-          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7 unwind label %23
+  %26 = load i64, ptr %3, align 8
+  %27 = getelementptr inbounds [4 x ptr], ptr @constinit.2, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull %5)
+          to label %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7 unwind label %29
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+29:                                               ; preds = %24
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #14
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #14
   unreachable
 
-_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7: ; preds = %18
-  br i1 %.0, label %26, label %27
+_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7: ; preds = %24
+  br i1 %.0, label %32, label %33
 
-26:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7
+32:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7
   call void @_ZdlPv(ptr noundef nonnull %4) #16
-  br label %27
+  br label %33
 
-27:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7, %26
-  resume { ptr, i32 } %19
+33:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatEEED2Ev.exit7, %32
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable

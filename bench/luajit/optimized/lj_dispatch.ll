@@ -259,19 +259,23 @@ if.then125:                                       ; preds = %if.then117
 
 if.else130:                                       ; preds = %if.then117
   %arrayidx131 = getelementptr inbounds i8, ptr %g, i64 5784
+  %15 = load ptr, ptr %arrayidx131, align 8
   %arrayidx132 = getelementptr inbounds i8, ptr %g, i64 4552
-  %15 = load <2 x ptr>, ptr %arrayidx131, align 8
-  store <2 x ptr> %15, ptr %arrayidx132, align 8
+  store ptr %15, ptr %arrayidx132, align 8
+  %arrayidx133 = getelementptr inbounds i8, ptr %g, i64 5792
+  %16 = load ptr, ptr %arrayidx133, align 8
+  %arrayidx134 = getelementptr inbounds i8, ptr %g, i64 4560
+  store ptr %16, ptr %arrayidx134, align 8
   %arrayidx135 = getelementptr inbounds i8, ptr %g, i64 5800
-  %16 = load ptr, ptr %arrayidx135, align 8
+  %17 = load ptr, ptr %arrayidx135, align 8
   %arrayidx136 = getelementptr inbounds i8, ptr %g, i64 4568
-  store ptr %16, ptr %arrayidx136, align 8
+  store ptr %17, ptr %arrayidx136, align 8
   %arrayidx137 = getelementptr inbounds i8, ptr %g, i64 5808
-  %17 = load ptr, ptr %arrayidx137, align 8
+  %18 = load ptr, ptr %arrayidx137, align 8
   br label %if.end141.sink.split
 
 if.end141.sink.split:                             ; preds = %if.then94, %if.then125, %if.else130
-  %.sink = phi ptr [ %17, %if.else130 ], [ @lj_vm_rethook, %if.then125 ], [ @lj_vm_rethook, %if.then94 ]
+  %.sink = phi ptr [ %18, %if.else130 ], [ @lj_vm_rethook, %if.then125 ], [ @lj_vm_rethook, %if.then94 ]
   %arrayidx138 = getelementptr inbounds i8, ptr %g, i64 4576
   store ptr %.sink, ptr %arrayidx138, align 8
   br label %if.end141
@@ -280,17 +284,17 @@ if.end141:                                        ; preds = %for.body, %if.end14
   %and145 = and i32 %xor, 1
   %tobool146.not = icmp eq i32 %and145, 0
   %.pre = and i32 %or38, 1
-  %18 = icmp eq i32 %.pre, 0
+  %19 = icmp eq i32 %.pre, 0
   br i1 %tobool146.not, label %if.end179, label %if.then147
 
 if.then147:                                       ; preds = %if.end141
-  br i1 %18, label %for.body157, label %for.body172
+  br i1 %19, label %for.body157, label %for.body172
 
 for.body157:                                      ; preds = %if.then147, %for.body157
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %for.body157 ], [ 89, %if.then147 ]
   %arrayidx159 = getelementptr inbounds [0 x i16], ptr @lj_bc_ofs, i64 0, i64 %indvars.iv87
-  %19 = load i16, ptr %arrayidx159, align 2
-  %idx.ext161 = zext i16 %19 to i64
+  %20 = load i16, ptr %arrayidx159, align 2
+  %idx.ext161 = zext i16 %20 to i64
   %add.ptr162 = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext161
   %arrayidx164 = getelementptr inbounds ptr, ptr %dispatch, i64 %indvars.iv87
   store ptr %add.ptr162, ptr %arrayidx164, align 8
@@ -307,7 +311,7 @@ for.body172:                                      ; preds = %if.then147, %for.bo
   br i1 %exitcond86.not, label %if.end186, label %for.body172, !llvm.loop !11
 
 if.end179:                                        ; preds = %if.end141
-  br i1 %18, label %if.then183, label %if.end186
+  br i1 %19, label %if.then183, label %if.end186
 
 if.then183:                                       ; preds = %for.body157, %if.end179
   %arrayidx184 = getelementptr inbounds i8, ptr %g, i64 4680
@@ -325,10 +329,10 @@ if.end186:                                        ; preds = %for.body172, %if.th
 
 if.then193:                                       ; preds = %if.end186
   %arrayidx.i = getelementptr inbounds i8, ptr %g, i64 2388
-  %20 = load i32, ptr %arrayidx.i, align 4
-  %.tr.i = trunc i32 %20 to i16
-  %21 = shl i16 %.tr.i, 1
-  %conv.i = add i16 %21, -1
+  %21 = load i32, ptr %arrayidx.i, align 4
+  %.tr.i = trunc i32 %21 to i16
+  %22 = shl i16 %.tr.i, 1
+  %conv.i = add i16 %22, -1
   %hotcount2.i = getelementptr inbounds i8, ptr %g, i64 3840
   br label %for.body.i
 

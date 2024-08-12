@@ -3441,91 +3441,92 @@ define internal fastcc i32 @build_startup_packet(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %138
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %151
-  %140 = phi ptr [ %153, %151 ], [ %139, %.lr.ph ]
-  %.6144.us = phi i32 [ %.7.us, %151 ], [ %.5, %.lr.ph ]
-  %.0102143.us = phi ptr [ %152, %151 ], [ %2, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %155
+  %140 = phi ptr [ %157, %155 ], [ %139, %.lr.ph ]
+  %.6144.us = phi i32 [ %.7.us, %155 ], [ %.5, %.lr.ph ]
+  %.0102143.us = phi ptr [ %156, %155 ], [ %2, %.lr.ph ]
   %141 = tail call ptr @getenv(ptr noundef nonnull %140) #16
   %.not134.us = icmp eq ptr %141, null
-  br i1 %.not134.us, label %151, label %142
+  br i1 %.not134.us, label %155, label %142
 
 142:                                              ; preds = %.lr.ph.split.us
   %143 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %141, ptr noundef nonnull @.str.48) #16
   %.not135.us = icmp eq i32 %143, 0
-  br i1 %.not135.us, label %151, label %144
+  br i1 %.not135.us, label %155, label %144
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds i8, ptr %.0102143.us, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #17
   %148 = trunc i64 %147 to i32
-  %149 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #17
-  %150 = trunc i64 %149 to i32
-  %op.rdx = add i32 %150, 2
-  %op.rdx152 = add i32 %.6144.us, %148
-  %op.rdx153 = add i32 %op.rdx, %op.rdx152
-  br label %151
+  %149 = add i32 %.6144.us, 1
+  %150 = add i32 %149, %148
+  %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #17
+  %152 = trunc i64 %151 to i32
+  %153 = add i32 %150, 1
+  %154 = add i32 %153, %152
+  br label %155
 
-151:                                              ; preds = %144, %142, %.lr.ph.split.us
-  %.7.us = phi i32 [ %op.rdx153, %144 ], [ %.6144.us, %142 ], [ %.6144.us, %.lr.ph.split.us ]
-  %152 = getelementptr i8, ptr %.0102143.us, i64 16
-  %153 = load ptr, ptr %152, align 8
-  %.not133.us = icmp eq ptr %153, null
+155:                                              ; preds = %144, %142, %.lr.ph.split.us
+  %.7.us = phi i32 [ %154, %144 ], [ %.6144.us, %142 ], [ %.6144.us, %.lr.ph.split.us ]
+  %156 = getelementptr i8, ptr %.0102143.us, i64 16
+  %157 = load ptr, ptr %156, align 8
+  %.not133.us = icmp eq ptr %157, null
   br i1 %.not133.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %176
-  %154 = phi ptr [ %178, %176 ], [ %139, %.lr.ph ]
-  %.6144 = phi i32 [ %.7, %176 ], [ %.5, %.lr.ph ]
-  %.0102143 = phi ptr [ %177, %176 ], [ %2, %.lr.ph ]
-  %155 = tail call ptr @getenv(ptr noundef nonnull %154) #16
-  %.not134 = icmp eq ptr %155, null
-  br i1 %.not134, label %176, label %156
+.lr.ph.split:                                     ; preds = %.lr.ph, %180
+  %158 = phi ptr [ %182, %180 ], [ %139, %.lr.ph ]
+  %.6144 = phi i32 [ %.7, %180 ], [ %.5, %.lr.ph ]
+  %.0102143 = phi ptr [ %181, %180 ], [ %2, %.lr.ph ]
+  %159 = tail call ptr @getenv(ptr noundef nonnull %158) #16
+  %.not134 = icmp eq ptr %159, null
+  br i1 %.not134, label %180, label %160
 
-156:                                              ; preds = %.lr.ph.split
-  %157 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %155, ptr noundef nonnull @.str.48) #16
-  %.not135 = icmp eq i32 %157, 0
-  br i1 %.not135, label %176, label %158
+160:                                              ; preds = %.lr.ph.split
+  %161 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %159, ptr noundef nonnull @.str.48) #16
+  %.not135 = icmp eq i32 %161, 0
+  br i1 %.not135, label %180, label %162
 
-158:                                              ; preds = %156
-  %159 = sext i32 %.6144 to i64
-  %160 = getelementptr i8, ptr %1, i64 %159
-  %161 = getelementptr inbounds i8, ptr %.0102143, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %162) #16
-  %164 = load ptr, ptr %161, align 8
-  %165 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %164) #17
-  %166 = trunc i64 %165 to i32
-  %167 = add i32 %.6144, 1
-  %168 = add i32 %167, %166
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr i8, ptr %1, i64 %169
-  %171 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(1) %155) #16
-  %172 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #17
-  %173 = trunc i64 %172 to i32
-  %174 = add i32 %168, 1
-  %175 = add i32 %174, %173
-  br label %176
+162:                                              ; preds = %160
+  %163 = sext i32 %.6144 to i64
+  %164 = getelementptr i8, ptr %1, i64 %163
+  %165 = getelementptr inbounds i8, ptr %.0102143, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) %166) #16
+  %168 = load ptr, ptr %165, align 8
+  %169 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %168) #17
+  %170 = trunc i64 %169 to i32
+  %171 = add i32 %.6144, 1
+  %172 = add i32 %171, %170
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr i8, ptr %1, i64 %173
+  %175 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %174, ptr noundef nonnull dereferenceable(1) %159) #16
+  %176 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %159) #17
+  %177 = trunc i64 %176 to i32
+  %178 = add i32 %172, 1
+  %179 = add i32 %178, %177
+  br label %180
 
-176:                                              ; preds = %.lr.ph.split, %158, %156
-  %.7 = phi i32 [ %175, %158 ], [ %.6144, %156 ], [ %.6144, %.lr.ph.split ]
-  %177 = getelementptr i8, ptr %.0102143, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %.not133 = icmp eq ptr %178, null
+180:                                              ; preds = %.lr.ph.split, %162, %160
+  %.7 = phi i32 [ %179, %162 ], [ %.6144, %160 ], [ %.6144, %.lr.ph.split ]
+  %181 = getelementptr i8, ptr %.0102143, i64 16
+  %182 = load ptr, ptr %181, align 8
+  %.not133 = icmp eq ptr %182, null
   br i1 %.not133, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %176, %151, %138
-  %.6.lcssa = phi i32 [ %.5, %138 ], [ %.7.us, %151 ], [ %.7, %176 ]
-  br i1 %.not, label %182, label %179
+._crit_edge:                                      ; preds = %180, %155, %138
+  %.6.lcssa = phi i32 [ %.5, %138 ], [ %.7.us, %155 ], [ %.7, %180 ]
+  br i1 %.not, label %186, label %183
 
-179:                                              ; preds = %._crit_edge
-  %180 = sext i32 %.6.lcssa to i64
-  %181 = getelementptr i8, ptr %1, i64 %180
-  store i8 0, ptr %181, align 1
-  br label %182
+183:                                              ; preds = %._crit_edge
+  %184 = sext i32 %.6.lcssa to i64
+  %185 = getelementptr i8, ptr %1, i64 %184
+  store i8 0, ptr %185, align 1
+  br label %186
 
-182:                                              ; preds = %179, %._crit_edge
-  %183 = add i32 %.6.lcssa, 1
-  ret i32 %183
+186:                                              ; preds = %183, %._crit_edge
+  %187 = add i32 %.6.lcssa, 1
+  ret i32 %187
 }
 
 declare void @pqDropConnection(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

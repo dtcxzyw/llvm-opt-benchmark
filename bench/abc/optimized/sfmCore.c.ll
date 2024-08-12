@@ -72,168 +72,173 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7728
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 7688
-  %5 = load <4 x i64>, ptr %4, align 8
-  %6 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %5)
-  %7 = sub i64 %3, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 7720
-  store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4
-  %15 = add i32 %12, %14
-  %16 = sub i32 %10, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 7664
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 7696
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 7704
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 7712
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %5, %7
+  %13 = add i64 %12, %9
+  %14 = add i64 %13, %11
+  %15 = sub i64 %3, %14
+  %16 = getelementptr inbounds i8, ptr %0, i64 7720
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 312
-  %22 = load i32, ptr %21, align 8
-  %23 = add nsw i32 %22, %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 7668
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call noundef i32 @llvm.smax.i32(i32 %18, i32 1)
-  %27 = sdiv i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 7672
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 7676
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 7680
-  %33 = load i32, ptr %32, align 8
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16, i32 noundef %18, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33)
-  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
-  %36 = load i32, ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 292
-  %38 = load i32, ptr %37, align 4
-  %39 = sitofp i32 %36 to double
-  %40 = fmul double %39, 1.000000e+02
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %38, i32 1)
-  %42 = uitofp nneg i32 %41 to double
-  %43 = fdiv double %40, %42
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %36, i32 noundef %38, double noundef %43)
-  %45 = load i32, ptr %21, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 300
-  %47 = load i32, ptr %46, align 4
-  %48 = sitofp i32 %45 to double
-  %49 = fmul double %48, 1.000000e+02
-  %50 = tail call noundef i32 @llvm.smax.i32(i32 %47, i32 1)
-  %51 = uitofp nneg i32 %50 to double
-  %52 = fdiv double %49, %51
-  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %45, i32 noundef %47, double noundef %52)
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 96
-  %56 = load i32, ptr %55, align 4
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %68, label %57
+  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = add i32 %20, %22
+  %24 = sub i32 %18, %23
+  %25 = getelementptr inbounds i8, ptr %0, i64 7664
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 304
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 312
+  %30 = load i32, ptr %29, align 8
+  %31 = add nsw i32 %30, %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 7668
+  %33 = load i32, ptr %32, align 4
+  %34 = tail call noundef i32 @llvm.smax.i32(i32 %26, i32 1)
+  %35 = sdiv i32 %33, %34
+  %36 = getelementptr inbounds i8, ptr %0, i64 7672
+  %37 = load i32, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 7676
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 7680
+  %41 = load i32, ptr %40, align 8
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24, i32 noundef %26, i32 noundef %31, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41)
+  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
+  %44 = load i32, ptr %27, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 292
+  %46 = load i32, ptr %45, align 4
+  %47 = sitofp i32 %44 to double
+  %48 = fmul double %47, 1.000000e+02
+  %49 = tail call noundef i32 @llvm.smax.i32(i32 %46, i32 1)
+  %50 = uitofp nneg i32 %49 to double
+  %51 = fdiv double %48, %50
+  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %44, i32 noundef %46, double noundef %51)
+  %53 = load i32, ptr %29, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 300
+  %55 = load i32, ptr %54, align 4
+  %56 = sitofp i32 %53 to double
+  %57 = fmul double %56, 1.000000e+02
+  %58 = tail call noundef i32 @llvm.smax.i32(i32 %55, i32 1)
+  %59 = uitofp nneg i32 %58 to double
+  %60 = fdiv double %57, %59
+  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %53, i32 noundef %55, double noundef %60)
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 96
+  %64 = load i32, ptr %63, align 4
+  %.not = icmp eq i32 %64, 0
+  br i1 %.not, label %76, label %65
 
-57:                                               ; preds = %1
-  %58 = getelementptr inbounds i8, ptr %0, i64 308
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 296
-  %61 = load i32, ptr %60, align 8
-  %62 = sitofp i32 %59 to double
-  %63 = fmul double %62, 1.000000e+02
-  %64 = tail call noundef i32 @llvm.smax.i32(i32 %61, i32 1)
-  %65 = uitofp nneg i32 %64 to double
-  %66 = fdiv double %63, %65
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %59, i32 noundef %61, double noundef %66)
-  br label %68
+65:                                               ; preds = %1
+  %66 = getelementptr inbounds i8, ptr %0, i64 308
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %0, i64 296
+  %69 = load i32, ptr %68, align 8
+  %70 = sitofp i32 %67 to double
+  %71 = fmul double %70, 1.000000e+02
+  %72 = tail call noundef i32 @llvm.smax.i32(i32 %69, i32 1)
+  %73 = uitofp nneg i32 %72 to double
+  %74 = fdiv double %71, %73
+  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %67, i32 noundef %69, double noundef %74)
+  br label %76
 
-68:                                               ; preds = %57, %1
-  %69 = getelementptr inbounds i8, ptr %0, i64 7712
-  %70 = getelementptr inbounds i8, ptr %0, i64 7704
-  %71 = getelementptr inbounds i8, ptr %0, i64 7696
+76:                                               ; preds = %65, %1
   %putchar = tail call i32 @putchar(i32 10)
-  %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
-  %73 = getelementptr inbounds i8, ptr %0, i64 7648
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 7656
-  %76 = load i32, ptr %75, align 8
-  %77 = sub nsw i32 %74, %76
-  %78 = sitofp i32 %77 to double
-  %79 = fmul double %78, 1.000000e+02
-  %80 = tail call noundef i32 @llvm.smax.i32(i32 %74, i32 1)
-  %81 = uitofp nneg i32 %80 to double
-  %82 = fdiv double %79, %81
-  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, i32 noundef %74, double noundef %82)
-  %84 = getelementptr inbounds i8, ptr %0, i64 7652
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 7660
-  %87 = load i32, ptr %86, align 4
-  %88 = sub nsw i32 %85, %87
-  %89 = sitofp i32 %88 to double
-  %90 = fmul double %89, 1.000000e+02
-  %91 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 1)
-  %92 = uitofp nneg i32 %91 to double
-  %93 = fdiv double %90, %92
-  %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %88, i32 noundef %85, double noundef %93)
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
+  %78 = getelementptr inbounds i8, ptr %0, i64 7648
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 7656
+  %81 = load i32, ptr %80, align 8
+  %82 = sub nsw i32 %79, %81
+  %83 = sitofp i32 %82 to double
+  %84 = fmul double %83, 1.000000e+02
+  %85 = tail call noundef i32 @llvm.smax.i32(i32 %79, i32 1)
+  %86 = uitofp nneg i32 %85 to double
+  %87 = fdiv double %84, %86
+  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %82, i32 noundef %79, double noundef %87)
+  %89 = getelementptr inbounds i8, ptr %0, i64 7652
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %0, i64 7660
+  %92 = load i32, ptr %91, align 4
+  %93 = sub nsw i32 %90, %92
+  %94 = sitofp i32 %93 to double
+  %95 = fmul double %94, 1.000000e+02
+  %96 = tail call noundef i32 @llvm.smax.i32(i32 %90, i32 1)
+  %97 = uitofp nneg i32 %96 to double
+  %98 = fdiv double %95, %97
+  %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %93, i32 noundef %90, double noundef %98)
   %putchar70 = tail call i32 @putchar(i32 10)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
-  %95 = load i64, ptr %4, align 8
-  %96 = sitofp i64 %95 to double
-  %97 = fdiv double %96, 1.000000e+06
-  %98 = load i64, ptr %2, align 8
-  %.not71 = icmp eq i64 %98, 0
-  %99 = sitofp i64 %98 to double
-  %100 = fmul double %96, 1.000000e+02
-  %101 = fdiv double %100, %99
-  %102 = select i1 %.not71, double 0.000000e+00, double %101
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %97, double noundef %102)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12)
-  %103 = load i64, ptr %71, align 8
+  %100 = load i64, ptr %4, align 8
+  %101 = sitofp i64 %100 to double
+  %102 = fdiv double %101, 1.000000e+06
+  %103 = load i64, ptr %2, align 8
+  %.not71 = icmp eq i64 %103, 0
   %104 = sitofp i64 %103 to double
-  %105 = fdiv double %104, 1.000000e+06
-  %106 = load i64, ptr %2, align 8
-  %.not72 = icmp eq i64 %106, 0
-  %107 = sitofp i64 %106 to double
-  %108 = fmul double %104, 1.000000e+02
-  %109 = fdiv double %108, %107
-  %110 = select i1 %.not72, double 0.000000e+00, double %109
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %105, double noundef %110)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13)
-  %111 = load i64, ptr %70, align 8
+  %105 = fmul double %101, 1.000000e+02
+  %106 = fdiv double %105, %104
+  %107 = select i1 %.not71, double 0.000000e+00, double %106
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %102, double noundef %107)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12)
+  %108 = load i64, ptr %6, align 8
+  %109 = sitofp i64 %108 to double
+  %110 = fdiv double %109, 1.000000e+06
+  %111 = load i64, ptr %2, align 8
+  %.not72 = icmp eq i64 %111, 0
   %112 = sitofp i64 %111 to double
-  %113 = fdiv double %112, 1.000000e+06
-  %114 = load i64, ptr %2, align 8
-  %.not73 = icmp eq i64 %114, 0
-  %115 = sitofp i64 %114 to double
-  %116 = fmul double %112, 1.000000e+02
-  %117 = fdiv double %116, %115
-  %118 = select i1 %.not73, double 0.000000e+00, double %117
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %113, double noundef %118)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.14)
-  %119 = load i64, ptr %69, align 8
+  %113 = fmul double %109, 1.000000e+02
+  %114 = fdiv double %113, %112
+  %115 = select i1 %.not72, double 0.000000e+00, double %114
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %110, double noundef %115)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13)
+  %116 = load i64, ptr %8, align 8
+  %117 = sitofp i64 %116 to double
+  %118 = fdiv double %117, 1.000000e+06
+  %119 = load i64, ptr %2, align 8
+  %.not73 = icmp eq i64 %119, 0
   %120 = sitofp i64 %119 to double
-  %121 = fdiv double %120, 1.000000e+06
-  %122 = load i64, ptr %2, align 8
-  %.not74 = icmp eq i64 %122, 0
-  %123 = sitofp i64 %122 to double
-  %124 = fmul double %120, 1.000000e+02
-  %125 = fdiv double %124, %123
-  %126 = select i1 %.not74, double 0.000000e+00, double %125
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %121, double noundef %126)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.15)
-  %127 = load i64, ptr %8, align 8
+  %121 = fmul double %117, 1.000000e+02
+  %122 = fdiv double %121, %120
+  %123 = select i1 %.not73, double 0.000000e+00, double %122
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %118, double noundef %123)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.14)
+  %124 = load i64, ptr %10, align 8
+  %125 = sitofp i64 %124 to double
+  %126 = fdiv double %125, 1.000000e+06
+  %127 = load i64, ptr %2, align 8
+  %.not74 = icmp eq i64 %127, 0
   %128 = sitofp i64 %127 to double
-  %129 = fdiv double %128, 1.000000e+06
-  %130 = load i64, ptr %2, align 8
-  %.not75 = icmp eq i64 %130, 0
-  %131 = sitofp i64 %130 to double
-  %132 = fmul double %128, 1.000000e+02
-  %133 = fdiv double %132, %131
-  %134 = select i1 %.not75, double 0.000000e+00, double %133
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %129, double noundef %134)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.16)
+  %129 = fmul double %125, 1.000000e+02
+  %130 = fdiv double %129, %128
+  %131 = select i1 %.not74, double 0.000000e+00, double %130
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %126, double noundef %131)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.15)
+  %132 = load i64, ptr %16, align 8
+  %133 = sitofp i64 %132 to double
+  %134 = fdiv double %133, 1.000000e+06
   %135 = load i64, ptr %2, align 8
+  %.not75 = icmp eq i64 %135, 0
   %136 = sitofp i64 %135 to double
-  %.not76 = icmp eq i64 %135, 0
-  %137 = fmul double %136, 1.000000e+02
+  %137 = fmul double %133, 1.000000e+02
   %138 = fdiv double %137, %136
-  %139 = select i1 %.not76, double 0.000000e+00, double %138
-  %140 = fdiv double %136, 1.000000e+06
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %140, double noundef %139)
+  %139 = select i1 %.not75, double 0.000000e+00, double %138
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %134, double noundef %139)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.16)
+  %140 = load i64, ptr %2, align 8
+  %141 = sitofp i64 %140 to double
+  %.not76 = icmp eq i64 %140, 0
+  %142 = fmul double %141, 1.000000e+02
+  %143 = fdiv double %142, %141
+  %144 = select i1 %.not76, double 0.000000e+00, double %143
+  %145 = fdiv double %141, 1.000000e+06
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %145, double noundef %144)
   ret void
 }
 
@@ -1797,9 +1802,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

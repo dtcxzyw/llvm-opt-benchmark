@@ -2973,7 +2973,13 @@ _ZN3gmx18AbstractPlotModuleC2Ev.exit:             ; preds = %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx28AnalysisDataVectorPlotModuleE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %8, align 8
+  store i8 1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 1, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 18
+  store i8 1, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 19
+  store i8 0, ptr %11, align 1
   ret void
 }
 
@@ -2995,7 +3001,13 @@ _ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE.exit: ; preds = %
   store ptr %3, ptr %6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx28AnalysisDataVectorPlotModuleE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %7, align 8
+  store i8 1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 1, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 18
+  store i8 1, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 19
+  store i8 0, ptr %10, align 1
   ret void
 }
 
@@ -3103,10 +3115,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %0, align 8
   ret void

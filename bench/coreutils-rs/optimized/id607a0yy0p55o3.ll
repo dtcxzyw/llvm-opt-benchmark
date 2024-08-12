@@ -27,9 +27,13 @@ define hidden void @"_ZN113_$LT$clap_builder..builder..styled_str..StyledStr$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN119_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..range..ValueRange$GT$$GT$15into_resettable17h69fd833f33f7cc59E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load <2 x i64>, ptr %1, align 8, !alias.scope !4
-  store <2 x i64> %4, ptr %3, align 8
+  %3 = load i64, ptr %1, align 8, !alias.scope !4, !noundef !9
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load i64, ptr %4, align 8, !alias.scope !4, !noundef !9
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
   store i64 0, ptr %0, align 8
   ret void
 }

@@ -40,20 +40,24 @@ define nonnull align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h41ac76d91408aeb8E"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = alloca { { i64, i64 }, i64 }, align 16
+  %3 = alloca { { i64, i64 }, i64 }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load <2 x i64>, ptr %7, align 8
-  store <2 x i64> %8, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %1, ptr %9, align 16
-  %10 = call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc70621635868e2e2E"(ptr nonnull align 8 %4, i64 %6, ptr nonnull align 8 %3)
-  %11 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds i8, ptr %10, i64 -8
-  ret ptr %12
+  %8 = load i64, ptr %7, align 8, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !3
+  store i64 %8, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %1, ptr %12, align 8
+  %13 = call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc70621635868e2e2E"(ptr nonnull align 8 %4, i64 %6, ptr nonnull align 8 %3)
+  %14 = icmp ne ptr %13, null
+  call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds i8, ptr %13, i64 -8
+  ret ptr %15
 }
 
 ; Function Attrs: nonlazybind uwtable

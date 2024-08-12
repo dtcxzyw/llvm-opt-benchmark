@@ -140,19 +140,25 @@ define hidden void @_ZN2cv7optflow21OpticalFlowSimpleFlowC2Ev(ptr noundef nonnul
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 4, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 4.100000e+00, double 2.550000e+01>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 18, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  store <2 x double> <double 5.500000e+01, double 2.550000e+01>, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  store double 3.500000e-01, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 18, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  store <2 x double> <double 5.500000e+01, double 2.550000e+01>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  store double 1.000000e+01, ptr %11, align 8
+  store double 4.100000e+00, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 2.550000e+01, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 18, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 5.500000e+01, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  store double 2.550000e+01, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  store double 3.500000e-01, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 18, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  store double 5.500000e+01, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  store double 2.550000e+01, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  store double 1.000000e+01, ptr %14, align 8
   ret void
 }
 
@@ -222,22 +228,28 @@ _ZN2cv3PtrINS_7optflow21OpticalFlowSimpleFlowEED2Ev.exit: ; preds = %1
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 4, ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds i8, ptr %2, i64 40
-  store <2 x double> <double 4.100000e+00, double 2.550000e+01>, ptr %10, align 8, !noalias !4
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
-  store i32 18, ptr %11, align 8, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %2, i64 64
-  store <2 x double> <double 5.500000e+01, double 2.550000e+01>, ptr %12, align 8, !noalias !4
-  %13 = getelementptr inbounds i8, ptr %2, i64 80
-  store double 3.500000e-01, ptr %13, align 8, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %2, i64 88
-  store i32 18, ptr %14, align 8, !noalias !4
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
-  store <2 x double> <double 5.500000e+01, double 2.550000e+01>, ptr %15, align 8, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %2, i64 112
-  store double 1.000000e+01, ptr %16, align 8, !noalias !4
+  store double 4.100000e+00, ptr %10, align 8, !noalias !4
+  %11 = getelementptr inbounds i8, ptr %2, i64 48
+  store double 2.550000e+01, ptr %11, align 8, !noalias !4
+  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  store i32 18, ptr %12, align 8, !noalias !4
+  %13 = getelementptr inbounds i8, ptr %2, i64 64
+  store double 5.500000e+01, ptr %13, align 8, !noalias !4
+  %14 = getelementptr inbounds i8, ptr %2, i64 72
+  store double 2.550000e+01, ptr %14, align 8, !noalias !4
+  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  store double 3.500000e-01, ptr %15, align 8, !noalias !4
+  %16 = getelementptr inbounds i8, ptr %2, i64 88
+  store i32 18, ptr %16, align 8, !noalias !4
+  %17 = getelementptr inbounds i8, ptr %2, i64 96
+  store double 5.500000e+01, ptr %17, align 8, !noalias !4
+  %18 = getelementptr inbounds i8, ptr %2, i64 104
+  store double 2.550000e+01, ptr %18, align 8, !noalias !4
+  %19 = getelementptr inbounds i8, ptr %2, i64 112
+  store double 1.000000e+01, ptr %19, align 8, !noalias !4
   store ptr %5, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %20, align 8
   ret void
 }
 
@@ -408,10 +420,12 @@ _ZN2cv3PtrINS_7optflow24OpticalFlowSparseToDenseEED2Ev.exit: ; preds = %1
   %10 = getelementptr inbounds i8, ptr %2, i64 36
   store i8 1, ptr %10, align 4, !noalias !14
   %11 = getelementptr inbounds i8, ptr %2, i64 40
-  store <2 x float> <float 5.000000e+02, float 1.500000e+00>, ptr %11, align 8, !noalias !14
+  store float 5.000000e+02, ptr %11, align 8, !noalias !14
+  %12 = getelementptr inbounds i8, ptr %2, i64 44
+  store float 1.500000e+00, ptr %12, align 4, !noalias !14
   store ptr %5, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %13, align 8
   ret void
 }
 

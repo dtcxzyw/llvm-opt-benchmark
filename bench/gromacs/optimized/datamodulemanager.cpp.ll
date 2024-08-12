@@ -292,10 +292,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %0, align 8
   ret void
@@ -1111,17 +1114,17 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %30, %32
-  br i1 %.not.i, label %48, label %33
+  br i1 %.not.i, label %49, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load <2 x ptr>, ptr %2, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %35, null
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 8
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   br i1 %.not.i.i.i.i.i.i.i, label %43, label %40
@@ -1137,19 +1140,21 @@ _ZNK3gmx25AnalysisDataModuleManager4Impl21checkModulePropertiesERKNS_19IAnalysis
   br label %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i: ; preds = %43, %40, %33
-  store <2 x ptr> %36, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %30, i64 16
-  store i8 0, ptr %45, align 8
-  %46 = load ptr, ptr %29, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
-  store ptr %47, ptr %29, align 8
+  store ptr %34, ptr %30, align 8
+  %45 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %36, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %30, i64 16
+  store i8 0, ptr %46, align 8
+  %47 = load ptr, ptr %29, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  store ptr %48, ptr %29, align 8
   br label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit
 
-48:                                               ; preds = %27
+49:                                               ; preds = %27
   tail call void @_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE17_M_realloc_insertIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %30, ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit
 
-_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i, %48
+_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12emplace_backIJRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEERS3_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoEEE9constructIS3_JRKSt10shared_ptrINS0_19IAnalysisDataModuleEEEEEvRS4_PT_DpOT0_.exit.i, %49
   ret void
 }
 
@@ -1189,14 +1194,14 @@ _ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_che
 _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %23, i64 %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load <2 x ptr>, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i.i, label %36, label %28
 
 28:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i.i, label %34, label %31
@@ -1212,73 +1217,81 @@ _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11
   br label %36
 
 36:                                               ; preds = %34, %31, %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_M_allocateEm.exit
-  store <2 x ptr> %27, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 16
-  store i8 0, ptr %37, align 8
+  store ptr %25, ptr %24, align 8
+  %37 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %27, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %24, i64 16
+  store i8 0, ptr %38, align 8
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i ], [ %23, %36 ]
-  %.0911.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %6, %36 ]
+  %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %23, %36 ]
+  %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %6, %36 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %39 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  store ptr null, ptr %38, align 8, !alias.scope !15, !noalias !12
-  store <2 x ptr> %39, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
+  %39 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
+  store ptr %39, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
+  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %42 = load ptr, ptr %41, align 8, !alias.scope !15, !noalias !12
+  store ptr null, ptr %41, align 8, !alias.scope !15, !noalias !12
+  store ptr %42, ptr %40, align 8, !alias.scope !12, !noalias !15
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %42 = load i8, ptr %41, align 8, !alias.scope !15, !noalias !12
-  %43 = and i8 %42, 1
-  store i8 %43, ptr %40, align 8, !alias.scope !12, !noalias !15
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %44, %1
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %45 = load i8, ptr %44, align 8, !alias.scope !15, !noalias !12
+  %46 = and i8 %45, 1
+  store i8 %46, ptr %43, align 8, !alias.scope !12, !noalias !15
+  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %47, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %36
-  %.0.lcssa.i.i.i = phi ptr [ %23, %36 ], [ %45, %.lr.ph.i.i.i ]
-  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %23, %36 ], [ %48, %.lr.ph.i.i.i ]
+  %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %54, %.lr.ph.i.i.i27 ], [ %46, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %53, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i28 = phi ptr [ %59, %.lr.ph.i.i.i27 ], [ %49, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %58, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
-  %48 = load <2 x ptr>, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
-  store ptr null, ptr %47, align 8, !alias.scope !21, !noalias !18
-  store <2 x ptr> %48, ptr %.012.i.i.i28, align 8, !alias.scope !18, !noalias !21
+  %50 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
+  store ptr %50, ptr %.012.i.i.i28, align 8, !alias.scope !18, !noalias !21
+  %51 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 8
+  %52 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
+  %53 = load ptr, ptr %52, align 8, !alias.scope !21, !noalias !18
+  store ptr null, ptr %52, align 8, !alias.scope !21, !noalias !18
+  store ptr %53, ptr %51, align 8, !alias.scope !18, !noalias !21
   store ptr null, ptr %.0911.i.i.i29, align 8, !alias.scope !21, !noalias !18
-  %49 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
-  %51 = load i8, ptr %50, align 8, !alias.scope !21, !noalias !18
-  %52 = and i8 %51, 1
-  store i8 %52, ptr %49, align 8, !alias.scope !18, !noalias !21
-  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  %54 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
-  %.not.i.i.i30 = icmp eq ptr %53, %5
+  %54 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
+  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
+  %56 = load i8, ptr %55, align 8, !alias.scope !21, !noalias !18
+  %57 = and i8 %56, 1
+  store i8 %57, ptr %54, align 8, !alias.scope !18, !noalias !21
+  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
+  %59 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
+  %.not.i.i.i30 = icmp eq ptr %58, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !17
 
 _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %46, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %54, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %49, %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %59, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %55
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit, label %60
 
-55:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
+60:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %55
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %60
+  %61 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %57 = getelementptr inbounds %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %23, i64 %16
-  store ptr %57, ptr %56, align 8
+  %62 = getelementptr inbounds %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %23, i64 %16
+  store ptr %62, ptr %61, align 8
   ret void
 }
 

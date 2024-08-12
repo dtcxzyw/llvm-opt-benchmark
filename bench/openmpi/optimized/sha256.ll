@@ -12,9 +12,21 @@ define void @opal_sha256_init(ptr nocapture noundef writeonly %0) local_unnamed_
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %5, align 8
+  store i32 1779033703, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 -1150833019, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1013904242, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 -1521486534, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 1359893119, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 -1694144372, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 528734635, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 1541459225, ptr %11, align 4
   ret void
 }
 

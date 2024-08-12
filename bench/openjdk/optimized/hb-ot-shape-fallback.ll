@@ -354,8 +354,8 @@ define internal fastcc void @_ZL16position_clusterPK18hb_ot_shape_plan_tP9hb_fon
   %25 = getelementptr inbounds i8, ptr %7, i64 12
   br label %26
 
-26:                                               ; preds = %.lr.ph, %274
-  %.02136 = phi i32 [ %3, %.lr.ph ], [ %275, %274 ]
+26:                                               ; preds = %.lr.ph, %276
+  %.02136 = phi i32 [ %3, %.lr.ph ], [ %277, %276 ]
   %27 = zext i32 %.02136 to i64
   %28 = getelementptr %struct.hb_glyph_info_t, ptr %13, i64 %27, i32 4
   %.val23 = load i16, ptr %28, align 4
@@ -364,7 +364,7 @@ define internal fastcc void @_ZL16position_clusterPK18hb_ot_shape_plan_tP9hb_fon
   %31 = shl nuw i32 1, %30
   %32 = and i32 %31, 7168
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %.preheader.preheader, label %274
+  br i1 %.not, label %.preheader.preheader, label %276
 
 .preheader.preheader:                             ; preds = %26
   %33 = add nuw i32 %.02136, 1
@@ -533,377 +533,385 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
   %121 = load i32, ptr %20, align 8
   %122 = and i32 %121, -3
   %123 = icmp eq i32 %122, 4
-  br i1 %123, label %124, label %129
+  br i1 %123, label %124, label %132
 
 124:                                              ; preds = %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
   %125 = load ptr, ptr %17, align 8
   %126 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %125, i64 %27
-  %127 = load <2 x i32>, ptr %126, align 4
-  %128 = sub nsw <2 x i32> zeroinitializer, %127
-  br label %129
+  %127 = load i32, ptr %126, align 4
+  %128 = sub nsw i32 0, %127
+  %129 = getelementptr inbounds i8, ptr %126, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = sub nsw i32 0, %130
+  br label %132
 
-129:                                              ; preds = %124, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
-  %130 = phi <2 x i32> [ %128, %124 ], [ zeroinitializer, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
-  %131 = icmp ult i32 %33, %.0.lcssa
-  br i1 %131, label %.lr.ph.i, label %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit
+132:                                              ; preds = %124, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i
+  %.0113.i = phi i32 [ %131, %124 ], [ 0, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
+  %.0109.i = phi i32 [ %128, %124 ], [ 0, %_ZN9hb_font_t19get_glyph_h_advanceEj.exit.i ]
+  %133 = icmp ult i32 %33, %.0.lcssa
+  br i1 %133, label %.lr.ph.i, label %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit
 
-.lr.ph.i:                                         ; preds = %129
+.lr.ph.i:                                         ; preds = %132
   %.sroa.11.0.copyload.i = load i32, ptr %.sroa.11.0..sroa_idx.i, align 4
   %.sroa.7.0.copyload.i = load i32, ptr %18, align 4
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 4
-  %132 = icmp ugt i32 %.0.i.i, 1
+  %134 = icmp ugt i32 %.0.i.i, 1
   %.not128.i = icmp ult i8 %.val136.i, 32
-  %133 = zext i32 %33 to i64
-  br label %134
+  %135 = zext i32 %33 to i64
+  br label %136
 
-134:                                              ; preds = %272, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %133, %.lr.ph.i ], [ %indvars.iv.next.i, %272 ]
-  %.0204.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %272 ]
-  %.0116201.i = phi i32 [ 255, %.lr.ph.i ], [ %.3119.i, %272 ]
-  %.0120200.i = phi i32 [ -1, %.lr.ph.i ], [ %.2122.i, %272 ]
-  %.sroa.0.0199.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.3.i, %272 ]
-  %.sroa.7.0198.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.2.i, %272 ]
-  %.sroa.736.0197.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.736.2.i, %272 ]
-  %.sroa.11.0196.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.11.2.i, %272 ]
-  %.sroa.0.0168195.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.2170.i, %272 ]
-  %.sroa.7.0171194.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.2173.i, %272 ]
-  %.sroa.16.0193.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.16.2.i, %272 ]
-  %.sroa.20.0192.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.20.2.i, %272 ]
-  %135 = phi <2 x i32> [ %130, %.lr.ph.i ], [ %273, %272 ]
-  %136 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %112, i64 %indvars.iv.i
-  %137 = getelementptr i8, ptr %136, i64 16
-  %.val135.i = load i16, ptr %137, align 4
-  %138 = and i16 %.val135.i, 31
-  %139 = zext nneg i16 %138 to i32
-  %140 = shl nuw i32 1, %139
-  %141 = and i32 %140, 7168
-  %.not.i142.i = icmp eq i32 %141, 0
+136:                                              ; preds = %275, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %135, %.lr.ph.i ], [ %indvars.iv.next.i, %275 ]
+  %.0204.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %275 ]
+  %.1110203.i = phi i32 [ %.0109.i, %.lr.ph.i ], [ %.2111.i, %275 ]
+  %.1114202.i = phi i32 [ %.0113.i, %.lr.ph.i ], [ %.2115.i, %275 ]
+  %.0116201.i = phi i32 [ 255, %.lr.ph.i ], [ %.3119.i, %275 ]
+  %.0120200.i = phi i32 [ -1, %.lr.ph.i ], [ %.2122.i, %275 ]
+  %.sroa.0.0199.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.3.i, %275 ]
+  %.sroa.7.0198.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.2.i, %275 ]
+  %.sroa.736.0197.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.736.2.i, %275 ]
+  %.sroa.11.0196.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.11.2.i, %275 ]
+  %.sroa.0.0168195.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.2170.i, %275 ]
+  %.sroa.7.0171194.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.2173.i, %275 ]
+  %.sroa.16.0193.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.16.2.i, %275 ]
+  %.sroa.20.0192.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.20.2.i, %275 ]
+  %137 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %112, i64 %indvars.iv.i
+  %138 = getelementptr i8, ptr %137, i64 16
+  %.val135.i = load i16, ptr %138, align 4
+  %139 = and i16 %.val135.i, 31
+  %140 = zext nneg i16 %139 to i32
+  %141 = shl nuw i32 1, %140
+  %142 = and i32 %141, 7168
+  %.not.i142.i = icmp eq i32 %142, 0
   %.not127175.i = icmp ult i16 %.val135.i, 256
   %.not127.i = or i1 %.not127175.i, %.not.i142.i
-  br i1 %.not127.i, label %261, label %142
+  br i1 %.not127.i, label %260, label %143
 
-142:                                              ; preds = %134
-  br i1 %132, label %143, label %161
+143:                                              ; preds = %136
+  br i1 %134, label %144, label %162
 
-143:                                              ; preds = %142
-  %144 = getelementptr i8, ptr %136, i64 14
-  %.val137.i = load i8, ptr %144, align 2
-  %145 = and i8 %.val137.i, 16
-  %.not.i143.i = icmp eq i8 %145, 0
-  %146 = and i8 %.val137.i, 15
-  %narrow.i.i = select i1 %.not.i143.i, i8 %146, i8 0
+144:                                              ; preds = %143
+  %145 = getelementptr i8, ptr %137, i64 14
+  %.val137.i = load i8, ptr %145, align 2
+  %146 = and i8 %.val137.i, 16
+  %.not.i143.i = icmp eq i8 %146, 0
+  %147 = and i8 %.val137.i, 15
+  %narrow.i.i = select i1 %.not.i143.i, i8 %147, i8 0
   %.0.i144.i = zext nneg i8 %narrow.i.i to i32
   %.not129.unshifted.i = xor i8 %.val137.i, %.val136.i
   %.not129.i = icmp ugt i8 %.not129.unshifted.i, 31
   %or.cond.not176.i = or i1 %.not128.i, %.not129.i
-  %147 = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 %.0.i144.i)
-  %.0108.in.i = select i1 %or.cond.not176.i, i32 %.0.i.i, i32 %147
+  %148 = call i32 @llvm.umin.i32(i32 %.0.i.i, i32 %.0.i144.i)
+  %.0108.in.i = select i1 %or.cond.not176.i, i32 %.0.i.i, i32 %148
   %.0108.i = add nsw i32 %.0108.in.i, -1
   %.not131.i = icmp eq i32 %.0120200.i, %.0108.i
-  br i1 %.not131.i, label %161, label %148
+  br i1 %.not131.i, label %162, label %149
 
-148:                                              ; preds = %143
+149:                                              ; preds = %144
   %.sroa.0.0.copyload30.i = load i32, ptr %8, align 4
   %.sroa.7.0.copyload33.i = load i32, ptr %18, align 4
   %.sroa.736.0.copyload38.i = load i32, ptr %19, align 4
   %.sroa.11.0.copyload44.i = load i32, ptr %.sroa.11.0..sroa_idx.i, align 4
-  %149 = icmp eq i32 %.0204.i, 0
-  br i1 %149, label %150, label %157
+  %150 = icmp eq i32 %.0204.i, 0
+  br i1 %150, label %151, label %158
 
-150:                                              ; preds = %148
-  %151 = load i32, ptr %0, align 8
-  %152 = and i32 %151, -2
-  %153 = icmp eq i32 %152, 4
-  br i1 %153, label %157, label %154
+151:                                              ; preds = %149
+  %152 = load i32, ptr %0, align 8
+  %153 = and i32 %152, -2
+  %154 = icmp eq i32 %153, 4
+  br i1 %154, label %158, label %155
 
-154:                                              ; preds = %150
-  %155 = load i32, ptr %21, align 4
-  %156 = call i32 @hb_script_get_horizontal_direction(i32 noundef %155)
-  %.val.pre.pre.i = load i16, ptr %137, align 4
+155:                                              ; preds = %151
+  %156 = load i32, ptr %21, align 4
+  %157 = call i32 @hb_script_get_horizontal_direction(i32 noundef %156)
+  %.val.pre.pre.i = load i16, ptr %138, align 4
   %.pre217.i = and i16 %.val.pre.pre.i, 31
   %.pre.i = zext nneg i16 %.pre217.i to i32
   %.pre218.i = shl nuw i32 1, %.pre.i
   %.pre219.i = and i32 %.pre218.i, 7168
-  br label %157
+  br label %158
 
-157:                                              ; preds = %154, %150, %148
-  %.pre215.pre-phi.i = phi i32 [ %141, %150 ], [ %.pre219.i, %154 ], [ %141, %148 ]
-  %.val.pre.i = phi i16 [ %.val135.i, %150 ], [ %.val.pre.pre.i, %154 ], [ %.val135.i, %148 ]
-  %.2.i = phi i32 [ %151, %150 ], [ %156, %154 ], [ %.0204.i, %148 ]
-  %158 = icmp eq i32 %.2.i, 4
-  %159 = sub nsw i32 %.0.i.i, %.0108.in.i
-  %.0108.pn.i = select i1 %158, i32 %.0108.i, i32 %159
+158:                                              ; preds = %155, %151, %149
+  %.pre215.pre-phi.i = phi i32 [ %142, %151 ], [ %.pre219.i, %155 ], [ %142, %149 ]
+  %.val.pre.i = phi i16 [ %.val135.i, %151 ], [ %.val.pre.pre.i, %155 ], [ %.val135.i, %149 ]
+  %.2.i = phi i32 [ %152, %151 ], [ %157, %155 ], [ %.0204.i, %149 ]
+  %159 = icmp eq i32 %.2.i, 4
+  %160 = sub nsw i32 %.0.i.i, %.0108.in.i
+  %.0108.pn.i = select i1 %159, i32 %.0108.i, i32 %160
   %.pn132.i = mul nsw i32 %.0108.pn.i, %.sroa.736.0.copyload38.i
   %.pn.i = sdiv i32 %.pn132.i, %.0.i.i
   %.sroa.0.2.i = add nsw i32 %.pn.i, %.sroa.0.0.copyload30.i
-  %160 = sdiv i32 %.sroa.736.0.copyload38.i, %.0.i.i
-  br label %161
+  %161 = sdiv i32 %.sroa.736.0.copyload38.i, %.0.i.i
+  br label %162
 
-161:                                              ; preds = %157, %143, %142
-  %.pre-phi216.i = phi i32 [ %141, %143 ], [ %.pre215.pre-phi.i, %157 ], [ %141, %142 ]
-  %.val.i = phi i16 [ %.val135.i, %143 ], [ %.val.pre.i, %157 ], [ %.val135.i, %142 ]
-  %.sroa.11.1.i = phi i32 [ %.sroa.11.0196.i, %143 ], [ %.sroa.11.0.copyload44.i, %157 ], [ %.sroa.11.0196.i, %142 ]
-  %.sroa.736.1.i = phi i32 [ %.sroa.736.0197.i, %143 ], [ %160, %157 ], [ %.sroa.736.0197.i, %142 ]
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0198.i, %143 ], [ %.sroa.7.0.copyload33.i, %157 ], [ %.sroa.7.0198.i, %142 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0199.i, %143 ], [ %.sroa.0.2.i, %157 ], [ %.sroa.0.0199.i, %142 ]
-  %.1121.i = phi i32 [ %.0120200.i, %143 ], [ %.0108.i, %157 ], [ %.0120200.i, %142 ]
-  %.1117.i = phi i32 [ %.0116201.i, %143 ], [ 255, %157 ], [ %.0116201.i, %142 ]
-  %.1.i = phi i32 [ %.0204.i, %143 ], [ %.2.i, %157 ], [ %.0204.i, %142 ]
+162:                                              ; preds = %158, %144, %143
+  %.pre-phi216.i = phi i32 [ %142, %144 ], [ %.pre215.pre-phi.i, %158 ], [ %142, %143 ]
+  %.val.i = phi i16 [ %.val135.i, %144 ], [ %.val.pre.i, %158 ], [ %.val135.i, %143 ]
+  %.sroa.11.1.i = phi i32 [ %.sroa.11.0196.i, %144 ], [ %.sroa.11.0.copyload44.i, %158 ], [ %.sroa.11.0196.i, %143 ]
+  %.sroa.736.1.i = phi i32 [ %.sroa.736.0197.i, %144 ], [ %161, %158 ], [ %.sroa.736.0197.i, %143 ]
+  %.sroa.7.1.i = phi i32 [ %.sroa.7.0198.i, %144 ], [ %.sroa.7.0.copyload33.i, %158 ], [ %.sroa.7.0198.i, %143 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0199.i, %144 ], [ %.sroa.0.2.i, %158 ], [ %.sroa.0.0199.i, %143 ]
+  %.1121.i = phi i32 [ %.0120200.i, %144 ], [ %.0108.i, %158 ], [ %.0120200.i, %143 ]
+  %.1117.i = phi i32 [ %.0116201.i, %144 ], [ 255, %158 ], [ %.0116201.i, %143 ]
+  %.1.i = phi i32 [ %.0204.i, %144 ], [ %.2.i, %158 ], [ %.0204.i, %143 ]
   %.not.i145.i = icmp eq i32 %.pre-phi216.i, 0
-  %162 = lshr i16 %.val.i, 8
-  %163 = zext nneg i16 %162 to i32
-  %164 = select i1 %.not.i145.i, i32 0, i32 %163
-  %.not133.i = icmp eq i32 %.1117.i, %164
-  br i1 %.not133.i, label %166, label %165
+  %163 = lshr i16 %.val.i, 8
+  %164 = zext nneg i16 %163 to i32
+  %165 = select i1 %.not.i145.i, i32 0, i32 %164
+  %.not133.i = icmp eq i32 %.1117.i, %165
+  br i1 %.not133.i, label %167, label %166
 
-165:                                              ; preds = %161
-  br label %166
+166:                                              ; preds = %162
+  br label %167
 
-166:                                              ; preds = %165, %161
-  %.sroa.20.1.i = phi i32 [ %.sroa.20.0192.i, %161 ], [ %.sroa.11.1.i, %165 ]
-  %.sroa.16.1.i = phi i32 [ %.sroa.16.0193.i, %161 ], [ %.sroa.736.1.i, %165 ]
-  %.sroa.7.1172.i = phi i32 [ %.sroa.7.0171194.i, %161 ], [ %.sroa.7.1.i, %165 ]
-  %.sroa.0.1169.i = phi i32 [ %.sroa.0.0168195.i, %161 ], [ %.sroa.0.1.i, %165 ]
-  %.2118.i = phi i32 [ %.1117.i, %161 ], [ %164, %165 ]
+167:                                              ; preds = %166, %162
+  %.sroa.20.1.i = phi i32 [ %.sroa.20.0192.i, %162 ], [ %.sroa.11.1.i, %166 ]
+  %.sroa.16.1.i = phi i32 [ %.sroa.16.0193.i, %162 ], [ %.sroa.736.1.i, %166 ]
+  %.sroa.7.1172.i = phi i32 [ %.sroa.7.0171194.i, %162 ], [ %.sroa.7.1.i, %166 ]
+  %.sroa.0.1169.i = phi i32 [ %.sroa.0.0168195.i, %162 ], [ %.sroa.0.1.i, %166 ]
+  %.2118.i = phi i32 [ %.1117.i, %162 ], [ %165, %166 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %167 = load ptr, ptr %12, align 8
-  %168 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %167, i64 %indvars.iv.i
-  %169 = load i32, ptr %168, align 4
+  %168 = load ptr, ptr %12, align 8
+  %169 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %168, i64 %indvars.iv.i
+  %170 = load i32, ptr %169, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %170 = load ptr, ptr %15, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 136
-  %172 = load ptr, ptr %171, align 8
-  %173 = load ptr, ptr %16, align 8
-  %174 = getelementptr inbounds i8, ptr %170, i64 16
-  %175 = load ptr, ptr %174, align 8
-  %.not.i.i.i = icmp eq ptr %175, null
-  br i1 %.not.i.i.i, label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i, label %176
+  %171 = load ptr, ptr %15, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 136
+  %173 = load ptr, ptr %172, align 8
+  %174 = load ptr, ptr %16, align 8
+  %175 = getelementptr inbounds i8, ptr %171, i64 16
+  %176 = load ptr, ptr %175, align 8
+  %.not.i.i.i = icmp eq ptr %176, null
+  br i1 %.not.i.i.i, label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i, label %177
 
-176:                                              ; preds = %166
-  %177 = getelementptr inbounds i8, ptr %175, i64 104
-  %178 = load ptr, ptr %177, align 8
+177:                                              ; preds = %167
+  %178 = getelementptr inbounds i8, ptr %176, i64 104
+  %179 = load ptr, ptr %178, align 8
   br label %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
 
-_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %176, %166
-  %179 = phi ptr [ %178, %176 ], [ null, %166 ]
-  %180 = call noundef i32 %172(ptr noundef nonnull %1, ptr noundef %173, i32 noundef %169, ptr noundef nonnull %7, ptr noundef %179)
-  %.not.i146.i = icmp eq i32 %180, 0
-  br i1 %.not.i146.i, label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i, label %181
+_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %177, %167
+  %180 = phi ptr [ %179, %177 ], [ null, %167 ]
+  %181 = call noundef i32 %173(ptr noundef nonnull %1, ptr noundef %174, i32 noundef %170, ptr noundef nonnull %7, ptr noundef %180)
+  %.not.i146.i = icmp eq i32 %181, 0
+  br i1 %.not.i146.i, label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i, label %182
 
-181:                                              ; preds = %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
-  %182 = load i32, ptr %22, align 4
-  %183 = sdiv i32 %182, 16
-  %184 = load ptr, ptr %17, align 8
-  %185 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %184, i64 %indvars.iv.i
-  %186 = getelementptr inbounds i8, ptr %185, i64 12
-  store i32 0, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %185, i64 8
+182:                                              ; preds = %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
+  %183 = load i32, ptr %22, align 4
+  %184 = sdiv i32 %183, 16
+  %185 = load ptr, ptr %17, align 8
+  %186 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %185, i64 %indvars.iv.i
+  %187 = getelementptr inbounds i8, ptr %186, i64 12
   store i32 0, ptr %187, align 4
-  %trunc.i = trunc nuw i32 %164 to i8
-  switch i8 %trunc.i, label %201 [
-    i8 -23, label %188
-    i8 -22, label %188
-    i8 -24, label %211
-    i8 -34, label %211
-    i8 -40, label %211
-    i8 -28, label %208
-    i8 -56, label %208
-    i8 -38, label %208
+  %188 = getelementptr inbounds i8, ptr %186, i64 8
+  store i32 0, ptr %188, align 4
+  %trunc.i = trunc nuw i32 %165 to i8
+  switch i8 %trunc.i, label %202 [
+    i8 -23, label %189
+    i8 -22, label %189
+    i8 -24, label %212
+    i8 -34, label %212
+    i8 -40, label %212
+    i8 -28, label %209
+    i8 -56, label %209
+    i8 -38, label %209
   ]
 
-188:                                              ; preds = %181, %181
-  %189 = load i32, ptr %20, align 8
-  switch i32 %189, label %201 [
-    i32 4, label %190
-    i32 5, label %196
+189:                                              ; preds = %182, %182
+  %190 = load i32, ptr %20, align 8
+  switch i32 %190, label %202 [
+    i32 4, label %191
+    i32 5, label %197
   ]
 
-190:                                              ; preds = %188
-  %191 = add nsw i32 %.sroa.0.1169.i, %.sroa.16.1.i
-  %192 = load i32, ptr %23, align 4
-  %.neg52.i.i = sdiv i32 %192, -2
-  %193 = add i32 %191, %.neg52.i.i
-  %194 = load i32, ptr %7, align 4
-  %195 = sub i32 %193, %194
-  br label %216
+191:                                              ; preds = %189
+  %192 = add nsw i32 %.sroa.0.1169.i, %.sroa.16.1.i
+  %193 = load i32, ptr %23, align 4
+  %.neg52.i.i = sdiv i32 %193, -2
+  %194 = add i32 %192, %.neg52.i.i
+  %195 = load i32, ptr %7, align 4
+  %196 = sub i32 %194, %195
+  br label %217
 
-196:                                              ; preds = %188
-  %197 = load i32, ptr %23, align 4
-  %.neg.i.i = sdiv i32 %197, -2
-  %198 = add i32 %.neg.i.i, %.sroa.0.1169.i
-  %199 = load i32, ptr %7, align 4
-  %200 = sub i32 %198, %199
-  br label %216
+197:                                              ; preds = %189
+  %198 = load i32, ptr %23, align 4
+  %.neg.i.i = sdiv i32 %198, -2
+  %199 = add i32 %.neg.i.i, %.sroa.0.1169.i
+  %200 = load i32, ptr %7, align 4
+  %201 = sub i32 %199, %200
+  br label %217
 
-201:                                              ; preds = %188, %181
-  %202 = load i32, ptr %23, align 4
-  %203 = sub nsw i32 %.sroa.16.1.i, %202
-  %204 = sdiv i32 %203, 2
-  %205 = load i32, ptr %7, align 4
-  %206 = sub i32 %.sroa.0.1169.i, %205
-  %207 = add i32 %206, %204
-  br label %216
+202:                                              ; preds = %189, %182
+  %203 = load i32, ptr %23, align 4
+  %204 = sub nsw i32 %.sroa.16.1.i, %203
+  %205 = sdiv i32 %204, 2
+  %206 = load i32, ptr %7, align 4
+  %207 = sub i32 %.sroa.0.1169.i, %206
+  %208 = add i32 %207, %205
+  br label %217
 
-208:                                              ; preds = %181, %181, %181
-  %209 = load i32, ptr %7, align 4
-  %210 = sub nsw i32 %.sroa.0.1169.i, %209
-  br label %216
+209:                                              ; preds = %182, %182, %182
+  %210 = load i32, ptr %7, align 4
+  %211 = sub nsw i32 %.sroa.0.1169.i, %210
+  br label %217
 
-211:                                              ; preds = %181, %181, %181
-  %212 = load i32, ptr %23, align 4
-  %213 = load i32, ptr %7, align 4
+212:                                              ; preds = %182, %182, %182
+  %213 = load i32, ptr %23, align 4
+  %214 = load i32, ptr %7, align 4
   %.neg26 = add i32 %.sroa.0.1169.i, %.sroa.16.1.i
-  %214 = add i32 %212, %213
-  %215 = sub i32 %.neg26, %214
-  br label %216
+  %215 = add i32 %213, %214
+  %216 = sub i32 %.neg26, %215
+  br label %217
 
-216:                                              ; preds = %211, %208, %201, %196, %190
-  %.sink.i.i = phi i32 [ %215, %211 ], [ %210, %208 ], [ %207, %201 ], [ %200, %196 ], [ %195, %190 ]
-  store i32 %.sink.i.i, ptr %187, align 4
+217:                                              ; preds = %212, %209, %202, %197, %191
+  %.sink.i.i = phi i32 [ %216, %212 ], [ %211, %209 ], [ %208, %202 ], [ %201, %197 ], [ %196, %191 ]
+  store i32 %.sink.i.i, ptr %188, align 4
   switch i8 %trunc.i, label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i [
-    i8 -23, label %217
-    i8 -38, label %217
-    i8 -36, label %217
-    i8 -34, label %217
-    i8 -56, label %219
-    i8 -54, label %219
-    i8 -22, label %228
-    i8 -28, label %228
-    i8 -26, label %228
-    i8 -24, label %228
-    i8 -42, label %231
-    i8 -40, label %231
+    i8 -23, label %218
+    i8 -38, label %218
+    i8 -36, label %218
+    i8 -34, label %218
+    i8 -56, label %220
+    i8 -54, label %220
+    i8 -22, label %229
+    i8 -28, label %229
+    i8 -26, label %229
+    i8 -24, label %229
+    i8 -42, label %232
+    i8 -40, label %232
   ]
 
-217:                                              ; preds = %216, %216, %216, %216
-  %218 = sub nsw i32 %.sroa.20.1.i, %183
-  br label %219
+218:                                              ; preds = %217, %217, %217, %217
+  %219 = sub nsw i32 %.sroa.20.1.i, %184
+  br label %220
 
-219:                                              ; preds = %217, %216, %216
-  %.sroa.20.6.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %218, %217 ]
-  %220 = add nsw i32 %.sroa.20.6.i, %.sroa.7.1172.i
-  %221 = load i32, ptr %24, align 4
-  %222 = sub i32 %220, %221
-  %223 = icmp sgt i32 %182, 15
-  %224 = icmp slt i32 %222, 1
-  %225 = xor i1 %223, %224
-  %spec.select.i = select i1 %225, i32 0, i32 %222
-  %226 = select i1 %225, i32 %222, i32 0
-  %spec.select179.i = sub nsw i32 %.sroa.20.6.i, %226
-  store i32 %spec.select.i, ptr %186, align 4
-  %227 = load i32, ptr %25, align 4
+220:                                              ; preds = %218, %217, %217
+  %.sroa.20.6.i = phi i32 [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ], [ %219, %218 ]
+  %221 = add nsw i32 %.sroa.20.6.i, %.sroa.7.1172.i
+  %222 = load i32, ptr %24, align 4
+  %223 = sub i32 %221, %222
+  %224 = icmp sgt i32 %183, 15
+  %225 = icmp slt i32 %223, 1
+  %226 = xor i1 %224, %225
+  %spec.select.i = select i1 %226, i32 0, i32 %223
+  %227 = select i1 %226, i32 %223, i32 0
+  %spec.select179.i = sub nsw i32 %.sroa.20.6.i, %227
+  store i32 %spec.select.i, ptr %187, align 4
+  %228 = load i32, ptr %25, align 4
   br label %.sink.split.i.i
 
-228:                                              ; preds = %216, %216, %216, %216
-  %229 = add nsw i32 %183, %.sroa.7.1172.i
-  %230 = sub nsw i32 %.sroa.20.1.i, %183
-  br label %231
+229:                                              ; preds = %217, %217, %217, %217
+  %230 = add nsw i32 %184, %.sroa.7.1172.i
+  %231 = sub nsw i32 %.sroa.20.1.i, %184
+  br label %232
 
-231:                                              ; preds = %228, %216, %216
-  %.sroa.20.3.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %230, %228 ]
-  %.sroa.7.3.i = phi i32 [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.1172.i, %216 ], [ %229, %228 ]
-  %232 = load i32, ptr %24, align 4
-  %233 = load i32, ptr %25, align 4
-  %234 = add i32 %232, %233
-  %235 = sub i32 %.sroa.7.3.i, %234
-  %236 = icmp sgt i32 %182, 15
-  %237 = icmp slt i32 %235, 1
-  %.not53.i.i = xor i1 %236, %237
-  br i1 %.not53.i.i, label %243, label %238
+232:                                              ; preds = %229, %217, %217
+  %.sroa.20.3.i = phi i32 [ %.sroa.20.1.i, %217 ], [ %.sroa.20.1.i, %217 ], [ %231, %229 ]
+  %.sroa.7.3.i = phi i32 [ %.sroa.7.1172.i, %217 ], [ %.sroa.7.1172.i, %217 ], [ %230, %229 ]
+  %233 = load i32, ptr %24, align 4
+  %234 = load i32, ptr %25, align 4
+  %235 = add i32 %233, %234
+  %236 = sub i32 %.sroa.7.3.i, %235
+  %237 = icmp sgt i32 %183, 15
+  %238 = icmp slt i32 %236, 1
+  %.not53.i.i = xor i1 %237, %238
+  br i1 %.not53.i.i, label %244, label %239
 
-238:                                              ; preds = %231
-  %239 = sdiv i32 %235, -2
-  %240 = add nsw i32 %239, %.sroa.7.3.i
-  %241 = sub nsw i32 %.sroa.20.3.i, %239
-  %242 = add nsw i32 %239, %235
-  br label %243
+239:                                              ; preds = %232
+  %240 = sdiv i32 %236, -2
+  %241 = add nsw i32 %240, %.sroa.7.3.i
+  %242 = sub nsw i32 %.sroa.20.3.i, %240
+  %243 = add nsw i32 %240, %236
+  br label %244
 
-243:                                              ; preds = %238, %231
-  %storemerge.i = phi i32 [ %242, %238 ], [ %235, %231 ]
-  %.sroa.20.4.i = phi i32 [ %241, %238 ], [ %.sroa.20.3.i, %231 ]
-  %.sroa.7.4.i = phi i32 [ %240, %238 ], [ %.sroa.7.3.i, %231 ]
-  store i32 %storemerge.i, ptr %186, align 4
-  %244 = load i32, ptr %25, align 4
-  %245 = sub nsw i32 %.sroa.7.4.i, %244
+244:                                              ; preds = %239, %232
+  %storemerge.i = phi i32 [ %243, %239 ], [ %236, %232 ]
+  %.sroa.20.4.i = phi i32 [ %242, %239 ], [ %.sroa.20.3.i, %232 ]
+  %.sroa.7.4.i = phi i32 [ %241, %239 ], [ %.sroa.7.3.i, %232 ]
+  store i32 %storemerge.i, ptr %187, align 4
+  %245 = load i32, ptr %25, align 4
+  %246 = sub nsw i32 %.sroa.7.4.i, %245
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %243, %219
-  %.sroa.20.5.i = phi i32 [ %.sroa.20.4.i, %243 ], [ %spec.select179.i, %219 ]
-  %.sroa.7.5.i = phi i32 [ %245, %243 ], [ %.sroa.7.1172.i, %219 ]
-  %.sink14.i.i = phi i32 [ %244, %243 ], [ %227, %219 ]
-  %246 = add nsw i32 %.sink14.i.i, %.sroa.20.5.i
+.sink.split.i.i:                                  ; preds = %244, %220
+  %.sroa.20.5.i = phi i32 [ %.sroa.20.4.i, %244 ], [ %spec.select179.i, %220 ]
+  %.sroa.7.5.i = phi i32 [ %246, %244 ], [ %.sroa.7.1172.i, %220 ]
+  %.sink14.i.i = phi i32 [ %245, %244 ], [ %228, %220 ]
+  %247 = add nsw i32 %.sink14.i.i, %.sroa.20.5.i
   br label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
 
-_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i: ; preds = %.sink.split.i.i, %216, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
-  %.sroa.20.8.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %216 ], [ %246, %.sink.split.i.i ]
-  %.sroa.7.6.i = phi i32 [ %.sroa.7.1172.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.5.i, %.sink.split.i.i ]
+_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i: ; preds = %.sink.split.i.i, %217, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
+  %.sroa.20.8.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %217 ], [ %247, %.sink.split.i.i ]
+  %.sroa.7.6.i = phi i32 [ %.sroa.7.1172.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1172.i, %217 ], [ %.sroa.7.5.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %247 = load ptr, ptr %17, align 8
-  %248 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %247, i64 %indvars.iv.i
-  store i32 0, ptr %248, align 4
-  %249 = load ptr, ptr %17, align 8
-  %250 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %249, i64 %indvars.iv.i, i32 1
-  store i32 0, ptr %250, align 4
-  %251 = load ptr, ptr %17, align 8
-  %252 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %251, i64 %indvars.iv.i, i32 2
-  %253 = load i32, ptr %252, align 4
-  %254 = extractelement <2 x i32> %135, i64 0
-  %255 = add nsw i32 %253, %254
-  store i32 %255, ptr %252, align 4
+  %248 = load ptr, ptr %17, align 8
+  %249 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %248, i64 %indvars.iv.i
+  store i32 0, ptr %249, align 4
+  %250 = load ptr, ptr %17, align 8
+  %251 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %250, i64 %indvars.iv.i, i32 1
+  store i32 0, ptr %251, align 4
+  %252 = load ptr, ptr %17, align 8
+  %253 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %252, i64 %indvars.iv.i, i32 2
+  %254 = load i32, ptr %253, align 4
+  %255 = add nsw i32 %254, %.1110203.i
+  store i32 %255, ptr %253, align 4
   %256 = load ptr, ptr %17, align 8
   %257 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %256, i64 %indvars.iv.i, i32 3
   %258 = load i32, ptr %257, align 4
-  %259 = extractelement <2 x i32> %135, i64 1
-  %260 = add nsw i32 %258, %259
-  store i32 %260, ptr %257, align 4
-  br label %272
+  %259 = add nsw i32 %258, %.1114202.i
+  store i32 %259, ptr %257, align 4
+  br label %275
 
-261:                                              ; preds = %134
-  %262 = load i32, ptr %20, align 8
-  %263 = and i32 %262, -3
-  %264 = icmp eq i32 %263, 4
-  %265 = load ptr, ptr %17, align 8
-  %266 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %265, i64 %indvars.iv.i
-  %267 = load <2 x i32>, ptr %266, align 4
-  br i1 %264, label %268, label %270
+260:                                              ; preds = %136
+  %261 = load i32, ptr %20, align 8
+  %262 = and i32 %261, -3
+  %263 = icmp eq i32 %262, 4
+  %264 = load ptr, ptr %17, align 8
+  %265 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %264, i64 %indvars.iv.i
+  %266 = load i32, ptr %265, align 4
+  %267 = getelementptr inbounds i8, ptr %265, i64 4
+  %268 = load i32, ptr %267, align 4
+  br i1 %263, label %269, label %272
 
-268:                                              ; preds = %261
-  %269 = sub nsw <2 x i32> %135, %267
-  br label %272
+269:                                              ; preds = %260
+  %270 = sub nsw i32 %.1110203.i, %266
+  %271 = sub nsw i32 %.1114202.i, %268
+  br label %275
 
-270:                                              ; preds = %261
-  %271 = add nsw <2 x i32> %267, %135
-  br label %272
+272:                                              ; preds = %260
+  %273 = add nsw i32 %266, %.1110203.i
+  %274 = add nsw i32 %268, %.1114202.i
+  br label %275
 
-272:                                              ; preds = %270, %268, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
-  %.sroa.20.2.i = phi i32 [ %.sroa.20.0192.i, %268 ], [ %.sroa.20.0192.i, %270 ], [ %.sroa.20.8.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.16.2.i = phi i32 [ %.sroa.16.0193.i, %268 ], [ %.sroa.16.0193.i, %270 ], [ %.sroa.16.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.7.2173.i = phi i32 [ %.sroa.7.0171194.i, %268 ], [ %.sroa.7.0171194.i, %270 ], [ %.sroa.7.6.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.0.2170.i = phi i32 [ %.sroa.0.0168195.i, %268 ], [ %.sroa.0.0168195.i, %270 ], [ %.sroa.0.1169.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.11.2.i = phi i32 [ %.sroa.11.0196.i, %268 ], [ %.sroa.11.0196.i, %270 ], [ %.sroa.11.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.736.2.i = phi i32 [ %.sroa.736.0197.i, %268 ], [ %.sroa.736.0197.i, %270 ], [ %.sroa.736.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.7.2.i = phi i32 [ %.sroa.7.0198.i, %268 ], [ %.sroa.7.0198.i, %270 ], [ %.sroa.7.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.0199.i, %268 ], [ %.sroa.0.0199.i, %270 ], [ %.sroa.0.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.2122.i = phi i32 [ %.0120200.i, %268 ], [ %.0120200.i, %270 ], [ %.1121.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.3119.i = phi i32 [ %.0116201.i, %268 ], [ %.0116201.i, %270 ], [ %.2118.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.3.i = phi i32 [ %.0204.i, %268 ], [ %.0204.i, %270 ], [ %.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %273 = phi <2 x i32> [ %269, %268 ], [ %271, %270 ], [ %135, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+275:                                              ; preds = %272, %269, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
+  %.sroa.20.2.i = phi i32 [ %.sroa.20.0192.i, %269 ], [ %.sroa.20.0192.i, %272 ], [ %.sroa.20.8.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.0193.i, %269 ], [ %.sroa.16.0193.i, %272 ], [ %.sroa.16.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.7.2173.i = phi i32 [ %.sroa.7.0171194.i, %269 ], [ %.sroa.7.0171194.i, %272 ], [ %.sroa.7.6.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.0.2170.i = phi i32 [ %.sroa.0.0168195.i, %269 ], [ %.sroa.0.0168195.i, %272 ], [ %.sroa.0.1169.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.11.2.i = phi i32 [ %.sroa.11.0196.i, %269 ], [ %.sroa.11.0196.i, %272 ], [ %.sroa.11.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.736.2.i = phi i32 [ %.sroa.736.0197.i, %269 ], [ %.sroa.736.0197.i, %272 ], [ %.sroa.736.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.7.2.i = phi i32 [ %.sroa.7.0198.i, %269 ], [ %.sroa.7.0198.i, %272 ], [ %.sroa.7.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.0199.i, %269 ], [ %.sroa.0.0199.i, %272 ], [ %.sroa.0.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.2122.i = phi i32 [ %.0120200.i, %269 ], [ %.0120200.i, %272 ], [ %.1121.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.3119.i = phi i32 [ %.0116201.i, %269 ], [ %.0116201.i, %272 ], [ %.2118.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.2115.i = phi i32 [ %271, %269 ], [ %274, %272 ], [ %.1114202.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.2111.i = phi i32 [ %270, %269 ], [ %273, %272 ], [ %.1110203.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.3.i = phi i32 [ %.0204.i, %269 ], [ %.0204.i, %272 ], [ %.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %.0.lcssa, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit, label %134, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit, label %136, !llvm.loop !11
 
-_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit: ; preds = %272, %91, %82, %57, %129
+_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit: ; preds = %275, %91, %82, %57, %132
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %274
+  br label %276
 
-274:                                              ; preds = %26, %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit
+276:                                              ; preds = %26, %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit
   %.1 = phi i32 [ %.02136, %26 ], [ %.0.in.lcssa, %_ZL20position_around_basePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tjjb.exit ]
-  %275 = add i32 %.1, 1
-  %276 = icmp ult i32 %275, %4
-  br i1 %276, label %26, label %.loopexit, !llvm.loop !12
+  %277 = add i32 %.1, 1
+  %278 = icmp ult i32 %277, %4
+  br i1 %278, label %26, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %274, %11, %6
+.loopexit:                                        ; preds = %276, %11, %6
   ret void
 }
 
@@ -2626,8 +2634,8 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit.i: ; preds = %40, %30
   store i32 0, ptr %43, align 4
   br label %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
 
-common.resume:                                    ; preds = %221, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %222, %221 ]
+common.resume:                                    ; preds = %233, %44
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %234, %233 ]
   tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #16
   resume { ptr, i32 } %common.resume.op
 
@@ -2643,7 +2651,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 272
   %50 = invoke noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
-          to label %51 unwind label %221
+          to label %51 unwind label %233
 
 51:                                               ; preds = %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
   %52 = load ptr, ptr %50, align 8
@@ -2659,7 +2667,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %58 = load ptr, ptr %16, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 272
   %60 = invoke noundef nonnull align 8 dereferenceable(536) ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %221
+          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %233
 
 _ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit: ; preds = %51
   %61 = getelementptr inbounds i8, ptr %0, i64 248
@@ -2860,68 +2868,92 @@ _ZNK11hb_buffer_t6digestEv.exit:                  ; preds = %_ZN24hb_set_digest_
   %187 = load i32, ptr %186, align 8
   store i32 %187, ptr %185, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 300
-  store <4 x i32> <i32 1, i32 -1, i32 0, i32 64>, ptr %188, align 4
-  %189 = load i8, ptr %62, align 1
-  %190 = zext i8 %189 to i32
-  %191 = shl nuw nsw i32 %190, 8
-  %192 = load i8, ptr %66, align 1
+  store i32 1, ptr %188, align 4
+  %189 = getelementptr inbounds i8, ptr %0, i64 304
+  store i32 -1, ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %0, i64 308
+  store i32 0, ptr %190, align 4
+  %191 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 64, ptr %191, align 8
+  %192 = load i8, ptr %62, align 1
   %193 = zext i8 %192 to i32
-  %194 = or disjoint i32 %191, %193
-  %cond.i10 = icmp eq i32 %194, 1
-  br i1 %cond.i10, label %195, label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
+  %194 = shl nuw nsw i32 %193, 8
+  %195 = load i8, ptr %66, align 1
+  %196 = zext i8 %195 to i32
+  %197 = or disjoint i32 %194, %196
+  %cond.i10 = icmp eq i32 %197, 1
+  br i1 %cond.i10, label %198, label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
 
-195:                                              ; preds = %_ZNK11hb_buffer_t6digestEv.exit
-  %196 = getelementptr inbounds i8, ptr %62, i64 4
-  %197 = load i8, ptr %196, align 1
-  %198 = zext i8 %197 to i32
-  %199 = shl nuw nsw i32 %198, 8
-  %200 = getelementptr inbounds i8, ptr %62, i64 5
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  %203 = or disjoint i32 %199, %202
-  %204 = icmp ne i32 %203, 0
-  %205 = zext i1 %204 to i8
+198:                                              ; preds = %_ZNK11hb_buffer_t6digestEv.exit
+  %199 = getelementptr inbounds i8, ptr %62, i64 4
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = shl nuw nsw i32 %201, 8
+  %203 = getelementptr inbounds i8, ptr %62, i64 5
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i32
+  %206 = or disjoint i32 %202, %205
+  %207 = icmp ne i32 %206, 0
+  %208 = zext i1 %207 to i8
   br label %_ZNK2OT4GDEF17has_glyph_classesEv.exit
 
-_ZNK2OT4GDEF17has_glyph_classesEv.exit:           ; preds = %195, %_ZNK11hb_buffer_t6digestEv.exit
-  %.0.i11 = phi i8 [ %205, %195 ], [ 0, %_ZNK11hb_buffer_t6digestEv.exit ]
-  %206 = getelementptr inbounds i8, ptr %0, i64 316
-  store i8 %.0.i11, ptr %206, align 4
-  %207 = getelementptr inbounds i8, ptr %0, i64 317
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %207, align 1
-  %208 = getelementptr inbounds i8, ptr %0, i64 324
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 0>, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %0, ptr %209, align 8
-  %210 = load ptr, ptr %19, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 88
-  %212 = load i32, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %212, ptr %213, align 8
+_ZNK2OT4GDEF17has_glyph_classesEv.exit:           ; preds = %198, %_ZNK11hb_buffer_t6digestEv.exit
+  %.0.i11 = phi i8 [ %208, %198 ], [ 0, %_ZNK11hb_buffer_t6digestEv.exit ]
+  %209 = getelementptr inbounds i8, ptr %0, i64 316
+  store i8 %.0.i11, ptr %209, align 4
+  %210 = getelementptr inbounds i8, ptr %0, i64 317
+  store i8 1, ptr %210, align 1
+  %211 = getelementptr inbounds i8, ptr %0, i64 318
+  store i8 1, ptr %211, align 2
+  %212 = getelementptr inbounds i8, ptr %0, i64 319
+  store i8 0, ptr %212, align 1
+  %213 = getelementptr inbounds i8, ptr %0, i64 320
+  store i8 0, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %0, i64 324
+  store i32 1, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %0, i64 328
+  store i32 -1, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %0, i64 332
+  store i32 -1, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %0, i64 336
+  store i32 0, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %0, ptr %218, align 8
+  %219 = load ptr, ptr %19, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 88
+  %221 = load i32, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %221, ptr %222, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 8
-  %214 = zext i1 %109 to i8
-  store i8 %214, ptr %8, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 1, ptr %215, align 1
+  %223 = zext i1 %109 to i8
+  store i8 %223, ptr %8, align 8
+  %224 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 1, ptr %224, align 1
   store i32 1, ptr %7, align 4
-  %216 = getelementptr inbounds i8, ptr %0, i64 34
-  store i8 0, ptr %216, align 2
-  %217 = getelementptr inbounds i8, ptr %0, i64 35
-  store i8 0, ptr %217, align 1
-  %218 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %0, ptr %218, align 8
-  %219 = load i32, ptr %211, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 %219, ptr %220, align 8
+  %225 = getelementptr inbounds i8, ptr %0, i64 34
+  store i8 0, ptr %225, align 2
+  %226 = getelementptr inbounds i8, ptr %0, i64 35
+  store i8 0, ptr %226, align 1
+  %227 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %0, ptr %227, align 8
+  %228 = load i32, ptr %220, align 8
+  %229 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 %228, ptr %229, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 0, ptr %10, align 8
+  store i8 1, ptr %12, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 97
+  store i8 1, ptr %230, align 1
   store i32 -1, ptr %11, align 4
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %12, align 8
+  %231 = getelementptr inbounds i8, ptr %0, i64 98
+  store i8 0, ptr %231, align 2
+  %232 = getelementptr inbounds i8, ptr %0, i64 99
+  store i8 0, ptr %232, align 1
   ret void
 
-221:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
-  %222 = landingpad { ptr, i32 }
+233:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
+  %234 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }

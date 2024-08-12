@@ -1980,7 +1980,13 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %121, %list_length.e
   %127 = getelementptr inbounds i8, ptr %122, i64 32
   store ptr %97, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %122, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %128, align 8
+  store i8 1, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %122, i64 41
+  store i8 1, ptr %129, align 1
+  %130 = getelementptr inbounds i8, ptr %122, i64 42
+  store i8 0, ptr %130, align 2
+  %131 = getelementptr inbounds i8, ptr %122, i64 43
+  store i8 1, ptr %131, align 1
   tail call void @table_close(ptr noundef %54, i32 noundef 0) #10
   ret ptr %122
 }
@@ -2395,7 +2401,13 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %87, %list_length.ex
   %93 = getelementptr inbounds i8, ptr %88, i64 32
   store ptr %63, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %88, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %94, align 8
+  store i8 1, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %88, i64 41
+  store i8 1, ptr %95, align 1
+  %96 = getelementptr inbounds i8, ptr %88, i64 42
+  store i8 0, ptr %96, align 2
+  %97 = getelementptr inbounds i8, ptr %88, i64 43
+  store i8 1, ptr %97, align 1
   ret ptr %88
 }
 
@@ -2671,7 +2683,13 @@ list_length.exit.split.split.split:               ; preds = %list_length.exit.th
   %62 = getelementptr inbounds i8, ptr %56, i64 32
   store ptr %55, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %56, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %63, align 8
+  store i8 1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %56, i64 41
+  store i8 1, ptr %64, align 1
+  %65 = getelementptr inbounds i8, ptr %56, i64 42
+  store i8 0, ptr %65, align 2
+  %66 = getelementptr inbounds i8, ptr %56, i64 43
+  store i8 1, ptr %66, align 1
   ret ptr %56
 }
 
@@ -3210,7 +3228,13 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %281, %list_length.e
   %287 = getelementptr inbounds i8, ptr %282, i64 32
   store ptr %257, ptr %287, align 8
   %288 = getelementptr inbounds i8, ptr %282, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %288, align 8
+  store i8 1, ptr %288, align 8
+  %289 = getelementptr inbounds i8, ptr %282, i64 41
+  store i8 1, ptr %289, align 1
+  %290 = getelementptr inbounds i8, ptr %282, i64 42
+  store i8 0, ptr %290, align 2
+  %291 = getelementptr inbounds i8, ptr %282, i64 43
+  store i8 1, ptr %291, align 1
   ret ptr %282
 }
 
@@ -3702,7 +3726,13 @@ list_length.exit64:                               ; preds = %66, %80
   %85 = getelementptr inbounds i8, ptr %75, i64 32
   store ptr %2, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %75, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %86, align 8
+  store i8 1, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %75, i64 41
+  store i8 1, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %75, i64 42
+  store i8 0, ptr %88, align 2
+  %89 = getelementptr inbounds i8, ptr %75, i64 43
+  store i8 1, ptr %89, align 1
   ret ptr %75
 }
 
@@ -4222,7 +4252,13 @@ buildNSItemFromTupleDesc.exit:                    ; preds = %110, %list_length.e
   %116 = getelementptr inbounds i8, ptr %111, i64 32
   store ptr %86, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %111, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %117, align 8
+  store i8 1, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %111, i64 41
+  store i8 1, ptr %118, align 1
+  %119 = getelementptr inbounds i8, ptr %111, i64 42
+  store i8 0, ptr %119, align 2
+  %120 = getelementptr inbounds i8, ptr %111, i64 43
+  store i8 1, ptr %120, align 1
   ret ptr %111
 }
 

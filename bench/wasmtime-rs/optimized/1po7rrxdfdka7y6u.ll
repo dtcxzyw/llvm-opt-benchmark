@@ -26,43 +26,49 @@ define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hb5012b55e363681bE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca { ptr, ptr }, align 16
+  %5 = alloca { ptr, ptr }, align 8
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr %2, ptr %5, align 16
+  store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %8, align 8
   %9 = call { i64, ptr } @"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h7a082fab676e3980E"(ptr align 1 %1, ptr nonnull align 8 %5)
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
+  %12 = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
+  %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !4, !noundef !3
   store i64 %10, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %14, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %11, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %12, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %13, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h2222d26db13544cdE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = alloca { ptr, ptr }, align 16
-  store ptr %2, ptr %5, align 16
+  %5 = alloca { ptr, ptr }, align 8
+  store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
   %7 = call { i64, ptr } @"_ZN14cranelift_isle7overlap6Errors6report28_$u7b$$u7b$closure$u7d$$u7d$17h7a082fab676e3980E"(ptr align 1 %1, ptr nonnull align 8 %5)
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
+  %10 = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
+  %11 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
   store i64 %8, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %12, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %11, ptr %14, align 8
   ret void
 }
 

@@ -126,213 +126,218 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @MRIStepCreate(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  %8 = insertelement <2 x ptr> poison, ptr %0, i64 0
-  %9 = insertelement <2 x ptr> %8, ptr %1, i64 1
-  %10 = icmp eq <2 x ptr> %9, zeroinitializer
-  %11 = extractelement <2 x i1> %10, i64 0
-  %12 = extractelement <2 x i1> %10, i64 1
-  %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %14
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = and i1 %8, %9
+  br i1 %or.cond, label %10, label %11
 
-13:                                               ; preds = %6
+10:                                               ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 48, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-14:                                               ; preds = %6
-  %15 = icmp eq ptr %3, null
-  br i1 %15, label %16, label %17
+11:                                               ; preds = %6
+  %12 = icmp eq ptr %3, null
+  br i1 %12, label %13, label %14
 
-16:                                               ; preds = %14
+13:                                               ; preds = %11
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 56, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-17:                                               ; preds = %14
-  %18 = icmp eq ptr %4, null
-  br i1 %18, label %19, label %20
+14:                                               ; preds = %11
+  %15 = icmp eq ptr %4, null
+  br i1 %15, label %16, label %17
 
-19:                                               ; preds = %17
+16:                                               ; preds = %14
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 64, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-20:                                               ; preds = %17
+17:                                               ; preds = %14
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %21, label %22
+  br i1 %.not, label %18, label %19
 
-21:                                               ; preds = %20
+18:                                               ; preds = %17
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 72, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %mriStep_CheckNVector.exit.thread, label %28
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %mriStep_CheckNVector.exit.thread, label %25
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %mriStep_CheckNVector.exit.thread, label %32
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %mriStep_CheckNVector.exit.thread, label %29
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %24, i64 88
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %mriStep_CheckNVector.exit.thread, label %36
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %21, i64 88
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %mriStep_CheckNVector.exit.thread, label %33
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %24, i64 96
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %mriStep_CheckNVector.exit.thread, label %40
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %21, i64 96
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %mriStep_CheckNVector.exit.thread, label %37
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %24, i64 120
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %21, i64 120
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %mriStep_CheckNVector.exit.thread, label %mriStep_CheckNVector.exit
+
+mriStep_CheckNVector.exit:                        ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %21, i64 168
   %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %mriStep_CheckNVector.exit.thread, label %mriStep_CheckNVector.exit
+  %.not73 = icmp eq ptr %42, null
+  br i1 %.not73, label %mriStep_CheckNVector.exit.thread, label %43
 
-mriStep_CheckNVector.exit:                        ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %24, i64 168
-  %45 = load ptr, ptr %44, align 8
-  %.not73 = icmp eq ptr %45, null
-  br i1 %.not73, label %mriStep_CheckNVector.exit.thread, label %46
-
-mriStep_CheckNVector.exit.thread:                 ; preds = %22, %28, %32, %36, %40, %mriStep_CheckNVector.exit
+mriStep_CheckNVector.exit.thread:                 ; preds = %19, %25, %29, %33, %37, %mriStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 81, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-46:                                               ; preds = %mriStep_CheckNVector.exit
-  %47 = tail call ptr @arkCreate(ptr noundef nonnull %5) #12
-  store ptr %47, ptr %7, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %50
+43:                                               ; preds = %mriStep_CheckNVector.exit
+  %44 = tail call ptr @arkCreate(ptr noundef nonnull %5) #12
+  store ptr %44, ptr %7, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-49:                                               ; preds = %46
+46:                                               ; preds = %43
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 90, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #12
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-50:                                               ; preds = %46
+47:                                               ; preds = %43
   %calloc = tail call dereferenceable_or_null(432) ptr @calloc(i64 1, i64 432)
-  %51 = icmp eq ptr %calloc, null
-  br i1 %51, label %52, label %53
+  %48 = icmp eq ptr %calloc, null
+  br i1 %48, label %49, label %50
 
-52:                                               ; preds = %50
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef -20, i32 noundef 100, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #12
+49:                                               ; preds = %47
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef -20, i32 noundef 100, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %47, i64 136
-  store ptr @mriStep_AttachLinsol, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %47, i64 152
-  store ptr @mriStep_DisableLSetup, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 168
-  store ptr @mriStep_GetLmem, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %47, i64 184
-  store ptr @mriStep_GetImplicitRHS, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %47, i64 200
-  store ptr @mriStep_GetGammas, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %47, i64 208
-  store ptr @mriStep_Init, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %47, i64 216
-  store ptr @mriStep_FullRHS, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %47, i64 224
-  store ptr @mriStep_TakeStep, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %47, i64 232
-  store ptr %calloc, ptr %62, align 8
-  %63 = tail call i32 @MRIStepSetDefaults(ptr noundef nonnull %47) #12
-  %.not61 = icmp eq i32 %63, 0
-  br i1 %.not61, label %65, label %64
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %44, i64 136
+  store ptr @mriStep_AttachLinsol, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %44, i64 152
+  store ptr @mriStep_DisableLSetup, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %44, i64 168
+  store ptr @mriStep_GetLmem, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %44, i64 184
+  store ptr @mriStep_GetImplicitRHS, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %44, i64 200
+  store ptr @mriStep_GetGammas, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %44, i64 208
+  store ptr @mriStep_Init, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %44, i64 216
+  store ptr @mriStep_FullRHS, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %44, i64 224
+  store ptr @mriStep_TakeStep, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %44, i64 232
+  store ptr %calloc, ptr %59, align 8
+  %60 = tail call i32 @MRIStepSetDefaults(ptr noundef nonnull %44) #12
+  %.not61 = icmp eq i32 %60, 0
+  br i1 %.not61, label %62, label %61
 
-64:                                               ; preds = %53
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef %63, i32 noundef 122, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #12
+61:                                               ; preds = %50
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef %60, i32 noundef 122, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-65:                                               ; preds = %53
+62:                                               ; preds = %50
   store ptr %0, ptr %calloc, align 8
-  %66 = getelementptr inbounds i8, ptr %calloc, i64 8
-  store ptr %1, ptr %66, align 8
-  %67 = xor <2 x i1> %10, <i1 true, i1 true>
-  %68 = getelementptr inbounds i8, ptr %calloc, i64 24
-  %69 = zext <2 x i1> %67 to <2 x i32>
-  store <2 x i32> %69, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %47, i64 544
-  %71 = load <2 x i64>, ptr %70, align 8
-  %72 = add nsw <2 x i64> %71, <i64 10, i64 42>
-  store <2 x i64> %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %calloc, i64 152
-  store ptr null, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %calloc, i64 160
-  store i32 0, ptr %74, align 8
-  br i1 %12, label %83, label %75
+  %63 = getelementptr inbounds i8, ptr %calloc, i64 8
+  store ptr %1, ptr %63, align 8
+  %not. = xor i1 %8, true
+  %64 = zext i1 %not. to i32
+  %65 = getelementptr inbounds i8, ptr %calloc, i64 24
+  store i32 %64, ptr %65, align 8
+  %not.62 = xor i1 %9, true
+  %66 = zext i1 %not.62 to i32
+  %67 = getelementptr inbounds i8, ptr %calloc, i64 28
+  store i32 %66, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %44, i64 552
+  %69 = load i64, ptr %68, align 8
+  %70 = add nsw i64 %69, 42
+  store i64 %70, ptr %68, align 8
+  %71 = getelementptr inbounds i8, ptr %44, i64 544
+  %72 = load i64, ptr %71, align 8
+  %73 = add nsw i64 %72, 10
+  store i64 %73, ptr %71, align 8
+  %74 = getelementptr inbounds i8, ptr %calloc, i64 152
+  store ptr null, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %calloc, i64 160
+  store i32 0, ptr %75, align 8
+  br i1 %9, label %84, label %76
 
-75:                                               ; preds = %65
-  %76 = load ptr, ptr %47, align 8
-  %77 = tail call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %3, ptr noundef %76) #12
-  %.not64 = icmp eq ptr %77, null
-  br i1 %.not64, label %78, label %79
+76:                                               ; preds = %62
+  %77 = load ptr, ptr %44, align 8
+  %78 = tail call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %3, ptr noundef %77) #12
+  %.not64 = icmp eq ptr %78, null
+  br i1 %.not64, label %79, label %80
 
-78:                                               ; preds = %75
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef -20, i32 noundef 154, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
+79:                                               ; preds = %76
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef -20, i32 noundef 154, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-79:                                               ; preds = %75
-  %80 = tail call i32 @MRIStepSetNonlinearSolver(ptr noundef nonnull %47, ptr noundef nonnull %77) #12
-  %.not65 = icmp eq i32 %80, 0
-  br i1 %.not65, label %82, label %81
+80:                                               ; preds = %76
+  %81 = tail call i32 @MRIStepSetNonlinearSolver(ptr noundef nonnull %44, ptr noundef nonnull %78) #12
+  %.not65 = icmp eq i32 %81, 0
+  br i1 %.not65, label %83, label %82
 
-81:                                               ; preds = %79
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef -20, i32 noundef 162, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #12
+82:                                               ; preds = %80
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef -20, i32 noundef 162, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-82:                                               ; preds = %79
-  store i32 1, ptr %74, align 8
-  br label %83
+83:                                               ; preds = %80
+  store i32 1, ptr %75, align 8
+  br label %84
 
-83:                                               ; preds = %82, %65
-  %84 = getelementptr inbounds i8, ptr %calloc, i64 304
-  %85 = getelementptr inbounds i8, ptr %calloc, i64 272
-  store i64 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %calloc, i64 416
-  %87 = getelementptr inbounds i8, ptr %calloc, i64 352
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %87, i8 0, i64 56, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  %88 = tail call i32 @arkInit(ptr noundef nonnull %47, double noundef %2, ptr noundef nonnull %3, i32 noundef 0) #12
-  %.not66 = icmp eq i32 %88, 0
-  br i1 %.not66, label %90, label %89
+84:                                               ; preds = %83, %62
+  %85 = getelementptr inbounds i8, ptr %calloc, i64 304
+  %86 = getelementptr inbounds i8, ptr %calloc, i64 272
+  store i64 0, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %calloc, i64 416
+  %88 = getelementptr inbounds i8, ptr %calloc, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %85, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
+  %89 = tail call i32 @arkInit(ptr noundef nonnull %44, double noundef %2, ptr noundef nonnull %3, i32 noundef 0) #12
+  %.not66 = icmp eq i32 %89, 0
+  br i1 %.not66, label %91, label %90
 
-89:                                               ; preds = %83
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef %88, i32 noundef 197, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #12
+90:                                               ; preds = %84
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef %89, i32 noundef 197, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %calloc, i64 344
-  store ptr %4, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %select.unfold, label %95
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds i8, ptr %calloc, i64 344
+  store ptr %4, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %4, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %select.unfold, label %96
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %93, align 8
-  %.not.i = icmp eq ptr %96, null
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %94, align 8
+  %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %select.unfold, label %mriStepInnerStepper_HasRequiredOps.exit
 
-select.unfold:                                    ; preds = %95, %90
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %47, i32 noundef -22, i32 noundef 210, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
+select.unfold:                                    ; preds = %96, %91
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %44, i32 noundef -22, i32 noundef 210, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #12
   call void @MRIStepFree(ptr noundef nonnull %7)
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
-mriStepInnerStepper_HasRequiredOps.exit:          ; preds = %95, %select.unfold, %89, %81, %78, %64, %52, %49, %mriStep_CheckNVector.exit.thread, %21, %19, %16, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %16 ], [ null, %19 ], [ null, %49 ], [ null, %52 ], [ null, %64 ], [ null, %81 ], [ null, %89 ], [ null, %select.unfold ], [ null, %78 ], [ null, %mriStep_CheckNVector.exit.thread ], [ null, %21 ], [ %47, %95 ]
+mriStepInnerStepper_HasRequiredOps.exit:          ; preds = %96, %select.unfold, %90, %82, %79, %61, %49, %46, %mriStep_CheckNVector.exit.thread, %18, %16, %13, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %16 ], [ null, %46 ], [ null, %49 ], [ null, %61 ], [ null, %82 ], [ null, %90 ], [ null, %select.unfold ], [ null, %79 ], [ null, %mriStep_CheckNVector.exit.thread ], [ null, %18 ], [ %44, %96 ]
   ret ptr %.0
 }
 
@@ -2390,86 +2395,87 @@ mriStep_AccessStepMem.exit:                       ; preds = %9
   br label %mriStep_AccessStepMem.exit.thread
 
 18:                                               ; preds = %mriStep_AccessStepMem.exit
-  %19 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %20 = insertelement <2 x ptr> %19, ptr %2, i64 1
-  %21 = icmp eq <2 x ptr> %20, zeroinitializer
-  %22 = extractelement <2 x i1> %21, i64 0
-  %23 = extractelement <2 x i1> %21, i64 1
-  %or.cond = and i1 %22, %23
-  br i1 %or.cond, label %24, label %25
+  %19 = icmp eq ptr %1, null
+  %20 = icmp eq ptr %2, null
+  %or.cond = and i1 %19, %20
+  br i1 %or.cond, label %21, label %22
 
-24:                                               ; preds = %18
+21:                                               ; preds = %18
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 394, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
   br label %mriStep_AccessStepMem.exit.thread
 
-25:                                               ; preds = %18
-  %26 = icmp eq ptr %4, null
-  br i1 %26, label %27, label %28
+22:                                               ; preds = %18
+  %23 = icmp eq ptr %4, null
+  br i1 %23, label %24, label %25
 
-27:                                               ; preds = %25
+24:                                               ; preds = %22
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 402, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #12
   br label %mriStep_AccessStepMem.exit.thread
 
-28:                                               ; preds = %25
-  %29 = xor <2 x i1> %21, <i1 true, i1 true>
-  %30 = getelementptr inbounds i8, ptr %11, i64 24
-  %31 = zext <2 x i1> %29 to <2 x i32>
-  store <2 x i32> %31, ptr %30, align 8
-  br i1 %23, label %44, label %32
+25:                                               ; preds = %22
+  %not. = xor i1 %19, true
+  %26 = zext i1 %not. to i32
+  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  store i32 %26, ptr %27, align 8
+  %not.25 = xor i1 %20, true
+  %28 = zext i1 %not.25 to i32
+  %29 = getelementptr inbounds i8, ptr %11, i64 28
+  store i32 %28, ptr %29, align 4
+  br i1 %20, label %42, label %30
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %11, i64 152
-  %34 = load ptr, ptr %33, align 8
-  %.not27 = icmp eq ptr %34, null
-  br i1 %.not27, label %35, label %44
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %11, i64 152
+  %32 = load ptr, ptr %31, align 8
+  %.not27 = icmp eq ptr %32, null
+  br i1 %.not27, label %33, label %42
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %4, ptr noundef %36) #12
-  %.not28 = icmp eq ptr %37, null
-  br i1 %.not28, label %38, label %39
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %0, align 8
+  %35 = tail call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %4, ptr noundef %34) #12
+  %.not28 = icmp eq ptr %35, null
+  br i1 %.not28, label %36, label %37
 
-38:                                               ; preds = %35
+36:                                               ; preds = %33
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 418, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
   call void @MRIStepFree(ptr noundef nonnull %6)
   br label %mriStep_AccessStepMem.exit.thread
 
-39:                                               ; preds = %35
-  %40 = tail call i32 @MRIStepSetNonlinearSolver(ptr noundef nonnull %0, ptr noundef nonnull %37) #12
-  %.not29 = icmp eq i32 %40, 0
-  br i1 %.not29, label %42, label %41
+37:                                               ; preds = %33
+  %38 = tail call i32 @MRIStepSetNonlinearSolver(ptr noundef nonnull %0, ptr noundef nonnull %35) #12
+  %.not29 = icmp eq i32 %38, 0
+  br i1 %.not29, label %40, label %39
 
-41:                                               ; preds = %39
+39:                                               ; preds = %37
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 426, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #12
   call void @MRIStepFree(ptr noundef nonnull %6)
   br label %mriStep_AccessStepMem.exit.thread
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %11, i64 160
-  store i32 1, ptr %43, align 8
-  br label %44
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %11, i64 160
+  store i32 1, ptr %41, align 8
+  br label %42
 
-44:                                               ; preds = %42, %32, %28
-  %45 = tail call i32 @arkInit(ptr noundef nonnull %0, double noundef %3, ptr noundef nonnull %4, i32 noundef 0) #12
-  %.not30 = icmp eq i32 %45, 0
-  br i1 %.not30, label %47, label %46
+42:                                               ; preds = %40, %30, %25
+  %43 = tail call i32 @arkInit(ptr noundef nonnull %0, double noundef %3, ptr noundef nonnull %4, i32 noundef 0) #12
+  %.not30 = icmp eq i32 %43, 0
+  br i1 %.not30, label %45, label %44
 
-46:                                               ; preds = %44
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %45, i32 noundef 438, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #12
+44:                                               ; preds = %42
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef %43, i32 noundef 438, ptr noundef nonnull @__func__.MRIStepReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #12
   br label %mriStep_AccessStepMem.exit.thread
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   store ptr %1, ptr %11, align 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 368
-  %50 = getelementptr inbounds i8, ptr %11, i64 272
-  store i64 0, ptr %50, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
+  %46 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %2, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %11, i64 368
+  %48 = getelementptr inbounds i8, ptr %11, i64 272
+  store i64 0, ptr %48, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   br label %mriStep_AccessStepMem.exit.thread
 
-mriStep_AccessStepMem.exit.thread:                ; preds = %13, %8, %47, %46, %41, %38, %27, %24, %17
-  %.0 = phi i32 [ -23, %17 ], [ -22, %24 ], [ -22, %27 ], [ %45, %46 ], [ 0, %47 ], [ -20, %41 ], [ -20, %38 ], [ -21, %8 ], [ -21, %13 ]
+mriStep_AccessStepMem.exit.thread:                ; preds = %13, %8, %45, %44, %39, %36, %24, %21, %17
+  %.0 = phi i32 [ -23, %17 ], [ -22, %21 ], [ -22, %24 ], [ %43, %44 ], [ 0, %45 ], [ -20, %39 ], [ -20, %36 ], [ -21, %8 ], [ -21, %13 ]
   ret i32 %.0
 }
 

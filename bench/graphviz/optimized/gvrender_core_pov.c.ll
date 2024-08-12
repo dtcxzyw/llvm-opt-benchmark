@@ -478,142 +478,145 @@ agxbsizeof.exit.i.i:
   %5 = load i32, ptr @layerz, align 4
   %6 = add nsw i32 %5, -6
   store i32 %6, ptr @z, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 624
-  %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 608
-  %10 = getelementptr inbounds i8, ptr %0, i64 632
-  %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = load <2 x double>, ptr %1, align 8
-  %14 = extractelement <2 x double> %13, i64 0
-  %15 = fadd double %14, %8
-  %16 = load <2 x double>, ptr %9, align 8
-  %17 = extractelement <2 x double> %16, i64 0
-  %18 = fmul double %15, %17
-  %19 = fptrunc double %18 to float
-  %20 = extractelement <2 x double> %13, i64 1
-  %21 = fadd double %20, %11
-  %22 = extractelement <2 x double> %16, i64 1
-  %23 = fmul double %21, %22
-  %24 = fptrunc double %23 to float
-  %25 = load <2 x double>, ptr %12, align 8
-  %26 = fsub <2 x double> %25, %13
-  %27 = fmul <2 x double> %16, %26
-  %28 = fptrunc <2 x double> %27 to <2 x float>
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 168
-  %32 = load double, ptr %31, align 8
-  %33 = extractelement <2 x float> %28, i64 0
-  %34 = extractelement <2 x float> %28, i64 1
-  %35 = fadd float %33, %34
-  %36 = fpext float %35 to double
-  %37 = fdiv double %32, %36
-  %38 = fmul double %37, 5.000000e-01
-  %39 = fmul double %38, 5.000000e+00
-  %40 = fptrunc double %39 to float
-  %41 = getelementptr inbounds i8, ptr %30, i64 32
-  %42 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %41, float noundef 0.000000e+00)
+  %7 = load double, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 624
+  %9 = load double, ptr %8, align 8
+  %10 = fadd double %7, %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 608
+  %12 = load double, ptr %11, align 8
+  %13 = fmul double %10, %12
+  %14 = fptrunc double %13 to float
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 632
+  %18 = load double, ptr %17, align 8
+  %19 = fadd double %16, %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 616
+  %21 = load double, ptr %20, align 8
+  %22 = fmul double %19, %21
+  %23 = fptrunc double %22 to float
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load double, ptr %24, align 8
+  %26 = fsub double %25, %7
+  %27 = fmul double %12, %26
+  %28 = fptrunc double %27 to float
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load double, ptr %29, align 8
+  %31 = fsub double %30, %16
+  %32 = fmul double %21, %31
+  %33 = fptrunc double %32 to float
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %37 = load double, ptr %36, align 8
+  %38 = fadd float %28, %33
+  %39 = fpext float %38 to double
+  %40 = fdiv double %37, %39
+  %41 = fmul double %40, 5.000000e-01
+  %42 = fmul double %41, 5.000000e+00
+  %43 = fptrunc double %42 to float
+  %44 = getelementptr inbounds i8, ptr %35, i64 32
+  %45 = tail call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %44, float noundef 0.000000e+00)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %43 = fpext float %40 to double
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, double noundef 1.000000e+00, double noundef %43)
-  %44 = fpext float %33 to double
-  %45 = fmul double %36, 2.500000e-01
-  %46 = fpext float %34 to double
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, double noundef %44, double noundef %45, double noundef %46)
-  %47 = getelementptr inbounds i8, ptr %0, i64 480
-  %48 = load i32, ptr %47, align 8
-  %49 = sitofp i32 %48 to float
-  %50 = fpext float %49 to double
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.29, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %50)
-  %51 = fpext float %19 to double
-  %52 = fpext float %24 to double
-  %53 = load i32, ptr @z, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.30, double noundef %51, double noundef %52, i32 noundef %53)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef %42)
-  %54 = getelementptr inbounds i8, ptr %3, i64 31
-  %.val.i.i.i = load i8, ptr %54, align 1
+  %46 = fpext float %43 to double
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, double noundef 1.000000e+00, double noundef %46)
+  %47 = fpext float %28 to double
+  %48 = fmul double %39, 2.500000e-01
+  %49 = fpext float %33 to double
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, double noundef %47, double noundef %48, double noundef %49)
+  %50 = getelementptr inbounds i8, ptr %0, i64 480
+  %51 = load i32, ptr %50, align 8
+  %52 = sitofp i32 %51 to float
+  %53 = fpext float %52 to double
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.29, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %53)
+  %54 = fpext float %14 to double
+  %55 = fpext float %23 to double
+  %56 = load i32, ptr @z, align 4
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.30, double noundef %54, double noundef %55, i32 noundef %56)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef %45)
+  %57 = getelementptr inbounds i8, ptr %3, i64 31
+  %.val.i.i.i = load i8, ptr %57, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %55 = getelementptr inbounds i8, ptr %3, i64 8
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
-  %58 = load i64, ptr %57, align 8
-  %59 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %56, i64 %59
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %58, i64 31
+  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %3, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %59, i64 %62
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %61, i64 31
   %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %61, label %60
+  br i1 %.not.i.i, label %64, label %63
 
-60:                                               ; preds = %agxbsizeof.exit.i.i
+63:                                               ; preds = %agxbsizeof.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %54, align 1
-  br label %61
+  %.val.i15.pre.i.i = load i8, ptr %57, align 1
+  br label %64
 
-61:                                               ; preds = %60, %agxbsizeof.exit.i.i
-  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %60 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+64:                                               ; preds = %63, %agxbsizeof.exit.i.i
+  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %63 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
   %.not.i16.i.i = icmp eq i8 %.val.i.pr.i, -1
   br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
-agxbputc.exit.i.thread:                           ; preds = %61
-  %62 = load i64, ptr %55, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 %62
-  store i8 0, ptr %64, align 1
-  br label %70
+agxbputc.exit.i.thread:                           ; preds = %64
+  %65 = load i64, ptr %58, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 %65
+  store i8 0, ptr %67, align 1
+  br label %73
 
-agxbputc.exit.i:                                  ; preds = %61
-  %65 = zext i8 %.val.i.pr.i to i64
-  %66 = getelementptr inbounds [31 x i8], ptr %3, i64 0, i64 %65
-  store i8 0, ptr %66, align 1
-  %67 = load i8, ptr %54, align 1
-  %68 = add i8 %67, 1
-  store i8 %68, ptr %54, align 1
-  %69 = icmp eq i8 %68, -1
-  br i1 %69, label %70, label %agxbclear.exit.thread.i
+agxbputc.exit.i:                                  ; preds = %64
+  %68 = zext i8 %.val.i.pr.i to i64
+  %69 = getelementptr inbounds [31 x i8], ptr %3, i64 0, i64 %68
+  store i8 0, ptr %69, align 1
+  %70 = load i8, ptr %57, align 1
+  %71 = add i8 %70, 1
+  store i8 %71, ptr %57, align 1
+  %72 = icmp eq i8 %71, -1
+  br i1 %72, label %73, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr %54, align 1
+  store i8 0, ptr %57, align 1
   br label %agxbuse.exit
 
-70:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
-  store i64 0, ptr %55, align 8
-  %71 = load ptr, ptr %3, align 8
+73:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
+  store i64 0, ptr %58, align 8
+  %74 = load ptr, ptr %3, align 8
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %70
-  %72 = phi ptr [ %71, %70 ], [ %3, %agxbclear.exit.thread.i ]
-  %73 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %72) #17
-  call void @free(ptr noundef %42) #17
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %73
+  %75 = phi ptr [ %74, %73 ], [ %3, %agxbclear.exit.thread.i ]
+  %76 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %75) #17
+  call void @free(ptr noundef %45) #17
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %82, label %74
+  br i1 %.not, label %85, label %77
 
-74:                                               ; preds = %agxbuse.exit
-  %75 = load ptr, ptr %29, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 72
-  %77 = call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %76, float noundef 0.000000e+00)
+77:                                               ; preds = %agxbuse.exit
+  %78 = load ptr, ptr %34, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 72
+  %80 = call fastcc ptr @pov_color_as_str(ptr noundef nonnull byval(%struct.color_s) align 8 %79, float noundef 0.000000e+00)
   call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, double noundef %44, double noundef %46, double noundef 1.000000e+00) #17
-  %78 = load i32, ptr %47, align 8
-  %79 = sitofp i32 %78 to float
-  %80 = fpext float %79 to double
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %80) #17
-  %81 = load i32, ptr @z, align 4
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, double noundef %51, double noundef %52, i32 noundef %81) #17
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef %77) #17
-  call void @free(ptr noundef %77) #17
-  br label %82
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, double noundef %47, double noundef %49, double noundef 1.000000e+00) #17
+  %81 = load i32, ptr %50, align 8
+  %82 = sitofp i32 %81 to float
+  %83 = fpext float %82 to double
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %83) #17
+  %84 = load i32, ptr @z, align 4
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, double noundef %54, double noundef %55, i32 noundef %84) #17
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef %80) #17
+  call void @free(ptr noundef %80) #17
+  br label %85
 
-82:                                               ; preds = %74, %agxbuse.exit
-  %.val43 = load i8, ptr %54, align 1
-  %83 = icmp eq i8 %.val43, -1
-  br i1 %83, label %84, label %agxbfree.exit
+85:                                               ; preds = %77, %agxbuse.exit
+  %.val43 = load i8, ptr %57, align 1
+  %86 = icmp eq i8 %.val43, -1
+  br i1 %86, label %87, label %agxbfree.exit
 
-84:                                               ; preds = %82
+87:                                               ; preds = %85
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #17
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %82, %84
+agxbfree.exit:                                    ; preds = %85, %87
   ret void
 }
 

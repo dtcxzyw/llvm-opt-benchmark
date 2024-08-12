@@ -2604,1830 +2604,2064 @@ alnumerize.exit:                                  ; preds = %63, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %80, i8 0, i64 20, i1 false)
   store ptr %.0, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %40, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %40, i64 72
-  store ptr null, ptr %83, align 8
-  %84 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %84, ptr noundef nonnull %40, i32 noundef 1) #8
+  store i32 -1, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %40, i64 60
+  store i32 0, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %40, i64 64
+  store i32 0, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %40, i64 68
+  store i32 -1, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %40, i64 72
+  store ptr null, ptr %86, align 8
+  %87 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %87, ptr noundef nonnull %40, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %40)
-  %85 = call ptr @wmem_epan_scope() #8
-  %86 = call noalias ptr @wmem_strdup(ptr noundef %85, ptr noundef nonnull @.str.181) #8
-  %87 = call ptr @wmem_epan_scope() #8
-  %88 = load ptr, ptr %42, align 8
-  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %87, ptr noundef nonnull @.str.255, ptr noundef %88) #8
-  %90 = load i8, ptr %89, align 1
-  %.not33.i177 = icmp eq i8 %90, 0
+  %88 = call ptr @wmem_epan_scope() #8
+  %89 = call noalias ptr @wmem_strdup(ptr noundef %88, ptr noundef nonnull @.str.181) #8
+  %90 = call ptr @wmem_epan_scope() #8
+  %91 = load ptr, ptr %42, align 8
+  %92 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %90, ptr noundef nonnull @.str.255, ptr noundef %91) #8
+  %93 = load i8, ptr %92, align 1
+  %.not33.i177 = icmp eq i8 %93, 0
   br i1 %.not33.i177, label %alnumerize.exit189, label %.lr.ph.i178
 
 .lr.ph.i178:                                      ; preds = %75
-  %91 = load ptr, ptr @g_ascii_table, align 8
-  br label %92
+  %94 = load ptr, ptr @g_ascii_table, align 8
+  br label %95
 
-92:                                               ; preds = %105, %.lr.ph.i178
-  %93 = phi i8 [ %90, %.lr.ph.i178 ], [ %107, %105 ]
-  %.035.i179 = phi ptr [ %89, %.lr.ph.i178 ], [ %106, %105 ]
-  %.02834.i180 = phi ptr [ %89, %.lr.ph.i178 ], [ %.1.i185, %105 ]
-  %94 = zext i8 %93 to i64
-  %95 = getelementptr i16, ptr %91, i64 %94
-  %96 = load i16, ptr %95, align 2
-  %.fr31.i181 = freeze i16 %96
-  %97 = and i16 %.fr31.i181, 1
-  %.not32.i182 = icmp eq i16 %97, 0
+95:                                               ; preds = %108, %.lr.ph.i178
+  %96 = phi i8 [ %93, %.lr.ph.i178 ], [ %110, %108 ]
+  %.035.i179 = phi ptr [ %92, %.lr.ph.i178 ], [ %109, %108 ]
+  %.02834.i180 = phi ptr [ %92, %.lr.ph.i178 ], [ %.1.i185, %108 ]
+  %97 = zext i8 %96 to i64
+  %98 = getelementptr i16, ptr %94, i64 %97
+  %99 = load i16, ptr %98, align 2
+  %.fr31.i181 = freeze i16 %99
+  %100 = and i16 %.fr31.i181, 1
+  %.not32.i182 = icmp eq i16 %100, 0
   br i1 %.not32.i182, label %switch.early.test.i188, label %.sink.split.i183
 
-switch.early.test.i188:                           ; preds = %92
-  switch i8 %93, label %105 [
+switch.early.test.i188:                           ; preds = %95
+  switch i8 %96, label %108 [
     i8 95, label %.sink.split.i183
     i8 46, label %.sink.split.i183
-    i8 47, label %98
-    i8 45, label %98
-    i8 32, label %98
+    i8 47, label %101
+    i8 45, label %101
+    i8 32, label %101
   ]
 
-98:                                               ; preds = %switch.early.test.i188, %switch.early.test.i188, %switch.early.test.i188
-  %99 = icmp eq ptr %.02834.i180, %89
-  br i1 %99, label %105, label %100
+101:                                              ; preds = %switch.early.test.i188, %switch.early.test.i188, %switch.early.test.i188
+  %102 = icmp eq ptr %.02834.i180, %92
+  br i1 %102, label %108, label %103
 
-100:                                              ; preds = %98
-  %101 = getelementptr i8, ptr %.02834.i180, i64 -1
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 95
-  br i1 %103, label %105, label %.sink.split.i183
+103:                                              ; preds = %101
+  %104 = getelementptr i8, ptr %.02834.i180, i64 -1
+  %105 = load i8, ptr %104, align 1
+  %106 = icmp eq i8 %105, 95
+  br i1 %106, label %108, label %.sink.split.i183
 
-.sink.split.i183:                                 ; preds = %100, %switch.early.test.i188, %switch.early.test.i188, %92
-  %.sink.i184 = phi i8 [ %93, %switch.early.test.i188 ], [ %93, %switch.early.test.i188 ], [ %93, %92 ], [ 95, %100 ]
-  %104 = getelementptr i8, ptr %.02834.i180, i64 1
+.sink.split.i183:                                 ; preds = %103, %switch.early.test.i188, %switch.early.test.i188, %95
+  %.sink.i184 = phi i8 [ %96, %switch.early.test.i188 ], [ %96, %switch.early.test.i188 ], [ %96, %95 ], [ 95, %103 ]
+  %107 = getelementptr i8, ptr %.02834.i180, i64 1
   store i8 %.sink.i184, ptr %.02834.i180, align 1
-  br label %105
+  br label %108
 
-105:                                              ; preds = %.sink.split.i183, %100, %98, %switch.early.test.i188
-  %.1.i185 = phi ptr [ %89, %98 ], [ %.02834.i180, %100 ], [ %.02834.i180, %switch.early.test.i188 ], [ %104, %.sink.split.i183 ]
-  %106 = getelementptr i8, ptr %.035.i179, i64 1
-  %107 = load i8, ptr %106, align 1
-  %.not.i186 = icmp eq i8 %107, 0
-  br i1 %.not.i186, label %alnumerize.exit189, label %92, !llvm.loop !20
+108:                                              ; preds = %.sink.split.i183, %103, %101, %switch.early.test.i188
+  %.1.i185 = phi ptr [ %92, %101 ], [ %.02834.i180, %103 ], [ %.02834.i180, %switch.early.test.i188 ], [ %107, %.sink.split.i183 ]
+  %109 = getelementptr i8, ptr %.035.i179, i64 1
+  %110 = load i8, ptr %109, align 1
+  %.not.i186 = icmp eq i8 %110, 0
+  br i1 %.not.i186, label %alnumerize.exit189, label %95, !llvm.loop !20
 
-alnumerize.exit189:                               ; preds = %105, %75
-  %.028.lcssa.i187 = phi ptr [ %89, %75 ], [ %.1.i185, %105 ]
+alnumerize.exit189:                               ; preds = %108, %75
+  %.028.lcssa.i187 = phi ptr [ %92, %75 ], [ %.1.i185, %108 ]
   store i8 0, ptr %.028.lcssa.i187, align 1
-  %108 = call ptr @wmem_epan_scope() #8
-  %109 = load i16, ptr %0, align 8
-  %110 = zext i16 %109 to i32
-  %111 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %108, ptr noundef nonnull @.str.256, i32 noundef %110) #8
-  %112 = load i32, ptr %66, align 8
-  switch i32 %112, label %806 [
-    i32 0, label %113
-    i32 1, label %124
-    i32 2, label %134
-    i32 9, label %134
-    i32 3, label %138
-    i32 4, label %148
-    i32 5, label %159
-    i32 6, label %170
-    i32 7, label %181
-    i32 8, label %191
-    i32 10, label %201
-    i32 11, label %212
-    i32 12, label %223
-    i32 13, label %234
-    i32 14, label %326
-    i32 15, label %337
-    i32 16, label %348
-    i32 17, label %359
-    i32 18, label %370
-    i32 19, label %381
-    i32 20, label %392
-    i32 21, label %454
-    i32 22, label %464
-    i32 23, label %509
-    i32 24, label %585
-    i32 26, label %719
-    i32 25, label %794
+  %111 = call ptr @wmem_epan_scope() #8
+  %112 = load i16, ptr %0, align 8
+  %113 = zext i16 %112 to i32
+  %114 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %111, ptr noundef nonnull @.str.256, i32 noundef %113) #8
+  %115 = load i32, ptr %66, align 8
+  switch i32 %115, label %920 [
+    i32 0, label %116
+    i32 1, label %130
+    i32 2, label %143
+    i32 9, label %143
+    i32 3, label %147
+    i32 4, label %160
+    i32 5, label %174
+    i32 6, label %188
+    i32 7, label %202
+    i32 8, label %215
+    i32 10, label %228
+    i32 11, label %242
+    i32 12, label %256
+    i32 13, label %270
+    i32 14, label %371
+    i32 15, label %385
+    i32 16, label %399
+    i32 17, label %413
+    i32 18, label %427
+    i32 19, label %441
+    i32 20, label %455
+    i32 21, label %523
+    i32 22, label %536
+    i32 23, label %587
+    i32 24, label %672
+    i32 26, label %821
+    i32 25, label %905
   ]
 
-113:                                              ; preds = %alnumerize.exit189
-  %114 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %114, ptr noundef %111) #8
-  %115 = getelementptr inbounds i8, ptr %0, i64 36
+116:                                              ; preds = %alnumerize.exit189
+  %117 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %117, ptr noundef %114) #8
+  %118 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %39)
-  store ptr %115, ptr %39, align 8
-  %116 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %86, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %89, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %39, i64 24
-  store i32 30, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %39, i64 28
-  %120 = getelementptr inbounds i8, ptr %39, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %119, i8 0, i64 20, i1 false)
-  store ptr @.str.257, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %39, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %39, i64 72
-  store ptr null, ptr %122, align 8
-  %123 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %123, ptr noundef nonnull %39, i32 noundef 1) #8
+  store ptr %118, ptr %39, align 8
+  %119 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %89, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %39, i64 16
+  store ptr %92, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %39, i64 24
+  store i32 30, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %39, i64 28
+  %123 = getelementptr inbounds i8, ptr %39, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %122, i8 0, i64 20, i1 false)
+  store ptr @.str.257, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %39, i64 56
+  store i32 -1, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %39, i64 60
+  store i32 0, ptr %125, align 4
+  %126 = getelementptr inbounds i8, ptr %39, i64 64
+  store i32 0, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %39, i64 68
+  store i32 -1, ptr %127, align 4
+  %128 = getelementptr inbounds i8, ptr %39, i64 72
+  store ptr null, ptr %128, align 8
+  %129 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %129, ptr noundef nonnull %39, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %39)
-  br label %819
+  br label %936
 
-124:                                              ; preds = %alnumerize.exit189
-  %125 = getelementptr inbounds i8, ptr %0, i64 36
+130:                                              ; preds = %alnumerize.exit189
+  %131 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38)
-  store ptr %125, ptr %38, align 8
-  %126 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %86, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr %89, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %38, i64 24
-  store i32 30, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %38, i64 28
-  %130 = getelementptr inbounds i8, ptr %38, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %129, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %38, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %38, i64 72
-  store ptr null, ptr %132, align 8
-  %133 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %133, ptr noundef nonnull %38, i32 noundef 1) #8
+  store ptr %131, ptr %38, align 8
+  %132 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %89, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr %92, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %38, i64 24
+  store i32 30, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %38, i64 28
+  %136 = getelementptr inbounds i8, ptr %38, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %135, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %38, i64 56
+  store i32 -1, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %38, i64 60
+  store i32 0, ptr %138, align 4
+  %139 = getelementptr inbounds i8, ptr %38, i64 64
+  store i32 0, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %38, i64 68
+  store i32 -1, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %38, i64 72
+  store ptr null, ptr %141, align 8
+  %142 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %142, ptr noundef nonnull %38, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38)
-  br label %819
+  br label %936
 
-134:                                              ; preds = %alnumerize.exit189, %alnumerize.exit189
-  %135 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %135, ptr noundef %86) #8
-  %136 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %136, ptr noundef %89) #8
-  %137 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %137, ptr noundef %111) #8
-  br label %819
+143:                                              ; preds = %alnumerize.exit189, %alnumerize.exit189
+  %144 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %144, ptr noundef %89) #8
+  %145 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %145, ptr noundef %92) #8
+  %146 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %146, ptr noundef %114) #8
+  br label %936
 
-138:                                              ; preds = %alnumerize.exit189
-  %139 = getelementptr inbounds i8, ptr %0, i64 36
+147:                                              ; preds = %alnumerize.exit189
+  %148 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37)
-  store ptr %139, ptr %37, align 8
-  %140 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %86, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr %89, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %37, i64 24
-  store i32 30, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %37, i64 28
-  %144 = getelementptr inbounds i8, ptr %37, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %143, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %37, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %37, i64 72
-  store ptr null, ptr %146, align 8
-  %147 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %147, ptr noundef nonnull %37, i32 noundef 1) #8
+  store ptr %148, ptr %37, align 8
+  %149 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %89, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %37, i64 16
+  store ptr %92, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %37, i64 24
+  store i32 30, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %37, i64 28
+  %153 = getelementptr inbounds i8, ptr %37, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %152, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %37, i64 56
+  store i32 -1, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %37, i64 60
+  store i32 0, ptr %155, align 4
+  %156 = getelementptr inbounds i8, ptr %37, i64 64
+  store i32 0, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %37, i64 68
+  store i32 -1, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %37, i64 72
+  store ptr null, ptr %158, align 8
+  %159 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %159, ptr noundef nonnull %37, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %37)
-  br label %819
+  br label %936
 
-148:                                              ; preds = %alnumerize.exit189
-  %149 = getelementptr inbounds i8, ptr %0, i64 36
+160:                                              ; preds = %alnumerize.exit189
+  %161 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %36)
-  store ptr %149, ptr %36, align 8
-  %150 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %86, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %89, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %36, i64 24
-  store i32 4, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %36, i64 28
-  store i32 1, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %36, i64 32
-  %155 = getelementptr inbounds i8, ptr %36, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %36, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %36, i64 72
-  store ptr null, ptr %157, align 8
-  %158 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %158, ptr noundef nonnull %36, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36)
-  br label %819
-
-159:                                              ; preds = %alnumerize.exit189
-  %160 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35)
-  store ptr %160, ptr %35, align 8
-  %161 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %86, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr %161, ptr %36, align 8
+  %162 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %89, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %35, i64 24
-  store i32 5, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %35, i64 28
-  store i32 1, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %35, i64 32
-  %166 = getelementptr inbounds i8, ptr %35, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %35, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %35, i64 72
-  store ptr null, ptr %168, align 8
-  %169 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %169, ptr noundef nonnull %35, i32 noundef 1) #8
+  %163 = getelementptr inbounds i8, ptr %36, i64 16
+  store ptr %92, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %36, i64 24
+  store i32 4, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %36, i64 28
+  store i32 1, ptr %165, align 4
+  %166 = getelementptr inbounds i8, ptr %36, i64 32
+  %167 = getelementptr inbounds i8, ptr %36, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %36, i64 56
+  store i32 -1, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %36, i64 60
+  store i32 0, ptr %169, align 4
+  %170 = getelementptr inbounds i8, ptr %36, i64 64
+  store i32 0, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %36, i64 68
+  store i32 -1, ptr %171, align 4
+  %172 = getelementptr inbounds i8, ptr %36, i64 72
+  store ptr null, ptr %172, align 8
+  %173 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %173, ptr noundef nonnull %36, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %36)
+  br label %936
+
+174:                                              ; preds = %alnumerize.exit189
+  %175 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35)
+  store ptr %175, ptr %35, align 8
+  %176 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %89, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr %92, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %35, i64 24
+  store i32 5, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %35, i64 28
+  store i32 1, ptr %179, align 4
+  %180 = getelementptr inbounds i8, ptr %35, i64 32
+  %181 = getelementptr inbounds i8, ptr %35, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %35, i64 56
+  store i32 -1, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %35, i64 60
+  store i32 0, ptr %183, align 4
+  %184 = getelementptr inbounds i8, ptr %35, i64 64
+  store i32 0, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %35, i64 68
+  store i32 -1, ptr %185, align 4
+  %186 = getelementptr inbounds i8, ptr %35, i64 72
+  store ptr null, ptr %186, align 8
+  %187 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %187, ptr noundef nonnull %35, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %35)
-  br label %819
+  br label %936
 
-170:                                              ; preds = %alnumerize.exit189
-  %171 = getelementptr inbounds i8, ptr %0, i64 36
+188:                                              ; preds = %alnumerize.exit189
+  %189 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34)
-  store ptr %171, ptr %34, align 8
-  %172 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %86, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr %89, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %34, i64 24
-  store i32 7, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %34, i64 28
-  store i32 1, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %34, i64 32
-  %177 = getelementptr inbounds i8, ptr %34, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %34, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %34, i64 72
-  store ptr null, ptr %179, align 8
-  %180 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %180, ptr noundef nonnull %34, i32 noundef 1) #8
+  store ptr %189, ptr %34, align 8
+  %190 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %89, ptr %190, align 8
+  %191 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr %92, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %34, i64 24
+  store i32 7, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %34, i64 28
+  store i32 1, ptr %193, align 4
+  %194 = getelementptr inbounds i8, ptr %34, i64 32
+  %195 = getelementptr inbounds i8, ptr %34, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %195, align 8
+  %196 = getelementptr inbounds i8, ptr %34, i64 56
+  store i32 -1, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %34, i64 60
+  store i32 0, ptr %197, align 4
+  %198 = getelementptr inbounds i8, ptr %34, i64 64
+  store i32 0, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %34, i64 68
+  store i32 -1, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %34, i64 72
+  store ptr null, ptr %200, align 8
+  %201 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %201, ptr noundef nonnull %34, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %34)
-  br label %819
+  br label %936
 
-181:                                              ; preds = %alnumerize.exit189
-  %182 = getelementptr inbounds i8, ptr %0, i64 36
+202:                                              ; preds = %alnumerize.exit189
+  %203 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33)
-  store ptr %182, ptr %33, align 8
-  %183 = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %86, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %33, i64 16
-  store ptr %89, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %33, i64 24
-  store i32 29, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %33, i64 28
-  %187 = getelementptr inbounds i8, ptr %33, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %186, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %33, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %33, i64 72
-  store ptr null, ptr %189, align 8
-  %190 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %190, ptr noundef nonnull %33, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33)
-  br label %819
-
-191:                                              ; preds = %alnumerize.exit189
-  %192 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
-  store ptr %192, ptr %32, align 8
-  %193 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %86, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %32, i64 16
-  store ptr %89, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %32, i64 24
-  store i32 26, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %32, i64 28
-  %197 = getelementptr inbounds i8, ptr %32, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %196, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %32, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %32, i64 72
-  store ptr null, ptr %199, align 8
-  %200 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %200, ptr noundef nonnull %32, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32)
-  br label %819
-
-201:                                              ; preds = %alnumerize.exit189
-  %202 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %31)
-  store ptr %202, ptr %31, align 8
-  %203 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %86, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %31, i64 16
+  store ptr %203, ptr %33, align 8
+  %204 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %89, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %31, i64 24
-  store i32 4, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %31, i64 28
-  store i32 2, ptr %206, align 4
-  %207 = getelementptr inbounds i8, ptr %31, i64 32
-  %208 = getelementptr inbounds i8, ptr %31, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %31, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %31, i64 72
-  store ptr null, ptr %210, align 8
-  %211 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %211, ptr noundef nonnull %31, i32 noundef 1) #8
+  %205 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %92, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %33, i64 24
+  store i32 29, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %33, i64 28
+  %208 = getelementptr inbounds i8, ptr %33, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %207, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %208, align 8
+  %209 = getelementptr inbounds i8, ptr %33, i64 56
+  store i32 -1, ptr %209, align 8
+  %210 = getelementptr inbounds i8, ptr %33, i64 60
+  store i32 0, ptr %210, align 4
+  %211 = getelementptr inbounds i8, ptr %33, i64 64
+  store i32 0, ptr %211, align 8
+  %212 = getelementptr inbounds i8, ptr %33, i64 68
+  store i32 -1, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %33, i64 72
+  store ptr null, ptr %213, align 8
+  %214 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %214, ptr noundef nonnull %33, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33)
+  br label %936
+
+215:                                              ; preds = %alnumerize.exit189
+  %216 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
+  store ptr %216, ptr %32, align 8
+  %217 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %89, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %32, i64 16
+  store ptr %92, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %32, i64 24
+  store i32 26, ptr %219, align 8
+  %220 = getelementptr inbounds i8, ptr %32, i64 28
+  %221 = getelementptr inbounds i8, ptr %32, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %220, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %221, align 8
+  %222 = getelementptr inbounds i8, ptr %32, i64 56
+  store i32 -1, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %32, i64 60
+  store i32 0, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %32, i64 64
+  store i32 0, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %32, i64 68
+  store i32 -1, ptr %225, align 4
+  %226 = getelementptr inbounds i8, ptr %32, i64 72
+  store ptr null, ptr %226, align 8
+  %227 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %227, ptr noundef nonnull %32, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32)
+  br label %936
+
+228:                                              ; preds = %alnumerize.exit189
+  %229 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %31)
+  store ptr %229, ptr %31, align 8
+  %230 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %89, ptr %230, align 8
+  %231 = getelementptr inbounds i8, ptr %31, i64 16
+  store ptr %92, ptr %231, align 8
+  %232 = getelementptr inbounds i8, ptr %31, i64 24
+  store i32 4, ptr %232, align 8
+  %233 = getelementptr inbounds i8, ptr %31, i64 28
+  store i32 2, ptr %233, align 4
+  %234 = getelementptr inbounds i8, ptr %31, i64 32
+  %235 = getelementptr inbounds i8, ptr %31, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %234, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %235, align 8
+  %236 = getelementptr inbounds i8, ptr %31, i64 56
+  store i32 -1, ptr %236, align 8
+  %237 = getelementptr inbounds i8, ptr %31, i64 60
+  store i32 0, ptr %237, align 4
+  %238 = getelementptr inbounds i8, ptr %31, i64 64
+  store i32 0, ptr %238, align 8
+  %239 = getelementptr inbounds i8, ptr %31, i64 68
+  store i32 -1, ptr %239, align 4
+  %240 = getelementptr inbounds i8, ptr %31, i64 72
+  store ptr null, ptr %240, align 8
+  %241 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %241, ptr noundef nonnull %31, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %31)
-  br label %819
+  br label %936
 
-212:                                              ; preds = %alnumerize.exit189
-  %213 = getelementptr inbounds i8, ptr %0, i64 36
+242:                                              ; preds = %alnumerize.exit189
+  %243 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30)
-  store ptr %213, ptr %30, align 8
-  %214 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %86, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %89, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %30, i64 24
-  store i32 5, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %30, i64 28
-  store i32 2, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %30, i64 32
-  %219 = getelementptr inbounds i8, ptr %30, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %218, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %30, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %30, i64 72
-  store ptr null, ptr %221, align 8
-  %222 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %222, ptr noundef nonnull %30, i32 noundef 1) #8
+  store ptr %243, ptr %30, align 8
+  %244 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %89, ptr %244, align 8
+  %245 = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %92, ptr %245, align 8
+  %246 = getelementptr inbounds i8, ptr %30, i64 24
+  store i32 5, ptr %246, align 8
+  %247 = getelementptr inbounds i8, ptr %30, i64 28
+  store i32 2, ptr %247, align 4
+  %248 = getelementptr inbounds i8, ptr %30, i64 32
+  %249 = getelementptr inbounds i8, ptr %30, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %30, i64 56
+  store i32 -1, ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %30, i64 60
+  store i32 0, ptr %251, align 4
+  %252 = getelementptr inbounds i8, ptr %30, i64 64
+  store i32 0, ptr %252, align 8
+  %253 = getelementptr inbounds i8, ptr %30, i64 68
+  store i32 -1, ptr %253, align 4
+  %254 = getelementptr inbounds i8, ptr %30, i64 72
+  store ptr null, ptr %254, align 8
+  %255 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %255, ptr noundef nonnull %30, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %30)
-  br label %819
+  br label %936
 
-223:                                              ; preds = %alnumerize.exit189
-  %224 = getelementptr inbounds i8, ptr %0, i64 36
+256:                                              ; preds = %alnumerize.exit189
+  %257 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %29)
-  store ptr %224, ptr %29, align 8
-  %225 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %86, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %89, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %29, i64 24
-  store i32 7, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %29, i64 28
-  store i32 2, ptr %228, align 4
-  %229 = getelementptr inbounds i8, ptr %29, i64 32
-  %230 = getelementptr inbounds i8, ptr %29, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %29, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %29, i64 72
-  store ptr null, ptr %232, align 8
-  %233 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %233, ptr noundef nonnull %29, i32 noundef 1) #8
+  store ptr %257, ptr %29, align 8
+  %258 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %89, ptr %258, align 8
+  %259 = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr %92, ptr %259, align 8
+  %260 = getelementptr inbounds i8, ptr %29, i64 24
+  store i32 7, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %29, i64 28
+  store i32 2, ptr %261, align 4
+  %262 = getelementptr inbounds i8, ptr %29, i64 32
+  %263 = getelementptr inbounds i8, ptr %29, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %262, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %263, align 8
+  %264 = getelementptr inbounds i8, ptr %29, i64 56
+  store i32 -1, ptr %264, align 8
+  %265 = getelementptr inbounds i8, ptr %29, i64 60
+  store i32 0, ptr %265, align 4
+  %266 = getelementptr inbounds i8, ptr %29, i64 64
+  store i32 0, ptr %266, align 8
+  %267 = getelementptr inbounds i8, ptr %29, i64 68
+  store i32 -1, ptr %267, align 4
+  %268 = getelementptr inbounds i8, ptr %29, i64 72
+  store ptr null, ptr %268, align 8
+  %269 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %269, ptr noundef nonnull %29, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %29)
-  br label %819
+  br label %936
 
-234:                                              ; preds = %alnumerize.exit189
-  %235 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %235, ptr noundef %89) #8
-  %236 = call ptr @wmem_epan_scope() #8
-  %237 = load ptr, ptr %42, align 8
-  %238 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %236, ptr noundef nonnull @.str.258, ptr noundef %237) #8
-  %239 = load i8, ptr %238, align 1
-  %.not33.i190 = icmp eq i8 %239, 0
+270:                                              ; preds = %alnumerize.exit189
+  %271 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %271, ptr noundef %92) #8
+  %272 = call ptr @wmem_epan_scope() #8
+  %273 = load ptr, ptr %42, align 8
+  %274 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %272, ptr noundef nonnull @.str.258, ptr noundef %273) #8
+  %275 = load i8, ptr %274, align 1
+  %.not33.i190 = icmp eq i8 %275, 0
   br i1 %.not33.i190, label %alnumerize.exit202, label %.lr.ph.i191
 
-.lr.ph.i191:                                      ; preds = %234
-  %240 = load ptr, ptr @g_ascii_table, align 8
-  br label %241
+.lr.ph.i191:                                      ; preds = %270
+  %276 = load ptr, ptr @g_ascii_table, align 8
+  br label %277
 
-241:                                              ; preds = %254, %.lr.ph.i191
-  %242 = phi i8 [ %239, %.lr.ph.i191 ], [ %256, %254 ]
-  %.035.i192 = phi ptr [ %238, %.lr.ph.i191 ], [ %255, %254 ]
-  %.02834.i193 = phi ptr [ %238, %.lr.ph.i191 ], [ %.1.i198, %254 ]
-  %243 = zext i8 %242 to i64
-  %244 = getelementptr i16, ptr %240, i64 %243
-  %245 = load i16, ptr %244, align 2
-  %.fr31.i194 = freeze i16 %245
-  %246 = and i16 %.fr31.i194, 1
-  %.not32.i195 = icmp eq i16 %246, 0
+277:                                              ; preds = %290, %.lr.ph.i191
+  %278 = phi i8 [ %275, %.lr.ph.i191 ], [ %292, %290 ]
+  %.035.i192 = phi ptr [ %274, %.lr.ph.i191 ], [ %291, %290 ]
+  %.02834.i193 = phi ptr [ %274, %.lr.ph.i191 ], [ %.1.i198, %290 ]
+  %279 = zext i8 %278 to i64
+  %280 = getelementptr i16, ptr %276, i64 %279
+  %281 = load i16, ptr %280, align 2
+  %.fr31.i194 = freeze i16 %281
+  %282 = and i16 %.fr31.i194, 1
+  %.not32.i195 = icmp eq i16 %282, 0
   br i1 %.not32.i195, label %switch.early.test.i201, label %.sink.split.i196
 
-switch.early.test.i201:                           ; preds = %241
-  switch i8 %242, label %254 [
+switch.early.test.i201:                           ; preds = %277
+  switch i8 %278, label %290 [
     i8 95, label %.sink.split.i196
     i8 46, label %.sink.split.i196
-    i8 47, label %247
-    i8 45, label %247
-    i8 32, label %247
+    i8 47, label %283
+    i8 45, label %283
+    i8 32, label %283
   ]
 
-247:                                              ; preds = %switch.early.test.i201, %switch.early.test.i201, %switch.early.test.i201
-  %248 = icmp eq ptr %.02834.i193, %238
-  br i1 %248, label %254, label %249
+283:                                              ; preds = %switch.early.test.i201, %switch.early.test.i201, %switch.early.test.i201
+  %284 = icmp eq ptr %.02834.i193, %274
+  br i1 %284, label %290, label %285
 
-249:                                              ; preds = %247
-  %250 = getelementptr i8, ptr %.02834.i193, i64 -1
-  %251 = load i8, ptr %250, align 1
-  %252 = icmp eq i8 %251, 95
-  br i1 %252, label %254, label %.sink.split.i196
+285:                                              ; preds = %283
+  %286 = getelementptr i8, ptr %.02834.i193, i64 -1
+  %287 = load i8, ptr %286, align 1
+  %288 = icmp eq i8 %287, 95
+  br i1 %288, label %290, label %.sink.split.i196
 
-.sink.split.i196:                                 ; preds = %249, %switch.early.test.i201, %switch.early.test.i201, %241
-  %.sink.i197 = phi i8 [ %242, %switch.early.test.i201 ], [ %242, %switch.early.test.i201 ], [ %242, %241 ], [ 95, %249 ]
-  %253 = getelementptr i8, ptr %.02834.i193, i64 1
+.sink.split.i196:                                 ; preds = %285, %switch.early.test.i201, %switch.early.test.i201, %277
+  %.sink.i197 = phi i8 [ %278, %switch.early.test.i201 ], [ %278, %switch.early.test.i201 ], [ %278, %277 ], [ 95, %285 ]
+  %289 = getelementptr i8, ptr %.02834.i193, i64 1
   store i8 %.sink.i197, ptr %.02834.i193, align 1
-  br label %254
+  br label %290
 
-254:                                              ; preds = %.sink.split.i196, %249, %247, %switch.early.test.i201
-  %.1.i198 = phi ptr [ %238, %247 ], [ %.02834.i193, %249 ], [ %.02834.i193, %switch.early.test.i201 ], [ %253, %.sink.split.i196 ]
-  %255 = getelementptr i8, ptr %.035.i192, i64 1
-  %256 = load i8, ptr %255, align 1
-  %.not.i199 = icmp eq i8 %256, 0
-  br i1 %.not.i199, label %alnumerize.exit202, label %241, !llvm.loop !20
+290:                                              ; preds = %.sink.split.i196, %285, %283, %switch.early.test.i201
+  %.1.i198 = phi ptr [ %274, %283 ], [ %.02834.i193, %285 ], [ %.02834.i193, %switch.early.test.i201 ], [ %289, %.sink.split.i196 ]
+  %291 = getelementptr i8, ptr %.035.i192, i64 1
+  %292 = load i8, ptr %291, align 1
+  %.not.i199 = icmp eq i8 %292, 0
+  br i1 %.not.i199, label %alnumerize.exit202, label %277, !llvm.loop !20
 
-alnumerize.exit202:                               ; preds = %254, %234
-  %.028.lcssa.i200 = phi ptr [ %238, %234 ], [ %.1.i198, %254 ]
+alnumerize.exit202:                               ; preds = %290, %270
+  %.028.lcssa.i200 = phi ptr [ %274, %270 ], [ %.1.i198, %290 ]
   store i8 0, ptr %.028.lcssa.i200, align 1
-  %257 = getelementptr inbounds i8, ptr %0, i64 40
+  %293 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28)
-  store ptr %257, ptr %28, align 8
-  %258 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr @.str.259, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr %238, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %28, i64 24
-  store i32 32, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %28, i64 28
-  %262 = getelementptr inbounds i8, ptr %28, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %261, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %28, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %28, i64 72
-  store ptr null, ptr %264, align 8
-  %265 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %265, ptr noundef nonnull %28, i32 noundef 1) #8
+  store ptr %293, ptr %28, align 8
+  %294 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr @.str.259, ptr %294, align 8
+  %295 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %274, ptr %295, align 8
+  %296 = getelementptr inbounds i8, ptr %28, i64 24
+  store i32 32, ptr %296, align 8
+  %297 = getelementptr inbounds i8, ptr %28, i64 28
+  %298 = getelementptr inbounds i8, ptr %28, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %297, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %298, align 8
+  %299 = getelementptr inbounds i8, ptr %28, i64 56
+  store i32 -1, ptr %299, align 8
+  %300 = getelementptr inbounds i8, ptr %28, i64 60
+  store i32 0, ptr %300, align 4
+  %301 = getelementptr inbounds i8, ptr %28, i64 64
+  store i32 0, ptr %301, align 8
+  %302 = getelementptr inbounds i8, ptr %28, i64 68
+  store i32 -1, ptr %302, align 4
+  %303 = getelementptr inbounds i8, ptr %28, i64 72
+  store ptr null, ptr %303, align 8
+  %304 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %304, ptr noundef nonnull %28, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %28)
-  %266 = call ptr @wmem_epan_scope() #8
-  %267 = load ptr, ptr %42, align 8
-  %268 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %266, ptr noundef nonnull @.str.260, ptr noundef %267) #8
-  %269 = load i8, ptr %268, align 1
-  %.not33.i203 = icmp eq i8 %269, 0
+  %305 = call ptr @wmem_epan_scope() #8
+  %306 = load ptr, ptr %42, align 8
+  %307 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %305, ptr noundef nonnull @.str.260, ptr noundef %306) #8
+  %308 = load i8, ptr %307, align 1
+  %.not33.i203 = icmp eq i8 %308, 0
   br i1 %.not33.i203, label %alnumerize.exit215, label %.lr.ph.i204
 
 .lr.ph.i204:                                      ; preds = %alnumerize.exit202
-  %270 = load ptr, ptr @g_ascii_table, align 8
-  br label %271
+  %309 = load ptr, ptr @g_ascii_table, align 8
+  br label %310
 
-271:                                              ; preds = %284, %.lr.ph.i204
-  %272 = phi i8 [ %269, %.lr.ph.i204 ], [ %286, %284 ]
-  %.035.i205 = phi ptr [ %268, %.lr.ph.i204 ], [ %285, %284 ]
-  %.02834.i206 = phi ptr [ %268, %.lr.ph.i204 ], [ %.1.i211, %284 ]
-  %273 = zext i8 %272 to i64
-  %274 = getelementptr i16, ptr %270, i64 %273
-  %275 = load i16, ptr %274, align 2
-  %.fr31.i207 = freeze i16 %275
-  %276 = and i16 %.fr31.i207, 1
-  %.not32.i208 = icmp eq i16 %276, 0
+310:                                              ; preds = %323, %.lr.ph.i204
+  %311 = phi i8 [ %308, %.lr.ph.i204 ], [ %325, %323 ]
+  %.035.i205 = phi ptr [ %307, %.lr.ph.i204 ], [ %324, %323 ]
+  %.02834.i206 = phi ptr [ %307, %.lr.ph.i204 ], [ %.1.i211, %323 ]
+  %312 = zext i8 %311 to i64
+  %313 = getelementptr i16, ptr %309, i64 %312
+  %314 = load i16, ptr %313, align 2
+  %.fr31.i207 = freeze i16 %314
+  %315 = and i16 %.fr31.i207, 1
+  %.not32.i208 = icmp eq i16 %315, 0
   br i1 %.not32.i208, label %switch.early.test.i214, label %.sink.split.i209
 
-switch.early.test.i214:                           ; preds = %271
-  switch i8 %272, label %284 [
+switch.early.test.i214:                           ; preds = %310
+  switch i8 %311, label %323 [
     i8 95, label %.sink.split.i209
     i8 46, label %.sink.split.i209
-    i8 47, label %277
-    i8 45, label %277
-    i8 32, label %277
+    i8 47, label %316
+    i8 45, label %316
+    i8 32, label %316
   ]
 
-277:                                              ; preds = %switch.early.test.i214, %switch.early.test.i214, %switch.early.test.i214
-  %278 = icmp eq ptr %.02834.i206, %268
-  br i1 %278, label %284, label %279
+316:                                              ; preds = %switch.early.test.i214, %switch.early.test.i214, %switch.early.test.i214
+  %317 = icmp eq ptr %.02834.i206, %307
+  br i1 %317, label %323, label %318
 
-279:                                              ; preds = %277
-  %280 = getelementptr i8, ptr %.02834.i206, i64 -1
-  %281 = load i8, ptr %280, align 1
-  %282 = icmp eq i8 %281, 95
-  br i1 %282, label %284, label %.sink.split.i209
+318:                                              ; preds = %316
+  %319 = getelementptr i8, ptr %.02834.i206, i64 -1
+  %320 = load i8, ptr %319, align 1
+  %321 = icmp eq i8 %320, 95
+  br i1 %321, label %323, label %.sink.split.i209
 
-.sink.split.i209:                                 ; preds = %279, %switch.early.test.i214, %switch.early.test.i214, %271
-  %.sink.i210 = phi i8 [ %272, %switch.early.test.i214 ], [ %272, %switch.early.test.i214 ], [ %272, %271 ], [ 95, %279 ]
-  %283 = getelementptr i8, ptr %.02834.i206, i64 1
+.sink.split.i209:                                 ; preds = %318, %switch.early.test.i214, %switch.early.test.i214, %310
+  %.sink.i210 = phi i8 [ %311, %switch.early.test.i214 ], [ %311, %switch.early.test.i214 ], [ %311, %310 ], [ 95, %318 ]
+  %322 = getelementptr i8, ptr %.02834.i206, i64 1
   store i8 %.sink.i210, ptr %.02834.i206, align 1
-  br label %284
+  br label %323
 
-284:                                              ; preds = %.sink.split.i209, %279, %277, %switch.early.test.i214
-  %.1.i211 = phi ptr [ %268, %277 ], [ %.02834.i206, %279 ], [ %.02834.i206, %switch.early.test.i214 ], [ %283, %.sink.split.i209 ]
-  %285 = getelementptr i8, ptr %.035.i205, i64 1
-  %286 = load i8, ptr %285, align 1
-  %.not.i212 = icmp eq i8 %286, 0
-  br i1 %.not.i212, label %alnumerize.exit215, label %271, !llvm.loop !20
+323:                                              ; preds = %.sink.split.i209, %318, %316, %switch.early.test.i214
+  %.1.i211 = phi ptr [ %307, %316 ], [ %.02834.i206, %318 ], [ %.02834.i206, %switch.early.test.i214 ], [ %322, %.sink.split.i209 ]
+  %324 = getelementptr i8, ptr %.035.i205, i64 1
+  %325 = load i8, ptr %324, align 1
+  %.not.i212 = icmp eq i8 %325, 0
+  br i1 %.not.i212, label %alnumerize.exit215, label %310, !llvm.loop !20
 
-alnumerize.exit215:                               ; preds = %284, %alnumerize.exit202
-  %.028.lcssa.i213 = phi ptr [ %268, %alnumerize.exit202 ], [ %.1.i211, %284 ]
+alnumerize.exit215:                               ; preds = %323, %alnumerize.exit202
+  %.028.lcssa.i213 = phi ptr [ %307, %alnumerize.exit202 ], [ %.1.i211, %323 ]
   store i8 0, ptr %.028.lcssa.i213, align 1
-  %287 = getelementptr inbounds i8, ptr %0, i64 44
+  %326 = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27)
-  store ptr %287, ptr %27, align 8
-  %288 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr @.str.261, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %268, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %27, i64 24
-  store i32 33, ptr %290, align 8
-  %291 = getelementptr inbounds i8, ptr %27, i64 28
-  %292 = getelementptr inbounds i8, ptr %27, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %291, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %292, align 8
-  %293 = getelementptr inbounds i8, ptr %27, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %27, i64 72
-  store ptr null, ptr %294, align 8
-  %295 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %295, ptr noundef nonnull %27, i32 noundef 1) #8
+  store ptr %326, ptr %27, align 8
+  %327 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr @.str.261, ptr %327, align 8
+  %328 = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %307, ptr %328, align 8
+  %329 = getelementptr inbounds i8, ptr %27, i64 24
+  store i32 33, ptr %329, align 8
+  %330 = getelementptr inbounds i8, ptr %27, i64 28
+  %331 = getelementptr inbounds i8, ptr %27, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %330, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %331, align 8
+  %332 = getelementptr inbounds i8, ptr %27, i64 56
+  store i32 -1, ptr %332, align 8
+  %333 = getelementptr inbounds i8, ptr %27, i64 60
+  store i32 0, ptr %333, align 4
+  %334 = getelementptr inbounds i8, ptr %27, i64 64
+  store i32 0, ptr %334, align 8
+  %335 = getelementptr inbounds i8, ptr %27, i64 68
+  store i32 -1, ptr %335, align 4
+  %336 = getelementptr inbounds i8, ptr %27, i64 72
+  store ptr null, ptr %336, align 8
+  %337 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %337, ptr noundef nonnull %27, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %27)
-  %296 = call ptr @wmem_epan_scope() #8
-  %297 = load ptr, ptr %42, align 8
-  %298 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %296, ptr noundef nonnull @.str.262, ptr noundef %297) #8
-  %299 = load i8, ptr %298, align 1
-  %.not33.i216 = icmp eq i8 %299, 0
+  %338 = call ptr @wmem_epan_scope() #8
+  %339 = load ptr, ptr %42, align 8
+  %340 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %338, ptr noundef nonnull @.str.262, ptr noundef %339) #8
+  %341 = load i8, ptr %340, align 1
+  %.not33.i216 = icmp eq i8 %341, 0
   br i1 %.not33.i216, label %alnumerize.exit228, label %.lr.ph.i217
 
 .lr.ph.i217:                                      ; preds = %alnumerize.exit215
-  %300 = load ptr, ptr @g_ascii_table, align 8
-  br label %301
+  %342 = load ptr, ptr @g_ascii_table, align 8
+  br label %343
 
-301:                                              ; preds = %314, %.lr.ph.i217
-  %302 = phi i8 [ %299, %.lr.ph.i217 ], [ %316, %314 ]
-  %.035.i218 = phi ptr [ %298, %.lr.ph.i217 ], [ %315, %314 ]
-  %.02834.i219 = phi ptr [ %298, %.lr.ph.i217 ], [ %.1.i224, %314 ]
-  %303 = zext i8 %302 to i64
-  %304 = getelementptr i16, ptr %300, i64 %303
-  %305 = load i16, ptr %304, align 2
-  %.fr31.i220 = freeze i16 %305
-  %306 = and i16 %.fr31.i220, 1
-  %.not32.i221 = icmp eq i16 %306, 0
+343:                                              ; preds = %356, %.lr.ph.i217
+  %344 = phi i8 [ %341, %.lr.ph.i217 ], [ %358, %356 ]
+  %.035.i218 = phi ptr [ %340, %.lr.ph.i217 ], [ %357, %356 ]
+  %.02834.i219 = phi ptr [ %340, %.lr.ph.i217 ], [ %.1.i224, %356 ]
+  %345 = zext i8 %344 to i64
+  %346 = getelementptr i16, ptr %342, i64 %345
+  %347 = load i16, ptr %346, align 2
+  %.fr31.i220 = freeze i16 %347
+  %348 = and i16 %.fr31.i220, 1
+  %.not32.i221 = icmp eq i16 %348, 0
   br i1 %.not32.i221, label %switch.early.test.i227, label %.sink.split.i222
 
-switch.early.test.i227:                           ; preds = %301
-  switch i8 %302, label %314 [
+switch.early.test.i227:                           ; preds = %343
+  switch i8 %344, label %356 [
     i8 95, label %.sink.split.i222
     i8 46, label %.sink.split.i222
-    i8 47, label %307
-    i8 45, label %307
-    i8 32, label %307
+    i8 47, label %349
+    i8 45, label %349
+    i8 32, label %349
   ]
 
-307:                                              ; preds = %switch.early.test.i227, %switch.early.test.i227, %switch.early.test.i227
-  %308 = icmp eq ptr %.02834.i219, %298
-  br i1 %308, label %314, label %309
+349:                                              ; preds = %switch.early.test.i227, %switch.early.test.i227, %switch.early.test.i227
+  %350 = icmp eq ptr %.02834.i219, %340
+  br i1 %350, label %356, label %351
 
-309:                                              ; preds = %307
-  %310 = getelementptr i8, ptr %.02834.i219, i64 -1
-  %311 = load i8, ptr %310, align 1
-  %312 = icmp eq i8 %311, 95
-  br i1 %312, label %314, label %.sink.split.i222
+351:                                              ; preds = %349
+  %352 = getelementptr i8, ptr %.02834.i219, i64 -1
+  %353 = load i8, ptr %352, align 1
+  %354 = icmp eq i8 %353, 95
+  br i1 %354, label %356, label %.sink.split.i222
 
-.sink.split.i222:                                 ; preds = %309, %switch.early.test.i227, %switch.early.test.i227, %301
-  %.sink.i223 = phi i8 [ %302, %switch.early.test.i227 ], [ %302, %switch.early.test.i227 ], [ %302, %301 ], [ 95, %309 ]
-  %313 = getelementptr i8, ptr %.02834.i219, i64 1
+.sink.split.i222:                                 ; preds = %351, %switch.early.test.i227, %switch.early.test.i227, %343
+  %.sink.i223 = phi i8 [ %344, %switch.early.test.i227 ], [ %344, %switch.early.test.i227 ], [ %344, %343 ], [ 95, %351 ]
+  %355 = getelementptr i8, ptr %.02834.i219, i64 1
   store i8 %.sink.i223, ptr %.02834.i219, align 1
-  br label %314
+  br label %356
 
-314:                                              ; preds = %.sink.split.i222, %309, %307, %switch.early.test.i227
-  %.1.i224 = phi ptr [ %298, %307 ], [ %.02834.i219, %309 ], [ %.02834.i219, %switch.early.test.i227 ], [ %313, %.sink.split.i222 ]
-  %315 = getelementptr i8, ptr %.035.i218, i64 1
-  %316 = load i8, ptr %315, align 1
-  %.not.i225 = icmp eq i8 %316, 0
-  br i1 %.not.i225, label %alnumerize.exit228, label %301, !llvm.loop !20
+356:                                              ; preds = %.sink.split.i222, %351, %349, %switch.early.test.i227
+  %.1.i224 = phi ptr [ %340, %349 ], [ %.02834.i219, %351 ], [ %.02834.i219, %switch.early.test.i227 ], [ %355, %.sink.split.i222 ]
+  %357 = getelementptr i8, ptr %.035.i218, i64 1
+  %358 = load i8, ptr %357, align 1
+  %.not.i225 = icmp eq i8 %358, 0
+  br i1 %.not.i225, label %alnumerize.exit228, label %343, !llvm.loop !20
 
-alnumerize.exit228:                               ; preds = %314, %alnumerize.exit215
-  %.028.lcssa.i226 = phi ptr [ %298, %alnumerize.exit215 ], [ %.1.i224, %314 ]
+alnumerize.exit228:                               ; preds = %356, %alnumerize.exit215
+  %.028.lcssa.i226 = phi ptr [ %340, %alnumerize.exit215 ], [ %.1.i224, %356 ]
   store i8 0, ptr %.028.lcssa.i226, align 1
-  %317 = getelementptr inbounds i8, ptr %0, i64 48
+  %359 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26)
-  store ptr %317, ptr %26, align 8
-  %318 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr @.str.263, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %298, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %26, i64 24
-  store i32 29, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %26, i64 28
-  %322 = getelementptr inbounds i8, ptr %26, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %321, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %26, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %26, i64 72
-  store ptr null, ptr %324, align 8
-  %325 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %325, ptr noundef nonnull %26, i32 noundef 1) #8
+  store ptr %359, ptr %26, align 8
+  %360 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr @.str.263, ptr %360, align 8
+  %361 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr %340, ptr %361, align 8
+  %362 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 29, ptr %362, align 8
+  %363 = getelementptr inbounds i8, ptr %26, i64 28
+  %364 = getelementptr inbounds i8, ptr %26, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %363, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %364, align 8
+  %365 = getelementptr inbounds i8, ptr %26, i64 56
+  store i32 -1, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %26, i64 60
+  store i32 0, ptr %366, align 4
+  %367 = getelementptr inbounds i8, ptr %26, i64 64
+  store i32 0, ptr %367, align 8
+  %368 = getelementptr inbounds i8, ptr %26, i64 68
+  store i32 -1, ptr %368, align 4
+  %369 = getelementptr inbounds i8, ptr %26, i64 72
+  store ptr null, ptr %369, align 8
+  %370 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %370, ptr noundef nonnull %26, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26)
-  br label %819
+  br label %936
 
-326:                                              ; preds = %alnumerize.exit189
-  %327 = getelementptr inbounds i8, ptr %0, i64 36
+371:                                              ; preds = %alnumerize.exit189
+  %372 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %25)
-  store ptr %327, ptr %25, align 8
-  %328 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %86, ptr %328, align 8
-  %329 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %89, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %25, i64 24
-  store i32 4, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %25, i64 28
-  store i32 2, ptr %331, align 4
-  %332 = getelementptr inbounds i8, ptr %25, i64 32
-  %333 = getelementptr inbounds i8, ptr %25, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %25, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %334, align 8
-  %335 = getelementptr inbounds i8, ptr %25, i64 72
-  store ptr null, ptr %335, align 8
-  %336 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %336, ptr noundef nonnull %25, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25)
-  br label %819
-
-337:                                              ; preds = %alnumerize.exit189
-  %338 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24)
-  store ptr %338, ptr %24, align 8
-  %339 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %86, ptr %339, align 8
-  %340 = getelementptr inbounds i8, ptr %24, i64 16
-  store ptr %89, ptr %340, align 8
-  %341 = getelementptr inbounds i8, ptr %24, i64 24
-  store i32 5, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %24, i64 28
-  store i32 2, ptr %342, align 4
-  %343 = getelementptr inbounds i8, ptr %24, i64 32
-  %344 = getelementptr inbounds i8, ptr %24, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %343, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %24, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %24, i64 72
-  store ptr null, ptr %346, align 8
-  %347 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %347, ptr noundef nonnull %24, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24)
-  br label %819
-
-348:                                              ; preds = %alnumerize.exit189
-  %349 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23)
-  store ptr %349, ptr %23, align 8
-  %350 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %86, ptr %350, align 8
-  %351 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %89, ptr %351, align 8
-  %352 = getelementptr inbounds i8, ptr %23, i64 24
-  store i32 7, ptr %352, align 8
-  %353 = getelementptr inbounds i8, ptr %23, i64 28
-  store i32 2, ptr %353, align 4
-  %354 = getelementptr inbounds i8, ptr %23, i64 32
-  %355 = getelementptr inbounds i8, ptr %23, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %354, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %355, align 8
-  %356 = getelementptr inbounds i8, ptr %23, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %356, align 8
-  %357 = getelementptr inbounds i8, ptr %23, i64 72
-  store ptr null, ptr %357, align 8
-  %358 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %358, ptr noundef nonnull %23, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23)
-  br label %819
-
-359:                                              ; preds = %alnumerize.exit189
-  %360 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22)
-  store ptr %360, ptr %22, align 8
-  %361 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %86, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %89, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %22, i64 24
-  store i32 4, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %22, i64 28
-  store i32 1, ptr %364, align 4
-  %365 = getelementptr inbounds i8, ptr %22, i64 32
-  %366 = getelementptr inbounds i8, ptr %22, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %365, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %22, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %22, i64 72
-  store ptr null, ptr %368, align 8
-  %369 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %369, ptr noundef nonnull %22, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22)
-  br label %819
-
-370:                                              ; preds = %alnumerize.exit189
-  %371 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21)
-  store ptr %371, ptr %21, align 8
-  %372 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %86, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %372, ptr %25, align 8
+  %373 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %89, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %21, i64 24
-  store i32 5, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %21, i64 28
-  store i32 1, ptr %375, align 4
-  %376 = getelementptr inbounds i8, ptr %21, i64 32
-  %377 = getelementptr inbounds i8, ptr %21, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %21, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %378, align 8
-  %379 = getelementptr inbounds i8, ptr %21, i64 72
-  store ptr null, ptr %379, align 8
-  %380 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %380, ptr noundef nonnull %21, i32 noundef 1) #8
+  %374 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %92, ptr %374, align 8
+  %375 = getelementptr inbounds i8, ptr %25, i64 24
+  store i32 4, ptr %375, align 8
+  %376 = getelementptr inbounds i8, ptr %25, i64 28
+  store i32 2, ptr %376, align 4
+  %377 = getelementptr inbounds i8, ptr %25, i64 32
+  %378 = getelementptr inbounds i8, ptr %25, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %378, align 8
+  %379 = getelementptr inbounds i8, ptr %25, i64 56
+  store i32 -1, ptr %379, align 8
+  %380 = getelementptr inbounds i8, ptr %25, i64 60
+  store i32 0, ptr %380, align 4
+  %381 = getelementptr inbounds i8, ptr %25, i64 64
+  store i32 0, ptr %381, align 8
+  %382 = getelementptr inbounds i8, ptr %25, i64 68
+  store i32 -1, ptr %382, align 4
+  %383 = getelementptr inbounds i8, ptr %25, i64 72
+  store ptr null, ptr %383, align 8
+  %384 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %384, ptr noundef nonnull %25, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %25)
+  br label %936
+
+385:                                              ; preds = %alnumerize.exit189
+  %386 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24)
+  store ptr %386, ptr %24, align 8
+  %387 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %89, ptr %387, align 8
+  %388 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %92, ptr %388, align 8
+  %389 = getelementptr inbounds i8, ptr %24, i64 24
+  store i32 5, ptr %389, align 8
+  %390 = getelementptr inbounds i8, ptr %24, i64 28
+  store i32 2, ptr %390, align 4
+  %391 = getelementptr inbounds i8, ptr %24, i64 32
+  %392 = getelementptr inbounds i8, ptr %24, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %391, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %392, align 8
+  %393 = getelementptr inbounds i8, ptr %24, i64 56
+  store i32 -1, ptr %393, align 8
+  %394 = getelementptr inbounds i8, ptr %24, i64 60
+  store i32 0, ptr %394, align 4
+  %395 = getelementptr inbounds i8, ptr %24, i64 64
+  store i32 0, ptr %395, align 8
+  %396 = getelementptr inbounds i8, ptr %24, i64 68
+  store i32 -1, ptr %396, align 4
+  %397 = getelementptr inbounds i8, ptr %24, i64 72
+  store ptr null, ptr %397, align 8
+  %398 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %398, ptr noundef nonnull %24, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24)
+  br label %936
+
+399:                                              ; preds = %alnumerize.exit189
+  %400 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %23)
+  store ptr %400, ptr %23, align 8
+  %401 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %89, ptr %401, align 8
+  %402 = getelementptr inbounds i8, ptr %23, i64 16
+  store ptr %92, ptr %402, align 8
+  %403 = getelementptr inbounds i8, ptr %23, i64 24
+  store i32 7, ptr %403, align 8
+  %404 = getelementptr inbounds i8, ptr %23, i64 28
+  store i32 2, ptr %404, align 4
+  %405 = getelementptr inbounds i8, ptr %23, i64 32
+  %406 = getelementptr inbounds i8, ptr %23, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %405, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %406, align 8
+  %407 = getelementptr inbounds i8, ptr %23, i64 56
+  store i32 -1, ptr %407, align 8
+  %408 = getelementptr inbounds i8, ptr %23, i64 60
+  store i32 0, ptr %408, align 4
+  %409 = getelementptr inbounds i8, ptr %23, i64 64
+  store i32 0, ptr %409, align 8
+  %410 = getelementptr inbounds i8, ptr %23, i64 68
+  store i32 -1, ptr %410, align 4
+  %411 = getelementptr inbounds i8, ptr %23, i64 72
+  store ptr null, ptr %411, align 8
+  %412 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %412, ptr noundef nonnull %23, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23)
+  br label %936
+
+413:                                              ; preds = %alnumerize.exit189
+  %414 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22)
+  store ptr %414, ptr %22, align 8
+  %415 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %89, ptr %415, align 8
+  %416 = getelementptr inbounds i8, ptr %22, i64 16
+  store ptr %92, ptr %416, align 8
+  %417 = getelementptr inbounds i8, ptr %22, i64 24
+  store i32 4, ptr %417, align 8
+  %418 = getelementptr inbounds i8, ptr %22, i64 28
+  store i32 1, ptr %418, align 4
+  %419 = getelementptr inbounds i8, ptr %22, i64 32
+  %420 = getelementptr inbounds i8, ptr %22, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %419, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %420, align 8
+  %421 = getelementptr inbounds i8, ptr %22, i64 56
+  store i32 -1, ptr %421, align 8
+  %422 = getelementptr inbounds i8, ptr %22, i64 60
+  store i32 0, ptr %422, align 4
+  %423 = getelementptr inbounds i8, ptr %22, i64 64
+  store i32 0, ptr %423, align 8
+  %424 = getelementptr inbounds i8, ptr %22, i64 68
+  store i32 -1, ptr %424, align 4
+  %425 = getelementptr inbounds i8, ptr %22, i64 72
+  store ptr null, ptr %425, align 8
+  %426 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %426, ptr noundef nonnull %22, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22)
+  br label %936
+
+427:                                              ; preds = %alnumerize.exit189
+  %428 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21)
+  store ptr %428, ptr %21, align 8
+  %429 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %89, ptr %429, align 8
+  %430 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %92, ptr %430, align 8
+  %431 = getelementptr inbounds i8, ptr %21, i64 24
+  store i32 5, ptr %431, align 8
+  %432 = getelementptr inbounds i8, ptr %21, i64 28
+  store i32 1, ptr %432, align 4
+  %433 = getelementptr inbounds i8, ptr %21, i64 32
+  %434 = getelementptr inbounds i8, ptr %21, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %434, align 8
+  %435 = getelementptr inbounds i8, ptr %21, i64 56
+  store i32 -1, ptr %435, align 8
+  %436 = getelementptr inbounds i8, ptr %21, i64 60
+  store i32 0, ptr %436, align 4
+  %437 = getelementptr inbounds i8, ptr %21, i64 64
+  store i32 0, ptr %437, align 8
+  %438 = getelementptr inbounds i8, ptr %21, i64 68
+  store i32 -1, ptr %438, align 4
+  %439 = getelementptr inbounds i8, ptr %21, i64 72
+  store ptr null, ptr %439, align 8
+  %440 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %440, ptr noundef nonnull %21, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21)
-  br label %819
+  br label %936
 
-381:                                              ; preds = %alnumerize.exit189
-  %382 = getelementptr inbounds i8, ptr %0, i64 36
+441:                                              ; preds = %alnumerize.exit189
+  %442 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20)
-  store ptr %382, ptr %20, align 8
-  %383 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %86, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %89, ptr %384, align 8
-  %385 = getelementptr inbounds i8, ptr %20, i64 24
-  store i32 7, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %20, i64 28
-  store i32 1, ptr %386, align 4
-  %387 = getelementptr inbounds i8, ptr %20, i64 32
-  %388 = getelementptr inbounds i8, ptr %20, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %387, i8 0, i64 16, i1 false)
-  store ptr %111, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %20, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %389, align 8
-  %390 = getelementptr inbounds i8, ptr %20, i64 72
-  store ptr null, ptr %390, align 8
-  %391 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %391, ptr noundef nonnull %20, i32 noundef 1) #8
+  store ptr %442, ptr %20, align 8
+  %443 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %89, ptr %443, align 8
+  %444 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr %92, ptr %444, align 8
+  %445 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 7, ptr %445, align 8
+  %446 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 1, ptr %446, align 4
+  %447 = getelementptr inbounds i8, ptr %20, i64 32
+  %448 = getelementptr inbounds i8, ptr %20, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %447, i8 0, i64 16, i1 false)
+  store ptr %114, ptr %448, align 8
+  %449 = getelementptr inbounds i8, ptr %20, i64 56
+  store i32 -1, ptr %449, align 8
+  %450 = getelementptr inbounds i8, ptr %20, i64 60
+  store i32 0, ptr %450, align 4
+  %451 = getelementptr inbounds i8, ptr %20, i64 64
+  store i32 0, ptr %451, align 8
+  %452 = getelementptr inbounds i8, ptr %20, i64 68
+  store i32 -1, ptr %452, align 4
+  %453 = getelementptr inbounds i8, ptr %20, i64 72
+  store ptr null, ptr %453, align 8
+  %454 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %454, ptr noundef nonnull %20, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20)
-  br label %819
+  br label %936
 
-392:                                              ; preds = %alnumerize.exit189
-  %393 = call ptr @wmem_epan_scope() #8
-  call void @wmem_free(ptr noundef %393, ptr noundef %89) #8
-  %394 = call ptr @wmem_epan_scope() #8
-  %395 = load ptr, ptr %42, align 8
-  %396 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %394, ptr noundef nonnull @.str.258, ptr noundef %395) #8
-  %397 = load i8, ptr %396, align 1
-  %.not33.i229 = icmp eq i8 %397, 0
+455:                                              ; preds = %alnumerize.exit189
+  %456 = call ptr @wmem_epan_scope() #8
+  call void @wmem_free(ptr noundef %456, ptr noundef %92) #8
+  %457 = call ptr @wmem_epan_scope() #8
+  %458 = load ptr, ptr %42, align 8
+  %459 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %457, ptr noundef nonnull @.str.258, ptr noundef %458) #8
+  %460 = load i8, ptr %459, align 1
+  %.not33.i229 = icmp eq i8 %460, 0
   br i1 %.not33.i229, label %alnumerize.exit241, label %.lr.ph.i230
 
-.lr.ph.i230:                                      ; preds = %392
-  %398 = load ptr, ptr @g_ascii_table, align 8
-  br label %399
+.lr.ph.i230:                                      ; preds = %455
+  %461 = load ptr, ptr @g_ascii_table, align 8
+  br label %462
 
-399:                                              ; preds = %412, %.lr.ph.i230
-  %400 = phi i8 [ %397, %.lr.ph.i230 ], [ %414, %412 ]
-  %.035.i231 = phi ptr [ %396, %.lr.ph.i230 ], [ %413, %412 ]
-  %.02834.i232 = phi ptr [ %396, %.lr.ph.i230 ], [ %.1.i237, %412 ]
-  %401 = zext i8 %400 to i64
-  %402 = getelementptr i16, ptr %398, i64 %401
-  %403 = load i16, ptr %402, align 2
-  %.fr31.i233 = freeze i16 %403
-  %404 = and i16 %.fr31.i233, 1
-  %.not32.i234 = icmp eq i16 %404, 0
+462:                                              ; preds = %475, %.lr.ph.i230
+  %463 = phi i8 [ %460, %.lr.ph.i230 ], [ %477, %475 ]
+  %.035.i231 = phi ptr [ %459, %.lr.ph.i230 ], [ %476, %475 ]
+  %.02834.i232 = phi ptr [ %459, %.lr.ph.i230 ], [ %.1.i237, %475 ]
+  %464 = zext i8 %463 to i64
+  %465 = getelementptr i16, ptr %461, i64 %464
+  %466 = load i16, ptr %465, align 2
+  %.fr31.i233 = freeze i16 %466
+  %467 = and i16 %.fr31.i233, 1
+  %.not32.i234 = icmp eq i16 %467, 0
   br i1 %.not32.i234, label %switch.early.test.i240, label %.sink.split.i235
 
-switch.early.test.i240:                           ; preds = %399
-  switch i8 %400, label %412 [
+switch.early.test.i240:                           ; preds = %462
+  switch i8 %463, label %475 [
     i8 95, label %.sink.split.i235
     i8 46, label %.sink.split.i235
-    i8 47, label %405
-    i8 45, label %405
-    i8 32, label %405
+    i8 47, label %468
+    i8 45, label %468
+    i8 32, label %468
   ]
 
-405:                                              ; preds = %switch.early.test.i240, %switch.early.test.i240, %switch.early.test.i240
-  %406 = icmp eq ptr %.02834.i232, %396
-  br i1 %406, label %412, label %407
+468:                                              ; preds = %switch.early.test.i240, %switch.early.test.i240, %switch.early.test.i240
+  %469 = icmp eq ptr %.02834.i232, %459
+  br i1 %469, label %475, label %470
 
-407:                                              ; preds = %405
-  %408 = getelementptr i8, ptr %.02834.i232, i64 -1
-  %409 = load i8, ptr %408, align 1
-  %410 = icmp eq i8 %409, 95
-  br i1 %410, label %412, label %.sink.split.i235
+470:                                              ; preds = %468
+  %471 = getelementptr i8, ptr %.02834.i232, i64 -1
+  %472 = load i8, ptr %471, align 1
+  %473 = icmp eq i8 %472, 95
+  br i1 %473, label %475, label %.sink.split.i235
 
-.sink.split.i235:                                 ; preds = %407, %switch.early.test.i240, %switch.early.test.i240, %399
-  %.sink.i236 = phi i8 [ %400, %switch.early.test.i240 ], [ %400, %switch.early.test.i240 ], [ %400, %399 ], [ 95, %407 ]
-  %411 = getelementptr i8, ptr %.02834.i232, i64 1
+.sink.split.i235:                                 ; preds = %470, %switch.early.test.i240, %switch.early.test.i240, %462
+  %.sink.i236 = phi i8 [ %463, %switch.early.test.i240 ], [ %463, %switch.early.test.i240 ], [ %463, %462 ], [ 95, %470 ]
+  %474 = getelementptr i8, ptr %.02834.i232, i64 1
   store i8 %.sink.i236, ptr %.02834.i232, align 1
-  br label %412
+  br label %475
 
-412:                                              ; preds = %.sink.split.i235, %407, %405, %switch.early.test.i240
-  %.1.i237 = phi ptr [ %396, %405 ], [ %.02834.i232, %407 ], [ %.02834.i232, %switch.early.test.i240 ], [ %411, %.sink.split.i235 ]
-  %413 = getelementptr i8, ptr %.035.i231, i64 1
-  %414 = load i8, ptr %413, align 1
-  %.not.i238 = icmp eq i8 %414, 0
-  br i1 %.not.i238, label %alnumerize.exit241, label %399, !llvm.loop !20
+475:                                              ; preds = %.sink.split.i235, %470, %468, %switch.early.test.i240
+  %.1.i237 = phi ptr [ %459, %468 ], [ %.02834.i232, %470 ], [ %.02834.i232, %switch.early.test.i240 ], [ %474, %.sink.split.i235 ]
+  %476 = getelementptr i8, ptr %.035.i231, i64 1
+  %477 = load i8, ptr %476, align 1
+  %.not.i238 = icmp eq i8 %477, 0
+  br i1 %.not.i238, label %alnumerize.exit241, label %462, !llvm.loop !20
 
-alnumerize.exit241:                               ; preds = %412, %392
-  %.028.lcssa.i239 = phi ptr [ %396, %392 ], [ %.1.i237, %412 ]
+alnumerize.exit241:                               ; preds = %475, %455
+  %.028.lcssa.i239 = phi ptr [ %459, %455 ], [ %.1.i237, %475 ]
   store i8 0, ptr %.028.lcssa.i239, align 1
-  %415 = getelementptr inbounds i8, ptr %0, i64 40
+  %478 = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
-  store ptr %415, ptr %19, align 8
-  %416 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr @.str.259, ptr %416, align 8
-  %417 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %396, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %19, i64 24
-  store i32 32, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %19, i64 28
-  %420 = getelementptr inbounds i8, ptr %19, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %419, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %19, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %421, align 8
-  %422 = getelementptr inbounds i8, ptr %19, i64 72
-  store ptr null, ptr %422, align 8
-  %423 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %423, ptr noundef nonnull %19, i32 noundef 1) #8
+  store ptr %478, ptr %19, align 8
+  %479 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr @.str.259, ptr %479, align 8
+  %480 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr %459, ptr %480, align 8
+  %481 = getelementptr inbounds i8, ptr %19, i64 24
+  store i32 32, ptr %481, align 8
+  %482 = getelementptr inbounds i8, ptr %19, i64 28
+  %483 = getelementptr inbounds i8, ptr %19, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %482, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %483, align 8
+  %484 = getelementptr inbounds i8, ptr %19, i64 56
+  store i32 -1, ptr %484, align 8
+  %485 = getelementptr inbounds i8, ptr %19, i64 60
+  store i32 0, ptr %485, align 4
+  %486 = getelementptr inbounds i8, ptr %19, i64 64
+  store i32 0, ptr %486, align 8
+  %487 = getelementptr inbounds i8, ptr %19, i64 68
+  store i32 -1, ptr %487, align 4
+  %488 = getelementptr inbounds i8, ptr %19, i64 72
+  store ptr null, ptr %488, align 8
+  %489 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %489, ptr noundef nonnull %19, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19)
-  %424 = call ptr @wmem_epan_scope() #8
-  %425 = load ptr, ptr %42, align 8
-  %426 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %424, ptr noundef nonnull @.str.260, ptr noundef %425) #8
-  %427 = load i8, ptr %426, align 1
-  %.not33.i242 = icmp eq i8 %427, 0
+  %490 = call ptr @wmem_epan_scope() #8
+  %491 = load ptr, ptr %42, align 8
+  %492 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %490, ptr noundef nonnull @.str.260, ptr noundef %491) #8
+  %493 = load i8, ptr %492, align 1
+  %.not33.i242 = icmp eq i8 %493, 0
   br i1 %.not33.i242, label %alnumerize.exit254, label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %alnumerize.exit241
-  %428 = load ptr, ptr @g_ascii_table, align 8
-  br label %429
+  %494 = load ptr, ptr @g_ascii_table, align 8
+  br label %495
 
-429:                                              ; preds = %442, %.lr.ph.i243
-  %430 = phi i8 [ %427, %.lr.ph.i243 ], [ %444, %442 ]
-  %.035.i244 = phi ptr [ %426, %.lr.ph.i243 ], [ %443, %442 ]
-  %.02834.i245 = phi ptr [ %426, %.lr.ph.i243 ], [ %.1.i250, %442 ]
-  %431 = zext i8 %430 to i64
-  %432 = getelementptr i16, ptr %428, i64 %431
-  %433 = load i16, ptr %432, align 2
-  %.fr31.i246 = freeze i16 %433
-  %434 = and i16 %.fr31.i246, 1
-  %.not32.i247 = icmp eq i16 %434, 0
+495:                                              ; preds = %508, %.lr.ph.i243
+  %496 = phi i8 [ %493, %.lr.ph.i243 ], [ %510, %508 ]
+  %.035.i244 = phi ptr [ %492, %.lr.ph.i243 ], [ %509, %508 ]
+  %.02834.i245 = phi ptr [ %492, %.lr.ph.i243 ], [ %.1.i250, %508 ]
+  %497 = zext i8 %496 to i64
+  %498 = getelementptr i16, ptr %494, i64 %497
+  %499 = load i16, ptr %498, align 2
+  %.fr31.i246 = freeze i16 %499
+  %500 = and i16 %.fr31.i246, 1
+  %.not32.i247 = icmp eq i16 %500, 0
   br i1 %.not32.i247, label %switch.early.test.i253, label %.sink.split.i248
 
-switch.early.test.i253:                           ; preds = %429
-  switch i8 %430, label %442 [
+switch.early.test.i253:                           ; preds = %495
+  switch i8 %496, label %508 [
     i8 95, label %.sink.split.i248
     i8 46, label %.sink.split.i248
-    i8 47, label %435
-    i8 45, label %435
-    i8 32, label %435
+    i8 47, label %501
+    i8 45, label %501
+    i8 32, label %501
   ]
 
-435:                                              ; preds = %switch.early.test.i253, %switch.early.test.i253, %switch.early.test.i253
-  %436 = icmp eq ptr %.02834.i245, %426
-  br i1 %436, label %442, label %437
+501:                                              ; preds = %switch.early.test.i253, %switch.early.test.i253, %switch.early.test.i253
+  %502 = icmp eq ptr %.02834.i245, %492
+  br i1 %502, label %508, label %503
 
-437:                                              ; preds = %435
-  %438 = getelementptr i8, ptr %.02834.i245, i64 -1
-  %439 = load i8, ptr %438, align 1
-  %440 = icmp eq i8 %439, 95
-  br i1 %440, label %442, label %.sink.split.i248
+503:                                              ; preds = %501
+  %504 = getelementptr i8, ptr %.02834.i245, i64 -1
+  %505 = load i8, ptr %504, align 1
+  %506 = icmp eq i8 %505, 95
+  br i1 %506, label %508, label %.sink.split.i248
 
-.sink.split.i248:                                 ; preds = %437, %switch.early.test.i253, %switch.early.test.i253, %429
-  %.sink.i249 = phi i8 [ %430, %switch.early.test.i253 ], [ %430, %switch.early.test.i253 ], [ %430, %429 ], [ 95, %437 ]
-  %441 = getelementptr i8, ptr %.02834.i245, i64 1
+.sink.split.i248:                                 ; preds = %503, %switch.early.test.i253, %switch.early.test.i253, %495
+  %.sink.i249 = phi i8 [ %496, %switch.early.test.i253 ], [ %496, %switch.early.test.i253 ], [ %496, %495 ], [ 95, %503 ]
+  %507 = getelementptr i8, ptr %.02834.i245, i64 1
   store i8 %.sink.i249, ptr %.02834.i245, align 1
-  br label %442
+  br label %508
 
-442:                                              ; preds = %.sink.split.i248, %437, %435, %switch.early.test.i253
-  %.1.i250 = phi ptr [ %426, %435 ], [ %.02834.i245, %437 ], [ %.02834.i245, %switch.early.test.i253 ], [ %441, %.sink.split.i248 ]
-  %443 = getelementptr i8, ptr %.035.i244, i64 1
-  %444 = load i8, ptr %443, align 1
-  %.not.i251 = icmp eq i8 %444, 0
-  br i1 %.not.i251, label %alnumerize.exit254, label %429, !llvm.loop !20
+508:                                              ; preds = %.sink.split.i248, %503, %501, %switch.early.test.i253
+  %.1.i250 = phi ptr [ %492, %501 ], [ %.02834.i245, %503 ], [ %.02834.i245, %switch.early.test.i253 ], [ %507, %.sink.split.i248 ]
+  %509 = getelementptr i8, ptr %.035.i244, i64 1
+  %510 = load i8, ptr %509, align 1
+  %.not.i251 = icmp eq i8 %510, 0
+  br i1 %.not.i251, label %alnumerize.exit254, label %495, !llvm.loop !20
 
-alnumerize.exit254:                               ; preds = %442, %alnumerize.exit241
-  %.028.lcssa.i252 = phi ptr [ %426, %alnumerize.exit241 ], [ %.1.i250, %442 ]
+alnumerize.exit254:                               ; preds = %508, %alnumerize.exit241
+  %.028.lcssa.i252 = phi ptr [ %492, %alnumerize.exit241 ], [ %.1.i250, %508 ]
   store i8 0, ptr %.028.lcssa.i252, align 1
-  %445 = getelementptr inbounds i8, ptr %0, i64 44
+  %511 = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18)
-  store ptr %445, ptr %18, align 8
-  %446 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr @.str.261, ptr %446, align 8
-  %447 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %426, ptr %447, align 8
-  %448 = getelementptr inbounds i8, ptr %18, i64 24
-  store i32 33, ptr %448, align 8
-  %449 = getelementptr inbounds i8, ptr %18, i64 28
-  %450 = getelementptr inbounds i8, ptr %18, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %449, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %18, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %451, align 8
-  %452 = getelementptr inbounds i8, ptr %18, i64 72
-  store ptr null, ptr %452, align 8
-  %453 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %453, ptr noundef nonnull %18, i32 noundef 1) #8
+  store ptr %511, ptr %18, align 8
+  %512 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr @.str.261, ptr %512, align 8
+  %513 = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr %492, ptr %513, align 8
+  %514 = getelementptr inbounds i8, ptr %18, i64 24
+  store i32 33, ptr %514, align 8
+  %515 = getelementptr inbounds i8, ptr %18, i64 28
+  %516 = getelementptr inbounds i8, ptr %18, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %515, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %516, align 8
+  %517 = getelementptr inbounds i8, ptr %18, i64 56
+  store i32 -1, ptr %517, align 8
+  %518 = getelementptr inbounds i8, ptr %18, i64 60
+  store i32 0, ptr %518, align 4
+  %519 = getelementptr inbounds i8, ptr %18, i64 64
+  store i32 0, ptr %519, align 8
+  %520 = getelementptr inbounds i8, ptr %18, i64 68
+  store i32 -1, ptr %520, align 4
+  %521 = getelementptr inbounds i8, ptr %18, i64 72
+  store ptr null, ptr %521, align 8
+  %522 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %522, ptr noundef nonnull %18, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
-  br label %819
+  br label %936
 
-454:                                              ; preds = %alnumerize.exit189
-  %455 = getelementptr inbounds i8, ptr %0, i64 36
+523:                                              ; preds = %alnumerize.exit189
+  %524 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17)
-  store ptr %455, ptr %17, align 8
-  %456 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %86, ptr %456, align 8
-  %457 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr %89, ptr %457, align 8
-  %458 = getelementptr inbounds i8, ptr %17, i64 24
-  store i32 32, ptr %458, align 8
-  %459 = getelementptr inbounds i8, ptr %17, i64 28
-  %460 = getelementptr inbounds i8, ptr %17, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %459, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %17, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %461, align 8
-  %462 = getelementptr inbounds i8, ptr %17, i64 72
-  store ptr null, ptr %462, align 8
-  %463 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %463, ptr noundef nonnull %17, i32 noundef 1) #8
+  store ptr %524, ptr %17, align 8
+  %525 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %89, ptr %525, align 8
+  %526 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr %92, ptr %526, align 8
+  %527 = getelementptr inbounds i8, ptr %17, i64 24
+  store i32 32, ptr %527, align 8
+  %528 = getelementptr inbounds i8, ptr %17, i64 28
+  %529 = getelementptr inbounds i8, ptr %17, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %528, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %529, align 8
+  %530 = getelementptr inbounds i8, ptr %17, i64 56
+  store i32 -1, ptr %530, align 8
+  %531 = getelementptr inbounds i8, ptr %17, i64 60
+  store i32 0, ptr %531, align 4
+  %532 = getelementptr inbounds i8, ptr %17, i64 64
+  store i32 0, ptr %532, align 8
+  %533 = getelementptr inbounds i8, ptr %17, i64 68
+  store i32 -1, ptr %533, align 4
+  %534 = getelementptr inbounds i8, ptr %17, i64 72
+  store ptr null, ptr %534, align 8
+  %535 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %535, ptr noundef nonnull %17, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17)
-  br label %819
+  br label %936
 
-464:                                              ; preds = %alnumerize.exit189
-  %465 = getelementptr inbounds i8, ptr %0, i64 36
+536:                                              ; preds = %alnumerize.exit189
+  %537 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16)
-  store ptr %465, ptr %16, align 8
-  %466 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %86, ptr %466, align 8
-  %467 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %89, ptr %467, align 8
-  %468 = getelementptr inbounds i8, ptr %16, i64 24
-  store i32 30, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %16, i64 28
-  %470 = getelementptr inbounds i8, ptr %16, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %469, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %470, align 8
-  %471 = getelementptr inbounds i8, ptr %16, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %471, align 8
-  %472 = getelementptr inbounds i8, ptr %16, i64 72
-  store ptr null, ptr %472, align 8
-  %473 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %473, ptr noundef nonnull %16, i32 noundef 1) #8
+  store ptr %537, ptr %16, align 8
+  %538 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %89, ptr %538, align 8
+  %539 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr %92, ptr %539, align 8
+  %540 = getelementptr inbounds i8, ptr %16, i64 24
+  store i32 30, ptr %540, align 8
+  %541 = getelementptr inbounds i8, ptr %16, i64 28
+  %542 = getelementptr inbounds i8, ptr %16, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %541, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %542, align 8
+  %543 = getelementptr inbounds i8, ptr %16, i64 56
+  store i32 -1, ptr %543, align 8
+  %544 = getelementptr inbounds i8, ptr %16, i64 60
+  store i32 0, ptr %544, align 4
+  %545 = getelementptr inbounds i8, ptr %16, i64 64
+  store i32 0, ptr %545, align 8
+  %546 = getelementptr inbounds i8, ptr %16, i64 68
+  store i32 -1, ptr %546, align 4
+  %547 = getelementptr inbounds i8, ptr %16, i64 72
+  store ptr null, ptr %547, align 8
+  %548 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %548, ptr noundef nonnull %16, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16)
-  %474 = call ptr @wmem_epan_scope() #8
-  %475 = load i16, ptr %0, align 8
-  %476 = zext i16 %475 to i32
-  %477 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %474, ptr noundef nonnull @.str.264, i32 noundef %476) #8
-  %478 = call ptr @wmem_epan_scope() #8
-  %479 = load ptr, ptr %42, align 8
-  %480 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %478, ptr noundef nonnull @.str.265, ptr noundef %479) #8
-  %481 = load i8, ptr %480, align 1
-  %.not33.i255 = icmp eq i8 %481, 0
+  %549 = call ptr @wmem_epan_scope() #8
+  %550 = load i16, ptr %0, align 8
+  %551 = zext i16 %550 to i32
+  %552 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %549, ptr noundef nonnull @.str.264, i32 noundef %551) #8
+  %553 = call ptr @wmem_epan_scope() #8
+  %554 = load ptr, ptr %42, align 8
+  %555 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %553, ptr noundef nonnull @.str.265, ptr noundef %554) #8
+  %556 = load i8, ptr %555, align 1
+  %.not33.i255 = icmp eq i8 %556, 0
   br i1 %.not33.i255, label %alnumerize.exit267, label %.lr.ph.i256
 
-.lr.ph.i256:                                      ; preds = %464
-  %482 = load ptr, ptr @g_ascii_table, align 8
-  br label %483
+.lr.ph.i256:                                      ; preds = %536
+  %557 = load ptr, ptr @g_ascii_table, align 8
+  br label %558
 
-483:                                              ; preds = %496, %.lr.ph.i256
-  %484 = phi i8 [ %481, %.lr.ph.i256 ], [ %498, %496 ]
-  %.035.i257 = phi ptr [ %480, %.lr.ph.i256 ], [ %497, %496 ]
-  %.02834.i258 = phi ptr [ %480, %.lr.ph.i256 ], [ %.1.i263, %496 ]
-  %485 = zext i8 %484 to i64
-  %486 = getelementptr i16, ptr %482, i64 %485
-  %487 = load i16, ptr %486, align 2
-  %.fr31.i259 = freeze i16 %487
-  %488 = and i16 %.fr31.i259, 1
-  %.not32.i260 = icmp eq i16 %488, 0
+558:                                              ; preds = %571, %.lr.ph.i256
+  %559 = phi i8 [ %556, %.lr.ph.i256 ], [ %573, %571 ]
+  %.035.i257 = phi ptr [ %555, %.lr.ph.i256 ], [ %572, %571 ]
+  %.02834.i258 = phi ptr [ %555, %.lr.ph.i256 ], [ %.1.i263, %571 ]
+  %560 = zext i8 %559 to i64
+  %561 = getelementptr i16, ptr %557, i64 %560
+  %562 = load i16, ptr %561, align 2
+  %.fr31.i259 = freeze i16 %562
+  %563 = and i16 %.fr31.i259, 1
+  %.not32.i260 = icmp eq i16 %563, 0
   br i1 %.not32.i260, label %switch.early.test.i266, label %.sink.split.i261
 
-switch.early.test.i266:                           ; preds = %483
-  switch i8 %484, label %496 [
+switch.early.test.i266:                           ; preds = %558
+  switch i8 %559, label %571 [
     i8 95, label %.sink.split.i261
     i8 46, label %.sink.split.i261
-    i8 47, label %489
-    i8 45, label %489
-    i8 32, label %489
+    i8 47, label %564
+    i8 45, label %564
+    i8 32, label %564
   ]
 
-489:                                              ; preds = %switch.early.test.i266, %switch.early.test.i266, %switch.early.test.i266
-  %490 = icmp eq ptr %.02834.i258, %480
-  br i1 %490, label %496, label %491
+564:                                              ; preds = %switch.early.test.i266, %switch.early.test.i266, %switch.early.test.i266
+  %565 = icmp eq ptr %.02834.i258, %555
+  br i1 %565, label %571, label %566
 
-491:                                              ; preds = %489
-  %492 = getelementptr i8, ptr %.02834.i258, i64 -1
-  %493 = load i8, ptr %492, align 1
-  %494 = icmp eq i8 %493, 95
-  br i1 %494, label %496, label %.sink.split.i261
+566:                                              ; preds = %564
+  %567 = getelementptr i8, ptr %.02834.i258, i64 -1
+  %568 = load i8, ptr %567, align 1
+  %569 = icmp eq i8 %568, 95
+  br i1 %569, label %571, label %.sink.split.i261
 
-.sink.split.i261:                                 ; preds = %491, %switch.early.test.i266, %switch.early.test.i266, %483
-  %.sink.i262 = phi i8 [ %484, %switch.early.test.i266 ], [ %484, %switch.early.test.i266 ], [ %484, %483 ], [ 95, %491 ]
-  %495 = getelementptr i8, ptr %.02834.i258, i64 1
+.sink.split.i261:                                 ; preds = %566, %switch.early.test.i266, %switch.early.test.i266, %558
+  %.sink.i262 = phi i8 [ %559, %switch.early.test.i266 ], [ %559, %switch.early.test.i266 ], [ %559, %558 ], [ 95, %566 ]
+  %570 = getelementptr i8, ptr %.02834.i258, i64 1
   store i8 %.sink.i262, ptr %.02834.i258, align 1
-  br label %496
+  br label %571
 
-496:                                              ; preds = %.sink.split.i261, %491, %489, %switch.early.test.i266
-  %.1.i263 = phi ptr [ %480, %489 ], [ %.02834.i258, %491 ], [ %.02834.i258, %switch.early.test.i266 ], [ %495, %.sink.split.i261 ]
-  %497 = getelementptr i8, ptr %.035.i257, i64 1
-  %498 = load i8, ptr %497, align 1
-  %.not.i264 = icmp eq i8 %498, 0
-  br i1 %.not.i264, label %alnumerize.exit267, label %483, !llvm.loop !20
+571:                                              ; preds = %.sink.split.i261, %566, %564, %switch.early.test.i266
+  %.1.i263 = phi ptr [ %555, %564 ], [ %.02834.i258, %566 ], [ %.02834.i258, %switch.early.test.i266 ], [ %570, %.sink.split.i261 ]
+  %572 = getelementptr i8, ptr %.035.i257, i64 1
+  %573 = load i8, ptr %572, align 1
+  %.not.i264 = icmp eq i8 %573, 0
+  br i1 %.not.i264, label %alnumerize.exit267, label %558, !llvm.loop !20
 
-alnumerize.exit267:                               ; preds = %496, %464
-  %.028.lcssa.i265 = phi ptr [ %480, %464 ], [ %.1.i263, %496 ]
+alnumerize.exit267:                               ; preds = %571, %536
+  %.028.lcssa.i265 = phi ptr [ %555, %536 ], [ %.1.i263, %571 ]
   store i8 0, ptr %.028.lcssa.i265, align 1
-  %499 = getelementptr inbounds i8, ptr %0, i64 52
+  %574 = getelementptr inbounds i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15)
-  store ptr %499, ptr %15, align 8
-  %500 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr @.str.266, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr %480, ptr %501, align 8
-  %502 = getelementptr inbounds i8, ptr %15, i64 24
-  store i32 5, ptr %502, align 8
-  %503 = getelementptr inbounds i8, ptr %15, i64 28
-  store i32 1, ptr %503, align 4
-  %504 = getelementptr inbounds i8, ptr %15, i64 32
-  %505 = getelementptr inbounds i8, ptr %15, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %504, i8 0, i64 16, i1 false)
-  store ptr %477, ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %15, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %506, align 8
-  %507 = getelementptr inbounds i8, ptr %15, i64 72
-  store ptr null, ptr %507, align 8
-  %508 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %508, ptr noundef nonnull %15, i32 noundef 1) #8
+  store ptr %574, ptr %15, align 8
+  %575 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr @.str.266, ptr %575, align 8
+  %576 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %555, ptr %576, align 8
+  %577 = getelementptr inbounds i8, ptr %15, i64 24
+  store i32 5, ptr %577, align 8
+  %578 = getelementptr inbounds i8, ptr %15, i64 28
+  store i32 1, ptr %578, align 4
+  %579 = getelementptr inbounds i8, ptr %15, i64 32
+  %580 = getelementptr inbounds i8, ptr %15, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %579, i8 0, i64 16, i1 false)
+  store ptr %552, ptr %580, align 8
+  %581 = getelementptr inbounds i8, ptr %15, i64 56
+  store i32 -1, ptr %581, align 8
+  %582 = getelementptr inbounds i8, ptr %15, i64 60
+  store i32 0, ptr %582, align 4
+  %583 = getelementptr inbounds i8, ptr %15, i64 64
+  store i32 0, ptr %583, align 8
+  %584 = getelementptr inbounds i8, ptr %15, i64 68
+  store i32 -1, ptr %584, align 4
+  %585 = getelementptr inbounds i8, ptr %15, i64 72
+  store ptr null, ptr %585, align 8
+  %586 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %586, ptr noundef nonnull %15, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15)
-  br label %819
+  br label %936
 
-509:                                              ; preds = %alnumerize.exit189
-  %510 = getelementptr inbounds i8, ptr %0, i64 36
+587:                                              ; preds = %alnumerize.exit189
+  %588 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
-  store ptr %510, ptr %14, align 8
-  %511 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %86, ptr %511, align 8
-  %512 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %89, ptr %512, align 8
-  %513 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 30, ptr %513, align 8
-  %514 = getelementptr inbounds i8, ptr %14, i64 28
-  %515 = getelementptr inbounds i8, ptr %14, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %514, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %515, align 8
-  %516 = getelementptr inbounds i8, ptr %14, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %516, align 8
-  %517 = getelementptr inbounds i8, ptr %14, i64 72
-  store ptr null, ptr %517, align 8
-  %518 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %518, ptr noundef nonnull %14, i32 noundef 1) #8
+  store ptr %588, ptr %14, align 8
+  %589 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %89, ptr %589, align 8
+  %590 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %92, ptr %590, align 8
+  %591 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 30, ptr %591, align 8
+  %592 = getelementptr inbounds i8, ptr %14, i64 28
+  %593 = getelementptr inbounds i8, ptr %14, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %592, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %593, align 8
+  %594 = getelementptr inbounds i8, ptr %14, i64 56
+  store i32 -1, ptr %594, align 8
+  %595 = getelementptr inbounds i8, ptr %14, i64 60
+  store i32 0, ptr %595, align 4
+  %596 = getelementptr inbounds i8, ptr %14, i64 64
+  store i32 0, ptr %596, align 8
+  %597 = getelementptr inbounds i8, ptr %14, i64 68
+  store i32 -1, ptr %597, align 4
+  %598 = getelementptr inbounds i8, ptr %14, i64 72
+  store ptr null, ptr %598, align 8
+  %599 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %599, ptr noundef nonnull %14, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14)
-  %519 = call ptr @wmem_epan_scope() #8
-  %520 = load i16, ptr %0, align 8
-  %521 = zext i16 %520 to i32
-  %522 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %519, ptr noundef nonnull @.str.264, i32 noundef %521) #8
-  %523 = call ptr @wmem_epan_scope() #8
-  %524 = load ptr, ptr %42, align 8
-  %525 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %523, ptr noundef nonnull @.str.267, ptr noundef %524) #8
-  %526 = load i8, ptr %525, align 1
-  %.not33.i268 = icmp eq i8 %526, 0
+  %600 = call ptr @wmem_epan_scope() #8
+  %601 = load i16, ptr %0, align 8
+  %602 = zext i16 %601 to i32
+  %603 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %600, ptr noundef nonnull @.str.264, i32 noundef %602) #8
+  %604 = call ptr @wmem_epan_scope() #8
+  %605 = load ptr, ptr %42, align 8
+  %606 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %604, ptr noundef nonnull @.str.267, ptr noundef %605) #8
+  %607 = load i8, ptr %606, align 1
+  %.not33.i268 = icmp eq i8 %607, 0
   br i1 %.not33.i268, label %alnumerize.exit280, label %.lr.ph.i269
 
-.lr.ph.i269:                                      ; preds = %509
-  %527 = load ptr, ptr @g_ascii_table, align 8
-  br label %528
+.lr.ph.i269:                                      ; preds = %587
+  %608 = load ptr, ptr @g_ascii_table, align 8
+  br label %609
 
-528:                                              ; preds = %541, %.lr.ph.i269
-  %529 = phi i8 [ %526, %.lr.ph.i269 ], [ %543, %541 ]
-  %.035.i270 = phi ptr [ %525, %.lr.ph.i269 ], [ %542, %541 ]
-  %.02834.i271 = phi ptr [ %525, %.lr.ph.i269 ], [ %.1.i276, %541 ]
-  %530 = zext i8 %529 to i64
-  %531 = getelementptr i16, ptr %527, i64 %530
-  %532 = load i16, ptr %531, align 2
-  %.fr31.i272 = freeze i16 %532
-  %533 = and i16 %.fr31.i272, 1
-  %.not32.i273 = icmp eq i16 %533, 0
+609:                                              ; preds = %622, %.lr.ph.i269
+  %610 = phi i8 [ %607, %.lr.ph.i269 ], [ %624, %622 ]
+  %.035.i270 = phi ptr [ %606, %.lr.ph.i269 ], [ %623, %622 ]
+  %.02834.i271 = phi ptr [ %606, %.lr.ph.i269 ], [ %.1.i276, %622 ]
+  %611 = zext i8 %610 to i64
+  %612 = getelementptr i16, ptr %608, i64 %611
+  %613 = load i16, ptr %612, align 2
+  %.fr31.i272 = freeze i16 %613
+  %614 = and i16 %.fr31.i272, 1
+  %.not32.i273 = icmp eq i16 %614, 0
   br i1 %.not32.i273, label %switch.early.test.i279, label %.sink.split.i274
 
-switch.early.test.i279:                           ; preds = %528
-  switch i8 %529, label %541 [
+switch.early.test.i279:                           ; preds = %609
+  switch i8 %610, label %622 [
     i8 95, label %.sink.split.i274
     i8 46, label %.sink.split.i274
-    i8 47, label %534
-    i8 45, label %534
-    i8 32, label %534
+    i8 47, label %615
+    i8 45, label %615
+    i8 32, label %615
   ]
 
-534:                                              ; preds = %switch.early.test.i279, %switch.early.test.i279, %switch.early.test.i279
-  %535 = icmp eq ptr %.02834.i271, %525
-  br i1 %535, label %541, label %536
+615:                                              ; preds = %switch.early.test.i279, %switch.early.test.i279, %switch.early.test.i279
+  %616 = icmp eq ptr %.02834.i271, %606
+  br i1 %616, label %622, label %617
 
-536:                                              ; preds = %534
-  %537 = getelementptr i8, ptr %.02834.i271, i64 -1
-  %538 = load i8, ptr %537, align 1
-  %539 = icmp eq i8 %538, 95
-  br i1 %539, label %541, label %.sink.split.i274
+617:                                              ; preds = %615
+  %618 = getelementptr i8, ptr %.02834.i271, i64 -1
+  %619 = load i8, ptr %618, align 1
+  %620 = icmp eq i8 %619, 95
+  br i1 %620, label %622, label %.sink.split.i274
 
-.sink.split.i274:                                 ; preds = %536, %switch.early.test.i279, %switch.early.test.i279, %528
-  %.sink.i275 = phi i8 [ %529, %switch.early.test.i279 ], [ %529, %switch.early.test.i279 ], [ %529, %528 ], [ 95, %536 ]
-  %540 = getelementptr i8, ptr %.02834.i271, i64 1
+.sink.split.i274:                                 ; preds = %617, %switch.early.test.i279, %switch.early.test.i279, %609
+  %.sink.i275 = phi i8 [ %610, %switch.early.test.i279 ], [ %610, %switch.early.test.i279 ], [ %610, %609 ], [ 95, %617 ]
+  %621 = getelementptr i8, ptr %.02834.i271, i64 1
   store i8 %.sink.i275, ptr %.02834.i271, align 1
-  br label %541
+  br label %622
 
-541:                                              ; preds = %.sink.split.i274, %536, %534, %switch.early.test.i279
-  %.1.i276 = phi ptr [ %525, %534 ], [ %.02834.i271, %536 ], [ %.02834.i271, %switch.early.test.i279 ], [ %540, %.sink.split.i274 ]
-  %542 = getelementptr i8, ptr %.035.i270, i64 1
-  %543 = load i8, ptr %542, align 1
-  %.not.i277 = icmp eq i8 %543, 0
-  br i1 %.not.i277, label %alnumerize.exit280, label %528, !llvm.loop !20
+622:                                              ; preds = %.sink.split.i274, %617, %615, %switch.early.test.i279
+  %.1.i276 = phi ptr [ %606, %615 ], [ %.02834.i271, %617 ], [ %.02834.i271, %switch.early.test.i279 ], [ %621, %.sink.split.i274 ]
+  %623 = getelementptr i8, ptr %.035.i270, i64 1
+  %624 = load i8, ptr %623, align 1
+  %.not.i277 = icmp eq i8 %624, 0
+  br i1 %.not.i277, label %alnumerize.exit280, label %609, !llvm.loop !20
 
-alnumerize.exit280:                               ; preds = %541, %509
-  %.028.lcssa.i278 = phi ptr [ %525, %509 ], [ %.1.i276, %541 ]
+alnumerize.exit280:                               ; preds = %622, %587
+  %.028.lcssa.i278 = phi ptr [ %606, %587 ], [ %.1.i276, %622 ]
   store i8 0, ptr %.028.lcssa.i278, align 1
-  %544 = getelementptr inbounds i8, ptr %0, i64 56
+  %625 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13)
-  store ptr %544, ptr %13, align 8
-  %545 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr @.str.268, ptr %545, align 8
-  %546 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %525, ptr %546, align 8
-  %547 = getelementptr inbounds i8, ptr %13, i64 24
-  store i32 5, ptr %547, align 8
-  %548 = getelementptr inbounds i8, ptr %13, i64 28
-  store i32 1, ptr %548, align 4
-  %549 = getelementptr inbounds i8, ptr %13, i64 32
-  %550 = getelementptr inbounds i8, ptr %13, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %549, i8 0, i64 16, i1 false)
-  store ptr %522, ptr %550, align 8
-  %551 = getelementptr inbounds i8, ptr %13, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %551, align 8
-  %552 = getelementptr inbounds i8, ptr %13, i64 72
-  store ptr null, ptr %552, align 8
-  %553 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %553, ptr noundef nonnull %13, i32 noundef 1) #8
+  store ptr %625, ptr %13, align 8
+  %626 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr @.str.268, ptr %626, align 8
+  %627 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %606, ptr %627, align 8
+  %628 = getelementptr inbounds i8, ptr %13, i64 24
+  store i32 5, ptr %628, align 8
+  %629 = getelementptr inbounds i8, ptr %13, i64 28
+  store i32 1, ptr %629, align 4
+  %630 = getelementptr inbounds i8, ptr %13, i64 32
+  %631 = getelementptr inbounds i8, ptr %13, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %630, i8 0, i64 16, i1 false)
+  store ptr %603, ptr %631, align 8
+  %632 = getelementptr inbounds i8, ptr %13, i64 56
+  store i32 -1, ptr %632, align 8
+  %633 = getelementptr inbounds i8, ptr %13, i64 60
+  store i32 0, ptr %633, align 4
+  %634 = getelementptr inbounds i8, ptr %13, i64 64
+  store i32 0, ptr %634, align 8
+  %635 = getelementptr inbounds i8, ptr %13, i64 68
+  store i32 -1, ptr %635, align 4
+  %636 = getelementptr inbounds i8, ptr %13, i64 72
+  store ptr null, ptr %636, align 8
+  %637 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %637, ptr noundef nonnull %13, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
-  %554 = call ptr @wmem_epan_scope() #8
-  %555 = load ptr, ptr %42, align 8
-  %556 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %554, ptr noundef nonnull @.str.269, ptr noundef %555) #8
-  %557 = load i8, ptr %556, align 1
-  %.not33.i281 = icmp eq i8 %557, 0
+  %638 = call ptr @wmem_epan_scope() #8
+  %639 = load ptr, ptr %42, align 8
+  %640 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %638, ptr noundef nonnull @.str.269, ptr noundef %639) #8
+  %641 = load i8, ptr %640, align 1
+  %.not33.i281 = icmp eq i8 %641, 0
   br i1 %.not33.i281, label %alnumerize.exit293, label %.lr.ph.i282
 
 .lr.ph.i282:                                      ; preds = %alnumerize.exit280
-  %558 = load ptr, ptr @g_ascii_table, align 8
-  br label %559
+  %642 = load ptr, ptr @g_ascii_table, align 8
+  br label %643
 
-559:                                              ; preds = %572, %.lr.ph.i282
-  %560 = phi i8 [ %557, %.lr.ph.i282 ], [ %574, %572 ]
-  %.035.i283 = phi ptr [ %556, %.lr.ph.i282 ], [ %573, %572 ]
-  %.02834.i284 = phi ptr [ %556, %.lr.ph.i282 ], [ %.1.i289, %572 ]
-  %561 = zext i8 %560 to i64
-  %562 = getelementptr i16, ptr %558, i64 %561
-  %563 = load i16, ptr %562, align 2
-  %.fr31.i285 = freeze i16 %563
-  %564 = and i16 %.fr31.i285, 1
-  %.not32.i286 = icmp eq i16 %564, 0
+643:                                              ; preds = %656, %.lr.ph.i282
+  %644 = phi i8 [ %641, %.lr.ph.i282 ], [ %658, %656 ]
+  %.035.i283 = phi ptr [ %640, %.lr.ph.i282 ], [ %657, %656 ]
+  %.02834.i284 = phi ptr [ %640, %.lr.ph.i282 ], [ %.1.i289, %656 ]
+  %645 = zext i8 %644 to i64
+  %646 = getelementptr i16, ptr %642, i64 %645
+  %647 = load i16, ptr %646, align 2
+  %.fr31.i285 = freeze i16 %647
+  %648 = and i16 %.fr31.i285, 1
+  %.not32.i286 = icmp eq i16 %648, 0
   br i1 %.not32.i286, label %switch.early.test.i292, label %.sink.split.i287
 
-switch.early.test.i292:                           ; preds = %559
-  switch i8 %560, label %572 [
+switch.early.test.i292:                           ; preds = %643
+  switch i8 %644, label %656 [
     i8 95, label %.sink.split.i287
     i8 46, label %.sink.split.i287
-    i8 47, label %565
-    i8 45, label %565
-    i8 32, label %565
+    i8 47, label %649
+    i8 45, label %649
+    i8 32, label %649
   ]
 
-565:                                              ; preds = %switch.early.test.i292, %switch.early.test.i292, %switch.early.test.i292
-  %566 = icmp eq ptr %.02834.i284, %556
-  br i1 %566, label %572, label %567
+649:                                              ; preds = %switch.early.test.i292, %switch.early.test.i292, %switch.early.test.i292
+  %650 = icmp eq ptr %.02834.i284, %640
+  br i1 %650, label %656, label %651
 
-567:                                              ; preds = %565
-  %568 = getelementptr i8, ptr %.02834.i284, i64 -1
-  %569 = load i8, ptr %568, align 1
-  %570 = icmp eq i8 %569, 95
-  br i1 %570, label %572, label %.sink.split.i287
+651:                                              ; preds = %649
+  %652 = getelementptr i8, ptr %.02834.i284, i64 -1
+  %653 = load i8, ptr %652, align 1
+  %654 = icmp eq i8 %653, 95
+  br i1 %654, label %656, label %.sink.split.i287
 
-.sink.split.i287:                                 ; preds = %567, %switch.early.test.i292, %switch.early.test.i292, %559
-  %.sink.i288 = phi i8 [ %560, %switch.early.test.i292 ], [ %560, %switch.early.test.i292 ], [ %560, %559 ], [ 95, %567 ]
-  %571 = getelementptr i8, ptr %.02834.i284, i64 1
+.sink.split.i287:                                 ; preds = %651, %switch.early.test.i292, %switch.early.test.i292, %643
+  %.sink.i288 = phi i8 [ %644, %switch.early.test.i292 ], [ %644, %switch.early.test.i292 ], [ %644, %643 ], [ 95, %651 ]
+  %655 = getelementptr i8, ptr %.02834.i284, i64 1
   store i8 %.sink.i288, ptr %.02834.i284, align 1
-  br label %572
+  br label %656
 
-572:                                              ; preds = %.sink.split.i287, %567, %565, %switch.early.test.i292
-  %.1.i289 = phi ptr [ %556, %565 ], [ %.02834.i284, %567 ], [ %.02834.i284, %switch.early.test.i292 ], [ %571, %.sink.split.i287 ]
-  %573 = getelementptr i8, ptr %.035.i283, i64 1
-  %574 = load i8, ptr %573, align 1
-  %.not.i290 = icmp eq i8 %574, 0
-  br i1 %.not.i290, label %alnumerize.exit293, label %559, !llvm.loop !20
+656:                                              ; preds = %.sink.split.i287, %651, %649, %switch.early.test.i292
+  %.1.i289 = phi ptr [ %640, %649 ], [ %.02834.i284, %651 ], [ %.02834.i284, %switch.early.test.i292 ], [ %655, %.sink.split.i287 ]
+  %657 = getelementptr i8, ptr %.035.i283, i64 1
+  %658 = load i8, ptr %657, align 1
+  %.not.i290 = icmp eq i8 %658, 0
+  br i1 %.not.i290, label %alnumerize.exit293, label %643, !llvm.loop !20
 
-alnumerize.exit293:                               ; preds = %572, %alnumerize.exit280
-  %.028.lcssa.i291 = phi ptr [ %556, %alnumerize.exit280 ], [ %.1.i289, %572 ]
+alnumerize.exit293:                               ; preds = %656, %alnumerize.exit280
+  %.028.lcssa.i291 = phi ptr [ %640, %alnumerize.exit280 ], [ %.1.i289, %656 ]
   store i8 0, ptr %.028.lcssa.i291, align 1
-  %575 = getelementptr inbounds i8, ptr %0, i64 60
+  %659 = getelementptr inbounds i8, ptr %0, i64 60
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
-  store ptr %575, ptr %12, align 8
-  %576 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @.str.270, ptr %576, align 8
-  %577 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %556, ptr %577, align 8
-  %578 = getelementptr inbounds i8, ptr %12, i64 24
-  store i32 5, ptr %578, align 8
-  %579 = getelementptr inbounds i8, ptr %12, i64 28
-  store i32 1, ptr %579, align 4
-  %580 = getelementptr inbounds i8, ptr %12, i64 32
-  %581 = getelementptr inbounds i8, ptr %12, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %580, i8 0, i64 16, i1 false)
-  store ptr %522, ptr %581, align 8
-  %582 = getelementptr inbounds i8, ptr %12, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %582, align 8
-  %583 = getelementptr inbounds i8, ptr %12, i64 72
-  store ptr null, ptr %583, align 8
-  %584 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %584, ptr noundef nonnull %12, i32 noundef 1) #8
+  store ptr %659, ptr %12, align 8
+  %660 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.270, ptr %660, align 8
+  %661 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %640, ptr %661, align 8
+  %662 = getelementptr inbounds i8, ptr %12, i64 24
+  store i32 5, ptr %662, align 8
+  %663 = getelementptr inbounds i8, ptr %12, i64 28
+  store i32 1, ptr %663, align 4
+  %664 = getelementptr inbounds i8, ptr %12, i64 32
+  %665 = getelementptr inbounds i8, ptr %12, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %664, i8 0, i64 16, i1 false)
+  store ptr %603, ptr %665, align 8
+  %666 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 -1, ptr %666, align 8
+  %667 = getelementptr inbounds i8, ptr %12, i64 60
+  store i32 0, ptr %667, align 4
+  %668 = getelementptr inbounds i8, ptr %12, i64 64
+  store i32 0, ptr %668, align 8
+  %669 = getelementptr inbounds i8, ptr %12, i64 68
+  store i32 -1, ptr %669, align 4
+  %670 = getelementptr inbounds i8, ptr %12, i64 72
+  store ptr null, ptr %670, align 8
+  %671 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %671, ptr noundef nonnull %12, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
-  br label %819
+  br label %936
 
-585:                                              ; preds = %alnumerize.exit189
-  %586 = getelementptr inbounds i8, ptr %0, i64 36
+672:                                              ; preds = %alnumerize.exit189
+  %673 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11)
-  store ptr %586, ptr %11, align 8
-  %587 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %86, ptr %587, align 8
-  %588 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %89, ptr %588, align 8
-  %589 = getelementptr inbounds i8, ptr %11, i64 24
-  store i32 30, ptr %589, align 8
-  %590 = getelementptr inbounds i8, ptr %11, i64 28
-  %591 = getelementptr inbounds i8, ptr %11, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %590, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %591, align 8
-  %592 = getelementptr inbounds i8, ptr %11, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %592, align 8
-  %593 = getelementptr inbounds i8, ptr %11, i64 72
-  store ptr null, ptr %593, align 8
-  %594 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %594, ptr noundef nonnull %11, i32 noundef 1) #8
+  store ptr %673, ptr %11, align 8
+  %674 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %89, ptr %674, align 8
+  %675 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %92, ptr %675, align 8
+  %676 = getelementptr inbounds i8, ptr %11, i64 24
+  store i32 30, ptr %676, align 8
+  %677 = getelementptr inbounds i8, ptr %11, i64 28
+  %678 = getelementptr inbounds i8, ptr %11, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %677, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %678, align 8
+  %679 = getelementptr inbounds i8, ptr %11, i64 56
+  store i32 -1, ptr %679, align 8
+  %680 = getelementptr inbounds i8, ptr %11, i64 60
+  store i32 0, ptr %680, align 4
+  %681 = getelementptr inbounds i8, ptr %11, i64 64
+  store i32 0, ptr %681, align 8
+  %682 = getelementptr inbounds i8, ptr %11, i64 68
+  store i32 -1, ptr %682, align 4
+  %683 = getelementptr inbounds i8, ptr %11, i64 72
+  store ptr null, ptr %683, align 8
+  %684 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %684, ptr noundef nonnull %11, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
-  %595 = call ptr @wmem_epan_scope() #8
-  %596 = load i16, ptr %0, align 8
-  %597 = zext i16 %596 to i32
-  %598 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %595, ptr noundef nonnull @.str.264, i32 noundef %597) #8
-  %599 = call ptr @wmem_epan_scope() #8
-  %600 = load ptr, ptr %42, align 8
-  %601 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %599, ptr noundef nonnull @.str.271, ptr noundef %600) #8
-  %602 = load i8, ptr %601, align 1
-  %.not33.i294 = icmp eq i8 %602, 0
-  br i1 %.not33.i294, label %alnumerize.exit306, label %.lr.ph.i295
-
-.lr.ph.i295:                                      ; preds = %585
-  %603 = load ptr, ptr @g_ascii_table, align 8
-  br label %604
-
-604:                                              ; preds = %617, %.lr.ph.i295
-  %605 = phi i8 [ %602, %.lr.ph.i295 ], [ %619, %617 ]
-  %.035.i296 = phi ptr [ %601, %.lr.ph.i295 ], [ %618, %617 ]
-  %.02834.i297 = phi ptr [ %601, %.lr.ph.i295 ], [ %.1.i302, %617 ]
-  %606 = zext i8 %605 to i64
-  %607 = getelementptr i16, ptr %603, i64 %606
-  %608 = load i16, ptr %607, align 2
-  %.fr31.i298 = freeze i16 %608
-  %609 = and i16 %.fr31.i298, 1
-  %.not32.i299 = icmp eq i16 %609, 0
-  br i1 %.not32.i299, label %switch.early.test.i305, label %.sink.split.i300
-
-switch.early.test.i305:                           ; preds = %604
-  switch i8 %605, label %617 [
-    i8 95, label %.sink.split.i300
-    i8 46, label %.sink.split.i300
-    i8 47, label %610
-    i8 45, label %610
-    i8 32, label %610
-  ]
-
-610:                                              ; preds = %switch.early.test.i305, %switch.early.test.i305, %switch.early.test.i305
-  %611 = icmp eq ptr %.02834.i297, %601
-  br i1 %611, label %617, label %612
-
-612:                                              ; preds = %610
-  %613 = getelementptr i8, ptr %.02834.i297, i64 -1
-  %614 = load i8, ptr %613, align 1
-  %615 = icmp eq i8 %614, 95
-  br i1 %615, label %617, label %.sink.split.i300
-
-.sink.split.i300:                                 ; preds = %612, %switch.early.test.i305, %switch.early.test.i305, %604
-  %.sink.i301 = phi i8 [ %605, %switch.early.test.i305 ], [ %605, %switch.early.test.i305 ], [ %605, %604 ], [ 95, %612 ]
-  %616 = getelementptr i8, ptr %.02834.i297, i64 1
-  store i8 %.sink.i301, ptr %.02834.i297, align 1
-  br label %617
-
-617:                                              ; preds = %.sink.split.i300, %612, %610, %switch.early.test.i305
-  %.1.i302 = phi ptr [ %601, %610 ], [ %.02834.i297, %612 ], [ %.02834.i297, %switch.early.test.i305 ], [ %616, %.sink.split.i300 ]
-  %618 = getelementptr i8, ptr %.035.i296, i64 1
-  %619 = load i8, ptr %618, align 1
-  %.not.i303 = icmp eq i8 %619, 0
-  br i1 %.not.i303, label %alnumerize.exit306, label %604, !llvm.loop !20
-
-alnumerize.exit306:                               ; preds = %617, %585
-  %.028.lcssa.i304 = phi ptr [ %601, %585 ], [ %.1.i302, %617 ]
-  store i8 0, ptr %.028.lcssa.i304, align 1
-  %620 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
-  store ptr %620, ptr %10, align 8
-  %621 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr @.str.259, ptr %621, align 8
-  %622 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %601, ptr %622, align 8
-  %623 = getelementptr inbounds i8, ptr %10, i64 24
-  store i32 32, ptr %623, align 8
-  %624 = getelementptr inbounds i8, ptr %10, i64 28
-  %625 = getelementptr inbounds i8, ptr %10, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %624, i8 0, i64 20, i1 false)
-  store ptr %598, ptr %625, align 8
-  %626 = getelementptr inbounds i8, ptr %10, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %626, align 8
-  %627 = getelementptr inbounds i8, ptr %10, i64 72
-  store ptr null, ptr %627, align 8
-  %628 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %628, ptr noundef nonnull %10, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
-  %629 = call ptr @wmem_epan_scope() #8
-  %630 = load ptr, ptr %42, align 8
-  %631 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %629, ptr noundef nonnull @.str.272, ptr noundef %630) #8
-  %632 = load i8, ptr %631, align 1
-  %.not33.i307 = icmp eq i8 %632, 0
-  br i1 %.not33.i307, label %alnumerize.exit319, label %.lr.ph.i308
-
-.lr.ph.i308:                                      ; preds = %alnumerize.exit306
-  %633 = load ptr, ptr @g_ascii_table, align 8
-  br label %634
-
-634:                                              ; preds = %647, %.lr.ph.i308
-  %635 = phi i8 [ %632, %.lr.ph.i308 ], [ %649, %647 ]
-  %.035.i309 = phi ptr [ %631, %.lr.ph.i308 ], [ %648, %647 ]
-  %.02834.i310 = phi ptr [ %631, %.lr.ph.i308 ], [ %.1.i315, %647 ]
-  %636 = zext i8 %635 to i64
-  %637 = getelementptr i16, ptr %633, i64 %636
-  %638 = load i16, ptr %637, align 2
-  %.fr31.i311 = freeze i16 %638
-  %639 = and i16 %.fr31.i311, 1
-  %.not32.i312 = icmp eq i16 %639, 0
-  br i1 %.not32.i312, label %switch.early.test.i318, label %.sink.split.i313
-
-switch.early.test.i318:                           ; preds = %634
-  switch i8 %635, label %647 [
-    i8 95, label %.sink.split.i313
-    i8 46, label %.sink.split.i313
-    i8 47, label %640
-    i8 45, label %640
-    i8 32, label %640
-  ]
-
-640:                                              ; preds = %switch.early.test.i318, %switch.early.test.i318, %switch.early.test.i318
-  %641 = icmp eq ptr %.02834.i310, %631
-  br i1 %641, label %647, label %642
-
-642:                                              ; preds = %640
-  %643 = getelementptr i8, ptr %.02834.i310, i64 -1
-  %644 = load i8, ptr %643, align 1
-  %645 = icmp eq i8 %644, 95
-  br i1 %645, label %647, label %.sink.split.i313
-
-.sink.split.i313:                                 ; preds = %642, %switch.early.test.i318, %switch.early.test.i318, %634
-  %.sink.i314 = phi i8 [ %635, %switch.early.test.i318 ], [ %635, %switch.early.test.i318 ], [ %635, %634 ], [ 95, %642 ]
-  %646 = getelementptr i8, ptr %.02834.i310, i64 1
-  store i8 %.sink.i314, ptr %.02834.i310, align 1
-  br label %647
-
-647:                                              ; preds = %.sink.split.i313, %642, %640, %switch.early.test.i318
-  %.1.i315 = phi ptr [ %631, %640 ], [ %.02834.i310, %642 ], [ %.02834.i310, %switch.early.test.i318 ], [ %646, %.sink.split.i313 ]
-  %648 = getelementptr i8, ptr %.035.i309, i64 1
-  %649 = load i8, ptr %648, align 1
-  %.not.i316 = icmp eq i8 %649, 0
-  br i1 %.not.i316, label %alnumerize.exit319, label %634, !llvm.loop !20
-
-alnumerize.exit319:                               ; preds = %647, %alnumerize.exit306
-  %.028.lcssa.i317 = phi ptr [ %631, %alnumerize.exit306 ], [ %.1.i315, %647 ]
-  store i8 0, ptr %.028.lcssa.i317, align 1
-  %650 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
-  store ptr %650, ptr %9, align 8
-  %651 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @.str.273, ptr %651, align 8
-  %652 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %631, ptr %652, align 8
-  %653 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 32, ptr %653, align 8
-  %654 = getelementptr inbounds i8, ptr %9, i64 28
-  %655 = getelementptr inbounds i8, ptr %9, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %654, i8 0, i64 20, i1 false)
-  store ptr %598, ptr %655, align 8
-  %656 = getelementptr inbounds i8, ptr %9, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %656, align 8
-  %657 = getelementptr inbounds i8, ptr %9, i64 72
-  store ptr null, ptr %657, align 8
-  %658 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %658, ptr noundef nonnull %9, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  %659 = call ptr @wmem_epan_scope() #8
-  %660 = load ptr, ptr %42, align 8
-  %661 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %659, ptr noundef nonnull @.str.274, ptr noundef %660) #8
-  %662 = load i8, ptr %661, align 1
-  %.not33.i320 = icmp eq i8 %662, 0
-  br i1 %.not33.i320, label %alnumerize.exit332, label %.lr.ph.i321
-
-.lr.ph.i321:                                      ; preds = %alnumerize.exit319
-  %663 = load ptr, ptr @g_ascii_table, align 8
-  br label %664
-
-664:                                              ; preds = %677, %.lr.ph.i321
-  %665 = phi i8 [ %662, %.lr.ph.i321 ], [ %679, %677 ]
-  %.035.i322 = phi ptr [ %661, %.lr.ph.i321 ], [ %678, %677 ]
-  %.02834.i323 = phi ptr [ %661, %.lr.ph.i321 ], [ %.1.i328, %677 ]
-  %666 = zext i8 %665 to i64
-  %667 = getelementptr i16, ptr %663, i64 %666
-  %668 = load i16, ptr %667, align 2
-  %.fr31.i324 = freeze i16 %668
-  %669 = and i16 %.fr31.i324, 1
-  %.not32.i325 = icmp eq i16 %669, 0
-  br i1 %.not32.i325, label %switch.early.test.i331, label %.sink.split.i326
-
-switch.early.test.i331:                           ; preds = %664
-  switch i8 %665, label %677 [
-    i8 95, label %.sink.split.i326
-    i8 46, label %.sink.split.i326
-    i8 47, label %670
-    i8 45, label %670
-    i8 32, label %670
-  ]
-
-670:                                              ; preds = %switch.early.test.i331, %switch.early.test.i331, %switch.early.test.i331
-  %671 = icmp eq ptr %.02834.i323, %661
-  br i1 %671, label %677, label %672
-
-672:                                              ; preds = %670
-  %673 = getelementptr i8, ptr %.02834.i323, i64 -1
-  %674 = load i8, ptr %673, align 1
-  %675 = icmp eq i8 %674, 95
-  br i1 %675, label %677, label %.sink.split.i326
-
-.sink.split.i326:                                 ; preds = %672, %switch.early.test.i331, %switch.early.test.i331, %664
-  %.sink.i327 = phi i8 [ %665, %switch.early.test.i331 ], [ %665, %switch.early.test.i331 ], [ %665, %664 ], [ 95, %672 ]
-  %676 = getelementptr i8, ptr %.02834.i323, i64 1
-  store i8 %.sink.i327, ptr %.02834.i323, align 1
-  br label %677
-
-677:                                              ; preds = %.sink.split.i326, %672, %670, %switch.early.test.i331
-  %.1.i328 = phi ptr [ %661, %670 ], [ %.02834.i323, %672 ], [ %.02834.i323, %switch.early.test.i331 ], [ %676, %.sink.split.i326 ]
-  %678 = getelementptr i8, ptr %.035.i322, i64 1
-  %679 = load i8, ptr %678, align 1
-  %.not.i329 = icmp eq i8 %679, 0
-  br i1 %.not.i329, label %alnumerize.exit332, label %664, !llvm.loop !20
-
-alnumerize.exit332:                               ; preds = %677, %alnumerize.exit319
-  %.028.lcssa.i330 = phi ptr [ %661, %alnumerize.exit319 ], [ %.1.i328, %677 ]
-  store i8 0, ptr %.028.lcssa.i330, align 1
-  %680 = getelementptr inbounds i8, ptr %0, i64 44
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
-  store ptr %680, ptr %8, align 8
-  %681 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @.str.261, ptr %681, align 8
-  %682 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %661, ptr %682, align 8
-  %683 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 33, ptr %683, align 8
-  %684 = getelementptr inbounds i8, ptr %8, i64 28
-  %685 = getelementptr inbounds i8, ptr %8, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %684, i8 0, i64 20, i1 false)
-  store ptr %598, ptr %685, align 8
-  %686 = getelementptr inbounds i8, ptr %8, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %686, align 8
-  %687 = getelementptr inbounds i8, ptr %8, i64 72
-  store ptr null, ptr %687, align 8
-  %688 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %688, ptr noundef nonnull %8, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
+  %685 = call ptr @wmem_epan_scope() #8
+  %686 = load i16, ptr %0, align 8
+  %687 = zext i16 %686 to i32
+  %688 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %685, ptr noundef nonnull @.str.264, i32 noundef %687) #8
   %689 = call ptr @wmem_epan_scope() #8
   %690 = load ptr, ptr %42, align 8
-  %691 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %689, ptr noundef nonnull @.str.275, ptr noundef %690) #8
+  %691 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %689, ptr noundef nonnull @.str.271, ptr noundef %690) #8
   %692 = load i8, ptr %691, align 1
-  %.not33.i333 = icmp eq i8 %692, 0
-  br i1 %.not33.i333, label %alnumerize.exit345, label %.lr.ph.i334
+  %.not33.i294 = icmp eq i8 %692, 0
+  br i1 %.not33.i294, label %alnumerize.exit306, label %.lr.ph.i295
 
-.lr.ph.i334:                                      ; preds = %alnumerize.exit332
+.lr.ph.i295:                                      ; preds = %672
   %693 = load ptr, ptr @g_ascii_table, align 8
   br label %694
 
-694:                                              ; preds = %707, %.lr.ph.i334
-  %695 = phi i8 [ %692, %.lr.ph.i334 ], [ %709, %707 ]
-  %.035.i335 = phi ptr [ %691, %.lr.ph.i334 ], [ %708, %707 ]
-  %.02834.i336 = phi ptr [ %691, %.lr.ph.i334 ], [ %.1.i341, %707 ]
+694:                                              ; preds = %707, %.lr.ph.i295
+  %695 = phi i8 [ %692, %.lr.ph.i295 ], [ %709, %707 ]
+  %.035.i296 = phi ptr [ %691, %.lr.ph.i295 ], [ %708, %707 ]
+  %.02834.i297 = phi ptr [ %691, %.lr.ph.i295 ], [ %.1.i302, %707 ]
   %696 = zext i8 %695 to i64
   %697 = getelementptr i16, ptr %693, i64 %696
   %698 = load i16, ptr %697, align 2
-  %.fr31.i337 = freeze i16 %698
-  %699 = and i16 %.fr31.i337, 1
-  %.not32.i338 = icmp eq i16 %699, 0
-  br i1 %.not32.i338, label %switch.early.test.i344, label %.sink.split.i339
+  %.fr31.i298 = freeze i16 %698
+  %699 = and i16 %.fr31.i298, 1
+  %.not32.i299 = icmp eq i16 %699, 0
+  br i1 %.not32.i299, label %switch.early.test.i305, label %.sink.split.i300
 
-switch.early.test.i344:                           ; preds = %694
+switch.early.test.i305:                           ; preds = %694
   switch i8 %695, label %707 [
-    i8 95, label %.sink.split.i339
-    i8 46, label %.sink.split.i339
+    i8 95, label %.sink.split.i300
+    i8 46, label %.sink.split.i300
     i8 47, label %700
     i8 45, label %700
     i8 32, label %700
   ]
 
-700:                                              ; preds = %switch.early.test.i344, %switch.early.test.i344, %switch.early.test.i344
-  %701 = icmp eq ptr %.02834.i336, %691
+700:                                              ; preds = %switch.early.test.i305, %switch.early.test.i305, %switch.early.test.i305
+  %701 = icmp eq ptr %.02834.i297, %691
   br i1 %701, label %707, label %702
 
 702:                                              ; preds = %700
-  %703 = getelementptr i8, ptr %.02834.i336, i64 -1
+  %703 = getelementptr i8, ptr %.02834.i297, i64 -1
   %704 = load i8, ptr %703, align 1
   %705 = icmp eq i8 %704, 95
-  br i1 %705, label %707, label %.sink.split.i339
+  br i1 %705, label %707, label %.sink.split.i300
 
-.sink.split.i339:                                 ; preds = %702, %switch.early.test.i344, %switch.early.test.i344, %694
-  %.sink.i340 = phi i8 [ %695, %switch.early.test.i344 ], [ %695, %switch.early.test.i344 ], [ %695, %694 ], [ 95, %702 ]
-  %706 = getelementptr i8, ptr %.02834.i336, i64 1
-  store i8 %.sink.i340, ptr %.02834.i336, align 1
+.sink.split.i300:                                 ; preds = %702, %switch.early.test.i305, %switch.early.test.i305, %694
+  %.sink.i301 = phi i8 [ %695, %switch.early.test.i305 ], [ %695, %switch.early.test.i305 ], [ %695, %694 ], [ 95, %702 ]
+  %706 = getelementptr i8, ptr %.02834.i297, i64 1
+  store i8 %.sink.i301, ptr %.02834.i297, align 1
   br label %707
 
-707:                                              ; preds = %.sink.split.i339, %702, %700, %switch.early.test.i344
-  %.1.i341 = phi ptr [ %691, %700 ], [ %.02834.i336, %702 ], [ %.02834.i336, %switch.early.test.i344 ], [ %706, %.sink.split.i339 ]
-  %708 = getelementptr i8, ptr %.035.i335, i64 1
+707:                                              ; preds = %.sink.split.i300, %702, %700, %switch.early.test.i305
+  %.1.i302 = phi ptr [ %691, %700 ], [ %.02834.i297, %702 ], [ %.02834.i297, %switch.early.test.i305 ], [ %706, %.sink.split.i300 ]
+  %708 = getelementptr i8, ptr %.035.i296, i64 1
   %709 = load i8, ptr %708, align 1
-  %.not.i342 = icmp eq i8 %709, 0
-  br i1 %.not.i342, label %alnumerize.exit345, label %694, !llvm.loop !20
+  %.not.i303 = icmp eq i8 %709, 0
+  br i1 %.not.i303, label %alnumerize.exit306, label %694, !llvm.loop !20
 
-alnumerize.exit345:                               ; preds = %707, %alnumerize.exit332
-  %.028.lcssa.i343 = phi ptr [ %691, %alnumerize.exit332 ], [ %.1.i341, %707 ]
-  store i8 0, ptr %.028.lcssa.i343, align 1
-  %710 = getelementptr inbounds i8, ptr %0, i64 68
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  store ptr %710, ptr %7, align 8
-  %711 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @.str.276, ptr %711, align 8
-  %712 = getelementptr inbounds i8, ptr %7, i64 16
+alnumerize.exit306:                               ; preds = %707, %672
+  %.028.lcssa.i304 = phi ptr [ %691, %672 ], [ %.1.i302, %707 ]
+  store i8 0, ptr %.028.lcssa.i304, align 1
+  %710 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
+  store ptr %710, ptr %10, align 8
+  %711 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr @.str.259, ptr %711, align 8
+  %712 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %691, ptr %712, align 8
-  %713 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 33, ptr %713, align 8
-  %714 = getelementptr inbounds i8, ptr %7, i64 28
-  %715 = getelementptr inbounds i8, ptr %7, i64 48
+  %713 = getelementptr inbounds i8, ptr %10, i64 24
+  store i32 32, ptr %713, align 8
+  %714 = getelementptr inbounds i8, ptr %10, i64 28
+  %715 = getelementptr inbounds i8, ptr %10, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %714, i8 0, i64 20, i1 false)
-  store ptr %598, ptr %715, align 8
-  %716 = getelementptr inbounds i8, ptr %7, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %716, align 8
-  %717 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr null, ptr %717, align 8
-  %718 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %718, ptr noundef nonnull %7, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
-  br label %819
+  store ptr %688, ptr %715, align 8
+  %716 = getelementptr inbounds i8, ptr %10, i64 56
+  store i32 -1, ptr %716, align 8
+  %717 = getelementptr inbounds i8, ptr %10, i64 60
+  store i32 0, ptr %717, align 4
+  %718 = getelementptr inbounds i8, ptr %10, i64 64
+  store i32 0, ptr %718, align 8
+  %719 = getelementptr inbounds i8, ptr %10, i64 68
+  store i32 -1, ptr %719, align 4
+  %720 = getelementptr inbounds i8, ptr %10, i64 72
+  store ptr null, ptr %720, align 8
+  %721 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %721, ptr noundef nonnull %10, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
+  %722 = call ptr @wmem_epan_scope() #8
+  %723 = load ptr, ptr %42, align 8
+  %724 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %722, ptr noundef nonnull @.str.272, ptr noundef %723) #8
+  %725 = load i8, ptr %724, align 1
+  %.not33.i307 = icmp eq i8 %725, 0
+  br i1 %.not33.i307, label %alnumerize.exit319, label %.lr.ph.i308
 
-719:                                              ; preds = %alnumerize.exit189
-  %720 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  store ptr %720, ptr %6, align 8
-  %721 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %86, ptr %721, align 8
-  %722 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %89, ptr %722, align 8
-  %723 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 30, ptr %723, align 8
-  %724 = getelementptr inbounds i8, ptr %6, i64 28
-  %725 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %724, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %725, align 8
-  %726 = getelementptr inbounds i8, ptr %6, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %726, align 8
-  %727 = getelementptr inbounds i8, ptr %6, i64 72
-  store ptr null, ptr %727, align 8
-  %728 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %728, ptr noundef nonnull %6, i32 noundef 1) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  %729 = call ptr @wmem_epan_scope() #8
-  %730 = load i16, ptr %0, align 8
-  %731 = zext i16 %730 to i32
-  %732 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %729, ptr noundef nonnull @.str.264, i32 noundef %731) #8
-  %733 = call ptr @wmem_epan_scope() #8
-  %734 = load ptr, ptr %42, align 8
-  %735 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %733, ptr noundef nonnull @.str.277, ptr noundef %734) #8
-  %736 = load i8, ptr %735, align 1
-  %.not33.i346 = icmp eq i8 %736, 0
-  br i1 %.not33.i346, label %alnumerize.exit358, label %.lr.ph.i347
+.lr.ph.i308:                                      ; preds = %alnumerize.exit306
+  %726 = load ptr, ptr @g_ascii_table, align 8
+  br label %727
 
-.lr.ph.i347:                                      ; preds = %719
-  %737 = load ptr, ptr @g_ascii_table, align 8
-  br label %738
+727:                                              ; preds = %740, %.lr.ph.i308
+  %728 = phi i8 [ %725, %.lr.ph.i308 ], [ %742, %740 ]
+  %.035.i309 = phi ptr [ %724, %.lr.ph.i308 ], [ %741, %740 ]
+  %.02834.i310 = phi ptr [ %724, %.lr.ph.i308 ], [ %.1.i315, %740 ]
+  %729 = zext i8 %728 to i64
+  %730 = getelementptr i16, ptr %726, i64 %729
+  %731 = load i16, ptr %730, align 2
+  %.fr31.i311 = freeze i16 %731
+  %732 = and i16 %.fr31.i311, 1
+  %.not32.i312 = icmp eq i16 %732, 0
+  br i1 %.not32.i312, label %switch.early.test.i318, label %.sink.split.i313
 
-738:                                              ; preds = %751, %.lr.ph.i347
-  %739 = phi i8 [ %736, %.lr.ph.i347 ], [ %753, %751 ]
-  %.035.i348 = phi ptr [ %735, %.lr.ph.i347 ], [ %752, %751 ]
-  %.02834.i349 = phi ptr [ %735, %.lr.ph.i347 ], [ %.1.i354, %751 ]
-  %740 = zext i8 %739 to i64
-  %741 = getelementptr i16, ptr %737, i64 %740
-  %742 = load i16, ptr %741, align 2
-  %.fr31.i350 = freeze i16 %742
-  %743 = and i16 %.fr31.i350, 1
-  %.not32.i351 = icmp eq i16 %743, 0
-  br i1 %.not32.i351, label %switch.early.test.i357, label %.sink.split.i352
-
-switch.early.test.i357:                           ; preds = %738
-  switch i8 %739, label %751 [
-    i8 95, label %.sink.split.i352
-    i8 46, label %.sink.split.i352
-    i8 47, label %744
-    i8 45, label %744
-    i8 32, label %744
+switch.early.test.i318:                           ; preds = %727
+  switch i8 %728, label %740 [
+    i8 95, label %.sink.split.i313
+    i8 46, label %.sink.split.i313
+    i8 47, label %733
+    i8 45, label %733
+    i8 32, label %733
   ]
 
-744:                                              ; preds = %switch.early.test.i357, %switch.early.test.i357, %switch.early.test.i357
-  %745 = icmp eq ptr %.02834.i349, %735
-  br i1 %745, label %751, label %746
+733:                                              ; preds = %switch.early.test.i318, %switch.early.test.i318, %switch.early.test.i318
+  %734 = icmp eq ptr %.02834.i310, %724
+  br i1 %734, label %740, label %735
 
-746:                                              ; preds = %744
-  %747 = getelementptr i8, ptr %.02834.i349, i64 -1
-  %748 = load i8, ptr %747, align 1
-  %749 = icmp eq i8 %748, 95
-  br i1 %749, label %751, label %.sink.split.i352
+735:                                              ; preds = %733
+  %736 = getelementptr i8, ptr %.02834.i310, i64 -1
+  %737 = load i8, ptr %736, align 1
+  %738 = icmp eq i8 %737, 95
+  br i1 %738, label %740, label %.sink.split.i313
 
-.sink.split.i352:                                 ; preds = %746, %switch.early.test.i357, %switch.early.test.i357, %738
-  %.sink.i353 = phi i8 [ %739, %switch.early.test.i357 ], [ %739, %switch.early.test.i357 ], [ %739, %738 ], [ 95, %746 ]
-  %750 = getelementptr i8, ptr %.02834.i349, i64 1
+.sink.split.i313:                                 ; preds = %735, %switch.early.test.i318, %switch.early.test.i318, %727
+  %.sink.i314 = phi i8 [ %728, %switch.early.test.i318 ], [ %728, %switch.early.test.i318 ], [ %728, %727 ], [ 95, %735 ]
+  %739 = getelementptr i8, ptr %.02834.i310, i64 1
+  store i8 %.sink.i314, ptr %.02834.i310, align 1
+  br label %740
+
+740:                                              ; preds = %.sink.split.i313, %735, %733, %switch.early.test.i318
+  %.1.i315 = phi ptr [ %724, %733 ], [ %.02834.i310, %735 ], [ %.02834.i310, %switch.early.test.i318 ], [ %739, %.sink.split.i313 ]
+  %741 = getelementptr i8, ptr %.035.i309, i64 1
+  %742 = load i8, ptr %741, align 1
+  %.not.i316 = icmp eq i8 %742, 0
+  br i1 %.not.i316, label %alnumerize.exit319, label %727, !llvm.loop !20
+
+alnumerize.exit319:                               ; preds = %740, %alnumerize.exit306
+  %.028.lcssa.i317 = phi ptr [ %724, %alnumerize.exit306 ], [ %.1.i315, %740 ]
+  store i8 0, ptr %.028.lcssa.i317, align 1
+  %743 = getelementptr inbounds i8, ptr %0, i64 64
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
+  store ptr %743, ptr %9, align 8
+  %744 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @.str.273, ptr %744, align 8
+  %745 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %724, ptr %745, align 8
+  %746 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 32, ptr %746, align 8
+  %747 = getelementptr inbounds i8, ptr %9, i64 28
+  %748 = getelementptr inbounds i8, ptr %9, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %747, i8 0, i64 20, i1 false)
+  store ptr %688, ptr %748, align 8
+  %749 = getelementptr inbounds i8, ptr %9, i64 56
+  store i32 -1, ptr %749, align 8
+  %750 = getelementptr inbounds i8, ptr %9, i64 60
+  store i32 0, ptr %750, align 4
+  %751 = getelementptr inbounds i8, ptr %9, i64 64
+  store i32 0, ptr %751, align 8
+  %752 = getelementptr inbounds i8, ptr %9, i64 68
+  store i32 -1, ptr %752, align 4
+  %753 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr null, ptr %753, align 8
+  %754 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %754, ptr noundef nonnull %9, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
+  %755 = call ptr @wmem_epan_scope() #8
+  %756 = load ptr, ptr %42, align 8
+  %757 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %755, ptr noundef nonnull @.str.274, ptr noundef %756) #8
+  %758 = load i8, ptr %757, align 1
+  %.not33.i320 = icmp eq i8 %758, 0
+  br i1 %.not33.i320, label %alnumerize.exit332, label %.lr.ph.i321
+
+.lr.ph.i321:                                      ; preds = %alnumerize.exit319
+  %759 = load ptr, ptr @g_ascii_table, align 8
+  br label %760
+
+760:                                              ; preds = %773, %.lr.ph.i321
+  %761 = phi i8 [ %758, %.lr.ph.i321 ], [ %775, %773 ]
+  %.035.i322 = phi ptr [ %757, %.lr.ph.i321 ], [ %774, %773 ]
+  %.02834.i323 = phi ptr [ %757, %.lr.ph.i321 ], [ %.1.i328, %773 ]
+  %762 = zext i8 %761 to i64
+  %763 = getelementptr i16, ptr %759, i64 %762
+  %764 = load i16, ptr %763, align 2
+  %.fr31.i324 = freeze i16 %764
+  %765 = and i16 %.fr31.i324, 1
+  %.not32.i325 = icmp eq i16 %765, 0
+  br i1 %.not32.i325, label %switch.early.test.i331, label %.sink.split.i326
+
+switch.early.test.i331:                           ; preds = %760
+  switch i8 %761, label %773 [
+    i8 95, label %.sink.split.i326
+    i8 46, label %.sink.split.i326
+    i8 47, label %766
+    i8 45, label %766
+    i8 32, label %766
+  ]
+
+766:                                              ; preds = %switch.early.test.i331, %switch.early.test.i331, %switch.early.test.i331
+  %767 = icmp eq ptr %.02834.i323, %757
+  br i1 %767, label %773, label %768
+
+768:                                              ; preds = %766
+  %769 = getelementptr i8, ptr %.02834.i323, i64 -1
+  %770 = load i8, ptr %769, align 1
+  %771 = icmp eq i8 %770, 95
+  br i1 %771, label %773, label %.sink.split.i326
+
+.sink.split.i326:                                 ; preds = %768, %switch.early.test.i331, %switch.early.test.i331, %760
+  %.sink.i327 = phi i8 [ %761, %switch.early.test.i331 ], [ %761, %switch.early.test.i331 ], [ %761, %760 ], [ 95, %768 ]
+  %772 = getelementptr i8, ptr %.02834.i323, i64 1
+  store i8 %.sink.i327, ptr %.02834.i323, align 1
+  br label %773
+
+773:                                              ; preds = %.sink.split.i326, %768, %766, %switch.early.test.i331
+  %.1.i328 = phi ptr [ %757, %766 ], [ %.02834.i323, %768 ], [ %.02834.i323, %switch.early.test.i331 ], [ %772, %.sink.split.i326 ]
+  %774 = getelementptr i8, ptr %.035.i322, i64 1
+  %775 = load i8, ptr %774, align 1
+  %.not.i329 = icmp eq i8 %775, 0
+  br i1 %.not.i329, label %alnumerize.exit332, label %760, !llvm.loop !20
+
+alnumerize.exit332:                               ; preds = %773, %alnumerize.exit319
+  %.028.lcssa.i330 = phi ptr [ %757, %alnumerize.exit319 ], [ %.1.i328, %773 ]
+  store i8 0, ptr %.028.lcssa.i330, align 1
+  %776 = getelementptr inbounds i8, ptr %0, i64 44
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
+  store ptr %776, ptr %8, align 8
+  %777 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @.str.261, ptr %777, align 8
+  %778 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %757, ptr %778, align 8
+  %779 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 33, ptr %779, align 8
+  %780 = getelementptr inbounds i8, ptr %8, i64 28
+  %781 = getelementptr inbounds i8, ptr %8, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %780, i8 0, i64 20, i1 false)
+  store ptr %688, ptr %781, align 8
+  %782 = getelementptr inbounds i8, ptr %8, i64 56
+  store i32 -1, ptr %782, align 8
+  %783 = getelementptr inbounds i8, ptr %8, i64 60
+  store i32 0, ptr %783, align 4
+  %784 = getelementptr inbounds i8, ptr %8, i64 64
+  store i32 0, ptr %784, align 8
+  %785 = getelementptr inbounds i8, ptr %8, i64 68
+  store i32 -1, ptr %785, align 4
+  %786 = getelementptr inbounds i8, ptr %8, i64 72
+  store ptr null, ptr %786, align 8
+  %787 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %787, ptr noundef nonnull %8, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
+  %788 = call ptr @wmem_epan_scope() #8
+  %789 = load ptr, ptr %42, align 8
+  %790 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %788, ptr noundef nonnull @.str.275, ptr noundef %789) #8
+  %791 = load i8, ptr %790, align 1
+  %.not33.i333 = icmp eq i8 %791, 0
+  br i1 %.not33.i333, label %alnumerize.exit345, label %.lr.ph.i334
+
+.lr.ph.i334:                                      ; preds = %alnumerize.exit332
+  %792 = load ptr, ptr @g_ascii_table, align 8
+  br label %793
+
+793:                                              ; preds = %806, %.lr.ph.i334
+  %794 = phi i8 [ %791, %.lr.ph.i334 ], [ %808, %806 ]
+  %.035.i335 = phi ptr [ %790, %.lr.ph.i334 ], [ %807, %806 ]
+  %.02834.i336 = phi ptr [ %790, %.lr.ph.i334 ], [ %.1.i341, %806 ]
+  %795 = zext i8 %794 to i64
+  %796 = getelementptr i16, ptr %792, i64 %795
+  %797 = load i16, ptr %796, align 2
+  %.fr31.i337 = freeze i16 %797
+  %798 = and i16 %.fr31.i337, 1
+  %.not32.i338 = icmp eq i16 %798, 0
+  br i1 %.not32.i338, label %switch.early.test.i344, label %.sink.split.i339
+
+switch.early.test.i344:                           ; preds = %793
+  switch i8 %794, label %806 [
+    i8 95, label %.sink.split.i339
+    i8 46, label %.sink.split.i339
+    i8 47, label %799
+    i8 45, label %799
+    i8 32, label %799
+  ]
+
+799:                                              ; preds = %switch.early.test.i344, %switch.early.test.i344, %switch.early.test.i344
+  %800 = icmp eq ptr %.02834.i336, %790
+  br i1 %800, label %806, label %801
+
+801:                                              ; preds = %799
+  %802 = getelementptr i8, ptr %.02834.i336, i64 -1
+  %803 = load i8, ptr %802, align 1
+  %804 = icmp eq i8 %803, 95
+  br i1 %804, label %806, label %.sink.split.i339
+
+.sink.split.i339:                                 ; preds = %801, %switch.early.test.i344, %switch.early.test.i344, %793
+  %.sink.i340 = phi i8 [ %794, %switch.early.test.i344 ], [ %794, %switch.early.test.i344 ], [ %794, %793 ], [ 95, %801 ]
+  %805 = getelementptr i8, ptr %.02834.i336, i64 1
+  store i8 %.sink.i340, ptr %.02834.i336, align 1
+  br label %806
+
+806:                                              ; preds = %.sink.split.i339, %801, %799, %switch.early.test.i344
+  %.1.i341 = phi ptr [ %790, %799 ], [ %.02834.i336, %801 ], [ %.02834.i336, %switch.early.test.i344 ], [ %805, %.sink.split.i339 ]
+  %807 = getelementptr i8, ptr %.035.i335, i64 1
+  %808 = load i8, ptr %807, align 1
+  %.not.i342 = icmp eq i8 %808, 0
+  br i1 %.not.i342, label %alnumerize.exit345, label %793, !llvm.loop !20
+
+alnumerize.exit345:                               ; preds = %806, %alnumerize.exit332
+  %.028.lcssa.i343 = phi ptr [ %790, %alnumerize.exit332 ], [ %.1.i341, %806 ]
+  store i8 0, ptr %.028.lcssa.i343, align 1
+  %809 = getelementptr inbounds i8, ptr %0, i64 68
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
+  store ptr %809, ptr %7, align 8
+  %810 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @.str.276, ptr %810, align 8
+  %811 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %790, ptr %811, align 8
+  %812 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 33, ptr %812, align 8
+  %813 = getelementptr inbounds i8, ptr %7, i64 28
+  %814 = getelementptr inbounds i8, ptr %7, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %813, i8 0, i64 20, i1 false)
+  store ptr %688, ptr %814, align 8
+  %815 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 -1, ptr %815, align 8
+  %816 = getelementptr inbounds i8, ptr %7, i64 60
+  store i32 0, ptr %816, align 4
+  %817 = getelementptr inbounds i8, ptr %7, i64 64
+  store i32 0, ptr %817, align 8
+  %818 = getelementptr inbounds i8, ptr %7, i64 68
+  store i32 -1, ptr %818, align 4
+  %819 = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr null, ptr %819, align 8
+  %820 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %820, ptr noundef nonnull %7, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
+  br label %936
+
+821:                                              ; preds = %alnumerize.exit189
+  %822 = getelementptr inbounds i8, ptr %0, i64 36
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
+  store ptr %822, ptr %6, align 8
+  %823 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %89, ptr %823, align 8
+  %824 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %92, ptr %824, align 8
+  %825 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 30, ptr %825, align 8
+  %826 = getelementptr inbounds i8, ptr %6, i64 28
+  %827 = getelementptr inbounds i8, ptr %6, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %826, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %827, align 8
+  %828 = getelementptr inbounds i8, ptr %6, i64 56
+  store i32 -1, ptr %828, align 8
+  %829 = getelementptr inbounds i8, ptr %6, i64 60
+  store i32 0, ptr %829, align 4
+  %830 = getelementptr inbounds i8, ptr %6, i64 64
+  store i32 0, ptr %830, align 8
+  %831 = getelementptr inbounds i8, ptr %6, i64 68
+  store i32 -1, ptr %831, align 4
+  %832 = getelementptr inbounds i8, ptr %6, i64 72
+  store ptr null, ptr %832, align 8
+  %833 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %833, ptr noundef nonnull %6, i32 noundef 1) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
+  %834 = call ptr @wmem_epan_scope() #8
+  %835 = load i16, ptr %0, align 8
+  %836 = zext i16 %835 to i32
+  %837 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %834, ptr noundef nonnull @.str.264, i32 noundef %836) #8
+  %838 = call ptr @wmem_epan_scope() #8
+  %839 = load ptr, ptr %42, align 8
+  %840 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %838, ptr noundef nonnull @.str.277, ptr noundef %839) #8
+  %841 = load i8, ptr %840, align 1
+  %.not33.i346 = icmp eq i8 %841, 0
+  br i1 %.not33.i346, label %alnumerize.exit358, label %.lr.ph.i347
+
+.lr.ph.i347:                                      ; preds = %821
+  %842 = load ptr, ptr @g_ascii_table, align 8
+  br label %843
+
+843:                                              ; preds = %856, %.lr.ph.i347
+  %844 = phi i8 [ %841, %.lr.ph.i347 ], [ %858, %856 ]
+  %.035.i348 = phi ptr [ %840, %.lr.ph.i347 ], [ %857, %856 ]
+  %.02834.i349 = phi ptr [ %840, %.lr.ph.i347 ], [ %.1.i354, %856 ]
+  %845 = zext i8 %844 to i64
+  %846 = getelementptr i16, ptr %842, i64 %845
+  %847 = load i16, ptr %846, align 2
+  %.fr31.i350 = freeze i16 %847
+  %848 = and i16 %.fr31.i350, 1
+  %.not32.i351 = icmp eq i16 %848, 0
+  br i1 %.not32.i351, label %switch.early.test.i357, label %.sink.split.i352
+
+switch.early.test.i357:                           ; preds = %843
+  switch i8 %844, label %856 [
+    i8 95, label %.sink.split.i352
+    i8 46, label %.sink.split.i352
+    i8 47, label %849
+    i8 45, label %849
+    i8 32, label %849
+  ]
+
+849:                                              ; preds = %switch.early.test.i357, %switch.early.test.i357, %switch.early.test.i357
+  %850 = icmp eq ptr %.02834.i349, %840
+  br i1 %850, label %856, label %851
+
+851:                                              ; preds = %849
+  %852 = getelementptr i8, ptr %.02834.i349, i64 -1
+  %853 = load i8, ptr %852, align 1
+  %854 = icmp eq i8 %853, 95
+  br i1 %854, label %856, label %.sink.split.i352
+
+.sink.split.i352:                                 ; preds = %851, %switch.early.test.i357, %switch.early.test.i357, %843
+  %.sink.i353 = phi i8 [ %844, %switch.early.test.i357 ], [ %844, %switch.early.test.i357 ], [ %844, %843 ], [ 95, %851 ]
+  %855 = getelementptr i8, ptr %.02834.i349, i64 1
   store i8 %.sink.i353, ptr %.02834.i349, align 1
-  br label %751
+  br label %856
 
-751:                                              ; preds = %.sink.split.i352, %746, %744, %switch.early.test.i357
-  %.1.i354 = phi ptr [ %735, %744 ], [ %.02834.i349, %746 ], [ %.02834.i349, %switch.early.test.i357 ], [ %750, %.sink.split.i352 ]
-  %752 = getelementptr i8, ptr %.035.i348, i64 1
-  %753 = load i8, ptr %752, align 1
-  %.not.i355 = icmp eq i8 %753, 0
-  br i1 %.not.i355, label %alnumerize.exit358, label %738, !llvm.loop !20
+856:                                              ; preds = %.sink.split.i352, %851, %849, %switch.early.test.i357
+  %.1.i354 = phi ptr [ %840, %849 ], [ %.02834.i349, %851 ], [ %.02834.i349, %switch.early.test.i357 ], [ %855, %.sink.split.i352 ]
+  %857 = getelementptr i8, ptr %.035.i348, i64 1
+  %858 = load i8, ptr %857, align 1
+  %.not.i355 = icmp eq i8 %858, 0
+  br i1 %.not.i355, label %alnumerize.exit358, label %843, !llvm.loop !20
 
-alnumerize.exit358:                               ; preds = %751, %719
-  %.028.lcssa.i356 = phi ptr [ %735, %719 ], [ %.1.i354, %751 ]
+alnumerize.exit358:                               ; preds = %856, %821
+  %.028.lcssa.i356 = phi ptr [ %840, %821 ], [ %.1.i354, %856 ]
   store i8 0, ptr %.028.lcssa.i356, align 1
-  %754 = getelementptr inbounds i8, ptr %0, i64 72
+  %859 = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
-  store ptr %754, ptr %5, align 8
-  %755 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @.str.278, ptr %755, align 8
-  %756 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %735, ptr %756, align 8
-  %757 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 6, ptr %757, align 8
-  %758 = getelementptr inbounds i8, ptr %5, i64 28
-  store i32 1, ptr %758, align 4
-  %759 = getelementptr inbounds i8, ptr %5, i64 32
-  %760 = getelementptr inbounds i8, ptr %5, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %759, i8 0, i64 16, i1 false)
-  store ptr %732, ptr %760, align 8
-  %761 = getelementptr inbounds i8, ptr %5, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %761, align 8
-  %762 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr null, ptr %762, align 8
-  %763 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %763, ptr noundef nonnull %5, i32 noundef 1) #8
+  store ptr %859, ptr %5, align 8
+  %860 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @.str.278, ptr %860, align 8
+  %861 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %840, ptr %861, align 8
+  %862 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 6, ptr %862, align 8
+  %863 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 1, ptr %863, align 4
+  %864 = getelementptr inbounds i8, ptr %5, i64 32
+  %865 = getelementptr inbounds i8, ptr %5, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %864, i8 0, i64 16, i1 false)
+  store ptr %837, ptr %865, align 8
+  %866 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 -1, ptr %866, align 8
+  %867 = getelementptr inbounds i8, ptr %5, i64 60
+  store i32 0, ptr %867, align 4
+  %868 = getelementptr inbounds i8, ptr %5, i64 64
+  store i32 0, ptr %868, align 8
+  %869 = getelementptr inbounds i8, ptr %5, i64 68
+  store i32 -1, ptr %869, align 4
+  %870 = getelementptr inbounds i8, ptr %5, i64 72
+  store ptr null, ptr %870, align 8
+  %871 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %871, ptr noundef nonnull %5, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  %764 = call ptr @wmem_epan_scope() #8
-  %765 = load ptr, ptr %42, align 8
-  %766 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %764, ptr noundef nonnull @.str.279, ptr noundef %765) #8
-  %767 = load i8, ptr %766, align 1
-  %.not33.i359 = icmp eq i8 %767, 0
+  %872 = call ptr @wmem_epan_scope() #8
+  %873 = load ptr, ptr %42, align 8
+  %874 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %872, ptr noundef nonnull @.str.279, ptr noundef %873) #8
+  %875 = load i8, ptr %874, align 1
+  %.not33.i359 = icmp eq i8 %875, 0
   br i1 %.not33.i359, label %alnumerize.exit371, label %.lr.ph.i360
 
 .lr.ph.i360:                                      ; preds = %alnumerize.exit358
-  %768 = load ptr, ptr @g_ascii_table, align 8
-  br label %769
+  %876 = load ptr, ptr @g_ascii_table, align 8
+  br label %877
 
-769:                                              ; preds = %782, %.lr.ph.i360
-  %770 = phi i8 [ %767, %.lr.ph.i360 ], [ %784, %782 ]
-  %.035.i361 = phi ptr [ %766, %.lr.ph.i360 ], [ %783, %782 ]
-  %.02834.i362 = phi ptr [ %766, %.lr.ph.i360 ], [ %.1.i367, %782 ]
-  %771 = zext i8 %770 to i64
-  %772 = getelementptr i16, ptr %768, i64 %771
-  %773 = load i16, ptr %772, align 2
-  %.fr31.i363 = freeze i16 %773
-  %774 = and i16 %.fr31.i363, 1
-  %.not32.i364 = icmp eq i16 %774, 0
+877:                                              ; preds = %890, %.lr.ph.i360
+  %878 = phi i8 [ %875, %.lr.ph.i360 ], [ %892, %890 ]
+  %.035.i361 = phi ptr [ %874, %.lr.ph.i360 ], [ %891, %890 ]
+  %.02834.i362 = phi ptr [ %874, %.lr.ph.i360 ], [ %.1.i367, %890 ]
+  %879 = zext i8 %878 to i64
+  %880 = getelementptr i16, ptr %876, i64 %879
+  %881 = load i16, ptr %880, align 2
+  %.fr31.i363 = freeze i16 %881
+  %882 = and i16 %.fr31.i363, 1
+  %.not32.i364 = icmp eq i16 %882, 0
   br i1 %.not32.i364, label %switch.early.test.i370, label %.sink.split.i365
 
-switch.early.test.i370:                           ; preds = %769
-  switch i8 %770, label %782 [
+switch.early.test.i370:                           ; preds = %877
+  switch i8 %878, label %890 [
     i8 95, label %.sink.split.i365
     i8 46, label %.sink.split.i365
-    i8 47, label %775
-    i8 45, label %775
-    i8 32, label %775
+    i8 47, label %883
+    i8 45, label %883
+    i8 32, label %883
   ]
 
-775:                                              ; preds = %switch.early.test.i370, %switch.early.test.i370, %switch.early.test.i370
-  %776 = icmp eq ptr %.02834.i362, %766
-  br i1 %776, label %782, label %777
+883:                                              ; preds = %switch.early.test.i370, %switch.early.test.i370, %switch.early.test.i370
+  %884 = icmp eq ptr %.02834.i362, %874
+  br i1 %884, label %890, label %885
 
-777:                                              ; preds = %775
-  %778 = getelementptr i8, ptr %.02834.i362, i64 -1
-  %779 = load i8, ptr %778, align 1
-  %780 = icmp eq i8 %779, 95
-  br i1 %780, label %782, label %.sink.split.i365
+885:                                              ; preds = %883
+  %886 = getelementptr i8, ptr %.02834.i362, i64 -1
+  %887 = load i8, ptr %886, align 1
+  %888 = icmp eq i8 %887, 95
+  br i1 %888, label %890, label %.sink.split.i365
 
-.sink.split.i365:                                 ; preds = %777, %switch.early.test.i370, %switch.early.test.i370, %769
-  %.sink.i366 = phi i8 [ %770, %switch.early.test.i370 ], [ %770, %switch.early.test.i370 ], [ %770, %769 ], [ 95, %777 ]
-  %781 = getelementptr i8, ptr %.02834.i362, i64 1
+.sink.split.i365:                                 ; preds = %885, %switch.early.test.i370, %switch.early.test.i370, %877
+  %.sink.i366 = phi i8 [ %878, %switch.early.test.i370 ], [ %878, %switch.early.test.i370 ], [ %878, %877 ], [ 95, %885 ]
+  %889 = getelementptr i8, ptr %.02834.i362, i64 1
   store i8 %.sink.i366, ptr %.02834.i362, align 1
-  br label %782
+  br label %890
 
-782:                                              ; preds = %.sink.split.i365, %777, %775, %switch.early.test.i370
-  %.1.i367 = phi ptr [ %766, %775 ], [ %.02834.i362, %777 ], [ %.02834.i362, %switch.early.test.i370 ], [ %781, %.sink.split.i365 ]
-  %783 = getelementptr i8, ptr %.035.i361, i64 1
-  %784 = load i8, ptr %783, align 1
-  %.not.i368 = icmp eq i8 %784, 0
-  br i1 %.not.i368, label %alnumerize.exit371, label %769, !llvm.loop !20
+890:                                              ; preds = %.sink.split.i365, %885, %883, %switch.early.test.i370
+  %.1.i367 = phi ptr [ %874, %883 ], [ %.02834.i362, %885 ], [ %.02834.i362, %switch.early.test.i370 ], [ %889, %.sink.split.i365 ]
+  %891 = getelementptr i8, ptr %.035.i361, i64 1
+  %892 = load i8, ptr %891, align 1
+  %.not.i368 = icmp eq i8 %892, 0
+  br i1 %.not.i368, label %alnumerize.exit371, label %877, !llvm.loop !20
 
-alnumerize.exit371:                               ; preds = %782, %alnumerize.exit358
-  %.028.lcssa.i369 = phi ptr [ %766, %alnumerize.exit358 ], [ %.1.i367, %782 ]
+alnumerize.exit371:                               ; preds = %890, %alnumerize.exit358
+  %.028.lcssa.i369 = phi ptr [ %874, %alnumerize.exit358 ], [ %.1.i367, %890 ]
   store i8 0, ptr %.028.lcssa.i369, align 1
-  %785 = getelementptr inbounds i8, ptr %0, i64 76
+  %893 = getelementptr inbounds i8, ptr %0, i64 76
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
-  store ptr %785, ptr %4, align 8
-  %786 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.280, ptr %786, align 8
-  %787 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %766, ptr %787, align 8
-  %788 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 30, ptr %788, align 8
-  %789 = getelementptr inbounds i8, ptr %4, i64 28
-  %790 = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %789, i8 0, i64 20, i1 false)
-  store ptr %732, ptr %790, align 8
-  %791 = getelementptr inbounds i8, ptr %4, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %791, align 8
-  %792 = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr null, ptr %792, align 8
-  %793 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %793, ptr noundef nonnull %4, i32 noundef 1) #8
+  store ptr %893, ptr %4, align 8
+  %894 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.280, ptr %894, align 8
+  %895 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %874, ptr %895, align 8
+  %896 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 30, ptr %896, align 8
+  %897 = getelementptr inbounds i8, ptr %4, i64 28
+  %898 = getelementptr inbounds i8, ptr %4, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %897, i8 0, i64 20, i1 false)
+  store ptr %837, ptr %898, align 8
+  %899 = getelementptr inbounds i8, ptr %4, i64 56
+  store i32 -1, ptr %899, align 8
+  %900 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 0, ptr %900, align 4
+  %901 = getelementptr inbounds i8, ptr %4, i64 64
+  store i32 0, ptr %901, align 8
+  %902 = getelementptr inbounds i8, ptr %4, i64 68
+  store i32 -1, ptr %902, align 4
+  %903 = getelementptr inbounds i8, ptr %4, i64 72
+  store ptr null, ptr %903, align 8
+  %904 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %904, ptr noundef nonnull %4, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  br label %819
+  br label %936
 
-794:                                              ; preds = %alnumerize.exit189
-  %795 = call ptr @wmem_epan_scope() #8
-  %796 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %795, ptr noundef nonnull @.str.281, ptr noundef %86) #8
-  %797 = getelementptr inbounds i8, ptr %0, i64 36
+905:                                              ; preds = %alnumerize.exit189
+  %906 = call ptr @wmem_epan_scope() #8
+  %907 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %906, ptr noundef nonnull @.str.281, ptr noundef %89) #8
+  %908 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  store ptr %797, ptr %3, align 8
-  %798 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %86, ptr %798, align 8
-  %799 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %89, ptr %799, align 8
-  %800 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 30, ptr %800, align 8
-  %801 = getelementptr inbounds i8, ptr %3, i64 28
-  %802 = getelementptr inbounds i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %801, i8 0, i64 20, i1 false)
-  store ptr %796, ptr %802, align 8
-  %803 = getelementptr inbounds i8, ptr %3, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %803, align 8
-  %804 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr null, ptr %804, align 8
-  %805 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %805, ptr noundef nonnull %3, i32 noundef 1) #8
+  store ptr %908, ptr %3, align 8
+  %909 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %89, ptr %909, align 8
+  %910 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %92, ptr %910, align 8
+  %911 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 30, ptr %911, align 8
+  %912 = getelementptr inbounds i8, ptr %3, i64 28
+  %913 = getelementptr inbounds i8, ptr %3, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %912, i8 0, i64 20, i1 false)
+  store ptr %907, ptr %913, align 8
+  %914 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 -1, ptr %914, align 8
+  %915 = getelementptr inbounds i8, ptr %3, i64 60
+  store i32 0, ptr %915, align 4
+  %916 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 0, ptr %916, align 8
+  %917 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 -1, ptr %917, align 4
+  %918 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr null, ptr %918, align 8
+  %919 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %919, ptr noundef nonnull %3, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  br label %819
+  br label %936
 
-806:                                              ; preds = %alnumerize.exit189
-  %807 = getelementptr inbounds i8, ptr %0, i64 36
+920:                                              ; preds = %alnumerize.exit189
+  %921 = getelementptr inbounds i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
-  store ptr %807, ptr %2, align 8
-  %808 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %86, ptr %808, align 8
-  %809 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %89, ptr %809, align 8
-  %810 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 30, ptr %810, align 8
-  %811 = getelementptr inbounds i8, ptr %2, i64 28
-  %812 = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %811, i8 0, i64 20, i1 false)
-  store ptr %111, ptr %812, align 8
-  %813 = getelementptr inbounds i8, ptr %2, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %813, align 8
-  %814 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr null, ptr %814, align 8
-  %815 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  call void @wmem_array_append(ptr noundef %815, ptr noundef nonnull %2, i32 noundef 1) #8
+  store ptr %921, ptr %2, align 8
+  %922 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %89, ptr %922, align 8
+  %923 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %92, ptr %923, align 8
+  %924 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 30, ptr %924, align 8
+  %925 = getelementptr inbounds i8, ptr %2, i64 28
+  %926 = getelementptr inbounds i8, ptr %2, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %925, i8 0, i64 20, i1 false)
+  store ptr %114, ptr %926, align 8
+  %927 = getelementptr inbounds i8, ptr %2, i64 56
+  store i32 -1, ptr %927, align 8
+  %928 = getelementptr inbounds i8, ptr %2, i64 60
+  store i32 0, ptr %928, align 4
+  %929 = getelementptr inbounds i8, ptr %2, i64 64
+  store i32 0, ptr %929, align 8
+  %930 = getelementptr inbounds i8, ptr %2, i64 68
+  store i32 -1, ptr %930, align 4
+  %931 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr null, ptr %931, align 8
+  %932 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  call void @wmem_array_append(ptr noundef %932, ptr noundef nonnull %2, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  %816 = load i32, ptr @debug_enabled, align 4
-  %.not = icmp eq i32 %816, 0
-  br i1 %.not, label %819, label %817
+  %933 = load i32, ptr @debug_enabled, align 4
+  %.not = icmp eq i32 %933, 0
+  br i1 %.not, label %936, label %934
 
-817:                                              ; preds = %806
-  %818 = load i32, ptr %66, align 8
-  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.202, i32 noundef %818) #8
-  br label %819
+934:                                              ; preds = %920
+  %935 = load i32, ptr %66, align 8
+  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.202, i32 noundef %935) #8
+  br label %936
 
-819:                                              ; preds = %806, %817, %794, %alnumerize.exit371, %alnumerize.exit345, %alnumerize.exit293, %alnumerize.exit267, %454, %alnumerize.exit254, %381, %370, %359, %348, %337, %326, %alnumerize.exit228, %223, %212, %201, %191, %181, %170, %159, %148, %138, %134, %124, %113
+936:                                              ; preds = %920, %934, %905, %alnumerize.exit371, %alnumerize.exit345, %alnumerize.exit293, %alnumerize.exit267, %523, %alnumerize.exit254, %441, %427, %413, %399, %385, %371, %alnumerize.exit228, %256, %242, %228, %215, %202, %188, %174, %160, %147, %143, %130, %116
   ret void
 }
 

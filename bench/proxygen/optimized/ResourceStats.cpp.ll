@@ -1301,17 +1301,18 @@ while.body.i:                                     ; preds = %_ZZN5folly10rcu_dom
   %7 = load ptr, ptr %executor_.i.i, align 8
   store ptr null, ptr %agg.tmp.i.i, align 16
   %call_2.i.i.i = getelementptr inbounds i8, ptr %node.04.i, i64 48
+  %8 = load ptr, ptr %call_2.i.i.i, align 16
+  store ptr %8, ptr %call_.i.i.i, align 16
   %exec_3.i.i.i = getelementptr inbounds i8, ptr %node.04.i, i64 56
-  %8 = load ptr, ptr %exec_3.i.i.i, align 8
-  %9 = load <2 x ptr>, ptr %call_2.i.i.i, align 16
-  store <2 x ptr> %9, ptr %call_.i.i.i, align 16
+  %9 = load ptr, ptr %exec_3.i.i.i, align 8
+  store ptr %9, ptr %exec_.i.i.i, align 8
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i, align 16
   store ptr null, ptr %exec_3.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i
-  %call.i.i.i.i = call noundef i64 %8(i32 noundef 0, ptr noundef nonnull %node.04.i, ptr noundef nonnull %agg.tmp.i.i) #15
+  %call.i.i.i.i = call noundef i64 %9(i32 noundef 0, ptr noundef nonnull %node.04.i, ptr noundef nonnull %agg.tmp.i.i) #15
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i:         ; preds = %if.end.i.i.i.i, %while.body.i

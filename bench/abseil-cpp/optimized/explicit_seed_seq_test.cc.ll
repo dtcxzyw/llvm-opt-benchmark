@@ -5502,14 +5502,14 @@ entry:
   %ref.tmp = alloca [3 x i32], align 4
   %values = alloca [4 x i64], align 16
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp14 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.20", align 16
+  %ref.tmp14 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.20", align 4
   %ref.tmp26 = alloca %"class.testing::Message", align 8
   %ref.tmp28 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp39 = alloca [3 x i32], align 4
   %rng46 = alloca %"class.std::mersenne_twister_engine", align 8
   %values49 = alloca [4 x i64], align 16
   %gtest_ar62 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp63 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.20", align 16
+  %ref.tmp63 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.20", align 4
   %ref.tmp77 = alloca %"class.testing::Message", align 8
   %ref.tmp79 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp93 = alloca [3 x i32], align 4
@@ -5674,7 +5674,13 @@ invoke.cont21:                                    ; preds = %for.cond.preheader.
   %rem.i.i.i18 = urem i64 %mul.i.i.i17, 2147483647
   %arrayinit.element11 = getelementptr inbounds i8, ptr %values, i64 24
   store i64 %rem.i.i.i18, ptr %arrayinit.element11, align 8
-  store <4 x i32> <i32 1501811174, i32 464353103, i32 43785881, i32 579252>, ptr %ref.tmp14, align 16
+  store i32 1501811174, ptr %ref.tmp14, align 4
+  %agg.tmp1519.sroa.4.0.ref.tmp14.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp14, i64 4
+  store i32 464353103, ptr %agg.tmp1519.sroa.4.0.ref.tmp14.sroa_idx, align 4
+  %agg.tmp1519.sroa.5.0.ref.tmp14.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
+  store i32 43785881, ptr %agg.tmp1519.sroa.5.0.ref.tmp14.sroa_idx, align 4
+  %agg.tmp1519.sroa.6.0.ref.tmp14.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp14, i64 12
+  store i32 579252, ptr %agg.tmp1519.sroa.6.0.ref.tmp14.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiEEEEEclIA4_mEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp14, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %values)
           to label %invoke.cont22 unwind label %lpad
 
@@ -5981,7 +5987,13 @@ invoke.cont57:                                    ; preds = %invoke.cont54
 invoke.cont70:                                    ; preds = %invoke.cont57
   %arrayinit.element59 = getelementptr inbounds i8, ptr %values49, i64 24
   store i64 %call61, ptr %arrayinit.element59, align 8
-  store <4 x i32> <i32 138416803, i32 33817739, i32 151130212, i32 138416803>, ptr %ref.tmp63, align 16
+  store i32 138416803, ptr %ref.tmp63, align 4
+  %agg.tmp6449.sroa.4.0.ref.tmp63.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp63, i64 4
+  store i32 33817739, ptr %agg.tmp6449.sroa.4.0.ref.tmp63.sroa_idx, align 4
+  %agg.tmp6449.sroa.5.0.ref.tmp63.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  store i32 151130212, ptr %agg.tmp6449.sroa.5.0.ref.tmp63.sroa_idx, align 4
+  %agg.tmp6449.sroa.6.0.ref.tmp63.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp63, i64 12
+  store i32 138416803, ptr %agg.tmp6449.sroa.6.0.ref.tmp63.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiEEEEEclIA4_mEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar62, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp63, ptr noundef nonnull @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %values49)
           to label %invoke.cont71 unwind label %lpad47
 

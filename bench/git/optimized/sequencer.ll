@@ -13253,9 +13253,13 @@ todo_list_add_update_ref_commands.exit.thread:    ; preds = %for.end.i
   call void @free(ptr noundef %40) #19
   %41 = load ptr, ptr %ctx.i, align 8
   store ptr %41, ptr %items54.i, align 8
-  %42 = load <2 x i64>, ptr %10, align 8
-  %43 = trunc <2 x i64> %42 to <2 x i32>
-  store <2 x i32> %43, ptr %nr.i38, align 8
+  %42 = load i64, ptr %10, align 8
+  %conv58.i = trunc i64 %42 to i32
+  store i32 %conv58.i, ptr %nr.i38, align 8
+  %43 = load i64, ptr %items_alloc.i, align 8
+  %conv61.i = trunc i64 %43 to i32
+  %alloc.i45 = getelementptr inbounds i8, ptr %todo_list, i64 36
+  store i32 %conv61.i, ptr %alloc.i45, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %decoration_filter.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ctx.i)
   br label %if.end9

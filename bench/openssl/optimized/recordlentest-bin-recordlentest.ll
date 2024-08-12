@@ -96,10 +96,10 @@ entry:
   %header.i48 = alloca [5 x i8], align 1
   %written.i49 = alloca i64, align 8
   %buf.i50 = alloca [256 x i8], align 16
-  %header.i21 = alloca [5 x i8], align 4
+  %header.i21 = alloca [5 x i8], align 1
   %written.i22 = alloca i64, align 8
   %buf.i23 = alloca [256 x i8], align 16
-  %header.i = alloca [5 x i8], align 4
+  %header.i = alloca [5 x i8], align 1
   %written.i = alloca i64, align 8
   %buf.i = alloca [256 x i8], align 16
   %cctx = alloca ptr, align 8
@@ -164,9 +164,15 @@ if.then31.split:                                  ; preds = %if.then31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %written.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i, i8 0, i64 256, i1 false)
-  store <4 x i8> <i8 22, i8 3, i8 1, i8 64>, ptr %header.i, align 4
+  store i8 22, ptr %header.i, align 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %header.i, i64 1
+  store i8 3, ptr %arrayidx1.i, align 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %header.i, i64 2
+  store i8 1, ptr %arrayidx4.i, align 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %header.i, i64 3
+  store i8 64, ptr %arrayidx8.i, align 1
   %arrayidx11.i = getelementptr inbounds i8, ptr %header.i, i64 4
-  store i8 0, ptr %arrayidx11.i, align 4
+  store i8 0, ptr %arrayidx11.i, align 1
   %call.i = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i, i64 noundef 5, ptr noundef nonnull %written.i) #6
   %tobool.i = icmp eq i32 %call.i, 0
   %7 = load i64, ptr %written.i, align 8
@@ -201,9 +207,15 @@ if.then34.split:                                  ; preds = %if.then31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %written.i22)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buf.i23, i8 0, i64 256, i1 false)
-  store <4 x i8> <i8 22, i8 3, i8 1, i8 64>, ptr %header.i21, align 4
+  store i8 22, ptr %header.i21, align 1
+  %arrayidx1.i24 = getelementptr inbounds i8, ptr %header.i21, i64 1
+  store i8 3, ptr %arrayidx1.i24, align 1
+  %arrayidx4.i25 = getelementptr inbounds i8, ptr %header.i21, i64 2
+  store i8 1, ptr %arrayidx4.i25, align 1
+  %arrayidx8.i26 = getelementptr inbounds i8, ptr %header.i21, i64 3
+  store i8 64, ptr %arrayidx8.i26, align 1
   %arrayidx11.i27 = getelementptr inbounds i8, ptr %header.i21, i64 4
-  store i8 1, ptr %arrayidx11.i27, align 4
+  store i8 1, ptr %arrayidx11.i27, align 1
   %call.i28 = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i21, i64 noundef 5, ptr noundef nonnull %written.i22) #6
   %tobool.i29 = icmp eq i32 %call.i28, 0
   %9 = load i64, ptr %written.i22, align 8

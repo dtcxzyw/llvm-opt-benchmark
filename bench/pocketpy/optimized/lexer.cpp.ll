@@ -8237,7 +8237,7 @@ define void @_ZN4pkpy5Lexer3runEv(ptr dead_on_unwind noalias nocapture writable 
 
 24:                                               ; preds = %23
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #28
-          to label %46 unwind label %32
+          to label %49 unwind label %32
 
 .thread:                                          ; preds = %16
   %25 = landingpad { ptr, i32 }
@@ -8285,12 +8285,12 @@ define void @_ZN4pkpy5Lexer3runEv(ptr dead_on_unwind noalias nocapture writable 
   %.2 = phi i1 [ %.3, %35 ], [ true, %26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
-  br i1 %.2, label %37, label %45
+  br i1 %.2, label %37, label %48
 
 37:                                               ; preds = %.thread, %36
   %.pn.pn.pn.pn18 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn.pn.pn, %36 ]
   call void @__cxa_free_exception(ptr %17) #25
-  br label %45
+  br label %48
 
 .preheader:                                       ; preds = %2, %.preheader
   %38 = tail call noundef zeroext i1 @_ZN4pkpy5Lexer13lex_one_tokenEv(ptr noundef nonnull align 8 dereferenceable(132) %1)
@@ -8298,20 +8298,24 @@ define void @_ZN4pkpy5Lexer3runEv(ptr dead_on_unwind noalias nocapture writable 
 
 39:                                               ; preds = %.preheader
   %40 = getelementptr inbounds i8, ptr %1, i64 48
-  %41 = load <2 x ptr>, ptr %40, align 8
-  store <2 x ptr> %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  %43 = getelementptr inbounds i8, ptr %1, i64 64
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 56
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %45, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   ret void
 
-45:                                               ; preds = %36, %37
+48:                                               ; preds = %36, %37
   %.pn.pn.pn.pn17 = phi { ptr, i32 } [ %.pn.pn.pn, %36 ], [ %.pn.pn.pn.pn18, %37 ]
   resume { ptr, i32 } %.pn.pn.pn.pn17
 
-46:                                               ; preds = %24
+49:                                               ; preds = %24
   unreachable
 }
 

@@ -3077,11 +3077,25 @@ entry:
   %mPosition.i = getelementptr inbounds i8, ptr %call, i64 1028
   %y.i1.i = getelementptr inbounds i8, ptr %call, i64 1044
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mPosition.i, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %y.i1.i, align 4
+  store float 1.000000e+00, ptr %y.i1.i, align 4
+  %z.i2.i = getelementptr inbounds i8, ptr %call, i64 1048
+  store float 0.000000e+00, ptr %z.i2.i, align 4
+  %mLookAt.i = getelementptr inbounds i8, ptr %call, i64 1052
+  store float 0.000000e+00, ptr %mLookAt.i, align 4
+  %y.i3.i = getelementptr inbounds i8, ptr %call, i64 1056
+  store float 0.000000e+00, ptr %y.i3.i, align 4
   %z.i4.i = getelementptr inbounds i8, ptr %call, i64 1060
-  store <4 x float> <float 1.000000e+00, float 0x3FE921FB60000000, float 0x3FB99999A0000000, float 1.000000e+03>, ptr %z.i4.i, align 4
+  store float 1.000000e+00, ptr %z.i4.i, align 4
+  %mHorizontalFOV.i = getelementptr inbounds i8, ptr %call, i64 1064
+  store float 0x3FE921FB60000000, ptr %mHorizontalFOV.i, align 4
+  %mClipPlaneNear.i = getelementptr inbounds i8, ptr %call, i64 1068
+  store float 0x3FB99999A0000000, ptr %mClipPlaneNear.i, align 4
+  %mClipPlaneFar.i = getelementptr inbounds i8, ptr %call, i64 1072
+  store float 1.000000e+03, ptr %mClipPlaneFar.i, align 4
   %mAspect.i = getelementptr inbounds i8, ptr %call, i64 1076
-  store <2 x float> zeroinitializer, ptr %mAspect.i, align 4
+  store float 0.000000e+00, ptr %mAspect.i, align 4
+  %mOrthographicWidth.i = getelementptr inbounds i8, ptr %call, i64 1080
+  store float 0.000000e+00, ptr %mOrthographicWidth.i, align 4
   %m_cameraCache = getelementptr inbounds i8, ptr %this, i64 680
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 688
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -3213,7 +3227,13 @@ entry:
   %mAttenuationQuadratic.i = getelementptr inbounds i8, ptr %call, i64 1076
   %mAngleInnerCone.i = getelementptr inbounds i8, ptr %call, i64 1116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %mAttenuationQuadratic.i, i8 0, i64 40, i1 false)
-  store <4 x float> <float 0x401921FB60000000, float 0x401921FB60000000, float 0.000000e+00, float 0.000000e+00>, ptr %mAngleInnerCone.i, align 4
+  store float 0x401921FB60000000, ptr %mAngleInnerCone.i, align 4
+  %mAngleOuterCone.i = getelementptr inbounds i8, ptr %call, i64 1120
+  store float 0x401921FB60000000, ptr %mAngleOuterCone.i, align 4
+  %mSize.i = getelementptr inbounds i8, ptr %call, i64 1124
+  store float 0.000000e+00, ptr %mSize.i, align 4
+  %y.i9.i = getelementptr inbounds i8, ptr %call, i64 1128
+  store float 0.000000e+00, ptr %y.i9.i, align 4
   %m_lightCache = getelementptr inbounds i8, ptr %this, i64 704
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 712
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -3365,7 +3385,13 @@ entry:
   %mAttenuationQuadratic.i = getelementptr inbounds i8, ptr %call, i64 1076
   %mAngleInnerCone.i = getelementptr inbounds i8, ptr %call, i64 1116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %mAttenuationQuadratic.i, i8 0, i64 40, i1 false)
-  store <4 x float> <float 0x401921FB60000000, float 0x401921FB60000000, float 0.000000e+00, float 0.000000e+00>, ptr %mAngleInnerCone.i, align 4
+  store float 0x401921FB60000000, ptr %mAngleInnerCone.i, align 4
+  %mAngleOuterCone.i = getelementptr inbounds i8, ptr %call, i64 1120
+  store float 0x401921FB60000000, ptr %mAngleOuterCone.i, align 4
+  %mSize.i = getelementptr inbounds i8, ptr %call, i64 1124
+  store float 0.000000e+00, ptr %mSize.i, align 4
+  %y.i9.i = getelementptr inbounds i8, ptr %call, i64 1128
+  store float 0.000000e+00, ptr %y.i9.i, align 4
   %m_lightCache = getelementptr inbounds i8, ptr %this, i64 704
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 712
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -4603,8 +4629,8 @@ for.body.lr.ph:                                   ; preds = %if.end80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
-  %45 = phi ptr [ %43, %for.body.lr.ph ], [ %69, %for.end ]
-  %vaList.053 = phi ptr [ %call, %for.body.lr.ph ], [ %68, %for.end ]
+  %45 = phi ptr [ %43, %for.body.lr.ph ], [ %72, %for.end ]
+  %vaList.053 = phi ptr [ %call, %for.body.lr.ph ], [ %71, %for.end ]
   %i.052 = phi i64 [ 0, %for.body.lr.ph ], [ %inc147, %for.end ]
   %index.051 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1.lcssa, %for.end ]
   %mFaces86 = getelementptr inbounds i8, ptr %45, i64 208
@@ -4636,21 +4662,25 @@ for.body95:                                       ; preds = %for.body95.preheade
   %50 = load ptr, ptr %mVertices101, align 8
   %idxprom = zext i32 %index.145 to i64
   %arrayidx102 = getelementptr inbounds %class.aiVector3t, ptr %50, i64 %idxprom
+  %51 = load float, ptr %add.ptr.i, align 4
+  %y = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %52 = load float, ptr %y, align 4
   %z = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  %51 = load float, ptr %z, align 4
-  %52 = load <2 x float>, ptr %add.ptr.i, align 4
-  store <2 x float> %52, ptr %arrayidx102, align 4
+  %53 = load float, ptr %z, align 4
+  store float %51, ptr %arrayidx102, align 4
+  %y.i35 = getelementptr inbounds i8, ptr %arrayidx102, i64 4
+  store float %52, ptr %y.i35, align 4
   %z.i36 = getelementptr inbounds i8, ptr %arrayidx102, i64 8
-  store float %51, ptr %z.i36, align 4
+  store float %53, ptr %z.i36, align 4
   br i1 %cmp30.not.not, label %if.end112, label %if.then103
 
 if.then103:                                       ; preds = %for.body95
-  %53 = load ptr, ptr %m_colors, align 8
-  %arrayidx106 = getelementptr inbounds %class.aiColor4t, ptr %53, i64 %conv98
-  %54 = load ptr, ptr %m_currentMesh, align 8
-  %mColors108 = getelementptr inbounds i8, ptr %54, i64 48
-  %55 = load ptr, ptr %mColors108, align 8
-  %arrayidx111 = getelementptr inbounds %class.aiColor4t, ptr %55, i64 %idxprom
+  %54 = load ptr, ptr %m_colors, align 8
+  %arrayidx106 = getelementptr inbounds %class.aiColor4t, ptr %54, i64 %conv98
+  %55 = load ptr, ptr %m_currentMesh, align 8
+  %mColors108 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = load ptr, ptr %mColors108, align 8
+  %arrayidx111 = getelementptr inbounds %class.aiColor4t, ptr %56, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx111, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx106, i64 16, i1 false)
   br label %if.end112
 
@@ -4658,59 +4688,67 @@ if.end112:                                        ; preds = %if.then103, %for.bo
   br i1 %cmp.i.i, label %if.end126, label %if.then114
 
 if.then114:                                       ; preds = %if.end112
-  %56 = load ptr, ptr %m_normals, align 8
-  %add.ptr.i37 = getelementptr inbounds %class.aiVector3t, ptr %56, i64 %conv98
-  %57 = load ptr, ptr %m_currentMesh, align 8
-  %mNormals120 = getelementptr inbounds i8, ptr %57, i64 24
-  %58 = load ptr, ptr %mNormals120, align 8
-  %arrayidx122 = getelementptr inbounds %class.aiVector3t, ptr %58, i64 %idxprom
+  %57 = load ptr, ptr %m_normals, align 8
+  %add.ptr.i37 = getelementptr inbounds %class.aiVector3t, ptr %57, i64 %conv98
+  %58 = load ptr, ptr %m_currentMesh, align 8
+  %mNormals120 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = load ptr, ptr %mNormals120, align 8
+  %arrayidx122 = getelementptr inbounds %class.aiVector3t, ptr %59, i64 %idxprom
+  %60 = load float, ptr %add.ptr.i37, align 4
+  %y124 = getelementptr inbounds i8, ptr %add.ptr.i37, i64 4
+  %61 = load float, ptr %y124, align 4
   %z125 = getelementptr inbounds i8, ptr %add.ptr.i37, i64 8
-  %59 = load float, ptr %z125, align 4
-  %60 = load <2 x float>, ptr %add.ptr.i37, align 4
-  store <2 x float> %60, ptr %arrayidx122, align 4
+  %62 = load float, ptr %z125, align 4
+  store float %60, ptr %arrayidx122, align 4
+  %y.i38 = getelementptr inbounds i8, ptr %arrayidx122, i64 4
+  store float %61, ptr %y.i38, align 4
   %z.i39 = getelementptr inbounds i8, ptr %arrayidx122, i64 8
-  store float %59, ptr %z.i39, align 4
+  store float %62, ptr %z.i39, align 4
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then114, %if.end112
   br i1 %cmp64.not.not, label %if.end141, label %if.then128
 
 if.then128:                                       ; preds = %if.end126
-  %61 = load ptr, ptr %m_textureCoords, align 8
-  %arrayidx132 = getelementptr inbounds %class.aiVector3t, ptr %61, i64 %conv98
-  %62 = load ptr, ptr %m_currentMesh, align 8
-  %mTextureCoords134 = getelementptr inbounds i8, ptr %62, i64 112
-  %63 = load ptr, ptr %mTextureCoords134, align 8
-  %arrayidx137 = getelementptr inbounds %class.aiVector3t, ptr %63, i64 %idxprom
+  %63 = load ptr, ptr %m_textureCoords, align 8
+  %arrayidx132 = getelementptr inbounds %class.aiVector3t, ptr %63, i64 %conv98
+  %64 = load ptr, ptr %m_currentMesh, align 8
+  %mTextureCoords134 = getelementptr inbounds i8, ptr %64, i64 112
+  %65 = load ptr, ptr %mTextureCoords134, align 8
+  %arrayidx137 = getelementptr inbounds %class.aiVector3t, ptr %65, i64 %idxprom
+  %66 = load float, ptr %arrayidx132, align 4
+  %y139 = getelementptr inbounds i8, ptr %arrayidx132, i64 4
+  %67 = load float, ptr %y139, align 4
   %z140 = getelementptr inbounds i8, ptr %arrayidx132, i64 8
-  %64 = load float, ptr %z140, align 4
-  %65 = load <2 x float>, ptr %arrayidx132, align 4
-  store <2 x float> %65, ptr %arrayidx137, align 4
+  %68 = load float, ptr %z140, align 4
+  store float %66, ptr %arrayidx137, align 4
+  %y.i40 = getelementptr inbounds i8, ptr %arrayidx137, i64 4
+  store float %67, ptr %y.i40, align 4
   %z.i41 = getelementptr inbounds i8, ptr %arrayidx137, i64 8
-  store float %64, ptr %z.i41, align 4
+  store float %68, ptr %z.i41, align 4
   br label %if.end141
 
 if.end141:                                        ; preds = %if.then128, %if.end126
-  %66 = load ptr, ptr %mIndices, align 8
-  %arrayidx143 = getelementptr inbounds i32, ptr %66, i64 %indices.046
+  %69 = load ptr, ptr %mIndices, align 8
+  %arrayidx143 = getelementptr inbounds i32, ptr %69, i64 %indices.046
   store i32 %index.145, ptr %arrayidx143, align 4
   %inc = add i32 %index.145, 1
   %m_next = getelementptr inbounds i8, ptr %next.047, i64 24
   %inc144 = add nuw nsw i64 %indices.046, 1
-  %67 = load i32, ptr %arrayidx87, align 8
-  %conv93 = zext i32 %67 to i64
+  %70 = load i32, ptr %arrayidx87, align 8
+  %conv93 = zext i32 %70 to i64
   %cmp94 = icmp ult i64 %inc144, %conv93
   br i1 %cmp94, label %for.body95, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %if.end141, %for.body
   %index.1.lcssa = phi i32 [ %index.051, %for.body ], [ %inc, %if.end141 ]
   %m_next145 = getelementptr inbounds i8, ptr %vaList.053, i64 16
-  %68 = load ptr, ptr %m_next145, align 8
+  %71 = load ptr, ptr %m_next145, align 8
   %inc147 = add nuw nsw i64 %i.052, 1
-  %69 = load ptr, ptr %m_currentMesh, align 8
-  %mNumFaces82 = getelementptr inbounds i8, ptr %69, i64 8
-  %70 = load i32, ptr %mNumFaces82, align 8
-  %conv83 = zext i32 %70 to i64
+  %72 = load ptr, ptr %m_currentMesh, align 8
+  %mNumFaces82 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = load i32, ptr %mNumFaces82, align 8
+  %conv83 = zext i32 %73 to i64
   %cmp84 = icmp ult i64 %inc147, %conv83
   br i1 %cmp84, label %for.body, label %for.end148, !llvm.loop !40
 
@@ -4833,7 +4871,7 @@ entry:
   %ref.tmp28.i = alloca %"class.std::allocator.0", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
-  %col = alloca %struct.aiColor3D, align 8
+  %col = alloca %struct.aiColor3D, align 4
   %cmp = icmp eq ptr %node, null
   br i1 %cmp, label %if.end43, label %if.end
 
@@ -4895,10 +4933,11 @@ common.resume:                                    ; preds = %lpad.i61, %lpad.i27
   resume { ptr, i32 } %common.resume.op
 
 if.end12:                                         ; preds = %if.then8
+  store float 0.000000e+00, ptr %col, align 4
   %g.i = getelementptr inbounds i8, ptr %col, i64 4
-  store <2 x float> zeroinitializer, ptr %col, align 8
+  store float 0.000000e+00, ptr %g.i, align 4
   %b.i = getelementptr inbounds i8, ptr %col, i64 8
-  store float 0.000000e+00, ptr %b.i, align 8
+  store float 0.000000e+00, ptr %b.i, align 4
   %5 = load i64, ptr %call9, align 8
   %cmp13 = icmp eq i64 %5, 3
   %m_dataList.i = getelementptr inbounds i8, ptr %call9, i64 8
@@ -4916,9 +4955,9 @@ if.else:                                          ; preds = %if.end12
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end12, %if.else
-  store float %call.i, ptr %col, align 8
+  store float %call.i, ptr %col, align 4
   store float %call3.i, ptr %g.i, align 4
-  store float %call5.i, ptr %b.i, align 8
+  store float %call5.i, ptr %b.i, align 4
   %7 = load ptr, ptr %call, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -5215,11 +5254,14 @@ if.then36:                                        ; preds = %invoke.cont32.i
   %m_currentLight = getelementptr inbounds i8, ptr %this, i64 632
   %29 = load ptr, ptr %m_currentLight, align 8
   %mColorDiffuse = getelementptr inbounds i8, ptr %29, i64 1080
-  %30 = load <2 x float>, ptr %col, align 8
-  store <2 x float> %30, ptr %mColorDiffuse, align 4
-  %31 = load float, ptr %b.i, align 8
+  %30 = load float, ptr %col, align 4
+  store float %30, ptr %mColorDiffuse, align 4
+  %31 = load float, ptr %g.i, align 4
+  %g3.i33 = getelementptr inbounds i8, ptr %29, i64 1084
+  store float %31, ptr %g3.i33, align 4
+  %32 = load float, ptr %b.i, align 4
   %b4.i35 = getelementptr inbounds i8, ptr %29, i64 1088
-  store float %31, ptr %b4.i35, align 4
+  store float %32, ptr %b4.i35, align 4
   br label %if.end43
 
 if.end43:                                         ; preds = %_ZN6Assimp7OpenGEXL12getColorTypeEPN10ODDLParser4TextE.exit.thread, %if.then6, %if.then26, %if.then36, %if.then31, %if.then22, %if.then8, %entry, %invoke.cont4

@@ -788,7 +788,13 @@ entry:
   %reldyn_offset = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %reldyn_offset, align 8
   %uncompressed = getelementptr inbounds i8, ptr %this, i64 92
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %uncompressed, align 4
+  store i8 0, ptr %uncompressed, align 4
+  %is_alive = getelementptr inbounds i8, ptr %this, i64 93
+  store i8 1, ptr %is_alive, align 1
+  %p2align = getelementptr inbounds i8, ptr %this, i64 94
+  store i8 0, ptr %p2align, align 2
+  %address_taken = getelementptr inbounds i8, ptr %this, i64 95
+  store i8 0, ptr %address_taken, align 1
   %is_visited = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %is_visited, align 8
   %leader = getelementptr inbounds i8, ptr %this, i64 104
@@ -868,7 +874,6 @@ if.else:                                          ; preds = %if.end
 
 if.end30:                                         ; preds = %if.else, %if.then12
   %sh_addralign.sink = phi ptr [ %sh_addralign, %if.else ], [ %ch_addralign, %if.then12 ]
-  %p2align = getelementptr inbounds i8, ptr %this, i64 94
   %x.0.copyload.i48 = load i64, ptr %sh_addralign.sink, align 1
   %cmp.i49 = icmp eq i64 %x.0.copyload.i48, 0
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %x.0.copyload.i48, i1 true)

@@ -301,49 +301,51 @@ define hidden void @_ZN2cv4usac15SPRTTermination6createERKNS_3PtrINS0_12Adaptive
 .noexc.i.i.i.i.i:                                 ; preds = %6
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac19SPRTTerminationImplE, i64 16), ptr %10, align 8, !noalias !9
   %11 = getelementptr inbounds i8, ptr %7, i64 24
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !9
-  %14 = load <2 x ptr>, ptr %1, align 8, !noalias !9
-  store <2 x ptr> %14, ptr %11, align 8, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit, label %15
+  %12 = load ptr, ptr %1, align 8, !noalias !9
+  store ptr %12, ptr %11, align 8, !noalias !9
+  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !9
+  store ptr %15, ptr %13, align 8, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit, label %16
 
-15:                                               ; preds = %.noexc.i.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %21, label %18
+16:                                               ; preds = %.noexc.i.i.i.i.i
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %22, label %19
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4, !noalias !9
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4, !noalias !9
+19:                                               ; preds = %16
+  %20 = load i32, ptr %17, align 4, !noalias !9
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %17, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4, !noalias !9
+22:                                               ; preds = %16
+  %23 = atomicrmw volatile add ptr %17, i32 1 acq_rel, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac19SPRTTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %6
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %7) #17, !noalias !9
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 
-_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit: ; preds = %21, %18, %.noexc.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %7, i64 40
-  %25 = fsub double 1.000000e+00, %2
-  %26 = tail call double @log(double noundef %25) #18, !noalias !9
-  store double %26, ptr %24, align 8, !noalias !9
-  %27 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 %3, ptr %27, align 8, !noalias !9
-  %28 = getelementptr inbounds i8, ptr %7, i64 52
-  store i32 %4, ptr %28, align 4, !noalias !9
-  %29 = getelementptr inbounds i8, ptr %7, i64 56
-  store i32 %5, ptr %29, align 8, !noalias !9
+_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit: ; preds = %22, %19, %.noexc.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %7, i64 40
+  %26 = fsub double 1.000000e+00, %2
+  %27 = tail call double @log(double noundef %26) #18, !noalias !9
+  store double %27, ptr %25, align 8, !noalias !9
+  %28 = getelementptr inbounds i8, ptr %7, i64 48
+  store i32 %3, ptr %28, align 8, !noalias !9
+  %29 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 %4, ptr %29, align 4, !noalias !9
+  %30 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 %5, ptr %30, align 8, !noalias !9
   store ptr %10, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %31, align 8
   ret void
 }
 
@@ -363,75 +365,77 @@ define hidden void @_ZN2cv4usac22SPRTPNapsacTermination6createERKNS_3PtrINS0_12A
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac26SPRTPNapsacTerminationImplE, i64 16), ptr %11, align 8, !noalias !14
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc.i.i unwind label %25, !noalias !14
+          to label %.noexc.i.i unwind label %26, !noalias !14
 
 .noexc.i.i:                                       ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac19SPRTTerminationImplE, i64 16), ptr %12, align 8, !noalias !14
   %13 = getelementptr inbounds i8, ptr %8, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !14
-  %16 = load <2 x ptr>, ptr %1, align 8, !noalias !14
-  store <2 x ptr> %16, ptr %13, align 8, !noalias !14
-  %.not.i.i.i.i.i.i.i1 = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i1, label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit, label %17
+  %14 = load ptr, ptr %1, align 8, !noalias !14
+  store ptr %14, ptr %13, align 8, !noalias !14
+  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = load ptr, ptr %16, align 8, !noalias !14
+  store ptr %17, ptr %15, align 8, !noalias !14
+  %.not.i.i.i.i.i.i.i1 = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i.i.i.i1, label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit, label %18
 
-17:                                               ; preds = %.noexc.i.i
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  %19 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
+18:                                               ; preds = %.noexc.i.i
+  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %24, label %21
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %18, align 4, !noalias !14
-  %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %18, align 4, !noalias !14
+21:                                               ; preds = %18
+  %22 = load i32, ptr %19, align 4, !noalias !14
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %19, align 4, !noalias !14
   br label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit
 
-23:                                               ; preds = %17
-  %24 = atomicrmw volatile add ptr %18, i32 1 acq_rel, align 4, !noalias !14
+24:                                               ; preds = %18
+  %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4, !noalias !14
   br label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit
 
-25:                                               ; preds = %.noexc
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %.noexc
+  %27 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18, !noalias !14
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %7
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body: ; preds = %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %27, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i ], [ %26, %25 ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body: ; preds = %26, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i ], [ %27, %26 ]
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17, !noalias !14
   resume { ptr, i32 } %eh.lpad-body
 
-_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit: ; preds = %.noexc.i.i, %20, %23
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
-  %29 = fsub double 1.000000e+00, %2
-  %30 = tail call double @log(double noundef %29) #18, !noalias !14
-  store double %30, ptr %28, align 8, !noalias !14
-  %31 = getelementptr inbounds i8, ptr %8, i64 56
-  store i32 %3, ptr %31, align 8, !noalias !14
-  %32 = getelementptr inbounds i8, ptr %8, i64 60
-  store i32 %4, ptr %32, align 4, !noalias !14
-  %33 = getelementptr inbounds i8, ptr %8, i64 64
-  store i32 %5, ptr %33, align 8, !noalias !14
-  %34 = getelementptr inbounds i8, ptr %8, i64 72
-  store double %6, ptr %34, align 8, !noalias !14
-  %35 = getelementptr inbounds i8, ptr %8, i64 80
-  %36 = tail call double @log(double noundef %29) #18, !noalias !14
-  store double %36, ptr %35, align 8, !noalias !14
-  %37 = getelementptr inbounds i8, ptr %8, i64 88
-  store i32 %3, ptr %37, align 8, !noalias !14
-  %38 = getelementptr inbounds i8, ptr %8, i64 92
-  store i32 %4, ptr %38, align 4, !noalias !14
-  %39 = getelementptr inbounds i8, ptr %8, i64 96
-  store i32 %5, ptr %39, align 8, !noalias !14
+_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit: ; preds = %.noexc.i.i, %21, %24
+  %29 = getelementptr inbounds i8, ptr %8, i64 48
+  %30 = fsub double 1.000000e+00, %2
+  %31 = tail call double @log(double noundef %30) #18, !noalias !14
+  store double %31, ptr %29, align 8, !noalias !14
+  %32 = getelementptr inbounds i8, ptr %8, i64 56
+  store i32 %3, ptr %32, align 8, !noalias !14
+  %33 = getelementptr inbounds i8, ptr %8, i64 60
+  store i32 %4, ptr %33, align 4, !noalias !14
+  %34 = getelementptr inbounds i8, ptr %8, i64 64
+  store i32 %5, ptr %34, align 8, !noalias !14
+  %35 = getelementptr inbounds i8, ptr %8, i64 72
+  store double %6, ptr %35, align 8, !noalias !14
+  %36 = getelementptr inbounds i8, ptr %8, i64 80
+  %37 = tail call double @log(double noundef %30) #18, !noalias !14
+  store double %37, ptr %36, align 8, !noalias !14
+  %38 = getelementptr inbounds i8, ptr %8, i64 88
+  store i32 %3, ptr %38, align 8, !noalias !14
+  %39 = getelementptr inbounds i8, ptr %8, i64 92
+  store i32 %4, ptr %39, align 4, !noalias !14
+  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  store i32 %5, ptr %40, align 8, !noalias !14
   store ptr %11, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %8, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %41, align 8
   ret void
 }
 
@@ -871,7 +875,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl6update
   %or.cond.i = select i1 %33, i1 %35, i1 false
   %36 = fptosi double %31 to i32
   %37 = select i1 %or.cond.i, i32 %36, i32 %.pre.i
-  br label %166
+  br label %165
 
 38:                                               ; preds = %3
   %39 = sitofp i32 %2 to double
@@ -894,165 +898,164 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl6update
   %52 = fneg double %47
   br label %53
 
-53:                                               ; preds = %.lr.ph, %100
-  %.03355 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %100 ]
-  %.03454 = phi i32 [ 0, %.lr.ph ], [ %.135, %100 ]
-  %.sroa.048.053 = phi ptr [ %48, %.lr.ph ], [ %101, %100 ]
+53:                                               ; preds = %.lr.ph, %99
+  %.03355 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %99 ]
+  %.03454 = phi i32 [ 0, %.lr.ph ], [ %.135, %99 ]
+  %.sroa.048.053 = phi ptr [ %48, %.lr.ph ], [ %100, %99 ]
   %54 = getelementptr inbounds i8, ptr %.sroa.048.053, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %100, label %57
+  br i1 %56, label %99, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %.sroa.048.053, i64 16
   %59 = load double, ptr %58, align 8
-  %60 = load <2 x double>, ptr %.sroa.048.053, align 8
-  %61 = extractelement <2 x double> %60, i64 0
-  %62 = extractelement <2 x double> %60, i64 1
-  %63 = fdiv double %62, %61
+  %60 = load double, ptr %.sroa.048.053, align 8
+  %61 = getelementptr inbounds i8, ptr %.sroa.048.053, i64 8
+  %62 = load double, ptr %61, align 8
+  %63 = fdiv double %62, %60
   %64 = tail call double @log(double noundef %63) #18
-  %65 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %60
-  %66 = extractelement <2 x double> %65, i64 0
-  %67 = extractelement <2 x double> %65, i64 1
-  %68 = fdiv double %67, %66
-  %69 = tail call double @log(double noundef %68) #18
-  %70 = tail call double @log(double noundef %51) #18
-  %71 = fdiv double %70, %69
-  %72 = fmul double %64, %71
-  %73 = tail call double @exp(double noundef %72) #18
-  %74 = fmul double %43, %73
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double -2.000000e+00, double 1.000000e+00)
-  %76 = fdiv double %75, %50
-  %77 = tail call double @log(double noundef %76) #18
-  %78 = fdiv double %77, %69
-  %79 = fmul double %64, %78
-  %80 = tail call double @exp(double noundef %79) #18
-  %81 = fmul double %69, %78
-  %82 = tail call double @exp(double noundef %81) #18
-  %83 = fmul double %50, %82
-  %84 = tail call double @llvm.fmuladd.f64(double %43, double %80, double %83)
-  %85 = fsub double %71, %78
-  %86 = fadd double %74, 1.000000e+00
-  %87 = fsub double %86, %84
-  %88 = fneg double %85
-  %89 = fdiv double %88, %87
-  %90 = tail call double @llvm.fmuladd.f64(double %89, double %74, double %71)
-  %.inv.i = fcmp ord double %90, 0.000000e+00
-  %.neg = fneg double %90
-  %91 = select i1 %.inv.i, double %.neg, double -0.000000e+00
-  %92 = tail call double @pow(double noundef %59, double noundef %91) #18
-  %93 = fsub double 1.000000e+00, %92
-  %94 = tail call double @llvm.fmuladd.f64(double %52, double %93, double 1.000000e+00)
-  %95 = tail call double @log(double noundef %94) #18
-  %96 = load i32, ptr %54, align 8
-  %97 = sitofp i32 %96 to double
-  %98 = tail call double @llvm.fmuladd.f64(double %95, double %97, double %.03355)
-  %99 = add nsw i32 %96, %.03454
-  br label %100
+  %65 = fsub double 1.000000e+00, %62
+  %66 = fsub double 1.000000e+00, %60
+  %67 = fdiv double %65, %66
+  %68 = tail call double @log(double noundef %67) #18
+  %69 = tail call double @log(double noundef %51) #18
+  %70 = fdiv double %69, %68
+  %71 = fmul double %64, %70
+  %72 = tail call double @exp(double noundef %71) #18
+  %73 = fmul double %43, %72
+  %74 = tail call double @llvm.fmuladd.f64(double %73, double -2.000000e+00, double 1.000000e+00)
+  %75 = fdiv double %74, %50
+  %76 = tail call double @log(double noundef %75) #18
+  %77 = fdiv double %76, %68
+  %78 = fmul double %64, %77
+  %79 = tail call double @exp(double noundef %78) #18
+  %80 = fmul double %68, %77
+  %81 = tail call double @exp(double noundef %80) #18
+  %82 = fmul double %50, %81
+  %83 = tail call double @llvm.fmuladd.f64(double %43, double %79, double %82)
+  %84 = fsub double %70, %77
+  %85 = fadd double %73, 1.000000e+00
+  %86 = fsub double %85, %83
+  %87 = fneg double %84
+  %88 = fdiv double %87, %86
+  %89 = tail call double @llvm.fmuladd.f64(double %88, double %73, double %70)
+  %.inv.i = fcmp ord double %89, 0.000000e+00
+  %.neg = fneg double %89
+  %90 = select i1 %.inv.i, double %.neg, double -0.000000e+00
+  %91 = tail call double @pow(double noundef %59, double noundef %90) #18
+  %92 = fsub double 1.000000e+00, %91
+  %93 = tail call double @llvm.fmuladd.f64(double %52, double %92, double 1.000000e+00)
+  %94 = tail call double @log(double noundef %93) #18
+  %95 = load i32, ptr %54, align 8
+  %96 = sitofp i32 %95 to double
+  %97 = tail call double @llvm.fmuladd.f64(double %94, double %96, double %.03355)
+  %98 = add nsw i32 %95, %.03454
+  br label %99
 
-100:                                              ; preds = %53, %57
-  %.135 = phi i32 [ %.03454, %53 ], [ %99, %57 ]
-  %.1 = phi double [ %.03355, %53 ], [ %98, %57 ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.048.053, i64 32
-  %.not = icmp eq ptr %101, %49
+99:                                               ; preds = %53, %57
+  %.135 = phi i32 [ %.03454, %53 ], [ %98, %57 ]
+  %.1 = phi double [ %.03355, %53 ], [ %97, %57 ]
+  %100 = getelementptr inbounds i8, ptr %.sroa.048.053, i64 32
+  %.not = icmp eq ptr %100, %49
   br i1 %.not, label %._crit_edge.loopexit, label %53
 
-._crit_edge.loopexit:                             ; preds = %100
-  %102 = sitofp i32 %.135 to double
+._crit_edge.loopexit:                             ; preds = %99
+  %101 = sitofp i32 %.135 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
-  %.034.lcssa = phi double [ 0.000000e+00, %38 ], [ %102, %._crit_edge.loopexit ]
+  %.034.lcssa = phi double [ 0.000000e+00, %38 ], [ %101, %._crit_edge.loopexit ]
   %.033.lcssa = phi double [ 0.000000e+00, %38 ], [ %.1, %._crit_edge.loopexit ]
-  %103 = fsub double 1.000000e+00, %47
-  %104 = tail call noundef double @pow(double noundef %103, double noundef %.034.lcssa) #18
-  %105 = getelementptr inbounds i8, ptr %0, i64 24
-  %106 = load double, ptr %105, align 8
-  %107 = fcmp olt double %104, %106
-  br i1 %107, label %108, label %124
+  %102 = fsub double 1.000000e+00, %47
+  %103 = tail call noundef double @pow(double noundef %102, double noundef %.034.lcssa) #18
+  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %105 = load double, ptr %104, align 8
+  %106 = fcmp olt double %103, %105
+  br i1 %106, label %107, label %123
 
-108:                                              ; preds = %._crit_edge
-  %109 = load i32, ptr %40, align 8
-  %110 = sitofp i32 %109 to double
-  %111 = fdiv double %39, %110
-  %112 = load i32, ptr %44, align 4
-  %113 = sitofp i32 %112 to double
-  %114 = tail call noundef double @pow(double noundef %111, double noundef %113) #18
-  %115 = fsub double 1.000000e+00, %114
-  %116 = tail call double @log(double noundef %115) #18
-  %117 = fdiv double %106, %116
-  %118 = tail call double @llvm.fabs.f64(double %117)
-  %119 = fcmp une double %118, 0x7FF0000000000000
+107:                                              ; preds = %._crit_edge
+  %108 = load i32, ptr %40, align 8
+  %109 = sitofp i32 %108 to double
+  %110 = fdiv double %39, %109
+  %111 = load i32, ptr %44, align 4
+  %112 = sitofp i32 %111 to double
+  %113 = tail call noundef double @pow(double noundef %110, double noundef %112) #18
+  %114 = fsub double 1.000000e+00, %113
+  %115 = tail call double @log(double noundef %114) #18
+  %116 = fdiv double %105, %115
+  %117 = tail call double @llvm.fabs.f64(double %116)
+  %118 = fcmp une double %117, 0x7FF0000000000000
   %.phi.trans.insert.i38 = getelementptr inbounds i8, ptr %0, i64 40
   %.pre.i39 = load i32, ptr %.phi.trans.insert.i38, align 8
-  %120 = sitofp i32 %.pre.i39 to double
-  %121 = fcmp olt double %117, %120
-  %or.cond.i40 = select i1 %119, i1 %121, i1 false
-  %122 = fptosi double %117 to i32
-  %123 = select i1 %or.cond.i40, i32 %122, i32 %.pre.i39
-  br label %166
+  %119 = sitofp i32 %.pre.i39 to double
+  %120 = fcmp olt double %116, %119
+  %or.cond.i40 = select i1 %118, i1 %120, i1 false
+  %121 = fptosi double %116 to i32
+  %122 = select i1 %or.cond.i40, i32 %121, i32 %.pre.i39
+  br label %165
 
-124:                                              ; preds = %._crit_edge
-  %125 = fsub double %106, %.033.lcssa
-  %126 = load ptr, ptr %10, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 -16
-  %128 = load double, ptr %127, align 8
-  %129 = fdiv double 1.000000e+00, %128
-  %130 = fsub double 1.000000e+00, %129
-  %131 = fneg double %47
-  %132 = tail call double @llvm.fmuladd.f64(double %131, double %130, double 1.000000e+00)
-  %133 = tail call double @log(double noundef %132) #18
-  %134 = fdiv double %125, %133
-  %135 = fadd double %134, %.034.lcssa
-  %136 = tail call double @llvm.fabs.f64(double %135)
-  %or.cond = fcmp ueq double %136, 0x7FF0000000000000
-  br i1 %or.cond, label %137, label %154
+123:                                              ; preds = %._crit_edge
+  %124 = fsub double %105, %.033.lcssa
+  %125 = load ptr, ptr %10, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 -16
+  %127 = load double, ptr %126, align 8
+  %128 = fdiv double 1.000000e+00, %127
+  %129 = fsub double 1.000000e+00, %128
+  %130 = fneg double %47
+  %131 = tail call double @llvm.fmuladd.f64(double %130, double %129, double 1.000000e+00)
+  %132 = tail call double @log(double noundef %131) #18
+  %133 = fdiv double %124, %132
+  %134 = fadd double %133, %.034.lcssa
+  %135 = tail call double @llvm.fabs.f64(double %134)
+  %or.cond = fcmp ueq double %135, 0x7FF0000000000000
+  br i1 %or.cond, label %136, label %153
 
-137:                                              ; preds = %124
-  %138 = load double, ptr %105, align 8
-  %139 = load i32, ptr %40, align 8
-  %140 = sitofp i32 %139 to double
-  %141 = fdiv double %39, %140
-  %142 = load i32, ptr %44, align 4
-  %143 = sitofp i32 %142 to double
-  %144 = tail call noundef double @pow(double noundef %141, double noundef %143) #18
-  %145 = fsub double 1.000000e+00, %144
-  %146 = tail call double @log(double noundef %145) #18
-  %147 = fdiv double %138, %146
-  %148 = tail call double @llvm.fabs.f64(double %147)
-  %149 = fcmp une double %148, 0x7FF0000000000000
+136:                                              ; preds = %123
+  %137 = load double, ptr %104, align 8
+  %138 = load i32, ptr %40, align 8
+  %139 = sitofp i32 %138 to double
+  %140 = fdiv double %39, %139
+  %141 = load i32, ptr %44, align 4
+  %142 = sitofp i32 %141 to double
+  %143 = tail call noundef double @pow(double noundef %140, double noundef %142) #18
+  %144 = fsub double 1.000000e+00, %143
+  %145 = tail call double @log(double noundef %144) #18
+  %146 = fdiv double %137, %145
+  %147 = tail call double @llvm.fabs.f64(double %146)
+  %148 = fcmp une double %147, 0x7FF0000000000000
   %.phi.trans.insert.i41 = getelementptr inbounds i8, ptr %0, i64 40
   %.pre.i42 = load i32, ptr %.phi.trans.insert.i41, align 8
-  %150 = sitofp i32 %.pre.i42 to double
-  %151 = fcmp olt double %147, %150
-  %or.cond.i43 = select i1 %149, i1 %151, i1 false
-  %152 = fptosi double %147 to i32
-  %153 = select i1 %or.cond.i43, i32 %152, i32 %.pre.i42
-  br label %166
+  %149 = sitofp i32 %.pre.i42 to double
+  %150 = fcmp olt double %146, %149
+  %or.cond.i43 = select i1 %148, i1 %150, i1 false
+  %151 = fptosi double %146 to i32
+  %152 = select i1 %or.cond.i43, i32 %151, i32 %.pre.i42
+  br label %165
 
-154:                                              ; preds = %124
-  %155 = fcmp olt double %135, 0.000000e+00
-  br i1 %155, label %166, label %156
+153:                                              ; preds = %123
+  %154 = fcmp olt double %134, 0.000000e+00
+  br i1 %154, label %165, label %155
 
-156:                                              ; preds = %154
-  %157 = getelementptr inbounds i8, ptr %0, i64 40
-  %158 = load i32, ptr %157, align 8
-  %159 = sitofp i32 %158 to double
-  %160 = fcmp olt double %135, %159
-  br i1 %160, label %161, label %164
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds i8, ptr %0, i64 40
+  %157 = load i32, ptr %156, align 8
+  %158 = sitofp i32 %157 to double
+  %159 = fcmp olt double %134, %158
+  br i1 %159, label %160, label %163
 
-161:                                              ; preds = %156
-  %162 = fptosi double %135 to i32
-  %163 = tail call noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl21getStandardUpperBoundEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %2)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %163, i32 %162)
-  br label %166
+160:                                              ; preds = %155
+  %161 = fptosi double %134 to i32
+  %162 = tail call noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl21getStandardUpperBoundEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %2)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %162, i32 %161)
+  br label %165
 
-164:                                              ; preds = %156
-  %165 = tail call noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl21getStandardUpperBoundEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %2)
-  br label %166
+163:                                              ; preds = %155
+  %164 = tail call noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl21getStandardUpperBoundEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %2)
+  br label %165
 
-166:                                              ; preds = %154, %164, %161, %137, %108, %17
-  %.0 = phi i32 [ %37, %17 ], [ %123, %108 ], [ %153, %137 ], [ %.sroa.speculated, %161 ], [ %165, %164 ], [ 0, %154 ]
+165:                                              ; preds = %153, %163, %160, %136, %107, %17
+  %.0 = phi i32 [ %37, %17 ], [ %122, %107 ], [ %152, %136 ], [ %.sroa.speculated, %160 ], [ %164, %163 ], [ 0, %153 ]
   ret i32 %.0
 }
 

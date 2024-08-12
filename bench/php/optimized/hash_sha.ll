@@ -44,9 +44,21 @@ define void @PHP_SHA256InitArgs(ptr nocapture noundef writeonly %0, ptr nocaptur
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %5, align 4
+  store i32 1779033703, ptr %0, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1150833019, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1013904242, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1521486534, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1359893119, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 -1694144372, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 528734635, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1541459225, ptr %11, align 4
   ret void
 }
 
@@ -274,9 +286,21 @@ define void @PHP_SHA224InitArgs(ptr nocapture noundef writeonly %0, ptr nocaptur
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %5, align 4
+  store i32 -1056596264, ptr %0, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 914150663, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 812702999, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -150054599, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -4191439, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1750603025, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1694076839, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 -1090891868, ptr %11, align 4
   ret void
 }
 

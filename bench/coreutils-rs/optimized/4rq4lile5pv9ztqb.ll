@@ -562,14 +562,19 @@ define void @_ZN8uu_cksum6uu_app17haf5e585804148673E(ptr noalias nocapture nound
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %48, ptr noundef nonnull align 8 dereferenceable(700) %47, i64 700, i1 false)
   %.sroa.4.0..sroa_idx160 = getelementptr inbounds i8, ptr %47, i64 700
+  %.sroa.4.0.copyload161 = load i32, ptr %.sroa.4.0..sroa_idx160, align 4, !alias.scope !94, !noalias !88
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 704
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !94, !noalias !88
   %.sroa.6.0..sroa_idx162 = getelementptr inbounds i8, ptr %47, i64 708
   %.sroa.6.0.copyload163 = load i32, ptr %.sroa.6.0..sroa_idx162, align 4, !alias.scope !94, !noalias !88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
-  %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 700
-  %81 = load <2 x i32>, ptr %.sroa.4.0..sroa_idx160, align 4, !alias.scope !94, !noalias !88
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %47)
-  %82 = or <2 x i32> %81, <i32 136, i32 136>
-  store <2 x i32> %82, ptr %.sroa.418.0..sroa_idx, align 4
+  %81 = or i32 %.sroa.4.0.copyload161, 136
+  %82 = or i32 %.sroa.5.0.copyload, 136
+  %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 700
+  store i32 %81, ptr %.sroa.418.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 704
+  store i32 %82, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 708
   store i32 %.sroa.6.0.copyload163, ptr %.sroa.10.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %44)

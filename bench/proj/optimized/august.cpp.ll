@@ -69,27 +69,20 @@ define internal { double, double } @_ZL16august_s_forward5PJ_LPP8PJconsts(double
   %11 = tail call double @llvm.fmuladd.f64(double %8, double %10, double 1.000000e+00)
   %12 = tail call double @sin(double noundef %9) #6
   %13 = fmul double %8, %12
-  %14 = insertelement <2 x double> poison, double %13, i64 0
-  %15 = insertelement <2 x double> %14, double %5, i64 1
-  %16 = insertelement <2 x double> poison, double %11, i64 0
-  %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
-  %18 = fdiv <2 x double> %15, %17
-  %19 = fmul <2 x double> %18, %18
-  %20 = extractelement <2 x double> %19, i64 0
-  %21 = fmul <2 x double> %18, %18
-  %22 = extractelement <2 x double> %21, i64 1
-  %23 = fadd double %20, 3.000000e+00
-  %24 = tail call double @llvm.fmuladd.f64(double %22, double -3.000000e+00, double %23)
-  %25 = fmul <2 x double> %18, <double 0x3FF5555555555554, double 0x3FF5555555555554>
-  %26 = tail call double @llvm.fmuladd.f64(double %20, double 3.000000e+00, double 3.000000e+00)
-  %27 = fsub double %26, %22
-  %28 = insertelement <2 x double> poison, double %24, i64 0
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = fmul <2 x double> %25, %29
-  %31 = extractelement <2 x double> %30, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
-  %32 = extractelement <2 x double> %30, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %32, 1
+  %14 = fdiv double %13, %11
+  %15 = fdiv double %5, %11
+  %16 = fmul double %14, %14
+  %17 = fmul double %15, %15
+  %18 = fmul double %14, 0x3FF5555555555554
+  %19 = fadd double %16, 3.000000e+00
+  %20 = tail call double @llvm.fmuladd.f64(double %17, double -3.000000e+00, double %19)
+  %21 = fmul double %18, %20
+  %22 = fmul double %15, 0x3FF5555555555554
+  %23 = tail call double @llvm.fmuladd.f64(double %16, double 3.000000e+00, double 3.000000e+00)
+  %24 = fsub double %23, %17
+  %25 = fmul double %22, %24
+  %.fca.0.insert = insertvalue { double, double } poison, double %21, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %25, 1
   ret { double, double } %.fca.1.insert
 }
 

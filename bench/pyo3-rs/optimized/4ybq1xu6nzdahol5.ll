@@ -160,75 +160,79 @@ define void @"_ZN84_$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$u20$as$u2
   %8 = alloca [56 x i8], align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
-  store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
-  %13 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  store i32 %10, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %11, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 40
+  store ptr %13, ptr %16, align 8
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8
-  %14 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h64635cb35ce91692E(ptr nonnull align 8 %8, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17hd48b3b9e086b86f1E", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h055acca95f262ddeE")
-          to label %15 unwind label %31
+  %17 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h64635cb35ce91692E(ptr nonnull align 8 %8, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17hd48b3b9e086b86f1E", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h055acca95f262ddeE")
+          to label %18 unwind label %34
 
-15:                                               ; preds = %2
-  br i1 %14, label %18, label %16
+18:                                               ; preds = %2
+  br i1 %17, label %21, label %19
 
-16:                                               ; preds = %15
+19:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   call void @_ZN3syn9lookahead10Lookahead15error17h1122fa735460d2eaE(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %5)
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %19
+  br label %22
 
-18:                                               ; preds = %15
+21:                                               ; preds = %18
   invoke void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h657fa1ccf64c4ef6E"(ptr nonnull sret([40 x i8]) align 8 %7, ptr nonnull align 8 %1)
-          to label %20 unwind label %31
+          to label %23 unwind label %34
 
-19:                                               ; preds = %29, %16
+22:                                               ; preds = %32, %19
   ret void
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr %7, align 8
-  %22 = icmp eq i64 %21, 0
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  br i1 %22, label %24, label %25
+23:                                               ; preds = %21
+  %24 = load i64, ptr %7, align 8
+  %25 = icmp eq i64 %24, 0
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  br i1 %25, label %27, label %28
 
-24:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
+27:                                               ; preds = %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
   invoke void @_ZN4core3ops8function6FnOnce9call_once17h121a65ca9cb58ed3E(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-          to label %27 unwind label %31
+          to label %30 unwind label %34
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  br label %29
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  br label %32
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br label %29
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  br label %32
 
-29:                                               ; preds = %27, %25
-  %storemerge = phi i64 [ 1, %25 ], [ 0, %27 ]
+32:                                               ; preds = %30, %28
+  %storemerge = phi i64 [ 1, %28 ], [ 0, %30 ]
   store i64 %storemerge, ptr %0, align 8
   call void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h94cedc206c549084E"(ptr nonnull align 8 %8)
-  br label %19
+  br label %22
 
-30:                                               ; preds = %31
+33:                                               ; preds = %34
   resume { ptr, i32 } %lpad.thr_comm
 
-31:                                               ; preds = %24, %18, %2
+34:                                               ; preds = %27, %21, %2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h94cedc206c549084E"(ptr nonnull align 8 %8) #8
-          to label %30 unwind label %32
+          to label %33 unwind label %35
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable

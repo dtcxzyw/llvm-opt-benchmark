@@ -365,52 +365,58 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN4LIEF5MachO14Segment
   store i32 %33, ptr %32, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 144
   %36 = getelementptr inbounds i8, ptr %1, i64 144
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
+  %37 = load ptr, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 152
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 152
-  %42 = getelementptr inbounds i8, ptr %1, i64 160
-  %43 = load <2 x ptr>, ptr %35, align 8
-  store ptr %40, ptr %35, align 8
-  %44 = load ptr, ptr %41, align 8
-  store ptr %44, ptr %37, align 8
-  %45 = load ptr, ptr %42, align 8
-  store ptr %45, ptr %38, align 8
-  store <2 x ptr> %43, ptr %36, align 8
-  store ptr %39, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 168
-  %47 = getelementptr inbounds i8, ptr %1, i64 168
-  %48 = getelementptr inbounds i8, ptr %0, i64 176
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 176
-  %53 = getelementptr inbounds i8, ptr %1, i64 184
-  %54 = load <2 x ptr>, ptr %46, align 8
-  store ptr %51, ptr %46, align 8
-  %55 = load ptr, ptr %52, align 8
-  store ptr %55, ptr %48, align 8
-  %56 = load ptr, ptr %53, align 8
-  store ptr %56, ptr %49, align 8
-  store <2 x ptr> %54, ptr %47, align 8
-  store ptr %50, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 192
-  %58 = getelementptr inbounds i8, ptr %1, i64 192
-  %59 = getelementptr inbounds i8, ptr %0, i64 200
-  %60 = getelementptr inbounds i8, ptr %0, i64 208
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 200
-  %64 = getelementptr inbounds i8, ptr %1, i64 208
-  %65 = load <2 x ptr>, ptr %57, align 8
-  store ptr %62, ptr %57, align 8
-  %66 = load ptr, ptr %63, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 160
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %36, align 8
+  store ptr %42, ptr %35, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 152
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %38, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 160
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %40, align 8
+  store ptr %37, ptr %36, align 8
+  store ptr %39, ptr %43, align 8
+  store ptr %41, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 168
+  %48 = getelementptr inbounds i8, ptr %1, i64 168
+  %49 = load ptr, ptr %47, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 184
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %48, align 8
+  store ptr %54, ptr %47, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 176
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %50, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 184
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %52, align 8
+  store ptr %49, ptr %48, align 8
+  store ptr %51, ptr %55, align 8
+  store ptr %53, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 192
+  %60 = getelementptr inbounds i8, ptr %1, i64 192
+  %61 = load ptr, ptr %59, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 200
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 208
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %60, align 8
   store ptr %66, ptr %59, align 8
-  %67 = load ptr, ptr %64, align 8
-  store ptr %67, ptr %60, align 8
-  store <2 x ptr> %65, ptr %58, align 8
-  store ptr %61, ptr %64, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 200
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %62, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 208
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %64, align 8
+  store ptr %61, ptr %60, align 8
+  store ptr %63, ptr %67, align 8
+  store ptr %65, ptr %69, align 8
   ret ptr %0
 }
 
@@ -467,52 +473,58 @@ define void @_ZN4LIEF5MachO14SegmentCommand4swapERS1_(ptr noundef nonnull align 
   store i32 %33, ptr %32, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 144
   %36 = getelementptr inbounds i8, ptr %1, i64 144
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
+  %37 = load ptr, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 152
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 152
-  %42 = getelementptr inbounds i8, ptr %1, i64 160
-  %43 = load <2 x ptr>, ptr %35, align 8
-  store ptr %40, ptr %35, align 8
-  %44 = load ptr, ptr %41, align 8
-  store ptr %44, ptr %37, align 8
-  %45 = load ptr, ptr %42, align 8
-  store ptr %45, ptr %38, align 8
-  store <2 x ptr> %43, ptr %36, align 8
-  store ptr %39, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 168
-  %47 = getelementptr inbounds i8, ptr %1, i64 168
-  %48 = getelementptr inbounds i8, ptr %0, i64 176
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 176
-  %53 = getelementptr inbounds i8, ptr %1, i64 184
-  %54 = load <2 x ptr>, ptr %46, align 8
-  store ptr %51, ptr %46, align 8
-  %55 = load ptr, ptr %52, align 8
-  store ptr %55, ptr %48, align 8
-  %56 = load ptr, ptr %53, align 8
-  store ptr %56, ptr %49, align 8
-  store <2 x ptr> %54, ptr %47, align 8
-  store ptr %50, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 192
-  %58 = getelementptr inbounds i8, ptr %1, i64 192
-  %59 = getelementptr inbounds i8, ptr %0, i64 200
-  %60 = getelementptr inbounds i8, ptr %0, i64 208
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 200
-  %64 = getelementptr inbounds i8, ptr %1, i64 208
-  %65 = load <2 x ptr>, ptr %57, align 8
-  store ptr %62, ptr %57, align 8
-  %66 = load ptr, ptr %63, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 160
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %36, align 8
+  store ptr %42, ptr %35, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 152
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %38, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 160
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %40, align 8
+  store ptr %37, ptr %36, align 8
+  store ptr %39, ptr %43, align 8
+  store ptr %41, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 168
+  %48 = getelementptr inbounds i8, ptr %1, i64 168
+  %49 = load ptr, ptr %47, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 184
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %48, align 8
+  store ptr %54, ptr %47, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 176
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %50, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 184
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %52, align 8
+  store ptr %49, ptr %48, align 8
+  store ptr %51, ptr %55, align 8
+  store ptr %53, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 192
+  %60 = getelementptr inbounds i8, ptr %1, i64 192
+  %61 = load ptr, ptr %59, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 200
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 208
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %60, align 8
   store ptr %66, ptr %59, align 8
-  %67 = load ptr, ptr %64, align 8
-  store ptr %67, ptr %60, align 8
-  store <2 x ptr> %65, ptr %58, align 8
-  store ptr %61, ptr %64, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 200
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %62, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 208
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %64, align 8
+  store ptr %61, ptr %60, align 8
+  store ptr %63, ptr %67, align 8
+  store ptr %65, ptr %69, align 8
   ret void
 }
 
@@ -1310,80 +1322,83 @@ define void @_ZN4LIEF5MachO14SegmentCommand5flagsEj(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.68", align 8
-  %4 = load <2 x ptr>, ptr %1, align 8
-  %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load ptr, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %9, align 8
-  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %11 unwind label %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %10, align 8
+  %11 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+          to label %12 unwind label %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  store <2 x ptr> %4, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %7, ptr %13, align 8
-  store ptr %10, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %12, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %8, align 8
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
-  %16 = load ptr, ptr %15, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %3)
-          to label %17 unwind label %24
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %6, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %8, ptr %15, align 8
+  store ptr %11, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %13, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %9, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load ptr, ptr %17, align 8
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %3)
+          to label %19 unwind label %26
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit", label %19
-
-19:                                               ; preds = %17
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit" unwind label %21
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit", label %21
 
 21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit" unwind label %23
+
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #24
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #24
   unreachable
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit": ; preds = %19, %17
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit": ; preds = %21, %19
   ret void
 
-24:                                               ; preds = %11
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %12
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %8, align 8
-  %.not.i.i5 = icmp eq ptr %26, null
-  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %27
+  %28 = load ptr, ptr %9, align 8
+  %.not.i.i5 = icmp eq ptr %28, null
+  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %29
 
-27:                                               ; preds = %24
-  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8" unwind label %29
+29:                                               ; preds = %26
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8" unwind label %31
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #24
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #24
   unreachable
 
 _ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6:  ; preds = %2
-  %32 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i.i7 = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %33
+  %.not.i.i.i.i7 = icmp eq ptr %4, null
+  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %35
 
-33:                                               ; preds = %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+35:                                               ; preds = %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8"
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8": ; preds = %27, %24, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %33
-  %.pn12 = phi { ptr, i32 } [ %32, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6 ], [ %32, %33 ], [ %25, %24 ], [ %25, %27 ]
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8": ; preds = %29, %26, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %35
+  %.pn12 = phi { ptr, i32 } [ %34, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6 ], [ %34, %35 ], [ %27, %26 ], [ %27, %29 ]
   resume { ptr, i32 } %.pn12
 }
 

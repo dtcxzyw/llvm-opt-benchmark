@@ -455,43 +455,45 @@ if.then.i.i32:                                    ; preds = %if.end47
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36: ; preds = %if.end47, %if.then.i.i32
   %34 = phi ptr [ %add.ptr.i.i.i35, %if.then.i.i32 ], [ %30, %if.end47 ]
   %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %34, i64 -80
+  %35 = load ptr, ptr %retransmittable_frames, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %packet, i64 24
+  %36 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %packet, i64 32
-  %35 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %36 = load ptr, ptr %incdec.ptr.i.i31, align 8
+  %37 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %38 = load ptr, ptr %incdec.ptr.i.i31, align 8
+  store ptr %38, ptr %retransmittable_frames, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %34, i64 -72
+  %39 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %39, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %34, i64 -64
-  %37 = load <2 x ptr>, ptr %retransmittable_frames, align 8
-  store ptr %36, ptr %retransmittable_frames, align 8
-  %38 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  store ptr %38, ptr %_M_finish.i.i.i, align 8
-  %39 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %39, ptr %_M_end_of_storage.i.i.i, align 8
-  store <2 x ptr> %37, ptr %incdec.ptr.i.i31, align 8
-  store ptr %35, ptr %_M_end_of_storage.i4.i.i, align 8
-  %40 = load ptr, ptr %_M_finish.i, align 8, !noalias !29
-  %41 = load ptr, ptr %_M_first.i.i, align 8, !noalias !29
-  %cmp.i.i39 = icmp eq ptr %40, %41
+  %40 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %40, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %35, ptr %incdec.ptr.i.i31, align 8
+  store ptr %36, ptr %_M_finish.i2.i.i, align 8
+  store ptr %37, ptr %_M_end_of_storage.i4.i.i, align 8
+  %41 = load ptr, ptr %_M_finish.i, align 8, !noalias !29
+  %42 = load ptr, ptr %_M_first.i.i, align 8, !noalias !29
+  %cmp.i.i39 = icmp eq ptr %41, %42
   br i1 %cmp.i.i39, label %if.then.i.i41, label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45
 
 if.then.i.i41:                                    ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36
-  %42 = load ptr, ptr %_M_node.i.i, align 8, !noalias !29
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %42, i64 -8
-  %43 = load ptr, ptr %add.ptr.i.i43, align 8
-  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %43, i64 480
+  %43 = load ptr, ptr %_M_node.i.i, align 8, !noalias !29
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %43, i64 -8
+  %44 = load ptr, ptr %add.ptr.i.i43, align 8
+  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %44, i64 480
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36, %if.then.i.i41
-  %44 = phi ptr [ %add.ptr.i.i.i44, %if.then.i.i41 ], [ %40, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36 ]
-  %ack_listeners = getelementptr inbounds i8, ptr %44, i64 -24
+  %45 = phi ptr [ %add.ptr.i.i.i44, %if.then.i.i41 ], [ %41, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36 ]
+  %ack_listeners = getelementptr inbounds i8, ptr %45, i64 -24
   %listeners = getelementptr inbounds i8, ptr %packet, i64 72
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners, ptr noundef nonnull align 8 dereferenceable(16) %listeners) #16
   %_M_size.i.i = getelementptr inbounds i8, ptr %packet, i64 88
-  %45 = load i64, ptr %_M_size.i.i, align 8
-  %_M_size.i4.i = getelementptr inbounds i8, ptr %44, i64 -8
-  %46 = load i64, ptr %_M_size.i4.i, align 8
-  store i64 %46, ptr %_M_size.i.i, align 8
-  store i64 %45, ptr %_M_size.i4.i, align 8
+  %46 = load i64, ptr %_M_size.i.i, align 8
+  %_M_size.i4.i = getelementptr inbounds i8, ptr %45, i64 -8
+  %47 = load i64, ptr %_M_size.i4.i, align 8
+  store i64 %47, ptr %_M_size.i.i, align 8
+  store i64 %46, ptr %_M_size.i4.i, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45, %invoke.cont42
@@ -703,41 +705,43 @@ for.body:                                         ; preds = %_ZNSt5dequeIN3net16
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
+  %16 = load ptr, ptr %storemerge.i.i.i.i.i, align 8
   %_M_finish.i.i.i23 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 8
+  %17 = load ptr, ptr %_M_finish.i.i.i23, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 16
-  %16 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %17 = load ptr, ptr %info, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %19 = load ptr, ptr %info, align 8
+  store ptr %19, ptr %storemerge.i.i.i.i.i, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %info, i64 8
+  %20 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %20, ptr %_M_finish.i.i.i23, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %info, i64 16
-  %18 = load <2 x ptr>, ptr %storemerge.i.i.i.i.i, align 8
-  store ptr %17, ptr %storemerge.i.i.i.i.i, align 8
-  %19 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  store ptr %19, ptr %_M_finish.i.i.i23, align 8
-  %20 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %20, ptr %_M_end_of_storage.i.i.i, align 8
-  store <2 x ptr> %18, ptr %info, align 8
-  store ptr %16, ptr %_M_end_of_storage.i4.i.i, align 8
+  %21 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %21, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %16, ptr %info, align 8
+  store ptr %17, ptr %_M_finish.i2.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i4.i.i, align 8
   %has_crypto_handshake = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 43
-  %21 = load i8, ptr %has_crypto_handshake, align 1
+  %22 = load i8, ptr %has_crypto_handshake, align 1
   %has_crypto_handshake48 = getelementptr inbounds i8, ptr %info, i64 43
-  %frombool = and i8 %21, 1
+  %frombool = and i8 %22, 1
   store i8 %frombool, ptr %has_crypto_handshake48, align 1
   store i8 0, ptr %has_crypto_handshake, align 1
   %num_padding_bytes = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 44
-  %22 = load i16, ptr %num_padding_bytes, align 4
+  %23 = load i16, ptr %num_padding_bytes, align 4
   %num_padding_bytes50 = getelementptr inbounds i8, ptr %info, i64 44
-  store i16 %22, ptr %num_padding_bytes50, align 4
+  store i16 %23, ptr %num_padding_bytes50, align 4
   %ack_listeners51 = getelementptr inbounds i8, ptr %info, i64 56
   tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners51, ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners) #16
   %_M_size.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 72
-  %23 = load i64, ptr %_M_size.i.i, align 8
+  %24 = load i64, ptr %_M_size.i.i, align 8
   %_M_size.i4.i = getelementptr inbounds i8, ptr %info, i64 72
-  %24 = load i64, ptr %_M_size.i4.i, align 8
-  store i64 %24, ptr %_M_size.i.i, align 8
-  store i64 %23, ptr %_M_size.i4.i, align 8
+  %25 = load i64, ptr %_M_size.i4.i, align 8
+  store i64 %25, ptr %_M_size.i.i, align 8
+  store i64 %24, ptr %_M_size.i4.i, align 8
   %call53 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %25 = and i8 %transmission_type, -2
-  %or.cond1 = icmp eq i8 %25, 2
+  %26 = and i8 %transmission_type, -2
+  %or.cond1 = icmp eq i8 %26, 2
   br i1 %or.cond1, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %for.end
@@ -751,9 +755,9 @@ if.else82:                                        ; preds = %for.end
   br label %if.end83
 
 if.end83:                                         ; preds = %if.else82, %if.then81
-  %26 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %27 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i3.i = icmp eq ptr %26, %27
+  %27 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %28 = load ptr, ptr %_M_start.i.i.i, align 8
+  %cmp.i.i3.i = icmp eq ptr %27, %28
   br i1 %cmp.i.i3.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end83
@@ -762,65 +766,65 @@ while.body.lr.ph.i:                               ; preds = %if.end83
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %while.body.lr.ph.i
-  %28 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %inc.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
-  %29 = phi ptr [ %27, %while.body.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
-  %is_unackable.i.i.i = getelementptr inbounds i8, ptr %29, i64 42
-  %30 = load i8, ptr %is_unackable.i.i.i, align 2
-  %tobool.i.i.i = trunc i8 %30 to i1
-  %31 = load i64, ptr %largest_observed_.i.i.i, align 8
-  %cmp.i.i1.i = icmp uge i64 %31, %28
+  %29 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %inc.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
+  %30 = phi ptr [ %28, %while.body.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i ]
+  %is_unackable.i.i.i = getelementptr inbounds i8, ptr %30, i64 42
+  %31 = load i8, ptr %is_unackable.i.i.i, align 2
+  %tobool.i.i.i = trunc i8 %31 to i1
+  %32 = load i64, ptr %largest_observed_.i.i.i, align 8
+  %cmp.i.i1.i = icmp uge i64 %32, %29
   %.not.i.i = select i1 %tobool.i.i.i, i1 true, i1 %cmp.i.i1.i
   br i1 %.not.i.i, label %land.lhs.true.i.i, label %return
 
 land.lhs.true.i.i:                                ; preds = %while.body.i
-  %in_flight.i.i.i = getelementptr inbounds i8, ptr %29, i64 41
-  %32 = load i8, ptr %in_flight.i.i.i, align 1
-  %tobool.i3.i.i = trunc i8 %32 to i1
+  %in_flight.i.i.i = getelementptr inbounds i8, ptr %30, i64 41
+  %33 = load i8, ptr %in_flight.i.i.i, align 1
+  %tobool.i3.i.i = trunc i8 %33 to i1
   br i1 %tobool.i3.i.i, label %return, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
 
 _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i: ; preds = %land.lhs.true.i.i
-  %33 = load ptr, ptr %29, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %34 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i24 = icmp eq ptr %33, %34
-  %retransmission.i.i.i = getelementptr inbounds i8, ptr %29, i64 48
-  %35 = load i64, ptr %retransmission.i.i.i, align 8
-  %cmp.i5.i.i = icmp ule i64 %35, %31
+  %34 = load ptr, ptr %30, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i24 = icmp eq ptr %34, %35
+  %retransmission.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
+  %36 = load i64, ptr %retransmission.i.i.i, align 8
+  %cmp.i5.i.i = icmp ule i64 %36, %32
   %.not6.i.i = select i1 %cmp.i.i.i.i.i24, i1 %cmp.i5.i.i, i1 false
   br i1 %.not6.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
-  %36 = load ptr, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %36, i64 -80
-  %cmp.not.i.i25 = icmp eq ptr %29, %add.ptr.i.i
-  tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #16
+  %37 = load ptr, ptr %_M_last.i.i.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 -80
+  %cmp.not.i.i25 = icmp eq ptr %30, %add.ptr.i.i
+  tail call void @_ZN3net16TransmissionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #16
   br i1 %cmp.not.i.i25, label %if.else.i.i, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %if.end.i
-  %37 = load ptr, ptr %_M_start.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = load ptr, ptr %_M_start.i.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %38, i64 80
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %38 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %38) #18
-  %39 = load ptr, ptr %_M_node1.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
+  %39 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %39) #18
+  %40 = load ptr, ptr %_M_node1.i.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node1.i.i.i.i, align 8
-  %40 = load ptr, ptr %add.ptr.i.i.i, align 8
-  store ptr %40, ptr %_M_first3.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 480
+  %41 = load ptr, ptr %add.ptr.i.i.i, align 8
+  store ptr %41, ptr %_M_first3.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 480
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i: ; preds = %if.else.i.i, %if.then.i.i26
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i26 ], [ %40, %if.else.i.i ]
+  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i26 ], [ %41, %if.else.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i.i.i, align 8
-  %41 = load i64, ptr %least_unacked_, align 8
-  %inc.i = add i64 %41, 1
+  %42 = load i64, ptr %least_unacked_, align 8
+  %inc.i = add i64 %42, 1
   store i64 %inc.i, ptr %least_unacked_, align 8
-  %42 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %42, %storemerge.i.i
+  %43 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %43, %storemerge.i.i
   br i1 %cmp.i.i.i, label %return, label %while.body.i, !llvm.loop !35
 
 return:                                           ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i, %land.lhs.true.i.i, %while.body.i, %if.end83, %if.then3, %cleanup.action, %entry

@@ -113,47 +113,49 @@ define hidden void @_ZN14JfrTypeManager18create_thread_blobEP10JavaThreadmP7oopD
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
   call void @_ZN19JfrCheckpointWriterC1EP6Threadb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef %1, i1 noundef zeroext true, i32 noundef 8, i32 noundef 1) #8
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 179) #8
   call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 1) #8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 -1, ptr %20, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %2, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %3, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 -1, ptr %21, align 8
   call void @_ZN17JfrThreadConstant9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull align 8 dereferenceable(73) %5) #8
   call void @_ZN19JfrCheckpointWriter4moveEPK20JfrCheckpointContext(ptr dead_on_unwind writable sret(%class.RefCountHandle) align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef null) #8
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #8
-  %21 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+  %22 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %4
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #8
+23:                                               ; preds = %4
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %4
-  %24 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+24:                                               ; preds = %23, %4
+  %25 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %25, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
   ret void
 }
 
@@ -182,57 +184,59 @@ define hidden void @_ZN14JfrTypeManager16write_checkpointEP6ThreadmP7oopDesc(ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = select i1 %.not, i32 1, i32 2
-  call void @_ZN19JfrCheckpointWriterC1EP6Threadb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %4, ptr noundef %7, i1 noundef zeroext true, i32 noundef 8, i32 noundef %17) #8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = select i1 %.not, i32 1, i32 2
+  call void @_ZN19JfrCheckpointWriterC1EP6Threadb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %4, ptr noundef %7, i1 noundef zeroext true, i32 noundef 8, i32 noundef %18) #8
   br i1 %.not, label %.split8, label %.split
 
 .split:                                           ; preds = %3
   call void @_ZN19JfrCheckpointWriter9set_countEj(ptr noundef nonnull align 8 dereferenceable(73) %4, i32 noundef 1) #8
-  br label %18
+  br label %19
 
 .split8:                                          ; preds = %3
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %4, i32 noundef 179) #8
   call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %4, i32 noundef 1) #8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.split8, %.split
+19:                                               ; preds = %.split8, %.split
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 -1, ptr %23, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %2, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 -1, ptr %24, align 8
   call void @_ZN17JfrThreadConstant9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull align 8 dereferenceable(73) %4) #8
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #8
-  %24 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %26, label %25
+  %25 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-25:                                               ; preds = %18
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #8
+26:                                               ; preds = %19
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %18
-  %27 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %27, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
+27:                                               ; preds = %26, %19
+  %28 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
   ret void
 }
 

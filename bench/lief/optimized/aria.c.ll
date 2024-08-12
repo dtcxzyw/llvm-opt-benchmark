@@ -33,394 +33,411 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x [4 x i32]], align 16
-  switch i32 %2, label %303 [
+  switch i32 %2, label %315 [
     i32 256, label %5
     i32 192, label %5
     i32 128, label %5
   ]
 
 5:                                                ; preds = %3, %3, %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
-  %9 = load <4 x i32>, ptr %1, align 1
-  store <4 x i32> %9, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = icmp ugt i32 %2, 191
-  br i1 %11, label %12, label %.thread
+  %6 = load i32, ptr %1, align 1
+  store i32 %6, ptr %4, align 16
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load i32, ptr %10, align 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = load i32, ptr %13, align 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %14, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  %17 = icmp ugt i32 %2, 191
+  br i1 %17, label %18, label %.thread
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load <2 x i32>, ptr %13, align 1
-  store <2 x i32> %14, ptr %10, align 16
-  %15 = icmp eq i32 %2, 256
-  br i1 %15, label %16, label %.thread
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = load i32, ptr %19, align 1
+  store i32 %20, ptr %16, align 16
+  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = load i32, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %22, ptr %23, align 4
+  %24 = icmp eq i32 %2, 256
+  br i1 %24, label %25, label %.thread
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = load <2 x i32>, ptr %17, align 1
-  store <2 x i32> %19, ptr %18, align 8
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = load i32, ptr %26, align 1
+  %28 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 28
+  %30 = load i32, ptr %29, align 1
+  %31 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %30, ptr %31, align 4
   br label %.thread
 
-.thread:                                          ; preds = %5, %16, %12
-  %20 = add nsw i32 %2, -128
-  %21 = lshr exact i32 %20, 6
-  %22 = lshr exact i32 %20, 5
-  %23 = trunc i32 %22 to i8
-  %24 = add nuw nsw i8 %23, 12
-  store i8 %24, ptr %0, align 4
-  %25 = zext nneg i32 %21 to i64
-  %26 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %25
-  call fastcc void @aria_fo_xor(ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %26, ptr noundef nonnull %10)
-  %27 = icmp ult i32 %20, 128
-  %28 = add nuw nsw i32 %21, 1
-  %29 = select i1 %27, i32 %28, i32 0
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
-  %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %31
-  %33 = load i32, ptr %10, align 16
-  %34 = load i32, ptr %32, align 16
-  %35 = xor i32 %34, %33
-  %36 = getelementptr inbounds i8, ptr %4, i64 20
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %32, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = xor i32 %39, %37
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %32, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = xor i32 %44, %42
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %32, i64 12
+.thread:                                          ; preds = %5, %25, %18
+  %32 = add nsw i32 %2, -128
+  %33 = lshr exact i32 %32, 6
+  %34 = lshr exact i32 %32, 5
+  %35 = trunc i32 %34 to i8
+  %36 = add nuw nsw i8 %35, 12
+  store i8 %36, ptr %0, align 4
+  %37 = zext nneg i32 %33 to i64
+  %38 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %37
+  call fastcc void @aria_fo_xor(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %38, ptr noundef nonnull %16)
+  %39 = icmp ult i32 %32, 128
+  %40 = add nuw nsw i32 %33, 1
+  %41 = select i1 %39, i32 %40, i32 0
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = zext nneg i32 %41 to i64
+  %44 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %43
+  %45 = load i32, ptr %16, align 16
+  %46 = load i32, ptr %44, align 16
+  %47 = xor i32 %46, %45
+  %48 = getelementptr inbounds i8, ptr %4, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = xor i32 %49, %47
-  %51 = and i32 %35, 255
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr @aria_is1, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = lshr i32 %35, 8
-  %57 = and i32 %56, 255
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr @aria_is2, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 8
-  %63 = or disjoint i32 %62, %55
-  %64 = lshr i32 %35, 16
-  %65 = and i32 %64, 255
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr @aria_sb1, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 %69, 16
-  %71 = or disjoint i32 %63, %70
-  %72 = lshr i32 %35, 24
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr @aria_sb2, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = shl nuw i32 %76, 24
-  %78 = or disjoint i32 %71, %77
-  %79 = and i32 %40, 255
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr @aria_is1, i64 %80
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = lshr i32 %40, 8
-  %85 = and i32 %84, 255
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr @aria_is2, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 8
-  %91 = or disjoint i32 %90, %83
-  %92 = lshr i32 %40, 16
-  %93 = and i32 %92, 255
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr @aria_sb1, i64 %94
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 16
-  %99 = or disjoint i32 %91, %98
-  %100 = lshr i32 %40, 24
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr @aria_sb2, i64 %101
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = shl nuw i32 %104, 24
-  %106 = or disjoint i32 %99, %105
-  %107 = and i32 %45, 255
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr @aria_is1, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = lshr i32 %45, 8
-  %113 = and i32 %112, 255
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr @aria_is2, i64 %114
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = shl nuw nsw i32 %117, 8
-  %119 = or disjoint i32 %118, %111
-  %120 = lshr i32 %45, 16
-  %121 = and i32 %120, 255
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr @aria_sb1, i64 %122
-  %124 = load i8, ptr %123, align 1
-  %125 = zext i8 %124 to i32
-  %126 = shl nuw nsw i32 %125, 16
-  %127 = or disjoint i32 %119, %126
-  %128 = lshr i32 %45, 24
-  %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr @aria_sb2, i64 %129
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = shl nuw i32 %132, 24
-  %134 = or disjoint i32 %127, %133
-  %135 = and i32 %50, 255
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr @aria_is1, i64 %136
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = lshr i32 %50, 8
-  %141 = and i32 %140, 255
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr @aria_is2, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw nsw i32 %145, 8
-  %147 = or disjoint i32 %146, %139
-  %148 = lshr i32 %50, 16
-  %149 = and i32 %148, 255
-  %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds i8, ptr @aria_sb1, i64 %150
-  %152 = load i8, ptr %151, align 1
-  %153 = zext i8 %152 to i32
-  %154 = shl nuw nsw i32 %153, 16
-  %155 = or disjoint i32 %147, %154
-  %156 = lshr i32 %50, 24
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds i8, ptr @aria_sb2, i64 %157
-  %159 = load i8, ptr %158, align 1
-  %160 = zext i8 %159 to i32
-  %161 = shl nuw i32 %160, 24
-  %162 = or disjoint i32 %155, %161
-  %163 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 16)
-  %164 = tail call i32 @llvm.fshl.i32(i32 %162, i32 %162, i32 16)
-  %165 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %134) #10, !srcloc !4
-  %166 = tail call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 16)
-  %167 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %164) #10, !srcloc !4
-  %168 = tail call i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 16)
-  %169 = xor i32 %166, %106
-  %170 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 16)
-  %171 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %169) #10, !srcloc !4
-  %172 = tail call i32 @llvm.fshl.i32(i32 %171, i32 %171, i32 16)
-  %173 = xor i32 %170, %172
-  %174 = xor i32 %173, %168
-  %175 = tail call i32 @llvm.fshl.i32(i32 %166, i32 %166, i32 16)
-  %176 = xor i32 %164, %175
-  %177 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %163) #10, !srcloc !4
+  %50 = getelementptr inbounds i8, ptr %44, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = xor i32 %51, %49
+  %53 = getelementptr inbounds i8, ptr %4, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %44, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = xor i32 %56, %54
+  %58 = getelementptr inbounds i8, ptr %4, i64 28
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %44, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = xor i32 %61, %59
+  %63 = and i32 %47, 255
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr @aria_is1, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = lshr i32 %47, 8
+  %69 = and i32 %68, 255
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr @aria_is2, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 8
+  %75 = or disjoint i32 %74, %67
+  %76 = lshr i32 %47, 16
+  %77 = and i32 %76, 255
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr @aria_sb1, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = shl nuw nsw i32 %81, 16
+  %83 = or disjoint i32 %75, %82
+  %84 = lshr i32 %47, 24
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr @aria_sb2, i64 %85
+  %87 = load i8, ptr %86, align 1
+  %88 = zext i8 %87 to i32
+  %89 = shl nuw i32 %88, 24
+  %90 = or disjoint i32 %83, %89
+  %91 = and i32 %52, 255
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr @aria_is1, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = lshr i32 %52, 8
+  %97 = and i32 %96, 255
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr @aria_is2, i64 %98
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  %102 = shl nuw nsw i32 %101, 8
+  %103 = or disjoint i32 %102, %95
+  %104 = lshr i32 %52, 16
+  %105 = and i32 %104, 255
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr @aria_sb1, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i32
+  %110 = shl nuw nsw i32 %109, 16
+  %111 = or disjoint i32 %103, %110
+  %112 = lshr i32 %52, 24
+  %113 = zext nneg i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr @aria_sb2, i64 %113
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = shl nuw i32 %116, 24
+  %118 = or disjoint i32 %111, %117
+  %119 = and i32 %57, 255
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr @aria_is1, i64 %120
+  %122 = load i8, ptr %121, align 1
+  %123 = zext i8 %122 to i32
+  %124 = lshr i32 %57, 8
+  %125 = and i32 %124, 255
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds i8, ptr @aria_is2, i64 %126
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw nsw i32 %129, 8
+  %131 = or disjoint i32 %130, %123
+  %132 = lshr i32 %57, 16
+  %133 = and i32 %132, 255
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds i8, ptr @aria_sb1, i64 %134
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i32
+  %138 = shl nuw nsw i32 %137, 16
+  %139 = or disjoint i32 %131, %138
+  %140 = lshr i32 %57, 24
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds i8, ptr @aria_sb2, i64 %141
+  %143 = load i8, ptr %142, align 1
+  %144 = zext i8 %143 to i32
+  %145 = shl nuw i32 %144, 24
+  %146 = or disjoint i32 %139, %145
+  %147 = and i32 %62, 255
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr inbounds i8, ptr @aria_is1, i64 %148
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = lshr i32 %62, 8
+  %153 = and i32 %152, 255
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr @aria_is2, i64 %154
+  %156 = load i8, ptr %155, align 1
+  %157 = zext i8 %156 to i32
+  %158 = shl nuw nsw i32 %157, 8
+  %159 = or disjoint i32 %158, %151
+  %160 = lshr i32 %62, 16
+  %161 = and i32 %160, 255
+  %162 = zext nneg i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr @aria_sb1, i64 %162
+  %164 = load i8, ptr %163, align 1
+  %165 = zext i8 %164 to i32
+  %166 = shl nuw nsw i32 %165, 16
+  %167 = or disjoint i32 %159, %166
+  %168 = lshr i32 %62, 24
+  %169 = zext nneg i32 %168 to i64
+  %170 = getelementptr inbounds i8, ptr @aria_sb2, i64 %169
+  %171 = load i8, ptr %170, align 1
+  %172 = zext i8 %171 to i32
+  %173 = shl nuw i32 %172, 24
+  %174 = or disjoint i32 %167, %173
+  %175 = tail call i32 @llvm.fshl.i32(i32 %118, i32 %118, i32 16)
+  %176 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 16)
+  %177 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %146) #10, !srcloc !4
   %178 = tail call i32 @llvm.fshl.i32(i32 %177, i32 %177, i32 16)
-  %179 = xor i32 %178, %170
-  %180 = tail call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 16)
-  %181 = xor i32 %174, %180
-  %182 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %181) #10, !srcloc !4
-  %183 = tail call i32 @llvm.fshl.i32(i32 %182, i32 %182, i32 16)
-  %184 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 16)
-  %185 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %184) #10, !srcloc !4
-  %186 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 16)
-  %187 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 16)
-  %188 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %187) #10, !srcloc !4
-  %189 = tail call i32 @llvm.fshl.i32(i32 %188, i32 %188, i32 16)
-  %190 = load i32, ptr %4, align 16
-  %191 = xor i32 %183, %190
-  %192 = xor i32 %191, %163
-  store i32 %192, ptr %30, align 16
-  %193 = load i32, ptr %6, align 4
-  %194 = xor i32 %78, %193
-  %195 = xor i32 %194, %176
-  %196 = xor i32 %195, %174
-  %197 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 %196, ptr %197, align 4
-  %198 = load i32, ptr %7, align 8
-  %199 = xor i32 %189, %198
-  %200 = xor i32 %199, %168
-  %201 = xor i32 %200, %184
-  %202 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 %201, ptr %202, align 8
-  %203 = load i32, ptr %8, align 4
-  %204 = xor i32 %186, %203
-  %205 = xor i32 %204, %166
-  %206 = xor i32 %205, %179
-  %207 = getelementptr inbounds i8, ptr %4, i64 44
-  store i32 %206, ptr %207, align 4
-  %208 = icmp ult i32 %29, 2
-  %209 = add nuw nsw i32 %29, 1
-  %210 = select i1 %208, i32 %209, i32 0
-  %211 = getelementptr inbounds i8, ptr %4, i64 48
-  %212 = zext nneg i32 %210 to i64
-  %213 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %212
-  call fastcc void @aria_fo_xor(ptr noundef nonnull %211, ptr noundef nonnull %30, ptr noundef nonnull %213, ptr noundef nonnull %10)
-  %214 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %215
+  %179 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %176) #10, !srcloc !4
+  %180 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 16)
+  %181 = xor i32 %178, %118
+  %182 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 16)
+  %183 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %181) #10, !srcloc !4
+  %184 = tail call i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 16)
+  %185 = xor i32 %182, %184
+  %186 = xor i32 %185, %180
+  %187 = tail call i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 16)
+  %188 = xor i32 %176, %187
+  %189 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %175) #10, !srcloc !4
+  %190 = tail call i32 @llvm.fshl.i32(i32 %189, i32 %189, i32 16)
+  %191 = xor i32 %190, %182
+  %192 = tail call i32 @llvm.fshl.i32(i32 %188, i32 %188, i32 16)
+  %193 = xor i32 %186, %192
+  %194 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %193) #10, !srcloc !4
+  %195 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 16)
+  %196 = tail call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 16)
+  %197 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %196) #10, !srcloc !4
+  %198 = tail call i32 @llvm.fshl.i32(i32 %197, i32 %197, i32 16)
+  %199 = tail call i32 @llvm.fshl.i32(i32 %191, i32 %191, i32 16)
+  %200 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %199) #10, !srcloc !4
+  %201 = tail call i32 @llvm.fshl.i32(i32 %200, i32 %200, i32 16)
+  %202 = load i32, ptr %4, align 16
+  %203 = xor i32 %195, %202
+  %204 = xor i32 %203, %175
+  store i32 %204, ptr %42, align 16
+  %205 = load i32, ptr %9, align 4
+  %206 = xor i32 %90, %205
+  %207 = xor i32 %206, %188
+  %208 = xor i32 %207, %186
+  %209 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 %208, ptr %209, align 4
+  %210 = load i32, ptr %12, align 8
+  %211 = xor i32 %201, %210
+  %212 = xor i32 %211, %180
+  %213 = xor i32 %212, %196
+  %214 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %213, ptr %214, align 8
+  %215 = load i32, ptr %15, align 4
+  %216 = xor i32 %198, %215
+  %217 = xor i32 %216, %178
+  %218 = xor i32 %217, %191
+  %219 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 %218, ptr %219, align 4
+  %220 = icmp ult i32 %41, 2
+  %221 = add nuw nsw i32 %41, 1
+  %222 = select i1 %220, i32 %221, i32 0
+  %223 = getelementptr inbounds i8, ptr %4, i64 48
+  %224 = zext nneg i32 %222 to i64
+  %225 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %224
+  call fastcc void @aria_fo_xor(ptr noundef nonnull %223, ptr noundef nonnull %42, ptr noundef nonnull %225, ptr noundef nonnull %16)
+  %226 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %227
 
-215:                                              ; preds = %.thread, %aria_rot128.exit88
+227:                                              ; preds = %.thread, %aria_rot128.exit88
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %aria_rot128.exit88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %216 = and i64 %indvars.iv.next, 3
-  %217 = getelementptr inbounds [4 x [4 x i32]], ptr %4, i64 0, i64 %216
-  %218 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %indvars.iv
-  %219 = getelementptr inbounds [4 x [4 x i32]], ptr %4, i64 0, i64 %indvars.iv
-  %220 = getelementptr inbounds i8, ptr %217, i64 12
-  %221 = load i32, ptr %220, align 4
-  %222 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %221) #10, !srcloc !4
-  br label %223
-
-223:                                              ; preds = %223, %215
-  %indvars.iv.i = phi i64 [ 0, %215 ], [ %indvars.iv.next.i, %223 ]
-  %.02225.i = phi i8 [ 3, %215 ], [ %225, %223 ]
-  %.02324.i = phi i32 [ %222, %215 ], [ %229, %223 ]
-  %224 = add nuw nsw i8 %.02225.i, 1
-  %225 = and i8 %224, 3
-  %226 = zext nneg i8 %225 to i64
-  %227 = getelementptr inbounds i32, ptr %217, i64 %226
-  %228 = load i32, ptr %227, align 4
-  %229 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %228) #10, !srcloc !4
-  %230 = tail call i32 @llvm.fshl.i32(i32 %.02324.i, i32 %229, i32 13)
-  %231 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %230) #10, !srcloc !4
-  %232 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i
+  %228 = and i64 %indvars.iv.next, 3
+  %229 = getelementptr inbounds [4 x [4 x i32]], ptr %4, i64 0, i64 %228
+  %230 = getelementptr inbounds [17 x [4 x i32]], ptr %226, i64 0, i64 %indvars.iv
+  %231 = getelementptr inbounds [4 x [4 x i32]], ptr %4, i64 0, i64 %indvars.iv
+  %232 = getelementptr inbounds i8, ptr %229, i64 12
   %233 = load i32, ptr %232, align 4
-  %234 = xor i32 %233, %231
-  %235 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv.i
-  store i32 %234, ptr %235, align 4
+  %234 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %233) #10, !srcloc !4
+  br label %235
+
+235:                                              ; preds = %235, %227
+  %indvars.iv.i = phi i64 [ 0, %227 ], [ %indvars.iv.next.i, %235 ]
+  %.02225.i = phi i8 [ 3, %227 ], [ %237, %235 ]
+  %.02324.i = phi i32 [ %234, %227 ], [ %241, %235 ]
+  %236 = add nuw nsw i8 %.02225.i, 1
+  %237 = and i8 %236, 3
+  %238 = zext nneg i8 %237 to i64
+  %239 = getelementptr inbounds i32, ptr %229, i64 %238
+  %240 = load i32, ptr %239, align 4
+  %241 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %240) #10, !srcloc !4
+  %242 = tail call i32 @llvm.fshl.i32(i32 %.02324.i, i32 %241, i32 13)
+  %243 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %242) #10, !srcloc !4
+  %244 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv.i
+  %245 = load i32, ptr %244, align 4
+  %246 = xor i32 %245, %243
+  %247 = getelementptr inbounds i32, ptr %230, i64 %indvars.iv.i
+  store i32 %246, ptr %247, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %aria_rot128.exit, label %223, !llvm.loop !5
+  br i1 %exitcond.not.i, label %aria_rot128.exit, label %235, !llvm.loop !5
 
-aria_rot128.exit:                                 ; preds = %223
-  %236 = or disjoint i64 %indvars.iv, 4
-  %237 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %236
-  br label %238
+aria_rot128.exit:                                 ; preds = %235
+  %248 = or disjoint i64 %indvars.iv, 4
+  %249 = getelementptr inbounds [17 x [4 x i32]], ptr %226, i64 0, i64 %248
+  br label %250
 
-238:                                              ; preds = %238, %aria_rot128.exit
-  %indvars.iv.i71 = phi i64 [ 0, %aria_rot128.exit ], [ %indvars.iv.next.i74, %238 ]
-  %.02225.i72 = phi i8 [ 3, %aria_rot128.exit ], [ %240, %238 ]
-  %.02324.i73 = phi i32 [ %222, %aria_rot128.exit ], [ %244, %238 ]
-  %239 = add nuw nsw i8 %.02225.i72, 1
-  %240 = and i8 %239, 3
-  %241 = zext nneg i8 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %217, i64 %241
-  %243 = load i32, ptr %242, align 4
-  %244 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %243) #10, !srcloc !4
-  %245 = tail call i32 @llvm.fshl.i32(i32 %.02324.i73, i32 %244, i32 1)
-  %246 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %245) #10, !srcloc !4
-  %247 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i71
-  %248 = load i32, ptr %247, align 4
-  %249 = xor i32 %248, %246
-  %250 = getelementptr inbounds i32, ptr %237, i64 %indvars.iv.i71
-  store i32 %249, ptr %250, align 4
+250:                                              ; preds = %250, %aria_rot128.exit
+  %indvars.iv.i71 = phi i64 [ 0, %aria_rot128.exit ], [ %indvars.iv.next.i74, %250 ]
+  %.02225.i72 = phi i8 [ 3, %aria_rot128.exit ], [ %252, %250 ]
+  %.02324.i73 = phi i32 [ %234, %aria_rot128.exit ], [ %256, %250 ]
+  %251 = add nuw nsw i8 %.02225.i72, 1
+  %252 = and i8 %251, 3
+  %253 = zext nneg i8 %252 to i64
+  %254 = getelementptr inbounds i32, ptr %229, i64 %253
+  %255 = load i32, ptr %254, align 4
+  %256 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %255) #10, !srcloc !4
+  %257 = tail call i32 @llvm.fshl.i32(i32 %.02324.i73, i32 %256, i32 1)
+  %258 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %257) #10, !srcloc !4
+  %259 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv.i71
+  %260 = load i32, ptr %259, align 4
+  %261 = xor i32 %260, %258
+  %262 = getelementptr inbounds i32, ptr %249, i64 %indvars.iv.i71
+  store i32 %261, ptr %262, align 4
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 4
-  br i1 %exitcond.not.i75, label %aria_rot128.exit76, label %238, !llvm.loop !5
+  br i1 %exitcond.not.i75, label %aria_rot128.exit76, label %250, !llvm.loop !5
 
-aria_rot128.exit76:                               ; preds = %238
-  %251 = or disjoint i64 %indvars.iv, 8
-  %252 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %251
-  %253 = getelementptr inbounds i8, ptr %217, i64 4
-  %254 = load i32, ptr %253, align 4
-  %255 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %254) #10, !srcloc !4
-  br label %256
-
-256:                                              ; preds = %256, %aria_rot128.exit76
-  %indvars.iv.i77 = phi i64 [ 0, %aria_rot128.exit76 ], [ %indvars.iv.next.i80, %256 ]
-  %.02225.i78 = phi i8 [ 1, %aria_rot128.exit76 ], [ %258, %256 ]
-  %.02324.i79 = phi i32 [ %255, %aria_rot128.exit76 ], [ %262, %256 ]
-  %257 = add nuw nsw i8 %.02225.i78, 1
-  %258 = and i8 %257, 3
-  %259 = zext nneg i8 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %217, i64 %259
-  %261 = load i32, ptr %260, align 4
-  %262 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %261) #10, !srcloc !4
-  %263 = tail call i32 @llvm.fshl.i32(i32 %.02324.i79, i32 %262, i32 29)
-  %264 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263) #10, !srcloc !4
-  %265 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i77
+aria_rot128.exit76:                               ; preds = %250
+  %263 = or disjoint i64 %indvars.iv, 8
+  %264 = getelementptr inbounds [17 x [4 x i32]], ptr %226, i64 0, i64 %263
+  %265 = getelementptr inbounds i8, ptr %229, i64 4
   %266 = load i32, ptr %265, align 4
-  %267 = xor i32 %266, %264
-  %268 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv.i77
-  store i32 %267, ptr %268, align 4
+  %267 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %266) #10, !srcloc !4
+  br label %268
+
+268:                                              ; preds = %268, %aria_rot128.exit76
+  %indvars.iv.i77 = phi i64 [ 0, %aria_rot128.exit76 ], [ %indvars.iv.next.i80, %268 ]
+  %.02225.i78 = phi i8 [ 1, %aria_rot128.exit76 ], [ %270, %268 ]
+  %.02324.i79 = phi i32 [ %267, %aria_rot128.exit76 ], [ %274, %268 ]
+  %269 = add nuw nsw i8 %.02225.i78, 1
+  %270 = and i8 %269, 3
+  %271 = zext nneg i8 %270 to i64
+  %272 = getelementptr inbounds i32, ptr %229, i64 %271
+  %273 = load i32, ptr %272, align 4
+  %274 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273) #10, !srcloc !4
+  %275 = tail call i32 @llvm.fshl.i32(i32 %.02324.i79, i32 %274, i32 29)
+  %276 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %275) #10, !srcloc !4
+  %277 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv.i77
+  %278 = load i32, ptr %277, align 4
+  %279 = xor i32 %278, %276
+  %280 = getelementptr inbounds i32, ptr %264, i64 %indvars.iv.i77
+  store i32 %279, ptr %280, align 4
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 4
-  br i1 %exitcond.not.i81, label %aria_rot128.exit82, label %256, !llvm.loop !5
+  br i1 %exitcond.not.i81, label %aria_rot128.exit82, label %268, !llvm.loop !5
 
-aria_rot128.exit82:                               ; preds = %256
-  %269 = or disjoint i64 %indvars.iv, 12
-  %270 = getelementptr inbounds [17 x [4 x i32]], ptr %214, i64 0, i64 %269
-  %271 = load i32, ptr %217, align 16
-  %272 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %271) #10, !srcloc !4
-  br label %273
+aria_rot128.exit82:                               ; preds = %268
+  %281 = or disjoint i64 %indvars.iv, 12
+  %282 = getelementptr inbounds [17 x [4 x i32]], ptr %226, i64 0, i64 %281
+  %283 = load i32, ptr %229, align 16
+  %284 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %283) #10, !srcloc !4
+  br label %285
 
-273:                                              ; preds = %273, %aria_rot128.exit82
-  %indvars.iv.i83 = phi i64 [ 0, %aria_rot128.exit82 ], [ %indvars.iv.next.i86, %273 ]
-  %.02225.i84 = phi i8 [ 0, %aria_rot128.exit82 ], [ %275, %273 ]
-  %.02324.i85 = phi i32 [ %272, %aria_rot128.exit82 ], [ %279, %273 ]
-  %274 = add nuw nsw i8 %.02225.i84, 1
-  %275 = and i8 %274, 3
-  %276 = zext nneg i8 %275 to i64
-  %277 = getelementptr inbounds i32, ptr %217, i64 %276
-  %278 = load i32, ptr %277, align 4
-  %279 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %278) #10, !srcloc !4
-  %280 = tail call i32 @llvm.fshl.i32(i32 %.02324.i85, i32 %279, i32 31)
-  %281 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #10, !srcloc !4
-  %282 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i83
-  %283 = load i32, ptr %282, align 4
-  %284 = xor i32 %283, %281
-  %285 = getelementptr inbounds i32, ptr %270, i64 %indvars.iv.i83
-  store i32 %284, ptr %285, align 4
+285:                                              ; preds = %285, %aria_rot128.exit82
+  %indvars.iv.i83 = phi i64 [ 0, %aria_rot128.exit82 ], [ %indvars.iv.next.i86, %285 ]
+  %.02225.i84 = phi i8 [ 0, %aria_rot128.exit82 ], [ %287, %285 ]
+  %.02324.i85 = phi i32 [ %284, %aria_rot128.exit82 ], [ %291, %285 ]
+  %286 = add nuw nsw i8 %.02225.i84, 1
+  %287 = and i8 %286, 3
+  %288 = zext nneg i8 %287 to i64
+  %289 = getelementptr inbounds i32, ptr %229, i64 %288
+  %290 = load i32, ptr %289, align 4
+  %291 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %290) #10, !srcloc !4
+  %292 = tail call i32 @llvm.fshl.i32(i32 %.02324.i85, i32 %291, i32 31)
+  %293 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %292) #10, !srcloc !4
+  %294 = getelementptr inbounds i32, ptr %231, i64 %indvars.iv.i83
+  %295 = load i32, ptr %294, align 4
+  %296 = xor i32 %295, %293
+  %297 = getelementptr inbounds i32, ptr %282, i64 %indvars.iv.i83
+  store i32 %296, ptr %297, align 4
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 4
-  br i1 %exitcond.not.i87, label %aria_rot128.exit88, label %273, !llvm.loop !5
+  br i1 %exitcond.not.i87, label %aria_rot128.exit88, label %285, !llvm.loop !5
 
-aria_rot128.exit88:                               ; preds = %273
+aria_rot128.exit88:                               ; preds = %285
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %286, label %215, !llvm.loop !7
+  br i1 %exitcond.not, label %298, label %227, !llvm.loop !7
 
-286:                                              ; preds = %aria_rot128.exit88
-  %287 = getelementptr inbounds i8, ptr %0, i64 260
-  %288 = load i32, ptr %10, align 16
-  %289 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %288) #10, !srcloc !4
-  br label %290
+298:                                              ; preds = %aria_rot128.exit88
+  %299 = getelementptr inbounds i8, ptr %0, i64 260
+  %300 = load i32, ptr %16, align 16
+  %301 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %300) #10, !srcloc !4
+  br label %302
 
-290:                                              ; preds = %290, %286
-  %indvars.iv.i89 = phi i64 [ 0, %286 ], [ %indvars.iv.next.i92, %290 ]
-  %.02225.i90 = phi i8 [ 0, %286 ], [ %292, %290 ]
-  %.02324.i91 = phi i32 [ %289, %286 ], [ %296, %290 ]
-  %291 = add nuw nsw i8 %.02225.i90, 1
-  %292 = and i8 %291, 3
-  %293 = zext nneg i8 %292 to i64
-  %294 = getelementptr inbounds i32, ptr %10, i64 %293
-  %295 = load i32, ptr %294, align 4
-  %296 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %295) #10, !srcloc !4
-  %297 = tail call i32 @llvm.fshl.i32(i32 %.02324.i91, i32 %296, i32 19)
-  %298 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %297) #10, !srcloc !4
-  %299 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i89
-  %300 = load i32, ptr %299, align 4
-  %301 = xor i32 %300, %298
-  %302 = getelementptr inbounds i32, ptr %287, i64 %indvars.iv.i89
-  store i32 %301, ptr %302, align 4
+302:                                              ; preds = %302, %298
+  %indvars.iv.i89 = phi i64 [ 0, %298 ], [ %indvars.iv.next.i92, %302 ]
+  %.02225.i90 = phi i8 [ 0, %298 ], [ %304, %302 ]
+  %.02324.i91 = phi i32 [ %301, %298 ], [ %308, %302 ]
+  %303 = add nuw nsw i8 %.02225.i90, 1
+  %304 = and i8 %303, 3
+  %305 = zext nneg i8 %304 to i64
+  %306 = getelementptr inbounds i32, ptr %16, i64 %305
+  %307 = load i32, ptr %306, align 4
+  %308 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %307) #10, !srcloc !4
+  %309 = tail call i32 @llvm.fshl.i32(i32 %.02324.i91, i32 %308, i32 19)
+  %310 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %309) #10, !srcloc !4
+  %311 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i89
+  %312 = load i32, ptr %311, align 4
+  %313 = xor i32 %312, %310
+  %314 = getelementptr inbounds i32, ptr %299, i64 %indvars.iv.i89
+  store i32 %313, ptr %314, align 4
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 4
-  br i1 %exitcond.not.i93, label %aria_rot128.exit94, label %290, !llvm.loop !5
+  br i1 %exitcond.not.i93, label %aria_rot128.exit94, label %302, !llvm.loop !5
 
-aria_rot128.exit94:                               ; preds = %290
+aria_rot128.exit94:                               ; preds = %302
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #11
-  br label %303
+  br label %315
 
-303:                                              ; preds = %3, %aria_rot128.exit94
+315:                                              ; preds = %3, %aria_rot128.exit94
   %.0 = phi i32 [ 0, %aria_rot128.exit94 ], [ -92, %3 ]
   ret i32 %.0
 }

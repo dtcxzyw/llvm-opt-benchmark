@@ -76,52 +76,56 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv66 = phi i64 [ %12, %.lr.ph56.preheader ], [ %indvars.iv.next67, %.lr.ph56 ]
   %21 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv66
-  store <2 x float> zeroinitializer, ptr %21, align 4
-  %22 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv66
-  store <2 x float> zeroinitializer, ptr %22, align 4
+  store float 0.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv66, i32 1
+  store float 0.000000e+00, ptr %22, align 4
+  %23 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv66
+  store float 0.000000e+00, ptr %23, align 4
+  %24 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv66, i32 1
+  store float 0.000000e+00, ptr %24, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph56, %.preheader
-  %23 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 0, ptr noundef %8, ptr noundef %8)
-  %24 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 0, ptr noundef %9, ptr noundef %9)
+  %25 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 0, ptr noundef %8, ptr noundef %8)
+  %26 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 0, ptr noundef %9, ptr noundef %9)
   br i1 %10, label %.lr.ph59, label %._crit_edge60.thread
 
 ._crit_edge60.thread:                             ; preds = %._crit_edge
-  %25 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef %8, ptr noundef %8)
+  %27 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef %8, ptr noundef %8)
   br label %._crit_edge64
 
 .lr.ph59:                                         ; preds = %._crit_edge
-  %26 = sitofp i32 %6 to float
+  %28 = sitofp i32 %6 to float
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %wide.trip.count74 = zext nneg i32 %smax to i64
-  br label %27
+  br label %29
 
-27:                                               ; preds = %.lr.ph59, %27
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next72, %27 ]
-  %28 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv71
-  %29 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv71
-  %.val = load float, ptr %29, align 4
-  %30 = getelementptr i8, ptr %29, i64 4
-  %.val37 = load float, ptr %30, align 4
-  %31 = load float, ptr %28, align 4
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
-  %33 = load float, ptr %32, align 4
-  %34 = fmul float %.val37, %33
-  %35 = tail call float @llvm.fmuladd.f32(float %31, float %.val, float %34)
-  %36 = fneg float %.val37
-  %37 = fmul float %.val, %33
-  %38 = tail call float @llvm.fmuladd.f32(float %31, float %36, float %37)
-  store float %38, ptr %32, align 4
-  %39 = fdiv float %35, %26
-  store float %39, ptr %28, align 4
+29:                                               ; preds = %.lr.ph59, %29
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next72, %29 ]
+  %30 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv71
+  %31 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv71
+  %.val = load float, ptr %31, align 4
+  %32 = getelementptr i8, ptr %31, i64 4
+  %.val37 = load float, ptr %32, align 4
+  %33 = load float, ptr %30, align 4
+  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %35 = load float, ptr %34, align 4
+  %36 = fmul float %.val37, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %33, float %.val, float %36)
+  %38 = fneg float %.val37
+  %39 = fmul float %.val, %35
+  %40 = tail call float @llvm.fmuladd.f32(float %33, float %38, float %39)
+  store float %40, ptr %34, align 4
+  %41 = fdiv float %37, %28
+  store float %41, ptr %30, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %._crit_edge60, label %27, !llvm.loop !8
+  br i1 %exitcond75.not, label %._crit_edge60, label %29, !llvm.loop !8
 
-._crit_edge60:                                    ; preds = %27
-  %40 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %8)
+._crit_edge60:                                    ; preds = %29
+  %42 = tail call noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %8)
   br i1 %10, label %.lr.ph63.preheader, label %._crit_edge64
 
 .lr.ph63.preheader:                               ; preds = %._crit_edge60
@@ -130,10 +134,10 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv76 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next77, %.lr.ph63 ]
-  %41 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv76
-  %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds float, ptr %3, i64 %indvars.iv76
-  store float %42, ptr %43, align 4
+  %43 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv76
+  %44 = load float, ptr %43, align 4
+  %45 = getelementptr inbounds float, ptr %3, i64 %indvars.iv76
+  store float %44, ptr %45, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !9

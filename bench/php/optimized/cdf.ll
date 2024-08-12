@@ -270,49 +270,84 @@ cdf_read.exit:                                    ; preds = %16, %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr inbounds i8, ptr %3, i64 24
-  %24 = load <4 x i16>, ptr %23, align 8
-  store <4 x i16> %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  %27 = load i16, ptr %26, align 16
-  store i16 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 34
-  %29 = getelementptr inbounds i8, ptr %3, i64 34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %28, ptr noundef nonnull readonly align 2 dereferenceable(10) %29, i64 10, i1 false)
-  %30 = getelementptr inbounds i8, ptr %1, i64 44
-  %31 = getelementptr inbounds i8, ptr %3, i64 44
-  %32 = load <4 x i32>, ptr %31, align 4
-  store <4 x i32> %32, ptr %30, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 60
-  %34 = getelementptr inbounds i8, ptr %3, i64 60
-  %35 = load <4 x i32>, ptr %34, align 4
-  store <4 x i32> %35, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 76
+  %24 = load i16, ptr %23, align 8
+  store i16 %24, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 26
+  %26 = getelementptr inbounds i8, ptr %3, i64 26
+  %27 = load i16, ptr %26, align 2
+  store i16 %27, ptr %25, align 2
+  %28 = getelementptr inbounds i8, ptr %1, i64 28
+  %29 = getelementptr inbounds i8, ptr %3, i64 28
+  %30 = load i16, ptr %29, align 4
+  store i16 %30, ptr %28, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 30
+  %32 = getelementptr inbounds i8, ptr %3, i64 30
+  %33 = load i16, ptr %32, align 2
+  store i16 %33, ptr %31, align 2
+  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = load i16, ptr %35, align 16
+  store i16 %36, ptr %34, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 34
+  %38 = getelementptr inbounds i8, ptr %3, i64 34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %37, ptr noundef nonnull readonly align 2 dereferenceable(10) %38, i64 10, i1 false)
+  %39 = getelementptr inbounds i8, ptr %1, i64 44
+  %40 = getelementptr inbounds i8, ptr %3, i64 44
+  %41 = load i32, ptr %40, align 4
+  store i32 %41, ptr %39, align 4
+  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds i8, ptr %3, i64 48
+  %44 = load i32, ptr %43, align 16
+  store i32 %44, ptr %42, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 52
+  %46 = getelementptr inbounds i8, ptr %3, i64 52
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr %45, align 4
+  %48 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds i8, ptr %3, i64 56
+  %50 = load i32, ptr %49, align 8
+  store i32 %50, ptr %48, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 60
+  %52 = getelementptr inbounds i8, ptr %3, i64 60
+  %53 = load i32, ptr %52, align 4
+  store i32 %53, ptr %51, align 4
+  %54 = getelementptr inbounds i8, ptr %1, i64 64
+  %55 = getelementptr inbounds i8, ptr %3, i64 64
+  %56 = load i32, ptr %55, align 16
+  store i32 %56, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 68
+  %58 = getelementptr inbounds i8, ptr %3, i64 68
+  %59 = load i32, ptr %58, align 4
+  store i32 %59, ptr %57, align 4
+  %60 = getelementptr inbounds i8, ptr %1, i64 72
+  %61 = getelementptr inbounds i8, ptr %3, i64 72
+  %62 = load i32, ptr %61, align 8
+  store i32 %62, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 76
   %scevgep = getelementptr inbounds i8, ptr %3, i64 76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(436) %36, ptr noundef nonnull align 4 dereferenceable(436) %scevgep, i64 436, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(436) %63, ptr noundef nonnull align 4 dereferenceable(436) %scevgep, i64 436, i1 false)
   tail call void @cdf_swap_header(ptr noundef nonnull %1)
-  %37 = load i64, ptr %1, align 8
-  %.not = icmp eq i64 %37, -2226271756974174256
-  br i1 %.not, label %38, label %cdf_read.exit.thread.sink.split
+  %64 = load i64, ptr %1, align 8
+  %.not = icmp eq i64 %64, -2226271756974174256
+  br i1 %.not, label %65, label %cdf_read.exit.thread.sink.split
 
-38:                                               ; preds = %cdf_read.exit
-  %39 = getelementptr inbounds i8, ptr %1, i64 30
-  %40 = load i16, ptr %39, align 2
-  %41 = icmp ugt i16 %40, 20
-  br i1 %41, label %cdf_read.exit.thread.sink.split, label %42
+65:                                               ; preds = %cdf_read.exit
+  %66 = load i16, ptr %31, align 2
+  %67 = icmp ugt i16 %66, 20
+  br i1 %67, label %cdf_read.exit.thread.sink.split, label %68
 
-42:                                               ; preds = %38
-  %43 = load i16, ptr %25, align 8
-  %44 = icmp ugt i16 %43, 20
-  br i1 %44, label %cdf_read.exit.thread.sink.split, label %cdf_read.exit.thread
+68:                                               ; preds = %65
+  %69 = load i16, ptr %34, align 8
+  %70 = icmp ugt i16 %69, 20
+  br i1 %70, label %cdf_read.exit.thread.sink.split, label %cdf_read.exit.thread
 
-cdf_read.exit.thread.sink.split:                  ; preds = %cdf_read.exit, %38, %42, %10
-  %45 = tail call ptr @__errno_location() #21
-  store i32 22, ptr %45, align 4
+cdf_read.exit.thread.sink.split:                  ; preds = %cdf_read.exit, %65, %68, %10
+  %71 = tail call ptr @__errno_location() #21
+  store i32 22, ptr %71, align 4
   br label %cdf_read.exit.thread
 
-cdf_read.exit.thread:                             ; preds = %cdf_read.exit.thread.sink.split, %16, %13, %42
-  %.0 = phi i32 [ 0, %42 ], [ -1, %13 ], [ -1, %16 ], [ -1, %cdf_read.exit.thread.sink.split ]
+cdf_read.exit.thread:                             ; preds = %cdf_read.exit.thread.sink.split, %16, %13, %68
+  %.0 = phi i32 [ 0, %68 ], [ -1, %13 ], [ -1, %16 ], [ -1, %cdf_read.exit.thread.sink.split ]
   ret i32 %.0
 }
 

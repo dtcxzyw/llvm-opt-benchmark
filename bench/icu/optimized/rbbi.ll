@@ -126,7 +126,13 @@ entry:
   tail call void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 16), ptr %this, align 8
   %fText = getelementptr inbounds i8, ptr %this, i64 480
-  store <4 x i32> <i32 878368812, i32 0, i32 0, i32 144>, ptr %fText, align 8
+  store i32 878368812, ptr %fText, align 8
+  %flags = getelementptr inbounds i8, ptr %this, i64 484
+  store i32 0, ptr %flags, align 4
+  %providerProperties = getelementptr inbounds i8, ptr %this, i64 488
+  store i32 0, ptr %providerProperties, align 8
+  %sizeOfStruct = getelementptr inbounds i8, ptr %this, i64 492
+  store i32 144, ptr %sizeOfStruct, align 4
   %chunkNativeLimit = getelementptr inbounds i8, ptr %this, i64 496
   %fErrorCode = getelementptr inbounds i8, ptr %this, i64 632
   %fBreakCache = getelementptr inbounds i8, ptr %this, i64 648

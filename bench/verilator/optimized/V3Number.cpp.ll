@@ -3598,7 +3598,7 @@ define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull a
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp sgt i32 %5, %1
-  br i1 %.not, label %6, label %47
+  br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3
   %7 = and i32 %1, 31
@@ -3624,55 +3624,59 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %19 = sdiv i32 %1, 32
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %20
-  switch i8 %2, label %42 [
+  switch i8 %2, label %43 [
     i8 48, label %22
     i8 0, label %22
-    i8 49, label %28
-    i8 1, label %28
-    i8 122, label %35
-    i8 2, label %35
+    i8 49, label %29
+    i8 1, label %29
+    i8 122, label %36
+    i8 2, label %36
   ]
 
 22:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
   %23 = xor i32 %8, -1
-  %24 = load <2 x i32>, ptr %21, align 4
-  %25 = insertelement <2 x i32> poison, i32 %23, i64 0
-  %26 = shufflevector <2 x i32> %25, <2 x i32> poison, <2 x i32> zeroinitializer
-  %27 = and <2 x i32> %24, %26
-  store <2 x i32> %27, ptr %21, align 4
-  br label %47
+  %24 = load i32, ptr %21, align 4
+  %25 = and i32 %24, %23
+  store i32 %25, ptr %21, align 4
+  %26 = getelementptr inbounds i8, ptr %21, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, %23
+  store i32 %28, ptr %26, align 4
+  br label %49
 
-28:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
-  %29 = load i32, ptr %21, align 4
-  %30 = or i32 %29, %8
-  store i32 %30, ptr %21, align 4
-  %31 = xor i32 %8, -1
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, %31
-  store i32 %34, ptr %32, align 4
-  br label %47
+29:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
+  %30 = load i32, ptr %21, align 4
+  %31 = or i32 %30, %8
+  store i32 %31, ptr %21, align 4
+  %32 = xor i32 %8, -1
+  %33 = getelementptr inbounds i8, ptr %21, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, %32
+  store i32 %35, ptr %33, align 4
+  br label %49
 
-35:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
-  %36 = xor i32 %8, -1
-  %37 = load i32, ptr %21, align 4
-  %38 = and i32 %37, %36
-  store i32 %38, ptr %21, align 4
-  %39 = getelementptr inbounds i8, ptr %21, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = or i32 %40, %8
-  store i32 %41, ptr %39, align 4
-  br label %47
+36:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
+  %37 = xor i32 %8, -1
+  %38 = load i32, ptr %21, align 4
+  %39 = and i32 %38, %37
+  store i32 %39, ptr %21, align 4
+  %40 = getelementptr inbounds i8, ptr %21, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = or i32 %41, %8
+  store i32 %42, ptr %40, align 4
+  br label %49
 
-42:                                               ; preds = %_ZN12V3NumberData3numEv.exit
-  %43 = load <2 x i32>, ptr %21, align 4
-  %44 = insertelement <2 x i32> poison, i32 %8, i64 0
-  %45 = shufflevector <2 x i32> %44, <2 x i32> poison, <2 x i32> zeroinitializer
-  %46 = or <2 x i32> %43, %45
-  store <2 x i32> %46, ptr %21, align 4
-  br label %47
+43:                                               ; preds = %_ZN12V3NumberData3numEv.exit
+  %44 = load i32, ptr %21, align 4
+  %45 = or i32 %44, %8
+  store i32 %45, ptr %21, align 4
+  %46 = getelementptr inbounds i8, ptr %21, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = or i32 %47, %8
+  store i32 %48, ptr %46, align 4
+  br label %49
 
-47:                                               ; preds = %28, %42, %35, %3, %22
+49:                                               ; preds = %29, %43, %36, %3, %22
   ret void
 }
 
@@ -14587,16 +14591,16 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %32, label %.preheader, label %._crit_edge32
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %33 = phi i32 [ %105, %._crit_edge ], [ %31, %.preheader.lr.ph ]
-  %.01731 = phi i32 [ %106, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %33 = phi i32 [ %107, %._crit_edge ], [ %31, %.preheader.lr.ph ]
+  %.01731 = phi i32 [ %108, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %.01830 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN8V3Number6setBitEic.exit
-  %35 = phi i32 [ %103, %_ZN8V3Number6setBitEic.exit ], [ %33, %.preheader ]
-  %.029 = phi i32 [ %102, %_ZN8V3Number6setBitEic.exit ], [ 0, %.preheader ]
-  %.128 = phi i32 [ %101, %_ZN8V3Number6setBitEic.exit ], [ %.01830, %.preheader ]
+  %35 = phi i32 [ %105, %_ZN8V3Number6setBitEic.exit ], [ %33, %.preheader ]
+  %.029 = phi i32 [ %104, %_ZN8V3Number6setBitEic.exit ], [ 0, %.preheader ]
+  %.128 = phi i32 [ %103, %_ZN8V3Number6setBitEic.exit ], [ %.01830, %.preheader ]
   %36 = load i8, ptr %9, align 4
   %37 = add i8 %36, -1
   %spec.select.i.i.i = icmp ult i8 %37, 2
@@ -14660,66 +14664,70 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %61
   %73 = sdiv i32 %.128, 32
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i22, i64 %74
-  switch i8 %59, label %96 [
+  switch i8 %59, label %97 [
     i8 48, label %76
     i8 0, label %76
-    i8 49, label %82
-    i8 1, label %82
-    i8 122, label %89
-    i8 2, label %89
+    i8 49, label %83
+    i8 1, label %83
+    i8 122, label %90
+    i8 2, label %90
   ]
 
 76:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i, %_ZN12V3NumberData3numEv.exit.i
   %77 = xor i32 %63, -1
-  %78 = load <2 x i32>, ptr %75, align 4
-  %79 = insertelement <2 x i32> poison, i32 %77, i64 0
-  %80 = shufflevector <2 x i32> %79, <2 x i32> poison, <2 x i32> zeroinitializer
-  %81 = and <2 x i32> %78, %80
-  store <2 x i32> %81, ptr %75, align 4
+  %78 = load i32, ptr %75, align 4
+  %79 = and i32 %78, %77
+  store i32 %79, ptr %75, align 4
+  %80 = getelementptr inbounds i8, ptr %75, i64 4
+  %81 = load i32, ptr %80, align 4
+  %82 = and i32 %81, %77
+  store i32 %82, ptr %80, align 4
   br label %_ZN8V3Number6setBitEic.exit
 
-82:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i, %_ZN12V3NumberData3numEv.exit.i
-  %83 = load i32, ptr %75, align 4
-  %84 = or i32 %83, %63
-  store i32 %84, ptr %75, align 4
-  %85 = xor i32 %63, -1
-  %86 = getelementptr inbounds i8, ptr %75, i64 4
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %87, %85
-  store i32 %88, ptr %86, align 4
+83:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i, %_ZN12V3NumberData3numEv.exit.i
+  %84 = load i32, ptr %75, align 4
+  %85 = or i32 %84, %63
+  store i32 %85, ptr %75, align 4
+  %86 = xor i32 %63, -1
+  %87 = getelementptr inbounds i8, ptr %75, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, %86
+  store i32 %89, ptr %87, align 4
   br label %_ZN8V3Number6setBitEic.exit
 
-89:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i, %_ZN12V3NumberData3numEv.exit.i
-  %90 = xor i32 %63, -1
-  %91 = load i32, ptr %75, align 4
-  %92 = and i32 %91, %90
-  store i32 %92, ptr %75, align 4
-  %93 = getelementptr inbounds i8, ptr %75, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = or i32 %94, %63
-  store i32 %95, ptr %93, align 4
+90:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i, %_ZN12V3NumberData3numEv.exit.i
+  %91 = xor i32 %63, -1
+  %92 = load i32, ptr %75, align 4
+  %93 = and i32 %92, %91
+  store i32 %93, ptr %75, align 4
+  %94 = getelementptr inbounds i8, ptr %75, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = or i32 %95, %63
+  store i32 %96, ptr %94, align 4
   br label %_ZN8V3Number6setBitEic.exit
 
-96:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i
-  %97 = load <2 x i32>, ptr %75, align 4
-  %98 = insertelement <2 x i32> poison, i32 %63, i64 0
-  %99 = shufflevector <2 x i32> %98, <2 x i32> poison, <2 x i32> zeroinitializer
-  %100 = or <2 x i32> %97, %99
-  store <2 x i32> %100, ptr %75, align 4
+97:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i
+  %98 = load i32, ptr %75, align 4
+  %99 = or i32 %98, %63
+  store i32 %99, ptr %75, align 4
+  %100 = getelementptr inbounds i8, ptr %75, i64 4
+  %101 = load i32, ptr %100, align 4
+  %102 = or i32 %101, %63
+  store i32 %102, ptr %100, align 4
   br label %_ZN8V3Number6setBitEic.exit
 
-_ZN8V3Number6setBitEic.exit:                      ; preds = %_ZNK8V3Number5bitIsEi.exit, %76, %82, %89, %96
-  %101 = add nsw i32 %.128, 1
-  %102 = add nuw nsw i32 %.029, 1
-  %103 = load i32, ptr %28, align 8
-  %104 = icmp slt i32 %102, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !122
+_ZN8V3Number6setBitEic.exit:                      ; preds = %_ZNK8V3Number5bitIsEi.exit, %76, %83, %90, %97
+  %103 = add nsw i32 %.128, 1
+  %104 = add nuw nsw i32 %.029, 1
+  %105 = load i32, ptr %28, align 8
+  %106 = icmp slt i32 %104, %105
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %_ZN8V3Number6setBitEic.exit, %.preheader
-  %105 = phi i32 [ %33, %.preheader ], [ %103, %_ZN8V3Number6setBitEic.exit ]
-  %.1.lcssa = phi i32 [ %.01830, %.preheader ], [ %101, %_ZN8V3Number6setBitEic.exit ]
-  %106 = add nuw i32 %.01731, 1
-  %exitcond.not = icmp eq i32 %106, %2
+  %107 = phi i32 [ %33, %.preheader ], [ %105, %_ZN8V3Number6setBitEic.exit ]
+  %.1.lcssa = phi i32 [ %.01830, %.preheader ], [ %103, %_ZN8V3Number6setBitEic.exit ]
+  %108 = add nuw i32 %.01731, 1
+  %exitcond.not = icmp eq i32 %108, %2
   br i1 %exitcond.not, label %._crit_edge32, label %.preheader, !llvm.loop !123
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %26
@@ -14809,7 +14817,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br label %48
 
 48:                                               ; preds = %.lr.ph.us, %_ZN8V3Number6setBitEic.exit.us
-  %.045.us = phi i32 [ 0, %.lr.ph.us ], [ %115, %_ZN8V3Number6setBitEic.exit.us ]
+  %.045.us = phi i32 [ 0, %.lr.ph.us ], [ %117, %_ZN8V3Number6setBitEic.exit.us ]
   %49 = load i32, ptr %39, align 8
   %50 = sub nsw i32 %49, %.02747.us
   %51 = icmp slt i32 %.045.us, %50
@@ -14880,7 +14888,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %87 = lshr i32 %55, 5
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i33.us, i64 %88
-  switch i8 %.0.i.us, label %110 [
+  switch i8 %.0.i.us, label %111 [
     i8 48, label %104
     i8 0, label %104
     i8 49, label %97
@@ -14913,24 +14921,28 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
 
 104:                                              ; preds = %_ZN12V3NumberData3numEv.exit.i.us, %_ZN12V3NumberData3numEv.exit.i.us
   %105 = xor i32 %82, -1
-  %106 = load <2 x i32>, ptr %89, align 4
-  %107 = insertelement <2 x i32> poison, i32 %105, i64 0
-  %108 = shufflevector <2 x i32> %107, <2 x i32> poison, <2 x i32> zeroinitializer
-  %109 = and <2 x i32> %106, %108
-  store <2 x i32> %109, ptr %89, align 4
+  %106 = load i32, ptr %89, align 4
+  %107 = and i32 %106, %105
+  store i32 %107, ptr %89, align 4
+  %108 = getelementptr inbounds i8, ptr %89, i64 4
+  %109 = load i32, ptr %108, align 4
+  %110 = and i32 %109, %105
+  store i32 %110, ptr %108, align 4
   br label %_ZN8V3Number6setBitEic.exit.us
 
-110:                                              ; preds = %_ZN12V3NumberData3numEv.exit.i.us
-  %111 = load <2 x i32>, ptr %89, align 4
-  %112 = insertelement <2 x i32> poison, i32 %82, i64 0
-  %113 = shufflevector <2 x i32> %112, <2 x i32> poison, <2 x i32> zeroinitializer
-  %114 = or <2 x i32> %111, %113
-  store <2 x i32> %114, ptr %89, align 4
+111:                                              ; preds = %_ZN12V3NumberData3numEv.exit.i.us
+  %112 = load i32, ptr %89, align 4
+  %113 = or i32 %112, %82
+  store i32 %113, ptr %89, align 4
+  %114 = getelementptr inbounds i8, ptr %89, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = or i32 %115, %82
+  store i32 %116, ptr %114, align 4
   br label %_ZN8V3Number6setBitEic.exit.us
 
-_ZN8V3Number6setBitEic.exit.us:                   ; preds = %110, %104, %97, %90, %_ZNK8V3Number5bitIsEi.exit.us
-  %115 = add nuw nsw i32 %.045.us, 1
-  %exitcond.not = icmp eq i32 %115, %.sroa.speculated37
+_ZN8V3Number6setBitEic.exit.us:                   ; preds = %111, %104, %97, %90, %_ZNK8V3Number5bitIsEi.exit.us
+  %117 = add nuw nsw i32 %.045.us, 1
+  %exitcond.not = icmp eq i32 %117, %.sroa.speculated37
   br i1 %exitcond.not, label %_ZN8V3Number6setBitEic.exit.us..critedge.us_crit_edge, label %48, !llvm.loop !126
 
 _ZN8V3Number6setBitEic.exit.us..critedge.us_crit_edge: ; preds = %_ZN8V3Number6setBitEic.exit.us
@@ -14938,19 +14950,19 @@ _ZN8V3Number6setBitEic.exit.us..critedge.us_crit_edge: ; preds = %_ZN8V3Number6s
   br label %.critedge.us
 
 .split.us:                                        ; preds = %59
-  %116 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
-  %117 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %118 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.79)
-  %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %119) #30
+  %118 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
+  %119 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @.str.79)
+  %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %121) #30
   unreachable
 
 .split50.us:                                      ; preds = %80
-  %120 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 202, i1 noundef zeroext false)
-  %121 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.79)
-  %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull align 1 dereferenceable(1) %44)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %123) #30
+  %122 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 202, i1 noundef zeroext false)
+  %123 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull @.str.79)
+  %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull align 1 dereferenceable(1) %44)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %125) #30
   unreachable
 
 ._crit_edge:                                      ; preds = %.critedge.us, %.lr.ph48, %37
@@ -17360,14 +17372,14 @@ _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDou
   %spec.select.i = select i1 %55, ptr %0, ptr %56
   %57 = load ptr, ptr %1, align 8
   %spec.select.i20 = select i1 %55, ptr %1, ptr %57
-  br i1 %spec.select.i.i, label %.lr.ph.split, label %69
+  br i1 %spec.select.i.i, label %.lr.ph.split, label %72
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %58 = getelementptr inbounds i8, ptr %1, i64 36
   %59 = load i8, ptr %58, align 4
   %60 = add i8 %59, -1
   %spec.select.i.i19 = icmp ult i8 %60, 2
-  br i1 %spec.select.i.i19, label %_ZNK12V3NumberData3numEv.exit.preheader, label %74
+  br i1 %spec.select.i.i19, label %_ZNK12V3NumberData3numEv.exit.preheader, label %77
 
 _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph.split
   %smax = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
@@ -17378,47 +17390,53 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
   %61 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i20, i64 %indvars.iv
-  %63 = load <2 x i32>, ptr %61, align 4
-  %64 = load <2 x i32>, ptr %62, align 4
-  %65 = icmp eq <2 x i32> %63, %64
-  %66 = extractelement <2 x i1> %65, i64 0
-  %67 = extractelement <2 x i1> %65, i64 1
-  %68 = select i1 %66, i1 %67, i1 false
+  %63 = load i32, ptr %61, align 4
+  %64 = load i32, ptr %62, align 4
+  %65 = icmp eq i32 %63, %64
+  %66 = getelementptr inbounds i8, ptr %61, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %62, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %67, %69
+  %71 = select i1 %65, i1 %70, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %68, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %71, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %_ZNK12V3NumberData3numEv.exit, label %.loopexit, !llvm.loop !135
 
-69:                                               ; preds = %.lr.ph
-  %70 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
-  %71 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.79)
-  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %73) #30
+72:                                               ; preds = %.lr.ph
+  %73 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
+  %74 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @.str.79)
+  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %76) #30
   unreachable
 
-74:                                               ; preds = %.lr.ph.split
-  %75 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
-  %76 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.79)
-  %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 1 dereferenceable(1) %58)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %78) #30
+77:                                               ; preds = %.lr.ph.split
+  %78 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
+  %79 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.79)
+  %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull align 1 dereferenceable(1) %58)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %81) #30
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK12V3NumberData3numEv.exit, %.preheader, %46, %_ZNK8V3Number8toDoubleEv.exit18, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.011 = phi i1 [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %45, %_ZNK8V3Number8toDoubleEv.exit18 ], [ false, %46 ], [ true, %.preheader ], [ %68, %_ZNK12V3NumberData3numEv.exit ]
+  %.011 = phi i1 [ %19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %45, %_ZNK8V3Number8toDoubleEv.exit18 ], [ false, %46 ], [ true, %.preheader ], [ %71, %_ZNK12V3NumberData3numEv.exit ]
   ret i1 %.011
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData9ValueAndXeqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #5 comdat align 2 {
-  %3 = load <2 x i32>, ptr %0, align 4
-  %4 = load <2 x i32>, ptr %1, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %1, align 4
+  %5 = icmp eq i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %7, %9
+  %11 = select i1 %5, i1 %10, i1 false
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable

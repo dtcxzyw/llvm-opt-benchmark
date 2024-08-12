@@ -1614,7 +1614,7 @@ _ZNKSt13unordered_mapIPK10AstSenItemPK10AstSenTreeSt4hashIS2_ESt8equal_toIS2_ESa
 
 87:                                               ; preds = %85, %83, %78
   %88 = tail call noundef zeroext i1 @_ZNK10AstSenTree9hasHybridEv(ptr noundef nonnull align 8 dereferenceable(160) %79)
-  br i1 %88, label %89, label %102
+  br i1 %88, label %89, label %103
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %38, align 8
@@ -1624,65 +1624,69 @@ _ZNKSt13unordered_mapIPK10AstSenItemPK10AstSenTreeSt4hashIS2_ESt8equal_toIS2_ESa
   %91 = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %92 = getelementptr inbounds i8, ptr %4, i64 16
+  %93 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %0, i64 192
-  %94 = getelementptr inbounds i8, ptr %0, i64 200
-  %95 = load <2 x ptr>, ptr %93, align 8
-  %96 = load ptr, ptr %93, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %93, align 8
-  store <2 x ptr> %95, ptr %92, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %94, align 8
-  %.not.i.i.i25 = icmp eq ptr %96, null
-  br i1 %.not.i.i.i25, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %97
+  %94 = getelementptr inbounds i8, ptr %0, i64 192
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %92, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 200
+  %97 = load ptr, ptr %96, align 8
+  store ptr %97, ptr %93, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_, ptr %96, align 8
+  %.not.i.i.i25 = icmp eq ptr %95, null
+  br i1 %.not.i.i.i25, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %98
 
-97:                                               ; preds = %89
-  %98 = invoke noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %99
+98:                                               ; preds = %89
+  %99 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %100
 
-99:                                               ; preds = %97
-  %100 = landingpad { ptr, i32 }
+100:                                              ; preds = %98
+  %101 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #23
+  %102 = extractvalue { ptr, i32 } %101, 0
+  call void @__clang_call_terminate(ptr %102) #23
   unreachable
 
-_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit: ; preds = %89, %97
+_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit: ; preds = %89, %98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %114
+  br label %116
 
-102:                                              ; preds = %87
-  %103 = getelementptr inbounds i8, ptr %0, i64 176
+103:                                              ; preds = %87
+  %104 = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %104 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %105 = getelementptr inbounds i8, ptr %0, i64 192
-  %106 = getelementptr inbounds i8, ptr %0, i64 200
-  %107 = load <2 x ptr>, ptr %105, align 8
-  %108 = load ptr, ptr %105, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %105, align 8
-  store <2 x ptr> %107, ptr %104, align 8
-  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_E9_M_invokeERKSt9_Any_dataOS2_, ptr %106, align 8
+  %105 = getelementptr inbounds i8, ptr %3, i64 16
+  %106 = getelementptr inbounds i8, ptr %3, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  %107 = getelementptr inbounds i8, ptr %0, i64 192
+  %108 = load ptr, ptr %107, align 8
+  store ptr %108, ptr %105, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 200
+  %110 = load ptr, ptr %109, align 8
+  store ptr %110, ptr %106, align 8
+  store ptr @_ZNSt17_Function_handlerIFbPK11AstVarScopeEZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_E9_M_invokeERKSt9_Any_dataOS2_, ptr %109, align 8
   %.not.i.i.i26 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i26, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %109
+  br i1 %.not.i.i.i26, label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, label %111
 
-109:                                              ; preds = %102
-  %110 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %111
+111:                                              ; preds = %103
+  %112 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit unwind label %113
 
-111:                                              ; preds = %109
-  %112 = landingpad { ptr, i32 }
+113:                                              ; preds = %111
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #23
+  %115 = extractvalue { ptr, i32 } %114, 0
+  call void @__clang_call_terminate(ptr %115) #23
   unreachable
 
-_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit: ; preds = %102, %109
+_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit: ; preds = %103, %111
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %114
+  br label %116
 
-114:                                              ; preds = %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit
+116:                                              ; preds = %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E0_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit, %_ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS2_E_EENSt9enable_ifIXsrNS4_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES4_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS2_EEEE5valueERS4_E4typeEOSC_.exit
   call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false)
   ret void

@@ -243,75 +243,78 @@ define void @stnode_replace(ptr nocapture noundef %0, i32 noundef %1, ptr nounde
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #13
   %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = load <2 x i64>, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load i16, ptr %9, align 8
-  %11 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %stnode_clear.exit, label %12
+  %.sroa.0.0.copyload = load i64, ptr %7, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = load i16, ptr %8, align 8
+  %10 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %stnode_clear.exit, label %11
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %.not18.i = icmp eq ptr %14, null
-  br i1 %.not18.i, label %stnode_clear.exit, label %15
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %.not18.i = icmp eq ptr %13, null
+  br i1 %.not18.i, label %stnode_clear.exit, label %14
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not19.i = icmp eq ptr %17, null
-  br i1 %.not19.i, label %stnode_clear.exit, label %18
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not19.i = icmp eq ptr %16, null
+  br i1 %.not19.i, label %stnode_clear.exit, label %17
 
-18:                                               ; preds = %15
-  tail call void %14(ptr noundef nonnull %17) #13
+17:                                               ; preds = %14
+  tail call void %13(ptr noundef nonnull %16) #13
   br label %stnode_clear.exit
 
-stnode_clear.exit:                                ; preds = %3, %12, %15, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+stnode_clear.exit:                                ; preds = %3, %11, %14, %17
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %20 = load ptr, ptr %19, align 8
-  tail call void @g_free(ptr noundef %20) #13
-  store ptr null, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void @g_free(ptr noundef %19) #13
+  store ptr null, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = load ptr, ptr %20, align 8
+  tail call void @g_free(ptr noundef %21) #13
+  store ptr null, ptr %20, align 8
+  %22 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %22) #13
-  store ptr null, ptr %21, align 8
-  %23 = load ptr, ptr %4, align 8
-  tail call void @g_free(ptr noundef %23) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %6, ptr %4, align 8
-  store <2 x i64> %8, ptr %7, align 8
-  store i16 0, ptr %9, align 8
-  %24 = icmp eq i32 %1, 0
-  br i1 %24, label %25, label %26
+  store i64 %.sroa.0.0.copyload, ptr %7, align 8
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
+  store i16 0, ptr %8, align 8
+  %23 = icmp eq i32 %1, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %stnode_clear.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  br label %stnode_init.exit
 
 25:                                               ; preds = %stnode_clear.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  %26 = zext i32 %1 to i64
+  %27 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %.not.i9 = icmp eq ptr %30, null
+  br i1 %.not.i9, label %34, label %31
+
+31:                                               ; preds = %25
+  %32 = tail call ptr %30(ptr noundef %2) #13
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %32, ptr %33, align 8
   br label %stnode_init.exit
 
-26:                                               ; preds = %stnode_clear.exit
-  %27 = zext i32 %1 to i64
-  %28 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not.i9 = icmp eq ptr %31, null
-  br i1 %.not.i9, label %35, label %32
-
-32:                                               ; preds = %26
-  %33 = tail call ptr %31(ptr noundef %2) #13
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %33, ptr %34, align 8
+34:                                               ; preds = %25
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %35, align 8
   br label %stnode_init.exit
 
-35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %36, align 8
-  br label %stnode_init.exit
-
-stnode_init.exit:                                 ; preds = %25, %32, %35
-  store i16 %10, ptr %9, align 8
+stnode_init.exit:                                 ; preds = %24, %31, %34
+  store i16 %9, ptr %8, align 8
   ret void
 }
 

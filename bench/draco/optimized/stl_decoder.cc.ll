@@ -212,10 +212,10 @@ define void @_ZN5draco10StlDecoder16DecodeFromBufferEPNS_13DecoderBufferE(ptr de
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.draco::TriangleSoupMeshBuilder", align 8
-  %8 = alloca %"class.draco::VectorD", align 8
-  %9 = alloca %"class.draco::VectorD", align 8
-  %10 = alloca %"class.draco::VectorD", align 8
-  %11 = alloca %"class.draco::VectorD", align 8
+  %8 = alloca %"class.draco::VectorD", align 4
+  %9 = alloca %"class.draco::VectorD", align 4
+  %10 = alloca %"class.draco::VectorD", align 4
+  %11 = alloca %"class.draco::VectorD", align 4
   %12 = alloca %"class.std::unique_ptr", align 8
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 16
@@ -319,161 +319,185 @@ _ZN5draco13DecoderBuffer6DecodeEPvm.exit:         ; preds = %3
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
-  br label %48
+  %44 = getelementptr inbounds i8, ptr %8, i64 4
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds i8, ptr %9, i64 4
+  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %48 = getelementptr inbounds i8, ptr %10, i64 4
+  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = getelementptr inbounds i8, ptr %11, i64 4
+  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  br label %52
 
-48:                                               ; preds = %.lr.ph, %71
-  %.054 = phi i32 [ 0, %.lr.ph ], [ %72, %71 ]
-  %.sroa.12.053 = phi float [ undef, %.lr.ph ], [ %.sroa.12.1, %71 ]
-  %.sroa.3.049 = phi float [ undef, %.lr.ph ], [ %.sroa.3.1, %71 ]
-  %.sroa.6.046 = phi float [ undef, %.lr.ph ], [ %.sroa.6.1, %71 ]
-  %.sroa.9.043 = phi float [ undef, %.lr.ph ], [ %.sroa.9.1, %71 ]
-  %49 = phi <2 x float> [ undef, %.lr.ph ], [ %64, %71 ]
-  %50 = phi <2 x float> [ undef, %.lr.ph ], [ %65, %71 ]
-  %51 = phi <2 x float> [ undef, %.lr.ph ], [ %66, %71 ]
-  %52 = phi <2 x float> [ undef, %.lr.ph ], [ %67, %71 ]
+52:                                               ; preds = %.lr.ph, %63
+  %.054 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
+  %.sroa.12.053 = phi float [ undef, %.lr.ph ], [ %.sroa.12.1, %63 ]
+  %.sroa.11.052 = phi float [ undef, %.lr.ph ], [ %.sroa.11.1, %63 ]
+  %.sroa.036.051 = phi float [ undef, %.lr.ph ], [ %.sroa.036.1, %63 ]
+  %.sroa.2.050 = phi float [ undef, %.lr.ph ], [ %.sroa.2.1, %63 ]
+  %.sroa.3.049 = phi float [ undef, %.lr.ph ], [ %.sroa.3.1, %63 ]
+  %.sroa.4.048 = phi float [ undef, %.lr.ph ], [ %.sroa.4.1, %63 ]
+  %.sroa.5.047 = phi float [ undef, %.lr.ph ], [ %.sroa.5.1, %63 ]
+  %.sroa.6.046 = phi float [ undef, %.lr.ph ], [ %.sroa.6.1, %63 ]
+  %.sroa.7.045 = phi float [ undef, %.lr.ph ], [ %.sroa.7.1, %63 ]
+  %.sroa.8.044 = phi float [ undef, %.lr.ph ], [ %.sroa.8.1, %63 ]
+  %.sroa.9.043 = phi float [ undef, %.lr.ph ], [ %.sroa.9.1, %63 ]
+  %.sroa.10.042 = phi float [ undef, %.lr.ph ], [ %.sroa.10.1, %63 ]
   %53 = load i64, ptr %35, align 8
   %54 = load i64, ptr %14, align 8
   %55 = add i64 %54, 48
   %.not40 = icmp slt i64 %53, %55
   br i1 %.not40, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25, label %56
 
-56:                                               ; preds = %48
+56:                                               ; preds = %52
   %57 = load ptr, ptr %2, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
-  %59 = load <2 x float>, ptr %58, align 1
+  %.sroa.036.0.copyload = load float, ptr %58, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 4
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 12
-  %60 = load <2 x float>, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 16
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 20
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 24
-  %61 = load <2 x float>, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 28
+  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 32
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 36
-  %62 = load <2 x float>, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 40
+  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 44
   %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 1
   store i64 %55, ptr %14, align 8
   br label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25
 
-_ZN5draco13DecoderBuffer6DecodeEPvm.exit25:       ; preds = %48, %56
-  %63 = phi i64 [ %55, %56 ], [ %54, %48 ]
-  %.sroa.9.1 = phi float [ %.sroa.9.0.copyload, %56 ], [ %.sroa.9.043, %48 ]
-  %.sroa.6.1 = phi float [ %.sroa.6.0.copyload, %56 ], [ %.sroa.6.046, %48 ]
-  %.sroa.3.1 = phi float [ %.sroa.3.0.copyload, %56 ], [ %.sroa.3.049, %48 ]
-  %.sroa.12.1 = phi float [ %.sroa.12.0.copyload, %56 ], [ %.sroa.12.053, %48 ]
-  %64 = phi <2 x float> [ %60, %56 ], [ %49, %48 ]
-  %65 = phi <2 x float> [ %61, %56 ], [ %50, %48 ]
-  %66 = phi <2 x float> [ %62, %56 ], [ %51, %48 ]
-  %67 = phi <2 x float> [ %59, %56 ], [ %52, %48 ]
-  %68 = add i64 %63, 2
-  %.not41 = icmp slt i64 %53, %68
-  br i1 %.not41, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26, label %69
+_ZN5draco13DecoderBuffer6DecodeEPvm.exit25:       ; preds = %52, %56
+  %59 = phi i64 [ %55, %56 ], [ %54, %52 ]
+  %.sroa.10.1 = phi float [ %.sroa.10.0.copyload, %56 ], [ %.sroa.10.042, %52 ]
+  %.sroa.9.1 = phi float [ %.sroa.9.0.copyload, %56 ], [ %.sroa.9.043, %52 ]
+  %.sroa.8.1 = phi float [ %.sroa.8.0.copyload, %56 ], [ %.sroa.8.044, %52 ]
+  %.sroa.7.1 = phi float [ %.sroa.7.0.copyload, %56 ], [ %.sroa.7.045, %52 ]
+  %.sroa.6.1 = phi float [ %.sroa.6.0.copyload, %56 ], [ %.sroa.6.046, %52 ]
+  %.sroa.5.1 = phi float [ %.sroa.5.0.copyload, %56 ], [ %.sroa.5.047, %52 ]
+  %.sroa.4.1 = phi float [ %.sroa.4.0.copyload, %56 ], [ %.sroa.4.048, %52 ]
+  %.sroa.3.1 = phi float [ %.sroa.3.0.copyload, %56 ], [ %.sroa.3.049, %52 ]
+  %.sroa.2.1 = phi float [ %.sroa.2.0.copyload, %56 ], [ %.sroa.2.050, %52 ]
+  %.sroa.036.1 = phi float [ %.sroa.036.0.copyload, %56 ], [ %.sroa.036.051, %52 ]
+  %.sroa.11.1 = phi float [ %.sroa.11.0.copyload, %56 ], [ %.sroa.11.052, %52 ]
+  %.sroa.12.1 = phi float [ %.sroa.12.0.copyload, %56 ], [ %.sroa.12.053, %52 ]
+  %60 = add i64 %59, 2
+  %.not41 = icmp slt i64 %53, %60
+  br i1 %.not41, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26, label %61
 
-69:                                               ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25
-  store i64 %68, ptr %14, align 8
+61:                                               ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25
+  store i64 %60, ptr %14, align 8
   br label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26
 
-_ZN5draco13DecoderBuffer6DecodeEPvm.exit26:       ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25, %69
-  store <2 x float> %67, ptr %8, align 8
-  store float %.sroa.3.1, ptr %44, align 8
+_ZN5draco13DecoderBuffer6DecodeEPvm.exit26:       ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit25, %61
+  store float %.sroa.036.1, ptr %8, align 4
+  store float %.sroa.2.1, ptr %44, align 4
+  store float %.sroa.3.1, ptr %45, align 4
   invoke void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFaceEiNS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEPKv(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %43, i32 %.054, ptr noundef nonnull %8)
-          to label %70 unwind label %.loopexit
+          to label %62 unwind label %.loopexit
 
-70:                                               ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26
-  store <2 x float> %64, ptr %9, align 8
-  store float %.sroa.6.1, ptr %45, align 8
-  store <2 x float> %65, ptr %10, align 8
-  store float %.sroa.9.1, ptr %46, align 8
-  store <2 x float> %66, ptr %11, align 8
-  store float %.sroa.12.1, ptr %47, align 8
+62:                                               ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26
+  store float %.sroa.4.1, ptr %9, align 4
+  store float %.sroa.5.1, ptr %46, align 4
+  store float %.sroa.6.1, ptr %47, align 4
+  store float %.sroa.7.1, ptr %10, align 4
+  store float %.sroa.8.1, ptr %48, align 4
+  store float %.sroa.9.1, ptr %49, align 4
+  store float %.sroa.10.1, ptr %11, align 4
+  store float %.sroa.11.1, ptr %50, align 4
+  store float %.sroa.12.1, ptr %51, align 4
   invoke void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEPKvS5_S5_(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %41, i32 %.054, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-          to label %71 unwind label %.loopexit
+          to label %63 unwind label %.loopexit
 
-71:                                               ; preds = %70
-  %72 = add nuw i32 %.054, 1
-  %exitcond.not = icmp eq i32 %72, %.0.copyload38
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !4
+63:                                               ; preds = %62
+  %64 = add nuw i32 %.054, 1
+  %exitcond.not = icmp eq i32 %64, %.0.copyload38
+  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !4
 
-.loopexit:                                        ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26, %70
+.loopexit:                                        ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit26, %62
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %65
 
 .loopexit.split-lp:                               ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit, %40, %42, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %65
 
-73:                                               ; preds = %.loopexit.split-lp, %.loopexit
+65:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %74 = getelementptr inbounds i8, ptr %7, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %.not.i.i30 = icmp eq ptr %75, null
+  %66 = getelementptr inbounds i8, ptr %7, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i30 = icmp eq ptr %67, null
   br i1 %.not.i.i30, label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32, label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i31
 
-._crit_edge:                                      ; preds = %71, %.preheader
+._crit_edge:                                      ; preds = %63, %.preheader
   invoke void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit unwind label %.loopexit.split-lp
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %._crit_edge
   store i32 0, ptr %0, align 8, !alias.scope !6
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #11
-  %77 = getelementptr inbounds i8, ptr %0, i64 40
-  %78 = load i64, ptr %12, align 8
-  store i64 %78, ptr %77, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #11
+  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %70 = load i64, ptr %12, align 8
+  store i64 %70, ptr %69, align 8
   store ptr null, ptr %12, align 8
-  %79 = getelementptr inbounds i8, ptr %7, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %.not.i.i = icmp eq ptr %80, null
+  %71 = getelementptr inbounds i8, ptr %7, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %.not.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(216) %80) #11
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(216) %72) #11
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
-  store ptr null, ptr %79, align 8
-  %84 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i, label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit, label %85
+  store ptr null, ptr %71, align 8
+  %76 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i, label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit, label %77
 
-85:                                               ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %84) #12
+77:                                               ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %76) #12
   br label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit
 
-_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i31: ; preds = %73
-  %86 = load ptr, ptr %75, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(216) %75) #11
+_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i31: ; preds = %65
+  %78 = load ptr, ptr %67, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(216) %67) #11
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32
 
-_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32: ; preds = %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i31, %73
-  store ptr null, ptr %74, align 8
-  %89 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i33, label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit34, label %90
+_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32: ; preds = %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i31, %65
+  store ptr null, ptr %66, align 8
+  %81 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i.i33, label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit34, label %82
 
-90:                                               ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32
-  call void @_ZdlPv(ptr noundef nonnull %89) #12
+82:                                               ; preds = %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32
+  call void @_ZdlPv(ptr noundef nonnull %81) #12
   br label %_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit34
 
-_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit:      ; preds = %85, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i, %25
+_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit:      ; preds = %77, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i, %25
   ret void
 
-_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit34:    ; preds = %90, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32, %.body
-  %.pn19.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %lpad.phi, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32 ], [ %lpad.phi, %90 ]
+_ZN5draco23TriangleSoupMeshBuilderD2Ev.exit34:    ; preds = %82, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32, %.body
+  %.pn19.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %lpad.phi, %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit.i32 ], [ %lpad.phi, %82 ]
   resume { ptr, i32 } %.pn19.pn
 }
 

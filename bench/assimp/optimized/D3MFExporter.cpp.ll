@@ -1505,7 +1505,7 @@ entry:
   %name = alloca %struct.aiString, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %color = alloca %class.aiColor4t, align 16
+  %color = alloca %class.aiColor4t, align 4
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1536,7 +1536,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont87
-  %2 = phi ptr [ %0, %for.body.lr.ph ], [ %19, %invoke.cont87 ]
+  %2 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %invoke.cont87 ]
   %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont87 ]
   %mMaterials = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %mMaterials, align 8
@@ -1604,7 +1604,7 @@ if.else:                                          ; preds = %invoke.cont
           to label %if.end unwind label %lpad.loopexit
 
 if.end:                                           ; preds = %if.else, %invoke.cont8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %color, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %color, i8 0, i64 16, i1 false)
   %call.i1920 = invoke noundef i32 @aiGetMaterialColor(ptr noundef nonnull %4, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %color)
           to label %invoke.cont14 unwind label %lpad.loopexit
 
@@ -1615,25 +1615,27 @@ invoke.cont14:                                    ; preds = %if.end
 if.then17:                                        ; preds = %invoke.cont14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %hexDiffuseColor) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %tmp) #15
-  %7 = load <4 x float>, ptr %color, align 16
-  %.fr = freeze <4 x float> %7
-  %8 = fcmp ugt <4 x float> %.fr, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %9 = bitcast <4 x i1> %8 to i4
-  %10 = icmp eq i4 %9, 0
-  br i1 %10, label %if.then24, label %if.else39
+  %7 = load float, ptr %color, align 4
+  %cmp18 = fcmp ole float %7, 1.000000e+00
+  %8 = load float, ptr %g, align 4
+  %cmp19 = fcmp ole float %8, 1.000000e+00
+  %or.cond = select i1 %cmp18, i1 %cmp19, i1 false
+  %9 = load float, ptr %b, align 4
+  %cmp21 = fcmp ole float %9, 1.000000e+00
+  %or.cond1 = select i1 %or.cond, i1 %cmp21, i1 false
+  %10 = load float, ptr %a, align 4
+  %cmp23 = fcmp ole float %10, 1.000000e+00
+  %or.cond2 = select i1 %or.cond1, i1 %cmp23, i1 false
+  br i1 %or.cond2, label %if.then24, label %if.else39
 
 if.then24:                                        ; preds = %if.then17
-  %11 = extractelement <4 x float> %.fr, i64 0
-  %conv27 = fptosi float %11 to i32
+  %conv27 = fptosi float %7 to i32
   %mul = mul nsw i32 %conv27, 255
-  %12 = extractelement <4 x float> %.fr, i64 1
-  %conv29 = fptosi float %12 to i32
+  %conv29 = fptosi float %8 to i32
   %mul30 = mul nsw i32 %conv29, 255
-  %13 = extractelement <4 x float> %.fr, i64 2
-  %conv32 = fptosi float %13 to i32
+  %conv32 = fptosi float %9 to i32
   %mul33 = mul nsw i32 %conv32, 255
-  %14 = extractelement <4 x float> %.fr, i64 3
-  %conv35 = fptosi float %14 to i32
+  %conv35 = fptosi float %10 to i32
   %mul36 = mul nsw i32 %conv35, 255
   invoke void @_Z11ai_rgba2hexB5cxx11iiiib(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25, i32 noundef %mul, i32 noundef %mul30, i32 noundef %mul33, i32 noundef %mul36, i1 noundef zeroext true)
           to label %invoke.cont37 unwind label %lpad.loopexit
@@ -1648,8 +1650,8 @@ if.else39:                                        ; preds = %if.then17
           to label %invoke.cont40 unwind label %lpad.loopexit
 
 invoke.cont40:                                    ; preds = %if.else39
-  %15 = load float, ptr %color, align 16
-  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp42, float noundef %15)
+  %11 = load float, ptr %color, align 4
+  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp42, float noundef %11)
           to label %invoke.cont44 unwind label %lpad.loopexit
 
 invoke.cont44:                                    ; preds = %invoke.cont40
@@ -1659,8 +1661,8 @@ invoke.cont44:                                    ; preds = %invoke.cont40
           to label %invoke.cont46 unwind label %lpad.loopexit
 
 invoke.cont46:                                    ; preds = %invoke.cont44
-  %16 = load float, ptr %g, align 4
-  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, float noundef %16)
+  %12 = load float, ptr %g, align 4
+  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, float noundef %12)
           to label %invoke.cont50 unwind label %lpad.loopexit
 
 invoke.cont50:                                    ; preds = %invoke.cont46
@@ -1670,8 +1672,8 @@ invoke.cont50:                                    ; preds = %invoke.cont46
           to label %invoke.cont52 unwind label %lpad.loopexit
 
 invoke.cont52:                                    ; preds = %invoke.cont50
-  %17 = load float, ptr %b, align 8
-  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp54, float noundef %17)
+  %13 = load float, ptr %b, align 4
+  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp54, float noundef %13)
           to label %invoke.cont56 unwind label %lpad.loopexit
 
 invoke.cont56:                                    ; preds = %invoke.cont52
@@ -1681,8 +1683,8 @@ invoke.cont56:                                    ; preds = %invoke.cont52
           to label %invoke.cont58 unwind label %lpad.loopexit
 
 invoke.cont58:                                    ; preds = %invoke.cont56
-  %18 = load float, ptr %a, align 4
-  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp60, float noundef %18)
+  %14 = load float, ptr %a, align 4
+  invoke void @_Z18ai_decimal_to_hexaIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp60, float noundef %14)
           to label %invoke.cont62 unwind label %lpad.loopexit
 
 invoke.cont62:                                    ; preds = %invoke.cont58
@@ -1730,56 +1732,56 @@ invoke.cont87:                                    ; preds = %invoke.cont85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #15
   %inc = add nuw nsw i64 %i.036, 1
-  %19 = load ptr, ptr %mScene, align 8
-  %mNumMaterials = getelementptr inbounds i8, ptr %19, i64 32
-  %20 = load i32, ptr %mNumMaterials, align 8
-  %conv = zext i32 %20 to i64
+  %15 = load ptr, ptr %mScene, align 8
+  %mNumMaterials = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = load i32, ptr %mNumMaterials, align 8
+  %conv = zext i32 %16 to i64
   %cmp = icmp ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 lpad78:                                           ; preds = %invoke.cont77
-  %21 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup91
 
 lpad80:                                           ; preds = %invoke.cont79
-  %22 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup90
 
 lpad82:                                           ; preds = %invoke.cont81
-  %23 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup89
 
 lpad84:                                           ; preds = %invoke.cont83
-  %24 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad86:                                           ; preds = %invoke.cont85
-  %25 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad86, %lpad84
-  %.pn = phi { ptr, i32 } [ %25, %lpad86 ], [ %24, %lpad84 ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad86 ], [ %20, %lpad84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #15
   br label %ehcleanup89
 
 ehcleanup89:                                      ; preds = %ehcleanup, %lpad82
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad82 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %19, %lpad82 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #15
   br label %ehcleanup90
 
 ehcleanup90:                                      ; preds = %ehcleanup89, %lpad80
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup89 ], [ %22, %lpad80 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup89 ], [ %18, %lpad80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75) #15
   br label %ehcleanup91
 
 ehcleanup91:                                      ; preds = %ehcleanup90, %lpad78
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup90 ], [ %21, %lpad78 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup90 ], [ %17, %lpad78 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #15
   br label %ehcleanup95
 

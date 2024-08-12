@@ -1006,19 +1006,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %scaled_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %scaled_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load double, ptr %t, align 8
+  %1 = load double, ptr %mScaleValues, align 8
+  %mul = fmul double %0, %1
+  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i5, align 8
+  %mul5 = fmul double %2, %3
   %arrayidx.i6 = getelementptr inbounds i8, ptr %t, i64 16
-  %0 = load double, ptr %arrayidx.i6, align 8
+  %4 = load double, ptr %arrayidx.i6, align 8
   %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i7, align 8
-  %mul8 = fmul double %0, %1
-  %2 = load <2 x double>, ptr %t, align 8
-  %3 = load <2 x double>, ptr %mScaleValues, align 8
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %scaled_trans, align 16
+  %5 = load double, ptr %arrayidx.i7, align 8
+  %mul8 = fmul double %4, %5
+  store double %mul, ptr %scaled_trans, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %scaled_trans, i64 8
+  store double %mul5, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %scaled_trans, i64 16
-  store double %mul8, ptr %arrayidx5.i, align 16
+  store double %mul8, ptr %arrayidx5.i, align 8
   %call9 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call9, ptr noundef nonnull align 8 dereferenceable(24) %mScaleValues, ptr noundef nonnull align 8 dereferenceable(24) %scaled_trans)
           to label %invoke.cont unwind label %lpad
@@ -1031,32 +1038,32 @@ invoke.cont:                                      ; preds = %entry
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #25
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %7) #25
   %vtable.i.i.i.i = load ptr, ptr %call9, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(152) %call9) #25
+  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(152) %call9) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %9, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %10, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #27
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -1074,7 +1081,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   ret void
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call9) #28
   br label %common.resume
@@ -1095,22 +1102,26 @@ invoke.cont17:
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mScaleValues, ptr noundef nonnull align 8 dereferenceable(24) %scale, i64 24, i1 false)
   %mVoxelSize = getelementptr inbounds i8, ptr %this, i64 56
-  %arrayidx.i = getelementptr inbounds i8, ptr %scale, i64 8
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %scale, i64 16
-  %0 = load double, ptr %arrayidx.i9, align 8
+  %0 = load double, ptr %scale, align 8
   %1 = tail call noundef double @llvm.fabs.f64(double %0)
-  %2 = load <2 x double>, ptr %scale, align 8
-  %3 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %2)
-  store <2 x double> %3, ptr %mVoxelSize, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %scale, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %3 = tail call noundef double @llvm.fabs.f64(double %2)
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %scale, i64 16
+  %4 = load double, ptr %arrayidx.i9, align 8
+  %5 = tail call noundef double @llvm.fabs.f64(double %4)
+  store double %1, ptr %mVoxelSize, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 64
+  store double %3, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 72
-  store double %1, ptr %arrayidx5.i, align 8
-  %4 = load double, ptr %scale, align 8
-  %5 = load double, ptr %arrayidx.i, align 8
-  %6 = load double, ptr %arrayidx.i9, align 8
-  %mul = fmul double %4, %5
-  %mul19 = fmul double %mul, %6
-  %7 = tail call noundef double @llvm.fabs.f64(double %mul19)
-  %cmp = fcmp olt double %7, 0x3CEB05876E5B0121
+  store double %5, ptr %arrayidx5.i, align 8
+  %6 = load double, ptr %scale, align 8
+  %7 = load double, ptr %arrayidx.i, align 8
+  %8 = load double, ptr %arrayidx.i9, align 8
+  %mul = fmul double %6, %7
+  %mul19 = fmul double %mul, %8
+  %9 = tail call noundef double @llvm.fabs.f64(double %mul19)
+  %cmp = fcmp olt double %9, 0x3CEB05876E5B0121
   br i1 %cmp, label %if.then, label %invoke.cont45
 
 if.then:                                          ; preds = %invoke.cont17
@@ -1133,20 +1144,20 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br label %try.cont
 
 lpad25:                                           ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad27:                                           ; preds = %invoke.cont28, %invoke.cont26
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #25
   br label %catch
 
 catch:                                            ; preds = %lpad27, %lpad25
-  %.pn = phi { ptr, i32 } [ %9, %lpad27 ], [ %8, %lpad25 ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad27 ], [ %10, %lpad25 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
+  %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad32
 
@@ -1158,31 +1169,42 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad32
 
 lpad32:                                           ; preds = %try.cont, %catch
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #25
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 invoke.cont45:                                    ; preds = %invoke.cont17
+  %14 = load double, ptr %mScaleValues, align 8, !noalias !4
+  %div.i = fdiv double 1.000000e+00, %14
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %15 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !4
+  %div2.i = fdiv double 1.000000e+00, %15
   %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 48
-  %12 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !4
-  %div4.i = fdiv double 1.000000e+00, %12
+  %16 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !4
+  %div4.i = fdiv double 1.000000e+00, %16
   %mScaleValuesInverse37 = getelementptr inbounds i8, ptr %this, i64 80
-  %13 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !4
-  %14 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %13
-  store <2 x double> %14, ptr %mScaleValuesInverse37, align 8
+  store double %div.i, ptr %mScaleValuesInverse37, align 8
+  %ref.tmp34.sroa.2.0.mScaleValuesInverse37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
+  store double %div2.i, ptr %ref.tmp34.sroa.2.0.mScaleValuesInverse37.sroa_idx, align 8
   %ref.tmp34.sroa.3.0.mScaleValuesInverse37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store double %div4.i, ptr %ref.tmp34.sroa.3.0.mScaleValuesInverse37.sroa_idx, align 8
+  %mul.i = fmul double %div.i, %div.i
+  %mul4.i = fmul double %div2.i, %div2.i
   %mul7.i = fmul double %div4.i, %div4.i
   %mInvScaleSqr42 = getelementptr inbounds i8, ptr %this, i64 104
-  %15 = fmul <2 x double> %14, %14
-  store <2 x double> %15, ptr %mInvScaleSqr42, align 8
+  store double %mul.i, ptr %mInvScaleSqr42, align 8
+  %ref.tmp38.sroa.2.0.mInvScaleSqr42.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
+  store double %mul4.i, ptr %ref.tmp38.sroa.2.0.mInvScaleSqr42.sroa_idx, align 8
   %ref.tmp38.sroa.3.0.mInvScaleSqr42.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   store double %mul7.i, ptr %ref.tmp38.sroa.3.0.mInvScaleSqr42.sroa_idx, align 8
+  %div.i.i = fmul double %div.i, 5.000000e-01
+  %div5.i.i = fmul double %div2.i, 5.000000e-01
   %div9.i.i = fmul double %div4.i, 5.000000e-01
   %mInvTwiceScale46 = getelementptr inbounds i8, ptr %this, i64 128
-  %16 = fmul <2 x double> %14, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %16, ptr %mInvTwiceScale46, align 8
+  store double %div.i.i, ptr %mInvTwiceScale46, align 8
+  %ref.tmp43.sroa.4.0.mInvTwiceScale46.sroa_idx = getelementptr inbounds i8, ptr %this, i64 136
+  store double %div5.i.i, ptr %ref.tmp43.sroa.4.0.mInvTwiceScale46.sroa_idx, align 8
   %ref.tmp43.sroa.6.0.mInvTwiceScale46.sroa_idx = getelementptr inbounds i8, ptr %this, i64 144
   store double %div9.i.i, ptr %ref.tmp43.sroa.6.0.mInvTwiceScale46.sroa_idx, align 8
   ret void
@@ -1200,20 +1222,22 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define linkonce_odr void @_ZNK7openvdb5v11_04math15UniformScaleMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load double, ptr %mScaleValues.i, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %t, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %t, i64 24, i1 false)
+  %1 = load double, ptr %ref.tmp, align 8, !alias.scope !7
+  %mul.i.i.i = fmul double %0, %1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %2 = load double, ptr %arrayidx3.i.i.i, align 8, !alias.scope !7
+  %mul4.i.i.i = fmul double %0, %2
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %1 = load double, ptr %arrayidx6.i.i.i, align 16, !alias.scope !7
-  %mul7.i.i.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !7
-  %3 = insertelement <2 x double> poison, double %0, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x double> %4, %2
-  store <2 x double> %5, ptr %ref.tmp, align 16, !alias.scope !7
-  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 16, !alias.scope !7
+  %3 = load double, ptr %arrayidx6.i.i.i, align 8, !alias.scope !7
+  %mul7.i.i.i = fmul double %0, %3
+  store double %mul.i.i.i, ptr %ref.tmp, align 8, !alias.scope !7
+  store double %mul4.i.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !7
+  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 8, !alias.scope !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %0, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -1233,29 +1257,29 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont4
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %7) #25
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %5) #25
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %9, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad ], [ %7, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -1273,7 +1297,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   br label %common.resume
@@ -1432,43 +1456,47 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %0 = load double, ptr %v, align 8, !noalias !12
+  %1 = load double, ptr %mScaleValues, align 8, !noalias !12
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !12
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !12
+  %mul4.i = fmul double %2, %3
   %arrayidx.i.i6.i = getelementptr inbounds i8, ptr %v, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !12
+  %4 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !12
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !12
-  %mul7.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %v, align 8, !noalias !12
-  %3 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !12
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %new_scale, align 16, !alias.scope !12
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !12
+  %mul7.i = fmul double %4, %5
+  store double %mul.i, ptr %new_scale, align 8, !alias.scope !12
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %new_scale, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i, align 8, !alias.scope !12
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %new_scale, i64 16
-  store double %mul7.i, ptr %arrayidx5.i.i, align 16, !alias.scope !12
-  %5 = extractelement <2 x double> %4, i64 0
-  %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %6 = fsub <2 x double> %4, %shift
-  %sub.i.i = extractelement <2 x double> %6, i64 0
-  %7 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i.i = fcmp ule double %7, 1.000000e-15
+  store double %mul7.i, ptr %arrayidx5.i.i, align 8, !alias.scope !12
+  %sub.i.i = fsub double %mul.i, %mul4.i
+  %6 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i.i = fcmp ule double %6, 1.000000e-15
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i4 = fsub double %5, %mul7.i
-  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
-  %cmp.i.i.i5 = fcmp ule double %8, 1.000000e-15
+  %sub.i.i4 = fsub double %mul.i, %mul7.i
+  %7 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %7, 1.000000e-15
   br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store double %5, ptr %ref.tmp.i, align 8
+  store double %mul.i, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %5, ptr %arrayidx3.i.i7, align 8
+  store double %mul.i, ptr %arrayidx3.i.i7, align 8
   %arrayidx5.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %5, ptr %arrayidx5.i.i8, align 8
+  store double %mul.i, ptr %arrayidx5.i.i8, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation)
           to label %invoke.cont12 unwind label %lpad
 
@@ -1482,35 +1510,35 @@ invoke.cont12:                                    ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont12
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = call ptr @__cxa_begin_catch(ptr %10) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #25
   call void @_ZdlPv(ptr noundef nonnull %call10) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume.sink.split:                         ; preds = %lpad15, %lpad
   %call10.sink = phi ptr [ %call10, %lpad ], [ %call13, %lpad15 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %15, %lpad ], [ %23, %lpad15 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %14, %lpad ], [ %22, %lpad15 ]
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad3.i.i.i.i ], [ %19, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #27
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -1528,7 +1556,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -1546,28 +1574,28 @@ invoke.cont16:                                    ; preds = %if.else
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i11
 
 lpad.i.i.i.i11:                                   ; preds = %invoke.cont16
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = call ptr @__cxa_begin_catch(ptr %17) #25
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #25
   %vtable.i.i.i.i = load ptr, ptr %call13, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %19 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(152) %call13) #25
+  %18 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(152) %call13) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i15 unwind label %lpad3.i.i.i.i12
 
 lpad3.i.i.i.i12:                                  ; preds = %lpad.i.i.i.i11
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i13
 
 terminate.lpad.i.i.i.i13:                         ; preds = %lpad3.i.i.i.i12
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #27
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #27
   unreachable
 
 unreachable.i.i.i.i15:                            ; preds = %lpad.i.i.i.i11
@@ -1585,7 +1613,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   br label %return
 
 lpad15:                                           ; preds = %if.else
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -3006,22 +3034,26 @@ invoke.cont14:
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mScaleValues, ptr noundef nonnull align 8 dereferenceable(24) %scale, i64 24, i1 false)
   %mVoxelSize = getelementptr inbounds i8, ptr %this, i64 32
-  %arrayidx.i = getelementptr inbounds i8, ptr %scale, i64 8
-  %arrayidx.i9 = getelementptr inbounds i8, ptr %scale, i64 16
-  %0 = load double, ptr %arrayidx.i9, align 8
+  %0 = load double, ptr %scale, align 8
   %1 = tail call noundef double @llvm.fabs.f64(double %0)
-  %2 = load <2 x double>, ptr %scale, align 8
-  %3 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %2)
-  store <2 x double> %3, ptr %mVoxelSize, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %scale, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %3 = tail call noundef double @llvm.fabs.f64(double %2)
+  %arrayidx.i9 = getelementptr inbounds i8, ptr %scale, i64 16
+  %4 = load double, ptr %arrayidx.i9, align 8
+  %5 = tail call noundef double @llvm.fabs.f64(double %4)
+  store double %1, ptr %mVoxelSize, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 40
+  store double %3, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 48
-  store double %1, ptr %arrayidx5.i, align 8
-  %4 = load double, ptr %scale, align 8
-  %5 = load double, ptr %arrayidx.i, align 8
-  %6 = load double, ptr %arrayidx.i9, align 8
-  %mul = fmul double %4, %5
-  %mul16 = fmul double %mul, %6
-  %7 = tail call noundef double @llvm.fabs.f64(double %mul16)
-  %cmp = fcmp olt double %7, 0x3CEB05876E5B0121
+  store double %5, ptr %arrayidx5.i, align 8
+  %6 = load double, ptr %scale, align 8
+  %7 = load double, ptr %arrayidx.i, align 8
+  %8 = load double, ptr %arrayidx.i9, align 8
+  %mul = fmul double %6, %7
+  %mul16 = fmul double %mul, %8
+  %9 = tail call noundef double @llvm.fabs.f64(double %mul16)
+  %cmp = fcmp olt double %9, 0x3CEB05876E5B0121
   br i1 %cmp, label %if.then, label %invoke.cont42
 
 if.then:                                          ; preds = %invoke.cont14
@@ -3044,20 +3076,20 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   br label %try.cont
 
 lpad22:                                           ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad24:                                           ; preds = %invoke.cont25, %invoke.cont23
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #25
   br label %catch
 
 catch:                                            ; preds = %lpad24, %lpad22
-  %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad24 ], [ %10, %lpad22 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
+  %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad29
 
@@ -3069,31 +3101,42 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad29
 
 lpad29:                                           ; preds = %try.cont, %catch
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #25
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 invoke.cont42:                                    ; preds = %invoke.cont14
+  %14 = load double, ptr %mScaleValues, align 8, !noalias !29
+  %div.i = fdiv double 1.000000e+00, %14
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %15 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !29
+  %div2.i = fdiv double 1.000000e+00, %15
   %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 24
-  %12 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !29
-  %div4.i = fdiv double 1.000000e+00, %12
+  %16 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !29
+  %div4.i = fdiv double 1.000000e+00, %16
   %mScaleValuesInverse34 = getelementptr inbounds i8, ptr %this, i64 56
-  %13 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !29
-  %14 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %13
-  store <2 x double> %14, ptr %mScaleValuesInverse34, align 8
+  store double %div.i, ptr %mScaleValuesInverse34, align 8
+  %ref.tmp31.sroa.2.0.mScaleValuesInverse34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
+  store double %div2.i, ptr %ref.tmp31.sroa.2.0.mScaleValuesInverse34.sroa_idx, align 8
   %ref.tmp31.sroa.3.0.mScaleValuesInverse34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   store double %div4.i, ptr %ref.tmp31.sroa.3.0.mScaleValuesInverse34.sroa_idx, align 8
+  %mul.i = fmul double %div.i, %div.i
+  %mul4.i = fmul double %div2.i, %div2.i
   %mul7.i = fmul double %div4.i, %div4.i
   %mInvScaleSqr39 = getelementptr inbounds i8, ptr %this, i64 80
-  %15 = fmul <2 x double> %14, %14
-  store <2 x double> %15, ptr %mInvScaleSqr39, align 8
+  store double %mul.i, ptr %mInvScaleSqr39, align 8
+  %ref.tmp35.sroa.2.0.mInvScaleSqr39.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
+  store double %mul4.i, ptr %ref.tmp35.sroa.2.0.mInvScaleSqr39.sroa_idx, align 8
   %ref.tmp35.sroa.3.0.mInvScaleSqr39.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store double %mul7.i, ptr %ref.tmp35.sroa.3.0.mInvScaleSqr39.sroa_idx, align 8
+  %div.i.i = fmul double %div.i, 5.000000e-01
+  %div5.i.i = fmul double %div2.i, 5.000000e-01
   %div9.i.i = fmul double %div4.i, 5.000000e-01
   %mInvTwiceScale43 = getelementptr inbounds i8, ptr %this, i64 104
-  %16 = fmul <2 x double> %14, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %16, ptr %mInvTwiceScale43, align 8
+  store double %div.i.i, ptr %mInvTwiceScale43, align 8
+  %ref.tmp40.sroa.4.0.mInvTwiceScale43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
+  store double %div5.i.i, ptr %ref.tmp40.sroa.4.0.mInvTwiceScale43.sroa_idx, align 8
   %ref.tmp40.sroa.6.0.mInvTwiceScale43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   store double %div9.i.i, ptr %ref.tmp40.sroa.6.0.mInvTwiceScale43.sroa_idx, align 8
   ret void
@@ -3404,14 +3447,17 @@ unreachable:                                      ; preds = %try.cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN7openvdb5v11_04math18polarDecompositionINS1_4Mat3IdEEEEbRKT_RS5_S8_j(ptr noundef nonnull align 8 dereferenceable(72) %input, ptr noundef nonnull align 8 dereferenceable(72) %unitary, ptr noundef nonnull align 8 dereferenceable(72) %positive_hermitian, i32 noundef %MAX_ITERATIONS) local_unnamed_addr #3 comdat {
 entry:
-  %unitary_inv = alloca %"class.openvdb::v11_0::math::Mat3", align 16
+  %unitary_inv = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   %ref.tmp = alloca %"class.openvdb::v11_0::math::Mat3", align 8
-  %ref.tmp15 = alloca %"class.openvdb::v11_0::math::Mat3", align 16
+  %ref.tmp15 = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %unitary, ptr noundef nonnull align 8 dereferenceable(72) %input, i64 72, i1 false)
+  %new_unitary.sroa.4.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 8
   %new_unitary.sroa.6.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 16
   %new_unitary.sroa.8.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 24
+  %new_unitary.sroa.10.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 32
   %new_unitary.sroa.12.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 40
   %new_unitary.sroa.14.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 48
+  %new_unitary.sroa.16.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 56
   %new_unitary.sroa.18.0.input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 64
   %arrayidx.i = getelementptr inbounds i8, ptr %unitary, i64 32
   %0 = load double, ptr %arrayidx.i, align 8
@@ -3455,16 +3501,20 @@ do.body.preheader:                                ; preds = %entry
   %arrayidx13.i = getelementptr inbounds i8, ptr %unitary_inv, i64 16
   %arrayidx15.i = getelementptr inbounds i8, ptr %unitary_inv, i64 40
   %arrayidx17.i = getelementptr inbounds i8, ptr %unitary_inv, i64 64
+  %arrayidx5.i.i103 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %arrayidx9.i.i105 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %arrayidx13.i.i107 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
   %arrayidx17.i.i109 = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
+  %arrayidx21.i.i111 = getelementptr inbounds i8, ptr %ref.tmp15, i64 40
   %arrayidx25.i.i113 = getelementptr inbounds i8, ptr %ref.tmp15, i64 48
+  %arrayidx29.i.i115 = getelementptr inbounds i8, ptr %ref.tmp15, i64 56
   %arrayidx33.i.i117 = getelementptr inbounds i8, ptr %ref.tmp15, i64 64
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end19
   %iteration.0 = phi i32 [ %inc, %if.end19 ], [ 0, %do.body.preheader ]
   call void @_ZNK7openvdb5v11_04math4Mat3IdE7inverseEd(ptr nonnull sret(%"class.openvdb::v11_0::math::Mat3") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %unitary, double noundef 0.000000e+00)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %unitary_inv, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %unitary_inv, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, i64 72, i1 false)
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.end.i, %do.body
@@ -3573,72 +3623,89 @@ _ZN7openvdb5v11_04math8lOneNormINS1_4Mat3IdEEEENT_9ValueTypeERKS5_.exit56: ; pre
   %div = fdiv double %mul, %mul6
   %call7 = call double @sqrt(double noundef %div) #25
   %call8 = call double @sqrt(double noundef %call7) #25
+  %ref.tmp11.sroa.0.0.copyload = load double, ptr %unitary, align 8
+  %ref.tmp11.sroa.4.0.copyload = load double, ptr %arrayidx32.i, align 8
   %ref.tmp11.sroa.6.0.copyload = load double, ptr %arrayidx35.i, align 8
+  %ref.tmp11.sroa.8.0.copyload = load double, ptr %arrayidx14.i, align 8
+  %ref.tmp11.sroa.10.0.copyload = load double, ptr %arrayidx.i, align 8
   %ref.tmp11.sroa.12.0.copyload = load double, ptr %arrayidx5.i, align 8
+  %ref.tmp11.sroa.14.0.copyload = load double, ptr %arrayidx12.i, align 8
+  %ref.tmp11.sroa.16.0.copyload = load double, ptr %arrayidx7.i, align 8
   %ref.tmp11.sroa.18.0.copyload = load double, ptr %arrayidx3.i, align 8
+  %mul.i.i.i = fmul double %call8, %ref.tmp11.sroa.0.0.copyload
+  %mul4.i.i.i = fmul double %call8, %ref.tmp11.sroa.4.0.copyload
   %mul7.i.i.i = fmul double %call8, %ref.tmp11.sroa.6.0.copyload
+  %mul10.i.i.i = fmul double %call8, %ref.tmp11.sroa.8.0.copyload
+  %mul13.i.i.i = fmul double %call8, %ref.tmp11.sroa.10.0.copyload
   %mul16.i.i.i = fmul double %call8, %ref.tmp11.sroa.12.0.copyload
+  %mul19.i.i.i = fmul double %call8, %ref.tmp11.sroa.14.0.copyload
+  %mul22.i.i.i = fmul double %call8, %ref.tmp11.sroa.16.0.copyload
   %mul25.i.i.i = fmul double %call8, %ref.tmp11.sroa.18.0.copyload
   %div13 = fdiv double 1.000000e+00, %call8
-  %34 = load <2 x double>, ptr %unitary_inv, align 16
+  %34 = load double, ptr %unitary_inv, align 8, !noalias !42
   %35 = load double, ptr %arrayidx3.i57, align 8, !noalias !42
-  %36 = load double, ptr %arrayidx5.i58, align 16, !noalias !42
-  %37 = load <2 x double>, ptr %arrayidx7.i59, align 8
-  %38 = load double, ptr %arrayidx9.i, align 16, !noalias !42
+  %36 = load double, ptr %arrayidx5.i58, align 8, !noalias !42
+  %37 = load double, ptr %arrayidx7.i59, align 8, !noalias !42
+  %38 = load double, ptr %arrayidx9.i, align 8, !noalias !42
   %39 = load double, ptr %arrayidx11.i, align 8, !noalias !42
-  %40 = load <2 x double>, ptr %arrayidx13.i, align 16
+  %40 = load double, ptr %arrayidx13.i, align 8, !noalias !42
   %41 = load double, ptr %arrayidx15.i, align 8, !noalias !42
-  %42 = load double, ptr %arrayidx17.i, align 16, !noalias !42
+  %42 = load double, ptr %arrayidx17.i, align 8, !noalias !42
+  %mul.i.i.i60 = fmul double %div13, %34
+  %mul4.i.i.i62 = fmul double %div13, %35
   %mul7.i.i.i64 = fmul double %div13, %36
+  %mul10.i.i.i66 = fmul double %div13, %37
+  %mul13.i.i.i68 = fmul double %div13, %38
   %mul16.i.i.i70 = fmul double %div13, %39
+  %mul19.i.i.i72 = fmul double %div13, %40
+  %mul22.i.i.i74 = fmul double %div13, %41
   %mul25.i.i.i76 = fmul double %div13, %42
+  %add.i.i = fadd double %mul.i.i.i, %mul.i.i.i60
+  %add6.i.i = fadd double %mul4.i.i.i, %mul4.i.i.i62
   %add10.i.i = fadd double %mul7.i.i.i, %mul7.i.i.i64
+  %add14.i.i = fadd double %mul10.i.i.i, %mul10.i.i.i66
+  %add18.i.i = fadd double %mul13.i.i.i, %mul13.i.i.i68
   %add22.i.i = fadd double %mul16.i.i.i, %mul16.i.i.i70
+  %add26.i.i = fadd double %mul19.i.i.i, %mul19.i.i.i72
+  %add30.i.i = fadd double %mul22.i.i.i, %mul22.i.i.i74
   %add34.i.i = fadd double %mul25.i.i.i, %mul25.i.i.i76
+  %mul.i.i.i85 = fmul double %add.i.i, 5.000000e-01
+  %mul4.i.i.i87 = fmul double %add6.i.i, 5.000000e-01
   %mul7.i.i.i89 = fmul double %add10.i.i, 5.000000e-01
+  %mul10.i.i.i91 = fmul double %add14.i.i, 5.000000e-01
+  %mul13.i.i.i93 = fmul double %add18.i.i, 5.000000e-01
   %mul16.i.i.i95 = fmul double %add22.i.i, 5.000000e-01
-  %43 = load <2 x double>, ptr %unitary, align 8
-  %44 = load <2 x double>, ptr %arrayidx14.i, align 8
-  %45 = load <2 x double>, ptr %arrayidx12.i, align 8
-  %46 = insertelement <2 x double> poison, double %call8, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = fmul <2 x double> %47, %43
-  %49 = fmul <2 x double> %47, %44
-  %50 = fmul <2 x double> %47, %45
-  %51 = insertelement <2 x double> poison, double %div13, i64 0
-  %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = insertelement <2 x double> %34, double %35, i64 1
-  %54 = fmul <2 x double> %52, %53
-  %55 = insertelement <2 x double> %37, double %38, i64 1
-  %56 = fmul <2 x double> %52, %55
-  %57 = insertelement <2 x double> %40, double %41, i64 1
-  %58 = fmul <2 x double> %52, %57
-  %59 = fadd <2 x double> %48, %54
-  %60 = fadd <2 x double> %49, %56
-  %61 = fadd <2 x double> %50, %58
-  %62 = fmul <2 x double> %59, <double 5.000000e-01, double 5.000000e-01>
-  %63 = fmul <2 x double> %60, <double 5.000000e-01, double 5.000000e-01>
-  %64 = fmul <2 x double> %61, <double 5.000000e-01, double 5.000000e-01>
+  %mul19.i.i.i97 = fmul double %add26.i.i, 5.000000e-01
+  %mul22.i.i.i99 = fmul double %add30.i.i, 5.000000e-01
   %mul25.i.i.i101 = fmul double %add34.i.i, 5.000000e-01
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(72) %unitary, i64 72, i1 false)
-  %65 = load <2 x double>, ptr %ref.tmp15, align 16, !alias.scope !45
-  %66 = fsub <2 x double> %65, %62
-  store <2 x double> %66, ptr %ref.tmp15, align 16, !alias.scope !45
-  %67 = load <2 x double>, ptr %arrayidx9.i.i105, align 16, !alias.scope !45
-  %68 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %69 = insertelement <2 x double> %68, double %mul7.i.i.i89, i64 0
-  %70 = fsub <2 x double> %67, %69
-  store <2 x double> %70, ptr %arrayidx9.i.i105, align 16, !alias.scope !45
-  %71 = load <2 x double>, ptr %arrayidx17.i.i109, align 16, !alias.scope !45
-  %72 = insertelement <2 x double> %68, double %mul16.i.i.i95, i64 1
-  %73 = fsub <2 x double> %71, %72
-  store <2 x double> %73, ptr %arrayidx17.i.i109, align 16, !alias.scope !45
-  %74 = load <2 x double>, ptr %arrayidx25.i.i113, align 16, !alias.scope !45
-  %75 = fsub <2 x double> %74, %64
-  store <2 x double> %75, ptr %arrayidx25.i.i113, align 16, !alias.scope !45
-  %76 = load double, ptr %arrayidx33.i.i117, align 16, !alias.scope !45
-  %sub34.i.i = fsub double %76, %mul25.i.i.i101
-  store double %sub34.i.i, ptr %arrayidx33.i.i117, align 16, !alias.scope !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(72) %unitary, i64 72, i1 false)
+  %43 = load double, ptr %ref.tmp15, align 8, !alias.scope !45
+  %sub.i.i = fsub double %43, %mul.i.i.i85
+  store double %sub.i.i, ptr %ref.tmp15, align 8, !alias.scope !45
+  %44 = load double, ptr %arrayidx5.i.i103, align 8, !alias.scope !45
+  %sub6.i.i = fsub double %44, %mul4.i.i.i87
+  store double %sub6.i.i, ptr %arrayidx5.i.i103, align 8, !alias.scope !45
+  %45 = load double, ptr %arrayidx9.i.i105, align 8, !alias.scope !45
+  %sub10.i.i = fsub double %45, %mul7.i.i.i89
+  store double %sub10.i.i, ptr %arrayidx9.i.i105, align 8, !alias.scope !45
+  %46 = load double, ptr %arrayidx13.i.i107, align 8, !alias.scope !45
+  %sub14.i.i = fsub double %46, %mul10.i.i.i91
+  store double %sub14.i.i, ptr %arrayidx13.i.i107, align 8, !alias.scope !45
+  %47 = load double, ptr %arrayidx17.i.i109, align 8, !alias.scope !45
+  %sub18.i.i = fsub double %47, %mul13.i.i.i93
+  store double %sub18.i.i, ptr %arrayidx17.i.i109, align 8, !alias.scope !45
+  %48 = load double, ptr %arrayidx21.i.i111, align 8, !alias.scope !45
+  %sub22.i.i = fsub double %48, %mul16.i.i.i95
+  store double %sub22.i.i, ptr %arrayidx21.i.i111, align 8, !alias.scope !45
+  %49 = load double, ptr %arrayidx25.i.i113, align 8, !alias.scope !45
+  %sub26.i.i = fsub double %49, %mul19.i.i.i97
+  store double %sub26.i.i, ptr %arrayidx25.i.i113, align 8, !alias.scope !45
+  %50 = load double, ptr %arrayidx29.i.i115, align 8, !alias.scope !45
+  %sub30.i.i = fsub double %50, %mul22.i.i.i99
+  store double %sub30.i.i, ptr %arrayidx29.i.i115, align 8, !alias.scope !45
+  %51 = load double, ptr %arrayidx33.i.i117, align 8, !alias.scope !45
+  %sub34.i.i = fsub double %51, %mul25.i.i.i101
+  store double %sub34.i.i, ptr %arrayidx33.i.i117, align 8, !alias.scope !45
   br label %for.cond1.preheader.i118
 
 for.cond1.preheader.i118:                         ; preds = %for.end.i128, %_ZN7openvdb5v11_04math8lOneNormINS1_4Mat3IdEEEENT_9ValueTypeERKS5_.exit56
@@ -3649,12 +3716,12 @@ for.cond1.preheader.i118:                         ; preds = %for.end.i128, %_ZN7
 for.body3.i121:                                   ; preds = %for.body3.i121, %for.cond1.preheader.i118
   %indvars.iv.i122 = phi i64 [ 0, %for.cond1.preheader.i118 ], [ %indvars.iv.next.i126, %for.body3.i121 ]
   %column_sum.08.i123 = phi double [ 0.000000e+00, %for.cond1.preheader.i118 ], [ %add.i125, %for.body3.i121 ]
-  %77 = mul nuw nsw i64 %indvars.iv.i122, 3
-  %78 = add nuw nsw i64 %77, %indvars.iv15.i119
-  %arrayidx.i.i124 = getelementptr inbounds [9 x double], ptr %ref.tmp15, i64 0, i64 %78
-  %79 = load double, ptr %arrayidx.i.i124, align 8
-  %80 = call double @llvm.fabs.f64(double %79)
-  %add.i125 = fadd double %column_sum.08.i123, %80
+  %52 = mul nuw nsw i64 %indvars.iv.i122, 3
+  %53 = add nuw nsw i64 %52, %indvars.iv15.i119
+  %arrayidx.i.i124 = getelementptr inbounds [9 x double], ptr %ref.tmp15, i64 0, i64 %53
+  %54 = load double, ptr %arrayidx.i.i124, align 8
+  %55 = call double @llvm.fabs.f64(double %54)
+  %add.i125 = fadd double %column_sum.08.i123, %55
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i122, 1
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, 3
   br i1 %exitcond.not.i127, label %for.end.i128, label %for.body3.i121, !llvm.loop !38
@@ -3667,11 +3734,14 @@ for.end.i128:                                     ; preds = %for.body3.i121
   br i1 %exitcond18.not.i132, label %_ZN7openvdb5v11_04math13lInfinityNormINS1_4Mat3IdEEEENT_9ValueTypeERKS5_.exit133, label %for.cond1.preheader.i118, !llvm.loop !39
 
 _ZN7openvdb5v11_04math13lInfinityNormINS1_4Mat3IdEEEENT_9ValueTypeERKS5_.exit133: ; preds = %for.end.i128
-  store <2 x double> %62, ptr %unitary, align 8
+  store double %mul.i.i.i85, ptr %unitary, align 8
+  store double %mul4.i.i.i87, ptr %arrayidx32.i, align 8
   store double %mul7.i.i.i89, ptr %arrayidx35.i, align 8
-  store <2 x double> %63, ptr %arrayidx14.i, align 8
+  store double %mul10.i.i.i91, ptr %arrayidx14.i, align 8
+  store double %mul13.i.i.i93, ptr %arrayidx.i, align 8
   store double %mul16.i.i.i95, ptr %arrayidx5.i, align 8
-  store <2 x double> %64, ptr %arrayidx12.i, align 8
+  store double %mul19.i.i.i97, ptr %arrayidx12.i, align 8
+  store double %mul22.i.i.i99, ptr %arrayidx7.i, align 8
   store double %mul25.i.i.i101, ptr %arrayidx3.i, align 8
   %cmp17 = icmp ugt i32 %iteration.0, %MAX_ITERATIONS
   br i1 %cmp17, label %return, label %if.end19
@@ -3682,57 +3752,59 @@ if.end19:                                         ; preds = %_ZN7openvdb5v11_04m
   br i1 %cmp21, label %do.body, label %do.end, !llvm.loop !48
 
 do.end:                                           ; preds = %if.end19
-  %81 = load double, ptr %new_unitary.sroa.6.0.input.sroa_idx, align 8, !noalias !49
-  %82 = load double, ptr %new_unitary.sroa.12.0.input.sroa_idx, align 8, !noalias !49
-  %83 = load double, ptr %new_unitary.sroa.18.0.input.sroa_idx, align 8, !noalias !49
-  %mul77.i.i = fmul double %mul16.i.i.i95, %82
-  %84 = call double @llvm.fmuladd.f64(double %mul7.i.i.i89, double %81, double %mul77.i.i)
-  %85 = call double @llvm.fmuladd.f64(double %mul25.i.i.i101, double %83, double %84)
-  %86 = load <2 x double>, ptr %input, align 8, !noalias !49
-  %87 = load <2 x double>, ptr %new_unitary.sroa.8.0.input.sroa_idx, align 8, !noalias !49
-  %88 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x double> %88, %87
-  %90 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> zeroinitializer
-  %91 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %90, <2 x double> %86, <2 x double> %89)
-  %92 = load <2 x double>, ptr %new_unitary.sroa.14.0.input.sroa_idx, align 8, !noalias !49
-  %93 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %93, <2 x double> %92, <2 x double> %91)
-  store <2 x double> %94, ptr %positive_hermitian, align 8
+  %56 = load double, ptr %input, align 8, !noalias !49
+  %57 = load double, ptr %new_unitary.sroa.8.0.input.sroa_idx, align 8, !noalias !49
+  %mul6.i.i = fmul double %mul10.i.i.i91, %57
+  %58 = call double @llvm.fmuladd.f64(double %mul.i.i.i85, double %56, double %mul6.i.i)
+  %59 = load double, ptr %new_unitary.sroa.14.0.input.sroa_idx, align 8, !noalias !49
+  %60 = call double @llvm.fmuladd.f64(double %mul19.i.i.i97, double %59, double %58)
+  %61 = load double, ptr %new_unitary.sroa.4.0.input.sroa_idx, align 8, !noalias !49
+  %62 = load double, ptr %new_unitary.sroa.10.0.input.sroa_idx, align 8, !noalias !49
+  %mul14.i.i = fmul double %mul10.i.i.i91, %62
+  %63 = call double @llvm.fmuladd.f64(double %mul.i.i.i85, double %61, double %mul14.i.i)
+  %64 = load double, ptr %new_unitary.sroa.16.0.input.sroa_idx, align 8, !noalias !49
+  %65 = call double @llvm.fmuladd.f64(double %mul19.i.i.i97, double %64, double %63)
+  %66 = load double, ptr %new_unitary.sroa.6.0.input.sroa_idx, align 8, !noalias !49
+  %67 = load double, ptr %new_unitary.sroa.12.0.input.sroa_idx, align 8, !noalias !49
+  %mul23.i.i = fmul double %mul10.i.i.i91, %67
+  %68 = call double @llvm.fmuladd.f64(double %mul.i.i.i85, double %66, double %mul23.i.i)
+  %69 = load double, ptr %new_unitary.sroa.18.0.input.sroa_idx, align 8, !noalias !49
+  %70 = call double @llvm.fmuladd.f64(double %mul19.i.i.i97, double %69, double %68)
+  %mul32.i.i = fmul double %mul13.i.i.i93, %57
+  %71 = call double @llvm.fmuladd.f64(double %mul4.i.i.i87, double %56, double %mul32.i.i)
+  %72 = call double @llvm.fmuladd.f64(double %mul22.i.i.i99, double %59, double %71)
+  %mul41.i.i = fmul double %mul13.i.i.i93, %62
+  %73 = call double @llvm.fmuladd.f64(double %mul4.i.i.i87, double %61, double %mul41.i.i)
+  %74 = call double @llvm.fmuladd.f64(double %mul22.i.i.i99, double %64, double %73)
+  %mul50.i.i = fmul double %mul13.i.i.i93, %67
+  %75 = call double @llvm.fmuladd.f64(double %mul4.i.i.i87, double %66, double %mul50.i.i)
+  %76 = call double @llvm.fmuladd.f64(double %mul22.i.i.i99, double %69, double %75)
+  %mul59.i.i = fmul double %mul16.i.i.i95, %57
+  %77 = call double @llvm.fmuladd.f64(double %mul7.i.i.i89, double %56, double %mul59.i.i)
+  %78 = call double @llvm.fmuladd.f64(double %mul25.i.i.i101, double %59, double %77)
+  %mul68.i.i = fmul double %mul16.i.i.i95, %62
+  %79 = call double @llvm.fmuladd.f64(double %mul7.i.i.i89, double %61, double %mul68.i.i)
+  %80 = call double @llvm.fmuladd.f64(double %mul25.i.i.i101, double %64, double %79)
+  %mul77.i.i = fmul double %mul16.i.i.i95, %67
+  %81 = call double @llvm.fmuladd.f64(double %mul7.i.i.i89, double %66, double %mul77.i.i)
+  %82 = call double @llvm.fmuladd.f64(double %mul25.i.i.i101, double %69, double %81)
+  store double %60, ptr %positive_hermitian, align 8
+  %ref.tmp22.sroa.4.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 8
+  store double %65, ptr %ref.tmp22.sroa.4.0.positive_hermitian.sroa_idx, align 8
   %ref.tmp22.sroa.7.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 16
-  %95 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %96 = insertelement <2 x double> %95, double %82, i64 0
-  %97 = fmul <2 x double> %63, %96
-  %98 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %99 = insertelement <2 x double> %98, double %81, i64 0
-  %100 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %62, <2 x double> %99, <2 x double> %97)
-  %101 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %102 = insertelement <2 x double> %101, double %83, i64 0
-  %103 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %64, <2 x double> %102, <2 x double> %100)
-  store <2 x double> %103, ptr %ref.tmp22.sroa.7.0.positive_hermitian.sroa_idx, align 8
+  store double %70, ptr %ref.tmp22.sroa.7.0.positive_hermitian.sroa_idx, align 8
+  %ref.tmp22.sroa.10.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 24
+  store double %72, ptr %ref.tmp22.sroa.10.0.positive_hermitian.sroa_idx, align 8
   %ref.tmp22.sroa.13.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 32
-  %104 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %105 = insertelement <2 x double> %95, double %82, i64 1
-  %106 = fmul <2 x double> %104, %105
-  %107 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %108 = insertelement <2 x double> %98, double %81, i64 1
-  %109 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %107, <2 x double> %108, <2 x double> %106)
-  %110 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %111 = insertelement <2 x double> %101, double %83, i64 1
-  %112 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %110, <2 x double> %111, <2 x double> %109)
-  store <2 x double> %112, ptr %ref.tmp22.sroa.13.0.positive_hermitian.sroa_idx, align 8
+  store double %74, ptr %ref.tmp22.sroa.13.0.positive_hermitian.sroa_idx, align 8
+  %ref.tmp22.sroa.16.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 40
+  store double %76, ptr %ref.tmp22.sroa.16.0.positive_hermitian.sroa_idx, align 8
   %ref.tmp22.sroa.19.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 48
-  %113 = insertelement <2 x double> poison, double %mul16.i.i.i95, i64 0
-  %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> zeroinitializer
-  %115 = fmul <2 x double> %114, %87
-  %116 = insertelement <2 x double> poison, double %mul7.i.i.i89, i64 0
-  %117 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> zeroinitializer
-  %118 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %117, <2 x double> %86, <2 x double> %115)
-  %119 = insertelement <2 x double> poison, double %mul25.i.i.i101, i64 0
-  %120 = shufflevector <2 x double> %119, <2 x double> poison, <2 x i32> zeroinitializer
-  %121 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %120, <2 x double> %92, <2 x double> %118)
-  store <2 x double> %121, ptr %ref.tmp22.sroa.19.0.positive_hermitian.sroa_idx, align 8
+  store double %78, ptr %ref.tmp22.sroa.19.0.positive_hermitian.sroa_idx, align 8
+  %ref.tmp22.sroa.22.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 56
+  store double %80, ptr %ref.tmp22.sroa.22.0.positive_hermitian.sroa_idx, align 8
   %ref.tmp22.sroa.25.0.positive_hermitian.sroa_idx = getelementptr inbounds i8, ptr %positive_hermitian, i64 64
-  store double %85, ptr %ref.tmp22.sroa.25.0.positive_hermitian.sroa_idx, align 8
+  store double %82, ptr %ref.tmp22.sroa.25.0.positive_hermitian.sroa_idx, align 8
   br label %return
 
 return:                                           ; preds = %_ZN7openvdb5v11_04math13lInfinityNormINS1_4Mat3IdEEEENT_9ValueTypeERKS5_.exit133, %entry, %do.end
@@ -4069,17 +4141,19 @@ lpad6:                                            ; preds = %try.cont, %catch
 
 if.end:                                           ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %m, i64 96
-  %8 = load <2 x double>, ptr %arrayidx.i, align 8, !noalias !55
+  %8 = load double, ptr %arrayidx.i, align 8, !noalias !55
+  %arrayidx3.i = getelementptr inbounds i8, ptr %m, i64 104
+  %9 = load double, ptr %arrayidx3.i, align 8, !noalias !55
   %arrayidx5.i = getelementptr inbounds i8, ptr %m, i64 112
-  %9 = load double, ptr %arrayidx5.i, align 8, !noalias !55
+  %10 = load double, ptr %arrayidx5.i, align 8, !noalias !55
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %if.end
   %indvar.i = phi i64 [ 0, %if.end ], [ %indvar.next.i, %for.cond2.preheader.i ]
-  %10 = mul nuw nsw i64 %indvar.i, 24
-  %scevgep.i = getelementptr i8, ptr %ref.tmp9, i64 %10
-  %11 = shl nuw nsw i64 %indvar.i, 5
-  %scevgep9.i = getelementptr i8, ptr %m, i64 %11
+  %11 = mul nuw nsw i64 %indvar.i, 24
+  %scevgep.i = getelementptr i8, ptr %ref.tmp9, i64 %11
+  %12 = shl nuw nsw i64 %indvar.i, 5
+  %scevgep9.i = getelementptr i8, ptr %m, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i, i64 24, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3
@@ -4087,42 +4161,44 @@ for.cond2.preheader.i:                            ; preds = %for.cond2.preheader
 
 invoke.cont11:                                    ; preds = %for.cond2.preheader.i
   call void @_ZN7openvdb5v11_04math24createPolarDecomposedMapERKNS1_4Mat3IdEE(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %polar, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp9)
-  %12 = load ptr, ptr %polar, align 8
+  %13 = load ptr, ptr %polar, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math10UnitaryMapE, i64 16), ptr %rotationAndTranslate, align 8
   %mAffineMap.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math9AffineMapE, i64 16), ptr %mAffineMap.i.i, align 8
   %mMatrix.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 16
-  %mMatrix2.i.i.i = getelementptr inbounds i8, ptr %12, i64 1664
+  %mMatrix2.i.i.i = getelementptr inbounds i8, ptr %13, i64 1664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %mMatrix2.i.i.i, i64 128, i1 false)
   %mMatrixInv.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 144
-  %mMatrixInv3.i.i.i = getelementptr inbounds i8, ptr %12, i64 1792
+  %mMatrixInv3.i.i.i = getelementptr inbounds i8, ptr %13, i64 1792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %mMatrixInv.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %mMatrixInv3.i.i.i, i64 128, i1 false)
   %mJacobianInv.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 272
-  %mJacobianInv4.i.i.i = getelementptr inbounds i8, ptr %12, i64 1920
+  %mJacobianInv4.i.i.i = getelementptr inbounds i8, ptr %13, i64 1920
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i.i.i, i64 72, i1 false)
   %mDeterminant.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 344
-  %mDeterminant5.i.i.i = getelementptr inbounds i8, ptr %12, i64 1992
-  %13 = load double, ptr %mDeterminant5.i.i.i, align 8
-  store double %13, ptr %mDeterminant.i.i.i, align 8
+  %mDeterminant5.i.i.i = getelementptr inbounds i8, ptr %13, i64 1992
+  %14 = load double, ptr %mDeterminant5.i.i.i, align 8
+  store double %14, ptr %mDeterminant.i.i.i, align 8
   %mVoxelSize.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 352
-  %mVoxelSize6.i.i.i = getelementptr inbounds i8, ptr %12, i64 2000
+  %mVoxelSize6.i.i.i = getelementptr inbounds i8, ptr %13, i64 2000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i.i.i, i64 24, i1 false)
   %mIsDiagonal.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 376
-  %mIsDiagonal7.i.i.i = getelementptr inbounds i8, ptr %12, i64 2024
-  %14 = load i8, ptr %mIsDiagonal7.i.i.i, align 8
-  %frombool.i.i.i = and i8 %14, 1
+  %mIsDiagonal7.i.i.i = getelementptr inbounds i8, ptr %13, i64 2024
+  %15 = load i8, ptr %mIsDiagonal7.i.i.i, align 8
+  %frombool.i.i.i = and i8 %15, 1
   store i8 %frombool.i.i.i, ptr %mIsDiagonal.i.i.i, align 8
   %mIsIdentity.i.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 377
-  %mIsIdentity8.i.i.i = getelementptr inbounds i8, ptr %12, i64 2025
-  %15 = load i8, ptr %mIsIdentity8.i.i.i, align 1
-  %frombool10.i.i.i = and i8 %15, 1
+  %mIsIdentity8.i.i.i = getelementptr inbounds i8, ptr %13, i64 2025
+  %16 = load i8, ptr %mIsIdentity8.i.i.i, align 1
+  %frombool10.i.i.i = and i8 %16, 1
   store i8 %frombool10.i.i.i, ptr %mIsIdentity.i.i.i, align 1
   %mSecondMap.i8 = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math14TranslationMapE, i64 16), ptr %mSecondMap.i8, align 8
   %mTranslation.i.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 392
-  store <2 x double> %8, ptr %mTranslation.i.i, align 8
+  store double %8, ptr %mTranslation.i.i, align 8
+  %translate.sroa.3.8.mTranslation.i.i.sroa_idx = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 400
+  store double %9, ptr %translate.sroa.3.8.mTranslation.i.i.sroa_idx, align 8
   %translate.sroa.4.8.mTranslation.i.i.sroa_idx = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 408
-  store double %9, ptr %translate.sroa.4.8.mTranslation.i.i.sroa_idx, align 8
+  store double %10, ptr %translate.sroa.4.8.mTranslation.i.i.sroa_idx, align 8
   %mAffineMap.i = getelementptr inbounds i8, ptr %rotationAndTranslate, i64 416
   invoke void @_ZN7openvdb5v11_04math9AffineMapC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %mAffineMap.i)
           to label %.noexc unwind label %lpad14
@@ -4136,7 +4212,7 @@ invoke.cont17:                                    ; preds = %.noexc
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  invoke void @_ZN7openvdb5v11_04math11CompoundMapINS2_INS2_INS1_10UnitaryMapENS1_8ScaleMapEEES3_EENS2_IS3_NS1_14TranslationMapEEEEC2ERKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(2816) %call20, ptr noundef nonnull align 8 dereferenceable(1648) %12, ptr noundef nonnull align 8 dereferenceable(792) %rotationAndTranslate)
+  invoke void @_ZN7openvdb5v11_04math11CompoundMapINS2_INS2_INS1_10UnitaryMapENS1_8ScaleMapEEES3_EENS2_IS3_NS1_14TranslationMapEEEEC2ERKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(2816) %call20, ptr noundef nonnull align 8 dereferenceable(1648) %13, ptr noundef nonnull align 8 dereferenceable(792) %rotationAndTranslate)
           to label %invoke.cont25 unwind label %lpad22
 
 invoke.cont25:                                    ; preds = %invoke.cont19
@@ -4147,25 +4223,25 @@ invoke.cont25:                                    ; preds = %invoke.cont19
           to label %invoke.cont26 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont25
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = call ptr @__cxa_begin_catch(ptr %17) #25
+  %18 = extractvalue { ptr, i32 } %17, 0
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #25
   call void @_ZdlPv(ptr noundef nonnull %call20) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup27 unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #27
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -4181,99 +4257,99 @@ invoke.cont26:                                    ; preds = %invoke.cont25
   store ptr %call20, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
   %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %polar, i64 8
-  %22 = load ptr, ptr %_M_refcount.i.i10, align 8
-  %cmp.not.i.i.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %_M_refcount.i.i10, align 8
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont26
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %23, 4294967297
-  %24 = trunc i64 %23 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %24, 4294967297
+  %25 = trunc i64 %24 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %22, align 8
+  %vtable.i.i.i.i = load ptr, ptr %23, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %25 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %22) #25
+  %26 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %26 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %26, 0
+  %27 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %24, -1
+  %add.i.i.i.i.i = add nsw i32 %25, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %27 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %28 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %24, %if.then.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %25, %if.then.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %22, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %23, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %28 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %22) #25
-  %_M_weak_count.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %22, i64 12
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %29, 0
+  %29 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %23) #25
+  %_M_weak_count.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %23, i64 12
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %30 = load i32, ptr %_M_weak_count.i.i.i.i.i.i11, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %30, -1
+  %31 = load i32, ptr %_M_weak_count.i.i.i.i.i.i11, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %31, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i11, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %31 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i11, i32 -1 acq_rel, align 4
+  %32 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i11, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %30, %if.then.i.i.i.i.i.i.i ], [ %31, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %31, %if.then.i.i.i.i.i.i.i ], [ %32, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %22, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %23, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %32 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #25
+  %33 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %23) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev.exit: ; preds = %invoke.cont26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 
 lpad14:                                           ; preds = %.noexc, %invoke.cont11
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup27
-
-lpad18:                                           ; preds = %invoke.cont17
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup27
 
-lpad22:                                           ; preds = %invoke.cont19
+lpad18:                                           ; preds = %invoke.cont17
   %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup27
+
+lpad22:                                           ; preds = %invoke.cont19
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call20) #28
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %lpad22, %lpad3.i.i.i.i, %lpad18, %lpad14
-  %.pn3.pn = phi { ptr, i32 } [ %33, %lpad14 ], [ %35, %lpad22 ], [ %34, %lpad18 ], [ %19, %lpad3.i.i.i.i ]
+  %.pn3.pn = phi { ptr, i32 } [ %34, %lpad14 ], [ %36, %lpad22 ], [ %35, %lpad18 ], [ %20, %lpad3.i.i.i.i ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math11CompoundMapINS3_INS3_INS2_10UnitaryMapENS2_8ScaleMapEEES4_EES4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %polar) #25
   br label %eh.resume
 
@@ -4581,9 +4657,9 @@ entry:
   %ref.tmp.i80 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %ref.tmp.i18 = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %scale = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %translate = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %scale22 = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %scale = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %translate = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %scale22 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %0 = load ptr, ptr %affine, align 8
   %mIsDiagonal.i.i = getelementptr inbounds i8, ptr %0, i64 368
   %1 = load i8, ptr %mIsDiagonal.i.i, align 8
@@ -4594,52 +4670,62 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %2 = load double, ptr %mMatrix.i, align 8, !noalias !65
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 72
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 104
-  %arrayidx18.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %2 = load double, ptr %arrayidx18.i.i, align 8, !noalias !65
-  %arrayidx20.i.i = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = load double, ptr %arrayidx20.i.i, align 8, !noalias !65
+  %3 = load double, ptr %arrayidx3.i.i, align 8, !noalias !65
   %4 = fadd double %2, %3
-  %arrayidx23.i.i = getelementptr inbounds i8, ptr %0, i64 88
-  %5 = load double, ptr %arrayidx23.i.i, align 8, !noalias !65
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = load double, ptr %arrayidx6.i.i, align 8, !noalias !65
   %6 = fadd double %5, %4
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = load double, ptr %arrayidx7.i.i, align 8, !noalias !65
+  %add.i.i = fadd double %6, %7
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load double, ptr %arrayidx9.i.i, align 8, !noalias !65
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = load double, ptr %arrayidx11.i.i, align 8, !noalias !65
+  %10 = fadd double %8, %9
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = load double, ptr %arrayidx14.i.i, align 8, !noalias !65
+  %12 = fadd double %11, %10
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = load double, ptr %arrayidx15.i.i, align 8, !noalias !65
+  %add16.i.i = fadd double %13, %12
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load double, ptr %arrayidx18.i.i, align 8, !noalias !65
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load double, ptr %arrayidx20.i.i, align 8, !noalias !65
+  %16 = fadd double %14, %15
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = load double, ptr %arrayidx23.i.i, align 8, !noalias !65
+  %18 = fadd double %17, %16
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %0, i64 120
-  %7 = load double, ptr %arrayidx24.i.i, align 8, !noalias !65
-  %add25.i.i = fadd double %7, %6
-  %8 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !65
-  %9 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !65
-  %10 = fadd <2 x double> %8, %9
-  %11 = load <2 x double>, ptr %arrayidx6.i.i, align 8, !noalias !65
-  %12 = fadd <2 x double> %11, %10
-  %13 = load <2 x double>, ptr %arrayidx7.i.i, align 8, !noalias !65
-  %14 = fadd <2 x double> %12, %13
-  store <2 x double> %14, ptr %scale, align 16, !alias.scope !65
+  %19 = load double, ptr %arrayidx24.i.i, align 8, !noalias !65
+  %add25.i.i = fadd double %19, %18
+  store double %add.i.i, ptr %scale, align 8, !alias.scope !65
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %scale, i64 8
+  store double %add16.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !65
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %scale, i64 16
-  store double %add25.i.i, ptr %arrayidx5.i.i.i, align 16, !alias.scope !65
-  %15 = extractelement <2 x double> %14, i64 0
-  %shift = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fsub <2 x double> %14, %shift
-  %sub.i.i = extractelement <2 x double> %16, i64 0
-  %17 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i.i = fcmp ule double %17, 1.000000e-15
+  store double %add25.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !65
+  %sub.i.i = fsub double %add.i.i, %add16.i.i
+  %20 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i.i = fcmp ule double %20, 1.000000e-15
   br i1 %cmp.i.i.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %sub.i.i4 = fsub double %15, %add25.i.i
-  %18 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
-  %cmp.i.i.i5 = fcmp ule double %18, 1.000000e-15
+  %sub.i.i4 = fsub double %add.i.i, %add25.i.i
+  %21 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %21, 1.000000e-15
   br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.lhs.true
   %call10 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store double %15, ptr %ref.tmp.i, align 8
+  store double %add.i.i, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %15, ptr %arrayidx3.i.i7, align 8
+  store double %add.i.i, ptr %arrayidx3.i.i7, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %15, ptr %arrayidx5.i.i, align 8
+  store double %add.i.i, ptr %arrayidx5.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math8ScaleMapC2ERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 dereferenceable(128) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont12 unwind label %lpad
 
@@ -4653,35 +4739,35 @@ invoke.cont12:                                    ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont12
-  %19 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = call ptr @__cxa_begin_catch(ptr %20) #25
+  %23 = extractvalue { ptr, i32 } %22, 0
+  %24 = call ptr @__cxa_begin_catch(ptr %23) #25
   call void @_ZdlPv(ptr noundef nonnull %call10) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %22 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume.sink.split:                         ; preds = %lpad41, %lpad35, %lpad14, %lpad
   %call10.sink = phi ptr [ %call10, %lpad ], [ %call13, %lpad14 ], [ %call34, %lpad35 ], [ %call40, %lpad41 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %25, %lpad ], [ %33, %lpad14 ], [ %71, %lpad35 ], [ %79, %lpad41 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %28, %lpad ], [ %36, %lpad14 ], [ %76, %lpad35 ], [ %84, %lpad41 ]
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i98, %lpad3.i.i.i.i86, %lpad3.i.i.i.i11, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad3.i.i.i.i ], [ %30, %lpad3.i.i.i.i11 ], [ %68, %lpad3.i.i.i.i86 ], [ %76, %lpad3.i.i.i.i98 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %lpad3.i.i.i.i ], [ %33, %lpad3.i.i.i.i11 ], [ %73, %lpad3.i.i.i.i86 ], [ %81, %lpad3.i.i.i.i98 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #27
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -4699,7 +4785,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
-  %25 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -4716,28 +4802,28 @@ invoke.cont15:                                    ; preds = %if.else
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i10
 
 lpad.i.i.i.i10:                                   ; preds = %invoke.cont15
-  %26 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  %28 = call ptr @__cxa_begin_catch(ptr %27) #25
+  %30 = extractvalue { ptr, i32 } %29, 0
+  %31 = call ptr @__cxa_begin_catch(ptr %30) #25
   %vtable.i.i.i.i = load ptr, ptr %call13, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %29 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
+  %32 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i14 unwind label %lpad3.i.i.i.i11
 
 lpad3.i.i.i.i11:                                  ; preds = %lpad.i.i.i.i10
-  %30 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i12
 
 terminate.lpad.i.i.i.i12:                         ; preds = %lpad3.i.i.i.i11
-  %31 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #27
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #27
   unreachable
 
 unreachable.i.i.i.i14:                            ; preds = %lpad.i.i.i.i10
@@ -4755,7 +4841,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; 
   br label %return
 
 lpad14:                                           ; preds = %if.else
-  %33 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -4765,10 +4851,10 @@ if.else16:                                        ; preds = %entry
 
 for.cond2.preheader.i.i:                          ; preds = %for.cond2.preheader.i.i, %if.else16
   %indvar.i.i = phi i64 [ 0, %if.else16 ], [ %indvar.next.i.i, %for.cond2.preheader.i.i ]
-  %34 = mul nuw nsw i64 %indvar.i.i, 24
-  %scevgep.i.i = getelementptr i8, ptr %ref.tmp.i18, i64 %34
-  %35 = shl nuw nsw i64 %indvar.i.i, 5
-  %scevgep9.i.i = getelementptr i8, ptr %mMatrix.i, i64 %35
+  %37 = mul nuw nsw i64 %indvar.i.i, 24
+  %scevgep.i.i = getelementptr i8, ptr %ref.tmp.i18, i64 %37
+  %38 = shl nuw nsw i64 %indvar.i.i, 5
+  %scevgep9.i.i = getelementptr i8, ptr %mMatrix.i, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i.i, i64 24, i1 false)
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvar.next.i.i, 3
@@ -4777,7 +4863,7 @@ for.cond2.preheader.i.i:                          ; preds = %for.cond2.preheader
 for.cond1.preheader.i.i:                          ; preds = %for.cond2.preheader.i.i, %for.inc6.i.i
   %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %for.inc6.i.i ], [ 0, %for.cond2.preheader.i.i ]
   %temp.011.i.i = phi double [ %temp.2.i.i, %for.inc6.i.i ], [ 0.000000e+00, %for.cond2.preheader.i.i ]
-  %36 = mul nuw nsw i64 %indvars.iv15.i.i, 3
+  %39 = mul nuw nsw i64 %indvars.iv15.i.i, 3
   br label %for.body3.i.i
 
 for.body3.i.i:                                    ; preds = %for.inc.i.i, %for.cond1.preheader.i.i
@@ -4787,11 +4873,11 @@ for.body3.i.i:                                    ; preds = %for.inc.i.i, %for.c
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body3.i.i
-  %37 = add nuw nsw i64 %indvars.iv.i.i, %36
-  %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %ref.tmp.i18, i64 0, i64 %37
-  %38 = load double, ptr %arrayidx.i.i.i, align 8
-  %39 = tail call noundef double @llvm.fabs.f64(double %38)
-  %add.i.i20 = fadd double %temp.19.i.i, %39
+  %40 = add nuw nsw i64 %indvars.iv.i.i, %39
+  %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %ref.tmp.i18, i64 0, i64 %40
+  %41 = load double, ptr %arrayidx.i.i.i, align 8
+  %42 = tail call noundef double @llvm.fabs.f64(double %41)
+  %add.i.i20 = fadd double %temp.19.i.i, %42
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body3.i.i
@@ -4806,71 +4892,88 @@ for.inc6.i.i:                                     ; preds = %for.inc.i.i
   br i1 %exitcond19.not.i.i, label %_ZNK7openvdb5v11_04math9AffineMap16isScaleTranslateEv.exit, label %for.cond1.preheader.i.i, !llvm.loop !67
 
 _ZNK7openvdb5v11_04math9AffineMap16isScaleTranslateEv.exit: ; preds = %for.inc6.i.i
-  %40 = tail call noundef double @llvm.fabs.f64(double %temp.2.i.i)
-  %cmp.i.i.i.i.i = fcmp ule double %40, 1.000000e-15
+  %43 = tail call noundef double @llvm.fabs.f64(double %temp.2.i.i)
+  %cmp.i.i.i.i.i = fcmp ule double %43, 1.000000e-15
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i18)
   br i1 %cmp.i.i.i.i.i, label %if.then19, label %if.end43
 
 if.then19:                                        ; preds = %_ZNK7openvdb5v11_04math9AffineMap16isScaleTranslateEv.exit
+  %44 = load double, ptr %mMatrix.i, align 8, !noalias !68
   %arrayidx3.i.i25 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = load double, ptr %arrayidx3.i.i25, align 8, !noalias !68
+  %mul4.i.i26 = fmul double %45, 0.000000e+00
+  %46 = tail call double @llvm.fmuladd.f64(double %44, double 0.000000e+00, double %mul4.i.i26)
   %arrayidx6.i.i28 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = load double, ptr %arrayidx6.i.i28, align 8, !noalias !68
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double 0.000000e+00, double %46)
   %arrayidx7.i.i29 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = load double, ptr %arrayidx7.i.i29, align 8, !noalias !68
+  %add.i.i30 = fadd double %49, %48
+  %arrayidx9.i.i31 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load double, ptr %arrayidx9.i.i31, align 8, !noalias !68
+  %arrayidx11.i.i32 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = load double, ptr %arrayidx11.i.i32, align 8, !noalias !68
+  %mul12.i.i33 = fmul double %51, 0.000000e+00
+  %52 = tail call double @llvm.fmuladd.f64(double %50, double 0.000000e+00, double %mul12.i.i33)
+  %arrayidx14.i.i34 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = load double, ptr %arrayidx14.i.i34, align 8, !noalias !68
+  %54 = tail call double @llvm.fmuladd.f64(double %53, double 0.000000e+00, double %52)
+  %arrayidx15.i.i35 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = load double, ptr %arrayidx15.i.i35, align 8, !noalias !68
+  %add16.i.i36 = fadd double %55, %54
   %arrayidx18.i.i37 = getelementptr inbounds i8, ptr %0, i64 24
-  %41 = load double, ptr %arrayidx18.i.i37, align 8, !noalias !68
+  %56 = load double, ptr %arrayidx18.i.i37, align 8, !noalias !68
   %arrayidx20.i.i38 = getelementptr inbounds i8, ptr %0, i64 56
-  %42 = load double, ptr %arrayidx20.i.i38, align 8, !noalias !68
-  %mul21.i.i39 = fmul double %42, 0.000000e+00
-  %43 = tail call double @llvm.fmuladd.f64(double %41, double 0.000000e+00, double %mul21.i.i39)
+  %57 = load double, ptr %arrayidx20.i.i38, align 8, !noalias !68
+  %mul21.i.i39 = fmul double %57, 0.000000e+00
+  %58 = tail call double @llvm.fmuladd.f64(double %56, double 0.000000e+00, double %mul21.i.i39)
   %arrayidx23.i.i40 = getelementptr inbounds i8, ptr %0, i64 88
-  %44 = load double, ptr %arrayidx23.i.i40, align 8, !noalias !68
-  %45 = tail call double @llvm.fmuladd.f64(double %44, double 0.000000e+00, double %43)
+  %59 = load double, ptr %arrayidx23.i.i40, align 8, !noalias !68
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double 0.000000e+00, double %58)
   %arrayidx24.i.i41 = getelementptr inbounds i8, ptr %0, i64 120
-  %46 = load double, ptr %arrayidx24.i.i41, align 8, !noalias !68
-  %add25.i.i42 = fadd double %46, %45
-  %47 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !68
-  %48 = load <2 x double>, ptr %arrayidx3.i.i25, align 8, !noalias !68
-  %49 = fmul <2 x double> %48, zeroinitializer
-  %50 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> zeroinitializer, <2 x double> %49)
-  %51 = load <2 x double>, ptr %arrayidx6.i.i28, align 8, !noalias !68
-  %52 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> zeroinitializer, <2 x double> %50)
-  %53 = load <2 x double>, ptr %arrayidx7.i.i29, align 8, !noalias !68
-  %54 = fadd <2 x double> %53, %52
-  store <2 x double> %54, ptr %translate, align 16, !alias.scope !69
+  %61 = load double, ptr %arrayidx24.i.i41, align 8, !noalias !68
+  %add25.i.i42 = fadd double %61, %60
+  store double %add.i.i30, ptr %translate, align 8, !alias.scope !69
+  %arrayidx3.i.i.i43 = getelementptr inbounds i8, ptr %translate, i64 8
+  store double %add16.i.i36, ptr %arrayidx3.i.i.i43, align 8, !alias.scope !69
   %arrayidx5.i.i.i44 = getelementptr inbounds i8, ptr %translate, i64 16
-  store double %add25.i.i42, ptr %arrayidx5.i.i.i44, align 16, !alias.scope !69
-  %55 = fadd double %41, %42
-  %56 = fadd double %44, %55
-  %add25.i.i66 = fadd double %46, %56
+  store double %add25.i.i42, ptr %arrayidx5.i.i.i44, align 8, !alias.scope !69
+  %62 = fadd double %45, %44
+  %63 = fadd double %47, %62
+  %add.i.i54 = fadd double %49, %63
+  %64 = fadd double %51, %50
+  %65 = fadd double %53, %64
+  %add16.i.i60 = fadd double %55, %65
+  %66 = fadd double %56, %57
+  %67 = fadd double %59, %66
+  %add25.i.i66 = fadd double %61, %67
+  %ref.tmp23.sroa.2.0.scale22.sroa_idx = getelementptr inbounds i8, ptr %scale22, i64 8
   %ref.tmp23.sroa.3.0.scale22.sroa_idx = getelementptr inbounds i8, ptr %scale22, i64 16
-  %57 = fadd <2 x double> %48, %47
-  %58 = fadd <2 x double> %51, %57
-  %59 = fadd <2 x double> %53, %58
-  %60 = fsub <2 x double> %59, %54
-  store <2 x double> %60, ptr %scale22, align 16, !alias.scope !74
+  %sub.i.i69 = fsub double %add.i.i54, %add.i.i30
+  store double %sub.i.i69, ptr %scale22, align 8, !alias.scope !74
+  %sub5.i.i = fsub double %add16.i.i60, %add16.i.i36
+  store double %sub5.i.i, ptr %ref.tmp23.sroa.2.0.scale22.sroa_idx, align 8, !alias.scope !74
   %sub9.i.i = fsub double %add25.i.i66, %add25.i.i42
-  store double %sub9.i.i, ptr %ref.tmp23.sroa.3.0.scale22.sroa_idx, align 16, !alias.scope !74
-  %61 = extractelement <2 x double> %60, i64 0
-  %shift106 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %62 = fsub <2 x double> %60, %shift106
-  %sub.i.i73 = extractelement <2 x double> %62, i64 0
-  %63 = tail call noundef double @llvm.fabs.f64(double %sub.i.i73)
-  %cmp.i.i.i74 = fcmp ule double %63, 1.000000e-15
+  store double %sub9.i.i, ptr %ref.tmp23.sroa.3.0.scale22.sroa_idx, align 8, !alias.scope !74
+  %sub.i.i73 = fsub double %sub.i.i69, %sub5.i.i
+  %68 = tail call noundef double @llvm.fabs.f64(double %sub.i.i73)
+  %cmp.i.i.i74 = fcmp ule double %68, 1.000000e-15
   br i1 %cmp.i.i.i74, label %land.lhs.true29, label %if.else39
 
 land.lhs.true29:                                  ; preds = %if.then19
-  %sub.i.i77 = fsub double %61, %sub9.i.i
-  %64 = tail call noundef double @llvm.fabs.f64(double %sub.i.i77)
-  %cmp.i.i.i78 = fcmp ule double %64, 1.000000e-15
+  %sub.i.i77 = fsub double %sub.i.i69, %sub9.i.i
+  %69 = tail call noundef double @llvm.fabs.f64(double %sub.i.i77)
+  %cmp.i.i.i78 = fcmp ule double %69, 1.000000e-15
   br i1 %cmp.i.i.i78, label %invoke.cont36, label %if.else39
 
 invoke.cont36:                                    ; preds = %land.lhs.true29
   %call34 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i80)
-  store double %61, ptr %ref.tmp.i80, align 8
+  store double %sub.i.i69, ptr %ref.tmp.i80, align 8
   %arrayidx3.i.i81 = getelementptr inbounds i8, ptr %ref.tmp.i80, i64 8
-  store double %61, ptr %arrayidx3.i.i81, align 8
+  store double %sub.i.i69, ptr %arrayidx3.i.i81, align 8
   %arrayidx5.i.i82 = getelementptr inbounds i8, ptr %ref.tmp.i80, i64 16
-  store double %61, ptr %arrayidx5.i.i82, align 8
+  store double %sub.i.i69, ptr %arrayidx5.i.i82, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call34, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i80, ptr noundef nonnull align 8 dereferenceable(24) %translate)
           to label %invoke.cont38 unwind label %lpad35
 
@@ -4884,25 +4987,25 @@ invoke.cont38:                                    ; preds = %invoke.cont36
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i85
 
 lpad.i.i.i.i85:                                   ; preds = %invoke.cont38
-  %65 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  %67 = call ptr @__cxa_begin_catch(ptr %66) #25
+  %71 = extractvalue { ptr, i32 } %70, 0
+  %72 = call ptr @__cxa_begin_catch(ptr %71) #25
   call void @_ZdlPv(ptr noundef nonnull %call34) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i89 unwind label %lpad3.i.i.i.i86
 
 lpad3.i.i.i.i86:                                  ; preds = %lpad.i.i.i.i85
-  %68 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i87
 
 terminate.lpad.i.i.i.i87:                         ; preds = %lpad3.i.i.i.i86
-  %69 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #27
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #27
   unreachable
 
 unreachable.i.i.i.i89:                            ; preds = %lpad.i.i.i.i85
@@ -4920,7 +5023,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   br label %return
 
 lpad35:                                           ; preds = %invoke.cont36
-  %71 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -4937,28 +5040,28 @@ invoke.cont42:                                    ; preds = %if.else39
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i95
 
 lpad.i.i.i.i95:                                   ; preds = %invoke.cont42
-  %72 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  %74 = call ptr @__cxa_begin_catch(ptr %73) #25
+  %78 = extractvalue { ptr, i32 } %77, 0
+  %79 = call ptr @__cxa_begin_catch(ptr %78) #25
   %vtable.i.i.i.i96 = load ptr, ptr %call40, align 8
   %vfn.i.i.i.i97 = getelementptr inbounds i8, ptr %vtable.i.i.i.i96, i64 8
-  %75 = load ptr, ptr %vfn.i.i.i.i97, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(152) %call40) #25
+  %80 = load ptr, ptr %vfn.i.i.i.i97, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(152) %call40) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i101 unwind label %lpad3.i.i.i.i98
 
 lpad3.i.i.i.i98:                                  ; preds = %lpad.i.i.i.i95
-  %76 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i99
 
 terminate.lpad.i.i.i.i99:                         ; preds = %lpad3.i.i.i.i98
-  %77 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #27
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #27
   unreachable
 
 unreachable.i.i.i.i101:                           ; preds = %lpad.i.i.i.i95
@@ -4976,7 +5079,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   br label %return
 
 lpad41:                                           ; preds = %if.else39
-  %79 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -4986,25 +5089,25 @@ if.end43:                                         ; preds = %_ZNK7openvdb5v11_04
   store ptr %0, ptr %agg.result, align 8, !alias.scope !83
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affine, i64 8
-  %80 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !83
-  store ptr %80, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !83
-  %cmp.not.i.i.i.i.i = icmp eq ptr %80, null
+  %85 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !83
+  store ptr %85, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !83
+  %cmp.not.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end43
-  %_M_use_count.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %80, i64 8
-  %81 = load i8, ptr @__libc_single_threaded, align 1, !noalias !83
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %81, 0
+  %_M_use_count.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = load i8, ptr @__libc_single_threaded, align 1, !noalias !83
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %86, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %82 = load i32, ptr %_M_use_count.i.i.i.i.i.i105, align 4, !noalias !83
-  %add.i.i.i.i.i.i.i = add nsw i32 %82, 1
+  %87 = load i32, ptr %_M_use_count.i.i.i.i.i.i105, align 4, !noalias !83
+  %add.i.i.i.i.i.i.i = add nsw i32 %87, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i105, align 4, !noalias !83
   br label %return
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %83 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i105, i32 1 acq_rel, align 4, !noalias !83
+  %88 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i105, i32 1 acq_rel, align 4, !noalias !83
   br label %return
 
 return:                                           ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end43, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit, %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.exit
@@ -5017,40 +5120,48 @@ entry:
   %mMatrix = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %0 = load double, ptr %in, align 8, !noalias !84
+  %1 = load double, ptr %mMatrix, align 8, !noalias !84
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !84
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !84
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx3.i, align 8, !noalias !84
+  %mul4.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i)
   %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i20.i, align 8, !noalias !84
+  %5 = load double, ptr %arrayidx.i.i20.i, align 8, !noalias !84
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 72
+  %6 = load double, ptr %arrayidx6.i, align 8, !noalias !84
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 104
+  %8 = load double, ptr %arrayidx7.i, align 8, !noalias !84
+  %add.i = fadd double %7, %8
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = load double, ptr %arrayidx9.i, align 8, !noalias !84
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 48
+  %10 = load double, ptr %arrayidx11.i, align 8, !noalias !84
+  %mul12.i = fmul double %2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul12.i)
+  %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 80
+  %12 = load double, ptr %arrayidx14.i, align 8, !noalias !84
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %11)
+  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 112
+  %14 = load double, ptr %arrayidx15.i, align 8, !noalias !84
+  %add16.i = fadd double %14, %13
   %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load double, ptr %arrayidx18.i, align 8, !noalias !84
+  %15 = load double, ptr %arrayidx18.i, align 8, !noalias !84
   %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load double, ptr %arrayidx20.i, align 8, !noalias !84
-  %mul21.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul21.i)
+  %16 = load double, ptr %arrayidx20.i, align 8, !noalias !84
+  %mul21.i = fmul double %2, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double %15, double %mul21.i)
   %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load double, ptr %arrayidx23.i, align 8, !noalias !84
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
+  %18 = load double, ptr %arrayidx23.i, align 8, !noalias !84
+  %19 = tail call double @llvm.fmuladd.f64(double %5, double %18, double %17)
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 120
-  %8 = load double, ptr %arrayidx24.i, align 8, !noalias !84
-  %add25.i = fadd double %8, %7
-  %9 = load <2 x double>, ptr %mMatrix, align 8, !noalias !84
-  %10 = load <2 x double>, ptr %arrayidx3.i, align 8, !noalias !84
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %0, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i, align 8, !noalias !84
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  %21 = load <2 x double>, ptr %arrayidx7.i, align 8, !noalias !84
-  %22 = fadd <2 x double> %20, %21
-  store <2 x double> %22, ptr %agg.result, align 8, !alias.scope !84
+  %20 = load double, ptr %arrayidx24.i, align 8, !noalias !84
+  %add25.i = fadd double %20, %19
+  store double %add.i, ptr %agg.result, align 8, !alias.scope !84
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i, ptr %arrayidx3.i.i, align 8, !alias.scope !84
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i, ptr %arrayidx5.i.i, align 8, !alias.scope !84
   ret void
@@ -5065,7 +5176,7 @@ entry:
   %eigenVectors = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   %eigenValues = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %d = alloca %"class.openvdb::v11_0::math::Mat3", align 8
-  %pseudoInv = alloca %"class.openvdb::v11_0::math::Mat3", align 16
+  %pseudoInv = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %submat.i)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %submat.i, i64 32
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %submat.i, i64 64
@@ -5230,15 +5341,17 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
   %arrayidx.i = getelementptr inbounds i8, ptr %mat4d, i64 96
   %37 = load double, ptr %arrayidx.i, align 8, !noalias !93
   %arrayidx3.i25 = getelementptr inbounds i8, ptr %mat4d, i64 104
-  %38 = load <2 x double>, ptr %arrayidx3.i25, align 8, !noalias !93
+  %38 = load double, ptr %arrayidx3.i25, align 8, !noalias !93
+  %arrayidx5.i26 = getelementptr inbounds i8, ptr %mat4d, i64 112
+  %39 = load double, ptr %arrayidx5.i26, align 8, !noalias !93
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit, %for.inc14
   %indvars.iv158 = phi i64 [ 0, %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit ], [ %indvars.iv.next159, %for.inc14 ]
   %symmetric.0152 = phi i1 [ true, %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit ], [ %spec.select, %for.inc14 ]
-  %39 = mul nuw nsw i64 %indvars.iv158, 3
-  %arrayidx.i30 = getelementptr inbounds [9 x double], ptr %mat3, i64 0, i64 %39
-  %arrayidx.i33 = getelementptr inbounds [9 x double], ptr %mat3T, i64 0, i64 %39
+  %40 = mul nuw nsw i64 %indvars.iv158, 3
+  %arrayidx.i30 = getelementptr inbounds [9 x double], ptr %mat3, i64 0, i64 %40
+  %arrayidx.i33 = getelementptr inbounds [9 x double], ptr %mat3T, i64 0, i64 %40
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.body6
@@ -5246,11 +5359,11 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %symmetric.1150 = phi i1 [ %symmetric.0152, %for.cond4.preheader ], [ %spec.select, %for.body6 ]
   %arrayidx = getelementptr inbounds double, ptr %arrayidx.i30, i64 %indvars.iv156
   %arrayidx10 = getelementptr inbounds double, ptr %arrayidx.i33, i64 %indvars.iv156
-  %40 = load double, ptr %arrayidx, align 8
-  %41 = load double, ptr %arrayidx10, align 8
-  %sub.i34 = fsub double %40, %41
-  %42 = tail call noundef double @llvm.fabs.f64(double %sub.i34)
-  %cmp.i.i = fcmp ule double %42, 0x3EB0C6F7A0B5ED8D
+  %41 = load double, ptr %arrayidx, align 8
+  %42 = load double, ptr %arrayidx10, align 8
+  %sub.i34 = fsub double %41, %42
+  %43 = tail call noundef double @llvm.fabs.f64(double %sub.i34)
+  %cmp.i.i = fcmp ule double %43, 0x3EB0C6F7A0B5ED8D
   %spec.select = select i1 %cmp.i.i, i1 %symmetric.1150, i1 false
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next157, 3
@@ -5265,13 +5378,13 @@ for.end16:                                        ; preds = %for.inc14
   br i1 %spec.select, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %for.end16
-  %43 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %43, 0
+  %44 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %44, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit, !prof !15
 
 init.check.i:                                     ; preds = %if.then17
-  %44 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero) #25
-  %tobool.not.i = icmp eq i32 %44, 0
+  %45 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero) #25
+  %tobool.not.i = icmp eq i32 %45, 0
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
@@ -5282,7 +5395,8 @@ init.i:                                           ; preds = %init.check.i
 _ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit:       ; preds = %if.then17, %init.check.i, %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero, i64 96, i1 false)
   %fneg.i = fneg double %37
-  %45 = fneg <2 x double> %38
+  %fneg4.i = fneg double %38
+  %fneg7.i = fneg double %39
   %arrayidx.i38 = getelementptr inbounds i8, ptr %agg.result, i64 96
   store double %fneg.i, ptr %arrayidx.i38, align 8
   br label %return.sink.split
@@ -5389,83 +5503,69 @@ for.end44:                                        ; preds = %for.body26
   %mul77.i.i = fmul double %ref.tmp45.sroa.16.0.copyload, %62
   %76 = call double @llvm.fmuladd.f64(double %ref.tmp45.sroa.14.0.copyload, double %61, double %mul77.i.i)
   %77 = call double @llvm.fmuladd.f64(double %ref.tmp45.sroa.18.0.copyload, double %64, double %76)
+  %ref.tmp45.sroa.4.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 8
   %ref.tmp45.sroa.6.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 16
   %ref.tmp45.sroa.8.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 24
+  %ref.tmp45.sroa.10.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 32
   %ref.tmp45.sroa.12.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 40
   %ref.tmp45.sroa.14.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 48
+  %ref.tmp45.sroa.16.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 56
   %ref.tmp45.sroa.18.0.pseudoInv.sroa_idx = getelementptr inbounds i8, ptr %pseudoInv, i64 64
+  %mul6.i.i91 = fmul double %ref.tmp45.sroa.4.0.copyload, %60
+  %78 = call double @llvm.fmuladd.f64(double %55, double %ref.tmp45.sroa.0.0.copyload, double %mul6.i.i91)
+  %79 = call double @llvm.fmuladd.f64(double %65, double %ref.tmp45.sroa.6.0.copyload, double %78)
+  store double %79, ptr %pseudoInv, align 8, !alias.scope !102
+  %mul14.i.i95 = fmul double %ref.tmp45.sroa.10.0.copyload, %60
+  %80 = call double @llvm.fmuladd.f64(double %55, double %ref.tmp45.sroa.8.0.copyload, double %mul14.i.i95)
+  %81 = call double @llvm.fmuladd.f64(double %65, double %ref.tmp45.sroa.12.0.copyload, double %80)
+  store double %81, ptr %ref.tmp45.sroa.4.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
   %mul23.i.i99 = fmul double %ref.tmp45.sroa.16.0.copyload, %60
-  %78 = call double @llvm.fmuladd.f64(double %55, double %ref.tmp45.sroa.14.0.copyload, double %mul23.i.i99)
-  %79 = call double @llvm.fmuladd.f64(double %65, double %ref.tmp45.sroa.18.0.copyload, double %78)
-  store double %79, ptr %ref.tmp45.sroa.6.0.pseudoInv.sroa_idx, align 16, !alias.scope !102
+  %82 = call double @llvm.fmuladd.f64(double %55, double %ref.tmp45.sroa.14.0.copyload, double %mul23.i.i99)
+  %83 = call double @llvm.fmuladd.f64(double %65, double %ref.tmp45.sroa.18.0.copyload, double %82)
+  store double %83, ptr %ref.tmp45.sroa.6.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
+  %mul32.i.i101 = fmul double %ref.tmp45.sroa.4.0.copyload, %69
+  %84 = call double @llvm.fmuladd.f64(double %67, double %ref.tmp45.sroa.0.0.copyload, double %mul32.i.i101)
+  %85 = call double @llvm.fmuladd.f64(double %71, double %ref.tmp45.sroa.6.0.copyload, double %84)
+  store double %85, ptr %ref.tmp45.sroa.8.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
+  %mul41.i.i102 = fmul double %ref.tmp45.sroa.10.0.copyload, %69
+  %86 = call double @llvm.fmuladd.f64(double %67, double %ref.tmp45.sroa.8.0.copyload, double %mul41.i.i102)
+  %87 = call double @llvm.fmuladd.f64(double %71, double %ref.tmp45.sroa.12.0.copyload, double %86)
+  store double %87, ptr %ref.tmp45.sroa.10.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
   %mul50.i.i103 = fmul double %ref.tmp45.sroa.16.0.copyload, %69
-  %80 = call double @llvm.fmuladd.f64(double %67, double %ref.tmp45.sroa.14.0.copyload, double %mul50.i.i103)
-  %81 = call double @llvm.fmuladd.f64(double %71, double %ref.tmp45.sroa.18.0.copyload, double %80)
-  store double %81, ptr %ref.tmp45.sroa.12.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
+  %88 = call double @llvm.fmuladd.f64(double %67, double %ref.tmp45.sroa.14.0.copyload, double %mul50.i.i103)
+  %89 = call double @llvm.fmuladd.f64(double %71, double %ref.tmp45.sroa.18.0.copyload, double %88)
+  store double %89, ptr %ref.tmp45.sroa.12.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
+  %mul59.i.i104 = fmul double %ref.tmp45.sroa.4.0.copyload, %75
+  %90 = call double @llvm.fmuladd.f64(double %73, double %ref.tmp45.sroa.0.0.copyload, double %mul59.i.i104)
+  %91 = call double @llvm.fmuladd.f64(double %77, double %ref.tmp45.sroa.6.0.copyload, double %90)
+  store double %91, ptr %ref.tmp45.sroa.14.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
+  %mul68.i.i105 = fmul double %ref.tmp45.sroa.10.0.copyload, %75
+  %92 = call double @llvm.fmuladd.f64(double %73, double %ref.tmp45.sroa.8.0.copyload, double %mul68.i.i105)
+  %93 = call double @llvm.fmuladd.f64(double %77, double %ref.tmp45.sroa.12.0.copyload, double %92)
+  store double %93, ptr %ref.tmp45.sroa.16.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
   %mul77.i.i106 = fmul double %ref.tmp45.sroa.16.0.copyload, %75
-  %82 = call double @llvm.fmuladd.f64(double %73, double %ref.tmp45.sroa.14.0.copyload, double %mul77.i.i106)
-  %83 = call double @llvm.fmuladd.f64(double %77, double %ref.tmp45.sroa.18.0.copyload, double %82)
-  store double %83, ptr %ref.tmp45.sroa.18.0.pseudoInv.sroa_idx, align 16, !alias.scope !102
+  %94 = call double @llvm.fmuladd.f64(double %73, double %ref.tmp45.sroa.14.0.copyload, double %mul77.i.i106)
+  %95 = call double @llvm.fmuladd.f64(double %77, double %ref.tmp45.sroa.18.0.copyload, double %94)
+  store double %95, ptr %ref.tmp45.sroa.18.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
   %fneg.i107 = fneg double %37
-  %84 = extractelement <2 x double> %38, i64 0
-  %fneg4.i109 = fneg double %84
-  %85 = extractelement <2 x double> %38, i64 1
-  %fneg7.i111 = fneg double %85
-  %86 = insertelement <2 x double> poison, double %ref.tmp45.sroa.4.0.copyload, i64 0
-  %87 = insertelement <2 x double> %86, double %ref.tmp45.sroa.10.0.copyload, i64 1
-  %88 = insertelement <2 x double> poison, double %60, i64 0
-  %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> zeroinitializer
-  %90 = fmul <2 x double> %87, %89
-  %91 = insertelement <2 x double> poison, double %55, i64 0
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> zeroinitializer
-  %93 = insertelement <2 x double> poison, double %ref.tmp45.sroa.0.0.copyload, i64 0
-  %94 = insertelement <2 x double> %93, double %ref.tmp45.sroa.8.0.copyload, i64 1
-  %95 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %92, <2 x double> %94, <2 x double> %90)
-  %96 = insertelement <2 x double> poison, double %65, i64 0
-  %97 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> zeroinitializer
-  %98 = insertelement <2 x double> poison, double %ref.tmp45.sroa.6.0.copyload, i64 0
-  %99 = insertelement <2 x double> %98, double %ref.tmp45.sroa.12.0.copyload, i64 1
-  %100 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %97, <2 x double> %99, <2 x double> %95)
-  store <2 x double> %100, ptr %pseudoInv, align 16, !alias.scope !102
-  %101 = insertelement <2 x double> poison, double %69, i64 0
-  %102 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> zeroinitializer
-  %103 = fmul <2 x double> %87, %102
-  %104 = insertelement <2 x double> poison, double %67, i64 0
-  %105 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> zeroinitializer
-  %106 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %105, <2 x double> %94, <2 x double> %103)
-  %107 = insertelement <2 x double> poison, double %71, i64 0
-  %108 = shufflevector <2 x double> %107, <2 x double> poison, <2 x i32> zeroinitializer
-  %109 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %108, <2 x double> %99, <2 x double> %106)
-  store <2 x double> %109, ptr %ref.tmp45.sroa.8.0.pseudoInv.sroa_idx, align 8, !alias.scope !102
-  %110 = insertelement <2 x double> poison, double %75, i64 0
-  %111 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> zeroinitializer
-  %112 = fmul <2 x double> %87, %111
-  %113 = insertelement <2 x double> poison, double %73, i64 0
-  %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> zeroinitializer
-  %115 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %114, <2 x double> %94, <2 x double> %112)
-  %116 = insertelement <2 x double> poison, double %77, i64 0
-  %117 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> zeroinitializer
-  %118 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %117, <2 x double> %99, <2 x double> %115)
-  store <2 x double> %118, ptr %ref.tmp45.sroa.14.0.pseudoInv.sroa_idx, align 16, !alias.scope !102
-  %119 = insertelement <2 x double> poison, double %fneg4.i109, i64 0
-  %120 = shufflevector <2 x double> %119, <2 x double> poison, <2 x i32> zeroinitializer
-  %121 = fmul <2 x double> %109, %120
-  %122 = insertelement <2 x double> poison, double %fneg.i107, i64 0
-  %123 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> zeroinitializer
-  %124 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %123, <2 x double> %100, <2 x double> %121)
-  %125 = insertelement <2 x double> poison, double %fneg7.i111, i64 0
-  %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> zeroinitializer
-  %127 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %126, <2 x double> %118, <2 x double> %124)
-  %mul18.i = fmul double %81, %fneg4.i109
-  %128 = call double @llvm.fmuladd.f64(double %fneg.i107, double %79, double %mul18.i)
-  %129 = call double @llvm.fmuladd.f64(double %fneg7.i111, double %83, double %128)
-  %130 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity acquire, align 8
-  %guard.uninitialized.i122 = icmp eq i8 %130, 0
+  %fneg4.i109 = fneg double %38
+  %fneg7.i111 = fneg double %39
+  %mul4.i = fmul double %85, %fneg4.i109
+  %96 = call double @llvm.fmuladd.f64(double %fneg.i107, double %79, double %mul4.i)
+  %97 = call double @llvm.fmuladd.f64(double %fneg7.i111, double %91, double %96)
+  %mul11.i = fmul double %87, %fneg4.i109
+  %98 = call double @llvm.fmuladd.f64(double %fneg.i107, double %81, double %mul11.i)
+  %99 = call double @llvm.fmuladd.f64(double %fneg7.i111, double %93, double %98)
+  %mul18.i = fmul double %89, %fneg4.i109
+  %100 = call double @llvm.fmuladd.f64(double %fneg.i107, double %83, double %mul18.i)
+  %101 = call double @llvm.fmuladd.f64(double %fneg7.i111, double %95, double %100)
+  %102 = load atomic i8, ptr @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity acquire, align 8
+  %guard.uninitialized.i122 = icmp eq i8 %102, 0
   br i1 %guard.uninitialized.i122, label %init.check.i123, label %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit, !prof !15
 
 init.check.i123:                                  ; preds = %for.end44
-  %131 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity) #25
-  %tobool.not.i124 = icmp eq i32 %131, 0
+  %103 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity) #25
+  %tobool.not.i124 = icmp eq i32 %103, 0
   br i1 %tobool.not.i124, label %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit, label %init.i125
 
 init.i125:                                        ; preds = %init.check.i123
@@ -5485,10 +5585,10 @@ _ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit:   ; preds = %for.end44, %init.ch
 
 for.cond2.preheader.i126:                         ; preds = %for.cond2.preheader.i126, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit
   %indvars.iv12.i = phi i64 [ 0, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit ], [ %indvars.iv.next13.i, %for.cond2.preheader.i126 ]
-  %132 = shl nuw nsw i64 %indvars.iv12.i, 5
-  %scevgep = getelementptr i8, ptr %agg.result, i64 %132
-  %133 = mul nuw nsw i64 %indvars.iv12.i, 24
-  %scevgep168 = getelementptr i8, ptr %pseudoInv, i64 %133
+  %104 = shl nuw nsw i64 %indvars.iv12.i, 5
+  %scevgep = getelementptr i8, ptr %agg.result, i64 %104
+  %105 = mul nuw nsw i64 %indvars.iv12.i, 24
+  %scevgep168 = getelementptr i8, ptr %pseudoInv, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep168, i64 24, i1 false)
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next13.i, 3
@@ -5496,16 +5596,15 @@ for.cond2.preheader.i126:                         ; preds = %for.cond2.preheader
 
 return.sink.split:                                ; preds = %for.cond2.preheader.i126, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit
   %.sink175 = phi i64 [ 104, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ 96, %for.cond2.preheader.i126 ]
+  %.sink174 = phi double [ %fneg4.i, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ %97, %for.cond2.preheader.i126 ]
   %.sink173 = phi i64 [ 112, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ 104, %for.cond2.preheader.i126 ]
+  %.sink172 = phi double [ %fneg7.i, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ %99, %for.cond2.preheader.i126 ]
   %.sink171 = phi i64 [ 120, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ 112, %for.cond2.preheader.i126 ]
-  %.sink170 = phi double [ 1.000000e+00, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ %129, %for.cond2.preheader.i126 ]
-  %134 = phi <2 x double> [ %45, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ %127, %for.cond2.preheader.i126 ]
+  %.sink170 = phi double [ 1.000000e+00, %_ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit ], [ %101, %for.cond2.preheader.i126 ]
   %arrayidx.i133 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink175
-  %135 = extractelement <2 x double> %134, i64 0
-  store double %135, ptr %arrayidx.i133, align 8
+  store double %.sink174, ptr %arrayidx.i133, align 8
   %arrayidx4.i135 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink173
-  %136 = extractelement <2 x double> %134, i64 1
-  store double %136, ptr %arrayidx4.i135, align 8
+  store double %.sink172, ptr %arrayidx4.i135, align 8
   %arrayidx7.i137 = getelementptr inbounds i8, ptr %agg.result, i64 %.sink171
   store double %.sink170, ptr %arrayidx7.i137, align 8
   br label %return
@@ -5640,164 +5739,145 @@ if.else93:                                        ; preds = %if.else86
   %mul105 = fmul double %49, %div
   store double %mul105, ptr %agg.result, align 8
   %fneg = fneg double %3
-  %50 = insertelement <2 x double> poison, double %5, i64 0
-  %51 = insertelement <2 x double> %50, double %1, i64 1
-  %52 = insertelement <2 x double> poison, double %8, i64 0
-  %53 = insertelement <2 x double> %52, double %14, i64 1
-  %54 = fmul <2 x double> %51, %53
+  %mul117 = fmul double %5, %8
+  %50 = tail call double @llvm.fmuladd.f64(double %fneg, double %7, double %mul117)
+  %mul118 = fmul double %50, %div
   %arrayidx120 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul118, ptr %arrayidx120, align 8
+  %neg131 = fmul double %1, %14
+  %51 = tail call double @llvm.fmuladd.f64(double %3, double %2, double %neg131)
+  %mul132 = fmul double %51, %div
+  %arrayidx134 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store double %mul132, ptr %arrayidx134, align 8
   %fneg137 = fneg double %4
   %mul145 = fmul double %2, %6
-  %55 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
-  %mul146 = fmul double %55, %div
+  %52 = tail call double @llvm.fmuladd.f64(double %fneg137, double %7, double %mul145)
+  %mul146 = fmul double %52, %div
   %arrayidx.i169 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store double %mul146, ptr %arrayidx.i169, align 8
-  %56 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
+  %53 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %neg48)
+  %mul155 = fmul double %53, %div
   %arrayidx157 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store double %mul155, ptr %arrayidx157, align 8
   %sub = fsub double %mul18, %mul8
-  %57 = fneg double %1
-  %neg171 = fmul double %6, %57
-  %58 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg171)
-  %mul172 = fmul double %58, %div
+  %mul158 = fmul double %sub, %div
+  %arrayidx160 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  store double %mul158, ptr %arrayidx160, align 8
+  %54 = fneg double %1
+  %neg171 = fmul double %6, %54
+  %55 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg171)
+  %mul172 = fmul double %55, %div
   %arrayidx.i178 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store double %mul172, ptr %arrayidx.i178, align 8
   %neg180 = fneg double %0
-  %59 = tail call double @llvm.fmuladd.f64(double %neg180, double %8, double %mul23)
+  %56 = tail call double @llvm.fmuladd.f64(double %neg180, double %8, double %mul23)
+  %mul181 = fmul double %56, %div
   %arrayidx183 = getelementptr inbounds i8, ptr %agg.result, i64 72
+  store double %mul181, ptr %arrayidx183, align 8
   %sub184 = fsub double %mul, %mul13
-  %60 = insertelement <2 x double> poison, double %fneg, i64 0
-  %61 = insertelement <2 x double> %60, double %3, i64 1
-  %62 = insertelement <2 x double> poison, double %7, i64 0
-  %63 = insertelement <2 x double> %62, double %2, i64 1
-  %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %61, <2 x double> %63, <2 x double> %54)
-  %65 = insertelement <2 x double> poison, double %div, i64 0
-  %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> zeroinitializer
-  %67 = fmul <2 x double> %64, %66
-  store <2 x double> %67, ptr %arrayidx120, align 8
-  %68 = insertelement <2 x double> poison, double %56, i64 0
-  %69 = insertelement <2 x double> %68, double %sub, i64 1
-  %70 = fmul <2 x double> %69, %66
-  store <2 x double> %70, ptr %arrayidx157, align 8
-  %71 = insertelement <2 x double> poison, double %59, i64 0
-  %72 = insertelement <2 x double> %71, double %sub184, i64 1
-  %73 = fmul <2 x double> %72, %66
-  store <2 x double> %73, ptr %arrayidx183, align 8
+  %mul185 = fmul double %sub184, %div
+  %arrayidx187 = getelementptr inbounds i8, ptr %agg.result, i64 80
+  store double %mul185, ptr %arrayidx187, align 8
   %arrayidx.i183 = getelementptr inbounds i8, ptr %this, i64 96
-  %74 = load double, ptr %arrayidx.i183, align 8
+  %57 = load double, ptr %arrayidx.i183, align 8
   %arrayidx196 = getelementptr inbounds i8, ptr %this, i64 104
-  %75 = load double, ptr %arrayidx196, align 8
+  %58 = load double, ptr %arrayidx196, align 8
   br i1 %or.cond347, label %if.then189, label %if.else381
 
 if.then189:                                       ; preds = %if.else93
   %arrayidx201 = getelementptr inbounds i8, ptr %this, i64 112
-  %76 = load double, ptr %arrayidx201, align 8
-  %77 = extractelement <2 x double> %67, i64 0
-  %mul247 = fmul double %77, %17
-  %78 = tail call double @llvm.fmuladd.f64(double %mul105, double %16, double %mul247)
-  %79 = extractelement <2 x double> %67, i64 1
-  %80 = tail call double @llvm.fmuladd.f64(double %79, double %18, double %78)
-  %81 = extractelement <2 x double> %70, i64 0
-  %mul263 = fmul double %81, %17
-  %82 = tail call double @llvm.fmuladd.f64(double %mul146, double %16, double %mul263)
-  %83 = extractelement <2 x double> %70, i64 1
-  %84 = tail call double @llvm.fmuladd.f64(double %83, double %18, double %82)
-  %85 = extractelement <2 x double> %73, i64 0
-  %mul279 = fmul double %85, %17
-  %86 = tail call double @llvm.fmuladd.f64(double %mul172, double %16, double %mul279)
-  %87 = extractelement <2 x double> %73, i64 1
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double %18, double %86)
-  %mul8.i230 = fmul double %75, %84
-  %89 = tail call double @llvm.fmuladd.f64(double %80, double %74, double %mul8.i230)
-  %90 = tail call noundef double @llvm.fmuladd.f64(double %88, double %76, double %89)
-  %sub296 = fsub double %19, %90
-  %91 = tail call noundef double @llvm.fabs.f64(double %sub296)
-  %cmp.i.i233 = fcmp ule double %91, %tolerance
+  %59 = load double, ptr %arrayidx201, align 8
+  %mul247 = fmul double %mul118, %17
+  %60 = tail call double @llvm.fmuladd.f64(double %mul105, double %16, double %mul247)
+  %61 = tail call double @llvm.fmuladd.f64(double %mul132, double %18, double %60)
+  %mul263 = fmul double %mul155, %17
+  %62 = tail call double @llvm.fmuladd.f64(double %mul146, double %16, double %mul263)
+  %63 = tail call double @llvm.fmuladd.f64(double %mul158, double %18, double %62)
+  %mul279 = fmul double %mul181, %17
+  %64 = tail call double @llvm.fmuladd.f64(double %mul172, double %16, double %mul279)
+  %65 = tail call double @llvm.fmuladd.f64(double %mul185, double %18, double %64)
+  %mul8.i230 = fmul double %58, %63
+  %66 = tail call double @llvm.fmuladd.f64(double %61, double %57, double %mul8.i230)
+  %67 = tail call noundef double @llvm.fmuladd.f64(double %65, double %59, double %66)
+  %sub296 = fsub double %19, %67
+  %68 = tail call noundef double @llvm.fabs.f64(double %sub296)
+  %cmp.i.i233 = fcmp ule double %68, %tolerance
   br i1 %cmp.i.i233, label %if.then448, label %if.else300
 
 if.else300:                                       ; preds = %if.then189
-  %92 = insertelement <2 x double> poison, double %75, i64 0
-  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = fmul <2 x double> %70, %93
-  %mul199 = fmul double %mul146, %75
-  %95 = tail call double @llvm.fmuladd.f64(double %74, double %mul105, double %mul199)
-  %96 = tail call double @llvm.fmuladd.f64(double %76, double %mul172, double %95)
+  %mul231 = fmul double %mul158, %58
+  %69 = tail call double @llvm.fmuladd.f64(double %57, double %mul132, double %mul231)
+  %70 = tail call double @llvm.fmuladd.f64(double %59, double %mul185, double %69)
+  %mul215 = fmul double %mul155, %58
+  %71 = tail call double @llvm.fmuladd.f64(double %57, double %mul118, double %mul215)
+  %72 = tail call double @llvm.fmuladd.f64(double %59, double %mul181, double %71)
+  %mul199 = fmul double %mul146, %58
+  %73 = tail call double @llvm.fmuladd.f64(double %57, double %mul105, double %mul199)
+  %74 = tail call double @llvm.fmuladd.f64(double %59, double %mul172, double %73)
   %div301 = fdiv double 1.000000e+00, %sub296
+  %arrayidx.i234 = getelementptr inbounds i8, ptr %agg.result, i64 96
   %arrayidx303 = getelementptr inbounds i8, ptr %agg.result, i64 120
   store double %div301, ptr %arrayidx303, align 8
   %fneg304 = fneg double %div301
+  %mul306 = fmul double %74, %fneg304
+  store double %mul306, ptr %arrayidx.i234, align 8
+  %mul311 = fmul double %72, %fneg304
   %arrayidx313 = getelementptr inbounds i8, ptr %agg.result, i64 104
-  %97 = insertelement <2 x double> poison, double %74, i64 0
-  %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
-  %99 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %98, <2 x double> %67, <2 x double> %94)
-  %100 = insertelement <2 x double> poison, double %76, i64 0
-  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %101, <2 x double> %73, <2 x double> %99)
-  %103 = insertelement <2 x double> poison, double %fneg304, i64 0
-  %104 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> zeroinitializer
-  %105 = fmul <2 x double> %102, %104
-  store <2 x double> %105, ptr %arrayidx313, align 8
-  %mul321 = fmul double %80, %fneg304
+  store double %mul311, ptr %arrayidx313, align 8
+  %mul316 = fmul double %70, %fneg304
+  %arrayidx318 = getelementptr inbounds i8, ptr %agg.result, i64 112
+  store double %mul316, ptr %arrayidx318, align 8
+  %mul321 = fmul double %61, %fneg304
   %arrayidx323 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store double %mul321, ptr %arrayidx323, align 8
-  %mul326 = fmul double %84, %fneg304
+  %mul326 = fmul double %63, %fneg304
   %arrayidx328 = getelementptr inbounds i8, ptr %agg.result, i64 56
   store double %mul326, ptr %arrayidx328, align 8
+  %mul331 = fmul double %65, %fneg304
   %arrayidx333 = getelementptr inbounds i8, ptr %agg.result, i64 88
-  %106 = insertelement <2 x double> poison, double %88, i64 0
-  %107 = insertelement <2 x double> %106, double %96, i64 1
-  %108 = fmul <2 x double> %107, %104
-  store <2 x double> %108, ptr %arrayidx333, align 8
-  %mul.i = fmul double %80, %div301
-  %mul4.i = fmul double %84, %div301
-  %mul7.i = fmul double %88, %div301
-  %109 = tail call double @llvm.fmuladd.f64(double %mul.i, double %96, double %mul105)
-  store double %109, ptr %agg.result, align 8
-  %110 = insertelement <2 x double> poison, double %mul.i, i64 0
-  %111 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> zeroinitializer
-  %112 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %111, <2 x double> %102, <2 x double> %67)
-  store <2 x double> %112, ptr %arrayidx120, align 8
-  %113 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %96, double %mul146)
-  store double %113, ptr %arrayidx.i169, align 8
-  %114 = insertelement <2 x double> poison, double %mul4.i, i64 0
-  %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
-  %116 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %115, <2 x double> %102, <2 x double> %70)
-  store <2 x double> %116, ptr %arrayidx157, align 8
-  %117 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %96, double %mul172)
-  store double %117, ptr %arrayidx.i178, align 8
-  %118 = insertelement <2 x double> poison, double %mul7.i, i64 0
-  %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
-  %120 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %119, <2 x double> %102, <2 x double> %73)
-  store <2 x double> %120, ptr %arrayidx183, align 8
+  store double %mul331, ptr %arrayidx333, align 8
+  %mul.i = fmul double %61, %div301
+  %mul4.i = fmul double %63, %div301
+  %mul7.i = fmul double %65, %div301
+  %75 = tail call double @llvm.fmuladd.f64(double %mul.i, double %74, double %mul105)
+  store double %75, ptr %agg.result, align 8
+  %76 = tail call double @llvm.fmuladd.f64(double %mul.i, double %72, double %mul118)
+  store double %76, ptr %arrayidx120, align 8
+  %77 = tail call double @llvm.fmuladd.f64(double %mul.i, double %70, double %mul132)
+  store double %77, ptr %arrayidx134, align 8
+  %78 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %74, double %mul146)
+  store double %78, ptr %arrayidx.i169, align 8
+  %79 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %72, double %mul155)
+  store double %79, ptr %arrayidx157, align 8
+  %80 = tail call double @llvm.fmuladd.f64(double %mul4.i, double %70, double %mul158)
+  store double %80, ptr %arrayidx160, align 8
+  %81 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %74, double %mul172)
+  store double %81, ptr %arrayidx.i178, align 8
+  %82 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %72, double %mul181)
+  store double %82, ptr %arrayidx183, align 8
+  %83 = tail call double @llvm.fmuladd.f64(double %mul7.i, double %70, double %mul185)
+  store double %83, ptr %arrayidx187, align 8
   br label %if.end457
 
 if.else381:                                       ; preds = %if.else93
+  %mul391 = fmul double %mul146, %58
+  %84 = tail call double @llvm.fmuladd.f64(double %57, double %mul105, double %mul391)
   %arrayidx393 = getelementptr inbounds i8, ptr %this, i64 112
-  %121 = load double, ptr %arrayidx393, align 8
+  %85 = load double, ptr %arrayidx393, align 8
+  %86 = tail call double @llvm.fmuladd.f64(double %85, double %mul172, double %84)
+  %fneg397 = fneg double %86
   %arrayidx.i282 = getelementptr inbounds i8, ptr %agg.result, i64 96
-  %122 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %123 = insertelement <2 x double> %122, double %mul146, i64 0
-  %124 = insertelement <2 x double> poison, double %75, i64 0
-  %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> zeroinitializer
-  %126 = fmul <2 x double> %123, %125
-  %127 = insertelement <2 x double> poison, double %74, i64 0
-  %128 = shufflevector <2 x double> %127, <2 x double> poison, <2 x i32> zeroinitializer
-  %129 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %130 = insertelement <2 x double> %129, double %mul105, i64 0
-  %131 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %128, <2 x double> %130, <2 x double> %126)
-  %132 = insertelement <2 x double> poison, double %121, i64 0
-  %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> zeroinitializer
-  %134 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %135 = insertelement <2 x double> %134, double %mul172, i64 0
-  %136 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %133, <2 x double> %135, <2 x double> %131)
-  %137 = fneg <2 x double> %136
-  store <2 x double> %137, ptr %arrayidx.i282, align 8
-  %138 = extractelement <2 x double> %70, i64 1
-  %mul427 = fmul double %138, %75
-  %139 = extractelement <2 x double> %67, i64 1
-  %140 = tail call double @llvm.fmuladd.f64(double %74, double %139, double %mul427)
-  %141 = extractelement <2 x double> %73, i64 1
-  %142 = tail call double @llvm.fmuladd.f64(double %121, double %141, double %140)
-  %fneg433 = fneg double %142
+  store double %fneg397, ptr %arrayidx.i282, align 8
+  %mul409 = fmul double %mul155, %58
+  %87 = tail call double @llvm.fmuladd.f64(double %57, double %mul118, double %mul409)
+  %88 = tail call double @llvm.fmuladd.f64(double %85, double %mul181, double %87)
+  %fneg415 = fneg double %88
+  %arrayidx417 = getelementptr inbounds i8, ptr %agg.result, i64 104
+  store double %fneg415, ptr %arrayidx417, align 8
+  %mul427 = fmul double %mul158, %58
+  %89 = tail call double @llvm.fmuladd.f64(double %57, double %mul132, double %mul427)
+  %90 = tail call double @llvm.fmuladd.f64(double %85, double %mul185, double %89)
+  %fneg433 = fneg double %90
   %arrayidx435 = getelementptr inbounds i8, ptr %agg.result, i64 112
   store double %fneg433, ptr %arrayidx435, align 8
   %arrayidx437 = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -5830,20 +5910,20 @@ invoke.cont453:                                   ; preds = %invoke.cont450
   br label %try.cont
 
 lpad:                                             ; preds = %if.then448
-  %143 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad449:                                          ; preds = %invoke.cont450, %invoke.cont
-  %144 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #25
   br label %catch
 
 catch:                                            ; preds = %lpad449, %lpad
-  %.pn = phi { ptr, i32 } [ %144, %lpad449 ], [ %143, %lpad ]
+  %.pn = phi { ptr, i32 } [ %92, %lpad449 ], [ %91, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %145 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %93 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad455
 
@@ -5855,10 +5935,10 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad455
 
 lpad455:                                          ; preds = %try.cont, %catch
-  %146 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #25
-  resume { ptr, i32 } %146
+  resume { ptr, i32 } %94
 
 if.end457:                                        ; preds = %if.else300, %if.else381, %if.then90
   ret void
@@ -6047,21 +6127,21 @@ entry:
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04math8ScaleMap15hasUniformScaleEv(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x double>, ptr %mScaleValues, align 8
-  %1 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %0)
-  %shift = shufflevector <2 x double> %1, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %2 = fsub <2 x double> %1, %shift
-  %sub.i = extractelement <2 x double> %2, i64 0
-  %3 = tail call noundef double @llvm.fabs.f64(double %sub.i)
-  %cmp.i.i = fcmp ule double %3, 5.000000e-07
+  %0 = load double, ptr %mScaleValues, align 8
+  %1 = tail call noundef double @llvm.fabs.f64(double %0)
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load double, ptr %arrayidx.i, align 8
+  %3 = tail call noundef double @llvm.fabs.f64(double %2)
+  %sub.i = fsub double %1, %3
+  %4 = tail call noundef double @llvm.fabs.f64(double %sub.i)
+  %cmp.i.i = fcmp ule double %4, 5.000000e-07
   br i1 %cmp.i.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %4 = extractelement <2 x double> %1, i64 0
   %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load double, ptr %arrayidx.i2, align 8
   %6 = tail call noundef double @llvm.fabs.f64(double %5)
-  %sub.i3 = fsub double %4, %6
+  %sub.i3 = fsub double %1, %6
   %7 = tail call noundef double @llvm.fabs.f64(double %sub.i3)
   %cmp.i.i4 = fcmp ule double %7, 5.000000e-07
   br label %land.end
@@ -6074,16 +6154,23 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8applyMapERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
+  %0 = load double, ptr %in, align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %mScaleValues, align 8
+  %mul = fmul double %0, %1
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i3, align 8
+  %mul6 = fmul double %2, %3
   %arrayidx.i4 = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4, align 8
+  %4 = load double, ptr %arrayidx.i4, align 8
   %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i5, align 8
-  %mul10 = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8
-  %3 = load <2 x double>, ptr %mScaleValues, align 8
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8
+  %5 = load double, ptr %arrayidx.i5, align 8
+  %mul10 = fmul double %4, %5
+  store double %mul, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10, ptr %arrayidx5.i, align 8
   ret void
@@ -6092,16 +6179,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap15applyInverseMapERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
+  %0 = load double, ptr %in, align 8
   %mScaleValuesInverse = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = load double, ptr %mScaleValuesInverse, align 8
+  %mul = fmul double %0, %1
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 64
+  %3 = load double, ptr %arrayidx.i3, align 8
+  %mul6 = fmul double %2, %3
   %arrayidx.i4 = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4, align 8
+  %4 = load double, ptr %arrayidx.i4, align 8
   %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 72
-  %1 = load double, ptr %arrayidx.i5, align 8
-  %mul10 = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8
-  %3 = load <2 x double>, ptr %mScaleValuesInverse, align 8
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8
+  %5 = load double, ptr %arrayidx.i5, align 8
+  %mul10 = fmul double %4, %5
+  store double %mul, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10, ptr %arrayidx5.i, align 8
   ret void
@@ -6111,16 +6205,23 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8applyIJTERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  %0 = load double, ptr %in, align 8, !noalias !108
   %mScaleValuesInverse.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = load double, ptr %mScaleValuesInverse.i, align 8, !noalias !108
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !108
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 64
+  %3 = load double, ptr %arrayidx.i3.i, align 8, !noalias !108
+  %mul6.i = fmul double %2, %3
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4.i, align 8, !noalias !108
+  %4 = load double, ptr %arrayidx.i4.i, align 8, !noalias !108
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 72
-  %1 = load double, ptr %arrayidx.i5.i, align 8, !noalias !108
-  %mul10.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !108
-  %3 = load <2 x double>, ptr %mScaleValuesInverse.i, align 8, !noalias !108
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !108
+  %5 = load double, ptr %arrayidx.i5.i, align 8, !noalias !108
+  %mul10.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !108
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i, ptr %arrayidx3.i.i, align 8, !alias.scope !108
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i, ptr %arrayidx5.i.i, align 8, !alias.scope !108
   ret void
@@ -6131,16 +6232,23 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8applyIJTERKNS1_4Vec3I
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  %1 = load double, ptr %in, align 8, !noalias !117
   %mScaleValuesInverse.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %2 = load double, ptr %mScaleValuesInverse.i.i, align 8, !noalias !117
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !117
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %4 = load double, ptr %arrayidx.i3.i.i, align 8, !noalias !117
+  %mul6.i.i = fmul double %3, %4
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !117
+  %5 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !117
   %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !117
-  %mul10.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !117
-  %4 = load <2 x double>, ptr %mScaleValuesInverse.i.i, align 8, !noalias !117
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !117
+  %6 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !117
+  %mul10.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !117
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !117
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !117
   ret void
@@ -6156,19 +6264,23 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = mul nuw nsw i64 %indvars.iv, 3
   %arrayidx.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %0
-  %1 = add nuw nsw i64 %0, 2
-  %arrayidx.i9.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %1
-  %2 = load double, ptr %arrayidx.i9.i, align 8, !noalias !118
+  %1 = load double, ptr %arrayidx.i.i, align 8, !noalias !118
+  %2 = add nuw nsw i64 %0, 1
+  %arrayidx.i5.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %2
+  %3 = load double, ptr %arrayidx.i5.i, align 8, !noalias !118
+  %4 = add nuw nsw i64 %0, 2
+  %arrayidx.i9.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %4
+  %5 = load double, ptr %arrayidx.i9.i, align 8, !noalias !118
   %arrayidx.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse, i64 0, i64 %indvars.iv
-  %3 = load double, ptr %arrayidx.i, align 8
-  %mul7.i.i = fmul double %2, %3
+  %6 = load double, ptr %arrayidx.i, align 8
+  %mul.i.i9 = fmul double %1, %6
+  %mul4.i.i = fmul double %3, %6
+  %mul7.i.i = fmul double %5, %6
   %arrayidx.i12 = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %0
-  %4 = load <2 x double>, ptr %arrayidx.i.i, align 8, !noalias !118
-  %5 = insertelement <2 x double> poison, double %3, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %4, %6
-  store <2 x double> %7, ptr %arrayidx.i12, align 8
-  %arrayidx11.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %1
+  store double %mul.i.i9, ptr %arrayidx.i12, align 8
+  %arrayidx6.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %2
+  store double %mul4.i.i, ptr %arrayidx6.i, align 8
+  %arrayidx11.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %4
   store double %mul7.i.i, ptr %arrayidx11.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -6177,18 +6289,18 @@ for.body:                                         ; preds = %entry, %for.body
 for.body6:                                        ; preds = %for.body, %for.body6
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %for.body6 ], [ 0, %for.body ]
   %arrayidx.i.i14 = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv47
-  %8 = load double, ptr %arrayidx.i.i14, align 8, !noalias !122
-  %9 = add nuw nsw i64 %indvars.iv47, 3
-  %arrayidx.i4.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %9
-  %10 = load double, ptr %arrayidx.i4.i, align 8, !noalias !122
-  %11 = add nuw nsw i64 %indvars.iv47, 6
-  %arrayidx.i7.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %11
-  %12 = load double, ptr %arrayidx.i7.i, align 8, !noalias !122
+  %7 = load double, ptr %arrayidx.i.i14, align 8, !noalias !122
+  %8 = add nuw nsw i64 %indvars.iv47, 3
+  %arrayidx.i4.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %8
+  %9 = load double, ptr %arrayidx.i4.i, align 8, !noalias !122
+  %10 = add nuw nsw i64 %indvars.iv47, 6
+  %arrayidx.i7.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %10
+  %11 = load double, ptr %arrayidx.i7.i, align 8, !noalias !122
   %arrayidx.i19 = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse, i64 0, i64 %indvars.iv47
-  %13 = load double, ptr %arrayidx.i19, align 8
-  %mul.i.i20 = fmul double %8, %13
-  %mul4.i.i22 = fmul double %10, %13
-  %mul7.i.i24 = fmul double %12, %13
+  %12 = load double, ptr %arrayidx.i19, align 8
+  %mul.i.i20 = fmul double %7, %12
+  %mul4.i.i22 = fmul double %9, %12
+  %mul7.i.i24 = fmul double %11, %12
   store double %mul.i.i20, ptr %arrayidx.i.i14, align 8
   store double %mul4.i.i22, ptr %arrayidx.i4.i, align 8
   store double %mul7.i.i24, ptr %arrayidx.i7.i, align 8
@@ -6211,19 +6323,23 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %2 = mul nuw nsw i64 %indvars.iv.i, 3
   %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %2
-  %3 = add nuw nsw i64 %2, 2
-  %arrayidx.i9.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %3
-  %4 = load double, ptr %arrayidx.i9.i.i, align 8, !noalias !129
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !129
+  %4 = add nuw nsw i64 %2, 1
+  %arrayidx.i5.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %4
+  %5 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !129
+  %6 = add nuw nsw i64 %2, 2
+  %arrayidx.i9.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %6
+  %7 = load double, ptr %arrayidx.i9.i.i, align 8, !noalias !129
   %arrayidx.i.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse.i, i64 0, i64 %indvars.iv.i
-  %5 = load double, ptr %arrayidx.i.i, align 8, !noalias !126
-  %mul7.i.i.i = fmul double %4, %5
+  %8 = load double, ptr %arrayidx.i.i, align 8, !noalias !126
+  %mul.i.i9.i = fmul double %3, %8
+  %mul4.i.i.i = fmul double %5, %8
+  %mul7.i.i.i = fmul double %7, %8
   %arrayidx.i12.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %2
-  %6 = load <2 x double>, ptr %arrayidx.i.i.i, align 8, !noalias !129
-  %7 = insertelement <2 x double> poison, double %5, i64 0
-  %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x double> %6, %8
-  store <2 x double> %9, ptr %arrayidx.i12.i, align 8, !alias.scope !126
-  %arrayidx11.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %3
+  store double %mul.i.i9.i, ptr %arrayidx.i12.i, align 8, !alias.scope !126
+  %arrayidx6.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %4
+  store double %mul4.i.i.i, ptr %arrayidx6.i.i, align 8, !alias.scope !126
+  %arrayidx11.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %6
   store double %mul7.i.i.i, ptr %arrayidx11.i.i, align 8, !alias.scope !126
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6232,18 +6348,18 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 for.body6.i:                                      ; preds = %for.body.i, %for.body6.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.body6.i ], [ 0, %for.body.i ]
   %arrayidx.i.i14.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv47.i
-  %10 = load double, ptr %arrayidx.i.i14.i, align 8, !alias.scope !126, !noalias !132
-  %11 = add nuw nsw i64 %indvars.iv47.i, 3
-  %arrayidx.i4.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %11
-  %12 = load double, ptr %arrayidx.i4.i.i, align 8, !alias.scope !126, !noalias !132
-  %13 = add nuw nsw i64 %indvars.iv47.i, 6
-  %arrayidx.i7.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %13
-  %14 = load double, ptr %arrayidx.i7.i.i, align 8, !alias.scope !126, !noalias !132
+  %9 = load double, ptr %arrayidx.i.i14.i, align 8, !alias.scope !126, !noalias !132
+  %10 = add nuw nsw i64 %indvars.iv47.i, 3
+  %arrayidx.i4.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %10
+  %11 = load double, ptr %arrayidx.i4.i.i, align 8, !alias.scope !126, !noalias !132
+  %12 = add nuw nsw i64 %indvars.iv47.i, 6
+  %arrayidx.i7.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %12
+  %13 = load double, ptr %arrayidx.i7.i.i, align 8, !alias.scope !126, !noalias !132
   %arrayidx.i19.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse.i, i64 0, i64 %indvars.iv47.i
-  %15 = load double, ptr %arrayidx.i19.i, align 8, !noalias !126
-  %mul.i.i20.i = fmul double %10, %15
-  %mul4.i.i22.i = fmul double %12, %15
-  %mul7.i.i24.i = fmul double %14, %15
+  %14 = load double, ptr %arrayidx.i19.i, align 8, !noalias !126
+  %mul.i.i20.i = fmul double %9, %14
+  %mul4.i.i22.i = fmul double %11, %14
+  %mul7.i.i24.i = fmul double %13, %14
   store double %mul.i.i20.i, ptr %arrayidx.i.i14.i, align 8, !alias.scope !126
   store double %mul4.i.i22.i, ptr %arrayidx.i4.i.i, align 8, !alias.scope !126
   store double %mul7.i.i24.i, ptr %arrayidx.i7.i.i, align 8, !alias.scope !126
@@ -6480,29 +6596,30 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %affineMap, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %3 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %3, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %3, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6691,42 +6808,46 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  %0 = load double, ptr %v, align 8, !noalias !135
+  %1 = load double, ptr %mScaleValues, align 8, !noalias !135
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !135
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !135
+  %mul4.i = fmul double %2, %3
   %arrayidx.i.i6.i = getelementptr inbounds i8, ptr %v, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !135
+  %4 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !135
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !135
-  %mul7.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %v, align 8, !noalias !135
-  %3 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !135
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %new_scale, align 16, !alias.scope !135
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !135
+  %mul7.i = fmul double %4, %5
+  store double %mul.i, ptr %new_scale, align 8, !alias.scope !135
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %new_scale, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i, align 8, !alias.scope !135
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %new_scale, i64 16
-  store double %mul7.i, ptr %arrayidx5.i.i, align 16, !alias.scope !135
-  %5 = extractelement <2 x double> %4, i64 0
-  %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %6 = fsub <2 x double> %4, %shift
-  %sub.i.i = extractelement <2 x double> %6, i64 0
-  %7 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i.i = fcmp ule double %7, 1.000000e-15
+  store double %mul7.i, ptr %arrayidx5.i.i, align 8, !alias.scope !135
+  %sub.i.i = fsub double %mul.i, %mul4.i
+  %6 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i.i = fcmp ule double %6, 1.000000e-15
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i4 = fsub double %5, %mul7.i
-  %8 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
-  %cmp.i.i.i5 = fcmp ule double %8, 1.000000e-15
+  %sub.i.i4 = fsub double %mul.i, %mul7.i
+  %7 = tail call noundef double @llvm.fabs.f64(double %sub.i.i4)
+  %cmp.i.i.i5 = fcmp ule double %7, 1.000000e-15
   br i1 %cmp.i.i.i5, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store double %5, ptr %ref.tmp.i, align 8
+  store double %mul.i, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %5, ptr %arrayidx3.i.i7, align 8
+  store double %mul.i, ptr %arrayidx3.i.i7, align 8
   %arrayidx5.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %5, ptr %arrayidx5.i.i8, align 8
+  store double %mul.i, ptr %arrayidx5.i.i8, align 8
   invoke void @_ZN7openvdb5v11_04math8ScaleMapC2ERKNS1_4Vec3IdEE(ptr noundef nonnull align 8 dereferenceable(128) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont12 unwind label %lpad
 
@@ -6740,35 +6861,35 @@ invoke.cont12:                                    ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont12
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = call ptr @__cxa_begin_catch(ptr %10) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #25
   call void @_ZdlPv(ptr noundef nonnull %call10) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume.sink.split:                         ; preds = %lpad14, %lpad
   %call10.sink = phi ptr [ %call10, %lpad ], [ %call13, %lpad14 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %15, %lpad ], [ %23, %lpad14 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %14, %lpad ], [ %22, %lpad14 ]
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i12, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad3.i.i.i.i ], [ %20, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad3.i.i.i.i ], [ %19, %lpad3.i.i.i.i12 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #27
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -6786,7 +6907,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_15UniformScaleMapEvEEPT_.
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -6803,28 +6924,28 @@ invoke.cont15:                                    ; preds = %if.else
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit unwind label %lpad.i.i.i.i11
 
 lpad.i.i.i.i11:                                   ; preds = %invoke.cont15
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = call ptr @__cxa_begin_catch(ptr %17) #25
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #25
   %vtable.i.i.i.i = load ptr, ptr %call13, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %19 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
+  %18 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(128) %call13) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i15 unwind label %lpad3.i.i.i.i12
 
 lpad3.i.i.i.i12:                                  ; preds = %lpad.i.i.i.i11
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i13
 
 terminate.lpad.i.i.i.i13:                         ; preds = %lpad3.i.i.i.i12
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #27
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #27
   unreachable
 
 unreachable.i.i.i.i15:                            ; preds = %lpad.i.i.i.i11
@@ -6842,7 +6963,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; 
   br label %return
 
 lpad14:                                           ; preds = %if.else
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -6853,62 +6974,81 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
+  %2 = load double, ptr %arrayidx.i.i, align 8
   %mul4.i.i = shl nsw i32 %axis1, 2
   %idxprom6.i.i = sext i32 %mul4.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom6.i.i
-  %2 = load <2 x double>, ptr %arrayidx.i.i, align 8
-  %3 = load <2 x double>, ptr %arrayidx7.i.i, align 8
-  %4 = insertelement <2 x double> poison, double %shear, i64 0
-  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
-  %6 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %2, <2 x double> %3)
-  store <2 x double> %6, ptr %arrayidx7.i.i, align 8
+  %3 = load double, ptr %arrayidx7.i.i, align 8
+  %4 = call double @llvm.fmuladd.f64(double %shear, double %2, double %3)
+  store double %4, ptr %arrayidx7.i.i, align 8
+  %add10.i.i = or disjoint i32 %mul.i.i, 1
+  %idxprom11.i.i = sext i32 %add10.i.i to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom11.i.i
+  %5 = load double, ptr %arrayidx12.i.i, align 8
+  %add16.i.i = or disjoint i32 %mul4.i.i, 1
+  %idxprom17.i.i = sext i32 %add16.i.i to i64
+  %arrayidx18.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom17.i.i
+  %6 = load double, ptr %arrayidx18.i.i, align 8
+  %7 = call double @llvm.fmuladd.f64(double %shear, double %5, double %6)
+  store double %7, ptr %arrayidx18.i.i, align 8
   %add21.i.i = or disjoint i32 %mul.i.i, 2
   %idxprom22.i.i = sext i32 %add21.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom22.i.i
+  %8 = load double, ptr %arrayidx23.i.i, align 8
   %add27.i.i = or disjoint i32 %mul4.i.i, 2
   %idxprom28.i.i = sext i32 %add27.i.i to i64
   %arrayidx29.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom28.i.i
-  %7 = load <2 x double>, ptr %arrayidx23.i.i, align 8
-  %8 = load <2 x double>, ptr %arrayidx29.i.i, align 8
-  %9 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %7, <2 x double> %8)
-  store <2 x double> %9, ptr %arrayidx29.i.i, align 8
+  %9 = load double, ptr %arrayidx29.i.i, align 8
+  %10 = call double @llvm.fmuladd.f64(double %shear, double %8, double %9)
+  store double %10, ptr %arrayidx29.i.i, align 8
+  %add32.i.i = or disjoint i32 %mul.i.i, 3
+  %idxprom33.i.i = sext i32 %add32.i.i to i64
+  %arrayidx34.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom33.i.i
+  %11 = load double, ptr %arrayidx34.i.i, align 8
+  %add38.i.i = or disjoint i32 %mul4.i.i, 3
+  %idxprom39.i.i = sext i32 %add38.i.i to i64
+  %arrayidx40.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom39.i.i
+  %12 = load double, ptr %arrayidx40.i.i, align 8
+  %13 = call double @llvm.fmuladd.f64(double %shear, double %11, double %12)
+  store double %13, ptr %arrayidx40.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %14 = load ptr, ptr %affineMap, align 8
+  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %11 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %11, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %15, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %12, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %13 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %13, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -6916,167 +7056,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %15 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %15, null
+  %19 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %16, 4294967297
-  %17 = trunc i64 %16 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %20, 4294967297
+  %21 = trunc i64 %20 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %18 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
+  %22 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %19 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %19, 0
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %17, -1
+  %add.i.i.i.i.i7 = add nsw i32 %21, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %24 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %17, %if.then.i.i.i.i.i6 ], [ %20, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i6 ], [ %24, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %21 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
-  %22 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %22, 0
+  %25 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %23 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %23, -1
+  %27 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %27, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %24 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %28 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %23, %if.then.i.i.i.i.i.i.i ], [ %24, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %25 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
+  %29 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %26, null
+  %30 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %27, 4294967297
-  %28 = trunc i64 %27 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %31, 4294967297
+  %32 = trunc i64 %31 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %26, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %30, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %29 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
+  %33 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %30, 0
+  %34 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %34, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %28, -1
+  %add.i.i.i.i.i17 = add nsw i32 %32, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %31 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %35 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %28, %if.then.i.i.i.i.i16 ], [ %31, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %32, %if.then.i.i.i.i.i16 ], [ %35, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %30, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %32 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %26, i64 12
-  %33 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %33, 0
+  %36 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %30, i64 12
+  %37 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %34 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %34, -1
+  %38 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %38, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %35 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %39 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %34, %if.then.i.i.i.i.i.i.i26 ], [ %35, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %38, %if.then.i.i.i.i.i.i.i26 ], [ %39, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %26, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %30, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %36 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
+  %40 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %entry
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %38 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %38, %lpad2 ], [ %37, %lpad ]
+  %.pn = phi { ptr, i32 } [ %42, %lpad2 ], [ %41, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -7084,29 +7224,30 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %affineMap, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %3 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %3, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %3, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7369,13 +7510,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -7419,16 +7560,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %14 = load ptr, ptr %affineMap, align 8
+  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %15 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %15, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %15, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7617,16 +7759,23 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap13applyJacobianERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  %0 = load double, ptr %in, align 8, !noalias !138
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %mScaleValues.i, align 8, !noalias !138
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !138
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i3.i, align 8, !noalias !138
+  %mul6.i = fmul double %2, %3
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4.i, align 8, !noalias !138
+  %4 = load double, ptr %arrayidx.i4.i, align 8, !noalias !138
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i5.i, align 8, !noalias !138
-  %mul10.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !138
-  %3 = load <2 x double>, ptr %mScaleValues.i, align 8, !noalias !138
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !138
+  %5 = load double, ptr %arrayidx.i5.i, align 8, !noalias !138
+  %mul10.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !138
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i, ptr %arrayidx3.i.i, align 8, !alias.scope !138
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i, ptr %arrayidx5.i.i, align 8, !alias.scope !138
   ret void
@@ -7637,16 +7786,23 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap13applyJacobianERKNS1_
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  %1 = load double, ptr %in, align 8, !noalias !147
   %mScaleValues.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load double, ptr %mScaleValues.i.i, align 8, !noalias !147
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !147
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load double, ptr %arrayidx.i3.i.i, align 8, !noalias !147
+  %mul6.i.i = fmul double %3, %4
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !147
+  %5 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !147
   %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !147
-  %mul10.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !147
-  %4 = load <2 x double>, ptr %mScaleValues.i.i, align 8, !noalias !147
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !147
+  %6 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !147
+  %mul10.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !147
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !147
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !147
   ret void
@@ -7656,16 +7812,23 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap20applyInverseJacobianERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  %0 = load double, ptr %in, align 8, !noalias !148
   %mScaleValuesInverse.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = load double, ptr %mScaleValuesInverse.i, align 8, !noalias !148
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !148
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 64
+  %3 = load double, ptr %arrayidx.i3.i, align 8, !noalias !148
+  %mul6.i = fmul double %2, %3
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4.i, align 8, !noalias !148
+  %4 = load double, ptr %arrayidx.i4.i, align 8, !noalias !148
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 72
-  %1 = load double, ptr %arrayidx.i5.i, align 8, !noalias !148
-  %mul10.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !148
-  %3 = load <2 x double>, ptr %mScaleValuesInverse.i, align 8, !noalias !148
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !148
+  %5 = load double, ptr %arrayidx.i5.i, align 8, !noalias !148
+  %mul10.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !148
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i, ptr %arrayidx3.i.i, align 8, !alias.scope !148
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i, ptr %arrayidx5.i.i, align 8, !alias.scope !148
   ret void
@@ -7676,16 +7839,23 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap20applyInverseJacobian
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
+  %1 = load double, ptr %in, align 8, !noalias !157
   %mScaleValuesInverse.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %2 = load double, ptr %mScaleValuesInverse.i.i, align 8, !noalias !157
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !157
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %4 = load double, ptr %arrayidx.i3.i.i, align 8, !noalias !157
+  %mul6.i.i = fmul double %3, %4
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !157
+  %5 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !157
   %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !157
-  %mul10.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !157
-  %4 = load <2 x double>, ptr %mScaleValuesInverse.i.i, align 8, !noalias !157
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !157
+  %6 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !157
+  %mul10.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !157
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !157
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !157
   ret void
@@ -7695,16 +7865,23 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap7applyJTERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
+  %0 = load double, ptr %in, align 8, !noalias !158
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %mScaleValues.i, align 8, !noalias !158
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i, align 8, !noalias !158
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i3.i, align 8, !noalias !158
+  %mul6.i = fmul double %2, %3
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4.i, align 8, !noalias !158
+  %4 = load double, ptr %arrayidx.i4.i, align 8, !noalias !158
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i5.i, align 8, !noalias !158
-  %mul10.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !158
-  %3 = load <2 x double>, ptr %mScaleValues.i, align 8, !noalias !158
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !158
+  %5 = load double, ptr %arrayidx.i5.i, align 8, !noalias !158
+  %mul10.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !158
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i, ptr %arrayidx3.i.i, align 8, !alias.scope !158
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i, ptr %arrayidx5.i.i, align 8, !alias.scope !158
   ret void
@@ -7715,16 +7892,23 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap7applyJTERKNS1_4Vec3Id
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  %1 = load double, ptr %in, align 8, !noalias !167
   %mScaleValues.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load double, ptr %mScaleValues.i.i, align 8, !noalias !167
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !167
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load double, ptr %arrayidx.i3.i.i, align 8, !noalias !167
+  %mul6.i.i = fmul double %3, %4
   %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !167
+  %5 = load double, ptr %arrayidx.i4.i.i, align 8, !noalias !167
   %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !167
-  %mul10.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !167
-  %4 = load <2 x double>, ptr %mScaleValues.i.i, align 8, !noalias !167
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !167
+  %6 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !167
+  %mul10.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !167
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !167
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !167
   ret void
@@ -8130,13 +8314,17 @@ init.i:                                           ; preds = %init.check.i
 _ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit:   ; preds = %entry, %init.check.i, %init.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %matrix, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN7openvdb5v11_04math4Mat4IdE8identityEvE9sIdentity, i64 128, i1 false)
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load double, ptr %mTranslation, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %matrix, i64 96
-  %2 = load <2 x double>, ptr %mTranslation, align 8
-  store <2 x double> %2, ptr %arrayidx.i, align 8
+  store double %2, ptr %arrayidx.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load double, ptr %arrayidx.i.i.i, align 8
+  %arrayidx4.i = getelementptr inbounds i8, ptr %matrix, i64 104
+  store double %3, ptr %arrayidx4.i, align 8
   %arrayidx.i.i3.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load double, ptr %arrayidx.i.i3.i, align 8
+  %4 = load double, ptr %arrayidx.i.i3.i, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %matrix, i64 112
-  store double %3, ptr %arrayidx7.i, align 8
+  store double %4, ptr %arrayidx7.i, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #24
   invoke void @_ZN7openvdb5v11_04math9AffineMapC2ERKNS1_4Mat4IdEE(ptr noundef nonnull align 8 dereferenceable(376) %call2, ptr noundef nonnull align 8 dereferenceable(128) %matrix)
           to label %invoke.cont unwind label %lpad
@@ -8149,29 +8337,29 @@ invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04m
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %5) #25
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = call ptr @__cxa_begin_catch(ptr %6) #25
   call void @_ZdlPv(ptr noundef nonnull %call2) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad ], [ %7, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad ], [ %8, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #27
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -8189,7 +8377,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit: ; preds = %
   ret void
 
 lpad:                                             ; preds = %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call2) #28
   br label %common.resume
@@ -8291,15 +8479,21 @@ entry:
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %in, i64 24, i1 false)
-  %0 = load <2 x double>, ptr %mTranslation, align 8, !noalias !168
-  %1 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !168
-  %2 = fadd <2 x double> %0, %1
-  store <2 x double> %2, ptr %agg.result, align 8, !alias.scope !168
+  %0 = load double, ptr %mTranslation, align 8, !noalias !168
+  %1 = load double, ptr %agg.result, align 8, !alias.scope !168
+  %add.i.i = fadd double %0, %1
+  store double %add.i.i, ptr %agg.result, align 8, !alias.scope !168
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !168
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %3 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !168
+  %add5.i.i = fadd double %2, %3
+  store double %add5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !168
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !168
+  %4 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !168
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %4 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !168
-  %add9.i.i = fadd double %3, %4
+  %5 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !168
+  %add9.i.i = fadd double %4, %5
   store double %add9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !168
   ret void
 }
@@ -8310,15 +8504,21 @@ entry:
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %in, i64 24, i1 false)
-  %0 = load <2 x double>, ptr %mTranslation, align 8, !noalias !171
-  %1 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !171
-  %2 = fsub <2 x double> %1, %0
-  store <2 x double> %2, ptr %agg.result, align 8, !alias.scope !171
+  %0 = load double, ptr %mTranslation, align 8, !noalias !171
+  %1 = load double, ptr %agg.result, align 8, !alias.scope !171
+  %sub.i.i = fsub double %1, %0
+  store double %sub.i.i, ptr %agg.result, align 8, !alias.scope !171
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !171
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %3 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !171
+  %sub5.i.i = fsub double %3, %2
+  store double %sub5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !171
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !171
+  %4 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !171
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %4 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !171
-  %sub9.i.i = fsub double %4, %3
+  %5 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !171
+  %sub9.i.i = fsub double %5, %4
   store double %sub9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !171
   ret void
 }
@@ -8366,7 +8566,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9voxelSizeEv(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %agg.result, align 8
+  store double 1.000000e+00, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double 1.000000e+00, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double 1.000000e+00, ptr %arrayidx5.i, align 8
   ret void
@@ -8375,7 +8577,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9voxelSizeERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
 entry:
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %agg.result, align 8, !alias.scope !174
+  store double 1.000000e+00, ptr %agg.result, align 8, !alias.scope !174
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double 1.000000e+00, ptr %arrayidx3.i.i, align 8, !alias.scope !174
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double 1.000000e+00, ptr %arrayidx5.i.i, align 8, !alias.scope !174
   ret void
@@ -8504,26 +8708,27 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = load ptr, ptr %affineMap, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8713,17 +8918,24 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap12preTranslateE
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %t, align 8
+  %ref.tmp.sroa.4.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.t.sroa_idx, align 8
   %ref.tmp.sroa.6.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 16
   %ref.tmp.sroa.6.0.copyload = load double, ptr %ref.tmp.sroa.6.0.t.sroa_idx, align 8
+  %0 = load double, ptr %mTranslation, align 8, !noalias !177
+  %add.i.i = fadd double %ref.tmp.sroa.0.0.copyload, %0
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !177
+  %add5.i.i = fadd double %ref.tmp.sroa.4.0.copyload, %1
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !177
-  %add9.i.i = fadd double %ref.tmp.sroa.6.0.copyload, %0
+  %2 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !177
+  %add9.i.i = fadd double %ref.tmp.sroa.6.0.copyload, %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math14TranslationMapE, i64 16), ptr %call, align 8
   %mTranslation.i = getelementptr inbounds i8, ptr %call, i64 8
-  %1 = load <2 x double>, ptr %t, align 8
-  %2 = load <2 x double>, ptr %mTranslation, align 8, !noalias !177
-  %3 = fadd <2 x double> %1, %2
-  store <2 x double> %3, ptr %mTranslation.i, align 8
+  store double %add.i.i, ptr %mTranslation.i, align 8
+  %ref.tmp.sroa.4.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store double %add5.i.i, ptr %ref.tmp.sroa.4.0.mTranslation.i.sroa_idx, align 8
   %ref.tmp.sroa.6.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
   store double %add9.i.i, ptr %ref.tmp.sroa.6.0.mTranslation.i.sroa_idx, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -8733,28 +8945,28 @@ invoke.cont:
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #25
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #25
   tail call void @_ZdlPv(ptr noundef nonnull %call) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 eh.resume.i.i.i.i:                                ; preds = %lpad3.i.i.i.i
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #27
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -8775,59 +8987,78 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
+  %1 = load double, ptr %arrayidx.i.i, align 8
   %mul4.i.i = shl nsw i32 %axis1, 2
   %idxprom6.i.i = sext i32 %mul4.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom6.i.i
-  %1 = load <2 x double>, ptr %arrayidx.i.i, align 8
-  %2 = load <2 x double>, ptr %arrayidx7.i.i, align 8
-  %3 = insertelement <2 x double> poison, double %shear, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %1, <2 x double> %2)
-  store <2 x double> %5, ptr %arrayidx7.i.i, align 8
+  %2 = load double, ptr %arrayidx7.i.i, align 8
+  %3 = call double @llvm.fmuladd.f64(double %shear, double %1, double %2)
+  store double %3, ptr %arrayidx7.i.i, align 8
+  %add10.i.i = or disjoint i32 %mul.i.i, 1
+  %idxprom11.i.i = sext i32 %add10.i.i to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom11.i.i
+  %4 = load double, ptr %arrayidx12.i.i, align 8
+  %add16.i.i = or disjoint i32 %mul4.i.i, 1
+  %idxprom17.i.i = sext i32 %add16.i.i to i64
+  %arrayidx18.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom17.i.i
+  %5 = load double, ptr %arrayidx18.i.i, align 8
+  %6 = call double @llvm.fmuladd.f64(double %shear, double %4, double %5)
+  store double %6, ptr %arrayidx18.i.i, align 8
   %add21.i.i = or disjoint i32 %mul.i.i, 2
   %idxprom22.i.i = sext i32 %add21.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom22.i.i
+  %7 = load double, ptr %arrayidx23.i.i, align 8
   %add27.i.i = or disjoint i32 %mul4.i.i, 2
   %idxprom28.i.i = sext i32 %add27.i.i to i64
   %arrayidx29.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom28.i.i
-  %6 = load <2 x double>, ptr %arrayidx23.i.i, align 8
-  %7 = load <2 x double>, ptr %arrayidx29.i.i, align 8
-  %8 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %6, <2 x double> %7)
-  store <2 x double> %8, ptr %arrayidx29.i.i, align 8
+  %8 = load double, ptr %arrayidx29.i.i, align 8
+  %9 = call double @llvm.fmuladd.f64(double %shear, double %7, double %8)
+  store double %9, ptr %arrayidx29.i.i, align 8
+  %add32.i.i = or disjoint i32 %mul.i.i, 3
+  %idxprom33.i.i = sext i32 %add32.i.i to i64
+  %arrayidx34.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom33.i.i
+  %10 = load double, ptr %arrayidx34.i.i, align 8
+  %add38.i.i = or disjoint i32 %mul4.i.i, 3
+  %idxprom39.i.i = sext i32 %add38.i.i to i64
+  %arrayidx40.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom39.i.i
+  %11 = load double, ptr %arrayidx40.i.i, align 8
+  %12 = call double @llvm.fmuladd.f64(double %shear, double %10, double %11)
+  store double %12, ptr %arrayidx40.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %10 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %10, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %9, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %12 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %12, 1
+  %16 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %16, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -8835,167 +9066,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %14 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %14, null
+  %18 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %15, 4294967297
-  %16 = trunc i64 %15 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %19, 4294967297
+  %20 = trunc i64 %19 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %17 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %18, 0
+  %22 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %16, -1
+  %add.i.i.i.i.i7 = add nsw i32 %20, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i6 ], [ %19, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i6 ], [ %23, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %20 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
-  %21 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %21, 0
+  %24 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %22 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %22, -1
+  %26 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %26, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %28 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %25, null
+  %29 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %26, 4294967297
-  %27 = trunc i64 %26 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %30, 4294967297
+  %31 = trunc i64 %30 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %25, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %28 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %32 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %29, 0
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %33, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %27, -1
+  %add.i.i.i.i.i17 = add nsw i32 %31, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %34 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %27, %if.then.i.i.i.i.i16 ], [ %30, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %31, %if.then.i.i.i.i.i16 ], [ %34, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %31 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %25, i64 12
-  %32 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %32, 0
+  %35 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %29, i64 12
+  %36 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %33 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %33, -1
+  %37 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %37, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %34 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %38 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %33, %if.then.i.i.i.i.i.i.i26 ], [ %34, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %37, %if.then.i.i.i.i.i.i.i26 ], [ %38, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %25, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %29, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %35 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %39 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %entry
-  %36 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %37, %lpad2 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %41, %lpad2 ], [ %40, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -9003,26 +9234,27 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = load ptr, ptr %affineMap, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9212,17 +9444,24 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap13postTranslate
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %t, align 8
+  %ref.tmp.sroa.4.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.t.sroa_idx, align 8
   %ref.tmp.sroa.6.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 16
   %ref.tmp.sroa.6.0.copyload = load double, ptr %ref.tmp.sroa.6.0.t.sroa_idx, align 8
+  %0 = load double, ptr %mTranslation, align 8, !noalias !180
+  %add.i.i = fadd double %ref.tmp.sroa.0.0.copyload, %0
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !180
+  %add5.i.i = fadd double %ref.tmp.sroa.4.0.copyload, %1
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !180
-  %add9.i.i = fadd double %ref.tmp.sroa.6.0.copyload, %0
+  %2 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !180
+  %add9.i.i = fadd double %ref.tmp.sroa.6.0.copyload, %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math14TranslationMapE, i64 16), ptr %call, align 8
   %mTranslation.i = getelementptr inbounds i8, ptr %call, i64 8
-  %1 = load <2 x double>, ptr %t, align 8
-  %2 = load <2 x double>, ptr %mTranslation, align 8, !noalias !180
-  %3 = fadd <2 x double> %1, %2
-  store <2 x double> %3, ptr %mTranslation.i, align 8
+  store double %add.i.i, ptr %mTranslation.i, align 8
+  %ref.tmp.sroa.4.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store double %add5.i.i, ptr %ref.tmp.sroa.4.0.mTranslation.i.sroa_idx, align 8
   %ref.tmp.sroa.6.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
   store double %add9.i.i, ptr %ref.tmp.sroa.6.0.mTranslation.i.sroa_idx, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -9232,28 +9471,28 @@ invoke.cont:
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #25
+  %4 = extractvalue { ptr, i32 } %3, 0
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #25
   tail call void @_ZdlPv(ptr noundef nonnull %call) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 eh.resume.i.i.i.i:                                ; preds = %lpad3.i.i.i.i
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #27
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -9275,43 +9514,45 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.e
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %ref.tmp12 = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %trans = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %0 = load <2 x double>, ptr %v, align 8
-  %1 = extractelement <2 x double> %0, i64 0
-  %shift = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %2 = fsub <2 x double> %0, %shift
-  %sub.i.i = extractelement <2 x double> %2, i64 0
-  %3 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i.i = fcmp ule double %3, 1.000000e-15
+  %ref.tmp12 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %trans = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %0 = load double, ptr %v, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %v, i64 8
+  %1 = load double, ptr %arrayidx.i.i, align 8
+  %sub.i.i = fsub double %0, %1
+  %2 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i.i = fcmp ule double %2, 1.000000e-15
   %arrayidx.i.i12 = getelementptr inbounds i8, ptr %v, i64 16
-  %4 = load double, ptr %arrayidx.i.i12, align 8
+  %3 = load double, ptr %arrayidx.i.i12, align 8
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i13 = fsub double %1, %4
-  %5 = tail call noundef double @llvm.fabs.f64(double %sub.i.i13)
-  %cmp.i.i.i14 = fcmp ule double %5, 1.000000e-15
+  %sub.i.i13 = fsub double %0, %3
+  %4 = tail call noundef double @llvm.fabs.f64(double %sub.i.i13)
+  %cmp.i.i.i14 = fcmp ule double %4, 1.000000e-15
   br i1 %cmp.i.i.i14, label %invoke.cont15, label %if.else
 
 invoke.cont15:                                    ; preds = %land.rhs
   %call10 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
+  %5 = load double, ptr %ref.tmp12, align 8, !alias.scope !183
+  %mul.i.i.i = fmul double %0, %5
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  %6 = load double, ptr %arrayidx3.i.i.i, align 8, !alias.scope !183
+  %mul4.i.i.i = fmul double %0, %6
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
-  %6 = load double, ptr %arrayidx6.i.i.i, align 16, !alias.scope !183
-  %mul7.i.i.i = fmul double %1, %6
-  %7 = load <2 x double>, ptr %ref.tmp12, align 16, !alias.scope !183
-  %8 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x double> %8, %7
-  store <2 x double> %9, ptr %ref.tmp12, align 16, !alias.scope !183
-  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 16, !alias.scope !183
+  %7 = load double, ptr %arrayidx6.i.i.i, align 8, !alias.scope !183
+  %mul7.i.i.i = fmul double %0, %7
+  store double %mul.i.i.i, ptr %ref.tmp12, align 8, !alias.scope !183
+  store double %mul4.i.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !183
+  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 8, !alias.scope !183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store double %1, ptr %ref.tmp.i, align 8
+  store double %0, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %1, ptr %arrayidx3.i.i, align 8
+  store double %0, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %1, ptr %arrayidx5.i.i, align 8
+  store double %0, ptr %arrayidx5.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12)
           to label %invoke.cont16 unwind label %lpad
 
@@ -9325,35 +9566,35 @@ invoke.cont16:                                    ; preds = %invoke.cont15
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont16
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = call ptr @__cxa_begin_catch(ptr %11) #25
+  %9 = extractvalue { ptr, i32 } %8, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #25
   call void @_ZdlPv(ptr noundef nonnull %call10) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume.sink.split:                         ; preds = %lpad29, %lpad
   %call10.sink = phi ptr [ %call10, %lpad ], [ %call28, %lpad29 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %16, %lpad ], [ %27, %lpad29 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %14, %lpad ], [ %25, %lpad29 ]
   call void @_ZdlPv(ptr noundef nonnull %call10.sink) #28
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i23, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad3.i.i.i.i ], [ %24, %lpad3.i.i.i.i23 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad3.i.i.i.i ], [ %22, %lpad3.i.i.i.i23 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #27
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -9371,20 +9612,25 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   br label %return
 
 lpad:                                             ; preds = %invoke.cont15
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
 if.else:                                          ; preds = %entry, %land.rhs
   %mTranslation17 = getelementptr inbounds i8, ptr %this, i64 8
+  %15 = load double, ptr %mTranslation17, align 8
+  %mul = fmul double %0, %15
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %16 = load double, ptr %arrayidx.i, align 8
+  %mul23 = fmul double %1, %16
   %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load double, ptr %arrayidx.i18, align 8
-  %mul27 = fmul double %17, %4
-  %18 = load <2 x double>, ptr %mTranslation17, align 8
-  %19 = fmul <2 x double> %0, %18
-  store <2 x double> %19, ptr %trans, align 16
+  %mul27 = fmul double %17, %3
+  store double %mul, ptr %trans, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %trans, i64 8
+  store double %mul23, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %trans, i64 16
-  store double %mul27, ptr %arrayidx5.i, align 16
+  store double %mul27, ptr %arrayidx5.i, align 8
   %call28 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call28, ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef nonnull align 8 dereferenceable(24) %trans)
           to label %invoke.cont30 unwind label %lpad29
@@ -9397,28 +9643,28 @@ invoke.cont30:                                    ; preds = %if.else
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i22
 
 lpad.i.i.i.i22:                                   ; preds = %invoke.cont30
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = call ptr @__cxa_begin_catch(ptr %21) #25
+  %19 = extractvalue { ptr, i32 } %18, 0
+  %20 = call ptr @__cxa_begin_catch(ptr %19) #25
   %vtable.i.i.i.i = load ptr, ptr %call28, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %23 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(152) %call28) #25
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(152) %call28) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i26 unwind label %lpad3.i.i.i.i23
 
 lpad3.i.i.i.i23:                                  ; preds = %lpad.i.i.i.i22
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i24
 
 terminate.lpad.i.i.i.i24:                         ; preds = %lpad3.i.i.i.i23
-  %25 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #27
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #27
   unreachable
 
 unreachable.i.i.i.i26:                            ; preds = %lpad.i.i.i.i22
@@ -9436,7 +9682,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   br label %return
 
 lpad29:                                           ; preds = %if.else
-  %27 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -9447,10 +9693,10 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -9494,16 +9740,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %14 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %14, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9735,14 +9982,19 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap10inverseMapEv(
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load double, ptr %mTranslation, align 8, !noalias !188
+  %fneg.i = fneg double %0
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load double, ptr %arrayidx3.i, align 8, !noalias !188
+  %fneg4.i = fneg double %1
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load double, ptr %arrayidx6.i, align 8, !noalias !188
-  %fneg7.i = fneg double %0
+  %2 = load double, ptr %arrayidx6.i, align 8, !noalias !188
+  %fneg7.i = fneg double %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04math14TranslationMapE, i64 16), ptr %call, align 8
   %mTranslation.i = getelementptr inbounds i8, ptr %call, i64 8
-  %1 = load <2 x double>, ptr %mTranslation, align 8, !noalias !188
-  %2 = fneg <2 x double> %1
-  store <2 x double> %2, ptr %mTranslation.i, align 8
+  store double %fneg.i, ptr %mTranslation.i, align 8
+  %ref.tmp.sroa.2.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  store double %fneg4.i, ptr %ref.tmp.sroa.2.0.mTranslation.i.sroa_idx, align 8
   %ref.tmp.sroa.3.0.mTranslation.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
   store double %fneg7.i, ptr %ref.tmp.sroa.3.0.mTranslation.i.sroa_idx, align 8
   store ptr %call, ptr %agg.result, align 8
@@ -9857,7 +10109,7 @@ lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %6, %lpad3.i.i.i.i ], [ %35, %lpad4 ], [ %34, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad3.i.i.i.i ], [ %32, %lpad4 ], [ %31, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
@@ -9882,9 +10134,11 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit: ; preds = %
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   %mMatrix.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
-  %9 = load <2 x double>, ptr %mTranslation, align 8
+  %9 = load double, ptr %mTranslation, align 8
+  %arrayidx.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 16
+  %10 = load double, ptr %arrayidx.i.i.i2, align 8
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load double, ptr %arrayidx.i3.i.i, align 8
+  %11 = load double, ptr %arrayidx.i3.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m0.i.i.i.i), !noalias !194
@@ -9893,40 +10147,38 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit: ; preds = %
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2IS3_vEEPT_.exit ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
-  %11 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
-  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %11
-  %12 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !194
-  %13 = or disjoint i64 %11, 1
-  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %13
-  %14 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !194
-  %mul9.i.i.i.i = fmul double %14, 0.000000e+00
-  %15 = fadd double %12, %mul9.i.i.i.i
-  %16 = or disjoint i64 %11, 2
-  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !194
-  %18 = or disjoint i64 %11, 3
-  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %18
-  %19 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !194
-  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %11
-  %20 = call double @llvm.fmuladd.f64(double %12, double 0.000000e+00, double %14)
-  %21 = insertelement <2 x double> poison, double %17, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = insertelement <2 x double> poison, double %15, i64 0
-  %24 = insertelement <2 x double> %23, double %20, i64 1
-  %25 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> zeroinitializer, <2 x double> %24)
-  %26 = insertelement <2 x double> poison, double %19, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %27, <2 x double> %9, <2 x double> %25)
-  store <2 x double> %28, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !194
-  %29 = call double @llvm.fmuladd.f64(double %12, double 0.000000e+00, double %mul9.i.i.i.i)
-  %30 = fadd double %17, %29
-  %31 = call double @llvm.fmuladd.f64(double %19, double %10, double %30)
-  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %16
-  store double %31, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !194
-  %32 = call double @llvm.fmuladd.f64(double %17, double 0.000000e+00, double %29)
-  %33 = fadd double %19, %32
-  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %18
-  store double %33, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !194
+  %12 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
+  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %12
+  %13 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !194
+  %14 = or disjoint i64 %12, 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %14
+  %15 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !194
+  %mul9.i.i.i.i = fmul double %15, 0.000000e+00
+  %16 = fadd double %13, %mul9.i.i.i.i
+  %17 = or disjoint i64 %12, 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %17
+  %18 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !194
+  %19 = call double @llvm.fmuladd.f64(double %18, double 0.000000e+00, double %16)
+  %20 = or disjoint i64 %12, 3
+  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !194
+  %22 = call double @llvm.fmuladd.f64(double %21, double %9, double %19)
+  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %12
+  store double %22, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !194
+  %23 = call double @llvm.fmuladd.f64(double %13, double 0.000000e+00, double %15)
+  %24 = call double @llvm.fmuladd.f64(double %18, double 0.000000e+00, double %23)
+  %25 = call double @llvm.fmuladd.f64(double %21, double %10, double %24)
+  %arrayidx46.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %14
+  store double %25, ptr %arrayidx46.i.i.i.i, align 8, !alias.scope !194
+  %26 = call double @llvm.fmuladd.f64(double %13, double 0.000000e+00, double %mul9.i.i.i.i)
+  %27 = fadd double %18, %26
+  %28 = call double @llvm.fmuladd.f64(double %21, double %11, double %27)
+  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %17
+  store double %28, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !194
+  %29 = call double @llvm.fmuladd.f64(double %18, double 0.000000e+00, double %26)
+  %30 = fadd double %21, %29
+  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %20
+  store double %30, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !194
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i, label %for.body.i.i.i.i, !llvm.loop !197
@@ -9939,13 +10191,13 @@ _ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i: ; pre
           to label %nrvo.skipdtor unwind label %lpad4
 
 lpad:                                             ; preds = %invoke.cont
-  %34 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call) #28
   br label %common.resume
 
 lpad4:                                            ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %35 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #25
   br label %common.resume
@@ -9986,21 +10238,21 @@ entry:
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04math17ScaleTranslateMap15hasUniformScaleEv(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load <2 x double>, ptr %mScaleValues, align 8
-  %1 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %0)
-  %shift = shufflevector <2 x double> %1, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %2 = fsub <2 x double> %1, %shift
-  %sub.i = extractelement <2 x double> %2, i64 0
-  %3 = tail call noundef double @llvm.fabs.f64(double %sub.i)
-  %cmp.i.i = fcmp ule double %3, 5.000000e-07
+  %0 = load double, ptr %mScaleValues, align 8
+  %1 = tail call noundef double @llvm.fabs.f64(double %0)
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 40
+  %2 = load double, ptr %arrayidx.i, align 8
+  %3 = tail call noundef double @llvm.fabs.f64(double %2)
+  %sub.i = fsub double %1, %3
+  %4 = tail call noundef double @llvm.fabs.f64(double %sub.i)
+  %cmp.i.i = fcmp ule double %4, 5.000000e-07
   br i1 %cmp.i.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %4 = extractelement <2 x double> %1, i64 0
   %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load double, ptr %arrayidx.i2, align 8
   %6 = tail call noundef double @llvm.fabs.f64(double %5)
-  %sub.i3 = fsub double %4, %6
+  %sub.i3 = fsub double %1, %6
   %7 = tail call noundef double @llvm.fabs.f64(double %sub.i3)
   %cmp.i.i4 = fcmp ule double %7, 5.000000e-07
   br label %land.end
@@ -10013,44 +10265,63 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8applyMapERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
+  %0 = load double, ptr %in, align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load double, ptr %mScaleValues, align 8
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i5, align 8
-  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i6, align 8
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load double, ptr %arrayidx.i7, align 8
+  %2 = load double, ptr %mTranslation, align 8
   %3 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %2)
-  %4 = load <2 x double>, ptr %in, align 8
-  %5 = load <2 x double>, ptr %mScaleValues, align 8
-  %6 = load <2 x double>, ptr %mTranslation, align 8
-  %7 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %5, <2 x double> %6)
-  store <2 x double> %7, ptr %agg.result, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 8
+  %4 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 40
+  %5 = load double, ptr %arrayidx.i3, align 8
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  %6 = load double, ptr %arrayidx.i4, align 8
+  %7 = tail call double @llvm.fmuladd.f64(double %4, double %5, double %6)
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %in, i64 16
+  %8 = load double, ptr %arrayidx.i5, align 8
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 48
+  %9 = load double, ptr %arrayidx.i6, align 8
+  %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %10 = load double, ptr %arrayidx.i7, align 8
+  %11 = tail call double @llvm.fmuladd.f64(double %8, double %9, double %10)
+  store double %3, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %7, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %3, ptr %arrayidx5.i, align 8
+  store double %11, ptr %arrayidx5.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap15applyInverseMapERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
+  %0 = load double, ptr %in, align 8
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %mTranslation, align 8
+  %sub = fsub double %0, %1
   %mScaleValuesInverse = getelementptr inbounds i8, ptr %this, i64 80
+  %2 = load double, ptr %mScaleValuesInverse, align 8
+  %mul = fmul double %sub, %2
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load double, ptr %arrayidx.i3, align 8
+  %sub7 = fsub double %3, %4
+  %arrayidx.i4 = getelementptr inbounds i8, ptr %this, i64 88
+  %5 = load double, ptr %arrayidx.i4, align 8
+  %mul10 = fmul double %sub7, %5
   %arrayidx.i5 = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i5, align 8
+  %6 = load double, ptr %arrayidx.i5, align 8
   %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i6, align 8
-  %sub14 = fsub double %0, %1
+  %7 = load double, ptr %arrayidx.i6, align 8
+  %sub14 = fsub double %6, %7
   %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 96
-  %2 = load double, ptr %arrayidx.i7, align 8
-  %mul17 = fmul double %sub14, %2
-  %3 = load <2 x double>, ptr %in, align 8
-  %4 = load <2 x double>, ptr %mTranslation, align 8
-  %5 = fsub <2 x double> %3, %4
-  %6 = load <2 x double>, ptr %mScaleValuesInverse, align 8
-  %7 = fmul <2 x double> %5, %6
-  store <2 x double> %7, ptr %agg.result, align 8
+  %8 = load double, ptr %arrayidx.i7, align 8
+  %mul17 = fmul double %sub14, %8
+  store double %mul, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul10, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul17, ptr %arrayidx5.i, align 8
   ret void
@@ -10059,16 +10330,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8applyIJTERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
+  %0 = load double, ptr %in, align 8
   %mScaleValuesInverse = getelementptr inbounds i8, ptr %this, i64 80
+  %1 = load double, ptr %mScaleValuesInverse, align 8
+  %mul = fmul double %0, %1
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i3 = getelementptr inbounds i8, ptr %this, i64 88
+  %3 = load double, ptr %arrayidx.i3, align 8
+  %mul6 = fmul double %2, %3
   %arrayidx.i4 = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i4, align 8
+  %4 = load double, ptr %arrayidx.i4, align 8
   %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 96
-  %1 = load double, ptr %arrayidx.i5, align 8
-  %mul10 = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8
-  %3 = load <2 x double>, ptr %mScaleValuesInverse, align 8
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8
+  %5 = load double, ptr %arrayidx.i5, align 8
+  %mul10 = fmul double %4, %5
+  store double %mul, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10, ptr %arrayidx5.i, align 8
   ret void
@@ -10078,16 +10356,23 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8applyIJTERKNS1_4Vec3IdEES6_(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
+  %1 = load double, ptr %in, align 8, !noalias !198
   %mScaleValuesInverse.i = getelementptr inbounds i8, ptr %this, i64 80
+  %2 = load double, ptr %mScaleValuesInverse.i, align 8, !noalias !198
+  %mul.i = fmul double %1, %2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i, align 8, !noalias !198
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %4 = load double, ptr %arrayidx.i3.i, align 8, !noalias !198
+  %mul6.i = fmul double %3, %4
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i4.i, align 8, !noalias !198
+  %5 = load double, ptr %arrayidx.i4.i, align 8, !noalias !198
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %this, i64 96
-  %2 = load double, ptr %arrayidx.i5.i, align 8, !noalias !198
-  %mul10.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !198
-  %4 = load <2 x double>, ptr %mScaleValuesInverse.i, align 8, !noalias !198
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !198
+  %6 = load double, ptr %arrayidx.i5.i, align 8, !noalias !198
+  %mul10.i = fmul double %5, %6
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !198
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul6.i, ptr %arrayidx3.i.i, align 8, !alias.scope !198
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul10.i, ptr %arrayidx5.i.i, align 8, !alias.scope !198
   ret void
@@ -10103,19 +10388,23 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %0 = mul nuw nsw i64 %indvars.iv, 3
   %arrayidx.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %0
-  %1 = add nuw nsw i64 %0, 2
-  %arrayidx.i9.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %1
-  %2 = load double, ptr %arrayidx.i9.i, align 8, !noalias !201
+  %1 = load double, ptr %arrayidx.i.i, align 8, !noalias !201
+  %2 = add nuw nsw i64 %0, 1
+  %arrayidx.i5.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %2
+  %3 = load double, ptr %arrayidx.i5.i, align 8, !noalias !201
+  %4 = add nuw nsw i64 %0, 2
+  %arrayidx.i9.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %4
+  %5 = load double, ptr %arrayidx.i9.i, align 8, !noalias !201
   %arrayidx.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse, i64 0, i64 %indvars.iv
-  %3 = load double, ptr %arrayidx.i, align 8
-  %mul7.i.i = fmul double %2, %3
+  %6 = load double, ptr %arrayidx.i, align 8
+  %mul.i.i9 = fmul double %1, %6
+  %mul4.i.i = fmul double %3, %6
+  %mul7.i.i = fmul double %5, %6
   %arrayidx.i12 = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %0
-  %4 = load <2 x double>, ptr %arrayidx.i.i, align 8, !noalias !201
-  %5 = insertelement <2 x double> poison, double %3, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x double> %4, %6
-  store <2 x double> %7, ptr %arrayidx.i12, align 8
-  %arrayidx11.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %1
+  store double %mul.i.i9, ptr %arrayidx.i12, align 8
+  %arrayidx6.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %2
+  store double %mul4.i.i, ptr %arrayidx6.i, align 8
+  %arrayidx11.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %4
   store double %mul7.i.i, ptr %arrayidx11.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -10124,18 +10413,18 @@ for.body:                                         ; preds = %entry, %for.body
 for.body6:                                        ; preds = %for.body, %for.body6
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %for.body6 ], [ 0, %for.body ]
   %arrayidx.i.i14 = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv47
-  %8 = load double, ptr %arrayidx.i.i14, align 8, !noalias !205
-  %9 = add nuw nsw i64 %indvars.iv47, 3
-  %arrayidx.i4.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %9
-  %10 = load double, ptr %arrayidx.i4.i, align 8, !noalias !205
-  %11 = add nuw nsw i64 %indvars.iv47, 6
-  %arrayidx.i7.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %11
-  %12 = load double, ptr %arrayidx.i7.i, align 8, !noalias !205
+  %7 = load double, ptr %arrayidx.i.i14, align 8, !noalias !205
+  %8 = add nuw nsw i64 %indvars.iv47, 3
+  %arrayidx.i4.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %8
+  %9 = load double, ptr %arrayidx.i4.i, align 8, !noalias !205
+  %10 = add nuw nsw i64 %indvars.iv47, 6
+  %arrayidx.i7.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %10
+  %11 = load double, ptr %arrayidx.i7.i, align 8, !noalias !205
   %arrayidx.i19 = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse, i64 0, i64 %indvars.iv47
-  %13 = load double, ptr %arrayidx.i19, align 8
-  %mul.i.i20 = fmul double %8, %13
-  %mul4.i.i22 = fmul double %10, %13
-  %mul7.i.i24 = fmul double %12, %13
+  %12 = load double, ptr %arrayidx.i19, align 8
+  %mul.i.i20 = fmul double %7, %12
+  %mul4.i.i22 = fmul double %9, %12
+  %mul7.i.i24 = fmul double %11, %12
   store double %mul.i.i20, ptr %arrayidx.i.i14, align 8
   store double %mul4.i.i22, ptr %arrayidx.i4.i, align 8
   store double %mul7.i.i24, ptr %arrayidx.i7.i, align 8
@@ -10158,19 +10447,23 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %2 = mul nuw nsw i64 %indvars.iv.i, 3
   %arrayidx.i.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %2
-  %3 = add nuw nsw i64 %2, 2
-  %arrayidx.i9.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %3
-  %4 = load double, ptr %arrayidx.i9.i.i, align 8, !noalias !212
+  %3 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !212
+  %4 = add nuw nsw i64 %2, 1
+  %arrayidx.i5.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %4
+  %5 = load double, ptr %arrayidx.i5.i.i, align 8, !noalias !212
+  %6 = add nuw nsw i64 %2, 2
+  %arrayidx.i9.i.i = getelementptr inbounds [9 x double], ptr %in, i64 0, i64 %6
+  %7 = load double, ptr %arrayidx.i9.i.i, align 8, !noalias !212
   %arrayidx.i.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse.i, i64 0, i64 %indvars.iv.i
-  %5 = load double, ptr %arrayidx.i.i, align 8, !noalias !209
-  %mul7.i.i.i = fmul double %4, %5
+  %8 = load double, ptr %arrayidx.i.i, align 8, !noalias !209
+  %mul.i.i9.i = fmul double %3, %8
+  %mul4.i.i.i = fmul double %5, %8
+  %mul7.i.i.i = fmul double %7, %8
   %arrayidx.i12.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %2
-  %6 = load <2 x double>, ptr %arrayidx.i.i.i, align 8, !noalias !212
-  %7 = insertelement <2 x double> poison, double %5, i64 0
-  %8 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x double> %6, %8
-  store <2 x double> %9, ptr %arrayidx.i12.i, align 8, !alias.scope !209
-  %arrayidx11.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %3
+  store double %mul.i.i9.i, ptr %arrayidx.i12.i, align 8, !alias.scope !209
+  %arrayidx6.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %4
+  store double %mul4.i.i.i, ptr %arrayidx6.i.i, align 8, !alias.scope !209
+  %arrayidx11.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %6
   store double %mul7.i.i.i, ptr %arrayidx11.i.i, align 8, !alias.scope !209
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -10179,18 +10472,18 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 for.body6.i:                                      ; preds = %for.body.i, %for.body6.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.body6.i ], [ 0, %for.body.i ]
   %arrayidx.i.i14.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv47.i
-  %10 = load double, ptr %arrayidx.i.i14.i, align 8, !alias.scope !209, !noalias !215
-  %11 = add nuw nsw i64 %indvars.iv47.i, 3
-  %arrayidx.i4.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %11
-  %12 = load double, ptr %arrayidx.i4.i.i, align 8, !alias.scope !209, !noalias !215
-  %13 = add nuw nsw i64 %indvars.iv47.i, 6
-  %arrayidx.i7.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %13
-  %14 = load double, ptr %arrayidx.i7.i.i, align 8, !alias.scope !209, !noalias !215
+  %9 = load double, ptr %arrayidx.i.i14.i, align 8, !alias.scope !209, !noalias !215
+  %10 = add nuw nsw i64 %indvars.iv47.i, 3
+  %arrayidx.i4.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %10
+  %11 = load double, ptr %arrayidx.i4.i.i, align 8, !alias.scope !209, !noalias !215
+  %12 = add nuw nsw i64 %indvars.iv47.i, 6
+  %arrayidx.i7.i.i = getelementptr inbounds [9 x double], ptr %agg.result, i64 0, i64 %12
+  %13 = load double, ptr %arrayidx.i7.i.i, align 8, !alias.scope !209, !noalias !215
   %arrayidx.i19.i = getelementptr inbounds [3 x double], ptr %mScaleValuesInverse.i, i64 0, i64 %indvars.iv47.i
-  %15 = load double, ptr %arrayidx.i19.i, align 8, !noalias !209
-  %mul.i.i20.i = fmul double %10, %15
-  %mul4.i.i22.i = fmul double %12, %15
-  %mul7.i.i24.i = fmul double %14, %15
+  %14 = load double, ptr %arrayidx.i19.i, align 8, !noalias !209
+  %mul.i.i20.i = fmul double %9, %14
+  %mul4.i.i22.i = fmul double %11, %14
+  %mul7.i.i24.i = fmul double %13, %14
   store double %mul.i.i20.i, ptr %arrayidx.i.i14.i, align 8, !alias.scope !209
   store double %mul4.i.i22.i, ptr %arrayidx.i4.i.i, align 8, !alias.scope !209
   store double %mul7.i.i24.i, ptr %arrayidx.i7.i.i, align 8, !alias.scope !209
@@ -10461,29 +10754,30 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %affineMap, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %3 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %3, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %3, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10671,26 +10965,35 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load double, ptr %t, align 8
+  %1 = load double, ptr %mScaleValues, align 8
+  %mul = fmul double %0, %1
+  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 8
+  %2 = load double, ptr %arrayidx.i, align 8
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx.i5, align 8
+  %mul5 = fmul double %2, %3
   %arrayidx.i6 = getelementptr inbounds i8, ptr %t, i64 16
-  %0 = load double, ptr %arrayidx.i6, align 8
+  %4 = load double, ptr %arrayidx.i6, align 8
   %arrayidx.i7 = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i7, align 8
-  %mul8 = fmul double %0, %1
+  %5 = load double, ptr %arrayidx.i7, align 8
+  %mul8 = fmul double %4, %5
   %call9 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load <2 x double>, ptr %t, align 8
-  %3 = load <2 x double>, ptr %mScaleValues, align 8
-  %4 = fmul <2 x double> %2, %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
-  %5 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !218
-  %6 = fadd <2 x double> %4, %5
-  store <2 x double> %6, ptr %ref.tmp, align 16, !alias.scope !218
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
+  %6 = load double, ptr %ref.tmp, align 8, !alias.scope !218
+  %add.i.i = fadd double %mul, %6
+  store double %add.i.i, ptr %ref.tmp, align 8, !alias.scope !218
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %7 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !218
+  %add5.i.i = fadd double %mul5, %7
+  store double %add5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !218
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %7 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !218
-  %add9.i.i = fadd double %mul8, %7
-  store double %add9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !218
+  %8 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !218
+  %add9.i.i = fadd double %mul8, %8
+  store double %add9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !218
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call9, ptr noundef nonnull align 8 dereferenceable(24) %mScaleValues, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont11 unwind label %lpad
 
@@ -10702,32 +11005,32 @@ invoke.cont11:                                    ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont11
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %9) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = call ptr @__cxa_begin_catch(ptr %10) #25
   %vtable.i.i.i.i = load ptr, ptr %call9, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(152) %call9) #25
+  %12 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(152) %call9) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad ], [ %12, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %lpad ], [ %13, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #27
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -10745,7 +11048,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call9) #28
   br label %common.resume
@@ -10754,62 +11057,81 @@ lpad:                                             ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
+  %2 = load double, ptr %arrayidx.i.i, align 8
   %mul4.i.i = shl nsw i32 %axis1, 2
   %idxprom6.i.i = sext i32 %mul4.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom6.i.i
-  %2 = load <2 x double>, ptr %arrayidx.i.i, align 8
-  %3 = load <2 x double>, ptr %arrayidx7.i.i, align 8
-  %4 = insertelement <2 x double> poison, double %shear, i64 0
-  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
-  %6 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %2, <2 x double> %3)
-  store <2 x double> %6, ptr %arrayidx7.i.i, align 8
+  %3 = load double, ptr %arrayidx7.i.i, align 8
+  %4 = call double @llvm.fmuladd.f64(double %shear, double %2, double %3)
+  store double %4, ptr %arrayidx7.i.i, align 8
+  %add10.i.i = or disjoint i32 %mul.i.i, 1
+  %idxprom11.i.i = sext i32 %add10.i.i to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom11.i.i
+  %5 = load double, ptr %arrayidx12.i.i, align 8
+  %add16.i.i = or disjoint i32 %mul4.i.i, 1
+  %idxprom17.i.i = sext i32 %add16.i.i to i64
+  %arrayidx18.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom17.i.i
+  %6 = load double, ptr %arrayidx18.i.i, align 8
+  %7 = call double @llvm.fmuladd.f64(double %shear, double %5, double %6)
+  store double %7, ptr %arrayidx18.i.i, align 8
   %add21.i.i = or disjoint i32 %mul.i.i, 2
   %idxprom22.i.i = sext i32 %add21.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom22.i.i
+  %8 = load double, ptr %arrayidx23.i.i, align 8
   %add27.i.i = or disjoint i32 %mul4.i.i, 2
   %idxprom28.i.i = sext i32 %add27.i.i to i64
   %arrayidx29.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom28.i.i
-  %7 = load <2 x double>, ptr %arrayidx23.i.i, align 8
-  %8 = load <2 x double>, ptr %arrayidx29.i.i, align 8
-  %9 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %7, <2 x double> %8)
-  store <2 x double> %9, ptr %arrayidx29.i.i, align 8
+  %9 = load double, ptr %arrayidx29.i.i, align 8
+  %10 = call double @llvm.fmuladd.f64(double %shear, double %8, double %9)
+  store double %10, ptr %arrayidx29.i.i, align 8
+  %add32.i.i = or disjoint i32 %mul.i.i, 3
+  %idxprom33.i.i = sext i32 %add32.i.i to i64
+  %arrayidx34.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom33.i.i
+  %11 = load double, ptr %arrayidx34.i.i, align 8
+  %add38.i.i = or disjoint i32 %mul4.i.i, 3
+  %idxprom39.i.i = sext i32 %add38.i.i to i64
+  %arrayidx40.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom39.i.i
+  %12 = load double, ptr %arrayidx40.i.i, align 8
+  %13 = call double @llvm.fmuladd.f64(double %shear, double %11, double %12)
+  store double %13, ptr %arrayidx40.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %14 = load ptr, ptr %affineMap, align 8
+  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %11 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %11, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %15, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %12, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %13 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %13, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -10817,167 +11139,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %15 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %15, null
+  %19 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %16, 4294967297
-  %17 = trunc i64 %16 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %20, 4294967297
+  %21 = trunc i64 %20 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %18 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
+  %22 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %19 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %19, 0
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %17, -1
+  %add.i.i.i.i.i7 = add nsw i32 %21, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %24 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %17, %if.then.i.i.i.i.i6 ], [ %20, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i6 ], [ %24, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %21 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
-  %22 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %22, 0
+  %25 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %23 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %23, -1
+  %27 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %27, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %24 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %28 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %23, %if.then.i.i.i.i.i.i.i ], [ %24, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %25 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
+  %29 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %26, null
+  %30 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %27, 4294967297
-  %28 = trunc i64 %27 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %31, 4294967297
+  %32 = trunc i64 %31 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %26, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %30, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %29 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
+  %33 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %30, 0
+  %34 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %34, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %28, -1
+  %add.i.i.i.i.i17 = add nsw i32 %32, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %31 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %35 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %28, %if.then.i.i.i.i.i16 ], [ %31, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %32, %if.then.i.i.i.i.i16 ], [ %35, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %30, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %32 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %26, i64 12
-  %33 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %33, 0
+  %36 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %30, i64 12
+  %37 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %34 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %34, -1
+  %38 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %38, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %35 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %39 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %34, %if.then.i.i.i.i.i.i.i26 ], [ %35, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %38, %if.then.i.i.i.i.i.i.i26 ], [ %39, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %26, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %30, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %36 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #25
+  %40 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %entry
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %38 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %38, %lpad2 ], [ %37, %lpad ]
+  %.pn = phi { ptr, i32 } [ %42, %lpad2 ], [ %41, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -10985,29 +11307,30 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %2 = load ptr, ptr %affineMap, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %3 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %3, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %3, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11195,21 +11518,27 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap13postTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %call = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
-  %0 = load <2 x double>, ptr %t, align 8, !noalias !221
-  %1 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !221
-  %2 = fadd <2 x double> %0, %1
-  store <2 x double> %2, ptr %ref.tmp, align 16, !alias.scope !221
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation, i64 24, i1 false)
+  %0 = load double, ptr %t, align 8, !noalias !221
+  %1 = load double, ptr %ref.tmp, align 8, !alias.scope !221
+  %add.i.i = fadd double %0, %1
+  store double %add.i.i, ptr %ref.tmp, align 8, !alias.scope !221
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !221
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !221
+  %add5.i.i = fadd double %2, %3
+  store double %add5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !221
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %t, i64 16
-  %3 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !221
+  %4 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !221
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %4 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !221
-  %add9.i.i = fadd double %3, %4
-  store double %add9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !221
+  %5 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !221
+  %add9.i.i = fadd double %4, %5
+  store double %add9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !221
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call, ptr noundef nonnull align 8 dereferenceable(24) %mScaleValues, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad
@@ -11222,32 +11551,32 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont2
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %6) #25
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %7) #25
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(152) %call) #25
+  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(152) %call) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %9, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %10, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #27
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -11265,7 +11594,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call) #28
   br label %common.resume
@@ -11275,52 +11604,61 @@ lpad:                                             ; preds = %invoke.cont
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %new_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %new_scale = alloca %"class.openvdb::v11_0::math::Vec3", align 8
+  %new_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
+  %0 = load double, ptr %v, align 8
+  %1 = load double, ptr %mScaleValues, align 8, !noalias !224
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !224
+  %mul4.i = fmul double %2, %3
   %arrayidx.i.i6.i = getelementptr inbounds i8, ptr %v, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i, align 8
+  %4 = load double, ptr %arrayidx.i.i6.i, align 8
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !224
-  %mul7.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %v, align 8
-  %3 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !224
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %new_scale, align 16, !alias.scope !224
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !224
+  %mul7.i = fmul double %4, %5
+  store double %mul.i, ptr %new_scale, align 8, !alias.scope !224
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %new_scale, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i, align 8, !alias.scope !224
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %new_scale, i64 16
-  store double %mul7.i, ptr %arrayidx5.i.i, align 16, !alias.scope !224
+  store double %mul7.i, ptr %arrayidx5.i.i, align 8, !alias.scope !224
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
+  %6 = load double, ptr %mTranslation, align 8
+  %mul = fmul double %0, %6
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load double, ptr %arrayidx.i, align 8
+  %mul6 = fmul double %2, %7
   %arrayidx.i6 = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load double, ptr %arrayidx.i6, align 8
-  %mul10 = fmul double %0, %5
-  %6 = load <2 x double>, ptr %mTranslation, align 8
-  %7 = fmul <2 x double> %2, %6
-  store <2 x double> %7, ptr %new_trans, align 16
+  %8 = load double, ptr %arrayidx.i6, align 8
+  %mul10 = fmul double %4, %8
+  store double %mul, ptr %new_trans, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %new_trans, i64 8
+  store double %mul6, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %new_trans, i64 16
-  store double %mul10, ptr %arrayidx5.i, align 16
-  %8 = extractelement <2 x double> %4, i64 0
-  %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fsub <2 x double> %4, %shift
-  %sub.i.i = extractelement <2 x double> %9, i64 0
-  %10 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
-  %cmp.i.i.i = fcmp ule double %10, 1.000000e-15
+  store double %mul10, ptr %arrayidx5.i, align 8
+  %sub.i.i = fsub double %mul.i, %mul4.i
+  %9 = tail call noundef double @llvm.fabs.f64(double %sub.i.i)
+  %cmp.i.i.i = fcmp ule double %9, 1.000000e-15
   br i1 %cmp.i.i.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %sub.i.i10 = fsub double %8, %mul7.i
-  %11 = tail call noundef double @llvm.fabs.f64(double %sub.i.i10)
-  %cmp.i.i.i11 = fcmp ule double %11, 1.000000e-15
+  %sub.i.i10 = fsub double %mul.i, %mul7.i
+  %10 = tail call noundef double @llvm.fabs.f64(double %sub.i.i10)
+  %cmp.i.i.i11 = fcmp ule double %10, 1.000000e-15
   br i1 %cmp.i.i.i11, label %invoke.cont, label %if.else
 
 invoke.cont:                                      ; preds = %land.rhs
   %call20 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  store double %8, ptr %ref.tmp.i, align 8
+  store double %mul.i, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store double %8, ptr %arrayidx3.i.i13, align 8
+  store double %mul.i, ptr %arrayidx3.i.i13, align 8
   %arrayidx5.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  store double %8, ptr %arrayidx5.i.i14, align 8
+  store double %mul.i, ptr %arrayidx5.i.i14, align 8
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call20, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %new_trans)
           to label %invoke.cont22 unwind label %lpad
 
@@ -11334,35 +11672,35 @@ invoke.cont22:                                    ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont22
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #25
+  %12 = extractvalue { ptr, i32 } %11, 0
+  %13 = call ptr @__cxa_begin_catch(ptr %12) #25
   call void @_ZdlPv(ptr noundef nonnull %call20) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume.sink.split:                         ; preds = %lpad24, %lpad
   %call20.sink = phi ptr [ %call20, %lpad ], [ %call23, %lpad24 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %18, %lpad ], [ %26, %lpad24 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %17, %lpad ], [ %25, %lpad24 ]
   call void @_ZdlPv(ptr noundef nonnull %call20.sink) #28
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad3.i.i.i.i18, %lpad3.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad3.i.i.i.i ], [ %23, %lpad3.i.i.i.i18 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %lpad3.i.i.i.i ], [ %22, %lpad3.i.i.i.i18 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #27
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -11380,7 +11718,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   br label %return
 
 lpad:                                             ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -11397,28 +11735,28 @@ invoke.cont25:                                    ; preds = %if.else
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i17
 
 lpad.i.i.i.i17:                                   ; preds = %invoke.cont25
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = call ptr @__cxa_begin_catch(ptr %20) #25
+  %19 = extractvalue { ptr, i32 } %18, 0
+  %20 = call ptr @__cxa_begin_catch(ptr %19) #25
   %vtable.i.i.i.i = load ptr, ptr %call23, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %22 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(152) %call23) #25
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(152) %call23) #25
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i21 unwind label %lpad3.i.i.i.i18
 
 lpad3.i.i.i.i18:                                  ; preds = %lpad.i.i.i.i17
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i19
 
 terminate.lpad.i.i.i.i19:                         ; preds = %lpad3.i.i.i.i18
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #27
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #27
   unreachable
 
 unreachable.i.i.i.i21:                            ; preds = %lpad.i.i.i.i17
@@ -11436,7 +11774,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
   br label %return
 
 lpad24:                                           ; preds = %if.else
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
 
@@ -11447,13 +11785,13 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 16
+  %1 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -11497,16 +11835,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %14 = load ptr, ptr %affineMap, align 8
+  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %15 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %15, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %15, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11696,15 +12035,22 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap13applyJacob
 entry:
   %mScaleValues = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
+  %0 = load double, ptr %in, align 8, !noalias !227
+  %1 = load double, ptr %mScaleValues, align 8, !noalias !227
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !227
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !227
+  %mul4.i = fmul double %2, %3
   %arrayidx.i.i6.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !227
+  %4 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !227
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !227
-  %mul7.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !227
-  %3 = load <2 x double>, ptr %mScaleValues, align 8, !noalias !227
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !227
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !227
+  %mul7.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !227
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i, align 8, !alias.scope !227
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i, ptr %arrayidx5.i.i, align 8, !alias.scope !227
   ret void
@@ -11716,15 +12062,22 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
+  %1 = load double, ptr %in, align 8, !noalias !236
+  %2 = load double, ptr %mScaleValues.i, align 8, !noalias !236
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !236
+  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %4 = load double, ptr %arrayidx.i.i5.i.i, align 8, !noalias !236
+  %mul4.i.i = fmul double %3, %4
   %arrayidx.i.i6.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !236
+  %5 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !236
   %arrayidx.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !236
-  %mul7.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !236
-  %4 = load <2 x double>, ptr %mScaleValues.i, align 8, !noalias !236
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !236
+  %6 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !236
+  %mul7.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !236
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !236
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !236
   ret void
@@ -11735,15 +12088,22 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap20applyInver
 entry:
   %mScaleValuesInverse = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
+  %0 = load double, ptr %in, align 8, !noalias !237
+  %1 = load double, ptr %mScaleValuesInverse, align 8, !noalias !237
+  %mul.i = fmul double %0, %1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !237
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 88
+  %3 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !237
+  %mul4.i = fmul double %2, %3
   %arrayidx.i.i6.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !237
+  %4 = load double, ptr %arrayidx.i.i6.i, align 8, !noalias !237
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 96
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !237
-  %mul7.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !237
-  %3 = load <2 x double>, ptr %mScaleValuesInverse, align 8, !noalias !237
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !237
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !237
+  %mul7.i = fmul double %4, %5
+  store double %mul.i, ptr %agg.result, align 8, !alias.scope !237
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i, align 8, !alias.scope !237
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i, ptr %arrayidx5.i.i, align 8, !alias.scope !237
   ret void
@@ -11755,15 +12115,22 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %mScaleValuesInverse.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  %1 = load double, ptr %in, align 8, !noalias !246
+  %2 = load double, ptr %mScaleValuesInverse.i, align 8, !noalias !246
+  %mul.i.i = fmul double %1, %2
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !246
+  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %4 = load double, ptr %arrayidx.i.i5.i.i, align 8, !noalias !246
+  %mul4.i.i = fmul double %3, %4
   %arrayidx.i.i6.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !246
+  %5 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !246
   %arrayidx.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %2 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !246
-  %mul7.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !246
-  %4 = load <2 x double>, ptr %mScaleValuesInverse.i, align 8, !noalias !246
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !246
+  %6 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !246
+  %mul7.i.i = fmul double %5, %6
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !246
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !246
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !246
   ret void
@@ -11775,15 +12142,22 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
+  %0 = load double, ptr %in, align 8, !noalias !253
+  %1 = load double, ptr %mScaleValues.i, align 8, !noalias !253
+  %mul.i.i = fmul double %0, %1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !253
+  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx.i.i5.i.i, align 8, !noalias !253
+  %mul4.i.i = fmul double %2, %3
   %arrayidx.i.i6.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %0 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !253
+  %4 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !253
   %arrayidx.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !253
-  %mul7.i.i = fmul double %0, %1
-  %2 = load <2 x double>, ptr %in, align 8, !noalias !253
-  %3 = load <2 x double>, ptr %mScaleValues.i, align 8, !noalias !253
-  %4 = fmul <2 x double> %2, %3
-  store <2 x double> %4, ptr %agg.result, align 8, !alias.scope !253
+  %5 = load double, ptr %arrayidx.i.i7.i.i, align 8, !noalias !253
+  %mul7.i.i = fmul double %4, %5
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !253
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !253
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !253
   ret void
@@ -11796,15 +12170,22 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %mScaleValues.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
+  %1 = load double, ptr %in, align 8, !noalias !263
+  %2 = load double, ptr %mScaleValues.i.i, align 8, !noalias !263
+  %mul.i.i.i = fmul double %1, %2
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !263
+  %arrayidx.i.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %4 = load double, ptr %arrayidx.i.i5.i.i.i, align 8, !noalias !263
+  %mul4.i.i.i = fmul double %3, %4
   %arrayidx.i.i6.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %1 = load double, ptr %arrayidx.i.i6.i.i.i, align 8, !noalias !263
+  %5 = load double, ptr %arrayidx.i.i6.i.i.i, align 8, !noalias !263
   %arrayidx.i.i7.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load double, ptr %arrayidx.i.i7.i.i.i, align 8, !noalias !263
-  %mul7.i.i.i = fmul double %1, %2
-  %3 = load <2 x double>, ptr %in, align 8, !noalias !263
-  %4 = load <2 x double>, ptr %mScaleValues.i.i, align 8, !noalias !263
-  %5 = fmul <2 x double> %3, %4
-  store <2 x double> %5, ptr %agg.result, align 8, !alias.scope !263
+  %6 = load double, ptr %arrayidx.i.i7.i.i.i, align 8, !noalias !263
+  %mul7.i.i.i = fmul double %5, %6
+  store double %mul.i.i.i, ptr %agg.result, align 8, !alias.scope !263
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %mul4.i.i.i, ptr %arrayidx3.i.i.i.i, align 8, !alias.scope !263
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %mul7.i.i.i, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !263
   ret void
@@ -11813,24 +12194,32 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap10inverseMapEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %call = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mScaleValuesInverse = getelementptr inbounds i8, ptr %this, i64 80
+  %0 = load double, ptr %mScaleValuesInverse, align 8, !noalias !264
+  %fneg.i = fneg double %0
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %1 = load double, ptr %arrayidx3.i, align 8, !noalias !264
+  %fneg4.i = fneg double %1
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 96
-  %0 = load double, ptr %arrayidx6.i, align 8, !noalias !264
-  %fneg7.i = fneg double %0
+  %2 = load double, ptr %arrayidx6.i, align 8, !noalias !264
+  %fneg7.i = fneg double %2
   %mTranslation = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
+  %3 = load double, ptr %mTranslation, align 8, !noalias !267
+  %mul.i = fmul double %3, %fneg.i
+  %arrayidx.i.i5.i = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = load double, ptr %arrayidx.i.i5.i, align 8, !noalias !267
+  %mul4.i = fmul double %4, %fneg4.i
   %arrayidx.i.i7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !267
-  %mul7.i = fmul double %1, %fneg7.i
-  %2 = load <2 x double>, ptr %mScaleValuesInverse, align 8, !noalias !264
-  %3 = fneg <2 x double> %2
-  %4 = load <2 x double>, ptr %mTranslation, align 8, !noalias !267
-  %5 = fmul <2 x double> %4, %3
-  store <2 x double> %5, ptr %ref.tmp, align 16, !alias.scope !267
+  %5 = load double, ptr %arrayidx.i.i7.i, align 8, !noalias !267
+  %mul7.i = fmul double %5, %fneg7.i
+  store double %mul.i, ptr %ref.tmp, align 8, !alias.scope !267
+  %arrayidx3.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double %mul4.i, ptr %arrayidx3.i.i1, align 8, !alias.scope !267
   %arrayidx5.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double %mul7.i, ptr %arrayidx5.i.i2, align 16, !alias.scope !267
+  store double %mul7.i, ptr %arrayidx5.i.i2, align 8, !alias.scope !267
   invoke void @_ZN7openvdb5v11_04math17ScaleTranslateMapC2ERKNS1_4Vec3IdEES6_(ptr noundef nonnull align 8 dereferenceable(152) %call, ptr noundef nonnull align 8 dereferenceable(24) %mScaleValuesInverse, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad
 
@@ -11999,25 +12388,30 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
 define linkonce_odr void @_ZNK7openvdb5v11_04math24UniformScaleTranslateMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %new_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %new_trans = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load double, ptr %mScaleValues.i, align 8
   %mTranslation.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %t, align 8
+  %ref.tmp.sroa.4.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.t.sroa_idx, align 8
   %ref.tmp.sroa.7.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 16
   %ref.tmp.sroa.7.0.copyload = load double, ptr %ref.tmp.sroa.7.0.t.sroa_idx, align 8
+  %mul.i.i.i = fmul double %0, %ref.tmp.sroa.0.0.copyload
+  %mul4.i.i.i = fmul double %0, %ref.tmp.sroa.4.0.copyload
   %mul7.i.i.i = fmul double %0, %ref.tmp.sroa.7.0.copyload
-  %1 = load <2 x double>, ptr %t, align 8
-  %2 = insertelement <2 x double> poison, double %0, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x double> %3, %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %new_trans, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
-  %5 = load <2 x double>, ptr %new_trans, align 16, !alias.scope !270
-  %6 = fadd <2 x double> %4, %5
-  store <2 x double> %6, ptr %new_trans, align 16, !alias.scope !270
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_trans, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
+  %1 = load double, ptr %new_trans, align 8, !alias.scope !270
+  %add.i.i = fadd double %mul.i.i.i, %1
+  store double %add.i.i, ptr %new_trans, align 8, !alias.scope !270
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %new_trans, i64 8
+  %2 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !270
+  %add5.i.i = fadd double %mul4.i.i.i, %2
+  store double %add5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !270
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %new_trans, i64 16
-  %7 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !270
-  %add9.i.i = fadd double %mul7.i.i.i, %7
-  store double %add9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !270
+  %3 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !270
+  %add9.i.i = fadd double %mul7.i.i.i, %3
+  store double %add9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !270
   %call4 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %0, ptr %ref.tmp.i, align 8
@@ -12038,29 +12432,29 @@ invoke.cont:                                      ; preds = %entry
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = call ptr @__cxa_begin_catch(ptr %9) #25
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %5) #25
   call void @_ZdlPv(ptr noundef nonnull %call4) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %14, %lpad ], [ %11, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad ], [ %7, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -12078,7 +12472,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   ret void
 
 lpad:                                             ; preds = %entry
-  %14 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call4) #28
   br label %common.resume
@@ -12088,23 +12482,29 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZNK7openvdb5v11_04math24UniformScaleTranslateMap13postTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValues.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load double, ptr %mScaleValues.i, align 8
   %call3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %mTranslation.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
-  %1 = load <2 x double>, ptr %t, align 8, !noalias !273
-  %2 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !273
-  %3 = fadd <2 x double> %1, %2
-  store <2 x double> %3, ptr %ref.tmp, align 16, !alias.scope !273
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
+  %1 = load double, ptr %t, align 8, !noalias !273
+  %2 = load double, ptr %ref.tmp, align 8, !alias.scope !273
+  %add.i.i = fadd double %1, %2
+  store double %add.i.i, ptr %ref.tmp, align 8, !alias.scope !273
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !273
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = load double, ptr %arrayidx4.i.i, align 8, !alias.scope !273
+  %add5.i.i = fadd double %3, %4
+  store double %add5.i.i, ptr %arrayidx4.i.i, align 8, !alias.scope !273
   %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %t, i64 16
-  %4 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !273
+  %5 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !273
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %5 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !273
-  %add9.i.i = fadd double %4, %5
-  store double %add9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !273
+  %6 = load double, ptr %arrayidx8.i.i, align 8, !alias.scope !273
+  %add9.i.i = fadd double %5, %6
+  store double %add9.i.i, ptr %arrayidx8.i.i, align 8, !alias.scope !273
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %0, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -12124,29 +12524,29 @@ invoke.cont5:                                     ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont5
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %7) #25
+  %8 = extractvalue { ptr, i32 } %7, 0
+  %9 = call ptr @__cxa_begin_catch(ptr %8) #25
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %9, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %10, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #27
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -12164,7 +12564,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   br label %common.resume
@@ -12174,22 +12574,24 @@ lpad:                                             ; preds = %invoke.cont
 define linkonce_odr void @_ZNK7openvdb5v11_04math24UniformScaleTranslateMap10inverseMapEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %ref.tmp.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
+  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %mScaleValuesInverse.i = getelementptr inbounds i8, ptr %this, i64 80
   %mTranslation.i = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24
   %0 = load double, ptr %mScaleValuesInverse.i, align 8
   %fneg = fneg double %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mTranslation.i, i64 24, i1 false)
+  %1 = load double, ptr %ref.tmp, align 8, !alias.scope !276
+  %mul.i.i.i = fmul double %1, %fneg
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %2 = load double, ptr %arrayidx3.i.i.i, align 8, !alias.scope !276
+  %mul4.i.i.i = fmul double %2, %fneg
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %1 = load double, ptr %arrayidx6.i.i.i, align 16, !alias.scope !276
-  %mul7.i.i.i = fmul double %1, %fneg
-  %2 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !276
-  %3 = insertelement <2 x double> poison, double %fneg, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x double> %2, %4
-  store <2 x double> %5, ptr %ref.tmp, align 16, !alias.scope !276
-  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 16, !alias.scope !276
+  %3 = load double, ptr %arrayidx6.i.i.i, align 8, !alias.scope !276
+  %mul7.i.i.i = fmul double %3, %fneg
+  store double %mul.i.i.i, ptr %ref.tmp, align 8, !alias.scope !276
+  store double %mul4.i.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !276
+  store double %mul7.i.i.i, ptr %arrayidx6.i.i.i, align 8, !alias.scope !276
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store double %0, ptr %ref.tmp.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -12209,29 +12611,29 @@ invoke.cont8:                                     ; preds = %invoke.cont7
           to label %_ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMapEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont8
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %7) #25
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %5) #25
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   invoke void @__cxa_rethrow() #26
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad.i.i.i.i
 
 common.resume:                                    ; preds = %lpad3.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad ], [ %9, %lpad3.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad ], [ %7, %lpad3.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
@@ -12249,7 +12651,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_24UniformScaleTranslateMa
   ret void
 
 lpad:                                             ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call3) #28
   br label %common.resume
@@ -12894,9 +13296,13 @@ invoke.cont4:                                     ; preds = %init.i9, %init.chec
   %mJacobianInv = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv, ptr noundef nonnull align 8 dereferenceable(72) @_ZZN7openvdb5v11_04math4Mat3IdE8identityEvE9sIdentity, i64 72, i1 false)
   %mDeterminant = getelementptr inbounds i8, ptr %this, i64 336
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %mDeterminant, align 8
+  store double 1.000000e+00, ptr %mDeterminant, align 8
+  %mVoxelSize = getelementptr inbounds i8, ptr %this, i64 344
+  store double 1.000000e+00, ptr %mVoxelSize, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 352
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %arrayidx3.i, align 8
+  store double 1.000000e+00, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 360
+  store double 1.000000e+00, ptr %arrayidx5.i, align 8
   %mIsDiagonal = getelementptr inbounds i8, ptr %this, i64 368
   store i8 1, ptr %mIsDiagonal, align 8
   %mIsIdentity = getelementptr inbounds i8, ptr %this, i64 369
@@ -13318,40 +13724,48 @@ entry:
   %mMatrix.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %0 = load double, ptr %in, align 8, !noalias !292
+  %1 = load double, ptr %mMatrix.i, align 8, !noalias !292
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !292
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !292
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = load double, ptr %arrayidx3.i.i, align 8, !noalias !292
+  %mul4.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i.i)
   %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i20.i.i, align 8, !noalias !292
+  %5 = load double, ptr %arrayidx.i.i20.i.i, align 8, !noalias !292
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %6 = load double, ptr %arrayidx6.i.i, align 8, !noalias !292
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %8 = load double, ptr %arrayidx7.i.i, align 8, !noalias !292
+  %add.i.i = fadd double %7, %8
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %9 = load double, ptr %arrayidx9.i.i, align 8, !noalias !292
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %10 = load double, ptr %arrayidx11.i.i, align 8, !noalias !292
+  %mul12.i.i = fmul double %2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul12.i.i)
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %12 = load double, ptr %arrayidx14.i.i, align 8, !noalias !292
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %11)
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %14 = load double, ptr %arrayidx15.i.i, align 8, !noalias !292
+  %add16.i.i = fadd double %14, %13
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load double, ptr %arrayidx18.i.i, align 8, !noalias !292
+  %15 = load double, ptr %arrayidx18.i.i, align 8, !noalias !292
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load double, ptr %arrayidx20.i.i, align 8, !noalias !292
-  %mul21.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul21.i.i)
+  %16 = load double, ptr %arrayidx20.i.i, align 8, !noalias !292
+  %mul21.i.i = fmul double %2, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double %15, double %mul21.i.i)
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %6 = load double, ptr %arrayidx23.i.i, align 8, !noalias !292
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
+  %18 = load double, ptr %arrayidx23.i.i, align 8, !noalias !292
+  %19 = tail call double @llvm.fmuladd.f64(double %5, double %18, double %17)
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %8 = load double, ptr %arrayidx24.i.i, align 8, !noalias !292
-  %add25.i.i = fadd double %8, %7
-  %9 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !292
-  %10 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !292
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %0, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i.i, align 8, !noalias !292
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  %21 = load <2 x double>, ptr %arrayidx7.i.i, align 8, !noalias !292
-  %22 = fadd <2 x double> %20, %21
-  store <2 x double> %22, ptr %agg.result, align 8, !alias.scope !292
+  %20 = load double, ptr %arrayidx24.i.i, align 8, !noalias !292
+  %add25.i.i = fadd double %20, %19
+  store double %add.i.i, ptr %agg.result, align 8, !alias.scope !292
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !292
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !292
   ret void
@@ -13364,40 +13778,48 @@ entry:
   %mMatrixInv.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %0 = load double, ptr %in, align 8, !noalias !299
+  %1 = load double, ptr %mMatrixInv.i, align 8, !noalias !299
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !299
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !299
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %3 = load double, ptr %arrayidx3.i.i, align 8, !noalias !299
+  %mul4.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i.i)
   %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i20.i.i, align 8, !noalias !299
+  %5 = load double, ptr %arrayidx.i.i20.i.i, align 8, !noalias !299
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %6 = load double, ptr %arrayidx6.i.i, align 8, !noalias !299
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %8 = load double, ptr %arrayidx7.i.i, align 8, !noalias !299
+  %add.i.i = fadd double %7, %8
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %9 = load double, ptr %arrayidx9.i.i, align 8, !noalias !299
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %10 = load double, ptr %arrayidx11.i.i, align 8, !noalias !299
+  %mul12.i.i = fmul double %2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul12.i.i)
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %12 = load double, ptr %arrayidx14.i.i, align 8, !noalias !299
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %11)
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %14 = load double, ptr %arrayidx15.i.i, align 8, !noalias !299
+  %add16.i.i = fadd double %14, %13
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %3 = load double, ptr %arrayidx18.i.i, align 8, !noalias !299
+  %15 = load double, ptr %arrayidx18.i.i, align 8, !noalias !299
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %4 = load double, ptr %arrayidx20.i.i, align 8, !noalias !299
-  %mul21.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul21.i.i)
+  %16 = load double, ptr %arrayidx20.i.i, align 8, !noalias !299
+  %mul21.i.i = fmul double %2, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double %15, double %mul21.i.i)
   %arrayidx23.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %6 = load double, ptr %arrayidx23.i.i, align 8, !noalias !299
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
+  %18 = load double, ptr %arrayidx23.i.i, align 8, !noalias !299
+  %19 = tail call double @llvm.fmuladd.f64(double %5, double %18, double %17)
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %8 = load double, ptr %arrayidx24.i.i, align 8, !noalias !299
-  %add25.i.i = fadd double %8, %7
-  %9 = load <2 x double>, ptr %mMatrixInv.i, align 8, !noalias !299
-  %10 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !299
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %0, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i.i, align 8, !noalias !299
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  %21 = load <2 x double>, ptr %arrayidx7.i.i, align 8, !noalias !299
-  %22 = fadd <2 x double> %20, %21
-  store <2 x double> %22, ptr %agg.result, align 8, !alias.scope !299
+  %20 = load double, ptr %arrayidx24.i.i, align 8, !noalias !299
+  %add25.i.i = fadd double %20, %19
+  store double %add.i.i, ptr %agg.result, align 8, !alias.scope !299
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i.i, ptr %arrayidx3.i.i.i, align 8, !alias.scope !299
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i.i, ptr %arrayidx5.i.i.i, align 8, !alias.scope !299
   ret void
@@ -13410,36 +13832,41 @@ entry:
   %mJacobianInv.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %0 = load double, ptr %in, align 8, !noalias !306
+  %1 = load double, ptr %mJacobianInv.i, align 8, !noalias !306
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !306
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !306
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %3 = load double, ptr %arrayidx3.i.i, align 8, !noalias !306
+  %mul4.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i.i)
   %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i17.i.i, align 8, !noalias !306
+  %5 = load double, ptr %arrayidx.i.i17.i.i, align 8, !noalias !306
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %6 = load double, ptr %arrayidx6.i.i, align 8, !noalias !306
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %8 = load double, ptr %arrayidx8.i.i, align 8, !noalias !306
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %9 = load double, ptr %arrayidx10.i.i, align 8, !noalias !306
+  %mul11.i.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul11.i.i)
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %11 = load double, ptr %arrayidx13.i.i, align 8, !noalias !306
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %3 = load double, ptr %arrayidx15.i.i, align 8, !noalias !306
+  %13 = load double, ptr %arrayidx15.i.i, align 8, !noalias !306
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %4 = load double, ptr %arrayidx17.i.i, align 8, !noalias !306
-  %mul18.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul18.i.i)
+  %14 = load double, ptr %arrayidx17.i.i, align 8, !noalias !306
+  %mul18.i.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul18.i.i)
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %6 = load double, ptr %arrayidx20.i.i, align 8, !noalias !306
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mJacobianInv.i, align 8, !noalias !306
-  %9 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !306
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx6.i.i, align 8, !noalias !306
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !306
+  %16 = load double, ptr %arrayidx20.i.i, align 8, !noalias !306
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !306
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i.i, align 8, !alias.scope !306
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i.i, align 8, !alias.scope !306
+  store double %17, ptr %arrayidx5.i.i.i, align 8, !alias.scope !306
   ret void
 }
 
@@ -13451,36 +13878,41 @@ entry:
   %mJacobianInv.i.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %1 = load double, ptr %in, align 8, !noalias !316
+  %2 = load double, ptr %mJacobianInv.i.i, align 8, !noalias !316
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !316
+  %3 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !316
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %4 = load double, ptr %arrayidx3.i.i.i, align 8, !noalias !316
+  %mul4.i.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul4.i.i.i)
   %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i, align 8, !noalias !316
+  %6 = load double, ptr %arrayidx.i.i17.i.i.i, align 8, !noalias !316
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %7 = load double, ptr %arrayidx6.i.i.i, align 8, !noalias !316
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %9 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !316
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %10 = load double, ptr %arrayidx10.i.i.i, align 8, !noalias !316
+  %mul11.i.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul11.i.i.i)
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %12 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !316
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %4 = load double, ptr %arrayidx15.i.i.i, align 8, !noalias !316
+  %14 = load double, ptr %arrayidx15.i.i.i, align 8, !noalias !316
   %arrayidx17.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %5 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !316
-  %mul18.i.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul18.i.i.i)
+  %15 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !316
+  %mul18.i.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul18.i.i.i)
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %7 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !316
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mJacobianInv.i.i, align 8, !noalias !316
-  %10 = load <2 x double>, ptr %arrayidx3.i.i.i, align 8, !noalias !316
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i.i.i, align 8, !noalias !316
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !316
+  %17 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !316
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !316
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i.i, align 8, !alias.scope !316
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !316
+  store double %18, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !316
   ret void
 }
 
@@ -13489,115 +13921,111 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap8applyIJCERKNS1_4Ma
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   %mJacobianInv.i = getelementptr inbounds i8, ptr %this, i64 272
+  %0 = load double, ptr %mJacobianInv.i, align 8, !noalias !317
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %1 = load double, ptr %arrayidx3.i.i, align 8, !noalias !317
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %2 = load double, ptr %arrayidx5.i.i, align 8, !noalias !317
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %3 = load double, ptr %arrayidx7.i.i, align 8, !noalias !317
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %4 = load double, ptr %arrayidx9.i.i, align 8, !noalias !317
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %5 = load double, ptr %arrayidx11.i.i, align 8, !noalias !317
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %0 = load double, ptr %arrayidx13.i.i, align 8, !noalias !317
+  %6 = load double, ptr %arrayidx13.i.i, align 8, !noalias !317
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %1 = load double, ptr %arrayidx15.i.i, align 8, !noalias !317
+  %7 = load double, ptr %arrayidx15.i.i, align 8, !noalias !317
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %2 = load double, ptr %arrayidx17.i.i, align 8, !noalias !317
-  %3 = load double, ptr %in, align 8, !noalias !320
+  %8 = load double, ptr %arrayidx17.i.i, align 8, !noalias !317
+  %9 = load double, ptr %in, align 8, !noalias !320
   %arrayidx5.i.i1.i = getelementptr inbounds i8, ptr %in, i64 24
-  %4 = load double, ptr %arrayidx5.i.i1.i, align 8, !noalias !320
+  %10 = load double, ptr %arrayidx5.i.i1.i, align 8, !noalias !320
+  %mul6.i.i.i = fmul double %1, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul6.i.i.i)
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %in, i64 48
-  %5 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !320
+  %12 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !320
+  %13 = tail call double @llvm.fmuladd.f64(double %2, double %12, double %11)
   %arrayidx11.i.i2.i = getelementptr inbounds i8, ptr %in, i64 8
-  %6 = load double, ptr %arrayidx11.i.i2.i, align 8, !noalias !320
+  %14 = load double, ptr %arrayidx11.i.i2.i, align 8, !noalias !320
   %arrayidx13.i.i3.i = getelementptr inbounds i8, ptr %in, i64 32
-  %7 = load double, ptr %arrayidx13.i.i3.i, align 8, !noalias !320
+  %15 = load double, ptr %arrayidx13.i.i3.i, align 8, !noalias !320
+  %mul14.i.i.i = fmul double %1, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %0, double %14, double %mul14.i.i.i)
   %arrayidx16.i.i.i = getelementptr inbounds i8, ptr %in, i64 56
-  %8 = load double, ptr %arrayidx16.i.i.i, align 8, !noalias !320
+  %17 = load double, ptr %arrayidx16.i.i.i, align 8, !noalias !320
+  %18 = tail call double @llvm.fmuladd.f64(double %2, double %17, double %16)
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %9 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !320
+  %19 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !320
   %arrayidx22.i.i.i = getelementptr inbounds i8, ptr %in, i64 40
-  %10 = load double, ptr %arrayidx22.i.i.i, align 8, !noalias !320
+  %20 = load double, ptr %arrayidx22.i.i.i, align 8, !noalias !320
+  %mul23.i.i.i = fmul double %1, %20
+  %21 = tail call double @llvm.fmuladd.f64(double %0, double %19, double %mul23.i.i.i)
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %in, i64 64
-  %11 = load double, ptr %arrayidx25.i.i.i, align 8, !noalias !320
-  %mul59.i.i.i = fmul double %1, %4
-  %12 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul59.i.i.i)
-  %13 = tail call double @llvm.fmuladd.f64(double %2, double %5, double %12)
-  %mul68.i.i.i = fmul double %1, %7
-  %14 = tail call double @llvm.fmuladd.f64(double %0, double %6, double %mul68.i.i.i)
-  %15 = tail call double @llvm.fmuladd.f64(double %2, double %8, double %14)
-  %mul77.i.i.i = fmul double %1, %10
-  %16 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul77.i.i.i)
-  %17 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %16)
+  %22 = load double, ptr %arrayidx25.i.i.i, align 8, !noalias !320
+  %23 = tail call double @llvm.fmuladd.f64(double %2, double %22, double %21)
+  %mul32.i.i.i = fmul double %4, %10
+  %24 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %mul32.i.i.i)
+  %25 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %24)
+  %mul41.i.i.i = fmul double %4, %15
+  %26 = tail call double @llvm.fmuladd.f64(double %3, double %14, double %mul41.i.i.i)
+  %27 = tail call double @llvm.fmuladd.f64(double %5, double %17, double %26)
+  %mul50.i.i.i = fmul double %4, %20
+  %28 = tail call double @llvm.fmuladd.f64(double %3, double %19, double %mul50.i.i.i)
+  %29 = tail call double @llvm.fmuladd.f64(double %5, double %22, double %28)
+  %mul59.i.i.i = fmul double %7, %10
+  %30 = tail call double @llvm.fmuladd.f64(double %6, double %9, double %mul59.i.i.i)
+  %31 = tail call double @llvm.fmuladd.f64(double %8, double %12, double %30)
+  %mul68.i.i.i = fmul double %7, %15
+  %32 = tail call double @llvm.fmuladd.f64(double %6, double %14, double %mul68.i.i.i)
+  %33 = tail call double @llvm.fmuladd.f64(double %8, double %17, double %32)
+  %mul77.i.i.i = fmul double %7, %20
+  %34 = tail call double @llvm.fmuladd.f64(double %6, double %19, double %mul77.i.i.i)
+  %35 = tail call double @llvm.fmuladd.f64(double %8, double %22, double %34)
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %ref.tmp.sroa.7.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.10.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %ref.tmp.sroa.13.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.16.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %ref.tmp.sroa.19.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %ref.tmp.sroa.22.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   %ref.tmp.sroa.25.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %18 = load <2 x double>, ptr %mJacobianInv.i, align 8, !noalias !317
-  %19 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !317
-  %20 = load <2 x double>, ptr %arrayidx5.i.i, align 8, !noalias !317
-  %21 = insertelement <2 x double> poison, double %4, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fmul <2 x double> %19, %22
-  %24 = insertelement <2 x double> poison, double %3, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %25, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %5, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %28, <2 x double> %26)
-  %30 = insertelement <2 x double> poison, double %7, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %19, %31
-  %33 = insertelement <2 x double> poison, double %6, i64 0
-  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %34, <2 x double> %32)
-  %36 = insertelement <2 x double> poison, double %8, i64 0
-  %37 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %37, <2 x double> %35)
-  %39 = insertelement <2 x double> poison, double %10, i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x double> %19, %40
-  %42 = insertelement <2 x double> poison, double %9, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %43, <2 x double> %41)
-  %45 = insertelement <2 x double> poison, double %11, i64 0
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %46, <2 x double> %44)
-  %48 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = fmul <2 x double> %19, %48
-  %50 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %50, <2 x double> %18, <2 x double> %49)
-  %52 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %52, <2 x double> %20, <2 x double> %51)
-  store <2 x double> %53, ptr %agg.result, align 8, !alias.scope !323
-  %54 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %55 = insertelement <2 x double> %54, double %1, i64 0
-  %56 = fmul <2 x double> %55, %38
-  %57 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %58 = insertelement <2 x double> %57, double %0, i64 0
-  %59 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %29, <2 x double> %58, <2 x double> %56)
-  %60 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %61 = insertelement <2 x double> %60, double %2, i64 0
-  %62 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %61, <2 x double> %59)
-  store <2 x double> %62, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
-  %63 = insertelement <2 x double> %54, double %1, i64 1
-  %64 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %65 = fmul <2 x double> %63, %64
-  %66 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %67 = insertelement <2 x double> %57, double %0, i64 1
-  %68 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %66, <2 x double> %67, <2 x double> %65)
-  %69 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %70 = insertelement <2 x double> %60, double %2, i64 1
-  %71 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %69, <2 x double> %70, <2 x double> %68)
-  store <2 x double> %71, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
-  %72 = insertelement <2 x double> poison, double %15, i64 0
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> zeroinitializer
-  %74 = fmul <2 x double> %19, %73
-  %75 = insertelement <2 x double> poison, double %13, i64 0
-  %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
-  %77 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %76, <2 x double> %18, <2 x double> %74)
-  %78 = insertelement <2 x double> poison, double %17, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> %20, <2 x double> %77)
-  store <2 x double> %80, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
-  %mul77.i.i37.i = fmul double %1, %15
-  %81 = tail call double @llvm.fmuladd.f64(double %13, double %0, double %mul77.i.i37.i)
-  %82 = tail call double @llvm.fmuladd.f64(double %17, double %2, double %81)
-  store double %82, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul6.i.i22.i = fmul double %1, %18
+  %36 = tail call double @llvm.fmuladd.f64(double %13, double %0, double %mul6.i.i22.i)
+  %37 = tail call double @llvm.fmuladd.f64(double %23, double %2, double %36)
+  store double %37, ptr %agg.result, align 8, !alias.scope !323
+  %mul14.i.i26.i = fmul double %4, %18
+  %38 = tail call double @llvm.fmuladd.f64(double %13, double %3, double %mul14.i.i26.i)
+  %39 = tail call double @llvm.fmuladd.f64(double %23, double %5, double %38)
+  store double %39, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul23.i.i30.i = fmul double %7, %18
+  %40 = tail call double @llvm.fmuladd.f64(double %13, double %6, double %mul23.i.i30.i)
+  %41 = tail call double @llvm.fmuladd.f64(double %23, double %8, double %40)
+  store double %41, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul32.i.i32.i = fmul double %1, %27
+  %42 = tail call double @llvm.fmuladd.f64(double %25, double %0, double %mul32.i.i32.i)
+  %43 = tail call double @llvm.fmuladd.f64(double %29, double %2, double %42)
+  store double %43, ptr %ref.tmp.sroa.10.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul41.i.i33.i = fmul double %4, %27
+  %44 = tail call double @llvm.fmuladd.f64(double %25, double %3, double %mul41.i.i33.i)
+  %45 = tail call double @llvm.fmuladd.f64(double %29, double %5, double %44)
+  store double %45, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul50.i.i34.i = fmul double %7, %27
+  %46 = tail call double @llvm.fmuladd.f64(double %25, double %6, double %mul50.i.i34.i)
+  %47 = tail call double @llvm.fmuladd.f64(double %29, double %8, double %46)
+  store double %47, ptr %ref.tmp.sroa.16.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul59.i.i35.i = fmul double %1, %33
+  %48 = tail call double @llvm.fmuladd.f64(double %31, double %0, double %mul59.i.i35.i)
+  %49 = tail call double @llvm.fmuladd.f64(double %35, double %2, double %48)
+  store double %49, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul68.i.i36.i = fmul double %4, %33
+  %50 = tail call double @llvm.fmuladd.f64(double %31, double %3, double %mul68.i.i36.i)
+  %51 = tail call double @llvm.fmuladd.f64(double %35, double %5, double %50)
+  store double %51, ptr %ref.tmp.sroa.22.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
+  %mul77.i.i37.i = fmul double %7, %33
+  %52 = tail call double @llvm.fmuladd.f64(double %31, double %6, double %mul77.i.i37.i)
+  %53 = tail call double @llvm.fmuladd.f64(double %35, double %8, double %52)
+  store double %53, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i, align 8, !alias.scope !323
   ret void
 }
 
@@ -13607,115 +14035,111 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   %mJacobianInv.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %2 = load double, ptr %mJacobianInv.i.i, align 8, !noalias !332
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %3 = load double, ptr %arrayidx3.i.i.i, align 8, !noalias !332
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %4 = load double, ptr %arrayidx5.i.i.i, align 8, !noalias !332
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %5 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !332
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %6 = load double, ptr %arrayidx9.i.i.i, align 8, !noalias !332
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %7 = load double, ptr %arrayidx11.i.i.i, align 8, !noalias !332
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %2 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !332
+  %8 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !332
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %3 = load double, ptr %arrayidx15.i.i.i, align 8, !noalias !332
+  %9 = load double, ptr %arrayidx15.i.i.i, align 8, !noalias !332
   %arrayidx17.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %4 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !332
-  %5 = load double, ptr %in, align 8, !noalias !333
+  %10 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !332
+  %11 = load double, ptr %in, align 8, !noalias !333
   %arrayidx5.i.i1.i.i = getelementptr inbounds i8, ptr %in, i64 24
-  %6 = load double, ptr %arrayidx5.i.i1.i.i, align 8, !noalias !333
+  %12 = load double, ptr %arrayidx5.i.i1.i.i, align 8, !noalias !333
+  %mul6.i.i.i.i = fmul double %3, %12
+  %13 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %mul6.i.i.i.i)
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 48
-  %7 = load double, ptr %arrayidx8.i.i.i.i, align 8, !noalias !333
+  %14 = load double, ptr %arrayidx8.i.i.i.i, align 8, !noalias !333
+  %15 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %13)
   %arrayidx11.i.i2.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %8 = load double, ptr %arrayidx11.i.i2.i.i, align 8, !noalias !333
+  %16 = load double, ptr %arrayidx11.i.i2.i.i, align 8, !noalias !333
   %arrayidx13.i.i3.i.i = getelementptr inbounds i8, ptr %in, i64 32
-  %9 = load double, ptr %arrayidx13.i.i3.i.i, align 8, !noalias !333
+  %17 = load double, ptr %arrayidx13.i.i3.i.i, align 8, !noalias !333
+  %mul14.i.i.i.i = fmul double %3, %17
+  %18 = tail call double @llvm.fmuladd.f64(double %2, double %16, double %mul14.i.i.i.i)
   %arrayidx16.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 56
-  %10 = load double, ptr %arrayidx16.i.i.i.i, align 8, !noalias !333
+  %19 = load double, ptr %arrayidx16.i.i.i.i, align 8, !noalias !333
+  %20 = tail call double @llvm.fmuladd.f64(double %4, double %19, double %18)
   %arrayidx20.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %11 = load double, ptr %arrayidx20.i.i.i.i, align 8, !noalias !333
+  %21 = load double, ptr %arrayidx20.i.i.i.i, align 8, !noalias !333
   %arrayidx22.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 40
-  %12 = load double, ptr %arrayidx22.i.i.i.i, align 8, !noalias !333
+  %22 = load double, ptr %arrayidx22.i.i.i.i, align 8, !noalias !333
+  %mul23.i.i.i.i = fmul double %3, %22
+  %23 = tail call double @llvm.fmuladd.f64(double %2, double %21, double %mul23.i.i.i.i)
   %arrayidx25.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 64
-  %13 = load double, ptr %arrayidx25.i.i.i.i, align 8, !noalias !333
-  %mul59.i.i.i.i = fmul double %3, %6
-  %14 = tail call double @llvm.fmuladd.f64(double %2, double %5, double %mul59.i.i.i.i)
-  %15 = tail call double @llvm.fmuladd.f64(double %4, double %7, double %14)
-  %mul68.i.i.i.i = fmul double %3, %9
-  %16 = tail call double @llvm.fmuladd.f64(double %2, double %8, double %mul68.i.i.i.i)
-  %17 = tail call double @llvm.fmuladd.f64(double %4, double %10, double %16)
-  %mul77.i.i.i.i = fmul double %3, %12
-  %18 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %mul77.i.i.i.i)
-  %19 = tail call double @llvm.fmuladd.f64(double %4, double %13, double %18)
+  %24 = load double, ptr %arrayidx25.i.i.i.i, align 8, !noalias !333
+  %25 = tail call double @llvm.fmuladd.f64(double %4, double %24, double %23)
+  %mul32.i.i.i.i = fmul double %6, %12
+  %26 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %mul32.i.i.i.i)
+  %27 = tail call double @llvm.fmuladd.f64(double %7, double %14, double %26)
+  %mul41.i.i.i.i = fmul double %6, %17
+  %28 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %mul41.i.i.i.i)
+  %29 = tail call double @llvm.fmuladd.f64(double %7, double %19, double %28)
+  %mul50.i.i.i.i = fmul double %6, %22
+  %30 = tail call double @llvm.fmuladd.f64(double %5, double %21, double %mul50.i.i.i.i)
+  %31 = tail call double @llvm.fmuladd.f64(double %7, double %24, double %30)
+  %mul59.i.i.i.i = fmul double %9, %12
+  %32 = tail call double @llvm.fmuladd.f64(double %8, double %11, double %mul59.i.i.i.i)
+  %33 = tail call double @llvm.fmuladd.f64(double %10, double %14, double %32)
+  %mul68.i.i.i.i = fmul double %9, %17
+  %34 = tail call double @llvm.fmuladd.f64(double %8, double %16, double %mul68.i.i.i.i)
+  %35 = tail call double @llvm.fmuladd.f64(double %10, double %19, double %34)
+  %mul77.i.i.i.i = fmul double %9, %22
+  %36 = tail call double @llvm.fmuladd.f64(double %8, double %21, double %mul77.i.i.i.i)
+  %37 = tail call double @llvm.fmuladd.f64(double %10, double %24, double %36)
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %ref.tmp.sroa.7.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.10.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %ref.tmp.sroa.13.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.16.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %ref.tmp.sroa.19.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %ref.tmp.sroa.22.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   %ref.tmp.sroa.25.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %20 = load <2 x double>, ptr %mJacobianInv.i.i, align 8, !noalias !332
-  %21 = load <2 x double>, ptr %arrayidx3.i.i.i, align 8, !noalias !332
-  %22 = load <2 x double>, ptr %arrayidx5.i.i.i, align 8, !noalias !332
-  %23 = insertelement <2 x double> poison, double %6, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = fmul <2 x double> %21, %24
-  %26 = insertelement <2 x double> poison, double %5, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %27, <2 x double> %25)
-  %29 = insertelement <2 x double> poison, double %7, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %30, <2 x double> %28)
-  %32 = insertelement <2 x double> poison, double %9, i64 0
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = fmul <2 x double> %21, %33
-  %35 = insertelement <2 x double> poison, double %8, i64 0
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %36, <2 x double> %34)
-  %38 = insertelement <2 x double> poison, double %10, i64 0
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %39, <2 x double> %37)
-  %41 = insertelement <2 x double> poison, double %12, i64 0
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = fmul <2 x double> %21, %42
-  %44 = insertelement <2 x double> poison, double %11, i64 0
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %45, <2 x double> %43)
-  %47 = insertelement <2 x double> poison, double %13, i64 0
-  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %48, <2 x double> %46)
-  %50 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x double> %21, %50
-  %52 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %52, <2 x double> %20, <2 x double> %51)
-  %54 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
-  %55 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %54, <2 x double> %22, <2 x double> %53)
-  store <2 x double> %55, ptr %agg.result, align 8, !alias.scope !336
-  %56 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %57 = insertelement <2 x double> %56, double %3, i64 0
-  %58 = fmul <2 x double> %57, %40
-  %59 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %60 = insertelement <2 x double> %59, double %2, i64 0
-  %61 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %31, <2 x double> %60, <2 x double> %58)
-  %62 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %63 = insertelement <2 x double> %62, double %4, i64 0
-  %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %49, <2 x double> %63, <2 x double> %61)
-  store <2 x double> %64, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
-  %65 = insertelement <2 x double> %56, double %3, i64 1
-  %66 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %67 = fmul <2 x double> %65, %66
-  %68 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %69 = insertelement <2 x double> %59, double %2, i64 1
-  %70 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %68, <2 x double> %69, <2 x double> %67)
-  %71 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %72 = insertelement <2 x double> %62, double %4, i64 1
-  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> %72, <2 x double> %70)
-  store <2 x double> %73, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
-  %74 = insertelement <2 x double> poison, double %17, i64 0
-  %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> zeroinitializer
-  %76 = fmul <2 x double> %21, %75
-  %77 = insertelement <2 x double> poison, double %15, i64 0
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
-  %79 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %78, <2 x double> %20, <2 x double> %76)
-  %80 = insertelement <2 x double> poison, double %19, i64 0
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %81, <2 x double> %22, <2 x double> %79)
-  store <2 x double> %82, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
-  %mul77.i.i37.i.i = fmul double %3, %17
-  %83 = tail call double @llvm.fmuladd.f64(double %15, double %2, double %mul77.i.i37.i.i)
-  %84 = tail call double @llvm.fmuladd.f64(double %19, double %4, double %83)
-  store double %84, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul6.i.i22.i.i = fmul double %3, %20
+  %38 = tail call double @llvm.fmuladd.f64(double %15, double %2, double %mul6.i.i22.i.i)
+  %39 = tail call double @llvm.fmuladd.f64(double %25, double %4, double %38)
+  store double %39, ptr %agg.result, align 8, !alias.scope !336
+  %mul14.i.i26.i.i = fmul double %6, %20
+  %40 = tail call double @llvm.fmuladd.f64(double %15, double %5, double %mul14.i.i26.i.i)
+  %41 = tail call double @llvm.fmuladd.f64(double %25, double %7, double %40)
+  store double %41, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul23.i.i30.i.i = fmul double %9, %20
+  %42 = tail call double @llvm.fmuladd.f64(double %15, double %8, double %mul23.i.i30.i.i)
+  %43 = tail call double @llvm.fmuladd.f64(double %25, double %10, double %42)
+  store double %43, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul32.i.i32.i.i = fmul double %3, %29
+  %44 = tail call double @llvm.fmuladd.f64(double %27, double %2, double %mul32.i.i32.i.i)
+  %45 = tail call double @llvm.fmuladd.f64(double %31, double %4, double %44)
+  store double %45, ptr %ref.tmp.sroa.10.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul41.i.i33.i.i = fmul double %6, %29
+  %46 = tail call double @llvm.fmuladd.f64(double %27, double %5, double %mul41.i.i33.i.i)
+  %47 = tail call double @llvm.fmuladd.f64(double %31, double %7, double %46)
+  store double %47, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul50.i.i34.i.i = fmul double %9, %29
+  %48 = tail call double @llvm.fmuladd.f64(double %27, double %8, double %mul50.i.i34.i.i)
+  %49 = tail call double @llvm.fmuladd.f64(double %31, double %10, double %48)
+  store double %49, ptr %ref.tmp.sroa.16.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul59.i.i35.i.i = fmul double %3, %35
+  %50 = tail call double @llvm.fmuladd.f64(double %33, double %2, double %mul59.i.i35.i.i)
+  %51 = tail call double @llvm.fmuladd.f64(double %37, double %4, double %50)
+  store double %51, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul68.i.i36.i.i = fmul double %6, %35
+  %52 = tail call double @llvm.fmuladd.f64(double %33, double %5, double %mul68.i.i36.i.i)
+  %53 = tail call double @llvm.fmuladd.f64(double %37, double %7, double %52)
+  store double %53, ptr %ref.tmp.sroa.22.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
+  %mul77.i.i37.i.i = fmul double %9, %35
+  %54 = tail call double @llvm.fmuladd.f64(double %33, double %8, double %mul77.i.i37.i.i)
+  %55 = tail call double @llvm.fmuladd.f64(double %37, double %10, double %54)
+  store double %55, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !336
   ret void
 }
 
@@ -14069,10 +14493,10 @@ ehcleanup:                                        ; preds = %lpad3.i.i.i.i, %lpa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN7openvdb5v11_04math4Mat4IdE12preTranslateIdEEvRKNS1_4Vec3IT_EE(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, ptr noundef nonnull align 8 dereferenceable(24) %t)
           to label %.noexc unwind label %lpad
@@ -14082,16 +14506,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
+  %1 = load ptr, ptr %affineMap, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14279,10 +14704,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %v, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -14349,16 +14774,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %25 = load ptr, ptr %affineMap, align 8
+  store ptr %25, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %26 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %26, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %26, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14546,59 +14972,78 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
+  %1 = load double, ptr %arrayidx.i.i, align 8
   %mul4.i.i = shl nsw i32 %axis1, 2
   %idxprom6.i.i = sext i32 %mul4.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom6.i.i
-  %1 = load <2 x double>, ptr %arrayidx.i.i, align 8
-  %2 = load <2 x double>, ptr %arrayidx7.i.i, align 8
-  %3 = insertelement <2 x double> poison, double %shear, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %1, <2 x double> %2)
-  store <2 x double> %5, ptr %arrayidx7.i.i, align 8
+  %2 = load double, ptr %arrayidx7.i.i, align 8
+  %3 = call double @llvm.fmuladd.f64(double %shear, double %1, double %2)
+  store double %3, ptr %arrayidx7.i.i, align 8
+  %add10.i.i = or disjoint i32 %mul.i.i, 1
+  %idxprom11.i.i = sext i32 %add10.i.i to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom11.i.i
+  %4 = load double, ptr %arrayidx12.i.i, align 8
+  %add16.i.i = or disjoint i32 %mul4.i.i, 1
+  %idxprom17.i.i = sext i32 %add16.i.i to i64
+  %arrayidx18.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom17.i.i
+  %5 = load double, ptr %arrayidx18.i.i, align 8
+  %6 = call double @llvm.fmuladd.f64(double %shear, double %4, double %5)
+  store double %6, ptr %arrayidx18.i.i, align 8
   %add21.i.i = or disjoint i32 %mul.i.i, 2
   %idxprom22.i.i = sext i32 %add21.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom22.i.i
+  %7 = load double, ptr %arrayidx23.i.i, align 8
   %add27.i.i = or disjoint i32 %mul4.i.i, 2
   %idxprom28.i.i = sext i32 %add27.i.i to i64
   %arrayidx29.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom28.i.i
-  %6 = load <2 x double>, ptr %arrayidx23.i.i, align 8
-  %7 = load <2 x double>, ptr %arrayidx29.i.i, align 8
-  %8 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %6, <2 x double> %7)
-  store <2 x double> %8, ptr %arrayidx29.i.i, align 8
+  %8 = load double, ptr %arrayidx29.i.i, align 8
+  %9 = call double @llvm.fmuladd.f64(double %shear, double %7, double %8)
+  store double %9, ptr %arrayidx29.i.i, align 8
+  %add32.i.i = or disjoint i32 %mul.i.i, 3
+  %idxprom33.i.i = sext i32 %add32.i.i to i64
+  %arrayidx34.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom33.i.i
+  %10 = load double, ptr %arrayidx34.i.i, align 8
+  %add38.i.i = or disjoint i32 %mul4.i.i, 3
+  %idxprom39.i.i = sext i32 %add38.i.i to i64
+  %arrayidx40.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom39.i.i
+  %11 = load double, ptr %arrayidx40.i.i, align 8
+  %12 = call double @llvm.fmuladd.f64(double %shear, double %10, double %11)
+  store double %12, ptr %arrayidx40.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %10 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %10, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %9, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %12 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %12, 1
+  %16 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %16, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -14606,167 +15051,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %14 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %14, null
+  %18 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %15, 4294967297
-  %16 = trunc i64 %15 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %19, 4294967297
+  %20 = trunc i64 %19 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %17 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %18, 0
+  %22 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %16, -1
+  %add.i.i.i.i.i7 = add nsw i32 %20, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i6 ], [ %19, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i6 ], [ %23, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %20 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
-  %21 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %21, 0
+  %24 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %22 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %22, -1
+  %26 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %26, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %28 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %25, null
+  %29 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %26, 4294967297
-  %27 = trunc i64 %26 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %30, 4294967297
+  %31 = trunc i64 %30 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %25, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %28 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %32 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %29, 0
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %33, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %27, -1
+  %add.i.i.i.i.i17 = add nsw i32 %31, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %34 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %27, %if.then.i.i.i.i.i16 ], [ %30, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %31, %if.then.i.i.i.i.i16 ], [ %34, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %31 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %25, i64 12
-  %32 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %32, 0
+  %35 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %29, i64 12
+  %36 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %33 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %33, -1
+  %37 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %37, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %34 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %38 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %33, %if.then.i.i.i.i.i.i.i26 ], [ %34, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %37, %if.then.i.i.i.i.i.i.i26 ], [ %38, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %25, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %29, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %35 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %39 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %entry
-  %36 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %37, %lpad2 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %41, %lpad2 ], [ %40, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -14954,15 +15399,17 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap13postTranslateERKN
 entry:
   %m0.i.i.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
-  %1 = load <2 x double>, ptr %t, align 8
+  %1 = load double, ptr %t, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %t, i64 16
-  %2 = load double, ptr %arrayidx.i3.i.i, align 8
+  %3 = load double, ptr %arrayidx.i3.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !353)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m0.i.i.i.i), !noalias !353
@@ -14971,40 +15418,38 @@ entry:
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %indvars.iv.i.i.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
-  %3 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
-  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %3
-  %4 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !353
-  %5 = or disjoint i64 %3, 1
-  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %5
-  %6 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !353
-  %mul9.i.i.i.i = fmul double %6, 0.000000e+00
-  %7 = fadd double %4, %mul9.i.i.i.i
-  %8 = or disjoint i64 %3, 2
-  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %8
-  %9 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !353
-  %10 = or disjoint i64 %3, 3
-  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !353
-  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %3
-  %12 = call double @llvm.fmuladd.f64(double %4, double 0.000000e+00, double %6)
-  %13 = insertelement <2 x double> poison, double %9, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = insertelement <2 x double> poison, double %7, i64 0
-  %16 = insertelement <2 x double> %15, double %12, i64 1
-  %17 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> zeroinitializer, <2 x double> %16)
-  %18 = insertelement <2 x double> poison, double %11, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %1, <2 x double> %17)
-  store <2 x double> %20, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !353
-  %21 = call double @llvm.fmuladd.f64(double %4, double 0.000000e+00, double %mul9.i.i.i.i)
-  %22 = fadd double %9, %21
-  %23 = call double @llvm.fmuladd.f64(double %11, double %2, double %22)
-  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %8
-  store double %23, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !353
-  %24 = call double @llvm.fmuladd.f64(double %9, double 0.000000e+00, double %21)
-  %25 = fadd double %11, %24
-  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %10
-  store double %25, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !353
+  %4 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
+  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %4
+  %5 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !353
+  %6 = or disjoint i64 %4, 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %6
+  %7 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !353
+  %mul9.i.i.i.i = fmul double %7, 0.000000e+00
+  %8 = fadd double %5, %mul9.i.i.i.i
+  %9 = or disjoint i64 %4, 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %9
+  %10 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !353
+  %11 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %8)
+  %12 = or disjoint i64 %4, 3
+  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %12
+  %13 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !353
+  %14 = call double @llvm.fmuladd.f64(double %13, double %1, double %11)
+  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %4
+  store double %14, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !353
+  %15 = call double @llvm.fmuladd.f64(double %5, double 0.000000e+00, double %7)
+  %16 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %15)
+  %17 = call double @llvm.fmuladd.f64(double %13, double %2, double %16)
+  %arrayidx46.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %6
+  store double %17, ptr %arrayidx46.i.i.i.i, align 8, !alias.scope !353
+  %18 = call double @llvm.fmuladd.f64(double %5, double 0.000000e+00, double %mul9.i.i.i.i)
+  %19 = fadd double %10, %18
+  %20 = call double @llvm.fmuladd.f64(double %13, double %3, double %19)
+  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %9
+  store double %20, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !353
+  %21 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %18)
+  %22 = fadd double %13, %21
+  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %12
+  store double %22, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !353
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i, label %for.body.i.i.i.i, !llvm.loop !197
@@ -15017,28 +15462,29 @@ _ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i: ; pre
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
+  %23 = load ptr, ptr %affineMap, align 8
+  store ptr %23, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %27 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %27, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %26, null
+  %24 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %24, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %28, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %29 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %29, 1
+  %26 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %26, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -15046,167 +15492,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %31 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %31, null
+  %28 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %32, 4294967297
-  %33 = trunc i64 %32 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %29, 4294967297
+  %30 = trunc i64 %29 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %31, align 8
+  %vtable.i.i.i.i = load ptr, ptr %28, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %34 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %31) #25
+  %31 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %28) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %35 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %35, 0
+  %32 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %32, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %33, -1
+  %add.i.i.i.i.i7 = add nsw i32 %30, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %33 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %33, %if.then.i.i.i.i.i6 ], [ %36, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %30, %if.then.i.i.i.i.i6 ], [ %33, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %31, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %28, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %37 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %31) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 12
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %38, 0
+  %34 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %28) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %35 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %39 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %39, -1
+  %36 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %36, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %40 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %37 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i.i.i ], [ %40, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %36, %if.then.i.i.i.i.i.i.i ], [ %37, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %31, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %28, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %41 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %31) #25
+  %38 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %42 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %42, null
+  %39 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %42, i64 8
-  %43 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %43, 4294967297
-  %44 = trunc i64 %43 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %40, 4294967297
+  %41 = trunc i64 %40 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %42, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %39, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %42, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %39, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %45 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %42) #25
+  %42 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %39) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %46 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %46, 0
+  %43 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %44, -1
+  %add.i.i.i.i.i17 = add nsw i32 %41, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %47 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %44 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %44, %if.then.i.i.i.i.i16 ], [ %47, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %41, %if.then.i.i.i.i.i16 ], [ %44, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %42, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %39, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %48 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %42) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %42, i64 12
-  %49 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %49, 0
+  %45 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %39) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %39, i64 12
+  %46 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %46, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %50 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %50, -1
+  %47 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %47, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %51 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %48 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %50, %if.then.i.i.i.i.i.i.i26 ], [ %51, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %47, %if.then.i.i.i.i.i.i.i26 ], [ %48, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %42, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %39, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %52 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %42) #25
+  %49 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %53 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %54 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %54, %lpad2 ], [ %53, %lpad ]
+  %.pn = phi { ptr, i32 } [ %51, %lpad2 ], [ %50, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -15214,10 +15660,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %v, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -15284,16 +15730,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %25 = load ptr, ptr %affineMap, align 8
+  store ptr %25, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %26 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %26, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %26, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -15481,10 +15928,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -15528,16 +15975,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %14 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %14, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -15729,36 +16177,41 @@ entry:
   %mMatrix.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !359)
   %0 = load double, ptr %in, align 8, !noalias !362
+  %1 = load double, ptr %mMatrix.i, align 8, !noalias !362
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !362
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !362
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = load double, ptr %arrayidx4.i.i, align 8, !noalias !362
+  %mul5.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul5.i.i)
   %arrayidx.i.i9.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !362
+  %5 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !362
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %6 = load double, ptr %arrayidx8.i.i, align 8, !noalias !362
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %8 = load double, ptr %arrayidx11.i.i, align 8, !noalias !362
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %9 = load double, ptr %arrayidx14.i.i, align 8, !noalias !362
+  %mul15.i.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul15.i.i)
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %11 = load double, ptr %arrayidx18.i.i, align 8, !noalias !362
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load double, ptr %arrayidx21.i.i, align 8, !noalias !362
+  %13 = load double, ptr %arrayidx21.i.i, align 8, !noalias !362
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load double, ptr %arrayidx24.i.i, align 8, !noalias !362
-  %mul25.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul25.i.i)
+  %14 = load double, ptr %arrayidx24.i.i, align 8, !noalias !362
+  %mul25.i.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul25.i.i)
   %arrayidx28.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %6 = load double, ptr %arrayidx28.i.i, align 8, !noalias !362
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !362
-  %9 = load <2 x double>, ptr %arrayidx4.i.i, align 8, !noalias !362
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx8.i.i, align 8, !noalias !362
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !362
+  %16 = load double, ptr %arrayidx28.i.i, align 8, !noalias !362
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !362
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i.i, align 8, !alias.scope !362
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i.i, align 8, !alias.scope !362
+  store double %17, ptr %arrayidx5.i.i.i, align 8, !alias.scope !362
   ret void
 }
 
@@ -15770,36 +16223,41 @@ entry:
   %mMatrix.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   %1 = load double, ptr %in, align 8, !noalias !372
+  %2 = load double, ptr %mMatrix.i.i, align 8, !noalias !372
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !372
+  %3 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !372
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load double, ptr %arrayidx4.i.i.i, align 8, !noalias !372
+  %mul5.i.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul5.i.i.i)
   %arrayidx.i.i9.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i9.i.i.i, align 8, !noalias !372
+  %6 = load double, ptr %arrayidx.i.i9.i.i.i, align 8, !noalias !372
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %7 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !372
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %9 = load double, ptr %arrayidx11.i.i.i, align 8, !noalias !372
+  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %10 = load double, ptr %arrayidx14.i.i.i, align 8, !noalias !372
+  %mul15.i.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul15.i.i.i)
+  %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %12 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !372
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx21.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load double, ptr %arrayidx21.i.i.i, align 8, !noalias !372
+  %14 = load double, ptr %arrayidx21.i.i.i, align 8, !noalias !372
   %arrayidx24.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %5 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !372
-  %mul25.i.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul25.i.i.i)
+  %15 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !372
+  %mul25.i.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul25.i.i.i)
   %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %7 = load double, ptr %arrayidx28.i.i.i, align 8, !noalias !372
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mMatrix.i.i, align 8, !noalias !372
-  %10 = load <2 x double>, ptr %arrayidx4.i.i.i, align 8, !noalias !372
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !372
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !372
+  %17 = load double, ptr %arrayidx28.i.i.i, align 8, !noalias !372
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !372
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i.i, align 8, !alias.scope !372
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !372
+  store double %18, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !372
   ret void
 }
 
@@ -15810,36 +16268,41 @@ entry:
   %mMatrixInv.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %0 = load double, ptr %in, align 8, !noalias !379
+  %1 = load double, ptr %mMatrixInv.i, align 8, !noalias !379
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !379
+  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !379
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %3 = load double, ptr %arrayidx4.i.i, align 8, !noalias !379
+  %mul5.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul5.i.i)
   %arrayidx.i.i9.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !379
+  %5 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !379
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %6 = load double, ptr %arrayidx8.i.i, align 8, !noalias !379
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %8 = load double, ptr %arrayidx11.i.i, align 8, !noalias !379
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %9 = load double, ptr %arrayidx14.i.i, align 8, !noalias !379
+  %mul15.i.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul15.i.i)
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %11 = load double, ptr %arrayidx18.i.i, align 8, !noalias !379
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %3 = load double, ptr %arrayidx21.i.i, align 8, !noalias !379
+  %13 = load double, ptr %arrayidx21.i.i, align 8, !noalias !379
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %4 = load double, ptr %arrayidx24.i.i, align 8, !noalias !379
-  %mul25.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul25.i.i)
+  %14 = load double, ptr %arrayidx24.i.i, align 8, !noalias !379
+  %mul25.i.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul25.i.i)
   %arrayidx28.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %6 = load double, ptr %arrayidx28.i.i, align 8, !noalias !379
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mMatrixInv.i, align 8, !noalias !379
-  %9 = load <2 x double>, ptr %arrayidx4.i.i, align 8, !noalias !379
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx8.i.i, align 8, !noalias !379
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !379
+  %16 = load double, ptr %arrayidx28.i.i, align 8, !noalias !379
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !379
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i.i, align 8, !alias.scope !379
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i.i, align 8, !alias.scope !379
+  store double %17, ptr %arrayidx5.i.i.i, align 8, !alias.scope !379
   ret void
 }
 
@@ -15851,36 +16314,41 @@ entry:
   %mMatrixInv.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   %1 = load double, ptr %in, align 8, !noalias !389
+  %2 = load double, ptr %mMatrixInv.i.i, align 8, !noalias !389
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !389
+  %3 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !389
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %4 = load double, ptr %arrayidx4.i.i.i, align 8, !noalias !389
+  %mul5.i.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul5.i.i.i)
   %arrayidx.i.i9.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i9.i.i.i, align 8, !noalias !389
+  %6 = load double, ptr %arrayidx.i.i9.i.i.i, align 8, !noalias !389
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %7 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !389
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %9 = load double, ptr %arrayidx11.i.i.i, align 8, !noalias !389
+  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %10 = load double, ptr %arrayidx14.i.i.i, align 8, !noalias !389
+  %mul15.i.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul15.i.i.i)
+  %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %12 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !389
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx21.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %4 = load double, ptr %arrayidx21.i.i.i, align 8, !noalias !389
+  %14 = load double, ptr %arrayidx21.i.i.i, align 8, !noalias !389
   %arrayidx24.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %5 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !389
-  %mul25.i.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul25.i.i.i)
+  %15 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !389
+  %mul25.i.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul25.i.i.i)
   %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load double, ptr %arrayidx28.i.i.i, align 8, !noalias !389
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mMatrixInv.i.i, align 8, !noalias !389
-  %10 = load <2 x double>, ptr %arrayidx4.i.i.i, align 8, !noalias !389
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !389
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !389
+  %17 = load double, ptr %arrayidx28.i.i.i, align 8, !noalias !389
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !389
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i.i, align 8, !alias.scope !389
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !389
+  store double %18, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !389
   ret void
 }
 
@@ -15892,40 +16360,48 @@ entry:
   %mMatrixInv.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   %0 = load double, ptr %in, align 8, !noalias !399
+  %1 = load double, ptr %mMatrixInv.i.i, align 8, !noalias !399
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !399
+  %2 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !noalias !399
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %3 = load double, ptr %arrayidx3.i.i.i, align 8, !noalias !399
+  %mul4.i.i.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i.i.i)
   %arrayidx.i.i20.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i20.i.i.i, align 8, !noalias !399
+  %5 = load double, ptr %arrayidx.i.i20.i.i.i, align 8, !noalias !399
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %6 = load double, ptr %arrayidx6.i.i.i, align 8, !noalias !399
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %8 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !399
+  %add.i.i.i = fadd double %7, %8
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %9 = load double, ptr %arrayidx9.i.i.i, align 8, !noalias !399
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %10 = load double, ptr %arrayidx11.i.i.i, align 8, !noalias !399
+  %mul12.i.i.i = fmul double %2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul12.i.i.i)
+  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %12 = load double, ptr %arrayidx14.i.i.i, align 8, !noalias !399
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %11)
+  %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %14 = load double, ptr %arrayidx15.i.i.i, align 8, !noalias !399
+  %add16.i.i.i = fadd double %14, %13
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %3 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !399
+  %15 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !399
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %4 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !399
-  %mul21.i.i.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul21.i.i.i)
+  %16 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !399
+  %mul21.i.i.i = fmul double %2, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double %15, double %mul21.i.i.i)
   %arrayidx23.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %6 = load double, ptr %arrayidx23.i.i.i, align 8, !noalias !399
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
+  %18 = load double, ptr %arrayidx23.i.i.i, align 8, !noalias !399
+  %19 = tail call double @llvm.fmuladd.f64(double %5, double %18, double %17)
   %arrayidx24.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %8 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !399
-  %add25.i.i.i = fadd double %8, %7
-  %9 = load <2 x double>, ptr %mMatrixInv.i.i, align 8, !noalias !399
-  %10 = load <2 x double>, ptr %arrayidx3.i.i.i, align 8, !noalias !399
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %0, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i.i.i, align 8, !noalias !399
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  %21 = load <2 x double>, ptr %arrayidx7.i.i.i, align 8, !noalias !399
-  %22 = fadd <2 x double> %20, %21
-  store <2 x double> %22, ptr %agg.result, align 8, !alias.scope !399
+  %20 = load double, ptr %arrayidx24.i.i.i, align 8, !noalias !399
+  %add25.i.i.i = fadd double %20, %19
+  store double %add.i.i.i, ptr %agg.result, align 8, !alias.scope !399
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i.i.i, ptr %arrayidx3.i.i.i.i, align 8, !alias.scope !399
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i.i.i, ptr %arrayidx5.i.i.i.i, align 8, !alias.scope !399
   ret void
@@ -15940,40 +16416,48 @@ entry:
   %mMatrixInv.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %1 = load double, ptr %in, align 8, !noalias !412
+  %2 = load double, ptr %mMatrixInv.i.i.i, align 8, !noalias !412
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !412
+  %3 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !412
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %4 = load double, ptr %arrayidx3.i.i.i.i, align 8, !noalias !412
+  %mul4.i.i.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul4.i.i.i.i)
   %arrayidx.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i20.i.i.i.i, align 8, !noalias !412
+  %6 = load double, ptr %arrayidx.i.i20.i.i.i.i, align 8, !noalias !412
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %7 = load double, ptr %arrayidx6.i.i.i.i, align 8, !noalias !412
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
   %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %9 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !412
+  %add.i.i.i.i = fadd double %8, %9
+  %arrayidx9.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %10 = load double, ptr %arrayidx9.i.i.i.i, align 8, !noalias !412
+  %arrayidx11.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %11 = load double, ptr %arrayidx11.i.i.i.i, align 8, !noalias !412
+  %mul12.i.i.i.i = fmul double %3, %11
+  %12 = tail call double @llvm.fmuladd.f64(double %1, double %10, double %mul12.i.i.i.i)
+  %arrayidx14.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %13 = load double, ptr %arrayidx14.i.i.i.i, align 8, !noalias !412
+  %14 = tail call double @llvm.fmuladd.f64(double %6, double %13, double %12)
+  %arrayidx15.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %15 = load double, ptr %arrayidx15.i.i.i.i, align 8, !noalias !412
+  %add16.i.i.i.i = fadd double %15, %14
   %arrayidx18.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %4 = load double, ptr %arrayidx18.i.i.i.i, align 8, !noalias !412
+  %16 = load double, ptr %arrayidx18.i.i.i.i, align 8, !noalias !412
   %arrayidx20.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %5 = load double, ptr %arrayidx20.i.i.i.i, align 8, !noalias !412
-  %mul21.i.i.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul21.i.i.i.i)
+  %17 = load double, ptr %arrayidx20.i.i.i.i, align 8, !noalias !412
+  %mul21.i.i.i.i = fmul double %3, %17
+  %18 = tail call double @llvm.fmuladd.f64(double %1, double %16, double %mul21.i.i.i.i)
   %arrayidx23.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %7 = load double, ptr %arrayidx23.i.i.i.i, align 8, !noalias !412
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
+  %19 = load double, ptr %arrayidx23.i.i.i.i, align 8, !noalias !412
+  %20 = tail call double @llvm.fmuladd.f64(double %6, double %19, double %18)
   %arrayidx24.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %9 = load double, ptr %arrayidx24.i.i.i.i, align 8, !noalias !412
-  %add25.i.i.i.i = fadd double %9, %8
-  %10 = load <2 x double>, ptr %mMatrixInv.i.i.i, align 8, !noalias !412
-  %11 = load <2 x double>, ptr %arrayidx3.i.i.i.i, align 8, !noalias !412
-  %12 = insertelement <2 x double> poison, double %2, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x double> %13, %11
-  %15 = insertelement <2 x double> poison, double %1, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %10, <2 x double> %14)
-  %18 = load <2 x double>, ptr %arrayidx6.i.i.i.i, align 8, !noalias !412
-  %19 = insertelement <2 x double> poison, double %3, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %18, <2 x double> %17)
-  %22 = load <2 x double>, ptr %arrayidx7.i.i.i.i, align 8, !noalias !412
-  %23 = fadd <2 x double> %21, %22
-  store <2 x double> %23, ptr %agg.result, align 8, !alias.scope !412
+  %21 = load double, ptr %arrayidx24.i.i.i.i, align 8, !noalias !412
+  %add25.i.i.i.i = fadd double %21, %20
+  store double %add.i.i.i.i, ptr %agg.result, align 8, !alias.scope !412
+  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i.i.i.i, ptr %arrayidx3.i.i.i.i.i, align 8, !alias.scope !412
   %arrayidx5.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i.i.i.i, ptr %arrayidx5.i.i.i.i.i, align 8, !alias.scope !412
   ret void
@@ -16219,7 +16703,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04math9AffineMap15hasUniformScaleEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %mat = alloca %"class.openvdb::v11_0::math::Mat3", align 16
+  %mat = alloca %"class.openvdb::v11_0::math::Mat3", align 8
   %mMatrix = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond2.preheader.i
 
@@ -16236,53 +16720,59 @@ for.cond2.preheader.i:                            ; preds = %for.cond2.preheader
 
 _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader.i
   %arrayidx.i = getelementptr inbounds i8, ptr %mat, i64 32
+  %2 = load double, ptr %arrayidx.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %mat, i64 64
-  %2 = load double, ptr %arrayidx3.i, align 16
-  %3 = load <2 x double>, ptr %arrayidx.i, align 16
-  %4 = extractelement <2 x double> %3, i64 1
-  %5 = fneg double %4
-  %6 = extractelement <2 x double> %3, i64 0
+  %3 = load double, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %mat, i64 40
+  %4 = load double, ptr %arrayidx5.i, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %mat, i64 56
+  %5 = load double, ptr %arrayidx7.i, align 8
+  %6 = fneg double %4
+  %neg.i = fmul double %5, %6
+  %7 = tail call double @llvm.fmuladd.f64(double %2, double %3, double %neg.i)
   %arrayidx12.i = getelementptr inbounds i8, ptr %mat, i64 48
-  %7 = load <2 x double>, ptr %arrayidx12.i, align 16
-  %8 = extractelement <2 x double> %7, i64 1
-  %neg.i = fmul double %8, %5
-  %9 = tail call double @llvm.fmuladd.f64(double %6, double %2, double %neg.i)
-  %10 = fneg double %6
-  %11 = extractelement <2 x double> %7, i64 0
-  %neg28.i = fmul double %11, %10
-  %12 = load <2 x double>, ptr %mat, align 16
-  %13 = extractelement <2 x double> %12, i64 1
-  %14 = extractelement <2 x double> %12, i64 0
+  %8 = load double, ptr %arrayidx12.i, align 8
+  %arrayidx14.i = getelementptr inbounds i8, ptr %mat, i64 24
+  %9 = load double, ptr %arrayidx14.i, align 8
+  %10 = fneg double %9
+  %neg18.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %4, double %8, double %neg18.i)
+  %12 = fneg double %2
+  %neg28.i = fmul double %8, %12
+  %13 = tail call double @llvm.fmuladd.f64(double %9, double %5, double %neg28.i)
+  %14 = load double, ptr %mat, align 8
+  %arrayidx32.i = getelementptr inbounds i8, ptr %mat, i64 8
+  %15 = load double, ptr %arrayidx32.i, align 8
+  %mul33.i = fmul double %15, %11
+  %16 = tail call double @llvm.fmuladd.f64(double %14, double %7, double %mul33.i)
   %arrayidx35.i = getelementptr inbounds i8, ptr %mat, i64 16
-  %15 = load <2 x double>, ptr %arrayidx35.i, align 16
-  %16 = extractelement <2 x double> %15, i64 1
-  %17 = fneg double %16
-  %neg18.i = fmul double %2, %17
-  %18 = tail call double @llvm.fmuladd.f64(double %4, double %11, double %neg18.i)
-  %19 = tail call double @llvm.fmuladd.f64(double %16, double %8, double %neg28.i)
-  %mul33.i = fmul double %13, %18
-  %20 = tail call double @llvm.fmuladd.f64(double %14, double %9, double %mul33.i)
-  %21 = extractelement <2 x double> %15, i64 0
-  %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double %19, double %20)
-  %23 = tail call noundef double @llvm.fabs.f64(double %22)
-  %cmp.i.i.i = fcmp ule double %23, 1.000000e-15
+  %17 = load double, ptr %arrayidx35.i, align 8
+  %18 = tail call noundef double @llvm.fmuladd.f64(double %17, double %13, double %16)
+  %19 = tail call noundef double @llvm.fabs.f64(double %18)
+  %cmp.i.i.i = fcmp ule double %19, 1.000000e-15
   br i1 %cmp.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit
-  %call4 = tail call double @pow(double noundef %23, double noundef 0x3FD5555555555555) #25
+  %call4 = tail call double @pow(double noundef %19, double noundef 0x3FD5555555555555) #25
   %div = fdiv double 1.000000e+00, %call4
-  %24 = insertelement <2 x double> poison, double %div, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = fmul <2 x double> %12, %25
-  store <2 x double> %26, ptr %mat, align 16
-  %27 = fmul <2 x double> %25, %15
-  store <2 x double> %27, ptr %arrayidx35.i, align 16
-  %28 = fmul <2 x double> %25, %3
-  store <2 x double> %28, ptr %arrayidx.i, align 16
-  %29 = fmul <2 x double> %25, %7
-  store <2 x double> %29, ptr %arrayidx12.i, align 16
-  %mul25.i = fmul double %div, %2
-  store double %mul25.i, ptr %arrayidx3.i, align 16
+  %mul.i = fmul double %14, %div
+  store double %mul.i, ptr %mat, align 8
+  %mul4.i = fmul double %div, %15
+  store double %mul4.i, ptr %arrayidx32.i, align 8
+  %mul7.i = fmul double %div, %17
+  store double %mul7.i, ptr %arrayidx35.i, align 8
+  %mul10.i = fmul double %div, %9
+  store double %mul10.i, ptr %arrayidx14.i, align 8
+  %mul13.i = fmul double %div, %2
+  store double %mul13.i, ptr %arrayidx.i, align 8
+  %mul16.i = fmul double %div, %4
+  store double %mul16.i, ptr %arrayidx5.i, align 8
+  %mul19.i = fmul double %div, %8
+  store double %mul19.i, ptr %arrayidx12.i, align 8
+  %mul22.i = fmul double %div, %5
+  store double %mul22.i, ptr %arrayidx7.i, align 8
+  %mul25.i = fmul double %div, %3
+  store double %mul25.i, ptr %arrayidx3.i, align 8
   %call6 = call noundef zeroext i1 @_ZN7openvdb5v11_04math9isUnitaryINS1_4Mat3IdEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(72) %mat)
   br label %return
 
@@ -16297,40 +16787,48 @@ entry:
   %mMatrixInv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %0 = load double, ptr %in, align 8, !noalias !413
+  %1 = load double, ptr %mMatrixInv, align 8, !noalias !413
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !413
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !413
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 168
+  %3 = load double, ptr %arrayidx3.i, align 8, !noalias !413
+  %mul4.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i)
   %arrayidx.i.i20.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i20.i, align 8, !noalias !413
+  %5 = load double, ptr %arrayidx.i.i20.i, align 8, !noalias !413
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 200
+  %6 = load double, ptr %arrayidx6.i, align 8, !noalias !413
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 232
+  %8 = load double, ptr %arrayidx7.i, align 8, !noalias !413
+  %add.i = fadd double %7, %8
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 144
+  %9 = load double, ptr %arrayidx9.i, align 8, !noalias !413
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 176
+  %10 = load double, ptr %arrayidx11.i, align 8, !noalias !413
+  %mul12.i = fmul double %2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul12.i)
+  %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 208
+  %12 = load double, ptr %arrayidx14.i, align 8, !noalias !413
+  %13 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %11)
+  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 240
+  %14 = load double, ptr %arrayidx15.i, align 8, !noalias !413
+  %add16.i = fadd double %14, %13
   %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 152
-  %3 = load double, ptr %arrayidx18.i, align 8, !noalias !413
+  %15 = load double, ptr %arrayidx18.i, align 8, !noalias !413
   %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 184
-  %4 = load double, ptr %arrayidx20.i, align 8, !noalias !413
-  %mul21.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul21.i)
+  %16 = load double, ptr %arrayidx20.i, align 8, !noalias !413
+  %mul21.i = fmul double %2, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double %15, double %mul21.i)
   %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 216
-  %6 = load double, ptr %arrayidx23.i, align 8, !noalias !413
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
+  %18 = load double, ptr %arrayidx23.i, align 8, !noalias !413
+  %19 = tail call double @llvm.fmuladd.f64(double %5, double %18, double %17)
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 248
-  %8 = load double, ptr %arrayidx24.i, align 8, !noalias !413
-  %add25.i = fadd double %8, %7
-  %9 = load <2 x double>, ptr %mMatrixInv, align 8, !noalias !413
-  %10 = load <2 x double>, ptr %arrayidx3.i, align 8, !noalias !413
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %0, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i, align 8, !noalias !413
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  %21 = load <2 x double>, ptr %arrayidx7.i, align 8, !noalias !413
-  %22 = fadd <2 x double> %20, %21
-  store <2 x double> %22, ptr %agg.result, align 8, !alias.scope !413
+  %20 = load double, ptr %arrayidx24.i, align 8, !noalias !413
+  %add25.i = fadd double %20, %19
+  store double %add.i, ptr %agg.result, align 8, !alias.scope !413
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %add16.i, ptr %arrayidx3.i.i, align 8, !alias.scope !413
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %add25.i, ptr %arrayidx5.i.i, align 8, !alias.scope !413
   ret void
@@ -16342,36 +16840,41 @@ entry:
   %mJacobianInv = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   %0 = load double, ptr %in, align 8, !noalias !416
+  %1 = load double, ptr %mJacobianInv, align 8, !noalias !416
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !416
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !416
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 288
+  %3 = load double, ptr %arrayidx3.i, align 8, !noalias !416
+  %mul4.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul4.i)
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !416
+  %5 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !416
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 312
+  %6 = load double, ptr %arrayidx6.i, align 8, !noalias !416
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 272
+  %8 = load double, ptr %arrayidx8.i, align 8, !noalias !416
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 296
+  %9 = load double, ptr %arrayidx10.i, align 8, !noalias !416
+  %mul11.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul11.i)
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 320
+  %11 = load double, ptr %arrayidx13.i, align 8, !noalias !416
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 280
-  %3 = load double, ptr %arrayidx15.i, align 8, !noalias !416
+  %13 = load double, ptr %arrayidx15.i, align 8, !noalias !416
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 304
-  %4 = load double, ptr %arrayidx17.i, align 8, !noalias !416
-  %mul18.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul18.i)
+  %14 = load double, ptr %arrayidx17.i, align 8, !noalias !416
+  %mul18.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul18.i)
   %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = load double, ptr %arrayidx20.i, align 8, !noalias !416
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mJacobianInv, align 8, !noalias !416
-  %9 = load <2 x double>, ptr %arrayidx3.i, align 8, !noalias !416
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx6.i, align 8, !noalias !416
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !416
+  %16 = load double, ptr %arrayidx20.i, align 8, !noalias !416
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !416
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i, align 8, !alias.scope !416
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i, align 8, !alias.scope !416
+  store double %17, ptr %arrayidx5.i.i, align 8, !alias.scope !416
   ret void
 }
 
@@ -16382,36 +16885,41 @@ entry:
   %mJacobianInv.i = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %1 = load double, ptr %in, align 8, !noalias !425
+  %2 = load double, ptr %mJacobianInv.i, align 8, !noalias !425
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !425
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !425
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 288
+  %4 = load double, ptr %arrayidx3.i.i, align 8, !noalias !425
+  %mul4.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul4.i.i)
   %arrayidx.i.i17.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i, align 8, !noalias !425
+  %6 = load double, ptr %arrayidx.i.i17.i.i, align 8, !noalias !425
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %7 = load double, ptr %arrayidx6.i.i, align 8, !noalias !425
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %9 = load double, ptr %arrayidx8.i.i, align 8, !noalias !425
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %10 = load double, ptr %arrayidx10.i.i, align 8, !noalias !425
+  %mul11.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul11.i.i)
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %12 = load double, ptr %arrayidx13.i.i, align 8, !noalias !425
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  %4 = load double, ptr %arrayidx15.i.i, align 8, !noalias !425
+  %14 = load double, ptr %arrayidx15.i.i, align 8, !noalias !425
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  %5 = load double, ptr %arrayidx17.i.i, align 8, !noalias !425
-  %mul18.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul18.i.i)
+  %15 = load double, ptr %arrayidx17.i.i, align 8, !noalias !425
+  %mul18.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul18.i.i)
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %7 = load double, ptr %arrayidx20.i.i, align 8, !noalias !425
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mJacobianInv.i, align 8, !noalias !425
-  %10 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !425
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx6.i.i, align 8, !noalias !425
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !425
+  %17 = load double, ptr %arrayidx20.i.i, align 8, !noalias !425
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !425
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i, align 8, !alias.scope !425
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i, align 8, !alias.scope !425
+  store double %18, ptr %arrayidx5.i.i.i, align 8, !alias.scope !425
   ret void
 }
 
@@ -16419,115 +16927,111 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8applyIJCERKNS1_4Mat3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Mat3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(72) %m) unnamed_addr #3 comdat align 2 {
 entry:
   %mJacobianInv = getelementptr inbounds i8, ptr %this, i64 264
+  %0 = load double, ptr %mJacobianInv, align 8, !noalias !68
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 288
+  %1 = load double, ptr %arrayidx3.i, align 8, !noalias !68
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 312
+  %2 = load double, ptr %arrayidx5.i, align 8, !noalias !68
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 272
+  %3 = load double, ptr %arrayidx7.i, align 8, !noalias !68
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 296
+  %4 = load double, ptr %arrayidx9.i, align 8, !noalias !68
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 320
+  %5 = load double, ptr %arrayidx11.i, align 8, !noalias !68
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 280
-  %0 = load double, ptr %arrayidx13.i, align 8, !noalias !68
+  %6 = load double, ptr %arrayidx13.i, align 8, !noalias !68
   %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 304
-  %1 = load double, ptr %arrayidx15.i, align 8, !noalias !68
+  %7 = load double, ptr %arrayidx15.i, align 8, !noalias !68
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 328
-  %2 = load double, ptr %arrayidx17.i, align 8, !noalias !68
-  %3 = load double, ptr %m, align 8, !noalias !426
+  %8 = load double, ptr %arrayidx17.i, align 8, !noalias !68
+  %9 = load double, ptr %m, align 8, !noalias !426
   %arrayidx5.i.i1 = getelementptr inbounds i8, ptr %m, i64 24
-  %4 = load double, ptr %arrayidx5.i.i1, align 8, !noalias !426
+  %10 = load double, ptr %arrayidx5.i.i1, align 8, !noalias !426
+  %mul6.i.i = fmul double %1, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul6.i.i)
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %m, i64 48
-  %5 = load double, ptr %arrayidx8.i.i, align 8, !noalias !426
+  %12 = load double, ptr %arrayidx8.i.i, align 8, !noalias !426
+  %13 = tail call double @llvm.fmuladd.f64(double %2, double %12, double %11)
   %arrayidx11.i.i2 = getelementptr inbounds i8, ptr %m, i64 8
-  %6 = load double, ptr %arrayidx11.i.i2, align 8, !noalias !426
+  %14 = load double, ptr %arrayidx11.i.i2, align 8, !noalias !426
   %arrayidx13.i.i3 = getelementptr inbounds i8, ptr %m, i64 32
-  %7 = load double, ptr %arrayidx13.i.i3, align 8, !noalias !426
+  %15 = load double, ptr %arrayidx13.i.i3, align 8, !noalias !426
+  %mul14.i.i = fmul double %1, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %0, double %14, double %mul14.i.i)
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %m, i64 56
-  %8 = load double, ptr %arrayidx16.i.i, align 8, !noalias !426
+  %17 = load double, ptr %arrayidx16.i.i, align 8, !noalias !426
+  %18 = tail call double @llvm.fmuladd.f64(double %2, double %17, double %16)
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %m, i64 16
-  %9 = load double, ptr %arrayidx20.i.i, align 8, !noalias !426
+  %19 = load double, ptr %arrayidx20.i.i, align 8, !noalias !426
   %arrayidx22.i.i = getelementptr inbounds i8, ptr %m, i64 40
-  %10 = load double, ptr %arrayidx22.i.i, align 8, !noalias !426
+  %20 = load double, ptr %arrayidx22.i.i, align 8, !noalias !426
+  %mul23.i.i = fmul double %1, %20
+  %21 = tail call double @llvm.fmuladd.f64(double %0, double %19, double %mul23.i.i)
   %arrayidx25.i.i = getelementptr inbounds i8, ptr %m, i64 64
-  %11 = load double, ptr %arrayidx25.i.i, align 8, !noalias !426
-  %mul59.i.i = fmul double %1, %4
-  %12 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul59.i.i)
-  %13 = tail call double @llvm.fmuladd.f64(double %2, double %5, double %12)
-  %mul68.i.i = fmul double %1, %7
-  %14 = tail call double @llvm.fmuladd.f64(double %0, double %6, double %mul68.i.i)
-  %15 = tail call double @llvm.fmuladd.f64(double %2, double %8, double %14)
-  %mul77.i.i = fmul double %1, %10
-  %16 = tail call double @llvm.fmuladd.f64(double %0, double %9, double %mul77.i.i)
-  %17 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %16)
+  %22 = load double, ptr %arrayidx25.i.i, align 8, !noalias !426
+  %23 = tail call double @llvm.fmuladd.f64(double %2, double %22, double %21)
+  %mul32.i.i = fmul double %4, %10
+  %24 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %mul32.i.i)
+  %25 = tail call double @llvm.fmuladd.f64(double %5, double %12, double %24)
+  %mul41.i.i = fmul double %4, %15
+  %26 = tail call double @llvm.fmuladd.f64(double %3, double %14, double %mul41.i.i)
+  %27 = tail call double @llvm.fmuladd.f64(double %5, double %17, double %26)
+  %mul50.i.i = fmul double %4, %20
+  %28 = tail call double @llvm.fmuladd.f64(double %3, double %19, double %mul50.i.i)
+  %29 = tail call double @llvm.fmuladd.f64(double %5, double %22, double %28)
+  %mul59.i.i = fmul double %7, %10
+  %30 = tail call double @llvm.fmuladd.f64(double %6, double %9, double %mul59.i.i)
+  %31 = tail call double @llvm.fmuladd.f64(double %8, double %12, double %30)
+  %mul68.i.i = fmul double %7, %15
+  %32 = tail call double @llvm.fmuladd.f64(double %6, double %14, double %mul68.i.i)
+  %33 = tail call double @llvm.fmuladd.f64(double %8, double %17, double %32)
+  %mul77.i.i = fmul double %7, %20
+  %34 = tail call double @llvm.fmuladd.f64(double %6, double %19, double %mul77.i.i)
+  %35 = tail call double @llvm.fmuladd.f64(double %8, double %22, double %34)
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   %ref.tmp.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.10.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   %ref.tmp.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.16.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
   %ref.tmp.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %ref.tmp.sroa.22.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 56
   %ref.tmp.sroa.25.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %18 = load <2 x double>, ptr %mJacobianInv, align 8, !noalias !68
-  %19 = load <2 x double>, ptr %arrayidx3.i, align 8, !noalias !68
-  %20 = load <2 x double>, ptr %arrayidx5.i, align 8, !noalias !68
-  %21 = insertelement <2 x double> poison, double %4, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fmul <2 x double> %19, %22
-  %24 = insertelement <2 x double> poison, double %3, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %25, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %5, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %28, <2 x double> %26)
-  %30 = insertelement <2 x double> poison, double %7, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %19, %31
-  %33 = insertelement <2 x double> poison, double %6, i64 0
-  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %34, <2 x double> %32)
-  %36 = insertelement <2 x double> poison, double %8, i64 0
-  %37 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %37, <2 x double> %35)
-  %39 = insertelement <2 x double> poison, double %10, i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x double> %19, %40
-  %42 = insertelement <2 x double> poison, double %9, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %43, <2 x double> %41)
-  %45 = insertelement <2 x double> poison, double %11, i64 0
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %46, <2 x double> %44)
-  %48 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = fmul <2 x double> %19, %48
-  %50 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %50, <2 x double> %18, <2 x double> %49)
-  %52 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %52, <2 x double> %20, <2 x double> %51)
-  store <2 x double> %53, ptr %agg.result, align 8, !alias.scope !429
-  %54 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %55 = insertelement <2 x double> %54, double %1, i64 0
-  %56 = fmul <2 x double> %55, %38
-  %57 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %58 = insertelement <2 x double> %57, double %0, i64 0
-  %59 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %29, <2 x double> %58, <2 x double> %56)
-  %60 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %61 = insertelement <2 x double> %60, double %2, i64 0
-  %62 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %61, <2 x double> %59)
-  store <2 x double> %62, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx, align 8, !alias.scope !429
-  %63 = insertelement <2 x double> %54, double %1, i64 1
-  %64 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %65 = fmul <2 x double> %63, %64
-  %66 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %67 = insertelement <2 x double> %57, double %0, i64 1
-  %68 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %66, <2 x double> %67, <2 x double> %65)
-  %69 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %70 = insertelement <2 x double> %60, double %2, i64 1
-  %71 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %69, <2 x double> %70, <2 x double> %68)
-  store <2 x double> %71, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx, align 8, !alias.scope !429
-  %72 = insertelement <2 x double> poison, double %15, i64 0
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> zeroinitializer
-  %74 = fmul <2 x double> %19, %73
-  %75 = insertelement <2 x double> poison, double %13, i64 0
-  %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
-  %77 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %76, <2 x double> %18, <2 x double> %74)
-  %78 = insertelement <2 x double> poison, double %17, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> %20, <2 x double> %77)
-  store <2 x double> %80, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx, align 8, !alias.scope !429
-  %mul77.i.i37 = fmul double %1, %15
-  %81 = tail call double @llvm.fmuladd.f64(double %13, double %0, double %mul77.i.i37)
-  %82 = tail call double @llvm.fmuladd.f64(double %17, double %2, double %81)
-  store double %82, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul6.i.i22 = fmul double %1, %18
+  %36 = tail call double @llvm.fmuladd.f64(double %13, double %0, double %mul6.i.i22)
+  %37 = tail call double @llvm.fmuladd.f64(double %23, double %2, double %36)
+  store double %37, ptr %agg.result, align 8, !alias.scope !429
+  %mul14.i.i26 = fmul double %4, %18
+  %38 = tail call double @llvm.fmuladd.f64(double %13, double %3, double %mul14.i.i26)
+  %39 = tail call double @llvm.fmuladd.f64(double %23, double %5, double %38)
+  store double %39, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul23.i.i30 = fmul double %7, %18
+  %40 = tail call double @llvm.fmuladd.f64(double %13, double %6, double %mul23.i.i30)
+  %41 = tail call double @llvm.fmuladd.f64(double %23, double %8, double %40)
+  store double %41, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul32.i.i32 = fmul double %1, %27
+  %42 = tail call double @llvm.fmuladd.f64(double %25, double %0, double %mul32.i.i32)
+  %43 = tail call double @llvm.fmuladd.f64(double %29, double %2, double %42)
+  store double %43, ptr %ref.tmp.sroa.10.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul41.i.i33 = fmul double %4, %27
+  %44 = tail call double @llvm.fmuladd.f64(double %25, double %3, double %mul41.i.i33)
+  %45 = tail call double @llvm.fmuladd.f64(double %29, double %5, double %44)
+  store double %45, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul50.i.i34 = fmul double %7, %27
+  %46 = tail call double @llvm.fmuladd.f64(double %25, double %6, double %mul50.i.i34)
+  %47 = tail call double @llvm.fmuladd.f64(double %29, double %8, double %46)
+  store double %47, ptr %ref.tmp.sroa.16.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul59.i.i35 = fmul double %1, %33
+  %48 = tail call double @llvm.fmuladd.f64(double %31, double %0, double %mul59.i.i35)
+  %49 = tail call double @llvm.fmuladd.f64(double %35, double %2, double %48)
+  store double %49, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul68.i.i36 = fmul double %4, %33
+  %50 = tail call double @llvm.fmuladd.f64(double %31, double %3, double %mul68.i.i36)
+  %51 = tail call double @llvm.fmuladd.f64(double %35, double %5, double %50)
+  store double %51, ptr %ref.tmp.sroa.22.0.agg.result.sroa_idx, align 8, !alias.scope !429
+  %mul77.i.i37 = fmul double %7, %33
+  %52 = tail call double @llvm.fmuladd.f64(double %31, double %6, double %mul77.i.i37)
+  %53 = tail call double @llvm.fmuladd.f64(double %35, double %8, double %52)
+  store double %53, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx, align 8, !alias.scope !429
   ret void
 }
 
@@ -16536,115 +17040,111 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8applyIJCERKNS1_4Mat3
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
   %mJacobianInv.i = getelementptr inbounds i8, ptr %this, i64 264
+  %2 = load double, ptr %mJacobianInv.i, align 8, !noalias !432
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 288
+  %3 = load double, ptr %arrayidx3.i.i, align 8, !noalias !432
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %4 = load double, ptr %arrayidx5.i.i, align 8, !noalias !432
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %5 = load double, ptr %arrayidx7.i.i, align 8, !noalias !432
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %6 = load double, ptr %arrayidx9.i.i, align 8, !noalias !432
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %7 = load double, ptr %arrayidx11.i.i, align 8, !noalias !432
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  %2 = load double, ptr %arrayidx13.i.i, align 8, !noalias !432
+  %8 = load double, ptr %arrayidx13.i.i, align 8, !noalias !432
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  %3 = load double, ptr %arrayidx15.i.i, align 8, !noalias !432
+  %9 = load double, ptr %arrayidx15.i.i, align 8, !noalias !432
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %4 = load double, ptr %arrayidx17.i.i, align 8, !noalias !432
-  %5 = load double, ptr %in, align 8, !noalias !435
+  %10 = load double, ptr %arrayidx17.i.i, align 8, !noalias !432
+  %11 = load double, ptr %in, align 8, !noalias !435
   %arrayidx5.i.i1.i = getelementptr inbounds i8, ptr %in, i64 24
-  %6 = load double, ptr %arrayidx5.i.i1.i, align 8, !noalias !435
+  %12 = load double, ptr %arrayidx5.i.i1.i, align 8, !noalias !435
+  %mul6.i.i.i = fmul double %3, %12
+  %13 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %mul6.i.i.i)
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %in, i64 48
-  %7 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !435
+  %14 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !435
+  %15 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %13)
   %arrayidx11.i.i2.i = getelementptr inbounds i8, ptr %in, i64 8
-  %8 = load double, ptr %arrayidx11.i.i2.i, align 8, !noalias !435
+  %16 = load double, ptr %arrayidx11.i.i2.i, align 8, !noalias !435
   %arrayidx13.i.i3.i = getelementptr inbounds i8, ptr %in, i64 32
-  %9 = load double, ptr %arrayidx13.i.i3.i, align 8, !noalias !435
+  %17 = load double, ptr %arrayidx13.i.i3.i, align 8, !noalias !435
+  %mul14.i.i.i = fmul double %3, %17
+  %18 = tail call double @llvm.fmuladd.f64(double %2, double %16, double %mul14.i.i.i)
   %arrayidx16.i.i.i = getelementptr inbounds i8, ptr %in, i64 56
-  %10 = load double, ptr %arrayidx16.i.i.i, align 8, !noalias !435
+  %19 = load double, ptr %arrayidx16.i.i.i, align 8, !noalias !435
+  %20 = tail call double @llvm.fmuladd.f64(double %4, double %19, double %18)
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %11 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !435
+  %21 = load double, ptr %arrayidx20.i.i.i, align 8, !noalias !435
   %arrayidx22.i.i.i = getelementptr inbounds i8, ptr %in, i64 40
-  %12 = load double, ptr %arrayidx22.i.i.i, align 8, !noalias !435
+  %22 = load double, ptr %arrayidx22.i.i.i, align 8, !noalias !435
+  %mul23.i.i.i = fmul double %3, %22
+  %23 = tail call double @llvm.fmuladd.f64(double %2, double %21, double %mul23.i.i.i)
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %in, i64 64
-  %13 = load double, ptr %arrayidx25.i.i.i, align 8, !noalias !435
-  %mul59.i.i.i = fmul double %3, %6
-  %14 = tail call double @llvm.fmuladd.f64(double %2, double %5, double %mul59.i.i.i)
-  %15 = tail call double @llvm.fmuladd.f64(double %4, double %7, double %14)
-  %mul68.i.i.i = fmul double %3, %9
-  %16 = tail call double @llvm.fmuladd.f64(double %2, double %8, double %mul68.i.i.i)
-  %17 = tail call double @llvm.fmuladd.f64(double %4, double %10, double %16)
-  %mul77.i.i.i = fmul double %3, %12
-  %18 = tail call double @llvm.fmuladd.f64(double %2, double %11, double %mul77.i.i.i)
-  %19 = tail call double @llvm.fmuladd.f64(double %4, double %13, double %18)
+  %24 = load double, ptr %arrayidx25.i.i.i, align 8, !noalias !435
+  %25 = tail call double @llvm.fmuladd.f64(double %4, double %24, double %23)
+  %mul32.i.i.i = fmul double %6, %12
+  %26 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %mul32.i.i.i)
+  %27 = tail call double @llvm.fmuladd.f64(double %7, double %14, double %26)
+  %mul41.i.i.i = fmul double %6, %17
+  %28 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %mul41.i.i.i)
+  %29 = tail call double @llvm.fmuladd.f64(double %7, double %19, double %28)
+  %mul50.i.i.i = fmul double %6, %22
+  %30 = tail call double @llvm.fmuladd.f64(double %5, double %21, double %mul50.i.i.i)
+  %31 = tail call double @llvm.fmuladd.f64(double %7, double %24, double %30)
+  %mul59.i.i.i = fmul double %9, %12
+  %32 = tail call double @llvm.fmuladd.f64(double %8, double %11, double %mul59.i.i.i)
+  %33 = tail call double @llvm.fmuladd.f64(double %10, double %14, double %32)
+  %mul68.i.i.i = fmul double %9, %17
+  %34 = tail call double @llvm.fmuladd.f64(double %8, double %16, double %mul68.i.i.i)
+  %35 = tail call double @llvm.fmuladd.f64(double %10, double %19, double %34)
+  %mul77.i.i.i = fmul double %9, %22
+  %36 = tail call double @llvm.fmuladd.f64(double %8, double %21, double %mul77.i.i.i)
+  %37 = tail call double @llvm.fmuladd.f64(double %10, double %24, double %36)
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %ref.tmp.sroa.7.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.10.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %ref.tmp.sroa.13.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.16.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %ref.tmp.sroa.19.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %ref.tmp.sroa.22.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   %ref.tmp.sroa.25.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %20 = load <2 x double>, ptr %mJacobianInv.i, align 8, !noalias !432
-  %21 = load <2 x double>, ptr %arrayidx3.i.i, align 8, !noalias !432
-  %22 = load <2 x double>, ptr %arrayidx5.i.i, align 8, !noalias !432
-  %23 = insertelement <2 x double> poison, double %6, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = fmul <2 x double> %21, %24
-  %26 = insertelement <2 x double> poison, double %5, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %27, <2 x double> %25)
-  %29 = insertelement <2 x double> poison, double %7, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %30, <2 x double> %28)
-  %32 = insertelement <2 x double> poison, double %9, i64 0
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = fmul <2 x double> %21, %33
-  %35 = insertelement <2 x double> poison, double %8, i64 0
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %36, <2 x double> %34)
-  %38 = insertelement <2 x double> poison, double %10, i64 0
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %39, <2 x double> %37)
-  %41 = insertelement <2 x double> poison, double %12, i64 0
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = fmul <2 x double> %21, %42
-  %44 = insertelement <2 x double> poison, double %11, i64 0
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %20, <2 x double> %45, <2 x double> %43)
-  %47 = insertelement <2 x double> poison, double %13, i64 0
-  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %48, <2 x double> %46)
-  %50 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x double> %21, %50
-  %52 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %52, <2 x double> %20, <2 x double> %51)
-  %54 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
-  %55 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %54, <2 x double> %22, <2 x double> %53)
-  store <2 x double> %55, ptr %agg.result, align 8, !alias.scope !438
-  %56 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %57 = insertelement <2 x double> %56, double %3, i64 0
-  %58 = fmul <2 x double> %57, %40
-  %59 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %60 = insertelement <2 x double> %59, double %2, i64 0
-  %61 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %31, <2 x double> %60, <2 x double> %58)
-  %62 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %63 = insertelement <2 x double> %62, double %4, i64 0
-  %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %49, <2 x double> %63, <2 x double> %61)
-  store <2 x double> %64, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
-  %65 = insertelement <2 x double> %56, double %3, i64 1
-  %66 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %67 = fmul <2 x double> %65, %66
-  %68 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %69 = insertelement <2 x double> %59, double %2, i64 1
-  %70 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %68, <2 x double> %69, <2 x double> %67)
-  %71 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %72 = insertelement <2 x double> %62, double %4, i64 1
-  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> %72, <2 x double> %70)
-  store <2 x double> %73, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
-  %74 = insertelement <2 x double> poison, double %17, i64 0
-  %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> zeroinitializer
-  %76 = fmul <2 x double> %21, %75
-  %77 = insertelement <2 x double> poison, double %15, i64 0
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
-  %79 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %78, <2 x double> %20, <2 x double> %76)
-  %80 = insertelement <2 x double> poison, double %19, i64 0
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %81, <2 x double> %22, <2 x double> %79)
-  store <2 x double> %82, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
-  %mul77.i.i37.i = fmul double %3, %17
-  %83 = tail call double @llvm.fmuladd.f64(double %15, double %2, double %mul77.i.i37.i)
-  %84 = tail call double @llvm.fmuladd.f64(double %19, double %4, double %83)
-  store double %84, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul6.i.i22.i = fmul double %3, %20
+  %38 = tail call double @llvm.fmuladd.f64(double %15, double %2, double %mul6.i.i22.i)
+  %39 = tail call double @llvm.fmuladd.f64(double %25, double %4, double %38)
+  store double %39, ptr %agg.result, align 8, !alias.scope !438
+  %mul14.i.i26.i = fmul double %6, %20
+  %40 = tail call double @llvm.fmuladd.f64(double %15, double %5, double %mul14.i.i26.i)
+  %41 = tail call double @llvm.fmuladd.f64(double %25, double %7, double %40)
+  store double %41, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul23.i.i30.i = fmul double %9, %20
+  %42 = tail call double @llvm.fmuladd.f64(double %15, double %8, double %mul23.i.i30.i)
+  %43 = tail call double @llvm.fmuladd.f64(double %25, double %10, double %42)
+  store double %43, ptr %ref.tmp.sroa.7.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul32.i.i32.i = fmul double %3, %29
+  %44 = tail call double @llvm.fmuladd.f64(double %27, double %2, double %mul32.i.i32.i)
+  %45 = tail call double @llvm.fmuladd.f64(double %31, double %4, double %44)
+  store double %45, ptr %ref.tmp.sroa.10.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul41.i.i33.i = fmul double %6, %29
+  %46 = tail call double @llvm.fmuladd.f64(double %27, double %5, double %mul41.i.i33.i)
+  %47 = tail call double @llvm.fmuladd.f64(double %31, double %7, double %46)
+  store double %47, ptr %ref.tmp.sroa.13.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul50.i.i34.i = fmul double %9, %29
+  %48 = tail call double @llvm.fmuladd.f64(double %27, double %8, double %mul50.i.i34.i)
+  %49 = tail call double @llvm.fmuladd.f64(double %31, double %10, double %48)
+  store double %49, ptr %ref.tmp.sroa.16.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul59.i.i35.i = fmul double %3, %35
+  %50 = tail call double @llvm.fmuladd.f64(double %33, double %2, double %mul59.i.i35.i)
+  %51 = tail call double @llvm.fmuladd.f64(double %37, double %4, double %50)
+  store double %51, ptr %ref.tmp.sroa.19.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul68.i.i36.i = fmul double %6, %35
+  %52 = tail call double @llvm.fmuladd.f64(double %33, double %5, double %mul68.i.i36.i)
+  %53 = tail call double @llvm.fmuladd.f64(double %37, double %7, double %52)
+  store double %53, ptr %ref.tmp.sroa.22.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
+  %mul77.i.i37.i = fmul double %9, %35
+  %54 = tail call double @llvm.fmuladd.f64(double %33, double %8, double %mul77.i.i37.i)
+  %55 = tail call double @llvm.fmuladd.f64(double %37, double %10, double %54)
+  store double %55, ptr %ref.tmp.sroa.25.0.agg.result.sroa_idx.i, align 8, !alias.scope !438
   ret void
 }
 
@@ -16852,26 +17352,27 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_9AffineMapEvEEPT_.exit: ;
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = load ptr, ptr %affineMap, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17059,9 +17560,9 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN7openvdb5v11_04math4Mat4IdE12preTranslateIdEEvRKNS1_4Vec3IT_EE(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, ptr noundef nonnull align 8 dereferenceable(24) %t)
           to label %.noexc unwind label %lpad
@@ -17073,15 +17574,17 @@ entry:
 invoke.cont:                                      ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
+  %1 = load ptr, ptr %affineMap, align 8, !noalias !447
+  store ptr %1, ptr %agg.result, align 8, !alias.scope !447
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.result, align 8, !alias.scope !447
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !447
+  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !447
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17182,9 +17685,9 @@ lpad:                                             ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %s, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -17253,15 +17756,17 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
+  %25 = load ptr, ptr %affineMap, align 8, !noalias !454
+  store ptr %25, ptr %agg.result, align 8, !alias.scope !454
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %25 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  %26 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %26, ptr %agg.result, align 8, !alias.scope !454
-  %cmp.not.i.i.i.i.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  store ptr %26, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !454
+  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !454
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17362,59 +17867,78 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
+  %1 = load double, ptr %arrayidx.i.i, align 8
   %mul4.i.i = shl nsw i32 %axis1, 2
   %idxprom6.i.i = sext i32 %mul4.i.i to i64
   %arrayidx7.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom6.i.i
-  %1 = load <2 x double>, ptr %arrayidx.i.i, align 8
-  %2 = load <2 x double>, ptr %arrayidx7.i.i, align 8
-  %3 = insertelement <2 x double> poison, double %shear, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %1, <2 x double> %2)
-  store <2 x double> %5, ptr %arrayidx7.i.i, align 8
+  %2 = load double, ptr %arrayidx7.i.i, align 8
+  %3 = call double @llvm.fmuladd.f64(double %shear, double %1, double %2)
+  store double %3, ptr %arrayidx7.i.i, align 8
+  %add10.i.i = or disjoint i32 %mul.i.i, 1
+  %idxprom11.i.i = sext i32 %add10.i.i to i64
+  %arrayidx12.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom11.i.i
+  %4 = load double, ptr %arrayidx12.i.i, align 8
+  %add16.i.i = or disjoint i32 %mul4.i.i, 1
+  %idxprom17.i.i = sext i32 %add16.i.i to i64
+  %arrayidx18.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom17.i.i
+  %5 = load double, ptr %arrayidx18.i.i, align 8
+  %6 = call double @llvm.fmuladd.f64(double %shear, double %4, double %5)
+  store double %6, ptr %arrayidx18.i.i, align 8
   %add21.i.i = or disjoint i32 %mul.i.i, 2
   %idxprom22.i.i = sext i32 %add21.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom22.i.i
+  %7 = load double, ptr %arrayidx23.i.i, align 8
   %add27.i.i = or disjoint i32 %mul4.i.i, 2
   %idxprom28.i.i = sext i32 %add27.i.i to i64
   %arrayidx29.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom28.i.i
-  %6 = load <2 x double>, ptr %arrayidx23.i.i, align 8
-  %7 = load <2 x double>, ptr %arrayidx29.i.i, align 8
-  %8 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %6, <2 x double> %7)
-  store <2 x double> %8, ptr %arrayidx29.i.i, align 8
+  %8 = load double, ptr %arrayidx29.i.i, align 8
+  %9 = call double @llvm.fmuladd.f64(double %shear, double %7, double %8)
+  store double %9, ptr %arrayidx29.i.i, align 8
+  %add32.i.i = or disjoint i32 %mul.i.i, 3
+  %idxprom33.i.i = sext i32 %add32.i.i to i64
+  %arrayidx34.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom33.i.i
+  %10 = load double, ptr %arrayidx34.i.i, align 8
+  %add38.i.i = or disjoint i32 %mul4.i.i, 3
+  %idxprom39.i.i = sext i32 %add38.i.i to i64
+  %arrayidx40.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom39.i.i
+  %11 = load double, ptr %arrayidx40.i.i, align 8
+  %12 = call double @llvm.fmuladd.f64(double %shear, double %10, double %11)
+  store double %12, ptr %arrayidx40.i.i, align 8
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %10 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %10, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %9, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %12 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %12, 1
+  %16 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %16, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %13 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -17422,167 +17946,167 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit: ; preds = %invo
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %14 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %14, null
+  %18 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i3 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %15, 4294967297
-  %16 = trunc i64 %15 to i32
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i64, ptr %_M_use_count.i.i.i.i5 acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %19, 4294967297
+  %20 = trunc i64 %19 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i4
   store i32 0, ptr %_M_use_count.i.i.i.i5, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %17 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %21 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %18, 0
+  %22 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i8, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i7 = add nsw i32 %16, -1
+  %add.i.i.i.i.i7 = add nsw i32 %20, -1
   store i32 %add.i.i.i.i.i7, ptr %_M_use_count.i.i.i.i5, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i8:                               ; preds = %if.end.i.i.i.i
-  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
+  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i5, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i8, %if.then.i.i.i.i.i6
-  %retval.i.0.i.i.i.i = phi i32 [ %16, %if.then.i.i.i.i.i6 ], [ %19, %if.else.i.i.i.i.i8 ]
+  %retval.i.0.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i6 ], [ %23, %if.else.i.i.i.i.i8 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %20 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
-  %21 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %21, 0
+  %24 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %22 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %22, -1
+  %26 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %26, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %22, %if.then.i.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %18, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
+  %28 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %25, null
+  %29 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i10, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %26, 4294967297
-  %27 = trunc i64 %26 to i32
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = load atomic i64, ptr %_M_use_count.i.i.i.i12 acquire, align 8
+  %cmp.i.i.i.i13 = icmp eq i64 %30, 4294967297
+  %31 = trunc i64 %30 to i32
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i36, label %if.end.i.i.i.i14
 
 if.then.i.i.i.i36:                                ; preds = %if.then.i.i.i11
   store i32 0, ptr %_M_use_count.i.i.i.i12, align 8
-  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %25, i64 12
+  %_M_weak_count.i.i.i.i37 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i37, align 4
-  %vtable.i.i.i.i38 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i38 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i.i38, i64 16
-  %28 = load ptr, ptr %vfn.i.i.i.i39, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %32 = load ptr, ptr %vfn.i.i.i.i39, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %if.end8.sink.split.i.i.i.i31
 
 if.end.i.i.i.i14:                                 ; preds = %if.then.i.i.i11
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %29, 0
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %33, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i35, label %if.then.i.i.i.i.i16
 
 if.then.i.i.i.i.i16:                              ; preds = %if.end.i.i.i.i14
-  %add.i.i.i.i.i17 = add nsw i32 %27, -1
+  %add.i.i.i.i.i17 = add nsw i32 %31, -1
   store i32 %add.i.i.i.i.i17, ptr %_M_use_count.i.i.i.i12, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i.i.i14
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
+  %34 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i12, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %if.else.i.i.i.i.i35, %if.then.i.i.i.i.i16
-  %retval.i.0.i.i.i.i19 = phi i32 [ %27, %if.then.i.i.i.i.i16 ], [ %30, %if.else.i.i.i.i.i35 ]
+  %retval.i.0.i.i.i.i19 = phi i32 [ %31, %if.then.i.i.i.i.i16 ], [ %34, %if.else.i.i.i.i.i35 ]
   %cmp6.i.i.i.i20 = icmp eq i32 %retval.i.0.i.i.i.i19, 1
   br i1 %cmp6.i.i.i.i20, label %if.then7.i.i.i.i21, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.then7.i.i.i.i21:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18
-  %vtable.i.i.i.i.i.i22 = load ptr, ptr %25, align 8
+  %vtable.i.i.i.i.i.i22 = load ptr, ptr %29, align 8
   %vfn.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i22, i64 16
-  %31 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %25, i64 12
-  %32 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %32, 0
+  %35 = load ptr, ptr %vfn.i.i.i.i.i.i23, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %29, i64 12
+  %36 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i.i26
 
 if.then.i.i.i.i.i.i.i26:                          ; preds = %if.then7.i.i.i.i21
-  %33 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
-  %add.i.i.i.i.i.i.i27 = add nsw i32 %33, -1
+  %37 = load i32, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
+  %add.i.i.i.i.i.i.i27 = add nsw i32 %37, -1
   store i32 %add.i.i.i.i.i.i.i27, ptr %_M_weak_count.i.i.i.i.i.i24, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 if.else.i.i.i.i.i.i.i34:                          ; preds = %if.then7.i.i.i.i21
-  %34 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
+  %38 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i24, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28: ; preds = %if.else.i.i.i.i.i.i.i34, %if.then.i.i.i.i.i.i.i26
-  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %33, %if.then.i.i.i.i.i.i.i26 ], [ %34, %if.else.i.i.i.i.i.i.i34 ]
+  %retval.i.0.i.i.i.i.i.i29 = phi i32 [ %37, %if.then.i.i.i.i.i.i.i26 ], [ %38, %if.else.i.i.i.i.i.i.i34 ]
   %cmp.i.i.i.i.i.i30 = icmp eq i32 %retval.i.0.i.i.i.i.i.i29, 1
   br i1 %cmp.i.i.i.i.i.i30, label %if.end8.sink.split.i.i.i.i31, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 if.end8.sink.split.i.i.i.i31:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.then.i.i.i.i36
-  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %25, align 8
+  %vtable2.i.i.i.i.i.i32 = load ptr, ptr %29, align 8
   %vfn3.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i32, i64 24
-  %35 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #25
+  %39 = load ptr, ptr %vfn3.i.i.i.i.i.i33, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %29) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit40: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i28, %if.end8.sink.split.i.i.i.i31
   ret void
 
 lpad:                                             ; preds = %entry
-  %36 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %37, %lpad2 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %41, %lpad2 ], [ %40, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
   resume { ptr, i32 } %.pn
 }
@@ -17590,26 +18114,27 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %1 = load ptr, ptr %affineMap, align 8
+  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %2 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %2, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17799,14 +18324,16 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap13postTranslateERKNS1
 entry:
   %m0.i.i.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
-  %1 = load <2 x double>, ptr %t, align 8
+  %1 = load double, ptr %t, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %2 = load double, ptr %arrayidx.i.i.i, align 8
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %t, i64 16
-  %2 = load double, ptr %arrayidx.i3.i.i, align 8
+  %3 = load double, ptr %arrayidx.i3.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m0.i.i.i.i), !noalias !455
@@ -17815,40 +18342,38 @@ entry:
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %indvars.iv.i.i.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
-  %3 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
-  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %3
-  %4 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !455
-  %5 = or disjoint i64 %3, 1
-  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %5
-  %6 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !455
-  %mul9.i.i.i.i = fmul double %6, 0.000000e+00
-  %7 = fadd double %4, %mul9.i.i.i.i
-  %8 = or disjoint i64 %3, 2
-  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %8
-  %9 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !455
-  %10 = or disjoint i64 %3, 3
-  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !455
-  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %3
-  %12 = call double @llvm.fmuladd.f64(double %4, double 0.000000e+00, double %6)
-  %13 = insertelement <2 x double> poison, double %9, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = insertelement <2 x double> poison, double %7, i64 0
-  %16 = insertelement <2 x double> %15, double %12, i64 1
-  %17 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> zeroinitializer, <2 x double> %16)
-  %18 = insertelement <2 x double> poison, double %11, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %1, <2 x double> %17)
-  store <2 x double> %20, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !455
-  %21 = call double @llvm.fmuladd.f64(double %4, double 0.000000e+00, double %mul9.i.i.i.i)
-  %22 = fadd double %9, %21
-  %23 = call double @llvm.fmuladd.f64(double %11, double %2, double %22)
-  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %8
-  store double %23, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !455
-  %24 = call double @llvm.fmuladd.f64(double %9, double 0.000000e+00, double %21)
-  %25 = fadd double %11, %24
-  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %10
-  store double %25, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !455
+  %4 = shl nuw nsw i64 %indvars.iv.i.i.i.i, 2
+  %arrayidx.i.i6.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %4
+  %5 = load double, ptr %arrayidx.i.i6.i.i, align 8, !noalias !455
+  %6 = or disjoint i64 %4, 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %6
+  %7 = load double, ptr %arrayidx7.i.i.i.i, align 8, !noalias !455
+  %mul9.i.i.i.i = fmul double %7, 0.000000e+00
+  %8 = fadd double %5, %mul9.i.i.i.i
+  %9 = or disjoint i64 %4, 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %9
+  %10 = load double, ptr %arrayidx12.i.i.i.i, align 8, !noalias !455
+  %11 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %8)
+  %12 = or disjoint i64 %4, 3
+  %arrayidx17.i.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i.i, i64 %12
+  %13 = load double, ptr %arrayidx17.i.i.i.i, align 8, !noalias !455
+  %14 = call double @llvm.fmuladd.f64(double %13, double %1, double %11)
+  %arrayidx22.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %4
+  store double %14, ptr %arrayidx22.i.i.i.i, align 8, !alias.scope !455
+  %15 = call double @llvm.fmuladd.f64(double %5, double 0.000000e+00, double %7)
+  %16 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %15)
+  %17 = call double @llvm.fmuladd.f64(double %13, double %2, double %16)
+  %arrayidx46.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %6
+  store double %17, ptr %arrayidx46.i.i.i.i, align 8, !alias.scope !455
+  %18 = call double @llvm.fmuladd.f64(double %5, double 0.000000e+00, double %mul9.i.i.i.i)
+  %19 = fadd double %10, %18
+  %20 = call double @llvm.fmuladd.f64(double %13, double %3, double %19)
+  %arrayidx70.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %9
+  store double %20, ptr %arrayidx70.i.i.i.i, align 8, !alias.scope !455
+  %21 = call double @llvm.fmuladd.f64(double %10, double 0.000000e+00, double %18)
+  %22 = fadd double %13, %21
+  %arrayidx94.i.i.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp.i.i, i64 0, i64 %12
+  store double %22, ptr %arrayidx94.i.i.i.i, align 8, !alias.scope !455
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i, label %for.body.i.i.i.i, !llvm.loop !197
@@ -17863,27 +18388,29 @@ _ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i: ; pre
 invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
   call void @llvm.experimental.noalias.scope.decl(metadata !461)
+  %23 = load ptr, ptr %affineMap, align 8, !noalias !464
+  store ptr %23, ptr %agg.result, align 8, !alias.scope !464
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  %27 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %27, ptr %agg.result, align 8, !alias.scope !464
-  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
+  %24 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  store ptr %24, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !464
+  %cmp.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !464
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %28, 0
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !464
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %29 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !464
-  %add.i.i.i.i.i.i.i = add nsw i32 %29, 1
+  %26 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !464
+  %add.i.i.i.i.i.i.i = add nsw i32 %26, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !noalias !464
   br label %_ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_ptrIT_ERKS5_IT0_E.exit
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !464
+  %27 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !464
   br label %_ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_ptrIT_ERKS5_IT0_E.exit
 
 _ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_ptrIT_ERKS5_IT0_E.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
@@ -17893,9 +18420,9 @@ _ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_p
 
 if.then.i.i.i:                                    ; preds = %_ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_ptrIT_ERKS5_IT0_E.exit
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 8
-  %31 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %31, 4294967297
-  %32 = trunc i64 %31 to i32
+  %28 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %28, 4294967297
+  %29 = trunc i64 %28 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -17904,77 +18431,77 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %33 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
+  %30 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %34 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %34, 0
+  %31 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i1
 
 if.then.i.i.i.i.i1:                               ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %32, -1
+  %add.i.i.i.i.i = add nsw i32 %29, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %35 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %32 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i1
-  %retval.i.0.i.i.i.i = phi i32 [ %32, %if.then.i.i.i.i.i1 ], [ %35, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %29, %if.then.i.i.i.i.i1 ], [ %32, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %36 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
+  %33 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 12
-  %37 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %37, 0
+  %34 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %34, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i4, label %if.then.i.i.i.i.i.i.i2
 
 if.then.i.i.i.i.i.i.i2:                           ; preds = %if.then7.i.i.i.i
-  %38 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i3 = add nsw i32 %38, -1
+  %35 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i3 = add nsw i32 %35, -1
   store i32 %add.i.i.i.i.i.i.i3, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i4:                           ; preds = %if.then7.i.i.i.i
-  %39 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %36 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i4, %if.then.i.i.i.i.i.i.i2
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %38, %if.then.i.i.i.i.i.i.i2 ], [ %39, %if.else.i.i.i.i.i.i.i4 ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %35, %if.then.i.i.i.i.i.i.i2 ], [ %36, %if.else.i.i.i.i.i.i.i4 ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %40 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
+  %37 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont, %_ZN7openvdb5v11_013StaticPtrCastINS0_4math7MapBaseENS2_9AffineMapEEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %41 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %affineMap) #25
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %s, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -18043,15 +18570,17 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
+  %25 = load ptr, ptr %affineMap, align 8, !noalias !471
+  store ptr %25, ptr %agg.result, align 8, !alias.scope !471
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %25 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  %26 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %26, ptr %agg.result, align 8, !alias.scope !471
-  %cmp.not.i.i.i.i.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  store ptr %26, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !471
+  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !471
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -18152,10 +18681,10 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
+  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 16
+  %0 = load ptr, ptr %affineMap, align 8
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -18199,16 +18728,17 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %13 = load ptr, ptr %affineMap, align 8
+  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %14 = load <2 x ptr>, ptr %affineMap, align 16
-  store <2 x ptr> %14, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %14, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -18399,36 +18929,41 @@ entry:
   %mMatrix = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   %0 = load double, ptr %in, align 8, !noalias !472
+  %1 = load double, ptr %mMatrix, align 8, !noalias !472
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !472
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !472
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx4.i, align 8, !noalias !472
+  %mul5.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul5.i)
   %arrayidx.i.i9.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i9.i, align 8, !noalias !472
+  %5 = load double, ptr %arrayidx.i.i9.i, align 8, !noalias !472
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 72
+  %6 = load double, ptr %arrayidx8.i, align 8, !noalias !472
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 16
+  %8 = load double, ptr %arrayidx11.i, align 8, !noalias !472
+  %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 48
+  %9 = load double, ptr %arrayidx14.i, align 8, !noalias !472
+  %mul15.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul15.i)
+  %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 80
+  %11 = load double, ptr %arrayidx18.i, align 8, !noalias !472
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load double, ptr %arrayidx21.i, align 8, !noalias !472
+  %13 = load double, ptr %arrayidx21.i, align 8, !noalias !472
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load double, ptr %arrayidx24.i, align 8, !noalias !472
-  %mul25.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul25.i)
+  %14 = load double, ptr %arrayidx24.i, align 8, !noalias !472
+  %mul25.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load double, ptr %arrayidx28.i, align 8, !noalias !472
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mMatrix, align 8, !noalias !472
-  %9 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !472
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !472
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !472
+  %16 = load double, ptr %arrayidx28.i, align 8, !noalias !472
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !472
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i, align 8, !alias.scope !472
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i, align 8, !alias.scope !472
+  store double %17, ptr %arrayidx5.i.i, align 8, !alias.scope !472
   ret void
 }
 
@@ -18439,36 +18974,41 @@ entry:
   %mMatrix.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   %1 = load double, ptr %in, align 8, !noalias !481
+  %2 = load double, ptr %mMatrix.i, align 8, !noalias !481
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !481
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !481
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %4 = load double, ptr %arrayidx4.i.i, align 8, !noalias !481
+  %mul5.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul5.i.i)
   %arrayidx.i.i9.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !481
+  %6 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !481
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %7 = load double, ptr %arrayidx8.i.i, align 8, !noalias !481
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = load double, ptr %arrayidx11.i.i, align 8, !noalias !481
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %10 = load double, ptr %arrayidx14.i.i, align 8, !noalias !481
+  %mul15.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul15.i.i)
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %12 = load double, ptr %arrayidx18.i.i, align 8, !noalias !481
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load double, ptr %arrayidx21.i.i, align 8, !noalias !481
+  %14 = load double, ptr %arrayidx21.i.i, align 8, !noalias !481
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %5 = load double, ptr %arrayidx24.i.i, align 8, !noalias !481
-  %mul25.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul25.i.i)
+  %15 = load double, ptr %arrayidx24.i.i, align 8, !noalias !481
+  %mul25.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul25.i.i)
   %arrayidx28.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load double, ptr %arrayidx28.i.i, align 8, !noalias !481
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mMatrix.i, align 8, !noalias !481
-  %10 = load <2 x double>, ptr %arrayidx4.i.i, align 8, !noalias !481
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i.i, align 8, !noalias !481
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !481
+  %17 = load double, ptr %arrayidx28.i.i, align 8, !noalias !481
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !481
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i, align 8, !alias.scope !481
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i, align 8, !alias.scope !481
+  store double %18, ptr %arrayidx5.i.i.i, align 8, !alias.scope !481
   ret void
 }
 
@@ -18478,36 +19018,41 @@ entry:
   %mMatrixInv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   %0 = load double, ptr %in, align 8, !noalias !482
+  %1 = load double, ptr %mMatrixInv, align 8, !noalias !482
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %1 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !482
+  %2 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !482
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 168
+  %3 = load double, ptr %arrayidx4.i, align 8, !noalias !482
+  %mul5.i = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul5.i)
   %arrayidx.i.i9.i = getelementptr inbounds i8, ptr %in, i64 16
-  %2 = load double, ptr %arrayidx.i.i9.i, align 8, !noalias !482
+  %5 = load double, ptr %arrayidx.i.i9.i, align 8, !noalias !482
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 200
+  %6 = load double, ptr %arrayidx8.i, align 8, !noalias !482
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 144
+  %8 = load double, ptr %arrayidx11.i, align 8, !noalias !482
+  %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 176
+  %9 = load double, ptr %arrayidx14.i, align 8, !noalias !482
+  %mul15.i = fmul double %2, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %mul15.i)
+  %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 208
+  %11 = load double, ptr %arrayidx18.i, align 8, !noalias !482
+  %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %10)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 152
-  %3 = load double, ptr %arrayidx21.i, align 8, !noalias !482
+  %13 = load double, ptr %arrayidx21.i, align 8, !noalias !482
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 184
-  %4 = load double, ptr %arrayidx24.i, align 8, !noalias !482
-  %mul25.i = fmul double %1, %4
-  %5 = tail call double @llvm.fmuladd.f64(double %0, double %3, double %mul25.i)
+  %14 = load double, ptr %arrayidx24.i, align 8, !noalias !482
+  %mul25.i = fmul double %2, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %0, double %13, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 216
-  %6 = load double, ptr %arrayidx28.i, align 8, !noalias !482
-  %7 = tail call double @llvm.fmuladd.f64(double %2, double %6, double %5)
-  %8 = load <2 x double>, ptr %mMatrixInv, align 8, !noalias !482
-  %9 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !482
-  %10 = insertelement <2 x double> poison, double %1, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x double> %11, %9
-  %13 = insertelement <2 x double> poison, double %0, i64 0
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %8, <2 x double> %12)
-  %16 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !482
-  %17 = insertelement <2 x double> poison, double %2, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %16, <2 x double> %15)
-  store <2 x double> %19, ptr %agg.result, align 8, !alias.scope !482
+  %16 = load double, ptr %arrayidx28.i, align 8, !noalias !482
+  %17 = tail call double @llvm.fmuladd.f64(double %5, double %16, double %15)
+  store double %7, ptr %agg.result, align 8, !alias.scope !482
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i.i, align 8, !alias.scope !482
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %7, ptr %arrayidx5.i.i, align 8, !alias.scope !482
+  store double %17, ptr %arrayidx5.i.i, align 8, !alias.scope !482
   ret void
 }
 
@@ -18518,36 +19063,41 @@ entry:
   %mMatrixInv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   %1 = load double, ptr %in, align 8, !noalias !491
+  %2 = load double, ptr %mMatrixInv.i, align 8, !noalias !491
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
-  %2 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !491
+  %3 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !491
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %4 = load double, ptr %arrayidx4.i.i, align 8, !noalias !491
+  %mul5.i.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul5.i.i)
   %arrayidx.i.i9.i.i = getelementptr inbounds i8, ptr %in, i64 16
-  %3 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !491
+  %6 = load double, ptr %arrayidx.i.i9.i.i, align 8, !noalias !491
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  %7 = load double, ptr %arrayidx8.i.i, align 8, !noalias !491
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %9 = load double, ptr %arrayidx11.i.i, align 8, !noalias !491
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %10 = load double, ptr %arrayidx14.i.i, align 8, !noalias !491
+  %mul15.i.i = fmul double %3, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %1, double %9, double %mul15.i.i)
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %12 = load double, ptr %arrayidx18.i.i, align 8, !noalias !491
+  %13 = tail call double @llvm.fmuladd.f64(double %6, double %12, double %11)
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %4 = load double, ptr %arrayidx21.i.i, align 8, !noalias !491
+  %14 = load double, ptr %arrayidx21.i.i, align 8, !noalias !491
   %arrayidx24.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %5 = load double, ptr %arrayidx24.i.i, align 8, !noalias !491
-  %mul25.i.i = fmul double %2, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %1, double %4, double %mul25.i.i)
+  %15 = load double, ptr %arrayidx24.i.i, align 8, !noalias !491
+  %mul25.i.i = fmul double %3, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %1, double %14, double %mul25.i.i)
   %arrayidx28.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %7 = load double, ptr %arrayidx28.i.i, align 8, !noalias !491
-  %8 = tail call double @llvm.fmuladd.f64(double %3, double %7, double %6)
-  %9 = load <2 x double>, ptr %mMatrixInv.i, align 8, !noalias !491
-  %10 = load <2 x double>, ptr %arrayidx4.i.i, align 8, !noalias !491
-  %11 = insertelement <2 x double> poison, double %2, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %12, %10
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %9, <2 x double> %13)
-  %17 = load <2 x double>, ptr %arrayidx8.i.i, align 8, !noalias !491
-  %18 = insertelement <2 x double> poison, double %3, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %17, <2 x double> %16)
-  store <2 x double> %20, ptr %agg.result, align 8, !alias.scope !491
+  %17 = load double, ptr %arrayidx28.i.i, align 8, !noalias !491
+  %18 = tail call double @llvm.fmuladd.f64(double %6, double %17, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !491
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i.i, align 8, !alias.scope !491
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %8, ptr %arrayidx5.i.i.i, align 8, !alias.scope !491
+  store double %18, ptr %arrayidx5.i.i.i, align 8, !alias.scope !491
   ret void
 }
 
@@ -18555,46 +19105,42 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap7applyJTERKNS1_4Vec3IdEE(ptr noalias sret(%"class.openvdb::v11_0::math::Vec3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %in) unnamed_addr #3 comdat align 2 {
 entry:
   %mMatrix = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x double>, ptr %mMatrix, align 8
+  %0 = load double, ptr %mMatrix, align 8
   %1 = load double, ptr %in, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load <2 x double>, ptr %arrayidx3, align 8
+  %2 = load double, ptr %arrayidx3, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %3 = load double, ptr %arrayidx.i.i, align 8
+  %mul5 = fmul double %2, %3
+  %4 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %mul5)
   %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load <2 x double>, ptr %arrayidx6, align 8
+  %5 = load double, ptr %arrayidx6, align 8
   %arrayidx.i.i17 = getelementptr inbounds i8, ptr %in, i64 16
-  %5 = load double, ptr %arrayidx.i.i17, align 8
+  %6 = load double, ptr %arrayidx.i.i17, align 8
+  %7 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %4)
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load double, ptr %arrayidx8, align 8
+  %8 = load double, ptr %arrayidx8, align 8
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 48
-  %7 = load double, ptr %arrayidx10, align 8
+  %9 = load double, ptr %arrayidx10, align 8
+  %mul12 = fmul double %3, %9
+  %10 = tail call double @llvm.fmuladd.f64(double %8, double %1, double %mul12)
   %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 56
-  %8 = load double, ptr %arrayidx13, align 8
+  %11 = load double, ptr %arrayidx13, align 8
+  %12 = tail call double @llvm.fmuladd.f64(double %11, double %6, double %10)
   %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load double, ptr %arrayidx15, align 8
+  %13 = load double, ptr %arrayidx15, align 8
   %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 80
-  %10 = load double, ptr %arrayidx17, align 8
-  %mul19 = fmul double %3, %10
-  %11 = tail call double @llvm.fmuladd.f64(double %9, double %1, double %mul19)
+  %14 = load double, ptr %arrayidx17, align 8
+  %mul19 = fmul double %3, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %13, double %1, double %mul19)
   %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 88
-  %12 = load double, ptr %arrayidx20, align 8
-  %13 = tail call double @llvm.fmuladd.f64(double %12, double %5, double %11)
-  %14 = insertelement <2 x double> poison, double %3, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = insertelement <2 x double> %2, double %7, i64 1
-  %17 = fmul <2 x double> %15, %16
-  %18 = insertelement <2 x double> %0, double %6, i64 1
-  %19 = insertelement <2 x double> poison, double %1, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %20, <2 x double> %17)
-  %22 = insertelement <2 x double> %4, double %8, i64 1
-  %23 = insertelement <2 x double> poison, double %5, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %24, <2 x double> %21)
-  store <2 x double> %25, ptr %agg.result, align 8
+  %16 = load double, ptr %arrayidx20, align 8
+  %17 = tail call double @llvm.fmuladd.f64(double %16, double %6, double %15)
+  store double %7, ptr %agg.result, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %12, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %13, ptr %arrayidx5.i, align 8
+  store double %17, ptr %arrayidx5.i, align 8
   ret void
 }
 
@@ -18603,46 +19149,42 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap7applyJTERKNS1_4Vec3I
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
   %mMatrix.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load <2 x double>, ptr %mMatrix.i, align 8
+  %1 = load double, ptr %mMatrix.i, align 8, !noalias !492
   %2 = load double, ptr %in, align 8, !noalias !492
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load <2 x double>, ptr %arrayidx3.i, align 8
+  %3 = load double, ptr %arrayidx3.i, align 8, !noalias !492
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %in, i64 8
   %4 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !492
+  %mul5.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %mul5.i)
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load <2 x double>, ptr %arrayidx6.i, align 8
+  %6 = load double, ptr %arrayidx6.i, align 8, !noalias !492
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %in, i64 16
-  %6 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !492
+  %7 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !492
+  %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %5)
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load double, ptr %arrayidx8.i, align 8, !noalias !492
+  %9 = load double, ptr %arrayidx8.i, align 8, !noalias !492
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load double, ptr %arrayidx10.i, align 8, !noalias !492
+  %10 = load double, ptr %arrayidx10.i, align 8, !noalias !492
+  %mul12.i = fmul double %4, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %9, double %2, double %mul12.i)
   %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 56
-  %9 = load double, ptr %arrayidx13.i, align 8, !noalias !492
+  %12 = load double, ptr %arrayidx13.i, align 8, !noalias !492
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double %7, double %11)
   %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 72
-  %10 = load double, ptr %arrayidx15.i, align 8, !noalias !492
+  %14 = load double, ptr %arrayidx15.i, align 8, !noalias !492
   %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 80
-  %11 = load double, ptr %arrayidx17.i, align 8, !noalias !492
-  %mul19.i = fmul double %4, %11
-  %12 = tail call double @llvm.fmuladd.f64(double %10, double %2, double %mul19.i)
+  %15 = load double, ptr %arrayidx17.i, align 8, !noalias !492
+  %mul19.i = fmul double %4, %15
+  %16 = tail call double @llvm.fmuladd.f64(double %14, double %2, double %mul19.i)
   %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 88
-  %13 = load double, ptr %arrayidx20.i, align 8, !noalias !492
-  %14 = tail call double @llvm.fmuladd.f64(double %13, double %6, double %12)
-  %15 = insertelement <2 x double> poison, double %4, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = insertelement <2 x double> %3, double %8, i64 1
-  %18 = fmul <2 x double> %16, %17
-  %19 = insertelement <2 x double> %1, double %7, i64 1
-  %20 = insertelement <2 x double> poison, double %2, i64 0
-  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %22 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %19, <2 x double> %21, <2 x double> %18)
-  %23 = insertelement <2 x double> %5, double %9, i64 1
-  %24 = insertelement <2 x double> poison, double %6, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %23, <2 x double> %25, <2 x double> %22)
-  store <2 x double> %26, ptr %agg.result, align 8, !alias.scope !492
+  %17 = load double, ptr %arrayidx20.i, align 8, !noalias !492
+  %18 = tail call double @llvm.fmuladd.f64(double %17, double %7, double %16)
+  store double %8, ptr %agg.result, align 8, !alias.scope !492
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store double %13, ptr %arrayidx3.i.i, align 8, !alias.scope !492
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store double %14, ptr %arrayidx5.i.i, align 8, !alias.scope !492
+  store double %18, ptr %arrayidx5.i.i, align 8, !alias.scope !492
   ret void
 }
 
@@ -19114,63 +19656,54 @@ _ZN7openvdb5v11_04math10isIdentityINS1_4Mat4IdEEEEbRKT_.exit: ; preds = %_ZN7ope
   %63 = load double, ptr %arrayidx24.i.i, align 8, !noalias !68
   %add25.i.i = fadd double %63, %62
   %64 = fadd double %40, %mul4.i.i
-  %65 = fadd double %52, %mul12.i.i
-  %66 = fadd double %58, %mul21.i.i
+  %65 = call double @llvm.fmuladd.f64(double %49, double 0.000000e+00, double %64)
+  %add.i.i23 = fadd double %51, %65
+  %66 = fadd double %52, %mul12.i.i
+  %67 = call double @llvm.fmuladd.f64(double %55, double 0.000000e+00, double %66)
+  %add16.i.i29 = fadd double %57, %67
+  %68 = fadd double %58, %mul21.i.i
+  %69 = call double @llvm.fmuladd.f64(double %61, double 0.000000e+00, double %68)
+  %add25.i.i35 = fadd double %63, %69
+  %sub.i.i = fsub double %add.i.i23, %add.i.i
+  %sub5.i.i = fsub double %add16.i.i29, %add16.i.i
+  %sub9.i.i = fsub double %add25.i.i35, %add25.i.i
+  %mul8.i = fmul double %sub5.i.i, %sub5.i.i
+  %70 = call double @llvm.fmuladd.f64(double %sub.i.i, double %sub.i.i, double %mul8.i)
+  %71 = call double @llvm.fmuladd.f64(double %sub9.i.i, double %sub9.i.i, double %70)
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %71)
   %mVoxelSize = getelementptr inbounds i8, ptr %this, i64 344
-  %67 = call double @llvm.fmuladd.f64(double %40, double 0.000000e+00, double %47)
-  %68 = call double @llvm.fmuladd.f64(double %52, double 0.000000e+00, double %53)
-  %69 = call double @llvm.fmuladd.f64(double %58, double 0.000000e+00, double %59)
-  %70 = insertelement <2 x double> poison, double %49, i64 0
-  %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
-  %72 = insertelement <2 x double> poison, double %64, i64 0
-  %73 = insertelement <2 x double> %72, double %67, i64 1
-  %74 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> zeroinitializer, <2 x double> %73)
-  %75 = insertelement <2 x double> poison, double %51, i64 0
-  %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
-  %77 = fadd <2 x double> %76, %74
-  %78 = insertelement <2 x double> poison, double %55, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = insertelement <2 x double> poison, double %65, i64 0
-  %81 = insertelement <2 x double> %80, double %68, i64 1
-  %82 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> zeroinitializer, <2 x double> %81)
-  %83 = insertelement <2 x double> poison, double %57, i64 0
-  %84 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = fadd <2 x double> %84, %82
-  %86 = insertelement <2 x double> poison, double %61, i64 0
-  %87 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> zeroinitializer
-  %88 = insertelement <2 x double> poison, double %66, i64 0
-  %89 = insertelement <2 x double> %88, double %69, i64 1
-  %90 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> zeroinitializer, <2 x double> %89)
-  %91 = insertelement <2 x double> poison, double %63, i64 0
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> zeroinitializer
-  %93 = fadd <2 x double> %92, %90
-  %94 = insertelement <2 x double> poison, double %add.i.i, i64 0
-  %95 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> zeroinitializer
-  %96 = fsub <2 x double> %77, %95
-  %97 = insertelement <2 x double> poison, double %add16.i.i, i64 0
-  %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
-  %99 = fsub <2 x double> %85, %98
-  %100 = insertelement <2 x double> poison, double %add25.i.i, i64 0
-  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = fsub <2 x double> %93, %101
-  %103 = fmul <2 x double> %99, %99
-  %104 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %96, <2 x double> %96, <2 x double> %103)
-  %105 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> %102, <2 x double> %104)
-  %106 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %105)
-  store <2 x double> %106, ptr %mVoxelSize, align 8
-  %107 = fadd double %49, %48
-  %add.i.i87 = fadd double %51, %107
-  %108 = fadd double %55, %54
-  %add16.i.i93 = fadd double %57, %108
-  %109 = fadd double %61, %60
-  %add25.i.i99 = fadd double %63, %109
+  store double %sqrt.i, ptr %mVoxelSize, align 8
+  %72 = call double @llvm.fmuladd.f64(double %40, double 0.000000e+00, double %47)
+  %73 = call double @llvm.fmuladd.f64(double %49, double 0.000000e+00, double %72)
+  %add.i.i51 = fadd double %73, %51
+  %74 = call double @llvm.fmuladd.f64(double %52, double 0.000000e+00, double %53)
+  %75 = call double @llvm.fmuladd.f64(double %55, double 0.000000e+00, double %74)
+  %add16.i.i57 = fadd double %57, %75
+  %76 = call double @llvm.fmuladd.f64(double %58, double 0.000000e+00, double %59)
+  %77 = call double @llvm.fmuladd.f64(double %61, double 0.000000e+00, double %76)
+  %add25.i.i63 = fadd double %63, %77
+  %sub.i.i66 = fsub double %add.i.i51, %add.i.i
+  %sub5.i.i69 = fsub double %add16.i.i57, %add16.i.i
+  %sub9.i.i72 = fsub double %add25.i.i63, %add25.i.i
+  %mul8.i74 = fmul double %sub5.i.i69, %sub5.i.i69
+  %78 = call double @llvm.fmuladd.f64(double %sub.i.i66, double %sub.i.i66, double %mul8.i74)
+  %79 = call double @llvm.fmuladd.f64(double %sub9.i.i72, double %sub9.i.i72, double %78)
+  %sqrt.i76 = call noundef double @llvm.sqrt.f64(double %79)
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %this, i64 352
+  store double %sqrt.i76, ptr %arrayidx.i77, align 8
+  %80 = fadd double %49, %48
+  %add.i.i87 = fadd double %51, %80
+  %81 = fadd double %55, %54
+  %add16.i.i93 = fadd double %57, %81
+  %82 = fadd double %61, %60
+  %add25.i.i99 = fadd double %63, %82
   %sub.i.i102 = fsub double %add.i.i87, %add.i.i
   %sub5.i.i105 = fsub double %add16.i.i93, %add16.i.i
   %sub9.i.i108 = fsub double %add25.i.i99, %add25.i.i
   %mul8.i110 = fmul double %sub5.i.i105, %sub5.i.i105
-  %110 = call double @llvm.fmuladd.f64(double %sub.i.i102, double %sub.i.i102, double %mul8.i110)
-  %111 = call double @llvm.fmuladd.f64(double %sub9.i.i108, double %sub9.i.i108, double %110)
-  %sqrt.i112 = call noundef double @llvm.sqrt.f64(double %111)
+  %83 = call double @llvm.fmuladd.f64(double %sub.i.i102, double %sub.i.i102, double %mul8.i110)
+  %84 = call double @llvm.fmuladd.f64(double %sub9.i.i108, double %sub9.i.i108, double %83)
+  %sqrt.i112 = call noundef double @llvm.sqrt.f64(double %84)
   %arrayidx.i113 = getelementptr inbounds i8, ptr %this, i64 360
   store double %sqrt.i112, ptr %arrayidx.i113, align 8
   ret void
@@ -19189,36 +19722,35 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load double, ptr %arrayidx.i, align 8, !noalias !500
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 64
+  %1 = load double, ptr %arrayidx3.i, align 8, !noalias !500
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %2 = load double, ptr %arrayidx5.i, align 8, !noalias !500
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 56
+  %3 = load double, ptr %arrayidx7.i, align 8, !noalias !500
+  %4 = fneg double %2
+  %neg.i = fmul double %3, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %0, double %1, double %neg.i)
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load double, ptr %arrayidx10.i, align 8, !noalias !500
+  %6 = load double, ptr %arrayidx10.i, align 8, !noalias !500
   %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load double, ptr %arrayidx14.i, align 8, !noalias !500
-  %3 = load <2 x double>, ptr %arrayidx7.i, align 8, !noalias !500
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %5 = insertelement <2 x double> poison, double %0, i64 0
-  %6 = insertelement <2 x double> %5, double %1, i64 1
-  %7 = fneg double %1
-  %neg28.i = fmul double %0, %7
-  %8 = load <2 x double>, ptr %arrayidx5.i, align 8
-  %9 = insertelement <2 x double> %8, double %2, i64 1
-  %10 = fneg <2 x double> %9
-  %11 = fmul <2 x double> %3, %10
-  %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %4, <2 x double> %11)
-  %13 = extractelement <2 x double> %8, i64 0
-  %14 = tail call double @llvm.fmuladd.f64(double %2, double %13, double %neg28.i)
+  %7 = load double, ptr %arrayidx14.i, align 8, !noalias !500
+  %8 = fneg double %7
+  %neg18.i = fmul double %1, %8
+  %9 = tail call double @llvm.fmuladd.f64(double %6, double %3, double %neg18.i)
+  %10 = fneg double %6
+  %neg28.i = fmul double %0, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %7, double %2, double %neg28.i)
+  %arrayidx32.i = getelementptr inbounds i8, ptr %this, i64 48
+  %12 = load double, ptr %arrayidx32.i, align 8
   %arrayidx34.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load double, ptr %arrayidx34.i, align 8
-  %16 = load double, ptr %this, align 8
-  %17 = extractelement <2 x double> %12, i64 1
-  %mul8 = fmul double %17, %15
-  %18 = extractelement <2 x double> %12, i64 0
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double %16, double %mul8)
-  %20 = extractelement <2 x double> %8, i64 1
-  %21 = tail call double @llvm.fmuladd.f64(double %14, double %20, double %19)
-  %22 = tail call noundef double @llvm.fabs.f64(double %21)
-  %cmp.i.i = fcmp ule double %22, %tolerance
+  %13 = load double, ptr %arrayidx34.i, align 8
+  %14 = load double, ptr %this, align 8
+  %mul8 = fmul double %9, %13
+  %15 = tail call double @llvm.fmuladd.f64(double %5, double %14, double %mul8)
+  %16 = tail call double @llvm.fmuladd.f64(double %11, double %12, double %15)
+  %17 = tail call noundef double @llvm.fabs.f64(double %16)
+  %cmp.i.i = fcmp ule double %17, %tolerance
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -19241,20 +19773,20 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   br label %try.cont
 
 lpad:                                             ; preds = %if.then
-  %23 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad13:                                           ; preds = %invoke.cont14, %invoke.cont
-  %24 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #25
   br label %catch
 
 catch:                                            ; preds = %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %24, %lpad13 ], [ %23, %lpad ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad13 ], [ %18, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad19
 
@@ -19266,53 +19798,53 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad19
 
 lpad19:                                           ; preds = %try.cont, %catch
-  %26 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #25
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %21
 
 if.end:                                           ; preds = %entry
-  %27 = fneg double %2
-  %neg88.i = fmul double %15, %27
-  %28 = tail call double @llvm.fmuladd.f64(double %16, double %0, double %neg88.i)
-  %29 = insertelement <2 x double> %5, double %16, i64 1
-  %30 = fneg <2 x double> %29
-  %31 = extractelement <2 x double> %3, i64 1
-  %32 = fneg double %15
-  %neg38.i = fmul double %31, %32
-  %33 = tail call double @llvm.fmuladd.f64(double %13, double %20, double %neg38.i)
-  %div = fdiv double 1.000000e+00, %21
+  %neg88.i = fmul double %13, %8
+  %22 = tail call double @llvm.fmuladd.f64(double %14, double %0, double %neg88.i)
+  %23 = fneg double %14
+  %neg78.i = fmul double %3, %23
+  %24 = tail call double @llvm.fmuladd.f64(double %7, double %12, double %neg78.i)
+  %25 = fneg double %0
+  %neg68.i = fmul double %12, %25
+  %26 = tail call double @llvm.fmuladd.f64(double %13, double %3, double %neg68.i)
+  %neg58.i = fmul double %2, %23
+  %27 = tail call double @llvm.fmuladd.f64(double %6, double %13, double %neg58.i)
+  %neg48.i = fmul double %12, %10
+  %28 = tail call double @llvm.fmuladd.f64(double %14, double %1, double %neg48.i)
+  %29 = fneg double %13
+  %neg38.i = fmul double %1, %29
+  %30 = tail call double @llvm.fmuladd.f64(double %2, double %12, double %neg38.i)
+  %div = fdiv double 1.000000e+00, %16
+  %inv.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   %inv.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %inv.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   %inv.sroa.8.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %inv.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
   %inv.sroa.10.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %inv.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 56
   %inv.sroa.12.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %34 = insertelement <2 x double> poison, double %div, i64 0
-  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
-  %36 = fmul <2 x double> %12, %35
-  store <2 x double> %36, ptr %agg.result, align 8, !alias.scope !503
-  %37 = insertelement <2 x double> poison, double %14, i64 0
-  %38 = insertelement <2 x double> %37, double %33, i64 1
-  %39 = fmul <2 x double> %38, %35
-  store <2 x double> %39, ptr %inv.sroa.5.0.agg.result.sroa_idx, align 8, !alias.scope !503
-  %40 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %41 = insertelement <2 x double> %40, double %7, i64 1
-  %42 = fmul <2 x double> %8, %41
-  %43 = insertelement <2 x double> poison, double %1, i64 0
-  %44 = insertelement <2 x double> %43, double %16, i64 1
-  %45 = insertelement <2 x double> %3, double %15, i64 0
-  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %45, <2 x double> %42)
-  %47 = fmul <2 x double> %46, %35
-  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %48, ptr %inv.sroa.8.0.agg.result.sroa_idx, align 8, !alias.scope !503
-  %49 = shufflevector <2 x double> %8, <2 x double> %4, <2 x i32> <i32 1, i32 3>
-  %50 = fmul <2 x double> %49, %30
-  %51 = insertelement <2 x double> poison, double %15, i64 0
-  %52 = insertelement <2 x double> %51, double %2, i64 1
-  %53 = shufflevector <2 x double> %3, <2 x double> %8, <2 x i32> <i32 0, i32 3>
-  %54 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %52, <2 x double> %53, <2 x double> %50)
-  %55 = fmul <2 x double> %54, %35
-  store <2 x double> %55, ptr %inv.sroa.10.0.agg.result.sroa_idx, align 8, !alias.scope !503
-  %mul25.i.i = fmul double %28, %div
+  %mul.i.i = fmul double %5, %div
+  store double %mul.i.i, ptr %agg.result, align 8, !alias.scope !503
+  %mul4.i.i = fmul double %9, %div
+  store double %mul4.i.i, ptr %inv.sroa.3.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul7.i.i = fmul double %11, %div
+  store double %mul7.i.i, ptr %inv.sroa.5.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul10.i.i = fmul double %30, %div
+  store double %mul10.i.i, ptr %inv.sroa.7.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul13.i.i = fmul double %28, %div
+  store double %mul13.i.i, ptr %inv.sroa.8.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul16.i.i = fmul double %27, %div
+  store double %mul16.i.i, ptr %inv.sroa.9.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul19.i.i = fmul double %26, %div
+  store double %mul19.i.i, ptr %inv.sroa.10.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul22.i.i = fmul double %24, %div
+  store double %mul22.i.i, ptr %inv.sroa.11.0.agg.result.sroa_idx, align 8, !alias.scope !503
+  %mul25.i.i = fmul double %22, %div
   store double %mul25.i.i, ptr %inv.sroa.12.0.agg.result.sroa_idx, align 8, !alias.scope !503
   ret void
 
@@ -19718,87 +20250,129 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load double, ptr %arrayidx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 64
+  %1 = load double, ptr %arrayidx4, align 8
+  %neg = fmul double %call2, %1
+  %2 = tail call double @llvm.fmuladd.f64(double %call, double %0, double %neg)
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 40
+  %3 = load double, ptr %arrayidx7, align 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 72
+  %4 = load double, ptr %arrayidx9, align 8
+  %neg11 = fmul double %call2, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %call, double %3, double %neg11)
   %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
+  %6 = load double, ptr %arrayidx13, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 80
-  %0 = load <2 x double>, ptr %arrayidx, align 8
-  %1 = load <2 x double>, ptr %arrayidx4, align 8
-  %2 = insertelement <2 x double> poison, double %call2, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x double> %3, %1
-  %5 = insertelement <2 x double> poison, double %call, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %0, <2 x double> %4)
-  %8 = fmul <2 x double> %6, %1
-  %9 = insertelement <2 x double> poison, double %fneg, i64 0
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %10, <2 x double> %0, <2 x double> %8)
-  store <2 x double> %11, ptr %arrayidx4, align 8
-  store <2 x double> %7, ptr %arrayidx, align 8
-  %12 = load <2 x double>, ptr %arrayidx13, align 8
-  %13 = load <2 x double>, ptr %arrayidx15, align 8
-  %14 = fmul <2 x double> %3, %13
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %12, <2 x double> %14)
-  %16 = fmul <2 x double> %6, %13
-  %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %10, <2 x double> %12, <2 x double> %16)
-  store <2 x double> %17, ptr %arrayidx15, align 8
-  store <2 x double> %15, ptr %arrayidx13, align 8
+  %7 = load double, ptr %arrayidx15, align 8
+  %neg17 = fmul double %call2, %7
+  %8 = tail call double @llvm.fmuladd.f64(double %call, double %6, double %neg17)
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 56
+  %9 = load double, ptr %arrayidx19, align 8
+  %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 88
+  %10 = load double, ptr %arrayidx21, align 8
+  %neg23 = fmul double %call2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %call, double %9, double %neg23)
+  %mul28 = fmul double %call, %1
+  %12 = tail call double @llvm.fmuladd.f64(double %fneg, double %0, double %mul28)
+  store double %12, ptr %arrayidx4, align 8
+  %mul35 = fmul double %call, %4
+  %13 = tail call double @llvm.fmuladd.f64(double %fneg, double %3, double %mul35)
+  store double %13, ptr %arrayidx9, align 8
+  %mul42 = fmul double %call, %7
+  %14 = tail call double @llvm.fmuladd.f64(double %fneg, double %6, double %mul42)
+  store double %14, ptr %arrayidx15, align 8
+  %mul49 = fmul double %call, %10
+  %15 = tail call double @llvm.fmuladd.f64(double %fneg, double %9, double %mul49)
+  store double %15, ptr %arrayidx21, align 8
+  store double %2, ptr %arrayidx, align 8
+  store double %5, ptr %arrayidx7, align 8
+  store double %8, ptr %arrayidx13, align 8
+  store double %11, ptr %arrayidx19, align 8
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %entry
+  %16 = load double, ptr %this, align 8
   %arrayidx64 = getelementptr inbounds i8, ptr %this, i64 64
+  %17 = load double, ptr %arrayidx64, align 8
+  %mul65 = fmul double %17, %fneg
+  %18 = tail call double @llvm.fmuladd.f64(double %call, double %16, double %mul65)
+  %arrayidx67 = getelementptr inbounds i8, ptr %this, i64 8
+  %19 = load double, ptr %arrayidx67, align 8
+  %arrayidx69 = getelementptr inbounds i8, ptr %this, i64 72
+  %20 = load double, ptr %arrayidx69, align 8
+  %mul70 = fmul double %20, %fneg
+  %21 = tail call double @llvm.fmuladd.f64(double %call, double %19, double %mul70)
   %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 16
+  %22 = load double, ptr %arrayidx72, align 8
   %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 80
-  %18 = load <2 x double>, ptr %this, align 8
-  %19 = load <2 x double>, ptr %arrayidx64, align 8
-  %20 = insertelement <2 x double> poison, double %fneg, i64 0
-  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %22 = fmul <2 x double> %19, %21
-  %23 = insertelement <2 x double> poison, double %call, i64 0
-  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %24, <2 x double> %18, <2 x double> %22)
-  %26 = fmul <2 x double> %24, %19
-  %27 = insertelement <2 x double> poison, double %call2, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %18, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx64, align 8
-  store <2 x double> %25, ptr %this, align 8
-  %30 = load <2 x double>, ptr %arrayidx72, align 8
-  %31 = load <2 x double>, ptr %arrayidx74, align 8
-  %32 = fmul <2 x double> %31, %21
-  %33 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %24, <2 x double> %30, <2 x double> %32)
-  %34 = fmul <2 x double> %24, %31
-  %35 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %30, <2 x double> %34)
-  store <2 x double> %35, ptr %arrayidx74, align 8
-  store <2 x double> %33, ptr %arrayidx72, align 8
+  %23 = load double, ptr %arrayidx74, align 8
+  %mul75 = fmul double %23, %fneg
+  %24 = tail call double @llvm.fmuladd.f64(double %call, double %22, double %mul75)
+  %arrayidx77 = getelementptr inbounds i8, ptr %this, i64 24
+  %25 = load double, ptr %arrayidx77, align 8
+  %arrayidx79 = getelementptr inbounds i8, ptr %this, i64 88
+  %26 = load double, ptr %arrayidx79, align 8
+  %mul80 = fmul double %26, %fneg
+  %27 = tail call double @llvm.fmuladd.f64(double %call, double %25, double %mul80)
+  %mul86 = fmul double %call, %17
+  %28 = tail call double @llvm.fmuladd.f64(double %call2, double %16, double %mul86)
+  store double %28, ptr %arrayidx64, align 8
+  %mul94 = fmul double %call, %20
+  %29 = tail call double @llvm.fmuladd.f64(double %call2, double %19, double %mul94)
+  store double %29, ptr %arrayidx69, align 8
+  %mul102 = fmul double %call, %23
+  %30 = tail call double @llvm.fmuladd.f64(double %call2, double %22, double %mul102)
+  store double %30, ptr %arrayidx74, align 8
+  %mul110 = fmul double %call, %26
+  %31 = tail call double @llvm.fmuladd.f64(double %call2, double %25, double %mul110)
+  store double %31, ptr %arrayidx79, align 8
+  store double %18, ptr %this, align 8
+  store double %21, ptr %arrayidx67, align 8
+  store double %24, ptr %arrayidx72, align 8
+  store double %27, ptr %arrayidx77, align 8
   br label %sw.epilog
 
 sw.bb121:                                         ; preds = %entry
+  %32 = load double, ptr %this, align 8
   %arrayidx129 = getelementptr inbounds i8, ptr %this, i64 32
+  %33 = load double, ptr %arrayidx129, align 8
+  %neg131 = fmul double %call2, %33
+  %34 = tail call double @llvm.fmuladd.f64(double %call, double %32, double %neg131)
+  %arrayidx133 = getelementptr inbounds i8, ptr %this, i64 8
+  %35 = load double, ptr %arrayidx133, align 8
+  %arrayidx135 = getelementptr inbounds i8, ptr %this, i64 40
+  %36 = load double, ptr %arrayidx135, align 8
+  %neg137 = fmul double %call2, %36
+  %37 = tail call double @llvm.fmuladd.f64(double %call, double %35, double %neg137)
   %arrayidx139 = getelementptr inbounds i8, ptr %this, i64 16
+  %38 = load double, ptr %arrayidx139, align 8
   %arrayidx141 = getelementptr inbounds i8, ptr %this, i64 48
-  %36 = load <2 x double>, ptr %this, align 8
-  %37 = load <2 x double>, ptr %arrayidx129, align 8
-  %38 = insertelement <2 x double> poison, double %call2, i64 0
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = fmul <2 x double> %39, %37
-  %41 = insertelement <2 x double> poison, double %call, i64 0
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %36, <2 x double> %40)
-  %44 = fmul <2 x double> %42, %37
-  %45 = insertelement <2 x double> poison, double %fneg, i64 0
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %36, <2 x double> %44)
-  store <2 x double> %47, ptr %arrayidx129, align 8
-  store <2 x double> %43, ptr %this, align 8
-  %48 = load <2 x double>, ptr %arrayidx139, align 8
-  %49 = load <2 x double>, ptr %arrayidx141, align 8
-  %50 = fmul <2 x double> %39, %49
-  %51 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %48, <2 x double> %50)
-  %52 = fmul <2 x double> %42, %49
-  %53 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %48, <2 x double> %52)
-  store <2 x double> %53, ptr %arrayidx141, align 8
-  store <2 x double> %51, ptr %arrayidx139, align 8
+  %39 = load double, ptr %arrayidx141, align 8
+  %neg143 = fmul double %call2, %39
+  %40 = tail call double @llvm.fmuladd.f64(double %call, double %38, double %neg143)
+  %arrayidx145 = getelementptr inbounds i8, ptr %this, i64 24
+  %41 = load double, ptr %arrayidx145, align 8
+  %arrayidx147 = getelementptr inbounds i8, ptr %this, i64 56
+  %42 = load double, ptr %arrayidx147, align 8
+  %neg149 = fmul double %call2, %42
+  %43 = tail call double @llvm.fmuladd.f64(double %call, double %41, double %neg149)
+  %mul154 = fmul double %call, %33
+  %44 = tail call double @llvm.fmuladd.f64(double %fneg, double %32, double %mul154)
+  store double %44, ptr %arrayidx129, align 8
+  %mul161 = fmul double %call, %36
+  %45 = tail call double @llvm.fmuladd.f64(double %fneg, double %35, double %mul161)
+  store double %45, ptr %arrayidx135, align 8
+  %mul168 = fmul double %call, %39
+  %46 = tail call double @llvm.fmuladd.f64(double %fneg, double %38, double %mul168)
+  store double %46, ptr %arrayidx141, align 8
+  %mul175 = fmul double %call, %42
+  %47 = tail call double @llvm.fmuladd.f64(double %fneg, double %41, double %mul175)
+  store double %47, ptr %arrayidx147, align 8
+  store double %34, ptr %this, align 8
+  store double %37, ptr %arrayidx133, align 8
+  store double %40, ptr %arrayidx139, align 8
+  store double %43, ptr %arrayidx145, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb121, %sw.bb60, %sw.bb
@@ -19816,8 +20390,11 @@ define linkonce_odr void @_ZN7openvdb5v11_04math4Mat4IdE12preTranslateIdEEvRKNS1
 entry:
   %m0.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp = alloca %"class.openvdb::v11_0::math::Mat4", align 8
+  %0 = load double, ptr %tr, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %tr, i64 8
+  %1 = load double, ptr %arrayidx.i, align 8
   %arrayidx.i3 = getelementptr inbounds i8, ptr %tr, i64 16
-  %0 = load double, ptr %arrayidx.i3, align 8
+  %2 = load double, ptr %arrayidx.i3, align 8
   %Tr.sroa.3.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m0.i.i), !noalias !508
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Tr.sroa.3.0.m0.i.i.sroa_idx, i8 0, i64 32, i1 false)
@@ -19832,76 +20409,103 @@ entry:
   %Tr.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Tr.sroa.5.0.ref.tmp.sroa_idx, i8 0, i64 32, i1 false)
   %Tr.sroa.6.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 80
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %Tr.sroa.6.0.ref.tmp.sroa_idx, align 8
+  store double 1.000000e+00, ptr %Tr.sroa.6.0.ref.tmp.sroa_idx, align 8
+  %Tr.sroa.7.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 88
+  store double 0.000000e+00, ptr %Tr.sroa.7.0.ref.tmp.sroa_idx, align 8
   %Tr.sroa.8.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 96
-  %1 = load <2 x double>, ptr %tr, align 8
-  store <2 x double> %1, ptr %Tr.sroa.8.0.ref.tmp.sroa_idx, align 8
+  store double %0, ptr %Tr.sroa.8.0.ref.tmp.sroa_idx, align 8
+  %Tr.sroa.9.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 104
+  store double %1, ptr %Tr.sroa.9.0.ref.tmp.sroa_idx, align 8
   %Tr.sroa.10.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 112
-  store double %0, ptr %Tr.sroa.10.0.ref.tmp.sroa_idx, align 8
+  store double %2, ptr %Tr.sroa.10.0.ref.tmp.sroa_idx, align 8
   %Tr.sroa.11.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 120
   store double 1.000000e+00, ptr %Tr.sroa.11.0.ref.tmp.sroa_idx, align 8
   store double 1.000000e+00, ptr %m0.i.i, align 8, !noalias !508
   %Tr.sroa.4.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 40
   store double 1.000000e+00, ptr %Tr.sroa.4.0.m0.i.i.sroa_idx, align 8, !noalias !508
   %Tr.sroa.6.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 80
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %Tr.sroa.6.0.m0.i.i.sroa_idx, align 8, !noalias !508
+  store double 1.000000e+00, ptr %Tr.sroa.6.0.m0.i.i.sroa_idx, align 8, !noalias !508
+  %Tr.sroa.7.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 88
+  store double 0.000000e+00, ptr %Tr.sroa.7.0.m0.i.i.sroa_idx, align 8, !noalias !508
   %Tr.sroa.8.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 96
-  store <2 x double> %1, ptr %Tr.sroa.8.0.m0.i.i.sroa_idx, align 8, !noalias !508
+  store double %0, ptr %Tr.sroa.8.0.m0.i.i.sroa_idx, align 8, !noalias !508
+  %Tr.sroa.9.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 104
+  store double %1, ptr %Tr.sroa.9.0.m0.i.i.sroa_idx, align 8, !noalias !508
   %Tr.sroa.10.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 112
-  store double %0, ptr %Tr.sroa.10.0.m0.i.i.sroa_idx, align 8, !noalias !508
+  store double %2, ptr %Tr.sroa.10.0.m0.i.i.sroa_idx, align 8, !noalias !508
   %Tr.sroa.11.0.m0.i.i.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i, i64 120
   store double 1.000000e+00, ptr %Tr.sroa.11.0.m0.i.i.sroa_idx, align 8, !noalias !508
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx13.i.i4 = getelementptr inbounds i8, ptr %this, i64 64
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx31.i.i5 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx36.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %arrayidx50.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx55.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx60.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %arrayidx65.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %2 = load <2 x double>, ptr %this, align 8, !noalias !508
-  %3 = load <2 x double>, ptr %arrayidx8.i.i, align 8, !noalias !508
-  %4 = load <2 x double>, ptr %arrayidx13.i.i4, align 8, !noalias !508
-  %5 = load <2 x double>, ptr %arrayidx18.i.i, align 8, !noalias !508
-  %6 = load <2 x double>, ptr %arrayidx50.i.i, align 8, !noalias !508
-  %7 = load <2 x double>, ptr %arrayidx55.i.i, align 8, !noalias !508
-  %8 = load <2 x double>, ptr %arrayidx60.i.i, align 8, !noalias !508
-  %9 = load <2 x double>, ptr %arrayidx65.i.i, align 8, !noalias !508
+  %arrayidx74.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx79.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx84.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx89.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %3 = load double, ptr %this, align 8, !noalias !508
+  %4 = load double, ptr %arrayidx8.i.i, align 8, !noalias !508
+  %5 = load double, ptr %arrayidx13.i.i4, align 8, !noalias !508
+  %6 = load double, ptr %arrayidx18.i.i, align 8, !noalias !508
+  %7 = load double, ptr %arrayidx26.i.i, align 8, !noalias !508
+  %8 = load double, ptr %arrayidx31.i.i5, align 8, !noalias !508
+  %9 = load double, ptr %arrayidx36.i.i, align 8, !noalias !508
+  %10 = load double, ptr %arrayidx41.i.i, align 8, !noalias !508
+  %11 = load double, ptr %arrayidx50.i.i, align 8, !noalias !508
+  %12 = load double, ptr %arrayidx55.i.i, align 8, !noalias !508
+  %13 = load double, ptr %arrayidx60.i.i, align 8, !noalias !508
+  %14 = load double, ptr %arrayidx65.i.i, align 8, !noalias !508
+  %15 = load double, ptr %arrayidx74.i.i, align 8, !noalias !508
+  %16 = load double, ptr %arrayidx79.i.i, align 8, !noalias !508
+  %17 = load double, ptr %arrayidx84.i.i, align 8, !noalias !508
+  %18 = load double, ptr %arrayidx89.i.i, align 8, !noalias !508
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i, 2
-  %arrayidx.i.i6 = getelementptr inbounds double, ptr %m0.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i6, align 8, !noalias !508
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i, align 8, !noalias !508
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i, align 8, !noalias !508
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i, align 8, !noalias !508
-  %arrayidx22.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i, align 8, !alias.scope !508
-  %arrayidx70.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i, align 8, !alias.scope !508
+  %19 = shl nuw nsw i64 %indvars.iv.i.i, 2
+  %arrayidx.i.i6 = getelementptr inbounds double, ptr %m0.i.i, i64 %19
+  %20 = load double, ptr %arrayidx.i.i6, align 8, !noalias !508
+  %21 = or disjoint i64 %19, 1
+  %arrayidx7.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %21
+  %22 = load double, ptr %arrayidx7.i.i, align 8, !noalias !508
+  %mul9.i.i = fmul double %4, %22
+  %23 = tail call double @llvm.fmuladd.f64(double %20, double %3, double %mul9.i.i)
+  %24 = or disjoint i64 %19, 2
+  %arrayidx12.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %24
+  %25 = load double, ptr %arrayidx12.i.i, align 8, !noalias !508
+  %26 = tail call double @llvm.fmuladd.f64(double %25, double %5, double %23)
+  %27 = or disjoint i64 %19, 3
+  %arrayidx17.i.i = getelementptr inbounds double, ptr %m0.i.i, i64 %27
+  %28 = load double, ptr %arrayidx17.i.i, align 8, !noalias !508
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double %6, double %26)
+  %arrayidx22.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %19
+  store double %29, ptr %arrayidx22.i.i, align 8, !alias.scope !508
+  %mul32.i.i = fmul double %8, %22
+  %30 = tail call double @llvm.fmuladd.f64(double %20, double %7, double %mul32.i.i)
+  %31 = tail call double @llvm.fmuladd.f64(double %25, double %9, double %30)
+  %32 = tail call double @llvm.fmuladd.f64(double %28, double %10, double %31)
+  %arrayidx46.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %21
+  store double %32, ptr %arrayidx46.i.i, align 8, !alias.scope !508
+  %mul56.i.i = fmul double %12, %22
+  %33 = tail call double @llvm.fmuladd.f64(double %20, double %11, double %mul56.i.i)
+  %34 = tail call double @llvm.fmuladd.f64(double %25, double %13, double %33)
+  %35 = tail call double @llvm.fmuladd.f64(double %28, double %14, double %34)
+  %arrayidx70.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %24
+  store double %35, ptr %arrayidx70.i.i, align 8, !alias.scope !508
+  %mul80.i.i = fmul double %16, %22
+  %36 = tail call double @llvm.fmuladd.f64(double %20, double %15, double %mul80.i.i)
+  %37 = tail call double @llvm.fmuladd.f64(double %25, double %17, double %36)
+  %38 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %37)
+  %arrayidx94.i.i = getelementptr inbounds [16 x double], ptr %ref.tmp, i64 0, i64 %27
+  store double %38, ptr %arrayidx94.i.i, align 8, !alias.scope !508
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %_ZN7openvdb5v11_04mathmlIddEENS1_4Mat4INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERKNS3_IS6_EE.exit, label %for.body.i.i, !llvm.loop !197
@@ -19925,106 +20529,130 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load double, ptr %arrayidx, align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %arrayidx4, align 8
+  %neg = fmul double %call2, %1
+  %2 = tail call double @llvm.fmuladd.f64(double %call, double %0, double %neg)
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = load double, ptr %arrayidx7, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 40
+  %4 = load double, ptr %arrayidx9, align 8
+  %neg11 = fmul double %call2, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %call, double %3, double %neg11)
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 80
+  %6 = load double, ptr %arrayidx13, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 72
+  %7 = load double, ptr %arrayidx15, align 8
+  %neg17 = fmul double %call2, %7
+  %8 = tail call double @llvm.fmuladd.f64(double %call, double %6, double %neg17)
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 112
+  %9 = load double, ptr %arrayidx19, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load <2 x double>, ptr %arrayidx4, align 8
-  %1 = insertelement <2 x double> poison, double %call2, i64 0
-  %2 = insertelement <2 x double> %1, double %fneg, i64 1
-  %3 = fmul <2 x double> %0, %2
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %5 = insertelement <2 x double> poison, double %call, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %0, <2 x double> %4)
-  store <2 x double> %7, ptr %arrayidx4, align 8
-  %8 = load <2 x double>, ptr %arrayidx9, align 8
-  %9 = fmul <2 x double> %8, %2
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %11 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %8, <2 x double> %10)
-  store <2 x double> %11, ptr %arrayidx9, align 8
-  %12 = load <2 x double>, ptr %arrayidx15, align 8
-  %13 = fmul <2 x double> %12, %2
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %12, <2 x double> %14)
-  store <2 x double> %15, ptr %arrayidx15, align 8
-  %16 = load <2 x double>, ptr %arrayidx21, align 8
-  %17 = fmul <2 x double> %16, %2
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %6, <2 x double> %16, <2 x double> %18)
-  store <2 x double> %19, ptr %arrayidx21, align 8
+  %10 = load double, ptr %arrayidx21, align 8
+  %neg23 = fmul double %call2, %10
+  %11 = tail call double @llvm.fmuladd.f64(double %call, double %9, double %neg23)
+  %mul28 = fmul double %0, %fneg
+  %12 = tail call double @llvm.fmuladd.f64(double %call, double %1, double %mul28)
+  store double %12, ptr %arrayidx4, align 8
+  %mul35 = fmul double %3, %fneg
+  %13 = tail call double @llvm.fmuladd.f64(double %call, double %4, double %mul35)
+  store double %13, ptr %arrayidx9, align 8
+  %mul42 = fmul double %6, %fneg
+  %14 = tail call double @llvm.fmuladd.f64(double %call, double %7, double %mul42)
+  store double %14, ptr %arrayidx15, align 8
+  %mul49 = fmul double %9, %fneg
+  %15 = tail call double @llvm.fmuladd.f64(double %call, double %10, double %mul49)
+  store double %15, ptr %arrayidx21, align 8
+  store double %2, ptr %arrayidx, align 8
+  store double %5, ptr %arrayidx7, align 8
+  store double %8, ptr %arrayidx13, align 8
+  store double %11, ptr %arrayidx19, align 8
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %entry
   %arrayidx66 = getelementptr inbounds i8, ptr %this, i64 16
-  %20 = load double, ptr %arrayidx66, align 8
-  %21 = load double, ptr %this, align 8
-  %mul69 = fmul double %21, %fneg
-  %22 = tail call double @llvm.fmuladd.f64(double %call, double %20, double %mul69)
+  %16 = load double, ptr %arrayidx66, align 8
+  %17 = load double, ptr %this, align 8
+  %mul69 = fmul double %17, %fneg
+  %18 = tail call double @llvm.fmuladd.f64(double %call, double %16, double %mul69)
   %arrayidx71 = getelementptr inbounds i8, ptr %this, i64 48
-  %23 = load double, ptr %arrayidx71, align 8
+  %19 = load double, ptr %arrayidx71, align 8
   %arrayidx73 = getelementptr inbounds i8, ptr %this, i64 32
-  %24 = load double, ptr %arrayidx73, align 8
-  %mul74 = fmul double %24, %fneg
-  %25 = tail call double @llvm.fmuladd.f64(double %call, double %23, double %mul74)
+  %20 = load double, ptr %arrayidx73, align 8
+  %mul74 = fmul double %20, %fneg
+  %21 = tail call double @llvm.fmuladd.f64(double %call, double %19, double %mul74)
   %arrayidx76 = getelementptr inbounds i8, ptr %this, i64 80
-  %26 = load double, ptr %arrayidx76, align 8
+  %22 = load double, ptr %arrayidx76, align 8
   %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 64
-  %27 = load double, ptr %arrayidx78, align 8
-  %mul79 = fmul double %27, %fneg
-  %28 = tail call double @llvm.fmuladd.f64(double %call, double %26, double %mul79)
+  %23 = load double, ptr %arrayidx78, align 8
+  %mul79 = fmul double %23, %fneg
+  %24 = tail call double @llvm.fmuladd.f64(double %call, double %22, double %mul79)
   %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 112
-  %29 = load double, ptr %arrayidx81, align 8
+  %25 = load double, ptr %arrayidx81, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %this, i64 96
-  %30 = load double, ptr %arrayidx83, align 8
-  %mul84 = fmul double %30, %fneg
-  %31 = tail call double @llvm.fmuladd.f64(double %call, double %29, double %mul84)
-  %neg90 = fmul double %call2, %20
-  %32 = tail call double @llvm.fmuladd.f64(double %call, double %21, double %neg90)
-  store double %32, ptr %this, align 8
-  %neg98 = fmul double %call2, %23
-  %33 = tail call double @llvm.fmuladd.f64(double %call, double %24, double %neg98)
-  store double %33, ptr %arrayidx73, align 8
-  %neg106 = fmul double %call2, %26
-  %34 = tail call double @llvm.fmuladd.f64(double %call, double %27, double %neg106)
-  store double %34, ptr %arrayidx78, align 8
-  %neg114 = fmul double %call2, %29
-  %35 = tail call double @llvm.fmuladd.f64(double %call, double %30, double %neg114)
-  store double %35, ptr %arrayidx83, align 8
-  store double %22, ptr %arrayidx66, align 8
-  store double %25, ptr %arrayidx71, align 8
-  store double %28, ptr %arrayidx76, align 8
-  store double %31, ptr %arrayidx81, align 8
+  %26 = load double, ptr %arrayidx83, align 8
+  %mul84 = fmul double %26, %fneg
+  %27 = tail call double @llvm.fmuladd.f64(double %call, double %25, double %mul84)
+  %neg90 = fmul double %call2, %16
+  %28 = tail call double @llvm.fmuladd.f64(double %call, double %17, double %neg90)
+  store double %28, ptr %this, align 8
+  %neg98 = fmul double %call2, %19
+  %29 = tail call double @llvm.fmuladd.f64(double %call, double %20, double %neg98)
+  store double %29, ptr %arrayidx73, align 8
+  %neg106 = fmul double %call2, %22
+  %30 = tail call double @llvm.fmuladd.f64(double %call, double %23, double %neg106)
+  store double %30, ptr %arrayidx78, align 8
+  %neg114 = fmul double %call2, %25
+  %31 = tail call double @llvm.fmuladd.f64(double %call, double %26, double %neg114)
+  store double %31, ptr %arrayidx83, align 8
+  store double %18, ptr %arrayidx66, align 8
+  store double %21, ptr %arrayidx71, align 8
+  store double %24, ptr %arrayidx76, align 8
+  store double %27, ptr %arrayidx81, align 8
   br label %sw.epilog
 
 sw.bb125:                                         ; preds = %entry
+  %arrayidx127 = getelementptr inbounds i8, ptr %this, i64 8
+  %32 = load double, ptr %arrayidx127, align 8
+  %33 = load double, ptr %this, align 8
+  %neg131 = fmul double %call2, %33
+  %34 = tail call double @llvm.fmuladd.f64(double %call, double %32, double %neg131)
+  %arrayidx133 = getelementptr inbounds i8, ptr %this, i64 40
+  %35 = load double, ptr %arrayidx133, align 8
   %arrayidx135 = getelementptr inbounds i8, ptr %this, i64 32
+  %36 = load double, ptr %arrayidx135, align 8
+  %neg137 = fmul double %call2, %36
+  %37 = tail call double @llvm.fmuladd.f64(double %call, double %35, double %neg137)
+  %arrayidx139 = getelementptr inbounds i8, ptr %this, i64 72
+  %38 = load double, ptr %arrayidx139, align 8
   %arrayidx141 = getelementptr inbounds i8, ptr %this, i64 64
+  %39 = load double, ptr %arrayidx141, align 8
+  %neg143 = fmul double %call2, %39
+  %40 = tail call double @llvm.fmuladd.f64(double %call, double %38, double %neg143)
+  %arrayidx145 = getelementptr inbounds i8, ptr %this, i64 104
+  %41 = load double, ptr %arrayidx145, align 8
   %arrayidx147 = getelementptr inbounds i8, ptr %this, i64 96
-  %36 = load <2 x double>, ptr %this, align 8
-  %37 = insertelement <2 x double> poison, double %call2, i64 0
-  %38 = insertelement <2 x double> %37, double %fneg, i64 1
-  %39 = fmul <2 x double> %36, %38
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %41 = insertelement <2 x double> poison, double %call, i64 0
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
-  %43 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %36, <2 x double> %40)
-  store <2 x double> %43, ptr %this, align 8
-  %44 = load <2 x double>, ptr %arrayidx135, align 8
-  %45 = fmul <2 x double> %44, %38
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %44, <2 x double> %46)
-  store <2 x double> %47, ptr %arrayidx135, align 8
-  %48 = load <2 x double>, ptr %arrayidx141, align 8
-  %49 = fmul <2 x double> %48, %38
-  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %51 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %48, <2 x double> %50)
-  store <2 x double> %51, ptr %arrayidx141, align 8
-  %52 = load <2 x double>, ptr %arrayidx147, align 8
-  %53 = fmul <2 x double> %52, %38
-  %54 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %55 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %52, <2 x double> %54)
-  store <2 x double> %55, ptr %arrayidx147, align 8
+  %42 = load double, ptr %arrayidx147, align 8
+  %neg149 = fmul double %call2, %42
+  %43 = tail call double @llvm.fmuladd.f64(double %call, double %41, double %neg149)
+  %mul154 = fmul double %32, %fneg
+  %44 = tail call double @llvm.fmuladd.f64(double %call, double %33, double %mul154)
+  store double %44, ptr %this, align 8
+  %mul161 = fmul double %35, %fneg
+  %45 = tail call double @llvm.fmuladd.f64(double %call, double %36, double %mul161)
+  store double %45, ptr %arrayidx135, align 8
+  %mul168 = fmul double %38, %fneg
+  %46 = tail call double @llvm.fmuladd.f64(double %call, double %39, double %mul168)
+  store double %46, ptr %arrayidx141, align 8
+  %mul175 = fmul double %41, %fneg
+  %47 = tail call double @llvm.fmuladd.f64(double %call, double %42, double %mul175)
+  store double %47, ptr %arrayidx147, align 8
+  store double %34, ptr %arrayidx127, align 8
+  store double %37, ptr %arrayidx133, align 8
+  store double %40, ptr %arrayidx139, align 8
+  store double %43, ptr %arrayidx145, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb125, %sw.bb60, %sw.bb
@@ -20179,54 +20807,74 @@ invoke.cont4:                                     ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !511
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !511
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !511
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !511
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !511
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !511
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !511
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !511
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !511
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !511
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !511
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !511
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !511
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !511
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !511
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !511
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !511
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !511
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !511
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !511
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !511
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !511
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !511
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !511
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont4
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont4 ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !511
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !511
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !511
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !511
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !511
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !511
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !511
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !511
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !511
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !511
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !511
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !511
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !511
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !511
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -20238,168 +20886,168 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i
 
 invoke.cont7:                                     ; preds = %invoke.cont.i
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  %34 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %34, null
+  %38 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %35, 4294967297
-  %36 = trunc i64 %35 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %39, 4294967297
+  %40 = trunc i64 %39 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %34, align 8
+  %vtable.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %37 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #25
+  %41 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %38) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %38, 0
+  %42 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %42, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %36, -1
+  %add.i.i.i.i.i = add nsw i32 %40, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %39 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %43 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %36, %if.then.i.i.i.i.i ], [ %39, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %40, %if.then.i.i.i.i.i ], [ %43, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %34, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %34) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %41, 0
+  %44 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %38) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 12
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %42 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %42, -1
+  %46 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %46, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %43 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %47 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %42, %if.then.i.i.i.i.i.i.i ], [ %43, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %46, %if.then.i.i.i.i.i.i.i ], [ %47, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %34, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %38, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %44 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %34) #25
+  %48 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %38) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %45 = load ptr, ptr %_M_refcount.i.i3, align 8
-  %cmp.not.i.i.i4 = icmp eq ptr %45, null
+  %49 = load ptr, ptr %_M_refcount.i.i3, align 8
+  %cmp.not.i.i.i4 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i4, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit34, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i6 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load atomic i64, ptr %_M_use_count.i.i.i.i6 acquire, align 8
-  %cmp.i.i.i.i7 = icmp eq i64 %46, 4294967297
-  %47 = trunc i64 %46 to i32
+  %_M_use_count.i.i.i.i6 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load atomic i64, ptr %_M_use_count.i.i.i.i6 acquire, align 8
+  %cmp.i.i.i.i7 = icmp eq i64 %50, 4294967297
+  %51 = trunc i64 %50 to i32
   br i1 %cmp.i.i.i.i7, label %if.then.i.i.i.i30, label %if.end.i.i.i.i8
 
 if.then.i.i.i.i30:                                ; preds = %if.then.i.i.i5
   store i32 0, ptr %_M_use_count.i.i.i.i6, align 8
-  %_M_weak_count.i.i.i.i31 = getelementptr inbounds i8, ptr %45, i64 12
+  %_M_weak_count.i.i.i.i31 = getelementptr inbounds i8, ptr %49, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i31, align 4
-  %vtable.i.i.i.i32 = load ptr, ptr %45, align 8
+  %vtable.i.i.i.i32 = load ptr, ptr %49, align 8
   %vfn.i.i.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i.i.i32, i64 16
-  %48 = load ptr, ptr %vfn.i.i.i.i33, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %45) #25
+  %52 = load ptr, ptr %vfn.i.i.i.i33, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %49) #25
   br label %if.end8.sink.split.i.i.i.i25
 
 if.end.i.i.i.i8:                                  ; preds = %if.then.i.i.i5
-  %49 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i9 = icmp eq i8 %49, 0
+  %53 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i9 = icmp eq i8 %53, 0
   br i1 %tobool.i.i.not.i.i.i.i9, label %if.else.i.i.i.i.i29, label %if.then.i.i.i.i.i10
 
 if.then.i.i.i.i.i10:                              ; preds = %if.end.i.i.i.i8
-  %add.i.i.i.i.i11 = add nsw i32 %47, -1
+  %add.i.i.i.i.i11 = add nsw i32 %51, -1
   store i32 %add.i.i.i.i.i11, ptr %_M_use_count.i.i.i.i6, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
 
 if.else.i.i.i.i.i29:                              ; preds = %if.end.i.i.i.i8
-  %50 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i6, i32 -1 acq_rel, align 4
+  %54 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i6, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12: ; preds = %if.else.i.i.i.i.i29, %if.then.i.i.i.i.i10
-  %retval.i.0.i.i.i.i13 = phi i32 [ %47, %if.then.i.i.i.i.i10 ], [ %50, %if.else.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i13 = phi i32 [ %51, %if.then.i.i.i.i.i10 ], [ %54, %if.else.i.i.i.i.i29 ]
   %cmp6.i.i.i.i14 = icmp eq i32 %retval.i.0.i.i.i.i13, 1
   br i1 %cmp6.i.i.i.i14, label %if.then7.i.i.i.i15, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit34
 
 if.then7.i.i.i.i15:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
-  %vtable.i.i.i.i.i.i16 = load ptr, ptr %45, align 8
+  %vtable.i.i.i.i.i.i16 = load ptr, ptr %49, align 8
   %vfn.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i16, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i.i.i17, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %45) #25
-  %_M_weak_count.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %45, i64 12
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i19 = icmp eq i8 %52, 0
+  %55 = load ptr, ptr %vfn.i.i.i.i.i.i17, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %49) #25
+  %_M_weak_count.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %49, i64 12
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i19 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i19, label %if.else.i.i.i.i.i.i.i28, label %if.then.i.i.i.i.i.i.i20
 
 if.then.i.i.i.i.i.i.i20:                          ; preds = %if.then7.i.i.i.i15
-  %53 = load i32, ptr %_M_weak_count.i.i.i.i.i.i18, align 4
-  %add.i.i.i.i.i.i.i21 = add nsw i32 %53, -1
+  %57 = load i32, ptr %_M_weak_count.i.i.i.i.i.i18, align 4
+  %add.i.i.i.i.i.i.i21 = add nsw i32 %57, -1
   store i32 %add.i.i.i.i.i.i.i21, ptr %_M_weak_count.i.i.i.i.i.i18, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i22
 
 if.else.i.i.i.i.i.i.i28:                          ; preds = %if.then7.i.i.i.i15
-  %54 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i18, i32 -1 acq_rel, align 4
+  %58 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i18, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i22
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i22: ; preds = %if.else.i.i.i.i.i.i.i28, %if.then.i.i.i.i.i.i.i20
-  %retval.i.0.i.i.i.i.i.i23 = phi i32 [ %53, %if.then.i.i.i.i.i.i.i20 ], [ %54, %if.else.i.i.i.i.i.i.i28 ]
+  %retval.i.0.i.i.i.i.i.i23 = phi i32 [ %57, %if.then.i.i.i.i.i.i.i20 ], [ %58, %if.else.i.i.i.i.i.i.i28 ]
   %cmp.i.i.i.i.i.i24 = icmp eq i32 %retval.i.0.i.i.i.i.i.i23, 1
   br i1 %cmp.i.i.i.i.i.i24, label %if.end8.sink.split.i.i.i.i25, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit34
 
 if.end8.sink.split.i.i.i.i25:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i22, %if.then.i.i.i.i30
-  %vtable2.i.i.i.i.i.i26 = load ptr, ptr %45, align 8
+  %vtable2.i.i.i.i.i.i26 = load ptr, ptr %49, align 8
   %vfn3.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i26, i64 24
-  %55 = load ptr, ptr %vfn3.i.i.i.i.i.i27, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #25
+  %59 = load ptr, ptr %vfn3.i.i.i.i.i.i27, align 8
+  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit34
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit34: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i22, %if.end8.sink.split.i.i.i.i25
   ret void
 
 lpad3:                                            ; preds = %entry
-  %56 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont.i
-  %57 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad3
-  %.pn = phi { ptr, i32 } [ %57, %lpad6 ], [ %56, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %61, %lpad6 ], [ %60, %lpad3 ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #25
   resume { ptr, i32 } %.pn
 }
@@ -22511,54 +23159,74 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !537
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !537
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !537
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !537
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !537
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !537
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !537
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !537
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !537
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !537
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !537
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !537
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !537
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !537
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !537
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !537
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !537
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !537
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !537
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !537
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !537
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !537
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !537
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !537
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !537
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !537
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !537
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !537
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !537
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !537
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !537
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !537
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !537
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !537
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !537
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !537
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !537
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !537
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -22578,185 +23246,185 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   %mJacobianInv4.i = getelementptr inbounds i8, ptr %this, i64 776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i, i64 72, i1 false)
   %mDeterminant.i = getelementptr inbounds i8, ptr %ref.tmp, i64 336
-  %34 = load double, ptr %mDeterminant.i, align 8
+  %38 = load double, ptr %mDeterminant.i, align 8
   %mDeterminant5.i = getelementptr inbounds i8, ptr %this, i64 848
-  store double %34, ptr %mDeterminant5.i, align 8
+  store double %38, ptr %mDeterminant5.i, align 8
   %mVoxelSize.i = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   %mVoxelSize6.i = getelementptr inbounds i8, ptr %this, i64 856
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i, i64 24, i1 false)
   %mIsDiagonal.i = getelementptr inbounds i8, ptr %ref.tmp, i64 368
-  %35 = load i8, ptr %mIsDiagonal.i, align 8
+  %39 = load i8, ptr %mIsDiagonal.i, align 8
   %mIsDiagonal7.i = getelementptr inbounds i8, ptr %this, i64 880
-  %frombool.i = and i8 %35, 1
+  %frombool.i = and i8 %39, 1
   store i8 %frombool.i, ptr %mIsDiagonal7.i, align 8
   %mIsIdentity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 369
-  %36 = load i8, ptr %mIsIdentity.i, align 1
+  %40 = load i8, ptr %mIsIdentity.i, align 1
   %mIsIdentity9.i = getelementptr inbounds i8, ptr %this, i64 881
-  %frombool10.i = and i8 %36, 1
+  %frombool10.i = and i8 %40, 1
   store i8 %frombool10.i, ptr %mIsIdentity9.i, align 1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %second, i64 8
-  %37 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %37, null
+  %41 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %42, 4294967297
+  %43 = trunc i64 %42 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %44 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %41, 0
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %39, -1
+  %add.i.i.i.i.i = add nsw i32 %43, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i ], [ %42, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %49 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %50 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %49, %if.then.i.i.i.i.i.i.i ], [ %50, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %51 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %first, i64 8
-  %48 = load ptr, ptr %_M_refcount.i.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %48, null
+  %52 = load ptr, ptr %_M_refcount.i.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
-  %cmp.i.i.i.i8 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
+  %cmp.i.i.i.i8 = icmp eq i64 %53, 4294967297
+  %54 = trunc i64 %53 to i32
   br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i31, label %if.end.i.i.i.i9
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
-  %vtable.i.i.i.i33 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i33 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i34, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %55 = load ptr, ptr %vfn.i.i.i.i34, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %if.end8.sink.split.i.i.i.i26
 
 if.end.i.i.i.i9:                                  ; preds = %if.then.i.i.i6
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %52, 0
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i10, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i11
 
 if.then.i.i.i.i.i11:                              ; preds = %if.end.i.i.i.i9
-  %add.i.i.i.i.i12 = add nsw i32 %50, -1
+  %add.i.i.i.i.i12 = add nsw i32 %54, -1
   store i32 %add.i.i.i.i.i12, ptr %_M_use_count.i.i.i.i7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 if.else.i.i.i.i.i30:                              ; preds = %if.end.i.i.i.i9
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
+  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.else.i.i.i.i.i30, %if.then.i.i.i.i.i11
-  %retval.i.0.i.i.i.i14 = phi i32 [ %50, %if.then.i.i.i.i.i11 ], [ %53, %if.else.i.i.i.i.i30 ]
+  %retval.i.0.i.i.i.i14 = phi i32 [ %54, %if.then.i.i.i.i.i11 ], [ %57, %if.else.i.i.i.i.i30 ]
   %cmp6.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i14, 1
   br i1 %cmp6.i.i.i.i15, label %if.then7.i.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
-  %vtable.i.i.i.i.i.i17 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i17 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %55, 0
+  %58 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %52, i64 12
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i.i21:                          ; preds = %if.then7.i.i.i.i16
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
-  %add.i.i.i.i.i.i.i22 = add nsw i32 %56, -1
+  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
+  %add.i.i.i.i.i.i.i22 = add nsw i32 %60, -1
   store i32 %add.i.i.i.i.i.i.i22, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 if.else.i.i.i.i.i.i.i29:                          ; preds = %if.then7.i.i.i.i16
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
+  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if.else.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i21
-  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i21 ], [ %57, %if.else.i.i.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i21 ], [ %61, %if.else.i.i.i.i.i.i.i29 ]
   %cmp.i.i.i.i.i.i25 = icmp eq i32 %retval.i.0.i.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i.i25, label %if.end8.sink.split.i.i.i.i26, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
-  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %52, align 8
   %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.end8.sink.split.i.i.i.i26
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont.i
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %60, %lpad3 ], [ %59, %lpad ]
+  %.pn = phi { ptr, i32 } [ %64, %lpad3 ], [ %63, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #25
   resume { ptr, i32 } %.pn
 }
@@ -22787,54 +23455,74 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !540
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !540
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !540
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !540
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !540
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !540
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !540
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !540
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !540
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !540
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !540
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !540
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !540
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !540
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !540
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !540
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !540
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !540
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !540
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !540
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !540
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !540
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !540
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !540
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !540
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !540
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !540
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !540
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !540
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !540
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !540
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !540
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !540
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !540
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !540
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !540
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !540
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !540
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -22854,185 +23542,185 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   %mJacobianInv4.i = getelementptr inbounds i8, ptr %this, i64 1536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i, i64 72, i1 false)
   %mDeterminant.i = getelementptr inbounds i8, ptr %ref.tmp, i64 336
-  %34 = load double, ptr %mDeterminant.i, align 8
+  %38 = load double, ptr %mDeterminant.i, align 8
   %mDeterminant5.i = getelementptr inbounds i8, ptr %this, i64 1608
-  store double %34, ptr %mDeterminant5.i, align 8
+  store double %38, ptr %mDeterminant5.i, align 8
   %mVoxelSize.i = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   %mVoxelSize6.i = getelementptr inbounds i8, ptr %this, i64 1616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i, i64 24, i1 false)
   %mIsDiagonal.i = getelementptr inbounds i8, ptr %ref.tmp, i64 368
-  %35 = load i8, ptr %mIsDiagonal.i, align 8
+  %39 = load i8, ptr %mIsDiagonal.i, align 8
   %mIsDiagonal7.i = getelementptr inbounds i8, ptr %this, i64 1640
-  %frombool.i = and i8 %35, 1
+  %frombool.i = and i8 %39, 1
   store i8 %frombool.i, ptr %mIsDiagonal7.i, align 8
   %mIsIdentity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 369
-  %36 = load i8, ptr %mIsIdentity.i, align 1
+  %40 = load i8, ptr %mIsIdentity.i, align 1
   %mIsIdentity9.i = getelementptr inbounds i8, ptr %this, i64 1641
-  %frombool10.i = and i8 %36, 1
+  %frombool10.i = and i8 %40, 1
   store i8 %frombool10.i, ptr %mIsIdentity9.i, align 1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %second, i64 8
-  %37 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %37, null
+  %41 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %42, 4294967297
+  %43 = trunc i64 %42 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %44 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %41, 0
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %39, -1
+  %add.i.i.i.i.i = add nsw i32 %43, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i ], [ %42, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %49 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %50 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %49, %if.then.i.i.i.i.i.i.i ], [ %50, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %51 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %first, i64 8
-  %48 = load ptr, ptr %_M_refcount.i.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %48, null
+  %52 = load ptr, ptr %_M_refcount.i.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
-  %cmp.i.i.i.i8 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
+  %cmp.i.i.i.i8 = icmp eq i64 %53, 4294967297
+  %54 = trunc i64 %53 to i32
   br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i31, label %if.end.i.i.i.i9
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
-  %vtable.i.i.i.i33 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i33 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i34, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %55 = load ptr, ptr %vfn.i.i.i.i34, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %if.end8.sink.split.i.i.i.i26
 
 if.end.i.i.i.i9:                                  ; preds = %if.then.i.i.i6
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %52, 0
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i10, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i11
 
 if.then.i.i.i.i.i11:                              ; preds = %if.end.i.i.i.i9
-  %add.i.i.i.i.i12 = add nsw i32 %50, -1
+  %add.i.i.i.i.i12 = add nsw i32 %54, -1
   store i32 %add.i.i.i.i.i12, ptr %_M_use_count.i.i.i.i7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 if.else.i.i.i.i.i30:                              ; preds = %if.end.i.i.i.i9
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
+  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.else.i.i.i.i.i30, %if.then.i.i.i.i.i11
-  %retval.i.0.i.i.i.i14 = phi i32 [ %50, %if.then.i.i.i.i.i11 ], [ %53, %if.else.i.i.i.i.i30 ]
+  %retval.i.0.i.i.i.i14 = phi i32 [ %54, %if.then.i.i.i.i.i11 ], [ %57, %if.else.i.i.i.i.i30 ]
   %cmp6.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i14, 1
   br i1 %cmp6.i.i.i.i15, label %if.then7.i.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
-  %vtable.i.i.i.i.i.i17 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i17 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %55, 0
+  %58 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %52, i64 12
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i.i21:                          ; preds = %if.then7.i.i.i.i16
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
-  %add.i.i.i.i.i.i.i22 = add nsw i32 %56, -1
+  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
+  %add.i.i.i.i.i.i.i22 = add nsw i32 %60, -1
   store i32 %add.i.i.i.i.i.i.i22, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 if.else.i.i.i.i.i.i.i29:                          ; preds = %if.then7.i.i.i.i16
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
+  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if.else.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i21
-  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i21 ], [ %57, %if.else.i.i.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i21 ], [ %61, %if.else.i.i.i.i.i.i.i29 ]
   %cmp.i.i.i.i.i.i25 = icmp eq i32 %retval.i.0.i.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i.i25, label %if.end8.sink.split.i.i.i.i26, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
-  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %52, align 8
   %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.end8.sink.split.i.i.i.i26
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont.i
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %60, %lpad3 ], [ %59, %lpad ]
+  %.pn = phi { ptr, i32 } [ %64, %lpad3 ], [ %63, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #25
   resume { ptr, i32 } %.pn
 }
@@ -23182,54 +23870,74 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !543
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !543
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !543
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !543
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !543
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !543
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !543
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !543
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !543
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !543
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !543
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !543
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !543
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !543
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !543
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !543
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !543
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !543
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !543
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !543
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !543
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !543
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !543
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !543
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !543
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !543
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !543
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !543
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !543
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !543
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !543
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !543
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !543
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !543
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !543
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !543
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !543
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !543
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -23249,185 +23957,185 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   %mJacobianInv4.i = getelementptr inbounds i8, ptr %this, i64 2296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i, i64 72, i1 false)
   %mDeterminant.i = getelementptr inbounds i8, ptr %ref.tmp, i64 336
-  %34 = load double, ptr %mDeterminant.i, align 8
+  %38 = load double, ptr %mDeterminant.i, align 8
   %mDeterminant5.i = getelementptr inbounds i8, ptr %this, i64 2368
-  store double %34, ptr %mDeterminant5.i, align 8
+  store double %38, ptr %mDeterminant5.i, align 8
   %mVoxelSize.i = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   %mVoxelSize6.i = getelementptr inbounds i8, ptr %this, i64 2376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i, i64 24, i1 false)
   %mIsDiagonal.i = getelementptr inbounds i8, ptr %ref.tmp, i64 368
-  %35 = load i8, ptr %mIsDiagonal.i, align 8
+  %39 = load i8, ptr %mIsDiagonal.i, align 8
   %mIsDiagonal7.i = getelementptr inbounds i8, ptr %this, i64 2400
-  %frombool.i = and i8 %35, 1
+  %frombool.i = and i8 %39, 1
   store i8 %frombool.i, ptr %mIsDiagonal7.i, align 8
   %mIsIdentity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 369
-  %36 = load i8, ptr %mIsIdentity.i, align 1
+  %40 = load i8, ptr %mIsIdentity.i, align 1
   %mIsIdentity9.i = getelementptr inbounds i8, ptr %this, i64 2401
-  %frombool10.i = and i8 %36, 1
+  %frombool10.i = and i8 %40, 1
   store i8 %frombool10.i, ptr %mIsIdentity9.i, align 1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %second, i64 8
-  %37 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %37, null
+  %41 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %42, 4294967297
+  %43 = trunc i64 %42 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %44 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %41, 0
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %39, -1
+  %add.i.i.i.i.i = add nsw i32 %43, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i ], [ %42, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %49 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %50 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %49, %if.then.i.i.i.i.i.i.i ], [ %50, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %51 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %first, i64 8
-  %48 = load ptr, ptr %_M_refcount.i.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %48, null
+  %52 = load ptr, ptr %_M_refcount.i.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
-  %cmp.i.i.i.i8 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
+  %cmp.i.i.i.i8 = icmp eq i64 %53, 4294967297
+  %54 = trunc i64 %53 to i32
   br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i31, label %if.end.i.i.i.i9
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
-  %vtable.i.i.i.i33 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i33 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i34, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %55 = load ptr, ptr %vfn.i.i.i.i34, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %if.end8.sink.split.i.i.i.i26
 
 if.end.i.i.i.i9:                                  ; preds = %if.then.i.i.i6
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %52, 0
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i10, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i11
 
 if.then.i.i.i.i.i11:                              ; preds = %if.end.i.i.i.i9
-  %add.i.i.i.i.i12 = add nsw i32 %50, -1
+  %add.i.i.i.i.i12 = add nsw i32 %54, -1
   store i32 %add.i.i.i.i.i12, ptr %_M_use_count.i.i.i.i7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 if.else.i.i.i.i.i30:                              ; preds = %if.end.i.i.i.i9
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
+  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.else.i.i.i.i.i30, %if.then.i.i.i.i.i11
-  %retval.i.0.i.i.i.i14 = phi i32 [ %50, %if.then.i.i.i.i.i11 ], [ %53, %if.else.i.i.i.i.i30 ]
+  %retval.i.0.i.i.i.i14 = phi i32 [ %54, %if.then.i.i.i.i.i11 ], [ %57, %if.else.i.i.i.i.i30 ]
   %cmp6.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i14, 1
   br i1 %cmp6.i.i.i.i15, label %if.then7.i.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
-  %vtable.i.i.i.i.i.i17 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i17 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %55, 0
+  %58 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %52, i64 12
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i.i21:                          ; preds = %if.then7.i.i.i.i16
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
-  %add.i.i.i.i.i.i.i22 = add nsw i32 %56, -1
+  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
+  %add.i.i.i.i.i.i.i22 = add nsw i32 %60, -1
   store i32 %add.i.i.i.i.i.i.i22, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 if.else.i.i.i.i.i.i.i29:                          ; preds = %if.then7.i.i.i.i16
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
+  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if.else.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i21
-  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i21 ], [ %57, %if.else.i.i.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i21 ], [ %61, %if.else.i.i.i.i.i.i.i29 ]
   %cmp.i.i.i.i.i.i25 = icmp eq i32 %retval.i.0.i.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i.i25, label %if.end8.sink.split.i.i.i.i26, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
-  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %52, align 8
   %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.end8.sink.split.i.i.i.i26
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont.i
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %60, %lpad3 ], [ %59, %lpad ]
+  %.pn = phi { ptr, i32 } [ %64, %lpad3 ], [ %63, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #25
   resume { ptr, i32 } %.pn
 }
@@ -23577,54 +24285,74 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !546
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !546
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !546
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !546
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !546
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !546
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !546
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !546
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !546
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !546
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !546
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !546
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !546
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !546
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !546
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !546
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !546
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !546
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !546
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !546
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !546
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !546
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !546
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !546
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !546
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !546
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !546
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !546
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !546
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !546
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !546
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !546
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !546
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !546
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !546
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !546
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !546
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !546
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -23644,185 +24372,185 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   %mJacobianInv4.i = getelementptr inbounds i8, ptr %this, i64 680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i, i64 72, i1 false)
   %mDeterminant.i = getelementptr inbounds i8, ptr %ref.tmp, i64 336
-  %34 = load double, ptr %mDeterminant.i, align 8
+  %38 = load double, ptr %mDeterminant.i, align 8
   %mDeterminant5.i = getelementptr inbounds i8, ptr %this, i64 752
-  store double %34, ptr %mDeterminant5.i, align 8
+  store double %38, ptr %mDeterminant5.i, align 8
   %mVoxelSize.i = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   %mVoxelSize6.i = getelementptr inbounds i8, ptr %this, i64 760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i, i64 24, i1 false)
   %mIsDiagonal.i = getelementptr inbounds i8, ptr %ref.tmp, i64 368
-  %35 = load i8, ptr %mIsDiagonal.i, align 8
+  %39 = load i8, ptr %mIsDiagonal.i, align 8
   %mIsDiagonal7.i = getelementptr inbounds i8, ptr %this, i64 784
-  %frombool.i = and i8 %35, 1
+  %frombool.i = and i8 %39, 1
   store i8 %frombool.i, ptr %mIsDiagonal7.i, align 8
   %mIsIdentity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 369
-  %36 = load i8, ptr %mIsIdentity.i, align 1
+  %40 = load i8, ptr %mIsIdentity.i, align 1
   %mIsIdentity9.i = getelementptr inbounds i8, ptr %this, i64 785
-  %frombool10.i = and i8 %36, 1
+  %frombool10.i = and i8 %40, 1
   store i8 %frombool10.i, ptr %mIsIdentity9.i, align 1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %second, i64 8
-  %37 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %37, null
+  %41 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %42, 4294967297
+  %43 = trunc i64 %42 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %44 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %41, 0
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %39, -1
+  %add.i.i.i.i.i = add nsw i32 %43, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i ], [ %42, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %49 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %50 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %49, %if.then.i.i.i.i.i.i.i ], [ %50, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %51 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %first, i64 8
-  %48 = load ptr, ptr %_M_refcount.i.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %48, null
+  %52 = load ptr, ptr %_M_refcount.i.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
-  %cmp.i.i.i.i8 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
+  %cmp.i.i.i.i8 = icmp eq i64 %53, 4294967297
+  %54 = trunc i64 %53 to i32
   br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i31, label %if.end.i.i.i.i9
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
-  %vtable.i.i.i.i33 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i33 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i34, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %55 = load ptr, ptr %vfn.i.i.i.i34, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %if.end8.sink.split.i.i.i.i26
 
 if.end.i.i.i.i9:                                  ; preds = %if.then.i.i.i6
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %52, 0
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i10, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i11
 
 if.then.i.i.i.i.i11:                              ; preds = %if.end.i.i.i.i9
-  %add.i.i.i.i.i12 = add nsw i32 %50, -1
+  %add.i.i.i.i.i12 = add nsw i32 %54, -1
   store i32 %add.i.i.i.i.i12, ptr %_M_use_count.i.i.i.i7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 if.else.i.i.i.i.i30:                              ; preds = %if.end.i.i.i.i9
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
+  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.else.i.i.i.i.i30, %if.then.i.i.i.i.i11
-  %retval.i.0.i.i.i.i14 = phi i32 [ %50, %if.then.i.i.i.i.i11 ], [ %53, %if.else.i.i.i.i.i30 ]
+  %retval.i.0.i.i.i.i14 = phi i32 [ %54, %if.then.i.i.i.i.i11 ], [ %57, %if.else.i.i.i.i.i30 ]
   %cmp6.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i14, 1
   br i1 %cmp6.i.i.i.i15, label %if.then7.i.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
-  %vtable.i.i.i.i.i.i17 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i17 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %55, 0
+  %58 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %52, i64 12
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i.i21:                          ; preds = %if.then7.i.i.i.i16
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
-  %add.i.i.i.i.i.i.i22 = add nsw i32 %56, -1
+  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
+  %add.i.i.i.i.i.i.i22 = add nsw i32 %60, -1
   store i32 %add.i.i.i.i.i.i.i22, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 if.else.i.i.i.i.i.i.i29:                          ; preds = %if.then7.i.i.i.i16
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
+  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if.else.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i21
-  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i21 ], [ %57, %if.else.i.i.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i21 ], [ %61, %if.else.i.i.i.i.i.i.i29 ]
   %cmp.i.i.i.i.i.i25 = icmp eq i32 %retval.i.0.i.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i.i25, label %if.end8.sink.split.i.i.i.i26, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
-  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %52, align 8
   %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.end8.sink.split.i.i.i.i26
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont.i
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %60, %lpad3 ], [ %59, %lpad ]
+  %.pn = phi { ptr, i32 } [ %64, %lpad3 ], [ %63, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #25
   resume { ptr, i32 } %.pn
 }
@@ -23853,54 +24581,74 @@ invoke.cont:                                      ; preds = %entry
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %1, i64 104
+  %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx31.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %arrayidx36.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx41.i.i.i = getelementptr inbounds i8, ptr %1, i64 112
   %arrayidx50.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %arrayidx55.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %arrayidx60.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %arrayidx65.i.i.i = getelementptr inbounds i8, ptr %1, i64 120
-  %2 = load <2 x double>, ptr %mMatrix3.i, align 8, !noalias !549
-  %3 = load <2 x double>, ptr %arrayidx8.i.i.i, align 8, !noalias !549
-  %4 = load <2 x double>, ptr %arrayidx13.i.i.i, align 8, !noalias !549
-  %5 = load <2 x double>, ptr %arrayidx18.i.i.i, align 8, !noalias !549
-  %6 = load <2 x double>, ptr %arrayidx50.i.i.i, align 8, !noalias !549
-  %7 = load <2 x double>, ptr %arrayidx55.i.i.i, align 8, !noalias !549
-  %8 = load <2 x double>, ptr %arrayidx60.i.i.i, align 8, !noalias !549
-  %9 = load <2 x double>, ptr %arrayidx65.i.i.i, align 8, !noalias !549
+  %arrayidx74.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx79.i.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %arrayidx84.i.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx89.i.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %2 = load double, ptr %mMatrix3.i, align 8, !noalias !549
+  %3 = load double, ptr %arrayidx8.i.i.i, align 8, !noalias !549
+  %4 = load double, ptr %arrayidx13.i.i.i, align 8, !noalias !549
+  %5 = load double, ptr %arrayidx18.i.i.i, align 8, !noalias !549
+  %6 = load double, ptr %arrayidx26.i.i.i, align 8, !noalias !549
+  %7 = load double, ptr %arrayidx31.i.i.i, align 8, !noalias !549
+  %8 = load double, ptr %arrayidx36.i.i.i, align 8, !noalias !549
+  %9 = load double, ptr %arrayidx41.i.i.i, align 8, !noalias !549
+  %10 = load double, ptr %arrayidx50.i.i.i, align 8, !noalias !549
+  %11 = load double, ptr %arrayidx55.i.i.i, align 8, !noalias !549
+  %12 = load double, ptr %arrayidx60.i.i.i, align 8, !noalias !549
+  %13 = load double, ptr %arrayidx65.i.i.i, align 8, !noalias !549
+  %14 = load double, ptr %arrayidx74.i.i.i, align 8, !noalias !549
+  %15 = load double, ptr %arrayidx79.i.i.i, align 8, !noalias !549
+  %16 = load double, ptr %arrayidx84.i.i.i, align 8, !noalias !549
+  %17 = load double, ptr %arrayidx89.i.i.i, align 8, !noalias !549
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %invoke.cont
   %indvars.iv.i.i.i = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %10 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %10
-  %11 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !549
-  %12 = or disjoint i64 %10, 1
-  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %12
-  %13 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !549
-  %14 = or disjoint i64 %10, 2
-  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %14
-  %15 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !549
-  %16 = or disjoint i64 %10, 3
-  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %16
-  %17 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !549
-  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %10
-  %18 = insertelement <2 x double> poison, double %13, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %3, %19
-  %21 = insertelement <2 x double> poison, double %11, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %2, <2 x double> %20)
-  %24 = insertelement <2 x double> poison, double %15, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %4, <2 x double> %23)
-  %27 = insertelement <2 x double> poison, double %17, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %5, <2 x double> %26)
-  store <2 x double> %29, ptr %arrayidx22.i.i.i, align 8, !alias.scope !549
-  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %14
-  %30 = fmul <2 x double> %7, %19
-  %31 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %6, <2 x double> %30)
-  %32 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %25, <2 x double> %8, <2 x double> %31)
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %9, <2 x double> %32)
-  store <2 x double> %33, ptr %arrayidx70.i.i.i, align 8, !alias.scope !549
+  %18 = shl nuw nsw i64 %indvars.iv.i.i.i, 2
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %18
+  %19 = load double, ptr %arrayidx.i.i.i, align 8, !noalias !549
+  %20 = or disjoint i64 %18, 1
+  %arrayidx7.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %20
+  %21 = load double, ptr %arrayidx7.i.i.i, align 8, !noalias !549
+  %mul9.i.i.i = fmul double %3, %21
+  %22 = call double @llvm.fmuladd.f64(double %19, double %2, double %mul9.i.i.i)
+  %23 = or disjoint i64 %18, 2
+  %arrayidx12.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %23
+  %24 = load double, ptr %arrayidx12.i.i.i, align 8, !noalias !549
+  %25 = call double @llvm.fmuladd.f64(double %24, double %4, double %22)
+  %26 = or disjoint i64 %18, 3
+  %arrayidx17.i.i.i = getelementptr inbounds double, ptr %m0.i.i.i, i64 %26
+  %27 = load double, ptr %arrayidx17.i.i.i, align 8, !noalias !549
+  %28 = call double @llvm.fmuladd.f64(double %27, double %5, double %25)
+  %arrayidx22.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %18
+  store double %28, ptr %arrayidx22.i.i.i, align 8, !alias.scope !549
+  %mul32.i.i.i = fmul double %7, %21
+  %29 = call double @llvm.fmuladd.f64(double %19, double %6, double %mul32.i.i.i)
+  %30 = call double @llvm.fmuladd.f64(double %24, double %8, double %29)
+  %31 = call double @llvm.fmuladd.f64(double %27, double %9, double %30)
+  %arrayidx46.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %20
+  store double %31, ptr %arrayidx46.i.i.i, align 8, !alias.scope !549
+  %mul56.i.i.i = fmul double %11, %21
+  %32 = call double @llvm.fmuladd.f64(double %19, double %10, double %mul56.i.i.i)
+  %33 = call double @llvm.fmuladd.f64(double %24, double %12, double %32)
+  %34 = call double @llvm.fmuladd.f64(double %27, double %13, double %33)
+  %arrayidx70.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %23
+  store double %34, ptr %arrayidx70.i.i.i, align 8, !alias.scope !549
+  %mul80.i.i.i = fmul double %15, %21
+  %35 = call double @llvm.fmuladd.f64(double %19, double %14, double %mul80.i.i.i)
+  %36 = call double @llvm.fmuladd.f64(double %24, double %16, double %35)
+  %37 = call double @llvm.fmuladd.f64(double %27, double %17, double %36)
+  %arrayidx94.i.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %26
+  store double %37, ptr %arrayidx94.i.i.i, align 8, !alias.scope !549
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
   br i1 %exitcond.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !197
@@ -23920,185 +24668,185 @@ invoke.cont4:                                     ; preds = %invoke.cont.i
   %mJacobianInv4.i = getelementptr inbounds i8, ptr %this, i64 2704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv4.i, ptr noundef nonnull align 8 dereferenceable(72) %mJacobianInv.i, i64 72, i1 false)
   %mDeterminant.i = getelementptr inbounds i8, ptr %ref.tmp, i64 336
-  %34 = load double, ptr %mDeterminant.i, align 8
+  %38 = load double, ptr %mDeterminant.i, align 8
   %mDeterminant5.i = getelementptr inbounds i8, ptr %this, i64 2776
-  store double %34, ptr %mDeterminant5.i, align 8
+  store double %38, ptr %mDeterminant5.i, align 8
   %mVoxelSize.i = getelementptr inbounds i8, ptr %ref.tmp, i64 344
   %mVoxelSize6.i = getelementptr inbounds i8, ptr %this, i64 2784
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize6.i, ptr noundef nonnull align 8 dereferenceable(24) %mVoxelSize.i, i64 24, i1 false)
   %mIsDiagonal.i = getelementptr inbounds i8, ptr %ref.tmp, i64 368
-  %35 = load i8, ptr %mIsDiagonal.i, align 8
+  %39 = load i8, ptr %mIsDiagonal.i, align 8
   %mIsDiagonal7.i = getelementptr inbounds i8, ptr %this, i64 2808
-  %frombool.i = and i8 %35, 1
+  %frombool.i = and i8 %39, 1
   store i8 %frombool.i, ptr %mIsDiagonal7.i, align 8
   %mIsIdentity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 369
-  %36 = load i8, ptr %mIsIdentity.i, align 1
+  %40 = load i8, ptr %mIsIdentity.i, align 1
   %mIsIdentity9.i = getelementptr inbounds i8, ptr %this, i64 2809
-  %frombool10.i = and i8 %36, 1
+  %frombool10.i = and i8 %40, 1
   store i8 %frombool10.i, ptr %mIsIdentity9.i, align 1
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %second, i64 8
-  %37 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %37, null
+  %41 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i = icmp eq i64 %38, 4294967297
-  %39 = trunc i64 %38 to i32
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i = icmp eq i64 %42, 4294967297
+  %43 = trunc i64 %42 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %44 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %41, 0
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.i.i.i.i.i = add nsw i32 %39, -1
+  %add.i.i.i.i.i = add nsw i32 %43, -1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %42 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %46 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.i.0.i.i.i.i = phi i32 [ %39, %if.then.i.i.i.i.i ], [ %42, %if.else.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
-  %43 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %44, 0
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %45 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %45, -1
+  %49 = load i32, ptr %_M_weak_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %49, -1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
-  %46 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %50 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i ], [ %46, %if.else.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i = phi i32 [ %49, %if.then.i.i.i.i.i.i.i ], [ %50, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %37, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %41, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
-  %47 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  %51 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i4 = getelementptr inbounds i8, ptr %first, i64 8
-  %48 = load ptr, ptr %_M_refcount.i.i4, align 8
-  %cmp.not.i.i.i5 = icmp eq ptr %48, null
+  %52 = load ptr, ptr %_M_refcount.i.i4, align 8
+  %cmp.not.i.i.i5 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i5, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit
-  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
-  %cmp.i.i.i.i8 = icmp eq i64 %49, 4294967297
-  %50 = trunc i64 %49 to i32
+  %_M_use_count.i.i.i.i7 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = load atomic i64, ptr %_M_use_count.i.i.i.i7 acquire, align 8
+  %cmp.i.i.i.i8 = icmp eq i64 %53, 4294967297
+  %54 = trunc i64 %53 to i32
   br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i31, label %if.end.i.i.i.i9
 
 if.then.i.i.i.i31:                                ; preds = %if.then.i.i.i6
   store i32 0, ptr %_M_use_count.i.i.i.i7, align 8
-  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %48, i64 12
+  %_M_weak_count.i.i.i.i32 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i32, align 4
-  %vtable.i.i.i.i33 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i33 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i.i33, i64 16
-  %51 = load ptr, ptr %vfn.i.i.i.i34, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %55 = load ptr, ptr %vfn.i.i.i.i34, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %if.end8.sink.split.i.i.i.i26
 
 if.end.i.i.i.i9:                                  ; preds = %if.then.i.i.i6
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %52, 0
+  %56 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i10 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i10, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i11
 
 if.then.i.i.i.i.i11:                              ; preds = %if.end.i.i.i.i9
-  %add.i.i.i.i.i12 = add nsw i32 %50, -1
+  %add.i.i.i.i.i12 = add nsw i32 %54, -1
   store i32 %add.i.i.i.i.i12, ptr %_M_use_count.i.i.i.i7, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 if.else.i.i.i.i.i30:                              ; preds = %if.end.i.i.i.i9
-  %53 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
+  %57 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i7, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %if.else.i.i.i.i.i30, %if.then.i.i.i.i.i11
-  %retval.i.0.i.i.i.i14 = phi i32 [ %50, %if.then.i.i.i.i.i11 ], [ %53, %if.else.i.i.i.i.i30 ]
+  %retval.i.0.i.i.i.i14 = phi i32 [ %54, %if.then.i.i.i.i.i11 ], [ %57, %if.else.i.i.i.i.i30 ]
   %cmp6.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i14, 1
   br i1 %cmp6.i.i.i.i15, label %if.then7.i.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.then7.i.i.i.i16:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
-  %vtable.i.i.i.i.i.i17 = load ptr, ptr %48, align 8
+  %vtable.i.i.i.i.i.i17 = load ptr, ptr %52, align 8
   %vfn.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i17, i64 16
-  %54 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
-  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %48, i64 12
-  %55 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %55, 0
+  %58 = load ptr, ptr %vfn.i.i.i.i.i.i18, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
+  %_M_weak_count.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %52, i64 12
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i20 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i20, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i21
 
 if.then.i.i.i.i.i.i.i21:                          ; preds = %if.then7.i.i.i.i16
-  %56 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
-  %add.i.i.i.i.i.i.i22 = add nsw i32 %56, -1
+  %60 = load i32, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
+  %add.i.i.i.i.i.i.i22 = add nsw i32 %60, -1
   store i32 %add.i.i.i.i.i.i.i22, ptr %_M_weak_count.i.i.i.i.i.i19, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 if.else.i.i.i.i.i.i.i29:                          ; preds = %if.then7.i.i.i.i16
-  %57 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
+  %61 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i19, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23: ; preds = %if.else.i.i.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i21
-  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %56, %if.then.i.i.i.i.i.i.i21 ], [ %57, %if.else.i.i.i.i.i.i.i29 ]
+  %retval.i.0.i.i.i.i.i.i24 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i21 ], [ %61, %if.else.i.i.i.i.i.i.i29 ]
   %cmp.i.i.i.i.i.i25 = icmp eq i32 %retval.i.0.i.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i.i25, label %if.end8.sink.split.i.i.i.i26, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 if.end8.sink.split.i.i.i.i26:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.then.i.i.i.i31
-  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %48, align 8
+  %vtable2.i.i.i.i.i.i27 = load ptr, ptr %52, align 8
   %vfn3.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i27, i64 24
-  %58 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #25
+  %62 = load ptr, ptr %vfn3.i.i.i.i.i.i28, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #25
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35
 
 _ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit35: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i23, %if.end8.sink.split.i.i.i.i26
   ret void
 
 lpad:                                             ; preds = %entry
-  %59 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont.i
-  %60 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %second) #25
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %60, %lpad3 ], [ %59, %lpad ]
+  %.pn = phi { ptr, i32 } [ %64, %lpad3 ], [ %63, %lpad ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %first) #25
   resume { ptr, i32 } %.pn
 }
@@ -24259,15 +25007,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

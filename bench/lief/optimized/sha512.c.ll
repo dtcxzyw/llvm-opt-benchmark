@@ -58,18 +58,30 @@ define hidden noundef i32 @mbedtls_sha512_starts(ptr nocapture noundef writeonly
   br label %5
 
 5:                                                ; preds = %2, %4
-  %6 = phi <2 x i64> [ <i64 -3766243637369397544, i64 7105036623409894663>, %4 ], [ <i64 7640891576956012808, i64 -4942790177534073029>, %2 ]
-  %7 = phi <2 x i64> [ <i64 -7973340178411365097, i64 1526699215303891257>, %4 ], [ <i64 4354685564936845355, i64 -6534734903238641935>, %2 ]
-  %8 = phi <2 x i64> [ <i64 7436329637833083697, i64 -8163818279084223215>, %4 ], [ <i64 5840696475078001361, i64 -7276294671716946913>, %2 ]
-  %9 = phi <2 x i64> [ <i64 -2662702644619276377, i64 5167115440072839076>, %4 ], [ <i64 2270897969802886507, i64 6620516959819538809>, %2 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x i64> %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  store <2 x i64> %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  store <2 x i64> %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  store <2 x i64> %9, ptr %13, align 8
+  %.sink26 = phi i64 [ -3766243637369397544, %4 ], [ 7640891576956012808, %2 ]
+  %.sink25 = phi i64 [ 7105036623409894663, %4 ], [ -4942790177534073029, %2 ]
+  %.sink24 = phi i64 [ -7973340178411365097, %4 ], [ 4354685564936845355, %2 ]
+  %.sink23 = phi i64 [ 1526699215303891257, %4 ], [ -6534734903238641935, %2 ]
+  %.sink22 = phi i64 [ 7436329637833083697, %4 ], [ 5840696475078001361, %2 ]
+  %.sink21 = phi i64 [ -8163818279084223215, %4 ], [ -7276294671716946913, %2 ]
+  %.sink20 = phi i64 [ -2662702644619276377, %4 ], [ 2270897969802886507, %2 ]
+  %.sink = phi i64 [ 5167115440072839076, %4 ], [ 6620516959819538809, %2 ]
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink26, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink25, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sink24, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.sink23, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sink22, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %.sink21, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.sink20, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %.sink, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 %1, ptr %14, align 8
   ret i32 0
@@ -1010,18 +1022,30 @@ define hidden range(i32 -1, 1) i32 @mbedtls_sha512(ptr nocapture noundef readonl
   br label %mbedtls_sha512_starts.exit
 
 mbedtls_sha512_starts.exit:                       ; preds = %4, %7
-  %8 = phi <2 x i64> [ <i64 -3766243637369397544, i64 7105036623409894663>, %7 ], [ <i64 7640891576956012808, i64 -4942790177534073029>, %4 ]
-  %9 = phi <2 x i64> [ <i64 -7973340178411365097, i64 1526699215303891257>, %7 ], [ <i64 4354685564936845355, i64 -6534734903238641935>, %4 ]
-  %10 = phi <2 x i64> [ <i64 7436329637833083697, i64 -8163818279084223215>, %7 ], [ <i64 5840696475078001361, i64 -7276294671716946913>, %4 ]
-  %11 = phi <2 x i64> [ <i64 -2662702644619276377, i64 5167115440072839076>, %7 ], [ <i64 2270897969802886507, i64 6620516959819538809>, %4 ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x i64> %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x i64> %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
-  store <2 x i64> %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
-  store <2 x i64> %11, ptr %15, align 8
+  %.sink26.i = phi i64 [ -3766243637369397544, %7 ], [ 7640891576956012808, %4 ]
+  %.sink25.i = phi i64 [ 7105036623409894663, %7 ], [ -4942790177534073029, %4 ]
+  %.sink24.i = phi i64 [ -7973340178411365097, %7 ], [ 4354685564936845355, %4 ]
+  %.sink23.i = phi i64 [ 1526699215303891257, %7 ], [ -6534734903238641935, %4 ]
+  %.sink22.i = phi i64 [ 7436329637833083697, %7 ], [ 5840696475078001361, %4 ]
+  %.sink21.i = phi i64 [ -8163818279084223215, %7 ], [ -7276294671716946913, %4 ]
+  %.sink20.i = phi i64 [ -2662702644619276377, %7 ], [ 2270897969802886507, %4 ]
+  %.sink.i = phi i64 [ 5167115440072839076, %7 ], [ 6620516959819538809, %4 ]
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %.sink26.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %.sink25.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 %.sink24.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 %.sink23.i, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  store i64 %.sink22.i, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 56
+  store i64 %.sink21.i, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  store i64 %.sink20.i, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 72
+  store i64 %.sink.i, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 208
   store i32 %3, ptr %16, align 8
   %17 = icmp eq i64 %1, 0
@@ -1099,12 +1123,16 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) loc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, i8 0, i64 216, i1 false)
   %.not37 = icmp eq i32 %0, 0
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
-  %13 = getelementptr inbounds i8, ptr %3, i64 208
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %14 = getelementptr inbounds i8, ptr %3, i64 56
+  %15 = getelementptr inbounds i8, ptr %3, i64 64
+  %16 = getelementptr inbounds i8, ptr %3, i64 72
+  %17 = getelementptr inbounds i8, ptr %3, i64 208
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 80
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %8
@@ -1112,34 +1140,42 @@ define hidden range(i32 -1, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) loc
   %indvars90 = trunc i64 %indvars.iv to i32
   %.urem = add nsw i32 %indvars90, -3
   %.cmp = icmp ult i64 %indvars.iv, 3
-  %16 = select i1 %.cmp, i32 %indvars90, i32 %.urem
-  %17 = zext i1 %.cmp to i32
-  br i1 %.not37, label %22, label %18
+  %20 = select i1 %.cmp, i32 %indvars90, i32 %.urem
+  %21 = zext i1 %.cmp to i32
+  br i1 %.not37, label %26, label %22
 
-18:                                               ; preds = %.backedge
-  %19 = select i1 %.cmp, i32 384, i32 512
-  %20 = add nuw nsw i32 %16, 1
-  %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19, i32 noundef %20)
-  br label %22
+22:                                               ; preds = %.backedge
+  %23 = select i1 %.cmp, i32 384, i32 512
+  %24 = add nuw nsw i32 %20, 1
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %23, i32 noundef %24)
+  br label %26
 
-22:                                               ; preds = %18, %.backedge
+26:                                               ; preds = %22, %.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br i1 %.cmp, label %23, label %mbedtls_sha512_starts.exit
+  br i1 %.cmp, label %27, label %mbedtls_sha512_starts.exit
 
-23:                                               ; preds = %22
+27:                                               ; preds = %26
   br label %mbedtls_sha512_starts.exit
 
-mbedtls_sha512_starts.exit:                       ; preds = %22, %23
-  %24 = phi <2 x i64> [ <i64 -3766243637369397544, i64 7105036623409894663>, %23 ], [ <i64 7640891576956012808, i64 -4942790177534073029>, %22 ]
-  %25 = phi <2 x i64> [ <i64 -7973340178411365097, i64 1526699215303891257>, %23 ], [ <i64 4354685564936845355, i64 -6534734903238641935>, %22 ]
-  %26 = phi <2 x i64> [ <i64 7436329637833083697, i64 -8163818279084223215>, %23 ], [ <i64 5840696475078001361, i64 -7276294671716946913>, %22 ]
-  %27 = phi <2 x i64> [ <i64 -2662702644619276377, i64 5167115440072839076>, %23 ], [ <i64 2270897969802886507, i64 6620516959819538809>, %22 ]
-  store <2 x i64> %24, ptr %9, align 8
-  store <2 x i64> %25, ptr %10, align 8
-  store <2 x i64> %26, ptr %11, align 8
-  store <2 x i64> %27, ptr %12, align 8
-  store i32 %17, ptr %13, align 8
-  %28 = icmp eq i32 %16, 2
+mbedtls_sha512_starts.exit:                       ; preds = %26, %27
+  %.sink26.i = phi i64 [ -3766243637369397544, %27 ], [ 7640891576956012808, %26 ]
+  %.sink25.i = phi i64 [ 7105036623409894663, %27 ], [ -4942790177534073029, %26 ]
+  %.sink24.i = phi i64 [ -7973340178411365097, %27 ], [ 4354685564936845355, %26 ]
+  %.sink23.i = phi i64 [ 1526699215303891257, %27 ], [ -6534734903238641935, %26 ]
+  %.sink22.i = phi i64 [ 7436329637833083697, %27 ], [ 5840696475078001361, %26 ]
+  %.sink21.i = phi i64 [ -8163818279084223215, %27 ], [ -7276294671716946913, %26 ]
+  %.sink20.i = phi i64 [ -2662702644619276377, %27 ], [ 2270897969802886507, %26 ]
+  %.sink.i = phi i64 [ 5167115440072839076, %27 ], [ 6620516959819538809, %26 ]
+  store i64 %.sink26.i, ptr %9, align 8
+  store i64 %.sink25.i, ptr %10, align 8
+  store i64 %.sink24.i, ptr %11, align 8
+  store i64 %.sink23.i, ptr %12, align 8
+  store i64 %.sink22.i, ptr %13, align 8
+  store i64 %.sink21.i, ptr %14, align 8
+  store i64 %.sink20.i, ptr %15, align 8
+  store i64 %.sink.i, ptr %16, align 8
+  store i32 %21, ptr %17, align 8
+  %28 = icmp eq i32 %20, 2
   br i1 %28, label %29, label %._crit_edge.thread.i52
 
 29:                                               ; preds = %mbedtls_sha512_starts.exit
@@ -1159,9 +1195,9 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %30
-  %39 = load i64, ptr %14, align 8
+  %39 = load i64, ptr %18, align 8
   %40 = add i64 %39, 1
-  store i64 %40, ptr %14, align 8
+  store i64 %40, ptr %18, align 8
   br label %41
 
 41:                                               ; preds = %38, %30
@@ -1170,9 +1206,9 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
 
 42:                                               ; preds = %41
   %43 = and i64 %31, 127
-  %44 = getelementptr inbounds i8, ptr %15, i64 %43
+  %44 = getelementptr inbounds i8, ptr %19, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %35, i1 false)
-  %45 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef nonnull %15)
+  %45 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef nonnull %19)
   %46 = getelementptr inbounds i8, ptr %4, i64 %35
   %47 = sub nuw nsw i64 1000, %35
   br label %.lr.ph.i.preheader.i.preheader
@@ -1213,7 +1249,7 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %.lr.ph.i.i
   br i1 %.not47.i, label %58, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %55, i64 %56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %55, i64 %56, i1 false)
   br label %58
 
 58:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
@@ -1222,12 +1258,12 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %.lr.ph.i.i
   br i1 %exitcond.not, label %mbedtls_sha512_update.exit65.thread, label %30, !llvm.loop !11
 
 ._crit_edge.thread.i52:                           ; preds = %mbedtls_sha512_starts.exit
-  %60 = zext nneg i32 %16 to i64
+  %60 = zext nneg i32 %20 to i64
   %61 = getelementptr inbounds [3 x [113 x i8]], ptr @sha512_test_buf, i64 0, i64 %60
   %62 = getelementptr inbounds [3 x i64], ptr @sha512_test_buflen, i64 0, i64 %60
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %61, i64 %63, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %61, i64 %63, i1 false)
   br label %mbedtls_sha512_update.exit65.thread
 
 mbedtls_sha512_update.exit65.thread:              ; preds = %58, %._crit_edge.thread.i52

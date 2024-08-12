@@ -1998,10 +1998,10 @@ declare void @_ZNK5Yosys5RTLIL6Design22selected_whole_modulesEv(ptr dead_on_unwi
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_113attrmap_applyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt10unique_ptrINS_13AttrmapActionESt14default_deleteIS8_EESaISB_EERN5Yosys7hashlib4dictINSF_5RTLIL8IdStringENSI_5ConstENSG_8hash_opsISJ_EEEE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(49) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.Yosys::hashlib::dict.61", align 16
+  %4 = alloca %"class.Yosys::hashlib::dict.61", align 8
   %5 = alloca %"struct.std::pair.204", align 8
   %6 = alloca %"struct.std::pair.204", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -2372,38 +2372,54 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_5ConstEED2Ev.exit33: ; preds = %_ZN5Yosys5
   br label %.body
 
 ._crit_edge59.loopexit:                           ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_5ConstEED2Ev.exit33
-  %148 = load <2 x ptr>, ptr %4, align 16
+  %.pre64 = load ptr, ptr %4, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.pre65 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert66 = getelementptr inbounds i8, ptr %4, i64 16
+  %.pre67 = load ptr, ptr %.phi.trans.insert66, align 8
   %.pre68 = load ptr, ptr %7, align 8
   %.pre69 = load ptr, ptr %8, align 8
-  %149 = load <2 x ptr>, ptr %.phi.trans.insert66, align 16
+  %.phi.trans.insert70 = getelementptr inbounds i8, ptr %4, i64 24
+  %.pre71 = load ptr, ptr %.phi.trans.insert70, align 8
   %.phi.trans.insert72 = getelementptr inbounds i8, ptr %4, i64 32
-  %150 = load <2 x ptr>, ptr %.phi.trans.insert72, align 16
+  %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8
+  %.phi.trans.insert74 = getelementptr inbounds i8, ptr %4, i64 40
+  %.pre75 = load ptr, ptr %.phi.trans.insert74, align 8
   br label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %._crit_edge59.loopexit, %3
+  %148 = phi ptr [ %.pre75, %._crit_edge59.loopexit ], [ null, %3 ]
+  %149 = phi ptr [ %.pre73, %._crit_edge59.loopexit ], [ null, %3 ]
+  %150 = phi ptr [ %.pre71, %._crit_edge59.loopexit ], [ null, %3 ]
   %151 = phi ptr [ %.pre69, %._crit_edge59.loopexit ], [ %9, %3 ]
   %152 = phi ptr [ %.pre68, %._crit_edge59.loopexit ], [ %10, %3 ]
-  %153 = phi <2 x ptr> [ %148, %._crit_edge59.loopexit ], [ zeroinitializer, %3 ]
-  %154 = phi <2 x ptr> [ %149, %._crit_edge59.loopexit ], [ zeroinitializer, %3 ]
-  %155 = phi <2 x ptr> [ %150, %._crit_edge59.loopexit ], [ zeroinitializer, %3 ]
-  %156 = getelementptr inbounds i8, ptr %2, i64 16
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %4, i64 16
-  %159 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %153, ptr %2, align 8
-  store <2 x ptr> %159, ptr %4, align 16
-  store ptr %157, ptr %158, align 16
-  %160 = getelementptr inbounds i8, ptr %4, i64 24
-  %161 = getelementptr inbounds i8, ptr %2, i64 40
-  %162 = load ptr, ptr %161, align 8
-  store <2 x ptr> %154, ptr %156, align 8
-  %163 = getelementptr inbounds i8, ptr %4, i64 32
-  %164 = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x ptr> %155, ptr %8, align 8
-  store ptr %152, ptr %160, align 8
-  store ptr %151, ptr %163, align 16
-  store ptr %162, ptr %164, align 8
+  %153 = phi ptr [ %.pre67, %._crit_edge59.loopexit ], [ null, %3 ]
+  %154 = phi ptr [ %.pre65, %._crit_edge59.loopexit ], [ null, %3 ]
+  %155 = phi ptr [ %.pre64, %._crit_edge59.loopexit ], [ null, %3 ]
+  %156 = load ptr, ptr %2, align 8
+  %157 = getelementptr inbounds i8, ptr %2, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %2, i64 16
+  %160 = load ptr, ptr %159, align 8
+  store ptr %155, ptr %2, align 8
+  %161 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %154, ptr %157, align 8
+  %162 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %153, ptr %159, align 8
+  store ptr %156, ptr %4, align 8
+  store ptr %158, ptr %161, align 8
+  store ptr %160, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %4, i64 24
+  %164 = getelementptr inbounds i8, ptr %2, i64 40
+  %165 = load ptr, ptr %164, align 8
+  store ptr %150, ptr %7, align 8
+  %166 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %149, ptr %8, align 8
+  %167 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %148, ptr %164, align 8
+  store ptr %152, ptr %163, align 8
+  store ptr %151, ptr %166, align 8
+  store ptr %165, ptr %167, align 8
   call void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %4) #22
   ret void
 

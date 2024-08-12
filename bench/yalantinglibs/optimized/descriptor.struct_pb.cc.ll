@@ -56553,35 +56553,47 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZSt19__relocate_object_aIN6google8protobuf19EnumDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit: ; preds = %for.body, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
   %value.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 40
   %value3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 40
-  %7 = load <2 x ptr>, ptr %value3.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store <2 x ptr> %7, ptr %value.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %7 = load ptr, ptr %value3.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %7, ptr %value.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 48
+  %_M_finish3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 48
+  %8 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %8, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 56
   %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 56
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value3.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !111, !noalias !108
   %options.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 64
   %options4.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 64
-  %9 = load i64, ptr %options4.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store i64 %9, ptr %options.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %10 = load i64, ptr %options4.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store i64 %10, ptr %options.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   store ptr null, ptr %options4.i.i.i.i, align 8, !alias.scope !111, !noalias !108
   %reserved_range.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 72
   %reserved_range5.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 72
-  %10 = load <2 x ptr>, ptr %reserved_range5.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store <2 x ptr> %10, ptr %reserved_range.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %11 = load ptr, ptr %reserved_range5.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %11, ptr %reserved_range.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %_M_finish.i.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 80
+  %_M_finish3.i.i.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 80
+  %12 = load ptr, ptr %_M_finish3.i.i.i.i6.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %12, ptr %_M_finish.i.i.i.i5.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   %_M_end_of_storage.i.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 88
   %_M_end_of_storage4.i.i.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 88
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range5.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !111, !noalias !108
   %reserved_name.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 96
   %reserved_name6.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 96
-  %12 = load <2 x ptr>, ptr %reserved_name6.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store <2 x ptr> %12, ptr %reserved_name.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %14 = load ptr, ptr %reserved_name6.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %14, ptr %reserved_name.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %_M_finish.i.i.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 104
+  %_M_finish3.i.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 104
+  %15 = load ptr, ptr %_M_finish3.i.i.i.i10.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %15, ptr %_M_finish.i.i.i.i9.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   %_M_end_of_storage.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07, i64 112
   %_M_end_of_storage4.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06, i64 112
-  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i, align 8, !alias.scope !111, !noalias !108
-  store ptr %13, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i, align 8, !alias.scope !108, !noalias !111
+  %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i, align 8, !alias.scope !111, !noalias !108
+  store ptr %16, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i, align 8, !alias.scope !108, !noalias !111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name6.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !111, !noalias !108
   tail call void @_ZN6google8protobuf19EnumDescriptorProtoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.06) #18
   %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.06, i64 120
@@ -56687,17 +56699,21 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
   %method.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %method3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
-  %10 = load <2 x ptr>, ptr %method3.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
-  store <2 x ptr> %10, ptr %method.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
+  %10 = load ptr, ptr %method3.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
+  store ptr %10, ptr %method.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
+  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
+  store ptr %11, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %method3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !118, !noalias !115
   %options.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
   %options4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
-  %12 = load i64, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
-  store i64 %12, ptr %options.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
+  %13 = load i64, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
+  store i64 %13, ptr %options.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
   store ptr null, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
   tail call void @_ZN6google8protobuf22ServiceDescriptorProtoD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.06.i.i.i) #18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 72
@@ -56719,61 +56735,65 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %_M_engaged.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !122, !noalias !125
-  %13 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !125, !noalias !122
-  %tobool.i.i.i.i.i.i.i.i.i.i.i.i17 = trunc i8 %13 to i1
+  %14 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !125, !noalias !122
+  %tobool.i.i.i.i.i.i.i.i.i.i.i.i17 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i.i17, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i31, label %_ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i31:                ; preds = %for.body.i.i.i12
-  %14 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #18
-  store ptr %14, ptr %__cur.07.i.i.i13, align 8, !alias.scope !122, !noalias !125
-  %15 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !125, !noalias !122
-  %16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %15, %16
+  store ptr %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !122, !noalias !125
+  %16 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !125, !noalias !122
+  %17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i33
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39:          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i31
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i40, align 8, !alias.scope !125, !noalias !122
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i41 = icmp ult i64 %17, 16
+  %18 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i40, align 8, !alias.scope !125, !noalias !122
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i41 = icmp ult i64 %18, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i41)
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42 = add nuw nsw i64 %17, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %16, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42, i1 false), !alias.scope !127
+  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42 = add nuw nsw i64 %18, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42, i1 false), !alias.scope !127
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i36
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i33:          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i31
-  store ptr %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !122, !noalias !125
-  %18 = load i64, ptr %16, align 8, !alias.scope !125, !noalias !122
-  store i64 %18, ptr %14, align 8, !alias.scope !122, !noalias !125
+  store ptr %16, ptr %__cur.07.i.i.i13, align 8, !alias.scope !122, !noalias !125
+  %19 = load i64, ptr %17, align 8, !alias.scope !125, !noalias !122
+  store i64 %19, ptr %15, align 8, !alias.scope !122, !noalias !125
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %.pre.i.i.i.i35 = load i64, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert.i.i.i.i34, align 8, !alias.scope !125, !noalias !122
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i36
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i36: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i33, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39
-  %19 = phi i64 [ %.pre.i.i.i.i35, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i33 ], [ %17, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39 ]
+  %20 = phi i64 [ %.pre.i.i.i.i35, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i33 ], [ %18, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i39 ]
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
-  store i64 %19, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38, align 8, !alias.scope !122, !noalias !125
-  store ptr %16, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !125, !noalias !122
+  store i64 %20, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38, align 8, !alias.scope !122, !noalias !125
+  store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !125, !noalias !122
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37, align 8, !alias.scope !125, !noalias !122
-  store i8 0, ptr %16, align 1, !alias.scope !125, !noalias !122
+  store i8 0, ptr %17, align 1, !alias.scope !125, !noalias !122
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !122, !noalias !125
   br label %_ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i18
 
 _ZSt19__relocate_object_aIN6google8protobuf22ServiceDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i18: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i36, %for.body.i.i.i12
   %method.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %method3.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
-  %20 = load <2 x ptr>, ptr %method3.i.i.i.i.i.i.i20, align 8, !alias.scope !125, !noalias !122
-  store <2 x ptr> %20, ptr %method.i.i.i.i.i.i.i19, align 8, !alias.scope !122, !noalias !125
+  %21 = load ptr, ptr %method3.i.i.i.i.i.i.i20, align 8, !alias.scope !125, !noalias !122
+  store ptr %21, ptr %method.i.i.i.i.i.i.i19, align 8, !alias.scope !122, !noalias !125
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 48
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 48
+  %22 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !125, !noalias !122
+  store ptr %22, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !122, !noalias !125
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 56
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 56
-  %21 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !125, !noalias !122
-  store ptr %21, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !122, !noalias !125
+  %23 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !125, !noalias !122
+  store ptr %23, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !122, !noalias !125
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %method3.i.i.i.i.i.i.i20, i8 0, i64 24, i1 false), !alias.scope !125, !noalias !122
   %options.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
   %options4.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64
-  %22 = load i64, ptr %options4.i.i.i.i.i.i.i26, align 8, !alias.scope !125, !noalias !122
-  store i64 %22, ptr %options.i.i.i.i.i.i.i25, align 8, !alias.scope !122, !noalias !125
+  %24 = load i64, ptr %options4.i.i.i.i.i.i.i26, align 8, !alias.scope !125, !noalias !122
+  store i64 %24, ptr %options.i.i.i.i.i.i.i25, align 8, !alias.scope !122, !noalias !125
   store ptr null, ptr %options4.i.i.i.i.i.i.i26, align 8, !alias.scope !125, !noalias !122
   tail call void @_ZN6google8protobuf22ServiceDescriptorProtoD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.06.i.i.i14) #18
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 72
@@ -58400,29 +58420,32 @@ _ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2
   %10 = phi i8 [ %.pre4.i.i.i.i, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %for.body.i.i.i ]
   %number.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %number3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %11 = load i64, ptr %number3.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
+  store i64 %11, ptr %number.i.i.i.i.i.i.i, align 8, !alias.scope !156, !noalias !159
+  %options.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %options4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
-  %11 = load <2 x i64>, ptr %number3.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
-  store <2 x i64> %11, ptr %number.i.i.i.i.i.i.i, align 8, !alias.scope !156, !noalias !159
+  %12 = load i64, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
+  store i64 %12, ptr %options.i.i.i.i.i.i.i, align 8, !alias.scope !156, !noalias !159
   store ptr null, ptr %options4.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
   %tobool.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN6google8protobuf24EnumValueDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
-  %12 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !159, !noalias !156
-  %13 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, %13
+  %13 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !159, !noalias !156
+  %14 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
+  %15 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !159, !noalias !156
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %15, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %12) #17
+  tail call void @_ZdlPv(ptr noundef %13) #17
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -58449,75 +58472,78 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %_M_engaged.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !163, !noalias !166
-  %15 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !166, !noalias !163
-  %tobool.i.i.i.i.i.i.i.i.i.i.i.i17 = trunc i8 %15 to i1
+  %16 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !166, !noalias !163
+  %tobool.i.i.i.i.i.i.i.i.i.i.i.i17 = trunc i8 %16 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i.i17, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i36, label %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i36:                ; preds = %for.body.i.i.i12
-  %16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #18
-  store ptr %16, ptr %__cur.07.i.i.i13, align 8, !alias.scope !163, !noalias !166
-  %17 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
-  %18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %17, %18
+  store ptr %17, ptr %__cur.07.i.i.i13, align 8, !alias.scope !163, !noalias !166
+  %18 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
+  %19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45:          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i36
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %19 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !166, !noalias !163
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i47 = icmp ult i64 %19, 16
+  %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i46, align 8, !alias.scope !166, !noalias !163
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i47 = icmp ult i64 %20, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i47)
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i48 = add nuw nsw i64 %19, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %18, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i48, i1 false), !alias.scope !168
+  %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i48 = add nuw nsw i64 %20, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %19, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i48, i1 false), !alias.scope !168
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38:          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i36
-  store ptr %17, ptr %__cur.07.i.i.i13, align 8, !alias.scope !163, !noalias !166
-  %20 = load i64, ptr %18, align 8, !alias.scope !166, !noalias !163
-  store i64 %20, ptr %16, align 8, !alias.scope !163, !noalias !166
+  store ptr %18, ptr %__cur.07.i.i.i13, align 8, !alias.scope !163, !noalias !166
+  %21 = load i64, ptr %19, align 8, !alias.scope !166, !noalias !163
+  store i64 %21, ptr %17, align 8, !alias.scope !163, !noalias !166
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %.pre.i.i.i.i40 = load i64, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert.i.i.i.i39, align 8, !alias.scope !166, !noalias !163
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45
-  %21 = phi i64 [ %.pre.i.i.i.i40, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38 ], [ %19, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45 ]
+  %22 = phi i64 [ %.pre.i.i.i.i40, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i38 ], [ %20, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45 ]
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
-  store i64 %21, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i43, align 8, !alias.scope !163, !noalias !166
-  store ptr %18, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
+  store i64 %22, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i43, align 8, !alias.scope !163, !noalias !166
+  store ptr %19, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i42, align 8, !alias.scope !166, !noalias !163
-  store i8 0, ptr %18, align 1, !alias.scope !166, !noalias !163
+  store i8 0, ptr %19, align 1, !alias.scope !166, !noalias !163
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !163, !noalias !166
   %.pre4.i.i.i.i44 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !166, !noalias !163
   br label %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18
 
 _ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41, %for.body.i.i.i12
-  %22 = phi i8 [ %.pre4.i.i.i.i44, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41 ], [ %15, %for.body.i.i.i12 ]
+  %23 = phi i8 [ %.pre4.i.i.i.i44, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i41 ], [ %16, %for.body.i.i.i12 ]
   %number.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %number3.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %24 = load i64, ptr %number3.i.i.i.i.i.i.i20, align 8, !alias.scope !166, !noalias !163
+  store i64 %24, ptr %number.i.i.i.i.i.i.i19, align 8, !alias.scope !163, !noalias !166
+  %options.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 48
   %options4.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 48
-  %23 = load <2 x i64>, ptr %number3.i.i.i.i.i.i.i20, align 8, !alias.scope !166, !noalias !163
-  store <2 x i64> %23, ptr %number.i.i.i.i.i.i.i19, align 8, !alias.scope !163, !noalias !166
+  %25 = load i64, ptr %options4.i.i.i.i.i.i.i22, align 8, !alias.scope !166, !noalias !163
+  store i64 %25, ptr %options.i.i.i.i.i.i.i21, align 8, !alias.scope !163, !noalias !166
   store ptr null, ptr %options4.i.i.i.i.i.i.i22, align 8, !alias.scope !166, !noalias !163
-  %tobool.i.i.i.i.i.i.i.i.i.i.i23 = trunc i8 %22 to i1
+  %tobool.i.i.i.i.i.i.i.i.i.i.i23 = trunc i8 %23 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i23, label %if.then.i.i.i.i.i.i.i.i.i.i.i29, label %_ZSt19__relocate_object_aIN6google8protobuf24EnumValueDescriptorProtoES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i24
 
 if.then.i.i.i.i.i.i.i.i.i.i.i29:                  ; preds = %_ZNSt10unique_ptrIN6google8protobuf16EnumValueOptionsESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i18
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !166, !noalias !163
-  %24 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
-  %25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %24, %25
+  %26 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !166, !noalias !163
+  %27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %26, %27
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i31
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i33: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i29
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %26 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !166, !noalias !163
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i35 = icmp ult i64 %26, 16
+  %28 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i34, align 8, !alias.scope !166, !noalias !163
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i35 = icmp ult i64 %28, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i35)
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i32
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i31:            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i29
-  tail call void @_ZdlPv(ptr noundef %24) #17
+  tail call void @_ZdlPv(ptr noundef %26) #17
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i32
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i32: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i33
@@ -59324,84 +59350,88 @@ _ZNSt12_Vector_baseIN6google8protobuf17GeneratedCodeInfo10AnnotationESaIS3_EE13_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN6google8protobuf17GeneratedCodeInfo10AnnotationES3_SaIS3_EEvPT_PT0_RT1_(ptr noalias noundef %__dest, ptr noalias noundef %__orig, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load <2 x ptr>, ptr %__orig, align 8
-  store <2 x ptr> %0, ptr %__dest, align 8
+  %0 = load ptr, ptr %__orig, align 8
+  store ptr %0, ptr %__dest, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 8
+  %_M_finish3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 8
+  %1 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
+  store ptr %1, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 16
-  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__orig, i8 0, i64 24, i1 false)
   %source_file.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 24
   %source_file3.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 24
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 56
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
-  %2 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i.i.i.i = trunc i8 %2 to i1
+  %3 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %entry
-  %3 = getelementptr inbounds i8, ptr %__dest, i64 40
+  %4 = getelementptr inbounds i8, ptr %__dest, i64 40
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %source_file.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %source_file3.i.i.i) #18
-  store ptr %3, ptr %source_file.i.i.i, align 8
-  %4 = load ptr, ptr %source_file3.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__orig, i64 40
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, %5
+  store ptr %4, ptr %source_file.i.i.i, align 8
+  %5 = load ptr, ptr %source_file3.i.i.i, align 8
+  %6 = getelementptr inbounds i8, ptr %__orig, i64 40
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 32
-  %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %6, 16
+  %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i)
-  %add.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %6, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  %add.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %7, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %add.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i
-  store ptr %4, ptr %source_file.i.i.i, align 8
-  %7 = load i64, ptr %5, align 8
-  store i64 %7, ptr %3, align 8
+  store ptr %5, ptr %source_file.i.i.i, align 8
+  %8 = load i64, ptr %6, align 8
+  store i64 %8, ptr %4, align 8
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %__orig, i64 32
   %.pre = load i64, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i.phi.trans.insert, align 8
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %8 = phi i64 [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %9 = phi i64 [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 32
   %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 32
-  store i64 %8, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %5, ptr %source_file3.i.i.i, align 8
+  store i64 %9, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %source_file3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i8 0, ptr %5, align 1
+  store i8 0, ptr %6, align 1
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   %.pre4 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %entry, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
-  %9 = phi i8 [ %2, %entry ], [ %.pre4, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i ]
+  %10 = phi i8 [ %3, %entry ], [ %.pre4, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i.i.i ]
   %begin.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 64
   %begin4.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %begin.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %begin4.i.i.i, i64 24, i1 false)
-  %tobool.i.i.i.i.i.i.i = trunc i8 %9 to i1
+  %tobool.i.i.i.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %source_file3.i.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %__orig, i64 40
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %11
+  %11 = load ptr, ptr %source_file3.i.i.i, align 8
+  %12 = getelementptr inbounds i8, ptr %__orig, i64 40
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 32
-  %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %12, 16
+  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %10) #17
+  tail call void @_ZdlPv(ptr noundef %11) #17
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
@@ -59409,12 +59439,12 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
-  %13 = load ptr, ptr %__orig, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %__orig, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE7destroyIS3_EEvRS4_PT_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #17
   br label %_ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE7destroyIS3_EEvRS4_PT_.exit
 
 _ZNSt16allocator_traitsISaIN6google8protobuf17GeneratedCodeInfo10AnnotationEEE7destroyIS3_EEvRS4_PT_.exit: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i, %if.then.i.i.i.i.i.i

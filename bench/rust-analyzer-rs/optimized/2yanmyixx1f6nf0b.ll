@@ -85,7 +85,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 
 5:                                                ; preds = %4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !12
+  %.sroa.0.0.copyload1 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !12
+  %.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0.copyload2 = load i64, ptr %.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !alias.scope !12
   %.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, i64 16, i1 false), !alias.scope !12
   %.sroa.43.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
@@ -96,41 +98,44 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 
 "_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit": ; preds = %4, %2, %5
   %.sroa.43.0 = phi i8 [ %.sroa.43.0.copyload4, %5 ], [ 1, %2 ], [ 1, %4 ]
-  %7 = phi <2 x i64> [ %6, %5 ], [ <i64 0, i64 2>, %2 ], [ <i64 0, i64 2>, %4 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload2, %5 ], [ 2, %2 ], [ 2, %4 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload1, %5 ], [ 0, %2 ], [ 0, %4 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %7, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %.sroa.0.0, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.3.0, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %.sroa.43.0, ptr %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
-  %8 = load i64, ptr %3, align 8, !range !13, !alias.scope !14, !noundef !17
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit", label %10
+  %6 = load i64, ptr %3, align 8, !range !13, !alias.scope !14, !noundef !17
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit", label %8
 
-10:                                               ; preds = %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit"
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8, !range !18, !alias.scope !19, !noundef !17
-  switch i64 %12, label %13 [
+8:                                                ; preds = %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit"
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = load i64, ptr %9, align 8, !range !18, !alias.scope !19, !noundef !17
+  switch i64 %10, label %11 [
     i64 2, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit"
     i64 0, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit"
   ]
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61423ac85d8fc56fE.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
   %.pre = load i64, ptr %0, align 8, !range !13
-  %15 = icmp ne i64 %.pre, 0
+  %13 = icmp ne i64 %.pre, 0
   br label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit"
 
-"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit": ; preds = %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit", %10, %10, %13
-  %16 = phi i1 [ true, %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit" ], [ true, %10 ], [ true, %10 ], [ %15, %13 ]
+"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit": ; preds = %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit", %8, %8, %11
+  %14 = phi i1 [ true, %"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604.exit" ], [ true, %8 ], [ true, %8 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.assume(i1 %16)
+  call void @llvm.assume(i1 %14)
   ret ptr %.sroa.2.0..sroa_idx
 }
 

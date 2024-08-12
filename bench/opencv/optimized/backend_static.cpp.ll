@@ -1288,14 +1288,14 @@ _ZN2cv20StaticBackendFactoryD2Ev.exit:            ; preds = %1, %20, %33, %_ZNSt
 define linkonce_odr hidden void @_ZNK2cv20StaticBackendFactory10getBackendEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !noalias !43
-  %6 = load <2 x ptr>, ptr %3, align 8, !noalias !43
-  %.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %3, align 8, !noalias !43
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8, !noalias !43
+  %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %_ZNK2cv3PtrINS_13StaticBackendEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
   %.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %.not.i.i.i.i.i.i, label %13, label %10
@@ -1311,7 +1311,9 @@ define linkonce_odr hidden void @_ZNK2cv20StaticBackendFactory10getBackendEv(ptr
   br label %_ZNK2cv3PtrINS_13StaticBackendEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_13StaticBackendEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit: ; preds = %2, %10, %13
-  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !40
+  store ptr %4, ptr %0, align 8, !alias.scope !40
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %15, align 8, !alias.scope !40
   ret void
 }
 
@@ -1789,14 +1791,14 @@ _ZN2cv30StaticBackendWithParamsFactoryD2Ev.exit:  ; preds = %1, %20, %33, %_ZNSt
 define linkonce_odr hidden void @_ZNK2cv30StaticBackendWithParamsFactory10getBackendEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !noalias !49
-  %6 = load <2 x ptr>, ptr %3, align 8, !noalias !49
-  %.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %3, align 8, !noalias !49
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8, !noalias !49
+  %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %_ZNK2cv3PtrINS_23StaticBackendWithParamsEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !49
   %.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %.not.i.i.i.i.i.i, label %13, label %10
@@ -1812,7 +1814,9 @@ define linkonce_odr hidden void @_ZNK2cv30StaticBackendWithParamsFactory10getBac
   br label %_ZNK2cv3PtrINS_23StaticBackendWithParamsEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_23StaticBackendWithParamsEE10staticCastINS_8IBackendEEENS0_IT_EEv.exit: ; preds = %2, %10, %13
-  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !46
+  store ptr %4, ptr %0, align 8, !alias.scope !46
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %15, align 8, !alias.scope !46
   ret void
 }
 

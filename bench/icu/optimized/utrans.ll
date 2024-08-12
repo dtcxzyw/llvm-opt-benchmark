@@ -740,14 +740,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = insertelement <4 x ptr> poison, ptr %trans, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %rep, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %repFunc, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %limit, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
-  %6 = bitcast <4 x i1> %5 to i4
-  %.not = icmp eq i4 %6, 0
-  br i1 %.not, label %if.end9, label %if.then8
+  %cmp1 = icmp eq ptr %trans, null
+  %cmp3 = icmp eq ptr %rep, null
+  %or.cond = or i1 %cmp1, %cmp3
+  %cmp5 = icmp eq ptr %repFunc, null
+  %or.cond1 = or i1 %or.cond, %cmp5
+  %cmp7 = icmp eq ptr %limit, null
+  %or.cond2 = or i1 %or.cond1, %cmp7
+  br i1 %or.cond2, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
   store i32 1, ptr %status, align 4
@@ -755,11 +755,11 @@ if.then8:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   call void @_ZN6icu_7515ReplaceableGlueC1EPPvPK21UReplaceableCallbacks(ptr noundef nonnull align 8 dereferenceable(24) %r, ptr noundef nonnull %rep, ptr noundef nonnull %repFunc)
-  %7 = load i32, ptr %limit, align 4
+  %1 = load i32, ptr %limit, align 4
   %vtable = load ptr, ptr %trans, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %8 = load ptr, ptr %vfn, align 8
-  %call10 = invoke noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef nonnull align 8 dereferenceable(8) %r, i32 noundef %start, i32 noundef %7)
+  %2 = load ptr, ptr %vfn, align 8
+  %call10 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef nonnull align 8 dereferenceable(8) %r, i32 noundef %start, i32 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end9
@@ -771,10 +771,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret void
 
 lpad:                                             ; preds = %if.end9
-  %9 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515ReplaceableGlueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %r) #9
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -790,14 +790,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %1 = insertelement <4 x ptr> poison, ptr %trans, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %rep, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %repFunc, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %pos, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
-  %6 = bitcast <4 x i1> %5 to i4
-  %.not = icmp eq i4 %6, 0
-  br i1 %.not, label %if.end9, label %if.then8
+  %cmp1 = icmp eq ptr %trans, null
+  %cmp3 = icmp eq ptr %rep, null
+  %or.cond = or i1 %cmp1, %cmp3
+  %cmp5 = icmp eq ptr %repFunc, null
+  %or.cond1 = or i1 %or.cond, %cmp5
+  %cmp7 = icmp eq ptr %pos, null
+  %or.cond2 = or i1 %or.cond1, %cmp7
+  br i1 %or.cond2, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
   store i32 1, ptr %status, align 4
@@ -807,8 +807,8 @@ if.end9:                                          ; preds = %if.end
   call void @_ZN6icu_7515ReplaceableGlueC1EPPvPK21UReplaceableCallbacks(ptr noundef nonnull align 8 dereferenceable(24) %r, ptr noundef nonnull %rep, ptr noundef nonnull %repFunc)
   %vtable = load ptr, ptr %trans, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
-  %7 = load ptr, ptr %vfn, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 4 dereferenceable(16) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %1 = load ptr, ptr %vfn, align 8
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 4 dereferenceable(16) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end9
@@ -819,10 +819,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret void
 
 lpad:                                             ; preds = %if.end9
-  %8 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515ReplaceableGlueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %r) #9
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable

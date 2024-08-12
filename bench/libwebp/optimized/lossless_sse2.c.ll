@@ -211,12 +211,20 @@ define internal i32 @Predictor11_SSE2(ptr nocapture noundef readonly %0, ptr noc
   %21 = bitcast <16 x i8> %20 to <8 x i16>
   %22 = bitcast <16 x i8> %19 to <8 x i16>
   %23 = sub nsw <8 x i16> %21, %22
-  %24 = shufflevector <8 x i16> %23, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %25 = sext <4 x i16> %24 to <4 x i32>
-  %26 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %25)
-  %27 = icmp slt i32 %26, 1
-  %28 = select i1 %27, i32 %3, i32 %4
-  ret i32 %28
+  %.sroa.0.0.vec.extract.i = extractelement <8 x i16> %23, i64 0
+  %24 = sext i16 %.sroa.0.0.vec.extract.i to i32
+  %.sroa.0.2.vec.extract.i = extractelement <8 x i16> %23, i64 1
+  %25 = sext i16 %.sroa.0.2.vec.extract.i to i32
+  %26 = add nsw i32 %24, %25
+  %.sroa.0.4.vec.extract.i = extractelement <8 x i16> %23, i64 2
+  %27 = sext i16 %.sroa.0.4.vec.extract.i to i32
+  %28 = add nsw i32 %26, %27
+  %.sroa.0.6.vec.extract.i = extractelement <8 x i16> %23, i64 3
+  %29 = sext i16 %.sroa.0.6.vec.extract.i to i32
+  %30 = add nsw i32 %28, %29
+  %31 = icmp slt i32 %30, 1
+  %32 = select i1 %31, i32 %3, i32 %4
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -314,7 +322,7 @@ define internal void @PredictorAdd0_SSE2(ptr noundef %0, ptr nocapture readnone 
   %14 = getelementptr inbounds i32, ptr %0, i64 %13
   %15 = sub nsw i32 %2, %.0.lcssa
   %16 = getelementptr inbounds i32, ptr %3, i64 %13
-  tail call void %12(ptr noundef %14, ptr noundef null, i32 noundef %15, ptr noundef %16) #8
+  tail call void %12(ptr noundef %14, ptr noundef null, i32 noundef %15, ptr noundef %16) #7
   br label %17
 
 17:                                               ; preds = %11, %._crit_edge
@@ -371,7 +379,7 @@ define internal void @PredictorAdd1_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %26 = getelementptr inbounds i32, ptr %1, i64 %24
   %27 = sub nsw i32 %2, %.0.lcssa
   %28 = getelementptr inbounds i32, ptr %3, i64 %24
-  tail call void %23(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28) #8
+  tail call void %23(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28) #7
   br label %29
 
 29:                                               ; preds = %22, %._crit_edge
@@ -418,7 +426,7 @@ define internal void @PredictorAdd2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %17 = getelementptr inbounds i32, ptr %1, i64 %15
   %18 = sub nsw i32 %2, %.0.lcssa
   %19 = getelementptr inbounds i32, ptr %3, i64 %15
-  tail call void %14(ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %19) #8
+  tail call void %14(ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %19) #7
   br label %20
 
 20:                                               ; preds = %13, %._crit_edge
@@ -466,7 +474,7 @@ define internal void @PredictorAdd3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %18 = getelementptr inbounds i32, ptr %1, i64 %16
   %19 = sub nsw i32 %2, %.0.lcssa
   %20 = getelementptr inbounds i32, ptr %3, i64 %16
-  tail call void %15(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20) #8
+  tail call void %15(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20) #7
   br label %21
 
 21:                                               ; preds = %14, %._crit_edge
@@ -514,7 +522,7 @@ define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %16 = getelementptr inbounds i32, ptr %1, i64 %14
   %17 = sub nsw i32 %2, %.0.lcssa
   %18 = getelementptr inbounds i32, ptr %3, i64 %14
-  tail call void %13(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18) #8
+  tail call void %13(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18) #7
   br label %19
 
 19:                                               ; preds = %12, %._crit_edge
@@ -725,7 +733,7 @@ define internal void @PredictorAdd8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %26 = getelementptr inbounds i32, ptr %1, i64 %24
   %27 = sub nsw i32 %2, %.0.lcssa
   %28 = getelementptr inbounds i32, ptr %3, i64 %24
-  tail call void %23(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28) #8
+  tail call void %23(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28) #7
   br label %29
 
 29:                                               ; preds = %22, %._crit_edge
@@ -782,7 +790,7 @@ define internal void @PredictorAdd9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %27 = getelementptr inbounds i32, ptr %1, i64 %25
   %28 = sub nsw i32 %2, %.0.lcssa
   %29 = getelementptr inbounds i32, ptr %3, i64 %25
-  tail call void %24(ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %29) #8
+  tail call void %24(ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %29) #7
   br label %30
 
 30:                                               ; preds = %23, %._crit_edge
@@ -805,7 +813,7 @@ define internal void @PredictorAdd10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv129 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next130, %.lr.ph ]
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0120127 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %81, %.lr.ph ]
+  %.0120127 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %84, %.lr.ph ]
   %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv129
   %11 = load <16 x i8>, ptr %10, align 1
   %12 = getelementptr i32, ptr %1, i64 %indvars.iv129
@@ -835,78 +843,85 @@ define internal void @PredictorAdd10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %36 = sub <16 x i8> %33, %35
   %37 = add <16 x i8> %36, %11
   %38 = bitcast <16 x i8> %37 to <4 x i32>
-  %39 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv129
-  %40 = shufflevector <16 x i8> %25, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %41 = shufflevector <16 x i8> %27, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %42 = shufflevector <16 x i8> %11, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %43 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %37, <16 x i8> %41)
-  %44 = xor <16 x i8> %37, %41
-  %45 = and <16 x i8> %44, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %46 = sub <16 x i8> %43, %45
-  %47 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %40, <16 x i8> %46)
-  %48 = xor <16 x i8> %46, %40
-  %49 = and <16 x i8> %48, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %50 = sub <16 x i8> %47, %49
-  %51 = add <16 x i8> %50, %42
-  %52 = bitcast <16 x i8> %51 to <4 x i32>
-  %53 = shufflevector <4 x i32> %38, <4 x i32> %52, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %53, ptr %39, align 4
-  %54 = shufflevector <16 x i8> %40, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %55 = shufflevector <16 x i8> %41, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %56 = shufflevector <16 x i8> %42, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %57 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %51, <16 x i8> %55)
-  %58 = xor <16 x i8> %51, %55
-  %59 = and <16 x i8> %58, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %60 = sub <16 x i8> %57, %59
-  %61 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %54, <16 x i8> %60)
-  %62 = xor <16 x i8> %60, %54
-  %63 = and <16 x i8> %62, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %64 = sub <16 x i8> %61, %63
-  %65 = add <16 x i8> %64, %56
-  %66 = bitcast <16 x i8> %65 to <4 x i32>
-  %67 = or disjoint i64 %indvars.iv129, 2
-  %68 = getelementptr inbounds i32, ptr %3, i64 %67
-  %69 = shufflevector <16 x i8> %54, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %70 = shufflevector <16 x i8> %55, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %71 = shufflevector <16 x i8> %56, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %72 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %65, <16 x i8> %70)
-  %73 = xor <16 x i8> %65, %70
-  %74 = and <16 x i8> %73, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %75 = sub <16 x i8> %72, %74
-  %76 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %69, <16 x i8> %75)
-  %77 = xor <16 x i8> %75, %69
-  %78 = and <16 x i8> %77, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %79 = sub <16 x i8> %76, %78
-  %80 = add <16 x i8> %79, %71
-  %81 = bitcast <16 x i8> %80 to <2 x i64>
-  %82 = bitcast <16 x i8> %80 to <4 x i32>
-  %83 = shufflevector <4 x i32> %66, <4 x i32> %82, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %83, ptr %68, align 4
+  %39 = extractelement <4 x i32> %38, i64 0
+  %40 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv129
+  store i32 %39, ptr %40, align 4
+  %41 = shufflevector <16 x i8> %25, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %42 = shufflevector <16 x i8> %27, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %43 = shufflevector <16 x i8> %11, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %44 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %37, <16 x i8> %42)
+  %45 = xor <16 x i8> %37, %42
+  %46 = and <16 x i8> %45, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %47 = sub <16 x i8> %44, %46
+  %48 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %41, <16 x i8> %47)
+  %49 = xor <16 x i8> %47, %41
+  %50 = and <16 x i8> %49, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %51 = sub <16 x i8> %48, %50
+  %52 = add <16 x i8> %51, %43
+  %53 = bitcast <16 x i8> %52 to <4 x i32>
+  %54 = extractelement <4 x i32> %53, i64 0
+  %55 = getelementptr inbounds i32, ptr %3, i64 %16
+  store i32 %54, ptr %55, align 4
+  %56 = shufflevector <16 x i8> %41, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %57 = shufflevector <16 x i8> %42, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %58 = shufflevector <16 x i8> %43, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %59 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %52, <16 x i8> %57)
+  %60 = xor <16 x i8> %52, %57
+  %61 = and <16 x i8> %60, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %62 = sub <16 x i8> %59, %61
+  %63 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %56, <16 x i8> %62)
+  %64 = xor <16 x i8> %62, %56
+  %65 = and <16 x i8> %64, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %66 = sub <16 x i8> %63, %65
+  %67 = add <16 x i8> %66, %58
+  %68 = bitcast <16 x i8> %67 to <4 x i32>
+  %69 = extractelement <4 x i32> %68, i64 0
+  %70 = or disjoint i64 %indvars.iv129, 2
+  %71 = getelementptr inbounds i32, ptr %3, i64 %70
+  store i32 %69, ptr %71, align 4
+  %72 = shufflevector <16 x i8> %56, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %73 = shufflevector <16 x i8> %57, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %74 = shufflevector <16 x i8> %58, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %75 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %67, <16 x i8> %73)
+  %76 = xor <16 x i8> %67, %73
+  %77 = and <16 x i8> %76, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %78 = sub <16 x i8> %75, %77
+  %79 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %72, <16 x i8> %78)
+  %80 = xor <16 x i8> %78, %72
+  %81 = and <16 x i8> %80, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %82 = sub <16 x i8> %79, %81
+  %83 = add <16 x i8> %82, %74
+  %84 = bitcast <16 x i8> %83 to <2 x i64>
+  %85 = bitcast <16 x i8> %83 to <4 x i32>
+  %86 = extractelement <4 x i32> %85, i64 0
+  %87 = or disjoint i64 %indvars.iv129, 3
+  %88 = getelementptr inbounds i32, ptr %3, i64 %87
+  store i32 %86, ptr %88, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ugt i64 %indvars.iv.next, %9
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %84 = trunc nuw nsw i64 %indvars.iv to i32
+  %89 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %84, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %89, %._crit_edge.loopexit ]
   %.not60 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not60, label %92, label %85
+  br i1 %.not60, label %97, label %90
 
-85:                                               ; preds = %._crit_edge
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16
-  %87 = zext nneg i32 %.0.lcssa to i64
-  %88 = getelementptr inbounds i32, ptr %0, i64 %87
-  %89 = getelementptr inbounds i32, ptr %1, i64 %87
-  %90 = sub nsw i32 %2, %.0.lcssa
-  %91 = getelementptr inbounds i32, ptr %3, i64 %87
-  tail call void %86(ptr noundef %88, ptr noundef %89, i32 noundef %90, ptr noundef %91) #8
-  br label %92
+90:                                               ; preds = %._crit_edge
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16
+  %92 = zext nneg i32 %.0.lcssa to i64
+  %93 = getelementptr inbounds i32, ptr %0, i64 %92
+  %94 = getelementptr inbounds i32, ptr %1, i64 %92
+  %95 = sub nsw i32 %2, %.0.lcssa
+  %96 = getelementptr inbounds i32, ptr %3, i64 %92
+  tail call void %91(ptr noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef %96) #7
+  br label %97
 
-92:                                               ; preds = %85, %._crit_edge
+97:                                               ; preds = %90, %._crit_edge
   ret void
 }
 
@@ -926,7 +941,7 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv219 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next220, %.lr.ph ]
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0212217 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %102, %.lr.ph ]
+  %.0212217 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv219
   %11 = load <2 x i64>, ptr %10, align 1
   %12 = getelementptr i8, ptr %10, i64 -4
@@ -959,96 +974,104 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %39 = bitcast <4 x i32> %38 to <16 x i8>
   %40 = add <16 x i8> %15, %39
   %41 = bitcast <16 x i8> %40 to <4 x i32>
-  %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv219
-  %43 = bitcast <2 x i64> %11 to <16 x i8>
-  %44 = shufflevector <16 x i8> %43, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %45 = bitcast <2 x i64> %13 to <16 x i8>
-  %46 = shufflevector <16 x i8> %45, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %47 = shufflevector <16 x i8> %15, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %48 = bitcast <8 x i16> %30 to <16 x i8>
-  %49 = shufflevector <16 x i8> %48, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %50 = bitcast <16 x i8> %44 to <4 x i32>
-  %51 = shufflevector <4 x i32> %41, <4 x i32> %50, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %52 = bitcast <16 x i8> %46 to <4 x i32>
-  %53 = shufflevector <4 x i32> %52, <4 x i32> %50, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %54 = bitcast <4 x i32> %51 to <16 x i8>
-  %55 = bitcast <4 x i32> %53 to <16 x i8>
-  %56 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %54, <16 x i8> %55)
-  %57 = bitcast <2 x i64> %56 to <4 x i32>
-  %58 = bitcast <16 x i8> %49 to <4 x i32>
-  %59 = icmp sgt <4 x i32> %57, %58
-  %60 = select <4 x i1> %59, <4 x i32> %41, <4 x i32> %50
-  %61 = bitcast <4 x i32> %60 to <16 x i8>
-  %62 = add <16 x i8> %47, %61
-  %63 = bitcast <16 x i8> %62 to <4 x i32>
-  %64 = shufflevector <4 x i32> %41, <4 x i32> %63, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %64, ptr %42, align 4
-  %65 = shufflevector <16 x i8> %44, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %66 = shufflevector <16 x i8> %46, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %67 = shufflevector <16 x i8> %47, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %68 = shufflevector <16 x i8> %49, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %69 = bitcast <16 x i8> %65 to <4 x i32>
-  %70 = shufflevector <4 x i32> %63, <4 x i32> %69, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %71 = bitcast <16 x i8> %66 to <4 x i32>
-  %72 = shufflevector <4 x i32> %71, <4 x i32> %69, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %73 = bitcast <4 x i32> %70 to <16 x i8>
-  %74 = bitcast <4 x i32> %72 to <16 x i8>
-  %75 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %73, <16 x i8> %74)
-  %76 = bitcast <2 x i64> %75 to <4 x i32>
-  %77 = bitcast <16 x i8> %68 to <4 x i32>
-  %78 = icmp sgt <4 x i32> %76, %77
-  %79 = select <4 x i1> %78, <4 x i32> %63, <4 x i32> %69
-  %80 = bitcast <4 x i32> %79 to <16 x i8>
-  %81 = add <16 x i8> %67, %80
-  %82 = bitcast <16 x i8> %81 to <4 x i32>
-  %83 = or disjoint i64 %indvars.iv219, 2
-  %84 = getelementptr inbounds i32, ptr %3, i64 %83
-  %85 = shufflevector <16 x i8> %65, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %86 = shufflevector <16 x i8> %67, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %87 = shufflevector <16 x i8> %68, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %88 = bitcast <16 x i8> %85 to <4 x i32>
-  %89 = shufflevector <4 x i32> %82, <4 x i32> %88, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %90 = bitcast <16 x i8> %66 to <4 x i32>
-  %91 = shufflevector <4 x i32> %90, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
-  %92 = shufflevector <4 x i32> %91, <4 x i32> %88, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %93 = bitcast <4 x i32> %89 to <16 x i8>
-  %94 = bitcast <4 x i32> %92 to <16 x i8>
-  %95 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %93, <16 x i8> %94)
-  %96 = bitcast <2 x i64> %95 to <4 x i32>
-  %97 = bitcast <16 x i8> %87 to <4 x i32>
-  %98 = icmp sgt <4 x i32> %96, %97
-  %99 = select <4 x i1> %98, <4 x i32> %82, <4 x i32> %88
-  %100 = bitcast <4 x i32> %99 to <16 x i8>
-  %101 = add <16 x i8> %86, %100
-  %102 = bitcast <16 x i8> %101 to <2 x i64>
-  %103 = bitcast <16 x i8> %101 to <4 x i32>
-  %104 = shufflevector <4 x i32> %82, <4 x i32> %103, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %104, ptr %84, align 4
+  %42 = extractelement <4 x i32> %41, i64 0
+  %43 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv219
+  store i32 %42, ptr %43, align 4
+  %44 = bitcast <2 x i64> %11 to <16 x i8>
+  %45 = shufflevector <16 x i8> %44, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %46 = bitcast <2 x i64> %13 to <16 x i8>
+  %47 = shufflevector <16 x i8> %46, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %48 = shufflevector <16 x i8> %15, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %49 = bitcast <8 x i16> %30 to <16 x i8>
+  %50 = shufflevector <16 x i8> %49, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %51 = bitcast <16 x i8> %45 to <4 x i32>
+  %52 = shufflevector <4 x i32> %41, <4 x i32> %51, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %53 = bitcast <16 x i8> %47 to <4 x i32>
+  %54 = shufflevector <4 x i32> %53, <4 x i32> %51, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %55 = bitcast <4 x i32> %52 to <16 x i8>
+  %56 = bitcast <4 x i32> %54 to <16 x i8>
+  %57 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %55, <16 x i8> %56)
+  %58 = bitcast <2 x i64> %57 to <4 x i32>
+  %59 = bitcast <16 x i8> %50 to <4 x i32>
+  %60 = icmp sgt <4 x i32> %58, %59
+  %61 = select <4 x i1> %60, <4 x i32> %41, <4 x i32> %51
+  %62 = bitcast <4 x i32> %61 to <16 x i8>
+  %63 = add <16 x i8> %48, %62
+  %64 = bitcast <16 x i8> %63 to <4 x i32>
+  %65 = extractelement <4 x i32> %64, i64 0
+  %66 = or disjoint i64 %indvars.iv219, 1
+  %67 = getelementptr inbounds i32, ptr %3, i64 %66
+  store i32 %65, ptr %67, align 4
+  %68 = shufflevector <16 x i8> %45, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %69 = shufflevector <16 x i8> %47, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %70 = shufflevector <16 x i8> %48, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %71 = shufflevector <16 x i8> %50, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %72 = bitcast <16 x i8> %68 to <4 x i32>
+  %73 = shufflevector <4 x i32> %64, <4 x i32> %72, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %74 = bitcast <16 x i8> %69 to <4 x i32>
+  %75 = shufflevector <4 x i32> %74, <4 x i32> %72, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %76 = bitcast <4 x i32> %73 to <16 x i8>
+  %77 = bitcast <4 x i32> %75 to <16 x i8>
+  %78 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %76, <16 x i8> %77)
+  %79 = bitcast <2 x i64> %78 to <4 x i32>
+  %80 = bitcast <16 x i8> %71 to <4 x i32>
+  %81 = icmp sgt <4 x i32> %79, %80
+  %82 = select <4 x i1> %81, <4 x i32> %64, <4 x i32> %72
+  %83 = bitcast <4 x i32> %82 to <16 x i8>
+  %84 = add <16 x i8> %70, %83
+  %85 = bitcast <16 x i8> %84 to <4 x i32>
+  %86 = extractelement <4 x i32> %85, i64 0
+  %87 = or disjoint i64 %indvars.iv219, 2
+  %88 = getelementptr inbounds i32, ptr %3, i64 %87
+  store i32 %86, ptr %88, align 4
+  %89 = shufflevector <16 x i8> %68, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %90 = shufflevector <16 x i8> %70, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %91 = shufflevector <16 x i8> %71, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %92 = bitcast <16 x i8> %89 to <4 x i32>
+  %93 = shufflevector <4 x i32> %85, <4 x i32> %92, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %94 = bitcast <16 x i8> %69 to <4 x i32>
+  %95 = shufflevector <4 x i32> %94, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
+  %96 = shufflevector <4 x i32> %95, <4 x i32> %92, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %97 = bitcast <4 x i32> %93 to <16 x i8>
+  %98 = bitcast <4 x i32> %96 to <16 x i8>
+  %99 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %97, <16 x i8> %98)
+  %100 = bitcast <2 x i64> %99 to <4 x i32>
+  %101 = bitcast <16 x i8> %91 to <4 x i32>
+  %102 = icmp sgt <4 x i32> %100, %101
+  %103 = select <4 x i1> %102, <4 x i32> %85, <4 x i32> %92
+  %104 = bitcast <4 x i32> %103 to <16 x i8>
+  %105 = add <16 x i8> %90, %104
+  %106 = bitcast <16 x i8> %105 to <2 x i64>
+  %107 = bitcast <16 x i8> %105 to <4 x i32>
+  %108 = extractelement <4 x i32> %107, i64 0
+  %109 = or disjoint i64 %indvars.iv219, 3
+  %110 = getelementptr inbounds i32, ptr %3, i64 %109
+  store i32 %108, ptr %110, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ugt i64 %indvars.iv.next, %9
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %105 = trunc nuw nsw i64 %indvars.iv to i32
+  %111 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %105, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %111, %._crit_edge.loopexit ]
   %.not215 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not215, label %113, label %106
+  br i1 %.not215, label %119, label %112
 
-106:                                              ; preds = %._crit_edge
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
-  %108 = zext nneg i32 %.0.lcssa to i64
-  %109 = getelementptr inbounds i32, ptr %0, i64 %108
-  %110 = getelementptr inbounds i32, ptr %1, i64 %108
-  %111 = sub nsw i32 %2, %.0.lcssa
-  %112 = getelementptr inbounds i32, ptr %3, i64 %108
-  tail call void %107(ptr noundef %109, ptr noundef %110, i32 noundef %111, ptr noundef %112) #8
-  br label %113
+112:                                              ; preds = %._crit_edge
+  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
+  %114 = zext nneg i32 %.0.lcssa to i64
+  %115 = getelementptr inbounds i32, ptr %0, i64 %114
+  %116 = getelementptr inbounds i32, ptr %1, i64 %114
+  %117 = sub nsw i32 %2, %.0.lcssa
+  %118 = getelementptr inbounds i32, ptr %3, i64 %114
+  tail call void %113(ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef %118) #7
+  br label %119
 
-113:                                              ; preds = %106, %._crit_edge
+119:                                              ; preds = %112, %._crit_edge
   ret void
 }
 
@@ -1069,7 +1092,7 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv149 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next150, %.lr.ph ]
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0142.in147 = phi <16 x i8> [ %9, %.lr.ph.preheader ], [ %60, %.lr.ph ]
+  %.0142.in147 = phi <16 x i8> [ %9, %.lr.ph.preheader ], [ %66, %.lr.ph ]
   %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv149
   %12 = load <16 x i8>, ptr %11, align 1
   %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv149
@@ -1091,62 +1114,70 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %29 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %28, <8 x i16> %28)
   %30 = add <16 x i8> %29, %12
   %31 = bitcast <16 x i8> %30 to <4 x i32>
-  %32 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv149
-  %33 = shufflevector <16 x i8> %30, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %34 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %35 = bitcast <16 x i8> %33 to <8 x i16>
-  %36 = shufflevector <8 x i16> %23, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
-  %37 = add nsw <8 x i16> %36, %35
-  %38 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %37, <8 x i16> %37)
-  %39 = add <16 x i8> %38, %34
-  %40 = bitcast <16 x i8> %39 to <4 x i32>
-  %41 = shufflevector <4 x i32> %31, <4 x i32> %40, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %41, ptr %32, align 4
-  %42 = shufflevector <16 x i8> %39, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %43 = shufflevector <16 x i8> %34, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %44 = bitcast <16 x i8> %42 to <8 x i16>
-  %45 = add nsw <8 x i16> %26, %44
-  %46 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %45, <8 x i16> %45)
-  %47 = add <16 x i8> %46, %43
-  %48 = bitcast <16 x i8> %47 to <4 x i32>
-  %49 = or disjoint i64 %indvars.iv149, 2
-  %50 = getelementptr inbounds i32, ptr %3, i64 %49
-  %51 = shufflevector <16 x i8> %47, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %52 = shufflevector <16 x i8> %43, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
-  %53 = bitcast <16 x i8> %51 to <8 x i16>
-  %54 = shufflevector <8 x i16> %26, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
-  %55 = add nsw <8 x i16> %54, %53
-  %56 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %55, <8 x i16> %55)
-  %57 = add <16 x i8> %56, %52
-  %58 = bitcast <16 x i8> %57 to <4 x i32>
-  %59 = shufflevector <4 x i32> %48, <4 x i32> %58, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %59, ptr %50, align 4
-  %60 = shufflevector <16 x i8> %57, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %32 = extractelement <4 x i32> %31, i64 0
+  %33 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv149
+  store i32 %32, ptr %33, align 4
+  %34 = shufflevector <16 x i8> %30, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %35 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %36 = bitcast <16 x i8> %34 to <8 x i16>
+  %37 = shufflevector <8 x i16> %23, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
+  %38 = add nsw <8 x i16> %37, %36
+  %39 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %38, <8 x i16> %38)
+  %40 = add <16 x i8> %39, %35
+  %41 = bitcast <16 x i8> %40 to <4 x i32>
+  %42 = extractelement <4 x i32> %41, i64 0
+  %43 = or disjoint i64 %indvars.iv149, 1
+  %44 = getelementptr inbounds i32, ptr %3, i64 %43
+  store i32 %42, ptr %44, align 4
+  %45 = shufflevector <16 x i8> %40, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %46 = shufflevector <16 x i8> %35, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %47 = bitcast <16 x i8> %45 to <8 x i16>
+  %48 = add nsw <8 x i16> %26, %47
+  %49 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %48, <8 x i16> %48)
+  %50 = add <16 x i8> %49, %46
+  %51 = bitcast <16 x i8> %50 to <4 x i32>
+  %52 = extractelement <4 x i32> %51, i64 0
+  %53 = or disjoint i64 %indvars.iv149, 2
+  %54 = getelementptr inbounds i32, ptr %3, i64 %53
+  store i32 %52, ptr %54, align 4
+  %55 = shufflevector <16 x i8> %50, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %56 = shufflevector <16 x i8> %46, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
+  %57 = bitcast <16 x i8> %55 to <8 x i16>
+  %58 = shufflevector <8 x i16> %26, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
+  %59 = add nsw <8 x i16> %58, %57
+  %60 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %59, <8 x i16> %59)
+  %61 = add <16 x i8> %60, %56
+  %62 = bitcast <16 x i8> %61 to <4 x i32>
+  %63 = extractelement <4 x i32> %62, i64 0
+  %64 = or disjoint i64 %indvars.iv149, 3
+  %65 = getelementptr inbounds i32, ptr %3, i64 %64
+  store i32 %63, ptr %65, align 4
+  %66 = shufflevector <16 x i8> %61, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ugt i64 %indvars.iv.next, %10
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %61 = trunc nuw nsw i64 %indvars.iv to i32
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %61, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %67, %._crit_edge.loopexit ]
   %.not145 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not145, label %69, label %62
+  br i1 %.not145, label %75, label %68
 
-62:                                               ; preds = %._crit_edge
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16
-  %64 = zext nneg i32 %.0.lcssa to i64
-  %65 = getelementptr inbounds i32, ptr %0, i64 %64
-  %66 = getelementptr inbounds i32, ptr %1, i64 %64
-  %67 = sub nsw i32 %2, %.0.lcssa
-  %68 = getelementptr inbounds i32, ptr %3, i64 %64
-  tail call void %63(ptr noundef %65, ptr noundef %66, i32 noundef %67, ptr noundef %68) #8
-  br label %69
+68:                                               ; preds = %._crit_edge
+  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16
+  %70 = zext nneg i32 %.0.lcssa to i64
+  %71 = getelementptr inbounds i32, ptr %0, i64 %70
+  %72 = getelementptr inbounds i32, ptr %1, i64 %70
+  %73 = sub nsw i32 %2, %.0.lcssa
+  %74 = getelementptr inbounds i32, ptr %3, i64 %70
+  tail call void %69(ptr noundef %71, ptr noundef %72, i32 noundef %73, ptr noundef %74) #7
+  br label %75
 
-69:                                               ; preds = %62, %._crit_edge
+75:                                               ; preds = %68, %._crit_edge
   ret void
 }
 
@@ -1254,7 +1285,7 @@ define internal void @AddGreenToBlueAndRed_SSE2(ptr noundef %0, i32 noundef %1, 
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = sub nsw i32 %1, %.0.lcssa
   %20 = getelementptr inbounds i32, ptr %2, i64 %17
-  tail call void @VP8LAddGreenToBlueAndRed_C(ptr noundef %18, i32 noundef %19, ptr noundef %20) #8
+  tail call void @VP8LAddGreenToBlueAndRed_C(ptr noundef %18, i32 noundef %19, ptr noundef %20) #7
   br label %21
 
 21:                                               ; preds = %16, %._crit_edge
@@ -1342,7 +1373,7 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %59 = getelementptr inbounds i32, ptr %1, i64 %58
   %60 = sub nsw i32 %2, %.0.lcssa
   %61 = getelementptr inbounds i32, ptr %3, i64 %58
-  tail call void @VP8LTransformColorInverse_C(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %60, ptr noundef %61) #8
+  tail call void @VP8LTransformColorInverse_C(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %60, ptr noundef %61) #7
   br label %62
 
 62:                                               ; preds = %57, %._crit_edge
@@ -1556,7 +1587,7 @@ define internal void @ConvertBGRAToRGB_SSE2(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %._crit_edge
-  tail call void @VP8LConvertBGRAToRGB_C(ptr noundef %.043.lcssa, i32 noundef %.044.lcssa, ptr noundef %.0.lcssa) #8
+  tail call void @VP8LConvertBGRAToRGB_C(ptr noundef %.043.lcssa, i32 noundef %.044.lcssa, ptr noundef %.0.lcssa) #7
   br label %189
 
 189:                                              ; preds = %188, %._crit_edge
@@ -1606,7 +1637,7 @@ define internal void @ConvertBGRAToRGBA_SSE2(ptr noundef %0, i32 noundef %1, ptr
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %._crit_edge
-  tail call void @VP8LConvertBGRAToRGBA_C(ptr noundef %.056.lcssa, i32 noundef %.0.lcssa, ptr noundef %.057.lcssa) #8
+  tail call void @VP8LConvertBGRAToRGBA_C(ptr noundef %.056.lcssa, i32 noundef %.0.lcssa, ptr noundef %.057.lcssa) #7
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
@@ -1659,7 +1690,7 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noundef %0, i32 noundef %1,
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %._crit_edge
-  tail call void @VP8LConvertBGRAToRGBA4444_C(ptr noundef %.0133.lcssa, i32 noundef %.0.lcssa, ptr noundef %.0134.lcssa) #8
+  tail call void @VP8LConvertBGRAToRGBA4444_C(ptr noundef %.0133.lcssa, i32 noundef %.0.lcssa, ptr noundef %.0134.lcssa) #7
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge
@@ -1721,7 +1752,7 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noundef %0, i32 noundef %1, p
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %._crit_edge
-  tail call void @VP8LConvertBGRAToRGB565_C(ptr noundef %.0180.lcssa, i32 noundef %.0.lcssa, ptr noundef %.0181.lcssa) #8
+  tail call void @VP8LConvertBGRAToRGB565_C(ptr noundef %.0180.lcssa, i32 noundef %.0.lcssa, ptr noundef %.0181.lcssa) #7
   br label %42
 
 42:                                               ; preds = %41, %._crit_edge
@@ -1777,7 +1808,7 @@ define internal void @ConvertBGRAToBGR_SSE2(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %._crit_edge
-  tail call void @VP8LConvertBGRAToBGR_C(ptr noundef %.073.lcssa, i32 noundef %.0.lcssa, ptr noundef %.072.lcssa) #8
+  tail call void @VP8LConvertBGRAToBGR_C(ptr noundef %.073.lcssa, i32 noundef %.0.lcssa, ptr noundef %.072.lcssa) #7
   br label %31
 
 31:                                               ; preds = %30, %._crit_edge
@@ -1816,9 +1847,6 @@ declare void @VP8LConvertBGRAToRGB565_C(ptr noundef, i32 noundef, ptr noundef) l
 
 declare void @VP8LConvertBGRAToBGR_C(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1826,8 +1854,7 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1330,43 +1330,45 @@ define linkonce_odr hidden void @_ZN18VerifyRootsClosure11do_oop_workIP7oopDescE
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %64, i64 32
-  %68 = load <2 x ptr>, ptr %67, align 8
-  %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %64, i64 8
-  %71 = load i64, ptr %70, align 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %64, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %64, i64 8
+  %72 = load i64, ptr %71, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %72) #13
-  %73 = getelementptr inbounds i8, ptr %4, i64 144
-  store i32 5, ptr %73, align 8
+  %73 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %73) #13
+  %74 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 5, ptr %74, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4) #13
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 1, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 1, ptr %75, align 4
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #13
-  %75 = load ptr, ptr %66, align 8
-  %.not.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i, label %77, label %76
+  %76 = load ptr, ptr %66, align 8
+  %.not.i.i.i.i = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i, label %78, label %77
 
-76:                                               ; preds = %13
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %64, i64 noundef %71) #13
+77:                                               ; preds = %13
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %64, i64 noundef %72) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %66) #13
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %13
-  %78 = load ptr, ptr %67, align 8
-  %.not8.i.i.i.i = icmp eq ptr %78, %69
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %79
+78:                                               ; preds = %77, %13
+  %79 = load ptr, ptr %67, align 8
+  %.not8.i.i.i.i = icmp eq ptr %79, %68
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %80
 
-79:                                               ; preds = %77
+80:                                               ; preds = %78
   store ptr %66, ptr %65, align 8
-  store <2 x ptr> %68, ptr %67, align 8
+  store ptr %68, ptr %67, align 8
+  store ptr %70, ptr %69, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %79, %77, %7, %2
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %80, %78, %7, %2
   ret void
 }
 
@@ -1478,43 +1480,45 @@ define linkonce_odr hidden void @_ZN18VerifyRootsClosure11do_oop_workI9narrowOop
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 32
-  %75 = load <2 x ptr>, ptr %74, align 8
-  %76 = load ptr, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 8
-  %78 = load i64, ptr %77, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %71, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %71, i64 8
+  %79 = load i64, ptr %78, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %79) #13
-  %80 = getelementptr inbounds i8, ptr %4, i64 144
-  store i32 5, ptr %80, align 8
+  %80 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %80) #13
+  %81 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 5, ptr %81, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %4) #13
-  %81 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 1, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 1, ptr %82, align 4
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #13
-  %82 = load ptr, ptr %73, align 8
-  %.not.i.i.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i.i.i, label %84, label %83
+  %83 = load ptr, ptr %73, align 8
+  %.not.i.i.i.i = icmp eq ptr %83, null
+  br i1 %.not.i.i.i.i, label %85, label %84
 
-83:                                               ; preds = %21
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %71, i64 noundef %78) #13
+84:                                               ; preds = %21
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %71, i64 noundef %79) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %73) #13
-  br label %84
+  br label %85
 
-84:                                               ; preds = %83, %21
-  %85 = load ptr, ptr %74, align 8
-  %.not8.i.i.i.i = icmp eq ptr %85, %76
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %86
+85:                                               ; preds = %84, %21
+  %86 = load ptr, ptr %74, align 8
+  %.not8.i.i.i.i = icmp eq ptr %86, %75
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %87
 
-86:                                               ; preds = %84
+87:                                               ; preds = %85
   store ptr %73, ptr %72, align 8
-  store <2 x ptr> %75, ptr %74, align 8
+  store ptr %75, ptr %74, align 8
+  store ptr %77, ptr %76, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %86, %84, %7, %2
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %87, %85, %7, %2
   ret void
 }
 

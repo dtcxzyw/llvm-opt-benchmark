@@ -5124,13 +5124,16 @@ _ZN6vectorIcLb0EjE7destroyEv.exit.i.i:            ; preds = %if.then.i.i.i, %if.
   br i1 %tobool.not.i.i, label %if.else.i.i, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i.i:        ; preds = %_ZN6vectorIcLb0EjE7destroyEv.exit.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %3 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %3, ptr %call3.i.i.i, align 4
+  store i32 %4, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %3, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %this, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5170,14 +5173,17 @@ _ZN6vectorIjLb0EjE7destroyEv.exit.i.i:            ; preds = %if.then.i.i.i5, %if
   br i1 %tobool.not.i.i7, label %if.else.i.i19, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i:        ; preds = %_ZN6vectorIjLb0EjE7destroyEv.exit.i.i
+  %arrayidx.i.i.i.i8 = getelementptr inbounds i8, ptr %9, i64 -4
+  %10 = load i32, ptr %arrayidx.i.i.i.i8, align 4
   %arrayidx.i11.i.i.i9 = getelementptr inbounds i8, ptr %9, i64 -8
-  %10 = load <2 x i32>, ptr %arrayidx.i11.i.i.i9, align 4
   %11 = load i32, ptr %arrayidx.i11.i.i.i9, align 4
   %conv.i.i.i10 = zext i32 %11 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i10, 2
   %add.i.i.i11 = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i12 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i11)
-  store <2 x i32> %10, ptr %call3.i.i.i12, align 4
+  store i32 %11, ptr %call3.i.i.i12, align 4
+  %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %call3.i.i.i12, i64 4
+  store i32 %10, ptr %incdec.ptr.i.i.i13, align 4
   %incdec.ptr4.i.i.i14 = getelementptr inbounds i8, ptr %call3.i.i.i12, i64 8
   store ptr %incdec.ptr4.i.i.i14, ptr %m_set20, align 8
   %12 = load ptr, ptr %m_set321, align 8

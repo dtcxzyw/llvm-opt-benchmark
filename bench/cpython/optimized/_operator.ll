@@ -4114,8 +4114,12 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end16:                                         ; preds = %if.else
   %10 = getelementptr i8, ptr %mc, i64 8
-  %11 = load <2 x ptr>, ptr %10, align 8
-  store <2 x ptr> %11, ptr %newargs12, align 16
+  %mc.val = load ptr, ptr %10, align 8
+  store ptr %mc.val, ptr %newargs12, align 16
+  %name19 = getelementptr inbounds i8, ptr %mc, i64 16
+  %11 = load ptr, ptr %name19, align 8
+  %arrayidx20 = getelementptr inbounds i8, ptr %newargs12, i64 8
+  store ptr %11, ptr %arrayidx20, align 8
   %12 = load ptr, ptr %kwds, align 8
   %call22 = call ptr @PyObject_VectorcallDict(ptr noundef nonnull %call13, ptr noundef nonnull %newargs12, i64 noundef 2, ptr noundef %12) #4
   %13 = load i64, ptr %call13, align 8

@@ -534,62 +534,68 @@ MapConfigToTools.exit:                            ; preds = %142, %147, %149
   %157 = getelementptr inbounds i8, ptr %50, i64 40
   store i32 0, ptr %157, align 4
   %158 = getelementptr inbounds i8, ptr %50, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %158, align 4
-  %159 = load ptr, ptr %75, align 8
-  %160 = load i32, ptr %69, align 8
-  %161 = sext i32 %160 to i64
-  %162 = sub nsw i64 0, %161
-  %163 = getelementptr inbounds i8, ptr %159, i64 %162
-  %164 = getelementptr inbounds i8, ptr %159, i64 -1
-  %165 = load i32, ptr %67, align 8
-  %166 = icmp sgt i32 %165, -1
-  br i1 %166, label %.lr.ph.i, label %.preheader.i
+  store i32 1, ptr %158, align 4
+  %159 = getelementptr inbounds i8, ptr %50, i64 20
+  store i32 0, ptr %159, align 4
+  %160 = getelementptr inbounds i8, ptr %50, i64 24
+  store i32 0, ptr %160, align 4
+  %161 = getelementptr inbounds i8, ptr %50, i64 28
+  store i32 0, ptr %161, align 4
+  %162 = load ptr, ptr %75, align 8
+  %163 = load i32, ptr %69, align 8
+  %164 = sext i32 %163 to i64
+  %165 = sub nsw i64 0, %164
+  %166 = getelementptr inbounds i8, ptr %162, i64 %165
+  %167 = getelementptr inbounds i8, ptr %162, i64 -1
+  %168 = load i32, ptr %67, align 8
+  %169 = icmp sgt i32 %168, -1
+  br i1 %169, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %MapConfigToTools.exit
-  %167 = load i32, ptr %68, align 4
-  %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit
+  %170 = load i32, ptr %68, align 4
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit
 
 .lr.ph.i:                                         ; preds = %MapConfigToTools.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ -1, %MapConfigToTools.exit ]
-  %169 = getelementptr inbounds i8, ptr %163, i64 %indvars.iv.i
-  store i8 0, ptr %169, align 1
+  %172 = getelementptr inbounds i8, ptr %166, i64 %indvars.iv.i
+  store i8 0, ptr %172, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %170 = load i32, ptr %67, align 8
-  %171 = shl nsw i32 %170, 2
-  %172 = sext i32 %171 to i64
-  %173 = icmp slt i64 %indvars.iv.next.i, %172
-  br i1 %173, label %.lr.ph.i, label %.preheader.i, !llvm.loop !4
+  %173 = load i32, ptr %67, align 8
+  %174 = shl nsw i32 %173, 2
+  %175 = sext i32 %174 to i64
+  %176 = icmp slt i64 %indvars.iv.next.i, %175
+  br i1 %176, label %.lr.ph.i, label %.preheader.i, !llvm.loop !4
 
 .lr.ph16.i:                                       ; preds = %.preheader.i, %.lr.ph16.i
-  %.115.i = phi i32 [ %178, %.lr.ph16.i ], [ 0, %.preheader.i ]
-  %174 = load i32, ptr %69, align 8
-  %175 = mul nsw i32 %174, %.115.i
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i8, ptr %164, i64 %176
-  store i8 0, ptr %177, align 1
-  %178 = add nuw nsw i32 %.115.i, 1
-  %179 = load i32, ptr %68, align 4
-  %180 = shl nsw i32 %179, 2
-  %181 = icmp slt i32 %178, %180
-  br i1 %181, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit, !llvm.loop !6
+  %.115.i = phi i32 [ %181, %.lr.ph16.i ], [ 0, %.preheader.i ]
+  %177 = load i32, ptr %69, align 8
+  %178 = mul nsw i32 %177, %.115.i
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds i8, ptr %167, i64 %179
+  store i8 0, ptr %180, align 1
+  %181 = add nuw nsw i32 %.115.i, 1
+  %182 = load i32, ptr %68, align 4
+  %183 = shl nsw i32 %182, 2
+  %184 = icmp slt i32 %181, %183
+  br i1 %184, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit, !llvm.loop !6
 
 ResetBoundaryPredictions.exit:                    ; preds = %.lr.ph16.i, %.preheader.i
-  %182 = load ptr, ptr %82, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 -4
-  store i32 0, ptr %183, align 4
+  %185 = load ptr, ptr %82, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 -4
+  store i32 0, ptr %186, align 4
   tail call void @VP8EncDspCostInit() #8
   tail call void @VP8EncInitAlpha(ptr noundef nonnull %50) #8
-  %184 = load float, ptr %32, align 4
-  %185 = fmul float %184, 5.000000e+00
-  %186 = fdiv float %185, 1.000000e+02
-  %187 = fadd float %186, 1.000000e+00
-  %188 = getelementptr inbounds i8, ptr %50, i64 496
-  %189 = shl nsw i32 %26, 2
-  %190 = sitofp i32 %189 to float
-  %191 = fmul float %187, %190
-  %192 = fptosi float %191 to i32
-  tail call void @VP8TBufferInit(ptr noundef nonnull %188, i32 noundef %192) #8
+  %187 = load float, ptr %32, align 4
+  %188 = fmul float %187, 5.000000e+00
+  %189 = fdiv float %188, 1.000000e+02
+  %190 = fadd float %189, 1.000000e+00
+  %191 = getelementptr inbounds i8, ptr %50, i64 496
+  %192 = shl nsw i32 %26, 2
+  %193 = sitofp i32 %192 to float
+  %194 = fmul float %190, %193
+  %195 = fptosi float %194 to i32
+  tail call void @VP8TBufferInit(ptr noundef nonnull %191, i32 noundef %195) #8
   br label %WebPEncodingSetError.exit
 
 WebPEncodingSetError.exit:                        ; preds = %56, %52, %ResetBoundaryPredictions.exit

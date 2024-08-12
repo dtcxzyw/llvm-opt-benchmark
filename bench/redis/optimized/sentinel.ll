@@ -3979,19 +3979,23 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %1, ptr %sentinel_configs, align 16
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %sentinel_configs, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %sentinel_configs, i64 8
+  %monitor_cfg = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = load ptr, ptr %monitor_cfg, align 8
+  store ptr %2, ptr %arrayinit.element, align 8
   %arrayinit.element1 = getelementptr inbounds i8, ptr %sentinel_configs, i64 16
   %post_monitor_cfg = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %post_monitor_cfg, align 8
-  store ptr %2, ptr %arrayinit.element1, align 16
+  %3 = load ptr, ptr %post_monitor_cfg, align 8
+  store ptr %3, ptr %arrayinit.element1, align 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x ptr], ptr %sentinel_configs, i64 0, i64 %indvars.iv
-  %3 = load ptr, ptr %arrayidx, align 8
-  call void @listRewind(ptr noundef %3, ptr noundef nonnull %li) #29
+  %4 = load ptr, ptr %arrayidx, align 8
+  call void @listRewind(ptr noundef %4, ptr noundef nonnull %li) #29
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.body
@@ -4001,27 +4005,27 @@ while.cond:                                       ; preds = %while.body, %for.bo
 
 while.body:                                       ; preds = %while.cond
   %value = getelementptr inbounds i8, ptr %call, i64 16
-  %4 = load ptr, ptr %value, align 8
-  %argv = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %argv, align 8
-  %6 = load i32, ptr %4, align 8
-  %call5 = call ptr @sentinelHandleConfiguration(ptr noundef %5, i32 noundef %6)
+  %5 = load ptr, ptr %value, align 8
+  %argv = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %argv, align 8
+  %7 = load i32, ptr %5, align 8
+  %call5 = call ptr @sentinelHandleConfiguration(ptr noundef %6, i32 noundef %7)
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %while.cond, label %if.then7, !llvm.loop !34
 
 if.then7:                                         ; preds = %while.body
-  %linenum8 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = load i32, ptr %linenum8, align 8
-  %line9 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = load ptr, ptr %line9, align 8
-  %9 = load ptr, ptr @stderr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #35
+  %linenum8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = load i32, ptr %linenum8, align 8
+  %line9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load ptr, ptr %line9, align 8
   %10 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.66, i32 noundef %7) #35
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #35
   %11 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.67, ptr noundef %8) #35
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.66, i32 noundef %8) #35
   %12 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.68, ptr noundef nonnull %call5) #35
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.67, ptr noundef %9) #35
+  %13 = load ptr, ptr @stderr, align 8
+  %call14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.68, ptr noundef nonnull %call5) #35
   call void @exit(i32 noundef 1) #30
   unreachable
 
@@ -4031,19 +4035,19 @@ for.inc:                                          ; preds = %while.cond
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
-  %14 = load ptr, ptr %13, align 8
-  call void @listRelease(ptr noundef %14) #29
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
-  %monitor_cfg.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %monitor_cfg.i, align 8
-  call void @listRelease(ptr noundef %16) #29
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
-  %post_monitor_cfg.i = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load ptr, ptr %post_monitor_cfg.i, align 8
-  call void @listRelease(ptr noundef %18) #29
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
-  call void @zfree(ptr noundef %19) #29
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
+  %15 = load ptr, ptr %14, align 8
+  call void @listRelease(ptr noundef %15) #29
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
+  %monitor_cfg.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %monitor_cfg.i, align 8
+  call void @listRelease(ptr noundef %17) #29
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
+  %post_monitor_cfg.i = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = load ptr, ptr %post_monitor_cfg.i, align 8
+  call void @listRelease(ptr noundef %19) #29
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
+  call void @zfree(ptr noundef %20) #29
   store ptr null, ptr getelementptr inbounds (i8, ptr @server, i64 5608), align 8
   br label %return
 

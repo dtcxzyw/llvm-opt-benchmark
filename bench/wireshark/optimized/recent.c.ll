@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [26 x i8] c"\0A# Main window geometry.\0A\00", align 1
 @.str.8 = private unnamed_addr constant [20 x i8] c"# Decimal numbers.\0A\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"gui.geometry_main_x: %d\0A\00", align 1
-@recent = hidden local_unnamed_addr global %struct.recent_settings_tag zeroinitializer, align 16
+@recent = hidden local_unnamed_addr global %struct.recent_settings_tag zeroinitializer, align 8
 @.str.10 = private unnamed_addr constant [25 x i8] c"gui.geometry_main_y: %d\0A\00", align 1
 @.str.11 = private unnamed_addr constant [29 x i8] c"gui.geometry_main_width: %d\0A\00", align 1
 @.str.12 = private unnamed_addr constant [30 x i8] c"gui.geometry_main_height: %d\0A\00", align 1
@@ -1654,7 +1654,10 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  store <4 x i32> <i32 20, i32 20, i32 750, i32 550>, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @recent, i64 116), align 4
+  store i32 750, ptr getelementptr inbounds (i8, ptr @recent, i64 120), align 8
+  store i32 550, ptr getelementptr inbounds (i8, ptr @recent, i64 124), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 128), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 132), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 168), align 8
@@ -1963,21 +1966,30 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 1>, ptr @recent, align 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 16
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 -1>, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 48), i8 0, i64 16, i1 false)
+  store i32 1, ptr @recent, align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 28), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 40), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @recent, i64 44), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 48), i8 0, i64 16, i1 false)
   store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 68), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 136), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 140), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 96), i8 0, i64 16, i1 false)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @recent, i64 96), i8 0, i64 16, i1 false)
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @g_free(ptr noundef nonnull %3) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -1991,23 +2003,23 @@ define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noun
   br label %8
 
 8:                                                ; preds = %7, %5
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void @g_free(ptr noundef nonnull %9) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   br label %11
 
 11:                                               ; preds = %10, %8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %.not25 = icmp eq ptr %12, null
   br i1 %.not25, label %14, label %13
 
 13:                                               ; preds = %11
   tail call void @g_list_free_full(ptr noundef nonnull %12, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   br label %14
 
 14:                                               ; preds = %13, %11
@@ -2021,13 +2033,13 @@ define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noun
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %20, label %19
 
 19:                                               ; preds = %17
   tail call void @g_list_free_full(ptr noundef nonnull %18, ptr noundef nonnull @g_free) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   br label %20
 
 20:                                               ; preds = %19, %17
@@ -2252,9 +2264,9 @@ define hidden void @recent_insert_column(i32 noundef %0) local_unnamed_addr #0 {
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %3, align 4
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %5 = tail call ptr @g_list_insert(ptr noundef %4, ptr noundef nonnull %2, i32 noundef %0) #13
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   ret void
 }
 
@@ -2262,7 +2274,7 @@ declare ptr @g_list_insert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_remove_column(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %3 = tail call ptr @g_list_nth(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -2277,9 +2289,9 @@ define hidden void @recent_remove_column(i32 noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %6, %4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %9 = tail call ptr @g_list_delete_link(ptr noundef %8, ptr noundef nonnull %3) #13
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  store ptr %9, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   br label %10
 
 10:                                               ; preds = %1, %7
@@ -2292,7 +2304,7 @@ declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @recent_get_column_width(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %3 = tail call ptr @g_list_nth_data(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -2310,7 +2322,7 @@ declare ptr @g_list_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_set_column_width(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %4 = tail call ptr @g_list_nth_data(ptr noundef %3, i32 noundef %0) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -2325,7 +2337,7 @@ define hidden void @recent_set_column_width(i32 noundef %0, i32 noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %3 = tail call ptr @g_list_nth_data(ptr noundef %2, i32 noundef %0) #13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -2342,7 +2354,7 @@ define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   %4 = tail call ptr @g_list_nth_data(ptr noundef %3, i32 noundef %0) #13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -2358,7 +2370,7 @@ define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @recent_init() local_unnamed_addr #7 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @recent, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) @recent, i8 0, i64 256, i1 false)
   ret void
 }
 
@@ -2367,28 +2379,28 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @recent_cleanup() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
   tail call void @g_list_free_full(ptr noundef %1, ptr noundef nonnull @free_col_width_data) #13
-  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 16
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 16
+  store ptr null, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 144), align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 152), align 8
   tail call void @g_free(ptr noundef %3) #13
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 16
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 160), align 8
   tail call void @g_free(ptr noundef %4) #13
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 216), align 8
   tail call void @g_free(ptr noundef %5) #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 16
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 240), align 8
   tail call void @g_list_free_full(ptr noundef %6, ptr noundef nonnull @g_free) #13
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 248), align 8
   tail call void @g_list_free_full(ptr noundef %7, ptr noundef nonnull @g_free) #13
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 184), align 8
   tail call void @prefs_clear_string_list(ptr noundef %8) #13
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 16
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 192), align 8
   tail call void @prefs_clear_string_list(ptr noundef %9) #13
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 200), align 8
   tail call void @prefs_clear_string_list(ptr noundef %10) #13
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 16
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 208), align 8
   tail call void @prefs_clear_string_list(ptr noundef %11) #13
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 232), align 8
   tail call void @prefs_clear_string_list(ptr noundef %12) #13

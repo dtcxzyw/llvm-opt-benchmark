@@ -261,7 +261,7 @@ do.end:                                           ; preds = %for.end, %entry
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
-  %scratch = alloca %union.anon.0, align 16
+  %scratch = alloca %union.anon.0, align 8
   %0 = load i8, ptr %ctx, align 8
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
@@ -371,7 +371,7 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   br i1 %or.cond.i, label %do.body.i, label %ctr64_inc.exit, !llvm.loop !8
 
 ctr64_inc.exit:                                   ; preds = %do.body.i
-  %14 = load i64, ptr %scratch, align 16
+  %14 = load i64, ptr %scratch, align 8
   %15 = load i64, ptr %inp.addr.082, align 1
   %xor56 = xor i64 %15, %14
   store i64 %xor56, ptr %out.addr.081, align 1
@@ -438,11 +438,17 @@ for.end119:                                       ; preds = %for.body94, %while.
   %24 = zext nneg i32 %23 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %24, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
+  %25 = load i64, ptr %scratch, align 8
   %cmac124 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %25 = load <2 x i64>, ptr %scratch, align 16
-  %26 = load <2 x i64>, ptr %cmac124, align 8
-  %27 = xor <2 x i64> %26, %25
-  store <2 x i64> %27, ptr %cmac124, align 8
+  %26 = load i64, ptr %cmac124, align 8
+  %xor126 = xor i64 %26, %25
+  store i64 %xor126, ptr %cmac124, align 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %27 = load i64, ptr %arrayidx127, align 8
+  %arrayidx129 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %28 = load i64, ptr %arrayidx129, align 8
+  %xor130 = xor i64 %28, %27
+  store i64 %xor130, ptr %arrayidx129, align 8
   store i8 %0, ptr %ctx, align 8
   br label %return
 
@@ -454,7 +460,7 @@ return:                                           ; preds = %if.end27, %for.end,
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %ctx, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #4 {
 entry:
-  %scratch = alloca %union.anon.1, align 16
+  %scratch = alloca %union.anon.1, align 8
   %0 = load i8, ptr %ctx, align 8
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
@@ -539,7 +545,7 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   br i1 %or.cond.i, label %do.body.i, label %ctr64_inc.exit, !llvm.loop !8
 
 ctr64_inc.exit:                                   ; preds = %do.body.i
-  %8 = load i64, ptr %scratch, align 16
+  %8 = load i64, ptr %scratch, align 8
   %9 = load i64, ptr %inp.addr.071, align 1
   %xor = xor i64 %9, %8
   store i64 %xor, ptr %out.addr.070, align 1
@@ -604,11 +610,17 @@ for.end98:                                        ; preds = %for.end82, %while.e
   %19 = zext nneg i32 %18 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %19, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
+  %20 = load i64, ptr %scratch, align 8
   %cmac103 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %20 = load <2 x i64>, ptr %scratch, align 16
-  %21 = load <2 x i64>, ptr %cmac103, align 8
-  %22 = xor <2 x i64> %21, %20
-  store <2 x i64> %22, ptr %cmac103, align 8
+  %21 = load i64, ptr %cmac103, align 8
+  %xor105 = xor i64 %21, %20
+  store i64 %xor105, ptr %cmac103, align 8
+  %arrayidx106 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %22 = load i64, ptr %arrayidx106, align 8
+  %arrayidx108 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %23 = load i64, ptr %arrayidx108, align 8
+  %xor109 = xor i64 %23, %22
+  store i64 %xor109, ptr %arrayidx108, align 8
   store i8 %0, ptr %ctx, align 8
   br label %return
 
@@ -620,7 +632,7 @@ return:                                           ; preds = %for.end, %for.end98
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
-  %scratch = alloca %union.anon.2, align 16
+  %scratch = alloca %union.anon.2, align 8
   %0 = load i8, ptr %ctx, align 8
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
@@ -780,11 +792,17 @@ for.end105:                                       ; preds = %for.body80, %if.the
   %17 = zext nneg i32 %16 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %17, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
+  %18 = load i64, ptr %scratch, align 8
   %cmac110 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %18 = load <2 x i64>, ptr %scratch, align 16
-  %19 = load <2 x i64>, ptr %cmac110, align 8
-  %20 = xor <2 x i64> %19, %18
-  store <2 x i64> %20, ptr %cmac110, align 8
+  %19 = load i64, ptr %cmac110, align 8
+  %xor112 = xor i64 %19, %18
+  store i64 %xor112, ptr %cmac110, align 8
+  %arrayidx113 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %20 = load i64, ptr %arrayidx113, align 8
+  %arrayidx115 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %21 = load i64, ptr %arrayidx115, align 8
+  %xor116 = xor i64 %21, %20
+  store i64 %xor116, ptr %arrayidx115, align 8
   store i8 %0, ptr %ctx, align 8
   br label %return
 
@@ -796,7 +814,7 @@ return:                                           ; preds = %if.end27, %for.end,
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %ctx, ptr noundef %inp, ptr noundef %out, i64 noundef %len, ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
-  %scratch = alloca %union.anon.3, align 16
+  %scratch = alloca %union.anon.3, align 8
   %0 = load i8, ptr %ctx, align 8
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %block1, align 8
@@ -933,11 +951,17 @@ for.end86:                                        ; preds = %if.then28, %for.end
   %14 = zext nneg i32 %13 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %14, i1 false)
   call void %1(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef %2) #6
+  %15 = load i64, ptr %scratch, align 8
   %cmac91 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %15 = load <2 x i64>, ptr %scratch, align 16
-  %16 = load <2 x i64>, ptr %cmac91, align 8
-  %17 = xor <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %cmac91, align 8
+  %16 = load i64, ptr %cmac91, align 8
+  %xor93 = xor i64 %16, %15
+  store i64 %xor93, ptr %cmac91, align 8
+  %arrayidx94 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %17 = load i64, ptr %arrayidx94, align 8
+  %arrayidx96 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %18 = load i64, ptr %arrayidx96, align 8
+  %xor97 = xor i64 %18, %17
+  store i64 %xor97, ptr %arrayidx96, align 8
   store i8 %0, ptr %ctx, align 8
   br label %return
 

@@ -749,6 +749,8 @@ _ZNSt12_Vector_baseIN3ue222TeddyEngineDescriptionESaIS1_EE11_M_allocateEm.exit: 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN3ue222TeddyEngineDescriptionESaIS1_EE11_M_allocateEm.exit
   %5 = extractvalue { i32, i64 } %call.i.i.i18, 0
   %6 = extractvalue { i32, i64 } %call.i.i.i18, 1
+  %numBuckets.i.i.i = getelementptr inbounds i8, ptr %__args, i64 20
+  %7 = load i32, ptr %numBuckets.i.i.i, align 4
   %id.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %id.i.i.i.i, align 8
   %code_target.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -756,11 +758,12 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   %ref.tmp.sroa.25.0.code_target.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i64 %6, ptr %ref.tmp.sroa.25.0.code_target.i.sroa_idx.i.i.i, align 8
   %numBuckets.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  store i32 %7, ptr %numBuckets.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i64 16), ptr %add.ptr, align 8
+  %numMasks.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %numMasks2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
-  %7 = load <2 x i32>, ptr %numMasks2.i.i.i, align 8
-  %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %8, ptr %numBuckets.i.i.i.i, align 8
+  %8 = load i32, ptr %numMasks2.i.i.i, align 8
+  store i32 %8, ptr %numMasks.i.i.i, align 4
   %packed.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %packed3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %9 = load i8, ptr %packed3.i.i.i, align 8

@@ -6431,92 +6431,106 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %94, %50, %2
+  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %96 = load i64, ptr %0, align 8
-  store i64 %96, ptr %3, align 8
+  %99 = load i64, ptr %0, align 8
+  store i64 %99, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  %102 = load <2 x ptr>, ptr %12, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = load <2 x ptr>, ptr %97, align 8
-  store ptr %100, ptr %97, align 8
-  store <2 x ptr> %104, ptr %10, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %108 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %102, ptr %98, align 8
-  store ptr %107, ptr %105, align 8
-  store <2 x ptr> %108, ptr %101, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  %110 = load i64, ptr %9, align 8
-  %111 = load <2 x i64>, ptr %109, align 8
-  store i64 %110, ptr %109, align 8
-  store <2 x i64> %111, ptr %9, align 8
-  %112 = getelementptr inbounds i8, ptr %3, i64 56
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = load i64, ptr %112, align 8
-  %115 = load i64, ptr %113, align 8
-  store i64 %115, ptr %112, align 8
-  store i64 %114, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 64
-  %117 = load <2 x float>, ptr %5, align 8
-  %118 = load <2 x float>, ptr %116, align 8
-  store <2 x float> %117, ptr %116, align 8
-  store <2 x float> %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 72
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
-  %121 = load i8, ptr %119, align 8
-  %122 = and i8 %121, 1
-  %123 = load i8, ptr %120, align 8
-  %124 = and i8 %123, 1
-  store i8 %124, ptr %119, align 8
-  store i8 %122, ptr %120, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 73
-  %126 = getelementptr inbounds i8, ptr %0, i64 73
-  %127 = load i8, ptr %125, align 1
-  %128 = and i8 %127, 1
-  %129 = load i8, ptr %126, align 1
+  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %10, align 8
+  store ptr %106, ptr %100, align 8
+  %107 = load ptr, ptr %12, align 8
+  store ptr %107, ptr %102, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %104, align 8
+  store ptr %101, ptr %10, align 8
+  store ptr %103, ptr %12, align 8
+  store ptr %105, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %3, i64 32
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = load ptr, ptr %110, align 8
+  %113 = load ptr, ptr %111, align 8
+  store ptr %113, ptr %110, align 8
+  store ptr %112, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %115 = load i64, ptr %9, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %9, align 8
+  store i64 %115, ptr %114, align 8
+  store i64 %97, ptr %98, align 8
+  %117 = getelementptr inbounds i8, ptr %3, i64 56
+  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = load i64, ptr %117, align 8
+  %120 = load i64, ptr %118, align 8
+  store i64 %120, ptr %117, align 8
+  store i64 %119, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 64
+  %122 = load float, ptr %121, align 8
+  %123 = load float, ptr %5, align 8
+  store float %123, ptr %121, align 8
+  store float %122, ptr %5, align 8
+  %124 = getelementptr inbounds i8, ptr %3, i64 68
+  %125 = load float, ptr %124, align 4
+  %126 = load float, ptr %7, align 4
+  store float %126, ptr %124, align 4
+  store float %125, ptr %7, align 4
+  %127 = getelementptr inbounds i8, ptr %3, i64 72
+  %128 = getelementptr inbounds i8, ptr %0, i64 72
+  %129 = load i8, ptr %127, align 8
   %130 = and i8 %129, 1
-  store i8 %130, ptr %125, align 1
-  store i8 %128, ptr %126, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
+  %131 = load i8, ptr %128, align 8
+  %132 = and i8 %131, 1
+  store i8 %132, ptr %127, align 8
+  store i8 %130, ptr %128, align 8
+  %133 = getelementptr inbounds i8, ptr %3, i64 73
+  %134 = getelementptr inbounds i8, ptr %0, i64 73
+  %135 = load i8, ptr %133, align 1
+  %136 = and i8 %135, 1
+  %137 = load i8, ptr %134, align 1
+  %138 = and i8 %137, 1
+  store i8 %138, ptr %133, align 1
+  store i8 %136, ptr %134, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %106, %107
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %132 = load i16, ptr %131, align 4
-  %133 = icmp eq i16 %132, -1
-  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %134
+  %.05.i.i.i.i.i = phi ptr [ %143, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %106, %._crit_edge ]
+  %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = icmp eq i16 %140, -1
+  br i1 %141, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %142
 
-134:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %131, align 4
+142:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %139, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
-  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %135, %103
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %142, %.lr.ph.i.i.i.i.i
+  %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %143, %107
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !80
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %97, align 8
+  %.pr.i.i = load ptr, ptr %100, align 8
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %137
+  %144 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %106, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %144, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %145
 
-137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %136) #29
+145:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %137
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %145
   ret void
 }
 
@@ -6663,16 +6677,19 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
 
 59:                                               ; preds = %.thread, %49
   %60 = phi float [ %58, %49 ], [ 0.000000e+00, %.thread ]
-  %61 = insertelement <2 x float> poison, float %5, i64 0
-  %62 = insertelement <2 x float> %61, float %6, i64 1
-  %63 = fcmp ogt <2 x float> %62, <float 0.000000e+00, float 0x3FC99999A0000000>
+  %61 = fcmp ogt float %5, 0.000000e+00
+  %62 = select i1 %61, float %5, float 0.000000e+00
+  %63 = fcmp olt float %62, 0x3FC3333340000000
+  %.sroa.speculated.i = select i1 %63, float %62, float 0x3FC3333340000000
   %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = select <2 x i1> %63, <2 x float> %62, <2 x float> <float 0.000000e+00, float 0x3FC99999A0000000>
-  %66 = fcmp olt <2 x float> %65, <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  %67 = select <2 x i1> %66, <2 x float> %65, <2 x float> <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  store <2 x float> %67, ptr %64, align 8
-  %68 = extractelement <2 x float> %67, i64 1
-  %69 = fmul float %68, %60
+  store float %.sroa.speculated.i, ptr %64, align 8
+  %65 = fcmp ogt float %6, 0x3FC99999A0000000
+  %66 = select i1 %65, float %6, float 0x3FC99999A0000000
+  %67 = fcmp olt float %66, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %67, float %66, float 0x3FEE666660000000
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %68, align 4
+  %69 = fmul float %.sroa.speculated.i11, %60
   %70 = fptoui float %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %70, ptr %71, align 8
@@ -7488,92 +7505,106 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %94, %50, %2
+  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %96 = load i64, ptr %0, align 8
-  store i64 %96, ptr %3, align 8
+  %99 = load i64, ptr %0, align 8
+  store i64 %99, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  %102 = load <2 x ptr>, ptr %12, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = load <2 x ptr>, ptr %97, align 8
-  store ptr %100, ptr %97, align 8
-  store <2 x ptr> %104, ptr %10, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %108 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %102, ptr %98, align 8
-  store ptr %107, ptr %105, align 8
-  store <2 x ptr> %108, ptr %101, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  %110 = load i64, ptr %9, align 8
-  %111 = load <2 x i64>, ptr %109, align 8
-  store i64 %110, ptr %109, align 8
-  store <2 x i64> %111, ptr %9, align 8
-  %112 = getelementptr inbounds i8, ptr %3, i64 56
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = load i64, ptr %112, align 8
-  %115 = load i64, ptr %113, align 8
-  store i64 %115, ptr %112, align 8
-  store i64 %114, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 64
-  %117 = load <2 x float>, ptr %5, align 8
-  %118 = load <2 x float>, ptr %116, align 8
-  store <2 x float> %117, ptr %116, align 8
-  store <2 x float> %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 72
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
-  %121 = load i8, ptr %119, align 8
-  %122 = and i8 %121, 1
-  %123 = load i8, ptr %120, align 8
-  %124 = and i8 %123, 1
-  store i8 %124, ptr %119, align 8
-  store i8 %122, ptr %120, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 73
-  %126 = getelementptr inbounds i8, ptr %0, i64 73
-  %127 = load i8, ptr %125, align 1
-  %128 = and i8 %127, 1
-  %129 = load i8, ptr %126, align 1
+  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %10, align 8
+  store ptr %106, ptr %100, align 8
+  %107 = load ptr, ptr %12, align 8
+  store ptr %107, ptr %102, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %104, align 8
+  store ptr %101, ptr %10, align 8
+  store ptr %103, ptr %12, align 8
+  store ptr %105, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %3, i64 32
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = load ptr, ptr %110, align 8
+  %113 = load ptr, ptr %111, align 8
+  store ptr %113, ptr %110, align 8
+  store ptr %112, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %115 = load i64, ptr %9, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %9, align 8
+  store i64 %115, ptr %114, align 8
+  store i64 %97, ptr %98, align 8
+  %117 = getelementptr inbounds i8, ptr %3, i64 56
+  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = load i64, ptr %117, align 8
+  %120 = load i64, ptr %118, align 8
+  store i64 %120, ptr %117, align 8
+  store i64 %119, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 64
+  %122 = load float, ptr %121, align 8
+  %123 = load float, ptr %5, align 8
+  store float %123, ptr %121, align 8
+  store float %122, ptr %5, align 8
+  %124 = getelementptr inbounds i8, ptr %3, i64 68
+  %125 = load float, ptr %124, align 4
+  %126 = load float, ptr %7, align 4
+  store float %126, ptr %124, align 4
+  store float %125, ptr %7, align 4
+  %127 = getelementptr inbounds i8, ptr %3, i64 72
+  %128 = getelementptr inbounds i8, ptr %0, i64 72
+  %129 = load i8, ptr %127, align 8
   %130 = and i8 %129, 1
-  store i8 %130, ptr %125, align 1
-  store i8 %128, ptr %126, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
+  %131 = load i8, ptr %128, align 8
+  %132 = and i8 %131, 1
+  store i8 %132, ptr %127, align 8
+  store i8 %130, ptr %128, align 8
+  %133 = getelementptr inbounds i8, ptr %3, i64 73
+  %134 = getelementptr inbounds i8, ptr %0, i64 73
+  %135 = load i8, ptr %133, align 1
+  %136 = and i8 %135, 1
+  %137 = load i8, ptr %134, align 1
+  %138 = and i8 %137, 1
+  store i8 %138, ptr %133, align 1
+  store i8 %136, ptr %134, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %106, %107
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %132 = load i16, ptr %131, align 4
-  %133 = icmp eq i16 %132, -1
-  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %134
+  %.05.i.i.i.i.i = phi ptr [ %143, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %106, %._crit_edge ]
+  %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = icmp eq i16 %140, -1
+  br i1 %141, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %142
 
-134:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %131, align 4
+142:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %139, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
-  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %135, %103
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %142, %.lr.ph.i.i.i.i.i
+  %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %143, %107
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %97, align 8
+  %.pr.i.i = load ptr, ptr %100, align 8
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit, label %137
+  %144 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %106, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %144, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit, label %145
 
-137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %136) #29
+145:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %137
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %145
   ret void
 }
 
@@ -7720,16 +7751,19 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
 
 59:                                               ; preds = %.thread, %49
   %60 = phi float [ %58, %49 ], [ 0.000000e+00, %.thread ]
-  %61 = insertelement <2 x float> poison, float %5, i64 0
-  %62 = insertelement <2 x float> %61, float %6, i64 1
-  %63 = fcmp ogt <2 x float> %62, <float 0.000000e+00, float 0x3FC99999A0000000>
+  %61 = fcmp ogt float %5, 0.000000e+00
+  %62 = select i1 %61, float %5, float 0.000000e+00
+  %63 = fcmp olt float %62, 0x3FC3333340000000
+  %.sroa.speculated.i = select i1 %63, float %62, float 0x3FC3333340000000
   %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = select <2 x i1> %63, <2 x float> %62, <2 x float> <float 0.000000e+00, float 0x3FC99999A0000000>
-  %66 = fcmp olt <2 x float> %65, <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  %67 = select <2 x i1> %66, <2 x float> %65, <2 x float> <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  store <2 x float> %67, ptr %64, align 8
-  %68 = extractelement <2 x float> %67, i64 1
-  %69 = fmul float %68, %60
+  store float %.sroa.speculated.i, ptr %64, align 8
+  %65 = fcmp ogt float %6, 0x3FC99999A0000000
+  %66 = select i1 %65, float %6, float 0x3FC99999A0000000
+  %67 = fcmp olt float %66, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %67, float %66, float 0x3FEE666660000000
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %68, align 4
+  %69 = fmul float %.sroa.speculated.i11, %60
   %70 = fptoui float %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %70, ptr %71, align 8
@@ -8262,92 +8296,106 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %94, %49, %2
+  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %96 = load i64, ptr %0, align 8
-  store i64 %96, ptr %3, align 8
+  %99 = load i64, ptr %0, align 8
+  store i64 %99, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  %102 = load <2 x ptr>, ptr %12, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = load <2 x ptr>, ptr %97, align 8
-  store ptr %100, ptr %97, align 8
-  store <2 x ptr> %104, ptr %10, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %108 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %102, ptr %98, align 8
-  store ptr %107, ptr %105, align 8
-  store <2 x ptr> %108, ptr %101, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  %110 = load i64, ptr %9, align 8
-  %111 = load <2 x i64>, ptr %109, align 8
-  store i64 %110, ptr %109, align 8
-  store <2 x i64> %111, ptr %9, align 8
-  %112 = getelementptr inbounds i8, ptr %3, i64 56
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = load i64, ptr %112, align 8
-  %115 = load i64, ptr %113, align 8
-  store i64 %115, ptr %112, align 8
-  store i64 %114, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 64
-  %117 = load <2 x float>, ptr %5, align 8
-  %118 = load <2 x float>, ptr %116, align 8
-  store <2 x float> %117, ptr %116, align 8
-  store <2 x float> %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 72
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
-  %121 = load i8, ptr %119, align 8
-  %122 = and i8 %121, 1
-  %123 = load i8, ptr %120, align 8
-  %124 = and i8 %123, 1
-  store i8 %124, ptr %119, align 8
-  store i8 %122, ptr %120, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 73
-  %126 = getelementptr inbounds i8, ptr %0, i64 73
-  %127 = load i8, ptr %125, align 1
-  %128 = and i8 %127, 1
-  %129 = load i8, ptr %126, align 1
+  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %10, align 8
+  store ptr %106, ptr %100, align 8
+  %107 = load ptr, ptr %12, align 8
+  store ptr %107, ptr %102, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %104, align 8
+  store ptr %101, ptr %10, align 8
+  store ptr %103, ptr %12, align 8
+  store ptr %105, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %3, i64 32
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = load ptr, ptr %110, align 8
+  %113 = load ptr, ptr %111, align 8
+  store ptr %113, ptr %110, align 8
+  store ptr %112, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %115 = load i64, ptr %9, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %9, align 8
+  store i64 %115, ptr %114, align 8
+  store i64 %97, ptr %98, align 8
+  %117 = getelementptr inbounds i8, ptr %3, i64 56
+  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = load i64, ptr %117, align 8
+  %120 = load i64, ptr %118, align 8
+  store i64 %120, ptr %117, align 8
+  store i64 %119, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 64
+  %122 = load float, ptr %121, align 8
+  %123 = load float, ptr %5, align 8
+  store float %123, ptr %121, align 8
+  store float %122, ptr %5, align 8
+  %124 = getelementptr inbounds i8, ptr %3, i64 68
+  %125 = load float, ptr %124, align 4
+  %126 = load float, ptr %7, align 4
+  store float %126, ptr %124, align 4
+  store float %125, ptr %7, align 4
+  %127 = getelementptr inbounds i8, ptr %3, i64 72
+  %128 = getelementptr inbounds i8, ptr %0, i64 72
+  %129 = load i8, ptr %127, align 8
   %130 = and i8 %129, 1
-  store i8 %130, ptr %125, align 1
-  store i8 %128, ptr %126, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
+  %131 = load i8, ptr %128, align 8
+  %132 = and i8 %131, 1
+  store i8 %132, ptr %127, align 8
+  store i8 %130, ptr %128, align 8
+  %133 = getelementptr inbounds i8, ptr %3, i64 73
+  %134 = getelementptr inbounds i8, ptr %0, i64 73
+  %135 = load i8, ptr %133, align 1
+  %136 = and i8 %135, 1
+  %137 = load i8, ptr %134, align 1
+  %138 = and i8 %137, 1
+  store i8 %138, ptr %133, align 1
+  store i8 %136, ptr %134, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %106, %107
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %132 = load i16, ptr %131, align 4
-  %133 = icmp eq i16 %132, -1
-  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %134
+  %.05.i.i.i.i.i = phi ptr [ %143, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %106, %._crit_edge ]
+  %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = icmp eq i16 %140, -1
+  br i1 %141, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %142
 
-134:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %131, align 4
+142:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %139, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
-  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %135, %103
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %142, %.lr.ph.i.i.i.i.i
+  %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %143, %107
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %97, align 8
+  %.pr.i.i = load ptr, ptr %100, align 8
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit, label %137
+  %144 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %106, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %144, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit, label %145
 
-137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %136) #29
+145:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %137
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %145
   ret void
 }
 
@@ -8494,16 +8542,19 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_inf
 
 59:                                               ; preds = %.thread, %49
   %60 = phi float [ %58, %49 ], [ 0.000000e+00, %.thread ]
-  %61 = insertelement <2 x float> poison, float %5, i64 0
-  %62 = insertelement <2 x float> %61, float %6, i64 1
-  %63 = fcmp ogt <2 x float> %62, <float 0.000000e+00, float 0x3FC99999A0000000>
+  %61 = fcmp ogt float %5, 0.000000e+00
+  %62 = select i1 %61, float %5, float 0.000000e+00
+  %63 = fcmp olt float %62, 0x3FC3333340000000
+  %.sroa.speculated.i = select i1 %63, float %62, float 0x3FC3333340000000
   %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = select <2 x i1> %63, <2 x float> %62, <2 x float> <float 0.000000e+00, float 0x3FC99999A0000000>
-  %66 = fcmp olt <2 x float> %65, <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  %67 = select <2 x i1> %66, <2 x float> %65, <2 x float> <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  store <2 x float> %67, ptr %64, align 8
-  %68 = extractelement <2 x float> %67, i64 1
-  %69 = fmul float %68, %60
+  store float %.sroa.speculated.i, ptr %64, align 8
+  %65 = fcmp ogt float %6, 0x3FC99999A0000000
+  %66 = select i1 %65, float %6, float 0x3FC99999A0000000
+  %67 = fcmp olt float %66, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %67, float %66, float 0x3FEE666660000000
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %68, align 4
+  %69 = fmul float %.sroa.speculated.i11, %60
   %70 = fptoui float %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %70, ptr %71, align 8

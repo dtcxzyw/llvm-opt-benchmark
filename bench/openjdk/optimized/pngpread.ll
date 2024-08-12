@@ -1090,11 +1090,12 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   %97 = sub i32 %96, %.0
   store i32 %97, ptr %67, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 752
-  %99 = load <2 x i64>, ptr %98, align 8
-  %100 = insertelement <2 x i64> poison, i64 %.066, i64 0
-  %101 = shufflevector <2 x i64> %100, <2 x i64> poison, <2 x i32> zeroinitializer
-  %102 = sub <2 x i64> %99, %101
-  store <2 x i64> %102, ptr %98, align 8
+  %99 = load i64, ptr %98, align 8
+  %100 = sub i64 %99, %.066
+  store i64 %100, ptr %98, align 8
+  %101 = load i64, ptr %87, align 8
+  %102 = sub i64 %101, %.066
+  store i64 %102, ptr %87, align 8
   %103 = load ptr, ptr %93, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 %.066
   store ptr %104, ptr %93, align 8
@@ -1173,11 +1174,12 @@ define hidden void @png_push_fill_buffer(ptr noundef %0, ptr nocapture noundef w
   %26 = load ptr, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.035, ptr align 1 %26, i64 %.036., i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 752
-  %28 = load <2 x i64>, ptr %27, align 8
-  %29 = insertelement <2 x i64> poison, i64 %.036., i64 0
-  %30 = shufflevector <2 x i64> %29, <2 x i64> poison, <2 x i32> zeroinitializer
-  %31 = sub <2 x i64> %28, %30
-  store <2 x i64> %31, ptr %27, align 8
+  %28 = load i64, ptr %27, align 8
+  %29 = sub i64 %28, %.036.
+  store i64 %29, ptr %27, align 8
+  %30 = load i64, ptr %22, align 8
+  %31 = sub i64 %30, %.036.
+  store i64 %31, ptr %22, align 8
   %32 = load ptr, ptr %25, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 %.036.
   store ptr %33, ptr %25, align 8

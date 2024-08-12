@@ -379,6 +379,7 @@ while.body.lr.ph:                                 ; preds = %_ZNSt11unique_lockI
   %watchedRuntimes_ = getelementptr inbounds i8, ptr %this, i64 96
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
   %timerLoopCond_ = getelementptr inbounds i8, ptr %this, i64 48
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
   br label %while.body
@@ -449,9 +450,12 @@ if.then:                                          ; preds = %_ZN4llvh16DenseMapI
   %asyncBreakRequestFlag_.i.i = getelementptr inbounds i8, ptr %6, i64 9760
   %7 = atomicrmw or ptr %asyncBreakRequestFlag_.i.i, i8 4 monotonic, align 1
   store ptr inttoptr (i64 -16 to ptr), ptr %it.sroa.0.017, align 8
-  %8 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %9 = add <2 x i32> %8, <i32 -1, i32 1>
-  store <2 x i32> %9, ptr %NumEntries.i.i.i.i, align 8
+  %8 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %8, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %9 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %9, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %if.end
 
 if.else:                                          ; preds = %_ZN4llvh16DenseMapIteratorIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SD_EELb0EEppEi.exit
@@ -692,9 +696,13 @@ if.end.i:                                         ; preds = %if.end13.i.i.i, %if
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %6 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %7 = add <2 x i32> %6, <i32 -1, i32 1>
-  store <2 x i32> %7, ptr %NumEntries.i.i.i.i, align 8
+  %6 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %6, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
+  %7 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %7, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5eraseERKS5_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E5eraseERKS5_.exit: ; preds = %if.end9.i.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.end.i

@@ -398,22 +398,24 @@ define hidden void @_ZN13Canonicalizer19move_const_to_rightEP3Op2(ptr nocapture 
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
-  br i1 %10, label %11, label %19
+  br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 496
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(120) %1) #9
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = load <2 x ptr>, ptr %3, align 8
-  %18 = shufflevector <2 x ptr> %17, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %18, ptr %3, align 8
-  br label %19
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 112
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %3, align 8
+  store ptr %17, ptr %18, align 8
+  br label %20
 
-19:                                               ; preds = %16, %11, %2
+20:                                               ; preds = %16, %11, %2
   ret void
 }
 
@@ -1848,111 +1850,115 @@ _ZL16in_current_blockP11Instruction.exit:         ; preds = %25
 _ZN11InstructionnwEm.exit:                        ; preds = %47, %49
   %.0.i.i.i = phi ptr [ %43, %47 ], [ %50, %49 ]
   %51 = icmp eq ptr %.0.i.i.i, null
-  br i1 %51, label %112, label %52
+  br i1 %51, label %115, label %52
 
 52:                                               ; preds = %_ZN11InstructionnwEm.exit
   %53 = getelementptr inbounds i8, ptr %1, i64 96
-  %54 = getelementptr inbounds i8, ptr %1, i64 112
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i8, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 64
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 104
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 112
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 148
-  %60 = load i8, ptr %59, align 4
-  %61 = and i8 %60, 1
-  %62 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
-  %63 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
-  %64 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
-  %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
-  %70 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
-  %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
-  %72 = load <2 x ptr>, ptr %53, align 8
-  %73 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %56) #9
+  %59 = load i8, ptr %10, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 64
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 148
+  %63 = load i8, ptr %62, align 4
+  %64 = and i8 %63, 1
+  %65 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %59) #9
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %.0.i.i.i, align 8
-  %74 = load ptr, ptr %33, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1808
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 128
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %79, align 8
-  store i32 %80, ptr %62, align 8
-  store i32 0, ptr %63, align 4
-  store i32 0, ptr %64, align 8
-  store ptr %73, ptr %65, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
-  %82 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  store i64 %82, ptr %67, align 8
-  store i32 0, ptr %68, align 8
-  store ptr %58, ptr %69, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %58) #9
-  %83 = load i32, ptr %68, align 8
-  %84 = load i32, ptr %64, align 8
-  %85 = or i32 %84, 1
-  store i32 %85, ptr %64, align 8
-  store <2 x ptr> %72, ptr %71, align 8
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 112
-  store ptr %55, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 120
-  store i8 %56, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 121
-  store i8 0, ptr %88, align 1
-  %89 = or i32 %83, 131073
-  store i32 %89, ptr %68, align 8
+  %66 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %67 = load ptr, ptr %33, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1808
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 128
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %72, align 8
+  store i32 %73, ptr %66, align 8
+  %75 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  store i32 0, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  store i32 0, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  store ptr %65, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %79 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
+  %80 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  store i64 %80, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  store i32 0, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  store ptr %61, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef %61) #9
+  %84 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
+  store ptr %54, ptr %84, align 8
+  %85 = load i32, ptr %81, align 8
+  %86 = load i32, ptr %76, align 8
+  %87 = or i32 %86, 1
+  store i32 %87, ptr %76, align 8
+  %88 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
+  store ptr %56, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 112
+  store ptr %58, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 120
+  store i8 %59, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 121
+  store i8 0, ptr %91, align 1
+  %92 = or i32 %85, 131073
+  store i32 %92, ptr %81, align 8
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV12StoreIndexed, i64 16), ptr %.0.i.i.i, align 8
-  %90 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 128
-  store ptr %.0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 136
-  store ptr null, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 144
-  store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 148
-  store i8 %61, ptr %93, align 4
-  %94 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %56) #9
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 72
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(16) %94) #9
-  %.not.i29 = icmp eq ptr %98, null
-  %99 = load i32, ptr %68, align 8
-  %100 = and i32 %99, -129
+  %93 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 128
+  store ptr %.0, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 136
+  store ptr null, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 144
+  store i32 0, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 148
+  store i8 %64, ptr %96, align 4
+  %97 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %59) #9
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 72
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(16) %97) #9
+  %.not.i29 = icmp eq ptr %101, null
+  %102 = load i32, ptr %81, align 8
+  %103 = and i32 %102, -129
   %masksel.i = select i1 %.not.i29, i32 0, i32 128
-  %101 = or disjoint i32 %100, %masksel.i
-  store i32 %101, ptr %68, align 8
-  %102 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %56) #9
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 72
-  %105 = load ptr, ptr %104, align 8
-  %106 = tail call noundef ptr %105(ptr noundef nonnull align 8 dereferenceable(16) %102) #9
-  %.not10.i = icmp eq ptr %106, null
-  %107 = load i32, ptr %68, align 8
-  %108 = and i32 %107, -65
+  %104 = or disjoint i32 %103, %masksel.i
+  store i32 %104, ptr %81, align 8
+  %105 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %59) #9
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 72
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(16) %105) #9
+  %.not10.i = icmp eq ptr %109, null
+  %110 = load i32, ptr %81, align 8
+  %111 = and i32 %110, -65
   %masksel11.i = select i1 %.not10.i, i32 0, i32 64
-  %109 = or disjoint i32 %108, %masksel11.i
-  store i32 %109, ptr %68, align 8
-  %110 = load i32, ptr %64, align 8
-  %111 = or i32 %110, 1
-  store i32 %111, ptr %64, align 8
-  br label %112
+  %112 = or disjoint i32 %111, %masksel11.i
+  store i32 %112, ptr %81, align 8
+  %113 = load i32, ptr %76, align 8
+  %114 = or i32 %113, 1
+  store i32 %114, ptr %76, align 8
+  br label %115
 
-112:                                              ; preds = %52, %_ZN11InstructionnwEm.exit
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %.not.i30 = icmp eq ptr %114, %.0.i.i.i
-  br i1 %.not.i30, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %115
+115:                                              ; preds = %52, %_ZN11InstructionnwEm.exit
+  %116 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %.not.i30 = icmp eq ptr %117, %.0.i.i.i
+  br i1 %.not.i30, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %118
 
-115:                                              ; preds = %112
-  store ptr %.0.i.i.i, ptr %113, align 8
+118:                                              ; preds = %115
+  store ptr %.0.i.i.i, ptr %116, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.lr.ph.i, %14, %16, %18, %9, %115, %112, %19, %_ZL16in_current_blockP11Instruction.exit, %2
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.lr.ph.i, %14, %16, %18, %9, %118, %115, %19, %_ZL16in_current_blockP11Instruction.exit, %2
   ret void
 }
 

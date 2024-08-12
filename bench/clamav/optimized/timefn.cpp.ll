@@ -70,27 +70,42 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @_ZN7RarTime8SetLocalEP12RarLocalTime(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
-  %3 = alloca %struct.tm, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load <4 x i32>, ptr %4, align 4
-  %6 = shufflevector <4 x i32> %5, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %6, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load <2 x i32>, ptr %1, align 4
-  %9 = add <2 x i32> %8, <i32 -1900, i32 -1>
-  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %10, ptr %7, align 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 -1, ptr %11, align 16
-  %12 = call i64 @mktime(ptr noundef nonnull %3) #13
-  %13 = mul i64 %12, 1000000000
-  %14 = add i64 %13, -6802270473709551616
-  store i64 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = alloca %struct.tm, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = load i32, ptr %4, align 4
+  store i32 %5, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %7, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %13, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = zext i32 %16 to i64
-  %18 = add i64 %14, %17
-  store i64 %18, ptr %0, align 8
+  %17 = add i32 %16, -1
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %17, ptr %18, align 8
+  %19 = load i32, ptr %1, align 4
+  %20 = add i32 %19, -1900
+  %21 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 -1, ptr %22, align 8
+  %23 = call i64 @mktime(ptr noundef nonnull %3) #13
+  %24 = mul i64 %23, 1000000000
+  %25 = add i64 %24, -6802270473709551616
+  store i64 %25, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = load i32, ptr %26, align 4
+  %28 = zext i32 %27 to i64
+  %29 = add i64 %25, %28
+  store i64 %29, ptr %0, align 8
   ret void
 }
 
@@ -309,8 +324,10 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %25
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 20
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert16 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = load <2 x i32>, ptr %.phi.trans.insert16, align 16
+  %.pre17 = load i32, ptr %.phi.trans.insert16, align 16
   %.phi.trans.insert18 = getelementptr inbounds i8, ptr %4, i64 12
   %.pre19 = load i32, ptr %.phi.trans.insert18, align 4
   %.phi.trans.insert20 = getelementptr inbounds i8, ptr %4, i64 8
@@ -318,29 +335,31 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
   %.phi.trans.insert22 = getelementptr inbounds i8, ptr %4, i64 4
   %.pre23 = load i32, ptr %.phi.trans.insert22, align 4
   %.pre24 = load i32, ptr %4, align 16
-  %29 = add i32 %.pre24, -1900
+  %28 = add i32 %.pre24, -1900
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %30 = phi i32 [ %29, %._crit_edge.loopexit ], [ -1900, %2 ]
-  %31 = phi i32 [ %.pre23, %._crit_edge.loopexit ], [ 0, %2 ]
-  %32 = phi i32 [ %.pre21, %._crit_edge.loopexit ], [ 0, %2 ]
-  %33 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ 0, %2 ]
-  %34 = phi <2 x i32> [ %28, %._crit_edge.loopexit ], [ zeroinitializer, %2 ]
-  %35 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
-  %36 = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
+  %29 = phi i32 [ %28, %._crit_edge.loopexit ], [ -1900, %2 ]
+  %30 = phi i32 [ %.pre23, %._crit_edge.loopexit ], [ 0, %2 ]
+  %31 = phi i32 [ %.pre21, %._crit_edge.loopexit ], [ 0, %2 ]
+  %32 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ 0, %2 ]
+  %33 = phi i32 [ %.pre17, %._crit_edge.loopexit ], [ 0, %2 ]
+  %34 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %2 ]
+  %35 = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
+  %36 = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %37 = shufflevector <2 x i32> %34, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %37, ptr %3, align 8
+  store i32 %34, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %33, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %33, ptr %38, align 8
+  store i32 %32, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %35, ptr %39, align 4
   %40 = add i32 %36, -1
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %30, ptr %42, align 4
+  store i32 %29, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 -1, ptr %43, align 8
   %44 = call i64 @mktime(ptr noundef nonnull %3) #13

@@ -547,8 +547,8 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %46 = load i32, ptr %45, align 4
   switch i32 %46, label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit [
     i32 0, label %47
-    i32 1, label %67
-    i32 2, label %101
+    i32 1, label %63
+    i32 2, label %93
   ]
 
 47:                                               ; preds = %42
@@ -561,226 +561,230 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %52 = and i32 %44, 32
   %.not46.i = icmp eq i32 %52, 0
   %53 = select i1 %.not46.i, i32 46, i32 65
-  %54 = insertelement <4 x i32> poison, i32 %44, i64 0
-  %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> zeroinitializer
-  %56 = and <4 x i32> %55, <i32 1, i32 2, i32 4, i32 16>
-  %57 = icmp eq <4 x i32> %56, zeroinitializer
-  %58 = extractelement <4 x i1> %57, i64 3
-  %59 = select i1 %58, i32 46, i32 68
-  %60 = extractelement <4 x i1> %57, i64 2
-  %61 = select i1 %60, i32 46, i32 83
-  %62 = extractelement <4 x i1> %57, i64 1
-  %63 = select i1 %62, i32 46, i32 72
-  %64 = extractelement <4 x i1> %57, i64 0
-  %65 = select i1 %64, i32 46, i32 82
-  %66 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %9, i64 noundef 30, ptr noundef nonnull @.str.61, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef %65) #5
+  %54 = and i32 %44, 16
+  %.not47.i = icmp eq i32 %54, 0
+  %55 = select i1 %.not47.i, i32 46, i32 68
+  %56 = and i32 %44, 4
+  %.not48.i = icmp eq i32 %56, 0
+  %57 = select i1 %.not48.i, i32 46, i32 83
+  %58 = and i32 %44, 2
+  %.not49.i = icmp eq i32 %58, 0
+  %59 = select i1 %.not49.i, i32 46, i32 72
+  %60 = and i32 %44, 1
+  %.not50.i = icmp eq i32 %60, 0
+  %61 = select i1 %.not50.i, i32 46, i32 82
+  %62 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %9, i64 noundef 30, ptr noundef nonnull @.str.61, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61) #5
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
-67:                                               ; preds = %42
-  %68 = trunc i32 %44 to i16
-  %trunc.i = and i16 %68, -4096
+63:                                               ; preds = %42
+  %64 = trunc i32 %44 to i16
+  %trunc.i = and i16 %64, -4096
   %switch.selectcmp.i = icmp eq i16 %trunc.i, -24576
   %switch.select.i = select i1 %switch.selectcmp.i, i32 108, i32 45
   %switch.selectcmp51.i = icmp eq i16 %trunc.i, 16384
   %switch.select52.i = select i1 %switch.selectcmp51.i, i32 100, i32 %switch.select.i
   store i32 %switch.select52.i, ptr %9, align 16
-  %69 = getelementptr inbounds i8, ptr %9, i64 4
-  %70 = and i32 %44, 256
-  %.not.i = icmp eq i32 %70, 0
-  %71 = select i1 %.not.i, i32 45, i32 114
-  %72 = and i32 %44, 128
-  %.not31.i = icmp eq i32 %72, 0
-  %73 = select i1 %.not31.i, i32 45, i32 119
-  %74 = and i32 %44, 64
-  %.not32.i = icmp eq i32 %74, 0
-  %75 = and i32 %44, 2048
-  %.not33.i = icmp eq i32 %75, 0
-  %76 = select i1 %.not33.i, i32 120, i32 115
-  %77 = select i1 %.not33.i, i32 45, i32 83
-  %78 = select i1 %.not32.i, i32 %77, i32 %76
-  %79 = insertelement <8 x i32> poison, i32 %44, i64 0
-  %80 = shufflevector <8 x i32> %79, <8 x i32> poison, <8 x i32> zeroinitializer
-  %81 = and <8 x i32> %80, <i32 512, i32 1, i32 2, i32 4, i32 1024, i32 8, i32 16, i32 32>
-  %82 = icmp eq <8 x i32> %81, zeroinitializer
-  %83 = extractelement <8 x i1> %82, i64 7
-  %84 = select i1 %83, i32 45, i32 114
-  %85 = extractelement <8 x i1> %82, i64 6
-  %86 = select i1 %85, i32 45, i32 119
-  %87 = extractelement <8 x i1> %82, i64 4
-  %88 = select i1 %87, i32 120, i32 115
-  %89 = select i1 %87, i32 45, i32 83
-  %90 = extractelement <8 x i1> %82, i64 5
-  %91 = select i1 %90, i32 %89, i32 %88
-  %92 = extractelement <8 x i1> %82, i64 3
-  %93 = select i1 %92, i32 45, i32 114
-  %94 = extractelement <8 x i1> %82, i64 2
-  %95 = select i1 %94, i32 45, i32 119
-  %96 = extractelement <8 x i1> %82, i64 0
-  %97 = select i1 %96, i32 120, i32 116
-  %98 = extractelement <8 x i1> %82, i64 1
-  %99 = select i1 %98, i32 45, i32 %97
-  %100 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %69, i64 noundef 29, ptr noundef nonnull @.str.62, i32 noundef %71, i32 noundef %73, i32 noundef %78, i32 noundef %84, i32 noundef %86, i32 noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef %99) #5
+  %65 = getelementptr inbounds i8, ptr %9, i64 4
+  %66 = and i32 %44, 256
+  %.not.i = icmp eq i32 %66, 0
+  %67 = select i1 %.not.i, i32 45, i32 114
+  %68 = and i32 %44, 128
+  %.not31.i = icmp eq i32 %68, 0
+  %69 = select i1 %.not31.i, i32 45, i32 119
+  %70 = and i32 %44, 64
+  %.not32.i = icmp eq i32 %70, 0
+  %71 = and i32 %44, 2048
+  %.not33.i = icmp eq i32 %71, 0
+  %72 = select i1 %.not33.i, i32 120, i32 115
+  %73 = select i1 %.not33.i, i32 45, i32 83
+  %74 = select i1 %.not32.i, i32 %73, i32 %72
+  %75 = and i32 %44, 32
+  %.not35.i = icmp eq i32 %75, 0
+  %76 = select i1 %.not35.i, i32 45, i32 114
+  %77 = and i32 %44, 16
+  %.not36.i = icmp eq i32 %77, 0
+  %78 = select i1 %.not36.i, i32 45, i32 119
+  %79 = and i32 %44, 8
+  %.not37.i = icmp eq i32 %79, 0
+  %80 = and i32 %44, 1024
+  %.not38.i = icmp eq i32 %80, 0
+  %81 = select i1 %.not38.i, i32 120, i32 115
+  %82 = select i1 %.not38.i, i32 45, i32 83
+  %83 = select i1 %.not37.i, i32 %82, i32 %81
+  %84 = and i32 %44, 4
+  %.not40.i = icmp eq i32 %84, 0
+  %85 = select i1 %.not40.i, i32 45, i32 114
+  %86 = and i32 %44, 2
+  %.not41.i = icmp eq i32 %86, 0
+  %87 = select i1 %.not41.i, i32 45, i32 119
+  %88 = and i32 %44, 1
+  %.not42.i = icmp eq i32 %88, 0
+  %89 = and i32 %44, 512
+  %.not43.i = icmp eq i32 %89, 0
+  %90 = select i1 %.not43.i, i32 120, i32 116
+  %91 = select i1 %.not42.i, i32 45, i32 %90
+  %92 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %65, i64 noundef 29, ptr noundef nonnull @.str.62, i32 noundef %67, i32 noundef %69, i32 noundef %74, i32 noundef %76, i32 noundef %78, i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %91) #5
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
-101:                                              ; preds = %42
+93:                                               ; preds = %42
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull @.str.20, i64 noundef 30)
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
-_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %101, %67, %47, %42, %36
-  %102 = getelementptr inbounds i8, ptr %1, i64 8352
-  %103 = load i8, ptr %102, align 8
-  %104 = trunc i8 %103 to i1
-  %105 = getelementptr inbounds i8, ptr %1, i64 8353
-  %106 = load i8, ptr %105, align 1
-  %107 = trunc i8 %106 to i1
-  br i1 %104, label %108, label %111
+_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, %36
+  %94 = getelementptr inbounds i8, ptr %1, i64 8352
+  %95 = load i8, ptr %94, align 8
+  %96 = trunc i8 %95 to i1
+  %97 = getelementptr inbounds i8, ptr %1, i64 8353
+  %98 = load i8, ptr %97, align 1
+  %99 = trunc i8 %98 to i1
+  br i1 %96, label %100, label %103
 
-108:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
-  br i1 %107, label %109, label %110
+100:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
+  br i1 %99, label %101, label %102
 
-109:                                              ; preds = %108
+101:                                              ; preds = %100
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.22, i64 noundef 10)
-  br label %118
+  br label %110
 
-110:                                              ; preds = %108
+102:                                              ; preds = %100
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.23, i64 noundef 10)
-  br label %118
+  br label %110
 
-111:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
-  br i1 %107, label %112, label %113
+103:                                              ; preds = %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
+  br i1 %99, label %104, label %105
 
-112:                                              ; preds = %111
+104:                                              ; preds = %103
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %10, ptr noundef nonnull @.str.24, i64 noundef 10)
-  br label %118
+  br label %110
 
-113:                                              ; preds = %111
-  %114 = load i64, ptr %31, align 8
-  %115 = load i64, ptr %25, align 8
-  %116 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %114, i64 noundef %115)
-  %117 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 10, ptr noundef nonnull @.str.25, i32 noundef %116) #5
-  br label %118
+105:                                              ; preds = %103
+  %106 = load i64, ptr %31, align 8
+  %107 = load i64, ptr %25, align 8
+  %108 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %106, i64 noundef %107)
+  %109 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 10, ptr noundef nonnull @.str.25, i32 noundef %108) #5
+  br label %110
 
-118:                                              ; preds = %110, %113, %112, %109
-  %119 = getelementptr inbounds i8, ptr %1, i64 8264
-  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
-  br i1 %3, label %120, label %.critedge
+110:                                              ; preds = %102, %105, %104, %101
+  %111 = getelementptr inbounds i8, ptr %1, i64 8264
+  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
+  br i1 %3, label %112, label %.critedge
 
-120:                                              ; preds = %118
-  %121 = load i32, ptr %33, align 4
-  %122 = icmp eq i32 %121, 2
-  br i1 %122, label %128, label %123
+112:                                              ; preds = %110
+  %113 = load i32, ptr %33, align 4
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %120, label %115
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %0, i64 31264
-  %125 = call i32 @wcscmp(ptr noundef nonnull %124, ptr noundef nonnull @.str.27) #6
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %128
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds i8, ptr %0, i64 31264
+  %117 = call i32 @wcscmp(ptr noundef nonnull %116, ptr noundef nonnull @.str.27) #6
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %120
 
-127:                                              ; preds = %123
+119:                                              ; preds = %115
   call void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %12, i64 noundef 2048)
-  br label %146
+  br label %138
 
-128:                                              ; preds = %123, %120
-  %129 = getelementptr inbounds i8, ptr %1, i64 8464
-  %130 = load i32, ptr %129, align 8
-  %.not113 = icmp ne i32 %130, 0
-  %131 = icmp eq i32 %23, 2
-  %or.cond = select i1 %.not113, i1 %131, i1 false
-  br i1 %or.cond, label %132, label %146
+120:                                              ; preds = %115, %112
+  %121 = getelementptr inbounds i8, ptr %1, i64 8464
+  %122 = load i32, ptr %121, align 8
+  %.not113 = icmp ne i32 %122, 0
+  %123 = icmp eq i32 %23, 2
+  %or.cond = select i1 %.not113, i1 %123, i1 false
+  br i1 %or.cond, label %124, label %138
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %0, i64 22331
-  %134 = load i8, ptr %133, align 1
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %136, label %137
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %0, i64 22331
+  %126 = load i8, ptr %125, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %129
 
-136:                                              ; preds = %132
+128:                                              ; preds = %124
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %13, ptr noundef nonnull @.str.28, i64 noundef 2048)
-  br label %144
+  br label %136
 
-137:                                              ; preds = %132
-  %138 = load i64, ptr %31, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %138, i64 2047)
-  %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 32
-  %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
-  %143 = getelementptr inbounds [2048 x i8], ptr %13, i64 0, i64 %spec.select
-  store i8 0, ptr %143, align 1
-  br label %144
+129:                                              ; preds = %124
+  %130 = load i64, ptr %31, align 8
+  %spec.select = call i64 @llvm.umin.i64(i64 %130, i64 2047)
+  %131 = load ptr, ptr %0, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 32
+  %133 = load ptr, ptr %132, align 8
+  %134 = call noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
+  %135 = getelementptr inbounds [2048 x i8], ptr %13, i64 0, i64 %spec.select
+  store i8 0, ptr %135, align 1
+  br label %136
 
-144:                                              ; preds = %137, %136
-  %145 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 2048)
+136:                                              ; preds = %129, %128
+  %137 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 2048)
+  br label %138
+
+138:                                              ; preds = %120, %136, %119
+  %139 = getelementptr inbounds i8, ptr %1, i64 8272
+  %140 = load i64, ptr %139, align 8
+  %.not = icmp eq i64 %140, 0
+  br i1 %.not, label %142, label %141
+
+141:                                              ; preds = %138
+  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
+  br label %142
+
+142:                                              ; preds = %141, %138
+  %143 = getelementptr inbounds i8, ptr %1, i64 8280
+  %144 = load i64, ptr %143, align 8
+  %.not125 = icmp eq i64 %144, 0
+  br i1 %.not125, label %146, label %145
+
+145:                                              ; preds = %142
+  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
   br label %146
 
-146:                                              ; preds = %128, %144, %127
-  %147 = getelementptr inbounds i8, ptr %1, i64 8272
-  %148 = load i64, ptr %147, align 8
-  %.not = icmp eq i64 %148, 0
-  br i1 %.not, label %150, label %149
+146:                                              ; preds = %145, %142
+  %147 = getelementptr inbounds i8, ptr %1, i64 8312
+  %148 = load i32, ptr %147, align 8
+  %cond = icmp eq i32 %148, 3
+  br i1 %cond, label %149, label %.thread122
 
 149:                                              ; preds = %146
-  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
-  br label %150
-
-150:                                              ; preds = %149, %146
-  %151 = getelementptr inbounds i8, ptr %1, i64 8280
-  %152 = load i64, ptr %151, align 8
-  %.not125 = icmp eq i64 %152, 0
-  br i1 %.not125, label %154, label %153
-
-153:                                              ; preds = %150
-  call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext true)
-  br label %154
-
-154:                                              ; preds = %153, %150
-  %155 = getelementptr inbounds i8, ptr %1, i64 8312
-  %156 = load i32, ptr %155, align 8
-  %cond = icmp eq i32 %156, 3
-  br i1 %cond, label %157, label %.thread122
-
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %1, i64 8316
-  call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %158, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
+  %150 = getelementptr inbounds i8, ptr %1, i64 8316
+  call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %150, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
   br label %.thread122
 
-.thread122:                                       ; preds = %154, %157
-  %159 = getelementptr inbounds i8, ptr %1, i64 8443
-  %160 = load i8, ptr %159, align 1
-  %161 = trunc i8 %160 to i1
-  br i1 %161, label %162, label %164
+.thread122:                                       ; preds = %146, %149
+  %151 = getelementptr inbounds i8, ptr %1, i64 8443
+  %152 = load i8, ptr %151, align 1
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %156
 
-162:                                              ; preds = %.thread122
-  %163 = call noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef nonnull %21, i1 noundef zeroext false)
-  br label %164
+154:                                              ; preds = %.thread122
+  %155 = call noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef nonnull %21, i1 noundef zeroext false)
+  br label %156
 
-164:                                              ; preds = %162, %.thread122
-  %165 = getelementptr inbounds i8, ptr %1, i64 16661
-  %166 = load i8, ptr %165, align 1
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %.critedge
+156:                                              ; preds = %154, %.thread122
+  %157 = getelementptr inbounds i8, ptr %1, i64 16661
+  %158 = load i8, ptr %157, align 1
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %.critedge
 
-168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %1, i64 16664
-  %170 = load i8, ptr %169, align 8
-  %.not117 = icmp eq i8 %170, 0
-  br i1 %.not117, label %173, label %171
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds i8, ptr %1, i64 16664
+  %162 = load i8, ptr %161, align 8
+  %.not117 = icmp eq i8 %162, 0
+  br i1 %.not117, label %165, label %163
 
-171:                                              ; preds = %168
-  %172 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %169)
-  br label %173
+163:                                              ; preds = %160
+  %164 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %161)
+  br label %165
 
-173:                                              ; preds = %168, %171
-  %174 = getelementptr inbounds i8, ptr %1, i64 16920
-  %175 = load i8, ptr %174, align 8
-  %.not118 = icmp eq i8 %175, 0
-  br i1 %.not118, label %.critedge, label %176
+165:                                              ; preds = %160, %163
+  %166 = getelementptr inbounds i8, ptr %1, i64 16920
+  %167 = load i8, ptr %166, align 8
+  %.not118 = icmp eq i8 %167, 0
+  br i1 %.not118, label %.critedge, label %168
 
-176:                                              ; preds = %173
-  %177 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %174)
+168:                                              ; preds = %165
+  %169 = call noundef ptr @_Z7GetWidePKc(ptr noundef nonnull %166)
   br label %.critedge
 
-.critedge:                                        ; preds = %118, %173, %164, %176, %20, %19
+.critedge:                                        ; preds = %110, %165, %156, %168, %20, %19
   ret void
 }
 

@@ -192,7 +192,13 @@ entry:
   store i8 0, ptr %verifyIR, align 1
   %emitAsyncBreakCheck4 = getelementptr inbounds i8, ptr %flags, i64 16
   %includeLibHermes = getelementptr inbounds i8, ptr %flags, i64 17
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %includeLibHermes, align 1
+  store i8 1, ptr %includeLibHermes, align 1
+  %instrumentIR = getelementptr inbounds i8, ptr %flags, i64 18
+  store i8 0, ptr %instrumentIR, align 2
+  %enableGenerator = getelementptr inbounds i8, ptr %flags, i64 19
+  store i8 1, ptr %enableGenerator, align 1
+  %enableES6Classes = getelementptr inbounds i8, ptr %flags, i64 20
+  store i8 0, ptr %enableES6Classes, align 4
   %format = getelementptr inbounds i8, ptr %flags, i64 24
   store i8 %frombool2, ptr %flags, align 4
   store i32 11, ptr %format, align 4

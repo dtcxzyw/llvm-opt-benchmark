@@ -7701,10 +7701,16 @@ if.then107:                                       ; preds = %lex_match.exit
   %sub110 = add i32 %67, -1
   %idxprom111 = zext i32 %sub110 to i64
   %arrayidx112 = getelementptr inbounds %struct.BCInsLine, ptr %66, i64 %idxprom111
+  %k1.i = getelementptr inbounds i8, ptr %en, i64 8
+  store i32 4, ptr %k1.i, align 8
+  %t.i = getelementptr inbounds i8, ptr %en, i64 12
+  store i32 -1, ptr %t.i, align 4
+  %f.i = getelementptr inbounds i8, ptr %en, i64 16
+  store i32 -1, ptr %f.i, align 8
   %sub113 = add i32 %narr.1222, -1
   store i32 %sub113, ptr %en, align 8
   %hi = getelementptr inbounds i8, ptr %en, i64 4
-  store <4 x i32> <i32 1127219200, i32 4, i32 -1, i32 -1>, ptr %hi, align 4
+  store i32 1127219200, ptr %hi, align 4
   %cmp116 = icmp ugt i32 %narr.1222, 256
   br i1 %cmp116, label %if.then118, label %if.end120
 

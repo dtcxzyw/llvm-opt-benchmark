@@ -334,14 +334,17 @@ if.then.i.i.i.i.i:                                ; preds = %do.end65
   store i32 %35, ptr %33, align 8
   %_M_parent6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 56
   store ptr %34, ptr %_M_parent6.i.i.i.i.i.i, align 8
+  %36 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %_M_left9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 64
-  %36 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8
-  store <2 x ptr> %36, ptr %_M_left9.i.i.i.i.i.i, align 8
+  store ptr %36, ptr %_M_left9.i.i.i.i.i.i, align 8
+  %37 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
+  %_M_right12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 72
+  store ptr %37, ptr %_M_right12.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %33, ptr %_M_parent16.i.i.i.i.i.i, align 8
-  %37 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
+  %38 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call66, i64 80
-  store i64 %37, ptr %_M_node_count17.i.i.i.i.i.i, align 8
+  store i64 %38, ptr %_M_node_count17.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %12, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %12, ptr %_M_right.i.i.i.i.i, align 8
@@ -365,8 +368,8 @@ _ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setIN
   br label %cleanup75
 
 cleanup75:                                        ; preds = %if.end40, %for.body, %_ZN4node15NodeCategorySetC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISD_ESaISD_EE.exit
-  %38 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr noundef %38)
+  %39 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr noundef %39)
   ret void
 }
 

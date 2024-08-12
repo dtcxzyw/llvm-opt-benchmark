@@ -145,14 +145,14 @@ declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ec_GFp_nist_field_mul(ptr noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #2 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %group, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %r, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %a, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %b, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %if.end, label %if.then
+  %tobool = icmp ne ptr %group, null
+  %tobool1 = icmp ne ptr %r, null
+  %or.cond = and i1 %tobool, %tobool1
+  %tobool3 = icmp ne ptr %a, null
+  %or.cond1 = and i1 %or.cond, %tobool3
+  %tobool5 = icmp ne ptr %b, null
+  %or.cond2 = and i1 %or.cond1, %tobool5
+  br i1 %or.cond2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #3
@@ -166,8 +166,8 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %libctx = getelementptr inbounds i8, ptr %group, i64 168
-  %7 = load ptr, ptr %libctx, align 8
-  %call = tail call ptr @BN_CTX_new_ex(ptr noundef %7) #3
+  %0 = load ptr, ptr %libctx, align 8
+  %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %if.end10
 
@@ -180,10 +180,10 @@ if.end10:                                         ; preds = %if.then7, %if.end
 
 if.end14:                                         ; preds = %if.end10
   %field_mod_func = getelementptr inbounds i8, ptr %group, i64 136
-  %8 = load ptr, ptr %field_mod_func, align 8
+  %1 = load ptr, ptr %field_mod_func, align 8
   %field = getelementptr inbounds i8, ptr %group, i64 64
-  %9 = load ptr, ptr %field, align 8
-  %call15 = tail call i32 %8(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %9, ptr noundef nonnull %ctx.addr.0) #3
+  %2 = load ptr, ptr %field, align 8
+  %call15 = tail call i32 %1(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %2, ptr noundef nonnull %ctx.addr.0) #3
   %tobool16.not = icmp ne i32 %call15, 0
   %spec.select = zext i1 %tobool16.not to i32
   br label %err

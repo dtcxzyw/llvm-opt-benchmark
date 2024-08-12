@@ -1235,20 +1235,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef %checkSmallCt) unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %key, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %out, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %outLen, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %key, null
+  %cmp1 = icmp eq ptr %in, null
+  %or.cond = or i1 %cmp1, %cmp
   %cmp3 = icmp eq i32 %inLen, 0
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp3
-  br i1 %op.rdx, label %return, label %lor.lhs.false8
+  %or.cond1 = or i1 %cmp3, %or.cond
+  %cmp5 = icmp eq ptr %out, null
+  %or.cond2 = or i1 %cmp5, %or.cond1
+  %cmp7 = icmp eq ptr %outLen, null
+  %or.cond3 = or i1 %cmp7, %or.cond2
+  br i1 %or.cond3, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %entry
-  %7 = load i32, ptr %outLen, align 4
-  %cmp9 = icmp eq i32 %7, 0
+  %0 = load i32, ptr %outLen, align 4
+  %cmp9 = icmp eq i32 %0, 0
   %cmp11 = icmp eq i32 %type, -1
   %or.cond4 = or i1 %cmp11, %cmp9
   br i1 %or.cond4, label %return, label %do.end
@@ -1259,8 +1259,8 @@ do.end:                                           ; preds = %lor.lhs.false8
 
 land.lhs.true:                                    ; preds = %do.end
   %state = getelementptr inbounds i8, ptr %key, i64 8340
-  %8 = load i32, ptr %state, align 4
-  %cmp13 = icmp eq i32 %8, 4
+  %1 = load i32, ptr %state, align 4
+  %cmp13 = icmp eq i32 %1, 4
   br i1 %cmp13, label %if.then14, label %wc_RsaEncryptSize.exit.i
 
 if.then14:                                        ; preds = %land.lhs.true
@@ -1278,19 +1278,19 @@ if.end.i:                                         ; preds = %wc_RsaEncryptSize.e
   br i1 %cmp1.i, label %wc_RsaFunctionSync.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %9 = load i32, ptr %outLen, align 4
-  %cmp4.i = icmp ugt i32 %call.i.i, %9
+  %2 = load i32, ptr %outLen, align 4
+  %cmp4.i = icmp ugt i32 %call.i.i, %2
   br i1 %cmp4.i, label %wc_RsaFunctionSync.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %10 = load i32, ptr %key, align 8
-  %cmp9.not.i = icmp eq i32 %10, 0
+  %3 = load i32, ptr %key, align 8
+  %cmp9.not.i = icmp eq i32 %3, 0
   br i1 %cmp9.not.i, label %if.end13.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %dp.i = getelementptr inbounds i8, ptr %key, i64 8
-  %11 = load i64, ptr %dp.i, align 8
-  %and.i = and i64 %11, 1
+  %4 = load i64, ptr %dp.i, align 8
+  %and.i = and i64 %4, 1
   %cmp11.i = icmp eq i64 %and.i, 0
   br i1 %cmp11.i, label %wc_RsaFunctionSync.exit, label %if.end13.i
 
@@ -1310,43 +1310,43 @@ if.then27:                                        ; preds = %wc_RsaFunctionSync.
   %state33 = getelementptr inbounds i8, ptr %key, i64 8340
   store i32 0, ptr %state33, align 4
   %data.i = getelementptr inbounds i8, ptr %key, i64 8328
-  %12 = load ptr, ptr %data.i, align 8
-  %tobool1.not.i = icmp eq ptr %12, null
+  %5 = load ptr, ptr %data.i, align 8
+  %tobool1.not.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then27
   %dataIsAlloc.i = getelementptr inbounds i8, ptr %key, i64 8360
-  %13 = load i8, ptr %dataIsAlloc.i, align 8
-  %tobool2.not.i = icmp eq i8 %13, 0
+  %6 = load i8, ptr %dataIsAlloc.i, align 8
+  %tobool2.not.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i, label %if.end13.i26, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %type.i = getelementptr inbounds i8, ptr %key, i64 8336
-  %14 = load i32, ptr %type.i, align 8
-  %15 = and i32 %14, -2
-  %switch.i = icmp eq i32 %15, 2
+  %7 = load i32, ptr %type.i, align 8
+  %8 = and i32 %7, -2
+  %switch.i = icmp eq i32 %8, 2
   br i1 %switch.i, label %if.then6.i, label %if.end.i25
 
 if.then6.i:                                       ; preds = %if.then3.i
   %dataLen.i = getelementptr inbounds i8, ptr %key, i64 8344
-  %16 = load i32, ptr %dataLen.i, align 8
-  %17 = ptrtoint ptr %12 to i64
-  %18 = trunc i64 %17 to i32
-  %19 = sub i32 0, %18
-  %conv.i.i = and i32 %19, 7
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %16)
-  %sub3.i.i = sub i32 %16, %spec.select.i.i
+  %9 = load i32, ptr %dataLen.i, align 8
+  %10 = ptrtoint ptr %5 to i64
+  %11 = trunc i64 %10 to i32
+  %12 = sub i32 0, %11
+  %conv.i.i = and i32 %12, 7
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 %9)
+  %sub3.i.i = sub i32 %9, %spec.select.i.i
   %tobool.not12.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %tobool.not12.i.i, label %for.cond.preheader.i.i, label %while.body.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.body.i.i, %if.then6.i
-  %z.0.lcssa.i.i = phi ptr [ %12, %if.then6.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %z.0.lcssa.i.i = phi ptr [ %5, %if.then6.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %cmp515.i.i = icmp ugt i32 %sub3.i.i, 7
   br i1 %cmp515.i.i, label %for.body.i.i, label %while.cond9.preheader.i.i
 
 while.body.i.i:                                   ; preds = %if.then6.i, %while.body.i.i
   %l.114.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ %spec.select.i.i, %if.then6.i ]
-  %z.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %12, %if.then6.i ]
+  %z.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %5, %if.then6.i ]
   %dec.i.i = add nsw i32 %l.114.i.i, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %z.013.i.i, i64 1
   store volatile i8 0, ptr %z.013.i.i, align 1
@@ -1378,12 +1378,12 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i.i, label %if.end.i25, label %while.body12.i.i, !llvm.loop !7
 
 if.end.i25:                                       ; preds = %while.body12.i.i, %while.cond9.preheader.i.i, %if.then3.i
-  %20 = load ptr, ptr %data.i, align 8
-  %tobool9.not.i = icmp eq ptr %20, null
+  %13 = load ptr, ptr %data.i, align 8
+  %tobool9.not.i = icmp eq ptr %13, null
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i25
-  tail call void @wolfSSL_Free(ptr noundef nonnull %20) #11
+  tail call void @wolfSSL_Free(ptr noundef nonnull %13) #11
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end.i25
@@ -2220,22 +2220,22 @@ declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaFlattenPublicKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %e, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %eSz, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %n, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %key, null
+  %cmp1 = icmp eq ptr %e, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %eSz, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %n, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %nSz, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %e8 = getelementptr inbounds i8, ptr %key, i64 1040
   %call = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %e8) #11
-  %7 = load i32, ptr %eSz, align 4
-  %cmp9 = icmp ugt i32 %call, %7
+  %0 = load i32, ptr %eSz, align 4
+  %cmp9 = icmp ugt i32 %call, %0
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end
@@ -2246,8 +2246,8 @@ if.end11:                                         ; preds = %if.end
 wc_RsaEncryptSize.exit:                           ; preds = %if.end11
   store i32 %call, ptr %eSz, align 4
   %call.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #11
-  %8 = load i32, ptr %nSz, align 4
-  %cmp18 = icmp ugt i32 %call.i, %8
+  %1 = load i32, ptr %nSz, align 4
+  %cmp18 = icmp ugt i32 %call.i, %1
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %wc_RsaEncryptSize.exit
@@ -2269,30 +2269,34 @@ declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @wc_RsaExportKey(ptr noundef %key, ptr noundef %e, ptr noundef %eSz, ptr noundef %n, ptr noundef %nSz, ptr noundef %d, ptr noundef %dSz, ptr noundef %p, ptr noundef %pSz, ptr noundef %q, ptr noundef %qSz) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <8 x ptr> poison, ptr %key, i64 0
-  %1 = insertelement <8 x ptr> %0, ptr %e, i64 1
-  %2 = insertelement <8 x ptr> %1, ptr %eSz, i64 2
-  %3 = insertelement <8 x ptr> %2, ptr %n, i64 3
-  %4 = insertelement <8 x ptr> %3, ptr %nSz, i64 4
-  %5 = insertelement <8 x ptr> %4, ptr %d, i64 5
-  %6 = insertelement <8 x ptr> %5, ptr %dSz, i64 6
-  %7 = insertelement <8 x ptr> %6, ptr %p, i64 7
+  %tobool = icmp ne ptr %key, null
+  %tobool1 = icmp ne ptr %e, null
+  %or.cond = and i1 %tobool, %tobool1
+  %tobool3 = icmp ne ptr %eSz, null
+  %or.cond1 = and i1 %or.cond, %tobool3
+  %tobool5 = icmp ne ptr %n, null
+  %or.cond2 = and i1 %or.cond1, %tobool5
+  %tobool7 = icmp ne ptr %nSz, null
+  %or.cond3 = and i1 %or.cond2, %tobool7
+  %tobool9 = icmp ne ptr %d, null
+  %or.cond4 = and i1 %or.cond3, %tobool9
+  %tobool11 = icmp ne ptr %dSz, null
+  %or.cond5 = and i1 %or.cond4, %tobool11
+  %tobool13 = icmp ne ptr %p, null
+  %or.cond6 = and i1 %or.cond5, %tobool13
   %tobool15 = icmp ne ptr %pSz, null
+  %or.cond7 = and i1 %or.cond6, %tobool15
   %tobool17 = icmp ne ptr %q, null
+  %or.cond8 = and i1 %or.cond7, %tobool17
   %tobool19 = icmp ne ptr %qSz, null
-  %8 = icmp eq <8 x ptr> %7, zeroinitializer
-  %9 = bitcast <8 x i1> %8 to i8
-  %10 = icmp eq i8 %9, 0
-  %op.rdx = and i1 %10, %tobool15
-  %op.rdx82 = and i1 %tobool17, %tobool19
-  %op.rdx83 = and i1 %op.rdx, %op.rdx82
-  br i1 %op.rdx83, label %if.then20, label %if.end42
+  %or.cond9 = and i1 %or.cond8, %tobool19
+  br i1 %or.cond9, label %if.then20, label %if.end42
 
 if.then20:                                        ; preds = %entry
   %e21 = getelementptr inbounds i8, ptr %key, i64 1040
   %call.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %e21) #11
-  %11 = load i32, ptr %eSz, align 4
-  %cmp.not.i = icmp ugt i32 %call.i, %11
+  %0 = load i32, ptr %eSz, align 4
+  %cmp.not.i = icmp ugt i32 %call.i, %0
   br i1 %cmp.not.i, label %if.end42, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then20
@@ -2303,8 +2307,8 @@ if.end4.i:                                        ; preds = %if.then20
 if.end22.thread64:                                ; preds = %if.end4.i
   store i32 %call.i, ptr %eSz, align 4
   %call.i30 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #11
-  %12 = load i32, ptr %nSz, align 4
-  %cmp.not.i31 = icmp ugt i32 %call.i30, %12
+  %1 = load i32, ptr %nSz, align 4
+  %cmp.not.i31 = icmp ugt i32 %call.i30, %1
   br i1 %cmp.not.i31, label %if.end42, label %if.end4.i32
 
 if.end4.i32:                                      ; preds = %if.end22.thread64
@@ -2316,8 +2320,8 @@ if.then29:                                        ; preds = %if.end4.i32
   store i32 %call.i30, ptr %nSz, align 4
   %d30 = getelementptr inbounds i8, ptr %key, i64 2080
   %call.i38 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %d30) #11
-  %13 = load i32, ptr %dSz, align 4
-  %cmp.not.i39 = icmp ugt i32 %call.i38, %13
+  %2 = load i32, ptr %dSz, align 4
+  %cmp.not.i39 = icmp ugt i32 %call.i38, %2
   br i1 %cmp.not.i39, label %if.end42, label %if.end4.i40
 
 if.end4.i40:                                      ; preds = %if.then29
@@ -2329,8 +2333,8 @@ if.then34:                                        ; preds = %if.end4.i40
   store i32 %call.i38, ptr %dSz, align 4
   %p35 = getelementptr inbounds i8, ptr %key, i64 3120
   %call.i46 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %p35) #11
-  %14 = load i32, ptr %pSz, align 4
-  %cmp.not.i47 = icmp ugt i32 %call.i46, %14
+  %3 = load i32, ptr %pSz, align 4
+  %cmp.not.i47 = icmp ugt i32 %call.i46, %3
   br i1 %cmp.not.i47, label %if.end42, label %if.end4.i48
 
 if.end4.i48:                                      ; preds = %if.then34
@@ -2342,8 +2346,8 @@ if.then39:                                        ; preds = %if.end4.i48
   store i32 %call.i46, ptr %pSz, align 4
   %q40 = getelementptr inbounds i8, ptr %key, i64 4160
   %call.i54 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %q40) #11
-  %15 = load i32, ptr %qSz, align 4
-  %cmp.not.i55 = icmp ugt i32 %call.i54, %15
+  %4 = load i32, ptr %qSz, align 4
+  %cmp.not.i55 = icmp ugt i32 %call.i54, %4
   br i1 %cmp.not.i55, label %if.end42, label %if.end4.i56
 
 if.end4.i56:                                      ; preds = %if.then39

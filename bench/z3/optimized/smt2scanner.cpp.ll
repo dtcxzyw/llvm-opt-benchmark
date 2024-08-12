@@ -2842,14 +2842,20 @@ for.end:                                          ; preds = %for.body
   %arrayidx60 = getelementptr inbounds i8, ptr %this, i64 114
   store i8 97, ptr %arrayidx60, align 2
   %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 118
+  store i8 97, ptr %arrayidx62, align 2
   %arrayidx64 = getelementptr inbounds i8, ptr %this, i64 171
   store i8 97, ptr %arrayidx64, align 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %this, i64 121
+  store i8 45, ptr %arrayidx66, align 1
+  %arrayidx68 = getelementptr inbounds i8, ptr %this, i64 119
+  store i8 97, ptr %arrayidx68, align 1
   %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 136
   %arrayidx76 = getelementptr inbounds i8, ptr %this, i64 122
   store i8 97, ptr %arrayidx76, align 2
   %arrayidx80 = getelementptr inbounds i8, ptr %this, i64 123
   store i8 97, ptr %arrayidx80, align 1
-  store <4 x i8> <i8 97, i8 97, i8 97, i8 45>, ptr %arrayidx62, align 2
+  %arrayidx82 = getelementptr inbounds i8, ptr %this, i64 120
+  store i8 97, ptr %arrayidx82, align 8
   store i32 1633771873, ptr %arrayidx72, align 8
   invoke void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
           to label %invoke.cont84 unwind label %lpad83

@@ -62,18 +62,14 @@ define internal { double, double } @_ZL14wag2_s_inverse5PJ_XYP8PJconsts(double %
   %4 = fdiv double %1, 1.387250e+00
   %5 = tail call double @cos(double noundef %4) #4
   %6 = fmul double %5, 9.248300e-01
-  %7 = load ptr, ptr %2, align 8
-  %8 = tail call double @sin(double noundef %4) #4
-  %9 = fdiv double %8, 8.802200e-01
-  %10 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %7, double noundef %9)
-  %11 = insertelement <2 x double> poison, double %0, i64 0
-  %12 = insertelement <2 x double> %11, double %10, i64 1
-  %13 = insertelement <2 x double> <double poison, double 0x3FEC5604189374BC>, double %6, i64 0
-  %14 = fdiv <2 x double> %12, %13
-  %15 = extractelement <2 x double> %14, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %15, 0
-  %16 = extractelement <2 x double> %14, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %16, 1
+  %7 = fdiv double %0, %6
+  %8 = load ptr, ptr %2, align 8
+  %9 = tail call double @sin(double noundef %4) #4
+  %10 = fdiv double %9, 8.802200e-01
+  %11 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %8, double noundef %10)
+  %12 = fdiv double %11, 0x3FEC5604189374BC
+  %.fca.0.insert = insertvalue { double, double } poison, double %7, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %12, 1
   ret { double, double } %.fca.1.insert
 }
 

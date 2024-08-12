@@ -1705,14 +1705,20 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit703: ; preds = %if.end.i695, %
   %retval.i1662.sroa.0.0.copyload = load ptr, ptr %resource_name_.i, align 8
   store ptr %retval.i1662.sroa.0.0.copyload, ptr %resource_name.i1113, align 8
   %resource_line_offset.i = getelementptr inbounds i8, ptr %source, i64 16
-  %159 = load <2 x i32>, ptr %resource_line_offset_.i, align 8
-  store <2 x i32> %159, ptr %resource_line_offset.i, align 8
+  %159 = load i32, ptr %resource_line_offset_.i, align 8
+  store i32 %159, ptr %resource_line_offset.i, align 8
+  %resource_column_offset.i = getelementptr inbounds i8, ptr %source, i64 20
+  %160 = load i32, ptr %resource_column_offset_.i, align 4
+  store i32 %160, ptr %resource_column_offset.i, align 4
   %resource_options.i = getelementptr inbounds i8, ptr %source, i64 24
   %retval.i1672.sroa.0.0.copyload = load i32, ptr %options_.i, align 8
   store i32 %retval.i1672.sroa.0.0.copyload, ptr %resource_options.i, align 8
   %source_map_url.i1116 = getelementptr inbounds i8, ptr %source, i64 32
-  %160 = load <2 x ptr>, ptr %source_map_url_.i, align 8
-  store <2 x ptr> %160, ptr %source_map_url.i1116, align 8
+  %retval.i1676.sroa.0.0.copyload = load ptr, ptr %source_map_url_.i, align 8
+  store ptr %retval.i1676.sroa.0.0.copyload, ptr %source_map_url.i1116, align 8
+  %host_defined_options.i1117 = getelementptr inbounds i8, ptr %source, i64 40
+  %retval.i1680.sroa.0.0.copyload = load ptr, ptr %host_defined_options_.i, align 8
+  store ptr %retval.i1680.sroa.0.0.copyload, ptr %host_defined_options.i1117, align 8
   %cached_data.i = getelementptr inbounds i8, ptr %source, i64 48
   store ptr %cached_data.0, ptr %cached_data.i, align 8
   %consume_cache_task19.i = getelementptr inbounds i8, ptr %source, i64 56

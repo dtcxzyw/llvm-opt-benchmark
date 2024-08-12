@@ -1323,7 +1323,7 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = load i32, ptr @proto_aal5_sdu, align 4
   %9 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull @shortname_aal5_sdu)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %130
+  br i1 %.not, label %10, label %135
 
 10:                                               ; preds = %4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
@@ -1538,11 +1538,11 @@ proto_item_set_generated.exit:                    ; preds = %76, %86, %89
 
 105:                                              ; preds = %98
   call fastcc void @dissect_payload_and_padding(ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.07196104, i32 noundef %.07294106, ptr noundef nonnull %5)
-  br label %128
+  br label %133
 
 106:                                              ; preds = %98
   %.not85 = icmp eq i32 %.07196104, 0
-  br i1 %.not85, label %123, label %107
+  br i1 %.not85, label %128, label %107
 
 107:                                              ; preds = %106
   %108 = call ptr @tvb_new_subset_length(ptr noundef %102, i32 noundef 0, i32 noundef %.07196104) #6
@@ -1550,42 +1550,49 @@ proto_item_set_generated.exit:                    ; preds = %76, %86, %89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %5, i64 36
-  %111 = getelementptr inbounds i8, ptr %6, i64 8
-  %112 = load <2 x i32>, ptr %110, align 4
-  %113 = icmp sgt <2 x i32> %112, <i32 -1, i32 -1>
-  %114 = trunc <2 x i32> %112 to <2 x i16>
-  %115 = select <2 x i1> %113, <2 x i16> %114, <2 x i16> zeroinitializer
-  store <2 x i16> %115, ptr %111, align 4
-  %116 = getelementptr inbounds i8, ptr %6, i64 14
-  store i16 0, ptr %116, align 2
-  %117 = getelementptr inbounds i8, ptr %6, i64 18
-  %118 = getelementptr inbounds i8, ptr %5, i64 72
-  %119 = load i32, ptr %118, align 4
-  %.not25.i = icmp eq i32 %119, 0
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp sgt i32 %111, -1
+  %113 = trunc i32 %111 to i16
+  %spec.select.i = select i1 %112, i16 %113, i16 0
+  %114 = getelementptr inbounds i8, ptr %6, i64 8
+  store i16 %spec.select.i, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %5, i64 40
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp sgt i32 %116, -1
+  %118 = trunc i32 %116 to i16
+  %119 = select i1 %117, i16 %118, i16 0
+  %120 = getelementptr inbounds i8, ptr %6, i64 10
+  store i16 %119, ptr %120, align 2
+  %121 = getelementptr inbounds i8, ptr %6, i64 14
+  store i16 0, ptr %121, align 2
+  %122 = getelementptr inbounds i8, ptr %6, i64 18
+  %123 = getelementptr inbounds i8, ptr %5, i64 72
+  %124 = load i32, ptr %123, align 4
+  %.not25.i = icmp eq i32 %124, 0
   %spec.store.select.i88 = select i1 %.not25.i, i16 0, i16 256
-  store i16 %spec.store.select.i88, ptr %117, align 2
-  %120 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 0, ptr %120, align 4
-  %121 = load ptr, ptr @dh_atm_truncated, align 8
-  %122 = call i32 @call_dissector_with_data(ptr noundef %121, ptr noundef %108, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #6
-  br label %123
-
-123:                                              ; preds = %107, %106
-  %.not86 = icmp eq i32 %.07294106, 0
-  br i1 %.not86, label %128, label %124
-
-124:                                              ; preds = %123
-  %125 = call ptr @tvb_new_subset_length_caplen(ptr noundef %102, i32 noundef %.07196104, i32 noundef %.07294106, i32 noundef -1) #6
-  %126 = load ptr, ptr @dh_padding, align 8
-  %127 = call i32 @call_dissector(ptr noundef %126, ptr noundef %125, ptr noundef nonnull %1, ptr noundef %2) #6
+  store i16 %spec.store.select.i88, ptr %122, align 2
+  %125 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 0, ptr %125, align 4
+  %126 = load ptr, ptr @dh_atm_truncated, align 8
+  %127 = call i32 @call_dissector_with_data(ptr noundef %126, ptr noundef %108, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #6
   br label %128
 
-128:                                              ; preds = %123, %124, %105
-  %129 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %130
+128:                                              ; preds = %107, %106
+  %.not86 = icmp eq i32 %.07294106, 0
+  br i1 %.not86, label %133, label %129
 
-130:                                              ; preds = %4, %128
-  %.0 = phi i32 [ %129, %128 ], [ 1, %4 ]
+129:                                              ; preds = %128
+  %130 = call ptr @tvb_new_subset_length_caplen(ptr noundef %102, i32 noundef %.07196104, i32 noundef %.07294106, i32 noundef -1) #6
+  %131 = load ptr, ptr @dh_padding, align 8
+  %132 = call i32 @call_dissector(ptr noundef %131, ptr noundef %130, ptr noundef nonnull %1, ptr noundef %2) #6
+  br label %133
+
+133:                                              ; preds = %128, %129, %105
+  %134 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %135
+
+135:                                              ; preds = %4, %133
+  %.0 = phi i32 [ %134, %133 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -1597,7 +1604,7 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %7 = load i32, ptr @proto_11_or_aal5_pdu, align 4
   %8 = tail call fastcc i32 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_11_or_aal5_pdu)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %128
+  br i1 %.not, label %9, label %133
 
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
@@ -1833,11 +1840,11 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
 
 101:                                              ; preds = %94
   call fastcc void @dissect_payload_and_padding(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %.082, i32 noundef 0, ptr noundef nonnull %5)
-  br label %119
+  br label %124
 
 102:                                              ; preds = %94
   %.not92 = icmp eq i32 %.082, 0
-  br i1 %.not92, label %119, label %103
+  br i1 %.not92, label %124, label %103
 
 103:                                              ; preds = %102
   %104 = call ptr @tvb_new_subset_remaining(ptr noundef %98, i32 noundef 1) #6
@@ -1845,47 +1852,54 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %105, align 4
   %106 = getelementptr inbounds i8, ptr %5, i64 36
-  %107 = getelementptr inbounds i8, ptr %6, i64 8
-  %108 = load <2 x i32>, ptr %106, align 4
-  %109 = icmp sgt <2 x i32> %108, <i32 -1, i32 -1>
-  %110 = trunc <2 x i32> %108 to <2 x i16>
-  %111 = select <2 x i1> %109, <2 x i16> %110, <2 x i16> zeroinitializer
-  store <2 x i16> %111, ptr %107, align 4
-  %112 = getelementptr inbounds i8, ptr %6, i64 14
-  store i16 0, ptr %112, align 2
-  %113 = getelementptr inbounds i8, ptr %6, i64 18
-  %114 = getelementptr inbounds i8, ptr %5, i64 72
-  %115 = load i32, ptr %114, align 4
-  %.not25.i = icmp eq i32 %115, 0
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp sgt i32 %107, -1
+  %109 = trunc i32 %107 to i16
+  %spec.select.i = select i1 %108, i16 %109, i16 0
+  %110 = getelementptr inbounds i8, ptr %6, i64 8
+  store i16 %spec.select.i, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %5, i64 40
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp sgt i32 %112, -1
+  %114 = trunc i32 %112 to i16
+  %115 = select i1 %113, i16 %114, i16 0
+  %116 = getelementptr inbounds i8, ptr %6, i64 10
+  store i16 %115, ptr %116, align 2
+  %117 = getelementptr inbounds i8, ptr %6, i64 14
+  store i16 0, ptr %117, align 2
+  %118 = getelementptr inbounds i8, ptr %6, i64 18
+  %119 = getelementptr inbounds i8, ptr %5, i64 72
+  %120 = load i32, ptr %119, align 4
+  %.not25.i = icmp eq i32 %120, 0
   %spec.store.select.i111 = select i1 %.not25.i, i16 0, i16 256
-  store i16 %spec.store.select.i111, ptr %113, align 2
-  %116 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr @dh_atm_untruncated, align 8
-  %118 = call i32 @call_dissector_with_data(ptr noundef %117, ptr noundef %104, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6) #6
-  br label %119
+  store i16 %spec.store.select.i111, ptr %118, align 2
+  %121 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 0, ptr %121, align 4
+  %122 = load ptr, ptr @dh_atm_untruncated, align 8
+  %123 = call i32 @call_dissector_with_data(ptr noundef %122, ptr noundef %104, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6) #6
+  br label %124
 
-119:                                              ; preds = %102, %103, %101
-  %120 = load i32, ptr %33, align 4
-  %121 = add i32 %120, -3
-  %or.cond18 = icmp ult i32 %121, 2
-  br i1 %or.cond18, label %122, label %126
+124:                                              ; preds = %102, %103, %101
+  %125 = load i32, ptr %33, align 4
+  %126 = add i32 %125, -3
+  %or.cond18 = icmp ult i32 %126, 2
+  br i1 %or.cond18, label %127, label %131
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %1, i64 8
-  %124 = load ptr, ptr %123, align 8
-  call void @col_set_str(ptr noundef %124, i32 noundef 34, ptr noundef nonnull %.080) #6
-  %125 = load ptr, ptr %123, align 8
-  call void @col_clear(ptr noundef %125, i32 noundef 25) #6
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %1, i64 8
+  %129 = load ptr, ptr %128, align 8
+  call void @col_set_str(ptr noundef %129, i32 noundef 34, ptr noundef nonnull %.080) #6
+  %130 = load ptr, ptr %128, align 8
+  call void @col_clear(ptr noundef %130, i32 noundef 25) #6
   call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
-  br label %126
+  br label %131
 
-126:                                              ; preds = %119, %122
-  %127 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %128
+131:                                              ; preds = %124, %127
+  %132 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %133
 
-128:                                              ; preds = %4, %126
-  %.0 = phi i32 [ %127, %126 ], [ 1, %4 ]
+133:                                              ; preds = %4, %131
+  %.0 = phi i32 [ %132, %131 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -2525,106 +2539,112 @@ define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds i8, ptr %7, i64 4
   %15 = getelementptr inbounds i8, ptr %5, i64 36
   %16 = getelementptr inbounds i8, ptr %7, i64 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 14
-  %18 = getelementptr inbounds i8, ptr %7, i64 18
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
-  br label %21
+  %17 = getelementptr inbounds i8, ptr %7, i64 10
+  %18 = getelementptr inbounds i8, ptr %7, i64 14
+  %19 = getelementptr inbounds i8, ptr %7, i64 18
+  %20 = getelementptr inbounds i8, ptr %5, i64 72
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %56
-  %.04250 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
-  %22 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.04250) #6
-  %23 = load ptr, ptr @dh_cell_header, align 8
-  %24 = call i32 @call_dissector_with_data(ptr noundef %23, ptr noundef %22, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #6
-  %25 = add i32 %24, %.04250
-  %26 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %25) #6
-  %27 = load i32, ptr %9, align 4
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %29, label %36
+22:                                               ; preds = %.lr.ph, %60
+  %.04250 = phi i32 [ 0, %.lr.ph ], [ %.1, %60 ]
+  %23 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.04250) #6
+  %24 = load ptr, ptr @dh_cell_header, align 8
+  %25 = call i32 @call_dissector_with_data(ptr noundef %24, ptr noundef %23, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #6
+  %26 = add i32 %25, %.04250
+  %27 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %26) #6
+  %28 = load i32, ptr %9, align 4
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %21
-  %30 = load i32, ptr %10, align 4
-  %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %32, label %36
+30:                                               ; preds = %22
+  %31 = load i32, ptr %10, align 4
+  %32 = icmp sgt i32 %31, -1
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %29
-  %33 = trunc i32 %27 to i16
-  %34 = trunc i32 %30 to i8
-  %35 = call i32 @atm_is_oam_cell(i16 noundef zeroext %33, i8 noundef zeroext %34) #6
-  %.not48 = icmp eq i32 %35, 0
-  br i1 %.not48, label %36, label %.thread
+33:                                               ; preds = %30
+  %34 = trunc i32 %28 to i16
+  %35 = trunc i32 %31 to i8
+  %36 = call i32 @atm_is_oam_cell(i16 noundef zeroext %34, i8 noundef zeroext %35) #6
+  %.not48 = icmp eq i32 %36, 0
+  br i1 %.not48, label %37, label %.thread
 
-.thread:                                          ; preds = %32
+.thread:                                          ; preds = %33
   store i32 1, ptr %11, align 4
-  br label %37
+  br label %38
 
-36:                                               ; preds = %32, %29, %21
+37:                                               ; preds = %33, %30, %22
   %.pr = load i32, ptr %11, align 4
   %.not49 = icmp eq i32 %.pr, 0
-  br i1 %.not49, label %53, label %37
+  br i1 %.not49, label %57, label %38
 
-37:                                               ; preds = %.thread, %36
-  %38 = sub i32 %3, %25
-  %. = call i32 @llvm.smin.i32(i32 %38, i32 48)
-  %39 = call ptr @tvb_new_subset_length_caplen(ptr noundef %26, i32 noundef 0, i32 noundef %., i32 noundef -1) #6
-  %40 = load i32, ptr %12, align 4
-  %41 = icmp eq i32 %40, 5
-  br i1 %41, label %42, label %45
+38:                                               ; preds = %.thread, %37
+  %39 = sub i32 %3, %26
+  %. = call i32 @llvm.smin.i32(i32 %39, i32 48)
+  %40 = call ptr @tvb_new_subset_length_caplen(ptr noundef %27, i32 noundef 0, i32 noundef %., i32 noundef -1) #6
+  %41 = load i32, ptr %12, align 4
+  %42 = icmp eq i32 %41, 5
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %5, align 4
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %prepare_pseudo_header_atm.exit, label %45
+43:                                               ; preds = %38
+  %44 = load i32, ptr %5, align 4
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %prepare_pseudo_header_atm.exit, label %46
 
-45:                                               ; preds = %42, %37
+46:                                               ; preds = %43, %38
   br label %prepare_pseudo_header_atm.exit
 
-prepare_pseudo_header_atm.exit:                   ; preds = %42, %45
-  %storemerge = phi i32 [ 1, %45 ], [ 0, %42 ]
+prepare_pseudo_header_atm.exit:                   ; preds = %43, %46
+  %storemerge = phi i32 [ 1, %46 ], [ 0, %43 ]
   store i32 %storemerge, ptr %13, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 24, i1 false)
   store i8 7, ptr %14, align 4
-  %46 = load <2 x i32>, ptr %15, align 4
-  %47 = icmp sgt <2 x i32> %46, <i32 -1, i32 -1>
-  %48 = trunc <2 x i32> %46 to <2 x i16>
-  %49 = select <2 x i1> %47, <2 x i16> %48, <2 x i16> zeroinitializer
-  store <2 x i16> %49, ptr %16, align 4
-  store i16 0, ptr %17, align 2
-  %50 = load i32, ptr %19, align 4
-  %.not25.i = icmp eq i32 %50, 0
+  %47 = load i32, ptr %15, align 4
+  %48 = icmp sgt i32 %47, -1
+  %49 = trunc i32 %47 to i16
+  %spec.select.i = select i1 %48, i16 %49, i16 0
+  store i16 %spec.select.i, ptr %16, align 4
+  %50 = load i32, ptr %9, align 4
+  %51 = icmp sgt i32 %50, -1
+  %52 = trunc i32 %50 to i16
+  %53 = select i1 %51, i16 %52, i16 0
+  store i16 %53, ptr %17, align 2
+  store i16 0, ptr %18, align 2
+  %54 = load i32, ptr %20, align 4
+  %.not25.i = icmp eq i32 %54, 0
   %spec.store.select.i = select i1 %.not25.i, i16 0, i16 256
-  store i16 %spec.store.select.i, ptr %18, align 2
-  store i32 0, ptr %20, align 4
-  %51 = load ptr, ptr @dh_atm_oam_cell, align 8
-  %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %39, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7) #6
-  br label %56
+  store i16 %spec.store.select.i, ptr %19, align 2
+  store i32 0, ptr %21, align 4
+  %55 = load ptr, ptr @dh_atm_oam_cell, align 8
+  %56 = call i32 @call_dissector_with_data(ptr noundef %55, ptr noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7) #6
+  br label %60
 
-53:                                               ; preds = %36
-  %54 = load ptr, ptr @dh_cell, align 8
-  %55 = call i32 @call_dissector(ptr noundef %54, ptr noundef %26, ptr noundef %1, ptr noundef %2) #6
-  br label %56
+57:                                               ; preds = %37
+  %58 = load ptr, ptr @dh_cell, align 8
+  %59 = call i32 @call_dissector(ptr noundef %58, ptr noundef %27, ptr noundef %1, ptr noundef %2) #6
+  br label %60
 
-56:                                               ; preds = %prepare_pseudo_header_atm.exit, %53
-  %.0.pn = phi i32 [ %., %prepare_pseudo_header_atm.exit ], [ %55, %53 ]
-  %.1 = add i32 %.0.pn, %25
-  %57 = load i32, ptr %5, align 4
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %5, align 4
-  %59 = icmp slt i32 %.1, %3
-  br i1 %59, label %21, label %._crit_edge, !llvm.loop !4
+60:                                               ; preds = %prepare_pseudo_header_atm.exit, %57
+  %.0.pn = phi i32 [ %., %prepare_pseudo_header_atm.exit ], [ %59, %57 ]
+  %.1 = add i32 %.0.pn, %26
+  %61 = load i32, ptr %5, align 4
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %5, align 4
+  %63 = icmp slt i32 %.1, %3
+  br i1 %63, label %22, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %56, %6
+._crit_edge:                                      ; preds = %60, %6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %65, label %60
+  br i1 %.not, label %69, label %64
 
-60:                                               ; preds = %._crit_edge
-  %61 = sub nsw i32 0, %4
-  %62 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %61) #6
-  %63 = load ptr, ptr @dh_padding, align 8
-  %64 = call i32 @call_dissector(ptr noundef %63, ptr noundef %62, ptr noundef %1, ptr noundef %2) #6
-  br label %65
+64:                                               ; preds = %._crit_edge
+  %65 = sub nsw i32 0, %4
+  %66 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %65) #6
+  %67 = load ptr, ptr @dh_padding, align 8
+  %68 = call i32 @call_dissector(ptr noundef %67, ptr noundef %66, ptr noundef %1, ptr noundef %2) #6
+  br label %69
 
-65:                                               ; preds = %60, %._crit_edge
+69:                                               ; preds = %64, %._crit_edge
   ret void
 }
 

@@ -2932,7 +2932,7 @@ entry:
   %ref.tmp29 = alloca %"class.std::allocator", align 1
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
-  %temp_materials = alloca %"class.std::vector.61", align 16
+  %temp_materials = alloca %"class.std::vector.61", align 8
   %ref.tmp117 = alloca i32, align 4
   store i32 %index, ptr %index.addr, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #23
@@ -3245,12 +3245,12 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA35_KcEEEvDpOT_.exit: ; p
   br label %cleanup129
 
 if.end59:                                         ; preds = %if.then54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %temp_materials, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp_materials, i8 0, i64 24, i1 false)
   invoke void @_ZN6Assimp3FBX12MeshGeometry23ReadVertexDataMaterialsERSt6vectorIiSaIiEERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(24) %temp_materials, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %if.end59
-  %23 = load ptr, ptr %temp_materials, align 16
+  %23 = load ptr, ptr %temp_materials, align 8
   %_M_finish.i66 = getelementptr inbounds i8, ptr %temp_materials, i64 8
   %24 = load ptr, ptr %_M_finish.i66, align 8
   %cmp.i.not3.i.i = icmp eq ptr %23, %24
@@ -3299,13 +3299,13 @@ call2.i.noexc78:                                  ; preds = %call1.i.noexc76
 
 _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA47_KcEEEvDpOT_.exit: ; preds = %call2.i.noexc78, %call.i73.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i72)
-  %.pre = load ptr, ptr %temp_materials, align 16
+  %.pre = load ptr, ptr %temp_materials, align 8
   br label %cleanup
 
 lpad60:                                           ; preds = %call2.i.noexc78, %call1.i.noexc76, %if.then.i74, %if.then73, %if.end59
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %temp_materials, align 16
+  %27 = load ptr, ptr %temp_materials, align 8
   %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %ehcleanup130, label %if.then.i.i.i
 
@@ -3315,20 +3315,21 @@ if.then.i.i.i:                                    ; preds = %lpad60
 
 if.end75:                                         ; preds = %invoke.cont69
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %temp_materials, i64 16
-  %28 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 16
-  %29 = load <2 x ptr>, ptr %m_materials, align 8
-  %30 = load ptr, ptr %m_materials, align 8
-  store <2 x ptr> %29, ptr %temp_materials, align 16
+  %28 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %29 = load ptr, ptr %m_materials, align 8
+  store ptr %29, ptr %temp_materials, align 8
+  %30 = load ptr, ptr %_M_finish.i, align 8
+  store ptr %30, ptr %_M_finish.i66, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %31 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %31, ptr %_M_end_of_storage.i.i.i.i, align 16
+  store ptr %31, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %23, ptr %m_materials, align 8
   store ptr %24, ptr %_M_finish.i, align 8
   store ptr %28, ptr %_M_end_of_storage.i4.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA47_KcEEEvDpOT_.exit, %if.end75
-  %32 = phi ptr [ %.pre, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA47_KcEEEvDpOT_.exit ], [ %30, %if.end75 ]
+  %32 = phi ptr [ %.pre, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA47_KcEEEvDpOT_.exit ], [ %29, %if.end75 ]
   %tobool.not.i.i.i81 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i81, label %cleanup129, label %if.then.i.i.i82
 
@@ -4109,7 +4110,7 @@ entry:
   %ref.tmp133 = alloca %"class.std::allocator", align 1
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator", align 1
-  %tempData176 = alloca %"class.std::vector.66", align 16
+  %tempData176 = alloca %"class.std::vector.66", align 8
   %ref.tmp177 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp178 = alloca %"class.std::allocator", align 1
   %ref.tmp190 = alloca i64, align 8
@@ -4839,7 +4840,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA23_KcRPS4_EEEvDpOT_.exit2
   br label %if.end310
 
 if.end175:                                        ; preds = %if.then172
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
   %64 = load ptr, ptr %dataElementName.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %call.i295303 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177)
@@ -4885,7 +4886,7 @@ invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %66 = load ptr, ptr %_M_finish.i307, align 8
-  %67 = load ptr, ptr %tempData176, align 16
+  %67 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i309 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i310 = sub i64 %sub.ptr.lhs.cast.i308, %sub.ptr.rhs.cast.i309
@@ -4918,7 +4919,7 @@ call8.i.noexc324:                                 ; preds = %call7.i.noexc322
 
 _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit: ; preds = %call8.i.noexc324, %call.i318.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i317)
-  %.pr = load ptr, ptr %tempData176, align 16
+  %.pr = load ptr, ptr %tempData176, align 8
   br label %cleanup195
 
 lpad179:                                          ; preds = %call.i295.noexc, %if.end175
@@ -4943,22 +4944,23 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
   br label %ehcleanup198
 
 if.end194:                                        ; preds = %invoke.cont184
+  %72 = load ptr, ptr %data_out, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %73 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
-  %72 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
-  %73 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 16
-  store ptr %73, ptr %_M_end_of_storage.i.i.i, align 8
-  %74 = load <2 x ptr>, ptr %data_out, align 8
-  %75 = load ptr, ptr %data_out, align 8
+  %74 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %67, ptr %data_out, align 8
   store ptr %66, ptr %_M_finish.i.i.i, align 8
-  store <2 x ptr> %74, ptr %tempData176, align 16
-  store ptr %72, ptr %_M_end_of_storage.i4.i.i, align 16
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
+  %75 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %75, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %72, ptr %tempData176, align 8
+  store ptr %73, ptr %_M_finish.i307, align 8
+  store ptr %74, ptr %_M_end_of_storage.i4.i.i, align 8
   br label %cleanup195
 
 cleanup195:                                       ; preds = %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit, %if.end194
-  %76 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %75, %if.end194 ]
+  %76 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %72, %if.end194 ]
   %tobool.not.i.i.i329 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i329, label %if.end310, label %if.then.i.i.i330
 
@@ -4968,7 +4970,7 @@ if.then.i.i.i330:                                 ; preds = %cleanup195
 
 ehcleanup198:                                     ; preds = %lpad192, %ehcleanup186
   %.pn77 = phi { ptr, i32 } [ %71, %lpad192 ], [ %.pn75, %ehcleanup186 ]
-  %77 = load ptr, ptr %tempData176, align 16
+  %77 = load ptr, ptr %tempData176, align 8
   %tobool.not.i.i.i333 = icmp eq ptr %77, null
   br i1 %tobool.not.i.i.i333, label %eh.resume, label %if.then.i.i.i334
 
@@ -5175,7 +5177,9 @@ if.then266:                                       ; preds = %for.body262
   %conv268 = zext i32 %next.0417 to i64
   %95 = load ptr, ptr %data_out, align 8
   %add.ptr.i384 = getelementptr inbounds %class.aiVector3t, ptr %95, i64 %conv268
-  store <2 x float> zeroinitializer, ptr %add.ptr.i384, align 4
+  store float 0.000000e+00, ptr %add.ptr.i384, align 4
+  %empty.sroa.2.0.add.ptr.i384.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i384, i64 4
+  store float 0.000000e+00, ptr %empty.sroa.2.0.add.ptr.i384.sroa_idx, align 4
   %empty.sroa.3.0.add.ptr.i384.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i384, i64 8
   store float 0.000000e+00, ptr %empty.sroa.3.0.add.ptr.i384.sroa_idx, align 4
   br label %for.inc297
@@ -5352,7 +5356,7 @@ entry:
   %ref.tmp133 = alloca %"class.std::allocator", align 1
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator", align 1
-  %tempData176 = alloca %"class.std::vector.76", align 16
+  %tempData176 = alloca %"class.std::vector.76", align 8
   %ref.tmp177 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp178 = alloca %"class.std::allocator", align 1
   %ref.tmp190 = alloca i64, align 8
@@ -6084,7 +6088,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA23_KcRPS4_EEEvDpOT_.exit2
   br label %if.end311
 
 if.end175:                                        ; preds = %if.then172
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
   %66 = load ptr, ptr %dataElementName.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %call.i295303 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177)
@@ -6130,7 +6134,7 @@ invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %68 = load ptr, ptr %_M_finish.i307, align 8
-  %69 = load ptr, ptr %tempData176, align 16
+  %69 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i309 = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i310 = sub i64 %sub.ptr.lhs.cast.i308, %sub.ptr.rhs.cast.i309
@@ -6163,7 +6167,7 @@ call8.i.noexc324:                                 ; preds = %call7.i.noexc322
 
 _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit: ; preds = %call8.i.noexc324, %call.i318.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i317)
-  %.pr = load ptr, ptr %tempData176, align 16
+  %.pr = load ptr, ptr %tempData176, align 8
   br label %cleanup195
 
 lpad179:                                          ; preds = %call.i295.noexc, %if.end175
@@ -6188,22 +6192,23 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
   br label %ehcleanup198
 
 if.end194:                                        ; preds = %invoke.cont184
+  %74 = load ptr, ptr %data_out, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %75 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
-  %74 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
-  %75 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 16
-  store ptr %75, ptr %_M_end_of_storage.i.i.i, align 8
-  %76 = load <2 x ptr>, ptr %data_out, align 8
-  %77 = load ptr, ptr %data_out, align 8
+  %76 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %69, ptr %data_out, align 8
   store ptr %68, ptr %_M_finish.i.i.i, align 8
-  store <2 x ptr> %76, ptr %tempData176, align 16
-  store ptr %74, ptr %_M_end_of_storage.i4.i.i, align 16
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
+  %77 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %77, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %74, ptr %tempData176, align 8
+  store ptr %75, ptr %_M_finish.i307, align 8
+  store ptr %76, ptr %_M_end_of_storage.i4.i.i, align 8
   br label %cleanup195
 
 cleanup195:                                       ; preds = %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit, %if.end194
-  %78 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %77, %if.end194 ]
+  %78 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %74, %if.end194 ]
   %tobool.not.i.i.i329 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i.i329, label %if.end311, label %if.then.i.i.i330
 
@@ -6213,7 +6218,7 @@ if.then.i.i.i330:                                 ; preds = %cleanup195
 
 ehcleanup198:                                     ; preds = %lpad192, %ehcleanup186
   %.pn77 = phi { ptr, i32 } [ %73, %lpad192 ], [ %.pn75, %ehcleanup186 ]
-  %79 = load ptr, ptr %tempData176, align 16
+  %79 = load ptr, ptr %tempData176, align 8
   %tobool.not.i.i.i333 = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.i333, label %eh.resume, label %if.then.i.i.i334
 
@@ -6598,7 +6603,7 @@ entry:
   %ref.tmp133 = alloca %"class.std::allocator", align 1
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator", align 1
-  %tempData176 = alloca %"class.std::vector.81", align 16
+  %tempData176 = alloca %"class.std::vector.81", align 8
   %ref.tmp177 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp178 = alloca %"class.std::allocator", align 1
   %ref.tmp190 = alloca i64, align 8
@@ -7328,7 +7333,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA23_KcRPS4_EEEvDpOT_.exit2
   br label %if.end310
 
 if.end175:                                        ; preds = %if.then172
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tempData176, i8 0, i64 24, i1 false)
   %64 = load ptr, ptr %dataElementName.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %call.i295303 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177)
@@ -7374,7 +7379,7 @@ invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
   %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %66 = load ptr, ptr %_M_finish.i307, align 8
-  %67 = load ptr, ptr %tempData176, align 16
+  %67 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i309 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i310 = sub i64 %sub.ptr.lhs.cast.i308, %sub.ptr.rhs.cast.i309
@@ -7407,7 +7412,7 @@ call8.i.noexc324:                                 ; preds = %call7.i.noexc322
 
 _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit: ; preds = %call8.i.noexc324, %call.i318.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i317)
-  %.pr = load ptr, ptr %tempData176, align 16
+  %.pr = load ptr, ptr %tempData176, align 8
   br label %cleanup195
 
 lpad179:                                          ; preds = %call.i295.noexc, %if.end175
@@ -7432,22 +7437,23 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
   br label %ehcleanup198
 
 if.end194:                                        ; preds = %invoke.cont184
+  %72 = load ptr, ptr %data_out, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %73 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
-  %72 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
-  %73 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 16
-  store ptr %73, ptr %_M_end_of_storage.i.i.i, align 8
-  %74 = load <2 x ptr>, ptr %data_out, align 8
-  %75 = load ptr, ptr %data_out, align 8
+  %74 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %67, ptr %data_out, align 8
   store ptr %66, ptr %_M_finish.i.i.i, align 8
-  store <2 x ptr> %74, ptr %tempData176, align 16
-  store ptr %72, ptr %_M_end_of_storage.i4.i.i, align 16
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
+  %75 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %75, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %72, ptr %tempData176, align 8
+  store ptr %73, ptr %_M_finish.i307, align 8
+  store ptr %74, ptr %_M_end_of_storage.i4.i.i, align 8
   br label %cleanup195
 
 cleanup195:                                       ; preds = %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit, %if.end194
-  %76 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %75, %if.end194 ]
+  %76 = phi ptr [ %.pr, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA56_KcmRA12_S4_RmEEEvDpOT_.exit ], [ %72, %if.end194 ]
   %tobool.not.i.i.i329 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i329, label %if.end310, label %if.then.i.i.i330
 
@@ -7457,7 +7463,7 @@ if.then.i.i.i330:                                 ; preds = %cleanup195
 
 ehcleanup198:                                     ; preds = %lpad192, %ehcleanup186
   %.pn77 = phi { ptr, i32 } [ %71, %lpad192 ], [ %.pn75, %ehcleanup186 ]
-  %77 = load ptr, ptr %tempData176, align 16
+  %77 = load ptr, ptr %tempData176, align 8
   %tobool.not.i.i.i333 = icmp eq ptr %77, null
   br i1 %tobool.not.i.i.i333, label %eh.resume, label %if.then.i.i.i334
 

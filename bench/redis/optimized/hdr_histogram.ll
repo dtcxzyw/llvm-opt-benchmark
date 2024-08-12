@@ -466,7 +466,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 23) i32 @hdr_init(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 {
 entry:
-  %cfg = alloca %struct.hdr_histogram_bucket_config, align 16
+  %cfg = alloca %struct.hdr_histogram_bucket_config, align 8
   %call = call i32 @hdr_calculate_bucket_config(i64 noundef %lowest_discernible_value, i64 noundef %highest_trackable_value, i32 noundef %significant_figures, ptr noundef nonnull %cfg)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -491,23 +491,38 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   %counts9 = getelementptr inbounds i8, ptr %call5, i64 96
   store ptr %call1, ptr %counts9, align 8
-  %1 = load <2 x i64>, ptr %cfg, align 16
-  store <2 x i64> %1, ptr %call5, align 8
+  %1 = load i64, ptr %cfg, align 8
+  store i64 %1, ptr %call5, align 8
+  %highest_trackable_value.i = getelementptr inbounds i8, ptr %cfg, i64 8
+  %2 = load i64, ptr %highest_trackable_value.i, align 8
+  %highest_trackable_value2.i = getelementptr inbounds i8, ptr %call5, i64 8
+  store i64 %2, ptr %highest_trackable_value2.i, align 8
   %unit_magnitude.i = getelementptr inbounds i8, ptr %cfg, i64 16
+  %3 = load i64, ptr %unit_magnitude.i, align 8
+  %conv.i = trunc i64 %3 to i32
   %unit_magnitude3.i = getelementptr inbounds i8, ptr %call5, i64 16
-  %2 = load <2 x i64>, ptr %unit_magnitude.i, align 16
-  %3 = trunc <2 x i64> %2 to <2 x i32>
-  store <2 x i32> %3, ptr %unit_magnitude3.i, align 8
+  store i32 %conv.i, ptr %unit_magnitude3.i, align 8
+  %significant_figures.i = getelementptr inbounds i8, ptr %cfg, i64 24
+  %4 = load i64, ptr %significant_figures.i, align 8
+  %conv4.i = trunc i64 %4 to i32
+  %significant_figures5.i = getelementptr inbounds i8, ptr %call5, i64 20
+  store i32 %conv4.i, ptr %significant_figures5.i, align 4
   %sub_bucket_half_count_magnitude.i = getelementptr inbounds i8, ptr %cfg, i64 32
+  %5 = load i32, ptr %sub_bucket_half_count_magnitude.i, align 8
   %sub_bucket_half_count_magnitude6.i = getelementptr inbounds i8, ptr %call5, i64 24
-  %4 = load <2 x i32>, ptr %sub_bucket_half_count_magnitude.i, align 16
-  store <2 x i32> %4, ptr %sub_bucket_half_count_magnitude6.i, align 8
+  store i32 %5, ptr %sub_bucket_half_count_magnitude6.i, align 8
+  %sub_bucket_half_count.i = getelementptr inbounds i8, ptr %cfg, i64 36
+  %6 = load i32, ptr %sub_bucket_half_count.i, align 4
+  %sub_bucket_half_count7.i = getelementptr inbounds i8, ptr %call5, i64 28
+  store i32 %6, ptr %sub_bucket_half_count7.i, align 4
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %cfg, i64 40
-  %5 = load i64, ptr %sub_bucket_mask.i, align 8
+  %7 = load i64, ptr %sub_bucket_mask.i, align 8
   %sub_bucket_mask8.i = getelementptr inbounds i8, ptr %call5, i64 32
-  store i64 %5, ptr %sub_bucket_mask8.i, align 8
+  store i64 %7, ptr %sub_bucket_mask8.i, align 8
   %sub_bucket_count.i = getelementptr inbounds i8, ptr %cfg, i64 48
+  %8 = load i32, ptr %sub_bucket_count.i, align 8
   %sub_bucket_count9.i = getelementptr inbounds i8, ptr %call5, i64 40
+  store i32 %8, ptr %sub_bucket_count9.i, align 8
   %min_value.i = getelementptr inbounds i8, ptr %call5, i64 48
   store i64 9223372036854775807, ptr %min_value.i, align 8
   %max_value.i = getelementptr inbounds i8, ptr %call5, i64 56
@@ -516,8 +531,10 @@ if.end8:                                          ; preds = %if.end4
   store i32 0, ptr %normalizing_index_offset.i, align 8
   %conversion_ratio.i = getelementptr inbounds i8, ptr %call5, i64 72
   store double 1.000000e+00, ptr %conversion_ratio.i, align 8
-  %6 = load <2 x i32>, ptr %sub_bucket_count.i, align 16
-  store <2 x i32> %6, ptr %sub_bucket_count9.i, align 8
+  %bucket_count.i = getelementptr inbounds i8, ptr %cfg, i64 52
+  %9 = load i32, ptr %bucket_count.i, align 4
+  %bucket_count10.i = getelementptr inbounds i8, ptr %call5, i64 44
+  store i32 %9, ptr %bucket_count10.i, align 4
   %counts_len11.i = getelementptr inbounds i8, ptr %call5, i64 80
   store i32 %0, ptr %counts_len11.i, align 8
   %total_count.i = getelementptr inbounds i8, ptr %call5, i64 88

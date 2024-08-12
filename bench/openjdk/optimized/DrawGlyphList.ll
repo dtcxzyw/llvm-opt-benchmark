@@ -296,12 +296,15 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RefineBounds(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.SurfaceDataBounds, align 16
+  %3 = alloca %struct.SurfaceDataBounds, align 4
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 2147483647, ptr %5, align 4
+  store i32 2147483647, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 -2147483648, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %3, align 16
+  store i32 -2147483648, ptr %7, align 4
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -332,7 +335,7 @@ define hidden range(i32 0, 2) i32 @RefineBounds(ptr nocapture noundef readonly %
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
-  store i32 %.sroa.3.0.copyload, ptr %3, align 16
+  store i32 %.sroa.3.0.copyload, ptr %3, align 4
   br label %20
 
 20:                                               ; preds = %19, %11
@@ -350,7 +353,7 @@ define hidden range(i32 0, 2) i32 @RefineBounds(ptr nocapture noundef readonly %
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
-  store i32 %16, ptr %7, align 8
+  store i32 %16, ptr %7, align 4
   br label %27
 
 27:                                               ; preds = %26, %23
@@ -424,7 +427,7 @@ declare i32 @GrPrim_Sg2dGetEaRGB(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
-  %9 = alloca %struct.SurfaceDataBounds, align 16
+  %9 = alloca %struct.SurfaceDataBounds, align 4
   %10 = alloca %struct.SurfaceDataRasInfo, align 8
   %11 = alloca %struct._CompositeInfo, align 4
   %12 = tail call ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %2) #10
@@ -473,9 +476,12 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %35 = load i32, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 2147483647, ptr %36, align 4
+  store i32 2147483647, ptr %9, align 4
   %37 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 -2147483648, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %9, i64 8
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %9, align 16
+  store i32 -2147483648, ptr %38, align 4
   %39 = icmp sgt i32 %35, 0
   br i1 %39, label %.lr.ph.i, label %._crit_edge.i
 
@@ -506,7 +512,7 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %42
-  store i32 %.sroa.3.0.copyload.i, ptr %9, align 16
+  store i32 %.sroa.3.0.copyload.i, ptr %9, align 4
   br label %51
 
 51:                                               ; preds = %50, %42
@@ -524,7 +530,7 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
-  store i32 %47, ptr %38, align 8
+  store i32 %47, ptr %38, align 4
   br label %58
 
 58:                                               ; preds = %57, %54
@@ -646,7 +652,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListAA_DrawGlyphListAA(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = alloca %struct.SurfaceDataBounds, align 16
+  %8 = alloca %struct.SurfaceDataBounds, align 4
   %9 = alloca %struct.SurfaceDataRasInfo, align 8
   %10 = alloca %struct._CompositeInfo, align 4
   %11 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #10
@@ -717,9 +723,12 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %50 = load i32, ptr %14, align 8
   %51 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 2147483647, ptr %51, align 4
+  store i32 2147483647, ptr %8, align 4
   %52 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 -2147483648, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %8, i64 8
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %8, align 16
+  store i32 -2147483648, ptr %53, align 4
   %54 = icmp sgt i32 %50, 0
   br i1 %54, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -750,7 +759,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %57
-  store i32 %.sroa.3.0.copyload.i.i, ptr %8, align 16
+  store i32 %.sroa.3.0.copyload.i.i, ptr %8, align 4
   br label %66
 
 66:                                               ; preds = %65, %57
@@ -768,7 +777,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  store i32 %62, ptr %53, align 8
+  store i32 %62, ptr %53, align 4
   br label %73
 
 73:                                               ; preds = %72, %69

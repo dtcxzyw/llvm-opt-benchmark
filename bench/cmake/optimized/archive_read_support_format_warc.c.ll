@@ -1583,14 +1583,14 @@ strtoi_lim.exit:                                  ; preds = %.lr.ph, %.lr.ph.i, 
   %24 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %.1.i, ptr %24, align 4
   %25 = icmp slt i32 %.1.i, 0
-  br i1 %25, label %100, label %26
+  br i1 %25, label %102, label %26
 
 26:                                               ; preds = %strtoi_lim.exit
   %.ptr46 = getelementptr inbounds i8, ptr %.022.lcssa.i, i64 1
   store ptr %.ptr46, ptr %3, align 8
   %27 = load i8, ptr %.022.lcssa.i, align 1
   %.not = icmp eq i8 %27, 45
-  br i1 %.not, label %.lr.ph.i10.preheader, label %100
+  br i1 %.not, label %.lr.ph.i10.preheader, label %102
 
 .lr.ph.i10.preheader:                             ; preds = %26
   %28 = load i8, ptr %.ptr46, align 1
@@ -1634,7 +1634,7 @@ strtoi_lim.exit21.thread:                         ; preds = %.lr.ph.i10, %.lr.ph
 .thread:                                          ; preds = %42, %strtoi_lim.exit21.thread
   %.022.lcssa.i16.ptr94.ph = phi ptr [ %.022.lcssa.i16.ptr, %42 ], [ %.022.lcssa.i16.ptr90, %strtoi_lim.exit21.thread ]
   store ptr %.022.lcssa.i16.ptr94.ph, ptr %3, align 8
-  br label %100
+  br label %102
 
 43:                                               ; preds = %strtoi_lim.exit21.thread
   %44 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1643,7 +1643,7 @@ strtoi_lim.exit21.thread:                         ; preds = %.lr.ph.i10, %.lr.ph
   store ptr %.ptr47, ptr %3, align 8
   %45 = load i8, ptr %.022.lcssa.i16.ptr90, align 1
   %.not4 = icmp eq i8 %45, 45
-  br i1 %.not4, label %.lr.ph.i22.preheader, label %100
+  br i1 %.not4, label %.lr.ph.i22.preheader, label %102
 
 .lr.ph.i22.preheader:                             ; preds = %43
   %46 = load i8, ptr %.ptr47, align 1
@@ -1687,7 +1687,7 @@ strtoi_lim.exit33.thread:                         ; preds = %.lr.ph.i22, %.lr.ph
 .thread106:                                       ; preds = %60, %strtoi_lim.exit33.thread
   %.022.lcssa.i28.ptr102.ph = phi ptr [ %.022.lcssa.i28.ptr, %60 ], [ %.022.lcssa.i28.ptr98, %strtoi_lim.exit33.thread ]
   store ptr %.022.lcssa.i28.ptr102.ph, ptr %3, align 8
-  br label %100
+  br label %102
 
 61:                                               ; preds = %strtoi_lim.exit33.thread
   %62 = getelementptr inbounds i8, ptr %4, i64 12
@@ -1696,7 +1696,7 @@ strtoi_lim.exit33.thread:                         ; preds = %.lr.ph.i22, %.lr.ph
   store ptr %.ptr48, ptr %3, align 8
   %63 = load i8, ptr %.022.lcssa.i28.ptr98, align 1
   %.not5 = icmp eq i8 %63, 84
-  br i1 %.not5, label %.lr.ph.i34.preheader, label %100
+  br i1 %.not5, label %.lr.ph.i34.preheader, label %102
 
 .lr.ph.i34.preheader:                             ; preds = %61
   %64 = load i8, ptr %.ptr48, align 1
@@ -1740,7 +1740,7 @@ strtoi_lim.exit45:                                ; preds = %.lr.ph78, %.lr.ph.i
 .thread123:                                       ; preds = %strtoi_lim.exit45, %.thread115
   %.022.lcssa.i40.ptr113118.ph = phi ptr [ %.022.lcssa.i40.ptr110, %.thread115 ], [ %.022.lcssa.i40.ptr, %strtoi_lim.exit45 ]
   store ptr %.022.lcssa.i40.ptr113118.ph, ptr %3, align 8
-  br label %100
+  br label %102
 
 77:                                               ; preds = %strtoi_lim.exit45
   store ptr %.022.lcssa.i40.ptr, ptr %3, align 8
@@ -1750,14 +1750,14 @@ strtoi_lim.exit45:                                ; preds = %.lr.ph78, %.lr.ph.i
   store ptr %79, ptr %3, align 8
   %80 = load i8, ptr %.022.lcssa.i40.ptr, align 1
   %.not6 = icmp eq i8 %80, 58
-  br i1 %.not6, label %81, label %100
+  br i1 %.not6, label %81, label %102
 
 81:                                               ; preds = %77
   %82 = call fastcc i32 @strtoi_lim(ptr noundef nonnull %79, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 59)
   %83 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %82, ptr %83, align 4
   %84 = icmp slt i32 %82, 0
-  br i1 %84, label %100, label %85
+  br i1 %84, label %102, label %85
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %3, align 8
@@ -1765,13 +1765,13 @@ strtoi_lim.exit45:                                ; preds = %.lr.ph78, %.lr.ph.i
   store ptr %87, ptr %3, align 8
   %88 = load i8, ptr %86, align 1
   %.not7 = icmp eq i8 %88, 58
-  br i1 %.not7, label %89, label %100
+  br i1 %.not7, label %89, label %102
 
 89:                                               ; preds = %85
   %90 = call fastcc i32 @strtoi_lim(ptr noundef nonnull %87, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 60)
   store i32 %90, ptr %4, align 8
   %91 = icmp slt i32 %90, 0
-  br i1 %91, label %100, label %92
+  br i1 %91, label %102, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %3, align 8
@@ -1779,26 +1779,29 @@ strtoi_lim.exit45:                                ; preds = %.lr.ph78, %.lr.ph.i
   store ptr %94, ptr %3, align 8
   %95 = load i8, ptr %93, align 1
   %.not8 = icmp eq i8 %95, 90
-  br i1 %.not8, label %96, label %100
+  br i1 %.not8, label %96, label %102
 
 96:                                               ; preds = %92
-  %97 = load <2 x i32>, ptr %44, align 8
-  %98 = add nsw <2 x i32> %97, <i32 -1, i32 -1900>
-  store <2 x i32> %98, ptr %44, align 8
-  %99 = call i64 @timegm(ptr noundef nonnull %4) #16
-  br label %100
+  %97 = load i32, ptr %24, align 4
+  %98 = add nsw i32 %97, -1900
+  store i32 %98, ptr %24, align 4
+  %99 = load i32, ptr %44, align 8
+  %100 = add nsw i32 %99, -1
+  store i32 %100, ptr %44, align 8
+  %101 = call i64 @timegm(ptr noundef nonnull %4) #16
+  br label %102
 
-100:                                              ; preds = %.thread123, %.thread106, %.thread, %89, %92, %81, %85, %77, %61, %43, %strtoi_lim.exit, %26, %96
-  %.0 = phi i64 [ -1, %strtoi_lim.exit ], [ -1, %26 ], [ -1, %43 ], [ -1, %61 ], [ -1, %77 ], [ -1, %81 ], [ -1, %85 ], [ -1, %89 ], [ -1, %92 ], [ %99, %96 ], [ -1, %.thread ], [ -1, %.thread106 ], [ -1, %.thread123 ]
+102:                                              ; preds = %.thread123, %.thread106, %.thread, %89, %92, %81, %85, %77, %61, %43, %strtoi_lim.exit, %26, %96
+  %.0 = phi i64 [ -1, %strtoi_lim.exit ], [ -1, %26 ], [ -1, %43 ], [ -1, %61 ], [ -1, %77 ], [ -1, %81 ], [ -1, %85 ], [ -1, %89 ], [ -1, %92 ], [ %101, %96 ], [ -1, %.thread ], [ -1, %.thread106 ], [ -1, %.thread123 ]
   %.not9 = icmp eq ptr %1, null
-  br i1 %.not9, label %103, label %101
+  br i1 %.not9, label %105, label %103
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %3, align 8
-  store ptr %102, ptr %1, align 8
-  br label %103
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %3, align 8
+  store ptr %104, ptr %1, align 8
+  br label %105
 
-103:                                              ; preds = %101, %100
+105:                                              ; preds = %103, %102
   ret i64 %.0
 }
 

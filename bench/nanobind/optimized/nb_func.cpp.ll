@@ -2409,8 +2409,8 @@ define hidden noundef ptr @_ZN8nanobind6detail24nb_func_get_nb_signatureEP7_obje
   %wide.trip.count = and i64 %5, 4294967295
   br label %10
 
-10:                                               ; preds = %.lr.ph109, %74
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next130, %74 ]
+10:                                               ; preds = %.lr.ph109, %71
+  %indvars.iv129 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next130, %71 ]
   %11 = getelementptr inbounds %"struct.nanobind::detail::func_data", ptr %3, i64 %indvars.iv129
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8
@@ -2468,170 +2468,169 @@ _ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %24, %27
 
 38:                                               ; preds = %35, %32
   %.065 = phi ptr [ %34, %32 ], [ @_Py_NoneStruct, %35 ]
-  %39 = insertelement <4 x ptr> poison, ptr %.063, i64 0
-  %40 = insertelement <4 x ptr> %39, ptr %31, i64 1
-  %41 = insertelement <4 x ptr> %40, ptr %29, i64 2
-  %42 = insertelement <4 x ptr> %41, ptr %.065, i64 3
-  %.fr = freeze <4 x ptr> %42
-  %43 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %44 = bitcast <4 x i1> %43 to i4
-  %45 = icmp eq i4 %44, 0
-  br i1 %45, label %46, label %.loopexit
+  %39 = icmp ne ptr %.063, null
+  %40 = icmp ne ptr %31, null
+  %or.cond = select i1 %39, i1 %40, i1 false
+  %41 = icmp ne ptr %29, null
+  %or.cond3 = select i1 %or.cond, i1 %41, i1 false
+  %42 = icmp ne ptr %.065, null
+  %or.cond5 = select i1 %or.cond3, i1 %42, i1 false
+  br i1 %or.cond5, label %43, label %.loopexit
 
-46:                                               ; preds = %38
-  br i1 %.not76, label %74, label %.preheader
+43:                                               ; preds = %38
+  br i1 %.not76, label %71, label %.preheader
 
-.preheader:                                       ; preds = %46
-  %47 = getelementptr inbounds i8, ptr %11, i64 60
-  %48 = load i16, ptr %47, align 4
-  %.not111 = icmp eq i16 %48, 0
+.preheader:                                       ; preds = %43
+  %44 = getelementptr inbounds i8, ptr %11, i64 60
+  %45 = load i16, ptr %44, align 4
+  %.not111 = icmp eq i16 %45, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %11, i64 88
-  %50 = getelementptr inbounds i8, ptr %.065, i64 24
-  br label %51
+  %46 = getelementptr inbounds i8, ptr %11, i64 88
+  %47 = getelementptr inbounds i8, ptr %.065, i64 24
+  br label %48
 
-51:                                               ; preds = %.lr.ph, %68
-  %52 = phi i16 [ %48, %.lr.ph ], [ %69, %68 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %.062106 = phi i64 [ 0, %.lr.ph ], [ %.1, %68 ]
-  %53 = load ptr, ptr %49, align 8
-  %54 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %53, i64 %indvars.iv
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+48:                                               ; preds = %.lr.ph, %65
+  %49 = phi i16 [ %45, %.lr.ph ], [ %66, %65 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
+  %.062106 = phi i64 [ 0, %.lr.ph ], [ %.1, %65 ]
+  %50 = load ptr, ptr %46, align 8
+  %51 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %50, i64 %indvars.iv
+  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not78 = icmp eq ptr %53, null
+  br i1 %.not78, label %65, label %54
+
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds i8, ptr %51, i64 8
   %56 = load ptr, ptr %55, align 8
-  %.not78 = icmp eq ptr %56, null
-  br i1 %.not78, label %68, label %57
+  %.not79 = icmp eq ptr %56, null
+  br i1 %.not79, label %59, label %57
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %.not79 = icmp eq ptr %59, null
-  br i1 %.not79, label %62, label %60
+57:                                               ; preds = %54
+  %58 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %56)
+  %.not80 = icmp eq ptr %58, null
+  br i1 %.not80, label %.loopexit, label %62
 
-60:                                               ; preds = %57
-  %61 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %59)
-  %.not80 = icmp eq ptr %61, null
-  br i1 %.not80, label %.loopexit, label %65
+59:                                               ; preds = %54
+  %60 = load i64, ptr %53, align 8
+  %61 = add nsw i64 %60, 1
+  store i64 %61, ptr %53, align 8
+  br label %62
 
-62:                                               ; preds = %57
-  %63 = load i64, ptr %56, align 8
-  %64 = add nsw i64 %63, 1
-  store i64 %64, ptr %56, align 8
+62:                                               ; preds = %57, %59
+  %.0 = phi ptr [ %58, %57 ], [ %53, %59 ]
+  %63 = getelementptr inbounds [1 x ptr], ptr %47, i64 0, i64 %.062106
+  store ptr %.0, ptr %63, align 8
+  %64 = add i64 %.062106, 1
+  %.pre = load i16, ptr %44, align 4
   br label %65
 
-65:                                               ; preds = %60, %62
-  %.0 = phi ptr [ %61, %60 ], [ %56, %62 ]
-  %66 = getelementptr inbounds [1 x ptr], ptr %50, i64 0, i64 %.062106
-  store ptr %.0, ptr %66, align 8
-  %67 = add i64 %.062106, 1
-  %.pre = load i16, ptr %47, align 4
-  br label %68
-
-68:                                               ; preds = %51, %65
-  %69 = phi i16 [ %.pre, %65 ], [ %52, %51 ]
-  %.1 = phi i64 [ %67, %65 ], [ %.062106, %51 ]
+65:                                               ; preds = %48, %62
+  %66 = phi i16 [ %.pre, %62 ], [ %49, %48 ]
+  %.1 = phi i64 [ %64, %62 ], [ %.062106, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = zext i16 %69 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
-  br i1 %71, label %51, label %._crit_edge, !llvm.loop !35
+  %67 = zext i16 %66 to i64
+  %68 = icmp ult i64 %indvars.iv.next, %67
+  br i1 %68, label %48, label %._crit_edge, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %68, %.preheader
-  %.062.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %68 ]
-  %72 = zext i32 %28 to i64
-  %.not77 = icmp eq i64 %.062.lcssa, %72
-  br i1 %.not77, label %74, label %73
+._crit_edge:                                      ; preds = %65, %.preheader
+  %.062.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %65 ]
+  %69 = zext i32 %28 to i64
+  %.not77 = icmp eq i64 %.062.lcssa, %69
+  br i1 %.not77, label %71, label %70
 
-73:                                               ; preds = %._crit_edge
+70:                                               ; preds = %._crit_edge
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
-74:                                               ; preds = %._crit_edge, %46
-  %75 = getelementptr inbounds i8, ptr %29, i64 24
-  store ptr %31, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %.063, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %29, i64 40
-  store ptr %.065, ptr %77, align 8
-  %78 = getelementptr inbounds [1 x ptr], ptr %9, i64 0, i64 %indvars.iv129
-  store ptr %29, ptr %78, align 8
+71:                                               ; preds = %._crit_edge, %43
+  %72 = getelementptr inbounds i8, ptr %29, i64 24
+  store ptr %31, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr %.063, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %29, i64 40
+  store ptr %.065, ptr %74, align 8
+  %75 = getelementptr inbounds [1 x ptr], ptr %9, i64 0, i64 %indvars.iv129
+  store ptr %29, ptr %75, align 8
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
   br i1 %exitcond.not, label %_ZL10_Py_DECREFP7_object.exit, label %10, !llvm.loop !36
 
-.loopexit:                                        ; preds = %38, %60
+.loopexit:                                        ; preds = %38, %57
   %.not.i81 = icmp eq ptr %.063, null
-  br i1 %.not.i81, label %_ZL11_Py_XDECREFP7_object.exit, label %79
+  br i1 %.not.i81, label %_ZL11_Py_XDECREFP7_object.exit, label %76
 
-79:                                               ; preds = %.loopexit
-  %80 = load i64, ptr %.063, align 8
-  %81 = add nsw i64 %80, -1
-  store i64 %81, ptr %.063, align 8
-  %.not.i.i = icmp eq i64 %81, 0
-  br i1 %.not.i.i, label %82, label %_ZL11_Py_XDECREFP7_object.exit
+76:                                               ; preds = %.loopexit
+  %77 = load i64, ptr %.063, align 8
+  %78 = add nsw i64 %77, -1
+  store i64 %78, ptr %.063, align 8
+  %.not.i.i = icmp eq i64 %78, 0
+  br i1 %.not.i.i, label %79, label %_ZL11_Py_XDECREFP7_object.exit
 
-82:                                               ; preds = %79
+79:                                               ; preds = %76
   tail call void @_Py_Dealloc(ptr noundef nonnull %.063)
   br label %_ZL11_Py_XDECREFP7_object.exit
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %.loopexit, %79, %82
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %.loopexit, %76, %79
   %.not.i82 = icmp eq ptr %31, null
-  br i1 %.not.i82, label %_ZL11_Py_XDECREFP7_object.exit84, label %83
+  br i1 %.not.i82, label %_ZL11_Py_XDECREFP7_object.exit84, label %80
 
-83:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit
-  %84 = load i64, ptr %31, align 8
-  %85 = add nsw i64 %84, -1
-  store i64 %85, ptr %31, align 8
-  %.not.i.i83 = icmp eq i64 %85, 0
-  br i1 %.not.i.i83, label %86, label %_ZL11_Py_XDECREFP7_object.exit84
+80:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit
+  %81 = load i64, ptr %31, align 8
+  %82 = add nsw i64 %81, -1
+  store i64 %82, ptr %31, align 8
+  %.not.i.i83 = icmp eq i64 %82, 0
+  br i1 %.not.i.i83, label %83, label %_ZL11_Py_XDECREFP7_object.exit84
 
-86:                                               ; preds = %83
+83:                                               ; preds = %80
   tail call void @_Py_Dealloc(ptr noundef nonnull %31)
   br label %_ZL11_Py_XDECREFP7_object.exit84
 
-_ZL11_Py_XDECREFP7_object.exit84:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit, %83, %86
+_ZL11_Py_XDECREFP7_object.exit84:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit, %80, %83
   %.not.i85 = icmp eq ptr %.065, null
-  br i1 %.not.i85, label %_ZL11_Py_XDECREFP7_object.exit87, label %87
+  br i1 %.not.i85, label %_ZL11_Py_XDECREFP7_object.exit87, label %84
 
-87:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit84
-  %88 = load i64, ptr %.065, align 8
-  %89 = add nsw i64 %88, -1
-  store i64 %89, ptr %.065, align 8
-  %.not.i.i86 = icmp eq i64 %89, 0
-  br i1 %.not.i.i86, label %90, label %_ZL11_Py_XDECREFP7_object.exit87
+84:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit84
+  %85 = load i64, ptr %.065, align 8
+  %86 = add nsw i64 %85, -1
+  store i64 %86, ptr %.065, align 8
+  %.not.i.i86 = icmp eq i64 %86, 0
+  br i1 %.not.i.i86, label %87, label %_ZL11_Py_XDECREFP7_object.exit87
 
-90:                                               ; preds = %87
+87:                                               ; preds = %84
   tail call void @_Py_Dealloc(ptr noundef nonnull %.065)
   br label %_ZL11_Py_XDECREFP7_object.exit87
 
-_ZL11_Py_XDECREFP7_object.exit87:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit84, %87, %90
+_ZL11_Py_XDECREFP7_object.exit87:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit84, %84, %87
   %.not.i88 = icmp eq ptr %29, null
-  br i1 %.not.i88, label %_ZL11_Py_XDECREFP7_object.exit90, label %91
+  br i1 %.not.i88, label %_ZL11_Py_XDECREFP7_object.exit90, label %88
 
-91:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit87
-  %92 = load i64, ptr %29, align 8
-  %93 = add nsw i64 %92, -1
-  store i64 %93, ptr %29, align 8
-  %.not.i.i89 = icmp eq i64 %93, 0
-  br i1 %.not.i.i89, label %94, label %_ZL11_Py_XDECREFP7_object.exit90
+88:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit87
+  %89 = load i64, ptr %29, align 8
+  %90 = add nsw i64 %89, -1
+  store i64 %90, ptr %29, align 8
+  %.not.i.i89 = icmp eq i64 %90, 0
+  br i1 %.not.i.i89, label %91, label %_ZL11_Py_XDECREFP7_object.exit90
 
-94:                                               ; preds = %91
+91:                                               ; preds = %88
   tail call void @_Py_Dealloc(ptr noundef nonnull %29)
   br label %_ZL11_Py_XDECREFP7_object.exit90
 
-_ZL11_Py_XDECREFP7_object.exit90:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit87, %91, %94
-  %95 = load i64, ptr %7, align 8
-  %96 = add nsw i64 %95, -1
-  store i64 %96, ptr %7, align 8
-  %.not.i91 = icmp eq i64 %96, 0
-  br i1 %.not.i91, label %97, label %_ZL10_Py_DECREFP7_object.exit
+_ZL11_Py_XDECREFP7_object.exit90:                 ; preds = %_ZL11_Py_XDECREFP7_object.exit87, %88, %91
+  %92 = load i64, ptr %7, align 8
+  %93 = add nsw i64 %92, -1
+  store i64 %93, ptr %7, align 8
+  %.not.i91 = icmp eq i64 %93, 0
+  br i1 %.not.i91, label %94, label %_ZL10_Py_DECREFP7_object.exit
 
-97:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit90
+94:                                               ; preds = %_ZL11_Py_XDECREFP7_object.exit90
   tail call void @_Py_Dealloc(ptr noundef nonnull %7)
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %74, %.preheader92, %97, %_ZL11_Py_XDECREFP7_object.exit90, %2
-  %.060 = phi ptr [ null, %2 ], [ null, %_ZL11_Py_XDECREFP7_object.exit90 ], [ null, %97 ], [ %7, %.preheader92 ], [ %7, %74 ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %71, %.preheader92, %94, %_ZL11_Py_XDECREFP7_object.exit90, %2
+  %.060 = phi ptr [ null, %2 ], [ null, %_ZL11_Py_XDECREFP7_object.exit90 ], [ null, %94 ], [ %7, %.preheader92 ], [ %7, %71 ]
   ret ptr %.060
 }
 
@@ -2647,1571 +2646,1571 @@ define internal fastcc noundef i32 @_ZN8nanobind6detailL24nb_func_render_signatu
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1024
   %10 = icmp ne i32 %9, 0
-  %11 = insertelement <4 x i32> poison, i32 %8, i64 0
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> zeroinitializer
-  %13 = and <4 x i32> %12, <i32 65536, i32 512, i32 256, i32 128>
-  %14 = icmp eq <4 x i32> %13, zeroinitializer
-  %15 = extractelement <4 x i1> %14, i64 0
-  br i1 %15, label %26, label %16
+  %11 = and i32 %8, 128
+  %.not = icmp eq i32 %11, 0
+  %12 = and i32 %8, 256
+  %.not172 = icmp eq i32 %12, 0
+  %13 = and i32 %8, 512
+  %.not173 = icmp eq i32 %13, 0
+  %14 = and i32 %8, 65536
+  %.not174 = icmp eq i32 %14, 0
+  br i1 %.not174, label %25, label %15
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8
-  br i1 %1, label %25, label %19
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = load ptr, ptr %16, align 8
+  br i1 %1, label %24, label %18
 
-19:                                               ; preds = %16
-  %20 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 10) #24
-  %.not195 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  %22 = select i1 %.not195, ptr %18, ptr %21
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #24
-  %24 = icmp eq i32 %23, 0
-  %spec.select.idx = select i1 %24, i64 4, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %22, i64 %spec.select.idx
-  br label %25
+18:                                               ; preds = %15
+  %19 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 10) #24
+  %.not195 = icmp eq ptr %19, null
+  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %21 = select i1 %.not195, ptr %17, ptr %20
+  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #24
+  %23 = icmp eq i32 %22, 0
+  %spec.select.idx = select i1 %23, i64 4, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx
+  br label %24
 
-25:                                               ; preds = %19, %16
-  %.0145 = phi ptr [ %18, %16 ], [ %spec.select, %19 ]
+24:                                               ; preds = %18, %15
+  %.0145 = phi ptr [ %17, %15 ], [ %spec.select, %18 ]
   invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %.0145)
-          to label %747 unwind label %.loopexit.split-lp
+          to label %743 unwind label %.loopexit.split-lp
 
-26:                                               ; preds = %2
-  br i1 %1, label %27, label %52
+25:                                               ; preds = %2
+  br i1 %1, label %26, label %51
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i = icmp ult ptr %29, %30
-  br i1 %.not.i.i, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, label %31
+26:                                               ; preds = %25
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i = icmp ult ptr %28, %29
+  br i1 %.not.i.i, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, label %30
 
-31:                                               ; preds = %27
-  %32 = ptrtoint ptr %30 to i64
-  %33 = ptrtoint ptr %28 to i64
-  %34 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %32, %35
-  %37 = shl i64 %36, 1
-  %38 = add i64 %33, 5
-  %39 = sub i64 %38, %32
-  %40 = add i64 %39, %37
-  %41 = tail call noalias ptr @malloc(i64 noundef %40) #23
-  %.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i, label %42, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
+30:                                               ; preds = %26
+  %31 = ptrtoint ptr %29 to i64
+  %32 = ptrtoint ptr %27 to i64
+  %33 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = sub i64 %31, %34
+  %36 = shl i64 %35, 1
+  %37 = add i64 %32, 5
+  %38 = sub i64 %37, %31
+  %39 = add i64 %38, %36
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #23
+  %.not.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i, label %41, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
 
-42:                                               ; preds = %31
-  %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %43) #25
+41:                                               ; preds = %30
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %42) #25
   tail call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %31
-  %45 = sub i64 %33, %35
-  %46 = add i64 %45, 1
-  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %36, i64 %46)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %34, i64 %spec.select.i.i.i, i1 false)
-  tail call void @free(ptr noundef %34) #22
-  store ptr %41, ptr @_ZN8nanobind6detail3bufE, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 %40
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 %45
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i:     ; preds = %30
+  %44 = sub i64 %32, %34
+  %45 = add i64 %44, 1
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %35, i64 %45)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %33, i64 %spec.select.i.i.i, i1 false)
+  tail call void @free(ptr noundef %33) #22
+  store ptr %40, ptr @_ZN8nanobind6detail3bufE, align 8
+  %46 = getelementptr inbounds i8, ptr %40, i64 %39
+  store ptr %46, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %47 = getelementptr inbounds i8, ptr %40, i64 %44
+  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit
 
-_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit: ; preds = %27, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
-  %49 = phi ptr [ %48, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %28, %27 ]
-  store i32 543581540, ptr %49, align 1
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %51, align 1
-  br label %52
+_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit: ; preds = %26, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i
+  %48 = phi ptr [ %47, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i ], [ %27, %26 ]
+  store i32 543581540, ptr %48, align 1
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %50, align 1
+  br label %51
 
-52:                                               ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, %26
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
-  %56 = load ptr, ptr %55, align 8
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %56)
-          to label %57 unwind label %.loopexit.split-lp
+51:                                               ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit, %25
+  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = load ptr, ptr %54, align 8
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %55)
+          to label %56 unwind label %.loopexit.split-lp
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 16
-  %62 = getelementptr inbounds i8, ptr %6, i64 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
-  %64 = getelementptr inbounds i8, ptr %0, i64 88
-  %65 = getelementptr inbounds i8, ptr %0, i64 62
-  %66 = getelementptr inbounds i8, ptr %0, i64 60
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = getelementptr inbounds i8, ptr %5, i64 16
+  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %62 = getelementptr inbounds i8, ptr %6, i64 16
+  %63 = getelementptr inbounds i8, ptr %0, i64 88
+  %64 = getelementptr inbounds i8, ptr %0, i64 62
+  %65 = getelementptr inbounds i8, ptr %0, i64 60
   %.lobit = lshr exact i32 %9, 10
-  %67 = add nuw nsw i32 %.lobit, 1
-  %68 = extractelement <4 x i1> %14, i64 1
-  %69 = extractelement <4 x i1> %14, i64 2
-  %70 = extractelement <4 x i1> %14, i64 3
-  br label %71
+  %66 = add nuw nsw i32 %.lobit, 1
+  br label %67
 
-71:                                               ; preds = %.critedge2, %57
-  %.0155 = phi ptr [ %59, %57 ], [ %740, %.critedge2 ]
-  %.0152 = phi i32 [ 0, %57 ], [ %.1153, %.critedge2 ]
-  %.0150 = phi i32 [ 0, %57 ], [ %.1151, %.critedge2 ]
-  %.0147 = phi i1 [ false, %57 ], [ %.1148, %.critedge2 ]
-  %.0146 = phi ptr [ %54, %57 ], [ %.3, %.critedge2 ]
-  %72 = load i8, ptr %.0155, align 1
-  switch i8 %72, label %717 [
-    i8 0, label %741
-    i8 64, label %73
-    i8 123, label %135
-    i8 125, label %327
-    i8 37, label %540
-    i8 45, label %691
+67:                                               ; preds = %.critedge2, %56
+  %.0155 = phi ptr [ %58, %56 ], [ %736, %.critedge2 ]
+  %.0152 = phi i32 [ 0, %56 ], [ %.1153, %.critedge2 ]
+  %.0150 = phi i32 [ 0, %56 ], [ %.1151, %.critedge2 ]
+  %.0147 = phi i1 [ false, %56 ], [ %.1148, %.critedge2 ]
+  %.0146 = phi ptr [ %53, %56 ], [ %.3, %.critedge2 ]
+  %68 = load i8, ptr %.0155, align 1
+  switch i8 %68, label %713 [
+    i8 0, label %737
+    i8 64, label %69
+    i8 123, label %131
+    i8 125, label %323
+    i8 37, label %536
+    i8 45, label %687
   ]
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %.0155, i64 1
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %.0155, i64 1
   br i1 %.0147, label %.preheader, label %.preheader336
 
-.preheader336:                                    ; preds = %73, %_ZN8nanobind6detail6Buffer3putEc.exit
-  %.1156 = phi ptr [ %77, %_ZN8nanobind6detail6Buffer3putEc.exit ], [ %74, %73 ]
-  %75 = load i8, ptr %.1156, align 1
-  switch i8 %75, label %76 [
+.preheader336:                                    ; preds = %69, %_ZN8nanobind6detail6Buffer3putEc.exit
+  %.1156 = phi ptr [ %73, %_ZN8nanobind6detail6Buffer3putEc.exit ], [ %70, %69 ]
+  %71 = load i8, ptr %.1156, align 1
+  switch i8 %71, label %72 [
     i8 0, label %.critedge
     i8 64, label %.critedge
   ]
 
-76:                                               ; preds = %.preheader336
-  %77 = getelementptr inbounds i8, ptr %.1156, i64 1
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i = icmp ult ptr %79, %80
-  br i1 %.not.i, label %_ZN8nanobind6detail6Buffer3putEc.exit, label %81
+72:                                               ; preds = %.preheader336
+  %73 = getelementptr inbounds i8, ptr %.1156, i64 1
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i = icmp ult ptr %75, %76
+  br i1 %.not.i, label %_ZN8nanobind6detail6Buffer3putEc.exit, label %77
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %83 = ptrtoint ptr %80 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = shl i64 %85, 1
-  %87 = add i64 %86, 2
-  %88 = call noalias ptr @malloc(i64 noundef %87) #23
-  %.not.i.i201 = icmp eq ptr %88, null
-  br i1 %.not.i.i201, label %89, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i
+77:                                               ; preds = %72
+  %78 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %79 = ptrtoint ptr %76 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = shl i64 %81, 1
+  %83 = add i64 %82, 2
+  %84 = call noalias ptr @malloc(i64 noundef %83) #23
+  %.not.i.i201 = icmp eq ptr %84, null
+  br i1 %.not.i.i201, label %85, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i
 
-89:                                               ; preds = %81
-  %90 = load ptr, ptr @stderr, align 8
-  %91 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %90) #25
+85:                                               ; preds = %77
+  %86 = load ptr, ptr @stderr, align 8
+  %87 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %86) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %81
-  %92 = ptrtoint ptr %78 to i64
-  %93 = sub i64 %92, %84
-  %94 = add i64 %93, 1
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %85, i64 %94)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 1 %82, i64 %spec.select.i.i, i1 false)
-  call void @free(ptr noundef %82) #22
-  store ptr %88, ptr @_ZN8nanobind6detail3bufE, align 8
-  %95 = getelementptr inbounds i8, ptr %88, i64 %87
-  store ptr %95, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %96 = getelementptr inbounds i8, ptr %88, i64 %93
+_ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %77
+  %88 = ptrtoint ptr %74 to i64
+  %89 = sub i64 %88, %80
+  %90 = add i64 %89, 1
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %81, i64 %90)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %78, i64 %spec.select.i.i, i1 false)
+  call void @free(ptr noundef %78) #22
+  store ptr %84, ptr @_ZN8nanobind6detail3bufE, align 8
+  %91 = getelementptr inbounds i8, ptr %84, i64 %83
+  store ptr %91, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %92 = getelementptr inbounds i8, ptr %84, i64 %89
   br label %_ZN8nanobind6detail6Buffer3putEc.exit
 
-_ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %76, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
-  %97 = phi ptr [ %96, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %78, %76 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
-  store ptr %98, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 %75, ptr %97, align 1
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %99, align 1
+_ZN8nanobind6detail6Buffer3putEc.exit:            ; preds = %72, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
+  %93 = phi ptr [ %92, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %74, %72 ]
+  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  store ptr %94, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 %71, ptr %93, align 1
+  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %95, align 1
   br label %.preheader336, !llvm.loop !37
 
 .critedge:                                        ; preds = %.preheader336, %.preheader336
-  %100 = icmp eq i8 %75, 64
-  %spec.select196.idx = zext i1 %100 to i64
+  %96 = icmp eq i8 %71, 64
+  %spec.select196.idx = zext i1 %96 to i64
   %spec.select196 = getelementptr inbounds i8, ptr %.1156, i64 %spec.select196.idx
-  br label %101
+  br label %97
 
-101:                                              ; preds = %103, %.critedge
-  %.3158 = phi ptr [ %spec.select196, %.critedge ], [ %104, %103 ]
-  %102 = load i8, ptr %.3158, align 1
-  switch i8 %102, label %103 [
+97:                                               ; preds = %99, %.critedge
+  %.3158 = phi ptr [ %spec.select196, %.critedge ], [ %100, %99 ]
+  %98 = load i8, ptr %.3158, align 1
+  switch i8 %98, label %99 [
     i8 0, label %.critedge2
     i8 64, label %.critedge2
   ]
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.3158, i64 1
-  br label %101, !llvm.loop !38
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %.3158, i64 1
+  br label %97, !llvm.loop !38
 
-.preheader:                                       ; preds = %73, %106
-  %.4 = phi ptr [ %107, %106 ], [ %74, %73 ]
-  %105 = load i8, ptr %.4, align 1
-  switch i8 %105, label %106 [
+.preheader:                                       ; preds = %69, %102
+  %.4 = phi ptr [ %103, %102 ], [ %70, %69 ]
+  %101 = load i8, ptr %.4, align 1
+  switch i8 %101, label %102 [
     i8 0, label %.critedge4
     i8 64, label %.critedge4
   ]
 
-106:                                              ; preds = %.preheader
-  %107 = getelementptr inbounds i8, ptr %.4, i64 1
+102:                                              ; preds = %.preheader
+  %103 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %.preheader, !llvm.loop !39
 
 .critedge4:                                       ; preds = %.preheader, %.preheader
-  %108 = icmp eq i8 %105, 64
-  %spec.select197.idx = zext i1 %108 to i64
+  %104 = icmp eq i8 %101, 64
+  %spec.select197.idx = zext i1 %104 to i64
   %spec.select197 = getelementptr inbounds i8, ptr %.4, i64 %spec.select197.idx
-  br label %109
+  br label %105
 
-109:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit206, %.critedge4
-  %.6 = phi ptr [ %spec.select197, %.critedge4 ], [ %112, %_ZN8nanobind6detail6Buffer3putEc.exit206 ]
-  %110 = load i8, ptr %.6, align 1
-  switch i8 %110, label %111 [
+105:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit206, %.critedge4
+  %.6 = phi ptr [ %spec.select197, %.critedge4 ], [ %108, %_ZN8nanobind6detail6Buffer3putEc.exit206 ]
+  %106 = load i8, ptr %.6, align 1
+  switch i8 %106, label %107 [
     i8 0, label %.critedge2
     i8 64, label %.critedge2
   ]
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %.6, i64 1
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i202 = icmp ult ptr %114, %115
-  br i1 %.not.i202, label %_ZN8nanobind6detail6Buffer3putEc.exit206, label %116
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds i8, ptr %.6, i64 1
+  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 1
+  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i202 = icmp ult ptr %110, %111
+  br i1 %.not.i202, label %_ZN8nanobind6detail6Buffer3putEc.exit206, label %112
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %118 = ptrtoint ptr %115 to i64
-  %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %121 = shl i64 %120, 1
-  %122 = add i64 %121, 2
-  %123 = call noalias ptr @malloc(i64 noundef %122) #23
-  %.not.i.i203 = icmp eq ptr %123, null
-  br i1 %.not.i.i203, label %124, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i204
+112:                                              ; preds = %107
+  %113 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %114 = ptrtoint ptr %111 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = shl i64 %116, 1
+  %118 = add i64 %117, 2
+  %119 = call noalias ptr @malloc(i64 noundef %118) #23
+  %.not.i.i203 = icmp eq ptr %119, null
+  br i1 %.not.i.i203, label %120, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i204
 
-124:                                              ; preds = %116
-  %125 = load ptr, ptr @stderr, align 8
-  %126 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %125) #25
+120:                                              ; preds = %112
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %121) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i204:    ; preds = %116
-  %127 = ptrtoint ptr %113 to i64
-  %128 = sub i64 %127, %119
-  %129 = add i64 %128, 1
-  %spec.select.i.i205 = call i64 @llvm.umin.i64(i64 %120, i64 %129)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %123, ptr align 1 %117, i64 %spec.select.i.i205, i1 false)
-  call void @free(ptr noundef %117) #22
-  store ptr %123, ptr @_ZN8nanobind6detail3bufE, align 8
-  %130 = getelementptr inbounds i8, ptr %123, i64 %122
-  store ptr %130, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %131 = getelementptr inbounds i8, ptr %123, i64 %128
+_ZN8nanobind6detail6Buffer6expandEm.exit.i204:    ; preds = %112
+  %123 = ptrtoint ptr %109 to i64
+  %124 = sub i64 %123, %115
+  %125 = add i64 %124, 1
+  %spec.select.i.i205 = call i64 @llvm.umin.i64(i64 %116, i64 %125)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %113, i64 %spec.select.i.i205, i1 false)
+  call void @free(ptr noundef %113) #22
+  store ptr %119, ptr @_ZN8nanobind6detail3bufE, align 8
+  %126 = getelementptr inbounds i8, ptr %119, i64 %118
+  store ptr %126, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %127 = getelementptr inbounds i8, ptr %119, i64 %124
   br label %_ZN8nanobind6detail6Buffer3putEc.exit206
 
-_ZN8nanobind6detail6Buffer3putEc.exit206:         ; preds = %111, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204
-  %132 = phi ptr [ %131, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204 ], [ %113, %111 ]
-  %133 = getelementptr inbounds i8, ptr %132, i64 1
-  store ptr %133, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 %110, ptr %132, align 1
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %134, align 1
-  br label %109, !llvm.loop !40
+_ZN8nanobind6detail6Buffer3putEc.exit206:         ; preds = %107, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204
+  %128 = phi ptr [ %127, %_ZN8nanobind6detail6Buffer6expandEm.exit.i204 ], [ %109, %107 ]
+  %129 = getelementptr inbounds i8, ptr %128, i64 1
+  store ptr %129, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 %106, ptr %128, align 1
+  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %130, align 1
+  br label %105, !llvm.loop !40
 
-135:                                              ; preds = %71
-  br i1 %70, label %141, label %136
+131:                                              ; preds = %67
+  br i1 %.not, label %137, label %132
 
-136:                                              ; preds = %135
-  %137 = load ptr, ptr %64, align 8
-  %138 = zext i32 %.0150 to i64
-  %139 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %137, i64 %138
-  %140 = load ptr, ptr %139, align 8
-  br label %141
+132:                                              ; preds = %131
+  %133 = load ptr, ptr %63, align 8
+  %134 = zext i32 %.0150 to i64
+  %135 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %133, i64 %134
+  %136 = load ptr, ptr %135, align 8
+  br label %137
 
-141:                                              ; preds = %135, %136
-  %142 = phi ptr [ %140, %136 ], [ null, %135 ]
-  br i1 %68, label %177, label %143
+137:                                              ; preds = %131, %132
+  %138 = phi ptr [ %136, %132 ], [ null, %131 ]
+  br i1 %.not173, label %173, label %139
 
-143:                                              ; preds = %141
-  %144 = add i32 %.0150, 1
-  %145 = load i16, ptr %66, align 4
-  %146 = zext i16 %145 to i32
-  %147 = icmp eq i32 %144, %146
-  br i1 %147, label %148, label %177
+139:                                              ; preds = %137
+  %140 = add i32 %.0150, 1
+  %141 = load i16, ptr %65, align 4
+  %142 = zext i16 %141 to i32
+  %143 = icmp eq i32 %140, %142
+  br i1 %143, label %144, label %173
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 2
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i207 = icmp ult ptr %150, %151
-  br i1 %.not.i.i207, label %170, label %152
+144:                                              ; preds = %139
+  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 2
+  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i207 = icmp ult ptr %146, %147
+  br i1 %.not.i.i207, label %166, label %148
 
-152:                                              ; preds = %148
-  %153 = ptrtoint ptr %151 to i64
-  %154 = ptrtoint ptr %149 to i64
-  %155 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %156 = ptrtoint ptr %155 to i64
-  %157 = sub i64 %153, %156
-  %158 = shl i64 %157, 1
-  %159 = add i64 %154, 3
-  %160 = sub i64 %159, %153
-  %161 = add i64 %160, %158
-  %162 = call noalias ptr @malloc(i64 noundef %161) #23
-  %.not.i.i.i208 = icmp eq ptr %162, null
-  br i1 %.not.i.i.i208, label %163, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209
+148:                                              ; preds = %144
+  %149 = ptrtoint ptr %147 to i64
+  %150 = ptrtoint ptr %145 to i64
+  %151 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %152 = ptrtoint ptr %151 to i64
+  %153 = sub i64 %149, %152
+  %154 = shl i64 %153, 1
+  %155 = add i64 %150, 3
+  %156 = sub i64 %155, %149
+  %157 = add i64 %156, %154
+  %158 = call noalias ptr @malloc(i64 noundef %157) #23
+  %.not.i.i.i208 = icmp eq ptr %158, null
+  br i1 %.not.i.i.i208, label %159, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209
 
-163:                                              ; preds = %152
-  %164 = load ptr, ptr @stderr, align 8
-  %165 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %164) #25
+159:                                              ; preds = %148
+  %160 = load ptr, ptr @stderr, align 8
+  %161 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %160) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209:  ; preds = %152
-  %166 = sub i64 %154, %156
-  %167 = add i64 %166, 1
-  %spec.select.i.i.i210 = call i64 @llvm.umin.i64(i64 %157, i64 %167)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr align 1 %155, i64 %spec.select.i.i.i210, i1 false)
-  call void @free(ptr noundef %155) #22
-  store ptr %162, ptr @_ZN8nanobind6detail3bufE, align 8
-  %168 = getelementptr inbounds i8, ptr %162, i64 %161
-  store ptr %168, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 %166
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209:  ; preds = %148
+  %162 = sub i64 %150, %152
+  %163 = add i64 %162, 1
+  %spec.select.i.i.i210 = call i64 @llvm.umin.i64(i64 %153, i64 %163)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr align 1 %151, i64 %spec.select.i.i.i210, i1 false)
+  call void @free(ptr noundef %151) #22
+  store ptr %158, ptr @_ZN8nanobind6detail3bufE, align 8
+  %164 = getelementptr inbounds i8, ptr %158, i64 %157
+  store ptr %164, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %165 = getelementptr inbounds i8, ptr %158, i64 %162
+  store ptr %165, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %166
+
+166:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209, %144
+  %167 = phi ptr [ %165, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209 ], [ %145, %144 ]
+  store i16 10794, ptr %167, align 1
+  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 2
   store ptr %169, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %170
+  store i8 0, ptr %169, align 1
+  %.not186 = icmp eq ptr %138, null
+  %170 = select i1 %.not186, ptr @.str.30, ptr %138
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %170)
+          to label %171 unwind label %.loopexit338
 
-170:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209, %148
-  %171 = phi ptr [ %169, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i209 ], [ %149, %148 ]
-  store i16 10794, ptr %171, align 1
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 2
-  store ptr %173, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %173, align 1
-  %.not186 = icmp eq ptr %142, null
-  %174 = select i1 %.not186, ptr @.str.30, ptr %142
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %174)
-          to label %175 unwind label %.loopexit338
-
-175:                                              ; preds = %170
-  %176 = getelementptr inbounds i8, ptr %.0155, i64 4
+171:                                              ; preds = %166
+  %172 = getelementptr inbounds i8, ptr %.0155, i64 4
   br label %.critedge2
 
-177:                                              ; preds = %143, %141
-  %178 = load i16, ptr %65, align 2
-  %179 = zext i16 %178 to i32
-  %180 = icmp eq i32 %.0150, %179
-  br i1 %180, label %181, label %236
+173:                                              ; preds = %139, %137
+  %174 = load i16, ptr %64, align 2
+  %175 = zext i16 %174 to i32
+  %176 = icmp eq i32 %.0150, %175
+  br i1 %176, label %177, label %232
+
+177:                                              ; preds = %173
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 1
+  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i211 = icmp ult ptr %179, %180
+  br i1 %.not.i.i211, label %199, label %181
 
 181:                                              ; preds = %177
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 1
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i211 = icmp ult ptr %183, %184
-  br i1 %.not.i.i211, label %203, label %185
+  %182 = ptrtoint ptr %180 to i64
+  %183 = ptrtoint ptr %178 to i64
+  %184 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %185 = ptrtoint ptr %184 to i64
+  %186 = sub i64 %182, %185
+  %187 = shl i64 %186, 1
+  %188 = add i64 %183, 2
+  %189 = sub i64 %188, %182
+  %190 = add i64 %189, %187
+  %191 = call noalias ptr @malloc(i64 noundef %190) #23
+  %.not.i.i.i212 = icmp eq ptr %191, null
+  br i1 %.not.i.i.i212, label %192, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213
 
-185:                                              ; preds = %181
-  %186 = ptrtoint ptr %184 to i64
-  %187 = ptrtoint ptr %182 to i64
-  %188 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %189 = ptrtoint ptr %188 to i64
-  %190 = sub i64 %186, %189
-  %191 = shl i64 %190, 1
-  %192 = add i64 %187, 2
-  %193 = sub i64 %192, %186
-  %194 = add i64 %193, %191
-  %195 = call noalias ptr @malloc(i64 noundef %194) #23
-  %.not.i.i.i212 = icmp eq ptr %195, null
-  br i1 %.not.i.i.i212, label %196, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213
-
-196:                                              ; preds = %185
-  %197 = load ptr, ptr @stderr, align 8
-  %198 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %197) #25
+192:                                              ; preds = %181
+  %193 = load ptr, ptr @stderr, align 8
+  %194 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %193) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213:  ; preds = %185
-  %199 = sub i64 %187, %189
-  %200 = add i64 %199, 1
-  %spec.select.i.i.i214 = call i64 @llvm.umin.i64(i64 %190, i64 %200)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr align 1 %188, i64 %spec.select.i.i.i214, i1 false)
-  call void @free(ptr noundef %188) #22
-  store ptr %195, ptr @_ZN8nanobind6detail3bufE, align 8
-  %201 = getelementptr inbounds i8, ptr %195, i64 %194
-  store ptr %201, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %202 = getelementptr inbounds i8, ptr %195, i64 %199
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213:  ; preds = %181
+  %195 = sub i64 %183, %185
+  %196 = add i64 %195, 1
+  %spec.select.i.i.i214 = call i64 @llvm.umin.i64(i64 %186, i64 %196)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %191, ptr align 1 %184, i64 %spec.select.i.i.i214, i1 false)
+  call void @free(ptr noundef %184) #22
+  store ptr %191, ptr @_ZN8nanobind6detail3bufE, align 8
+  %197 = getelementptr inbounds i8, ptr %191, i64 %190
+  store ptr %197, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %198 = getelementptr inbounds i8, ptr %191, i64 %195
+  store ptr %198, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %199
+
+199:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213, %177
+  %200 = phi ptr [ %198, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213 ], [ %178, %177 ]
+  store i8 42, ptr %200, align 1
+  %201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 1
   store ptr %202, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %203
+  store i8 0, ptr %202, align 1
+  br i1 %.not172, label %207, label %203
 
-203:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213, %181
-  %204 = phi ptr [ %202, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i213 ], [ %182, %181 ]
-  store i8 42, ptr %204, align 1
-  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 1
-  store ptr %206, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %206, align 1
-  br i1 %69, label %211, label %207
+203:                                              ; preds = %199
+  %.not185 = icmp eq ptr %138, null
+  %204 = select i1 %.not185, ptr @.str.32, ptr %138
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %204)
+          to label %205 unwind label %.loopexit338
 
-207:                                              ; preds = %203
-  %.not185 = icmp eq ptr %142, null
-  %208 = select i1 %.not185, ptr @.str.32, ptr %142
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %208)
-          to label %209 unwind label %.loopexit338
-
-209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %.0155, i64 5
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %.0155, i64 5
   br label %.critedge2
 
-211:                                              ; preds = %203
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 2
-  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i215 = icmp ult ptr %213, %214
-  br i1 %.not.i.i215, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219, label %215
+207:                                              ; preds = %199
+  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 2
+  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i215 = icmp ult ptr %209, %210
+  br i1 %.not.i.i215, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219, label %211
 
-215:                                              ; preds = %211
-  %216 = ptrtoint ptr %214 to i64
-  %217 = ptrtoint ptr %212 to i64
-  %218 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %219 = ptrtoint ptr %218 to i64
-  %220 = sub i64 %216, %219
-  %221 = shl i64 %220, 1
-  %222 = add i64 %217, 3
-  %223 = sub i64 %222, %216
-  %224 = add i64 %223, %221
-  %225 = call noalias ptr @malloc(i64 noundef %224) #23
-  %.not.i.i.i216 = icmp eq ptr %225, null
-  br i1 %.not.i.i.i216, label %226, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217
+211:                                              ; preds = %207
+  %212 = ptrtoint ptr %210 to i64
+  %213 = ptrtoint ptr %208 to i64
+  %214 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %215 = ptrtoint ptr %214 to i64
+  %216 = sub i64 %212, %215
+  %217 = shl i64 %216, 1
+  %218 = add i64 %213, 3
+  %219 = sub i64 %218, %212
+  %220 = add i64 %219, %217
+  %221 = call noalias ptr @malloc(i64 noundef %220) #23
+  %.not.i.i.i216 = icmp eq ptr %221, null
+  br i1 %.not.i.i.i216, label %222, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217
 
-226:                                              ; preds = %215
-  %227 = load ptr, ptr @stderr, align 8
-  %228 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %227) #25
+222:                                              ; preds = %211
+  %223 = load ptr, ptr @stderr, align 8
+  %224 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %223) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217:  ; preds = %215
-  %229 = sub i64 %217, %219
-  %230 = add i64 %229, 1
-  %spec.select.i.i.i218 = call i64 @llvm.umin.i64(i64 %220, i64 %230)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %225, ptr align 1 %218, i64 %spec.select.i.i.i218, i1 false)
-  call void @free(ptr noundef %218) #22
-  store ptr %225, ptr @_ZN8nanobind6detail3bufE, align 8
-  %231 = getelementptr inbounds i8, ptr %225, i64 %224
-  store ptr %231, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %232 = getelementptr inbounds i8, ptr %225, i64 %229
-  store ptr %232, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217:  ; preds = %211
+  %225 = sub i64 %213, %215
+  %226 = add i64 %225, 1
+  %spec.select.i.i.i218 = call i64 @llvm.umin.i64(i64 %216, i64 %226)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr align 1 %214, i64 %spec.select.i.i.i218, i1 false)
+  call void @free(ptr noundef %214) #22
+  store ptr %221, ptr @_ZN8nanobind6detail3bufE, align 8
+  %227 = getelementptr inbounds i8, ptr %221, i64 %220
+  store ptr %227, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %228 = getelementptr inbounds i8, ptr %221, i64 %225
+  store ptr %228, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219
 
-_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219: ; preds = %211, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217
-  %233 = phi ptr [ %232, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217 ], [ %212, %211 ]
-  store i16 8236, ptr %233, align 1
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 2
-  store ptr %235, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %235, align 1
-  br label %236
+_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219: ; preds = %207, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217
+  %229 = phi ptr [ %228, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i217 ], [ %208, %207 ]
+  store i16 8236, ptr %229, align 1
+  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 2
+  store ptr %231, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %231, align 1
+  br label %232
 
-236:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219, %177
-  %237 = icmp eq i32 %.0150, 0
-  %or.cond = select i1 %10, i1 %237, i1 false
-  br i1 %or.cond, label %238, label %269
+232:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit219, %173
+  %233 = icmp eq i32 %.0150, 0
+  %or.cond = select i1 %10, i1 %233, i1 false
+  br i1 %or.cond, label %234, label %265
 
-238:                                              ; preds = %236
-  %239 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 4
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i220 = icmp ult ptr %240, %241
-  br i1 %.not.i.i220, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224, label %242
+234:                                              ; preds = %232
+  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 4
+  %237 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i220 = icmp ult ptr %236, %237
+  br i1 %.not.i.i220, label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224, label %238
 
-242:                                              ; preds = %238
-  %243 = ptrtoint ptr %241 to i64
-  %244 = ptrtoint ptr %239 to i64
-  %245 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %246 = ptrtoint ptr %245 to i64
-  %247 = sub i64 %243, %246
-  %248 = shl i64 %247, 1
-  %249 = add i64 %244, 5
-  %250 = sub i64 %249, %243
-  %251 = add i64 %250, %248
-  %252 = call noalias ptr @malloc(i64 noundef %251) #23
-  %.not.i.i.i221 = icmp eq ptr %252, null
-  br i1 %.not.i.i.i221, label %253, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222
+238:                                              ; preds = %234
+  %239 = ptrtoint ptr %237 to i64
+  %240 = ptrtoint ptr %235 to i64
+  %241 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %242 = ptrtoint ptr %241 to i64
+  %243 = sub i64 %239, %242
+  %244 = shl i64 %243, 1
+  %245 = add i64 %240, 5
+  %246 = sub i64 %245, %239
+  %247 = add i64 %246, %244
+  %248 = call noalias ptr @malloc(i64 noundef %247) #23
+  %.not.i.i.i221 = icmp eq ptr %248, null
+  br i1 %.not.i.i.i221, label %249, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222
 
-253:                                              ; preds = %242
-  %254 = load ptr, ptr @stderr, align 8
-  %255 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %254) #25
+249:                                              ; preds = %238
+  %250 = load ptr, ptr @stderr, align 8
+  %251 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %250) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222:  ; preds = %242
-  %256 = sub i64 %244, %246
-  %257 = add i64 %256, 1
-  %spec.select.i.i.i223 = call i64 @llvm.umin.i64(i64 %247, i64 %257)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %252, ptr align 1 %245, i64 %spec.select.i.i.i223, i1 false)
-  call void @free(ptr noundef %245) #22
-  store ptr %252, ptr @_ZN8nanobind6detail3bufE, align 8
-  %258 = getelementptr inbounds i8, ptr %252, i64 %251
-  store ptr %258, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %259 = getelementptr inbounds i8, ptr %252, i64 %256
-  store ptr %259, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222:  ; preds = %238
+  %252 = sub i64 %240, %242
+  %253 = add i64 %252, 1
+  %spec.select.i.i.i223 = call i64 @llvm.umin.i64(i64 %243, i64 %253)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %248, ptr align 1 %241, i64 %spec.select.i.i.i223, i1 false)
+  call void @free(ptr noundef %241) #22
+  store ptr %248, ptr @_ZN8nanobind6detail3bufE, align 8
+  %254 = getelementptr inbounds i8, ptr %248, i64 %247
+  store ptr %254, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %255 = getelementptr inbounds i8, ptr %248, i64 %252
+  store ptr %255, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224
 
-_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224: ; preds = %238, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222
-  %260 = phi ptr [ %259, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222 ], [ %239, %238 ]
-  store i32 1718379891, ptr %260, align 1
-  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 4
-  store ptr %262, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %262, align 1
-  br label %263
+_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224: ; preds = %234, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222
+  %256 = phi ptr [ %255, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i222 ], [ %235, %234 ]
+  store i32 1718379891, ptr %256, align 1
+  %257 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 4
+  store ptr %258, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %258, align 1
+  br label %259
 
-263:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224, %267
-  %.7 = phi ptr [ %.0155, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224 ], [ %268, %267 ]
-  %.1 = phi ptr [ %.0146, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224 ], [ %.2, %267 ]
-  %264 = load i8, ptr %.7, align 1
-  switch i8 %264, label %267 [
+259:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224, %263
+  %.7 = phi ptr [ %.0155, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224 ], [ %264, %263 ]
+  %.1 = phi ptr [ %.0146, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit224 ], [ %.2, %263 ]
+  %260 = load i8, ptr %.7, align 1
+  switch i8 %260, label %263 [
     i8 125, label %.critedge2
-    i8 37, label %265
+    i8 37, label %261
   ]
 
-265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %.1, i64 8
-  br label %267
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds i8, ptr %.1, i64 8
+  br label %263
 
-267:                                              ; preds = %263, %265
-  %.2 = phi ptr [ %266, %265 ], [ %.1, %263 ]
-  %268 = getelementptr inbounds i8, ptr %.7, i64 1
-  br label %263, !llvm.loop !41
+263:                                              ; preds = %259, %261
+  %.2 = phi ptr [ %262, %261 ], [ %.1, %259 ]
+  %264 = getelementptr inbounds i8, ptr %.7, i64 1
+  br label %259, !llvm.loop !41
 
-269:                                              ; preds = %236
-  %.not183 = icmp eq ptr %142, null
-  br i1 %.not183, label %271, label %270
+265:                                              ; preds = %232
+  %.not183 = icmp eq ptr %138, null
+  br i1 %.not183, label %267, label %266
 
-270:                                              ; preds = %269
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %142)
-          to label %302 unwind label %.loopexit338
+266:                                              ; preds = %265
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef nonnull %138)
+          to label %298 unwind label %.loopexit338
 
-271:                                              ; preds = %269
-  %272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 3
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i225 = icmp ult ptr %273, %274
-  br i1 %.not.i.i225, label %293, label %275
+267:                                              ; preds = %265
+  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 3
+  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i225 = icmp ult ptr %269, %270
+  br i1 %.not.i.i225, label %289, label %271
 
-275:                                              ; preds = %271
-  %276 = ptrtoint ptr %274 to i64
-  %277 = ptrtoint ptr %272 to i64
-  %278 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %279 = ptrtoint ptr %278 to i64
-  %280 = sub i64 %276, %279
-  %281 = shl i64 %280, 1
-  %282 = add i64 %277, 4
-  %283 = sub i64 %282, %276
-  %284 = add i64 %283, %281
-  %285 = call noalias ptr @malloc(i64 noundef %284) #23
-  %.not.i.i.i226 = icmp eq ptr %285, null
-  br i1 %.not.i.i.i226, label %286, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227
+271:                                              ; preds = %267
+  %272 = ptrtoint ptr %270 to i64
+  %273 = ptrtoint ptr %268 to i64
+  %274 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %275 = ptrtoint ptr %274 to i64
+  %276 = sub i64 %272, %275
+  %277 = shl i64 %276, 1
+  %278 = add i64 %273, 4
+  %279 = sub i64 %278, %272
+  %280 = add i64 %279, %277
+  %281 = call noalias ptr @malloc(i64 noundef %280) #23
+  %.not.i.i.i226 = icmp eq ptr %281, null
+  br i1 %.not.i.i.i226, label %282, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227
 
-286:                                              ; preds = %275
-  %287 = load ptr, ptr @stderr, align 8
-  %288 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %287) #25
+282:                                              ; preds = %271
+  %283 = load ptr, ptr @stderr, align 8
+  %284 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %283) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227:  ; preds = %275
-  %289 = sub i64 %277, %279
-  %290 = add i64 %289, 1
-  %spec.select.i.i.i228 = call i64 @llvm.umin.i64(i64 %280, i64 %290)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %285, ptr align 1 %278, i64 %spec.select.i.i.i228, i1 false)
-  call void @free(ptr noundef %278) #22
-  store ptr %285, ptr @_ZN8nanobind6detail3bufE, align 8
-  %291 = getelementptr inbounds i8, ptr %285, i64 %284
-  store ptr %291, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %292 = getelementptr inbounds i8, ptr %285, i64 %289
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227:  ; preds = %271
+  %285 = sub i64 %273, %275
+  %286 = add i64 %285, 1
+  %spec.select.i.i.i228 = call i64 @llvm.umin.i64(i64 %276, i64 %286)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %281, ptr align 1 %274, i64 %spec.select.i.i.i228, i1 false)
+  call void @free(ptr noundef %274) #22
+  store ptr %281, ptr @_ZN8nanobind6detail3bufE, align 8
+  %287 = getelementptr inbounds i8, ptr %281, i64 %280
+  store ptr %287, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %288 = getelementptr inbounds i8, ptr %281, i64 %285
+  store ptr %288, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %289
+
+289:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227, %267
+  %290 = phi ptr [ %288, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227 ], [ %268, %267 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %290, ptr noundef nonnull align 1 dereferenceable(3) @.str.33, i64 3, i1 false)
+  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %292 = getelementptr inbounds i8, ptr %291, i64 3
   store ptr %292, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %293
+  store i8 0, ptr %292, align 1
+  %293 = load i16, ptr %65, align 4
+  %294 = zext i16 %293 to i32
+  %295 = icmp ult i32 %66, %294
+  br i1 %295, label %296, label %298
 
-293:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227, %271
-  %294 = phi ptr [ %292, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i227 ], [ %272, %271 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %294, ptr noundef nonnull align 1 dereferenceable(3) @.str.33, i64 3, i1 false)
-  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 3
-  store ptr %296, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %296, align 1
-  %297 = load i16, ptr %66, align 4
-  %298 = zext i16 %297 to i32
-  %299 = icmp ult i32 %67, %298
-  br i1 %299, label %300, label %302
+296:                                              ; preds = %289
+  %297 = sub i32 %.0150, %.lobit
+  invoke void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, i32 noundef %297)
+          to label %298 unwind label %.loopexit338
 
-300:                                              ; preds = %293
-  %301 = sub i32 %.0150, %.lobit
-  invoke void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, i32 noundef %301)
-          to label %302 unwind label %.loopexit338
+298:                                              ; preds = %266, %296, %289
+  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 2
+  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i229 = icmp ult ptr %300, %301
+  br i1 %.not.i.i229, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233, label %302
 
-302:                                              ; preds = %270, %300, %293
-  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 2
-  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i229 = icmp ult ptr %304, %305
-  br i1 %.not.i.i229, label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233, label %306
+302:                                              ; preds = %298
+  %303 = ptrtoint ptr %301 to i64
+  %304 = ptrtoint ptr %299 to i64
+  %305 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %306 = ptrtoint ptr %305 to i64
+  %307 = sub i64 %303, %306
+  %308 = shl i64 %307, 1
+  %309 = add i64 %304, 3
+  %310 = sub i64 %309, %303
+  %311 = add i64 %310, %308
+  %312 = call noalias ptr @malloc(i64 noundef %311) #23
+  %.not.i.i.i230 = icmp eq ptr %312, null
+  br i1 %.not.i.i.i230, label %313, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231
 
-306:                                              ; preds = %302
-  %307 = ptrtoint ptr %305 to i64
-  %308 = ptrtoint ptr %303 to i64
-  %309 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %310 = ptrtoint ptr %309 to i64
-  %311 = sub i64 %307, %310
-  %312 = shl i64 %311, 1
-  %313 = add i64 %308, 3
-  %314 = sub i64 %313, %307
-  %315 = add i64 %314, %312
-  %316 = call noalias ptr @malloc(i64 noundef %315) #23
-  %.not.i.i.i230 = icmp eq ptr %316, null
-  br i1 %.not.i.i.i230, label %317, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231
-
-317:                                              ; preds = %306
-  %318 = load ptr, ptr @stderr, align 8
-  %319 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %318) #25
+313:                                              ; preds = %302
+  %314 = load ptr, ptr @stderr, align 8
+  %315 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %314) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231:  ; preds = %306
-  %320 = sub i64 %308, %310
-  %321 = add i64 %320, 1
-  %spec.select.i.i.i232 = call i64 @llvm.umin.i64(i64 %311, i64 %321)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %316, ptr align 1 %309, i64 %spec.select.i.i.i232, i1 false)
-  call void @free(ptr noundef %309) #22
-  store ptr %316, ptr @_ZN8nanobind6detail3bufE, align 8
-  %322 = getelementptr inbounds i8, ptr %316, i64 %315
-  store ptr %322, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %323 = getelementptr inbounds i8, ptr %316, i64 %320
-  store ptr %323, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231:  ; preds = %302
+  %316 = sub i64 %304, %306
+  %317 = add i64 %316, 1
+  %spec.select.i.i.i232 = call i64 @llvm.umin.i64(i64 %307, i64 %317)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %312, ptr align 1 %305, i64 %spec.select.i.i.i232, i1 false)
+  call void @free(ptr noundef %305) #22
+  store ptr %312, ptr @_ZN8nanobind6detail3bufE, align 8
+  %318 = getelementptr inbounds i8, ptr %312, i64 %311
+  store ptr %318, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %319 = getelementptr inbounds i8, ptr %312, i64 %316
+  store ptr %319, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233
 
-_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233: ; preds = %302, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231
-  %324 = phi ptr [ %323, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231 ], [ %303, %302 ]
-  store i16 8250, ptr %324, align 1
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 2
-  store ptr %326, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %326, align 1
+_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233: ; preds = %298, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231
+  %320 = phi ptr [ %319, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i231 ], [ %299, %298 ]
+  store i16 8250, ptr %320, align 1
+  %321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 2
+  store ptr %322, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %322, align 1
   br label %.critedge2
 
-327:                                              ; preds = %71
-  br i1 %70, label %_ZL10_Py_DECREFP7_object.exit.thread, label %328
+323:                                              ; preds = %67
+  br i1 %.not, label %_ZL10_Py_DECREFP7_object.exit.thread, label %324
 
-328:                                              ; preds = %327
-  %329 = load ptr, ptr %64, align 8
-  %330 = zext i32 %.0150 to i64
-  %331 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %329, i64 %330, i32 5
-  %332 = load i8, ptr %331, align 1
-  %333 = trunc i8 %332 to i1
-  br i1 %333, label %334, label %359
+324:                                              ; preds = %323
+  %325 = load ptr, ptr %63, align 8
+  %326 = zext i32 %.0150 to i64
+  %327 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %325, i64 %326, i32 5
+  %328 = load i8, ptr %327, align 1
+  %329 = trunc i8 %328 to i1
+  br i1 %329, label %330, label %355
 
-334:                                              ; preds = %328
-  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 7
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i234 = icmp ult ptr %336, %337
-  br i1 %.not.i.i234, label %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit, label %338
+330:                                              ; preds = %324
+  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 7
+  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i234 = icmp ult ptr %332, %333
+  br i1 %.not.i.i234, label %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit, label %334
 
-338:                                              ; preds = %334
-  %339 = ptrtoint ptr %337 to i64
-  %340 = ptrtoint ptr %335 to i64
-  %341 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %342 = ptrtoint ptr %341 to i64
-  %343 = sub i64 %339, %342
-  %344 = shl i64 %343, 1
-  %345 = add i64 %340, 8
-  %346 = sub i64 %345, %339
-  %347 = add i64 %346, %344
-  %348 = call noalias ptr @malloc(i64 noundef %347) #23
-  %.not.i.i.i235 = icmp eq ptr %348, null
-  br i1 %.not.i.i.i235, label %349, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236
+334:                                              ; preds = %330
+  %335 = ptrtoint ptr %333 to i64
+  %336 = ptrtoint ptr %331 to i64
+  %337 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %338 = ptrtoint ptr %337 to i64
+  %339 = sub i64 %335, %338
+  %340 = shl i64 %339, 1
+  %341 = add i64 %336, 8
+  %342 = sub i64 %341, %335
+  %343 = add i64 %342, %340
+  %344 = call noalias ptr @malloc(i64 noundef %343) #23
+  %.not.i.i.i235 = icmp eq ptr %344, null
+  br i1 %.not.i.i.i235, label %345, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236
 
-349:                                              ; preds = %338
-  %350 = load ptr, ptr @stderr, align 8
-  %351 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %350) #25
+345:                                              ; preds = %334
+  %346 = load ptr, ptr @stderr, align 8
+  %347 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %346) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236:  ; preds = %338
-  %352 = sub i64 %340, %342
-  %353 = add i64 %352, 1
-  %spec.select.i.i.i237 = call i64 @llvm.umin.i64(i64 %343, i64 %353)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %348, ptr align 1 %341, i64 %spec.select.i.i.i237, i1 false)
-  call void @free(ptr noundef %341) #22
-  store ptr %348, ptr @_ZN8nanobind6detail3bufE, align 8
-  %354 = getelementptr inbounds i8, ptr %348, i64 %347
-  store ptr %354, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %355 = getelementptr inbounds i8, ptr %348, i64 %352
-  store ptr %355, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236:  ; preds = %334
+  %348 = sub i64 %336, %338
+  %349 = add i64 %348, 1
+  %spec.select.i.i.i237 = call i64 @llvm.umin.i64(i64 %339, i64 %349)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %344, ptr align 1 %337, i64 %spec.select.i.i.i237, i1 false)
+  call void @free(ptr noundef %337) #22
+  store ptr %344, ptr @_ZN8nanobind6detail3bufE, align 8
+  %350 = getelementptr inbounds i8, ptr %344, i64 %343
+  store ptr %350, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %351 = getelementptr inbounds i8, ptr %344, i64 %348
+  store ptr %351, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit
 
-_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit: ; preds = %334, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236
-  %356 = phi ptr [ %355, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236 ], [ %335, %334 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %356, ptr noundef nonnull align 1 dereferenceable(7) @.str.34, i64 7, i1 false)
-  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 7
-  store ptr %358, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %358, align 1
-  %.pre = load ptr, ptr %64, align 8
-  br label %359
+_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit: ; preds = %330, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236
+  %352 = phi ptr [ %351, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i236 ], [ %331, %330 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %352, ptr noundef nonnull align 1 dereferenceable(7) @.str.34, i64 7, i1 false)
+  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %354 = getelementptr inbounds i8, ptr %353, i64 7
+  store ptr %354, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %354, align 1
+  %.pre = load ptr, ptr %63, align 8
+  br label %355
 
-359:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit, %328
-  %360 = phi ptr [ %.pre, %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit ], [ %329, %328 ]
-  %361 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %360, i64 %330
-  %362 = getelementptr inbounds i8, ptr %361, i64 24
-  %363 = load ptr, ptr %362, align 8
-  %.not178 = icmp eq ptr %363, null
-  br i1 %.not178, label %_ZL10_Py_DECREFP7_object.exit, label %364
+355:                                              ; preds = %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit, %324
+  %356 = phi ptr [ %.pre, %_ZN8nanobind6detail6Buffer3putILm8EEEvRAT__Kc.exit ], [ %325, %324 ]
+  %357 = getelementptr inbounds %"struct.nanobind::detail::arg_data", ptr %356, i64 %326
+  %358 = getelementptr inbounds i8, ptr %357, i64 24
+  %359 = load ptr, ptr %358, align 8
+  %.not178 = icmp eq ptr %359, null
+  br i1 %.not178, label %_ZL10_Py_DECREFP7_object.exit, label %360
 
-364:                                              ; preds = %359
-  br i1 %1, label %365, label %418
+360:                                              ; preds = %355
+  br i1 %1, label %361, label %414
 
-365:                                              ; preds = %364
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 4
-  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i238 = icmp ult ptr %367, %368
-  br i1 %.not.i.i238, label %387, label %369
+361:                                              ; preds = %360
+  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 4
+  %364 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i238 = icmp ult ptr %363, %364
+  br i1 %.not.i.i238, label %383, label %365
 
-369:                                              ; preds = %365
-  %370 = ptrtoint ptr %368 to i64
-  %371 = ptrtoint ptr %366 to i64
-  %372 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %373 = ptrtoint ptr %372 to i64
-  %374 = sub i64 %370, %373
-  %375 = shl i64 %374, 1
-  %376 = add i64 %371, 5
-  %377 = sub i64 %376, %370
-  %378 = add i64 %377, %375
-  %379 = call noalias ptr @malloc(i64 noundef %378) #23
-  %.not.i.i.i239 = icmp eq ptr %379, null
-  br i1 %.not.i.i.i239, label %380, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240
+365:                                              ; preds = %361
+  %366 = ptrtoint ptr %364 to i64
+  %367 = ptrtoint ptr %362 to i64
+  %368 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %369 = ptrtoint ptr %368 to i64
+  %370 = sub i64 %366, %369
+  %371 = shl i64 %370, 1
+  %372 = add i64 %367, 5
+  %373 = sub i64 %372, %366
+  %374 = add i64 %373, %371
+  %375 = call noalias ptr @malloc(i64 noundef %374) #23
+  %.not.i.i.i239 = icmp eq ptr %375, null
+  br i1 %.not.i.i.i239, label %376, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240
 
-380:                                              ; preds = %369
-  %381 = load ptr, ptr @stderr, align 8
-  %382 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %381) #25
+376:                                              ; preds = %365
+  %377 = load ptr, ptr @stderr, align 8
+  %378 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %377) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240:  ; preds = %369
-  %383 = sub i64 %371, %373
-  %384 = add i64 %383, 1
-  %spec.select.i.i.i241 = call i64 @llvm.umin.i64(i64 %374, i64 %384)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %379, ptr align 1 %372, i64 %spec.select.i.i.i241, i1 false)
-  call void @free(ptr noundef %372) #22
-  store ptr %379, ptr @_ZN8nanobind6detail3bufE, align 8
-  %385 = getelementptr inbounds i8, ptr %379, i64 %378
-  store ptr %385, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %386 = getelementptr inbounds i8, ptr %379, i64 %383
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240:  ; preds = %365
+  %379 = sub i64 %367, %369
+  %380 = add i64 %379, 1
+  %spec.select.i.i.i241 = call i64 @llvm.umin.i64(i64 %370, i64 %380)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %375, ptr align 1 %368, i64 %spec.select.i.i.i241, i1 false)
+  call void @free(ptr noundef %368) #22
+  store ptr %375, ptr @_ZN8nanobind6detail3bufE, align 8
+  %381 = getelementptr inbounds i8, ptr %375, i64 %374
+  store ptr %381, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %382 = getelementptr inbounds i8, ptr %375, i64 %379
+  store ptr %382, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %383
+
+383:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240, %361
+  %384 = phi ptr [ %382, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240 ], [ %362, %361 ]
+  store i32 1545616672, ptr %384, align 1
+  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 4
   store ptr %386, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %387
+  store i8 0, ptr %386, align 1
+  %387 = getelementptr inbounds i8, ptr %357, i64 8
+  %388 = load ptr, ptr %387, align 8
+  %.not182 = icmp eq ptr %388, null
+  br i1 %.not182, label %412, label %389
 
-387:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240, %365
-  %388 = phi ptr [ %386, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i240 ], [ %366, %365 ]
-  store i32 1545616672, ptr %388, align 1
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 4
-  store ptr %390, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %390, align 1
-  %391 = getelementptr inbounds i8, ptr %361, i64 8
-  %392 = load ptr, ptr %391, align 8
-  %.not182 = icmp eq ptr %392, null
-  br i1 %.not182, label %416, label %393
+389:                                              ; preds = %383
+  %390 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 1
+  %392 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i243 = icmp ult ptr %391, %392
+  br i1 %.not.i243, label %_ZN8nanobind6detail6Buffer3putEc.exit247, label %393
 
-393:                                              ; preds = %387
-  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 1
-  %396 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i243 = icmp ult ptr %395, %396
-  br i1 %.not.i243, label %_ZN8nanobind6detail6Buffer3putEc.exit247, label %397
+393:                                              ; preds = %389
+  %394 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %395 = ptrtoint ptr %392 to i64
+  %396 = ptrtoint ptr %394 to i64
+  %397 = sub i64 %395, %396
+  %398 = shl i64 %397, 1
+  %399 = add i64 %398, 2
+  %400 = call noalias ptr @malloc(i64 noundef %399) #23
+  %.not.i.i244 = icmp eq ptr %400, null
+  br i1 %.not.i.i244, label %401, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i245
 
-397:                                              ; preds = %393
-  %398 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %399 = ptrtoint ptr %396 to i64
-  %400 = ptrtoint ptr %398 to i64
-  %401 = sub i64 %399, %400
-  %402 = shl i64 %401, 1
-  %403 = add i64 %402, 2
-  %404 = call noalias ptr @malloc(i64 noundef %403) #23
-  %.not.i.i244 = icmp eq ptr %404, null
-  br i1 %.not.i.i244, label %405, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i245
-
-405:                                              ; preds = %397
-  %406 = load ptr, ptr @stderr, align 8
-  %407 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %406) #25
+401:                                              ; preds = %393
+  %402 = load ptr, ptr @stderr, align 8
+  %403 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %402) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i245:    ; preds = %397
-  %408 = ptrtoint ptr %394 to i64
-  %409 = sub i64 %408, %400
-  %410 = add i64 %409, 1
-  %spec.select.i.i246 = call i64 @llvm.umin.i64(i64 %401, i64 %410)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %404, ptr align 1 %398, i64 %spec.select.i.i246, i1 false)
-  call void @free(ptr noundef %398) #22
-  store ptr %404, ptr @_ZN8nanobind6detail3bufE, align 8
-  %411 = getelementptr inbounds i8, ptr %404, i64 %403
-  store ptr %411, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %412 = getelementptr inbounds i8, ptr %404, i64 %409
+_ZN8nanobind6detail6Buffer6expandEm.exit.i245:    ; preds = %393
+  %404 = ptrtoint ptr %390 to i64
+  %405 = sub i64 %404, %396
+  %406 = add i64 %405, 1
+  %spec.select.i.i246 = call i64 @llvm.umin.i64(i64 %397, i64 %406)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %400, ptr align 1 %394, i64 %spec.select.i.i246, i1 false)
+  call void @free(ptr noundef %394) #22
+  store ptr %400, ptr @_ZN8nanobind6detail3bufE, align 8
+  %407 = getelementptr inbounds i8, ptr %400, i64 %399
+  store ptr %407, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %408 = getelementptr inbounds i8, ptr %400, i64 %405
   br label %_ZN8nanobind6detail6Buffer3putEc.exit247
 
-_ZN8nanobind6detail6Buffer3putEc.exit247:         ; preds = %393, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245
-  %413 = phi ptr [ %412, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245 ], [ %394, %393 ]
-  %414 = getelementptr inbounds i8, ptr %413, i64 1
-  store ptr %414, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 61, ptr %413, align 1
-  %415 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %415, align 1
-  br label %416
+_ZN8nanobind6detail6Buffer3putEc.exit247:         ; preds = %389, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245
+  %409 = phi ptr [ %408, %_ZN8nanobind6detail6Buffer6expandEm.exit.i245 ], [ %390, %389 ]
+  %410 = getelementptr inbounds i8, ptr %409, i64 1
+  store ptr %410, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 61, ptr %409, align 1
+  %411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %411, align 1
+  br label %412
 
-416:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit247, %387
-  %417 = add i32 %.0152, 1
+412:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit247, %383
+  %413 = add i32 %.0152, 1
   invoke void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, i32 noundef %.0152)
           to label %_ZL10_Py_DECREFP7_object.exit unwind label %.loopexit338
 
-418:                                              ; preds = %364
-  %419 = getelementptr inbounds i8, ptr %361, i64 8
-  %420 = load ptr, ptr %419, align 8
-  %.not179 = icmp eq ptr %420, null
-  br i1 %.not179, label %448, label %421
+414:                                              ; preds = %360
+  %415 = getelementptr inbounds i8, ptr %357, i64 8
+  %416 = load ptr, ptr %415, align 8
+  %.not179 = icmp eq ptr %416, null
+  br i1 %.not179, label %444, label %417
 
-421:                                              ; preds = %418
-  %422 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 3
-  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i248 = icmp ult ptr %423, %424
-  br i1 %.not.i.i248, label %443, label %425
+417:                                              ; preds = %414
+  %418 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %419 = getelementptr inbounds i8, ptr %418, i64 3
+  %420 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i248 = icmp ult ptr %419, %420
+  br i1 %.not.i.i248, label %439, label %421
 
-425:                                              ; preds = %421
-  %426 = ptrtoint ptr %424 to i64
-  %427 = ptrtoint ptr %422 to i64
-  %428 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %429 = ptrtoint ptr %428 to i64
-  %430 = sub i64 %426, %429
-  %431 = shl i64 %430, 1
-  %432 = add i64 %427, 4
-  %433 = sub i64 %432, %426
-  %434 = add i64 %433, %431
-  %435 = call noalias ptr @malloc(i64 noundef %434) #23
-  %.not.i.i.i249 = icmp eq ptr %435, null
-  br i1 %.not.i.i.i249, label %436, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250
+421:                                              ; preds = %417
+  %422 = ptrtoint ptr %420 to i64
+  %423 = ptrtoint ptr %418 to i64
+  %424 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %425 = ptrtoint ptr %424 to i64
+  %426 = sub i64 %422, %425
+  %427 = shl i64 %426, 1
+  %428 = add i64 %423, 4
+  %429 = sub i64 %428, %422
+  %430 = add i64 %429, %427
+  %431 = call noalias ptr @malloc(i64 noundef %430) #23
+  %.not.i.i.i249 = icmp eq ptr %431, null
+  br i1 %.not.i.i.i249, label %432, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250
 
-436:                                              ; preds = %425
-  %437 = load ptr, ptr @stderr, align 8
-  %438 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %437) #25
+432:                                              ; preds = %421
+  %433 = load ptr, ptr @stderr, align 8
+  %434 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %433) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250:  ; preds = %425
-  %439 = sub i64 %427, %429
-  %440 = add i64 %439, 1
-  %spec.select.i.i.i251 = call i64 @llvm.umin.i64(i64 %430, i64 %440)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %435, ptr align 1 %428, i64 %spec.select.i.i.i251, i1 false)
-  call void @free(ptr noundef %428) #22
-  store ptr %435, ptr @_ZN8nanobind6detail3bufE, align 8
-  %441 = getelementptr inbounds i8, ptr %435, i64 %434
-  store ptr %441, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %442 = getelementptr inbounds i8, ptr %435, i64 %439
-  store ptr %442, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %443
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250:  ; preds = %421
+  %435 = sub i64 %423, %425
+  %436 = add i64 %435, 1
+  %spec.select.i.i.i251 = call i64 @llvm.umin.i64(i64 %426, i64 %436)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %431, ptr align 1 %424, i64 %spec.select.i.i.i251, i1 false)
+  call void @free(ptr noundef %424) #22
+  store ptr %431, ptr @_ZN8nanobind6detail3bufE, align 8
+  %437 = getelementptr inbounds i8, ptr %431, i64 %430
+  store ptr %437, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %438 = getelementptr inbounds i8, ptr %431, i64 %435
+  store ptr %438, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %439
 
-443:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250, %421
-  %444 = phi ptr [ %442, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250 ], [ %422, %421 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %444, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
-  %445 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %446 = getelementptr inbounds i8, ptr %445, i64 3
-  store ptr %446, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %446, align 1
-  %447 = load ptr, ptr %419, align 8
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %447)
+439:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250, %417
+  %440 = phi ptr [ %438, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i250 ], [ %418, %417 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %440, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
+  %441 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %442 = getelementptr inbounds i8, ptr %441, i64 3
+  store ptr %442, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %442, align 1
+  %443 = load ptr, ptr %415, align 8
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %443)
           to label %_ZL10_Py_DECREFP7_object.exit unwind label %.loopexit338
 
-448:                                              ; preds = %418
-  %449 = invoke ptr @PyObject_Repr(ptr noundef nonnull %363)
-          to label %450 unwind label %.loopexit338
+444:                                              ; preds = %414
+  %445 = invoke ptr @PyObject_Repr(ptr noundef nonnull %359)
+          to label %446 unwind label %.loopexit338
 
-450:                                              ; preds = %448
-  %.not180 = icmp eq ptr %449, null
-  br i1 %.not180, label %510, label %451
+446:                                              ; preds = %444
+  %.not180 = icmp eq ptr %445, null
+  br i1 %.not180, label %506, label %447
 
-451:                                              ; preds = %450
+447:                                              ; preds = %446
   store i64 0, ptr %4, align 8
-  %452 = invoke ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %449, ptr noundef nonnull %4)
-          to label %453 unwind label %.loopexit338
+  %448 = invoke ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %445, ptr noundef nonnull %4)
+          to label %449 unwind label %.loopexit338
 
-453:                                              ; preds = %451
-  %.not181 = icmp eq ptr %452, null
-  br i1 %.not181, label %454, label %455
+449:                                              ; preds = %447
+  %.not181 = icmp eq ptr %448, null
+  br i1 %.not181, label %450, label %451
 
-454:                                              ; preds = %453
+450:                                              ; preds = %449
   invoke void @PyErr_Clear()
-          to label %506 unwind label %.loopexit338
+          to label %502 unwind label %.loopexit338
 
-455:                                              ; preds = %453
-  %456 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 3
-  %458 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i253 = icmp ult ptr %457, %458
-  br i1 %.not.i.i253, label %477, label %459
+451:                                              ; preds = %449
+  %452 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %453 = getelementptr inbounds i8, ptr %452, i64 3
+  %454 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i253 = icmp ult ptr %453, %454
+  br i1 %.not.i.i253, label %473, label %455
 
-459:                                              ; preds = %455
-  %460 = ptrtoint ptr %458 to i64
-  %461 = ptrtoint ptr %456 to i64
-  %462 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %463 = ptrtoint ptr %462 to i64
-  %464 = sub i64 %460, %463
-  %465 = shl i64 %464, 1
-  %466 = add i64 %461, 4
-  %467 = sub i64 %466, %460
-  %468 = add i64 %467, %465
-  %469 = call noalias ptr @malloc(i64 noundef %468) #23
-  %.not.i.i.i254 = icmp eq ptr %469, null
-  br i1 %.not.i.i.i254, label %470, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255
+455:                                              ; preds = %451
+  %456 = ptrtoint ptr %454 to i64
+  %457 = ptrtoint ptr %452 to i64
+  %458 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %459 = ptrtoint ptr %458 to i64
+  %460 = sub i64 %456, %459
+  %461 = shl i64 %460, 1
+  %462 = add i64 %457, 4
+  %463 = sub i64 %462, %456
+  %464 = add i64 %463, %461
+  %465 = call noalias ptr @malloc(i64 noundef %464) #23
+  %.not.i.i.i254 = icmp eq ptr %465, null
+  br i1 %.not.i.i.i254, label %466, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255
 
-470:                                              ; preds = %459
-  %471 = load ptr, ptr @stderr, align 8
-  %472 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %471) #25
+466:                                              ; preds = %455
+  %467 = load ptr, ptr @stderr, align 8
+  %468 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %467) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255:  ; preds = %459
-  %473 = sub i64 %461, %463
-  %474 = add i64 %473, 1
-  %spec.select.i.i.i256 = call i64 @llvm.umin.i64(i64 %464, i64 %474)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %469, ptr align 1 %462, i64 %spec.select.i.i.i256, i1 false)
-  call void @free(ptr noundef %462) #22
-  store ptr %469, ptr @_ZN8nanobind6detail3bufE, align 8
-  %475 = getelementptr inbounds i8, ptr %469, i64 %468
-  store ptr %475, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %476 = getelementptr inbounds i8, ptr %469, i64 %473
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255:  ; preds = %455
+  %469 = sub i64 %457, %459
+  %470 = add i64 %469, 1
+  %spec.select.i.i.i256 = call i64 @llvm.umin.i64(i64 %460, i64 %470)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %465, ptr align 1 %458, i64 %spec.select.i.i.i256, i1 false)
+  call void @free(ptr noundef %458) #22
+  store ptr %465, ptr @_ZN8nanobind6detail3bufE, align 8
+  %471 = getelementptr inbounds i8, ptr %465, i64 %464
+  store ptr %471, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %472 = getelementptr inbounds i8, ptr %465, i64 %469
+  store ptr %472, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  br label %473
+
+473:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255, %451
+  %474 = phi ptr [ %472, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255 ], [ %452, %451 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %474, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
+  %475 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 3
   store ptr %476, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  br label %477
+  store i8 0, ptr %476, align 1
+  %477 = load i64, ptr %4, align 8
+  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %479 = getelementptr inbounds i8, ptr %478, i64 %477
+  %480 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i258 = icmp ult ptr %479, %480
+  br i1 %.not.i258, label %_ZN8nanobind6detail6Buffer3putEPKcm.exit, label %481
 
-477:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255, %455
-  %478 = phi ptr [ %476, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i255 ], [ %456, %455 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %478, ptr noundef nonnull align 1 dereferenceable(3) @.str.36, i64 3, i1 false)
-  %479 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 3
-  store ptr %480, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %480, align 1
-  %481 = load i64, ptr %4, align 8
-  %482 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 %481
-  %484 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i258 = icmp ult ptr %483, %484
-  br i1 %.not.i258, label %_ZN8nanobind6detail6Buffer3putEPKcm.exit, label %485
+481:                                              ; preds = %473
+  %482 = ptrtoint ptr %480 to i64
+  %483 = ptrtoint ptr %478 to i64
+  %484 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %485 = ptrtoint ptr %484 to i64
+  %486 = sub i64 %482, %485
+  %487 = shl i64 %486, 1
+  %.neg.i = add i64 %477, 1
+  %488 = add i64 %.neg.i, %483
+  %489 = sub i64 %488, %482
+  %490 = add i64 %489, %487
+  %491 = call noalias ptr @malloc(i64 noundef %490) #23
+  %.not.i.i259 = icmp eq ptr %491, null
+  br i1 %.not.i.i259, label %492, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i260
 
-485:                                              ; preds = %477
-  %486 = ptrtoint ptr %484 to i64
-  %487 = ptrtoint ptr %482 to i64
-  %488 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %489 = ptrtoint ptr %488 to i64
-  %490 = sub i64 %486, %489
-  %491 = shl i64 %490, 1
-  %.neg.i = add i64 %481, 1
-  %492 = add i64 %.neg.i, %487
-  %493 = sub i64 %492, %486
-  %494 = add i64 %493, %491
-  %495 = call noalias ptr @malloc(i64 noundef %494) #23
-  %.not.i.i259 = icmp eq ptr %495, null
-  br i1 %.not.i.i259, label %496, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i260
-
-496:                                              ; preds = %485
-  %497 = load ptr, ptr @stderr, align 8
-  %498 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %497) #25
+492:                                              ; preds = %481
+  %493 = load ptr, ptr @stderr, align 8
+  %494 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %493) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i260:    ; preds = %485
-  %499 = sub i64 %487, %489
-  %500 = add i64 %499, 1
-  %spec.select.i.i261 = call i64 @llvm.umin.i64(i64 %490, i64 %500)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %495, ptr align 1 %488, i64 %spec.select.i.i261, i1 false)
-  call void @free(ptr noundef %488) #22
-  store ptr %495, ptr @_ZN8nanobind6detail3bufE, align 8
-  %501 = getelementptr inbounds i8, ptr %495, i64 %494
-  store ptr %501, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %502 = getelementptr inbounds i8, ptr %495, i64 %499
-  store ptr %502, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i260:    ; preds = %481
+  %495 = sub i64 %483, %485
+  %496 = add i64 %495, 1
+  %spec.select.i.i261 = call i64 @llvm.umin.i64(i64 %486, i64 %496)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %491, ptr align 1 %484, i64 %spec.select.i.i261, i1 false)
+  call void @free(ptr noundef %484) #22
+  store ptr %491, ptr @_ZN8nanobind6detail3bufE, align 8
+  %497 = getelementptr inbounds i8, ptr %491, i64 %490
+  store ptr %497, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %498 = getelementptr inbounds i8, ptr %491, i64 %495
+  store ptr %498, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putEPKcm.exit
 
-_ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %477, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260
-  %503 = phi ptr [ %502, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260 ], [ %482, %477 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %503, ptr nonnull align 1 %452, i64 %481, i1 false)
-  %504 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %505 = getelementptr inbounds i8, ptr %504, i64 %481
-  store ptr %505, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %505, align 1
-  br label %506
+_ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %473, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260
+  %499 = phi ptr [ %498, %_ZN8nanobind6detail6Buffer6expandEm.exit.i260 ], [ %478, %473 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %499, ptr nonnull align 1 %448, i64 %477, i1 false)
+  %500 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %501 = getelementptr inbounds i8, ptr %500, i64 %477
+  store ptr %501, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %501, align 1
+  br label %502
 
-506:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEPKcm.exit, %454
-  %507 = load i64, ptr %449, align 8
-  %508 = add nsw i64 %507, -1
-  store i64 %508, ptr %449, align 8
-  %.not.i262 = icmp eq i64 %508, 0
-  br i1 %.not.i262, label %509, label %_ZL10_Py_DECREFP7_object.exit
+502:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEPKcm.exit, %450
+  %503 = load i64, ptr %445, align 8
+  %504 = add nsw i64 %503, -1
+  store i64 %504, ptr %445, align 8
+  %.not.i262 = icmp eq i64 %504, 0
+  br i1 %.not.i262, label %505, label %_ZL10_Py_DECREFP7_object.exit
 
-509:                                              ; preds = %506
-  invoke void @_Py_Dealloc(ptr noundef nonnull %449)
+505:                                              ; preds = %502
+  invoke void @_Py_Dealloc(ptr noundef nonnull %445)
           to label %_ZL10_Py_DECREFP7_object.exit unwind label %.loopexit338
 
-510:                                              ; preds = %450
+506:                                              ; preds = %446
   invoke void @PyErr_Clear()
           to label %_ZL10_Py_DECREFP7_object.exit unwind label %.loopexit338
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %506, %509, %359, %443, %510, %416
-  %.2154 = phi i32 [ %417, %416 ], [ %.0152, %443 ], [ %.0152, %510 ], [ %.0152, %359 ], [ %.0152, %509 ], [ %.0152, %506 ]
-  %511 = add i32 %.0150, 1
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %502, %505, %355, %439, %506, %412
+  %.2154 = phi i32 [ %413, %412 ], [ %.0152, %439 ], [ %.0152, %506 ], [ %.0152, %355 ], [ %.0152, %505 ], [ %.0152, %502 ]
+  %507 = add i32 %.0150, 1
   br label %.critedge2
 
-_ZL10_Py_DECREFP7_object.exit.thread:             ; preds = %327
-  %512 = add i32 %.0150, 1
-  %513 = load i16, ptr %65, align 2
-  %514 = zext i16 %513 to i32
-  %515 = icmp eq i32 %512, %514
-  br i1 %515, label %.thread, label %.critedge2
+_ZL10_Py_DECREFP7_object.exit.thread:             ; preds = %323
+  %508 = add i32 %.0150, 1
+  %509 = load i16, ptr %64, align 2
+  %510 = zext i16 %509 to i32
+  %511 = icmp eq i32 %508, %510
+  br i1 %511, label %.thread, label %.critedge2
 
 .thread:                                          ; preds = %_ZL10_Py_DECREFP7_object.exit.thread
-  %516 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %517 = getelementptr inbounds i8, ptr %516, i64 3
-  %518 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i.i263 = icmp ult ptr %517, %518
-  br i1 %.not.i.i263, label %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267, label %519
+  %512 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %513 = getelementptr inbounds i8, ptr %512, i64 3
+  %514 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i.i263 = icmp ult ptr %513, %514
+  br i1 %.not.i.i263, label %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267, label %515
 
-519:                                              ; preds = %.thread
-  %520 = ptrtoint ptr %518 to i64
-  %521 = ptrtoint ptr %516 to i64
-  %522 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %523 = ptrtoint ptr %522 to i64
-  %524 = sub i64 %520, %523
-  %525 = shl i64 %524, 1
-  %526 = add i64 %521, 4
-  %527 = sub i64 %526, %520
-  %528 = add i64 %527, %525
-  %529 = call noalias ptr @malloc(i64 noundef %528) #23
-  %.not.i.i.i264 = icmp eq ptr %529, null
-  br i1 %.not.i.i.i264, label %530, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265
+515:                                              ; preds = %.thread
+  %516 = ptrtoint ptr %514 to i64
+  %517 = ptrtoint ptr %512 to i64
+  %518 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %519 = ptrtoint ptr %518 to i64
+  %520 = sub i64 %516, %519
+  %521 = shl i64 %520, 1
+  %522 = add i64 %517, 4
+  %523 = sub i64 %522, %516
+  %524 = add i64 %523, %521
+  %525 = call noalias ptr @malloc(i64 noundef %524) #23
+  %.not.i.i.i264 = icmp eq ptr %525, null
+  br i1 %.not.i.i.i264, label %526, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265
 
-530:                                              ; preds = %519
-  %531 = load ptr, ptr @stderr, align 8
-  %532 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %531) #25
+526:                                              ; preds = %515
+  %527 = load ptr, ptr @stderr, align 8
+  %528 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %527) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265:  ; preds = %519
-  %533 = sub i64 %521, %523
-  %534 = add i64 %533, 1
-  %spec.select.i.i.i266 = call i64 @llvm.umin.i64(i64 %524, i64 %534)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %529, ptr align 1 %522, i64 %spec.select.i.i.i266, i1 false)
-  call void @free(ptr noundef %522) #22
-  store ptr %529, ptr @_ZN8nanobind6detail3bufE, align 8
-  %535 = getelementptr inbounds i8, ptr %529, i64 %528
-  store ptr %535, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %536 = getelementptr inbounds i8, ptr %529, i64 %533
-  store ptr %536, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265:  ; preds = %515
+  %529 = sub i64 %517, %519
+  %530 = add i64 %529, 1
+  %spec.select.i.i.i266 = call i64 @llvm.umin.i64(i64 %520, i64 %530)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %525, ptr align 1 %518, i64 %spec.select.i.i.i266, i1 false)
+  call void @free(ptr noundef %518) #22
+  store ptr %525, ptr @_ZN8nanobind6detail3bufE, align 8
+  %531 = getelementptr inbounds i8, ptr %525, i64 %524
+  store ptr %531, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %532 = getelementptr inbounds i8, ptr %525, i64 %529
+  store ptr %532, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   br label %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267
 
 _ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267: ; preds = %.thread, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265
-  %537 = phi ptr [ %536, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265 ], [ %516, %.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %537, ptr noundef nonnull align 1 dereferenceable(3) @.str.37, i64 3, i1 false)
-  %538 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %539 = getelementptr inbounds i8, ptr %538, i64 3
-  store ptr %539, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %539, align 1
+  %533 = phi ptr [ %532, %_ZN8nanobind6detail6Buffer6expandEm.exit.i.i265 ], [ %512, %.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %533, ptr noundef nonnull align 1 dereferenceable(3) @.str.37, i64 3, i1 false)
+  %534 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %535 = getelementptr inbounds i8, ptr %534, i64 3
+  store ptr %535, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %535, align 1
   br label %.critedge2
 
-540:                                              ; preds = %71
-  %541 = load ptr, ptr %.0146, align 8
-  %.not177 = icmp eq ptr %541, null
-  br i1 %.not177, label %542, label %543
+536:                                              ; preds = %67
+  %537 = load ptr, ptr %.0146, align 8
+  %.not177 = icmp eq ptr %537, null
+  br i1 %.not177, label %538, label %539
 
-542:                                              ; preds = %540
+538:                                              ; preds = %536
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
-543:                                              ; preds = %540
-  %544 = icmp eq i32 %.0150, 0
-  %or.cond9 = select i1 %10, i1 %544, i1 false
-  br i1 %or.cond9, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, label %545
+539:                                              ; preds = %536
+  %540 = icmp eq i32 %.0150, 0
+  %or.cond9 = select i1 %10, i1 %540, i1 false
+  br i1 %or.cond9, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, label %541
 
-545:                                              ; preds = %543
+541:                                              ; preds = %539
+  %542 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
+  %543 = getelementptr inbounds i8, ptr %542, i64 240
+  %544 = invoke ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %543, ptr noundef nonnull align 8 dereferenceable(8) %.0146)
+          to label %545 unwind label %.loopexit338
+
+545:                                              ; preds = %541
   %546 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 240
-  %548 = invoke ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(74) %547, ptr noundef nonnull align 8 dereferenceable(8) %.0146)
-          to label %549 unwind label %.loopexit338
+  %547 = getelementptr inbounds i8, ptr %546, i64 272
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds i8, ptr %546, i64 280
+  %550 = load i64, ptr %549, align 8
+  %551 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %548, i64 %550
+  %.not322 = icmp eq ptr %544, %551
+  br i1 %.not322, label %624, label %552
 
-549:                                              ; preds = %545
-  %550 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 272
-  %552 = load ptr, ptr %551, align 8
-  %553 = getelementptr inbounds i8, ptr %550, i64 280
-  %554 = load i64, ptr %553, align 8
-  %555 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %552, i64 %554
-  %.not322 = icmp eq ptr %548, %555
-  br i1 %.not322, label %628, label %556
+552:                                              ; preds = %545
+  %553 = getelementptr inbounds i8, ptr %544, i64 16
+  %554 = load ptr, ptr %553, align 8
+  %555 = getelementptr inbounds i8, ptr %554, i64 32
+  %556 = load ptr, ptr %555, align 8
+  store ptr %556, ptr %5, align 8, !alias.scope !42
+  store ptr null, ptr %59, align 8, !alias.scope !42
+  store ptr @.str.11, ptr %60, align 8, !alias.scope !42
+  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %556, ptr noundef nonnull @.str.11, ptr noundef nonnull %59)
+          to label %557 unwind label %.loopexit338
 
-556:                                              ; preds = %549
-  %557 = getelementptr inbounds i8, ptr %548, i64 16
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 32
-  %560 = load ptr, ptr %559, align 8
-  store ptr %560, ptr %5, align 8, !alias.scope !42
-  store ptr null, ptr %60, align 8, !alias.scope !42
-  store ptr @.str.11, ptr %61, align 8, !alias.scope !42
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %560, ptr noundef nonnull @.str.11, ptr noundef nonnull %60)
-          to label %561 unwind label %.loopexit338
+557:                                              ; preds = %552
+  %558 = load ptr, ptr %59, align 8
+  %.not.i.i.i269 = icmp eq ptr %558, null
+  br i1 %.not.i.i.i269, label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit, label %559
 
-561:                                              ; preds = %556
-  %562 = load ptr, ptr %60, align 8
-  %.not.i.i.i269 = icmp eq ptr %562, null
-  br i1 %.not.i.i.i269, label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit, label %563
-
-563:                                              ; preds = %561
-  %564 = load i64, ptr %562, align 8
-  %565 = add nsw i64 %564, 1
-  store i64 %565, ptr %562, align 8
+559:                                              ; preds = %557
+  %560 = load i64, ptr %558, align 8
+  %561 = add nsw i64 %560, 1
+  store i64 %561, ptr %558, align 8
   br label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit
 
-_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit: ; preds = %561, %563
-  %566 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %562, ptr noundef null)
+_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit: ; preds = %557, %559
+  %562 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %558, ptr noundef null)
           to label %_ZNK8nanobind3str5c_strEv.exit unwind label %.loopexit338
 
 _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %566)
-          to label %567 unwind label %.loopexit338
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %562)
+          to label %563 unwind label %.loopexit338
 
-567:                                              ; preds = %_ZNK8nanobind3str5c_strEv.exit
-  br i1 %.not.i.i.i269, label %_ZN8nanobind3strD2Ev.exit, label %568
+563:                                              ; preds = %_ZNK8nanobind3str5c_strEv.exit
+  br i1 %.not.i.i.i269, label %_ZN8nanobind3strD2Ev.exit, label %564
+
+564:                                              ; preds = %563
+  %565 = load i64, ptr %558, align 8
+  %566 = add nsw i64 %565, -1
+  store i64 %566, ptr %558, align 8
+  %.not.i.i.i.i.i = icmp eq i64 %566, 0
+  br i1 %.not.i.i.i.i.i, label %567, label %_ZN8nanobind3strD2Ev.exit
+
+567:                                              ; preds = %564
+  invoke void @_Py_Dealloc(ptr noundef nonnull %558)
+          to label %_ZN8nanobind3strD2Ev.exit unwind label %568
 
 568:                                              ; preds = %567
-  %569 = load i64, ptr %562, align 8
-  %570 = add nsw i64 %569, -1
-  store i64 %570, ptr %562, align 8
-  %.not.i.i.i.i.i = icmp eq i64 %570, 0
-  br i1 %.not.i.i.i.i.i, label %571, label %_ZN8nanobind3strD2Ev.exit
-
-571:                                              ; preds = %568
-  invoke void @_Py_Dealloc(ptr noundef nonnull %562)
-          to label %_ZN8nanobind3strD2Ev.exit unwind label %572
-
-572:                                              ; preds = %571
-  %573 = landingpad { ptr, i32 }
+  %569 = landingpad { ptr, i32 }
           catch ptr null
-  %574 = extractvalue { ptr, i32 } %573, 0
-  call void @__clang_call_terminate(ptr %574) #21
+  %570 = extractvalue { ptr, i32 } %569, 0
+  call void @__clang_call_terminate(ptr %570) #21
   unreachable
 
-_ZN8nanobind3strD2Ev.exit:                        ; preds = %567, %568, %571
-  %575 = load ptr, ptr %60, align 8
-  %.not.i.i271 = icmp eq ptr %575, null
-  br i1 %.not.i.i271, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit, label %576
+_ZN8nanobind3strD2Ev.exit:                        ; preds = %563, %564, %567
+  %571 = load ptr, ptr %59, align 8
+  %.not.i.i271 = icmp eq ptr %571, null
+  br i1 %.not.i.i271, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit, label %572
 
-576:                                              ; preds = %_ZN8nanobind3strD2Ev.exit
-  %577 = load i64, ptr %575, align 8
-  %578 = add nsw i64 %577, -1
-  store i64 %578, ptr %575, align 8
-  %.not.i.i.i272 = icmp eq i64 %578, 0
-  br i1 %.not.i.i.i272, label %579, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
+572:                                              ; preds = %_ZN8nanobind3strD2Ev.exit
+  %573 = load i64, ptr %571, align 8
+  %574 = add nsw i64 %573, -1
+  store i64 %574, ptr %571, align 8
+  %.not.i.i.i272 = icmp eq i64 %574, 0
+  br i1 %.not.i.i.i272, label %575, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
 
-579:                                              ; preds = %576
-  invoke void @_Py_Dealloc(ptr noundef nonnull %575)
-          to label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit unwind label %580
+575:                                              ; preds = %572
+  invoke void @_Py_Dealloc(ptr noundef nonnull %571)
+          to label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit unwind label %576
 
-580:                                              ; preds = %579
-  %581 = landingpad { ptr, i32 }
+576:                                              ; preds = %575
+  %577 = landingpad { ptr, i32 }
           catch ptr null
-  %582 = extractvalue { ptr, i32 } %581, 0
-  call void @__clang_call_terminate(ptr %582) #21
+  %578 = extractvalue { ptr, i32 } %577, 0
+  call void @__clang_call_terminate(ptr %578) #21
   unreachable
 
-_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind3strD2Ev.exit, %576, %579
-  %583 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 1
-  %585 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i273 = icmp ult ptr %584, %585
-  br i1 %.not.i273, label %602, label %586
+_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZN8nanobind3strD2Ev.exit, %572, %575
+  %579 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %580 = getelementptr inbounds i8, ptr %579, i64 1
+  %581 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i273 = icmp ult ptr %580, %581
+  br i1 %.not.i273, label %598, label %582
 
-586:                                              ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
-  %587 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %588 = ptrtoint ptr %585 to i64
-  %589 = ptrtoint ptr %587 to i64
-  %590 = sub i64 %588, %589
-  %591 = shl i64 %590, 1
-  %592 = add i64 %591, 2
-  %593 = call noalias ptr @malloc(i64 noundef %592) #23
-  %.not.i.i274 = icmp eq ptr %593, null
-  br i1 %.not.i.i274, label %594, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i275
+582:                                              ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
+  %583 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %584 = ptrtoint ptr %581 to i64
+  %585 = ptrtoint ptr %583 to i64
+  %586 = sub i64 %584, %585
+  %587 = shl i64 %586, 1
+  %588 = add i64 %587, 2
+  %589 = call noalias ptr @malloc(i64 noundef %588) #23
+  %.not.i.i274 = icmp eq ptr %589, null
+  br i1 %.not.i.i274, label %590, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i275
 
-594:                                              ; preds = %586
-  %595 = load ptr, ptr @stderr, align 8
-  %596 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %595) #25
+590:                                              ; preds = %582
+  %591 = load ptr, ptr @stderr, align 8
+  %592 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %591) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i275:    ; preds = %586
-  %597 = ptrtoint ptr %583 to i64
-  %598 = sub i64 %597, %589
-  %599 = add i64 %598, 1
-  %spec.select.i.i276 = call i64 @llvm.umin.i64(i64 %590, i64 %599)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %593, ptr align 1 %587, i64 %spec.select.i.i276, i1 false)
-  call void @free(ptr noundef %587) #22
-  store ptr %593, ptr @_ZN8nanobind6detail3bufE, align 8
-  %600 = getelementptr inbounds i8, ptr %593, i64 %592
-  store ptr %600, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %601 = getelementptr inbounds i8, ptr %593, i64 %598
-  br label %602
+_ZN8nanobind6detail6Buffer6expandEm.exit.i275:    ; preds = %582
+  %593 = ptrtoint ptr %579 to i64
+  %594 = sub i64 %593, %585
+  %595 = add i64 %594, 1
+  %spec.select.i.i276 = call i64 @llvm.umin.i64(i64 %586, i64 %595)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %589, ptr align 1 %583, i64 %spec.select.i.i276, i1 false)
+  call void @free(ptr noundef %583) #22
+  store ptr %589, ptr @_ZN8nanobind6detail3bufE, align 8
+  %596 = getelementptr inbounds i8, ptr %589, i64 %588
+  store ptr %596, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %597 = getelementptr inbounds i8, ptr %589, i64 %594
+  br label %598
 
-602:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i275, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
-  %603 = phi ptr [ %601, %_ZN8nanobind6detail6Buffer6expandEm.exit.i275 ], [ %583, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit ]
-  %604 = getelementptr inbounds i8, ptr %603, i64 1
-  store ptr %604, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 46, ptr %603, align 1
-  %605 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %605, align 1
-  store ptr %560, ptr %6, align 8, !alias.scope !45
-  store ptr null, ptr %62, align 8, !alias.scope !45
-  store ptr @.str.13, ptr %63, align 8, !alias.scope !45
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %560, ptr noundef nonnull @.str.13, ptr noundef nonnull %62)
-          to label %606 unwind label %.loopexit338
+598:                                              ; preds = %_ZN8nanobind6detail6Buffer6expandEm.exit.i275, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit
+  %599 = phi ptr [ %597, %_ZN8nanobind6detail6Buffer6expandEm.exit.i275 ], [ %579, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit ]
+  %600 = getelementptr inbounds i8, ptr %599, i64 1
+  store ptr %600, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 46, ptr %599, align 1
+  %601 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %601, align 1
+  store ptr %556, ptr %6, align 8, !alias.scope !45
+  store ptr null, ptr %61, align 8, !alias.scope !45
+  store ptr @.str.13, ptr %62, align 8, !alias.scope !45
+  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %556, ptr noundef nonnull @.str.13, ptr noundef nonnull %61)
+          to label %602 unwind label %.loopexit338
 
-606:                                              ; preds = %602
-  %607 = load ptr, ptr %62, align 8
-  %.not.i.i.i279 = icmp eq ptr %607, null
-  br i1 %.not.i.i.i279, label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280, label %608
+602:                                              ; preds = %598
+  %603 = load ptr, ptr %61, align 8
+  %.not.i.i.i279 = icmp eq ptr %603, null
+  br i1 %.not.i.i.i279, label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280, label %604
 
-608:                                              ; preds = %606
-  %609 = load i64, ptr %607, align 8
-  %610 = add nsw i64 %609, 1
-  store i64 %610, ptr %607, align 8
+604:                                              ; preds = %602
+  %605 = load i64, ptr %603, align 8
+  %606 = add nsw i64 %605, 1
+  store i64 %606, ptr %603, align 8
   br label %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280
 
-_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280: ; preds = %606, %608
-  %611 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %607, ptr noundef null)
+_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280: ; preds = %602, %604
+  %607 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %603, ptr noundef null)
           to label %_ZNK8nanobind3str5c_strEv.exit282 unwind label %.loopexit338
 
 _ZNK8nanobind3str5c_strEv.exit282:                ; preds = %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %611)
-          to label %612 unwind label %.loopexit338
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %607)
+          to label %608 unwind label %.loopexit338
 
-612:                                              ; preds = %_ZNK8nanobind3str5c_strEv.exit282
-  br i1 %.not.i.i.i279, label %_ZN8nanobind3strD2Ev.exit285, label %613
+608:                                              ; preds = %_ZNK8nanobind3str5c_strEv.exit282
+  br i1 %.not.i.i.i279, label %_ZN8nanobind3strD2Ev.exit285, label %609
+
+609:                                              ; preds = %608
+  %610 = load i64, ptr %603, align 8
+  %611 = add nsw i64 %610, -1
+  store i64 %611, ptr %603, align 8
+  %.not.i.i.i.i.i284 = icmp eq i64 %611, 0
+  br i1 %.not.i.i.i.i.i284, label %612, label %_ZN8nanobind3strD2Ev.exit285
+
+612:                                              ; preds = %609
+  invoke void @_Py_Dealloc(ptr noundef nonnull %603)
+          to label %_ZN8nanobind3strD2Ev.exit285 unwind label %613
 
 613:                                              ; preds = %612
-  %614 = load i64, ptr %607, align 8
-  %615 = add nsw i64 %614, -1
-  store i64 %615, ptr %607, align 8
-  %.not.i.i.i.i.i284 = icmp eq i64 %615, 0
-  br i1 %.not.i.i.i.i.i284, label %616, label %_ZN8nanobind3strD2Ev.exit285
-
-616:                                              ; preds = %613
-  invoke void @_Py_Dealloc(ptr noundef nonnull %607)
-          to label %_ZN8nanobind3strD2Ev.exit285 unwind label %617
-
-617:                                              ; preds = %616
-  %618 = landingpad { ptr, i32 }
+  %614 = landingpad { ptr, i32 }
           catch ptr null
-  %619 = extractvalue { ptr, i32 } %618, 0
-  call void @__clang_call_terminate(ptr %619) #21
+  %615 = extractvalue { ptr, i32 } %614, 0
+  call void @__clang_call_terminate(ptr %615) #21
   unreachable
 
-_ZN8nanobind3strD2Ev.exit285:                     ; preds = %612, %613, %616
-  %620 = load ptr, ptr %62, align 8
-  %.not.i.i286 = icmp eq ptr %620, null
-  br i1 %.not.i.i286, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, label %621
+_ZN8nanobind3strD2Ev.exit285:                     ; preds = %608, %609, %612
+  %616 = load ptr, ptr %61, align 8
+  %.not.i.i286 = icmp eq ptr %616, null
+  br i1 %.not.i.i286, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, label %617
 
-621:                                              ; preds = %_ZN8nanobind3strD2Ev.exit285
-  %622 = load i64, ptr %620, align 8
-  %623 = add nsw i64 %622, -1
-  store i64 %623, ptr %620, align 8
-  %.not.i.i.i287 = icmp eq i64 %623, 0
-  br i1 %.not.i.i.i287, label %624, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
+617:                                              ; preds = %_ZN8nanobind3strD2Ev.exit285
+  %618 = load i64, ptr %616, align 8
+  %619 = add nsw i64 %618, -1
+  store i64 %619, ptr %616, align 8
+  %.not.i.i.i287 = icmp eq i64 %619, 0
+  br i1 %.not.i.i.i287, label %620, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
-624:                                              ; preds = %621
-  invoke void @_Py_Dealloc(ptr noundef nonnull %620)
-          to label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 unwind label %625
+620:                                              ; preds = %617
+  invoke void @_Py_Dealloc(ptr noundef nonnull %616)
+          to label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 unwind label %621
+
+621:                                              ; preds = %620
+  %622 = landingpad { ptr, i32 }
+          catch ptr null
+  %623 = extractvalue { ptr, i32 } %622, 0
+  call void @__clang_call_terminate(ptr %623) #21
+  unreachable
+
+624:                                              ; preds = %545
+  br i1 %1, label %625, label %648
 
 625:                                              ; preds = %624
-  %626 = landingpad { ptr, i32 }
-          catch ptr null
-  %627 = extractvalue { ptr, i32 } %626, 0
-  call void @__clang_call_terminate(ptr %627) #21
-  unreachable
+  %626 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %627 = getelementptr inbounds i8, ptr %626, i64 1
+  %628 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i289 = icmp ult ptr %627, %628
+  br i1 %.not.i289, label %_ZN8nanobind6detail6Buffer3putEc.exit293, label %629
 
-628:                                              ; preds = %549
-  br i1 %1, label %629, label %652
+629:                                              ; preds = %625
+  %630 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %631 = ptrtoint ptr %628 to i64
+  %632 = ptrtoint ptr %630 to i64
+  %633 = sub i64 %631, %632
+  %634 = shl i64 %633, 1
+  %635 = add i64 %634, 2
+  %636 = call noalias ptr @malloc(i64 noundef %635) #23
+  %.not.i.i290 = icmp eq ptr %636, null
+  br i1 %.not.i.i290, label %637, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i291
 
-629:                                              ; preds = %628
-  %630 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 1
-  %632 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i289 = icmp ult ptr %631, %632
-  br i1 %.not.i289, label %_ZN8nanobind6detail6Buffer3putEc.exit293, label %633
-
-633:                                              ; preds = %629
-  %634 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %635 = ptrtoint ptr %632 to i64
-  %636 = ptrtoint ptr %634 to i64
-  %637 = sub i64 %635, %636
-  %638 = shl i64 %637, 1
-  %639 = add i64 %638, 2
-  %640 = call noalias ptr @malloc(i64 noundef %639) #23
-  %.not.i.i290 = icmp eq ptr %640, null
-  br i1 %.not.i.i290, label %641, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i291
-
-641:                                              ; preds = %633
-  %642 = load ptr, ptr @stderr, align 8
-  %643 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %642) #25
+637:                                              ; preds = %629
+  %638 = load ptr, ptr @stderr, align 8
+  %639 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %638) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i291:    ; preds = %633
-  %644 = ptrtoint ptr %630 to i64
-  %645 = sub i64 %644, %636
-  %646 = add i64 %645, 1
-  %spec.select.i.i292 = call i64 @llvm.umin.i64(i64 %637, i64 %646)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %640, ptr align 1 %634, i64 %spec.select.i.i292, i1 false)
-  call void @free(ptr noundef %634) #22
-  store ptr %640, ptr @_ZN8nanobind6detail3bufE, align 8
-  %647 = getelementptr inbounds i8, ptr %640, i64 %639
-  store ptr %647, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %648 = getelementptr inbounds i8, ptr %640, i64 %645
+_ZN8nanobind6detail6Buffer6expandEm.exit.i291:    ; preds = %629
+  %640 = ptrtoint ptr %626 to i64
+  %641 = sub i64 %640, %632
+  %642 = add i64 %641, 1
+  %spec.select.i.i292 = call i64 @llvm.umin.i64(i64 %633, i64 %642)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %636, ptr align 1 %630, i64 %spec.select.i.i292, i1 false)
+  call void @free(ptr noundef %630) #22
+  store ptr %636, ptr @_ZN8nanobind6detail3bufE, align 8
+  %643 = getelementptr inbounds i8, ptr %636, i64 %635
+  store ptr %643, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %644 = getelementptr inbounds i8, ptr %636, i64 %641
   br label %_ZN8nanobind6detail6Buffer3putEc.exit293
 
-_ZN8nanobind6detail6Buffer3putEc.exit293:         ; preds = %629, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291
-  %649 = phi ptr [ %648, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291 ], [ %630, %629 ]
-  %650 = getelementptr inbounds i8, ptr %649, i64 1
-  store ptr %650, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 34, ptr %649, align 1
-  %651 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %651, align 1
-  br label %652
+_ZN8nanobind6detail6Buffer3putEc.exit293:         ; preds = %625, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291
+  %645 = phi ptr [ %644, %_ZN8nanobind6detail6Buffer6expandEm.exit.i291 ], [ %626, %625 ]
+  %646 = getelementptr inbounds i8, ptr %645, i64 1
+  store ptr %646, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 34, ptr %645, align 1
+  %647 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %647, align 1
+  br label %648
 
-652:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit293, %628
-  %653 = load ptr, ptr %.0146, align 8
+648:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit293, %624
+  %649 = load ptr, ptr %.0146, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %654 = getelementptr inbounds i8, ptr %653, i64 8
-  %655 = load ptr, ptr %654, align 8
-  %656 = load i8, ptr %655, align 1
-  %657 = icmp eq i8 %656, 42
-  %.idx.i.i = zext i1 %657 to i64
-  %658 = getelementptr inbounds i8, ptr %655, i64 %.idx.i.i
+  %650 = getelementptr inbounds i8, ptr %649, i64 8
+  %651 = load ptr, ptr %650, align 8
+  %652 = load i8, ptr %651, align 1
+  %653 = icmp eq i8 %652, 42
+  %.idx.i.i = zext i1 %653 to i64
+  %654 = getelementptr inbounds i8, ptr %651, i64 %.idx.i.i
   store i32 0, ptr %3, align 4
-  %659 = invoke ptr @__cxa_demangle(ptr noundef nonnull %658, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
+  %655 = invoke ptr @__cxa_demangle(ptr noundef nonnull %654, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
           to label %.noexc295 unwind label %.loopexit338
 
-.noexc295:                                        ; preds = %652
-  %660 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %659, ptr noundef nonnull dereferenceable(1) @.str.15) #24
-  %.not1.i.i = icmp eq ptr %660, null
+.noexc295:                                        ; preds = %648
+  %656 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %655, ptr noundef nonnull dereferenceable(1) @.str.15) #24
+  %.not1.i.i = icmp eq ptr %656, null
   br i1 %.not1.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc295, %.lr.ph.i.i
-  %661 = phi ptr [ %665, %.lr.ph.i.i ], [ %660, %.noexc295 ]
-  %662 = getelementptr inbounds i8, ptr %661, i64 10
-  %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %662) #24
-  %664 = add i64 %663, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %661, ptr nonnull align 1 %662, i64 %664, i1 false)
-  %665 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %661, ptr noundef nonnull dereferenceable(1) @.str.15) #24
-  %.not.i.i294 = icmp eq ptr %665, null
+  %657 = phi ptr [ %661, %.lr.ph.i.i ], [ %656, %.noexc295 ]
+  %658 = getelementptr inbounds i8, ptr %657, i64 10
+  %659 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %658) #24
+  %660 = add i64 %659, 1
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %657, ptr nonnull align 1 %658, i64 %660, i1 false)
+  %661 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %657, ptr noundef nonnull dereferenceable(1) @.str.15) #24
+  %.not.i.i294 = icmp eq ptr %661, null
   br i1 %.not.i.i294, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc295
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %659)
-          to label %666 unwind label %.loopexit338
+  invoke void @_ZN8nanobind6detail6Buffer8put_dstrEPKc(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, ptr noundef %655)
+          to label %662 unwind label %.loopexit338
 
-666:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %659) #22
-  br i1 %1, label %667, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
+662:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %655) #22
+  br i1 %1, label %663, label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
-667:                                              ; preds = %666
-  %668 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %669 = getelementptr inbounds i8, ptr %668, i64 1
-  %670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i296 = icmp ult ptr %669, %670
-  br i1 %.not.i296, label %_ZN8nanobind6detail6Buffer3putEc.exit300, label %671
+663:                                              ; preds = %662
+  %664 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %665 = getelementptr inbounds i8, ptr %664, i64 1
+  %666 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i296 = icmp ult ptr %665, %666
+  br i1 %.not.i296, label %_ZN8nanobind6detail6Buffer3putEc.exit300, label %667
 
-671:                                              ; preds = %667
-  %672 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %673 = ptrtoint ptr %670 to i64
-  %674 = ptrtoint ptr %672 to i64
-  %675 = sub i64 %673, %674
-  %676 = shl i64 %675, 1
-  %677 = add i64 %676, 2
-  %678 = call noalias ptr @malloc(i64 noundef %677) #23
-  %.not.i.i297 = icmp eq ptr %678, null
-  br i1 %.not.i.i297, label %679, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i298
+667:                                              ; preds = %663
+  %668 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %669 = ptrtoint ptr %666 to i64
+  %670 = ptrtoint ptr %668 to i64
+  %671 = sub i64 %669, %670
+  %672 = shl i64 %671, 1
+  %673 = add i64 %672, 2
+  %674 = call noalias ptr @malloc(i64 noundef %673) #23
+  %.not.i.i297 = icmp eq ptr %674, null
+  br i1 %.not.i.i297, label %675, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i298
 
-679:                                              ; preds = %671
-  %680 = load ptr, ptr @stderr, align 8
-  %681 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %680) #25
+675:                                              ; preds = %667
+  %676 = load ptr, ptr @stderr, align 8
+  %677 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %676) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i298:    ; preds = %671
-  %682 = ptrtoint ptr %668 to i64
-  %683 = sub i64 %682, %674
-  %684 = add i64 %683, 1
-  %spec.select.i.i299 = call i64 @llvm.umin.i64(i64 %675, i64 %684)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %678, ptr align 1 %672, i64 %spec.select.i.i299, i1 false)
-  call void @free(ptr noundef %672) #22
-  store ptr %678, ptr @_ZN8nanobind6detail3bufE, align 8
-  %685 = getelementptr inbounds i8, ptr %678, i64 %677
-  store ptr %685, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %686 = getelementptr inbounds i8, ptr %678, i64 %683
+_ZN8nanobind6detail6Buffer6expandEm.exit.i298:    ; preds = %667
+  %678 = ptrtoint ptr %664 to i64
+  %679 = sub i64 %678, %670
+  %680 = add i64 %679, 1
+  %spec.select.i.i299 = call i64 @llvm.umin.i64(i64 %671, i64 %680)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %674, ptr align 1 %668, i64 %spec.select.i.i299, i1 false)
+  call void @free(ptr noundef %668) #22
+  store ptr %674, ptr @_ZN8nanobind6detail3bufE, align 8
+  %681 = getelementptr inbounds i8, ptr %674, i64 %673
+  store ptr %681, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %682 = getelementptr inbounds i8, ptr %674, i64 %679
   br label %_ZN8nanobind6detail6Buffer3putEc.exit300
 
-_ZN8nanobind6detail6Buffer3putEc.exit300:         ; preds = %667, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298
-  %687 = phi ptr [ %686, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298 ], [ %668, %667 ]
-  %688 = getelementptr inbounds i8, ptr %687, i64 1
-  store ptr %688, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 34, ptr %687, align 1
-  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %689, align 1
+_ZN8nanobind6detail6Buffer3putEc.exit300:         ; preds = %663, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298
+  %683 = phi ptr [ %682, %_ZN8nanobind6detail6Buffer6expandEm.exit.i298 ], [ %664, %663 ]
+  %684 = getelementptr inbounds i8, ptr %683, i64 1
+  store ptr %684, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 34, ptr %683, align 1
+  %685 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %685, align 1
   br label %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288
 
-_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288: ; preds = %624, %621, %_ZN8nanobind3strD2Ev.exit285, %_ZN8nanobind6detail6Buffer3putEc.exit300, %666, %543
-  %690 = getelementptr inbounds i8, ptr %.0146, i64 8
+_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288: ; preds = %620, %617, %_ZN8nanobind3strD2Ev.exit285, %_ZN8nanobind6detail6Buffer3putEc.exit300, %662, %539
+  %686 = getelementptr inbounds i8, ptr %.0146, i64 8
   br label %.critedge2
 
-691:                                              ; preds = %71
-  %692 = getelementptr inbounds i8, ptr %.0155, i64 1
-  %693 = load i8, ptr %692, align 1
-  %694 = icmp eq i8 %693, 62
-  %spec.select198 = select i1 %694, i1 true, i1 %.0147
-  %695 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %696 = getelementptr inbounds i8, ptr %695, i64 1
-  %697 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i301 = icmp ult ptr %696, %697
-  br i1 %.not.i301, label %_ZN8nanobind6detail6Buffer3putEc.exit305, label %698
+687:                                              ; preds = %67
+  %688 = getelementptr inbounds i8, ptr %.0155, i64 1
+  %689 = load i8, ptr %688, align 1
+  %690 = icmp eq i8 %689, 62
+  %spec.select198 = select i1 %690, i1 true, i1 %.0147
+  %691 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %692 = getelementptr inbounds i8, ptr %691, i64 1
+  %693 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i301 = icmp ult ptr %692, %693
+  br i1 %.not.i301, label %_ZN8nanobind6detail6Buffer3putEc.exit305, label %694
 
-698:                                              ; preds = %691
-  %699 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %700 = ptrtoint ptr %697 to i64
-  %701 = ptrtoint ptr %699 to i64
-  %702 = sub i64 %700, %701
-  %703 = shl i64 %702, 1
-  %704 = add i64 %703, 2
-  %705 = call noalias ptr @malloc(i64 noundef %704) #23
-  %.not.i.i302 = icmp eq ptr %705, null
-  br i1 %.not.i.i302, label %706, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i303
+694:                                              ; preds = %687
+  %695 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %696 = ptrtoint ptr %693 to i64
+  %697 = ptrtoint ptr %695 to i64
+  %698 = sub i64 %696, %697
+  %699 = shl i64 %698, 1
+  %700 = add i64 %699, 2
+  %701 = call noalias ptr @malloc(i64 noundef %700) #23
+  %.not.i.i302 = icmp eq ptr %701, null
+  br i1 %.not.i.i302, label %702, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i303
 
-706:                                              ; preds = %698
-  %707 = load ptr, ptr @stderr, align 8
-  %708 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %707) #25
+702:                                              ; preds = %694
+  %703 = load ptr, ptr @stderr, align 8
+  %704 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %703) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i303:    ; preds = %698
-  %709 = ptrtoint ptr %695 to i64
-  %710 = sub i64 %709, %701
-  %711 = add i64 %710, 1
-  %spec.select.i.i304 = call i64 @llvm.umin.i64(i64 %702, i64 %711)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %705, ptr align 1 %699, i64 %spec.select.i.i304, i1 false)
-  call void @free(ptr noundef %699) #22
-  store ptr %705, ptr @_ZN8nanobind6detail3bufE, align 8
-  %712 = getelementptr inbounds i8, ptr %705, i64 %704
-  store ptr %712, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %713 = getelementptr inbounds i8, ptr %705, i64 %710
+_ZN8nanobind6detail6Buffer6expandEm.exit.i303:    ; preds = %694
+  %705 = ptrtoint ptr %691 to i64
+  %706 = sub i64 %705, %697
+  %707 = add i64 %706, 1
+  %spec.select.i.i304 = call i64 @llvm.umin.i64(i64 %698, i64 %707)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %701, ptr align 1 %695, i64 %spec.select.i.i304, i1 false)
+  call void @free(ptr noundef %695) #22
+  store ptr %701, ptr @_ZN8nanobind6detail3bufE, align 8
+  %708 = getelementptr inbounds i8, ptr %701, i64 %700
+  store ptr %708, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %709 = getelementptr inbounds i8, ptr %701, i64 %706
   br label %_ZN8nanobind6detail6Buffer3putEc.exit305
 
-_ZN8nanobind6detail6Buffer3putEc.exit305:         ; preds = %691, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303
-  %714 = phi ptr [ %713, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303 ], [ %695, %691 ]
-  %715 = getelementptr inbounds i8, ptr %714, i64 1
-  store ptr %715, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 45, ptr %714, align 1
-  %716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %716, align 1
+_ZN8nanobind6detail6Buffer3putEc.exit305:         ; preds = %687, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303
+  %710 = phi ptr [ %709, %_ZN8nanobind6detail6Buffer6expandEm.exit.i303 ], [ %691, %687 ]
+  %711 = getelementptr inbounds i8, ptr %710, i64 1
+  store ptr %711, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 45, ptr %710, align 1
+  %712 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %712, align 1
   br label %.critedge2
 
-717:                                              ; preds = %71
-  %718 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 1
-  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i306 = icmp ult ptr %719, %720
-  br i1 %.not.i306, label %_ZN8nanobind6detail6Buffer3putEc.exit310, label %721
+713:                                              ; preds = %67
+  %714 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %715 = getelementptr inbounds i8, ptr %714, i64 1
+  %716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i306 = icmp ult ptr %715, %716
+  br i1 %.not.i306, label %_ZN8nanobind6detail6Buffer3putEc.exit310, label %717
 
-721:                                              ; preds = %717
-  %722 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  %723 = ptrtoint ptr %720 to i64
-  %724 = ptrtoint ptr %722 to i64
-  %725 = sub i64 %723, %724
-  %726 = shl i64 %725, 1
-  %727 = add i64 %726, 2
-  %728 = call noalias ptr @malloc(i64 noundef %727) #23
-  %.not.i.i307 = icmp eq ptr %728, null
-  br i1 %.not.i.i307, label %729, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i308
+717:                                              ; preds = %713
+  %718 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  %719 = ptrtoint ptr %716 to i64
+  %720 = ptrtoint ptr %718 to i64
+  %721 = sub i64 %719, %720
+  %722 = shl i64 %721, 1
+  %723 = add i64 %722, 2
+  %724 = call noalias ptr @malloc(i64 noundef %723) #23
+  %.not.i.i307 = icmp eq ptr %724, null
+  br i1 %.not.i.i307, label %725, label %_ZN8nanobind6detail6Buffer6expandEm.exit.i308
 
-729:                                              ; preds = %721
-  %730 = load ptr, ptr @stderr, align 8
-  %731 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %730) #25
+725:                                              ; preds = %717
+  %726 = load ptr, ptr @stderr, align 8
+  %727 = call i64 @fwrite(ptr nonnull @.str.19, i64 54, i64 1, ptr %726) #25
   call void @abort() #21
   unreachable
 
-_ZN8nanobind6detail6Buffer6expandEm.exit.i308:    ; preds = %721
-  %732 = ptrtoint ptr %718 to i64
-  %733 = sub i64 %732, %724
-  %734 = add i64 %733, 1
-  %spec.select.i.i309 = call i64 @llvm.umin.i64(i64 %725, i64 %734)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %728, ptr align 1 %722, i64 %spec.select.i.i309, i1 false)
-  call void @free(ptr noundef %722) #22
-  store ptr %728, ptr @_ZN8nanobind6detail3bufE, align 8
-  %735 = getelementptr inbounds i8, ptr %728, i64 %727
-  store ptr %735, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %736 = getelementptr inbounds i8, ptr %728, i64 %733
+_ZN8nanobind6detail6Buffer6expandEm.exit.i308:    ; preds = %717
+  %728 = ptrtoint ptr %714 to i64
+  %729 = sub i64 %728, %720
+  %730 = add i64 %729, 1
+  %spec.select.i.i309 = call i64 @llvm.umin.i64(i64 %721, i64 %730)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %724, ptr align 1 %718, i64 %spec.select.i.i309, i1 false)
+  call void @free(ptr noundef %718) #22
+  store ptr %724, ptr @_ZN8nanobind6detail3bufE, align 8
+  %731 = getelementptr inbounds i8, ptr %724, i64 %723
+  store ptr %731, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %732 = getelementptr inbounds i8, ptr %724, i64 %729
   br label %_ZN8nanobind6detail6Buffer3putEc.exit310
 
-_ZN8nanobind6detail6Buffer3putEc.exit310:         ; preds = %717, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308
-  %737 = phi ptr [ %736, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308 ], [ %718, %717 ]
-  %738 = getelementptr inbounds i8, ptr %737, i64 1
-  store ptr %738, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 %72, ptr %737, align 1
-  %739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  store i8 0, ptr %739, align 1
+_ZN8nanobind6detail6Buffer3putEc.exit310:         ; preds = %713, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308
+  %733 = phi ptr [ %732, %_ZN8nanobind6detail6Buffer6expandEm.exit.i308 ], [ %714, %713 ]
+  %734 = getelementptr inbounds i8, ptr %733, i64 1
+  store ptr %734, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 %68, ptr %733, align 1
+  %735 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  store i8 0, ptr %735, align 1
   br label %.critedge2
 
-.critedge2:                                       ; preds = %263, %101, %101, %109, %109, %_ZL10_Py_DECREFP7_object.exit, %_ZL10_Py_DECREFP7_object.exit.thread, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233, %175, %209, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, %_ZN8nanobind6detail6Buffer3putEc.exit305, %_ZN8nanobind6detail6Buffer3putEc.exit310
-  %.8 = phi ptr [ %.0155, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0155, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %176, %175 ], [ %210, %209 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0155, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0155, %_ZL10_Py_DECREFP7_object.exit ], [ %.6, %109 ], [ %.6, %109 ], [ %.3158, %101 ], [ %.3158, %101 ], [ %.7, %263 ]
-  %.1153 = phi i32 [ %.0152, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0152, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0152, %175 ], [ %.0152, %209 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0152, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.2154, %_ZL10_Py_DECREFP7_object.exit ], [ %.0152, %109 ], [ %.0152, %109 ], [ %.0152, %101 ], [ %.0152, %101 ], [ %.0152, %263 ]
-  %.1151 = phi i32 [ %.0150, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0150, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0150, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %512, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0150, %175 ], [ %.0150, %209 ], [ %.0150, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %512, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %511, %_ZL10_Py_DECREFP7_object.exit ], [ %.0150, %109 ], [ %.0150, %109 ], [ %.0150, %101 ], [ %.0150, %101 ], [ 1, %263 ]
-  %.1148 = phi i1 [ %.0147, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %spec.select198, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0147, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0147, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0147, %175 ], [ %.0147, %209 ], [ %.0147, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0147, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0147, %_ZL10_Py_DECREFP7_object.exit ], [ true, %109 ], [ true, %109 ], [ false, %101 ], [ false, %101 ], [ %.0147, %263 ]
-  %.3 = phi ptr [ %.0146, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %690, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0146, %175 ], [ %.0146, %209 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0146, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0146, %_ZL10_Py_DECREFP7_object.exit ], [ %.0146, %109 ], [ %.0146, %109 ], [ %.0146, %101 ], [ %.0146, %101 ], [ %.1, %263 ]
-  %740 = getelementptr inbounds i8, ptr %.8, i64 1
-  br label %71, !llvm.loop !49
+.critedge2:                                       ; preds = %259, %97, %97, %105, %105, %_ZL10_Py_DECREFP7_object.exit, %_ZL10_Py_DECREFP7_object.exit.thread, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233, %171, %205, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288, %_ZN8nanobind6detail6Buffer3putEc.exit305, %_ZN8nanobind6detail6Buffer3putEc.exit310
+  %.8 = phi ptr [ %.0155, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0155, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %172, %171 ], [ %206, %205 ], [ %.0155, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0155, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0155, %_ZL10_Py_DECREFP7_object.exit ], [ %.6, %105 ], [ %.6, %105 ], [ %.3158, %97 ], [ %.3158, %97 ], [ %.7, %259 ]
+  %.1153 = phi i32 [ %.0152, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0152, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0152, %171 ], [ %.0152, %205 ], [ %.0152, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0152, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.2154, %_ZL10_Py_DECREFP7_object.exit ], [ %.0152, %105 ], [ %.0152, %105 ], [ %.0152, %97 ], [ %.0152, %97 ], [ %.0152, %259 ]
+  %.1151 = phi i32 [ %.0150, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0150, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0150, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %508, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0150, %171 ], [ %.0150, %205 ], [ %.0150, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %508, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %507, %_ZL10_Py_DECREFP7_object.exit ], [ %.0150, %105 ], [ %.0150, %105 ], [ %.0150, %97 ], [ %.0150, %97 ], [ 1, %259 ]
+  %.1148 = phi i1 [ %.0147, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %spec.select198, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %.0147, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0147, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0147, %171 ], [ %.0147, %205 ], [ %.0147, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0147, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0147, %_ZL10_Py_DECREFP7_object.exit ], [ true, %105 ], [ true, %105 ], [ false, %97 ], [ false, %97 ], [ %.0147, %259 ]
+  %.3 = phi ptr [ %.0146, %_ZN8nanobind6detail6Buffer3putEc.exit310 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putEc.exit305 ], [ %686, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit288 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putILm4EEEvRAT__Kc.exit267 ], [ %.0146, %171 ], [ %.0146, %205 ], [ %.0146, %_ZN8nanobind6detail6Buffer3putILm3EEEvRAT__Kc.exit233 ], [ %.0146, %_ZL10_Py_DECREFP7_object.exit.thread ], [ %.0146, %_ZL10_Py_DECREFP7_object.exit ], [ %.0146, %105 ], [ %.0146, %105 ], [ %.0146, %97 ], [ %.0146, %97 ], [ %.1, %259 ]
+  %736 = getelementptr inbounds i8, ptr %.8, i64 1
+  br label %67, !llvm.loop !49
 
-741:                                              ; preds = %71
-  %742 = load i16, ptr %66, align 4
-  %743 = zext i16 %742 to i32
-  %744 = icmp eq i32 %.0150, %743
-  br i1 %744, label %745, label %.critedge200
+737:                                              ; preds = %67
+  %738 = load i16, ptr %65, align 4
+  %739 = zext i16 %738 to i32
+  %740 = icmp eq i32 %.0150, %739
+  br i1 %740, label %741, label %.critedge200
 
-745:                                              ; preds = %741
-  %746 = load ptr, ptr %.0146, align 8
-  %.not176.not = icmp eq ptr %746, null
-  br i1 %.not176.not, label %747, label %.critedge200
+741:                                              ; preds = %737
+  %742 = load ptr, ptr %.0146, align 8
+  %.not176.not = icmp eq ptr %742, null
+  br i1 %.not176.not, label %743, label %.critedge200
 
-.critedge200:                                     ; preds = %741, %745
+.critedge200:                                     ; preds = %737, %741
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #21
   unreachable
 
-747:                                              ; preds = %745, %25
-  %.0 = phi i32 [ 0, %25 ], [ %.0152, %745 ]
+743:                                              ; preds = %741, %24
+  %.0 = phi i32 [ 0, %24 ], [ %.0152, %741 ]
   ret i32 %.0
 
-.loopexit338:                                     ; preds = %170, %207, %270, %300, %416, %443, %448, %451, %454, %510, %556, %_ZNK8nanobind3str5c_strEv.exit, %602, %_ZNK8nanobind3str5c_strEv.exit282, %.loopexit, %509, %545, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280, %652
+.loopexit338:                                     ; preds = %166, %203, %266, %296, %412, %439, %444, %447, %450, %506, %552, %_ZNK8nanobind3str5c_strEv.exit, %598, %_ZNK8nanobind3str5c_strEv.exit282, %.loopexit, %505, %541, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit280, %648
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %748
+  br label %744
 
-.loopexit.split-lp:                               ; preds = %25, %52
+.loopexit.split-lp:                               ; preds = %24, %51
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %748
+  br label %744
 
-748:                                              ; preds = %.loopexit.split-lp, %.loopexit338
+744:                                              ; preds = %.loopexit.split-lp, %.loopexit338
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit338 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %749 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %749) #21
+  %745 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %745) #21
   unreachable
 }
 
@@ -6514,92 +6513,106 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %94, %50, %2
+  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %96 = load i64, ptr %0, align 8
-  store i64 %96, ptr %3, align 8
+  %99 = load i64, ptr %0, align 8
+  store i64 %99, ptr %3, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
-  %102 = load <2 x ptr>, ptr %12, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = load <2 x ptr>, ptr %97, align 8
-  store ptr %100, ptr %97, align 8
-  store <2 x ptr> %104, ptr %10, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %108 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %102, ptr %98, align 8
-  store ptr %107, ptr %105, align 8
-  store <2 x ptr> %108, ptr %101, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  %110 = load i64, ptr %9, align 8
-  %111 = load <2 x i64>, ptr %109, align 8
-  store i64 %110, ptr %109, align 8
-  store <2 x i64> %111, ptr %9, align 8
-  %112 = getelementptr inbounds i8, ptr %3, i64 56
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = load i64, ptr %112, align 8
-  %115 = load i64, ptr %113, align 8
-  store i64 %115, ptr %112, align 8
-  store i64 %114, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 64
-  %117 = load <2 x float>, ptr %5, align 8
-  %118 = load <2 x float>, ptr %116, align 8
-  store <2 x float> %117, ptr %116, align 8
-  store <2 x float> %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 72
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
-  %121 = load i8, ptr %119, align 8
-  %122 = and i8 %121, 1
-  %123 = load i8, ptr %120, align 8
-  %124 = and i8 %123, 1
-  store i8 %124, ptr %119, align 8
-  store i8 %122, ptr %120, align 8
-  %125 = getelementptr inbounds i8, ptr %3, i64 73
-  %126 = getelementptr inbounds i8, ptr %0, i64 73
-  %127 = load i8, ptr %125, align 1
-  %128 = and i8 %127, 1
-  %129 = load i8, ptr %126, align 1
+  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %10, align 8
+  store ptr %106, ptr %100, align 8
+  %107 = load ptr, ptr %12, align 8
+  store ptr %107, ptr %102, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %104, align 8
+  store ptr %101, ptr %10, align 8
+  store ptr %103, ptr %12, align 8
+  store ptr %105, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %3, i64 32
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = load ptr, ptr %110, align 8
+  %113 = load ptr, ptr %111, align 8
+  store ptr %113, ptr %110, align 8
+  store ptr %112, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %115 = load i64, ptr %9, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %9, align 8
+  store i64 %115, ptr %114, align 8
+  store i64 %97, ptr %98, align 8
+  %117 = getelementptr inbounds i8, ptr %3, i64 56
+  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = load i64, ptr %117, align 8
+  %120 = load i64, ptr %118, align 8
+  store i64 %120, ptr %117, align 8
+  store i64 %119, ptr %118, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 64
+  %122 = load float, ptr %121, align 8
+  %123 = load float, ptr %5, align 8
+  store float %123, ptr %121, align 8
+  store float %122, ptr %5, align 8
+  %124 = getelementptr inbounds i8, ptr %3, i64 68
+  %125 = load float, ptr %124, align 4
+  %126 = load float, ptr %7, align 4
+  store float %126, ptr %124, align 4
+  store float %125, ptr %7, align 4
+  %127 = getelementptr inbounds i8, ptr %3, i64 72
+  %128 = getelementptr inbounds i8, ptr %0, i64 72
+  %129 = load i8, ptr %127, align 8
   %130 = and i8 %129, 1
-  store i8 %130, ptr %125, align 1
-  store i8 %128, ptr %126, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
+  %131 = load i8, ptr %128, align 8
+  %132 = and i8 %131, 1
+  store i8 %132, ptr %127, align 8
+  store i8 %130, ptr %128, align 8
+  %133 = getelementptr inbounds i8, ptr %3, i64 73
+  %134 = getelementptr inbounds i8, ptr %0, i64 73
+  %135 = load i8, ptr %133, align 1
+  %136 = and i8 %135, 1
+  %137 = load i8, ptr %134, align 1
+  %138 = and i8 %137, 1
+  store i8 %138, ptr %133, align 1
+  store i8 %136, ptr %134, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %106, %107
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %132 = load i16, ptr %131, align 4
-  %133 = icmp eq i16 %132, -1
-  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %134
+  %.05.i.i.i.i.i = phi ptr [ %143, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %106, %._crit_edge ]
+  %139 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = icmp eq i16 %140, -1
+  br i1 %141, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %142
 
-134:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %131, align 4
+142:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %139, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
-  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %135, %103
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %142, %.lr.ph.i.i.i.i.i
+  %143 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %143, %107
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %97, align 8
+  %.pr.i.i = load ptr, ptr %100, align 8
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %137
+  %144 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %106, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %144, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %145
 
-137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %136) #27
+145:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #27
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %137
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %145
   ret void
 }
 
@@ -6746,16 +6759,19 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
 
 59:                                               ; preds = %.thread, %49
   %60 = phi float [ %58, %49 ], [ 0.000000e+00, %.thread ]
-  %61 = insertelement <2 x float> poison, float %5, i64 0
-  %62 = insertelement <2 x float> %61, float %6, i64 1
-  %63 = fcmp ogt <2 x float> %62, <float 0.000000e+00, float 0x3FC99999A0000000>
+  %61 = fcmp ogt float %5, 0.000000e+00
+  %62 = select i1 %61, float %5, float 0.000000e+00
+  %63 = fcmp olt float %62, 0x3FC3333340000000
+  %.sroa.speculated.i = select i1 %63, float %62, float 0x3FC3333340000000
   %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = select <2 x i1> %63, <2 x float> %62, <2 x float> <float 0.000000e+00, float 0x3FC99999A0000000>
-  %66 = fcmp olt <2 x float> %65, <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  %67 = select <2 x i1> %66, <2 x float> %65, <2 x float> <float 0x3FC3333340000000, float 0x3FEE666660000000>
-  store <2 x float> %67, ptr %64, align 8
-  %68 = extractelement <2 x float> %67, i64 1
-  %69 = fmul float %68, %60
+  store float %.sroa.speculated.i, ptr %64, align 8
+  %65 = fcmp ogt float %6, 0x3FC99999A0000000
+  %66 = select i1 %65, float %6, float 0x3FC99999A0000000
+  %67 = fcmp olt float %66, 0x3FEE666660000000
+  %.sroa.speculated.i11 = select i1 %67, float %66, float 0x3FEE666660000000
+  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %.sroa.speculated.i11, ptr %68, align 4
+  %69 = fmul float %.sroa.speculated.i11, %60
   %70 = fptoui float %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %70, ptr %71, align 8

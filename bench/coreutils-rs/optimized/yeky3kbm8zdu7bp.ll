@@ -1601,9 +1601,13 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %7
@@ -1821,19 +1825,27 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = lshr i32 %0, 12
-  %60 = lshr i32 %0, 6
-  %61 = trunc i32 %0 to i8
-  %62 = trunc i32 %58 to i8
-  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
-  %64 = trunc i32 %59 to i8
-  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
-  %66 = trunc i32 %60 to i8
-  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
-  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
-  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
-  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %70, ptr %1, align 1
+  %59 = trunc i32 %58 to i8
+  %60 = and i8 %59, 7
+  %61 = or disjoint i8 %60, -16
+  store i8 %61, ptr %1, align 1
+  %62 = lshr i32 %0, 12
+  %63 = trunc i32 %62 to i8
+  %64 = and i8 %63, 63
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = or disjoint i8 %64, -128
+  store i8 %66, ptr %65, align 1
+  %67 = lshr i32 %0, 6
+  %68 = trunc i32 %67 to i8
+  %69 = and i8 %68, 63
+  %70 = getelementptr inbounds i8, ptr %1, i64 2
+  %71 = or disjoint i8 %69, -128
+  store i8 %71, ptr %70, align 1
+  %72 = trunc i32 %0 to i8
+  %73 = and i8 %72, 63
+  %74 = getelementptr inbounds i8, ptr %1, i64 3
+  %75 = or disjoint i8 %73, -128
+  store i8 %75, ptr %74, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf37d0f20f103d53E.exit"
 }
 
@@ -2912,9 +2924,13 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %7
@@ -3507,61 +3523,72 @@ define void @"_ZN86_$LT$uucore..features..format..num_format..Float$u20$as$u20$c
 define void @"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$13try_from_spec17h2b2197dcafa1ec8cE"(ptr noalias nocapture noundef writeonly sret({ i32, [7 x i32] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #17 {
   %3 = load i8, ptr %1, align 8, !range !320, !noundef !4
   %4 = icmp eq i8 %3, 6
-  br i1 %4, label %5, label %25
+  br i1 %4, label %5, label %30
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 5
-  %8 = load i8, ptr %7, align 1, !range !241, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !range !224, !noundef !4
-  %11 = load <4 x i8>, ptr %6, align 1
-  %12 = load i8, ptr %6, align 1, !range !182, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !range !224, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = load i64, ptr %15, align 8
-  switch i64 %10, label %default.unreachable19 [
-    i64 2, label %17
-    i64 0, label %18
-    i64 1, label %25
+  %7 = load i8, ptr %6, align 1, !range !182, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i8, ptr %8, align 4, !range !241, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %1, i64 5
+  %11 = load i8, ptr %10, align 1, !range !241, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load i64, ptr %12, align 8, !range !224, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 2, !range !321, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %1, i64 3
+  %17 = load i8, ptr %16, align 1, !range !321, !noundef !4
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = load i64, ptr %18, align 8, !range !224, !noundef !4
+  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = load i64, ptr %20, align 8
+  switch i64 %13, label %default.unreachable19 [
+    i64 2, label %22
+    i64 0, label %23
+    i64 1, label %30
   ]
 
-default.unreachable19:                            ; preds = %17, %5
+default.unreachable19:                            ; preds = %22, %5
   unreachable
 
-17:                                               ; preds = %5, %18
-  %.016 = phi i64 [ %20, %18 ], [ 0, %5 ]
-  switch i64 %14, label %default.unreachable19 [
-    i64 2, label %21
-    i64 0, label %23
-    i64 1, label %25
+22:                                               ; preds = %5, %23
+  %.016 = phi i64 [ %25, %23 ], [ 0, %5 ]
+  switch i64 %19, label %default.unreachable19 [
+    i64 2, label %26
+    i64 0, label %28
+    i64 1, label %30
   ]
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8
-  br label %17
+23:                                               ; preds = %5
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load i64, ptr %24, align 8
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = icmp eq i8 %12, 2
-  %. = select i1 %22, i64 6, i64 0
-  br label %23
+26:                                               ; preds = %22
+  %27 = icmp eq i8 %7, 2
+  %. = select i1 %27, i64 6, i64 0
+  br label %28
 
-23:                                               ; preds = %17, %21
-  %.0 = phi i64 [ %., %21 ], [ %16, %17 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.016, ptr %24, align 8
+28:                                               ; preds = %22, %26
+  %.0 = phi i64 [ %., %26 ], [ %21, %22 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.016, ptr %29, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.0, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x i8> %11, ptr %.sroa.5.0..sroa_idx, align 8
+  store i8 %7, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 %15, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.713.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 26
+  store i8 %17, ptr %.sroa.713.0..sroa_idx, align 2
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 27
+  store i8 %9, ptr %.sroa.8.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %8, ptr %.sroa.9.0..sroa_idx, align 4
-  br label %25
+  store i8 %11, ptr %.sroa.9.0..sroa_idx, align 4
+  br label %30
 
-25:                                               ; preds = %17, %5, %2, %23
-  %.sink = phi i32 [ 13, %23 ], [ 12, %2 ], [ 12, %5 ], [ 12, %17 ]
+30:                                               ; preds = %22, %5, %2, %28
+  %.sink = phi i32 [ 13, %28 ], [ 12, %2 ], [ 12, %5 ], [ 12, %22 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }

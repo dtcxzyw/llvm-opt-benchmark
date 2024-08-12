@@ -215,913 +215,914 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %36 = getelementptr inbounds i8, ptr %2, i64 96
   %37 = icmp eq i32 %.0106, 0
   %38 = getelementptr inbounds i8, ptr %2, i64 104
-  %39 = insertelement <2 x float> poison, float %8, i64 0
-  %40 = insertelement <2 x float> %39, float %9, i64 1
-  br label %41
+  %39 = getelementptr inbounds i8, ptr %2, i64 108
+  br label %40
 
-41:                                               ; preds = %.lr.ph, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
-  %.097156 = phi ptr [ %10, %.lr.ph ], [ %43, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
+40:                                               ; preds = %.lr.ph, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
+  %.0158 = phi float [ %8, %.lr.ph ], [ %.1, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
+  %.095157 = phi float [ %9, %.lr.ph ], [ %.196, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
+  %.097156 = phi ptr [ %10, %.lr.ph ], [ %41, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
   %.098155 = phi ptr [ %11, %.lr.ph ], [ %.199, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
-  %.0107151 = phi i32 [ 0, %.lr.ph ], [ %520, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
-  %42 = phi <2 x float> [ %40, %.lr.ph ], [ %78, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
-  %43 = getelementptr inbounds i8, ptr %.097156, i64 8
-  %44 = load i64, ptr %.097156, align 8
-  %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq i64 %44, 0
-  br i1 %46, label %47, label %48
+  %.0107151 = phi i32 [ 0, %.lr.ph ], [ %505, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
+  %41 = getelementptr inbounds i8, ptr %.097156, i64 8
+  %42 = load i64, ptr %.097156, align 8
+  %43 = inttoptr i64 %42 to ptr
+  %44 = icmp eq i64 %42, 0
+  br i1 %44, label %45, label %46
 
-47:                                               ; preds = %41
+45:                                               ; preds = %40
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str) #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit
 
-48:                                               ; preds = %41
-  br i1 %17, label %49, label %64
+46:                                               ; preds = %40
+  br i1 %17, label %47, label %65
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %.098155, i64 8
-  %51 = getelementptr inbounds i8, ptr %45, i64 16
-  %52 = load <2 x float>, ptr %.098155, align 4
-  %53 = fadd <2 x float> %42, %52
-  %54 = load <2 x float>, ptr %51, align 8
-  %55 = fadd <2 x float> %53, %54
-  %56 = extractelement <2 x float> %55, i64 0
-  %57 = tail call float @llvm.floor.f32(float %56)
-  %58 = fcmp olt <2 x float> %55, zeroinitializer
-  %59 = extractelement <2 x i1> %58, i64 0
-  %.0104.in = select i1 %59, float %57, float %56
-  %60 = extractelement <2 x i1> %58, i64 1
-  %61 = extractelement <2 x float> %55, i64 1
-  br i1 %60, label %62, label %77
+47:                                               ; preds = %46
+  %48 = load float, ptr %.098155, align 4
+  %49 = getelementptr inbounds i8, ptr %.098155, i64 8
+  %50 = getelementptr inbounds i8, ptr %.098155, i64 4
+  %51 = load float, ptr %50, align 4
+  %52 = fadd float %.0158, %48
+  %53 = getelementptr inbounds i8, ptr %43, i64 16
+  %54 = load float, ptr %53, align 8
+  %55 = fadd float %52, %54
+  %56 = fadd float %.095157, %51
+  %57 = getelementptr inbounds i8, ptr %43, i64 20
+  %58 = load float, ptr %57, align 4
+  %59 = fadd float %56, %58
+  %60 = fcmp olt float %55, 0.000000e+00
+  %61 = tail call float @llvm.floor.f32(float %55)
+  %.0104.in = select i1 %60, float %61, float %55
+  %62 = fcmp olt float %59, 0.000000e+00
+  br i1 %62, label %63, label %81
 
-62:                                               ; preds = %49
-  %63 = tail call float @llvm.floor.f32(float %61)
-  br label %77
+63:                                               ; preds = %47
+  %64 = tail call float @llvm.floor.f32(float %59)
+  br label %81
 
-64:                                               ; preds = %48
-  %65 = getelementptr inbounds i8, ptr %45, i64 16
-  %66 = load <2 x float>, ptr %65, align 8
-  %67 = fadd <2 x float> %42, %66
-  %68 = extractelement <2 x float> %67, i64 0
-  %69 = tail call float @llvm.floor.f32(float %68)
-  %70 = fcmp olt <2 x float> %67, zeroinitializer
-  %71 = extractelement <2 x i1> %70, i64 0
-  %.2.in = select i1 %71, float %69, float %68
-  %72 = extractelement <2 x float> %67, i64 1
-  %73 = tail call float @llvm.floor.f32(float %72)
-  %74 = extractelement <2 x i1> %70, i64 1
-  %.1103.in = select i1 %74, float %73, float %72
-  %75 = load <2 x float>, ptr %45, align 8
-  %76 = fadd <2 x float> %42, %75
-  br label %77
+65:                                               ; preds = %46
+  %66 = getelementptr inbounds i8, ptr %43, i64 16
+  %67 = load float, ptr %66, align 8
+  %68 = fadd float %.0158, %67
+  %69 = getelementptr inbounds i8, ptr %43, i64 20
+  %70 = load float, ptr %69, align 4
+  %71 = fadd float %.095157, %70
+  %72 = fcmp olt float %68, 0.000000e+00
+  %73 = tail call float @llvm.floor.f32(float %68)
+  %.2.in = select i1 %72, float %73, float %68
+  %74 = fcmp olt float %71, 0.000000e+00
+  %75 = tail call float @llvm.floor.f32(float %71)
+  %.1103.in = select i1 %74, float %75, float %71
+  %76 = load float, ptr %43, align 8
+  %77 = fadd float %.0158, %76
+  %78 = getelementptr inbounds i8, ptr %43, i64 4
+  %79 = load float, ptr %78, align 4
+  %80 = fadd float %.095157, %79
+  br label %81
 
-77:                                               ; preds = %49, %62, %64
-  %.1105.in = phi float [ %.0104.in, %62 ], [ %.2.in, %64 ], [ %.0104.in, %49 ]
-  %.0102.in = phi float [ %63, %62 ], [ %.1103.in, %64 ], [ %61, %49 ]
-  %.0101 = phi float [ %56, %62 ], [ %68, %64 ], [ %56, %49 ]
-  %.199 = phi ptr [ %50, %62 ], [ %.098155, %64 ], [ %50, %49 ]
-  %78 = phi <2 x float> [ %42, %62 ], [ %76, %64 ], [ %42, %49 ]
+81:                                               ; preds = %47, %63, %65
+  %.1105.in = phi float [ %.0104.in, %63 ], [ %.2.in, %65 ], [ %.0104.in, %47 ]
+  %.0102.in = phi float [ %64, %63 ], [ %.1103.in, %65 ], [ %59, %47 ]
+  %.0101 = phi float [ %55, %63 ], [ %68, %65 ], [ %55, %47 ]
+  %.199 = phi ptr [ %49, %63 ], [ %.098155, %65 ], [ %49, %47 ]
+  %.196 = phi float [ %.095157, %63 ], [ %80, %65 ], [ %.095157, %47 ]
+  %.1 = phi float [ %.0158, %63 ], [ %77, %65 ], [ %.0158, %47 ]
   %.0102 = fptosi float %.0102.in to i32
-  %79 = sub i32 0, %.0102
+  %82 = sub i32 0, %.0102
   %.1105 = fptosi float %.1105.in to i32
-  %80 = getelementptr inbounds i8, ptr %45, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %83
+  %83 = getelementptr inbounds i8, ptr %43, i64 32
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %86
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %45, i64 12
-  %85 = load i16, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %45, i64 8
-  %87 = load i16, ptr %86, align 8
-  %88 = icmp eq i16 %85, %87
-  br i1 %88, label %89, label %181
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds i8, ptr %43, i64 12
+  %88 = load i16, ptr %87, align 4
+  %89 = getelementptr inbounds i8, ptr %43, i64 8
+  %90 = load i16, ptr %89, align 8
+  %91 = icmp eq i16 %88, %90
+  br i1 %91, label %92, label %184
 
-89:                                               ; preds = %83
-  %90 = icmp ult i16 %85, 33
-  %91 = getelementptr inbounds i8, ptr %45, i64 10
-  %92 = load i16, ptr %91, align 2
-  br i1 %90, label %93, label %._crit_edge
+92:                                               ; preds = %86
+  %93 = icmp ult i16 %88, 33
+  %94 = getelementptr inbounds i8, ptr %43, i64 10
+  %95 = load i16, ptr %94, align 2
+  br i1 %93, label %96, label %._crit_edge
 
-._crit_edge:                                      ; preds = %89
+._crit_edge:                                      ; preds = %92
   %.pre165 = load i32, ptr @glyphMode, align 4
-  br label %151
+  br label %154
 
-93:                                               ; preds = %89
-  %94 = icmp ult i16 %92, 33
+96:                                               ; preds = %92
+  %97 = icmp ult i16 %95, 33
   %.pre166 = load i32, ptr @glyphMode, align 4
-  br i1 %94, label %95, label %151
+  br i1 %97, label %98, label %154
 
-95:                                               ; preds = %93
+98:                                               ; preds = %96
   switch i32 %.pre166, label %OGLTR_DisableGlyphModeState.exit.i [
-    i32 1, label %107
-    i32 4, label %96
-    i32 2, label %99
+    i32 1, label %110
+    i32 4, label %99
+    i32 2, label %102
   ]
 
-96:                                               ; preds = %95
-  %97 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %97(i32 noundef 3316, i32 noundef 0) #5
-  %98 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %98(i32 noundef 3315, i32 noundef 0) #5
-  br label %99
-
-99:                                               ; preds = %96, %95
+99:                                               ; preds = %98
   %100 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %100(i32 noundef 3314, i32 noundef 0) #5
+  tail call void %100(i32 noundef 3316, i32 noundef 0) #5
   %101 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %101(i32 noundef 3317, i32 noundef 4) #5
-  %102 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %102(i32 noundef 0) #5
-  %103 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %103(i32 noundef 33985) #5
-  %104 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %104(i32 noundef 3553) #5
-  %105 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %105(i32 noundef 33984) #5
-  %106 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %106(i32 noundef 3553) #5
+  tail call void %101(i32 noundef 3315, i32 noundef 0) #5
+  br label %102
+
+102:                                              ; preds = %99, %98
+  %103 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %103(i32 noundef 3314, i32 noundef 0) #5
+  %104 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %104(i32 noundef 3317, i32 noundef 4) #5
+  %105 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %105(i32 noundef 0) #5
+  %106 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %106(i32 noundef 33985) #5
+  %107 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %107(i32 noundef 3553) #5
+  %108 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %108(i32 noundef 33984) #5
+  %109 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %109(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit.i
 
-OGLTR_DisableGlyphModeState.exit.i:               ; preds = %99, %95
+OGLTR_DisableGlyphModeState.exit.i:               ; preds = %102, %98
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -4) #5
   store i32 1, ptr @glyphMode, align 4
-  br label %107
+  br label %110
 
-107:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i, %95
-  %108 = getelementptr inbounds i8, ptr %45, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %130
+110:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i, %98
+  %111 = getelementptr inbounds i8, ptr %43, i64 24
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %133
 
-111:                                              ; preds = %107
+114:                                              ; preds = %110
   %glyphCacheAA.val.i.i = load ptr, ptr @glyphCacheAA, align 8
-  %112 = icmp eq ptr %glyphCacheAA.val.i.i, null
-  br i1 %112, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %113
-
-113:                                              ; preds = %111
-  %114 = load ptr, ptr %80, align 8
-  %115 = icmp eq ptr %114, null
+  %115 = icmp eq ptr %glyphCacheAA.val.i.i, null
   br i1 %115, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %116
 
-116:                                              ; preds = %113
-  %117 = tail call ptr @AccelGlyphCache_AddGlyph(ptr noundef nonnull %glyphCacheAA.val.i.i, ptr noundef nonnull %45) #5
-  %118 = load ptr, ptr %108, align 8
-  %.not.i.i = icmp eq ptr %118, null
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %83, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %119
+
+119:                                              ; preds = %116
+  %120 = tail call ptr @AccelGlyphCache_AddGlyph(ptr noundef nonnull %glyphCacheAA.val.i.i, ptr noundef nonnull %43) #5
+  %121 = load ptr, ptr %111, align 8
+  %.not.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %OGLTR_AddToGlyphCache.exit.i
 
-OGLTR_AddToGlyphCache.exit.i:                     ; preds = %116
-  %119 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %120 = getelementptr inbounds i8, ptr %118, i64 36
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %118, i64 40
-  %123 = load i32, ptr %122, align 8
-  %124 = load i16, ptr %86, align 8
-  %125 = zext i16 %124 to i32
-  %126 = load i16, ptr %91, align 2
-  %127 = zext i16 %126 to i32
-  %128 = load ptr, ptr %80, align 8
-  tail call void %119(i32 noundef 3553, i32 noundef 0, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef 6409, i32 noundef 5121, ptr noundef %128) #5
-  %.pr.pre.i = load ptr, ptr %108, align 8
-  %129 = icmp eq ptr %.pr.pre.i, null
-  br i1 %129, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %130
+OGLTR_AddToGlyphCache.exit.i:                     ; preds = %119
+  %122 = load ptr, ptr @j2d_glTexSubImage2D, align 8
+  %123 = getelementptr inbounds i8, ptr %121, i64 36
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds i8, ptr %121, i64 40
+  %126 = load i32, ptr %125, align 8
+  %127 = load i16, ptr %89, align 8
+  %128 = zext i16 %127 to i32
+  %129 = load i16, ptr %94, align 2
+  %130 = zext i16 %129 to i32
+  %131 = load ptr, ptr %83, align 8
+  tail call void %122(i32 noundef 3553, i32 noundef 0, i32 noundef %124, i32 noundef %126, i32 noundef %128, i32 noundef %130, i32 noundef 6409, i32 noundef 5121, ptr noundef %131) #5
+  %.pr.pre.i = load ptr, ptr %111, align 8
+  %132 = icmp eq ptr %.pr.pre.i, null
+  br i1 %132, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %133
 
-130:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i, %107
-  %131 = phi ptr [ %.pr.pre.i, %OGLTR_AddToGlyphCache.exit.i ], [ %109, %107 ]
-  %132 = getelementptr inbounds i8, ptr %131, i64 32
-  %133 = load i32, ptr %132, align 8
-  %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %132, align 8
-  %135 = sitofp i32 %.1105 to float
-  %136 = sitofp i32 %.0102 to float
-  %137 = load i16, ptr %86, align 8
-  %138 = uitofp i16 %137 to float
-  %139 = fadd float %135, %138
-  %140 = load i16, ptr %91, align 2
+133:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i, %110
+  %134 = phi ptr [ %.pr.pre.i, %OGLTR_AddToGlyphCache.exit.i ], [ %112, %110 ]
+  %135 = getelementptr inbounds i8, ptr %134, i64 32
+  %136 = load i32, ptr %135, align 8
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %135, align 8
+  %138 = sitofp i32 %.1105 to float
+  %139 = sitofp i32 %.0102 to float
+  %140 = load i16, ptr %89, align 8
   %141 = uitofp i16 %140 to float
-  %142 = fadd float %136, %141
-  %143 = getelementptr inbounds i8, ptr %131, i64 52
-  %144 = load float, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %131, i64 56
-  %146 = load float, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %131, i64 60
-  %148 = load float, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %131, i64 64
-  %150 = load float, ptr %149, align 8
-  tail call void @OGLVertexCache_AddGlyphQuad(ptr noundef %1, float noundef %144, float noundef %146, float noundef %148, float noundef %150, float noundef %135, float noundef %136, float noundef %139, float noundef %142) #5
+  %142 = fadd float %138, %141
+  %143 = load i16, ptr %94, align 2
+  %144 = uitofp i16 %143 to float
+  %145 = fadd float %139, %144
+  %146 = getelementptr inbounds i8, ptr %134, i64 52
+  %147 = load float, ptr %146, align 4
+  %148 = getelementptr inbounds i8, ptr %134, i64 56
+  %149 = load float, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %134, i64 60
+  %151 = load float, ptr %150, align 4
+  %152 = getelementptr inbounds i8, ptr %134, i64 64
+  %153 = load float, ptr %152, align 8
+  tail call void @OGLVertexCache_AddGlyphQuad(ptr noundef %1, float noundef %147, float noundef %149, float noundef %151, float noundef %153, float noundef %138, float noundef %139, float noundef %142, float noundef %145) #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
 
-151:                                              ; preds = %._crit_edge, %93
-  %152 = phi i32 [ %.pre165, %._crit_edge ], [ %.pre166, %93 ]
-  %153 = zext i16 %85 to i32
-  %154 = zext i16 %92 to i32
-  switch i32 %152, label %OGLTR_DisableGlyphModeState.exit.i128 [
-    i32 3, label %166
-    i32 4, label %155
-    i32 2, label %158
+154:                                              ; preds = %._crit_edge, %96
+  %155 = phi i32 [ %.pre165, %._crit_edge ], [ %.pre166, %96 ]
+  %156 = zext i16 %88 to i32
+  %157 = zext i16 %95 to i32
+  switch i32 %155, label %OGLTR_DisableGlyphModeState.exit.i128 [
+    i32 3, label %169
+    i32 4, label %158
+    i32 2, label %161
   ]
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %156(i32 noundef 3316, i32 noundef 0) #5
-  %157 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %157(i32 noundef 3315, i32 noundef 0) #5
-  br label %158
-
-158:                                              ; preds = %155, %151
+158:                                              ; preds = %154
   %159 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %159(i32 noundef 3314, i32 noundef 0) #5
+  tail call void %159(i32 noundef 3316, i32 noundef 0) #5
   %160 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %160(i32 noundef 3317, i32 noundef 4) #5
-  %161 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %161(i32 noundef 0) #5
-  %162 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %162(i32 noundef 33985) #5
-  %163 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %163(i32 noundef 3553) #5
-  %164 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %164(i32 noundef 33984) #5
-  %165 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %165(i32 noundef 3553) #5
+  tail call void %160(i32 noundef 3315, i32 noundef 0) #5
+  br label %161
+
+161:                                              ; preds = %158, %154
+  %162 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %162(i32 noundef 3314, i32 noundef 0) #5
+  %163 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %163(i32 noundef 3317, i32 noundef 4) #5
+  %164 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %164(i32 noundef 0) #5
+  %165 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %165(i32 noundef 33985) #5
+  %166 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %166(i32 noundef 3553) #5
+  %167 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %167(i32 noundef 33984) #5
+  %168 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %168(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit.i128
 
-OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %158, %151
+OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -3) #5
   store i32 3, ptr @glyphMode, align 4
-  br label %166
+  br label %169
 
-166:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i128, %151
-  %.not.i = icmp eq i16 %92, 0
-  %.not48.i = icmp eq i16 %85, 0
+169:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i128, %154
+  %.not.i = icmp eq i16 %95, 0
+  %.not48.i = icmp eq i16 %88, 0
   %or.cond148 = or i1 %.not48.i, %.not.i
   br i1 %or.cond148, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %166, %._crit_edge.us.i
-  %.03644.us.i = phi i32 [ %179, %._crit_edge.us.i ], [ %.0102, %166 ]
-  %.03843.us.i = phi i32 [ %167, %._crit_edge.us.i ], [ 0, %166 ]
-  %167 = add nuw nsw i32 %.03843.us.i, 32
-  %168 = icmp ugt i32 %167, %154
-  %169 = sub nuw nsw i32 %154, %.03843.us.i
-  %170 = select i1 %168, i32 %169, i32 32
-  br label %171
+.lr.ph.us.i:                                      ; preds = %169, %._crit_edge.us.i
+  %.03644.us.i = phi i32 [ %182, %._crit_edge.us.i ], [ %.0102, %169 ]
+  %.03843.us.i = phi i32 [ %170, %._crit_edge.us.i ], [ 0, %169 ]
+  %170 = add nuw nsw i32 %.03843.us.i, 32
+  %171 = icmp ugt i32 %170, %157
+  %172 = sub nuw nsw i32 %157, %.03843.us.i
+  %173 = select i1 %171, i32 %172, i32 32
+  br label %174
 
-171:                                              ; preds = %171, %.lr.ph.us.i
-  %.042.us.i = phi i32 [ %.1105, %.lr.ph.us.i ], [ %177, %171 ]
-  %.03741.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %172, %171 ]
-  %172 = add nuw nsw i32 %.03741.us.i, 32
-  %173 = icmp ugt i32 %172, %153
-  %174 = sub nuw nsw i32 %153, %.03741.us.i
-  %175 = select i1 %173, i32 %174, i32 32
-  %176 = load ptr, ptr %80, align 8
-  tail call void @OGLVertexCache_AddMaskQuad(ptr noundef %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %175, i32 noundef %170, i32 noundef %153, ptr noundef %176) #5
-  %177 = add nsw i32 %.042.us.i, 32
-  %178 = icmp ult i32 %172, %153
-  br i1 %178, label %171, label %._crit_edge.us.i, !llvm.loop !6
+174:                                              ; preds = %174, %.lr.ph.us.i
+  %.042.us.i = phi i32 [ %.1105, %.lr.ph.us.i ], [ %180, %174 ]
+  %.03741.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %175, %174 ]
+  %175 = add nuw nsw i32 %.03741.us.i, 32
+  %176 = icmp ugt i32 %175, %156
+  %177 = sub nuw nsw i32 %156, %.03741.us.i
+  %178 = select i1 %176, i32 %177, i32 32
+  %179 = load ptr, ptr %83, align 8
+  tail call void @OGLVertexCache_AddMaskQuad(ptr noundef %1, i32 noundef %.03741.us.i, i32 noundef %.03843.us.i, i32 noundef %.042.us.i, i32 noundef %.03644.us.i, i32 noundef %178, i32 noundef %173, i32 noundef %156, ptr noundef %179) #5
+  %180 = add nsw i32 %.042.us.i, 32
+  %181 = icmp ult i32 %175, %156
+  br i1 %181, label %174, label %._crit_edge.us.i, !llvm.loop !6
 
-._crit_edge.us.i:                                 ; preds = %171
-  %179 = add nsw i32 %.03644.us.i, 32
-  %180 = icmp ult i32 %167, %154
-  br i1 %180, label %.lr.ph.us.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !8
+._crit_edge.us.i:                                 ; preds = %174
+  %182 = add nsw i32 %.03644.us.i, 32
+  %183 = icmp ult i32 %170, %157
+  br i1 %183, label %.lr.ph.us.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !8
 
-181:                                              ; preds = %83
-  %182 = zext i16 %87 to i32
-  %183 = zext i16 %85 to i32
-  %184 = shl nuw nsw i32 %182, 2
-  %185 = icmp eq i32 %184, %183
-  br i1 %185, label %186, label %212
+184:                                              ; preds = %86
+  %185 = zext i16 %90 to i32
+  %186 = zext i16 %88 to i32
+  %187 = shl nuw nsw i32 %185, 2
+  %188 = icmp eq i32 %187, %186
+  br i1 %188, label %189, label %215
 
-186:                                              ; preds = %181
-  %187 = load i32, ptr @glyphMode, align 4
-  switch i32 %187, label %OGLTR_DisableGlyphModeState.exit.i129 [
+189:                                              ; preds = %184
+  %190 = load i32, ptr @glyphMode, align 4
+  switch i32 %190, label %OGLTR_DisableGlyphModeState.exit.i129 [
     i32 5, label %OGLTR_DrawColorGlyphNoCache.exit
-    i32 4, label %188
-    i32 2, label %191
+    i32 4, label %191
+    i32 2, label %194
   ]
 
-188:                                              ; preds = %186
-  %189 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %189(i32 noundef 3316, i32 noundef 0) #5
-  %190 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %190(i32 noundef 3315, i32 noundef 0) #5
-  br label %191
-
-191:                                              ; preds = %188, %186
+191:                                              ; preds = %189
   %192 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %192(i32 noundef 3314, i32 noundef 0) #5
+  tail call void %192(i32 noundef 3316, i32 noundef 0) #5
   %193 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %193(i32 noundef 3317, i32 noundef 4) #5
-  %194 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %194(i32 noundef 0) #5
-  %195 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %195(i32 noundef 33985) #5
-  %196 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %196(i32 noundef 3553) #5
-  %197 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %197(i32 noundef 33984) #5
-  %198 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %198(i32 noundef 3553) #5
+  tail call void %193(i32 noundef 3315, i32 noundef 0) #5
+  br label %194
+
+194:                                              ; preds = %191, %189
+  %195 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %195(i32 noundef 3314, i32 noundef 0) #5
+  %196 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %196(i32 noundef 3317, i32 noundef 4) #5
+  %197 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %197(i32 noundef 0) #5
+  %198 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %198(i32 noundef 33985) #5
+  %199 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %199(i32 noundef 3553) #5
+  %200 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %200(i32 noundef 33984) #5
+  %201 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %201(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit.i129
 
-OGLTR_DisableGlyphModeState.exit.i129:            ; preds = %191, %186
+OGLTR_DisableGlyphModeState.exit.i129:            ; preds = %194, %189
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #5
   store i32 5, ptr @glyphMode, align 4
   br label %OGLTR_DrawColorGlyphNoCache.exit
 
-OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %186, %OGLTR_DisableGlyphModeState.exit.i129
-  %199 = load ptr, ptr @j2d_glRasterPos2i, align 8
-  tail call void %199(i32 noundef 0, i32 noundef 0) #5
-  %200 = load ptr, ptr @j2d_glBitmap, align 8
-  %201 = sitofp i32 %.1105 to float
-  %202 = sitofp i32 %79 to float
-  tail call void %200(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %201, float noundef %202, ptr noundef null) #5
-  %203 = load ptr, ptr @j2d_glPixelZoom, align 8
-  tail call void %203(float noundef 1.000000e+00, float noundef -1.000000e+00) #5
-  %204 = load ptr, ptr @j2d_glDrawPixels, align 8
-  %205 = load i16, ptr %86, align 8
-  %206 = zext i16 %205 to i32
-  %207 = getelementptr inbounds i8, ptr %45, i64 10
-  %208 = load i16, ptr %207, align 2
+OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %189, %OGLTR_DisableGlyphModeState.exit.i129
+  %202 = load ptr, ptr @j2d_glRasterPos2i, align 8
+  tail call void %202(i32 noundef 0, i32 noundef 0) #5
+  %203 = load ptr, ptr @j2d_glBitmap, align 8
+  %204 = sitofp i32 %.1105 to float
+  %205 = sitofp i32 %82 to float
+  tail call void %203(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %204, float noundef %205, ptr noundef null) #5
+  %206 = load ptr, ptr @j2d_glPixelZoom, align 8
+  tail call void %206(float noundef 1.000000e+00, float noundef -1.000000e+00) #5
+  %207 = load ptr, ptr @j2d_glDrawPixels, align 8
+  %208 = load i16, ptr %89, align 8
   %209 = zext i16 %208 to i32
-  %210 = load ptr, ptr %80, align 8
-  tail call void %204(i32 noundef %206, i32 noundef %209, i32 noundef 32993, i32 noundef 5121, ptr noundef %210) #5
-  %211 = load ptr, ptr @j2d_glPixelZoom, align 8
-  tail call void %211(float noundef 1.000000e+00, float noundef 1.000000e+00) #5
+  %210 = getelementptr inbounds i8, ptr %43, i64 10
+  %211 = load i16, ptr %210, align 2
+  %212 = zext i16 %211 to i32
+  %213 = load ptr, ptr %83, align 8
+  tail call void %207(i32 noundef %209, i32 noundef %212, i32 noundef 32993, i32 noundef 5121, ptr noundef %213) #5
+  %214 = load ptr, ptr @j2d_glPixelZoom, align 8
+  tail call void %214(float noundef 1.000000e+00, float noundef 1.000000e+00) #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
 
-212:                                              ; preds = %181
-  br i1 %.not125, label %.thread, label %213
+215:                                              ; preds = %184
+  br i1 %.not125, label %.thread, label %216
 
-213:                                              ; preds = %212
-  %214 = sitofp i32 %.1105 to float
-  %215 = fsub float %.0101, %214
-  %216 = fmul float %215, 3.000000e+00
-  %217 = fptosi float %216 to i32
-  %.not126 = icmp eq i32 %217, 0
-  br i1 %.not126, label %.thread, label %218
+216:                                              ; preds = %215
+  %217 = sitofp i32 %.1105 to float
+  %218 = fsub float %.0101, %217
+  %219 = fmul float %218, 3.000000e+00
+  %220 = fptosi float %219 to i32
+  %.not126 = icmp eq i32 %220, 0
+  br i1 %.not126, label %.thread, label %221
 
-218:                                              ; preds = %213
-  %219 = sub nsw i32 3, %217
-  %220 = add nsw i32 %.1105, 1
-  %221 = icmp eq i32 %217, 3
-  br i1 %221, label %.thread, label %413
+221:                                              ; preds = %216
+  %222 = sub nsw i32 3, %220
+  %223 = add nsw i32 %.1105, 1
+  %224 = icmp eq i32 %220, 3
+  br i1 %224, label %.thread, label %412
 
-.thread:                                          ; preds = %212, %213, %218
-  %.3142 = phi i32 [ %220, %218 ], [ %.1105, %213 ], [ %.1105, %212 ]
-  %222 = icmp ult i16 %87, 33
-  br i1 %222, label %223, label %413
+.thread:                                          ; preds = %215, %216, %221
+  %.3142 = phi i32 [ %223, %221 ], [ %.1105, %216 ], [ %.1105, %215 ]
+  %225 = icmp ult i16 %90, 33
+  br i1 %225, label %226, label %412
 
-223:                                              ; preds = %.thread
-  %224 = getelementptr inbounds i8, ptr %45, i64 10
-  %225 = load i16, ptr %224, align 2
-  %226 = icmp ult i16 %225, 33
-  br i1 %226, label %227, label %413
+226:                                              ; preds = %.thread
+  %227 = getelementptr inbounds i8, ptr %43, i64 10
+  %228 = load i16, ptr %227, align 2
+  %229 = icmp ult i16 %228, 33
+  br i1 %229, label %230, label %412
 
-227:                                              ; preds = %223
-  %228 = load i32, ptr @glyphMode, align 4
-  switch i32 %228, label %OGLTR_DisableGlyphModeState.exit.i130 [
-    i32 2, label %253
-    i32 4, label %229
+230:                                              ; preds = %226
+  %231 = load i32, ptr @glyphMode, align 4
+  switch i32 %231, label %OGLTR_DisableGlyphModeState.exit.i130 [
+    i32 2, label %256
+    i32 4, label %232
   ]
 
-229:                                              ; preds = %227
-  %230 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %230(i32 noundef 3316, i32 noundef 0) #5
-  %231 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %231(i32 noundef 3315, i32 noundef 0) #5
-  %232 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %232(i32 noundef 3314, i32 noundef 0) #5
+232:                                              ; preds = %230
   %233 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %233(i32 noundef 3317, i32 noundef 4) #5
-  %234 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %234(i32 noundef 0) #5
-  %235 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %235(i32 noundef 33985) #5
-  %236 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %236(i32 noundef 3553) #5
-  %237 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %237(i32 noundef 33984) #5
-  %238 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %238(i32 noundef 3553) #5
+  tail call void %233(i32 noundef 3316, i32 noundef 0) #5
+  %234 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %234(i32 noundef 3315, i32 noundef 0) #5
+  %235 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %235(i32 noundef 3314, i32 noundef 0) #5
+  %236 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %236(i32 noundef 3317, i32 noundef 4) #5
+  %237 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %237(i32 noundef 0) #5
+  %238 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %238(i32 noundef 33985) #5
+  %239 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %239(i32 noundef 3553) #5
+  %240 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %240(i32 noundef 33984) #5
+  %241 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %241(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit.i130
 
-OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %229, %227
+OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 3553) #5
-  %239 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %239(i32 noundef 3317, i32 noundef 1) #5
-  %240 = load ptr, ptr @glyphCacheLCD, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %242, label %244
+  %242 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %242(i32 noundef 3317, i32 noundef 1) #5
+  %243 = load ptr, ptr @glyphCacheLCD, align 8
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %245, label %247
 
-242:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i130
-  %243 = tail call fastcc zeroext i8 @OGLTR_InitGlyphCache(i8 noundef zeroext 1)
-  %.not76.i = icmp eq i8 %243, 0
+245:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i130
+  %246 = tail call fastcc zeroext i8 @OGLTR_InitGlyphCache(i8 noundef zeroext 1)
+  %.not76.i = icmp eq i8 %246, 0
   br i1 %.not76.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %242
+._crit_edge.i:                                    ; preds = %245
   %.pre3.pre.i = load ptr, ptr @glyphCacheLCD, align 8
-  br label %244
+  br label %247
 
-244:                                              ; preds = %._crit_edge.i, %OGLTR_DisableGlyphModeState.exit.i130
-  %.pre3.i = phi ptr [ %.pre3.pre.i, %._crit_edge.i ], [ %240, %OGLTR_DisableGlyphModeState.exit.i130 ]
-  %245 = load i8, ptr @lastRGBOrder, align 1
-  %.not77.i = icmp eq i8 %245, %6
-  br i1 %.not77.i, label %247, label %246
+247:                                              ; preds = %._crit_edge.i, %OGLTR_DisableGlyphModeState.exit.i130
+  %.pre3.i = phi ptr [ %.pre3.pre.i, %._crit_edge.i ], [ %243, %OGLTR_DisableGlyphModeState.exit.i130 ]
+  %248 = load i8, ptr @lastRGBOrder, align 1
+  %.not77.i = icmp eq i8 %248, %6
+  br i1 %.not77.i, label %250, label %249
 
-246:                                              ; preds = %244
+249:                                              ; preds = %247
   tail call void @AccelGlyphCache_Invalidate(ptr noundef %.pre3.i) #5
   store i8 %6, ptr @lastRGBOrder, align 1
   %.pre.i = load ptr, ptr @glyphCacheLCD, align 8
-  br label %247
+  br label %250
 
-247:                                              ; preds = %246, %244
-  %248 = phi ptr [ %.pre.i, %246 ], [ %.pre3.i, %244 ]
-  %249 = getelementptr inbounds i8, ptr %248, i64 16
-  %250 = load i32, ptr %249, align 8
-  %251 = tail call fastcc zeroext i8 @OGLTR_EnableLCDGlyphModeState(i32 noundef %250, i32 noundef %.0106, i32 noundef %7)
-  %.not78.i = icmp eq i8 %251, 0
-  br i1 %.not78.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %252
+250:                                              ; preds = %249, %247
+  %251 = phi ptr [ %.pre.i, %249 ], [ %.pre3.i, %247 ]
+  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %253 = load i32, ptr %252, align 8
+  %254 = tail call fastcc zeroext i8 @OGLTR_EnableLCDGlyphModeState(i32 noundef %253, i32 noundef %.0106, i32 noundef %7)
+  %.not78.i = icmp eq i8 %254, 0
+  br i1 %.not78.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %255
 
-252:                                              ; preds = %247
+255:                                              ; preds = %250
   store i32 2, ptr @glyphMode, align 4
-  br label %253
+  br label %256
 
-253:                                              ; preds = %252, %227
-  %254 = getelementptr inbounds i8, ptr %45, i64 24
-  %255 = load ptr, ptr %254, align 8
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %257, label %282
+256:                                              ; preds = %255, %230
+  %257 = getelementptr inbounds i8, ptr %43, i64 24
+  %258 = load ptr, ptr %257, align 8
+  %259 = icmp eq ptr %258, null
+  br i1 %259, label %260, label %285
 
-257:                                              ; preds = %253
-  %258 = load ptr, ptr @j2d_glPixelStorei, align 8
-  %259 = load i16, ptr %84, align 4
-  %260 = udiv i16 %259, 3
-  %261 = zext nneg i16 %260 to i32
-  tail call void %258(i32 noundef 3314, i32 noundef %261) #5
-  %262 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %262(i32 noundef 33984) #5
+260:                                              ; preds = %256
+  %261 = load ptr, ptr @j2d_glPixelStorei, align 8
+  %262 = load i16, ptr %87, align 4
+  %263 = udiv i16 %262, 3
+  %264 = zext nneg i16 %263 to i32
+  tail call void %261(i32 noundef 3314, i32 noundef %264) #5
+  %265 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %265(i32 noundef 33984) #5
   %glyphCacheLCD.val.i.i = load ptr, ptr @glyphCacheLCD, align 8
-  %263 = icmp eq ptr %glyphCacheLCD.val.i.i, null
-  br i1 %263, label %OGLTR_AddToGlyphCache.exit.i132, label %264
-
-264:                                              ; preds = %257
-  %265 = load ptr, ptr %80, align 8
-  %266 = icmp eq ptr %265, null
+  %266 = icmp eq ptr %glyphCacheLCD.val.i.i, null
   br i1 %266, label %OGLTR_AddToGlyphCache.exit.i132, label %267
 
-267:                                              ; preds = %264
-  %268 = tail call ptr @AccelGlyphCache_AddGlyph(ptr noundef nonnull %glyphCacheLCD.val.i.i, ptr noundef nonnull %45) #5
-  %269 = load ptr, ptr %254, align 8
-  %.not.i.i131 = icmp eq ptr %269, null
-  br i1 %.not.i.i131, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %270
+267:                                              ; preds = %260
+  %268 = load ptr, ptr %83, align 8
+  %269 = icmp eq ptr %268, null
+  br i1 %269, label %OGLTR_AddToGlyphCache.exit.i132, label %270
 
 270:                                              ; preds = %267
-  %271 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %272 = getelementptr inbounds i8, ptr %269, i64 36
-  %273 = load i32, ptr %272, align 4
-  %274 = getelementptr inbounds i8, ptr %269, i64 40
-  %275 = load i32, ptr %274, align 8
-  %276 = load i16, ptr %86, align 8
-  %277 = zext i16 %276 to i32
-  %278 = load i16, ptr %224, align 2
-  %279 = zext i16 %278 to i32
-  %280 = load ptr, ptr %80, align 8
-  tail call void %271(i32 noundef 3553, i32 noundef 0, i32 noundef %273, i32 noundef %275, i32 noundef %277, i32 noundef %279, i32 noundef %32, i32 noundef 5121, ptr noundef %280) #5
+  %271 = tail call ptr @AccelGlyphCache_AddGlyph(ptr noundef nonnull %glyphCacheLCD.val.i.i, ptr noundef nonnull %43) #5
+  %272 = load ptr, ptr %257, align 8
+  %.not.i.i131 = icmp eq ptr %272, null
+  br i1 %.not.i.i131, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %273
+
+273:                                              ; preds = %270
+  %274 = load ptr, ptr @j2d_glTexSubImage2D, align 8
+  %275 = getelementptr inbounds i8, ptr %272, i64 36
+  %276 = load i32, ptr %275, align 4
+  %277 = getelementptr inbounds i8, ptr %272, i64 40
+  %278 = load i32, ptr %277, align 8
+  %279 = load i16, ptr %89, align 8
+  %280 = zext i16 %279 to i32
+  %281 = load i16, ptr %227, align 2
+  %282 = zext i16 %281 to i32
+  %283 = load ptr, ptr %83, align 8
+  tail call void %274(i32 noundef 3553, i32 noundef 0, i32 noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef %282, i32 noundef %32, i32 noundef 5121, ptr noundef %283) #5
   br label %OGLTR_AddToGlyphCache.exit.i132
 
-OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
-  %.pr.i = load ptr, ptr %254, align 8
-  %281 = icmp eq ptr %.pr.i, null
-  br i1 %281, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %282
+OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %273, %267, %260
+  %.pr.i = load ptr, ptr %257, align 8
+  %284 = icmp eq ptr %.pr.i, null
+  br i1 %284, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %285
 
-282:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i132, %253
-  %283 = phi ptr [ %.pr.i, %OGLTR_AddToGlyphCache.exit.i132 ], [ %255, %253 ]
-  %284 = getelementptr inbounds i8, ptr %283, i64 32
-  %285 = load i32, ptr %284, align 8
-  %286 = add nsw i32 %285, 1
-  store i32 %286, ptr %284, align 8
-  %287 = load <2 x i16>, ptr %86, align 8
-  %288 = extractelement <2 x i16> %287, i64 0
-  %289 = zext i16 %288 to i32
-  %290 = add nsw i32 %.3142, %289
-  %291 = extractelement <2 x i16> %287, i64 1
-  %292 = zext i16 %291 to i32
-  %293 = add nsw i32 %292, %.0102
-  br i1 %37, label %294, label %360
+285:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i132, %256
+  %286 = phi ptr [ %.pr.i, %OGLTR_AddToGlyphCache.exit.i132 ], [ %258, %256 ]
+  %287 = getelementptr inbounds i8, ptr %286, i64 32
+  %288 = load i32, ptr %287, align 8
+  %289 = add nsw i32 %288, 1
+  store i32 %289, ptr %287, align 8
+  %290 = load i16, ptr %89, align 8
+  %291 = zext i16 %290 to i32
+  %292 = add nsw i32 %.3142, %291
+  %293 = load i16, ptr %227, align 2
+  %294 = zext i16 %293 to i32
+  %295 = add nsw i32 %294, %.0102
+  br i1 %37, label %296, label %363
 
-294:                                              ; preds = %282
+296:                                              ; preds = %285
   %.b.i.i = load i1, ptr @isCachedDestValid, align 1
   %.b.not.i.i = xor i1 %.b.i.i, true
-  %295 = load i32, ptr @cachedDestBounds.0, align 4
-  %.not.i80.i = icmp sgt i32 %295, %.3142
+  %297 = load i32, ptr @cachedDestBounds.0, align 4
+  %.not.i80.i = icmp sgt i32 %297, %.3142
   %or.cond.i.i = select i1 %.b.not.i.i, i1 true, i1 %.not.i80.i
-  %296 = load i32, ptr @cachedDestBounds.1, align 4
-  %.not64.i.i = icmp sgt i32 %296, %.0102
+  %298 = load i32, ptr @cachedDestBounds.1, align 4
+  %.not64.i.i = icmp sgt i32 %298, %.0102
   %or.cond67.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not64.i.i
-  %297 = load i32, ptr @cachedDestBounds.2, align 4
-  %.not65.i.i = icmp slt i32 %297, %290
+  %299 = load i32, ptr @cachedDestBounds.2, align 4
+  %.not65.i.i = icmp slt i32 %299, %292
   %or.cond68.i.i = select i1 %or.cond67.i.i, i1 true, i1 %.not65.i.i
-  %298 = load i32, ptr @cachedDestBounds.3, align 4
-  %.not66.i.i = icmp slt i32 %298, %293
+  %300 = load i32, ptr @cachedDestBounds.3, align 4
+  %.not66.i.i = icmp slt i32 %300, %295
   %or.cond69.i.i = select i1 %or.cond68.i.i, i1 true, i1 %.not66.i.i
-  br i1 %or.cond69.i.i, label %326, label %299
+  br i1 %or.cond69.i.i, label %328, label %301
 
-299:                                              ; preds = %294
-  %300 = load i32, ptr @previousGlyphBounds.2, align 4
-  %301 = icmp sgt i32 %300, %.3142
-  br i1 %301, label %302, label %OGLTR_UpdateCachedDestination.exit.i
+301:                                              ; preds = %296
+  %302 = load i32, ptr @previousGlyphBounds.2, align 4
+  %303 = icmp sgt i32 %302, %.3142
+  br i1 %303, label %304, label %OGLTR_UpdateCachedDestination.exit.i
 
-302:                                              ; preds = %299
-  %303 = load i32, ptr @previousGlyphBounds.3, align 4
-  %304 = icmp sgt i32 %303, %.0102
-  br i1 %304, label %305, label %OGLTR_UpdateCachedDestination.exit.i
+304:                                              ; preds = %301
+  %305 = load i32, ptr @previousGlyphBounds.3, align 4
+  %306 = icmp sgt i32 %305, %.0102
+  br i1 %306, label %307, label %OGLTR_UpdateCachedDestination.exit.i
 
-305:                                              ; preds = %302
-  %306 = load i32, ptr @previousGlyphBounds.0, align 4
-  %307 = icmp slt i32 %306, %290
-  br i1 %307, label %308, label %OGLTR_UpdateCachedDestination.exit.i
+307:                                              ; preds = %304
+  %308 = load i32, ptr @previousGlyphBounds.0, align 4
+  %309 = icmp slt i32 %308, %292
+  br i1 %309, label %310, label %OGLTR_UpdateCachedDestination.exit.i
 
-308:                                              ; preds = %305
-  %309 = load i32, ptr @previousGlyphBounds.1, align 4
-  %310 = icmp slt i32 %309, %293
-  br i1 %310, label %311, label %OGLTR_UpdateCachedDestination.exit.i
+310:                                              ; preds = %307
+  %311 = load i32, ptr @previousGlyphBounds.1, align 4
+  %312 = icmp slt i32 %311, %295
+  br i1 %312, label %313, label %OGLTR_UpdateCachedDestination.exit.i
 
-311:                                              ; preds = %308
-  %312 = load i32, ptr %34, align 4
-  %313 = add nsw i32 %312, %306
-  %314 = load i32, ptr %35, align 8
-  %315 = load i32, ptr %36, align 8
-  %316 = sub i32 %314, %303
-  %317 = add i32 %316, %315
-  %318 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %318(i32 noundef 33985) #5
-  %319 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
-  %320 = load i32, ptr @cachedDestBounds.0, align 4
-  %321 = sub nsw i32 %306, %320
-  %322 = load i32, ptr @cachedDestBounds.3, align 4
-  %323 = sub nsw i32 %322, %303
-  %324 = sub nsw i32 %300, %306
-  %325 = sub nsw i32 %303, %309
-  tail call void %319(i32 noundef 3553, i32 noundef 0, i32 noundef %321, i32 noundef %323, i32 noundef %313, i32 noundef %317, i32 noundef %324, i32 noundef %325) #5
+313:                                              ; preds = %310
+  %314 = load i32, ptr %34, align 4
+  %315 = add nsw i32 %314, %308
+  %316 = load i32, ptr %35, align 8
+  %317 = load i32, ptr %36, align 8
+  %318 = sub i32 %316, %305
+  %319 = add i32 %318, %317
+  %320 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %320(i32 noundef 33985) #5
+  %321 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
+  %322 = load i32, ptr @cachedDestBounds.0, align 4
+  %323 = sub nsw i32 %308, %322
+  %324 = load i32, ptr @cachedDestBounds.3, align 4
+  %325 = sub nsw i32 %324, %305
+  %326 = sub nsw i32 %302, %308
+  %327 = sub nsw i32 %305, %311
+  tail call void %321(i32 noundef 3553, i32 noundef 0, i32 noundef %323, i32 noundef %325, i32 noundef %315, i32 noundef %319, i32 noundef %326, i32 noundef %327) #5
   %.pre4.i = load i32, ptr @cachedDestBounds.0, align 4
   %.pre5.i = load i32, ptr @cachedDestBounds.3, align 4
   br label %OGLTR_UpdateCachedDestination.exit.i
 
-326:                                              ; preds = %294
-  %327 = load float, ptr %45, align 8
-  %328 = fcmp ogt float %327, 0.000000e+00
-  br i1 %328, label %329, label %336
+328:                                              ; preds = %296
+  %329 = load float, ptr %43, align 8
+  %330 = fcmp ogt float %329, 0.000000e+00
+  br i1 %330, label %331, label %338
 
-329:                                              ; preds = %326
-  %330 = sub nsw i32 %3, %.0107151
-  %331 = sitofp i32 %330 to float
-  %332 = fmul float %327, %331
-  %333 = fptosi float %332 to i32
-  %334 = icmp sgt i32 %333, 512
-  br i1 %334, label %336, label %335
+331:                                              ; preds = %328
+  %332 = sub nsw i32 %3, %.0107151
+  %333 = sitofp i32 %332 to float
+  %334 = fmul float %329, %333
+  %335 = fptosi float %334 to i32
+  %336 = icmp sgt i32 %335, 512
+  br i1 %336, label %338, label %337
 
-335:                                              ; preds = %329
-  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %333, i32 %289)
-  br label %336
+337:                                              ; preds = %331
+  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %335, i32 %291)
+  br label %338
 
-336:                                              ; preds = %335, %329, %326
-  %.0.i.i = phi i32 [ 512, %329 ], [ %spec.select.i.i, %335 ], [ %289, %326 ]
-  %337 = add nsw i32 %.0.i.i, %.3142
-  %338 = add nsw i32 %.0102, 34
-  %339 = load i32, ptr %34, align 4
-  %340 = add nsw i32 %339, %.3142
-  %341 = load i32, ptr %35, align 8
-  %342 = load i32, ptr %36, align 8
-  %reass.sub = sub i32 %341, %.0102
-  %343 = add i32 %reass.sub, -34
-  %344 = add i32 %343, %342
-  %345 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %345(i32 noundef 33985) #5
-  %346 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
-  tail call void %346(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %340, i32 noundef %344, i32 noundef %.0.i.i, i32 noundef 34) #5
+338:                                              ; preds = %337, %331, %328
+  %.0.i.i = phi i32 [ 512, %331 ], [ %spec.select.i.i, %337 ], [ %291, %328 ]
+  %339 = add nsw i32 %.0.i.i, %.3142
+  %340 = add nsw i32 %.0102, 34
+  %341 = load i32, ptr %34, align 4
+  %342 = add nsw i32 %341, %.3142
+  %343 = load i32, ptr %35, align 8
+  %344 = load i32, ptr %36, align 8
+  %reass.sub = sub i32 %343, %.0102
+  %345 = add i32 %reass.sub, -34
+  %346 = add i32 %345, %344
+  %347 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %347(i32 noundef 33985) #5
+  %348 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
+  tail call void %348(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %342, i32 noundef %346, i32 noundef %.0.i.i, i32 noundef 34) #5
   store i32 %.3142, ptr @cachedDestBounds.0, align 4
   store i32 %.0102, ptr @cachedDestBounds.1, align 4
-  store i32 %337, ptr @cachedDestBounds.2, align 4
-  store i32 %338, ptr @cachedDestBounds.3, align 4
+  store i32 %339, ptr @cachedDestBounds.2, align 4
+  store i32 %340, ptr @cachedDestBounds.3, align 4
   store i1 true, ptr @isCachedDestValid, align 1
   br label %OGLTR_UpdateCachedDestination.exit.i
 
-OGLTR_UpdateCachedDestination.exit.i:             ; preds = %336, %311, %308, %305, %302, %299
-  %347 = phi i32 [ %298, %299 ], [ %298, %302 ], [ %298, %305 ], [ %298, %308 ], [ %.pre5.i, %311 ], [ %338, %336 ]
-  %348 = phi i32 [ %295, %299 ], [ %295, %302 ], [ %295, %305 ], [ %295, %308 ], [ %.pre4.i, %311 ], [ %.3142, %336 ]
+OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %307, %304, %301
+  %349 = phi i32 [ %300, %301 ], [ %300, %304 ], [ %300, %307 ], [ %300, %310 ], [ %.pre5.i, %313 ], [ %340, %338 ]
+  %350 = phi i32 [ %297, %301 ], [ %297, %304 ], [ %297, %307 ], [ %297, %310 ], [ %.pre4.i, %313 ], [ %.3142, %338 ]
   store i32 %.3142, ptr @previousGlyphBounds.0, align 4
   store i32 %.0102, ptr @previousGlyphBounds.1, align 4
-  store i32 %290, ptr @previousGlyphBounds.2, align 4
-  store i32 %293, ptr @previousGlyphBounds.3, align 4
-  %349 = insertelement <4 x i32> poison, i32 %347, i64 0
-  %350 = insertelement <4 x i32> %349, i32 %290, i64 1
-  %351 = insertelement <4 x i32> %350, i32 %.3142, i64 3
-  %352 = shufflevector <4 x i32> %351, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %353 = insertelement <4 x i32> poison, i32 %293, i64 0
-  %354 = insertelement <4 x i32> %353, i32 %348, i64 1
-  %355 = insertelement <4 x i32> %354, i32 %.0102, i64 2
-  %356 = shufflevector <4 x i32> %355, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %357 = sub nsw <4 x i32> %352, %356
-  %358 = sitofp <4 x i32> %357 to <4 x float>
-  %359 = fmul <4 x float> %358, <float 1.562500e-02, float 0x3F60000000000000, float 1.562500e-02, float 0x3F60000000000000>
-  br label %381
+  store i32 %292, ptr @previousGlyphBounds.2, align 4
+  store i32 %295, ptr @previousGlyphBounds.3, align 4
+  %351 = sub nsw i32 %.3142, %350
+  %352 = sitofp i32 %351 to float
+  %353 = fmul float %352, 0x3F60000000000000
+  %354 = sub nsw i32 %349, %.0102
+  %355 = sitofp i32 %354 to float
+  %356 = fmul float %355, 1.562500e-02
+  %357 = sub nsw i32 %292, %350
+  %358 = sitofp i32 %357 to float
+  %359 = fmul float %358, 0x3F60000000000000
+  %360 = sub nsw i32 %349, %295
+  %361 = sitofp i32 %360 to float
+  %362 = fmul float %361, 1.562500e-02
+  br label %385
 
-360:                                              ; preds = %282
-  %361 = load i32, ptr %34, align 4
-  %362 = load i32, ptr %35, align 8
-  %363 = load i32, ptr %36, align 8
-  %364 = sub i32 %362, %293
-  %365 = uitofp <2 x i16> %287 to <2 x float>
-  %366 = insertelement <2 x i32> poison, i32 %361, i64 0
-  %367 = insertelement <2 x i32> %366, i32 %363, i64 1
-  %368 = insertelement <2 x i32> poison, i32 %.3142, i64 0
-  %369 = insertelement <2 x i32> %368, i32 %364, i64 1
-  %370 = add <2 x i32> %367, %369
-  %371 = sitofp <2 x i32> %370 to <2 x float>
-  %372 = fadd <2 x float> %365, %371
-  %373 = load <2 x i32>, ptr %38, align 8
-  %374 = sitofp <2 x i32> %373 to <2 x float>
-  %375 = shufflevector <2 x float> %374, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
-  %376 = shufflevector <2 x float> %371, <2 x float> %372, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %377 = shufflevector <2 x float> %371, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %378 = shufflevector <4 x float> %376, <4 x float> %377, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %379 = fdiv <4 x float> %378, %375
-  %380 = load ptr, ptr @j2d_glTextureBarrierNV, align 8
-  tail call void %380() #5
-  br label %381
+363:                                              ; preds = %285
+  %364 = load i32, ptr %34, align 4
+  %365 = add nsw i32 %364, %.3142
+  %366 = load i32, ptr %35, align 8
+  %367 = load i32, ptr %36, align 8
+  %368 = sub i32 %366, %295
+  %369 = add i32 %368, %367
+  %370 = sitofp i32 %365 to float
+  %371 = load i32, ptr %38, align 8
+  %372 = sitofp i32 %371 to float
+  %373 = fdiv float %370, %372
+  %374 = uitofp i16 %290 to float
+  %375 = fadd float %374, %370
+  %376 = fdiv float %375, %372
+  %377 = sitofp i32 %369 to float
+  %378 = uitofp i16 %293 to float
+  %379 = fadd float %378, %377
+  %380 = load i32, ptr %39, align 4
+  %381 = sitofp i32 %380 to float
+  %382 = fdiv float %379, %381
+  %383 = fdiv float %377, %381
+  %384 = load ptr, ptr @j2d_glTextureBarrierNV, align 8
+  tail call void %384() #5
+  br label %385
 
-381:                                              ; preds = %360, %OGLTR_UpdateCachedDestination.exit.i
-  %382 = phi <4 x float> [ %359, %OGLTR_UpdateCachedDestination.exit.i ], [ %379, %360 ]
-  %383 = load ptr, ptr @j2d_glBegin, align 8
-  tail call void %383(i32 noundef 7) #5
-  %384 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %385 = getelementptr inbounds i8, ptr %283, i64 52
-  %386 = load float, ptr %385, align 4
-  %387 = getelementptr inbounds i8, ptr %283, i64 56
-  %388 = load float, ptr %387, align 8
-  tail call void %384(i32 noundef 33984, float noundef %386, float noundef %388) #5
-  %389 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %390 = extractelement <4 x float> %382, i64 2
-  %391 = extractelement <4 x float> %382, i64 3
-  tail call void %389(i32 noundef 33985, float noundef %391, float noundef %390) #5
-  %392 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %392(i32 noundef %.3142, i32 noundef %.0102) #5
-  %393 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %394 = getelementptr inbounds i8, ptr %283, i64 60
-  %395 = load float, ptr %394, align 4
-  %396 = load float, ptr %387, align 8
-  tail call void %393(i32 noundef 33984, float noundef %395, float noundef %396) #5
-  %397 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %398 = extractelement <4 x float> %382, i64 1
-  tail call void %397(i32 noundef 33985, float noundef %398, float noundef %390) #5
+385:                                              ; preds = %363, %OGLTR_UpdateCachedDestination.exit.i
+  %.075.i = phi float [ %362, %OGLTR_UpdateCachedDestination.exit.i ], [ %383, %363 ]
+  %.074.i = phi float [ %359, %OGLTR_UpdateCachedDestination.exit.i ], [ %376, %363 ]
+  %.073.i = phi float [ %356, %OGLTR_UpdateCachedDestination.exit.i ], [ %382, %363 ]
+  %.072.i = phi float [ %353, %OGLTR_UpdateCachedDestination.exit.i ], [ %373, %363 ]
+  %386 = load ptr, ptr @j2d_glBegin, align 8
+  tail call void %386(i32 noundef 7) #5
+  %387 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  %388 = getelementptr inbounds i8, ptr %286, i64 52
+  %389 = load float, ptr %388, align 4
+  %390 = getelementptr inbounds i8, ptr %286, i64 56
+  %391 = load float, ptr %390, align 8
+  tail call void %387(i32 noundef 33984, float noundef %389, float noundef %391) #5
+  %392 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %392(i32 noundef 33985, float noundef %.072.i, float noundef %.073.i) #5
+  %393 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %393(i32 noundef %.3142, i32 noundef %.0102) #5
+  %394 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  %395 = getelementptr inbounds i8, ptr %286, i64 60
+  %396 = load float, ptr %395, align 4
+  %397 = load float, ptr %390, align 8
+  tail call void %394(i32 noundef 33984, float noundef %396, float noundef %397) #5
+  %398 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %398(i32 noundef 33985, float noundef %.074.i, float noundef %.073.i) #5
   %399 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %399(i32 noundef %290, i32 noundef %.0102) #5
+  tail call void %399(i32 noundef %292, i32 noundef %.0102) #5
   %400 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %401 = load float, ptr %394, align 4
-  %402 = getelementptr inbounds i8, ptr %283, i64 64
+  %401 = load float, ptr %395, align 4
+  %402 = getelementptr inbounds i8, ptr %286, i64 64
   %403 = load float, ptr %402, align 8
   tail call void %400(i32 noundef 33984, float noundef %401, float noundef %403) #5
   %404 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %405 = extractelement <4 x float> %382, i64 0
-  tail call void %404(i32 noundef 33985, float noundef %398, float noundef %405) #5
-  %406 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %406(i32 noundef %290, i32 noundef %293) #5
-  %407 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %408 = load float, ptr %385, align 4
-  %409 = load float, ptr %402, align 8
-  tail call void %407(i32 noundef 33984, float noundef %408, float noundef %409) #5
-  %410 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %410(i32 noundef 33985, float noundef %391, float noundef %405) #5
-  %411 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %411(i32 noundef %.3142, i32 noundef %293) #5
-  %412 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %412() #5
+  tail call void %404(i32 noundef 33985, float noundef %.074.i, float noundef %.075.i) #5
+  %405 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %405(i32 noundef %292, i32 noundef %295) #5
+  %406 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  %407 = load float, ptr %388, align 4
+  %408 = load float, ptr %402, align 8
+  tail call void %406(i32 noundef 33984, float noundef %407, float noundef %408) #5
+  %409 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %409(i32 noundef 33985, float noundef %.072.i, float noundef %.075.i) #5
+  %410 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %410(i32 noundef %.3142, i32 noundef %295) #5
+  %411 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %411() #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
 
-413:                                              ; preds = %223, %.thread, %218
-  %.094144 = phi i32 [ 0, %223 ], [ 0, %.thread ], [ %219, %218 ]
-  %.3143 = phi i32 [ %.3142, %223 ], [ %.3142, %.thread ], [ %220, %218 ]
-  %414 = getelementptr inbounds i8, ptr %45, i64 10
-  %415 = load i16, ptr %414, align 2
-  %416 = zext i16 %415 to i32
-  %417 = load i32, ptr @glyphMode, align 4
-  switch i32 %417, label %OGLTR_DisableGlyphModeState.exit.i134 [
-    i32 4, label %435
-    i32 2, label %418
+412:                                              ; preds = %226, %.thread, %221
+  %.094144 = phi i32 [ 0, %226 ], [ 0, %.thread ], [ %222, %221 ]
+  %.3143 = phi i32 [ %.3142, %226 ], [ %.3142, %.thread ], [ %223, %221 ]
+  %413 = getelementptr inbounds i8, ptr %43, i64 10
+  %414 = load i16, ptr %413, align 2
+  %415 = zext i16 %414 to i32
+  %416 = load i32, ptr @glyphMode, align 4
+  switch i32 %416, label %OGLTR_DisableGlyphModeState.exit.i134 [
+    i32 4, label %434
+    i32 2, label %417
   ]
 
-418:                                              ; preds = %413
+417:                                              ; preds = %412
+  %418 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %418(i32 noundef 3314, i32 noundef 0) #5
   %419 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %419(i32 noundef 3314, i32 noundef 0) #5
-  %420 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %420(i32 noundef 3317, i32 noundef 4) #5
-  %421 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %421(i32 noundef 0) #5
-  %422 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %422(i32 noundef 33985) #5
-  %423 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %423(i32 noundef 3553) #5
-  %424 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %424(i32 noundef 33984) #5
-  %425 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %425(i32 noundef 3553) #5
+  tail call void %419(i32 noundef 3317, i32 noundef 4) #5
+  %420 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %420(i32 noundef 0) #5
+  %421 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %421(i32 noundef 33985) #5
+  %422 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %422(i32 noundef 3553) #5
+  %423 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %423(i32 noundef 33984) #5
+  %424 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %424(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit.i134
 
-OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %418, %413
+OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 3553) #5
-  %426 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %426(i32 noundef 3317, i32 noundef 1) #5
-  %427 = load i32, ptr %33, align 8
-  %428 = icmp eq i32 %427, 0
-  br i1 %428, label %429, label %431
+  %425 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %425(i32 noundef 3317, i32 noundef 1) #5
+  %426 = load i32, ptr %33, align 8
+  %427 = icmp eq i32 %426, 0
+  br i1 %427, label %428, label %430
 
-429:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i134
-  %430 = tail call zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef nonnull %1) #5
-  %.not108.i = icmp eq i8 %430, 0
+428:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i134
+  %429 = tail call zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef nonnull %1) #5
+  %.not108.i = icmp eq i8 %429, 0
   br i1 %.not108.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %._crit_edge.i138
 
-._crit_edge.i138:                                 ; preds = %429
+._crit_edge.i138:                                 ; preds = %428
   %.pre.i139 = load i32, ptr %33, align 8
-  br label %431
+  br label %430
 
-431:                                              ; preds = %._crit_edge.i138, %OGLTR_DisableGlyphModeState.exit.i134
-  %432 = phi i32 [ %.pre.i139, %._crit_edge.i138 ], [ %427, %OGLTR_DisableGlyphModeState.exit.i134 ]
-  %433 = tail call fastcc zeroext i8 @OGLTR_EnableLCDGlyphModeState(i32 noundef %432, i32 noundef %.0106, i32 noundef %7)
-  %.not109.i = icmp eq i8 %433, 0
-  br i1 %.not109.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %434
+430:                                              ; preds = %._crit_edge.i138, %OGLTR_DisableGlyphModeState.exit.i134
+  %431 = phi i32 [ %.pre.i139, %._crit_edge.i138 ], [ %426, %OGLTR_DisableGlyphModeState.exit.i134 ]
+  %432 = tail call fastcc zeroext i8 @OGLTR_EnableLCDGlyphModeState(i32 noundef %431, i32 noundef %.0106, i32 noundef %7)
+  %.not109.i = icmp eq i8 %432, 0
+  br i1 %.not109.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %433
 
-434:                                              ; preds = %431
+433:                                              ; preds = %430
   store i32 4, ptr @glyphMode, align 4
-  %.pre = load i16, ptr %84, align 4
-  br label %435
+  %.pre = load i16, ptr %87, align 4
+  br label %434
 
-435:                                              ; preds = %434, %413
-  %436 = phi i16 [ %.pre, %434 ], [ %85, %413 ]
-  %437 = load ptr, ptr @j2d_glPixelStorei, align 8
-  %438 = udiv i16 %436, 3
-  %439 = zext nneg i16 %438 to i32
-  tail call void %437(i32 noundef 3314, i32 noundef %439) #5
-  %.not121.i = icmp eq i16 %415, 0
+434:                                              ; preds = %433, %412
+  %435 = phi i16 [ %.pre, %433 ], [ %88, %412 ]
+  %436 = load ptr, ptr @j2d_glPixelStorei, align 8
+  %437 = udiv i16 %435, 3
+  %438 = zext nneg i16 %437 to i32
+  tail call void %436(i32 noundef 3314, i32 noundef %438) #5
+  %.not121.i = icmp eq i16 %414, 0
   br i1 %.not121.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %.lr.ph120.i
 
-.lr.ph120.i:                                      ; preds = %435
-  %.not122.i = icmp eq i16 %87, 0
-  %440 = sext i32 %.094144 to i64
+.lr.ph120.i:                                      ; preds = %434
+  %.not122.i = icmp eq i16 %90, 0
+  %439 = sext i32 %.094144 to i64
   br i1 %.not122.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %.lr.ph.us.i135
 
 .lr.ph.us.i135:                                   ; preds = %.lr.ph120.i, %._crit_edge.us.i136
-  %.096118.us.i = phi i32 [ %518, %._crit_edge.us.i136 ], [ %.0102, %.lr.ph120.i ]
-  %.0104115.us.i = phi i32 [ %442, %._crit_edge.us.i136 ], [ 0, %.lr.ph120.i ]
-  %441 = phi <2 x float> [ %517, %._crit_edge.us.i136 ], [ zeroinitializer, %.lr.ph120.i ]
-  %442 = add nuw nsw i32 %.0104115.us.i, 32
-  %443 = icmp ugt i32 %442, %416
-  %444 = sub nuw nsw i32 %416, %.0104115.us.i
-  %445 = select i1 %443, i32 %444, i32 32
-  %446 = uitofp nneg i32 %445 to float
-  %447 = fmul float %446, 7.812500e-03
-  %448 = add nsw i32 %445, %.096118.us.i
-  %449 = fmul float %446, 1.562500e-02
-  %450 = insertelement <4 x float> poison, float %449, i64 0
-  %451 = insertelement <2 x float> poison, float %446, i64 0
-  br label %452
+  %.096118.us.i = phi i32 [ %503, %._crit_edge.us.i136 ], [ %.0102, %.lr.ph120.i ]
+  %.097117.us.i = phi float [ %.2.us.i, %._crit_edge.us.i136 ], [ 0.000000e+00, %.lr.ph120.i ]
+  %.0100116.us.i = phi float [ %.2102.us.i, %._crit_edge.us.i136 ], [ 0.000000e+00, %.lr.ph120.i ]
+  %.0104115.us.i = phi i32 [ %440, %._crit_edge.us.i136 ], [ 0, %.lr.ph120.i ]
+  %440 = add nuw nsw i32 %.0104115.us.i, 32
+  %441 = icmp ugt i32 %440, %415
+  %442 = sub nuw nsw i32 %415, %.0104115.us.i
+  %443 = select i1 %441, i32 %442, i32 32
+  %444 = uitofp nneg i32 %443 to float
+  %445 = fmul float %444, 7.812500e-03
+  %446 = add nsw i32 %443, %.096118.us.i
+  %447 = fmul float %444, 1.562500e-02
+  br label %448
 
-452:                                              ; preds = %494, %.lr.ph.us.i135
-  %.095113.us.i = phi i32 [ %.3143, %.lr.ph.us.i135 ], [ %515, %494 ]
-  %.0103110.us.i = phi i32 [ 0, %.lr.ph.us.i135 ], [ %454, %494 ]
-  %453 = phi <2 x float> [ %441, %.lr.ph.us.i135 ], [ %517, %494 ]
-  %454 = add nuw nsw i32 %.0103110.us.i, 32
-  %455 = icmp ugt i32 %454, %182
-  %456 = sub nuw nsw i32 %182, %.0103110.us.i
-  %457 = select i1 %455, i32 %456, i32 32
-  %458 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %458(i32 noundef 3316, i32 noundef %.0103110.us.i) #5
-  %459 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %459(i32 noundef 3315, i32 noundef %.0104115.us.i) #5
-  %460 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %460(i32 noundef 33984) #5
-  %461 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %462 = load ptr, ptr %80, align 8
-  %463 = getelementptr inbounds i8, ptr %462, i64 %440
-  tail call void %461(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %457, i32 noundef %445, i32 noundef %32, i32 noundef 5121, ptr noundef %463) #5
-  %464 = uitofp nneg i32 %457 to float
-  %465 = fmul float %464, 7.812500e-03
-  %466 = load i32, ptr %34, align 4
-  %467 = load i32, ptr %35, align 8
-  %468 = load i32, ptr %36, align 8
-  %469 = sub i32 %467, %448
-  %470 = insertelement <2 x i32> poison, i32 %469, i64 0
-  %471 = insertelement <2 x i32> %470, i32 %.095113.us.i, i64 1
-  %472 = insertelement <2 x i32> poison, i32 %468, i64 0
-  %473 = insertelement <2 x i32> %472, i32 %466, i64 1
-  %474 = add <2 x i32> %471, %473
-  br i1 %37, label %485, label %475
+448:                                              ; preds = %485, %.lr.ph.us.i135
+  %.095113.us.i = phi i32 [ %.3143, %.lr.ph.us.i135 ], [ %501, %485 ]
+  %.1112.us.i = phi float [ %.097117.us.i, %.lr.ph.us.i135 ], [ %.2.us.i, %485 ]
+  %.1101111.us.i = phi float [ %.0100116.us.i, %.lr.ph.us.i135 ], [ %.2102.us.i, %485 ]
+  %.0103110.us.i = phi i32 [ 0, %.lr.ph.us.i135 ], [ %449, %485 ]
+  %449 = add nuw nsw i32 %.0103110.us.i, 32
+  %450 = icmp ugt i32 %449, %185
+  %451 = sub nuw nsw i32 %185, %.0103110.us.i
+  %452 = select i1 %450, i32 %451, i32 32
+  %453 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %453(i32 noundef 3316, i32 noundef %.0103110.us.i) #5
+  %454 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %454(i32 noundef 3315, i32 noundef %.0104115.us.i) #5
+  %455 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %455(i32 noundef 33984) #5
+  %456 = load ptr, ptr @j2d_glTexSubImage2D, align 8
+  %457 = load ptr, ptr %83, align 8
+  %458 = getelementptr inbounds i8, ptr %457, i64 %439
+  tail call void %456(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %452, i32 noundef %443, i32 noundef %32, i32 noundef 5121, ptr noundef %458) #5
+  %459 = uitofp nneg i32 %452 to float
+  %460 = fmul float %459, 7.812500e-03
+  %461 = load i32, ptr %34, align 4
+  %462 = add nsw i32 %461, %.095113.us.i
+  %463 = load i32, ptr %35, align 8
+  %464 = load i32, ptr %36, align 8
+  %465 = sub i32 %463, %446
+  %466 = add i32 %465, %464
+  br i1 %37, label %481, label %467
 
-475:                                              ; preds = %452
-  %476 = sitofp <2 x i32> %474 to <2 x float>
-  %477 = insertelement <2 x float> %451, float %464, i64 1
-  %478 = fadd <2 x float> %477, %476
-  %479 = load <2 x i32>, ptr %38, align 8
-  %480 = sitofp <2 x i32> %479 to <2 x float>
-  %481 = shufflevector <2 x float> %480, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
-  %482 = shufflevector <2 x float> %478, <2 x float> %476, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %483 = fdiv <4 x float> %482, %481
-  %484 = load ptr, ptr @j2d_glTextureBarrierNV, align 8
-  tail call void %484() #5
-  br label %494
+467:                                              ; preds = %448
+  %468 = sitofp i32 %462 to float
+  %469 = load i32, ptr %38, align 8
+  %470 = sitofp i32 %469 to float
+  %471 = fdiv float %468, %470
+  %472 = fadd float %459, %468
+  %473 = fdiv float %472, %470
+  %474 = sitofp i32 %466 to float
+  %475 = fadd float %444, %474
+  %476 = load i32, ptr %39, align 4
+  %477 = sitofp i32 %476 to float
+  %478 = fdiv float %475, %477
+  %479 = fdiv float %474, %477
+  %480 = load ptr, ptr @j2d_glTextureBarrierNV, align 8
+  tail call void %480() #5
+  br label %485
 
-485:                                              ; preds = %452
-  %486 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %486(i32 noundef 33985) #5
-  %487 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
-  %488 = extractelement <2 x i32> %474, i64 0
-  %489 = extractelement <2 x i32> %474, i64 1
-  tail call void %487(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %489, i32 noundef %488, i32 noundef %457, i32 noundef %445) #5
-  %490 = fmul float %464, 0x3F60000000000000
-  %491 = insertelement <4 x float> %450, float %490, i64 1
-  %492 = shufflevector <2 x float> %453, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %493 = shufflevector <4 x float> %491, <4 x float> %492, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  br label %494
+481:                                              ; preds = %448
+  %482 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %482(i32 noundef 33985) #5
+  %483 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
+  tail call void %483(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %462, i32 noundef %466, i32 noundef %452, i32 noundef %443) #5
+  %484 = fmul float %459, 0x3F60000000000000
+  br label %485
 
-494:                                              ; preds = %485, %475
-  %495 = phi <4 x float> [ %493, %485 ], [ %483, %475 ]
-  %496 = load ptr, ptr @j2d_glBegin, align 8
-  tail call void %496(i32 noundef 7) #5
+485:                                              ; preds = %481, %467
+  %.2102.us.i = phi float [ %.1101111.us.i, %481 ], [ %479, %467 ]
+  %.099.us.i = phi float [ %484, %481 ], [ %473, %467 ]
+  %.098.us.i = phi float [ %447, %481 ], [ %478, %467 ]
+  %.2.us.i = phi float [ %.1112.us.i, %481 ], [ %471, %467 ]
+  %486 = load ptr, ptr @j2d_glBegin, align 8
+  tail call void %486(i32 noundef 7) #5
+  %487 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %487(i32 noundef 33984, float noundef 0.000000e+00, float noundef 0.000000e+00) #5
+  %488 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %488(i32 noundef 33985, float noundef %.2.us.i, float noundef %.098.us.i) #5
+  %489 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %489(i32 noundef %.095113.us.i, i32 noundef %.096118.us.i) #5
+  %490 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %490(i32 noundef 33984, float noundef %460, float noundef 0.000000e+00) #5
+  %491 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %491(i32 noundef 33985, float noundef %.099.us.i, float noundef %.098.us.i) #5
+  %492 = load ptr, ptr @j2d_glVertex2i, align 8
+  %493 = add nsw i32 %452, %.095113.us.i
+  tail call void %492(i32 noundef %493, i32 noundef %.096118.us.i) #5
+  %494 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %494(i32 noundef 33984, float noundef %460, float noundef %445) #5
+  %495 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
+  tail call void %495(i32 noundef 33985, float noundef %.099.us.i, float noundef %.2102.us.i) #5
+  %496 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %496(i32 noundef %493, i32 noundef %446) #5
   %497 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %497(i32 noundef 33984, float noundef 0.000000e+00, float noundef 0.000000e+00) #5
+  tail call void %497(i32 noundef 33984, float noundef 0.000000e+00, float noundef %445) #5
   %498 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %499 = extractelement <4 x float> %495, i64 0
-  %500 = extractelement <4 x float> %495, i64 3
-  tail call void %498(i32 noundef 33985, float noundef %500, float noundef %499) #5
-  %501 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %501(i32 noundef %.095113.us.i, i32 noundef %.096118.us.i) #5
-  %502 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %502(i32 noundef 33984, float noundef %465, float noundef 0.000000e+00) #5
-  %503 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %504 = extractelement <4 x float> %495, i64 1
-  tail call void %503(i32 noundef 33985, float noundef %504, float noundef %499) #5
-  %505 = load ptr, ptr @j2d_glVertex2i, align 8
-  %506 = add nsw i32 %457, %.095113.us.i
-  tail call void %505(i32 noundef %506, i32 noundef %.096118.us.i) #5
-  %507 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %507(i32 noundef 33984, float noundef %465, float noundef %447) #5
-  %508 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %509 = extractelement <4 x float> %495, i64 2
-  tail call void %508(i32 noundef 33985, float noundef %504, float noundef %509) #5
-  %510 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %510(i32 noundef %506, i32 noundef %448) #5
-  %511 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %511(i32 noundef 33984, float noundef 0.000000e+00, float noundef %447) #5
-  %512 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  tail call void %512(i32 noundef 33985, float noundef %500, float noundef %509) #5
-  %513 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %513(i32 noundef %.095113.us.i, i32 noundef %448) #5
-  %514 = load ptr, ptr @j2d_glEnd, align 8
-  tail call void %514() #5
-  %515 = add nsw i32 %.095113.us.i, 32
-  %516 = icmp ult i32 %454, %182
-  %517 = shufflevector <4 x float> %495, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  br i1 %516, label %452, label %._crit_edge.us.i136, !llvm.loop !9
+  tail call void %498(i32 noundef 33985, float noundef %.2.us.i, float noundef %.2102.us.i) #5
+  %499 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %499(i32 noundef %.095113.us.i, i32 noundef %446) #5
+  %500 = load ptr, ptr @j2d_glEnd, align 8
+  tail call void %500() #5
+  %501 = add nsw i32 %.095113.us.i, 32
+  %502 = icmp ult i32 %449, %185
+  br i1 %502, label %448, label %._crit_edge.us.i136, !llvm.loop !9
 
-._crit_edge.us.i136:                              ; preds = %494
-  %518 = add nsw i32 %.096118.us.i, 32
-  %519 = icmp ult i32 %442, %416
-  br i1 %519, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
+._crit_edge.us.i136:                              ; preds = %485
+  %503 = add nsw i32 %.096118.us.i, 32
+  %504 = icmp ult i32 %440, %415
+  br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
-OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %435, %267, %OGLTR_AddToGlyphCache.exit.i132, %381, %166, %130, %OGLTR_AddToGlyphCache.exit.i, %116, %113, %111, %OGLTR_DrawColorGlyphNoCache.exit, %77
-  %520 = add nuw nsw i32 %.0107151, 1
-  %exitcond.not = icmp eq i32 %520, %3
-  br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %41, !llvm.loop !11
+OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %81
+  %505 = add nuw nsw i32 %.0107151, 1
+  %exitcond.not = icmp eq i32 %505, %3
+  br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !11
 
-OGLTR_DrawGrayscaleGlyphViaCache.exit:            ; preds = %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, %431, %429, %247, %242, %30, %47
-  %521 = load i32, ptr @glyphMode, align 4
-  switch i32 %521, label %OGLTR_DisableGlyphModeState.exit [
-    i32 4, label %522
-    i32 2, label %525
+OGLTR_DrawGrayscaleGlyphViaCache.exit:            ; preds = %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, %430, %428, %250, %245, %30, %45
+  %506 = load i32, ptr @glyphMode, align 4
+  switch i32 %506, label %OGLTR_DisableGlyphModeState.exit [
+    i32 4, label %507
+    i32 2, label %510
   ]
 
-522:                                              ; preds = %OGLTR_DrawGrayscaleGlyphViaCache.exit
-  %523 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %523(i32 noundef 3316, i32 noundef 0) #5
-  %524 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %524(i32 noundef 3315, i32 noundef 0) #5
-  br label %525
+507:                                              ; preds = %OGLTR_DrawGrayscaleGlyphViaCache.exit
+  %508 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %508(i32 noundef 3316, i32 noundef 0) #5
+  %509 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %509(i32 noundef 3315, i32 noundef 0) #5
+  br label %510
 
-525:                                              ; preds = %522, %OGLTR_DrawGrayscaleGlyphViaCache.exit
-  %526 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %526(i32 noundef 3314, i32 noundef 0) #5
-  %527 = load ptr, ptr @j2d_glPixelStorei, align 8
-  tail call void %527(i32 noundef 3317, i32 noundef 4) #5
-  %528 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  tail call void %528(i32 noundef 0) #5
-  %529 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %529(i32 noundef 33985) #5
-  %530 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %530(i32 noundef 3553) #5
-  %531 = load ptr, ptr @j2d_glActiveTextureARB, align 8
-  tail call void %531(i32 noundef 33984) #5
-  %532 = load ptr, ptr @j2d_glDisable, align 8
-  tail call void %532(i32 noundef 3553) #5
+510:                                              ; preds = %507, %OGLTR_DrawGrayscaleGlyphViaCache.exit
+  %511 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %511(i32 noundef 3314, i32 noundef 0) #5
+  %512 = load ptr, ptr @j2d_glPixelStorei, align 8
+  tail call void %512(i32 noundef 3317, i32 noundef 4) #5
+  %513 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  tail call void %513(i32 noundef 0) #5
+  %514 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %514(i32 noundef 33985) #5
+  %515 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %515(i32 noundef 3553) #5
+  %516 = load ptr, ptr @j2d_glActiveTextureARB, align 8
+  tail call void %516(i32 noundef 33984) #5
+  %517 = load ptr, ptr @j2d_glDisable, align 8
+  tail call void %517(i32 noundef 3553) #5
   br label %OGLTR_DisableGlyphModeState.exit
 
-OGLTR_DisableGlyphModeState.exit:                 ; preds = %525, %OGLTR_DrawGrayscaleGlyphViaCache.exit, %16, %12
+OGLTR_DisableGlyphModeState.exit:                 ; preds = %510, %OGLTR_DrawGrayscaleGlyphViaCache.exit, %16, %12
   ret void
 }
 

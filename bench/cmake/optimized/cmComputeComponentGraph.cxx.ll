@@ -521,7 +521,7 @@ define dso_local void @_ZN23cmComputeComponentGraph13TransferEdgesEv(ptr nocaptu
   br label %12
 
 12:                                               ; preds = %.lr.ph31, %._crit_edge
-  %.029 = phi i64 [ 0, %.lr.ph31 ], [ %99, %._crit_edge ]
+  %.029 = phi i64 [ 0, %.lr.ph31 ], [ %103, %._crit_edge ]
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %.029
   %15 = load i64, ptr %14, align 8
@@ -535,7 +535,7 @@ define dso_local void @_ZN23cmComputeComponentGraph13TransferEdgesEv(ptr nocaptu
   br i1 %.not2627, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit
-  %.sroa.023.028 = phi ptr [ %98, %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit ], [ %19, %12 ]
+  %.sroa.023.028 = phi ptr [ %102, %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit ], [ %19, %12 ]
   %22 = load i64, ptr %.sroa.023.028, align 8
   %23 = load ptr, ptr %10, align 8
   %24 = getelementptr inbounds i64, ptr %23, i64 %22
@@ -558,17 +558,17 @@ define dso_local void @_ZN23cmComputeComponentGraph13TransferEdgesEv(ptr nocaptu
   %38 = getelementptr inbounds i8, ptr %28, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %37, %39
-  br i1 %.not.i, label %57, label %40
+  br i1 %.not.i, label %58, label %40
 
 40:                                               ; preds = %26
-  %41 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = load <2 x ptr>, ptr %35, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  %41 = load ptr, ptr %35, align 8
+  %42 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI11cmGraphEdgeEE9constructIS0_JRmbbRK19cmListFileBacktraceEEEvRS1_PT_DpOT0_.exit.i, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds i8, ptr %43, i64 8
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %46, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %50, label %47
@@ -590,118 +590,125 @@ _ZNSt16allocator_traitsISaI11cmGraphEdgeEE9constructIS0_JRmbbRK19cmListFileBackt
   %53 = getelementptr inbounds i8, ptr %37, i64 9
   store i8 %34, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %37, i64 16
-  store <2 x ptr> %43, ptr %54, align 8
-  %55 = load ptr, ptr %36, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr %56, ptr %36, align 8
+  store ptr %41, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %37, i64 24
+  store ptr %43, ptr %55, align 8
+  %56 = load ptr, ptr %36, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr %57, ptr %36, align 8
   br label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit
 
-57:                                               ; preds = %26
-  %58 = load ptr, ptr %28, align 8
-  %59 = ptrtoint ptr %37 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = icmp eq i64 %61, 9223372036854775776
-  br i1 %62, label %63, label %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
+58:                                               ; preds = %26
+  %59 = load ptr, ptr %28, align 8
+  %60 = ptrtoint ptr %37 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = icmp eq i64 %62, 9223372036854775776
+  br i1 %63, label %64, label %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
 
-63:                                               ; preds = %57
+64:                                               ; preds = %58
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
   unreachable
 
-_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %57
-  %64 = ashr exact i64 %61, 5
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %64, i64 1)
-  %65 = add nsw i64 %.sroa.speculated.i.i, %64
-  %66 = icmp ult i64 %65, %64
-  %67 = tail call i64 @llvm.umin.i64(i64 %65, i64 288230376151711743)
-  %68 = select i1 %66, i64 288230376151711743, i64 %67
-  %.not.i.i = icmp eq i64 %68, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i, label %69
+_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %58
+  %65 = ashr exact i64 %62, 5
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %65, i64 1)
+  %66 = add nsw i64 %.sroa.speculated.i.i, %65
+  %67 = icmp ult i64 %66, %65
+  %68 = tail call i64 @llvm.umin.i64(i64 %66, i64 288230376151711743)
+  %69 = select i1 %67, i64 288230376151711743, i64 %68
+  %.not.i.i = icmp eq i64 %69, 0
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i, label %70
 
-69:                                               ; preds = %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %70 = shl nuw nsw i64 %68, 5
-  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #20
+70:                                               ; preds = %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %71 = shl nuw nsw i64 %69, 5
+  %72 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #20
   br label %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %69, %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %72 = phi ptr [ %71, %69 ], [ null, %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i ]
-  %73 = getelementptr inbounds %class.cmGraphEdge, ptr %72, i64 %64
-  %74 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = load <2 x ptr>, ptr %35, align 8
-  %.not.i.i.i.i.i.i.i.i16 = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i.i.i.i.i16, label %85, label %77
+_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i: ; preds = %70, %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %73 = phi ptr [ %72, %70 ], [ null, %_ZNKSt6vectorI11cmGraphEdgeSaIS0_EE12_M_check_lenEmPKc.exit.i ]
+  %74 = getelementptr inbounds %class.cmGraphEdge, ptr %73, i64 %65
+  %75 = load ptr, ptr %35, align 8
+  %76 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %.not.i.i.i.i.i.i.i.i16 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i.i.i.i.i.i16, label %86, label %78
 
-77:                                               ; preds = %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i
-  %78 = getelementptr inbounds i8, ptr %75, i64 8
-  %79 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i17 = icmp eq i8 %79, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i17, label %83, label %80
+78:                                               ; preds = %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i
+  %79 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i17 = icmp eq i8 %80, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i17, label %84, label %81
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %78, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %78, align 4
-  br label %85
+81:                                               ; preds = %78
+  %82 = load i32, ptr %79, align 4
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %79, align 4
+  br label %86
 
-83:                                               ; preds = %77
-  %84 = atomicrmw volatile add ptr %78, i32 1 acq_rel, align 4
-  br label %85
+84:                                               ; preds = %78
+  %85 = atomicrmw volatile add ptr %79, i32 1 acq_rel, align 4
+  br label %86
 
-85:                                               ; preds = %83, %80, %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i
-  store i64 %25, ptr %73, align 8
-  %86 = getelementptr inbounds i8, ptr %73, i64 8
-  store i8 %31, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %73, i64 9
-  store i8 %34, ptr %87, align 1
-  %88 = getelementptr inbounds i8, ptr %73, i64 16
-  store <2 x ptr> %76, ptr %88, align 8
-  %.not10.i.i.i.i = icmp eq ptr %58, %37
+86:                                               ; preds = %84, %81, %_ZNSt12_Vector_baseI11cmGraphEdgeSaIS0_EE11_M_allocateEm.exit.i
+  store i64 %25, ptr %74, align 8
+  %87 = getelementptr inbounds i8, ptr %74, i64 8
+  store i8 %31, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %74, i64 9
+  store i8 %34, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %74, i64 16
+  store ptr %75, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %74, i64 24
+  store ptr %77, ptr %90, align 8
+  %.not10.i.i.i.i = icmp eq ptr %59, %37
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %72, %85 ]
-  %.0911.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %58, %85 ]
+.lr.ph.i.i.i.i:                                   ; preds = %86, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %98, %.lr.ph.i.i.i.i ], [ %73, %86 ]
+  %.0911.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i ], [ %59, %86 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.0911.i.i.i.i, i64 10, i1 false), !alias.scope !14
-  %89 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %90 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %91 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %92 = load <2 x ptr>, ptr %90, align 8, !alias.scope !12, !noalias !9
-  store ptr null, ptr %91, align 8, !alias.scope !12, !noalias !9
-  store <2 x ptr> %92, ptr %89, align 8, !alias.scope !9, !noalias !12
-  store ptr null, ptr %90, align 8, !alias.scope !12, !noalias !9
-  %93 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
-  %94 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %93, %37
+  %91 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %92 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %93 = load ptr, ptr %92, align 8, !alias.scope !12, !noalias !9
+  store ptr %93, ptr %91, align 8, !alias.scope !9, !noalias !12
+  %94 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %96 = load ptr, ptr %95, align 8, !alias.scope !12, !noalias !9
+  store ptr null, ptr %95, align 8, !alias.scope !12, !noalias !9
+  store ptr %96, ptr %94, align 8, !alias.scope !9, !noalias !12
+  store ptr null, ptr %92, align 8, !alias.scope !12, !noalias !9
+  %97 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
+  %98 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %97, %37
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
-_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i: ; preds = %.lr.ph.i.i.i.i, %85
-  %.0.lcssa.i.i.i.i = phi ptr [ %72, %85 ], [ %94, %.lr.ph.i.i.i.i ]
-  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
-  %.not.i36.i = icmp eq ptr %58, null
-  br i1 %.not.i36.i, label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %96
+_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i: ; preds = %.lr.ph.i.i.i.i, %86
+  %.0.lcssa.i.i.i.i = phi ptr [ %73, %86 ], [ %98, %.lr.ph.i.i.i.i ]
+  %99 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
+  %.not.i36.i = icmp eq ptr %59, null
+  br i1 %.not.i36.i, label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %100
 
-96:                                               ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i
-  tail call void @_ZdlPv(ptr noundef nonnull %58) #18
+100:                                              ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #18
   br label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit
 
-_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, %96
-  store ptr %72, ptr %28, align 8
-  store ptr %95, ptr %36, align 8
-  %97 = getelementptr inbounds %class.cmGraphEdge, ptr %72, i64 %68
-  store ptr %97, ptr %38, align 8
+_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, %100
+  store ptr %73, ptr %28, align 8
+  store ptr %99, ptr %36, align 8
+  %101 = getelementptr inbounds %class.cmGraphEdge, ptr %73, i64 %69
+  store ptr %101, ptr %38, align 8
   br label %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit
 
 _ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit: ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE17_M_realloc_insertIJRmbbRK19cmListFileBacktraceEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, %_ZNSt16allocator_traitsISaI11cmGraphEdgeEE9constructIS0_JRmbbRK19cmListFileBacktraceEEEvRS1_PT_DpOT0_.exit.i, %.lr.ph
-  %98 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 32
-  %.not26 = icmp eq ptr %98, %21
+  %102 = getelementptr inbounds i8, ptr %.sroa.023.028, i64 32
+  %.not26 = icmp eq ptr %102, %21
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit, %12
-  %99 = add nuw i64 %.029, 1
-  %exitcond.not = icmp eq i64 %99, %umax
+  %103 = add nuw i64 %.029, 1
+  %exitcond.not = icmp eq i64 %103, %umax
   br i1 %exitcond.not, label %._crit_edge32, label %12, !llvm.loop !16
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
@@ -1264,7 +1271,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %38, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1292,7 +1299,7 @@ _ZSt27__uninitialized_default_n_aIP15cmGraphEdgeListmS0_ET_S2_T0_RSaIT1_E.exit: 
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %38
+  br label %41
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -1315,39 +1322,43 @@ _ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %20
   br i1 %.not10.i.i.i, label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store <2 x ptr> %29, ptr %.012.i.i.i, align 8, !alias.scope !24, !noalias !27
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %29 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !27, !noalias !24
+  store ptr %29, ptr %.012.i.i.i, align 8, !alias.scope !24, !noalias !27
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !27, !noalias !24
   store ptr %32, ptr %30, align 8, !alias.scope !24, !noalias !27
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !27, !noalias !24
+  store ptr %35, ptr %33, align 8, !alias.scope !24, !noalias !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %33, %5
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %36, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !29
 
 _ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorI15cmGraphEdgeListSaIS0_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
-  br i1 %.not.i36, label %_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37, label %35
+  br i1 %.not.i36, label %_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37, label %38
 
-35:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+38:                                               ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %35
+_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI15cmGraphEdgeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %38
   store ptr %26, ptr %0, align 8
-  %36 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %27, i64 %1
-  store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %26, i64 %24
-  store ptr %37, ptr %11, align 8
-  br label %38
+  %39 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %27, i64 %1
+  store ptr %39, ptr %4, align 8
+  %40 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %26, i64 %24
+  store ptr %40, ptr %11, align 8
+  br label %41
 
-38:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP15cmGraphEdgeListmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP15cmGraphEdgeListmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI15cmGraphEdgeListSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
   ret void
 }
 
@@ -2076,60 +2087,68 @@ _ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit: ; preds = %_Z
   br i1 %.not10.i.i.i, label %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ]
+  %.012.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %24 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
-  store <2 x ptr> %24, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
-  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %24 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
+  store ptr %24, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
+  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !35, !noalias !32
   store ptr %27, ptr %25, align 8, !alias.scope !32, !noalias !35
+  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %30 = load ptr, ptr %29, align 8, !alias.scope !35, !noalias !32
+  store ptr %30, ptr %28, align 8, !alias.scope !32, !noalias !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %28, %1
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %31, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ], [ %29, %.lr.ph.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i15 = icmp eq ptr %4, %1
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i16
-  %.012.i.i.i17 = phi ptr [ %36, %.lr.ph.i.i.i16 ], [ %30, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  %.0911.i.i.i18 = phi ptr [ %35, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
+  %.012.i.i.i17 = phi ptr [ %42, %.lr.ph.i.i.i16 ], [ %33, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
+  %.0911.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %31 = load <2 x ptr>, ptr %.0911.i.i.i18, align 8, !alias.scope !41, !noalias !38
-  store <2 x ptr> %31, ptr %.012.i.i.i17, align 8, !alias.scope !38, !noalias !41
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
-  %34 = load ptr, ptr %33, align 8, !alias.scope !41, !noalias !38
-  store ptr %34, ptr %32, align 8, !alias.scope !38, !noalias !41
+  %34 = load ptr, ptr %.0911.i.i.i18, align 8, !alias.scope !41, !noalias !38
+  store ptr %34, ptr %.012.i.i.i17, align 8, !alias.scope !38, !noalias !41
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 8
+  %37 = load ptr, ptr %36, align 8, !alias.scope !41, !noalias !38
+  store ptr %37, ptr %35, align 8, !alias.scope !38, !noalias !41
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !41, !noalias !38
+  store ptr %40, ptr %38, align 8, !alias.scope !38, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
-  %.not.i.i.i19 = icmp eq ptr %35, %4
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
+  %.not.i.i.i19 = icmp eq ptr %41, %4
   br i1 %.not.i.i.i19, label %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !37
 
 _ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  %.0.lcssa.i.i.i20 = phi ptr [ %30, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %36, %.lr.ph.i.i.i16 ]
+  %.0.lcssa.i.i.i20 = phi ptr [ %33, %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %42, %.lr.ph.i.i.i16 ]
   %.not.i22 = icmp eq ptr %5, null
-  br i1 %.not.i22, label %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE13_M_deallocateEPS0_m.exit, label %37
+  br i1 %.not.i22, label %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE13_M_deallocateEPS0_m.exit, label %43
 
-37:                                               ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21
+43:                                               ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #18
   br label %_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE13_M_deallocateEPS0_m.exit
 
-_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseI15cmGraphNodeListSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI15cmGraphNodeListSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.cmGraphNodeList, ptr %22, i64 %15
-  store ptr %39, ptr %38, align 8
+  %45 = getelementptr inbounds %struct.cmGraphNodeList, ptr %22, i64 %15
+  store ptr %45, ptr %44, align 8
   ret void
 }
 

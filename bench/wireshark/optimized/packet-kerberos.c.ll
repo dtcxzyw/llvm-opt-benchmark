@@ -2045,12 +2045,12 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.krb5_keytab_entry_st, align 8
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %124, label %6
+  br i1 %5, label %125, label %6
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %124, label %9
+  br i1 %8, label %125, label %9
 
 9:                                                ; preds = %6
   %.b = load i1, ptr @read_keytab_file.first_time, align 4
@@ -2059,7 +2059,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %9
   store i1 true, ptr @read_keytab_file.first_time, align 4
   %11 = tail call i32 @krb5_init_context(ptr noundef nonnull @krb5_ctx) #16
-  switch i32 %11, label %124 [
+  switch i32 %11, label %125 [
     i32 -1765328249, label %12
     i32 0, label %12
   ]
@@ -2073,7 +2073,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %0) #18
-  br label %124
+  br label %125
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @krb5_ctx, align 8
@@ -2099,9 +2099,9 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %18
   %31 = load ptr, ptr @stderr, align 8
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #18
-  br label %124
+  br label %125
 
-33:                                               ; preds = %.lr.ph84, %105
+33:                                               ; preds = %.lr.ph84, %106
   %34 = call ptr @wmem_epan_scope() #16
   %35 = call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 392) #16
   %36 = getelementptr inbounds i8, ptr %35, i64 308
@@ -2189,60 +2189,62 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %91 = phi i64 [ %89, %84 ], [ %78, %._crit_edge ]
   %92 = getelementptr i8, ptr %.0.lcssa, i64 %91
   store i8 0, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %35, i64 8
-  %94 = load i32, ptr %28, align 8
-  %95 = load <2 x i32>, ptr %27, align 4
-  store <2 x i32> %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %35, i64 16
-  %97 = load ptr, ptr %29, align 8
-  %98 = call i32 @llvm.umin.i32(i32 %94, i32 32)
-  %99 = zext nneg i32 %98 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr align 1 %97, i64 %99, i1 false)
+  %93 = load i32, ptr %27, align 4
+  %94 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %93, ptr %94, align 8
+  %95 = load i32, ptr %28, align 8
+  %96 = getelementptr inbounds i8, ptr %35, i64 12
+  store i32 %95, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %35, i64 16
+  %98 = load ptr, ptr %29, align 8
+  %99 = call i32 @llvm.umin.i32(i32 %95, i32 32)
+  %100 = zext nneg i32 %99 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %97, ptr align 1 %98, i64 %100, i1 false)
   store ptr %35, ptr @enc_key_list, align 8
-  %100 = load ptr, ptr @krb5_ctx, align 8
-  %101 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %100, ptr noundef nonnull %3) #16
-  %.not74 = icmp eq i32 %101, 0
-  br i1 %.not74, label %105, label %102
+  %101 = load ptr, ptr @krb5_ctx, align 8
+  %102 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %101, ptr noundef nonnull %3) #16
+  %.not74 = icmp eq i32 %102, 0
+  br i1 %.not74, label %106, label %103
 
-102:                                              ; preds = %90
-  %103 = load ptr, ptr @stderr, align 8
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.8, i32 noundef %101) #18
-  br label %105
+103:                                              ; preds = %90
+  %104 = load ptr, ptr @stderr, align 8
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.8, i32 noundef %102) #18
+  br label %106
 
-105:                                              ; preds = %102, %90
-  %106 = load ptr, ptr @kerberos_longterm_keys, align 8
-  call fastcc void @kerberos_key_map_insert(ptr noundef %106, ptr noundef nonnull %35)
-  %107 = load ptr, ptr @krb5_ctx, align 8
-  %108 = load ptr, ptr %2, align 8
-  %109 = call i32 @krb5_kt_next_entry(ptr noundef %107, ptr noundef %108, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %33, label %.critedge, !llvm.loop !6
+106:                                              ; preds = %103, %90
+  %107 = load ptr, ptr @kerberos_longterm_keys, align 8
+  call fastcc void @kerberos_key_map_insert(ptr noundef %107, ptr noundef nonnull %35)
+  %108 = load ptr, ptr @krb5_ctx, align 8
+  %109 = load ptr, ptr %2, align 8
+  %110 = call i32 @krb5_kt_next_entry(ptr noundef %108, ptr noundef %109, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %33, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %105, %.preheader
-  %111 = load ptr, ptr @krb5_ctx, align 8
-  %112 = load ptr, ptr %2, align 8
-  %113 = call i32 @krb5_kt_end_seq_get(ptr noundef %111, ptr noundef %112, ptr noundef nonnull %4) #16
-  %.not75 = icmp eq i32 %113, 0
-  br i1 %.not75, label %117, label %114
+.critedge:                                        ; preds = %106, %.preheader
+  %112 = load ptr, ptr @krb5_ctx, align 8
+  %113 = load ptr, ptr %2, align 8
+  %114 = call i32 @krb5_kt_end_seq_get(ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4) #16
+  %.not75 = icmp eq i32 %114, 0
+  br i1 %.not75, label %118, label %115
 
-114:                                              ; preds = %.critedge
-  %115 = load ptr, ptr @stderr, align 8
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.9, i32 noundef %113) #18
-  br label %117
+115:                                              ; preds = %.critedge
+  %116 = load ptr, ptr @stderr, align 8
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.9, i32 noundef %114) #18
+  br label %118
 
-117:                                              ; preds = %114, %.critedge
-  %118 = load ptr, ptr @krb5_ctx, align 8
-  %119 = load ptr, ptr %2, align 8
-  %120 = call i32 @krb5_kt_close(ptr noundef %118, ptr noundef %119) #16
-  %.not76 = icmp eq i32 %120, 0
-  br i1 %.not76, label %124, label %121
+118:                                              ; preds = %115, %.critedge
+  %119 = load ptr, ptr @krb5_ctx, align 8
+  %120 = load ptr, ptr %2, align 8
+  %121 = call i32 @krb5_kt_close(ptr noundef %119, ptr noundef %120) #16
+  %.not76 = icmp eq i32 %121, 0
+  br i1 %.not76, label %125, label %122
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.10, i32 noundef %120) #18
-  br label %124
+122:                                              ; preds = %118
+  %123 = load ptr, ptr @stderr, align 8
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.10, i32 noundef %121) #18
+  br label %125
 
-124:                                              ; preds = %10, %1, %6, %121, %117, %30, %15
+125:                                              ; preds = %10, %1, %6, %122, %118, %30, %15
   ret void
 }
 
@@ -3860,7 +3862,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   %17 = getelementptr inbounds i8, ptr %2, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %179
+  br i1 %.not, label %19, label %191
 
 19:                                               ; preds = %3
   %.not89 = icmp eq ptr %14, null
@@ -3935,203 +3937,219 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 
 55:                                               ; preds = %52, %48, %45, %41, %35, %34
   %.not96 = phi i1 [ true, %45 ], [ true, %41 ], [ true, %35 ], [ true, %34 ], [ %51, %48 ], [ %.not94, %52 ]
-  br i1 %.082, label %107, label %56
+  br i1 %.082, label %113, label %56
 
 56:                                               ; preds = %55
   store ptr null, ptr %7, align 8
   store i32 -1760647421, ptr %5, align 8
   %57 = getelementptr inbounds i8, ptr %14, i64 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 4
-  %59 = load <2 x i32>, ptr %57, align 8
-  store <2 x i32> %59, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %14, i64 16
-  %61 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %60, ptr %61, align 8
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %58, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %14, i64 12
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %14, i64 16
+  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %63, ptr %64, align 8
   store i32 -1760647421, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 4
-  %64 = load <2 x i32>, ptr %62, align 8
-  store <2 x i32> %64, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 24
-  %68 = load i32, ptr %67, align 8
-  switch i32 %68, label %179 [
-    i32 54, label %70
-    i32 55, label %69
+  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %66, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %74 = load i32, ptr %73, align 8
+  switch i32 %74, label %191 [
+    i32 54, label %76
+    i32 55, label %75
   ]
 
-69:                                               ; preds = %56
-  br label %70
+75:                                               ; preds = %56
+  br label %76
 
-70:                                               ; preds = %56, %69
-  %.0 = phi ptr [ @.str.786, %69 ], [ @.str.785, %56 ]
-  %71 = load ptr, ptr @krb5_ctx, align 8
-  %72 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %71, ptr noundef nonnull %5, ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef nonnull @.str.787, ptr noundef nonnull %7) #16
-  %.not101 = icmp eq i32 %72, 0
-  br i1 %.not101, label %73, label %179
+76:                                               ; preds = %56, %75
+  %.0 = phi ptr [ @.str.786, %75 ], [ @.str.785, %56 ]
+  %77 = load ptr, ptr @krb5_ctx, align 8
+  %78 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %77, ptr noundef nonnull %5, ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef nonnull @.str.787, ptr noundef nonnull %7) #16
+  %.not101 = icmp eq i32 %78, 0
+  br i1 %.not101, label %79, label %191
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %2, i64 56
-  %75 = load i32, ptr %74, align 8
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 40
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %67, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 48
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 %78(ptr noundef %79, i32 noundef %80, ptr noundef %82) #16
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %104
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %2, i64 56
+  %81 = load i32, ptr %80, align 8
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %80, align 8
+  %83 = getelementptr inbounds i8, ptr %2, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = load i32, ptr %73, align 8
+  %87 = getelementptr inbounds i8, ptr %2, i64 48
+  %88 = load ptr, ptr %87, align 8
+  %89 = call i32 %84(ptr noundef %85, i32 noundef %86, ptr noundef %88) #16
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %110
 
-85:                                               ; preds = %73
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds i8, ptr %2, i64 32
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %92, i64 16
-  %98 = load ptr, ptr %97, align 8
-  call fastcc void @add_encryption_key(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef null, ptr noundef %91, i32 noundef %94, i32 noundef %96, ptr noundef %98, ptr noundef nonnull %.0, ptr noundef nonnull %14, ptr noundef nonnull %1)
-  %99 = load ptr, ptr @krb5_ctx, align 8
-  %100 = load ptr, ptr %7, align 8
-  call void @krb5_free_keyblock(ptr noundef %99, ptr noundef %100) #16
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 104
-  %103 = load ptr, ptr %102, align 8
-  store ptr %103, ptr %17, align 8
-  br label %179
-
-104:                                              ; preds = %73
+91:                                               ; preds = %79
+  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %11, align 8
+  %95 = load ptr, ptr %2, align 8
+  %96 = getelementptr inbounds i8, ptr %2, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds i8, ptr %98, i64 8
+  %102 = load i32, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %98, i64 16
+  %104 = load ptr, ptr %103, align 8
+  call fastcc void @add_encryption_key(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef null, ptr noundef %97, i32 noundef %100, i32 noundef %102, ptr noundef %104, ptr noundef nonnull %.0, ptr noundef nonnull %14, ptr noundef nonnull %1)
   %105 = load ptr, ptr @krb5_ctx, align 8
   %106 = load ptr, ptr %7, align 8
   call void @krb5_free_keyblock(ptr noundef %105, ptr noundef %106) #16
-  br label %179
+  %107 = load ptr, ptr %11, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 104
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %17, align 8
+  br label %191
 
-107:                                              ; preds = %55
-  br i1 %.not96, label %156, label %108
+110:                                              ; preds = %79
+  %111 = load ptr, ptr @krb5_ctx, align 8
+  %112 = load ptr, ptr %7, align 8
+  call void @krb5_free_keyblock(ptr noundef %111, ptr noundef %112) #16
+  br label %191
 
-108:                                              ; preds = %107
+113:                                              ; preds = %55
+  br i1 %.not96, label %168, label %114
+
+114:                                              ; preds = %113
   store ptr null, ptr %10, align 8
   store i32 -1760647421, ptr %8, align 8
-  %109 = getelementptr inbounds i8, ptr %16, i64 8
-  %110 = getelementptr inbounds i8, ptr %8, i64 4
-  %111 = load <2 x i32>, ptr %109, align 8
-  store <2 x i32> %111, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %16, i64 16
-  %113 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %112, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %16, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %116, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %16, i64 12
+  %119 = load i32, ptr %118, align 4
+  %120 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %16, i64 16
+  %122 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %121, ptr %122, align 8
   store i32 -1760647421, ptr %9, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
-  %115 = getelementptr inbounds i8, ptr %9, i64 4
-  %116 = load <2 x i32>, ptr %114, align 8
-  store <2 x i32> %116, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %1, i64 16
-  %118 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %117, ptr %118, align 8
-  %119 = load ptr, ptr @krb5_ctx, align 8
-  %120 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %119, ptr noundef nonnull %8, ptr noundef nonnull @.str.788, ptr noundef nonnull %9, ptr noundef nonnull @.str.789, ptr noundef nonnull %10) #16
-  %.not100 = icmp eq i32 %120, 0
-  br i1 %.not100, label %121, label %179
+  %123 = getelementptr inbounds i8, ptr %1, i64 8
+  %124 = load i32, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %124, ptr %125, align 4
+  %126 = getelementptr inbounds i8, ptr %1, i64 12
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %127, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %1, i64 16
+  %130 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %129, ptr %130, align 8
+  %131 = load ptr, ptr @krb5_ctx, align 8
+  %132 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %131, ptr noundef nonnull %8, ptr noundef nonnull @.str.788, ptr noundef nonnull %9, ptr noundef nonnull @.str.789, ptr noundef nonnull %10) #16
+  %.not100 = icmp eq i32 %132, 0
+  br i1 %.not100, label %133, label %191
 
-121:                                              ; preds = %108
-  %122 = getelementptr inbounds i8, ptr %2, i64 56
-  %123 = load i32, ptr %122, align 8
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 8
-  %125 = getelementptr inbounds i8, ptr %2, i64 40
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 24
-  %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %2, i64 48
-  %131 = load ptr, ptr %130, align 8
-  %132 = call i32 %126(ptr noundef %127, i32 noundef %129, ptr noundef %131) #16
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %153
+133:                                              ; preds = %114
+  %134 = getelementptr inbounds i8, ptr %2, i64 56
+  %135 = load i32, ptr %134, align 8
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %134, align 8
+  %137 = getelementptr inbounds i8, ptr %2, i64 40
+  %138 = load ptr, ptr %137, align 8
+  %139 = load ptr, ptr %10, align 8
+  %140 = getelementptr inbounds i8, ptr %2, i64 24
+  %141 = load i32, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %2, i64 48
+  %143 = load ptr, ptr %142, align 8
+  %144 = call i32 %138(ptr noundef %139, i32 noundef %141, ptr noundef %143) #16
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %165
 
-134:                                              ; preds = %121
-  %135 = getelementptr inbounds i8, ptr %2, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %11, align 8
-  %138 = load ptr, ptr %2, align 8
-  %139 = getelementptr inbounds i8, ptr %2, i64 32
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %10, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 4
-  %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %141, i64 8
-  %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %141, i64 16
-  %147 = load ptr, ptr %146, align 8
-  call fastcc void @add_encryption_key(ptr noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef null, ptr noundef %140, i32 noundef %143, i32 noundef %145, ptr noundef %147, ptr noundef nonnull @.str.790, ptr noundef nonnull %16, ptr noundef nonnull %1)
-  %148 = load ptr, ptr @krb5_ctx, align 8
-  %149 = load ptr, ptr %10, align 8
-  call void @krb5_free_keyblock(ptr noundef %148, ptr noundef %149) #16
-  %150 = load ptr, ptr %11, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 104
+146:                                              ; preds = %133
+  %147 = getelementptr inbounds i8, ptr %2, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = load ptr, ptr %2, align 8
+  %151 = getelementptr inbounds i8, ptr %2, i64 32
   %152 = load ptr, ptr %151, align 8
-  store ptr %152, ptr %17, align 8
-  br label %179
+  %153 = load ptr, ptr %10, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %155 = load i32, ptr %154, align 4
+  %156 = getelementptr inbounds i8, ptr %153, i64 8
+  %157 = load i32, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %153, i64 16
+  %159 = load ptr, ptr %158, align 8
+  call fastcc void @add_encryption_key(ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef null, ptr noundef %152, i32 noundef %155, i32 noundef %157, ptr noundef %159, ptr noundef nonnull @.str.790, ptr noundef nonnull %16, ptr noundef nonnull %1)
+  %160 = load ptr, ptr @krb5_ctx, align 8
+  %161 = load ptr, ptr %10, align 8
+  call void @krb5_free_keyblock(ptr noundef %160, ptr noundef %161) #16
+  %162 = load ptr, ptr %11, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 104
+  %164 = load ptr, ptr %163, align 8
+  store ptr %164, ptr %17, align 8
+  br label %191
 
-153:                                              ; preds = %121
-  %154 = load ptr, ptr @krb5_ctx, align 8
-  %155 = load ptr, ptr %10, align 8
-  call void @krb5_free_keyblock(ptr noundef %154, ptr noundef %155) #16
-  br label %179
+165:                                              ; preds = %133
+  %166 = load ptr, ptr @krb5_ctx, align 8
+  %167 = load ptr, ptr %10, align 8
+  call void @krb5_free_keyblock(ptr noundef %166, ptr noundef %167) #16
+  br label %191
 
-156:                                              ; preds = %107
-  %157 = getelementptr inbounds i8, ptr %2, i64 28
-  %158 = load i32, ptr %157, align 4
-  %.not97 = icmp eq i32 %158, -1
+168:                                              ; preds = %113
+  %169 = getelementptr inbounds i8, ptr %2, i64 28
+  %170 = load i32, ptr %169, align 4
+  %.not97 = icmp eq i32 %170, -1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not97, label %._crit_edge, label %159
+  br i1 %.not97, label %._crit_edge, label %171
 
-159:                                              ; preds = %156
-  %.not98 = icmp eq i32 %.pre, %158
-  br i1 %.not98, label %._crit_edge, label %179
+171:                                              ; preds = %168
+  %.not98 = icmp eq i32 %.pre, %170
+  br i1 %.not98, label %._crit_edge, label %191
 
-._crit_edge:                                      ; preds = %156, %159
-  %160 = phi i32 [ %158, %159 ], [ %.pre, %156 ]
-  %161 = getelementptr inbounds i8, ptr %4, i64 24
-  %162 = getelementptr inbounds i8, ptr %4, i64 28
-  store i32 %160, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %1, i64 12
-  %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %164, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %1, i64 16
-  %167 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %166, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %2, i64 56
-  %169 = load i32, ptr %168, align 8
-  %170 = add i32 %169, 1
-  store i32 %170, ptr %168, align 8
-  %171 = getelementptr inbounds i8, ptr %2, i64 40
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %2, i64 24
-  %174 = load i32, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %2, i64 48
-  %176 = load ptr, ptr %175, align 8
-  %177 = call i32 %172(ptr noundef nonnull %161, i32 noundef %174, ptr noundef %176) #16
-  %.not99 = icmp eq i32 %177, 0
-  br i1 %.not99, label %178, label %179
+._crit_edge:                                      ; preds = %168, %171
+  %172 = phi i32 [ %170, %171 ], [ %.pre, %168 ]
+  %173 = getelementptr inbounds i8, ptr %4, i64 24
+  %174 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %172, ptr %174, align 4
+  %175 = getelementptr inbounds i8, ptr %1, i64 12
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %176, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %1, i64 16
+  %179 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %178, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %2, i64 56
+  %181 = load i32, ptr %180, align 8
+  %182 = add i32 %181, 1
+  store i32 %182, ptr %180, align 8
+  %183 = getelementptr inbounds i8, ptr %2, i64 40
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %2, i64 24
+  %186 = load i32, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %2, i64 48
+  %188 = load ptr, ptr %187, align 8
+  %189 = call i32 %184(ptr noundef nonnull %173, i32 noundef %186, ptr noundef %188) #16
+  %.not99 = icmp eq i32 %189, 0
+  br i1 %.not99, label %190, label %191
 
-178:                                              ; preds = %._crit_edge
+190:                                              ; preds = %._crit_edge
   store ptr %1, ptr %17, align 8
-  br label %179
+  br label %191
 
-179:                                              ; preds = %._crit_edge, %159, %108, %70, %56, %3, %178, %153, %134, %104, %85
+191:                                              ; preds = %._crit_edge, %171, %114, %76, %56, %3, %190, %165, %146, %110, %91
   ret void
 }
 
@@ -5584,7 +5602,7 @@ keytype_for_cksumtype.exit63.i:                   ; preds = %178, %177
   %193 = getelementptr inbounds i8, ptr %32, i64 56
   %194 = load i32, ptr %193, align 8
   %.not50.i = icmp eq i32 %194, 0
-  br i1 %.not50.i, label %398, label %195
+  br i1 %.not50.i, label %401, label %195
 
 195:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
@@ -5695,268 +5713,272 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   store i32 -1760647421, ptr %22, align 8
   %242 = load ptr, ptr %163, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 8
-  %244 = getelementptr inbounds i8, ptr %22, i64 4
-  %245 = load <2 x i32>, ptr %243, align 8
-  store <2 x i32> %245, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %242, i64 16
-  %247 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %246, ptr %247, align 8
-  %248 = load i32, ptr %193, align 8
-  %249 = getelementptr inbounds i8, ptr %24, i64 4
-  store i32 %248, ptr %249, align 4
-  %250 = getelementptr inbounds i8, ptr %32, i64 64
-  %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 4
-  %253 = load i32, ptr %252, align 4
-  %254 = getelementptr inbounds i8, ptr %251, i64 8
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %24, i64 16
-  %257 = icmp ugt i32 %253, 3
-  %storemerge.i.idx.i = select i1 %257, i64 4, i64 0
-  %storemerge.i.i = getelementptr i8, ptr %255, i64 %storemerge.i.idx.i
-  store ptr %storemerge.i.i, ptr %256, align 8
-  %258 = load ptr, ptr @krb5_ctx, align 8
-  %259 = call i32 @krb5_c_checksum_length(ptr noundef %258, i32 noundef %248, ptr noundef nonnull %23) #16
-  %.not.i64.i = icmp eq i32 %259, 0
-  br i1 %.not.i64.i, label %267, label %260
+  %244 = load i32, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 %244, ptr %245, align 4
+  %246 = getelementptr inbounds i8, ptr %242, i64 12
+  %247 = load i32, ptr %246, align 4
+  %248 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 %247, ptr %248, align 8
+  %249 = getelementptr inbounds i8, ptr %242, i64 16
+  %250 = getelementptr inbounds i8, ptr %22, i64 16
+  store ptr %249, ptr %250, align 8
+  %251 = load i32, ptr %193, align 8
+  %252 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 %251, ptr %252, align 4
+  %253 = getelementptr inbounds i8, ptr %32, i64 64
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %256 = load i32, ptr %255, align 4
+  %257 = getelementptr inbounds i8, ptr %254, i64 8
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %24, i64 16
+  %260 = icmp ugt i32 %256, 3
+  %storemerge.i.idx.i = select i1 %260, i64 4, i64 0
+  %storemerge.i.i = getelementptr i8, ptr %258, i64 %storemerge.i.idx.i
+  store ptr %storemerge.i.i, ptr %259, align 8
+  %261 = load ptr, ptr @krb5_ctx, align 8
+  %262 = call i32 @krb5_c_checksum_length(ptr noundef %261, i32 noundef %251, ptr noundef nonnull %23) #16
+  %.not.i64.i = icmp eq i32 %262, 0
+  br i1 %.not.i64.i, label %270, label %263
 
-260:                                              ; preds = %241
-  %261 = getelementptr inbounds i8, ptr %3, i64 16
-  %262 = load ptr, ptr %261, align 8
-  %263 = load i32, ptr %193, align 8
-  %264 = load ptr, ptr %163, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 8
-  %266 = load i32, ptr %265, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %262, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %263, i32 noundef %266, ptr noundef nonnull @.str.838, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+263:                                              ; preds = %241
+  %264 = getelementptr inbounds i8, ptr %3, i64 16
+  %265 = load ptr, ptr %264, align 8
+  %266 = load i32, ptr %193, align 8
+  %267 = load ptr, ptr %163, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  %269 = load i32, ptr %268, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %265, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %266, i32 noundef %269, ptr noundef nonnull @.str.838, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-267:                                              ; preds = %241
-  %268 = add i32 %253, -4
-  %269 = select i1 %257, i32 %268, i32 %253
-  %270 = getelementptr inbounds i8, ptr %24, i64 8
-  %271 = load i64, ptr %23, align 8
-  %272 = trunc i64 %271 to i32
-  %273 = call i32 @llvm.umin.i32(i32 %269, i32 %272)
-  store i32 %273, ptr %270, align 8
-  %274 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %239, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 %235, ptr %275, align 4
-  %276 = call i32 @decode_krb5_enc_tkt_part(ptr noundef nonnull %18, ptr noundef nonnull %19) #16
-  %.not108.i.i = icmp eq i32 %276, 0
-  br i1 %.not108.i.i, label %.preheader125.i.i, label %281
+270:                                              ; preds = %241
+  %271 = add i32 %256, -4
+  %272 = select i1 %260, i32 %271, i32 %256
+  %273 = getelementptr inbounds i8, ptr %24, i64 8
+  %274 = load i64, ptr %23, align 8
+  %275 = trunc i64 %274 to i32
+  %276 = call i32 @llvm.umin.i32(i32 %272, i32 %275)
+  store i32 %276, ptr %273, align 8
+  %277 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %239, ptr %277, align 8
+  %278 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 %235, ptr %278, align 4
+  %279 = call i32 @decode_krb5_enc_tkt_part(ptr noundef nonnull %18, ptr noundef nonnull %19) #16
+  %.not108.i.i = icmp eq i32 %279, 0
+  br i1 %.not108.i.i, label %.preheader125.i.i, label %284
 
-.preheader125.i.i:                                ; preds = %267
-  %277 = load ptr, ptr %19, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 72
-  %279 = load ptr, ptr %278, align 8
-  %280 = load ptr, ptr %279, align 8
-  %.not109136.i.i = icmp eq ptr %280, null
+.preheader125.i.i:                                ; preds = %270
+  %280 = load ptr, ptr %19, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 72
+  %282 = load ptr, ptr %281, align 8
+  %283 = load ptr, ptr %282, align 8
+  %.not109136.i.i = icmp eq ptr %283, null
   br i1 %.not109136.i.i, label %.thread121.i.i, label %.lr.ph138.i.i
 
-281:                                              ; preds = %267
-  %282 = getelementptr inbounds i8, ptr %3, i64 16
-  %283 = load ptr, ptr %282, align 8
-  %284 = load i32, ptr %193, align 8
-  %285 = load ptr, ptr %163, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 8
-  %287 = load i32, ptr %286, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %283, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %284, i32 noundef %287, ptr noundef nonnull @.str.839, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+284:                                              ; preds = %270
+  %285 = getelementptr inbounds i8, ptr %3, i64 16
+  %286 = load ptr, ptr %285, align 8
+  %287 = load i32, ptr %193, align 8
+  %288 = load ptr, ptr %163, align 8
+  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %290 = load i32, ptr %289, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %286, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %287, i32 noundef %290, ptr noundef nonnull @.str.839, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-.thread121.i.i:                                   ; preds = %336, %.preheader125.i.i
-  %288 = phi ptr [ %277, %.preheader125.i.i ], [ %337, %336 ]
-  %289 = call i32 @encode_krb5_enc_tkt_part(ptr noundef nonnull %288, ptr noundef nonnull %20) #16
-  br label %357
+.thread121.i.i:                                   ; preds = %339, %.preheader125.i.i
+  %291 = phi ptr [ %280, %.preheader125.i.i ], [ %340, %339 ]
+  %292 = call i32 @encode_krb5_enc_tkt_part(ptr noundef nonnull %291, ptr noundef nonnull %20) #16
+  br label %360
 
-.lr.ph138.i.i:                                    ; preds = %.preheader125.i.i, %336
-  %290 = phi ptr [ %337, %336 ], [ %277, %.preheader125.i.i ]
-  %291 = phi ptr [ %343, %336 ], [ %280, %.preheader125.i.i ]
-  %292 = phi i64 [ %341, %336 ], [ 0, %.preheader125.i.i ]
-  %.098137.i.i = phi i32 [ %338, %336 ], [ 0, %.preheader125.i.i ]
+.lr.ph138.i.i:                                    ; preds = %.preheader125.i.i, %339
+  %293 = phi ptr [ %340, %339 ], [ %280, %.preheader125.i.i ]
+  %294 = phi ptr [ %346, %339 ], [ %283, %.preheader125.i.i ]
+  %295 = phi i64 [ %344, %339 ], [ 0, %.preheader125.i.i ]
+  %.098137.i.i = phi i32 [ %341, %339 ], [ 0, %.preheader125.i.i ]
   store ptr null, ptr %26, align 8
-  %293 = getelementptr inbounds i8, ptr %291, i64 4
-  %294 = load i32, ptr %293, align 4
-  %.not110.i.i = icmp eq i32 %294, 1
-  br i1 %.not110.i.i, label %295, label %336
+  %296 = getelementptr inbounds i8, ptr %294, i64 4
+  %297 = load i32, ptr %296, align 4
+  %.not110.i.i = icmp eq i32 %297, 1
+  br i1 %.not110.i.i, label %298, label %339
 
-295:                                              ; preds = %.lr.ph138.i.i
-  %296 = load ptr, ptr @krb5_ctx, align 8
-  %297 = call i32 @krb5_decode_authdata_container(ptr noundef %296, i32 noundef 1, ptr noundef nonnull %291, ptr noundef nonnull %26) #16
-  %.not111.i.i = icmp eq i32 %297, 0
-  br i1 %.not111.i.i, label %.preheader.i.i, label %300
+298:                                              ; preds = %.lr.ph138.i.i
+  %299 = load ptr, ptr @krb5_ctx, align 8
+  %300 = call i32 @krb5_decode_authdata_container(ptr noundef %299, i32 noundef 1, ptr noundef nonnull %294, ptr noundef nonnull %26) #16
+  %.not111.i.i = icmp eq i32 %300, 0
+  br i1 %.not111.i.i, label %.preheader.i.i, label %303
 
-.preheader.i.i:                                   ; preds = %295
-  %298 = load ptr, ptr %26, align 8
-  %299 = load ptr, ptr %298, align 8
-  %.not112134.i.i = icmp eq ptr %299, null
+.preheader.i.i:                                   ; preds = %298
+  %301 = load ptr, ptr %26, align 8
+  %302 = load ptr, ptr %301, align 8
+  %.not112134.i.i = icmp eq ptr %302, null
   br i1 %.not112134.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-300:                                              ; preds = %295
-  %301 = getelementptr inbounds i8, ptr %3, i64 16
-  %302 = load ptr, ptr %301, align 8
-  %303 = load i32, ptr %193, align 8
-  %304 = load ptr, ptr %163, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 8
-  %306 = load i32, ptr %305, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %302, ptr noundef %214, ptr noundef %1, i32 noundef %303, i32 noundef %306, ptr noundef nonnull @.str.840, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
-  %307 = load ptr, ptr @krb5_ctx, align 8
-  %308 = load ptr, ptr %19, align 8
-  call void @krb5_free_enc_tkt_part(ptr noundef %307, ptr noundef %308) #16
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds i8, ptr %3, i64 16
+  %305 = load ptr, ptr %304, align 8
+  %306 = load i32, ptr %193, align 8
+  %307 = load ptr, ptr %163, align 8
+  %308 = getelementptr inbounds i8, ptr %307, i64 8
+  %309 = load i32, ptr %308, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %305, ptr noundef %214, ptr noundef %1, i32 noundef %306, i32 noundef %309, ptr noundef nonnull @.str.840, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+  %310 = load ptr, ptr @krb5_ctx, align 8
+  %311 = load ptr, ptr %19, align 8
+  call void @krb5_free_enc_tkt_part(ptr noundef %310, ptr noundef %311) #16
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-309:                                              ; preds = %.lr.ph.i.i
-  %310 = add i32 %.0135.i.i, 1
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr ptr, ptr %298, i64 %311
-  %313 = load ptr, ptr %312, align 8
-  %.not112.i.i = icmp eq ptr %313, null
+312:                                              ; preds = %.lr.ph.i.i
+  %313 = add i32 %.0135.i.i, 1
+  %314 = sext i32 %313 to i64
+  %315 = getelementptr ptr, ptr %301, i64 %314
+  %316 = load ptr, ptr %315, align 8
+  %.not112.i.i = icmp eq ptr %316, null
   br i1 %.not112.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %309
-  %314 = phi ptr [ %313, %309 ], [ %299, %.preheader.i.i ]
-  %.0135.i.i = phi i32 [ %310, %309 ], [ 0, %.preheader.i.i ]
-  %315 = getelementptr inbounds i8, ptr %314, i64 4
-  %316 = load i32, ptr %315, align 4
-  %.not113.i.i = icmp eq i32 %316, 128
-  br i1 %.not113.i.i, label %318, label %309
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %312
+  %317 = phi ptr [ %316, %312 ], [ %302, %.preheader.i.i ]
+  %.0135.i.i = phi i32 [ %313, %312 ], [ 0, %.preheader.i.i ]
+  %318 = getelementptr inbounds i8, ptr %317, i64 4
+  %319 = load i32, ptr %318, align 4
+  %.not113.i.i = icmp eq i32 %319, 128
+  br i1 %.not113.i.i, label %321, label %312
 
-._crit_edge.i.i:                                  ; preds = %309, %.preheader.i.i
-  %317 = load ptr, ptr @krb5_ctx, align 8
-  call void @krb5_free_authdata(ptr noundef %317, ptr noundef nonnull %298) #16
+._crit_edge.i.i:                                  ; preds = %312, %.preheader.i.i
+  %320 = load ptr, ptr @krb5_ctx, align 8
+  call void @krb5_free_authdata(ptr noundef %320, ptr noundef nonnull %301) #16
   %.pre.i.i = load ptr, ptr %19, align 8
-  br label %336
+  br label %339
 
-318:                                              ; preds = %.lr.ph.i.i
-  %319 = getelementptr inbounds i8, ptr %314, i64 8
-  store i32 1, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %314, i64 16
-  %321 = load ptr, ptr %320, align 8
-  store i8 0, ptr %321, align 1
-  %322 = load ptr, ptr @krb5_ctx, align 8
-  %323 = load ptr, ptr %26, align 8
-  %324 = call i32 @krb5_encode_authdata_container(ptr noundef %322, i32 noundef 1, ptr noundef %323, ptr noundef nonnull %21) #16
+321:                                              ; preds = %.lr.ph.i.i
+  %322 = getelementptr inbounds i8, ptr %317, i64 8
+  store i32 1, ptr %322, align 8
+  %323 = getelementptr inbounds i8, ptr %317, i64 16
+  %324 = load ptr, ptr %323, align 8
+  store i8 0, ptr %324, align 1
   %325 = load ptr, ptr @krb5_ctx, align 8
   %326 = load ptr, ptr %26, align 8
-  call void @krb5_free_authdata(ptr noundef %325, ptr noundef %326) #16
+  %327 = call i32 @krb5_encode_authdata_container(ptr noundef %325, i32 noundef 1, ptr noundef %326, ptr noundef nonnull %21) #16
+  %328 = load ptr, ptr @krb5_ctx, align 8
+  %329 = load ptr, ptr %26, align 8
+  call void @krb5_free_authdata(ptr noundef %328, ptr noundef %329) #16
   store ptr null, ptr %26, align 8
-  %.not114.i.i = icmp eq i32 %324, 0
-  br i1 %.not114.i.i, label %344, label %327
+  %.not114.i.i = icmp eq i32 %327, 0
+  br i1 %.not114.i.i, label %347, label %330
 
-327:                                              ; preds = %318
-  %328 = getelementptr inbounds i8, ptr %3, i64 16
-  %329 = load ptr, ptr %328, align 8
-  %330 = load i32, ptr %193, align 8
-  %331 = load ptr, ptr %163, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 8
-  %333 = load i32, ptr %332, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %329, ptr noundef %214, ptr noundef %1, i32 noundef %330, i32 noundef %333, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
-  %334 = load ptr, ptr @krb5_ctx, align 8
-  %335 = load ptr, ptr %19, align 8
-  call void @krb5_free_enc_tkt_part(ptr noundef %334, ptr noundef %335) #16
+330:                                              ; preds = %321
+  %331 = getelementptr inbounds i8, ptr %3, i64 16
+  %332 = load ptr, ptr %331, align 8
+  %333 = load i32, ptr %193, align 8
+  %334 = load ptr, ptr %163, align 8
+  %335 = getelementptr inbounds i8, ptr %334, i64 8
+  %336 = load i32, ptr %335, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %332, ptr noundef %214, ptr noundef %1, i32 noundef %333, i32 noundef %336, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+  %337 = load ptr, ptr @krb5_ctx, align 8
+  %338 = load ptr, ptr %19, align 8
+  call void @krb5_free_enc_tkt_part(ptr noundef %337, ptr noundef %338) #16
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-336:                                              ; preds = %._crit_edge.i.i, %.lr.ph138.i.i
-  %337 = phi ptr [ %290, %.lr.ph138.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %338 = add i32 %.098137.i.i, 1
-  %339 = getelementptr inbounds i8, ptr %337, i64 72
-  %340 = load ptr, ptr %339, align 8
-  %341 = sext i32 %338 to i64
-  %342 = getelementptr ptr, ptr %340, i64 %341
+339:                                              ; preds = %._crit_edge.i.i, %.lr.ph138.i.i
+  %340 = phi ptr [ %293, %.lr.ph138.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
+  %341 = add i32 %.098137.i.i, 1
+  %342 = getelementptr inbounds i8, ptr %340, i64 72
   %343 = load ptr, ptr %342, align 8
-  %.not109.i.i = icmp eq ptr %343, null
+  %344 = sext i32 %341 to i64
+  %345 = getelementptr ptr, ptr %343, i64 %344
+  %346 = load ptr, ptr %345, align 8
+  %.not109.i.i = icmp eq ptr %346, null
   br i1 %.not109.i.i, label %.thread121.i.i, label %.lr.ph138.i.i, !llvm.loop !12
 
-344:                                              ; preds = %318
-  %345 = load ptr, ptr %21, align 8
-  %346 = load ptr, ptr %345, align 8
-  %347 = load ptr, ptr %19, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 72
+347:                                              ; preds = %321
+  %348 = load ptr, ptr %21, align 8
   %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr ptr, ptr %349, i64 %292
-  store ptr %346, ptr %350, align 8
-  %351 = load ptr, ptr %19, align 8
-  %352 = call i32 @encode_krb5_enc_tkt_part(ptr noundef %351, ptr noundef nonnull %20) #16
-  %353 = load ptr, ptr %19, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 72
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr ptr, ptr %355, i64 %292
-  store ptr %291, ptr %356, align 8
-  br label %357
+  %350 = load ptr, ptr %19, align 8
+  %351 = getelementptr inbounds i8, ptr %350, i64 72
+  %352 = load ptr, ptr %351, align 8
+  %353 = getelementptr ptr, ptr %352, i64 %295
+  store ptr %349, ptr %353, align 8
+  %354 = load ptr, ptr %19, align 8
+  %355 = call i32 @encode_krb5_enc_tkt_part(ptr noundef %354, ptr noundef nonnull %20) #16
+  %356 = load ptr, ptr %19, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 72
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr ptr, ptr %358, i64 %295
+  store ptr %294, ptr %359, align 8
+  br label %360
 
-357:                                              ; preds = %344, %.thread121.i.i
-  %358 = phi i32 [ %289, %.thread121.i.i ], [ %352, %344 ]
-  %359 = load ptr, ptr @krb5_ctx, align 8
-  %360 = load ptr, ptr %19, align 8
-  call void @krb5_free_enc_tkt_part(ptr noundef %359, ptr noundef %360) #16
+360:                                              ; preds = %347, %.thread121.i.i
+  %361 = phi i32 [ %292, %.thread121.i.i ], [ %355, %347 ]
+  %362 = load ptr, ptr @krb5_ctx, align 8
+  %363 = load ptr, ptr %19, align 8
+  call void @krb5_free_enc_tkt_part(ptr noundef %362, ptr noundef %363) #16
   store ptr null, ptr %19, align 8
-  %361 = load ptr, ptr %21, align 8
-  %.not116.i.i = icmp eq ptr %361, null
-  br i1 %.not116.i.i, label %364, label %362
+  %364 = load ptr, ptr %21, align 8
+  %.not116.i.i = icmp eq ptr %364, null
+  br i1 %.not116.i.i, label %367, label %365
 
-362:                                              ; preds = %357
-  %363 = load ptr, ptr @krb5_ctx, align 8
-  call void @krb5_free_authdata(ptr noundef %363, ptr noundef nonnull %361) #16
+365:                                              ; preds = %360
+  %366 = load ptr, ptr @krb5_ctx, align 8
+  call void @krb5_free_authdata(ptr noundef %366, ptr noundef nonnull %364) #16
   store ptr null, ptr %21, align 8
-  br label %364
+  br label %367
 
-364:                                              ; preds = %362, %357
-  %.not117.i.i = icmp eq i32 %358, 0
-  br i1 %.not117.i.i, label %372, label %365
+367:                                              ; preds = %365, %360
+  %.not117.i.i = icmp eq i32 %361, 0
+  br i1 %.not117.i.i, label %375, label %368
 
-365:                                              ; preds = %364
-  %366 = getelementptr inbounds i8, ptr %3, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %368 = load i32, ptr %193, align 8
-  %369 = load ptr, ptr %163, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 8
-  %371 = load i32, ptr %370, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %367, ptr noundef %214, ptr noundef %1, i32 noundef %368, i32 noundef %371, ptr noundef nonnull @.str.842, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+368:                                              ; preds = %367
+  %369 = getelementptr inbounds i8, ptr %3, i64 16
+  %370 = load ptr, ptr %369, align 8
+  %371 = load i32, ptr %193, align 8
+  %372 = load ptr, ptr %163, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %374 = load i32, ptr %373, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %370, ptr noundef %214, ptr noundef %1, i32 noundef %371, i32 noundef %374, ptr noundef nonnull @.str.842, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-372:                                              ; preds = %364
-  %373 = load ptr, ptr @krb5_ctx, align 8
-  %374 = load ptr, ptr %20, align 8
-  %375 = call i32 @krb5_c_verify_checksum(ptr noundef %373, ptr noundef nonnull %22, i32 noundef 17, ptr noundef %374, ptr noundef nonnull %24, ptr noundef nonnull %25) #16
+375:                                              ; preds = %367
   %376 = load ptr, ptr @krb5_ctx, align 8
   %377 = load ptr, ptr %20, align 8
-  call void @krb5_free_data(ptr noundef %376, ptr noundef %377) #16
+  %378 = call i32 @krb5_c_verify_checksum(ptr noundef %376, ptr noundef nonnull %22, i32 noundef 17, ptr noundef %377, ptr noundef nonnull %24, ptr noundef nonnull %25) #16
+  %379 = load ptr, ptr @krb5_ctx, align 8
+  %380 = load ptr, ptr %20, align 8
+  call void @krb5_free_data(ptr noundef %379, ptr noundef %380) #16
   store ptr null, ptr %20, align 8
-  %.not118.i.i = icmp eq i32 %375, 0
-  br i1 %.not118.i.i, label %385, label %378
+  %.not118.i.i = icmp eq i32 %378, 0
+  br i1 %.not118.i.i, label %388, label %381
 
-378:                                              ; preds = %372
-  %379 = getelementptr inbounds i8, ptr %3, i64 16
-  %380 = load ptr, ptr %379, align 8
-  %381 = load i32, ptr %193, align 8
-  %382 = load ptr, ptr %163, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 8
-  %384 = load i32, ptr %383, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %380, ptr noundef %214, ptr noundef %1, i32 noundef %381, i32 noundef %384, ptr noundef nonnull @.str.843, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+381:                                              ; preds = %375
+  %382 = getelementptr inbounds i8, ptr %3, i64 16
+  %383 = load ptr, ptr %382, align 8
+  %384 = load i32, ptr %193, align 8
+  %385 = load ptr, ptr %163, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 8
+  %387 = load i32, ptr %386, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %383, ptr noundef %214, ptr noundef %1, i32 noundef %384, i32 noundef %387, ptr noundef nonnull @.str.843, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-385:                                              ; preds = %372
-  %386 = load i32, ptr %25, align 4
-  %387 = icmp eq i32 %386, 0
-  %388 = getelementptr inbounds i8, ptr %3, i64 16
-  %389 = load ptr, ptr %388, align 8
-  br i1 %387, label %390, label %395
+388:                                              ; preds = %375
+  %389 = load i32, ptr %25, align 4
+  %390 = icmp eq i32 %389, 0
+  %391 = getelementptr inbounds i8, ptr %3, i64 16
+  %392 = load ptr, ptr %391, align 8
+  br i1 %390, label %393, label %398
 
-390:                                              ; preds = %385
-  %391 = load i32, ptr %193, align 8
-  %392 = load ptr, ptr %163, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 8
-  %394 = load i32, ptr %393, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %389, ptr noundef %214, ptr noundef %1, i32 noundef %391, i32 noundef %394, ptr noundef nonnull @.str.844, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+393:                                              ; preds = %388
+  %394 = load i32, ptr %193, align 8
+  %395 = load ptr, ptr %163, align 8
+  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  %397 = load i32, ptr %396, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %392, ptr noundef %214, ptr noundef %1, i32 noundef %394, i32 noundef %397, ptr noundef nonnull @.str.844, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-395:                                              ; preds = %385
-  %396 = load ptr, ptr %163, align 8
-  %397 = load i32, ptr %193, align 8
-  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %389, ptr noundef %214, ptr noundef %396, ptr noundef %1, i32 noundef %397, ptr noundef nonnull @.str.845, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+398:                                              ; preds = %388
+  %399 = load ptr, ptr %163, align 8
+  %400 = load i32, ptr %193, align 8
+  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %392, ptr noundef %214, ptr noundef %399, ptr noundef %1, i32 noundef %400, ptr noundef nonnull @.str.845, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_ticket_checksum.exit.i
 
-verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %395, %390, %378, %365, %327, %300, %281, %260, %238, %234, %232, %keytype_for_cksumtype.exit.i.i
+verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %398, %393, %381, %368, %330, %303, %284, %263, %238, %234, %232, %keytype_for_cksumtype.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -5966,731 +5988,735 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %395, %390, %378, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  br label %398
+  br label %401
 
-398:                                              ; preds = %verify_krb5_pac_ticket_checksum.exit.i, %192
-  %399 = getelementptr inbounds i8, ptr %32, i64 64
-  %400 = load ptr, ptr %399, align 8
-  %.not51.i = icmp eq ptr %400, null
-  br i1 %.not51.i, label %403, label %401
+401:                                              ; preds = %verify_krb5_pac_ticket_checksum.exit.i, %192
+  %402 = getelementptr inbounds i8, ptr %32, i64 64
+  %403 = load ptr, ptr %402, align 8
+  %.not51.i = icmp eq ptr %403, null
+  br i1 %.not51.i, label %406, label %404
 
-401:                                              ; preds = %398
-  %402 = load ptr, ptr @krb5_ctx, align 8
-  call void @krb5_free_data_contents(ptr noundef %402, ptr noundef nonnull %30) #16
-  br label %403
+404:                                              ; preds = %401
+  %405 = load ptr, ptr @krb5_ctx, align 8
+  call void @krb5_free_data_contents(ptr noundef %405, ptr noundef nonnull %30) #16
+  br label %406
 
-403:                                              ; preds = %401, %398
-  %404 = getelementptr inbounds i8, ptr %32, i64 72
-  %405 = load i32, ptr %404, align 8
-  %.not52.i = icmp eq i32 %405, 0
-  br i1 %.not52.i, label %598, label %406
+406:                                              ; preds = %404, %401
+  %407 = getelementptr inbounds i8, ptr %32, i64 72
+  %408 = load i32, ptr %407, align 8
+  %.not52.i = icmp eq i32 %408, 0
+  br i1 %.not52.i, label %604, label %409
 
-406:                                              ; preds = %403
+409:                                              ; preds = %406
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %407 = load ptr, ptr %33, align 8
-  %.not.i.i65.i = icmp eq ptr %407, null
-  br i1 %.not.i.i65.i, label %408, label %kerberos_get_private_data.exit.i66.i
+  %410 = load ptr, ptr %33, align 8
+  %.not.i.i65.i = icmp eq ptr %410, null
+  br i1 %.not.i.i65.i, label %411, label %kerberos_get_private_data.exit.i66.i
 
-408:                                              ; preds = %406
-  %409 = getelementptr inbounds i8, ptr %3, i64 16
-  %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 408
-  %412 = load ptr, ptr %411, align 8
-  %413 = call noalias ptr @wmem_alloc0(ptr noundef %412, i64 noundef 256) #16
-  %414 = icmp eq ptr %413, null
-  br i1 %414, label %kerberos_new_private_data.exit.i.i78.i, label %415
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds i8, ptr %3, i64 16
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds i8, ptr %413, i64 408
+  %415 = load ptr, ptr %414, align 8
+  %416 = call noalias ptr @wmem_alloc0(ptr noundef %415, i64 noundef 256) #16
+  %417 = icmp eq ptr %416, null
+  br i1 %417, label %kerberos_new_private_data.exit.i.i78.i, label %418
 
-415:                                              ; preds = %408
-  %416 = load ptr, ptr %411, align 8
-  %417 = call noalias ptr @wmem_list_new(ptr noundef %416) #16
-  %418 = getelementptr inbounds i8, ptr %413, i64 144
-  store ptr %417, ptr %418, align 8
-  %419 = load ptr, ptr %411, align 8
+418:                                              ; preds = %411
+  %419 = load ptr, ptr %414, align 8
   %420 = call noalias ptr @wmem_list_new(ptr noundef %419) #16
-  %421 = getelementptr inbounds i8, ptr %413, i64 152
+  %421 = getelementptr inbounds i8, ptr %416, i64 144
   store ptr %420, ptr %421, align 8
-  %422 = load ptr, ptr %411, align 8
+  %422 = load ptr, ptr %414, align 8
   %423 = call noalias ptr @wmem_list_new(ptr noundef %422) #16
-  %424 = getelementptr inbounds i8, ptr %413, i64 160
+  %424 = getelementptr inbounds i8, ptr %416, i64 152
   store ptr %423, ptr %424, align 8
+  %425 = load ptr, ptr %414, align 8
+  %426 = call noalias ptr @wmem_list_new(ptr noundef %425) #16
+  %427 = getelementptr inbounds i8, ptr %416, i64 160
+  store ptr %426, ptr %427, align 8
   br label %kerberos_new_private_data.exit.i.i78.i
 
-kerberos_new_private_data.exit.i.i78.i:           ; preds = %415, %408
-  store ptr %413, ptr %33, align 8
+kerberos_new_private_data.exit.i.i78.i:           ; preds = %418, %411
+  store ptr %416, ptr %33, align 8
   br label %kerberos_get_private_data.exit.i66.i
 
-kerberos_get_private_data.exit.i66.i:             ; preds = %kerberos_new_private_data.exit.i.i78.i, %406
-  %425 = phi ptr [ %413, %kerberos_new_private_data.exit.i.i78.i ], [ %407, %406 ]
+kerberos_get_private_data.exit.i66.i:             ; preds = %kerberos_new_private_data.exit.i.i78.i, %409
+  %428 = phi ptr [ %416, %kerberos_new_private_data.exit.i.i78.i ], [ %410, %409 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.verify_krb5_pac_full_checksum.kdc_key, i64 16, i1 false)
   store i64 0, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
   store i64 0, ptr %15, align 8
   store i32 0, ptr %16, align 4
-  %426 = load ptr, ptr %163, align 8
-  %427 = icmp eq ptr %426, null
-  br i1 %427, label %428, label %441
+  %429 = load ptr, ptr %163, align 8
+  %430 = icmp eq ptr %429, null
+  br i1 %430, label %431, label %444
 
-428:                                              ; preds = %kerberos_get_private_data.exit.i66.i
-  %429 = load i32, ptr %404, align 8
+431:                                              ; preds = %kerberos_get_private_data.exit.i66.i
+  %432 = load i32, ptr %407, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  br label %431
+  br label %434
 
-430:                                              ; preds = %431
+433:                                              ; preds = %434
   %indvars.iv.next.i.i74.i = add nuw nsw i64 %indvars.iv.i.i72.i, 1
   %exitcond.not.i.i75.i = icmp eq i64 %indvars.iv.next.i.i74.i, 3
-  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %431, !llvm.loop !10
+  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %434, !llvm.loop !10
 
-431:                                              ; preds = %430, %428
-  %indvars.iv.i.i72.i = phi i64 [ 0, %428 ], [ %indvars.iv.next.i.i74.i, %430 ]
+434:                                              ; preds = %433, %431
+  %indvars.iv.i.i72.i = phi i64 [ 0, %431 ], [ %indvars.iv.next.i.i74.i, %433 ]
   store i32 0, ptr %11, align 4
-  %432 = load ptr, ptr @krb5_ctx, align 8
-  %433 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i72.i
-  %434 = load i32, ptr %433, align 4
-  %435 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %432, i32 noundef %434, ptr noundef nonnull %11) #16
-  %.not.i171.i.i = icmp eq i32 %435, 0
-  %436 = load i32, ptr %11, align 4
-  %437 = icmp eq i32 %436, %429
-  %or.cond.i.i73.i = select i1 %.not.i171.i.i, i1 %437, i1 false
-  br i1 %or.cond.i.i73.i, label %keytype_for_cksumtype.exit.i76.i, label %430
+  %435 = load ptr, ptr @krb5_ctx, align 8
+  %436 = getelementptr [3 x i32], ptr @keytype_for_cksumtype.keytypes, i64 0, i64 %indvars.iv.i.i72.i
+  %437 = load i32, ptr %436, align 4
+  %438 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %435, i32 noundef %437, ptr noundef nonnull %11) #16
+  %.not.i171.i.i = icmp eq i32 %438, 0
+  %439 = load i32, ptr %11, align 4
+  %440 = icmp eq i32 %439, %432
+  %or.cond.i.i73.i = select i1 %.not.i171.i.i, i1 %440, i1 false
+  br i1 %or.cond.i.i73.i, label %keytype_for_cksumtype.exit.i76.i, label %433
 
-keytype_for_cksumtype.exit.i76.i:                 ; preds = %431, %430
-  %.0.i.i77.i = phi i32 [ -1, %430 ], [ %434, %431 ]
+keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
+  %.0.i.i77.i = phi i32 [ -1, %433 ], [ %437, %434 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %438 = getelementptr inbounds i8, ptr %3, i64 16
-  %439 = load ptr, ptr %438, align 8
-  %440 = load i32, ptr %404, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %439, ptr noundef %425, ptr noundef %1, i32 noundef %440, i32 noundef %.0.i.i77.i, ptr noundef nonnull @.str.846, ptr noundef nonnull @.str.837, i32 noundef 0, i32 noundef 0)
+  %441 = getelementptr inbounds i8, ptr %3, i64 16
+  %442 = load ptr, ptr %441, align 8
+  %443 = load i32, ptr %407, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %442, ptr noundef %428, ptr noundef %1, i32 noundef %443, i32 noundef %.0.i.i77.i, ptr noundef nonnull @.str.846, ptr noundef nonnull @.str.837, i32 noundef 0, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-441:                                              ; preds = %kerberos_get_private_data.exit.i66.i
+444:                                              ; preds = %kerberos_get_private_data.exit.i66.i
   store i32 -1760647421, ptr %12, align 8
-  %442 = getelementptr inbounds i8, ptr %426, i64 8
-  %443 = getelementptr inbounds i8, ptr %12, i64 4
-  %444 = load <2 x i32>, ptr %442, align 8
-  store <2 x i32> %444, ptr %443, align 4
-  %445 = getelementptr inbounds i8, ptr %426, i64 16
-  %446 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %445, ptr %446, align 8
-  %447 = load ptr, ptr @krb5_ctx, align 8
-  %448 = load i32, ptr %404, align 8
-  %449 = call i32 @krb5_c_checksum_length(ptr noundef %447, i32 noundef %448, ptr noundef nonnull %13) #16
-  %.not.i67.i = icmp eq i32 %449, 0
-  br i1 %.not.i67.i, label %457, label %450
+  %445 = getelementptr inbounds i8, ptr %429, i64 8
+  %446 = load i32, ptr %445, align 8
+  %447 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %446, ptr %447, align 4
+  %448 = getelementptr inbounds i8, ptr %429, i64 12
+  %449 = load i32, ptr %448, align 4
+  %450 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 %449, ptr %450, align 8
+  %451 = getelementptr inbounds i8, ptr %429, i64 16
+  %452 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %451, ptr %452, align 8
+  %453 = load ptr, ptr @krb5_ctx, align 8
+  %454 = load i32, ptr %407, align 8
+  %455 = call i32 @krb5_c_checksum_length(ptr noundef %453, i32 noundef %454, ptr noundef nonnull %13) #16
+  %.not.i67.i = icmp eq i32 %455, 0
+  br i1 %.not.i67.i, label %463, label %456
 
-450:                                              ; preds = %441
-  %451 = getelementptr inbounds i8, ptr %3, i64 16
-  %452 = load ptr, ptr %451, align 8
-  %453 = load i32, ptr %404, align 8
-  %454 = load ptr, ptr %163, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 8
-  %456 = load i32, ptr %455, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %452, ptr noundef %425, ptr noundef %1, i32 noundef %453, i32 noundef %456, ptr noundef nonnull @.str.847, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+456:                                              ; preds = %444
+  %457 = getelementptr inbounds i8, ptr %3, i64 16
+  %458 = load ptr, ptr %457, align 8
+  %459 = load i32, ptr %407, align 8
+  %460 = load ptr, ptr %163, align 8
+  %461 = getelementptr inbounds i8, ptr %460, i64 8
+  %462 = load i32, ptr %461, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %458, ptr noundef %428, ptr noundef %1, i32 noundef %459, i32 noundef %462, ptr noundef nonnull @.str.847, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-457:                                              ; preds = %441
-  %458 = getelementptr inbounds i8, ptr %32, i64 80
-  %459 = load ptr, ptr %458, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 4
-  %461 = load i32, ptr %460, align 4
-  %462 = zext i32 %461 to i64
-  %463 = load i64, ptr %13, align 8
-  %464 = add i64 %463, 4
-  %465 = icmp ugt i64 %464, %462
-  %466 = getelementptr inbounds i8, ptr %3, i64 16
-  %467 = load ptr, ptr %466, align 8
-  br i1 %465, label %468, label %473
+463:                                              ; preds = %444
+  %464 = getelementptr inbounds i8, ptr %32, i64 80
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds i8, ptr %465, i64 4
+  %467 = load i32, ptr %466, align 4
+  %468 = zext i32 %467 to i64
+  %469 = load i64, ptr %13, align 8
+  %470 = add i64 %469, 4
+  %471 = icmp ugt i64 %470, %468
+  %472 = getelementptr inbounds i8, ptr %3, i64 16
+  %473 = load ptr, ptr %472, align 8
+  br i1 %471, label %474, label %479
 
-468:                                              ; preds = %457
-  %469 = load i32, ptr %404, align 8
-  %470 = load ptr, ptr %163, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 8
-  %472 = load i32, ptr %471, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %467, ptr noundef %425, ptr noundef %1, i32 noundef %469, i32 noundef %472, ptr noundef nonnull @.str.848, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+474:                                              ; preds = %463
+  %475 = load i32, ptr %407, align 8
+  %476 = load ptr, ptr %163, align 8
+  %477 = getelementptr inbounds i8, ptr %476, i64 8
+  %478 = load i32, ptr %477, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %473, ptr noundef %428, ptr noundef %1, i32 noundef %475, i32 noundef %478, ptr noundef nonnull @.str.848, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-473:                                              ; preds = %457
-  %474 = getelementptr inbounds i8, ptr %467, i64 408
-  %475 = load ptr, ptr %474, align 8
-  %476 = load ptr, ptr %63, align 8
-  %477 = load i32, ptr %32, align 8
-  %478 = sext i32 %477 to i64
-  %479 = call noalias ptr @wmem_memdup(ptr noundef %475, ptr noundef %476, i64 noundef %478) #16
-  %480 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %479, ptr %480, align 8
-  %481 = icmp eq ptr %479, null
-  br i1 %481, label %482, label %488
+479:                                              ; preds = %463
+  %480 = getelementptr inbounds i8, ptr %473, i64 408
+  %481 = load ptr, ptr %480, align 8
+  %482 = load ptr, ptr %63, align 8
+  %483 = load i32, ptr %32, align 8
+  %484 = sext i32 %483 to i64
+  %485 = call noalias ptr @wmem_memdup(ptr noundef %481, ptr noundef %482, i64 noundef %484) #16
+  %486 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %485, ptr %486, align 8
+  %487 = icmp eq ptr %485, null
+  br i1 %487, label %488, label %494
 
-482:                                              ; preds = %473
-  %483 = load ptr, ptr %466, align 8
-  %484 = load i32, ptr %404, align 8
-  %485 = load ptr, ptr %163, align 8
-  %486 = getelementptr inbounds i8, ptr %485, i64 8
-  %487 = load i32, ptr %486, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %483, ptr noundef %425, ptr noundef %1, i32 noundef %484, i32 noundef %487, ptr noundef nonnull @.str.849, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+488:                                              ; preds = %479
+  %489 = load ptr, ptr %472, align 8
+  %490 = load i32, ptr %407, align 8
+  %491 = load ptr, ptr %163, align 8
+  %492 = getelementptr inbounds i8, ptr %491, i64 8
+  %493 = load i32, ptr %492, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %489, ptr noundef %428, ptr noundef %1, i32 noundef %490, i32 noundef %493, ptr noundef nonnull @.str.849, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-488:                                              ; preds = %473
-  %489 = load i32, ptr %32, align 8
-  %490 = getelementptr inbounds i8, ptr %15, i64 4
-  store i32 %489, ptr %490, align 4
-  %491 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %479, i32 noundef %489, i32 noundef %489) #16
-  %492 = icmp eq ptr %491, null
-  br i1 %492, label %493, label %499
+494:                                              ; preds = %479
+  %495 = load i32, ptr %32, align 8
+  %496 = getelementptr inbounds i8, ptr %15, i64 4
+  store i32 %495, ptr %496, align 4
+  %497 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %485, i32 noundef %495, i32 noundef %495) #16
+  %498 = icmp eq ptr %497, null
+  br i1 %498, label %499, label %505
 
-493:                                              ; preds = %488
-  %494 = load ptr, ptr %466, align 8
-  %495 = load i32, ptr %404, align 8
-  %496 = load ptr, ptr %163, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 8
-  %498 = load i32, ptr %497, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %494, ptr noundef %425, ptr noundef %1, i32 noundef %495, i32 noundef %498, ptr noundef nonnull @.str.850, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+499:                                              ; preds = %494
+  %500 = load ptr, ptr %472, align 8
+  %501 = load i32, ptr %407, align 8
+  %502 = load ptr, ptr %163, align 8
+  %503 = getelementptr inbounds i8, ptr %502, i64 8
+  %504 = load i32, ptr %503, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %500, ptr noundef %428, ptr noundef %1, i32 noundef %501, i32 noundef %504, ptr noundef nonnull @.str.850, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-499:                                              ; preds = %488
-  %500 = load i32, ptr %32, align 8
-  %501 = icmp ult i32 %500, 8
-  br i1 %501, label %502, label %508
+505:                                              ; preds = %494
+  %506 = load i32, ptr %32, align 8
+  %507 = icmp ult i32 %506, 8
+  br i1 %507, label %508, label %514
 
-502:                                              ; preds = %499
-  %503 = load ptr, ptr %466, align 8
-  %504 = load i32, ptr %404, align 8
-  %505 = load ptr, ptr %163, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 8
-  %507 = load i32, ptr %506, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %503, ptr noundef %425, ptr noundef %1, i32 noundef %504, i32 noundef %507, ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+508:                                              ; preds = %505
+  %509 = load ptr, ptr %472, align 8
+  %510 = load i32, ptr %407, align 8
+  %511 = load ptr, ptr %163, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 8
+  %513 = load i32, ptr %512, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %509, ptr noundef %428, ptr noundef %1, i32 noundef %510, i32 noundef %513, ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-508:                                              ; preds = %499
-  %509 = call i32 @tvb_get_guint32(ptr noundef nonnull %491, i32 noundef 0, i32 noundef -2147483648) #16
-  %.not174.i.i = icmp eq i32 %509, 0
+514:                                              ; preds = %505
+  %515 = call i32 @tvb_get_guint32(ptr noundef nonnull %497, i32 noundef 0, i32 noundef -2147483648) #16
+  %.not174.i.i = icmp eq i32 %515, 0
   br i1 %.not174.i.i, label %._crit_edge.i71.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %508
-  %invariant.gep.i.i = getelementptr i8, ptr %479, i64 4
+.lr.ph.preheader.i.i:                             ; preds = %514
+  %invariant.gep.i.i = getelementptr i8, ptr %485, i64 4
   br label %.lr.ph.i68.i
 
-.lr.ph.i68.i:                                     ; preds = %566, %.lr.ph.preheader.i.i
-  %indvars.iv.i69.i = phi i64 [ 8, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i70.i, %566 ]
-  %.0164172.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %567, %566 ]
+.lr.ph.i68.i:                                     ; preds = %572, %.lr.ph.preheader.i.i
+  %indvars.iv.i69.i = phi i64 [ 8, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i70.i, %572 ]
+  %.0164172.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %573, %572 ]
   %exitcond.i.i = icmp eq i32 %.0164172.i.i, 134217728
-  br i1 %exitcond.i.i, label %510, label %516
-
-510:                                              ; preds = %.lr.ph.i68.i
-  %511 = load ptr, ptr %466, align 8
-  %512 = load i32, ptr %404, align 8
-  %513 = load ptr, ptr %163, align 8
-  %514 = getelementptr inbounds i8, ptr %513, i64 8
-  %515 = load i32, ptr %514, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %511, ptr noundef %425, ptr noundef %1, i32 noundef %512, i32 noundef %515, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
-  br label %verify_krb5_pac_full_checksum.exit.i
+  br i1 %exitcond.i.i, label %516, label %522
 
 516:                                              ; preds = %.lr.ph.i68.i
-  %517 = load i32, ptr %32, align 8
-  %518 = sext i32 %517 to i64
+  %517 = load ptr, ptr %472, align 8
+  %518 = load i32, ptr %407, align 8
+  %519 = load ptr, ptr %163, align 8
+  %520 = getelementptr inbounds i8, ptr %519, i64 8
+  %521 = load i32, ptr %520, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %517, ptr noundef %428, ptr noundef %1, i32 noundef %518, i32 noundef %521, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+  br label %verify_krb5_pac_full_checksum.exit.i
+
+522:                                              ; preds = %.lr.ph.i68.i
+  %523 = load i32, ptr %32, align 8
+  %524 = sext i32 %523 to i64
   %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i69.i, 16
-  %519 = icmp ugt i64 %indvars.iv.next.i70.i, %518
-  br i1 %519, label %520, label %526
+  %525 = icmp ugt i64 %indvars.iv.next.i70.i, %524
+  br i1 %525, label %526, label %532
 
-520:                                              ; preds = %516
-  %521 = load ptr, ptr %466, align 8
-  %522 = load i32, ptr %404, align 8
-  %523 = load ptr, ptr %163, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 8
-  %525 = load i32, ptr %524, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %521, ptr noundef %425, ptr noundef %1, i32 noundef %522, i32 noundef %525, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+526:                                              ; preds = %522
+  %527 = load ptr, ptr %472, align 8
+  %528 = load i32, ptr %407, align 8
+  %529 = load ptr, ptr %163, align 8
+  %530 = getelementptr inbounds i8, ptr %529, i64 8
+  %531 = load i32, ptr %530, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %527, ptr noundef %428, ptr noundef %1, i32 noundef %528, i32 noundef %531, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-526:                                              ; preds = %516
-  %527 = trunc nuw i64 %indvars.iv.i69.i to i32
-  %528 = call i32 @tvb_get_guint32(ptr noundef nonnull %491, i32 noundef %527, i32 noundef -2147483648) #16
-  %529 = or disjoint i32 %527, 4
-  %530 = call i32 @tvb_get_guint32(ptr noundef nonnull %491, i32 noundef %529, i32 noundef -2147483648) #16
-  %531 = add i32 %527, 8
-  %532 = call i64 @tvb_get_guint64(ptr noundef nonnull %491, i32 noundef %531, i32 noundef -2147483648) #16
-  %533 = load i32, ptr %32, align 8
-  %534 = sext i32 %533 to i64
-  %535 = zext i32 %530 to i64
-  %536 = icmp ugt i64 %532, 2147483647
-  br i1 %536, label %537, label %543
+532:                                              ; preds = %522
+  %533 = trunc nuw i64 %indvars.iv.i69.i to i32
+  %534 = call i32 @tvb_get_guint32(ptr noundef nonnull %497, i32 noundef %533, i32 noundef -2147483648) #16
+  %535 = or disjoint i32 %533, 4
+  %536 = call i32 @tvb_get_guint32(ptr noundef nonnull %497, i32 noundef %535, i32 noundef -2147483648) #16
+  %537 = add i32 %533, 8
+  %538 = call i64 @tvb_get_guint64(ptr noundef nonnull %497, i32 noundef %537, i32 noundef -2147483648) #16
+  %539 = load i32, ptr %32, align 8
+  %540 = sext i32 %539 to i64
+  %541 = zext i32 %536 to i64
+  %542 = icmp ugt i64 %538, 2147483647
+  br i1 %542, label %543, label %549
 
-537:                                              ; preds = %526
-  %538 = load ptr, ptr %466, align 8
-  %539 = load i32, ptr %404, align 8
-  %540 = load ptr, ptr %163, align 8
-  %541 = getelementptr inbounds i8, ptr %540, i64 8
-  %542 = load i32, ptr %541, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %538, ptr noundef %425, ptr noundef %1, i32 noundef %539, i32 noundef %542, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+543:                                              ; preds = %532
+  %544 = load ptr, ptr %472, align 8
+  %545 = load i32, ptr %407, align 8
+  %546 = load ptr, ptr %163, align 8
+  %547 = getelementptr inbounds i8, ptr %546, i64 8
+  %548 = load i32, ptr %547, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %544, ptr noundef %428, ptr noundef %1, i32 noundef %545, i32 noundef %548, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-543:                                              ; preds = %526
-  %544 = icmp slt i32 %530, 0
-  br i1 %544, label %545, label %551
+549:                                              ; preds = %532
+  %550 = icmp slt i32 %536, 0
+  br i1 %550, label %551, label %557
 
-545:                                              ; preds = %543
-  %546 = load ptr, ptr %466, align 8
-  %547 = load i32, ptr %404, align 8
-  %548 = load ptr, ptr %163, align 8
-  %549 = getelementptr inbounds i8, ptr %548, i64 8
-  %550 = load i32, ptr %549, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %546, ptr noundef %425, ptr noundef %1, i32 noundef %547, i32 noundef %550, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+551:                                              ; preds = %549
+  %552 = load ptr, ptr %472, align 8
+  %553 = load i32, ptr %407, align 8
+  %554 = load ptr, ptr %163, align 8
+  %555 = getelementptr inbounds i8, ptr %554, i64 8
+  %556 = load i32, ptr %555, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %552, ptr noundef %428, ptr noundef %1, i32 noundef %553, i32 noundef %556, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-551:                                              ; preds = %543
-  %552 = add nuw nsw i64 %532, %535
-  %553 = icmp ugt i64 %552, %534
-  br i1 %553, label %554, label %560
+557:                                              ; preds = %549
+  %558 = add nuw nsw i64 %538, %541
+  %559 = icmp ugt i64 %558, %540
+  br i1 %559, label %560, label %566
 
-554:                                              ; preds = %551
-  %555 = load ptr, ptr %466, align 8
-  %556 = load i32, ptr %404, align 8
-  %557 = load ptr, ptr %163, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 8
-  %559 = load i32, ptr %558, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %555, ptr noundef %425, ptr noundef %1, i32 noundef %556, i32 noundef %559, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
+560:                                              ; preds = %557
+  %561 = load ptr, ptr %472, align 8
+  %562 = load i32, ptr %407, align 8
+  %563 = load ptr, ptr %163, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 8
+  %565 = load i32, ptr %564, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %561, ptr noundef %428, ptr noundef %1, i32 noundef %562, i32 noundef %565, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-560:                                              ; preds = %551
-  %561 = icmp ult i32 %530, 5
-  br i1 %561, label %566, label %562
+566:                                              ; preds = %557
+  %567 = icmp ult i32 %536, 5
+  br i1 %567, label %572, label %568
 
-562:                                              ; preds = %560
-  switch i32 %528, label %566 [
-    i32 6, label %563
-    i32 7, label %563
-    i32 19, label %563
+568:                                              ; preds = %566
+  switch i32 %534, label %572 [
+    i32 6, label %569
+    i32 7, label %569
+    i32 19, label %569
   ]
 
-563:                                              ; preds = %562, %562, %562
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %532
-  %564 = add nsw i32 %530, -4
-  %565 = zext nneg i32 %564 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %gep.i.i, i8 0, i64 %565, i1 false)
-  br label %566
+569:                                              ; preds = %568, %568, %568
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %538
+  %570 = add nsw i32 %536, -4
+  %571 = zext nneg i32 %570 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %gep.i.i, i8 0, i64 %571, i1 false)
+  br label %572
 
-566:                                              ; preds = %563, %562, %560
-  %567 = add nuw nsw i32 %.0164172.i.i, 1
-  %exitcond176.not.i.i = icmp eq i32 %567, %509
+572:                                              ; preds = %569, %568, %566
+  %573 = add nuw nsw i32 %.0164172.i.i, 1
+  %exitcond176.not.i.i = icmp eq i32 %573, %515
   br i1 %exitcond176.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !13
 
-._crit_edge.i71.i:                                ; preds = %566, %508
-  %568 = load i32, ptr %404, align 8
-  %569 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 %568, ptr %569, align 4
-  %570 = load ptr, ptr %458, align 8
-  %571 = getelementptr inbounds i8, ptr %570, i64 8
-  %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr i8, ptr %572, i64 4
-  %574 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %573, ptr %574, align 8
-  %575 = load i64, ptr %13, align 8
-  %576 = trunc i64 %575 to i32
-  %577 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 %576, ptr %577, align 8
-  %578 = load ptr, ptr @krb5_ctx, align 8
-  %579 = call i32 @krb5_c_verify_checksum(ptr noundef %578, ptr noundef nonnull %12, i32 noundef 17, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %16) #16
-  %.not170.i.i = icmp eq i32 %579, 0
-  br i1 %.not170.i.i, label %586, label %580
-
-580:                                              ; preds = %._crit_edge.i71.i
-  %581 = load ptr, ptr %466, align 8
-  %582 = load i32, ptr %404, align 8
-  %583 = load ptr, ptr %163, align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 8
-  %585 = load i32, ptr %584, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %581, ptr noundef %425, ptr noundef %1, i32 noundef %582, i32 noundef %585, ptr noundef nonnull @.str.854, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
-  br label %verify_krb5_pac_full_checksum.exit.i
+._crit_edge.i71.i:                                ; preds = %572, %514
+  %574 = load i32, ptr %407, align 8
+  %575 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %574, ptr %575, align 4
+  %576 = load ptr, ptr %464, align 8
+  %577 = getelementptr inbounds i8, ptr %576, i64 8
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr i8, ptr %578, i64 4
+  %580 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %579, ptr %580, align 8
+  %581 = load i64, ptr %13, align 8
+  %582 = trunc i64 %581 to i32
+  %583 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 %582, ptr %583, align 8
+  %584 = load ptr, ptr @krb5_ctx, align 8
+  %585 = call i32 @krb5_c_verify_checksum(ptr noundef %584, ptr noundef nonnull %12, i32 noundef 17, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %16) #16
+  %.not170.i.i = icmp eq i32 %585, 0
+  br i1 %.not170.i.i, label %592, label %586
 
 586:                                              ; preds = %._crit_edge.i71.i
-  %587 = load i32, ptr %16, align 4
-  %588 = icmp eq i32 %587, 0
-  %589 = load ptr, ptr %466, align 8
-  br i1 %588, label %590, label %595
-
-590:                                              ; preds = %586
-  %591 = load i32, ptr %404, align 8
-  %592 = load ptr, ptr %163, align 8
-  %593 = getelementptr inbounds i8, ptr %592, i64 8
-  %594 = load i32, ptr %593, align 8
-  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %589, ptr noundef %425, ptr noundef %1, i32 noundef %591, i32 noundef %594, ptr noundef nonnull @.str.855, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+  %587 = load ptr, ptr %472, align 8
+  %588 = load i32, ptr %407, align 8
+  %589 = load ptr, ptr %163, align 8
+  %590 = getelementptr inbounds i8, ptr %589, i64 8
+  %591 = load i32, ptr %590, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %587, ptr noundef %428, ptr noundef %1, i32 noundef %588, i32 noundef %591, ptr noundef nonnull @.str.854, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-595:                                              ; preds = %586
-  %596 = load ptr, ptr %163, align 8
-  %597 = load i32, ptr %404, align 8
-  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %589, ptr noundef %425, ptr noundef %596, ptr noundef %1, i32 noundef %597, ptr noundef nonnull @.str.856, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+592:                                              ; preds = %._crit_edge.i71.i
+  %593 = load i32, ptr %16, align 4
+  %594 = icmp eq i32 %593, 0
+  %595 = load ptr, ptr %472, align 8
+  br i1 %594, label %596, label %601
+
+596:                                              ; preds = %592
+  %597 = load i32, ptr %407, align 8
+  %598 = load ptr, ptr %163, align 8
+  %599 = getelementptr inbounds i8, ptr %598, i64 8
+  %600 = load i32, ptr %599, align 8
+  call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %595, ptr noundef %428, ptr noundef %1, i32 noundef %597, i32 noundef %600, ptr noundef nonnull @.str.855, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
 
-verify_krb5_pac_full_checksum.exit.i:             ; preds = %595, %590, %580, %554, %545, %537, %520, %510, %502, %493, %482, %468, %450, %keytype_for_cksumtype.exit.i76.i
+601:                                              ; preds = %592
+  %602 = load ptr, ptr %163, align 8
+  %603 = load i32, ptr %407, align 8
+  call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %595, ptr noundef %428, ptr noundef %602, ptr noundef %1, i32 noundef %603, ptr noundef nonnull @.str.856, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
+  br label %verify_krb5_pac_full_checksum.exit.i
+
+verify_krb5_pac_full_checksum.exit.i:             ; preds = %601, %596, %586, %560, %551, %543, %526, %516, %508, %499, %488, %474, %456, %keytype_for_cksumtype.exit.i76.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %598
+  br label %604
 
-598:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %403
-  %599 = getelementptr inbounds i8, ptr %32, i64 80
-  %600 = load ptr, ptr %599, align 8
-  %.not53.i = icmp eq ptr %600, null
-  br i1 %.not53.i, label %603, label %601
+604:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %406
+  %605 = getelementptr inbounds i8, ptr %32, i64 80
+  %606 = load ptr, ptr %605, align 8
+  %.not53.i = icmp eq ptr %606, null
+  br i1 %.not53.i, label %609, label %607
 
-601:                                              ; preds = %598
-  %602 = load ptr, ptr @krb5_ctx, align 8
-  call void @krb5_free_data_contents(ptr noundef %602, ptr noundef nonnull %31) #16
-  br label %603
+607:                                              ; preds = %604
+  %608 = load ptr, ptr @krb5_ctx, align 8
+  call void @krb5_free_data_contents(ptr noundef %608, ptr noundef nonnull %31) #16
+  br label %609
 
-603:                                              ; preds = %601, %598
-  %604 = load ptr, ptr @krb5_ctx, align 8
-  %605 = load ptr, ptr %66, align 8
-  call void @krb5_pac_free(ptr noundef %604, ptr noundef %605) #16
+609:                                              ; preds = %607, %604
+  %610 = load ptr, ptr @krb5_ctx, align 8
+  %611 = load ptr, ptr %66, align 8
+  call void @krb5_pac_free(ptr noundef %610, ptr noundef %611) #16
   br label %verify_krb5_pac.exit
 
-verify_krb5_pac.exit:                             ; preds = %kerberos_get_private_data.exit.i, %57, %68, %603
+verify_krb5_pac.exit:                             ; preds = %kerberos_get_private_data.exit.i, %57, %68, %609
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %32)
-  %606 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #16
-  %607 = load i32, ptr @hf_krb_w2k_pac_entries, align 4
-  %608 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %607, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %606) #16
-  %609 = add i32 %2, 4
-  %610 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %609) #16
-  %611 = load i32, ptr @hf_krb_w2k_pac_version, align 4
-  %612 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %611, ptr noundef %1, i32 noundef %609, i32 noundef 4, i32 noundef %610) #16
-  %613 = add i32 %2, 8
-  %.not = icmp eq i32 %606, 0
+  %612 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #16
+  %613 = load i32, ptr @hf_krb_w2k_pac_entries, align 4
+  %614 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %613, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %612) #16
+  %615 = add i32 %2, 4
+  %616 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %615) #16
+  %617 = load i32, ptr @hf_krb_w2k_pac_version, align 4
+  %618 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %617, ptr noundef %1, i32 noundef %615, i32 noundef 4, i32 noundef %616) #16
+  %619 = add i32 %2, 8
+  %.not = icmp eq i32 %612, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %verify_krb5_pac.exit
-  %614 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %615
+  %620 = getelementptr inbounds i8, ptr %3, i64 16
+  br label %621
 
-615:                                              ; preds = %.lr.ph, %dissect_krb5_AD_WIN2K_PAC_struct.exit
-  %.037 = phi i32 [ 0, %.lr.ph ], [ %823, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
-  %.02436 = phi i32 [ %613, %.lr.ph ], [ %822, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
-  %616 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.02436) #16
-  %617 = load i32, ptr @hf_krb_w2k_pac_type, align 4
-  %618 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %617, ptr noundef %1, i32 noundef %.02436, i32 noundef 4, i32 noundef %616) #16
-  %619 = load i32, ptr @ett_krb_pac, align 4
-  %620 = call ptr @proto_item_add_subtree(ptr noundef %618, i32 noundef %619) #16
-  %621 = add i32 %.02436, 4
-  %622 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %621) #16
-  %623 = load i32, ptr @hf_krb_w2k_pac_size, align 4
-  %624 = call ptr @proto_tree_add_uint(ptr noundef %620, i32 noundef %623, ptr noundef %1, i32 noundef %621, i32 noundef 4, i32 noundef %622) #16
-  %625 = add i32 %.02436, 8
-  %626 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %625) #16
-  %627 = load i32, ptr @hf_krb_w2k_pac_offset, align 4
-  %628 = call ptr @proto_tree_add_uint(ptr noundef %620, i32 noundef %627, ptr noundef %1, i32 noundef %625, i32 noundef 4, i32 noundef %626) #16
-  %629 = call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %626, i32 noundef %622, i32 noundef %622) #16
-  switch i32 %616, label %dissect_krb5_AD_WIN2K_PAC_struct.exit [
-    i32 1, label %630
-    i32 2, label %637
-    i32 6, label %671
-    i32 7, label %680
-    i32 10, label %689
-    i32 11, label %703
-    i32 12, label %710
-    i32 13, label %769
-    i32 14, label %775
-    i32 15, label %782
-    i32 16, label %788
-    i32 17, label %797
-    i32 18, label %807
-    i32 19, label %813
+621:                                              ; preds = %.lr.ph, %dissect_krb5_AD_WIN2K_PAC_struct.exit
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %829, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %.02436 = phi i32 [ %619, %.lr.ph ], [ %828, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %622 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.02436) #16
+  %623 = load i32, ptr @hf_krb_w2k_pac_type, align 4
+  %624 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %623, ptr noundef %1, i32 noundef %.02436, i32 noundef 4, i32 noundef %622) #16
+  %625 = load i32, ptr @ett_krb_pac, align 4
+  %626 = call ptr @proto_item_add_subtree(ptr noundef %624, i32 noundef %625) #16
+  %627 = add i32 %.02436, 4
+  %628 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %627) #16
+  %629 = load i32, ptr @hf_krb_w2k_pac_size, align 4
+  %630 = call ptr @proto_tree_add_uint(ptr noundef %626, i32 noundef %629, ptr noundef %1, i32 noundef %627, i32 noundef 4, i32 noundef %628) #16
+  %631 = add i32 %.02436, 8
+  %632 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %631) #16
+  %633 = load i32, ptr @hf_krb_w2k_pac_offset, align 4
+  %634 = call ptr @proto_tree_add_uint(ptr noundef %626, i32 noundef %633, ptr noundef %1, i32 noundef %631, i32 noundef 4, i32 noundef %632) #16
+  %635 = call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %632, i32 noundef %628, i32 noundef %628) #16
+  switch i32 %622, label %dissect_krb5_AD_WIN2K_PAC_struct.exit [
+    i32 1, label %636
+    i32 2, label %643
+    i32 6, label %677
+    i32 7, label %686
+    i32 10, label %695
+    i32 11, label %709
+    i32 12, label %716
+    i32 13, label %775
+    i32 14, label %781
+    i32 15, label %788
+    i32 16, label %794
+    i32 17, label %803
+    i32 18, label %813
+    i32 19, label %819
   ]
 
-630:                                              ; preds = %615
+636:                                              ; preds = %621
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 16, ptr %10, align 4
-  %631 = load i32, ptr @hf_krb_pac_logon_info, align 4
-  %632 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %631, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %633 = load i32, ptr @ett_krb_pac_logon_info, align 4
-  %634 = call ptr @proto_item_add_subtree(ptr noundef %632, i32 noundef %633) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %634, ptr noundef %629, ptr noundef nonnull %10)
+  %637 = load i32, ptr @hf_krb_pac_logon_info, align 4
+  %638 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %637, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %639 = load i32, ptr @ett_krb_pac_logon_info, align 4
+  %640 = call ptr @proto_item_add_subtree(ptr noundef %638, i32 noundef %639) #16
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %640, ptr noundef %635, ptr noundef nonnull %10)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_LOGON_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_LOGON_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_LOGON_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_LOGON_INFO.di) #16
-  %635 = load ptr, ptr %614, align 8
-  %636 = call i32 @dissect_ndr_pointer(ptr noundef %629, i32 noundef 16, ptr noundef %635, ptr noundef %634, ptr noundef nonnull @dissect_krb5_PAC_LOGON_INFO.di, ptr noundef nonnull %10, ptr noundef nonnull @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef nonnull @.str.857, i32 noundef -1) #16
+  %641 = load ptr, ptr %620, align 8
+  %642 = call i32 @dissect_ndr_pointer(ptr noundef %635, i32 noundef 16, ptr noundef %641, ptr noundef %640, ptr noundef nonnull @dissect_krb5_PAC_LOGON_INFO.di, ptr noundef nonnull %10, ptr noundef nonnull @netlogon_dissect_PAC_LOGON_INFO, i32 noundef 2, ptr noundef nonnull @.str.857, i32 noundef -1) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-637:                                              ; preds = %615
+643:                                              ; preds = %621
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %638 = load i32, ptr @hf_krb_pac_credential_info, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %638, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %640 = load i32, ptr @ett_krb_pac_credential_info, align 4
-  %641 = call ptr @proto_item_add_subtree(ptr noundef %639, i32 noundef %640) #16
-  %642 = load i32, ptr @hf_krb_pac_credential_info_version, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %642, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %644 = call i32 @tvb_get_letohl(ptr noundef %629, i32 noundef 4) #16
-  %645 = load i32, ptr @hf_krb_pac_credential_info_etype, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %645, ptr noundef %629, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #16
-  %647 = call ptr @tvb_new_subset_remaining(ptr noundef %629, i32 noundef 8) #16
-  %648 = call i32 @tvb_captured_length_remaining(ptr noundef %629, i32 noundef 8) #16
-  %649 = load ptr, ptr %614, align 8
-  %650 = getelementptr inbounds i8, ptr %649, i64 408
-  %651 = load ptr, ptr %650, align 8
-  %652 = call noalias ptr @wmem_alloc0(ptr noundef %651, i64 noundef 256) #16
-  %653 = icmp eq ptr %652, null
-  br i1 %653, label %decrypt_krb5_data.exit.i.i, label %654
+  %644 = load i32, ptr @hf_krb_pac_credential_info, align 4
+  %645 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %644, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %646 = load i32, ptr @ett_krb_pac_credential_info, align 4
+  %647 = call ptr @proto_item_add_subtree(ptr noundef %645, i32 noundef %646) #16
+  %648 = load i32, ptr @hf_krb_pac_credential_info_version, align 4
+  %649 = call ptr @proto_tree_add_item(ptr noundef %647, i32 noundef %648, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %650 = call i32 @tvb_get_letohl(ptr noundef %635, i32 noundef 4) #16
+  %651 = load i32, ptr @hf_krb_pac_credential_info_etype, align 4
+  %652 = call ptr @proto_tree_add_item(ptr noundef %647, i32 noundef %651, ptr noundef %635, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #16
+  %653 = call ptr @tvb_new_subset_remaining(ptr noundef %635, i32 noundef 8) #16
+  %654 = call i32 @tvb_captured_length_remaining(ptr noundef %635, i32 noundef 8) #16
+  %655 = load ptr, ptr %620, align 8
+  %656 = getelementptr inbounds i8, ptr %655, i64 408
+  %657 = load ptr, ptr %656, align 8
+  %658 = call noalias ptr @wmem_alloc0(ptr noundef %657, i64 noundef 256) #16
+  %659 = icmp eq ptr %658, null
+  br i1 %659, label %decrypt_krb5_data.exit.i.i, label %660
 
-654:                                              ; preds = %637
-  %655 = load ptr, ptr %650, align 8
-  %656 = call noalias ptr @wmem_list_new(ptr noundef %655) #16
-  %657 = getelementptr inbounds i8, ptr %652, i64 144
-  store ptr %656, ptr %657, align 8
-  %658 = load ptr, ptr %650, align 8
-  %659 = call noalias ptr @wmem_list_new(ptr noundef %658) #16
-  %660 = getelementptr inbounds i8, ptr %652, i64 152
-  store ptr %659, ptr %660, align 8
-  %661 = load ptr, ptr %650, align 8
+660:                                              ; preds = %643
+  %661 = load ptr, ptr %656, align 8
   %662 = call noalias ptr @wmem_list_new(ptr noundef %661) #16
-  %663 = getelementptr inbounds i8, ptr %652, i64 160
+  %663 = getelementptr inbounds i8, ptr %658, i64 144
   store ptr %662, ptr %663, align 8
+  %664 = load ptr, ptr %656, align 8
+  %665 = call noalias ptr @wmem_list_new(ptr noundef %664) #16
+  %666 = getelementptr inbounds i8, ptr %658, i64 152
+  store ptr %665, ptr %666, align 8
+  %667 = load ptr, ptr %656, align 8
+  %668 = call noalias ptr @wmem_list_new(ptr noundef %667) #16
+  %669 = getelementptr inbounds i8, ptr %658, i64 160
+  store ptr %668, ptr %669, align 8
   br label %decrypt_krb5_data.exit.i.i
 
-decrypt_krb5_data.exit.i.i:                       ; preds = %654, %637
-  %664 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %641, ptr noundef nonnull %649, ptr noundef %652, i32 noundef 16, ptr noundef %647, i32 noundef %644, ptr noundef nonnull %9)
-  %.not.i.i27 = icmp eq ptr %664, null
-  br i1 %.not.i.i27, label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, label %665
+decrypt_krb5_data.exit.i.i:                       ; preds = %660, %643
+  %670 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %647, ptr noundef nonnull %655, ptr noundef %658, i32 noundef 16, ptr noundef %653, i32 noundef %650, ptr noundef nonnull %9)
+  %.not.i.i27 = icmp eq ptr %670, null
+  br i1 %.not.i.i27, label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, label %671
 
-665:                                              ; preds = %decrypt_krb5_data.exit.i.i
-  %666 = load i32, ptr %9, align 4
-  %667 = call ptr @tvb_new_child_real_data(ptr noundef %629, ptr noundef nonnull %664, i32 noundef %666, i32 noundef %666) #16
-  %668 = load ptr, ptr %614, align 8
-  call void @add_new_data_source(ptr noundef %668, ptr noundef %667, ptr noundef nonnull @.str.860) #16
-  %669 = load i32, ptr @hf_krb_pac_credential_data, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %669, ptr noundef %667, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+671:                                              ; preds = %decrypt_krb5_data.exit.i.i
+  %672 = load i32, ptr %9, align 4
+  %673 = call ptr @tvb_new_child_real_data(ptr noundef %635, ptr noundef nonnull %670, i32 noundef %672, i32 noundef %672) #16
+  %674 = load ptr, ptr %620, align 8
+  call void @add_new_data_source(ptr noundef %674, ptr noundef %673, ptr noundef nonnull @.str.860) #16
+  %675 = load i32, ptr @hf_krb_pac_credential_data, align 4
+  %676 = call ptr @proto_tree_add_item(ptr noundef %647, i32 noundef %675, ptr noundef %673, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
   br label %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i
 
-dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %665, %decrypt_krb5_data.exit.i.i
+dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %671, %decrypt_krb5_data.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-671:                                              ; preds = %615
-  %672 = load i32, ptr @hf_krb_pac_server_checksum, align 4
-  %673 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %672, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %674 = load i32, ptr @ett_krb_pac_server_checksum, align 4
-  %675 = call ptr @proto_item_add_subtree(ptr noundef %673, i32 noundef %674) #16
-  %676 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %677 = call ptr @proto_tree_add_item(ptr noundef %675, i32 noundef %676, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %678 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %679 = call ptr @proto_tree_add_item(ptr noundef %675, i32 noundef %678, ptr noundef %629, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
+677:                                              ; preds = %621
+  %678 = load i32, ptr @hf_krb_pac_server_checksum, align 4
+  %679 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %678, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %680 = load i32, ptr @ett_krb_pac_server_checksum, align 4
+  %681 = call ptr @proto_item_add_subtree(ptr noundef %679, i32 noundef %680) #16
+  %682 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %681, i32 noundef %682, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %684 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %685 = call ptr @proto_tree_add_item(ptr noundef %681, i32 noundef %684, ptr noundef %635, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-680:                                              ; preds = %615
-  %681 = load i32, ptr @hf_krb_pac_privsvr_checksum, align 4
-  %682 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %681, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %683 = load i32, ptr @ett_krb_pac_privsvr_checksum, align 4
-  %684 = call ptr @proto_item_add_subtree(ptr noundef %682, i32 noundef %683) #16
-  %685 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %686 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %685, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %687 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %688 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %687, ptr noundef %629, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
+686:                                              ; preds = %621
+  %687 = load i32, ptr @hf_krb_pac_privsvr_checksum, align 4
+  %688 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %687, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %689 = load i32, ptr @ett_krb_pac_privsvr_checksum, align 4
+  %690 = call ptr @proto_item_add_subtree(ptr noundef %688, i32 noundef %689) #16
+  %691 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %691, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %693 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %694 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %693, ptr noundef %635, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-689:                                              ; preds = %615
-  %690 = load i32, ptr @hf_krb_pac_client_info_type, align 4
-  %691 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %690, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %692 = load i32, ptr @ett_krb_pac_client_info_type, align 4
-  %693 = call ptr @proto_item_add_subtree(ptr noundef %691, i32 noundef %692) #16
-  %694 = load i32, ptr @hf_krb_pac_clientid, align 4
-  %695 = call i32 @dissect_nt_64bit_time(ptr noundef %629, ptr noundef %693, i32 noundef 0, i32 noundef %694) #16
-  %696 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef %695) #16
-  %697 = load i32, ptr @hf_krb_pac_namelen, align 4
-  %698 = zext i16 %696 to i32
-  %699 = call ptr @proto_tree_add_uint(ptr noundef %693, i32 noundef %697, ptr noundef %629, i32 noundef %695, i32 noundef 2, i32 noundef %698) #16
-  %700 = add i32 %695, 2
-  %701 = load i32, ptr @hf_krb_pac_clientname, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %701, ptr noundef %629, i32 noundef %700, i32 noundef %698, i32 noundef -2147483644) #16
+695:                                              ; preds = %621
+  %696 = load i32, ptr @hf_krb_pac_client_info_type, align 4
+  %697 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %696, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %698 = load i32, ptr @ett_krb_pac_client_info_type, align 4
+  %699 = call ptr @proto_item_add_subtree(ptr noundef %697, i32 noundef %698) #16
+  %700 = load i32, ptr @hf_krb_pac_clientid, align 4
+  %701 = call i32 @dissect_nt_64bit_time(ptr noundef %635, ptr noundef %699, i32 noundef 0, i32 noundef %700) #16
+  %702 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef %701) #16
+  %703 = load i32, ptr @hf_krb_pac_namelen, align 4
+  %704 = zext i16 %702 to i32
+  %705 = call ptr @proto_tree_add_uint(ptr noundef %699, i32 noundef %703, ptr noundef %635, i32 noundef %701, i32 noundef 2, i32 noundef %704) #16
+  %706 = add i32 %701, 2
+  %707 = load i32, ptr @hf_krb_pac_clientname, align 4
+  %708 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %707, ptr noundef %635, i32 noundef %706, i32 noundef %704, i32 noundef -2147483644) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-703:                                              ; preds = %615
+709:                                              ; preds = %621
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 16, ptr %8, align 4
-  %704 = load i32, ptr @hf_krb_pac_s4u_delegation_info, align 4
-  %705 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %704, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %706 = load i32, ptr @ett_krb_pac_s4u_delegation_info, align 4
-  %707 = call ptr @proto_item_add_subtree(ptr noundef %705, i32 noundef %706) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %707, ptr noundef %629, ptr noundef nonnull %8)
+  %710 = load i32, ptr @hf_krb_pac_s4u_delegation_info, align 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %710, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %712 = load i32, ptr @ett_krb_pac_s4u_delegation_info, align 4
+  %713 = call ptr @proto_item_add_subtree(ptr noundef %711, i32 noundef %712) #16
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %713, ptr noundef %635, ptr noundef nonnull %8)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_S4U_DELEGATION_INFO.di) #16
-  %708 = load ptr, ptr %614, align 8
-  %709 = call i32 @dissect_ndr_pointer(ptr noundef %629, i32 noundef 16, ptr noundef %708, ptr noundef %707, ptr noundef nonnull @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, ptr noundef nonnull %8, ptr noundef nonnull @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef nonnull @.str.861, i32 noundef -1) #16
+  %714 = load ptr, ptr %620, align 8
+  %715 = call i32 @dissect_ndr_pointer(ptr noundef %635, i32 noundef 16, ptr noundef %714, ptr noundef %713, ptr noundef nonnull @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, ptr noundef nonnull %8, ptr noundef nonnull @netlogon_dissect_PAC_S4U_DELEGATION_INFO, i32 noundef 2, ptr noundef nonnull @.str.861, i32 noundef -1) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-710:                                              ; preds = %615
-  %711 = load i32, ptr @hf_krb_pac_upn_dns_info, align 4
-  %712 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %711, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %713 = load i32, ptr @ett_krb_pac_upn_dns_info, align 4
-  %714 = call ptr @proto_item_add_subtree(ptr noundef %712, i32 noundef %713) #16
-  %715 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 0) #16
-  %716 = load i32, ptr @hf_krb_pac_upn_upn_len, align 4
-  %717 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %716, ptr noundef %629, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #16
-  %718 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 2) #16
-  %719 = load i32, ptr @hf_krb_pac_upn_upn_offset, align 4
-  %720 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %719, ptr noundef %629, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #16
-  %721 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 4) #16
-  %722 = load i32, ptr @hf_krb_pac_upn_dns_len, align 4
-  %723 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %722, ptr noundef %629, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #16
-  %724 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 6) #16
-  %725 = load i32, ptr @hf_krb_pac_upn_dns_offset, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %725, ptr noundef %629, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #16
-  %727 = call i32 @tvb_get_letohl(ptr noundef %629, i32 noundef 8) #16
-  %728 = load i32, ptr @hf_krb_pac_upn_flags, align 4
-  %729 = load i32, ptr @ett_krb_pac_upn_dns_info_flags, align 4
-  %730 = call ptr @proto_tree_add_bitmask(ptr noundef %714, ptr noundef %629, i32 noundef 8, i32 noundef %728, i32 noundef %729, ptr noundef nonnull @hf_krb_pac_upn_flags_fields, i32 noundef -2147483648) #16
-  %731 = and i32 %727, 2
-  %.not.i69.i = icmp eq i32 %731, 0
-  br i1 %.not.i69.i, label %749, label %732
+716:                                              ; preds = %621
+  %717 = load i32, ptr @hf_krb_pac_upn_dns_info, align 4
+  %718 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %717, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %719 = load i32, ptr @ett_krb_pac_upn_dns_info, align 4
+  %720 = call ptr @proto_item_add_subtree(ptr noundef %718, i32 noundef %719) #16
+  %721 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 0) #16
+  %722 = load i32, ptr @hf_krb_pac_upn_upn_len, align 4
+  %723 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %722, ptr noundef %635, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #16
+  %724 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 2) #16
+  %725 = load i32, ptr @hf_krb_pac_upn_upn_offset, align 4
+  %726 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %725, ptr noundef %635, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #16
+  %727 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 4) #16
+  %728 = load i32, ptr @hf_krb_pac_upn_dns_len, align 4
+  %729 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %728, ptr noundef %635, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #16
+  %730 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 6) #16
+  %731 = load i32, ptr @hf_krb_pac_upn_dns_offset, align 4
+  %732 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %731, ptr noundef %635, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #16
+  %733 = call i32 @tvb_get_letohl(ptr noundef %635, i32 noundef 8) #16
+  %734 = load i32, ptr @hf_krb_pac_upn_flags, align 4
+  %735 = load i32, ptr @ett_krb_pac_upn_dns_info_flags, align 4
+  %736 = call ptr @proto_tree_add_bitmask(ptr noundef %720, ptr noundef %635, i32 noundef 8, i32 noundef %734, i32 noundef %735, ptr noundef nonnull @hf_krb_pac_upn_flags_fields, i32 noundef -2147483648) #16
+  %737 = and i32 %733, 2
+  %.not.i69.i = icmp eq i32 %737, 0
+  br i1 %.not.i69.i, label %755, label %738
 
-732:                                              ; preds = %710
-  %733 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 12) #16
-  %734 = load i32, ptr @hf_krb_pac_upn_samaccountname_len, align 4
-  %735 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %734, ptr noundef %629, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648) #16
-  %736 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 14) #16
-  %737 = load i32, ptr @hf_krb_pac_upn_samaccountname_offset, align 4
-  %738 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %737, ptr noundef %629, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #16
-  %739 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 16) #16
-  %740 = load i32, ptr @hf_krb_pac_upn_objectsid_len, align 4
-  %741 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %740, ptr noundef %629, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648) #16
-  %742 = call zeroext i16 @tvb_get_letohs(ptr noundef %629, i32 noundef 18) #16
-  %743 = load i32, ptr @hf_krb_pac_upn_objectsid_offset, align 4
-  %744 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %743, ptr noundef %629, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648) #16
-  %745 = zext i16 %736 to i32
-  %746 = zext i16 %733 to i32
-  %747 = zext i16 %742 to i32
-  %748 = zext i16 %739 to i32
-  br label %749
+738:                                              ; preds = %716
+  %739 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 12) #16
+  %740 = load i32, ptr @hf_krb_pac_upn_samaccountname_len, align 4
+  %741 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %740, ptr noundef %635, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648) #16
+  %742 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 14) #16
+  %743 = load i32, ptr @hf_krb_pac_upn_samaccountname_offset, align 4
+  %744 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %743, ptr noundef %635, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648) #16
+  %745 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 16) #16
+  %746 = load i32, ptr @hf_krb_pac_upn_objectsid_len, align 4
+  %747 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %746, ptr noundef %635, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648) #16
+  %748 = call zeroext i16 @tvb_get_letohs(ptr noundef %635, i32 noundef 18) #16
+  %749 = load i32, ptr @hf_krb_pac_upn_objectsid_offset, align 4
+  %750 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %749, ptr noundef %635, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648) #16
+  %751 = zext i16 %742 to i32
+  %752 = zext i16 %739 to i32
+  %753 = zext i16 %748 to i32
+  %754 = zext i16 %745 to i32
+  br label %755
 
-749:                                              ; preds = %732, %710
-  %.086.i.i = phi i32 [ %746, %732 ], [ 0, %710 ]
-  %.085.i.i = phi i32 [ %747, %732 ], [ 0, %710 ]
-  %.084.i.i = phi i32 [ %748, %732 ], [ 0, %710 ]
-  %.0.i.i25 = phi i32 [ %745, %732 ], [ 0, %710 ]
-  %750 = load i32, ptr @hf_krb_pac_upn_upn_name, align 4
-  %751 = zext i16 %718 to i32
-  %752 = zext i16 %715 to i32
-  %753 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %750, ptr noundef %629, i32 noundef %751, i32 noundef %752, i32 noundef -2147483644) #16
-  %754 = load i32, ptr @hf_krb_pac_upn_dns_name, align 4
-  %755 = zext i16 %724 to i32
-  %756 = zext i16 %721 to i32
-  %757 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %754, ptr noundef %629, i32 noundef %755, i32 noundef %756, i32 noundef -2147483644) #16
-  %758 = icmp ne i32 %.0.i.i25, 0
-  %759 = icmp ne i32 %.086.i.i, 0
-  %or.cond.i.i26 = select i1 %758, i1 %759, i1 false
-  br i1 %or.cond.i.i26, label %760, label %763
+755:                                              ; preds = %738, %716
+  %.086.i.i = phi i32 [ %752, %738 ], [ 0, %716 ]
+  %.085.i.i = phi i32 [ %753, %738 ], [ 0, %716 ]
+  %.084.i.i = phi i32 [ %754, %738 ], [ 0, %716 ]
+  %.0.i.i25 = phi i32 [ %751, %738 ], [ 0, %716 ]
+  %756 = load i32, ptr @hf_krb_pac_upn_upn_name, align 4
+  %757 = zext i16 %724 to i32
+  %758 = zext i16 %721 to i32
+  %759 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %756, ptr noundef %635, i32 noundef %757, i32 noundef %758, i32 noundef -2147483644) #16
+  %760 = load i32, ptr @hf_krb_pac_upn_dns_name, align 4
+  %761 = zext i16 %730 to i32
+  %762 = zext i16 %727 to i32
+  %763 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %760, ptr noundef %635, i32 noundef %761, i32 noundef %762, i32 noundef -2147483644) #16
+  %764 = icmp ne i32 %.0.i.i25, 0
+  %765 = icmp ne i32 %.086.i.i, 0
+  %or.cond.i.i26 = select i1 %764, i1 %765, i1 false
+  br i1 %or.cond.i.i26, label %766, label %769
 
-760:                                              ; preds = %749
-  %761 = load i32, ptr @hf_krb_pac_upn_samaccountname, align 4
-  %762 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %761, ptr noundef %629, i32 noundef %.0.i.i25, i32 noundef %.086.i.i, i32 noundef -2147483644) #16
-  br label %763
+766:                                              ; preds = %755
+  %767 = load i32, ptr @hf_krb_pac_upn_samaccountname, align 4
+  %768 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %767, ptr noundef %635, i32 noundef %.0.i.i25, i32 noundef %.086.i.i, i32 noundef -2147483644) #16
+  br label %769
 
-763:                                              ; preds = %760, %749
-  %764 = icmp ne i32 %.085.i.i, 0
-  %765 = icmp ne i32 %.084.i.i, 0
-  %or.cond5.i.i = select i1 %764, i1 %765, i1 false
-  br i1 %or.cond5.i.i, label %766, label %dissect_krb5_AD_WIN2K_PAC_struct.exit
-
-766:                                              ; preds = %763
-  %767 = call ptr @tvb_new_subset_length(ptr noundef %629, i32 noundef %.085.i.i, i32 noundef %.084.i.i) #16
-  %768 = call i32 @dissect_nt_sid(ptr noundef %767, i32 noundef 0, ptr noundef %714, ptr noundef nonnull @.str.862, ptr noundef null, i32 noundef -1) #16
-  br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
-
-769:                                              ; preds = %615
-  %770 = call i32 @tvb_captured_length_remaining(ptr noundef %629, i32 noundef 0) #16
-  %771 = icmp eq i32 %770, 0
-  br i1 %771, label %dissect_krb5_AD_WIN2K_PAC_struct.exit, label %772
+769:                                              ; preds = %766, %755
+  %770 = icmp ne i32 %.085.i.i, 0
+  %771 = icmp ne i32 %.084.i.i, 0
+  %or.cond5.i.i = select i1 %770, i1 %771, i1 false
+  br i1 %or.cond5.i.i, label %772, label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 772:                                              ; preds = %769
-  %773 = load i32, ptr @hf_krb_pac_client_claims_info, align 4
-  %774 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %773, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %773 = call ptr @tvb_new_subset_length(ptr noundef %635, i32 noundef %.085.i.i, i32 noundef %.084.i.i) #16
+  %774 = call i32 @dissect_nt_sid(ptr noundef %773, i32 noundef 0, ptr noundef %720, ptr noundef nonnull @.str.862, ptr noundef null, i32 noundef -1) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-775:                                              ; preds = %615
+775:                                              ; preds = %621
+  %776 = call i32 @tvb_captured_length_remaining(ptr noundef %635, i32 noundef 0) #16
+  %777 = icmp eq i32 %776, 0
+  br i1 %777, label %dissect_krb5_AD_WIN2K_PAC_struct.exit, label %778
+
+778:                                              ; preds = %775
+  %779 = load i32, ptr @hf_krb_pac_client_claims_info, align 4
+  %780 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %779, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
+
+781:                                              ; preds = %621
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 16, ptr %7, align 4
-  %776 = load i32, ptr @hf_krb_pac_device_info, align 4
-  %777 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %776, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %778 = load i32, ptr @ett_krb_pac_device_info, align 4
-  %779 = call ptr @proto_item_add_subtree(ptr noundef %777, i32 noundef %778) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %779, ptr noundef %629, ptr noundef nonnull %7)
+  %782 = load i32, ptr @hf_krb_pac_device_info, align 4
+  %783 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %782, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %784 = load i32, ptr @ett_krb_pac_device_info, align 4
+  %785 = call ptr @proto_item_add_subtree(ptr noundef %783, i32 noundef %784) #16
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %785, ptr noundef %635, ptr noundef nonnull %7)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_DEVICE_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_DEVICE_INFO.di) #16
-  %780 = load ptr, ptr %614, align 8
-  %781 = call i32 @dissect_ndr_pointer(ptr noundef %629, i32 noundef 16, ptr noundef %780, ptr noundef %779, ptr noundef nonnull @dissect_krb5_PAC_DEVICE_INFO.di, ptr noundef nonnull %7, ptr noundef nonnull @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef nonnull @.str.863, i32 noundef -1) #16
+  %786 = load ptr, ptr %620, align 8
+  %787 = call i32 @dissect_ndr_pointer(ptr noundef %635, i32 noundef 16, ptr noundef %786, ptr noundef %785, ptr noundef nonnull @dissect_krb5_PAC_DEVICE_INFO.di, ptr noundef nonnull %7, ptr noundef nonnull @netlogon_dissect_PAC_DEVICE_INFO, i32 noundef 2, ptr noundef nonnull @.str.863, i32 noundef -1) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-782:                                              ; preds = %615
-  %783 = call i32 @tvb_captured_length_remaining(ptr noundef %629, i32 noundef 0) #16
-  %784 = icmp eq i32 %783, 0
-  br i1 %784, label %dissect_krb5_AD_WIN2K_PAC_struct.exit, label %785
+788:                                              ; preds = %621
+  %789 = call i32 @tvb_captured_length_remaining(ptr noundef %635, i32 noundef 0) #16
+  %790 = icmp eq i32 %789, 0
+  br i1 %790, label %dissect_krb5_AD_WIN2K_PAC_struct.exit, label %791
 
-785:                                              ; preds = %782
-  %786 = load i32, ptr @hf_krb_pac_device_claims_info, align 4
-  %787 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %786, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+791:                                              ; preds = %788
+  %792 = load i32, ptr @hf_krb_pac_device_claims_info, align 4
+  %793 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %792, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-788:                                              ; preds = %615
-  %789 = load i32, ptr @hf_krb_pac_ticket_checksum, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %789, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %791 = load i32, ptr @ett_krb_pac_ticket_checksum, align 4
-  %792 = call ptr @proto_item_add_subtree(ptr noundef %790, i32 noundef %791) #16
-  %793 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %794 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %793, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %795 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %796 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %795, ptr noundef %629, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
+794:                                              ; preds = %621
+  %795 = load i32, ptr @hf_krb_pac_ticket_checksum, align 4
+  %796 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %795, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %797 = load i32, ptr @ett_krb_pac_ticket_checksum, align 4
+  %798 = call ptr @proto_item_add_subtree(ptr noundef %796, i32 noundef %797) #16
+  %799 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %800 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %799, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %801 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %802 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %801, ptr noundef %635, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-797:                                              ; preds = %615
-  %798 = load i32, ptr @hf_krb_pac_attributes_info, align 4
-  %799 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %798, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %800 = load i32, ptr @ett_krb_pac_attributes_info, align 4
-  %801 = call ptr @proto_item_add_subtree(ptr noundef %799, i32 noundef %800) #16
-  %802 = load i32, ptr @hf_krb_pac_attributes_info_length, align 4
-  %803 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %802, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %804 = load i32, ptr @hf_krb_pac_attributes_info_flags, align 4
-  %805 = load i32, ptr @ett_krb_pac_attributes_info_flags, align 4
-  %806 = call ptr @proto_tree_add_bitmask(ptr noundef %801, ptr noundef %629, i32 noundef 4, i32 noundef %804, i32 noundef %805, ptr noundef nonnull @hf_krb_pac_attributes_info_flags_fields, i32 noundef -2147483648) #16
+803:                                              ; preds = %621
+  %804 = load i32, ptr @hf_krb_pac_attributes_info, align 4
+  %805 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %804, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %806 = load i32, ptr @ett_krb_pac_attributes_info, align 4
+  %807 = call ptr @proto_item_add_subtree(ptr noundef %805, i32 noundef %806) #16
+  %808 = load i32, ptr @hf_krb_pac_attributes_info_length, align 4
+  %809 = call ptr @proto_tree_add_item(ptr noundef %807, i32 noundef %808, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %810 = load i32, ptr @hf_krb_pac_attributes_info_flags, align 4
+  %811 = load i32, ptr @ett_krb_pac_attributes_info_flags, align 4
+  %812 = call ptr @proto_tree_add_bitmask(ptr noundef %807, ptr noundef %635, i32 noundef 4, i32 noundef %810, i32 noundef %811, ptr noundef nonnull @hf_krb_pac_attributes_info_flags_fields, i32 noundef -2147483648) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-807:                                              ; preds = %615
-  %808 = load i32, ptr @hf_krb_pac_requester_sid, align 4
-  %809 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %808, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %810 = load i32, ptr @ett_krb_pac_requester_sid, align 4
-  %811 = call ptr @proto_item_add_subtree(ptr noundef %809, i32 noundef %810) #16
-  %812 = call i32 @dissect_nt_sid(ptr noundef %629, i32 noundef 0, ptr noundef %811, ptr noundef nonnull @.str.864, ptr noundef null, i32 noundef -1) #16
-  br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
-
-813:                                              ; preds = %615
-  %814 = load i32, ptr @hf_krb_pac_full_checksum, align 4
-  %815 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %814, ptr noundef %629, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
-  %816 = load i32, ptr @ett_krb_pac_full_checksum, align 4
+813:                                              ; preds = %621
+  %814 = load i32, ptr @hf_krb_pac_requester_sid, align 4
+  %815 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %814, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %816 = load i32, ptr @ett_krb_pac_requester_sid, align 4
   %817 = call ptr @proto_item_add_subtree(ptr noundef %815, i32 noundef %816) #16
-  %818 = load i32, ptr @hf_krb_pac_signature_type, align 4
-  %819 = call ptr @proto_tree_add_item(ptr noundef %817, i32 noundef %818, ptr noundef %629, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
-  %820 = load i32, ptr @hf_krb_pac_signature_signature, align 4
-  %821 = call ptr @proto_tree_add_item(ptr noundef %817, i32 noundef %820, ptr noundef %629, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
+  %818 = call i32 @dissect_nt_sid(ptr noundef %635, i32 noundef 0, ptr noundef %817, ptr noundef nonnull @.str.864, ptr noundef null, i32 noundef -1) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
-dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %615, %630, %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, %671, %680, %689, %703, %763, %766, %769, %772, %775, %782, %785, %788, %797, %807, %813
-  %822 = add i32 %.02436, 16
-  %823 = add nuw i32 %.037, 1
-  %exitcond.not = icmp eq i32 %823, %606
-  br i1 %exitcond.not, label %._crit_edge, label %615, !llvm.loop !14
+819:                                              ; preds = %621
+  %820 = load i32, ptr @hf_krb_pac_full_checksum, align 4
+  %821 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %820, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
+  %822 = load i32, ptr @ett_krb_pac_full_checksum, align 4
+  %823 = call ptr @proto_item_add_subtree(ptr noundef %821, i32 noundef %822) #16
+  %824 = load i32, ptr @hf_krb_pac_signature_type, align 4
+  %825 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %824, ptr noundef %635, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #16
+  %826 = load i32, ptr @hf_krb_pac_signature_signature, align 4
+  %827 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %826, ptr noundef %635, i32 noundef 4, i32 noundef -1, i32 noundef 0) #16
+  br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
+
+dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %621, %636, %dissect_krb5_PAC_CREDENTIAL_INFO.exit.i, %677, %686, %695, %709, %769, %772, %775, %778, %781, %788, %791, %794, %803, %813, %819
+  %828 = add i32 %.02436, 16
+  %829 = add nuw i32 %.037, 1
+  %exitcond.not = icmp eq i32 %829, %612
+  br i1 %exitcond.not, label %._crit_edge, label %621, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_krb5_AD_WIN2K_PAC_struct.exit, %verify_krb5_pac.exit
-  %.024.lcssa = phi i32 [ %613, %verify_krb5_pac.exit ], [ %822, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
+  %.024.lcssa = phi i32 [ %619, %verify_krb5_pac.exit ], [ %828, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
   ret i32 %.024.lcssa
 }
 
@@ -6755,13 +6781,13 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %35, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %35
+  br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @krb5_ctx, align 8
@@ -6769,38 +6795,42 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5) #16
   %.not14 = icmp eq i32 %16, 0
-  br i1 %.not14, label %17, label %35
+  br i1 %.not14, label %17, label %38
 
 17:                                               ; preds = %12
   store i32 -1760647421, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
-  %19 = load <2 x i32>, ptr %14, align 8
-  store <2 x i32> %19, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %20, ptr %21, align 8
-  %22 = load i32, ptr %5, align 4
-  %23 = load i32, ptr %6, align 8
-  %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %35
+  %18 = load i32, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %23, ptr %24, align 8
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %6, align 8
+  %27 = icmp eq i32 %25, %26
+  br i1 %27, label %28, label %38
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %2, i64 28
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 4
-  %29 = load ptr, ptr @krb5_ctx, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @krb5_pac_verify(ptr noundef %29, ptr noundef %31, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #16
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds i8, ptr %2, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %29, align 4
+  %32 = load ptr, ptr @krb5_ctx, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @krb5_pac_verify(ptr noundef %32, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #16
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %38
 
-34:                                               ; preds = %25
+37:                                               ; preds = %28
   store ptr %1, ptr %10, align 8
-  br label %35
+  br label %38
 
-35:                                               ; preds = %25, %34, %12, %9, %3, %17
+38:                                               ; preds = %28, %37, %12, %9, %3, %17
   ret void
 }
 
@@ -6918,13 +6948,13 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %35, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %35
+  br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @krb5_ctx, align 8
@@ -6932,38 +6962,42 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5) #16
   %.not14 = icmp eq i32 %16, 0
-  br i1 %.not14, label %17, label %35
+  br i1 %.not14, label %17, label %38
 
 17:                                               ; preds = %12
   store i32 -1760647421, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
-  %19 = load <2 x i32>, ptr %14, align 8
-  store <2 x i32> %19, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %20, ptr %21, align 8
-  %22 = load i32, ptr %5, align 4
-  %23 = load i32, ptr %6, align 8
-  %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %35
+  %18 = load i32, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %23, ptr %24, align 8
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %6, align 8
+  %27 = icmp eq i32 %25, %26
+  br i1 %27, label %28, label %38
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %2, i64 44
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 4
-  %29 = load ptr, ptr @krb5_ctx, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @krb5_pac_verify(ptr noundef %29, ptr noundef %31, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #16
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %35
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds i8, ptr %2, i64 44
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %29, align 4
+  %32 = load ptr, ptr @krb5_ctx, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @krb5_pac_verify(ptr noundef %32, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #16
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %38
 
-34:                                               ; preds = %25
+37:                                               ; preds = %28
   store ptr %1, ptr %10, align 8
-  br label %35
+  br label %38
 
-35:                                               ; preds = %25, %34, %12, %9, %3, %17
+38:                                               ; preds = %28, %37, %12, %9, %3, %17
   ret void
 }
 
@@ -9083,47 +9117,55 @@ kerberos_get_private_data.exit:                   ; preds = %8, %kerberos_new_pr
   %or.cond = or i1 %34, %33
   %35 = icmp eq ptr %5, null
   %or.cond3 = or i1 %35, %or.cond
-  br i1 %or.cond3, label %61, label %36
+  br i1 %or.cond3, label %67, label %36
 
 36:                                               ; preds = %kerberos_get_private_data.exit
   store i32 -1760647421, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = getelementptr inbounds i8, ptr %9, i64 4
-  %39 = load <2 x i32>, ptr %37, align 8
-  store <2 x i32> %39, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
-  %41 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %40, ptr %41, align 8
+  %38 = load i32, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %3, i64 12
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %43, ptr %44, align 8
   store i32 -1760647421, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 4
-  %44 = load <2 x i32>, ptr %42, align 8
-  store <2 x i32> %44, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
-  %46 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %45, ptr %46, align 8
-  %47 = load ptr, ptr @krb5_ctx, align 8
-  %48 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %47, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %10, ptr noundef %6, ptr noundef nonnull %11) #16
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %49, label %61
+  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %46, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %5, i64 12
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %51, ptr %52, align 8
+  %53 = load ptr, ptr @krb5_ctx, align 8
+  %54 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %53, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %10, ptr noundef %6, ptr noundef nonnull %11) #16
+  %.not = icmp eq i32 %54, 0
+  br i1 %.not, label %55, label %67
 
-49:                                               ; preds = %36
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 16
-  %58 = load ptr, ptr %57, align 8
-  call fastcc void @add_encryption_key(ptr noundef %51, ptr noundef %31, ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %54, i32 noundef %56, ptr noundef %58, ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  %59 = load ptr, ptr @krb5_ctx, align 8
-  %60 = load ptr, ptr %11, align 8
-  call void @krb5_free_keyblock(ptr noundef %59, ptr noundef %60) #16
-  br label %61
+55:                                               ; preds = %36
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %64 = load ptr, ptr %63, align 8
+  call fastcc void @add_encryption_key(ptr noundef %57, ptr noundef %31, ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %60, i32 noundef %62, ptr noundef %64, ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %65 = load ptr, ptr @krb5_ctx, align 8
+  %66 = load ptr, ptr %11, align 8
+  call void @krb5_free_keyblock(ptr noundef %65, ptr noundef %66) #16
+  br label %67
 
-61:                                               ; preds = %36, %kerberos_get_private_data.exit, %49
+67:                                               ; preds = %36, %kerberos_get_private_data.exit, %55
   ret void
 }
 

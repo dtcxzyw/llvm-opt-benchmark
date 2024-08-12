@@ -6555,8 +6555,9 @@ if.end.i:                                         ; preds = %.noexc13, %lor.lhs.
   br i1 %cmp.i.i.i9, label %invoke.cont13, label %_ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i.i: ; preds = %if.end.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
+  %18 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %18 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %19 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %19 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
@@ -6565,8 +6566,9 @@ _ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i.i: ; preds = %if.end.i
           to label %_ZNK6vectorIPN3mbp4termELb0EjE3endEv.exit.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 _ZNK6vectorIPN3mbp4termELb0EjE3endEv.exit.i.i.i.i: ; preds = %_ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i.i
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
-  store <2 x i32> %18, ptr %call3.i.i.i.i14, align 4
+  store i32 %19, ptr %call3.i.i.i.i14, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i14, i64 4
+  store i32 %18, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i14, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %add.ptr.i12, align 8
   %20 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
@@ -12297,8 +12299,9 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
   br i1 %tobool.not.i.i166, label %invoke.cont124, label %_ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i: ; preds = %for.body122
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %88, i64 -4
+  %89 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %88, i64 -8
-  %89 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %90 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %90 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
@@ -12307,7 +12310,9 @@ _ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i: ; preds = %for.body122
           to label %call3.i.i.i.noexc unwind label %lpad68.loopexit
 
 call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorIPN3mbp4termELb0EjE8capacityEv.exit.i.i.i
-  store <2 x i32> %89, ptr %call3.i.i.i167, align 4
+  store i32 %90, ptr %call3.i.i.i167, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i167, i64 4
+  store i32 %89, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i167, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %t123, align 8
   %91 = load ptr, ptr %__begin1114.0426, align 8

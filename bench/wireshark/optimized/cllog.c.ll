@@ -555,32 +555,35 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture no
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = getelementptr inbounds i8, ptr %5, i64 4
   %11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
-  %12 = load <2 x i32>, ptr %7, align 8
-  %13 = add <2 x i32> %12, <i32 -1, i32 -1900>
-  store <2 x i32> %13, ptr %7, align 8
-  %14 = call i64 @mktime(ptr noundef nonnull %5) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
-  store i16 0, ptr %16, align 8
-  %17 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
-  %18 = add i64 %17, 1
-  %19 = icmp ult i64 %18, 21
-  br i1 %19, label %checked_strcpy.exit.thread, label %checked_strcpy.exit
+  %12 = load i32, ptr %7, align 8
+  %13 = add i32 %12, -1
+  store i32 %13, ptr %7, align 8
+  %14 = load i32, ptr %6, align 4
+  %15 = add i32 %14, -1900
+  store i32 %15, ptr %6, align 4
+  %16 = call i64 @mktime(ptr noundef nonnull %5) #10
+  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  store i16 0, ptr %18, align 8
+  %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
+  %20 = add i64 %19, 1
+  %21 = icmp ult i64 %20, 21
+  br i1 %21, label %checked_strcpy.exit.thread, label %checked_strcpy.exit
 
 checked_strcpy.exit.thread:                       ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr readonly align 1 %1, i64 %18, i1 false)
-  br label %22
+  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %1, i64 %20, i1 false)
+  br label %24
 
 checked_strcpy.exit:                              ; preds = %4
   store i32 -13, ptr %2, align 4
-  %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.28) #10
-  store ptr %21, ptr %3, align 8
-  br label %22
+  %23 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.28) #10
+  store ptr %23, ptr %3, align 8
+  br label %24
 
-22:                                               ; preds = %checked_strcpy.exit.thread, %checked_strcpy.exit
-  ret i1 %19
+24:                                               ; preds = %checked_strcpy.exit.thread, %checked_strcpy.exit
+  ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -967,7 +970,7 @@ checked_strcpy.exit:                              ; preds = %5
   store i32 -13, ptr %3, align 4
   %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.45) #10
   store ptr %14, ptr %4, align 8
-  br label %108
+  br label %110
 
 15:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %1, i64 %12, i1 false)
@@ -981,7 +984,7 @@ checked_strcpy.exit19:                            ; preds = %15
   store i32 -13, ptr %3, align 4
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #10
   store ptr %20, ptr %4, align 8
-  br label %108
+  br label %110
 
 21:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull readonly align 1 %16, i64 %18, i1 false)
@@ -1123,34 +1126,37 @@ stripTimeStamp.exit27:                            ; preds = %stripTimeStamp.exit
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = getelementptr inbounds i8, ptr %6, i64 4
   %92 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.47, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  %93 = load <2 x i32>, ptr %88, align 8
-  %94 = add <2 x i32> %93, <i32 -1, i32 -1900>
-  store <2 x i32> %94, ptr %88, align 8
-  %95 = call i64 @mktime(ptr noundef nonnull %6) #10
-  store i64 %95, ptr %2, align 8
-  %96 = load i32, ptr %7, align 4
-  %97 = trunc i32 %96 to i16
-  %98 = getelementptr inbounds i8, ptr %2, i64 8
-  store i16 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 160
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %108
+  %93 = load i32, ptr %88, align 8
+  %94 = add i32 %93, -1
+  store i32 %94, ptr %88, align 8
+  %95 = load i32, ptr %87, align 4
+  %96 = add i32 %95, -1900
+  store i32 %96, ptr %87, align 4
+  %97 = call i64 @mktime(ptr noundef nonnull %6) #10
+  store i64 %97, ptr %2, align 8
+  %98 = load i32, ptr %7, align 4
+  %99 = trunc i32 %98 to i16
+  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  store i16 %99, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 160
+  %102 = load i64, ptr %101, align 8
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %110
 
-102:                                              ; preds = %stripTimeStamp.exit27
-  %103 = getelementptr inbounds i8, ptr %0, i64 168
-  %104 = load i16, ptr %103, align 8
-  %105 = icmp eq i16 %104, 0
-  br i1 %105, label %106, label %108
+104:                                              ; preds = %stripTimeStamp.exit27
+  %105 = getelementptr inbounds i8, ptr %0, i64 168
+  %106 = load i16, ptr %105, align 8
+  %107 = icmp eq i16 %106, 0
+  br i1 %107, label %108, label %110
 
-106:                                              ; preds = %102
-  store i64 %95, ptr %99, align 8
-  %107 = load i16, ptr %98, align 8
-  store i16 %107, ptr %103, align 8
-  br label %108
+108:                                              ; preds = %104
+  store i64 %97, ptr %101, align 8
+  %109 = load i16, ptr %100, align 8
+  store i16 %109, ptr %105, align 8
+  br label %110
 
-108:                                              ; preds = %stripTimeStamp.exit27, %102, %106, %checked_strcpy.exit19, %checked_strcpy.exit
-  %.0 = phi i1 [ false, %checked_strcpy.exit19 ], [ false, %checked_strcpy.exit ], [ true, %106 ], [ true, %102 ], [ true, %stripTimeStamp.exit27 ]
+110:                                              ; preds = %stripTimeStamp.exit27, %104, %108, %checked_strcpy.exit19, %checked_strcpy.exit
+  %.0 = phi i1 [ false, %checked_strcpy.exit19 ], [ false, %checked_strcpy.exit ], [ true, %108 ], [ true, %104 ], [ true, %stripTimeStamp.exit27 ]
   ret i1 %.0
 }
 

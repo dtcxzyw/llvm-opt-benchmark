@@ -786,7 +786,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv6stereo20QuasiDenseStereoImpl14loa
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  br label %72
+  br label %80
 
 26:                                               ; preds = %23, %2
   %27 = invoke noundef zeroext i1 @_ZNK2cv11FileStorage8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -932,39 +932,55 @@ _ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit17:           ; preds = %56
 
 _ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit18:           ; preds = %58
   invoke void @_ZN2cv11FileStorage7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %71 unwind label %60
+          to label %79 unwind label %60
 
 60:                                               ; preds = %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %35, %33, %30, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit18, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit17, %_ZN2cvrsIfEEvRKNS_8FileNodeERT_.exit16, %_ZN2cvrsIfEEvRKNS_8FileNodeERT_.exit15, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit14, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit13, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit12, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit11, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit10, %_ZN2cvrsIfEEvRKNS_8FileNodeERT_.exit9, %_ZN2cvrsIfEEvRKNS_8FileNodeERT_.exit, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit8, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit7, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit6, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit, %29, %26
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %80
 
 62:                                               ; preds = %28
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 5, i32 5, i32 15, i32 15>, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x float> <float 5.000000e-01, float 2.000000e+02>, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x i32> <i32 5, i32 1, i32 3, i32 3>, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 3, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 52
-  store <2 x float> <float 0x3F689374C0000000, float 0x3F847AE140000000>, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 10, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 500, ptr %69, align 8
-  %70 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %not. = xor i1 %70, true
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 15, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 15, ptr %65, align 4
+  store i32 5, ptr %63, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 5, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  store float 5.000000e-01, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 28
+  store float 2.000000e+02, ptr %68, align 4
+  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 5, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 1, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 3, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 3, ptr %72, align 4
+  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 3, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 52
+  store float 0x3F689374C0000000, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  store float 0x3F847AE140000000, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 10, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 500, ptr %77, align 8
+  %78 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  %not. = xor i1 %78, true
   %. = sext i1 %not. to i32
-  br label %71
+  br label %79
 
-71:                                               ; preds = %62, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit18
+79:                                               ; preds = %62, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit18
   %.04 = phi i32 [ 1, %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit18 ], [ %., %62 ]
   call void @_ZN2cv11FileStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #24
   ret i32 %.04
 
-72:                                               ; preds = %60, %24
+80:                                               ; preds = %60, %24
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %25, %24 ]
   call void @_ZN2cv11FileStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #24
   resume { ptr, i32 } %.pn
@@ -2108,9 +2124,14 @@ define linkonce_odr hidden <2 x float> @_ZN2cv6stereo20QuasiDenseStereoImpl8getM
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds %"class.cv::Point_.18", ptr %11, i64 %12
-  %14 = load <2 x i32>, ptr %13, align 4
-  %15 = sitofp <2 x i32> %14 to <2 x float>
-  ret <2 x float> %15
+  %14 = load i32, ptr %13, align 4
+  %15 = sitofp i32 %14 to float
+  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = sitofp i32 %17 to float
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %18, i64 1
+  ret <2 x float> %.sroa.0.4.vec.insert.i
 }
 
 ; Function Attrs: mustprogress uwtable

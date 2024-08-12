@@ -299,28 +299,32 @@ define hidden void @_ZN11G1NewTracer22report_evacuation_infoEP10G1EvacInfo(ptr n
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
-  %16 = load <2 x i64>, ptr %14, align 8
-  store <2 x i64> %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, %21
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 72
-  store i64 %24, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 80
-  store i32 %29, ptr %30, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %24
+  %29 = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 72
+  store i64 %27, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 80
+  store i32 %32, ptr %33, align 8
   call void @_ZN8JfrEventI26EventEvacuationInformationE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo.exit
 
@@ -352,28 +356,32 @@ define hidden void @_ZN11G1NewTracer26send_evacuation_info_eventEP10G1EvacInfo(p
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
-  %16 = load <2 x i64>, ptr %14, align 8
-  store <2 x i64> %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, %21
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 72
-  store i64 %24, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 80
-  store i32 %29, ptr %30, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %24
+  %29 = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 72
+  store i64 %27, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 80
+  store i32 %32, ptr %33, align 8
   call void @_ZN8JfrEventI26EventEvacuationInformationE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI26EventEvacuationInformationE13should_commitEv.exit
 
@@ -402,29 +410,34 @@ define hidden void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFail
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8
-  %16 = shl i64 %15, 3
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = load i64, ptr %13, align 8
+  %15 = shl i64 %14, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = shl i64 %17, 3
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = load i64, ptr %19, align 8
+  %21 = shl i64 %20, 3
+  %22 = tail call noundef i32 @_ZN4GCId7currentEv() #11
+  %23 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %12, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
-  %19 = load <2 x i64>, ptr %13, align 8
-  %20 = shl <2 x i64> %19, <i64 3, i64 3>
-  %21 = tail call noundef i32 @_ZN4GCId7currentEv() #11
-  store i32 %21, ptr %17, align 4
-  store i64 %12, ptr %18, align 8
-  store <2 x i64> %20, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %15, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %18, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %16, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %21, ptr %.sroa.4.0..sroa_idx.i, align 8
   call void @_ZN8JfrEventI21EventEvacuationFailedE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo.exit
 
 _ZNK11G1NewTracer28send_evacuation_failed_eventERK20EvacuationFailedInfo.exit: ; preds = %2, %6
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(36) %1) #11
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(36) %1) #11
   ret void
 }
 
@@ -448,20 +461,25 @@ define hidden void @_ZNK11G1NewTracer28send_evacuation_failed_eventERK20Evacuati
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8
-  %16 = shl i64 %15, 3
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = load i64, ptr %13, align 8
+  %15 = shl i64 %14, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = shl i64 %17, 3
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = load i64, ptr %19, align 8
+  %21 = shl i64 %20, 3
+  %22 = tail call noundef i32 @_ZN4GCId7currentEv() #11
+  %23 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %12, ptr %24, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %19 = load <2 x i64>, ptr %13, align 8
-  %20 = shl <2 x i64> %19, <i64 3, i64 3>
-  %21 = tail call noundef i32 @_ZN4GCId7currentEv() #11
-  store i32 %21, ptr %17, align 4
-  store i64 %12, ptr %18, align 8
-  store <2 x i64> %20, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %15, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %18, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %21, ptr %.sroa.4.0..sroa_idx, align 8
   call void @_ZN8JfrEventI21EventEvacuationFailedE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI21EventEvacuationFailedE13should_commitEv.exit
 
@@ -488,100 +506,120 @@ define hidden void @_ZNK11G1NewTracer28report_evacuation_statisticsERK13G1EvacSu
   store i8 1, ptr %10, align 1
   store i8 1, ptr %9, align 2
   %12 = tail call noundef i32 @_ZN4GCId7currentEv() #11
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = load i64, ptr %13, align 8, !noalias !6
-  %15 = shl i64 %14, 3
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !6
-  %18 = shl i64 %17, 3
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  %20 = load i64, ptr %19, align 8, !noalias !6
-  %21 = shl i64 %20, 3
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
-  %23 = load i32, ptr %22, align 8, !noalias !6
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %13 = load i64, ptr %1, align 8, !noalias !6
+  %14 = shl i64 %13, 3
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !6
+  %17 = shl i64 %16, 3
+  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = load i64, ptr %18, align 8, !noalias !6
+  %20 = shl i64 %19, 3
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !6
+  %23 = shl i64 %22, 3
+  %24 = getelementptr inbounds i8, ptr %1, i64 40
   %25 = load i64, ptr %24, align 8, !noalias !6
   %26 = shl i64 %25, 3
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %12, ptr %28, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %28 = load i32, ptr %27, align 8, !noalias !6
+  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = load i64, ptr %29, align 8, !noalias !6
+  %31 = shl i64 %30, 3
+  %32 = getelementptr inbounds i8, ptr %1, i64 80
+  %33 = load i64, ptr %32, align 8, !noalias !6
+  %34 = shl i64 %33, 3
+  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %36 = load i64, ptr %35, align 8, !noalias !6
+  %37 = shl i64 %36, 3
+  %38 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %12, ptr %38, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 32
-  %29 = load <2 x i64>, ptr %1, align 8, !noalias !6
-  %30 = shl <2 x i64> %29, <i64 3, i64 3>
-  store <2 x i64> %30, ptr %.sroa.21.0..sroa_idx.i, align 8
+  store i64 %14, ptr %.sroa.21.0..sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 %17, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
-  store i64 %15, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %20, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 56
-  store i64 %18, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %23, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 64
-  store i64 %21, ptr %.sroa.6.0..sroa_idx.i, align 8
+  store i64 %26, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 72
-  store i32 %23, ptr %.sroa.7.0..sroa_idx.i, align 8
+  store i32 %28, ptr %.sroa.7.0..sroa_idx.i, align 8
   %.sroa.82.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 88
-  store i64 %26, ptr %.sroa.82.0..sroa_idx.i, align 8
+  store i64 %31, ptr %.sroa.82.0..sroa_idx.i, align 8
   %.sroa.93.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 104
-  %31 = load <2 x i64>, ptr %27, align 8, !noalias !6
-  %32 = shl <2 x i64> %31, <i64 3, i64 3>
-  store <2 x i64> %32, ptr %.sroa.93.0..sroa_idx.i, align 8
+  store i64 %34, ptr %.sroa.93.0..sroa_idx.i, align 8
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 112
+  store i64 %37, ptr %.sroa.10.0..sroa_idx.i, align 8
   call void @_ZN8JfrEventI32EventG1EvacuationYoungStatisticsE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %5)
   br label %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit
 
 _ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit: ; preds = %3, %8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4)
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %33, i8 0, i64 11, i1 false)
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1361), align 1
-  %.not.i.not.i3 = icmp eq i8 %34, 0
-  br i1 %.not.i.not.i3, label %_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit, label %35
+  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %39, i8 0, i64 11, i1 false)
+  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1361), align 1
+  %.not.i.not.i3 = icmp eq i8 %40, 0
+  br i1 %.not.i.not.i3, label %_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit, label %41
 
-35:                                               ; preds = %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit
-  %36 = getelementptr inbounds i8, ptr %4, i64 18
-  %37 = getelementptr inbounds i8, ptr %4, i64 17
-  %38 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #11
-  store i64 %38, ptr %4, align 8
-  store i8 1, ptr %37, align 1
-  store i8 1, ptr %36, align 2
-  %39 = call noundef i32 @_ZN4GCId7currentEv() #11
-  %40 = getelementptr inbounds i8, ptr %2, i64 32
-  %41 = load i64, ptr %40, align 8, !noalias !9
-  %42 = shl i64 %41, 3
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
-  %44 = load i64, ptr %43, align 8, !noalias !9
-  %45 = shl i64 %44, 3
-  %46 = getelementptr inbounds i8, ptr %2, i64 40
-  %47 = load i64, ptr %46, align 8, !noalias !9
-  %48 = shl i64 %47, 3
-  %49 = getelementptr inbounds i8, ptr %2, i64 48
-  %50 = load i32, ptr %49, align 8, !noalias !9
-  %51 = getelementptr inbounds i8, ptr %2, i64 64
+41:                                               ; preds = %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit
+  %42 = getelementptr inbounds i8, ptr %4, i64 18
+  %43 = getelementptr inbounds i8, ptr %4, i64 17
+  %44 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #11
+  store i64 %44, ptr %4, align 8
+  store i8 1, ptr %43, align 1
+  store i8 1, ptr %42, align 2
+  %45 = call noundef i32 @_ZN4GCId7currentEv() #11
+  %46 = load i64, ptr %2, align 8, !noalias !9
+  %47 = shl i64 %46, 3
+  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = load i64, ptr %48, align 8, !noalias !9
+  %50 = shl i64 %49, 3
+  %51 = getelementptr inbounds i8, ptr %2, i64 32
   %52 = load i64, ptr %51, align 8, !noalias !9
   %53 = shl i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %2, i64 80
-  %55 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %39, ptr %55, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 16
+  %55 = load i64, ptr %54, align 8, !noalias !9
+  %56 = shl i64 %55, 3
+  %57 = getelementptr inbounds i8, ptr %2, i64 40
+  %58 = load i64, ptr %57, align 8, !noalias !9
+  %59 = shl i64 %58, 3
+  %60 = getelementptr inbounds i8, ptr %2, i64 48
+  %61 = load i32, ptr %60, align 8, !noalias !9
+  %62 = getelementptr inbounds i8, ptr %2, i64 64
+  %63 = load i64, ptr %62, align 8, !noalias !9
+  %64 = shl i64 %63, 3
+  %65 = getelementptr inbounds i8, ptr %2, i64 80
+  %66 = load i64, ptr %65, align 8, !noalias !9
+  %67 = shl i64 %66, 3
+  %68 = getelementptr inbounds i8, ptr %2, i64 88
+  %69 = load i64, ptr %68, align 8, !noalias !9
+  %70 = shl i64 %69, 3
+  %71 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %45, ptr %71, align 8
   %.sroa.21.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %4, i64 32
-  %56 = load <2 x i64>, ptr %2, align 8, !noalias !9
-  %57 = shl <2 x i64> %56, <i64 3, i64 3>
-  store <2 x i64> %57, ptr %.sroa.21.0..sroa_idx.i4, align 8
+  store i64 %47, ptr %.sroa.21.0..sroa_idx.i4, align 8
+  %.sroa.3.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %50, ptr %.sroa.3.0..sroa_idx.i5, align 8
   %.sroa.4.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %4, i64 48
-  store i64 %42, ptr %.sroa.4.0..sroa_idx.i6, align 8
+  store i64 %53, ptr %.sroa.4.0..sroa_idx.i6, align 8
   %.sroa.5.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %4, i64 56
-  store i64 %45, ptr %.sroa.5.0..sroa_idx.i7, align 8
+  store i64 %56, ptr %.sroa.5.0..sroa_idx.i7, align 8
   %.sroa.6.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %4, i64 64
-  store i64 %48, ptr %.sroa.6.0..sroa_idx.i8, align 8
+  store i64 %59, ptr %.sroa.6.0..sroa_idx.i8, align 8
   %.sroa.7.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %4, i64 72
-  store i32 %50, ptr %.sroa.7.0..sroa_idx.i9, align 8
+  store i32 %61, ptr %.sroa.7.0..sroa_idx.i9, align 8
   %.sroa.82.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %4, i64 88
-  store i64 %53, ptr %.sroa.82.0..sroa_idx.i10, align 8
+  store i64 %64, ptr %.sroa.82.0..sroa_idx.i10, align 8
   %.sroa.93.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %4, i64 104
-  %58 = load <2 x i64>, ptr %54, align 8, !noalias !9
-  %59 = shl <2 x i64> %58, <i64 3, i64 3>
-  store <2 x i64> %59, ptr %.sroa.93.0..sroa_idx.i11, align 8
+  store i64 %67, ptr %.sroa.93.0..sroa_idx.i11, align 8
+  %.sroa.10.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %4, i64 112
+  store i64 %70, ptr %.sroa.10.0..sroa_idx.i12, align 8
   call void @_ZN8JfrEventI30EventG1EvacuationOldStatisticsE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %4)
   br label %_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit
 
-_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit: ; preds = %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit, %35
+_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1EvacSummary.exit: ; preds = %_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1EvacSummary.exit, %41
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
   ret void
 }
@@ -603,41 +641,51 @@ define hidden void @_ZNK11G1NewTracer32send_young_evacuation_statisticsERK13G1Ev
   store i8 1, ptr %8, align 1
   store i8 1, ptr %7, align 2
   %10 = tail call noundef i32 @_ZN4GCId7currentEv() #11
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
-  %12 = load i64, ptr %11, align 8, !noalias !12
-  %13 = shl i64 %12, 3
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !12
-  %16 = shl i64 %15, 3
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
-  %18 = load i64, ptr %17, align 8, !noalias !12
-  %19 = shl i64 %18, 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
-  %21 = load i32, ptr %20, align 8, !noalias !12
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = load i64, ptr %1, align 8, !noalias !12
+  %12 = shl i64 %11, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load i64, ptr %13, align 8, !noalias !12
+  %15 = shl i64 %14, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = load i64, ptr %16, align 8, !noalias !12
+  %18 = shl i64 %17, 3
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = load i64, ptr %19, align 8, !noalias !12
+  %21 = shl i64 %20, 3
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8, !noalias !12
   %24 = shl i64 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %10, ptr %26, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = load i32, ptr %25, align 8, !noalias !12
+  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = load i64, ptr %27, align 8, !noalias !12
+  %29 = shl i64 %28, 3
+  %30 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = load i64, ptr %30, align 8, !noalias !12
+  %32 = shl i64 %31, 3
+  %33 = getelementptr inbounds i8, ptr %1, i64 88
+  %34 = load i64, ptr %33, align 8, !noalias !12
+  %35 = shl i64 %34, 3
+  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %10, ptr %36, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %27 = load <2 x i64>, ptr %1, align 8, !noalias !12
-  %28 = shl <2 x i64> %27, <i64 3, i64 3>
-  store <2 x i64> %28, ptr %.sroa.21.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %15, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %13, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %16, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %21, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %19, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %24, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %21, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %26, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.82.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %24, ptr %.sroa.82.0..sroa_idx, align 8
+  store i64 %29, ptr %.sroa.82.0..sroa_idx, align 8
   %.sroa.93.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 104
-  %29 = load <2 x i64>, ptr %25, align 8, !noalias !12
-  %30 = shl <2 x i64> %29, <i64 3, i64 3>
-  store <2 x i64> %30, ptr %.sroa.93.0..sroa_idx, align 8
+  store i64 %32, ptr %.sroa.93.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 112
+  store i64 %35, ptr %.sroa.10.0..sroa_idx, align 8
   call void @_ZN8JfrEventI32EventG1EvacuationYoungStatisticsE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI32EventG1EvacuationYoungStatisticsE13should_commitEv.exit
 
@@ -662,41 +710,51 @@ define hidden void @_ZNK11G1NewTracer30send_old_evacuation_statisticsERK13G1Evac
   store i8 1, ptr %8, align 1
   store i8 1, ptr %7, align 2
   %10 = tail call noundef i32 @_ZN4GCId7currentEv() #11
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
-  %12 = load i64, ptr %11, align 8, !noalias !15
-  %13 = shl i64 %12, 3
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !15
-  %16 = shl i64 %15, 3
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
-  %18 = load i64, ptr %17, align 8, !noalias !15
-  %19 = shl i64 %18, 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
-  %21 = load i32, ptr %20, align 8, !noalias !15
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = load i64, ptr %1, align 8, !noalias !15
+  %12 = shl i64 %11, 3
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load i64, ptr %13, align 8, !noalias !15
+  %15 = shl i64 %14, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = load i64, ptr %16, align 8, !noalias !15
+  %18 = shl i64 %17, 3
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = load i64, ptr %19, align 8, !noalias !15
+  %21 = shl i64 %20, 3
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8, !noalias !15
   %24 = shl i64 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %10, ptr %26, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = load i32, ptr %25, align 8, !noalias !15
+  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = load i64, ptr %27, align 8, !noalias !15
+  %29 = shl i64 %28, 3
+  %30 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = load i64, ptr %30, align 8, !noalias !15
+  %32 = shl i64 %31, 3
+  %33 = getelementptr inbounds i8, ptr %1, i64 88
+  %34 = load i64, ptr %33, align 8, !noalias !15
+  %35 = shl i64 %34, 3
+  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %10, ptr %36, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %27 = load <2 x i64>, ptr %1, align 8, !noalias !15
-  %28 = shl <2 x i64> %27, <i64 3, i64 3>
-  store <2 x i64> %28, ptr %.sroa.21.0..sroa_idx, align 8
+  store i64 %12, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %15, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %13, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %16, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %21, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %19, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %24, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %21, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %26, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.82.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %24, ptr %.sroa.82.0..sroa_idx, align 8
+  store i64 %29, ptr %.sroa.82.0..sroa_idx, align 8
   %.sroa.93.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 104
-  %29 = load <2 x i64>, ptr %25, align 8, !noalias !15
-  %30 = shl <2 x i64> %29, <i64 3, i64 3>
-  store <2 x i64> %30, ptr %.sroa.93.0..sroa_idx, align 8
+  store i64 %32, ptr %.sroa.93.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 112
+  store i64 %35, ptr %.sroa.10.0..sroa_idx, align 8
   call void @_ZN8JfrEventI30EventG1EvacuationOldStatisticsE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
   br label %_ZN8JfrEventI30EventG1EvacuationOldStatisticsE13should_commitEv.exit
 

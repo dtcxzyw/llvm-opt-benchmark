@@ -23,65 +23,68 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.XLogRecordBuffer, align 16
+  %3 = alloca %struct.XLogRecordBuffer, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  %7 = load <2 x i64>, ptr %6, align 8
-  %8 = load i64, ptr %6, align 8
-  store <2 x i64> %7, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 104
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 68
-  %13 = load i32, ptr %12, align 4
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %19, label %14
+  %7 = load i64, ptr %6, align 8
+  store i64 %7, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %21, label %16
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 44
-  %18 = load i32, ptr %17, align 4
-  tail call void @ReorderBufferAssignChild(ptr noundef %16, i32 noundef %13, i32 noundef %18, i64 noundef %8) #7
-  %.pre = load ptr, ptr %10, align 8
-  br label %19
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 44
+  %20 = load i32, ptr %19, align 4
+  tail call void @ReorderBufferAssignChild(ptr noundef %18, i32 noundef %15, i32 noundef %20, i64 noundef %7) #7
+  %.pre = load ptr, ptr %12, align 8
+  br label %21
 
-19:                                               ; preds = %14, %2
-  %20 = phi ptr [ %.pre, %14 ], [ %11, %2 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 57
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8, !noalias !5
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %26, label %GetRmgr.exit
+21:                                               ; preds = %16, %2
+  %22 = phi ptr [ %.pre, %16 ], [ %13, %2 ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 57
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8, !noalias !5
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %28, label %GetRmgr.exit
 
-26:                                               ; preds = %19
-  tail call void @RmgrNotFound(i8 noundef zeroext %22) #7, !noalias !5
+28:                                               ; preds = %21
+  tail call void @RmgrNotFound(i8 noundef zeroext %24) #7, !noalias !5
   br label %GetRmgr.exit
 
-GetRmgr.exit:                                     ; preds = %19, %26
-  %.sroa.1.0..sroa_idx13 = getelementptr inbounds i8, ptr %24, i64 56
+GetRmgr.exit:                                     ; preds = %21, %28
+  %.sroa.1.0..sroa_idx13 = getelementptr inbounds i8, ptr %26, i64 56
   %.sroa.1.0.copyload14 = load ptr, ptr %.sroa.1.0..sroa_idx13, align 8
   %.not12 = icmp eq ptr %.sroa.1.0.copyload14, null
-  br i1 %.not12, label %28, label %27
+  br i1 %.not12, label %30, label %29
 
-27:                                               ; preds = %GetRmgr.exit
+29:                                               ; preds = %GetRmgr.exit
   call void %.sroa.1.0.copyload14(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
-  br label %34
+  br label %36
 
-28:                                               ; preds = %GetRmgr.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 44
-  %33 = load i32, ptr %32, align 4
-  tail call void @ReorderBufferProcessXid(ptr noundef %30, i32 noundef %33, i64 noundef %8) #7
-  br label %34
+30:                                               ; preds = %GetRmgr.exit
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 44
+  %35 = load i32, ptr %34, align 4
+  tail call void @ReorderBufferProcessXid(ptr noundef %32, i32 noundef %35, i64 noundef %7) #7
+  br label %36
 
-34:                                               ; preds = %28, %27
+36:                                               ; preds = %30, %29
   ret void
 }
 
@@ -1142,16 +1145,20 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   store i16 0, ptr %81, align 2
   %82 = getelementptr inbounds i8, ptr %70, i64 12
   store i32 0, ptr %82, align 4
+  %.sroa.0.0.copyload.i.i = load i16, ptr %66, align 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %66, i64 2
+  %.sroa.2.0.copyload.i.i = load i16, ptr %.sroa.2.0..sroa_idx.i.i, align 1
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %66, i64 4
   %.sroa.3.0.copyload.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i, align 1
-  %83 = getelementptr i8, ptr %66, i64 5
-  %84 = getelementptr inbounds i8, ptr %78, i64 18
-  %85 = load <2 x i16>, ptr %66, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %78, i8 0, i64 23, i1 false)
-  %86 = load ptr, ptr %77, align 8
-  %87 = getelementptr i8, ptr %86, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr readonly align 1 %83, i64 %74, i1 false)
-  store <2 x i16> %85, ptr %84, align 2
+  %83 = load ptr, ptr %77, align 8
+  %84 = getelementptr i8, ptr %83, i64 23
+  %85 = getelementptr i8, ptr %66, i64 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr readonly align 1 %85, i64 %74, i1 false)
+  %86 = getelementptr inbounds i8, ptr %78, i64 20
+  store i16 %.sroa.2.0.copyload.i.i, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %78, i64 18
+  store i16 %.sroa.0.0.copyload.i.i, ptr %87, align 2
   %88 = getelementptr inbounds i8, ptr %78, i64 22
   store i8 %.sroa.3.0.copyload.i.i, ptr %88, align 2
   %.pre.i = load i8, ptr %62, align 1
@@ -1192,16 +1199,20 @@ FilterByOrigin.exit.thread.i:                     ; preds = %FilterByOrigin.exit
   store i16 0, ptr %112, align 2
   %113 = getelementptr inbounds i8, ptr %102, i64 12
   store i32 0, ptr %113, align 4
+  %.sroa.0.0.copyload.i35.i = load i16, ptr %96, align 1
+  %.sroa.2.0..sroa_idx.i36.i = getelementptr i8, ptr %95, i64 16
+  %.sroa.2.0.copyload.i37.i = load i16, ptr %.sroa.2.0..sroa_idx.i36.i, align 1
   %.sroa.3.0..sroa_idx.i38.i = getelementptr i8, ptr %95, i64 18
   %.sroa.3.0.copyload.i39.i = load i8, ptr %.sroa.3.0..sroa_idx.i38.i, align 1
-  %114 = getelementptr i8, ptr %95, i64 19
-  %115 = getelementptr inbounds i8, ptr %109, i64 18
-  %116 = load <2 x i16>, ptr %96, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %109, i8 0, i64 23, i1 false)
-  %117 = load ptr, ptr %108, align 8
-  %118 = getelementptr i8, ptr %117, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %114, i64 %105, i1 false)
-  store <2 x i16> %116, ptr %115, align 2
+  %114 = load ptr, ptr %108, align 8
+  %115 = getelementptr i8, ptr %114, i64 23
+  %116 = getelementptr i8, ptr %95, i64 19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr readonly align 1 %116, i64 %105, i1 false)
+  %117 = getelementptr inbounds i8, ptr %109, i64 20
+  store i16 %.sroa.2.0.copyload.i37.i, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %109, i64 18
+  store i16 %.sroa.0.0.copyload.i35.i, ptr %118, align 2
   %119 = getelementptr inbounds i8, ptr %109, i64 22
   store i8 %.sroa.3.0.copyload.i39.i, ptr %119, align 2
   br label %120
@@ -1349,16 +1360,20 @@ FilterByOrigin.exit.thread:                       ; preds = %21, %FilterByOrigin
   store i16 0, ptr %56, align 2
   %57 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
+  %.sroa.0.0.copyload.i = load i16, ptr %41, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 2
+  %.sroa.2.0.copyload.i = load i16, ptr %.sroa.2.0..sroa_idx.i, align 1
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 4
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1
-  %58 = getelementptr i8, ptr %41, i64 5
-  %59 = getelementptr inbounds i8, ptr %53, i64 18
-  %60 = load <2 x i16>, ptr %41, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
-  %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
-  store <2 x i16> %60, ptr %59, align 2
+  %58 = load ptr, ptr %52, align 8
+  %59 = getelementptr i8, ptr %58, i64 23
+  %60 = getelementptr i8, ptr %41, i64 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
+  %61 = getelementptr inbounds i8, ptr %53, i64 20
+  store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %53, i64 18
+  store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
   %64 = getelementptr inbounds i8, ptr %31, i64 44
@@ -1460,16 +1475,20 @@ FilterByOrigin.exit.thread:                       ; preds = %16, %FilterByOrigin
   store i16 0, ptr %56, align 2
   %57 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 0, ptr %57, align 4
+  %.sroa.0.0.copyload.i = load i16, ptr %47, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %9, i64 10
+  %.sroa.2.0.copyload.i = load i16, ptr %.sroa.2.0..sroa_idx.i, align 1
   %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %9, i64 12
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..sroa_idx.i, align 1
-  %58 = getelementptr i8, ptr %9, i64 13
-  %59 = getelementptr inbounds i8, ptr %53, i64 18
-  %60 = load <2 x i16>, ptr %47, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %53, i8 0, i64 23, i1 false)
-  %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr i8, ptr %61, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %58, i64 %49, i1 false)
-  store <2 x i16> %60, ptr %59, align 2
+  %58 = load ptr, ptr %52, align 8
+  %59 = getelementptr i8, ptr %58, i64 23
+  %60 = getelementptr i8, ptr %9, i64 13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr readonly align 1 %60, i64 %49, i1 false)
+  %61 = getelementptr inbounds i8, ptr %53, i64 20
+  store i16 %.sroa.2.0.copyload.i, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %53, i64 18
+  store i16 %.sroa.0.0.copyload.i, ptr %62, align 2
   %63 = getelementptr inbounds i8, ptr %53, i64 22
   store i8 %.sroa.3.0.copyload.i, ptr %63, align 2
   br label %64

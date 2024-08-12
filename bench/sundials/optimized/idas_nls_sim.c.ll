@@ -586,7 +586,7 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetupSensSim(i32 %0, ptr nocapture
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 288, ptr noundef nonnull @__func__.idaNlsLSetupSensSim, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br label %33
+  br label %34
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 1608
@@ -616,19 +616,21 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetupSensSim(i32 %0, ptr nocapture
   %28 = getelementptr inbounds i8, ptr %2, i64 1304
   store double %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 1312
-  store <2 x double> <double 1.000000e+00, double 2.000000e+01>, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 1360
+  store double 1.000000e+00, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 1320
   store double 2.000000e+01, ptr %30, align 8
-  %31 = icmp slt i32 %25, 0
-  br i1 %31, label %33, label %32
+  %31 = getelementptr inbounds i8, ptr %2, i64 1360
+  store double 2.000000e+01, ptr %31, align 8
+  %32 = icmp slt i32 %25, 0
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %6
+33:                                               ; preds = %6
   %.not = icmp eq i32 %25, 0
   %. = select i1 %.not, i32 0, i32 2
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %6, %5
-  %.0 = phi i32 [ -20, %5 ], [ -6, %6 ], [ %., %32 ]
+34:                                               ; preds = %33, %6, %5
+  %.0 = phi i32 [ -20, %5 ], [ -6, %6 ], [ %., %33 ]
   ret i32 %.0
 }
 

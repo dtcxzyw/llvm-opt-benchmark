@@ -975,9 +975,12 @@ if.end18:                                         ; preds = %sw.bb
   %10 = load ptr, ptr %m_proof_sort.i, align 8
   %call15 = tail call noundef ptr @_ZN11ast_manager8mk_constEPKcP4sort(ptr noundef nonnull align 8 dereferenceable(976) %9, ptr noundef nonnull @.str.9, ptr noundef %10)
   %call17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI3app11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_assumption, ptr noundef %call15)
-  %11 = load <2 x ptr>, ptr %m_assumption, align 8
   %.pr = load ptr, ptr %m_assumption, align 8
-  store <2 x ptr> %11, ptr %agg.result, align 8
+  store ptr %.pr, ptr %agg.result, align 8
+  %m_manager.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 1336
+  %11 = load ptr, ptr %m_manager3.i, align 8
+  store ptr %11, ptr %m_manager.i4, align 8
   %tobool.not.i.i5 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i5, label %return, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i6
 
@@ -1010,9 +1013,12 @@ if.end29:                                         ; preds = %sw.bb20
   %17 = load ptr, ptr %m_proof_sort.i10, align 8
   %call26 = tail call noundef ptr @_ZN11ast_manager8mk_constEPKcP4sort(ptr noundef nonnull align 8 dereferenceable(976) %16, ptr noundef nonnull @.str.10, ptr noundef %17)
   %call28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI3app11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_rup, ptr noundef %call26)
-  %18 = load <2 x ptr>, ptr %m_rup, align 8
   %.pr42 = load ptr, ptr %m_rup, align 8
-  store <2 x ptr> %18, ptr %agg.result, align 8
+  store ptr %.pr42, ptr %agg.result, align 8
+  %m_manager.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i12 = getelementptr inbounds i8, ptr %this, i64 1352
+  %18 = load ptr, ptr %m_manager3.i12, align 8
+  store ptr %18, ptr %m_manager.i11, align 8
   %tobool.not.i.i13 = icmp eq ptr %.pr42, null
   br i1 %tobool.not.i.i13, label %return, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i14
 
@@ -1115,9 +1121,12 @@ if.end51:                                         ; preds = %sw.bb42
   %35 = load ptr, ptr %m_proof_sort.i29, align 8
   %call48 = tail call noundef ptr @_ZN11ast_manager8mk_constEPKcP4sort(ptr noundef nonnull align 8 dereferenceable(976) %34, ptr noundef nonnull @.str.12, ptr noundef %35)
   %call50 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI3app11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_del, ptr noundef %call48)
-  %36 = load <2 x ptr>, ptr %m_del, align 8
   %.pr49 = load ptr, ptr %m_del, align 8
-  store <2 x ptr> %36, ptr %agg.result, align 8
+  store ptr %.pr49, ptr %agg.result, align 8
+  %m_manager.i30 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i31 = getelementptr inbounds i8, ptr %this, i64 1368
+  %36 = load ptr, ptr %m_manager3.i31, align 8
+  store ptr %36, ptr %m_manager.i30, align 8
   %tobool.not.i.i32 = icmp eq ptr %.pr49, null
   br i1 %tobool.not.i.i32, label %return, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i33
 
@@ -2164,7 +2173,7 @@ if.end36:                                         ; preds = %sw.epilog, %if.end8
 define hidden void @_ZN3smt12clause_proof6shrinkERNS_6clauseEj(ptr noundef nonnull align 8 dereferenceable(1392) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, i32 noundef %new_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.obj_ref.78, align 8
-  %p = alloca %class.obj_ref, align 16
+  %p = alloca %class.obj_ref, align 8
   %ref.tmp17 = alloca %class.obj_ref.78, align 8
   %m_enabled.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_enabled.i, align 8
@@ -2309,7 +2318,7 @@ for.end:                                          ; preds = %_ZN7obj_refI4expr11
 if.then7.i:                                       ; preds = %for.end
   %m8.i = getelementptr inbounds i8, ptr %this, i64 8
   %21 = load ptr, ptr %m8.i, align 8, !noalias !24
-  store ptr null, ptr %p, align 16, !alias.scope !24
+  store ptr null, ptr %p, align 8, !alias.scope !24
   %m_manager.i3.i = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %21, ptr %m_manager.i3.i, align 8, !alias.scope !24
   br label %_ZN3smt12clause_proof19justification2proofENS0_6statusEPNS_13justificationE.exit
@@ -2321,7 +2330,7 @@ if.end9.i:                                        ; preds = %for.end
   br i1 %cmp.i9.i, label %if.end29.i, label %if.end29.thread.i
 
 if.end29.thread.i:                                ; preds = %if.end9.i
-  store ptr %22, ptr %p, align 16, !alias.scope !24
+  store ptr %22, ptr %p, align 8, !alias.scope !24
   %m_manager.i1143.i = getelementptr inbounds i8, ptr %p, i64 8
   %m_manager3.i1244.i = getelementptr inbounds i8, ptr %this, i64 1352
   %23 = load ptr, ptr %m_manager3.i1244.i, align 8, !noalias !24
@@ -2335,9 +2344,12 @@ if.end29.i:                                       ; preds = %if.end9.i
   %25 = load ptr, ptr %m_proof_sort.i10.i, align 8, !noalias !24
   %call26.i = call noundef ptr @_ZN11ast_manager8mk_constEPKcP4sort(ptr noundef nonnull align 8 dereferenceable(976) %24, ptr noundef nonnull @.str.10, ptr noundef %25), !noalias !24
   %call28.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI3app11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_rup.i, ptr noundef %call26.i), !noalias !24
-  %26 = load <2 x ptr>, ptr %m_rup.i, align 8, !noalias !24
   %.pr42.i = load ptr, ptr %m_rup.i, align 8, !noalias !24
-  store <2 x ptr> %26, ptr %p, align 16, !alias.scope !24
+  store ptr %.pr42.i, ptr %p, align 8, !alias.scope !24
+  %m_manager.i11.i = getelementptr inbounds i8, ptr %p, i64 8
+  %m_manager3.i12.i = getelementptr inbounds i8, ptr %this, i64 1352
+  %26 = load ptr, ptr %m_manager3.i12.i, align 8, !noalias !24
+  store ptr %26, ptr %m_manager.i11.i, align 8, !alias.scope !24
   %tobool.not.i.i13.i = icmp eq ptr %.pr42.i, null
   br i1 %tobool.not.i.i13.i, label %_ZN3smt12clause_proof19justification2proofENS0_6statusEPNS_13justificationE.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i14.i
 
@@ -2489,8 +2501,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i33.i:      ; preds = %call50.i.noexc, %if
 invoke.cont31:                                    ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i33.i, %call50.i.noexc, %if.then7.i51
   %ref.tmp30.sroa.7.1 = phi ptr [ %53, %call50.i.noexc ], [ %ref.tmp30.sroa.7.0, %_ZN11ast_manager7inc_refEP3ast.exit.i.i33.i ], [ %48, %if.then7.i51 ]
   %ref.tmp30.sroa.0.1 = phi ptr [ null, %call50.i.noexc ], [ %ref.tmp30.sroa.0.0, %_ZN11ast_manager7inc_refEP3ast.exit.i.i33.i ], [ null, %if.then7.i51 ]
-  %55 = load ptr, ptr %p, align 16
-  store ptr %ref.tmp30.sroa.0.1, ptr %p, align 16
+  %55 = load ptr, ptr %p, align 8
+  store ptr %ref.tmp30.sroa.0.1, ptr %p, align 8
   %tobool.not.i.i.i = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i.i
 
@@ -2507,7 +2519,7 @@ if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
           to label %if.then2.i.i.i.i._ZN7obj_refI3app11ast_managerED2Ev.exit_crit_edge unwind label %terminate.lpad.i58
 
 if.then2.i.i.i.i._ZN7obj_refI3app11ast_managerED2Ev.exit_crit_edge: ; preds = %if.then2.i.i.i.i
-  %.pre = load ptr, ptr %p, align 16
+  %.pre = load ptr, ptr %p, align 8
   br label %_ZN7obj_refI3app11ast_managerED2Ev.exit
 
 terminate.lpad.i58:                               ; preds = %if.then2.i.i.i.i
@@ -2523,7 +2535,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %if.then2.i.i.i.i._Z
           to label %invoke.cont36 unwind label %lpad6
 
 invoke.cont36:                                    ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit
-  %60 = load ptr, ptr %p, align 16
+  %60 = load ptr, ptr %p, align 8
   %tobool.not.i.i67 = icmp eq ptr %60, null
   br i1 %tobool.not.i.i67, label %return, label %if.then.i.i.i68
 

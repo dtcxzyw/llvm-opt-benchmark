@@ -803,14 +803,16 @@ sw.default.i:                                     ; preds = %host_to_target_sign
   ]
 
 sw.bb9.i:                                         ; preds = %sw.default.i
-  %3 = load <2 x i32>, ptr %_sifields38.i, align 8
+  %3 = load i32, ptr %_sifields38.i, align 8
+  %si_uid15.i = getelementptr inbounds i8, ptr %info, i64 20
+  %4 = load i32, ptr %si_uid15.i, align 4
   %cmp.i = icmp eq i32 %2, 1
   %si_status.i = getelementptr inbounds i8, ptr %info, i64 24
-  %4 = load i32, ptr %si_status.i, align 8
+  %5 = load i32, ptr %si_status.i, align 8
   br i1 %cmp.i, label %do.body49.i, label %if.else.i
 
 if.else.i:                                        ; preds = %sw.bb9.i
-  %and.i = and i32 %4, 127
+  %and.i = and i32 %5, 127
   %cmp.i37.i = icmp eq i32 %and.i, 0
   br i1 %cmp.i37.i, label %host_to_target_signal.exit45.i, label %if.end.i38.i
 
@@ -821,33 +823,37 @@ if.end.i38.i:                                     ; preds = %if.else.i
 if.end3.i40.i:                                    ; preds = %if.end.i38.i
   %idxprom.i41.i = zext nneg i32 %and.i to i64
   %arrayidx.i42.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom.i41.i
-  %5 = load i8, ptr %arrayidx.i42.i, align 1
-  %conv.i43.i = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx.i42.i, align 1
+  %conv.i43.i = zext i8 %6 to i32
   br label %host_to_target_signal.exit45.i
 
 host_to_target_signal.exit45.i:                   ; preds = %if.end3.i40.i, %if.end.i38.i, %if.else.i
   %retval.0.i44.i = phi i32 [ %conv.i43.i, %if.end3.i40.i ], [ 0, %if.else.i ], [ 65, %if.end.i38.i ]
-  %and25.i = and i32 %4, -128
+  %and25.i = and i32 %5, -128
   %or.i = or i32 %retval.0.i44.i, %and25.i
   br label %do.body49.i
 
 do.body11.i:                                      ; preds = %host_to_target_signal.exit.i, %host_to_target_signal.exit.i, %host_to_target_signal.exit.i
   %_sifields5.i = getelementptr inbounds i8, ptr %info, i64 16
-  %si_errno.i138 = getelementptr inbounds i8, ptr %tinfo, i64 4
-  %si_code9.i39 = getelementptr inbounds i8, ptr %tinfo, i64 8
-  %_sifields.i6 = getelementptr inbounds i8, ptr %tinfo, i64 16
-  %6 = load <2 x i32>, ptr %_sifields5.i, align 8
+  %7 = load i32, ptr %_sifields5.i, align 8
+  %si_uid.i = getelementptr inbounds i8, ptr %info, i64 20
+  %8 = load i32, ptr %si_uid.i, align 4
   store i32 %retval.0.i.i, ptr %tinfo, align 1
+  %si_errno.i138 = getelementptr inbounds i8, ptr %tinfo, i64 4
   store i32 0, ptr %si_errno.i138, align 1
+  %si_code9.i39 = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %2, ptr %si_code9.i39, align 1
-  store <2 x i32> %6, ptr %_sifields.i6, align 1
+  %_sifields.i6 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  store i32 %7, ptr %_sifields.i6, align 1
+  %_uid.i7 = getelementptr inbounds i8, ptr %tinfo, i64 20
+  store i32 %8, ptr %_uid.i7, align 1
   br label %tswap_siginfo.exit
 
 do.body32.i:                                      ; preds = %sw.default.i
-  %7 = load i64, ptr %_sifields38.i, align 8
-  %conv.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %_sifields38.i, align 8
+  %conv.i = trunc i64 %9 to i32
   %si_fd.i = getelementptr inbounds i8, ptr %info, i64 24
-  %8 = load i32, ptr %si_fd.i, align 8
+  %10 = load i32, ptr %si_fd.i, align 8
   %shl.i.i50 = shl i32 %2, 16
   %shr.i36.i51 = ashr exact i32 %shl.i.i50, 16
   store i32 %retval.0.i.i, ptr %tinfo, align 1
@@ -858,44 +864,54 @@ do.body32.i:                                      ; preds = %sw.default.i
   %_sifields33.i = getelementptr inbounds i8, ptr %tinfo, i64 16
   store i32 %conv.i, ptr %_sifields33.i, align 1
   %_fd.i5 = getelementptr inbounds i8, ptr %tinfo, i64 20
-  store i32 %8, ptr %_fd.i5, align 1
+  store i32 %10, ptr %_fd.i5, align 1
   br label %tswap_siginfo.exit
 
 do.body49.i:                                      ; preds = %sw.bb9.i, %host_to_target_signal.exit45.i
-  %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %4, %sw.bb9.i ]
+  %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %5, %sw.bb9.i ]
   %si_utime.i = getelementptr inbounds i8, ptr %info, i64 32
+  %11 = load i64, ptr %si_utime.i, align 8
+  %si_stime.i = getelementptr inbounds i8, ptr %info, i64 40
+  %12 = load i64, ptr %si_stime.i, align 8
   %shl.i.i64 = shl i32 %2, 16
   %shr.i36.i65 = ashr exact i32 %shl.i.i64, 16
-  %si_errno.i166 = getelementptr inbounds i8, ptr %tinfo, i64 4
-  %si_code9.i67 = getelementptr inbounds i8, ptr %tinfo, i64 8
-  %_sifields50.i = getelementptr inbounds i8, ptr %tinfo, i64 16
-  %_status.i = getelementptr inbounds i8, ptr %tinfo, i64 24
-  %_utime.i3 = getelementptr inbounds i8, ptr %tinfo, i64 32
-  %9 = load <2 x i64>, ptr %si_utime.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
+  %si_errno.i166 = getelementptr inbounds i8, ptr %tinfo, i64 4
   store i32 0, ptr %si_errno.i166, align 1
+  %si_code9.i67 = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %shr.i36.i65, ptr %si_code9.i67, align 1
-  store <2 x i32> %3, ptr %_sifields50.i, align 1
+  %_sifields50.i = getelementptr inbounds i8, ptr %tinfo, i64 16
+  store i32 %3, ptr %_sifields50.i, align 1
+  %_uid57.i = getelementptr inbounds i8, ptr %tinfo, i64 20
+  store i32 %4, ptr %_uid57.i, align 1
+  %_status.i = getelementptr inbounds i8, ptr %tinfo, i64 24
   store i32 %or.sink.i, ptr %_status.i, align 1
-  store <2 x i64> %9, ptr %_utime.i3, align 1
+  %_utime.i3 = getelementptr inbounds i8, ptr %tinfo, i64 32
+  store i64 %11, ptr %_utime.i3, align 1
+  %_stime.i4 = getelementptr inbounds i8, ptr %tinfo, i64 40
+  store i64 %12, ptr %_stime.i4, align 1
   br label %tswap_siginfo.exit
 
 do.body77.i:                                      ; preds = %sw.default.i
+  %13 = load i32, ptr %_sifields38.i, align 8
+  %si_uid43.i = getelementptr inbounds i8, ptr %info, i64 20
+  %14 = load i32, ptr %si_uid43.i, align 4
   %si_sigval.i = getelementptr inbounds i8, ptr %info, i64 24
-  %10 = load ptr, ptr %si_sigval.i, align 8
-  %11 = ptrtoint ptr %10 to i64
+  %15 = load ptr, ptr %si_sigval.i, align 8
+  %16 = ptrtoint ptr %15 to i64
   %shl.i.i = shl i32 %2, 16
   %shr.i36.i = ashr exact i32 %shl.i.i, 16
-  %si_errno.i1 = getelementptr inbounds i8, ptr %tinfo, i64 4
-  %si_code9.i = getelementptr inbounds i8, ptr %tinfo, i64 8
-  %_sifields78.i = getelementptr inbounds i8, ptr %tinfo, i64 16
-  %12 = load <2 x i32>, ptr %_sifields38.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
+  %si_errno.i1 = getelementptr inbounds i8, ptr %tinfo, i64 4
   store i32 0, ptr %si_errno.i1, align 1
+  %si_code9.i = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %shr.i36.i, ptr %si_code9.i, align 1
-  store <2 x i32> %12, ptr %_sifields78.i, align 1
+  %_sifields78.i = getelementptr inbounds i8, ptr %tinfo, i64 16
+  store i32 %13, ptr %_sifields78.i, align 1
+  %_uid85.i = getelementptr inbounds i8, ptr %tinfo, i64 20
+  store i32 %14, ptr %_uid85.i, align 1
   %_sigval.i2 = getelementptr inbounds i8, ptr %tinfo, i64 24
-  store i64 %11, ptr %_sigval.i2, align 1
+  store i64 %16, ptr %_sigval.i2, align 1
   br label %tswap_siginfo.exit
 
 tswap_siginfo.exit:                               ; preds = %do.body11.i, %do.body32.i, %do.body49.i, %do.body77.i
@@ -1386,7 +1402,9 @@ host_to_target_signal.exit.i:                     ; preds = %if.end3.i.i, %if.en
 
 sw.bb.i:                                          ; preds = %host_to_target_signal.exit.i, %host_to_target_signal.exit.i, %host_to_target_signal.exit.i
   %_sifields5.i = getelementptr inbounds i8, ptr %info, i64 16
-  %41 = load <2 x i32>, ptr %_sifields5.i, align 8
+  %41 = load i32, ptr %_sifields5.i, align 8
+  %si_uid.i = getelementptr inbounds i8, ptr %info, i64 20
+  %42 = load i32, ptr %si_uid.i, align 4
   br label %host_to_target_siginfo_noswap.exit
 
 sw.default.i:                                     ; preds = %host_to_target_signal.exit.i
@@ -1397,14 +1415,16 @@ sw.default.i:                                     ; preds = %host_to_target_sign
   ]
 
 sw.bb9.i:                                         ; preds = %sw.default.i
-  %42 = load <2 x i32>, ptr %_sifields38.i, align 8
+  %43 = load i32, ptr %_sifields38.i, align 8
+  %si_uid15.i = getelementptr inbounds i8, ptr %info, i64 20
+  %44 = load i32, ptr %si_uid15.i, align 4
   %cmp.i44 = icmp eq i32 %40, 1
   %si_status.i = getelementptr inbounds i8, ptr %info, i64 24
-  %43 = load i32, ptr %si_status.i, align 8
+  %45 = load i32, ptr %si_status.i, align 8
   br i1 %cmp.i44, label %if.end.i47, label %if.else.i45
 
 if.else.i45:                                      ; preds = %sw.bb9.i
-  %and.i46 = and i32 %43, 127
+  %and.i46 = and i32 %45, 127
   %cmp.i37.i = icmp eq i32 %and.i46, 0
   br i1 %cmp.i37.i, label %host_to_target_signal.exit45.i, label %if.end.i38.i
 
@@ -1415,46 +1435,50 @@ if.end.i38.i:                                     ; preds = %if.else.i45
 if.end3.i40.i:                                    ; preds = %if.end.i38.i
   %idxprom.i41.i = zext nneg i32 %and.i46 to i64
   %arrayidx.i42.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom.i41.i
-  %44 = load i8, ptr %arrayidx.i42.i, align 1
-  %conv.i43.i = zext i8 %44 to i32
+  %46 = load i8, ptr %arrayidx.i42.i, align 1
+  %conv.i43.i = zext i8 %46 to i32
   br label %host_to_target_signal.exit45.i
 
 host_to_target_signal.exit45.i:                   ; preds = %if.end3.i40.i, %if.end.i38.i, %if.else.i45
   %retval.0.i44.i = phi i32 [ %conv.i43.i, %if.end3.i40.i ], [ 0, %if.else.i45 ], [ 65, %if.end.i38.i ]
-  %and25.i = and i32 %43, -128
+  %and25.i = and i32 %45, -128
   %or.i = or i32 %retval.0.i44.i, %and25.i
   br label %if.end.i47
 
 if.end.i47:                                       ; preds = %host_to_target_signal.exit45.i, %sw.bb9.i
-  %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %43, %sw.bb9.i ]
+  %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %45, %sw.bb9.i ]
   %si_utime.i = getelementptr inbounds i8, ptr %info, i64 32
-  %45 = load <2 x i64>, ptr %si_utime.i, align 8
+  %47 = load i64, ptr %si_utime.i, align 8
+  %si_stime.i = getelementptr inbounds i8, ptr %info, i64 40
+  %48 = load i64, ptr %si_stime.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 sw.bb32.i:                                        ; preds = %sw.default.i
-  %46 = load i64, ptr %_sifields38.i, align 8
-  %conv.i43 = trunc i64 %46 to i32
+  %49 = load i64, ptr %_sifields38.i, align 8
+  %conv.i43 = trunc i64 %49 to i32
   %si_fd.i = getelementptr inbounds i8, ptr %info, i64 24
-  %47 = load i32, ptr %si_fd.i, align 8
-  %48 = insertelement <2 x i32> poison, i32 %conv.i43, i64 0
-  %49 = insertelement <2 x i32> %48, i32 %47, i64 1
+  %50 = load i32, ptr %si_fd.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 sw.default37.i:                                   ; preds = %sw.default.i
-  %50 = load <2 x i32>, ptr %_sifields38.i, align 8
+  %51 = load i32, ptr %_sifields38.i, align 8
+  %si_uid43.i = getelementptr inbounds i8, ptr %info, i64 20
+  %52 = load i32, ptr %si_uid43.i, align 4
   %si_sigval.i = getelementptr inbounds i8, ptr %info, i64 24
-  %51 = load ptr, ptr %si_sigval.i, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %tinfo.sroa.14.sroa.0.0.extract.trunc = trunc i64 %52 to i32
-  %tinfo.sroa.14.sroa.4.0.extract.shift = and i64 %52, -4294967296
+  %53 = load ptr, ptr %si_sigval.i, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %tinfo.sroa.14.sroa.0.0.extract.trunc = trunc i64 %54 to i32
+  %tinfo.sroa.14.sroa.4.0.extract.shift = and i64 %54, -4294967296
   br label %host_to_target_siginfo_noswap.exit
 
 host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i47, %sw.bb32.i, %sw.default37.i
   %tinfo.sroa.14.sroa.4.0 = phi i64 [ %tinfo.sroa.14.sroa.4.0.extract.shift, %sw.default37.i ], [ 0, %sw.bb32.i ], [ 0, %if.end.i47 ], [ 0, %sw.bb.i ]
+  %tinfo.sroa.16.0 = phi i64 [ 0, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %47, %if.end.i47 ], [ 0, %sw.bb.i ]
+  %tinfo.sroa.17.0 = phi i64 [ 0, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %48, %if.end.i47 ], [ 0, %sw.bb.i ]
   %tinfo.sroa.14.sroa.0.0 = phi i32 [ %tinfo.sroa.14.sroa.0.0.extract.trunc, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %or.sink.i, %if.end.i47 ], [ 0, %sw.bb.i ]
+  %tinfo.sroa.10.0 = phi i32 [ %52, %sw.default37.i ], [ %50, %sw.bb32.i ], [ %44, %if.end.i47 ], [ %42, %sw.bb.i ]
+  %tinfo.sroa.552.0 = phi i32 [ %51, %sw.default37.i ], [ %conv.i43, %sw.bb32.i ], [ %43, %if.end.i47 ], [ %41, %sw.bb.i ]
   %si_type.0.i = phi i32 [ 327680, %sw.default37.i ], [ 131072, %sw.bb32.i ], [ 262144, %if.end.i47 ], [ 0, %sw.bb.i ]
-  %53 = phi <2 x i32> [ %50, %sw.default37.i ], [ %49, %sw.bb32.i ], [ %42, %if.end.i47 ], [ %41, %sw.bb.i ]
-  %54 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %45, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
   %and.i.i42 = and i32 %40, 65535
   %or.i.i = or disjoint i32 %si_type.0.i, %and.i.i42
   %sigtab = getelementptr inbounds i8, ptr %2, i64 200
@@ -1468,13 +1492,17 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   %tinfo.sroa.3.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %or.i.i, ptr %tinfo.sroa.3.0.info8.sroa_idx, align 8
   %tinfo.sroa.552.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store <2 x i32> %53, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
+  store i32 %tinfo.sroa.552.0, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
+  %tinfo.sroa.10.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  store i32 %tinfo.sroa.10.0, ptr %tinfo.sroa.10.0.info8.sroa_idx, align 4
   %tinfo.sroa.14.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %tinfo.sroa.14.sroa.0.0.insert.ext = zext i32 %tinfo.sroa.14.sroa.0.0 to i64
   %tinfo.sroa.14.sroa.0.0.insert.insert = or disjoint i64 %tinfo.sroa.14.sroa.4.0, %tinfo.sroa.14.sroa.0.0.insert.ext
   store i64 %tinfo.sroa.14.sroa.0.0.insert.insert, ptr %tinfo.sroa.14.0.info8.sroa_idx, align 8
   %tinfo.sroa.16.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  store <2 x i64> %54, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
+  store i64 %tinfo.sroa.16.0, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
+  %tinfo.sroa.17.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  store i64 %tinfo.sroa.17.0, ptr %tinfo.sroa.17.0.info8.sroa_idx, align 8
   %tinfo.sroa.18.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tinfo.sroa.18.0.info8.sroa_idx, i8 0, i64 80, i1 false)
   store i32 %retval.0.i, ptr %arrayidx, align 8

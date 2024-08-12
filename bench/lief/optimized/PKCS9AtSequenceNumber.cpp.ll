@@ -220,22 +220,26 @@ define linkonce_odr hidden void @_ZN4LIEF2PE21PKCS9AtSequenceNumberD0Ev(ptr noun
 define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
   invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %4 unwind label %8
+          to label %4 unwind label %11
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load i32, ptr %6, align 8
+  store i32 %7, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i64 16), ptr %3, align 8
-  %7 = load <2 x i32>, ptr %6, align 8
-  store <2 x i32> %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %8, align 4
   store ptr %3, ptr %0, align 8
   ret void
 
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #9
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

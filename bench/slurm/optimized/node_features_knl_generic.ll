@@ -254,7 +254,10 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   store i32 1000, ptr @syscfg_timeout, align 4
   store i16 256, ptr @default_mcdram, align 2
   store i16 1, ptr @default_numa, align 2
-  store <4 x i32> <i32 100, i32 50, i32 50, i32 0>, ptr @mcdram_pct, align 16
+  store i32 100, ptr @mcdram_pct, align 16
+  store i32 50, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 4), align 4
+  store i32 50, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 12), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @mcdram_pct, i64 16), align 16
   tail call void @slurm_xfree(ptr noundef nonnull @numa_cpu_bind) #15
   %24 = tail call ptr @get_extra_conf_path(ptr noundef nonnull @.str.1) #15

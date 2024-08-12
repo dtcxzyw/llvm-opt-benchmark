@@ -118,7 +118,13 @@ define void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow, align 8
+  %max.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 0, ptr %_dataWindow, align 8
+  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 8
+  %y3.i2.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %y3.i2.i, align 4
   %_levelMode = getelementptr inbounds i8, ptr %this, i64 24
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -160,7 +166,13 @@ define void @_ZN7Imf_3_25ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow.i, align 8
+  store i32 0, ptr %_dataWindow.i, align 8
+  %y3.i.i7.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %y3.i.i7.i, align 4
+  %max.i8.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 -1, ptr %max.i8.i, align 8
+  %y3.i3.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %y3.i3.i.i, align 4
   %_levels.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %_levels.i, align 8
   %cmp15.i = icmp sgt i64 %0, 0
@@ -294,7 +306,13 @@ terminate.lpad:                                   ; preds = %for.end16.i
 define hidden void @_ZN7Imf_3_25Image11clearLevelsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow, align 8
+  store i32 0, ptr %_dataWindow, align 8
+  %y3.i.i7 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %y3.i.i7, align 4
+  %max.i8 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 -1, ptr %max.i8, align 8
+  %y3.i3.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %y3.i3.i, align 4
   %_levels = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %_levels, align 8
   %cmp15 = icmp sgt i64 %0, 0
@@ -896,7 +914,13 @@ define void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9Level
 entry:
   %levelDataWindow = alloca %"class.Imath_3_2::Box", align 4
   %_dataWindow.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow.i, align 8
+  store i32 0, ptr %_dataWindow.i, align 8
+  %y3.i.i7.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %y3.i.i7.i, align 4
+  %max.i8.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 -1, ptr %max.i8.i, align 8
+  %y3.i3.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %y3.i3.i.i, align 4
   %_levels.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %_levels.i, align 8
   %cmp15.i = icmp sgt i64 %0, 0
@@ -1395,9 +1419,6 @@ invoke.cont57:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad56
 
 for.end54:                                        ; preds = %for.cond7.for.inc52_crit_edge.us, %for.cond7.preheader.lr.ph, %_ZN7Imf_3_27Array2DIPNS_10ImageLevelEE11resizeEraseEll.exit
-  %y3.i3.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %max.i8.i = getelementptr inbounds i8, ptr %this, i64 16
-  %y3.i.i7.i = getelementptr inbounds i8, ptr %this, i64 12
   %60 = load i32, ptr %dataWindow, align 4
   store i32 %60, ptr %_dataWindow.i, align 8
   %y.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
@@ -1580,56 +1601,65 @@ for.inc:                                          ; preds = %if.end
 
 for.end:                                          ; preds = %for.inc, %entry
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load <4 x i32>, ptr %_dataWindow, align 8
-  %10 = insertelement <4 x i32> poison, i32 %dx, i64 0
-  %11 = insertelement <4 x i32> %10, i32 %dy, i64 1
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %13 = add nsw <4 x i32> %9, %12
-  store <4 x i32> %13, ptr %_dataWindow, align 8
+  %9 = load i32, ptr %_dataWindow, align 8
+  %add = add nsw i32 %9, %dx
+  store i32 %add, ptr %_dataWindow, align 8
+  %y = getelementptr inbounds i8, ptr %this, i64 12
+  %10 = load i32, ptr %y, align 4
+  %add64 = add nsw i32 %10, %dy
+  store i32 %add64, ptr %y, align 4
+  %max = getelementptr inbounds i8, ptr %this, i64 16
+  %11 = load i32, ptr %max, align 8
+  %add67 = add nsw i32 %11, %dx
+  store i32 %add67, ptr %max, align 8
+  %y70 = getelementptr inbounds i8, ptr %this, i64 20
+  %12 = load i32, ptr %y70, align 4
+  %add71 = add nsw i32 %12, %dy
+  store i32 %add71, ptr %y70, align 4
   %_levels = getelementptr inbounds i8, ptr %this, i64 80
-  %14 = load i64, ptr %_levels, align 8
-  %cmp7547 = icmp sgt i64 %14, 0
+  %13 = load i64, ptr %_levels, align 8
+  %cmp7547 = icmp sgt i64 %13, 0
   br i1 %cmp7547, label %for.cond78.preheader.lr.ph, label %for.end98
 
 for.cond78.preheader.lr.ph:                       ; preds = %for.end
   %_sizeY.i = getelementptr inbounds i8, ptr %this, i64 88
   %_data.i = getelementptr inbounds i8, ptr %this, i64 96
-  %15 = load i64, ptr %_sizeY.i, align 8
-  %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %for.cond78.preheader, label %for.end98
+  %14 = load i64, ptr %_sizeY.i, align 8
+  %15 = icmp sgt i64 %14, 0
+  br i1 %15, label %for.cond78.preheader, label %for.end98
 
 for.cond78.preheader:                             ; preds = %for.cond78.preheader.lr.ph, %for.inc96
+  %16 = phi i64 [ %25, %for.inc96 ], [ %13, %for.cond78.preheader.lr.ph ]
   %17 = phi i64 [ %26, %for.inc96 ], [ %14, %for.cond78.preheader.lr.ph ]
-  %18 = phi i64 [ %27, %for.inc96 ], [ %15, %for.cond78.preheader.lr.ph ]
-  %19 = phi i64 [ %28, %for.inc96 ], [ %15, %for.cond78.preheader.lr.ph ]
+  %18 = phi i64 [ %27, %for.inc96 ], [ %14, %for.cond78.preheader.lr.ph ]
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %for.inc96 ], [ 0, %for.cond78.preheader.lr.ph ]
-  %cmp8244 = icmp sgt i64 %19, 0
+  %cmp8244 = icmp sgt i64 %18, 0
   br i1 %cmp8244, label %for.body83, label %for.inc96
 
 for.body83:                                       ; preds = %for.cond78.preheader, %for.inc94
-  %20 = phi i64 [ %25, %for.inc94 ], [ %18, %for.cond78.preheader ]
+  %19 = phi i64 [ %24, %for.inc94 ], [ %17, %for.cond78.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc94 ], [ 0, %for.cond78.preheader ]
-  %21 = phi i64 [ %25, %for.inc94 ], [ %19, %for.cond78.preheader ]
-  %22 = load ptr, ptr %_data.i, align 8
-  %mul.i = mul nsw i64 %21, %indvars.iv55
-  %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %mul.i
+  %20 = phi i64 [ %24, %for.inc94 ], [ %18, %for.cond78.preheader ]
+  %21 = load ptr, ptr %_data.i, align 8
+  %mul.i = mul nsw i64 %20, %indvars.iv55
+  %add.ptr.i = getelementptr inbounds ptr, ptr %21, i64 %mul.i
   %arrayidx = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %indvars.iv
-  %23 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %23, null
+  %22 = load ptr, ptr %arrayidx, align 8
+  %tobool.not = icmp eq ptr %22, null
   br i1 %tobool.not, label %for.inc94, label %if.then87
 
 if.then87:                                        ; preds = %for.body83
-  %vtable = load ptr, ptr %23, align 8
+  %vtable = load ptr, ptr %22, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %24 = load ptr, ptr %vfn, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %dx, i32 noundef %dy)
+  %23 = load ptr, ptr %vfn, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef %dx, i32 noundef %dy)
   %.pre = load i64, ptr %_sizeY.i, align 8
   br label %for.inc94
 
 for.inc94:                                        ; preds = %for.body83, %if.then87
-  %25 = phi i64 [ %20, %for.body83 ], [ %.pre, %if.then87 ]
+  %24 = phi i64 [ %19, %for.body83 ], [ %.pre, %if.then87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp82 = icmp sgt i64 %25, %indvars.iv.next
+  %cmp82 = icmp sgt i64 %24, %indvars.iv.next
   br i1 %cmp82, label %for.body83, label %for.inc96.loopexit, !llvm.loop !19
 
 for.inc96.loopexit:                               ; preds = %for.inc94
@@ -1637,11 +1667,11 @@ for.inc96.loopexit:                               ; preds = %for.inc94
   br label %for.inc96
 
 for.inc96:                                        ; preds = %for.inc96.loopexit, %for.cond78.preheader
-  %26 = phi i64 [ %.pre58, %for.inc96.loopexit ], [ %17, %for.cond78.preheader ]
-  %27 = phi i64 [ %25, %for.inc96.loopexit ], [ %18, %for.cond78.preheader ]
-  %28 = phi i64 [ %25, %for.inc96.loopexit ], [ %19, %for.cond78.preheader ]
+  %25 = phi i64 [ %.pre58, %for.inc96.loopexit ], [ %16, %for.cond78.preheader ]
+  %26 = phi i64 [ %24, %for.inc96.loopexit ], [ %17, %for.cond78.preheader ]
+  %27 = phi i64 [ %24, %for.inc96.loopexit ], [ %18, %for.cond78.preheader ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %cmp75 = icmp sgt i64 %26, %indvars.iv.next56
+  %cmp75 = icmp sgt i64 %25, %indvars.iv.next56
   br i1 %cmp75, label %for.cond78.preheader, label %for.end98, !llvm.loop !20
 
 for.end98:                                        ; preds = %for.inc96, %for.cond78.preheader.lr.ph, %for.end

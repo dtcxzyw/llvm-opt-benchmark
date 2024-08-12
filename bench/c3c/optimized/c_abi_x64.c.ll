@@ -446,99 +446,104 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds i8, ptr %3, i64 4
+  %47 = getelementptr inbounds i8, ptr %1, i64 4
   %wide.trip.count = zext i32 %45 to i64
-  br label %47
+  br label %48
 
-47:                                               ; preds = %.lr.ph, %84
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
-  %48 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc ptr @type_lowering(ptr noundef %53)
+48:                                               ; preds = %.lr.ph, %85
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
+  %49 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 72
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call fastcc ptr @type_lowering(ptr noundef %54)
   store i64 0, ptr %3, align 8
-  %.val = load i32, ptr %54, align 8
+  %.val = load i32, ptr %55, align 8
   switch i32 %.val, label %x64_type_is_structure.exit [
-    i32 26, label %55
-    i32 34, label %55
-    i32 18, label %55
+    i32 26, label %56
+    i32 34, label %56
+    i32 18, label %56
   ]
 
-55:                                               ; preds = %47, %47, %47
-  %56 = call ptr @x64_classify_reg_call_struct_type_check(ptr noundef nonnull %54, ptr noundef nonnull %3)
-  br label %58
+56:                                               ; preds = %48, %48, %48
+  %57 = call ptr @x64_classify_reg_call_struct_type_check(ptr noundef nonnull %55, ptr noundef nonnull %3)
+  br label %59
 
-x64_type_is_structure.exit:                       ; preds = %47
-  %57 = call fastcc ptr @x64_classify_argument_type(ptr noundef nonnull %54, i32 noundef -1, ptr noundef nonnull %3, i32 noundef 1)
-  br label %58
+x64_type_is_structure.exit:                       ; preds = %48
+  %58 = call fastcc ptr @x64_classify_argument_type(ptr noundef nonnull %55, i32 noundef -1, ptr noundef nonnull %3, i32 noundef 1)
+  br label %59
 
-58:                                               ; preds = %x64_type_is_structure.exit, %55
-  %.025 = phi ptr [ %56, %55 ], [ %57, %x64_type_is_structure.exit ]
-  %59 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #7
-  br i1 %59, label %60, label %84
+59:                                               ; preds = %x64_type_is_structure.exit, %56
+  %.025 = phi ptr [ %57, %56 ], [ %58, %x64_type_is_structure.exit ]
+  %60 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #7
+  br i1 %60, label %61, label %85
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   store i32 0, ptr %1, align 4
-  store i32 0, ptr %46, align 4
-  %61 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #7
-  br i1 %61, label %62, label %64
+  store i32 0, ptr %47, align 4
+  %62 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %0) #7
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %60
-  %63 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #7
+63:                                               ; preds = %61
+  %64 = tail call ptr @abi_arg_new_indirect_not_by_val(ptr noundef nonnull %0) #7
   br label %x64_indirect_return_result.exit
 
-64:                                               ; preds = %60
-  %65 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %0)
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, 31
-  br i1 %67, label %68, label %72
+65:                                               ; preds = %61
+  %66 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %0)
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp eq i32 %67, 31
+  br i1 %68, label %69, label %73
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %65, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %70, align 8
-  br label %72
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %66, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i32, ptr %71, align 8
+  br label %73
 
-72:                                               ; preds = %68, %64
-  %.012.i31 = phi i32 [ %71, %68 ], [ %66, %64 ]
-  %73 = add i32 %.012.i31, -2
-  %74 = icmp ult i32 %73, 11
-  br i1 %74, label %75, label %.critedge.i32
+73:                                               ; preds = %69, %65
+  %.012.i31 = phi i32 [ %72, %69 ], [ %67, %65 ]
+  %74 = add i32 %.012.i31, -2
+  %75 = icmp ult i32 %74, 11
+  br i1 %75, label %76, label %.critedge.i32
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %65, i64 56
-  %77 = load i32, ptr %76, align 8
-  %78 = and i32 %77, 255
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
-  %80 = icmp ult i32 %78, %79
-  br i1 %80, label %81, label %.critedge.i32
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %66, i64 56
+  %78 = load i32, ptr %77, align 8
+  %79 = and i32 %78, 255
+  %80 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %81 = icmp ult i32 %79, %80
+  br i1 %81, label %82, label %.critedge.i32
 
-81:                                               ; preds = %75
-  %82 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %65) #7
+82:                                               ; preds = %76
+  %83 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %66) #7
   br label %x64_indirect_return_result.exit
 
-.critedge.i32:                                    ; preds = %75, %72
-  %83 = tail call ptr @abi_arg_new_direct() #7
+.critedge.i32:                                    ; preds = %76, %73
+  %84 = tail call ptr @abi_arg_new_direct() #7
   br label %x64_indirect_return_result.exit
 
-84:                                               ; preds = %58
-  %85 = load <2 x i32>, ptr %3, align 8
-  %86 = load <2 x i32>, ptr %1, align 4
-  %87 = add <2 x i32> %86, %85
-  store <2 x i32> %87, ptr %1, align 4
+85:                                               ; preds = %59
+  %86 = load i32, ptr %3, align 8
+  %87 = load i32, ptr %1, align 4
+  %88 = add i32 %87, %86
+  store i32 %88, ptr %1, align 4
+  %89 = load i32, ptr %46, align 4
+  %90 = load i32, ptr %47, align 4
+  %91 = add i32 %90, %89
+  store i32 %91, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %84, %40, %43
-  %88 = tail call ptr @abi_arg_new_direct() #7
+._crit_edge:                                      ; preds = %85, %40, %43
+  %92 = tail call ptr @abi_arg_new_direct() #7
   br label %x64_indirect_return_result.exit
 
-x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %81, %62, %.critedge.i, %37, %18, %._crit_edge, %5
-  %.024 = phi ptr [ %9, %5 ], [ %88, %._crit_edge ], [ %19, %18 ], [ %38, %37 ], [ %39, %.critedge.i ], [ %63, %62 ], [ %82, %81 ], [ %83, %.critedge.i32 ]
+x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82, %63, %.critedge.i, %37, %18, %._crit_edge, %5
+  %.024 = phi ptr [ %9, %5 ], [ %92, %._crit_edge ], [ %19, %18 ], [ %38, %37 ], [ %39, %.critedge.i ], [ %64, %63 ], [ %83, %82 ], [ %84, %.critedge.i32 ]
   ret ptr %.024
 }
 

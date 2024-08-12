@@ -415,7 +415,7 @@ define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture no
 
 crtmgr_block_list_lookup.exit:                    ; preds = %22, %19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
-  br label %94
+  br label %106
 
 26:                                               ; preds = %2
   %27 = tail call ptr @crtmgr_trust_list_lookup(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
@@ -424,12 +424,12 @@ crtmgr_block_list_lookup.exit:                    ; preds = %22, %19
 
 28:                                               ; preds = %26
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #10
-  br label %94
+  br label %106
 
 crtmgr_block_list_lookup.exit.thread:             ; preds = %24, %5, %26
   %29 = tail call noalias dereferenceable_or_null(408) ptr @malloc(i64 noundef 408) #11
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %94, label %31
+  br i1 %30, label %106, label %31
 
 31:                                               ; preds = %crtmgr_block_list_lookup.exit.thread
   %32 = tail call ptr @BN_new() #10
@@ -454,28 +454,28 @@ cli_crt_init_fps.exit.thread:                     ; preds = %31, %38
   tail call void @BN_free(ptr noundef %32) #10
   tail call void @BN_free(ptr noundef %34) #10
   tail call void @BN_free(ptr noundef %36) #10
-  br label %90
+  br label %102
 
 cli_crt_init_fps.exit:                            ; preds = %38
   %39 = getelementptr inbounds i8, ptr %1, i64 328
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @BN_copy(ptr noundef nonnull %32, ptr noundef %40) #10
   %.not66 = icmp eq ptr %41, null
-  br i1 %.not66, label %90, label %42
+  br i1 %.not66, label %102, label %42
 
 42:                                               ; preds = %cli_crt_init_fps.exit
   %43 = getelementptr inbounds i8, ptr %1, i64 336
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @BN_copy(ptr noundef nonnull %34, ptr noundef %44) #10
   %.not67 = icmp eq ptr %45, null
-  br i1 %.not67, label %90, label %46
+  br i1 %.not67, label %102, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %1, i64 344
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @BN_copy(ptr noundef nonnull %36, ptr noundef %48) #10
   %.not68 = icmp eq ptr %49, null
-  br i1 %.not68, label %90, label %50
+  br i1 %.not68, label %102, label %50
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %1, align 8
@@ -486,7 +486,7 @@ cli_crt_init_fps.exit:                            ; preds = %38
   %53 = tail call noalias ptr @strdup(ptr noundef nonnull %51) #10
   store ptr %53, ptr %29, align 8
   %.not70 = icmp eq ptr %53, null
-  br i1 %.not70, label %90, label %55
+  br i1 %.not70, label %102, label %55
 
 54:                                               ; preds = %50
   store ptr null, ptr %29, align 8
@@ -519,49 +519,65 @@ cli_crt_init_fps.exit:                            ; preds = %38
   %72 = getelementptr inbounds i8, ptr %29, i64 260
   store i32 %71, ptr %72, align 4
   %73 = getelementptr inbounds i8, ptr %1, i64 352
-  %74 = getelementptr inbounds i8, ptr %29, i64 352
-  %75 = load <2 x i64>, ptr %73, align 8
-  store <2 x i64> %75, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 368
-  %77 = getelementptr inbounds i8, ptr %29, i64 368
-  %78 = load <4 x i32>, ptr %76, align 8
-  store <4 x i32> %78, ptr %77, align 8
-  %79 = load i32, ptr %3, align 8
-  %80 = getelementptr inbounds i8, ptr %29, i64 384
-  store i32 %79, ptr %80, align 8
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %29, i64 400
-  store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %29, i64 392
-  store ptr null, ptr %83, align 8
-  %.not71 = icmp eq ptr %81, null
-  br i1 %.not71, label %86, label %84
+  %74 = load i64, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %29, i64 352
+  store i64 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %1, i64 360
+  %77 = load i64, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %29, i64 360
+  store i64 %77, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %1, i64 368
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %29, i64 368
+  store i32 %80, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %1, i64 372
+  %83 = load i32, ptr %82, align 4
+  %84 = getelementptr inbounds i8, ptr %29, i64 372
+  store i32 %83, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %1, i64 376
+  %86 = load i32, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %29, i64 376
+  store i32 %86, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %1, i64 380
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds i8, ptr %29, i64 380
+  store i32 %89, ptr %90, align 4
+  %91 = load i32, ptr %3, align 8
+  %92 = getelementptr inbounds i8, ptr %29, i64 384
+  store i32 %91, ptr %92, align 8
+  %93 = load ptr, ptr %0, align 8
+  %94 = getelementptr inbounds i8, ptr %29, i64 400
+  store ptr %93, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %29, i64 392
+  store ptr null, ptr %95, align 8
+  %.not71 = icmp eq ptr %93, null
+  br i1 %.not71, label %98, label %96
 
-84:                                               ; preds = %55
-  %85 = getelementptr inbounds i8, ptr %81, i64 392
-  store ptr %29, ptr %85, align 8
-  br label %86
+96:                                               ; preds = %55
+  %97 = getelementptr inbounds i8, ptr %93, i64 392
+  store ptr %29, ptr %97, align 8
+  br label %98
 
-86:                                               ; preds = %84, %55
+98:                                               ; preds = %96, %55
   store ptr %29, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  %88 = load i32, ptr %87, align 8
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %87, align 8
-  br label %94
+  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = load i32, ptr %99, align 8
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %99, align 8
+  br label %106
 
-90:                                               ; preds = %52, %46, %42, %cli_crt_init_fps.exit, %cli_crt_init_fps.exit.thread
-  %91 = phi ptr [ %36, %52 ], [ %36, %46 ], [ %36, %42 ], [ %36, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
-  %92 = phi ptr [ %34, %52 ], [ %34, %46 ], [ %34, %42 ], [ %34, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
-  %93 = phi ptr [ %32, %52 ], [ %32, %46 ], [ %32, %42 ], [ %32, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
-  tail call void @BN_free(ptr noundef %93) #10
-  tail call void @BN_free(ptr noundef %92) #10
-  tail call void @BN_free(ptr noundef %91) #10
+102:                                              ; preds = %52, %46, %42, %cli_crt_init_fps.exit, %cli_crt_init_fps.exit.thread
+  %103 = phi ptr [ %36, %52 ], [ %36, %46 ], [ %36, %42 ], [ %36, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
+  %104 = phi ptr [ %34, %52 ], [ %34, %46 ], [ %34, %42 ], [ %34, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
+  %105 = phi ptr [ %32, %52 ], [ %32, %46 ], [ %32, %42 ], [ %32, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
+  tail call void @BN_free(ptr noundef %105) #10
+  tail call void @BN_free(ptr noundef %104) #10
+  tail call void @BN_free(ptr noundef %103) #10
   tail call void @free(ptr noundef nonnull %29) #10
-  br label %94
+  br label %106
 
-94:                                               ; preds = %crtmgr_block_list_lookup.exit, %28, %86, %crtmgr_block_list_lookup.exit.thread, %90
-  %.06082 = phi i1 [ true, %90 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %86 ], [ false, %28 ]
+106:                                              ; preds = %crtmgr_block_list_lookup.exit, %28, %98, %crtmgr_block_list_lookup.exit.thread, %102
+  %.06082 = phi i1 [ true, %102 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %98 ], [ false, %28 ]
   ret i1 %.06082
 }
 

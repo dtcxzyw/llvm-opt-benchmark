@@ -563,12 +563,20 @@ if.then.i12:                                      ; preds = %if.end7
   br label %return
 
 if.end.i13:                                       ; preds = %if.end7
-  %0 = load <2 x i32>, ptr %src, align 4
-  store <2 x i32> %0, ptr %dst, align 4
+  %minor = getelementptr inbounds i8, ptr %src, i64 4
+  %0 = load i32, ptr %minor, align 4
+  %1 = load i32, ptr %src, align 4
+  store i32 %1, ptr %dst, align 4
+  %minor.i = getelementptr inbounds i8, ptr %dst, i64 4
+  store i32 %0, ptr %minor.i, align 4
   %min_rpc_version15 = getelementptr inbounds i8, ptr %src, i64 8
+  %2 = load i32, ptr %min_rpc_version15, align 4
+  %minor1116 = getelementptr inbounds i8, ptr %src, i64 12
+  %3 = load i32, ptr %minor1116, align 4
   %min_rpc_version.i = getelementptr inbounds i8, ptr %dst, i64 8
-  %1 = load <2 x i32>, ptr %min_rpc_version15, align 4
-  store <2 x i32> %1, ptr %min_rpc_version.i, align 4
+  store i32 %2, ptr %min_rpc_version.i, align 4
+  %minor.i14 = getelementptr inbounds i8, ptr %dst, i64 12
+  store i32 %3, ptr %minor.i14, align 4
   br label %return
 
 return:                                           ; preds = %if.end.i13, %if.then.i12, %if.end, %if.then

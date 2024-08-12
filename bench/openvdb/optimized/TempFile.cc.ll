@@ -733,7 +733,7 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp30 = alloca %"class.boost::iostreams::file_descriptor_sink", align 16
+  %ref.tmp30 = alloca %"class.boost::iostreams::file_descriptor_sink", align 8
   %_openvdb_throw_msg46 = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os47 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp50 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -954,21 +954,22 @@ invoke.cont28:                                    ; preds = %if.end
 
 invoke.cont32:                                    ; preds = %invoke.cont28
   %mDevice = getelementptr inbounds i8, ptr %this, i64 32
+  %15 = load ptr, ptr %ref.tmp30, align 8
   %pn3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
-  %15 = load ptr, ptr %pn3.i.i.i.i, align 8
-  %16 = load <2 x ptr>, ptr %ref.tmp30, align 16
-  %cmp.not.i.i.i.i.i = icmp eq ptr %15, null
+  %16 = load ptr, ptr %pn3.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont32
-  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %use_count_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = atomicrmw add ptr %use_count_.i.i.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i
 
 _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont32
+  store ptr %15, ptr %mDevice, align 8
   %pn3.i2.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %pn3.i2.i.i.i, align 8
-  store <2 x ptr> %16, ptr %mDevice, align 8
+  store ptr %16, ptr %pn3.i2.i.i.i, align 8
   %cmp.not.i.i4.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i4.i.i.i, label %_ZN5boost9iostreams20file_descriptor_sinkaSERKS1_.exit, label %if.then.i.i5.i.i.i
 

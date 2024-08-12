@@ -132,8 +132,12 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %5, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %2, align 8
+  store double 5.000000e-01, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 5.000000e-01, ptr %9, align 8
+  store double 0.000000e+00, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 1.000000e+00, ptr %10, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -174,8 +178,12 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %5, align 8
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %2, align 8
+  store double 1.000000e+00, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0.000000e+00, ptr %9, align 8
+  store double 5.000000e-01, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 5.000000e-01, ptr %10, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -290,12 +298,16 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 3, ptr %calloc.i, align 8
   store i32 3, ptr %8, align 4
-  store <2 x double> <double 0x3FE5555555555555, double 0xBFE5555555555555>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store double 1.000000e+00, ptr %9, align 8
-  store <2 x double> <double 0x3FD2AAAAAAAAAAAB, double 7.500000e-01>, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  store double 0xBFA5555555555555, ptr %10, align 8
+  store double 0x3FE5555555555555, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0xBFE5555555555555, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 1.000000e+00, ptr %10, align 8
+  store double 0x3FD2AAAAAAAAAAAB, ptr %2, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 7.500000e-01, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0xBFA5555555555555, ptr %12, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -336,8 +348,12 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
-  store <2 x double> <double 0x3FE6A09E667F3BCD, double 0x3FD2BEC333018866>, ptr %5, align 8
-  store <2 x double> <double 0x3FD2BEC333018868, double 0x3FE6A09E667F3BCC>, ptr %2, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0x3FD2BEC333018866, ptr %9, align 8
+  store double 0x3FE6A09E667F3BCD, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FE6A09E667F3BCC, ptr %10, align 8
+  store double 0x3FD2BEC333018868, ptr %2, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -484,12 +500,20 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 4, ptr %calloc.i, align 8
   store i32 4, ptr %8, align 4
-  store <2 x double> <double 0x3FE07DC53BD55BFA, double 0xBFB5F5CF77F6ABCC>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x double> <double 0x3FDC42E57139B27E, double 0x3FC07E07EA328101>, ptr %9, align 8
-  store <2 x double> <double 0x3FC1372BE4AA9B55, double 0xBFCCC6E532DC111F>, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0x3FE833C60070D0E2, double 0x3FD56050A6371920>, ptr %10, align 8
+  store double 0x3FE07DC53BD55BFA, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0xBFB5F5CF77F6ABCC, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 0x3FDC42E57139B27E, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0x3FC07E07EA328101, ptr %11, align 8
+  store double 0x3FC1372BE4AA9B55, ptr %2, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0xBFCCC6E532DC111F, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0x3FE833C60070D0E2, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0x3FD56050A6371920, ptr %14, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -530,16 +554,28 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 5, ptr %calloc.i, align 8
   store i32 6, ptr %8, align 4
-  store <2 x double> <double 0x3FD5BFEEB3B74962, double 0xBFB6AE93C461609A>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x double> <double 0x3FE2BF561503C0D5, double 0xBFE34C193150CDC1>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x double> <double 0x3FD4B58C3AB43A42, double 0x3FDC4FB03B46EE5A>, ptr %10, align 8
-  store <2 x double> <double 0x3FBE90584F423289, double 0x3FE65D9CEEC24DE8>, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0xBFC5ED903816AD31, double 0x3FD9AE664743500F>, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> <double 0x3F85EC8BC3836F1E, double 0xBFAE3293D549EB12>, ptr %12, align 8
+  store double 0x3FD5BFEEB3B74962, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0xBFB6AE93C461609A, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 0x3FE2BF561503C0D5, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0xBFE34C193150CDC1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  store double 0x3FD4B58C3AB43A42, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  store double 0x3FDC4FB03B46EE5A, ptr %13, align 8
+  store double 0x3FBE90584F423289, ptr %2, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FE65D9CEEC24DE8, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0xBFC5ED903816AD31, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0x3FD9AE664743500F, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  store double 0x3F85EC8BC3836F1E, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  store double 0xBFAE3293D549EB12, ptr %18, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -580,20 +616,36 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 6, ptr %calloc.i, align 8
   store i32 8, ptr %8, align 4
-  store <2 x double> <double 0x3FE91ABC49889363, double 0x3FCE2743579895DD>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x double> <double 0xBFF2D7C6F7933B97, double 0x3FF50B00CFB7BE54>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x double> <double 0xBFF2D7C6F7933B97, double 0x3FCE2743579895DD>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
-  store <2 x double> <double 0x3FE91ABC49889363, double 0.000000e+00>, ptr %11, align 8
-  store <2 x double> <double 0x3FD91ABC49889363, double 0x3FE052468FB75C6D>, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0xBFDE25BD194051B7, double 0x3FB199CEC12415E8>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> <double 0x3FB199CEC12415E8, double 0xBFDE25BD194051B7>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 48
-  store <2 x double> <double 0x3FE052468FB75C6D, double 0x3FD91ABC49889363>, ptr %14, align 8
+  store double 0x3FE91ABC49889363, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0x3FCE2743579895DD, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 0xBFF2D7C6F7933B97, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0x3FF50B00CFB7BE54, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  store double 0xBFF2D7C6F7933B97, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  store double 0x3FCE2743579895DD, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  store double 0x3FE91ABC49889363, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  store double 0.000000e+00, ptr %15, align 8
+  store double 0x3FD91ABC49889363, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FE052468FB75C6D, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0xBFDE25BD194051B7, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0x3FB199CEC12415E8, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  store double 0x3FB199CEC12415E8, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  store double 0xBFDE25BD194051B7, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 48
+  store double 0x3FE052468FB75C6D, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  store double 0x3FD91ABC49889363, ptr %22, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -634,36 +686,68 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 8, ptr %calloc.i, align 8
   store i32 16, ptr %8, align 4
-  store <2 x double> <double 0x3FE7BBC37CE98B91, double 0xBFDA2EB53AE4F982>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x double> <double 0x3FC86AA67D23E0D1, double 0xBFE25D14D43B0CD8>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x double> <double 0x3FD323DE1786AB7D, double 0x3FD56A7EA212931E>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
-  store <2 x double> <double 0x3FD42DC3141FECA6, double 0xBFE9801B22C31F99>, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 64
-  store <2 x double> <double 0x3FD42DC3141FECA6, double 0x3FD56A7EA212931E>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 80
-  store <2 x double> <double 0x3FD323DE1786AB7D, double 0xBFE25D14D43B0CD8>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 96
-  store <2 x double> <double 0x3FC86AA67D23E0D1, double 0xBFDA2EB53AE4F982>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 112
-  store <2 x double> <double 0x3FE7BBC37CE98B91, double 0.000000e+00>, ptr %15, align 8
-  store <2 x double> <double 0x3FD7BBC37CE98B91, double 0x3FC548D1BEEE1DA0>, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0xBFBBF2C3F8A61233, double 0xBFC884D669E42948>, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> <double 0xBFC1964B90EF6E33, double 0x3FD4472E5CCC9F4E>, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
-  store <2 x double> <double 0x3FD4CC20DB193FE2, double 0xBFCED2733166528C>, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
-  store <2 x double> <double 0xBFCED2733166528C, double 0x3FD4CC20DB193FE2>, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
-  store <2 x double> <double 0x3FD4472E5CCC9F4E, double 0xBFC1964B90EF6E33>, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 96
-  store <2 x double> <double 0xBFC884D669E42948, double 0xBFBBF2C3F8A61233>, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 112
-  store <2 x double> <double 0x3FC548D1BEEE1DA0, double 0x3FD7BBC37CE98B91>, ptr %22, align 8
+  store double 0x3FE7BBC37CE98B91, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0xBFDA2EB53AE4F982, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 0x3FC86AA67D23E0D1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0xBFE25D14D43B0CD8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  store double 0x3FD323DE1786AB7D, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  store double 0x3FD56A7EA212931E, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  store double 0x3FD42DC3141FECA6, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  store double 0xBFE9801B22C31F99, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 64
+  store double 0x3FD42DC3141FECA6, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  store double 0x3FD56A7EA212931E, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  store double 0x3FD323DE1786AB7D, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  store double 0xBFE25D14D43B0CD8, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  store double 0x3FC86AA67D23E0D1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  store double 0xBFDA2EB53AE4F982, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  store double 0x3FE7BBC37CE98B91, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 120
+  store double 0.000000e+00, ptr %23, align 8
+  store double 0x3FD7BBC37CE98B91, ptr %2, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FC548D1BEEE1DA0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0xBFBBF2C3F8A61233, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0xBFC884D669E42948, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  store double 0xBFC1964B90EF6E33, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 40
+  store double 0x3FD4472E5CCC9F4E, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 48
+  store double 0x3FD4CC20DB193FE2, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 56
+  store double 0xBFCED2733166528C, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  store double 0xBFCED2733166528C, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 72
+  store double 0x3FD4CC20DB193FE2, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 80
+  store double 0x3FD4472E5CCC9F4E, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 88
+  store double 0xBFC1964B90EF6E33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 96
+  store double 0xBFC884D669E42948, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 104
+  store double 0xBFBBF2C3F8A61233, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 112
+  store double 0x3FC548D1BEEE1DA0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 120
+  store double 0x3FD7BBC37CE98B91, ptr %38, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7
@@ -704,135 +788,201 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   store i32 10, ptr %calloc.i, align 8
   store i32 36, ptr %8, align 4
-  store <2 x double> <double 0x3FB42BF4DB4B9AFF, double 0x3FD409C43D2B1134>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x double> <double 0x3F9C96A2FBCEB312, double 0xBFCD634C5905512A>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x double> <double 0x3FC0C35D64ABED3F, double 0xBFD1434FE6FB3055>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
-  store <2 x double> <double 0x3FB33173F8ED2490, double 0x3FBCAB99DD723D33>, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 64
-  store <2 x double> <double 0x3FD76EBAFDF17414, double 0xBFD98AF257455C19>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 80
-  store <2 x double> <double 0x3FBA63EF8D4E2209, double 0x3FDA54E2290D22C3>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 96
-  store <2 x double> <double 0xBF73EEBFB8E1BA6F, double 0xBFD917131047AAF2>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 112
-  store <2 x double> <double 0x3FAA98352EFE0164, double 0x3FA9F0C657B9BA0A>, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 128
-  store <2 x double> <double 0x3FA96EEB4AB1ACEC, double 0x3FA9402C9C668451>, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 144
-  store <2 x double> <double 0x3FA96EEB4AB1ACEC, double 0x3FA9F0C657B9BA0A>, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 160
-  store <2 x double> <double 0x3FAA98352EFE0164, double 0xBFD917131047AAF2>, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 176
-  store <2 x double> <double 0xBF73EEBFB8E1BA6F, double 0x3FDA54E2290D22C3>, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 192
-  store <2 x double> <double 0x3FBA63EF8D4E2209, double 0xBFD98AF257455C19>, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 208
-  store <2 x double> <double 0x3FD76EBAFDF17414, double 0x3FBCAB99DD723D33>, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 224
-  store <2 x double> <double 0x3FB33173F8ED2490, double 0xBFD1434FE6FB3055>, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 240
-  store <2 x double> <double 0x3FC0C35D64ABED3F, double 0xBFCD634C5905512A>, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 256
-  store <2 x double> <double 0x3F9C96A2FBCEB312, double 0x3FD409C43D2B1134>, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 272
-  store <2 x double> <double 0x3FB42BF4DB4B9AFF, double 0.000000e+00>, ptr %25, align 8
-  store <2 x double> <double 0x3FA42BF4DB4B9AFF, double 0x3FC914C173FDF7F4>, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0x3FC5D32E6CE7FC65, double 0xBFB9D077F98B7AC8>, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> <double 0xBFA93FDDE8B2C7D6, double 0xBFB1C342694A736B>, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 48
-  store <2 x double> <double 0xBFB8EDE5D17FCE62, double 0x3FB7EE86EB2FB0E2>, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 64
-  store <2 x double> <double 0x3FCE99A1754E0361, double 0xBF90E1BACA9F4028>, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 80
-  store <2 x double> <double 0xBFC2F1F673F1D397, double 0x3FD076EF063055A3>, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 96
-  store double 0x3FCA05272A299BD9, ptr %31, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
-  %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 104
-  %36 = load double, ptr %35, align 8
-  %37 = fadd double %34, %36
-  %38 = fmul double %37, 5.000000e-01
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 104
-  store double %38, ptr %40, align 8
-  %41 = load double, ptr %35, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 112
-  %43 = load double, ptr %42, align 8
-  %44 = fadd double %41, %43
-  %45 = fmul double %44, 5.000000e-01
-  %46 = getelementptr inbounds i8, ptr %39, i64 112
-  store double %45, ptr %46, align 8
-  %47 = load double, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %32, i64 120
-  %49 = load double, ptr %48, align 8
-  %50 = fadd double %47, %49
-  %51 = fmul double %50, 5.000000e-01
-  %52 = getelementptr inbounds i8, ptr %39, i64 120
-  store double %51, ptr %52, align 8
-  %53 = load double, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %32, i64 128
-  %55 = load double, ptr %54, align 8
-  %56 = fadd double %53, %55
-  %57 = fmul double %56, 5.000000e-01
-  %58 = getelementptr inbounds i8, ptr %39, i64 128
-  store double %57, ptr %58, align 8
-  %59 = load double, ptr %54, align 8
-  %60 = getelementptr inbounds i8, ptr %32, i64 136
-  %61 = load double, ptr %60, align 8
-  %62 = fadd double %59, %61
-  %63 = fmul double %62, 5.000000e-01
-  %64 = getelementptr inbounds i8, ptr %39, i64 136
-  store double %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %39, i64 144
-  store double %63, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %39, i64 152
-  store double %57, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %39, i64 160
-  store double %51, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %39, i64 168
-  store double %45, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %39, i64 176
-  store double %38, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %39, i64 184
-  %71 = getelementptr inbounds i8, ptr %39, i64 88
-  %72 = load <2 x double>, ptr %71, align 8
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %73, ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %39, i64 200
-  %75 = getelementptr inbounds i8, ptr %39, i64 72
-  %76 = load <2 x double>, ptr %75, align 8
-  %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %77, ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %39, i64 216
-  %79 = getelementptr inbounds i8, ptr %39, i64 56
-  %80 = load <2 x double>, ptr %79, align 8
-  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %81, ptr %78, align 8
-  %82 = getelementptr inbounds i8, ptr %39, i64 232
-  %83 = getelementptr inbounds i8, ptr %39, i64 40
-  %84 = load <2 x double>, ptr %83, align 8
-  %85 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %85, ptr %82, align 8
-  %86 = getelementptr inbounds i8, ptr %39, i64 248
-  %87 = getelementptr inbounds i8, ptr %39, i64 24
-  %88 = load <2 x double>, ptr %87, align 8
-  %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %89, ptr %86, align 8
-  %90 = getelementptr inbounds i8, ptr %39, i64 264
-  %91 = getelementptr inbounds i8, ptr %39, i64 8
-  %92 = load <2 x double>, ptr %91, align 8
-  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %93, ptr %90, align 8
-  %94 = load double, ptr %39, align 8
-  %95 = getelementptr inbounds i8, ptr %39, i64 280
-  store double %94, ptr %95, align 8
+  store double 0x3FB42BF4DB4B9AFF, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store double 0x3FD409C43D2B1134, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 0x3F9C96A2FBCEB312, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0xBFCD634C5905512A, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  store double 0x3FC0C35D64ABED3F, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  store double 0xBFD1434FE6FB3055, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  store double 0x3FB33173F8ED2490, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  store double 0x3FBCAB99DD723D33, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 64
+  store double 0x3FD76EBAFDF17414, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  store double 0xBFD98AF257455C19, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  store double 0x3FBA63EF8D4E2209, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  store double 0x3FDA54E2290D22C3, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  store double 0xBF73EEBFB8E1BA6F, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  store double 0xBFD917131047AAF2, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  store double 0x3FAA98352EFE0164, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 120
+  store double 0x3FA9F0C657B9BA0A, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 128
+  store double 0x3FA96EEB4AB1ACEC, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 136
+  store double 0x3FA9402C9C668451, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 144
+  store double 0x3FA96EEB4AB1ACEC, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 152
+  store double 0x3FA9F0C657B9BA0A, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 160
+  store double 0x3FAA98352EFE0164, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 168
+  store double 0xBFD917131047AAF2, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 176
+  store double 0xBF73EEBFB8E1BA6F, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %5, i64 184
+  store double 0x3FDA54E2290D22C3, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 192
+  store double 0x3FBA63EF8D4E2209, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 200
+  store double 0xBFD98AF257455C19, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 208
+  store double 0x3FD76EBAFDF17414, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 216
+  store double 0x3FBCAB99DD723D33, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 224
+  store double 0x3FB33173F8ED2490, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 232
+  store double 0xBFD1434FE6FB3055, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 240
+  store double 0x3FC0C35D64ABED3F, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 248
+  store double 0xBFCD634C5905512A, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %5, i64 256
+  store double 0x3F9C96A2FBCEB312, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 264
+  store double 0x3FD409C43D2B1134, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %5, i64 272
+  store double 0x3FB42BF4DB4B9AFF, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %5, i64 280
+  store double 0.000000e+00, ptr %43, align 8
+  store double 0x3FA42BF4DB4B9AFF, ptr %2, align 8
+  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FC914C173FDF7F4, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0x3FC5D32E6CE7FC65, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0xBFB9D077F98B7AC8, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  store double 0xBFA93FDDE8B2C7D6, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  store double 0xBFB1C342694A736B, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 48
+  store double 0xBFB8EDE5D17FCE62, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 56
+  store double 0x3FB7EE86EB2FB0E2, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %2, i64 64
+  store double 0x3FCE99A1754E0361, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 72
+  store double 0xBF90E1BACA9F4028, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %2, i64 80
+  store double 0xBFC2F1F673F1D397, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 88
+  store double 0x3FD076EF063055A3, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 96
+  store double 0x3FCA05272A299BD9, ptr %55, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %58 = load double, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 104
+  %60 = load double, ptr %59, align 8
+  %61 = fadd double %58, %60
+  %62 = fmul double %61, 5.000000e-01
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 104
+  store double %62, ptr %64, align 8
+  %65 = load double, ptr %59, align 8
+  %66 = getelementptr inbounds i8, ptr %56, i64 112
+  %67 = load double, ptr %66, align 8
+  %68 = fadd double %65, %67
+  %69 = fmul double %68, 5.000000e-01
+  %70 = getelementptr inbounds i8, ptr %63, i64 112
+  store double %69, ptr %70, align 8
+  %71 = load double, ptr %66, align 8
+  %72 = getelementptr inbounds i8, ptr %56, i64 120
+  %73 = load double, ptr %72, align 8
+  %74 = fadd double %71, %73
+  %75 = fmul double %74, 5.000000e-01
+  %76 = getelementptr inbounds i8, ptr %63, i64 120
+  store double %75, ptr %76, align 8
+  %77 = load double, ptr %72, align 8
+  %78 = getelementptr inbounds i8, ptr %56, i64 128
+  %79 = load double, ptr %78, align 8
+  %80 = fadd double %77, %79
+  %81 = fmul double %80, 5.000000e-01
+  %82 = getelementptr inbounds i8, ptr %63, i64 128
+  store double %81, ptr %82, align 8
+  %83 = load double, ptr %78, align 8
+  %84 = getelementptr inbounds i8, ptr %56, i64 136
+  %85 = load double, ptr %84, align 8
+  %86 = fadd double %83, %85
+  %87 = fmul double %86, 5.000000e-01
+  %88 = getelementptr inbounds i8, ptr %63, i64 136
+  store double %87, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %63, i64 144
+  store double %87, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %63, i64 152
+  store double %81, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %63, i64 160
+  store double %75, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %63, i64 168
+  store double %69, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %63, i64 176
+  store double %62, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %63, i64 96
+  %95 = load double, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %63, i64 184
+  store double %95, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %63, i64 88
+  %98 = load double, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %63, i64 192
+  store double %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %63, i64 80
+  %101 = load double, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %63, i64 200
+  store double %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %63, i64 72
+  %104 = load double, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %63, i64 208
+  store double %104, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %63, i64 64
+  %107 = load double, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %63, i64 216
+  store double %107, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %63, i64 56
+  %110 = load double, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %63, i64 224
+  store double %110, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %63, i64 48
+  %113 = load double, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %63, i64 232
+  store double %113, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %63, i64 40
+  %116 = load double, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %63, i64 240
+  store double %116, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %63, i64 32
+  %119 = load double, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %63, i64 248
+  store double %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %63, i64 24
+  %122 = load double, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %63, i64 256
+  store double %122, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %63, i64 16
+  %125 = load double, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %63, i64 264
+  store double %125, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %63, i64 8
+  %128 = load double, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %63, i64 272
+  store double %128, ptr %129, align 8
+  %130 = load double, ptr %63, align 8
+  %131 = getelementptr inbounds i8, ptr %63, i64 280
+  store double %130, ptr %131, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %7

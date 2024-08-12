@@ -13303,6 +13303,9 @@ for.body.lr.ph.i551:                              ; preds = %do.body149
   %src_ext32.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 16
   %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 20
   %src37.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 24
+  %dst_type39.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 28
+  %src_type41.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 32
+  %src_ext43.i.i.i = getelementptr inbounds i8, ptr %mov.i14.i.i, i64 36
   %code_gen_highwater.i = getelementptr inbounds i8, ptr %s, i64 168
   %.pre784 = load ptr, ptr %code_ptr, align 8
   br label %for.body.i553
@@ -13507,11 +13510,17 @@ do.end.i.i.i:                                     ; preds = %tcg_out_branch.exit
   %datalo_reg21.i.i.i = getelementptr inbounds i8, ptr %lb.098.i, i64 20
   %839 = load i32, ptr %datalo_reg21.i.i.i, align 4
   store i32 %839, ptr %mov.i14.i.i, align 16
-  store <4 x i32> <i32 0, i32 1, i32 1, i32 3>, ptr %src26.i.i.i, align 4
+  store i32 0, ptr %src26.i.i.i, align 4
+  store i32 1, ptr %dst_type28.i.i.i, align 8
+  store i32 1, ptr %src_type30.i.i.i, align 4
+  store i32 3, ptr %src_ext32.i.i.i, align 16
   %datahi_reg.i.i.i = getelementptr inbounds i8, ptr %lb.098.i, i64 24
   %840 = load i32, ptr %datahi_reg.i.i.i, align 8
   store i32 %840, ptr %arrayidx33.i.i.i, align 4
-  store <4 x i32> <i32 2, i32 1, i32 1, i32 3>, ptr %src37.i.i.i, align 8
+  store i32 2, ptr %src37.i.i.i, align 8
+  store i32 1, ptr %dst_type39.i.i.i, align 4
+  store i32 1, ptr %src_type41.i.i.i, align 16
+  store i32 3, ptr %src_ext43.i.i.i, align 4
   call fastcc void @tcg_out_movext2(ptr noundef nonnull %s, ptr noundef nonnull %mov.i14.i.i, ptr noundef nonnull %arrayidx33.i.i.i)
   br label %tcg_out_ld_helper_ret.exit.i.i
 

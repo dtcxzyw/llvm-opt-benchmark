@@ -918,7 +918,13 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %strike_register_no_startup_period_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 0, ptr %strike_register_no_startup_period_, align 8
   %strike_register_max_entries_ = getelementptr inbounds i8, ptr %this, i64 380
-  store <4 x i32> <i32 1024, i32 600, i32 3600, i32 86400>, ptr %strike_register_max_entries_, align 4
+  store i32 1024, ptr %strike_register_max_entries_, align 4
+  %strike_register_window_secs_ = getelementptr inbounds i8, ptr %this, i64 384
+  store i32 600, ptr %strike_register_window_secs_, align 8
+  %source_address_token_future_secs_ = getelementptr inbounds i8, ptr %this, i64 388
+  store i32 3600, ptr %source_address_token_future_secs_, align 4
+  %source_address_token_lifetime_secs_ = getelementptr inbounds i8, ptr %this, i64 392
+  store i32 86400, ptr %source_address_token_lifetime_secs_, align 8
   %server_nonce_strike_register_max_entries_ = getelementptr inbounds i8, ptr %this, i64 396
   store i32 1024, ptr %server_nonce_strike_register_max_entries_, align 4
   %server_nonce_strike_register_window_secs_ = getelementptr inbounds i8, ptr %this, i64 400
@@ -5709,14 +5715,17 @@ if.then4.i.i:                                     ; preds = %if.then.i.i108
   %72 = load i32, ptr %16, align 8
   store i32 %72, ptr %add.ptr.i.i109, align 8
   store ptr %70, ptr %_M_parent.i.i.i, align 8
+  %73 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %_M_left9.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %73 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8
-  store <2 x ptr> %73, ptr %_M_left9.i.i.i, align 8
+  store ptr %73, ptr %_M_left9.i.i.i, align 8
+  %74 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
+  %_M_right12.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  store ptr %74, ptr %_M_right12.i.i.i, align 8
   %_M_parent16.i.i.i = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %add.ptr.i.i109, ptr %_M_parent16.i.i.i, align 8
-  %74 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
+  %75 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store i64 %74, ptr %_M_node_count17.i.i.i, align 8
+  store i64 %75, ptr %_M_node_count17.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %16, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %16, ptr %_M_right.i.i.i.i.i, align 8
@@ -5724,22 +5733,24 @@ if.then4.i.i:                                     ; preds = %if.then.i.i108
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4swapERSH_.exit
 
 if.else.i.i:                                      ; preds = %for.end303
+  %_M_right.i19.i.i = getelementptr inbounds i8, ptr %this, i64 88
   br i1 %cmp3.not.i.i, label %if.then9.i.i, label %if.else15.i.i
 
 if.then9.i.i:                                     ; preds = %if.else.i.i
-  %_M_right.i19.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %75 = load i32, ptr %add.ptr13.i.i, align 8
-  store i32 %75, ptr %16, align 8
+  %76 = load i32, ptr %add.ptr13.i.i, align 8
+  store i32 %76, ptr %16, align 8
   store ptr %71, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i17.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %76 = load <2 x ptr>, ptr %_M_left.i17.i.i, align 8
-  store <2 x ptr> %76, ptr %_M_left.i.i.i.i.i, align 8
+  %77 = load ptr, ptr %_M_left.i17.i.i, align 8
+  store ptr %77, ptr %_M_left.i.i.i.i.i, align 8
+  %78 = load ptr, ptr %_M_right.i19.i.i, align 8
+  store ptr %78, ptr %_M_right.i.i.i.i.i, align 8
   %_M_parent16.i21.i.i = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %16, ptr %_M_parent16.i21.i.i, align 8
   %_M_node_count.i22.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %77 = load i64, ptr %_M_node_count.i22.i.i, align 8
-  store i64 %77, ptr %_M_node_count.i.i.i.i.i, align 8
+  %79 = load i64, ptr %_M_node_count.i22.i.i, align 8
+  store i64 %79, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr13.i.i, ptr %_M_left.i17.i.i, align 8
   store ptr %add.ptr13.i.i, ptr %_M_right.i19.i.i, align 8
@@ -5750,21 +5761,25 @@ if.else15.i.i:                                    ; preds = %if.else.i.i
   store ptr %70, ptr %_M_parent.i.i.i, align 8
   store ptr %71, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i26.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %78 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8
-  %79 = load <2 x ptr>, ptr %_M_left.i26.i.i, align 8
-  store <2 x ptr> %78, ptr %_M_left.i26.i.i, align 8
-  store <2 x ptr> %79, ptr %_M_left.i.i.i.i.i, align 8
+  %80 = load ptr, ptr %_M_left.i26.i.i, align 8
+  %81 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %81, ptr %_M_left.i26.i.i, align 8
+  store ptr %80, ptr %_M_left.i.i.i.i.i, align 8
+  %82 = load ptr, ptr %_M_right.i19.i.i, align 8
+  %83 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %83, ptr %_M_right.i19.i.i, align 8
+  store ptr %82, ptr %_M_right.i.i.i.i.i, align 8
   %add.ptr.i.i.i107 = getelementptr inbounds i8, ptr %this, i64 64
   %_M_parent.i.i = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %add.ptr.i.i.i107, ptr %_M_parent.i.i, align 8
-  %80 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_parent26.i.i = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %_M_parent26.i.i = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %16, ptr %_M_parent26.i.i, align 8
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %81 = load i64, ptr %_M_node_count.i.i, align 8
-  %82 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  store i64 %82, ptr %_M_node_count.i.i, align 8
-  store i64 %81, ptr %_M_node_count.i.i.i.i.i, align 8
+  %85 = load i64, ptr %_M_node_count.i.i, align 8
+  %86 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
+  store i64 %86, ptr %_M_node_count.i.i, align 8
+  store i64 %85, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4swapERSH_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4swapERSH_.exit: ; preds = %if.then.i.i108, %if.then4.i.i, %if.then9.i.i, %if.else15.i.i
@@ -5772,15 +5787,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3
           to label %if.end321 unwind label %lpad89
 
 if.end321:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4swapERSH_.exit
-  %83 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %new_configs, ptr noundef %83)
+  %87 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %new_configs, ptr noundef %87)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end321
-  %84 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #24
+  %89 = extractvalue { ptr, i32 } %88, 0
+  call void @__clang_call_terminate(ptr %89) #24
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %if.end321
@@ -5788,10 +5803,10 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3
           to label %if.end324 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit
-  %86 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #24
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #24
   unreachable
 
 ehcleanup322:                                     ; preds = %delete.notnull.i.i.i102, %if.then.i98, %ehcleanup300, %lpad89
@@ -5801,44 +5816,44 @@ ehcleanup322:                                     ; preds = %delete.notnull.i.i.
           to label %ehcleanup327 unwind label %terminate.lpad.i113
 
 terminate.lpad.i113:                              ; preds = %ehcleanup322
-  %88 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #24
+  %93 = extractvalue { ptr, i32 } %92, 0
+  call void @__clang_call_terminate(ptr %93) #24
   unreachable
 
 if.end324:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit, %invoke.cont32, %cleanup.action49
   %_M_finish.i.i249 = phi ptr [ %_M_finish.i.i250, %invoke.cont32 ], [ %_M_finish.i.i250, %cleanup.action49 ], [ %_M_finish.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit ]
   %tobool30155 = phi i1 [ false, %invoke.cont32 ], [ false, %cleanup.action49 ], [ true, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit ]
-  %90 = load ptr, ptr %parsed_configs, align 8
-  %91 = load ptr, ptr %_M_finish.i.i249, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %90, %91
+  %94 = load ptr, ptr %parsed_configs, align 8
+  %95 = load ptr, ptr %_M_finish.i.i249, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %94, %95
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end324, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i ], [ %90, %if.end324 ]
-  %92 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %92, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i ], [ %94, %if.end324 ]
+  %96 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %96, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 88
-  %93 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
-  %dec.i.i.i.i.i.i.i.i.i = add nsw i32 %93, -1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %96, i64 88
+  %97 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4
+  %dec.i.i.i.i.i.i.i.i.i = add nsw i32 %97, -1
   store i32 %dec.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %92, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %96, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
-  %94 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(288) %92) #20
+  %98 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  call void %98(ptr noundef nonnull align 8 dereferenceable(288) %96) #20
   br label %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i116 = icmp eq ptr %incdec.ptr.i.i.i.i, %91
+  %cmp.not.i.i.i.i116 = icmp eq ptr %incdec.ptr.i.i.i.i, %95
   br i1 %cmp.not.i.i.i.i116, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !16
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEEvPT_.exit.i.i.i.i
@@ -5846,12 +5861,12 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyI13sco
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %if.end324
-  %95 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %90, %if.end324 ]
-  %tobool.not.i.i.i117 = icmp eq ptr %95, null
+  %99 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %94, %if.end324 ]
+  %tobool.not.i.i.i117 = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i117, label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit, label %if.then.i.i.i118
 
 if.then.i.i.i118:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %95) #23
+  call void @_ZdlPv(ptr noundef nonnull %99) #23
   br label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i118

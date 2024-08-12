@@ -1392,7 +1392,7 @@ _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerList10TimerCheckEPN9grpc_core9TimestampE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %run = alloca %"class.std::vector.12", align 16
+  %run = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable, align 8
@@ -1434,29 +1434,33 @@ if.end13:                                         ; preds = %if.end9
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end13
-  %3 = load <2 x ptr>, ptr %run, align 16
-  store <2 x ptr> %3, ptr %agg.result, align 8
+  %3 = load ptr, ptr %run, align 8
+  store ptr %3, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %run, i64 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i7, align 8
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i6, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %run, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9, align 16
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8, align 8
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8, align 8
   %_M_engaged.i.i.i.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 1, ptr %_M_engaged.i.i.i.i.i10, align 8
   br label %return
 
 lpad:                                             ; preds = %if.end13
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %run, align 16
-  %tobool.not.i.i.i14 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %run, align 8
+  %tobool.not.i.i.i14 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i14, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit16, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #18
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit16
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit16: ; preds = %lpad, %if.then.i.i.i15
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 
 return:                                           ; preds = %invoke.cont, %if.then11, %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit
   ret void

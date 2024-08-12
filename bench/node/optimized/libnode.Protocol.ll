@@ -5528,12 +5528,12 @@ entry:
   %ref.tmp6 = alloca %"class.std::allocator.0", align 1
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.0", align 1
-  %agg.tmp12 = alloca %"class.std::vector.13", align 16
+  %agg.tmp12 = alloca %"class.std::vector.13", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::allocator.0", align 1
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator.0", align 1
-  %agg.tmp22 = alloca %"class.std::vector.13", align 16
+  %agg.tmp22 = alloca %"class.std::vector.13", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30, !noalias !131
   %m_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 6, ptr %m_type.i.i.i, align 8, !noalias !131
@@ -5600,32 +5600,36 @@ if.then:                                          ; preds = %cleanup.done
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.std::vector.13") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %params.sroa.0.089) #27
   %call.i13 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30, !noalias !137
+  %2 = load ptr, ptr %agg.tmp12, align 8, !noalias !137
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
+  %3 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8, !noalias !137
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 16, !noalias !137
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !noalias !137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp12, i8 0, i64 24, i1 false), !noalias !137
   %m_type.i.i.i14 = getelementptr inbounds i8, ptr %call.i13, i64 8
-  %m_serializedJSON.i.i = getelementptr inbounds i8, ptr %call.i13, i64 16
-  %m_serializedBinary.i.i = getelementptr inbounds i8, ptr %call.i13, i64 48
-  %3 = load <2 x ptr>, ptr %agg.tmp12, align 16, !noalias !137
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp12, i8 0, i64 24, i1 false), !noalias !137
   store i32 8, ptr %m_type.i.i.i14, align 8, !noalias !137
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i64 16), ptr %call.i13, align 8, !noalias !137
+  %m_serializedJSON.i.i = getelementptr inbounds i8, ptr %call.i13, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_serializedJSON.i.i) #27, !noalias !137
-  store <2 x ptr> %3, ptr %m_serializedBinary.i.i, align 8, !noalias !137
+  %m_serializedBinary.i.i = getelementptr inbounds i8, ptr %call.i13, i64 48
+  store ptr %2, ptr %m_serializedBinary.i.i, align 8, !noalias !137
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 56
+  store ptr %3, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !137
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 64
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !137
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !137
   %call.i.i.i = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %m_data.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   %call.i3.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteISD_EEESaISH_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %m_data.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
-  %4 = load ptr, ptr %call.i3.i.i, align 8
+  %5 = load ptr, ptr %call.i3.i.i, align 8
   store ptr %call.i13, ptr %call.i3.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %if.then
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
-  %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4) #27
+  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5) #27
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i
 
 _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i, %if.then
@@ -5633,27 +5637,27 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
-  %7 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, %7
+  %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #27
-  %8 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #27
+  %9 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
   %m_order.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_order.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_order.i.i, ptr %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i, %if.then.i.i.i, %if.else.i.i.i
-  %9 = load ptr, ptr %agg.tmp12, align 16
-  %tobool.not.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %agg.tmp12, align 8
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit75, label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit75.sink.split
 
 if.else:                                          ; preds = %cleanup.done
@@ -5662,8 +5666,8 @@ if.else:                                          ; preds = %cleanup.done
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 2))
   %m_callId = getelementptr inbounds i8, ptr %this, i64 8
-  %10 = load i32, ptr %m_callId, align 8
-  call void @_ZN4node9inspector8protocol15DictionaryValue10setIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i32 noundef %10)
+  %11 = load i32, ptr %m_callId, align 8
+  call void @_ZN4node9inspector8protocol15DictionaryValue10setIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i32 noundef %11)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #27
@@ -5672,35 +5676,39 @@ if.else:                                          ; preds = %cleanup.done
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 6))
   %vtable24 = load ptr, ptr %params.sroa.0.089, align 8
   %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 8
-  %11 = load ptr, ptr %vfn25, align 8
-  call void %11(ptr nonnull sret(%"class.std::vector.13") align 8 %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(8) %params.sroa.0.089) #27
+  %12 = load ptr, ptr %vfn25, align 8
+  call void %12(ptr nonnull sret(%"class.std::vector.13") align 8 %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(8) %params.sroa.0.089) #27
   %call.i29 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30, !noalias !140
+  %13 = load ptr, ptr %agg.tmp22, align 8, !noalias !140
+  %_M_finish3.i.i.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
+  %14 = load ptr, ptr %_M_finish3.i.i.i.i.i30, align 8, !noalias !140
   %_M_end_of_storage4.i.i.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp22, i64 16
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i31, align 16, !noalias !140
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i31, align 8, !noalias !140
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22, i8 0, i64 24, i1 false), !noalias !140
   %m_type.i.i.i32 = getelementptr inbounds i8, ptr %call.i29, i64 8
-  %m_serializedJSON.i.i33 = getelementptr inbounds i8, ptr %call.i29, i64 16
-  %m_serializedBinary.i.i34 = getelementptr inbounds i8, ptr %call.i29, i64 48
-  %13 = load <2 x ptr>, ptr %agg.tmp22, align 16, !noalias !140
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp22, i8 0, i64 24, i1 false), !noalias !140
   store i32 8, ptr %m_type.i.i.i32, align 8, !noalias !140
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i64 16), ptr %call.i29, align 8, !noalias !140
+  %m_serializedJSON.i.i33 = getelementptr inbounds i8, ptr %call.i29, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_serializedJSON.i.i33) #27, !noalias !140
-  store <2 x ptr> %13, ptr %m_serializedBinary.i.i34, align 8, !noalias !140
+  %m_serializedBinary.i.i34 = getelementptr inbounds i8, ptr %call.i29, i64 48
+  store ptr %13, ptr %m_serializedBinary.i.i34, align 8, !noalias !140
+  %_M_finish.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call.i29, i64 56
+  store ptr %14, ptr %_M_finish.i.i.i.i.i.i35, align 8, !noalias !140
   %_M_end_of_storage.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call.i29, i64 64
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i36, align 8, !noalias !140
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i36, align 8, !noalias !140
   %call.i.i.i38 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteISC_EEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %m_data.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
   %cmp.i.i.i39 = icmp eq ptr %call.i.i.i38, null
   %call.i3.i.i40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteISD_EEESaISH_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %m_data.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
-  %14 = load ptr, ptr %call.i3.i.i40, align 8
+  %16 = load ptr, ptr %call.i3.i.i40, align 8
   store ptr %call.i29, ptr %call.i3.i.i40, align 8
-  %tobool.not.i.i.i.i.i.i41 = icmp eq ptr %14, null
+  %tobool.not.i.i.i.i.i.i41 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i.i.i41, label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i45, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i42
 
 _ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i42: ; preds = %if.else
-  %vtable.i.i.i.i.i.i.i43 = load ptr, ptr %14, align 8
+  %vtable.i.i.i.i.i.i.i43 = load ptr, ptr %16, align 8
   %vfn.i.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i43, i64 24
-  %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i44, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14) #27
+  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i44, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16) #27
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i45
 
 _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i45: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i.i.i.i.i42, %if.else
@@ -5708,31 +5716,31 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6
 
 if.then.i.i46:                                    ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i45
   %_M_finish.i.i.i47 = getelementptr inbounds i8, ptr %call.i, i64 80
-  %16 = load ptr, ptr %_M_finish.i.i.i47, align 8
+  %18 = load ptr, ptr %_M_finish.i.i.i47, align 8
   %_M_end_of_storage.i.i.i48 = getelementptr inbounds i8, ptr %call.i, i64 88
-  %17 = load ptr, ptr %_M_end_of_storage.i.i.i48, align 8
-  %cmp.not.i.i.i49 = icmp eq ptr %16, %17
+  %19 = load ptr, ptr %_M_end_of_storage.i.i.i48, align 8
+  %cmp.not.i.i.i49 = icmp eq ptr %18, %19
   br i1 %cmp.not.i.i.i49, label %if.else.i.i.i52, label %if.then.i.i.i50
 
 if.then.i.i.i50:                                  ; preds = %if.then.i.i46
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #27
-  %18 = load ptr, ptr %_M_finish.i.i.i47, align 8
-  %incdec.ptr.i.i.i51 = getelementptr inbounds i8, ptr %18, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #27
+  %20 = load ptr, ptr %_M_finish.i.i.i47, align 8
+  %incdec.ptr.i.i.i51 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %incdec.ptr.i.i.i51, ptr %_M_finish.i.i.i47, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64
 
 if.else.i.i.i52:                                  ; preds = %if.then.i.i46
   %m_order.i.i53 = getelementptr inbounds i8, ptr %call.i, i64 72
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_order.i.i53, ptr %16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_order.i.i53, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EEaSEOS6_.exit.i.i45, %if.then.i.i.i50, %if.else.i.i.i52
-  %19 = load ptr, ptr %agg.tmp22, align 16
-  %tobool.not.i.i.i65 = icmp eq ptr %19, null
+  %21 = load ptr, ptr %agg.tmp22, align 8
+  %tobool.not.i.i.i65 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i65, label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit75, label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit75.sink.split
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit75.sink.split: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit
-  %.sink = phi ptr [ %9, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit ], [ %19, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64 ]
+  %.sink = phi ptr [ %10, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit ], [ %21, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64 ]
   %ref.tmp18.sink.ph = phi ptr [ %ref.tmp9, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit ], [ %ref.tmp18, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64 ]
   %ref.tmp19.sink.ph = phi ptr [ %ref.tmp10, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit ], [ %ref.tmp19, %_ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteIS3_EED2Ev.exit64 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #28
@@ -5745,16 +5753,16 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.sink) #27
   %vtable27 = load ptr, ptr %call.i, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 8
-  %20 = load ptr, ptr %vfn28, align 8
-  call void %20(ptr sret(%"class.std::vector.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %call.i) #27
+  %22 = load ptr, ptr %vfn28, align 8
+  call void %22(ptr sret(%"class.std::vector.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %call.i) #27
   %vtable.i.i69 = load ptr, ptr %params.sroa.0.089, align 8
   %vfn.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i69, i64 24
-  %21 = load ptr, ptr %vfn.i.i70, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %params.sroa.0.089) #27
+  %23 = load ptr, ptr %vfn.i.i70, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %params.sroa.0.089) #27
   %vtable.i.i73 = load ptr, ptr %call.i, align 8
   %vfn.i.i74 = getelementptr inbounds i8, ptr %vtable.i.i73, i64 24
-  %22 = load ptr, ptr %vfn.i.i74, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(96) %call.i) #27
+  %24 = load ptr, ptr %vfn.i.i74, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(96) %call.i) #27
   ret void
 }
 

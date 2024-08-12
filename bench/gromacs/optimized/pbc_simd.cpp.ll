@@ -38,59 +38,64 @@ define void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef readonly %0, ptr nocapture n
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %11
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
+  %.pre = load float, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert45 = getelementptr inbounds i8, ptr %3, i64 4
-  %16 = load <2 x float>, ptr %.phi.trans.insert45, align 4
+  %.pre46 = load float, ptr %.phi.trans.insert45, align 4
   %.pre47 = load float, ptr %3, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %17 = phi float [ %.pre47, %._crit_edge.loopexit ], [ 0.000000e+00, %6 ]
-  %18 = phi <2 x float> [ %16, %._crit_edge.loopexit ], [ zeroinitializer, %6 ]
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  store <8 x float> %19, ptr %1, align 32
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = load float, ptr %22, align 4
-  %24 = insertelement <8 x float> poison, float %23, i64 0
-  %25 = shufflevector <8 x float> %24, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %25, ptr %20, align 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 64
-  %27 = getelementptr inbounds i8, ptr %0, i64 44
-  %28 = load float, ptr %27, align 4
-  %29 = insertelement <8 x float> poison, float %28, i64 0
-  %30 = shufflevector <8 x float> %29, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %30, ptr %26, align 32
-  %31 = getelementptr inbounds i8, ptr %1, i64 96
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = load float, ptr %32, align 4
-  %34 = insertelement <8 x float> poison, float %33, i64 0
-  %35 = shufflevector <8 x float> %34, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %35, ptr %31, align 32
-  %36 = getelementptr inbounds i8, ptr %1, i64 128
-  %37 = shufflevector <2 x float> %18, <2 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %37, ptr %36, align 32
-  %38 = getelementptr inbounds i8, ptr %1, i64 160
-  %39 = getelementptr inbounds i8, ptr %0, i64 28
-  %40 = load float, ptr %39, align 4
-  %41 = insertelement <8 x float> poison, float %40, i64 0
-  %42 = shufflevector <8 x float> %41, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %42, ptr %38, align 32
-  %43 = getelementptr inbounds i8, ptr %1, i64 192
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  %45 = load float, ptr %44, align 4
-  %46 = insertelement <8 x float> poison, float %45, i64 0
-  %47 = shufflevector <8 x float> %46, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %47, ptr %43, align 32
-  %48 = getelementptr inbounds i8, ptr %1, i64 224
-  %49 = insertelement <8 x float> poison, float %17, i64 0
-  %50 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %50, ptr %48, align 32
-  %51 = getelementptr inbounds i8, ptr %1, i64 256
-  %52 = load float, ptr %21, align 4
-  %53 = insertelement <8 x float> poison, float %52, i64 0
-  %54 = shufflevector <8 x float> %53, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %54, ptr %51, align 32
+  %16 = phi float [ %.pre47, %._crit_edge.loopexit ], [ 0.000000e+00, %6 ]
+  %17 = phi float [ %.pre46, %._crit_edge.loopexit ], [ 0.000000e+00, %6 ]
+  %18 = phi float [ %.pre, %._crit_edge.loopexit ], [ 0.000000e+00, %6 ]
+  %19 = insertelement <8 x float> poison, float %18, i64 0
+  %20 = shufflevector <8 x float> %19, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %20, ptr %1, align 32
+  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = load float, ptr %23, align 4
+  %25 = insertelement <8 x float> poison, float %24, i64 0
+  %26 = shufflevector <8 x float> %25, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %26, ptr %21, align 32
+  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %29 = load float, ptr %28, align 4
+  %30 = insertelement <8 x float> poison, float %29, i64 0
+  %31 = shufflevector <8 x float> %30, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %31, ptr %27, align 32
+  %32 = getelementptr inbounds i8, ptr %1, i64 96
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = load float, ptr %33, align 4
+  %35 = insertelement <8 x float> poison, float %34, i64 0
+  %36 = shufflevector <8 x float> %35, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %36, ptr %32, align 32
+  %37 = getelementptr inbounds i8, ptr %1, i64 128
+  %38 = insertelement <8 x float> poison, float %17, i64 0
+  %39 = shufflevector <8 x float> %38, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %39, ptr %37, align 32
+  %40 = getelementptr inbounds i8, ptr %1, i64 160
+  %41 = getelementptr inbounds i8, ptr %0, i64 28
+  %42 = load float, ptr %41, align 4
+  %43 = insertelement <8 x float> poison, float %42, i64 0
+  %44 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %44, ptr %40, align 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 192
+  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = load float, ptr %46, align 4
+  %48 = insertelement <8 x float> poison, float %47, i64 0
+  %49 = shufflevector <8 x float> %48, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %49, ptr %45, align 32
+  %50 = getelementptr inbounds i8, ptr %1, i64 224
+  %51 = insertelement <8 x float> poison, float %16, i64 0
+  %52 = shufflevector <8 x float> %51, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %52, ptr %50, align 32
+  %53 = getelementptr inbounds i8, ptr %1, i64 256
+  %54 = load float, ptr %22, align 4
+  %55 = insertelement <8 x float> poison, float %54, i64 0
+  %56 = shufflevector <8 x float> %55, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %56, ptr %53, align 32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %4, %2

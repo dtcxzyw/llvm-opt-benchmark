@@ -11,21 +11,27 @@ define void @Abs_ParSetDefaults(ptr nocapture noundef writeonly %0) local_unname
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   store i32 4, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1000, i32 1000, i32 200, i32 70>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 30, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 124
-  store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 2, ptr %10, align 4
+  store i32 1000, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1000, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 200, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 70, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 30, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 -1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 -1, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 2, ptr %13, align 4
   ret void
 }
 

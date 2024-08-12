@@ -166,7 +166,7 @@ define i32 @acct_gather_interconnect_p_node_update() local_unnamed_addr #0 {
 10:                                               ; preds = %6, %0
   %11 = phi i32 [ %.lobit, %6 ], [ %4, %0 ]
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %50, label %12
+  br i1 %.not, label %64, label %12
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
@@ -215,34 +215,50 @@ thread-pre-split.i:                               ; preds = %23, %20
   %.not14.i = icmp eq ptr %13, null
   %spec.select.i = select i1 %.not14.i, ptr %31, ptr %13
   %34 = getelementptr inbounds i8, ptr %31, i64 8
-  %35 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
-  %36 = load <2 x i64>, ptr %34, align 8
-  %37 = load <2 x i64>, ptr %35, align 8
-  %38 = sub <2 x i64> %36, %37
-  store <2 x i64> %38, ptr %1, align 16
-  %39 = getelementptr inbounds i8, ptr %31, i64 24
-  %40 = getelementptr inbounds i8, ptr %spec.select.i, i64 24
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
-  %42 = load <2 x i64>, ptr %39, align 8
-  %43 = load <2 x i64>, ptr %40, align 8
-  %44 = sub <2 x i64> %42, %43
-  %45 = uitofp <2 x i64> %44 to <2 x double>
-  %46 = fmul <2 x double> %45, <double 0x3EF0000000000000, double 0x3EF0000000000000>
-  store <2 x double> %46, ptr %41, align 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = sub i64 %35, %37
+  store i64 %38, ptr %1, align 16
+  %39 = getelementptr inbounds i8, ptr %31, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %spec.select.i, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = sub i64 %40, %42
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %31, i64 24
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %spec.select.i, i64 24
+  %48 = load i64, ptr %47, align 8
+  %49 = sub i64 %46, %48
+  %50 = uitofp i64 %49 to double
+  %51 = fmul double %50, 0x3EF0000000000000
+  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  store double %51, ptr %52, align 16
+  %53 = getelementptr inbounds i8, ptr %31, i64 32
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %spec.select.i, i64 32
+  %56 = load i64, ptr %55, align 8
+  %57 = sub i64 %54, %56
+  %58 = uitofp i64 %57 to double
+  %59 = fmul double %58, 0x3EF0000000000000
+  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  store double %59, ptr %60, align 8
   call void @slurm_xfree(ptr noundef nonnull @last_update) #9
   store ptr %31, ptr @last_update, align 8
-  %47 = load i32, ptr @_update.dataset_id, align 4
-  %48 = call i64 @time(ptr noundef null) #9
-  %49 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %47, ptr noundef nonnull %1, i64 noundef %48) #9
+  %61 = load i32, ptr @_update.dataset_id, align 4
+  %62 = call i64 @time(ptr noundef null) #9
+  %63 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %61, ptr noundef nonnull %1, i64 noundef %62) #9
   br label %_update.exit
 
 _update.exit:                                     ; preds = %28, %30
-  %.012.i = phi i32 [ -1, %28 ], [ %49, %30 ]
+  %.012.i = phi i32 [ -1, %28 ], [ %63, %30 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  br label %50
+  br label %64
 
-50:                                               ; preds = %10, %_update.exit
+64:                                               ; preds = %10, %_update.exit
   %.0 = phi i32 [ %.012.i, %_update.exit ], [ 0, %10 ]
   ret i32 %.0
 }

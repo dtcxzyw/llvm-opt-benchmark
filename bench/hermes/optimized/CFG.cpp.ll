@@ -4246,9 +4246,13 @@ _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_del
   store ptr null, ptr %second.i.i, align 8
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %27 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %28 = add <2 x i32> %27, <i32 -1, i32 1>
-  store <2 x i32> %28, ptr %NumEntries.i.i.i.i, align 8
+  %27 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %27, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %28 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %28, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5eraseERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5eraseERKS4_.exit: ; preds = %if.end9.i.i.i17, %if.end, %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i
@@ -6684,9 +6688,13 @@ if.then.i.i.i:                                    ; preds = %if.end.i
 _ZN4llvh11SmallVectorINS_14PointerIntPairIPN6hermes10BasicBlockELj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES8_EEEELj4EED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.end.i
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %BUI, i64 88
-  %17 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %18 = add <2 x i32> %17, <i32 -1, i32 1>
-  store <2 x i32> %18, ptr %NumEntries.i.i.i.i, align 8
+  %17 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i12 = add i32 %17, -1
+  store i32 %sub.i.i12, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %BUI, i64 92
+  %18 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %18, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end9.i.i.i, %_ZN4llvh11SmallVectorINS_14PointerIntPairIPN6hermes10BasicBlockELj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES8_EEEELj4EED2Ev.exit.i, %if.then, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_11SmallVectorINS_14PointerIntPairIS4_Lj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ESA_EEEELj4EEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SE_EEEES4_SE_SG_SJ_EixEOS4_.exit
@@ -6815,9 +6823,13 @@ if.then.i.i.i89:                                  ; preds = %if.end.i84
 _ZN4llvh11SmallVectorINS_14PointerIntPairIPN6hermes10BasicBlockELj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES8_EEEELj4EED2Ev.exit.i90: ; preds = %if.then.i.i.i89, %if.end.i84
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i85, align 8
   %NumEntries.i.i.i.i91 = getelementptr inbounds i8, ptr %BUI, i64 112
-  %33 = load <2 x i32>, ptr %NumEntries.i.i.i.i91, align 8
-  %34 = add <2 x i32> %33, <i32 -1, i32 1>
-  store <2 x i32> %34, ptr %NumEntries.i.i.i.i91, align 8
+  %33 = load i32, ptr %NumEntries.i.i.i.i91, align 8
+  %sub.i.i92 = add i32 %33, -1
+  store i32 %sub.i.i92, ptr %NumEntries.i.i.i.i91, align 8
+  %NumTombstones.i.i.i.i93 = getelementptr inbounds i8, ptr %BUI, i64 116
+  %34 = load i32, ptr %NumTombstones.i.i.i.i93, align 4
+  %add.i.i94 = add i32 %34, 1
+  store i32 %add.i.i94, ptr %NumTombstones.i.i.i.i93, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end9.i.i.i73, %_ZN4llvh11SmallVectorINS_14PointerIntPairIPN6hermes10BasicBlockELj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES8_EEEELj4EED2Ev.exit.i90, %if.then14, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_11SmallVectorINS_14PointerIntPairIS4_Lj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ESA_EEEELj4EEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SE_EEEES4_SE_SG_SJ_EixEOS4_.exit54
@@ -20286,9 +20298,13 @@ _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_del
   store ptr null, ptr %second.i.i, align 8
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %DT, i64 32
-  %23 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %24 = add <2 x i32> %23, <i32 -1, i32 1>
-  store <2 x i32> %24, ptr %NumEntries.i.i.i.i, align 8
+  %23 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %23, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %DT, i64 36
+  %24 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %24, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5eraseERKS4_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5eraseERKS4_.exit: ; preds = %if.end9.i.i.i, %_ZN4llvh4findIRSt6vectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEESaIS6_EES6_EEDTcl9adl_beginfp_EEOT_RKT0_.exit, %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i

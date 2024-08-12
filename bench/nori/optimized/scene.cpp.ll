@@ -172,10 +172,18 @@ define hidden void @_ZN4nori5SceneC2ERKNS_12PropertyListE(ptr nocapture noundef 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds i8, ptr %5, i64 20
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds i8, ptr %5, i64 28
   store i64 0, ptr %5, align 8
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %6, align 4
-  store <2 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %7, align 4
+  store float 0x7FF0000000000000, ptr %6, align 4
+  store float 0x7FF0000000000000, ptr %7, align 4
+  store float 0x7FF0000000000000, ptr %8, align 4
+  store float 0xFFF0000000000000, ptr %9, align 4
+  store float 0xFFF0000000000000, ptr %10, align 4
+  store float 0xFFF0000000000000, ptr %11, align 4
   store ptr %5, ptr %4, align 8
   ret void
 }
@@ -1569,23 +1577,31 @@ define hidden noundef nonnull ptr @_ZN4nori12Scene_createERKNS_12PropertyListE(p
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-          to label %5 unwind label %9
+          to label %5 unwind label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds i8, ptr %4, i64 28
   store i64 0, ptr %4, align 8
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %7, align 4
-  store <2 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %8, align 4
+  store float 0x7FF0000000000000, ptr %7, align 4
+  store float 0x7FF0000000000000, ptr %8, align 4
+  store float 0x7FF0000000000000, ptr %9, align 4
+  store float 0xFFF0000000000000, ptr %10, align 4
+  store float 0xFFF0000000000000, ptr %11, align 4
+  store float 0xFFF0000000000000, ptr %12, align 4
   store ptr %4, ptr %6, align 8
   ret ptr %2
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %2) #16
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable

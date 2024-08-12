@@ -441,13 +441,16 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
 
 Curl_ip2addr.exit.sink.split.sink.split:          ; preds = %13, %25
   %.sink31 = phi ptr [ %21, %25 ], [ %9, %13 ]
+  %.sink27 = phi i32 [ 10, %25 ], [ 2, %13 ]
+  %.sink24 = phi i32 [ 16, %25 ], [ 4, %13 ]
   %.sink18 = phi ptr [ %26, %25 ], [ %14, %13 ]
   %.sink13 = phi ptr [ %24, %25 ], [ %12, %13 ]
-  %27 = phi <2 x i32> [ <i32 10, i32 16>, %25 ], [ <i32 2, i32 4>, %13 ]
-  %28 = getelementptr inbounds i8, ptr %.sink31, i64 8
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.sink31, i64 16
-  store <2 x i32> %27, ptr %29, align 8
+  %27 = getelementptr inbounds i8, ptr %.sink31, i64 8
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %.sink31, i64 16
+  store i32 %.sink27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %.sink31, i64 20
+  store i32 %.sink24, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %.sink31, i64 48
   %31 = getelementptr inbounds i8, ptr %.sink31, i64 24
   store ptr %30, ptr %31, align 8

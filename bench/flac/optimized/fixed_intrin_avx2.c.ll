@@ -122,118 +122,148 @@ for.end177:                                       ; preds = %for.body72, %for.en
   %total_err2.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end ], [ %add.i537, %for.body72 ]
   %total_err1.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end ], [ %add.i544, %for.body72 ]
   %total_err0.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end ], [ %add.i551, %for.body72 ]
-  %20 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err0.0.lcssa)
-  %21 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err1.0.lcssa)
-  %22 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err2.0.lcssa)
-  %23 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err3.0.lcssa)
-  %24 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err4.0.lcssa)
-  %cond = tail call i64 @llvm.umin.i64(i64 %21, i64 %22)
-  %cond.add213 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %23)
-  %cond260 = tail call i64 @llvm.umin.i64(i64 %cond.add213, i64 %24)
-  %cmp261.not = icmp ugt i64 %20, %cond260
+  %shift = shufflevector <4 x i64> %total_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %20 = add nsw <4 x i64> %total_err0.0.lcssa, %shift
+  %shift229 = shufflevector <4 x i64> %total_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %21 = add nsw <4 x i64> %20, %shift229
+  %shift230 = shufflevector <4 x i64> %total_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %22 = add nsw <4 x i64> %21, %shift230
+  %add186 = extractelement <4 x i64> %22, i64 0
+  %shift231 = shufflevector <4 x i64> %total_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %23 = add nsw <4 x i64> %total_err1.0.lcssa, %shift231
+  %shift232 = shufflevector <4 x i64> %total_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %24 = add nsw <4 x i64> %23, %shift232
+  %shift233 = shufflevector <4 x i64> %total_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %25 = add nsw <4 x i64> %24, %shift233
+  %add195 = extractelement <4 x i64> %25, i64 0
+  %shift234 = shufflevector <4 x i64> %total_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %26 = add nsw <4 x i64> %total_err2.0.lcssa, %shift234
+  %shift235 = shufflevector <4 x i64> %total_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %27 = add nsw <4 x i64> %26, %shift235
+  %shift236 = shufflevector <4 x i64> %total_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %28 = add nsw <4 x i64> %27, %shift236
+  %add204 = extractelement <4 x i64> %28, i64 0
+  %shift237 = shufflevector <4 x i64> %total_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %29 = add nsw <4 x i64> %total_err3.0.lcssa, %shift237
+  %shift238 = shufflevector <4 x i64> %total_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %30 = add nsw <4 x i64> %29, %shift238
+  %shift239 = shufflevector <4 x i64> %total_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %31 = add nsw <4 x i64> %30, %shift239
+  %add213 = extractelement <4 x i64> %31, i64 0
+  %shift240 = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %32 = add nsw <4 x i64> %total_err4.0.lcssa, %shift240
+  %shift241 = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %33 = add nsw <4 x i64> %32, %shift241
+  %shift242 = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %34 = add nsw <4 x i64> %33, %shift242
+  %add222 = extractelement <4 x i64> %34, i64 0
+  %cond = tail call i64 @llvm.umin.i64(i64 %add195, i64 %add204)
+  %cond.add213 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %add213)
+  %cond260 = tail call i64 @llvm.umin.i64(i64 %cond.add213, i64 %add222)
+  %cmp261.not = icmp ugt i64 %add186, %cond260
   br i1 %cmp261.not, label %if.else, label %if.end301
 
 if.else:                                          ; preds = %for.end177
-  %cond268 = tail call i64 @llvm.umin.i64(i64 %22, i64 %23)
-  %cond268.add222 = tail call i64 @llvm.umin.i64(i64 %cond268, i64 %24)
-  %cmp281.not = icmp ugt i64 %21, %cond268.add222
+  %cond268 = tail call i64 @llvm.umin.i64(i64 %add204, i64 %add213)
+  %cond268.add222 = tail call i64 @llvm.umin.i64(i64 %cond268, i64 %add222)
+  %cmp281.not = icmp ugt i64 %add195, %cond268.add222
   br i1 %cmp281.not, label %if.else284, label %cond.true304
 
 if.else284:                                       ; preds = %if.else
-  %cond290 = tail call i64 @llvm.umin.i64(i64 %23, i64 %24)
-  %cmp291.not = icmp ugt i64 %22, %cond290
+  %cond290 = tail call i64 @llvm.umin.i64(i64 %add213, i64 %add222)
+  %cmp291.not = icmp ugt i64 %add204, %cond290
   br i1 %cmp291.not, label %if.else294, label %cond.true304
 
 if.else294:                                       ; preds = %if.else284
-  %cmp295.not = icmp ugt i64 %23, %24
+  %cmp295.not = icmp ugt i64 %add213, %add222
   %. = select i1 %cmp295.not, i32 4, i32 3
   br label %cond.true304
 
 if.end301:                                        ; preds = %for.end177
-  %cmp302.not = icmp eq i64 %20, 0
+  %cmp302.not = icmp eq i64 %add186, 0
   br i1 %cmp302.not, label %cond.end312, label %cond.true304
 
 cond.true304:                                     ; preds = %if.else, %if.else284, %if.else294, %if.end301
   %order.0197 = phi i32 [ 0, %if.end301 ], [ %., %if.else294 ], [ 2, %if.else284 ], [ 1, %if.else ]
-  %conv305 = uitofp i64 %20 to double
+  %conv305 = uitofp i64 %add186 to double
   %mul306 = fmul reassoc nsz arcp double %conv305, 0x3FE62E42FEFA39EF
   %conv307 = uitofp i32 %data_len to double
   %div308 = fdiv reassoc nsz arcp double %mul306, %conv307
   %call309 = tail call reassoc nsz arcp double @log(double noundef %div308) #3
   %div310 = fmul reassoc nsz arcp double %call309, 0x3FF71547652B82FE
-  %25 = fptrunc double %div310 to float
+  %35 = fptrunc double %div310 to float
   br label %cond.end312
 
 cond.end312:                                      ; preds = %if.end301, %cond.true304
   %order.0198 = phi i32 [ %order.0197, %cond.true304 ], [ 0, %if.end301 ]
-  %cond313 = phi float [ %25, %cond.true304 ], [ 0.000000e+00, %if.end301 ]
+  %cond313 = phi float [ %35, %cond.true304 ], [ 0.000000e+00, %if.end301 ]
   store float %cond313, ptr %residual_bits_per_sample, align 4
-  %cmp316.not = icmp eq i64 %21, 0
+  %cmp316.not = icmp eq i64 %add195, 0
   br i1 %cmp316.not, label %cond.end326, label %cond.true318
 
 cond.true318:                                     ; preds = %cond.end312
-  %conv319 = uitofp i64 %21 to double
+  %conv319 = uitofp i64 %add195 to double
   %mul320 = fmul reassoc nsz arcp double %conv319, 0x3FE62E42FEFA39EF
   %conv321 = uitofp i32 %data_len to double
   %div322 = fdiv reassoc nsz arcp double %mul320, %conv321
   %call323 = tail call reassoc nsz arcp double @log(double noundef %div322) #3
   %div324 = fmul reassoc nsz arcp double %call323, 0x3FF71547652B82FE
-  %26 = fptrunc double %div324 to float
+  %36 = fptrunc double %div324 to float
   br label %cond.end326
 
 cond.end326:                                      ; preds = %cond.end312, %cond.true318
-  %cond327 = phi float [ %26, %cond.true318 ], [ 0.000000e+00, %cond.end312 ]
+  %cond327 = phi float [ %36, %cond.true318 ], [ 0.000000e+00, %cond.end312 ]
   %arrayidx329 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %cond327, ptr %arrayidx329, align 4
-  %cmp330.not = icmp eq i64 %22, 0
+  %cmp330.not = icmp eq i64 %add204, 0
   br i1 %cmp330.not, label %cond.end340, label %cond.true332
 
 cond.true332:                                     ; preds = %cond.end326
-  %conv333 = uitofp i64 %22 to double
+  %conv333 = uitofp i64 %add204 to double
   %mul334 = fmul reassoc nsz arcp double %conv333, 0x3FE62E42FEFA39EF
   %conv335 = uitofp i32 %data_len to double
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
   %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #3
   %div338 = fmul reassoc nsz arcp double %call337, 0x3FF71547652B82FE
-  %27 = fptrunc double %div338 to float
+  %37 = fptrunc double %div338 to float
   br label %cond.end340
 
 cond.end340:                                      ; preds = %cond.end326, %cond.true332
-  %cond341 = phi float [ %27, %cond.true332 ], [ 0.000000e+00, %cond.end326 ]
+  %cond341 = phi float [ %37, %cond.true332 ], [ 0.000000e+00, %cond.end326 ]
   %arrayidx343 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %cond341, ptr %arrayidx343, align 4
-  %cmp344.not = icmp eq i64 %23, 0
+  %cmp344.not = icmp eq i64 %add213, 0
   br i1 %cmp344.not, label %cond.end354, label %cond.true346
 
 cond.true346:                                     ; preds = %cond.end340
-  %conv347 = uitofp i64 %23 to double
+  %conv347 = uitofp i64 %add213 to double
   %mul348 = fmul reassoc nsz arcp double %conv347, 0x3FE62E42FEFA39EF
   %conv349 = uitofp i32 %data_len to double
   %div350 = fdiv reassoc nsz arcp double %mul348, %conv349
   %call351 = tail call reassoc nsz arcp double @log(double noundef %div350) #3
   %div352 = fmul reassoc nsz arcp double %call351, 0x3FF71547652B82FE
-  %28 = fptrunc double %div352 to float
+  %38 = fptrunc double %div352 to float
   br label %cond.end354
 
 cond.end354:                                      ; preds = %cond.end340, %cond.true346
-  %cond355 = phi float [ %28, %cond.true346 ], [ 0.000000e+00, %cond.end340 ]
+  %cond355 = phi float [ %38, %cond.true346 ], [ 0.000000e+00, %cond.end340 ]
   %arrayidx357 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %cond355, ptr %arrayidx357, align 4
-  %cmp358.not = icmp eq i64 %24, 0
+  %cmp358.not = icmp eq i64 %add222, 0
   br i1 %cmp358.not, label %cond.end368, label %cond.true360
 
 cond.true360:                                     ; preds = %cond.end354
-  %conv361 = uitofp i64 %24 to double
+  %conv361 = uitofp i64 %add222 to double
   %mul362 = fmul reassoc nsz arcp double %conv361, 0x3FE62E42FEFA39EF
   %conv363 = uitofp i32 %data_len to double
   %div364 = fdiv reassoc nsz arcp double %mul362, %conv363
   %call365 = tail call reassoc nsz arcp double @log(double noundef %div364) #3
   %div366 = fmul reassoc nsz arcp double %call365, 0x3FF71547652B82FE
-  %29 = fptrunc double %div366 to float
+  %39 = fptrunc double %div366 to float
   br label %cond.end368
 
 cond.end368:                                      ; preds = %cond.end354, %cond.true360
-  %cond369 = phi float [ %29, %cond.true360 ], [ 0.000000e+00, %cond.end354 ]
+  %cond369 = phi float [ %39, %cond.true360 ], [ 0.000000e+00, %cond.end354 ]
   %arrayidx371 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %cond369, ptr %arrayidx371, align 4
   ret i32 %order.0198
@@ -449,78 +479,138 @@ for.end392:                                       ; preds = %for.body272, %for.e
   %total_err2.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end260 ], [ %add.i1047, %for.body272 ]
   %total_err1.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end260 ], [ %add.i1054, %for.body272 ]
   %total_err0.0.lcssa = phi <4 x i64> [ zeroinitializer, %for.end260 ], [ %add.i1061, %for.body272 ]
-  %29 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err0.0.lcssa)
-  %op.rdx546 = add i64 %29, %add181
-  %30 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err1.0.lcssa)
-  %op.rdx545 = add i64 %30, %add182
-  %31 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err2.0.lcssa)
-  %op.rdx544 = add i64 %31, %add183
-  %32 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err3.0.lcssa)
-  %op.rdx543 = add i64 %32, %add184
-  %33 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %total_err4.0.lcssa)
-  %34 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err0.0.lcssa)
-  %op.rdx542 = or i64 %34, %or
-  %35 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err1.0.lcssa)
-  %op.rdx541 = or i64 %35, %or185
-  %36 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err2.0.lcssa)
-  %op.rdx540 = or i64 %36, %or186
-  %37 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err3.0.lcssa)
-  %op.rdx = or i64 %37, %or187
-  %38 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %shadow_err4.0.lcssa)
+  %data_scalar.sroa.0.0.vec.extract = extractelement <4 x i64> %total_err0.0.lcssa, i64 0
+  %data_scalar.sroa.0.8.vec.extract = extractelement <4 x i64> %total_err0.0.lcssa, i64 1
+  %data_scalar.sroa.0.16.vec.extract = extractelement <4 x i64> %total_err0.0.lcssa, i64 2
+  %data_scalar.sroa.0.24.vec.extract = extractelement <4 x i64> %total_err0.0.lcssa, i64 3
+  %add397 = add i64 %data_scalar.sroa.0.8.vec.extract, %add181
+  %add399 = add i64 %add397, %data_scalar.sroa.0.0.vec.extract
+  %add401 = add i64 %add399, %data_scalar.sroa.0.16.vec.extract
+  %add402 = add i64 %add401, %data_scalar.sroa.0.24.vec.extract
+  %data_scalar.sroa.0.0.vec.extract345 = extractelement <4 x i64> %total_err1.0.lcssa, i64 0
+  %data_scalar.sroa.0.8.vec.extract364 = extractelement <4 x i64> %total_err1.0.lcssa, i64 1
+  %data_scalar.sroa.0.16.vec.extract383 = extractelement <4 x i64> %total_err1.0.lcssa, i64 2
+  %data_scalar.sroa.0.24.vec.extract402 = extractelement <4 x i64> %total_err1.0.lcssa, i64 3
+  %add407 = add i64 %data_scalar.sroa.0.8.vec.extract364, %add182
+  %add409 = add i64 %add407, %data_scalar.sroa.0.0.vec.extract345
+  %add411 = add i64 %add409, %data_scalar.sroa.0.16.vec.extract383
+  %add412 = add i64 %add411, %data_scalar.sroa.0.24.vec.extract402
+  %data_scalar.sroa.0.0.vec.extract347 = extractelement <4 x i64> %total_err2.0.lcssa, i64 0
+  %data_scalar.sroa.0.8.vec.extract366 = extractelement <4 x i64> %total_err2.0.lcssa, i64 1
+  %data_scalar.sroa.0.16.vec.extract385 = extractelement <4 x i64> %total_err2.0.lcssa, i64 2
+  %data_scalar.sroa.0.24.vec.extract404 = extractelement <4 x i64> %total_err2.0.lcssa, i64 3
+  %add417 = add i64 %data_scalar.sroa.0.8.vec.extract366, %add183
+  %add419 = add i64 %add417, %data_scalar.sroa.0.0.vec.extract347
+  %add421 = add i64 %add419, %data_scalar.sroa.0.16.vec.extract385
+  %add422 = add i64 %add421, %data_scalar.sroa.0.24.vec.extract404
+  %data_scalar.sroa.0.0.vec.extract349 = extractelement <4 x i64> %total_err3.0.lcssa, i64 0
+  %data_scalar.sroa.0.8.vec.extract368 = extractelement <4 x i64> %total_err3.0.lcssa, i64 1
+  %data_scalar.sroa.0.16.vec.extract387 = extractelement <4 x i64> %total_err3.0.lcssa, i64 2
+  %data_scalar.sroa.0.24.vec.extract406 = extractelement <4 x i64> %total_err3.0.lcssa, i64 3
+  %add427 = add i64 %data_scalar.sroa.0.8.vec.extract368, %add184
+  %add429 = add i64 %add427, %data_scalar.sroa.0.0.vec.extract349
+  %add431 = add i64 %add429, %data_scalar.sroa.0.16.vec.extract387
+  %add432 = add i64 %add431, %data_scalar.sroa.0.24.vec.extract406
+  %shift = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %29 = add nsw <4 x i64> %total_err4.0.lcssa, %shift
+  %shift540 = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %30 = add nsw <4 x i64> %29, %shift540
+  %shift541 = shufflevector <4 x i64> %total_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %31 = add nsw <4 x i64> %30, %shift541
+  %add441 = extractelement <4 x i64> %31, i64 0
+  %shift542 = shufflevector <4 x i64> %shadow_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift543 = shufflevector <4 x i64> %shadow_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %32 = or <4 x i64> %shift542, %shift543
+  %shift544 = shufflevector <4 x i64> %shadow_err0.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %33 = or <4 x i64> %32, %shift544
+  %34 = or <4 x i64> %33, %shadow_err0.0.lcssa
+  %35 = extractelement <4 x i64> %34, i64 0
+  %or452 = or i64 %35, %or
+  %shift545 = shufflevector <4 x i64> %shadow_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift546 = shufflevector <4 x i64> %shadow_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %36 = or <4 x i64> %shift545, %shift546
+  %shift547 = shufflevector <4 x i64> %shadow_err1.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %37 = or <4 x i64> %36, %shift547
+  %38 = or <4 x i64> %37, %shadow_err1.0.lcssa
+  %39 = extractelement <4 x i64> %38, i64 0
+  %or462 = or i64 %39, %or185
+  %shift548 = shufflevector <4 x i64> %shadow_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift549 = shufflevector <4 x i64> %shadow_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %40 = or <4 x i64> %shift548, %shift549
+  %shift550 = shufflevector <4 x i64> %shadow_err2.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %41 = or <4 x i64> %40, %shift550
+  %42 = or <4 x i64> %41, %shadow_err2.0.lcssa
+  %43 = extractelement <4 x i64> %42, i64 0
+  %or472 = or i64 %43, %or186
+  %shift551 = shufflevector <4 x i64> %shadow_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift552 = shufflevector <4 x i64> %shadow_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %44 = or <4 x i64> %shift551, %shift552
+  %shift553 = shufflevector <4 x i64> %shadow_err3.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %45 = or <4 x i64> %44, %shift553
+  %46 = or <4 x i64> %45, %shadow_err3.0.lcssa
+  %47 = extractelement <4 x i64> %46, i64 0
+  %or482 = or i64 %47, %or187
+  %shift554 = shufflevector <4 x i64> %shadow_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift555 = shufflevector <4 x i64> %shadow_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %48 = or <4 x i64> %shift554, %shift555
+  %shift556 = shufflevector <4 x i64> %shadow_err4.0.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %49 = or <4 x i64> %48, %shift556
+  %50 = or <4 x i64> %49, %shadow_err4.0.lcssa
+  %or491 = extractelement <4 x i64> %50, i64 0
   %div493419 = and i32 %data_len, -4
   %cmp496492.not = icmp eq i32 %div493419, %data_len
   br i1 %cmp496492.not, label %for.end759, label %for.body498.preheader
 
 for.body498.preheader:                            ; preds = %for.end392
-  %39 = sext i32 %div493419 to i64
-  %40 = sext i32 %data_len to i64
+  %51 = sext i32 %div493419 to i64
+  %52 = sext i32 %data_len to i64
   br label %for.body498
 
 for.body498:                                      ; preds = %for.body498.preheader, %for.body498
-  %indvars.iv530 = phi i64 [ %39, %for.body498.preheader ], [ %indvars.iv.next531, %for.body498 ]
-  %total_error_0.1503 = phi i64 [ %op.rdx546, %for.body498.preheader ], [ %add747, %for.body498 ]
-  %total_error_1.1502 = phi i64 [ %op.rdx545, %for.body498.preheader ], [ %add748, %for.body498 ]
-  %total_error_2.1501 = phi i64 [ %op.rdx544, %for.body498.preheader ], [ %add749, %for.body498 ]
-  %total_error_3.1500 = phi i64 [ %op.rdx543, %for.body498.preheader ], [ %add750, %for.body498 ]
-  %total_error_4.0499 = phi i64 [ %33, %for.body498.preheader ], [ %add751, %for.body498 ]
-  %shadow_error_0.1498 = phi i64 [ %op.rdx542, %for.body498.preheader ], [ %or752, %for.body498 ]
-  %shadow_error_1.1497 = phi i64 [ %op.rdx541, %for.body498.preheader ], [ %or753, %for.body498 ]
-  %shadow_error_2.1496 = phi i64 [ %op.rdx540, %for.body498.preheader ], [ %or754, %for.body498 ]
-  %shadow_error_3.1495 = phi i64 [ %op.rdx, %for.body498.preheader ], [ %or755, %for.body498 ]
-  %shadow_error_4.0494 = phi i64 [ %38, %for.body498.preheader ], [ %or756, %for.body498 ]
+  %indvars.iv530 = phi i64 [ %51, %for.body498.preheader ], [ %indvars.iv.next531, %for.body498 ]
+  %total_error_0.1503 = phi i64 [ %add402, %for.body498.preheader ], [ %add747, %for.body498 ]
+  %total_error_1.1502 = phi i64 [ %add412, %for.body498.preheader ], [ %add748, %for.body498 ]
+  %total_error_2.1501 = phi i64 [ %add422, %for.body498.preheader ], [ %add749, %for.body498 ]
+  %total_error_3.1500 = phi i64 [ %add432, %for.body498.preheader ], [ %add750, %for.body498 ]
+  %total_error_4.0499 = phi i64 [ %add441, %for.body498.preheader ], [ %add751, %for.body498 ]
+  %shadow_error_0.1498 = phi i64 [ %or452, %for.body498.preheader ], [ %or752, %for.body498 ]
+  %shadow_error_1.1497 = phi i64 [ %or462, %for.body498.preheader ], [ %or753, %for.body498 ]
+  %shadow_error_2.1496 = phi i64 [ %or472, %for.body498.preheader ], [ %or754, %for.body498 ]
+  %shadow_error_3.1495 = phi i64 [ %or482, %for.body498.preheader ], [ %or755, %for.body498 ]
+  %shadow_error_4.0494 = phi i64 [ %or491, %for.body498.preheader ], [ %or756, %for.body498 ]
   %arrayidx500 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv530
-  %41 = load i32, ptr %arrayidx500, align 4
-  %conv501 = sext i32 %41 to i64
+  %53 = load i32, ptr %arrayidx500, align 4
+  %conv501 = sext i32 %53 to i64
   %cond514 = tail call i64 @llvm.abs.i64(i64 %conv501, i1 true)
   %arrayidx520 = getelementptr i8, ptr %arrayidx500, i64 -4
-  %42 = load i32, ptr %arrayidx520, align 4
-  %conv521 = sext i32 %42 to i64
+  %54 = load i32, ptr %arrayidx520, align 4
+  %conv521 = sext i32 %54 to i64
   %sub522 = sub nsw i64 %conv501, %conv521
   %cond545 = tail call i64 @llvm.abs.i64(i64 %sub522, i1 true)
-  %43 = shl nsw i64 %conv521, 1
-  %sub554 = sub nsw i64 %conv501, %43
+  %55 = shl nsw i64 %conv521, 1
+  %sub554 = sub nsw i64 %conv501, %55
   %arrayidx557 = getelementptr i8, ptr %arrayidx500, i64 -8
-  %44 = load i32, ptr %arrayidx557, align 4
-  %conv558 = sext i32 %44 to i64
+  %56 = load i32, ptr %arrayidx557, align 4
+  %conv558 = sext i32 %56 to i64
   %add559 = add nsw i64 %sub554, %conv558
   %cond594 = tail call i64 @llvm.abs.i64(i64 %add559, i1 true)
   %arrayidx612 = getelementptr i8, ptr %arrayidx500, i64 -12
-  %45 = load i32, ptr %arrayidx612, align 4
-  %conv613 = sext i32 %45 to i64
+  %57 = load i32, ptr %arrayidx612, align 4
+  %conv613 = sext i32 %57 to i64
   %reass.add = sub nsw i64 %conv558, %conv521
   %reass.mul = mul nsw i64 %reass.add, 3
   %add609 = sub nsw i64 %conv501, %conv613
   %sub614 = add nsw i64 %add609, %reass.mul
   %cond661 = tail call i64 @llvm.abs.i64(i64 %sub614, i1 true)
   %mul675 = mul nsw i64 %conv558, 6
-  %46 = add nsw i64 %mul675, %conv501
+  %58 = add nsw i64 %mul675, %conv501
   %mul669420 = add nsw i64 %conv613, %conv521
   %arrayidx685 = getelementptr i8, ptr %arrayidx500, i64 -16
-  %47 = load i32, ptr %arrayidx685, align 4
-  %conv686 = sext i32 %47 to i64
-  %sub682 = add nsw i64 %46, %conv686
-  %48 = shl nsw i64 %mul669420, 2
-  %add687 = sub nsw i64 %sub682, %48
+  %59 = load i32, ptr %arrayidx685, align 4
+  %conv686 = sext i32 %59 to i64
+  %sub682 = add nsw i64 %58, %conv686
+  %60 = shl nsw i64 %mul669420, 2
+  %add687 = sub nsw i64 %sub682, %60
   %cond746 = tail call i64 @llvm.abs.i64(i64 %add687, i1 true)
   %add747 = add i64 %cond514, %total_error_0.1503
   %add748 = add i64 %cond545, %total_error_1.1502
@@ -533,20 +623,20 @@ for.body498:                                      ; preds = %for.body498.prehead
   %or755 = or i64 %cond661, %shadow_error_3.1495
   %or756 = or i64 %cond746, %shadow_error_4.0494
   %indvars.iv.next531 = add nsw i64 %indvars.iv530, 1
-  %cmp496 = icmp slt i64 %indvars.iv.next531, %40
+  %cmp496 = icmp slt i64 %indvars.iv.next531, %52
   br i1 %cmp496, label %for.body498, label %for.end759, !llvm.loop !10
 
 for.end759:                                       ; preds = %for.body498, %for.end392
-  %shadow_error_4.0.lcssa = phi i64 [ %38, %for.end392 ], [ %or756, %for.body498 ]
-  %shadow_error_3.1.lcssa = phi i64 [ %op.rdx, %for.end392 ], [ %or755, %for.body498 ]
-  %shadow_error_2.1.lcssa = phi i64 [ %op.rdx540, %for.end392 ], [ %or754, %for.body498 ]
-  %shadow_error_1.1.lcssa = phi i64 [ %op.rdx541, %for.end392 ], [ %or753, %for.body498 ]
-  %shadow_error_0.1.lcssa = phi i64 [ %op.rdx542, %for.end392 ], [ %or752, %for.body498 ]
-  %total_error_4.0.lcssa = phi i64 [ %33, %for.end392 ], [ %add751, %for.body498 ]
-  %total_error_3.1.lcssa = phi i64 [ %op.rdx543, %for.end392 ], [ %add750, %for.body498 ]
-  %total_error_2.1.lcssa = phi i64 [ %op.rdx544, %for.end392 ], [ %add749, %for.body498 ]
-  %total_error_1.1.lcssa = phi i64 [ %op.rdx545, %for.end392 ], [ %add748, %for.body498 ]
-  %total_error_0.1.lcssa = phi i64 [ %op.rdx546, %for.end392 ], [ %add747, %for.body498 ]
+  %shadow_error_4.0.lcssa = phi i64 [ %or491, %for.end392 ], [ %or756, %for.body498 ]
+  %shadow_error_3.1.lcssa = phi i64 [ %or482, %for.end392 ], [ %or755, %for.body498 ]
+  %shadow_error_2.1.lcssa = phi i64 [ %or472, %for.end392 ], [ %or754, %for.body498 ]
+  %shadow_error_1.1.lcssa = phi i64 [ %or462, %for.end392 ], [ %or753, %for.body498 ]
+  %shadow_error_0.1.lcssa = phi i64 [ %or452, %for.end392 ], [ %or752, %for.body498 ]
+  %total_error_4.0.lcssa = phi i64 [ %add441, %for.end392 ], [ %add751, %for.body498 ]
+  %total_error_3.1.lcssa = phi i64 [ %add432, %for.end392 ], [ %add750, %for.body498 ]
+  %total_error_2.1.lcssa = phi i64 [ %add422, %for.end392 ], [ %add749, %for.body498 ]
+  %total_error_1.1.lcssa = phi i64 [ %add412, %for.end392 ], [ %add748, %for.body498 ]
+  %total_error_0.1.lcssa = phi i64 [ %add402, %for.end392 ], [ %add747, %for.body498 ]
   %cmp760 = icmp ult i64 %shadow_error_0.1.lcssa, 2147483648
   br i1 %cmp760, label %if.then, label %if.end780
 
@@ -561,11 +651,11 @@ cond.true767:                                     ; preds = %if.then
   %div771 = fdiv reassoc nsz arcp double %mul769, %conv770
   %call772 = tail call reassoc nsz arcp double @log(double noundef %div771) #3
   %div773 = fmul reassoc nsz arcp double %call772, 0x3FF71547652B82FE
-  %49 = fptrunc double %div773 to float
+  %61 = fptrunc double %div773 to float
   br label %if.end780
 
 if.end780:                                        ; preds = %for.end759, %cond.true767
-  %storemerge = phi float [ %49, %cond.true767 ], [ 3.400000e+01, %for.end759 ]
+  %storemerge = phi float [ %61, %cond.true767 ], [ 3.400000e+01, %for.end759 ]
   %smallest_error.1 = phi i64 [ %total_error_0.1.lcssa, %cond.true767 ], [ -1, %for.end759 ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp781 = icmp ult i64 %shadow_error_1.1.lcssa, 2147483648
@@ -588,13 +678,13 @@ cond.true790:                                     ; preds = %if.then783
   %div794 = fdiv reassoc nsz arcp double %mul792, %conv793
   %call795 = tail call reassoc nsz arcp double @log(double noundef %div794) #3
   %div796 = fmul reassoc nsz arcp double %call795, 0x3FF71547652B82FE
-  %50 = fptrunc double %div796 to float
+  %62 = fptrunc double %div796 to float
   br label %cond.end798
 
 cond.end798:                                      ; preds = %if.end780.thread, %if.then783, %cond.true790
   %spec.select425453 = phi i64 [ %spec.select425, %cond.true790 ], [ %spec.select425, %if.then783 ], [ 0, %if.end780.thread ]
   %smallest_error.1.pn = phi i64 [ %smallest_error.1, %cond.true790 ], [ %smallest_error.1, %if.then783 ], [ 0, %if.end780.thread ]
-  %cond799 = phi float [ %50, %cond.true790 ], [ 0.000000e+00, %if.then783 ], [ 0.000000e+00, %if.end780.thread ]
+  %cond799 = phi float [ %62, %cond.true790 ], [ 0.000000e+00, %if.then783 ], [ 0.000000e+00, %if.end780.thread ]
   %spec.select424452.in = icmp ult i64 %total_error_1.1.lcssa, %smallest_error.1.pn
   %spec.select424452 = zext i1 %spec.select424452.in to i32
   br label %if.end804
@@ -622,11 +712,11 @@ cond.true814:                                     ; preds = %if.then807
   %div818 = fdiv reassoc nsz arcp double %mul816, %conv817
   %call819 = tail call reassoc nsz arcp double @log(double noundef %div818) #3
   %div820 = fmul reassoc nsz arcp double %call819, 0x3FF71547652B82FE
-  %51 = fptrunc double %div820 to float
+  %63 = fptrunc double %div820 to float
   br label %if.end828
 
 if.end828:                                        ; preds = %if.end804, %cond.true814, %if.then807
-  %.sink537 = phi float [ %51, %cond.true814 ], [ 0.000000e+00, %if.then807 ], [ 3.400000e+01, %if.end804 ]
+  %.sink537 = phi float [ %63, %cond.true814 ], [ 0.000000e+00, %if.then807 ], [ 3.400000e+01, %if.end804 ]
   %order.5 = phi i32 [ %spec.select426, %cond.true814 ], [ %spec.select426, %if.then807 ], [ %order.3, %if.end804 ]
   %smallest_error.5 = phi i64 [ %spec.select427, %cond.true814 ], [ %spec.select427, %if.then807 ], [ %smallest_error.3, %if.end804 ]
   %arrayidx827 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
@@ -648,11 +738,11 @@ cond.true838:                                     ; preds = %if.then831
   %div842 = fdiv reassoc nsz arcp double %mul840, %conv841
   %call843 = tail call reassoc nsz arcp double @log(double noundef %div842) #3
   %div844 = fmul reassoc nsz arcp double %call843, 0x3FF71547652B82FE
-  %52 = fptrunc double %div844 to float
+  %64 = fptrunc double %div844 to float
   br label %if.end852
 
 if.end852:                                        ; preds = %if.end828, %cond.true838, %if.then831
-  %.sink538 = phi float [ %52, %cond.true838 ], [ 0.000000e+00, %if.then831 ], [ 3.400000e+01, %if.end828 ]
+  %.sink538 = phi float [ %64, %cond.true838 ], [ 0.000000e+00, %if.then831 ], [ 3.400000e+01, %if.end828 ]
   %order.7 = phi i32 [ %spec.select428, %cond.true838 ], [ %spec.select428, %if.then831 ], [ %order.5, %if.end828 ]
   %smallest_error.7 = phi i64 [ %spec.select429, %cond.true838 ], [ %spec.select429, %if.then831 ], [ %smallest_error.5, %if.end828 ]
   %arrayidx851 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
@@ -673,11 +763,11 @@ cond.true862:                                     ; preds = %if.then855
   %div866 = fdiv reassoc nsz arcp double %mul864, %conv865
   %call867 = tail call reassoc nsz arcp double @log(double noundef %div866) #3
   %div868 = fmul reassoc nsz arcp double %call867, 0x3FF71547652B82FE
-  %53 = fptrunc double %div868 to float
+  %65 = fptrunc double %div868 to float
   br label %if.end876
 
 if.end876:                                        ; preds = %if.end852, %cond.true862, %if.then855
-  %.sink539 = phi float [ %53, %cond.true862 ], [ 0.000000e+00, %if.then855 ], [ 3.400000e+01, %if.end852 ]
+  %.sink539 = phi float [ %65, %cond.true862 ], [ 0.000000e+00, %if.then855 ], [ 3.400000e+01, %if.end852 ]
   %order.9 = phi i32 [ %spec.select430, %cond.true862 ], [ %spec.select430, %if.then855 ], [ %order.7, %if.end852 ]
   %arrayidx875 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %.sink539, ptr %arrayidx875, align 4
@@ -692,12 +782,6 @@ declare <4 x i64> @llvm.abs.v4i64(<4 x i64>, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.or.v4i64(<4 x i64>) #2
 
 attributes #0 = { nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

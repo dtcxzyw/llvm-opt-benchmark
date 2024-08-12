@@ -1501,14 +1501,12 @@ i128_scomp.exit:                                  ; preds = %32, %30, %28, %.cri
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 511) i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
-  %3 = insertelement <2 x i64> poison, i64 %1, i64 0
-  %4 = insertelement <2 x i64> %3, i64 %0, i64 1
-  %5 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %4)
-  %6 = trunc nuw nsw <2 x i64> %5 to <2 x i32>
-  %shift = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %7 = add nuw nsw <2 x i32> %shift, %6
-  %8 = extractelement <2 x i32> %7, i64 0
-  ret i32 %8
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %4 = trunc nuw nsw i64 %3 to i32
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %6 = trunc nuw nsw i64 %5 to i32
+  %7 = add nuw nsw i32 %6, %4
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3408,40 +3406,61 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = load <2 x i64>, ptr %2, align 8
-  %6 = and <2 x i64> %5, %4
-  store <2 x i64> %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %7, align 8
+  %4 = load i64, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %2, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %7, %4
+  %11 = and i64 %9, %6
+  store i64 %10, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 8
+  store i32 %15, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = load <2 x i64>, ptr %2, align 8
-  %6 = or <2 x i64> %5, %4
-  store <2 x i64> %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %7, align 8
+  %4 = load i64, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %2, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = or i64 %7, %4
+  %11 = or i64 %9, %6
+  store i64 %10, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 8
+  store i32 %15, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
-  %4 = load <2 x i64>, ptr %1, align 8
-  %5 = load <2 x i64>, ptr %2, align 8
-  %6 = xor <2 x i64> %5, %4
-  store <2 x i64> %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %7, align 8
+  %4 = load i64, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %2, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = xor i64 %7, %4
+  %11 = xor i64 %9, %6
+  store i64 %10, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load i32, ptr %14, align 8
+  store i32 %15, ptr %13, align 8
   ret void
 }
 
@@ -3847,11 +3866,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i64> @llvm.ctpop.v2i64(<2 x i64>) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4140,7 +4140,7 @@ define internal fastcc i64 @proc_options(i64 noundef %0, ptr noundef readonly %1
   %14 = icmp sgt i64 %0, 0
   %15 = icmp ne ptr %1, null
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader257, label %771
+  br i1 %or.cond, label %.preheader257, label %780
 
 .preheader257:                                    ; preds = %4
   %16 = icmp ugt i64 %0, 1
@@ -4156,1905 +4156,1918 @@ define internal fastcc i64 @proc_options(i64 noundef %0, ptr noundef readonly %1
   %21 = getelementptr inbounds i8, ptr %2, i64 88
   %22 = getelementptr inbounds i8, ptr %2, i64 92
   %23 = getelementptr inbounds i8, ptr %2, i64 80
-  %24 = getelementptr inbounds i8, ptr %2, i64 112
-  %25 = getelementptr inbounds i8, ptr %2, i64 104
-  %26 = getelementptr inbounds i8, ptr %2, i64 136
-  %27 = getelementptr inbounds i8, ptr %2, i64 72
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %29
+  %24 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds i8, ptr %2, i64 112
+  %26 = getelementptr inbounds i8, ptr %2, i64 104
+  %27 = getelementptr inbounds i8, ptr %2, i64 136
+  %28 = getelementptr inbounds i8, ptr %2, i64 72
+  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %.loopexit255
+30:                                               ; preds = %.lr.ph, %.loopexit255
   %.0136478 = phi i64 [ %.0136472, %.lr.ph ], [ %.0136, %.loopexit255 ]
   %.0136.in476 = phi i64 [ %0, %.lr.ph ], [ %.4, %.loopexit255 ]
   %.pn474 = phi ptr [ %1, %.lr.ph ], [ %.3142, %.loopexit255 ]
   %.0239473 = phi i32 [ %13, %.lr.ph ], [ %.4243, %.loopexit255 ]
   %.0139477 = getelementptr i8, ptr %.pn474, i64 8
-  %30 = load ptr, ptr %.0139477, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.loopexit258, label %31
+  %31 = load ptr, ptr %.0139477, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %.loopexit258, label %32
 
-31:                                               ; preds = %29
-  %32 = load i8, ptr %30, align 1
-  %.not157 = icmp eq i8 %32, 45
-  br i1 %.not157, label %33, label %.loopexit258
+32:                                               ; preds = %30
+  %33 = load i8, ptr %31, align 1
+  %.not157 = icmp eq i8 %33, 45
+  br i1 %.not157, label %34, label %.loopexit258
 
-33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %30, i64 1
-  %35 = load i8, ptr %34, align 1
-  %.not158 = icmp eq i8 %35, 0
+34:                                               ; preds = %32
+  %35 = getelementptr i8, ptr %31, i64 1
+  %36 = load i8, ptr %35, align 1
+  %.not158 = icmp eq i8 %36, 0
   br i1 %.not158, label %.loopexit258, label %.preheader
 
-thread-pre-split:                                 ; preds = %38, %46, %50, %55, %62, %73, %237, %252, %259, %forbid_setid.exit206, %set_option_encoding_once.exit, %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit
-  %.1240.ph = phi i32 [ %.1240, %38 ], [ %.1240, %46 ], [ %.1240, %50 ], [ %.1240, %55 ], [ %.1240, %62 ], [ %.2241, %73 ], [ 1, %proc_W_option.exit ], [ %.1240, %237 ], [ %.1240, %252 ], [ %.1240, %259 ], [ %.1240, %forbid_setid.exit206 ], [ %.1240, %set_option_encoding_once.exit ], [ %.1240, %proc_K_option.exit ], [ %.1240, %proc_0_option.exit ]
-  %.0135.ph = phi ptr [ %41, %38 ], [ %49, %46 ], [ %53, %50 ], [ %58, %55 ], [ %63, %62 ], [ %76, %73 ], [ %.1.i, %proc_W_option.exit ], [ %240, %237 ], [ %253, %252 ], [ %263, %259 ], [ %274, %forbid_setid.exit206 ], [ %403, %set_option_encoding_once.exit ], [ %.010.i, %proc_K_option.exit ], [ %446, %proc_0_option.exit ]
+thread-pre-split:                                 ; preds = %39, %47, %51, %56, %63, %74, %240, %255, %262, %forbid_setid.exit206, %set_option_encoding_once.exit, %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit
+  %.1240.ph = phi i32 [ %.1240, %39 ], [ %.1240, %47 ], [ %.1240, %51 ], [ %.1240, %56 ], [ %.1240, %63 ], [ %.2241, %74 ], [ 1, %proc_W_option.exit ], [ %.1240, %240 ], [ %.1240, %255 ], [ %.1240, %262 ], [ %.1240, %forbid_setid.exit206 ], [ %.1240, %set_option_encoding_once.exit ], [ %.1240, %proc_K_option.exit ], [ %.1240, %proc_0_option.exit ]
+  %.0135.ph = phi ptr [ %42, %39 ], [ %50, %47 ], [ %54, %51 ], [ %59, %56 ], [ %64, %63 ], [ %79, %74 ], [ %.1.i, %proc_W_option.exit ], [ %243, %240 ], [ %256, %255 ], [ %266, %262 ], [ %277, %forbid_setid.exit206 ], [ %406, %set_option_encoding_once.exit ], [ %.010.i, %proc_K_option.exit ], [ %449, %proc_0_option.exit ]
   %.pr = load i8, ptr %.0135.ph, align 1
   br label %.preheader
 
-.preheader:                                       ; preds = %33, %thread-pre-split
-  %36 = phi i8 [ %.pr, %thread-pre-split ], [ %35, %33 ]
-  %.1240 = phi i32 [ %.1240.ph, %thread-pre-split ], [ %.0239473, %33 ]
-  %.0135 = phi ptr [ %.0135.ph, %thread-pre-split ], [ %34, %33 ]
-  switch i8 %36, label %.loopexit.loopexit [
-    i8 97, label %37
-    i8 112, label %42
-    i8 110, label %45
-    i8 100, label %50
-    i8 121, label %54
-    i8 118, label %59
+.preheader:                                       ; preds = %34, %thread-pre-split
+  %37 = phi i8 [ %.pr, %thread-pre-split ], [ %36, %34 ]
+  %.1240 = phi i32 [ %.1240.ph, %thread-pre-split ], [ %.0239473, %34 ]
+  %.0135 = phi ptr [ %.0135.ph, %thread-pre-split ], [ %35, %34 ]
+  switch i8 %37, label %.loopexit.loopexit [
+    i8 97, label %38
+    i8 112, label %43
+    i8 110, label %46
+    i8 100, label %51
+    i8 121, label %55
+    i8 118, label %60
     i8 119, label %.preheader._crit_edge
-    i8 87, label %77
-    i8 99, label %236
-    i8 115, label %241
-    i8 104, label %254
-    i8 108, label %258
-    i8 83, label %264
-    i8 101, label %275
-    i8 114, label %305
-    i8 105, label %333
-    i8 120, label %343
-    i8 67, label %359
-    i8 88, label %359
-    i8 70, label %375
-    i8 69, label %382
-    i8 85, label %393
-    i8 75, label %404
-    i8 73, label %416
-    i8 48, label %432
-    i8 45, label %447
-    i8 13, label %753
+    i8 87, label %80
+    i8 99, label %239
+    i8 115, label %244
+    i8 104, label %257
+    i8 108, label %261
+    i8 83, label %267
+    i8 101, label %278
+    i8 114, label %308
+    i8 105, label %336
+    i8 120, label %346
+    i8 67, label %362
+    i8 88, label %362
+    i8 70, label %378
+    i8 69, label %385
+    i8 85, label %396
+    i8 75, label %407
+    i8 73, label %419
+    i8 48, label %435
+    i8 45, label %450
+    i8 13, label %762
     i8 0, label %.loopexit255
   ]
 
 .preheader._crit_edge:                            ; preds = %.preheader
   %.pre = load i16, ptr %9, align 8
-  br label %68
+  br label %69
 
-37:                                               ; preds = %.preheader
-  br i1 %.not163, label %38, label %.loopexit256
+38:                                               ; preds = %.preheader
+  br i1 %.not163, label %39, label %.loopexit256
 
-38:                                               ; preds = %37
-  %39 = load i16, ptr %9, align 8
-  %40 = or i16 %39, 256
-  store i16 %40, ptr %9, align 8
-  %41 = getelementptr i8, ptr %.0135, i64 1
+39:                                               ; preds = %38
+  %40 = load i16, ptr %9, align 8
+  %41 = or i16 %40, 256
+  store i16 %41, ptr %9, align 8
+  %42 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-42:                                               ; preds = %.preheader
+43:                                               ; preds = %.preheader
   br i1 %.not163, label %.thread, label %.loopexit256
 
-.thread:                                          ; preds = %42
-  %43 = load i16, ptr %9, align 8
-  %44 = or i16 %43, 64
-  br label %46
+.thread:                                          ; preds = %43
+  %44 = load i16, ptr %9, align 8
+  %45 = or i16 %44, 64
+  br label %47
 
-45:                                               ; preds = %.preheader
+46:                                               ; preds = %.preheader
   br i1 %.not163, label %._crit_edge, label %.loopexit256
 
-._crit_edge:                                      ; preds = %45
+._crit_edge:                                      ; preds = %46
   %.pre703 = load i16, ptr %9, align 8
-  br label %46
+  br label %47
 
-46:                                               ; preds = %._crit_edge, %.thread
-  %47 = phi i16 [ %.pre703, %._crit_edge ], [ %44, %.thread ]
-  %48 = or i16 %47, 32
-  store i16 %48, ptr %9, align 8
-  %49 = getelementptr i8, ptr %.0135, i64 1
+47:                                               ; preds = %._crit_edge, %.thread
+  %48 = phi i16 [ %.pre703, %._crit_edge ], [ %45, %.thread ]
+  %49 = or i16 %48, 32
+  store i16 %49, ptr %9, align 8
+  %50 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-50:                                               ; preds = %.preheader
-  %51 = call ptr @rb_ruby_debug_ptr() #25
-  store i64 20, ptr %51, align 8
-  %52 = call ptr @rb_ruby_verbose_ptr() #25
+51:                                               ; preds = %.preheader
+  %52 = call ptr @rb_ruby_debug_ptr() #25
   store i64 20, ptr %52, align 8
-  %53 = getelementptr i8, ptr %.0135, i64 1
+  %53 = call ptr @rb_ruby_verbose_ptr() #25
+  store i64 20, ptr %53, align 8
+  %54 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-54:                                               ; preds = %.preheader
-  br i1 %.not163, label %55, label %.loopexit256
+55:                                               ; preds = %.preheader
+  br i1 %.not163, label %56, label %.loopexit256
 
-55:                                               ; preds = %54
-  %56 = load i32, ptr %20, align 8
-  %57 = or i32 %56, 64
-  store i32 %57, ptr %20, align 8
-  %58 = getelementptr i8, ptr %.0135, i64 1
+56:                                               ; preds = %55
+  %57 = load i32, ptr %20, align 8
+  %58 = or i32 %57, 64
+  store i32 %58, ptr %20, align 8
+  %59 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-59:                                               ; preds = %.preheader
-  %60 = load i16, ptr %9, align 8
-  %61 = and i16 %60, 16
-  %.not191 = icmp eq i16 %61, 0
-  br i1 %.not191, label %64, label %62
+60:                                               ; preds = %.preheader
+  %61 = load i16, ptr %9, align 8
+  %62 = and i16 %61, 16
+  %.not191 = icmp eq i16 %62, 0
+  br i1 %.not191, label %65, label %63
 
-62:                                               ; preds = %59
-  %63 = getelementptr i8, ptr %.0135, i64 1
+63:                                               ; preds = %60
+  %64 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %20, align 8
-  %66 = or i32 %65, 1
-  store i32 %66, ptr %20, align 8
-  %67 = or disjoint i16 %60, 16
-  store i16 %67, ptr %9, align 8
-  br label %68
+65:                                               ; preds = %60
+  %66 = load i32, ptr %20, align 8
+  %67 = or i32 %66, 1
+  store i32 %67, ptr %20, align 8
+  %68 = or disjoint i16 %61, 16
+  store i16 %68, ptr %9, align 8
+  br label %69
 
-68:                                               ; preds = %.preheader._crit_edge, %64
-  %69 = phi i16 [ %.pre, %.preheader._crit_edge ], [ %67, %64 ]
-  %70 = and i16 %69, 8
-  %.not192 = icmp eq i16 %70, 0
-  br i1 %.not192, label %71, label %73
+69:                                               ; preds = %.preheader._crit_edge, %65
+  %70 = phi i16 [ %.pre, %.preheader._crit_edge ], [ %68, %65 ]
+  %71 = and i16 %70, 8
+  %.not192 = icmp eq i16 %71, 0
+  br i1 %.not192, label %72, label %74
 
-71:                                               ; preds = %68
-  %72 = call ptr @rb_ruby_verbose_ptr() #25
-  store i64 20, ptr %72, align 8
-  br label %73
+72:                                               ; preds = %69
+  %73 = call ptr @rb_ruby_verbose_ptr() #25
+  store i64 20, ptr %73, align 8
+  br label %74
 
-73:                                               ; preds = %71, %68
-  %.2241 = phi i32 [ 1, %71 ], [ %.1240, %68 ]
-  %74 = load <2 x i32>, ptr %21, align 4
-  %75 = or <2 x i32> %74, <i32 6, i32 6>
-  store <2 x i32> %75, ptr %21, align 4
-  %76 = getelementptr i8, ptr %.0135, i64 1
+74:                                               ; preds = %72, %69
+  %.2241 = phi i32 [ 1, %72 ], [ %.1240, %69 ]
+  %75 = load i32, ptr %21, align 4
+  %76 = or i32 %75, 6
+  store i32 %76, ptr %21, align 4
+  %77 = load i32, ptr %22, align 4
+  %78 = or i32 %77, 6
+  store i32 %78, ptr %22, align 4
+  %79 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-77:                                               ; preds = %.preheader
+80:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %78 = getelementptr i8, ptr %.0135, i64 1
-  %79 = load i8, ptr %78, align 1
-  switch i8 %79, label %208 [
+  %81 = getelementptr i8, ptr %.0135, i64 1
+  %82 = load i8, ptr %81, align 1
+  switch i8 %82, label %211 [
     i8 58, label %sub_0.i
-    i8 0, label %214
+    i8 0, label %217
   ]
 
-sub_0.i:                                          ; preds = %77
-  %80 = getelementptr i8, ptr %.0135, i64 2
-  %81 = load i8, ptr %80, align 1
-  %.not.i = icmp eq i8 %81, 110
+sub_0.i:                                          ; preds = %80
+  %83 = getelementptr i8, ptr %.0135, i64 2
+  %84 = load i8, ptr %83, align 1
+  %.not.i = icmp eq i8 %84, 110
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %82 = getelementptr i8, ptr %.0135, i64 3
-  %83 = load i8, ptr %82, align 1
-  %.not121.i = icmp eq i8 %83, 111
+  %85 = getelementptr i8, ptr %.0135, i64 3
+  %86 = load i8, ptr %85, align 1
+  %.not121.i = icmp eq i8 %86, 111
   br i1 %.not121.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %84 = getelementptr i8, ptr %.0135, i64 4
-  %85 = load i8, ptr %84, align 1
-  %.fr.i = freeze i8 %85
-  %86 = icmp eq i8 %.fr.i, 45
-  %87 = getelementptr i8, ptr %.0135, i64 5
-  %spec.select.i = select i1 %86, ptr %87, ptr %80
+  %87 = getelementptr i8, ptr %.0135, i64 4
+  %88 = load i8, ptr %87, align 1
+  %.fr.i = freeze i8 %88
+  %89 = icmp eq i8 %.fr.i, 45
+  %90 = getelementptr i8, ptr %.0135, i64 5
+  %spec.select.i = select i1 %89, ptr %90, ptr %83
   br label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %sub_0.i
-  %.not37148.i = phi i1 [ false, %sub_0.i ], [ false, %sub_1.i ], [ %86, %.tail.i ]
-  %88 = phi ptr [ %80, %sub_0.i ], [ %80, %sub_1.i ], [ %spec.select.i, %.tail.i ]
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #24
-  %90 = icmp ult i64 %89, 11
-  br i1 %90, label %91, label %name_match_p.exit.thread.i
+  %.not37148.i = phi i1 [ false, %sub_0.i ], [ false, %sub_1.i ], [ %89, %.tail.i ]
+  %91 = phi ptr [ %83, %sub_0.i ], [ %83, %sub_1.i ], [ %spec.select.i, %.tail.i ]
+  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #24
+  %93 = icmp ult i64 %92, 11
+  br i1 %93, label %94, label %name_match_p.exit.thread.i
 
-91:                                               ; preds = %.tail.thread.i
-  %92 = icmp eq i64 %89, 0
-  br i1 %92, label %name_match_p.exit.i, label %.preheader.i.i
+94:                                               ; preds = %.tail.thread.i
+  %95 = icmp eq i64 %92, 0
+  br i1 %95, label %name_match_p.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %91, %124
-  %.017.i.i = phi ptr [ %122, %124 ], [ @.str.43, %91 ]
-  %.015.i.i = phi ptr [ %125, %124 ], [ %88, %91 ]
-  %.0.i.i = phi i64 [ %126, %124 ], [ %89, %91 ]
-  %93 = load i8, ptr %.015.i.i, align 1
-  %94 = sext i8 %93 to i32
-  %95 = add nsw i32 %94, -91
-  %96 = icmp ult i32 %95, -26
-  %97 = or i32 %94, 32
-  %98 = select i1 %96, i32 %94, i32 %97
-  %99 = load i8, ptr %.017.i.i, align 1
-  %100 = sext i8 %99 to i32
-  %101 = icmp eq i32 %98, %100
-  br i1 %101, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %94, %127
+  %.017.i.i = phi ptr [ %125, %127 ], [ @.str.43, %94 ]
+  %.015.i.i = phi ptr [ %128, %127 ], [ %91, %94 ]
+  %.0.i.i = phi i64 [ %129, %127 ], [ %92, %94 ]
+  %96 = load i8, ptr %.015.i.i, align 1
+  %97 = sext i8 %96 to i32
+  %98 = add nsw i32 %97, -91
+  %99 = icmp ult i32 %98, -26
+  %100 = or i32 %97, 32
+  %101 = select i1 %99, i32 %97, i32 %100
+  %102 = load i8, ptr %.017.i.i, align 1
+  %103 = sext i8 %102 to i32
+  %104 = icmp eq i32 %101, %103
+  br i1 %104, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %103
-  %.138.i.i = phi i64 [ %102, %103 ], [ %.0.i.i, %.preheader.i.i ]
-  %.11637.i.i = phi ptr [ %105, %103 ], [ %.015.i.i, %.preheader.i.i ]
-  %.11836.i.i = phi ptr [ %104, %103 ], [ %.017.i.i, %.preheader.i.i ]
-  %102 = add i64 %.138.i.i, -1
-  %.not29.i.i = icmp eq i64 %102, 0
-  br i1 %.not29.i.i, label %.loopexit.i, label %103
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %106
+  %.138.i.i = phi i64 [ %105, %106 ], [ %.0.i.i, %.preheader.i.i ]
+  %.11637.i.i = phi ptr [ %108, %106 ], [ %.015.i.i, %.preheader.i.i ]
+  %.11836.i.i = phi ptr [ %107, %106 ], [ %.017.i.i, %.preheader.i.i ]
+  %105 = add i64 %.138.i.i, -1
+  %.not29.i.i = icmp eq i64 %105, 0
+  br i1 %.not29.i.i, label %.loopexit.i, label %106
 
-103:                                              ; preds = %.lr.ph.i.i
-  %104 = getelementptr i8, ptr %.11836.i.i, i64 1
-  %105 = getelementptr i8, ptr %.11637.i.i, i64 1
-  %106 = load i8, ptr %105, align 1
-  %107 = sext i8 %106 to i32
-  %108 = add nsw i32 %107, -91
-  %109 = icmp ult i32 %108, -26
-  %110 = or i32 %107, 32
-  %111 = select i1 %109, i32 %107, i32 %110
-  %112 = load i8, ptr %104, align 1
-  %113 = sext i8 %112 to i32
-  %114 = icmp eq i32 %111, %113
-  br i1 %114, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !70
+106:                                              ; preds = %.lr.ph.i.i
+  %107 = getelementptr i8, ptr %.11836.i.i, i64 1
+  %108 = getelementptr i8, ptr %.11637.i.i, i64 1
+  %109 = load i8, ptr %108, align 1
+  %110 = sext i8 %109 to i32
+  %111 = add nsw i32 %110, -91
+  %112 = icmp ult i32 %111, -26
+  %113 = or i32 %110, 32
+  %114 = select i1 %112, i32 %110, i32 %113
+  %115 = load i8, ptr %107, align 1
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %114, %116
+  br i1 %117, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !70
 
-._crit_edge.i.i:                                  ; preds = %103, %.preheader.i.i
-  %.118.lcssa.i.i = phi ptr [ %.017.i.i, %.preheader.i.i ], [ %104, %103 ]
-  %.116.lcssa.i.i = phi ptr [ %.015.i.i, %.preheader.i.i ], [ %105, %103 ]
-  %.1.lcssa.i.i = phi i64 [ %.0.i.i, %.preheader.i.i ], [ %102, %103 ]
-  %.lcssa.i.i = phi i8 [ %93, %.preheader.i.i ], [ %106, %103 ]
+._crit_edge.i.i:                                  ; preds = %106, %.preheader.i.i
+  %.118.lcssa.i.i = phi ptr [ %.017.i.i, %.preheader.i.i ], [ %107, %106 ]
+  %.116.lcssa.i.i = phi ptr [ %.015.i.i, %.preheader.i.i ], [ %108, %106 ]
+  %.1.lcssa.i.i = phi i64 [ %.0.i.i, %.preheader.i.i ], [ %105, %106 ]
+  %.lcssa.i.i = phi i8 [ %96, %.preheader.i.i ], [ %109, %106 ]
   switch i8 %.lcssa.i.i, label %name_match_p.exit.thread.i [
     i8 45, label %.preheader1131
     i8 95, label %.preheader1131
   ]
 
 .preheader1131:                                   ; preds = %._crit_edge.i.i, %._crit_edge.i.i
-  br label %115
+  br label %118
 
-115:                                              ; preds = %.preheader1131, %115
-  %.2.i.i = phi ptr [ %122, %115 ], [ %.118.lcssa.i.i, %.preheader1131 ]
-  %116 = load i8, ptr %.2.i.i, align 1
-  %117 = sext i8 %116 to i32
-  %118 = and i32 %117, -33
-  %119 = add nsw i32 %118, -91
-  %narrow.i.i.i.i = icmp ult i32 %119, -26
-  %120 = add nsw i32 %117, -58
-  %121 = icmp ult i32 %120, -10
-  %narrow.i.not.i.i = and i1 %121, %narrow.i.i.i.i
-  %122 = getelementptr i8, ptr %.2.i.i, i64 1
-  br i1 %narrow.i.not.i.i, label %123, label %115, !llvm.loop !71
+118:                                              ; preds = %.preheader1131, %118
+  %.2.i.i = phi ptr [ %125, %118 ], [ %.118.lcssa.i.i, %.preheader1131 ]
+  %119 = load i8, ptr %.2.i.i, align 1
+  %120 = sext i8 %119 to i32
+  %121 = and i32 %120, -33
+  %122 = add nsw i32 %121, -91
+  %narrow.i.i.i.i = icmp ult i32 %122, -26
+  %123 = add nsw i32 %120, -58
+  %124 = icmp ult i32 %123, -10
+  %narrow.i.not.i.i = and i1 %124, %narrow.i.i.i.i
+  %125 = getelementptr i8, ptr %.2.i.i, i64 1
+  br i1 %narrow.i.not.i.i, label %126, label %118, !llvm.loop !71
 
-123:                                              ; preds = %115
-  switch i8 %116, label %name_match_p.exit.thread.i [
-    i8 45, label %124
-    i8 95, label %124
+126:                                              ; preds = %118
+  switch i8 %119, label %name_match_p.exit.thread.i [
+    i8 45, label %127
+    i8 95, label %127
   ]
 
-124:                                              ; preds = %123, %123
-  %125 = getelementptr i8, ptr %.116.lcssa.i.i, i64 1
-  %126 = add i64 %.1.lcssa.i.i, -1
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %.loopexit.i, label %.preheader.i.i
+127:                                              ; preds = %126, %126
+  %128 = getelementptr i8, ptr %.116.lcssa.i.i, i64 1
+  %129 = add i64 %.1.lcssa.i.i, -1
+  %130 = icmp eq i64 %129, 0
+  br i1 %130, label %.loopexit.i, label %.preheader.i.i
 
-name_match_p.exit.thread.i:                       ; preds = %123, %._crit_edge.i.i, %.tail.thread.i
-  %128 = add i64 %89, -13
-  %or.cond.i = icmp ult i64 %128, -12
+name_match_p.exit.thread.i:                       ; preds = %126, %._crit_edge.i.i, %.tail.thread.i
+  %131 = add i64 %92, -13
+  %or.cond.i = icmp ult i64 %131, -12
   br i1 %or.cond.i, label %name_match_p.exit.i, label %.preheader.i42.i
 
-.preheader.i42.i:                                 ; preds = %name_match_p.exit.thread.i, %160
-  %.017.i43.i = phi ptr [ %158, %160 ], [ @.str.44, %name_match_p.exit.thread.i ]
-  %.015.i44.i = phi ptr [ %161, %160 ], [ %88, %name_match_p.exit.thread.i ]
-  %.0.i45.i = phi i64 [ %162, %160 ], [ %89, %name_match_p.exit.thread.i ]
-  %129 = load i8, ptr %.015.i44.i, align 1
-  %130 = sext i8 %129 to i32
-  %131 = add nsw i32 %130, -91
-  %132 = icmp ult i32 %131, -26
-  %133 = or i32 %130, 32
-  %134 = select i1 %132, i32 %130, i32 %133
-  %135 = load i8, ptr %.017.i43.i, align 1
-  %136 = sext i8 %135 to i32
-  %137 = icmp eq i32 %134, %136
-  br i1 %137, label %.lr.ph.i55.i, label %._crit_edge.i46.i
+.preheader.i42.i:                                 ; preds = %name_match_p.exit.thread.i, %163
+  %.017.i43.i = phi ptr [ %161, %163 ], [ @.str.44, %name_match_p.exit.thread.i ]
+  %.015.i44.i = phi ptr [ %164, %163 ], [ %91, %name_match_p.exit.thread.i ]
+  %.0.i45.i = phi i64 [ %165, %163 ], [ %92, %name_match_p.exit.thread.i ]
+  %132 = load i8, ptr %.015.i44.i, align 1
+  %133 = sext i8 %132 to i32
+  %134 = add nsw i32 %133, -91
+  %135 = icmp ult i32 %134, -26
+  %136 = or i32 %133, 32
+  %137 = select i1 %135, i32 %133, i32 %136
+  %138 = load i8, ptr %.017.i43.i, align 1
+  %139 = sext i8 %138 to i32
+  %140 = icmp eq i32 %137, %139
+  br i1 %140, label %.lr.ph.i55.i, label %._crit_edge.i46.i
 
-.lr.ph.i55.i:                                     ; preds = %.preheader.i42.i, %139
-  %.138.i56.i = phi i64 [ %138, %139 ], [ %.0.i45.i, %.preheader.i42.i ]
-  %.11637.i57.i = phi ptr [ %141, %139 ], [ %.015.i44.i, %.preheader.i42.i ]
-  %.11836.i58.i = phi ptr [ %140, %139 ], [ %.017.i43.i, %.preheader.i42.i ]
-  %138 = add i64 %.138.i56.i, -1
-  %.not29.i59.i = icmp eq i64 %138, 0
-  br i1 %.not29.i59.i, label %.loopexit.i, label %139
+.lr.ph.i55.i:                                     ; preds = %.preheader.i42.i, %142
+  %.138.i56.i = phi i64 [ %141, %142 ], [ %.0.i45.i, %.preheader.i42.i ]
+  %.11637.i57.i = phi ptr [ %144, %142 ], [ %.015.i44.i, %.preheader.i42.i ]
+  %.11836.i58.i = phi ptr [ %143, %142 ], [ %.017.i43.i, %.preheader.i42.i ]
+  %141 = add i64 %.138.i56.i, -1
+  %.not29.i59.i = icmp eq i64 %141, 0
+  br i1 %.not29.i59.i, label %.loopexit.i, label %142
 
-139:                                              ; preds = %.lr.ph.i55.i
-  %140 = getelementptr i8, ptr %.11836.i58.i, i64 1
-  %141 = getelementptr i8, ptr %.11637.i57.i, i64 1
-  %142 = load i8, ptr %141, align 1
-  %143 = sext i8 %142 to i32
-  %144 = add nsw i32 %143, -91
-  %145 = icmp ult i32 %144, -26
-  %146 = or i32 %143, 32
-  %147 = select i1 %145, i32 %143, i32 %146
-  %148 = load i8, ptr %140, align 1
-  %149 = sext i8 %148 to i32
-  %150 = icmp eq i32 %147, %149
-  br i1 %150, label %.lr.ph.i55.i, label %._crit_edge.i46.i, !llvm.loop !70
+142:                                              ; preds = %.lr.ph.i55.i
+  %143 = getelementptr i8, ptr %.11836.i58.i, i64 1
+  %144 = getelementptr i8, ptr %.11637.i57.i, i64 1
+  %145 = load i8, ptr %144, align 1
+  %146 = sext i8 %145 to i32
+  %147 = add nsw i32 %146, -91
+  %148 = icmp ult i32 %147, -26
+  %149 = or i32 %146, 32
+  %150 = select i1 %148, i32 %146, i32 %149
+  %151 = load i8, ptr %143, align 1
+  %152 = sext i8 %151 to i32
+  %153 = icmp eq i32 %150, %152
+  br i1 %153, label %.lr.ph.i55.i, label %._crit_edge.i46.i, !llvm.loop !70
 
-._crit_edge.i46.i:                                ; preds = %139, %.preheader.i42.i
-  %.118.lcssa.i47.i = phi ptr [ %.017.i43.i, %.preheader.i42.i ], [ %140, %139 ]
-  %.116.lcssa.i48.i = phi ptr [ %.015.i44.i, %.preheader.i42.i ], [ %141, %139 ]
-  %.1.lcssa.i49.i = phi i64 [ %.0.i45.i, %.preheader.i42.i ], [ %138, %139 ]
-  %.lcssa.i50.i = phi i8 [ %129, %.preheader.i42.i ], [ %142, %139 ]
-  switch i8 %.lcssa.i50.i, label %164 [
+._crit_edge.i46.i:                                ; preds = %142, %.preheader.i42.i
+  %.118.lcssa.i47.i = phi ptr [ %.017.i43.i, %.preheader.i42.i ], [ %143, %142 ]
+  %.116.lcssa.i48.i = phi ptr [ %.015.i44.i, %.preheader.i42.i ], [ %144, %142 ]
+  %.1.lcssa.i49.i = phi i64 [ %.0.i45.i, %.preheader.i42.i ], [ %141, %142 ]
+  %.lcssa.i50.i = phi i8 [ %132, %.preheader.i42.i ], [ %145, %142 ]
+  switch i8 %.lcssa.i50.i, label %167 [
     i8 45, label %.preheader1129
     i8 95, label %.preheader1129
   ]
 
 .preheader1129:                                   ; preds = %._crit_edge.i46.i, %._crit_edge.i46.i
-  br label %151
+  br label %154
 
-151:                                              ; preds = %.preheader1129, %151
-  %.2.i51.i = phi ptr [ %158, %151 ], [ %.118.lcssa.i47.i, %.preheader1129 ]
-  %152 = load i8, ptr %.2.i51.i, align 1
-  %153 = sext i8 %152 to i32
-  %154 = and i32 %153, -33
-  %155 = add nsw i32 %154, -91
-  %narrow.i.i.i52.i = icmp ult i32 %155, -26
-  %156 = add nsw i32 %153, -58
-  %157 = icmp ult i32 %156, -10
-  %narrow.i.not.i53.i = and i1 %157, %narrow.i.i.i52.i
-  %158 = getelementptr i8, ptr %.2.i51.i, i64 1
-  br i1 %narrow.i.not.i53.i, label %159, label %151, !llvm.loop !71
+154:                                              ; preds = %.preheader1129, %154
+  %.2.i51.i = phi ptr [ %161, %154 ], [ %.118.lcssa.i47.i, %.preheader1129 ]
+  %155 = load i8, ptr %.2.i51.i, align 1
+  %156 = sext i8 %155 to i32
+  %157 = and i32 %156, -33
+  %158 = add nsw i32 %157, -91
+  %narrow.i.i.i52.i = icmp ult i32 %158, -26
+  %159 = add nsw i32 %156, -58
+  %160 = icmp ult i32 %159, -10
+  %narrow.i.not.i53.i = and i1 %160, %narrow.i.i.i52.i
+  %161 = getelementptr i8, ptr %.2.i51.i, i64 1
+  br i1 %narrow.i.not.i53.i, label %162, label %154, !llvm.loop !71
 
-159:                                              ; preds = %151
-  switch i8 %152, label %164 [
-    i8 45, label %160
-    i8 95, label %160
+162:                                              ; preds = %154
+  switch i8 %155, label %167 [
+    i8 45, label %163
+    i8 95, label %163
   ]
 
-160:                                              ; preds = %159, %159
-  %161 = getelementptr i8, ptr %.116.lcssa.i48.i, i64 1
-  %162 = add i64 %.1.lcssa.i49.i, -1
-  %163 = icmp eq i64 %162, 0
-  br i1 %163, label %.loopexit.i, label %.preheader.i42.i
+163:                                              ; preds = %162, %162
+  %164 = getelementptr i8, ptr %.116.lcssa.i48.i, i64 1
+  %165 = add i64 %.1.lcssa.i49.i, -1
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %.loopexit.i, label %.preheader.i42.i
 
-164:                                              ; preds = %159, %._crit_edge.i46.i
-  %165 = add nsw i64 %89, -12
-  %or.cond96.i = icmp ult i64 %165, -11
+167:                                              ; preds = %162, %._crit_edge.i46.i
+  %168 = add nsw i64 %92, -12
+  %or.cond96.i = icmp ult i64 %168, -11
   br i1 %or.cond96.i, label %name_match_p.exit.i, label %.preheader.i61.i
 
-.preheader.i61.i:                                 ; preds = %164, %197
-  %.017.i62.i = phi ptr [ %195, %197 ], [ @.str.45, %164 ]
-  %.015.i63.i = phi ptr [ %198, %197 ], [ %88, %164 ]
-  %.0.i64.i = phi i64 [ %199, %197 ], [ %89, %164 ]
-  %166 = load i8, ptr %.015.i63.i, align 1
-  %167 = sext i8 %166 to i32
-  %168 = add nsw i32 %167, -91
-  %169 = icmp ult i32 %168, -26
-  %170 = or i32 %167, 32
-  %171 = select i1 %169, i32 %167, i32 %170
-  %172 = load i8, ptr %.017.i62.i, align 1
-  %173 = sext i8 %172 to i32
-  %174 = icmp eq i32 %171, %173
-  br i1 %174, label %.lr.ph.i74.i, label %._crit_edge.i65.i
+.preheader.i61.i:                                 ; preds = %167, %200
+  %.017.i62.i = phi ptr [ %198, %200 ], [ @.str.45, %167 ]
+  %.015.i63.i = phi ptr [ %201, %200 ], [ %91, %167 ]
+  %.0.i64.i = phi i64 [ %202, %200 ], [ %92, %167 ]
+  %169 = load i8, ptr %.015.i63.i, align 1
+  %170 = sext i8 %169 to i32
+  %171 = add nsw i32 %170, -91
+  %172 = icmp ult i32 %171, -26
+  %173 = or i32 %170, 32
+  %174 = select i1 %172, i32 %170, i32 %173
+  %175 = load i8, ptr %.017.i62.i, align 1
+  %176 = sext i8 %175 to i32
+  %177 = icmp eq i32 %174, %176
+  br i1 %177, label %.lr.ph.i74.i, label %._crit_edge.i65.i
 
-.lr.ph.i74.i:                                     ; preds = %.preheader.i61.i, %176
-  %.138.i75.i = phi i64 [ %175, %176 ], [ %.0.i64.i, %.preheader.i61.i ]
-  %.11637.i76.i = phi ptr [ %178, %176 ], [ %.015.i63.i, %.preheader.i61.i ]
-  %.11836.i77.i = phi ptr [ %177, %176 ], [ %.017.i62.i, %.preheader.i61.i ]
-  %175 = add i64 %.138.i75.i, -1
-  %.not29.i78.i = icmp eq i64 %175, 0
-  br i1 %.not29.i78.i, label %.loopexit.i, label %176
+.lr.ph.i74.i:                                     ; preds = %.preheader.i61.i, %179
+  %.138.i75.i = phi i64 [ %178, %179 ], [ %.0.i64.i, %.preheader.i61.i ]
+  %.11637.i76.i = phi ptr [ %181, %179 ], [ %.015.i63.i, %.preheader.i61.i ]
+  %.11836.i77.i = phi ptr [ %180, %179 ], [ %.017.i62.i, %.preheader.i61.i ]
+  %178 = add i64 %.138.i75.i, -1
+  %.not29.i78.i = icmp eq i64 %178, 0
+  br i1 %.not29.i78.i, label %.loopexit.i, label %179
 
-176:                                              ; preds = %.lr.ph.i74.i
-  %177 = getelementptr i8, ptr %.11836.i77.i, i64 1
-  %178 = getelementptr i8, ptr %.11637.i76.i, i64 1
-  %179 = load i8, ptr %178, align 1
-  %180 = sext i8 %179 to i32
-  %181 = add nsw i32 %180, -91
-  %182 = icmp ult i32 %181, -26
-  %183 = or i32 %180, 32
-  %184 = select i1 %182, i32 %180, i32 %183
-  %185 = load i8, ptr %177, align 1
-  %186 = sext i8 %185 to i32
-  %187 = icmp eq i32 %184, %186
-  br i1 %187, label %.lr.ph.i74.i, label %._crit_edge.i65.i, !llvm.loop !70
+179:                                              ; preds = %.lr.ph.i74.i
+  %180 = getelementptr i8, ptr %.11836.i77.i, i64 1
+  %181 = getelementptr i8, ptr %.11637.i76.i, i64 1
+  %182 = load i8, ptr %181, align 1
+  %183 = sext i8 %182 to i32
+  %184 = add nsw i32 %183, -91
+  %185 = icmp ult i32 %184, -26
+  %186 = or i32 %183, 32
+  %187 = select i1 %185, i32 %183, i32 %186
+  %188 = load i8, ptr %180, align 1
+  %189 = sext i8 %188 to i32
+  %190 = icmp eq i32 %187, %189
+  br i1 %190, label %.lr.ph.i74.i, label %._crit_edge.i65.i, !llvm.loop !70
 
-._crit_edge.i65.i:                                ; preds = %176, %.preheader.i61.i
-  %.118.lcssa.i66.i = phi ptr [ %.017.i62.i, %.preheader.i61.i ], [ %177, %176 ]
-  %.116.lcssa.i67.i = phi ptr [ %.015.i63.i, %.preheader.i61.i ], [ %178, %176 ]
-  %.1.lcssa.i68.i = phi i64 [ %.0.i64.i, %.preheader.i61.i ], [ %175, %176 ]
-  %.lcssa.i69.i = phi i8 [ %166, %.preheader.i61.i ], [ %179, %176 ]
+._crit_edge.i65.i:                                ; preds = %179, %.preheader.i61.i
+  %.118.lcssa.i66.i = phi ptr [ %.017.i62.i, %.preheader.i61.i ], [ %180, %179 ]
+  %.116.lcssa.i67.i = phi ptr [ %.015.i63.i, %.preheader.i61.i ], [ %181, %179 ]
+  %.1.lcssa.i68.i = phi i64 [ %.0.i64.i, %.preheader.i61.i ], [ %178, %179 ]
+  %.lcssa.i69.i = phi i8 [ %169, %.preheader.i61.i ], [ %182, %179 ]
   switch i8 %.lcssa.i69.i, label %name_match_p.exit.i [
     i8 45, label %.preheader1128
     i8 95, label %.preheader1128
   ]
 
 .preheader1128:                                   ; preds = %._crit_edge.i65.i, %._crit_edge.i65.i
-  br label %188
+  br label %191
 
-188:                                              ; preds = %.preheader1128, %188
-  %.2.i70.i = phi ptr [ %195, %188 ], [ %.118.lcssa.i66.i, %.preheader1128 ]
-  %189 = load i8, ptr %.2.i70.i, align 1
-  %190 = sext i8 %189 to i32
-  %191 = and i32 %190, -33
-  %192 = add nsw i32 %191, -91
-  %narrow.i.i.i71.i = icmp ult i32 %192, -26
-  %193 = add nsw i32 %190, -58
-  %194 = icmp ult i32 %193, -10
-  %narrow.i.not.i72.i = and i1 %194, %narrow.i.i.i71.i
-  %195 = getelementptr i8, ptr %.2.i70.i, i64 1
-  br i1 %narrow.i.not.i72.i, label %196, label %188, !llvm.loop !71
+191:                                              ; preds = %.preheader1128, %191
+  %.2.i70.i = phi ptr [ %198, %191 ], [ %.118.lcssa.i66.i, %.preheader1128 ]
+  %192 = load i8, ptr %.2.i70.i, align 1
+  %193 = sext i8 %192 to i32
+  %194 = and i32 %193, -33
+  %195 = add nsw i32 %194, -91
+  %narrow.i.i.i71.i = icmp ult i32 %195, -26
+  %196 = add nsw i32 %193, -58
+  %197 = icmp ult i32 %196, -10
+  %narrow.i.not.i72.i = and i1 %197, %narrow.i.i.i71.i
+  %198 = getelementptr i8, ptr %.2.i70.i, i64 1
+  br i1 %narrow.i.not.i72.i, label %199, label %191, !llvm.loop !71
 
-196:                                              ; preds = %188
-  switch i8 %189, label %name_match_p.exit.i [
-    i8 45, label %197
-    i8 95, label %197
+199:                                              ; preds = %191
+  switch i8 %192, label %name_match_p.exit.i [
+    i8 45, label %200
+    i8 95, label %200
   ]
 
-197:                                              ; preds = %196, %196
-  %198 = getelementptr i8, ptr %.116.lcssa.i67.i, i64 1
-  %199 = add i64 %.1.lcssa.i68.i, -1
-  %200 = icmp eq i64 %199, 0
-  br i1 %200, label %.loopexit.i, label %.preheader.i61.i
+200:                                              ; preds = %199, %199
+  %201 = getelementptr i8, ptr %.116.lcssa.i67.i, i64 1
+  %202 = add i64 %.1.lcssa.i68.i, -1
+  %203 = icmp eq i64 %202, 0
+  br i1 %203, label %.loopexit.i, label %.preheader.i61.i
 
-name_match_p.exit.i:                              ; preds = %196, %._crit_edge.i65.i, %164, %name_match_p.exit.thread.i, %91
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.46, ptr noundef %88) #28
+name_match_p.exit.i:                              ; preds = %199, %._crit_edge.i65.i, %167, %name_match_p.exit.thread.i, %94
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.46, ptr noundef %91) #28
   br label %proc_W_option.exit.thread
 
-.loopexit.i:                                      ; preds = %124, %160, %197, %.lr.ph.i.i, %.lr.ph.i55.i, %.lr.ph.i74.i
-  %.033.ph.i = phi i32 [ 8, %.lr.ph.i74.i ], [ 4, %.lr.ph.i55.i ], [ 2, %.lr.ph.i.i ], [ 8, %197 ], [ 4, %160 ], [ 2, %124 ]
-  %201 = select i1 %.not37148.i, i32 0, i32 %.033.ph.i
-  %202 = load i32, ptr %21, align 4
-  %203 = or i32 %202, %.033.ph.i
-  store i32 %203, ptr %21, align 4
-  %204 = load i32, ptr %22, align 4
-  %205 = xor i32 %.033.ph.i, -1
-  %206 = and i32 %204, %205
-  %207 = or i32 %206, %201
-  store i32 %207, ptr %22, align 4
+.loopexit.i:                                      ; preds = %127, %163, %200, %.lr.ph.i.i, %.lr.ph.i55.i, %.lr.ph.i74.i
+  %.033.ph.i = phi i32 [ 8, %.lr.ph.i74.i ], [ 4, %.lr.ph.i55.i ], [ 2, %.lr.ph.i.i ], [ 8, %200 ], [ 4, %163 ], [ 2, %127 ]
+  %204 = select i1 %.not37148.i, i32 0, i32 %.033.ph.i
+  %205 = load i32, ptr %21, align 4
+  %206 = or i32 %205, %.033.ph.i
+  store i32 %206, ptr %21, align 4
+  %207 = load i32, ptr %22, align 4
+  %208 = xor i32 %.033.ph.i, -1
+  %209 = and i32 %207, %208
+  %210 = or i32 %209, %204
+  store i32 %210, ptr %22, align 4
   br label %proc_W_option.exit.thread
 
-208:                                              ; preds = %77
-  %209 = call i64 @ruby_scan_oct(ptr noundef nonnull %78, i64 noundef 1, ptr noundef nonnull %8) #30
-  %210 = trunc i64 %209 to i32
-  %211 = load i64, ptr %8, align 8
-  %212 = icmp eq i64 %211, 0
-  %spec.store.select.i = select i1 %212, i32 2, i32 %210
-  %213 = getelementptr i8, ptr %78, i64 %211
-  br label %214
+211:                                              ; preds = %80
+  %212 = call i64 @ruby_scan_oct(ptr noundef nonnull %81, i64 noundef 1, ptr noundef nonnull %8) #30
+  %213 = trunc i64 %212 to i32
+  %214 = load i64, ptr %8, align 8
+  %215 = icmp eq i64 %214, 0
+  %spec.store.select.i = select i1 %215, i32 2, i32 %213
+  %216 = getelementptr i8, ptr %81, i64 %214
+  br label %217
 
-214:                                              ; preds = %208, %77
-  %.1.i = phi ptr [ %213, %208 ], [ %78, %77 ]
-  %.0.i = phi i32 [ %spec.store.select.i, %208 ], [ 2, %77 ]
-  %215 = load i16, ptr %9, align 8
-  %216 = and i16 %215, 8
-  %.not36.i = icmp eq i16 %216, 0
-  br i1 %.not36.i, label %217, label %220
+217:                                              ; preds = %211, %80
+  %.1.i = phi ptr [ %216, %211 ], [ %81, %80 ]
+  %.0.i = phi i32 [ %spec.store.select.i, %211 ], [ 2, %80 ]
+  %218 = load i16, ptr %9, align 8
+  %219 = and i16 %218, 8
+  %.not36.i = icmp eq i16 %219, 0
+  br i1 %.not36.i, label %220, label %223
 
-217:                                              ; preds = %214
-  %218 = call ptr @rb_ruby_verbose_ptr() #25
-  switch i32 %.0.i, label %219 [
+220:                                              ; preds = %217
+  %221 = call ptr @rb_ruby_verbose_ptr() #25
+  switch i32 %.0.i, label %222 [
     i32 0, label %.thread93.i
     i32 1, label %.thread94.i
   ]
 
-.thread93.i:                                      ; preds = %217
-  store i64 4, ptr %218, align 8
-  br label %221
+.thread93.i:                                      ; preds = %220
+  store i64 4, ptr %221, align 8
+  br label %224
 
-.thread94.i:                                      ; preds = %217
-  store i64 0, ptr %218, align 8
-  br label %226
+.thread94.i:                                      ; preds = %220
+  store i64 0, ptr %221, align 8
+  br label %229
 
-219:                                              ; preds = %217
-  store i64 20, ptr %218, align 8
-  br label %220
+222:                                              ; preds = %220
+  store i64 20, ptr %221, align 8
+  br label %223
 
-220:                                              ; preds = %219, %214
-  switch i32 %.0.i, label %231 [
-    i32 0, label %221
-    i32 1, label %226
+223:                                              ; preds = %222, %217
+  switch i32 %.0.i, label %234 [
+    i32 0, label %224
+    i32 1, label %229
   ]
 
-221:                                              ; preds = %220, %.thread93.i
-  %222 = load i32, ptr %21, align 4
-  %223 = or i32 %222, 6
-  store i32 %223, ptr %21, align 4
-  %224 = load i32, ptr %22, align 4
-  %225 = and i32 %224, -7
+224:                                              ; preds = %223, %.thread93.i
+  %225 = load i32, ptr %21, align 4
+  %226 = or i32 %225, 6
+  store i32 %226, ptr %21, align 4
+  %227 = load i32, ptr %22, align 4
+  %228 = and i32 %227, -7
   br label %proc_W_option.exit
 
-226:                                              ; preds = %220, %.thread94.i
-  %227 = load i32, ptr %21, align 4
-  %228 = or i32 %227, 2
-  store i32 %228, ptr %21, align 4
-  %229 = load i32, ptr %22, align 4
-  %230 = and i32 %229, -3
+229:                                              ; preds = %223, %.thread94.i
+  %230 = load i32, ptr %21, align 4
+  %231 = or i32 %230, 2
+  store i32 %231, ptr %21, align 4
+  %232 = load i32, ptr %22, align 4
+  %233 = and i32 %232, -3
   br label %proc_W_option.exit
 
-231:                                              ; preds = %220
-  %232 = load i32, ptr %21, align 4
-  %233 = or i32 %232, 6
-  store i32 %233, ptr %21, align 4
-  %234 = load i32, ptr %22, align 4
-  %235 = or i32 %234, 6
+234:                                              ; preds = %223
+  %235 = load i32, ptr %21, align 4
+  %236 = or i32 %235, 6
+  store i32 %236, ptr %21, align 4
+  %237 = load i32, ptr %22, align 4
+  %238 = or i32 %237, 6
   br label %proc_W_option.exit
 
 proc_W_option.exit.thread:                        ; preds = %.loopexit.i, %name_match_p.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.loopexit255
 
-proc_W_option.exit:                               ; preds = %221, %226, %231
-  %.sink = phi i32 [ %225, %221 ], [ %230, %226 ], [ %235, %231 ]
+proc_W_option.exit:                               ; preds = %224, %229, %234
+  %.sink = phi i32 [ %228, %224 ], [ %233, %229 ], [ %238, %234 ]
   store i32 %.sink, ptr %22, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.not190 = icmp eq ptr %.1.i, null
   br i1 %.not190, label %.loopexit255, label %thread-pre-split
 
-236:                                              ; preds = %.preheader
-  br i1 %.not163, label %237, label %.loopexit256
+239:                                              ; preds = %.preheader
+  br i1 %.not163, label %240, label %.loopexit256
 
-237:                                              ; preds = %236
-  %238 = load i32, ptr %20, align 8
-  %239 = or i32 %238, 128
-  store i32 %239, ptr %20, align 8
-  %240 = getelementptr i8, ptr %.0135, i64 1
+240:                                              ; preds = %239
+  %241 = load i32, ptr %20, align 8
+  %242 = or i32 %241, 128
+  store i32 %242, ptr %20, align 8
+  %243 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-241:                                              ; preds = %.preheader
-  br i1 %.not163, label %242, label %.loopexit256
+244:                                              ; preds = %.preheader
+  br i1 %.not163, label %245, label %.loopexit256
 
-242:                                              ; preds = %241
+245:                                              ; preds = %244
   %.val = load i16, ptr %9, align 8
-  %243 = and i16 %.val, 1024
-  %.not.i203 = icmp eq i16 %243, 0
-  br i1 %.not.i203, label %246, label %244
+  %246 = and i16 %.val, 1024
+  %.not.i203 = icmp eq i16 %246, 0
+  br i1 %.not.i203, label %249, label %247
 
-244:                                              ; preds = %242
-  %245 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %245, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29) #26
+247:                                              ; preds = %245
+  %248 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %248, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29) #26
   unreachable
 
-246:                                              ; preds = %242
-  %247 = and i16 %.val, 2048
-  %.not4.i = icmp eq i16 %247, 0
-  br i1 %.not4.i, label %forbid_setid.exit, label %248
+249:                                              ; preds = %245
+  %250 = and i16 %.val, 2048
+  %.not4.i = icmp eq i16 %250, 0
+  br i1 %.not4.i, label %forbid_setid.exit, label %251
 
-248:                                              ; preds = %246
-  %249 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %249, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.29) #26
+251:                                              ; preds = %249
+  %252 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %252, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.29) #26
   unreachable
 
-forbid_setid.exit:                                ; preds = %246
+forbid_setid.exit:                                ; preds = %249
   %.mask = and i16 %.val, 3
   %.not188 = icmp eq i16 %.mask, 0
-  br i1 %.not188, label %250, label %252
+  br i1 %.not188, label %253, label %255
 
-250:                                              ; preds = %forbid_setid.exit
-  %251 = or disjoint i16 %.val, 1
-  store i16 %251, ptr %9, align 8
-  br label %252
+253:                                              ; preds = %forbid_setid.exit
+  %254 = or disjoint i16 %.val, 1
+  store i16 %254, ptr %9, align 8
+  br label %255
 
-252:                                              ; preds = %250, %forbid_setid.exit
-  %253 = getelementptr i8, ptr %.0135, i64 1
+255:                                              ; preds = %253, %forbid_setid.exit
+  %256 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-254:                                              ; preds = %.preheader
-  br i1 %.not163, label %255, label %.loopexit256
+257:                                              ; preds = %.preheader
+  br i1 %.not163, label %258, label %.loopexit256
 
-255:                                              ; preds = %254
-  %256 = load i32, ptr %20, align 8
-  %257 = or i32 %256, 16
-  store i32 %257, ptr %20, align 8
+258:                                              ; preds = %257
+  %259 = load i32, ptr %20, align 8
+  %260 = or i32 %259, 16
+  store i32 %260, ptr %20, align 8
   br label %.loopexit258
 
-258:                                              ; preds = %.preheader
-  br i1 %.not163, label %259, label %.loopexit256
+261:                                              ; preds = %.preheader
+  br i1 %.not163, label %262, label %.loopexit256
 
-259:                                              ; preds = %258
-  %260 = load i16, ptr %9, align 8
-  %261 = or i16 %260, 128
-  store i16 %261, ptr %9, align 8
-  %262 = load i64, ptr @rb_rs, align 8
-  store i64 %262, ptr @rb_output_rs, align 8
-  %263 = getelementptr i8, ptr %.0135, i64 1
+262:                                              ; preds = %261
+  %263 = load i16, ptr %9, align 8
+  %264 = or i16 %263, 128
+  store i16 %264, ptr %9, align 8
+  %265 = load i64, ptr @rb_rs, align 8
+  store i64 %265, ptr @rb_output_rs, align 8
+  %266 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-264:                                              ; preds = %.preheader
-  br i1 %.not163, label %265, label %.loopexit256
+267:                                              ; preds = %.preheader
+  br i1 %.not163, label %268, label %.loopexit256
 
-265:                                              ; preds = %264
+268:                                              ; preds = %267
   %.val198 = load i16, ptr %9, align 8
-  %266 = and i16 %.val198, 1024
-  %.not.i204 = icmp eq i16 %266, 0
-  br i1 %.not.i204, label %269, label %267
+  %269 = and i16 %.val198, 1024
+  %.not.i204 = icmp eq i16 %269, 0
+  br i1 %.not.i204, label %272, label %270
 
-267:                                              ; preds = %265
-  %268 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %268, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.30) #26
+270:                                              ; preds = %268
+  %271 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %271, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.30) #26
   unreachable
 
-269:                                              ; preds = %265
-  %270 = and i16 %.val198, 2048
-  %.not4.i205 = icmp eq i16 %270, 0
-  br i1 %.not4.i205, label %forbid_setid.exit206, label %271
+272:                                              ; preds = %268
+  %273 = and i16 %.val198, 2048
+  %.not4.i205 = icmp eq i16 %273, 0
+  br i1 %.not4.i205, label %forbid_setid.exit206, label %274
 
-271:                                              ; preds = %269
-  %272 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %272, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.30) #26
+274:                                              ; preds = %272
+  %275 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %275, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.30) #26
   unreachable
 
-forbid_setid.exit206:                             ; preds = %269
-  %273 = or i16 %.val198, 512
-  store i16 %273, ptr %9, align 8
-  %274 = getelementptr i8, ptr %.0135, i64 1
+forbid_setid.exit206:                             ; preds = %272
+  %276 = or i16 %.val198, 512
+  store i16 %276, ptr %9, align 8
+  %277 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-275:                                              ; preds = %.preheader
-  br i1 %.not163, label %276, label %.loopexit256
+278:                                              ; preds = %.preheader
+  br i1 %.not163, label %279, label %.loopexit256
 
-276:                                              ; preds = %275
+279:                                              ; preds = %278
   %.val.i = load i16, ptr %9, align 8
-  %277 = and i16 %.val.i, 1024
-  %.not.i.i = icmp eq i16 %277, 0
-  br i1 %.not.i.i, label %280, label %278
+  %280 = and i16 %.val.i, 1024
+  %.not.i.i = icmp eq i16 %280, 0
+  br i1 %.not.i.i, label %283, label %281
 
-278:                                              ; preds = %276
-  %279 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %279, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.49) #26
+281:                                              ; preds = %279
+  %282 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %282, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.49) #26
   unreachable
 
-280:                                              ; preds = %276
-  %281 = and i16 %.val.i, 2048
-  %.not4.i.i = icmp eq i16 %281, 0
-  br i1 %.not4.i.i, label %forbid_setid.exit.i, label %282
+283:                                              ; preds = %279
+  %284 = and i16 %.val.i, 2048
+  %.not4.i.i = icmp eq i16 %284, 0
+  br i1 %.not4.i.i, label %forbid_setid.exit.i, label %285
 
-282:                                              ; preds = %280
-  %283 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %283, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #26
+285:                                              ; preds = %283
+  %286 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %286, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49) #26
   unreachable
 
-forbid_setid.exit.i:                              ; preds = %280
-  %284 = getelementptr i8, ptr %.0135, i64 1
-  %285 = load i8, ptr %284, align 1
-  %.not.i207 = icmp eq i8 %285, 0
-  br i1 %.not.i207, label %286, label %292
+forbid_setid.exit.i:                              ; preds = %283
+  %287 = getelementptr i8, ptr %.0135, i64 1
+  %288 = load i8, ptr %287, align 1
+  %.not.i207 = icmp eq i8 %288, 0
+  br i1 %.not.i207, label %289, label %295
 
-286:                                              ; preds = %forbid_setid.exit.i
+289:                                              ; preds = %forbid_setid.exit.i
   %.not13.i = icmp eq i64 %.0136478, 1
-  br i1 %.not13.i, label %287, label %289
+  br i1 %.not13.i, label %290, label %292
 
-287:                                              ; preds = %286
-  %288 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %288, ptr noundef nonnull @.str.50) #26
+290:                                              ; preds = %289
+  %291 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %291, ptr noundef nonnull @.str.50) #26
   unreachable
 
-289:                                              ; preds = %286
-  %290 = getelementptr i8, ptr %.pn474, i64 16
-  %291 = load ptr, ptr %290, align 8
-  br label %292
+292:                                              ; preds = %289
+  %293 = getelementptr i8, ptr %.pn474, i64 16
+  %294 = load ptr, ptr %293, align 8
+  br label %295
 
-292:                                              ; preds = %289, %forbid_setid.exit.i
-  %.012.i = phi ptr [ %284, %forbid_setid.exit.i ], [ %291, %289 ]
-  %.0.i208 = phi i64 [ 1, %forbid_setid.exit.i ], [ 2, %289 ]
-  %293 = load i64, ptr %28, align 8
-  %.not14.i = icmp eq i64 %293, 0
-  br i1 %.not14.i, label %294, label %proc_e_option.exit
+295:                                              ; preds = %292, %forbid_setid.exit.i
+  %.012.i = phi ptr [ %287, %forbid_setid.exit.i ], [ %294, %292 ]
+  %.0.i208 = phi i64 [ 1, %forbid_setid.exit.i ], [ 2, %292 ]
+  %296 = load i64, ptr %29, align 8
+  %.not14.i = icmp eq i64 %296, 0
+  br i1 %.not14.i, label %297, label %proc_e_option.exit
 
-294:                                              ; preds = %292
-  %295 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #25
-  store i64 %295, ptr %28, align 8
-  %296 = load ptr, ptr %2, align 8
-  %297 = icmp eq ptr %296, null
-  br i1 %297, label %298, label %proc_e_option.exit
+297:                                              ; preds = %295
+  %298 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #25
+  store i64 %298, ptr %29, align 8
+  %299 = load ptr, ptr %2, align 8
+  %300 = icmp eq ptr %299, null
+  br i1 %300, label %301, label %proc_e_option.exit
 
-298:                                              ; preds = %294
+301:                                              ; preds = %297
   store ptr @.str.49, ptr %2, align 8
   br label %proc_e_option.exit
 
-proc_e_option.exit:                               ; preds = %292, %294, %298
-  %299 = phi i64 [ %295, %294 ], [ %295, %298 ], [ %293, %292 ]
-  %300 = call i64 @rb_str_cat_cstr(i64 noundef %299, ptr noundef %.012.i) #25
-  %301 = load i64, ptr %28, align 8
-  %302 = call i64 @rb_str_cat(i64 noundef %301, ptr noundef nonnull @.str.14, i64 noundef 1) #25
-  %303 = sub i64 %.0136.in476, %.0.i208
-  %304 = getelementptr ptr, ptr %.pn474, i64 %.0.i208
+proc_e_option.exit:                               ; preds = %295, %297, %301
+  %302 = phi i64 [ %298, %297 ], [ %298, %301 ], [ %296, %295 ]
+  %303 = call i64 @rb_str_cat_cstr(i64 noundef %302, ptr noundef %.012.i) #25
+  %304 = load i64, ptr %29, align 8
+  %305 = call i64 @rb_str_cat(i64 noundef %304, ptr noundef nonnull @.str.14, i64 noundef 1) #25
+  %306 = sub i64 %.0136.in476, %.0.i208
+  %307 = getelementptr ptr, ptr %.pn474, i64 %.0.i208
   br label %.loopexit255
 
-305:                                              ; preds = %.preheader
+308:                                              ; preds = %.preheader
   %.val199 = load i16, ptr %9, align 8
-  %306 = and i16 %.val199, 1024
-  %.not.i209 = icmp eq i16 %306, 0
-  br i1 %.not.i209, label %309, label %307
+  %309 = and i16 %.val199, 1024
+  %.not.i209 = icmp eq i16 %309, 0
+  br i1 %.not.i209, label %312, label %310
 
-307:                                              ; preds = %305
-  %308 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %308, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.31) #26
+310:                                              ; preds = %308
+  %311 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %311, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.31) #26
   unreachable
 
-309:                                              ; preds = %305
-  %310 = and i16 %.val199, 2048
-  %.not4.i210 = icmp eq i16 %310, 0
-  br i1 %.not4.i210, label %forbid_setid.exit211, label %311
+312:                                              ; preds = %308
+  %313 = and i16 %.val199, 2048
+  %.not4.i210 = icmp eq i16 %313, 0
+  br i1 %.not4.i210, label %forbid_setid.exit211, label %314
 
-311:                                              ; preds = %309
-  %312 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %312, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.31) #26
+314:                                              ; preds = %312
+  %315 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %315, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.31) #26
   unreachable
 
-forbid_setid.exit211:                             ; preds = %309
-  %313 = getelementptr i8, ptr %.0135, i64 1
-  %314 = load i8, ptr %313, align 1
-  %.not181 = icmp eq i8 %314, 0
-  br i1 %.not181, label %322, label %315
+forbid_setid.exit211:                             ; preds = %312
+  %316 = getelementptr i8, ptr %.0135, i64 1
+  %317 = load i8, ptr %316, align 1
+  %.not181 = icmp eq i8 %317, 0
+  br i1 %.not181, label %325, label %318
 
-315:                                              ; preds = %forbid_setid.exit211
-  %316 = load i64, ptr %27, align 8
-  %.not.i212 = icmp eq i64 %316, 0
-  br i1 %.not.i212, label %317, label %add_modules.exit
+318:                                              ; preds = %forbid_setid.exit211
+  %319 = load i64, ptr %28, align 8
+  %.not.i212 = icmp eq i64 %319, 0
+  br i1 %.not.i212, label %320, label %add_modules.exit
 
-317:                                              ; preds = %315
-  %318 = call i64 @rb_ary_hidden_new(i64 noundef 0) #25
-  store i64 %318, ptr %27, align 8
+320:                                              ; preds = %318
+  %321 = call i64 @rb_ary_hidden_new(i64 noundef 0) #25
+  store i64 %321, ptr %28, align 8
   br label %add_modules.exit
 
-add_modules.exit:                                 ; preds = %315, %317
-  %.0.i213 = phi i64 [ %316, %315 ], [ %318, %317 ]
-  %319 = call i64 @rb_str_tmp_new(i64 noundef 0) #25
-  %320 = call i64 @rb_str_cat_cstr(i64 noundef %319, ptr noundef nonnull %313) #25
-  %321 = call i64 @rb_ary_push(i64 noundef %.0.i213, i64 noundef %320) #25
+add_modules.exit:                                 ; preds = %318, %320
+  %.0.i213 = phi i64 [ %319, %318 ], [ %321, %320 ]
+  %322 = call i64 @rb_str_tmp_new(i64 noundef 0) #25
+  %323 = call i64 @rb_str_cat_cstr(i64 noundef %322, ptr noundef nonnull %316) #25
+  %324 = call i64 @rb_ary_push(i64 noundef %.0.i213, i64 noundef %323) #25
   br label %.loopexit255
 
-322:                                              ; preds = %forbid_setid.exit211
+325:                                              ; preds = %forbid_setid.exit211
   %.not182 = icmp eq i64 %.0136478, 1
-  br i1 %.not182, label %.loopexit258, label %323
+  br i1 %.not182, label %.loopexit258, label %326
 
-323:                                              ; preds = %322
-  %324 = getelementptr i8, ptr %.pn474, i64 16
-  %325 = load ptr, ptr %324, align 8
-  %326 = load i64, ptr %27, align 8
-  %.not.i214 = icmp eq i64 %326, 0
-  br i1 %.not.i214, label %327, label %add_modules.exit216
+326:                                              ; preds = %325
+  %327 = getelementptr i8, ptr %.pn474, i64 16
+  %328 = load ptr, ptr %327, align 8
+  %329 = load i64, ptr %28, align 8
+  %.not.i214 = icmp eq i64 %329, 0
+  br i1 %.not.i214, label %330, label %add_modules.exit216
 
-327:                                              ; preds = %323
-  %328 = call i64 @rb_ary_hidden_new(i64 noundef 0) #25
-  store i64 %328, ptr %27, align 8
+330:                                              ; preds = %326
+  %331 = call i64 @rb_ary_hidden_new(i64 noundef 0) #25
+  store i64 %331, ptr %28, align 8
   br label %add_modules.exit216
 
-add_modules.exit216:                              ; preds = %323, %327
-  %.0.i215 = phi i64 [ %326, %323 ], [ %328, %327 ]
-  %329 = call i64 @rb_str_tmp_new(i64 noundef 0) #25
-  %330 = call i64 @rb_str_cat_cstr(i64 noundef %329, ptr noundef %325) #25
-  %331 = call i64 @rb_ary_push(i64 noundef %.0.i215, i64 noundef %330) #25
-  %332 = add i64 %.0136.in476, -2
+add_modules.exit216:                              ; preds = %326, %330
+  %.0.i215 = phi i64 [ %329, %326 ], [ %331, %330 ]
+  %332 = call i64 @rb_str_tmp_new(i64 noundef 0) #25
+  %333 = call i64 @rb_str_cat_cstr(i64 noundef %332, ptr noundef %328) #25
+  %334 = call i64 @rb_ary_push(i64 noundef %.0.i215, i64 noundef %333) #25
+  %335 = add i64 %.0136.in476, -2
   br label %.loopexit255
 
-333:                                              ; preds = %.preheader
-  br i1 %.not163, label %334, label %.loopexit256
+336:                                              ; preds = %.preheader
+  br i1 %.not163, label %337, label %.loopexit256
 
-334:                                              ; preds = %333
+337:                                              ; preds = %336
   %.val200 = load i16, ptr %9, align 8
-  %335 = and i16 %.val200, 1024
-  %.not.i217 = icmp eq i16 %335, 0
-  br i1 %.not.i217, label %338, label %336
+  %338 = and i16 %.val200, 1024
+  %.not.i217 = icmp eq i16 %338, 0
+  br i1 %.not.i217, label %341, label %339
 
-336:                                              ; preds = %334
-  %337 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %337, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.32) #26
+339:                                              ; preds = %337
+  %340 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %340, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.32) #26
   unreachable
 
-338:                                              ; preds = %334
-  %339 = and i16 %.val200, 2048
-  %.not4.i218 = icmp eq i16 %339, 0
-  br i1 %.not4.i218, label %forbid_setid.exit219, label %340
+341:                                              ; preds = %337
+  %342 = and i16 %.val200, 2048
+  %.not4.i218 = icmp eq i16 %342, 0
+  br i1 %.not4.i218, label %forbid_setid.exit219, label %343
 
-340:                                              ; preds = %338
-  %341 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %341, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.32) #26
+343:                                              ; preds = %341
+  %344 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %344, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.32) #26
   unreachable
 
-forbid_setid.exit219:                             ; preds = %338
-  %342 = getelementptr i8, ptr %.0135, i64 1
-  call void @ruby_set_inplace_mode(ptr noundef %342) #25
+forbid_setid.exit219:                             ; preds = %341
+  %345 = getelementptr i8, ptr %.0135, i64 1
+  call void @ruby_set_inplace_mode(ptr noundef %345) #25
   br label %.loopexit255
 
-343:                                              ; preds = %.preheader
-  br i1 %.not163, label %344, label %.loopexit256
+346:                                              ; preds = %.preheader
+  br i1 %.not163, label %347, label %.loopexit256
 
-344:                                              ; preds = %343
+347:                                              ; preds = %346
   %.val201 = load i16, ptr %9, align 8
-  %345 = and i16 %.val201, 1024
-  %.not.i220 = icmp eq i16 %345, 0
-  br i1 %.not.i220, label %348, label %346
+  %348 = and i16 %.val201, 1024
+  %.not.i220 = icmp eq i16 %348, 0
+  br i1 %.not.i220, label %351, label %349
 
-346:                                              ; preds = %344
-  %347 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %347, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.33) #26
+349:                                              ; preds = %347
+  %350 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %350, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.33) #26
   unreachable
 
-348:                                              ; preds = %344
-  %349 = and i16 %.val201, 2048
-  %.not4.i221 = icmp eq i16 %349, 0
-  br i1 %.not4.i221, label %forbid_setid.exit222, label %350
+351:                                              ; preds = %347
+  %352 = and i16 %.val201, 2048
+  %.not4.i221 = icmp eq i16 %352, 0
+  br i1 %.not4.i221, label %forbid_setid.exit222, label %353
 
-350:                                              ; preds = %348
-  %351 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %351, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.33) #26
+353:                                              ; preds = %351
+  %354 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %354, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.33) #26
   unreachable
 
-forbid_setid.exit222:                             ; preds = %348
-  %352 = or i16 %.val201, 4
-  store i16 %352, ptr %9, align 8
-  %353 = getelementptr i8, ptr %.0135, i64 1
-  %354 = load i8, ptr %353, align 1
-  %.not179 = icmp eq i8 %354, 0
-  br i1 %.not179, label %.loopexit255, label %355
+forbid_setid.exit222:                             ; preds = %351
+  %355 = or i16 %.val201, 4
+  store i16 %355, ptr %9, align 8
+  %356 = getelementptr i8, ptr %.0135, i64 1
+  %357 = load i8, ptr %356, align 1
+  %.not179 = icmp eq i8 %357, 0
+  br i1 %.not179, label %.loopexit255, label %358
 
-355:                                              ; preds = %forbid_setid.exit222
-  %356 = call i32 @chdir(ptr noundef nonnull %353) #25
-  %357 = icmp slt i32 %356, 0
-  br i1 %357, label %358, label %.loopexit255
+358:                                              ; preds = %forbid_setid.exit222
+  %359 = call i32 @chdir(ptr noundef nonnull %356) #25
+  %360 = icmp slt i32 %359, 0
+  br i1 %360, label %361, label %.loopexit255
 
-358:                                              ; preds = %355
-  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.34, ptr noundef nonnull %353) #26
+361:                                              ; preds = %358
+  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.34, ptr noundef nonnull %356) #26
   unreachable
 
-359:                                              ; preds = %.preheader, %.preheader
-  br i1 %.not163, label %360, label %.loopexit256
+362:                                              ; preds = %.preheader, %.preheader
+  br i1 %.not163, label %363, label %.loopexit256
 
-360:                                              ; preds = %359
-  %361 = getelementptr i8, ptr %.0135, i64 1
-  %362 = load i8, ptr %361, align 1
-  %.not174 = icmp eq i8 %362, 0
-  br i1 %.not174, label %363, label %371
+363:                                              ; preds = %362
+  %364 = getelementptr i8, ptr %.0135, i64 1
+  %365 = load i8, ptr %364, align 1
+  %.not174 = icmp eq i8 %365, 0
+  br i1 %.not174, label %366, label %374
 
-363:                                              ; preds = %360
-  %364 = add i64 %.0136.in476, -2
-  %.not175 = icmp eq i64 %364, 0
-  br i1 %.not175, label %370, label %365
+366:                                              ; preds = %363
+  %367 = add i64 %.0136.in476, -2
+  %.not175 = icmp eq i64 %367, 0
+  br i1 %.not175, label %373, label %368
 
-365:                                              ; preds = %363
-  %366 = getelementptr i8, ptr %.pn474, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %.not176 = icmp eq ptr %367, null
-  br i1 %.not176, label %370, label %368
+368:                                              ; preds = %366
+  %369 = getelementptr i8, ptr %.pn474, i64 16
+  %370 = load ptr, ptr %369, align 8
+  %.not176 = icmp eq ptr %370, null
+  br i1 %.not176, label %373, label %371
 
-368:                                              ; preds = %365
-  %369 = load i8, ptr %367, align 1
-  %.not177 = icmp eq i8 %369, 0
-  br i1 %.not177, label %370, label %371
+371:                                              ; preds = %368
+  %372 = load i8, ptr %370, align 1
+  %.not177 = icmp eq i8 %372, 0
+  br i1 %.not177, label %373, label %374
 
-370:                                              ; preds = %368, %365, %363
+373:                                              ; preds = %371, %368, %366
   call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.35) #26
   unreachable
 
-371:                                              ; preds = %368, %360
-  %.1140 = phi ptr [ %.0139477, %360 ], [ %366, %368 ]
-  %.2138 = phi i64 [ %.0136478, %360 ], [ %364, %368 ]
-  %.1 = phi ptr [ %361, %360 ], [ %367, %368 ]
-  %372 = call i32 @chdir(ptr noundef nonnull %.1) #25
-  %373 = icmp slt i32 %372, 0
-  br i1 %373, label %374, label %.loopexit255
+374:                                              ; preds = %371, %363
+  %.1140 = phi ptr [ %.0139477, %363 ], [ %369, %371 ]
+  %.2138 = phi i64 [ %.0136478, %363 ], [ %367, %371 ]
+  %.1 = phi ptr [ %364, %363 ], [ %370, %371 ]
+  %375 = call i32 @chdir(ptr noundef nonnull %.1) #25
+  %376 = icmp slt i32 %375, 0
+  br i1 %376, label %377, label %.loopexit255
 
-374:                                              ; preds = %371
+377:                                              ; preds = %374
   call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.34, ptr noundef nonnull %.1) #26
   unreachable
 
-375:                                              ; preds = %.preheader
-  br i1 %.not163, label %376, label %.loopexit256
+378:                                              ; preds = %.preheader
+  br i1 %.not163, label %379, label %.loopexit256
 
-376:                                              ; preds = %375
-  %377 = getelementptr i8, ptr %.0135, i64 1
-  %378 = load i8, ptr %377, align 1
-  %.not172 = icmp eq i8 %378, 0
-  br i1 %.not172, label %.loopexit255, label %379
+379:                                              ; preds = %378
+  %380 = getelementptr i8, ptr %.0135, i64 1
+  %381 = load i8, ptr %380, align 1
+  %.not172 = icmp eq i8 %381, 0
+  br i1 %.not172, label %.loopexit255, label %382
 
-379:                                              ; preds = %376
-  %380 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %377) #24
-  %381 = call i64 @rb_reg_new(ptr noundef nonnull %377, i64 noundef %380, i32 noundef 0) #25
-  store i64 %381, ptr @rb_fs, align 8
+382:                                              ; preds = %379
+  %383 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #24
+  %384 = call i64 @rb_reg_new(ptr noundef nonnull %380, i64 noundef %383, i32 noundef 0) #25
+  store i64 %384, ptr @rb_fs, align 8
   br label %.loopexit255
 
-382:                                              ; preds = %.preheader
-  %383 = getelementptr i8, ptr %.0135, i64 1
-  %384 = load i8, ptr %383, align 1
-  %.not168 = icmp eq i8 %384, 0
-  br i1 %.not168, label %385, label %392
+385:                                              ; preds = %.preheader
+  %386 = getelementptr i8, ptr %.0135, i64 1
+  %387 = load i8, ptr %386, align 1
+  %.not168 = icmp eq i8 %387, 0
+  br i1 %.not168, label %388, label %395
 
-385:                                              ; preds = %382
-  %386 = add i64 %.0136.in476, -2
-  %.not169 = icmp eq i64 %386, 0
-  br i1 %.not169, label %390, label %387
+388:                                              ; preds = %385
+  %389 = add i64 %.0136.in476, -2
+  %.not169 = icmp eq i64 %389, 0
+  br i1 %.not169, label %393, label %390
 
-387:                                              ; preds = %385
-  %388 = getelementptr i8, ptr %.pn474, i64 16
-  %389 = load ptr, ptr %388, align 8
-  %.not170 = icmp eq ptr %389, null
-  br i1 %.not170, label %390, label %392
+390:                                              ; preds = %388
+  %391 = getelementptr i8, ptr %.pn474, i64 16
+  %392 = load ptr, ptr %391, align 8
+  %.not170 = icmp eq ptr %392, null
+  br i1 %.not170, label %393, label %395
 
-390:                                              ; preds = %387, %385
-  %391 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %391, ptr noundef nonnull @.str.36) #26
+393:                                              ; preds = %390, %388
+  %394 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %394, ptr noundef nonnull @.str.36) #26
   unreachable
 
-392:                                              ; preds = %387, %382
-  %.2141 = phi ptr [ %.0139477, %382 ], [ %388, %387 ]
-  %.3 = phi i64 [ %.0136478, %382 ], [ %386, %387 ]
-  %.2 = phi ptr [ %383, %382 ], [ %389, %387 ]
+395:                                              ; preds = %390, %385
+  %.2141 = phi ptr [ %.0139477, %385 ], [ %391, %390 ]
+  %.3 = phi i64 [ %.0136478, %385 ], [ %389, %390 ]
+  %.2 = phi ptr [ %386, %385 ], [ %392, %390 ]
   call fastcc void @proc_encoding_option(ptr noundef %2, ptr noundef nonnull %.2, ptr noundef nonnull @.str.37)
   br label %.loopexit255
 
-393:                                              ; preds = %.preheader
-  %394 = call i64 @rb_str_new(ptr noundef nonnull @.str.39, i64 noundef 5) #25
-  %395 = load i64, ptr %19, align 8
-  %.not12.i = icmp eq i64 %395, 0
-  br i1 %.not12.i, label %set_option_encoding_once.exit, label %396
+396:                                              ; preds = %.preheader
+  %397 = call i64 @rb_str_new(ptr noundef nonnull @.str.39, i64 noundef 5) #25
+  %398 = load i64, ptr %19, align 8
+  %.not12.i = icmp eq i64 %398, 0
+  br i1 %.not12.i, label %set_option_encoding_once.exit, label %399
 
-396:                                              ; preds = %393
+399:                                              ; preds = %396
   %.pr.i.i = load i64, ptr @set_option_encoding_once.rbimpl_id, align 8
   %.not4.i.i224 = icmp eq i64 %.pr.i.i, 0
   br i1 %.not4.i.i224, label %.lr.ph.i.i227, label %rbimpl_intern_const.exit.i
 
-.lr.ph.i.i227:                                    ; preds = %396, %.lr.ph.i.i227
-  %397 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
-  store i64 %397, ptr @set_option_encoding_once.rbimpl_id, align 8
-  %.not.i.i228 = icmp eq i64 %397, 0
+.lr.ph.i.i227:                                    ; preds = %399, %.lr.ph.i.i227
+  %400 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
+  store i64 %400, ptr @set_option_encoding_once.rbimpl_id, align 8
+  %.not.i.i228 = icmp eq i64 %400, 0
   br i1 %.not.i.i228, label %.lr.ph.i.i227, label %rbimpl_intern_const.exit.loopexit.i, !llvm.loop !42
 
 rbimpl_intern_const.exit.loopexit.i:              ; preds = %.lr.ph.i.i227
   %.pre.i = load i64, ptr %19, align 8
   br label %rbimpl_intern_const.exit.i
 
-rbimpl_intern_const.exit.i:                       ; preds = %rbimpl_intern_const.exit.loopexit.i, %396
-  %398 = phi i64 [ %395, %396 ], [ %.pre.i, %rbimpl_intern_const.exit.loopexit.i ]
-  %.lcssa.i.i225 = phi i64 [ %.pr.i.i, %396 ], [ %397, %rbimpl_intern_const.exit.loopexit.i ]
-  %399 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %394, i64 noundef %.lcssa.i.i225, i32 noundef 1, i64 noundef %398) #25
-  %.not13.i226 = icmp eq i64 %399, 1
-  br i1 %.not13.i226, label %set_option_encoding_once.exit, label %400
+rbimpl_intern_const.exit.i:                       ; preds = %rbimpl_intern_const.exit.loopexit.i, %399
+  %401 = phi i64 [ %398, %399 ], [ %.pre.i, %rbimpl_intern_const.exit.loopexit.i ]
+  %.lcssa.i.i225 = phi i64 [ %.pr.i.i, %399 ], [ %400, %rbimpl_intern_const.exit.loopexit.i ]
+  %402 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %397, i64 noundef %.lcssa.i.i225, i32 noundef 1, i64 noundef %401) #25
+  %.not13.i226 = icmp eq i64 %402, 1
+  br i1 %.not13.i226, label %set_option_encoding_once.exit, label %403
 
-400:                                              ; preds = %rbimpl_intern_const.exit.i
-  %401 = load i64, ptr @rb_eRuntimeError, align 8
-  %402 = load i64, ptr %19, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %401, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.38, i64 noundef %402) #26
+403:                                              ; preds = %rbimpl_intern_const.exit.i
+  %404 = load i64, ptr @rb_eRuntimeError, align 8
+  %405 = load i64, ptr %19, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %404, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.38, i64 noundef %405) #26
   unreachable
 
-set_option_encoding_once.exit:                    ; preds = %393, %rbimpl_intern_const.exit.i
-  store i64 %394, ptr %19, align 8
-  %403 = getelementptr i8, ptr %.0135, i64 1
+set_option_encoding_once.exit:                    ; preds = %396, %rbimpl_intern_const.exit.i
+  store i64 %397, ptr %19, align 8
+  %406 = getelementptr i8, ptr %.0135, i64 1
   br label %thread-pre-split
 
-404:                                              ; preds = %.preheader
-  %405 = getelementptr i8, ptr %.0135, i64 1
-  %406 = load i8, ptr %405, align 1
-  switch i8 %406, label %414 [
+407:                                              ; preds = %.preheader
+  %408 = getelementptr i8, ptr %.0135, i64 1
+  %409 = load i8, ptr %408, align 1
+  switch i8 %409, label %417 [
     i8 0, label %proc_K_option.exit
-    i8 69, label %410
-    i8 101, label %410
-    i8 83, label %407
-    i8 115, label %407
-    i8 85, label %408
-    i8 117, label %408
-    i8 78, label %409
-    i8 110, label %409
-    i8 65, label %409
-    i8 97, label %409
+    i8 69, label %413
+    i8 101, label %413
+    i8 83, label %410
+    i8 115, label %410
+    i8 85, label %411
+    i8 117, label %411
+    i8 78, label %412
+    i8 110, label %412
+    i8 65, label %412
+    i8 97, label %412
   ]
 
-407:                                              ; preds = %404, %404
-  br label %410
+410:                                              ; preds = %407, %407
+  br label %413
 
-408:                                              ; preds = %404, %404
-  br label %410
+411:                                              ; preds = %407, %407
+  br label %413
 
-409:                                              ; preds = %404, %404, %404, %404
-  br label %410
+412:                                              ; preds = %407, %407, %407, %407
+  br label %413
 
-410:                                              ; preds = %409, %408, %407, %404, %404
-  %.0.ph.i = phi ptr [ @.str.56, %407 ], [ @.str.39, %408 ], [ @.str.57, %409 ], [ @.str.55, %404 ], [ @.str.55, %404 ]
-  %411 = call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.ph.i) #25
-  store i64 %411, ptr %17, align 8
-  %412 = load i64, ptr %18, align 8
-  %.not13.i229 = icmp eq i64 %412, 0
-  br i1 %.not13.i229, label %413, label %414
+413:                                              ; preds = %412, %411, %410, %407, %407
+  %.0.ph.i = phi ptr [ @.str.56, %410 ], [ @.str.39, %411 ], [ @.str.57, %412 ], [ @.str.55, %407 ], [ @.str.55, %407 ]
+  %414 = call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.ph.i) #25
+  store i64 %414, ptr %17, align 8
+  %415 = load i64, ptr %18, align 8
+  %.not13.i229 = icmp eq i64 %415, 0
+  br i1 %.not13.i229, label %416, label %417
 
-413:                                              ; preds = %410
-  store i64 %411, ptr %18, align 8
-  br label %414
+416:                                              ; preds = %413
+  store i64 %414, ptr %18, align 8
+  br label %417
 
-414:                                              ; preds = %413, %410, %404
-  %415 = getelementptr i8, ptr %.0135, i64 2
+417:                                              ; preds = %416, %413, %407
+  %418 = getelementptr i8, ptr %.0135, i64 2
   br label %proc_K_option.exit
 
-proc_K_option.exit:                               ; preds = %404, %414
-  %.010.i = phi ptr [ %415, %414 ], [ %405, %404 ]
+proc_K_option.exit:                               ; preds = %407, %417
+  %.010.i = phi ptr [ %418, %417 ], [ %408, %407 ]
   %.not167 = icmp eq ptr %.010.i, null
   br i1 %.not167, label %.loopexit255, label %thread-pre-split
 
-416:                                              ; preds = %.preheader
+419:                                              ; preds = %.preheader
   %.val202 = load i16, ptr %9, align 8
-  %417 = and i16 %.val202, 1024
-  %.not.i230 = icmp eq i16 %417, 0
-  br i1 %.not.i230, label %420, label %418
+  %420 = and i16 %.val202, 1024
+  %.not.i230 = icmp eq i16 %420, 0
+  br i1 %.not.i230, label %423, label %421
 
-418:                                              ; preds = %416
-  %419 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %419, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.40) #26
+421:                                              ; preds = %419
+  %422 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %422, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.40) #26
   unreachable
 
-420:                                              ; preds = %416
-  %421 = and i16 %.val202, 2048
-  %.not4.i231 = icmp eq i16 %421, 0
-  br i1 %.not4.i231, label %forbid_setid.exit232, label %422
+423:                                              ; preds = %419
+  %424 = and i16 %.val202, 2048
+  %.not4.i231 = icmp eq i16 %424, 0
+  br i1 %.not4.i231, label %forbid_setid.exit232, label %425
 
-422:                                              ; preds = %420
-  %423 = load i64, ptr @rb_eSecurityError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %423, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.40) #26
+425:                                              ; preds = %423
+  %426 = load i64, ptr @rb_eSecurityError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %426, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.40) #26
   unreachable
 
-forbid_setid.exit232:                             ; preds = %420
-  %424 = getelementptr i8, ptr %.0135, i64 1
-  %425 = load i8, ptr %424, align 1
-  %.not165 = icmp eq i8 %425, 0
-  br i1 %.not165, label %427, label %426
+forbid_setid.exit232:                             ; preds = %423
+  %427 = getelementptr i8, ptr %.0135, i64 1
+  %428 = load i8, ptr %427, align 1
+  %.not165 = icmp eq i8 %428, 0
+  br i1 %.not165, label %430, label %429
 
-426:                                              ; preds = %forbid_setid.exit232
-  call void @ruby_incpush_expand(ptr noundef nonnull %424)
+429:                                              ; preds = %forbid_setid.exit232
+  call void @ruby_incpush_expand(ptr noundef nonnull %427)
   br label %.loopexit255
 
-427:                                              ; preds = %forbid_setid.exit232
+430:                                              ; preds = %forbid_setid.exit232
   %.not166 = icmp eq i64 %.0136478, 1
-  br i1 %.not166, label %.loopexit258, label %428
+  br i1 %.not166, label %.loopexit258, label %431
 
-428:                                              ; preds = %427
-  %429 = getelementptr i8, ptr %.pn474, i64 16
-  %430 = load ptr, ptr %429, align 8
-  call void @ruby_incpush_expand(ptr noundef %430)
-  %431 = add i64 %.0136.in476, -2
+431:                                              ; preds = %430
+  %432 = getelementptr i8, ptr %.pn474, i64 16
+  %433 = load ptr, ptr %432, align 8
+  call void @ruby_incpush_expand(ptr noundef %433)
+  %434 = add i64 %.0136.in476, -2
   br label %.loopexit255
 
-432:                                              ; preds = %.preheader
-  br i1 %.not163, label %433, label %.loopexit256
+435:                                              ; preds = %.preheader
+  br i1 %.not163, label %436, label %.loopexit256
 
-433:                                              ; preds = %432
+436:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %434 = call i64 @ruby_scan_oct(ptr noundef nonnull %.0135, i64 noundef 4, ptr noundef nonnull %6) #30
-  %435 = trunc i64 %434 to i32
-  %436 = load i64, ptr %6, align 8
-  %437 = icmp sgt i32 %435, 255
-  br i1 %437, label %proc_0_option.exit, label %438
+  %437 = call i64 @ruby_scan_oct(ptr noundef nonnull %.0135, i64 noundef 4, ptr noundef nonnull %6) #30
+  %438 = trunc i64 %437 to i32
+  %439 = load i64, ptr %6, align 8
+  %440 = icmp sgt i32 %438, 255
+  br i1 %440, label %proc_0_option.exit, label %441
 
-438:                                              ; preds = %433
-  %439 = icmp eq i32 %435, 0
-  %440 = icmp ugt i64 %436, 1
-  %or.cond.i233 = select i1 %439, i1 %440, i1 false
-  br i1 %or.cond.i233, label %441, label %443
+441:                                              ; preds = %436
+  %442 = icmp eq i32 %438, 0
+  %443 = icmp ugt i64 %439, 1
+  %or.cond.i233 = select i1 %442, i1 %443, i1 false
+  br i1 %or.cond.i233, label %444, label %446
 
-441:                                              ; preds = %438
-  %442 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.20, i64 noundef 0) #25
+444:                                              ; preds = %441
+  %445 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.20, i64 noundef 0) #25
   br label %proc_0_option.exit
 
-443:                                              ; preds = %438
-  %444 = trunc i64 %434 to i8
-  store i8 %444, ptr %7, align 1
-  %445 = call i64 @rb_str_new(ptr noundef nonnull %7, i64 noundef 1) #25
+446:                                              ; preds = %441
+  %447 = trunc i64 %437 to i8
+  store i8 %447, ptr %7, align 1
+  %448 = call i64 @rb_str_new(ptr noundef nonnull %7, i64 noundef 1) #25
   br label %proc_0_option.exit
 
-proc_0_option.exit:                               ; preds = %433, %441, %443
-  %.sink.i = phi i64 [ %442, %441 ], [ %445, %443 ], [ 4, %433 ]
+proc_0_option.exit:                               ; preds = %436, %444, %446
+  %.sink.i = phi i64 [ %445, %444 ], [ %448, %446 ], [ 4, %436 ]
   store i64 %.sink.i, ptr @rb_rs, align 8
-  %446 = getelementptr i8, ptr %.0135, i64 %436
+  %449 = getelementptr i8, ptr %.0135, i64 %439
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %.not164 = icmp eq ptr %446, null
+  %.not164 = icmp eq ptr %449, null
   br i1 %.not164, label %.loopexit255, label %thread-pre-split
 
-447:                                              ; preds = %.preheader
-  %448 = getelementptr i8, ptr %.0135, i64 1
-  %449 = load i8, ptr %448, align 1
-  switch i8 %449, label %455 [
-    i8 0, label %453
-    i8 13, label %450
+450:                                              ; preds = %.preheader
+  %451 = getelementptr i8, ptr %.0135, i64 1
+  %452 = load i8, ptr %451, align 1
+  switch i8 %452, label %458 [
+    i8 0, label %456
+    i8 13, label %453
   ]
 
-450:                                              ; preds = %447
-  %451 = getelementptr i8, ptr %.0135, i64 2
-  %452 = load i8, ptr %451, align 1
-  %.not161 = icmp eq i8 %452, 0
-  br i1 %.not161, label %453, label %455
+453:                                              ; preds = %450
+  %454 = getelementptr i8, ptr %.0135, i64 2
+  %455 = load i8, ptr %454, align 1
+  %.not161 = icmp eq i8 %455, 0
+  br i1 %.not161, label %456, label %458
 
-453:                                              ; preds = %447, %450
-  %454 = add i64 %.0136.in476, -2
+456:                                              ; preds = %450, %453
+  %457 = add i64 %.0136.in476, -2
   br label %.loopexit258
 
-455:                                              ; preds = %447, %450
+458:                                              ; preds = %450, %453
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.58, ptr noundef nonnull dereferenceable(1) %448) #24
-  %457 = icmp eq i32 %456, 0
-  br i1 %457, label %458, label %462
+  %459 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.58, ptr noundef nonnull dereferenceable(1) %451) #24
+  %460 = icmp eq i32 %459, 0
+  br i1 %460, label %461, label %465
 
-458:                                              ; preds = %455
-  br i1 %.not163, label %459, label %.loopexit260
+461:                                              ; preds = %458
+  br i1 %.not163, label %462, label %.loopexit260
 
-459:                                              ; preds = %458
-  %460 = load i32, ptr %20, align 8
-  %461 = or i32 %460, 8
-  store i32 %461, ptr %20, align 8
+462:                                              ; preds = %461
+  %463 = load i32, ptr %20, align 8
+  %464 = or i32 %463, 8
+  store i32 %464, ptr %20, align 8
   br label %proc_long_options.exit
 
-462:                                              ; preds = %455
-  %463 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.59, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 5) #24
-  %464 = icmp eq i32 %463, 0
-  br i1 %464, label %465, label %479
-
-465:                                              ; preds = %462
-  %466 = getelementptr i8, ptr %.0135, i64 6
-  %467 = load i8, ptr %466, align 1
-  switch i8 %467, label %479 [
-    i8 45, label %468
-    i8 0, label %471
-    i8 61, label %471
-  ]
+465:                                              ; preds = %458
+  %466 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.59, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 5) #24
+  %467 = icmp eq i32 %466, 0
+  br i1 %467, label %468, label %482
 
 468:                                              ; preds = %465
-  %469 = getelementptr i8, ptr %.0135, i64 7
+  %469 = getelementptr i8, ptr %.0135, i64 6
   %470 = load i8, ptr %469, align 1
-  %.not330.i = icmp eq i8 %470, 0
-  br i1 %.not330.i, label %479, label %471
+  switch i8 %470, label %482 [
+    i8 45, label %471
+    i8 0, label %474
+    i8 61, label %474
+  ]
 
-471:                                              ; preds = %468, %465, %465
-  %.not398.i = icmp eq i8 %467, 0
+471:                                              ; preds = %468
   %472 = getelementptr i8, ptr %.0135, i64 7
-  %spec.select.i238 = select i1 %.not398.i, ptr %466, ptr %472
+  %473 = load i8, ptr %472, align 1
+  %.not330.i = icmp eq i8 %473, 0
+  br i1 %.not330.i, label %482, label %474
+
+474:                                              ; preds = %471, %468, %468
+  %.not398.i = icmp eq i8 %470, 0
+  %475 = getelementptr i8, ptr %.0135, i64 7
+  %spec.select.i238 = select i1 %.not398.i, ptr %469, ptr %475
   %.not399.i = icmp eq ptr %spec.select.i238, null
-  br i1 %.not399.i, label %476, label %473
+  br i1 %.not399.i, label %479, label %476
 
-473:                                              ; preds = %471
-  %474 = load i8, ptr %spec.select.i238, align 1
-  %.not400.i = icmp eq i8 %474, 0
-  br i1 %.not400.i, label %476, label %475
+476:                                              ; preds = %474
+  %477 = load i8, ptr %spec.select.i238, align 1
+  %.not400.i = icmp eq i8 %477, 0
+  br i1 %.not400.i, label %479, label %478
 
-475:                                              ; preds = %473
+478:                                              ; preds = %476
   call void @ruby_each_words(ptr noundef nonnull %spec.select.i238, ptr noundef nonnull @debug_option, ptr noundef nonnull %23) #25
   br label %proc_long_options.exit
 
-476:                                              ; preds = %473, %471
-  %477 = call ptr @rb_ruby_debug_ptr() #25
-  store i64 20, ptr %477, align 8
-  %478 = call ptr @rb_ruby_verbose_ptr() #25
-  store i64 20, ptr %478, align 8
+479:                                              ; preds = %476, %474
+  %480 = call ptr @rb_ruby_debug_ptr() #25
+  store i64 20, ptr %480, align 8
+  %481 = call ptr @rb_ruby_verbose_ptr() #25
+  store i64 20, ptr %481, align 8
   br label %proc_long_options.exit
 
-479:                                              ; preds = %468, %465, %462
-  %480 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.61, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 6) #24
-  %481 = icmp eq i32 %480, 0
-  br i1 %481, label %482, label %498
+482:                                              ; preds = %471, %468, %465
+  %483 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.61, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 6) #24
+  %484 = icmp eq i32 %483, 0
+  br i1 %484, label %485, label %501
 
-482:                                              ; preds = %479
-  %483 = getelementptr i8, ptr %.0135, i64 7
-  %484 = load i8, ptr %483, align 1
-  switch i8 %484, label %498 [
-    i8 45, label %485
-    i8 0, label %489
+485:                                              ; preds = %482
+  %486 = getelementptr i8, ptr %.0135, i64 7
+  %487 = load i8, ptr %486, align 1
+  switch i8 %487, label %501 [
+    i8 45, label %488
+    i8 0, label %492
     i8 61, label %.thread.i
   ]
 
-485:                                              ; preds = %482
-  %486 = getelementptr i8, ptr %.0135, i64 8
-  %487 = load i8, ptr %486, align 1
-  %.not333.i = icmp eq i8 %487, 0
-  br i1 %.not333.i, label %498, label %.thread.thread.i
+488:                                              ; preds = %485
+  %489 = getelementptr i8, ptr %.0135, i64 8
+  %490 = load i8, ptr %489, align 1
+  %.not333.i = icmp eq i8 %490, 0
+  br i1 %.not333.i, label %501, label %.thread.thread.i
 
-.thread.i:                                        ; preds = %482
+.thread.i:                                        ; preds = %485
   %.phi.trans.insert.i = getelementptr i8, ptr %.0135, i64 8
   %.pre.i236 = load i8, ptr %.phi.trans.insert.i, align 1
-  %488 = icmp eq i8 %.pre.i236, 0
-  br i1 %488, label %496, label %.thread.thread.i
+  %491 = icmp eq i8 %.pre.i236, 0
+  br i1 %491, label %499, label %.thread.thread.i
 
-489:                                              ; preds = %482
-  %490 = icmp eq i64 %.0136478, 1
-  br i1 %490, label %496, label %491
+492:                                              ; preds = %485
+  %493 = icmp eq i64 %.0136478, 1
+  br i1 %493, label %499, label %494
 
-491:                                              ; preds = %489
-  %492 = getelementptr i8, ptr %.pn474, i64 16
-  %493 = load ptr, ptr %492, align 8
-  %.not396.i = icmp eq ptr %493, null
-  br i1 %.not396.i, label %496, label %494
+494:                                              ; preds = %492
+  %495 = getelementptr i8, ptr %.pn474, i64 16
+  %496 = load ptr, ptr %495, align 8
+  %.not396.i = icmp eq ptr %496, null
+  br i1 %.not396.i, label %499, label %497
 
-494:                                              ; preds = %491
-  %495 = add i64 %.0136.in476, -2
+497:                                              ; preds = %494
+  %498 = add i64 %.0136.in476, -2
   br label %.thread.thread.i
 
-496:                                              ; preds = %491, %489, %.thread.i
-  %497 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %497, ptr noundef nonnull @.str.62) #26
+499:                                              ; preds = %494, %492, %.thread.i
+  %500 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %500, ptr noundef nonnull @.str.62) #26
   unreachable
 
-.thread.thread.i:                                 ; preds = %485, %494, %.thread.i
-  %.1283.i = phi i64 [ %.0136478, %.thread.i ], [ %495, %494 ], [ %.0136478, %485 ]
-  %.1.i237 = phi ptr [ %.phi.trans.insert.i, %.thread.i ], [ %493, %494 ], [ %486, %485 ]
+.thread.thread.i:                                 ; preds = %488, %497, %.thread.i
+  %.1283.i = phi i64 [ %.0136478, %.thread.i ], [ %498, %497 ], [ %.0136478, %488 ]
+  %.1.i237 = phi ptr [ %.phi.trans.insert.i, %.thread.i ], [ %496, %497 ], [ %489, %488 ]
   call void @ruby_each_words(ptr noundef nonnull %.1.i237, ptr noundef nonnull @enable_option, ptr noundef nonnull %23) #25
   br label %proc_long_options.exit
 
-498:                                              ; preds = %485, %482, %479
-  %499 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.63, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 7) #24
-  %500 = icmp eq i32 %499, 0
-  br i1 %500, label %501, label %517
+501:                                              ; preds = %488, %485, %482
+  %502 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.63, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 7) #24
+  %503 = icmp eq i32 %502, 0
+  br i1 %503, label %504, label %520
 
-501:                                              ; preds = %498
-  %502 = getelementptr i8, ptr %.0135, i64 8
-  %503 = load i8, ptr %502, align 1
-  switch i8 %503, label %517 [
-    i8 45, label %504
-    i8 0, label %508
+504:                                              ; preds = %501
+  %505 = getelementptr i8, ptr %.0135, i64 8
+  %506 = load i8, ptr %505, align 1
+  switch i8 %506, label %520 [
+    i8 45, label %507
+    i8 0, label %511
     i8 61, label %.thread416.i
   ]
 
-504:                                              ; preds = %501
-  %505 = getelementptr i8, ptr %.0135, i64 9
-  %506 = load i8, ptr %505, align 1
-  %.not336.i = icmp eq i8 %506, 0
-  br i1 %.not336.i, label %517, label %.thread416.thread.i
+507:                                              ; preds = %504
+  %508 = getelementptr i8, ptr %.0135, i64 9
+  %509 = load i8, ptr %508, align 1
+  %.not336.i = icmp eq i8 %509, 0
+  br i1 %.not336.i, label %520, label %.thread416.thread.i
 
-.thread416.i:                                     ; preds = %501
+.thread416.i:                                     ; preds = %504
   %.phi.trans.insert436.i = getelementptr i8, ptr %.0135, i64 9
   %.pre437.i = load i8, ptr %.phi.trans.insert436.i, align 1
-  %507 = icmp eq i8 %.pre437.i, 0
-  br i1 %507, label %515, label %.thread416.thread.i
+  %510 = icmp eq i8 %.pre437.i, 0
+  br i1 %510, label %518, label %.thread416.thread.i
 
-508:                                              ; preds = %501
-  %509 = icmp eq i64 %.0136478, 1
-  br i1 %509, label %515, label %510
+511:                                              ; preds = %504
+  %512 = icmp eq i64 %.0136478, 1
+  br i1 %512, label %518, label %513
 
-510:                                              ; preds = %508
-  %511 = getelementptr i8, ptr %.pn474, i64 16
-  %512 = load ptr, ptr %511, align 8
-  %.not393.i = icmp eq ptr %512, null
-  br i1 %.not393.i, label %515, label %513
+513:                                              ; preds = %511
+  %514 = getelementptr i8, ptr %.pn474, i64 16
+  %515 = load ptr, ptr %514, align 8
+  %.not393.i = icmp eq ptr %515, null
+  br i1 %.not393.i, label %518, label %516
 
-513:                                              ; preds = %510
-  %514 = add i64 %.0136.in476, -2
+516:                                              ; preds = %513
+  %517 = add i64 %.0136.in476, -2
   br label %.thread416.thread.i
 
-515:                                              ; preds = %510, %508, %.thread416.i
-  %516 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %516, ptr noundef nonnull @.str.64) #26
+518:                                              ; preds = %513, %511, %.thread416.i
+  %519 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %519, ptr noundef nonnull @.str.64) #26
   unreachable
 
-.thread416.thread.i:                              ; preds = %504, %513, %.thread416.i
-  %.2284.i = phi i64 [ %.0136478, %.thread416.i ], [ %514, %513 ], [ %.0136478, %504 ]
-  %.2.i = phi ptr [ %.phi.trans.insert436.i, %.thread416.i ], [ %512, %513 ], [ %505, %504 ]
+.thread416.thread.i:                              ; preds = %507, %516, %.thread416.i
+  %.2284.i = phi i64 [ %.0136478, %.thread416.i ], [ %517, %516 ], [ %.0136478, %507 ]
+  %.2.i = phi ptr [ %.phi.trans.insert436.i, %.thread416.i ], [ %515, %516 ], [ %508, %507 ]
   call void @ruby_each_words(ptr noundef nonnull %.2.i, ptr noundef nonnull @disable_option, ptr noundef nonnull %23) #25
   br label %proc_long_options.exit
 
-517:                                              ; preds = %504, %501, %498
-  %518 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.65, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 8) #24
-  %519 = icmp eq i32 %518, 0
-  br i1 %519, label %520, label %535
+520:                                              ; preds = %507, %504, %501
+  %521 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.65, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 8) #24
+  %522 = icmp eq i32 %521, 0
+  br i1 %522, label %523, label %538
 
-520:                                              ; preds = %517
-  %521 = getelementptr i8, ptr %.0135, i64 9
-  %522 = load i8, ptr %521, align 1
-  switch i8 %522, label %535 [
-    i8 0, label %525
+523:                                              ; preds = %520
+  %524 = getelementptr i8, ptr %.0135, i64 9
+  %525 = load i8, ptr %524, align 1
+  switch i8 %525, label %538 [
+    i8 0, label %528
     i8 61, label %.thread418.i
   ]
 
-.thread418.i:                                     ; preds = %520
-  %523 = getelementptr i8, ptr %.0135, i64 10
-  %524 = load i8, ptr %523, align 1
-  %.not391.i = icmp eq i8 %524, 0
-  br i1 %.not391.i, label %532, label %534
+.thread418.i:                                     ; preds = %523
+  %526 = getelementptr i8, ptr %.0135, i64 10
+  %527 = load i8, ptr %526, align 1
+  %.not391.i = icmp eq i8 %527, 0
+  br i1 %.not391.i, label %535, label %537
 
-525:                                              ; preds = %520
-  %526 = icmp eq i64 %.0136478, 1
-  br i1 %526, label %532, label %527
+528:                                              ; preds = %523
+  %529 = icmp eq i64 %.0136478, 1
+  br i1 %529, label %535, label %530
 
-527:                                              ; preds = %525
-  %528 = getelementptr i8, ptr %.pn474, i64 16
-  %529 = load ptr, ptr %528, align 8
-  %.not390.i = icmp eq ptr %529, null
-  br i1 %.not390.i, label %532, label %530
+530:                                              ; preds = %528
+  %531 = getelementptr i8, ptr %.pn474, i64 16
+  %532 = load ptr, ptr %531, align 8
+  %.not390.i = icmp eq ptr %532, null
+  br i1 %.not390.i, label %535, label %533
 
-530:                                              ; preds = %527
-  %531 = add i64 %.0136.in476, -2
-  br label %534
+533:                                              ; preds = %530
+  %534 = add i64 %.0136.in476, -2
+  br label %537
 
-532:                                              ; preds = %527, %525, %.thread418.i
-  %533 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %533, ptr noundef nonnull @.str.66) #26
+535:                                              ; preds = %530, %528, %.thread418.i
+  %536 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %536, ptr noundef nonnull @.str.66) #26
   unreachable
 
-534:                                              ; preds = %530, %.thread418.i
-  %.3285.i = phi i64 [ %.0136478, %.thread418.i ], [ %531, %530 ]
-  %.3.i = phi ptr [ %523, %.thread418.i ], [ %529, %530 ]
+537:                                              ; preds = %533, %.thread418.i
+  %.3285.i = phi i64 [ %.0136478, %.thread418.i ], [ %534, %533 ]
+  %.3.i = phi ptr [ %526, %.thread418.i ], [ %532, %533 ]
   call fastcc void @proc_encoding_option(ptr noundef %2, ptr noundef nonnull %.3.i, ptr noundef nonnull @.str.67)
   br label %proc_long_options.exit
 
-535:                                              ; preds = %520, %517
-  %536 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.68, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 17) #24
-  %537 = icmp eq i32 %536, 0
-  br i1 %537, label %538, label %563
+538:                                              ; preds = %523, %520
+  %539 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.68, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 17) #24
+  %540 = icmp eq i32 %539, 0
+  br i1 %540, label %541, label %566
 
-538:                                              ; preds = %535
-  %539 = getelementptr i8, ptr %.0135, i64 18
-  %540 = load i8, ptr %539, align 1
-  switch i8 %540, label %563 [
-    i8 0, label %543
+541:                                              ; preds = %538
+  %542 = getelementptr i8, ptr %.0135, i64 18
+  %543 = load i8, ptr %542, align 1
+  switch i8 %543, label %566 [
+    i8 0, label %546
     i8 61, label %.thread420.i
   ]
 
-.thread420.i:                                     ; preds = %538
-  %541 = getelementptr i8, ptr %.0135, i64 19
-  %542 = load i8, ptr %541, align 1
-  %.not388.i = icmp eq i8 %542, 0
-  br i1 %.not388.i, label %550, label %552
+.thread420.i:                                     ; preds = %541
+  %544 = getelementptr i8, ptr %.0135, i64 19
+  %545 = load i8, ptr %544, align 1
+  %.not388.i = icmp eq i8 %545, 0
+  br i1 %.not388.i, label %553, label %555
 
-543:                                              ; preds = %538
-  %544 = icmp eq i64 %.0136478, 1
-  br i1 %544, label %550, label %545
+546:                                              ; preds = %541
+  %547 = icmp eq i64 %.0136478, 1
+  br i1 %547, label %553, label %548
 
-545:                                              ; preds = %543
-  %546 = getelementptr i8, ptr %.pn474, i64 16
-  %547 = load ptr, ptr %546, align 8
-  %.not387.i = icmp eq ptr %547, null
-  br i1 %.not387.i, label %550, label %548
+548:                                              ; preds = %546
+  %549 = getelementptr i8, ptr %.pn474, i64 16
+  %550 = load ptr, ptr %549, align 8
+  %.not387.i = icmp eq ptr %550, null
+  br i1 %.not387.i, label %553, label %551
 
-548:                                              ; preds = %545
-  %549 = add i64 %.0136.in476, -2
-  br label %552
+551:                                              ; preds = %548
+  %552 = add i64 %.0136.in476, -2
+  br label %555
 
-550:                                              ; preds = %545, %543, %.thread420.i
-  %551 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %551, ptr noundef nonnull @.str.69) #26
+553:                                              ; preds = %548, %546, %.thread420.i
+  %554 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %554, ptr noundef nonnull @.str.69) #26
   unreachable
 
-552:                                              ; preds = %548, %.thread420.i
-  %.4286.i = phi i64 [ %.0136478, %.thread420.i ], [ %549, %548 ]
-  %.4.i = phi ptr [ %541, %.thread420.i ], [ %547, %548 ]
-  %553 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4.i) #24
-  %554 = call i64 @rb_str_new(ptr noundef nonnull %.4.i, i64 noundef %553) #25
-  %555 = load i64, ptr %19, align 8
-  %.not12.i.i = icmp eq i64 %555, 0
-  br i1 %.not12.i.i, label %set_option_encoding_once.exit.i, label %556
+555:                                              ; preds = %551, %.thread420.i
+  %.4286.i = phi i64 [ %.0136478, %.thread420.i ], [ %552, %551 ]
+  %.4.i = phi ptr [ %544, %.thread420.i ], [ %550, %551 ]
+  %556 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4.i) #24
+  %557 = call i64 @rb_str_new(ptr noundef nonnull %.4.i, i64 noundef %556) #25
+  %558 = load i64, ptr %19, align 8
+  %.not12.i.i = icmp eq i64 %558, 0
+  br i1 %.not12.i.i, label %set_option_encoding_once.exit.i, label %559
 
-556:                                              ; preds = %552
+559:                                              ; preds = %555
   %.pr.i.i.i = load i64, ptr @set_option_encoding_once.rbimpl_id, align 8
   %.not4.i.i.i = icmp eq i64 %.pr.i.i.i, 0
   br i1 %.not4.i.i.i, label %.lr.ph.i.i.i, label %rbimpl_intern_const.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %556, %.lr.ph.i.i.i
-  %557 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
-  store i64 %557, ptr @set_option_encoding_once.rbimpl_id, align 8
-  %.not.i.i.i = icmp eq i64 %557, 0
+.lr.ph.i.i.i:                                     ; preds = %559, %.lr.ph.i.i.i
+  %560 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
+  store i64 %560, ptr @set_option_encoding_once.rbimpl_id, align 8
+  %.not.i.i.i = icmp eq i64 %560, 0
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %rbimpl_intern_const.exit.loopexit.i.i, !llvm.loop !42
 
 rbimpl_intern_const.exit.loopexit.i.i:            ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load i64, ptr %19, align 8
   br label %rbimpl_intern_const.exit.i.i
 
-rbimpl_intern_const.exit.i.i:                     ; preds = %rbimpl_intern_const.exit.loopexit.i.i, %556
-  %558 = phi i64 [ %555, %556 ], [ %.pre.i.i, %rbimpl_intern_const.exit.loopexit.i.i ]
-  %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %556 ], [ %557, %rbimpl_intern_const.exit.loopexit.i.i ]
-  %559 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %554, i64 noundef %.lcssa.i.i.i, i32 noundef 1, i64 noundef %558) #25
-  %.not13.i.i = icmp eq i64 %559, 1
-  br i1 %.not13.i.i, label %set_option_encoding_once.exit.i, label %560
+rbimpl_intern_const.exit.i.i:                     ; preds = %rbimpl_intern_const.exit.loopexit.i.i, %559
+  %561 = phi i64 [ %558, %559 ], [ %.pre.i.i, %rbimpl_intern_const.exit.loopexit.i.i ]
+  %.lcssa.i.i.i = phi i64 [ %.pr.i.i.i, %559 ], [ %560, %rbimpl_intern_const.exit.loopexit.i.i ]
+  %562 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %557, i64 noundef %.lcssa.i.i.i, i32 noundef 1, i64 noundef %561) #25
+  %.not13.i.i = icmp eq i64 %562, 1
+  br i1 %.not13.i.i, label %set_option_encoding_once.exit.i, label %563
 
-560:                                              ; preds = %rbimpl_intern_const.exit.i.i
-  %561 = load i64, ptr @rb_eRuntimeError, align 8
-  %562 = load i64, ptr %19, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %561, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.38, i64 noundef %562) #26
+563:                                              ; preds = %rbimpl_intern_const.exit.i.i
+  %564 = load i64, ptr @rb_eRuntimeError, align 8
+  %565 = load i64, ptr %19, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %564, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.38, i64 noundef %565) #26
   unreachable
 
-set_option_encoding_once.exit.i:                  ; preds = %rbimpl_intern_const.exit.i.i, %552
-  store i64 %554, ptr %19, align 8
+set_option_encoding_once.exit.i:                  ; preds = %rbimpl_intern_const.exit.i.i, %555
+  store i64 %557, ptr %19, align 8
   br label %proc_long_options.exit
 
-563:                                              ; preds = %538, %535
-  %564 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.70, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 17) #24
-  %565 = icmp eq i32 %564, 0
-  br i1 %565, label %566, label %591
+566:                                              ; preds = %541, %538
+  %567 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.70, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 17) #24
+  %568 = icmp eq i32 %567, 0
+  br i1 %568, label %569, label %594
 
-566:                                              ; preds = %563
-  %567 = getelementptr i8, ptr %.0135, i64 18
-  %568 = load i8, ptr %567, align 1
-  switch i8 %568, label %591 [
-    i8 0, label %571
+569:                                              ; preds = %566
+  %570 = getelementptr i8, ptr %.0135, i64 18
+  %571 = load i8, ptr %570, align 1
+  switch i8 %571, label %594 [
+    i8 0, label %574
     i8 61, label %.thread422.i
   ]
 
-.thread422.i:                                     ; preds = %566
-  %569 = getelementptr i8, ptr %.0135, i64 19
-  %570 = load i8, ptr %569, align 1
-  %.not385.i = icmp eq i8 %570, 0
-  br i1 %.not385.i, label %578, label %580
+.thread422.i:                                     ; preds = %569
+  %572 = getelementptr i8, ptr %.0135, i64 19
+  %573 = load i8, ptr %572, align 1
+  %.not385.i = icmp eq i8 %573, 0
+  br i1 %.not385.i, label %581, label %583
 
-571:                                              ; preds = %566
-  %572 = icmp eq i64 %.0136478, 1
-  br i1 %572, label %578, label %573
+574:                                              ; preds = %569
+  %575 = icmp eq i64 %.0136478, 1
+  br i1 %575, label %581, label %576
 
-573:                                              ; preds = %571
-  %574 = getelementptr i8, ptr %.pn474, i64 16
-  %575 = load ptr, ptr %574, align 8
-  %.not384.i = icmp eq ptr %575, null
-  br i1 %.not384.i, label %578, label %576
+576:                                              ; preds = %574
+  %577 = getelementptr i8, ptr %.pn474, i64 16
+  %578 = load ptr, ptr %577, align 8
+  %.not384.i = icmp eq ptr %578, null
+  br i1 %.not384.i, label %581, label %579
 
-576:                                              ; preds = %573
-  %577 = add i64 %.0136.in476, -2
-  br label %580
+579:                                              ; preds = %576
+  %580 = add i64 %.0136.in476, -2
+  br label %583
 
-578:                                              ; preds = %573, %571, %.thread422.i
-  %579 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %579, ptr noundef nonnull @.str.71) #26
+581:                                              ; preds = %576, %574, %.thread422.i
+  %582 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %582, ptr noundef nonnull @.str.71) #26
   unreachable
 
-580:                                              ; preds = %576, %.thread422.i
-  %.5287.i = phi i64 [ %.0136478, %.thread422.i ], [ %577, %576 ]
-  %.5.i = phi ptr [ %569, %.thread422.i ], [ %575, %576 ]
-  %581 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5.i) #24
-  %582 = call i64 @rb_str_new(ptr noundef nonnull %.5.i, i64 noundef %581) #25
-  %583 = load i64, ptr %18, align 8
-  %.not12.i404.i = icmp eq i64 %583, 0
-  br i1 %.not12.i404.i, label %set_option_encoding_once.exit414.i, label %584
+583:                                              ; preds = %579, %.thread422.i
+  %.5287.i = phi i64 [ %.0136478, %.thread422.i ], [ %580, %579 ]
+  %.5.i = phi ptr [ %572, %.thread422.i ], [ %578, %579 ]
+  %584 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5.i) #24
+  %585 = call i64 @rb_str_new(ptr noundef nonnull %.5.i, i64 noundef %584) #25
+  %586 = load i64, ptr %18, align 8
+  %.not12.i404.i = icmp eq i64 %586, 0
+  br i1 %.not12.i404.i, label %set_option_encoding_once.exit414.i, label %587
 
-584:                                              ; preds = %580
+587:                                              ; preds = %583
   %.pr.i.i405.i = load i64, ptr @set_option_encoding_once.rbimpl_id, align 8
   %.not4.i.i406.i = icmp eq i64 %.pr.i.i405.i, 0
   br i1 %.not4.i.i406.i, label %.lr.ph.i.i410.i, label %rbimpl_intern_const.exit.i407.i
 
-.lr.ph.i.i410.i:                                  ; preds = %584, %.lr.ph.i.i410.i
-  %585 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
-  store i64 %585, ptr @set_option_encoding_once.rbimpl_id, align 8
-  %.not.i.i411.i = icmp eq i64 %585, 0
+.lr.ph.i.i410.i:                                  ; preds = %587, %.lr.ph.i.i410.i
+  %588 = call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 7) #25
+  store i64 %588, ptr @set_option_encoding_once.rbimpl_id, align 8
+  %.not.i.i411.i = icmp eq i64 %588, 0
   br i1 %.not.i.i411.i, label %.lr.ph.i.i410.i, label %rbimpl_intern_const.exit.loopexit.i412.i, !llvm.loop !42
 
 rbimpl_intern_const.exit.loopexit.i412.i:         ; preds = %.lr.ph.i.i410.i
   %.pre.i413.i = load i64, ptr %18, align 8
   br label %rbimpl_intern_const.exit.i407.i
 
-rbimpl_intern_const.exit.i407.i:                  ; preds = %rbimpl_intern_const.exit.loopexit.i412.i, %584
-  %586 = phi i64 [ %583, %584 ], [ %.pre.i413.i, %rbimpl_intern_const.exit.loopexit.i412.i ]
-  %.lcssa.i.i408.i = phi i64 [ %.pr.i.i405.i, %584 ], [ %585, %rbimpl_intern_const.exit.loopexit.i412.i ]
-  %587 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %582, i64 noundef %.lcssa.i.i408.i, i32 noundef 1, i64 noundef %586) #25
-  %.not13.i409.i = icmp eq i64 %587, 1
-  br i1 %.not13.i409.i, label %set_option_encoding_once.exit414.i, label %588
+rbimpl_intern_const.exit.i407.i:                  ; preds = %rbimpl_intern_const.exit.loopexit.i412.i, %587
+  %589 = phi i64 [ %586, %587 ], [ %.pre.i413.i, %rbimpl_intern_const.exit.loopexit.i412.i ]
+  %.lcssa.i.i408.i = phi i64 [ %.pr.i.i405.i, %587 ], [ %588, %rbimpl_intern_const.exit.loopexit.i412.i ]
+  %590 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %585, i64 noundef %.lcssa.i.i408.i, i32 noundef 1, i64 noundef %589) #25
+  %.not13.i409.i = icmp eq i64 %590, 1
+  br i1 %.not13.i409.i, label %set_option_encoding_once.exit414.i, label %591
 
-588:                                              ; preds = %rbimpl_intern_const.exit.i407.i
-  %589 = load i64, ptr @rb_eRuntimeError, align 8
-  %590 = load i64, ptr %18, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %589, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.51, i64 noundef %590) #26
+591:                                              ; preds = %rbimpl_intern_const.exit.i407.i
+  %592 = load i64, ptr @rb_eRuntimeError, align 8
+  %593 = load i64, ptr %18, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %592, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.51, i64 noundef %593) #26
   unreachable
 
-set_option_encoding_once.exit414.i:               ; preds = %rbimpl_intern_const.exit.i407.i, %580
-  store i64 %582, ptr %18, align 8
+set_option_encoding_once.exit414.i:               ; preds = %rbimpl_intern_const.exit.i407.i, %583
+  store i64 %585, ptr %18, align 8
   br label %proc_long_options.exit
 
-591:                                              ; preds = %566, %563
-  %592 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.72, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 6) #24
-  %593 = icmp eq i32 %592, 0
-  br i1 %593, label %594, label %618
+594:                                              ; preds = %569, %566
+  %595 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.72, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 6) #24
+  %596 = icmp eq i32 %595, 0
+  br i1 %596, label %597, label %621
 
-594:                                              ; preds = %591
-  %595 = getelementptr i8, ptr %.0135, i64 7
-  %596 = load i8, ptr %595, align 1
-  switch i8 %596, label %618 [
-    i8 0, label %599
+597:                                              ; preds = %594
+  %598 = getelementptr i8, ptr %.0135, i64 7
+  %599 = load i8, ptr %598, align 1
+  switch i8 %599, label %621 [
+    i8 0, label %602
     i8 61, label %.thread424.i
   ]
 
-.thread424.i:                                     ; preds = %594
-  %597 = getelementptr i8, ptr %.0135, i64 8
-  %598 = load i8, ptr %597, align 1
-  %.not382.i = icmp eq i8 %598, 0
-  br i1 %.not382.i, label %606, label %608
+.thread424.i:                                     ; preds = %597
+  %600 = getelementptr i8, ptr %.0135, i64 8
+  %601 = load i8, ptr %600, align 1
+  %.not382.i = icmp eq i8 %601, 0
+  br i1 %.not382.i, label %609, label %611
 
-599:                                              ; preds = %594
-  %600 = icmp eq i64 %.0136478, 1
-  br i1 %600, label %606, label %601
+602:                                              ; preds = %597
+  %603 = icmp eq i64 %.0136478, 1
+  br i1 %603, label %609, label %604
 
-601:                                              ; preds = %599
-  %602 = getelementptr i8, ptr %.pn474, i64 16
-  %603 = load ptr, ptr %602, align 8
-  %.not381.i = icmp eq ptr %603, null
-  br i1 %.not381.i, label %606, label %604
+604:                                              ; preds = %602
+  %605 = getelementptr i8, ptr %.pn474, i64 16
+  %606 = load ptr, ptr %605, align 8
+  %.not381.i = icmp eq ptr %606, null
+  br i1 %.not381.i, label %609, label %607
 
-604:                                              ; preds = %601
-  %605 = add i64 %.0136.in476, -2
-  br label %608
+607:                                              ; preds = %604
+  %608 = add i64 %.0136.in476, -2
+  br label %611
 
-606:                                              ; preds = %601, %599, %.thread424.i
-  %607 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %607, ptr noundef nonnull @.str.73) #26
+609:                                              ; preds = %604, %602, %.thread424.i
+  %610 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %610, ptr noundef nonnull @.str.73) #26
   unreachable
 
-608:                                              ; preds = %604, %.thread424.i
-  %.6288.i = phi i64 [ %.0136478, %.thread424.i ], [ %605, %604 ]
-  %.6.i = phi ptr [ %597, %.thread424.i ], [ %603, %604 ]
-  %609 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.74, ptr noundef nonnull dereferenceable(1) %.6.i) #24
-  %610 = icmp eq i32 %609, 0
-  br i1 %610, label %611, label %613
+611:                                              ; preds = %607, %.thread424.i
+  %.6288.i = phi i64 [ %.0136478, %.thread424.i ], [ %608, %607 ]
+  %.6.i = phi ptr [ %600, %.thread424.i ], [ %606, %607 ]
+  %612 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.74, ptr noundef nonnull dereferenceable(1) %.6.i) #24
+  %613 = icmp eq i32 %612, 0
+  br i1 %613, label %614, label %616
 
-611:                                              ; preds = %608
-  %612 = call ptr @rb_ruby_prism_ptr() #25
-  store i8 1, ptr %612, align 1
+614:                                              ; preds = %611
+  %615 = call ptr @rb_ruby_prism_ptr() #25
+  store i8 1, ptr %615, align 1
   br label %proc_long_options.exit
 
-613:                                              ; preds = %608
-  %614 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.75, ptr noundef nonnull dereferenceable(1) %.6.i) #24
-  %615 = icmp eq i32 %614, 0
-  br i1 %615, label %proc_long_options.exit, label %616
+616:                                              ; preds = %611
+  %617 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.75, ptr noundef nonnull dereferenceable(1) %.6.i) #24
+  %618 = icmp eq i32 %617, 0
+  br i1 %618, label %proc_long_options.exit, label %619
 
-616:                                              ; preds = %613
-  %617 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %617, ptr noundef nonnull @.str.76, ptr noundef nonnull %.6.i) #26
+619:                                              ; preds = %616
+  %620 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %620, ptr noundef nonnull @.str.76, ptr noundef nonnull %.6.i) #26
   unreachable
 
-618:                                              ; preds = %594, %591
-  %619 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.77, ptr noundef nonnull dereferenceable(1) %448) #24
-  %620 = icmp eq i32 %619, 0
-  br i1 %620, label %621, label %625
+621:                                              ; preds = %597, %594
+  %622 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.77, ptr noundef nonnull dereferenceable(1) %451) #24
+  %623 = icmp eq i32 %622, 0
+  br i1 %623, label %624, label %628
 
-621:                                              ; preds = %618
-  br i1 %.not163, label %622, label %.loopexit260
+624:                                              ; preds = %621
+  br i1 %.not163, label %625, label %.loopexit260
 
-622:                                              ; preds = %621
-  %623 = load i32, ptr %20, align 8
-  %624 = or i32 %623, 4
-  store i32 %624, ptr %20, align 8
+625:                                              ; preds = %624
+  %626 = load i32, ptr %20, align 8
+  %627 = or i32 %626, 4
+  store i32 %627, ptr %20, align 8
   br label %proc_long_options.exit
 
-625:                                              ; preds = %618
-  %626 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.78, ptr noundef nonnull dereferenceable(1) %448) #24
-  %627 = icmp eq i32 %626, 0
-  br i1 %627, label %628, label %632
+628:                                              ; preds = %621
+  %629 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.78, ptr noundef nonnull dereferenceable(1) %451) #24
+  %630 = icmp eq i32 %629, 0
+  br i1 %630, label %631, label %635
 
-628:                                              ; preds = %625
-  %629 = load i16, ptr %9, align 8
-  %630 = or i16 %629, 16
-  store i16 %630, ptr %9, align 8
-  %631 = call ptr @rb_ruby_verbose_ptr() #25
-  store i64 20, ptr %631, align 8
+631:                                              ; preds = %628
+  %632 = load i16, ptr %9, align 8
+  %633 = or i16 %632, 16
+  store i16 %633, ptr %9, align 8
+  %634 = call ptr @rb_ruby_verbose_ptr() #25
+  store i64 20, ptr %634, align 8
   br label %proc_long_options.exit
 
-632:                                              ; preds = %625
-  %633 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.79, ptr noundef nonnull dereferenceable(1) %448) #24
-  %634 = icmp eq i32 %633, 0
-  br i1 %634, label %635, label %638
+635:                                              ; preds = %628
+  %636 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.79, ptr noundef nonnull dereferenceable(1) %451) #24
+  %637 = icmp eq i32 %636, 0
+  br i1 %637, label %638, label %643
 
-635:                                              ; preds = %632
-  %636 = load <2 x i32>, ptr %23, align 4
-  %637 = or <2 x i32> %636, <i32 128, i32 128>
-  store <2 x i32> %637, ptr %23, align 4
+638:                                              ; preds = %635
+  %639 = load i32, ptr %23, align 4
+  %640 = or i32 %639, 128
+  store i32 %640, ptr %23, align 4
+  %641 = load i32, ptr %24, align 4
+  %642 = or i32 %641, 128
+  store i32 %642, ptr %24, align 4
   br label %proc_long_options.exit
 
-638:                                              ; preds = %632
-  %639 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.80, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 4) #24
-  %640 = icmp eq i32 %639, 0
-  br i1 %640, label %641, label %651
+643:                                              ; preds = %635
+  %644 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.80, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 4) #24
+  %645 = icmp eq i32 %644, 0
+  br i1 %645, label %646, label %658
 
-641:                                              ; preds = %638
-  %642 = getelementptr i8, ptr %.0135, i64 5
-  %643 = load i8, ptr %642, align 1
-  switch i8 %643, label %651 [
-    i8 45, label %644
-    i8 0, label %647
-    i8 61, label %647
+646:                                              ; preds = %643
+  %647 = getelementptr i8, ptr %.0135, i64 5
+  %648 = load i8, ptr %647, align 1
+  switch i8 %648, label %658 [
+    i8 45, label %649
+    i8 0, label %652
+    i8 61, label %652
   ]
 
-644:                                              ; preds = %641
-  %645 = getelementptr i8, ptr %.0135, i64 6
-  %646 = load i8, ptr %645, align 1
-  %.not351.i = icmp eq i8 %646, 0
-  br i1 %.not351.i, label %651, label %647
+649:                                              ; preds = %646
+  %650 = getelementptr i8, ptr %.0135, i64 6
+  %651 = load i8, ptr %650, align 1
+  %.not351.i = icmp eq i8 %651, 0
+  br i1 %.not351.i, label %658, label %652
 
-647:                                              ; preds = %644, %641, %641
-  %.not378.i = icmp eq i8 %643, 0
-  %648 = getelementptr i8, ptr %.0135, i64 6
-  %spec.select402.i = select i1 %.not378.i, ptr %642, ptr %648
-  %649 = load <2 x i32>, ptr %23, align 4
-  %650 = or <2 x i32> %649, <i32 64, i32 64>
-  store <2 x i32> %650, ptr %23, align 4
-  call void @rb_rjit_setup_options(ptr noundef %spec.select402.i, ptr noundef nonnull %24) #25
+652:                                              ; preds = %649, %646, %646
+  %.not378.i = icmp eq i8 %648, 0
+  %653 = getelementptr i8, ptr %.0135, i64 6
+  %spec.select402.i = select i1 %.not378.i, ptr %647, ptr %653
+  %654 = load i32, ptr %23, align 4
+  %655 = or i32 %654, 64
+  store i32 %655, ptr %23, align 4
+  %656 = load i32, ptr %24, align 4
+  %657 = or i32 %656, 64
+  store i32 %657, ptr %24, align 4
+  call void @rb_rjit_setup_options(ptr noundef %spec.select402.i, ptr noundef nonnull %25) #25
   br label %proc_long_options.exit
 
-651:                                              ; preds = %644, %641, %638
-  %652 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.82, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 4) #24
-  %653 = icmp eq i32 %652, 0
-  br i1 %653, label %654, label %664
+658:                                              ; preds = %649, %646, %643
+  %659 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.82, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 4) #24
+  %660 = icmp eq i32 %659, 0
+  br i1 %660, label %661, label %673
 
-654:                                              ; preds = %651
-  %655 = getelementptr i8, ptr %.0135, i64 5
-  %656 = load i8, ptr %655, align 1
-  switch i8 %656, label %664 [
-    i8 45, label %657
-    i8 0, label %660
-    i8 61, label %660
+661:                                              ; preds = %658
+  %662 = getelementptr i8, ptr %.0135, i64 5
+  %663 = load i8, ptr %662, align 1
+  switch i8 %663, label %673 [
+    i8 45, label %664
+    i8 0, label %667
+    i8 61, label %667
   ]
 
-657:                                              ; preds = %654
-  %658 = getelementptr i8, ptr %.0135, i64 6
-  %659 = load i8, ptr %658, align 1
-  %.not354.i = icmp eq i8 %659, 0
-  br i1 %.not354.i, label %664, label %660
+664:                                              ; preds = %661
+  %665 = getelementptr i8, ptr %.0135, i64 6
+  %666 = load i8, ptr %665, align 1
+  %.not354.i = icmp eq i8 %666, 0
+  br i1 %.not354.i, label %673, label %667
 
-660:                                              ; preds = %657, %654, %654
-  %.not377.i = icmp eq i8 %656, 0
-  %661 = getelementptr i8, ptr %.0135, i64 6
-  %spec.select403.i = select i1 %.not377.i, ptr %655, ptr %661
-  %662 = load <2 x i32>, ptr %23, align 4
-  %663 = or <2 x i32> %662, <i32 128, i32 128>
-  store <2 x i32> %663, ptr %23, align 4
+667:                                              ; preds = %664, %661, %661
+  %.not377.i = icmp eq i8 %663, 0
+  %668 = getelementptr i8, ptr %.0135, i64 6
+  %spec.select403.i = select i1 %.not377.i, ptr %662, ptr %668
+  %669 = load i32, ptr %23, align 4
+  %670 = or i32 %669, 128
+  store i32 %670, ptr %23, align 4
+  %671 = load i32, ptr %24, align 4
+  %672 = or i32 %671, 128
+  store i32 %672, ptr %24, align 4
   call fastcc void @setup_yjit_options(ptr noundef %spec.select403.i)
   br label %proc_long_options.exit
 
-664:                                              ; preds = %657, %654, %651
-  %665 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.84, ptr noundef nonnull dereferenceable(1) %448) #24
-  %666 = icmp eq i32 %665, 0
-  br i1 %666, label %667, label %671
+673:                                              ; preds = %664, %661, %658
+  %674 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.84, ptr noundef nonnull dereferenceable(1) %451) #24
+  %675 = icmp eq i32 %674, 0
+  br i1 %675, label %676, label %680
 
-667:                                              ; preds = %664
-  br i1 %.not163, label %668, label %.loopexit260
+676:                                              ; preds = %673
+  br i1 %.not163, label %677, label %.loopexit260
 
-668:                                              ; preds = %667
-  %669 = load i32, ptr %20, align 8
-  %670 = or i32 %669, 64
-  store i32 %670, ptr %20, align 8
+677:                                              ; preds = %676
+  %678 = load i32, ptr %20, align 8
+  %679 = or i32 %678, 64
+  store i32 %679, ptr %20, align 8
   br label %proc_long_options.exit
 
-671:                                              ; preds = %664
-  %672 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.85, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 4) #24
-  %673 = icmp eq i32 %672, 0
-  br i1 %673, label %674, label %693
-
-674:                                              ; preds = %671
-  %675 = getelementptr i8, ptr %.0135, i64 5
-  %676 = load i8, ptr %675, align 1
-  switch i8 %676, label %693 [
-    i8 0, label %677
-    i8 61, label %677
-  ]
-
-677:                                              ; preds = %674, %674
-  br i1 %.not163, label %680, label %678
-
-678:                                              ; preds = %677
-  %679 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %679, ptr noundef nonnull @.str.86) #26
-  unreachable
-
-680:                                              ; preds = %677
-  %.not373.i = icmp eq i8 %676, 0
-  br i1 %.not373.i, label %683, label %.thread428.i
-
-.thread428.i:                                     ; preds = %680
-  %681 = getelementptr i8, ptr %.0135, i64 6
-  %682 = load i8, ptr %681, align 1
-  %.not375.i = icmp eq i8 %682, 0
-  br i1 %.not375.i, label %690, label %692
+680:                                              ; preds = %673
+  %681 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.85, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 4) #24
+  %682 = icmp eq i32 %681, 0
+  br i1 %682, label %683, label %702
 
 683:                                              ; preds = %680
-  %684 = icmp eq i64 %.0136478, 1
-  br i1 %684, label %690, label %685
+  %684 = getelementptr i8, ptr %.0135, i64 5
+  %685 = load i8, ptr %684, align 1
+  switch i8 %685, label %702 [
+    i8 0, label %686
+    i8 61, label %686
+  ]
 
-685:                                              ; preds = %683
-  %686 = getelementptr i8, ptr %.pn474, i64 16
-  %687 = load ptr, ptr %686, align 8
-  %.not374.i = icmp eq ptr %687, null
-  br i1 %.not374.i, label %690, label %688
+686:                                              ; preds = %683, %683
+  br i1 %.not163, label %689, label %687
 
-688:                                              ; preds = %685
-  %689 = add i64 %.0136.in476, -2
-  br label %692
-
-690:                                              ; preds = %685, %683, %.thread428.i
-  %691 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %691, ptr noundef nonnull @.str.87) #26
+687:                                              ; preds = %686
+  %688 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %688, ptr noundef nonnull @.str.86) #26
   unreachable
 
-692:                                              ; preds = %688, %.thread428.i
-  %.7289.i = phi i64 [ %.0136478, %.thread428.i ], [ %689, %688 ]
-  %.9.i = phi ptr [ %681, %.thread428.i ], [ %687, %688 ]
+689:                                              ; preds = %686
+  %.not373.i = icmp eq i8 %685, 0
+  br i1 %.not373.i, label %692, label %.thread428.i
+
+.thread428.i:                                     ; preds = %689
+  %690 = getelementptr i8, ptr %.0135, i64 6
+  %691 = load i8, ptr %690, align 1
+  %.not375.i = icmp eq i8 %691, 0
+  br i1 %.not375.i, label %699, label %701
+
+692:                                              ; preds = %689
+  %693 = icmp eq i64 %.0136478, 1
+  br i1 %693, label %699, label %694
+
+694:                                              ; preds = %692
+  %695 = getelementptr i8, ptr %.pn474, i64 16
+  %696 = load ptr, ptr %695, align 8
+  %.not374.i = icmp eq ptr %696, null
+  br i1 %.not374.i, label %699, label %697
+
+697:                                              ; preds = %694
+  %698 = add i64 %.0136.in476, -2
+  br label %701
+
+699:                                              ; preds = %694, %692, %.thread428.i
+  %700 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %700, ptr noundef nonnull @.str.87) #26
+  unreachable
+
+701:                                              ; preds = %697, %.thread428.i
+  %.7289.i = phi i64 [ %.0136478, %.thread428.i ], [ %698, %697 ]
+  %.9.i = phi ptr [ %690, %.thread428.i ], [ %696, %697 ]
   call void @ruby_each_words(ptr noundef nonnull %.9.i, ptr noundef nonnull @dump_option, ptr noundef nonnull %20) #25
   br label %proc_long_options.exit
 
-693:                                              ; preds = %674, %671
-  %694 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.88, ptr noundef nonnull dereferenceable(1) %448) #24
-  %695 = icmp eq i32 %694, 0
-  br i1 %695, label %696, label %699
+702:                                              ; preds = %683, %680
+  %703 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.88, ptr noundef nonnull dereferenceable(1) %451) #24
+  %704 = icmp eq i32 %703, 0
+  br i1 %704, label %705, label %708
 
-696:                                              ; preds = %693
+705:                                              ; preds = %702
   br i1 %.not163, label %proc_long_options.exit.thread, label %.loopexit260
 
-proc_long_options.exit.thread:                    ; preds = %696
-  %697 = load i32, ptr %20, align 8
-  %698 = or i32 %697, 32
-  store i32 %698, ptr %20, align 8
+proc_long_options.exit.thread:                    ; preds = %705
+  %706 = load i32, ptr %20, align 8
+  %707 = or i32 %706, 32
+  store i32 %707, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit258
 
-699:                                              ; preds = %693
-  %700 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.89, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 15) #24
-  %701 = icmp eq i32 %700, 0
-  br i1 %701, label %702, label %728
+708:                                              ; preds = %702
+  %709 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.89, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 15) #24
+  %710 = icmp eq i32 %709, 0
+  br i1 %710, label %711, label %737
 
-702:                                              ; preds = %699
-  %703 = getelementptr i8, ptr %.0135, i64 16
-  %704 = load i8, ptr %703, align 1
-  switch i8 %704, label %728 [
-    i8 0, label %707
+711:                                              ; preds = %708
+  %712 = getelementptr i8, ptr %.0135, i64 16
+  %713 = load i8, ptr %712, align 1
+  switch i8 %713, label %737 [
+    i8 0, label %716
     i8 61, label %.thread430.i
   ]
 
-.thread430.i:                                     ; preds = %702
-  %705 = getelementptr i8, ptr %.0135, i64 17
-  %706 = load i8, ptr %705, align 1
-  %.not369.i = icmp eq i8 %706, 0
-  br i1 %.not369.i, label %714, label %716
+.thread430.i:                                     ; preds = %711
+  %714 = getelementptr i8, ptr %.0135, i64 17
+  %715 = load i8, ptr %714, align 1
+  %.not369.i = icmp eq i8 %715, 0
+  br i1 %.not369.i, label %723, label %725
 
-707:                                              ; preds = %702
-  %708 = icmp eq i64 %.0136478, 1
-  br i1 %708, label %714, label %709
+716:                                              ; preds = %711
+  %717 = icmp eq i64 %.0136478, 1
+  br i1 %717, label %723, label %718
 
-709:                                              ; preds = %707
-  %710 = getelementptr i8, ptr %.pn474, i64 16
-  %711 = load ptr, ptr %710, align 8
-  %.not368.i = icmp eq ptr %711, null
-  br i1 %.not368.i, label %714, label %712
+718:                                              ; preds = %716
+  %719 = getelementptr i8, ptr %.pn474, i64 16
+  %720 = load ptr, ptr %719, align 8
+  %.not368.i = icmp eq ptr %720, null
+  br i1 %.not368.i, label %723, label %721
 
-712:                                              ; preds = %709
-  %713 = add i64 %.0136.in476, -2
-  br label %716
+721:                                              ; preds = %718
+  %722 = add i64 %.0136.in476, -2
+  br label %725
 
-714:                                              ; preds = %709, %707, %.thread430.i
-  %715 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %715, ptr noundef nonnull @.str.90) #26
+723:                                              ; preds = %718, %716, %.thread430.i
+  %724 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %724, ptr noundef nonnull @.str.90) #26
   unreachable
 
-716:                                              ; preds = %712, %.thread430.i
-  %.8290.i = phi i64 [ %.0136478, %.thread430.i ], [ %713, %712 ]
-  %.10.i = phi ptr [ %705, %.thread430.i ], [ %711, %712 ]
-  %717 = call i64 @strtol(ptr noundef nonnull %.10.i, ptr noundef nonnull %5, i32 noundef 10) #25
-  %718 = call ptr @rb_errno_ptr() #25
-  %719 = load i32, ptr %718, align 4
-  %720 = icmp ne i32 %719, 34
-  %721 = icmp sgt i64 %717, -2
-  %or.cond.i235 = select i1 %720, i1 %721, i1 false
-  br i1 %or.cond.i235, label %722, label %725
+725:                                              ; preds = %721, %.thread430.i
+  %.8290.i = phi i64 [ %.0136478, %.thread430.i ], [ %722, %721 ]
+  %.10.i = phi ptr [ %714, %.thread430.i ], [ %720, %721 ]
+  %726 = call i64 @strtol(ptr noundef nonnull %.10.i, ptr noundef nonnull %5, i32 noundef 10) #25
+  %727 = call ptr @rb_errno_ptr() #25
+  %728 = load i32, ptr %727, align 4
+  %729 = icmp ne i32 %728, 34
+  %730 = icmp sgt i64 %726, -2
+  %or.cond.i235 = select i1 %729, i1 %730, i1 false
+  br i1 %or.cond.i235, label %731, label %734
 
-722:                                              ; preds = %716
-  %723 = load ptr, ptr %5, align 8
-  %724 = load i8, ptr %723, align 1
-  %.not370.i = icmp eq i8 %724, 0
-  br i1 %.not370.i, label %727, label %725
+731:                                              ; preds = %725
+  %732 = load ptr, ptr %5, align 8
+  %733 = load i8, ptr %732, align 1
+  %.not370.i = icmp eq i8 %733, 0
+  br i1 %.not370.i, label %736, label %734
 
-725:                                              ; preds = %722, %716
-  %726 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %726, ptr noundef nonnull @.str.91) #26
+734:                                              ; preds = %731, %725
+  %735 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %735, ptr noundef nonnull @.str.91) #26
   unreachable
 
-727:                                              ; preds = %722
-  store i64 %717, ptr %25, align 8
+736:                                              ; preds = %731
+  store i64 %726, ptr %26, align 8
   br label %proc_long_options.exit
 
-728:                                              ; preds = %702, %699
-  %729 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.92, ptr noundef nonnull dereferenceable(1) %448, i64 noundef 12) #24
-  %730 = icmp eq i32 %729, 0
-  br i1 %730, label %731, label %747
+737:                                              ; preds = %711, %708
+  %738 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.92, ptr noundef nonnull dereferenceable(1) %451, i64 noundef 12) #24
+  %739 = icmp eq i32 %738, 0
+  br i1 %739, label %740, label %756
 
-731:                                              ; preds = %728
-  %732 = getelementptr i8, ptr %.0135, i64 13
-  %733 = load i8, ptr %732, align 1
-  switch i8 %733, label %747 [
-    i8 45, label %734
-    i8 0, label %738
+740:                                              ; preds = %737
+  %741 = getelementptr i8, ptr %.0135, i64 13
+  %742 = load i8, ptr %741, align 1
+  switch i8 %742, label %756 [
+    i8 45, label %743
+    i8 0, label %747
     i8 61, label %.thread432.i
   ]
 
-734:                                              ; preds = %731
-  %735 = getelementptr i8, ptr %.0135, i64 14
-  %736 = load i8, ptr %735, align 1
-  %.not363.i = icmp eq i8 %736, 0
-  br i1 %.not363.i, label %747, label %.thread432.thread.i
+743:                                              ; preds = %740
+  %744 = getelementptr i8, ptr %.0135, i64 14
+  %745 = load i8, ptr %744, align 1
+  %.not363.i = icmp eq i8 %745, 0
+  br i1 %.not363.i, label %756, label %.thread432.thread.i
 
-.thread432.i:                                     ; preds = %731
+.thread432.i:                                     ; preds = %740
   %.phi.trans.insert438.i = getelementptr i8, ptr %.0135, i64 14
   %.pre439.i = load i8, ptr %.phi.trans.insert438.i, align 1
-  %737 = icmp eq i8 %.pre439.i, 0
-  br i1 %737, label %745, label %.thread432.thread.i
+  %746 = icmp eq i8 %.pre439.i, 0
+  br i1 %746, label %754, label %.thread432.thread.i
 
-738:                                              ; preds = %731
-  %739 = icmp eq i64 %.0136478, 1
-  br i1 %739, label %745, label %740
+747:                                              ; preds = %740
+  %748 = icmp eq i64 %.0136478, 1
+  br i1 %748, label %754, label %749
 
-740:                                              ; preds = %738
-  %741 = getelementptr i8, ptr %.pn474, i64 16
-  %742 = load ptr, ptr %741, align 8
-  %.not365.i = icmp eq ptr %742, null
-  br i1 %.not365.i, label %745, label %743
+749:                                              ; preds = %747
+  %750 = getelementptr i8, ptr %.pn474, i64 16
+  %751 = load ptr, ptr %750, align 8
+  %.not365.i = icmp eq ptr %751, null
+  br i1 %.not365.i, label %754, label %752
 
-743:                                              ; preds = %740
-  %744 = add i64 %.0136.in476, -2
+752:                                              ; preds = %749
+  %753 = add i64 %.0136.in476, -2
   br label %.thread432.thread.i
 
-745:                                              ; preds = %740, %738, %.thread432.i
-  %746 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %746, ptr noundef nonnull @.str.93) #26
+754:                                              ; preds = %749, %747, %.thread432.i
+  %755 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %755, ptr noundef nonnull @.str.93) #26
   unreachable
 
-.thread432.thread.i:                              ; preds = %734, %743, %.thread432.i
-  %.9291.i = phi i64 [ %.0136478, %.thread432.i ], [ %744, %743 ], [ %.0136478, %734 ]
-  %.11.i = phi ptr [ %.phi.trans.insert438.i, %.thread432.i ], [ %742, %743 ], [ %735, %734 ]
-  store ptr %.11.i, ptr %26, align 8
+.thread432.thread.i:                              ; preds = %743, %752, %.thread432.i
+  %.9291.i = phi i64 [ %.0136478, %.thread432.i ], [ %753, %752 ], [ %.0136478, %743 ]
+  %.11.i = phi ptr [ %.phi.trans.insert438.i, %.thread432.i ], [ %751, %752 ], [ %744, %743 ]
+  store ptr %.11.i, ptr %27, align 8
   br label %proc_long_options.exit
 
-747:                                              ; preds = %734, %731, %728
-  %748 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %748, ptr noundef nonnull @.str.94, ptr noundef %448) #26
+756:                                              ; preds = %743, %740, %737
+  %757 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %757, ptr noundef nonnull @.str.94, ptr noundef %451) #26
   unreachable
 
-.loopexit260:                                     ; preds = %667, %621, %458, %696
-  %749 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %749, ptr noundef nonnull @.str.95, ptr noundef %448) #26
+.loopexit260:                                     ; preds = %676, %624, %461, %705
+  %758 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %758, ptr noundef nonnull @.str.95, ptr noundef %451) #26
   unreachable
 
-proc_long_options.exit:                           ; preds = %459, %475, %476, %.thread.thread.i, %.thread416.thread.i, %534, %set_option_encoding_once.exit.i, %set_option_encoding_once.exit414.i, %611, %613, %622, %628, %635, %647, %660, %668, %692, %727, %.thread432.thread.i
-  %.0282.i = phi i64 [ %.0136478, %459 ], [ %.0136478, %475 ], [ %.0136478, %476 ], [ %.1283.i, %.thread.thread.i ], [ %.2284.i, %.thread416.thread.i ], [ %.3285.i, %534 ], [ %.4286.i, %set_option_encoding_once.exit.i ], [ %.5287.i, %set_option_encoding_once.exit414.i ], [ %.6288.i, %611 ], [ %.6288.i, %613 ], [ %.0136478, %622 ], [ %.0136478, %628 ], [ %.0136478, %635 ], [ %.0136478, %647 ], [ %.0136478, %660 ], [ %.0136478, %668 ], [ %.7289.i, %692 ], [ %.8290.i, %727 ], [ %.9291.i, %.thread432.thread.i ]
+proc_long_options.exit:                           ; preds = %462, %478, %479, %.thread.thread.i, %.thread416.thread.i, %537, %set_option_encoding_once.exit.i, %set_option_encoding_once.exit414.i, %614, %616, %625, %631, %638, %652, %667, %677, %701, %736, %.thread432.thread.i
+  %.0282.i = phi i64 [ %.0136478, %462 ], [ %.0136478, %478 ], [ %.0136478, %479 ], [ %.1283.i, %.thread.thread.i ], [ %.2284.i, %.thread416.thread.i ], [ %.3285.i, %537 ], [ %.4286.i, %set_option_encoding_once.exit.i ], [ %.5287.i, %set_option_encoding_once.exit414.i ], [ %.6288.i, %614 ], [ %.6288.i, %616 ], [ %.0136478, %625 ], [ %.0136478, %631 ], [ %.0136478, %638 ], [ %.0136478, %652 ], [ %.0136478, %667 ], [ %.0136478, %677 ], [ %.7289.i, %701 ], [ %.8290.i, %736 ], [ %.9291.i, %.thread432.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not162 = icmp eq i64 %.0136.in476, %.0282.i
-  br i1 %.not162, label %.loopexit258, label %750
+  br i1 %.not162, label %.loopexit258, label %759
 
-750:                                              ; preds = %proc_long_options.exit
-  %751 = sub i64 %.0136.in476, %.0282.i
-  %752 = getelementptr ptr, ptr %.pn474, i64 %751
+759:                                              ; preds = %proc_long_options.exit
+  %760 = sub i64 %.0136.in476, %.0282.i
+  %761 = getelementptr ptr, ptr %.pn474, i64 %760
   br label %.loopexit255
 
-753:                                              ; preds = %.preheader
-  %754 = getelementptr i8, ptr %.0135, i64 1
-  %755 = load i8, ptr %754, align 1
-  %.not159 = icmp eq i8 %755, 0
+762:                                              ; preds = %.preheader
+  %763 = getelementptr i8, ptr %.0135, i64 1
+  %764 = load i8, ptr %763, align 1
+  %.not159 = icmp eq i8 %764, 0
   br i1 %.not159, label %.loopexit255, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %756 = zext i8 %36 to i32
+  %765 = zext i8 %37 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %753, %.loopexit.loopexit
-  %757 = phi i32 [ %756, %.loopexit.loopexit ], [ 13, %753 ]
-  %758 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %758, ptr noundef nonnull @.str.41, i32 noundef %757) #26
+.loopexit:                                        ; preds = %762, %.loopexit.loopexit
+  %766 = phi i32 [ %765, %.loopexit.loopexit ], [ 13, %762 ]
+  %767 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %767, ptr noundef nonnull @.str.41, i32 noundef %766) #26
   unreachable
 
-.loopexit256:                                     ; preds = %375, %359, %343, %333, %275, %432, %264, %258, %241, %236, %54, %45, %42, %37, %254
-  %759 = load i64, ptr @rb_eRuntimeError, align 8
-  %760 = zext nneg i8 %36 to i32
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %759, ptr noundef nonnull @.str.42, i32 noundef %760) #26
+.loopexit256:                                     ; preds = %378, %362, %346, %336, %278, %435, %267, %261, %244, %239, %55, %46, %43, %38, %257
+  %768 = load i64, ptr @rb_eRuntimeError, align 8
+  %769 = zext nneg i8 %37 to i32
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %768, ptr noundef nonnull @.str.42, i32 noundef %769) #26
   unreachable
 
-.loopexit255:                                     ; preds = %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit, %.preheader, %proc_W_option.exit.thread, %proc_e_option.exit, %forbid_setid.exit219, %392, %750, %add_modules.exit216, %add_modules.exit, %355, %forbid_setid.exit222, %371, %379, %376, %428, %426, %753
-  %.4243 = phi i32 [ %.1240, %753 ], [ %.1240, %750 ], [ %.1240, %428 ], [ %.1240, %426 ], [ %.1240, %392 ], [ %.1240, %376 ], [ %.1240, %379 ], [ %.1240, %371 ], [ %.1240, %forbid_setid.exit222 ], [ %.1240, %355 ], [ %.1240, %forbid_setid.exit219 ], [ %.1240, %add_modules.exit216 ], [ %.1240, %add_modules.exit ], [ %.1240, %proc_e_option.exit ], [ %.1240, %proc_W_option.exit.thread ], [ 1, %proc_W_option.exit ], [ %.1240, %proc_K_option.exit ], [ %.1240, %proc_0_option.exit ], [ %.1240, %.preheader ]
-  %.3142 = phi ptr [ %.0139477, %753 ], [ %752, %750 ], [ %429, %428 ], [ %.0139477, %426 ], [ %.2141, %392 ], [ %.0139477, %376 ], [ %.0139477, %379 ], [ %.1140, %371 ], [ %.0139477, %forbid_setid.exit222 ], [ %.0139477, %355 ], [ %.0139477, %forbid_setid.exit219 ], [ %324, %add_modules.exit216 ], [ %.0139477, %add_modules.exit ], [ %304, %proc_e_option.exit ], [ %.0139477, %proc_W_option.exit.thread ], [ %.0139477, %.preheader ], [ %.0139477, %proc_0_option.exit ], [ %.0139477, %proc_K_option.exit ], [ %.0139477, %proc_W_option.exit ]
-  %.4 = phi i64 [ %.0136478, %753 ], [ %.0282.i, %750 ], [ %431, %428 ], [ %.0136478, %426 ], [ %.3, %392 ], [ %.0136478, %376 ], [ %.0136478, %379 ], [ %.2138, %371 ], [ %.0136478, %forbid_setid.exit222 ], [ %.0136478, %355 ], [ %.0136478, %forbid_setid.exit219 ], [ %332, %add_modules.exit216 ], [ %.0136478, %add_modules.exit ], [ %303, %proc_e_option.exit ], [ %.0136478, %proc_W_option.exit.thread ], [ %.0136478, %.preheader ], [ %.0136478, %proc_0_option.exit ], [ %.0136478, %proc_K_option.exit ], [ %.0136478, %proc_W_option.exit ]
+.loopexit255:                                     ; preds = %proc_W_option.exit, %proc_K_option.exit, %proc_0_option.exit, %.preheader, %proc_W_option.exit.thread, %proc_e_option.exit, %forbid_setid.exit219, %395, %759, %add_modules.exit216, %add_modules.exit, %358, %forbid_setid.exit222, %374, %382, %379, %431, %429, %762
+  %.4243 = phi i32 [ %.1240, %762 ], [ %.1240, %759 ], [ %.1240, %431 ], [ %.1240, %429 ], [ %.1240, %395 ], [ %.1240, %379 ], [ %.1240, %382 ], [ %.1240, %374 ], [ %.1240, %forbid_setid.exit222 ], [ %.1240, %358 ], [ %.1240, %forbid_setid.exit219 ], [ %.1240, %add_modules.exit216 ], [ %.1240, %add_modules.exit ], [ %.1240, %proc_e_option.exit ], [ %.1240, %proc_W_option.exit.thread ], [ 1, %proc_W_option.exit ], [ %.1240, %proc_K_option.exit ], [ %.1240, %proc_0_option.exit ], [ %.1240, %.preheader ]
+  %.3142 = phi ptr [ %.0139477, %762 ], [ %761, %759 ], [ %432, %431 ], [ %.0139477, %429 ], [ %.2141, %395 ], [ %.0139477, %379 ], [ %.0139477, %382 ], [ %.1140, %374 ], [ %.0139477, %forbid_setid.exit222 ], [ %.0139477, %358 ], [ %.0139477, %forbid_setid.exit219 ], [ %327, %add_modules.exit216 ], [ %.0139477, %add_modules.exit ], [ %307, %proc_e_option.exit ], [ %.0139477, %proc_W_option.exit.thread ], [ %.0139477, %.preheader ], [ %.0139477, %proc_0_option.exit ], [ %.0139477, %proc_K_option.exit ], [ %.0139477, %proc_W_option.exit ]
+  %.4 = phi i64 [ %.0136478, %762 ], [ %.0282.i, %759 ], [ %434, %431 ], [ %.0136478, %429 ], [ %.3, %395 ], [ %.0136478, %379 ], [ %.0136478, %382 ], [ %.2138, %374 ], [ %.0136478, %forbid_setid.exit222 ], [ %.0136478, %358 ], [ %.0136478, %forbid_setid.exit219 ], [ %335, %add_modules.exit216 ], [ %.0136478, %add_modules.exit ], [ %306, %proc_e_option.exit ], [ %.0136478, %proc_W_option.exit.thread ], [ %.0136478, %.preheader ], [ %.0136478, %proc_0_option.exit ], [ %.0136478, %proc_K_option.exit ], [ %.0136478, %proc_W_option.exit ]
   %.0136 = add i64 %.4, -1
-  %761 = icmp sgt i64 %.0136, 0
-  br i1 %761, label %29, label %.loopexit258, !llvm.loop !72
+  %770 = icmp sgt i64 %.0136, 0
+  br i1 %770, label %30, label %.loopexit258, !llvm.loop !72
 
-.loopexit258:                                     ; preds = %322, %427, %proc_long_options.exit, %29, %31, %33, %.loopexit255, %.preheader257, %proc_long_options.exit.thread, %453, %255
-  %.3242 = phi i32 [ %.1240, %453 ], [ %.1240, %255 ], [ %.1240, %proc_long_options.exit.thread ], [ %13, %.preheader257 ], [ %.1240, %322 ], [ %.1240, %427 ], [ %.1240, %proc_long_options.exit ], [ %.0239473, %29 ], [ %.0239473, %31 ], [ %.0239473, %33 ], [ %.4243, %.loopexit255 ]
-  %.1137 = phi i64 [ %454, %453 ], [ %.0136478, %255 ], [ %.0136478, %proc_long_options.exit.thread ], [ 0, %.preheader257 ], [ 0, %322 ], [ 0, %427 ], [ %.0136478, %proc_long_options.exit ], [ %.0136478, %29 ], [ %.0136478, %31 ], [ %.0136478, %33 ], [ %.0136, %.loopexit255 ]
+.loopexit258:                                     ; preds = %325, %430, %proc_long_options.exit, %30, %32, %34, %.loopexit255, %.preheader257, %proc_long_options.exit.thread, %456, %258
+  %.3242 = phi i32 [ %.1240, %456 ], [ %.1240, %258 ], [ %.1240, %proc_long_options.exit.thread ], [ %13, %.preheader257 ], [ %.1240, %325 ], [ %.1240, %430 ], [ %.1240, %proc_long_options.exit ], [ %.0239473, %30 ], [ %.0239473, %32 ], [ %.0239473, %34 ], [ %.4243, %.loopexit255 ]
+  %.1137 = phi i64 [ %457, %456 ], [ %.0136478, %258 ], [ %.0136478, %proc_long_options.exit.thread ], [ 0, %.preheader257 ], [ 0, %325 ], [ 0, %430 ], [ %.0136478, %proc_long_options.exit ], [ %.0136478, %30 ], [ %.0136478, %32 ], [ %.0136478, %34 ], [ %.0136, %.loopexit255 ]
   %.not197 = icmp eq i32 %.3242, 0
-  br i1 %.not197, label %769, label %762
+  br i1 %.not197, label %778, label %771
 
-762:                                              ; preds = %.loopexit258
-  %763 = trunc nuw nsw i32 %.3242 to i16
-  %764 = load i16, ptr %9, align 8
-  %765 = shl nuw nsw i16 %763, 3
-  %766 = and i16 %765, 8
-  %767 = and i16 %764, -9
-  %768 = or disjoint i16 %767, %766
-  store i16 %768, ptr %9, align 8
-  br label %769
+771:                                              ; preds = %.loopexit258
+  %772 = trunc nuw nsw i32 %.3242 to i16
+  %773 = load i16, ptr %9, align 8
+  %774 = shl nuw nsw i16 %772, 3
+  %775 = and i16 %774, 8
+  %776 = and i16 %773, -9
+  %777 = or disjoint i16 %776, %775
+  store i16 %777, ptr %9, align 8
+  br label %778
 
-769:                                              ; preds = %762, %.loopexit258
-  %770 = sub i64 %0, %.1137
-  br label %771
+778:                                              ; preds = %771, %.loopexit258
+  %779 = sub i64 %0, %.1137
+  br label %780
 
-771:                                              ; preds = %4, %769
-  %.0 = phi i64 [ %770, %769 ], [ 0, %4 ]
+780:                                              ; preds = %4, %778
+  %.0 = phi i64 [ %779, %778 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -6479,17 +6492,21 @@ define internal void @debug_option(ptr noundef %0, i32 noundef %1, ptr nocapture
   br i1 %41, label %name_match_p.exit, label %.preheader.i
 
 name_match_p.exit:                                ; preds = %38, %.lr.ph.i
-  %42 = load <2 x i32>, ptr %2, align 4
-  %43 = or <2 x i32> %42, <i32 256, i32 256>
-  store <2 x i32> %43, ptr %2, align 4
-  br label %44
+  %42 = load i32, ptr %2, align 4
+  %43 = or i32 %42, 256
+  store i32 %43, ptr %2, align 4
+  %44 = getelementptr inbounds i8, ptr %2, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = or i32 %45, 256
+  store i32 %46, ptr %44, align 4
+  br label %47
 
 name_match_p.exit.thread:                         ; preds = %._crit_edge.i, %37, %3
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.97, i32 noundef %1, ptr noundef %0) #28
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.98, i32 noundef 21, ptr noundef nonnull @.str.96) #28
-  br label %44
+  br label %47
 
-44:                                               ; preds = %name_match_p.exit.thread, %name_match_p.exit
+47:                                               ; preds = %name_match_p.exit.thread, %name_match_p.exit
   ret void
 }
 

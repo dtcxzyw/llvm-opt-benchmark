@@ -595,134 +595,136 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load <2 x ptr>, ptr %20, align 8
-  %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
-  %24 = load i64, ptr %23, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = load i64, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %4, i8 0, i64 140, i1 false)
-  %25 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 928
-  %27 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #16
-  %28 = load i8, ptr %6, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  %26 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 928
+  %28 = call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #16
+  %29 = load i8, ptr %6, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12ResourceMarkD2Ev.exit, %.lr.ph
-  %30 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %7, i64 noundef 0) #16
-  %31 = load i8, ptr %6, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %31 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %7, i64 noundef 0) #16
+  %32 = load i8, ptr %6, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = add i64 %35, 7
-  %37 = and i64 %36, -8
-  %38 = sub i64 %37, %35
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
-  store i64 %38, ptr %39, align 8
-  %40 = load <2 x ptr>, ptr %9, align 8
-  %41 = shufflevector <2 x ptr> %40, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %41, ptr %9, align 8
-  %42 = load i32, ptr %11, align 8
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit"
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = add i64 %36, 7
+  %38 = and i64 %37, -8
+  %39 = sub i64 %38, %36
+  %40 = getelementptr inbounds i8, ptr %34, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %8, align 8
+  store ptr %42, ptr %9, align 8
+  store ptr %41, ptr %8, align 8
+  %43 = load i32, ptr %11, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit"
 
 .preheader.i:                                     ; preds = %._crit_edge, %._crit_edge.i
   %.lcssa17 = phi i32 [ %.lcssa16, %._crit_edge.i ], [ 0, %._crit_edge ]
   %.0.idx20.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %._crit_edge ]
-  %.01219.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %42, %._crit_edge ]
+  %.01219.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %43, %._crit_edge ]
   %.0.ptr21.i = getelementptr inbounds i8, ptr %10, i64 %.0.idx20.i
   %.01115.i = load ptr, ptr %.0.ptr21.i, align 8
   %.not16.i = icmp eq ptr %.01115.i, null
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i"
-  %44 = phi i32 [ %76, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.lcssa17, %.preheader.i ]
+  %45 = phi i32 [ %77, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.lcssa17, %.preheader.i ]
   %.01118.i = phi ptr [ %.011.i, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.01115.i, %.preheader.i ]
-  %.117.i = phi i32 [ %78, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.01219.i, %.preheader.i ]
-  %45 = getelementptr inbounds i8, ptr %.01118.i, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.01118.i, i64 16
-  %48 = load i32, ptr %47, align 4
-  %.not.i.i = icmp eq i32 %48, 0
-  br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i", label %49
+  %.117.i = phi i32 [ %79, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.01219.i, %.preheader.i ]
+  %46 = getelementptr inbounds i8, ptr %.01118.i, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %.01118.i, i64 16
+  %49 = load i32, ptr %48, align 4
+  %.not.i.i = icmp eq i32 %49, 0
+  br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i", label %50
 
-49:                                               ; preds = %.lr.ph.i
-  %50 = ptrtoint ptr %46 to i64
-  %51 = trunc i64 %50 to i32
-  %52 = lshr i32 %51, 3
-  %53 = xor i32 %52, %51
-  %54 = urem i32 %53, 17
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %4, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %.not11.i.i.i.i = icmp eq ptr %57, null
+50:                                               ; preds = %.lr.ph.i
+  %51 = ptrtoint ptr %47 to i64
+  %52 = trunc i64 %51 to i32
+  %53 = lshr i32 %52, 3
+  %54 = xor i32 %53, %52
+  %55 = urem i32 %54, 17
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %4, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %.not11.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not11.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %49, %64
-  %.pr.i.i.i = phi ptr [ %66, %64 ], [ %57, %49 ]
-  %58 = load i32, ptr %.pr.i.i.i, align 8
-  %59 = icmp eq i32 %58, %53
-  br i1 %59, label %60, label %64
+.lr.ph.i.i.i.i:                                   ; preds = %50, %65
+  %.pr.i.i.i = phi ptr [ %67, %65 ], [ %58, %50 ]
+  %59 = load i32, ptr %.pr.i.i.i, align 8
+  %60 = icmp eq i32 %59, %54
+  br i1 %60, label %61, label %65
 
-60:                                               ; preds = %.lr.ph.i.i.i.i
-  %61 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %46
-  br i1 %63, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i, label %64
+61:                                               ; preds = %.lr.ph.i.i.i.i
+  %62 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %47
+  br i1 %64, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i, label %65
 
-64:                                               ; preds = %60, %.lr.ph.i.i.i.i
-  %65 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %.not.i.i.i.i = icmp eq ptr %66, null
+65:                                               ; preds = %61, %.lr.ph.i.i.i.i
+  %66 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i: ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 16
-  store i32 %48, ptr %67, align 8
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i: ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 16
+  store i32 %49, ptr %68, align 8
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit: ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit: ; preds = %65
+  %69 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit, %49
-  %.0.lcssa.i14.i.i.i = phi ptr [ %56, %49 ], [ %68, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit ]
-  %69 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #16
-  store i32 %53, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  store ptr %46, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load i32, ptr %47, align 4
-  store i32 %72, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 24
-  store ptr null, ptr %73, align 8
-  store ptr %69, ptr %.0.lcssa.i14.i.i.i, align 8
-  %74 = add nsw i32 %44, 1
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit, %50
+  %.0.lcssa.i14.i.i.i = phi ptr [ %57, %50 ], [ %69, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit ]
+  %70 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #16
+  store i32 %54, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  store ptr %47, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = load i32, ptr %48, align 4
+  store i32 %73, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %70, i64 24
+  store ptr null, ptr %74, align 8
+  store ptr %70, ptr %.0.lcssa.i14.i.i.i, align 8
+  %75 = add nsw i32 %45, 1
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i
-  %75 = phi i32 [ %74, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i ], [ %44, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i ]
-  store i32 0, ptr %47, align 4
+  %76 = phi i32 [ %75, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i ], [ %45, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i ]
+  store i32 0, ptr %48, align 4
   br label %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i"
 
 "_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i": ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i, %.lr.ph.i
-  %76 = phi i32 [ %75, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i ], [ %44, %.lr.ph.i ]
-  %77 = getelementptr inbounds i8, ptr %.01118.i, i64 24
-  %78 = add nsw i32 %.117.i, -1
-  %.011.i = load ptr, ptr %77, align 8
+  %77 = phi i32 [ %76, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i ], [ %45, %.lr.ph.i ]
+  %78 = getelementptr inbounds i8, ptr %.01118.i, i64 24
+  %79 = add nsw i32 %.117.i, -1
+  %.011.i = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i", %.preheader.i
-  %.lcssa16 = phi i32 [ %.lcssa17, %.preheader.i ], [ %76, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ]
-  %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %78, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ]
+  %.lcssa16 = phi i32 [ %.lcssa17, %.preheader.i ], [ %77, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ]
+  %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %79, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ]
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
-  %79 = icmp sgt i32 %.1.lcssa.i, 0
-  %80 = icmp ult i64 %.0.idx20.i, 128
-  %or.cond.i = and i1 %80, %79
+  %80 = icmp sgt i32 %.1.lcssa.i, 0
+  %81 = icmp ult i64 %.0.idx20.i, 128
+  %or.cond.i = and i1 %81, %80
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit", !llvm.loop !15
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit": ; preds = %._crit_edge.i
@@ -730,62 +732,62 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   br label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit"
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit": ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit", %._crit_edge
-  %81 = phi i32 [ %.lcssa16, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit" ], [ 0, %._crit_edge ]
+  %82 = phi i32 [ %.lcssa16, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit" ], [ 0, %._crit_edge ]
   store i8 0, ptr %6, align 8
-  %82 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 928
-  %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %83) #16
+  %83 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 928
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %84) #16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = load i64, ptr %86, align 8
-  %.not.i1 = icmp eq i64 %87, 0
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load i64, ptr %87, align 8
+  %.not.i1 = icmp eq i64 %88, 0
   br i1 %.not.i1, label %._crit_edge.i4, label %.lr.ph.i2
 
-.lr.ph.i2:                                        ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit", %107
-  %88 = phi i64 [ %108, %107 ], [ %87, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
-  %.011.i3 = phi i32 [ %.1.i, %107 ], [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
-  %.sroa.3.010.i = phi i64 [ %96, %107 ], [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
-  %89 = load ptr, ptr %85, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.sroa.3.010.i
-  %91 = getelementptr inbounds i8, ptr %90, i64 56
-  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #15
-  %93 = and i64 %92, -8
-  %94 = add i64 %.sroa.3.010.i, 64
-  %95 = add i64 %94, %93
-  %96 = call noundef i64 @llvm.umin.i64(i64 %95, i64 %88)
-  %97 = load ptr, ptr %90, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %105, label %99
+.lr.ph.i2:                                        ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit", %108
+  %89 = phi i64 [ %109, %108 ], [ %88, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
+  %.011.i3 = phi i32 [ %.1.i, %108 ], [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
+  %.sroa.3.010.i = phi i64 [ %97, %108 ], [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
+  %90 = load ptr, ptr %86, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 %.sroa.3.010.i
+  %92 = getelementptr inbounds i8, ptr %91, i64 56
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #15
+  %94 = and i64 %93, -8
+  %95 = add i64 %.sroa.3.010.i, 64
+  %96 = add i64 %95, %94
+  %97 = call noundef i64 @llvm.umin.i64(i64 %96, i64 %89)
+  %98 = load ptr, ptr %91, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %106, label %100
 
-99:                                               ; preds = %.lr.ph.i2
-  %100 = getelementptr inbounds i8, ptr %90, i64 8
-  %101 = load ptr, ptr %97, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 72
-  %103 = load ptr, ptr %102, align 8
-  %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(264) %97, ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull %91) #16
-  %.pre.i = load i64, ptr %86, align 8
-  br label %107
+100:                                              ; preds = %.lr.ph.i2
+  %101 = getelementptr inbounds i8, ptr %91, i64 8
+  %102 = load ptr, ptr %98, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 72
+  %104 = load ptr, ptr %103, align 8
+  %105 = call noundef i32 %104(ptr noundef nonnull align 8 dereferenceable(264) %98, ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull %92) #16
+  %.pre.i = load i64, ptr %87, align 8
+  br label %108
 
-105:                                              ; preds = %.lr.ph.i2
-  %106 = add nsw i32 %.011.i3, 1
-  br label %107
+106:                                              ; preds = %.lr.ph.i2
+  %107 = add nsw i32 %.011.i3, 1
+  br label %108
 
-107:                                              ; preds = %105, %99
-  %108 = phi i64 [ %88, %105 ], [ %.pre.i, %99 ]
-  %.1.i = phi i32 [ %106, %105 ], [ %.011.i3, %99 ]
-  %109 = icmp ult i64 %96, %108
-  br i1 %109, label %.lr.ph.i2, label %._crit_edge.i4, !llvm.loop !9
+108:                                              ; preds = %106, %100
+  %109 = phi i64 [ %89, %106 ], [ %.pre.i, %100 ]
+  %.1.i = phi i32 [ %107, %106 ], [ %.011.i3, %100 ]
+  %110 = icmp ult i64 %97, %109
+  br i1 %110, label %.lr.ph.i2, label %._crit_edge.i4, !llvm.loop !9
 
-._crit_edge.i4:                                   ; preds = %107, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit"
-  %.0.lcssa.i = phi i32 [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ], [ %.1.i, %107 ]
+._crit_edge.i4:                                   ; preds = %108, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit"
+  %.0.lcssa.i = phi i32 [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ], [ %.1.i, %108 ]
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE0ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull align 4 dereferenceable(4) @_ZN13LogDecorators3AllE) #16
-  %110 = icmp sgt i32 %81, 0
-  br i1 %110, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i"
+  %111 = icmp sgt i32 %82, 0
+  br i1 %111, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i"
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i4, %._crit_edge.i.i
   %.0.idx18.i.i = phi i64 [ %.0.add.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.i4 ]
-  %.01217.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %81, %._crit_edge.i4 ]
+  %.01217.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %82, %._crit_edge.i4 ]
   %.0.ptr19.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.idx18.i.i
   %.01113.i.i = load ptr, ptr %.0.ptr19.i.i, align 8
   %.not14.i.i = icmp eq ptr %.01113.i.i, null
@@ -793,73 +795,74 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i"
   %.01116.i.i = phi ptr [ %.011.i.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ], [ %.01113.i.i, %.preheader.i.i ]
-  %.115.i.i = phi i32 [ %123, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ], [ %.01217.i.i, %.preheader.i.i ]
-  %111 = getelementptr inbounds i8, ptr %.01116.i.i, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %.01116.i.i, i64 16
+  %.115.i.i = phi i32 [ %124, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ], [ %.01217.i.i, %.preheader.i.i ]
+  %112 = getelementptr inbounds i8, ptr %.01116.i.i, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %.01116.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
-  %114 = load i32, ptr %113, align 4
-  %.not.i.i.i = icmp eq i32 %114, 0
-  br i1 %.not.i.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i", label %115
+  %115 = load i32, ptr %114, align 4
+  %.not.i.i.i = icmp eq i32 %115, 0
+  br i1 %.not.i.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i", label %116
 
-115:                                              ; preds = %.lr.ph.i.i
+116:                                              ; preds = %.lr.ph.i.i
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #16
-  %116 = load i32, ptr %113, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %116) #16
-  %117 = load ptr, ptr %13, align 8
-  %118 = load ptr, ptr %112, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 72
-  %120 = load ptr, ptr %119, align 8
-  %121 = call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(264) %112, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %117) #16
+  %117 = load i32, ptr %114, align 4
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %117) #16
+  %118 = load ptr, ptr %13, align 8
+  %119 = load ptr, ptr %113, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 72
+  %121 = load ptr, ptr %120, align 8
+  %122 = call noundef i32 %121(ptr noundef nonnull align 8 dereferenceable(264) %113, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %118) #16
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #16
   br label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i"
 
-"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i": ; preds = %115, %.lr.ph.i.i
+"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i": ; preds = %116, %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
-  %122 = getelementptr inbounds i8, ptr %.01116.i.i, i64 24
-  %123 = add nsw i32 %.115.i.i, -1
-  %.011.i.i = load ptr, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %.01116.i.i, i64 24
+  %124 = add nsw i32 %.115.i.i, -1
+  %.011.i.i = load ptr, ptr %123, align 8
   %.not.i.i5 = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i5, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i", %.preheader.i.i
-  %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %123, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ]
+  %.1.lcssa.i.i = phi i32 [ %.01217.i.i, %.preheader.i.i ], [ %124, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ]
   %.0.add.i.i = add nuw nsw i64 %.0.idx18.i.i, 8
-  %124 = icmp sgt i32 %.1.lcssa.i.i, 0
-  %125 = icmp ult i64 %.0.idx18.i.i, 128
-  %or.cond.i.i = and i1 %125, %124
+  %125 = icmp sgt i32 %.1.lcssa.i.i, 0
+  %126 = icmp ult i64 %.0.idx18.i.i, 128
+  %or.cond.i.i = and i1 %126, %125
   br i1 %or.cond.i.i, label %.preheader.i.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i", !llvm.loop !11
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i": ; preds = %._crit_edge.i.i, %._crit_edge.i4
-  %126 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %126, label %127, label %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
+  %127 = icmp sgt i32 %.0.lcssa.i, 0
+  br i1 %127, label %128, label %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
 
-127:                                              ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i"
+128:                                              ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i"
   call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef %.0.lcssa.i) #16
   br label %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
 
-_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit: ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i", %127
+_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit: ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i", %128
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %128 = load ptr, ptr %19, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %128, null
-  br i1 %.not.i.i.i.i6, label %130, label %129
+  %129 = load ptr, ptr %19, align 8
+  %.not.i.i.i.i6 = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i6, label %131, label %130
 
-129:                                              ; preds = %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %24) #16
+130:                                              ; preds = %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %25) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %19) #16
-  br label %130
+  br label %131
 
-130:                                              ; preds = %129, %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
-  %131 = load ptr, ptr %20, align 8
-  %.not8.i.i.i.i = icmp eq ptr %131, %22
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit.backedge, label %132
+131:                                              ; preds = %130, %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
+  %132 = load ptr, ptr %20, align 8
+  %.not8.i.i.i.i = icmp eq ptr %132, %21
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit.backedge, label %133
 
-_ZN12ResourceMarkD2Ev.exit.backedge:              ; preds = %130, %132
+_ZN12ResourceMarkD2Ev.exit.backedge:              ; preds = %131, %133
   br label %_ZN12ResourceMarkD2Ev.exit, !llvm.loop !16
 
-132:                                              ; preds = %130
+133:                                              ; preds = %131
   store ptr %19, ptr %18, align 8
-  store <2 x ptr> %21, ptr %20, align 8
+  store ptr %21, ptr %20, align 8
+  store ptr %23, ptr %22, align 8
   br label %_ZN12ResourceMarkD2Ev.exit.backedge
 }
 

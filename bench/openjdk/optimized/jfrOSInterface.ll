@@ -158,7 +158,7 @@ define hidden void @_ZN14JfrOSInterface18JfrOSInterfaceImplC2Ev(ptr nocapture no
 define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl18cpu_info_interfaceEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %25
+  br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -168,48 +168,50 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl18cpu_info_int
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
-  tail call void @_ZN23CPUInformationInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
-  %17 = tail call noundef zeroext i1 @_ZN23CPUInformationInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
-  br i1 %17, label %19, label %18
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
+  tail call void @_ZN23CPUInformationInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  %18 = tail call noundef zeroext i1 @_ZN23CPUInformationInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  br i1 %18, label %20, label %19
 
-18:                                               ; preds = %4
-  tail call void @_ZN23CPUInformationInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %16) #14
-  br label %19
+19:                                               ; preds = %4
+  tail call void @_ZN23CPUInformationInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %17) #14
+  br label %20
 
-19:                                               ; preds = %18, %4
-  %.0.i = phi ptr [ %16, %4 ], [ null, %18 ]
-  %20 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i, label %22, label %21
+20:                                               ; preds = %19, %4
+  %.0.i = phi ptr [ %17, %4 ], [ null, %19 ]
+  %21 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i.i, label %23, label %22
 
-21:                                               ; preds = %19
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #14
+22:                                               ; preds = %20
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #14
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %19
-  %23 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %23, %13
-  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit, label %24
+23:                                               ; preds = %22, %20
+  %24 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %24, %12
+  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit, label %25
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit
 
-_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit: ; preds = %22, %24
+_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit: ; preds = %23, %25
   store ptr %.0.i, ptr %0, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit, %1
-  %26 = phi ptr [ %.0.i, %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit ], [ %2, %1 ]
-  ret ptr %26
+26:                                               ; preds = %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit, %1
+  %27 = phi ptr [ %.0.i, %_ZL16create_interfaceI23CPUInformationInterfaceEPT_v.exit ], [ %2, %1 ]
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -217,7 +219,7 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl18cpu_perf_int
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %26
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -227,48 +229,50 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl18cpu_perf_int
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
-  tail call void @_ZN23CPUPerformanceInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  %18 = tail call noundef zeroext i1 @_ZN23CPUPerformanceInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  br i1 %18, label %20, label %19
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
+  tail call void @_ZN23CPUPerformanceInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  %19 = tail call noundef zeroext i1 @_ZN23CPUPerformanceInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %5
-  tail call void @_ZN23CPUPerformanceInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %17) #14
-  br label %20
+20:                                               ; preds = %5
+  tail call void @_ZN23CPUPerformanceInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %18) #14
+  br label %21
 
-20:                                               ; preds = %19, %5
-  %.0.i = phi ptr [ %17, %5 ], [ null, %19 ]
-  %21 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i, label %23, label %22
+21:                                               ; preds = %20, %5
+  %.0.i = phi ptr [ %18, %5 ], [ null, %20 ]
+  %22 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %20
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #14
+23:                                               ; preds = %21
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #14
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %20
-  %24 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %24, %14
-  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit, label %25
+24:                                               ; preds = %23, %21
+  %25 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %25, %13
+  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit
 
-_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit: ; preds = %23, %25
+_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit: ; preds = %24, %26
   store ptr %.0.i, ptr %2, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit, %1
-  %27 = phi ptr [ %.0.i, %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit ], [ %3, %1 ]
-  ret ptr %27
+27:                                               ; preds = %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit, %1
+  %28 = phi ptr [ %.0.i, %_ZL16create_interfaceI23CPUPerformanceInterfaceEPT_v.exit ], [ %3, %1 ]
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -276,7 +280,7 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl24system_proce
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %26
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -286,48 +290,50 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl24system_proce
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
-  tail call void @_ZN22SystemProcessInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  %18 = tail call noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  br i1 %18, label %20, label %19
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
+  tail call void @_ZN22SystemProcessInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  %19 = tail call noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %5
-  tail call void @_ZN22SystemProcessInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %17) #14
-  br label %20
+20:                                               ; preds = %5
+  tail call void @_ZN22SystemProcessInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %18) #14
+  br label %21
 
-20:                                               ; preds = %19, %5
-  %.0.i = phi ptr [ %17, %5 ], [ null, %19 ]
-  %21 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i, label %23, label %22
+21:                                               ; preds = %20, %5
+  %.0.i = phi ptr [ %18, %5 ], [ null, %20 ]
+  %22 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %20
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #14
+23:                                               ; preds = %21
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #14
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %20
-  %24 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %24, %14
-  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit, label %25
+24:                                               ; preds = %23, %21
+  %25 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %25, %13
+  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit
 
-_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit: ; preds = %23, %25
+_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit: ; preds = %24, %26
   store ptr %.0.i, ptr %2, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit, %1
-  %27 = phi ptr [ %.0.i, %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit ], [ %3, %1 ]
-  ret ptr %27
+27:                                               ; preds = %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit, %1
+  %28 = phi ptr [ %.0.i, %_ZL16create_interfaceI22SystemProcessInterfaceEPT_v.exit ], [ %3, %1 ]
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -335,7 +341,7 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl29network_perf
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %26
+  br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -345,48 +351,50 @@ define hidden noundef ptr @_ZN14JfrOSInterface18JfrOSInterfaceImpl29network_perf
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
-  tail call void @_ZN27NetworkPerformanceInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  %18 = tail call noundef zeroext i1 @_ZN27NetworkPerformanceInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  br i1 %18, label %20, label %19
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #14
+  tail call void @_ZN27NetworkPerformanceInterfaceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  %19 = tail call noundef zeroext i1 @_ZN27NetworkPerformanceInterface10initializeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %5
-  tail call void @_ZN27NetworkPerformanceInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %17) #14
-  br label %20
+20:                                               ; preds = %5
+  tail call void @_ZN27NetworkPerformanceInterfaceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %18) #14
+  br label %21
 
-20:                                               ; preds = %19, %5
-  %.0.i = phi ptr [ %17, %5 ], [ null, %19 ]
-  %21 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i, label %23, label %22
+21:                                               ; preds = %20, %5
+  %.0.i = phi ptr [ %18, %5 ], [ null, %20 ]
+  %22 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %20
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #14
+23:                                               ; preds = %21
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #14
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %20
-  %24 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %24, %14
-  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit, label %25
+24:                                               ; preds = %23, %21
+  %25 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %25, %13
+  br i1 %.not8.i.i.i.i.i, label %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit
 
-_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit: ; preds = %23, %25
+_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit: ; preds = %24, %26
   store ptr %.0.i, ptr %2, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit, %1
-  %27 = phi ptr [ %.0.i, %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit ], [ %3, %1 ]
-  ret ptr %27
+27:                                               ; preds = %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit, %1
+  %28 = phi ptr [ %.0.i, %_ZL16create_interfaceI27NetworkPerformanceInterfaceEPT_v.exit ], [ %3, %1 ]
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -780,8 +788,8 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN14JfrOSInterface44generate_initia
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
-  %18 = phi ptr [ %9, %.lr.ph ], [ %45, %_ZN12ResourceMarkD2Ev.exit ]
-  %.01627 = phi ptr [ %8, %.lr.ph ], [ %44, %_ZN12ResourceMarkD2Ev.exit ]
+  %18 = phi ptr [ %9, %.lr.ph ], [ %46, %_ZN12ResourceMarkD2Ev.exit ]
+  %.01627 = phi ptr [ %8, %.lr.ph ], [ %45, %_ZN12ResourceMarkD2Ev.exit ]
   %19 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 61) #15
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %_ZN12ResourceMarkD2Ev.exit, label %20
@@ -793,50 +801,52 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN14JfrOSInterface44generate_initia
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 32
-  %27 = load <2 x ptr>, ptr %26, align 8
-  %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = ptrtoint ptr %19 to i64
-  %32 = ptrtoint ptr %18 to i64
-  %33 = sub i64 %31, %32
-  %34 = add nsw i64 %33, 1
-  %35 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %34, i32 noundef 0) #14
-  %36 = getelementptr inbounds i8, ptr %19, i64 1
-  %37 = call ptr @strncpy(ptr noundef %35, ptr noundef nonnull %18, i64 noundef %33) #14
-  %38 = getelementptr inbounds i8, ptr %35, i64 %33
-  store i8 0, ptr %38, align 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %23, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = ptrtoint ptr %19 to i64
+  %33 = ptrtoint ptr %18 to i64
+  %34 = sub i64 %32, %33
+  %35 = add nsw i64 %34, 1
+  %36 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %35, i32 noundef 0) #14
+  %37 = getelementptr inbounds i8, ptr %19, i64 1
+  %38 = call ptr @strncpy(ptr noundef %36, ptr noundef nonnull %18, i64 noundef %34) #14
+  %39 = getelementptr inbounds i8, ptr %36, i64 %34
+  store i8 0, ptr %39, align 1
   store i8 1, ptr %11, align 8
   store i8 0, ptr %12, align 1
   store i8 0, ptr %13, align 2
   store i64 %7, ptr %1, align 8
   store i64 %7, ptr %14, align 8
-  store ptr %35, ptr %15, align 8
-  store ptr %36, ptr %16, align 8
+  store ptr %36, ptr %15, align 8
+  store ptr %37, ptr %16, align 8
   call void @_ZN8JfrEventI31EventInitialEnvironmentVariableE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %1)
-  %39 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i, label %41, label %40
+  %40 = load ptr, ptr %25, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %42, label %41
 
-40:                                               ; preds = %20
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %30) #14
+41:                                               ; preds = %20
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %31) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %25) #14
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %20
-  %42 = load ptr, ptr %26, align 8
-  %.not8.i.i.i.i = icmp eq ptr %42, %28
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %43
+42:                                               ; preds = %41, %20
+  %43 = load ptr, ptr %26, align 8
+  %.not8.i.i.i.i = icmp eq ptr %43, %27
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store ptr %25, ptr %24, align 8
-  store <2 x ptr> %27, ptr %26, align 8
+  store ptr %27, ptr %26, align 8
+  store ptr %29, ptr %28, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %17
-  %44 = getelementptr inbounds i8, ptr %.01627, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %.not = icmp eq ptr %45, null
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %42, %17
+  %45 = getelementptr inbounds i8, ptr %.01627, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not = icmp eq ptr %46, null
   br i1 %.not, label %.loopexit, label %17, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_ZN12ResourceMarkD2Ev.exit, %6, %4, %0

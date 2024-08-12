@@ -135,7 +135,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x i32> <i32 32, i32 32, i32 0, i32 0>, ptr %_value.i, align 4
+  store i32 32, ptr %_value.i, align 4
+  %ySize.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 32, ptr %ySize.i.i, align 4
+  %mode.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store i32 0, ptr %mode.i.i, align 4
+  %roundingMode.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 0, ptr %roundingMode.i.i, align 4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -164,7 +170,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x i32> <i32 32, i32 32, i32 0, i32 0>, ptr %_value.i, align 4
+  store i32 32, ptr %_value.i, align 4
+  %ySize.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 32, ptr %ySize.i.i, align 4
+  %mode.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store i32 0, ptr %mode.i.i, align 4
+  %roundingMode.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 0, ptr %roundingMode.i.i, align 4
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 0) #14
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeINS_15TileDescriptionEE13copyValueFromERKNS_9AttributeE.exit
@@ -470,13 +482,15 @@ entry:
   %call.i.i.i12 = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %tmp, i32 noundef 1)
   %5 = load i8, ptr %tmp, align 1
   %6 = and i8 %5, 15
+  %spec.store.select = call i8 @llvm.umin.i8(i8 %6, i8 3)
+  %conv5 = zext nneg i8 %spec.store.select to i32
   %mode = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %conv5, ptr %mode, align 8
   %7 = lshr i8 %5, 4
-  %8 = insertelement <2 x i8> poison, i8 %6, i64 0
-  %9 = insertelement <2 x i8> %8, i8 %7, i64 1
-  %10 = call <2 x i8> @llvm.umin.v2i8(<2 x i8> %9, <2 x i8> <i8 3, i8 2>)
-  %11 = zext nneg <2 x i8> %10 to <2 x i32>
-  store <2 x i32> %11, ptr %mode, align 8
+  %spec.store.select1 = call i8 @llvm.umin.i8(i8 %7, i8 2)
+  %conv14 = zext nneg i8 %spec.store.select1 to i32
+  %roundingMode = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %conv14, ptr %roundingMode, align 4
   ret void
 }
 
@@ -488,14 +502,14 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i8> @llvm.umin.v2i8(<2 x i8>, <2 x i8>) #13
+declare i8 @llvm.umin.i8(i8, i8) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -509,8 +523,8 @@ attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }
 attributes #16 = { builtin allocsize(0) }

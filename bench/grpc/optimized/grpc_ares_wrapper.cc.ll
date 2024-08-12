@@ -1567,7 +1567,7 @@ declare void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE
 ; Function Attrs: mustprogress uwtable
 define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EE(ptr noundef %r, ptr nocapture noundef %addresses) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %sorted = alloca %"class.std::vector.12", align 16
+  %sorted = alloca %"class.std::vector.12", align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
@@ -1630,7 +1630,7 @@ for.body:                                         ; preds = %if.end, %for.body
 for.end:                                          ; preds = %for.body, %if.end
   %sub.ptr.div.i32.lcssa = phi i64 [ %sub.ptr.div.i3260, %if.end ], [ %sub.ptr.div.i32, %for.body ]
   tail call void @address_sorting_rfc_6724_sort(ptr noundef %call2, i64 noundef %sub.ptr.div.i32.lcssa)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %sorted, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sorted, i8 0, i64 24, i1 false)
   %14 = load ptr, ptr %_M_finish.i, align 8
   %15 = load ptr, ptr %addresses, align 8
   %sub.ptr.lhs.cast.i42 = ptrtoint ptr %14 to i64
@@ -1656,7 +1656,7 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %user_data26 = getelementptr inbounds %struct.address_sorting_sortable, ptr %call2, i64 %i20.068, i32 1
   %18 = load ptr, ptr %user_data26, align 8
   %19 = load ptr, ptr %_M_finish.i51, align 8
-  %20 = load ptr, ptr %_M_end_of_storage.i, align 16
+  %20 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %19, %20
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -1708,26 +1708,28 @@ invoke.cont32:                                    ; preds = %for.end31
   %24 = load ptr, ptr %addresses, align 8
   %25 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %addresses, i64 16
+  %26 = load ptr, ptr %sorted, align 8
+  store ptr %26, ptr %addresses, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %sorted, i64 8
-  %26 = load <2 x ptr>, ptr %sorted, align 16
-  store <2 x ptr> %26, ptr %addresses, align 8
+  %27 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %27, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %sorted, i64 16
-  %27 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %27, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %28 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %28, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %24, %25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %sorted, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sorted, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont32, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i ], [ %24, %invoke.cont32 ]
   %args_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 24
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i.i.i.i.i.i.i) #23
-  %28 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
+  %29 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %28) #24
+  call void @_ZdlPv(ptr noundef nonnull %29) #24
   br label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -1744,8 +1746,8 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
-  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
-  %tobool.i.i.i53 = trunc i8 %29 to i1
+  %30 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
+  %tobool.i.i.i53 = trunc i8 %30 to i1
   br i1 %tobool.i.i.i53, label %if.then37, label %if.end39
 
 if.then37:                                        ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
@@ -1753,39 +1755,39 @@ if.then37:                                        ; preds = %_ZNSt6vectorIN9grpc
           to label %if.end39 unwind label %lpad.loopexit.split-lp
 
 if.end39:                                         ; preds = %if.then37, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EEaSEOS3_.exit
-  %30 = load ptr, ptr %sorted, align 16
-  %31 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %30, %31
+  %31 = load ptr, ptr %sorted, align 8
+  %32 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end39, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i ], [ %30, %if.end39 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i ], [ %31, %if.end39 ]
   %args_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i.i.i.i.i) #23
-  %32 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
+  %33 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %32) #24
+  call void @_ZdlPv(ptr noundef nonnull %33) #24
   br label %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %31
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %32
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !19
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN9grpc_core17EndpointAddressesEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %sorted, align 16
+  %.pr.i = load ptr, ptr %sorted, align 8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %if.end39
-  %33 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %30, %if.end39 ]
-  %tobool.not.i.i.i = icmp eq ptr %33, null
+  %34 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %31, %if.end39 ]
+  %tobool.not.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %33) #24
+  call void @_ZdlPv(ptr noundef nonnull %34) #24
   br label %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i

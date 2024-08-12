@@ -3750,7 +3750,7 @@ default.unreachable:                              ; preds = %2
 
 7:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %43
+  br label %45
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3758,21 +3758,21 @@ default.unreachable:                              ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %10, ptr %11, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %43
+  br label %45
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %43
+  br label %45
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %43
+  br label %45
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 24
@@ -3782,7 +3782,7 @@ default.unreachable:                              ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f61722107530a89E.llvm.7205017296298784897"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 %21, i64 noundef %22)
   store i64 -9223372036854775804, ptr %0, align 8
-  br label %43
+  br label %45
 
 24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !578
@@ -3835,12 +3835,16 @@ default.unreachable:                              ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !578
   %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %42 = load i64, ptr %41, align 8, !alias.scope !590, !noalias !593, !noundef !4
+  %43 = getelementptr inbounds i8, ptr %1, i64 64
+  %44 = load i64, ptr %43, align 8, !alias.scope !590, !noalias !593, !noundef !4
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %42 = load <2 x i64>, ptr %41, align 8, !alias.scope !590, !noalias !593
-  store <2 x i64> %42, ptr %.sroa.42.0..sroa_idx, align 8
-  br label %43
+  store i64 %42, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %44, ptr %.sroa.53.0..sroa_idx, align 8
+  br label %45
 
-43:                                               ; preds = %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd666b6451bc04d95E.exit", %18, %15, %12, %8, %7
+45:                                               ; preds = %"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd666b6451bc04d95E.exit", %18, %15, %12, %8, %7
   ret void
 }
 
@@ -4228,8 +4232,8 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %23 = select i1 %21, i64 %22, i64 0
   switch i64 %23, label %24 [
     i64 0, label %25
-    i64 1, label %182
-    i64 2, label %183
+    i64 1, label %181
+    i64 2, label %182
   ]
 
 24:                                               ; preds = %2
@@ -4669,6 +4673,11 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %176 = load i32, ptr %175, align 8, !range !679, !alias.scope !650, !noalias !654, !noundef !4
   %switch17.i = icmp eq i32 %176, 0
   %177 = getelementptr inbounds i8, ptr %1, i64 284
+  %178 = load float, ptr %177, align 4, !alias.scope !650, !noalias !654
+  %179 = getelementptr inbounds i8, ptr %1, i64 288
+  %180 = load float, ptr %179, align 8, !alias.scope !650, !noalias !654
+  %.sroa.7.0.i = select i1 %switch17.i, float %180, float undef
+  %.sroa.68.0.i = select i1 %switch17.i, float %178, float undef
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -4704,26 +4713,24 @@ define internal fastcc void @"_ZN80_$LT$milli..update..settings..Setting$LT$T$GT
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 280
   store i32 %176, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
-  %178 = load <2 x float>, ptr %177, align 4, !alias.scope !650, !noalias !654
-  %179 = insertelement <2 x i1> poison, i1 %switch17.i, i64 0
-  %180 = shufflevector <2 x i1> %179, <2 x i1> poison, <2 x i32> zeroinitializer
-  %181 = select <2 x i1> %180, <2 x float> %178, <2 x float> undef
-  store <2 x float> %181, ptr %.sroa.16.0..sroa_idx, align 4
+  store float %.sroa.68.0.i, ptr %.sroa.16.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 288
+  store float %.sroa.7.0.i, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 292
   store i8 %.sroa.06.0.i, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 293
   store i8 %.sroa.0.0.i, ptr %.sroa.19.0..sroa_idx, align 1
-  br label %184
+  br label %183
+
+181:                                              ; preds = %2
+  store i64 3, ptr %0, align 8
+  br label %183
 
 182:                                              ; preds = %2
-  store i64 3, ptr %0, align 8
-  br label %184
-
-183:                                              ; preds = %2
   store i64 4, ptr %0, align 8
-  br label %184
+  br label %183
 
-184:                                              ; preds = %183, %182, %"_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit"
+183:                                              ; preds = %182, %181, %"_ZN81_$LT$milli..vector..settings..EmbeddingSettings$u20$as$u20$core..clone..Clone$GT$5clone17h7f1bb7bcf9d8477fE.exit"
   ret void
 }
 

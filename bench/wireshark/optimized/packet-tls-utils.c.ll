@@ -6504,20 +6504,24 @@ define hidden ptr @tls_add_packet_info(i32 noundef %0, ptr noundef %1, i8 nounde
   %5 = zext i8 %2 to i32
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %1, i32 noundef %0, i32 noundef %5) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %14
+  br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %3
   %8 = tail call ptr @wmem_file_scope() #23
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 32) #23
   %10 = getelementptr inbounds i8, ptr %1, i64 284
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = load <2 x i32>, ptr %10, align 4
-  store <2 x i32> %12, ptr %11, align 8
-  %13 = tail call ptr @wmem_file_scope() #23
-  tail call void @p_add_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %0, i32 noundef %5, ptr noundef %9) #23
-  br label %14
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 288
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 %14, ptr %15, align 4
+  %16 = tail call ptr @wmem_file_scope() #23
+  tail call void @p_add_proto_data(ptr noundef %16, ptr noundef %1, i32 noundef %0, i32 noundef %5, ptr noundef %9) #23
+  br label %17
 
-14:                                               ; preds = %7, %3
+17:                                               ; preds = %7, %3
   %.0 = phi ptr [ %6, %3 ], [ %9, %7 ]
   ret ptr %.0
 }
@@ -6538,57 +6542,61 @@ define hidden void @ssl_add_record_info(i32 noundef %0, ptr noundef %1, ptr noun
   %13 = tail call ptr @wmem_file_scope() #23
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 32) #23
   %15 = getelementptr inbounds i8, ptr %1, i64 284
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  %17 = load <2 x i32>, ptr %15, align 4
-  store <2 x i32> %17, ptr %16, align 8
-  %18 = tail call ptr @wmem_file_scope() #23
-  tail call void @p_add_proto_data(ptr noundef %18, ptr noundef %1, i32 noundef %0, i32 noundef %10, ptr noundef %14) #23
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  store i32 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 288
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 20
+  store i32 %19, ptr %20, align 4
+  %21 = tail call ptr @wmem_file_scope() #23
+  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef %1, i32 noundef %0, i32 noundef %10, ptr noundef %14) #23
   br label %tls_add_packet_info.exit
 
 tls_add_packet_info.exit:                         ; preds = %8, %12
   %.0.i = phi ptr [ %11, %8 ], [ %14, %12 ]
-  %19 = tail call ptr @wmem_file_scope() #23
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 48) #23
-  %21 = tail call ptr @wmem_file_scope() #23
-  %22 = sext i32 %3 to i64
-  %23 = tail call noalias ptr @wmem_memdup(ptr noundef %21, ptr noundef %2, i64 noundef %22) #23
-  store ptr %23, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
-  store i32 %3, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 12
-  store i32 %4, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
-  store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 40
-  store ptr null, ptr %27, align 8
-  %28 = icmp ne ptr %5, null
-  %29 = icmp eq i32 %6, 23
-  %or.cond = and i1 %28, %29
-  br i1 %or.cond, label %30, label %.preheader
+  %22 = tail call ptr @wmem_file_scope() #23
+  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 48) #23
+  %24 = tail call ptr @wmem_file_scope() #23
+  %25 = sext i32 %3 to i64
+  %26 = tail call noalias ptr @wmem_memdup(ptr noundef %24, ptr noundef %2, i64 noundef %25) #23
+  store ptr %26, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  store i32 %3, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %23, i64 12
+  store i32 %4, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  store i32 %6, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  store ptr null, ptr %30, align 8
+  %31 = icmp ne ptr %5, null
+  %32 = icmp eq i32 %6, 23
+  %or.cond = and i1 %31, %32
+  br i1 %or.cond, label %33, label %.preheader
 
-30:                                               ; preds = %tls_add_packet_info.exit
-  %31 = load i32, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 32
-  store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr %5, ptr %33, align 8
-  %34 = add i32 %31, %3
-  store i32 %34, ptr %5, align 8
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.618, ptr noundef nonnull @__func__.ssl_add_record_info, i32 noundef %31, i32 noundef %34, ptr noundef nonnull %5)
+33:                                               ; preds = %tls_add_packet_info.exit
+  %34 = load i32, ptr %5, align 8
+  %35 = getelementptr inbounds i8, ptr %23, i64 32
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %23, i64 24
+  store ptr %5, ptr %36, align 8
+  %37 = add i32 %34, %3
+  store i32 %37, ptr %5, align 8
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.618, ptr noundef nonnull @__func__.ssl_add_record_info, i32 noundef %34, i32 noundef %37, ptr noundef nonnull %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %30, %tls_add_packet_info.exit
-  br label %35
+.preheader:                                       ; preds = %33, %tls_add_packet_info.exit
+  br label %38
 
-35:                                               ; preds = %.preheader, %35
-  %.0 = phi ptr [ %37, %35 ], [ %.0.i, %.preheader ]
-  %36 = load ptr, ptr %.0, align 8
-  %.not = icmp eq ptr %36, null
-  %37 = getelementptr inbounds i8, ptr %36, i64 40
-  br i1 %.not, label %38, label %35, !llvm.loop !15
+38:                                               ; preds = %.preheader, %38
+  %.0 = phi ptr [ %40, %38 ], [ %.0.i, %.preheader ]
+  %39 = load ptr, ptr %.0, align 8
+  %.not = icmp eq ptr %39, null
+  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  br i1 %.not, label %41, label %38, !llvm.loop !15
 
-38:                                               ; preds = %35
-  store ptr %20, ptr %.0, align 8
+41:                                               ; preds = %38
+  store ptr %23, ptr %.0, align 8
   ret void
 }
 

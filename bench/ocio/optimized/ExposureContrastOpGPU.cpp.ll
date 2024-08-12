@@ -210,15 +210,15 @@ entry:
   %ref.tmp120.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp134.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp.i = alloca %"class.std::shared_ptr.8", align 16
+  %agg.tmp.i = alloca %"class.std::shared_ptr.8", align 8
   %ref.tmp1.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
   %ref.tmp7.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp8.i = alloca %"class.std::shared_ptr.8", align 16
+  %agg.tmp8.i = alloca %"class.std::shared_ptr.8", align 8
   %ref.tmp10.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11.i = alloca %"class.std::allocator", align 1
   %ref.tmp20.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp21.i = alloca %"class.std::shared_ptr.8", align 16
+  %agg.tmp21.i = alloca %"class.std::shared_ptr.8", align 8
   %ref.tmp23.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp24.i = alloca %"class.std::allocator", align 1
   %exposureName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -314,16 +314,17 @@ invoke.cont31:                                    ; preds = %invoke.cont29
   %3 = load ptr, ptr %ec, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %m_exposure.i.i = getelementptr inbounds i8, ptr %3, i64 176
+  %4 = load ptr, ptr %m_exposure.i.i, align 8, !noalias !4
+  store ptr %4, ptr %agg.tmp.i, align 8, !alias.scope !4
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 184
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !4
-  %5 = load <2 x ptr>, ptr %m_exposure.i.i, align 8, !noalias !4
-  store <2 x ptr> %5, ptr %agg.tmp.i, align 16, !alias.scope !4
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !4
+  store ptr %5, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !4
+  %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont31
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -428,16 +429,17 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit.i
   %20 = load ptr, ptr %ec, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %m_contrast.i.i = getelementptr inbounds i8, ptr %20, i64 192
+  %21 = load ptr, ptr %m_contrast.i.i, align 8, !noalias !7
+  store ptr %21, ptr %agg.tmp8.i, align 8, !alias.scope !7
   %_M_refcount.i.i.i14.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 8
   %_M_refcount3.i.i.i15.i = getelementptr inbounds i8, ptr %20, i64 200
-  %21 = load ptr, ptr %_M_refcount3.i.i.i15.i, align 8, !noalias !7
-  %22 = load <2 x ptr>, ptr %m_contrast.i.i, align 8, !noalias !7
-  store <2 x ptr> %22, ptr %agg.tmp8.i, align 16, !alias.scope !7
-  %cmp.not.i.i.i.i16.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i15.i, align 8, !noalias !7
+  store ptr %22, ptr %_M_refcount.i.i.i14.i, align 8, !alias.scope !7
+  %cmp.not.i.i.i.i16.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i16.i, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit.i, label %if.then.i.i.i.i17.i
 
 if.then.i.i.i.i17.i:                              ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit.i
-  %_M_use_count.i.i.i.i.i18.i = getelementptr inbounds i8, ptr %21, i64 8
+  %_M_use_count.i.i.i.i.i18.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.not.i.i.i.i.i19.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i19.i, label %if.else.i.i.i.i.i.i22.i, label %if.then.i.i.i.i.i.i20.i
@@ -542,16 +544,17 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit54
   %37 = load ptr, ptr %ec, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %m_gamma.i.i = getelementptr inbounds i8, ptr %37, i64 208
+  %38 = load ptr, ptr %m_gamma.i.i, align 8, !noalias !10
+  store ptr %38, ptr %agg.tmp21.i, align 8, !alias.scope !10
   %_M_refcount.i.i.i55.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 8
   %_M_refcount3.i.i.i56.i = getelementptr inbounds i8, ptr %37, i64 216
-  %38 = load ptr, ptr %_M_refcount3.i.i.i56.i, align 8, !noalias !10
-  %39 = load <2 x ptr>, ptr %m_gamma.i.i, align 8, !noalias !10
-  store <2 x ptr> %39, ptr %agg.tmp21.i, align 16, !alias.scope !10
-  %cmp.not.i.i.i.i57.i = icmp eq ptr %38, null
+  %39 = load ptr, ptr %_M_refcount3.i.i.i56.i, align 8, !noalias !10
+  store ptr %39, ptr %_M_refcount.i.i.i55.i, align 8, !alias.scope !10
+  %cmp.not.i.i.i.i57.i = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i.i57.i, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit.i, label %if.then.i.i.i.i58.i
 
 if.then.i.i.i.i58.i:                              ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit54.i
-  %_M_use_count.i.i.i.i.i59.i = getelementptr inbounds i8, ptr %38, i64 8
+  %_M_use_count.i.i.i.i.i59.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i60.i = icmp eq i8 %40, 0
   br i1 %tobool.i.not.i.i.i.i.i60.i, label %if.else.i.i.i.i.i.i63.i, label %if.then.i.i.i.i.i.i61.i
@@ -3159,8 +3162,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
-  %shaderProp = alloca %"class.std::shared_ptr.8", align 16
-  %newProp = alloca %"class.std::shared_ptr.14", align 16
+  %shaderProp = alloca %"class.std::shared_ptr.8", align 8
+  %newProp = alloca %"class.std::shared_ptr.14", align 8
   %newPropDouble = alloca %"class.std::shared_ptr.17", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3197,16 +3200,17 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont7
+  %4 = load ptr, ptr %shaderProp, align 8
+  store ptr %4, ptr %newProp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newProp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %shaderProp, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %5 = load <2 x ptr>, ptr %shaderProp, align 16
-  store <2 x ptr> %5, ptr %newProp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_25DynamicPropertyDoubleImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont11
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

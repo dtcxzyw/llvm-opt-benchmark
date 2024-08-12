@@ -834,66 +834,74 @@ proto_item_set_hidden.exit61:                     ; preds = %proto_item_set_hidd
   %52 = getelementptr inbounds i8, ptr %10, i64 50
   store i16 %51, ptr %52, align 2
   %53 = getelementptr inbounds i8, ptr %1, i64 208
-  %54 = getelementptr inbounds i8, ptr %1, i64 216
-  %55 = load ptr, ptr %54, align 8
-  %56 = load <2 x i32>, ptr %53, align 8
-  store <2 x i32> %56, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 24
-  %60 = getelementptr inbounds i8, ptr %1, i64 232
-  %61 = getelementptr inbounds i8, ptr %1, i64 240
-  %62 = load ptr, ptr %61, align 8
-  %63 = load <2 x i32>, ptr %60, align 8
-  store <2 x i32> %63, ptr %59, align 8
-  %64 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr null, ptr %65, align 8
-  %66 = load i32, ptr @btpa_tap, align 4
-  call void @tap_queue_packet(i32 noundef %66, ptr noundef nonnull %1, ptr noundef nonnull %10) #12
-  %67 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
-  %68 = load i32, ptr @btpa_follow_tap, align 4
-  %69 = call i32 @have_tap_listener(i32 noundef %68) #12
-  %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %72, label %70
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %1, i64 212
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %1, i64 216
+  %58 = load ptr, ptr %57, align 8
+  store i32 %54, ptr %10, align 8
+  %59 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %56, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %58, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr null, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %10, i64 24
+  %63 = getelementptr inbounds i8, ptr %1, i64 232
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 236
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds i8, ptr %1, i64 240
+  %68 = load ptr, ptr %67, align 8
+  store i32 %64, ptr %62, align 8
+  %69 = getelementptr inbounds i8, ptr %10, i64 28
+  store i32 %66, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %68, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %10, i64 40
+  store ptr null, ptr %71, align 8
+  %72 = load i32, ptr @btpa_tap, align 4
+  call void @tap_queue_packet(i32 noundef %72, ptr noundef nonnull %1, ptr noundef nonnull %10) #12
+  %73 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
+  %74 = load i32, ptr @btpa_follow_tap, align 4
+  %75 = call i32 @have_tap_listener(i32 noundef %74) #12
+  %.not = icmp eq i32 %75, 0
+  br i1 %.not, label %78, label %76
 
-70:                                               ; preds = %proto_item_set_hidden.exit61
-  %71 = load i32, ptr @btpa_follow_tap, align 4
-  call void @tap_queue_packet(i32 noundef %71, ptr noundef nonnull %1, ptr noundef %67) #12
-  br label %72
+76:                                               ; preds = %proto_item_set_hidden.exit61
+  %77 = load i32, ptr @btpa_follow_tap, align 4
+  call void @tap_queue_packet(i32 noundef %77, ptr noundef nonnull %1, ptr noundef %73) #12
+  br label %78
 
-72:                                               ; preds = %70, %proto_item_set_hidden.exit61
-  %73 = load i32, ptr %7, align 4
-  %74 = load i32, ptr %6, align 4
-  %.58 = call i32 @llvm.smin.i32(i32 %73, i32 %74)
-  %75 = load ptr, ptr @btpa_subdissector_table, align 8
-  %76 = call i32 @dissector_try_uint_new(ptr noundef %75, i32 noundef %.58, ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
-  %.not55 = icmp eq i32 %76, 0
-  br i1 %.not55, label %77, label %85
+78:                                               ; preds = %76, %proto_item_set_hidden.exit61
+  %79 = load i32, ptr %7, align 4
+  %80 = load i32, ptr %6, align 4
+  %.58 = call i32 @llvm.smin.i32(i32 %79, i32 %80)
+  %81 = load ptr, ptr @btpa_subdissector_table, align 8
+  %82 = call i32 @dissector_try_uint_new(ptr noundef %81, i32 noundef %.58, ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
+  %.not55 = icmp eq i32 %82, 0
+  br i1 %.not55, label %83, label %91
 
-77:                                               ; preds = %72
-  %. = call i32 @llvm.smax.i32(i32 %73, i32 %74)
-  %78 = load ptr, ptr @btpa_subdissector_table, align 8
-  %79 = call i32 @dissector_try_uint_new(ptr noundef %78, i32 noundef %., ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
-  %.not56 = icmp eq i32 %79, 0
-  br i1 %.not56, label %80, label %85
+83:                                               ; preds = %78
+  %. = call i32 @llvm.smax.i32(i32 %79, i32 %80)
+  %84 = load ptr, ptr @btpa_subdissector_table, align 8
+  %85 = call i32 @dissector_try_uint_new(ptr noundef %84, i32 noundef %., ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %86, label %91
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr @btpa_heur_subdissector_list, align 8
-  %82 = call i32 @dissector_try_heuristic(ptr noundef %81, ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #12
-  %.not57 = icmp eq i32 %82, 0
-  br i1 %.not57, label %83, label %85
+86:                                               ; preds = %83
+  %87 = load ptr, ptr @btpa_heur_subdissector_list, align 8
+  %88 = call i32 @dissector_try_heuristic(ptr noundef %87, ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #12
+  %.not57 = icmp eq i32 %88, 0
+  br i1 %.not57, label %89, label %91
 
-83:                                               ; preds = %80
-  %84 = call i32 @call_data_dissector(ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %85
+89:                                               ; preds = %86
+  %90 = call i32 @call_data_dissector(ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %91
 
-85:                                               ; preds = %80, %77, %72, %83
-  %86 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  ret i32 %86
+91:                                               ; preds = %86, %83, %78, %89
+  %92 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  ret i32 %92
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1061,57 +1069,65 @@ define internal i32 @dissect_btpb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = getelementptr inbounds i8, ptr %10, i64 50
   store i16 %29, ptr %30, align 2
   %31 = getelementptr inbounds i8, ptr %1, i64 208
-  %32 = getelementptr inbounds i8, ptr %1, i64 216
-  %33 = load ptr, ptr %32, align 8
-  %34 = load <2 x i32>, ptr %31, align 8
-  store <2 x i32> %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 24
-  %38 = getelementptr inbounds i8, ptr %1, i64 232
-  %39 = getelementptr inbounds i8, ptr %1, i64 240
-  %40 = load ptr, ptr %39, align 8
-  %41 = load <2 x i32>, ptr %38, align 8
-  store <2 x i32> %41, ptr %37, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %40, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr null, ptr %43, align 8
-  %44 = load i32, ptr @btpb_tap, align 4
-  call void @tap_queue_packet(i32 noundef %44, ptr noundef %1, ptr noundef nonnull %10) #12
-  %45 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
-  %46 = load i32, ptr @btpb_follow_tap, align 4
-  %47 = call i32 @have_tap_listener(i32 noundef %46) #12
-  %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %50, label %48
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 212
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %1, i64 216
+  %36 = load ptr, ptr %35, align 8
+  store i32 %32, ptr %10, align 8
+  %37 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %34, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %36, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr null, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %10, i64 24
+  %41 = getelementptr inbounds i8, ptr %1, i64 232
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 236
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %1, i64 240
+  %46 = load ptr, ptr %45, align 8
+  store i32 %42, ptr %40, align 8
+  %47 = getelementptr inbounds i8, ptr %10, i64 28
+  store i32 %44, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %46, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %10, i64 40
+  store ptr null, ptr %49, align 8
+  %50 = load i32, ptr @btpb_tap, align 4
+  call void @tap_queue_packet(i32 noundef %50, ptr noundef %1, ptr noundef nonnull %10) #12
+  %51 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #12
+  %52 = load i32, ptr @btpb_follow_tap, align 4
+  %53 = call i32 @have_tap_listener(i32 noundef %52) #12
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %56, label %54
 
-48:                                               ; preds = %4
-  %49 = load i32, ptr @btpb_follow_tap, align 4
-  call void @tap_queue_packet(i32 noundef %49, ptr noundef nonnull %1, ptr noundef %45) #12
-  br label %50
+54:                                               ; preds = %4
+  %55 = load i32, ptr @btpb_follow_tap, align 4
+  call void @tap_queue_packet(i32 noundef %55, ptr noundef nonnull %1, ptr noundef %51) #12
+  br label %56
 
-50:                                               ; preds = %48, %4
-  %51 = load ptr, ptr @btpb_subdissector_table, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = call i32 @dissector_try_uint_new(ptr noundef %51, i32 noundef %52, ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
-  %.not35 = icmp eq i32 %53, 0
-  br i1 %.not35, label %54, label %59
+56:                                               ; preds = %54, %4
+  %57 = load ptr, ptr @btpb_subdissector_table, align 8
+  %58 = load i32, ptr %6, align 4
+  %59 = call i32 @dissector_try_uint_new(ptr noundef %57, i32 noundef %58, ptr noundef %51, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #12
+  %.not35 = icmp eq i32 %59, 0
+  br i1 %.not35, label %60, label %65
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @btpb_heur_subdissector_list, align 8
-  %56 = call i32 @dissector_try_heuristic(ptr noundef %55, ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #12
-  %.not36 = icmp eq i32 %56, 0
-  br i1 %.not36, label %57, label %59
+60:                                               ; preds = %56
+  %61 = load ptr, ptr @btpb_heur_subdissector_list, align 8
+  %62 = call i32 @dissector_try_heuristic(ptr noundef %61, ptr noundef %51, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #12
+  %.not36 = icmp eq i32 %62, 0
+  br i1 %.not36, label %63, label %65
 
-57:                                               ; preds = %54
-  %58 = call i32 @call_data_dissector(ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2) #12
-  br label %59
+63:                                               ; preds = %60
+  %64 = call i32 @call_data_dissector(ptr noundef %51, ptr noundef nonnull %1, ptr noundef %2) #12
+  br label %65
 
-59:                                               ; preds = %54, %50, %57
-  %60 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  ret i32 %60
+65:                                               ; preds = %60, %56, %63
+  %66 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable

@@ -130,7 +130,7 @@ define hidden void @BusmasterParser(ptr noundef %0, i32 noundef %1, ptr nocaptur
   br label %19
 
 19:                                               ; preds = %yy_reduce.exit, %4
-  %.0 = phi i8 [ %9, %4 ], [ %224, %yy_reduce.exit ]
+  %.0 = phi i8 [ %9, %4 ], [ %227, %yy_reduce.exit ]
   %20 = icmp ugt i8 %.0, 77
   br i1 %20, label %yy_find_shift_action.exit, label %.sink.split.i
 
@@ -152,7 +152,7 @@ define hidden void @BusmasterParser(ptr noundef %0, i32 noundef %1, ptr nocaptur
 yy_find_shift_action.exit:                        ; preds = %19, %.sink.split.i
   %.0.i = phi i8 [ %.0, %19 ], [ %30, %.sink.split.i ]
   %31 = icmp ugt i8 %.0.i, -73
-  br i1 %31, label %32, label %227
+  br i1 %31, label %32, label %230
 
 32:                                               ; preds = %yy_find_shift_action.exit
   %33 = zext i8 %.0.i to i64
@@ -199,7 +199,7 @@ yyStackOverflow.exit:                             ; preds = %41, %._crit_edge.i
   %50 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #11
   store ptr %50, ptr %47, align 8
   store ptr %.pre47, ptr %6, align 8
-  br label %281
+  br label %284
 
 51:                                               ; preds = %._crit_edge, %38
   %52 = phi ptr [ %.pre48, %._crit_edge ], [ %39, %38 ]
@@ -219,27 +219,27 @@ yyStackOverflow.exit:                             ; preds = %41, %._crit_edge.i
     i8 -64, label %122
     i8 -63, label %132
     i8 -62, label %146
-    i8 -61, label %157
-    i8 -60, label %161
-    i8 -59, label %165
-    i8 -58, label %165
-    i8 -25, label %199
-    i8 -26, label %199
-    i8 -27, label %199
-    i8 -28, label %199
-    i8 -29, label %199
-    i8 -30, label %199
-    i8 -31, label %199
-    i8 -32, label %199
-    i8 -33, label %199
-    i8 -34, label %199
-    i8 -35, label %199
-    i8 -36, label %190
-    i8 -37, label %183
-    i8 -38, label %178
-    i8 -39, label %175
-    i8 -40, label %173
-    i8 -41, label %169
+    i8 -61, label %160
+    i8 -60, label %164
+    i8 -59, label %168
+    i8 -58, label %168
+    i8 -25, label %202
+    i8 -26, label %202
+    i8 -27, label %202
+    i8 -28, label %202
+    i8 -29, label %202
+    i8 -30, label %202
+    i8 -31, label %202
+    i8 -32, label %202
+    i8 -33, label %202
+    i8 -34, label %202
+    i8 -35, label %202
+    i8 -36, label %193
+    i8 -37, label %186
+    i8 -38, label %181
+    i8 -39, label %178
+    i8 -40, label %176
+    i8 -41, label %172
   ]
 
 54:                                               ; preds = %51
@@ -416,269 +416,273 @@ yyStackOverflow.exit:                             ; preds = %41, %._crit_edge.i
 
 146:                                              ; preds = %51
   %147 = getelementptr inbounds i8, ptr %52, i64 8
-  %148 = load <2 x i64>, ptr %147, align 8
-  %149 = trunc <2 x i64> %148 to <2 x i32>
-  store <2 x i32> %149, ptr %5, align 8
-  %150 = getelementptr inbounds i8, ptr %52, i64 24
+  %148 = load i64, ptr %147, align 8
+  %149 = trunc i64 %148 to i32
+  store i32 %149, ptr %5, align 8
+  %150 = getelementptr inbounds i8, ptr %52, i64 16
   %151 = load i64, ptr %150, align 8
   %152 = trunc i64 %151 to i32
-  store i32 %152, ptr %17, align 8
-  %153 = getelementptr inbounds i8, ptr %52, i64 32
+  store i32 %152, ptr %13, align 4
+  %153 = getelementptr inbounds i8, ptr %52, i64 24
   %154 = load i64, ptr %153, align 8
   %155 = trunc i64 %154 to i32
-  %156 = mul i32 %155, 100
-  store i32 %156, ptr %18, align 4
+  store i32 %155, ptr %17, align 8
+  %156 = getelementptr inbounds i8, ptr %52, i64 32
+  %157 = load i64, ptr %156, align 8
+  %158 = trunc i64 %157 to i32
+  %159 = mul i32 %158, 100
+  store i32 %159, ptr %18, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   br label %yy_reduce.exit
 
-157:                                              ; preds = %51
-  %158 = getelementptr inbounds i8, ptr %52, i64 8
-  %159 = load i64, ptr %158, align 8
-  %160 = trunc i64 %159 to i32
-  store i32 %160, ptr %158, align 8
+160:                                              ; preds = %51
+  %161 = getelementptr inbounds i8, ptr %52, i64 8
+  %162 = load i64, ptr %161, align 8
+  %163 = trunc i64 %162 to i32
+  store i32 %163, ptr %161, align 8
   br label %yy_reduce.exit
 
-161:                                              ; preds = %51
-  %162 = getelementptr inbounds i8, ptr %52, i64 8
-  %163 = load i64, ptr %162, align 8
-  %164 = trunc i64 %163 to i32
-  store i32 %164, ptr %162, align 8
+164:                                              ; preds = %51
+  %165 = getelementptr inbounds i8, ptr %52, i64 8
+  %166 = load i64, ptr %165, align 8
+  %167 = trunc i64 %166 to i32
+  store i32 %167, ptr %165, align 8
   br label %yy_reduce.exit
 
-165:                                              ; preds = %51, %51
-  %166 = getelementptr inbounds i8, ptr %52, i64 8
-  %167 = load i64, ptr %166, align 8
-  %168 = trunc i64 %167 to i32
-  store i32 %168, ptr %166, align 8
+168:                                              ; preds = %51, %51
+  %169 = getelementptr inbounds i8, ptr %52, i64 8
+  %170 = load i64, ptr %169, align 8
+  %171 = trunc i64 %170 to i32
+  store i32 %171, ptr %169, align 8
   br label %yy_reduce.exit
 
-169:                                              ; preds = %51
-  %170 = getelementptr inbounds i8, ptr %52, i64 8
-  %171 = load i64, ptr %170, align 8
-  %172 = trunc i64 %171 to i8
-  store i8 %172, ptr %170, align 8
+172:                                              ; preds = %51
+  %173 = getelementptr inbounds i8, ptr %52, i64 8
+  %174 = load i64, ptr %173, align 8
+  %175 = trunc i64 %174 to i8
+  store i8 %175, ptr %173, align 8
   br label %yy_reduce.exit
 
-173:                                              ; preds = %51
-  %174 = getelementptr i8, ptr %52, i64 88
-  store i32 0, ptr %174, align 8
-  br label %yy_reduce.exit
-
-175:                                              ; preds = %51
-  store i32 1, ptr %5, align 8
-  %176 = getelementptr inbounds i8, ptr %52, i64 8
-  %177 = load i8, ptr %176, align 8
-  store i8 %177, ptr %13, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %176, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
+176:                                              ; preds = %51
+  %177 = getelementptr i8, ptr %52, i64 88
+  store i32 0, ptr %177, align 8
   br label %yy_reduce.exit
 
 178:                                              ; preds = %51
-  store i32 2, ptr %5, align 8
-  %179 = getelementptr i8, ptr %52, i64 -72
+  store i32 1, ptr %5, align 8
+  %179 = getelementptr inbounds i8, ptr %52, i64 8
   %180 = load i8, ptr %179, align 8
   store i8 %180, ptr %13, align 4
-  %181 = getelementptr inbounds i8, ptr %52, i64 8
-  %182 = load i8, ptr %181, align 8
-  store i8 %182, ptr %14, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %179, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %yy_reduce.exit
 
-183:                                              ; preds = %51
-  store i32 3, ptr %5, align 8
-  %184 = getelementptr i8, ptr %52, i64 -152
+181:                                              ; preds = %51
+  store i32 2, ptr %5, align 8
+  %182 = getelementptr i8, ptr %52, i64 -72
+  %183 = load i8, ptr %182, align 8
+  store i8 %183, ptr %13, align 4
+  %184 = getelementptr inbounds i8, ptr %52, i64 8
   %185 = load i8, ptr %184, align 8
-  store i8 %185, ptr %13, align 4
-  %186 = getelementptr i8, ptr %52, i64 -72
-  %187 = load i8, ptr %186, align 8
-  store i8 %187, ptr %14, align 1
-  %188 = getelementptr inbounds i8, ptr %52, i64 8
-  %189 = load i8, ptr %188, align 8
-  store i8 %189, ptr %15, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %184, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
+  store i8 %185, ptr %14, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %182, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %yy_reduce.exit
 
-190:                                              ; preds = %51
-  store i32 4, ptr %5, align 8
-  %191 = getelementptr i8, ptr %52, i64 -232
+186:                                              ; preds = %51
+  store i32 3, ptr %5, align 8
+  %187 = getelementptr i8, ptr %52, i64 -152
+  %188 = load i8, ptr %187, align 8
+  store i8 %188, ptr %13, align 4
+  %189 = getelementptr i8, ptr %52, i64 -72
+  %190 = load i8, ptr %189, align 8
+  store i8 %190, ptr %14, align 1
+  %191 = getelementptr inbounds i8, ptr %52, i64 8
   %192 = load i8, ptr %191, align 8
-  store i8 %192, ptr %13, align 4
-  %193 = getelementptr i8, ptr %52, i64 -152
-  %194 = load i8, ptr %193, align 8
-  store i8 %194, ptr %14, align 1
-  %195 = getelementptr i8, ptr %52, i64 -72
-  %196 = load i8, ptr %195, align 8
-  store i8 %196, ptr %15, align 2
-  %197 = getelementptr inbounds i8, ptr %52, i64 8
-  %198 = load i8, ptr %197, align 8
-  store i8 %198, ptr %16, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %191, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
+  store i8 %192, ptr %15, align 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %187, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %yy_reduce.exit
 
-199:                                              ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %51, %51, %51
-  %200 = getelementptr i8, ptr %52, i64 -72
-  %201 = getelementptr inbounds i8, ptr %52, i64 8
-  %202 = load i32, ptr %200, align 4
-  %203 = load i32, ptr %201, align 4
-  %204 = add i32 %203, %202
-  store i32 %204, ptr %5, align 8
-  %205 = getelementptr i8, ptr %52, i64 -68
-  %206 = zext i32 %202 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %205, i64 %206, i1 false)
-  %207 = getelementptr [64 x i8], ptr %13, i64 0, i64 %206
-  %208 = getelementptr inbounds i8, ptr %52, i64 12
-  %209 = zext i32 %203 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr nonnull readonly align 4 %208, i64 %209, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %200, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
+193:                                              ; preds = %51
+  store i32 4, ptr %5, align 8
+  %194 = getelementptr i8, ptr %52, i64 -232
+  %195 = load i8, ptr %194, align 8
+  store i8 %195, ptr %13, align 4
+  %196 = getelementptr i8, ptr %52, i64 -152
+  %197 = load i8, ptr %196, align 8
+  store i8 %197, ptr %14, align 1
+  %198 = getelementptr i8, ptr %52, i64 -72
+  %199 = load i8, ptr %198, align 8
+  store i8 %199, ptr %15, align 2
+  %200 = getelementptr inbounds i8, ptr %52, i64 8
+  %201 = load i8, ptr %200, align 8
+  store i8 %201, ptr %16, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %194, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %yy_reduce.exit
 
-yy_reduce.exit:                                   ; preds = %51, %54, %56, %58, %76, %81, %102, %109, %115, %122, %132, %146, %157, %161, %165, %169, %173, %175, %178, %183, %190, %199
-  %210 = getelementptr [64 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %35
-  %211 = load i8, ptr %210, align 1
-  %212 = getelementptr [64 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %35
-  %213 = load i8, ptr %212, align 1
-  %214 = sext i8 %213 to i64
-  %215 = getelementptr %struct.yyStackEntry, ptr %52, i64 %214
-  %216 = load i8, ptr %215, align 8
-  %217 = zext i8 %216 to i64
-  %218 = getelementptr [42 x i8], ptr @yy_reduce_ofst, i64 0, i64 %217
-  %219 = load i8, ptr %218, align 1
-  %220 = sext i8 %219 to i64
-  %221 = zext i8 %211 to i64
-  %222 = add nsw i64 %220, %221
-  %223 = getelementptr [158 x i8], ptr @yy_action, i64 0, i64 %222
-  %224 = load i8, ptr %223, align 1
-  %225 = getelementptr i8, ptr %215, i64 80
-  store ptr %225, ptr %0, align 8
-  store i8 %224, ptr %225, align 8
-  %226 = getelementptr i8, ptr %215, i64 81
-  store i8 %211, ptr %226, align 1
+202:                                              ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %51, %51, %51
+  %203 = getelementptr i8, ptr %52, i64 -72
+  %204 = getelementptr inbounds i8, ptr %52, i64 8
+  %205 = load i32, ptr %203, align 4
+  %206 = load i32, ptr %204, align 4
+  %207 = add i32 %206, %205
+  store i32 %207, ptr %5, align 8
+  %208 = getelementptr i8, ptr %52, i64 -68
+  %209 = zext i32 %205 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %208, i64 %209, i1 false)
+  %210 = getelementptr [64 x i8], ptr %13, i64 0, i64 %209
+  %211 = getelementptr inbounds i8, ptr %52, i64 12
+  %212 = zext i32 %206 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %210, ptr nonnull readonly align 4 %211, i64 %212, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %203, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
+  br label %yy_reduce.exit
+
+yy_reduce.exit:                                   ; preds = %51, %54, %56, %58, %76, %81, %102, %109, %115, %122, %132, %146, %160, %164, %168, %172, %176, %178, %181, %186, %193, %202
+  %213 = getelementptr [64 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %35
+  %214 = load i8, ptr %213, align 1
+  %215 = getelementptr [64 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %35
+  %216 = load i8, ptr %215, align 1
+  %217 = sext i8 %216 to i64
+  %218 = getelementptr %struct.yyStackEntry, ptr %52, i64 %217
+  %219 = load i8, ptr %218, align 8
+  %220 = zext i8 %219 to i64
+  %221 = getelementptr [42 x i8], ptr @yy_reduce_ofst, i64 0, i64 %220
+  %222 = load i8, ptr %221, align 1
+  %223 = sext i8 %222 to i64
+  %224 = zext i8 %214 to i64
+  %225 = add nsw i64 %223, %224
+  %226 = getelementptr [158 x i8], ptr @yy_action, i64 0, i64 %225
+  %227 = load i8, ptr %226, align 1
+  %228 = getelementptr i8, ptr %218, i64 80
+  store ptr %228, ptr %0, align 8
+  store i8 %227, ptr %228, align 8
+  %229 = getelementptr i8, ptr %218, i64 81
+  store i8 %214, ptr %229, align 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %.sroa.48.i)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %.sroa.4.i)
   br label %19
 
-227:                                              ; preds = %yy_find_shift_action.exit
-  %228 = icmp ult i8 %.0.i, -75
-  br i1 %228, label %229, label %253
+230:                                              ; preds = %yy_find_shift_action.exit
+  %231 = icmp ult i8 %.0.i, -75
+  br i1 %231, label %232, label %256
 
-229:                                              ; preds = %227
-  %230 = load ptr, ptr %0, align 8
-  %231 = getelementptr i8, ptr %230, i64 80
-  store ptr %231, ptr %0, align 8
-  %232 = load ptr, ptr %12, align 8
-  %233 = icmp ugt ptr %231, %232
-  br i1 %233, label %234, label %245
+232:                                              ; preds = %230
+  %233 = load ptr, ptr %0, align 8
+  %234 = getelementptr i8, ptr %233, i64 80
+  store ptr %234, ptr %0, align 8
+  %235 = load ptr, ptr %12, align 8
+  %236 = icmp ugt ptr %234, %235
+  br i1 %236, label %237, label %248
 
-234:                                              ; preds = %229
-  store ptr %230, ptr %0, align 8
-  %235 = load ptr, ptr %6, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 24
-  %237 = icmp ugt ptr %230, %236
-  br i1 %237, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
+237:                                              ; preds = %232
+  store ptr %233, ptr %0, align 8
+  %238 = load ptr, ptr %6, align 8
+  %239 = getelementptr inbounds i8, ptr %0, i64 24
+  %240 = icmp ugt ptr %233, %239
+  br i1 %240, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
 
-.lr.ph.i.i:                                       ; preds = %234, %.lr.ph.i.i
-  %238 = phi ptr [ %239, %.lr.ph.i.i ], [ %230, %234 ]
-  %239 = getelementptr i8, ptr %238, i64 -80
-  %240 = icmp ugt ptr %239, %236
-  br i1 %240, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %237, %.lr.ph.i.i
+  %241 = phi ptr [ %242, %.lr.ph.i.i ], [ %233, %237 ]
+  %242 = getelementptr i8, ptr %241, i64 -80
+  %243 = icmp ugt ptr %242, %239
+  br i1 %243, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %239, ptr %0, align 8
+  store ptr %242, ptr %0, align 8
   br label %yyStackOverflow.exit.i
 
-yyStackOverflow.exit.i:                           ; preds = %._crit_edge.i.i, %234
-  %241 = getelementptr inbounds i8, ptr %235, i64 16
-  %242 = load ptr, ptr %241, align 8
-  tail call void @g_free(ptr noundef %242) #11
-  %243 = getelementptr inbounds i8, ptr %235, i64 72
-  store i32 -1, ptr %243, align 8
-  %244 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #11
-  store ptr %244, ptr %241, align 8
-  store ptr %235, ptr %6, align 8
+yyStackOverflow.exit.i:                           ; preds = %._crit_edge.i.i, %237
+  %244 = getelementptr inbounds i8, ptr %238, i64 16
+  %245 = load ptr, ptr %244, align 8
+  tail call void @g_free(ptr noundef %245) #11
+  %246 = getelementptr inbounds i8, ptr %238, i64 72
+  store i32 -1, ptr %246, align 8
+  %247 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #11
+  store ptr %247, ptr %244, align 8
+  store ptr %238, ptr %6, align 8
   br label %yy_shift.exit
 
-245:                                              ; preds = %229
-  %246 = icmp ugt i8 %.0.i, 77
-  %247 = add nuw i8 %.0.i, 67
-  %spec.select.i = select i1 %246, i8 %247, i8 %.0.i
-  store i8 %spec.select.i, ptr %231, align 8
-  %248 = getelementptr i8, ptr %230, i64 81
-  store i8 %10, ptr %248, align 1
-  %249 = getelementptr i8, ptr %230, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+248:                                              ; preds = %232
+  %249 = icmp ugt i8 %.0.i, 77
+  %250 = add nuw i8 %.0.i, 67
+  %spec.select.i = select i1 %249, i8 %250, i8 %.0.i
+  store i8 %spec.select.i, ptr %234, align 8
+  %251 = getelementptr i8, ptr %233, i64 81
+  store i8 %10, ptr %251, align 1
+  %252 = getelementptr i8, ptr %233, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %252, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %245
-  %250 = getelementptr inbounds i8, ptr %0, i64 8
-  %251 = load i32, ptr %250, align 8
-  %252 = add i32 %251, -1
-  store i32 %252, ptr %250, align 8
-  br label %281
+yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %248
+  %253 = getelementptr inbounds i8, ptr %0, i64 8
+  %254 = load i32, ptr %253, align 8
+  %255 = add i32 %254, -1
+  store i32 %255, ptr %253, align 8
+  br label %284
 
-253:                                              ; preds = %227
-  %254 = icmp eq i8 %.0.i, -74
-  br i1 %254, label %255, label %259
+256:                                              ; preds = %230
+  %257 = icmp eq i8 %.0.i, -74
+  br i1 %257, label %258, label %262
 
-255:                                              ; preds = %253
-  %256 = load ptr, ptr %0, align 8
-  %257 = getelementptr i8, ptr %256, i64 -80
-  store ptr %257, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 -1, ptr %258, align 8
-  br label %281
+258:                                              ; preds = %256
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr i8, ptr %259, i64 -80
+  store ptr %260, ptr %0, align 8
+  %261 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %261, align 8
+  br label %284
 
-259:                                              ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %0, i64 8
-  %261 = load i32, ptr %260, align 8
-  %262 = icmp slt i32 %261, 1
-  br i1 %262, label %263, label %269
+262:                                              ; preds = %256
+  %263 = getelementptr inbounds i8, ptr %0, i64 8
+  %264 = load i32, ptr %263, align 8
+  %265 = icmp slt i32 %264, 1
+  br i1 %265, label %266, label %272
 
-263:                                              ; preds = %259
-  %264 = load ptr, ptr %6, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 16
-  %266 = load ptr, ptr %265, align 8
-  tail call void @g_free(ptr noundef %266) #11
-  %267 = getelementptr inbounds i8, ptr %264, i64 72
-  store i32 -1, ptr %267, align 8
-  %268 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1) #11
-  store ptr %268, ptr %265, align 8
-  store ptr %264, ptr %6, align 8
-  br label %269
+266:                                              ; preds = %262
+  %267 = load ptr, ptr %6, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 16
+  %269 = load ptr, ptr %268, align 8
+  tail call void @g_free(ptr noundef %269) #11
+  %270 = getelementptr inbounds i8, ptr %267, i64 72
+  store i32 -1, ptr %270, align 8
+  %271 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1) #11
+  store ptr %271, ptr %268, align 8
+  store ptr %267, ptr %6, align 8
+  br label %272
 
-269:                                              ; preds = %263, %259
-  store i32 3, ptr %260, align 8
-  br i1 %7, label %270, label %281
+272:                                              ; preds = %266, %262
+  store i32 3, ptr %263, align 8
+  br i1 %7, label %273, label %284
 
-270:                                              ; preds = %269
-  %271 = load ptr, ptr %6, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 24
+273:                                              ; preds = %272
+  %274 = load ptr, ptr %6, align 8
+  %275 = getelementptr inbounds i8, ptr %0, i64 24
   %.promoted.i34 = load ptr, ptr %0, align 8
-  %273 = icmp ugt ptr %.promoted.i34, %272
-  br i1 %273, label %.lr.ph.i35, label %yy_parse_failed.exit
+  %276 = icmp ugt ptr %.promoted.i34, %275
+  br i1 %276, label %.lr.ph.i35, label %yy_parse_failed.exit
 
-.lr.ph.i35:                                       ; preds = %270, %.lr.ph.i35
-  %274 = phi ptr [ %275, %.lr.ph.i35 ], [ %.promoted.i34, %270 ]
-  %275 = getelementptr i8, ptr %274, i64 -80
-  %276 = icmp ugt ptr %275, %272
-  br i1 %276, label %.lr.ph.i35, label %._crit_edge.i36, !llvm.loop !7
+.lr.ph.i35:                                       ; preds = %273, %.lr.ph.i35
+  %277 = phi ptr [ %278, %.lr.ph.i35 ], [ %.promoted.i34, %273 ]
+  %278 = getelementptr i8, ptr %277, i64 -80
+  %279 = icmp ugt ptr %278, %275
+  br i1 %279, label %.lr.ph.i35, label %._crit_edge.i36, !llvm.loop !7
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph.i35
-  store ptr %275, ptr %0, align 8
+  store ptr %278, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %270, %._crit_edge.i36
-  %277 = getelementptr inbounds i8, ptr %271, i64 16
-  %278 = load ptr, ptr %277, align 8
-  tail call void @g_free(ptr noundef %278) #11
-  %279 = getelementptr inbounds i8, ptr %271, i64 72
-  store i32 -1, ptr %279, align 8
-  %280 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #11
-  store ptr %280, ptr %277, align 8
-  store ptr %271, ptr %6, align 8
-  store i32 -1, ptr %260, align 8
-  br label %281
+yy_parse_failed.exit:                             ; preds = %273, %._crit_edge.i36
+  %280 = getelementptr inbounds i8, ptr %274, i64 16
+  %281 = load ptr, ptr %280, align 8
+  tail call void @g_free(ptr noundef %281) #11
+  %282 = getelementptr inbounds i8, ptr %274, i64 72
+  store i32 -1, ptr %282, align 8
+  %283 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #11
+  store ptr %283, ptr %280, align 8
+  store ptr %274, ptr %6, align 8
+  store i32 -1, ptr %263, align 8
+  br label %284
 
-281:                                              ; preds = %yyStackOverflow.exit, %yy_shift.exit, %yy_parse_failed.exit, %269, %255
+284:                                              ; preds = %yyStackOverflow.exit, %yy_shift.exit, %yy_parse_failed.exit, %272, %258
   ret void
 }
 

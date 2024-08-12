@@ -72,12 +72,16 @@ define i32 @pmix_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %.narrow = add i32 %11, %7
   %14 = getelementptr inbounds [127 x i32], ptr %0, i64 0, i64 %spec.select
   store i32 %.narrow, ptr %14, align 4
-  %15 = load <2 x i32>, ptr %2, align 4
-  %16 = add nsw <2 x i32> %15, <i32 1, i32 1>
-  %17 = srem <2 x i32> %16, <i32 127, i32 127>
-  store <2 x i32> %17, ptr %2, align 4
-  %18 = load i32, ptr %14, align 4
-  ret i32 %18
+  %15 = load i32, ptr %2, align 4
+  %16 = add nsw i32 %15, 1
+  %17 = srem i32 %16, 127
+  store i32 %17, ptr %2, align 4
+  %18 = load i32, ptr %3, align 4
+  %19 = add nsw i32 %18, 1
+  %20 = srem i32 %19, 127
+  store i32 %20, ptr %3, align 4
+  %21 = load i32, ptr %14, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
@@ -97,13 +101,17 @@ define range(i32 0, -2147483648) i32 @pmix_random() local_unnamed_addr #3 {
   %.narrow.i = add i32 %8, %4
   %11 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %spec.select.i
   store i32 %.narrow.i, ptr %11, align 4
-  %12 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
-  %13 = add nsw <2 x i32> %12, <i32 1, i32 1>
-  %14 = srem <2 x i32> %13, <i32 127, i32 127>
-  store <2 x i32> %14, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
-  %15 = load i32, ptr %11, align 4
-  %16 = and i32 %15, 2147483647
-  ret i32 %16
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
+  %13 = add nsw i32 %12, 1
+  %14 = srem i32 %13, 127
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
+  %16 = add nsw i32 %15, 1
+  %17 = srem i32 %16, 127
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
+  %18 = load i32, ptr %11, align 4
+  %19 = and i32 %18, 2147483647
+  ret i32 %19
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

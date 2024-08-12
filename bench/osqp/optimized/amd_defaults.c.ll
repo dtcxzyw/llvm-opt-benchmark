@@ -6,15 +6,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @amd_l_defaults(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %.preheader.preheader
+  br i1 %.not, label %4, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false)
-  store <2 x double> <double 1.000000e+01, double 1.000000e+00>, ptr %0, align 8
-  br label %3
+  store double 1.000000e+01, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %3, align 8
+  br label %4
 
-3:                                                ; preds = %.preheader.preheader, %1
+4:                                                ; preds = %.preheader.preheader, %1
   ret void
 }
 

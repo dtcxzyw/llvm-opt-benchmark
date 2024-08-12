@@ -1268,13 +1268,17 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired25RetinaFastToneMappingImpl5
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 136
+  store float 2.550000e+02, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 148
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %9, align 4
-  store <2 x float> <float 2.550000e+02, float 2.550000e+02>, ptr %8, align 8
-  %10 = load ptr, ptr %6, align 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %10, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %1, i32 noundef 1)
-  %11 = load ptr, ptr %6, align 8
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %11, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %2, i32 noundef 2)
+  store float 1.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %7, i64 152
+  store float 0.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 140
+  store float 2.550000e+02, ptr %11, align 4
+  %12 = load ptr, ptr %6, align 8
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %12, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %1, i32 noundef 1)
+  %13 = load ptr, ptr %6, align 8
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %13, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %2, i32 noundef 2)
   ret void
 }
 

@@ -90,23 +90,30 @@ entry:
   %2 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %m_origin.i = getelementptr inbounds i8, ptr %t, i64 48
-  %3 = load <2 x float>, ptr %m_origin.i, align 4
-  %4 = insertelement <2 x float> poison, float %call, i64 0
-  %5 = insertelement <2 x float> %4, float %call5, i64 1
-  %6 = fsub <2 x float> %3, %5
+  %3 = load float, ptr %m_origin.i, align 4
+  %sub.i = fsub float %3, %call
+  %arrayidx5.i2 = getelementptr inbounds i8, ptr %t, i64 52
+  %4 = load float, ptr %arrayidx5.i2, align 4
+  %sub8.i = fsub float %4, %call5
   %arrayidx11.i = getelementptr inbounds i8, ptr %t, i64 56
-  %7 = load float, ptr %arrayidx11.i, align 4
-  %sub14.i = fsub float %7, %call9
+  %5 = load float, ptr %arrayidx11.i, align 4
+  %sub14.i = fsub float %5, %call9
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %sub8.i, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  store <2 x float> %6, ptr %aabbMin, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %aabbMin, align 4
   %ref.tmp10.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMin, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp10.sroa.2.0..sroa_idx, align 4
-  %8 = load <2 x float>, ptr %m_origin.i, align 4
-  %9 = fadd <2 x float> %5, %8
-  %10 = load float, ptr %arrayidx11.i, align 4
-  %add14.i = fadd float %call9, %10
+  %6 = load float, ptr %m_origin.i, align 4
+  %add.i = fadd float %call, %6
+  %7 = load float, ptr %arrayidx5.i2, align 4
+  %add8.i = fadd float %call5, %7
+  %8 = load float, ptr %arrayidx11.i, align 4
+  %add14.i = fadd float %call9, %8
+  %retval.sroa.0.0.vec.insert.i9 = insertelement <2 x float> poison, float %add.i, i64 0
+  %retval.sroa.0.4.vec.insert.i10 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i11 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
-  store <2 x float> %9, ptr %aabbMax, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10, ptr %aabbMax, align 4
   %ref.tmp13.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMax, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i11, ptr %ref.tmp13.sroa.2.0..sroa_idx, align 4
   ret void

@@ -62,7 +62,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16, %12
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %14)
-  br label %79
+  br label %82
 
 .critedge:                                        ; preds = %30
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %24
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %26)
-  br label %79
+  br label %82
 
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %26, i64 24
@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %30
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %26)
-  br label %79
+  br label %82
 
 34:                                               ; preds = %.lr.ph83, %.critedge2
   %35 = phi i32 [ %21, %.lr.ph83 ], [ %63, %.critedge2 ]
@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 49:                                               ; preds = %45, %40
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %38)
-  br label %79
+  br label %82
 
 51:                                               ; preds = %45
   %52 = inttoptr i64 %48 to ptr
@@ -143,10 +143,10 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 57:                                               ; preds = %51
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %38)
-  br label %79
+  br label %82
 
 59:                                               ; preds = %51
-  %60 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %38) #5
+  %60 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %38) #4
   %.not50 = icmp eq ptr %60, %38
   br i1 %.not50, label %..critedge2_crit_edge, label %61
 
@@ -156,7 +156,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 61:                                               ; preds = %59
   %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %38)
-  br label %79
+  br label %82
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %34
   %63 = phi i32 [ %.pre, %..critedge2_crit_edge ], [ %35, %34 ]
@@ -172,32 +172,38 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %.val67 = load i32, ptr %67, align 4
   %68 = sub nsw i32 %.val66, %.val67
   %69 = getelementptr i8, ptr %0, i64 80
-  %70 = load <4 x i32>, ptr %69, align 8
-  %71 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %70)
-  %op.rdx = add i32 %71, 1
-  %.not = icmp eq i32 %68, %op.rdx
-  br i1 %.not, label %73, label %72
+  %.val68 = load i32, ptr %69, align 8
+  %70 = add nsw i32 %.val68, 1
+  %71 = getelementptr i8, ptr %0, i64 84
+  %.val69 = load i32, ptr %71, align 4
+  %72 = add nsw i32 %70, %.val69
+  %73 = getelementptr i8, ptr %0, i64 88
+  %.val70 = load i32, ptr %73, align 8
+  %74 = add nsw i32 %72, %.val70
+  %75 = getelementptr i8, ptr %0, i64 92
+  %.val72 = load i32, ptr %75, align 4
+  %76 = add nsw i32 %74, %.val72
+  %.not = icmp eq i32 %68, %76
+  br i1 %.not, label %78, label %77
 
-72:                                               ; preds = %.critedge2._crit_edge
+77:                                               ; preds = %.critedge2._crit_edge
   %puts46 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %79
+  br label %82
 
-73:                                               ; preds = %.critedge2._crit_edge
-  %74 = getelementptr i8, ptr %0, i64 92
-  %75 = getelementptr i8, ptr %0, i64 88
-  %76 = tail call i32 @Hop_TableCountEntries(ptr noundef nonnull %0) #5
-  %.val71 = load i32, ptr %75, align 8
-  %.val73 = load i32, ptr %74, align 4
-  %77 = add nsw i32 %.val73, %.val71
-  %.not45 = icmp eq i32 %76, %77
-  br i1 %.not45, label %79, label %78
+78:                                               ; preds = %.critedge2._crit_edge
+  %79 = tail call i32 @Hop_TableCountEntries(ptr noundef nonnull %0) #4
+  %.val71 = load i32, ptr %73, align 8
+  %.val73 = load i32, ptr %75, align 4
+  %80 = add nsw i32 %.val73, %.val71
+  %.not45 = icmp eq i32 %79, %80
+  br i1 %.not45, label %82, label %81
 
-78:                                               ; preds = %73
+81:                                               ; preds = %78
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %79
+  br label %82
 
-79:                                               ; preds = %73, %78, %72, %61, %57, %49, %32, %28, %18
-  %.043 = phi i32 [ 0, %18 ], [ 0, %32 ], [ 0, %28 ], [ 0, %57 ], [ 0, %61 ], [ 0, %49 ], [ 0, %72 ], [ 0, %78 ], [ 1, %73 ]
+82:                                               ; preds = %78, %81, %77, %61, %57, %49, %32, %28, %18
+  %.043 = phi i32 [ 0, %18 ], [ 0, %32 ], [ 0, %28 ], [ 0, %57 ], [ 0, %61 ], [ 0, %49 ], [ 0, %77 ], [ 0, %81 ], [ 1, %78 ]
   ret i32 %.043
 }
 
@@ -211,15 +217,11 @@ declare i32 @Hop_TableCountEntries(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #4
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

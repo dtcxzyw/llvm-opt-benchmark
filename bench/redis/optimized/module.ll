@@ -5210,26 +5210,30 @@ declare ptr @dupStringObject(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_CreateStringFromStreamID(ptr noundef %ctx, ptr nocapture noundef readonly %id) #0 {
 entry:
-  %streamid = alloca %struct.streamID, align 16
-  %0 = load <2 x i64>, ptr %id, align 8
-  store <2 x i64> %0, ptr %streamid, align 16
+  %streamid = alloca %struct.streamID, align 8
+  %0 = load i64, ptr %id, align 8
+  store i64 %0, ptr %streamid, align 8
+  %seq = getelementptr inbounds i8, ptr %streamid, i64 8
+  %seq2 = getelementptr inbounds i8, ptr %id, i64 8
+  %1 = load i64, ptr %seq2, align 8
+  store i64 %1, ptr %seq, align 8
   %call = call ptr @createObjectFromStreamID(ptr noundef nonnull %streamid) #34
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %1 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %1, 1
+  %2 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
-  %2 = load i32, ptr %amqueue_used.i, align 4
+  %3 = load i32, ptr %amqueue_used.i, align 4
   %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %3 = load i32, ptr %amqueue_len.i, align 8
-  %cmp.i = icmp eq i32 %2, %3
+  %4 = load i32, ptr %amqueue_len.i, align 8
+  %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
@@ -5238,33 +5242,33 @@ if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %2, 1
-  %cmp4.i = icmp slt i32 %2, 8
+  %mul.i = shl nsw i32 %3, 1
+  %cmp4.i = icmp slt i32 %3, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
   %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %4 = load ptr, ptr %amqueue.i, align 8
+  %5 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i = call ptr @zrealloc(ptr noundef %4, i64 noundef %mul9.i) #36
+  %call.i = call ptr @zrealloc(ptr noundef %5, i64 noundef %mul9.i) #36
   store ptr %call.i, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
+  %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
   %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %idxprom.i = sext i32 %5 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
+  %idxprom.i = sext i32 %6 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
-  %7 = load ptr, ptr %amqueue12.i, align 8
-  %8 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %8 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom17.i
-  store ptr %call, ptr %arrayidx18.i, align 8
+  %8 = load ptr, ptr %amqueue12.i, align 8
   %9 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %9, 1
+  %idxprom17.i = sext i32 %9 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom17.i
+  store ptr %call, ptr %arrayidx18.i, align 8
+  %10 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end
 
@@ -5814,14 +5818,18 @@ declare i32 @string2ld(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @RM_StringToStreamID(ptr noundef %str, ptr nocapture noundef writeonly %id) #0 {
 entry:
-  %streamid = alloca %struct.streamID, align 16
+  %streamid = alloca %struct.streamID, align 8
   %call = call i32 @streamParseID(ptr noundef %str, ptr noundef nonnull %streamid) #34
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %0 = load <2 x i64>, ptr %streamid, align 16
-  store <2 x i64> %0, ptr %id, align 8
+  %0 = load i64, ptr %streamid, align 8
+  store i64 %0, ptr %id, align 8
+  %seq = getelementptr inbounds i8, ptr %streamid, i64 8
+  %1 = load i64, ptr %seq, align 8
+  %seq2 = getelementptr inbounds i8, ptr %id, i64 8
+  store i64 %1, ptr %seq2, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -12316,8 +12324,8 @@ declare ptr @hashTypeGetValueObject(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @RM_StreamAdd(ptr noundef %key, i32 noundef %flags, ptr noundef %id, ptr noundef %argv, i64 noundef %numfields) #0 {
 entry:
-  %added_id = alloca %struct.streamID, align 16
-  %use_id = alloca %struct.streamID, align 16
+  %added_id = alloca %struct.streamID, align 8
+  %use_id = alloca %struct.streamID, align 8
   %tobool.not = icmp eq ptr %key, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
@@ -12420,8 +12428,12 @@ if.end46:                                         ; preds = %land.lhs.true40, %i
   br i1 %tobool6, label %if.end54, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
-  %8 = load <2 x i64>, ptr %id, align 8
-  store <2 x i64> %8, ptr %use_id, align 16
+  %8 = load i64, ptr %id, align 8
+  store i64 %8, ptr %use_id, align 8
+  %seq52 = getelementptr inbounds i8, ptr %id, i64 8
+  %9 = load i64, ptr %seq52, align 8
+  %seq53 = getelementptr inbounds i8, ptr %use_id, i64 8
+  store i64 %9, ptr %seq53, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then49, %if.end46
@@ -12449,8 +12461,12 @@ if.end65:                                         ; preds = %if.then64, %if.end6
   br i1 %tobool8, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end65
-  %9 = load <2 x i64>, ptr %added_id, align 16
-  store <2 x i64> %9, ptr %id, align 8
+  %10 = load i64, ptr %added_id, align 8
+  store i64 %10, ptr %id, align 8
+  %seq70 = getelementptr inbounds i8, ptr %added_id, i64 8
+  %11 = load i64, ptr %seq70, align 8
+  %seq71 = getelementptr inbounds i8, ptr %id, i64 8
+  store i64 %11, ptr %seq71, align 8
   br label %return
 
 return:                                           ; preds = %if.end65, %if.then67, %if.then57, %if.then59, %if.then44, %if.then27, %if.then18, %if.then13, %if.then
@@ -12463,7 +12479,7 @@ declare i32 @streamAppendItem(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @RM_StreamDelete(ptr noundef readonly %key, ptr noundef readonly %id) #0 {
 entry:
-  %streamid = alloca %struct.streamID, align 16
+  %streamid = alloca %struct.streamID, align 8
   %tobool = icmp ne ptr %key, null
   %tobool1 = icmp ne ptr %id, null
   %or.cond = and i1 %tobool, %tobool1
@@ -12497,8 +12513,12 @@ lor.lhs.false9:                                   ; preds = %if.else7
 if.end14:                                         ; preds = %lor.lhs.false9
   %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %ptr, align 8
-  %4 = load <2 x i64>, ptr %id, align 8
-  store <2 x i64> %4, ptr %streamid, align 16
+  %4 = load i64, ptr %id, align 8
+  store i64 %4, ptr %streamid, align 8
+  %seq = getelementptr inbounds i8, ptr %streamid, i64 8
+  %seq17 = getelementptr inbounds i8, ptr %id, i64 8
+  %5 = load i64, ptr %seq17, align 8
+  store i64 %5, ptr %seq, align 8
   %call18 = call i32 @streamDeleteItem(ptr noundef %3, ptr noundef nonnull %streamid) #34
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return.sink.split, label %return
@@ -12519,8 +12539,8 @@ declare i32 @streamDeleteItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @RM_StreamIteratorStart(ptr noundef %key, i32 noundef %flags, ptr noundef readonly %start, ptr noundef readonly %end) #0 {
 entry:
-  %lower = alloca %struct.streamID, align 16
-  %upper = alloca %struct.streamID, align 16
+  %lower = alloca %struct.streamID, align 8
+  %upper = alloca %struct.streamID, align 8
   %tobool.not = icmp ne ptr %key, null
   %tobool1.not = icmp ult i32 %flags, 4
   %or.cond = and i1 %tobool.not, %tobool1.not
@@ -12564,8 +12584,12 @@ if.end12:                                         ; preds = %if.else7
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %2 = load <2 x i64>, ptr %start, align 8
-  store <2 x i64> %2, ptr %lower, align 16
+  %2 = load i64, ptr %start, align 8
+  %seq16 = getelementptr inbounds i8, ptr %start, i64 8
+  %3 = load i64, ptr %seq16, align 8
+  store i64 %2, ptr %lower, align 8
+  %.compoundliteral.sroa.2.0.lower.sroa_idx = getelementptr inbounds i8, ptr %lower, i64 8
+  store i64 %3, ptr %.compoundliteral.sroa.2.0.lower.sroa_idx, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end12
@@ -12573,8 +12597,12 @@ if.end17:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool18.not, label %if.end25, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %3 = load <2 x i64>, ptr %end, align 8
-  store <2 x i64> %3, ptr %upper, align 16
+  %4 = load i64, ptr %end, align 8
+  %seq24 = getelementptr inbounds i8, ptr %end, i64 8
+  %5 = load i64, ptr %seq24, align 8
+  store i64 %4, ptr %upper, align 8
+  %.compoundliteral20.sroa.2.0.upper.sroa_idx = getelementptr inbounds i8, ptr %upper, i64 8
+  store i64 %5, ptr %.compoundliteral20.sroa.2.0.upper.sroa_idx, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end17
@@ -12604,14 +12632,14 @@ if.then37:                                        ; preds = %land.lhs.true34, %l
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false32, %land.lhs.true34, %if.end25
-  %4 = load ptr, ptr %value, align 8
-  %ptr = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %ptr, align 8
+  %6 = load ptr, ptr %value, align 8
+  %ptr = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %ptr, align 8
   %and42 = and i32 %flags, 2
   %call43 = call noalias dereferenceable_or_null(648) ptr @zmalloc(i64 noundef 648) #35
   %lower. = select i1 %tobool13.not, ptr null, ptr %lower
   %cond49 = select i1 %tobool18.not, ptr null, ptr %upper
-  call void @streamIteratorStart(ptr noundef %call43, ptr noundef %5, ptr noundef %lower., ptr noundef %cond49, i32 noundef %and42) #34
+  call void @streamIteratorStart(ptr noundef %call43, ptr noundef %7, ptr noundef %lower., ptr noundef %cond49, i32 noundef %and42) #34
   store ptr %call43, ptr %iter, align 8
   %u = getelementptr inbounds i8, ptr %key, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %u, i8 0, i64 24, i1 false)
@@ -14776,70 +14804,102 @@ if.end9:                                          ; preds = %if.end6
   %module13 = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %5, ptr %module13, align 8
   %rdb_load = getelementptr inbounds i8, ptr %typemethods_ptr, i64 8
+  %6 = load ptr, ptr %rdb_load, align 8
   %rdb_load14 = getelementptr inbounds i8, ptr %call10, i64 16
-  %6 = load <2 x ptr>, ptr %rdb_load, align 8
-  store <2 x ptr> %6, ptr %rdb_load14, align 8
+  store ptr %6, ptr %rdb_load14, align 8
+  %rdb_save = getelementptr inbounds i8, ptr %typemethods_ptr, i64 16
+  %7 = load ptr, ptr %rdb_save, align 8
+  %rdb_save15 = getelementptr inbounds i8, ptr %call10, i64 24
+  store ptr %7, ptr %rdb_save15, align 8
   %aof_rewrite = getelementptr inbounds i8, ptr %typemethods_ptr, i64 24
+  %8 = load ptr, ptr %aof_rewrite, align 8
   %aof_rewrite16 = getelementptr inbounds i8, ptr %call10, i64 32
-  %7 = load <2 x ptr>, ptr %aof_rewrite, align 8
-  store <2 x ptr> %7, ptr %aof_rewrite16, align 8
+  store ptr %8, ptr %aof_rewrite16, align 8
+  %mem_usage = getelementptr inbounds i8, ptr %typemethods_ptr, i64 32
+  %9 = load ptr, ptr %mem_usage, align 8
+  %mem_usage17 = getelementptr inbounds i8, ptr %call10, i64 40
+  store ptr %9, ptr %mem_usage17, align 8
   %digest = getelementptr inbounds i8, ptr %typemethods_ptr, i64 40
+  %10 = load ptr, ptr %digest, align 8
   %digest18 = getelementptr inbounds i8, ptr %call10, i64 48
-  %8 = load <2 x ptr>, ptr %digest, align 8
-  store <2 x ptr> %8, ptr %digest18, align 8
-  %9 = load i64, ptr %typemethods_ptr, align 8
-  %cmp20 = icmp ugt i64 %9, 1
+  store ptr %10, ptr %digest18, align 8
+  %free = getelementptr inbounds i8, ptr %typemethods_ptr, i64 48
+  %11 = load ptr, ptr %free, align 8
+  %free19 = getelementptr inbounds i8, ptr %call10, i64 56
+  store ptr %11, ptr %free19, align 8
+  %12 = load i64, ptr %typemethods_ptr, align 8
+  %cmp20 = icmp ugt i64 %12, 1
   br i1 %cmp20, label %if.end27, label %if.end54
 
 if.end27:                                         ; preds = %if.end9
   %v2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 56
+  %13 = load ptr, ptr %v2, align 8
   %aux_load22 = getelementptr inbounds i8, ptr %call10, i64 96
-  %10 = load <2 x ptr>, ptr %v2, align 8
-  store <2 x ptr> %10, ptr %aux_load22, align 8
+  store ptr %13, ptr %aux_load22, align 8
+  %aux_save = getelementptr inbounds i8, ptr %typemethods_ptr, i64 64
+  %14 = load ptr, ptr %aux_save, align 8
+  %aux_save24 = getelementptr inbounds i8, ptr %call10, i64 104
+  store ptr %14, ptr %aux_save24, align 8
   %aux_save_triggers = getelementptr inbounds i8, ptr %typemethods_ptr, i64 72
-  %11 = load i32, ptr %aux_save_triggers, align 8
+  %15 = load i32, ptr %aux_save_triggers, align 8
   %aux_save_triggers26 = getelementptr inbounds i8, ptr %call10, i64 152
-  store i32 %11, ptr %aux_save_triggers26, align 8
-  %cmp29.not = icmp eq i64 %9, 2
+  store i32 %15, ptr %aux_save_triggers26, align 8
+  %cmp29.not = icmp eq i64 %12, 2
   br i1 %cmp29.not, label %if.end54, label %if.end38
 
 if.end38:                                         ; preds = %if.end27
   %v3 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 80
+  %16 = load ptr, ptr %v3, align 8
   %free_effort31 = getelementptr inbounds i8, ptr %call10, i64 64
-  %12 = load <2 x ptr>, ptr %v3, align 8
-  store <2 x ptr> %12, ptr %free_effort31, align 8
+  store ptr %16, ptr %free_effort31, align 8
+  %unlink = getelementptr inbounds i8, ptr %typemethods_ptr, i64 88
+  %17 = load ptr, ptr %unlink, align 8
+  %unlink33 = getelementptr inbounds i8, ptr %call10, i64 72
+  store ptr %17, ptr %unlink33, align 8
   %copy = getelementptr inbounds i8, ptr %typemethods_ptr, i64 96
+  %18 = load ptr, ptr %copy, align 8
   %copy35 = getelementptr inbounds i8, ptr %call10, i64 80
-  %13 = load <2 x ptr>, ptr %copy, align 8
-  store <2 x ptr> %13, ptr %copy35, align 8
-  %cmp40 = icmp ugt i64 %9, 3
+  store ptr %18, ptr %copy35, align 8
+  %defrag = getelementptr inbounds i8, ptr %typemethods_ptr, i64 104
+  %19 = load ptr, ptr %defrag, align 8
+  %defrag37 = getelementptr inbounds i8, ptr %call10, i64 88
+  store ptr %19, ptr %defrag37, align 8
+  %cmp40 = icmp ugt i64 %12, 3
   br i1 %cmp40, label %if.end49, label %if.end54
 
 if.end49:                                         ; preds = %if.end38
   %v4 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 112
+  %20 = load ptr, ptr %v4, align 8
   %mem_usage242 = getelementptr inbounds i8, ptr %call10, i64 112
+  store ptr %20, ptr %mem_usage242, align 8
   %unlink2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 128
+  %21 = load ptr, ptr %unlink2, align 8
   %unlink244 = getelementptr inbounds i8, ptr %call10, i64 128
-  %14 = load <2 x ptr>, ptr %v4, align 8
-  store <2 x ptr> %14, ptr %mem_usage242, align 8
-  %15 = load <2 x ptr>, ptr %unlink2, align 8
-  store <2 x ptr> %15, ptr %unlink244, align 8
-  %cmp51.not = icmp eq i64 %9, 4
+  store ptr %21, ptr %unlink244, align 8
+  %free_effort2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 120
+  %22 = load ptr, ptr %free_effort2, align 8
+  %free_effort246 = getelementptr inbounds i8, ptr %call10, i64 120
+  store ptr %22, ptr %free_effort246, align 8
+  %copy2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 136
+  %23 = load ptr, ptr %copy2, align 8
+  %copy248 = getelementptr inbounds i8, ptr %call10, i64 136
+  store ptr %23, ptr %copy248, align 8
+  %cmp51.not = icmp eq i64 %12, 4
   br i1 %cmp51.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
   %v5 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 144
-  %16 = load ptr, ptr %v5, align 8
+  %24 = load ptr, ptr %v5, align 8
   %aux_save253 = getelementptr inbounds i8, ptr %call10, i64 144
-  store ptr %16, ptr %aux_save253, align 8
+  store ptr %24, ptr %aux_save253, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end9, %if.end27, %if.end38, %if.then52, %if.end49
   %name55 = getelementptr inbounds i8, ptr %call10, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %name55, ptr noundef nonnull align 1 dereferenceable(10) %name, i64 10, i1 false)
   %types = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = load ptr, ptr %types, align 8
-  %call57 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef nonnull %call10) #34
+  %25 = load ptr, ptr %types, align 8
+  %call57 = tail call ptr @listAddNodeTail(ptr noundef %25, ptr noundef nonnull %call10) #34
   br label %return
 
 return:                                           ; preds = %for.body.i, %if.end, %if.end6, %if.end2, %moduleTypeEncodeId.exit, %entry, %if.end54
@@ -24414,6 +24474,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   %replid1.i = getelementptr inbounds i8, ptr %riv1, i64 32
   %replid2.i = getelementptr inbounds i8, ptr %riv1, i64 40
   %repl1_offset.i = getelementptr inbounds i8, ptr %riv1, i64 48
+  %repl2_offset.i = getelementptr inbounds i8, ptr %riv1, i64 56
   %conv93 = sext i32 %subid to i64
   %cmp96 = icmp eq i64 %eid, 17
   br i1 %cmp3, label %while.body.us, label %while.body
@@ -24601,8 +24662,10 @@ modulePopulateReplicationInfoStructure.exit.thread: ; preds = %if.then20
   store i32 %35, ptr %masterport.i, align 8
   store ptr getelementptr inbounds (i8, ptr @server, i64 4356), ptr %replid1.i, align 8
   store ptr getelementptr inbounds (i8, ptr @server, i64 4397), ptr %replid2.i, align 8
-  %36 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
-  store <2 x i64> %36, ptr %repl1_offset.i, align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
+  store i64 %36, ptr %repl1_offset.i, align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4448), align 8
+  store i64 %37, ptr %repl2_offset.i, align 8
   br label %if.end90
 
 cond.false34:                                     ; preds = %if.then20
@@ -24611,18 +24674,18 @@ cond.false34:                                     ; preds = %if.then20
   unreachable
 
 if.then39:                                        ; preds = %if.else17
-  %37 = load i32, ptr %dbnum, align 4
-  %cmp40.not = icmp eq i32 %37, -1
+  %38 = load i32, ptr %dbnum, align 4
+  %cmp40.not = icmp eq i32 %38, -1
   br i1 %cmp40.not, label %if.end90, label %if.then42
 
 if.then42:                                        ; preds = %if.then39
-  %38 = load ptr, ptr %2, align 8
-  %call45 = call i32 @selectDb(ptr noundef %38, i32 noundef %37) #34
+  %39 = load ptr, ptr %2, align 8
+  %call45 = call i32 @selectDb(ptr noundef %39, i32 noundef %38) #34
   br label %if.end90
 
 if.then50:                                        ; preds = %if.else17
-  %39 = load ptr, ptr %20, align 8
-  %cmp52 = icmp eq ptr %39, %data
+  %40 = load ptr, ptr %20, align 8
+  %cmp52 = icmp eq ptr %40, %data
   br i1 %cmp52, label %while.cond.backedge.sink.split, label %if.end55
 
 while.cond.backedge.sink.split:                   ; preds = %if.then50, %if.end90, %if.then98
@@ -24636,34 +24699,34 @@ while.cond.backedge:                              ; preds = %while.cond.backedge
 
 if.end55:                                         ; preds = %if.then50
   store i64 1, ptr %mcv1, align 8
-  %40 = load ptr, ptr %key80, align 8
-  store ptr %40, ptr %module_name, align 8
-  %41 = load i32, ptr %value81, align 8
-  store i32 %41, ptr %module_version, align 8
+  %41 = load ptr, ptr %key80, align 8
+  store ptr %41, ptr %module_name, align 8
+  %42 = load i32, ptr %value81, align 8
+  store i32 %42, ptr %module_version, align 8
   br label %if.end90
 
 if.then76:                                        ; preds = %if.else17
-  %42 = load ptr, ptr %2, align 8
-  %43 = load i32, ptr %data, align 8
-  %call79 = call i32 @selectDb(ptr noundef %42, i32 noundef %43) #34
-  %44 = load ptr, ptr %key80, align 8
-  %45 = load ptr, ptr %value81, align 8
-  %46 = load i32, ptr %mode, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = load i32, ptr %data, align 8
+  %call79 = call i32 @selectDb(ptr noundef %43, i32 noundef %44) #34
+  %45 = load ptr, ptr %key80, align 8
+  %46 = load ptr, ptr %value81, align 8
+  %47 = load i32, ptr %mode, align 8
   store ptr %ctx, ptr %key, align 8
-  %47 = load ptr, ptr %2, align 8
-  %db.i = getelementptr inbounds i8, ptr %47, i64 32
-  %48 = load ptr, ptr %db.i, align 8
-  store ptr %48, ptr %db2.i, align 8
-  store ptr %44, ptr %key.i, align 8
-  call void @incrRefCount(ptr noundef %44) #34
-  store ptr %45, ptr %value3.i, align 8
+  %48 = load ptr, ptr %2, align 8
+  %db.i = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = load ptr, ptr %db.i, align 8
+  store ptr %49, ptr %db2.i, align 8
+  store ptr %45, ptr %key.i, align 8
+  call void @incrRefCount(ptr noundef %45) #34
+  store ptr %46, ptr %value3.i, align 8
   store ptr null, ptr %iter.i, align 8
-  store i32 %46, ptr %mode4.i, align 8
-  %tobool.not.i49 = icmp eq ptr %45, null
+  store i32 %47, ptr %mode4.i, align 8
+  %tobool.not.i49 = icmp eq ptr %46, null
   br i1 %tobool.not.i49, label %if.end90, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then76
-  %bf.load.i.i = load i32, ptr %45, align 8
+  %bf.load.i.i = load i32, ptr %46, align 8
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end90 [
     i32 3, label %sw.bb.i.i
@@ -24686,21 +24749,21 @@ if.end90.fold.split:                              ; preds = %if.else17
 
 if.end90:                                         ; preds = %sw.epilog.sink.split.i.i, %if.then.i, %if.then76, %modulePopulateReplicationInfoStructure.exit.thread, %if.else17, %if.else17, %if.else17, %if.else17, %if.end90.fold.split, %if.end55, %if.then39, %if.then42
   %moduledata.0 = phi ptr [ %data, %if.then42 ], [ %data, %if.then39 ], [ %mcv1, %if.end55 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ null, %if.end90.fold.split ], [ %riv1, %modulePopulateReplicationInfoStructure.exit.thread ], [ %ki, %if.then76 ], [ %ki, %if.then.i ], [ %ki, %sw.epilog.sink.split.i.i ]
-  %49 = load ptr, ptr %20, align 8
-  %in_hook = getelementptr inbounds i8, ptr %49, i64 72
-  %50 = load i32, ptr %in_hook, align 8
-  %inc = add nsw i32 %50, 1
+  %50 = load ptr, ptr %20, align 8
+  %in_hook = getelementptr inbounds i8, ptr %50, i64 72
+  %51 = load i32, ptr %in_hook, align 8
+  %inc = add nsw i32 %51, 1
   store i32 %inc, ptr %in_hook, align 8
   %callback = getelementptr inbounds i8, ptr %20, i64 24
-  %51 = load ptr, ptr %callback, align 8
-  %52 = load i64, ptr %event, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 16
-  %54 = load i64, ptr %53, align 8
-  call void %51(ptr noundef nonnull %ctx, i64 %52, i64 %54, i64 noundef %conv93, ptr noundef %moduledata.0) #34
-  %55 = load ptr, ptr %20, align 8
-  %in_hook95 = getelementptr inbounds i8, ptr %55, i64 72
-  %56 = load i32, ptr %in_hook95, align 8
-  %dec = add nsw i32 %56, -1
+  %52 = load ptr, ptr %callback, align 8
+  %53 = load i64, ptr %event, align 8
+  %54 = getelementptr inbounds i8, ptr %20, i64 16
+  %55 = load i64, ptr %54, align 8
+  call void %52(ptr noundef nonnull %ctx, i64 %53, i64 %55, i64 noundef %conv93, ptr noundef %moduledata.0) #34
+  %56 = load ptr, ptr %20, align 8
+  %in_hook95 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = load i32, ptr %in_hook95, align 8
+  %dec = add nsw i32 %57, -1
   store i32 %dec, ptr %in_hook95, align 8
   br i1 %cmp96, label %if.then98, label %while.cond.backedge.sink.split
 

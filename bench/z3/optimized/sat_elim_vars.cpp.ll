@@ -102,10 +102,16 @@ entry:
   store i32 0, ptr %m_rand, align 8
   %m_vars = getelementptr inbounds i8, ptr %this, i64 752
   %m_var2index = getelementptr inbounds i8, ptr %this, i64 776
+  %m_max_literals = getelementptr inbounds i8, ptr %this, i64 804
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_vars, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_var2index, i8 0, i64 16, i1 false)
+  store i32 11, ptr %m_max_literals, align 4
   %m_miss = getelementptr inbounds i8, ptr %this, i64 792
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 11>, ptr %m_miss, align 8
+  store i32 0, ptr %m_miss, align 8
+  %m_hit1 = getelementptr inbounds i8, ptr %this, i64 796
+  store i32 0, ptr %m_hit1, align 4
+  %m_hit2 = getelementptr inbounds i8, ptr %this, i64 800
+  store i32 0, ptr %m_hit2, align 8
   ret void
 }
 
@@ -894,9 +900,12 @@ invoke.cont11:                                    ; preds = %for.end
   br i1 %cmp13, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %for.end, %invoke.cont11
-  %28 = load <2 x i32>, ptr %m_i.i.i, align 4
-  %29 = add <2 x i32> %28, <i32 1, i32 1>
-  store <2 x i32> %29, ptr %m_i.i.i, align 4
+  %28 = load i32, ptr %m_i.i.i, align 4
+  %inc.i13 = add i32 %28, 1
+  store i32 %inc.i13, ptr %m_i.i.i, align 4
+  %29 = load i32, ptr %m_j.i.i, align 8
+  %inc2.i = add i32 %29, 1
+  store i32 %inc2.i, ptr %m_j.i.i, align 8
   invoke void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonnull align 8 dereferenceable(20) %it)
           to label %while.cond unwind label %lpad.loopexit.split-lp
 
@@ -1868,14 +1877,17 @@ if.then3:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN7svectorIN3sat7literalEjEC2ERKS2_.exit, label %_ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.then3
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
+  %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %2 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %3 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %3 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %2, ptr %call3.i.i.i, align 4
+  store i32 %3, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %2, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %c, align 8
   %4 = load ptr, ptr %lits, align 8
@@ -3200,9 +3212,12 @@ terminate.lpad.i96:                               ; preds = %if.then9.i.i95
   unreachable
 
 _ZN2dd3bddD2Ev.exit98:                            ; preds = %for.cond.i.i.i92, %if.end.i.i82, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i85
-  %51 = load <2 x i32>, ptr %m_i.i.i, align 4
-  %52 = add <2 x i32> %51, <i32 1, i32 1>
-  store <2 x i32> %52, ptr %m_i.i.i, align 4
+  %51 = load i32, ptr %m_i.i.i, align 4
+  %inc.i = add i32 %51, 1
+  store i32 %inc.i, ptr %m_i.i.i, align 4
+  %52 = load i32, ptr %m_j.i.i, align 8
+  %inc2.i = add i32 %52, 1
+  store i32 %inc2.i, ptr %m_j.i.i, align 8
   invoke void @_ZN3sat15clause_use_list8iterator7consumeEv(ptr noundef nonnull align 8 dereferenceable(20) %it)
           to label %for.cond unwind label %lpad2
 

@@ -7268,57 +7268,59 @@ if.end82.i:                                       ; preds = %if.then81.i, %if.en
   %38 = load i64, ptr %write_end87.i, align 8
   %sub92.i = sub i64 %38, %37
   store i64 %sub92.i, ptr %write_end87.i, align 8
-  %39 = load <2 x i64>, ptr %pos29.i, align 8
-  %40 = insertelement <2 x i64> poison, i64 %37, i64 0
-  %41 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> zeroinitializer
-  %42 = sub <2 x i64> %39, %41
-  store <2 x i64> %42, ptr %pos29.i, align 8
+  %raw_pos94.i = getelementptr inbounds i8, ptr %self, i64 72
+  %39 = load i64, ptr %raw_pos94.i, align 8
+  %sub95.i = sub i64 %39, %37
+  store i64 %sub95.i, ptr %raw_pos94.i, align 8
+  %40 = load i64, ptr %pos29.i, align 8
+  %sub98.i = sub i64 %40, %37
+  store i64 %sub98.i, ptr %pos29.i, align 8
   store i64 0, ptr %write_pos85.i, align 8
-  %43 = load i64, ptr %buffer_size.i, align 8
-  %sub102.i = sub i64 %43, %sub92.i
-  %44 = load i64, ptr %len.i, align 8
-  %cmp104.not.i = icmp sgt i64 %44, %sub102.i
+  %41 = load i64, ptr %buffer_size.i, align 8
+  %sub102.i = sub i64 %41, %sub92.i
+  %42 = load i64, ptr %len.i, align 8
+  %cmp104.not.i = icmp sgt i64 %42, %sub102.i
   br i1 %cmp104.not.i, label %if.end118.i, label %if.then105.i
 
 if.then105.i:                                     ; preds = %if.end82.i
   call void @PyErr_Clear() #10
-  %45 = load ptr, ptr %buffer9.i, align 8
-  %46 = load i64, ptr %write_end87.i, align 8
-  %add.ptr108.i = getelementptr i8, ptr %45, i64 %46
-  %47 = load ptr, ptr %buffer, align 8
-  %48 = load i64, ptr %len.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr108.i, ptr align 1 %47, i64 %48, i1 false)
-  %49 = load i64, ptr %len.i, align 8
-  %50 = load i64, ptr %write_end87.i, align 8
-  %add113.i = add i64 %50, %49
+  %43 = load ptr, ptr %buffer9.i, align 8
+  %44 = load i64, ptr %write_end87.i, align 8
+  %add.ptr108.i = getelementptr i8, ptr %43, i64 %44
+  %45 = load ptr, ptr %buffer, align 8
+  %46 = load i64, ptr %len.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr108.i, ptr align 1 %45, i64 %46, i1 false)
+  %47 = load i64, ptr %len.i, align 8
+  %48 = load i64, ptr %write_end87.i, align 8
+  %add113.i = add i64 %48, %47
   store i64 %add113.i, ptr %write_end87.i, align 8
-  %51 = load i64, ptr %pos29.i, align 8
-  %add116.i = add i64 %51, %49
+  %49 = load i64, ptr %pos29.i, align 8
+  %add116.i = add i64 %49, %47
   store i64 %add116.i, ptr %pos29.i, align 8
   br label %end.i
 
 if.end118.i:                                      ; preds = %if.end82.i
-  %52 = load ptr, ptr %buffer9.i, align 8
-  %add.ptr121.i = getelementptr i8, ptr %52, i64 %sub92.i
-  %53 = load ptr, ptr %buffer, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr121.i, ptr align 1 %53, i64 %sub102.i, i1 false)
-  %54 = load i64, ptr %write_end87.i, align 8
-  %add124.i = add i64 %54, %sub102.i
+  %50 = load ptr, ptr %buffer9.i, align 8
+  %add.ptr121.i = getelementptr i8, ptr %50, i64 %sub92.i
+  %51 = load ptr, ptr %buffer, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr121.i, ptr align 1 %51, i64 %sub102.i, i1 false)
+  %52 = load i64, ptr %write_end87.i, align 8
+  %add124.i = add i64 %52, %sub102.i
   store i64 %add124.i, ptr %write_end87.i, align 8
-  %55 = load i64, ptr %pos29.i, align 8
-  %add126.i = add i64 %55, %sub102.i
+  %53 = load i64, ptr %pos29.i, align 8
+  %add126.i = add i64 %53, %sub102.i
   store i64 %add126.i, ptr %pos29.i, align 8
   call fastcc void @_set_BlockingIOError(i64 noundef %sub102.i)
   br label %do.body244.i
 
 if.then130.i:                                     ; preds = %if.end71.i
-  %56 = load i64, ptr %call72.i, align 8
-  %57 = and i64 %56, 2147483648
-  %cmp.i249.not.i = icmp eq i64 %57, 0
+  %54 = load i64, ptr %call72.i, align 8
+  %55 = and i64 %54, 2147483648
+  %cmp.i249.not.i = icmp eq i64 %55, 0
   br i1 %cmp.i249.not.i, label %if.end.i.i, label %do.end132.i
 
 if.end.i.i:                                       ; preds = %if.then130.i
-  %dec.i.i = add i64 %56, -1
+  %dec.i.i = add i64 %54, -1
   store i64 %dec.i.i, ptr %call72.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %do.end132.i
@@ -7328,38 +7330,38 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end132.i
 
 do.end132.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %if.then130.i
-  %58 = load i32, ptr %readable.i, align 8
-  %tobool134.not.i = icmp eq i32 %58, 0
+  %56 = load i32, ptr %readable.i, align 8
+  %tobool134.not.i = icmp eq i32 %56, 0
   br i1 %tobool134.not.i, label %lor.lhs.false138.i, label %land.lhs.true135.i
 
 land.lhs.true135.i:                               ; preds = %do.end132.i
   %read_end136.i = getelementptr inbounds i8, ptr %self, i64 80
-  %59 = load i64, ptr %read_end136.i, align 8
-  %cmp137.not.i = icmp eq i64 %59, -1
+  %57 = load i64, ptr %read_end136.i, align 8
+  %cmp137.not.i = icmp eq i64 %57, -1
   br i1 %cmp137.not.i, label %lor.lhs.false138.i, label %land.lhs.true144.i
 
 lor.lhs.false138.i:                               ; preds = %land.lhs.true135.i, %do.end132.i
   %writable139.i = getelementptr inbounds i8, ptr %self, i64 36
-  %60 = load i32, ptr %writable139.i, align 4
-  %tobool140.not.i = icmp eq i32 %60, 0
+  %58 = load i32, ptr %writable139.i, align 4
+  %tobool140.not.i = icmp eq i32 %58, 0
   br i1 %tobool140.not.i, label %if.end161.i, label %land.lhs.true141.i
 
 land.lhs.true141.i:                               ; preds = %lor.lhs.false138.i
   %write_end142.i = getelementptr inbounds i8, ptr %self, i64 96
-  %61 = load i64, ptr %write_end142.i, align 8
-  %cmp143.not.i = icmp eq i64 %61, -1
+  %59 = load i64, ptr %write_end142.i, align 8
+  %cmp143.not.i = icmp eq i64 %59, -1
   br i1 %cmp143.not.i, label %if.end161.i, label %land.lhs.true144.i
 
 land.lhs.true144.i:                               ; preds = %land.lhs.true141.i, %land.lhs.true135.i
   %raw_pos145.i = getelementptr inbounds i8, ptr %self, i64 72
-  %62 = load i64, ptr %raw_pos145.i, align 8
-  %cmp146.i = icmp sgt i64 %62, -1
+  %60 = load i64, ptr %raw_pos145.i, align 8
+  %cmp146.i = icmp sgt i64 %60, -1
   br i1 %cmp146.i, label %cond.end.i, label %if.end161.i
 
 cond.end.i:                                       ; preds = %land.lhs.true144.i
-  %63 = load i64, ptr %pos29.i, align 8
-  %sub150.i = sub i64 %62, %63
-  %cmp152.not.i = icmp eq i64 %62, %63
+  %61 = load i64, ptr %pos29.i, align 8
+  %sub150.i = sub i64 %60, %61
+  %cmp152.not.i = icmp eq i64 %60, %61
   br i1 %cmp152.not.i, label %if.end161.i, label %if.then153.i
 
 if.then153.i:                                     ; preds = %cond.end.i
@@ -7369,27 +7371,27 @@ if.then153.i:                                     ; preds = %cond.end.i
   br i1 %cmp156.i, label %do.body244.i, label %if.end158.i
 
 if.end158.i:                                      ; preds = %if.then153.i
-  %64 = load i64, ptr %raw_pos145.i, align 8
-  %sub160.i = sub i64 %64, %sub150.i
+  %62 = load i64, ptr %raw_pos145.i, align 8
+  %sub160.i = sub i64 %62, %sub150.i
   store i64 %sub160.i, ptr %raw_pos145.i, align 8
   br label %if.end161.i
 
 if.end161.i:                                      ; preds = %if.end158.i, %cond.end.i, %land.lhs.true144.i, %land.lhs.true141.i, %lor.lhs.false138.i
-  %65 = load i64, ptr %len.i, align 8
+  %63 = load i64, ptr %len.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end206.i, %if.end161.i
-  %remaining.0.i = phi i64 [ %65, %if.end161.i ], [ %sub208.i, %if.end206.i ]
+  %remaining.0.i = phi i64 [ %63, %if.end161.i ], [ %sub208.i, %if.end206.i ]
   %written.1.i = phi i64 [ 0, %if.end161.i ], [ %add207.i, %if.end206.i ]
-  %66 = load i64, ptr %buffer_size.i, align 8
-  %cmp164.i = icmp sgt i64 %remaining.0.i, %66
+  %64 = load i64, ptr %buffer_size.i, align 8
+  %cmp164.i = icmp sgt i64 %remaining.0.i, %64
   br i1 %cmp164.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %67 = load ptr, ptr %buffer, align 8
-  %add.ptr166.i = getelementptr i8, ptr %67, i64 %written.1.i
-  %68 = load i64, ptr %len.i, align 8
-  %sub168.i = sub i64 %68, %written.1.i
+  %65 = load ptr, ptr %buffer, align 8
+  %add.ptr166.i = getelementptr i8, ptr %65, i64 %written.1.i
+  %66 = load i64, ptr %len.i, align 8
+  %sub168.i = sub i64 %66, %written.1.i
   %call169.i = call fastcc i64 @_bufferedwriter_raw_write(ptr noundef nonnull %self, ptr noundef %add.ptr166.i, i64 noundef %sub168.i)
   switch i64 %call169.i, label %if.end206.i [
     i64 -1, label %do.body244.i
@@ -7397,39 +7399,39 @@ while.body.i:                                     ; preds = %while.cond.i
   ]
 
 if.then174.i:                                     ; preds = %while.body.i
-  %69 = load i64, ptr %buffer_size.i, align 8
-  %cmp176.i = icmp sgt i64 %remaining.0.i, %69
+  %67 = load i64, ptr %buffer_size.i, align 8
+  %cmp176.i = icmp sgt i64 %remaining.0.i, %67
   br i1 %cmp176.i, label %if.then177.i, label %if.end204.i
 
 if.then177.i:                                     ; preds = %if.then174.i
-  %70 = load ptr, ptr %buffer9.i, align 8
-  %71 = load ptr, ptr %buffer, align 8
-  %add.ptr180.i = getelementptr i8, ptr %71, i64 %written.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %add.ptr180.i, i64 %69, i1 false)
+  %68 = load ptr, ptr %buffer9.i, align 8
+  %69 = load ptr, ptr %buffer, align 8
+  %add.ptr180.i = getelementptr i8, ptr %69, i64 %written.1.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %add.ptr180.i, i64 %67, i1 false)
   %raw_pos182.i = getelementptr inbounds i8, ptr %self, i64 72
   store i64 0, ptr %raw_pos182.i, align 8
-  %72 = load i64, ptr %buffer_size.i, align 8
-  store i64 %72, ptr %pos29.i, align 8
-  %73 = load i32, ptr %readable.i, align 8
-  %tobool187.not.i = icmp eq i32 %73, 0
+  %70 = load i64, ptr %buffer_size.i, align 8
+  store i64 %70, ptr %pos29.i, align 8
+  %71 = load i32, ptr %readable.i, align 8
+  %tobool187.not.i = icmp eq i32 %71, 0
   br i1 %tobool187.not.i, label %do.end199.i, label %land.lhs.true188.i
 
 land.lhs.true188.i:                               ; preds = %if.then177.i
   %read_end189.i = getelementptr inbounds i8, ptr %self, i64 80
-  %74 = load i64, ptr %read_end189.i, align 8
-  %cmp190.not.i = icmp ne i64 %74, -1
-  %cmp194.i = icmp slt i64 %74, %72
+  %72 = load i64, ptr %read_end189.i, align 8
+  %cmp190.not.i = icmp ne i64 %72, -1
+  %cmp194.i = icmp slt i64 %72, %70
   %or.cond157.i = select i1 %cmp190.not.i, i1 %cmp194.i, i1 false
   br i1 %or.cond157.i, label %if.then195.i, label %do.end199.i
 
 if.then195.i:                                     ; preds = %land.lhs.true188.i
-  store i64 %72, ptr %read_end189.i, align 8
+  store i64 %70, ptr %read_end189.i, align 8
   br label %do.end199.i
 
 do.end199.i:                                      ; preds = %if.then195.i, %land.lhs.true188.i, %if.then177.i
   %write_end201.i = getelementptr inbounds i8, ptr %self, i64 96
-  store i64 %72, ptr %write_end201.i, align 8
-  %add203.i = add i64 %72, %written.1.i
+  store i64 %70, ptr %write_end201.i, align 8
+  %add203.i = add i64 %70, %written.1.i
   call fastcc void @_set_BlockingIOError(i64 noundef %add203.i)
   br label %do.body244.i
 
@@ -7445,8 +7447,8 @@ if.end206.i:                                      ; preds = %while.body.i
   br i1 %cmp210.i, label %do.body244.i, label %while.cond.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %while.cond.i, %if.end204.i
-  %75 = load i32, ptr %readable.i, align 8
-  %tobool214.not.i = icmp eq i32 %75, 0
+  %73 = load i32, ptr %readable.i, align 8
+  %tobool214.not.i = icmp eq i32 %73, 0
   br i1 %tobool214.not.i, label %if.end216.i, label %if.then215.i
 
 if.then215.i:                                     ; preds = %while.end.i
@@ -7459,30 +7461,30 @@ if.end216.i:                                      ; preds = %if.then215.i, %whil
   br i1 %cmp217.i, label %if.then218.i, label %if.end223.i
 
 if.then218.i:                                     ; preds = %if.end216.i
-  %76 = load ptr, ptr %buffer9.i, align 8
-  %77 = load ptr, ptr %buffer, align 8
-  %add.ptr221.i = getelementptr i8, ptr %77, i64 %written.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %add.ptr221.i, i64 %remaining.0.i, i1 false)
+  %74 = load ptr, ptr %buffer9.i, align 8
+  %75 = load ptr, ptr %buffer, align 8
+  %add.ptr221.i = getelementptr i8, ptr %75, i64 %written.1.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %add.ptr221.i, i64 %remaining.0.i, i1 false)
   %add222.i = add i64 %written.1.i, %remaining.0.i
   %.pre187.i = load i32, ptr %readable.i, align 8
   br label %if.end223.i
 
 if.end223.i:                                      ; preds = %if.then218.i, %if.end216.i
-  %78 = phi i32 [ %.pre187.i, %if.then218.i ], [ %75, %if.end216.i ]
+  %76 = phi i32 [ %.pre187.i, %if.then218.i ], [ %73, %if.end216.i ]
   %written.2.i = phi i64 [ %add222.i, %if.then218.i ], [ %written.1.i, %if.end216.i ]
   %write_pos224.i = getelementptr inbounds i8, ptr %self, i64 88
   store i64 0, ptr %write_pos224.i, align 8
   %write_end225.i = getelementptr inbounds i8, ptr %self, i64 96
   store i64 %remaining.0.i, ptr %write_end225.i, align 8
   store i64 %remaining.0.i, ptr %pos29.i, align 8
-  %tobool229.not.i = icmp eq i32 %78, 0
+  %tobool229.not.i = icmp eq i32 %76, 0
   br i1 %tobool229.not.i, label %do.end241.i, label %land.lhs.true230.i
 
 land.lhs.true230.i:                               ; preds = %if.end223.i
   %read_end231.i = getelementptr inbounds i8, ptr %self, i64 80
-  %79 = load i64, ptr %read_end231.i, align 8
-  %cmp232.not.i = icmp ne i64 %79, -1
-  %cmp236.i = icmp slt i64 %79, %remaining.0.i
+  %77 = load i64, ptr %read_end231.i, align 8
+  %cmp232.not.i = icmp ne i64 %77, -1
+  %cmp236.i = icmp slt i64 %77, %remaining.0.i
   %or.cond158.i = and i1 %cmp232.not.i, %cmp236.i
   br i1 %or.cond158.i, label %if.then237.i, label %do.end241.i
 
@@ -7496,22 +7498,22 @@ do.end241.i:                                      ; preds = %if.then237.i, %land
   br label %end.i
 
 end.i:                                            ; preds = %do.end.i, %if.then66.i, %do.end241.i, %if.then105.i
-  %written.0.i = phi i64 [ %49, %if.then105.i ], [ %written.2.i, %do.end241.i ], [ %28, %if.then66.i ], [ %28, %do.end.i ]
+  %written.0.i = phi i64 [ %47, %if.then105.i ], [ %written.2.i, %do.end241.i ], [ %28, %if.then66.i ], [ %28, %do.end.i ]
   %call243.i = call ptr @PyLong_FromSsize_t(i64 noundef %written.0.i) #10
   br label %do.body244.i
 
 do.body244.i:                                     ; preds = %if.end206.i, %while.body.i, %end.i, %do.end199.i, %if.then153.i, %if.end118.i, %_buffered_check_blocking_error.exit.thread.i, %if.then18.i
   %res.1.i = phi ptr [ null, %if.then18.i ], [ %call243.i, %end.i ], [ null, %if.end118.i ], [ null, %if.then153.i ], [ null, %do.end199.i ], [ null, %_buffered_check_blocking_error.exit.thread.i ], [ null, %while.body.i ], [ null, %if.end206.i ]
   store volatile i64 0, ptr %owner.i, align 8
-  %80 = load ptr, ptr %lock.i, align 8
-  call void @PyThread_release_lock(ptr noundef %80) #10
+  %78 = load ptr, ptr %lock.i, align 8
+  call void @PyThread_release_lock(ptr noundef %78) #10
   br label %exit
 
 exit:                                             ; preds = %do.body244.i, %cond.false.i, %if.else.i, %if.then1.i, %entry
   %return_value.0 = phi ptr [ null, %entry ], [ %res.1.i, %do.body244.i ], [ null, %if.else.i ], [ null, %if.then1.i ], [ null, %cond.false.i ]
   %obj = getelementptr inbounds i8, ptr %buffer, i64 8
-  %81 = load ptr, ptr %obj, align 8
-  %tobool.not = icmp eq ptr %81, null
+  %79 = load ptr, ptr %obj, align 8
+  %tobool.not = icmp eq ptr %79, null
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %exit

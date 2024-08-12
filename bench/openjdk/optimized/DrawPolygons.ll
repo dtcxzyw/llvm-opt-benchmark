@@ -346,19 +346,23 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef %0, i32 noundef 
   %37 = getelementptr inbounds i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, %.2
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %36
   store i32 %.2, ptr %37, align 4
-  br label %44
+  br label %47
 
 41:                                               ; preds = %6
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load <2 x i32>, ptr %0, align 4
-  store <2 x i32> %43, ptr %42, align 4
-  br label %44
+  %42 = load i32, ptr %0, align 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %42, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %45, ptr %46, align 4
+  br label %47
 
-44:                                               ; preds = %36, %40, %41
+47:                                               ; preds = %36, %40, %41
   ret void
 }
 

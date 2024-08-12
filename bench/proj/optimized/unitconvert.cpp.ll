@@ -117,8 +117,9 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_unitconvertP8PJconst
   %18 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 -1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 1.000000e+00, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %19, align 8
+  store double 1.000000e+00, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -664,50 +665,52 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
+  %.sroa.014.0.copyload = load double, ptr %0, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.215.0.copyload = load double, ptr %.sroa.215.0..sroa_idx, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.316.0.copyload = load double, ptr %.sroa.316.0..sroa_idx, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load double, ptr %5, align 8, !noalias !9
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = load double, ptr %7, align 8, !noalias !9
-  %9 = fmul double %.sroa.316.0.copyload, %8
-  %10 = load <2 x double>, ptr %0, align 8
-  %11 = insertelement <2 x double> poison, double %6, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x double> %10, %12
-  store <2 x double> %13, ptr %0, align 8
-  store double %9, ptr %.sroa.316.0..sroa_idx, align 8
-  %14 = load i32, ptr %4, align 8
-  %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %23
+  %7 = fmul double %.sroa.014.0.copyload, %6
+  %8 = fmul double %.sroa.215.0.copyload, %6
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = load double, ptr %9, align 8, !noalias !9
+  %11 = fmul double %.sroa.316.0.copyload, %10
+  store double %7, ptr %0, align 8
+  store double %8, ptr %.sroa.215.0..sroa_idx, align 8
+  store double %11, ptr %.sroa.316.0..sroa_idx, align 8
+  %12 = load i32, ptr %4, align 8
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %21
 
-16:                                               ; preds = %2
-  %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %17, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load double, ptr %20, align 8
-  %22 = tail call noundef double %19(double noundef %21)
-  store double %22, ptr %20, align 8
-  br label %23
+14:                                               ; preds = %2
+  %15 = zext nneg i32 %12 to i64
+  %16 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %15, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = load double, ptr %18, align 8
+  %20 = tail call noundef double %17(double noundef %19)
+  store double %20, ptr %18, align 8
+  br label %21
 
-23:                                               ; preds = %16, %2
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %27, label %34
+21:                                               ; preds = %14, %2
+  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %23
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %28, i32 2
-  %30 = load ptr, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = load double, ptr %31, align 8
-  %33 = tail call noundef double %30(double noundef %32)
-  store double %33, ptr %31, align 8
-  br label %34
+25:                                               ; preds = %21
+  %26 = zext nneg i32 %23 to i64
+  %27 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %26, i32 2
+  %28 = load ptr, ptr %27, align 16
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load double, ptr %29, align 8
+  %31 = tail call noundef double %28(double noundef %30)
+  store double %31, ptr %29, align 8
+  br label %32
 
-34:                                               ; preds = %27, %23
+32:                                               ; preds = %25, %21
   ret void
 }
 
@@ -715,50 +718,52 @@ define internal void @_ZL10forward_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef 
 define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
+  %.sroa.014.0.copyload = load double, ptr %0, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.215.0.copyload = load double, ptr %.sroa.215.0..sroa_idx, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.316.0.copyload = load double, ptr %.sroa.316.0..sroa_idx, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load double, ptr %5, align 8, !noalias !12
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = load double, ptr %7, align 8, !noalias !12
-  %9 = fdiv double %.sroa.316.0.copyload, %8
-  %10 = load <2 x double>, ptr %0, align 8
-  %11 = insertelement <2 x double> poison, double %6, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fdiv <2 x double> %10, %12
-  store <2 x double> %13, ptr %0, align 8
-  store double %9, ptr %.sroa.316.0..sroa_idx, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %17, label %24
+  %7 = fdiv double %.sroa.014.0.copyload, %6
+  %8 = fdiv double %.sroa.215.0.copyload, %6
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = load double, ptr %9, align 8, !noalias !12
+  %11 = fdiv double %.sroa.316.0.copyload, %10
+  store double %7, ptr %0, align 8
+  store double %8, ptr %.sroa.215.0..sroa_idx, align 8
+  store double %11, ptr %.sroa.316.0..sroa_idx, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %15, label %22
 
-17:                                               ; preds = %2
-  %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %18, i32 1
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load double, ptr %21, align 8
-  %23 = tail call noundef double %20(double noundef %22)
-  store double %23, ptr %21, align 8
-  br label %24
+15:                                               ; preds = %2
+  %16 = zext nneg i32 %13 to i64
+  %17 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %16, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load double, ptr %19, align 8
+  %21 = tail call noundef double %18(double noundef %20)
+  store double %21, ptr %19, align 8
+  br label %22
 
-24:                                               ; preds = %17, %2
-  %25 = load i32, ptr %4, align 8
-  %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %27, label %34
+22:                                               ; preds = %15, %2
+  %23 = load i32, ptr %4, align 8
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %24
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %28, i32 2
-  %30 = load ptr, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = load double, ptr %31, align 8
-  %33 = tail call noundef double %30(double noundef %32)
-  store double %33, ptr %31, align 8
-  br label %34
+25:                                               ; preds = %22
+  %26 = zext nneg i32 %23 to i64
+  %27 = getelementptr inbounds [5 x %"struct.(anonymous namespace)::TIME_UNITS"], ptr @_ZL10time_units, i64 0, i64 %26, i32 2
+  %28 = load ptr, ptr %27, align 16
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load double, ptr %29, align 8
+  %31 = tail call noundef double %28(double noundef %30)
+  store double %31, ptr %29, align 8
+  br label %32
 
-34:                                               ; preds = %27, %24
+32:                                               ; preds = %25, %22
   ret void
 }
 
@@ -766,20 +771,23 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef 
 define internal void @_ZL10forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
+  %.sroa.03.0.copyload = load double, ptr %1, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = load double, ptr %8, align 8
-  %10 = fmul double %.sroa.7.0.copyload, %9
-  %11 = load <2 x double>, ptr %1, align 8
-  %12 = insertelement <2 x double> poison, double %7, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x double> %11, %13
-  store <2 x double> %14, ptr %0, align 8
+  %8 = fmul double %.sroa.03.0.copyload, %7
+  %9 = fmul double %.sroa.5.0.copyload, %7
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = load double, ptr %10, align 8
+  %12 = fmul double %.sroa.7.0.copyload, %11
+  store double %8, ptr %0, align 8
+  %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %9, ptr %.sroa.5.0..sroa_idx5, align 8
   %.sroa.7.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %10, ptr %.sroa.7.0..sroa_idx7, align 8
+  store double %12, ptr %.sroa.7.0..sroa_idx7, align 8
   ret void
 }
 
@@ -787,20 +795,23 @@ define internal void @_ZL10forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalia
 define internal void @_ZL10reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
+  %.sroa.03.0.copyload = load double, ptr %1, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = load double, ptr %8, align 8
-  %10 = fdiv double %.sroa.7.0.copyload, %9
-  %11 = load <2 x double>, ptr %1, align 8
-  %12 = insertelement <2 x double> poison, double %7, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fdiv <2 x double> %11, %13
-  store <2 x double> %14, ptr %0, align 8
+  %8 = fdiv double %.sroa.03.0.copyload, %7
+  %9 = fdiv double %.sroa.5.0.copyload, %7
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = load double, ptr %10, align 8
+  %12 = fdiv double %.sroa.7.0.copyload, %11
+  store double %8, ptr %0, align 8
+  %.sroa.5.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %9, ptr %.sroa.5.0..sroa_idx5, align 8
   %.sroa.7.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %10, ptr %.sroa.7.0..sroa_idx7, align 8
+  store double %12, ptr %.sroa.7.0..sroa_idx7, align 8
   ret void
 }
 
@@ -823,15 +834,10 @@ define internal { double, double } @_ZL10reverse_2d5PJ_XYP8PJconsts(double %0, d
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = insertelement <2 x double> poison, double %0, i64 0
-  %9 = insertelement <2 x double> %8, double %1, i64 1
-  %10 = insertelement <2 x double> poison, double %7, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x double> %9, %11
-  %13 = extractelement <2 x double> %12, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %13, 0
-  %14 = extractelement <2 x double> %12, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %14, 1
+  %8 = fdiv double %0, %7
+  %9 = fdiv double %1, %7
+  %.fca.0.insert = insertvalue { double, double } poison, double %8, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %9, 1
   ret { double, double } %.fca.1.insert
 }
 

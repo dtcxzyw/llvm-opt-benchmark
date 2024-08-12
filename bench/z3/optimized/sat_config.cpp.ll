@@ -1814,9 +1814,13 @@ invoke.cont617:                                   ; preds = %if.end616
   %frombool619 = zext i1 %call.i308 to i8
   store i8 %frombool619, ptr %m_anti_exploration, align 4
   %m_step_size_init = getelementptr inbounds i8, ptr %this, i64 368
-  store <2 x double> <double 4.000000e-01, double 0x3EB0C6F7A0B5ED8D>, ptr %m_step_size_init, align 8
+  store double 4.000000e-01, ptr %m_step_size_init, align 8
+  %m_step_size_dec = getelementptr inbounds i8, ptr %this, i64 376
+  store double 0x3EB0C6F7A0B5ED8D, ptr %m_step_size_dec, align 8
   %m_step_size_min = getelementptr inbounds i8, ptr %this, i64 384
-  store <2 x double> <double 6.000000e-02, double 9.000000e-01>, ptr %m_step_size_min, align 8
+  store double 6.000000e-02, ptr %m_step_size_min, align 8
+  %m_reward_multiplier = getelementptr inbounds i8, ptr %this, i64 392
+  store double 9.000000e-01, ptr %m_reward_multiplier, align 8
   %m_reward_offset = getelementptr inbounds i8, ptr %this, i64 400
   store double 1.000000e+06, ptr %m_reward_offset, align 8
   %167 = load ptr, ptr %p, align 8

@@ -311,7 +311,7 @@ define void @_Z14read_rotparamsB5cxx11PSt6vectorI9t_inpfileSaIS0_EEP5t_rotP14War
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #19
-  br label %208
+  br label %206
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %2, i64 8
@@ -387,8 +387,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %52
 
-52:                                               ; preds = %.lr.ph, %205
-  %indvars.iv151 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next152, %205 ]
+52:                                               ; preds = %.lr.ph, %203
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next152, %203 ]
   %53 = load ptr, ptr %23, align 8
   %54 = getelementptr inbounds %struct.t_rotgrp, ptr %53, i64 %indvars.iv151
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.18)
@@ -462,294 +462,293 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 81:                                               ; preds = %75
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %82 = load <2 x double>, ptr %9, align 16
-  %83 = fmul <2 x double> %82, %82
-  %84 = extractelement <2 x double> %83, i64 1
-  %85 = extractelement <2 x double> %82, i64 0
-  %86 = call double @llvm.fmuladd.f64(double %85, double %85, double %84)
-  %87 = load double, ptr %51, align 16
-  %88 = call noundef double @llvm.fmuladd.f64(double %87, double %87, double %86)
-  %89 = fcmp une double %88, 0.000000e+00
-  br i1 %89, label %90, label %96
+  %82 = load double, ptr %9, align 16
+  %83 = load double, ptr %50, align 8
+  %84 = fmul double %83, %83
+  %85 = call double @llvm.fmuladd.f64(double %82, double %82, double %84)
+  %86 = load double, ptr %51, align 16
+  %87 = call noundef double @llvm.fmuladd.f64(double %86, double %86, double %85)
+  %88 = fcmp une double %87, 0.000000e+00
+  br i1 %88, label %89, label %94
 
-90:                                               ; preds = %81
-  %sqrt.i = call noundef double @llvm.sqrt.f64(double %88)
-  %91 = fdiv double 1.000000e+00, %sqrt.i
-  %92 = insertelement <2 x double> poison, double %91, i64 0
-  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = fmul <2 x double> %82, %93
-  store <2 x double> %94, ptr %9, align 16
-  %95 = fmul double %87, %91
-  store double %95, ptr %51, align 16
-  br label %99
+89:                                               ; preds = %81
+  %sqrt.i = call noundef double @llvm.sqrt.f64(double %87)
+  %90 = fdiv double 1.000000e+00, %sqrt.i
+  %91 = fmul double %82, %90
+  store double %91, ptr %9, align 16
+  %92 = fmul double %83, %90
+  store double %92, ptr %50, align 8
+  %93 = fmul double %86, %90
+  store double %93, ptr %51, align 16
+  br label %97
 
-.loopexit:                                        ; preds = %52, %55, %58, %61, %62, %65, %66, %69, %73, %96, %99, %115, %116, %133, %134, %137, %146, %149, %150, %157, %160, %161, %168, %171, %172, %181, %184, %185, %188, %190, %198, %201, %202
+.loopexit:                                        ; preds = %52, %55, %58, %61, %62, %65, %66, %69, %73, %94, %97, %113, %114, %131, %132, %135, %144, %147, %148, %155, %158, %159, %166, %169, %170, %179, %182, %183, %186, %188, %196, %199, %200
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %77, %122
+.loopexit.split-lp:                               ; preds = %77, %120
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %124, %79
-  %eh.lpad-body = phi { ptr, i32 } [ %80, %79 ], [ %125, %124 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %122, %79
+  %eh.lpad-body = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
-  br label %208
+  br label %206
 
-96:                                               ; preds = %81
-  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %56) #19
-  %98 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %98, ptr nonnull %8)
-          to label %99 unwind label %.loopexit
+94:                                               ; preds = %81
+  %95 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %56) #19
+  %96 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %96, ptr nonnull %8)
+          to label %97 unwind label %.loopexit
 
-99:                                               ; preds = %96, %90
-  %100 = load ptr, ptr @stderr, align 8
-  %101 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6RotStrB5cxx11) #19
-  %102 = load i32, ptr %54, align 8
-  %103 = invoke noundef ptr @_Z17enumValueToString25EnforcedRotationGroupType(i32 noundef %102)
-          to label %104 unwind label %.loopexit
+97:                                               ; preds = %94, %89
+  %98 = load ptr, ptr @stderr, align 8
+  %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6RotStrB5cxx11) #19
+  %100 = load i32, ptr %54, align 8
+  %101 = invoke noundef ptr @_Z17enumValueToString25EnforcedRotationGroupType(i32 noundef %100)
+          to label %102 unwind label %.loopexit
 
-104:                                              ; preds = %99
-  %105 = load double, ptr %9, align 16
-  %106 = load double, ptr %50, align 8
-  %107 = load double, ptr %51, align 16
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.29, ptr noundef %101, i32 noundef %56, ptr noundef %103, double noundef %105, double noundef %106, double noundef %107) #24
-  %109 = getelementptr inbounds i8, ptr %54, i64 48
-  br label %110
+102:                                              ; preds = %97
+  %103 = load double, ptr %9, align 16
+  %104 = load double, ptr %50, align 8
+  %105 = load double, ptr %51, align 16
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.29, ptr noundef %99, i32 noundef %56, ptr noundef %101, double noundef %103, double noundef %104, double noundef %105) #24
+  %107 = getelementptr inbounds i8, ptr %54, i64 48
+  br label %108
 
-110:                                              ; preds = %104, %110
-  %indvars.iv = phi i64 [ 0, %104 ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv
-  %112 = load double, ptr %111, align 8
-  %113 = fptrunc double %112 to float
-  %114 = getelementptr inbounds [3 x float], ptr %109, i64 0, i64 %indvars.iv
-  store float %113, ptr %114, align 4
+108:                                              ; preds = %102, %108
+  %indvars.iv = phi i64 [ 0, %102 ], [ %indvars.iv.next, %108 ]
+  %109 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  %110 = load double, ptr %109, align 8
+  %111 = fptrunc double %110 to float
+  %112 = getelementptr inbounds [3 x float], ptr %107, i64 0, i64 %indvars.iv
+  store float %111, ptr %112, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %115, label %110, !llvm.loop !8
+  br i1 %exitcond.not, label %113, label %108, !llvm.loop !8
 
-115:                                              ; preds = %110
+113:                                              ; preds = %108
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.30)
+          to label %114 unwind label %.loopexit
+
+114:                                              ; preds = %113
+  %115 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %56) #19
+  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull @.str.32)
           to label %116 unwind label %.loopexit
 
-116:                                              ; preds = %115
-  %117 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %56) #19
-  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull @.str.32)
-          to label %118 unwind label %.loopexit
-
-118:                                              ; preds = %116
+116:                                              ; preds = %114
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %119 = load i32, ptr %54, align 8
-  switch i32 %119, label %126 [
-    i32 0, label %120
-    i32 2, label %120
-    i32 4, label %120
-    i32 6, label %120
+  %117 = load i32, ptr %54, align 8
+  switch i32 %117, label %124 [
+    i32 0, label %118
+    i32 2, label %118
+    i32 4, label %118
+    i32 6, label %118
   ]
 
-120:                                              ; preds = %118, %118, %118, %118
+118:                                              ; preds = %116, %116, %116, %116
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %121 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.59, ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef nonnull %51) #19
-  %.not.i128 = icmp eq i32 %121, 3
-  br i1 %.not.i128, label %_ZL11string2dvecPcPd.exit132, label %122
+  %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.59, ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef nonnull %51) #19
+  %.not.i128 = icmp eq i32 %119, 3
+  br i1 %.not.i128, label %_ZL11string2dvecPcPd.exit132, label %120
 
-122:                                              ; preds = %120
+120:                                              ; preds = %118
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(131) @.str.16, i8 noundef zeroext 2)
           to label %.noexc129 unwind label %.loopexit.split-lp
 
-.noexc129:                                        ; preds = %122
+.noexc129:                                        ; preds = %120
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 62, ptr noundef nonnull @.str.60, ptr noundef nonnull %12) #21
-          to label %123 unwind label %124
+          to label %121 unwind label %122
 
-123:                                              ; preds = %.noexc129
+121:                                              ; preds = %.noexc129
   unreachable
 
-124:                                              ; preds = %.noexc129
-  %125 = landingpad { ptr, i32 }
+122:                                              ; preds = %.noexc129
+  %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   br label %.body
 
-_ZL11string2dvecPcPd.exit132:                     ; preds = %120
+_ZL11string2dvecPcPd.exit132:                     ; preds = %118
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %124
+
+124:                                              ; preds = %_ZL11string2dvecPcPd.exit132, %116
+  %125 = getelementptr inbounds i8, ptr %54, i64 68
   br label %126
 
-126:                                              ; preds = %_ZL11string2dvecPcPd.exit132, %118
-  %127 = getelementptr inbounds i8, ptr %54, i64 68
-  br label %128
-
-128:                                              ; preds = %126, %128
-  %indvars.iv147 = phi i64 [ 0, %126 ], [ %indvars.iv.next148, %128 ]
-  %129 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv147
-  %130 = load double, ptr %129, align 8
-  %131 = fptrunc double %130 to float
-  %132 = getelementptr inbounds [3 x float], ptr %127, i64 0, i64 %indvars.iv147
-  store float %131, ptr %132, align 4
+126:                                              ; preds = %124, %126
+  %indvars.iv147 = phi i64 [ 0, %124 ], [ %indvars.iv.next148, %126 ]
+  %127 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %indvars.iv147
+  %128 = load double, ptr %127, align 8
+  %129 = fptrunc double %128 to float
+  %130 = getelementptr inbounds [3 x float], ptr %125, i64 0, i64 %indvars.iv147
+  store float %129, ptr %130, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 3
-  br i1 %exitcond150.not, label %133, label %128, !llvm.loop !9
+  br i1 %exitcond150.not, label %131, label %126, !llvm.loop !9
 
-133:                                              ; preds = %128
+131:                                              ; preds = %126
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.33)
-          to label %134 unwind label %.loopexit
+          to label %132 unwind label %.loopexit
 
-134:                                              ; preds = %133
-  %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %56) #19
-  %136 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 0.000000e+00, ptr noundef %3)
-          to label %137 unwind label %.loopexit
+132:                                              ; preds = %131
+  %133 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %56) #19
+  %134 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 0.000000e+00, ptr noundef %3)
+          to label %135 unwind label %.loopexit
 
-137:                                              ; preds = %134
-  %138 = fptrunc double %136 to float
-  %139 = getelementptr inbounds i8, ptr %54, i64 60
-  store float %138, ptr %139, align 4
-  %140 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %56) #19
-  %141 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 0.000000e+00, ptr noundef %3)
-          to label %142 unwind label %.loopexit
+135:                                              ; preds = %132
+  %136 = fptrunc double %134 to float
+  %137 = getelementptr inbounds i8, ptr %54, i64 60
+  store float %136, ptr %137, align 4
+  %138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %56) #19
+  %139 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 0.000000e+00, ptr noundef %3)
+          to label %140 unwind label %.loopexit
 
-142:                                              ; preds = %137
-  %143 = fptrunc double %141 to float
-  %144 = getelementptr inbounds i8, ptr %54, i64 64
-  store float %143, ptr %144, align 8
-  %145 = fcmp ugt float %143, 0.000000e+00
-  br i1 %145, label %149, label %146
+140:                                              ; preds = %135
+  %141 = fptrunc double %139 to float
+  %142 = getelementptr inbounds i8, ptr %54, i64 64
+  store float %141, ptr %142, align 8
+  %143 = fcmp ugt float %141, 0.000000e+00
+  br i1 %143, label %147, label %144
 
-146:                                              ; preds = %142
-  %147 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %56) #19
-  %148 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %148, ptr nonnull %8)
-          to label %149 unwind label %.loopexit
+144:                                              ; preds = %140
+  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %56) #19
+  %146 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %146, ptr nonnull %8)
+          to label %147 unwind label %.loopexit
 
-149:                                              ; preds = %146, %142
+147:                                              ; preds = %144, %140
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.37)
-          to label %150 unwind label %.loopexit
+          to label %148 unwind label %.loopexit
 
-150:                                              ; preds = %149
-  %151 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %56) #19
-  %152 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.500000e+00, ptr noundef %3)
-          to label %153 unwind label %.loopexit
+148:                                              ; preds = %147
+  %149 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %56) #19
+  %150 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.500000e+00, ptr noundef %3)
+          to label %151 unwind label %.loopexit
 
-153:                                              ; preds = %150
-  %154 = fptrunc double %152 to float
-  %155 = getelementptr inbounds i8, ptr %54, i64 92
-  store float %154, ptr %155, align 4
-  %156 = fcmp ugt float %154, 0.000000e+00
-  br i1 %156, label %160, label %157
+151:                                              ; preds = %148
+  %152 = fptrunc double %150 to float
+  %153 = getelementptr inbounds i8, ptr %54, i64 92
+  store float %152, ptr %153, align 4
+  %154 = fcmp ugt float %152, 0.000000e+00
+  br i1 %154, label %158, label %155
 
-157:                                              ; preds = %153
-  %158 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %56) #19
-  %159 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %159, ptr nonnull %8)
-          to label %160 unwind label %.loopexit
+155:                                              ; preds = %151
+  %156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %56) #19
+  %157 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %157, ptr nonnull %8)
+          to label %158 unwind label %.loopexit
 
-160:                                              ; preds = %157, %153
+158:                                              ; preds = %155, %151
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.40)
-          to label %161 unwind label %.loopexit
+          to label %159 unwind label %.loopexit
 
-161:                                              ; preds = %160
-  %162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %56) #19
-  %163 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.000000e-03, ptr noundef %3)
-          to label %164 unwind label %.loopexit
+159:                                              ; preds = %158
+  %160 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.41, i32 noundef %56) #19
+  %161 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.000000e-03, ptr noundef %3)
+          to label %162 unwind label %.loopexit
 
-164:                                              ; preds = %161
-  %165 = fptrunc double %163 to float
-  %166 = getelementptr inbounds i8, ptr %54, i64 96
-  store float %165, ptr %166, align 8
-  %167 = fcmp ugt float %165, 0.000000e+00
-  br i1 %167, label %171, label %168
+162:                                              ; preds = %159
+  %163 = fptrunc double %161 to float
+  %164 = getelementptr inbounds i8, ptr %54, i64 96
+  store float %163, ptr %164, align 8
+  %165 = fcmp ugt float %163, 0.000000e+00
+  br i1 %165, label %169, label %166
 
-168:                                              ; preds = %164
-  %169 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %56) #19
-  %170 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %170, ptr nonnull %8)
-          to label %171 unwind label %.loopexit
+166:                                              ; preds = %162
+  %167 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %56) #19
+  %168 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %168, ptr nonnull %8)
+          to label %169 unwind label %.loopexit
 
-171:                                              ; preds = %168, %164
+169:                                              ; preds = %166, %162
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.43)
-          to label %172 unwind label %.loopexit
+          to label %170 unwind label %.loopexit
 
-172:                                              ; preds = %171
-  %173 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %56) #19
-  %174 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.000000e-04, ptr noundef %3)
-          to label %175 unwind label %.loopexit
+170:                                              ; preds = %169
+  %171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %56) #19
+  %172 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 1.000000e-04, ptr noundef %3)
+          to label %173 unwind label %.loopexit
 
-175:                                              ; preds = %172
-  %176 = fptrunc double %174 to float
-  %177 = getelementptr inbounds i8, ptr %54, i64 100
-  store float %176, ptr %177, align 4
-  %178 = fcmp ugt float %176, 0.000000e+00
-  br i1 %178, label %184, label %179
+173:                                              ; preds = %170
+  %174 = fptrunc double %172 to float
+  %175 = getelementptr inbounds i8, ptr %54, i64 100
+  store float %174, ptr %175, align 4
+  %176 = fcmp ugt float %174, 0.000000e+00
+  br i1 %176, label %182, label %177
 
-179:                                              ; preds = %175
-  %180 = load i32, ptr %54, align 8
-  switch i32 %180, label %184 [
-    i32 6, label %181
-    i32 10, label %181
+177:                                              ; preds = %173
+  %178 = load i32, ptr %54, align 8
+  switch i32 %178, label %182 [
+    i32 6, label %179
+    i32 10, label %179
   ]
 
-181:                                              ; preds = %179, %179
-  %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %56) #19
-  %183 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %183, ptr nonnull %8)
-          to label %184 unwind label %.loopexit
+179:                                              ; preds = %177, %177
+  %180 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %56) #19
+  %181 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %181, ptr nonnull %8)
+          to label %182 unwind label %.loopexit
 
-184:                                              ; preds = %179, %181, %175
+182:                                              ; preds = %177, %179, %173
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.46)
-          to label %185 unwind label %.loopexit
+          to label %183 unwind label %.loopexit
 
-185:                                              ; preds = %184
-  %186 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %56) #19
-  %187 = invoke noundef i32 @_Z7getEnumI20RotationGroupFittingET_PSt6vectorI9t_inpfileSaIS3_EEPKcP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3)
+183:                                              ; preds = %182
+  %184 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %56) #19
+  %185 = invoke noundef i32 @_Z7getEnumI20RotationGroupFittingET_PSt6vectorI9t_inpfileSaIS3_EEPKcP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3)
+          to label %186 unwind label %.loopexit
+
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds i8, ptr %54, i64 80
+  store i32 %185, ptr %187, align 8
+  invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.48)
           to label %188 unwind label %.loopexit
 
-188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %54, i64 80
-  store i32 %187, ptr %189, align 8
-  invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.48)
-          to label %190 unwind label %.loopexit
+188:                                              ; preds = %186
+  %189 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %56) #19
+  %190 = invoke noundef i32 @_Z8get_eintPSt6vectorI9t_inpfileSaIS0_EEPKciP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 21, ptr noundef %3)
+          to label %191 unwind label %.loopexit
 
-190:                                              ; preds = %188
-  %191 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %56) #19
-  %192 = invoke noundef i32 @_Z8get_eintPSt6vectorI9t_inpfileSaIS0_EEPKciP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 21, ptr noundef %3)
-          to label %193 unwind label %.loopexit
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds i8, ptr %54, i64 84
+  store i32 %190, ptr %192, align 4
+  %193 = load i32, ptr %187, align 8
+  %194 = icmp eq i32 %193, 2
+  %195 = icmp slt i32 %190, 1
+  %or.cond = and i1 %195, %194
+  br i1 %or.cond, label %196, label %199
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %54, i64 84
-  store i32 %192, ptr %194, align 4
-  %195 = load i32, ptr %189, align 8
-  %196 = icmp eq i32 %195, 2
-  %197 = icmp slt i32 %192, 1
-  %or.cond = and i1 %197, %196
-  br i1 %or.cond, label %198, label %201
+196:                                              ; preds = %191
+  %197 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %56) #19
+  %198 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %198, ptr nonnull %8)
+          to label %199 unwind label %.loopexit
 
-198:                                              ; preds = %193
-  %199 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %56) #19
-  %200 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  invoke void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %200, ptr nonnull %8)
-          to label %201 unwind label %.loopexit
-
-201:                                              ; preds = %198, %193
+199:                                              ; preds = %196, %191
   invoke void @_Z20printStringNoNewlinePSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %1, ptr noundef nonnull @.str.51)
-          to label %202 unwind label %.loopexit
+          to label %200 unwind label %.loopexit
 
-202:                                              ; preds = %201
-  %203 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %56) #19
-  %204 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 2.500000e-01, ptr noundef %3)
-          to label %205 unwind label %.loopexit
+200:                                              ; preds = %199
+  %201 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %56) #19
+  %202 = invoke noundef double @_Z9get_erealPSt6vectorI9t_inpfileSaIS0_EEPKcdP14WarningHandler(ptr noundef %1, ptr noundef nonnull %7, double noundef 2.500000e-01, ptr noundef %3)
+          to label %203 unwind label %.loopexit
 
-205:                                              ; preds = %202
-  %206 = fptrunc double %204 to float
-  %207 = getelementptr inbounds i8, ptr %54, i64 88
-  store float %206, ptr %207, align 8
+203:                                              ; preds = %200
+  %204 = fptrunc double %202 to float
+  %205 = getelementptr inbounds i8, ptr %54, i64 88
+  store float %204, ptr %205, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
   br i1 %exitcond154.not, label %._crit_edge, label %52, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %205
+._crit_edge:                                      ; preds = %203
   ret void
 
-208:                                              ; preds = %.body, %20
+206:                                              ; preds = %.body, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
@@ -1300,7 +1299,7 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI8t_rotgrpSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %42, label %3
+  br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1328,7 +1327,7 @@ _ZSt27__uninitialized_default_n_aIP8t_rotgrpmS0_ET_S2_T0_RSaIT1_E.exit: ; preds 
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %42
+  br label %45
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -1351,45 +1350,49 @@ _ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %20
   br i1 %.not10.i.i.i, label %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i64 24, i1 false), !alias.scope !17
   %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %31 = load <2 x ptr>, ptr %30, align 8, !alias.scope !15, !noalias !12
-  store <2 x ptr> %31, ptr %29, align 8, !alias.scope !12, !noalias !15
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %31 = load ptr, ptr %30, align 8, !alias.scope !15, !noalias !12
+  store ptr %31, ptr %29, align 8, !alias.scope !12, !noalias !15
+  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   %34 = load ptr, ptr %33, align 8, !alias.scope !15, !noalias !12
   store ptr %34, ptr %32, align 8, !alias.scope !12, !noalias !15
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %37 = load ptr, ptr %36, align 8, !alias.scope !15, !noalias !12
+  store ptr %37, ptr %35, align 8, !alias.scope !12, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !15, !noalias !12
-  %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %36, i64 56, i1 false), !alias.scope !17
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  %.not.i.i.i = icmp eq ptr %37, %5
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %39, i64 56, i1 false), !alias.scope !17
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
+  %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
+  %.not.i.i.i = icmp eq ptr %40, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorI8t_rotgrpSaIS0_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
-  br i1 %.not.i36, label %_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37, label %39
+  br i1 %.not.i36, label %_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37, label %42
 
-39:                                               ; preds = %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+42:                                               ; preds = %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37
 
-_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %39
+_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI8t_rotgrpSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %26, ptr %0, align 8
-  %40 = getelementptr inbounds %struct.t_rotgrp, ptr %27, i64 %1
-  store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.t_rotgrp, ptr %26, i64 %24
-  store ptr %41, ptr %11, align 8
-  br label %42
+  %43 = getelementptr inbounds %struct.t_rotgrp, ptr %27, i64 %1
+  store ptr %43, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.t_rotgrp, ptr %26, i64 %24
+  store ptr %44, ptr %11, align 8
+  br label %45
 
-42:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP8t_rotgrpmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
+45:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP8t_rotgrpmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI8t_rotgrpSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
   ret void
 }
 

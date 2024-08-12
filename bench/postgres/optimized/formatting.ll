@@ -1292,7 +1292,7 @@ define dso_local i64 @timestamp_to_char(ptr nocapture noundef %0) local_unnamed_
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %39, align 4
-  br label %83
+  br label %91
 
 40:                                               ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -1334,38 +1334,50 @@ define dso_local i64 @timestamp_to_char(ptr nocapture noundef %0) local_unnamed_
   %64 = add i32 %63, 1
   %65 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 %64, ptr %65, align 4
-  %66 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %66, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 8
-  %68 = load i32, ptr %67, align 8
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %69, ptr %70, align 8
-  %71 = load <4 x i32>, ptr %55, align 4
-  store <4 x i32> %71, ptr %42, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 %64, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %3, i64 40
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
-  %77 = load i32, ptr %76, align 8
-  %78 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %9, i1 noundef zeroext false, i32 noundef %77)
-  %.not36 = icmp eq ptr %78, null
-  br i1 %.not36, label %79, label %81
+  %66 = load i32, ptr %3, align 8
+  store i32 %66, ptr %2, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %68, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = load i32, ptr %70, align 8
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %72, ptr %73, align 8
+  %74 = load i32, ptr %55, align 4
+  store i32 %74, ptr %42, align 8
+  %75 = load i32, ptr %53, align 8
+  store i32 %75, ptr %41, align 4
+  %76 = load i32, ptr %51, align 4
+  %77 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %76, ptr %77, align 8
+  %78 = load i32, ptr %60, align 8
+  %79 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 %78, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 %64, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %3, i64 40
+  %82 = load i64, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %82, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = load i32, ptr %84, align 8
+  %86 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %9, i1 noundef zeroext false, i32 noundef %85)
+  %.not36 = icmp eq ptr %86, null
+  br i1 %.not36, label %87, label %89
 
-79:                                               ; preds = %50
-  %80 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %80, align 4
-  br label %83
+87:                                               ; preds = %50
+  %88 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %88, align 4
+  br label %91
 
-81:                                               ; preds = %50
-  %82 = ptrtoint ptr %78 to i64
-  br label %83
+89:                                               ; preds = %50
+  %90 = ptrtoint ptr %86 to i64
+  br label %91
 
-83:                                               ; preds = %81, %79, %38
-  %.0 = phi i64 [ 0, %38 ], [ %82, %81 ], [ 0, %79 ]
+91:                                               ; preds = %89, %87, %38
+  %.0 = phi i64 [ 0, %38 ], [ %90, %89 ], [ 0, %87 ]
   ret i64 %.0
 }
 
@@ -1470,7 +1482,7 @@ define dso_local i64 @timestamptz_to_char(ptr nocapture noundef %0) local_unname
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %40, align 4
-  br label %84
+  br label %92
 
 41:                                               ; preds = %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -1512,38 +1524,50 @@ define dso_local i64 @timestamptz_to_char(ptr nocapture noundef %0) local_unname
   %65 = add i32 %64, 1
   %66 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %65, ptr %66, align 4
-  %67 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %67, ptr %2, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
-  %69 = load i32, ptr %68, align 8
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %70, ptr %71, align 8
-  %72 = load <4 x i32>, ptr %56, align 4
-  store <4 x i32> %72, ptr %43, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 %65, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 40
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = load i32, ptr %77, align 8
-  %79 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %10, i1 noundef zeroext false, i32 noundef %78)
-  %.not36 = icmp eq ptr %79, null
-  br i1 %.not36, label %80, label %82
+  %67 = load i32, ptr %4, align 8
+  store i32 %67, ptr %2, align 8
+  %68 = getelementptr inbounds i8, ptr %4, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %69, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %72 = load i32, ptr %71, align 8
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %73, ptr %74, align 8
+  %75 = load i32, ptr %56, align 4
+  store i32 %75, ptr %43, align 8
+  %76 = load i32, ptr %54, align 8
+  store i32 %76, ptr %42, align 4
+  %77 = load i32, ptr %52, align 4
+  %78 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %77, ptr %78, align 8
+  %79 = load i32, ptr %61, align 8
+  %80 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 %79, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 %65, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %4, i64 40
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = load i32, ptr %85, align 8
+  %87 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %10, i1 noundef zeroext false, i32 noundef %86)
+  %.not36 = icmp eq ptr %87, null
+  br i1 %.not36, label %88, label %90
 
-80:                                               ; preds = %51
-  %81 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %81, align 4
-  br label %84
+88:                                               ; preds = %51
+  %89 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %89, align 4
+  br label %92
 
-82:                                               ; preds = %51
-  %83 = ptrtoint ptr %79 to i64
-  br label %84
+90:                                               ; preds = %51
+  %91 = ptrtoint ptr %87 to i64
+  br label %92
 
-84:                                               ; preds = %82, %80, %39
-  %.0 = phi i64 [ 0, %39 ], [ %83, %82 ], [ 0, %80 ]
+92:                                               ; preds = %90, %88, %39
+  %.0 = phi i64 [ 0, %39 ], [ %91, %90 ], [ 0, %88 ]
   ret i64 %.0
 }
 
@@ -1628,7 +1652,7 @@ define dso_local i64 @interval_to_char(ptr nocapture noundef %0) local_unnamed_a
 45:                                               ; preds = %40, %35, %30
   %46 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %46, align 4
-  br label %80
+  br label %83
 
 .thread44:                                        ; preds = %.thread..thread44_crit_edge, %35, %40
   %47 = phi i64 [ %.pre, %.thread..thread44_crit_edge ], [ %.pre45, %35 ], [ %.pre46, %40 ]
@@ -1645,45 +1669,49 @@ define dso_local i64 @interval_to_char(ptr nocapture noundef %0) local_unnamed_a
   %55 = load i32, ptr %3, align 8
   store i32 %55, ptr %51, align 8
   %56 = getelementptr inbounds i8, ptr %3, i64 4
-  %57 = load <2 x i32>, ptr %56, align 4
-  store <2 x i32> %57, ptr %2, align 8
-  %58 = getelementptr inbounds i8, ptr %3, i64 16
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 24
-  %62 = load i32, ptr %61, align 8
-  store i32 %62, ptr %50, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 28
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %49, align 4
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
-  %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %66, ptr %67, align 8
-  %68 = mul i32 %66, 12
-  %69 = add i32 %68, %64
-  %70 = mul i32 %69, 30
-  %71 = add i32 %70, %62
-  %72 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load i32, ptr %73, align 8
-  %75 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef %74)
-  %.not42 = icmp eq ptr %75, null
-  br i1 %.not42, label %76, label %78
+  %57 = load i32, ptr %56, align 4
+  store i32 %57, ptr %2, align 8
+  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %3, i64 24
+  %65 = load i32, ptr %64, align 8
+  store i32 %65, ptr %50, align 8
+  %66 = getelementptr inbounds i8, ptr %3, i64 28
+  %67 = load i32, ptr %66, align 4
+  store i32 %67, ptr %49, align 4
+  %68 = getelementptr inbounds i8, ptr %3, i64 32
+  %69 = load i32, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %69, ptr %70, align 8
+  %71 = mul i32 %69, 12
+  %72 = add i32 %71, %67
+  %73 = mul i32 %72, 30
+  %74 = add i32 %73, %65
+  %75 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = load i32, ptr %76, align 8
+  %78 = call fastcc ptr @datetime_to_char_body(ptr noundef nonnull %2, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef %77)
+  %.not42 = icmp eq ptr %78, null
+  br i1 %.not42, label %79, label %81
 
-76:                                               ; preds = %.thread44
-  %77 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %77, align 4
-  br label %80
+79:                                               ; preds = %.thread44
+  %80 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %80, align 4
+  br label %83
 
-78:                                               ; preds = %.thread44
-  %79 = ptrtoint ptr %75 to i64
-  br label %80
+81:                                               ; preds = %.thread44
+  %82 = ptrtoint ptr %78 to i64
+  br label %83
 
-80:                                               ; preds = %78, %76, %45
-  %.0 = phi i64 [ 0, %45 ], [ %79, %78 ], [ 0, %76 ]
+83:                                               ; preds = %81, %79, %45
+  %.0 = phi i64 [ 0, %45 ], [ %82, %81 ], [ 0, %79 ]
   ret i64 %.0
 }
 

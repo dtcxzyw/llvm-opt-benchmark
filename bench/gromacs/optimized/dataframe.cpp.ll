@@ -20,7 +20,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN3gmx23AnalysisDataFrameHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
   store i32 -1, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
-  store <2 x float> zeroinitializer, ptr %2, align 4
+  store float 0.000000e+00, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %3, align 4
   ret void
 }
 

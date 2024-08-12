@@ -819,9 +819,12 @@ if.then305:                                       ; preds = %if.end300
   br i1 %cmp307, label %if.then309, label %if.else316
 
 if.then309:                                       ; preds = %if.then305
-  %32 = load <2 x ptr>, ptr %data292, align 8
-  %33 = getelementptr i8, <2 x ptr> %32, <2 x i64> <i64 8, i64 8>
-  store <2 x ptr> %33, ptr %data292, align 8
+  %32 = load ptr, ptr %data292, align 8
+  %add.ptr312 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %add.ptr312, ptr %data292, align 8
+  %33 = load ptr, ptr %input294, align 8
+  %add.ptr315 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %add.ptr315, ptr %input294, align 8
   br label %if.end352
 
 if.else316:                                       ; preds = %if.then305
@@ -830,9 +833,12 @@ if.else316:                                       ; preds = %if.then305
   br i1 %cmp318, label %if.then320, label %if.else327
 
 if.then320:                                       ; preds = %if.else316
-  %34 = load <2 x ptr>, ptr %data292, align 8
-  %35 = getelementptr i8, <2 x ptr> %34, <2 x i64> <i64 8, i64 8>
-  store <2 x ptr> %35, ptr %data292, align 8
+  %34 = load ptr, ptr %data292, align 8
+  %add.ptr323 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr %add.ptr323, ptr %data292, align 8
+  %35 = load ptr, ptr %input294, align 8
+  %add.ptr326 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %add.ptr326, ptr %input294, align 8
   br label %if.end352
 
 if.else327:                                       ; preds = %if.else316
@@ -929,9 +935,13 @@ for.body392:                                      ; preds = %for.cond389.prehead
 if.then396:                                       ; preds = %for.body392
   %arrayidx397 = getelementptr inbounds %struct.tls_rl_record_st, ptr %recs, i64 %ctr.4242
   %data398 = getelementptr inbounds i8, ptr %arrayidx397, i64 32
-  %45 = load <2 x ptr>, ptr %data398, align 8
-  %46 = getelementptr i8, <2 x ptr> %45, <2 x i64> <i64 8, i64 8>
-  store <2 x ptr> %46, ptr %data398, align 8
+  %45 = load ptr, ptr %data398, align 8
+  %add.ptr399 = getelementptr inbounds i8, ptr %45, i64 8
+  store ptr %add.ptr399, ptr %data398, align 8
+  %input401 = getelementptr inbounds i8, ptr %arrayidx397, i64 40
+  %46 = load ptr, ptr %input401, align 8
+  %add.ptr402 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %add.ptr402, ptr %input401, align 8
   %length404 = getelementptr inbounds i8, ptr %arrayidx397, i64 8
   %47 = load i64, ptr %length404, align 8
   %sub405 = add i64 %47, -8
@@ -946,9 +956,13 @@ if.else406:                                       ; preds = %for.body392
 if.then410:                                       ; preds = %if.else406
   %arrayidx411 = getelementptr inbounds %struct.tls_rl_record_st, ptr %recs, i64 %ctr.4242
   %data412 = getelementptr inbounds i8, ptr %arrayidx411, i64 32
-  %48 = load <2 x ptr>, ptr %data412, align 8
-  %49 = getelementptr i8, <2 x ptr> %48, <2 x i64> <i64 8, i64 8>
-  store <2 x ptr> %49, ptr %data412, align 8
+  %48 = load ptr, ptr %data412, align 8
+  %add.ptr413 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %add.ptr413, ptr %data412, align 8
+  %input415 = getelementptr inbounds i8, ptr %arrayidx411, i64 40
+  %49 = load ptr, ptr %input415, align 8
+  %add.ptr416 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %add.ptr416, ptr %input415, align 8
   %length418 = getelementptr inbounds i8, ptr %arrayidx411, i64 8
   %50 = load i64, ptr %length418, align 8
   %sub419 = add i64 %50, -8

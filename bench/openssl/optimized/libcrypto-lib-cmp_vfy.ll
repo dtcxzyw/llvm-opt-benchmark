@@ -584,7 +584,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @verify_signature(ptr nocapture noundef readonly %cmp_ctx, ptr nocapture noundef readonly %msg, ptr noundef %cert) unnamed_addr #0 {
 entry:
-  %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 16
+  %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 8
   %call = tail call ptr @BIO_s_mem() #2
   %call5 = tail call ptr @BIO_new(ptr noundef %call) #2
   %cmp6 = icmp eq ptr %call5, null
@@ -608,18 +608,22 @@ if.end16:                                         ; preds = %land.lhs.true11, %i
   br i1 %cmp18, label %sig_err.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %1 = load <2 x ptr>, ptr %msg, align 8
-  store <2 x ptr> %1, ptr %prot_part, align 16
+  %1 = load ptr, ptr %msg, align 8
+  store ptr %1, ptr %prot_part, align 8
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
+  %2 = load ptr, ptr %body, align 8
+  %body23 = getelementptr inbounds i8, ptr %prot_part, i64 8
+  store ptr %2, ptr %body23, align 8
   %call24 = tail call ptr @OSSL_CMP_PROTECTEDPART_it() #2
-  %2 = load ptr, ptr %msg, align 8
-  %protectionAlg = getelementptr inbounds i8, ptr %2, i64 32
-  %3 = load ptr, ptr %protectionAlg, align 8
+  %3 = load ptr, ptr %msg, align 8
+  %protectionAlg = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = load ptr, ptr %protectionAlg, align 8
   %protection = getelementptr inbounds i8, ptr %msg, i64 16
-  %4 = load ptr, ptr %protection, align 8
-  %5 = load ptr, ptr %cmp_ctx, align 8
+  %5 = load ptr, ptr %protection, align 8
+  %6 = load ptr, ptr %cmp_ctx, align 8
   %propq = getelementptr inbounds i8, ptr %cmp_ctx, i64 8
-  %6 = load ptr, ptr %propq, align 8
-  %call26 = call i32 @ASN1_item_verify_ex(ptr noundef %call24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %prot_part, ptr noundef null, ptr noundef nonnull %call17, ptr noundef %5, ptr noundef %6) #2
+  %7 = load ptr, ptr %propq, align 8
+  %call26 = call i32 @ASN1_item_verify_ex(ptr noundef %call24, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %prot_part, ptr noundef null, ptr noundef nonnull %call17, ptr noundef %6, ptr noundef %7) #2
   %cmp27 = icmp sgt i32 %call26, 0
   br i1 %cmp27, label %end, label %sig_err
 

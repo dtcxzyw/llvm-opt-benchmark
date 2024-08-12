@@ -386,7 +386,7 @@ define dso_local void @_ZN8TestCase7doTestsEP9dtNavMeshP14dtNavMeshQuery(ptr noc
   %9 = alloca i32, align 4
   %10 = alloca float, align 4
   %11 = alloca [3 x float], align 4
-  %12 = alloca [3 x float], align 8
+  %12 = alloca [3 x float], align 4
   %13 = alloca float, align 4
   %14 = icmp ne ptr %1, null
   %15 = icmp ne ptr %2, null
@@ -429,8 +429,8 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %25 = getelementptr inbounds i8, ptr %12, i64 8
   br label %26
 
-26:                                               ; preds = %.lr.ph, %172
-  %.0108 = phi ptr [ %.0106.pre, %.lr.ph ], [ %.0, %172 ]
+26:                                               ; preds = %.lr.ph, %178
+  %.0108 = phi ptr [ %.0106.pre, %.lr.ph ], [ %.0, %178 ]
   %27 = getelementptr inbounds i8, ptr %.0108, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -483,11 +483,11 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %58 = load i32, ptr %9, align 4
   %59 = icmp ne i32 %58, 0
   %or.cond3 = select i1 %57, i1 %59, i1 false
-  br i1 %or.cond3, label %60, label %172
+  br i1 %or.cond3, label %60, label %178
 
 60:                                               ; preds = %37
   %61 = load i32, ptr %.0108, align 8
-  switch i32 %61, label %172 [
+  switch i32 %61, label %178 [
     i32 0, label %62
     i32 1, label %104
   ]
@@ -539,7 +539,7 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
 .thread:                                          ; preds = %62, %84, %74
   %93 = load i32, ptr %38, align 8
   %.not104 = icmp eq i32 %93, 0
-  br i1 %.not104, label %172, label %94
+  br i1 %.not104, label %178, label %94
 
 94:                                               ; preds = %.thread
   %95 = mul nsw i32 %93, 3
@@ -553,7 +553,7 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   %102 = sext i32 %101 to i64
   %103 = mul nsw i64 %102, 12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr nonnull align 16 %5, i64 %103, i1 false)
-  br label %172
+  br label %178
 
 104:                                              ; preds = %60
   store float 0.000000e+00, ptr %10, align 4
@@ -584,85 +584,94 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
   store i32 %123, ptr %121, align 8
   %124 = load float, ptr %10, align 4
   %125 = fcmp ogt float %124, 1.000000e+00
-  br i1 %125, label %126, label %130
+  br i1 %125, label %126, label %132
 
 126:                                              ; preds = %104
-  %127 = load <2 x float>, ptr %47, align 4
-  store <2 x float> %127, ptr %12, align 8
-  %128 = getelementptr inbounds i8, ptr %.0108, i64 24
+  %127 = load float, ptr %47, align 4
+  store float %127, ptr %12, align 4
+  %128 = getelementptr inbounds i8, ptr %.0108, i64 20
   %129 = load float, ptr %128, align 4
-  br label %142
+  store float %129, ptr %24, align 4
+  %130 = getelementptr inbounds i8, ptr %.0108, i64 24
+  %131 = load float, ptr %130, align 4
+  br label %147
 
-130:                                              ; preds = %104
-  %131 = load <2 x float>, ptr %44, align 4
-  %132 = load <2 x float>, ptr %47, align 4
-  %133 = fsub <2 x float> %132, %131
-  %134 = insertelement <2 x float> poison, float %124, i64 0
-  %135 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> zeroinitializer
-  %136 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %133, <2 x float> %135, <2 x float> %131)
-  store <2 x float> %136, ptr %12, align 8
-  %137 = load float, ptr %111, align 4
-  %138 = getelementptr inbounds i8, ptr %.0108, i64 24
+132:                                              ; preds = %104
+  %133 = load float, ptr %44, align 4
+  %134 = load float, ptr %47, align 4
+  %135 = fsub float %134, %133
+  %136 = call float @llvm.fmuladd.f32(float %135, float %124, float %133)
+  store float %136, ptr %12, align 4
+  %137 = load float, ptr %107, align 4
+  %138 = getelementptr inbounds i8, ptr %.0108, i64 20
   %139 = load float, ptr %138, align 4
   %140 = fsub float %139, %137
   %141 = call float @llvm.fmuladd.f32(float %140, float %124, float %137)
-  br label %142
+  store float %141, ptr %24, align 4
+  %142 = load float, ptr %111, align 4
+  %143 = getelementptr inbounds i8, ptr %.0108, i64 24
+  %144 = load float, ptr %143, align 4
+  %145 = fsub float %144, %142
+  %146 = call float @llvm.fmuladd.f32(float %145, float %124, float %142)
+  br label %147
 
-142:                                              ; preds = %130, %126
-  %143 = phi float [ %141, %130 ], [ %129, %126 ]
-  %144 = phi <2 x float> [ %136, %130 ], [ %127, %126 ]
-  store float %143, ptr %25, align 8
-  %145 = load i32, ptr %32, align 8
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %156
+147:                                              ; preds = %132, %126
+  %148 = phi float [ %146, %132 ], [ %131, %126 ]
+  %149 = phi float [ %141, %132 ], [ %129, %126 ]
+  %150 = phi float [ %136, %132 ], [ %127, %126 ]
+  store float %148, ptr %25, align 4
+  %151 = load i32, ptr %32, align 8
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %153, label %160
 
-147:                                              ; preds = %142
+153:                                              ; preds = %147
   store float 0.000000e+00, ptr %13, align 4
-  %148 = add nsw i32 %145, -1
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4
-  %152 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %151, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %153 = load float, ptr %13, align 4
-  store float %153, ptr %24, align 4
-  %.pre = load float, ptr %12, align 8
-  %.pre117 = load float, ptr %25, align 8
-  %154 = insertelement <2 x float> poison, float %.pre, i64 0
-  %155 = insertelement <2 x float> %154, float %153, i64 1
-  br label %156
+  %154 = add nsw i32 %151, -1
+  %155 = zext nneg i32 %154 to i64
+  %156 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %157, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %159 = load float, ptr %13, align 4
+  store float %159, ptr %24, align 4
+  %.pre = load float, ptr %12, align 4
+  %.pre117 = load float, ptr %25, align 4
+  br label %160
 
-156:                                              ; preds = %147, %142
-  %157 = phi float [ %.pre117, %147 ], [ %143, %142 ]
-  %158 = phi <2 x float> [ %155, %147 ], [ %144, %142 ]
-  %159 = load ptr, ptr %33, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 12
-  store <2 x float> %158, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %159, i64 20
-  store float %157, ptr %161, align 4
-  %162 = load i32, ptr %32, align 8
-  %.not101 = icmp eq i32 %162, 0
-  br i1 %.not101, label %172, label %163
+160:                                              ; preds = %153, %147
+  %161 = phi float [ %.pre117, %153 ], [ %148, %147 ]
+  %162 = phi float [ %159, %153 ], [ %149, %147 ]
+  %163 = phi float [ %.pre, %153 ], [ %150, %147 ]
+  %164 = load ptr, ptr %33, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 12
+  store float %163, ptr %165, align 4
+  %166 = getelementptr inbounds i8, ptr %164, i64 16
+  store float %162, ptr %166, align 4
+  %167 = getelementptr inbounds i8, ptr %164, i64 20
+  store float %161, ptr %167, align 4
+  %168 = load i32, ptr %32, align 8
+  %.not101 = icmp eq i32 %168, 0
+  br i1 %.not101, label %178, label %169
 
-163:                                              ; preds = %156
-  %164 = sext i32 %162 to i64
-  %165 = icmp slt i32 %162, 0
-  %166 = shl nsw i64 %164, 2
-  %167 = select i1 %165, i64 -1, i64 %166
-  %168 = call noalias noundef nonnull ptr @_Znam(i64 noundef %167) #16
-  store ptr %168, ptr %27, align 8
-  %169 = load i32, ptr %32, align 8
-  %170 = sext i32 %169 to i64
-  %171 = shl nsw i64 %170, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %168, ptr nonnull align 16 %4, i64 %171, i1 false)
-  br label %172
+169:                                              ; preds = %160
+  %170 = sext i32 %168 to i64
+  %171 = icmp slt i32 %168, 0
+  %172 = shl nsw i64 %170, 2
+  %173 = select i1 %171, i64 -1, i64 %172
+  %174 = call noalias noundef nonnull ptr @_Znam(i64 noundef %173) #16
+  store ptr %174, ptr %27, align 8
+  %175 = load i32, ptr %32, align 8
+  %176 = sext i32 %175 to i64
+  %177 = shl nsw i64 %176, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %174, ptr nonnull align 16 %4, i64 %177, i1 false)
+  br label %178
 
-172:                                              ; preds = %60, %94, %.thread, %156, %163, %37
-  %173 = getelementptr inbounds i8, ptr %.0108, i64 104
-  %.0 = load ptr, ptr %173, align 8
+178:                                              ; preds = %60, %94, %.thread, %160, %169, %37
+  %179 = getelementptr inbounds i8, ptr %.0108, i64 104
+  %.0 = load ptr, ptr %179, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %172, %_ZN8TestCase10resetTimesEv.exit.thread, %_ZN8TestCase10resetTimesEv.exit
+._crit_edge:                                      ; preds = %178, %_ZN8TestCase10resetTimesEv.exit.thread, %_ZN8TestCase10resetTimesEv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.090110 = load ptr, ptr %17, align 8
   %.not100111 = icmp eq ptr %.090110, null
@@ -670,37 +679,37 @@ _ZN8TestCase10resetTimesEv.exit:                  ; preds = %.lr.ph.i
 
 .lr.ph115:                                        ; preds = %._crit_edge, %.lr.ph115
   %.090113 = phi ptr [ %.090, %.lr.ph115 ], [ %.090110, %._crit_edge ]
-  %.091112 = phi i32 [ %201, %.lr.ph115 ], [ 0, %._crit_edge ]
-  %174 = getelementptr inbounds i8, ptr %.090113, i64 92
-  %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %.090113, i64 96
-  %177 = load i32, ptr %176, align 8
-  %178 = add nsw i32 %177, %175
-  %179 = getelementptr inbounds i8, ptr %.090113, i64 100
-  %180 = load i32, ptr %179, align 4
-  %181 = add nsw i32 %178, %180
-  %182 = sitofp i32 %181 to float
-  %183 = fdiv float %182, 1.000000e+03
-  %184 = fpext float %183 to double
-  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.091112, double noundef %184)
-  %186 = load i32, ptr %174, align 4
-  %187 = sitofp i32 %186 to float
-  %188 = fdiv float %187, 1.000000e+03
-  %189 = fpext float %188 to double
-  %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %189)
-  %191 = load i32, ptr %176, align 8
-  %192 = sitofp i32 %191 to float
-  %193 = fdiv float %192, 1.000000e+03
-  %194 = fpext float %193 to double
-  %195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %194)
-  %196 = load i32, ptr %179, align 4
-  %197 = sitofp i32 %196 to float
-  %198 = fdiv float %197, 1.000000e+03
-  %199 = fpext float %198 to double
-  %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %199)
-  %201 = add nuw nsw i32 %.091112, 1
-  %202 = getelementptr inbounds i8, ptr %.090113, i64 104
-  %.090 = load ptr, ptr %202, align 8
+  %.091112 = phi i32 [ %207, %.lr.ph115 ], [ 0, %._crit_edge ]
+  %180 = getelementptr inbounds i8, ptr %.090113, i64 92
+  %181 = load i32, ptr %180, align 4
+  %182 = getelementptr inbounds i8, ptr %.090113, i64 96
+  %183 = load i32, ptr %182, align 8
+  %184 = add nsw i32 %183, %181
+  %185 = getelementptr inbounds i8, ptr %.090113, i64 100
+  %186 = load i32, ptr %185, align 4
+  %187 = add nsw i32 %184, %186
+  %188 = sitofp i32 %187 to float
+  %189 = fdiv float %188, 1.000000e+03
+  %190 = fpext float %189 to double
+  %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.091112, double noundef %190)
+  %192 = load i32, ptr %180, align 4
+  %193 = sitofp i32 %192 to float
+  %194 = fdiv float %193, 1.000000e+03
+  %195 = fpext float %194 to double
+  %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %195)
+  %197 = load i32, ptr %182, align 8
+  %198 = sitofp i32 %197 to float
+  %199 = fdiv float %198, 1.000000e+03
+  %200 = fpext float %199 to double
+  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %200)
+  %202 = load i32, ptr %185, align 4
+  %203 = sitofp i32 %202 to float
+  %204 = fdiv float %203, 1.000000e+03
+  %205 = fpext float %204 to double
+  %206 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %205)
+  %207 = add nuw nsw i32 %.091112, 1
+  %208 = getelementptr inbounds i8, ptr %.090113, i64 104
+  %.090 = load ptr, ptr %208, align 8
   %.not100 = icmp eq ptr %.090, null
   br i1 %.not100, label %.loopexit, label %.lr.ph115, !llvm.loop !12
 
@@ -743,218 +752,218 @@ define dso_local void @_ZN8TestCase12handleRenderEv(ptr nocapture noundef nonnul
   %.08794 = phi ptr [ %.087, %._crit_edge ], [ %.08792, %1 ]
   %3 = getelementptr inbounds i8, ptr %.08794, i64 16
   %4 = getelementptr inbounds i8, ptr %.08794, i64 4
-  %5 = getelementptr inbounds i8, ptr %.08794, i64 20
-  %6 = getelementptr inbounds i8, ptr %.08794, i64 8
-  %7 = getelementptr inbounds i8, ptr %.08794, i64 24
-  %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %.08794, i64 12
-  %10 = load float, ptr %9, align 4
-  %11 = fsub float %8, %10
-  %12 = load <2 x float>, ptr %3, align 4
-  %13 = load <2 x float>, ptr %4, align 4
-  %14 = fsub <2 x float> %12, %13
-  %15 = fmul <2 x float> %14, %14
-  %shift = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fadd <2 x float> %15, %shift
-  %17 = extractelement <2 x float> %16, i64 0
-  %18 = fmul float %11, %11
-  %19 = fadd float %17, %18
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %19)
-  %20 = fdiv float 1.000000e+00, %sqrt.i
-  %21 = extractelement <2 x float> %14, i64 0
-  %22 = fmul float %21, %20
-  %23 = extractelement <2 x float> %14, i64 1
-  %24 = fmul float %23, %20
-  %25 = fmul float %11, %20
+  %5 = load float, ptr %3, align 4
+  %6 = load float, ptr %4, align 4
+  %7 = fsub float %5, %6
+  %8 = getelementptr inbounds i8, ptr %.08794, i64 20
+  %9 = load float, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %.08794, i64 8
+  %11 = load float, ptr %10, align 4
+  %12 = fsub float %9, %11
+  %13 = getelementptr inbounds i8, ptr %.08794, i64 24
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %.08794, i64 12
+  %16 = load float, ptr %15, align 4
+  %17 = fsub float %14, %16
+  %18 = fmul float %7, %7
+  %19 = fmul float %12, %12
+  %20 = fadd float %18, %19
+  %21 = fmul float %17, %17
+  %22 = fadd float %20, %21
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %22)
+  %23 = fdiv float 1.000000e+00, %sqrt.i
+  %24 = fmul float %7, %23
+  %25 = fmul float %12, %23
+  %26 = fmul float %17, %23
   tail call void @glColor4ub(i8 noundef zeroext -128, i8 noundef zeroext 25, i8 noundef zeroext 0, i8 noundef zeroext -64)
-  %26 = load float, ptr %4, align 4
-  %27 = load float, ptr %6, align 4
-  %28 = fadd float %27, 0xBFD3333340000000
-  %29 = load float, ptr %9, align 4
-  tail call void @glVertex3f(float noundef %26, float noundef %28, float noundef %29)
-  %30 = load float, ptr %4, align 4
-  %31 = load float, ptr %6, align 4
-  %32 = fadd float %31, 0x3FD3333340000000
-  %33 = load float, ptr %9, align 4
-  tail call void @glVertex3f(float noundef %30, float noundef %32, float noundef %33)
-  %34 = load float, ptr %4, align 4
-  %35 = load float, ptr %6, align 4
-  %36 = fadd float %35, 0x3FD3333340000000
-  %37 = load float, ptr %9, align 4
-  tail call void @glVertex3f(float noundef %34, float noundef %36, float noundef %37)
-  %38 = load float, ptr %4, align 4
-  %39 = tail call float @llvm.fmuladd.f32(float %22, float 0x3FD3333340000000, float %38)
-  %40 = load float, ptr %6, align 4
-  %41 = fadd float %40, 0x3FD3333340000000
-  %42 = tail call float @llvm.fmuladd.f32(float %24, float 0x3FD3333340000000, float %41)
-  %43 = load float, ptr %9, align 4
-  %44 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FD3333340000000, float %43)
-  tail call void @glVertex3f(float noundef %39, float noundef %42, float noundef %44)
+  %27 = load float, ptr %4, align 4
+  %28 = load float, ptr %10, align 4
+  %29 = fadd float %28, 0xBFD3333340000000
+  %30 = load float, ptr %15, align 4
+  tail call void @glVertex3f(float noundef %27, float noundef %29, float noundef %30)
+  %31 = load float, ptr %4, align 4
+  %32 = load float, ptr %10, align 4
+  %33 = fadd float %32, 0x3FD3333340000000
+  %34 = load float, ptr %15, align 4
+  tail call void @glVertex3f(float noundef %31, float noundef %33, float noundef %34)
+  %35 = load float, ptr %4, align 4
+  %36 = load float, ptr %10, align 4
+  %37 = fadd float %36, 0x3FD3333340000000
+  %38 = load float, ptr %15, align 4
+  tail call void @glVertex3f(float noundef %35, float noundef %37, float noundef %38)
+  %39 = load float, ptr %4, align 4
+  %40 = tail call float @llvm.fmuladd.f32(float %24, float 0x3FD3333340000000, float %39)
+  %41 = load float, ptr %10, align 4
+  %42 = fadd float %41, 0x3FD3333340000000
+  %43 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FD3333340000000, float %42)
+  %44 = load float, ptr %15, align 4
+  %45 = tail call float @llvm.fmuladd.f32(float %26, float 0x3FD3333340000000, float %44)
+  tail call void @glVertex3f(float noundef %40, float noundef %43, float noundef %45)
   tail call void @glColor4ub(i8 noundef zeroext 51, i8 noundef zeroext 102, i8 noundef zeroext 0, i8 noundef zeroext -127)
-  %45 = load float, ptr %3, align 8
-  %46 = load float, ptr %5, align 4
-  %47 = fadd float %46, 0xBFD3333340000000
-  %48 = load float, ptr %7, align 8
-  tail call void @glVertex3f(float noundef %45, float noundef %47, float noundef %48)
-  %49 = load float, ptr %3, align 8
-  %50 = load float, ptr %5, align 4
-  %51 = fadd float %50, 0x3FD3333340000000
-  %52 = load float, ptr %7, align 8
-  tail call void @glVertex3f(float noundef %49, float noundef %51, float noundef %52)
-  %53 = getelementptr inbounds i8, ptr %.08794, i64 60
-  %54 = load i8, ptr %53, align 4
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %127
+  %46 = load float, ptr %3, align 8
+  %47 = load float, ptr %8, align 4
+  %48 = fadd float %47, 0xBFD3333340000000
+  %49 = load float, ptr %13, align 8
+  tail call void @glVertex3f(float noundef %46, float noundef %48, float noundef %49)
+  %50 = load float, ptr %3, align 8
+  %51 = load float, ptr %8, align 4
+  %52 = fadd float %51, 0x3FD3333340000000
+  %53 = load float, ptr %13, align 8
+  tail call void @glVertex3f(float noundef %50, float noundef %52, float noundef %53)
+  %54 = getelementptr inbounds i8, ptr %.08794, i64 60
+  %55 = load i8, ptr %54, align 4
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %128
 
-56:                                               ; preds = %.lr.ph96
+57:                                               ; preds = %.lr.ph96
   tail call void @glColor4ub(i8 noundef zeroext -1, i8 noundef zeroext 32, i8 noundef zeroext 0, i8 noundef zeroext -128)
-  %57 = load float, ptr %4, align 4
-  %58 = fadd float %57, 0xBFB99999A0000000
-  %59 = load float, ptr %6, align 4
-  %60 = load float, ptr %9, align 4
-  tail call void @glVertex3f(float noundef %58, float noundef %59, float noundef %60)
-  %61 = load float, ptr %4, align 4
-  %62 = fadd float %61, 0x3FB99999A0000000
-  %63 = load float, ptr %6, align 4
-  %64 = load float, ptr %9, align 4
-  tail call void @glVertex3f(float noundef %62, float noundef %63, float noundef %64)
-  %65 = load float, ptr %4, align 4
-  %66 = load float, ptr %6, align 4
-  %67 = load float, ptr %9, align 4
-  %68 = fadd float %67, 0xBFB99999A0000000
-  tail call void @glVertex3f(float noundef %65, float noundef %66, float noundef %68)
-  %69 = load float, ptr %4, align 4
-  %70 = load float, ptr %6, align 4
-  %71 = load float, ptr %9, align 4
-  %72 = fadd float %71, 0x3FB99999A0000000
-  tail call void @glVertex3f(float noundef %69, float noundef %70, float noundef %72)
+  %58 = load float, ptr %4, align 4
+  %59 = fadd float %58, 0xBFB99999A0000000
+  %60 = load float, ptr %10, align 4
+  %61 = load float, ptr %15, align 4
+  tail call void @glVertex3f(float noundef %59, float noundef %60, float noundef %61)
+  %62 = load float, ptr %4, align 4
+  %63 = fadd float %62, 0x3FB99999A0000000
+  %64 = load float, ptr %10, align 4
+  %65 = load float, ptr %15, align 4
+  tail call void @glVertex3f(float noundef %63, float noundef %64, float noundef %65)
+  %66 = load float, ptr %4, align 4
+  %67 = load float, ptr %10, align 4
+  %68 = load float, ptr %15, align 4
+  %69 = fadd float %68, 0xBFB99999A0000000
+  tail call void @glVertex3f(float noundef %66, float noundef %67, float noundef %69)
+  %70 = load float, ptr %4, align 4
+  %71 = load float, ptr %10, align 4
+  %72 = load float, ptr %15, align 4
+  %73 = fadd float %72, 0x3FB99999A0000000
+  tail call void @glVertex3f(float noundef %70, float noundef %71, float noundef %73)
   tail call void @glColor4ub(i8 noundef zeroext -1, i8 noundef zeroext -64, i8 noundef zeroext 0, i8 noundef zeroext -1)
-  %73 = getelementptr inbounds i8, ptr %.08794, i64 28
-  %74 = load float, ptr %73, align 4
-  %75 = fadd float %74, 0xBFB99999A0000000
-  %76 = getelementptr inbounds i8, ptr %.08794, i64 32
-  %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.08794, i64 36
-  %79 = load float, ptr %78, align 4
-  tail call void @glVertex3f(float noundef %75, float noundef %77, float noundef %79)
-  %80 = load float, ptr %73, align 4
-  %81 = fadd float %80, 0x3FB99999A0000000
-  %82 = load float, ptr %76, align 4
-  %83 = load float, ptr %78, align 4
-  tail call void @glVertex3f(float noundef %81, float noundef %82, float noundef %83)
-  %84 = load float, ptr %73, align 4
-  %85 = load float, ptr %76, align 4
-  %86 = load float, ptr %78, align 4
-  %87 = fadd float %86, 0xBFB99999A0000000
-  tail call void @glVertex3f(float noundef %84, float noundef %85, float noundef %87)
-  %88 = load float, ptr %73, align 4
-  %89 = load float, ptr %76, align 4
-  %90 = load float, ptr %78, align 4
-  %91 = fadd float %90, 0x3FB99999A0000000
-  tail call void @glVertex3f(float noundef %88, float noundef %89, float noundef %91)
+  %74 = getelementptr inbounds i8, ptr %.08794, i64 28
+  %75 = load float, ptr %74, align 4
+  %76 = fadd float %75, 0xBFB99999A0000000
+  %77 = getelementptr inbounds i8, ptr %.08794, i64 32
+  %78 = load float, ptr %77, align 4
+  %79 = getelementptr inbounds i8, ptr %.08794, i64 36
+  %80 = load float, ptr %79, align 4
+  tail call void @glVertex3f(float noundef %76, float noundef %78, float noundef %80)
+  %81 = load float, ptr %74, align 4
+  %82 = fadd float %81, 0x3FB99999A0000000
+  %83 = load float, ptr %77, align 4
+  %84 = load float, ptr %79, align 4
+  tail call void @glVertex3f(float noundef %82, float noundef %83, float noundef %84)
+  %85 = load float, ptr %74, align 4
+  %86 = load float, ptr %77, align 4
+  %87 = load float, ptr %79, align 4
+  %88 = fadd float %87, 0xBFB99999A0000000
+  tail call void @glVertex3f(float noundef %85, float noundef %86, float noundef %88)
+  %89 = load float, ptr %74, align 4
+  %90 = load float, ptr %77, align 4
+  %91 = load float, ptr %79, align 4
+  %92 = fadd float %91, 0x3FB99999A0000000
+  tail call void @glVertex3f(float noundef %89, float noundef %90, float noundef %92)
   tail call void @glColor4ub(i8 noundef zeroext -1, i8 noundef zeroext 32, i8 noundef zeroext 0, i8 noundef zeroext -128)
-  %92 = load float, ptr %3, align 8
-  %93 = fadd float %92, 0xBFB99999A0000000
-  %94 = load float, ptr %5, align 4
-  %95 = load float, ptr %7, align 8
-  tail call void @glVertex3f(float noundef %93, float noundef %94, float noundef %95)
-  %96 = load float, ptr %3, align 8
-  %97 = fadd float %96, 0x3FB99999A0000000
-  %98 = load float, ptr %5, align 4
-  %99 = load float, ptr %7, align 8
-  tail call void @glVertex3f(float noundef %97, float noundef %98, float noundef %99)
-  %100 = load float, ptr %3, align 8
-  %101 = load float, ptr %5, align 4
-  %102 = load float, ptr %7, align 8
-  %103 = fadd float %102, 0xBFB99999A0000000
-  tail call void @glVertex3f(float noundef %100, float noundef %101, float noundef %103)
-  %104 = load float, ptr %3, align 8
-  %105 = load float, ptr %5, align 4
-  %106 = load float, ptr %7, align 8
-  %107 = fadd float %106, 0x3FB99999A0000000
-  tail call void @glVertex3f(float noundef %104, float noundef %105, float noundef %107)
+  %93 = load float, ptr %3, align 8
+  %94 = fadd float %93, 0xBFB99999A0000000
+  %95 = load float, ptr %8, align 4
+  %96 = load float, ptr %13, align 8
+  tail call void @glVertex3f(float noundef %94, float noundef %95, float noundef %96)
+  %97 = load float, ptr %3, align 8
+  %98 = fadd float %97, 0x3FB99999A0000000
+  %99 = load float, ptr %8, align 4
+  %100 = load float, ptr %13, align 8
+  tail call void @glVertex3f(float noundef %98, float noundef %99, float noundef %100)
+  %101 = load float, ptr %3, align 8
+  %102 = load float, ptr %8, align 4
+  %103 = load float, ptr %13, align 8
+  %104 = fadd float %103, 0xBFB99999A0000000
+  tail call void @glVertex3f(float noundef %101, float noundef %102, float noundef %104)
+  %105 = load float, ptr %3, align 8
+  %106 = load float, ptr %8, align 4
+  %107 = load float, ptr %13, align 8
+  %108 = fadd float %107, 0x3FB99999A0000000
+  tail call void @glVertex3f(float noundef %105, float noundef %106, float noundef %108)
   tail call void @glColor4ub(i8 noundef zeroext -1, i8 noundef zeroext -64, i8 noundef zeroext 0, i8 noundef zeroext -1)
-  %108 = getelementptr inbounds i8, ptr %.08794, i64 40
-  %109 = load float, ptr %108, align 8
-  %110 = fadd float %109, 0xBFB99999A0000000
-  %111 = getelementptr inbounds i8, ptr %.08794, i64 44
-  %112 = load float, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %.08794, i64 48
-  %114 = load float, ptr %113, align 8
-  tail call void @glVertex3f(float noundef %110, float noundef %112, float noundef %114)
-  %115 = load float, ptr %108, align 8
-  %116 = fadd float %115, 0x3FB99999A0000000
-  %117 = load float, ptr %111, align 4
-  %118 = load float, ptr %113, align 8
-  tail call void @glVertex3f(float noundef %116, float noundef %117, float noundef %118)
-  %119 = load float, ptr %108, align 8
-  %120 = load float, ptr %111, align 4
-  %121 = load float, ptr %113, align 8
-  %122 = fadd float %121, 0xBFB99999A0000000
-  tail call void @glVertex3f(float noundef %119, float noundef %120, float noundef %122)
-  %123 = load float, ptr %108, align 8
-  %124 = load float, ptr %111, align 4
-  %125 = load float, ptr %113, align 8
-  %126 = fadd float %125, 0x3FB99999A0000000
-  tail call void @glVertex3f(float noundef %123, float noundef %124, float noundef %126)
-  %.pre = load i8, ptr %53, align 4
-  br label %127
+  %109 = getelementptr inbounds i8, ptr %.08794, i64 40
+  %110 = load float, ptr %109, align 8
+  %111 = fadd float %110, 0xBFB99999A0000000
+  %112 = getelementptr inbounds i8, ptr %.08794, i64 44
+  %113 = load float, ptr %112, align 4
+  %114 = getelementptr inbounds i8, ptr %.08794, i64 48
+  %115 = load float, ptr %114, align 8
+  tail call void @glVertex3f(float noundef %111, float noundef %113, float noundef %115)
+  %116 = load float, ptr %109, align 8
+  %117 = fadd float %116, 0x3FB99999A0000000
+  %118 = load float, ptr %112, align 4
+  %119 = load float, ptr %114, align 8
+  tail call void @glVertex3f(float noundef %117, float noundef %118, float noundef %119)
+  %120 = load float, ptr %109, align 8
+  %121 = load float, ptr %112, align 4
+  %122 = load float, ptr %114, align 8
+  %123 = fadd float %122, 0xBFB99999A0000000
+  tail call void @glVertex3f(float noundef %120, float noundef %121, float noundef %123)
+  %124 = load float, ptr %109, align 8
+  %125 = load float, ptr %112, align 4
+  %126 = load float, ptr %114, align 8
+  %127 = fadd float %126, 0x3FB99999A0000000
+  tail call void @glVertex3f(float noundef %124, float noundef %125, float noundef %127)
+  %.pre = load i8, ptr %54, align 4
+  br label %128
 
-127:                                              ; preds = %56, %.lr.ph96
-  %128 = phi i8 [ %.pre, %56 ], [ %54, %.lr.ph96 ]
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %130, label %131
+128:                                              ; preds = %57, %.lr.ph96
+  %129 = phi i8 [ %.pre, %57 ], [ %55, %.lr.ph96 ]
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %131, label %132
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   tail call void @glColor4ub(i8 noundef zeroext -1, i8 noundef zeroext -64, i8 noundef zeroext 0, i8 noundef zeroext -1)
-  br label %132
+  br label %133
 
-131:                                              ; preds = %127
+132:                                              ; preds = %128
   tail call void @glColor4ub(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 64)
-  br label %132
+  br label %133
 
-132:                                              ; preds = %131, %130
-  %133 = getelementptr inbounds i8, ptr %.08794, i64 72
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp sgt i32 %134, 1
-  br i1 %135, label %.lr.ph, label %._crit_edge
+133:                                              ; preds = %132, %131
+  %134 = getelementptr inbounds i8, ptr %.08794, i64 72
+  %135 = load i32, ptr %134, align 8
+  %136 = icmp sgt i32 %135, 1
+  br i1 %136, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %.08794, i64 64
-  br label %137
+.lr.ph:                                           ; preds = %133
+  %137 = getelementptr inbounds i8, ptr %.08794, i64 64
+  br label %138
 
-137:                                              ; preds = %.lr.ph, %137
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %138 = load ptr, ptr %136, align 8
+138:                                              ; preds = %.lr.ph, %138
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %138 ]
+  %139 = load ptr, ptr %137, align 8
   %.idx = mul i64 %indvars.iv, 12
-  %139 = getelementptr inbounds i8, ptr %138, i64 %.idx
-  %140 = load float, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %139, i64 4
-  %142 = load float, ptr %141, align 4
-  %143 = fadd float %142, 0x3FD3333340000000
-  %144 = getelementptr inbounds i8, ptr %139, i64 8
-  %145 = load float, ptr %144, align 4
-  tail call void @glVertex3f(float noundef %140, float noundef %143, float noundef %145)
-  %146 = load ptr, ptr %136, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 %.idx
+  %141 = load float, ptr %140, align 4
+  %142 = getelementptr inbounds i8, ptr %140, i64 4
+  %143 = load float, ptr %142, align 4
+  %144 = fadd float %143, 0x3FD3333340000000
+  %145 = getelementptr inbounds i8, ptr %140, i64 8
+  %146 = load float, ptr %145, align 4
+  tail call void @glVertex3f(float noundef %141, float noundef %144, float noundef %146)
+  %147 = load ptr, ptr %137, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.idx99 = mul i64 %indvars.iv.next, 12
-  %147 = getelementptr inbounds i8, ptr %146, i64 %.idx99
-  %148 = load float, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %147, i64 4
-  %150 = load float, ptr %149, align 4
-  %151 = fadd float %150, 0x3FD3333340000000
-  %152 = getelementptr inbounds i8, ptr %147, i64 8
-  %153 = load float, ptr %152, align 4
-  tail call void @glVertex3f(float noundef %148, float noundef %151, float noundef %153)
-  %154 = load i32, ptr %133, align 8
-  %155 = add nsw i32 %154, -1
-  %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %157, label %137, label %._crit_edge, !llvm.loop !13
+  %148 = getelementptr inbounds i8, ptr %147, i64 %.idx99
+  %149 = load float, ptr %148, align 4
+  %150 = getelementptr inbounds i8, ptr %148, i64 4
+  %151 = load float, ptr %150, align 4
+  %152 = fadd float %151, 0x3FD3333340000000
+  %153 = getelementptr inbounds i8, ptr %148, i64 8
+  %154 = load float, ptr %153, align 4
+  tail call void @glVertex3f(float noundef %149, float noundef %152, float noundef %154)
+  %155 = load i32, ptr %134, align 8
+  %156 = add nsw i32 %155, -1
+  %157 = sext i32 %156 to i64
+  %158 = icmp slt i64 %indvars.iv.next, %157
+  br i1 %158, label %138, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %137, %132
-  %158 = getelementptr inbounds i8, ptr %.08794, i64 104
-  %.087 = load ptr, ptr %158, align 8
+._crit_edge:                                      ; preds = %138, %133
+  %159 = getelementptr inbounds i8, ptr %.08794, i64 104
+  %.087 = load ptr, ptr %159, align 8
   %.not = icmp eq ptr %.087, null
   br i1 %.not, label %._crit_edge97, label %.lr.ph96, !llvm.loop !14
 
@@ -989,192 +998,197 @@ define dso_local noundef zeroext i1 @_ZN8TestCase19handleRenderOverlayEPdS0_Pi(p
   %.not62 = icmp eq ptr %.03561, null
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %89
-  %.03564 = phi ptr [ %.035, %89 ], [ %.03561, %4 ]
-  %.063 = phi i32 [ %90, %89 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %94
+  %.03564 = phi ptr [ %.035, %94 ], [ %.03561, %4 ]
+  %.063 = phi i32 [ %95, %94 ], [ 0, %4 ]
   %11 = getelementptr inbounds i8, ptr %.03564, i64 72
   %12 = load i32, ptr %11, align 8
   %.not38 = icmp eq i32 %12, 0
-  br i1 %.not38, label %48, label %13
+  br i1 %.not38, label %51, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %.03564, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 12
-  %17 = getelementptr inbounds i8, ptr %15, i64 20
-  %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %.03564, i64 4
-  %20 = load <2 x float>, ptr %16, align 4
-  %21 = load <2 x float>, ptr %19, align 4
-  %22 = fsub <2 x float> %21, %20
-  %23 = extractelement <2 x float> %22, i64 0
-  %24 = fsub <2 x float> %21, %20
-  %25 = getelementptr inbounds i8, ptr %.03564, i64 12
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = load float, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %15, i64 20
+  %21 = load float, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %.03564, i64 4
+  %23 = load float, ptr %22, align 4
+  %24 = fsub float %23, %17
+  %25 = getelementptr inbounds i8, ptr %.03564, i64 8
   %26 = load float, ptr %25, align 4
-  %27 = fsub float %26, %18
-  %28 = fmul <2 x float> %24, %24
-  %29 = extractelement <2 x float> %28, i64 1
-  %30 = call float @llvm.fmuladd.f32(float %23, float %23, float %29)
-  %31 = call float @llvm.fmuladd.f32(float %27, float %27, float %30)
-  %sqrt.i = call noundef float @llvm.sqrt.f32(float %31)
-  %32 = fcmp ogt float %sqrt.i, 1.000000e+00
-  br i1 %32, label %33, label %71
+  %27 = fsub float %26, %19
+  %28 = getelementptr inbounds i8, ptr %.03564, i64 12
+  %29 = load float, ptr %28, align 4
+  %30 = fsub float %29, %21
+  %31 = fmul float %27, %27
+  %32 = call float @llvm.fmuladd.f32(float %24, float %24, float %31)
+  %33 = call float @llvm.fmuladd.f32(float %30, float %30, float %32)
+  %sqrt.i = call noundef float @llvm.sqrt.f32(float %33)
+  %34 = fcmp ogt float %sqrt.i, 1.000000e+00
+  br i1 %34, label %35, label %79
 
-33:                                               ; preds = %13
-  %34 = fsub <2 x float> %20, %21
-  %35 = fsub float %18, %26
-  %36 = fmul <2 x float> %34, %34
-  %shift = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %37 = fadd <2 x float> %36, %shift
-  %38 = extractelement <2 x float> %37, i64 0
-  %39 = fmul float %35, %35
-  %40 = fadd float %38, %39
-  %sqrt.i40 = call float @llvm.sqrt.f32(float %40)
-  %41 = fdiv float 1.000000e+00, %sqrt.i40
-  %42 = insertelement <2 x float> poison, float %41, i64 0
-  %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
-  %44 = fmul <2 x float> %34, %43
-  %45 = fmul float %35, %41
-  %46 = fadd <2 x float> %21, %44
-  %47 = fadd float %26, %45
-  br label %71
+35:                                               ; preds = %13
+  %36 = fsub float %17, %23
+  %37 = fsub float %19, %26
+  %38 = fsub float %21, %29
+  %39 = fmul float %36, %36
+  %40 = fmul float %37, %37
+  %41 = fadd float %39, %40
+  %42 = fmul float %38, %38
+  %43 = fadd float %41, %42
+  %sqrt.i40 = call float @llvm.sqrt.f32(float %43)
+  %44 = fdiv float 1.000000e+00, %sqrt.i40
+  %45 = fmul float %36, %44
+  %46 = fmul float %37, %44
+  %47 = fmul float %38, %44
+  %48 = fadd float %23, %45
+  %49 = fadd float %26, %46
+  %50 = fadd float %29, %47
+  br label %79
 
-48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %.03564, i64 16
-  %50 = getelementptr inbounds i8, ptr %.03564, i64 4
-  %51 = getelementptr inbounds i8, ptr %.03564, i64 24
-  %52 = load float, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.03564, i64 12
-  %54 = load float, ptr %53, align 4
-  %55 = fsub float %52, %54
-  %56 = fmul float %55, %55
-  %57 = load <2 x float>, ptr %49, align 4
-  %58 = load <2 x float>, ptr %50, align 4
-  %59 = fsub <2 x float> %57, %58
-  %60 = fmul <2 x float> %59, %59
-  %shift72 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %61 = fadd <2 x float> %60, %shift72
-  %62 = extractelement <2 x float> %61, i64 0
-  %63 = fadd float %62, %56
-  %sqrt.i41 = call float @llvm.sqrt.f32(float %63)
-  %64 = fdiv float 1.000000e+00, %sqrt.i41
-  %65 = insertelement <2 x float> poison, float %64, i64 0
-  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
-  %67 = fmul <2 x float> %59, %66
-  %68 = fmul float %55, %64
-  %69 = fadd <2 x float> %58, %67
-  %70 = fadd float %54, %68
-  br label %71
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds i8, ptr %.03564, i64 16
+  %53 = getelementptr inbounds i8, ptr %.03564, i64 4
+  %54 = load float, ptr %52, align 4
+  %55 = load float, ptr %53, align 4
+  %56 = fsub float %54, %55
+  %57 = getelementptr inbounds i8, ptr %.03564, i64 20
+  %58 = load float, ptr %57, align 4
+  %59 = getelementptr inbounds i8, ptr %.03564, i64 8
+  %60 = load float, ptr %59, align 4
+  %61 = fsub float %58, %60
+  %62 = getelementptr inbounds i8, ptr %.03564, i64 24
+  %63 = load float, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %.03564, i64 12
+  %65 = load float, ptr %64, align 4
+  %66 = fsub float %63, %65
+  %67 = fmul float %56, %56
+  %68 = fmul float %61, %61
+  %69 = fadd float %67, %68
+  %70 = fmul float %66, %66
+  %71 = fadd float %69, %70
+  %sqrt.i41 = call float @llvm.sqrt.f32(float %71)
+  %72 = fdiv float 1.000000e+00, %sqrt.i41
+  %73 = fmul float %56, %72
+  %74 = fmul float %61, %72
+  %75 = fmul float %66, %72
+  %76 = fadd float %55, %73
+  %77 = fadd float %60, %74
+  %78 = fadd float %65, %75
+  br label %79
 
-71:                                               ; preds = %13, %33, %48
-  %.sroa.1658.1 = phi float [ %70, %48 ], [ %47, %33 ], [ %18, %13 ]
-  %72 = phi <2 x float> [ %69, %48 ], [ %46, %33 ], [ %20, %13 ]
-  %73 = extractelement <2 x float> %72, i64 1
-  %.sroa.6.1 = fadd float %73, 5.000000e-01
-  %74 = extractelement <2 x float> %72, i64 0
-  %75 = fpext float %74 to double
-  %76 = fpext float %.sroa.6.1 to double
-  %77 = fpext float %.sroa.1658.1 to double
-  %78 = call i32 @gluProject(double noundef %75, double noundef %76, double noundef %77, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not39 = icmp eq i32 %78, 0
-  br i1 %.not39, label %89, label %79
+79:                                               ; preds = %13, %35, %51
+  %.sroa.1658.1 = phi float [ %78, %51 ], [ %50, %35 ], [ %21, %13 ]
+  %.sroa.6.1.in = phi float [ %77, %51 ], [ %49, %35 ], [ %19, %13 ]
+  %.sroa.051.1 = phi float [ %76, %51 ], [ %48, %35 ], [ %17, %13 ]
+  %.sroa.6.1 = fadd float %.sroa.6.1.in, 5.000000e-01
+  %80 = fpext float %.sroa.051.1 to double
+  %81 = fpext float %.sroa.6.1 to double
+  %82 = fpext float %.sroa.1658.1 to double
+  %83 = call i32 @gluProject(double noundef %80, double noundef %81, double noundef %82, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %.not39 = icmp eq i32 %83, 0
+  br i1 %.not39, label %94, label %84
 
-79:                                               ; preds = %71
-  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef %.063) #14
-  %81 = getelementptr inbounds i8, ptr %.03564, i64 60
-  %82 = load i8, ptr %81, align 4
-  %83 = trunc i8 %82 to i1
-  %spec.select = select i1 %83, i32 -603930369, i32 -2147483648
-  %84 = load double, ptr %5, align 8
-  %85 = fptosi double %84 to i32
-  %86 = load double, ptr %6, align 8
-  %87 = fadd double %86, -2.500000e+01
-  %88 = fptosi double %87 to i32
-  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %85, i32 noundef %88, i32 noundef 1, ptr noundef nonnull %8, i32 noundef %spec.select)
-  br label %89
+84:                                               ; preds = %79
+  %85 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef %.063) #14
+  %86 = getelementptr inbounds i8, ptr %.03564, i64 60
+  %87 = load i8, ptr %86, align 4
+  %88 = trunc i8 %87 to i1
+  %spec.select = select i1 %88, i32 -603930369, i32 -2147483648
+  %89 = load double, ptr %5, align 8
+  %90 = fptosi double %89 to i32
+  %91 = load double, ptr %6, align 8
+  %92 = fadd double %91, -2.500000e+01
+  %93 = fptosi double %92 to i32
+  call void @_Z13imguiDrawTextiiiPKcj(i32 noundef %90, i32 noundef %93, i32 noundef 1, ptr noundef nonnull %8, i32 noundef %spec.select)
+  br label %94
 
-89:                                               ; preds = %79, %71
-  %90 = add nuw nsw i32 %.063, 1
-  %91 = getelementptr inbounds i8, ptr %.03564, i64 104
-  %.035 = load ptr, ptr %91, align 8
+94:                                               ; preds = %84, %79
+  %95 = add nuw nsw i32 %.063, 1
+  %96 = getelementptr inbounds i8, ptr %.03564, i64 104
+  %.035 = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %89, %4
-  %92 = getelementptr inbounds i8, ptr %3, i64 12
-  %93 = load i32, ptr %92, align 4
-  %94 = add nsw i32 %93, -360
-  %95 = call noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr noundef nonnull @.str.8, i32 noundef 10, i32 noundef %94, i32 noundef 200, i32 noundef 350, ptr noundef nonnull @_ZZN8TestCase19handleRenderOverlayEPdS0_PiE9resScroll)
+._crit_edge:                                      ; preds = %94, %4
+  %97 = getelementptr inbounds i8, ptr %3, i64 12
+  %98 = load i32, ptr %97, align 4
+  %99 = add nsw i32 %98, -360
+  %100 = call noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr noundef nonnull @.str.8, i32 noundef 10, i32 noundef %99, i32 noundef 200, i32 noundef 350, ptr noundef nonnull @_ZZN8TestCase19handleRenderOverlayEPdS0_PiE9resScroll)
   %.03465 = load ptr, ptr %10, align 8
   %.not3766 = icmp eq ptr %.03465, null
   br i1 %.not3766, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph70:                                         ; preds = %._crit_edge, %135
-  %.03468 = phi ptr [ %.034, %135 ], [ %.03465, %._crit_edge ]
-  %.167 = phi i32 [ %136, %135 ], [ 0, %._crit_edge ]
-  %96 = getelementptr inbounds i8, ptr %.03468, i64 92
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %.03468, i64 96
-  %99 = load i32, ptr %98, align 8
-  %100 = add nsw i32 %99, %97
-  %101 = getelementptr inbounds i8, ptr %.03468, i64 100
+.lr.ph70:                                         ; preds = %._crit_edge, %140
+  %.03468 = phi ptr [ %.034, %140 ], [ %.03465, %._crit_edge ]
+  %.167 = phi i32 [ %141, %140 ], [ 0, %._crit_edge ]
+  %101 = getelementptr inbounds i8, ptr %.03468, i64 92
   %102 = load i32, ptr %101, align 4
-  %103 = add nsw i32 %100, %102
-  %104 = sitofp i32 %103 to float
-  %105 = fdiv float %104, 1.000000e+03
-  %106 = fpext float %105 to double
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 64, ptr noundef nonnull @.str.9, double noundef %106) #14
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.10, i32 noundef %.167) #14
-  %109 = getelementptr inbounds i8, ptr %.03468, i64 60
-  %110 = load i8, ptr %109, align 4
-  %111 = trunc i8 %110 to i1
-  %112 = call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext %111, i1 noundef zeroext true)
-  %.pre = load i8, ptr %109, align 4
-  br i1 %112, label %113, label %116
+  %103 = getelementptr inbounds i8, ptr %.03468, i64 96
+  %104 = load i32, ptr %103, align 8
+  %105 = add nsw i32 %104, %102
+  %106 = getelementptr inbounds i8, ptr %.03468, i64 100
+  %107 = load i32, ptr %106, align 4
+  %108 = add nsw i32 %105, %107
+  %109 = sitofp i32 %108 to float
+  %110 = fdiv float %109, 1.000000e+03
+  %111 = fpext float %110 to double
+  %112 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 64, ptr noundef nonnull @.str.9, double noundef %111) #14
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.10, i32 noundef %.167) #14
+  %114 = getelementptr inbounds i8, ptr %.03468, i64 60
+  %115 = load i8, ptr %114, align 4
+  %116 = trunc i8 %115 to i1
+  %117 = call noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext %116, i1 noundef zeroext true)
+  %.pre = load i8, ptr %114, align 4
+  br i1 %117, label %118, label %121
 
-113:                                              ; preds = %.lr.ph70
-  %114 = and i8 %.pre, 1
-  %115 = xor i8 %114, 1
-  store i8 %115, ptr %109, align 4
-  br label %116
+118:                                              ; preds = %.lr.ph70
+  %119 = and i8 %.pre, 1
+  %120 = xor i8 %119, 1
+  store i8 %120, ptr %114, align 4
+  br label %121
 
-116:                                              ; preds = %113, %.lr.ph70
-  %117 = phi i8 [ %115, %113 ], [ %.pre, %.lr.ph70 ]
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %135
+121:                                              ; preds = %118, %.lr.ph70
+  %122 = phi i8 [ %120, %118 ], [ %.pre, %.lr.ph70 ]
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %140
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %96, align 4
-  %121 = sitofp i32 %120 to float
-  %122 = fdiv float %121, 1.000000e+03
-  %123 = fpext float %122 to double
-  %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.11, double noundef %123) #14
-  call void @_Z10imguiValuePKc(ptr noundef nonnull %8)
-  %125 = load i32, ptr %98, align 8
+124:                                              ; preds = %121
+  %125 = load i32, ptr %101, align 4
   %126 = sitofp i32 %125 to float
   %127 = fdiv float %126, 1.000000e+03
   %128 = fpext float %127 to double
-  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.12, double noundef %128) #14
+  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.11, double noundef %128) #14
   call void @_Z10imguiValuePKc(ptr noundef nonnull %8)
-  %130 = load i32, ptr %101, align 4
+  %130 = load i32, ptr %103, align 8
   %131 = sitofp i32 %130 to float
   %132 = fdiv float %131, 1.000000e+03
   %133 = fpext float %132 to double
-  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.13, double noundef %133) #14
+  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.12, double noundef %133) #14
+  call void @_Z10imguiValuePKc(ptr noundef nonnull %8)
+  %135 = load i32, ptr %106, align 4
+  %136 = sitofp i32 %135 to float
+  %137 = fdiv float %136, 1.000000e+03
+  %138 = fpext float %137 to double
+  %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.13, double noundef %138) #14
   call void @_Z10imguiValuePKc(ptr noundef nonnull %8)
   call void @_Z14imguiSeparatorv()
-  br label %135
+  br label %140
 
-135:                                              ; preds = %119, %116
-  %136 = add nuw nsw i32 %.167, 1
-  %137 = getelementptr inbounds i8, ptr %.03468, i64 104
-  %.034 = load ptr, ptr %137, align 8
+140:                                              ; preds = %124, %121
+  %141 = add nuw nsw i32 %.167, 1
+  %142 = getelementptr inbounds i8, ptr %.03468, i64 104
+  %.034 = load ptr, ptr %142, align 8
   %.not37 = icmp eq ptr %.034, null
   br i1 %.not37, label %._crit_edge71, label %.lr.ph70, !llvm.loop !16
 
-._crit_edge71:                                    ; preds = %135, %._crit_edge
+._crit_edge71:                                    ; preds = %140, %._crit_edge
   call void @_Z18imguiEndScrollAreav()
-  ret i1 %95
+  ret i1 %100
 }
 
 declare i32 @gluProject(double noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -1207,9 +1221,6 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

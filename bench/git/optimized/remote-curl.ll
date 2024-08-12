@@ -2926,12 +2926,14 @@ if.end9:                                          ; preds = %if.then5, %if.end
   %call11 = call ptr @xmalloc(i64 noundef %7) #16
   %buf12 = getelementptr inbounds i8, ptr %rpc, i64 48
   store ptr %call11, ptr %buf12, align 8
+  %8 = load i32, ptr %in, align 8
   %in14 = getelementptr inbounds i8, ptr %rpc, i64 80
+  store i32 %8, ptr %in14, align 8
+  %9 = load i32, ptr %out, align 4
   %out16 = getelementptr inbounds i8, ptr %rpc, i64 84
-  %8 = load <2 x i32>, ptr %in, align 8
-  store <2 x i32> %8, ptr %in14, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.75, ptr noundef %9, ptr noundef %0) #16
+  store i32 %9, ptr %out16, align 4
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @url, i64 16), align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.75, ptr noundef %10, ptr noundef %0) #16
   %call17 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef null) #16
   %service_url = getelementptr inbounds i8, ptr %rpc, i64 8
   store ptr %call17, ptr %service_url, align 8
@@ -2956,29 +2958,29 @@ xstrdup_or_null.exit:                             ; preds = %if.end9, %cond.true
   %hdr_accept = getelementptr inbounds i8, ptr %rpc, i64 24
   store ptr %call21, ptr %hdr_accept, align 8
   %version = getelementptr inbounds i8, ptr %heads, i64 72
-  %10 = load i32, ptr %version, align 8
-  %cmp.i = icmp sgt i32 %10, 0
+  %11 = load i32, ptr %version, align 8
+  %cmp.i = icmp sgt i32 %11, 0
   br i1 %cmp.i, label %if.then24, label %if.end27
 
 if.then24:                                        ; preds = %xstrdup_or_null.exit
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.42, i32 noundef %10) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.42, i32 noundef %11) #16
   %call25 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef null) #16
   br label %if.end27
 
 if.end27:                                         ; preds = %xstrdup_or_null.exit, %if.then24
   %.sink = phi ptr [ %call25, %if.then24 ], [ null, %xstrdup_or_null.exit ]
-  %11 = getelementptr inbounds i8, ptr %rpc, i64 40
-  store ptr %.sink, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %rpc, i64 40
+  store ptr %.sink, ptr %12, align 8
   %pos = getelementptr inbounds i8, ptr %rpc, i64 72
   %len37 = getelementptr inbounds i8, ptr %rpc, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %if.end27, %if.end35
-  %12 = load i32, ptr %out16, align 4
-  %13 = load ptr, ptr %buf12, align 8
-  %14 = load i64, ptr %alloc, align 8
-  %conv = trunc i64 %14 to i32
-  %call32 = call i32 @packet_read(i32 noundef %12, ptr noundef %13, i32 noundef %conv, i32 noundef 0) #16
+  %13 = load i32, ptr %out16, align 4
+  %14 = load ptr, ptr %buf12, align 8
+  %15 = load i64, ptr %alloc, align 8
+  %conv = trunc i64 %15 to i32
+  %call32 = call i32 @packet_read(i32 noundef %13, ptr noundef %14, i32 noundef %conv, i32 noundef 0) #16
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.then43, label %if.end35
 
@@ -2991,44 +2993,44 @@ if.end35:                                         ; preds = %while.body
   br i1 %tobool28.not, label %while.body, label %for.cond.critedge, !llvm.loop !17
 
 if.then43:                                        ; preds = %while.body
-  %15 = load i32, ptr %in, align 8
-  %call40 = call i32 @close(i32 noundef %15) #16
+  %16 = load i32, ptr %in, align 8
+  %call40 = call i32 @close(i32 noundef %16) #16
   store i32 -1, ptr %in, align 8
-  %16 = load i32, ptr %out, align 4
-  %call45 = call i64 @strbuf_read(ptr noundef %rpc_result, i32 noundef %16, i64 noundef 0) #16
+  %17 = load i32, ptr %out, align 4
+  %call45 = call i64 @strbuf_read(ptr noundef %rpc_result, i32 noundef %17, i64 noundef 0) #16
   br label %if.end53
 
 for.cond.critedge:                                ; preds = %if.end35
-  %17 = load i32, ptr %in, align 8
-  %call40.c = call i32 @close(i32 noundef %17) #16
+  %18 = load i32, ptr %in, align 8
+  %call40.c = call i32 @close(i32 noundef %18) #16
   store i32 -1, ptr %in, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.critedge, %for.cond
-  %18 = load i32, ptr %out, align 4
-  %call49 = call i64 @xread(i32 noundef %18, ptr noundef nonnull %buf47, i64 noundef 4096) #16
+  %19 = load i32, ptr %out, align 4
+  %call49 = call i64 @xread(i32 noundef %19, ptr noundef nonnull %buf47, i64 noundef 4096) #16
   %cmp = icmp slt i64 %call49, 1
   br i1 %cmp, label %if.end53, label %for.cond
 
 if.end53:                                         ; preds = %for.cond, %if.then43
   %err.038 = phi i32 [ 0, %if.then43 ], [ %call38, %for.cond ]
-  %19 = load i32, ptr %out, align 4
-  %call55 = call i32 @close(i32 noundef %19) #16
+  %20 = load i32, ptr %out, align 4
+  %call55 = call i32 @close(i32 noundef %20) #16
   store i32 -1, ptr %out, align 4
   %call57 = call i32 @finish_command(ptr noundef nonnull %client) #16
   %or58 = or i32 %call57, %err.038
-  %20 = load ptr, ptr %service_url, align 8
-  call void @free(ptr noundef %20) #16
-  %21 = load ptr, ptr %hdr_content_type, align 8
+  %21 = load ptr, ptr %service_url, align 8
   call void @free(ptr noundef %21) #16
-  %22 = load ptr, ptr %hdr_accept, align 8
+  %22 = load ptr, ptr %hdr_content_type, align 8
   call void @free(ptr noundef %22) #16
-  %23 = load ptr, ptr %hdr_accept_language, align 8
+  %23 = load ptr, ptr %hdr_accept, align 8
   call void @free(ptr noundef %23) #16
-  %24 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %hdr_accept_language, align 8
   call void @free(ptr noundef %24) #16
-  %25 = load ptr, ptr %buf12, align 8
+  %25 = load ptr, ptr %12, align 8
   call void @free(ptr noundef %25) #16
+  %26 = load ptr, ptr %buf12, align 8
+  call void @free(ptr noundef %26) #16
   call void @strbuf_release(ptr noundef nonnull %buf) #16
   ret i32 %or58
 }

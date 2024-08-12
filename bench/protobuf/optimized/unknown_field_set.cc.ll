@@ -1644,8 +1644,8 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet20MergeFromCodedStreamEPNS0_2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %input) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %other = alloca %"class.google::protobuf::UnknownFieldSet", align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  %other = alloca %"class.google::protobuf::UnknownFieldSet", align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
   %call = invoke noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat11SkipMessageEPNS0_2io16CodedInputStreamEPNS0_15UnknownFieldSetE(ptr noundef %input, ptr noundef nonnull %other)
           to label %invoke.cont unwind label %lpad
 
@@ -1667,13 +1667,16 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %if.then
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load <2 x ptr>, ptr %other, align 16
-  store <2 x ptr> %3, ptr %this, align 8
+  %3 = load ptr, ptr %other, align 8
+  store ptr %3, ptr %this, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %4 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 16
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
@@ -1681,53 +1684,53 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then
-  %5 = load ptr, ptr %other, align 16
+  %6 = load ptr, ptr %other, align 8
   %_M_finish.i4.i = getelementptr inbounds i8, ptr %other, i64 8
-  %6 = load ptr, ptr %_M_finish.i4.i, align 8
+  %7 = load ptr, ptr %_M_finish.i4.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i
-  invoke void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEEvSA_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i.i.i, ptr %5, ptr %6)
+  invoke void @_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEEEvSA_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %add.ptr.i.i.i, ptr %6, ptr %7)
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i.i.i.i.i.i, %if.then.i
-  %7 = load ptr, ptr %other, align 16
+  %8 = load ptr, ptr %other, align 8
   %_M_finish.i.i5.i = getelementptr inbounds i8, ptr %other, i64 8
-  %8 = load ptr, ptr %_M_finish.i.i5.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, %7
+  %9 = load ptr, ptr %_M_finish.i.i5.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, %8
   br i1 %tobool.not.i.i.i, label %cleanup, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.end.i
-  store ptr %7, ptr %_M_finish.i.i5.i, align 8
+  store ptr %8, ptr %_M_finish.i.i5.i, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %if.else.i, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf15UnknownFieldSetD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %other) #18
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %10
 
 cleanup:                                          ; preds = %invoke.cont.i.i.i, %if.end.i, %invoke.cont, %land.lhs.true
   %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %invoke.cont ], [ true, %if.end.i ], [ true, %invoke.cont.i.i.i ]
-  %10 = load ptr, ptr %other, align 16
+  %11 = load ptr, ptr %other, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds i8, ptr %other, i64 8
-  %11 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %cmp.i.i.i3 = icmp eq ptr %10, %11
+  %12 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %cmp.i.i.i3 = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i3, label %invoke.cont.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef nonnull align 8 dereferenceable(24) %other)
-  %.pr.i = load ptr, ptr %other, align 16
+  %.pr.i = load ptr, ptr %other, align 8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i, %cleanup
-  %12 = phi ptr [ %.pr.i, %if.then.i.i ], [ %10, %cleanup ]
-  %tobool.not.i.i.i.i = icmp eq ptr %12, null
+  %13 = phi ptr [ %.pr.i, %if.then.i.i ], [ %11, %cleanup ]
+  %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #20
+  call void @_ZdlPv(ptr noundef nonnull %13) #20
   br label %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit
 
 _ZN6google8protobuf15UnknownFieldSetD2Ev.exit:    ; preds = %invoke.cont.i, %if.then.i.i.i.i
@@ -2610,9 +2613,12 @@ if.end.i.i:                                       ; preds = %sw.bb11
   %inc.i.i = add nsw i32 %24, 1
   store i32 %inc.i.i, ptr %group_depth_.i.i, align 4
   %call.i102 = call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_24UnknownFieldParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %child.i, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %25 = load <2 x i32>, ptr %depth_.i.i, align 8
-  %26 = add nsw <2 x i32> %25, <i32 1, i32 -1>
-  store <2 x i32> %26, ptr %depth_.i.i, align 8
+  %25 = load i32, ptr %group_depth_.i.i, align 4
+  %dec14.i.i = add nsw i32 %25, -1
+  store i32 %dec14.i.i, ptr %group_depth_.i.i, align 4
+  %26 = load i32, ptr %depth_.i.i, align 8
+  %inc16.i.i = add nsw i32 %26, 1
+  store i32 %inc16.i.i, ptr %depth_.i.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %27 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i101 = icmp eq i32 %27, %add.i

@@ -39,25 +39,31 @@ define void @_ZN8WasmEdge4LLVM4DataC2Ev(ptr noundef nonnull align 8 dereferencea
   %15 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 136
-  store <4 x i8> <i8 3, i8 1, i8 0, i8 0>, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 140
-  store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 65536, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 148
-  store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 149
-  store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 150
-  store i8 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
-  store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 3, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 137
+  store i8 1, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 138
+  store i8 0, ptr %18, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 139
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 140
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 65536, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 148
+  store i8 0, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 149
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 154
+  %24 = getelementptr inbounds i8, ptr %0, i64 150
   store i8 0, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 -1, ptr %25, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 154
+  store i8 0, ptr %27, align 2
+  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 -1, ptr %28, align 8
   store i64 127, ptr %9, align 8
   ret void
 }
@@ -139,25 +145,31 @@ define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferen
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 136
-  store <4 x i8> <i8 3, i8 1, i8 0, i8 0>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 140
-  store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 65536, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 148
-  store i8 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 149
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 150
-  store i8 0, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 3, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 137
+  store i8 1, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 138
+  store i8 0, ptr %14, align 2
+  %15 = getelementptr inbounds i8, ptr %0, i64 139
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 140
+  store i8 0, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 65536, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 148
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 149
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 154
+  %20 = getelementptr inbounds i8, ptr %0, i64 150
   store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 -1, ptr %21, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 154
+  store i8 0, ptr %23, align 2
+  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 -1, ptr %24, align 8
   store i64 127, ptr %5, align 8
   ret void
 }

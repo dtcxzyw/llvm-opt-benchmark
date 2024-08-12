@@ -20,30 +20,30 @@ define void @_ZN11ComprDataIOC2Ev(ptr noundef nonnull align 8 dereferenceable(26
   tail call void @_ZN8DataHashC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   invoke void @_ZN8DataHashC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %4 unwind label %30
+          to label %4 unwind label %33
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   invoke void @_ZN8DataHashC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %6 unwind label %32
+          to label %6 unwind label %35
 
 6:                                                ; preds = %4
   %7 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #13
-          to label %8 unwind label %34
+          to label %8 unwind label %37
 
 8:                                                ; preds = %6
   invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %7)
-          to label %9 unwind label %36
+          to label %9 unwind label %39
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %7, ptr %10, align 8
   %11 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #13
-          to label %12 unwind label %34
+          to label %12 unwind label %37
 
 12:                                               ; preds = %9
   invoke void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516) %11)
-          to label %13 unwind label %38
+          to label %13 unwind label %41
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %0, i64 136
@@ -54,72 +54,78 @@ define void @_ZN11ComprDataIOC2Ev(ptr noundef nonnull align 8 dereferenceable(26
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 153
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 154
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 264
-  store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 265
-  store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
-  store i32 -1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
-  %28 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 81
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 82
+  store i8 0, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %0, i64 83
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 154
+  store i8 0, ptr %23, align 2
+  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds i8, ptr %0, i64 264
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 265
+  store i8 0, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
+  store i32 -1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   ret void
 
-30:                                               ; preds = %1
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %1
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %45
 
-32:                                               ; preds = %4
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %4
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %41
+  br label %44
 
-34:                                               ; preds = %9, %6
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %9, %6
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %43
 
-36:                                               ; preds = %8
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %8
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %7) #14
-  br label %40
+  br label %43
 
-38:                                               ; preds = %12
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %12
+  %42 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %11) #14
-  br label %40
+  br label %43
 
-40:                                               ; preds = %38, %36, %34
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %35, %34 ], [ %37, %36 ]
+43:                                               ; preds = %41, %39, %37
+  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ], [ %40, %39 ]
   tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  br label %41
+  br label %44
 
-41:                                               ; preds = %40, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %33, %32 ]
+44:                                               ; preds = %43, %35
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %36, %35 ]
   tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  br label %42
+  br label %45
 
-42:                                               ; preds = %41, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %41 ], [ %31, %30 ]
+45:                                               ; preds = %44, %33
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %34, %33 ]
   tail call void @_ZN8DataHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -144,31 +150,37 @@ define void @_ZN11ComprDataIO4InitEv(ptr nocapture noundef nonnull writeonly ali
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
-  store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 153
-  store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 154
-  store i8 0, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 265
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  store i32 -1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
-  %15 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  store i8 1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 81
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 82
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 83
+  store i8 0, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 153
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 154
+  store i8 0, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds i8, ptr %0, i64 264
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 265
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
+  store i32 -1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   ret void
 }
 

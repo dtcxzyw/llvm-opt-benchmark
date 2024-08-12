@@ -10423,30 +10423,34 @@ while.end.loopexit:                               ; preds = %_ZNSt15_Deque_itera
 while.end:                                        ; preds = %if.end45, %land.rhs, %land.rhs.lr.ph, %while.end.loopexit, %entry, %if.else33
   %30 = phi ptr [ %.pre, %while.end.loopexit ], [ %1, %entry ], [ %12, %if.else33 ], [ %1, %land.rhs.lr.ph ], [ %29, %land.rhs ], [ %29, %if.end45 ]
   %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
-  %31 = load <2 x ptr>, ptr %_M_first3.i.i.i, align 8, !noalias !109
+  %31 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !109
+  %_M_last4.i.i.i139 = getelementptr inbounds i8, ptr %this, i64 464
+  %32 = load ptr, ptr %_M_last4.i.i.i139, align 8, !noalias !109
   %_M_node5.i.i.i140 = getelementptr inbounds i8, ptr %this, i64 472
-  %32 = load ptr, ptr %_M_node5.i.i.i140, align 8, !noalias !109
+  %33 = load ptr, ptr %_M_node5.i.i.i140, align 8, !noalias !109
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
-  %33 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult ptr %32, %33
+  %34 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult ptr %33, %34
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeImSaImEE5clearEv.exit
 
 for.body.i.i.i:                                   ; preds = %while.end, %for.body.i.i.i
-  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %32, %while.end ]
+  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %33, %while.end ]
   %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
-  %34 = load ptr, ptr %__n.04.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %34) #22
-  %cmp.i.i.i141 = icmp ult ptr %__n.04.i.i.i, %33
+  %35 = load ptr, ptr %__n.04.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %35) #22
+  %cmp.i.i.i141 = icmp ult ptr %__n.04.i.i.i, %34
   br i1 %cmp.i.i.i141, label %for.body.i.i.i, label %_ZNSt5dequeImSaImEE5clearEv.exit, !llvm.loop !4
 
 _ZNSt5dequeImSaImEE5clearEv.exit:                 ; preds = %for.body.i.i.i, %while.end
   store ptr %30, ptr %_M_finish.i.i, align 8
   %agg.tmp.sroa.2.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 488
-  store <2 x ptr> %31, ptr %agg.tmp.sroa.2.0._M_finish.i.i.sroa_idx.i, align 8
-  store ptr %32, ptr %_M_node5.i.i.i.i, align 8
+  store ptr %31, ptr %agg.tmp.sroa.2.0._M_finish.i.i.sroa_idx.i, align 8
+  %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 496
+  store ptr %32, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
+  store ptr %33, ptr %_M_node5.i.i.i.i, align 8
   %d_data.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 680
-  %35 = load i8, ptr %d_data.i.i.i142, align 8
-  %tobool.i.i143 = trunc i8 %35 to i1
+  %36 = load i8, ptr %d_data.i.i.i142, align 8
+  %tobool.i.i143 = trunc i8 %36 to i1
   ret i1 %tobool.i.i143
 }
 

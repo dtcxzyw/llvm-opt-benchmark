@@ -542,11 +542,13 @@ invalidate_cursor1.exit:                          ; preds = %if.then18, %if.then
   %9 = phi i8 [ %0, %if.then18 ], [ %.pre, %if.then.i ]
   store i32 %size.0, ptr %last_hw_cursor_size, align 4
   %hw_cursor_x21 = getelementptr inbounds i8, ptr %s1, i64 2992
+  %10 = load i32, ptr %hw_cursor_x21, align 16
   %last_hw_cursor_x22 = getelementptr inbounds i8, ptr %s1, i64 78920
+  store i32 %10, ptr %last_hw_cursor_x22, align 8
   %hw_cursor_y24 = getelementptr inbounds i8, ptr %s1, i64 2996
-  %10 = load i32, ptr %hw_cursor_y24, align 4
-  %11 = load <2 x i32>, ptr %hw_cursor_x21, align 16
-  store <2 x i32> %11, ptr %last_hw_cursor_x22, align 8
+  %11 = load i32, ptr %hw_cursor_y24, align 4
+  %last_hw_cursor_y25 = getelementptr inbounds i8, ptr %s1, i64 78924
+  store i32 %11, ptr %last_hw_cursor_y25, align 4
   %vram_ptr.i = getelementptr inbounds i8, ptr %s1, i64 8
   %12 = load ptr, ptr %vram_ptr.i, align 8
   %real_vram_size.i = getelementptr inbounds i8, ptr %s1, i64 78936
@@ -572,9 +574,17 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %y_min.042.i = phi i32 [ 64, %if.then.i17 ], [ %y_min.1.i, %for.body.i ]
   %y.041.i = phi i32 [ 0, %if.then.i17 ], [ %inc.i, %for.body.i ]
   %src.040.i = phi ptr [ %add.ptr9.i, %if.then.i17 ], [ %add.ptr27.i, %for.body.i ]
-  %17 = load <4 x i32>, ptr %src.040.i, align 4
-  %18 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %17)
-  %tobool17.not.i = icmp eq i32 %18, 0
+  %17 = load i32, ptr %src.040.i, align 4
+  %arrayidx12.i = getelementptr i8, ptr %src.040.i, i64 4
+  %18 = load i32, ptr %arrayidx12.i, align 4
+  %or.i = or i32 %18, %17
+  %arrayidx13.i = getelementptr i8, ptr %src.040.i, i64 8
+  %19 = load i32, ptr %arrayidx13.i, align 4
+  %or14.i = or i32 %or.i, %19
+  %arrayidx15.i = getelementptr i8, ptr %src.040.i, i64 12
+  %20 = load i32, ptr %arrayidx15.i, align 4
+  %or16.i = or i32 %or14.i, %20
+  %tobool17.not.i = icmp eq i32 %or16.i, 0
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %y.041.i, i32 %y_min.042.i)
   %spec.select37.i = tail call i32 @llvm.smax.i32(i32 %y.041.i, i32 %y_max.043.i)
   %y_min.1.i = select i1 %tobool17.not.i, i32 %y_min.042.i, i32 %spec.select.i
@@ -585,8 +595,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %cirrus_cursor_compute_yrange.exit, label %for.body.i, !llvm.loop !5
 
 if.else.i:                                        ; preds = %invalidate_cursor1.exit
-  %19 = and i8 %15, 63
-  %and32.i = zext nneg i8 %19 to i64
+  %21 = and i8 %15, 63
+  %and32.i = zext nneg i8 %21 to i64
   %mul33.i = shl nuw nsw i64 %and32.i, 8
   %add.ptr35.i = getelementptr i8, ptr %add.ptr1.i, i64 %mul33.i
   br label %for.body39.i
@@ -596,10 +606,10 @@ for.body39.i:                                     ; preds = %for.body39.i, %if.e
   %y_min.446.i = phi i32 [ 32, %if.else.i ], [ %y_min.5.i, %for.body39.i ]
   %y.145.i = phi i32 [ 0, %if.else.i ], [ %inc57.i, %for.body39.i ]
   %src.144.i = phi ptr [ %add.ptr35.i, %if.else.i ], [ %add.ptr55.i, %for.body39.i ]
-  %20 = load i32, ptr %src.144.i, align 4
+  %22 = load i32, ptr %src.144.i, align 4
   %add.ptr41.i = getelementptr i8, ptr %src.144.i, i64 128
-  %21 = load i32, ptr %add.ptr41.i, align 4
-  %or43.i = or i32 %21, %20
+  %23 = load i32, ptr %add.ptr41.i, align 4
+  %or43.i = or i32 %23, %22
   %tobool44.not.i = icmp eq i32 %or43.i, 0
   %spec.select36.i = tail call i32 @llvm.smin.i32(i32 %y.145.i, i32 %y_min.446.i)
   %spec.select38.i = tail call i32 @llvm.smax.i32(i32 %y.145.i, i32 %y_max.347.i)
@@ -617,15 +627,15 @@ cirrus_cursor_compute_yrange.exit:                ; preds = %for.body.i, %for.bo
   %add.i18 = add i32 %y_max.2.i, 1
   %spec.select51.i = select i1 %cmp60.i, i32 0, i32 %y_min.3.i
   %spec.select52.i = select i1 %cmp60.i, i32 0, i32 %add.i18
-  %22 = getelementptr inbounds i8, ptr %s1, i64 78928
-  store i32 %spec.select51.i, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %s1, i64 78932
-  store i32 %spec.select52.i, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %s1, i64 78928
+  store i32 %spec.select51.i, ptr %24, align 16
+  %25 = getelementptr inbounds i8, ptr %s1, i64 78932
+  store i32 %spec.select52.i, ptr %25, align 4
   br i1 %tobool.not, label %if.end26, label %if.then.i21
 
 if.then.i21:                                      ; preds = %cirrus_cursor_compute_yrange.exit
-  %add.i24 = add i32 %spec.select51.i, %10
-  %add2.i26 = add i32 %spec.select52.i, %10
+  %add.i24 = add i32 %spec.select51.i, %11
+  %add2.i26 = add i32 %spec.select52.i, %11
   tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i24, i32 noundef %add2.i26) #13
   br label %if.end26
 
@@ -678,46 +688,54 @@ if.then26:                                        ; preds = %if.end16
   %mul36 = shl i32 %sub56, 4
   %idx.ext37 = zext i32 %mul36 to i64
   %add.ptr38 = getelementptr i8, ptr %add.ptr33, i64 %idx.ext37
-  %7 = load <4 x i32>, ptr %add.ptr38, align 4
-  %8 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %7)
+  %7 = load i32, ptr %add.ptr38, align 4
+  %arrayidx40 = getelementptr i8, ptr %add.ptr38, i64 4
+  %8 = load i32, ptr %arrayidx40, align 4
+  %or = or i32 %8, %7
+  %arrayidx41 = getelementptr i8, ptr %add.ptr38, i64 8
+  %9 = load i32, ptr %arrayidx41, align 4
+  %or42 = or i32 %or, %9
+  %arrayidx43 = getelementptr i8, ptr %add.ptr38, i64 12
+  %10 = load i32, ptr %arrayidx43, align 4
+  %or44 = or i32 %or42, %10
   br label %if.end64
 
 if.else45:                                        ; preds = %if.end16
-  %9 = and i8 %5, 63
-  %and50 = zext nneg i8 %9 to i64
+  %11 = and i8 %5, 63
+  %and50 = zext nneg i8 %11 to i64
   %mul51 = shl nuw nsw i64 %and50, 8
   %add.ptr53 = getelementptr i8, ptr %add.ptr19, i64 %mul51
   %mul57 = shl i32 %sub56, 2
   %idx.ext58 = zext i32 %mul57 to i64
   %add.ptr59 = getelementptr i8, ptr %add.ptr53, i64 %idx.ext58
-  %10 = load i32, ptr %add.ptr59, align 4
+  %12 = load i32, ptr %add.ptr59, align 4
   %add.ptr61 = getelementptr i8, ptr %add.ptr59, i64 128
-  %11 = load i32, ptr %add.ptr61, align 4
-  %or63 = or i32 %11, %10
+  %13 = load i32, ptr %add.ptr61, align 4
+  %or63 = or i32 %13, %12
   br label %if.end64
 
 if.end64:                                         ; preds = %if.else45, %if.then26
   %poffset.0 = phi i64 [ 8, %if.then26 ], [ 128, %if.else45 ]
   %src.0 = phi ptr [ %add.ptr38, %if.then26 ], [ %add.ptr59, %if.else45 ]
-  %content.0 = phi i32 [ %8, %if.then26 ], [ %or63, %if.else45 ]
+  %content.0 = phi i32 [ %or44, %if.then26 ], [ %or63, %if.else45 ]
   %tobool65.not = icmp eq i32 %content.0, 0
   br i1 %tobool65.not, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.end64
   %hw_cursor_x = getelementptr inbounds i8, ptr %s1, i64 2992
-  %12 = load i32, ptr %hw_cursor_x, align 16
+  %14 = load i32, ptr %hw_cursor_x, align 16
   %last_scr_width = getelementptr inbounds i8, ptr %s1, i64 2680
-  %13 = load i32, ptr %last_scr_width, align 8
-  %cmp70.not = icmp ult i32 %12, %13
+  %15 = load i32, ptr %last_scr_width, align 8
+  %cmp70.not = icmp ult i32 %14, %15
   br i1 %cmp70.not, label %if.end73, label %return
 
 if.end73:                                         ; preds = %if.end67
-  %add76 = add i32 %12, %.
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %add76, i32 %13)
-  %sub85 = sub i32 %spec.select, %12
+  %add76 = add i32 %14, %.
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %add76, i32 %15)
+  %sub85 = sub i32 %spec.select, %14
   %cirrus_hidden_palette = getelementptr inbounds i8, ptr %s1, i64 70604
-  %14 = load i8, ptr %cirrus_hidden_palette, align 1
-  %conv87 = zext i8 %14 to i32
+  %16 = load i8, ptr %cirrus_hidden_palette, align 1
+  %conv87 = zext i8 %16 to i32
   %and1.i = and i32 %conv87, 1
   %and.i = shl nuw nsw i32 %conv87, 2
   %shl.i = and i32 %and.i, 252
@@ -725,8 +743,8 @@ if.end73:                                         ; preds = %if.end67
   %or.i = or disjoint i32 %shl.i, %shl2.i
   %or3.i = or disjoint i32 %or.i, %and1.i
   %arrayidx88 = getelementptr i8, ptr %s1, i64 70605
-  %15 = load i8, ptr %arrayidx88, align 1
-  %conv89 = zext i8 %15 to i32
+  %17 = load i8, ptr %arrayidx88, align 1
+  %conv89 = zext i8 %17 to i32
   %and1.i43 = and i32 %conv89, 1
   %and.i44 = shl nuw nsw i32 %conv89, 2
   %shl.i45 = and i32 %and.i44, 252
@@ -734,8 +752,8 @@ if.end73:                                         ; preds = %if.end67
   %or.i47 = or disjoint i32 %shl.i45, %shl2.i46
   %or3.i48 = or disjoint i32 %or.i47, %and1.i43
   %arrayidx91 = getelementptr i8, ptr %s1, i64 70606
-  %16 = load i8, ptr %arrayidx91, align 1
-  %conv92 = zext i8 %16 to i32
+  %18 = load i8, ptr %arrayidx91, align 1
+  %conv92 = zext i8 %18 to i32
   %and1.i49 = and i32 %conv92, 1
   %and.i50 = shl nuw nsw i32 %conv92, 2
   %shl.i51 = and i32 %and.i50, 252
@@ -747,8 +765,8 @@ if.end73:                                         ; preds = %if.end67
   %or.i56 = or disjoint i32 %shl1.i, %shl.i55
   %or2.i = or disjoint i32 %or.i56, %or3.i54
   %arrayidx95 = getelementptr i8, ptr %s1, i64 70649
-  %17 = load i8, ptr %arrayidx95, align 1
-  %conv96 = zext i8 %17 to i32
+  %19 = load i8, ptr %arrayidx95, align 1
+  %conv96 = zext i8 %19 to i32
   %and1.i57 = and i32 %conv96, 1
   %and.i58 = shl nuw nsw i32 %conv96, 2
   %shl.i59 = and i32 %and.i58, 252
@@ -756,8 +774,8 @@ if.end73:                                         ; preds = %if.end67
   %or.i61 = or disjoint i32 %shl.i59, %shl2.i60
   %or3.i62 = or disjoint i32 %or.i61, %and1.i57
   %arrayidx98 = getelementptr i8, ptr %s1, i64 70650
-  %18 = load i8, ptr %arrayidx98, align 1
-  %conv99 = zext i8 %18 to i32
+  %20 = load i8, ptr %arrayidx98, align 1
+  %conv99 = zext i8 %20 to i32
   %and1.i63 = and i32 %conv99, 1
   %and.i64 = shl nuw nsw i32 %conv99, 2
   %shl.i65 = and i32 %and.i64, 252
@@ -765,8 +783,8 @@ if.end73:                                         ; preds = %if.end67
   %or.i67 = or disjoint i32 %shl.i65, %shl2.i66
   %or3.i68 = or disjoint i32 %or.i67, %and1.i63
   %arrayidx101 = getelementptr i8, ptr %s1, i64 70651
-  %19 = load i8, ptr %arrayidx101, align 1
-  %conv102 = zext i8 %19 to i32
+  %21 = load i8, ptr %arrayidx101, align 1
+  %conv102 = zext i8 %21 to i32
   %and1.i69 = and i32 %conv102, 1
   %and.i70 = shl nuw nsw i32 %conv102, 2
   %shl.i71 = and i32 %and.i70, 252
@@ -782,7 +800,7 @@ if.end73:                                         ; preds = %if.end67
   br i1 %cmp10.i, label %for.body.i.preheader, label %return
 
 for.body.i.preheader:                             ; preds = %if.end73
-  %mul105 = shl i32 %12, 2
+  %mul105 = shl i32 %14, 2
   %idx.ext106 = sext i32 %mul105 to i64
   %add.ptr107 = getelementptr i8, ptr %d1, i64 %idx.ext106
   br label %for.body.i
@@ -793,15 +811,15 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %shr.i = lshr i32 %x.011.i, 3
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr i8, ptr %src.0, i64 %idxprom.i
-  %20 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %20 to i32
+  %22 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %22 to i32
   %and.i79 = and i32 %x.011.i, 7
   %sub.i = xor i32 %and.i79, 7
   %shr1.i = lshr i32 %conv.i, %sub.i
   %and2.i = and i32 %shr1.i, 1
   %arrayidx5.i = getelementptr i8, ptr %add.ptr.i, i64 %idxprom.i
-  %21 = load i8, ptr %arrayidx5.i, align 1
-  %conv6.i = zext i8 %21 to i32
+  %23 = load i8, ptr %arrayidx5.i, align 1
+  %conv6.i = zext i8 %23 to i32
   %shr9.i = lshr i32 %conv6.i, %sub.i
   %and10.i = shl nuw nsw i32 %shr9.i, 1
   %shl.i80 = and i32 %and10.i, 2
@@ -814,8 +832,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   ]
 
 sw.bb11.i:                                        ; preds = %for.body.i
-  %22 = load i32, ptr %d.012.i, align 4
-  %xor.i = xor i32 %22, 16777215
+  %24 = load i32, ptr %d.012.i, align 4
+  %xor.i = xor i32 %24, 16777215
   br label %sw.epilog.sink.split.i
 
 sw.bb15.i:                                        ; preds = %for.body.i
@@ -3073,9 +3091,12 @@ if.end255:                                        ; preds = %if.then239
   br i1 %tobool259.not, label %if.else276, label %if.then260
 
 if.then260:                                       ; preds = %if.end255
-  %96 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
-  %97 = sub <2 x i32> zeroinitializer, %96
-  store <2 x i32> %97, ptr %cirrus_blt_dstpitch, align 4
+  %96 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %sub262 = sub i32 0, %96
+  store i32 %sub262, ptr %cirrus_blt_dstpitch, align 4
+  %97 = load i32, ptr %cirrus_blt_srcpitch, align 16
+  %sub265 = sub i32 0, %97
+  store i32 %sub265, ptr %cirrus_blt_srcpitch, align 16
   %idxprom267 = zext i8 %19 to i64
   %arrayidx268 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom267
   %98 = load i8, ptr %arrayidx268, align 1
@@ -3101,9 +3122,12 @@ if.else287:                                       ; preds = %if.else234
   br i1 %tobool291.not, label %if.else304, label %if.then292
 
 if.then292:                                       ; preds = %if.else287
-  %100 = load <2 x i32>, ptr %cirrus_blt_dstpitch, align 4
-  %101 = sub <2 x i32> zeroinitializer, %100
-  store <2 x i32> %101, ptr %cirrus_blt_dstpitch, align 4
+  %100 = load i32, ptr %cirrus_blt_dstpitch, align 4
+  %sub294 = sub i32 0, %100
+  store i32 %sub294, ptr %cirrus_blt_dstpitch, align 4
+  %101 = load i32, ptr %cirrus_blt_srcpitch, align 16
+  %sub297 = sub i32 0, %101
+  store i32 %sub297, ptr %cirrus_blt_srcpitch, align 16
   %idxprom299 = zext i8 %19 to i64
   %arrayidx300 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom299
   %102 = load i8, ptr %arrayidx300, align 1
@@ -15285,15 +15309,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -15409,16 +15436,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -15535,16 +15565,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
@@ -15682,16 +15715,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -15807,15 +15843,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -15932,16 +15971,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -16059,16 +16101,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -16209,16 +16254,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -16550,15 +16598,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -16672,16 +16723,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -16796,16 +16850,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp57 = icmp sgt i32 %bltheight, 0
   br i1 %cmp57, label %for.body.lr.ph, label %for.end31
 
@@ -16937,16 +16994,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -17263,15 +17323,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -17388,16 +17451,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -17515,16 +17581,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -17665,16 +17734,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -17791,15 +17863,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -17915,16 +17990,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -18041,16 +18119,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
@@ -18188,16 +18269,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -18313,15 +18397,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -18437,16 +18524,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -18563,16 +18653,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
@@ -18710,16 +18803,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -18835,15 +18931,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -18960,16 +19059,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -19087,16 +19189,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -19237,16 +19342,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -19363,15 +19471,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -19488,16 +19599,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -19615,16 +19729,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
@@ -19765,16 +19882,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -19891,15 +20011,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -20016,16 +20139,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -20143,16 +20269,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -20293,16 +20422,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -20419,15 +20551,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -20542,16 +20677,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -20667,16 +20805,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
@@ -20811,16 +20952,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -20935,15 +21079,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -21060,16 +21207,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -21187,16 +21337,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -21337,16 +21490,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -21463,15 +21619,18 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
@@ -21588,16 +21747,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
@@ -21715,16 +21877,19 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
@@ -21865,16 +22030,19 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
@@ -28782,15 +28950,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -28878,16 +29049,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -28976,16 +29150,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
@@ -29095,16 +29272,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -29192,15 +29372,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -29289,16 +29472,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -29388,16 +29574,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -29510,16 +29699,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -29823,15 +30015,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -29917,16 +30112,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -30013,16 +30211,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp39 = icmp sgt i32 %bltheight, 0
   br i1 %cmp39, label %for.body.lr.ph, label %for.end28
 
@@ -30126,16 +30327,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -30424,15 +30628,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -30521,16 +30728,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -30620,16 +30830,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -30742,16 +30955,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -30840,15 +31056,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -30936,16 +31155,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -31034,16 +31256,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
@@ -31153,16 +31378,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -31250,15 +31478,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -31346,16 +31577,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -31444,16 +31678,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
@@ -31563,16 +31800,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -31660,15 +31900,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -31757,16 +32000,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -31856,16 +32102,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -31978,16 +32227,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -32076,15 +32328,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -32173,16 +32428,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -32272,16 +32530,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
@@ -32394,16 +32655,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -32492,15 +32756,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -32589,16 +32856,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -32688,16 +32958,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -32810,16 +33083,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -32908,15 +33184,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -33003,16 +33282,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -33100,16 +33382,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
@@ -33216,16 +33501,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -33312,15 +33600,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -33409,16 +33700,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -33508,16 +33802,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -33630,16 +33927,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -33728,15 +34028,18 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
@@ -33825,16 +34128,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
@@ -33924,16 +34230,19 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
@@ -34046,16 +34355,19 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
-  %colors = alloca [2 x i32], align 8
+  %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
+  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %2 = load i32, ptr %cirrus_blt_bgcol, align 8
+  store i32 %2, ptr %colors, align 4
   %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
-  %2 = load <2 x i32>, ptr %cirrus_blt_fgcol, align 4
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %colors, align 8
+  %3 = load i32, ptr %cirrus_blt_fgcol, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
@@ -49139,9 +49451,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.or.v4i32(<4 x i32>) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

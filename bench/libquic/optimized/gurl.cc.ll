@@ -1869,7 +1869,13 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end3:                                          ; preds = %if.end
   %query = getelementptr inbounds i8, ptr %agg.result, i64 88
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query, align 8
+  store i32 0, ptr %query, align 8
+  %len.i = getelementptr inbounds i8, ptr %agg.result, i64 92
+  store i32 -1, ptr %len.i, align 4
+  %ref = getelementptr inbounds i8, ptr %agg.result, i64 96
+  store i32 0, ptr %ref, align 8
+  %len.i2 = getelementptr inbounds i8, ptr %agg.result, i64 100
+  store i32 -1, ptr %len.i2, align 4
   %path8 = getelementptr inbounds i8, ptr %agg.result, i64 80
   %3 = load i32, ptr %path8, align 8
   %conv = sext i32 %3 to i64
@@ -2387,7 +2393,7 @@ declare i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull align 8 dereferen
 define dso_local noundef zeroext i1 @_ZNK4GURL15HostIsIPAddressEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ignored_output = alloca %"class.url::RawCanonOutputT", align 8
-  %host_info = alloca %"struct.url::CanonHostInfo", align 16
+  %host_info = alloca %"struct.url::CanonHostInfo", align 4
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %is_valid_, align 8
   %tobool = trunc i8 %0 to i1
@@ -2404,14 +2410,20 @@ invoke.cont:                                      ; preds = %lor.lhs.false
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
   %fixed_buffer_.i = getelementptr inbounds i8, ptr %ignored_output, i64 24
   store ptr %fixed_buffer_.i, ptr %buffer_.i.i, align 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
+  store i32 0, ptr %host_info, align 4
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  store i32 0, ptr %num_ipv4_components.i, align 4
+  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
+  store i32 0, ptr %out_host.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  store i32 -1, ptr %len.i.i, align 4
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
   %host = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %call3, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %ignored_output, ptr noundef nonnull %host_info)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %2 = load i32, ptr %host_info, align 16
+  %2 = load i32, ptr %host_info, align 4
   %3 = and i32 %2, -2
   %spec.select.i = icmp eq i32 %3, 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8

@@ -192,7 +192,7 @@ define hidden noundef i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef 
   %or.cond3 = or i1 %or.cond, %12
   %.sink155.sroa.gep = getelementptr inbounds i8, ptr %8, i64 128
   %.sink155.sroa.gep157 = getelementptr inbounds i8, ptr %8, i64 72
-  br i1 %or.cond3, label %200, label %13
+  br i1 %or.cond3, label %202, label %13
 
 13:                                               ; preds = %5
   %14 = call i32 @WebPInitDecoderConfigInternal(ptr noundef nonnull %8, i32 noundef 521) #7
@@ -202,7 +202,7 @@ define hidden noundef i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i64 @fwrite(ptr nonnull @.str.5, i64 26, i64 1, ptr %16) #8
-  br label %200
+  br label %202
 
 18:                                               ; preds = %13
   %19 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 521) #7
@@ -228,7 +228,7 @@ define hidden noundef i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef 
 PrintWebPError.exit:                              ; preds = %20, %25
   %31 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %31)
-  br label %200
+  br label %202
 
 32:                                               ; preds = %18
   %33 = icmp ne i32 %3, 0
@@ -276,10 +276,10 @@ PrintWebPError.exit:                              ; preds = %20, %25
 58:                                               ; preds = %56
   %59 = load i32, ptr %2, align 8
   %.not121 = icmp eq i32 %59, 0
-  br i1 %.not121, label %70, label %60
+  %60 = getelementptr inbounds i8, ptr %8, i64 64
+  br i1 %.not121, label %70, label %61
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %8, i64 64
+61:                                               ; preds = %58
   store i32 3, ptr %9, align 8
   %62 = getelementptr inbounds i8, ptr %2, i64 72
   %63 = load ptr, ptr %62, align 8
@@ -288,283 +288,286 @@ PrintWebPError.exit:                              ; preds = %20, %25
   %65 = getelementptr inbounds i8, ptr %2, i64 80
   %66 = load i32, ptr %65, align 8
   %67 = shl i32 %66, 2
-  store i32 %67, ptr %61, align 8
+  store i32 %67, ptr %60, align 8
   %68 = load i32, ptr %42, align 4
   %69 = mul nsw i32 %68, %67
-  br label %103
+  br label %105
 
 70:                                               ; preds = %58
   %71 = select i1 %37, i32 12, i32 11
   store i32 %71, ptr %9, align 8
   %72 = getelementptr inbounds i8, ptr %2, i64 16
-  %73 = getelementptr inbounds i8, ptr %8, i64 56
-  %74 = load <2 x ptr>, ptr %72, align 8
-  store <2 x ptr> %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %8, i64 56
+  store ptr %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %2, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 72
-  store ptr %76, ptr %77, align 8
-  br i1 %37, label %79, label %78
+  store ptr %76, ptr %60, align 8
+  %77 = getelementptr inbounds i8, ptr %2, i64 32
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %8, i64 72
+  store ptr %78, ptr %79, align 8
+  br i1 %37, label %81, label %80
 
-78:                                               ; preds = %70
+80:                                               ; preds = %70
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %84
+  br label %86
 
-79:                                               ; preds = %70
-  %80 = getelementptr inbounds i8, ptr %2, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %2, i64 56
-  %83 = load i32, ptr %82, align 8
-  br label %84
+81:                                               ; preds = %70
+  %82 = getelementptr inbounds i8, ptr %2, i64 48
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %2, i64 56
+  %85 = load i32, ptr %84, align 8
+  br label %86
 
-84:                                               ; preds = %78, %79
-  %85 = phi i32 [ %83, %79 ], [ %.pre, %78 ]
-  %.sink152 = phi ptr [ %81, %79 ], [ null, %78 ]
-  %86 = phi i32 [ %83, %79 ], [ 0, %78 ]
+86:                                               ; preds = %80, %81
+  %87 = phi i32 [ %85, %81 ], [ %.pre, %80 ]
+  %.sink152 = phi ptr [ %83, %81 ], [ null, %80 ]
+  %88 = phi i32 [ %85, %81 ], [ 0, %80 ]
   %.sink150.in = getelementptr inbounds i8, ptr %2, i64 44
   %.sink150 = load i32, ptr %.sink150.in, align 4
   %.sink151.in = getelementptr inbounds i8, ptr %2, i64 40
   %.sink151 = load i32, ptr %.sink151.in, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr %.sink152, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 88
-  store i32 %.sink151, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 92
-  store i32 %.sink150, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %8, i64 96
-  store i32 %.sink150, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 100
-  store i32 %86, ptr %91, align 4
-  %92 = load i32, ptr %42, align 4
-  %93 = mul nsw i32 %92, %.sink151
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %8, i64 104
-  store i64 %94, ptr %95, align 8
-  %96 = add nsw i32 %92, 1
-  %97 = sdiv i32 %96, 2
-  %98 = mul nsw i32 %97, %.sink150
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %8, i64 112
-  store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 120
-  store i64 %99, ptr %101, align 8
-  %102 = mul nsw i32 %85, %92
-  br label %103
+  %89 = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %.sink152, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %8, i64 88
+  store i32 %.sink151, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %8, i64 92
+  store i32 %.sink150, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %8, i64 96
+  store i32 %.sink150, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %8, i64 100
+  store i32 %88, ptr %93, align 4
+  %94 = load i32, ptr %42, align 4
+  %95 = mul nsw i32 %94, %.sink151
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr %8, i64 104
+  store i64 %96, ptr %97, align 8
+  %98 = add nsw i32 %94, 1
+  %99 = sdiv i32 %98, 2
+  %100 = mul nsw i32 %99, %.sink150
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %8, i64 112
+  store i64 %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %8, i64 120
+  store i64 %101, ptr %103, align 8
+  %104 = mul nsw i32 %87, %94
+  br label %105
 
-103:                                              ; preds = %84, %60
-  %.sink156 = phi i32 [ %102, %84 ], [ %69, %60 ]
-  %.sink155.sroa.phi = phi ptr [ %.sink155.sroa.gep, %84 ], [ %.sink155.sroa.gep157, %60 ]
-  %104 = sext i32 %.sink156 to i64
-  store i64 %104, ptr %.sink155.sroa.phi, align 8
-  %105 = getelementptr inbounds i8, ptr %8, i64 52
-  store i32 1, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %8, i64 12
-  %.val.i = load i32, ptr %106, align 4
+105:                                              ; preds = %86, %61
+  %.sink156 = phi i32 [ %104, %86 ], [ %69, %61 ]
+  %.sink155.sroa.phi = phi ptr [ %.sink155.sroa.gep, %86 ], [ %.sink155.sroa.gep157, %61 ]
+  %106 = sext i32 %.sink156 to i64
+  store i64 %106, ptr %.sink155.sroa.phi, align 8
+  %107 = getelementptr inbounds i8, ptr %8, i64 52
+  store i32 1, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %8, i64 12
+  %.val.i = load i32, ptr %108, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i.i, label %DecodeWebP.exit, label %107
+  br i1 %.not.i.i, label %DecodeWebP.exit, label %109
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr @stderr, align 8
-  %109 = call i64 @fwrite(ptr nonnull @.str.16, i64 147, i64 1, ptr %108) #8
+109:                                              ; preds = %105
+  %110 = load ptr, ptr @stderr, align 8
+  %111 = call i64 @fwrite(ptr nonnull @.str.16, i64 147, i64 1, ptr %110) #8
   br label %DecodeWebP.exit
 
-DecodeWebP.exit:                                  ; preds = %103, %107
-  %110 = call i32 @WebPDecode(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %8) #7
-  %111 = icmp eq i32 %110, 0
-  %112 = zext i1 %111 to i32
-  %113 = or i32 %110, %3
-  %or.cond5.not = icmp eq i32 %113, 0
-  br i1 %or.cond5.not, label %114, label %.loopexit
+DecodeWebP.exit:                                  ; preds = %105, %109
+  %112 = call i32 @WebPDecode(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %8) #7
+  %113 = icmp eq i32 %112, 0
+  %114 = zext i1 %113 to i32
+  %115 = or i32 %112, %3
+  %or.cond5.not = icmp eq i32 %115, 0
+  br i1 %or.cond5.not, label %116, label %.loopexit
 
-114:                                              ; preds = %DecodeWebP.exit
-  %115 = load i32, ptr %2, align 8
-  %.not123 = icmp eq i32 %115, 0
-  br i1 %.not123, label %.loopexit, label %116
+116:                                              ; preds = %DecodeWebP.exit
+  %117 = load i32, ptr %2, align 8
+  %.not123 = icmp eq i32 %117, 0
+  br i1 %.not123, label %.loopexit, label %118
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr %42, align 4
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.preheader.lr.ph, label %.loopexit
+118:                                              ; preds = %116
+  %119 = load i32, ptr %42, align 4
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %.preheader.lr.ph, label %.loopexit
 
-.preheader.lr.ph:                                 ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %2, i64 80
-  %120 = load i32, ptr %39, align 8
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.preheader.preheader, label %.loopexit
+.preheader.lr.ph:                                 ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %2, i64 80
+  %122 = load i32, ptr %39, align 8
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %122 = getelementptr inbounds i8, ptr %2, i64 72
-  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %2, i64 72
+  %125 = load ptr, ptr %124, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %124 = phi i32 [ %133, %._crit_edge ], [ %117, %.preheader.preheader ]
-  %125 = phi i32 [ %134, %._crit_edge ], [ %120, %.preheader.preheader ]
-  %.0147 = phi ptr [ %137, %._crit_edge ], [ %123, %.preheader.preheader ]
-  %.0102146 = phi i32 [ %138, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %.lr.ph, label %._crit_edge
+  %126 = phi i32 [ %135, %._crit_edge ], [ %119, %.preheader.preheader ]
+  %127 = phi i32 [ %136, %._crit_edge ], [ %122, %.preheader.preheader ]
+  %.0147 = phi ptr [ %139, %._crit_edge ], [ %125, %.preheader.preheader ]
+  %.0102146 = phi i32 [ %140, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %127 = getelementptr inbounds i32, ptr %.0147, i64 %indvars.iv
-  %128 = load i32, ptr %127, align 4
-  %129 = or i32 %128, -16777216
-  store i32 %129, ptr %127, align 4
+  %129 = getelementptr inbounds i32, ptr %.0147, i64 %indvars.iv
+  %130 = load i32, ptr %129, align 4
+  %131 = or i32 %130, -16777216
+  store i32 %131, ptr %129, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %130 = load i32, ptr %39, align 8
-  %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
+  %132 = load i32, ptr %39, align 8
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next, %133
+  br i1 %134, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre153 = load i32, ptr %42, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %133 = phi i32 [ %.pre153, %._crit_edge.loopexit ], [ %124, %.preheader ]
-  %134 = phi i32 [ %130, %._crit_edge.loopexit ], [ %125, %.preheader ]
-  %135 = load i32, ptr %119, align 8
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %.0147, i64 %136
-  %138 = add nuw nsw i32 %.0102146, 1
-  %139 = icmp slt i32 %138, %133
-  br i1 %139, label %.preheader, label %.loopexit, !llvm.loop !7
+  %135 = phi i32 [ %.pre153, %._crit_edge.loopexit ], [ %126, %.preheader ]
+  %136 = phi i32 [ %132, %._crit_edge.loopexit ], [ %127, %.preheader ]
+  %137 = load i32, ptr %121, align 8
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i32, ptr %.0147, i64 %138
+  %140 = add nuw nsw i32 %.0102146, 1
+  %141 = icmp slt i32 %140, %135
+  br i1 %141, label %.preheader, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %116, %DecodeWebP.exit, %114
-  %.0106 = phi i32 [ %112, %DecodeWebP.exit ], [ 1, %114 ], [ 1, %116 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
-  br i1 %111, label %151, label %.thread131
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %118, %DecodeWebP.exit, %116
+  %.0106 = phi i32 [ %114, %DecodeWebP.exit ], [ 1, %116 ], [ 1, %118 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
+  br i1 %113, label %153, label %.thread131
 
 .thread131:                                       ; preds = %56, %53, %.loopexit
-  %.0107135 = phi i32 [ %110, %.loopexit ], [ 1, %53 ], [ 1, %56 ]
-  %140 = load ptr, ptr @stderr, align 8
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
+  %.0107135 = phi i32 [ %112, %.loopexit ], [ 1, %53 ], [ 1, %56 ]
   %142 = load ptr, ptr @stderr, align 8
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.1, i32 noundef %.0107135) #6
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
+  %144 = load ptr, ptr @stderr, align 8
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.1, i32 noundef %.0107135) #6
   %or.cond.i127 = icmp ult i32 %.0107135, 8
-  br i1 %or.cond.i127, label %144, label %PrintWebPError.exit129
+  br i1 %or.cond.i127, label %146, label %PrintWebPError.exit129
 
-144:                                              ; preds = %.thread131
-  %145 = load ptr, ptr @stderr, align 8
-  %146 = zext nneg i32 %.0107135 to i64
-  %147 = getelementptr inbounds [8 x ptr], ptr @kStatusMessages, i64 0, i64 %146
-  %148 = load ptr, ptr %147, align 8
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.2, ptr noundef %148) #6
+146:                                              ; preds = %.thread131
+  %147 = load ptr, ptr @stderr, align 8
+  %148 = zext nneg i32 %.0107135 to i64
+  %149 = getelementptr inbounds [8 x ptr], ptr @kStatusMessages, i64 0, i64 %148
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef nonnull @.str.2, ptr noundef %150) #6
   br label %PrintWebPError.exit129
 
-PrintWebPError.exit129:                           ; preds = %.thread131, %144
-  %150 = load ptr, ptr @stderr, align 8
-  %fputc.i128 = call i32 @fputc(i32 10, ptr %150)
-  br label %151
+PrintWebPError.exit129:                           ; preds = %.thread131, %146
+  %152 = load ptr, ptr @stderr, align 8
+  %fputc.i128 = call i32 @fputc(i32 10, ptr %152)
+  br label %153
 
-151:                                              ; preds = %PrintWebPError.exit129, %.loopexit
+153:                                              ; preds = %PrintWebPError.exit129, %.loopexit
   %.1 = phi i32 [ 0, %PrintWebPError.exit129 ], [ %.0106, %.loopexit ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %9) #7
-  %152 = icmp ne i32 %.1, 0
-  %153 = icmp ne ptr %4, null
-  %or.cond7 = and i1 %153, %152
-  br i1 %or.cond7, label %154, label %198
+  %154 = icmp ne i32 %.1, 0
+  %155 = icmp ne ptr %4, null
+  %or.cond7 = and i1 %155, %154
+  br i1 %or.cond7, label %156, label %200
 
-154:                                              ; preds = %151
+156:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store ptr %0, ptr %6, align 8
-  %155 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %1, ptr %155, align 8
-  %156 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %.thread138, label %158
+  %157 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %1, ptr %157, align 8
+  %158 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %.thread138, label %160
 
-158:                                              ; preds = %154
-  %159 = call i32 @WebPDemuxGetI(ptr noundef nonnull %156, i32 noundef 0) #7
-  %160 = and i32 %159, 32
-  %.not.i = icmp eq i32 %160, 0
-  br i1 %.not.i, label %170, label %161
+160:                                              ; preds = %156
+  %161 = call i32 @WebPDemuxGetI(ptr noundef nonnull %158, i32 noundef 0) #7
+  %162 = and i32 %161, 32
+  %.not.i = icmp eq i32 %162, 0
+  br i1 %.not.i, label %172, label %163
 
-161:                                              ; preds = %158
-  %162 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %156, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not15.i = icmp eq i32 %162, 0
-  br i1 %.not15.i, label %170, label %163
+163:                                              ; preds = %160
+  %164 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %158, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not15.i = icmp eq i32 %164, 0
+  br i1 %.not15.i, label %172, label %165
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %7, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %7, i64 16
-  %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %4, i64 16
-  %169 = call i32 @MetadataCopy(ptr noundef %165, i64 noundef %167, ptr noundef nonnull %168) #7
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds i8, ptr %7, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %7, i64 16
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %4, i64 16
+  %171 = call i32 @MetadataCopy(ptr noundef %167, i64 noundef %169, ptr noundef nonnull %170) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
-  br label %170
+  br label %172
 
-170:                                              ; preds = %163, %161, %158
-  %171 = and i32 %159, 8
-  %.not16.i = icmp eq i32 %171, 0
-  br i1 %.not16.i, label %180, label %172
-
-172:                                              ; preds = %170
-  %173 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %156, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not17.i = icmp eq i32 %173, 0
-  br i1 %.not17.i, label %180, label %174
+172:                                              ; preds = %165, %163, %160
+  %173 = and i32 %161, 8
+  %.not16.i = icmp eq i32 %173, 0
+  br i1 %.not16.i, label %182, label %174
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %7, i64 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %7, i64 16
-  %178 = load i64, ptr %177, align 8
-  %179 = call i32 @MetadataCopy(ptr noundef %176, i64 noundef %178, ptr noundef nonnull %4) #7
+  %175 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %158, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not17.i = icmp eq i32 %175, 0
+  br i1 %.not17.i, label %182, label %176
+
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds i8, ptr %7, i64 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %7, i64 16
+  %180 = load i64, ptr %179, align 8
+  %181 = call i32 @MetadataCopy(ptr noundef %178, i64 noundef %180, ptr noundef nonnull %4) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
-  br label %180
+  br label %182
 
-180:                                              ; preds = %174, %172, %170
-  %181 = and i32 %159, 4
-  %.not18.i = icmp eq i32 %181, 0
-  br i1 %.not18.i, label %.thread142, label %182
-
-182:                                              ; preds = %180
-  %183 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %156, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not19.i = icmp eq i32 %183, 0
-  br i1 %.not19.i, label %.thread142, label %184
+182:                                              ; preds = %176, %174, %172
+  %183 = and i32 %161, 4
+  %.not18.i = icmp eq i32 %183, 0
+  br i1 %.not18.i, label %.thread142, label %184
 
 184:                                              ; preds = %182
-  %185 = getelementptr inbounds i8, ptr %7, i64 8
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %7, i64 16
-  %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %4, i64 32
-  %190 = call i32 @MetadataCopy(ptr noundef %186, i64 noundef %188, ptr noundef nonnull %189) #7
+  %185 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %158, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not19.i = icmp eq i32 %185, 0
+  br i1 %.not19.i, label %.thread142, label %186
+
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds i8, ptr %7, i64 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %7, i64 16
+  %190 = load i64, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %4, i64 32
+  %192 = call i32 @MetadataCopy(ptr noundef %188, i64 noundef %190, ptr noundef nonnull %191) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
   br label %.thread142
 
-.thread142:                                       ; preds = %184, %182, %180
-  call void @WebPDemuxDelete(ptr noundef nonnull %156) #7
+.thread142:                                       ; preds = %186, %184, %182
+  call void @WebPDemuxDelete(ptr noundef nonnull %158) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  br label %200
+  br label %202
 
-.thread138:                                       ; preds = %154
+.thread138:                                       ; preds = %156
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  %191 = load ptr, ptr @stderr, align 8
-  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #6
   %193 = load ptr, ptr @stderr, align 8
-  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.1, i32 noundef 3) #6
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #6
   %195 = load ptr, ptr @stderr, align 8
-  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11) #6
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.1, i32 noundef 3) #6
   %197 = load ptr, ptr @stderr, align 8
-  %fputc.i130 = call i32 @fputc(i32 10, ptr %197)
-  br label %199
+  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11) #6
+  %199 = load ptr, ptr @stderr, align 8
+  %fputc.i130 = call i32 @fputc(i32 10, ptr %199)
+  br label %201
 
-198:                                              ; preds = %151
+200:                                              ; preds = %153
   %.not126 = icmp eq i32 %.1, 0
-  br i1 %.not126, label %199, label %200
+  br i1 %.not126, label %201, label %202
 
-199:                                              ; preds = %.thread138, %198
+201:                                              ; preds = %.thread138, %200
   call void @WebPPictureFree(ptr noundef nonnull %2) #7
-  br label %200
+  br label %202
 
-200:                                              ; preds = %.thread142, %198, %199, %5, %PrintWebPError.exit, %15
-  %.0105 = phi i32 [ 0, %PrintWebPError.exit ], [ 0, %15 ], [ 0, %5 ], [ 0, %199 ], [ 1, %198 ], [ 1, %.thread142 ]
+202:                                              ; preds = %.thread142, %200, %201, %5, %PrintWebPError.exit, %15
+  %.0105 = phi i32 [ 0, %PrintWebPError.exit ], [ 0, %15 ], [ 0, %5 ], [ 0, %201 ], [ 1, %200 ], [ 1, %.thread142 ]
   ret i32 %.0105
 }
 

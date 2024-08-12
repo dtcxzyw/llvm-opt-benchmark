@@ -21823,7 +21823,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %33
   %39 = phi ptr [ null, %.thread ], [ %34, %33 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 %27
   store ptr %40, ptr %38, align 8
-  switch i64 %10, label %250 [
+  switch i64 %10, label %263 [
     i64 2, label %41
     i64 3, label %75
   ]
@@ -22098,96 +22098,108 @@ _ZN19integrate_potential8get_gradEPdRSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph37
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds i8, ptr %8, i64 96
-  %187 = load <2 x double>, ptr %186, align 16
-  %188 = getelementptr inbounds i8, ptr %8, i64 120
-  %189 = load <2 x double>, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %8, i64 24
-  %191 = getelementptr inbounds i8, ptr %8, i64 144
-  %192 = getelementptr inbounds i8, ptr %8, i64 48
-  %193 = load <2 x double>, ptr %192, align 16
-  %194 = getelementptr inbounds i8, ptr %8, i64 168
-  %195 = getelementptr inbounds i8, ptr %8, i64 72
-  %196 = load <2 x double>, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 672
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %8, i64 56
-  %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %8, i64 80
-  %202 = load double, ptr %201, align 16
-  %203 = getelementptr inbounds i8, ptr %8, i64 104
-  %204 = load double, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %8, i64 128
-  %206 = load double, ptr %205, align 16
-  %207 = load <2 x double>, ptr %8, align 16
-  %208 = insertelement <2 x double> %187, double %200, i64 1
-  %209 = fsub <2 x double> %208, %207
-  %210 = insertelement <2 x double> %189, double %202, i64 1
-  %211 = fadd <2 x double> %209, %210
-  %212 = load <2 x double>, ptr %190, align 8
-  %213 = fsub <2 x double> %211, %212
-  %214 = load <2 x double>, ptr %191, align 16
-  %215 = fadd <2 x double> %213, %214
-  %216 = insertelement <2 x double> %193, double %204, i64 1
-  %217 = fsub <2 x double> %215, %216
-  %218 = load <2 x double>, ptr %194, align 8
-  %219 = fadd <2 x double> %217, %218
-  %220 = insertelement <2 x double> %196, double %206, i64 1
-  %221 = fsub <2 x double> %219, %220
-  %222 = load <2 x double>, ptr %198, align 8
-  %223 = fdiv <2 x double> %221, %222
-  %shift = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %224 = fadd <2 x double> %223, %shift
-  %225 = extractelement <2 x double> %224, i64 0
-  %226 = getelementptr inbounds i8, ptr %8, i64 40
+  %187 = load double, ptr %186, align 16
+  %188 = load double, ptr %8, align 16
+  %189 = fsub double %187, %188
+  %190 = getelementptr inbounds i8, ptr %8, i64 120
+  %191 = load double, ptr %190, align 8
+  %192 = fadd double %189, %191
+  %193 = getelementptr inbounds i8, ptr %8, i64 24
+  %194 = load double, ptr %193, align 8
+  %195 = fsub double %192, %194
+  %196 = getelementptr inbounds i8, ptr %8, i64 144
+  %197 = load double, ptr %196, align 16
+  %198 = fadd double %195, %197
+  %199 = getelementptr inbounds i8, ptr %8, i64 48
+  %200 = load double, ptr %199, align 16
+  %201 = fsub double %198, %200
+  %202 = getelementptr inbounds i8, ptr %8, i64 168
+  %203 = load double, ptr %202, align 8
+  %204 = fadd double %201, %203
+  %205 = getelementptr inbounds i8, ptr %8, i64 72
+  %206 = load double, ptr %205, align 8
+  %207 = fsub double %204, %206
+  %208 = getelementptr inbounds i8, ptr %0, i64 672
+  %209 = load ptr, ptr %208, align 8
+  %210 = load double, ptr %209, align 8
+  %211 = fdiv double %207, %210
+  %212 = getelementptr inbounds i8, ptr %8, i64 56
+  %213 = load double, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %8, i64 8
+  %215 = load double, ptr %214, align 8
+  %216 = fsub double %213, %215
+  %217 = getelementptr inbounds i8, ptr %8, i64 80
+  %218 = load double, ptr %217, align 16
+  %219 = fadd double %216, %218
+  %220 = getelementptr inbounds i8, ptr %8, i64 32
+  %221 = load double, ptr %220, align 16
+  %222 = fsub double %219, %221
+  %223 = getelementptr inbounds i8, ptr %8, i64 152
+  %224 = load double, ptr %223, align 8
+  %225 = fadd double %222, %224
+  %226 = getelementptr inbounds i8, ptr %8, i64 104
   %227 = load double, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %8, i64 16
-  %229 = load double, ptr %228, align 16
-  %230 = fsub double %227, %229
-  %231 = getelementptr inbounds i8, ptr %8, i64 88
-  %232 = load double, ptr %231, align 8
-  %233 = fadd double %230, %232
-  %234 = getelementptr inbounds i8, ptr %8, i64 64
-  %235 = load double, ptr %234, align 16
-  %236 = fsub double %233, %235
-  %237 = getelementptr inbounds i8, ptr %8, i64 136
-  %238 = load double, ptr %237, align 8
-  %239 = fadd double %236, %238
-  %240 = getelementptr inbounds i8, ptr %8, i64 112
-  %241 = load double, ptr %240, align 16
-  %242 = fsub double %239, %241
-  %243 = getelementptr inbounds i8, ptr %8, i64 184
-  %244 = load double, ptr %243, align 8
-  %245 = fadd double %242, %244
-  %246 = getelementptr inbounds i8, ptr %8, i64 160
-  %247 = load double, ptr %246, align 16
-  %248 = fsub double %245, %247
-  %249 = getelementptr inbounds i8, ptr %198, i64 16
+  %228 = fsub double %225, %227
+  %229 = getelementptr inbounds i8, ptr %8, i64 176
+  %230 = load double, ptr %229, align 16
+  %231 = fadd double %228, %230
+  %232 = getelementptr inbounds i8, ptr %8, i64 128
+  %233 = load double, ptr %232, align 16
+  %234 = fsub double %231, %233
+  %235 = getelementptr inbounds i8, ptr %209, i64 8
+  %236 = load double, ptr %235, align 8
+  %237 = fdiv double %234, %236
+  %238 = fadd double %211, %237
+  %239 = getelementptr inbounds i8, ptr %8, i64 40
+  %240 = load double, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %8, i64 16
+  %242 = load double, ptr %241, align 16
+  %243 = fsub double %240, %242
+  %244 = getelementptr inbounds i8, ptr %8, i64 88
+  %245 = load double, ptr %244, align 8
+  %246 = fadd double %243, %245
+  %247 = getelementptr inbounds i8, ptr %8, i64 64
+  %248 = load double, ptr %247, align 16
+  %249 = fsub double %246, %248
+  %250 = getelementptr inbounds i8, ptr %8, i64 136
+  %251 = load double, ptr %250, align 8
+  %252 = fadd double %249, %251
+  %253 = getelementptr inbounds i8, ptr %8, i64 112
+  %254 = load double, ptr %253, align 16
+  %255 = fsub double %252, %254
+  %256 = getelementptr inbounds i8, ptr %8, i64 184
+  %257 = load double, ptr %256, align 8
+  %258 = fadd double %255, %257
+  %259 = getelementptr inbounds i8, ptr %8, i64 160
+  %260 = load double, ptr %259, align 16
+  %261 = fsub double %258, %260
+  %262 = getelementptr inbounds i8, ptr %209, i64 16
   br label %.thread35.sink.split
 
-250:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+263:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %.not.i.i.i27 = icmp eq ptr %39, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIiSaIiEED2Ev.exit28, label %.thread35
 
 .thread35.sink.split:                             ; preds = %185, %41
-  %.sink102 = phi ptr [ %74, %41 ], [ %249, %185 ]
-  %.sink100 = phi double [ %73, %41 ], [ %248, %185 ]
-  %.sink = phi double [ %62, %41 ], [ %225, %185 ]
+  %.sink102 = phi ptr [ %74, %41 ], [ %262, %185 ]
+  %.sink100 = phi double [ %73, %41 ], [ %261, %185 ]
+  %.sink = phi double [ %62, %41 ], [ %238, %185 ]
   %.sink98 = phi double [ 5.000000e-01, %41 ], [ 2.500000e-01, %185 ]
-  %251 = load double, ptr %.sink102, align 8
-  %252 = fdiv double %.sink100, %251
-  %253 = fadd double %.sink, %252
-  %254 = fmul double %253, %.sink98
-  %255 = getelementptr inbounds i8, ptr %0, i64 720
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds double, ptr %256, i64 %.015.lcssa.i
-  store double %254, ptr %257, align 8
+  %264 = load double, ptr %.sink102, align 8
+  %265 = fdiv double %.sink100, %264
+  %266 = fadd double %.sink, %265
+  %267 = fmul double %266, %.sink98
+  %268 = getelementptr inbounds i8, ptr %0, i64 720
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds double, ptr %269, i64 %.015.lcssa.i
+  store double %267, ptr %270, align 8
   br label %.thread35
 
-.thread35:                                        ; preds = %.thread35.sink.split, %250
+.thread35:                                        ; preds = %.thread35.sink.split, %263
   tail call void @_ZdlPv(ptr noundef nonnull %39) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit28
 
-_ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %250, %.thread35
+_ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %263, %.thread35
   ret void
 }
 

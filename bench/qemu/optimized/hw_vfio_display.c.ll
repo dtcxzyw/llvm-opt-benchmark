@@ -890,16 +890,21 @@ if.end64:                                         ; preds = %for.end
   %dmabuf_id66 = getelementptr inbounds i8, ptr %call65, i64 96
   store i32 %26, ptr %dmabuf_id66, align 8
   %width = getelementptr inbounds i8, ptr %plane, i64 24
+  %27 = load i32, ptr %width, align 8
   %width67 = getelementptr inbounds i8, ptr %call65, i64 4
+  store i32 %27, ptr %width67, align 4
   %height = getelementptr inbounds i8, ptr %plane, i64 28
+  %28 = load i32, ptr %height, align 4
   %height69 = getelementptr inbounds i8, ptr %call65, i64 8
+  store i32 %28, ptr %height69, align 8
   %backing_width = getelementptr inbounds i8, ptr %call65, i64 44
-  %27 = load <2 x i32>, ptr %height, align 4
-  %28 = load <2 x i32>, ptr %width, align 8
-  %29 = load i32, ptr %width, align 8
-  store i32 %29, ptr %width67, align 4
-  store <2 x i32> %28, ptr %backing_width, align 4
-  store <2 x i32> %27, ptr %height69, align 8
+  store i32 %27, ptr %backing_width, align 4
+  %backing_height = getelementptr inbounds i8, ptr %call65, i64 48
+  store i32 %28, ptr %backing_height, align 8
+  %stride = getelementptr inbounds i8, ptr %plane, i64 32
+  %29 = load i32, ptr %stride, align 8
+  %stride75 = getelementptr inbounds i8, ptr %call65, i64 12
+  store i32 %29, ptr %stride75, align 4
   %30 = load i32, ptr %drm_format, align 4
   %fourcc = getelementptr inbounds i8, ptr %call65, i64 16
   store i32 %30, ptr %fourcc, align 8

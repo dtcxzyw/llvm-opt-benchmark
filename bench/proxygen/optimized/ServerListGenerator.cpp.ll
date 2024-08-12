@@ -393,16 +393,22 @@ if.then.i4:                                       ; preds = %lpad26
 
 if.end28:                                         ; preds = %invoke.cont11
   %servers = getelementptr inbounds i8, ptr %callback, i64 24
+  %9 = load ptr, ptr %results, align 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %results, i64 8
+  %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %results, i64 16
-  %9 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %10 = load <2 x ptr>, ptr %servers, align 8
+  %11 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %12 = load ptr, ptr %servers, align 8
+  store ptr %12, ptr %results, align 8
+  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %callback, i64 32
+  %13 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %13, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %callback, i64 40
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %11, ptr %_M_end_of_storage.i.i.i, align 8
-  %12 = load <2 x ptr>, ptr %results, align 8
-  store <2 x ptr> %10, ptr %results, align 8
-  store <2 x ptr> %12, ptr %servers, align 8
-  store ptr %9, ptr %_M_end_of_storage.i4.i.i, align 8
+  %14 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %14, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %9, ptr %servers, align 8
+  store ptr %10, ptr %_M_finish.i2.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i4.i.i, align 8
   call void @_ZN8proxygen18ServerListCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %callback) #14
   call void @_ZN5folly9EventBaseD1Ev(ptr noundef nonnull align 16 dereferenceable(568) %eventBase) #14
   ret void
@@ -549,20 +555,22 @@ entry:
 define linkonce_odr void @_ZN8proxygen18ServerListCallback21onServerListAvailableEOSt6vectorINS_19ServerListGenerator12ServerConfigESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %results) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %servers = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = load ptr, ptr %servers, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %1 = load ptr, ptr %results, align 8
+  %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %3 = load ptr, ptr %results, align 8
+  store ptr %3, ptr %servers, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %results, i64 8
+  %4 = load ptr, ptr %_M_finish.i2.i.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %results, i64 16
-  %2 = load <2 x ptr>, ptr %servers, align 8
-  store ptr %1, ptr %servers, align 8
-  %3 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  store ptr %3, ptr %_M_finish.i.i.i, align 8
-  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i, align 8
-  store <2 x ptr> %2, ptr %results, align 8
-  store ptr %0, ptr %_M_end_of_storage.i4.i.i, align 8
+  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %0, ptr %results, align 8
+  store ptr %1, ptr %_M_finish.i2.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i4.i.i, align 8
   %status = getelementptr inbounds i8, ptr %this, i64 20
   store i32 1, ptr %status, align 4
   ret void

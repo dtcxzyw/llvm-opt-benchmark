@@ -13,7 +13,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double 0.000000e+00, ptr %6, align 8
   %13 = load i32, ptr %0, align 4
   %14 = icmp eq i32 %13, 2
-  br i1 %14, label %15, label %123
+  br i1 %14, label %15, label %125
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %1, align 4
@@ -131,292 +131,294 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %104 = fdiv double %101, %103
   %105 = fadd double %100, %104
   %106 = getelementptr inbounds i8, ptr %4, i64 8
-  %107 = getelementptr inbounds i8, ptr %3, i64 8
-  %108 = load <2 x double>, ptr %106, align 8
-  %109 = load <2 x double>, ptr %107, align 8
-  %110 = insertelement <2 x double> poison, double %.sink, i64 0
-  %111 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> zeroinitializer
-  %112 = fsub <2 x double> %109, %111
-  %113 = fdiv <2 x double> %108, %112
-  %114 = extractelement <2 x double> %113, i64 0
-  %115 = fadd double %105, %114
-  %116 = extractelement <2 x double> %113, i64 1
-  %117 = fadd double %115, %116
-  %118 = load double, ptr %5, align 8
-  %119 = tail call noundef double @llvm.fabs.f64(double %118)
-  %120 = tail call noundef double @llvm.fabs.f64(double %117)
-  %121 = fcmp ugt double %119, %120
-  br i1 %121, label %123, label %122
+  %107 = load double, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %3, i64 8
+  %109 = load double, ptr %108, align 8
+  %110 = fsub double %109, %.sink
+  %111 = fdiv double %107, %110
+  %112 = fadd double %105, %111
+  %113 = getelementptr inbounds i8, ptr %4, i64 16
+  %114 = load double, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %3, i64 16
+  %116 = load double, ptr %115, align 8
+  %117 = fsub double %116, %.sink
+  %118 = fdiv double %114, %117
+  %119 = fadd double %112, %118
+  %120 = load double, ptr %5, align 8
+  %121 = tail call noundef double @llvm.fabs.f64(double %120)
+  %122 = tail call noundef double @llvm.fabs.f64(double %119)
+  %123 = fcmp ugt double %121, %122
+  br i1 %123, label %125, label %124
 
-122:                                              ; preds = %99
+124:                                              ; preds = %99
   store double 0.000000e+00, ptr %6, align 8
-  br label %123
+  br label %125
 
-123:                                              ; preds = %99, %122, %8
-  %124 = phi double [ %.sink, %99 ], [ 0.000000e+00, %122 ], [ 0.000000e+00, %8 ]
-  %125 = load i32, ptr %1, align 4
-  %.not324 = icmp eq i32 %125, 0
+125:                                              ; preds = %99, %124, %8
+  %126 = phi double [ %.sink, %99 ], [ 0.000000e+00, %124 ], [ 0.000000e+00, %8 ]
+  %127 = load i32, ptr %1, align 4
+  %.not324 = icmp eq i32 %127, 0
   %.sink389.idx = select i1 %.not324, i64 0, i64 8
   %.sink389 = getelementptr inbounds i8, ptr %3, i64 %.sink389.idx
   %.sink386 = select i1 %.not324, i64 8, i64 16
-  %126 = load double, ptr %.sink389, align 8
-  %127 = fsub double %126, %124
-  %128 = tail call noundef double @llvm.fabs.f64(double %127)
-  %129 = getelementptr inbounds i8, ptr %3, i64 %.sink386
-  %130 = load double, ptr %129, align 8
-  %131 = fsub double %130, %124
-  %132 = tail call noundef double @llvm.fabs.f64(double %131)
-  %133 = fcmp olt double %128, %132
-  %134 = select i1 %133, double %128, double %132
-  %135 = fcmp ugt double %134, 0x2AB0000000000000
-  br i1 %135, label %.preheader332.preheader, label %136
+  %128 = load double, ptr %.sink389, align 8
+  %129 = fsub double %128, %126
+  %130 = tail call noundef double @llvm.fabs.f64(double %129)
+  %131 = getelementptr inbounds i8, ptr %3, i64 %.sink386
+  %132 = load double, ptr %131, align 8
+  %133 = fsub double %132, %126
+  %134 = tail call noundef double @llvm.fabs.f64(double %133)
+  %135 = fcmp olt double %130, %134
+  %136 = select i1 %135, double %130, double %134
+  %137 = fcmp ugt double %136, 0x2AB0000000000000
+  br i1 %137, label %.preheader332.preheader, label %138
 
-.preheader332.preheader:                          ; preds = %123
+.preheader332.preheader:                          ; preds = %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %.loopexit333
 
-136:                                              ; preds = %123
-  %137 = fcmp ugt double %134, 0x1570000000000000
-  %. = select i1 %137, double 0x5530000000000000, double 0x6A70000000000000
-  br label %138
+138:                                              ; preds = %125
+  %139 = fcmp ugt double %136, 0x1570000000000000
+  %. = select i1 %139, double 0x5530000000000000, double 0x6A70000000000000
+  br label %140
 
-138:                                              ; preds = %136, %138
-  %indvars.iv = phi i64 [ 1, %136 ], [ %indvars.iv.next, %138 ]
-  %139 = getelementptr inbounds double, ptr %12, i64 %indvars.iv
-  %140 = load double, ptr %139, align 8
-  %141 = fmul double %., %140
-  %142 = add nsw i64 %indvars.iv, -1
-  %143 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %142
-  store double %141, ptr %143, align 8
-  %144 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
-  %145 = load double, ptr %144, align 8
-  %146 = fmul double %., %145
-  %147 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %142
-  store double %146, ptr %147, align 8
+140:                                              ; preds = %138, %140
+  %indvars.iv = phi i64 [ 1, %138 ], [ %indvars.iv.next, %140 ]
+  %141 = getelementptr inbounds double, ptr %12, i64 %indvars.iv
+  %142 = load double, ptr %141, align 8
+  %143 = fmul double %., %142
+  %144 = add nsw i64 %indvars.iv, -1
+  %145 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %144
+  store double %143, ptr %145, align 8
+  %146 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %147 = load double, ptr %146, align 8
+  %148 = fmul double %., %147
+  %149 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %144
+  store double %148, ptr %149, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %148, label %138, !llvm.loop !4
+  br i1 %exitcond.not, label %150, label %140, !llvm.loop !4
 
-148:                                              ; preds = %138
-  %.328 = select i1 %137, double 0x2AB0000000000000, double 0x1570000000000000
-  %149 = fmul double %., %124
-  store double %149, ptr %6, align 8
+150:                                              ; preds = %140
+  %.328 = select i1 %139, double 0x2AB0000000000000, double 0x1570000000000000
+  %151 = fmul double %., %126
+  store double %151, ptr %6, align 8
   br label %.loopexit333
 
-.loopexit333:                                     ; preds = %.preheader332.preheader, %148
-  %150 = phi double [ %149, %148 ], [ %124, %.preheader332.preheader ]
-  %.1 = phi double [ %.328, %148 ], [ 0.000000e+00, %.preheader332.preheader ]
-  br label %151
+.loopexit333:                                     ; preds = %.preheader332.preheader, %150
+  %152 = phi double [ %151, %150 ], [ %126, %.preheader332.preheader ]
+  %.1 = phi double [ %.328, %150 ], [ 0.000000e+00, %.preheader332.preheader ]
+  br label %153
 
-151:                                              ; preds = %.loopexit333, %151
-  %indvars.iv362 = phi i64 [ 1, %.loopexit333 ], [ %indvars.iv.next363, %151 ]
-  %.0301339 = phi double [ 0.000000e+00, %.loopexit333 ], [ %165, %151 ]
-  %.0304338 = phi double [ 0.000000e+00, %.loopexit333 ], [ %164, %151 ]
-  %.0307337 = phi double [ 0.000000e+00, %.loopexit333 ], [ %163, %151 ]
-  %152 = add nsw i64 %indvars.iv362, -1
-  %153 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %152
-  %154 = load double, ptr %153, align 8
-  %155 = fsub double %154, %150
-  %156 = fdiv double 1.000000e+00, %155
-  %157 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %152
-  %158 = load double, ptr %157, align 8
-  %159 = fmul double %158, %156
-  %160 = fmul double %156, %159
-  %161 = fmul double %156, %160
-  %162 = fdiv double %159, %154
-  %163 = fadd double %.0307337, %162
-  %164 = fadd double %.0304338, %160
-  %165 = fadd double %.0301339, %161
+153:                                              ; preds = %.loopexit333, %153
+  %indvars.iv362 = phi i64 [ 1, %.loopexit333 ], [ %indvars.iv.next363, %153 ]
+  %.0301339 = phi double [ 0.000000e+00, %.loopexit333 ], [ %167, %153 ]
+  %.0304338 = phi double [ 0.000000e+00, %.loopexit333 ], [ %166, %153 ]
+  %.0307337 = phi double [ 0.000000e+00, %.loopexit333 ], [ %165, %153 ]
+  %154 = add nsw i64 %indvars.iv362, -1
+  %155 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %154
+  %156 = load double, ptr %155, align 8
+  %157 = fsub double %156, %152
+  %158 = fdiv double 1.000000e+00, %157
+  %159 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %154
+  %160 = load double, ptr %159, align 8
+  %161 = fmul double %160, %158
+  %162 = fmul double %158, %161
+  %163 = fmul double %158, %162
+  %164 = fdiv double %161, %156
+  %165 = fadd double %.0307337, %164
+  %166 = fadd double %.0304338, %162
+  %167 = fadd double %.0301339, %163
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, 4
-  br i1 %exitcond365.not, label %166, label %151, !llvm.loop !6
+  br i1 %exitcond365.not, label %168, label %153, !llvm.loop !6
 
-166:                                              ; preds = %151
-  %167 = load double, ptr %5, align 8
-  %168 = tail call double @llvm.fmuladd.f64(double %150, double %163, double %167)
-  %169 = fcmp une double %168, 0.000000e+00
-  br i1 %169, label %.preheader, label %.loopexit
+168:                                              ; preds = %153
+  %169 = load double, ptr %5, align 8
+  %170 = tail call double @llvm.fmuladd.f64(double %152, double %165, double %169)
+  %171 = fcmp une double %170, 0.000000e+00
+  br i1 %171, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %9, i64 8
-  %171 = load double, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %9, i64 16
-  %173 = load double, ptr %172, align 16
-  %174 = load double, ptr %9, align 16
-  br label %177
+.preheader:                                       ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %9, i64 8
+  %173 = load double, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %9, i64 16
+  %175 = load double, ptr %174, align 16
+  %176 = load double, ptr %9, align 16
+  br label %179
 
-175:                                              ; preds = %264
-  %176 = add nuw nsw i32 %.0291348, 1
-  %exitcond370.not = icmp eq i32 %176, 21
-  br i1 %exitcond370.not, label %275, label %177, !llvm.loop !7
+177:                                              ; preds = %266
+  %178 = add nuw nsw i32 %.0291348, 1
+  %exitcond370.not = icmp eq i32 %178, 21
+  br i1 %exitcond370.not, label %277, label %179, !llvm.loop !7
 
-177:                                              ; preds = %.preheader, %175
-  %178 = phi double [ %150, %.preheader ], [ %246, %175 ]
-  %.0291348 = phi i32 [ 2, %.preheader ], [ %176, %175 ]
-  %.1302347 = phi double [ %165, %.preheader ], [ %263, %175 ]
-  %.1305346 = phi double [ %164, %.preheader ], [ %262, %175 ]
-  %.0313345 = phi double [ %168, %.preheader ], [ %266, %175 ]
-  %179 = load i32, ptr %1, align 4
-  %.not325 = icmp eq i32 %179, 0
-  %.pn = select i1 %.not325, double %174, double %171
-  %.pn371 = select i1 %.not325, double %171, double %173
-  %.0293 = fsub double %.pn371, %178
-  %.0294 = fsub double %.pn, %178
-  %180 = fadd double %.0294, %.0293
-  %181 = fmul double %.0294, %.0293
-  %182 = fneg double %181
-  %183 = fmul double %.1305346, %182
-  %184 = tail call double @llvm.fmuladd.f64(double %180, double %.0313345, double %183)
-  %185 = fmul double %.0313345, %181
-  %186 = fneg double %180
-  %187 = tail call double @llvm.fmuladd.f64(double %186, double %.1305346, double %.0313345)
-  %188 = tail call double @llvm.fmuladd.f64(double %181, double %.1302347, double %187)
-  %189 = tail call noundef double @llvm.fabs.f64(double %184)
-  %190 = tail call noundef double @llvm.fabs.f64(double %185)
-  %191 = fcmp ogt double %189, %190
-  %192 = select i1 %191, double %189, double %190
-  %193 = tail call noundef double @llvm.fabs.f64(double %188)
-  %194 = fcmp ogt double %192, %193
-  %195 = select i1 %194, double %192, double %193
-  %196 = fdiv double %184, %195
-  %197 = fdiv double %185, %195
-  %198 = fdiv double %188, %195
-  %199 = fcmp oeq double %198, 0.000000e+00
-  br i1 %199, label %200, label %202
+179:                                              ; preds = %.preheader, %177
+  %180 = phi double [ %152, %.preheader ], [ %248, %177 ]
+  %.0291348 = phi i32 [ 2, %.preheader ], [ %178, %177 ]
+  %.1302347 = phi double [ %167, %.preheader ], [ %265, %177 ]
+  %.1305346 = phi double [ %166, %.preheader ], [ %264, %177 ]
+  %.0313345 = phi double [ %170, %.preheader ], [ %268, %177 ]
+  %181 = load i32, ptr %1, align 4
+  %.not325 = icmp eq i32 %181, 0
+  %.pn = select i1 %.not325, double %176, double %173
+  %.pn371 = select i1 %.not325, double %173, double %175
+  %.0293 = fsub double %.pn371, %180
+  %.0294 = fsub double %.pn, %180
+  %182 = fadd double %.0294, %.0293
+  %183 = fmul double %.0294, %.0293
+  %184 = fneg double %183
+  %185 = fmul double %.1305346, %184
+  %186 = tail call double @llvm.fmuladd.f64(double %182, double %.0313345, double %185)
+  %187 = fmul double %.0313345, %183
+  %188 = fneg double %182
+  %189 = tail call double @llvm.fmuladd.f64(double %188, double %.1305346, double %.0313345)
+  %190 = tail call double @llvm.fmuladd.f64(double %183, double %.1302347, double %189)
+  %191 = tail call noundef double @llvm.fabs.f64(double %186)
+  %192 = tail call noundef double @llvm.fabs.f64(double %187)
+  %193 = fcmp ogt double %191, %192
+  %194 = select i1 %193, double %191, double %192
+  %195 = tail call noundef double @llvm.fabs.f64(double %190)
+  %196 = fcmp ogt double %194, %195
+  %197 = select i1 %196, double %194, double %195
+  %198 = fdiv double %186, %197
+  %199 = fdiv double %187, %197
+  %200 = fdiv double %190, %197
+  %201 = fcmp oeq double %200, 0.000000e+00
+  br i1 %201, label %202, label %204
 
-200:                                              ; preds = %177
-  %201 = fdiv double %197, %196
-  br label %220
+202:                                              ; preds = %179
+  %203 = fdiv double %199, %198
+  br label %222
 
-202:                                              ; preds = %177
-  %203 = fcmp ugt double %196, 0.000000e+00
-  br i1 %203, label %212, label %204
+204:                                              ; preds = %179
+  %205 = fcmp ugt double %198, 0.000000e+00
+  br i1 %205, label %214, label %206
 
-204:                                              ; preds = %202
-  %205 = fmul double %197, -4.000000e+00
-  %206 = fmul double %198, %205
-  %207 = tail call double @llvm.fmuladd.f64(double %196, double %196, double %206)
-  %208 = tail call noundef double @llvm.fabs.f64(double %207)
-  %sqrt330 = tail call double @llvm.sqrt.f64(double %208)
-  %209 = fsub double %196, %sqrt330
-  %210 = fmul double %198, 2.000000e+00
-  %211 = fdiv double %209, %210
-  br label %220
+206:                                              ; preds = %204
+  %207 = fmul double %199, -4.000000e+00
+  %208 = fmul double %200, %207
+  %209 = tail call double @llvm.fmuladd.f64(double %198, double %198, double %208)
+  %210 = tail call noundef double @llvm.fabs.f64(double %209)
+  %sqrt330 = tail call double @llvm.sqrt.f64(double %210)
+  %211 = fsub double %198, %sqrt330
+  %212 = fmul double %200, 2.000000e+00
+  %213 = fdiv double %211, %212
+  br label %222
 
-212:                                              ; preds = %202
-  %213 = fmul double %197, 2.000000e+00
-  %214 = fmul double %197, -4.000000e+00
-  %215 = fmul double %198, %214
-  %216 = tail call double @llvm.fmuladd.f64(double %196, double %196, double %215)
-  %217 = tail call noundef double @llvm.fabs.f64(double %216)
-  %sqrt331 = tail call double @llvm.sqrt.f64(double %217)
-  %218 = fadd double %196, %sqrt331
-  %219 = fdiv double %213, %218
-  br label %220
+214:                                              ; preds = %204
+  %215 = fmul double %199, 2.000000e+00
+  %216 = fmul double %199, -4.000000e+00
+  %217 = fmul double %200, %216
+  %218 = tail call double @llvm.fmuladd.f64(double %198, double %198, double %217)
+  %219 = tail call noundef double @llvm.fabs.f64(double %218)
+  %sqrt331 = tail call double @llvm.sqrt.f64(double %219)
+  %220 = fadd double %198, %sqrt331
+  %221 = fdiv double %215, %220
+  br label %222
 
-220:                                              ; preds = %204, %212, %200
-  %.0299 = phi double [ %201, %200 ], [ %211, %204 ], [ %219, %212 ]
-  %221 = fmul double %.0313345, %.0299
-  %222 = fcmp ult double %221, 0.000000e+00
-  %223 = fneg double %.0313345
-  %224 = fdiv double %223, %.1305346
-  %.1300 = select i1 %222, double %.0299, double %224
-  %225 = fadd double %178, %.1300
-  %226 = fcmp ule double %.1300, 0.000000e+00
-  br i1 %.not325, label %236, label %227
+222:                                              ; preds = %206, %214, %202
+  %.0299 = phi double [ %203, %202 ], [ %213, %206 ], [ %221, %214 ]
+  %223 = fmul double %.0313345, %.0299
+  %224 = fcmp ult double %223, 0.000000e+00
+  %225 = fneg double %.0313345
+  %226 = fdiv double %225, %.1305346
+  %.1300 = select i1 %224, double %.0299, double %226
+  %227 = fadd double %180, %.1300
+  %228 = fcmp ule double %.1300, 0.000000e+00
+  br i1 %.not325, label %238, label %229
 
-227:                                              ; preds = %220
-  %228 = fcmp ult double %225, %173
-  %or.cond = select i1 %226, i1 true, i1 %228
-  %229 = fsub double %173, %178
-  %230 = fmul double %229, 5.000000e-01
-  %.2 = select i1 %or.cond, double %.1300, double %230
-  %231 = fcmp uge double %.2, 0.000000e+00
-  %232 = fcmp ugt double %225, %171
-  %or.cond349 = select i1 %231, i1 true, i1 %232
-  br i1 %or.cond349, label %245, label %233
+229:                                              ; preds = %222
+  %230 = fcmp ult double %227, %175
+  %or.cond = select i1 %228, i1 true, i1 %230
+  %231 = fsub double %175, %180
+  %232 = fmul double %231, 5.000000e-01
+  %.2 = select i1 %or.cond, double %.1300, double %232
+  %233 = fcmp uge double %.2, 0.000000e+00
+  %234 = fcmp ugt double %227, %173
+  %or.cond349 = select i1 %233, i1 true, i1 %234
+  br i1 %or.cond349, label %247, label %235
 
-233:                                              ; preds = %227
-  %234 = fsub double %171, %178
-  %235 = fmul double %234, 5.000000e-01
-  br label %245
-
-236:                                              ; preds = %220
-  %237 = fcmp ult double %225, %171
-  %or.cond350 = select i1 %226, i1 true, i1 %237
-  %238 = fsub double %171, %178
-  %239 = fmul double %238, 5.000000e-01
-  %.4 = select i1 %or.cond350, double %.1300, double %239
-  %240 = fcmp uge double %.4, 0.000000e+00
-  %241 = fcmp ugt double %225, %174
-  %or.cond351 = select i1 %240, i1 true, i1 %241
-  br i1 %or.cond351, label %245, label %242
-
-242:                                              ; preds = %236
-  %243 = fsub double %174, %178
-  %244 = fmul double %243, 5.000000e-01
-  br label %245
-
-245:                                              ; preds = %236, %242, %227, %233
-  %.3 = phi double [ %235, %233 ], [ %.2, %227 ], [ %244, %242 ], [ %.4, %236 ]
-  %246 = fadd double %178, %.3
-  store double %246, ptr %6, align 8
+235:                                              ; preds = %229
+  %236 = fsub double %173, %180
+  %237 = fmul double %236, 5.000000e-01
   br label %247
 
-247:                                              ; preds = %245, %247
-  %indvars.iv366 = phi i64 [ 1, %245 ], [ %indvars.iv.next367, %247 ]
-  %.0289344 = phi double [ 0.000000e+00, %245 ], [ %261, %247 ]
-  %.2303343 = phi double [ 0.000000e+00, %245 ], [ %263, %247 ]
-  %.2306342 = phi double [ 0.000000e+00, %245 ], [ %262, %247 ]
-  %.1308341 = phi double [ 0.000000e+00, %245 ], [ %259, %247 ]
-  %248 = add nsw i64 %indvars.iv366, -1
-  %249 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %248
-  %250 = load double, ptr %249, align 8
-  %251 = fsub double %250, %246
-  %252 = fdiv double 1.000000e+00, %251
-  %253 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %248
-  %254 = load double, ptr %253, align 8
-  %255 = fmul double %254, %252
-  %256 = fmul double %252, %255
-  %257 = fmul double %252, %256
-  %258 = fdiv double %255, %250
-  %259 = fadd double %.1308341, %258
-  %260 = tail call noundef double @llvm.fabs.f64(double %258)
-  %261 = fadd double %.0289344, %260
-  %262 = fadd double %.2306342, %256
-  %263 = fadd double %.2303343, %257
+238:                                              ; preds = %222
+  %239 = fcmp ult double %227, %173
+  %or.cond350 = select i1 %228, i1 true, i1 %239
+  %240 = fsub double %173, %180
+  %241 = fmul double %240, 5.000000e-01
+  %.4 = select i1 %or.cond350, double %.1300, double %241
+  %242 = fcmp uge double %.4, 0.000000e+00
+  %243 = fcmp ugt double %227, %176
+  %or.cond351 = select i1 %242, i1 true, i1 %243
+  br i1 %or.cond351, label %247, label %244
+
+244:                                              ; preds = %238
+  %245 = fsub double %176, %180
+  %246 = fmul double %245, 5.000000e-01
+  br label %247
+
+247:                                              ; preds = %238, %244, %229, %235
+  %.3 = phi double [ %237, %235 ], [ %.2, %229 ], [ %246, %244 ], [ %.4, %238 ]
+  %248 = fadd double %180, %.3
+  store double %248, ptr %6, align 8
+  br label %249
+
+249:                                              ; preds = %247, %249
+  %indvars.iv366 = phi i64 [ 1, %247 ], [ %indvars.iv.next367, %249 ]
+  %.0289344 = phi double [ 0.000000e+00, %247 ], [ %263, %249 ]
+  %.2303343 = phi double [ 0.000000e+00, %247 ], [ %265, %249 ]
+  %.2306342 = phi double [ 0.000000e+00, %247 ], [ %264, %249 ]
+  %.1308341 = phi double [ 0.000000e+00, %247 ], [ %261, %249 ]
+  %250 = add nsw i64 %indvars.iv366, -1
+  %251 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %250
+  %252 = load double, ptr %251, align 8
+  %253 = fsub double %252, %248
+  %254 = fdiv double 1.000000e+00, %253
+  %255 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %250
+  %256 = load double, ptr %255, align 8
+  %257 = fmul double %256, %254
+  %258 = fmul double %254, %257
+  %259 = fmul double %254, %258
+  %260 = fdiv double %257, %252
+  %261 = fadd double %.1308341, %260
+  %262 = tail call noundef double @llvm.fabs.f64(double %260)
+  %263 = fadd double %.0289344, %262
+  %264 = fadd double %.2306342, %258
+  %265 = fadd double %.2303343, %259
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next367, 4
-  br i1 %exitcond369.not, label %264, label %247, !llvm.loop !8
+  br i1 %exitcond369.not, label %266, label %249, !llvm.loop !8
 
-264:                                              ; preds = %247
-  %265 = load double, ptr %5, align 8
-  %266 = tail call double @llvm.fmuladd.f64(double %246, double %259, double %265)
-  %267 = tail call noundef double @llvm.fabs.f64(double %265)
-  %268 = tail call noundef double @llvm.fabs.f64(double %246)
-  %269 = tail call double @llvm.fmuladd.f64(double %268, double %261, double %267)
-  %270 = fmul double %268, %262
-  %271 = tail call double @llvm.fmuladd.f64(double %269, double 8.000000e+00, double %270)
-  %272 = tail call noundef double @llvm.fabs.f64(double %266)
-  %273 = fmul double %271, 0x3CB0000000000000
-  %274 = fcmp ugt double %272, %273
-  br i1 %274, label %175, label %.loopexit
+266:                                              ; preds = %249
+  %267 = load double, ptr %5, align 8
+  %268 = tail call double @llvm.fmuladd.f64(double %248, double %261, double %267)
+  %269 = tail call noundef double @llvm.fabs.f64(double %267)
+  %270 = tail call noundef double @llvm.fabs.f64(double %248)
+  %271 = tail call double @llvm.fmuladd.f64(double %270, double %263, double %269)
+  %272 = fmul double %270, %264
+  %273 = tail call double @llvm.fmuladd.f64(double %271, double 8.000000e+00, double %272)
+  %274 = tail call noundef double @llvm.fabs.f64(double %268)
+  %275 = fmul double %273, 0x3CB0000000000000
+  %276 = fcmp ugt double %274, %275
+  br i1 %276, label %177, label %.loopexit
 
-275:                                              ; preds = %175
+277:                                              ; preds = %177
   store i32 1, ptr %7, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %264, %166, %275
-  br i1 %135, label %279, label %276
+.loopexit:                                        ; preds = %266, %168, %277
+  br i1 %137, label %281, label %278
 
-276:                                              ; preds = %.loopexit
-  %277 = load double, ptr %6, align 8
-  %278 = fmul double %.1, %277
-  store double %278, ptr %6, align 8
-  br label %279
+278:                                              ; preds = %.loopexit
+  %279 = load double, ptr %6, align 8
+  %280 = fmul double %.1, %279
+  store double %280, ptr %6, align 8
+  br label %281
 
-279:                                              ; preds = %276, %.loopexit
+281:                                              ; preds = %278, %.loopexit
   ret void
 }
 

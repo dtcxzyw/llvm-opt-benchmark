@@ -1835,7 +1835,7 @@ define internal fastcc range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr 
 .lr.ph80:                                         ; preds = %.preheader
   %21 = getelementptr inbounds i8, ptr %0, i64 22
   %22 = add nuw nsw i32 %2, 1
-  br label %64
+  br label %69
 
 23:                                               ; preds = %.lr.ph78, %.loopexit70
   %indvars.iv97 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next98, %.loopexit70 ]
@@ -1886,97 +1886,104 @@ define internal fastcc range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatures(ptr 
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds i8, ptr %42, i64 4
-  %46 = load <2 x i32>, ptr %45, align 4
-  store <2 x i32> %46, ptr %8, align 4
-  %47 = load i32, ptr %12, align 4
-  %.not65 = icmp eq i32 %47, 0
-  br i1 %.not65, label %.loopexit71.thread, label %48
+  %46 = load i32, ptr %45, align 4
+  store i32 %46, ptr %8, align 4
+  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %9, align 4
+  %49 = load i32, ptr %12, align 4
+  %.not65 = icmp eq i32 %49, 0
+  br i1 %.not65, label %.loopexit71.thread, label %50
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %13, align 4
-  %.not66 = icmp eq i32 %49, 0
+50:                                               ; preds = %44
+  %51 = load i32, ptr %13, align 4
+  %.not66 = icmp eq i32 %51, 0
   br i1 %.not66, label %.loopexit71.thread, label %.loopexit
 
 .loopexit71:                                      ; preds = %41, %39, %36, %28
   %.pr = load i32, ptr %12, align 4
-  %50 = icmp eq i32 %.pr, 0
-  br i1 %50, label %.loopexit71.thread, label %51
+  %52 = icmp eq i32 %.pr, 0
+  br i1 %52, label %.loopexit71.thread, label %53
 
-51:                                               ; preds = %.loopexit71
+53:                                               ; preds = %.loopexit71
   %.pr106 = load i32, ptr %13, align 4
-  %52 = icmp eq i32 %.pr106, 0
-  br i1 %52, label %.loopexit71.thread, label %.loopexit70
+  %54 = icmp eq i32 %.pr106, 0
+  br i1 %54, label %.loopexit71.thread, label %.loopexit70
 
-.loopexit71.thread:                               ; preds = %48, %44, %51, %.loopexit71
-  %53 = load i8, ptr %14, align 4
-  %.not86 = icmp eq i8 %53, 0
+.loopexit71.thread:                               ; preds = %50, %44, %53, %.loopexit71
+  %55 = load i8, ptr %14, align 4
+  %.not86 = icmp eq i8 %55, 0
   br i1 %.not86, label %.loopexit70, label %.lr.ph76.preheader
 
 .lr.ph76.preheader:                               ; preds = %.loopexit71.thread
-  %wide.trip.count95 = zext i8 %53 to i64
+  %wide.trip.count95 = zext i8 %55 to i64
   br label %.lr.ph76
 
-54:                                               ; preds = %.lr.ph76
+56:                                               ; preds = %.lr.ph76
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
   br i1 %exitcond96.not, label %.loopexit70, label %.lr.ph76
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %54
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next93, %54 ]
-  %55 = getelementptr inbounds [8 x %struct.AvifInfoInternalChanProp], ptr %15, i64 0, i64 %indvars.iv92
-  %56 = load i8, ptr %55, align 1
-  %.not67 = icmp eq i8 %56, %29
-  br i1 %.not67, label %57, label %54
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %56
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next93, %56 ]
+  %57 = getelementptr inbounds [8 x %struct.AvifInfoInternalChanProp], ptr %15, i64 0, i64 %indvars.iv92
+  %58 = load i8, ptr %57, align 1
+  %.not67 = icmp eq i8 %58, %29
+  br i1 %.not67, label %59, label %56
 
-57:                                               ; preds = %.lr.ph76
-  %58 = getelementptr inbounds i8, ptr %55, i64 1
-  %59 = load <2 x i8>, ptr %58, align 1
-  %60 = zext <2 x i8> %59 to <2 x i32>
-  store <2 x i32> %60, ptr %12, align 4
-  %61 = load i32, ptr %8, align 4
-  %.not68 = icmp eq i32 %61, 0
-  br i1 %.not68, label %.loopexit70, label %62
+59:                                               ; preds = %.lr.ph76
+  %60 = getelementptr inbounds i8, ptr %57, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i32
+  store i32 %62, ptr %12, align 4
+  %63 = getelementptr inbounds i8, ptr %57, i64 2
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  store i32 %65, ptr %13, align 4
+  %66 = load i32, ptr %8, align 4
+  %.not68 = icmp eq i32 %66, 0
+  br i1 %.not68, label %.loopexit70, label %67
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %9, align 4
-  %.not69 = icmp eq i32 %63, 0
+67:                                               ; preds = %59
+  %68 = load i32, ptr %9, align 4
+  %.not69 = icmp eq i32 %68, 0
   br i1 %.not69, label %.loopexit70, label %.loopexit
 
-.loopexit70:                                      ; preds = %54, %.loopexit71.thread, %51, %57, %62, %23
+.loopexit70:                                      ; preds = %56, %.loopexit71.thread, %53, %59, %67, %23
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %.preheader, label %23
 
-64:                                               ; preds = %.lr.ph80, %74
-  %65 = phi i8 [ %18, %.lr.ph80 ], [ %75, %74 ]
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next103, %74 ]
-  %66 = getelementptr inbounds [16 x %struct.AvifInfoInternalTile], ptr %21, i64 0, i64 %indvars.iv102
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %.not = icmp eq i32 %69, %1
-  br i1 %.not, label %70, label %74
+69:                                               ; preds = %.lr.ph80, %79
+  %70 = phi i8 [ %18, %.lr.ph80 ], [ %80, %79 ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next103, %79 ]
+  %71 = getelementptr inbounds [16 x %struct.AvifInfoInternalTile], ptr %21, i64 0, i64 %indvars.iv102
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %.not = icmp eq i32 %74, %1
+  br i1 %.not, label %75, label %79
 
-70:                                               ; preds = %64
-  %71 = load i8, ptr %66, align 2
-  %72 = zext i8 %71 to i32
-  %73 = tail call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %22)
-  %.not62 = icmp eq i32 %73, 0
+75:                                               ; preds = %69
+  %76 = load i8, ptr %71, align 2
+  %77 = zext i8 %76 to i32
+  %78 = tail call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %0, i32 noundef %77, i32 noundef %22)
+  %.not62 = icmp eq i32 %78, 0
   br i1 %.not62, label %.loopexit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %70
+._crit_edge:                                      ; preds = %75
   %.pre = load i8, ptr %16, align 1
-  br label %74
+  br label %79
 
-74:                                               ; preds = %._crit_edge, %64
-  %75 = phi i8 [ %.pre, %._crit_edge ], [ %65, %64 ]
+79:                                               ; preds = %._crit_edge, %69
+  %80 = phi i8 [ %.pre, %._crit_edge ], [ %70, %69 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %76 = zext i8 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next103, %76
-  br i1 %77, label %64, label %.loopexit
+  %81 = zext i8 %80 to i64
+  %82 = icmp ult i64 %indvars.iv.next103, %81
+  br i1 %82, label %69, label %.loopexit
 
-.loopexit:                                        ; preds = %62, %48, %70, %74, %.preheader
-  %.0 = phi i32 [ 1, %.preheader ], [ 0, %70 ], [ 1, %74 ], [ 0, %48 ], [ 0, %62 ]
+.loopexit:                                        ; preds = %67, %50, %75, %79, %.preheader
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %75 ], [ 1, %79 ], [ 0, %50 ], [ 0, %67 ]
   ret i32 %.0
 }
 

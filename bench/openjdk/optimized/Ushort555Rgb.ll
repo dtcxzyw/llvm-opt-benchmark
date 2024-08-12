@@ -171,49 +171,52 @@ define hidden void @ThreeByteBgrToUshort555RgbConvert(ptr noundef %0, ptr nounde
   %17 = sext i32 %15 to i64
   br label %18
 
-18:                                               ; preds = %38, %8
-  %.024 = phi ptr [ %1, %8 ], [ %42, %38 ]
-  %.023 = phi ptr [ %0, %8 ], [ %40, %38 ]
-  %.0 = phi i32 [ %3, %8 ], [ %43, %38 ]
+18:                                               ; preds = %42, %8
+  %.024 = phi ptr [ %1, %8 ], [ %46, %42 ]
+  %.023 = phi ptr [ %0, %8 ], [ %44, %42 ]
+  %.0 = phi i32 [ %3, %8 ], [ %47, %42 ]
   br label %19
 
 19:                                               ; preds = %19, %18
-  %.026 = phi i32 [ %2, %18 ], [ %37, %19 ]
-  %.125 = phi ptr [ %.024, %18 ], [ %36, %19 ]
-  %.1 = phi ptr [ %.023, %18 ], [ %33, %19 ]
+  %.026 = phi i32 [ %2, %18 ], [ %41, %19 ]
+  %.125 = phi ptr [ %.024, %18 ], [ %40, %19 ]
+  %.1 = phi ptr [ %.023, %18 ], [ %37, %19 ]
   %20 = load i8, ptr %.1, align 1
   %21 = getelementptr inbounds i8, ptr %.1, i64 1
-  %22 = load <2 x i8>, ptr %21, align 1
-  %23 = lshr <2 x i8> %22, <i8 3, i8 3>
-  %24 = zext nneg <2 x i8> %23 to <2 x i16>
-  %25 = shl nuw nsw <2 x i16> %24, <i16 5, i16 10>
-  %shift = shufflevector <2 x i16> %25, <2 x i16> poison, <2 x i32> <i32 1, i32 poison>
-  %26 = or disjoint <2 x i16> %shift, %25
-  %27 = extractelement <2 x i16> %26, i64 0
-  %28 = lshr i8 %20, 3
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %.1, i64 2
+  %24 = load i8, ptr %23, align 1
+  %25 = lshr i8 %24, 3
+  %26 = zext nneg i8 %25 to i16
+  %27 = shl nuw nsw i16 %26, 10
+  %28 = lshr i8 %22, 3
   %29 = zext nneg i8 %28 to i16
-  %30 = or disjoint i16 %27, %29
-  store i16 %30, ptr %.125, align 2
-  %31 = ptrtoint ptr %.1 to i64
-  %32 = add nsw i64 %31, 3
-  %33 = inttoptr i64 %32 to ptr
-  %34 = ptrtoint ptr %.125 to i64
-  %35 = add nsw i64 %34, 2
-  %36 = inttoptr i64 %35 to ptr
-  %37 = add i32 %.026, -1
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %38, label %19, !llvm.loop !11
-
-38:                                               ; preds = %19
-  %39 = add nsw i64 %32, %16
+  %30 = shl nuw nsw i16 %29, 5
+  %31 = or disjoint i16 %27, %30
+  %32 = lshr i8 %20, 3
+  %33 = zext nneg i8 %32 to i16
+  %34 = or disjoint i16 %31, %33
+  store i16 %34, ptr %.125, align 2
+  %35 = ptrtoint ptr %.1 to i64
+  %36 = add nsw i64 %35, 3
+  %37 = inttoptr i64 %36 to ptr
+  %38 = ptrtoint ptr %.125 to i64
+  %39 = add nsw i64 %38, 2
   %40 = inttoptr i64 %39 to ptr
-  %41 = add nsw i64 %35, %17
-  %42 = inttoptr i64 %41 to ptr
-  %43 = add i32 %.0, -1
-  %.not28 = icmp eq i32 %43, 0
-  br i1 %.not28, label %44, label %18, !llvm.loop !12
+  %41 = add i32 %.026, -1
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %42, label %19, !llvm.loop !11
 
-44:                                               ; preds = %38
+42:                                               ; preds = %19
+  %43 = add nsw i64 %36, %16
+  %44 = inttoptr i64 %43 to ptr
+  %45 = add nsw i64 %39, %17
+  %46 = inttoptr i64 %45 to ptr
+  %47 = add i32 %.0, -1
+  %.not28 = icmp eq i32 %47, 0
+  br i1 %.not28, label %48, label %18, !llvm.loop !12
+
+48:                                               ; preds = %42
   ret void
 }
 
@@ -509,10 +512,10 @@ define hidden void @ThreeByteBgrToUshort555RgbScaleConvert(ptr noundef %0, ptr n
   %22 = sext i32 %15 to i64
   br label %23
 
-23:                                               ; preds = %50, %13
-  %.032 = phi ptr [ %1, %13 ], [ %52, %50 ]
-  %.031 = phi i32 [ %5, %13 ], [ %53, %50 ]
-  %.0 = phi i32 [ %3, %13 ], [ %54, %50 ]
+23:                                               ; preds = %54, %13
+  %.032 = phi ptr [ %1, %13 ], [ %56, %54 ]
+  %.031 = phi i32 [ %5, %13 ], [ %57, %54 ]
+  %.0 = phi i32 [ %3, %13 ], [ %58, %54 ]
   %24 = ashr i32 %.031, %8
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, %22
@@ -521,43 +524,46 @@ define hidden void @ThreeByteBgrToUshort555RgbScaleConvert(ptr noundef %0, ptr n
   br label %29
 
 29:                                               ; preds = %29, %23
-  %.034 = phi i32 [ %2, %23 ], [ %49, %29 ]
-  %.033 = phi i32 [ %4, %23 ], [ %48, %29 ]
-  %.1 = phi ptr [ %.032, %23 ], [ %47, %29 ]
+  %.034 = phi i32 [ %2, %23 ], [ %53, %29 ]
+  %.033 = phi i32 [ %4, %23 ], [ %52, %29 ]
+  %.1 = phi ptr [ %.032, %23 ], [ %51, %29 ]
   %30 = ashr i32 %.033, %8
   %31 = mul nsw i32 %30, 3
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %28, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr i8, ptr %33, i64 1
-  %36 = load <2 x i8>, ptr %35, align 1
-  %37 = lshr <2 x i8> %36, <i8 3, i8 3>
-  %38 = zext nneg <2 x i8> %37 to <2 x i16>
-  %39 = shl nuw nsw <2 x i16> %38, <i16 5, i16 10>
-  %shift = shufflevector <2 x i16> %39, <2 x i16> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = or disjoint <2 x i16> %shift, %39
-  %41 = extractelement <2 x i16> %40, i64 0
-  %42 = lshr i8 %34, 3
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr i8, ptr %33, i64 2
+  %38 = load i8, ptr %37, align 1
+  %39 = lshr i8 %38, 3
+  %40 = zext nneg i8 %39 to i16
+  %41 = shl nuw nsw i16 %40, 10
+  %42 = lshr i8 %36, 3
   %43 = zext nneg i8 %42 to i16
-  %44 = or disjoint i16 %41, %43
-  store i16 %44, ptr %.1, align 2
-  %45 = ptrtoint ptr %.1 to i64
-  %46 = add nsw i64 %45, 2
-  %47 = inttoptr i64 %46 to ptr
-  %48 = add nsw i32 %.033, %6
-  %49 = add i32 %.034, -1
-  %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %50, label %29, !llvm.loop !22
+  %44 = shl nuw nsw i16 %43, 5
+  %45 = or disjoint i16 %41, %44
+  %46 = lshr i8 %34, 3
+  %47 = zext nneg i8 %46 to i16
+  %48 = or disjoint i16 %45, %47
+  store i16 %48, ptr %.1, align 2
+  %49 = ptrtoint ptr %.1 to i64
+  %50 = add nsw i64 %49, 2
+  %51 = inttoptr i64 %50 to ptr
+  %52 = add nsw i32 %.033, %6
+  %53 = add i32 %.034, -1
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %54, label %29, !llvm.loop !22
 
-50:                                               ; preds = %29
-  %51 = add nsw i64 %46, %20
-  %52 = inttoptr i64 %51 to ptr
-  %53 = add nsw i32 %.031, %7
-  %54 = add i32 %.0, -1
-  %.not36 = icmp eq i32 %54, 0
-  br i1 %.not36, label %55, label %23, !llvm.loop !23
+54:                                               ; preds = %29
+  %55 = add nsw i64 %50, %20
+  %56 = inttoptr i64 %55 to ptr
+  %57 = add nsw i32 %.031, %7
+  %58 = add i32 %.0, -1
+  %.not36 = icmp eq i32 %58, 0
+  br i1 %.not36, label %59, label %23, !llvm.loop !23
 
-55:                                               ; preds = %50
+59:                                               ; preds = %54
   ret void
 }
 

@@ -1589,9 +1589,23 @@ do.body80.i:                                      ; preds = %if.then1.i314.i, %i
 
 if.end85.i:                                       ; preds = %do.body80.i
   %hastzinfo.i164.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 24
+  store i8 0, ptr %hastzinfo.i164.i, align 8
   %hashcode.i165.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 16
   store i64 -1, ptr %hashcode.i165.i, align 8
-  store <8 x i8> <i8 0, i8 23, i8 59, i8 59, i8 15, i8 66, i8 63, i8 0>, ptr %hastzinfo.i164.i, align 8
+  %data.i166.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 25
+  store i8 23, ptr %data.i166.i, align 1
+  %arrayidx17.i167.i = getelementptr i8, ptr %call10.i161.i, i64 26
+  store i8 59, ptr %arrayidx17.i167.i, align 1
+  %arrayidx20.i168.i = getelementptr i8, ptr %call10.i161.i, i64 27
+  store i8 59, ptr %arrayidx20.i168.i, align 1
+  %arrayidx23.i169.i = getelementptr i8, ptr %call10.i161.i, i64 28
+  store i8 15, ptr %arrayidx23.i169.i, align 1
+  %arrayidx28.i170.i = getelementptr i8, ptr %call10.i161.i, i64 29
+  store i8 66, ptr %arrayidx28.i170.i, align 1
+  %arrayidx32.i171.i = getelementptr i8, ptr %call10.i161.i, i64 30
+  store i8 63, ptr %arrayidx32.i171.i, align 1
+  %fold38.i172.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 31
+  store i8 0, ptr %fold38.i172.i, align 1
   %call86.i = tail call i32 @PyDict_SetItemString(ptr noundef %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %call10.i161.i) #15
   %cmp87.i = icmp slt i32 %call86.i, 0
   %24 = load i64, ptr %call10.i161.i, align 8
@@ -17218,17 +17232,18 @@ return:                                           ; preds = %return.sink.split, 
 define internal ptr @delta_positive(ptr nocapture noundef readonly %self) #0 {
 entry:
   %days = getelementptr inbounds i8, ptr %self, i64 24
-  %0 = load <2 x i32>, ptr %days, align 8
-  %1 = load i32, ptr %days, align 8
+  %0 = load i32, ptr %days, align 8
+  %seconds = getelementptr inbounds i8, ptr %self, i64 28
+  %1 = load i32, ptr %seconds, align 4
   %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i32, ptr %microseconds, align 8
-  %3 = add i32 %1, 999999999
+  %3 = add i32 %0, 999999999
   %or.cond.i7.i = icmp ult i32 %3, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
 
 check_delta_day_range.exit.thread.i:              ; preds = %entry
   %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.269, i32 noundef %1, i32 noundef 999999999) #15
+  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.269, i32 noundef %0, i32 noundef 999999999) #15
   br label %new_delta_ex.exit
 
 if.end2.i:                                        ; preds = %entry
@@ -17241,7 +17256,9 @@ if.then5.i:                                       ; preds = %if.end2.i
   %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
-  store <2 x i32> %0, ptr %days6.i, align 8
+  store i32 %0, ptr %days6.i, align 8
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
+  store i32 %1, ptr %seconds7.i, align 4
   %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %2, ptr %microseconds8.i, align 8
   br label %new_delta_ex.exit

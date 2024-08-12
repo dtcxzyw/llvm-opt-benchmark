@@ -943,7 +943,13 @@ if.end.i49:                                       ; preds = %lor.lhs.false4.i
   %data_offset.i57 = getelementptr inbounds i8, ptr %call7.i, i64 48
   store i32 12, ptr %data_offset.i57, align 8
   %nr_matches.i58 = getelementptr inbounds i8, ptr %call7.i, i64 72
-  store <4 x i32> <i32 2, i32 6144, i32 255, i32 557056>, ptr %nr_matches.i58, align 8
+  store i32 2, ptr %nr_matches.i58, align 8
+  %matches.i59 = getelementptr inbounds i8, ptr %call7.i, i64 76
+  store i32 6144, ptr %matches.i59, align 4
+  %mask.i60 = getelementptr inbounds i8, ptr %call7.i, i64 80
+  store i32 255, ptr %mask.i60, align 4
+  %arrayidx14.i = getelementptr i8, ptr %call7.i, i64 84
+  store i32 557056, ptr %arrayidx14.i, align 4
   %config_size.i61 = getelementptr inbounds i8, ptr %vdev, i64 2808
   %34 = load i32, ptr %config_size.i61, align 8
   %sub.i62 = add i32 %34, -1

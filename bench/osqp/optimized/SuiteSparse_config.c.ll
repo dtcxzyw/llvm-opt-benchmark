@@ -57,48 +57,35 @@ define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double nou
   %8 = tail call double @llvm.fabs.f64(double %3)
   %9 = fcmp ult double %7, %8
   %10 = fneg double %0
-  br i1 %9, label %24, label %11
+  br i1 %9, label %18, label %11
 
 11:                                               ; preds = %6
   %12 = fdiv double %3, %2
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %3, double %2)
-  %14 = insertelement <2 x double> poison, double %1, i64 0
-  %15 = insertelement <2 x double> %14, double %10, i64 1
-  %16 = insertelement <2 x double> poison, double %12, i64 0
-  %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
-  %18 = insertelement <2 x double> poison, double %0, i64 0
-  %19 = insertelement <2 x double> %18, double %1, i64 1
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> %17, <2 x double> %19)
-  %21 = insertelement <2 x double> poison, double %13, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fdiv <2 x double> %20, %22
-  br label %37
+  %14 = tail call double @llvm.fmuladd.f64(double %1, double %12, double %0)
+  %15 = fdiv double %14, %13
+  %16 = tail call double @llvm.fmuladd.f64(double %10, double %12, double %1)
+  %17 = fdiv double %16, %13
+  br label %25
 
-24:                                               ; preds = %6
-  %25 = fdiv double %2, %3
-  %26 = tail call double @llvm.fmuladd.f64(double %25, double %2, double %3)
-  %27 = insertelement <2 x double> poison, double %0, i64 0
-  %28 = insertelement <2 x double> %27, double %1, i64 1
-  %29 = insertelement <2 x double> poison, double %25, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = insertelement <2 x double> poison, double %1, i64 0
-  %32 = insertelement <2 x double> %31, double %10, i64 1
-  %33 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %30, <2 x double> %32)
-  %34 = insertelement <2 x double> poison, double %26, i64 0
-  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
-  %36 = fdiv <2 x double> %33, %35
-  br label %37
+18:                                               ; preds = %6
+  %19 = fdiv double %2, %3
+  %20 = tail call double @llvm.fmuladd.f64(double %19, double %2, double %3)
+  %21 = tail call double @llvm.fmuladd.f64(double %0, double %19, double %1)
+  %22 = fdiv double %21, %20
+  %23 = tail call double @llvm.fmuladd.f64(double %1, double %19, double %10)
+  %24 = fdiv double %23, %20
+  br label %25
 
-37:                                               ; preds = %24, %11
-  %.0 = phi double [ %13, %11 ], [ %26, %24 ]
-  %38 = phi <2 x double> [ %23, %11 ], [ %36, %24 ]
-  %39 = extractelement <2 x double> %38, i64 0
-  store double %39, ptr %4, align 8
-  %40 = extractelement <2 x double> %38, i64 1
-  store double %40, ptr %5, align 8
-  %41 = fcmp oeq double %.0, 0.000000e+00
-  %42 = zext i1 %41 to i32
-  ret i32 %42
+25:                                               ; preds = %18, %11
+  %.034 = phi double [ %15, %11 ], [ %22, %18 ]
+  %.033 = phi double [ %17, %11 ], [ %24, %18 ]
+  %.0 = phi double [ %13, %11 ], [ %20, %18 ]
+  store double %.034, ptr %4, align 8
+  store double %.033, ptr %5, align 8
+  %26 = fcmp oeq double %.0, 0.000000e+00
+  %27 = zext i1 %26 to i32
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -233,9 +220,6 @@ declare double @llvm.sqrt.f64(double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #8
 
 attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

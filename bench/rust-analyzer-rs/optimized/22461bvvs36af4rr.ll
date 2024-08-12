@@ -746,9 +746,13 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c60
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %7
@@ -910,17 +914,21 @@ define hidden void @"_ZN73_$LT$fst..inner_map..Stream$LT$A$GT$$u20$as$u20$fst..s
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !196
-  br label %10
+  br label %12
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8, !noalias !196
+  %9 = load i64, ptr %8, align 8, !noalias !196, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noalias !196, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !196
-  store <2 x i64> %9, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %10
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %12
 
-10:                                               ; preds = %7, %6
+12:                                               ; preds = %7, %6
   store ptr %4, ptr %0, align 8
   ret void
 }

@@ -610,18 +610,20 @@ png_warning.exit:                                 ; preds = %.split.i, %.split14
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 292
-  %4 = load <2 x i32>, ptr %3, align 4
-  %5 = and <2 x i32> %4, <i32 32768, i32 1048576>
-  %6 = icmp eq <2 x i32> %5, zeroinitializer
-  %7 = extractelement <2 x i1> %6, i64 1
-  br i1 %7, label %29, label %8
+  %3 = getelementptr inbounds i8, ptr %0, i64 296
+  %4 = load i32, ptr %3, align 8
+  %5 = and i32 %4, 1048576
+  %.not = icmp eq i32 %5, 0
+  %6 = getelementptr inbounds i8, ptr %0, i64 292
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 32768
+  %.not13 = icmp eq i32 %8, 0
+  br i1 %.not, label %29, label %9
 
-8:                                                ; preds = %2
-  %9 = extractelement <2 x i1> %6, i64 0
-  br i1 %9, label %14, label %10
+9:                                                ; preds = %2
+  br i1 %.not13, label %14, label %10
 
-10:                                               ; preds = %8
+10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 456
   %12 = load i32, ptr %11, align 8
   %.not16 = icmp eq i32 %12, 0
@@ -631,7 +633,7 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
   tail call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef %1)
   br label %png_warning.exit
 
-14:                                               ; preds = %8, %10
+14:                                               ; preds = %9, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %15 = load i8, ptr %1, align 1, !noalias !16
   %16 = icmp eq i8 %15, 35
@@ -674,20 +676,19 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
   br label %png_warning.exit
 
 29:                                               ; preds = %2
-  %30 = extractelement <2 x i1> %6, i64 0
-  br i1 %30, label %35, label %31
+  br i1 %.not13, label %34, label %30
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 456
-  %33 = load i32, ptr %32, align 8
-  %.not14 = icmp eq i32 %33, 0
-  br i1 %.not14, label %35, label %34
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %0, i64 456
+  %32 = load i32, ptr %31, align 8
+  %.not14 = icmp eq i32 %32, 0
+  br i1 %.not14, label %34, label %33
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
-35:                                               ; preds = %31, %29
+34:                                               ; preds = %30, %29
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 

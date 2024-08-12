@@ -704,7 +704,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.invoke unwind label %17
 
-17:                                               ; preds = %.invoke, %85, %83, %76, %74, %67, %65, %62, %55, %44, %36, %19, %15, %13, %10, %4
+17:                                               ; preds = %.invoke, %88, %86, %79, %77, %70, %68, %65, %58, %47, %39, %19, %15, %13, %10, %4
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #16
@@ -713,125 +713,129 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage14write_tga_fileENSt7__cxx1112
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %9, i64 2
   %21 = getelementptr inbounds i8, ptr %9, i64 12
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
-  %23 = getelementptr inbounds i8, ptr %9, i64 17
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds i8, ptr %9, i64 14
+  %23 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds i8, ptr %9, i64 17
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, i8 0, i64 12, i1 false)
-  %25 = load i8, ptr %24, align 8
-  %26 = shl i8 %25, 3
-  store i8 %26, ptr %22, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
-  %28 = load <2 x i32>, ptr %0, align 8
-  %29 = trunc <2 x i32> %28 to <2 x i16>
-  store <2 x i16> %29, ptr %21, align 1
-  %30 = icmp eq i8 %25, 1
-  %31 = select i1 %3, i8 11, i8 3
-  %32 = select i1 %3, i8 10, i8 2
-  %33 = select i1 %30, i8 %31, i8 %32
-  store i8 %33, ptr %20, align 1
-  %34 = select i1 %2, i8 0, i8 32
-  store i8 %34, ptr %23, align 1
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9, i64 noundef 18)
-          to label %36 unwind label %17
+  %26 = load i8, ptr %25, align 8
+  %27 = shl i8 %26, 3
+  store i8 %27, ptr %23, align 1
+  %28 = load i32, ptr %0, align 8
+  %29 = trunc i32 %28 to i16
+  store i16 %29, ptr %21, align 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = trunc i32 %31 to i16
+  store i16 %32, ptr %22, align 1
+  %33 = icmp eq i8 %26, 1
+  %34 = select i1 %3, i8 11, i8 3
+  %35 = select i1 %3, i8 10, i8 2
+  %36 = select i1 %33, i8 %34, i8 %35
+  store i8 %36, ptr %20, align 1
+  %37 = select i1 %2, i8 0, i8 32
+  store i8 %37, ptr %24, align 1
+  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9, i64 noundef 18)
+          to label %39 unwind label %17
 
-36:                                               ; preds = %19
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr i8, ptr %37, i64 -24
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 %39
-  %41 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %40)
-          to label %42 unwind label %17
+39:                                               ; preds = %19
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr i8, ptr %40, i64 -24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %8, i64 %42
+  %44 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %43)
+          to label %45 unwind label %17
 
-42:                                               ; preds = %36
-  br i1 %41, label %43, label %.invoke
+45:                                               ; preds = %39
+  br i1 %44, label %46, label %.invoke
 
-43:                                               ; preds = %42
-  br i1 %3, label %62, label %44
+46:                                               ; preds = %45
+  br i1 %3, label %65, label %47
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %0, align 8
-  %48 = load i32, ptr %27, align 4
-  %49 = mul nsw i32 %48, %47
-  %50 = load i8, ptr %24, align 8
-  %51 = zext i8 %50 to i32
-  %52 = mul nsw i32 %49, %51
-  %53 = sext i32 %52 to i64
-  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %46, i64 noundef %53)
-          to label %55 unwind label %17
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %0, align 8
+  %51 = load i32, ptr %30, align 4
+  %52 = mul nsw i32 %51, %50
+  %53 = load i8, ptr %25, align 8
+  %54 = zext i8 %53 to i32
+  %55 = mul nsw i32 %52, %54
+  %56 = sext i32 %55 to i64
+  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %49, i64 noundef %56)
+          to label %58 unwind label %17
 
-55:                                               ; preds = %44
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr i8, ptr %56, i64 -24
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 %58
-  %60 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %59)
-          to label %61 unwind label %17
-
-61:                                               ; preds = %55
-  br i1 %60, label %65, label %.invoke
-
-62:                                               ; preds = %43
-  %63 = invoke noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(248) %8)
+58:                                               ; preds = %47
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr i8, ptr %59, i64 -24
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %8, i64 %61
+  %63 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %62)
           to label %64 unwind label %17
 
-64:                                               ; preds = %62
-  br i1 %63, label %65, label %.invoke
+64:                                               ; preds = %58
+  br i1 %63, label %68, label %.invoke
 
-65:                                               ; preds = %64, %61
-  %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %5, i64 noundef 4)
+65:                                               ; preds = %46
+  %66 = invoke noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(248) %8)
           to label %67 unwind label %17
 
 67:                                               ; preds = %65
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr i8, ptr %68, i64 -24
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 %70
-  %72 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %71)
-          to label %73 unwind label %17
+  br i1 %66, label %68, label %.invoke
 
-73:                                               ; preds = %67
-  br i1 %72, label %74, label %.invoke
+68:                                               ; preds = %67, %64
+  %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %5, i64 noundef 4)
+          to label %70 unwind label %17
 
-74:                                               ; preds = %73
-  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6, i64 noundef 4)
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr i8, ptr %71, i64 -24
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %8, i64 %73
+  %75 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %74)
           to label %76 unwind label %17
 
-76:                                               ; preds = %74
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr i8, ptr %77, i64 -24
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 %79
-  %81 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %80)
-          to label %82 unwind label %17
+76:                                               ; preds = %70
+  br i1 %75, label %77, label %.invoke
 
-82:                                               ; preds = %76
-  br i1 %81, label %83, label %.invoke
+77:                                               ; preds = %76
+  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6, i64 noundef 4)
+          to label %79 unwind label %17
 
-83:                                               ; preds = %82
-  %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %7, i64 noundef 18)
+79:                                               ; preds = %77
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr i8, ptr %80, i64 -24
+  %82 = load i64, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %8, i64 %82
+  %84 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %83)
           to label %85 unwind label %17
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr i8, ptr %86, i64 -24
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 %88
-  %90 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %89)
-          to label %91 unwind label %17
+85:                                               ; preds = %79
+  br i1 %84, label %86, label %.invoke
 
-91:                                               ; preds = %85
-  br i1 %90, label %95, label %.invoke
+86:                                               ; preds = %85
+  %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %7, i64 noundef 18)
+          to label %88 unwind label %17
 
-.invoke:                                          ; preds = %15, %91, %82, %73, %64, %61, %42
-  %92 = phi ptr [ @_ZSt4cerr, %42 ], [ @_ZSt4cerr, %61 ], [ @_ZSt4cerr, %64 ], [ @_ZSt4cerr, %73 ], [ @_ZSt4cerr, %82 ], [ @_ZSt4cerr, %91 ], [ %16, %15 ]
-  %93 = phi ptr [ @.str.10, %42 ], [ @.str.11, %61 ], [ @.str.12, %64 ], [ @.str.10, %73 ], [ @.str.10, %82 ], [ @.str.10, %91 ], [ @.str.2, %15 ]
-  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %93)
-          to label %95 unwind label %17
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr i8, ptr %89, i64 -24
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %8, i64 %91
+  %93 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %92)
+          to label %94 unwind label %17
 
-95:                                               ; preds = %.invoke, %91
-  %.0 = phi i1 [ true, %91 ], [ false, %.invoke ]
+94:                                               ; preds = %88
+  br i1 %93, label %98, label %.invoke
+
+.invoke:                                          ; preds = %15, %94, %85, %76, %67, %64, %45
+  %95 = phi ptr [ @_ZSt4cerr, %45 ], [ @_ZSt4cerr, %64 ], [ @_ZSt4cerr, %67 ], [ @_ZSt4cerr, %76 ], [ @_ZSt4cerr, %85 ], [ @_ZSt4cerr, %94 ], [ %16, %15 ]
+  %96 = phi ptr [ @.str.10, %45 ], [ @.str.11, %64 ], [ @.str.12, %67 ], [ @.str.10, %76 ], [ @.str.10, %85 ], [ @.str.10, %94 ], [ @.str.2, %15 ]
+  %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull %96)
+          to label %98 unwind label %17
+
+98:                                               ; preds = %.invoke, %94
+  %.0 = phi i1 [ true, %94 ], [ false, %.invoke ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #16
   ret i1 %.0
 }

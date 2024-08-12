@@ -268,7 +268,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %134 = extractvalue { double, double } %132, 0
   %135 = extractvalue { double, double } %132, 1
   %136 = fcmp ult double %134, 0.000000e+00
-  br i1 %136, label %200, label %137
+  br i1 %136, label %203, label %137
 
 137:                                              ; preds = %133
   %138 = load i32, ptr %1, align 8
@@ -276,13 +276,13 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   %140 = fcmp uge double %134, %139
   %141 = fcmp ult double %135, 0.000000e+00
   %or.cond.i = select i1 %140, i1 true, i1 %141
-  br i1 %or.cond.i, label %200, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
+  br i1 %or.cond.i, label %203, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %137
   %142 = load i32, ptr %107, align 4
   %143 = sitofp i32 %142 to double
   %144 = fcmp olt double %135, %143
-  br i1 %144, label %149, label %200
+  br i1 %144, label %149, label %203
 
 .loopexit:                                        ; preds = %129
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -415,14 +415,18 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   store i64 %192, ptr %0, align 8
   %193 = getelementptr inbounds i8, ptr %0, i64 8
   %194 = getelementptr inbounds i8, ptr %6, i64 8
-  %195 = load <2 x ptr>, ptr %194, align 8
-  store <2 x ptr> %195, ptr %193, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 24
-  %197 = getelementptr inbounds i8, ptr %6, i64 24
+  %195 = load ptr, ptr %194, align 8
+  store ptr %195, ptr %193, align 8
+  %196 = getelementptr inbounds i8, ptr %0, i64 16
+  %197 = getelementptr inbounds i8, ptr %6, i64 16
   %198 = load ptr, ptr %197, align 8
   store ptr %198, ptr %196, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %185, ptr %199, align 8
+  %199 = getelementptr inbounds i8, ptr %0, i64 24
+  %200 = getelementptr inbounds i8, ptr %6, i64 24
+  %201 = load ptr, ptr %200, align 8
+  store ptr %201, ptr %199, align 8
+  %202 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %185, ptr %202, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %187, ptr %.sroa.286.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
@@ -431,17 +435,17 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   store i64 %191, ptr %.sroa.4.0..sroa_idx, align 8
   br label %_ZN5ZXing9BitMatrixD2Ev.exit78
 
-200:                                              ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit, %137, %133
+203:                                              ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit, %137, %133
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %.pre131 = load ptr, ptr %110, align 8
   %.not.i.i.i.i77 = icmp eq ptr %.pre131, null
-  br i1 %.not.i.i.i.i77, label %_ZN5ZXing9BitMatrixD2Ev.exit78, label %201
+  br i1 %.not.i.i.i.i77, label %_ZN5ZXing9BitMatrixD2Ev.exit78, label %204
 
-201:                                              ; preds = %200
+204:                                              ; preds = %203
   call void @_ZdlPv(ptr noundef nonnull %.pre131) #9
   br label %_ZN5ZXing9BitMatrixD2Ev.exit78
 
-_ZN5ZXing9BitMatrixD2Ev.exit78:                   ; preds = %.thread, %201, %200, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", %9
+_ZN5ZXing9BitMatrixD2Ev.exit78:                   ; preds = %.thread, %204, %203, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread", %9
   ret void
 }
 

@@ -1223,10 +1223,13 @@ if.end:                                           ; preds = %entry
   %fMinimalDaysInFirstWeek = getelementptr inbounds i8, ptr %this, i64 268
   store i8 1, ptr %fMinimalDaysInFirstWeek, align 4
   %fWeekendOnset = getelementptr inbounds i8, ptr %this, i64 272
+  store i32 7, ptr %fWeekendOnset, align 8
   %fWeekendOnsetMillis = getelementptr inbounds i8, ptr %this, i64 276
+  store i32 0, ptr %fWeekendOnsetMillis, align 4
   %fWeekendCease = getelementptr inbounds i8, ptr %this, i64 280
+  store i32 1, ptr %fWeekendCease, align 8
   %fWeekendCeaseMillis = getelementptr inbounds i8, ptr %this, i64 284
-  store <4 x i32> <i32 7, i32 0, i32 1, i32 86400000>, ptr %fWeekendOnset, align 8
+  store i32 86400000, ptr %fWeekendCeaseMillis, align 4
   store i32 0, ptr %myStatus, align 4
   call void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %min, ptr noundef nonnull align 8 dereferenceable(217) %desiredLocale)
   invoke void @_ZN6icu_756Locale15minimizeSubtagsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %min, ptr noundef nonnull align 4 dereferenceable(4) %myStatus)
@@ -2017,8 +2020,14 @@ if.end21.i:                                       ; preds = %if.else15.i, %if.th
   %millis.addr.0.i = phi double [ %call.i12, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
   %fTime.i = getelementptr inbounds i8, ptr %call5, i64 232
   store double %millis.addr.0.i, ptr %fTime.i, align 8
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %call5, i64 10
+  store i8 0, ptr %fAreAllFieldsSet.i, align 2
+  %fAreFieldsSet.i15 = getelementptr inbounds i8, ptr %call5, i64 9
+  store i8 0, ptr %fAreFieldsSet.i15, align 1
+  %fAreFieldsVirtuallySet.i = getelementptr inbounds i8, ptr %call5, i64 11
+  store i8 1, ptr %fAreFieldsVirtuallySet.i, align 1
   %fIsTimeSet.i = getelementptr inbounds i8, ptr %call5, i64 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  store i8 1, ptr %fIsTimeSet.i, align 8
   %fFields.i = getelementptr inbounds i8, ptr %call5, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i, i8 0, i64 216, i1 false)
   br label %_ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit22
@@ -2879,8 +2888,14 @@ if.end21:                                         ; preds = %if.then9, %if.then2
   %millis.addr.0 = phi double [ %millis, %if.else15 ], [ 0x43846A3EDDF8CD80, %if.then2 ], [ 0xC384763B62073280, %if.then9 ]
   %fTime = getelementptr inbounds i8, ptr %this, i64 232
   store double %millis.addr.0, ptr %fTime, align 8
+  %fAreAllFieldsSet = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 0, ptr %fAreAllFieldsSet, align 2
+  %fAreFieldsSet = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet, align 1
+  %fAreFieldsVirtuallySet = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 1, ptr %fAreFieldsVirtuallySet, align 1
   %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet, align 8
+  store i8 1, ptr %fIsTimeSet, align 8
   %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %fStamp = getelementptr inbounds i8, ptr %this, i64 132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %fFields, i8 0, i64 120, i1 false)
@@ -5899,15 +5914,18 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %arrayidx3.i8, align 8
   %arrayidx5.i10 = getelementptr inbounds i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i10, align 1
+  %fGregorianDayOfMonth.i = getelementptr inbounds i8, ptr %this, i64 300
+  %3 = load i32, ptr %fGregorianDayOfMonth.i, align 4
   %arrayidx.i12 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %3, ptr %arrayidx.i12, align 8
   %arrayidx3.i14 = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %arrayidx3.i14, align 8
   %arrayidx5.i16 = getelementptr inbounds i8, ptr %this, i64 113
   store i8 1, ptr %arrayidx5.i16, align 1
   %fGregorianDayOfYear.i = getelementptr inbounds i8, ptr %this, i64 296
-  %3 = load <2 x i32>, ptr %fGregorianDayOfYear.i, align 8
-  %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %4, ptr %arrayidx.i12, align 8
+  %4 = load i32, ptr %fGregorianDayOfYear.i, align 8
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %4, ptr %arrayidx.i18, align 4
   %arrayidx3.i20 = getelementptr inbounds i8, ptr %this, i64 156
   store i32 1, ptr %arrayidx3.i20, align 4
   %arrayidx5.i22 = getelementptr inbounds i8, ptr %this, i64 114
@@ -7134,8 +7152,14 @@ _ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit: ; preds = %if.then2.i,
   %millis.addr.0.i = phi double [ %add57, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
   %fTime.i193 = getelementptr inbounds i8, ptr %this, i64 232
   store double %millis.addr.0.i, ptr %fTime.i193, align 8
+  %fAreAllFieldsSet.i = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 0, ptr %fAreAllFieldsSet.i, align 2
+  %fAreFieldsSet.i194 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i194, align 1
+  %fAreFieldsVirtuallySet.i195 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 1, ptr %fAreFieldsVirtuallySet.i195, align 1
   %fIsTimeSet.i196 = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i196, align 8
+  store i8 1, ptr %fIsTimeSet.i196, align 8
   %fFields.i197 = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i197, i8 0, i64 216, i1 false)
   br i1 %tobool49.not241.ph.ph, label %if.end107, label %if.then59
@@ -7501,7 +7525,10 @@ if.else15.i:                                      ; preds = %if.else7.i
 if.end21.i:                                       ; preds = %if.else15.i, %if.then9.i, %if.then2.i
   %millis.addr.0.i = phi double [ %retval.0.i, %if.else15.i ], [ 0x43846A3EDDF8CD80, %if.then2.i ], [ 0xC384763B62073280, %if.then9.i ]
   store double %millis.addr.0.i, ptr %fTime.i81, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  store i8 0, ptr %fAreAllFieldsSet.i, align 2
+  store i8 0, ptr %fAreFieldsSet.i, align 1
+  store i8 1, ptr %fAreFieldsVirtuallySet.i, align 1
+  store i8 1, ptr %fIsTimeSet.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit
 
@@ -7633,7 +7660,10 @@ if.else15.i113:                                   ; preds = %if.else7.i111
 if.end21.i117:                                    ; preds = %if.else15.i113, %if.then9.i131, %if.then2.i134
   %millis.addr.0.i118 = phi double [ %retval.0.i, %if.else15.i113 ], [ 0x43846A3EDDF8CD80, %if.then2.i134 ], [ 0xC384763B62073280, %if.then9.i131 ]
   store double %millis.addr.0.i118, ptr %fTime.i119, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  store i8 0, ptr %fAreAllFieldsSet.i120, align 2
+  store i8 0, ptr %fAreFieldsSet.i121, align 1
+  store i8 1, ptr %fAreFieldsVirtuallySet.i122, align 1
+  store i8 1, ptr %fIsTimeSet.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i124, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit137
 
@@ -7747,7 +7777,10 @@ if.else15.i168:                                   ; preds = %if.else7.i166
 if.end21.i172:                                    ; preds = %if.else15.i168, %if.then9.i186, %if.then2.i189
   %millis.addr.0.i173 = phi double [ %retval.0.i, %if.else15.i168 ], [ 0x43846A3EDDF8CD80, %if.then2.i189 ], [ 0xC384763B62073280, %if.then9.i186 ]
   store double %millis.addr.0.i173, ptr %fTime.i174, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  store i8 0, ptr %fAreAllFieldsSet.i175, align 2
+  store i8 0, ptr %fAreFieldsSet.i176, align 1
+  store i8 1, ptr %fAreFieldsVirtuallySet.i177, align 1
+  store i8 1, ptr %fIsTimeSet.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i179, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit192
 
@@ -7878,7 +7911,10 @@ if.else15.i223:                                   ; preds = %if.else7.i221
 if.end21.i227:                                    ; preds = %if.else15.i223, %if.then9.i241, %if.then2.i244
   %millis.addr.0.i228 = phi double [ %retval.0.i, %if.else15.i223 ], [ 0x43846A3EDDF8CD80, %if.then2.i244 ], [ 0xC384763B62073280, %if.then9.i241 ]
   store double %millis.addr.0.i228, ptr %fTime.i229, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  store i8 0, ptr %fAreAllFieldsSet.i230, align 2
+  store i8 0, ptr %fAreFieldsSet.i231, align 1
+  store i8 1, ptr %fAreFieldsVirtuallySet.i232, align 1
+  store i8 1, ptr %fIsTimeSet.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i234, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit247
 
@@ -7982,7 +8018,13 @@ if.end21.i280:                                    ; preds = %if.else15.i276, %if
   %millis.addr.0.i281 = phi double [ %retval.0.i, %if.else15.i276 ], [ 0x43846A3EDDF8CD80, %if.then2.i297 ], [ 0xC384763B62073280, %if.then9.i294 ]
   %fTime.i282 = getelementptr inbounds i8, ptr %this, i64 232
   store double %millis.addr.0.i281, ptr %fTime.i282, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i, align 8
+  %fAreAllFieldsSet.i283 = getelementptr inbounds i8, ptr %this, i64 10
+  store i8 0, ptr %fAreAllFieldsSet.i283, align 2
+  %fAreFieldsSet.i284 = getelementptr inbounds i8, ptr %this, i64 9
+  store i8 0, ptr %fAreFieldsSet.i284, align 1
+  %fAreFieldsVirtuallySet.i285 = getelementptr inbounds i8, ptr %this, i64 11
+  store i8 1, ptr %fAreFieldsVirtuallySet.i285, align 1
+  store i8 1, ptr %fIsTimeSet.i, align 8
   %fFields.i287 = getelementptr inbounds i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i287, i8 0, i64 216, i1 false)
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
@@ -8245,8 +8287,14 @@ _ZN6icu_758Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %if.then2.i.i, %if.t
   %millis.addr.0.i.i = phi double [ %date, %if.else15.i.i ], [ 0x43846A3EDDF8CD80, %if.then2.i.i ], [ 0xC384763B62073280, %if.then9.i.i ]
   %fTime.i.i = getelementptr inbounds i8, ptr %call2, i64 232
   store double %millis.addr.0.i.i, ptr %fTime.i.i, align 8
+  %fAreAllFieldsSet.i.i = getelementptr inbounds i8, ptr %call2, i64 10
+  store i8 0, ptr %fAreAllFieldsSet.i.i, align 2
+  %fAreFieldsSet.i.i = getelementptr inbounds i8, ptr %call2, i64 9
+  store i8 0, ptr %fAreFieldsSet.i.i, align 1
+  %fAreFieldsVirtuallySet.i.i = getelementptr inbounds i8, ptr %call2, i64 11
+  store i8 1, ptr %fAreFieldsVirtuallySet.i.i, align 1
   %fIsTimeSet.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fIsTimeSet.i.i, align 8
+  store i8 1, ptr %fIsTimeSet.i.i, align 8
   %fFields.i.i = getelementptr inbounds i8, ptr %call2, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %fFields.i.i, i8 0, i64 216, i1 false)
   %.pre = load i32, ptr %status, align 4

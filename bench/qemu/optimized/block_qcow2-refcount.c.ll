@@ -6848,6 +6848,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %and46 = and i32 %flags, 2
   %tobool47.not = icmp eq i32 %and46, 0
   %bfi = getelementptr inbounds i8, ptr %res, i64 32
+  %compressed_clusters = getelementptr inbounds i8, ptr %res, i64 56
   %fragmented_clusters = getelementptr inbounds i8, ptr %res, i64 48
   %7 = getelementptr i8, ptr %0, i64 4
   %and80 = and i32 %fix, 2
@@ -7014,9 +7015,12 @@ if.then48:                                        ; preds = %if.end45
   %36 = load i64, ptr %bfi, align 8
   %inc49 = add i64 %36, 1
   store i64 %inc49, ptr %bfi, align 8
-  %37 = load <2 x i64>, ptr %fragmented_clusters, align 8
-  %38 = add <2 x i64> %37, <i64 1, i64 1>
-  store <2 x i64> %38, ptr %fragmented_clusters, align 8
+  %37 = load i64, ptr %compressed_clusters, align 8
+  %inc51 = add i64 %37, 1
+  store i64 %inc51, ptr %compressed_clusters, align 8
+  %38 = load i64, ptr %fragmented_clusters, align 8
+  %inc53 = add i64 %38, 1
+  store i64 %inc53, ptr %fragmented_clusters, align 8
   br label %for.inc
 
 sw.bb55:                                          ; preds = %if.end18, %if.end18

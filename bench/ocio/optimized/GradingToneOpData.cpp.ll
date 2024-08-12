@@ -119,14 +119,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef %style) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::GradingTone", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::GradingTone", align 8
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17GradingToneOpDataE, i64 16), ptr %this, align 8
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %style, ptr %m_style, align 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp, align 16
+  store double 1.000000e+00, ptr %ref.tmp, align 8
+  %m_green.i15.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double 1.000000e+00, ptr %m_green.i15.i, align 8
   %m_blue.i16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i16.i, align 16
+  store double 1.000000e+00, ptr %m_blue.i16.i, align 8
+  %m_master.i17.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  store double 1.000000e+00, ptr %m_master.i17.i, align 8
   switch i32 %style, label %cond.false35.i [
     i32 1, label %invoke.cont
     i32 0, label %cond.true34.i
@@ -139,39 +143,69 @@ cond.false35.i:                                   ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.false35.i, %cond.true34.i, %entry
-  %0 = phi <2 x double> [ <double 4.000000e-01, double 4.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 4.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 4.000000e+00>, %entry ]
-  %1 = phi <2 x double> [ <double 5.000000e-01, double 0.000000e+00>, %cond.true34.i ], [ <double 6.000000e-01, double 0.000000e+00>, %cond.false35.i ], [ <double 2.000000e+00, double -7.000000e+00>, %entry ]
-  %2 = phi <2 x double> [ <double 4.000000e-01, double 6.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 0x3FE6666666666666>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
-  %3 = phi <2 x double> [ <double 3.000000e-01, double 1.000000e+00>, %cond.true34.i ], [ <double 2.000000e-01, double 1.000000e+00>, %cond.false35.i ], [ <double -2.000000e+00, double 9.000000e+00>, %entry ]
-  %4 = phi <2 x double> [ <double 4.000000e-01, double 5.000000e-01>, %cond.true34.i ], [ <double 5.000000e-01, double 5.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
+  %.sink108.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
+  %.sink107.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 4.000000e+00, %entry ]
+  %.sink106.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 6.000000e-01, %cond.false35.i ], [ 2.000000e+00, %entry ]
+  %.sink105.i = phi double [ 0.000000e+00, %cond.true34.i ], [ 0.000000e+00, %cond.false35.i ], [ -7.000000e+00, %entry ]
+  %.sink103.i = phi double [ 6.000000e-01, %cond.true34.i ], [ 0x3FE6666666666666, %cond.false35.i ], [ 8.000000e+00, %entry ]
+  %.sink102.i = phi double [ 3.000000e-01, %cond.true34.i ], [ 2.000000e-01, %cond.false35.i ], [ -2.000000e+00, %entry ]
+  %.sink101.i = phi double [ 1.000000e+00, %cond.true34.i ], [ 1.000000e+00, %cond.false35.i ], [ 9.000000e+00, %entry ]
+  %.sink100.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
+  %.sink.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 8.000000e+00, %entry ]
   %m_whites95.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
+  %m_width.i64.i = getelementptr inbounds i8, ptr %ref.tmp, i64 184
   %m_start.i63.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
+  %m_master.i62.i = getelementptr inbounds i8, ptr %ref.tmp, i64 168
   %m_blue.i61.i = getelementptr inbounds i8, ptr %ref.tmp, i64 160
+  %m_green.i60.i = getelementptr inbounds i8, ptr %ref.tmp, i64 152
   %m_highlights90.i = getelementptr inbounds i8, ptr %ref.tmp, i64 144
+  %m_width.i49.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   %m_start.i48.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
+  %m_master.i47.i = getelementptr inbounds i8, ptr %ref.tmp, i64 120
   %m_blue.i46.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
+  %m_green.i45.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %m_midtones85.i = getelementptr inbounds i8, ptr %ref.tmp, i64 96
+  %m_width.i34.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %m_start.i33.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
+  %m_master.i32.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %m_blue.i31.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
+  %m_green.i30.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   %m_shadows80.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %m_width.i19.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %m_start.i18.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store <2 x double> %0, ptr %m_start.i18.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_shadows80.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i31.i, align 16
-  store <2 x double> %1, ptr %m_start.i33.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_midtones85.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i46.i, align 16
-  store <2 x double> %2, ptr %m_start.i48.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_highlights90.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i61.i, align 16
-  store <2 x double> %3, ptr %m_start.i63.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_whites95.i, align 16
+  store double %.sink108.i, ptr %m_start.i18.i, align 8
+  store double %.sink107.i, ptr %m_width.i19.i, align 8
+  store double 1.000000e+00, ptr %m_shadows80.i, align 8
+  store double 1.000000e+00, ptr %m_green.i30.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i31.i, align 8
+  store double 1.000000e+00, ptr %m_master.i32.i, align 8
+  store double %.sink106.i, ptr %m_start.i33.i, align 8
+  store double %.sink105.i, ptr %m_width.i34.i, align 8
+  store double 1.000000e+00, ptr %m_midtones85.i, align 8
+  store double 1.000000e+00, ptr %m_green.i45.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i46.i, align 8
+  store double 1.000000e+00, ptr %m_master.i47.i, align 8
+  store double %.sink108.i, ptr %m_start.i48.i, align 8
+  store double %.sink103.i, ptr %m_width.i49.i, align 8
+  store double 1.000000e+00, ptr %m_highlights90.i, align 8
+  store double 1.000000e+00, ptr %m_green.i60.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i61.i, align 8
+  store double 1.000000e+00, ptr %m_master.i62.i, align 8
+  store double %.sink102.i, ptr %m_start.i63.i, align 8
+  store double %.sink101.i, ptr %m_width.i64.i, align 8
+  store double 1.000000e+00, ptr %m_whites95.i, align 8
+  %m_green.i70.i = getelementptr inbounds i8, ptr %ref.tmp, i64 200
+  store double 1.000000e+00, ptr %m_green.i70.i, align 8
   %m_blue.i71.i = getelementptr inbounds i8, ptr %ref.tmp, i64 208
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i71.i, align 16
+  store double 1.000000e+00, ptr %m_blue.i71.i, align 8
+  %m_master.i72.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
+  store double 1.000000e+00, ptr %m_master.i72.i, align 8
   %m_start.i73.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
-  store <2 x double> %4, ptr %m_start.i73.i, align 16
+  store double %.sink100.i, ptr %m_start.i73.i, align 8
+  %m_width.i74.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
+  store double %.sink.i, ptr %m_width.i74.i, align 8
   %m_scontrast.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
-  store double 1.000000e+00, ptr %m_scontrast.i, align 16
+  store double 1.000000e+00, ptr %m_scontrast.i, align 8
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr null, ptr %m_value, align 8, !alias.scope !4
@@ -189,7 +223,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  %5 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i1) #18, !noalias !4
   br label %lpad.body
@@ -203,12 +237,12 @@ invoke.cont3:                                     ; preds = %call5.i.i.i3.i.i.i.
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %5, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i) #19
@@ -222,7 +256,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 8 dereferenceable(196) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::GradingTone", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::GradingTone", align 8
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(168) %other)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17GradingToneOpDataE, i64 16), ptr %this, align 8
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
@@ -230,9 +264,13 @@ entry:
   %0 = load i32, ptr %m_style2, align 8
   store i32 %0, ptr %m_style, align 8
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp, align 16
+  store double 1.000000e+00, ptr %ref.tmp, align 8
+  %m_green.i15.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double 1.000000e+00, ptr %m_green.i15.i, align 8
   %m_blue.i16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i16.i, align 16
+  store double 1.000000e+00, ptr %m_blue.i16.i, align 8
+  %m_master.i17.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  store double 1.000000e+00, ptr %m_master.i17.i, align 8
   switch i32 %0, label %cond.false35.i [
     i32 1, label %invoke.cont
     i32 0, label %cond.true34.i
@@ -245,39 +283,69 @@ cond.false35.i:                                   ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.false35.i, %cond.true34.i, %entry
-  %1 = phi <2 x double> [ <double 4.000000e-01, double 4.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 4.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 4.000000e+00>, %entry ]
-  %2 = phi <2 x double> [ <double 5.000000e-01, double 0.000000e+00>, %cond.true34.i ], [ <double 6.000000e-01, double 0.000000e+00>, %cond.false35.i ], [ <double 2.000000e+00, double -7.000000e+00>, %entry ]
-  %3 = phi <2 x double> [ <double 4.000000e-01, double 6.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 0x3FE6666666666666>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
-  %4 = phi <2 x double> [ <double 3.000000e-01, double 1.000000e+00>, %cond.true34.i ], [ <double 2.000000e-01, double 1.000000e+00>, %cond.false35.i ], [ <double -2.000000e+00, double 9.000000e+00>, %entry ]
-  %5 = phi <2 x double> [ <double 4.000000e-01, double 5.000000e-01>, %cond.true34.i ], [ <double 5.000000e-01, double 5.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
+  %.sink108.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
+  %.sink107.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 4.000000e+00, %entry ]
+  %.sink106.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 6.000000e-01, %cond.false35.i ], [ 2.000000e+00, %entry ]
+  %.sink105.i = phi double [ 0.000000e+00, %cond.true34.i ], [ 0.000000e+00, %cond.false35.i ], [ -7.000000e+00, %entry ]
+  %.sink103.i = phi double [ 6.000000e-01, %cond.true34.i ], [ 0x3FE6666666666666, %cond.false35.i ], [ 8.000000e+00, %entry ]
+  %.sink102.i = phi double [ 3.000000e-01, %cond.true34.i ], [ 2.000000e-01, %cond.false35.i ], [ -2.000000e+00, %entry ]
+  %.sink101.i = phi double [ 1.000000e+00, %cond.true34.i ], [ 1.000000e+00, %cond.false35.i ], [ 9.000000e+00, %entry ]
+  %.sink100.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
+  %.sink.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 8.000000e+00, %entry ]
   %m_whites95.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
+  %m_width.i64.i = getelementptr inbounds i8, ptr %ref.tmp, i64 184
   %m_start.i63.i = getelementptr inbounds i8, ptr %ref.tmp, i64 176
+  %m_master.i62.i = getelementptr inbounds i8, ptr %ref.tmp, i64 168
   %m_blue.i61.i = getelementptr inbounds i8, ptr %ref.tmp, i64 160
+  %m_green.i60.i = getelementptr inbounds i8, ptr %ref.tmp, i64 152
   %m_highlights90.i = getelementptr inbounds i8, ptr %ref.tmp, i64 144
+  %m_width.i49.i = getelementptr inbounds i8, ptr %ref.tmp, i64 136
   %m_start.i48.i = getelementptr inbounds i8, ptr %ref.tmp, i64 128
+  %m_master.i47.i = getelementptr inbounds i8, ptr %ref.tmp, i64 120
   %m_blue.i46.i = getelementptr inbounds i8, ptr %ref.tmp, i64 112
+  %m_green.i45.i = getelementptr inbounds i8, ptr %ref.tmp, i64 104
   %m_midtones85.i = getelementptr inbounds i8, ptr %ref.tmp, i64 96
+  %m_width.i34.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %m_start.i33.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
+  %m_master.i32.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %m_blue.i31.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
+  %m_green.i30.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   %m_shadows80.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %m_width.i19.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %m_start.i18.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store <2 x double> %1, ptr %m_start.i18.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_shadows80.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i31.i, align 16
-  store <2 x double> %2, ptr %m_start.i33.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_midtones85.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i46.i, align 16
-  store <2 x double> %3, ptr %m_start.i48.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_highlights90.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i61.i, align 16
-  store <2 x double> %4, ptr %m_start.i63.i, align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_whites95.i, align 16
+  store double %.sink108.i, ptr %m_start.i18.i, align 8
+  store double %.sink107.i, ptr %m_width.i19.i, align 8
+  store double 1.000000e+00, ptr %m_shadows80.i, align 8
+  store double 1.000000e+00, ptr %m_green.i30.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i31.i, align 8
+  store double 1.000000e+00, ptr %m_master.i32.i, align 8
+  store double %.sink106.i, ptr %m_start.i33.i, align 8
+  store double %.sink105.i, ptr %m_width.i34.i, align 8
+  store double 1.000000e+00, ptr %m_midtones85.i, align 8
+  store double 1.000000e+00, ptr %m_green.i45.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i46.i, align 8
+  store double 1.000000e+00, ptr %m_master.i47.i, align 8
+  store double %.sink108.i, ptr %m_start.i48.i, align 8
+  store double %.sink103.i, ptr %m_width.i49.i, align 8
+  store double 1.000000e+00, ptr %m_highlights90.i, align 8
+  store double 1.000000e+00, ptr %m_green.i60.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i61.i, align 8
+  store double 1.000000e+00, ptr %m_master.i62.i, align 8
+  store double %.sink102.i, ptr %m_start.i63.i, align 8
+  store double %.sink101.i, ptr %m_width.i64.i, align 8
+  store double 1.000000e+00, ptr %m_whites95.i, align 8
+  %m_green.i70.i = getelementptr inbounds i8, ptr %ref.tmp, i64 200
+  store double 1.000000e+00, ptr %m_green.i70.i, align 8
   %m_blue.i71.i = getelementptr inbounds i8, ptr %ref.tmp, i64 208
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i71.i, align 16
+  store double 1.000000e+00, ptr %m_blue.i71.i, align 8
+  %m_master.i72.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
+  store double 1.000000e+00, ptr %m_master.i72.i, align 8
   %m_start.i73.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
-  store <2 x double> %5, ptr %m_start.i73.i, align 16
+  store double %.sink100.i, ptr %m_start.i73.i, align 8
+  %m_width.i74.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
+  store double %.sink.i, ptr %m_width.i74.i, align 8
   %m_scontrast.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
-  store double 1.000000e+00, ptr %m_scontrast.i, align 16
+  store double 1.000000e+00, ptr %m_scontrast.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr null, ptr %m_value, align 8, !alias.scope !7
   %call5.i.i.i3.i.i.i.i6 = invoke noalias noundef nonnull dereferenceable(1224) ptr @_Znwm(i64 noundef 1224) #17
@@ -294,7 +362,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !7
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  %6 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i6) #18, !noalias !7
   br label %ehcleanup
@@ -313,37 +381,37 @@ if.end.i:                                         ; preds = %invoke.cont6
           to label %call.i.noexc unwind label %lpad7
 
 call.i.noexc:                                     ; preds = %if.end.i
-  %7 = load i32, ptr %m_style2, align 8
-  store i32 %7, ptr %m_style, align 8
+  %2 = load i32, ptr %m_style2, align 8
+  store i32 %2, ptr %m_style, align 8
   %m_direction.i = getelementptr inbounds i8, ptr %other, i64 192
-  %8 = load i32, ptr %m_direction.i, align 8
-  store i32 %8, ptr %m_direction, align 8
-  %9 = load ptr, ptr %m_value, align 8
+  %3 = load i32, ptr %m_direction.i, align 8
+  store i32 %3, ptr %m_direction, align 8
+  %4 = load ptr, ptr %m_value, align 8
   %m_value5.i = getelementptr inbounds i8, ptr %other, i64 176
-  %10 = load ptr, ptr %m_value5.i, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %5 = load ptr, ptr %m_value5.i, align 8
+  %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %11 = load ptr, ptr %vfn.i, align 8
-  %call7.i8 = invoke noundef nonnull align 8 dereferenceable(248) ptr %11(ptr noundef nonnull align 8 dereferenceable(1208) %10)
+  %6 = load ptr, ptr %vfn.i, align 8
+  %call7.i8 = invoke noundef nonnull align 8 dereferenceable(248) ptr %6(ptr noundef nonnull align 8 dereferenceable(1208) %5)
           to label %call7.i.noexc unwind label %lpad7
 
 call7.i.noexc:                                    ; preds = %call.i.noexc
-  %vtable8.i = load ptr, ptr %9, align 8
+  %vtable8.i = load ptr, ptr %4, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 32
-  %12 = load ptr, ptr %vfn9.i, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(1208) %9, ptr noundef nonnull align 8 dereferenceable(248) %call7.i8)
+  %7 = load ptr, ptr %vfn9.i, align 8
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(1208) %4, ptr noundef nonnull align 8 dereferenceable(248) %call7.i8)
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %call7.i.noexc
-  %13 = load ptr, ptr %m_value5.i, align 8
-  %m_isDynamic.i.i = getelementptr inbounds i8, ptr %13, i64 12
-  %14 = load i8, ptr %m_isDynamic.i.i, align 4
-  %tobool.i.i = trunc i8 %14 to i1
+  %8 = load ptr, ptr %m_value5.i, align 8
+  %m_isDynamic.i.i = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = load i8, ptr %m_isDynamic.i.i, align 4
+  %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.then13.i, label %invoke.cont8
 
 if.then13.i:                                      ; preds = %.noexc
-  %15 = load ptr, ptr %m_value, align 8
-  %m_isDynamic.i6.i = getelementptr inbounds i8, ptr %15, i64 12
+  %10 = load ptr, ptr %m_value, align 8
+  %m_isDynamic.i6.i = getelementptr inbounds i8, ptr %10, i64 12
   store i8 1, ptr %m_isDynamic.i6.i, align 4
   br label %invoke.cont8
 
@@ -351,18 +419,18 @@ invoke.cont8:                                     ; preds = %if.then13.i, %.noex
   ret void
 
 lpad:                                             ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %call7.i.noexc, %call.i.noexc, %if.end.i
-  %17 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_value) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad7
-  %.pn = phi { ptr, i32 } [ %17, %lpad7 ], [ %16, %lpad ], [ %6, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad7 ], [ %11, %lpad ], [ %1, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i) #19
@@ -1137,15 +1205,17 @@ entry:
 define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData18getDynamicPropertyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.14") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(196) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
+  %0 = load ptr, ptr %m_value, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %m_value, align 8
-  store <2 x ptr> %1, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPropertyGradingToneImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -346,7 +346,13 @@ invoke.cont:
   %payload_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %0, ptr %payload_.i.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 32
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %2, align 8
+  store i32 0, ptr %2, align 8
+  %num_buckets_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 1, ptr %num_buckets_.i.i.i.i.i.i.i, align 4
+  %seed_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 0, ptr %seed_.i.i.i.i.i.i.i, align 8
+  %index_of_first_non_null_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 1, ptr %index_of_first_non_null_.i.i.i.i.i.i.i, align 4
   %table_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i.i.i.i, align 8
   %alloc_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -384,7 +390,13 @@ invoke.cont3:                                     ; preds = %if.then.i15, %entry
   %payload_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %0, ptr %payload_.i.i.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %this, i64 32
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %4, align 8
+  store i32 0, ptr %4, align 8
+  %num_buckets_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 1, ptr %num_buckets_.i.i.i.i.i.i, align 4
+  %seed_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 0, ptr %seed_.i.i.i.i.i.i, align 8
+  %index_of_first_non_null_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 1, ptr %index_of_first_non_null_.i.i.i.i.i.i, align 4
   %table_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i.i.i, align 8
   %alloc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1255,20 +1267,40 @@ entry:
   tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3)
   %4 = getelementptr inbounds i8, ptr %this, i64 32
   %5 = getelementptr inbounds i8, ptr %other, i64 32
-  %6 = load <4 x i32>, ptr %5, align 4
-  %7 = load <4 x i32>, ptr %4, align 8
-  store <4 x i32> %6, ptr %4, align 8
-  store <4 x i32> %7, ptr %5, align 4
+  %6 = load i32, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4
+  store i32 %7, ptr %4, align 8
+  store i32 %6, ptr %5, align 4
+  %num_buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %num_buckets_3.i.i.i = getelementptr inbounds i8, ptr %other, i64 36
+  %8 = load i32, ptr %num_buckets_.i.i.i, align 4
+  %9 = load i32, ptr %num_buckets_3.i.i.i, align 4
+  store i32 %9, ptr %num_buckets_.i.i.i, align 4
+  store i32 %8, ptr %num_buckets_3.i.i.i, align 4
+  %seed_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %seed_4.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
+  %10 = load i32, ptr %seed_.i.i.i, align 8
+  %11 = load i32, ptr %seed_4.i.i.i, align 4
+  store i32 %11, ptr %seed_.i.i.i, align 8
+  store i32 %10, ptr %seed_4.i.i.i, align 4
+  %index_of_first_non_null_.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  %index_of_first_non_null_5.i.i.i = getelementptr inbounds i8, ptr %other, i64 44
+  %12 = load i32, ptr %index_of_first_non_null_.i.i.i, align 4
+  %13 = load i32, ptr %index_of_first_non_null_5.i.i.i, align 4
+  store i32 %13, ptr %index_of_first_non_null_.i.i.i, align 4
+  store i32 %12, ptr %index_of_first_non_null_5.i.i.i, align 4
   %table_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %table_6.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
-  %8 = load ptr, ptr %table_6.i.i.i, align 8
+  %14 = load ptr, ptr %table_.i.i.i, align 8
+  %15 = load ptr, ptr %table_6.i.i.i, align 8
+  store ptr %15, ptr %table_.i.i.i, align 8
+  store ptr %14, ptr %table_6.i.i.i, align 8
   %alloc_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %alloc_7.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
-  %9 = load i64, ptr %alloc_7.i.i.i, align 8
-  %10 = load <2 x ptr>, ptr %table_.i.i.i, align 8
-  store ptr %8, ptr %table_.i.i.i, align 8
-  store i64 %9, ptr %alloc_.i.i.i, align 8
-  store <2 x ptr> %10, ptr %table_6.i.i.i, align 8
+  %__tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %alloc_.i.i.i, align 8
+  %16 = load i64, ptr %alloc_7.i.i.i, align 8
+  store i64 %16, ptr %alloc_.i.i.i, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i.i.i.i, ptr %alloc_7.i.i.i, align 8
   ret void
 }
 
@@ -2625,19 +2657,21 @@ entry:
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = getelementptr inbounds i8, ptr %other, i64 16
-  %__tmp.sroa.0.0.copyload.i = load double, ptr %1, align 8
-  %3 = load <2 x i64>, ptr %_internal_metadata_2, align 8
+  %1 = load i64, ptr %_internal_metadata_2, align 8
+  store i64 %1, ptr %_internal_metadata_, align 8
   store i64 %0, ptr %_internal_metadata_2, align 8
-  store <2 x i64> %3, ptr %_internal_metadata_, align 8
-  store double %__tmp.sroa.0.0.copyload.i, ptr %2, align 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = getelementptr inbounds i8, ptr %other, i64 16
+  %__tmp.sroa.0.0.copyload.i = load double, ptr %2, align 8
+  %4 = load i64, ptr %3, align 8
+  store i64 %4, ptr %2, align 8
+  store double %__tmp.sroa.0.0.copyload.i, ptr %3, align 8
   %_oneof_case_ = getelementptr inbounds i8, ptr %this, i64 28
   %_oneof_case_4 = getelementptr inbounds i8, ptr %other, i64 28
-  %4 = load i32, ptr %_oneof_case_, align 4
-  %5 = load i32, ptr %_oneof_case_4, align 4
-  store i32 %5, ptr %_oneof_case_, align 4
-  store i32 %4, ptr %_oneof_case_4, align 4
+  %5 = load i32, ptr %_oneof_case_, align 4
+  %6 = load i32, ptr %_oneof_case_4, align 4
+  store i32 %6, ptr %_oneof_case_, align 4
+  store i32 %5, ptr %_oneof_case_4, align 4
   ret void
 }
 
@@ -5321,7 +5355,13 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEEC2EPNS0_5ArenaERKS9_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #3 comdat align 2 {
 entry:
   %tmp.i = alloca %"struct.std::pair.29", align 8
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %this, align 8
+  store i32 0, ptr %this, align 8
+  %num_buckets_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 1, ptr %num_buckets_.i.i, align 4
+  %seed_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 0, ptr %seed_.i.i, align 8
+  %index_of_first_non_null_.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 1, ptr %index_of_first_non_null_.i.i, align 4
   %table_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i, align 8
   %alloc_.i.i = getelementptr inbounds i8, ptr %this, i64 24

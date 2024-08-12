@@ -1077,185 +1077,189 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   %16 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %15) #8
   store ptr %16, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 48
-  %18 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %18, ptr %19, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 52
+  %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
+  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %19, ptr %20, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %23, label %20
+  br i1 %.not, label %24, label %21
 
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void @g_hash_table_foreach(ptr noundef %22, ptr noundef nonnull @xmpp_copy_hash_table_func, ptr noundef %18) #8
-  br label %25
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = load ptr, ptr %22, align 8
+  tail call void @g_hash_table_foreach(ptr noundef %23, ptr noundef nonnull @xmpp_copy_hash_table_func, ptr noundef %19) #8
+  br label %26
 
-23:                                               ; preds = %4
-  %24 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #8
-  br label %25
+24:                                               ; preds = %4
+  %25 = tail call i32 @g_hash_table_insert(ptr noundef %19, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #8
+  br label %26
 
-25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
-  %27 = load <2 x i32>, ptr %26, align 8
-  store <2 x i32> %27, ptr %17, align 8
+26:                                               ; preds = %24, %21
+  %27 = getelementptr inbounds i8, ptr %1, i64 104
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %17, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 108
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %18, align 4
   call void @except_setup_clean(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @xmpp_element_t_cleanup, ptr noundef nonnull %7) #8
-  %28 = load i32, ptr %17, align 8
-  %29 = load ptr, ptr @want_ignore, align 8
-  %30 = call ptr @tvbparse_init(ptr noundef %0, ptr noundef %3, i32 noundef %28, i32 noundef -1, ptr noundef null, ptr noundef %29) #8
-  %31 = load ptr, ptr @want_stream_end_with_ns, align 8
-  %32 = call ptr @tvbparse_get(ptr noundef %30, ptr noundef %31) #8
-  %.not105 = icmp eq ptr %32, null
-  br i1 %.not105, label %43, label %33
+  %31 = load i32, ptr %17, align 8
+  %32 = load ptr, ptr @want_ignore, align 8
+  %33 = call ptr @tvbparse_init(ptr noundef %0, ptr noundef %3, i32 noundef %31, i32 noundef -1, ptr noundef null, ptr noundef %32) #8
+  %34 = load ptr, ptr @want_stream_end_with_ns, align 8
+  %35 = call ptr @tvbparse_get(ptr noundef %33, ptr noundef %34) #8
+  %.not105 = icmp eq ptr %35, null
+  br i1 %.not105, label %46, label %36
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %32, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 28
-  %41 = load i32, ptr %40, align 4
-  %42 = call ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef 0) #8
-  store ptr %42, ptr %13, align 8
-  br label %43
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds i8, ptr %35, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 28
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %40, i32 noundef %42, i32 noundef %44, i32 noundef 0) #8
+  store ptr %45, ptr %13, align 8
+  br label %46
 
-43:                                               ; preds = %33, %25
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  %.097110 = load ptr, ptr %44, align 8
+46:                                               ; preds = %36, %26
+  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %.097110 = load ptr, ptr %47, align 8
   %.not106111 = icmp eq ptr %.097110, null
   br i1 %.not106111, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %43, %.thread
-  %.097112 = phi ptr [ %.097, %.thread ], [ %.097110, %43 ]
-  %45 = load i32, ptr %.097112, align 8
-  switch i32 %45, label %.thread [
-    i32 1, label %113
-    i32 4, label %46
-    i32 5, label %94
+.lr.ph:                                           ; preds = %46, %.thread
+  %.097112 = phi ptr [ %.097, %.thread ], [ %.097110, %46 ]
+  %48 = load i32, ptr %.097112, align 8
+  switch i32 %48, label %.thread [
+    i32 1, label %116
+    i32 4, label %49
+    i32 5, label %97
   ]
 
-46:                                               ; preds = %.lr.ph
-  %47 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
-  %48 = getelementptr inbounds i8, ptr %47, i64 20
-  store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 24
-  store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.097112, i64 64
-  %52 = load ptr, ptr %51, align 8
-  %.not109 = icmp eq ptr %52, null
-  br i1 %.not109, label %61, label %53
+49:                                               ; preds = %.lr.ph
+  %50 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
+  %51 = getelementptr inbounds i8, ptr %50, i64 20
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  store i32 0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 24
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.097112, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %.not109 = icmp eq ptr %55, null
+  br i1 %.not109, label %64, label %56
 
-53:                                               ; preds = %46
-  %54 = call i32 @tvb_reported_length(ptr noundef nonnull %52) #8
-  %55 = add i32 %54, 1
-  %56 = sext i32 %55 to i64
-  %57 = call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %56) #8
-  %58 = load ptr, ptr %51, align 8
-  %59 = sext i32 %54 to i64
-  %60 = call ptr @tvb_memcpy(ptr noundef %58, ptr noundef %57, i32 noundef 0, i64 noundef %59) #8
-  br label %61
+56:                                               ; preds = %49
+  %57 = call i32 @tvb_reported_length(ptr noundef nonnull %55) #8
+  %58 = add i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %59) #8
+  %61 = load ptr, ptr %54, align 8
+  %62 = sext i32 %57 to i64
+  %63 = call ptr @tvb_memcpy(ptr noundef %61, ptr noundef %60, i32 noundef 0, i64 noundef %62) #8
+  br label %64
 
-61:                                               ; preds = %53, %46
-  %.098 = phi ptr [ %57, %53 ], [ null, %46 ]
-  %62 = getelementptr inbounds i8, ptr %.097112, i64 104
-  %63 = load i32, ptr %62, align 8
-  store i32 %63, ptr %49, align 8
-  %64 = getelementptr inbounds i8, ptr %.097112, i64 108
-  %65 = load i32, ptr %64, align 4
-  store i32 %65, ptr %48, align 4
-  store ptr %.098, ptr %47, align 8
-  %66 = getelementptr inbounds i8, ptr %.097112, i64 56
-  %67 = load ptr, ptr %66, align 8
-  %68 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %67) #8
-  %69 = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %68, ptr %69, align 8
-  %70 = load ptr, ptr %9, align 8
-  %71 = call i32 @g_hash_table_insert(ptr noundef %70, ptr noundef %68, ptr noundef nonnull %47) #8
-  %72 = load ptr, ptr %69, align 8
-  %73 = call ptr @ws_ascii_strcasestr(ptr noundef %72, ptr noundef nonnull @.str.4) #8
-  %74 = load ptr, ptr %69, align 8
-  %75 = icmp eq ptr %73, %74
-  br i1 %75, label %76, label %.thread
+64:                                               ; preds = %56, %49
+  %.098 = phi ptr [ %60, %56 ], [ null, %49 ]
+  %65 = getelementptr inbounds i8, ptr %.097112, i64 104
+  %66 = load i32, ptr %65, align 8
+  store i32 %66, ptr %52, align 8
+  %67 = getelementptr inbounds i8, ptr %.097112, i64 108
+  %68 = load i32, ptr %67, align 4
+  store i32 %68, ptr %51, align 4
+  store ptr %.098, ptr %50, align 8
+  %69 = getelementptr inbounds i8, ptr %.097112, i64 56
+  %70 = load ptr, ptr %69, align 8
+  %71 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %70) #8
+  %72 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %71, ptr %72, align 8
+  %73 = load ptr, ptr %9, align 8
+  %74 = call i32 @g_hash_table_insert(ptr noundef %73, ptr noundef %71, ptr noundef nonnull %50) #8
+  %75 = load ptr, ptr %72, align 8
+  %76 = call ptr @ws_ascii_strcasestr(ptr noundef %75, ptr noundef nonnull @.str.4) #8
+  %77 = load ptr, ptr %72, align 8
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %79, label %.thread
 
-76:                                               ; preds = %61
-  %77 = getelementptr i8, ptr %74, i64 5
-  %78 = load i8, ptr %77, align 1
-  switch i8 %78, label %.thread [
-    i8 58, label %79
-    i8 0, label %89
+79:                                               ; preds = %64
+  %80 = getelementptr i8, ptr %77, i64 5
+  %81 = load i8, ptr %80, align 1
+  switch i8 %81, label %.thread [
+    i8 58, label %82
+    i8 0, label %92
   ]
-
-79:                                               ; preds = %76
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #9
-  %81 = icmp ugt i64 %80, 6
-  br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %79
-  %83 = load ptr, ptr %19, align 8
-  %84 = getelementptr i8, ptr %74, i64 6
-  %85 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %84) #8
-  %86 = load ptr, ptr %47, align 8
-  %87 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %86) #8
-  %88 = call i32 @g_hash_table_insert(ptr noundef %83, ptr noundef %85, ptr noundef %87) #8
+  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #9
+  %84 = icmp ugt i64 %83, 6
+  br i1 %84, label %85, label %.thread
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %20, align 8
+  %87 = getelementptr i8, ptr %77, i64 6
+  %88 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %87) #8
+  %89 = load ptr, ptr %50, align 8
+  %90 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %89) #8
+  %91 = call i32 @g_hash_table_insert(ptr noundef %86, ptr noundef %88, ptr noundef %90) #8
   br label %.thread
 
-89:                                               ; preds = %76
-  %90 = load ptr, ptr %19, align 8
-  %91 = load ptr, ptr %47, align 8
-  %92 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %91) #8
-  %93 = call i32 @g_hash_table_insert(ptr noundef %90, ptr noundef nonnull @.str.16, ptr noundef %92) #8
+92:                                               ; preds = %79
+  %93 = load ptr, ptr %20, align 8
+  %94 = load ptr, ptr %50, align 8
+  %95 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %94) #8
+  %96 = call i32 @g_hash_table_insert(ptr noundef %93, ptr noundef nonnull @.str.16, ptr noundef %95) #8
   br label %.thread
 
-94:                                               ; preds = %.lr.ph
-  %95 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #8
-  %96 = getelementptr inbounds i8, ptr %95, i64 12
-  store i32 0, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %.097112, i64 64
-  %99 = load ptr, ptr %98, align 8
-  %.not108 = icmp eq ptr %99, null
-  br i1 %.not108, label %108, label %100
+97:                                               ; preds = %.lr.ph
+  %98 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #8
+  %99 = getelementptr inbounds i8, ptr %98, i64 12
+  store i32 0, ptr %99, align 4
+  %100 = getelementptr inbounds i8, ptr %98, i64 8
+  store i32 0, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %.097112, i64 64
+  %102 = load ptr, ptr %101, align 8
+  %.not108 = icmp eq ptr %102, null
+  br i1 %.not108, label %111, label %103
 
-100:                                              ; preds = %94
-  %101 = call i32 @tvb_reported_length(ptr noundef nonnull %99) #8
-  %102 = add i32 %101, 1
-  %103 = sext i32 %102 to i64
-  %104 = call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %103) #8
-  %105 = load ptr, ptr %98, align 8
-  %106 = sext i32 %101 to i64
-  %107 = call ptr @tvb_memcpy(ptr noundef %105, ptr noundef %104, i32 noundef 0, i64 noundef %106) #8
-  br label %108
+103:                                              ; preds = %97
+  %104 = call i32 @tvb_reported_length(ptr noundef nonnull %102) #8
+  %105 = add i32 %104, 1
+  %106 = sext i32 %105 to i64
+  %107 = call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %106) #8
+  %108 = load ptr, ptr %101, align 8
+  %109 = sext i32 %104 to i64
+  %110 = call ptr @tvb_memcpy(ptr noundef %108, ptr noundef %107, i32 noundef 0, i64 noundef %109) #8
+  br label %111
 
-108:                                              ; preds = %100, %94
-  %.0 = phi ptr [ %104, %100 ], [ null, %94 ]
-  store ptr %.0, ptr %95, align 8
-  %109 = getelementptr inbounds i8, ptr %.097112, i64 104
-  %110 = load i32, ptr %109, align 8
-  store i32 %110, ptr %97, align 8
-  %111 = getelementptr inbounds i8, ptr %.097112, i64 108
-  %112 = load i32, ptr %111, align 4
-  store i32 %112, ptr %96, align 4
-  store ptr %95, ptr %11, align 8
+111:                                              ; preds = %103, %97
+  %.0 = phi ptr [ %107, %103 ], [ null, %97 ]
+  store ptr %.0, ptr %98, align 8
+  %112 = getelementptr inbounds i8, ptr %.097112, i64 104
+  %113 = load i32, ptr %112, align 8
+  store i32 %113, ptr %100, align 8
+  %114 = getelementptr inbounds i8, ptr %.097112, i64 108
+  %115 = load i32, ptr %114, align 4
+  store i32 %115, ptr %99, align 4
+  store ptr %98, ptr %11, align 8
   br label %.thread
 
-113:                                              ; preds = %.lr.ph
-  %114 = load ptr, ptr %10, align 8
-  %115 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr noundef nonnull %.097112, ptr noundef nonnull %7, ptr noundef %3)
-  %116 = call ptr @g_list_append(ptr noundef %114, ptr noundef %115) #8
-  store ptr %116, ptr %10, align 8
+116:                                              ; preds = %.lr.ph
+  %117 = load ptr, ptr %10, align 8
+  %118 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr noundef nonnull %.097112, ptr noundef nonnull %7, ptr noundef %3)
+  %119 = call ptr @g_list_append(ptr noundef %117, ptr noundef %118) #8
+  store ptr %119, ptr %10, align 8
   br label %.thread
 
-.thread:                                          ; preds = %76, %79, %.lr.ph, %82, %89, %61, %108, %113
-  %117 = getelementptr inbounds i8, ptr %.097112, i64 40
-  %.097 = load ptr, ptr %117, align 8
+.thread:                                          ; preds = %79, %82, %.lr.ph, %85, %92, %64, %111, %116
+  %120 = getelementptr inbounds i8, ptr %.097112, i64 40
+  %.097 = load ptr, ptr %120, align 8
   %.not106 = icmp eq ptr %.097, null
   br i1 %.not106, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.thread, %43
-  %118 = call ptr @except_pop() #8
+._crit_edge:                                      ; preds = %.thread, %46
+  %121 = call ptr @except_pop() #8
   ret ptr %7
 }
 
@@ -2373,14 +2377,18 @@ define hidden noalias noundef ptr @xmpp_transform_func_cdata(ptr noundef %0, ptr
 7:                                                ; preds = %2, %5
   %8 = phi ptr [ %6, %5 ], [ @.str.16, %2 ]
   %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %10 = load <2 x i32>, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
-  store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  store <2 x i32> %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr null, ptr %13, align 8
-  ret ptr %11
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 52
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
+  store ptr %8, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 %10, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 20
+  store i32 %12, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr null, ptr %16, align 8
+  ret ptr %13
 }
 
 ; Function Attrs: noreturn

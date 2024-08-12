@@ -50,8 +50,8 @@ $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9LogOpDataEED2Ev = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
+@_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev20SONY_SLOG3_to_LINEARL6paramsE = internal global %"class.std::vector" zeroinitializer, align 8
 @constinit = private unnamed_addr constant [6 x double] [double 0x3FD05C1705C1705C, double 0x3FDA4691A4691A47, double 0x40150D79435E50D8, double 0x3FAAF286BCA1AF28, double 1.125000e-02, double 0x401A7CDECFF81EBA], align 8
 @_ZN19OpenColorIO_v2_4dev20SONY_SLOG3_to_LINEARL3logE = internal global %"class.OpenColorIO_v2_4dev::LogOpData" zeroinitializer, align 8
@@ -1079,14 +1079,22 @@ define internal void @_GLOBAL__sub_I_SonyCameras.cpp() #11 section ".text.startu
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store <2 x double> <double 7.300000e-01, double 2.800000e-01>, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, align 16
-  store <2 x double> <double 1.400000e-01, double 0x3FEB5C28F5C28F5C>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 16), align 16
-  store <2 x double> <double 1.000000e-01, double -5.000000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 48), align 16
-  store <2 x double> <double 7.660000e-01, double 2.750000e-01>, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, align 16
-  store <2 x double> <double 2.250000e-01, double 8.000000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 16), align 16
-  store <2 x double> <double 0x3FB6C8B439581062, double 0xBFB645A1CAC08312>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 48), align 16
+  store double 7.300000e-01, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, align 8
+  store double 2.800000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 8), align 8
+  store double 1.400000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 16), align 8
+  store double 0x3FEB5C28F5C28F5C, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 24), align 8
+  store double 1.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 32), align 8
+  store double -5.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12SONY_SGAMUT3L9primariesE, i64 56), align 8
+  store double 7.660000e-01, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, align 8
+  store double 2.750000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 8), align 8
+  store double 2.250000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 16), align 8
+  store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 24), align 8
+  store double 0x3FB6C8B439581062, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 32), align 8
+  store double 0xBFB645A1CAC08312, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev17SONY_SGAMUT3_CINEL9primariesE, i64 56), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_4dev20SONY_SLOG3_to_LINEARL6paramsE, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   store ptr %call5.i.i.i.i2.i.i, ptr @_ZN19OpenColorIO_v2_4dev20SONY_SLOG3_to_LINEARL6paramsE, align 8

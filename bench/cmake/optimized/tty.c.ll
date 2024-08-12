@@ -236,11 +236,11 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.termios, align 16
+  %3 = alloca %struct.termios, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 308
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %1
-  br i1 %6, label %46, label %7
+  br i1 %6, label %53, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 184
@@ -267,7 +267,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
 
 .critedge:                                        ; preds = %16
   %20 = sub nsw i32 0, %18
-  br label %46
+  br label %53
 
 .critedge21:                                      ; preds = %13
   %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !9
@@ -296,53 +296,63 @@ uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedg
 
 27:                                               ; preds = %26, %7
   %28 = getelementptr inbounds i8, ptr %0, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %28, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %28, i64 60, i1 false)
   switch i32 %1, label %.preheader30 [
-    i32 2, label %36
+    i32 2, label %43
     i32 1, label %29
   ]
 
 29:                                               ; preds = %27
-  %30 = load <4 x i32>, ptr %3, align 16
-  %31 = and <4 x i32> %30, <i32 -1331, i32 poison, i32 poison, i32 -32780>
-  %32 = or <4 x i32> %30, <i32 poison, i32 4, i32 48, i32 poison>
-  %33 = shufflevector <4 x i32> %31, <4 x i32> %32, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
-  store <4 x i32> %33, ptr %3, align 16
-  %34 = getelementptr inbounds i8, ptr %3, i64 23
-  store i8 1, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 22
-  store i8 0, ptr %35, align 2
+  %30 = load i32, ptr %3, align 4
+  %31 = and i32 %30, -1331
+  store i32 %31, ptr %3, align 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = or i32 %33, 4
+  store i32 %34, ptr %32, align 4
+  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = load i32, ptr %35, align 4
+  %37 = or i32 %36, 48
+  store i32 %37, ptr %35, align 4
+  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %39, -32780
+  store i32 %40, ptr %38, align 4
+  %41 = getelementptr inbounds i8, ptr %3, i64 23
+  store i8 1, ptr %41, align 1
+  %42 = getelementptr inbounds i8, ptr %3, i64 22
+  store i8 0, ptr %42, align 2
   br label %.preheader30
 
-36:                                               ; preds = %27
+43:                                               ; preds = %27
   call void @cfmakeraw(ptr noundef nonnull %3) #8
   br label %.preheader30
 
-.preheader30:                                     ; preds = %36, %29, %27
-  br label %37
+.preheader30:                                     ; preds = %43, %29, %27
+  br label %44
 
-37:                                               ; preds = %.preheader30, %40
-  %38 = call i32 @tcsetattr(i32 noundef %9, i32 noundef 1, ptr noundef nonnull %3) #8
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %uv__tcsetattr.exit.thread
+44:                                               ; preds = %.preheader30, %47
+  %45 = call i32 @tcsetattr(i32 noundef %9, i32 noundef 1, ptr noundef nonnull %3) #8
+  %46 = icmp eq i32 %45, -1
+  br i1 %46, label %47, label %uv__tcsetattr.exit.thread
 
-40:                                               ; preds = %37
-  %41 = tail call ptr @__errno_location() #9
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 4
-  br i1 %43, label %37, label %uv__tcsetattr.exit, !llvm.loop !5
+47:                                               ; preds = %44
+  %48 = tail call ptr @__errno_location() #9
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 4
+  br i1 %50, label %44, label %uv__tcsetattr.exit, !llvm.loop !5
 
-uv__tcsetattr.exit:                               ; preds = %40
-  %44 = sub nsw i32 0, %42
-  %45 = icmp eq i32 %42, 0
-  br i1 %45, label %uv__tcsetattr.exit.thread, label %46
+uv__tcsetattr.exit:                               ; preds = %47
+  %51 = sub nsw i32 0, %49
+  %52 = icmp eq i32 %49, 0
+  br i1 %52, label %uv__tcsetattr.exit.thread, label %53
 
-uv__tcsetattr.exit.thread:                        ; preds = %37, %uv__tcsetattr.exit
+uv__tcsetattr.exit.thread:                        ; preds = %44, %uv__tcsetattr.exit
   store i32 %1, ptr %4, align 4
-  br label %46
+  br label %53
 
-46:                                               ; preds = %uv__tcsetattr.exit, %uv__tcsetattr.exit.thread, %2, %.critedge
-  %.0 = phi i32 [ %20, %.critedge ], [ 0, %2 ], [ 0, %uv__tcsetattr.exit.thread ], [ %44, %uv__tcsetattr.exit ]
+53:                                               ; preds = %uv__tcsetattr.exit, %uv__tcsetattr.exit.thread, %2, %.critedge
+  %.0 = phi i32 [ %20, %.critedge ], [ 0, %2 ], [ 0, %uv__tcsetattr.exit.thread ], [ %51, %uv__tcsetattr.exit ]
   ret i32 %.0
 }
 

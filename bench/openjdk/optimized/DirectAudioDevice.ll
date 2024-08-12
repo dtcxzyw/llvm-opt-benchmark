@@ -2508,12 +2508,12 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   %or.cond.not = icmp slt i32 %9, 0
   %.not = icmp eq i64 %2, 0
   %or.cond = or i1 %.not, %or.cond.not
-  br i1 %or.cond, label %60, label %10
+  br i1 %or.cond, label %65, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %8, align 8
   %.not34 = icmp eq ptr %11, null
-  br i1 %.not34, label %60, label %12
+  br i1 %.not34, label %65, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
@@ -2521,7 +2521,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %60, label %18
+  br i1 %17, label %65, label %18
 
 18:                                               ; preds = %12
   %19 = zext nneg i32 %4 to i64
@@ -2605,24 +2605,32 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.365.i = phi ptr [ %54, %.lr.ph.i ], [ %20, %.lr.ph.preheader.i ]
-  %.35963.i = phi i32 [ %55, %.lr.ph.i ], [ %51, %.lr.ph.preheader.i ]
-  %52 = load <4 x i8>, ptr %.365.i, align 1
-  %53 = shufflevector <4 x i8> %52, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %53, ptr %.365.i, align 1
-  %54 = getelementptr i8, ptr %.365.i, i64 4
-  %55 = add nsw i32 %.35963.i, -1
-  %56 = icmp ugt i32 %.35963.i, 1
-  br i1 %56, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
+  %.365.i = phi ptr [ %59, %.lr.ph.i ], [ %20, %.lr.ph.preheader.i ]
+  %.35963.i = phi i32 [ %60, %.lr.ph.i ], [ %51, %.lr.ph.preheader.i ]
+  %52 = load i8, ptr %.365.i, align 1
+  %53 = getelementptr inbounds i8, ptr %.365.i, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr inbounds i8, ptr %.365.i, i64 3
+  %56 = load i8, ptr %55, align 1
+  store i8 %56, ptr %.365.i, align 1
+  %57 = getelementptr inbounds i8, ptr %.365.i, i64 2
+  %58 = load i8, ptr %57, align 1
+  store i8 %58, ptr %53, align 1
+  store i8 %54, ptr %57, align 1
+  store i8 %52, ptr %55, align 1
+  %59 = getelementptr i8, ptr %.365.i, i64 4
+  %60 = add nsw i32 %.35963.i, -1
+  %61 = icmp ugt i32 %.35963.i, 1
+  br i1 %61, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
 
 handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69.i, %.lr.ph73.i, %.lr.ph77.i, %49, %40, %31, %.preheader.i, %24, %18
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1536
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %16, i32 noundef 0) #7
-  br label %60
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 1536
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %16, i32 noundef 0) #7
+  br label %65
 
-60:                                               ; preds = %10, %handleSignEndianConversion.exit, %12, %7
+65:                                               ; preds = %10, %handleSignEndianConversion.exit, %12, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %12 ], [ %22, %handleSignEndianConversion.exit ], [ -1, %10 ]
   ret i32 %.0
 }

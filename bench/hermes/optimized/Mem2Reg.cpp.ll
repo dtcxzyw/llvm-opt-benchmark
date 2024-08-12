@@ -1562,9 +1562,12 @@ if.end13.i.i.i.i98:                               ; preds = %if.end9.i.i.i.i94
 if.end.i.i104:                                    ; preds = %if.end13.i.i.i.i98, %if.end.i.i.i.i84
   %cond.sink.i.i.ph.i.i = phi ptr [ %add.ptr21.i.i.i.i92, %if.end.i.i.i.i84 ], [ %add.ptr.i.i.i.i103, %if.end13.i.i.i.i98 ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i.i, align 8
-  %149 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i, align 8
-  %150 = add <2 x i32> %149, <i32 -1, i32 1>
-  store <2 x i32> %150, ptr %NumEntries.i.i.i.i.i, align 8
+  %149 = load i32, ptr %NumEntries.i.i.i.i.i, align 8
+  %sub.i.i.i105 = add i32 %149, -1
+  store i32 %sub.i.i.i105, ptr %NumEntries.i.i.i.i.i, align 8
+  %150 = load i32, ptr %NumTombstones.i.i.i.i.i, align 4
+  %add.i.i.i106 = add i32 %150, 1
+  store i32 %add.i.i.i106, ptr %NumTombstones.i.i.i.i.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end9.i.i.i.i94, %if.end.i.i104, %if.then32.i, %for.body28.i

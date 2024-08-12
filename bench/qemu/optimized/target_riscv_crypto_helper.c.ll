@@ -221,11 +221,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %temp.0 = phi i32 [ %or.i, %if.then ], [ %conv1, %entry ]
-  %1 = insertelement <4 x i32> poison, i32 %temp.0, i64 0
-  %2 = shufflevector <4 x i32> %1, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %2, ptr %t, align 16
-  %3 = load i32, ptr @cpuinfo, align 4
-  %and.i = and i32 %3, 262144
+  %arrayidx7 = getelementptr inbounds i8, ptr %t, i64 12
+  store i32 %temp.0, ptr %arrayidx7, align 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %t, i64 8
+  store i32 %temp.0, ptr %arrayidx8, align 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %t, i64 4
+  store i32 %temp.0, ptr %arrayidx9, align 4
+  store i32 %temp.0, ptr %t, align 16
+  %1 = load i32, ptr @cpuinfo, align 4
+  %and.i = and i32 %1, 262144
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
@@ -238,8 +242,8 @@ if.then7.i:                                       ; preds = %if.end
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
-  %4 = load i64, ptr %t, align 16
-  ret i64 %4
+  %2 = load i64, ptr %t, align 16
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -2464,7 +2464,7 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %16
-  br i1 %19, label %20, label %53
+  br i1 %19, label %20, label %56
 
 20:                                               ; preds = %15
   %21 = mul nsw i32 %12, 3
@@ -2545,11 +2545,15 @@ _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %._crit_edge, %.preh
   %50 = load ptr, ptr %3, align 8
   store ptr %50, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %3, i64 8
-  %52 = load <2 x i32>, ptr %51, align 8
-  store <2 x i32> %52, ptr %11, align 8
-  br label %53
+  %52 = load i32, ptr %51, align 8
+  store i32 %52, ptr %11, align 8
+  %53 = getelementptr inbounds i8, ptr %3, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %54, ptr %55, align 4
+  br label %56
 
-53:                                               ; preds = %_ZN6Gluco23vecIjED2Ev.exit, %15
+56:                                               ; preds = %_ZN6Gluco23vecIjED2Ev.exit, %15
   ret void
 }
 
@@ -6790,11 +6794,15 @@ _ZN6Gluco215ClauseAllocatorD2Ev.exit4:            ; preds = %29, %33
   %34 = load ptr, ptr %2, align 8
   store ptr %34, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = load <2 x i32>, ptr %35, align 8
-  store <2 x i32> %36, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  %38 = load i32, ptr %37, align 8
-  store i32 %38, ptr %6, align 8
+  %36 = load i32, ptr %35, align 8
+  store i32 %36, ptr %4, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 12
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 876
+  store i32 %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = load i32, ptr %40, align 8
+  store i32 %41, ptr %6, align 8
   ret void
 }
 
@@ -8382,7 +8390,8 @@ define internal void @_GLOBAL__sub_I_SimpSolver2.cpp() #16 section ".text.startu
   store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL21opt_simp_garbage_frac, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.50)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZL21opt_simp_garbage_frac, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 57), align 1
   store double 5.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8

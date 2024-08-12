@@ -188,7 +188,7 @@ define internal noundef i32 @H5FD_stdio_term() #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
-  %5 = alloca %struct.stat, align 16
+  %5 = alloca %struct.stat, align 8
   %6 = alloca i8, align 1
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %.not = icmp eq ptr %0, null
@@ -207,7 +207,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %15 = tail call i32 @H5open() #12
   %16 = load i64, ptr @H5E_BADVALUE_g, align 8
   %17 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 349, i64 noundef %12, i64 noundef %14, i64 noundef %16, ptr noundef nonnull @.str.9) #12
-  br label %156
+  br label %159
 
 18:                                               ; preds = %8
   %19 = add i64 %3, 1
@@ -222,7 +222,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %25 = tail call i32 @H5open() #12
   %26 = load i64, ptr @H5E_BADRANGE_g, align 8
   %27 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 351, i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef nonnull @.str.10) #12
-  br label %156
+  br label %159
 
 28:                                               ; preds = %18
   %.not56 = icmp sgt i64 %3, -1
@@ -236,7 +236,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %34 = tail call i32 @H5open() #12
   %35 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %36 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 353, i64 noundef %31, i64 noundef %33, i64 noundef %35, ptr noundef nonnull @.str.11) #12
-  br label %156
+  br label %159
 
 37:                                               ; preds = %28
   %38 = tail call i32 @H5check_version(i32 noundef 1, i32 noundef 15, i32 noundef 0) #12
@@ -267,7 +267,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %53 = tail call i32 @H5open() #12
   %54 = load i64, ptr @H5E_CANTOPENFILE_g, align 8
   %55 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 370, i64 noundef %50, i64 noundef %52, i64 noundef %54, ptr noundef nonnull @.str.15) #12
-  br label %156
+  br label %159
 
 56:                                               ; preds = %37
   %57 = and i32 %1, 4
@@ -283,7 +283,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %64 = tail call i32 @H5open() #12
   %65 = load i64, ptr @H5E_FILEEXISTS_g, align 8
   %66 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 377, i64 noundef %61, i64 noundef %63, i64 noundef %65, ptr noundef nonnull @.str.16) #12
-  br label %156
+  br label %159
 
 67:                                               ; preds = %56
   %68 = tail call i32 @H5check_version(i32 noundef 1, i32 noundef 15, i32 noundef 0) #12
@@ -314,7 +314,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %82 = tail call i32 @H5open() #12
   %83 = load i64, ptr @H5E_CANTOPENFILE_g, align 8
   %84 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 388, i64 noundef %79, i64 noundef %81, i64 noundef %83, ptr noundef nonnull @.str.17) #12
-  br label %156
+  br label %159
 
 .thread:                                          ; preds = %70, %67, %76
   %.04868 = phi i32 [ 1, %76 ], [ 1, %70 ], [ 0, %67 ]
@@ -332,7 +332,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %93 = tail call i32 @H5open() #12
   %94 = load i64, ptr @H5E_NOSPACE_g, align 8
   %95 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 393, i64 noundef %90, i64 noundef %92, i64 noundef %94, ptr noundef nonnull @.str.18) #12
-  br label %156
+  br label %159
 
 96:                                               ; preds = %.thread
   %97 = getelementptr inbounds i8, ptr %85, i64 80
@@ -386,7 +386,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %124 = call i32 @H5open() #12
   %125 = load i64, ptr @H5E_CANTGET_g, align 8
   %126 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 420, i64 noundef %121, i64 noundef %123, i64 noundef %125, ptr noundef nonnull @.str.19) #12
-  br label %156
+  br label %159
 
 127:                                              ; preds = %114, %110
   %128 = load ptr, ptr %97, align 8
@@ -406,7 +406,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %138 = call i32 @H5open() #12
   %139 = load i64, ptr @H5E_CANTOPENFILE_g, align 8
   %140 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 433, i64 noundef %135, i64 noundef %137, i64 noundef %139, ptr noundef nonnull @.str.20) #12
-  br label %156
+  br label %159
 
 141:                                              ; preds = %127
   %142 = call i32 @fstat64(i32 noundef %129, ptr noundef nonnull %5) #12
@@ -423,15 +423,19 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   %150 = call i32 @H5open() #12
   %151 = load i64, ptr @H5E_BADFILE_g, align 8
   %152 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, i32 noundef 458, i64 noundef %147, i64 noundef %149, i64 noundef %151, ptr noundef nonnull @.str.21) #12
-  br label %156
+  br label %159
 
 153:                                              ; preds = %141
-  %154 = getelementptr inbounds i8, ptr %85, i64 136
-  %155 = load <2 x i64>, ptr %5, align 16
-  store <2 x i64> %155, ptr %154, align 8
-  br label %156
+  %154 = load i64, ptr %5, align 8
+  %155 = getelementptr inbounds i8, ptr %85, i64 136
+  store i64 %154, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %5, i64 8
+  %157 = load i64, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %85, i64 144
+  store i64 %157, ptr %158, align 8
+  br label %159
 
-156:                                              ; preds = %153, %144, %132, %118, %87, %77, %58, %48, %29, %20, %10
+159:                                              ; preds = %153, %144, %132, %118, %87, %77, %58, %48, %29, %20, %10
   %.0 = phi ptr [ null, %20 ], [ null, %29 ], [ null, %58 ], [ null, %87 ], [ null, %132 ], [ null, %144 ], [ %85, %153 ], [ null, %118 ], [ null, %77 ], [ null, %48 ], [ null, %10 ]
   ret ptr %.0
 }

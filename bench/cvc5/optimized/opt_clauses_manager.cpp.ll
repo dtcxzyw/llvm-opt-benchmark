@@ -86,7 +86,7 @@ cond.end:
   %ref.tmp.i1096 = alloca %"struct.std::pair.70", align 8
   %processedPropgation = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp82 = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp82 = alloca %"class.std::shared_ptr", align 8
   %d_context = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_context, align 8
   %call = tail call noundef i32 @_ZNK4cvc57context7Context8getLevelEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -187,15 +187,16 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont78, %if.
 
 if.then80:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %15 = load ptr, ptr %d_parentProof, align 8
+  %16 = load ptr, ptr %__begin4.sroa.0.01167, align 8
+  store ptr %16, ptr %agg.tmp82, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.01167, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %17 = load <2 x ptr>, ptr %__begin4.sroa.0.01167, align 8
-  store <2 x ptr> %17, ptr %agg.tmp82, align 16
-  %cmp.not.i.i.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %17, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then80
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

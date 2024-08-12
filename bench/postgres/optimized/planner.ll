@@ -325,11 +325,12 @@ get_cheapest_fractional_path.exit:                ; preds = %91, %61, %75, %.lr.
   %149 = load ptr, ptr %127, align 8
   call void @SS_compute_initplan_cost(ptr noundef %149, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %150 = load double, ptr %5, align 8
-  %151 = load <2 x double>, ptr %129, align 8
-  %152 = insertelement <2 x double> poison, double %150, i64 0
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> zeroinitializer
-  %154 = fsub <2 x double> %151, %153
-  store <2 x double> %154, ptr %129, align 8
+  %151 = load double, ptr %129, align 8
+  %152 = fsub double %151, %150
+  store double %152, ptr %129, align 8
+  %153 = load double, ptr %134, align 8
+  %154 = fsub double %153, %150
+  store double %154, ptr %134, align 8
   %155 = getelementptr inbounds i8, ptr %62, i64 16
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 119

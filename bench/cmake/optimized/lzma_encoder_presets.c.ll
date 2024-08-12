@@ -13,75 +13,81 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture nound
   %5 = and i32 %1, 2147483616
   %.not = icmp eq i32 %5, 0
   %or.cond37 = and i1 %4, %.not
-  br i1 %or.cond37, label %6, label %35
+  br i1 %or.cond37, label %6, label %38
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 3, i32 0, i32 2>, ptr %8, align 8
-  %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr inbounds [10 x i8], ptr @lzma_lzma_preset.dict_pow2, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext nneg i8 %11 to i32
-  %13 = shl nuw i32 1, %12
-  store i32 %13, ptr %0, align 8
-  %14 = icmp ult i32 %3, 4
-  br i1 %14, label %15, label %23
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 3, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 2, ptr %11, align 4
+  %12 = zext nneg i32 %3 to i64
+  %13 = getelementptr inbounds [10 x i8], ptr @lzma_lzma_preset.dict_pow2, i64 0, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = zext nneg i8 %14 to i32
+  %16 = shl nuw i32 1, %15
+  store i32 %16, ptr %0, align 8
+  %17 = icmp ult i32 %3, 4
+  br i1 %17, label %18, label %26
 
-15:                                               ; preds = %6
-  %16 = icmp eq i32 %3, 0
-  %17 = select i1 %16, i32 3, i32 4
-  %18 = icmp ult i32 %3, 2
-  %19 = select i1 %18, i32 128, i32 273
-  %20 = getelementptr inbounds [4 x i8], ptr @lzma_lzma_preset.depths, i64 0, i64 %9
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  br label %28
+18:                                               ; preds = %6
+  %19 = icmp eq i32 %3, 0
+  %20 = select i1 %19, i32 3, i32 4
+  %21 = icmp ult i32 %3, 2
+  %22 = select i1 %21, i32 128, i32 273
+  %23 = getelementptr inbounds [4 x i8], ptr @lzma_lzma_preset.depths, i64 0, i64 %12
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  br label %31
 
-23:                                               ; preds = %6
-  %24 = icmp eq i32 %3, 4
-  %25 = icmp eq i32 %3, 5
-  %26 = select i1 %25, i32 32, i32 64
-  %27 = select i1 %24, i32 16, i32 %26
-  br label %28
+26:                                               ; preds = %6
+  %27 = icmp eq i32 %3, 4
+  %28 = icmp eq i32 %3, 5
+  %29 = select i1 %28, i32 32, i32 64
+  %30 = select i1 %27, i32 16, i32 %29
+  br label %31
 
-28:                                               ; preds = %23, %15
-  %.sink40 = phi i32 [ 1, %15 ], [ 2, %23 ]
-  %.sink39 = phi i32 [ %17, %15 ], [ 20, %23 ]
-  %.sink38 = phi i32 [ %19, %15 ], [ %27, %23 ]
-  %.sink = phi i32 [ %22, %15 ], [ 0, %23 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %.sink40, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.sink39, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %.sink38, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.sink, ptr %32, align 4
+31:                                               ; preds = %26, %18
+  %.sink40 = phi i32 [ 1, %18 ], [ 2, %26 ]
+  %.sink39 = phi i32 [ %20, %18 ], [ 20, %26 ]
+  %.sink38 = phi i32 [ %22, %18 ], [ %30, %26 ]
+  %.sink = phi i32 [ %25, %18 ], [ 0, %26 ]
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %.sink40, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %.sink39, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %.sink38, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %.sink, ptr %35, align 4
   %.not36 = icmp sgt i32 %1, -1
-  br i1 %.not36, label %35, label %33
+  br i1 %.not36, label %38, label %36
 
-33:                                               ; preds = %28
-  store i32 2, ptr %29, align 8
-  store i32 20, ptr %30, align 8
-  switch i32 %3, label %34 [
+36:                                               ; preds = %31
+  store i32 2, ptr %32, align 8
+  store i32 20, ptr %33, align 8
+  switch i32 %3, label %37 [
     i32 5, label %.sink.split
     i32 3, label %.sink.split
   ]
 
-34:                                               ; preds = %33
+37:                                               ; preds = %36
   br label %.sink.split
 
-.sink.split:                                      ; preds = %33, %33, %34
-  %.sink42 = phi i32 [ 273, %34 ], [ 192, %33 ], [ 192, %33 ]
-  %.sink41 = phi i32 [ 512, %34 ], [ 0, %33 ], [ 0, %33 ]
-  store i32 %.sink42, ptr %31, align 4
-  store i32 %.sink41, ptr %32, align 4
-  br label %35
+.sink.split:                                      ; preds = %36, %36, %37
+  %.sink42 = phi i32 [ 273, %37 ], [ 192, %36 ], [ 192, %36 ]
+  %.sink41 = phi i32 [ 512, %37 ], [ 0, %36 ], [ 0, %36 ]
+  store i32 %.sink42, ptr %34, align 4
+  store i32 %.sink41, ptr %35, align 4
+  br label %38
 
-35:                                               ; preds = %.sink.split, %28, %2
-  %.0 = phi i8 [ 1, %2 ], [ 0, %28 ], [ 0, %.sink.split ]
+38:                                               ; preds = %.sink.split, %31, %2
+  %.0 = phi i8 [ 1, %2 ], [ 0, %31 ], [ 0, %.sink.split ]
   ret i8 %.0
 }
 

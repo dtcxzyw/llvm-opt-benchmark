@@ -1800,7 +1800,13 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %if.end182, %_ZNKSt1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %b) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %a) #20
   %call5.i.i.i.i2.i329 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-  store <4 x i32> <i32 1, i32 2, i32 3, i32 -4>, ptr %call5.i.i.i.i2.i329, align 4
+  store i32 1, ptr %call5.i.i.i.i2.i329, align 4
+  %ref.tmp190.sroa.2.0.call5.i.i.i.i2.i329.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i329, i64 4
+  store i32 2, ptr %ref.tmp190.sroa.2.0.call5.i.i.i.i2.i329.sroa_idx, align 4
+  %ref.tmp190.sroa.3.0.call5.i.i.i.i2.i329.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i329, i64 8
+  store i32 3, ptr %ref.tmp190.sroa.3.0.call5.i.i.i.i2.i329.sroa_idx, align 4
+  %ref.tmp190.sroa.4.0.call5.i.i.i.i2.i329.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i329, i64 12
+  store i32 -4, ptr %ref.tmp190.sroa.4.0.call5.i.i.i.i2.i329.sroa_idx, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp203) #20
   %digits_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i341, i64 16
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i to i64

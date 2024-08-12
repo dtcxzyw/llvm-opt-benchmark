@@ -55,31 +55,33 @@ $_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN24ciExceptionHandlerStream5countEv(ptr noundef nonnull align 8 dereferenceable(29) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
-  %4 = load <2 x i32>, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = load i32, ptr %4, align 4
   store i32 -1, ptr %2, align 8
-  %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
-  %7 = load i32, ptr %6, align 8
-  store i32 %7, ptr %3, align 4
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %8 = load i32, ptr %7, align 8
+  store i32 %8, ptr %4, align 4
   tail call void @_ZN24ciExceptionHandlerStream4nextEv(ptr noundef nonnull align 8 dereferenceable(29) %0)
-  %8 = load i32, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %.not4 = icmp slt i32 %8, %9
+  %9 = load i32, ptr %2, align 8
+  %10 = load i32, ptr %4, align 4
+  %.not4 = icmp slt i32 %9, %10
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.05 = phi i32 [ %10, %.lr.ph ], [ 0, %1 ]
-  %10 = add nuw nsw i32 %.05, 1
+  %.05 = phi i32 [ %11, %.lr.ph ], [ 0, %1 ]
+  %11 = add nuw nsw i32 %.05, 1
   tail call void @_ZN24ciExceptionHandlerStream4nextEv(ptr noundef nonnull align 8 dereferenceable(29) %0)
-  %11 = load i32, ptr %2, align 8
-  %12 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %11, %12
+  %12 = load i32, ptr %2, align 8
+  %13 = load i32, ptr %4, align 4
+  %.not = icmp slt i32 %12, %13
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %10, %.lr.ph ]
-  store <2 x i32> %4, ptr %2, align 8
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %11, %.lr.ph ]
+  store i32 %3, ptr %2, align 8
+  store i32 %5, ptr %4, align 4
   ret i32 %.0.lcssa
 }
 

@@ -5,18 +5,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define noundef float @_Z33nbnxmPairlistVolumeRadiusIncreasebf(i1 noundef zeroext %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = insertelement <2 x i1> poison, i1 %0, i64 0
-  %4 = shufflevector <2 x i1> %3, <2 x i1> poison, <2 x i32> zeroinitializer
-  %5 = select <2 x i1> %4, <2 x float> <float 7.000000e+00, float 3.000000e+00>, <2 x float> <float 3.000000e+00, float 7.000000e+00>
-  %6 = insertelement <2 x float> poison, float %1, i64 0
-  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
-  %8 = fdiv <2 x float> %5, %7
-  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fadd <2 x float> %8, %shift
-  %10 = extractelement <2 x float> %9, i64 0
-  %11 = tail call noundef float @cbrtf(float noundef %10) #5
-  %12 = fmul float %11, 0x3FE3333340000000
-  ret float %12
+  %. = select i1 %0, float 3.000000e+00, float 7.000000e+00
+  %.7 = select i1 %0, float 7.000000e+00, float 3.000000e+00
+  %3 = fdiv float %.7, %1
+  %4 = fdiv float %., %1
+  %5 = fadd float %3, %4
+  %6 = tail call noundef float @cbrtf(float noundef %5) #5
+  %7 = fmul float %6, 0x3FE3333340000000
+  ret float %7
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

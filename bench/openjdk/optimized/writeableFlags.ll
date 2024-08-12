@@ -977,7 +977,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   %.0.i.i = phi i32 [ %26, %25 ], [ 7, %13 ], [ 3, %22 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %113
+  br label %116
 
 27:                                               ; preds = %4
   %28 = trunc i64 %.sroa.0.0.copyload to i32
@@ -1004,7 +1004,7 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   %.0.i.i59 = phi i32 [ %38, %37 ], [ 7, %27 ], [ 3, %34 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i59, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %113
+  br label %116
 
 39:                                               ; preds = %4
   %40 = trunc i64 %.sroa.0.0.copyload to i32
@@ -1031,7 +1031,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   %.0.i.i61 = phi i32 [ %50, %49 ], [ 7, %39 ], [ 3, %46 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i61, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %113
+  br label %116
 
 51:                                               ; preds = %4
   %52 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1057,7 +1057,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   %.0.i.i63 = phi i32 [ %61, %60 ], [ 7, %51 ], [ 3, %57 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i63, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %113
+  br label %116
 
 62:                                               ; preds = %4
   %63 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1083,31 +1083,31 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   %.0.i.i65 = phi i32 [ %72, %71 ], [ 7, %62 ], [ 3, %68 ]
   call fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5ErrorEPKS_R12FormatBufferILm80EE(i32 noundef %.0.i.i65, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %113
+  br label %116
 
 73:                                               ; preds = %4
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %75, i64 noundef %.sroa.0.0.copyload, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
-  br label %113
+  br label %116
 
 77:                                               ; preds = %4
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %79, i64 noundef %.sroa.0.0.copyload, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
-  br label %113
+  br label %116
 
 81:                                               ; preds = %4
   %82 = bitcast i64 %.sroa.0.0.copyload to double
   %83 = getelementptr inbounds i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %84, double noundef %82, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
-  br label %113
+  br label %116
 
 86:                                               ; preds = %4
   %87 = and i32 %12, -2
   %spec.select.i = icmp eq i32 %87, 8
-  br i1 %spec.select.i, label %88, label %111
+  br i1 %spec.select.i, label %88, label %114
 
 88:                                               ; preds = %86
   %89 = inttoptr i64 %.sroa.0.0.copyload to ptr
@@ -1117,7 +1117,7 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 
 92:                                               ; preds = %88
   tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm80EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull @.str.16)
-  br label %113
+  br label %116
 
 93:                                               ; preds = %88
   %94 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1127,31 +1127,35 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   store ptr %97, ptr %10, align 8
   %98 = getelementptr inbounds i8, ptr %10, i64 8
   %99 = getelementptr inbounds i8, ptr %97, i64 24
-  %100 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %100, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %10, i64 24
-  %102 = getelementptr inbounds i8, ptr %97, i64 40
+  %100 = load ptr, ptr %99, align 8
+  store ptr %100, ptr %98, align 8
+  %101 = getelementptr inbounds i8, ptr %10, i64 16
+  %102 = getelementptr inbounds i8, ptr %97, i64 32
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %10, i64 32
-  %105 = getelementptr inbounds i8, ptr %97, i64 8
-  %106 = load i64, ptr %105, align 8
-  store i64 %106, ptr %104, align 8
-  %107 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %90) #13
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call noundef i32 @_ZN14WriteableFlags14set_ccstr_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %109, ptr noundef %107, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
+  %104 = getelementptr inbounds i8, ptr %10, i64 24
+  %105 = getelementptr inbounds i8, ptr %97, i64 40
+  %106 = load ptr, ptr %105, align 8
+  store ptr %106, ptr %104, align 8
+  %107 = getelementptr inbounds i8, ptr %10, i64 32
+  %108 = getelementptr inbounds i8, ptr %97, i64 8
+  %109 = load i64, ptr %108, align 8
+  store i64 %109, ptr %107, align 8
+  %110 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %90) #13
+  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call noundef i32 @_ZN14WriteableFlags14set_ccstr_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %112, ptr noundef %110, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
-  br label %113
+  br label %116
 
-111:                                              ; preds = %86
-  %112 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %112, align 1
+114:                                              ; preds = %86
+  %115 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %115, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.19, i32 noundef 321) #14
   unreachable
 
-113:                                              ; preds = %93, %92, %81, %77, %73, %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
-  %.0 = phi i32 [ %.0.i.i, %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i59, %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i61, %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i63, %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i65, %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %76, %73 ], [ %80, %77 ], [ %85, %81 ], [ 2, %92 ], [ %110, %93 ]
+116:                                              ; preds = %93, %92, %81, %77, %73, %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
+  %.0 = phi i32 [ %.0.i.i, %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i59, %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i61, %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i63, %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %.0.i.i65, %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit ], [ %76, %73 ], [ %80, %77 ], [ %85, %81 ], [ 2, %92 ], [ %113, %93 ]
   ret i32 %.0
 }
 

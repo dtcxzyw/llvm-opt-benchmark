@@ -192,22 +192,20 @@ if.end32:                                         ; preds = %if.end23
 if.end41:                                         ; preds = %if.end32
   %fraction = getelementptr inbounds i8, ptr %output, i64 8
   store float %div, ptr %fraction, align 4
-  %23 = load float, ptr %q, align 4
-  %24 = load <2 x float>, ptr %q, align 4
-  %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %26 = fneg float %23
-  %27 = insertelement <2 x float> poison, float %normal.sroa.7.0, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = insertelement <2 x float> %24, float %26, i64 0
-  %30 = fmul <2 x float> %28, %29
-  %31 = insertelement <2 x float> poison, float %normal.sroa.0.0, i64 0
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %25, <2 x float> %32, <2 x float> %30)
-  %34 = fneg <2 x float> %33
-  %35 = insertelement <2 x i1> poison, i1 %cmp, i64 0
-  %36 = shufflevector <2 x i1> %35, <2 x i1> poison, <2 x i32> zeroinitializer
-  %37 = select <2 x i1> %36, <2 x float> %34, <2 x float> %33
-  store <2 x float> %37, ptr %output, align 4
+  %23 = load float, ptr %c.i, align 4
+  %24 = load float, ptr %q, align 4
+  %25 = fneg float %24
+  %neg.i = fmul float %normal.sroa.7.0, %25
+  %26 = tail call float @llvm.fmuladd.f32(float %23, float %normal.sroa.0.0, float %neg.i)
+  %mul6.i89 = fmul float %normal.sroa.7.0, %23
+  %27 = tail call float @llvm.fmuladd.f32(float %24, float %normal.sroa.0.0, float %mul6.i89)
+  %fneg.i92 = fneg float %26
+  %fneg2.i = fneg float %27
+  %.sink138 = select i1 %cmp, float %fneg.i92, float %26
+  %.sink = select i1 %cmp, float %fneg2.i, float %27
+  %retval.sroa.0.0.vec.insert.i100 = insertelement <2 x float> poison, float %.sink138, i64 0
+  %retval.sroa.0.4.vec.insert.i101 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i100, float %.sink, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i101, ptr %output, align 4
   br label %return
 
 return:                                           ; preds = %if.end32, %if.end23, %if.end19, %if.end, %entry, %if.end41
@@ -220,41 +218,53 @@ define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocaptu
 entry:
   %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
   %q.i = getelementptr inbounds i8, ptr %xf, i64 8
-  %0 = load <4 x float>, ptr %m_vertex1, align 8
+  %c.i = getelementptr inbounds i8, ptr %xf, i64 12
+  %0 = load float, ptr %c.i, align 4
+  %1 = load float, ptr %m_vertex1, align 8
+  %2 = load float, ptr %q.i, align 4
   %y.i = getelementptr inbounds i8, ptr %this, i64 20
-  %1 = load <4 x float>, ptr %y.i, align 4
+  %3 = load float, ptr %y.i, align 4
+  %4 = fneg float %2
+  %neg.i = fmul float %3, %4
+  %5 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %neg.i)
+  %6 = load float, ptr %xf, align 4
+  %add.i = fadd float %6, %5
+  %mul12.i = fmul float %0, %3
+  %7 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul12.i)
+  %y14.i = getelementptr inbounds i8, ptr %xf, i64 4
+  %8 = load float, ptr %y14.i, align 4
+  %add15.i = fadd float %7, %8
   %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load <4 x float>, ptr %m_vertex2, align 8
+  %9 = load float, ptr %m_vertex2, align 8
   %y.i5 = getelementptr inbounds i8, ptr %this, i64 28
-  %3 = load <4 x float>, ptr %y.i5, align 4
+  %10 = load float, ptr %y.i5, align 4
+  %neg.i6 = fmul float %10, %4
+  %11 = tail call float @llvm.fmuladd.f32(float %0, float %9, float %neg.i6)
+  %add.i7 = fadd float %6, %11
+  %mul12.i8 = fmul float %0, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %2, float %9, float %mul12.i8)
+  %add15.i10 = fadd float %8, %12
+  %cmp.i.i = fcmp olt float %add.i, %add.i7
+  %cond.i.i = select i1 %cmp.i.i, float %add.i, float %add.i7
+  %cmp.i3.i = fcmp olt float %add15.i, %add15.i10
+  %cond.i4.i = select i1 %cmp.i3.i, float %add15.i, float %add15.i10
+  %cmp.i.i16 = fcmp ogt float %add.i, %add.i7
+  %cond.i.i17 = select i1 %cmp.i.i16, float %add.i, float %add.i7
+  %cmp.i3.i20 = fcmp ogt float %add15.i, %add15.i10
+  %cond.i4.i21 = select i1 %cmp.i3.i20, float %add15.i, float %add15.i10
   %m_radius = getelementptr inbounds i8, ptr %this, i64 12
-  %4 = load <4 x float>, ptr %m_radius, align 4
-  %5 = load float, ptr %q.i, align 4
-  %6 = load <2 x float>, ptr %q.i, align 4
-  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %8 = fneg float %5
-  %9 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
-  %10 = insertelement <2 x float> %6, float %8, i64 0
-  %11 = fmul <2 x float> %9, %10
-  %12 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
-  %13 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %12, <2 x float> %11)
-  %14 = load <2 x float>, ptr %xf, align 4
-  %15 = fadd <2 x float> %14, %13
-  %16 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x float> %16, %10
-  %18 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %18, <2 x float> %17)
-  %20 = fadd <2 x float> %14, %19
-  %21 = fcmp olt <2 x float> %15, %20
-  %22 = select <2 x i1> %21, <2 x float> %15, <2 x float> %20
-  %23 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> zeroinitializer
-  %24 = fsub <2 x float> %22, %23
-  store <2 x float> %24, ptr %aabb, align 4
-  %25 = fcmp ogt <2 x float> %15, %20
-  %26 = select <2 x i1> %25, <2 x float> %15, <2 x float> %20
-  %27 = fadd <2 x float> %23, %26
+  %13 = load float, ptr %m_radius, align 4
+  %sub.i = fsub float %cond.i.i, %13
+  %sub3.i = fsub float %cond.i4.i, %13
+  %retval.sroa.0.0.vec.insert.i27 = insertelement <2 x float> poison, float %sub.i, i64 0
+  %retval.sroa.0.4.vec.insert.i28 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i27, float %sub3.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i28, ptr %aabb, align 4
+  %add.i29 = fadd float %13, %cond.i.i17
+  %add3.i = fadd float %13, %cond.i4.i21
+  %retval.sroa.0.0.vec.insert.i32 = insertelement <2 x float> poison, float %add.i29, i64 0
+  %retval.sroa.0.4.vec.insert.i33 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i32, float %add3.i, i64 1
   %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
-  store <2 x float> %27, ptr %upperBound, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i33, ptr %upperBound, align 4
   ret void
 }
 
@@ -264,12 +274,20 @@ entry:
   store float 0.000000e+00, ptr %massData, align 4
   %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
   %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load <2 x float>, ptr %m_vertex1, align 8
-  %1 = load <2 x float>, ptr %m_vertex2, align 8
-  %2 = fadd <2 x float> %0, %1
-  %3 = fmul <2 x float> %2, <float 5.000000e-01, float 5.000000e-01>
+  %0 = load float, ptr %m_vertex1, align 8
+  %1 = load float, ptr %m_vertex2, align 8
+  %add.i = fadd float %0, %1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load float, ptr %y.i, align 4
+  %y2.i = getelementptr inbounds i8, ptr %this, i64 28
+  %3 = load float, ptr %y2.i, align 4
+  %add3.i = fadd float %2, %3
+  %mul.i = fmul float %add.i, 5.000000e-01
+  %mul1.i = fmul float %add3.i, 5.000000e-01
+  %retval.sroa.0.0.vec.insert.i4 = insertelement <2 x float> poison, float %mul.i, i64 0
+  %retval.sroa.0.4.vec.insert.i5 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i4, float %mul1.i, i64 1
   %center = getelementptr inbounds i8, ptr %massData, i64 4
-  store <2 x float> %3, ptr %center, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i5, ptr %center, align 4
   %I = getelementptr inbounds i8, ptr %massData, i64 12
   store float 0.000000e+00, ptr %I, align 4
   ret void
@@ -299,9 +317,6 @@ declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

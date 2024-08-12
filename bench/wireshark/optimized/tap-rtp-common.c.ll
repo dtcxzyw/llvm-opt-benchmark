@@ -25,7 +25,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_init() local_unnamed_addr #2 {
-  %1 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
+  %1 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %1, i8 0, i64 7304, i1 false)
   ret ptr %1
 }
@@ -48,7 +48,7 @@ define hidden void @rtpstream_info_copy_deep(ptr nocapture noundef writeonly %0,
 
 9:                                                ; preds = %2
   %10 = sext i32 %5 to i64
-  %11 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #15
+  %11 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #16
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
@@ -72,7 +72,7 @@ copy_address.exit:                                ; preds = %2, %9
 
 23:                                               ; preds = %copy_address.exit
   %24 = sext i32 %19 to i64
-  %25 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %21, i64 noundef %24) #15
+  %25 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %21, i64 noundef %24) #16
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 40
@@ -84,7 +84,7 @@ copy_address.exit:                                ; preds = %2, %9
 copy_address.exit8:                               ; preds = %copy_address.exit, %23
   %29 = getelementptr inbounds i8, ptr %1, i64 2128
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #15
+  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #16
   %32 = getelementptr inbounds i8, ptr %0, i64 2128
   store ptr %31, ptr %32, align 8
   ret void
@@ -97,7 +97,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
+  %2 = tail call noalias dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %2, ptr noundef nonnull readonly align 8 dereferenceable(7304) %0, i64 7304, i1 false)
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -111,7 +111,7 @@ define hidden noalias noundef ptr @rtpstream_info_malloc_and_copy_deep(ptr nocap
 
 9:                                                ; preds = %1
   %10 = sext i32 %5 to i64
-  %11 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #15
+  %11 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #16
   %12 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -135,7 +135,7 @@ copy_address.exit.i:                              ; preds = %9, %1
 
 23:                                               ; preds = %copy_address.exit.i
   %24 = sext i32 %19 to i64
-  %25 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %21, i64 noundef %24) #15
+  %25 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %21, i64 noundef %24) #16
   %26 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 40
@@ -147,7 +147,7 @@ copy_address.exit.i:                              ; preds = %9, %1
 rtpstream_info_copy_deep.exit:                    ; preds = %copy_address.exit.i, %23
   %29 = getelementptr inbounds i8, ptr %0, i64 2128
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #15
+  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #16
   %32 = getelementptr inbounds i8, ptr %2, i64 2128
   store ptr %31, ptr %32, align 8
   ret ptr %2
@@ -161,11 +161,11 @@ define hidden void @rtpstream_info_free_data(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @g_free(ptr noundef nonnull %3) #15
+  tail call void @g_free(ptr noundef nonnull %3) #16
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @rtpstream_id_free(ptr noundef nonnull %0) #15
+  tail call void @rtpstream_id_free(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -181,12 +181,12 @@ define hidden void @rtpstream_info_free_all(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %rtpstream_info_free_data.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @g_free(ptr noundef nonnull %3) #15
+  tail call void @g_free(ptr noundef nonnull %3) #16
   br label %rtpstream_info_free_data.exit
 
 rtpstream_info_free_data.exit:                    ; preds = %1, %4
-  tail call void @rtpstream_id_free(ptr noundef nonnull %0) #15
-  tail call void @g_free(ptr noundef nonnull %0) #15
+  tail call void @rtpstream_id_free(ptr noundef nonnull %0) #16
+  tail call void @g_free(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -202,7 +202,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_info_cmp(ptr noundef %0, ptr nounde
   br i1 %or.cond, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @rtpstream_id_equal(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1) #15
+  %8 = tail call i32 @rtpstream_id_equal(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1) #16
   %.not = icmp eq i32 %8, 0
   %. = zext i1 %.not to i32
   br label %9
@@ -317,15 +317,15 @@ define hidden void @rtpstream_reset(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  tail call void @g_hash_table_foreach(ptr noundef nonnull %7, ptr noundef nonnull @rtpstream_info_multihash_destroy_value, ptr noundef null) #15
+  tail call void @g_hash_table_foreach(ptr noundef nonnull %7, ptr noundef nonnull @rtpstream_info_multihash_destroy_value, ptr noundef null) #16
   %9 = load ptr, ptr %6, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %9) #15
+  tail call void @g_hash_table_destroy(ptr noundef %9) #16
   br label %10
 
 10:                                               ; preds = %8, %5
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @g_list_first(ptr noundef %12) #15
+  %13 = tail call ptr @g_list_first(ptr noundef %12) #16
   %.not1718 = icmp eq ptr %13, null
   br i1 %.not1718, label %._crit_edge, label %.lr.ph
 
@@ -338,13 +338,13 @@ define hidden void @rtpstream_reset(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not.i, label %rtpstream_info_free_data.exit, label %17
 
 17:                                               ; preds = %.lr.ph
-  tail call void @g_free(ptr noundef nonnull %16) #15
+  tail call void @g_free(ptr noundef nonnull %16) #16
   br label %rtpstream_info_free_data.exit
 
 rtpstream_info_free_data.exit:                    ; preds = %.lr.ph, %17
-  tail call void @rtpstream_id_free(ptr noundef nonnull %14) #15
+  tail call void @rtpstream_id_free(ptr noundef nonnull %14) #16
   %18 = load ptr, ptr %.019, align 8
-  tail call void @g_free(ptr noundef %18) #15
+  tail call void @g_free(ptr noundef %18) #16
   %19 = getelementptr inbounds i8, ptr %.019, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
@@ -352,7 +352,7 @@ rtpstream_info_free_data.exit:                    ; preds = %.lr.ph, %17
 
 ._crit_edge:                                      ; preds = %rtpstream_info_free_data.exit, %10
   %21 = load ptr, ptr %11, align 8
-  tail call void @g_list_free(ptr noundef %21) #15
+  tail call void @g_list_free(ptr noundef %21) #16
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
@@ -366,7 +366,7 @@ declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @rtpstream_info_multihash_destroy_value(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
-  tail call void @g_list_free(ptr noundef %1) #15
+  tail call void @g_list_free(ptr noundef %1) #16
   ret void
 }
 
@@ -383,7 +383,7 @@ define hidden void @rtpstream_reset_cb(ptr noundef %0) #2 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void %2(ptr noundef nonnull %0) #15
+  tail call void %2(ptr noundef nonnull %0) #16
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -403,7 +403,7 @@ define hidden void @remove_tap_listener_rtpstream(ptr noundef %0) local_unnamed_
   br i1 %.not4, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @remove_tap_listener(ptr noundef nonnull %0) #15
+  tail call void @remove_tap_listener(ptr noundef nonnull %0) #16
   store i32 0, ptr %3, align 8
   br label %6
 
@@ -425,7 +425,7 @@ define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef 
   br i1 %.not12, label %7, label %14
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @rtpstream_reset_cb, ptr noundef nonnull @rtpstream_packet_cb, ptr noundef nonnull @rtpstream_draw_cb, ptr noundef null) #15
+  %8 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @rtpstream_reset_cb, ptr noundef nonnull @rtpstream_packet_cb, ptr noundef nonnull @rtpstream_draw_cb, ptr noundef null) #16
   %.not13 = icmp eq ptr %8, null
   br i1 %.not13, label %13, label %9
 
@@ -434,12 +434,12 @@ define hidden void @register_tap_listener_rtpstream(ptr noundef %0, ptr noundef 
   br i1 %.not14, label %11, label %10
 
 10:                                               ; preds = %9
-  tail call void %2(ptr noundef nonnull %8) #15
+  tail call void %2(ptr noundef nonnull %8) #16
   br label %11
 
 11:                                               ; preds = %10, %9
-  %12 = tail call ptr @g_string_free(ptr noundef nonnull %8, i32 noundef 1) #15
-  tail call void @exit(i32 noundef 1) #16
+  %12 = tail call ptr @g_string_free(ptr noundef nonnull %8, i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 13:                                               ; preds = %7
@@ -458,7 +458,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr nound
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca %struct._rtpstream_id, align 8
-  call void @rtpstream_id_copy_pinfo_shallow(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0) #15
+  call void @rtpstream_id_copy_pinfo_shallow(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0) #16
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 60
@@ -493,22 +493,22 @@ define hidden range(i32 0, 2) i32 @rtpstream_packet_cb(ptr noundef %0, ptr nound
   br i1 %.not49, label %rtpstream_info_multihash_lookup.exit.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = call i32 @rtpstream_id_to_hash(ptr noundef nonnull %9) #15
+  %29 = call i32 @rtpstream_id_to_hash(ptr noundef nonnull %9) #16
   %30 = zext i32 %29 to i64
   %31 = inttoptr i64 %30 to ptr
-  %32 = call ptr @g_hash_table_lookup(ptr noundef nonnull %27, ptr noundef %31) #15
+  %32 = call ptr @g_hash_table_lookup(ptr noundef nonnull %27, ptr noundef %31) #16
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %rtpstream_info_multihash_lookup.exit.thread, label %33
 
 33:                                               ; preds = %28
-  %34 = call ptr @g_list_first(ptr noundef nonnull %32) #15
+  %34 = call ptr @g_list_first(ptr noundef nonnull %32) #16
   %.not1316.i = icmp eq ptr %34, null
   br i1 %.not1316.i, label %rtpstream_info_multihash_lookup.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %37
   %.017.i = phi ptr [ %39, %37 ], [ %34, %33 ]
   %35 = load ptr, ptr %.017.i, align 8
-  %36 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %35, i32 noundef 1) #15
+  %36 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %35, i32 noundef 1) #16
   %.not14.i = icmp eq i32 %36, 0
   br i1 %.not14.i, label %37, label %rtpstream_info_multihash_lookup.exit
 
@@ -524,9 +524,9 @@ rtpstream_info_multihash_lookup.exit:             ; preds = %.lr.ph.i
   br i1 %.not50, label %rtpstream_info_multihash_lookup.exit.thread, label %75
 
 rtpstream_info_multihash_lookup.exit.thread:      ; preds = %37, %33, %28, %25, %rtpstream_info_multihash_lookup.exit
-  %41 = call noalias noundef dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #14
+  %41 = call noalias noundef dereferenceable_or_null(7304) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %41, i8 0, i64 7304, i1 false)
-  call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef %41, i32 noundef 0) #15
+  call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef %41, i32 noundef 0) #16
   %42 = load i32, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 60
   store i32 %42, ptr %43, align 4
@@ -553,9 +553,9 @@ rtpstream_info_multihash_lookup.exit.thread:      ; preds = %37, %33, %28, %25, 
   store i32 1, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %41, i64 7276
   store i32 -1, ptr %59, align 4
-  %60 = call ptr @wmem_file_scope() #15
-  %61 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str) #15
-  %62 = call ptr @p_get_proto_data(ptr noundef %60, ptr noundef %1, i32 noundef %61, i32 noundef 0) #15
+  %60 = call ptr @wmem_file_scope() #16
+  %61 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str) #16
+  %62 = call ptr @p_get_proto_data(ptr noundef %60, ptr noundef %1, i32 noundef %61, i32 noundef 0) #16
   %.not.i52 = icmp eq ptr %62, null
   br i1 %.not.i52, label %rtpstream_info_analyse_init.exit, label %63
 
@@ -570,14 +570,14 @@ rtpstream_info_analyse_init.exit:                 ; preds = %rtpstream_info_mult
   store i32 %.sink.i, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %0, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @g_list_prepend(ptr noundef %68, ptr noundef nonnull %41) #15
+  %69 = call ptr @g_list_prepend(ptr noundef %68, ptr noundef nonnull %41) #16
   store ptr %69, ptr %67, align 8
   %70 = load ptr, ptr %26, align 8
   %.not51 = icmp eq ptr %70, null
   br i1 %.not51, label %71, label %73
 
 71:                                               ; preds = %rtpstream_info_analyse_init.exit
-  %72 = call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %72 = call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #16
   store ptr %72, ptr %26, align 8
   br label %73
 
@@ -598,18 +598,18 @@ rtpstream_info_analyse_init.exit:                 ; preds = %rtpstream_info_mult
 79:                                               ; preds = %5
   %80 = getelementptr inbounds i8, ptr %0, i64 64
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %81, i32 noundef 1) #15
+  %82 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %81, i32 noundef 1) #16
   %.not47 = icmp eq i32 %82, 0
   br i1 %.not47, label %128, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %1, i64 24
-  %85 = call double @nstime_to_msec(ptr noundef nonnull %84) #15
+  %85 = call double @nstime_to_msec(ptr noundef nonnull %84) #16
   %86 = load ptr, ptr %80, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 2160
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 56
-  %90 = call double @nstime_to_msec(ptr noundef nonnull %89) #15
+  %90 = call double @nstime_to_msec(ptr noundef nonnull %89) #16
   %91 = fsub double %85, %90
   %92 = getelementptr inbounds i8, ptr %3, i64 44
   %93 = load i32, ptr %92, align 4
@@ -664,14 +664,14 @@ rtp_write_sample.exit:                            ; preds = %83, %104, %107, %11
 116:                                              ; preds = %113
   %117 = getelementptr inbounds i8, ptr %0, i64 64
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %118, i32 noundef 1) #15
+  %119 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %118, i32 noundef 1) #16
   %.not45 = icmp eq i32 %119, 0
   br i1 %.not45, label %120, label %124
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds i8, ptr %0, i64 72
   %122 = load ptr, ptr %121, align 8
-  %123 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %122, i32 noundef 1) #15
+  %123 = call i32 @rtpstream_id_equal(ptr noundef nonnull %9, ptr noundef %122, i32 noundef 1) #16
   %.not46 = icmp eq i32 %123, 0
   br i1 %.not46, label %128, label %124
 
@@ -679,7 +679,7 @@ rtp_write_sample.exit:                            ; preds = %83, %104, %107, %11
   %125 = load ptr, ptr %114, align 8
   %126 = getelementptr inbounds i8, ptr %1, i64 80
   %127 = load ptr, ptr %126, align 8
-  call void %125(ptr noundef nonnull %0, ptr noundef %127) #15
+  call void %125(ptr noundef nonnull %0, ptr noundef %127) #16
   br label %128
 
 128:                                              ; preds = %113, %124, %120, %79, %rtp_write_sample.exit, %5, %18, %75
@@ -699,7 +699,7 @@ define internal void @rtpstream_draw_cb(ptr noundef %0) #2 {
   br i1 %.not6, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void %4(ptr noundef nonnull %0) #15
+  tail call void %4(ptr noundef nonnull %0) #16
   br label %6
 
 6:                                                ; preds = %5, %2, %1
@@ -730,12 +730,12 @@ define hidden void @rtp_write_header(ptr noundef %0, ptr nocapture noundef %1) l
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = tail call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %8) #15
+  %9 = tail call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %8) #16
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %9, i32 noundef %12) #15
-  tail call void @wmem_free(ptr noundef null, ptr noundef %9) #15
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %9, i32 noundef %12) #16
+  tail call void @wmem_free(ptr noundef null, ptr noundef %9) #16
   %14 = getelementptr inbounds i8, ptr %0, i64 2160
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 56
@@ -806,26 +806,26 @@ define hidden ptr @rtpstream_info_multihash_lookup(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %rtpstream_to_hash.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #15
+  %4 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #16
   %5 = zext i32 %4 to i64
   %6 = inttoptr i64 %5 to ptr
   br label %rtpstream_to_hash.exit
 
 rtpstream_to_hash.exit:                           ; preds = %2, %3
   %.0.i = phi ptr [ %6, %3 ], [ null, %2 ]
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %.0.i) #15
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %.0.i) #16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %rtpstream_to_hash.exit
-  %9 = tail call ptr @g_list_first(ptr noundef nonnull %7) #15
+  %9 = tail call ptr @g_list_first(ptr noundef nonnull %7) #16
   %.not1316 = icmp eq ptr %9, null
   br i1 %.not1316, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %14
   %.017 = phi ptr [ %16, %14 ], [ %9, %8 ]
   %10 = load ptr, ptr %.017, align 8
-  %11 = tail call i32 @rtpstream_id_equal(ptr noundef %1, ptr noundef %10, i32 noundef 1) #15
+  %11 = tail call i32 @rtpstream_id_equal(ptr noundef %1, ptr noundef %10, i32 noundef 1) #16
   %.not14 = icmp eq i32 %11, 0
   br i1 %.not14, label %14, label %12
 
@@ -871,9 +871,9 @@ define hidden void @rtpstream_info_analyse_init(ptr nocapture noundef writeonly 
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 7276
   store i32 -1, ptr %19, align 4
-  %20 = tail call ptr @wmem_file_scope() #15
-  %21 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str) #15
-  %22 = tail call ptr @p_get_proto_data(ptr noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 0) #15
+  %20 = tail call ptr @wmem_file_scope() #16
+  %21 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str) #16
+  %22 = tail call ptr @p_get_proto_data(ptr noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 0) #16
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %26, label %23
 
@@ -905,26 +905,26 @@ define hidden void @rtpstream_info_multihash_insert(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %rtpstream_to_hash.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #15
+  %4 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #16
   %5 = zext i32 %4 to i64
   %6 = inttoptr i64 %5 to ptr
   br label %rtpstream_to_hash.exit
 
 rtpstream_to_hash.exit:                           ; preds = %2, %3
   %.0.i = phi ptr [ %6, %3 ], [ null, %2 ]
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %.0.i) #15
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %.0.i) #16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %rtpstream_to_hash.exit
-  %9 = tail call ptr @g_list_first(ptr noundef nonnull %7) #15
+  %9 = tail call ptr @g_list_first(ptr noundef nonnull %7) #16
   %.not1925 = icmp eq ptr %9, null
   br i1 %.not1925, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %12
   %.026 = phi ptr [ %14, %12 ], [ %9, %8 ]
   %10 = load ptr, ptr %.026, align 8
-  %11 = tail call i32 @rtpstream_id_equal(ptr noundef %1, ptr noundef %10, i32 noundef 1) #15
+  %11 = tail call i32 @rtpstream_id_equal(ptr noundef %1, ptr noundef %10, i32 noundef 1) #16
   %.not20 = icmp eq i32 %11, 0
   br i1 %.not20, label %12, label %.loopexit
 
@@ -935,11 +935,11 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   br i1 %.not19, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %12, %8
-  %15 = tail call ptr @g_list_prepend(ptr noundef nonnull %7, ptr noundef %1) #15
+  %15 = tail call ptr @g_list_prepend(ptr noundef nonnull %7, ptr noundef %1) #16
   br label %.loopexit
 
 16:                                               ; preds = %rtpstream_to_hash.exit
-  %17 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %1) #15
+  %17 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %1) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %16
@@ -947,21 +947,21 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   br i1 %.not.i, label %rtpstream_to_hash.exit24, label %18
 
 18:                                               ; preds = %.loopexit
-  %19 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #15
+  %19 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #16
   %20 = zext i32 %19 to i64
   %21 = inttoptr i64 %20 to ptr
   br label %rtpstream_to_hash.exit24
 
 rtpstream_to_hash.exit24:                         ; preds = %.loopexit, %18
   %.0.i23 = phi ptr [ %21, %18 ], [ null, %.loopexit ]
-  %22 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %.0.i23, ptr noundef %.017) #15
+  %22 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %.0.i23, ptr noundef %.017) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2240
-  tail call void @rtppacket_analyse(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #15
+  tail call void @rtppacket_analyse(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
@@ -978,7 +978,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @rtp_payload_type_short_vals_ext, ptr noundef nonnull @.str.4) #15
+  %16 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @rtp_payload_type_short_vals_ext, ptr noundef nonnull @.str.4) #16
   %.pre = load i32, ptr %6, align 8
   %.pre14 = zext i32 %.pre to i64
   br label %17
@@ -988,7 +988,7 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
   %.019.i = phi ptr [ %16, %15 ], [ %14, %12 ]
   %18 = getelementptr [256 x ptr], ptr %5, i64 0, i64 %.pre-phi
   store ptr %.019.i, ptr %18, align 8
-  %19 = tail call ptr @g_string_sized_new(i64 noundef 40) #15
+  %19 = tail call ptr @g_string_sized_new(i64 noundef 40) #16
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   br label %21
 
@@ -1005,13 +1005,13 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
   br i1 %.not24.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call ptr @g_string_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.3) #15
+  %27 = tail call ptr @g_string_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.3) #16
   %.pre.i = load ptr, ptr %22, align 8
   br label %28
 
 28:                                               ; preds = %26, %24
   %29 = phi ptr [ %.pre.i, %26 ], [ %23, %24 ]
-  %30 = tail call ptr @g_string_append(ptr noundef nonnull %19, ptr noundef %29) #15
+  %30 = tail call ptr @g_string_append(ptr noundef nonnull %19, ptr noundef %29) #16
   br label %31
 
 31:                                               ; preds = %28, %21
@@ -1026,13 +1026,13 @@ define hidden void @rtpstream_info_analyse_process(ptr noundef %0, ptr noundef %
   br i1 %.not22.i, label %update_payload_names.exit, label %35
 
 35:                                               ; preds = %32
-  tail call void @g_free(ptr noundef nonnull %34) #15
+  tail call void @g_free(ptr noundef nonnull %34) #16
   br label %update_payload_names.exit
 
 update_payload_names.exit:                        ; preds = %32, %35
   %36 = load ptr, ptr %19, align 8
   store ptr %36, ptr %33, align 8
-  %37 = tail call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 0) #15
+  %37 = tail call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 0) #16
   br label %38
 
 38:                                               ; preds = %update_payload_names.exit, %3
@@ -1062,14 +1062,14 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %0) #15
+  %3 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %0) #16
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i16, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = tail call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %7) #15
+  %8 = tail call ptr @address_to_display(ptr noundef null, ptr noundef nonnull %7) #16
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1082,7 +1082,7 @@ define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture nound
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 2128
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %17) #15
+  %18 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %17) #16
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 2140
@@ -1160,86 +1160,85 @@ define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture nound
   %77 = icmp ne i32 %21, 0
   %78 = fcmp ogt double %71, 0.000000e+00
   %or.cond = select i1 %77, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %111
+  br i1 %or.cond, label %79, label %104
 
 79:                                               ; preds = %2
   %80 = getelementptr inbounds i8, ptr %0, i64 7152
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 7128
-  %83 = uitofp i32 %21 to double
-  %84 = load <2 x double>, ptr %82, align 8
-  %85 = extractelement <2 x double> %84, i64 0
-  %86 = fneg double %85
-  %87 = insertelement <2 x double> poison, double %86, i64 0
-  %88 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x double> %84, %88
-  %90 = insertelement <2 x double> poison, double %83, i64 0
-  %91 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> zeroinitializer
-  %92 = insertelement <2 x double> poison, double %71, i64 0
-  %93 = insertelement <2 x double> %92, double %81, i64 1
-  %94 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %93, <2 x double> %89)
-  %95 = extractelement <2 x double> %94, i64 0
-  %96 = extractelement <2 x double> %94, i64 1
-  %97 = fdiv double %96, %95
-  %98 = fadd double %97, -1.000000e+00
-  %99 = fmul double %76, %98
-  %100 = getelementptr inbounds i8, ptr %1, i64 128
-  store double %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 7088
-  %102 = load i32, ptr %101, align 8
-  %103 = uitofp i32 %102 to double
-  %104 = fmul double %97, %103
-  %105 = fptoui double %104 to i32
-  %106 = uitofp i32 %105 to double
-  %107 = insertelement <2 x double> poison, double %97, i64 0
-  %108 = insertelement <2 x double> %107, double %98, i64 1
-  %109 = insertelement <2 x double> <double poison, double 1.000000e+02>, double %106, i64 0
-  %110 = fmul <2 x double> %108, %109
-  br label %113
+  %82 = getelementptr inbounds i8, ptr %0, i64 7136
+  %83 = load double, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 7128
+  %85 = load double, ptr %84, align 8
+  %86 = uitofp i32 %21 to double
+  %87 = fneg double %85
+  %88 = fmul double %83, %87
+  %89 = tail call double @llvm.fmuladd.f64(double %86, double %81, double %88)
+  %90 = fmul double %85, %87
+  %91 = tail call double @llvm.fmuladd.f64(double %86, double %71, double %90)
+  %92 = fdiv double %89, %91
+  %93 = fadd double %92, -1.000000e+00
+  %94 = fmul double %76, %93
+  %95 = getelementptr inbounds i8, ptr %1, i64 128
+  store double %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 7088
+  %97 = load i32, ptr %96, align 8
+  %98 = uitofp i32 %97 to double
+  %99 = fmul double %92, %98
+  %100 = fptoui double %99 to i32
+  %101 = uitofp i32 %100 to double
+  %102 = fmul double %92, %101
+  %103 = fmul double %93, 1.000000e+02
+  br label %106
 
-111:                                              ; preds = %2
-  %112 = getelementptr inbounds i8, ptr %1, i64 128
-  store double 0.000000e+00, ptr %112, align 8
-  br label %113
+104:                                              ; preds = %2
+  %105 = getelementptr inbounds i8, ptr %1, i64 128
+  store double 0.000000e+00, ptr %105, align 8
+  br label %106
 
-113:                                              ; preds = %111, %79
-  %114 = phi <2 x double> [ %110, %79 ], [ zeroinitializer, %111 ]
-  %115 = getelementptr inbounds i8, ptr %1, i64 136
-  store <2 x double> %114, ptr %115, align 8
-  %116 = fdiv double %76, 1.000000e+03
-  %117 = getelementptr inbounds i8, ptr %1, i64 152
-  store double %116, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 7260
-  %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %1, i64 160
-  store i32 %119, ptr %120, align 8
-  %121 = load double, ptr %74, align 8
-  %122 = fdiv double %121, 1.000000e+03
-  %123 = getelementptr inbounds i8, ptr %1, i64 168
-  store double %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 7280
-  %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 176
-  store i32 %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 7248
-  %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 180
-  store i32 %128, ptr %129, align 4
+106:                                              ; preds = %104, %79
+  %.sink86 = phi double [ %102, %79 ], [ 0.000000e+00, %104 ]
+  %.sink85 = phi double [ %103, %79 ], [ 0.000000e+00, %104 ]
+  %107 = getelementptr inbounds i8, ptr %1, i64 136
+  store double %.sink86, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %1, i64 144
+  store double %.sink85, ptr %108, align 8
+  %109 = fdiv double %76, 1.000000e+03
+  %110 = getelementptr inbounds i8, ptr %1, i64 152
+  store double %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 7260
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds i8, ptr %1, i64 160
+  store i32 %112, ptr %113, align 8
+  %114 = load double, ptr %74, align 8
+  %115 = fdiv double %114, 1.000000e+03
+  %116 = getelementptr inbounds i8, ptr %1, i64 168
+  store double %115, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 7280
+  %118 = load i32, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %1, i64 176
+  store i32 %118, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 7248
+  %121 = load i32, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %1, i64 180
+  store i32 %121, ptr %122, align 4
   ret void
 }
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #11
+
 ; Function Attrs: nounwind uwtable
 define hidden void @rtpstream_info_calc_free(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @wmem_free(ptr noundef null, ptr noundef %2) #15
+  tail call void @wmem_free(ptr noundef null, ptr noundef %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void @wmem_free(ptr noundef null, ptr noundef %4) #15
+  tail call void @wmem_free(ptr noundef null, ptr noundef %4) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  tail call void @wmem_free(ptr noundef null, ptr noundef %6) #15
+  tail call void @wmem_free(ptr noundef null, ptr noundef %6) #16
   ret void
 }
 
@@ -1257,7 +1256,7 @@ define hidden i32 @rtpstream_to_hash(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %0) #15
+  %3 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %0) #16
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -1280,25 +1279,22 @@ declare ptr @g_string_sized_new(i64 noundef) local_unnamed_addr #5
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #12
+declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #12
+declare i16 @llvm.bswap.i16(i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1311,12 +1307,13 @@ attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-ma
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { nounwind }
-attributes #16 = { cold noreturn nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind }
+attributes #17 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -16304,8 +16304,8 @@ cond.true:
   %name.i = alloca %"class.std::__cxx11::basic_string", align 8
   %opName = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %op = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %indices = alloca %"class.std::vector.173", align 16
-  %ref.tmp41 = alloca %"class.std::vector.173", align 16
+  %indices = alloca %"class.std::vector.173", align 8
+  %ref.tmp41 = alloca %"class.std::vector.173", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %intType = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp50 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -16371,7 +16371,7 @@ if.then:                                          ; preds = %invoke.cont33
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %if.then
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %indices, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices, i8 0, i64 24, i1 false)
   %call39 = invoke noundef zeroext i1 @_ZN4cvc58internal9GenericOp21isIndexedOperatorKindENS0_4kind6Kind_tE(i32 noundef %bf.cast.i)
           to label %invoke.cont38 unwind label %lpad37
 
@@ -16387,14 +16387,17 @@ invoke.cont42:                                    ; preds = %if.then40
           to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit unwind label %lpad43
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont42
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %indices, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %indices, i64 16
-  %2 = load <2 x ptr>, ptr %ref.tmp41, align 16
-  %3 = load ptr, ptr %ref.tmp41, align 16
-  store <2 x ptr> %2, ptr %indices, align 16
+  %2 = load ptr, ptr %ref.tmp41, align 8
+  store ptr %2, ptr %indices, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
+  %3 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp41, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41, i8 0, i64 24, i1 false)
   %.pre = load ptr, ptr %agg.tmp, align 8
   %bf.load.i.i310.pre = load i64, ptr %.pre, align 8
   %5 = and i64 %bf.load.i.i310.pre, 1152920405095219200
@@ -16459,7 +16462,7 @@ if.then13.i.i316:                                 ; preds = %if.else.i.i
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %if.else.i.i, %if.then.i.i317, %if.then13.i.i316
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %2, align 8
   store ptr %11, ptr %agg.tmp55, align 8
   %bf.load.i.i324 = load i64, ptr %11, align 8
   %bf.lshr.i.i325 = lshr i64 %bf.load.i.i324, 40
@@ -16511,7 +16514,7 @@ invoke.cont60:                                    ; preds = %.noexc338
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont60
-  %15 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %2, align 8
   %16 = load ptr, ptr %ref.tmp50, align 8
   %cmp.not.i340 = icmp eq ptr %15, %16
   br i1 %cmp.not.i340, label %invoke.cont65, label %if.then.i341
@@ -16537,7 +16540,7 @@ if.then13.i.i356:                                 ; preds = %if.then.i.i344
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i356, %if.then.i.i344, %if.then.i341
   %18 = load ptr, ptr %ref.tmp50, align 8
-  store ptr %18, ptr %3, align 8
+  store ptr %18, ptr %2, align 8
   %bf.load.i2.i = load i64, ptr %18, align 8
   %bf.lshr.i.i350 = lshr i64 %bf.load.i2.i, 40
   %19 = trunc nuw nsw i64 %bf.lshr.i.i350 to i32
@@ -17140,7 +17143,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
 
 if.then114:                                       ; preds = %invoke.cont112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %itypes, i8 0, i64 24, i1 false)
-  %85 = load ptr, ptr %indices, align 16
+  %85 = load ptr, ptr %indices, align 8
   %_M_finish.i516 = getelementptr inbounds i8, ptr %indices, i64 8
   %86 = load ptr, ptr %_M_finish.i516, align 8
   %cmp.i517.not1334 = icmp eq ptr %85, %86
@@ -18198,7 +18201,7 @@ ehcleanup334:                                     ; preds = %ehcleanup333, %lpad
   br label %ehcleanup366
 
 if.end335:                                        ; preds = %if.then13.i.i895, %if.then.i.i888, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit885, %invoke.cont303
-  %194 = load ptr, ptr %indices, align 16
+  %194 = load ptr, ptr %indices, align 8
   %_M_finish.i.i898 = getelementptr inbounds i8, ptr %indices, i64 8
   %195 = load ptr, ptr %_M_finish.i.i898, align 8
   %cmp.i.i899 = icmp eq ptr %194, %195

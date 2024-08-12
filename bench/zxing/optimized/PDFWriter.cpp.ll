@@ -1286,15 +1286,21 @@ _ZNSt10unique_ptrIN5ZXing6Pdf4177EncoderESt14default_deleteIS2_EE5resetEPS2_.exi
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i8 2, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 12
-  store <4 x i32> <i32 2, i32 30, i32 2, i32 30>, ptr %7, align 4
+  store i32 2, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 30, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 2, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 30, ptr %10, align 4
   store ptr %4, ptr %3, align 8
   ret void
 
 _ZNSt10unique_ptrIN5ZXing6Pdf4177EncoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %1
-  %8 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %3, align 8
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

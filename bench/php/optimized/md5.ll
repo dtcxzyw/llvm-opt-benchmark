@@ -146,102 +146,108 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.0202238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
   %.0203237 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #10
-  br label %76
+  br label %79
 
 .thread224:                                       ; preds = %25, %.thread220, %19
   %28 = getelementptr inbounds i8, ptr %5, i64 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 4
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = trunc i64 %33 to i32
-  %35 = and i32 %34, 536870911
-  store i32 %35, ptr %5, align 4
-  %36 = lshr i64 %33, 29
+  store i32 1732584193, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 -271733879, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 -1732584194, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 271733878, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
-  store i32 %37, ptr %29, align 4
-  %38 = icmp ugt i64 %33, 63
-  br i1 %38, label %39, label %PHP_MD5Update.exit
+  %38 = and i32 %37, 536870911
+  store i32 %38, ptr %5, align 4
+  %39 = lshr i64 %36, 29
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %32, align 4
+  %41 = icmp ugt i64 %36, 63
+  br i1 %41, label %42, label %PHP_MD5Update.exit
 
-39:                                               ; preds = %.thread224
-  %40 = and i64 %33, -64
-  %41 = call fastcc ptr @body(ptr noundef nonnull %5, ptr noundef nonnull %31, i64 noundef %40)
-  %42 = and i64 %33, 63
+42:                                               ; preds = %.thread224
+  %43 = and i64 %36, -64
+  %44 = call fastcc ptr @body(ptr noundef nonnull %5, ptr noundef nonnull %34, i64 noundef %43)
+  %45 = and i64 %36, 63
   br label %PHP_MD5Update.exit
 
-PHP_MD5Update.exit:                               ; preds = %.thread224, %39
-  %.135.i = phi i64 [ %42, %39 ], [ %33, %.thread224 ]
-  %.1.i = phi ptr [ %41, %39 ], [ %31, %.thread224 ]
-  %43 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 1 %.1.i, i64 %.135.i, i1 false)
+PHP_MD5Update.exit:                               ; preds = %.thread224, %42
+  %.135.i = phi i64 [ %45, %42 ], [ %36, %.thread224 ]
+  %.1.i = phi ptr [ %44, %42 ], [ %34, %.thread224 ]
+  %46 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr nonnull align 1 %.1.i, i64 %.135.i, i1 false)
   call void @PHP_MD5Final(ptr noundef nonnull %6, ptr noundef nonnull %5)
-  %44 = load i8, ptr %4, align 1
-  %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %54
+  %47 = load i8, ptr %4, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %57
 
-46:                                               ; preds = %PHP_MD5Update.exit
-  %47 = call noalias ptr @_emalloc_48() #10
-  store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
-  store i32 22, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
-  store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
-  store i64 16, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  %52 = getelementptr inbounds i8, ptr %47, i64 40
-  store i8 0, ptr %52, align 1
-  store ptr %47, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %53, align 8
-  br label %76
+49:                                               ; preds = %PHP_MD5Update.exit
+  %50 = call noalias ptr @_emalloc_48() #10
+  store i32 1, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  store i32 22, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  store i64 0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  store i64 16, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %50, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  %55 = getelementptr inbounds i8, ptr %50, i64 40
+  store i8 0, ptr %55, align 1
+  store ptr %50, ptr %1, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %56, align 8
+  br label %79
 
-54:                                               ; preds = %PHP_MD5Update.exit
-  %55 = call noalias ptr @_emalloc_64() #10
-  store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 22, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 32, ptr %58, align 8
-  store ptr %55, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
+57:                                               ; preds = %PHP_MD5Update.exit
+  %58 = call noalias ptr @_emalloc_64() #10
+  store i32 1, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  store i32 22, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  store i64 0, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %58, i64 16
+  store i64 32, ptr %61, align 8
+  store ptr %58, ptr %1, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %58, i64 24
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %54
-  %indvars.iv.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %61 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
-  %62 = load i8, ptr %61, align 1
-  %63 = lshr i8 %62, 4
-  %64 = zext nneg i8 %63 to i64
-  %65 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = shl nuw nsw i64 %indvars.iv.i, 1
-  %68 = getelementptr inbounds i8, ptr %60, i64 %67
-  store i8 %66, ptr %68, align 1
-  %69 = and i8 %62, 15
-  %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = or disjoint i64 %67, 1
-  %74 = getelementptr inbounds i8, ptr %60, i64 %73
-  store i8 %72, ptr %74, align 1
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %57
+  %indvars.iv.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %64 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %65 = load i8, ptr %64, align 1
+  %66 = lshr i8 %65, 4
+  %67 = zext nneg i8 %66 to i64
+  %68 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %70 = shl nuw nsw i64 %indvars.iv.i, 1
+  %71 = getelementptr inbounds i8, ptr %63, i64 %70
+  store i8 %69, ptr %71, align 1
+  %72 = and i8 %65, 15
+  %73 = zext nneg i8 %72 to i64
+  %74 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = or disjoint i64 %70, 1
+  %77 = getelementptr inbounds i8, ptr %63, i64 %76
+  store i8 %75, ptr %77, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %make_digest_ex.exit, label %.lr.ph.i
 
 make_digest_ex.exit:                              ; preds = %.lr.ph.i
-  %75 = getelementptr inbounds i8, ptr %55, i64 56
-  store i8 0, ptr %75, align 1
-  br label %76
+  %78 = getelementptr inbounds i8, ptr %58, i64 56
+  store i8 0, ptr %78, align 1
+  br label %79
 
-76:                                               ; preds = %make_digest_ex.exit, %46, %.thread231
+79:                                               ; preds = %make_digest_ex.exit, %49, %.thread231
   ret void
 }
 
@@ -251,11 +257,17 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PHP_MD5InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1732584194, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 271733878, ptr %4, align 4
-  store <4 x i32> <i32 0, i32 0, i32 1732584193, i32 -271733879>, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1732584193, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -271733879, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1732584194, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 271733878, ptr %6, align 4
+  store i32 0, ptr %0, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %7, align 4
   ret void
 }
 
@@ -478,7 +490,7 @@ define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly
   %4 = alloca i8, align 1
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  %7 = alloca %struct.PHP_MD5_CTX, align 16
+  %7 = alloca %struct.PHP_MD5_CTX, align 4
   store i8 0, ptr %4, align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
@@ -556,7 +568,7 @@ thread-pre-split:                                 ; preds = %18
   %.0231270 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
   %.0232269 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0229272, i32 noundef %.0230271, ptr noundef null, i32 noundef %.0231270, ptr noundef %.0232269) #10
-  br label %118
+  br label %120
 
 .thread273:                                       ; preds = %34, %.thread281, %27
   %37 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #10
@@ -566,161 +578,166 @@ thread-pre-split:                                 ; preds = %18
 38:                                               ; preds = %.thread273
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %39, align 8
-  br label %118
+  br label %120
 
 40:                                               ; preds = %.thread273
-  %41 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 -1732584194, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 271733878, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %7, i64 4
-  store <4 x i32> <i32 0, i32 0, i32 1732584193, i32 -271733879>, ptr %7, align 16
-  %44 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
-  %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.lr.ph, label %._crit_edge
+  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 1732584193, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 -271733879, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 -1732584194, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 271733878, ptr %44, align 4
+  store i32 0, ptr %7, align 4
+  %45 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 0, ptr %45, align 4
+  %46 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
+  %47 = icmp sgt i64 %46, 0
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %7, i64 24
-  br label %47
+  %48 = getelementptr inbounds i8, ptr %7, i64 24
+  br label %49
 
-47:                                               ; preds = %.lr.ph, %PHP_MD5Update.exit
-  %48 = phi i64 [ %44, %.lr.ph ], [ %79, %PHP_MD5Update.exit ]
-  %49 = load i32, ptr %7, align 16
-  %50 = trunc i64 %48 to i32
-  %51 = add i32 %49, %50
-  %52 = and i32 %51, 536870911
-  store i32 %52, ptr %7, align 16
-  %53 = icmp ult i32 %52, %49
-  %54 = load i32, ptr %43, align 4
-  %55 = zext i1 %53 to i32
-  %56 = lshr i64 %48, 29
-  %57 = trunc i64 %56 to i32
-  %58 = add i32 %54, %57
-  %59 = add i32 %58, %55
-  store i32 %59, ptr %43, align 4
-  %60 = and i32 %49, 63
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %72, label %61
+49:                                               ; preds = %.lr.ph, %PHP_MD5Update.exit
+  %50 = phi i64 [ %46, %.lr.ph ], [ %81, %PHP_MD5Update.exit ]
+  %51 = load i32, ptr %7, align 4
+  %52 = trunc i64 %50 to i32
+  %53 = add i32 %51, %52
+  %54 = and i32 %53, 536870911
+  store i32 %54, ptr %7, align 4
+  %55 = icmp ult i32 %54, %51
+  %56 = load i32, ptr %45, align 4
+  %57 = zext i1 %55 to i32
+  %58 = lshr i64 %50, 29
+  %59 = trunc i64 %58 to i32
+  %60 = add i32 %56, %59
+  %61 = add i32 %60, %57
+  store i32 %61, ptr %45, align 4
+  %62 = and i32 %51, 63
+  %.not.i = icmp eq i32 %62, 0
+  br i1 %.not.i, label %74, label %63
 
-61:                                               ; preds = %47
-  %62 = sub nuw nsw i32 64, %60
-  %63 = zext nneg i32 %62 to i64
-  %64 = icmp ult i64 %48, %63
-  %65 = zext nneg i32 %60 to i64
-  %66 = getelementptr inbounds [64 x i8], ptr %46, i64 0, i64 %65
-  br i1 %64, label %67, label %68
+63:                                               ; preds = %49
+  %64 = sub nuw nsw i32 64, %62
+  %65 = zext nneg i32 %64 to i64
+  %66 = icmp ult i64 %50, %65
+  %67 = zext nneg i32 %62 to i64
+  %68 = getelementptr inbounds [64 x i8], ptr %48, i64 0, i64 %67
+  br i1 %66, label %69, label %70
 
-67:                                               ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 16 %5, i64 %48, i1 false)
+69:                                               ; preds = %63
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 16 %5, i64 %50, i1 false)
   br label %PHP_MD5Update.exit
 
-68:                                               ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %63, i1 false)
-  %69 = getelementptr inbounds i8, ptr %5, i64 %63
-  %70 = sub nuw nsw i64 %48, %63
-  %71 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef nonnull %46, i64 noundef 64)
-  br label %72
+70:                                               ; preds = %63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %65, i1 false)
+  %71 = getelementptr inbounds i8, ptr %5, i64 %65
+  %72 = sub nuw nsw i64 %50, %65
+  %73 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef nonnull %48, i64 noundef 64)
+  br label %74
 
-72:                                               ; preds = %68, %47
-  %.034.i = phi i64 [ %70, %68 ], [ %48, %47 ]
-  %.0.i = phi ptr [ %69, %68 ], [ %5, %47 ]
-  %73 = icmp ugt i64 %.034.i, 63
-  br i1 %73, label %74, label %78
+74:                                               ; preds = %70, %49
+  %.034.i = phi i64 [ %72, %70 ], [ %50, %49 ]
+  %.0.i = phi ptr [ %71, %70 ], [ %5, %49 ]
+  %75 = icmp ugt i64 %.034.i, 63
+  br i1 %75, label %76, label %80
 
-74:                                               ; preds = %72
-  %75 = and i64 %.034.i, -64
-  %76 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef %.0.i, i64 noundef %75)
-  %77 = and i64 %.034.i, 63
-  br label %78
+76:                                               ; preds = %74
+  %77 = and i64 %.034.i, -64
+  %78 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef %.0.i, i64 noundef %77)
+  %79 = and i64 %.034.i, 63
+  br label %80
 
-78:                                               ; preds = %74, %72
-  %.135.i = phi i64 [ %77, %74 ], [ %.034.i, %72 ]
-  %.1.i = phi ptr [ %76, %74 ], [ %.0.i, %72 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %.1.i, i64 %.135.i, i1 false)
+80:                                               ; preds = %76, %74
+  %.135.i = phi i64 [ %79, %76 ], [ %.034.i, %74 ]
+  %.1.i = phi ptr [ %78, %76 ], [ %.0.i, %74 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr align 1 %.1.i, i64 %.135.i, i1 false)
   br label %PHP_MD5Update.exit
 
-PHP_MD5Update.exit:                               ; preds = %67, %78
-  %79 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
-  %80 = icmp sgt i64 %79, 0
-  br i1 %80, label %47, label %._crit_edge
+PHP_MD5Update.exit:                               ; preds = %69, %80
+  %81 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #10
+  %82 = icmp sgt i64 %81, 0
+  br i1 %82, label %49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %PHP_MD5Update.exit, %40
-  %81 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %37) #10
-  %82 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #10
+  %83 = call zeroext i1 @_php_stream_eof(ptr noundef nonnull %37) #10
+  %84 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #10
   call void @PHP_MD5Final(ptr noundef nonnull %6, ptr noundef nonnull %7)
-  br i1 %81, label %85, label %83
-
-83:                                               ; preds = %._crit_edge
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %84, align 8
-  br label %118
+  br i1 %83, label %87, label %85
 
 85:                                               ; preds = %._crit_edge
-  %86 = load i8, ptr %4, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %88, label %96
+  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %86, align 8
+  br label %120
 
-88:                                               ; preds = %85
-  %89 = call noalias ptr @_emalloc_48() #10
-  store i32 1, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
-  store i32 22, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %89, i64 8
-  store i64 0, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 16
-  store i64 16, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %89, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  %94 = getelementptr inbounds i8, ptr %89, i64 40
-  store i8 0, ptr %94, align 1
-  store ptr %89, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %95, align 8
-  br label %118
+87:                                               ; preds = %._crit_edge
+  %88 = load i8, ptr %4, align 1
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %98
 
-96:                                               ; preds = %85
-  %97 = call noalias ptr @_emalloc_64() #10
-  store i32 1, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  store i32 22, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
-  store i64 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 16
-  store i64 32, ptr %100, align 8
-  store ptr %97, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %97, i64 24
+90:                                               ; preds = %87
+  %91 = call noalias ptr @_emalloc_48() #10
+  store i32 1, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  store i32 22, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  store i64 0, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 16
+  store i64 16, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %91, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  %96 = getelementptr inbounds i8, ptr %91, i64 40
+  store i8 0, ptr %96, align 1
+  store ptr %91, ptr %1, align 8
+  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %97, align 8
+  br label %120
+
+98:                                               ; preds = %87
+  %99 = call noalias ptr @_emalloc_64() #10
+  store i32 1, ptr %99, align 4
+  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  store i32 22, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  store i64 0, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  store i64 32, ptr %102, align 8
+  store ptr %99, ptr %1, align 8
+  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %99, i64 24
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %96
-  %indvars.iv.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %103 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
-  %104 = load i8, ptr %103, align 1
-  %105 = lshr i8 %104, 4
-  %106 = zext nneg i8 %105 to i64
-  %107 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %106
-  %108 = load i8, ptr %107, align 1
-  %109 = shl nuw nsw i64 %indvars.iv.i, 1
-  %110 = getelementptr inbounds i8, ptr %102, i64 %109
-  store i8 %108, ptr %110, align 1
-  %111 = and i8 %104, 15
-  %112 = zext nneg i8 %111 to i64
-  %113 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %112
-  %114 = load i8, ptr %113, align 1
-  %115 = or disjoint i64 %109, 1
-  %116 = getelementptr inbounds i8, ptr %102, i64 %115
-  store i8 %114, ptr %116, align 1
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %98
+  %indvars.iv.i = phi i64 [ 0, %98 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %105 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %106 = load i8, ptr %105, align 1
+  %107 = lshr i8 %106, 4
+  %108 = zext nneg i8 %107 to i64
+  %109 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %108
+  %110 = load i8, ptr %109, align 1
+  %111 = shl nuw nsw i64 %indvars.iv.i, 1
+  %112 = getelementptr inbounds i8, ptr %104, i64 %111
+  store i8 %110, ptr %112, align 1
+  %113 = and i8 %106, 15
+  %114 = zext nneg i8 %113 to i64
+  %115 = getelementptr inbounds [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %117 = or disjoint i64 %111, 1
+  %118 = getelementptr inbounds i8, ptr %104, i64 %117
+  store i8 %116, ptr %118, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %make_digest_ex.exit, label %.lr.ph.i
 
 make_digest_ex.exit:                              ; preds = %.lr.ph.i
-  %117 = getelementptr inbounds i8, ptr %97, i64 56
-  store i8 0, ptr %117, align 1
-  br label %118
+  %119 = getelementptr inbounds i8, ptr %99, i64 56
+  store i8 0, ptr %119, align 1
+  br label %120
 
-118:                                              ; preds = %make_digest_ex.exit, %88, %83, %38, %.thread262
+120:                                              ; preds = %make_digest_ex.exit, %90, %85, %38, %.thread262
   ret void
 }
 

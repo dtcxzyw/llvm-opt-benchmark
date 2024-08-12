@@ -57,10 +57,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @bipbuf_init(ptr nocapture noundef writeonly %me, i32 noundef %size) local_unnamed_addr #1 {
 entry:
+  %b_end = getelementptr inbounds i8, ptr %me, i64 16
+  store i32 0, ptr %b_end, align 8
+  %a_end = getelementptr inbounds i8, ptr %me, i64 12
+  store i32 0, ptr %a_end, align 4
   %a_start = getelementptr inbounds i8, ptr %me, i64 8
+  store i32 0, ptr %a_start, align 8
   %conv = zext i32 %size to i64
   store i64 %conv, ptr %me, align 8
-  store <4 x i32> zeroinitializer, ptr %a_start, align 8
+  %b_inuse = getelementptr inbounds i8, ptr %me, i64 20
+  store i32 0, ptr %b_inuse, align 4
   ret void
 }
 
@@ -74,9 +80,15 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %b_end.i = getelementptr inbounds i8, ptr %call1, i64 16
+  store i32 0, ptr %b_end.i, align 8
+  %a_end.i = getelementptr inbounds i8, ptr %call1, i64 12
+  store i32 0, ptr %a_end.i, align 4
   %a_start.i = getelementptr inbounds i8, ptr %call1, i64 8
+  store i32 0, ptr %a_start.i, align 8
   store i64 %conv.i, ptr %call1, align 8
-  store <4 x i32> zeroinitializer, ptr %a_start.i, align 8
+  %b_inuse.i = getelementptr inbounds i8, ptr %call1, i64 20
+  store i32 0, ptr %b_inuse.i, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end

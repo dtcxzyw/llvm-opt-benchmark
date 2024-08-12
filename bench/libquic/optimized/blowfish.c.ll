@@ -1567,7 +1567,7 @@ if.end491:                                        ; preds = %if.end460, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BF_set_key(ptr noundef %key, i64 noundef %len, ptr noundef readonly %data) local_unnamed_addr #2 {
 entry:
-  %in = alloca [2 x i32], align 8
+  %in = alloca [2 x i32], align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4168) %key, ptr noundef nonnull align 4 dereferenceable(4168) @bf_init, i64 4168, i1 false)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %len, i64 72)
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %spec.store.select
@@ -1611,7 +1611,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
-  store i32 0, ptr %in, align 8
+  store i32 0, ptr %in, align 4
   %arrayidx30 = getelementptr inbounds i8, ptr %in, i64 4
   store i32 0, ptr %arrayidx30, align 4
   br label %for.body34
@@ -1619,9 +1619,13 @@ for.end:                                          ; preds = %for.body
 for.body34:                                       ; preds = %for.end, %for.body34
   %indvars.iv46 = phi i64 [ 0, %for.end ], [ %indvars.iv.next47, %for.body34 ]
   call void @BF_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %key)
+  %7 = load i32, ptr %in, align 4
   %arrayidx38 = getelementptr inbounds i32, ptr %key, i64 %indvars.iv46
-  %7 = load <2 x i32>, ptr %in, align 8
-  store <2 x i32> %7, ptr %arrayidx38, align 4
+  store i32 %7, ptr %arrayidx38, align 4
+  %8 = load i32, ptr %arrayidx30, align 4
+  %9 = or disjoint i64 %indvars.iv46, 1
+  %arrayidx41 = getelementptr inbounds i32, ptr %key, i64 %9
+  store i32 %8, ptr %arrayidx41, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 2
   %cmp32 = icmp ult i64 %indvars.iv46, 16
   br i1 %cmp32, label %for.body34, label %for.end44, !llvm.loop !11
@@ -1633,9 +1637,13 @@ for.end44:                                        ; preds = %for.body34
 for.body49:                                       ; preds = %for.end44, %for.body49
   %indvars.iv50 = phi i64 [ 0, %for.end44 ], [ %indvars.iv.next51, %for.body49 ]
   call void @BF_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %key)
+  %10 = load i32, ptr %in, align 4
   %arrayidx53 = getelementptr inbounds i32, ptr %S, i64 %indvars.iv50
-  %8 = load <2 x i32>, ptr %in, align 8
-  store <2 x i32> %8, ptr %arrayidx53, align 4
+  store i32 %10, ptr %arrayidx53, align 4
+  %11 = load i32, ptr %arrayidx30, align 4
+  %12 = or disjoint i64 %indvars.iv50, 1
+  %arrayidx57 = getelementptr inbounds i32, ptr %S, i64 %12
+  store i32 %11, ptr %arrayidx57, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 2
   %cmp47 = icmp ult i64 %indvars.iv50, 1022
   br i1 %cmp47, label %for.body49, label %for.end60, !llvm.loop !12

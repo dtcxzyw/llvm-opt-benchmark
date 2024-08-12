@@ -226,7 +226,9 @@ for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
   %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
   %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mnPrecision.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 16
   %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mnType.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 24
   %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
   %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
   %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
@@ -251,7 +253,10 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   store i32 1, ptr %formatData.i, align 4, !noalias !8
   store i32 1, ptr %mSign.i.i, align 4, !noalias !8
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !8
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i.i, align 4, !noalias !8
+  store i32 0, ptr %mnWidth.i.i, align 4, !noalias !8
+  store i32 2147483647, ptr %mnPrecision.i.i, align 4, !noalias !8
+  store i32 0, ptr %mModifier.i.i, align 4, !noalias !8
+  store i32 0, ptr %mnType.i.i, align 4, !noalias !8
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !8
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !8
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !8
@@ -1434,7 +1439,9 @@ for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
   %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
   %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mnPrecision.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 16
   %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mnType.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 24
   %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
   %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
   %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
@@ -1459,7 +1466,10 @@ for.body119.i:                                    ; preds = %for.inc332.i, %for.
   store i32 1, ptr %formatData.i, align 4, !noalias !37
   store i32 1, ptr %mSign.i.i, align 4, !noalias !37
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !37
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i.i, align 4, !noalias !37
+  store i32 0, ptr %mnWidth.i.i, align 4, !noalias !37
+  store i32 2147483647, ptr %mnPrecision.i.i, align 4, !noalias !37
+  store i32 0, ptr %mModifier.i.i, align 4, !noalias !37
+  store i32 0, ptr %mnType.i.i, align 4, !noalias !37
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !37
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !37
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !37
@@ -2627,7 +2637,9 @@ for.body113.lr.ph.i:                              ; preds = %if.end100.i
   %mSign.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 4
   %mbAlternativeForm.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 8
   %mnWidth.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 12
+  %mnPrecision.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 16
   %mModifier.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 20
+  %mnType.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 24
   %mDecimalPoint.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 28
   %mbDisplayThousands.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 32
   %mThousandsSeparator.i.i = getelementptr inbounds i8, ptr %formatData.i, i64 36
@@ -2652,7 +2664,10 @@ for.body113.i:                                    ; preds = %for.inc323.i, %for.
   store i32 1, ptr %formatData.i, align 4, !noalias !65
   store i32 1, ptr %mSign.i.i, align 4, !noalias !65
   store i8 0, ptr %mbAlternativeForm.i.i, align 4, !noalias !65
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i.i, align 4, !noalias !65
+  store i32 0, ptr %mnWidth.i.i, align 4, !noalias !65
+  store i32 2147483647, ptr %mnPrecision.i.i, align 4, !noalias !65
+  store i32 0, ptr %mModifier.i.i, align 4, !noalias !65
+  store i32 0, ptr %mnType.i.i, align 4, !noalias !65
   store i32 46, ptr %mDecimalPoint.i.i, align 4, !noalias !65
   store i8 0, ptr %mbDisplayThousands.i.i, align 4, !noalias !65
   store i32 44, ptr %mThousandsSeparator.i.i, align 4, !noalias !65

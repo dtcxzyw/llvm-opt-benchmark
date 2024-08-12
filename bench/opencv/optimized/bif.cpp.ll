@@ -1535,18 +1535,54 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_17BIF
 define internal void @_GLOBAL__sub_I_bif.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
-  store <4 x i32> <i32 6, i32 6, i32 8, i32 8>, ptr @_ZN12_GLOBAL__N_110kCellSizesE, align 16
-  store <4 x i32> <i32 10, i32 10, i32 12, i32 12>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 16), align 16
-  store <4 x i32> <i32 14, i32 14, i32 16, i32 16>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 32), align 16
-  store <4 x i32> <i32 18, i32 18, i32 20, i32 20>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 48), align 16
-  store <4 x i32> <i32 5, i32 5, i32 7, i32 7>, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, align 16
-  store <4 x i32> <i32 9, i32 9, i32 11, i32 11>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 16), align 16
-  store <4 x i32> <i32 13, i32 13, i32 15, i32 15>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 32), align 16
-  store <4 x i32> <i32 17, i32 17, i32 19, i32 19>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 48), align 16
-  store <4 x i32> <i32 21, i32 21, i32 23, i32 23>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 64), align 16
-  store <4 x i32> <i32 25, i32 25, i32 27, i32 27>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 80), align 16
-  store <4 x i32> <i32 29, i32 29, i32 31, i32 31>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 96), align 16
-  store <4 x i32> <i32 33, i32 33, i32 35, i32 35>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 112), align 16
+  store i32 6, ptr @_ZN12_GLOBAL__N_110kCellSizesE, align 16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 4), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 8), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 12), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 16), align 16
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 20), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 24), align 8
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 28), align 4
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 32), align 16
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 36), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 40), align 8
+  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 44), align 4
+  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 48), align 16
+  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 52), align 4
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 56), align 8
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kCellSizesE, i64 60), align 4
+  store i32 5, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, align 16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 4), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 8), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 12), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 16), align 16
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 20), align 4
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 24), align 8
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 28), align 4
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 32), align 16
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 36), align 4
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 40), align 8
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 44), align 4
+  store i32 17, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 48), align 16
+  store i32 17, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 52), align 4
+  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 56), align 8
+  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 60), align 4
+  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 64), align 16
+  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 68), align 4
+  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 72), align 8
+  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 76), align 4
+  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 80), align 16
+  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 84), align 4
+  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 88), align 8
+  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 92), align 4
+  store i32 29, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 96), align 16
+  store i32 29, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 100), align 4
+  store i32 31, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 104), align 8
+  store i32 31, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 108), align 4
+  store i32 33, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 112), align 16
+  store i32 33, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 116), align 4
+  store i32 35, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 120), align 8
+  store i32 35, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110kGaborSizeE, i64 124), align 4
   ret void
 }
 

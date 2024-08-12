@@ -103,7 +103,7 @@ define void @osqp_set_default_codegen_defines(ptr noundef writeonly %0) local_un
 ; Function Attrs: nounwind uwtable
 define void @osqp_set_default_settings(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %28, label %2
+  br i1 %.not, label %33, label %2
 
 2:                                                ; preds = %1
   store i64 0, ptr %0, align 8
@@ -127,38 +127,48 @@ define void @osqp_set_default_settings(ptr noundef writeonly %0) local_unnamed_a
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 80
-  store <2 x double> <double 0x3EB0C6F7A0B5ED8D, double 1.600000e+00>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 20, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  store i64 10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
-  store double 1.500000e-01, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
-  store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
-  store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 144
-  store <2 x double> <double 4.000000e-01, double 5.000000e+00>, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 4000, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
-  store <2 x double> <double 1.000000e-03, double 1.000000e-03>, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
-  store <2 x double> <double 1.000000e-04, double 1.000000e-04>, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 25, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 216
-  store <2 x double> <double 1.000000e+10, double 0x3EB0C6F7A0B5ED8D>, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
-  store i64 3, ptr %27, align 8
-  br label %28
+  store double 0x3EB0C6F7A0B5ED8D, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  store double 1.600000e+00, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 20, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 10, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  store double 1.500000e-01, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  store double 4.000000e-01, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  store double 5.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 4000, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 168
+  store double 1.000000e-03, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 176
+  store double 1.000000e-03, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 184
+  store double 1.000000e-04, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 192
+  store double 1.000000e-04, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 200
+  store i64 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 25, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 1.000000e+10, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 224
+  store double 0x3EB0C6F7A0B5ED8D, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 232
+  store i64 3, ptr %32, align 8
+  br label %33
 
-28:                                               ; preds = %1, %2
+33:                                               ; preds = %1, %2
   ret void
 }
 

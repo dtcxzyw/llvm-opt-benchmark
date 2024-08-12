@@ -1599,21 +1599,30 @@ _ZNK25IntegerTypeMultiplicationIiE13does_overflowEv.exit: ; preds = %2, %19, %27
 define hidden noundef ptr @_ZNK8MulLNode8mul_ringEPK4TypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.IntegerTypeMultiplication.0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = load <2 x i64>, ptr %5, align 8
-  %8 = load <2 x i64>, ptr %6, align 8
-  %9 = shufflevector <2 x i64> %7, <2 x i64> %8, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x i64> %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
-  %12 = load i16, ptr %11, align 4
-  store i16 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 34
-  %14 = getelementptr inbounds i8, ptr %2, i64 20
-  %15 = load i16, ptr %14, align 4
-  store i16 %15, ptr %13, align 2
-  %16 = call noundef ptr @_ZNK25IntegerTypeMultiplicationIlE7computeEv(ptr noundef nonnull align 8 dereferenceable(36) %4)
-  ret ptr %16
+  %6 = load i64, ptr %5, align 8
+  store i64 %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = load i64, ptr %8, align 8
+  store i64 %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = load i16, ptr %17, align 4
+  store i16 %18, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 34
+  %20 = getelementptr inbounds i8, ptr %2, i64 20
+  %21 = load i16, ptr %20, align 4
+  store i16 %21, ptr %19, align 2
+  %22 = call noundef ptr @_ZNK25IntegerTypeMultiplicationIlE7computeEv(ptr noundef nonnull align 8 dereferenceable(36) %4)
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8232,15 +8241,26 @@ define hidden noundef i32 @_ZNK13MulAddS2INode4hashEv(ptr noundef nonnull align 
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load <4 x ptr>, ptr %4, align 8
-  %6 = ptrtoint <4 x ptr> %5 to <4 x i64>
-  %7 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %6)
-  %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
-  %11 = trunc i64 %7 to i32
-  %12 = add i32 %10, %11
-  ret i32 %12
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %10 = add i64 %9, %6
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = add i64 %10, %13
+  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = add i64 %14, %17
+  %19 = load ptr, ptr %0, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
+  %22 = trunc i64 %18 to i32
+  %23 = add i32 %21, %22
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -9039,9 +9059,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

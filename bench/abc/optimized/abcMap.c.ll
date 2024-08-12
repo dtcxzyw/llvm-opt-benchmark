@@ -1158,28 +1158,30 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %1, i64 %indvars.iv
-  %9 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %6, i64 %indvars.iv
-  %10 = load <2 x float>, ptr %8, align 4
-  store <2 x float> %10, ptr %9, align 4
-  %11 = extractelement <2 x float> %10, i64 0
-  %12 = extractelement <2 x float> %10, i64 1
-  %13 = fcmp ogt float %12, %11
-  %14 = select i1 %13, float %12, float %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  store float %14, ptr %15, align 4
+  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = load float, ptr %9, align 4
+  %11 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  store float %10, ptr %12, align 4
+  %13 = load float, ptr %8, align 4
+  store float %13, ptr %11, align 4
+  %14 = fcmp ogt float %10, %13
+  %15 = select i1 %14, float %10, float %13
+  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  store float %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %16, label %._crit_edge.thread
+  br i1 %.not, label %17, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
   tail call void @free(ptr noundef nonnull %1) #13
-  br label %16
+  br label %17
 
-16:                                               ; preds = %._crit_edge, %._crit_edge.thread
+17:                                               ; preds = %._crit_edge, %._crit_edge.thread
   ret ptr %6
 }
 
@@ -1207,28 +1209,30 @@ define noalias noundef ptr @Abc_NtkMapCopyCoRequired(ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %1, i64 %indvars.iv
-  %9 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %6, i64 %indvars.iv
-  %10 = load <2 x float>, ptr %8, align 4
-  store <2 x float> %10, ptr %9, align 4
-  %11 = extractelement <2 x float> %10, i64 0
-  %12 = extractelement <2 x float> %10, i64 1
-  %13 = fcmp ogt float %12, %11
-  %14 = select i1 %13, float %12, float %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  store float %14, ptr %15, align 4
+  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = load float, ptr %9, align 4
+  %11 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  store float %10, ptr %12, align 4
+  %13 = load float, ptr %8, align 4
+  store float %13, ptr %11, align 4
+  %14 = fcmp ogt float %10, %13
+  %15 = select i1 %14, float %10, float %13
+  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  store float %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %16, label %._crit_edge.thread
+  br i1 %.not, label %17, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
   tail call void @free(ptr noundef nonnull %1) #13
-  br label %16
+  br label %17
 
-16:                                               ; preds = %._crit_edge, %._crit_edge.thread
+17:                                               ; preds = %._crit_edge, %._crit_edge.thread
   ret ptr %6
 }
 

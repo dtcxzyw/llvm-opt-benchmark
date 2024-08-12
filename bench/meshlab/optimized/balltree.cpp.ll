@@ -224,7 +224,7 @@ _ZNK7GaelMls8BallTreeIfE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIfEE.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7GaelMls8BallTreeIfE7rebuildEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector", align 8
-  %3 = alloca %"class.vcg::Box3", align 8
+  %3 = alloca %"class.vcg::Box3", align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -272,136 +272,152 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc17
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %21 = load ptr, ptr %0, align 8
-  %22 = load <2 x float>, ptr %21, align 4
+  %.sroa.12.12.copyload = load float, ptr %21, align 4
+  %.sroa.17.12..sroa_idx = getelementptr inbounds i8, ptr %21, i64 4
+  %.sroa.17.12.copyload = load float, ptr %.sroa.17.12..sroa_idx, align 4
   %.sroa.20.12..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   %.sroa.20.12.copyload = load float, ptr %.sroa.20.12..sroa_idx, align 4
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.noexc17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
   %.0.i.i.i.i.i.ph = phi ptr [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %17, %.noexc17 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %23, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = load <2 x float>, ptr %24, align 4
-  %.sroa.20.12..sroa_idx52 = getelementptr inbounds i8, ptr %24, i64 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %22, align 8
+  %23 = load ptr, ptr %0, align 8
+  %.sroa.12.12.copyload49 = load float, ptr %23, align 4
+  %.sroa.17.12..sroa_idx50 = getelementptr inbounds i8, ptr %23, i64 4
+  %.sroa.17.12.copyload51 = load float, ptr %.sroa.17.12..sroa_idx50, align 4
+  %.sroa.20.12..sroa_idx52 = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.20.12.copyload53 = load float, ptr %.sroa.20.12..sroa_idx52, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %.pre = load i64, ptr %26, align 8
-  %30 = load ptr, ptr %27, align 8
-  %31 = load i64, ptr %28, align 8
-  %32 = load float, ptr %29, align 8
-  br label %33
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %.pre = load i64, ptr %24, align 8
+  %28 = load ptr, ptr %25, align 8
+  %29 = load i64, ptr %26, align 8
+  %30 = load float, ptr %27, align 8
+  br label %31
 
-33:                                               ; preds = %.lr.ph, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit
-  %34 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %71, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+31:                                               ; preds = %.lr.ph, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit
+  %32 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %62, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.0.041 = phi float [ %.sroa.12.12.copyload49, %.lr.ph ], [ %.sroa.0.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.6.040 = phi float [ %.sroa.17.12.copyload51, %.lr.ph ], [ %.sroa.6.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
   %.sroa.9.039 = phi float [ %.sroa.20.12.copyload53, %.lr.ph ], [ %.sroa.9.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.12.038 = phi float [ %.sroa.12.12.copyload49, %.lr.ph ], [ %.sroa.12.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.17.037 = phi float [ %.sroa.17.12.copyload51, %.lr.ph ], [ %.sroa.17.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
   %.sroa.20.036 = phi float [ %.sroa.20.12.copyload53, %.lr.ph ], [ %.sroa.20.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %35 = phi <2 x float> [ %25, %.lr.ph ], [ %69, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %36 = phi <2 x float> [ %25, %.lr.ph ], [ %70, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %37 = getelementptr inbounds i32, ptr %14, i64 %34
-  store i32 %.042, ptr %37, align 4
-  %38 = sext i32 %.042 to i64
-  %39 = mul nsw i64 %.pre, %38
-  %40 = getelementptr inbounds i8, ptr %24, i64 %39
-  %41 = extractelement <2 x float> %35, i64 0
-  %42 = extractelement <2 x float> %36, i64 0
-  %43 = fcmp ogt float %41, %42
-  %44 = fcmp ogt <2 x float> %35, %36
-  %45 = extractelement <2 x i1> %44, i64 1
-  %or.cond = select i1 %43, i1 true, i1 %45
-  %46 = fcmp ogt float %.sroa.9.039, %.sroa.20.036
-  %or.cond35 = select i1 %or.cond, i1 true, i1 %46
-  br i1 %or.cond35, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i, label %49
+  %33 = getelementptr inbounds i32, ptr %14, i64 %32
+  store i32 %.042, ptr %33, align 4
+  %34 = sext i32 %.042 to i64
+  %35 = mul nsw i64 %.pre, %34
+  %36 = getelementptr inbounds i8, ptr %23, i64 %35
+  %37 = fcmp ogt float %.sroa.0.041, %.sroa.12.038
+  %38 = fcmp ogt float %.sroa.6.040, %.sroa.17.037
+  %or.cond = select i1 %37, i1 true, i1 %38
+  %39 = fcmp ogt float %.sroa.9.039, %.sroa.20.036
+  %or.cond35 = select i1 %or.cond, i1 true, i1 %39
+  br i1 %or.cond35, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i, label %40
 
-_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %33
-  %.sroa.17.12..sroa_idx31 = getelementptr inbounds i8, ptr %40, i64 4
+_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i:          ; preds = %31
+  %.sroa.12.12.copyload30 = load float, ptr %36, align 4
+  %.sroa.17.12..sroa_idx31 = getelementptr inbounds i8, ptr %36, i64 4
   %.sroa.17.12.copyload32 = load float, ptr %.sroa.17.12..sroa_idx31, align 4
-  %47 = load <2 x float>, ptr %40, align 4
-  %.sroa.20.12..sroa_idx33 = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.20.12..sroa_idx33 = getelementptr inbounds i8, ptr %36, i64 8
   %.sroa.20.12.copyload34 = load float, ptr %.sroa.20.12..sroa_idx33, align 4
-  %48 = insertelement <2 x float> %47, float %.sroa.17.12.copyload32, i64 1
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit
 
-49:                                               ; preds = %33
-  %50 = mul nsw i64 %31, %38
-  %51 = getelementptr inbounds i8, ptr %30, i64 %50
-  %52 = load float, ptr %51, align 4
-  %53 = fmul float %52, %32
-  %54 = load <2 x float>, ptr %40, align 4
-  %55 = insertelement <2 x float> poison, float %53, i64 0
-  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
-  %57 = fsub <2 x float> %54, %56
-  %58 = fcmp olt <2 x float> %57, %35
-  %59 = select <2 x i1> %58, <2 x float> %57, <2 x float> %35
-  %60 = getelementptr inbounds i8, ptr %40, i64 8
-  %61 = load float, ptr %60, align 4
-  %62 = fsub float %61, %53
-  %63 = fcmp olt float %62, %.sroa.9.039
-  %.sroa.speculated28.i = select i1 %63, float %62, float %.sroa.9.039
-  %64 = fadd <2 x float> %54, %56
-  %65 = fcmp olt <2 x float> %36, %64
-  %66 = select <2 x i1> %65, <2 x float> %64, <2 x float> %36
-  %67 = fadd float %53, %61
-  %68 = fcmp olt float %.sroa.20.036, %67
-  %.sroa.speculated.i = select i1 %68, float %67, float %.sroa.20.036
+40:                                               ; preds = %31
+  %41 = mul nsw i64 %29, %34
+  %42 = getelementptr inbounds i8, ptr %28, i64 %41
+  %43 = load float, ptr %42, align 4
+  %44 = fmul float %43, %30
+  %45 = load float, ptr %36, align 4
+  %46 = fsub float %45, %44
+  %47 = fcmp olt float %46, %.sroa.0.041
+  %.sroa.speculated36.i = select i1 %47, float %46, float %.sroa.0.041
+  %48 = getelementptr inbounds i8, ptr %36, i64 4
+  %49 = load float, ptr %48, align 4
+  %50 = fsub float %49, %44
+  %51 = fcmp olt float %50, %.sroa.6.040
+  %.sroa.speculated32.i = select i1 %51, float %50, float %.sroa.6.040
+  %52 = getelementptr inbounds i8, ptr %36, i64 8
+  %53 = load float, ptr %52, align 4
+  %54 = fsub float %53, %44
+  %55 = fcmp olt float %54, %.sroa.9.039
+  %.sroa.speculated28.i = select i1 %55, float %54, float %.sroa.9.039
+  %56 = fadd float %45, %44
+  %57 = fcmp olt float %.sroa.12.038, %56
+  %.sroa.speculated24.i = select i1 %57, float %56, float %.sroa.12.038
+  %58 = fadd float %44, %49
+  %59 = fcmp olt float %.sroa.17.037, %58
+  %.sroa.speculated20.i = select i1 %59, float %58, float %.sroa.17.037
+  %60 = fadd float %44, %53
+  %61 = fcmp olt float %.sroa.20.036, %60
+  %.sroa.speculated.i = select i1 %61, float %60, float %.sroa.20.036
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit
 
-_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit:       ; preds = %49, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i
-  %.sroa.20.1 = phi float [ %.sroa.20.12.copyload34, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated.i, %49 ]
-  %.sroa.9.1 = phi float [ %.sroa.20.12.copyload34, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated28.i, %49 ]
-  %69 = phi <2 x float> [ %47, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %59, %49 ]
-  %70 = phi <2 x float> [ %48, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %66, %49 ]
-  %71 = add i32 %.042, 1
-  %72 = zext i32 %71 to i64
-  %73 = icmp ugt i64 %11, %72
-  br i1 %73, label %33, label %._crit_edge, !llvm.loop !7
+_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit:       ; preds = %40, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i
+  %.sroa.20.1 = phi float [ %.sroa.20.12.copyload34, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated.i, %40 ]
+  %.sroa.17.1 = phi float [ %.sroa.17.12.copyload32, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated20.i, %40 ]
+  %.sroa.12.1 = phi float [ %.sroa.12.12.copyload30, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated24.i, %40 ]
+  %.sroa.9.1 = phi float [ %.sroa.20.12.copyload34, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated28.i, %40 ]
+  %.sroa.6.1 = phi float [ %.sroa.17.12.copyload32, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated32.i, %40 ]
+  %.sroa.0.1 = phi float [ %.sroa.12.12.copyload30, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i ], [ %.sroa.speculated36.i, %40 ]
+  %62 = add i32 %.042, 1
+  %63 = zext i32 %62 to i64
+  %64 = icmp ugt i64 %11, %63
+  br i1 %64, label %31, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit, %20
   %.sroa.20.0.lcssa = phi float [ %.sroa.20.12.copyload, %20 ], [ %.sroa.20.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.17.0.lcssa = phi float [ %.sroa.17.12.copyload, %20 ], [ %.sroa.17.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.12.0.lcssa = phi float [ %.sroa.12.12.copyload, %20 ], [ %.sroa.12.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
   %.sroa.9.0.lcssa = phi float [ %.sroa.20.12.copyload, %20 ], [ %.sroa.9.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %74 = phi <2 x float> [ %22, %20 ], [ %69, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  %75 = phi <2 x float> [ %22, %20 ], [ %70, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
-  store <2 x float> %74, ptr %3, align 8
+  %.sroa.6.0.lcssa = phi float [ %.sroa.17.12.copyload, %20 ], [ %.sroa.6.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  %.sroa.0.0.lcssa = phi float [ %.sroa.12.12.copyload, %20 ], [ %.sroa.0.1, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEEf.exit ]
+  store float %.sroa.0.0.lcssa, ptr %3, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  store float %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store float %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 8
+  store float %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
-  store <2 x float> %75, ptr %.sroa.12.0..sroa_idx, align 4
+  store float %.sroa.12.0.lcssa, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  store float %.sroa.17.0.lcssa, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   store float %.sroa.20.0.lcssa, ptr %.sroa.20.0..sroa_idx, align 4
   invoke void @_ZN7GaelMls8BallTreeIfE9buildNodeERNS1_4NodeERSt6vectorIiSaIiEEN3vcg4Box3IfEEi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, i32 noundef 0)
-          to label %76 unwind label %80
+          to label %65 unwind label %69
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds i8, ptr %0, i64 60
-  store i8 1, ptr %77, align 4
-  %78 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %79
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds i8, ptr %0, i64 60
+  store i8 1, ptr %66, align 4
+  %67 = load ptr, ptr %2, align 8
+  %.not.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %68
 
-79:                                               ; preds = %76
-  call void @_ZdlPv(ptr noundef nonnull %78) #16
+68:                                               ; preds = %65
+  call void @_ZdlPv(ptr noundef nonnull %67) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %76, %79
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %65, %68
   ret void
 
-80:                                               ; preds = %._crit_edge
-  %81 = landingpad { ptr, i32 }
+69:                                               ; preds = %._crit_edge
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %2, align 8
-  %.not.i.i.i18 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIiSaIiEED2Ev.exit19, label %83
+  %71 = load ptr, ptr %2, align 8
+  %.not.i.i.i18 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIiSaIiEED2Ev.exit19, label %72
 
-83:                                               ; preds = %80
-  call void @_ZdlPv(ptr noundef nonnull %82) #16
+72:                                               ; preds = %69
+  call void @_ZdlPv(ptr noundef nonnull %71) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit19
 
-_ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %83, %80
-  resume { ptr, i32 } %81
+_ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %72, %69
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1395,7 +1411,7 @@ _ZNK7GaelMls8BallTreeIdE9queryNodeERNS1_4NodeEPNS_12NeighborhoodIdEE.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7GaelMls8BallTreeIdE7rebuildEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector", align 8
-  %3 = alloca %"class.vcg::Box3.21", align 16
+  %3 = alloca %"class.vcg::Box3.21", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1443,136 +1459,152 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc17
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %21 = load ptr, ptr %0, align 8
-  %22 = load <2 x double>, ptr %21, align 8
+  %.sroa.12.24.copyload = load double, ptr %21, align 8
+  %.sroa.17.24..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.17.24.copyload = load double, ptr %.sroa.17.24..sroa_idx, align 8
   %.sroa.20.24..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   %.sroa.20.24.copyload = load double, ptr %.sroa.20.24..sroa_idx, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.noexc17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
   %.0.i.i.i.i.i.ph = phi ptr [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %17, %.noexc17 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %23, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = load <2 x double>, ptr %24, align 8
-  %.sroa.20.24..sroa_idx52 = getelementptr inbounds i8, ptr %24, i64 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %22, align 8
+  %23 = load ptr, ptr %0, align 8
+  %.sroa.12.24.copyload49 = load double, ptr %23, align 8
+  %.sroa.17.24..sroa_idx50 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.17.24.copyload51 = load double, ptr %.sroa.17.24..sroa_idx50, align 8
+  %.sroa.20.24..sroa_idx52 = getelementptr inbounds i8, ptr %23, i64 16
   %.sroa.20.24.copyload53 = load double, ptr %.sroa.20.24..sroa_idx52, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %.pre = load i64, ptr %26, align 8
-  %30 = load ptr, ptr %27, align 8
-  %31 = load i64, ptr %28, align 8
-  %32 = load double, ptr %29, align 8
-  br label %33
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %.pre = load i64, ptr %24, align 8
+  %28 = load ptr, ptr %25, align 8
+  %29 = load i64, ptr %26, align 8
+  %30 = load double, ptr %27, align 8
+  br label %31
 
-33:                                               ; preds = %.lr.ph, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit
-  %34 = phi i64 [ 0, %.lr.ph ], [ %72, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %71, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+31:                                               ; preds = %.lr.ph, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit
+  %32 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %62, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.0.041 = phi double [ %.sroa.12.24.copyload49, %.lr.ph ], [ %.sroa.0.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.6.040 = phi double [ %.sroa.17.24.copyload51, %.lr.ph ], [ %.sroa.6.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
   %.sroa.9.039 = phi double [ %.sroa.20.24.copyload53, %.lr.ph ], [ %.sroa.9.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.12.038 = phi double [ %.sroa.12.24.copyload49, %.lr.ph ], [ %.sroa.12.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.17.037 = phi double [ %.sroa.17.24.copyload51, %.lr.ph ], [ %.sroa.17.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
   %.sroa.20.036 = phi double [ %.sroa.20.24.copyload53, %.lr.ph ], [ %.sroa.20.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %35 = phi <2 x double> [ %25, %.lr.ph ], [ %69, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %36 = phi <2 x double> [ %25, %.lr.ph ], [ %70, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %37 = getelementptr inbounds i32, ptr %14, i64 %34
-  store i32 %.042, ptr %37, align 4
-  %38 = sext i32 %.042 to i64
-  %39 = mul nsw i64 %.pre, %38
-  %40 = getelementptr inbounds i8, ptr %24, i64 %39
-  %41 = extractelement <2 x double> %35, i64 0
-  %42 = extractelement <2 x double> %36, i64 0
-  %43 = fcmp ogt double %41, %42
-  %44 = fcmp ogt <2 x double> %35, %36
-  %45 = extractelement <2 x i1> %44, i64 1
-  %or.cond = select i1 %43, i1 true, i1 %45
-  %46 = fcmp ogt double %.sroa.9.039, %.sroa.20.036
-  %or.cond35 = select i1 %or.cond, i1 true, i1 %46
-  br i1 %or.cond35, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, label %49
+  %33 = getelementptr inbounds i32, ptr %14, i64 %32
+  store i32 %.042, ptr %33, align 4
+  %34 = sext i32 %.042 to i64
+  %35 = mul nsw i64 %.pre, %34
+  %36 = getelementptr inbounds i8, ptr %23, i64 %35
+  %37 = fcmp ogt double %.sroa.0.041, %.sroa.12.038
+  %38 = fcmp ogt double %.sroa.6.040, %.sroa.17.037
+  %or.cond = select i1 %37, i1 true, i1 %38
+  %39 = fcmp ogt double %.sroa.9.039, %.sroa.20.036
+  %or.cond35 = select i1 %or.cond, i1 true, i1 %39
+  br i1 %or.cond35, label %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i, label %40
 
-_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %33
-  %.sroa.17.24..sroa_idx31 = getelementptr inbounds i8, ptr %40, i64 8
+_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i:          ; preds = %31
+  %.sroa.12.24.copyload30 = load double, ptr %36, align 8
+  %.sroa.17.24..sroa_idx31 = getelementptr inbounds i8, ptr %36, i64 8
   %.sroa.17.24.copyload32 = load double, ptr %.sroa.17.24..sroa_idx31, align 8
-  %47 = load <2 x double>, ptr %40, align 8
-  %.sroa.20.24..sroa_idx33 = getelementptr inbounds i8, ptr %40, i64 16
+  %.sroa.20.24..sroa_idx33 = getelementptr inbounds i8, ptr %36, i64 16
   %.sroa.20.24.copyload34 = load double, ptr %.sroa.20.24..sroa_idx33, align 8
-  %48 = insertelement <2 x double> %47, double %.sroa.17.24.copyload32, i64 1
   br label %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit
 
-49:                                               ; preds = %33
-  %50 = mul nsw i64 %31, %38
-  %51 = getelementptr inbounds i8, ptr %30, i64 %50
-  %52 = load double, ptr %51, align 8
-  %53 = fmul double %52, %32
-  %54 = load <2 x double>, ptr %40, align 8
-  %55 = insertelement <2 x double> poison, double %53, i64 0
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = fsub <2 x double> %54, %56
-  %58 = fcmp olt <2 x double> %57, %35
-  %59 = select <2 x i1> %58, <2 x double> %57, <2 x double> %35
-  %60 = getelementptr inbounds i8, ptr %40, i64 16
-  %61 = load double, ptr %60, align 8
-  %62 = fsub double %61, %53
-  %63 = fcmp olt double %62, %.sroa.9.039
-  %.sroa.speculated28.i = select i1 %63, double %62, double %.sroa.9.039
-  %64 = fadd <2 x double> %54, %56
-  %65 = fcmp olt <2 x double> %36, %64
-  %66 = select <2 x i1> %65, <2 x double> %64, <2 x double> %36
-  %67 = fadd double %53, %61
-  %68 = fcmp olt double %.sroa.20.036, %67
-  %.sroa.speculated.i = select i1 %68, double %67, double %.sroa.20.036
+40:                                               ; preds = %31
+  %41 = mul nsw i64 %29, %34
+  %42 = getelementptr inbounds i8, ptr %28, i64 %41
+  %43 = load double, ptr %42, align 8
+  %44 = fmul double %43, %30
+  %45 = load double, ptr %36, align 8
+  %46 = fsub double %45, %44
+  %47 = fcmp olt double %46, %.sroa.0.041
+  %.sroa.speculated36.i = select i1 %47, double %46, double %.sroa.0.041
+  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %49 = load double, ptr %48, align 8
+  %50 = fsub double %49, %44
+  %51 = fcmp olt double %50, %.sroa.6.040
+  %.sroa.speculated32.i = select i1 %51, double %50, double %.sroa.6.040
+  %52 = getelementptr inbounds i8, ptr %36, i64 16
+  %53 = load double, ptr %52, align 8
+  %54 = fsub double %53, %44
+  %55 = fcmp olt double %54, %.sroa.9.039
+  %.sroa.speculated28.i = select i1 %55, double %54, double %.sroa.9.039
+  %56 = fadd double %45, %44
+  %57 = fcmp olt double %.sroa.12.038, %56
+  %.sroa.speculated24.i = select i1 %57, double %56, double %.sroa.12.038
+  %58 = fadd double %44, %49
+  %59 = fcmp olt double %.sroa.17.037, %58
+  %.sroa.speculated20.i = select i1 %59, double %58, double %.sroa.17.037
+  %60 = fadd double %44, %53
+  %61 = fcmp olt double %.sroa.20.036, %60
+  %.sroa.speculated.i = select i1 %61, double %60, double %.sroa.20.036
   br label %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit
 
-_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit:       ; preds = %49, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i
-  %.sroa.20.1 = phi double [ %.sroa.20.24.copyload34, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated.i, %49 ]
-  %.sroa.9.1 = phi double [ %.sroa.20.24.copyload34, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated28.i, %49 ]
-  %69 = phi <2 x double> [ %47, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %59, %49 ]
-  %70 = phi <2 x double> [ %48, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %66, %49 ]
-  %71 = add i32 %.042, 1
-  %72 = zext i32 %71 to i64
-  %73 = icmp ugt i64 %11, %72
-  br i1 %73, label %33, label %._crit_edge, !llvm.loop !16
+_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit:       ; preds = %40, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i
+  %.sroa.20.1 = phi double [ %.sroa.20.24.copyload34, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated.i, %40 ]
+  %.sroa.17.1 = phi double [ %.sroa.17.24.copyload32, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated20.i, %40 ]
+  %.sroa.12.1 = phi double [ %.sroa.12.24.copyload30, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated24.i, %40 ]
+  %.sroa.9.1 = phi double [ %.sroa.20.24.copyload34, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated28.i, %40 ]
+  %.sroa.6.1 = phi double [ %.sroa.17.24.copyload32, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated32.i, %40 ]
+  %.sroa.0.1 = phi double [ %.sroa.12.24.copyload30, %_ZNK3vcg4Box3IdE6IsNullEv.exit.thread.i ], [ %.sroa.speculated36.i, %40 ]
+  %62 = add i32 %.042, 1
+  %63 = zext i32 %62 to i64
+  %64 = icmp ugt i64 %11, %63
+  br i1 %64, label %31, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit, %20
   %.sroa.20.0.lcssa = phi double [ %.sroa.20.24.copyload, %20 ], [ %.sroa.20.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.17.0.lcssa = phi double [ %.sroa.17.24.copyload, %20 ], [ %.sroa.17.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.12.0.lcssa = phi double [ %.sroa.12.24.copyload, %20 ], [ %.sroa.12.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
   %.sroa.9.0.lcssa = phi double [ %.sroa.20.24.copyload, %20 ], [ %.sroa.9.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %74 = phi <2 x double> [ %22, %20 ], [ %69, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  %75 = phi <2 x double> [ %22, %20 ], [ %70, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
-  store <2 x double> %74, ptr %3, align 16
+  %.sroa.6.0.lcssa = phi double [ %.sroa.17.24.copyload, %20 ], [ %.sroa.6.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  %.sroa.0.0.lcssa = phi double [ %.sroa.12.24.copyload, %20 ], [ %.sroa.0.1, %_ZN3vcg4Box3IdE3AddERKNS_6Point3IdEEd.exit ]
+  store double %.sroa.0.0.lcssa, ptr %3, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store double %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store double %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 16
+  store double %.sroa.9.0.lcssa, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  store <2 x double> %75, ptr %.sroa.12.0..sroa_idx, align 8
+  store double %.sroa.12.0.lcssa, ptr %.sroa.12.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  store double %.sroa.17.0.lcssa, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   store double %.sroa.20.0.lcssa, ptr %.sroa.20.0..sroa_idx, align 8
   invoke void @_ZN7GaelMls8BallTreeIdE9buildNodeERNS1_4NodeERSt6vectorIiSaIiEEN3vcg4Box3IdEEi(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, i32 noundef 0)
-          to label %76 unwind label %80
+          to label %65 unwind label %69
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 1, ptr %77, align 8
-  %78 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %78, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %79
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 1, ptr %66, align 8
+  %67 = load ptr, ptr %2, align 8
+  %.not.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %68
 
-79:                                               ; preds = %76
-  call void @_ZdlPv(ptr noundef nonnull %78) #16
+68:                                               ; preds = %65
+  call void @_ZdlPv(ptr noundef nonnull %67) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %76, %79
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %65, %68
   ret void
 
-80:                                               ; preds = %._crit_edge
-  %81 = landingpad { ptr, i32 }
+69:                                               ; preds = %._crit_edge
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %2, align 8
-  %.not.i.i.i18 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIiSaIiEED2Ev.exit19, label %83
+  %71 = load ptr, ptr %2, align 8
+  %.not.i.i.i18 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIiSaIiEED2Ev.exit19, label %72
 
-83:                                               ; preds = %80
-  call void @_ZdlPv(ptr noundef nonnull %82) #16
+72:                                               ; preds = %69
+  call void @_ZdlPv(ptr noundef nonnull %71) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit19
 
-_ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %83, %80
-  resume { ptr, i32 } %81
+_ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %72, %69
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable

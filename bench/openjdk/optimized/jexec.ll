@@ -294,7 +294,7 @@ declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local
 define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #18
   %.not = icmp eq i32 %2, -1
-  br i1 %.not, label %34, label %3
+  br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @llvm.stacksave.p0()
@@ -304,55 +304,67 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %5, align 16
-  %10 = icmp eq i32 %9, 67324752
-  br i1 %10, label %11, label %.loopexit
+  %9 = load i8, ptr %5, align 16
+  %10 = icmp eq i8 %9, 80
+  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 75
+  %14 = and i1 %10, %13
+  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  %16 = load i8, ptr %15, align 2
+  %17 = icmp eq i8 %16, 3
+  %18 = and i1 %14, %17
+  %19 = getelementptr inbounds i8, ptr %5, i64 3
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 4
+  %22 = and i1 %18, %21
+  br i1 %22, label %23, label %.loopexit
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %5, i64 26
-  %13 = load i16, ptr %12, align 2
-  %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
-  %16 = load i16, ptr %15, align 4
-  %17 = zext i16 %16 to i64
-  %18 = add nuw nsw i64 %14, 30
-  %19 = add nuw nsw i64 %18, %17
-  %.not26 = icmp ugt i64 %19, %6
-  br i1 %.not26, label %.loopexit, label %20
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds i8, ptr %5, i64 26
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i64
+  %27 = getelementptr inbounds i8, ptr %5, i64 28
+  %28 = load i16, ptr %27, align 4
+  %29 = zext i16 %28 to i64
+  %30 = add nuw nsw i64 %26, 30
+  %31 = add nuw nsw i64 %30, %29
+  %.not26 = icmp ugt i64 %31, %6
+  br i1 %.not26, label %.loopexit, label %32
 
-20:                                               ; preds = %11
-  %21 = add nsw i64 %19, -4
-  br label %22
-
-22:                                               ; preds = %23, %20
-  %.022 = phi i64 [ %18, %20 ], [ %30, %23 ]
-  %.not27 = icmp sgt i64 %.022, %21
-  br i1 %.not27, label %.loopexit, label %23
-
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %5, i64 %.022
-  %25 = load i16, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %24, i64 2
-  %27 = load i16, ptr %26, align 1
-  %28 = zext i16 %27 to i64
-  %29 = add nuw nsw i64 %.022, 4
-  %30 = add nuw nsw i64 %29, %28
-  %31 = icmp eq i16 %25, -13570
-  br i1 %31, label %.loopexit33, label %22, !llvm.loop !8
-
-.loopexit:                                        ; preds = %22, %11, %8, %3
-  %.1.ph = phi ptr [ @.str.10, %3 ], [ @.str.11, %8 ], [ @.str.11, %11 ], [ @.str.11, %22 ]
-  %32 = tail call ptr @__errno_location() #15
-  store i32 8, ptr %32, align 4
-  br label %.loopexit33
-
-.loopexit33:                                      ; preds = %23, %.loopexit
-  %.132 = phi ptr [ %.1.ph, %.loopexit ], [ null, %23 ]
-  %33 = tail call i32 @close(i32 noundef %2) #18
-  call void @llvm.stackrestore.p0(ptr %4)
+32:                                               ; preds = %23
+  %33 = add nsw i64 %31, -4
   br label %34
 
-34:                                               ; preds = %.loopexit33, %1
+34:                                               ; preds = %35, %32
+  %.022 = phi i64 [ %30, %32 ], [ %42, %35 ]
+  %.not27 = icmp sgt i64 %.022, %33
+  br i1 %.not27, label %.loopexit, label %35
+
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %5, i64 %.022
+  %37 = load i16, ptr %36, align 1
+  %38 = getelementptr inbounds i8, ptr %36, i64 2
+  %39 = load i16, ptr %38, align 1
+  %40 = zext i16 %39 to i64
+  %41 = add nuw nsw i64 %.022, 4
+  %42 = add nuw nsw i64 %41, %40
+  %43 = icmp eq i16 %37, -13570
+  br i1 %43, label %.loopexit33, label %34, !llvm.loop !8
+
+.loopexit:                                        ; preds = %34, %23, %8, %3
+  %.1.ph = phi ptr [ @.str.10, %3 ], [ @.str.11, %8 ], [ @.str.11, %23 ], [ @.str.11, %34 ]
+  %44 = tail call ptr @__errno_location() #15
+  store i32 8, ptr %44, align 4
+  br label %.loopexit33
+
+.loopexit33:                                      ; preds = %35, %.loopexit
+  %.132 = phi ptr [ %.1.ph, %.loopexit ], [ null, %35 ]
+  %45 = tail call i32 @close(i32 noundef %2) #18
+  call void @llvm.stackrestore.p0(ptr %4)
+  br label %46
+
+46:                                               ; preds = %.loopexit33, %1
   %.0 = phi ptr [ %.132, %.loopexit33 ], [ @.str.10, %1 ]
   ret ptr %.0
 }

@@ -1456,7 +1456,7 @@ entry:
   %p = alloca %"class.std::vector.7", align 8
   %q = alloca %"class.std::vector.12", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp5 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp5 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp16 = alloca %"class.testing::Message", align 8
   %ref.tmp18 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar26 = alloca %"class.testing::AssertionResult", align 8
@@ -1466,7 +1466,7 @@ entry:
   %p64 = alloca %"class.std::vector.7", align 8
   %q75 = alloca %"class.std::vector.12", align 8
   %gtest_ar78 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp79 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.51", align 16
+  %ref.tmp79 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.51", align 8
   %ref.tmp95 = alloca %"class.testing::Message", align 8
   %ref.tmp97 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar108 = alloca %"class.testing::AssertionResult", align 8
@@ -1485,9 +1485,11 @@ entry:
           to label %invoke.cont12 unwind label %lpad3
 
 invoke.cont12:                                    ; preds = %entry
-  store <2 x double> <double 5.000000e-01, double 0x3FD5555555555555>, ptr %ref.tmp5, align 16
+  store double 5.000000e-01, ptr %ref.tmp5, align 8
+  %agg.tmp617.sroa.4.0.ref.tmp5.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  store double 0x3FD5555555555555, ptr %agg.tmp617.sroa.4.0.ref.tmp5.sroa_idx, align 8
   %agg.tmp617.sroa.5.0.ref.tmp5.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
-  store double 0x3FC5555555555555, ptr %agg.tmp617.sroa.5.0.ref.tmp5.sroa_idx, align 16
+  store double 0x3FC5555555555555, ptr %agg.tmp617.sroa.5.0.ref.tmp5.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(24) %p)
           to label %invoke.cont13 unwind label %lpad10
 
@@ -1728,11 +1730,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt4pai
           to label %invoke.cont88 unwind label %lpad76
 
 invoke.cont88:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  store <2 x double> <double 0x3FC3B13B13B13B14, double 0x3FD89D89D89D89D9>, ptr %ref.tmp79, align 16
+  store double 0x3FC3B13B13B13B14, ptr %ref.tmp79, align 8
+  %agg.tmp8063.sroa.4.0.ref.tmp79.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  store double 0x3FD89D89D89D89D9, ptr %agg.tmp8063.sroa.4.0.ref.tmp79.sroa_idx, align 8
   %agg.tmp8063.sroa.5.0.ref.tmp79.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
-  store <2 x double> <double 0x3FCD89D89D89D89E, double 0x3FC3B13B13B13B14>, ptr %agg.tmp8063.sroa.5.0.ref.tmp79.sroa_idx, align 16
+  store double 0x3FCD89D89D89D89E, ptr %agg.tmp8063.sroa.5.0.ref.tmp79.sroa_idx, align 8
+  %agg.tmp8063.sroa.6.0.ref.tmp79.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  store double 0x3FC3B13B13B13B14, ptr %agg.tmp8063.sroa.6.0.ref.tmp79.sroa_idx, align 8
   %agg.tmp8063.sroa.7.0.ref.tmp79.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp79, i64 32
-  store double 0x3FB3B13B13B13B14, ptr %agg.tmp8063.sroa.7.0.ref.tmp79.sroa_idx, align 16
+  store double 0x3FB3B13B13B13B14, ptr %agg.tmp8063.sroa.7.0.ref.tmp79.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar78, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp79, ptr noundef nonnull @.str.14, ptr noundef nonnull align 8 dereferenceable(24) %p64)
           to label %invoke.cont89 unwind label %lpad86
 
@@ -11656,7 +11662,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIiE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -11777,19 +11783,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -12056,7 +12066,7 @@ entry:
   %ref.tmp68 = alloca %"class.testing::Message", align 8
   %ref.tmp71 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar83 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp84 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.220", align 16
+  %ref.tmp84 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.220", align 4
   %ref.tmp98 = alloca %"class.testing::Message", align 8
   %ref.tmp101 = alloca %"class.testing::internal::AssertHelper", align 8
   %dist113 = alloca %"class.absl::discrete_distribution.235", align 8
@@ -12074,7 +12084,7 @@ entry:
   %ref.tmp194 = alloca %"class.testing::Message", align 8
   %ref.tmp197 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar209 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp210 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.220", align 16
+  %ref.tmp210 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.220", align 4
   %ref.tmp224 = alloca %"class.testing::Message", align 8
   %ref.tmp227 = alloca %"class.testing::internal::AssertHelper", align 8
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
@@ -12607,9 +12617,15 @@ if.then.i.i.i2.i.i:                               ; preds = %_ZNSt6vectorISt4pai
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i, %if.then.i.i.i2.i.i
-  store <4 x i32> <i32 3, i32 3, i32 3, i32 1>, ptr %ref.tmp84, align 16
+  store i32 3, ptr %ref.tmp84, align 4
+  %agg.tmp8597.sroa.4.0.ref.tmp84.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp84, i64 4
+  store i32 3, ptr %agg.tmp8597.sroa.4.0.ref.tmp84.sroa_idx, align 4
+  %agg.tmp8597.sroa.5.0.ref.tmp84.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
+  store i32 3, ptr %agg.tmp8597.sroa.5.0.ref.tmp84.sroa_idx, align 4
+  %agg.tmp8597.sroa.6.0.ref.tmp84.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp84, i64 12
+  store i32 1, ptr %agg.tmp8597.sroa.6.0.ref.tmp84.sroa_idx, align 4
   %agg.tmp8597.sroa.7.0.ref.tmp84.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp84, i64 16
-  store i32 3, ptr %agg.tmp8597.sroa.7.0.ref.tmp84.sroa_idx, align 16
+  store i32 3, ptr %agg.tmp8597.sroa.7.0.ref.tmp84.sroa_idx, align 4
   %agg.tmp8597.sroa.8.0.ref.tmp84.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp84, i64 20
   store i32 3, ptr %agg.tmp8597.sroa.8.0.ref.tmp84.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar83, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp84, ptr noundef nonnull @.str.81, ptr noundef nonnull align 8 dereferenceable(24) %output)
@@ -13222,9 +13238,15 @@ if.then.i.i.i2.i.i217:                            ; preds = %_ZNSt6vectorISt4pai
   br label %invoke.cont219
 
 invoke.cont219:                                   ; preds = %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit.i.i215, %if.then.i.i.i2.i.i217
-  store <4 x i32> <i32 4, i32 0, i32 3, i32 0>, ptr %ref.tmp210, align 16
+  store i32 4, ptr %ref.tmp210, align 4
+  %agg.tmp211223.sroa.4.0.ref.tmp210.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp210, i64 4
+  store i32 0, ptr %agg.tmp211223.sroa.4.0.ref.tmp210.sroa_idx, align 4
+  %agg.tmp211223.sroa.5.0.ref.tmp210.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp210, i64 8
+  store i32 3, ptr %agg.tmp211223.sroa.5.0.ref.tmp210.sroa_idx, align 4
+  %agg.tmp211223.sroa.6.0.ref.tmp210.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp210, i64 12
+  store i32 0, ptr %agg.tmp211223.sroa.6.0.ref.tmp210.sroa_idx, align 4
   %agg.tmp211223.sroa.7.0.ref.tmp210.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp210, i64 16
-  store i32 3, ptr %agg.tmp211223.sroa.7.0.ref.tmp210.sroa_idx, align 16
+  store i32 3, ptr %agg.tmp211223.sroa.7.0.ref.tmp210.sroa_idx, align 4
   %agg.tmp211223.sroa.8.0.ref.tmp210.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp210, i64 20
   store i32 3, ptr %agg.tmp211223.sroa.8.0.ref.tmp210.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar209, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp210, ptr noundef nonnull @.str.81, ptr noundef nonnull align 8 dereferenceable(24) %output)
@@ -16633,7 +16655,7 @@ if.end16:                                         ; preds = %entry, %if.then14, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIlE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -16754,19 +16776,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -17144,7 +17170,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.289", align 8
@@ -17467,9 +17493,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -19066,7 +19094,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIaE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -19187,19 +19215,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -22521,7 +22553,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.300", align 8
@@ -22844,9 +22876,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -24124,7 +24158,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIhE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -24245,19 +24279,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -25065,7 +25103,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.304", align 8
@@ -25388,9 +25426,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -26668,7 +26708,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIsE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -26789,19 +26829,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -27609,7 +27653,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.308", align 8
@@ -27932,9 +27976,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -29212,7 +29258,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionItE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -29333,19 +29379,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -30153,7 +30203,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution", align 8
@@ -30476,9 +30526,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -32412,7 +32464,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.315", align 8
@@ -32735,9 +32787,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -34015,7 +34069,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionIjE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -34136,19 +34190,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -34956,7 +35014,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.235", align 8
@@ -35279,9 +35337,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -37301,7 +37361,7 @@ entry:
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar50 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp51 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 8
   %ref.tmp64 = alloca %"class.testing::Message", align 8
   %ref.tmp67 = alloca %"class.testing::internal::AssertHelper", align 8
   %via_param = alloca %"class.absl::discrete_distribution.322", align 8
@@ -37624,9 +37684,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont58:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i52, %if.end48
   store ptr null, ptr %message_.i50, align 8
-  store <2 x double> <double 2.500000e-01, double 5.000000e-01>, ptr %ref.tmp51, align 16
+  store double 2.500000e-01, ptr %ref.tmp51, align 8
+  %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  store double 5.000000e-01, ptr %agg.tmp5254.sroa.4.0.ref.tmp51.sroa_idx, align 8
   %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 16
+  store double 2.500000e-01, ptr %agg.tmp5254.sroa.5.0.ref.tmp51.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJdddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) %before)
           to label %invoke.cont60 unwind label %lpad21
 
@@ -38903,7 +38965,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit36:                  ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl21discrete_distributionImE10param_type4initEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp6 = alloca %"class.std::vector.12", align 16
+  %ref.tmp6 = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -39024,19 +39086,23 @@ if.else:                                          ; preds = %entry
   call void @_ZN4absl15random_internal24InitDiscreteDistributionEPSt6vectorIdSaIdEE(ptr nonnull sret(%"class.std::vector.12") align 8 %ref.tmp6, ptr noundef nonnull %this)
   %q_8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %q_8, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load <2 x ptr>, ptr %ref.tmp6, align 16
-  store <2 x ptr> %10, ptr %q_8, align 8
+  %10 = load ptr, ptr %ref.tmp6, align 8
+  store ptr %10, ptr %q_8, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %_ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorISt4pairIdmESaIS1_EEaSEOS3_.exit:     ; preds = %if.else
   call void @_ZdlPv(ptr noundef nonnull %9) #23
-  %.pr = load ptr, ptr %ref.tmp6, align 16
+  %.pr = load ptr, ptr %ref.tmp6, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i3, label %if.end, label %if.then.i.i.i4
 
@@ -40554,7 +40620,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -40834,7 +40900,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -43627,7 +43695,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -43907,7 +43975,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -44104,7 +44174,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -44384,7 +44454,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -44581,7 +44653,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -44861,7 +44933,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -45058,7 +45132,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -45338,7 +45412,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -45535,7 +45611,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -45815,7 +45891,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -46012,7 +46090,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -46292,7 +46370,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 
@@ -46489,7 +46569,7 @@ entry:
   %ref.tmp11 = alloca %"class.testing::internal::AssertHelper", align 8
   %unary20 = alloca %"class.absl::discrete_distribution", align 8
   %gtest_ar22 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 16
+  %ref.tmp23 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.332", align 8
   %ref.tmp36 = alloca %"class.testing::Message", align 8
   %ref.tmp39 = alloca %"class.testing::internal::AssertHelper", align 8
   %q_.i.i = getelementptr inbounds i8, ptr %unary, i64 24
@@ -46769,7 +46849,9 @@ if.end.i.i:                                       ; preds = %for.inc.i.i
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.i.i21
 
 invoke.cont30:                                    ; preds = %if.end.i.i
-  store <2 x double> <double 0x3FE6666666666666, double 3.000000e-01>, ptr %ref.tmp23, align 16
+  store double 0x3FE6666666666666, ptr %ref.tmp23, align 8
+  %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  store double 3.000000e-01, ptr %agg.tmp2430.sroa.4.0.ref.tmp23.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJddEEEEEclISt6vectorIdSaIdEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, ptr noundef nonnull @.str.118, ptr noundef nonnull align 8 dereferenceable(24) %unary20)
           to label %invoke.cont32 unwind label %lpad27
 

@@ -132,11 +132,11 @@ define void @_ZN6JipoptC2EP7JNIEnv_P8_jobjectiiiii(ptr nocapture noundef nonnull
   %18 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %17, i8 0, i64 74, i1 false)
   %19 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #14
-          to label %20 unwind label %117
+          to label %20 unwind label %121
 
 20:                                               ; preds = %8
   invoke void @_ZN5Ipopt16IpoptApplicationC1Ebb(ptr noundef nonnull align 8 dereferenceable(90) %19, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %21 unwind label %119
+          to label %21 unwind label %123
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %19, i64 8
@@ -152,7 +152,7 @@ define void @_ZN6JipoptC2EP7JNIEnv_P8_jobjectiiiii(ptr nocapture noundef nonnull
   %29 = getelementptr inbounds i8, ptr %28, i64 248
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef ptr %30(ptr noundef nonnull %26, ptr noundef %27)
-          to label %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit unwind label %121
+          to label %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit unwind label %125
 
 _ZN7JNIEnv_14GetObjectClassEP8_jobject.exit:      ; preds = %21
   %32 = load ptr, ptr %10, align 8
@@ -160,7 +160,7 @@ _ZN7JNIEnv_14GetObjectClassEP8_jobject.exit:      ; preds = %21
   %34 = getelementptr inbounds i8, ptr %33, i64 264
   %35 = load ptr, ptr %34, align 8
   %36 = invoke noundef ptr %35(ptr noundef nonnull %32, ptr noundef %31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit:    ; preds = %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 144
@@ -170,7 +170,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit:    ; preds = %_ZN7JNIEnv_14GetObj
   %40 = getelementptr inbounds i8, ptr %39, i64 264
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef ptr %41(ptr noundef nonnull %38, ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit
   %43 = getelementptr inbounds i8, ptr %0, i64 152
@@ -180,7 +180,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38:  ; preds = %_ZN7JNIEnv_11GetMet
   %46 = getelementptr inbounds i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = invoke noundef ptr %47(ptr noundef nonnull %44, ptr noundef %31, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38
   %49 = getelementptr inbounds i8, ptr %0, i64 160
@@ -190,7 +190,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39:  ; preds = %_ZN7JNIEnv_11GetMet
   %52 = getelementptr inbounds i8, ptr %51, i64 264
   %53 = load ptr, ptr %52, align 8
   %54 = invoke noundef ptr %53(ptr noundef nonnull %50, ptr noundef %31, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39
   %55 = getelementptr inbounds i8, ptr %0, i64 168
@@ -200,7 +200,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40:  ; preds = %_ZN7JNIEnv_11GetMet
   %58 = getelementptr inbounds i8, ptr %57, i64 264
   %59 = load ptr, ptr %58, align 8
   %60 = invoke noundef ptr %59(ptr noundef nonnull %56, ptr noundef %31, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40
   %61 = getelementptr inbounds i8, ptr %0, i64 176
@@ -210,7 +210,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41:  ; preds = %_ZN7JNIEnv_11GetMet
   %64 = getelementptr inbounds i8, ptr %63, i64 264
   %65 = load ptr, ptr %64, align 8
   %66 = invoke noundef ptr %65(ptr noundef nonnull %62, ptr noundef %31, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41
   %67 = getelementptr inbounds i8, ptr %0, i64 184
@@ -220,7 +220,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42:  ; preds = %_ZN7JNIEnv_11GetMet
   %70 = getelementptr inbounds i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
   %72 = invoke noundef ptr %71(ptr noundef nonnull %68, ptr noundef %31, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42
   %73 = getelementptr inbounds i8, ptr %0, i64 192
@@ -230,7 +230,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43:  ; preds = %_ZN7JNIEnv_11GetMet
   %76 = getelementptr inbounds i8, ptr %75, i64 264
   %77 = load ptr, ptr %76, align 8
   %78 = invoke noundef ptr %77(ptr noundef nonnull %74, ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43
   %79 = getelementptr inbounds i8, ptr %0, i64 208
@@ -240,7 +240,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44:  ; preds = %_ZN7JNIEnv_11GetMet
   %82 = getelementptr inbounds i8, ptr %81, i64 264
   %83 = load ptr, ptr %82, align 8
   %84 = invoke noundef ptr %83(ptr noundef nonnull %80, ptr noundef %31, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44
   %85 = getelementptr inbounds i8, ptr %0, i64 200
@@ -250,7 +250,7 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45:  ; preds = %_ZN7JNIEnv_11GetMet
   %88 = getelementptr inbounds i8, ptr %87, i64 264
   %89 = load ptr, ptr %88, align 8
   %90 = invoke noundef ptr %89(ptr noundef nonnull %86, ptr noundef %31, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45
   %91 = getelementptr inbounds i8, ptr %0, i64 216
@@ -260,81 +260,90 @@ _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46:  ; preds = %_ZN7JNIEnv_11GetMet
   %94 = getelementptr inbounds i8, ptr %93, i64 264
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef ptr %95(ptr noundef nonnull %92, ptr noundef %31, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
-          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47 unwind label %121
+          to label %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47 unwind label %125
 
 _ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47:  ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46
   %97 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %96, ptr %97, align 8
-  %98 = load <4 x ptr>, ptr %37, align 8
-  %99 = load <2 x ptr>, ptr %61, align 8
-  %100 = load ptr, ptr %73, align 8
-  %101 = load ptr, ptr %79, align 8
-  %102 = shufflevector <4 x ptr> %98, <4 x ptr> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %103 = shufflevector <2 x ptr> %99, <2 x ptr> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %104 = shufflevector <8 x ptr> %102, <8 x ptr> %103, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %105 = insertelement <8 x ptr> %104, ptr %100, i64 6
-  %106 = insertelement <8 x ptr> %105, ptr %101, i64 7
-  %.fr = freeze <8 x ptr> %106
-  %107 = icmp eq <8 x ptr> %.fr, zeroinitializer
-  %108 = load ptr, ptr %91, align 8
-  %.fr50 = freeze ptr %108
-  %109 = icmp eq ptr %.fr50, null
-  %110 = icmp eq ptr %96, null
-  %111 = bitcast <8 x i1> %107 to i8
-  %112 = icmp ne i8 %111, 0
-  %op.rdx = or i1 %112, %109
-  %op.rdx48 = or i1 %op.rdx, %110
-  br i1 %op.rdx48, label %113, label %136
+  %98 = load ptr, ptr %37, align 8
+  %99 = icmp eq ptr %98, null
+  %100 = load ptr, ptr %43, align 8
+  %101 = icmp eq ptr %100, null
+  %or.cond = select i1 %99, i1 true, i1 %101
+  %102 = load ptr, ptr %49, align 8
+  %103 = icmp eq ptr %102, null
+  %or.cond24 = select i1 %or.cond, i1 true, i1 %103
+  %104 = load ptr, ptr %55, align 8
+  %105 = icmp eq ptr %104, null
+  %or.cond26 = select i1 %or.cond24, i1 true, i1 %105
+  %106 = load ptr, ptr %61, align 8
+  %107 = icmp eq ptr %106, null
+  %or.cond28 = select i1 %or.cond26, i1 true, i1 %107
+  %108 = load ptr, ptr %67, align 8
+  %109 = icmp eq ptr %108, null
+  %or.cond30 = select i1 %or.cond28, i1 true, i1 %109
+  %110 = load ptr, ptr %73, align 8
+  %111 = icmp eq ptr %110, null
+  %or.cond32 = select i1 %or.cond30, i1 true, i1 %111
+  %112 = load ptr, ptr %79, align 8
+  %113 = icmp eq ptr %112, null
+  %or.cond34 = select i1 %or.cond32, i1 true, i1 %113
+  %114 = load ptr, ptr %91, align 8
+  %115 = icmp eq ptr %114, null
+  %or.cond36 = select i1 %or.cond34, i1 true, i1 %115
+  %116 = icmp eq ptr %96, null
+  %or.cond37 = or i1 %116, %or.cond36
+  br i1 %or.cond37, label %117, label %140
 
-113:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47
-  %114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.21)
-          to label %115 unwind label %121
+117:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47
+  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.21)
+          to label %119 unwind label %125
 
-115:                                              ; preds = %113
-  %116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %136 unwind label %121
+119:                                              ; preds = %117
+  %120 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %140 unwind label %125
 
-117:                                              ; preds = %8
-  %118 = landingpad { ptr, i32 }
+121:                                              ; preds = %8
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit
 
-119:                                              ; preds = %20
-  %120 = landingpad { ptr, i32 }
+123:                                              ; preds = %20
+  %124 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %19) #15
   br label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit
 
-121:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit, %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit, %21, %115, %113
-  %122 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit46, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit45, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit44, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit43, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit42, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit41, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit40, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit39, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit38, %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit, %_ZN7JNIEnv_14GetObjectClassEP8_jobject.exit, %21, %119, %117
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %123 = load ptr, ptr %18, align 8
-  %.not.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i, label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit, label %124
+  %127 = load ptr, ptr %18, align 8
+  %.not.i.i = icmp eq ptr %127, null
+  br i1 %.not.i.i, label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit, label %128
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %123, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = add nsw i32 %126, -1
-  store i32 %127, ptr %125, align 8
-  %128 = load ptr, ptr %18, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %127, i64 8
   %130 = load i32, ptr %129, align 8
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit
+  %131 = add nsw i32 %130, -1
+  store i32 %131, ptr %129, align 8
+  %132 = load ptr, ptr %18, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr %128, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  tail call void %135(ptr noundef nonnull align 8 dereferenceable(90) %128) #16
+136:                                              ; preds = %128
+  %137 = load ptr, ptr %132, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = load ptr, ptr %138, align 8
+  tail call void %139(ptr noundef nonnull align 8 dereferenceable(90) %132) #16
   br label %_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit
 
-136:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47, %115
+140:                                              ; preds = %_ZN7JNIEnv_11GetMethodIDEP7_jclassPKcS3_.exit47, %119
   ret void
 
-_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit: ; preds = %132, %124, %121, %119, %117
-  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %122, %124 ], [ %122, %132 ]
+_ZN5Ipopt8SmartPtrINS_16IpoptApplicationEED2Ev.exit: ; preds = %136, %128, %125, %123, %121
+  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %126, %128 ], [ %126, %136 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8
   resume { ptr, i32 } %.pn
 }

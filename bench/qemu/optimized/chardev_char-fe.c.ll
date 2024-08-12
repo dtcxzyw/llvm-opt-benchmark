@@ -560,14 +560,14 @@ entry:
   br i1 %tobool.not, label %if.end21, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = insertelement <4 x ptr> poison, ptr %fd_can_read, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %opaque, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %fd_read, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %fd_event, i64 3
-  %5 = icmp ne <4 x ptr> %4, zeroinitializer
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp eq i4 %6, 0
-  br i1 %7, label %if.then8, label %if.end9
+  %tobool2 = icmp eq ptr %opaque, null
+  %tobool3 = icmp eq ptr %fd_can_read, null
+  %or.cond.not20 = and i1 %tobool3, %tobool2
+  %tobool5 = icmp eq ptr %fd_read, null
+  %or.cond1.not19 = and i1 %tobool5, %or.cond.not20
+  %tobool7 = icmp eq ptr %fd_event, null
+  %or.cond2.not = and i1 %tobool7, %or.cond1.not19
+  br i1 %or.cond2.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
   tail call void @remove_fd_in_watch(ptr noundef nonnull %0) #10
@@ -589,51 +589,51 @@ if.end9:                                          ; preds = %if.end, %if.then8
   br i1 %set_open, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
-  %8 = load ptr, ptr %b, align 8
-  %tobool.not.i = icmp eq ptr %8, null
+  %1 = load ptr, ptr %b, align 8
+  %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end13, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then12
   %fe_open2.i = getelementptr inbounds i8, ptr %b, i64 52
-  %9 = load i32, ptr %fe_open2.i, align 4
-  %cmp.i = icmp eq i32 %9, %fe_open.0
+  %2 = load i32, ptr %fe_open2.i, align 4
+  %cmp.i = icmp eq i32 %2, %fe_open.0
   br i1 %cmp.i, label %if.end13, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   store i32 %fe_open.0, ptr %fe_open2.i, align 4
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #10
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %1) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
-  %10 = load ptr, ptr %chr_set_fe_open.i, align 8
-  %tobool6.not.i = icmp eq ptr %10, null
+  %3 = load ptr, ptr %chr_set_fe_open.i, align 8
+  %tobool6.not.i = icmp eq ptr %3, null
   br i1 %tobool6.not.i, label %if.end13, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end4.i
-  %call.i8.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #10
+  %call.i8.i = tail call ptr @object_get_class(ptr noundef nonnull %1) #10
   %call1.i9.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open9.i = getelementptr inbounds i8, ptr %call1.i9.i, i64 216
-  %11 = load ptr, ptr %chr_set_fe_open9.i, align 8
-  tail call void %11(ptr noundef nonnull %8, i32 noundef %fe_open.0) #10
+  %4 = load ptr, ptr %chr_set_fe_open9.i, align 8
+  tail call void %4(ptr noundef nonnull %1, i32 noundef %fe_open.0) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then7.i, %if.end4.i, %if.end.i, %if.then12, %if.end9
-  br i1 %7, label %if.end21, label %if.then15
+  br i1 %or.cond2.not, label %if.end21, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %12 = load ptr, ptr %b, align 8
-  %tobool.not.i21 = icmp eq ptr %12, null
+  %5 = load ptr, ptr %b, align 8
+  %tobool.not.i21 = icmp eq ptr %5, null
   br i1 %tobool.not.i21, label %qemu_chr_fe_take_focus.exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then15
-  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %12, ptr noundef nonnull @.str.3) #10
+  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %5, ptr noundef nonnull @.str.3) #10
   %tobool2.not.i = icmp eq ptr %call.i, null
   br i1 %tobool2.not.i, label %qemu_chr_fe_take_focus.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i22
-  %13 = load ptr, ptr %b, align 8
+  %6 = load ptr, ptr %b, align 8
   %tag.i = getelementptr inbounds i8, ptr %b, i64 48
-  %14 = load i32, ptr %tag.i, align 8
-  tail call void @mux_set_focus(ptr noundef %13, i32 noundef %14) #10
+  %7 = load i32, ptr %tag.i, align 8
+  tail call void @mux_set_focus(ptr noundef %6, i32 noundef %7) #10
   br label %qemu_chr_fe_take_focus.exit
 
 qemu_chr_fe_take_focus.exit:                      ; preds = %if.then15, %if.end.i22, %if.then3.i
@@ -641,8 +641,8 @@ qemu_chr_fe_take_focus.exit:                      ; preds = %if.then15, %if.end.
 
 land.lhs.true17:                                  ; preds = %qemu_chr_fe_take_focus.exit
   %be_open = getelementptr inbounds i8, ptr %0, i64 116
-  %15 = load i32, ptr %be_open, align 4
-  %tobool18.not = icmp eq i32 %15, 0
+  %8 = load i32, ptr %be_open, align 4
+  %tobool18.not = icmp eq i32 %8, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17

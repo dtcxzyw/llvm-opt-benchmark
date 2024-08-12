@@ -223,156 +223,162 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   %exitcond308.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count307
   br i1 %exitcond308.not, label %.preheader282, label %76, !llvm.loop !11
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %121
-  %indvars.iv313 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next314, %121 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %127
+  %indvars.iv313 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next314, %127 ]
   %81 = shl nsw i64 %indvars.iv313, 2
   br label %82
 
-82:                                               ; preds = %.preheader, %117
-  %indvars.iv309 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next310, %117 ]
+82:                                               ; preds = %.preheader, %123
+  %indvars.iv309 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next310, %123 ]
   %83 = add nuw nsw i64 %indvars.iv309, %81
   %84 = icmp slt i64 %83, %18
-  br i1 %84, label %85, label %117
+  br i1 %84, label %85, label %123
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val281.pre.pre.pre, i64 %83
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 56
-  %89 = load <2 x float>, ptr %88, align 1
-  %90 = shufflevector <2 x float> %89, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %91 = getelementptr inbounds i8, ptr %87, i64 64
+  %89 = load float, ptr %88, align 1
+  %90 = insertelement <4 x float> poison, float %89, i64 0
+  %91 = getelementptr inbounds i8, ptr %87, i64 60
   %92 = load float, ptr %91, align 1
-  %93 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %92, i64 0
-  %94 = shufflevector <4 x float> %90, <4 x float> %93, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %95 = getelementptr inbounds i8, ptr %87, i64 68
-  %96 = load <4 x float>, ptr %95, align 1
-  %97 = fmul <4 x float> %96, %96
-  %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %99 = fadd <4 x float> %97, %98
-  %shift = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %100 = fadd <4 x float> %99, %shift
-  %101 = extractelement <4 x float> %100, i64 0
-  %102 = tail call float @llvm.sqrt.f32(float %101)
-  %103 = fdiv float 1.000000e+00, %102
-  %104 = insertelement <4 x float> poison, float %103, i64 0
-  %105 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> zeroinitializer
-  %.scalar = fcmp ole float %101, 0.000000e+00
-  %106 = insertelement <4 x i1> poison, i1 %.scalar, i64 0
-  %107 = shufflevector <4 x i1> %106, <4 x i1> poison, <4 x i32> zeroinitializer
-  %108 = fmul <4 x float> %96, %105
-  %109 = select <4 x i1> %107, <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, <4 x float> %108
-  %110 = getelementptr inbounds i8, ptr %87, i64 84
-  %111 = load <2 x float>, ptr %110, align 1
-  %112 = shufflevector <2 x float> %111, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %113 = getelementptr inbounds i8, ptr %87, i64 92
+  %93 = insertelement <4 x float> %90, float %92, i64 1
+  %94 = getelementptr inbounds i8, ptr %87, i64 64
+  %95 = load float, ptr %94, align 1
+  %96 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %95, i64 0
+  %97 = shufflevector <4 x float> %93, <4 x float> %96, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %98 = getelementptr inbounds i8, ptr %87, i64 68
+  %99 = load <4 x float>, ptr %98, align 1
+  %100 = fmul <4 x float> %99, %99
+  %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %102 = fadd <4 x float> %100, %101
+  %shift = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %103 = fadd <4 x float> %102, %shift
+  %104 = extractelement <4 x float> %103, i64 0
+  %105 = tail call float @llvm.sqrt.f32(float %104)
+  %106 = fdiv float 1.000000e+00, %105
+  %107 = insertelement <4 x float> poison, float %106, i64 0
+  %108 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> zeroinitializer
+  %.scalar = fcmp ole float %104, 0.000000e+00
+  %109 = insertelement <4 x i1> poison, i1 %.scalar, i64 0
+  %110 = shufflevector <4 x i1> %109, <4 x i1> poison, <4 x i32> zeroinitializer
+  %111 = fmul <4 x float> %99, %108
+  %112 = select <4 x i1> %110, <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, <4 x float> %111
+  %113 = getelementptr inbounds i8, ptr %87, i64 84
   %114 = load float, ptr %113, align 1
-  %115 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %114, i64 0
-  %116 = shufflevector <4 x float> %112, <4 x float> %115, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  br label %117
+  %115 = insertelement <4 x float> poison, float %114, i64 0
+  %116 = getelementptr inbounds i8, ptr %87, i64 88
+  %117 = load float, ptr %116, align 1
+  %118 = insertelement <4 x float> %115, float %117, i64 1
+  %119 = getelementptr inbounds i8, ptr %87, i64 92
+  %120 = load float, ptr %119, align 1
+  %121 = insertelement <4 x float> <float poison, float 0.000000e+00, float poison, float poison>, float %120, i64 0
+  %122 = shufflevector <4 x float> %118, <4 x float> %121, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  br label %123
 
-117:                                              ; preds = %82, %85
-  %.sink317 = phi <4 x float> [ %94, %85 ], [ zeroinitializer, %82 ]
-  %.sink316 = phi <4 x float> [ %109, %85 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %82 ]
-  %.sink = phi <4 x float> [ %116, %85 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %82 ]
-  %118 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %indvars.iv309
-  store <4 x float> %.sink317, ptr %118, align 16
-  %119 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv309
-  store <4 x float> %.sink316, ptr %119, align 16
-  %120 = getelementptr inbounds [4 x <4 x float>], ptr %6, i64 0, i64 %indvars.iv309
-  store <4 x float> %.sink, ptr %120, align 16
+123:                                              ; preds = %82, %85
+  %.sink317 = phi <4 x float> [ %97, %85 ], [ zeroinitializer, %82 ]
+  %.sink316 = phi <4 x float> [ %112, %85 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %82 ]
+  %.sink = phi <4 x float> [ %122, %85 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %82 ]
+  %124 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %indvars.iv309
+  store <4 x float> %.sink317, ptr %124, align 16
+  %125 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv309
+  store <4 x float> %.sink316, ptr %125, align 16
+  %126 = getelementptr inbounds [4 x <4 x float>], ptr %6, i64 0, i64 %indvars.iv309
+  store <4 x float> %.sink, ptr %126, align 16
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next310, 4
-  br i1 %exitcond312.not, label %121, label %82, !llvm.loop !12
+  br i1 %exitcond312.not, label %127, label %82, !llvm.loop !12
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %122, i64 %indvars.iv313
-  %124 = load <4 x float>, ptr %5, align 16
-  %125 = load <4 x float>, ptr %67, align 16
-  %126 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %127 = load <4 x float>, ptr %68, align 16
-  %128 = load <4 x float>, ptr %69, align 16
-  %129 = shufflevector <4 x float> %127, <4 x float> %128, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %130 = shufflevector <4 x float> %124, <4 x float> %125, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
-  %131 = shufflevector <4 x float> %127, <4 x float> %128, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
-  %132 = shufflevector <4 x float> %126, <4 x float> %129, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %132, ptr %123, align 16
-  %133 = shufflevector <4 x float> %126, <4 x float> %129, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %134 = getelementptr inbounds i8, ptr %123, i64 16
-  store <4 x float> %133, ptr %134, align 16
-  %135 = shufflevector <4 x float> %130, <4 x float> %131, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %136 = getelementptr inbounds i8, ptr %123, i64 32
-  store <4 x float> %135, ptr %136, align 16
-  %137 = load ptr, ptr %15, align 8
-  %138 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %137, i64 %indvars.iv313
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
-  %140 = load <4 x float>, ptr %7, align 16
-  %141 = load <4 x float>, ptr %70, align 16
-  %142 = shufflevector <4 x float> %140, <4 x float> %141, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %143 = load <4 x float>, ptr %71, align 16
-  %144 = load <4 x float>, ptr %72, align 16
-  %145 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %146 = shufflevector <4 x float> %140, <4 x float> %141, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %147 = shufflevector <4 x float> %143, <4 x float> %144, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %148 = shufflevector <4 x float> %142, <4 x float> %145, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %148, ptr %139, align 16
-  %149 = shufflevector <4 x float> %142, <4 x float> %145, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %150 = getelementptr inbounds i8, ptr %138, i64 64
-  store <4 x float> %149, ptr %150, align 16
-  %151 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %152 = getelementptr inbounds i8, ptr %138, i64 80
-  store <4 x float> %151, ptr %152, align 16
-  %153 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %154 = getelementptr inbounds i8, ptr %138, i64 96
-  store <4 x float> %153, ptr %154, align 16
-  %155 = load ptr, ptr %15, align 8
-  %156 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %155, i64 %indvars.iv313
-  %157 = getelementptr inbounds i8, ptr %156, i64 112
-  %158 = load <4 x float>, ptr %6, align 16
-  %159 = load <4 x float>, ptr %73, align 16
-  %160 = shufflevector <4 x float> %158, <4 x float> %159, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %161 = load <4 x float>, ptr %74, align 16
-  %162 = load <4 x float>, ptr %75, align 16
-  %163 = shufflevector <4 x float> %161, <4 x float> %162, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %164 = shufflevector <4 x float> %158, <4 x float> %159, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
-  %165 = shufflevector <4 x float> %161, <4 x float> %162, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
-  %166 = shufflevector <4 x float> %160, <4 x float> %163, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  store <4 x float> %166, ptr %157, align 16
-  %167 = shufflevector <4 x float> %160, <4 x float> %163, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %168 = getelementptr inbounds i8, ptr %156, i64 128
-  store <4 x float> %167, ptr %168, align 16
-  %169 = shufflevector <4 x float> %164, <4 x float> %165, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %170 = getelementptr inbounds i8, ptr %156, i64 144
-  store <4 x float> %169, ptr %170, align 16
+127:                                              ; preds = %123
+  %128 = load ptr, ptr %15, align 8
+  %129 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %128, i64 %indvars.iv313
+  %130 = load <4 x float>, ptr %5, align 16
+  %131 = load <4 x float>, ptr %67, align 16
+  %132 = shufflevector <4 x float> %130, <4 x float> %131, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %133 = load <4 x float>, ptr %68, align 16
+  %134 = load <4 x float>, ptr %69, align 16
+  %135 = shufflevector <4 x float> %133, <4 x float> %134, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %136 = shufflevector <4 x float> %130, <4 x float> %131, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
+  %137 = shufflevector <4 x float> %133, <4 x float> %134, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
+  %138 = shufflevector <4 x float> %132, <4 x float> %135, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  store <4 x float> %138, ptr %129, align 16
+  %139 = shufflevector <4 x float> %132, <4 x float> %135, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %140 = getelementptr inbounds i8, ptr %129, i64 16
+  store <4 x float> %139, ptr %140, align 16
+  %141 = shufflevector <4 x float> %136, <4 x float> %137, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %142 = getelementptr inbounds i8, ptr %129, i64 32
+  store <4 x float> %141, ptr %142, align 16
+  %143 = load ptr, ptr %15, align 8
+  %144 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %143, i64 %indvars.iv313
+  %145 = getelementptr inbounds i8, ptr %144, i64 48
+  %146 = load <4 x float>, ptr %7, align 16
+  %147 = load <4 x float>, ptr %70, align 16
+  %148 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %149 = load <4 x float>, ptr %71, align 16
+  %150 = load <4 x float>, ptr %72, align 16
+  %151 = shufflevector <4 x float> %149, <4 x float> %150, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %152 = shufflevector <4 x float> %146, <4 x float> %147, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %153 = shufflevector <4 x float> %149, <4 x float> %150, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %154 = shufflevector <4 x float> %148, <4 x float> %151, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  store <4 x float> %154, ptr %145, align 16
+  %155 = shufflevector <4 x float> %148, <4 x float> %151, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %156 = getelementptr inbounds i8, ptr %144, i64 64
+  store <4 x float> %155, ptr %156, align 16
+  %157 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %158 = getelementptr inbounds i8, ptr %144, i64 80
+  store <4 x float> %157, ptr %158, align 16
+  %159 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %160 = getelementptr inbounds i8, ptr %144, i64 96
+  store <4 x float> %159, ptr %160, align 16
+  %161 = load ptr, ptr %15, align 8
+  %162 = getelementptr inbounds %"struct.ozz::math::SoaTransform", ptr %161, i64 %indvars.iv313
+  %163 = getelementptr inbounds i8, ptr %162, i64 112
+  %164 = load <4 x float>, ptr %6, align 16
+  %165 = load <4 x float>, ptr %73, align 16
+  %166 = shufflevector <4 x float> %164, <4 x float> %165, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %167 = load <4 x float>, ptr %74, align 16
+  %168 = load <4 x float>, ptr %75, align 16
+  %169 = shufflevector <4 x float> %167, <4 x float> %168, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %170 = shufflevector <4 x float> %164, <4 x float> %165, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
+  %171 = shufflevector <4 x float> %167, <4 x float> %168, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
+  %172 = shufflevector <4 x float> %166, <4 x float> %169, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  store <4 x float> %172, ptr %163, align 16
+  %173 = shufflevector <4 x float> %166, <4 x float> %169, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
+  %174 = getelementptr inbounds i8, ptr %162, i64 128
+  store <4 x float> %173, ptr %174, align 16
+  %175 = shufflevector <4 x float> %170, <4 x float> %171, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
+  %176 = getelementptr inbounds i8, ptr %162, i64 144
+  store <4 x float> %175, ptr %176, align 16
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
-  %171 = load i64, ptr %63, align 8
-  %172 = trunc i64 %171 to i32
-  %173 = add nsw i32 %172, 3
-  %174 = sdiv i32 %173, 4
-  %175 = sext i32 %174 to i64
-  %176 = icmp slt i64 %indvars.iv.next314, %175
-  br i1 %176, label %.preheader, label %._crit_edge, !llvm.loop !13
+  %177 = load i64, ptr %63, align 8
+  %178 = trunc i64 %177 to i32
+  %179 = add nsw i32 %178, 3
+  %180 = sdiv i32 %179, 4
+  %181 = sext i32 %180 to i64
+  %182 = icmp slt i64 %indvars.iv.next314, %181
+  br i1 %182, label %.preheader, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %121, %.preheader282
+._crit_edge:                                      ; preds = %127, %.preheader282
   %.not.i.i.i.i = icmp eq ptr %.val281.pre.pre.pre, null
-  br i1 %.not.i.i.i.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit, label %177
+  br i1 %.not.i.i.i.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit, label %183
 
-177:                                              ; preds = %._crit_edge
-  %178 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
-          to label %179 unwind label %183
+183:                                              ; preds = %._crit_edge
+  %184 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
+          to label %185 unwind label %189
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr %178, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 24
-  %182 = load ptr, ptr %181, align 8
-  invoke void %182(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull %.val281.pre.pre.pre)
-          to label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit unwind label %183
+185:                                              ; preds = %183
+  %186 = load ptr, ptr %184, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 24
+  %188 = load ptr, ptr %187, align 8
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull %.val281.pre.pre.pre)
+          to label %_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit unwind label %189
 
-183:                                              ; preds = %179, %177
-  %184 = landingpad { ptr, i32 }
+189:                                              ; preds = %185, %183
+  %190 = landingpad { ptr, i32 }
           catch ptr null
-  %185 = extractvalue { ptr, i32 } %184, 0
-  tail call void @__clang_call_terminate(ptr %185) #15
+  %191 = extractvalue { ptr, i32 } %190, 0
+  tail call void @__clang_call_terminate(ptr %191) #15
   unreachable
 
 .body:                                            ; preds = %44, %36, %46
@@ -380,7 +386,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   tail call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   resume { ptr, i32 } %.pn
 
-_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %179, %._crit_edge, %9
+_ZN3ozz9animation7offline12_GLOBAL__N_111JointListerD2Ev.exit: ; preds = %185, %._crit_edge, %9
   ret void
 }
 

@@ -10115,10 +10115,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i64 16), ptr %0, align 8
   ret void
@@ -14637,15 +14640,20 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %32, %30, %28, %26, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   %33 = icmp eq i32 %1, 1
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = icmp sgt i32 %1, 1
-  %36 = and i1 %33, %13
-  %37 = and i1 %35, %13
-  %38 = insertelement <4 x i1> poison, i1 %33, i64 0
-  %39 = insertelement <4 x i1> %38, i1 %35, i64 1
-  %40 = insertelement <4 x i1> %39, i1 %36, i64 2
-  %41 = insertelement <4 x i1> %40, i1 %37, i64 3
-  %42 = zext <4 x i1> %41 to <4 x i8>
-  store <4 x i8> %42, ptr %34, align 8
+  %35 = zext i1 %33 to i8
+  store i8 %35, ptr %34, align 8
+  %36 = icmp sgt i32 %1, 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 25
+  %38 = zext i1 %36 to i8
+  store i8 %38, ptr %37, align 1
+  %39 = and i1 %33, %13
+  %40 = getelementptr inbounds i8, ptr %0, i64 26
+  %41 = zext i1 %39 to i8
+  store i8 %41, ptr %40, align 2
+  %42 = and i1 %36, %13
+  %43 = getelementptr inbounds i8, ptr %0, i64 27
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 1
   ret void
 }
 
@@ -20561,15 +20569,20 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %32, %30, %28, %26, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   %33 = icmp eq i32 %1, 1
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = icmp sgt i32 %1, 1
-  %36 = and i1 %33, %13
-  %37 = and i1 %35, %13
-  %38 = insertelement <4 x i1> poison, i1 %33, i64 0
-  %39 = insertelement <4 x i1> %38, i1 %35, i64 1
-  %40 = insertelement <4 x i1> %39, i1 %36, i64 2
-  %41 = insertelement <4 x i1> %40, i1 %37, i64 3
-  %42 = zext <4 x i1> %41 to <4 x i8>
-  store <4 x i8> %42, ptr %34, align 8
+  %35 = zext i1 %33 to i8
+  store i8 %35, ptr %34, align 8
+  %36 = icmp sgt i32 %1, 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 25
+  %38 = zext i1 %36 to i8
+  store i8 %38, ptr %37, align 1
+  %39 = and i1 %33, %13
+  %40 = getelementptr inbounds i8, ptr %0, i64 26
+  %41 = zext i1 %39 to i8
+  store i8 %41, ptr %40, align 2
+  %42 = and i1 %36, %13
+  %43 = getelementptr inbounds i8, ptr %0, i64 27
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 1
   ret void
 }
 
@@ -26505,15 +26518,20 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %32, %30, %28, %26, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   %33 = icmp eq i32 %1, 1
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = icmp sgt i32 %1, 1
-  %36 = and i1 %33, %13
-  %37 = and i1 %35, %13
-  %38 = insertelement <4 x i1> poison, i1 %33, i64 0
-  %39 = insertelement <4 x i1> %38, i1 %35, i64 1
-  %40 = insertelement <4 x i1> %39, i1 %36, i64 2
-  %41 = insertelement <4 x i1> %40, i1 %37, i64 3
-  %42 = zext <4 x i1> %41 to <4 x i8>
-  store <4 x i8> %42, ptr %34, align 8
+  %35 = zext i1 %33 to i8
+  store i8 %35, ptr %34, align 8
+  %36 = icmp sgt i32 %1, 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 25
+  %38 = zext i1 %36 to i8
+  store i8 %38, ptr %37, align 1
+  %39 = and i1 %33, %13
+  %40 = getelementptr inbounds i8, ptr %0, i64 26
+  %41 = zext i1 %39 to i8
+  store i8 %41, ptr %40, align 2
+  %42 = and i1 %36, %13
+  %43 = getelementptr inbounds i8, ptr %0, i64 27
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 1
   ret void
 }
 
@@ -29887,15 +29905,20 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %32, %30, %28, %26, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   %33 = icmp eq i32 %1, 1
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = icmp sgt i32 %1, 1
-  %36 = and i1 %33, %13
-  %37 = and i1 %35, %13
-  %38 = insertelement <4 x i1> poison, i1 %33, i64 0
-  %39 = insertelement <4 x i1> %38, i1 %35, i64 1
-  %40 = insertelement <4 x i1> %39, i1 %36, i64 2
-  %41 = insertelement <4 x i1> %40, i1 %37, i64 3
-  %42 = zext <4 x i1> %41 to <4 x i8>
-  store <4 x i8> %42, ptr %34, align 8
+  %35 = zext i1 %33 to i8
+  store i8 %35, ptr %34, align 8
+  %36 = icmp sgt i32 %1, 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 25
+  %38 = zext i1 %36 to i8
+  store i8 %38, ptr %37, align 1
+  %39 = and i1 %33, %13
+  %40 = getelementptr inbounds i8, ptr %0, i64 26
+  %41 = zext i1 %39 to i8
+  store i8 %41, ptr %40, align 2
+  %42 = and i1 %36, %13
+  %43 = getelementptr inbounds i8, ptr %0, i64 27
+  %44 = zext i1 %42 to i8
+  store i8 %44, ptr %43, align 1
   ret void
 }
 

@@ -431,8 +431,8 @@ declare noundef i32 @_ZNK6hermes3hbc24ConsecutiveStringStorage12getEntryHashEm(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK6hermes3hbc18StringLiteralTable14getStringKindsEv(ptr noalias nocapture writeonly sret(%"class.std::vector.20") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %acc = alloca %"struct.hermes::StringKind::Accumulator", align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %acc, i8 0, i64 24, i1 false)
+  %acc = alloca %"struct.hermes::StringKind::Accumulator", align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %acc, i8 0, i64 24, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -529,12 +529,16 @@ _ZNK6hermes15StringSetVectorixB5cxx11Em.exit:     ; preds = %if.then.i.i.i.i.i, 
 
 for.end:                                          ; preds = %for.cond
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %11 = load <2 x ptr>, ptr %acc, align 16, !noalias !19
-  store <2 x ptr> %11, ptr %agg.result, align 8, !alias.scope !19
+  %11 = load ptr, ptr %acc, align 8, !noalias !19
+  store ptr %11, ptr %agg.result, align 8, !alias.scope !19
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %acc, i64 8
+  %12 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8, !noalias !19
+  store ptr %12, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !19
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %acc, i64 16
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 16, !noalias !19
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !19
+  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !noalias !19
+  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !19
   ret void
 }
 
@@ -544,7 +548,7 @@ declare void @_ZN6hermes10StringKind11Accumulator9push_backENS0_4KindE(ptr nound
 define hidden void @_ZN6hermes3hbc32UniquingStringLiteralAccumulator7toTableES1_b(ptr noalias sret(%"struct.hermes::hbc::StringLiteralTable") align 8 %agg.result, ptr noundef %accum, i1 noundef zeroext %optimize) local_unnamed_addr #0 align 2 {
 entry:
   %newStrings54 = alloca %"class.hermes::hbc::ConsecutiveStringStorage", align 8
-  %agg.tmp111 = alloca %"class.hermes::hbc::ConsecutiveStringStorage", align 16
+  %agg.tmp111 = alloca %"class.hermes::hbc::ConsecutiveStringStorage", align 8
   %agg.tmp112 = alloca %"class.std::vector.5", align 8
   %isIdentifier_ = getelementptr inbounds i8, ptr %accum, i64 160
   %numIdentifierRefs_ = getelementptr inbounds i8, ptr %accum, i64 200
@@ -1114,26 +1118,33 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %if.then.i302, %if.e
   br i1 %exitcond409.not, label %for.end110, label %for.body97, !llvm.loop !42
 
 for.end110:                                       ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %for.end68
-  %28 = load <2 x ptr>, ptr %accum, align 8
-  store <2 x ptr> %28, ptr %agg.tmp111, align 16
+  %28 = load ptr, ptr %accum, align 8
+  store ptr %28, ptr %agg.tmp111, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp111, i64 8
+  %29 = load ptr, ptr %_M_finish.i.i, align 8
+  store ptr %29, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp111, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %accum, i64 16
-  %29 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %29, ptr %_M_end_of_storage.i.i.i.i.i, align 16
+  %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %accum, i8 0, i64 24, i1 false)
   %storage_.i303 = getelementptr inbounds i8, ptr %agg.tmp111, i64 24
   %storage_3.i = getelementptr inbounds i8, ptr %accum, i64 24
-  %30 = load <2 x ptr>, ptr %storage_3.i, align 8
-  store <2 x ptr> %30, ptr %storage_.i303, align 8
+  %31 = load ptr, ptr %storage_3.i, align 8
+  store ptr %31, ptr %storage_.i303, align 8
+  %_M_finish.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp111, i64 32
+  %_M_finish3.i.i.i.i4.i = getelementptr inbounds i8, ptr %accum, i64 32
+  %32 = load ptr, ptr %_M_finish3.i.i.i.i4.i, align 8
+  store ptr %32, ptr %_M_finish.i.i.i.i3.i, align 8
   %_M_end_of_storage.i.i.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp111, i64 40
   %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %accum, i64 40
-  %31 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
-  store ptr %31, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
+  %33 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
+  store ptr %33, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_3.i, i8 0, i64 24, i1 false)
   %isTableValid_.i = getelementptr inbounds i8, ptr %agg.tmp111, i64 48
   %isTableValid_4.i = getelementptr inbounds i8, ptr %accum, i64 48
-  %32 = load i16, ptr %isTableValid_4.i, align 8
-  store i16 %32, ptr %isTableValid_.i, align 16
+  %34 = load i16, ptr %isTableValid_4.i, align 8
+  store i16 %34, ptr %isTableValid_.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp112, ptr noundef nonnull align 8 dereferenceable(40) %isIdentifier_, i64 40, i1 false)
   store ptr null, ptr %isIdentifier_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %accum, i64 168
@@ -1145,19 +1156,19 @@ for.end110:                                       ; preds = %_ZNSt14_Bit_referen
   %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %accum, i64 192
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
   call void @_ZN6hermes3hbc22StringLiteralIDMappingC2ENS0_24ConsecutiveStringStorageESt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(200) %agg.result, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %agg.tmp112)
-  %33 = load ptr, ptr %agg.tmp112, align 8
-  %tobool.not.i.i.i304 = icmp eq ptr %33, null
+  %35 = load ptr, ptr %agg.tmp112, align 8
+  %tobool.not.i.i.i304 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i304, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i305
 
 if.then.i.i.i305:                                 ; preds = %for.end110
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp112, i64 32
-  %34 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i306 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i.i.i307 = ptrtoint ptr %33 to i64
+  %36 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i306 = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i.i.i307 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i.i308 = sub i64 %sub.ptr.lhs.cast.i.i.i306, %sub.ptr.rhs.cast.i.i.i307
   %sub.ptr.div.i.i.i309 = ashr exact i64 %sub.ptr.sub.i.i.i308, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i309
-  %add.ptr.i.i.i310 = getelementptr inbounds i64, ptr %34, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i310 = getelementptr inbounds i64, ptr %36, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i310) #24
   store ptr null, ptr %agg.tmp112, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp112, i64 8
@@ -1170,21 +1181,21 @@ if.then.i.i.i305:                                 ; preds = %for.end110
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %for.end110, %if.then.i.i.i305
-  %35 = load ptr, ptr %storage_.i303, align 8
-  %tobool.not.i.i.i.i312 = icmp eq ptr %35, null
+  %37 = load ptr, ptr %storage_.i303, align 8
+  %tobool.not.i.i.i.i312 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i312, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i314, label %if.then.i.i.i.i313
 
 if.then.i.i.i.i313:                               ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %35) #24
+  call void @_ZdlPv(ptr noundef nonnull %37) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i314
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i314:               ; preds = %if.then.i.i.i.i313, %_ZNSt6vectorIbSaIbEED2Ev.exit
-  %36 = load ptr, ptr %agg.tmp111, align 16
-  %tobool.not.i.i.i1.i315 = icmp eq ptr %36, null
+  %38 = load ptr, ptr %agg.tmp111, align 8
+  %tobool.not.i.i.i1.i315 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i1.i315, label %_ZN6hermes3hbc24ConsecutiveStringStorageD2Ev.exit317, label %if.then.i.i.i2.i316
 
 if.then.i.i.i2.i316:                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i314
-  call void @_ZdlPv(ptr noundef nonnull %36) #24
+  call void @_ZdlPv(ptr noundef nonnull %38) #24
   br label %_ZN6hermes3hbc24ConsecutiveStringStorageD2Ev.exit317
 
 _ZN6hermes3hbc24ConsecutiveStringStorageD2Ev.exit317: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i314, %if.then.i.i.i2.i316

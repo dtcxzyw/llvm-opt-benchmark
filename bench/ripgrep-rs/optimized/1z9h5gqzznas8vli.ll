@@ -122,7 +122,7 @@ common.resume:                                    ; preds = %.body114, %19
 .body114:                                         ; preds = %.body111, %45, %29
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn, %45 ], [ %.pn.pn.pn, %.body111 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..HyperlinkConfig$GT$17h7e045ad75e23a7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #13
-          to label %common.resume unwind label %132
+          to label %common.resume unwind label %135
 
 33:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf8dcb19d1cf94de9E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -165,7 +165,7 @@ common.resume:                                    ; preds = %.body114, %19
 45:                                               ; preds = %.body111
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.body114 unwind label %132
+          to label %.body114 unwind label %135
 
 46:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -186,7 +186,7 @@ common.resume:                                    ; preds = %.body114, %19
 51:                                               ; preds = %.body
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.body111 unwind label %132
+          to label %.body111 unwind label %135
 
 52:                                               ; preds = %46
   %53 = landingpad { ptr, i32 }
@@ -253,7 +253,7 @@ common.resume:                                    ; preds = %.body114, %19
 73:                                               ; preds = %.body119
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.body unwind label %132
+          to label %.body unwind label %135
 
 74:                                               ; preds = %68
   %75 = landingpad { ptr, i32 }
@@ -324,7 +324,7 @@ common.resume:                                    ; preds = %.body114, %19
 97:                                               ; preds = %.body117
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h840a55781da5ed08E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.body119 unwind label %132
+          to label %.body119 unwind label %135
 
 98:                                               ; preds = %90
   %99 = extractvalue { i64, ptr } %91, 0
@@ -433,34 +433,40 @@ common.resume:                                    ; preds = %.body114, %19
   %115 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 144
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 148
-  store i8 0, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %0, i64 149
-  store i8 0, ptr %118, align 1
-  %119 = load ptr, ptr %11, align 8, !nonnull !17, !noundef !17
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %119, ptr %120, align 8
+  store i8 0, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 145
+  store i8 0, ptr %117, align 1
+  %118 = getelementptr inbounds i8, ptr %0, i64 146
+  store i8 1, ptr %118, align 2
+  %119 = getelementptr inbounds i8, ptr %0, i64 147
+  store i8 0, ptr %119, align 1
+  %120 = getelementptr inbounds i8, ptr %0, i64 148
+  store i8 0, ptr %120, align 4
+  %121 = getelementptr inbounds i8, ptr %0, i64 149
+  store i8 0, ptr %121, align 1
+  %122 = load ptr, ptr %11, align 8, !nonnull !17, !noundef !17
+  %123 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %122, ptr %123, align 8
   store i64 0, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 150
-  %122 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %122, align 8
-  store i32 0, ptr %121, align 2
-  %123 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %123, ptr %124, align 8
-  %125 = load ptr, ptr %9, align 8, !nonnull !17, !noundef !17
-  %126 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %125, ptr %126, align 8
-  %127 = load ptr, ptr %8, align 8, !nonnull !17, !noundef !17
-  %128 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %105, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 140
-  store i8 0, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %0, i64 142
-  store i8 0, ptr %131, align 2
+  %124 = getelementptr inbounds i8, ptr %0, i64 150
+  %125 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %125, align 8
+  store i32 0, ptr %124, align 2
+  %126 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
+  %127 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %126, ptr %127, align 8
+  %128 = load ptr, ptr %9, align 8, !nonnull !17, !noundef !17
+  %129 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %128, ptr %129, align 8
+  %130 = load ptr, ptr %8, align 8, !nonnull !17, !noundef !17
+  %131 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %130, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %105, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 140
+  store i8 0, ptr %133, align 4
+  %134 = getelementptr inbounds i8, ptr %0, i64 142
+  store i8 0, ptr %134, align 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -476,8 +482,8 @@ common.resume:                                    ; preds = %.body114, %19
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.38.sroa.4)
   ret void
 
-132:                                              ; preds = %97, %73, %51, %45, %.body114
-  %133 = landingpad { ptr, i32 }
+135:                                              ; preds = %97, %73, %51, %45, %.body114
+  %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
   unreachable

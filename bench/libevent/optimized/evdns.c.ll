@@ -2402,9 +2402,12 @@ if.end16.sink.split.i:                            ; preds = %if.else.i, %if.end1
 
 evdns_request_remove.exit:                        ; preds = %if.else.i, %if.end16.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i20, i8 0, i64 16, i1 false)
-  %16 = load <2 x i32>, ptr %global_requests_inflight, align 4
-  %17 = add nsw <2 x i32> %16, <i32 1, i32 -1>
-  store <2 x i32> %17, ptr %global_requests_inflight, align 4
+  %16 = load i32, ptr %global_requests_waiting, align 8
+  %dec = add nsw i32 %16, -1
+  store i32 %dec, ptr %global_requests_waiting, align 8
+  %17 = load i32, ptr %global_requests_inflight, align 4
+  %inc15 = add nsw i32 %17, 1
+  store i32 %inc15, ptr %global_requests_inflight, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %trans_id.i)
   br label %for.cond.i23
 
@@ -2914,9 +2917,15 @@ do.end:                                           ; preds = %cond.end.thread, %c
   %tv_usec = getelementptr inbounds i8, ptr %call1, i64 64
   store i64 0, ptr %tv_usec, align 8
   %global_max_reissues = getelementptr inbounds i8, ptr %call1, i64 72
+  store i32 1, ptr %global_max_reissues, align 8
+  %global_max_retransmits = getelementptr inbounds i8, ptr %call1, i64 76
+  store i32 3, ptr %global_max_retransmits, align 4
+  %global_max_nameserver_timeout = getelementptr inbounds i8, ptr %call1, i64 80
+  store i32 3, ptr %global_max_nameserver_timeout, align 8
   %global_search_state = getelementptr inbounds i8, ptr %call1, i64 312
   store ptr null, ptr %global_search_state, align 8
-  store <4 x i32> <i32 1, i32 3, i32 3, i32 1>, ptr %global_max_reissues, align 8
+  %global_randomize_case = getelementptr inbounds i8, ptr %call1, i64 84
+  store i32 1, ptr %global_randomize_case, align 4
   %global_max_udp_size = getelementptr inbounds i8, ptr %call1, i64 88
   store i16 512, ptr %global_max_udp_size, align 8
   %global_getaddrinfo_allow_skew = getelementptr inbounds i8, ptr %call1, i64 272

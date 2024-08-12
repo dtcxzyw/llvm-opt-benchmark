@@ -2061,18 +2061,18 @@ define hidden void @_ZN8G1RemSet27print_periodic_summary_infoEPKcjb(ptr noundef 
   %7 = alloca %class.LogStream, align 8
   %8 = load i64, ptr @G1SummarizeRSetStatsPeriod, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %36, label %9
+  br i1 %.not, label %37, label %9
 
 9:                                                ; preds = %4
   %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %36, label %11
+  br i1 %.not6, label %37, label %11
 
 11:                                               ; preds = %9
   %12 = zext i32 %2 to i64
   %13 = urem i64 %12, %8
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %36
+  br i1 %14, label %15, label %37
 
 15:                                               ; preds = %11
   call void @_ZN15G1RemSetSummaryC1Eb(ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true) #18
@@ -2086,46 +2086,48 @@ define hidden void @_ZN8G1RemSet27print_periodic_summary_infoEPKcjb(ptr noundef 
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load <2 x ptr>, ptr %24, align 8
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
-  %28 = load i64, ptr %27, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = load i64, ptr %28, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #18
-  %30 = getelementptr inbounds i8, ptr %7, i64 144
-  store i32 1, ptr %30, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #18
+  %31 = getelementptr inbounds i8, ptr %7, i64 144
+  store i32 1, ptr %31, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
   call void @_ZN15G1RemSetSummary8print_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %7, i1 noundef zeroext %3) #18
   call void @_ZN15G1RemSetSummary3setEPS_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %5) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #18
-  %31 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %33, label %32
+  %32 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i.i, label %34, label %33
 
-32:                                               ; preds = %15
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %28) #18
+33:                                               ; preds = %15
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %29) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %23) #18
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %15
-  %34 = load ptr, ptr %24, align 8
-  %.not8.i.i.i.i = icmp eq ptr %34, %26
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
+34:                                               ; preds = %33, %15
+  %35 = load ptr, ptr %24, align 8
+  %.not8.i.i.i.i = icmp eq ptr %35, %25
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %36
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   store ptr %23, ptr %22, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %25, ptr %24, align 8
+  store ptr %27, ptr %26, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %34, %36
   call void @_ZN15G1RemSetSummaryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
-  br label %36
+  br label %37
 
-36:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %9, %4
+37:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %9, %4
   ret void
 }
 
@@ -2151,7 +2153,7 @@ define hidden void @_ZN8G1RemSet18print_summary_infoEv(ptr nocapture noundef non
   %4 = alloca %class.LogStream, align 8
   %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %26, label %6
+  br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %1
   %7 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_130ELS1_43ELS1_0ELS1_0ELS1_0EE5traceEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.6)
@@ -2163,45 +2165,47 @@ define hidden void @_ZN8G1RemSet18print_summary_infoEv(ptr nocapture noundef non
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load <2 x ptr>, ptr %14, align 8
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %18 = load i64, ptr %17, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = load i64, ptr %18, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #18
-  %20 = getelementptr inbounds i8, ptr %4, i64 144
-  store i32 1, ptr %20, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #18
+  %21 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 1, ptr %21, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   call void @_ZN15G1RemSetSummary8print_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i1 noundef zeroext true) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #18
-  %21 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+  %22 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %6
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #18
+23:                                               ; preds = %6
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #18
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %6
-  %24 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+24:                                               ; preds = %23, %6
+  %25 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %25, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %13, ptr %12, align 8
-  store <2 x ptr> %15, ptr %14, align 8
+  store ptr %15, ptr %14, align 8
+  store ptr %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
   call void @_ZN15G1RemSetSummaryD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  br label %26
+  br label %27
 
-26:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
+27:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
   ret void
 }
 
@@ -2554,118 +2558,120 @@ define linkonce_odr hidden void @_ZN24G1ScanHRForRegionClosure15scan_heap_rootsE
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load <2 x ptr>, ptr %14, align 8
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load i8, ptr %21, align 8
-  %23 = zext nneg i8 %22 to i32
-  %24 = shl nuw i32 1, %23
-  %25 = zext i32 %24 to i64
-  %26 = load i64, ptr @_ZN12G1HeapRegion14CardsPerRegionE, align 8
-  %.not.i = icmp ult i64 %26, %25
-  br i1 %.not.i, label %27, label %_ZN23G1CardTableChunkClaimerC2EP17G1RemSetScanStatej.exit
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = load i8, ptr %22, align 8
+  %24 = zext nneg i8 %23 to i32
+  %25 = shl nuw i32 1, %24
+  %26 = zext i32 %25 to i64
+  %27 = load i64, ptr @_ZN12G1HeapRegion14CardsPerRegionE, align 8
+  %.not.i = icmp ult i64 %27, %26
+  br i1 %.not.i, label %28, label %_ZN23G1CardTableChunkClaimerC2EP17G1RemSetScanStatej.exit
 
-27:                                               ; preds = %2
-  %28 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %28, align 1
+28:                                               ; preds = %2
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.20, i32 noundef 464, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #19
   unreachable
 
 _ZN23G1CardTableChunkClaimerC2EP17G1RemSetScanStatej.exit: ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds i8, ptr %20, i64 20
-  %33 = getelementptr inbounds i8, ptr %20, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %38
-
-38:                                               ; preds = %61, %_ZN23G1CardTableChunkClaimerC2EP17G1RemSetScanStatej.exit
-  %.pre3.i = load i8, ptr %21, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = zext i32 %7 to i64
+  %33 = getelementptr inbounds i8, ptr %21, i64 20
+  %34 = getelementptr inbounds i8, ptr %21, i64 24
+  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
   br label %39
 
-39:                                               ; preds = %48, %38
-  %40 = phi i8 [ %52, %48 ], [ %.pre3.i, %38 ]
-  %41 = zext nneg i8 %40 to i32
-  %42 = shl nuw i32 1, %41
-  %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds i32, ptr %43, i64 %31
-  %45 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, ptr %44) #18, !srcloc !18
-  %46 = zext i32 %45 to i64
-  %47 = load i64, ptr @_ZN12G1HeapRegion14CardsPerRegionE, align 8
-  %.not.i5 = icmp ugt i64 %47, %46
-  br i1 %.not.i5, label %48, label %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
+39:                                               ; preds = %62, %_ZN23G1CardTableChunkClaimerC2EP17G1RemSetScanStatej.exit
+  %.pre3.i = load i8, ptr %22, align 8
+  br label %40
 
-48:                                               ; preds = %39
-  %49 = load i8, ptr %32, align 4
-  %50 = zext nneg i8 %49 to i64
-  %51 = shl i64 %31, %50
-  %52 = load i8, ptr %21, align 8
-  %53 = zext nneg i8 %52 to i32
-  %54 = lshr i32 %45, %53
-  %55 = zext i32 %54 to i64
-  %56 = load ptr, ptr %33, align 8
-  %57 = getelementptr i8, ptr %56, i64 %51
-  %58 = getelementptr i8, ptr %57, i64 %55
-  %59 = load i8, ptr %58, align 1
-  %60 = trunc i8 %59 to i1
-  br i1 %60, label %61, label %39, !llvm.loop !19
+40:                                               ; preds = %49, %39
+  %41 = phi i8 [ %53, %49 ], [ %.pre3.i, %39 ]
+  %42 = zext nneg i8 %41 to i32
+  %43 = shl nuw i32 1, %42
+  %44 = load ptr, ptr %31, align 8
+  %45 = getelementptr inbounds i32, ptr %44, i64 %32
+  %46 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr %45) #18, !srcloc !18
+  %47 = zext i32 %46 to i64
+  %48 = load i64, ptr @_ZN12G1HeapRegion14CardsPerRegionE, align 8
+  %.not.i5 = icmp ugt i64 %48, %47
+  br i1 %.not.i5, label %49, label %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
 
-61:                                               ; preds = %48
-  %62 = load i64, ptr %34, align 8
-  %63 = add i64 %62, 1
-  store i64 %63, ptr %34, align 8
-  %64 = load i32, ptr %3, align 4
-  %65 = zext i32 %64 to i64
-  %66 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
-  %67 = zext nneg i32 %66 to i64
-  %68 = shl i64 %65, %67
-  %69 = load ptr, ptr %35, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr i8, ptr %71, i64 %68
-  %73 = getelementptr i8, ptr %72, i64 %46
-  %74 = load i8, ptr %21, align 8
-  %75 = zext nneg i8 %74 to i32
-  %76 = shl nuw i32 1, %75
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  store ptr %73, ptr %4, align 8
-  store ptr %78, ptr %36, align 8
+49:                                               ; preds = %40
+  %50 = load i8, ptr %33, align 4
+  %51 = zext nneg i8 %50 to i64
+  %52 = shl i64 %32, %51
+  %53 = load i8, ptr %22, align 8
+  %54 = zext nneg i8 %53 to i32
+  %55 = lshr i32 %46, %54
+  %56 = zext i32 %55 to i64
+  %57 = load ptr, ptr %34, align 8
+  %58 = getelementptr i8, ptr %57, i64 %52
+  %59 = getelementptr i8, ptr %58, i64 %56
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %40, !llvm.loop !19
+
+62:                                               ; preds = %49
+  %63 = load i64, ptr %35, align 8
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %35, align 8
+  %65 = load i32, ptr %3, align 4
+  %66 = zext i32 %65 to i64
+  %67 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl i64 %66, %68
+  %70 = load ptr, ptr %36, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr i8, ptr %72, i64 %69
+  %74 = getelementptr i8, ptr %73, i64 %47
+  %75 = load i8, ptr %22, align 8
+  %76 = zext nneg i8 %75 to i32
+  %77 = shl nuw i32 1, %76
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %74, i64 %78
+  store ptr %74, ptr %4, align 8
+  store ptr %79, ptr %37, align 8
   store ptr %0, ptr %5, align 8
-  store ptr %3, ptr %37, align 8
+  store ptr %3, ptr %38, align 8
   call void @_ZN24G1ScanHRForRegionClosure12ChunkScanner14on_dirty_cardsIZNS_15scan_heap_rootsEP12G1HeapRegionEUlPhS4_E_EEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %38, !llvm.loop !20
+  br label %39, !llvm.loop !20
 
-_ZN23G1CardTableChunkClaimer8has_nextEv.exit:     ; preds = %39
-  %79 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i, label %81, label %80
+_ZN23G1CardTableChunkClaimer8has_nextEv.exit:     ; preds = %40
+  %80 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %82, label %81
 
-80:                                               ; preds = %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #18
+81:                                               ; preds = %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #18
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
-  %82 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %82, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %83
+82:                                               ; preds = %81, %_ZN23G1CardTableChunkClaimer8has_nextEv.exit
+  %83 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %83, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
 
-83:                                               ; preds = %81
+84:                                               ; preds = %82
   store ptr %13, ptr %12, align 8
-  store <2 x ptr> %15, ptr %14, align 8
+  store ptr %15, ptr %14, align 8
+  store ptr %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %81, %83
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %84
   ret void
 }
 

@@ -1259,7 +1259,13 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExpone
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE15defaultExponentERKNS2_17FloatingPointSizeE.exit
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %agg.result, align 8
+  store i8 1, ptr %agg.result, align 8
+  %inf.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  store i8 0, ptr %inf.i, align 1
+  %zero.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  store i8 0, ptr %zero.i, align 2
+  %sign.i = getelementptr inbounds i8, ptr %agg.result, i64 3
+  store i8 0, ptr %sign.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %6 = load i32, ptr %ref.tmp1, align 8
   store i32 %6, ptr %exponent.i, align 8
@@ -3357,13 +3363,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -3372,24 +3393,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -3397,10 +3418,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -3408,22 +3429,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -3551,13 +3572,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -3566,24 +3602,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -3591,10 +3627,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -3602,22 +3638,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -3718,13 +3754,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -3733,24 +3784,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -3758,10 +3809,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -3769,22 +3820,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -3971,13 +4022,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -3986,24 +4052,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -4011,10 +4077,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -4022,22 +4088,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4054,13 +4120,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -4069,24 +4150,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -4094,10 +4175,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -4105,22 +4186,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4254,13 +4335,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -4269,24 +4365,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -4294,10 +4390,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -4305,22 +4401,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4455,13 +4551,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -4470,24 +4581,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -4495,10 +4606,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -4506,22 +4617,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4621,13 +4732,28 @@ invoke.cont28:                                    ; preds = %invoke.cont24
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont28
-  %2 = load <4 x i8>, ptr %ref.tmp29, align 8
-  %3 = and <4 x i8> %2, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %3, ptr %additionResult, align 8
+  %2 = load i8, ptr %ref.tmp29, align 8
+  %frombool.i = and i8 %2, 1
+  store i8 %frombool.i, ptr %additionResult, align 8
+  %inf.i = getelementptr inbounds i8, ptr %additionResult, i64 1
+  %inf3.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 1
+  %3 = load i8, ptr %inf3.i, align 1
+  %frombool5.i = and i8 %3, 1
+  store i8 %frombool5.i, ptr %inf.i, align 1
+  %zero.i = getelementptr inbounds i8, ptr %additionResult, i64 2
+  %zero6.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 2
+  %4 = load i8, ptr %zero6.i, align 2
+  %frombool8.i = and i8 %4, 1
+  store i8 %frombool8.i, ptr %zero.i, align 2
+  %sign.i = getelementptr inbounds i8, ptr %additionResult, i64 3
+  %sign9.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 3
+  %5 = load i8, ptr %sign9.i, align 1
+  %frombool11.i = and i8 %5, 1
+  store i8 %frombool11.i, ptr %sign.i, align 1
   %exponent.i40 = getelementptr inbounds i8, ptr %additionResult, i64 8
   %exponent12.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
-  %4 = load i32, ptr %exponent12.i, align 8
-  store i32 %4, ptr %exponent.i40, align 8
+  %6 = load i32, ptr %exponent12.i, align 8
+  store i32 %6, ptr %exponent.i40, align 8
   %d_value.i.i.i = getelementptr inbounds i8, ptr %additionResult, i64 16
   %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
@@ -4636,24 +4762,24 @@ invoke.cont32:                                    ; preds = %invoke.cont28
 .noexc:                                           ; preds = %invoke.cont32
   %significand.i41 = getelementptr inbounds i8, ptr %additionResult, i64 32
   %significand13.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 32
-  %5 = load i32, ptr %significand13.i, align 8
-  store i32 %5, ptr %significand.i41, align 8
+  %7 = load i32, ptr %significand13.i, align 8
+  store i32 %7, ptr %significand.i41, align 8
   %d_value.i.i6.i = getelementptr inbounds i8, ptr %additionResult, i64 40
   %d_value3.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i, ptr noundef nonnull %d_value3.i.i7.i)
           to label %invoke.cont34 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
           to label %lpad33.body unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad.i
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 invoke.cont34:                                    ; preds = %.noexc
@@ -4661,10 +4787,10 @@ invoke.cont34:                                    ; preds = %.noexc
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %invoke.cont34
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i.i: ; preds = %invoke.cont34
@@ -4672,18 +4798,18 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i.i: ; preds =
           to label %_ZN6symfpu26floatWithCustomRounderInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i.i
 
 terminate.lpad.i.i.i.i2.i.i:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN6symfpu26floatWithCustomRounderInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i.i
-  %13 = load i32, ptr %extendedFormat, align 4
-  %add36 = add i32 %13, 1
+  %15 = load i32, ptr %extendedFormat, align 4
+  %add36 = add i32 %15, 1
   %d_sig_size.i42 = getelementptr inbounds i8, ptr %extendedFormat, i64 4
-  %14 = load i32, ptr %d_sig_size.i42, align 4
-  %add38 = add i32 %14, 2
+  %16 = load i32, ptr %d_sig_size.i42, align 4
+  %add38 = add i32 %16, 2
   invoke void @_ZN4cvc58internal17FloatingPointSizeC1Ejj(ptr noundef nonnull align 4 dereferenceable(8) %evenMoreExtendedFormat, i32 noundef %add36, i32 noundef %add38)
           to label %invoke.cont40 unwind label %lpad39
 
@@ -4740,12 +4866,12 @@ invoke.cont59:                                    ; preds = %invoke.cont56
   %zero.i52 = getelementptr inbounds i8, ptr %dummyValue, i64 2
   store i8 0, ptr %zero.i52, align 2
   %sign.i53 = getelementptr inbounds i8, ptr %dummyValue, i64 3
-  %15 = load i8, ptr %sign.i48, align 1
-  %frombool.i54 = and i8 %15, 1
+  %17 = load i8, ptr %sign.i48, align 1
+  %frombool.i54 = and i8 %17, 1
   store i8 %frombool.i54, ptr %sign.i53, align 1
   %exponent.i55 = getelementptr inbounds i8, ptr %dummyValue, i64 8
-  %16 = load i32, ptr %exponent.i49, align 8
-  store i32 %16, ptr %exponent.i55, align 8
+  %18 = load i32, ptr %exponent.i49, align 8
+  store i32 %18, ptr %exponent.i55, align 8
   %d_value.i.i.i56 = getelementptr inbounds i8, ptr %dummyValue, i64 16
   %d_value3.i.i.i57 = getelementptr inbounds i8, ptr %dummyZero, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i56, ptr noundef nonnull %d_value3.i.i.i57)
@@ -4754,24 +4880,24 @@ invoke.cont59:                                    ; preds = %invoke.cont56
 .noexc62:                                         ; preds = %invoke.cont59
   %significand.i50 = getelementptr inbounds i8, ptr %dummyZero, i64 32
   %significand.i58 = getelementptr inbounds i8, ptr %dummyValue, i64 32
-  %17 = load i32, ptr %significand.i50, align 8
-  store i32 %17, ptr %significand.i58, align 8
+  %19 = load i32, ptr %significand.i50, align 8
+  store i32 %19, ptr %significand.i58, align 8
   %d_value.i.i1.i = getelementptr inbounds i8, ptr %dummyValue, i64 40
   %d_value3.i.i2.i = getelementptr inbounds i8, ptr %dummyZero, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i1.i, ptr noundef nonnull %d_value3.i.i2.i)
           to label %invoke.cont64 unwind label %lpad.i59
 
 lpad.i59:                                         ; preds = %.noexc62
-  %18 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i56)
           to label %ehcleanup78 unwind label %terminate.lpad.i.i.i.i.i60
 
 terminate.lpad.i.i.i.i.i60:                       ; preds = %lpad.i59
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #14
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #14
   unreachable
 
 invoke.cont64:                                    ; preds = %.noexc62
@@ -4801,67 +4927,67 @@ invoke.cont73:                                    ; preds = %invoke.cont70
           to label %nrvo.skipdtor unwind label %lpad72
 
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont10, %invoke.cont, %entry
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup85
 
 lpad19:                                           ; preds = %invoke.cont20, %invoke.cont17, %invoke.cont24
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup84
 
 lpad31:                                           ; preds = %invoke.cont28
-  %23 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup83
 
 lpad33:                                           ; preds = %invoke.cont32
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %lpad33.body
 
 lpad33.body:                                      ; preds = %lpad.i, %lpad33
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %lpad33 ], [ %6, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %26, %lpad33 ], [ %8, %lpad.i ]
   call void @_ZN6symfpu26floatWithCustomRounderInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(61) %ref.tmp29) #15
   br label %ehcleanup83
 
 lpad39:                                           ; preds = %invoke.cont45, %invoke.cont42, %invoke.cont40, %_ZN6symfpu26floatWithCustomRounderInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %25 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
 lpad48:                                           ; preds = %invoke.cont52, %invoke.cont49, %invoke.cont46
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup81
 
 lpad55:                                           ; preds = %invoke.cont53
-  %27 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup80
 
 lpad58:                                           ; preds = %invoke.cont56
-  %28 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup79
 
 lpad63:                                           ; preds = %invoke.cont59
-  %29 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup78
 
 lpad66:                                           ; preds = %invoke.cont64
-  %30 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup77
 
 lpad69:                                           ; preds = %invoke.cont67
-  %31 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad72:                                           ; preds = %invoke.cont73, %invoke.cont70
-  %32 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.result) #15
   br label %ehcleanup
@@ -4872,10 +4998,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont73
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i67
 
 terminate.lpad.i.i.i.i.i67:                       ; preds = %nrvo.skipdtor
-  %33 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #14
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %nrvo.skipdtor
@@ -4884,10 +5010,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %35 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #14
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
@@ -4895,10 +5021,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; pr
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i72 unwind label %terminate.lpad.i.i.i.i.i71
 
 terminate.lpad.i.i.i.i.i71:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %37 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i72: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
@@ -4906,10 +5032,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i72: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit76 unwind label %terminate.lpad.i.i.i.i2.i74
 
 terminate.lpad.i.i.i.i2.i74:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i72
-  %39 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit76: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i72
@@ -4917,10 +5043,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit76: ; 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i79 unwind label %terminate.lpad.i.i.i.i.i78
 
 terminate.lpad.i.i.i.i.i78:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit76
-  %41 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #14
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i79: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit76
@@ -4928,10 +5054,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i79: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit83 unwind label %terminate.lpad.i.i.i.i2.i81
 
 terminate.lpad.i.i.i.i2.i81:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i79
-  %43 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #14
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit83: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i79
@@ -4940,10 +5066,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit83: ; 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i86 unwind label %terminate.lpad.i.i.i.i.i85
 
 terminate.lpad.i.i.i.i.i85:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit83
-  %45 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #14
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i86: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit83
@@ -4952,10 +5078,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i86: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit90 unwind label %terminate.lpad.i.i.i.i2.i88
 
 terminate.lpad.i.i.i.i2.i88:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i86
-  %47 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #14
+  %50 = extractvalue { ptr, i32 } %49, 0
+  call void @__clang_call_terminate(ptr %50) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit90: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i86
@@ -4964,10 +5090,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit90: ; 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i93 unwind label %terminate.lpad.i.i.i.i.i92
 
 terminate.lpad.i.i.i.i.i92:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit90
-  %49 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #14
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i93: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit90
@@ -4976,10 +5102,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i93: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit97 unwind label %terminate.lpad.i.i.i.i2.i95
 
 terminate.lpad.i.i.i.i2.i95:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i93
-  %51 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #14
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit97: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i93
@@ -4988,10 +5114,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit97: ; 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i100 unwind label %terminate.lpad.i.i.i.i.i99
 
 terminate.lpad.i.i.i.i.i99:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit97
-  %53 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #14
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i100: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit97
@@ -5000,10 +5126,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i100: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit104 unwind label %terminate.lpad.i.i.i.i2.i102
 
 terminate.lpad.i.i.i.i2.i102:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i100
-  %55 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #14
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit104: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i100
@@ -5011,10 +5137,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit104: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i107 unwind label %terminate.lpad.i.i.i.i.i106
 
 terminate.lpad.i.i.i.i.i106:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit104
-  %57 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i107: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit104
@@ -5022,10 +5148,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i107: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit111 unwind label %terminate.lpad.i.i.i.i2.i109
 
 terminate.lpad.i.i.i.i2.i109:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i107
-  %59 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit111: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i107
@@ -5034,10 +5160,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit111: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit.i114 unwind label %terminate.lpad.i.i.i.i.i113
 
 terminate.lpad.i.i.i.i.i113:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit111
-  %61 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #14
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit.i114: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit111
@@ -5046,10 +5172,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit.i114: ; preds 
           to label %_ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i116
 
 terminate.lpad.i.i.i.i2.i116:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit.i114
-  %63 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #14
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #14
   unreachable
 
 _ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit.i114
@@ -5058,10 +5184,10 @@ _ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i119 unwind label %terminate.lpad.i.i.i.i.i118
 
 terminate.lpad.i.i.i.i.i118:                      ; preds = %_ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %65 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i119: ; preds = %_ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
@@ -5070,10 +5196,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i119: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit123 unwind label %terminate.lpad.i.i.i.i2.i121
 
 terminate.lpad.i.i.i.i2.i121:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i119
-  %67 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #14
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit123: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i119
@@ -5082,10 +5208,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit123: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i126 unwind label %terminate.lpad.i.i.i.i.i125
 
 terminate.lpad.i.i.i.i.i125:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit123
-  %69 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #14
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i126: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit123
@@ -5094,62 +5220,62 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i126: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit130 unwind label %terminate.lpad.i.i.i.i2.i128
 
 terminate.lpad.i.i.i.i2.i128:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i126
-  %71 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #14
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit130: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i126
   ret void
 
 ehcleanup:                                        ; preds = %lpad72, %lpad69
-  %.pn = phi { ptr, i32 } [ %32, %lpad72 ], [ %31, %lpad69 ]
+  %.pn = phi { ptr, i32 } [ %34, %lpad72 ], [ %33, %lpad69 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %multiplyResultWithSpecialCases) #15
   br label %ehcleanup77
 
 ehcleanup77:                                      ; preds = %ehcleanup, %lpad66
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %30, %lpad66 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %32, %lpad66 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %dummyValue) #15
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %lpad63, %lpad.i59, %ehcleanup77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup77 ], [ %29, %lpad63 ], [ %18, %lpad.i59 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup77 ], [ %31, %lpad63 ], [ %20, %lpad.i59 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %dummyZero) #15
   br label %ehcleanup79
 
 ehcleanup79:                                      ; preds = %ehcleanup78, %lpad58
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup78 ], [ %28, %lpad58 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup78 ], [ %30, %lpad58 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %fullMultiplyResult) #15
   br label %ehcleanup80
 
 ehcleanup80:                                      ; preds = %ehcleanup79, %lpad55
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup79 ], [ %27, %lpad55 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup79 ], [ %29, %lpad55 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %roundedMultiplyResult) #15
   br label %ehcleanup81
 
 ehcleanup81:                                      ; preds = %ehcleanup80, %lpad48
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup80 ], [ %26, %lpad48 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup80 ], [ %28, %lpad48 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %roundedResult) #15
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %ehcleanup81, %lpad39
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup81 ], [ %25, %lpad39 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup81 ], [ %27, %lpad39 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %additionResult) #15
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %ehcleanup82, %lpad33.body, %lpad31
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup82 ], [ %eh.lpad-body, %lpad33.body ], [ %23, %lpad31 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup82 ], [ %eh.lpad-body, %lpad33.body ], [ %25, %lpad31 ]
   call void @_ZN6symfpu19exponentCompareInfoIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(61) %ec) #15
   br label %ehcleanup84
 
 ehcleanup84:                                      ; preds = %ehcleanup83, %lpad19
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup83 ], [ %22, %lpad19 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup83 ], [ %24, %lpad19 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %extendedAddArgument) #15
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %ehcleanup84, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup84 ], [ %21, %lpad ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup84 ], [ %23, %lpad ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %arithmeticMultiplyResult) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -5165,13 +5291,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -5180,24 +5321,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -5205,10 +5346,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -5216,22 +5357,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5241,7 +5382,7 @@ define linkonce_odr hidden void @_ZN6symfpu4sqrtIN4cvc58internal13symfpuLiteral6
 entry:
   %ref.tmp = alloca i8, align 1
   %sqrtResult = alloca %"class.symfpu::unpackedFloat", align 8
-  %cri = alloca %"struct.symfpu::customRounderInfo", align 4
+  %cri = alloca %"struct.symfpu::customRounderInfo", align 1
   %roundedSqrtResult = alloca %"class.symfpu::unpackedFloat", align 8
   %ref.tmp19 = alloca i8, align 1
   %call = tail call noundef zeroext i1 @_ZNK6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE5validERKNS2_17FloatingPointSizeE(ptr noundef nonnull align 8 dereferenceable(56) %uf, ptr noundef nonnull align 4 dereferenceable(8) %format)
@@ -5281,9 +5422,15 @@ land.rhs:                                         ; preds = %invoke.cont8
 
 lor.end:                                          ; preds = %invoke.cont8, %land.rhs, %land.lhs.true
   %lnot = phi i8 [ 0, %land.lhs.true ], [ 1, %invoke.cont8 ], [ %5, %land.rhs ]
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %cri, align 4
+  store i8 1, ptr %cri, align 1
+  %noUnderflow.i = getelementptr inbounds i8, ptr %cri, i64 1
+  store i8 1, ptr %noUnderflow.i, align 1
+  %exact.i = getelementptr inbounds i8, ptr %cri, i64 2
+  store i8 0, ptr %exact.i, align 1
+  %subnormalExact.i = getelementptr inbounds i8, ptr %cri, i64 3
+  store i8 1, ptr %subnormalExact.i, align 1
   %noSignificandOverflow.i = getelementptr inbounds i8, ptr %cri, i64 4
-  store i8 %lnot, ptr %noSignificandOverflow.i, align 4
+  store i8 %lnot, ptr %noSignificandOverflow.i, align 1
   invoke void @_ZN6symfpu13customRounderIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERKNS6_3fptERKNS6_2rmERKS7_RKNS_17customRounderInfoIS6_EE(ptr nonnull sret(%"class.symfpu::unpackedFloat") align 8 %roundedSqrtResult, ptr noundef nonnull align 4 dereferenceable(8) %format, ptr noundef nonnull align 4 dereferenceable(4) %roundingMode, ptr noundef nonnull align 8 dereferenceable(56) %sqrtResult, ptr noundef nonnull align 1 dereferenceable(5) %cri)
           to label %invoke.cont15 unwind label %lpad
 
@@ -5391,13 +5538,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -5406,24 +5568,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -5431,10 +5593,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -5442,22 +5604,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6288,13 +6450,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -6303,24 +6480,24 @@ entry:
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -6328,10 +6505,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -6339,22 +6516,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6386,13 +6563,28 @@ _ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERK
 
 .noexc:                                           ; preds = %_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERKNS6_3fptERKS7_SC_RKNS6_4propE.exit
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %2 = load <4 x i8>, ptr %agg.tmp, align 8
-  %3 = and <4 x i8> %2, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %3, ptr %d_symuf.i, align 8
+  %2 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %2, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %3 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %3, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %4 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %4, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %5 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %5, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %4 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %4, ptr %exponent.i.i, align 8
+  %6 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %6, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -6401,24 +6593,24 @@ _ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERK
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %5 = load i32, ptr %significand13.i.i, align 8
-  store i32 %5, ptr %significand.i.i, align 8
+  %7 = load i32, ptr %significand13.i.i, align 8
+  store i32 %7, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -6426,10 +6618,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -6437,22 +6629,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %_ZN6symfpu3maxIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERKNS6_3fptERKS7_SC_RKNS6_4propE.exit
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad ], [ %8, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6484,13 +6676,28 @@ _ZN6symfpu3minIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERK
 
 .noexc:                                           ; preds = %_ZN6symfpu3minIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERKNS6_3fptERKS7_SC_RKNS6_4propE.exit
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %2 = load <4 x i8>, ptr %agg.tmp, align 8
-  %3 = and <4 x i8> %2, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %3, ptr %d_symuf.i, align 8
+  %2 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %2, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %3 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %3, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %4 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %4, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %5 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %5, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %4 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %4, ptr %exponent.i.i, align 8
+  %6 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %6, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -6499,24 +6706,24 @@ _ZN6symfpu3minIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERK
 .noexc1:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %5 = load i32, ptr %significand13.i.i, align 8
-  store i32 %5, ptr %significand.i.i, align 8
+  %7 = load i32, ptr %significand13.i.i, align 8
+  store i32 %7, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc1
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc1
@@ -6524,10 +6731,10 @@ invoke.cont:                                      ; preds = %.noexc1
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -6535,22 +6742,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %_ZN6symfpu3minIN4cvc58internal13symfpuLiteral6traitsEEENS_13unpackedFloatIT_EERKNS6_3fptERKS7_SC_RKNS6_4propE.exit
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad ], [ %8, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6558,13 +6765,16 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal20FloatingPointLiteraleqERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %fp) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = load <2 x i32>, ptr %this, align 8
-  %1 = load <2 x i32>, ptr %fp, align 8
-  %2 = icmp eq <2 x i32> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  br i1 %5, label %land.rhs, label %land.end
+  %0 = load i32, ptr %this, align 8
+  %1 = load i32, ptr %fp, align 8
+  %cmp.i = icmp eq i32 %0, %1
+  %d_sig_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %2 = load i32, ptr %d_sig_size.i, align 4
+  %d_sig_size3.i = getelementptr inbounds i8, ptr %fp, i64 4
+  %3 = load i32, ptr %d_sig_size3.i, align 4
+  %cmp4.i = icmp eq i32 %2, %3
+  %4 = select i1 %cmp.i, i1 %cmp4.i, i1 false
+  br i1 %4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %d_symuf = getelementptr inbounds i8, ptr %this, i64 8
@@ -6573,8 +6783,8 @@ land.rhs:                                         ; preds = %entry
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %call5, %land.rhs ]
-  ret i1 %6
+  %5 = phi i1 [ false, %entry ], [ %call5, %land.rhs ]
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6904,13 +7114,28 @@ entry:
 
 .noexc:                                           ; preds = %entry
   %d_symuf.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <4 x i8>, ptr %agg.tmp, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %d_symuf.i, align 8
+  %0 = load i8, ptr %agg.tmp, align 8
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %d_symuf.i, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %inf3.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 1
+  %1 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %1, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %zero6.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %2 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %2, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 11
+  %sign9.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %3 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %3, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %exponent12.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %2, ptr %exponent.i.i, align 8
+  %4 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %4, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -6919,24 +7144,24 @@ entry:
 .noexc2:                                          ; preds = %.noexc
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %significand13.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %3 = load i32, ptr %significand13.i.i, align 8
-  store i32 %3, ptr %significand.i.i, align 8
+  %5 = load i32, ptr %significand13.i.i, align 8
+  store i32 %5, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc2
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc2
@@ -6944,10 +7169,10 @@ invoke.cont:                                      ; preds = %.noexc2
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont
@@ -6955,22 +7180,22 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
   ret void
 
 lpad:                                             ; preds = %.noexc, %entry
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad ], [ %4, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %6, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp) #15
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -7129,13 +7354,28 @@ invoke.cont:                                      ; preds = %cond.end16
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont
-  %18 = load <4 x i8>, ptr %extended, align 8
-  %19 = and <4 x i8> %18, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %19, ptr %agg.result, align 8
+  %18 = load i8, ptr %extended, align 8
+  %frombool.i = and i8 %18, 1
+  store i8 %frombool.i, ptr %agg.result, align 8
+  %inf.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %inf3.i = getelementptr inbounds i8, ptr %extended, i64 1
+  %19 = load i8, ptr %inf3.i, align 1
+  %frombool5.i = and i8 %19, 1
+  store i8 %frombool5.i, ptr %inf.i, align 1
+  %zero.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %zero6.i = getelementptr inbounds i8, ptr %extended, i64 2
+  %20 = load i8, ptr %zero6.i, align 2
+  %frombool8.i = and i8 %20, 1
+  store i8 %frombool8.i, ptr %zero.i, align 2
+  %sign.i = getelementptr inbounds i8, ptr %agg.result, i64 3
+  %sign9.i = getelementptr inbounds i8, ptr %extended, i64 3
+  %21 = load i8, ptr %sign9.i, align 1
+  %frombool11.i = and i8 %21, 1
+  store i8 %frombool11.i, ptr %sign.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %exponent12.i = getelementptr inbounds i8, ptr %extended, i64 8
-  %20 = load i32, ptr %exponent12.i, align 8
-  store i32 %20, ptr %exponent.i, align 8
+  %22 = load i32, ptr %exponent12.i, align 8
+  store i32 %22, ptr %exponent.i, align 8
   %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %d_value3.i.i.i = getelementptr inbounds i8, ptr %extended, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
@@ -7144,28 +7384,28 @@ invoke.cont23:                                    ; preds = %invoke.cont
 .noexc:                                           ; preds = %invoke.cont23
   %significand.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %significand13.i = getelementptr inbounds i8, ptr %extended, i64 32
-  %21 = load i32, ptr %significand13.i, align 8
-  store i32 %21, ptr %significand.i, align 8
+  %23 = load i32, ptr %significand13.i, align 8
+  store i32 %23, ptr %significand.i, align 8
   %d_value.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %d_value3.i.i7.i = getelementptr inbounds i8, ptr %extended, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i, ptr noundef nonnull %d_value3.i.i7.i)
           to label %cleanup unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
           to label %ehcleanup59 unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad.i
-  %23 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #14
   unreachable
 
 lpad:                                             ; preds = %if.else, %invoke.cont23, %invoke.cont, %cond.end16
-  %25 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59
 
@@ -7209,10 +7449,10 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i90
 
 terminate.lpad.i.i.i.i.i90:                       ; preds = %invoke.cont47
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #14
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont47
@@ -7221,10 +7461,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %28 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #14
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
@@ -7233,10 +7473,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; pr
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i94 unwind label %terminate.lpad.i.i.i.i.i93
 
 terminate.lpad.i.i.i.i.i93:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %30 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #14
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i94: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
@@ -7245,10 +7485,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i94: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit98 unwind label %terminate.lpad.i.i.i.i2.i96
 
 terminate.lpad.i.i.i.i2.i96:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i94
-  %32 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #14
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit98: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i94
@@ -7257,10 +7497,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit98: ; 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i101 unwind label %terminate.lpad.i.i.i.i.i100
 
 terminate.lpad.i.i.i.i.i100:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit98
-  %34 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i101: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit98
@@ -7269,10 +7509,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i101: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit105 unwind label %terminate.lpad.i.i.i.i2.i103
 
 terminate.lpad.i.i.i.i2.i103:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i101
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #14
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit105: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i101
@@ -7281,10 +7521,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit105: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i108 unwind label %terminate.lpad.i.i.i.i.i107
 
 terminate.lpad.i.i.i.i.i107:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit105
-  %38 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #14
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i108: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit105
@@ -7293,10 +7533,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i108: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit112 unwind label %terminate.lpad.i.i.i.i2.i110
 
 terminate.lpad.i.i.i.i2.i110:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i108
-  %40 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #14
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit112: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i108
@@ -7305,10 +7545,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit112: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i115 unwind label %terminate.lpad.i.i.i.i.i114
 
 terminate.lpad.i.i.i.i.i114:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit112
-  %42 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #14
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i115: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit112
@@ -7317,10 +7557,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i115: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit119 unwind label %terminate.lpad.i.i.i.i2.i117
 
 terminate.lpad.i.i.i.i2.i117:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i115
-  %44 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #14
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit119: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i115
@@ -7334,58 +7574,58 @@ invoke.cont53:                                    ; preds = %_ZN6symfpu13unpacke
           to label %nrvo.skipdtor unwind label %lpad52
 
 lpad28:                                           ; preds = %invoke.cont25
-  %46 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
 lpad34:                                           ; preds = %invoke.cont29
-  %47 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50
 
 lpad40:                                           ; preds = %invoke.cont35
-  %48 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49
 
 lpad42:                                           ; preds = %invoke.cont41
-  %49 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad44:                                           ; preds = %invoke.cont43
-  %50 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad46:                                           ; preds = %invoke.cont45
-  %51 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp30) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad46, %lpad44
-  %.pn = phi { ptr, i32 } [ %51, %lpad46 ], [ %50, %lpad44 ]
+  %.pn = phi { ptr, i32 } [ %53, %lpad46 ], [ %52, %lpad44 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp36) #15
   br label %ehcleanup48
 
 ehcleanup48:                                      ; preds = %ehcleanup, %lpad42
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %49, %lpad42 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %51, %lpad42 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp38) #15
   br label %ehcleanup49
 
 ehcleanup49:                                      ; preds = %ehcleanup48, %lpad40
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup48 ], [ %48, %lpad40 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup48 ], [ %50, %lpad40 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp32) #15
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %ehcleanup49, %lpad34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup49 ], [ %47, %lpad34 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup49 ], [ %49, %lpad34 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp27) #15
   br label %ehcleanup58
 
 lpad52:                                           ; preds = %invoke.cont53, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit119
-  %52 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.result) #15
   br label %ehcleanup58
@@ -7396,10 +7636,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont53
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i122 unwind label %terminate.lpad.i.i.i.i.i121
 
 terminate.lpad.i.i.i.i.i121:                      ; preds = %nrvo.skipdtor
-  %53 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #14
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i122: ; preds = %nrvo.skipdtor
@@ -7408,14 +7648,14 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i122: ; preds 
           to label %cleanup unwind label %terminate.lpad.i.i.i.i2.i124
 
 terminate.lpad.i.i.i.i2.i124:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i122
-  %55 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #14
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #14
   unreachable
 
 ehcleanup58:                                      ; preds = %lpad52, %ehcleanup50, %lpad28
-  %.pn26 = phi { ptr, i32 } [ %52, %lpad52 ], [ %.pn.pn.pn.pn, %ehcleanup50 ], [ %46, %lpad28 ]
+  %.pn26 = phi { ptr, i32 } [ %54, %lpad52 ], [ %.pn.pn.pn.pn, %ehcleanup50 ], [ %48, %lpad28 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %rounded) #15
   br label %ehcleanup59
 
@@ -7425,10 +7665,10 @@ cleanup:                                          ; preds = %_ZN4cvc58internal13
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i129 unwind label %terminate.lpad.i.i.i.i.i128
 
 terminate.lpad.i.i.i.i.i128:                      ; preds = %cleanup
-  %57 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #14
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i129: ; preds = %cleanup
@@ -7437,17 +7677,17 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i129: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit133 unwind label %terminate.lpad.i.i.i.i2.i131
 
 terminate.lpad.i.i.i.i2.i131:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i129
-  %59 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #14
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit133: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i129
   ret void
 
 ehcleanup59:                                      ; preds = %lpad, %lpad.i, %ehcleanup58
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %ehcleanup58 ], [ %25, %lpad ], [ %22, %lpad.i ]
+  %.pn28 = phi { ptr, i32 } [ %.pn26, %ehcleanup58 ], [ %27, %lpad ], [ %24, %lpad.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %extended) #15
   resume { ptr, i32 } %.pn28
 }
@@ -9515,60 +9755,82 @@ entry:
   %ref.tmp16 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
   %0 = load i8, ptr %cond, align 1
   %tobool.i.i = trunc i8 %0 to i1
-  %1 = load <4 x i8>, ptr %l, align 8
-  %2 = load <4 x i8>, ptr %r, align 8
+  %l.val.i = load i8, ptr %l, align 8
+  %r.val.i = load i8, ptr %r, align 8
+  %inf = getelementptr inbounds i8, ptr %l, i64 1
+  %inf3 = getelementptr inbounds i8, ptr %r, i64 1
+  %l.val.i18 = load i8, ptr %inf, align 1
+  %r.val.i19 = load i8, ptr %inf3, align 1
+  %zero = getelementptr inbounds i8, ptr %l, i64 2
+  %zero7 = getelementptr inbounds i8, ptr %r, i64 2
+  %l.val.i22 = load i8, ptr %zero, align 2
+  %r.val.i23 = load i8, ptr %zero7, align 2
+  %sign = getelementptr inbounds i8, ptr %l, i64 3
+  %sign11 = getelementptr inbounds i8, ptr %r, i64 3
+  %l.val.i26 = load i8, ptr %sign, align 1
+  %r.val.i27 = load i8, ptr %sign11, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %cond-lvalue.i.i.v = select i1 %tobool.i.i, ptr %l, ptr %r
   %cond-lvalue.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i.i.v, i64 8
-  %3 = load i32, ptr %cond-lvalue.i.i, align 8, !noalias !72
-  store i32 %3, ptr %ref.tmp14, align 8, !alias.scope !72
+  %1 = load i32, ptr %cond-lvalue.i.i, align 8, !noalias !72
+  store i32 %1, ptr %ref.tmp14, align 8, !alias.scope !72
   %d_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %d_value3.i.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i.i.v, i64 16
   call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %4 = load i8, ptr %cond, align 1, !noalias !75
-  %tobool.i.i30 = trunc i8 %4 to i1
+  %2 = load i8, ptr %cond, align 1, !noalias !75
+  %tobool.i.i30 = trunc i8 %2 to i1
   %cond-lvalue.i.i31.v = select i1 %tobool.i.i30, ptr %l, ptr %r
   %cond-lvalue.i.i31 = getelementptr inbounds i8, ptr %cond-lvalue.i.i31.v, i64 32
-  %5 = load i32, ptr %cond-lvalue.i.i31, align 8, !noalias !75
-  store i32 %5, ptr %ref.tmp16, align 8, !alias.scope !75
+  %3 = load i32, ptr %cond-lvalue.i.i31, align 8, !noalias !75
+  store i32 %3, ptr %ref.tmp16, align 8, !alias.scope !75
   %d_value.i.i.i32 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %d_value3.i.i.i33 = getelementptr inbounds i8, ptr %cond-lvalue.i.i31.v, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i32, ptr noundef nonnull %d_value3.i.i.i33)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %6 = insertelement <4 x i1> poison, i1 %tobool.i.i, i64 0
-  %7 = shufflevector <4 x i1> %6, <4 x i1> poison, <4 x i32> zeroinitializer
-  %8 = select <4 x i1> %7, <4 x i8> %1, <4 x i8> %2
-  %9 = and <4 x i8> %8, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %9, ptr %agg.result, align 8
+  %4 = select i1 %tobool.i.i, i8 %l.val.i26, i8 %r.val.i27
+  %frombool13 = and i8 %4, 1
+  %5 = select i1 %tobool.i.i, i8 %l.val.i22, i8 %r.val.i23
+  %frombool9 = and i8 %5, 1
+  %6 = select i1 %tobool.i.i, i8 %l.val.i18, i8 %r.val.i19
+  %frombool5 = and i8 %6, 1
+  %7 = select i1 %tobool.i.i, i8 %l.val.i, i8 %r.val.i
+  %frombool = and i8 %7, 1
+  store i8 %frombool, ptr %agg.result, align 8
+  %inf.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  store i8 %frombool5, ptr %inf.i, align 1
+  %zero.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  store i8 %frombool9, ptr %zero.i, align 2
+  %sign.i = getelementptr inbounds i8, ptr %agg.result, i64 3
+  store i8 %frombool13, ptr %sign.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %10 = load i32, ptr %ref.tmp14, align 8
-  store i32 %10, ptr %exponent.i, align 8
+  %8 = load i32, ptr %ref.tmp14, align 8
+  store i32 %8, ptr %exponent.i, align 8
   %d_value.i.i.i34 = getelementptr inbounds i8, ptr %agg.result, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i34, ptr noundef nonnull %d_value.i.i.i)
           to label %.noexc unwind label %lpad18
 
 .noexc:                                           ; preds = %invoke.cont
   %significand.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %11 = load i32, ptr %ref.tmp16, align 8
-  store i32 %11, ptr %significand.i, align 8
+  %9 = load i32, ptr %ref.tmp16, align 8
+  store i32 %9, ptr %significand.i, align 8
   %d_value.i.i1.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i1.i, ptr noundef nonnull %d_value.i.i.i32)
           to label %invoke.cont19 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i34)
           to label %lpad18.body unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad.i
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 invoke.cont19:                                    ; preds = %.noexc
@@ -9576,10 +9838,10 @@ invoke.cont19:                                    ; preds = %.noexc
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont19
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont19
@@ -9587,47 +9849,47 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i37
 
 terminate.lpad.i.i.i.i37:                         ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit
   ret void
 
 lpad:                                             ; preds = %entry
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad18.body
 
 lpad18.body:                                      ; preds = %lpad.i, %lpad18
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %lpad18 ], [ %12, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %lpad18 ], [ %10, %lpad.i ]
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i32)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i.i39
 
 terminate.lpad.i.i.i.i39:                         ; preds = %lpad18.body
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #14
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #14
   unreachable
 
 ehcleanup:                                        ; preds = %lpad18.body, %lpad
-  %.pn = phi { ptr, i32 } [ %19, %lpad ], [ %eh.lpad-body, %lpad18.body ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad ], [ %eh.lpad-body, %lpad18.body ]
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit43 unwind label %terminate.lpad.i.i.i.i42
 
 terminate.lpad.i.i.i.i42:                         ; preds = %ehcleanup
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit43: ; preds = %ehcleanup
@@ -13480,13 +13742,28 @@ invoke.cont382:                                   ; preds = %_ZN6symfpu13unpacke
           to label %invoke.cont385 unwind label %lpad381
 
 invoke.cont385:                                   ; preds = %invoke.cont382
-  %119 = load <4 x i8>, ptr %additionResult, align 8
-  %120 = and <4 x i8> %119, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %120, ptr %agg.result, align 8
+  %119 = load i8, ptr %additionResult, align 8
+  %frombool.i.i = and i8 %119, 1
+  store i8 %frombool.i.i, ptr %agg.result, align 8
+  %inf.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %inf3.i.i = getelementptr inbounds i8, ptr %additionResult, i64 1
+  %120 = load i8, ptr %inf3.i.i, align 1
+  %frombool5.i.i = and i8 %120, 1
+  store i8 %frombool5.i.i, ptr %inf.i.i, align 1
+  %zero.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %zero6.i.i = getelementptr inbounds i8, ptr %additionResult, i64 2
+  %121 = load i8, ptr %zero6.i.i, align 2
+  %frombool8.i.i = and i8 %121, 1
+  store i8 %frombool8.i.i, ptr %zero.i.i, align 2
+  %sign.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
+  %sign9.i.i = getelementptr inbounds i8, ptr %additionResult, i64 3
+  %122 = load i8, ptr %sign9.i.i, align 1
+  %frombool11.i.i = and i8 %122, 1
+  store i8 %frombool11.i.i, ptr %sign.i.i, align 1
   %exponent.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %exponent12.i.i = getelementptr inbounds i8, ptr %additionResult, i64 8
-  %121 = load i32, ptr %exponent12.i.i, align 8
-  store i32 %121, ptr %exponent.i.i, align 8
+  %123 = load i32, ptr %exponent12.i.i, align 8
+  store i32 %123, ptr %exponent.i.i, align 8
   %d_value.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %d_value3.i.i.i.i = getelementptr inbounds i8, ptr %additionResult, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i.i, ptr noundef nonnull %d_value3.i.i.i.i)
@@ -13495,24 +13772,24 @@ invoke.cont385:                                   ; preds = %invoke.cont382
 .noexc:                                           ; preds = %invoke.cont385
   %significand.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %significand13.i.i = getelementptr inbounds i8, ptr %additionResult, i64 32
-  %122 = load i32, ptr %significand13.i.i, align 8
-  store i32 %122, ptr %significand.i.i, align 8
+  %124 = load i32, ptr %significand13.i.i, align 8
+  store i32 %124, ptr %significand.i.i, align 8
   %d_value.i.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %d_value3.i.i7.i.i = getelementptr inbounds i8, ptr %additionResult, i64 40
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i6.i.i, ptr noundef nonnull %d_value3.i.i7.i.i)
           to label %invoke.cont388 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc
-  %123 = landingpad { ptr, i32 }
+  %125 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i.i)
           to label %lpad381.body unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad.i.i
-  %124 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #14
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #14
   unreachable
 
 invoke.cont388:                                   ; preds = %.noexc
@@ -13530,10 +13807,10 @@ invoke.cont388:                                   ; preds = %.noexc
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i251 unwind label %terminate.lpad.i.i.i.i.i250
 
 terminate.lpad.i.i.i.i.i250:                      ; preds = %invoke.cont388
-  %126 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #14
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i251: ; preds = %invoke.cont388
@@ -13541,10 +13818,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i251: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit254 unwind label %terminate.lpad.i.i.i.i2.i253
 
 terminate.lpad.i.i.i.i2.i253:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i251
-  %128 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           catch ptr null
-  %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #14
+  %131 = extractvalue { ptr, i32 } %130, 0
+  call void @__clang_call_terminate(ptr %131) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit254: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i251
@@ -13553,10 +13830,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit254: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i257 unwind label %terminate.lpad.i.i.i.i.i256
 
 terminate.lpad.i.i.i.i.i256:                      ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit254
-  %130 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #14
+  %133 = extractvalue { ptr, i32 } %132, 0
+  call void @__clang_call_terminate(ptr %133) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i257: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit254
@@ -13565,10 +13842,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i257: ; preds 
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit260 unwind label %terminate.lpad.i.i.i.i2.i259
 
 terminate.lpad.i.i.i.i2.i259:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i257
-  %132 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #14
+  %135 = extractvalue { ptr, i32 } %134, 0
+  call void @__clang_call_terminate(ptr %135) #14
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit260: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i257
@@ -13576,10 +13853,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit260: ;
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit263 unwind label %terminate.lpad.i.i.i.i262
 
 terminate.lpad.i.i.i.i262:                        ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit260
-  %134 = landingpad { ptr, i32 }
+  %136 = landingpad { ptr, i32 }
           catch ptr null
-  %135 = extractvalue { ptr, i32 } %134, 0
-  call void @__clang_call_terminate(ptr %135) #14
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit263: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit260
@@ -13588,10 +13865,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit263: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit266 unwind label %terminate.lpad.i.i.i.i265
 
 terminate.lpad.i.i.i.i265:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit263
-  %136 = landingpad { ptr, i32 }
+  %138 = landingpad { ptr, i32 }
           catch ptr null
-  %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #14
+  %139 = extractvalue { ptr, i32 } %138, 0
+  call void @__clang_call_terminate(ptr %139) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit266: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit263
@@ -13599,10 +13876,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit266: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit269 unwind label %terminate.lpad.i.i.i.i268
 
 terminate.lpad.i.i.i.i268:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit266
-  %138 = landingpad { ptr, i32 }
+  %140 = landingpad { ptr, i32 }
           catch ptr null
-  %139 = extractvalue { ptr, i32 } %138, 0
-  call void @__clang_call_terminate(ptr %139) #14
+  %141 = extractvalue { ptr, i32 } %140, 0
+  call void @__clang_call_terminate(ptr %141) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit269: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit266
@@ -13611,10 +13888,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit269: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit272 unwind label %terminate.lpad.i.i.i.i271
 
 terminate.lpad.i.i.i.i271:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit269
-  %140 = landingpad { ptr, i32 }
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #14
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit272: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit269
@@ -13623,10 +13900,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit272: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit275 unwind label %terminate.lpad.i.i.i.i274
 
 terminate.lpad.i.i.i.i274:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit272
-  %142 = landingpad { ptr, i32 }
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #14
+  %145 = extractvalue { ptr, i32 } %144, 0
+  call void @__clang_call_terminate(ptr %145) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit275: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit272
@@ -13635,10 +13912,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit275: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit278 unwind label %terminate.lpad.i.i.i.i277
 
 terminate.lpad.i.i.i.i277:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit275
-  %144 = landingpad { ptr, i32 }
+  %146 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #14
+  %147 = extractvalue { ptr, i32 } %146, 0
+  call void @__clang_call_terminate(ptr %147) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit278: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit275
@@ -13647,10 +13924,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit278: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit281 unwind label %terminate.lpad.i.i.i.i280
 
 terminate.lpad.i.i.i.i280:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit278
-  %146 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           catch ptr null
-  %147 = extractvalue { ptr, i32 } %146, 0
-  call void @__clang_call_terminate(ptr %147) #14
+  %149 = extractvalue { ptr, i32 } %148, 0
+  call void @__clang_call_terminate(ptr %149) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit281: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit278
@@ -13659,10 +13936,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit281: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit284 unwind label %terminate.lpad.i.i.i.i283
 
 terminate.lpad.i.i.i.i283:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit281
-  %148 = landingpad { ptr, i32 }
+  %150 = landingpad { ptr, i32 }
           catch ptr null
-  %149 = extractvalue { ptr, i32 } %148, 0
-  call void @__clang_call_terminate(ptr %149) #14
+  %151 = extractvalue { ptr, i32 } %150, 0
+  call void @__clang_call_terminate(ptr %151) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit284: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit281
@@ -13670,10 +13947,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit284: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit287 unwind label %terminate.lpad.i.i.i.i286
 
 terminate.lpad.i.i.i.i286:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit284
-  %150 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #14
+  %153 = extractvalue { ptr, i32 } %152, 0
+  call void @__clang_call_terminate(ptr %153) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit287: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit284
@@ -13681,10 +13958,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit287: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit290 unwind label %terminate.lpad.i.i.i.i289
 
 terminate.lpad.i.i.i.i289:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit287
-  %152 = landingpad { ptr, i32 }
+  %154 = landingpad { ptr, i32 }
           catch ptr null
-  %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #14
+  %155 = extractvalue { ptr, i32 } %154, 0
+  call void @__clang_call_terminate(ptr %155) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit290: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit287
@@ -13692,10 +13969,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit290: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i293 unwind label %terminate.lpad.i.i.i.i.i292
 
 terminate.lpad.i.i.i.i.i292:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit290
-  %154 = landingpad { ptr, i32 }
+  %156 = landingpad { ptr, i32 }
           catch ptr null
-  %155 = extractvalue { ptr, i32 } %154, 0
-  call void @__clang_call_terminate(ptr %155) #14
+  %157 = extractvalue { ptr, i32 } %156, 0
+  call void @__clang_call_terminate(ptr %157) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i293: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit290
@@ -13703,10 +13980,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i293: ; preds 
           to label %_ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i295
 
 terminate.lpad.i.i.i.i2.i295:                     ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i293
-  %156 = landingpad { ptr, i32 }
+  %158 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #14
+  %159 = extractvalue { ptr, i32 } %158, 0
+  call void @__clang_call_terminate(ptr %159) #14
   unreachable
 
 _ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i293
@@ -13715,10 +13992,10 @@ _ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.e
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit298 unwind label %terminate.lpad.i.i.i.i297
 
 terminate.lpad.i.i.i.i297:                        ; preds = %_ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %158 = landingpad { ptr, i32 }
+  %160 = landingpad { ptr, i32 }
           catch ptr null
-  %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #14
+  %161 = extractvalue { ptr, i32 } %160, 0
+  call void @__clang_call_terminate(ptr %161) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit298: ; preds = %_ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
@@ -13727,10 +14004,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit298: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit301 unwind label %terminate.lpad.i.i.i.i300
 
 terminate.lpad.i.i.i.i300:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit298
-  %160 = landingpad { ptr, i32 }
+  %162 = landingpad { ptr, i32 }
           catch ptr null
-  %161 = extractvalue { ptr, i32 } %160, 0
-  call void @__clang_call_terminate(ptr %161) #14
+  %163 = extractvalue { ptr, i32 } %162, 0
+  call void @__clang_call_terminate(ptr %163) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit301: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit298
@@ -13739,10 +14016,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit301: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit304 unwind label %terminate.lpad.i.i.i.i303
 
 terminate.lpad.i.i.i.i303:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit301
-  %162 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           catch ptr null
-  %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #14
+  %165 = extractvalue { ptr, i32 } %164, 0
+  call void @__clang_call_terminate(ptr %165) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit304: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit301
@@ -13751,739 +14028,739 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit304: ; preds = 
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit307 unwind label %terminate.lpad.i.i.i.i306
 
 terminate.lpad.i.i.i.i306:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit304
-  %164 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           catch ptr null
-  %165 = extractvalue { ptr, i32 } %164, 0
-  call void @__clang_call_terminate(ptr %165) #14
+  %167 = extractvalue { ptr, i32 } %166, 0
+  call void @__clang_call_terminate(ptr %167) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit307: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit304
   ret void
 
 lpad:                                             ; preds = %lor.end52.thread445
-  %166 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup64
 
 lpad60:                                           ; preds = %invoke.cont
-  %167 = landingpad { ptr, i32 }
+  %169 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad62:                                           ; preds = %invoke.cont61
-  %168 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           cleanup
   %d_value.i.i308 = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i308)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i.i309
 
 terminate.lpad.i.i.i.i309:                        ; preds = %lpad62
-  %169 = landingpad { ptr, i32 }
-          catch ptr null
-  %170 = extractvalue { ptr, i32 } %169, 0
-  call void @__clang_call_terminate(ptr %170) #14
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad62, %lpad60
-  %.pn = phi { ptr, i32 } [ %167, %lpad60 ], [ %168, %lpad62 ]
-  %d_value.i.i311 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i311)
-          to label %ehcleanup64 unwind label %terminate.lpad.i.i.i.i312
-
-terminate.lpad.i.i.i.i312:                        ; preds = %ehcleanup
   %171 = landingpad { ptr, i32 }
           catch ptr null
   %172 = extractvalue { ptr, i32 } %171, 0
   call void @__clang_call_terminate(ptr %172) #14
   unreachable
 
-ehcleanup64:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %166, %lpad ], [ %.pn, %ehcleanup ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
-          to label %eh.resume unwind label %terminate.lpad.i.i.i.i315
+ehcleanup:                                        ; preds = %lpad62, %lpad60
+  %.pn = phi { ptr, i32 } [ %169, %lpad60 ], [ %170, %lpad62 ]
+  %d_value.i.i311 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i311)
+          to label %ehcleanup64 unwind label %terminate.lpad.i.i.i.i312
 
-terminate.lpad.i.i.i.i315:                        ; preds = %ehcleanup64
+terminate.lpad.i.i.i.i312:                        ; preds = %ehcleanup
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
   call void @__clang_call_terminate(ptr %174) #14
   unreachable
 
-lpad69:                                           ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit100
+ehcleanup64:                                      ; preds = %ehcleanup, %lpad
+  %.pn.pn = phi { ptr, i32 } [ %168, %lpad ], [ %.pn, %ehcleanup ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
+          to label %eh.resume unwind label %terminate.lpad.i.i.i.i315
+
+terminate.lpad.i.i.i.i315:                        ; preds = %ehcleanup64
   %175 = landingpad { ptr, i32 }
+          catch ptr null
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #14
+  unreachable
+
+lpad69:                                           ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit100
+  %177 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup405
 
 lpad71:                                           ; preds = %invoke.cont70
-  %176 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup81
 
 lpad75:                                           ; preds = %invoke.cont72
-  %177 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup80
 
 lpad77:                                           ; preds = %invoke.cont76
-  %178 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           cleanup
   %d_value.i.i317 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i317)
           to label %ehcleanup80 unwind label %terminate.lpad.i.i.i.i318
 
 terminate.lpad.i.i.i.i318:                        ; preds = %lpad77
-  %179 = landingpad { ptr, i32 }
-          catch ptr null
-  %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #14
-  unreachable
-
-ehcleanup80:                                      ; preds = %lpad77, %lpad75
-  %.pn46 = phi { ptr, i32 } [ %177, %lpad75 ], [ %178, %lpad77 ]
-  %d_value.i.i320 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i320)
-          to label %ehcleanup81 unwind label %terminate.lpad.i.i.i.i321
-
-terminate.lpad.i.i.i.i321:                        ; preds = %ehcleanup80
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
   call void @__clang_call_terminate(ptr %182) #14
   unreachable
 
-ehcleanup81:                                      ; preds = %ehcleanup80, %lpad71
-  %.pn46.pn = phi { ptr, i32 } [ %176, %lpad71 ], [ %.pn46, %ehcleanup80 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i105)
-          to label %ehcleanup405 unwind label %terminate.lpad.i.i.i.i324
+ehcleanup80:                                      ; preds = %lpad77, %lpad75
+  %.pn46 = phi { ptr, i32 } [ %179, %lpad75 ], [ %180, %lpad77 ]
+  %d_value.i.i320 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i320)
+          to label %ehcleanup81 unwind label %terminate.lpad.i.i.i.i321
 
-terminate.lpad.i.i.i.i324:                        ; preds = %ehcleanup81
+terminate.lpad.i.i.i.i321:                        ; preds = %ehcleanup80
   %183 = landingpad { ptr, i32 }
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
   call void @__clang_call_terminate(ptr %184) #14
   unreachable
 
-lpad93:                                           ; preds = %invoke.cont94
+ehcleanup81:                                      ; preds = %ehcleanup80, %lpad71
+  %.pn46.pn = phi { ptr, i32 } [ %178, %lpad71 ], [ %.pn46, %ehcleanup80 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i105)
+          to label %ehcleanup405 unwind label %terminate.lpad.i.i.i.i324
+
+terminate.lpad.i.i.i.i324:                        ; preds = %ehcleanup81
   %185 = landingpad { ptr, i32 }
+          catch ptr null
+  %186 = extractvalue { ptr, i32 } %185, 0
+  call void @__clang_call_terminate(ptr %186) #14
+  unreachable
+
+lpad93:                                           ; preds = %invoke.cont94
+  %187 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup404
 
 lpad103:                                          ; preds = %invoke.cont101
-  %186 = landingpad { ptr, i32 }
+  %188 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup403
 
 lpad105:                                          ; preds = %invoke.cont104, %invoke.cont106
-  %187 = landingpad { ptr, i32 }
+  %189 = landingpad { ptr, i32 }
           cleanup
   %d_value.i.i326 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i326)
           to label %ehcleanup403 unwind label %terminate.lpad.i.i.i.i327
 
 terminate.lpad.i.i.i.i327:                        ; preds = %lpad105
-  %188 = landingpad { ptr, i32 }
+  %190 = landingpad { ptr, i32 }
           catch ptr null
-  %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #14
+  %191 = extractvalue { ptr, i32 } %190, 0
+  call void @__clang_call_terminate(ptr %191) #14
   unreachable
 
 lpad112:                                          ; preds = %invoke.cont113, %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit126
-  %190 = landingpad { ptr, i32 }
+  %192 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup402
 
 lpad118:                                          ; preds = %invoke.cont114, %invoke.cont119
-  %191 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup401
 
 lpad125:                                          ; preds = %invoke.cont121, %invoke.cont126
-  %192 = landingpad { ptr, i32 }
+  %194 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup138
 
 lpad129:                                          ; preds = %invoke.cont128
-  %193 = landingpad { ptr, i32 }
+  %195 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137
 
 lpad131:                                          ; preds = %invoke.cont130
-  %194 = landingpad { ptr, i32 }
+  %196 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup136
 
 lpad133:                                          ; preds = %invoke.cont132
-  %195 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i135)
           to label %ehcleanup136 unwind label %terminate.lpad.i.i.i.i330
 
 terminate.lpad.i.i.i.i330:                        ; preds = %lpad133
-  %196 = landingpad { ptr, i32 }
-          catch ptr null
-  %197 = extractvalue { ptr, i32 } %196, 0
-  call void @__clang_call_terminate(ptr %197) #14
-  unreachable
-
-ehcleanup136:                                     ; preds = %lpad133, %lpad131
-  %.pn50 = phi { ptr, i32 } [ %194, %lpad131 ], [ %195, %lpad133 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp122.sroa.gep)
-          to label %ehcleanup137 unwind label %terminate.lpad.i.i.i.i333
-
-terminate.lpad.i.i.i.i333:                        ; preds = %ehcleanup136
   %198 = landingpad { ptr, i32 }
           catch ptr null
   %199 = extractvalue { ptr, i32 } %198, 0
   call void @__clang_call_terminate(ptr %199) #14
   unreachable
 
-ehcleanup137:                                     ; preds = %ehcleanup136, %lpad129
-  %.pn50.pn = phi { ptr, i32 } [ %193, %lpad129 ], [ %.pn50, %ehcleanup136 ]
-  %d_value.i.i335 = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i335)
-          to label %ehcleanup138 unwind label %terminate.lpad.i.i.i.i336
+ehcleanup136:                                     ; preds = %lpad133, %lpad131
+  %.pn50 = phi { ptr, i32 } [ %196, %lpad131 ], [ %197, %lpad133 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp122.sroa.gep)
+          to label %ehcleanup137 unwind label %terminate.lpad.i.i.i.i333
 
-terminate.lpad.i.i.i.i336:                        ; preds = %ehcleanup137
+terminate.lpad.i.i.i.i333:                        ; preds = %ehcleanup136
   %200 = landingpad { ptr, i32 }
           catch ptr null
   %201 = extractvalue { ptr, i32 } %200, 0
   call void @__clang_call_terminate(ptr %201) #14
   unreachable
 
-ehcleanup138:                                     ; preds = %ehcleanup137, %lpad125
-  %.pn50.pn.pn = phi { ptr, i32 } [ %192, %lpad125 ], [ %.pn50.pn, %ehcleanup137 ]
-  %d_value.i.i338 = getelementptr inbounds i8, ptr %ref.tmp116, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i338)
-          to label %ehcleanup401 unwind label %terminate.lpad.i.i.i.i339
+ehcleanup137:                                     ; preds = %ehcleanup136, %lpad129
+  %.pn50.pn = phi { ptr, i32 } [ %195, %lpad129 ], [ %.pn50, %ehcleanup136 ]
+  %d_value.i.i335 = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i335)
+          to label %ehcleanup138 unwind label %terminate.lpad.i.i.i.i336
 
-terminate.lpad.i.i.i.i339:                        ; preds = %ehcleanup138
+terminate.lpad.i.i.i.i336:                        ; preds = %ehcleanup137
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
   call void @__clang_call_terminate(ptr %203) #14
   unreachable
 
-lpad141:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit154, %invoke.cont142
+ehcleanup138:                                     ; preds = %ehcleanup137, %lpad125
+  %.pn50.pn.pn = phi { ptr, i32 } [ %194, %lpad125 ], [ %.pn50.pn, %ehcleanup137 ]
+  %d_value.i.i338 = getelementptr inbounds i8, ptr %ref.tmp116, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i338)
+          to label %ehcleanup401 unwind label %terminate.lpad.i.i.i.i339
+
+terminate.lpad.i.i.i.i339:                        ; preds = %ehcleanup138
   %204 = landingpad { ptr, i32 }
+          catch ptr null
+  %205 = extractvalue { ptr, i32 } %204, 0
+  call void @__clang_call_terminate(ptr %205) #14
+  unreachable
+
+lpad141:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit154, %invoke.cont142
+  %206 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup400
 
 lpad145:                                          ; preds = %invoke.cont144
-  %205 = landingpad { ptr, i32 }
+  %207 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp139.sroa.gep)
           to label %ehcleanup400 unwind label %terminate.lpad.i.i.i.i342
 
 terminate.lpad.i.i.i.i342:                        ; preds = %lpad145
-  %206 = landingpad { ptr, i32 }
+  %208 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #14
+  %209 = extractvalue { ptr, i32 } %208, 0
+  call void @__clang_call_terminate(ptr %209) #14
   unreachable
 
 lpad148:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit165
-  %208 = landingpad { ptr, i32 }
+  %210 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
 
 lpad150:                                          ; preds = %invoke.cont149, %invoke.cont151
-  %209 = landingpad { ptr, i32 }
+  %211 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup398
 
 lpad157:                                          ; preds = %invoke.cont154
-  %210 = landingpad { ptr, i32 }
+  %212 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup397
 
 lpad161:                                          ; preds = %invoke.cont158
-  %211 = landingpad { ptr, i32 }
+  %213 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup396
 
 lpad163:                                          ; preds = %invoke.cont239, %invoke.cont227, %invoke.cont219, %invoke.cont207, %land.end191, %land.rhs188, %land.rhs182, %land.rhs176, %land.rhs170, %invoke.cont164, %invoke.cont162
-  %212 = landingpad { ptr, i32 }
+  %214 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup395
 
 lpad275:                                          ; preds = %invoke.cont274
-  %213 = landingpad { ptr, i32 }
+  %215 = landingpad { ptr, i32 }
           cleanup
   %d_value.i.i344 = getelementptr inbounds i8, ptr %ref.tmp273, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i344)
           to label %ehcleanup395 unwind label %terminate.lpad.i.i.i.i345
 
 terminate.lpad.i.i.i.i345:                        ; preds = %lpad275
-  %214 = landingpad { ptr, i32 }
+  %216 = landingpad { ptr, i32 }
           catch ptr null
-  %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #14
+  %217 = extractvalue { ptr, i32 } %216, 0
+  call void @__clang_call_terminate(ptr %217) #14
   unreachable
 
 lpad280:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit171
-  %216 = landingpad { ptr, i32 }
+  %218 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup394
 
 lpad282:                                          ; preds = %invoke.cont281
-  %217 = landingpad { ptr, i32 }
+  %219 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup299
 
 lpad286:                                          ; preds = %invoke.cont283
-  %218 = landingpad { ptr, i32 }
+  %220 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup298
 
 lpad289:                                          ; preds = %invoke.cont287
-  %219 = landingpad { ptr, i32 }
+  %221 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup297
 
 lpad291:                                          ; preds = %invoke.cont290
-  %220 = landingpad { ptr, i32 }
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup296
 
 lpad293:                                          ; preds = %invoke.cont292
-  %221 = landingpad { ptr, i32 }
+  %223 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i174)
           to label %ehcleanup296 unwind label %terminate.lpad.i.i.i.i348
 
 terminate.lpad.i.i.i.i348:                        ; preds = %lpad293
-  %222 = landingpad { ptr, i32 }
-          catch ptr null
-  %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #14
-  unreachable
-
-ehcleanup296:                                     ; preds = %lpad293, %lpad291
-  %.pn54 = phi { ptr, i32 } [ %220, %lpad291 ], [ %221, %lpad293 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp288.sroa.gep)
-          to label %ehcleanup297 unwind label %terminate.lpad.i.i.i.i351
-
-terminate.lpad.i.i.i.i351:                        ; preds = %ehcleanup296
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
   call void @__clang_call_terminate(ptr %225) #14
   unreachable
 
-ehcleanup297:                                     ; preds = %ehcleanup296, %lpad289
-  %.pn54.pn = phi { ptr, i32 } [ %219, %lpad289 ], [ %.pn54, %ehcleanup296 ]
-  %d_value.i.i353 = getelementptr inbounds i8, ptr %ref.tmp285, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i353)
-          to label %ehcleanup298 unwind label %terminate.lpad.i.i.i.i354
+ehcleanup296:                                     ; preds = %lpad293, %lpad291
+  %.pn54 = phi { ptr, i32 } [ %222, %lpad291 ], [ %223, %lpad293 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp288.sroa.gep)
+          to label %ehcleanup297 unwind label %terminate.lpad.i.i.i.i351
 
-terminate.lpad.i.i.i.i354:                        ; preds = %ehcleanup297
+terminate.lpad.i.i.i.i351:                        ; preds = %ehcleanup296
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
   call void @__clang_call_terminate(ptr %227) #14
   unreachable
 
-ehcleanup298:                                     ; preds = %ehcleanup297, %lpad286
-  %.pn54.pn.pn = phi { ptr, i32 } [ %218, %lpad286 ], [ %.pn54.pn, %ehcleanup297 ]
-  %d_value.i.i356 = getelementptr inbounds i8, ptr %ref.tmp278, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i356)
-          to label %ehcleanup299 unwind label %terminate.lpad.i.i.i.i357
+ehcleanup297:                                     ; preds = %ehcleanup296, %lpad289
+  %.pn54.pn = phi { ptr, i32 } [ %221, %lpad289 ], [ %.pn54, %ehcleanup296 ]
+  %d_value.i.i353 = getelementptr inbounds i8, ptr %ref.tmp285, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i353)
+          to label %ehcleanup298 unwind label %terminate.lpad.i.i.i.i354
 
-terminate.lpad.i.i.i.i357:                        ; preds = %ehcleanup298
+terminate.lpad.i.i.i.i354:                        ; preds = %ehcleanup297
   %228 = landingpad { ptr, i32 }
           catch ptr null
   %229 = extractvalue { ptr, i32 } %228, 0
   call void @__clang_call_terminate(ptr %229) #14
   unreachable
 
-ehcleanup299:                                     ; preds = %ehcleanup298, %lpad282
-  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %217, %lpad282 ], [ %.pn54.pn.pn, %ehcleanup298 ]
-  %d_value.i.i359 = getelementptr inbounds i8, ptr %ref.tmp279, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i359)
-          to label %ehcleanup394 unwind label %terminate.lpad.i.i.i.i360
+ehcleanup298:                                     ; preds = %ehcleanup297, %lpad286
+  %.pn54.pn.pn = phi { ptr, i32 } [ %220, %lpad286 ], [ %.pn54.pn, %ehcleanup297 ]
+  %d_value.i.i356 = getelementptr inbounds i8, ptr %ref.tmp278, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i356)
+          to label %ehcleanup299 unwind label %terminate.lpad.i.i.i.i357
 
-terminate.lpad.i.i.i.i360:                        ; preds = %ehcleanup299
+terminate.lpad.i.i.i.i357:                        ; preds = %ehcleanup298
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
   call void @__clang_call_terminate(ptr %231) #14
   unreachable
 
-lpad300:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit194
+ehcleanup299:                                     ; preds = %ehcleanup298, %lpad282
+  %.pn54.pn.pn.pn = phi { ptr, i32 } [ %219, %lpad282 ], [ %.pn54.pn.pn, %ehcleanup298 ]
+  %d_value.i.i359 = getelementptr inbounds i8, ptr %ref.tmp279, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i359)
+          to label %ehcleanup394 unwind label %terminate.lpad.i.i.i.i360
+
+terminate.lpad.i.i.i.i360:                        ; preds = %ehcleanup299
   %232 = landingpad { ptr, i32 }
+          catch ptr null
+  %233 = extractvalue { ptr, i32 } %232, 0
+  call void @__clang_call_terminate(ptr %233) #14
+  unreachable
+
+lpad300:                                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit194
+  %234 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup393
 
 lpad311:                                          ; preds = %invoke.cont301, %invoke.cont312
-  %233 = landingpad { ptr, i32 }
+  %235 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup392
 
 lpad324:                                          ; preds = %invoke.cont314
-  %234 = landingpad { ptr, i32 }
+  %236 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup345
 
 lpad327:                                          ; preds = %invoke.cont325
-  %235 = landingpad { ptr, i32 }
+  %237 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup344
 
 lpad329:                                          ; preds = %invoke.cont328
-  %236 = landingpad { ptr, i32 }
+  %238 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup343
 
 lpad331:                                          ; preds = %invoke.cont330, %invoke.cont332
-  %237 = landingpad { ptr, i32 }
+  %239 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup342
 
 lpad336:                                          ; preds = %invoke.cont335
-  %238 = landingpad { ptr, i32 }
+  %240 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup341
 
 lpad338:                                          ; preds = %invoke.cont337
-  %239 = landingpad { ptr, i32 }
+  %241 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp315.sroa.gep)
           to label %ehcleanup341 unwind label %terminate.lpad.i.i.i.i363
 
 terminate.lpad.i.i.i.i363:                        ; preds = %lpad338
-  %240 = landingpad { ptr, i32 }
-          catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #14
-  unreachable
-
-ehcleanup341:                                     ; preds = %lpad338, %lpad336
-  %.pn59 = phi { ptr, i32 } [ %238, %lpad336 ], [ %239, %lpad338 ]
-  %d_value.i.i365 = getelementptr inbounds i8, ptr %ref.tmp316, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i365)
-          to label %ehcleanup342 unwind label %terminate.lpad.i.i.i.i366
-
-terminate.lpad.i.i.i.i366:                        ; preds = %ehcleanup341
   %242 = landingpad { ptr, i32 }
           catch ptr null
   %243 = extractvalue { ptr, i32 } %242, 0
   call void @__clang_call_terminate(ptr %243) #14
   unreachable
 
-ehcleanup342:                                     ; preds = %ehcleanup341, %lpad331
-  %.pn59.pn = phi { ptr, i32 } [ %237, %lpad331 ], [ %.pn59, %ehcleanup341 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i200)
-          to label %ehcleanup343 unwind label %terminate.lpad.i.i.i.i369
+ehcleanup341:                                     ; preds = %lpad338, %lpad336
+  %.pn59 = phi { ptr, i32 } [ %240, %lpad336 ], [ %241, %lpad338 ]
+  %d_value.i.i365 = getelementptr inbounds i8, ptr %ref.tmp316, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i365)
+          to label %ehcleanup342 unwind label %terminate.lpad.i.i.i.i366
 
-terminate.lpad.i.i.i.i369:                        ; preds = %ehcleanup342
+terminate.lpad.i.i.i.i366:                        ; preds = %ehcleanup341
   %244 = landingpad { ptr, i32 }
           catch ptr null
   %245 = extractvalue { ptr, i32 } %244, 0
   call void @__clang_call_terminate(ptr %245) #14
   unreachable
 
-ehcleanup343:                                     ; preds = %ehcleanup342, %lpad329
-  %.pn59.pn.pn = phi { ptr, i32 } [ %236, %lpad329 ], [ %.pn59.pn, %ehcleanup342 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp326.sroa.gep)
-          to label %ehcleanup344 unwind label %terminate.lpad.i.i.i.i372
+ehcleanup342:                                     ; preds = %ehcleanup341, %lpad331
+  %.pn59.pn = phi { ptr, i32 } [ %239, %lpad331 ], [ %.pn59, %ehcleanup341 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i200)
+          to label %ehcleanup343 unwind label %terminate.lpad.i.i.i.i369
 
-terminate.lpad.i.i.i.i372:                        ; preds = %ehcleanup343
+terminate.lpad.i.i.i.i369:                        ; preds = %ehcleanup342
   %246 = landingpad { ptr, i32 }
           catch ptr null
   %247 = extractvalue { ptr, i32 } %246, 0
   call void @__clang_call_terminate(ptr %247) #14
   unreachable
 
-ehcleanup344:                                     ; preds = %ehcleanup343, %lpad327
-  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %235, %lpad327 ], [ %.pn59.pn.pn, %ehcleanup343 ]
-  %d_value.i.i374 = getelementptr inbounds i8, ptr %ref.tmp322, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i374)
-          to label %ehcleanup345 unwind label %terminate.lpad.i.i.i.i375
+ehcleanup343:                                     ; preds = %ehcleanup342, %lpad329
+  %.pn59.pn.pn = phi { ptr, i32 } [ %238, %lpad329 ], [ %.pn59.pn, %ehcleanup342 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp326.sroa.gep)
+          to label %ehcleanup344 unwind label %terminate.lpad.i.i.i.i372
 
-terminate.lpad.i.i.i.i375:                        ; preds = %ehcleanup344
+terminate.lpad.i.i.i.i372:                        ; preds = %ehcleanup343
   %248 = landingpad { ptr, i32 }
           catch ptr null
   %249 = extractvalue { ptr, i32 } %248, 0
   call void @__clang_call_terminate(ptr %249) #14
   unreachable
 
-ehcleanup345:                                     ; preds = %ehcleanup344, %lpad324
-  %.pn59.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %lpad324 ], [ %.pn59.pn.pn.pn, %ehcleanup344 ]
-  %d_value.i.i377 = getelementptr inbounds i8, ptr %ref.tmp309, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i377)
-          to label %ehcleanup392 unwind label %terminate.lpad.i.i.i.i378
+ehcleanup344:                                     ; preds = %ehcleanup343, %lpad327
+  %.pn59.pn.pn.pn = phi { ptr, i32 } [ %237, %lpad327 ], [ %.pn59.pn.pn, %ehcleanup343 ]
+  %d_value.i.i374 = getelementptr inbounds i8, ptr %ref.tmp322, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i374)
+          to label %ehcleanup345 unwind label %terminate.lpad.i.i.i.i375
 
-terminate.lpad.i.i.i.i378:                        ; preds = %ehcleanup345
+terminate.lpad.i.i.i.i375:                        ; preds = %ehcleanup344
   %250 = landingpad { ptr, i32 }
           catch ptr null
   %251 = extractvalue { ptr, i32 } %250, 0
   call void @__clang_call_terminate(ptr %251) #14
   unreachable
 
-lpad350:                                          ; preds = %invoke.cont351, %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit228
+ehcleanup345:                                     ; preds = %ehcleanup344, %lpad324
+  %.pn59.pn.pn.pn.pn = phi { ptr, i32 } [ %236, %lpad324 ], [ %.pn59.pn.pn.pn, %ehcleanup344 ]
+  %d_value.i.i377 = getelementptr inbounds i8, ptr %ref.tmp309, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i377)
+          to label %ehcleanup392 unwind label %terminate.lpad.i.i.i.i378
+
+terminate.lpad.i.i.i.i378:                        ; preds = %ehcleanup345
   %252 = landingpad { ptr, i32 }
+          catch ptr null
+  %253 = extractvalue { ptr, i32 } %252, 0
+  call void @__clang_call_terminate(ptr %253) #14
+  unreachable
+
+lpad350:                                          ; preds = %invoke.cont351, %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit228
+  %254 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup391
 
 lpad355:                                          ; preds = %invoke.cont354
-  %253 = landingpad { ptr, i32 }
+  %255 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup360
 
 lpad357:                                          ; preds = %invoke.cont356
-  %254 = landingpad { ptr, i32 }
+  %256 = landingpad { ptr, i32 }
           cleanup
   %d_value.i.i380 = getelementptr inbounds i8, ptr %ref.tmp352, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i380)
           to label %ehcleanup360 unwind label %terminate.lpad.i.i.i.i381
 
 terminate.lpad.i.i.i.i381:                        ; preds = %lpad357
-  %255 = landingpad { ptr, i32 }
-          catch ptr null
-  %256 = extractvalue { ptr, i32 } %255, 0
-  call void @__clang_call_terminate(ptr %256) #14
-  unreachable
-
-ehcleanup360:                                     ; preds = %lpad357, %lpad355
-  %.pn65 = phi { ptr, i32 } [ %253, %lpad355 ], [ %254, %lpad357 ]
-  %d_value.i.i383 = getelementptr inbounds i8, ptr %ref.tmp353, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i383)
-          to label %ehcleanup391 unwind label %terminate.lpad.i.i.i.i384
-
-terminate.lpad.i.i.i.i384:                        ; preds = %ehcleanup360
   %257 = landingpad { ptr, i32 }
           catch ptr null
   %258 = extractvalue { ptr, i32 } %257, 0
   call void @__clang_call_terminate(ptr %258) #14
   unreachable
 
-lpad363:                                          ; preds = %invoke.cont364, %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit234
+ehcleanup360:                                     ; preds = %lpad357, %lpad355
+  %.pn65 = phi { ptr, i32 } [ %255, %lpad355 ], [ %256, %lpad357 ]
+  %d_value.i.i383 = getelementptr inbounds i8, ptr %ref.tmp353, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i383)
+          to label %ehcleanup391 unwind label %terminate.lpad.i.i.i.i384
+
+terminate.lpad.i.i.i.i384:                        ; preds = %ehcleanup360
   %259 = landingpad { ptr, i32 }
+          catch ptr null
+  %260 = extractvalue { ptr, i32 } %259, 0
+  call void @__clang_call_terminate(ptr %260) #14
+  unreachable
+
+lpad363:                                          ; preds = %invoke.cont364, %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit234
+  %261 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup390
 
 lpad371:                                          ; preds = %invoke.cont368
-  %260 = landingpad { ptr, i32 }
+  %262 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup379
 
 lpad373:                                          ; preds = %invoke.cont372
-  %261 = landingpad { ptr, i32 }
+  %263 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup378
 
 lpad375:                                          ; preds = %invoke.cont374
-  %262 = landingpad { ptr, i32 }
+  %264 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp369) #15
   br label %ehcleanup378
 
 ehcleanup378:                                     ; preds = %lpad375, %lpad373
-  %.pn67 = phi { ptr, i32 } [ %262, %lpad375 ], [ %261, %lpad373 ]
+  %.pn67 = phi { ptr, i32 } [ %264, %lpad375 ], [ %263, %lpad373 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp370) #15
   br label %ehcleanup379
 
 ehcleanup379:                                     ; preds = %ehcleanup378, %lpad371
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %ehcleanup378 ], [ %260, %lpad371 ]
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %ehcleanup378 ], [ %262, %lpad371 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp361) #15
   br label %ehcleanup390
 
 lpad381:                                          ; preds = %invoke.cont385, %invoke.cont382, %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit248
-  %263 = landingpad { ptr, i32 }
+  %265 = landingpad { ptr, i32 }
           cleanup
   br label %lpad381.body
 
 lpad381.body:                                     ; preds = %lpad.i.i, %lpad381
-  %eh.lpad-body = phi { ptr, i32 } [ %263, %lpad381 ], [ %123, %lpad.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %265, %lpad381 ], [ %125, %lpad.i.i ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %additionResult) #15
   br label %ehcleanup390
 
 ehcleanup390:                                     ; preds = %lpad381.body, %ehcleanup379, %lpad363
-  %.pn70 = phi { ptr, i32 } [ %eh.lpad-body, %lpad381.body ], [ %.pn67.pn, %ehcleanup379 ], [ %259, %lpad363 ]
+  %.pn70 = phi { ptr, i32 } [ %eh.lpad-body, %lpad381.body ], [ %.pn67.pn, %ehcleanup379 ], [ %261, %lpad363 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %sumResult) #15
   br label %ehcleanup391
 
 ehcleanup391:                                     ; preds = %ehcleanup360, %ehcleanup390, %lpad350
-  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %ehcleanup390 ], [ %252, %lpad350 ], [ %.pn65, %ehcleanup360 ]
+  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %ehcleanup390 ], [ %254, %lpad350 ], [ %.pn65, %ehcleanup360 ]
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i208)
           to label %ehcleanup392 unwind label %terminate.lpad.i.i.i.i387
 
 terminate.lpad.i.i.i.i387:                        ; preds = %ehcleanup391
-  %264 = landingpad { ptr, i32 }
-          catch ptr null
-  %265 = extractvalue { ptr, i32 } %264, 0
-  call void @__clang_call_terminate(ptr %265) #14
-  unreachable
-
-ehcleanup392:                                     ; preds = %ehcleanup391, %ehcleanup345, %lpad311
-  %.pn70.pn.pn = phi { ptr, i32 } [ %233, %lpad311 ], [ %.pn59.pn.pn.pn.pn, %ehcleanup345 ], [ %.pn70.pn, %ehcleanup391 ]
-  %d_value.i.i389 = getelementptr inbounds i8, ptr %correctedExponent, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i389)
-          to label %ehcleanup393 unwind label %terminate.lpad.i.i.i.i390
-
-terminate.lpad.i.i.i.i390:                        ; preds = %ehcleanup392
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
   call void @__clang_call_terminate(ptr %267) #14
   unreachable
 
-ehcleanup393:                                     ; preds = %ehcleanup392, %lpad300
-  %.pn70.pn.pn.pn = phi { ptr, i32 } [ %232, %lpad300 ], [ %.pn70.pn.pn, %ehcleanup392 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i178)
-          to label %ehcleanup394 unwind label %terminate.lpad.i.i.i.i393
+ehcleanup392:                                     ; preds = %ehcleanup391, %ehcleanup345, %lpad311
+  %.pn70.pn.pn = phi { ptr, i32 } [ %235, %lpad311 ], [ %.pn59.pn.pn.pn.pn, %ehcleanup345 ], [ %.pn70.pn, %ehcleanup391 ]
+  %d_value.i.i389 = getelementptr inbounds i8, ptr %correctedExponent, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i389)
+          to label %ehcleanup393 unwind label %terminate.lpad.i.i.i.i390
 
-terminate.lpad.i.i.i.i393:                        ; preds = %ehcleanup393
+terminate.lpad.i.i.i.i390:                        ; preds = %ehcleanup392
   %268 = landingpad { ptr, i32 }
           catch ptr null
   %269 = extractvalue { ptr, i32 } %268, 0
   call void @__clang_call_terminate(ptr %269) #14
   unreachable
 
-ehcleanup394:                                     ; preds = %ehcleanup393, %ehcleanup299, %lpad280
-  %.pn70.pn.pn.pn.pn = phi { ptr, i32 } [ %216, %lpad280 ], [ %.pn54.pn.pn.pn, %ehcleanup299 ], [ %.pn70.pn.pn.pn, %ehcleanup393 ]
-  %d_value.i.i395 = getelementptr inbounds i8, ptr %alignedSum, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i395)
-          to label %ehcleanup395 unwind label %terminate.lpad.i.i.i.i396
+ehcleanup393:                                     ; preds = %ehcleanup392, %lpad300
+  %.pn70.pn.pn.pn = phi { ptr, i32 } [ %234, %lpad300 ], [ %.pn70.pn.pn, %ehcleanup392 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i178)
+          to label %ehcleanup394 unwind label %terminate.lpad.i.i.i.i393
 
-terminate.lpad.i.i.i.i396:                        ; preds = %ehcleanup394
+terminate.lpad.i.i.i.i393:                        ; preds = %ehcleanup393
   %270 = landingpad { ptr, i32 }
           catch ptr null
   %271 = extractvalue { ptr, i32 } %270, 0
   call void @__clang_call_terminate(ptr %271) #14
   unreachable
 
-ehcleanup395:                                     ; preds = %ehcleanup394, %lpad275, %lpad163
-  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %212, %lpad163 ], [ %213, %lpad275 ], [ %.pn70.pn.pn.pn.pn, %ehcleanup394 ]
-  %d_value.i.i398 = getelementptr inbounds i8, ptr %lowerBit, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i398)
-          to label %ehcleanup396 unwind label %terminate.lpad.i.i.i.i399
+ehcleanup394:                                     ; preds = %ehcleanup393, %ehcleanup299, %lpad280
+  %.pn70.pn.pn.pn.pn = phi { ptr, i32 } [ %218, %lpad280 ], [ %.pn54.pn.pn.pn, %ehcleanup299 ], [ %.pn70.pn.pn.pn, %ehcleanup393 ]
+  %d_value.i.i395 = getelementptr inbounds i8, ptr %alignedSum, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i395)
+          to label %ehcleanup395 unwind label %terminate.lpad.i.i.i.i396
 
-terminate.lpad.i.i.i.i399:                        ; preds = %ehcleanup395
+terminate.lpad.i.i.i.i396:                        ; preds = %ehcleanup394
   %272 = landingpad { ptr, i32 }
           catch ptr null
   %273 = extractvalue { ptr, i32 } %272, 0
   call void @__clang_call_terminate(ptr %273) #14
   unreachable
 
-ehcleanup396:                                     ; preds = %ehcleanup395, %lpad161
-  %.pn70.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %211, %lpad161 ], [ %.pn70.pn.pn.pn.pn.pn, %ehcleanup395 ]
-  %d_value.i.i401 = getelementptr inbounds i8, ptr %alignedBit, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i401)
-          to label %ehcleanup397 unwind label %terminate.lpad.i.i.i.i402
+ehcleanup395:                                     ; preds = %ehcleanup394, %lpad275, %lpad163
+  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %214, %lpad163 ], [ %215, %lpad275 ], [ %.pn70.pn.pn.pn.pn, %ehcleanup394 ]
+  %d_value.i.i398 = getelementptr inbounds i8, ptr %lowerBit, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i398)
+          to label %ehcleanup396 unwind label %terminate.lpad.i.i.i.i399
 
-terminate.lpad.i.i.i.i402:                        ; preds = %ehcleanup396
+terminate.lpad.i.i.i.i399:                        ; preds = %ehcleanup395
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
   call void @__clang_call_terminate(ptr %275) #14
   unreachable
 
-ehcleanup397:                                     ; preds = %ehcleanup396, %lpad157
-  %.pn70.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %210, %lpad157 ], [ %.pn70.pn.pn.pn.pn.pn.pn, %ehcleanup396 ]
-  %d_value.i.i404 = getelementptr inbounds i8, ptr %topBit, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i404)
-          to label %ehcleanup398 unwind label %terminate.lpad.i.i.i.i405
+ehcleanup396:                                     ; preds = %ehcleanup395, %lpad161
+  %.pn70.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %213, %lpad161 ], [ %.pn70.pn.pn.pn.pn.pn, %ehcleanup395 ]
+  %d_value.i.i401 = getelementptr inbounds i8, ptr %alignedBit, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i401)
+          to label %ehcleanup397 unwind label %terminate.lpad.i.i.i.i402
 
-terminate.lpad.i.i.i.i405:                        ; preds = %ehcleanup397
+terminate.lpad.i.i.i.i402:                        ; preds = %ehcleanup396
   %276 = landingpad { ptr, i32 }
           catch ptr null
   %277 = extractvalue { ptr, i32 } %276, 0
   call void @__clang_call_terminate(ptr %277) #14
   unreachable
 
-ehcleanup398:                                     ; preds = %ehcleanup397, %lpad150
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %209, %lpad150 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn, %ehcleanup397 ]
-  %d_value.i.i407 = getelementptr inbounds i8, ptr %sum, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i407)
-          to label %ehcleanup399 unwind label %terminate.lpad.i.i.i.i408
+ehcleanup397:                                     ; preds = %ehcleanup396, %lpad157
+  %.pn70.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %212, %lpad157 ], [ %.pn70.pn.pn.pn.pn.pn.pn, %ehcleanup396 ]
+  %d_value.i.i404 = getelementptr inbounds i8, ptr %topBit, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i404)
+          to label %ehcleanup398 unwind label %terminate.lpad.i.i.i.i405
 
-terminate.lpad.i.i.i.i408:                        ; preds = %ehcleanup398
+terminate.lpad.i.i.i.i405:                        ; preds = %ehcleanup397
   %278 = landingpad { ptr, i32 }
           catch ptr null
   %279 = extractvalue { ptr, i32 } %278, 0
   call void @__clang_call_terminate(ptr %279) #14
   unreachable
 
-ehcleanup399:                                     ; preds = %ehcleanup398, %lpad148
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %208, %lpad148 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup398 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i160)
-          to label %ehcleanup400 unwind label %terminate.lpad.i.i.i.i411
+ehcleanup398:                                     ; preds = %ehcleanup397, %lpad150
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %211, %lpad150 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn, %ehcleanup397 ]
+  %d_value.i.i407 = getelementptr inbounds i8, ptr %sum, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i407)
+          to label %ehcleanup399 unwind label %terminate.lpad.i.i.i.i408
 
-terminate.lpad.i.i.i.i411:                        ; preds = %ehcleanup399
+terminate.lpad.i.i.i.i408:                        ; preds = %ehcleanup398
   %280 = landingpad { ptr, i32 }
           catch ptr null
   %281 = extractvalue { ptr, i32 } %280, 0
   call void @__clang_call_terminate(ptr %281) #14
   unreachable
 
-ehcleanup400:                                     ; preds = %ehcleanup399, %lpad145, %lpad141
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %204, %lpad141 ], [ %205, %lpad145 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup399 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i140)
-          to label %ehcleanup401 unwind label %terminate.lpad.i.i.i.i414
+ehcleanup399:                                     ; preds = %ehcleanup398, %lpad148
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %210, %lpad148 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup398 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i160)
+          to label %ehcleanup400 unwind label %terminate.lpad.i.i.i.i411
 
-terminate.lpad.i.i.i.i414:                        ; preds = %ehcleanup400
+terminate.lpad.i.i.i.i411:                        ; preds = %ehcleanup399
   %282 = landingpad { ptr, i32 }
           catch ptr null
   %283 = extractvalue { ptr, i32 } %282, 0
   call void @__clang_call_terminate(ptr %283) #14
   unreachable
 
-ehcleanup401:                                     ; preds = %ehcleanup400, %ehcleanup138, %lpad118
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %191, %lpad118 ], [ %.pn50.pn.pn, %ehcleanup138 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup400 ]
-  call void @_ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %shifted) #15
-  br label %ehcleanup402
+ehcleanup400:                                     ; preds = %ehcleanup399, %lpad145, %lpad141
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %206, %lpad141 ], [ %207, %lpad145 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup399 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i140)
+          to label %ehcleanup401 unwind label %terminate.lpad.i.i.i.i414
 
-ehcleanup402:                                     ; preds = %ehcleanup401, %lpad112
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup401 ], [ %190, %lpad112 ]
-  %d_value.i.i416 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i416)
-          to label %ehcleanup403 unwind label %terminate.lpad.i.i.i.i417
-
-terminate.lpad.i.i.i.i417:                        ; preds = %ehcleanup402
+terminate.lpad.i.i.i.i414:                        ; preds = %ehcleanup400
   %284 = landingpad { ptr, i32 }
           catch ptr null
   %285 = extractvalue { ptr, i32 } %284, 0
   call void @__clang_call_terminate(ptr %285) #14
   unreachable
 
-ehcleanup403:                                     ; preds = %ehcleanup402, %lpad105, %lpad103
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %lpad103 ], [ %187, %lpad105 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup402 ]
-  %d_value.i.i419 = getelementptr inbounds i8, ptr %negatedSmaller, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i419)
-          to label %ehcleanup404 unwind label %terminate.lpad.i.i.i.i420
+ehcleanup401:                                     ; preds = %ehcleanup400, %ehcleanup138, %lpad118
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %lpad118 ], [ %.pn50.pn.pn, %ehcleanup138 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup400 ]
+  call void @_ZN6symfpu22stickyRightShiftResultIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %shifted) #15
+  br label %ehcleanup402
 
-terminate.lpad.i.i.i.i420:                        ; preds = %ehcleanup403
+ehcleanup402:                                     ; preds = %ehcleanup401, %lpad112
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup401 ], [ %192, %lpad112 ]
+  %d_value.i.i416 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i416)
+          to label %ehcleanup403 unwind label %terminate.lpad.i.i.i.i417
+
+terminate.lpad.i.i.i.i417:                        ; preds = %ehcleanup402
   %286 = landingpad { ptr, i32 }
           catch ptr null
   %287 = extractvalue { ptr, i32 } %286, 0
   call void @__clang_call_terminate(ptr %287) #14
   unreachable
 
-ehcleanup404:                                     ; preds = %ehcleanup403, %lpad93
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %185, %lpad93 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup403 ]
-  %d_value.i.i422 = getelementptr inbounds i8, ptr %ssig, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i422)
-          to label %ehcleanup405 unwind label %terminate.lpad.i.i.i.i423
+ehcleanup403:                                     ; preds = %ehcleanup402, %lpad105, %lpad103
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %188, %lpad103 ], [ %189, %lpad105 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup402 ]
+  %d_value.i.i419 = getelementptr inbounds i8, ptr %negatedSmaller, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i419)
+          to label %ehcleanup404 unwind label %terminate.lpad.i.i.i.i420
 
-terminate.lpad.i.i.i.i423:                        ; preds = %ehcleanup404
+terminate.lpad.i.i.i.i420:                        ; preds = %ehcleanup403
   %288 = landingpad { ptr, i32 }
           catch ptr null
   %289 = extractvalue { ptr, i32 } %288, 0
   call void @__clang_call_terminate(ptr %289) #14
   unreachable
 
+ehcleanup404:                                     ; preds = %ehcleanup403, %lpad93
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %187, %lpad93 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup403 ]
+  %d_value.i.i422 = getelementptr inbounds i8, ptr %ssig, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i422)
+          to label %ehcleanup405 unwind label %terminate.lpad.i.i.i.i423
+
+terminate.lpad.i.i.i.i423:                        ; preds = %ehcleanup404
+  %290 = landingpad { ptr, i32 }
+          catch ptr null
+  %291 = extractvalue { ptr, i32 } %290, 0
+  call void @__clang_call_terminate(ptr %291) #14
+  unreachable
+
 ehcleanup405:                                     ; preds = %ehcleanup404, %ehcleanup81, %lpad69
-  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %175, %lpad69 ], [ %.pn46.pn, %ehcleanup81 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup404 ]
+  %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %177, %lpad69 ], [ %.pn46.pn, %ehcleanup81 ], [ %.pn70.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup404 ]
   %d_value.i.i425 = getelementptr inbounds i8, ptr %lsig, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i425)
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i426
 
 terminate.lpad.i.i.i.i426:                        ; preds = %ehcleanup405
-  %290 = landingpad { ptr, i32 }
+  %292 = landingpad { ptr, i32 }
           catch ptr null
-  %291 = extractvalue { ptr, i32 } %290, 0
-  call void @__clang_call_terminate(ptr %291) #14
+  %293 = extractvalue { ptr, i32 } %292, 0
+  call void @__clang_call_terminate(ptr %293) #14
   unreachable
 
 eh.resume:                                        ; preds = %ehcleanup405, %ehcleanup64
@@ -26085,6 +26362,9 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
   %ref.tmp4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %inf = getelementptr inbounds i8, ptr %this, i64 1
+  %zero = getelementptr inbounds i8, ptr %this, i64 2
+  %sign = getelementptr inbounds i8, ptr %this, i64 3
   %exponent = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr nonnull sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %exponent, i32 noundef %expExtension)
   %significand = getelementptr inbounds i8, ptr %this, i64 32
@@ -26105,12 +26385,24 @@ invoke.cont8:                                     ; preds = %invoke.cont7
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %0 = load <4 x i8>, ptr %this, align 8
-  %1 = and <4 x i8> %0, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %1, ptr %agg.result, align 8
+  %0 = load i8, ptr %this, align 8
+  %frombool.i = and i8 %0, 1
+  store i8 %frombool.i, ptr %agg.result, align 8
+  %inf.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %1 = load i8, ptr %inf, align 1
+  %frombool3.i = and i8 %1, 1
+  store i8 %frombool3.i, ptr %inf.i, align 1
+  %zero.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %2 = load i8, ptr %zero, align 2
+  %frombool5.i = and i8 %2, 1
+  store i8 %frombool5.i, ptr %zero.i, align 2
+  %sign.i = getelementptr inbounds i8, ptr %agg.result, i64 3
+  %3 = load i8, ptr %sign, align 1
+  %frombool7.i = and i8 %3, 1
+  store i8 %frombool7.i, ptr %sign.i, align 1
   %exponent.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %2 = load i32, ptr %ref.tmp, align 8
-  store i32 %2, ptr %exponent.i, align 8
+  %4 = load i32, ptr %ref.tmp, align 8
+  store i32 %4, ptr %exponent.i, align 8
   %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
@@ -26118,24 +26410,24 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 .noexc:                                           ; preds = %invoke.cont10
   %significand.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %3 = load i32, ptr %ref.tmp2, align 8
-  store i32 %3, ptr %significand.i, align 8
+  %5 = load i32, ptr %ref.tmp2, align 8
+  store i32 %5, ptr %significand.i, align 8
   %d_value.i.i1.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %d_value3.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i1.i, ptr noundef nonnull %d_value3.i.i2.i)
           to label %invoke.cont12 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i.i)
           to label %lpad11.body unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad.i
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #14
   unreachable
 
 invoke.cont12:                                    ; preds = %.noexc
@@ -26143,10 +26435,10 @@ invoke.cont12:                                    ; preds = %.noexc
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #14
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont12
@@ -26155,10 +26447,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit9 unwind label %terminate.lpad.i.i.i.i8
 
 terminate.lpad.i.i.i.i8:                          ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit9: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit
@@ -26167,10 +26459,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit9: ; preds = %_
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit12 unwind label %terminate.lpad.i.i.i.i11
 
 terminate.lpad.i.i.i.i11:                         ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit9
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit12: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit9
@@ -26178,85 +26470,85 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit12: ; preds = %
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i14
 
 terminate.lpad.i.i.i.i14:                         ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit12
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit12
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup13
 
 lpad9:                                            ; preds = %invoke.cont8
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10
-  %18 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad11.body
 
 lpad11.body:                                      ; preds = %lpad.i, %lpad11
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %lpad11 ], [ %4, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %20, %lpad11 ], [ %6, %lpad.i ]
   %d_value.i.i15 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i15)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i.i16
 
 terminate.lpad.i.i.i.i16:                         ; preds = %lpad11.body
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #14
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad11.body, %lpad9
-  %.pn = phi { ptr, i32 } [ %17, %lpad9 ], [ %eh.lpad-body, %lpad11.body ]
-  %d_value.i.i18 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i18)
-          to label %ehcleanup13 unwind label %terminate.lpad.i.i.i.i19
-
-terminate.lpad.i.i.i.i19:                         ; preds = %ehcleanup
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   call void @__clang_call_terminate(ptr %22) #14
   unreachable
 
-ehcleanup13:                                      ; preds = %ehcleanup, %lpad6
-  %.pn.pn = phi { ptr, i32 } [ %16, %lpad6 ], [ %.pn, %ehcleanup ]
-  %d_value.i.i21 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i21)
-          to label %ehcleanup14 unwind label %terminate.lpad.i.i.i.i22
+ehcleanup:                                        ; preds = %lpad11.body, %lpad9
+  %.pn = phi { ptr, i32 } [ %19, %lpad9 ], [ %eh.lpad-body, %lpad11.body ]
+  %d_value.i.i18 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i18)
+          to label %ehcleanup13 unwind label %terminate.lpad.i.i.i.i19
 
-terminate.lpad.i.i.i.i22:                         ; preds = %ehcleanup13
+terminate.lpad.i.i.i.i19:                         ; preds = %ehcleanup
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   call void @__clang_call_terminate(ptr %24) #14
   unreachable
 
+ehcleanup13:                                      ; preds = %ehcleanup, %lpad6
+  %.pn.pn = phi { ptr, i32 } [ %18, %lpad6 ], [ %.pn, %ehcleanup ]
+  %d_value.i.i21 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i21)
+          to label %ehcleanup14 unwind label %terminate.lpad.i.i.i.i22
+
+terminate.lpad.i.i.i.i22:                         ; preds = %ehcleanup13
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #14
+  unreachable
+
 ehcleanup14:                                      ; preds = %ehcleanup13, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %15, %lpad ], [ %.pn.pn, %ehcleanup13 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %17, %lpad ], [ %.pn.pn, %ehcleanup13 ]
   %d_value.i.i24 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i24)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit26 unwind label %terminate.lpad.i.i.i.i25
 
 terminate.lpad.i.i.i.i25:                         ; preds = %ehcleanup14
-  %25 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #14
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit26: ; preds = %ehcleanup14

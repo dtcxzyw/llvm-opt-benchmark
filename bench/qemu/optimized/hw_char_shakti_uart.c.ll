@@ -253,7 +253,13 @@ entry:
   %uart_tx = getelementptr inbounds i8, ptr %call, i64 1092
   %uart_control = getelementptr inbounds i8, ptr %call, i64 1108
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uart_tx, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 256, i32 0, i32 0, i32 0>, ptr %uart_control, align 4
+  store i32 256, ptr %uart_control, align 4
+  %uart_interrupt = getelementptr inbounds i8, ptr %call, i64 1112
+  store i32 0, ptr %uart_interrupt, align 8
+  %uart_iq_cycles = getelementptr inbounds i8, ptr %call, i64 1116
+  store i32 0, ptr %uart_iq_cycles, align 4
+  %uart_rx_threshold = getelementptr inbounds i8, ptr %call, i64 1120
+  store i32 0, ptr %uart_rx_threshold, align 16
   ret void
 }
 

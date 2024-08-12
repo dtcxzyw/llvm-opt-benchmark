@@ -27,7 +27,7 @@ $_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE13_M_assign_auxIN9__gnu_cxx17__normal_iterat
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN2cv8tracking4impl3tld6etalonE = hidden local_unnamed_addr global %"class.cv::Rect_" zeroinitializer, align 16
+@_ZN2cv8tracking4impl3tld6etalonE = hidden local_unnamed_addr global %"class.cv::Rect_" zeroinitializer, align 8
 @.str = private unnamed_addr constant [26 x i8] c"black: %d out of %d (%f)\0A\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"%5.2f, \00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c"8U\00", align 1
@@ -695,98 +695,91 @@ _ZNSt6vectorIdSaIdEED2Ev.exit98:                  ; preds = %._crit_edge136.thre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load <2 x double>, ptr %3, align 8
-  %6 = load <2 x double>, ptr %4, align 8
-  %7 = load <2 x double>, ptr %0, align 8, !noalias !22
-  %8 = extractelement <2 x double> %5, i64 0
-  %9 = fcmp ole double %8, 0.000000e+00
-  %10 = extractelement <2 x double> %5, i64 1
-  %11 = fcmp ole double %10, 0.000000e+00
-  %12 = select i1 %9, i1 true, i1 %11
-  br i1 %12, label %.sink.split.i.i, label %13
+  %4 = load double, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = load double, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load double, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load double, ptr %9, align 8
+  %.sroa.0.0.copyload.i = load double, ptr %0, align 8, !noalias !22
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !22
+  %11 = fcmp ole double %4, 0.000000e+00
+  %12 = fcmp ole double %6, 0.000000e+00
+  %13 = select i1 %11, i1 true, i1 %12
+  br i1 %13, label %.sink.split.i.i, label %14
 
-13:                                               ; preds = %2
-  %14 = extractelement <2 x double> %6, i64 0
-  %15 = fcmp ole double %14, 0.000000e+00
-  %16 = extractelement <2 x double> %6, i64 1
-  %17 = fcmp ole double %16, 0.000000e+00
-  %18 = select i1 %15, i1 true, i1 %17
-  br i1 %18, label %.sink.split.i.i, label %19
+14:                                               ; preds = %2
+  %15 = fcmp ole double %8, 0.000000e+00
+  %16 = fcmp ole double %10, 0.000000e+00
+  %17 = select i1 %15, i1 true, i1 %16
+  br i1 %17, label %.sink.split.i.i, label %18
 
-19:                                               ; preds = %13
-  %20 = load <2 x double>, ptr %1, align 8, !noalias !22
-  %21 = fcmp olt <2 x double> %7, %20
-  %22 = extractelement <2 x i1> %21, i64 0
-  %23 = extractelement <2 x double> %7, i64 0
-  %24 = extractelement <2 x double> %20, i64 0
-  %25 = select i1 %22, double %23, double %24
-  %26 = select i1 %22, double %24, double %23
-  %27 = fcmp olt double %25, 0.000000e+00
-  br i1 %27, label %28, label %31
+18:                                               ; preds = %14
+  %19 = load double, ptr %1, align 8, !noalias !22
+  %20 = fcmp olt double %.sroa.0.0.copyload.i, %19
+  %21 = select i1 %20, double %.sroa.0.0.copyload.i, double %19
+  %22 = select i1 %20, double %19, double %.sroa.0.0.copyload.i
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load double, ptr %23, align 8, !noalias !22
+  %25 = fcmp olt double %.sroa.6.0.copyload.i, %24
+  %26 = fcmp olt double %21, 0.000000e+00
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %19
-  %.sroa.speculated44.i = select i1 %22, double %8, double %14
-  %29 = fadd double %25, %.sroa.speculated44.i
-  %30 = fcmp olt double %29, %26
-  br i1 %30, label %.sink.split.i.i, label %31
+27:                                               ; preds = %18
+  %.sroa.speculated44.i = select i1 %20, double %4, double %8
+  %28 = fadd double %21, %.sroa.speculated44.i
+  %29 = fcmp olt double %28, %22
+  br i1 %29, label %.sink.split.i.i, label %30
 
-31:                                               ; preds = %28, %19
-  %32 = extractelement <2 x i1> %21, i64 1
-  %33 = extractelement <2 x double> %7, i64 1
-  %34 = extractelement <2 x double> %20, i64 1
-  %.sroa.speculated58.i = select i1 %32, double %33, double %34
-  %35 = fcmp olt double %.sroa.speculated58.i, 0.000000e+00
-  %.sroa.speculated36.i = select i1 %32, double %10, double %16
-  br i1 %35, label %36, label %._crit_edge.i
+30:                                               ; preds = %27, %18
+  %.sroa.speculated58.i = select i1 %25, double %.sroa.6.0.copyload.i, double %24
+  %31 = fcmp olt double %.sroa.speculated58.i, 0.000000e+00
+  %.sroa.speculated36.i = select i1 %25, double %6, double %10
+  br i1 %31, label %32, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %31
-  %.pre64.i = select i1 %32, double %34, double %33
-  br label %39
+._crit_edge.i:                                    ; preds = %30
+  %.pre64.i = select i1 %25, double %24, double %.sroa.6.0.copyload.i
+  br label %35
 
-36:                                               ; preds = %31
-  %37 = fadd double %.sroa.speculated58.i, %.sroa.speculated36.i
-  %.sroa.speculated49.i = select i1 %32, double %34, double %33
-  %38 = fcmp olt double %37, %.sroa.speculated49.i
-  br i1 %38, label %.sink.split.i.i, label %39
+32:                                               ; preds = %30
+  %33 = fadd double %.sroa.speculated58.i, %.sroa.speculated36.i
+  %.sroa.speculated49.i = select i1 %25, double %24, double %.sroa.6.0.copyload.i
+  %34 = fcmp olt double %33, %.sroa.speculated49.i
+  br i1 %34, label %.sink.split.i.i, label %35
 
-39:                                               ; preds = %36, %._crit_edge.i
-  %.sroa.speculated52.pre-phi.i = phi double [ %.pre64.i, %._crit_edge.i ], [ %.sroa.speculated49.i, %36 ]
-  %.sroa.speculated47.i = select i1 %22, double %8, double %14
-  %40 = insertelement <2 x double> poison, double %26, i64 0
-  %41 = insertelement <2 x double> %40, double %.sroa.speculated52.pre-phi.i, i64 1
-  %42 = insertelement <2 x double> poison, double %25, i64 0
-  %43 = insertelement <2 x double> %42, double %.sroa.speculated58.i, i64 1
-  %44 = fsub <2 x double> %41, %43
-  %45 = select <2 x i1> %21, <2 x double> %6, <2 x double> %5
-  %46 = insertelement <2 x double> poison, double %.sroa.speculated47.i, i64 0
-  %47 = insertelement <2 x double> %46, double %.sroa.speculated36.i, i64 1
-  %48 = fsub <2 x double> %47, %44
-  %49 = fcmp olt <2 x double> %45, %48
-  %50 = select <2 x i1> %49, <2 x double> %45, <2 x double> %48
-  %51 = extractelement <2 x double> %50, i64 0
-  %52 = fcmp ole double %51, 0.000000e+00
-  %53 = extractelement <2 x double> %50, i64 1
-  %54 = fcmp ole double %53, 0.000000e+00
-  %55 = select i1 %52, i1 true, i1 %54
-  br i1 %55, label %.sink.split.i.i, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit
+35:                                               ; preds = %32, %._crit_edge.i
+  %.sroa.speculated52.pre-phi.i = phi double [ %.pre64.i, %._crit_edge.i ], [ %.sroa.speculated49.i, %32 ]
+  %.sroa.speculated47.i = select i1 %20, double %4, double %8
+  %36 = fsub double %22, %21
+  %37 = fsub double %.sroa.speculated47.i, %36
+  %.sroa.speculated41.i = select i1 %20, double %8, double %4
+  %38 = fcmp olt double %.sroa.speculated41.i, %37
+  %.sroa.speculated55.i.i = select i1 %38, double %.sroa.speculated41.i, double %37
+  %39 = fsub double %.sroa.speculated52.pre-phi.i, %.sroa.speculated58.i
+  %40 = fsub double %.sroa.speculated36.i, %39
+  %.sroa.speculated.i = select i1 %25, double %10, double %6
+  %41 = fcmp olt double %.sroa.speculated.i, %40
+  %.sroa.speculated.i.i = select i1 %41, double %.sroa.speculated.i, double %40
+  %42 = fcmp ole double %.sroa.speculated55.i.i, 0.000000e+00
+  %43 = fcmp ole double %.sroa.speculated.i.i, 0.000000e+00
+  %44 = select i1 %42, i1 true, i1 %43
+  br i1 %44, label %.sink.split.i.i, label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit
 
-.sink.split.i.i:                                  ; preds = %39, %36, %28, %13, %2
+.sink.split.i.i:                                  ; preds = %35, %32, %27, %14, %2
   br label %_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit
 
-_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %39, %.sink.split.i.i
-  %56 = phi <2 x double> [ zeroinitializer, %.sink.split.i.i ], [ %50, %39 ]
-  %shift = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %57 = fmul <2 x double> %6, %shift
-  %58 = shufflevector <2 x double> %5, <2 x double> %56, <2 x i32> <i32 0, i32 2>
-  %59 = shufflevector <2 x double> %5, <2 x double> %56, <2 x i32> <i32 1, i32 3>
-  %60 = fmul <2 x double> %58, %59
-  %61 = fadd <2 x double> %60, %57
-  %62 = extractelement <2 x double> %61, i64 0
-  %63 = extractelement <2 x double> %60, i64 1
-  %64 = fsub double %62, %63
-  %65 = fdiv double %63, %64
-  ret double %65
+_ZN2cvanIdEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %35, %.sink.split.i.i
+  %.sroa.11.0.i = phi double [ 0.000000e+00, %.sink.split.i.i ], [ %.sroa.speculated55.i.i, %35 ]
+  %.sroa.16.0.i = phi double [ 0.000000e+00, %.sink.split.i.i ], [ %.sroa.speculated.i.i, %35 ]
+  %45 = fmul double %8, %10
+  %46 = fmul double %4, %6
+  %47 = fmul double %.sroa.11.0.i, %.sroa.16.0.i
+  %48 = fadd double %46, %45
+  %49 = fsub double %48, %47
+  %50 = fdiv double %47, %49
+  ret double %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1537,8 +1530,10 @@ declare void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 define internal void @_GLOBAL__sub_I_tldUtils.cpp() #16 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  store <2 x double> <double 1.400000e+01, double 1.100000e+02>, ptr @_ZN2cv8tracking4impl3tld6etalonE, align 16
-  store <2 x double> <double 2.000000e+01, double 2.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv8tracking4impl3tld6etalonE, i64 16), align 16
+  store double 1.400000e+01, ptr @_ZN2cv8tracking4impl3tld6etalonE, align 8
+  store double 1.100000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv8tracking4impl3tld6etalonE, i64 8), align 8
+  store double 2.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv8tracking4impl3tld6etalonE, i64 16), align 8
+  store double 2.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv8tracking4impl3tld6etalonE, i64 24), align 8
   ret void
 }
 

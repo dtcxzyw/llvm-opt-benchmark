@@ -997,26 +997,30 @@ if.else:                                          ; preds = %entry
   %desc_user_addr = getelementptr inbounds i8, ptr %addr, i64 8
   store i64 %3, ptr %desc_user_addr, align 8
   %avail = getelementptr inbounds i8, ptr %vq, i64 16
+  %4 = load ptr, ptr %avail, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %avail_user_addr = getelementptr inbounds i8, ptr %addr, i64 24
+  store i64 %5, ptr %avail_user_addr, align 8
+  %used = getelementptr inbounds i8, ptr %vq, i64 24
+  %6 = load ptr, ptr %used, align 8
+  %7 = ptrtoint ptr %6 to i64
   %used_user_addr = getelementptr inbounds i8, ptr %addr, i64 16
-  %4 = load <2 x ptr>, ptr %avail, align 8
-  %5 = ptrtoint <2 x ptr> %4 to <2 x i64>
-  %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %6, ptr %used_user_addr, align 8
+  store i64 %7, ptr %used_user_addr, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.if.end6_crit_edge, %if.else
-  %7 = phi ptr [ %.pre, %if.then.if.end6_crit_edge ], [ %0, %if.else ]
+  %8 = phi ptr [ %.pre, %if.then.if.end6_crit_edge ], [ %0, %if.else ]
   store i32 %idx, ptr %addr, align 8
   %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
-  %8 = load i64, ptr %used_phys, align 8
+  %9 = load i64, ptr %used_phys, align 8
   %log_guest_addr = getelementptr inbounds i8, ptr %addr, i64 32
-  store i64 %8, ptr %log_guest_addr, align 8
+  store i64 %9, ptr %log_guest_addr, align 8
   %cond = zext i1 %enable_log to i32
   %flags = getelementptr inbounds i8, ptr %addr, i64 4
   store i32 %cond, ptr %flags, align 4
-  %vhost_set_vring_addr = getelementptr inbounds i8, ptr %7, i64 96
-  %9 = load ptr, ptr %vhost_set_vring_addr, align 8
-  %call9 = call i32 %9(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #19
+  %vhost_set_vring_addr = getelementptr inbounds i8, ptr %8, i64 96
+  %10 = load ptr, ptr %vhost_set_vring_addr, align 8
+  %call9 = call i32 %10(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #19
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return.sink.split, label %return
 

@@ -4496,11 +4496,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
+  %0 = load ptr, ptr %args, align 8
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
+  %1 = load ptr, ptr %arrayidx2, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %args_array.i)
   store ptr %self, ptr %args_array.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args_array.i, i64 8
-  %0 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %0, ptr %arrayinit.element.i, align 8
+  store ptr %0, ptr %arrayinit.element.i, align 8
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %args_array.i, i64 16
+  store ptr %1, ptr %arrayinit.element1.i, align 16
   %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.48, ptr noundef nonnull %args_array.i, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %args_array.i)
   br label %exit
@@ -4661,11 +4665,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
+  %0 = load ptr, ptr %args, align 8
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
+  %1 = load ptr, ptr %arrayidx2, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %args_array.i)
   store ptr %self, ptr %args_array.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args_array.i, i64 8
-  %0 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %0, ptr %arrayinit.element.i, align 8
+  store ptr %0, ptr %arrayinit.element.i, align 8
+  %arrayinit.element1.i = getelementptr inbounds i8, ptr %args_array.i, i64 16
+  store ptr %1, ptr %arrayinit.element1.i, align 16
   %call.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.56, ptr noundef nonnull %args_array.i, i64 noundef 3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %args_array.i)
   br label %exit

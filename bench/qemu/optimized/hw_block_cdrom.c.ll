@@ -33,16 +33,35 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.end14.thread, label %if.end14.thread39
 
 if.end14.thread39:                                ; preds = %if.then4
+  %incdec.ptr10 = getelementptr i8, ptr %buf, i64 9
+  store i8 0, ptr %incdec.ptr8, align 1
+  store i8 0, ptr %incdec.ptr10, align 1
+  %arrayidx4.i = getelementptr i8, ptr %buf, i64 10
+  store i8 2, ptr %arrayidx4.i, align 1
+  %arrayidx7.i = getelementptr i8, ptr %buf, i64 11
+  store i8 0, ptr %arrayidx7.i, align 1
   %add.ptr11 = getelementptr i8, ptr %buf, i64 12
+  %incdec.ptr1541 = getelementptr i8, ptr %buf, i64 13
+  store i8 0, ptr %add.ptr11, align 1
+  %incdec.ptr1642 = getelementptr i8, ptr %buf, i64 14
+  store i8 22, ptr %incdec.ptr1541, align 1
+  %incdec.ptr1743 = getelementptr i8, ptr %buf, i64 15
+  store i8 -86, ptr %incdec.ptr1642, align 1
   %incdec.ptr1844 = getelementptr i8, ptr %buf, i64 16
-  store <8 x i8> <i8 0, i8 0, i8 2, i8 0, i8 0, i8 22, i8 -86, i8 0>, ptr %incdec.ptr8, align 1
+  store i8 0, ptr %incdec.ptr1743, align 1
   br label %if.then20
 
 if.end14.thread:                                  ; preds = %if.then4
   store i32 0, ptr %incdec.ptr8, align 1
   %add.ptr12 = getelementptr i8, ptr %buf, i64 12
+  %incdec.ptr1531 = getelementptr i8, ptr %buf, i64 13
+  store i8 0, ptr %add.ptr12, align 1
+  %incdec.ptr1632 = getelementptr i8, ptr %buf, i64 14
+  store i8 22, ptr %incdec.ptr1531, align 1
+  %incdec.ptr1733 = getelementptr i8, ptr %buf, i64 15
+  store i8 -86, ptr %incdec.ptr1632, align 1
   %incdec.ptr1834 = getelementptr i8, ptr %buf, i64 16
-  store <4 x i8> <i8 0, i8 22, i8 -86, i8 0>, ptr %add.ptr12, align 1
+  store i8 0, ptr %incdec.ptr1733, align 1
   br label %if.else23
 
 if.end14:                                         ; preds = %if.end
@@ -100,16 +119,28 @@ return:                                           ; preds = %entry, %if.end25
 define dso_local noundef i32 @cdrom_read_toc_raw(i32 noundef %nb_sectors, ptr nocapture noundef writeonly %buf, i32 noundef %msf, i32 noundef %session_num) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %buf, i64 2
+  %incdec.ptr = getelementptr i8, ptr %buf, i64 3
+  store i8 1, ptr %add.ptr, align 1
+  %incdec.ptr1 = getelementptr i8, ptr %buf, i64 4
+  store i8 1, ptr %incdec.ptr, align 1
+  %incdec.ptr2 = getelementptr i8, ptr %buf, i64 5
+  store i8 1, ptr %incdec.ptr1, align 1
   %incdec.ptr3 = getelementptr i8, ptr %buf, i64 6
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 20>, ptr %add.ptr, align 1
+  store i8 20, ptr %incdec.ptr2, align 1
   %incdec.ptr4 = getelementptr i8, ptr %buf, i64 7
   store i8 0, ptr %incdec.ptr3, align 1
   %incdec.ptr5 = getelementptr i8, ptr %buf, i64 8
   store i8 -96, ptr %incdec.ptr4, align 1
   %incdec.ptr9 = getelementptr i8, ptr %buf, i64 12
+  %incdec.ptr10 = getelementptr i8, ptr %buf, i64 13
   store i32 0, ptr %incdec.ptr5, align 1
+  store i8 1, ptr %incdec.ptr9, align 1
+  %incdec.ptr11 = getelementptr i8, ptr %buf, i64 14
+  store i8 0, ptr %incdec.ptr10, align 1
+  %incdec.ptr12 = getelementptr i8, ptr %buf, i64 15
+  store i8 0, ptr %incdec.ptr11, align 1
   %incdec.ptr13 = getelementptr i8, ptr %buf, i64 16
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %incdec.ptr9, align 1
+  store i8 1, ptr %incdec.ptr12, align 1
   %incdec.ptr14 = getelementptr i8, ptr %buf, i64 17
   store i8 20, ptr %incdec.ptr13, align 1
   %incdec.ptr15 = getelementptr i8, ptr %buf, i64 18
@@ -117,9 +148,23 @@ entry:
   %incdec.ptr16 = getelementptr i8, ptr %buf, i64 19
   store i8 -95, ptr %incdec.ptr15, align 1
   %incdec.ptr20 = getelementptr i8, ptr %buf, i64 23
+  %incdec.ptr21 = getelementptr i8, ptr %buf, i64 24
   store i32 0, ptr %incdec.ptr16, align 1
+  store i8 1, ptr %incdec.ptr20, align 1
+  %incdec.ptr22 = getelementptr i8, ptr %buf, i64 25
+  store i8 0, ptr %incdec.ptr21, align 1
+  %incdec.ptr23 = getelementptr i8, ptr %buf, i64 26
+  store i8 0, ptr %incdec.ptr22, align 1
+  %incdec.ptr24 = getelementptr i8, ptr %buf, i64 27
+  store i8 1, ptr %incdec.ptr23, align 1
+  %incdec.ptr25 = getelementptr i8, ptr %buf, i64 28
+  store i8 20, ptr %incdec.ptr24, align 1
+  %incdec.ptr26 = getelementptr i8, ptr %buf, i64 29
+  store i8 0, ptr %incdec.ptr25, align 1
+  %incdec.ptr27 = getelementptr i8, ptr %buf, i64 30
+  store i8 -94, ptr %incdec.ptr26, align 1
   %incdec.ptr28 = getelementptr i8, ptr %buf, i64 31
-  store <8 x i8> <i8 1, i8 0, i8 0, i8 1, i8 20, i8 0, i8 -94, i8 0>, ptr %incdec.ptr20, align 1
+  store i8 0, ptr %incdec.ptr27, align 1
   %incdec.ptr29 = getelementptr i8, ptr %buf, i64 32
   store i8 0, ptr %incdec.ptr28, align 1
   %incdec.ptr30 = getelementptr i8, ptr %buf, i64 33
@@ -153,7 +198,21 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %spec.select = phi i8 [ 0, %if.else ], [ 2, %if.then ]
   %q.0 = getelementptr i8, ptr %buf, i64 37
-  store <8 x i8> <i8 1, i8 20, i8 0, i8 1, i8 0, i8 0, i8 0, i8 0>, ptr %q.0, align 1
+  %incdec.ptr34 = getelementptr i8, ptr %buf, i64 38
+  store i8 1, ptr %q.0, align 1
+  %incdec.ptr35 = getelementptr i8, ptr %buf, i64 39
+  store i8 20, ptr %incdec.ptr34, align 1
+  %incdec.ptr36 = getelementptr i8, ptr %buf, i64 40
+  store i8 0, ptr %incdec.ptr35, align 1
+  %incdec.ptr37 = getelementptr i8, ptr %buf, i64 41
+  store i8 1, ptr %incdec.ptr36, align 1
+  %incdec.ptr38 = getelementptr i8, ptr %buf, i64 42
+  store i8 0, ptr %incdec.ptr37, align 1
+  %incdec.ptr39 = getelementptr i8, ptr %buf, i64 43
+  store i8 0, ptr %incdec.ptr38, align 1
+  store i8 0, ptr %incdec.ptr39, align 1
+  %incdec.ptr40 = getelementptr i8, ptr %buf, i64 44
+  store i8 0, ptr %incdec.ptr40, align 1
   %1 = getelementptr i8, ptr %buf, i64 45
   store i8 0, ptr %1, align 1
   %2 = getelementptr i8, ptr %buf, i64 46

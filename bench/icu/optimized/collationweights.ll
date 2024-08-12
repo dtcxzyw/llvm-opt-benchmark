@@ -61,9 +61,21 @@ define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr nocapture noun
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 0, ptr %arrayidx, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 28
-  store <4 x i32> <i32 0, i32 0, i32 2, i32 2>, ptr %arrayidx, align 4
-  store <4 x i32> <i32 0, i32 0, i32 255, i32 255>, ptr %arrayidx2, align 4
+  store i32 0, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %arrayidx6, align 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 2, ptr %arrayidx8, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 255, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 2, ptr %arrayidx12, align 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 255, ptr %arrayidx14, align 4
   ret void
 }
 
@@ -72,9 +84,21 @@ define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr nocapture nound
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 0, ptr %arrayidx, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 28
-  store <4 x i32> <i32 0, i32 0, i32 2, i32 2>, ptr %arrayidx, align 4
-  store <4 x i32> <i32 0, i32 0, i32 63, i32 63>, ptr %arrayidx2, align 4
+  store i32 0, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %arrayidx6, align 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 2, ptr %arrayidx8, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 63, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 2, ptr %arrayidx12, align 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 63, ptr %arrayidx14, align 4
   ret void
 }
 

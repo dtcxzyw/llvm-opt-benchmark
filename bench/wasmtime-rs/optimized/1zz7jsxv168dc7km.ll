@@ -879,9 +879,21 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %65, ptr %.sroa.11.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 36
-  store <4 x i32> <i32 0, i32 8, i32 16, i32 24>, ptr %.sroa.12.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 0, ptr %.sroa.12.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 8, ptr %.sroa.14.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.16.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 16, ptr %.sroa.16.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.18.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 24, ptr %.sroa.18.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 52
-  store <4 x i32> <i32 32, i32 40, i32 48, i32 56>, ptr %.sroa.20.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 32, ptr %.sroa.20.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 40, ptr %.sroa.22.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 48, ptr %.sroa.24.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 56, ptr %.sroa.26.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 68
   store i32 64, ptr %.sroa.28.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.30.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72

@@ -4418,13 +4418,15 @@ entry:
   %new_cipher = getelementptr inbounds i8, ptr %0, i64 440
   %1 = load ptr, ptr %new_cipher, align 8
   %algorithm_mkey = getelementptr inbounds i8, ptr %1, i64 12
-  %2 = load <2 x i32>, ptr %algorithm_mkey, align 4
-  %3 = and <2 x i32> %2, <i32 4, i32 2>
-  %4 = icmp ne <2 x i32> %3, zeroinitializer
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 true, i1 %6
-  br i1 %7, label %if.end, label %return
+  %2 = load i32, ptr %algorithm_mkey, align 4
+  %algorithm_auth = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = load i32, ptr %algorithm_auth, align 8
+  %4 = and i32 %2, 4
+  %tobool = icmp ne i32 %4, 0
+  %5 = and i32 %3, 2
+  %tobool6 = icmp ne i32 %5, 0
+  %6 = select i1 %tobool, i1 true, i1 %tobool6
+  br i1 %6, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %contents.i)

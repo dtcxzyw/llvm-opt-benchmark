@@ -793,13 +793,13 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
-  br label %131
+  br label %134
 
 106:                                              ; preds = %pagetable_delete.exit.thread
   %107 = getelementptr inbounds i8, ptr %79, i64 5
   %108 = load i8, ptr %107, align 1
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %131, label %110
+  br i1 %109, label %134, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %79, i64 4
@@ -836,23 +836,27 @@ pagetable_delete.exit.thread:                     ; preds = %64, %10, %.loopexit
   store i8 1, ptr %107, align 1
   %127 = getelementptr inbounds i8, ptr %79, i64 8
   store i64 1, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 40
-  %129 = load <2 x i32>, ptr %128, align 8
-  %130 = add <2 x i32> %129, <i32 -1, i32 1>
-  store <2 x i32> %130, ptr %128, align 8
-  br label %131
+  %128 = getelementptr inbounds i8, ptr %0, i64 44
+  %129 = load i32, ptr %128, align 4
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %128, align 4
+  %131 = getelementptr inbounds i8, ptr %0, i64 40
+  %132 = load i32, ptr %131, align 8
+  %133 = add i32 %132, -1
+  store i32 %133, ptr %131, align 8
+  br label %134
 
-131:                                              ; preds = %106, %.loopexit, %.loopexit71
-  %132 = lshr i32 %8, 6
-  %133 = and i32 %1, 63
-  %134 = zext nneg i32 %133 to i64
-  %135 = shl nuw i64 1, %134
-  %136 = getelementptr inbounds i8, ptr %79, i64 8
-  %137 = zext nneg i32 %132 to i64
-  %138 = getelementptr [5 x i64], ptr %136, i64 0, i64 %137
-  %139 = load i64, ptr %138, align 8
-  %140 = or i64 %139, %135
-  store i64 %140, ptr %138, align 8
+134:                                              ; preds = %106, %.loopexit, %.loopexit71
+  %135 = lshr i32 %8, 6
+  %136 = and i32 %1, 63
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl nuw i64 1, %137
+  %139 = getelementptr inbounds i8, ptr %79, i64 8
+  %140 = zext nneg i32 %135 to i64
+  %141 = getelementptr [5 x i64], ptr %139, i64 0, i64 %140
+  %142 = load i64, ptr %141, align 8
+  %143 = or i64 %142, %138
+  store i64 %143, ptr %141, align 8
   ret void
 }
 

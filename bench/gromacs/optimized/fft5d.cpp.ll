@@ -2213,9 +2213,12 @@ default.unreachable.i:                            ; preds = %18, %17
   br label %24
 
 24:                                               ; preds = %23, %22, %21, %20, %19
-  %25 = phi <2 x i32> [ <i32 2, i32 1>, %23 ], [ <i32 3, i32 1>, %22 ], [ <i32 1, i32 2>, %21 ], [ <i32 1, i32 3>, %20 ], [ <i32 2, i32 3>, %19 ]
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
-  store <2 x i32> %25, ptr %26, align 4
+  %.sink87.i = phi i32 [ 2, %23 ], [ 3, %22 ], [ 1, %21 ], [ 1, %20 ], [ 2, %19 ]
+  %.sink.i = phi i32 [ 1, %23 ], [ 1, %22 ], [ 2, %21 ], [ 3, %20 ], [ 3, %19 ]
+  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %.sink87.i, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sink.i, ptr %26, align 4
   %27 = zext nneg i32 %2 to i64
   %28 = getelementptr inbounds i32, ptr %14, i64 %27
   %29 = getelementptr inbounds i32, ptr %12, i64 %27

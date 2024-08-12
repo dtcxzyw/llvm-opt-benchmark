@@ -48,55 +48,75 @@ define dso_local noundef i64 @spghandler(ptr nocapture noundef readnone %0) loca
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i16 7, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 10
-  store <8 x i8> <i8 0, i8 1, i8 0, i8 0, i8 0, i8 1, i8 0, i8 1>, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 18
-  store i8 1, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 19
-  %9 = getelementptr inbounds i8, ptr %2, i64 23
-  store i32 0, ptr %8, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 3>, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @spgbuild, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr @spgbuildempty, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr @spginsert, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr @spgbulkdelete, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr @spgvacuumcleanup, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr @spgcanreturn, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr @spgcostestimate, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr @spgoptions, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 104
-  store ptr @spgproperty, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 112
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr @spgvalidate, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr @spgadjustmembers, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 136
-  store ptr @spgbeginscan, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 144
-  store ptr @spgrescan, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 152
-  store ptr @spggettuple, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 160
-  store ptr @spggetbitmap, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 168
-  store ptr @spgendscan, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 176
-  %30 = ptrtoint ptr %2 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
-  ret i64 %30
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 11
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  store i8 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %2, i64 13
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 14
+  store i8 0, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %2, i64 15
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 17
+  store i8 1, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 18
+  store i8 1, ptr %14, align 2
+  %15 = getelementptr inbounds i8, ptr %2, i64 19
+  %16 = getelementptr inbounds i8, ptr %2, i64 23
+  store i32 0, ptr %15, align 1
+  store i8 1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %2, i64 26
+  store i8 3, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @spgbuild, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @spgbuildempty, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @spginsert, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr @spgbulkdelete, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr @spgvacuumcleanup, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr @spgcanreturn, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr @spgcostestimate, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @spgoptions, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 104
+  store ptr @spgproperty, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 112
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 120
+  store ptr @spgvalidate, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr @spgadjustmembers, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 136
+  store ptr @spgbeginscan, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 144
+  store ptr @spgrescan, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 152
+  store ptr @spggettuple, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 160
+  store ptr @spggetbitmap, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 168
+  store ptr @spgendscan, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 176
+  %40 = ptrtoint ptr %2 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false)
+  ret i64 %40
 }
 
 declare ptr @spgbuild(ptr noundef, ptr noundef, ptr noundef) #1

@@ -7157,25 +7157,26 @@ define void @Gia_ManConsiderCuts(ptr noundef %0, ptr nocapture noundef readonly 
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %17)
   %19 = getelementptr inbounds i8, ptr %13, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = load <2 x i32>, ptr %13, align 8
-  %22 = add nsw <2 x i32> %21, <i32 -1, i32 -1>
-  store <2 x i32> %22, ptr %13, align 8
-  %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
-  store ptr %24, ptr %16, align 8
-  %25 = icmp sgt i32 %20, 1
-  br i1 %25, label %.lr.ph.i, label %Gia_ManCountRefs.exit
+  %21 = add nsw i32 %20, -1
+  store i32 %21, ptr %19, align 4
+  %22 = load i32, ptr %13, align 8
+  %23 = add nsw i32 %22, -1
+  store i32 %23, ptr %13, align 8
+  %24 = load ptr, ptr %16, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  store ptr %25, ptr %16, align 8
+  %26 = icmp sgt i32 %20, 1
+  br i1 %26, label %.lr.ph.i, label %Gia_ManCountRefs.exit
 
 .lr.ph.i:                                         ; preds = %12
-  %26 = add nsw i32 %20, -1
   %.val10.i = load ptr, ptr %8, align 8
-  %wide.trip.count.i = zext nneg i32 %26 to i64
+  %wide.trip.count.i = zext nneg i32 %21 to i64
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %.012.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %27 ]
-  %28 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
+  %28 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %.val10.i, i64 %30
@@ -7305,29 +7306,32 @@ Gia_ManFindSatDcs.exit:                           ; preds = %.lr.ph.i21, %.prehe
 
 Vec_IntPrint.exit:                                ; preds = %.lr.ph.i26, %Gia_ManFindSatDcs.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %78 = load <2 x i32>, ptr %13, align 8
-  %79 = add nsw <2 x i32> %78, <i32 1, i32 1>
-  store <2 x i32> %79, ptr %13, align 8
-  %80 = load ptr, ptr %16, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 -4
-  store ptr %81, ptr %16, align 8
+  %78 = load i32, ptr %19, align 4
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %19, align 4
+  %80 = load i32, ptr %13, align 8
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %13, align 8
+  %82 = load ptr, ptr %16, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 -4
+  store ptr %83, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val20 = load i32, ptr %5, align 4
-  %82 = sext i32 %.val20 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %12, label %.critedge, !llvm.loop !95
+  %84 = sext i32 %.val20 to i64
+  %85 = icmp slt i64 %indvars.iv.next, %84
+  br i1 %85, label %12, label %.critedge, !llvm.loop !95
 
 .critedge:                                        ; preds = %Vec_IntPrint.exit, %2
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %.not.i30 = icmp eq ptr %85, null
-  br i1 %.not.i30, label %Vec_WrdFree.exit, label %86
+  %86 = getelementptr inbounds i8, ptr %4, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %.not.i30 = icmp eq ptr %87, null
+  br i1 %.not.i30, label %Vec_WrdFree.exit, label %88
 
-86:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %85) #26
+88:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %87) #26
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %.critedge, %86
+Vec_WrdFree.exit:                                 ; preds = %.critedge, %88
   tail call void @free(ptr noundef nonnull %4) #26
   ret void
 }

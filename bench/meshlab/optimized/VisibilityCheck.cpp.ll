@@ -1439,208 +1439,212 @@ define void @_ZN25VisibilityCheck_ShadowMap7setMeshEiP6CMeshO(ptr noundef nonnul
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %48 = load i32, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  %46 = getelementptr inbounds i8, ptr %7, i64 4
+  %49 = getelementptr inbounds i8, ptr %7, i64 4
+  %50 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 6403, ptr %7, align 4, !noalias !7
-  %47 = load <2 x i32>, ptr %45, align 4
-  store <2 x i32> %47, ptr %46, align 4, !noalias !7
+  store i32 %46, ptr %49, align 4, !noalias !7
+  store i32 %48, ptr %50, align 4, !noalias !7
   call void @_ZN3glw7Context18createRenderbufferERKNS_21RenderbufferArgumentsE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.4") align 8 %8, ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 4 dereferenceable(12) %7)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  %48 = getelementptr inbounds i8, ptr %0, i64 312
-  %49 = load ptr, ptr %8, align 8
-  %50 = load ptr, ptr %48, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i, label %52
+  %51 = getelementptr inbounds i8, ptr %0, i64 312
+  %52 = load ptr, ptr %8, align 8
+  %53 = load ptr, ptr %51, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i, label %55
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
-  %54 = load i32, ptr %53, align 8
-  %55 = add nsw i32 %54, -1
-  store i32 %55, ptr %53, align 8
-  %.not.i.i.i.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i.i.i.i.i, label %56, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
+55:                                               ; preds = %35
+  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = add nsw i32 %57, -1
+  store i32 %58, ptr %56, align 8
+  %.not.i.i.i.i.i.i = icmp eq i32 %58, 0
+  br i1 %.not.i.i.i.i.i.i, label %59, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %50, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %53, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %56
-  %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %57) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %59
+  %62 = load ptr, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %60) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %56
-  call void @_ZdlPv(ptr noundef nonnull %50) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %59
+  call void @_ZdlPv(ptr noundef nonnull %53) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %52, %35
-  store ptr %49, ptr %48, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit, label %62
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %55, %35
+  store ptr %52, ptr %51, align 8
+  %.not.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit, label %65
 
-62:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
-  %63 = getelementptr inbounds i8, ptr %49, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 8
+65:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
+  %66 = getelementptr inbounds i8, ptr %52, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %66, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit
 
-_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit: ; preds = %62, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
-  %66 = load ptr, ptr %8, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit, label %68
+_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit: ; preds = %65, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i
+  %69 = load ptr, ptr %8, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit, label %71
 
-68:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = add nsw i32 %70, -1
-  store i32 %71, ptr %69, align 8
-  %.not.i.i.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not.i.i.i.i.i, label %72, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
+71:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit
+  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, -1
+  store i32 %74, ptr %72, align 8
+  %.not.i.i.i.i.i = icmp eq i32 %74, 0
+  br i1 %.not.i.i.i.i.i, label %75, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %66, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %69, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %72
-  %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %73) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %75
+  %78 = load ptr, ptr %76, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %72
-  call void @_ZdlPv(ptr noundef nonnull %66) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %75
+  call void @_ZdlPv(ptr noundef nonnull %69) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %68
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %71
   store ptr null, ptr %8, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
-  %78 = load ptr, ptr %37, align 8
+  %81 = load ptr, ptr %37, align 8
   store ptr null, ptr %10, align 8
-  %79 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 -1, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 34069, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 0, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 -1, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 34069, ptr %84, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %82 = load ptr, ptr %48, align 8, !noalias !10
-  store ptr %82, ptr %11, align 8, !alias.scope !10
-  %.not.i.i.i.i.i53 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i.i.i53, label %87, label %83
+  %85 = load ptr, ptr %51, align 8, !noalias !10
+  store ptr %85, ptr %11, align 8, !alias.scope !10
+  %.not.i.i.i.i.i53 = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i53, label %90, label %86
 
-83:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
-  %85 = load i32, ptr %84, align 8, !noalias !10
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %84, align 8, !noalias !10
-  br label %87
+86:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = load i32, ptr %87, align 8, !noalias !10
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %87, align 8, !noalias !10
+  br label %90
 
-87:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit, %83
-  %88 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 0, ptr %88, align 8, !alias.scope !10
-  %89 = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 0, ptr %89, align 4, !alias.scope !10
-  %90 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 0, ptr %90, align 8, !alias.scope !10
+90:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit, %86
+  %91 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 0, ptr %91, align 8, !alias.scope !10
+  %92 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 0, ptr %92, align 4, !alias.scope !10
+  %93 = getelementptr inbounds i8, ptr %11, i64 16
+  store i32 0, ptr %93, align 8, !alias.scope !10
   store ptr null, ptr %12, align 8
-  %91 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %12, i64 12
-  store i32 -1, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 34069, ptr %93, align 8
-  store ptr null, ptr %13, align 8
-  %94 = getelementptr inbounds i8, ptr %13, i64 8
+  %94 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %13, i64 12
+  %95 = getelementptr inbounds i8, ptr %12, i64 12
   store i32 -1, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %13, i64 16
+  %96 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 34069, ptr %96, align 8
-  store ptr null, ptr %14, align 8
-  %97 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr null, ptr %13, align 8
+  %97 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %14, i64 12
+  %98 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 -1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %14, i64 16
+  %99 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 34069, ptr %99, align 8
-  store ptr null, ptr %15, align 8
-  %100 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr null, ptr %14, align 8
+  %100 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %15, i64 12
+  %101 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 -1, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %15, i64 16
+  %102 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 34069, ptr %102, align 8
-  store ptr null, ptr %16, align 8
-  %103 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr null, ptr %15, align 8
+  %103 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 0, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %16, i64 12
+  %104 = getelementptr inbounds i8, ptr %15, i64 12
   store i32 -1, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %16, i64 16
+  %105 = getelementptr inbounds i8, ptr %15, i64 16
   store i32 34069, ptr %105, align 8
-  store ptr null, ptr %17, align 8
-  %106 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr null, ptr %16, align 8
+  %106 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %17, i64 12
+  %107 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 -1, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %17, i64 16
+  %108 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 34069, ptr %108, align 8
-  store ptr null, ptr %18, align 8
-  %109 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr null, ptr %17, align 8
+  %109 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %18, i64 12
+  %110 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 -1, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %18, i64 16
+  %111 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 34069, ptr %111, align 8
+  store ptr null, ptr %18, align 8
+  %112 = getelementptr inbounds i8, ptr %18, i64 8
+  store i32 0, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %18, i64 12
+  store i32 -1, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %18, i64 16
+  store i32 34069, ptr %114, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr null, ptr %6, align 8, !noalias !13
-  %112 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 0, ptr %112, align 8, !noalias !13
-  %113 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 -1, ptr %113, align 4, !noalias !13
-  %114 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 34069, ptr %114, align 8, !noalias !13
-  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %9, ptr noundef nonnull align 8 dereferenceable(120) %78, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(20) %18)
-          to label %115 unwind label %.body
+  %115 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 0, ptr %115, align 8, !noalias !13
+  %116 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 -1, ptr %116, align 4, !noalias !13
+  %117 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 34069, ptr %117, align 8, !noalias !13
+  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %9, ptr noundef nonnull align 8 dereferenceable(120) %81, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(20) %18)
+          to label %118 unwind label %.body
 
-115:                                              ; preds = %87
-  %116 = load ptr, ptr %6, align 8, !noalias !13
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %129, label %118
+118:                                              ; preds = %90
+  %119 = load ptr, ptr %6, align 8, !noalias !13
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %132, label %121
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %116, i64 8
-  %120 = load i32, ptr %119, align 8
-  %121 = add nsw i32 %120, -1
-  store i32 %121, ptr %119, align 8
-  %.not.i.i.i.i.i.i54 = icmp eq i32 %121, 0
-  br i1 %.not.i.i.i.i.i.i54, label %122, label %129
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds i8, ptr %119, i64 8
+  %123 = load i32, ptr %122, align 8
+  %124 = add nsw i32 %123, -1
+  store i32 %124, ptr %122, align 8
+  %.not.i.i.i.i.i.i54 = icmp eq i32 %124, 0
+  br i1 %.not.i.i.i.i.i.i54, label %125, label %132
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr %116, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %119, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55: ; preds = %122
-  %125 = load ptr, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55: ; preds = %125
+  %128 = load ptr, ptr %126, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %126) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55, %122
-  call void @_ZdlPv(ptr noundef nonnull %116) #22
-  br label %129
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i55, %125
+  call void @_ZdlPv(ptr noundef nonnull %119) #22
+  br label %132
 
-.body:                                            ; preds = %87
-  %128 = landingpad { ptr, i32 }
+.body:                                            ; preds = %90
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %6) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %18) #21
@@ -1652,609 +1656,613 @@ _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %12) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %11) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %10) #21
-  br label %539
+  br label %545
 
-129:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56, %118, %115
+132:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i56, %121, %118
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %130 = getelementptr inbounds i8, ptr %0, i64 320
-  %131 = load ptr, ptr %9, align 8
-  %132 = load ptr, ptr %130, align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i, label %134
+  %133 = getelementptr inbounds i8, ptr %0, i64 320
+  %134 = load ptr, ptr %9, align 8
+  %135 = load ptr, ptr %133, align 8
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i, label %137
 
-134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %132, i64 8
-  %136 = load i32, ptr %135, align 8
-  %137 = add nsw i32 %136, -1
-  store i32 %137, ptr %135, align 8
-  %.not.i.i.i.i.i57 = icmp eq i32 %137, 0
-  br i1 %.not.i.i.i.i.i57, label %138, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+137:                                              ; preds = %132
+  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  %139 = load i32, ptr %138, align 8
+  %140 = add nsw i32 %139, -1
+  store i32 %140, ptr %138, align 8
+  %.not.i.i.i.i.i57 = icmp eq i32 %140, 0
+  br i1 %.not.i.i.i.i.i57, label %141, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
 
-138:                                              ; preds = %134
-  %139 = load ptr, ptr %132, align 8
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %135, align 8
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58: ; preds = %138
-  %141 = load ptr, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %139) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58: ; preds = %141
+  %144 = load ptr, ptr %142, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %142) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58, %138
-  call void @_ZdlPv(ptr noundef nonnull %132) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i58, %141
+  call void @_ZdlPv(ptr noundef nonnull %135) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59, %134, %129
-  store ptr %131, ptr %130, align 8
-  %.not.i.i.i = icmp eq ptr %131, null
-  br i1 %.not.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, label %144
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i59, %137, %132
+  store ptr %134, ptr %133, align 8
+  %.not.i.i.i = icmp eq ptr %134, null
+  br i1 %.not.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, label %147
 
-144:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
-  %145 = getelementptr inbounds i8, ptr %131, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = add nsw i32 %146, 1
-  store i32 %147, ptr %145, align 8
+147:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+  %148 = getelementptr inbounds i8, ptr %134, i64 8
+  %149 = load i32, ptr %148, align 8
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %148, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
 
-_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit: ; preds = %144, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
-  %148 = load ptr, ptr %9, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, label %150
+_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit: ; preds = %147, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+  %151 = load ptr, ptr %9, align 8
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, label %153
 
-150:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
-  %151 = getelementptr inbounds i8, ptr %148, i64 8
-  %152 = load i32, ptr %151, align 8
-  %153 = add nsw i32 %152, -1
-  store i32 %153, ptr %151, align 8
-  %.not.i.i.i.i60 = icmp eq i32 %153, 0
-  br i1 %.not.i.i.i.i60, label %154, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
+153:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
+  %154 = getelementptr inbounds i8, ptr %151, i64 8
+  %155 = load i32, ptr %154, align 8
+  %156 = add nsw i32 %155, -1
+  store i32 %156, ptr %154, align 8
+  %.not.i.i.i.i60 = icmp eq i32 %156, 0
+  br i1 %.not.i.i.i.i60, label %157, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %148, align 8
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i
+157:                                              ; preds = %153
+  %158 = load ptr, ptr %151, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %154
-  %157 = load ptr, ptr %155, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8
-  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %155) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %157
+  %160 = load ptr, ptr %158, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %158) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %154
-  call void @_ZdlPv(ptr noundef nonnull %148) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %157
+  call void @_ZdlPv(ptr noundef nonnull %151) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %150
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %153
   store ptr null, ptr %9, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
-  %160 = load ptr, ptr %18, align 8
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %_ZN3glw12RenderTargetD2Ev.exit, label %162
+  %163 = load ptr, ptr %18, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %_ZN3glw12RenderTargetD2Ev.exit, label %165
 
-162:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
-  %163 = getelementptr inbounds i8, ptr %160, i64 8
-  %164 = load i32, ptr %163, align 8
-  %165 = add nsw i32 %164, -1
-  store i32 %165, ptr %163, align 8
-  %.not.i.i.i.i.i61 = icmp eq i32 %165, 0
-  br i1 %.not.i.i.i.i.i61, label %166, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62
+165:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
+  %166 = getelementptr inbounds i8, ptr %163, i64 8
+  %167 = load i32, ptr %166, align 8
+  %168 = add nsw i32 %167, -1
+  store i32 %168, ptr %166, align 8
+  %.not.i.i.i.i.i61 = icmp eq i32 %168, 0
+  br i1 %.not.i.i.i.i.i61, label %169, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %160, align 8
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %163, align 8
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63: ; preds = %166
-  %169 = load ptr, ptr %167, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(16) %167) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63: ; preds = %169
+  %172 = load ptr, ptr %170, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %170) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63, %166
-  call void @_ZdlPv(ptr noundef nonnull %160) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i63, %169
+  call void @_ZdlPv(ptr noundef nonnull %163) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64, %162
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i64, %165
   store ptr null, ptr %18, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit
 
 _ZN3glw12RenderTargetD2Ev.exit:                   ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i62
-  %172 = load ptr, ptr %17, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %_ZN3glw12RenderTargetD2Ev.exit69, label %174
+  %175 = load ptr, ptr %17, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %_ZN3glw12RenderTargetD2Ev.exit69, label %177
 
-174:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit
-  %175 = getelementptr inbounds i8, ptr %172, i64 8
-  %176 = load i32, ptr %175, align 8
-  %177 = add nsw i32 %176, -1
-  store i32 %177, ptr %175, align 8
-  %.not.i.i.i.i.i65 = icmp eq i32 %177, 0
-  br i1 %.not.i.i.i.i.i65, label %178, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66
+177:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit
+  %178 = getelementptr inbounds i8, ptr %175, i64 8
+  %179 = load i32, ptr %178, align 8
+  %180 = add nsw i32 %179, -1
+  store i32 %180, ptr %178, align 8
+  %.not.i.i.i.i.i65 = icmp eq i32 %180, 0
+  br i1 %.not.i.i.i.i.i65, label %181, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %172, align 8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %175, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67: ; preds = %178
-  %181 = load ptr, ptr %179, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
-  %183 = load ptr, ptr %182, align 8
-  call void %183(ptr noundef nonnull align 8 dereferenceable(16) %179) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67: ; preds = %181
+  %184 = load ptr, ptr %182, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %182) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67, %178
-  call void @_ZdlPv(ptr noundef nonnull %172) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i67, %181
+  call void @_ZdlPv(ptr noundef nonnull %175) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68, %174
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i68, %177
   store ptr null, ptr %17, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit69
 
 _ZN3glw12RenderTargetD2Ev.exit69:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i66
-  %184 = load ptr, ptr %16, align 8
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %_ZN3glw12RenderTargetD2Ev.exit74, label %186
+  %187 = load ptr, ptr %16, align 8
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %_ZN3glw12RenderTargetD2Ev.exit74, label %189
 
-186:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit69
-  %187 = getelementptr inbounds i8, ptr %184, i64 8
-  %188 = load i32, ptr %187, align 8
-  %189 = add nsw i32 %188, -1
-  store i32 %189, ptr %187, align 8
-  %.not.i.i.i.i.i70 = icmp eq i32 %189, 0
-  br i1 %.not.i.i.i.i.i70, label %190, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71
+189:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit69
+  %190 = getelementptr inbounds i8, ptr %187, i64 8
+  %191 = load i32, ptr %190, align 8
+  %192 = add nsw i32 %191, -1
+  store i32 %192, ptr %190, align 8
+  %.not.i.i.i.i.i70 = icmp eq i32 %192, 0
+  br i1 %.not.i.i.i.i.i70, label %193, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71
 
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %184, align 8
-  %192 = icmp eq ptr %191, null
-  br i1 %192, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72
+193:                                              ; preds = %189
+  %194 = load ptr, ptr %187, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72: ; preds = %190
-  %193 = load ptr, ptr %191, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(16) %191) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72: ; preds = %193
+  %196 = load ptr, ptr %194, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  %198 = load ptr, ptr %197, align 8
+  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %194) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72, %190
-  call void @_ZdlPv(ptr noundef nonnull %184) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i72, %193
+  call void @_ZdlPv(ptr noundef nonnull %187) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73, %186
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i73, %189
   store ptr null, ptr %16, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit74
 
 _ZN3glw12RenderTargetD2Ev.exit74:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit69, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i71
-  %196 = load ptr, ptr %15, align 8
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %_ZN3glw12RenderTargetD2Ev.exit79, label %198
+  %199 = load ptr, ptr %15, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %_ZN3glw12RenderTargetD2Ev.exit79, label %201
 
-198:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit74
-  %199 = getelementptr inbounds i8, ptr %196, i64 8
-  %200 = load i32, ptr %199, align 8
-  %201 = add nsw i32 %200, -1
-  store i32 %201, ptr %199, align 8
-  %.not.i.i.i.i.i75 = icmp eq i32 %201, 0
-  br i1 %.not.i.i.i.i.i75, label %202, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76
+201:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit74
+  %202 = getelementptr inbounds i8, ptr %199, i64 8
+  %203 = load i32, ptr %202, align 8
+  %204 = add nsw i32 %203, -1
+  store i32 %204, ptr %202, align 8
+  %.not.i.i.i.i.i75 = icmp eq i32 %204, 0
+  br i1 %.not.i.i.i.i.i75, label %205, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76
 
-202:                                              ; preds = %198
-  %203 = load ptr, ptr %196, align 8
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %199, align 8
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77: ; preds = %202
-  %205 = load ptr, ptr %203, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 8
-  %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %203) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77: ; preds = %205
+  %208 = load ptr, ptr %206, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %206) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77, %202
-  call void @_ZdlPv(ptr noundef nonnull %196) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i77, %205
+  call void @_ZdlPv(ptr noundef nonnull %199) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78, %198
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i78, %201
   store ptr null, ptr %15, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit79
 
 _ZN3glw12RenderTargetD2Ev.exit79:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit74, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i76
-  %208 = load ptr, ptr %14, align 8
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %_ZN3glw12RenderTargetD2Ev.exit84, label %210
+  %211 = load ptr, ptr %14, align 8
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %_ZN3glw12RenderTargetD2Ev.exit84, label %213
 
-210:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit79
-  %211 = getelementptr inbounds i8, ptr %208, i64 8
-  %212 = load i32, ptr %211, align 8
-  %213 = add nsw i32 %212, -1
-  store i32 %213, ptr %211, align 8
-  %.not.i.i.i.i.i80 = icmp eq i32 %213, 0
-  br i1 %.not.i.i.i.i.i80, label %214, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81
+213:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit79
+  %214 = getelementptr inbounds i8, ptr %211, i64 8
+  %215 = load i32, ptr %214, align 8
+  %216 = add nsw i32 %215, -1
+  store i32 %216, ptr %214, align 8
+  %.not.i.i.i.i.i80 = icmp eq i32 %216, 0
+  br i1 %.not.i.i.i.i.i80, label %217, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81
 
-214:                                              ; preds = %210
-  %215 = load ptr, ptr %208, align 8
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82
+217:                                              ; preds = %213
+  %218 = load ptr, ptr %211, align 8
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82: ; preds = %214
-  %217 = load ptr, ptr %215, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
-  %219 = load ptr, ptr %218, align 8
-  call void %219(ptr noundef nonnull align 8 dereferenceable(16) %215) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82: ; preds = %217
+  %220 = load ptr, ptr %218, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %222 = load ptr, ptr %221, align 8
+  call void %222(ptr noundef nonnull align 8 dereferenceable(16) %218) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82, %214
-  call void @_ZdlPv(ptr noundef nonnull %208) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i82, %217
+  call void @_ZdlPv(ptr noundef nonnull %211) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83, %210
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i83, %213
   store ptr null, ptr %14, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit84
 
 _ZN3glw12RenderTargetD2Ev.exit84:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit79, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i81
-  %220 = load ptr, ptr %13, align 8
-  %221 = icmp eq ptr %220, null
-  br i1 %221, label %_ZN3glw12RenderTargetD2Ev.exit89, label %222
+  %223 = load ptr, ptr %13, align 8
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %_ZN3glw12RenderTargetD2Ev.exit89, label %225
 
-222:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit84
-  %223 = getelementptr inbounds i8, ptr %220, i64 8
-  %224 = load i32, ptr %223, align 8
-  %225 = add nsw i32 %224, -1
-  store i32 %225, ptr %223, align 8
-  %.not.i.i.i.i.i85 = icmp eq i32 %225, 0
-  br i1 %.not.i.i.i.i.i85, label %226, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86
+225:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit84
+  %226 = getelementptr inbounds i8, ptr %223, i64 8
+  %227 = load i32, ptr %226, align 8
+  %228 = add nsw i32 %227, -1
+  store i32 %228, ptr %226, align 8
+  %.not.i.i.i.i.i85 = icmp eq i32 %228, 0
+  br i1 %.not.i.i.i.i.i85, label %229, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86
 
-226:                                              ; preds = %222
-  %227 = load ptr, ptr %220, align 8
-  %228 = icmp eq ptr %227, null
-  br i1 %228, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87
+229:                                              ; preds = %225
+  %230 = load ptr, ptr %223, align 8
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87: ; preds = %226
-  %229 = load ptr, ptr %227, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
-  %231 = load ptr, ptr %230, align 8
-  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %227) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87: ; preds = %229
+  %232 = load ptr, ptr %230, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 8
+  %234 = load ptr, ptr %233, align 8
+  call void %234(ptr noundef nonnull align 8 dereferenceable(16) %230) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87, %226
-  call void @_ZdlPv(ptr noundef nonnull %220) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i87, %229
+  call void @_ZdlPv(ptr noundef nonnull %223) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88, %222
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i88, %225
   store ptr null, ptr %13, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit89
 
 _ZN3glw12RenderTargetD2Ev.exit89:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit84, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i86
-  %232 = load ptr, ptr %12, align 8
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %_ZN3glw12RenderTargetD2Ev.exit94, label %234
+  %235 = load ptr, ptr %12, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %_ZN3glw12RenderTargetD2Ev.exit94, label %237
 
-234:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit89
-  %235 = getelementptr inbounds i8, ptr %232, i64 8
-  %236 = load i32, ptr %235, align 8
-  %237 = add nsw i32 %236, -1
-  store i32 %237, ptr %235, align 8
-  %.not.i.i.i.i.i90 = icmp eq i32 %237, 0
-  br i1 %.not.i.i.i.i.i90, label %238, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91
+237:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit89
+  %238 = getelementptr inbounds i8, ptr %235, i64 8
+  %239 = load i32, ptr %238, align 8
+  %240 = add nsw i32 %239, -1
+  store i32 %240, ptr %238, align 8
+  %.not.i.i.i.i.i90 = icmp eq i32 %240, 0
+  br i1 %.not.i.i.i.i.i90, label %241, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91
 
-238:                                              ; preds = %234
-  %239 = load ptr, ptr %232, align 8
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92
+241:                                              ; preds = %237
+  %242 = load ptr, ptr %235, align 8
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92: ; preds = %238
-  %241 = load ptr, ptr %239, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 8
-  %243 = load ptr, ptr %242, align 8
-  call void %243(ptr noundef nonnull align 8 dereferenceable(16) %239) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92: ; preds = %241
+  %244 = load ptr, ptr %242, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8
+  call void %246(ptr noundef nonnull align 8 dereferenceable(16) %242) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92, %238
-  call void @_ZdlPv(ptr noundef nonnull %232) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i92, %241
+  call void @_ZdlPv(ptr noundef nonnull %235) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93, %234
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i93, %237
   store ptr null, ptr %12, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit94
 
 _ZN3glw12RenderTargetD2Ev.exit94:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit89, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i91
-  %244 = load ptr, ptr %11, align 8
-  %245 = icmp eq ptr %244, null
-  br i1 %245, label %_ZN3glw12RenderTargetD2Ev.exit99, label %246
+  %247 = load ptr, ptr %11, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %_ZN3glw12RenderTargetD2Ev.exit99, label %249
 
-246:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit94
-  %247 = getelementptr inbounds i8, ptr %244, i64 8
-  %248 = load i32, ptr %247, align 8
-  %249 = add nsw i32 %248, -1
-  store i32 %249, ptr %247, align 8
-  %.not.i.i.i.i.i95 = icmp eq i32 %249, 0
-  br i1 %.not.i.i.i.i.i95, label %250, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96
+249:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit94
+  %250 = getelementptr inbounds i8, ptr %247, i64 8
+  %251 = load i32, ptr %250, align 8
+  %252 = add nsw i32 %251, -1
+  store i32 %252, ptr %250, align 8
+  %.not.i.i.i.i.i95 = icmp eq i32 %252, 0
+  br i1 %.not.i.i.i.i.i95, label %253, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96
 
-250:                                              ; preds = %246
-  %251 = load ptr, ptr %244, align 8
-  %252 = icmp eq ptr %251, null
-  br i1 %252, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97
+253:                                              ; preds = %249
+  %254 = load ptr, ptr %247, align 8
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97: ; preds = %250
-  %253 = load ptr, ptr %251, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 8
-  %255 = load ptr, ptr %254, align 8
-  call void %255(ptr noundef nonnull align 8 dereferenceable(16) %251) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97: ; preds = %253
+  %256 = load ptr, ptr %254, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = load ptr, ptr %257, align 8
+  call void %258(ptr noundef nonnull align 8 dereferenceable(16) %254) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97, %250
-  call void @_ZdlPv(ptr noundef nonnull %244) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i97, %253
+  call void @_ZdlPv(ptr noundef nonnull %247) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98, %246
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i98, %249
   store ptr null, ptr %11, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit99
 
 _ZN3glw12RenderTargetD2Ev.exit99:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit94, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i96
-  %256 = load ptr, ptr %10, align 8
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %268, label %258
+  %259 = load ptr, ptr %10, align 8
+  %260 = icmp eq ptr %259, null
+  br i1 %260, label %271, label %261
 
-258:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit99
-  %259 = getelementptr inbounds i8, ptr %256, i64 8
-  %260 = load i32, ptr %259, align 8
-  %261 = add nsw i32 %260, -1
-  store i32 %261, ptr %259, align 8
-  %.not.i.i.i.i.i100 = icmp eq i32 %261, 0
-  br i1 %.not.i.i.i.i.i100, label %262, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101
+261:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit99
+  %262 = getelementptr inbounds i8, ptr %259, i64 8
+  %263 = load i32, ptr %262, align 8
+  %264 = add nsw i32 %263, -1
+  store i32 %264, ptr %262, align 8
+  %.not.i.i.i.i.i100 = icmp eq i32 %264, 0
+  br i1 %.not.i.i.i.i.i100, label %265, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101
 
-262:                                              ; preds = %258
-  %263 = load ptr, ptr %256, align 8
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102
+265:                                              ; preds = %261
+  %266 = load ptr, ptr %259, align 8
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102: ; preds = %262
-  %265 = load ptr, ptr %263, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 8
-  %267 = load ptr, ptr %266, align 8
-  call void %267(ptr noundef nonnull align 8 dereferenceable(16) %263) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102: ; preds = %265
+  %268 = load ptr, ptr %266, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %270 = load ptr, ptr %269, align 8
+  call void %270(ptr noundef nonnull align 8 dereferenceable(16) %266) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102, %262
-  call void @_ZdlPv(ptr noundef nonnull %256) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i102, %265
+  call void @_ZdlPv(ptr noundef nonnull %259) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103, %258
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i103, %261
   store ptr null, ptr %10, align 8
-  br label %268
+  br label %271
 
-268:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101, %_ZN3glw12RenderTargetD2Ev.exit99
-  %269 = load ptr, ptr %37, align 8
-  call void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %19, ptr noundef nonnull align 8 dereferenceable(120) %269, ptr noundef nonnull align 8 dereferenceable(8) %130)
-  %270 = load ptr, ptr %19, align 8
-  %271 = load ptr, ptr %270, align 8
-  %272 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
-  %273 = getelementptr inbounds i8, ptr %271, i64 16
-  %274 = load i32, ptr %273, align 8
-  %275 = invoke noundef i32 %272(i32 noundef %274)
-          to label %276 unwind label %522
+271:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i101, %_ZN3glw12RenderTargetD2Ev.exit99
+  %272 = load ptr, ptr %37, align 8
+  call void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %19, ptr noundef nonnull align 8 dereferenceable(120) %272, ptr noundef nonnull align 8 dereferenceable(8) %133)
+  %273 = load ptr, ptr %19, align 8
+  %274 = load ptr, ptr %273, align 8
+  %275 = load ptr, ptr @__glewCheckFramebufferStatus, align 8
+  %276 = getelementptr inbounds i8, ptr %274, i64 16
+  %277 = load i32, ptr %276, align 8
+  %278 = invoke noundef i32 %275(i32 noundef %277)
+          to label %279 unwind label %528
 
-276:                                              ; preds = %268
-  %277 = icmp eq i32 %275, 36053
-  br i1 %277, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %278
+279:                                              ; preds = %271
+  %280 = icmp eq i32 %278, 36053
+  br i1 %280, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %281
 
-278:                                              ; preds = %276
-  %279 = load ptr, ptr %37, align 8
-  %280 = load ptr, ptr %39, align 8
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 8
-  %283 = load ptr, ptr %282, align 8
+281:                                              ; preds = %279
+  %282 = load ptr, ptr %37, align 8
+  %283 = load ptr, ptr %39, align 8
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 28
+  %285 = getelementptr inbounds i8, ptr %284, i64 8
+  %286 = load ptr, ptr %285, align 8
+  %287 = load ptr, ptr %286, align 8
+  %288 = getelementptr inbounds i8, ptr %287, i64 28
+  %289 = load i32, ptr %288, align 4
+  %290 = getelementptr inbounds i8, ptr %287, i64 32
+  %291 = load i32, ptr %290, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %286 = getelementptr inbounds i8, ptr %5, i64 4
+  %292 = getelementptr inbounds i8, ptr %5, i64 4
+  %293 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 32856, ptr %5, align 4, !noalias !16
-  %287 = load <2 x i32>, ptr %285, align 4
-  store <2 x i32> %287, ptr %286, align 4, !noalias !16
-  invoke void @_ZN3glw7Context18createRenderbufferERKNS_21RenderbufferArgumentsE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.4") align 8 %20, ptr noundef nonnull align 8 dereferenceable(120) %279, ptr noundef nonnull align 4 dereferenceable(12) %5)
-          to label %288 unwind label %522
+  store i32 %289, ptr %292, align 4, !noalias !16
+  store i32 %291, ptr %293, align 4, !noalias !16
+  invoke void @_ZN3glw7Context18createRenderbufferERKNS_21RenderbufferArgumentsE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.4") align 8 %20, ptr noundef nonnull align 8 dereferenceable(120) %282, ptr noundef nonnull align 4 dereferenceable(12) %5)
+          to label %294 unwind label %528
 
-288:                                              ; preds = %278
+294:                                              ; preds = %281
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %289 = load ptr, ptr %20, align 8
-  %290 = load ptr, ptr %48, align 8
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106, label %292
+  %295 = load ptr, ptr %20, align 8
+  %296 = load ptr, ptr %51, align 8
+  %297 = icmp eq ptr %296, null
+  br i1 %297, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106, label %298
 
-292:                                              ; preds = %288
-  %293 = getelementptr inbounds i8, ptr %290, i64 8
-  %294 = load i32, ptr %293, align 8
-  %295 = add nsw i32 %294, -1
-  store i32 %295, ptr %293, align 8
-  %.not.i.i.i.i.i.i105 = icmp eq i32 %295, 0
-  br i1 %.not.i.i.i.i.i.i105, label %296, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds i8, ptr %296, i64 8
+  %300 = load i32, ptr %299, align 8
+  %301 = add nsw i32 %300, -1
+  store i32 %301, ptr %299, align 8
+  %.not.i.i.i.i.i.i105 = icmp eq i32 %301, 0
+  br i1 %.not.i.i.i.i.i.i105, label %302, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
 
-296:                                              ; preds = %292
-  %297 = load ptr, ptr %290, align 8
-  %298 = icmp eq ptr %297, null
-  br i1 %298, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108
+302:                                              ; preds = %298
+  %303 = load ptr, ptr %296, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108: ; preds = %296
-  %299 = load ptr, ptr %297, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 8
-  %301 = load ptr, ptr %300, align 8
-  call void %301(ptr noundef nonnull align 8 dereferenceable(16) %297) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108: ; preds = %302
+  %305 = load ptr, ptr %303, align 8
+  %306 = getelementptr inbounds i8, ptr %305, i64 8
+  %307 = load ptr, ptr %306, align 8
+  call void %307(ptr noundef nonnull align 8 dereferenceable(16) %303) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108, %296
-  call void @_ZdlPv(ptr noundef nonnull %290) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i108, %302
+  call void @_ZdlPv(ptr noundef nonnull %296) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109, %292, %288
-  store ptr %289, ptr %48, align 8
-  %.not.i.i.i.i107 = icmp eq ptr %289, null
-  br i1 %.not.i.i.i.i107, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110, label %302
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i109, %298, %294
+  store ptr %295, ptr %51, align 8
+  %.not.i.i.i.i107 = icmp eq ptr %295, null
+  br i1 %.not.i.i.i.i107, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110, label %308
 
-302:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
-  %303 = getelementptr inbounds i8, ptr %289, i64 8
-  %304 = load i32, ptr %303, align 8
-  %305 = add nsw i32 %304, 1
-  store i32 %305, ptr %303, align 8
+308:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
+  %309 = getelementptr inbounds i8, ptr %295, i64 8
+  %310 = load i32, ptr %309, align 8
+  %311 = add nsw i32 %310, 1
+  store i32 %311, ptr %309, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110
 
-_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110: ; preds = %302, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
-  %306 = load ptr, ptr %20, align 8
-  %307 = icmp eq ptr %306, null
-  br i1 %307, label %318, label %308
+_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110: ; preds = %308, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i106
+  %312 = load ptr, ptr %20, align 8
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %324, label %314
 
-308:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110
-  %309 = getelementptr inbounds i8, ptr %306, i64 8
-  %310 = load i32, ptr %309, align 8
-  %311 = add nsw i32 %310, -1
-  store i32 %311, ptr %309, align 8
-  %.not.i.i.i.i.i111 = icmp eq i32 %311, 0
-  br i1 %.not.i.i.i.i.i111, label %312, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112
+314:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110
+  %315 = getelementptr inbounds i8, ptr %312, i64 8
+  %316 = load i32, ptr %315, align 8
+  %317 = add nsw i32 %316, -1
+  store i32 %317, ptr %315, align 8
+  %.not.i.i.i.i.i111 = icmp eq i32 %317, 0
+  br i1 %.not.i.i.i.i.i111, label %318, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112
 
-312:                                              ; preds = %308
-  %313 = load ptr, ptr %306, align 8
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113
+318:                                              ; preds = %314
+  %319 = load ptr, ptr %312, align 8
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113: ; preds = %312
-  %315 = load ptr, ptr %313, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
-  %317 = load ptr, ptr %316, align 8
-  call void %317(ptr noundef nonnull align 8 dereferenceable(16) %313) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113: ; preds = %318
+  %321 = load ptr, ptr %319, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 8
+  %323 = load ptr, ptr %322, align 8
+  call void %323(ptr noundef nonnull align 8 dereferenceable(16) %319) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113, %312
-  call void @_ZdlPv(ptr noundef nonnull %306) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i113, %318
+  call void @_ZdlPv(ptr noundef nonnull %312) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114, %308
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i114, %314
   store ptr null, ptr %20, align 8
-  br label %318
+  br label %324
 
-318:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112, %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110
-  %319 = load ptr, ptr %37, align 8
+324:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i112, %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit110
+  %325 = load ptr, ptr %37, align 8
   store ptr null, ptr %22, align 8
-  %320 = getelementptr inbounds i8, ptr %22, i64 8
-  store i32 0, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %22, i64 12
-  store i32 -1, ptr %321, align 4
-  %322 = getelementptr inbounds i8, ptr %22, i64 16
-  store i32 34069, ptr %322, align 8
+  %326 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 0, ptr %326, align 8
+  %327 = getelementptr inbounds i8, ptr %22, i64 12
+  store i32 -1, ptr %327, align 4
+  %328 = getelementptr inbounds i8, ptr %22, i64 16
+  store i32 34069, ptr %328, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %323 = load ptr, ptr %48, align 8, !noalias !19
-  store ptr %323, ptr %23, align 8, !alias.scope !19
-  %.not.i.i.i.i.i116 = icmp eq ptr %323, null
-  br i1 %.not.i.i.i.i.i116, label %328, label %324
+  %329 = load ptr, ptr %51, align 8, !noalias !19
+  store ptr %329, ptr %23, align 8, !alias.scope !19
+  %.not.i.i.i.i.i116 = icmp eq ptr %329, null
+  br i1 %.not.i.i.i.i.i116, label %334, label %330
 
-324:                                              ; preds = %318
-  %325 = getelementptr inbounds i8, ptr %323, i64 8
-  %326 = load i32, ptr %325, align 8, !noalias !19
-  %327 = add nsw i32 %326, 1
-  store i32 %327, ptr %325, align 8, !noalias !19
-  br label %328
+330:                                              ; preds = %324
+  %331 = getelementptr inbounds i8, ptr %329, i64 8
+  %332 = load i32, ptr %331, align 8, !noalias !19
+  %333 = add nsw i32 %332, 1
+  store i32 %333, ptr %331, align 8, !noalias !19
+  br label %334
 
-328:                                              ; preds = %318, %324
-  %329 = getelementptr inbounds i8, ptr %23, i64 8
-  store i32 0, ptr %329, align 8, !alias.scope !19
-  %330 = getelementptr inbounds i8, ptr %23, i64 12
-  store i32 0, ptr %330, align 4, !alias.scope !19
-  %331 = getelementptr inbounds i8, ptr %23, i64 16
-  store i32 0, ptr %331, align 8, !alias.scope !19
+334:                                              ; preds = %324, %330
+  %335 = getelementptr inbounds i8, ptr %23, i64 8
+  store i32 0, ptr %335, align 8, !alias.scope !19
+  %336 = getelementptr inbounds i8, ptr %23, i64 12
+  store i32 0, ptr %336, align 4, !alias.scope !19
+  %337 = getelementptr inbounds i8, ptr %23, i64 16
+  store i32 0, ptr %337, align 8, !alias.scope !19
   store ptr null, ptr %24, align 8
-  %332 = getelementptr inbounds i8, ptr %24, i64 8
-  store i32 0, ptr %332, align 8
-  %333 = getelementptr inbounds i8, ptr %24, i64 12
-  store i32 -1, ptr %333, align 4
-  %334 = getelementptr inbounds i8, ptr %24, i64 16
-  store i32 34069, ptr %334, align 8
-  store ptr null, ptr %25, align 8
-  %335 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 0, ptr %335, align 8
-  %336 = getelementptr inbounds i8, ptr %25, i64 12
-  store i32 -1, ptr %336, align 4
-  %337 = getelementptr inbounds i8, ptr %25, i64 16
-  store i32 34069, ptr %337, align 8
-  store ptr null, ptr %26, align 8
-  %338 = getelementptr inbounds i8, ptr %26, i64 8
+  %338 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 0, ptr %338, align 8
-  %339 = getelementptr inbounds i8, ptr %26, i64 12
+  %339 = getelementptr inbounds i8, ptr %24, i64 12
   store i32 -1, ptr %339, align 4
-  %340 = getelementptr inbounds i8, ptr %26, i64 16
+  %340 = getelementptr inbounds i8, ptr %24, i64 16
   store i32 34069, ptr %340, align 8
-  store ptr null, ptr %27, align 8
-  %341 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr null, ptr %25, align 8
+  %341 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 0, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %27, i64 12
+  %342 = getelementptr inbounds i8, ptr %25, i64 12
   store i32 -1, ptr %342, align 4
-  %343 = getelementptr inbounds i8, ptr %27, i64 16
+  %343 = getelementptr inbounds i8, ptr %25, i64 16
   store i32 34069, ptr %343, align 8
-  store ptr null, ptr %28, align 8
-  %344 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr null, ptr %26, align 8
+  %344 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 0, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %28, i64 12
+  %345 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 -1, ptr %345, align 4
-  %346 = getelementptr inbounds i8, ptr %28, i64 16
+  %346 = getelementptr inbounds i8, ptr %26, i64 16
   store i32 34069, ptr %346, align 8
-  store ptr null, ptr %29, align 8
-  %347 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr null, ptr %27, align 8
+  %347 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 0, ptr %347, align 8
-  %348 = getelementptr inbounds i8, ptr %29, i64 12
+  %348 = getelementptr inbounds i8, ptr %27, i64 12
   store i32 -1, ptr %348, align 4
-  %349 = getelementptr inbounds i8, ptr %29, i64 16
+  %349 = getelementptr inbounds i8, ptr %27, i64 16
   store i32 34069, ptr %349, align 8
-  store ptr null, ptr %30, align 8
-  %350 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr null, ptr %28, align 8
+  %350 = getelementptr inbounds i8, ptr %28, i64 8
   store i32 0, ptr %350, align 8
-  %351 = getelementptr inbounds i8, ptr %30, i64 12
+  %351 = getelementptr inbounds i8, ptr %28, i64 12
   store i32 -1, ptr %351, align 4
-  %352 = getelementptr inbounds i8, ptr %30, i64 16
+  %352 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 34069, ptr %352, align 8
+  store ptr null, ptr %29, align 8
+  %353 = getelementptr inbounds i8, ptr %29, i64 8
+  store i32 0, ptr %353, align 8
+  %354 = getelementptr inbounds i8, ptr %29, i64 12
+  store i32 -1, ptr %354, align 4
+  %355 = getelementptr inbounds i8, ptr %29, i64 16
+  store i32 34069, ptr %355, align 8
+  store ptr null, ptr %30, align 8
+  %356 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 0, ptr %356, align 8
+  %357 = getelementptr inbounds i8, ptr %30, i64 12
+  store i32 -1, ptr %357, align 4
+  %358 = getelementptr inbounds i8, ptr %30, i64 16
+  store i32 34069, ptr %358, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr null, ptr %4, align 8, !noalias !22
-  %353 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 0, ptr %353, align 8, !noalias !22
-  %354 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 -1, ptr %354, align 4, !noalias !22
-  %355 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 34069, ptr %355, align 8, !noalias !22
-  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %21, ptr noundef nonnull align 8 dereferenceable(120) %319, ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(20) %30)
-          to label %356 unwind label %.body121
+  %359 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 0, ptr %359, align 8, !noalias !22
+  %360 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 -1, ptr %360, align 4, !noalias !22
+  %361 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 34069, ptr %361, align 8, !noalias !22
+  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %21, ptr noundef nonnull align 8 dereferenceable(120) %325, ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(20) %30)
+          to label %362 unwind label %.body121
 
-356:                                              ; preds = %328
-  %357 = load ptr, ptr %4, align 8, !noalias !22
-  %358 = icmp eq ptr %357, null
-  br i1 %358, label %370, label %359
+362:                                              ; preds = %334
+  %363 = load ptr, ptr %4, align 8, !noalias !22
+  %364 = icmp eq ptr %363, null
+  br i1 %364, label %376, label %365
 
-359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %357, i64 8
-  %361 = load i32, ptr %360, align 8
-  %362 = add nsw i32 %361, -1
-  store i32 %362, ptr %360, align 8
-  %.not.i.i.i.i.i.i118 = icmp eq i32 %362, 0
-  br i1 %.not.i.i.i.i.i.i118, label %363, label %370
+365:                                              ; preds = %362
+  %366 = getelementptr inbounds i8, ptr %363, i64 8
+  %367 = load i32, ptr %366, align 8
+  %368 = add nsw i32 %367, -1
+  store i32 %368, ptr %366, align 8
+  %.not.i.i.i.i.i.i118 = icmp eq i32 %368, 0
+  br i1 %.not.i.i.i.i.i.i118, label %369, label %376
 
-363:                                              ; preds = %359
-  %364 = load ptr, ptr %357, align 8
-  %365 = icmp eq ptr %364, null
-  br i1 %365, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119
+369:                                              ; preds = %365
+  %370 = load ptr, ptr %363, align 8
+  %371 = icmp eq ptr %370, null
+  br i1 %371, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119: ; preds = %363
-  %366 = load ptr, ptr %364, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 8
-  %368 = load ptr, ptr %367, align 8
-  call void %368(ptr noundef nonnull align 8 dereferenceable(16) %364) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119: ; preds = %369
+  %372 = load ptr, ptr %370, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %374 = load ptr, ptr %373, align 8
+  call void %374(ptr noundef nonnull align 8 dereferenceable(16) %370) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119, %363
-  call void @_ZdlPv(ptr noundef nonnull %357) #22
-  br label %370
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i119, %369
+  call void @_ZdlPv(ptr noundef nonnull %363) #22
+  br label %376
 
-.body121:                                         ; preds = %328
-  %369 = landingpad { ptr, i32 }
+.body121:                                         ; preds = %334
+  %375 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %30) #21
@@ -2266,468 +2274,468 @@ _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %24) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %23) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %22) #21
-  br label %538
+  br label %544
 
-370:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120, %359, %356
+376:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i120, %365, %362
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %371 = load ptr, ptr %21, align 8
-  %372 = load ptr, ptr %130, align 8
-  %373 = icmp eq ptr %372, null
-  br i1 %373, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125, label %374
+  %377 = load ptr, ptr %21, align 8
+  %378 = load ptr, ptr %133, align 8
+  %379 = icmp eq ptr %378, null
+  br i1 %379, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125, label %380
 
-374:                                              ; preds = %370
-  %375 = getelementptr inbounds i8, ptr %372, i64 8
-  %376 = load i32, ptr %375, align 8
-  %377 = add nsw i32 %376, -1
-  store i32 %377, ptr %375, align 8
-  %.not.i.i.i.i.i124 = icmp eq i32 %377, 0
-  br i1 %.not.i.i.i.i.i124, label %378, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
+380:                                              ; preds = %376
+  %381 = getelementptr inbounds i8, ptr %378, i64 8
+  %382 = load i32, ptr %381, align 8
+  %383 = add nsw i32 %382, -1
+  store i32 %383, ptr %381, align 8
+  %.not.i.i.i.i.i124 = icmp eq i32 %383, 0
+  br i1 %.not.i.i.i.i.i124, label %384, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
 
-378:                                              ; preds = %374
-  %379 = load ptr, ptr %372, align 8
-  %380 = icmp eq ptr %379, null
-  br i1 %380, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127
+384:                                              ; preds = %380
+  %385 = load ptr, ptr %378, align 8
+  %386 = icmp eq ptr %385, null
+  br i1 %386, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127: ; preds = %378
-  %381 = load ptr, ptr %379, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 8
-  %383 = load ptr, ptr %382, align 8
-  call void %383(ptr noundef nonnull align 8 dereferenceable(16) %379) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127: ; preds = %384
+  %387 = load ptr, ptr %385, align 8
+  %388 = getelementptr inbounds i8, ptr %387, i64 8
+  %389 = load ptr, ptr %388, align 8
+  call void %389(ptr noundef nonnull align 8 dereferenceable(16) %385) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127, %378
-  call void @_ZdlPv(ptr noundef nonnull %372) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i127, %384
+  call void @_ZdlPv(ptr noundef nonnull %378) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128, %374, %370
-  store ptr %371, ptr %130, align 8
-  %.not.i.i.i126 = icmp eq ptr %371, null
-  br i1 %.not.i.i.i126, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129, label %384
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i128, %380, %376
+  store ptr %377, ptr %133, align 8
+  %.not.i.i.i126 = icmp eq ptr %377, null
+  br i1 %.not.i.i.i126, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129, label %390
 
-384:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
-  %385 = getelementptr inbounds i8, ptr %371, i64 8
-  %386 = load i32, ptr %385, align 8
-  %387 = add nsw i32 %386, 1
-  store i32 %387, ptr %385, align 8
+390:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
+  %391 = getelementptr inbounds i8, ptr %377, i64 8
+  %392 = load i32, ptr %391, align 8
+  %393 = add nsw i32 %392, 1
+  store i32 %393, ptr %391, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129
 
-_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129: ; preds = %384, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
-  %388 = load ptr, ptr %21, align 8
-  %389 = icmp eq ptr %388, null
-  br i1 %389, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134, label %390
+_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129: ; preds = %390, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i125
+  %394 = load ptr, ptr %21, align 8
+  %395 = icmp eq ptr %394, null
+  br i1 %395, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134, label %396
 
-390:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129
-  %391 = getelementptr inbounds i8, ptr %388, i64 8
-  %392 = load i32, ptr %391, align 8
-  %393 = add nsw i32 %392, -1
-  store i32 %393, ptr %391, align 8
-  %.not.i.i.i.i130 = icmp eq i32 %393, 0
-  br i1 %.not.i.i.i.i130, label %394, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131
+396:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129
+  %397 = getelementptr inbounds i8, ptr %394, i64 8
+  %398 = load i32, ptr %397, align 8
+  %399 = add nsw i32 %398, -1
+  store i32 %399, ptr %397, align 8
+  %.not.i.i.i.i130 = icmp eq i32 %399, 0
+  br i1 %.not.i.i.i.i130, label %400, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131
 
-394:                                              ; preds = %390
-  %395 = load ptr, ptr %388, align 8
-  %396 = icmp eq ptr %395, null
-  br i1 %396, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132
+400:                                              ; preds = %396
+  %401 = load ptr, ptr %394, align 8
+  %402 = icmp eq ptr %401, null
+  br i1 %402, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132: ; preds = %394
-  %397 = load ptr, ptr %395, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 8
-  %399 = load ptr, ptr %398, align 8
-  call void %399(ptr noundef nonnull align 8 dereferenceable(16) %395) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132: ; preds = %400
+  %403 = load ptr, ptr %401, align 8
+  %404 = getelementptr inbounds i8, ptr %403, i64 8
+  %405 = load ptr, ptr %404, align 8
+  call void %405(ptr noundef nonnull align 8 dereferenceable(16) %401) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132, %394
-  call void @_ZdlPv(ptr noundef nonnull %388) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i132, %400
+  call void @_ZdlPv(ptr noundef nonnull %394) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133, %390
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i133, %396
   store ptr null, ptr %21, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit129, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i131
-  %400 = load ptr, ptr %30, align 8
-  %401 = icmp eq ptr %400, null
-  br i1 %401, label %_ZN3glw12RenderTargetD2Ev.exit139, label %402
+  %406 = load ptr, ptr %30, align 8
+  %407 = icmp eq ptr %406, null
+  br i1 %407, label %_ZN3glw12RenderTargetD2Ev.exit139, label %408
 
-402:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134
-  %403 = getelementptr inbounds i8, ptr %400, i64 8
-  %404 = load i32, ptr %403, align 8
-  %405 = add nsw i32 %404, -1
-  store i32 %405, ptr %403, align 8
-  %.not.i.i.i.i.i135 = icmp eq i32 %405, 0
-  br i1 %.not.i.i.i.i.i135, label %406, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136
+408:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134
+  %409 = getelementptr inbounds i8, ptr %406, i64 8
+  %410 = load i32, ptr %409, align 8
+  %411 = add nsw i32 %410, -1
+  store i32 %411, ptr %409, align 8
+  %.not.i.i.i.i.i135 = icmp eq i32 %411, 0
+  br i1 %.not.i.i.i.i.i135, label %412, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136
 
-406:                                              ; preds = %402
-  %407 = load ptr, ptr %400, align 8
-  %408 = icmp eq ptr %407, null
-  br i1 %408, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137
+412:                                              ; preds = %408
+  %413 = load ptr, ptr %406, align 8
+  %414 = icmp eq ptr %413, null
+  br i1 %414, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137: ; preds = %406
-  %409 = load ptr, ptr %407, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 8
-  %411 = load ptr, ptr %410, align 8
-  call void %411(ptr noundef nonnull align 8 dereferenceable(16) %407) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137: ; preds = %412
+  %415 = load ptr, ptr %413, align 8
+  %416 = getelementptr inbounds i8, ptr %415, i64 8
+  %417 = load ptr, ptr %416, align 8
+  call void %417(ptr noundef nonnull align 8 dereferenceable(16) %413) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137, %406
-  call void @_ZdlPv(ptr noundef nonnull %400) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i137, %412
+  call void @_ZdlPv(ptr noundef nonnull %406) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138, %402
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i138, %408
   store ptr null, ptr %30, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit139
 
 _ZN3glw12RenderTargetD2Ev.exit139:                ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit134, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i136
-  %412 = load ptr, ptr %29, align 8
-  %413 = icmp eq ptr %412, null
-  br i1 %413, label %_ZN3glw12RenderTargetD2Ev.exit144, label %414
+  %418 = load ptr, ptr %29, align 8
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %_ZN3glw12RenderTargetD2Ev.exit144, label %420
 
-414:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit139
-  %415 = getelementptr inbounds i8, ptr %412, i64 8
-  %416 = load i32, ptr %415, align 8
-  %417 = add nsw i32 %416, -1
-  store i32 %417, ptr %415, align 8
-  %.not.i.i.i.i.i140 = icmp eq i32 %417, 0
-  br i1 %.not.i.i.i.i.i140, label %418, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141
+420:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit139
+  %421 = getelementptr inbounds i8, ptr %418, i64 8
+  %422 = load i32, ptr %421, align 8
+  %423 = add nsw i32 %422, -1
+  store i32 %423, ptr %421, align 8
+  %.not.i.i.i.i.i140 = icmp eq i32 %423, 0
+  br i1 %.not.i.i.i.i.i140, label %424, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141
 
-418:                                              ; preds = %414
-  %419 = load ptr, ptr %412, align 8
-  %420 = icmp eq ptr %419, null
-  br i1 %420, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142
+424:                                              ; preds = %420
+  %425 = load ptr, ptr %418, align 8
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142: ; preds = %418
-  %421 = load ptr, ptr %419, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 8
-  %423 = load ptr, ptr %422, align 8
-  call void %423(ptr noundef nonnull align 8 dereferenceable(16) %419) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142: ; preds = %424
+  %427 = load ptr, ptr %425, align 8
+  %428 = getelementptr inbounds i8, ptr %427, i64 8
+  %429 = load ptr, ptr %428, align 8
+  call void %429(ptr noundef nonnull align 8 dereferenceable(16) %425) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142, %418
-  call void @_ZdlPv(ptr noundef nonnull %412) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i142, %424
+  call void @_ZdlPv(ptr noundef nonnull %418) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143, %414
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i143, %420
   store ptr null, ptr %29, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit144
 
 _ZN3glw12RenderTargetD2Ev.exit144:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit139, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i141
-  %424 = load ptr, ptr %28, align 8
-  %425 = icmp eq ptr %424, null
-  br i1 %425, label %_ZN3glw12RenderTargetD2Ev.exit149, label %426
+  %430 = load ptr, ptr %28, align 8
+  %431 = icmp eq ptr %430, null
+  br i1 %431, label %_ZN3glw12RenderTargetD2Ev.exit149, label %432
 
-426:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit144
-  %427 = getelementptr inbounds i8, ptr %424, i64 8
-  %428 = load i32, ptr %427, align 8
-  %429 = add nsw i32 %428, -1
-  store i32 %429, ptr %427, align 8
-  %.not.i.i.i.i.i145 = icmp eq i32 %429, 0
-  br i1 %.not.i.i.i.i.i145, label %430, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146
+432:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit144
+  %433 = getelementptr inbounds i8, ptr %430, i64 8
+  %434 = load i32, ptr %433, align 8
+  %435 = add nsw i32 %434, -1
+  store i32 %435, ptr %433, align 8
+  %.not.i.i.i.i.i145 = icmp eq i32 %435, 0
+  br i1 %.not.i.i.i.i.i145, label %436, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146
 
-430:                                              ; preds = %426
-  %431 = load ptr, ptr %424, align 8
-  %432 = icmp eq ptr %431, null
-  br i1 %432, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147
+436:                                              ; preds = %432
+  %437 = load ptr, ptr %430, align 8
+  %438 = icmp eq ptr %437, null
+  br i1 %438, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147: ; preds = %430
-  %433 = load ptr, ptr %431, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 8
-  %435 = load ptr, ptr %434, align 8
-  call void %435(ptr noundef nonnull align 8 dereferenceable(16) %431) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147: ; preds = %436
+  %439 = load ptr, ptr %437, align 8
+  %440 = getelementptr inbounds i8, ptr %439, i64 8
+  %441 = load ptr, ptr %440, align 8
+  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %437) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147, %430
-  call void @_ZdlPv(ptr noundef nonnull %424) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i147, %436
+  call void @_ZdlPv(ptr noundef nonnull %430) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148, %426
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i148, %432
   store ptr null, ptr %28, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit149
 
 _ZN3glw12RenderTargetD2Ev.exit149:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit144, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i146
-  %436 = load ptr, ptr %27, align 8
-  %437 = icmp eq ptr %436, null
-  br i1 %437, label %_ZN3glw12RenderTargetD2Ev.exit154, label %438
+  %442 = load ptr, ptr %27, align 8
+  %443 = icmp eq ptr %442, null
+  br i1 %443, label %_ZN3glw12RenderTargetD2Ev.exit154, label %444
 
-438:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit149
-  %439 = getelementptr inbounds i8, ptr %436, i64 8
-  %440 = load i32, ptr %439, align 8
-  %441 = add nsw i32 %440, -1
-  store i32 %441, ptr %439, align 8
-  %.not.i.i.i.i.i150 = icmp eq i32 %441, 0
-  br i1 %.not.i.i.i.i.i150, label %442, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151
+444:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit149
+  %445 = getelementptr inbounds i8, ptr %442, i64 8
+  %446 = load i32, ptr %445, align 8
+  %447 = add nsw i32 %446, -1
+  store i32 %447, ptr %445, align 8
+  %.not.i.i.i.i.i150 = icmp eq i32 %447, 0
+  br i1 %.not.i.i.i.i.i150, label %448, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151
 
-442:                                              ; preds = %438
-  %443 = load ptr, ptr %436, align 8
-  %444 = icmp eq ptr %443, null
-  br i1 %444, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152
+448:                                              ; preds = %444
+  %449 = load ptr, ptr %442, align 8
+  %450 = icmp eq ptr %449, null
+  br i1 %450, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152: ; preds = %442
-  %445 = load ptr, ptr %443, align 8
-  %446 = getelementptr inbounds i8, ptr %445, i64 8
-  %447 = load ptr, ptr %446, align 8
-  call void %447(ptr noundef nonnull align 8 dereferenceable(16) %443) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152: ; preds = %448
+  %451 = load ptr, ptr %449, align 8
+  %452 = getelementptr inbounds i8, ptr %451, i64 8
+  %453 = load ptr, ptr %452, align 8
+  call void %453(ptr noundef nonnull align 8 dereferenceable(16) %449) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152, %442
-  call void @_ZdlPv(ptr noundef nonnull %436) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i152, %448
+  call void @_ZdlPv(ptr noundef nonnull %442) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153, %438
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i153, %444
   store ptr null, ptr %27, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit154
 
 _ZN3glw12RenderTargetD2Ev.exit154:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit149, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i151
-  %448 = load ptr, ptr %26, align 8
-  %449 = icmp eq ptr %448, null
-  br i1 %449, label %_ZN3glw12RenderTargetD2Ev.exit159, label %450
+  %454 = load ptr, ptr %26, align 8
+  %455 = icmp eq ptr %454, null
+  br i1 %455, label %_ZN3glw12RenderTargetD2Ev.exit159, label %456
 
-450:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit154
-  %451 = getelementptr inbounds i8, ptr %448, i64 8
-  %452 = load i32, ptr %451, align 8
-  %453 = add nsw i32 %452, -1
-  store i32 %453, ptr %451, align 8
-  %.not.i.i.i.i.i155 = icmp eq i32 %453, 0
-  br i1 %.not.i.i.i.i.i155, label %454, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156
+456:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit154
+  %457 = getelementptr inbounds i8, ptr %454, i64 8
+  %458 = load i32, ptr %457, align 8
+  %459 = add nsw i32 %458, -1
+  store i32 %459, ptr %457, align 8
+  %.not.i.i.i.i.i155 = icmp eq i32 %459, 0
+  br i1 %.not.i.i.i.i.i155, label %460, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156
 
-454:                                              ; preds = %450
-  %455 = load ptr, ptr %448, align 8
-  %456 = icmp eq ptr %455, null
-  br i1 %456, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157
+460:                                              ; preds = %456
+  %461 = load ptr, ptr %454, align 8
+  %462 = icmp eq ptr %461, null
+  br i1 %462, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157: ; preds = %454
-  %457 = load ptr, ptr %455, align 8
-  %458 = getelementptr inbounds i8, ptr %457, i64 8
-  %459 = load ptr, ptr %458, align 8
-  call void %459(ptr noundef nonnull align 8 dereferenceable(16) %455) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157: ; preds = %460
+  %463 = load ptr, ptr %461, align 8
+  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %465 = load ptr, ptr %464, align 8
+  call void %465(ptr noundef nonnull align 8 dereferenceable(16) %461) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157, %454
-  call void @_ZdlPv(ptr noundef nonnull %448) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i157, %460
+  call void @_ZdlPv(ptr noundef nonnull %454) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158, %450
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i158, %456
   store ptr null, ptr %26, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit159
 
 _ZN3glw12RenderTargetD2Ev.exit159:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit154, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i156
-  %460 = load ptr, ptr %25, align 8
-  %461 = icmp eq ptr %460, null
-  br i1 %461, label %_ZN3glw12RenderTargetD2Ev.exit164, label %462
+  %466 = load ptr, ptr %25, align 8
+  %467 = icmp eq ptr %466, null
+  br i1 %467, label %_ZN3glw12RenderTargetD2Ev.exit164, label %468
 
-462:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit159
-  %463 = getelementptr inbounds i8, ptr %460, i64 8
-  %464 = load i32, ptr %463, align 8
-  %465 = add nsw i32 %464, -1
-  store i32 %465, ptr %463, align 8
-  %.not.i.i.i.i.i160 = icmp eq i32 %465, 0
-  br i1 %.not.i.i.i.i.i160, label %466, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161
+468:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit159
+  %469 = getelementptr inbounds i8, ptr %466, i64 8
+  %470 = load i32, ptr %469, align 8
+  %471 = add nsw i32 %470, -1
+  store i32 %471, ptr %469, align 8
+  %.not.i.i.i.i.i160 = icmp eq i32 %471, 0
+  br i1 %.not.i.i.i.i.i160, label %472, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161
 
-466:                                              ; preds = %462
-  %467 = load ptr, ptr %460, align 8
-  %468 = icmp eq ptr %467, null
-  br i1 %468, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162
+472:                                              ; preds = %468
+  %473 = load ptr, ptr %466, align 8
+  %474 = icmp eq ptr %473, null
+  br i1 %474, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162: ; preds = %466
-  %469 = load ptr, ptr %467, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 8
-  %471 = load ptr, ptr %470, align 8
-  call void %471(ptr noundef nonnull align 8 dereferenceable(16) %467) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162: ; preds = %472
+  %475 = load ptr, ptr %473, align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 8
+  %477 = load ptr, ptr %476, align 8
+  call void %477(ptr noundef nonnull align 8 dereferenceable(16) %473) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162, %466
-  call void @_ZdlPv(ptr noundef nonnull %460) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i162, %472
+  call void @_ZdlPv(ptr noundef nonnull %466) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163, %462
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i163, %468
   store ptr null, ptr %25, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit164
 
 _ZN3glw12RenderTargetD2Ev.exit164:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit159, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i161
-  %472 = load ptr, ptr %24, align 8
-  %473 = icmp eq ptr %472, null
-  br i1 %473, label %_ZN3glw12RenderTargetD2Ev.exit169, label %474
+  %478 = load ptr, ptr %24, align 8
+  %479 = icmp eq ptr %478, null
+  br i1 %479, label %_ZN3glw12RenderTargetD2Ev.exit169, label %480
 
-474:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit164
-  %475 = getelementptr inbounds i8, ptr %472, i64 8
-  %476 = load i32, ptr %475, align 8
-  %477 = add nsw i32 %476, -1
-  store i32 %477, ptr %475, align 8
-  %.not.i.i.i.i.i165 = icmp eq i32 %477, 0
-  br i1 %.not.i.i.i.i.i165, label %478, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166
+480:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit164
+  %481 = getelementptr inbounds i8, ptr %478, i64 8
+  %482 = load i32, ptr %481, align 8
+  %483 = add nsw i32 %482, -1
+  store i32 %483, ptr %481, align 8
+  %.not.i.i.i.i.i165 = icmp eq i32 %483, 0
+  br i1 %.not.i.i.i.i.i165, label %484, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166
 
-478:                                              ; preds = %474
-  %479 = load ptr, ptr %472, align 8
-  %480 = icmp eq ptr %479, null
-  br i1 %480, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167
+484:                                              ; preds = %480
+  %485 = load ptr, ptr %478, align 8
+  %486 = icmp eq ptr %485, null
+  br i1 %486, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167: ; preds = %478
-  %481 = load ptr, ptr %479, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 8
-  %483 = load ptr, ptr %482, align 8
-  call void %483(ptr noundef nonnull align 8 dereferenceable(16) %479) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167: ; preds = %484
+  %487 = load ptr, ptr %485, align 8
+  %488 = getelementptr inbounds i8, ptr %487, i64 8
+  %489 = load ptr, ptr %488, align 8
+  call void %489(ptr noundef nonnull align 8 dereferenceable(16) %485) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167, %478
-  call void @_ZdlPv(ptr noundef nonnull %472) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i167, %484
+  call void @_ZdlPv(ptr noundef nonnull %478) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168, %474
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i168, %480
   store ptr null, ptr %24, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit169
 
 _ZN3glw12RenderTargetD2Ev.exit169:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit164, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i166
-  %484 = load ptr, ptr %23, align 8
-  %485 = icmp eq ptr %484, null
-  br i1 %485, label %_ZN3glw12RenderTargetD2Ev.exit174, label %486
+  %490 = load ptr, ptr %23, align 8
+  %491 = icmp eq ptr %490, null
+  br i1 %491, label %_ZN3glw12RenderTargetD2Ev.exit174, label %492
 
-486:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit169
-  %487 = getelementptr inbounds i8, ptr %484, i64 8
-  %488 = load i32, ptr %487, align 8
-  %489 = add nsw i32 %488, -1
-  store i32 %489, ptr %487, align 8
-  %.not.i.i.i.i.i170 = icmp eq i32 %489, 0
-  br i1 %.not.i.i.i.i.i170, label %490, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171
+492:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit169
+  %493 = getelementptr inbounds i8, ptr %490, i64 8
+  %494 = load i32, ptr %493, align 8
+  %495 = add nsw i32 %494, -1
+  store i32 %495, ptr %493, align 8
+  %.not.i.i.i.i.i170 = icmp eq i32 %495, 0
+  br i1 %.not.i.i.i.i.i170, label %496, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171
 
-490:                                              ; preds = %486
-  %491 = load ptr, ptr %484, align 8
-  %492 = icmp eq ptr %491, null
-  br i1 %492, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172
+496:                                              ; preds = %492
+  %497 = load ptr, ptr %490, align 8
+  %498 = icmp eq ptr %497, null
+  br i1 %498, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172: ; preds = %490
-  %493 = load ptr, ptr %491, align 8
-  %494 = getelementptr inbounds i8, ptr %493, i64 8
-  %495 = load ptr, ptr %494, align 8
-  call void %495(ptr noundef nonnull align 8 dereferenceable(16) %491) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172: ; preds = %496
+  %499 = load ptr, ptr %497, align 8
+  %500 = getelementptr inbounds i8, ptr %499, i64 8
+  %501 = load ptr, ptr %500, align 8
+  call void %501(ptr noundef nonnull align 8 dereferenceable(16) %497) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172, %490
-  call void @_ZdlPv(ptr noundef nonnull %484) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i172, %496
+  call void @_ZdlPv(ptr noundef nonnull %490) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173, %486
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i173, %492
   store ptr null, ptr %23, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit174
 
 _ZN3glw12RenderTargetD2Ev.exit174:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit169, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i171
-  %496 = load ptr, ptr %22, align 8
-  %497 = icmp eq ptr %496, null
-  br i1 %497, label %_ZN3glw12RenderTargetD2Ev.exit179, label %498
+  %502 = load ptr, ptr %22, align 8
+  %503 = icmp eq ptr %502, null
+  br i1 %503, label %_ZN3glw12RenderTargetD2Ev.exit179, label %504
 
-498:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit174
-  %499 = getelementptr inbounds i8, ptr %496, i64 8
-  %500 = load i32, ptr %499, align 8
-  %501 = add nsw i32 %500, -1
-  store i32 %501, ptr %499, align 8
-  %.not.i.i.i.i.i175 = icmp eq i32 %501, 0
-  br i1 %.not.i.i.i.i.i175, label %502, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176
+504:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit174
+  %505 = getelementptr inbounds i8, ptr %502, i64 8
+  %506 = load i32, ptr %505, align 8
+  %507 = add nsw i32 %506, -1
+  store i32 %507, ptr %505, align 8
+  %.not.i.i.i.i.i175 = icmp eq i32 %507, 0
+  br i1 %.not.i.i.i.i.i175, label %508, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176
 
-502:                                              ; preds = %498
-  %503 = load ptr, ptr %496, align 8
-  %504 = icmp eq ptr %503, null
-  br i1 %504, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177
+508:                                              ; preds = %504
+  %509 = load ptr, ptr %502, align 8
+  %510 = icmp eq ptr %509, null
+  br i1 %510, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177: ; preds = %502
-  %505 = load ptr, ptr %503, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 8
-  %507 = load ptr, ptr %506, align 8
-  call void %507(ptr noundef nonnull align 8 dereferenceable(16) %503) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177: ; preds = %508
+  %511 = load ptr, ptr %509, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 8
+  %513 = load ptr, ptr %512, align 8
+  call void %513(ptr noundef nonnull align 8 dereferenceable(16) %509) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177, %502
-  call void @_ZdlPv(ptr noundef nonnull %496) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i177, %508
+  call void @_ZdlPv(ptr noundef nonnull %502) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178, %498
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i178, %504
   store ptr null, ptr %22, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit179
 
 _ZN3glw12RenderTargetD2Ev.exit179:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit174, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i176
-  %508 = load ptr, ptr %37, align 8
-  invoke void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %31, ptr noundef nonnull align 8 dereferenceable(120) %508, ptr noundef nonnull align 8 dereferenceable(8) %130)
-          to label %509 unwind label %522
+  %514 = load ptr, ptr %37, align 8
+  invoke void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %31, ptr noundef nonnull align 8 dereferenceable(120) %514, ptr noundef nonnull align 8 dereferenceable(8) %133)
+          to label %515 unwind label %528
 
-509:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit179
-  %510 = load ptr, ptr %31, align 8
-  %511 = icmp eq ptr %510, null
-  br i1 %511, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %512
+515:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit179
+  %516 = load ptr, ptr %31, align 8
+  %517 = icmp eq ptr %516, null
+  br i1 %517, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %518
 
-512:                                              ; preds = %509
-  %513 = getelementptr inbounds i8, ptr %510, i64 8
-  %514 = load i32, ptr %513, align 8
-  %515 = add nsw i32 %514, -1
-  store i32 %515, ptr %513, align 8
-  %.not.i.i.i.i.i180 = icmp eq i32 %515, 0
-  br i1 %.not.i.i.i.i.i180, label %516, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
+518:                                              ; preds = %515
+  %519 = getelementptr inbounds i8, ptr %516, i64 8
+  %520 = load i32, ptr %519, align 8
+  %521 = add nsw i32 %520, -1
+  store i32 %521, ptr %519, align 8
+  %.not.i.i.i.i.i180 = icmp eq i32 %521, 0
+  br i1 %.not.i.i.i.i.i180, label %522, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-516:                                              ; preds = %512
-  %517 = load ptr, ptr %510, align 8
-  %518 = icmp eq ptr %517, null
-  br i1 %518, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i
+522:                                              ; preds = %518
+  %523 = load ptr, ptr %516, align 8
+  %524 = icmp eq ptr %523, null
+  br i1 %524, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %516
-  %519 = load ptr, ptr %517, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 8
-  %521 = load ptr, ptr %520, align 8
-  call void %521(ptr noundef nonnull align 8 dereferenceable(24) %517) #21
+_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %522
+  %525 = load ptr, ptr %523, align 8
+  %526 = getelementptr inbounds i8, ptr %525, i64 8
+  %527 = load ptr, ptr %526, align 8
+  call void %527(ptr noundef nonnull align 8 dereferenceable(24) %523) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %516
-  call void @_ZdlPv(ptr noundef nonnull %510) #22
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %522
+  call void @_ZdlPv(ptr noundef nonnull %516) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %512
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %518
   store ptr null, ptr %31, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
 
-522:                                              ; preds = %278, %268, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, %_ZN3glw12RenderTargetD2Ev.exit179
-  %523 = landingpad { ptr, i32 }
+528:                                              ; preds = %281, %271, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, %_ZN3glw12RenderTargetD2Ev.exit179
+  %529 = landingpad { ptr, i32 }
           cleanup
-  br label %538
+  br label %544
 
-_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i, %509, %276
-  %524 = load ptr, ptr %37, align 8
-  invoke void @_ZN3glw7Context25unbindReadDrawFramebufferEv(ptr noundef nonnull align 8 dereferenceable(120) %524)
-          to label %525 unwind label %522
+_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i, %515, %279
+  %530 = load ptr, ptr %37, align 8
+  invoke void @_ZN3glw7Context25unbindReadDrawFramebufferEv(ptr noundef nonnull align 8 dereferenceable(120) %530)
+          to label %531 unwind label %528
 
-525:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
-  %526 = load ptr, ptr %19, align 8
-  %527 = icmp eq ptr %526, null
-  br i1 %527, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185, label %528
+531:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
+  %532 = load ptr, ptr %19, align 8
+  %533 = icmp eq ptr %532, null
+  br i1 %533, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185, label %534
 
-528:                                              ; preds = %525
-  %529 = getelementptr inbounds i8, ptr %526, i64 8
-  %530 = load i32, ptr %529, align 8
-  %531 = add nsw i32 %530, -1
-  store i32 %531, ptr %529, align 8
-  %.not.i.i.i.i.i181 = icmp eq i32 %531, 0
-  br i1 %.not.i.i.i.i.i181, label %532, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185
+534:                                              ; preds = %531
+  %535 = getelementptr inbounds i8, ptr %532, i64 8
+  %536 = load i32, ptr %535, align 8
+  %537 = add nsw i32 %536, -1
+  store i32 %537, ptr %535, align 8
+  %.not.i.i.i.i.i181 = icmp eq i32 %537, 0
+  br i1 %.not.i.i.i.i.i181, label %538, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185
 
-532:                                              ; preds = %528
-  %533 = load ptr, ptr %526, align 8
-  %534 = icmp eq ptr %533, null
-  br i1 %534, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183
+538:                                              ; preds = %534
+  %539 = load ptr, ptr %532, align 8
+  %540 = icmp eq ptr %539, null
+  br i1 %540, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183
 
-_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183: ; preds = %532
-  %535 = load ptr, ptr %533, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 8
-  %537 = load ptr, ptr %536, align 8
-  call void %537(ptr noundef nonnull align 8 dereferenceable(24) %533) #21
+_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183: ; preds = %538
+  %541 = load ptr, ptr %539, align 8
+  %542 = getelementptr inbounds i8, ptr %541, i64 8
+  %543 = load ptr, ptr %542, align 8
+  call void %543(ptr noundef nonnull align 8 dereferenceable(24) %539) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183, %532
-  call void @_ZdlPv(ptr noundef nonnull %526) #22
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i183, %538
+  call void @_ZdlPv(ptr noundef nonnull %532) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185
 
-538:                                              ; preds = %.body121, %522
-  %.pn50 = phi { ptr, i32 } [ %523, %522 ], [ %369, %.body121 ]
+544:                                              ; preds = %.body121, %528
+  %.pn50 = phi { ptr, i32 } [ %529, %528 ], [ %375, %.body121 ]
   call void @_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
-  br label %539
+  br label %545
 
-_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185: ; preds = %528, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184, %525, %32, %3
+_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit185: ; preds = %534, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i184, %531, %32, %3
   ret void
 
-539:                                              ; preds = %538, %.body
-  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %538 ], [ %128, %.body ]
+545:                                              ; preds = %544, %.body
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %544 ], [ %131, %.body ]
   resume { ptr, i32 } %.pn50.pn
 }
 
@@ -4162,221 +4170,224 @@ _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6
 
 _ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
   %78 = load ptr, ptr %42, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 4
-  %80 = load <2 x i32>, ptr %21, align 4
+  %79 = load i32, ptr %21, align 4
+  %80 = load i32, ptr %44, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  %81 = getelementptr inbounds i8, ptr %4, i64 4
+  %82 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 6402, ptr %4, align 4, !noalias !41
-  store <2 x i32> %80, ptr %79, align 4, !noalias !41
+  store i32 %79, ptr %81, align 4, !noalias !41
+  store i32 %80, ptr %82, align 4, !noalias !41
   call void @_ZN3glw7Context18createRenderbufferERKNS_21RenderbufferArgumentsE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.4") align 8 %7, ptr noundef nonnull align 8 dereferenceable(120) %78, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %81 = getelementptr inbounds i8, ptr %0, i64 80
-  %82 = load ptr, ptr %7, align 8
-  %83 = load ptr, ptr %81, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49, label %85
+  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %84 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %83, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49, label %87
 
-85:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = add nsw i32 %87, -1
-  store i32 %88, ptr %86, align 8
-  %.not.i.i.i.i.i.i48 = icmp eq i32 %88, 0
-  br i1 %.not.i.i.i.i.i.i48, label %89, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
+87:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
+  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = add nsw i32 %89, -1
+  store i32 %90, ptr %88, align 8
+  %.not.i.i.i.i.i.i48 = icmp eq i32 %90, 0
+  br i1 %.not.i.i.i.i.i.i48, label %91, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %83, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %85, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51: ; preds = %89
-  %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %90) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51: ; preds = %91
+  %94 = load ptr, ptr %92, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(16) %92) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51, %89
-  call void @_ZdlPv(ptr noundef nonnull %83) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i51, %91
+  call void @_ZdlPv(ptr noundef nonnull %85) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52, %85, %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
-  store ptr %82, ptr %81, align 8
-  %.not.i.i.i.i50 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i.i50, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53, label %95
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i52, %87, %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit
+  store ptr %84, ptr %83, align 8
+  %.not.i.i.i.i50 = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i50, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53, label %97
 
-95:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
-  %96 = getelementptr inbounds i8, ptr %82, i64 8
-  %97 = load i32, ptr %96, align 8
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %96, align 8
+97:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
+  %98 = getelementptr inbounds i8, ptr %84, i64 8
+  %99 = load i32, ptr %98, align 8
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53
 
-_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53: ; preds = %95, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
-  %99 = load ptr, ptr %7, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58, label %101
+_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53: ; preds = %97, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i49
+  %101 = load ptr, ptr %7, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58, label %103
 
-101:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53
-  %102 = getelementptr inbounds i8, ptr %99, i64 8
-  %103 = load i32, ptr %102, align 8
-  %104 = add nsw i32 %103, -1
-  store i32 %104, ptr %102, align 8
-  %.not.i.i.i.i.i54 = icmp eq i32 %104, 0
-  br i1 %.not.i.i.i.i.i54, label %105, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55
+103:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53
+  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = add nsw i32 %105, -1
+  store i32 %106, ptr %104, align 8
+  %.not.i.i.i.i.i54 = icmp eq i32 %106, 0
+  br i1 %.not.i.i.i.i.i54, label %107, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %99, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %101, align 8
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56: ; preds = %105
-  %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(16) %106) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56: ; preds = %107
+  %110 = load ptr, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %108) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56, %105
-  call void @_ZdlPv(ptr noundef nonnull %99) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i56, %107
+  call void @_ZdlPv(ptr noundef nonnull %101) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57, %101
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i57, %103
   store ptr null, ptr %7, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58
 
 _ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEaSERKS7_.exit53, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i55
-  %111 = load ptr, ptr %42, align 8
+  %113 = load ptr, ptr %42, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %112 = load ptr, ptr %81, align 8, !noalias !44
-  store ptr %112, ptr %9, align 8, !alias.scope !44
-  %.not.i.i.i.i.i59 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i.i59, label %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit, label %113
+  %114 = load ptr, ptr %83, align 8, !noalias !44
+  store ptr %114, ptr %9, align 8, !alias.scope !44
+  %.not.i.i.i.i.i59 = icmp eq ptr %114, null
+  br i1 %.not.i.i.i.i.i59, label %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit, label %115
 
-113:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
-  %115 = load i32, ptr %114, align 8, !noalias !44
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %114, align 8, !noalias !44
+115:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58
+  %116 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = load i32, ptr %116, align 8, !noalias !44
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %116, align 8, !noalias !44
   br label %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit
 
-_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58, %113
-  %117 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 0, ptr %117, align 8, !alias.scope !44
-  %118 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 0, ptr %118, align 4, !alias.scope !44
-  %119 = getelementptr inbounds i8, ptr %9, i64 16
+_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEED2Ev.exit58, %115
+  %119 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 0, ptr %119, align 8, !alias.scope !44
+  %120 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 0, ptr %120, align 4, !alias.scope !44
+  %121 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 0, ptr %121, align 8, !alias.scope !44
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %120 = load ptr, ptr %48, align 8, !noalias !47
-  store ptr %120, ptr %10, align 8, !alias.scope !47
-  %.not.i.i.i.i.i60 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i.i60, label %125, label %121
+  %122 = load ptr, ptr %48, align 8, !noalias !47
+  store ptr %122, ptr %10, align 8, !alias.scope !47
+  %.not.i.i.i.i.i60 = icmp eq ptr %122, null
+  br i1 %.not.i.i.i.i.i60, label %127, label %123
 
-121:                                              ; preds = %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
-  %123 = load i32, ptr %122, align 8, !noalias !47
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %122, align 8, !noalias !47
-  br label %125
+123:                                              ; preds = %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit
+  %124 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = load i32, ptr %124, align 8, !noalias !47
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %124, align 8, !noalias !47
+  br label %127
 
-125:                                              ; preds = %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit, %121
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 0, ptr %126, align 8, !alias.scope !47
-  %127 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 0, ptr %127, align 4, !alias.scope !47
-  %128 = getelementptr inbounds i8, ptr %10, i64 16
+127:                                              ; preds = %_ZN3glw18renderbufferTargetERNS_6detail19ObjectSharedPointerINS_16SafeRenderbufferENS0_14DefaultDeleterINS_10SafeObjectEEENS_14SafeRenderableEEE.exit, %123
+  %128 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %128, align 8, !alias.scope !47
+  %129 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 0, ptr %129, align 4, !alias.scope !47
+  %130 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 0, ptr %130, align 8, !alias.scope !47
   store ptr null, ptr %11, align 8
-  %129 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 0, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 -1, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %11, i64 16
-  store i32 34069, ptr %131, align 8
+  %131 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 0, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 -1, ptr %132, align 4
+  %133 = getelementptr inbounds i8, ptr %11, i64 16
+  store i32 34069, ptr %133, align 8
   store ptr null, ptr %12, align 8
-  %132 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %12, i64 12
-  store i32 -1, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 34069, ptr %134, align 8
+  %134 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 0, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %12, i64 12
+  store i32 -1, ptr %135, align 4
+  %136 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 34069, ptr %136, align 8
   store ptr null, ptr %13, align 8
-  %135 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 -1, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 34069, ptr %137, align 8
+  %137 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 0, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 -1, ptr %138, align 4
+  %139 = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 34069, ptr %139, align 8
   store ptr null, ptr %14, align 8
-  %138 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 0, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 -1, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %14, i64 16
-  store i32 34069, ptr %140, align 8
+  %140 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 0, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %14, i64 12
+  store i32 -1, ptr %141, align 4
+  %142 = getelementptr inbounds i8, ptr %14, i64 16
+  store i32 34069, ptr %142, align 8
   store ptr null, ptr %15, align 8
-  %141 = getelementptr inbounds i8, ptr %15, i64 8
-  store i32 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %15, i64 12
-  store i32 -1, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 34069, ptr %143, align 8
+  %143 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 0, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 -1, ptr %144, align 4
+  %145 = getelementptr inbounds i8, ptr %15, i64 16
+  store i32 34069, ptr %145, align 8
   store ptr null, ptr %16, align 8
-  %144 = getelementptr inbounds i8, ptr %16, i64 8
-  store i32 0, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 -1, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %16, i64 16
-  store i32 34069, ptr %146, align 8
+  %146 = getelementptr inbounds i8, ptr %16, i64 8
+  store i32 0, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %16, i64 12
+  store i32 -1, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 34069, ptr %148, align 8
   store ptr null, ptr %17, align 8
-  %147 = getelementptr inbounds i8, ptr %17, i64 8
-  store i32 0, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %17, i64 12
-  store i32 -1, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %17, i64 16
-  store i32 34069, ptr %149, align 8
+  %149 = getelementptr inbounds i8, ptr %17, i64 8
+  store i32 0, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %17, i64 12
+  store i32 -1, ptr %150, align 4
+  %151 = getelementptr inbounds i8, ptr %17, i64 16
+  store i32 34069, ptr %151, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8, !noalias !50
-  %150 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 0, ptr %150, align 8, !noalias !50
-  %151 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 -1, ptr %151, align 4, !noalias !50
-  %152 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 34069, ptr %152, align 8, !noalias !50
-  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %8, ptr noundef nonnull align 8 dereferenceable(120) %111, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17)
-          to label %153 unwind label %.body
+  %152 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %152, align 8, !noalias !50
+  %153 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 -1, ptr %153, align 4, !noalias !50
+  %154 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 34069, ptr %154, align 8, !noalias !50
+  invoke void @_ZN3glw33createFramebufferWithDepthStencilERNS_7ContextERKNS_12RenderTargetES4_S4_S4_S4_S4_S4_S4_S4_S4_(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.5") align 8 %8, ptr noundef nonnull align 8 dereferenceable(120) %113, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17)
+          to label %155 unwind label %.body
 
-153:                                              ; preds = %125
-  %154 = load ptr, ptr %3, align 8, !noalias !50
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %167, label %156
+155:                                              ; preds = %127
+  %156 = load ptr, ptr %3, align 8, !noalias !50
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %169, label %158
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %154, i64 8
-  %158 = load i32, ptr %157, align 8
-  %159 = add nsw i32 %158, -1
-  store i32 %159, ptr %157, align 8
-  %.not.i.i.i.i.i.i62 = icmp eq i32 %159, 0
-  br i1 %.not.i.i.i.i.i.i62, label %160, label %167
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds i8, ptr %156, i64 8
+  %160 = load i32, ptr %159, align 8
+  %161 = add nsw i32 %160, -1
+  store i32 %161, ptr %159, align 8
+  %.not.i.i.i.i.i.i62 = icmp eq i32 %161, 0
+  br i1 %.not.i.i.i.i.i.i62, label %162, label %169
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %154, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63
+162:                                              ; preds = %158
+  %163 = load ptr, ptr %156, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63: ; preds = %160
-  %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(16) %161) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63: ; preds = %162
+  %165 = load ptr, ptr %163, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = load ptr, ptr %166, align 8
+  call void %167(ptr noundef nonnull align 8 dereferenceable(16) %163) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63, %160
-  call void @_ZdlPv(ptr noundef nonnull %154) #22
-  br label %167
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i63, %162
+  call void @_ZdlPv(ptr noundef nonnull %156) #22
+  br label %169
 
-.body:                                            ; preds = %125
-  %166 = landingpad { ptr, i32 }
+.body:                                            ; preds = %127
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %17) #21
@@ -4388,499 +4399,499 @@ _ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %11) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %10) #21
   call void @_ZN3glw12RenderTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %9) #21
-  resume { ptr, i32 } %166
+  resume { ptr, i32 } %168
 
-167:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64, %156, %153
+169:                                              ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i64, %158, %155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %168 = load ptr, ptr %8, align 8
-  %169 = load ptr, ptr %22, align 8
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i, label %171
+  %170 = load ptr, ptr %8, align 8
+  %171 = load ptr, ptr %22, align 8
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i, label %173
 
-171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %169, i64 8
-  %173 = load i32, ptr %172, align 8
-  %174 = add nsw i32 %173, -1
-  store i32 %174, ptr %172, align 8
-  %.not.i.i.i.i.i65 = icmp eq i32 %174, 0
-  br i1 %.not.i.i.i.i.i65, label %175, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds i8, ptr %171, i64 8
+  %175 = load i32, ptr %174, align 8
+  %176 = add nsw i32 %175, -1
+  store i32 %176, ptr %174, align 8
+  %.not.i.i.i.i.i65 = icmp eq i32 %176, 0
+  br i1 %.not.i.i.i.i.i65, label %177, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
 
-175:                                              ; preds = %171
-  %176 = load ptr, ptr %169, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %171, align 8
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66: ; preds = %175
-  %178 = load ptr, ptr %176, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(16) %176) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66: ; preds = %177
+  %180 = load ptr, ptr %178, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 8
+  %182 = load ptr, ptr %181, align 8
+  call void %182(ptr noundef nonnull align 8 dereferenceable(16) %178) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66, %175
-  call void @_ZdlPv(ptr noundef nonnull %169) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i66, %177
+  call void @_ZdlPv(ptr noundef nonnull %171) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67, %171, %167
-  store ptr %168, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, label %181
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i67, %173, %169
+  store ptr %170, ptr %22, align 8
+  %.not.i.i.i = icmp eq ptr %170, null
+  br i1 %.not.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, label %183
 
-181:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
-  %182 = getelementptr inbounds i8, ptr %168, i64 8
-  %183 = load i32, ptr %182, align 8
-  %184 = add nsw i32 %183, 1
-  store i32 %184, ptr %182, align 8
+183:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+  %184 = getelementptr inbounds i8, ptr %170, i64 8
+  %185 = load i32, ptr %184, align 8
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %184, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
 
-_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit: ; preds = %181, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
-  %185 = load ptr, ptr %8, align 8
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, label %187
+_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit: ; preds = %183, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i
+  %187 = load ptr, ptr %8, align 8
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, label %189
 
-187:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
-  %188 = getelementptr inbounds i8, ptr %185, i64 8
-  %189 = load i32, ptr %188, align 8
-  %190 = add nsw i32 %189, -1
-  store i32 %190, ptr %188, align 8
-  %.not.i.i.i.i68 = icmp eq i32 %190, 0
-  br i1 %.not.i.i.i.i68, label %191, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
+189:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit
+  %190 = getelementptr inbounds i8, ptr %187, i64 8
+  %191 = load i32, ptr %190, align 8
+  %192 = add nsw i32 %191, -1
+  store i32 %192, ptr %190, align 8
+  %.not.i.i.i.i68 = icmp eq i32 %192, 0
+  br i1 %.not.i.i.i.i68, label %193, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
-191:                                              ; preds = %187
-  %192 = load ptr, ptr %185, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i
+193:                                              ; preds = %189
+  %194 = load ptr, ptr %187, align 8
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %191
-  %194 = load ptr, ptr %192, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8
-  %196 = load ptr, ptr %195, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(16) %192) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %193
+  %196 = load ptr, ptr %194, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  %198 = load ptr, ptr %197, align 8
+  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %194) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %191
-  call void @_ZdlPv(ptr noundef nonnull %185) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i, %193
+  call void @_ZdlPv(ptr noundef nonnull %187) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %187
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %189
   store ptr null, ptr %8, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit: ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_EaSERKS6_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i
-  %197 = load ptr, ptr %17, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %_ZN3glw12RenderTargetD2Ev.exit, label %199
+  %199 = load ptr, ptr %17, align 8
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %_ZN3glw12RenderTargetD2Ev.exit, label %201
 
-199:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
-  %200 = getelementptr inbounds i8, ptr %197, i64 8
-  %201 = load i32, ptr %200, align 8
-  %202 = add nsw i32 %201, -1
-  store i32 %202, ptr %200, align 8
-  %.not.i.i.i.i.i69 = icmp eq i32 %202, 0
-  br i1 %.not.i.i.i.i.i69, label %203, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70
+201:                                              ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit
+  %202 = getelementptr inbounds i8, ptr %199, i64 8
+  %203 = load i32, ptr %202, align 8
+  %204 = add nsw i32 %203, -1
+  store i32 %204, ptr %202, align 8
+  %.not.i.i.i.i.i69 = icmp eq i32 %204, 0
+  br i1 %.not.i.i.i.i.i69, label %205, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %197, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %199, align 8
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71: ; preds = %203
-  %206 = load ptr, ptr %204, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
-  %208 = load ptr, ptr %207, align 8
-  call void %208(ptr noundef nonnull align 8 dereferenceable(16) %204) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71: ; preds = %205
+  %208 = load ptr, ptr %206, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %206) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71, %203
-  call void @_ZdlPv(ptr noundef nonnull %197) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i71, %205
+  call void @_ZdlPv(ptr noundef nonnull %199) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72, %199
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i72, %201
   store ptr null, ptr %17, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit
 
 _ZN3glw12RenderTargetD2Ev.exit:                   ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_15SafeFramebufferENS0_14DefaultDeleterINS_10SafeObjectEEES4_ED2Ev.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i70
-  %209 = load ptr, ptr %16, align 8
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %_ZN3glw12RenderTargetD2Ev.exit77, label %211
+  %211 = load ptr, ptr %16, align 8
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %_ZN3glw12RenderTargetD2Ev.exit77, label %213
 
-211:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit
-  %212 = getelementptr inbounds i8, ptr %209, i64 8
-  %213 = load i32, ptr %212, align 8
-  %214 = add nsw i32 %213, -1
-  store i32 %214, ptr %212, align 8
-  %.not.i.i.i.i.i73 = icmp eq i32 %214, 0
-  br i1 %.not.i.i.i.i.i73, label %215, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74
+213:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit
+  %214 = getelementptr inbounds i8, ptr %211, i64 8
+  %215 = load i32, ptr %214, align 8
+  %216 = add nsw i32 %215, -1
+  store i32 %216, ptr %214, align 8
+  %.not.i.i.i.i.i73 = icmp eq i32 %216, 0
+  br i1 %.not.i.i.i.i.i73, label %217, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74
 
-215:                                              ; preds = %211
-  %216 = load ptr, ptr %209, align 8
-  %217 = icmp eq ptr %216, null
-  br i1 %217, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75
+217:                                              ; preds = %213
+  %218 = load ptr, ptr %211, align 8
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75: ; preds = %215
-  %218 = load ptr, ptr %216, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 8
-  %220 = load ptr, ptr %219, align 8
-  call void %220(ptr noundef nonnull align 8 dereferenceable(16) %216) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75: ; preds = %217
+  %220 = load ptr, ptr %218, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %222 = load ptr, ptr %221, align 8
+  call void %222(ptr noundef nonnull align 8 dereferenceable(16) %218) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75, %215
-  call void @_ZdlPv(ptr noundef nonnull %209) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i75, %217
+  call void @_ZdlPv(ptr noundef nonnull %211) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76, %211
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i76, %213
   store ptr null, ptr %16, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit77
 
 _ZN3glw12RenderTargetD2Ev.exit77:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i74
-  %221 = load ptr, ptr %15, align 8
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %_ZN3glw12RenderTargetD2Ev.exit82, label %223
+  %223 = load ptr, ptr %15, align 8
+  %224 = icmp eq ptr %223, null
+  br i1 %224, label %_ZN3glw12RenderTargetD2Ev.exit82, label %225
 
-223:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit77
-  %224 = getelementptr inbounds i8, ptr %221, i64 8
-  %225 = load i32, ptr %224, align 8
-  %226 = add nsw i32 %225, -1
-  store i32 %226, ptr %224, align 8
-  %.not.i.i.i.i.i78 = icmp eq i32 %226, 0
-  br i1 %.not.i.i.i.i.i78, label %227, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79
+225:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit77
+  %226 = getelementptr inbounds i8, ptr %223, i64 8
+  %227 = load i32, ptr %226, align 8
+  %228 = add nsw i32 %227, -1
+  store i32 %228, ptr %226, align 8
+  %.not.i.i.i.i.i78 = icmp eq i32 %228, 0
+  br i1 %.not.i.i.i.i.i78, label %229, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79
 
-227:                                              ; preds = %223
-  %228 = load ptr, ptr %221, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80
+229:                                              ; preds = %225
+  %230 = load ptr, ptr %223, align 8
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80: ; preds = %227
-  %230 = load ptr, ptr %228, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
-  %232 = load ptr, ptr %231, align 8
-  call void %232(ptr noundef nonnull align 8 dereferenceable(16) %228) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80: ; preds = %229
+  %232 = load ptr, ptr %230, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 8
+  %234 = load ptr, ptr %233, align 8
+  call void %234(ptr noundef nonnull align 8 dereferenceable(16) %230) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80, %227
-  call void @_ZdlPv(ptr noundef nonnull %221) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i80, %229
+  call void @_ZdlPv(ptr noundef nonnull %223) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81, %223
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i81, %225
   store ptr null, ptr %15, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit82
 
 _ZN3glw12RenderTargetD2Ev.exit82:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit77, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i79
-  %233 = load ptr, ptr %14, align 8
-  %234 = icmp eq ptr %233, null
-  br i1 %234, label %_ZN3glw12RenderTargetD2Ev.exit87, label %235
+  %235 = load ptr, ptr %14, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %_ZN3glw12RenderTargetD2Ev.exit87, label %237
 
-235:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit82
-  %236 = getelementptr inbounds i8, ptr %233, i64 8
-  %237 = load i32, ptr %236, align 8
-  %238 = add nsw i32 %237, -1
-  store i32 %238, ptr %236, align 8
-  %.not.i.i.i.i.i83 = icmp eq i32 %238, 0
-  br i1 %.not.i.i.i.i.i83, label %239, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84
+237:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit82
+  %238 = getelementptr inbounds i8, ptr %235, i64 8
+  %239 = load i32, ptr %238, align 8
+  %240 = add nsw i32 %239, -1
+  store i32 %240, ptr %238, align 8
+  %.not.i.i.i.i.i83 = icmp eq i32 %240, 0
+  br i1 %.not.i.i.i.i.i83, label %241, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84
 
-239:                                              ; preds = %235
-  %240 = load ptr, ptr %233, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85
+241:                                              ; preds = %237
+  %242 = load ptr, ptr %235, align 8
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85: ; preds = %239
-  %242 = load ptr, ptr %240, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
-  %244 = load ptr, ptr %243, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(16) %240) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85: ; preds = %241
+  %244 = load ptr, ptr %242, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8
+  call void %246(ptr noundef nonnull align 8 dereferenceable(16) %242) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85, %239
-  call void @_ZdlPv(ptr noundef nonnull %233) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i85, %241
+  call void @_ZdlPv(ptr noundef nonnull %235) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86, %235
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i86, %237
   store ptr null, ptr %14, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit87
 
 _ZN3glw12RenderTargetD2Ev.exit87:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit82, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i84
-  %245 = load ptr, ptr %13, align 8
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %_ZN3glw12RenderTargetD2Ev.exit92, label %247
+  %247 = load ptr, ptr %13, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %_ZN3glw12RenderTargetD2Ev.exit92, label %249
 
-247:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit87
-  %248 = getelementptr inbounds i8, ptr %245, i64 8
-  %249 = load i32, ptr %248, align 8
-  %250 = add nsw i32 %249, -1
-  store i32 %250, ptr %248, align 8
-  %.not.i.i.i.i.i88 = icmp eq i32 %250, 0
-  br i1 %.not.i.i.i.i.i88, label %251, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89
+249:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit87
+  %250 = getelementptr inbounds i8, ptr %247, i64 8
+  %251 = load i32, ptr %250, align 8
+  %252 = add nsw i32 %251, -1
+  store i32 %252, ptr %250, align 8
+  %.not.i.i.i.i.i88 = icmp eq i32 %252, 0
+  br i1 %.not.i.i.i.i.i88, label %253, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89
 
-251:                                              ; preds = %247
-  %252 = load ptr, ptr %245, align 8
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90
+253:                                              ; preds = %249
+  %254 = load ptr, ptr %247, align 8
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90: ; preds = %251
-  %254 = load ptr, ptr %252, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 8
-  %256 = load ptr, ptr %255, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(16) %252) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90: ; preds = %253
+  %256 = load ptr, ptr %254, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = load ptr, ptr %257, align 8
+  call void %258(ptr noundef nonnull align 8 dereferenceable(16) %254) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90, %251
-  call void @_ZdlPv(ptr noundef nonnull %245) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i90, %253
+  call void @_ZdlPv(ptr noundef nonnull %247) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91, %247
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i91, %249
   store ptr null, ptr %13, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit92
 
 _ZN3glw12RenderTargetD2Ev.exit92:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit87, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i89
-  %257 = load ptr, ptr %12, align 8
-  %258 = icmp eq ptr %257, null
-  br i1 %258, label %_ZN3glw12RenderTargetD2Ev.exit97, label %259
+  %259 = load ptr, ptr %12, align 8
+  %260 = icmp eq ptr %259, null
+  br i1 %260, label %_ZN3glw12RenderTargetD2Ev.exit97, label %261
 
-259:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit92
-  %260 = getelementptr inbounds i8, ptr %257, i64 8
-  %261 = load i32, ptr %260, align 8
-  %262 = add nsw i32 %261, -1
-  store i32 %262, ptr %260, align 8
-  %.not.i.i.i.i.i93 = icmp eq i32 %262, 0
-  br i1 %.not.i.i.i.i.i93, label %263, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94
+261:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit92
+  %262 = getelementptr inbounds i8, ptr %259, i64 8
+  %263 = load i32, ptr %262, align 8
+  %264 = add nsw i32 %263, -1
+  store i32 %264, ptr %262, align 8
+  %.not.i.i.i.i.i93 = icmp eq i32 %264, 0
+  br i1 %.not.i.i.i.i.i93, label %265, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94
 
-263:                                              ; preds = %259
-  %264 = load ptr, ptr %257, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95
+265:                                              ; preds = %261
+  %266 = load ptr, ptr %259, align 8
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95: ; preds = %263
-  %266 = load ptr, ptr %264, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 8
-  %268 = load ptr, ptr %267, align 8
-  call void %268(ptr noundef nonnull align 8 dereferenceable(16) %264) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95: ; preds = %265
+  %268 = load ptr, ptr %266, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %270 = load ptr, ptr %269, align 8
+  call void %270(ptr noundef nonnull align 8 dereferenceable(16) %266) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95, %263
-  call void @_ZdlPv(ptr noundef nonnull %257) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i95, %265
+  call void @_ZdlPv(ptr noundef nonnull %259) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96, %259
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i96, %261
   store ptr null, ptr %12, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit97
 
 _ZN3glw12RenderTargetD2Ev.exit97:                 ; preds = %_ZN3glw12RenderTargetD2Ev.exit92, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i94
-  %269 = load ptr, ptr %11, align 8
-  %270 = icmp eq ptr %269, null
-  br i1 %270, label %_ZN3glw12RenderTargetD2Ev.exit102, label %271
+  %271 = load ptr, ptr %11, align 8
+  %272 = icmp eq ptr %271, null
+  br i1 %272, label %_ZN3glw12RenderTargetD2Ev.exit102, label %273
 
-271:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit97
-  %272 = getelementptr inbounds i8, ptr %269, i64 8
-  %273 = load i32, ptr %272, align 8
-  %274 = add nsw i32 %273, -1
-  store i32 %274, ptr %272, align 8
-  %.not.i.i.i.i.i98 = icmp eq i32 %274, 0
-  br i1 %.not.i.i.i.i.i98, label %275, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99
+273:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit97
+  %274 = getelementptr inbounds i8, ptr %271, i64 8
+  %275 = load i32, ptr %274, align 8
+  %276 = add nsw i32 %275, -1
+  store i32 %276, ptr %274, align 8
+  %.not.i.i.i.i.i98 = icmp eq i32 %276, 0
+  br i1 %.not.i.i.i.i.i98, label %277, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99
 
-275:                                              ; preds = %271
-  %276 = load ptr, ptr %269, align 8
-  %277 = icmp eq ptr %276, null
-  br i1 %277, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100
+277:                                              ; preds = %273
+  %278 = load ptr, ptr %271, align 8
+  %279 = icmp eq ptr %278, null
+  br i1 %279, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100: ; preds = %275
-  %278 = load ptr, ptr %276, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 8
-  %280 = load ptr, ptr %279, align 8
-  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %276) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100: ; preds = %277
+  %280 = load ptr, ptr %278, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 8
+  %282 = load ptr, ptr %281, align 8
+  call void %282(ptr noundef nonnull align 8 dereferenceable(16) %278) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100, %275
-  call void @_ZdlPv(ptr noundef nonnull %269) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i100, %277
+  call void @_ZdlPv(ptr noundef nonnull %271) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101, %271
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i101, %273
   store ptr null, ptr %11, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit102
 
 _ZN3glw12RenderTargetD2Ev.exit102:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit97, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i99
-  %281 = load ptr, ptr %10, align 8
-  %282 = icmp eq ptr %281, null
-  br i1 %282, label %_ZN3glw12RenderTargetD2Ev.exit107, label %283
+  %283 = load ptr, ptr %10, align 8
+  %284 = icmp eq ptr %283, null
+  br i1 %284, label %_ZN3glw12RenderTargetD2Ev.exit107, label %285
 
-283:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit102
-  %284 = getelementptr inbounds i8, ptr %281, i64 8
-  %285 = load i32, ptr %284, align 8
-  %286 = add nsw i32 %285, -1
-  store i32 %286, ptr %284, align 8
-  %.not.i.i.i.i.i103 = icmp eq i32 %286, 0
-  br i1 %.not.i.i.i.i.i103, label %287, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104
+285:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit102
+  %286 = getelementptr inbounds i8, ptr %283, i64 8
+  %287 = load i32, ptr %286, align 8
+  %288 = add nsw i32 %287, -1
+  store i32 %288, ptr %286, align 8
+  %.not.i.i.i.i.i103 = icmp eq i32 %288, 0
+  br i1 %.not.i.i.i.i.i103, label %289, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104
 
-287:                                              ; preds = %283
-  %288 = load ptr, ptr %281, align 8
-  %289 = icmp eq ptr %288, null
-  br i1 %289, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105
+289:                                              ; preds = %285
+  %290 = load ptr, ptr %283, align 8
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105: ; preds = %287
-  %290 = load ptr, ptr %288, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 8
-  %292 = load ptr, ptr %291, align 8
-  call void %292(ptr noundef nonnull align 8 dereferenceable(16) %288) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105: ; preds = %289
+  %292 = load ptr, ptr %290, align 8
+  %293 = getelementptr inbounds i8, ptr %292, i64 8
+  %294 = load ptr, ptr %293, align 8
+  call void %294(ptr noundef nonnull align 8 dereferenceable(16) %290) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105, %287
-  call void @_ZdlPv(ptr noundef nonnull %281) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i105, %289
+  call void @_ZdlPv(ptr noundef nonnull %283) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106, %283
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i106, %285
   store ptr null, ptr %10, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit107
 
 _ZN3glw12RenderTargetD2Ev.exit107:                ; preds = %_ZN3glw12RenderTargetD2Ev.exit102, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i104
-  %293 = load ptr, ptr %9, align 8
-  %294 = icmp eq ptr %293, null
-  br i1 %294, label %_ZN3glw12RenderTargetD2Ev.exit112, label %295
+  %295 = load ptr, ptr %9, align 8
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %_ZN3glw12RenderTargetD2Ev.exit112, label %297
 
-295:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit107
-  %296 = getelementptr inbounds i8, ptr %293, i64 8
-  %297 = load i32, ptr %296, align 8
-  %298 = add nsw i32 %297, -1
-  store i32 %298, ptr %296, align 8
-  %.not.i.i.i.i.i108 = icmp eq i32 %298, 0
-  br i1 %.not.i.i.i.i.i108, label %299, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109
+297:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit107
+  %298 = getelementptr inbounds i8, ptr %295, i64 8
+  %299 = load i32, ptr %298, align 8
+  %300 = add nsw i32 %299, -1
+  store i32 %300, ptr %298, align 8
+  %.not.i.i.i.i.i108 = icmp eq i32 %300, 0
+  br i1 %.not.i.i.i.i.i108, label %301, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109
 
-299:                                              ; preds = %295
-  %300 = load ptr, ptr %293, align 8
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110
+301:                                              ; preds = %297
+  %302 = load ptr, ptr %295, align 8
+  %303 = icmp eq ptr %302, null
+  br i1 %303, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110: ; preds = %299
-  %302 = load ptr, ptr %300, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 8
-  %304 = load ptr, ptr %303, align 8
-  call void %304(ptr noundef nonnull align 8 dereferenceable(16) %300) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110: ; preds = %301
+  %304 = load ptr, ptr %302, align 8
+  %305 = getelementptr inbounds i8, ptr %304, i64 8
+  %306 = load ptr, ptr %305, align 8
+  call void %306(ptr noundef nonnull align 8 dereferenceable(16) %302) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110, %299
-  call void @_ZdlPv(ptr noundef nonnull %293) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i110, %301
+  call void @_ZdlPv(ptr noundef nonnull %295) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111, %295
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i111, %297
   store ptr null, ptr %9, align 8
   br label %_ZN3glw12RenderTargetD2Ev.exit112
 
 _ZN3glw12RenderTargetD2Ev.exit112:                ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i109, %_ZN3glw12RenderTargetD2Ev.exit107, %36
-  %305 = getelementptr inbounds i8, ptr %0, i64 8
-  %306 = load ptr, ptr %305, align 8
-  call void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %18, ptr noundef nonnull align 8 dereferenceable(120) %306, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %307 = load ptr, ptr %18, align 8
-  %308 = icmp eq ptr %307, null
-  br i1 %308, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %309
+  %307 = getelementptr inbounds i8, ptr %0, i64 8
+  %308 = load ptr, ptr %307, align 8
+  call void @_ZN3glw7Context23bindReadDrawFramebufferERNS_6detail19ObjectSharedPointerINS_15SafeFramebufferENS1_14DefaultDeleterINS_10SafeObjectEEES5_EE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.26") align 8 %18, ptr noundef nonnull align 8 dereferenceable(120) %308, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %309 = load ptr, ptr %18, align 8
+  %310 = icmp eq ptr %309, null
+  br i1 %310, label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, label %311
 
-309:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit112
-  %310 = getelementptr inbounds i8, ptr %307, i64 8
-  %311 = load i32, ptr %310, align 8
-  %312 = add nsw i32 %311, -1
-  store i32 %312, ptr %310, align 8
-  %.not.i.i.i.i.i113 = icmp eq i32 %312, 0
-  br i1 %.not.i.i.i.i.i113, label %313, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
+311:                                              ; preds = %_ZN3glw12RenderTargetD2Ev.exit112
+  %312 = getelementptr inbounds i8, ptr %309, i64 8
+  %313 = load i32, ptr %312, align 8
+  %314 = add nsw i32 %313, -1
+  store i32 %314, ptr %312, align 8
+  %.not.i.i.i.i.i113 = icmp eq i32 %314, 0
+  br i1 %.not.i.i.i.i.i113, label %315, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-313:                                              ; preds = %309
-  %314 = load ptr, ptr %307, align 8
-  %315 = icmp eq ptr %314, null
-  br i1 %315, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i
+315:                                              ; preds = %311
+  %316 = load ptr, ptr %309, align 8
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %313
-  %316 = load ptr, ptr %314, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 8
-  %318 = load ptr, ptr %317, align 8
-  call void %318(ptr noundef nonnull align 8 dereferenceable(24) %314) #21
+_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %315
+  %318 = load ptr, ptr %316, align 8
+  %319 = getelementptr inbounds i8, ptr %318, i64 8
+  %320 = load ptr, ptr %319, align 8
+  call void %320(ptr noundef nonnull align 8 dereferenceable(24) %316) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %313
-  call void @_ZdlPv(ptr noundef nonnull %307) #22
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i.i, %315
+  call void @_ZdlPv(ptr noundef nonnull %309) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %309
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i, %311
   store ptr null, ptr %18, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
 
 _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit: ; preds = %_ZN3glw12RenderTargetD2Ev.exit112, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i
-  %319 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 0, ptr %319, align 8
-  %320 = load i32, ptr %21, align 4
-  %321 = add nsw i32 %320, -1
-  %322 = getelementptr inbounds i8, ptr %20, i64 8
-  %323 = load i32, ptr %322, align 4
-  %324 = add nsw i32 %323, -1
-  %325 = getelementptr inbounds i8, ptr %0, i64 104
-  %.sroa.2134.0.insert.ext = zext i32 %324 to i64
+  %321 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 0, ptr %321, align 8
+  %322 = load i32, ptr %21, align 4
+  %323 = add nsw i32 %322, -1
+  %324 = getelementptr inbounds i8, ptr %20, i64 8
+  %325 = load i32, ptr %324, align 4
+  %326 = add nsw i32 %325, -1
+  %327 = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.2134.0.insert.ext = zext i32 %326 to i64
   %.sroa.2134.0.insert.shift = shl nuw i64 %.sroa.2134.0.insert.ext, 32
-  %.sroa.0133.0.insert.ext = zext i32 %321 to i64
+  %.sroa.0133.0.insert.ext = zext i32 %323 to i64
   %.sroa.0133.0.insert.insert = or disjoint i64 %.sroa.2134.0.insert.shift, %.sroa.0133.0.insert.ext
-  store i64 %.sroa.0133.0.insert.insert, ptr %325, align 8
-  %326 = load i32, ptr %21, align 4
-  %327 = shl nsw i32 %326, 2
-  %328 = load i32, ptr %322, align 4
-  %329 = mul nsw i32 %327, %328
-  %330 = sext i32 %329 to i64
-  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %330)
-  %331 = getelementptr inbounds i8, ptr %0, i64 40
-  %332 = getelementptr inbounds i8, ptr %0, i64 16
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 264
-  %335 = load i32, ptr %334, align 8
-  %336 = sext i32 %335 to i64
-  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %331, i64 noundef %336)
-  %337 = load ptr, ptr %332, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 264
-  %339 = load i32, ptr %338, align 8
-  %340 = icmp sgt i32 %339, 0
-  br i1 %340, label %.lr.ph, label %._crit_edge
+  store i64 %.sroa.0133.0.insert.insert, ptr %327, align 8
+  %328 = load i32, ptr %21, align 4
+  %329 = shl nsw i32 %328, 2
+  %330 = load i32, ptr %324, align 4
+  %331 = mul nsw i32 %329, %330
+  %332 = sext i32 %331 to i64
+  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %332)
+  %333 = getelementptr inbounds i8, ptr %0, i64 40
+  %334 = getelementptr inbounds i8, ptr %0, i64 16
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds i8, ptr %335, i64 264
+  %337 = load i32, ptr %336, align 8
+  %338 = sext i32 %337 to i64
+  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %333, i64 noundef %338)
+  %339 = load ptr, ptr %334, align 8
+  %340 = getelementptr inbounds i8, ptr %339, i64 264
+  %341 = load i32, ptr %340, align 8
+  %342 = icmp sgt i32 %341, 0
+  br i1 %342, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit ]
-  %341 = phi ptr [ %369, %.lr.ph ], [ %337, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit ]
-  %342 = load ptr, ptr %19, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 120
-  %.sroa.01.0.copyload.i = load <2 x float>, ptr %343, align 4
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %342, i64 128
+  %343 = phi ptr [ %371, %.lr.ph ], [ %339, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit ]
+  %344 = load ptr, ptr %19, align 8
+  %345 = getelementptr inbounds i8, ptr %344, i64 120
+  %.sroa.01.0.copyload.i = load <2 x float>, ptr %345, align 4
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %344, i64 128
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 4
-  %344 = getelementptr inbounds i8, ptr %341, i64 8
-  %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds %class.CVertexO, ptr %345, i64 %indvars.iv
-  %347 = getelementptr inbounds i8, ptr %346, i64 8
+  %346 = getelementptr inbounds i8, ptr %343, i64 8
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds %class.CVertexO, ptr %347, i64 %indvars.iv
+  %349 = getelementptr inbounds i8, ptr %348, i64 8
   %.sroa.0129.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
-  %348 = load float, ptr %347, align 4
-  %349 = fsub float %.sroa.0129.0.vec.extract, %348
+  %350 = load float, ptr %349, align 4
+  %351 = fsub float %.sroa.0129.0.vec.extract, %350
   %.sroa.0129.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
-  %350 = getelementptr inbounds i8, ptr %346, i64 12
-  %351 = load float, ptr %350, align 4
-  %352 = fsub float %.sroa.0129.4.vec.extract, %351
-  %353 = getelementptr inbounds i8, ptr %346, i64 16
-  %354 = load float, ptr %353, align 4
-  %355 = fsub float %.sroa.22.0.copyload.i, %354
-  %356 = getelementptr inbounds i8, ptr %346, i64 24
-  %357 = load float, ptr %356, align 4
-  %358 = getelementptr inbounds i8, ptr %346, i64 28
+  %352 = getelementptr inbounds i8, ptr %348, i64 12
+  %353 = load float, ptr %352, align 4
+  %354 = fsub float %.sroa.0129.4.vec.extract, %353
+  %355 = getelementptr inbounds i8, ptr %348, i64 16
+  %356 = load float, ptr %355, align 4
+  %357 = fsub float %.sroa.22.0.copyload.i, %356
+  %358 = getelementptr inbounds i8, ptr %348, i64 24
   %359 = load float, ptr %358, align 4
-  %360 = fmul float %352, %359
-  %361 = call float @llvm.fmuladd.f32(float %349, float %357, float %360)
-  %362 = getelementptr inbounds i8, ptr %346, i64 32
-  %363 = load float, ptr %362, align 4
-  %364 = call noundef float @llvm.fmuladd.f32(float %355, float %363, float %361)
-  %365 = fcmp ule float %364, 0.000000e+00
-  %366 = zext i1 %365 to i8
-  %367 = load ptr, ptr %331, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 %indvars.iv
-  store i8 %366, ptr %368, align 1
+  %360 = getelementptr inbounds i8, ptr %348, i64 28
+  %361 = load float, ptr %360, align 4
+  %362 = fmul float %354, %361
+  %363 = call float @llvm.fmuladd.f32(float %351, float %359, float %362)
+  %364 = getelementptr inbounds i8, ptr %348, i64 32
+  %365 = load float, ptr %364, align 4
+  %366 = call noundef float @llvm.fmuladd.f32(float %357, float %365, float %363)
+  %367 = fcmp ule float %366, 0.000000e+00
+  %368 = zext i1 %367 to i8
+  %369 = load ptr, ptr %333, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 %indvars.iv
+  store i8 %368, ptr %370, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %369 = load ptr, ptr %332, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 264
-  %371 = load i32, ptr %370, align 8
-  %372 = sext i32 %371 to i64
-  %373 = icmp slt i64 %indvars.iv.next, %372
-  br i1 %373, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  %371 = load ptr, ptr %334, align 8
+  %372 = getelementptr inbounds i8, ptr %371, i64 264
+  %373 = load i32, ptr %372, align 8
+  %374 = sext i32 %373 to i64
+  %375 = icmp slt i64 %indvars.iv.next, %374
+  br i1 %375, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit
-  %.lcssa = phi ptr [ %337, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit ], [ %369, %.lr.ph ]
-  %374 = load ptr, ptr %19, align 8
-  %375 = getelementptr inbounds i8, ptr %.lcssa, i64 652
-  %.sroa.0121.0.copyload = load float, ptr %375, align 4
+  %.lcssa = phi ptr [ %339, %_ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultDeleterINS_11BoundObjectEEENS_16BoundFramebufferEED2Ev.exit ], [ %371, %.lr.ph ]
+  %376 = load ptr, ptr %19, align 8
+  %377 = getelementptr inbounds i8, ptr %.lcssa, i64 652
+  %.sroa.0121.0.copyload = load float, ptr %377, align 4
   %.sroa.2.0..sroa_idx122 = getelementptr inbounds i8, ptr %.lcssa, i64 656
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx122, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.lcssa, i64 660
@@ -4891,108 +4902,108 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %.lcssa, i64 672
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %374, i64 88
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %376, i64 88
   %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %374, i64 92
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %376, i64 92
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %374, i64 96
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %376, i64 96
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %376 = getelementptr inbounds i8, ptr %374, i64 120
-  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %376, align 4
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %374, i64 128
+  %378 = getelementptr inbounds i8, ptr %376, i64 120
+  %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %378, align 4
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %376, i64 128
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4
   %.sroa.029.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
   %.sroa.029.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 1
-  %377 = fmul float %.sroa.4.0.copyload.i, %.sroa.029.4.vec.extract.i
-  %378 = call float @llvm.fmuladd.f32(float %.sroa.3.0.copyload.i, float %.sroa.029.0.vec.extract.i, float %377)
-  %379 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %.sroa.22.0.copyload.i.i, float %378)
-  %380 = fsub float %.sroa.4.0.copyload, %.sroa.0121.0.copyload
-  %381 = fsub float %.sroa.5.0.copyload, %.sroa.2.0.copyload
-  %382 = fsub float %.sroa.6.0.copyload, %.sroa.3.0.copyload
-  br label %383
+  %379 = fmul float %.sroa.4.0.copyload.i, %.sroa.029.4.vec.extract.i
+  %380 = call float @llvm.fmuladd.f32(float %.sroa.3.0.copyload.i, float %.sroa.029.0.vec.extract.i, float %379)
+  %381 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %.sroa.22.0.copyload.i.i, float %380)
+  %382 = fsub float %.sroa.4.0.copyload, %.sroa.0121.0.copyload
+  %383 = fsub float %.sroa.5.0.copyload, %.sroa.2.0.copyload
+  %384 = fsub float %.sroa.6.0.copyload, %.sroa.3.0.copyload
+  br label %385
 
-383:                                              ; preds = %383, %._crit_edge
-  %.1138 = phi float [ undef, %._crit_edge ], [ %.2139, %383 ]
-  %.1 = phi float [ undef, %._crit_edge ], [ %.2, %383 ]
-  %.040.i = phi i1 [ true, %._crit_edge ], [ false, %383 ]
-  %.02339.i = phi i32 [ 0, %._crit_edge ], [ %399, %383 ]
+385:                                              ; preds = %385, %._crit_edge
+  %.1138 = phi float [ undef, %._crit_edge ], [ %.2139, %385 ]
+  %.1 = phi float [ undef, %._crit_edge ], [ %.2, %385 ]
+  %.040.i = phi i1 [ true, %._crit_edge ], [ false, %385 ]
+  %.02339.i = phi i32 [ 0, %._crit_edge ], [ %401, %385 ]
   %.zext.i = and i32 %.02339.i, 1
-  %384 = uitofp nneg i32 %.zext.i to float
-  %385 = call float @llvm.fmuladd.f32(float %384, float %380, float %.sroa.0121.0.copyload)
+  %386 = uitofp nneg i32 %.zext.i to float
+  %387 = call float @llvm.fmuladd.f32(float %386, float %382, float %.sroa.0121.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
   %.cmp.i = icmp ult i32 %.02339.i, 4
-  %386 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
-  %387 = sitofp i32 %386 to float
-  %388 = call float @llvm.fmuladd.f32(float %387, float %381, float %.sroa.2.0.copyload)
-  %389 = icmp ugt i32 %.02339.i, 3
-  %390 = uitofp i1 %389 to float
-  %391 = call float @llvm.fmuladd.f32(float %390, float %382, float %.sroa.3.0.copyload)
-  %392 = fmul float %.sroa.4.0.copyload.i, %388
-  %393 = call float @llvm.fmuladd.f32(float %.sroa.3.0.copyload.i, float %385, float %392)
-  %394 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %391, float %393)
-  %395 = fsub float %394, %379
-  %396 = fneg float %395
-  %397 = fcmp ogt float %.1, %396
-  %or.cond.i = select i1 %.040.i, i1 true, i1 %397
-  %.2 = select i1 %or.cond.i, float %396, float %.1
-  %398 = fcmp olt float %.1138, %396
-  %or.cond26.i = select i1 %.040.i, i1 true, i1 %398
-  %.2139 = select i1 %or.cond26.i, float %396, float %.1138
-  %399 = add nuw nsw i32 %.02339.i, 1
-  %exitcond.not.i = icmp eq i32 %399, 8
-  br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %383, !llvm.loop !54
+  %388 = select i1 %.cmp.i, i32 %.zext38.i, i32 %.urem.i
+  %389 = sitofp i32 %388 to float
+  %390 = call float @llvm.fmuladd.f32(float %389, float %383, float %.sroa.2.0.copyload)
+  %391 = icmp ugt i32 %.02339.i, 3
+  %392 = uitofp i1 %391 to float
+  %393 = call float @llvm.fmuladd.f32(float %392, float %384, float %.sroa.3.0.copyload)
+  %394 = fmul float %.sroa.4.0.copyload.i, %390
+  %395 = call float @llvm.fmuladd.f32(float %.sroa.3.0.copyload.i, float %387, float %394)
+  %396 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %393, float %395)
+  %397 = fsub float %396, %381
+  %398 = fneg float %397
+  %399 = fcmp ogt float %.1, %398
+  %or.cond.i = select i1 %.040.i, i1 true, i1 %399
+  %.2 = select i1 %or.cond.i, float %398, float %.1
+  %400 = fcmp olt float %.1138, %398
+  %or.cond26.i = select i1 %.040.i, i1 true, i1 %400
+  %.2139 = select i1 %or.cond26.i, float %398, float %.1138
+  %401 = add nuw nsw i32 %.02339.i, 1
+  %exitcond.not.i = icmp eq i32 %401, 8
+  br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %385, !llvm.loop !54
 
-_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %383
-  %400 = fcmp olt float %.2, 0x3F1A36E2E0000000
-  %.0 = select i1 %400, float 0x3FB99999A0000000, float %.2
-  %401 = fcmp olt float %.2139, %.0
-  %402 = fadd float %.0, 1.000000e+03
-  %.0137 = select i1 %401, float %402, float %.2139
+_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %385
+  %402 = fcmp olt float %.2, 0x3F1A36E2E0000000
+  %.0 = select i1 %402, float 0x3FB99999A0000000, float %.2
+  %403 = fcmp olt float %.2139, %.0
+  %404 = fadd float %.0, 1.000000e+03
+  %.0137 = select i1 %403, float %404, float %.2139
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %374, float noundef %.0, float noundef %.0137)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %376, float noundef %.0, float noundef %.0137)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11TransformGLERKS4_(ptr noundef nonnull align 4 dereferenceable(132) %374)
-  %403 = load i32, ptr %21, align 4
-  %404 = load i32, ptr %322, align 4
-  call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %403, i32 noundef %404)
+  call void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11TransformGLERKS4_(ptr noundef nonnull align 4 dereferenceable(132) %376)
+  %405 = load i32, ptr %21, align 4
+  %406 = load i32, ptr %324, align 4
+  call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %405, i32 noundef %406)
   call void @glEnable(i32 noundef 2929)
   call void @glDisable(i32 noundef 2896)
   call void @glEnable(i32 noundef 32823)
   call void @glPolygonOffset(float noundef 2.000000e+00, float noundef 2.000000e+00)
   call void @glClear(i32 noundef 256)
   call void @glBegin(i32 noundef 4)
-  %405 = load ptr, ptr %332, align 8
-  %406 = getelementptr inbounds i8, ptr %405, i64 304
-  %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds i8, ptr %405, i64 312
+  %407 = load ptr, ptr %334, align 8
+  %408 = getelementptr inbounds i8, ptr %407, i64 304
   %409 = load ptr, ptr %408, align 8
-  %.not141143 = icmp eq ptr %407, %409
+  %410 = getelementptr inbounds i8, ptr %407, i64 312
+  %411 = load ptr, ptr %410, align 8
+  %.not141143 = icmp eq ptr %409, %411
   br i1 %.not141143, label %._crit_edge146, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %.lr.ph145
-  %.sroa.0116.0144 = phi ptr [ %419, %.lr.ph145 ], [ %407, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ]
-  %410 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 8
-  %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %412)
-  %413 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 16
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %415)
-  %416 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 24
-  %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 8
-  call void @glVertex3fv(ptr noundef nonnull %418)
-  %419 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 48
-  %420 = load ptr, ptr %332, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 312
-  %422 = load ptr, ptr %421, align 8
-  %.not141 = icmp eq ptr %419, %422
+  %.sroa.0116.0144 = phi ptr [ %421, %.lr.ph145 ], [ %409, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ]
+  %412 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 8
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds i8, ptr %413, i64 8
+  call void @glVertex3fv(ptr noundef nonnull %414)
+  %415 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 16
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds i8, ptr %416, i64 8
+  call void @glVertex3fv(ptr noundef nonnull %417)
+  %418 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 24
+  %419 = load ptr, ptr %418, align 8
+  %420 = getelementptr inbounds i8, ptr %419, i64 8
+  call void @glVertex3fv(ptr noundef nonnull %420)
+  %421 = getelementptr inbounds i8, ptr %.sroa.0116.0144, i64 48
+  %422 = load ptr, ptr %334, align 8
+  %423 = getelementptr inbounds i8, ptr %422, i64 312
+  %424 = load ptr, ptr %423, align 8
+  %.not141 = icmp eq ptr %421, %424
   br i1 %.not141, label %._crit_edge146, label %.lr.ph145, !llvm.loop !55
 
 ._crit_edge146:                                   ; preds = %.lr.ph145, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
@@ -9261,7 +9272,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   store ptr null, ptr %0, align 8
-  br label %74
+  br label %75
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -9272,29 +9283,31 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load <2 x i32>, ptr %3, align 4
-  %63 = load i32, ptr %3, align 4
-  store <2 x i32> %62, ptr %61, align 8
+  %62 = load i32, ptr %3, align 4
+  store i32 %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %64 = load i32, ptr %5, align 4
+  store i32 %64, ptr %63, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundReadFramebufferE, i64 16), ptr %56, align 8
-  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  store ptr %56, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store i32 1, ptr %65, align 8
-  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 8
-  %68 = load ptr, ptr %67, align 8
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  store ptr %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 1, ptr %66, align 8
+  %67 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %68 = getelementptr inbounds i8, ptr %53, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 8
-  tail call void %66(i32 noundef %63, i32 noundef %71)
-  store ptr %64, ptr %30, align 8
-  store ptr %64, ptr %0, align 8
-  %72 = load i32, ptr %65, align 8
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %65, align 8
-  br label %74
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  tail call void %67(i32 noundef %62, i32 noundef %72)
+  store ptr %65, ptr %30, align 8
+  store ptr %65, ptr %0, align 8
+  %73 = load i32, ptr %66, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %66, align 8
+  br label %75
 
-74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
+75:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
   ret void
 }
 
@@ -9427,7 +9440,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   store ptr null, ptr %0, align 8
-  br label %74
+  br label %75
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -9438,29 +9451,31 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load <2 x i32>, ptr %3, align 4
-  %63 = load i32, ptr %3, align 4
-  store <2 x i32> %62, ptr %61, align 8
+  %62 = load i32, ptr %3, align 4
+  store i32 %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %64 = load i32, ptr %5, align 4
+  store i32 %64, ptr %63, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundDrawFramebufferE, i64 16), ptr %56, align 8
-  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  store ptr %56, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store i32 1, ptr %65, align 8
-  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 8
-  %68 = load ptr, ptr %67, align 8
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  store ptr %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 1, ptr %66, align 8
+  %67 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %68 = getelementptr inbounds i8, ptr %53, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 8
-  tail call void %66(i32 noundef %63, i32 noundef %71)
-  store ptr %64, ptr %30, align 8
-  store ptr %64, ptr %0, align 8
-  %72 = load i32, ptr %65, align 8
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %65, align 8
-  br label %74
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  tail call void %67(i32 noundef %62, i32 noundef %72)
+  store ptr %65, ptr %30, align 8
+  store ptr %65, ptr %0, align 8
+  %73 = load i32, ptr %66, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %66, align 8
+  br label %75
 
-74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
+75:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
   ret void
 }
 
@@ -9593,7 +9608,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   store ptr null, ptr %0, align 8
-  br label %74
+  br label %75
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -9604,29 +9619,31 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load <2 x i32>, ptr %3, align 4
-  %63 = load i32, ptr %3, align 4
-  store <2 x i32> %62, ptr %61, align 8
+  %62 = load i32, ptr %3, align 4
+  store i32 %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %64 = load i32, ptr %5, align 4
+  store i32 %64, ptr %63, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw24BoundReadDrawFramebufferE, i64 16), ptr %56, align 8
-  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  store ptr %56, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store i32 1, ptr %65, align 8
-  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 8
-  %68 = load ptr, ptr %67, align 8
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  store ptr %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 1, ptr %66, align 8
+  %67 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %68 = getelementptr inbounds i8, ptr %53, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 8
-  tail call void %66(i32 noundef %63, i32 noundef %71)
-  store ptr %64, ptr %30, align 8
-  store ptr %64, ptr %0, align 8
-  %72 = load i32, ptr %65, align 8
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %65, align 8
-  br label %74
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  tail call void %67(i32 noundef %62, i32 noundef %72)
+  store ptr %65, ptr %30, align 8
+  store ptr %65, ptr %0, align 8
+  %73 = load i32, ptr %66, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %66, align 8
+  br label %75
 
-74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
+75:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
   ret void
 }
 
@@ -9952,147 +9969,163 @@ define linkonce_odr void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(pt
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load float, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4
-  %11 = sitofp i32 %10 to float
-  %12 = fsub float %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load float, ptr %13, align 4
-  %15 = load <2 x float>, ptr %8, align 4
-  %16 = insertelement <2 x float> poison, float %12, i64 0
-  %17 = insertelement <2 x float> %16, float %14, i64 1
-  %18 = fneg <2 x float> %17
-  %19 = fmul <2 x float> %15, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 4
-  %22 = sitofp i32 %21 to float
-  %23 = fsub float %22, %14
-  %24 = insertelement <2 x float> poison, float %7, i64 0
-  %25 = insertelement <2 x float> %24, float %23, i64 1
-  %26 = fmul <2 x float> %15, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
-  %28 = load i32, ptr %27, align 4
-  switch i32 %28, label %103 [
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %7, %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = sitofp i32 %12 to float
+  %14 = fsub float %13, %7
+  %15 = fneg float %14
+  %16 = fmul float %9, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load float, ptr %17, align 4
+  %19 = fneg float %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load float, ptr %20, align 4
+  %22 = fmul float %21, %19
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 4
+  %25 = sitofp i32 %24 to float
+  %26 = fsub float %25, %18
+  %27 = fmul float %21, %26
+  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = load i32, ptr %28, align 4
+  switch i32 %29, label %109 [
     i32 0, label %.thread
-    i32 3, label %81
-    i32 1, label %45
-    i32 2, label %56
+    i32 3, label %79
+    i32 1, label %42
+    i32 2, label %49
   ]
 
 .thread:                                          ; preds = %3
-  %29 = load float, ptr %0, align 4
-  %30 = fdiv float %1, %29
-  %31 = extractelement <2 x float> %19, i64 0
-  %32 = fmul float %31, %30
-  %33 = extractelement <2 x float> %26, i64 0
-  %34 = fmul float %33, %30
-  %35 = extractelement <2 x float> %19, i64 1
-  %36 = fmul float %35, %30
-  %37 = extractelement <2 x float> %26, i64 1
-  %38 = fmul float %37, %30
-  %39 = fpext float %32 to double
-  %40 = fpext float %34 to double
-  %41 = fpext float %36 to double
-  %42 = fpext float %38 to double
-  %43 = fpext float %1 to double
-  %44 = fpext float %2 to double
-  tail call void @glFrustum(double noundef %39, double noundef %40, double noundef %41, double noundef %42, double noundef %43, double noundef %44)
-  br label %103
+  %30 = load float, ptr %0, align 4
+  %31 = fdiv float %1, %30
+  %32 = fmul float %16, %31
+  %33 = fmul float %10, %31
+  %34 = fmul float %22, %31
+  %35 = fmul float %27, %31
+  %36 = fpext float %32 to double
+  %37 = fpext float %33 to double
+  %38 = fpext float %34 to double
+  %39 = fpext float %35 to double
+  %40 = fpext float %1 to double
+  %41 = fpext float %2 to double
+  tail call void @glFrustum(double noundef %36, double noundef %37, double noundef %38, double noundef %39, double noundef %40, double noundef %41)
+  br label %109
 
-45:                                               ; preds = %3
-  %46 = extractelement <2 x float> %19, i64 0
-  %47 = fpext float %46 to double
-  %48 = extractelement <2 x float> %26, i64 0
-  %49 = fpext float %48 to double
-  %50 = extractelement <2 x float> %19, i64 1
-  %51 = fpext float %50 to double
-  %52 = extractelement <2 x float> %26, i64 1
-  %53 = fpext float %52 to double
-  %54 = fpext float %1 to double
-  %55 = fpext float %2 to double
-  tail call void @glOrtho(double noundef %47, double noundef %49, double noundef %51, double noundef %53, double noundef %54, double noundef %55)
-  br label %103
+42:                                               ; preds = %3
+  %43 = fpext float %16 to double
+  %44 = fpext float %10 to double
+  %45 = fpext float %22 to double
+  %46 = fpext float %27 to double
+  %47 = fpext float %1 to double
+  %48 = fpext float %2 to double
+  tail call void @glOrtho(double noundef %43, double noundef %44, double noundef %45, double noundef %46, double noundef %47, double noundef %48)
+  br label %109
 
-56:                                               ; preds = %3
+49:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %57 = getelementptr inbounds i8, ptr %5, i64 16
-  store float 0.000000e+00, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %5, i64 32
-  %59 = getelementptr inbounds i8, ptr %5, i64 48
-  %60 = fsub <2 x float> %26, %19
-  %61 = extractelement <2 x float> %60, i64 0
-  %62 = fdiv float 0xBFF99999A0000000, %61
-  store float %62, ptr %58, align 16
-  %63 = fdiv <2 x float> <float 0x3FF99999A0000000, float -1.000000e+00>, %60
-  store <2 x float> %63, ptr %5, align 16
-  %64 = extractelement <2 x float> %60, i64 1
-  %65 = fdiv float 2.000000e+00, %64
-  %66 = getelementptr inbounds i8, ptr %5, i64 20
+  %50 = fsub float %10, %16
+  %51 = fdiv float 0x3FF99999A0000000, %50
+  store float %51, ptr %5, align 16
+  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  store float 0.000000e+00, ptr %52, align 16
+  %53 = fdiv float 0xBFF99999A0000000, %50
+  %54 = getelementptr inbounds i8, ptr %5, i64 32
+  store float %53, ptr %54, align 16
+  %55 = fadd float %10, %16
+  %56 = fdiv float %55, %50
+  %57 = getelementptr inbounds i8, ptr %5, i64 48
+  store float %56, ptr %57, align 16
+  %58 = fsub float %27, %22
+  %59 = fdiv float -1.000000e+00, %58
+  %60 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %59, ptr %60, align 4
+  %61 = fdiv float 2.000000e+00, %58
+  %62 = getelementptr inbounds i8, ptr %5, i64 20
+  store float %61, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %5, i64 36
+  store float %59, ptr %63, align 4
+  %64 = fadd float %22, %27
+  %65 = fdiv float %64, %58
+  %66 = getelementptr inbounds i8, ptr %5, i64 52
   store float %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %5, i64 36
-  %68 = extractelement <2 x float> %63, i64 1
-  store float %68, ptr %67, align 4
-  %69 = fadd <2 x float> %19, %26
-  %70 = fdiv <2 x float> %69, %60
-  store <2 x float> %70, ptr %59, align 16
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 24
-  %73 = fsub float %2, %1
-  %74 = fdiv float -2.000000e+00, %73
-  %75 = getelementptr inbounds i8, ptr %5, i64 40
-  store float %74, ptr %75, align 8
-  %76 = fadd float %1, %2
-  %77 = fdiv float %76, %73
-  %78 = getelementptr inbounds i8, ptr %5, i64 56
-  store float %77, ptr %78, align 8
-  store <2 x float> zeroinitializer, ptr %71, align 8
-  store <2 x float> zeroinitializer, ptr %72, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 44
-  store float 0.000000e+00, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %5, i64 60
-  store float 1.000000e+00, ptr %80, align 4
+  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  store float 0.000000e+00, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %5, i64 24
+  store float 0.000000e+00, ptr %68, align 8
+  %69 = fsub float %2, %1
+  %70 = fdiv float -2.000000e+00, %69
+  %71 = getelementptr inbounds i8, ptr %5, i64 40
+  store float %70, ptr %71, align 8
+  %72 = fadd float %1, %2
+  %73 = fdiv float %72, %69
+  %74 = getelementptr inbounds i8, ptr %5, i64 56
+  store float %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %5, i64 12
+  store float 0.000000e+00, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %5, i64 28
+  store float 0.000000e+00, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %5, i64 44
+  store float 0.000000e+00, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %5, i64 60
+  store float 1.000000e+00, ptr %78, align 4
   call void @glLoadMatrixf(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %103
+  br label %109
 
-81:                                               ; preds = %3
+79:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %82 = fsub <2 x float> %26, %19
-  %83 = extractelement <2 x float> %82, i64 0
-  %84 = fdiv float 2.000000e+00, %83
-  store float %84, ptr %4, align 16
-  %85 = getelementptr inbounds i8, ptr %4, i64 32
-  %86 = getelementptr inbounds i8, ptr %4, i64 48
-  %87 = getelementptr inbounds i8, ptr %4, i64 4
-  %88 = extractelement <2 x float> %82, i64 1
-  %89 = fdiv float 2.000000e+00, %88
-  %90 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %89, ptr %90, align 4
-  %91 = fdiv <2 x float> <float 0xBFF6A09CC0000000, float 0xBFF6A09CC0000000>, %82
-  store <2 x float> %91, ptr %85, align 16
-  %92 = fadd <2 x float> %19, %26
-  %93 = fdiv <2 x float> %92, %82
-  store <2 x float> %93, ptr %86, align 16
-  %94 = getelementptr inbounds i8, ptr %4, i64 24
-  %95 = fsub float %2, %1
-  %96 = fdiv float -2.000000e+00, %95
-  %97 = getelementptr inbounds i8, ptr %4, i64 40
-  store float %96, ptr %97, align 8
-  %98 = fadd float %1, %2
-  %99 = fdiv float %98, %95
-  %100 = getelementptr inbounds i8, ptr %4, i64 56
-  store float %99, ptr %100, align 8
-  store <4 x float> zeroinitializer, ptr %87, align 4
-  store <2 x float> zeroinitializer, ptr %94, align 8
-  %101 = getelementptr inbounds i8, ptr %4, i64 44
-  store float 0.000000e+00, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %4, i64 60
-  store float 1.000000e+00, ptr %102, align 4
+  %80 = fsub float %10, %16
+  %81 = fdiv float 2.000000e+00, %80
+  store float %81, ptr %4, align 16
+  %82 = getelementptr inbounds i8, ptr %4, i64 16
+  store float 0.000000e+00, ptr %82, align 16
+  %83 = fdiv float 0xBFF6A09CC0000000, %80
+  %84 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %83, ptr %84, align 16
+  %85 = fadd float %10, %16
+  %86 = fdiv float %85, %80
+  %87 = getelementptr inbounds i8, ptr %4, i64 48
+  store float %86, ptr %87, align 16
+  %88 = getelementptr inbounds i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %88, align 4
+  %89 = fsub float %27, %22
+  %90 = fdiv float 2.000000e+00, %89
+  %91 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %90, ptr %91, align 4
+  %92 = fdiv float 0xBFF6A09CC0000000, %89
+  %93 = getelementptr inbounds i8, ptr %4, i64 36
+  store float %92, ptr %93, align 4
+  %94 = fadd float %22, %27
+  %95 = fdiv float %94, %89
+  %96 = getelementptr inbounds i8, ptr %4, i64 52
+  store float %95, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  store float 0.000000e+00, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %4, i64 24
+  store float 0.000000e+00, ptr %98, align 8
+  %99 = fsub float %2, %1
+  %100 = fdiv float -2.000000e+00, %99
+  %101 = getelementptr inbounds i8, ptr %4, i64 40
+  store float %100, ptr %101, align 8
+  %102 = fadd float %1, %2
+  %103 = fdiv float %102, %99
+  %104 = getelementptr inbounds i8, ptr %4, i64 56
+  store float %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %4, i64 12
+  store float 0.000000e+00, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %4, i64 28
+  store float 0.000000e+00, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %4, i64 44
+  store float 0.000000e+00, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %4, i64 60
+  store float 1.000000e+00, ptr %108, align 4
   call void @glLoadMatrixf(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br label %103
+  br label %109
 
-103:                                              ; preds = %3, %81, %56, %45, %.thread
+109:                                              ; preds = %3, %79, %49, %42, %.thread
   ret void
 }
 
@@ -10979,250 +11012,262 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %39 = getelementptr inbounds i8, ptr %8, i64 20
   %40 = load float, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %8, i64 12
-  %42 = getelementptr inbounds i8, ptr %8, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = sitofp i32 %43 to float
-  %45 = fsub float %44, %40
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
-  %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
-  %49 = load i32, ptr %48, align 4
-  %50 = sitofp i32 %49 to float
-  %51 = fsub float %50, %47
-  %52 = load float, ptr %8, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
-  %54 = fmul float %52, 2.000000e+00
-  %55 = getelementptr inbounds i8, ptr %0, i64 168
-  %56 = getelementptr inbounds i8, ptr %0, i64 156
-  %57 = insertelement <2 x float> poison, float %45, i64 0
-  %58 = insertelement <2 x float> %57, float %47, i64 1
-  %59 = fneg <2 x float> %58
-  %60 = load <2 x float>, ptr %41, align 4
-  %61 = fmul <2 x float> %60, %59
-  %62 = insertelement <2 x float> poison, float %40, i64 0
-  %63 = insertelement <2 x float> %62, float %51, i64 1
-  %64 = fmul <2 x float> %60, %63
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  %65 = fsub <2 x float> %64, %61
-  %66 = extractelement <2 x float> %65, i64 0
-  %67 = fdiv float %54, %66
-  store float %67, ptr %53, align 8
-  %68 = extractelement <2 x float> %65, i64 1
-  %69 = fdiv float %54, %68
-  store float %69, ptr %56, align 4
-  %70 = fadd <2 x float> %61, %64
-  %71 = fdiv <2 x float> %70, %65
-  store <2 x float> %71, ptr %55, align 8
-  %72 = fadd float %.0, %.056
-  %73 = fsub float %.0, %.056
-  %74 = fdiv float %72, %73
-  %75 = getelementptr inbounds i8, ptr %0, i64 176
-  store float %74, ptr %75, align 8
-  %76 = fmul float %.0, 2.000000e+00
-  %77 = fmul float %76, %.056
-  %78 = fdiv float %77, %73
-  %79 = getelementptr inbounds i8, ptr %0, i64 192
-  store float %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 180
-  store float -1.000000e+00, ptr %80, align 4
+  %42 = load float, ptr %41, align 4
+  %43 = fmul float %40, %42
+  %44 = getelementptr inbounds i8, ptr %8, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = sitofp i32 %45 to float
+  %47 = fsub float %46, %40
+  %48 = fneg float %47
+  %49 = fmul float %42, %48
+  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %51 = load float, ptr %50, align 4
+  %52 = fneg float %51
+  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %54 = load float, ptr %53, align 4
+  %55 = fmul float %54, %52
+  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = load i32, ptr %56, align 4
+  %58 = sitofp i32 %57 to float
+  %59 = fsub float %58, %51
+  %60 = fmul float %54, %59
+  %61 = load float, ptr %8, align 4
+  %62 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 0, i64 64, i1 false)
+  %63 = fmul float %61, 2.000000e+00
+  %64 = fsub float %43, %49
+  %65 = fdiv float %63, %64
+  store float %65, ptr %62, align 8
+  %66 = fadd float %43, %49
+  %67 = fdiv float %66, %64
+  %68 = getelementptr inbounds i8, ptr %0, i64 168
+  store float %67, ptr %68, align 8
+  %69 = fsub float %60, %55
+  %70 = fdiv float %63, %69
+  %71 = getelementptr inbounds i8, ptr %0, i64 156
+  store float %70, ptr %71, align 4
+  %72 = fadd float %55, %60
+  %73 = fdiv float %72, %69
+  %74 = getelementptr inbounds i8, ptr %0, i64 172
+  store float %73, ptr %74, align 4
+  %75 = fadd float %.0, %.056
+  %76 = fsub float %.0, %.056
+  %77 = fdiv float %75, %76
+  %78 = getelementptr inbounds i8, ptr %0, i64 176
+  store float %77, ptr %78, align 8
+  %79 = fmul float %.0, 2.000000e+00
+  %80 = fmul float %79, %.056
+  %81 = fdiv float %80, %76
+  %82 = getelementptr inbounds i8, ptr %0, i64 192
+  store float %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 180
+  store float -1.000000e+00, ptr %83, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %81 = getelementptr inbounds i8, ptr %8, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %81, i64 64, i1 false), !noalias !90
-  %82 = load float, ptr %12, align 4, !noalias !90
-  %83 = fneg float %82
-  %84 = getelementptr inbounds i8, ptr %8, i64 124
-  %85 = load float, ptr %84, align 4, !noalias !90
+  %84 = getelementptr inbounds i8, ptr %8, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %84, i64 64, i1 false), !noalias !90
+  %85 = load float, ptr %12, align 4, !noalias !90
   %86 = fneg float %85
-  %87 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !noalias !90
-  %88 = fneg float %87
-  %89 = getelementptr inbounds i8, ptr %3, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %89, i8 0, i64 56, i1 false), !noalias !90
+  %87 = getelementptr inbounds i8, ptr %8, i64 124
+  %88 = load float, ptr %87, align 4, !noalias !90
+  %89 = fneg float %88
+  %90 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !noalias !90
+  %91 = fneg float %90
+  %92 = getelementptr inbounds i8, ptr %3, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %92, i8 0, i64 56, i1 false), !noalias !90
   store float 1.000000e+00, ptr %3, align 4, !noalias !90
-  %90 = getelementptr inbounds i8, ptr %3, i64 20
-  store float 1.000000e+00, ptr %90, align 4, !noalias !90
-  %91 = getelementptr inbounds i8, ptr %3, i64 40
-  store float 1.000000e+00, ptr %91, align 4, !noalias !90
-  %92 = getelementptr inbounds i8, ptr %3, i64 60
-  store float 1.000000e+00, ptr %92, align 4, !noalias !90
-  %93 = getelementptr inbounds i8, ptr %3, i64 12
-  store float %83, ptr %93, align 4, !noalias !90
-  %94 = getelementptr inbounds i8, ptr %3, i64 28
-  store float %86, ptr %94, align 4, !noalias !90
-  %95 = getelementptr inbounds i8, ptr %3, i64 44
-  store float %88, ptr %95, align 4, !noalias !90
+  %93 = getelementptr inbounds i8, ptr %3, i64 20
+  store float 1.000000e+00, ptr %93, align 4, !noalias !90
+  %94 = getelementptr inbounds i8, ptr %3, i64 40
+  store float 1.000000e+00, ptr %94, align 4, !noalias !90
+  %95 = getelementptr inbounds i8, ptr %3, i64 60
+  store float 1.000000e+00, ptr %95, align 4, !noalias !90
+  %96 = getelementptr inbounds i8, ptr %3, i64 12
+  store float %86, ptr %96, align 4, !noalias !90
+  %97 = getelementptr inbounds i8, ptr %3, i64 28
+  store float %89, ptr %97, align 4, !noalias !90
+  %98 = getelementptr inbounds i8, ptr %3, i64 44
+  store float %91, ptr %98, align 4, !noalias !90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   br label %.preheader19.i.i
 
-.preheader19.i.i:                                 ; preds = %109, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
-  %indvars.iv29.i.i = phi i64 [ 0, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %indvars.iv.next30.i.i, %109 ]
-  %96 = shl nuw nsw i64 %indvars.iv29.i.i, 2
+.preheader19.i.i:                                 ; preds = %112, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
+  %indvars.iv29.i.i = phi i64 [ 0, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %indvars.iv.next30.i.i, %112 ]
+  %99 = shl nuw nsw i64 %indvars.iv29.i.i, 2
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %106, %.preheader19.i.i
-  %indvars.iv25.i.i = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next26.i.i, %106 ]
-  br label %97
+.preheader.i.i:                                   ; preds = %109, %.preheader19.i.i
+  %indvars.iv25.i.i = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next26.i.i, %109 ]
+  br label %100
 
-97:                                               ; preds = %97, %.preheader.i.i
-  %indvars.iv.i4.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i5.i, %97 ]
-  %.01620.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %105, %97 ]
-  %98 = add nuw nsw i64 %indvars.iv.i4.i, %96
-  %99 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4, !noalias !96
-  %101 = shl nuw nsw i64 %indvars.iv.i4.i, 2
-  %102 = add nuw nsw i64 %101, %indvars.iv25.i.i
-  %103 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %102
-  %104 = load float, ptr %103, align 4, !noalias !96
-  %105 = tail call float @llvm.fmuladd.f32(float %100, float %104, float %.01620.i.i)
+100:                                              ; preds = %100, %.preheader.i.i
+  %indvars.iv.i4.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i5.i, %100 ]
+  %.01620.i.i = phi float [ 0.000000e+00, %.preheader.i.i ], [ %108, %100 ]
+  %101 = add nuw nsw i64 %indvars.iv.i4.i, %99
+  %102 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %101
+  %103 = load float, ptr %102, align 4, !noalias !96
+  %104 = shl nuw nsw i64 %indvars.iv.i4.i, 2
+  %105 = add nuw nsw i64 %104, %indvars.iv25.i.i
+  %106 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %105
+  %107 = load float, ptr %106, align 4, !noalias !96
+  %108 = tail call float @llvm.fmuladd.f32(float %103, float %107, float %.01620.i.i)
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, 4
-  br i1 %exitcond.not.i6.i, label %106, label %97, !llvm.loop !78
+  br i1 %exitcond.not.i6.i, label %109, label %100, !llvm.loop !78
 
-106:                                              ; preds = %97
-  %107 = add nuw nsw i64 %indvars.iv25.i.i, %96
-  %108 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %107
-  store float %105, ptr %108, align 4, !alias.scope !96
+109:                                              ; preds = %100
+  %110 = add nuw nsw i64 %indvars.iv25.i.i, %99
+  %111 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %110
+  store float %108, ptr %111, align 4, !alias.scope !96
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 4
-  br i1 %exitcond28.not.i.i, label %109, label %.preheader.i.i, !llvm.loop !79
+  br i1 %exitcond28.not.i.i, label %112, label %.preheader.i.i, !llvm.loop !79
 
-109:                                              ; preds = %106
+112:                                              ; preds = %109
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, 4
   br i1 %exitcond32.not.i.i, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit, label %.preheader19.i.i, !llvm.loop !80
 
-_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit: ; preds = %109
+_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit: ; preds = %112
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %.preheader.i.i9
 
-.preheader.i.i9:                                  ; preds = %119, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit
-  %indvars.iv15.i.i = phi i64 [ 1, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit ], [ %indvars.iv.next16.i.i, %119 ]
-  %110 = shl nuw nsw i64 %indvars.iv15.i.i, 2
-  br label %111
+.preheader.i.i9:                                  ; preds = %122, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit
+  %indvars.iv15.i.i = phi i64 [ 1, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit ], [ %indvars.iv.next16.i.i, %122 ]
+  %113 = shl nuw nsw i64 %indvars.iv15.i.i, 2
+  br label %114
 
-111:                                              ; preds = %111, %.preheader.i.i9
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i9 ], [ %indvars.iv.next.i.i, %111 ]
-  %112 = add nuw nsw i64 %indvars.iv.i.i, %110
-  %113 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %112
-  %114 = shl i64 %indvars.iv.i.i, 2
-  %115 = add nuw nsw i64 %114, %indvars.iv15.i.i
+114:                                              ; preds = %114, %.preheader.i.i9
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i9 ], [ %indvars.iv.next.i.i, %114 ]
+  %115 = add nuw nsw i64 %indvars.iv.i.i, %113
   %116 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %115
-  %117 = load float, ptr %113, align 4, !alias.scope !97
-  %118 = load float, ptr %116, align 4, !alias.scope !97
-  store float %118, ptr %113, align 4, !alias.scope !97
-  store float %117, ptr %116, align 4, !alias.scope !97
+  %117 = shl i64 %indvars.iv.i.i, 2
+  %118 = add nuw nsw i64 %117, %indvars.iv15.i.i
+  %119 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %118
+  %120 = load float, ptr %116, align 4, !alias.scope !97
+  %121 = load float, ptr %119, align 4, !alias.scope !97
+  store float %121, ptr %116, align 4, !alias.scope !97
+  store float %120, ptr %119, align 4, !alias.scope !97
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv15.i.i
-  br i1 %exitcond.not.i.i, label %119, label %111, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %122, label %114, !llvm.loop !84
 
-119:                                              ; preds = %111
+122:                                              ; preds = %114
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %exitcond18.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, 4
   br i1 %exitcond18.not.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i9, !llvm.loop !85
 
-_ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %119
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %120, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %122
+  %123 = getelementptr inbounds i8, ptr %0, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %134, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
-  %indvars.iv29.i = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit ], [ %indvars.iv.next30.i, %134 ]
-  %121 = shl nuw nsw i64 %indvars.iv29.i, 2
+.preheader19.i:                                   ; preds = %137, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
+  %indvars.iv29.i = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit ], [ %indvars.iv.next30.i, %137 ]
+  %124 = shl nuw nsw i64 %indvars.iv29.i, 2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %131, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %131 ]
-  br label %122
+.preheader.i:                                     ; preds = %134, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %134 ]
+  br label %125
 
-122:                                              ; preds = %122, %.preheader.i
-  %indvars.iv.i11 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i12, %122 ]
-  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %130, %122 ]
-  %123 = add nuw nsw i64 %indvars.iv.i11, %121
-  %124 = getelementptr inbounds [16 x float], ptr %120, i64 0, i64 %123
-  %125 = load float, ptr %124, align 4, !noalias !100
-  %126 = shl nuw nsw i64 %indvars.iv.i11, 2
-  %127 = add nuw nsw i64 %126, %indvars.iv25.i
-  %128 = getelementptr inbounds [16 x float], ptr %53, i64 0, i64 %127
-  %129 = load float, ptr %128, align 4, !noalias !100
-  %130 = tail call float @llvm.fmuladd.f32(float %125, float %129, float %.01620.i)
+125:                                              ; preds = %125, %.preheader.i
+  %indvars.iv.i11 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i12, %125 ]
+  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %133, %125 ]
+  %126 = add nuw nsw i64 %indvars.iv.i11, %124
+  %127 = getelementptr inbounds [16 x float], ptr %123, i64 0, i64 %126
+  %128 = load float, ptr %127, align 4, !noalias !100
+  %129 = shl nuw nsw i64 %indvars.iv.i11, 2
+  %130 = add nuw nsw i64 %129, %indvars.iv25.i
+  %131 = getelementptr inbounds [16 x float], ptr %62, i64 0, i64 %130
+  %132 = load float, ptr %131, align 4, !noalias !100
+  %133 = tail call float @llvm.fmuladd.f32(float %128, float %132, float %.01620.i)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 4
-  br i1 %exitcond.not.i13, label %131, label %122, !llvm.loop !78
+  br i1 %exitcond.not.i13, label %134, label %125, !llvm.loop !78
 
-131:                                              ; preds = %122
-  %132 = add nuw nsw i64 %indvars.iv25.i, %121
-  %133 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %132
-  store float %130, ptr %133, align 4, !alias.scope !100
+134:                                              ; preds = %125
+  %135 = add nuw nsw i64 %indvars.iv25.i, %124
+  %136 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %135
+  store float %133, ptr %136, align 4, !alias.scope !100
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %134, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond28.not.i, label %137, label %.preheader.i, !llvm.loop !79
 
-134:                                              ; preds = %131
+137:                                              ; preds = %134
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader, label %.preheader19.i, !llvm.loop !80
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader:      ; preds = %134
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader:      ; preds = %137
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   br label %.preheader19.i17
 
-.preheader19.i17:                                 ; preds = %148, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader
-  %indvars.iv29.i18 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader ], [ %indvars.iv.next30.i27, %148 ]
-  %135 = shl nuw nsw i64 %indvars.iv29.i18, 2
+.preheader19.i17:                                 ; preds = %151, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader
+  %indvars.iv29.i18 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit.preheader ], [ %indvars.iv.next30.i27, %151 ]
+  %138 = shl nuw nsw i64 %indvars.iv29.i18, 2
   br label %.preheader.i19
 
-.preheader.i19:                                   ; preds = %145, %.preheader19.i17
-  %indvars.iv25.i20 = phi i64 [ 0, %.preheader19.i17 ], [ %indvars.iv.next26.i25, %145 ]
-  br label %136
+.preheader.i19:                                   ; preds = %148, %.preheader19.i17
+  %indvars.iv25.i20 = phi i64 [ 0, %.preheader19.i17 ], [ %indvars.iv.next26.i25, %148 ]
+  br label %139
 
-136:                                              ; preds = %136, %.preheader.i19
-  %indvars.iv.i21 = phi i64 [ 0, %.preheader.i19 ], [ %indvars.iv.next.i23, %136 ]
-  %.01620.i22 = phi float [ 0.000000e+00, %.preheader.i19 ], [ %144, %136 ]
-  %137 = add nuw nsw i64 %indvars.iv.i21, %135
-  %138 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %137
-  %139 = load float, ptr %138, align 4, !noalias !103
-  %140 = shl nuw nsw i64 %indvars.iv.i21, 2
-  %141 = add nuw nsw i64 %140, %indvars.iv25.i20
-  %142 = getelementptr inbounds [16 x float], ptr @__const._ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv.biasMatData, i64 0, i64 %141
-  %143 = load float, ptr %142, align 4, !noalias !103
-  %144 = tail call float @llvm.fmuladd.f32(float %139, float %143, float %.01620.i22)
+139:                                              ; preds = %139, %.preheader.i19
+  %indvars.iv.i21 = phi i64 [ 0, %.preheader.i19 ], [ %indvars.iv.next.i23, %139 ]
+  %.01620.i22 = phi float [ 0.000000e+00, %.preheader.i19 ], [ %147, %139 ]
+  %140 = add nuw nsw i64 %indvars.iv.i21, %138
+  %141 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %140
+  %142 = load float, ptr %141, align 4, !noalias !103
+  %143 = shl nuw nsw i64 %indvars.iv.i21, 2
+  %144 = add nuw nsw i64 %143, %indvars.iv25.i20
+  %145 = getelementptr inbounds [16 x float], ptr @__const._ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv.biasMatData, i64 0, i64 %144
+  %146 = load float, ptr %145, align 4, !noalias !103
+  %147 = tail call float @llvm.fmuladd.f32(float %142, float %146, float %.01620.i22)
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 4
-  br i1 %exitcond.not.i24, label %145, label %136, !llvm.loop !78
+  br i1 %exitcond.not.i24, label %148, label %139, !llvm.loop !78
 
-145:                                              ; preds = %136
-  %146 = add nuw nsw i64 %indvars.iv25.i20, %135
-  %147 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %146
-  store float %144, ptr %147, align 4, !alias.scope !103
+148:                                              ; preds = %139
+  %149 = add nuw nsw i64 %indvars.iv25.i20, %138
+  %150 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %149
+  store float %147, ptr %150, align 4, !alias.scope !103
   %indvars.iv.next26.i25 = add nuw nsw i64 %indvars.iv25.i20, 1
   %exitcond28.not.i26 = icmp eq i64 %indvars.iv.next26.i25, 4
-  br i1 %exitcond28.not.i26, label %148, label %.preheader.i19, !llvm.loop !79
+  br i1 %exitcond28.not.i26, label %151, label %.preheader.i19, !llvm.loop !79
 
-148:                                              ; preds = %145
+151:                                              ; preds = %148
   %indvars.iv.next30.i27 = add nuw nsw i64 %indvars.iv29.i18, 1
   %exitcond32.not.i28 = icmp eq i64 %indvars.iv.next30.i27, 4
   br i1 %exitcond32.not.i28, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit29, label %.preheader19.i17, !llvm.loop !80
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit29:              ; preds = %148
-  %149 = getelementptr inbounds i8, ptr %0, i64 200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %149, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
-  %150 = getelementptr inbounds i8, ptr %0, i64 264
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit29:              ; preds = %151
+  %152 = getelementptr inbounds i8, ptr %0, i64 200
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %152, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+  %153 = getelementptr inbounds i8, ptr %0, i64 264
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %12, align 4
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4
-  store <2 x float> %.sroa.01.0.copyload.i, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 272
-  store float %.sroa.22.0.copyload.i, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 276
+  %.sroa.034.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
+  store float %.sroa.034.0.vec.extract, ptr %153, align 8
+  %.sroa.034.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
+  %154 = getelementptr inbounds i8, ptr %0, i64 268
+  store float %.sroa.034.4.vec.extract, ptr %154, align 4
+  %155 = getelementptr inbounds i8, ptr %0, i64 272
+  store float %.sroa.22.0.copyload.i, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %0, i64 276
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 88
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %8, i64 92
+  %.sroa.4.0.copyload64 = load float, ptr %.sroa.4.0..sroa_idx63, align 4
   %.sroa.5.0..sroa_idx65 = getelementptr inbounds i8, ptr %8, i64 96
   %.sroa.5.0.copyload66 = load float, ptr %.sroa.5.0..sroa_idx65, align 4
-  %153 = load <2 x float>, ptr %.sroa.3.0..sroa_idx, align 4
-  store <2 x float> %153, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %0, i64 284
-  store float %.sroa.5.0.copyload66, ptr %154, align 4
+  store float %.sroa.3.0.copyload, ptr %156, align 4
+  %157 = getelementptr inbounds i8, ptr %0, i64 280
+  store float %.sroa.4.0.copyload64, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %0, i64 284
+  store float %.sroa.5.0.copyload66, ptr %158, align 4
   ret void
 }
 
@@ -11238,198 +11283,202 @@ define void @_ZN25VisibilityCheck_ShadowMap18setupShadowTextureEv(ptr noundef no
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
-  %14 = load <2 x i32>, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 -1, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 -1, i64 20, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 6402, ptr %3, align 8, !noalias !106
-  store <2 x i32> %14, ptr %12, align 4, !noalias !106
-  %15 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 6402, ptr %15, align 4, !noalias !106
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 5124, ptr %16, align 8, !noalias !106
-  store ptr null, ptr %13, align 8, !noalias !106
+  store i32 %11, ptr %15, align 4, !noalias !106
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %13, ptr %17, align 8, !noalias !106
+  %18 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 6402, ptr %18, align 4, !noalias !106
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 5124, ptr %19, align 8, !noalias !106
+  store ptr null, ptr %16, align 8, !noalias !106
   call void @_ZN3glw7Context12createHandleINS_9Texture2DEEENS0_20SafeHandleFromObjectIT_E4TypeEv(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer") align 8 %4, ptr noundef nonnull align 8 dereferenceable(120) %7)
-  %17 = load ptr, ptr %4, align 8, !alias.scope !109
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8, !alias.scope !109
   %21 = load ptr, ptr %20, align 8
-  %22 = invoke noundef zeroext i1 @_ZN3glw9Texture2D6createERKNS_18Texture2DArgumentsE(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull align 8 dereferenceable(52) %3)
-          to label %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit unwind label %23
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = invoke noundef zeroext i1 @_ZN3glw9Texture2D6createERKNS_18Texture2DArgumentsE(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull align 8 dereferenceable(52) %3)
+          to label %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit unwind label %26
 
-common.resume:                                    ; preds = %80, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %81, %80 ]
+common.resume:                                    ; preds = %83, %26
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %84, %83 ]
   resume { ptr, i32 } %common.resume.op
 
-23:                                               ; preds = %1
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %1
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   br label %common.resume
 
 _ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %25 = getelementptr inbounds i8, ptr %0, i64 288
-  %26 = load ptr, ptr %4, align 8
-  %27 = load ptr, ptr %25, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i, label %29
+  %28 = getelementptr inbounds i8, ptr %0, i64 288
+  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %28, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i, label %32
 
-29:                                               ; preds = %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = add nsw i32 %31, -1
-  store i32 %32, ptr %30, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %32, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %33, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
+32:                                               ; preds = %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit
+  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = add nsw i32 %34, -1
+  store i32 %35, ptr %33, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %35, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %36, label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %27, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %30, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %33
-  %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %34) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %36
+  %39 = load ptr, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %37) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %33
-  call void @_ZdlPv(ptr noundef nonnull %27) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %36
+  call void @_ZdlPv(ptr noundef nonnull %30) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
 
-_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, %29, %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit
-  store ptr %26, ptr %25, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit, label %39
+_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i.i, %32, %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit
+  store ptr %29, ptr %28, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit, label %42
 
-39:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
-  %40 = getelementptr inbounds i8, ptr %26, i64 8
-  %41 = load i32, ptr %40, align 8
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 8
+42:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
+  %43 = getelementptr inbounds i8, ptr %29, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %43, align 8
   br label %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit
 
-_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit: ; preds = %39, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
-  %43 = load ptr, ptr %4, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %55, label %45
+_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit: ; preds = %42, %_ZN3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6detachEv.exit.i.i.i.i.i
+  %46 = load ptr, ptr %4, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %58, label %48
 
-45:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = add nsw i32 %47, -1
-  store i32 %48, ptr %46, align 8
-  %.not.i.i.i.i.i.i = icmp eq i32 %48, 0
-  br i1 %.not.i.i.i.i.i.i, label %49, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
+48:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit
+  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = add nsw i32 %50, -1
+  store i32 %51, ptr %49, align 8
+  %.not.i.i.i.i.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i.i.i.i, label %52, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %43, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %46, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i
 
-_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %49
-  %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %50) #21
+_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %52
+  %55 = load ptr, ptr %53, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %53) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %49
-  call void @_ZdlPv(ptr noundef nonnull %43) #22
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_10SafeObjectEEclEPS2_.exit.i.i.i.i.i.i.i.i, %52
+  call void @_ZdlPv(ptr noundef nonnull %46) #22
   br label %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %45
+_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i: ; preds = %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i.i.i, %48
   store ptr null, ptr %4, align 8
-  br label %55
+  br label %58
 
-55:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
-  %56 = load ptr, ptr %6, align 8
+58:                                               ; preds = %_ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_10SafeObjectEEENS_11SafeTextureEEaSERKS7_.exit, %_ZN3glw6detail16RefCountedObjectINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE5unrefEv.exit.i.i.i.i.i
+  %59 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i32 3553, ptr %2, align 4, !noalias !112
-  %57 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %57, align 4, !noalias !112
-  call void @_ZN3glw7Context4bindINS_14BoundTexture2DEEENS0_24BindingHandleFromBindingIT_E4TypeERNS0_21SafeHandleFromBindingIS4_E4TypeERKNS_6detail8ParamsOfIS4_E4TypeE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.248") align 8 %5, ptr noundef nonnull align 8 dereferenceable(120) %56, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %60 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %60, align 4, !noalias !112
+  call void @_ZN3glw7Context4bindINS_14BoundTexture2DEEENS0_24BindingHandleFromBindingIT_E4TypeERNS0_21SafeHandleFromBindingIS4_E4TypeERKNS_6detail8ParamsOfIS4_E4TypeE(ptr dead_on_unwind nonnull writable sret(%"class.glw::detail::ObjectSharedPointer.248") align 8 %5, ptr noundef nonnull align 8 dereferenceable(120) %59, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %58 = load ptr, ptr %5, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8
-  invoke void @glTexParameteri(i32 noundef %61, i32 noundef 10241, i32 noundef 9728)
-          to label %.noexc unwind label %80
+  %61 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load i32, ptr %63, align 8
+  invoke void @glTexParameteri(i32 noundef %64, i32 noundef 10241, i32 noundef 9728)
+          to label %.noexc unwind label %83
 
-.noexc:                                           ; preds = %55
-  invoke void @glTexParameteri(i32 noundef %61, i32 noundef 10240, i32 noundef 9728)
-          to label %.noexc4 unwind label %80
+.noexc:                                           ; preds = %58
+  invoke void @glTexParameteri(i32 noundef %64, i32 noundef 10240, i32 noundef 9728)
+          to label %.noexc4 unwind label %83
 
 .noexc4:                                          ; preds = %.noexc
-  invoke void @glTexParameteri(i32 noundef %61, i32 noundef 10242, i32 noundef 10496)
-          to label %.noexc5 unwind label %80
+  invoke void @glTexParameteri(i32 noundef %64, i32 noundef 10242, i32 noundef 10496)
+          to label %.noexc5 unwind label %83
 
 .noexc5:                                          ; preds = %.noexc4
-  invoke void @glTexParameteri(i32 noundef %61, i32 noundef 10243, i32 noundef 10496)
-          to label %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit unwind label %80
+  invoke void @glTexParameteri(i32 noundef %64, i32 noundef 10243, i32 noundef 10496)
+          to label %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit unwind label %83
 
 _ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit: ; preds = %.noexc5
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 34892, i32 noundef 34894)
-          to label %62 unwind label %80
+          to label %65 unwind label %83
 
-62:                                               ; preds = %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit
+65:                                               ; preds = %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 34893, i32 noundef 515)
-          to label %63 unwind label %80
+          to label %66 unwind label %83
 
-63:                                               ; preds = %62
+66:                                               ; preds = %65
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 34891, i32 noundef 32841)
-          to label %64 unwind label %80
-
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %6, align 8
-  invoke void @_ZN3glw7Context15unbindTexture2DEi(ptr noundef nonnull align 8 dereferenceable(120) %65, i32 noundef 0)
-          to label %66 unwind label %80
-
-66:                                               ; preds = %64
-  invoke void @glPopAttrib()
-          to label %67 unwind label %80
+          to label %67 unwind label %83
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %5, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit, label %70
+  %68 = load ptr, ptr %6, align 8
+  invoke void @_ZN3glw7Context15unbindTexture2DEi(ptr noundef nonnull align 8 dereferenceable(120) %68, i32 noundef 0)
+          to label %69 unwind label %83
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
-  %72 = load i32, ptr %71, align 8
-  %73 = add nsw i32 %72, -1
-  store i32 %73, ptr %71, align 8
-  %.not.i.i.i.i = icmp eq i32 %73, 0
-  br i1 %.not.i.i.i.i, label %74, label %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
+69:                                               ; preds = %67
+  invoke void @glPopAttrib()
+          to label %70 unwind label %83
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %68, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %5, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit, label %73
 
-_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %74
-  %77 = load ptr, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(24) %75) #21
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = add nsw i32 %75, -1
+  store i32 %76, ptr %74, align 8
+  %.not.i.i.i.i = icmp eq i32 %76, 0
+  br i1 %.not.i.i.i.i, label %77, label %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
+
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %71, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, label %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i
+
+_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %77
+  %80 = load ptr, ptr %78, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  call void %82(ptr noundef nonnull align 8 dereferenceable(24) %78) #21
   br label %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i
 
-_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %74
-  call void @_ZdlPv(ptr noundef nonnull %68) #22
+_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i: ; preds = %_ZN3glw6detail14DefaultDeleterINS_11BoundObjectEEclEPS2_.exit.i.i.i.i.i.i, %77
+  call void @_ZdlPv(ptr noundef nonnull %71) #22
   br label %_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit
 
-_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit: ; preds = %70, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %67
+_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev.exit: ; preds = %73, %_ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEED2Ev.exit.i.i.i.i, %70
   ret void
 
-80:                                               ; preds = %.noexc5, %.noexc4, %.noexc, %55, %66, %64, %63, %62, %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit
-  %81 = landingpad { ptr, i32 }
+83:                                               ; preds = %.noexc5, %.noexc4, %.noexc, %58, %69, %67, %66, %65, %_ZN3glw14BoundTexture2D13setSampleModeERKNS_17TextureSampleModeE.exit
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3glw6detail19ObjectSharedPointerINS_14BoundTexture2DENS0_14DefaultDeleterINS_11BoundObjectEEES4_ED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %common.resume
@@ -12152,7 +12201,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18
   store ptr null, ptr %0, align 8
-  br label %78
+  br label %79
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -12163,34 +12212,36 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load i32, ptr %5, align 4
-  %63 = load <2 x i32>, ptr %3, align 4
-  store <2 x i32> %63, ptr %61, align 8
+  %62 = load i32, ptr %3, align 4
+  store i32 %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %64 = load i32, ptr %5, align 4
+  store i32 %64, ptr %63, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw14BoundTexture2DE, i64 16), ptr %56, align 8
-  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  store ptr %56, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  store i32 1, ptr %65, align 8
-  %66 = load ptr, ptr @__glewActiveTexture, align 8
-  %67 = add nsw i32 %62, 33984
-  tail call void %66(i32 noundef %67)
-  %68 = load i32, ptr %61, align 8
-  %69 = load ptr, ptr %57, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  store ptr %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 1, ptr %66, align 8
+  %67 = load ptr, ptr @__glewActiveTexture, align 8
+  %68 = add nsw i32 %64, 33984
+  tail call void %67(i32 noundef %68)
+  %69 = load i32, ptr %61, align 8
+  %70 = load ptr, ptr %57, align 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = load i32, ptr %74, align 8
-  tail call void @glBindTexture(i32 noundef %68, i32 noundef %75)
-  store ptr %64, ptr %30, align 8
-  store ptr %64, ptr %0, align 8
-  %76 = load i32, ptr %65, align 8
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %65, align 8
-  br label %78
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load i32, ptr %75, align 8
+  tail call void @glBindTexture(i32 noundef %69, i32 noundef %76)
+  store ptr %65, ptr %30, align 8
+  store ptr %65, ptr %0, align 8
+  %77 = load i32, ptr %66, align 8
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %66, align 8
+  br label %79
 
-78:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread
+79:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread
   ret void
 }
 
@@ -18637,7 +18688,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18
   store ptr null, ptr %0, align 8
-  br label %73
+  br label %75
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -18648,28 +18699,31 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load <2 x i32>, ptr %3, align 4
-  store <2 x i32> %62, ptr %61, align 8
+  %62 = load i32, ptr %3, align 4
+  store i32 %62, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %64 = load i32, ptr %5, align 4
+  store i32 %64, ptr %63, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw12BoundProgramE, i64 16), ptr %56, align 8
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-  store ptr %56, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i32 1, ptr %64, align 8
-  %65 = load ptr, ptr @__glewUseProgram, align 8
-  %66 = getelementptr inbounds i8, ptr %53, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load i32, ptr %69, align 8
-  tail call void %65(i32 noundef %70)
-  store ptr %63, ptr %30, align 8
-  store ptr %63, ptr %0, align 8
-  %71 = load i32, ptr %64, align 8
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %64, align 8
-  br label %73
+  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
+  store ptr %56, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  store i32 1, ptr %66, align 8
+  %67 = load ptr, ptr @__glewUseProgram, align 8
+  %68 = getelementptr inbounds i8, ptr %53, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  tail call void %67(i32 noundef %72)
+  store ptr %65, ptr %30, align 8
+  store ptr %65, ptr %0, align 8
+  %73 = load i32, ptr %66, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %66, align 8
+  br label %75
 
-73:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread
+75:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread
   ret void
 }
 

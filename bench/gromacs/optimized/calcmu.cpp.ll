@@ -72,11 +72,12 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
   call void @__kmpc_push_num_threads(ptr nonnull @3, i32 %18, i32 %34)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.1, ptr nonnull %14, ptr nonnull %13, ptr nonnull %15, ptr nonnull %6, ptr nonnull %11, ptr nonnull %16, ptr nonnull %17)
   %35 = load double, ptr %15, align 8
-  %36 = load double, ptr %16, align 8
-  %37 = insertelement <2 x double> poison, double %35, i64 0
-  %38 = insertelement <2 x double> %37, double %36, i64 1
-  %39 = fmul <2 x double> %38, <double 0x4048041A1EC6696C, double 0x4048041A1EC6696C>
-  store <2 x double> %39, ptr %9, align 8
+  %36 = fmul double %35, 0x4048041A1EC6696C
+  store double %36, ptr %9, align 8
+  %37 = load double, ptr %16, align 8
+  %38 = fmul double %37, 0x4048041A1EC6696C
+  %39 = getelementptr inbounds i8, ptr %9, i64 8
+  store double %38, ptr %39, align 8
   %40 = load double, ptr %17, align 8
   %41 = fmul double %40, 0x4048041A1EC6696C
   br label %47

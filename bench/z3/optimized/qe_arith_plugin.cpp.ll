@@ -19108,7 +19108,7 @@ entry:
   %s = alloca %class.obj_ref, align 8
   %b = alloca %class.rational, align 8
   %ref.tmp43 = alloca %class.rational, align 8
-  %save_result = alloca %class.obj_ref, align 16
+  %save_result = alloca %class.obj_ref, align 8
   %ref.tmp55 = alloca %class.obj_ref, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m, align 8
@@ -19225,6 +19225,7 @@ invoke.cont24.lr.ph:                              ; preds = %lor.end
   %m_owner4.i.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp43, i64 20
   %m_util46 = getelementptr inbounds i8, ptr %this, i64 32
   %m_manager.i49 = getelementptr inbounds i8, ptr %save_result, i64 8
+  %m_manager3.i = getelementptr inbounds i8, ptr %result, i64 8
   %m_replace = getelementptr inbounds i8, ptr %this, i64 344
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 24
   %m_manager.i.i62 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
@@ -19429,14 +19430,15 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
           to label %invoke.cont49 unwind label %lpad40
 
 invoke.cont49:                                    ; preds = %_ZN8rationalD2Ev.exit
-  %51 = load <2 x ptr>, ptr %result, align 8
-  %52 = load ptr, ptr %result, align 8
-  store <2 x ptr> %51, ptr %save_result, align 16
-  %tobool.not.i.i50 = icmp eq ptr %52, null
+  %51 = load ptr, ptr %result, align 8
+  store ptr %51, ptr %save_result, align 8
+  %52 = load ptr, ptr %m_manager3.i, align 8
+  store ptr %52, ptr %m_manager.i49, align 8
+  %tobool.not.i.i50 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i50, label %invoke.cont50, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i51
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i51:        ; preds = %invoke.cont49
-  %m_ref_count.i.i.i.i52 = getelementptr inbounds i8, ptr %52, i64 8
+  %m_ref_count.i.i.i.i52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i32, ptr %m_ref_count.i.i.i.i52, align 4
   %inc.i.i.i.i53 = add i32 %53, 1
   store i32 %inc.i.i.i.i53, ptr %m_ref_count.i.i.i.i52, align 4
@@ -19543,7 +19545,7 @@ terminate.lpad.i73:                               ; preds = %if.then2.i.i.i72
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit74:       ; preds = %invoke.cont60, %if.then.i.i.i67, %if.then2.i.i.i72
-  %75 = load ptr, ptr %save_result, align 16
+  %75 = load ptr, ptr %save_result, align 8
   %tobool.not.i.i75 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i75, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit83, label %if.then.i.i.i76
 
@@ -20114,14 +20116,17 @@ _ZN6vectorIP3appLb0EjE7destroyEv.exit.i.i:        ; preds = %if.then.i.i.i, %if.
   br i1 %tobool.not.i.i, label %if.else.i.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i:    ; preds = %_ZN6vectorIP3appLb0EjE7destroyEv.exit.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -4
+  %7 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  %7 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %8 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %8 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call3.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
-  store <2 x i32> %7, ptr %call3.i.i.i, align 4
+  store i32 %8, ptr %call3.i.i.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  store i32 %7, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m_vars, align 8
   %9 = load ptr, ptr %m_vars5, align 8
@@ -29530,6 +29535,7 @@ invoke.cont11:                                    ; preds = %invoke.cont10
 
 invoke.cont15.lr.ph:                              ; preds = %invoke.cont11
   %m_arith_rewriter = getelementptr inbounds i8, ptr %this, i64 520
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   %simplify = getelementptr inbounds i8, ptr %this, i64 32
   %arrayinit.element.i61 = getelementptr inbounds i8, ptr %args.i60, i64 8
   %m_arith39 = getelementptr inbounds i8, ptr %this, i64 16
@@ -29572,9 +29578,10 @@ land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager5i
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %20 = load <2 x ptr>, ptr %m_args.i.i, align 8
-  %21 = load ptr, ptr %m_args.i.i, align 8
-  %call.i.i16 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %21)
+  %20 = load ptr, ptr %m_args.i.i, align 8
+  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %13, i64 40
+  %21 = load ptr, ptr %arrayidx.i.i14, align 8
+  %call.i.i16 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
           to label %call.i.i.noexc unwind label %lpad8.loopexit
 
 call.i.i.noexc:                                   ; preds = %land.lhs.true
@@ -29595,7 +29602,7 @@ _ZNK17arith_recognizers6is_intEPK4expr.exit.i:    ; preds = %_ZNK4decl13get_fami
   br i1 %cmp3.i.i.i.i.i, label %if.then, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK17arith_recognizers6is_intEPK4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i, %call.i.i.noexc
-  %call.i2.i17 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %21)
+  %call.i2.i17 = invoke noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %20)
           to label %call.i2.i.noexc unwind label %lpad8.loopexit
 
 call.i2.i.noexc:                                  ; preds = %lor.rhs.i
@@ -29617,7 +29624,8 @@ invoke.cont20:                                    ; preds = %_ZNK4decl13get_fami
 
 if.then:                                          ; preds = %_ZNK17arith_recognizers6is_intEPK4expr.exit.i, %invoke.cont20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
-  store <2 x ptr> %20, ptr %args.i, align 16
+  store ptr %20, ptr %args.i, align 16
+  store ptr %21, ptr %arrayinit.element.i, align 8
   %call.i18 = invoke noundef i32 @_ZN13poly_rewriterI19arith_rewriter_coreE6mk_subEjPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(84) %m_arith_rewriter, i32 noundef 2, ptr noundef nonnull %args.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp1)
           to label %invoke.cont22 unwind label %lpad8.loopexit
 

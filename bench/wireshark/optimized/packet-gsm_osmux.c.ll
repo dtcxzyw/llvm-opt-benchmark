@@ -821,128 +821,138 @@ define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, 
   %8 = zext i8 %7 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %9 = getelementptr inbounds i8, ptr %1, i64 208
-  %10 = getelementptr inbounds i8, ptr %1, i64 216
-  %11 = load ptr, ptr %10, align 8
-  %12 = load <2 x i32>, ptr %9, align 8
-  store <2 x i32> %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 232
-  %17 = getelementptr inbounds i8, ptr %1, i64 240
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
-  %20 = load <2 x i32>, ptr %16, align 8
-  store <2 x i32> %20, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 280
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
-  %25 = load <2 x i32>, ptr %23, align 8
-  store <2 x i32> %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 288
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 60
-  store i32 %8, ptr %29, align 4
-  %30 = load ptr, ptr @osmux_stream_hash, align 8
-  %31 = call ptr @wmem_map_lookup(ptr noundef %30, ptr noundef nonnull %5) #10
-  %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %32, label %get_stream.exit
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 212
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = load ptr, ptr %13, align 8
+  store i32 %10, ptr %5, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %12, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds i8, ptr %1, i64 232
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 236
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 240
+  %24 = load ptr, ptr %23, align 8
+  store i32 %20, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 %22, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %24, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 280
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 284
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %5, i64 52
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 60
+  store i32 %8, ptr %37, align 4
+  %38 = load ptr, ptr @osmux_stream_hash, align 8
+  %39 = call ptr @wmem_map_lookup(ptr noundef %38, ptr noundef nonnull %5) #10
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %40, label %get_stream.exit
 
-32:                                               ; preds = %4
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
-  %34 = call ptr @wmem_file_scope() #10
-  %35 = call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 64) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  %36 = call ptr @wmem_file_scope() #10
-  %37 = load i32, ptr %5, align 8
-  %38 = load i32, ptr %33, align 4
-  %39 = load ptr, ptr %13, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  store i32 %37, ptr %35, align 8
-  %40 = icmp eq i32 %38, 0
-  br i1 %40, label %copy_address_wmem.exit.i, label %41
+40:                                               ; preds = %4
+  %41 = call ptr @wmem_file_scope() #10
+  %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 64) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  %43 = call ptr @wmem_file_scope() #10
+  %44 = load i32, ptr %5, align 8
+  %45 = load i32, ptr %15, align 4
+  %46 = load ptr, ptr %16, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  store i32 %44, ptr %42, align 8
+  %47 = icmp eq i32 %45, 0
+  br i1 %47, label %copy_address_wmem.exit.i, label %48
 
-41:                                               ; preds = %32
-  %42 = sext i32 %38 to i64
-  %43 = call noalias ptr @wmem_memdup(ptr noundef %36, ptr noundef %39, i64 noundef %42) #10
-  %44 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %43, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 4
-  store i32 %38, ptr %46, align 4
+48:                                               ; preds = %40
+  %49 = sext i32 %45 to i64
+  %50 = call noalias ptr @wmem_memdup(ptr noundef %43, ptr noundef %46, i64 noundef %49) #10
+  %51 = getelementptr inbounds i8, ptr %42, i64 16
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 %45, ptr %53, align 4
   br label %copy_address_wmem.exit.i
 
-copy_address_wmem.exit.i:                         ; preds = %41, %32
-  %47 = call ptr @wmem_file_scope() #10
-  %48 = getelementptr inbounds i8, ptr %35, i64 24
-  %49 = load i32, ptr %15, align 8
-  %50 = load i32, ptr %19, align 4
-  %51 = load ptr, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  store i32 %49, ptr %48, align 8
-  %52 = icmp eq i32 %50, 0
-  br i1 %52, label %copy_address_wmem.exit16.i, label %53
+copy_address_wmem.exit.i:                         ; preds = %48, %40
+  %54 = call ptr @wmem_file_scope() #10
+  %55 = getelementptr inbounds i8, ptr %42, i64 24
+  %56 = load i32, ptr %18, align 8
+  %57 = load i32, ptr %25, align 4
+  %58 = load ptr, ptr %26, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  store i32 %56, ptr %55, align 8
+  %59 = icmp eq i32 %57, 0
+  br i1 %59, label %copy_address_wmem.exit16.i, label %60
 
-53:                                               ; preds = %copy_address_wmem.exit.i
-  %54 = sext i32 %50 to i64
-  %55 = call noalias ptr @wmem_memdup(ptr noundef %47, ptr noundef %51, i64 noundef %54) #10
-  %56 = getelementptr inbounds i8, ptr %35, i64 40
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %35, i64 28
-  store i32 %50, ptr %58, align 4
+60:                                               ; preds = %copy_address_wmem.exit.i
+  %61 = sext i32 %57 to i64
+  %62 = call noalias ptr @wmem_memdup(ptr noundef %54, ptr noundef %58, i64 noundef %61) #10
+  %63 = getelementptr inbounds i8, ptr %42, i64 40
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr %62, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %42, i64 28
+  store i32 %57, ptr %65, align 4
   br label %copy_address_wmem.exit16.i
 
-copy_address_wmem.exit16.i:                       ; preds = %53, %copy_address_wmem.exit.i
-  %59 = call ptr @wmem_file_scope() #10
-  %60 = call noalias ptr @wmem_alloc0(ptr noundef %59, i64 noundef 56) #10
-  store ptr %35, ptr %60, align 8
-  %61 = load i32, ptr @osmux_next_stream_id, align 4
-  %62 = getelementptr inbounds i8, ptr %60, i64 48
-  store i32 %61, ptr %62, align 8
-  %63 = add i32 %61, 1
-  store i32 %63, ptr @osmux_next_stream_id, align 4
-  %64 = load ptr, ptr @osmux_stream_hash, align 8
-  %65 = call ptr @wmem_map_insert(ptr noundef %64, ptr noundef nonnull %35, ptr noundef nonnull %60) #10
+copy_address_wmem.exit16.i:                       ; preds = %60, %copy_address_wmem.exit.i
+  %66 = call ptr @wmem_file_scope() #10
+  %67 = call noalias ptr @wmem_alloc0(ptr noundef %66, i64 noundef 56) #10
+  store ptr %42, ptr %67, align 8
+  %68 = load i32, ptr @osmux_next_stream_id, align 4
+  %69 = getelementptr inbounds i8, ptr %67, i64 48
+  store i32 %68, ptr %69, align 8
+  %70 = add i32 %68, 1
+  store i32 %70, ptr @osmux_next_stream_id, align 4
+  %71 = load ptr, ptr @osmux_stream_hash, align 8
+  %72 = call ptr @wmem_map_insert(ptr noundef %71, ptr noundef nonnull %42, ptr noundef nonnull %67) #10
   br label %get_stream.exit
 
 get_stream.exit:                                  ; preds = %4, %copy_address_wmem.exit16.i
-  %.0.i = phi ptr [ %31, %4 ], [ %60, %copy_address_wmem.exit16.i ]
+  %.0.i = phi ptr [ %39, %4 ], [ %67, %copy_address_wmem.exit16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %66 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %.0.i, ptr %66, align 8
-  %67 = load i32, ptr @hf_osmux_stream_id, align 4
-  %68 = getelementptr inbounds i8, ptr %.0.i, i64 48
-  %69 = load i32, ptr %68, align 8
-  %70 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %69) #10
-  %.not.i9 = icmp eq ptr %70, null
-  br i1 %.not.i9, label %proto_item_set_generated.exit, label %71
+  %73 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %.0.i, ptr %73, align 8
+  %74 = load i32, ptr @hf_osmux_stream_id, align 4
+  %75 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %76 = load i32, ptr %75, align 8
+  %77 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %76) #10
+  %.not.i9 = icmp eq ptr %77, null
+  br i1 %.not.i9, label %proto_item_set_generated.exit, label %78
 
-71:                                               ; preds = %get_stream.exit
-  %72 = getelementptr inbounds i8, ptr %70, i64 32
-  %73 = load ptr, ptr %72, align 8
-  %.not5.i = icmp eq ptr %73, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %74
+78:                                               ; preds = %get_stream.exit
+  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %.not5.i = icmp eq ptr %80, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %81
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %73, i64 28
-  %76 = load i32, ptr %75, align 4
-  %77 = or i32 %76, 2
-  store i32 %77, ptr %75, align 4
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds i8, ptr %80, i64 28
+  %83 = load i32, ptr %82, align 4
+  %84 = or i32 %83, 2
+  store i32 %84, ptr %82, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %get_stream.exit, %71, %74
-  %78 = load i32, ptr @osmux_tap, align 4
-  call void @tap_queue_packet(i32 noundef %78, ptr noundef nonnull %1, ptr noundef nonnull %3) #10
+proto_item_set_generated.exit:                    ; preds = %get_stream.exit, %78, %81
+  %85 = load i32, ptr @osmux_tap, align 4
+  call void @tap_queue_packet(i32 noundef %85, ptr noundef nonnull %1, ptr noundef nonnull %3) #10
   ret void
 }
 

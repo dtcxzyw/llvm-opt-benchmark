@@ -149,7 +149,13 @@ entry:
   %pending_writes_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %pending_writes_, align 8
   %is_reading_ = getelementptr inbounds i8, ptr %this, i64 60
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %is_reading_, align 4
+  store i8 0, ptr %is_reading_, align 4
+  %is_eof_ = getelementptr inbounds i8, ptr %this, i64 61
+  store i8 0, ptr %is_eof_, align 1
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 62
+  store i8 1, ptr %is_closed_, align 2
+  %sink_destroyed_ = getelementptr inbounds i8, ptr %this, i64 63
+  store i8 0, ptr %sink_destroyed_, align 1
   %source_destroyed_ = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %source_destroyed_, align 8
   %uses_wants_write_ = getelementptr inbounds i8, ptr %this, i64 65

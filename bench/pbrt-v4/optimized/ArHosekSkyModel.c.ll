@@ -550,16 +550,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 define dso_local double @art_blackbody_dd_value(double noundef %temperature, double noundef %lambda) local_unnamed_addr #6 {
 entry:
   %call = tail call double @pow(double noundef %lambda, double noundef 5.000000e+00) #11
+  %div = fdiv double 3.741770e-16, %call
   %mul = fmul double %temperature, %lambda
   %div1 = fdiv double 1.438780e-02, %mul
   %call2 = tail call double @exp(double noundef %div1) #11
   %sub = fadd double %call2, -1.000000e+00
-  %0 = insertelement <2 x double> poison, double %call, i64 0
-  %1 = insertelement <2 x double> %0, double %sub, i64 1
-  %2 = fdiv <2 x double> <double 3.741770e-16, double 1.000000e+00>, %1
-  %shift = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %3 = fmul <2 x double> %2, %shift
-  %mul4 = extractelement <2 x double> %3, i64 0
+  %div3 = fdiv double 1.000000e+00, %sub
+  %mul4 = fmul double %div, %div3
   ret double %mul4
 }
 

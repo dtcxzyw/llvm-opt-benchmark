@@ -242,10 +242,10 @@ declare void @cpu_freq_cpuset_validate(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.bitmask, align 8
-  %3 = alloca %struct.nodemask_t, align 16
+  %3 = alloca %struct.nodemask_t, align 8
   %4 = alloca [128 x i8], align 16
   %5 = alloca %struct.nodemask_t, align 8
-  %6 = alloca %struct.nodemask_t, align 16
+  %6 = alloca %struct.nodemask_t, align 8
   %7 = tail call i32 @slurm_get_log_level() #5
   %8 = icmp sgt i32 %7, 4
   br i1 %8, label %9, label %20
@@ -271,85 +271,89 @@ define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_add
   %21 = getelementptr inbounds i8, ptr %0, i64 328
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %48, label %23
+  br i1 %.not, label %47, label %23
 
 23:                                               ; preds = %20
   %24 = call i32 @numa_available() #5
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %48
+  br i1 %25, label %26, label %47
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %27 = call ptr @numa_get_membind() #5
   call void @copy_bitmask_to_nodemask(ptr noundef %27, ptr noundef nonnull %3) #5
   call void @numa_bitmask_free(ptr noundef %27) #5
-  %28 = load <2 x i64>, ptr %3, align 16
+  %.fca.0.load.i = load i64, ptr %3, align 8
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store <2 x i64> %28, ptr %6, align 16
-  %29 = load i32, ptr %21, align 8
-  %.fr15 = freeze i32 %29
-  %30 = and i32 %.fr15, 2
-  %.not11.not = icmp eq i32 %30, 0
-  br i1 %.not11.not, label %switch.early.test, label %47
+  store i64 %.fca.0.load.i, ptr %6, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %.fca.1.load.i, ptr %.sroa.2.0..sroa_idx, align 8
+  %28 = load i32, ptr %21, align 8
+  %.fr15 = freeze i32 %28
+  %29 = and i32 %.fr15, 2
+  %.not11.not = icmp eq i32 %29, 0
+  br i1 %.not11.not, label %switch.early.test, label %46
 
 switch.early.test:                                ; preds = %26
-  switch i32 %.fr15, label %31 [
-    i32 64, label %47
-    i32 1, label %47
+  switch i32 %.fr15, label %30 [
+    i32 64, label %46
+    i32 1, label %46
   ]
 
-31:                                               ; preds = %switch.early.test
-  %32 = call i32 @get_memset(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
-  %.not12 = icmp eq i32 %32, 0
-  br i1 %.not12, label %47, label %33
+30:                                               ; preds = %switch.early.test
+  %31 = call i32 @get_memset(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
+  %.not12 = icmp eq i32 %31, 0
+  br i1 %.not12, label %46, label %32
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr %21, align 8
-  %35 = and i32 %34, 128
-  %.not13 = icmp eq i32 %35, 0
-  br i1 %.not13, label %45, label %nodemask_isset_compat.exit.i
+32:                                               ; preds = %30
+  %33 = load i32, ptr %21, align 8
+  %34 = and i32 %33, 128
+  %.not13 = icmp eq i32 %34, 0
+  br i1 %.not13, label %44, label %nodemask_isset_compat.exit.i
 
-nodemask_isset_compat.exit.i:                     ; preds = %33, %44
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %33 ]
-  %36 = lshr i64 %indvars.iv.i, 6
-  %37 = getelementptr inbounds [2 x i64], ptr %5, i64 0, i64 %36
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %indvars.iv.i, 63
-  %40 = shl nuw i64 1, %39
-  %41 = and i64 %40, %38
-  %.not.i.not.i = icmp eq i64 %41, 0
-  br i1 %.not.i.not.i, label %44, label %42
+nodemask_isset_compat.exit.i:                     ; preds = %32, %43
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %32 ]
+  %35 = lshr i64 %indvars.iv.i, 6
+  %36 = getelementptr inbounds [2 x i64], ptr %5, i64 0, i64 %35
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %indvars.iv.i, 63
+  %39 = shl nuw i64 1, %38
+  %40 = and i64 %39, %37
+  %.not.i.not.i = icmp eq i64 %40, 0
+  br i1 %.not.i.not.i, label %43, label %41
 
-42:                                               ; preds = %nodemask_isset_compat.exit.i
-  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @numa_set_preferred(i32 noundef %43) #5
+41:                                               ; preds = %nodemask_isset_compat.exit.i
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
+  call void @numa_set_preferred(i32 noundef %42) #5
   br label %_numa_set_preferred.exit
 
-44:                                               ; preds = %nodemask_isset_compat.exit.i
+43:                                               ; preds = %nodemask_isset_compat.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
   br i1 %exitcond.not.i, label %_numa_set_preferred.exit, label %nodemask_isset_compat.exit.i, !llvm.loop !8
 
-45:                                               ; preds = %33
+44:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %5, ptr %46, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %5, ptr %45, align 8
   store i64 128, ptr %2, align 8
   call void @numa_set_membind(ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_numa_set_preferred.exit
 
-_numa_set_preferred.exit:                         ; preds = %44, %42, %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+_numa_set_preferred.exit:                         ; preds = %43, %41, %44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  br label %46
+
+46:                                               ; preds = %switch.early.test, %switch.early.test, %26, %30, %_numa_set_preferred.exit
+  %.1 = phi i32 [ 0, %switch.early.test ], [ 0, %_numa_set_preferred.exit ], [ -1, %30 ], [ 0, %26 ], [ 0, %switch.early.test ]
+  call void @slurm_chk_memset(ptr noundef nonnull %6, ptr noundef %0) #5
   br label %47
 
-47:                                               ; preds = %switch.early.test, %switch.early.test, %26, %31, %_numa_set_preferred.exit
-  %.1 = phi i32 [ 0, %switch.early.test ], [ 0, %_numa_set_preferred.exit ], [ -1, %31 ], [ 0, %26 ], [ 0, %switch.early.test ]
-  call void @slurm_chk_memset(ptr noundef nonnull %6, ptr noundef %0) #5
-  br label %48
-
-48:                                               ; preds = %47, %23, %20
-  %.0 = phi i32 [ %.1, %47 ], [ 0, %23 ], [ 0, %20 ]
+47:                                               ; preds = %46, %23, %20
+  %.0 = phi i32 [ %.1, %46 ], [ 0, %23 ], [ 0, %20 ]
   ret i32 %.0
 }
 

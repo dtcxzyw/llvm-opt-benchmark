@@ -17,27 +17,35 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Nwk_ManSetIfParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, i8 0, i64 336, i1 false)
-  store <4 x i32> <i32 6, i32 8, i32 1, i32 2>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x float> <float -1.000000e+00, float 0x3F747AE140000000>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 220
+  store i32 6, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 8, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 2, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store float -1.000000e+00, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store float 0x3F747AE140000000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
-  %12 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr null, ptr %12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 220
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 280
+  %16 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr null, ptr %16, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   ret void
 }
 

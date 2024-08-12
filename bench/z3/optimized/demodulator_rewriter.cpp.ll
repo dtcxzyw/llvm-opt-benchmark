@@ -3679,9 +3679,13 @@ if.then10:                                        ; preds = %_ZN25demodulator_re
 
 if.then12:                                        ; preds = %if.then10
   %m_garbage = getelementptr inbounds i8, ptr %this, i64 4
-  %30 = load <2 x i32>, ptr %m_garbage, align 4
-  %31 = add <2 x i32> %30, <i32 -1, i32 1>
-  store <2 x i32> %31, ptr %m_garbage, align 4
+  %30 = load i32, ptr %m_garbage, align 4
+  %dec = add i32 %30, -1
+  store i32 %dec, ptr %m_garbage, align 4
+  %m_non_garbage = getelementptr inbounds i8, ptr %this, i64 8
+  %31 = load i32, ptr %m_non_garbage, align 8
+  %inc = add i32 %31, 1
+  store i32 %inc, ptr %m_non_garbage, align 8
   %.pre31 = load ptr, ptr %arrayidx.i13, align 8
   br label %if.end13
 
@@ -7013,9 +7017,13 @@ if.then10:                                        ; preds = %_ZN20demodulator_re
 
 if.then12:                                        ; preds = %if.then10
   %m_garbage = getelementptr inbounds i8, ptr %this, i64 4
-  %30 = load <2 x i32>, ptr %m_garbage, align 4
-  %31 = add <2 x i32> %30, <i32 -1, i32 1>
-  store <2 x i32> %31, ptr %m_garbage, align 4
+  %30 = load i32, ptr %m_garbage, align 4
+  %dec = add i32 %30, -1
+  store i32 %dec, ptr %m_garbage, align 4
+  %m_non_garbage = getelementptr inbounds i8, ptr %this, i64 8
+  %31 = load i32, ptr %m_non_garbage, align 8
+  %inc = add i32 %31, 1
+  store i32 %inc, ptr %m_non_garbage, align 8
   %.pre31 = load ptr, ptr %arrayidx.i13, align 8
   br label %if.end13
 

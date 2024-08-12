@@ -6248,10 +6248,13 @@ tsCompareString.exit.thread72:                    ; preds = %tsCompareString.exi
   br label %check_weight.exit.thread
 
 131:                                              ; preds = %100
-  %132 = load <2 x i32>, ptr %.060.lcssa, align 8
-  %133 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %.058163, i64 1
-  %134 = add <2 x i32> %132, %133
-  store <2 x i32> %134, ptr %.060.lcssa, align 8
+  %132 = load i32, ptr %.060.lcssa, align 8
+  %133 = add i32 %132, 1
+  store i32 %133, ptr %.060.lcssa, align 8
+  %134 = getelementptr inbounds i8, ptr %.060.lcssa, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = add i32 %135, %.058163
+  store i32 %136, ptr %134, align 4
   br label %check_weight.exit.thread
 
 check_weight.exit.thread:                         ; preds = %30, %29, %124, %129, %127, %check_weight.exit, %131

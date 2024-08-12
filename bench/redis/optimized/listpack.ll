@@ -4831,14 +4831,10 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %spec.select.us = lshr i32 %sub.us, %div16
   %call10.us = tail call i32 @rand() #16
   %conv11.us = sitofp i32 %call10.us to double
+  %div12.us = fdiv double %conv11.us, 0x41DFFFFFFFC00000
   %conv14.us = uitofp i32 %spec.select.us to double
-  %7 = insertelement <2 x double> poison, double %conv11.us, i64 0
-  %8 = insertelement <2 x double> %7, double %conv13, i64 1
-  %9 = insertelement <2 x double> <double 0x41DFFFFFFFC00000, double poison>, double %conv14.us, i64 1
-  %10 = fdiv <2 x double> %8, %9
-  %11 = extractelement <2 x double> %10, i64 0
-  %12 = extractelement <2 x double> %10, i64 1
-  %cmp16.us = fcmp ugt double %11, %12
+  %div15.us = fdiv double %conv13, %conv14.us
+  %cmp16.us = fcmp ugt double %div12.us, %div15.us
   br i1 %cmp16.us, label %if.end19.us, label %if.then18
 
 if.end19.us:                                      ; preds = %while.body.us
@@ -4846,8 +4842,8 @@ if.end19.us:                                      ; preds = %while.body.us
   %inc21.us = add nuw i32 %i.021.us, 1
   %cmp.us = icmp ult i32 %inc21.us, %retval.0.in.i
   %cmp2.us = icmp ne ptr %call20.us, null
-  %13 = and i1 %cmp.us, %cmp2.us
-  br i1 %13, label %while.body.us, label %return, !llvm.loop !21
+  %7 = and i1 %cmp.us, %cmp2.us
+  br i1 %7, label %while.body.us, label %return, !llvm.loop !21
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %p.addr.022 = phi ptr [ %p.addr.0.be, %while.cond.backedge ], [ %p, %while.body.lr.ph ]
@@ -4866,22 +4862,18 @@ while.cond.backedge:                              ; preds = %if.then, %if.end19
   %p.addr.0.be = phi ptr [ %call6, %if.then ], [ %call20, %if.end19 ]
   %cmp = icmp ult i32 %i.0.be, %retval.0.in.i
   %cmp2 = icmp ne ptr %p.addr.0.be, null
-  %14 = and i1 %cmp, %cmp2
-  br i1 %14, label %while.body, label %return, !llvm.loop !21
+  %8 = and i1 %cmp, %cmp2
+  br i1 %8, label %while.body, label %return, !llvm.loop !21
 
 if.end:                                           ; preds = %while.body
   %sub = sub i32 %retval.0.in.i, %i.021
   %spec.select = lshr i32 %sub, %div16
   %call10 = tail call i32 @rand() #16
   %conv11 = sitofp i32 %call10 to double
+  %div12 = fdiv double %conv11, 0x41DFFFFFFFC00000
   %conv14 = uitofp i32 %spec.select to double
-  %15 = insertelement <2 x double> poison, double %conv11, i64 0
-  %16 = insertelement <2 x double> %15, double %conv13, i64 1
-  %17 = insertelement <2 x double> <double 0x41DFFFFFFFC00000, double poison>, double %conv14, i64 1
-  %18 = fdiv <2 x double> %16, %17
-  %19 = extractelement <2 x double> %18, i64 0
-  %20 = extractelement <2 x double> %18, i64 1
-  %cmp16 = fcmp ugt double %19, %20
+  %div15 = fdiv double %conv13, %conv14
+  %cmp16 = fcmp ugt double %div12, %div15
   br i1 %cmp16, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %while.body.us, %if.end

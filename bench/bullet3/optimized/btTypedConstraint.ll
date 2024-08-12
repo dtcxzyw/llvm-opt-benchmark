@@ -83,7 +83,9 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   store ptr @_ZZN17btTypedConstraint12getFixedBodyEvE7s_fixed, ptr %m_rbB, align 8
   %m_appliedImpulse = getelementptr inbounds i8, ptr %this, i64 56
-  store <2 x float> <float 0.000000e+00, float 0x3FA99999A0000000>, ptr %m_appliedImpulse, align 8
+  store float 0.000000e+00, ptr %m_appliedImpulse, align 8
+  %m_dbgDrawSize = getelementptr inbounds i8, ptr %this, i64 60
+  store float 0x3FA99999A0000000, ptr %m_dbgDrawSize, align 4
   %m_jointFeedback = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %m_jointFeedback, align 8
   ret void
@@ -148,7 +150,9 @@ entry:
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %rbB, ptr %m_rbB, align 8
   %m_appliedImpulse = getelementptr inbounds i8, ptr %this, i64 56
-  store <2 x float> <float 0.000000e+00, float 0x3FA99999A0000000>, ptr %m_appliedImpulse, align 8
+  store float 0.000000e+00, ptr %m_appliedImpulse, align 8
+  %m_dbgDrawSize = getelementptr inbounds i8, ptr %this, i64 60
+  store float 0x3FA99999A0000000, ptr %m_dbgDrawSize, align 4
   %m_jointFeedback = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %m_jointFeedback, align 8
   ret void

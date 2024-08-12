@@ -1788,7 +1788,13 @@ if.then.i.i.i.i60.i:                              ; preds = %invoke.cont43.i
 call5.i.i2.i.i.i.i.i.i.i.noexc.i:                 ; preds = %if.then.i.i.i.i60.i
   store ptr %call5.i.i2.i.i.i.i.i.i.i61.i, ptr %call5.i.i2.i.i.i.i.i.i.i61.i, align 8, !noalias !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i61.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !37
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !37
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i61.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !37
+  %arrayidx.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i61.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i.i.i.i.i, align 1, !noalias !37
+  %arrayidx.i3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i.i61.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i.i.i.i.i, align 1, !noalias !37
   store ptr %call5.i.i2.i.i.i.i.i.i.i61.i, ptr %rightmost_.i.i.i.i.i.i, align 8, !noalias !37
   store ptr %call5.i.i2.i.i.i.i.i.i.i61.i, ptr %node.0213.i, align 8, !noalias !37
   br label %for.cond.i.i.i.i.i.i.preheader
@@ -3582,7 +3588,13 @@ if.then.i.i.i:                                    ; preds = %entry
   %call5.i.i2.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22, !noalias !93
   store ptr %call5.i.i2.i.i.i.i.i.i, ptr %call5.i.i2.i.i.i.i.i.i, align 8, !noalias !93
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i.i.i, align 1, !noalias !93
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i.i.i, align 1, !noalias !93
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i.i.i, align 1, !noalias !93
+  %arrayidx.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i.i.i, align 1, !noalias !93
+  %arrayidx.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i.i.i, align 1, !noalias !93
   %rightmost_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i2.i.i.i.i.i.i, ptr %rightmost_.i.i.i.i, align 8, !noalias !93
   store ptr %call5.i.i2.i.i.i.i.i.i, ptr %this, align 8, !noalias !93

@@ -623,7 +623,7 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
   %2 = alloca %class.XDriverRequest, align 8
   %3 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %129
+  br i1 %4, label %5, label %126
 
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -682,191 +682,188 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
   br label %_ZL17select_gc_workersdddd.exit.i
 
 47:                                               ; preds = %8
-  %48 = insertelement <2 x double> <double 1.000000e+01, double poison>, double %30, i64 1
-  %49 = insertelement <2 x double> poison, double %35, i64 0
-  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = fsub <2 x double> %48, %50
-  %52 = fcmp ogt <2 x double> %51, <double 1.000000e-03, double 1.000000e-03>
-  %53 = select <2 x i1> %52, <2 x double> %51, <2 x double> <double 1.000000e-03, double 1.000000e-03>
-  %54 = insertelement <2 x double> poison, double %40, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
-  %56 = fdiv <2 x double> %55, %53
-  %57 = extractelement <2 x double> %56, i64 0
-  %58 = extractelement <2 x double> %56, i64 1
-  %59 = fcmp ogt double %57, %58
-  %60 = select i1 %59, double %57, double %58
-  %61 = tail call double @llvm.ceil.f64(double %60)
-  %62 = fptoui double %61 to i32
-  %63 = load i32, ptr @ConcGCThreads, align 4
-  %64 = tail call noundef i32 @llvm.umax.i32(i32 %62, i32 1)
-  %65 = tail call noundef i32 @llvm.umin.i32(i32 %64, i32 %63)
-  %66 = tail call noundef i32 @_ZN10XStatCycle19last_active_workersEv() #8
-  %67 = fcmp ult double %20, 1.500000e-01
-  br i1 %67, label %79, label %68
+  %48 = fsub double 1.000000e+01, %35
+  %49 = fcmp ogt double %48, 1.000000e-03
+  %50 = select i1 %49, double %48, double 1.000000e-03
+  %51 = fdiv double %40, %50
+  %52 = fsub double %30, %35
+  %53 = fcmp ogt double %52, 1.000000e-03
+  %54 = select i1 %53, double %52, double 1.000000e-03
+  %55 = fdiv double %40, %54
+  %56 = fcmp ogt double %51, %55
+  %57 = select i1 %56, double %51, double %55
+  %58 = tail call double @llvm.ceil.f64(double %57)
+  %59 = fptoui double %58 to i32
+  %60 = load i32, ptr @ConcGCThreads, align 4
+  %61 = tail call noundef i32 @llvm.umax.i32(i32 %59, i32 1)
+  %62 = tail call noundef i32 @llvm.umin.i32(i32 %61, i32 %60)
+  %63 = tail call noundef i32 @_ZN10XStatCycle19last_active_workersEv() #8
+  %64 = fcmp ult double %20, 1.500000e-01
+  br i1 %64, label %76, label %65
 
-68:                                               ; preds = %47
-  %69 = load i32, ptr @ConcGCThreads, align 4
-  %70 = uitofp i32 %69 to double
-  %71 = fmul double %70, 5.000000e-01
-  %72 = uitofp i32 %66 to double
-  %73 = fcmp ogt double %60, %72
-  %74 = select i1 %73, double %60, double %72
-  %75 = fcmp ogt double %74, %71
-  %76 = select i1 %75, double %74, double %71
-  %77 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not49.i.i = icmp eq ptr %77, null
-  br i1 %.not49.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %78
+65:                                               ; preds = %47
+  %66 = load i32, ptr @ConcGCThreads, align 4
+  %67 = uitofp i32 %66 to double
+  %68 = fmul double %67, 5.000000e-01
+  %69 = uitofp i32 %63 to double
+  %70 = fcmp ogt double %57, %69
+  %71 = select i1 %70, double %57, double %69
+  %72 = fcmp ogt double %71, %68
+  %73 = select i1 %72, double %71, double %68
+  %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not49.i.i = icmp eq ptr %74, null
+  br i1 %.not49.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %75
 
-78:                                               ; preds = %68
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, double noundef %57, double noundef %58, double noundef %72, double noundef %71, double noundef %76)
+75:                                               ; preds = %65
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, double noundef %51, double noundef %55, double noundef %69, double noundef %68, double noundef %73)
   br label %_ZL17select_gc_workersdddd.exit.i
 
-79:                                               ; preds = %47
-  %80 = icmp ult i32 %65, %66
-  br i1 %80, label %81, label %102
+76:                                               ; preds = %47
+  %77 = icmp ult i32 %62, %63
+  br i1 %77, label %78, label %99
 
-81:                                               ; preds = %79
-  %82 = uitofp i32 %65 to double
-  %83 = fdiv double %40, %82
-  %84 = uitofp i32 %66 to double
-  %85 = fdiv double %40, %84
-  %86 = fsub double %83, %85
-  %87 = tail call noundef double @_ZN10XStatCycle15time_since_lastEv() #8
-  %88 = fsub double %87, %86
-  %89 = fadd double %88, -1.000000e-01
-  %90 = fadd double %30, %89
-  %91 = fsub double %90, %35
-  %92 = fcmp ogt double %91, 1.000000e-03
-  %93 = select i1 %92, double %91, double 1.000000e-03
-  %94 = fdiv double %40, %93
-  %95 = fadd double %94, 5.000000e-01
-  %96 = fcmp ogt double %95, %82
-  %97 = select i1 %96, double %95, double %82
-  %98 = fcmp olt double %97, %84
-  %99 = select i1 %98, double %97, double %84
+78:                                               ; preds = %76
+  %79 = uitofp i32 %62 to double
+  %80 = fdiv double %40, %79
+  %81 = uitofp i32 %63 to double
+  %82 = fdiv double %40, %81
+  %83 = fsub double %80, %82
+  %84 = tail call noundef double @_ZN10XStatCycle15time_since_lastEv() #8
+  %85 = fsub double %84, %83
+  %86 = fadd double %85, -1.000000e-01
+  %87 = fadd double %30, %86
+  %88 = fsub double %87, %35
+  %89 = fcmp ogt double %88, 1.000000e-03
+  %90 = select i1 %89, double %88, double 1.000000e-03
+  %91 = fdiv double %40, %90
+  %92 = fadd double %91, 5.000000e-01
+  %93 = fcmp ogt double %92, %79
+  %94 = select i1 %93, double %92, double %79
+  %95 = fcmp olt double %94, %81
+  %96 = select i1 %95, double %94, double %81
+  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not51.i.i = icmp eq ptr %97, null
+  br i1 %.not51.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %98
+
+98:                                               ; preds = %78
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.17, double noundef %51, double noundef %55, double noundef %91, double noundef %81, double noundef %96)
+  br label %_ZL17select_gc_workersdddd.exit.i
+
+99:                                               ; preds = %76
   %100 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not51.i.i = icmp eq ptr %100, null
-  br i1 %.not51.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %101
+  %.not50.i.i = icmp eq ptr %100, null
+  br i1 %.not50.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %101
 
-101:                                              ; preds = %81
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.17, double noundef %57, double noundef %58, double noundef %94, double noundef %84, double noundef %99)
+101:                                              ; preds = %99
+  %102 = uitofp i32 %63 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.18, double noundef %51, double noundef %55, double noundef %102, double noundef %57)
   br label %_ZL17select_gc_workersdddd.exit.i
 
-102:                                              ; preds = %79
-  %103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not50.i.i = icmp eq ptr %103, null
-  br i1 %.not50.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %104
+_ZL17select_gc_workersdddd.exit.i:                ; preds = %101, %99, %98, %78, %75, %65, %46, %42
+  %.0.i.i = phi double [ %44, %42 ], [ %44, %46 ], [ %73, %65 ], [ %73, %75 ], [ %96, %78 ], [ %96, %98 ], [ %57, %99 ], [ %57, %101 ]
+  %103 = tail call double @llvm.ceil.f64(double %.0.i.i)
+  %104 = fptoui double %103 to i32
+  %105 = load i32, ptr @ConcGCThreads, align 4
+  %106 = tail call noundef i32 @llvm.umax.i32(i32 %104, i32 1)
+  %107 = tail call noundef i32 @llvm.umin.i32(i32 %106, i32 %105)
+  %108 = uitofp i32 %107 to double
+  %109 = fdiv double %40, %108
+  %110 = fadd double %35, %109
+  %111 = tail call noundef i32 @_ZN10XStatCycle19last_active_workersEv() #8
+  %112 = fsub double %30, %110
+  %113 = fadd double %112, -1.000000e-01
+  %114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i = icmp eq ptr %114, null
+  br i1 %.not.i, label %120, label %115
 
-104:                                              ; preds = %102
-  %105 = uitofp i32 %66 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.18, double noundef %57, double noundef %58, double noundef %105, double noundef %60)
-  br label %_ZL17select_gc_workersdddd.exit.i
+115:                                              ; preds = %_ZL17select_gc_workersdddd.exit.i
+  %116 = fmul double %26, 0x3EB0000000000000
+  %117 = fmul double %20, 1.000000e+02
+  %118 = lshr i64 %15, 20
+  %119 = fadd double %35, %40
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %116, double noundef %117, i64 noundef %118, double noundef %119, double noundef %110, double noundef %30, double noundef %113, i32 noundef %111, i32 noundef %107)
+  br label %120
 
-_ZL17select_gc_workersdddd.exit.i:                ; preds = %104, %102, %101, %81, %78, %68, %46, %42
-  %.0.i.i = phi double [ %44, %42 ], [ %44, %46 ], [ %76, %68 ], [ %76, %78 ], [ %99, %81 ], [ %99, %101 ], [ %60, %102 ], [ %60, %104 ]
-  %106 = tail call double @llvm.ceil.f64(double %.0.i.i)
-  %107 = fptoui double %106 to i32
-  %108 = load i32, ptr @ConcGCThreads, align 4
-  %109 = tail call noundef i32 @llvm.umax.i32(i32 %107, i32 1)
-  %110 = tail call noundef i32 @llvm.umin.i32(i32 %109, i32 %108)
-  %111 = uitofp i32 %110 to double
-  %112 = fdiv double %40, %111
-  %113 = fadd double %35, %112
-  %114 = tail call noundef i32 @_ZN10XStatCycle19last_active_workersEv() #8
-  %115 = fsub double %30, %113
-  %116 = fadd double %115, -1.000000e-01
-  %117 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i = icmp eq ptr %117, null
-  br i1 %.not.i, label %123, label %118
+120:                                              ; preds = %115, %_ZL17select_gc_workersdddd.exit.i
+  %121 = icmp ule i32 %107, %111
+  %122 = fcmp ogt double %113, 0.000000e+00
+  %or.cond.i = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond.i, label %123, label %124
 
-118:                                              ; preds = %_ZL17select_gc_workersdddd.exit.i
-  %119 = fmul double %26, 0x3EB0000000000000
-  %120 = fmul double %20, 1.000000e+02
-  %121 = lshr i64 %15, 20
-  %122 = fadd double %35, %40
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %119, double noundef %120, i64 noundef %121, double noundef %122, double noundef %113, double noundef %30, double noundef %116, i32 noundef %114, i32 noundef %110)
-  br label %123
-
-123:                                              ; preds = %118, %_ZL17select_gc_workersdddd.exit.i
-  %124 = icmp ule i32 %110, %114
-  %125 = fcmp ogt double %116, 0.000000e+00
-  %or.cond.i = select i1 %124, i1 %125, i1 false
-  br i1 %or.cond.i, label %126, label %127
-
-126:                                              ; preds = %123
-  call void @_ZN14XDriverRequestC1EN7GCCause5CauseEj(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 11, i32 noundef %110) #8
+123:                                              ; preds = %120
+  call void @_ZN14XDriverRequestC1EN7GCCause5CauseEj(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 11, i32 noundef %107) #8
   br label %_ZL28rule_allocation_rate_dynamicv.exit
 
-127:                                              ; preds = %123
-  call void @_ZN14XDriverRequestC1EN7GCCause5CauseEj(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 30, i32 noundef %110) #8
+124:                                              ; preds = %120
+  call void @_ZN14XDriverRequestC1EN7GCCause5CauseEj(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 30, i32 noundef %107) #8
   br label %_ZL28rule_allocation_rate_dynamicv.exit
 
-_ZL28rule_allocation_rate_dynamicv.exit:          ; preds = %7, %126, %127
-  %128 = load i64, ptr %2, align 8
+_ZL28rule_allocation_rate_dynamicv.exit:          ; preds = %7, %123, %124
+  %125 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %170
-
-129:                                              ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  %130 = tail call noundef zeroext i1 @_ZN10XStatCycle17is_time_trustableEv() #8
-  br i1 %130, label %131, label %_ZL27rule_allocation_rate_staticv.exit
-
-131:                                              ; preds = %129
-  %132 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %133 = tail call noundef i64 @_ZNK5XHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %132) #8
-  %134 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %135 = tail call noundef i64 @_ZNK5XHeap4usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %134) #8
-  %136 = tail call i64 @llvm.usub.sat.i64(i64 %133, i64 %135)
-  %137 = tail call noundef i64 @_ZN11XHeuristics19relocation_headroomEv() #8
-  %138 = tail call i64 @llvm.usub.sat.i64(i64 %136, i64 %137)
-  %139 = tail call noundef double @_ZN14XStatAllocRate3avgEv() #8
-  %140 = load double, ptr @ZAllocationSpikeTolerance, align 8
-  %141 = tail call noundef double @_ZN14XStatAllocRate2sdEv() #8
-  %142 = fmul double %141, 0x400A52FFD1DCD706
-  %143 = tail call double @llvm.fmuladd.f64(double %139, double %140, double %142)
-  %144 = uitofp i64 %138 to double
-  %145 = fadd double %143, 1.000000e+00
-  %146 = fdiv double %144, %145
-  %147 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle11serial_timeEv() #8
-  %148 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %147) #8
-  %149 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle11serial_timeEv() #8
-  %150 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %149) #8
-  %151 = tail call double @llvm.fmuladd.f64(double %150, double 0x400A52FFD1DCD706, double %148)
-  %152 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle19parallelizable_timeEv() #8
-  %153 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %152) #8
-  %154 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle19parallelizable_timeEv() #8
-  %155 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %154) #8
-  %156 = tail call double @llvm.fmuladd.f64(double %155, double 0x400A52FFD1DCD706, double %153)
-  %157 = load i32, ptr @ConcGCThreads, align 4
-  %158 = uitofp i32 %157 to double
-  %159 = fdiv double %156, %158
-  %160 = fadd double %151, %159
-  %161 = fsub double %146, %160
-  %162 = fadd double %161, -1.000000e-01
-  %163 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i1 = icmp eq ptr %163, null
-  br i1 %.not.i1, label %167, label %164
-
-164:                                              ; preds = %131
-  %165 = fmul double %143, 0x3EB0000000000000
-  %166 = lshr i64 %138, 20
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.19, double noundef %165, i64 noundef %166, double noundef %160, double noundef %162)
   br label %167
 
-167:                                              ; preds = %164, %131
-  %168 = fcmp ogt double %162, 0.000000e+00
-  %..i = select i1 %168, i32 11, i32 30
+126:                                              ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  %127 = tail call noundef zeroext i1 @_ZN10XStatCycle17is_time_trustableEv() #8
+  br i1 %127, label %128, label %_ZL27rule_allocation_rate_staticv.exit
+
+128:                                              ; preds = %126
+  %129 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
+  %130 = tail call noundef i64 @_ZNK5XHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %129) #8
+  %131 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
+  %132 = tail call noundef i64 @_ZNK5XHeap4usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %131) #8
+  %133 = tail call i64 @llvm.usub.sat.i64(i64 %130, i64 %132)
+  %134 = tail call noundef i64 @_ZN11XHeuristics19relocation_headroomEv() #8
+  %135 = tail call i64 @llvm.usub.sat.i64(i64 %133, i64 %134)
+  %136 = tail call noundef double @_ZN14XStatAllocRate3avgEv() #8
+  %137 = load double, ptr @ZAllocationSpikeTolerance, align 8
+  %138 = tail call noundef double @_ZN14XStatAllocRate2sdEv() #8
+  %139 = fmul double %138, 0x400A52FFD1DCD706
+  %140 = tail call double @llvm.fmuladd.f64(double %136, double %137, double %139)
+  %141 = uitofp i64 %135 to double
+  %142 = fadd double %140, 1.000000e+00
+  %143 = fdiv double %141, %142
+  %144 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle11serial_timeEv() #8
+  %145 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %144) #8
+  %146 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle11serial_timeEv() #8
+  %147 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %146) #8
+  %148 = tail call double @llvm.fmuladd.f64(double %147, double 0x400A52FFD1DCD706, double %145)
+  %149 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle19parallelizable_timeEv() #8
+  %150 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %149) #8
+  %151 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN10XStatCycle19parallelizable_timeEv() #8
+  %152 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %151) #8
+  %153 = tail call double @llvm.fmuladd.f64(double %152, double 0x400A52FFD1DCD706, double %150)
+  %154 = load i32, ptr @ConcGCThreads, align 4
+  %155 = uitofp i32 %154 to double
+  %156 = fdiv double %153, %155
+  %157 = fadd double %148, %156
+  %158 = fsub double %143, %157
+  %159 = fadd double %158, -1.000000e-01
+  %160 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i1 = icmp eq ptr %160, null
+  br i1 %.not.i1, label %164, label %161
+
+161:                                              ; preds = %128
+  %162 = fmul double %140, 0x3EB0000000000000
+  %163 = lshr i64 %135, 20
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.19, double noundef %162, i64 noundef %163, double noundef %157, double noundef %159)
+  br label %164
+
+164:                                              ; preds = %161, %128
+  %165 = fcmp ogt double %159, 0.000000e+00
+  %..i = select i1 %165, i32 11, i32 30
   br label %_ZL27rule_allocation_rate_staticv.exit
 
-_ZL27rule_allocation_rate_staticv.exit:           ; preds = %129, %167
-  %.sink.i = phi i32 [ 11, %129 ], [ %..i, %167 ]
+_ZL27rule_allocation_rate_staticv.exit:           ; preds = %126, %164
+  %.sink.i = phi i32 [ 11, %126 ], [ %..i, %164 ]
   call void @_ZN14XDriverRequestC1EN7GCCause5CauseE(ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %.sink.i) #8
-  %169 = load i64, ptr %1, align 8
+  %166 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %170
+  br label %167
 
-170:                                              ; preds = %_ZL27rule_allocation_rate_staticv.exit, %_ZL28rule_allocation_rate_dynamicv.exit
-  %.sroa.0.0 = phi i64 [ %128, %_ZL28rule_allocation_rate_dynamicv.exit ], [ %169, %_ZL27rule_allocation_rate_staticv.exit ]
+167:                                              ; preds = %_ZL27rule_allocation_rate_staticv.exit, %_ZL28rule_allocation_rate_dynamicv.exit
+  %.sroa.0.0 = phi i64 [ %125, %_ZL28rule_allocation_rate_dynamicv.exit ], [ %166, %_ZL27rule_allocation_rate_staticv.exit ]
   ret i64 %.sroa.0.0
 }
 

@@ -1620,7 +1620,7 @@ declare void @_ZN4Luau4Json12ArrayEmitterD1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_13ErrorSnapshotE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Json::ObjectEmitter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Json::ObjectEmitter") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1656,9 +1656,13 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_13ErrorSnapsh
 _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit: ; preds = %6, %.noexc7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.0.0.copyload = load i64, ptr %15, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %16 = load <2 x i64>, ptr %15, align 8
-  store <2 x i64> %16, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %16, align 8
   %17 = load i8, ptr %7, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %24, label %19
@@ -1720,7 +1724,7 @@ declare void @_ZN4Luau4Json13ObjectEmitterD1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_15BindingSnapshotE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Json::ObjectEmitter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1788,9 +1792,13 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
 _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit14: ; preds = %17, %.noexc12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %.sroa.0.0.copyload = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %26 = load <2 x i64>, ptr %25, align 8
-  store <2 x i64> %26, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %26, align 8
   %27 = load i8, ptr %8, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %34, label %29
@@ -1947,14 +1955,18 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_19ExprTypesAtLocationE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Json::ObjectEmitter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Json::ObjectEmitter") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %.sroa.0.0.copyload = load i64, ptr %1, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %7 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %7, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
@@ -2089,13 +2101,17 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_25AnnotationTypesAtLocationE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Json::ObjectEmitter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Json::ObjectEmitter") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %.sroa.0.0.copyload = load i64, ptr %1, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %6 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %6, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 9
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
@@ -3425,7 +3441,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_trait
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_18ConstraintSnapshotE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"struct.Luau::Json::ObjectEmitter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::vector.43", align 8
@@ -3462,9 +3478,13 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_18ConstraintS
 _ZN4Luau4Json13ObjectEmitter9writePairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt17basic_string_viewIcS6_ET_.exit: ; preds = %7, %.noexc8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.0.0.copyload = load i64, ptr %16, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %17 = load <2 x i64>, ptr %16, align 8
-  store <2 x i64> %17, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %17, align 8
   %18 = load i8, ptr %8, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %25, label %20
@@ -7932,7 +7952,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(192) ptr @_ZN4Luau13ScopeSnapshotaSEOS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::vector.38", align 16
+  %3 = alloca %"class.std::vector.38", align 8
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau15BindingSnapshotEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE14_M_move_assignEOSN_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau15BindingSnapshotESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEaSEOSG_.exit unwind label %4
 
@@ -7973,21 +7993,24 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
   %17 = getelementptr inbounds i8, ptr %0, i64 168
   %18 = getelementptr inbounds i8, ptr %1, i64 168
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 176
-  %24 = getelementptr inbounds i8, ptr %1, i64 184
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  %26 = load <2 x ptr>, ptr %17, align 8
-  store ptr %22, ptr %17, align 8
-  %27 = load ptr, ptr %23, align 8
-  store ptr %27, ptr %19, align 8
-  %28 = load ptr, ptr %24, align 8
-  store ptr %28, ptr %20, align 8
-  store <2 x ptr> %26, ptr %3, align 16
-  store ptr %21, ptr %25, align 16
+  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %18, align 8
+  store ptr %24, ptr %17, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 176
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %20, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 184
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %22, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %19, ptr %3, align 8
+  store ptr %21, ptr %29, align 8
+  store ptr %23, ptr %30, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4Luau13ScopeSnapshotESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -8769,19 +8792,19 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
 74:                                               ; preds = %22
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %117
 
 76:                                               ; preds = %25
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
-  br label %111
+  br label %117
 
 78:                                               ; preds = %27
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau18ConstraintSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9) #17
-  br label %111
+  br label %117
 
 ._crit_edge:                                      ; preds = %_ZN4Luau18ConstraintSnapshotD2Ev.exit, %6
   %80 = getelementptr inbounds i8, ptr %11, i64 24
@@ -8792,7 +8815,7 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
   %83 = getelementptr inbounds i8, ptr %1, i64 64
   %.val16 = load ptr, ptr %83, align 8
   invoke fastcc void @_ZN4LuauL19snapshotTypeStringsERKSt6vectorINS_19ExprTypesAtLocationESaIS1_EERKS0_INS_25AnnotationTypesAtLocationESaIS6_EERNS_12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toISD_EEERNS_15ToStringOptionsE(ptr %.val, ptr %.val16, ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(184) %13)
-          to label %84 unwind label %106
+          to label %84 unwind label %112
 
 84:                                               ; preds = %._crit_edge
   store ptr %3, ptr %0, align 8
@@ -8803,65 +8826,73 @@ _ZN4Luau18ConstraintSnapshotD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN4Lu
   store ptr %87, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 24
   %89 = getelementptr inbounds i8, ptr %8, i64 8
-  %90 = load <2 x i64>, ptr %89, align 8
-  store <2 x i64> %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
-  %92 = load ptr, ptr %14, align 8
-  store ptr %92, ptr %91, align 8
+  %90 = load i64, ptr %89, align 8
+  store i64 %90, ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %92 = getelementptr inbounds i8, ptr %8, i64 16
+  %93 = load i64, ptr %92, align 8
+  store i64 %93, ptr %91, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 40
+  %95 = load ptr, ptr %14, align 8
+  store ptr %95, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %93 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke void @_ZN4Luau13ScopeSnapshotC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %93, ptr noundef nonnull align 8 dereferenceable(192) %7)
-          to label %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit unwind label %108
+  %96 = getelementptr inbounds i8, ptr %0, i64 56
+  invoke void @_ZN4Luau13ScopeSnapshotC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %96, ptr noundef nonnull align 8 dereferenceable(192) %7)
+          to label %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit unwind label %114
 
 _ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %84
-  %94 = getelementptr inbounds i8, ptr %0, i64 248
-  %95 = load ptr, ptr %11, align 8
-  store ptr %95, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 256
-  %97 = getelementptr inbounds i8, ptr %11, i64 8
-  %98 = load <2 x i64>, ptr %97, align 8
-  store <2 x i64> %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 272
-  %100 = load ptr, ptr %80, align 8
-  store ptr %100, ptr %99, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 248
+  %98 = load ptr, ptr %11, align 8
+  store ptr %98, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 256
+  %100 = getelementptr inbounds i8, ptr %11, i64 8
+  %101 = load i64, ptr %100, align 8
+  store i64 %101, ptr %99, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 264
+  %103 = getelementptr inbounds i8, ptr %11, i64 16
+  %104 = load i64, ptr %103, align 8
+  store i64 %104, ptr %102, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 272
+  %106 = load ptr, ptr %80, align 8
+  store ptr %106, ptr %105, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %101 = load ptr, ptr %8, align 8
-  %.not.i.i18 = icmp eq ptr %101, null
-  br i1 %.not.i.i18, label %_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %102
+  %107 = load ptr, ptr %8, align 8
+  %.not.i.i18 = icmp eq ptr %107, null
+  br i1 %.not.i.i18, label %_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %108
 
-102:                                              ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
+108:                                              ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   invoke void @_ZN4Luau6detail14DenseHashTableIPKNS_10ConstraintESt4pairIS4_NS_18ConstraintSnapshotEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(34) %8)
-          to label %_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit unwind label %103
+          to label %_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit unwind label %109
 
-103:                                              ; preds = %102
-  %104 = landingpad { ptr, i32 }
+109:                                              ; preds = %108
+  %110 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #21
+  %111 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %111) #21
   unreachable
 
-_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %102
+_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %108
   call void @_ZN4Luau13ScopeSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %7) #17
   ret void
 
-106:                                              ; preds = %._crit_edge
-  %107 = landingpad { ptr, i32 }
+112:                                              ; preds = %._crit_edge
+  %113 = landingpad { ptr, i32 }
           cleanup
-  br label %110
+  br label %116
 
-108:                                              ; preds = %84
-  %109 = landingpad { ptr, i32 }
+114:                                              ; preds = %84
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %86) #17
-  br label %110
+  br label %116
 
-110:                                              ; preds = %108, %106
-  %.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %107, %106 ]
+116:                                              ; preds = %114, %112
+  %.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
   call void @_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
-  br label %111
+  br label %117
 
-111:                                              ; preds = %110, %78, %76, %74
-  %.pn13 = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %.pn.pn, %110 ]
+117:                                              ; preds = %116, %78, %76, %74
+  %.pn13 = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %.pn.pn, %116 ]
   call void @_ZN4Luau12DenseHashMapIPKNS_10ConstraintENS_18ConstraintSnapshotENS_16DenseHashPointerESt8equal_toIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   call void @_ZN4Luau13ScopeSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %7) #17
   resume { ptr, i32 } %.pn13
@@ -14940,239 +14971,247 @@ _ZNKSt6vectorIN4Luau12StepSnapshotESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %
   store ptr %28, ptr %26, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 24
   %30 = getelementptr inbounds i8, ptr %2, i64 24
-  %31 = load <2 x i64>, ptr %30, align 8
-  store <2 x i64> %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 40
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %32, align 8
+  %31 = load i64, ptr %30, align 8
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 32
+  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %32, align 8
+  %35 = getelementptr inbounds i8, ptr %25, i64 40
+  %36 = getelementptr inbounds i8, ptr %2, i64 40
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %35, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %35 = getelementptr inbounds i8, ptr %25, i64 56
-  %36 = getelementptr inbounds i8, ptr %2, i64 56
-  tail call void @_ZN4Luau13ScopeSnapshotC2EOS0_(ptr noundef nonnull align 8 dereferenceable(192) %35, ptr noundef nonnull align 8 dereferenceable(192) %36) #17
-  %37 = getelementptr inbounds i8, ptr %25, i64 248
-  %38 = getelementptr inbounds i8, ptr %2, i64 248
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %25, i64 256
-  %41 = getelementptr inbounds i8, ptr %2, i64 256
-  %42 = load <2 x i64>, ptr %41, align 8
-  store <2 x i64> %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %25, i64 272
-  %44 = getelementptr inbounds i8, ptr %2, i64 272
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %43, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  %38 = getelementptr inbounds i8, ptr %25, i64 56
+  %39 = getelementptr inbounds i8, ptr %2, i64 56
+  tail call void @_ZN4Luau13ScopeSnapshotC2EOS0_(ptr noundef nonnull align 8 dereferenceable(192) %38, ptr noundef nonnull align 8 dereferenceable(192) %39) #17
+  %40 = getelementptr inbounds i8, ptr %25, i64 248
+  %41 = getelementptr inbounds i8, ptr %2, i64 248
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %25, i64 256
+  %44 = getelementptr inbounds i8, ptr %2, i64 256
+  %45 = load i64, ptr %44, align 8
+  store i64 %45, ptr %43, align 8
+  %46 = getelementptr inbounds i8, ptr %25, i64 264
+  %47 = getelementptr inbounds i8, ptr %2, i64 264
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %25, i64 272
+  %50 = getelementptr inbounds i8, ptr %2, i64 272
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %49, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %.not14.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not14.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %23, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.016.i.i.i.i.i = phi ptr [ %47, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %24, %23 ]
-  %.01215.i.i.i.i.i = phi ptr [ %46, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %23 ]
+  %.016.i.i.i.i.i = phi ptr [ %53, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %24, %23 ]
+  %.01215.i.i.i.i.i = phi ptr [ %52, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %23 ]
   invoke void @_ZN4Luau12StepSnapshotC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(288) %.016.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %.01215.i.i.i.i.i)
-          to label %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %48
+          to label %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %54
 
 _ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %46 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 288
-  %47 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 288
-  %.not.i.i.i.i.i = icmp eq ptr %46, %1
+  %52 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 288
+  %53 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 288
+  %.not.i.i.i.i.i = icmp eq ptr %52, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !89
 
-48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = landingpad { ptr, i32 }
+54:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  %51 = tail call ptr @__cxa_begin_catch(ptr %50) #17
+  %56 = extractvalue { ptr, i32 } %55, 0
+  %57 = tail call ptr @__cxa_begin_catch(ptr %56) #17
   invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotEEvT_S3_(ptr noundef %24, ptr noundef nonnull %.016.i.i.i.i.i)
-          to label %52 unwind label %53
+          to label %58 unwind label %59
 
-52:                                               ; preds = %48
+58:                                               ; preds = %54
   invoke void @__cxa_rethrow() #20
-          to label %58 unwind label %53
+          to label %64 unwind label %59
 
-53:                                               ; preds = %52, %48
-  %54 = landingpad { ptr, i32 }
+59:                                               ; preds = %58, %54
+  %60 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %95 unwind label %55
+          to label %101 unwind label %61
 
-55:                                               ; preds = %53
-  %56 = landingpad { ptr, i32 }
+61:                                               ; preds = %59
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #21
+  %63 = extractvalue { ptr, i32 } %62, 0
+  tail call void @__clang_call_terminate(ptr %63) #21
   unreachable
 
-58:                                               ; preds = %52
+64:                                               ; preds = %58
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %23
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %23 ], [ %47, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %59 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 288
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %23 ], [ %53, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 288
   %.not14.i.i.i.i.i28 = icmp eq ptr %5, %1
   br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32
-  %.016.i.i.i.i.i30 = phi ptr [ %61, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %59, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %.01215.i.i.i.i.i31 = phi ptr [ %60, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %.016.i.i.i.i.i30 = phi ptr [ %67, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %65, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %.01215.i.i.i.i.i31 = phi ptr [ %66, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
   invoke void @_ZN4Luau12StepSnapshotC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(288) %.016.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(288) %.01215.i.i.i.i.i31)
-          to label %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 unwind label %62
+          to label %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 unwind label %68
 
 _ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32: ; preds = %.lr.ph.i.i.i.i.i29
-  %60 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 288
-  %61 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i30, i64 288
-  %.not.i.i.i.i.i33 = icmp eq ptr %60, %5
+  %66 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 288
+  %67 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i30, i64 288
+  %.not.i.i.i.i.i33 = icmp eq ptr %66, %5
   br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !89
 
-62:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  %63 = landingpad { ptr, i32 }
+68:                                               ; preds = %.lr.ph.i.i.i.i.i29
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  %65 = tail call ptr @__cxa_begin_catch(ptr %64) #17
-  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotEEvT_S3_(ptr noundef nonnull %59, ptr noundef nonnull %.016.i.i.i.i.i30)
-          to label %66 unwind label %67
+  %70 = extractvalue { ptr, i32 } %69, 0
+  %71 = tail call ptr @__cxa_begin_catch(ptr %70) #17
+  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotEEvT_S3_(ptr noundef nonnull %65, ptr noundef nonnull %.016.i.i.i.i.i30)
+          to label %72 unwind label %73
 
-66:                                               ; preds = %62
+72:                                               ; preds = %68
   invoke void @__cxa_rethrow() #20
-          to label %72 unwind label %67
+          to label %78 unwind label %73
 
-67:                                               ; preds = %66, %62
-  %68 = landingpad { ptr, i32 }
+73:                                               ; preds = %72, %68
+  %74 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %98 unwind label %69
+          to label %104 unwind label %75
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+75:                                               ; preds = %73
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #21
+  %77 = extractvalue { ptr, i32 } %76, 0
+  tail call void @__clang_call_terminate(ptr %77) #21
   unreachable
 
-72:                                               ; preds = %66
+78:                                               ; preds = %72
   unreachable
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37: ; preds = %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i34 = phi ptr [ %59, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %61, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ]
+  %.0.lcssa.i.i.i.i.i34 = phi ptr [ %65, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %67, %_ZSt10_ConstructIN4Luau12StepSnapshotEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i32 ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37, %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %88, %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37 ]
-  %73 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 248
-  %74 = load ptr, ptr %73, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i, label %75
+  %.05.i.i.i = phi ptr [ %94, %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37 ]
+  %79 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 248
+  %80 = load ptr, ptr %79, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i, label %81
 
-75:                                               ; preds = %.lr.ph.i.i.i
-  %76 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 256
-  %77 = load i64, ptr %76, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %77, 0
+81:                                               ; preds = %.lr.ph.i.i.i
+  %82 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 256
+  %83 = load i64, ptr %82, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %83, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %75, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.04.i.i.i.i.i.i.i.i.i = phi i64 [ %79, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %75 ]
-  %78 = getelementptr inbounds %"struct.std::pair.256", ptr %74, i64 %.04.i.i.i.i.i.i.i.i.i, i32 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #17
-  %79 = add nuw i64 %.04.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %79, %77
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %81, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %.04.i.i.i.i.i.i.i.i.i = phi i64 [ %85, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %81 ]
+  %84 = getelementptr inbounds %"struct.std::pair.256", ptr %80, i64 %.04.i.i.i.i.i.i.i.i.i, i32 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #17
+  %85 = add nuw i64 %.04.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %85, %83
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !17
 
 _ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i.i.i = load ptr, ptr %73, align 8
+  %.pre.i.i.i.i.i.i.i.i = load ptr, ptr %79, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i.i.i.i.i.i.i
 
-_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i.i.i.i.i.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i, %75
-  %80 = phi ptr [ %.pre.i.i.i.i.i.i.i.i, %_ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i ], [ %74, %75 ]
-  tail call void @_ZdlPv(ptr noundef %80) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i.i.i.i.i.i.i: ; preds = %_ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i, %81
+  %86 = phi ptr [ %.pre.i.i.i.i.i.i.i.i, %_ZN4Luau6detail16ItemInterfaceMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyEPSt4pairIS3_S9_Em.exit.loopexit.i.i.i.i.i.i.i.i ], [ %80, %81 ]
+  tail call void @_ZdlPv(ptr noundef %86) #17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i
 
 _ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZN4Luau6detail14DenseHashTableIPKvSt4pairIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES4_IKS3_SA_ENS0_16ItemInterfaceMapIS3_SA_EENS_16DenseHashPointerESt8equal_toIS3_EE7destroyEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %81 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
-  tail call void @_ZN4Luau13ScopeSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %81) #17
-  %82 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %.not.i.i1.i.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i, label %84
+  %87 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
+  tail call void @_ZN4Luau13ScopeSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %87) #17
+  %88 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %.not.i.i1.i.i.i.i.i = icmp eq ptr %89, null
+  br i1 %.not.i.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i, label %90
 
-84:                                               ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i
-  invoke void @_ZN4Luau6detail14DenseHashTableIPKNS_10ConstraintESt4pairIS4_NS_18ConstraintSnapshotEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(34) %82)
-          to label %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i unwind label %85
+90:                                               ; preds = %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i
+  invoke void @_ZN4Luau6detail14DenseHashTableIPKNS_10ConstraintESt4pairIS4_NS_18ConstraintSnapshotEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv(ptr noundef nonnull align 8 dereferenceable(34) %88)
+          to label %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i unwind label %91
 
-85:                                               ; preds = %84
-  %86 = landingpad { ptr, i32 }
+91:                                               ; preds = %90
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #21
+  %93 = extractvalue { ptr, i32 } %92, 0
+  tail call void @__clang_call_terminate(ptr %93) #21
   unreachable
 
-_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i: ; preds = %84, %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i
-  %88 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 288
-  %.not.i.i.i = icmp eq ptr %88, %5
+_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i: ; preds = %90, %_ZN4Luau12DenseHashMapIPKvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i.i.i.i.i
+  %94 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 288
+  %.not.i.i.i = icmp eq ptr %94, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4Luau12StepSnapshotEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4Luau12StepSnapshotES2_SaIS1_EET0_T_S5_S4_RT1_.exit37
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %95 = getelementptr inbounds i8, ptr %0, i64 16
   %.not.i38 = icmp eq ptr %6, null
-  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit, label %90
+  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit, label %96
 
-90:                                               ; preds = %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit
-  %91 = load ptr, ptr %89, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = sub i64 %92, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %93) #18
+96:                                               ; preds = %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit
+  %97 = load ptr, ptr %95, align 8
+  %98 = ptrtoint ptr %97 to i64
+  %99 = sub i64 %98, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %99) #18
   br label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit, %90
+_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E.exit, %96
   store ptr %24, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8
-  %94 = getelementptr inbounds %"struct.Luau::StepSnapshot", ptr %24, i64 %16
-  store ptr %94, ptr %89, align 8
+  %100 = getelementptr inbounds %"struct.Luau::StepSnapshot", ptr %24, i64 %16
+  store ptr %100, ptr %95, align 8
   ret void
 
-95:                                               ; preds = %53
-  %96 = extractvalue { ptr, i32 } %54, 0
-  %97 = tail call ptr @__cxa_begin_catch(ptr %96) #17
+101:                                              ; preds = %59
+  %102 = extractvalue { ptr, i32 } %60, 0
+  %103 = tail call ptr @__cxa_begin_catch(ptr %102) #17
   tail call void @_ZNSt16allocator_traitsISaIN4Luau12StepSnapshotEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25) #17
-  br label %103
+  br label %109
 
-98:                                               ; preds = %67
-  %99 = extractvalue { ptr, i32 } %68, 0
-  %100 = tail call ptr @__cxa_begin_catch(ptr %99) #17
-  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E(ptr noundef %24, ptr noundef nonnull %59, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %103 unwind label %101
+104:                                              ; preds = %73
+  %105 = extractvalue { ptr, i32 } %74, 0
+  %106 = tail call ptr @__cxa_begin_catch(ptr %105) #17
+  invoke void @_ZSt8_DestroyIPN4Luau12StepSnapshotES1_EvT_S3_RSaIT0_E(ptr noundef %24, ptr noundef nonnull %65, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %109 unwind label %107
 
-101:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, %98
-  %102 = landingpad { ptr, i32 }
+107:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, %104
+  %108 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %106 unwind label %107
+          to label %112 unwind label %113
 
-103:                                              ; preds = %98, %95
+109:                                              ; preds = %104, %101
   %.not.i39 = icmp eq ptr %24, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, label %104
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40, label %110
 
-104:                                              ; preds = %103
-  %105 = mul nuw nsw i64 %16, 288
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %105) #18
+110:                                              ; preds = %109
+  %111 = mul nuw nsw i64 %16, 288
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %111) #18
   br label %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
 
-_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %104, %103
+_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %110, %109
   invoke void @__cxa_rethrow() #20
-          to label %110 unwind label %101
+          to label %116 unwind label %107
 
-106:                                              ; preds = %101
-  resume { ptr, i32 } %102
+112:                                              ; preds = %107
+  resume { ptr, i32 } %108
 
-107:                                              ; preds = %101
-  %108 = landingpad { ptr, i32 }
+113:                                              ; preds = %107
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #21
+  %115 = extractvalue { ptr, i32 } %114, 0
+  tail call void @__clang_call_terminate(ptr %115) #21
   unreachable
 
-110:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
+116:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau12StepSnapshotESaIS1_EE13_M_deallocateEPS1_m.exit40
   unreachable
 }
 

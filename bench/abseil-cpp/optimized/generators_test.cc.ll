@@ -590,12 +590,12 @@ entry:
   %dist.i.i.i52.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
   %dist.i.i.i46.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
   %dist.i.i.i40.i.i = alloca %"class.absl::log_uniform_int_distribution.59", align 8
-  %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 16
-  %dist.i.i.i28.i58.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %dist.i.i.i22.i59.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
-  %dist.i.i.i16.i60.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
+  %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 4
+  %dist.i.i.i28.i58.i = alloca %"class.absl::log_uniform_int_distribution", align 4
+  %dist.i.i.i22.i59.i = alloca %"class.absl::log_uniform_int_distribution.57", align 4
+  %dist.i.i.i16.i60.i = alloca %"class.absl::log_uniform_int_distribution.56", align 4
   %dist.i.i.i10.i61.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
-  %dist.i.i.i.i62.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist.i.i.i.i62.i = alloca %"class.absl::log_uniform_int_distribution", align 4
   %ref.tmp.i63.i = alloca %"class.std::mersenne_twister_engine", align 8
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
   %dist.i.i.i2.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
@@ -613,16 +613,16 @@ entry:
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
   %dist.i.i.i.i31.i = alloca %"class.absl::zipf_distribution", align 8
   %ref.tmp.i32.i = alloca %"class.std::mersenne_twister_engine", align 8
-  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
-  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
-  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
-  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
-  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
-  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
-  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
-  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
-  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
-  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 8
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 8
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 8
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 8
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 8
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 8
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 8
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 8
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 8
+  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 8
   %ref.tmp.i18.i = alloca %"class.std::mersenne_twister_engine", align 8
   %ref.tmp.i.i = alloca %"class.std::mersenne_twister_engine", align 8
   %ref.tmp89.i.i = alloca %"class.std::mersenne_twister_engine", align 8
@@ -1237,45 +1237,59 @@ _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i18.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i.i.i, align 8
   %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 40
   store i32 1, ptr %split_.i.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i.i, align 16
+  %emu_16.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i.i.i, align 8
   %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i9.i.i, align 8
   %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
   store i32 1, ptr %split_.i27.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %emu_16.i29.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i29.i.i, align 8
   %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i11.i.i, align 8
   %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
   store i32 1, ptr %split_.i30.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %emu_16.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i32.i.i, align 8
   %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i13.i.i, align 8
   %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
   store i32 1, ptr %split_.i33.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %emu_16.i35.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i35.i.i, align 8
   %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i15.i.i, align 8
   %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
   store i32 1, ptr %split_.i36.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %emu_16.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i38.i.i, align 8
   %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i17.i.i, align 8
   %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
   store i32 1, ptr %split_.i39.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %emu_16.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i41.i.i, align 8
   %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i19.i.i, align 8
   %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
   store i32 1, ptr %split_.i42.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %emu_16.i44.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i44.i.i, align 8
   %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   store i64 5489, ptr %ref.tmp.i18.i, align 8
@@ -1298,21 +1312,27 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   %_M_p.i.i.i.i29.i = getelementptr inbounds i8, ptr %ref.tmp.i18.i, i64 2496
   store i64 312, ptr %_M_p.i.i.i.i29.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i21.i.i, align 8
   %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
   store i32 1, ptr %split_.i45.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %emu_16.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i47.i.i, align 8
   %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i18.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i23.i.i, align 8
   %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
   store i32 1, ptr %split_.i48.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %emu_16.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i50.i.i, align 8
   %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i25.i.i, align 8
   %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
   store i32 1, ptr %split_.i51.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %emu_16.i53.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i53.i.i, align 8
   %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i18.i)
@@ -1322,97 +1342,145 @@ _ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i31.i)
   store i32 100, ptr %dist.i.i.i.i31.i, align 8
   %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i.i.i, align 8
+  %v_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 16
+  store double 1.000000e+00, ptr %v_.i.i.i, align 8
   %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i.i.i, align 8
   %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i.i.i, align 8
+  %hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i.i.i, align 8
   %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
+  %s_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i31.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i.i.i, align 8
   %call.i.i.i.i.i33.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i31.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i31.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
   %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i30.i.i, align 8
+  %v_.i31.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i31.i.i, align 8
   %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i32.i.i, align 8
   %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i33.i.i, align 8
+  %hxm_.i34.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i34.i.i, align 8
   %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
+  %s_.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i38.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
   %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i39.i.i, align 8
+  %v_.i40.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i40.i.i, align 8
   %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i41.i.i, align 8
   %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i42.i.i, align 8
+  %hxm_.i43.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i43.i.i, align 8
   %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
+  %s_.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i47.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
   %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i48.i.i, align 8
+  %v_.i49.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i49.i.i, align 8
   %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i50.i.i, align 8
   %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i51.i.i, align 8
+  %hxm_.i52.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i52.i.i, align 8
   %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
+  %s_.i56.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i56.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
   %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i57.i.i, align 8
+  %v_.i58.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i58.i.i, align 8
   %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i59.i.i, align 8
   %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i60.i.i, align 8
+  %hxm_.i61.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i61.i.i, align 8
   %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
+  %s_.i65.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i65.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
   %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i66.i.i, align 8
+  %v_.i67.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i67.i.i, align 8
   %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i68.i.i, align 8
   %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i69.i.i, align 8
+  %hxm_.i70.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i70.i.i, align 8
   %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
+  %s_.i74.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i74.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
   %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i75.i.i, align 8
+  %v_.i76.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i76.i.i, align 8
   %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i77.i.i, align 8
   %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i78.i.i, align 8
+  %hxm_.i79.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i79.i.i, align 8
   %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
+  %s_.i83.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i83.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
   %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i84.i.i, align 8
+  %v_.i85.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i85.i.i, align 8
   %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i86.i.i, align 8
   %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i87.i.i, align 8
+  %hxm_.i88.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i88.i.i, align 8
   %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
+  %s_.i92.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i92.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 5489, ptr %ref.tmp.i32.i, align 8
@@ -1437,13 +1505,19 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
   %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i93.i.i, align 8
+  %v_.i94.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i94.i.i, align 8
   %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i95.i.i, align 8
   %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i96.i.i, align 8
+  %hxm_.i97.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i97.i.i, align 8
   %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
+  %s_.i101.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i101.i.i, align 8
   %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i32.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
@@ -1451,13 +1525,19 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
   %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i102.i.i, align 16
+  %v_.i103.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i103.i.i, align 8
   %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  store double -1.000000e+00, ptr %one_minus_q_.i104.i.i, align 16
   %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i105.i.i, align 16
+  %hxm_.i106.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 56
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i106.i.i, align 8
   %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
+  %s_.i108.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 40
+  store double 0x3FDD89D89D89D898, ptr %s_.i108.i.i, align 8
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
@@ -1465,7 +1545,9 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
   %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i110.i.i, align 16
+  %v_.i111.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i111.i.i, align 8
   %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
@@ -1490,12 +1572,16 @@ _ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i45.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i44.i)
   %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i44.i, i64 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
+  store float 1.000000e+00, ptr %param_.i.i.i.i.i.i, align 4
+  %stddev_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i44.i, i64 8
+  store float 1.000000e+00, ptr %stddev_.i.i.i.i.i.i.i, align 4
   %call3.i.i.i.i.i.i46.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i44.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i44.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i3.i.i, align 8
+  %stddev_.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i4.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   store i64 5489, ptr %ref.tmp.i45.i, align 8
@@ -1519,45 +1605,83 @@ _ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   store i64 312, ptr %_M_p.i.i.i.i57.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i7.i.i, align 8
+  %stddev_.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i8.i.i, align 8
   %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp.i45.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %ref.tmp.i45.i)
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %ref.tmp.i63.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i62.i)
-  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i62.i, align 16
+  store i32 0, ptr %dist.i.i.i.i62.i, align 4
+  %max_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i62.i, i64 4
+  store i32 100, ptr %max_.i.i.i.i.i.i.i, align 4
+  %base_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i62.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i.i.i, align 4
+  %range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i62.i, i64 12
+  store i32 100, ptr %range_.i.i.i.i.i.i.i, align 4
   %log_range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i62.i, i64 16
-  store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 16
+  store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 4
   %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i62.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i62.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i62.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i61.i)
-  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i61.i, align 4
+  store i8 0, ptr %dist.i.i.i10.i61.i, align 4
+  %max_.i.i.i.i.i11.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i61.i, i64 1
+  store i8 100, ptr %max_.i.i.i.i.i11.i.i, align 1
+  %base_.i.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i61.i, i64 2
+  store i8 2, ptr %base_.i.i.i.i.i12.i.i, align 2
+  %range_.i.i.i.i.i13.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i61.i, i64 3
+  store i8 100, ptr %range_.i.i.i.i.i13.i.i, align 1
   %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i61.i, i64 4
   store i32 7, ptr %log_range_.i.i.i.i.i14.i.i, align 4
   %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i61.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i61.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i61.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i60.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i60.i, align 8
+  store i16 0, ptr %dist.i.i.i16.i60.i, align 4
+  %max_.i.i.i.i.i17.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i60.i, i64 2
+  store i16 100, ptr %max_.i.i.i.i.i17.i.i, align 2
+  %base_.i.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i60.i, i64 4
+  store i16 2, ptr %base_.i.i.i.i.i18.i.i, align 4
+  %range_.i.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i60.i, i64 6
+  store i16 100, ptr %range_.i.i.i.i.i19.i.i, align 2
   %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i60.i, i64 8
-  store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 8
+  store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 4
   %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i60.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i60.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i60.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i59.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i59.i, align 8
+  store i16 0, ptr %dist.i.i.i22.i59.i, align 4
+  %max_.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i59.i, i64 2
+  store i16 100, ptr %max_.i.i.i.i.i23.i.i, align 2
+  %base_.i.i.i.i.i24.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i59.i, i64 4
+  store i16 2, ptr %base_.i.i.i.i.i24.i.i, align 4
+  %range_.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i59.i, i64 6
+  store i16 100, ptr %range_.i.i.i.i.i25.i.i, align 2
   %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i59.i, i64 8
-  store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 8
+  store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 4
   %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i59.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i59.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i59.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i58.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i58.i, align 16
+  store i32 0, ptr %dist.i.i.i28.i58.i, align 4
+  %max_.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i58.i, i64 4
+  store i32 1024, ptr %max_.i.i.i.i.i29.i.i, align 4
+  %base_.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i58.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i30.i.i, align 4
+  %range_.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i58.i, i64 12
+  store i32 1024, ptr %range_.i.i.i.i.i31.i.i, align 4
   %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i58.i, i64 16
-  store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 16
+  store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 4
   %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i58.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i58.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i58.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i34.i.i, align 16
+  store i32 0, ptr %dist.i.i.i34.i.i, align 4
+  %max_.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 4
+  store i32 1024, ptr %max_.i.i.i.i.i35.i.i, align 4
+  %base_.i.i.i.i.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i36.i.i, align 4
+  %range_.i.i.i.i.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 12
+  store i32 1024, ptr %range_.i.i.i.i.i37.i.i, align 4
   %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 16
-  store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 16
+  store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 4
   %call2.i.i.i.i.i39.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i, ptr noundef nonnull align 8 dereferenceable(2504) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)
@@ -8047,17 +8171,17 @@ entry:
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
   %dist.i.i.i.i28.i = alloca %"class.absl::zipf_distribution", align 8
   %ref.tmp.i29.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
-  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
-  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
-  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 8
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 8
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 8
   %seeder.i.i.i8.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
-  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
-  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
-  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
-  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
-  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
-  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
-  %dist.i.i.i.i9.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 8
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 8
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 8
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 8
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 8
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 8
+  %dist.i.i.i.i9.i = alloca %"class.absl::poisson_distribution", align 8
   %ref.tmp.i10.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %seeder.i.i.i1.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
   %ref.tmp.i.i = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
@@ -8787,45 +8911,59 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i10.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i9.i)
+  store double 1.000000e+00, ptr %dist.i.i.i.i9.i, align 8
   %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i9.i, i64 40
   store i32 1, ptr %split_.i.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i9.i, align 16
+  %emu_16.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i9.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i.i.i, align 8
   %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i9.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i9.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i9.i.i, align 8
   %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
   store i32 1, ptr %split_.i27.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %emu_16.i29.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i29.i.i, align 8
   %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i11.i.i, align 8
   %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
   store i32 1, ptr %split_.i30.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %emu_16.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i32.i.i, align 8
   %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i13.i.i, align 8
   %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
   store i32 1, ptr %split_.i33.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %emu_16.i35.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i35.i.i, align 8
   %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i15.i.i, align 8
   %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
   store i32 1, ptr %split_.i36.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %emu_16.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i38.i.i, align 8
   %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i17.i.i, align 8
   %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
   store i32 1, ptr %split_.i39.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %emu_16.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i41.i.i, align 8
   %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i19.i.i, align 8
   %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
   store i32 1, ptr %split_.i42.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %emu_16.i44.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i44.i.i, align 8
   %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
@@ -8843,21 +8981,27 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i10.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i8.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i8.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i21.i.i, align 8
   %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
   store i32 1, ptr %split_.i45.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %emu_16.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i47.i.i, align 8
   %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i10.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i23.i.i, align 8
   %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
   store i32 1, ptr %split_.i48.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %emu_16.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i50.i.i, align 8
   %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i25.i.i, align 8
   %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
   store i32 1, ptr %split_.i51.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %emu_16.i53.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i53.i.i, align 8
   %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i10.i)
@@ -8911,97 +9055,145 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
   store i32 100, ptr %dist.i.i.i.i28.i, align 8
   %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i.i.i, align 8
+  %v_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 16
+  store double 1.000000e+00, ptr %v_.i.i.i, align 8
   %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i.i.i, align 8
   %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i.i.i, align 8
+  %hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i.i.i, align 8
   %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
+  %s_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i28.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i.i.i, align 8
   %call.i.i.i.i.i30.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i28.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i28.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
   %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i30.i.i, align 8
+  %v_.i31.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i31.i.i, align 8
   %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i32.i.i, align 8
   %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i33.i.i, align 8
+  %hxm_.i34.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i34.i.i, align 8
   %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
+  %s_.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i38.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
   %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i39.i.i, align 8
+  %v_.i40.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i40.i.i, align 8
   %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i41.i.i, align 8
   %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i42.i.i, align 8
+  %hxm_.i43.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i43.i.i, align 8
   %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
+  %s_.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i47.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
   %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i48.i.i, align 8
+  %v_.i49.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i49.i.i, align 8
   %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i50.i.i, align 8
   %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i51.i.i, align 8
+  %hxm_.i52.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i52.i.i, align 8
   %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
+  %s_.i56.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i56.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
   %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i57.i.i, align 8
+  %v_.i58.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i58.i.i, align 8
   %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i59.i.i, align 8
   %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i60.i.i, align 8
+  %hxm_.i61.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i61.i.i, align 8
   %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
+  %s_.i65.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i65.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
   %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i66.i.i, align 8
+  %v_.i67.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i67.i.i, align 8
   %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i68.i.i, align 8
   %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i69.i.i, align 8
+  %hxm_.i70.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i70.i.i, align 8
   %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
+  %s_.i74.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i74.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
   %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i75.i.i, align 8
+  %v_.i76.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i76.i.i, align 8
   %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i77.i.i, align 8
   %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i78.i.i, align 8
+  %hxm_.i79.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i79.i.i, align 8
   %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
+  %s_.i83.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i83.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
   %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i84.i.i, align 8
+  %v_.i85.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i85.i.i, align 8
   %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i86.i.i, align 8
   %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i87.i.i, align 8
+  %hxm_.i88.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i88.i.i, align 8
   %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
+  %s_.i92.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i92.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i27.i)
@@ -9021,13 +9213,19 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
   %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i93.i.i, align 8
+  %v_.i94.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i94.i.i, align 8
   %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i95.i.i, align 8
   %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i96.i.i, align 8
+  %hxm_.i97.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i97.i.i, align 8
   %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
+  %s_.i101.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i101.i.i, align 8
   %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i29.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
@@ -9035,13 +9233,19 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
   %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i102.i.i, align 16
+  %v_.i103.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i103.i.i, align 8
   %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  store double -1.000000e+00, ptr %one_minus_q_.i104.i.i, align 16
   %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i105.i.i, align 16
+  %hxm_.i106.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 56
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i106.i.i, align 8
   %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
+  %s_.i108.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 40
+  store double 0x3FDD89D89D89D898, ptr %s_.i108.i.i, align 8
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
@@ -9049,7 +9253,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
   %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i110.i.i, align 16
+  %v_.i111.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i111.i.i, align 8
   %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
@@ -9074,12 +9280,16 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %ref.tmp.i39.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i38.i)
   %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i38.i, i64 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
+  store float 1.000000e+00, ptr %param_.i.i.i.i.i.i, align 4
+  %stddev_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i38.i, i64 8
+  store float 1.000000e+00, ptr %stddev_.i.i.i.i.i.i.i, align 4
   %call3.i.i.i.i.i.i40.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i38.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i38.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i3.i.i, align 8
+  %stddev_.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i4.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(288) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i.i37.i)
@@ -9098,7 +9308,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i.i37.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i7.i.i, align 8
+  %stddev_.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i8.i.i, align 8
   %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i39.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %ref.tmp.i39.i)
@@ -16203,12 +16415,12 @@ entry:
   %buffer.i.i.i.i.i.i143.i = alloca [4 x i32], align 16
   %dist.i.i.i46.i.i = alloca %"class.absl::log_uniform_int_distribution.60", align 8
   %dist.i.i.i40.i.i = alloca %"class.absl::log_uniform_int_distribution.59", align 8
-  %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 16
-  %dist.i.i.i28.i144.i = alloca %"class.absl::log_uniform_int_distribution", align 16
-  %dist.i.i.i22.i145.i = alloca %"class.absl::log_uniform_int_distribution.57", align 8
-  %dist.i.i.i16.i146.i = alloca %"class.absl::log_uniform_int_distribution.56", align 8
+  %dist.i.i.i34.i.i = alloca %"class.absl::log_uniform_int_distribution.58", align 4
+  %dist.i.i.i28.i144.i = alloca %"class.absl::log_uniform_int_distribution", align 4
+  %dist.i.i.i22.i145.i = alloca %"class.absl::log_uniform_int_distribution.57", align 4
+  %dist.i.i.i16.i146.i = alloca %"class.absl::log_uniform_int_distribution.56", align 4
   %dist.i.i.i10.i147.i = alloca %"class.absl::log_uniform_int_distribution.55", align 4
-  %dist.i.i.i.i148.i = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist.i.i.i.i148.i = alloca %"class.absl::log_uniform_int_distribution", align 4
   %ref.tmp.i149.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
   %dist.i.i.i6.i.i = alloca %"class.absl::gaussian_distribution.54", align 8
   %buffer.i.i.i.i.i.i107.i = alloca [4 x i32], align 16
@@ -16228,17 +16440,17 @@ entry:
   %dist.i.i.i10.i.i = alloca %"class.absl::zipf_distribution.46", align 8
   %dist.i.i.i.i72.i = alloca %"class.absl::zipf_distribution", align 8
   %ref.tmp.i73.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
-  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 16
-  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 16
-  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 16
+  %dist.i.i.i25.i.i = alloca %"class.absl::poisson_distribution.44", align 8
+  %dist.i.i.i23.i.i = alloca %"class.absl::poisson_distribution.42", align 8
+  %dist.i.i.i21.i.i = alloca %"class.absl::poisson_distribution.40", align 8
   %buffer.i.i.i.i.i.i30.i = alloca [4 x i32], align 16
-  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 16
-  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 16
-  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 16
-  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 16
-  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 16
-  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 16
-  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i19.i.i = alloca %"class.absl::poisson_distribution.40", align 8
+  %dist.i.i.i17.i.i = alloca %"class.absl::poisson_distribution.38", align 8
+  %dist.i.i.i15.i.i = alloca %"class.absl::poisson_distribution.36", align 8
+  %dist.i.i.i13.i.i = alloca %"class.absl::poisson_distribution", align 8
+  %dist.i.i.i11.i.i = alloca %"class.absl::poisson_distribution.34", align 8
+  %dist.i.i.i9.i.i = alloca %"class.absl::poisson_distribution.32", align 8
+  %dist.i.i.i.i.i = alloca %"class.absl::poisson_distribution", align 8
   %ref.tmp.i.i = alloca %"class.absl::random_internal::NonsecureURBGBase.66", align 16
   %buffer.i.i.i.i.i.i2.i = alloca [4 x i32], align 16
   %buffer.i.i.i.i.i1027.i.i = alloca [4 x i32], align 16
@@ -17502,45 +17714,59 @@ cdce.call3:                                       ; preds = %_ZN4absl15random_in
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i.i.i, align 8
   %split_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 40
   store i32 1, ptr %split_.i.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i.i.i, align 16
+  %emu_16.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i.i.i, align 8
   %call.i.i.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i9.i.i, align 8
   %split_.i27.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 40
   store i32 1, ptr %split_.i27.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i9.i.i, align 16
+  %emu_16.i29.i.i = getelementptr inbounds i8, ptr %dist.i.i.i9.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i29.i.i, align 8
   %call.i.i.i.i10.i.i = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i9.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i9.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i9.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i11.i.i, align 8
   %split_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 40
   store i32 1, ptr %split_.i30.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i11.i.i, align 16
+  %emu_16.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i11.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i32.i.i, align 8
   %call.i.i.i.i12.i.i = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i11.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i11.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i11.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i13.i.i, align 8
   %split_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 40
   store i32 1, ptr %split_.i33.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i13.i.i, align 16
+  %emu_16.i35.i.i = getelementptr inbounds i8, ptr %dist.i.i.i13.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i35.i.i, align 8
   %call.i.i.i.i14.i.i = call noundef i32 @_ZN4absl20poisson_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i13.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i13.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i13.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i15.i.i, align 8
   %split_.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 40
   store i32 1, ptr %split_.i36.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i15.i.i, align 16
+  %emu_16.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i15.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i38.i.i, align 8
   %call.i.i.i.i16.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i15.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i15.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i15.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i17.i.i, align 8
   %split_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 40
   store i32 1, ptr %split_.i39.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i17.i.i, align 16
+  %emu_16.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i17.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i41.i.i, align 8
   %call.i.i.i.i18.i.i = call noundef i64 @_ZN4absl20poisson_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i17.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i17.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i17.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i19.i.i, align 8
   %split_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 40
   store i32 1, ptr %split_.i42.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i19.i.i, align 16
+  %emu_16.i44.i.i = getelementptr inbounds i8, ptr %dist.i.i.i19.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i44.i.i, align 8
   %call.i.i.i.i20.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i19.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i19.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i19.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i30.i)
@@ -17592,21 +17818,27 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %136 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 %.narrow.i.i.i.i.i.i.i.i61.i, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i21.i.i, align 8
   %split_.i45.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 40
   store i32 1, ptr %split_.i45.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i21.i.i, align 16
+  %emu_16.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i21.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i47.i.i, align 8
   %call.i.i.i.i22.i.i = call noundef i64 @_ZN4absl20poisson_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i21.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i21.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i23.i.i, align 8
   %split_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 40
   store i32 1, ptr %split_.i48.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i23.i.i, align 16
+  %emu_16.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i23.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i50.i.i, align 8
   %call.i.i.i.i24.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i23.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i23.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i23.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i25.i.i, align 8
   %split_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 40
   store i32 1, ptr %split_.i51.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i25.i.i, align 16
+  %emu_16.i53.i.i = getelementptr inbounds i8, ptr %dist.i.i.i25.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i53.i.i, align 8
   %call.i.i.i.i26.i.i = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i25.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i25.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
@@ -17637,97 +17869,145 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i.i72.i)
   store i32 100, ptr %dist.i.i.i.i72.i, align 8
   %q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i.i.i, align 8
+  %v_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 16
+  store double 1.000000e+00, ptr %v_.i.i.i, align 8
   %one_minus_q_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i.i.i, align 8
   %one_minus_q_inv_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i.i.i, align 8
+  %hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i.i.i, align 8
   %hx0_minus_hxm_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i.i, align 8
+  %s_.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i72.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i.i.i, align 8
   %call.i.i.i.i.i74.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i72.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i.i72.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i.i72.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   store i8 100, ptr %dist.i.i.i10.i.i, align 8
   %q_.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i30.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i30.i.i, align 8
+  %v_.i31.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i31.i.i, align 8
   %one_minus_q_.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i32.i.i, align 8
   %one_minus_q_inv_.i33.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i33.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i33.i.i, align 8
+  %hxm_.i34.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i34.i.i, align 8
   %hx0_minus_hxm_.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i37.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i32.i.i, align 8
+  %s_.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i38.i.i, align 8
   %call.i.i.i.i11.i.i = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i10.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i10.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   store i16 100, ptr %dist.i.i.i12.i.i, align 8
   %q_.i39.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i39.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i39.i.i, align 8
+  %v_.i40.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i40.i.i, align 8
   %one_minus_q_.i41.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i41.i.i, align 8
   %one_minus_q_inv_.i42.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i42.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i42.i.i, align 8
+  %hxm_.i43.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i43.i.i, align 8
   %hx0_minus_hxm_.i46.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i46.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i41.i.i, align 8
+  %s_.i47.i.i = getelementptr inbounds i8, ptr %dist.i.i.i12.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i47.i.i, align 8
   %call.i.i.i.i13.i.i = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i12.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i12.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   store i16 100, ptr %dist.i.i.i14.i.i, align 8
   %q_.i48.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i48.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i48.i.i, align 8
+  %v_.i49.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i49.i.i, align 8
   %one_minus_q_.i50.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i50.i.i, align 8
   %one_minus_q_inv_.i51.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF842D6625D51F87>, ptr %one_minus_q_inv_.i51.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i51.i.i, align 8
+  %hxm_.i52.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 48
+  store double 0xBF842D6625D51F87, ptr %hxm_.i52.i.i, align 8
   %hx0_minus_hxm_.i55.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 56
   store double 0xBFFA824FDE5F006B, ptr %hx0_minus_hxm_.i55.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i50.i.i, align 8
+  %s_.i56.i.i = getelementptr inbounds i8, ptr %dist.i.i.i14.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i56.i.i, align 8
   %call.i.i.i.i15.i.i = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i14.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i14.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   store i32 1024, ptr %dist.i.i.i16.i.i, align 8
   %q_.i57.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i57.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i57.i.i, align 8
+  %v_.i58.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i58.i.i, align 8
   %one_minus_q_.i59.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i59.i.i, align 8
   %one_minus_q_inv_.i60.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i60.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i60.i.i, align 8
+  %hxm_.i61.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i61.i.i, align 8
   %hx0_minus_hxm_.i64.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i64.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i59.i.i, align 8
+  %s_.i65.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i65.i.i, align 8
   %call.i.i.i.i17.i.i = call noundef i32 @_ZN4absl17zipf_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i16.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i16.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   store i32 1024, ptr %dist.i.i.i18.i.i, align 8
   %q_.i66.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i66.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i66.i.i, align 8
+  %v_.i67.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i67.i.i, align 8
   %one_minus_q_.i68.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i68.i.i, align 8
   %one_minus_q_inv_.i69.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i69.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i69.i.i, align 8
+  %hxm_.i70.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i70.i.i, align 8
   %hx0_minus_hxm_.i73.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i73.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i68.i.i, align 8
+  %s_.i74.i.i = getelementptr inbounds i8, ptr %dist.i.i.i18.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i74.i.i, align 8
   %call.i.i.i.i19.i.i = call noundef i32 @_ZN4absl17zipf_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   store i64 1024, ptr %dist.i.i.i20.i.i, align 8
   %q_.i75.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i75.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i75.i.i, align 8
+  %v_.i76.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i76.i.i, align 8
   %one_minus_q_.i77.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i77.i.i, align 8
   %one_minus_q_inv_.i78.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i78.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i78.i.i, align 8
+  %hxm_.i79.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i79.i.i, align 8
   %hx0_minus_hxm_.i82.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i82.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i77.i.i, align 8
+  %s_.i83.i.i = getelementptr inbounds i8, ptr %dist.i.i.i20.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i83.i.i, align 8
   %call.i.i.i.i21.i.i = call noundef i64 @_ZN4absl17zipf_distributionIlEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i20.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i20.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   store i64 1024, ptr %dist.i.i.i22.i.i, align 8
   %q_.i84.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i84.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i84.i.i, align 8
+  %v_.i85.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i85.i.i, align 8
   %one_minus_q_.i86.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i86.i.i, align 8
   %one_minus_q_inv_.i87.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i87.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i87.i.i, align 8
+  %hxm_.i88.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i88.i.i, align 8
   %hx0_minus_hxm_.i91.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i91.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i86.i.i, align 8
+  %s_.i92.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i92.i.i, align 8
   %call.i.i.i.i23.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i22.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i22.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i71.i)
@@ -17781,13 +18061,19 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   store i64 1024, ptr %dist.i.i.i24.i.i, align 8
   %q_.i93.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i93.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i93.i.i, align 8
+  %v_.i94.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 16
+  store double 1.000000e+00, ptr %v_.i94.i.i, align 8
   %one_minus_q_.i95.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i95.i.i, align 8
   %one_minus_q_inv_.i96.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i96.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i96.i.i, align 8
+  %hxm_.i97.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i97.i.i, align 8
   %hx0_minus_hxm_.i100.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 56
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i100.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i95.i.i, align 8
+  %s_.i101.i.i = getelementptr inbounds i8, ptr %dist.i.i.i24.i.i, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i101.i.i, align 8
   %call.i.i.i.i25.i.i = call noundef i64 @_ZN4absl17zipf_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i73.i, ptr noundef nonnull align 8 dereferenceable(64) %dist.i.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dist.i.i.i24.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
@@ -17795,13 +18081,19 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %k.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i.i.i, align 8
   %q_.i102.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i102.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i102.i.i, align 16
+  %v_.i103.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i103.i.i, align 8
   %one_minus_q_.i104.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 32
+  store double -1.000000e+00, ptr %one_minus_q_.i104.i.i, align 16
   %one_minus_q_inv_.i105.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 48
-  store <2 x double> <double -1.000000e+00, double 0xBF4FF4047E50A1C3>, ptr %one_minus_q_inv_.i105.i.i, align 16
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i105.i.i, align 16
+  %hxm_.i106.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 56
+  store double 0xBF4FF4047E50A1C3, ptr %hxm_.i106.i.i, align 8
   %hx0_minus_hxm_.i107.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 64
   store double 0xBFFAA6AC2A1AE096, ptr %hx0_minus_hxm_.i107.i.i, align 16
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i104.i.i, align 16
+  %s_.i108.i.i = getelementptr inbounds i8, ptr %dist.i.i.i26.i.i, i64 40
+  store double 0x3FDD89D89D89D898, ptr %s_.i108.i.i, align 8
   %call.i.i.i.i27.i.i = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist.i.i.i26.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 16 dereferenceable(72) %dist.i.i.i26.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %dist.i.i.i26.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %dist.i.i.i28.i.i)
@@ -17809,7 +18101,9 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %k.sroa.3.0.this.sroa_idx.i109.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 8
   store i64 0, ptr %k.sroa.3.0.this.sroa_idx.i109.i.i, align 8
   %q_.i110.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 16
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i110.i.i, align 16
+  store double 2.000000e+00, ptr %q_.i110.i.i, align 16
+  %v_.i111.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 24
+  store double 1.000000e+00, ptr %v_.i111.i.i, align 8
   %one_minus_q_.i112.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 32
   store double -1.000000e+00, ptr %one_minus_q_.i112.i.i, align 16
   %one_minus_q_inv_.i113.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i.i, i64 48
@@ -17834,12 +18128,16 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i109.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i.i108.i)
   %param_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i108.i, i64 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %param_.i.i.i.i.i.i, align 4
+  store float 1.000000e+00, ptr %param_.i.i.i.i.i.i, align 4
+  %stddev_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i108.i, i64 8
+  store float 1.000000e+00, ptr %stddev_.i.i.i.i.i.i.i, align 4
   %call3.i.i.i.i.i.i110.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i.i108.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i.i108.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   %param_.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i3.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i3.i.i, align 8
+  %stddev_.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %dist.i.i.i2.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i4.i.i, align 8
   %call3.i.i.i.i.i5.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i2.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i2.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i.i107.i)
@@ -17892,45 +18190,83 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   store i64 %.narrow.i.i.i.i.i.i.i.i142.i, ptr %152, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   %param_.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %param_.i.i.i.i7.i.i, align 8
+  store double 1.000000e+00, ptr %param_.i.i.i.i7.i.i, align 8
+  %stddev_.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %dist.i.i.i6.i.i, i64 16
+  store double 1.000000e+00, ptr %stddev_.i.i.i.i.i8.i.i, align 8
   %call3.i.i.i.i.i9.i.i = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %dist.i.i.i6.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i109.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dist.i.i.i6.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i109.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i149.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i.i148.i)
-  store <4 x i32> <i32 0, i32 100, i32 2, i32 100>, ptr %dist.i.i.i.i148.i, align 16
+  store i32 0, ptr %dist.i.i.i.i148.i, align 4
+  %max_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i148.i, i64 4
+  store i32 100, ptr %max_.i.i.i.i.i.i.i, align 4
+  %base_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i148.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i.i.i, align 4
+  %range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i148.i, i64 12
+  store i32 100, ptr %range_.i.i.i.i.i.i.i, align 4
   %log_range_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dist.i.i.i.i148.i, i64 16
-  store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 16
+  store i32 7, ptr %log_range_.i.i.i.i.i.i.i, align 4
   %call2.i.i.i.i.i.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i148.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i.i148.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i.i148.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dist.i.i.i10.i147.i)
-  store <4 x i8> <i8 0, i8 100, i8 2, i8 100>, ptr %dist.i.i.i10.i147.i, align 4
+  store i8 0, ptr %dist.i.i.i10.i147.i, align 4
+  %max_.i.i.i.i.i11.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i147.i, i64 1
+  store i8 100, ptr %max_.i.i.i.i.i11.i.i, align 1
+  %base_.i.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i147.i, i64 2
+  store i8 2, ptr %base_.i.i.i.i.i12.i.i, align 2
+  %range_.i.i.i.i.i13.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i147.i, i64 3
+  store i8 100, ptr %range_.i.i.i.i.i13.i.i, align 1
   %log_range_.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %dist.i.i.i10.i147.i, i64 4
   store i32 7, ptr %log_range_.i.i.i.i.i14.i.i, align 4
   %call2.i.i.i.i.i15.i.i = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i147.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i10.i147.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dist.i.i.i10.i147.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i16.i146.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i16.i146.i, align 8
+  store i16 0, ptr %dist.i.i.i16.i146.i, align 4
+  %max_.i.i.i.i.i17.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i146.i, i64 2
+  store i16 100, ptr %max_.i.i.i.i.i17.i.i, align 2
+  %base_.i.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i146.i, i64 4
+  store i16 2, ptr %base_.i.i.i.i.i18.i.i, align 4
+  %range_.i.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i146.i, i64 6
+  store i16 100, ptr %range_.i.i.i.i.i19.i.i, align 2
   %log_range_.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %dist.i.i.i16.i146.i, i64 8
-  store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 8
+  store i32 7, ptr %log_range_.i.i.i.i.i20.i.i, align 4
   %call2.i.i.i.i.i21.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i146.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i16.i146.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i16.i146.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %dist.i.i.i22.i145.i)
-  store <4 x i16> <i16 0, i16 100, i16 2, i16 100>, ptr %dist.i.i.i22.i145.i, align 8
+  store i16 0, ptr %dist.i.i.i22.i145.i, align 4
+  %max_.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i145.i, i64 2
+  store i16 100, ptr %max_.i.i.i.i.i23.i.i, align 2
+  %base_.i.i.i.i.i24.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i145.i, i64 4
+  store i16 2, ptr %base_.i.i.i.i.i24.i.i, align 4
+  %range_.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i145.i, i64 6
+  store i16 100, ptr %range_.i.i.i.i.i25.i.i, align 2
   %log_range_.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %dist.i.i.i22.i145.i, i64 8
-  store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 8
+  store i32 7, ptr %log_range_.i.i.i.i.i26.i.i, align 4
   %call2.i.i.i.i.i27.i.i = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i145.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(12) %dist.i.i.i22.i145.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %dist.i.i.i22.i145.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i28.i144.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i28.i144.i, align 16
+  store i32 0, ptr %dist.i.i.i28.i144.i, align 4
+  %max_.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i144.i, i64 4
+  store i32 1024, ptr %max_.i.i.i.i.i29.i.i, align 4
+  %base_.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i144.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i30.i.i, align 4
+  %range_.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i144.i, i64 12
+  store i32 1024, ptr %range_.i.i.i.i.i31.i.i, align 4
   %log_range_.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %dist.i.i.i28.i144.i, i64 16
-  store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 16
+  store i32 11, ptr %log_range_.i.i.i.i.i32.i.i, align 4
   %call2.i.i.i.i.i33.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i144.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i28.i144.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i28.i144.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
-  store <4 x i32> <i32 0, i32 1024, i32 2, i32 1024>, ptr %dist.i.i.i34.i.i, align 16
+  store i32 0, ptr %dist.i.i.i34.i.i, align 4
+  %max_.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 4
+  store i32 1024, ptr %max_.i.i.i.i.i35.i.i, align 4
+  %base_.i.i.i.i.i36.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 8
+  store i32 2, ptr %base_.i.i.i.i.i36.i.i, align 4
+  %range_.i.i.i.i.i37.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 12
+  store i32 1024, ptr %range_.i.i.i.i.i37.i.i, align 4
   %log_range_.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %dist.i.i.i34.i.i, i64 16
-  store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 16
+  store i32 11, ptr %log_range_.i.i.i.i.i38.i.i, align 4
   %call2.i.i.i.i.i39.i.i = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i, ptr noundef nonnull align 16 dereferenceable(16) %gen.i, ptr noundef nonnull align 4 dereferenceable(20) %dist.i.i.i34.i.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %dist.i.i.i34.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %dist.i.i.i40.i.i)

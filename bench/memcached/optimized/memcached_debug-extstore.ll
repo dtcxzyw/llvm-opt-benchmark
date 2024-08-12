@@ -1656,29 +1656,36 @@ entry:
   store i32 %sub8, ptr %free7, align 8
   %13 = load i32, ptr %len, align 8
   %conv = zext i32 %13 to i64
+  %bytes_used = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %14 = load i64, ptr %bytes_used, align 8
+  %add10 = add i64 %14, %conv
+  store i64 %add10, ptr %bytes_used, align 8
   %obj_count = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %14 = load <2 x i64>, ptr %obj_count, align 8
-  %15 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %conv, i64 1
-  %16 = add <2 x i64> %14, %15
-  store <2 x i64> %16, ptr %obj_count, align 8
+  %15 = load i64, ptr %obj_count, align 8
+  %inc = add i64 %15, 1
+  store i64 %inc, ptr %obj_count, align 8
   %stats_mutex = getelementptr inbounds i8, ptr %ptr, i64 144
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
-  %17 = load i32, ptr %len, align 8
-  %conv12 = zext i32 %17 to i64
+  %16 = load i32, ptr %len, align 8
+  %conv12 = zext i32 %16 to i64
   %bytes_written = getelementptr inbounds i8, ptr %ptr, i64 280
-  %18 = load i64, ptr %bytes_written, align 8
-  %add13 = add i64 %18, %conv12
+  %17 = load i64, ptr %bytes_written, align 8
+  %add13 = add i64 %17, %conv12
   store i64 %add13, ptr %bytes_written, align 8
-  %19 = load i32, ptr %len, align 8
-  %conv15 = zext i32 %19 to i64
+  %18 = load i32, ptr %len, align 8
+  %conv15 = zext i32 %18 to i64
   %bytes_used17 = getelementptr inbounds i8, ptr %ptr, i64 296
-  %20 = load i64, ptr %bytes_used17, align 8
-  %add18 = add i64 %20, %conv15
+  %19 = load i64, ptr %bytes_used17, align 8
+  %add18 = add i64 %19, %conv15
   store i64 %add18, ptr %bytes_used17, align 8
   %objects_written = getelementptr inbounds i8, ptr %ptr, i64 256
-  %21 = load <2 x i64>, ptr %objects_written, align 8
-  %22 = add <2 x i64> %21, <i64 1, i64 1>
-  store <2 x i64> %22, ptr %objects_written, align 8
+  %20 = load i64, ptr %objects_written, align 8
+  %inc20 = add i64 %20, 1
+  store i64 %inc20, ptr %objects_written, align 8
+  %objects_used = getelementptr inbounds i8, ptr %ptr, i64 264
+  %21 = load i64, ptr %objects_used, align 8
+  %inc22 = add i64 %21, 1
+  store i64 %inc22, ptr %objects_used, align 8
   %call24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats_mutex) #12
   %call25 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx) #12
   ret void

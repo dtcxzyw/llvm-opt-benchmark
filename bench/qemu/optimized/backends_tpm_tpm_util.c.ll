@@ -243,7 +243,13 @@ entry.sw.epilog_crit_edge:                        ; preds = %entry
 sw.bb:                                            ; preds = %entry
   store i16 -16128, ptr %tpm_get_buffer_size, align 2
   %len = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 2
-  store <4 x i32> <i32 369098752, i32 1694498816, i32 83886080, i32 67108864>, ptr %len, align 2
+  store i32 369098752, ptr %len, align 2
+  %ordinal = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 6
+  store i32 1694498816, ptr %ordinal, align 2
+  %capability = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 10
+  store i32 83886080, ptr %capability, align 2
+  %len4 = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 14
+  store i32 67108864, ptr %len4, align 2
   %subcap = getelementptr inbounds i8, ptr %tpm_get_buffer_size, i64 18
   store i32 604045312, ptr %subcap, align 2
   %call7 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm_resp, i64 noundef 18)
@@ -348,7 +354,13 @@ if.end26:                                         ; preds = %if.end
 sw.bb30:                                          ; preds = %entry
   store i16 384, ptr %tpm2_get_buffer_size, align 2
   %len34 = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 2
-  store <4 x i32> <i32 369098752, i32 2046885888, i32 100663296, i32 503382016>, ptr %len34, align 2
+  store i32 369098752, ptr %len34, align 2
+  %ordinal36 = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 6
+  store i32 2046885888, ptr %ordinal36, align 2
+  %capability38 = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 10
+  store i32 100663296, ptr %capability38, align 2
+  %property = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 14
+  store i32 503382016, ptr %property, align 2
   %count = getelementptr inbounds i8, ptr %tpm2_get_buffer_size, i64 18
   store i32 33554432, ptr %count, align 2
   %call42 = call fastcc i32 @tpm_util_request(i32 noundef %tpm_fd, ptr noundef nonnull %tpm2_get_buffer_size, i64 noundef 22, ptr noundef nonnull %tpm2_resp, i64 noundef 35)

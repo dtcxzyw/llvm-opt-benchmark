@@ -1584,11 +1584,16 @@ entry:
   %1 = load ptr, ptr %create_type5, align 8
   %call6 = tail call noalias ptr @g_strdup(ptr noundef %1) #15
   %cid7 = getelementptr inbounds i8, ptr %0, i64 60
-  %.compoundliteral4.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 8
-  %2 = load <2 x i32>, ptr %cid7, align 4
-  %3 = zext <2 x i32> %2 to <2 x i64>
+  %2 = load i32, ptr %cid7, align 4
+  %conv = zext i32 %2 to i64
+  %parent_cid8 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = load i32, ptr %parent_cid8, align 8
+  %conv9 = zext i32 %3 to i64
   store ptr %call6, ptr %call1, align 8
-  store <2 x i64> %3, ptr %.compoundliteral4.sroa.2.0..sroa_idx, align 8
+  %.compoundliteral4.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 8
+  store i64 %conv, ptr %.compoundliteral4.sroa.2.0..sroa_idx, align 8
+  %.compoundliteral4.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 16
+  store i64 %conv9, ptr %.compoundliteral4.sroa.3.0..sroa_idx, align 8
   %.compoundliteral4.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr null, ptr %.compoundliteral4.sroa.4.0..sroa_idx, align 8
   %num_extents = getelementptr inbounds i8, ptr %0, i64 68
@@ -1984,23 +1989,28 @@ if.then28.i:                                      ; preds = %if.then22.i
 if.end30.i:                                       ; preds = %if.then22.i
   %magic31.i = getelementptr inbounds i8, ptr %footer.i, i64 512
   %21 = load i32, ptr %magic31.i, align 1
-  %.fr6 = freeze i32 %21
-  %cmp33.not.i = icmp eq i32 %.fr6, 1447904331
+  %cmp33.not.i = icmp eq i32 %21, 1447904331
   %size.i = getelementptr inbounds i8, ptr %footer.i, i64 8
-  %22 = load <4 x i32>, ptr %size.i, align 1
+  %22 = load i32, ptr %size.i, align 1
+  %cmp35.not.i = icmp eq i32 %22, 0
+  %or.cond = select i1 %cmp33.not.i, i1 %cmp35.not.i, i1 false
+  %type.i = getelementptr inbounds i8, ptr %footer.i, i64 12
+  %23 = load i32, ptr %type.i, align 1
+  %cmp39.not.i = icmp eq i32 %23, 3
+  %or.cond1 = select i1 %or.cond, i1 %cmp39.not.i, i1 false
   %eos_marker.i = getelementptr inbounds i8, ptr %footer.i, i64 1024
-  %23 = load i64, ptr %eos_marker.i, align 1
-  %cmp42.not.i = icmp eq i64 %23, 0
+  %24 = load i64, ptr %eos_marker.i, align 1
+  %cmp42.not.i = icmp eq i64 %24, 0
+  %or.cond2 = select i1 %or.cond1, i1 %cmp42.not.i, i1 false
   %size45.i = getelementptr inbounds i8, ptr %footer.i, i64 1032
-  %24 = load <4 x i32>, ptr %size45.i, align 1
-  %25 = shufflevector <4 x i32> %22, <4 x i32> %24, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %.fr = freeze <4 x i32> %25
-  %26 = icmp ne <4 x i32> %.fr, <i32 0, i32 3, i32 0, i32 0>
-  %27 = bitcast <4 x i1> %26 to i4
-  %28 = icmp eq i4 %27, 0
-  %op.rdx = and i1 %cmp33.not.i, %28
-  %op.rdx5 = select i1 %op.rdx, i1 %cmp42.not.i, i1 false
-  br i1 %op.rdx5, label %if.end54.i, label %if.then53.i
+  %25 = load i32, ptr %size45.i, align 1
+  %cmp47.not.i = icmp eq i32 %25, 0
+  %or.cond3 = select i1 %or.cond2, i1 %cmp47.not.i, i1 false
+  %type50.i = getelementptr inbounds i8, ptr %footer.i, i64 1036
+  %26 = load i32, ptr %type50.i, align 1
+  %cmp52.not.i = icmp eq i32 %26, 0
+  %or.cond4 = select i1 %or.cond3, i1 %cmp52.not.i, i1 false
+  br i1 %or.cond4, label %if.end54.i, label %if.then53.i
 
 if.then53.i:                                      ; preds = %if.end30.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 1014, ptr noundef nonnull @__func__.vmdk_open_vmdk4, ptr noundef nonnull @.str.43) #15
@@ -2013,18 +2023,18 @@ if.end54.i:                                       ; preds = %if.end30.i
 
 if.end56.i:                                       ; preds = %if.end54.i, %if.end19.i
   %compressAlgorithm.i = getelementptr inbounds i8, ptr %header.i6, i64 73
-  %29 = load i32, ptr %header.i6, align 4
-  %cmp61.i = icmp ugt i32 %29, 3
+  %27 = load i32, ptr %header.i6, align 4
+  %cmp61.i = icmp ugt i32 %27, 3
   br i1 %cmp61.i, label %if.then63.i, label %if.else.i
 
 if.then63.i:                                      ; preds = %if.end56.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 1025, ptr noundef nonnull @__func__.vmdk_open_vmdk4, ptr noundef nonnull @.str.44, i32 noundef %29) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 1025, ptr noundef nonnull @__func__.vmdk_open_vmdk4, ptr noundef nonnull @.str.44, i32 noundef %27) #15
   br label %vmdk_open_vmdk4.exit
 
 if.else.i:                                        ; preds = %if.end56.i
-  %30 = load i16, ptr %compressAlgorithm.i, align 1
-  %cmp58.i = icmp eq i16 %30, 1
-  %cmp68.i = icmp ne i32 %29, 3
+  %28 = load i16, ptr %compressAlgorithm.i, align 1
+  %cmp58.i = icmp eq i16 %28, 1
+  %cmp68.i = icmp ne i32 %27, 3
   %and.i = and i32 %flags, 2
   %tobool70.not.i = icmp eq i32 %and.i, 0
   %or.cond.i = or i1 %tobool70.not.i, %cmp68.i
@@ -2037,8 +2047,8 @@ if.then73.i:                                      ; preds = %if.else.i
 
 if.end75.i:                                       ; preds = %if.else.i
   %num_gtes_per_gt.i = getelementptr inbounds i8, ptr %header.i6, i64 40
-  %31 = load i32, ptr %num_gtes_per_gt.i, align 4
-  %cmp77.i = icmp ugt i32 %31, 512
+  %29 = load i32, ptr %num_gtes_per_gt.i, align 4
+  %cmp77.i = icmp ugt i32 %29, 512
   br i1 %cmp77.i, label %if.then79.i, label %if.end80.i
 
 if.then79.i:                                      ; preds = %if.end75.i
@@ -2047,9 +2057,9 @@ if.then79.i:                                      ; preds = %if.end75.i
 
 if.end80.i:                                       ; preds = %if.end75.i
   %granularity.i12 = getelementptr inbounds i8, ptr %header.i6, i64 16
-  %32 = load i64, ptr %granularity.i12, align 4
-  %33 = trunc i64 %32 to i32
-  %conv86.i = mul i32 %31, %33
+  %30 = load i64, ptr %granularity.i12, align 4
+  %31 = trunc i64 %30 to i32
+  %conv86.i = mul i32 %29, %31
   %cmp87.i = icmp eq i32 %conv86.i, 0
   br i1 %cmp87.i, label %if.then89.i, label %if.end90.i
 
@@ -2058,76 +2068,76 @@ if.then89.i:                                      ; preds = %if.end80.i
   br label %vmdk_open_vmdk4.exit
 
 if.end90.i:                                       ; preds = %if.end80.i
-  %34 = load i64, ptr %capacity.i, align 4
+  %32 = load i64, ptr %capacity.i, align 4
   %flags97.i = getelementptr inbounds i8, ptr %header.i6, i64 4
-  %35 = load i32, ptr %flags97.i, align 4
+  %33 = load i32, ptr %flags97.i, align 4
   %rgd_offset.i = getelementptr inbounds i8, ptr %header.i6, i64 44
-  %36 = load i64, ptr %rgd_offset.i, align 4
-  %37 = load ptr, ptr %file, align 8
-  %call106.i = call i64 @bdrv_nb_sectors(ptr noundef %37) #15
+  %34 = load i64, ptr %rgd_offset.i, align 4
+  %35 = load ptr, ptr %file, align 8
+  %call106.i = call i64 @bdrv_nb_sectors(ptr noundef %35) #15
   %grain_offset.i = getelementptr inbounds i8, ptr %header.i6, i64 60
-  %38 = load i64, ptr %grain_offset.i, align 4
-  %cmp108.i = icmp ult i64 %call106.i, %38
+  %36 = load i64, ptr %grain_offset.i, align 4
+  %cmp108.i = icmp ult i64 %call106.i, %36
   br i1 %cmp108.i, label %if.then110.i, label %if.end114.i
 
 if.then110.i:                                     ; preds = %if.end90.i
-  %mul113.i = shl i64 %38, 9
+  %mul113.i = shl i64 %36, 9
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 1056, ptr noundef nonnull @__func__.vmdk_open_vmdk4, ptr noundef nonnull @.str.48, i64 noundef %mul113.i) #15
   br label %vmdk_open_vmdk4.exit
 
 if.end114.i:                                      ; preds = %if.end90.i
-  %and99.i = and i32 %35, 2
+  %and99.i = and i32 %33, 2
   %tobool100.not.i = icmp eq i32 %and99.i, 0
-  %shl103.i = shl i64 %36, 9
+  %shl103.i = shl i64 %34, 9
   %l1_backup_offset.0.i = select i1 %tobool100.not.i, i64 0, i64 %shl103.i
   %conv93.i = zext i32 %conv86.i to i64
   %add.i = add nsw i64 %conv93.i, -1
-  %sub94.i = add i64 %add.i, %34
+  %sub94.i = add i64 %add.i, %32
   %div.i = udiv i64 %sub94.i, %conv93.i
   %conv96.i = trunc i64 %div.i to i32
-  %39 = load i64, ptr %capacity.i, align 4
-  %40 = load i64, ptr %gd_offset.i, align 4
-  %shl119.i = shl i64 %40, 9
-  %41 = load i32, ptr %num_gtes_per_gt.i, align 4
-  %42 = load i64, ptr %granularity.i12, align 4
-  %call124.i = call fastcc i32 @vmdk_add_extent(ptr noundef nonnull %bs, ptr noundef nonnull %file, i1 noundef zeroext false, i64 noundef %39, i64 noundef %shl119.i, i64 noundef %l1_backup_offset.0.i, i32 noundef %conv96.i, i32 noundef %41, i64 noundef %42, ptr noundef nonnull %extent.i7, ptr noundef %errp)
+  %37 = load i64, ptr %capacity.i, align 4
+  %38 = load i64, ptr %gd_offset.i, align 4
+  %shl119.i = shl i64 %38, 9
+  %39 = load i32, ptr %num_gtes_per_gt.i, align 4
+  %40 = load i64, ptr %granularity.i12, align 4
+  %call124.i = call fastcc i32 @vmdk_add_extent(ptr noundef nonnull %bs, ptr noundef nonnull %file, i1 noundef zeroext false, i64 noundef %37, i64 noundef %shl119.i, i64 noundef %l1_backup_offset.0.i, i32 noundef %conv96.i, i32 noundef %39, i64 noundef %40, ptr noundef nonnull %extent.i7, ptr noundef %errp)
   %cmp125.i = icmp slt i32 %call124.i, 0
   br i1 %cmp125.i, label %vmdk_open_vmdk4.exit, label %if.end128.i
 
 if.end128.i:                                      ; preds = %if.end114.i
-  %43 = load i16, ptr %compressAlgorithm.i, align 1
-  %cmp132.i = icmp eq i16 %43, 1
-  %44 = load ptr, ptr %extent.i7, align 8
-  %compressed134.i = getelementptr inbounds i8, ptr %44, i64 9
+  %41 = load i16, ptr %compressAlgorithm.i, align 1
+  %cmp132.i = icmp eq i16 %41, 1
+  %42 = load ptr, ptr %extent.i7, align 8
+  %compressed134.i = getelementptr inbounds i8, ptr %42, i64 9
   %frombool135.i = zext i1 %cmp132.i to i8
   store i8 %frombool135.i, ptr %compressed134.i, align 1
   br i1 %cmp132.i, label %if.then138.i, label %if.end142.i
 
 if.then138.i:                                     ; preds = %if.end128.i
-  %45 = load ptr, ptr %create_type.i, align 8
-  call void @g_free(ptr noundef %45) #15
+  %43 = load ptr, ptr %create_type.i, align 8
+  call void @g_free(ptr noundef %43) #15
   %call140.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str.49) #15
   store ptr %call140.i, ptr %create_type.i, align 8
   %.pre = load ptr, ptr %extent.i7, align 8
   br label %if.end142.i
 
 if.end142.i:                                      ; preds = %if.then138.i, %if.end128.i
-  %46 = phi ptr [ %.pre, %if.then138.i ], [ %44, %if.end128.i ]
-  %47 = load i32, ptr %flags97.i, align 4
-  %has_marker.i = getelementptr inbounds i8, ptr %46, i64 10
-  %and145.i = lshr i32 %47, 17
-  %48 = trunc i32 %and145.i to i8
-  %frombool147.i = and i8 %48, 1
+  %44 = phi ptr [ %.pre, %if.then138.i ], [ %42, %if.end128.i ]
+  %45 = load i32, ptr %flags97.i, align 4
+  %has_marker.i = getelementptr inbounds i8, ptr %44, i64 10
+  %and145.i = lshr i32 %45, 17
+  %46 = trunc i32 %and145.i to i8
+  %frombool147.i = and i8 %46, 1
   store i8 %frombool147.i, ptr %has_marker.i, align 2
-  %49 = load i32, ptr %header.i6, align 4
-  %version150.i = getelementptr inbounds i8, ptr %46, i64 36
-  store i32 %49, ptr %version150.i, align 4
-  %has_zero_grain.i = getelementptr inbounds i8, ptr %46, i64 11
-  %50 = trunc i32 %47 to i8
-  %51 = lshr i8 %50, 2
-  %frombool155.i = and i8 %51, 1
+  %47 = load i32, ptr %header.i6, align 4
+  %version150.i = getelementptr inbounds i8, ptr %44, i64 36
+  store i32 %47, ptr %version150.i, align 4
+  %has_zero_grain.i = getelementptr inbounds i8, ptr %44, i64 11
+  %48 = trunc i32 %45 to i8
+  %49 = lshr i8 %48, 2
+  %frombool155.i = and i8 %49, 1
   store i8 %frombool155.i, ptr %has_zero_grain.i, align 1
-  %call156.i = call fastcc i32 @vmdk_init_tables(ptr noundef %46, ptr noundef %errp)
+  %call156.i = call fastcc i32 @vmdk_init_tables(ptr noundef %44, ptr noundef %errp)
   %tobool157.not.i = icmp eq i32 %call156.i, 0
   br i1 %tobool157.not.i, label %vmdk_open_vmdk4.exit, label %if.then158.i
 
@@ -3721,7 +3731,13 @@ if.end12:                                         ; preds = %if.then7, %if.else9
   store i64 %and, ptr %grain_offset, align 4
   store i16 %conv, ptr %compressAlgorithm, align 1
   %check_bytes = getelementptr inbounds i8, ptr %header, i64 69
-  store <4 x i8> <i8 10, i8 32, i8 13, i8 10>, ptr %check_bytes, align 1
+  store i8 10, ptr %check_bytes, align 1
+  %arrayidx95 = getelementptr inbounds i8, ptr %header, i64 70
+  store i8 32, ptr %arrayidx95, align 2
+  %arrayidx97 = getelementptr inbounds i8, ptr %header, i64 71
+  store i8 13, ptr %arrayidx97, align 1
+  %arrayidx99 = getelementptr inbounds i8, ptr %header, i64 72
+  store i8 10, ptr %arrayidx99, align 4
   %call100 = call i32 @blk_co_pwrite(ptr noundef %blk, i64 noundef 0, i64 noundef 4, ptr noundef nonnull %magic, i32 noundef 0) #15
   %cmp = icmp slt i32 %call100, 0
   br i1 %cmp, label %if.then102, label %if.end103

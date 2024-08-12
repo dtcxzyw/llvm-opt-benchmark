@@ -57,9 +57,21 @@ define dso_local noundef zeroext i1 @_ZN3url19CanonicalizePathURLEPKciRKNS_6Pars
 entry:
   %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
   %username.i1 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i1, align 4
+  store i32 0, ptr %username.i1, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i2 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password.i2, align 4
+  %len.i23.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i23.i, align 4
   %host.i3 = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i3, align 4
+  store i32 0, ptr %host.i3, align 4
+  %len.i24.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i24.i, align 4
+  %port.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port.i4, align 4
+  %len.i25.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i25.i, align 4
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
@@ -80,9 +92,21 @@ define dso_local noundef zeroext i1 @_ZN3url19CanonicalizePathURLEPKtiRKNS_6Pars
 entry:
   %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
   %username.i1 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i1, align 4
+  store i32 0, ptr %username.i1, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i2 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password.i2, align 4
+  %len.i23.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i23.i, align 4
   %host.i3 = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i3, align 4
+  store i32 0, ptr %host.i3, align 4
+  %len.i24.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i24.i, align 4
+  %port.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port.i4, align 4
+  %len.i25.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i25.i, align 4
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
   %call5.i = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIttEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %path3.i, i8 noundef signext 0, ptr noundef %output, ptr noundef nonnull %path4.i)
@@ -129,9 +153,21 @@ invoke.cont:                                      ; preds = %entry
 
 call.i.noexc:                                     ; preds = %invoke.cont
   %username.i2 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i2, align 4
+  store i32 0, ptr %username.i2, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i3 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password.i3, align 4
+  %len.i23.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i23.i, align 4
   %host.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i4, align 4
+  store i32 0, ptr %host.i4, align 4
+  %len.i24.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i24.i, align 4
+  %port.i5 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port.i5, align 4
+  %len.i25.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i25.i, align 4
   %1 = load ptr, ptr %path.i, align 8
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40
@@ -216,9 +252,21 @@ invoke.cont3:                                     ; preds = %invoke.cont1
 
 call.i.noexc:                                     ; preds = %invoke.cont3
   %username.i3 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i3, align 4
+  store i32 0, ptr %username.i3, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password.i4, align 4
+  %len.i23.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i23.i, align 4
   %host.i5 = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i5, align 4
+  store i32 0, ptr %host.i5, align 4
+  %len.i24.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i24.i, align 4
+  %port.i6 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port.i6, align 4
+  %len.i25.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i25.i, align 4
   %2 = load ptr, ptr %path.i, align 8
   %path3.i = getelementptr inbounds i8, ptr %parsed, i64 40
   %path4.i = getelementptr inbounds i8, ptr %new_parsed, i64 40

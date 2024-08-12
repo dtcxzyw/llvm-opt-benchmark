@@ -1962,7 +1962,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_
 1106:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i
   store <2 x float> %.sroa.0848.4.vec.insert.i, ptr %1104, align 4
   %.sroa.3852.0..sroa_idx.i = getelementptr inbounds i8, ptr %1104, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3852.0..sroa_idx.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3852.0..sroa_idx.i, align 4
+  %.sroa.4855.0..sroa_idx.i = getelementptr inbounds i8, ptr %1104, i64 12
+  store float -1.000000e+00, ptr %.sroa.4855.0..sroa_idx.i, align 4
   %.sroa.5858.0..sroa_idx.i = getelementptr inbounds i8, ptr %1104, i64 16
   store float 0.000000e+00, ptr %.sroa.5858.0..sroa_idx.i, align 4
   %.sroa.6861.0..sroa_idx.i = getelementptr inbounds i8, ptr %1104, i64 20
@@ -2002,7 +2004,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i.i: ; preds 
   %1124 = getelementptr inbounds %"class.cv::KeyPoint", ptr %1123, i64 %1115
   store <2 x float> %.sroa.0848.4.vec.insert.i, ptr %1124, align 4
   %.sroa.3852.0..sroa_idx853.i = getelementptr inbounds i8, ptr %1124, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3852.0..sroa_idx853.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3852.0..sroa_idx853.i, align 4
+  %.sroa.4855.0..sroa_idx856.i = getelementptr inbounds i8, ptr %1124, i64 12
+  store float -1.000000e+00, ptr %.sroa.4855.0..sroa_idx856.i, align 4
   %.sroa.5858.0..sroa_idx859.i = getelementptr inbounds i8, ptr %1124, i64 16
   store float 0.000000e+00, ptr %.sroa.5858.0..sroa_idx859.i, align 4
   %.sroa.6861.0..sroa_idx862.i = getelementptr inbounds i8, ptr %1124, i64 20
@@ -2185,7 +2189,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit805.i: ; preds = %_ZNSt12_Vect
 1177:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit805.i
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1175, align 4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %1175, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1175, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1175, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1175, i64 20
@@ -2225,7 +2231,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i822.i: ; pre
   %1195 = getelementptr inbounds %"class.cv::KeyPoint", ptr %1194, i64 %1186
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1195, align 4
   %.sroa.3.0..sroa_idx838.i = getelementptr inbounds i8, ptr %1195, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx838.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx838.i, align 4
+  %.sroa.4.0..sroa_idx840.i = getelementptr inbounds i8, ptr %1195, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx840.i, align 4
   %.sroa.5.0..sroa_idx842.i = getelementptr inbounds i8, ptr %1195, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx842.i, align 4
   %.sroa.6.0..sroa_idx844.i = getelementptr inbounds i8, ptr %1195, i64 20
@@ -7858,7 +7866,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i121: ; preds = %_ZNSt12_Vect
 4993:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i121
   store <2 x float> %.sroa.02552.4.vec.insert.i, ptr %4991, align 4
   %.sroa.32556.0..sroa_idx.i = getelementptr inbounds i8, ptr %4991, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.32556.0..sroa_idx.i, align 4
+  store float 7.000000e+00, ptr %.sroa.32556.0..sroa_idx.i, align 4
+  %.sroa.42559.0..sroa_idx.i = getelementptr inbounds i8, ptr %4991, i64 12
+  store float -1.000000e+00, ptr %.sroa.42559.0..sroa_idx.i, align 4
   %.sroa.52562.0..sroa_idx.i = getelementptr inbounds i8, ptr %4991, i64 16
   store float 0.000000e+00, ptr %.sroa.52562.0..sroa_idx.i, align 4
   %.sroa.62565.0..sroa_idx.i = getelementptr inbounds i8, ptr %4991, i64 20
@@ -7898,7 +7908,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i.i127: ; pre
   %5011 = getelementptr inbounds %"class.cv::KeyPoint", ptr %5010, i64 %5002
   store <2 x float> %.sroa.02552.4.vec.insert.i, ptr %5011, align 4
   %.sroa.32556.0..sroa_idx2557.i = getelementptr inbounds i8, ptr %5011, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.32556.0..sroa_idx2557.i, align 4
+  store float 7.000000e+00, ptr %.sroa.32556.0..sroa_idx2557.i, align 4
+  %.sroa.42559.0..sroa_idx2560.i = getelementptr inbounds i8, ptr %5011, i64 12
+  store float -1.000000e+00, ptr %.sroa.42559.0..sroa_idx2560.i, align 4
   %.sroa.52562.0..sroa_idx2563.i = getelementptr inbounds i8, ptr %5011, i64 16
   store float 0.000000e+00, ptr %.sroa.52562.0..sroa_idx2563.i, align 4
   %.sroa.62565.0..sroa_idx2566.i = getelementptr inbounds i8, ptr %5011, i64 20
@@ -8081,7 +8093,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2509.i: ; preds = %_ZNSt12_Vec
 5064:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2509.i
   store <2 x float> %.sroa.0.4.vec.insert.i152, ptr %5062, align 4
   %.sroa.3.0..sroa_idx.i153 = getelementptr inbounds i8, ptr %5062, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx.i153, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx.i153, align 4
+  %.sroa.4.0..sroa_idx.i154 = getelementptr inbounds i8, ptr %5062, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx.i154, align 4
   %.sroa.5.0..sroa_idx.i155 = getelementptr inbounds i8, ptr %5062, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.i155, align 4
   %.sroa.6.0..sroa_idx.i156 = getelementptr inbounds i8, ptr %5062, i64 20
@@ -8121,7 +8135,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i2526.i: ; pr
   %5082 = getelementptr inbounds %"class.cv::KeyPoint", ptr %5081, i64 %5073
   store <2 x float> %.sroa.0.4.vec.insert.i152, ptr %5082, align 4
   %.sroa.3.0..sroa_idx2542.i = getelementptr inbounds i8, ptr %5082, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx2542.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx2542.i, align 4
+  %.sroa.4.0..sroa_idx2544.i = getelementptr inbounds i8, ptr %5082, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx2544.i, align 4
   %.sroa.5.0..sroa_idx2546.i = getelementptr inbounds i8, ptr %5082, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx2546.i, align 4
   %.sroa.6.0..sroa_idx2548.i = getelementptr inbounds i8, ptr %5082, i64 20
@@ -12923,7 +12939,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i183: ; preds = %_ZNSt12_Vect
 8295:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.i183
   store <2 x float> %.sroa.02181.4.vec.insert.i, ptr %8293, align 4
   %.sroa.32185.0..sroa_idx.i = getelementptr inbounds i8, ptr %8293, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.32185.0..sroa_idx.i, align 4
+  store float 7.000000e+00, ptr %.sroa.32185.0..sroa_idx.i, align 4
+  %.sroa.42188.0..sroa_idx.i = getelementptr inbounds i8, ptr %8293, i64 12
+  store float -1.000000e+00, ptr %.sroa.42188.0..sroa_idx.i, align 4
   %.sroa.52191.0..sroa_idx.i = getelementptr inbounds i8, ptr %8293, i64 16
   store float 0.000000e+00, ptr %.sroa.52191.0..sroa_idx.i, align 4
   %.sroa.62194.0..sroa_idx.i = getelementptr inbounds i8, ptr %8293, i64 20
@@ -12963,7 +12981,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i.i189: ; pre
   %8313 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8312, i64 %8304
   store <2 x float> %.sroa.02181.4.vec.insert.i, ptr %8313, align 4
   %.sroa.32185.0..sroa_idx2186.i = getelementptr inbounds i8, ptr %8313, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.32185.0..sroa_idx2186.i, align 4
+  store float 7.000000e+00, ptr %.sroa.32185.0..sroa_idx2186.i, align 4
+  %.sroa.42188.0..sroa_idx2189.i = getelementptr inbounds i8, ptr %8313, i64 12
+  store float -1.000000e+00, ptr %.sroa.42188.0..sroa_idx2189.i, align 4
   %.sroa.52191.0..sroa_idx2192.i = getelementptr inbounds i8, ptr %8313, i64 16
   store float 0.000000e+00, ptr %.sroa.52191.0..sroa_idx2192.i, align 4
   %.sroa.62194.0..sroa_idx2195.i = getelementptr inbounds i8, ptr %8313, i64 20
@@ -13146,7 +13166,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2138.i: ; preds = %_ZNSt12_Vec
 8366:                                             ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2138.i
   store <2 x float> %.sroa.0.4.vec.insert.i213, ptr %8364, align 4
   %.sroa.3.0..sroa_idx.i214 = getelementptr inbounds i8, ptr %8364, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx.i214, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx.i214, align 4
+  %.sroa.4.0..sroa_idx.i215 = getelementptr inbounds i8, ptr %8364, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx.i215, align 4
   %.sroa.5.0..sroa_idx.i216 = getelementptr inbounds i8, ptr %8364, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.i216, align 4
   %.sroa.6.0..sroa_idx.i217 = getelementptr inbounds i8, ptr %8364, i64 20
@@ -13186,7 +13208,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i2155.i: ; pr
   %8384 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8383, i64 %8375
   store <2 x float> %.sroa.0.4.vec.insert.i213, ptr %8384, align 4
   %.sroa.3.0..sroa_idx2171.i = getelementptr inbounds i8, ptr %8384, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx2171.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx2171.i, align 4
+  %.sroa.4.0..sroa_idx2173.i = getelementptr inbounds i8, ptr %8384, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx2173.i, align 4
   %.sroa.5.0..sroa_idx2175.i = getelementptr inbounds i8, ptr %8384, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx2175.i, align 4
   %.sroa.6.0..sroa_idx2177.i = getelementptr inbounds i8, ptr %8384, i64 20
@@ -18328,7 +18352,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.us.i: ; preds = %_ZNSt6vector
 11901:                                            ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit.us.i
   store <2 x float> %.sroa.0.4.vec.insert.us.i, ptr %11899, align 4
   %.sroa.3.0..sroa_idx.us.i = getelementptr inbounds i8, ptr %11899, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx.us.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx.us.i, align 4
+  %.sroa.4.0..sroa_idx.us.i = getelementptr inbounds i8, ptr %11899, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx.us.i, align 4
   %.sroa.5.0..sroa_idx.us.i = getelementptr inbounds i8, ptr %11899, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.us.i, align 4
   %.sroa.6.0..sroa_idx.us.i = getelementptr inbounds i8, ptr %11899, i64 20
@@ -18368,7 +18394,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i.us.i: ; pre
   %11919 = getelementptr inbounds %"class.cv::KeyPoint", ptr %11918, i64 %11910
   store <2 x float> %.sroa.0.4.vec.insert.us.i, ptr %11919, align 4
   %.sroa.3.0..sroa_idx2153.us.i = getelementptr inbounds i8, ptr %11919, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.3.0..sroa_idx2153.us.i, align 4
+  store float 7.000000e+00, ptr %.sroa.3.0..sroa_idx2153.us.i, align 4
+  %.sroa.4.0..sroa_idx2155.us.i = getelementptr inbounds i8, ptr %11919, i64 12
+  store float -1.000000e+00, ptr %.sroa.4.0..sroa_idx2155.us.i, align 4
   %.sroa.5.0..sroa_idx2157.us.i = getelementptr inbounds i8, ptr %11919, i64 16
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx2157.us.i, align 4
   %.sroa.6.0..sroa_idx2159.us.i = getelementptr inbounds i8, ptr %11919, i64 20

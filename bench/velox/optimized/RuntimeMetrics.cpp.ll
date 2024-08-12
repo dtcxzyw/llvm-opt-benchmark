@@ -17,17 +17,20 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN8facebook5velox13RuntimeMetric8addValueEl(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %sum = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i64>, ptr %sum, align 8
-  %1 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %value, i64 0
-  %2 = add nsw <2 x i64> %0, %1
-  store <2 x i64> %2, ptr %sum, align 8
+  %0 = load i64, ptr %sum, align 8
+  %add = add nsw i64 %0, %value
+  store i64 %add, ptr %sum, align 8
+  %count = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load i64, ptr %count, align 8
+  %inc = add nsw i64 %1, 1
+  store i64 %inc, ptr %count, align 8
   %min = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i64, ptr %min, align 8
-  %.sroa.speculated6 = tail call i64 @llvm.smin.i64(i64 %3, i64 %value)
+  %2 = load i64, ptr %min, align 8
+  %.sroa.speculated6 = tail call i64 @llvm.smin.i64(i64 %2, i64 %value)
   store i64 %.sroa.speculated6, ptr %min, align 8
   %max = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load i64, ptr %max, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %4, i64 %value)
+  %3 = load i64, ptr %max, align 8
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %3, i64 %value)
   store i64 %.sroa.speculated, ptr %max, align 8
   ret void
 }

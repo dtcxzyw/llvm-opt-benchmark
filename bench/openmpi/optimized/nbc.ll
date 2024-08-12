@@ -860,10 +860,10 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %20
 
 20:                                               ; preds = %.lr.ph, %NBC_Copy.exit.thread
-  %.0159214 = phi i32 [ 0, %.lr.ph ], [ %168, %NBC_Copy.exit.thread ]
+  %.0159214 = phi i32 [ 0, %.lr.ph ], [ %179, %NBC_Copy.exit.thread ]
   %.0164213 = phi ptr [ %14, %.lr.ph ], [ %.1165, %NBC_Copy.exit.thread ]
   %.0.copyload = load i32, ptr %.0164213, align 1
-  switch i32 %.0.copyload, label %159 [
+  switch i32 %.0.copyload, label %170 [
     i32 0, label %21
     i32 1, label %55
     i32 2, label %89
@@ -1158,49 +1158,75 @@ NBC_Copy.exit:                                    ; preds = %112
   br i1 %138, label %.loopexit, label %139
 
 139:                                              ; preds = %137
-  %140 = insertelement <16 x ptr> poison, ptr %.sroa.9.0.copyload, i64 0
-  %141 = shufflevector <16 x ptr> %140, <16 x ptr> poison, <16 x i32> zeroinitializer
-  %142 = icmp eq <16 x ptr> %141, <ptr @ompi_mpi_int, ptr @ompi_mpi_long, ptr @ompi_mpi_short, ptr @ompi_mpi_unsigned, ptr @ompi_mpi_unsigned_short, ptr @ompi_mpi_unsigned_long, ptr @ompi_mpi_float, ptr @ompi_mpi_double, ptr @ompi_mpi_long_double, ptr @ompi_mpi_byte, ptr @ompi_mpi_float_int, ptr @ompi_mpi_double_int, ptr @ompi_mpi_long_int, ptr @ompi_mpi_2int, ptr @ompi_mpi_short_int, ptr @ompi_mpi_longdbl_int>
-  %143 = bitcast <16 x i1> %142 to i16
-  %144 = icmp ne i16 %143, 0
-  %145 = icmp eq i32 %133, 0
-  %or.cond.i = select i1 %144, i1 %145, i1 false
-  %146 = icmp eq i32 %135, 0
-  %or.cond3.i = select i1 %or.cond.i, i1 %146, i1 false
-  br i1 %or.cond3.i, label %147, label %155
+  %140 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_int
+  %141 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_long
+  %or.cond.i.i = or i1 %140, %141
+  %142 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_short
+  %or.cond3.i.i = or i1 %142, %or.cond.i.i
+  %143 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_unsigned
+  %or.cond5.i.i = or i1 %143, %or.cond3.i.i
+  %144 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_unsigned_short
+  %or.cond7.i.i = or i1 %144, %or.cond5.i.i
+  %145 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_unsigned_long
+  %or.cond9.i.i = or i1 %145, %or.cond7.i.i
+  %146 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_float
+  %or.cond11.i.i = or i1 %146, %or.cond9.i.i
+  %147 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_double
+  %or.cond13.i.i = or i1 %147, %or.cond11.i.i
+  %148 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_long_double
+  %or.cond15.i.i = or i1 %148, %or.cond13.i.i
+  %149 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_byte
+  %or.cond17.i.i = or i1 %149, %or.cond15.i.i
+  %150 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_float_int
+  %or.cond19.i.i = or i1 %150, %or.cond17.i.i
+  %151 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_double_int
+  %or.cond21.i.i = or i1 %151, %or.cond19.i.i
+  %152 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_long_int
+  %or.cond23.i.i = or i1 %152, %or.cond21.i.i
+  %153 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_2int
+  %or.cond25.i.i = or i1 %153, %or.cond23.i.i
+  %154 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_short_int
+  %or.cond27.i.i = or i1 %154, %or.cond25.i.i
+  %155 = icmp eq ptr %.sroa.9.0.copyload, @ompi_mpi_longdbl_int
+  %or.cond29.i.i = or i1 %155, %or.cond27.i.i
+  %156 = icmp eq i32 %133, 0
+  %or.cond.i = select i1 %or.cond29.i.i, i1 %156, i1 false
+  %157 = icmp eq i32 %135, 0
+  %or.cond3.i = select i1 %or.cond.i, i1 %157, i1 false
+  br i1 %or.cond3.i, label %158, label %166
 
-147:                                              ; preds = %139
-  %148 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 48
-  %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 56
-  %151 = load i64, ptr %150, align 8
-  %152 = sub nsw i64 %151, %149
+158:                                              ; preds = %139
+  %159 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 48
+  %160 = load i64, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 56
+  %162 = load i64, ptr %161, align 8
+  %163 = sub nsw i64 %162, %160
   %sext = shl i64 %.sroa.1.0.copyload, 32
-  %153 = ashr exact i64 %sext, 32
-  %154 = mul nsw i64 %152, %153
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %.4, i64 %154, i1 false)
+  %164 = ashr exact i64 %sext, 32
+  %165 = mul nsw i64 %163, %164
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %.4, i64 %165, i1 false)
   br label %NBC_Unpack.exit
 
-155:                                              ; preds = %139
+166:                                              ; preds = %139
   store i64 0, ptr %3, align 8
-  %156 = load i64, ptr %2, align 8
-  %157 = call i32 @ompi_datatype_unpack_external(ptr noundef nonnull @.str.38, ptr noundef %.4, i64 noundef %156, ptr noundef nonnull %3, ptr noundef %.2, i32 noundef %128, ptr noundef %.sroa.9.0.copyload) #17
-  %.not37.i = icmp eq i32 %157, 0
-  br i1 %.not37.i, label %NBC_Unpack.exit, label %158
+  %167 = load i64, ptr %2, align 8
+  %168 = call i32 @ompi_datatype_unpack_external(ptr noundef nonnull @.str.38, ptr noundef %.4, i64 noundef %167, ptr noundef nonnull %3, ptr noundef %.2, i32 noundef %128, ptr noundef %.sroa.9.0.copyload) #17
+  %.not37.i = icmp eq i32 %168, 0
+  br i1 %.not37.i, label %NBC_Unpack.exit, label %169
 
-158:                                              ; preds = %155
-  call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.41, i32 noundef %157)
+169:                                              ; preds = %166
+  call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.41, i32 noundef %168)
   br label %.loopexit
 
-NBC_Unpack.exit:                                  ; preds = %147, %155
+NBC_Unpack.exit:                                  ; preds = %158, %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %NBC_Copy.exit.thread
 
-.loopexit:                                        ; preds = %131, %137, %130, %158
-  %.0.i.ph = phi i32 [ %157, %158 ], [ %129, %130 ], [ %133, %131 ], [ %135, %137 ]
+.loopexit:                                        ; preds = %131, %137, %130, %169
+  %.0.i.ph = phi i32 [ %168, %169 ], [ %129, %130 ], [ %133, %131 ], [ %135, %137 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1208,22 +1234,22 @@ NBC_Unpack.exit:                                  ; preds = %147, %155
   call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.35, i32 noundef %.0.i.ph)
   br label %.loopexit189
 
-159:                                              ; preds = %20
-  %160 = ptrtoint ptr %.0164213 to i64
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 24
-  %163 = load ptr, ptr %162, align 8
-  %164 = ptrtoint ptr %163 to i64
-  %165 = sub i64 %160, %164
-  %166 = trunc i64 %165 to i32
-  %167 = zext i32 %.0.copyload to i64
-  call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.36, i64 noundef %167, i32 noundef %166)
+170:                                              ; preds = %20
+  %171 = ptrtoint ptr %.0164213 to i64
+  %172 = load ptr, ptr %6, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 24
+  %174 = load ptr, ptr %173, align 8
+  %175 = ptrtoint ptr %174 to i64
+  %176 = sub i64 %171, %175
+  %177 = trunc i64 %176 to i32
+  %178 = zext i32 %.0.copyload to i64
+  call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.36, i64 noundef %178, i32 noundef %177)
   br label %.loopexit189
 
 NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.exit, %100, %43, %77
   %.1165 = phi ptr [ %117, %NBC_Unpack.exit ], [ %90, %100 ], [ %56, %77 ], [ %22, %43 ], [ %102, %112 ]
-  %168 = add nuw nsw i32 %.0159214, 1
-  %exitcond.not = icmp eq i32 %168, %.0.copyload115
+  %179 = add nuw nsw i32 %.0159214, 1
+  %exitcond.not = icmp eq i32 %179, %.0.copyload115
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %NBC_Copy.exit.thread
@@ -1231,20 +1257,20 @@ NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.ex
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %169 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %11, %1 ]
-  %.not = icmp eq i64 %169, 0
-  br i1 %.not, label %.loopexit189, label %170
+  %180 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %11, %1 ]
+  %.not = icmp eq i64 %180, 0
+  br i1 %.not, label %.loopexit189, label %181
 
-170:                                              ; preds = %._crit_edge
-  %171 = call i32 @NBC_Progress(ptr noundef nonnull %0)
-  %switch.selectcmp.case1 = icmp ne i32 %171, 3
-  %switch.selectcmp.case2 = icmp ne i32 %171, 0
+181:                                              ; preds = %._crit_edge
+  %182 = call i32 @NBC_Progress(ptr noundef nonnull %0)
+  %switch.selectcmp.case1 = icmp ne i32 %182, 3
+  %switch.selectcmp.case2 = icmp ne i32 %182, 0
   %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %172 = sext i1 %switch.selectcmp.not to i32
+  %183 = sext i1 %switch.selectcmp.not to i32
   br label %.loopexit189
 
-.loopexit189:                                     ; preds = %63, %29, %NBC_Copy.exit, %._crit_edge, %170, %159, %.loopexit, %84, %50
-  %.0 = phi i32 [ -1, %159 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ %172, %170 ], [ 0, %._crit_edge ], [ -2, %29 ], [ -2, %63 ]
+.loopexit189:                                     ; preds = %63, %29, %NBC_Copy.exit, %._crit_edge, %181, %170, %.loopexit, %84, %50
+  %.0 = phi i32 [ -1, %170 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ %183, %181 ], [ 0, %._crit_edge ], [ -2, %29 ], [ -2, %63 ]
   ret i32 %.0
 }
 

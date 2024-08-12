@@ -1884,13 +1884,16 @@ entry:
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %type to i64
   %arrayidx = getelementptr inbounds [4 x %struct.durationStats], ptr getelementptr inbounds (i8, ptr @server, i64 3600), i64 0, i64 %idxprom
-  %0 = load <2 x i64>, ptr %arrayidx, align 8
-  %1 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %duration, i64 1
-  %2 = add <2 x i64> %0, %1
-  store <2 x i64> %2, ptr %arrayidx, align 8
+  %0 = load i64, ptr %arrayidx, align 8
+  %inc = add i64 %0, 1
+  store i64 %inc, ptr %arrayidx, align 8
+  %sum = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %1 = load i64, ptr %sum, align 8
+  %add = add i64 %1, %duration
+  store i64 %add, ptr %sum, align 8
   %max = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %3 = load i64, ptr %max, align 8
-  %cmp1 = icmp ult i64 %3, %duration
+  %2 = load i64, ptr %max, align 8
+  %cmp1 = icmp ult i64 %2, %duration
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end

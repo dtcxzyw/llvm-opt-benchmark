@@ -8,16 +8,16 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 0, 2) i32 @ossl_quic_fifd_init(ptr nocapture noundef writeonly %fifd, ptr noundef %cfq, ptr noundef %ackm, ptr noundef %txpim, ptr noundef %get_sstream_by_id, ptr noundef %get_sstream_by_id_arg, ptr noundef %regen_frame, ptr noundef %regen_frame_arg, ptr noundef %confirm_frame, ptr noundef %confirm_frame_arg, ptr noundef %sstream_updated, ptr noundef %sstream_updated_arg) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %cfq, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %ackm, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %txpim, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %get_sstream_by_id, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %cfq, null
+  %cmp1 = icmp eq ptr %ackm, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %txpim, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %get_sstream_by_id, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %regen_frame, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %cfq, ptr %fifd, align 8

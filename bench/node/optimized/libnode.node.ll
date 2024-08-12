@@ -841,7 +841,7 @@ define dso_local void @_ZN4node11Environment19InitializeInspectorESt10unique_ptr
 entry:
   %inspector_path = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.10", align 8
-  %agg.tmp28 = alloca %"class.std::shared_ptr.32", align 16
+  %agg.tmp28 = alloca %"class.std::shared_ptr.32", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::allocator.18", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %inspector_path) #22
@@ -911,16 +911,17 @@ do.end23:                                         ; preds = %do.body
   %debug_options_.i = getelementptr inbounds i8, ptr %8, i64 1048
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %inspector_host_port_.i = getelementptr inbounds i8, ptr %this, i64 1712
+  %9 = load ptr, ptr %inspector_host_port_.i, align 8, !noalias !9
+  store ptr %9, ptr %agg.tmp28, align 8, !alias.scope !9
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 1720
-  %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !9
-  %10 = load <2 x ptr>, ptr %inspector_host_port_.i, align 8, !noalias !9
-  store <2 x ptr> %10, ptr %agg.tmp28, align 16, !alias.scope !9
-  %cmp.not.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !9
+  store ptr %10, ptr %_M_refcount.i.i.i, align 8, !alias.scope !9
+  %cmp.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node11Environment19inspector_host_portEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end23
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1215,7 +1216,7 @@ entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function.271", align 8
   %callback_scope = alloca %"class.node::InternalCallbackScope", align 8
-  %ref.tmp = alloca %"struct.node::async_context", align 16
+  %ref.tmp = alloca %"struct.node::async_context", align 8
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %sea = alloca %"struct.node::sea::SeaResource", align 8
   %first_argv = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1229,7 +1230,9 @@ entry:
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   %call1 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %0) #22
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %ref.tmp, align 16
+  store double 1.000000e+00, ptr %ref.tmp, align 8
+  %trigger_async_id = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double 0.000000e+00, ptr %trigger_async_id, align 8
   call void @_ZN4node21InternalCallbackScopeC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope, ptr noundef nonnull %env, ptr %call1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 1) #22
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %cb, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -1241,8 +1244,10 @@ if.then:                                          ; preds = %entry
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %2) #22
   %embedder_entry_point_.i = getelementptr inbounds i8, ptr %env, i64 2784
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %cb, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
-  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
+  %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2EOS9_.exit.i.i, label %if.then.i.i.i
@@ -1260,16 +1265,18 @@ _ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackIn
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %env, i64 2800
+  %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr %5, ptr %_M_manager.i.i.i3, align 8
+  store ptr %4, ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %env, i64 2808
-  %5 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
-  %6 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store <2 x ptr> %5, ptr %_M_manager.i.i.i3, align 8
-  store <2 x ptr> %3, ptr %_M_manager3.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %6 = load ptr, ptr %_M_invoker4.i.i.i, align 8
+  store ptr %6, ptr %_M_invoker.i.i.i, align 8
+  store ptr %3, ptr %_M_invoker4.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2EOS9_.exit.i.i
-  %call.i.i.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3) #22
+  %call.i.i.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3) #22
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i.i.i.i, %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2EOS9_.exit.i.i
@@ -1291,19 +1298,21 @@ if.then.i:                                        ; preds = %if.then.i.i.i.i, %_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %scope.i)
   %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call4.i.i) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i)
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %embedder_entry_point_.i, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %embedder_entry_point_.i, i8 0, i64 16, i1 false)
   %_M_manager.i.i.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
-  %11 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
-  %12 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  %11 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr %11, ptr %_M_manager.i.i.i.i.i4, align 8
   store ptr null, ptr %_M_manager3.i.i.i, align 8
-  store <2 x ptr> %11, ptr %_M_manager.i.i.i.i.i4, align 8
+  %12 = load ptr, ptr %_M_invoker4.i.i.i, align 8
+  store ptr %12, ptr %_M_invoker.i.i.i.i.i, align 8
   store ptr null, ptr %_M_invoker4.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_14StartExecutionEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS4_5ValueEEERKNS_26StartExecutionCallbackInfoEEEE3$_0ED2Ev.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %call.i.i.i.i.i.i = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, i32 noundef 3) #22
+  %call.i.i.i.i.i.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i, i32 noundef 3) #22
   br label %"_ZN4node16OnScopeLeaveImplIZNS_14StartExecutionEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS4_5ValueEEERKNS_26StartExecutionCallbackInfoEEEE3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_14StartExecutionEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS4_5ValueEEERKNS_26StartExecutionCallbackInfoEEEE3$_0ED2Ev.exit": ; preds = %if.then.i, %if.then.i.i.i.i.i.i
@@ -2667,7 +2676,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZN4nodeL30InitializeNodeWithArgsInternalEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags) unnamed_addr #4 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.135", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.135", align 8
   %node_options = alloca %"class.std::__cxx11::basic_string", align 8
   %file_paths = alloca %"class.std::vector.138", align 8
   %cwd = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2730,16 +2739,17 @@ if.end19:                                         ; preds = %if.then18, %lor.lhs
   %per_isolate21 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %per_isolate21, align 8
   %per_env = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %per_env, align 8
+  store ptr %8, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %9 = load <2 x ptr>, ptr %per_env, align 8
-  store <2 x ptr> %9, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %9, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end19
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

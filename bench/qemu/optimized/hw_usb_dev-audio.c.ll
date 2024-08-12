@@ -204,7 +204,13 @@ for.end:                                          ; preds = %for.body
   %channels10.i = getelementptr inbounds i8, ptr %call.i.i, i64 5932
   store i32 2, ptr %channels10.i, align 4
   %as.i = getelementptr inbounds i8, ptr %call.i.i, i64 5900
-  store <4 x i32> <i32 48000, i32 2, i32 3, i32 0>, ptr %as.i, align 4
+  store i32 48000, ptr %as.i, align 4
+  %nchannels.i = getelementptr inbounds i8, ptr %call.i.i, i64 5904
+  store i32 2, ptr %nchannels.i, align 4
+  %fmt.i = getelementptr inbounds i8, ptr %call.i.i, i64 5908
+  store i32 3, ptr %fmt.i, align 4
+  %endianness.i = getelementptr inbounds i8, ptr %call.i.i, i64 5912
+  store i32 0, ptr %endianness.i, align 4
   %buf.i = getelementptr inbounds i8, ptr %call.i.i, i64 5952
   %5 = load ptr, ptr %buf.i, align 8
   tail call void @g_free(ptr noundef %5) #8

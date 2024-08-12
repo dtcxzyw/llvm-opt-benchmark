@@ -52,8 +52,8 @@ define hidden void @"_ZN110_$LT$futures_util..stream..try_stream..try_next..TryN
   call void @"_ZN79_$LT$actix_multipart..server..Field$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h2b3f339efd171942E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(248) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %6 = load i64, ptr %4, align 8, !range !6, !alias.scope !7, !noundef !4
   switch i64 %6, label %9 [
-    i64 15, label %12
-    i64 14, label %11
+    i64 15, label %11
+    i64 14, label %10
     i64 13, label %7
   ]
 
@@ -62,22 +62,26 @@ define hidden void @"_ZN110_$LT$futures_util..stream..try_stream..try_next..TryN
   %.sroa.13.sroa.0.0.copyload18 = load i64, ptr %8, align 8, !alias.scope !11
   %.sroa.13.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9.0..sroa_idx, i64 24, i1 false), !alias.scope !11
-  br label %11
+  br label %10
 
 9:                                                ; preds = %3
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.9.0.copyload4 = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !11
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.13.sroa.0.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !11
   %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9.0..sroa.13.0..sroa_idx.sroa_idx, i64 24, i1 false), !alias.scope !11
-  %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load <2 x i64>, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 %6, ptr %0, align 8
-  store <2 x i64> %10, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.9.0.copyload4, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.511.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.13.sroa.0.0.copyload, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9, i64 24, i1 false)
-  br label %13
+  br label %12
 
-11:                                               ; preds = %3, %7
+10:                                               ; preds = %3, %7
   %.sroa.13.sroa.0.0 = phi i64 [ %.sroa.13.sroa.0.0.copyload18, %7 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 13, ptr %0, align 8
@@ -85,14 +89,14 @@ define hidden void @"_ZN110_$LT$futures_util..stream..try_stream..try_next..TryN
   store i64 %.sroa.13.sroa.0.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.sroa.9, i64 24, i1 false)
-  br label %13
+  br label %12
 
-12:                                               ; preds = %3
+11:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 14, ptr %0, align 8
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %12, %9
+12:                                               ; preds = %10, %11, %9
   ret void
 }
 

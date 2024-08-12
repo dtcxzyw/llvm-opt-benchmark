@@ -6870,7 +6870,7 @@ pmix_bfrops_base_tma_load_nspace.exit:            ; preds = %4, %pmix_strncpy.ex
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(296) ptr @calloc(i64 1, i64 296)
   %3 = icmp eq ptr %calloc.i, null
-  br i1 %3, label %23, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %calloc.i, ptr noundef nonnull align 8 dereferenceable(260) %1, i64 260, i1 false)
@@ -6900,16 +6900,20 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
 16:                                               ; preds = %13, %10
   %17 = getelementptr inbounds i8, ptr %calloc.i, i64 280
   %18 = getelementptr inbounds i8, ptr %1, i64 280
-  %19 = load <2 x i32>, ptr %18, align 8
-  store <2 x i32> %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %calloc.i, i64 288
-  %21 = getelementptr inbounds i8, ptr %1, i64 288
-  %22 = load i8, ptr %21, align 8
-  store i8 %22, ptr %20, align 8
+  %19 = load i32, ptr %18, align 8
+  store i32 %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %calloc.i, i64 284
+  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %20, align 4
+  %23 = getelementptr inbounds i8, ptr %calloc.i, i64 288
+  %24 = getelementptr inbounds i8, ptr %1, i64 288
+  %25 = load i8, ptr %24, align 8
+  store i8 %25, ptr %23, align 8
   store ptr %calloc.i, ptr %0, align 8
-  br label %23
+  br label %26
 
-23:                                               ; preds = %2, %16
+26:                                               ; preds = %2, %16
   %.0 = phi i32 [ 0, %16 ], [ -32, %2 ]
   ret i32 %.0
 }
@@ -9098,40 +9102,44 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(
 
 .preheader.i.preheader:                           ; preds = %2
   %3 = getelementptr inbounds i8, ptr %calloc, i64 24
-  %4 = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %7, label %5
+  %4 = getelementptr inbounds i8, ptr %calloc, i64 26
+  %5 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %8, label %6
 
-5:                                                ; preds = %.preheader.i.preheader
-  %6 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %4) #38
-  store ptr %6, ptr %calloc, align 8
-  br label %7
+6:                                                ; preds = %.preheader.i.preheader
+  %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #38
+  store ptr %7, ptr %calloc, align 8
+  br label %8
 
-7:                                                ; preds = %5, %.preheader.i.preheader
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %.not21 = icmp eq ptr %9, null
-  br i1 %.not21, label %13, label %10
+8:                                                ; preds = %6, %.preheader.i.preheader
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not21 = icmp eq ptr %10, null
+  br i1 %.not21, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %9) #38
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 8
-  store ptr %11, ptr %12, align 8
-  br label %13
+11:                                               ; preds = %8
+  %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %10) #38
+  %13 = getelementptr inbounds i8, ptr %calloc, i64 8
+  store ptr %12, ptr %13, align 8
+  br label %14
 
-13:                                               ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 16
-  store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = load <2 x i16>, ptr %17, align 8
-  store <2 x i16> %18, ptr %3, align 8
+14:                                               ; preds = %11, %8
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %calloc, i64 16
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = load i16, ptr %18, align 8
+  store i16 %19, ptr %3, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 26
+  %21 = load i16, ptr %20, align 2
+  store i16 %21, ptr %4, align 2
   store ptr %calloc, ptr %0, align 8
   br label %pmix_bfrops_base_tma_device_distance_create.exit.thread
 
-pmix_bfrops_base_tma_device_distance_create.exit.thread: ; preds = %2, %13
-  %.0 = phi i32 [ 0, %13 ], [ -32, %2 ]
+pmix_bfrops_base_tma_device_distance_create.exit.thread: ; preds = %2, %14
+  %.0 = phi i32 [ 0, %14 ], [ -32, %2 ]
   ret i32 %.0
 }
 
@@ -9276,7 +9284,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_copy_dbuf(ptr nocapture noundef
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(352) ptr @calloc(i64 1, i64 352)
   %3 = icmp eq ptr %calloc.i, null
-  br i1 %3, label %39, label %4
+  br i1 %3, label %51, label %4
 
 4:                                                ; preds = %2
   store ptr %calloc.i, ptr %0, align 8
@@ -9325,20 +9333,36 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %8, %16
   %29 = getelementptr inbounds i8, ptr %calloc.i, i64 312
   store i16 %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 316
-  %31 = getelementptr inbounds i8, ptr %calloc.i, i64 316
-  %32 = load <4 x float>, ptr %30, align 4
-  store <4 x float> %32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 332
-  %34 = load i16, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %calloc.i, i64 332
-  store i16 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 336
-  %37 = getelementptr inbounds i8, ptr %calloc.i, i64 336
-  %38 = load <2 x i64>, ptr %36, align 8
-  store <2 x i64> %38, ptr %37, align 8
-  br label %39
+  %31 = load float, ptr %30, align 4
+  %32 = getelementptr inbounds i8, ptr %calloc.i, i64 316
+  store float %31, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %1, i64 320
+  %34 = load float, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %calloc.i, i64 320
+  store float %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 324
+  %37 = load float, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %calloc.i, i64 324
+  store float %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %1, i64 328
+  %40 = load float, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %calloc.i, i64 328
+  store float %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 332
+  %43 = load i16, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %calloc.i, i64 332
+  store i16 %43, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %1, i64 336
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %calloc.i, i64 336
+  store i64 %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 344
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %calloc.i, i64 344
+  store i64 %49, ptr %50, align 8
+  br label %51
 
-39:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_pstats.exit
+51:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_pstats.exit
   %.0 = phi i32 [ 0, %pmix_bfrops_base_tma_populate_pstats.exit ], [ -32, %2 ]
   ret i32 %.0
 }
@@ -9347,7 +9371,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %8, %16
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_dkstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(96) ptr @calloc(i64 1, i64 96)
   %3 = icmp eq ptr %calloc.i, null
-  br i1 %3, label %26, label %4
+  br i1 %3, label %41, label %4
 
 4:                                                ; preds = %2
   store ptr %calloc.i, ptr %0, align 8
@@ -9362,32 +9386,52 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_dkstats(
 
 pmix_bfrops_base_tma_populate_dkstats.exit:       ; preds = %4, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %calloc.i, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  %13 = load <2 x i64>, ptr %11, align 8
-  store <2 x i64> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
-  %15 = getelementptr inbounds i8, ptr %calloc.i, i64 40
-  %16 = load <2 x i64>, ptr %14, align 8
-  store <2 x i64> %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
-  %18 = getelementptr inbounds i8, ptr %calloc.i, i64 56
-  %19 = load <2 x i64>, ptr %17, align 8
-  store <2 x i64> %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
-  %21 = getelementptr inbounds i8, ptr %calloc.i, i64 72
-  %22 = load <2 x i64>, ptr %20, align 8
-  store <2 x i64> %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  store i64 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  store i64 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %calloc.i, i64 32
+  store i64 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 40
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 48
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %calloc.i, i64 88
+  %25 = getelementptr inbounds i8, ptr %calloc.i, i64 48
   store i64 %24, ptr %25, align 8
-  br label %26
+  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %calloc.i, i64 56
+  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %calloc.i, i64 64
+  store i64 %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %calloc.i, i64 72
+  store i64 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %calloc.i, i64 80
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 88
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %calloc.i, i64 88
+  store i64 %39, ptr %40, align 8
+  br label %41
 
-26:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_dkstats.exit
+41:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_dkstats.exit
   %.0 = phi i32 [ 0, %pmix_bfrops_base_tma_populate_dkstats.exit ], [ -32, %2 ]
   ret i32 %.0
 }
@@ -9396,7 +9440,7 @@ pmix_bfrops_base_tma_populate_dkstats.exit:       ; preds = %4, %6
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_netstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   %3 = icmp eq ptr %calloc.i, null
-  br i1 %3, label %17, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
   store ptr %calloc.i, ptr %0, align 8
@@ -9411,20 +9455,32 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_netstats
 
 pmix_bfrops_base_tma_populate_netstats.exit:      ; preds = %4, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %calloc.i, i64 8
-  %10 = load <2 x i64>, ptr %8, align 8
-  store <2 x i64> %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  %13 = load <2 x i64>, ptr %11, align 8
-  store <2 x i64> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
-  %15 = getelementptr inbounds i8, ptr %calloc.i, i64 40
-  %16 = load <2 x i64>, ptr %14, align 8
-  store <2 x i64> %16, ptr %15, align 8
-  br label %17
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  store i64 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  store i64 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  store i64 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %calloc.i, i64 32
+  store i64 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 40
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %calloc.i, i64 48
+  store i64 %24, ptr %25, align 8
+  br label %26
 
-17:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_netstats.exit
+26:                                               ; preds = %2, %pmix_bfrops_base_tma_populate_netstats.exit
   %.0 = phi i32 [ 0, %pmix_bfrops_base_tma_populate_netstats.exit ], [ -32, %2 ]
   ret i32 %.0
 }

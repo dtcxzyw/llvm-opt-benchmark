@@ -2935,25 +2935,26 @@ Vec_IntGrow.exit39:                               ; preds = %Vec_IntPush.exit, %
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit39
   %46 = getelementptr inbounds i8, ptr %3, i64 16
-  %47 = getelementptr inbounds i8, ptr %3, i64 96
-  %48 = getelementptr inbounds i8, ptr %4, i64 80
-  %49 = getelementptr inbounds i8, ptr %4, i64 888
-  br label %50
+  %47 = getelementptr inbounds i8, ptr %3, i64 24
+  %48 = getelementptr inbounds i8, ptr %3, i64 96
+  %49 = getelementptr inbounds i8, ptr %4, i64 80
+  %50 = getelementptr inbounds i8, ptr %4, i64 888
+  br label %51
 
-50:                                               ; preds = %.lr.ph, %50
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = trunc nuw nsw i64 %indvars.iv to i32
-  %52 = uitofp nneg i32 %51 to double
-  %53 = fneg double %52
-  %54 = insertelement <2 x double> poison, double %53, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
-  %56 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> <double 5.000000e-02, double 5.000000e-02>, <2 x double> <double 8.000000e-01, double 1.400000e+00>)
-  store <2 x double> %56, ptr %46, align 8
-  %57 = call double @llvm.fmuladd.f64(double %52, double 5.000000e-02, double 0x3FD3333340000000)
+51:                                               ; preds = %.lr.ph, %51
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
+  %53 = uitofp nneg i32 %52 to double
+  %54 = fneg double %53
+  %55 = call double @llvm.fmuladd.f64(double %54, double 5.000000e-02, double 8.000000e-01)
+  store double %55, ptr %46, align 8
+  %56 = call double @llvm.fmuladd.f64(double %54, double 5.000000e-02, double 1.400000e+00)
+  store double %56, ptr %47, align 8
+  %57 = call double @llvm.fmuladd.f64(double %53, double 5.000000e-02, double 0x3FD3333340000000)
   %58 = fptrunc double %57 to float
-  store float %58, ptr %47, align 8
+  store float %58, ptr %48, align 8
   %59 = call ptr @satoko_create() #23
-  %60 = getelementptr inbounds [100 x ptr], ptr %48, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds [100 x ptr], ptr %49, i64 0, i64 %indvars.iv
   store ptr %59, ptr %60, align 8
   call void @satoko_configure(ptr noundef %59, ptr noundef nonnull %3) #23
   %61 = load ptr, ptr %60, align 8
@@ -2961,14 +2962,14 @@ Vec_IntGrow.exit39:                               ; preds = %Vec_IntPush.exit, %
   %63 = load ptr, ptr %60, align 8
   %64 = call i32 @satoko_add_clause(ptr noundef %63, ptr noundef nonnull %2, i32 noundef 1) #23
   %65 = load ptr, ptr %60, align 8
-  call void @satoko_set_stop(ptr noundef %65, ptr noundef nonnull %49) #23
+  call void @satoko_set_stop(ptr noundef %65, ptr noundef nonnull %50) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %43, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %50, label %._crit_edge, !llvm.loop !24
+  br i1 %68, label %51, label %._crit_edge, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %50, %Vec_IntGrow.exit39
+._crit_edge:                                      ; preds = %51, %Vec_IntGrow.exit39
   %69 = getelementptr inbounds i8, ptr %4, i64 880
   store i32 1, ptr %69, align 8
   ret ptr %4
@@ -4536,58 +4537,63 @@ define void @Bmcs_ManPrintTime(ptr nocapture noundef readonly %0) local_unnamed_
   %3 = getelementptr inbounds i8, ptr %2, i64 52
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %41, label %5
+  br i1 %.not, label %46, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 920
   %7 = getelementptr inbounds i8, ptr %0, i64 912
   %8 = getelementptr inbounds i8, ptr %0, i64 904
   %9 = getelementptr inbounds i8, ptr %0, i64 896
-  %10 = load <4 x i64>, ptr %9, align 8
-  %11 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %10)
+  %10 = load i64, ptr %9, align 8
+  %11 = load i64, ptr %8, align 8
+  %12 = add nsw i64 %11, %10
+  %13 = load i64, ptr %7, align 8
+  %14 = add nsw i64 %12, %13
+  %15 = load i64, ptr %6, align 8
+  %16 = add nsw i64 %14, %15
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
-  %12 = load i64, ptr %9, align 8
-  %13 = sitofp i64 %12 to double
-  %14 = fdiv double %13, 1.000000e+06
-  %15 = sitofp i64 %11 to double
-  %.not24 = icmp eq i64 %11, 0
-  %16 = fmul double %13, 1.000000e+02
-  %17 = fdiv double %16, %15
-  %18 = select i1 %.not24, double 0.000000e+00, double %17
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %14, double noundef %18)
+  %17 = load i64, ptr %9, align 8
+  %18 = sitofp i64 %17 to double
+  %19 = fdiv double %18, 1.000000e+06
+  %20 = sitofp i64 %16 to double
+  %.not24 = icmp eq i64 %16, 0
+  %21 = fmul double %18, 1.000000e+02
+  %22 = fdiv double %21, %20
+  %23 = select i1 %.not24, double 0.000000e+00, double %22
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %19, double noundef %23)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.15)
-  %19 = load i64, ptr %8, align 8
-  %20 = sitofp i64 %19 to double
-  %21 = fdiv double %20, 1.000000e+06
-  %22 = fmul double %20, 1.000000e+02
-  %23 = fdiv double %22, %15
-  %24 = select i1 %.not24, double 0.000000e+00, double %23
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %21, double noundef %24)
+  %24 = load i64, ptr %8, align 8
+  %25 = sitofp i64 %24 to double
+  %26 = fdiv double %25, 1.000000e+06
+  %27 = fmul double %25, 1.000000e+02
+  %28 = fdiv double %27, %20
+  %29 = select i1 %.not24, double 0.000000e+00, double %28
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %26, double noundef %29)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16)
-  %25 = load i64, ptr %7, align 8
-  %26 = sitofp i64 %25 to double
-  %27 = fdiv double %26, 1.000000e+06
-  %28 = fmul double %26, 1.000000e+02
-  %29 = fdiv double %28, %15
-  %30 = select i1 %.not24, double 0.000000e+00, double %29
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %27, double noundef %30)
+  %30 = load i64, ptr %7, align 8
+  %31 = sitofp i64 %30 to double
+  %32 = fdiv double %31, 1.000000e+06
+  %33 = fmul double %31, 1.000000e+02
+  %34 = fdiv double %33, %20
+  %35 = select i1 %.not24, double 0.000000e+00, double %34
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %32, double noundef %35)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.17)
-  %31 = load i64, ptr %6, align 8
-  %32 = sitofp i64 %31 to double
-  %33 = fdiv double %32, 1.000000e+06
-  %34 = fmul double %32, 1.000000e+02
-  %35 = fdiv double %34, %15
-  %36 = select i1 %.not24, double 0.000000e+00, double %35
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %33, double noundef %36)
+  %36 = load i64, ptr %6, align 8
+  %37 = sitofp i64 %36 to double
+  %38 = fdiv double %37, 1.000000e+06
+  %39 = fmul double %37, 1.000000e+02
+  %40 = fdiv double %39, %20
+  %41 = select i1 %.not24, double 0.000000e+00, double %40
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %38, double noundef %41)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.18)
-  %37 = fdiv double %15, 1.000000e+06
-  %38 = fmul double %15, 1.000000e+02
-  %39 = fdiv double %38, %15
-  %40 = select i1 %.not24, double 0.000000e+00, double %39
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %37, double noundef %40)
-  br label %41
+  %42 = fdiv double %20, 1.000000e+06
+  %43 = fmul double %20, 1.000000e+02
+  %44 = fdiv double %43, %20
+  %45 = select i1 %.not24, double 0.000000e+00, double %44
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %42, double noundef %45)
+  br label %46
 
-41:                                               ; preds = %1, %5
+46:                                               ; preds = %1, %5
   ret void
 }
 
@@ -6301,12 +6307,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

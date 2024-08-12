@@ -80,8 +80,8 @@ $_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norm
 @__dso_handle = external hidden global i8
 @rotateEnable = hidden local_unnamed_addr global i8 1, align 1
 @keyPressed = hidden local_unnamed_addr global i8 0, align 1
-@rotAxis = hidden local_unnamed_addr global %"class.cv::Vec" zeroinitializer, align 16
-@zoom = hidden local_unnamed_addr global %"class.cv::Vec.0" zeroinitializer, align 8
+@rotAxis = hidden local_unnamed_addr global %"class.cv::Vec" zeroinitializer, align 4
+@zoom = hidden local_unnamed_addr global %"class.cv::Vec.0" zeroinitializer, align 4
 @obsX = hidden local_unnamed_addr global float 0.000000e+00, align 4
 @obsY = hidden local_unnamed_addr global float 0.000000e+00, align 4
 @obsZ = hidden local_unnamed_addr global float -1.000000e+01, align 4
@@ -867,7 +867,9 @@ _ZL4helpPPc.exit74:                               ; preds = %.noexc72
   %.sroa.11.0..sroa_idx296 = getelementptr inbounds i8, ptr %267, i64 8
   store i32 5000, ptr %.sroa.11.0..sroa_idx296, align 8
   %.sroa.13316.0..sroa_idx317 = getelementptr inbounds i8, ptr %267, i64 16
-  store <2 x double> <double 2.000000e+00, double 0.000000e+00>, ptr %.sroa.13316.0..sroa_idx317, align 8
+  store double 2.000000e+00, ptr %.sroa.13316.0..sroa_idx317, align 8
+  %.sroa.15.0..sroa_idx327 = getelementptr inbounds i8, ptr %267, i64 24
+  store double 0.000000e+00, ptr %.sroa.15.0..sroa_idx327, align 8
   %.sroa.17.0..sroa_idx337 = getelementptr inbounds i8, ptr %267, i64 32
   store i8 1, ptr %.sroa.17.0..sroa_idx337, align 8
   %.sroa.20.0..sroa_idx347 = getelementptr inbounds i8, ptr %267, i64 33
@@ -875,7 +877,9 @@ _ZL4helpPPc.exit74:                               ; preds = %.noexc72
   %.sroa.20352.0..sroa_idx353 = getelementptr inbounds i8, ptr %267, i64 36
   store i32 200, ptr %.sroa.20352.0..sroa_idx353, align 4
   %.sroa.21.0..sroa_idx363 = getelementptr inbounds i8, ptr %267, i64 40
-  store <2 x double> <double 1.010000e+00, double 3.000000e-03>, ptr %.sroa.21.0..sroa_idx363, align 8
+  store double 1.010000e+00, ptr %.sroa.21.0..sroa_idx363, align 8
+  %.sroa.22.0..sroa_idx373 = getelementptr inbounds i8, ptr %267, i64 48
+  store double 3.000000e-03, ptr %.sroa.22.0..sroa_idx373, align 8
   %.sroa.23.0..sroa_idx383 = getelementptr inbounds i8, ptr %267, i64 56
   store i32 5, ptr %.sroa.23.0..sroa_idx383, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #19
@@ -913,7 +917,9 @@ _ZNSt12_Vector_baseI10MSERParamsSaIS0_EE11_M_allocateEm.exit.i.i86: ; preds = %_
   %.sroa.11.0..sroa_idx300 = getelementptr inbounds i8, ptr %276, i64 72
   store i32 5000, ptr %.sroa.11.0..sroa_idx300, align 8
   %.sroa.13316.0..sroa_idx321 = getelementptr inbounds i8, ptr %276, i64 80
-  store <2 x double> <double 2.000000e+00, double 0.000000e+00>, ptr %.sroa.13316.0..sroa_idx321, align 8
+  store double 2.000000e+00, ptr %.sroa.13316.0..sroa_idx321, align 8
+  %.sroa.15.0..sroa_idx331 = getelementptr inbounds i8, ptr %276, i64 88
+  store double 0.000000e+00, ptr %.sroa.15.0..sroa_idx331, align 8
   %.sroa.17.0..sroa_idx341 = getelementptr inbounds i8, ptr %276, i64 96
   store i8 0, ptr %.sroa.17.0..sroa_idx341, align 8
   %.sroa.20.0..sroa_idx349 = getelementptr inbounds i8, ptr %276, i64 97
@@ -921,7 +927,9 @@ _ZNSt12_Vector_baseI10MSERParamsSaIS0_EE11_M_allocateEm.exit.i.i86: ; preds = %_
   %.sroa.20352.0..sroa_idx357 = getelementptr inbounds i8, ptr %276, i64 100
   store i32 200, ptr %.sroa.20352.0..sroa_idx357, align 4
   %.sroa.21.0..sroa_idx367 = getelementptr inbounds i8, ptr %276, i64 104
-  store <2 x double> <double 1.010000e+00, double 3.000000e-03>, ptr %.sroa.21.0..sroa_idx367, align 8
+  store double 1.010000e+00, ptr %.sroa.21.0..sroa_idx367, align 8
+  %.sroa.22.0..sroa_idx377 = getelementptr inbounds i8, ptr %276, i64 112
+  store double 3.000000e-03, ptr %.sroa.22.0..sroa_idx377, align 8
   %.sroa.23.0..sroa_idx387 = getelementptr inbounds i8, ptr %276, i64 120
   store i32 5, ptr %.sroa.23.0..sroa_idx387, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %276, ptr noundef nonnull align 8 dereferenceable(64) %267, i64 64, i1 false), !alias.scope !14
@@ -961,7 +969,9 @@ _ZNSt6vectorI10MSERParamsSaIS0_EE9push_backERKS0_.exit118: ; preds = %_ZNKSt6vec
   %.sroa.11.0..sroa_idx304 = getelementptr inbounds i8, ptr %285, i64 136
   store i32 5000, ptr %.sroa.11.0..sroa_idx304, align 8
   %.sroa.13316.0..sroa_idx325 = getelementptr inbounds i8, ptr %285, i64 144
-  store <2 x double> <double 2.000000e+00, double 0.000000e+00>, ptr %.sroa.13316.0..sroa_idx325, align 8
+  store double 2.000000e+00, ptr %.sroa.13316.0..sroa_idx325, align 8
+  %.sroa.15.0..sroa_idx335 = getelementptr inbounds i8, ptr %285, i64 152
+  store double 0.000000e+00, ptr %.sroa.15.0..sroa_idx335, align 8
   %.sroa.17.0..sroa_idx345 = getelementptr inbounds i8, ptr %285, i64 160
   store i8 0, ptr %.sroa.17.0..sroa_idx345, align 8
   %.sroa.20.0..sroa_idx351 = getelementptr inbounds i8, ptr %285, i64 161
@@ -969,7 +979,9 @@ _ZNSt6vectorI10MSERParamsSaIS0_EE9push_backERKS0_.exit118: ; preds = %_ZNKSt6vec
   %.sroa.20352.0..sroa_idx361 = getelementptr inbounds i8, ptr %285, i64 164
   store i32 200, ptr %.sroa.20352.0..sroa_idx361, align 4
   %.sroa.21.0..sroa_idx371 = getelementptr inbounds i8, ptr %285, i64 168
-  store <2 x double> <double 1.010000e+00, double 3.000000e-03>, ptr %.sroa.21.0..sroa_idx371, align 8
+  store double 1.010000e+00, ptr %.sroa.21.0..sroa_idx371, align 8
+  %.sroa.22.0..sroa_idx381 = getelementptr inbounds i8, ptr %285, i64 176
+  store double 3.000000e-03, ptr %.sroa.22.0..sroa_idx381, align 8
   %.sroa.23.0..sroa_idx391 = getelementptr inbounds i8, ptr %285, i64 184
   store i32 5, ptr %.sroa.23.0..sroa_idx391, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %285, ptr noundef nonnull align 8 dereferenceable(128) %276, i64 128, i1 false), !alias.scope !18
@@ -3298,9 +3310,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define internal void @_GLOBAL__sub_I_detect_mser.cpp() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr @rotAxis, align 16
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr @zoom, align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @zoom, i64 8), align 8
+  store float 1.000000e+00, ptr @rotAxis, align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rotAxis, i64 4), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @rotAxis, i64 8), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @rotAxis, i64 12), align 4
+  store float 1.000000e+00, ptr @zoom, align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @zoom, i64 4), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @zoom, i64 8), align 4
   ret void
 }
 

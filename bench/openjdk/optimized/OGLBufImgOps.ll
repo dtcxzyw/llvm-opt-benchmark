@@ -52,188 +52,190 @@ define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone %0, i64 n
   %12 = icmp eq ptr %0, null
   %13 = icmp eq i64 %1, 0
   %or.cond3 = or i1 %12, %13
-  br i1 %or.cond3, label %109, label %14
+  br i1 %or.cond3, label %107, label %14
 
 14:                                               ; preds = %6
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #6
   %15 = getelementptr inbounds i8, ptr %10, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 34037
-  br i1 %17, label %23, label %18
+  br i1 %17, label %27, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %10, i64 104
-  %20 = load <2 x i32>, ptr %19, align 8
-  %21 = sitofp <2 x i32> %20 to <2 x float>
-  %22 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %21
-  br label %23
+  %20 = load i32, ptr %19, align 8
+  %21 = sitofp i32 %20 to float
+  %22 = fdiv float 1.000000e+00, %21
+  %23 = getelementptr inbounds i8, ptr %10, i64 108
+  %24 = load i32, ptr %23, align 4
+  %25 = sitofp i32 %24 to float
+  %26 = fdiv float 1.000000e+00, %25
+  br label %27
 
-23:                                               ; preds = %14, %18
+27:                                               ; preds = %14, %18
+  %.074 = phi float [ %26, %18 ], [ 1.000000e+00, %14 ]
+  %.073 = phi float [ %22, %18 ], [ 1.000000e+00, %14 ]
   %.0 = phi i32 [ 0, %18 ], [ 1, %14 ]
-  %24 = phi <2 x float> [ %22, %18 ], [ <float 1.000000e+00, float 1.000000e+00>, %14 ]
   %.not = icmp eq i8 %2, 0
-  %25 = or disjoint i32 %.0, 2
-  %spec.select = select i1 %.not, i32 %.0, i32 %25
-  %26 = icmp eq i32 %3, 5
-  %27 = icmp eq i32 %4, 5
-  %or.cond = and i1 %26, %27
-  %28 = or disjoint i32 %spec.select, 4
-  %.2 = select i1 %or.cond, i32 %28, i32 %spec.select
-  %29 = zext nneg i32 %.2 to i64
-  %30 = getelementptr inbounds [8 x i32], ptr @convolvePrograms, i64 0, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %50
+  %28 = or disjoint i32 %.0, 2
+  %spec.select = select i1 %.not, i32 %.0, i32 %28
+  %29 = icmp eq i32 %3, 5
+  %30 = icmp eq i32 %4, 5
+  %or.cond = and i1 %29, %30
+  %31 = or disjoint i32 %spec.select, 4
+  %.2 = select i1 %or.cond, i32 %31, i32 %spec.select
+  %32 = zext nneg i32 %.2 to i64
+  %33 = getelementptr inbounds [8 x i32], ptr @convolvePrograms, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %53
 
-33:                                               ; preds = %23
+36:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %8)
   %.not.i = icmp ult i32 %.2, 4
-  %34 = select i1 %.not.i, ptr @.str.6, ptr @.str.5
-  %35 = and i32 %.2, 1
-  %.not13.i = icmp eq i32 %35, 0
-  %36 = select i1 %.not13.i, ptr @.str.8, ptr @.str.7
-  %37 = and i32 %.2, 2
-  %.not14.i = icmp eq i32 %37, 0
-  br i1 %.not14.i, label %39, label %38
+  %37 = select i1 %.not.i, ptr @.str.6, ptr @.str.5
+  %38 = and i32 %.2, 1
+  %.not13.i = icmp eq i32 %38, 0
+  %39 = select i1 %.not13.i, ptr @.str.8, ptr @.str.7
+  %40 = and i32 %.2, 2
+  %.not14.i = icmp eq i32 %40, 0
+  br i1 %.not14.i, label %42, label %41
 
-38:                                               ; preds = %33
+41:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %7, ptr noundef nonnull align 1 dereferenceable(17) @.str.9, i64 17, i1 false)
-  br label %41
+  br label %44
 
-39:                                               ; preds = %33
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.10, ptr noundef nonnull %36) #6
-  br label %41
+42:                                               ; preds = %36
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.10, ptr noundef nonnull %39) #6
+  br label %44
 
-41:                                               ; preds = %39, %38
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 2000, ptr noundef nonnull @.str.13, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef nonnull %7, ptr noundef nonnull %36) #6
-  %43 = call i32 @OGLContext_CreateFragmentProgram(ptr noundef nonnull %8) #6
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %OGLBufImgOps_CreateConvolveProgram.exit.thread, label %OGLBufImgOps_CreateConvolveProgram.exit
+44:                                               ; preds = %42, %41
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 2000, ptr noundef nonnull @.str.13, ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef nonnull %7, ptr noundef nonnull %39) #6
+  %46 = call i32 @OGLContext_CreateFragmentProgram(ptr noundef nonnull %8) #6
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %OGLBufImgOps_CreateConvolveProgram.exit.thread, label %OGLBufImgOps_CreateConvolveProgram.exit
 
-OGLBufImgOps_CreateConvolveProgram.exit.thread:   ; preds = %41
+OGLBufImgOps_CreateConvolveProgram.exit.thread:   ; preds = %44
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.11) #6
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %8)
-  store i32 0, ptr %30, align 4
-  br label %109
+  store i32 0, ptr %33, align 4
+  br label %107
 
-OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %41
-  %45 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  call void %45(i32 noundef %43) #6
-  %46 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
-  %47 = call i32 %46(i32 noundef %43, ptr noundef nonnull @.str.12) #6
-  %48 = load ptr, ptr @j2d_glUniform1iARB, align 8
-  call void %48(i32 noundef %47, i32 noundef 0) #6
-  %49 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  call void %49(i32 noundef 0) #6
+OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
+  %48 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  call void %48(i32 noundef %46) #6
+  %49 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
+  %50 = call i32 %49(i32 noundef %46, ptr noundef nonnull @.str.12) #6
+  %51 = load ptr, ptr @j2d_glUniform1iARB, align 8
+  call void %51(i32 noundef %50, i32 noundef 0) #6
+  %52 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  call void %52(i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %8)
-  store i32 %43, ptr %30, align 4
-  br label %50
+  store i32 %46, ptr %33, align 4
+  br label %53
 
-50:                                               ; preds = %OGLBufImgOps_CreateConvolveProgram.exit, %23
-  %51 = phi i32 [ %43, %OGLBufImgOps_CreateConvolveProgram.exit ], [ %31, %23 ]
-  %52 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
-  call void %52(i32 noundef %51) #6
-  %53 = sdiv i32 %3, 2
-  %54 = sitofp i32 %53 to float
-  %55 = extractelement <2 x float> %24, i64 0
-  %56 = fmul float %55, %54
-  %57 = sdiv i32 %4, 2
-  %58 = sitofp i32 %57 to float
-  %59 = extractelement <2 x float> %24, i64 1
-  %60 = fmul float %59, %58
-  %61 = load i32, ptr %15, align 8
-  %62 = icmp eq i32 %61, 34037
-  %63 = getelementptr inbounds i8, ptr %10, i64 92
-  %64 = load i32, ptr %63, align 4
-  %65 = sitofp i32 %64 to float
-  br i1 %62, label %66, label %72
+53:                                               ; preds = %OGLBufImgOps_CreateConvolveProgram.exit, %27
+  %54 = phi i32 [ %46, %OGLBufImgOps_CreateConvolveProgram.exit ], [ %34, %27 ]
+  %55 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
+  call void %55(i32 noundef %54) #6
+  %56 = sdiv i32 %3, 2
+  %57 = sitofp i32 %56 to float
+  %58 = fmul float %.073, %57
+  %59 = sdiv i32 %4, 2
+  %60 = sitofp i32 %59 to float
+  %61 = fmul float %.074, %60
+  %62 = load i32, ptr %15, align 8
+  %63 = icmp eq i32 %62, 34037
+  %64 = getelementptr inbounds i8, ptr %10, i64 92
+  %65 = load i32, ptr %64, align 4
+  %66 = sitofp i32 %65 to float
+  br i1 %63, label %67, label %71
 
-66:                                               ; preds = %50
-  %67 = getelementptr inbounds i8, ptr %10, i64 96
-  %68 = load i32, ptr %67, align 8
-  %69 = sitofp i32 %68 to float
-  %70 = insertelement <2 x float> poison, float %65, i64 0
-  %71 = insertelement <2 x float> %70, float %69, i64 1
-  br label %82
+67:                                               ; preds = %53
+  %68 = getelementptr inbounds i8, ptr %10, i64 96
+  %69 = load i32, ptr %68, align 8
+  %70 = sitofp i32 %69 to float
+  br label %83
 
-72:                                               ; preds = %50
-  %73 = getelementptr inbounds i8, ptr %10, i64 104
-  %74 = getelementptr inbounds i8, ptr %10, i64 96
-  %75 = load i32, ptr %74, align 8
-  %76 = sitofp i32 %75 to float
-  %77 = load <2 x i32>, ptr %73, align 8
-  %78 = sitofp <2 x i32> %77 to <2 x float>
-  %79 = insertelement <2 x float> poison, float %65, i64 0
-  %80 = insertelement <2 x float> %79, float %76, i64 1
-  %81 = fdiv <2 x float> %80, %78
-  br label %82
+71:                                               ; preds = %53
+  %72 = getelementptr inbounds i8, ptr %10, i64 104
+  %73 = load i32, ptr %72, align 8
+  %74 = sitofp i32 %73 to float
+  %75 = fdiv float %66, %74
+  %76 = getelementptr inbounds i8, ptr %10, i64 96
+  %77 = load i32, ptr %76, align 8
+  %78 = sitofp i32 %77 to float
+  %79 = getelementptr inbounds i8, ptr %10, i64 108
+  %80 = load i32, ptr %79, align 4
+  %81 = sitofp i32 %80 to float
+  %82 = fdiv float %78, %81
+  br label %83
 
-82:                                               ; preds = %72, %66
-  %83 = phi <2 x float> [ %71, %66 ], [ %81, %72 ]
-  %84 = extractelement <2 x float> %83, i64 1
-  %.069 = fsub float %84, %60
-  %85 = extractelement <2 x float> %83, i64 0
-  %.070 = fsub float %85, %56
-  %86 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
-  %87 = call i32 %86(i32 noundef %51, ptr noundef nonnull @.str) #6
-  %88 = load ptr, ptr @j2d_glUniform4fARB, align 8
-  call void %88(i32 noundef %87, float noundef %56, float noundef %60, float noundef %.070, float noundef %.069) #6
-  %89 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
-  %90 = call i32 %89(i32 noundef %51, ptr noundef nonnull @.str.1) #6
-  %91 = sdiv i32 %4, -2
-  %.not7784 = icmp sgt i32 %91, %57
+83:                                               ; preds = %71, %67
+  %.pn = phi float [ %66, %67 ], [ %75, %71 ]
+  %.pn76 = phi float [ %70, %67 ], [ %82, %71 ]
+  %.069 = fsub float %.pn76, %61
+  %.070 = fsub float %.pn, %58
+  %84 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
+  %85 = call i32 %84(i32 noundef %54, ptr noundef nonnull @.str) #6
+  %86 = load ptr, ptr @j2d_glUniform4fARB, align 8
+  call void %86(i32 noundef %85, float noundef %58, float noundef %61, float noundef %.070, float noundef %.069) #6
+  %87 = load ptr, ptr @j2d_glGetUniformLocationARB, align 8
+  %88 = call i32 %87(i32 noundef %54, ptr noundef nonnull @.str.1) #6
+  %89 = sdiv i32 %4, -2
+  %.not7784 = icmp sgt i32 %89, %59
   br i1 %.not7784, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph89:                                         ; preds = %82
-  %92 = sdiv i32 %3, -2
-  %.not7879 = icmp sgt i32 %92, %53
+.lr.ph89:                                         ; preds = %83
+  %90 = sdiv i32 %3, -2
+  %.not7879 = icmp sgt i32 %90, %56
   br i1 %.not7879, label %._crit_edge90, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph89, %._crit_edge
   %.06587 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph89 ]
-  %.06886 = phi i32 [ %107, %._crit_edge ], [ %91, %.lr.ph89 ]
-  %.07185 = phi ptr [ %102, %._crit_edge ], [ %5, %.lr.ph89 ]
-  %93 = sitofp i32 %.06886 to float
-  %94 = fmul float %59, %93
+  %.06886 = phi i32 [ %105, %._crit_edge ], [ %89, %.lr.ph89 ]
+  %.07185 = phi ptr [ %100, %._crit_edge ], [ %5, %.lr.ph89 ]
+  %91 = sitofp i32 %.06886 to float
+  %92 = fmul float %.074, %91
   %sext = shl i64 %.06587, 32
-  %95 = ashr exact i64 %sext, 32
-  br label %96
+  %93 = ashr exact i64 %sext, 32
+  br label %94
 
-96:                                               ; preds = %.lr.ph, %96
-  %indvars.iv = phi i64 [ %95, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %.06781 = phi i32 [ %92, %.lr.ph ], [ %106, %96 ]
-  %.17280 = phi ptr [ %.07185, %.lr.ph ], [ %102, %96 ]
-  %97 = sitofp i32 %.06781 to float
-  %98 = fmul float %55, %97
-  %99 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %indvars.iv
-  store float %98, ptr %99, align 4
-  %100 = add nsw i64 %indvars.iv, 1
-  %101 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %100
-  store float %94, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %.17280, i64 4
-  %103 = load float, ptr %.17280, align 4
-  %104 = add nsw i64 %indvars.iv, 2
-  %105 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %104
-  store float %103, ptr %105, align 4
+94:                                               ; preds = %.lr.ph, %94
+  %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
+  %.06781 = phi i32 [ %90, %.lr.ph ], [ %104, %94 ]
+  %.17280 = phi ptr [ %.07185, %.lr.ph ], [ %100, %94 ]
+  %95 = sitofp i32 %.06781 to float
+  %96 = fmul float %.073, %95
+  %97 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %indvars.iv
+  store float %96, ptr %97, align 4
+  %98 = add nsw i64 %indvars.iv, 1
+  %99 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %98
+  store float %92, ptr %99, align 4
+  %100 = getelementptr inbounds i8, ptr %.17280, i64 4
+  %101 = load float, ptr %.17280, align 4
+  %102 = add nsw i64 %indvars.iv, 2
+  %103 = getelementptr inbounds [75 x float], ptr %9, i64 0, i64 %102
+  store float %101, ptr %103, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 3
-  %106 = add i32 %.06781, 1
-  %exitcond.not = icmp eq i32 %.06781, %53
-  br i1 %exitcond.not, label %._crit_edge, label %96, !llvm.loop !6
+  %104 = add i32 %.06781, 1
+  %exitcond.not = icmp eq i32 %.06781, %56
+  br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %96
-  %107 = add i32 %.06886, 1
-  %exitcond94.not = icmp eq i32 %.06886, %57
+._crit_edge:                                      ; preds = %94
+  %105 = add i32 %.06886, 1
+  %exitcond94.not = icmp eq i32 %.06886, %59
   br i1 %exitcond94.not, label %._crit_edge90, label %.lr.ph, !llvm.loop !8
 
-._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89, %82
-  %108 = load ptr, ptr @j2d_glUniform3fvARB, align 8
-  call void %108(i32 noundef %90, i32 noundef %11, ptr noundef nonnull %9) #6
-  br label %109
+._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89, %83
+  %106 = load ptr, ptr @j2d_glUniform3fvARB, align 8
+  call void %106(i32 noundef %88, i32 noundef %11, ptr noundef nonnull %9) #6
+  br label %107
 
-109:                                              ; preds = %OGLBufImgOps_CreateConvolveProgram.exit.thread, %6, %._crit_edge90
+107:                                              ; preds = %OGLBufImgOps_CreateConvolveProgram.exit.thread, %6, %._crit_edge90
   ret void
 }
 

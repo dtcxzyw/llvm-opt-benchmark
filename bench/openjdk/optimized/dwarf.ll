@@ -264,268 +264,271 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocaptu
 
 26:                                               ; preds = %.lr.ph, %149
   %.086 = phi i32 [ 17, %.lr.ph ], [ %.1, %149 ]
+  %.02285 = phi i32 [ 0, %.lr.ph ], [ %.123, %149 ]
+  %.02484 = phi i32 [ 0, %.lr.ph ], [ %.125, %149 ]
   %.02683 = phi i32 [ 0, %.lr.ph ], [ %.127, %149 ]
   %27 = phi ptr [ %.promoted, %.lr.ph ], [ %151, %149 ]
   %28 = phi i64 [ %1, %.lr.ph ], [ %150, %149 ]
-  %29 = phi <2 x i32> [ zeroinitializer, %.lr.ph ], [ %152, %149 ]
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
-  store ptr %30, ptr %6, align 8
-  %31 = load i8, ptr %27, align 1
-  %32 = and i8 %31, 63
-  %33 = and i8 %31, -64
-  %.not = icmp eq i8 %33, 0
-  %spec.select = select i1 %.not, i8 %31, i8 %33
+  %29 = getelementptr inbounds i8, ptr %27, i64 1
+  store ptr %29, ptr %6, align 8
+  %30 = load i8, ptr %27, align 1
+  %31 = and i8 %30, 63
+  %32 = and i8 %30, -64
+  %.not = icmp eq i8 %32, 0
+  %spec.select = select i1 %.not, i8 %30, i8 %32
   switch i8 %spec.select, label %147 [
     i8 0, label %.critedge
-    i8 1, label %34
+    i8 1, label %33
     i8 12, label %.preheader
     i8 -128, label %.preheader69
     i8 14, label %.preheader70
-    i8 64, label %102
-    i8 2, label %108
-    i8 3, label %116
-    i8 4, label %124
+    i8 64, label %101
+    i8 2, label %107
+    i8 3, label %115
+    i8 4, label %123
     i8 13, label %.preheader71
-    i8 10, label %142
+    i8 10, label %141
     i8 11, label %146
   ]
 
-34:                                               ; preds = %26
+33:                                               ; preds = %26
   switch i8 %20, label %_ZN11DwarfParser17get_decoded_valueEv.exit [
-    i8 0, label %35
-    i8 2, label %36
+    i8 0, label %34
+    i8 2, label %35
     i8 3, label %.thread14.i
-    i8 4, label %35
+    i8 4, label %34
   ]
 
-35:                                               ; preds = %34, %34
-  %.0.ph.i = load i64, ptr %30, align 8
+34:                                               ; preds = %33, %33
+  %.0.ph.i = load i64, ptr %29, align 8
   br label %.thread21.i.sink.split
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr %30, align 4
-  %38 = zext i32 %37 to i64
+35:                                               ; preds = %33
+  %36 = load i32, ptr %29, align 4
+  %37 = zext i32 %36 to i64
   br label %.thread21.i.sink.split
 
-.thread14.i:                                      ; preds = %34
-  %39 = load i32, ptr %30, align 4
-  %40 = zext i32 %39 to i64
+.thread14.i:                                      ; preds = %33
+  %38 = load i32, ptr %29, align 4
+  %39 = zext i32 %38 to i64
   br i1 %22, label %.thread21.i.sink.split, label %.thread21.i
 
-.thread21.i.sink.split:                           ; preds = %36, %.thread14.i, %35
-  %.sink = phi i64 [ %.0.ph.i, %35 ], [ %40, %.thread14.i ], [ %38, %36 ]
-  %.19.i.ph = phi i64 [ 4, %35 ], [ 4, %.thread14.i ], [ %spec.select113, %36 ]
-  %41 = load i64, ptr %24, align 8
-  %42 = load ptr, ptr %25, align 8
-  %43 = ptrtoint ptr %30 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = add i64 %.sink, %43
-  %46 = add i64 %45, %41
-  %47 = sub i64 %46, %44
+.thread21.i.sink.split:                           ; preds = %35, %.thread14.i, %34
+  %.sink = phi i64 [ %.0.ph.i, %34 ], [ %39, %.thread14.i ], [ %37, %35 ]
+  %.19.i.ph = phi i64 [ 4, %34 ], [ 4, %.thread14.i ], [ %spec.select113, %35 ]
+  %40 = load i64, ptr %24, align 8
+  %41 = load ptr, ptr %25, align 8
+  %42 = ptrtoint ptr %29 to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = add i64 %.sink, %42
+  %45 = add i64 %44, %40
+  %46 = sub i64 %45, %43
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.i.sink.split, %.thread14.i
   %.19.i = phi i64 [ 4, %.thread14.i ], [ %.19.i.ph, %.thread21.i.sink.split ]
-  %.1.i = phi i64 [ %40, %.thread14.i ], [ %47, %.thread21.i.sink.split ]
-  %48 = getelementptr inbounds i8, ptr %30, i64 %.19.i
-  store ptr %48, ptr %6, align 8
+  %.1.i = phi i64 [ %39, %.thread14.i ], [ %46, %.thread21.i.sink.split ]
+  %47 = getelementptr inbounds i8, ptr %29, i64 %.19.i
+  store ptr %47, ptr %6, align 8
   br label %_ZN11DwarfParser17get_decoded_valueEv.exit
 
-_ZN11DwarfParser17get_decoded_valueEv.exit:       ; preds = %34, %.thread21.i
-  %49 = phi ptr [ %48, %.thread21.i ], [ %30, %34 ]
-  %.010.i = phi i64 [ %.1.i, %.thread21.i ], [ 0, %34 ]
+_ZN11DwarfParser17get_decoded_valueEv.exit:       ; preds = %33, %.thread21.i
+  %48 = phi ptr [ %47, %.thread21.i ], [ %29, %33 ]
+  %.010.i = phi i64 [ %.1.i, %.thread21.i ], [ 0, %33 ]
   %.not40 = icmp eq i64 %28, 0
-  br i1 %.not40, label %149, label %50
+  br i1 %.not40, label %149, label %49
 
-50:                                               ; preds = %_ZN11DwarfParser17get_decoded_valueEv.exit
-  %51 = and i64 %.010.i, 4294967295
-  store i64 %51, ptr %5, align 8
+49:                                               ; preds = %_ZN11DwarfParser17get_decoded_valueEv.exit
+  %50 = and i64 %.010.i, 4294967295
+  store i64 %50, ptr %5, align 8
   br label %149
 
 .preheader:                                       ; preds = %26, %.preheader
-  %52 = phi ptr [ %53, %.preheader ], [ %30, %26 ]
-  %.013.i = phi i64 [ %59, %.preheader ], [ 0, %26 ]
-  %.0.i = phi i32 [ %60, %.preheader ], [ 0, %26 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store ptr %53, ptr %6, align 8
-  %54 = load i8, ptr %52, align 1
-  %55 = and i8 %54, 127
-  %56 = zext nneg i8 %55 to i64
-  %57 = zext nneg i32 %.0.i to i64
-  %58 = shl i64 %56, %57
-  %59 = or i64 %58, %.013.i
-  %60 = add i32 %.0.i, 7
-  %61 = icmp sgt i8 %54, -1
-  br i1 %61, label %_ZN11DwarfParser8read_lebEb.exit, label %.preheader, !llvm.loop !6
+  %51 = phi ptr [ %52, %.preheader ], [ %29, %26 ]
+  %.013.i = phi i64 [ %58, %.preheader ], [ 0, %26 ]
+  %.0.i = phi i32 [ %59, %.preheader ], [ 0, %26 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store ptr %52, ptr %6, align 8
+  %53 = load i8, ptr %51, align 1
+  %54 = and i8 %53, 127
+  %55 = zext nneg i8 %54 to i64
+  %56 = zext nneg i32 %.0.i to i64
+  %57 = shl i64 %55, %56
+  %58 = or i64 %57, %.013.i
+  %59 = add i32 %.0.i, 7
+  %60 = icmp sgt i8 %53, -1
+  br i1 %60, label %_ZN11DwarfParser8read_lebEb.exit, label %.preheader, !llvm.loop !6
 
 _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %.preheader
-  %62 = trunc i64 %59 to i32
-  store i32 %62, ptr %9, align 4
-  br label %63
+  %61 = trunc i64 %58 to i32
+  store i32 %61, ptr %9, align 4
+  br label %62
 
-63:                                               ; preds = %63, %_ZN11DwarfParser8read_lebEb.exit
-  %64 = phi ptr [ %53, %_ZN11DwarfParser8read_lebEb.exit ], [ %65, %63 ]
-  %.013.i44 = phi i64 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %71, %63 ]
-  %.0.i45 = phi i32 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %72, %63 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store ptr %65, ptr %6, align 8
-  %66 = load i8, ptr %64, align 1
-  %67 = and i8 %66, 127
-  %68 = zext nneg i8 %67 to i64
-  %69 = zext nneg i32 %.0.i45 to i64
-  %70 = shl i64 %68, %69
-  %71 = or i64 %70, %.013.i44
-  %72 = add i32 %.0.i45, 7
-  %73 = icmp sgt i8 %66, -1
-  br i1 %73, label %_ZN11DwarfParser8read_lebEb.exit48, label %63, !llvm.loop !6
+62:                                               ; preds = %62, %_ZN11DwarfParser8read_lebEb.exit
+  %63 = phi ptr [ %52, %_ZN11DwarfParser8read_lebEb.exit ], [ %64, %62 ]
+  %.013.i44 = phi i64 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %70, %62 ]
+  %.0.i45 = phi i32 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %71, %62 ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  store ptr %64, ptr %6, align 8
+  %65 = load i8, ptr %63, align 1
+  %66 = and i8 %65, 127
+  %67 = zext nneg i8 %66 to i64
+  %68 = zext nneg i32 %.0.i45 to i64
+  %69 = shl i64 %67, %68
+  %70 = or i64 %69, %.013.i44
+  %71 = add i32 %.0.i45, 7
+  %72 = icmp sgt i8 %65, -1
+  br i1 %72, label %_ZN11DwarfParser8read_lebEb.exit48, label %62, !llvm.loop !6
 
-_ZN11DwarfParser8read_lebEb.exit48:               ; preds = %63
-  %74 = trunc i64 %71 to i32
-  store i32 %74, ptr %10, align 8
+_ZN11DwarfParser8read_lebEb.exit48:               ; preds = %62
+  %73 = trunc i64 %70 to i32
+  store i32 %73, ptr %10, align 8
   br label %149
 
 .preheader69:                                     ; preds = %26, %.preheader69
-  %75 = phi ptr [ %76, %.preheader69 ], [ %30, %26 ]
-  %.013.i50 = phi i64 [ %82, %.preheader69 ], [ 0, %26 ]
-  %.0.i51 = phi i32 [ %83, %.preheader69 ], [ 0, %26 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
-  store ptr %76, ptr %6, align 8
-  %77 = load i8, ptr %75, align 1
-  %78 = and i8 %77, 127
-  %79 = zext nneg i8 %78 to i64
-  %80 = zext nneg i32 %.0.i51 to i64
-  %81 = shl i64 %79, %80
-  %82 = or i64 %81, %.013.i50
-  %83 = add i32 %.0.i51, 7
-  %84 = icmp sgt i8 %77, -1
-  br i1 %84, label %_ZN11DwarfParser8read_lebEb.exit54, label %.preheader69, !llvm.loop !6
+  %74 = phi ptr [ %75, %.preheader69 ], [ %29, %26 ]
+  %.013.i50 = phi i64 [ %81, %.preheader69 ], [ 0, %26 ]
+  %.0.i51 = phi i32 [ %82, %.preheader69 ], [ 0, %26 ]
+  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  store ptr %75, ptr %6, align 8
+  %76 = load i8, ptr %74, align 1
+  %77 = and i8 %76, 127
+  %78 = zext nneg i8 %77 to i64
+  %79 = zext nneg i32 %.0.i51 to i64
+  %80 = shl i64 %78, %79
+  %81 = or i64 %80, %.013.i50
+  %82 = add i32 %.0.i51, 7
+  %83 = icmp sgt i8 %76, -1
+  br i1 %83, label %_ZN11DwarfParser8read_lebEb.exit54, label %.preheader69, !llvm.loop !6
 
 _ZN11DwarfParser8read_lebEb.exit54:               ; preds = %.preheader69
-  switch i8 %32, label %149 [
-    i8 6, label %85
-    i8 16, label %88
+  switch i8 %31, label %149 [
+    i8 6, label %84
+    i8 16, label %87
   ]
 
-85:                                               ; preds = %_ZN11DwarfParser8read_lebEb.exit54
-  %86 = trunc i64 %82 to i32
-  %87 = mul i32 %16, %86
-  store i32 %87, ptr %12, align 8
+84:                                               ; preds = %_ZN11DwarfParser8read_lebEb.exit54
+  %85 = trunc i64 %81 to i32
+  %86 = mul i32 %16, %85
+  store i32 %86, ptr %12, align 8
   store i8 1, ptr %17, align 4
   br label %149
 
-88:                                               ; preds = %_ZN11DwarfParser8read_lebEb.exit54
-  %89 = trunc i64 %82 to i32
-  %90 = mul i32 %16, %89
-  store i32 %90, ptr %11, align 4
+87:                                               ; preds = %_ZN11DwarfParser8read_lebEb.exit54
+  %88 = trunc i64 %81 to i32
+  %89 = mul i32 %16, %88
+  store i32 %89, ptr %11, align 4
   br label %149
 
 .preheader70:                                     ; preds = %26, %.preheader70
-  %91 = phi ptr [ %92, %.preheader70 ], [ %30, %26 ]
-  %.013.i56 = phi i64 [ %98, %.preheader70 ], [ 0, %26 ]
-  %.0.i57 = phi i32 [ %99, %.preheader70 ], [ 0, %26 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 1
-  store ptr %92, ptr %6, align 8
-  %93 = load i8, ptr %91, align 1
-  %94 = and i8 %93, 127
-  %95 = zext nneg i8 %94 to i64
-  %96 = zext nneg i32 %.0.i57 to i64
-  %97 = shl i64 %95, %96
-  %98 = or i64 %97, %.013.i56
-  %99 = add i32 %.0.i57, 7
-  %100 = icmp sgt i8 %93, -1
-  br i1 %100, label %_ZN11DwarfParser8read_lebEb.exit60, label %.preheader70, !llvm.loop !6
+  %90 = phi ptr [ %91, %.preheader70 ], [ %29, %26 ]
+  %.013.i56 = phi i64 [ %97, %.preheader70 ], [ 0, %26 ]
+  %.0.i57 = phi i32 [ %98, %.preheader70 ], [ 0, %26 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 1
+  store ptr %91, ptr %6, align 8
+  %92 = load i8, ptr %90, align 1
+  %93 = and i8 %92, 127
+  %94 = zext nneg i8 %93 to i64
+  %95 = zext nneg i32 %.0.i57 to i64
+  %96 = shl i64 %94, %95
+  %97 = or i64 %96, %.013.i56
+  %98 = add i32 %.0.i57, 7
+  %99 = icmp sgt i8 %92, -1
+  br i1 %99, label %_ZN11DwarfParser8read_lebEb.exit60, label %.preheader70, !llvm.loop !6
 
 _ZN11DwarfParser8read_lebEb.exit60:               ; preds = %.preheader70
-  %101 = trunc i64 %98 to i32
-  store i32 %101, ptr %10, align 8
+  %100 = trunc i64 %97 to i32
+  store i32 %100, ptr %10, align 8
   br label %149
 
-102:                                              ; preds = %26
+101:                                              ; preds = %26
   %.not39 = icmp eq i64 %28, 0
-  br i1 %.not39, label %149, label %103
+  br i1 %.not39, label %149, label %102
 
-103:                                              ; preds = %102
-  %104 = zext nneg i8 %32 to i32
-  %105 = mul i32 %14, %104
-  %106 = zext i32 %105 to i64
-  %107 = add i64 %28, %106
-  store i64 %107, ptr %5, align 8
+102:                                              ; preds = %101
+  %103 = zext nneg i8 %31 to i32
+  %104 = mul i32 %14, %103
+  %105 = zext i32 %104 to i64
+  %106 = add i64 %28, %105
+  store i64 %106, ptr %5, align 8
   br label %149
 
-108:                                              ; preds = %26
-  %109 = getelementptr inbounds i8, ptr %27, i64 2
-  store ptr %109, ptr %6, align 8
+107:                                              ; preds = %26
+  %108 = getelementptr inbounds i8, ptr %27, i64 2
+  store ptr %108, ptr %6, align 8
   %.not38 = icmp eq i64 %28, 0
-  br i1 %.not38, label %149, label %110
+  br i1 %.not38, label %149, label %109
 
-110:                                              ; preds = %108
-  %111 = load i8, ptr %30, align 1
-  %112 = zext i8 %111 to i32
-  %113 = mul i32 %14, %112
-  %114 = zext i32 %113 to i64
-  %115 = add i64 %28, %114
-  store i64 %115, ptr %5, align 8
+109:                                              ; preds = %107
+  %110 = load i8, ptr %29, align 1
+  %111 = zext i8 %110 to i32
+  %112 = mul i32 %14, %111
+  %113 = zext i32 %112 to i64
+  %114 = add i64 %28, %113
+  store i64 %114, ptr %5, align 8
   br label %149
 
-116:                                              ; preds = %26
-  %117 = load i16, ptr %30, align 2
-  %118 = getelementptr inbounds i8, ptr %27, i64 3
-  store ptr %118, ptr %6, align 8
+115:                                              ; preds = %26
+  %116 = load i16, ptr %29, align 2
+  %117 = getelementptr inbounds i8, ptr %27, i64 3
+  store ptr %117, ptr %6, align 8
   %.not37 = icmp eq i64 %28, 0
-  br i1 %.not37, label %149, label %119
+  br i1 %.not37, label %149, label %118
 
-119:                                              ; preds = %116
-  %120 = zext i16 %117 to i32
-  %121 = mul i32 %14, %120
-  %122 = zext i32 %121 to i64
-  %123 = add i64 %28, %122
-  store i64 %123, ptr %5, align 8
+118:                                              ; preds = %115
+  %119 = zext i16 %116 to i32
+  %120 = mul i32 %14, %119
+  %121 = zext i32 %120 to i64
+  %122 = add i64 %28, %121
+  store i64 %122, ptr %5, align 8
   br label %149
 
-124:                                              ; preds = %26
-  %125 = load i32, ptr %30, align 4
-  %126 = getelementptr inbounds i8, ptr %27, i64 5
-  store ptr %126, ptr %6, align 8
+123:                                              ; preds = %26
+  %124 = load i32, ptr %29, align 4
+  %125 = getelementptr inbounds i8, ptr %27, i64 5
+  store ptr %125, ptr %6, align 8
   %.not36 = icmp eq i64 %28, 0
-  br i1 %.not36, label %149, label %127
+  br i1 %.not36, label %149, label %126
 
-127:                                              ; preds = %124
-  %128 = mul i32 %14, %125
-  %129 = zext i32 %128 to i64
-  %130 = add i64 %28, %129
-  store i64 %130, ptr %5, align 8
+126:                                              ; preds = %123
+  %127 = mul i32 %14, %124
+  %128 = zext i32 %127 to i64
+  %129 = add i64 %28, %128
+  store i64 %129, ptr %5, align 8
   br label %149
 
 .preheader71:                                     ; preds = %26, %.preheader71
-  %131 = phi ptr [ %132, %.preheader71 ], [ %30, %26 ]
-  %.013.i62 = phi i64 [ %138, %.preheader71 ], [ 0, %26 ]
-  %.0.i63 = phi i32 [ %139, %.preheader71 ], [ 0, %26 ]
-  %132 = getelementptr inbounds i8, ptr %131, i64 1
-  store ptr %132, ptr %6, align 8
-  %133 = load i8, ptr %131, align 1
-  %134 = and i8 %133, 127
-  %135 = zext nneg i8 %134 to i64
-  %136 = zext nneg i32 %.0.i63 to i64
-  %137 = shl i64 %135, %136
-  %138 = or i64 %137, %.013.i62
-  %139 = add i32 %.0.i63, 7
-  %140 = icmp sgt i8 %133, -1
-  br i1 %140, label %_ZN11DwarfParser8read_lebEb.exit66, label %.preheader71, !llvm.loop !6
+  %130 = phi ptr [ %131, %.preheader71 ], [ %29, %26 ]
+  %.013.i62 = phi i64 [ %137, %.preheader71 ], [ 0, %26 ]
+  %.0.i63 = phi i32 [ %138, %.preheader71 ], [ 0, %26 ]
+  %131 = getelementptr inbounds i8, ptr %130, i64 1
+  store ptr %131, ptr %6, align 8
+  %132 = load i8, ptr %130, align 1
+  %133 = and i8 %132, 127
+  %134 = zext nneg i8 %133 to i64
+  %135 = zext nneg i32 %.0.i63 to i64
+  %136 = shl i64 %134, %135
+  %137 = or i64 %136, %.013.i62
+  %138 = add i32 %.0.i63, 7
+  %139 = icmp sgt i8 %132, -1
+  br i1 %139, label %_ZN11DwarfParser8read_lebEb.exit66, label %.preheader71, !llvm.loop !6
 
 _ZN11DwarfParser8read_lebEb.exit66:               ; preds = %.preheader71
-  %141 = trunc i64 %138 to i32
-  store i32 %141, ptr %9, align 4
+  %140 = trunc i64 %137 to i32
+  store i32 %140, ptr %9, align 4
   br label %149
 
-142:                                              ; preds = %26
-  %143 = load i32, ptr %9, align 4
-  %144 = load <2 x i32>, ptr %10, align 8
+141:                                              ; preds = %26
+  %142 = load i32, ptr %9, align 4
+  %143 = load i32, ptr %10, align 8
+  %144 = load i32, ptr %11, align 4
   %145 = load i32, ptr %12, align 8
   br label %149
 
 146:                                              ; preds = %26
   store i32 %.086, ptr %9, align 4
-  store <2 x i32> %29, ptr %10, align 8
+  store i32 %.02285, ptr %10, align 8
+  store i32 %.02484, ptr %11, align 4
   store i32 %.02683, ptr %12, align 8
   br label %149
 
@@ -534,15 +537,16 @@ _ZN11DwarfParser8read_lebEb.exit66:               ; preds = %.preheader71
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.2, i32 noundef %148)
   br label %.critedge
 
-149:                                              ; preds = %_ZN11DwarfParser8read_lebEb.exit54, %124, %127, %116, %119, %108, %110, %102, %103, %85, %88, %_ZN11DwarfParser17get_decoded_valueEv.exit, %50, %146, %142, %_ZN11DwarfParser8read_lebEb.exit66, %_ZN11DwarfParser8read_lebEb.exit60, %_ZN11DwarfParser8read_lebEb.exit48
-  %150 = phi i64 [ %28, %146 ], [ %28, %142 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %130, %127 ], [ 0, %124 ], [ %123, %119 ], [ 0, %116 ], [ %115, %110 ], [ 0, %108 ], [ %107, %103 ], [ 0, %102 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %28, %85 ], [ %28, %88 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %51, %50 ], [ 0, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %28, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %151 = phi ptr [ %30, %146 ], [ %30, %142 ], [ %132, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %126, %127 ], [ %126, %124 ], [ %118, %119 ], [ %118, %116 ], [ %109, %110 ], [ %109, %108 ], [ %30, %103 ], [ %30, %102 ], [ %92, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %76, %85 ], [ %76, %88 ], [ %65, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %49, %50 ], [ %49, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %76, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.127 = phi i32 [ %.02683, %146 ], [ %145, %142 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.02683, %127 ], [ %.02683, %124 ], [ %.02683, %119 ], [ %.02683, %116 ], [ %.02683, %110 ], [ %.02683, %108 ], [ %.02683, %103 ], [ %.02683, %102 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02683, %85 ], [ %.02683, %88 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02683, %50 ], [ %.02683, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %.1 = phi i32 [ %.086, %146 ], [ %143, %142 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.086, %127 ], [ %.086, %124 ], [ %.086, %119 ], [ %.086, %116 ], [ %.086, %110 ], [ %.086, %108 ], [ %.086, %103 ], [ %.086, %102 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.086, %85 ], [ %.086, %88 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.086, %50 ], [ %.086, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %152 = phi <2 x i32> [ %29, %146 ], [ %144, %142 ], [ %29, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %29, %127 ], [ %29, %124 ], [ %29, %119 ], [ %29, %116 ], [ %29, %110 ], [ %29, %108 ], [ %29, %103 ], [ %29, %102 ], [ %29, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %29, %85 ], [ %29, %88 ], [ %29, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %29, %50 ], [ %29, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %29, %_ZN11DwarfParser8read_lebEb.exit54 ]
-  %153 = icmp ult ptr %151, %3
-  %154 = icmp ult i64 %150, %2
-  %or.cond = select i1 %153, i1 %154, i1 false
+149:                                              ; preds = %_ZN11DwarfParser8read_lebEb.exit54, %123, %126, %115, %118, %107, %109, %101, %102, %84, %87, %_ZN11DwarfParser17get_decoded_valueEv.exit, %49, %146, %141, %_ZN11DwarfParser8read_lebEb.exit66, %_ZN11DwarfParser8read_lebEb.exit60, %_ZN11DwarfParser8read_lebEb.exit48
+  %150 = phi i64 [ %28, %146 ], [ %28, %141 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %129, %126 ], [ 0, %123 ], [ %122, %118 ], [ 0, %115 ], [ %114, %109 ], [ 0, %107 ], [ %106, %102 ], [ 0, %101 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %28, %84 ], [ %28, %87 ], [ %28, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %50, %49 ], [ 0, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %28, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %151 = phi ptr [ %29, %146 ], [ %29, %141 ], [ %131, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %125, %126 ], [ %125, %123 ], [ %117, %118 ], [ %117, %115 ], [ %108, %109 ], [ %108, %107 ], [ %29, %102 ], [ %29, %101 ], [ %91, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %75, %84 ], [ %75, %87 ], [ %64, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %48, %49 ], [ %48, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %75, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %.127 = phi i32 [ %.02683, %146 ], [ %145, %141 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.02683, %126 ], [ %.02683, %123 ], [ %.02683, %118 ], [ %.02683, %115 ], [ %.02683, %109 ], [ %.02683, %107 ], [ %.02683, %102 ], [ %.02683, %101 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02683, %84 ], [ %.02683, %87 ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02683, %49 ], [ %.02683, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02683, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %.125 = phi i32 [ %.02484, %146 ], [ %144, %141 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.02484, %126 ], [ %.02484, %123 ], [ %.02484, %118 ], [ %.02484, %115 ], [ %.02484, %109 ], [ %.02484, %107 ], [ %.02484, %102 ], [ %.02484, %101 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02484, %84 ], [ %.02484, %87 ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02484, %49 ], [ %.02484, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02484, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %.123 = phi i32 [ %.02285, %146 ], [ %143, %141 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.02285, %126 ], [ %.02285, %123 ], [ %.02285, %118 ], [ %.02285, %115 ], [ %.02285, %109 ], [ %.02285, %107 ], [ %.02285, %102 ], [ %.02285, %101 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.02285, %84 ], [ %.02285, %87 ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.02285, %49 ], [ %.02285, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.02285, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %.1 = phi i32 [ %.086, %146 ], [ %142, %141 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit66 ], [ %.086, %126 ], [ %.086, %123 ], [ %.086, %118 ], [ %.086, %115 ], [ %.086, %109 ], [ %.086, %107 ], [ %.086, %102 ], [ %.086, %101 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit60 ], [ %.086, %84 ], [ %.086, %87 ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit48 ], [ %.086, %49 ], [ %.086, %_ZN11DwarfParser17get_decoded_valueEv.exit ], [ %.086, %_ZN11DwarfParser8read_lebEb.exit54 ]
+  %152 = icmp ult ptr %151, %3
+  %153 = icmp ult i64 %150, %2
+  %or.cond = select i1 %152, i1 %153, i1 false
   br i1 %or.cond, label %26, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %26, %149, %4, %147

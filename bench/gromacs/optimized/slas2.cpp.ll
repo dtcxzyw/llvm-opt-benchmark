@@ -6,117 +6,106 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @slas2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = load float, ptr %0, align 4
-  %7 = load float, ptr %1, align 4
-  %8 = tail call noundef float @llvm.fabs.f32(float %7)
-  %9 = load float, ptr %2, align 4
-  %10 = insertelement <2 x float> poison, float %6, i64 0
-  %11 = insertelement <2 x float> %10, float %9, i64 1
-  %12 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %11)
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %14 = fcmp olt <2 x float> %12, %13
-  %15 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %16 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %17 = select <2 x i1> %14, <2 x float> %15, <2 x float> %16
-  %18 = extractelement <2 x float> %17, i64 0
-  %19 = fcmp olt float %18, 0x3810000000000000
-  br i1 %19, label %20, label %35
+  %7 = tail call noundef float @llvm.fabs.f32(float %6)
+  %8 = load float, ptr %1, align 4
+  %9 = tail call noundef float @llvm.fabs.f32(float %8)
+  %10 = load float, ptr %2, align 4
+  %11 = tail call noundef float @llvm.fabs.f32(float %10)
+  %12 = fcmp olt float %7, %11
+  %13 = select i1 %12, float %7, float %11
+  %14 = fcmp ogt float %7, %11
+  %15 = select i1 %14, float %7, float %11
+  %16 = fcmp olt float %13, 0x3810000000000000
+  br i1 %16, label %17, label %31
 
-20:                                               ; preds = %5
+17:                                               ; preds = %5
   store float 0.000000e+00, ptr %3, align 4
-  %21 = extractelement <2 x float> %17, i64 1
-  %22 = fcmp olt float %21, 0x3810000000000000
-  br i1 %22, label %90, label %23
+  %18 = fcmp olt float %15, 0x3810000000000000
+  br i1 %18, label %74, label %19
 
-23:                                               ; preds = %20
-  %24 = fcmp ogt float %21, %8
-  %25 = select i1 %24, float %21, float %8
-  %26 = fcmp olt float %21, %8
-  %27 = select i1 %26, float %21, float %8
-  %28 = fdiv float %27, %25
-  %29 = fmul float %28, %28
-  %30 = fpext float %25 to double
-  %31 = fpext float %29 to double
-  %32 = fadd double %31, 1.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %32)
-  %33 = fmul double %sqrt, %30
-  %34 = fptrunc double %33 to float
-  br label %90
+19:                                               ; preds = %17
+  %20 = fcmp ogt float %15, %9
+  %21 = select i1 %20, float %15, float %9
+  %22 = fcmp olt float %15, %9
+  %23 = select i1 %22, float %15, float %9
+  %24 = fdiv float %23, %21
+  %25 = fmul float %24, %24
+  %26 = fpext float %21 to double
+  %27 = fpext float %25 to double
+  %28 = fadd double %27, 1.000000e+00
+  %sqrt = tail call double @llvm.sqrt.f64(double %28)
+  %29 = fmul double %sqrt, %26
+  %30 = fptrunc double %29 to float
+  br label %74
 
-35:                                               ; preds = %5
-  %36 = extractelement <2 x float> %17, i64 1
-  %37 = fcmp olt float %8, %36
-  br i1 %37, label %38, label %58
+31:                                               ; preds = %5
+  %32 = fcmp olt float %9, %15
+  br i1 %32, label %33, label %46
 
-38:                                               ; preds = %35
-  %39 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %40 = fdiv <2 x float> %17, %39
-  %41 = fsub <2 x float> %17, %39
-  %42 = shufflevector <2 x float> %40, <2 x float> %41, <2 x i32> <i32 0, i32 3>
-  %43 = fdiv float %8, %36
-  %44 = fmul float %43, %43
-  %45 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
-  %46 = fadd <2 x float> %42, %45
-  %47 = fdiv <2 x float> %42, %45
-  %48 = shufflevector <2 x float> %46, <2 x float> %47, <2 x i32> <i32 0, i32 3>
-  %49 = insertelement <2 x float> poison, float %44, i64 0
-  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %48, <2 x float> %50)
-  %52 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %51)
-  %shift = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %53 = fadd <2 x float> %52, %shift
-  %54 = extractelement <2 x float> %53, i64 0
-  %55 = fdiv float 2.000000e+00, %54
-  %56 = fmul float %18, %55
-  store float %56, ptr %3, align 4
-  %57 = fdiv float %36, %55
-  br label %90
+33:                                               ; preds = %31
+  %34 = fdiv float %13, %15
+  %35 = fadd float %34, 1.000000e+00
+  %36 = fsub float %15, %13
+  %37 = fdiv float %36, %15
+  %38 = fdiv float %9, %15
+  %39 = fmul float %38, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %39)
+  %sqrt90 = tail call float @llvm.sqrt.f32(float %40)
+  %41 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %39)
+  %sqrt89 = tail call float @llvm.sqrt.f32(float %41)
+  %42 = fadd float %sqrt90, %sqrt89
+  %43 = fdiv float 2.000000e+00, %42
+  %44 = fmul float %13, %43
+  store float %44, ptr %3, align 4
+  %45 = fdiv float %15, %43
+  br label %74
 
-58:                                               ; preds = %35
-  %59 = fdiv float %36, %8
-  %60 = tail call noundef float @llvm.fabs.f32(float %59)
-  %61 = fcmp olt float %60, 0x3810000000000000
-  br i1 %61, label %62, label %65
+46:                                               ; preds = %31
+  %47 = fdiv float %15, %9
+  %48 = tail call noundef float @llvm.fabs.f32(float %47)
+  %49 = fcmp olt float %48, 0x3810000000000000
+  br i1 %49, label %50, label %53
 
-62:                                               ; preds = %58
-  %63 = fmul float %18, %36
-  %64 = fdiv float %63, %8
-  store float %64, ptr %3, align 4
-  br label %90
+50:                                               ; preds = %46
+  %51 = fmul float %13, %15
+  %52 = fdiv float %51, %9
+  store float %52, ptr %3, align 4
+  br label %74
 
-65:                                               ; preds = %58
-  %66 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %67 = fdiv <2 x float> %17, %66
-  %68 = fsub <2 x float> %17, %66
-  %69 = shufflevector <2 x float> %67, <2 x float> %68, <2 x i32> <i32 0, i32 3>
-  %70 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
-  %71 = fadd <2 x float> %69, %70
-  %72 = fdiv <2 x float> %69, %70
-  %73 = shufflevector <2 x float> %71, <2 x float> %72, <2 x i32> <i32 0, i32 3>
-  %74 = insertelement <2 x float> poison, float %59, i64 0
-  %75 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> zeroinitializer
-  %76 = fmul <2 x float> %75, %73
-  %77 = fmul <2 x float> %76, %76
-  %78 = fpext <2 x float> %77 to <2 x double>
-  %79 = fadd <2 x double> %78, <double 1.000000e+00, double 1.000000e+00>
-  %80 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %79)
-  %shift93 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %81 = fadd <2 x double> %80, %shift93
-  %82 = extractelement <2 x double> %81, i64 0
-  %83 = fdiv double 1.000000e+00, %82
-  %84 = fptrunc double %83 to float
-  %85 = fmul float %18, %84
-  %86 = fmul float %59, %85
-  %87 = fadd float %86, %86
-  store float %87, ptr %3, align 4
-  %88 = fadd float %84, %84
-  %89 = fdiv float %8, %88
-  br label %90
+53:                                               ; preds = %46
+  %54 = fdiv float %13, %15
+  %55 = fadd float %54, 1.000000e+00
+  %56 = fsub float %15, %13
+  %57 = fdiv float %56, %15
+  %58 = fmul float %47, %55
+  %59 = fmul float %47, %57
+  %60 = fmul float %58, %58
+  %61 = fpext float %60 to double
+  %62 = fadd double %61, 1.000000e+00
+  %sqrt92 = tail call double @llvm.sqrt.f64(double %62)
+  %63 = fmul float %59, %59
+  %64 = fpext float %63 to double
+  %65 = fadd double %64, 1.000000e+00
+  %sqrt91 = tail call double @llvm.sqrt.f64(double %65)
+  %66 = fadd double %sqrt92, %sqrt91
+  %67 = fdiv double 1.000000e+00, %66
+  %68 = fptrunc double %67 to float
+  %69 = fmul float %13, %68
+  %70 = fmul float %47, %69
+  %71 = fadd float %70, %70
+  store float %71, ptr %3, align 4
+  %72 = fadd float %68, %68
+  %73 = fdiv float %9, %72
+  br label %74
 
-90:                                               ; preds = %20, %38, %65, %62, %23
-  %.sink = phi float [ %57, %38 ], [ %89, %65 ], [ %8, %62 ], [ %34, %23 ], [ %8, %20 ]
+74:                                               ; preds = %17, %33, %53, %50, %19
+  %.sink = phi float [ %45, %33 ], [ %73, %53 ], [ %9, %50 ], [ %30, %19 ], [ %9, %17 ]
   store float %.sink, ptr %4, align 4
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #1
@@ -125,16 +114,7 @@ declare float @llvm.fabs.f32(float) #1
 declare double @llvm.sqrt.f64(double) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
+declare float @llvm.sqrt.f32(float) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

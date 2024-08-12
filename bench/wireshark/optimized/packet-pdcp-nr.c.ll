@@ -870,7 +870,7 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 define hidden void @set_pdcp_nr_security_algorithms(i16 noundef zeroext %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @global_pdcp_ignore_sec, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %38
+  br i1 %.not, label %4, label %40
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @pdcp_security_hash, align 8
@@ -886,47 +886,50 @@ define hidden void @set_pdcp_nr_security_algorithms(i16 noundef zeroext %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load ptr, ptr @pdcp_security_hash, align 8
   %14 = tail call ptr @wmem_map_insert(ptr noundef %13, ptr noundef %7, ptr noundef %12) #13
-  br label %29
+  br label %31
 
 15:                                               ; preds = %4
   %16 = load i32, ptr %8, align 4
   %17 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %8, i64 12
-  %19 = getelementptr inbounds i8, ptr %8, i64 24
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
-  %21 = load <2 x i32>, ptr %18, align 4
-  store <2 x i32> %21, ptr %19, align 4
-  %22 = load i32, ptr %1, align 4
-  store i32 %22, ptr %8, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 12
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %18, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %8, i64 28
+  store i32 %22, ptr %23, align 4
+  %24 = load i32, ptr %1, align 4
+  store i32 %24, ptr %8, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 12
   %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %20, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 0, ptr %28, align 4
-  br label %29
+  store i32 %26, ptr %18, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %21, align 4
+  %29 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 0, ptr %30, align 4
+  br label %31
 
-29:                                               ; preds = %15, %10
+31:                                               ; preds = %15, %10
   %.0 = phi ptr [ %12, %10 ], [ %8, %15 ]
-  %30 = tail call ptr @wmem_file_scope() #13
-  %31 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 32) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %31, ptr noundef nonnull align 4 dereferenceable(32) %.0, i64 32, i1 false)
-  %32 = load ptr, ptr @pdcp_security_result_hash, align 8
-  %33 = load i32, ptr %.0, align 4
-  %34 = tail call ptr @wmem_file_scope() #13
-  %35 = tail call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 8) #13
-  store i32 %33, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
-  store i16 %0, ptr %36, align 4
-  %37 = tail call ptr @wmem_map_insert(ptr noundef %32, ptr noundef nonnull %35, ptr noundef %31) #13
-  br label %38
+  %32 = tail call ptr @wmem_file_scope() #13
+  %33 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 32) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull align 4 dereferenceable(32) %.0, i64 32, i1 false)
+  %34 = load ptr, ptr @pdcp_security_result_hash, align 8
+  %35 = load i32, ptr %.0, align 4
+  %36 = tail call ptr @wmem_file_scope() #13
+  %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 8) #13
+  store i32 %35, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  store i16 %0, ptr %38, align 4
+  %39 = tail call ptr @wmem_map_insert(ptr noundef %34, ptr noundef nonnull %37, ptr noundef %33) #13
+  br label %40
 
-38:                                               ; preds = %2, %29
+40:                                               ; preds = %2, %31
   ret void
 }
 
@@ -942,19 +945,23 @@ define hidden void @set_pdcp_nr_security_algorithms_failed(i16 noundef zeroext %
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @wmem_map_lookup(ptr noundef %2, ptr noundef %4) #13
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %5, i64 20
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
-  %11 = load <2 x i32>, ptr %9, align 4
-  store <2 x i32> %11, ptr %10, align 4
-  br label %12
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %10, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 28
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %13, ptr %14, align 4
+  br label %15
 
-12:                                               ; preds = %6, %1
+15:                                               ; preds = %6, %1
   ret void
 }
 

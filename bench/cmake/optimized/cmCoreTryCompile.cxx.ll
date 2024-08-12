@@ -14866,6 +14866,9 @@ define linkonce_odr dso_local void @_ZZN16cmArgumentParserIN16cmCoreTryCompile9A
   %3 = alloca %"class.std::function.690", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
+  %.unpack = load i64, ptr %0, align 8
+  %.elt5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.unpack6 = load i64, ptr %.elt5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -14873,55 +14876,56 @@ define linkonce_odr dso_local void @_ZZN16cmArgumentParserIN16cmCoreTryCompile9A
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr %5, ptr %9, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load <2 x i64>, ptr %0, align 8
-  store <2 x i64> %10, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %.unpack, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.unpack6, ptr %.sroa.3.0..sroa_idx, align 16
   store ptr %9, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEZZN16cmArgumentParserIN16cmCoreTryCompile9ArgumentsEE4BindEN2cm18static_string_viewEMS9_FS1_S5_ENS0_13ExpectAtLeastEENKUlRNS0_8InstanceEE_clESH_EUlS5_E_E9_M_invokeERKSt9_Any_dataOS5_, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEZZN16cmArgumentParserIN16cmCoreTryCompile9ArgumentsEE4BindEN2cm18static_string_viewEMS9_FS1_S5_ENS0_13ExpectAtLeastEENKUlRNS0_8InstanceEE_clESH_EUlS5_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load i64, ptr %11, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.0.copyload = load i64, ptr %10, align 8
   invoke void @_ZN14ArgumentParser8Instance4BindESt8functionIFNS_8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEENS_13ExpectAtLeastE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull %3, i64 %.sroa.0.0.copyload)
-          to label %12 unwind label %19
+          to label %11 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %14
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %13
 
-14:                                               ; preds = %12
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %16
+13:                                               ; preds = %11
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #22
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
-_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit: ; preds = %12, %14
+_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit: ; preds = %11, %13
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %6, align 8
-  %.not.i.i7 = icmp eq ptr %21, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8, label %22
+  %20 = load ptr, ptr %6, align 8
+  %.not.i.i7 = icmp eq ptr %20, null
+  br i1 %.not.i.i7, label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8, label %21
 
-22:                                               ; preds = %19
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8 unwind label %24
+21:                                               ; preds = %18
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8 unwind label %23
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #22
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #22
   unreachable
 
-_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8: ; preds = %19, %22
-  resume { ptr, i32 } %20
+_ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit8: ; preds = %18, %21
+  resume { ptr, i32 } %19
 }
 
 declare void @_ZN14ArgumentParser8Instance4BindESt8functionIFNS_8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEENS_13ExpectAtLeastE(ptr noundef nonnull align 8 dereferenceable(97), ptr noundef, i64) local_unnamed_addr #0

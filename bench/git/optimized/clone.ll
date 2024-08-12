@@ -329,7 +329,7 @@ define dso_local i32 @cmd_clone(i32 noundef %argc, ptr noundef %argv, ptr nounde
 entry:
   %oid.i366 = alloca %struct.object_id, align 4
   %lock_file.i = alloca %struct.lock_file, align 8
-  %opts.i = alloca %struct.unpack_trees_options, align 16
+  %opts.i = alloca %struct.unpack_trees_options, align 8
   %t.i = alloca %struct.tree_desc, align 8
   %cmd.i367 = alloca %struct.child_process, align 8
   %cmd.i353 = alloca %struct.child_process, align 8
@@ -2683,10 +2683,16 @@ if.end18.i:                                       ; preds = %if.else.i375, %do.b
   %270 = load ptr, ptr @the_repository, align 8
   %call19.i = call i32 @repo_hold_locked_index(ptr noundef %270, ptr noundef nonnull %lock_file.i, i32 noundef 1) #17
   %271 = getelementptr inbounds i8, ptr %opts.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1120) %271, i8 0, i64 1104, i1 false)
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 1>, ptr %opts.i, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %271, i8 0, i64 1104, i1 false)
+  %update.i = getelementptr inbounds i8, ptr %opts.i, i64 4
+  store i32 1, ptr %update.i, align 4
+  store i32 1, ptr %opts.i, align 8
+  %clone.i = getelementptr inbounds i8, ptr %opts.i, i64 12
+  store i32 1, ptr %clone.i, align 4
+  %preserve_ignored.i = getelementptr inbounds i8, ptr %opts.i, i64 8
+  store i32 0, ptr %preserve_ignored.i, align 8
   %fn.i = getelementptr inbounds i8, ptr %opts.i, i64 96
-  store ptr @oneway_merge, ptr %fn.i, align 16
+  store ptr @oneway_merge, ptr %fn.i, align 8
   %272 = load i32, ptr @option_verbosity, align 4
   %cmp.i378 = icmp sgt i32 %272, -1
   %conv.i379 = zext i1 %cmp.i378 to i32
@@ -2695,7 +2701,7 @@ if.end18.i:                                       ; preds = %if.else.i375, %do.b
   %src_index.i = getelementptr inbounds i8, ptr %opts.i, i64 136
   store ptr @the_index, ptr %src_index.i, align 8
   %dst_index.i = getelementptr inbounds i8, ptr %opts.i, i64 128
-  store ptr @the_index, ptr %dst_index.i, align 16
+  store ptr @the_index, ptr %dst_index.i, align 8
   %meta.i = getelementptr inbounds i8, ptr %opts.i, i64 144
   call void @init_checkout_metadata(ptr noundef nonnull %meta.i, ptr noundef %head.0.i377, ptr noundef nonnull %oid.i366, ptr noundef null) #17
   %call20.i380 = call ptr @parse_tree_indirect(ptr noundef nonnull %oid.i366) #17

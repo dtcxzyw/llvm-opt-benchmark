@@ -335,6 +335,7 @@ for.body180.lr.ph:                                ; preds = %for.end174
   %nsamples.i = getelementptr inbounds i8, ptr %stats, i64 524288
   %sum.i = getelementptr inbounds i8, ptr %stats, i64 524296
   %sos.i124 = getelementptr inbounds i8, ptr %stats, i64 524304
+  %mean.i = getelementptr inbounds i8, ptr %stats, i64 524320
   %variance.i = getelementptr inbounds i8, ptr %stats, i64 524312
   %stddev.i = getelementptr inbounds i8, ptr %stats, i64 524328
   %wide.trip.count262 = zext i32 %0 to i64
@@ -642,18 +643,15 @@ if.then237:                                       ; preds = %for.end234
   %call239 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %outfilename, i64 noundef 1024, ptr noundef nonnull @.str.13, i32 noundef %frame_number, i32 noundef %112) #10
   %113 = load double, ptr %sum.i, align 8
   %conv.i190 = uitofp i32 %.pr272 to double
+  %div.i = fdiv double %113, %conv.i190
+  store double %div.i, ptr %mean.i, align 8
   %114 = load double, ptr %sos.i124, align 8
   %mul.i192 = fmul double %113, %113
   %div5.i = fdiv double %mul.i192, %conv.i190
   %sub.i = fsub double %114, %div5.i
-  %115 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %116 = insertelement <2 x double> %115, double %113, i64 1
-  %117 = insertelement <2 x double> poison, double %conv.i190, i64 0
-  %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> zeroinitializer
-  %119 = fdiv <2 x double> %116, %118
-  store <2 x double> %119, ptr %variance.i, align 8
-  %120 = extractelement <2 x double> %119, i64 0
-  %call.i = call double @sqrt(double noundef %120) #10
+  %div8.i = fdiv double %sub.i, %conv.i190
+  store double %div8.i, ptr %variance.i, align 8
+  %call.i = call double @sqrt(double noundef %div8.i) #10
   store double %call.i, ptr %stddev.i, align 8
   call fastcc void @dump_stats(ptr noundef nonnull %stats, ptr noundef nonnull %outfilename)
   br label %for.inc243
@@ -770,18 +768,15 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524296), align 8
   %conv.i = uitofp i32 %0 to double
+  %div.i = fdiv double %1, %conv.i
+  store double %div.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524320), align 8
   %2 = load double, ptr getelementptr inbounds (i8, ptr @all_, i64 524304), align 8
   %mul.i = fmul double %1, %1
   %div5.i = fdiv double %mul.i, %conv.i
   %sub.i = fsub double %2, %div5.i
-  %3 = insertelement <2 x double> poison, double %sub.i, i64 0
-  %4 = insertelement <2 x double> %3, double %1, i64 1
-  %5 = insertelement <2 x double> poison, double %conv.i, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x double> %4, %6
-  store <2 x double> %7, ptr getelementptr inbounds (i8, ptr @all_, i64 524312), align 8
-  %8 = extractelement <2 x double> %7, i64 0
-  %call.i = tail call double @sqrt(double noundef %8) #10
+  %div8.i = fdiv double %sub.i, %conv.i
+  store double %div8.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524312), align 8
+  %call.i = tail call double @sqrt(double noundef %div8.i) #10
   store double %call.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524328), align 8
   tail call fastcc void @dump_stats(ptr noundef nonnull @all_, ptr noundef nonnull @.str.14)
   br label %if.end

@@ -10609,8 +10609,11 @@ _ZSt8_DestroyIPN2rc10ShrinkableIcEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %57, %53
   %59 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %43, ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = load <2 x ptr>, ptr %27, align 8
-  store <2 x ptr> %61, ptr %60, align 8
+  %61 = load ptr, ptr %27, align 8
+  store ptr %61, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = load ptr, ptr %21, align 8
+  store ptr %63, ptr %62, align 8
   store i8 1, ptr %59, align 8
   br label %_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EED2Ev.exit
 

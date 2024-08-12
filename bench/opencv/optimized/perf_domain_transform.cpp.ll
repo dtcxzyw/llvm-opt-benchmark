@@ -665,7 +665,13 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit: ; preds =
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %16, ptr %17, align 8, !noalias !16
-  store <4 x i32> <i32 0, i32 16, i32 5, i32 21>, ptr %14, align 4, !noalias !16
+  store i32 0, ptr %14, align 4, !noalias !16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 16, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 5, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 12
+  store i32 21, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !16
   %18 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %16, ptr %18, align 8, !noalias !16
   store ptr %12, ptr %9, align 8, !alias.scope !16
@@ -675,7 +681,7 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %20 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc unwind label %398
+          to label %.noexc unwind label %403
 
 .noexc:                                           ; preds = %_ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEE, i64 16), ptr %20, align 8, !noalias !26
@@ -695,7 +701,13 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit: ; preds =
   %25 = getelementptr inbounds i8, ptr %22, i64 20
   %26 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %25, ptr %26, align 8, !noalias !26
-  store <4 x i32> <i32 0, i32 16, i32 24, i32 5>, ptr %22, align 4, !noalias !26
+  store i32 0, ptr %22, align 4, !noalias !26
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 16, ptr %.sroa.2.0..sroa_idx.i9, align 4, !noalias !26
+  %.sroa.3.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 24, ptr %.sroa.3.0..sroa_idx.i10, align 4, !noalias !26
+  %.sroa.4.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %22, i64 12
+  store i32 5, ptr %.sroa.4.0..sroa_idx.i11, align 4, !noalias !26
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
   store i32 21, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !26
   %27 = getelementptr inbounds i8, ptr %20, i64 16
@@ -709,7 +721,7 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %29 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc15 unwind label %400
+          to label %.noexc15 unwind label %405
 
 .noexc15:                                         ; preds = %24
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEE, i64 16), ptr %29, align 8, !noalias !36
@@ -742,7 +754,7 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   store ptr %12, ptr %8, align 8, !alias.scope !37
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc18 unwind label %402
+          to label %.noexc18 unwind label %407
 
 .noexc18:                                         ; preds = %33, %.noexc18
   %.0.i.i.i.i.i.i = phi ptr [ %38, %.noexc18 ], [ %19, %33 ]
@@ -773,7 +785,7 @@ _ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
 
 45:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i unwind label %68
+          to label %.noexc.i.i unwind label %70
 
 .noexc.i.i:                                       ; preds = %45, %.noexc.i.i
   %.0.i.i.i.i12.i.i = phi ptr [ %46, %.noexc.i.i ], [ %28, %45 ]
@@ -806,61 +818,65 @@ _ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
   %55 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 %.sroa.0.0.copyload, ptr %55, align 8, !alias.scope !37
   %56 = getelementptr inbounds i8, ptr %8, i64 48
-  store <2 x double> <double 1.000000e+01, double 8.000000e+01>, ptr %56, align 8, !alias.scope !37
-  %57 = getelementptr inbounds i8, ptr %8, i64 64
-  store <2 x double> <double 3.000000e+01, double 5.000000e+01>, ptr %57, align 8, !alias.scope !37
-  %58 = getelementptr inbounds i8, ptr %8, i64 80
+  store double 1.000000e+01, ptr %56, align 8, !alias.scope !37
+  %57 = getelementptr inbounds i8, ptr %8, i64 56
+  store double 8.000000e+01, ptr %57, align 8, !alias.scope !37
+  %58 = getelementptr inbounds i8, ptr %8, i64 64
+  store double 3.000000e+01, ptr %58, align 8, !alias.scope !37
+  %59 = getelementptr inbounds i8, ptr %8, i64 72
+  store double 5.000000e+01, ptr %59, align 8, !alias.scope !37
+  %60 = getelementptr inbounds i8, ptr %8, i64 80
   %.val.i.i.i14.i.i = load ptr, ptr %11, align 8, !noalias !37
-  store ptr %.val.i.i.i14.i.i, ptr %58, align 8, !alias.scope !37
+  store ptr %.val.i.i.i14.i.i, ptr %60, align 8, !alias.scope !37
   %.not.i.i.i15.i.i = icmp eq ptr %.val.i.i.i14.i.i, null
-  br i1 %.not.i.i.i15.i.i, label %66, label %59
+  br i1 %.not.i.i.i15.i.i, label %68, label %61
 
-59:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i
+61:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc18.i.i unwind label %70
+          to label %.noexc18.i.i unwind label %72
 
-.noexc18.i.i:                                     ; preds = %59, %.noexc18.i.i
-  %.0.i.i.i.i16.i.i = phi ptr [ %60, %.noexc18.i.i ], [ %37, %59 ]
-  %60 = load ptr, ptr %.0.i.i.i.i16.i.i, align 8
-  %.not.i.i.i.i17.i.i = icmp eq ptr %60, %37
-  br i1 %.not.i.i.i.i17.i.i, label %61, label %.noexc18.i.i, !llvm.loop !40
+.noexc18.i.i:                                     ; preds = %61, %.noexc18.i.i
+  %.0.i.i.i.i16.i.i = phi ptr [ %62, %.noexc18.i.i ], [ %37, %61 ]
+  %62 = load ptr, ptr %.0.i.i.i.i16.i.i, align 8
+  %.not.i.i.i.i17.i.i = icmp eq ptr %62, %37
+  br i1 %.not.i.i.i.i17.i.i, label %63, label %.noexc18.i.i, !llvm.loop !40
 
-61:                                               ; preds = %.noexc18.i.i
-  %62 = getelementptr inbounds i8, ptr %8, i64 88
-  store ptr %62, ptr %.0.i.i.i.i16.i.i, align 8
-  store ptr %37, ptr %62, align 8, !alias.scope !37
+63:                                               ; preds = %.noexc18.i.i
+  %64 = getelementptr inbounds i8, ptr %8, i64 88
+  store ptr %64, ptr %.0.i.i.i.i16.i.i, align 8
+  store ptr %37, ptr %64, align 8, !alias.scope !37
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit unwind label %63
+          to label %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit unwind label %65
 
-63:                                               ; preds = %61
-  %64 = landingpad { ptr, i32 }
+65:                                               ; preds = %63
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #26
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #26
   unreachable
 
-66:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i
-  %67 = getelementptr inbounds i8, ptr %8, i64 88
-  store ptr %67, ptr %67, align 8, !alias.scope !37
+68:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i
+  %69 = getelementptr inbounds i8, ptr %8, i64 88
+  store ptr %69, ptr %69, align 8, !alias.scope !37
   br label %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit
 
-68:                                               ; preds = %45
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %72
-
-70:                                               ; preds = %59
+70:                                               ; preds = %45
   %71 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #25
-  br label %72
+  br label %74
 
-72:                                               ; preds = %70, %68
-  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
+72:                                               ; preds = %61
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #25
+  br label %74
+
+74:                                               ; preds = %72, %70
+  %.pn.i.i = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   br label %.body19
 
-_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit: ; preds = %66, %61
+_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit: ; preds = %68, %63
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -868,864 +884,873 @@ _ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %73 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
-          to label %.noexc29 unwind label %404
+  %75 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
+          to label %.noexc29 unwind label %409
 
 .noexc29:                                         ; preds = %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit
   %.val.i.i.i.i = load ptr, ptr %8, align 8, !noalias !41
   store ptr %.val.i.i.i.i, ptr %2, align 8, !noalias !41
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %81, label %74
+  br i1 %.not.i.i.i.i, label %83, label %76
 
-74:                                               ; preds = %.noexc29
+76:                                               ; preds = %.noexc29
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i unwind label %326
+          to label %.noexc.i unwind label %331
 
-.noexc.i:                                         ; preds = %74, %.noexc.i
-  %.0.i.i.i.i.i = phi ptr [ %75, %.noexc.i ], [ %40, %74 ]
-  %75 = load ptr, ptr %.0.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i21 = icmp eq ptr %75, %40
-  br i1 %.not.i.i.i.i.i21, label %76, label %.noexc.i, !llvm.loop !40
+.noexc.i:                                         ; preds = %76, %.noexc.i
+  %.0.i.i.i.i.i = phi ptr [ %77, %.noexc.i ], [ %40, %76 ]
+  %77 = load ptr, ptr %.0.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i21 = icmp eq ptr %77, %40
+  br i1 %.not.i.i.i.i.i21, label %78, label %.noexc.i, !llvm.loop !40
 
-76:                                               ; preds = %.noexc.i
-  %77 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %77, ptr %.0.i.i.i.i.i, align 8
-  store ptr %40, ptr %77, align 8, !noalias !41
+78:                                               ; preds = %.noexc.i
+  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %79, ptr %.0.i.i.i.i.i, align 8
+  store ptr %40, ptr %79, align 8, !noalias !41
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i unwind label %78
+          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i unwind label %80
 
-78:                                               ; preds = %76
-  %79 = landingpad { ptr, i32 }
+80:                                               ; preds = %78
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #26
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #26
   unreachable
 
-81:                                               ; preds = %.noexc29
-  %82 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %82, ptr %82, align 8, !noalias !41
+83:                                               ; preds = %.noexc29
+  %84 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %84, ptr %84, align 8, !noalias !41
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i: ; preds = %81, %76
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i: ; preds = %83, %78
   %.val.i.i.i21.i = load ptr, ptr %44, align 8, !noalias !41
   store ptr %.val.i.i.i21.i, ptr %3, align 8, !noalias !41
   %.not.i.i.i22.i = icmp eq ptr %.val.i.i.i21.i, null
-  br i1 %.not.i.i.i22.i, label %91, label %83
+  br i1 %.not.i.i.i22.i, label %93, label %85
 
-83:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i
-  %84 = getelementptr inbounds i8, ptr %8, i64 24
+85:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i
+  %86 = getelementptr inbounds i8, ptr %8, i64 24
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc25.i unwind label %328
+          to label %.noexc25.i unwind label %333
 
-.noexc25.i:                                       ; preds = %83, %.noexc25.i
-  %.0.i.i.i.i23.i = phi ptr [ %85, %.noexc25.i ], [ %84, %83 ]
-  %85 = load ptr, ptr %.0.i.i.i.i23.i, align 8
-  %.not.i.i.i.i24.i = icmp eq ptr %85, %84
-  br i1 %.not.i.i.i.i24.i, label %86, label %.noexc25.i, !llvm.loop !40
+.noexc25.i:                                       ; preds = %85, %.noexc25.i
+  %.0.i.i.i.i23.i = phi ptr [ %87, %.noexc25.i ], [ %86, %85 ]
+  %87 = load ptr, ptr %.0.i.i.i.i23.i, align 8
+  %.not.i.i.i.i24.i = icmp eq ptr %87, %86
+  br i1 %.not.i.i.i.i24.i, label %88, label %.noexc25.i, !llvm.loop !40
 
-86:                                               ; preds = %.noexc25.i
-  %87 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %87, ptr %.0.i.i.i.i23.i, align 8
-  store ptr %84, ptr %87, align 8, !noalias !41
+88:                                               ; preds = %.noexc25.i
+  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %89, ptr %.0.i.i.i.i23.i, align 8
+  store ptr %86, ptr %89, align 8, !noalias !41
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i unwind label %88
+          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i unwind label %90
 
-88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+90:                                               ; preds = %88
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #26
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #26
   unreachable
 
-91:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %92, ptr %92, align 8, !noalias !41
+93:                                               ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i
+  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %94, ptr %94, align 8, !noalias !41
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i: ; preds = %91, %86
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i: ; preds = %93, %88
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %93 = load <2 x i64>, ptr %54, align 8, !noalias !47
+  %95 = load i64, ptr %54, align 8, !noalias !47
+  %96 = load i64, ptr %55, align 8, !noalias !47
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %94 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc26.i unwind label %330
+  %97 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+          to label %.noexc26.i unwind label %335
 
 .noexc26.i:                                       ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN2cv5Size_IiEEEE, i64 16), ptr %94, align 8, !noalias !54
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false), !noalias !54
-  %96 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %98 unwind label %.body.i.i.i.i, !noalias !54
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN2cv5Size_IiEEEE, i64 16), ptr %97, align 8, !noalias !54
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false), !noalias !54
+  %99 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+          to label %101 unwind label %.body.i.i.i.i, !noalias !54
 
 .body.i.i.i.i:                                    ; preds = %.noexc26.i
-  %97 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %94) #29, !noalias !54
+  call void @_ZdlPv(ptr noundef nonnull %97) #29, !noalias !54
   br label %.body.i
 
-98:                                               ; preds = %.noexc26.i
-  store ptr %96, ptr %95, align 8, !noalias !54
-  %99 = getelementptr inbounds i8, ptr %96, i64 16
-  %100 = getelementptr inbounds i8, ptr %94, i64 24
-  store ptr %99, ptr %100, align 8, !noalias !54
-  store <2 x i64> %93, ptr %96, align 4, !noalias !54
-  %101 = getelementptr inbounds i8, ptr %94, i64 16
-  store ptr %99, ptr %101, align 8, !noalias !54
-  store ptr %94, ptr %4, align 8, !alias.scope !54, !noalias !41
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %102, ptr %102, align 8, !alias.scope !54, !noalias !41
+101:                                              ; preds = %.noexc26.i
+  store ptr %99, ptr %98, align 8, !noalias !54
+  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  %103 = getelementptr inbounds i8, ptr %97, i64 24
+  store ptr %102, ptr %103, align 8, !noalias !54
+  store i64 %95, ptr %99, align 4, !noalias !54
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %99, i64 8
+  store i64 %96, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !54
+  %104 = getelementptr inbounds i8, ptr %97, i64 16
+  store ptr %102, ptr %104, align 8, !noalias !54
+  store ptr %97, ptr %4, align 8, !alias.scope !54, !noalias !41
+  %105 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %105, ptr %105, align 8, !alias.scope !54, !noalias !41
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %103 = load <2 x double>, ptr %56, align 8, !noalias !58
+  %106 = load double, ptr %56, align 8, !noalias !58
+  %107 = load double, ptr %57, align 8, !noalias !58
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %104 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc29.i unwind label %332
+  %108 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+          to label %.noexc29.i unwind label %337
 
-.noexc29.i:                                       ; preds = %98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIdEE, i64 16), ptr %104, align 8, !noalias !65
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false), !noalias !65
-  %106 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %108 unwind label %.body.i.i.i27.i, !noalias !65
+.noexc29.i:                                       ; preds = %101
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIdEE, i64 16), ptr %108, align 8, !noalias !65
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false), !noalias !65
+  %110 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+          to label %112 unwind label %.body.i.i.i27.i, !noalias !65
 
 .body.i.i.i27.i:                                  ; preds = %.noexc29.i
-  %107 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %104) #29, !noalias !65
+  call void @_ZdlPv(ptr noundef nonnull %108) #29, !noalias !65
   br label %.body30.i
 
-108:                                              ; preds = %.noexc29.i
-  store ptr %106, ptr %105, align 8, !noalias !65
-  %109 = getelementptr inbounds i8, ptr %106, i64 16
-  %110 = getelementptr inbounds i8, ptr %104, i64 24
-  store ptr %109, ptr %110, align 8, !noalias !65
-  store <2 x double> %103, ptr %106, align 8, !noalias !65
-  %111 = getelementptr inbounds i8, ptr %104, i64 16
-  store ptr %109, ptr %111, align 8, !noalias !65
-  store ptr %104, ptr %5, align 8, !alias.scope !65, !noalias !41
-  %112 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %112, ptr %112, align 8, !alias.scope !65, !noalias !41
+112:                                              ; preds = %.noexc29.i
+  store ptr %110, ptr %109, align 8, !noalias !65
+  %113 = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = getelementptr inbounds i8, ptr %108, i64 24
+  store ptr %113, ptr %114, align 8, !noalias !65
+  store double %106, ptr %110, align 8, !noalias !65
+  %.sroa.2.0..sroa_idx.i28.i = getelementptr inbounds i8, ptr %110, i64 8
+  store double %107, ptr %.sroa.2.0..sroa_idx.i28.i, align 8, !noalias !65
+  %115 = getelementptr inbounds i8, ptr %108, i64 16
+  store ptr %113, ptr %115, align 8, !noalias !65
+  store ptr %108, ptr %5, align 8, !alias.scope !65, !noalias !41
+  %116 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %116, ptr %116, align 8, !alias.scope !65, !noalias !41
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %113 = load <2 x double>, ptr %57, align 8, !noalias !69
+  %117 = load double, ptr %58, align 8, !noalias !69
+  %118 = load double, ptr %59, align 8, !noalias !69
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %114 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc34.i unwind label %334
+  %119 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
+          to label %.noexc34.i unwind label %339
 
-.noexc34.i:                                       ; preds = %108
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIdEE, i64 16), ptr %114, align 8, !noalias !76
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false), !noalias !76
-  %116 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %118 unwind label %.body.i.i.i32.i, !noalias !76
+.noexc34.i:                                       ; preds = %112
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIdEE, i64 16), ptr %119, align 8, !noalias !76
+  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false), !noalias !76
+  %121 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+          to label %123 unwind label %.body.i.i.i32.i, !noalias !76
 
 .body.i.i.i32.i:                                  ; preds = %.noexc34.i
-  %117 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %114) #29, !noalias !76
+  call void @_ZdlPv(ptr noundef nonnull %119) #29, !noalias !76
   br label %.body35.i
 
-118:                                              ; preds = %.noexc34.i
-  store ptr %116, ptr %115, align 8, !noalias !76
-  %119 = getelementptr inbounds i8, ptr %116, i64 16
-  %120 = getelementptr inbounds i8, ptr %114, i64 24
-  store ptr %119, ptr %120, align 8, !noalias !76
-  store <2 x double> %113, ptr %116, align 8, !noalias !76
-  %121 = getelementptr inbounds i8, ptr %114, i64 16
-  store ptr %119, ptr %121, align 8, !noalias !76
-  store ptr %114, ptr %6, align 8, !alias.scope !76, !noalias !41
-  %122 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %122, ptr %122, align 8, !alias.scope !76, !noalias !41
-  %.val.i.i.i38.i = load ptr, ptr %58, align 8, !noalias !41
+123:                                              ; preds = %.noexc34.i
+  store ptr %121, ptr %120, align 8, !noalias !76
+  %124 = getelementptr inbounds i8, ptr %121, i64 16
+  %125 = getelementptr inbounds i8, ptr %119, i64 24
+  store ptr %124, ptr %125, align 8, !noalias !76
+  store double %117, ptr %121, align 8, !noalias !76
+  %.sroa.2.0..sroa_idx.i33.i = getelementptr inbounds i8, ptr %121, i64 8
+  store double %118, ptr %.sroa.2.0..sroa_idx.i33.i, align 8, !noalias !76
+  %126 = getelementptr inbounds i8, ptr %119, i64 16
+  store ptr %124, ptr %126, align 8, !noalias !76
+  store ptr %119, ptr %6, align 8, !alias.scope !76, !noalias !41
+  %127 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %127, ptr %127, align 8, !alias.scope !76, !noalias !41
+  %.val.i.i.i38.i = load ptr, ptr %60, align 8, !noalias !41
   store ptr %.val.i.i.i38.i, ptr %7, align 8, !noalias !41
   %.not.i.i.i39.i = icmp eq ptr %.val.i.i.i38.i, null
-  br i1 %.not.i.i.i39.i, label %131, label %123
+  br i1 %.not.i.i.i39.i, label %136, label %128
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %8, i64 88
+128:                                              ; preds = %123
+  %129 = getelementptr inbounds i8, ptr %8, i64 88
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc42.i unwind label %336
+          to label %.noexc42.i unwind label %341
 
-.noexc42.i:                                       ; preds = %123, %.noexc42.i
-  %.0.i.i.i.i40.i = phi ptr [ %125, %.noexc42.i ], [ %124, %123 ]
-  %125 = load ptr, ptr %.0.i.i.i.i40.i, align 8
-  %.not.i.i.i.i41.i = icmp eq ptr %125, %124
-  br i1 %.not.i.i.i.i41.i, label %126, label %.noexc42.i, !llvm.loop !40
+.noexc42.i:                                       ; preds = %128, %.noexc42.i
+  %.0.i.i.i.i40.i = phi ptr [ %130, %.noexc42.i ], [ %129, %128 ]
+  %130 = load ptr, ptr %.0.i.i.i.i40.i, align 8
+  %.not.i.i.i.i41.i = icmp eq ptr %130, %129
+  br i1 %.not.i.i.i.i41.i, label %131, label %.noexc42.i, !llvm.loop !40
 
-126:                                              ; preds = %.noexc42.i
-  %127 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %127, ptr %.0.i.i.i.i40.i, align 8
-  store ptr %124, ptr %127, align 8, !noalias !41
+131:                                              ; preds = %.noexc42.i
+  %132 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %132, ptr %.0.i.i.i.i40.i, align 8
+  store ptr %129, ptr %132, align 8, !noalias !41
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i unwind label %128
+          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i unwind label %133
 
-128:                                              ; preds = %126
-  %129 = landingpad { ptr, i32 }
+133:                                              ; preds = %131
+  %134 = landingpad { ptr, i32 }
           catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #26
+  %135 = extractvalue { ptr, i32 } %134, 0
+  call void @__clang_call_terminate(ptr %135) #26
   unreachable
 
-131:                                              ; preds = %118
-  %132 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %132, ptr %132, align 8, !noalias !41
+136:                                              ; preds = %123
+  %137 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %137, ptr %137, align 8, !noalias !41
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i: ; preds = %131, %126
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator6IN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeENS4_13SourceMatTypeEN2cv5Size_IiEEddNS4_7DTFModeEEE, i64 16), ptr %73, align 8
-  %133 = getelementptr inbounds i8, ptr %73, i64 8
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i: ; preds = %136, %131
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator6IN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeENS4_13SourceMatTypeEN2cv5Size_IiEEddNS4_7DTFModeEEE, i64 16), ptr %75, align 8
+  %138 = getelementptr inbounds i8, ptr %75, i64 8
   %.val.i.i.i.i.i22 = load ptr, ptr %2, align 8, !noalias !41
-  store ptr %.val.i.i.i.i.i22, ptr %133, align 8
+  store ptr %.val.i.i.i.i.i22, ptr %138, align 8
   %.not.i.i.i.i43.i = icmp eq ptr %.val.i.i.i.i.i22, null
-  br i1 %.not.i.i.i.i43.i, label %142, label %134
+  br i1 %.not.i.i.i.i43.i, label %147, label %139
 
-134:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i
-  %135 = getelementptr inbounds i8, ptr %2, i64 8
+139:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i
+  %140 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i23 unwind label %338
+          to label %.noexc.i.i23 unwind label %343
 
-.noexc.i.i23:                                     ; preds = %134, %.noexc.i.i23
-  %.0.i.i.i.i.i.i24 = phi ptr [ %136, %.noexc.i.i23 ], [ %135, %134 ]
-  %136 = load ptr, ptr %.0.i.i.i.i.i.i24, align 8
-  %.not.i.i.i.i.i.i25 = icmp eq ptr %136, %135
-  br i1 %.not.i.i.i.i.i.i25, label %137, label %.noexc.i.i23, !llvm.loop !40
+.noexc.i.i23:                                     ; preds = %139, %.noexc.i.i23
+  %.0.i.i.i.i.i.i24 = phi ptr [ %141, %.noexc.i.i23 ], [ %140, %139 ]
+  %141 = load ptr, ptr %.0.i.i.i.i.i.i24, align 8
+  %.not.i.i.i.i.i.i25 = icmp eq ptr %141, %140
+  br i1 %.not.i.i.i.i.i.i25, label %142, label %.noexc.i.i23, !llvm.loop !40
 
-137:                                              ; preds = %.noexc.i.i23
-  %138 = getelementptr inbounds i8, ptr %73, i64 16
-  store ptr %138, ptr %.0.i.i.i.i.i.i24, align 8
-  store ptr %135, ptr %138, align 8
+142:                                              ; preds = %.noexc.i.i23
+  %143 = getelementptr inbounds i8, ptr %75, i64 16
+  store ptr %143, ptr %.0.i.i.i.i.i.i24, align 8
+  store ptr %140, ptr %143, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26 unwind label %139
+          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26 unwind label %144
 
-139:                                              ; preds = %137
-  %140 = landingpad { ptr, i32 }
+144:                                              ; preds = %142
+  %145 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #26
+  %146 = extractvalue { ptr, i32 } %145, 0
+  call void @__clang_call_terminate(ptr %146) #26
   unreachable
 
-142:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i
-  %143 = getelementptr inbounds i8, ptr %73, i64 16
-  store ptr %143, ptr %143, align 8
+147:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEEC2ERKS6_.exit.i
+  %148 = getelementptr inbounds i8, ptr %75, i64 16
+  store ptr %148, ptr %148, align 8
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26: ; preds = %142, %137
-  %144 = getelementptr inbounds i8, ptr %73, i64 24
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26: ; preds = %147, %142
+  %149 = getelementptr inbounds i8, ptr %75, i64 24
   %.val.i.i.i18.i.i = load ptr, ptr %3, align 8, !noalias !41
-  store ptr %.val.i.i.i18.i.i, ptr %144, align 8
+  store ptr %.val.i.i.i18.i.i, ptr %149, align 8
   %.not.i.i.i19.i.i = icmp eq ptr %.val.i.i.i18.i.i, null
-  br i1 %.not.i.i.i19.i.i, label %153, label %145
+  br i1 %.not.i.i.i19.i.i, label %158, label %150
 
-145:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26
-  %146 = getelementptr inbounds i8, ptr %3, i64 8
+150:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26
+  %151 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc22.i.i unwind label %199
+          to label %.noexc22.i.i unwind label %204
 
-.noexc22.i.i:                                     ; preds = %145, %.noexc22.i.i
-  %.0.i.i.i.i20.i.i = phi ptr [ %147, %.noexc22.i.i ], [ %146, %145 ]
-  %147 = load ptr, ptr %.0.i.i.i.i20.i.i, align 8
-  %.not.i.i.i.i21.i.i = icmp eq ptr %147, %146
-  br i1 %.not.i.i.i.i21.i.i, label %148, label %.noexc22.i.i, !llvm.loop !40
+.noexc22.i.i:                                     ; preds = %150, %.noexc22.i.i
+  %.0.i.i.i.i20.i.i = phi ptr [ %152, %.noexc22.i.i ], [ %151, %150 ]
+  %152 = load ptr, ptr %.0.i.i.i.i20.i.i, align 8
+  %.not.i.i.i.i21.i.i = icmp eq ptr %152, %151
+  br i1 %.not.i.i.i.i21.i.i, label %153, label %.noexc22.i.i, !llvm.loop !40
 
-148:                                              ; preds = %.noexc22.i.i
-  %149 = getelementptr inbounds i8, ptr %73, i64 32
-  store ptr %149, ptr %.0.i.i.i.i20.i.i, align 8
-  store ptr %146, ptr %149, align 8
+153:                                              ; preds = %.noexc22.i.i
+  %154 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr %154, ptr %.0.i.i.i.i20.i.i, align 8
+  store ptr %151, ptr %154, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27 unwind label %150
+          to label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27 unwind label %155
 
-150:                                              ; preds = %148
-  %151 = landingpad { ptr, i32 }
+155:                                              ; preds = %153
+  %156 = landingpad { ptr, i32 }
           catch ptr null
-  %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #26
+  %157 = extractvalue { ptr, i32 } %156, 0
+  call void @__clang_call_terminate(ptr %157) #26
   unreachable
 
-153:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26
-  %154 = getelementptr inbounds i8, ptr %73, i64 32
-  store ptr %154, ptr %154, align 8
+158:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEC2ERKS6_.exit.i.i26
+  %159 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr %159, ptr %159, align 8
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27: ; preds = %153, %148
-  %155 = getelementptr inbounds i8, ptr %73, i64 40
-  %156 = load ptr, ptr %4, align 8, !noalias !41
-  store ptr %156, ptr %155, align 8
-  %.not.i.i.i23.i.i = icmp eq ptr %156, null
-  br i1 %.not.i.i.i23.i.i, label %164, label %157
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27: ; preds = %158, %153
+  %160 = getelementptr inbounds i8, ptr %75, i64 40
+  %161 = load ptr, ptr %4, align 8, !noalias !41
+  store ptr %161, ptr %160, align 8
+  %.not.i.i.i23.i.i = icmp eq ptr %161, null
+  br i1 %.not.i.i.i23.i.i, label %169, label %162
 
-157:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27
+162:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc26.i.i unwind label %201
+          to label %.noexc26.i.i unwind label %206
 
-.noexc26.i.i:                                     ; preds = %157, %.noexc26.i.i
-  %.0.i.i.i.i24.i.i = phi ptr [ %158, %.noexc26.i.i ], [ %102, %157 ]
-  %158 = load ptr, ptr %.0.i.i.i.i24.i.i, align 8
-  %.not.i.i.i.i25.i.i = icmp eq ptr %158, %102
-  br i1 %.not.i.i.i.i25.i.i, label %159, label %.noexc26.i.i, !llvm.loop !40
+.noexc26.i.i:                                     ; preds = %162, %.noexc26.i.i
+  %.0.i.i.i.i24.i.i = phi ptr [ %163, %.noexc26.i.i ], [ %105, %162 ]
+  %163 = load ptr, ptr %.0.i.i.i.i24.i.i, align 8
+  %.not.i.i.i.i25.i.i = icmp eq ptr %163, %105
+  br i1 %.not.i.i.i.i25.i.i, label %164, label %.noexc26.i.i, !llvm.loop !40
 
-159:                                              ; preds = %.noexc26.i.i
-  %160 = getelementptr inbounds i8, ptr %73, i64 48
-  store ptr %160, ptr %.0.i.i.i.i24.i.i, align 8
-  store ptr %102, ptr %160, align 8
+164:                                              ; preds = %.noexc26.i.i
+  %165 = getelementptr inbounds i8, ptr %75, i64 48
+  store ptr %165, ptr %.0.i.i.i.i24.i.i, align 8
+  store ptr %105, ptr %165, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i unwind label %161
+          to label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i unwind label %166
 
-161:                                              ; preds = %159
-  %162 = landingpad { ptr, i32 }
+166:                                              ; preds = %164
+  %167 = landingpad { ptr, i32 }
           catch ptr null
-  %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #26
+  %168 = extractvalue { ptr, i32 } %167, 0
+  call void @__clang_call_terminate(ptr %168) #26
   unreachable
 
-164:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27
-  %165 = getelementptr inbounds i8, ptr %73, i64 48
-  store ptr %165, ptr %165, align 8
+169:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i.i27
+  %170 = getelementptr inbounds i8, ptr %75, i64 48
+  store ptr %170, ptr %170, align 8
   br label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
 
-_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i: ; preds = %164, %159
-  %166 = getelementptr inbounds i8, ptr %73, i64 56
-  %167 = load ptr, ptr %5, align 8, !noalias !41
-  store ptr %167, ptr %166, align 8
-  %.not.i.i.i27.i.i = icmp eq ptr %167, null
-  br i1 %.not.i.i.i27.i.i, label %175, label %168
+_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i: ; preds = %169, %164
+  %171 = getelementptr inbounds i8, ptr %75, i64 56
+  %172 = load ptr, ptr %5, align 8, !noalias !41
+  store ptr %172, ptr %171, align 8
+  %.not.i.i.i27.i.i = icmp eq ptr %172, null
+  br i1 %.not.i.i.i27.i.i, label %180, label %173
 
-168:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
+173:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc30.i.i unwind label %203
+          to label %.noexc30.i.i unwind label %208
 
-.noexc30.i.i:                                     ; preds = %168, %.noexc30.i.i
-  %.0.i.i.i.i28.i.i = phi ptr [ %169, %.noexc30.i.i ], [ %112, %168 ]
-  %169 = load ptr, ptr %.0.i.i.i.i28.i.i, align 8
-  %.not.i.i.i.i29.i.i = icmp eq ptr %169, %112
-  br i1 %.not.i.i.i.i29.i.i, label %170, label %.noexc30.i.i, !llvm.loop !40
+.noexc30.i.i:                                     ; preds = %173, %.noexc30.i.i
+  %.0.i.i.i.i28.i.i = phi ptr [ %174, %.noexc30.i.i ], [ %116, %173 ]
+  %174 = load ptr, ptr %.0.i.i.i.i28.i.i, align 8
+  %.not.i.i.i.i29.i.i = icmp eq ptr %174, %116
+  br i1 %.not.i.i.i.i29.i.i, label %175, label %.noexc30.i.i, !llvm.loop !40
 
-170:                                              ; preds = %.noexc30.i.i
-  %171 = getelementptr inbounds i8, ptr %73, i64 64
-  store ptr %171, ptr %.0.i.i.i.i28.i.i, align 8
-  store ptr %112, ptr %171, align 8
+175:                                              ; preds = %.noexc30.i.i
+  %176 = getelementptr inbounds i8, ptr %75, i64 64
+  store ptr %176, ptr %.0.i.i.i.i28.i.i, align 8
+  store ptr %116, ptr %176, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i unwind label %172
+          to label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i unwind label %177
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+177:                                              ; preds = %175
+  %178 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #26
+  %179 = extractvalue { ptr, i32 } %178, 0
+  call void @__clang_call_terminate(ptr %179) #26
   unreachable
 
-175:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
-  %176 = getelementptr inbounds i8, ptr %73, i64 64
-  store ptr %176, ptr %176, align 8
+180:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEEC2ERKS5_.exit.i.i
+  %181 = getelementptr inbounds i8, ptr %75, i64 64
+  store ptr %181, ptr %181, align 8
   br label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i
 
-_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i: ; preds = %175, %170
-  %177 = getelementptr inbounds i8, ptr %73, i64 72
-  %178 = load ptr, ptr %6, align 8, !noalias !41
-  store ptr %178, ptr %177, align 8
-  %.not.i.i.i31.i.i = icmp eq ptr %178, null
-  br i1 %.not.i.i.i31.i.i, label %186, label %179
+_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i: ; preds = %180, %175
+  %182 = getelementptr inbounds i8, ptr %75, i64 72
+  %183 = load ptr, ptr %6, align 8, !noalias !41
+  store ptr %183, ptr %182, align 8
+  %.not.i.i.i31.i.i = icmp eq ptr %183, null
+  br i1 %.not.i.i.i31.i.i, label %191, label %184
 
-179:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i
+184:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc34.i.i unwind label %205
+          to label %.noexc34.i.i unwind label %210
 
-.noexc34.i.i:                                     ; preds = %179, %.noexc34.i.i
-  %.0.i.i.i.i32.i.i = phi ptr [ %180, %.noexc34.i.i ], [ %122, %179 ]
-  %180 = load ptr, ptr %.0.i.i.i.i32.i.i, align 8
-  %.not.i.i.i.i33.i.i = icmp eq ptr %180, %122
-  br i1 %.not.i.i.i.i33.i.i, label %181, label %.noexc34.i.i, !llvm.loop !40
+.noexc34.i.i:                                     ; preds = %184, %.noexc34.i.i
+  %.0.i.i.i.i32.i.i = phi ptr [ %185, %.noexc34.i.i ], [ %127, %184 ]
+  %185 = load ptr, ptr %.0.i.i.i.i32.i.i, align 8
+  %.not.i.i.i.i33.i.i = icmp eq ptr %185, %127
+  br i1 %.not.i.i.i.i33.i.i, label %186, label %.noexc34.i.i, !llvm.loop !40
 
-181:                                              ; preds = %.noexc34.i.i
-  %182 = getelementptr inbounds i8, ptr %73, i64 80
-  store ptr %182, ptr %.0.i.i.i.i32.i.i, align 8
-  store ptr %122, ptr %182, align 8
+186:                                              ; preds = %.noexc34.i.i
+  %187 = getelementptr inbounds i8, ptr %75, i64 80
+  store ptr %187, ptr %.0.i.i.i.i32.i.i, align 8
+  store ptr %127, ptr %187, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i unwind label %183
+          to label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i unwind label %188
 
-183:                                              ; preds = %181
-  %184 = landingpad { ptr, i32 }
+188:                                              ; preds = %186
+  %189 = landingpad { ptr, i32 }
           catch ptr null
-  %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #26
+  %190 = extractvalue { ptr, i32 } %189, 0
+  call void @__clang_call_terminate(ptr %190) #26
   unreachable
 
-186:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i
-  %187 = getelementptr inbounds i8, ptr %73, i64 80
-  store ptr %187, ptr %187, align 8
+191:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit.i.i
+  %192 = getelementptr inbounds i8, ptr %75, i64 80
+  store ptr %192, ptr %192, align 8
   br label %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i
 
-_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i: ; preds = %186, %181
-  %188 = getelementptr inbounds i8, ptr %73, i64 88
+_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i: ; preds = %191, %186
+  %193 = getelementptr inbounds i8, ptr %75, i64 88
   %.val.i.i.i36.i.i = load ptr, ptr %7, align 8, !noalias !41
-  store ptr %.val.i.i.i36.i.i, ptr %188, align 8
+  store ptr %.val.i.i.i36.i.i, ptr %193, align 8
   %.not.i.i.i37.i.i = icmp eq ptr %.val.i.i.i36.i.i, null
-  br i1 %.not.i.i.i37.i.i, label %197, label %189
+  br i1 %.not.i.i.i37.i.i, label %202, label %194
 
-189:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i
-  %190 = getelementptr inbounds i8, ptr %7, i64 8
+194:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i
+  %195 = getelementptr inbounds i8, ptr %7, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc40.i.i unwind label %207
+          to label %.noexc40.i.i unwind label %212
 
-.noexc40.i.i:                                     ; preds = %189, %.noexc40.i.i
-  %.0.i.i.i.i38.i.i = phi ptr [ %191, %.noexc40.i.i ], [ %190, %189 ]
-  %191 = load ptr, ptr %.0.i.i.i.i38.i.i, align 8
-  %.not.i.i.i.i39.i.i = icmp eq ptr %191, %190
-  br i1 %.not.i.i.i.i39.i.i, label %192, label %.noexc40.i.i, !llvm.loop !40
+.noexc40.i.i:                                     ; preds = %194, %.noexc40.i.i
+  %.0.i.i.i.i38.i.i = phi ptr [ %196, %.noexc40.i.i ], [ %195, %194 ]
+  %196 = load ptr, ptr %.0.i.i.i.i38.i.i, align 8
+  %.not.i.i.i.i39.i.i = icmp eq ptr %196, %195
+  br i1 %.not.i.i.i.i39.i.i, label %197, label %.noexc40.i.i, !llvm.loop !40
 
-192:                                              ; preds = %.noexc40.i.i
-  %193 = getelementptr inbounds i8, ptr %73, i64 96
-  store ptr %193, ptr %.0.i.i.i.i38.i.i, align 8
-  store ptr %190, ptr %193, align 8
+197:                                              ; preds = %.noexc40.i.i
+  %198 = getelementptr inbounds i8, ptr %75, i64 96
+  store ptr %198, ptr %.0.i.i.i.i38.i.i, align 8
+  store ptr %195, ptr %198, align 8
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %213 unwind label %194
+          to label %218 unwind label %199
 
-194:                                              ; preds = %192
-  %195 = landingpad { ptr, i32 }
+199:                                              ; preds = %197
+  %200 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #26
+  %201 = extractvalue { ptr, i32 } %200, 0
+  call void @__clang_call_terminate(ptr %201) #26
   unreachable
 
-197:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i
-  %198 = getelementptr inbounds i8, ptr %73, i64 96
-  store ptr %198, ptr %198, align 8
-  br label %213
+202:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdEC2ERKS2_.exit35.i.i
+  %203 = getelementptr inbounds i8, ptr %75, i64 96
+  store ptr %203, ptr %203, align 8
+  br label %218
 
-199:                                              ; preds = %145
-  %200 = landingpad { ptr, i32 }
+204:                                              ; preds = %150
+  %205 = landingpad { ptr, i32 }
           cleanup
-  br label %212
+  br label %217
 
-201:                                              ; preds = %157
-  %202 = landingpad { ptr, i32 }
+206:                                              ; preds = %162
+  %207 = landingpad { ptr, i32 }
           cleanup
-  br label %211
+  br label %216
 
-203:                                              ; preds = %168
-  %204 = landingpad { ptr, i32 }
+208:                                              ; preds = %173
+  %209 = landingpad { ptr, i32 }
           cleanup
-  br label %210
+  br label %215
 
-205:                                              ; preds = %179
-  %206 = landingpad { ptr, i32 }
+210:                                              ; preds = %184
+  %211 = landingpad { ptr, i32 }
           cleanup
-  br label %209
+  br label %214
 
-207:                                              ; preds = %189
-  %208 = landingpad { ptr, i32 }
+212:                                              ; preds = %194
+  %213 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %177) #25
-  br label %209
+  call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %182) #25
+  br label %214
 
-209:                                              ; preds = %207, %205
-  %.pn.i.i28 = phi { ptr, i32 } [ %208, %207 ], [ %206, %205 ]
-  call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %166) #25
-  br label %210
+214:                                              ; preds = %212, %210
+  %.pn.i.i28 = phi { ptr, i32 } [ %213, %212 ], [ %211, %210 ]
+  call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %171) #25
+  br label %215
 
-210:                                              ; preds = %209, %203
-  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i28, %209 ], [ %204, %203 ]
-  call void @_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %155) #25
-  br label %211
+215:                                              ; preds = %214, %208
+  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i28, %214 ], [ %209, %208 ]
+  call void @_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %160) #25
+  br label %216
 
-211:                                              ; preds = %210, %201
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %210 ], [ %202, %201 ]
-  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %144) #25
-  br label %212
+216:                                              ; preds = %215, %206
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %215 ], [ %207, %206 ]
+  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %149) #25
+  br label %217
 
-212:                                              ; preds = %211, %199
-  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %211 ], [ %200, %199 ]
-  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %133) #25
+217:                                              ; preds = %216, %204
+  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %216 ], [ %205, %204 ]
+  call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %138) #25
   br label %.body45.i
 
-213:                                              ; preds = %197, %192
-  store ptr %73, ptr %0, align 8, !alias.scope !41
-  %214 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %214, ptr %214, align 8, !alias.scope !41
-  %215 = getelementptr inbounds i8, ptr %7, i64 8
+218:                                              ; preds = %202, %197
+  store ptr %75, ptr %0, align 8, !alias.scope !41
+  %219 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %219, ptr %219, align 8, !alias.scope !41
+  %220 = getelementptr inbounds i8, ptr %7, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i.i unwind label %231
+          to label %.noexc.i.i.i unwind label %236
 
-.noexc.i.i.i:                                     ; preds = %213
-  %216 = load ptr, ptr %215, align 8, !noalias !41
-  %217 = icmp eq ptr %216, %215
-  br i1 %217, label %220, label %.preheader.i.i.i.i.i
+.noexc.i.i.i:                                     ; preds = %218
+  %221 = load ptr, ptr %220, align 8, !noalias !41
+  %222 = icmp eq ptr %221, %220
+  br i1 %222, label %225, label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %.noexc.i.i.i, %.preheader.i.i.i.i.i
-  %.0.i.i.i.i47.i = phi ptr [ %218, %.preheader.i.i.i.i.i ], [ %216, %.noexc.i.i.i ]
-  %218 = load ptr, ptr %.0.i.i.i.i47.i, align 8
-  %.not.i.i.i.i48.i = icmp eq ptr %218, %215
-  br i1 %.not.i.i.i.i48.i, label %219, label %.preheader.i.i.i.i.i, !llvm.loop !77
+  %.0.i.i.i.i47.i = phi ptr [ %223, %.preheader.i.i.i.i.i ], [ %221, %.noexc.i.i.i ]
+  %223 = load ptr, ptr %.0.i.i.i.i47.i, align 8
+  %.not.i.i.i.i48.i = icmp eq ptr %223, %220
+  br i1 %.not.i.i.i.i48.i, label %224, label %.preheader.i.i.i.i.i, !llvm.loop !77
 
-219:                                              ; preds = %.preheader.i.i.i.i.i
-  store ptr %216, ptr %.0.i.i.i.i47.i, align 8
-  br label %220
+224:                                              ; preds = %.preheader.i.i.i.i.i
+  store ptr %221, ptr %.0.i.i.i.i47.i, align 8
+  br label %225
 
-220:                                              ; preds = %219, %.noexc.i.i.i
+225:                                              ; preds = %224, %.noexc.i.i.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i unwind label %221
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i unwind label %226
 
-221:                                              ; preds = %220
-  %222 = landingpad { ptr, i32 }
+226:                                              ; preds = %225
+  %227 = landingpad { ptr, i32 }
           catch ptr null
-  %223 = extractvalue { ptr, i32 } %222, 0
-  call void @__clang_call_terminate(ptr %223) #26
+  %228 = extractvalue { ptr, i32 } %227, 0
+  call void @__clang_call_terminate(ptr %228) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i: ; preds = %220
-  br i1 %217, label %224, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i: ; preds = %225
+  br i1 %222, label %229, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
 
-224:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i
-  %225 = load ptr, ptr %7, align 8, !noalias !41
-  %226 = icmp eq ptr %225, null
-  br i1 %226, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i, label %227
+229:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i
+  %230 = load ptr, ptr %7, align 8, !noalias !41
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i, label %232
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %225, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
-  %230 = load ptr, ptr %229, align 8
-  call void %230(ptr noundef nonnull align 8 dereferenceable(8) %225) #25
+232:                                              ; preds = %229
+  %233 = load ptr, ptr %230, align 8
+  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %235 = load ptr, ptr %234, align 8
+  call void %235(ptr noundef nonnull align 8 dereferenceable(8) %230) #25
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
 
-231:                                              ; preds = %213
-  %232 = landingpad { ptr, i32 }
+236:                                              ; preds = %218
+  %237 = landingpad { ptr, i32 }
           catch ptr null
-  %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #26
+  %238 = extractvalue { ptr, i32 } %237, 0
+  call void @__clang_call_terminate(ptr %238) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i: ; preds = %227, %224, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i: ; preds = %232, %229, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i49.i unwind label %249
+          to label %.noexc.i.i49.i unwind label %254
 
 .noexc.i.i49.i:                                   ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
-  %234 = load ptr, ptr %122, align 8, !noalias !41
-  %235 = icmp eq ptr %234, %122
-  br i1 %235, label %238, label %.preheader.i.i.i.i50.i
+  %239 = load ptr, ptr %127, align 8, !noalias !41
+  %240 = icmp eq ptr %239, %127
+  br i1 %240, label %243, label %.preheader.i.i.i.i50.i
 
 .preheader.i.i.i.i50.i:                           ; preds = %.noexc.i.i49.i, %.preheader.i.i.i.i50.i
-  %.0.i.i.i.i51.i = phi ptr [ %236, %.preheader.i.i.i.i50.i ], [ %234, %.noexc.i.i49.i ]
-  %236 = load ptr, ptr %.0.i.i.i.i51.i, align 8
-  %.not.i.i.i.i52.i = icmp eq ptr %236, %122
-  br i1 %.not.i.i.i.i52.i, label %237, label %.preheader.i.i.i.i50.i, !llvm.loop !77
+  %.0.i.i.i.i51.i = phi ptr [ %241, %.preheader.i.i.i.i50.i ], [ %239, %.noexc.i.i49.i ]
+  %241 = load ptr, ptr %.0.i.i.i.i51.i, align 8
+  %.not.i.i.i.i52.i = icmp eq ptr %241, %127
+  br i1 %.not.i.i.i.i52.i, label %242, label %.preheader.i.i.i.i50.i, !llvm.loop !77
 
-237:                                              ; preds = %.preheader.i.i.i.i50.i
-  store ptr %234, ptr %.0.i.i.i.i51.i, align 8
-  br label %238
+242:                                              ; preds = %.preheader.i.i.i.i50.i
+  store ptr %239, ptr %.0.i.i.i.i51.i, align 8
+  br label %243
 
-238:                                              ; preds = %237, %.noexc.i.i49.i
+243:                                              ; preds = %242, %.noexc.i.i49.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i unwind label %239
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i unwind label %244
 
-239:                                              ; preds = %238
-  %240 = landingpad { ptr, i32 }
+244:                                              ; preds = %243
+  %245 = landingpad { ptr, i32 }
           catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #26
+  %246 = extractvalue { ptr, i32 } %245, 0
+  call void @__clang_call_terminate(ptr %246) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i: ; preds = %238
-  br i1 %235, label %242, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i: ; preds = %243
+  br i1 %240, label %247, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
 
-242:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i
-  %243 = load ptr, ptr %6, align 8, !noalias !41
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i, label %245
+247:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i
+  %248 = load ptr, ptr %6, align 8, !noalias !41
+  %249 = icmp eq ptr %248, null
+  br i1 %249, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i, label %250
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %243, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(8) %243) #25
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %248, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = load ptr, ptr %252, align 8
+  call void %253(ptr noundef nonnull align 8 dereferenceable(8) %248) #25
   br label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
 
-249:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
-  %250 = landingpad { ptr, i32 }
+254:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit.i
+  %255 = landingpad { ptr, i32 }
           catch ptr null
-  %251 = extractvalue { ptr, i32 } %250, 0
-  call void @__clang_call_terminate(ptr %251) #26
+  %256 = extractvalue { ptr, i32 } %255, 0
+  call void @__clang_call_terminate(ptr %256) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i: ; preds = %245, %242, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i
+_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i: ; preds = %250, %247, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i53.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i54.i unwind label %267
+          to label %.noexc.i.i54.i unwind label %272
 
 .noexc.i.i54.i:                                   ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
-  %252 = load ptr, ptr %112, align 8, !noalias !41
-  %253 = icmp eq ptr %252, %112
-  br i1 %253, label %256, label %.preheader.i.i.i.i55.i
+  %257 = load ptr, ptr %116, align 8, !noalias !41
+  %258 = icmp eq ptr %257, %116
+  br i1 %258, label %261, label %.preheader.i.i.i.i55.i
 
 .preheader.i.i.i.i55.i:                           ; preds = %.noexc.i.i54.i, %.preheader.i.i.i.i55.i
-  %.0.i.i.i.i56.i = phi ptr [ %254, %.preheader.i.i.i.i55.i ], [ %252, %.noexc.i.i54.i ]
-  %254 = load ptr, ptr %.0.i.i.i.i56.i, align 8
-  %.not.i.i.i.i57.i = icmp eq ptr %254, %112
-  br i1 %.not.i.i.i.i57.i, label %255, label %.preheader.i.i.i.i55.i, !llvm.loop !77
+  %.0.i.i.i.i56.i = phi ptr [ %259, %.preheader.i.i.i.i55.i ], [ %257, %.noexc.i.i54.i ]
+  %259 = load ptr, ptr %.0.i.i.i.i56.i, align 8
+  %.not.i.i.i.i57.i = icmp eq ptr %259, %116
+  br i1 %.not.i.i.i.i57.i, label %260, label %.preheader.i.i.i.i55.i, !llvm.loop !77
 
-255:                                              ; preds = %.preheader.i.i.i.i55.i
-  store ptr %252, ptr %.0.i.i.i.i56.i, align 8
-  br label %256
+260:                                              ; preds = %.preheader.i.i.i.i55.i
+  store ptr %257, ptr %.0.i.i.i.i56.i, align 8
+  br label %261
 
-256:                                              ; preds = %255, %.noexc.i.i54.i
+261:                                              ; preds = %260, %.noexc.i.i54.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i unwind label %257
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i unwind label %262
 
-257:                                              ; preds = %256
-  %258 = landingpad { ptr, i32 }
+262:                                              ; preds = %261
+  %263 = landingpad { ptr, i32 }
           catch ptr null
-  %259 = extractvalue { ptr, i32 } %258, 0
-  call void @__clang_call_terminate(ptr %259) #26
+  %264 = extractvalue { ptr, i32 } %263, 0
+  call void @__clang_call_terminate(ptr %264) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i: ; preds = %256
-  br i1 %253, label %260, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i: ; preds = %261
+  br i1 %258, label %265, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
 
-260:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i
-  %261 = load ptr, ptr %5, align 8, !noalias !41
-  %262 = icmp eq ptr %261, null
-  br i1 %262, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i, label %263
+265:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i
+  %266 = load ptr, ptr %5, align 8, !noalias !41
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i, label %268
 
-263:                                              ; preds = %260
-  %264 = load ptr, ptr %261, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 8
-  %266 = load ptr, ptr %265, align 8
-  call void %266(ptr noundef nonnull align 8 dereferenceable(8) %261) #25
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %266, align 8
+  %270 = getelementptr inbounds i8, ptr %269, i64 8
+  %271 = load ptr, ptr %270, align 8
+  call void %271(ptr noundef nonnull align 8 dereferenceable(8) %266) #25
   br label %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
 
-267:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
-  %268 = landingpad { ptr, i32 }
+272:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit.i
+  %273 = landingpad { ptr, i32 }
           catch ptr null
-  %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #26
+  %274 = extractvalue { ptr, i32 } %273, 0
+  call void @__clang_call_terminate(ptr %274) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i: ; preds = %263, %260, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i
+_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i: ; preds = %268, %265, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i58.i
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i60.i unwind label %285
+          to label %.noexc.i.i60.i unwind label %290
 
 .noexc.i.i60.i:                                   ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
-  %270 = load ptr, ptr %102, align 8, !noalias !41
-  %271 = icmp eq ptr %270, %102
-  br i1 %271, label %274, label %.preheader.i.i.i.i61.i
+  %275 = load ptr, ptr %105, align 8, !noalias !41
+  %276 = icmp eq ptr %275, %105
+  br i1 %276, label %279, label %.preheader.i.i.i.i61.i
 
 .preheader.i.i.i.i61.i:                           ; preds = %.noexc.i.i60.i, %.preheader.i.i.i.i61.i
-  %.0.i.i.i.i62.i = phi ptr [ %272, %.preheader.i.i.i.i61.i ], [ %270, %.noexc.i.i60.i ]
-  %272 = load ptr, ptr %.0.i.i.i.i62.i, align 8
-  %.not.i.i.i.i63.i = icmp eq ptr %272, %102
-  br i1 %.not.i.i.i.i63.i, label %273, label %.preheader.i.i.i.i61.i, !llvm.loop !77
+  %.0.i.i.i.i62.i = phi ptr [ %277, %.preheader.i.i.i.i61.i ], [ %275, %.noexc.i.i60.i ]
+  %277 = load ptr, ptr %.0.i.i.i.i62.i, align 8
+  %.not.i.i.i.i63.i = icmp eq ptr %277, %105
+  br i1 %.not.i.i.i.i63.i, label %278, label %.preheader.i.i.i.i61.i, !llvm.loop !77
 
-273:                                              ; preds = %.preheader.i.i.i.i61.i
-  store ptr %270, ptr %.0.i.i.i.i62.i, align 8
-  br label %274
+278:                                              ; preds = %.preheader.i.i.i.i61.i
+  store ptr %275, ptr %.0.i.i.i.i62.i, align 8
+  br label %279
 
-274:                                              ; preds = %273, %.noexc.i.i60.i
+279:                                              ; preds = %278, %.noexc.i.i60.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i unwind label %275
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i unwind label %280
 
-275:                                              ; preds = %274
-  %276 = landingpad { ptr, i32 }
+280:                                              ; preds = %279
+  %281 = landingpad { ptr, i32 }
           catch ptr null
-  %277 = extractvalue { ptr, i32 } %276, 0
-  call void @__clang_call_terminate(ptr %277) #26
+  %282 = extractvalue { ptr, i32 } %281, 0
+  call void @__clang_call_terminate(ptr %282) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i: ; preds = %274
-  br i1 %271, label %278, label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i: ; preds = %279
+  br i1 %276, label %283, label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
 
-278:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i
-  %279 = load ptr, ptr %4, align 8, !noalias !41
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i, label %281
+283:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i
+  %284 = load ptr, ptr %4, align 8, !noalias !41
+  %285 = icmp eq ptr %284, null
+  br i1 %285, label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i, label %286
 
-281:                                              ; preds = %278
-  %282 = load ptr, ptr %279, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 8
-  %284 = load ptr, ptr %283, align 8
-  call void %284(ptr noundef nonnull align 8 dereferenceable(8) %279) #25
+286:                                              ; preds = %283
+  %287 = load ptr, ptr %284, align 8
+  %288 = getelementptr inbounds i8, ptr %287, i64 8
+  %289 = load ptr, ptr %288, align 8
+  call void %289(ptr noundef nonnull align 8 dereferenceable(8) %284) #25
   br label %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
 
-285:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
-  %286 = landingpad { ptr, i32 }
+290:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIdED2Ev.exit59.i
+  %291 = landingpad { ptr, i32 }
           catch ptr null
-  %287 = extractvalue { ptr, i32 } %286, 0
-  call void @__clang_call_terminate(ptr %287) #26
+  %292 = extractvalue { ptr, i32 } %291, 0
+  call void @__clang_call_terminate(ptr %292) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i: ; preds = %281, %278, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i
-  %288 = getelementptr inbounds i8, ptr %3, i64 8
+_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i: ; preds = %286, %283, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i64.i
+  %293 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i65.i unwind label %304
+          to label %.noexc.i.i65.i unwind label %309
 
 .noexc.i.i65.i:                                   ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
-  %289 = load ptr, ptr %288, align 8, !noalias !41
-  %290 = icmp eq ptr %289, %288
-  br i1 %290, label %293, label %.preheader.i.i.i.i66.i
+  %294 = load ptr, ptr %293, align 8, !noalias !41
+  %295 = icmp eq ptr %294, %293
+  br i1 %295, label %298, label %.preheader.i.i.i.i66.i
 
 .preheader.i.i.i.i66.i:                           ; preds = %.noexc.i.i65.i, %.preheader.i.i.i.i66.i
-  %.0.i.i.i.i67.i = phi ptr [ %291, %.preheader.i.i.i.i66.i ], [ %289, %.noexc.i.i65.i ]
-  %291 = load ptr, ptr %.0.i.i.i.i67.i, align 8
-  %.not.i.i.i.i68.i = icmp eq ptr %291, %288
-  br i1 %.not.i.i.i.i68.i, label %292, label %.preheader.i.i.i.i66.i, !llvm.loop !77
+  %.0.i.i.i.i67.i = phi ptr [ %296, %.preheader.i.i.i.i66.i ], [ %294, %.noexc.i.i65.i ]
+  %296 = load ptr, ptr %.0.i.i.i.i67.i, align 8
+  %.not.i.i.i.i68.i = icmp eq ptr %296, %293
+  br i1 %.not.i.i.i.i68.i, label %297, label %.preheader.i.i.i.i66.i, !llvm.loop !77
 
-292:                                              ; preds = %.preheader.i.i.i.i66.i
-  store ptr %289, ptr %.0.i.i.i.i67.i, align 8
-  br label %293
+297:                                              ; preds = %.preheader.i.i.i.i66.i
+  store ptr %294, ptr %.0.i.i.i.i67.i, align 8
+  br label %298
 
-293:                                              ; preds = %292, %.noexc.i.i65.i
+298:                                              ; preds = %297, %.noexc.i.i65.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i unwind label %294
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i unwind label %299
 
-294:                                              ; preds = %293
-  %295 = landingpad { ptr, i32 }
+299:                                              ; preds = %298
+  %300 = landingpad { ptr, i32 }
           catch ptr null
-  %296 = extractvalue { ptr, i32 } %295, 0
-  call void @__clang_call_terminate(ptr %296) #26
+  %301 = extractvalue { ptr, i32 } %300, 0
+  call void @__clang_call_terminate(ptr %301) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i: ; preds = %293
-  br i1 %290, label %297, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i: ; preds = %298
+  br i1 %295, label %302, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
 
-297:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i
-  %298 = load ptr, ptr %3, align 8, !noalias !41
-  %299 = icmp eq ptr %298, null
-  br i1 %299, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i, label %300
+302:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i
+  %303 = load ptr, ptr %3, align 8, !noalias !41
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i, label %305
 
-300:                                              ; preds = %297
-  %301 = load ptr, ptr %298, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 8
-  %303 = load ptr, ptr %302, align 8
-  call void %303(ptr noundef nonnull align 8 dereferenceable(8) %298) #25
+305:                                              ; preds = %302
+  %306 = load ptr, ptr %303, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = load ptr, ptr %307, align 8
+  call void %308(ptr noundef nonnull align 8 dereferenceable(8) %303) #25
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
 
-304:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
-  %305 = landingpad { ptr, i32 }
+309:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev.exit.i
+  %310 = landingpad { ptr, i32 }
           catch ptr null
-  %306 = extractvalue { ptr, i32 } %305, 0
-  call void @__clang_call_terminate(ptr %306) #26
+  %311 = extractvalue { ptr, i32 } %310, 0
+  call void @__clang_call_terminate(ptr %311) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i: ; preds = %300, %297, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i
-  %307 = getelementptr inbounds i8, ptr %2, i64 8
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i: ; preds = %305, %302, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i69.i
+  %312 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i70.i unwind label %323
+          to label %.noexc.i.i70.i unwind label %328
 
 .noexc.i.i70.i:                                   ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
-  %308 = load ptr, ptr %307, align 8, !noalias !41
-  %309 = icmp eq ptr %308, %307
-  br i1 %309, label %312, label %.preheader.i.i.i.i71.i
+  %313 = load ptr, ptr %312, align 8, !noalias !41
+  %314 = icmp eq ptr %313, %312
+  br i1 %314, label %317, label %.preheader.i.i.i.i71.i
 
 .preheader.i.i.i.i71.i:                           ; preds = %.noexc.i.i70.i, %.preheader.i.i.i.i71.i
-  %.0.i.i.i.i72.i = phi ptr [ %310, %.preheader.i.i.i.i71.i ], [ %308, %.noexc.i.i70.i ]
-  %310 = load ptr, ptr %.0.i.i.i.i72.i, align 8
-  %.not.i.i.i.i73.i = icmp eq ptr %310, %307
-  br i1 %.not.i.i.i.i73.i, label %311, label %.preheader.i.i.i.i71.i, !llvm.loop !77
+  %.0.i.i.i.i72.i = phi ptr [ %315, %.preheader.i.i.i.i71.i ], [ %313, %.noexc.i.i70.i ]
+  %315 = load ptr, ptr %.0.i.i.i.i72.i, align 8
+  %.not.i.i.i.i73.i = icmp eq ptr %315, %312
+  br i1 %.not.i.i.i.i73.i, label %316, label %.preheader.i.i.i.i71.i, !llvm.loop !77
 
-311:                                              ; preds = %.preheader.i.i.i.i71.i
-  store ptr %308, ptr %.0.i.i.i.i72.i, align 8
-  br label %312
+316:                                              ; preds = %.preheader.i.i.i.i71.i
+  store ptr %313, ptr %.0.i.i.i.i72.i, align 8
+  br label %317
 
-312:                                              ; preds = %311, %.noexc.i.i70.i
+317:                                              ; preds = %316, %.noexc.i.i70.i
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i unwind label %313
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i unwind label %318
 
-313:                                              ; preds = %312
-  %314 = landingpad { ptr, i32 }
+318:                                              ; preds = %317
+  %319 = landingpad { ptr, i32 }
           catch ptr null
-  %315 = extractvalue { ptr, i32 } %314, 0
-  call void @__clang_call_terminate(ptr %315) #26
+  %320 = extractvalue { ptr, i32 } %319, 0
+  call void @__clang_call_terminate(ptr %320) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i: ; preds = %312
-  br i1 %309, label %316, label %343
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i: ; preds = %317
+  br i1 %314, label %321, label %348
 
-316:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i
-  %317 = load ptr, ptr %2, align 8, !noalias !41
-  %318 = icmp eq ptr %317, null
-  br i1 %318, label %343, label %319
+321:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i
+  %322 = load ptr, ptr %2, align 8, !noalias !41
+  %323 = icmp eq ptr %322, null
+  br i1 %323, label %348, label %324
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr %317, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 8
-  %322 = load ptr, ptr %321, align 8
-  call void %322(ptr noundef nonnull align 8 dereferenceable(8) %317) #25
-  br label %343
+324:                                              ; preds = %321
+  %325 = load ptr, ptr %322, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 8
+  %327 = load ptr, ptr %326, align 8
+  call void %327(ptr noundef nonnull align 8 dereferenceable(8) %322) #25
+  br label %348
 
-323:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
-  %324 = landingpad { ptr, i32 }
-          catch ptr null
-  %325 = extractvalue { ptr, i32 } %324, 0
-  call void @__clang_call_terminate(ptr %325) #26
-  unreachable
-
-326:                                              ; preds = %74
-  %327 = landingpad { ptr, i32 }
-          cleanup
-  br label %342
-
-328:                                              ; preds = %83
+328:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit.i
   %329 = landingpad { ptr, i32 }
-          cleanup
-  br label %341
+          catch ptr null
+  %330 = extractvalue { ptr, i32 } %329, 0
+  call void @__clang_call_terminate(ptr %330) #26
+  unreachable
 
-330:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i
-  %331 = landingpad { ptr, i32 }
+331:                                              ; preds = %76
+  %332 = landingpad { ptr, i32 }
+          cleanup
+  br label %347
+
+333:                                              ; preds = %85
+  %334 = landingpad { ptr, i32 }
+          cleanup
+  br label %346
+
+335:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEEC2ERKS6_.exit.i
+  %336 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-332:                                              ; preds = %98
-  %333 = landingpad { ptr, i32 }
+337:                                              ; preds = %101
+  %338 = landingpad { ptr, i32 }
           cleanup
   br label %.body30.i
 
-334:                                              ; preds = %108
-  %335 = landingpad { ptr, i32 }
+339:                                              ; preds = %112
+  %340 = landingpad { ptr, i32 }
           cleanup
   br label %.body35.i
 
-336:                                              ; preds = %123
-  %337 = landingpad { ptr, i32 }
+341:                                              ; preds = %128
+  %342 = landingpad { ptr, i32 }
           cleanup
-  br label %340
+  br label %345
 
-338:                                              ; preds = %134
-  %339 = landingpad { ptr, i32 }
+343:                                              ; preds = %139
+  %344 = landingpad { ptr, i32 }
           cleanup
   br label %.body45.i
 
-.body45.i:                                        ; preds = %338, %212
-  %eh.lpad-body46.i = phi { ptr, i32 } [ %339, %338 ], [ %.pn.pn.pn.pn.i.i, %212 ]
+.body45.i:                                        ; preds = %343, %217
+  %eh.lpad-body46.i = phi { ptr, i32 } [ %344, %343 ], [ %.pn.pn.pn.pn.i.i, %217 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
-  br label %340
+  br label %345
 
-340:                                              ; preds = %.body45.i, %336
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body46.i, %.body45.i ], [ %337, %336 ]
+345:                                              ; preds = %.body45.i, %341
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body46.i, %.body45.i ], [ %342, %341 ]
   call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   br label %.body35.i
 
-.body35.i:                                        ; preds = %340, %334, %.body.i.i.i32.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %340 ], [ %335, %334 ], [ %117, %.body.i.i.i32.i ]
+.body35.i:                                        ; preds = %345, %339, %.body.i.i.i32.i
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %345 ], [ %340, %339 ], [ %122, %.body.i.i.i32.i ]
   call void @_ZN7testing8internal14ParamGeneratorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   br label %.body30.i
 
-.body30.i:                                        ; preds = %.body35.i, %332, %.body.i.i.i27.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body35.i ], [ %333, %332 ], [ %107, %.body.i.i.i27.i ]
+.body30.i:                                        ; preds = %.body35.i, %337, %.body.i.i.i27.i
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body35.i ], [ %338, %337 ], [ %111, %.body.i.i.i27.i ]
   call void @_ZN7testing8internal14ParamGeneratorIN2cv5Size_IiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   br label %.body.i
 
-.body.i:                                          ; preds = %.body30.i, %330, %.body.i.i.i.i
-  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.body30.i ], [ %331, %330 ], [ %97, %.body.i.i.i.i ]
+.body.i:                                          ; preds = %.body30.i, %335, %.body.i.i.i.i
+  %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.body30.i ], [ %336, %335 ], [ %100, %.body.i.i.i.i ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
-  br label %341
+  br label %346
 
-341:                                              ; preds = %.body.i, %328
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body.i ], [ %329, %328 ]
+346:                                              ; preds = %.body.i, %333
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body.i ], [ %334, %333 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  br label %342
+  br label %347
 
-342:                                              ; preds = %341, %326
-  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %341 ], [ %327, %326 ]
-  call void @_ZdlPv(ptr noundef nonnull %73) #29
+347:                                              ; preds = %346, %331
+  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %346 ], [ %332, %331 ]
+  call void @_ZdlPv(ptr noundef nonnull %75) #29
   br label %.body30
 
-343:                                              ; preds = %319, %316, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i
+348:                                              ; preds = %324, %321, %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1734,200 +1759,200 @@ _ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i74.i: ; preds = %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call fastcc void @_ZN7testing8internal23CartesianProductHolder6INS0_14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS0_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #25
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i32 unwind label %359
+          to label %.noexc.i.i32 unwind label %364
 
-.noexc.i.i32:                                     ; preds = %343
-  %344 = load ptr, ptr %37, align 8
-  %345 = icmp eq ptr %344, %37
-  br i1 %345, label %348, label %.preheader.i.i.i.i
+.noexc.i.i32:                                     ; preds = %348
+  %349 = load ptr, ptr %37, align 8
+  %350 = icmp eq ptr %349, %37
+  br i1 %350, label %353, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.noexc.i.i32, %.preheader.i.i.i.i
-  %.0.i.i.i.i = phi ptr [ %346, %.preheader.i.i.i.i ], [ %344, %.noexc.i.i32 ]
-  %346 = load ptr, ptr %.0.i.i.i.i, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %346, %37
-  br i1 %.not.i.i.i.i33, label %347, label %.preheader.i.i.i.i, !llvm.loop !77
+  %.0.i.i.i.i = phi ptr [ %351, %.preheader.i.i.i.i ], [ %349, %.noexc.i.i32 ]
+  %351 = load ptr, ptr %.0.i.i.i.i, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %351, %37
+  br i1 %.not.i.i.i.i33, label %352, label %.preheader.i.i.i.i, !llvm.loop !77
 
-347:                                              ; preds = %.preheader.i.i.i.i
-  store ptr %344, ptr %.0.i.i.i.i, align 8
-  br label %348
+352:                                              ; preds = %.preheader.i.i.i.i
+  store ptr %349, ptr %.0.i.i.i.i, align 8
+  br label %353
 
-348:                                              ; preds = %347, %.noexc.i.i32
+353:                                              ; preds = %352, %.noexc.i.i32
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i unwind label %349
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i unwind label %354
 
-349:                                              ; preds = %348
-  %350 = landingpad { ptr, i32 }
+354:                                              ; preds = %353
+  %355 = landingpad { ptr, i32 }
           catch ptr null
-  %351 = extractvalue { ptr, i32 } %350, 0
-  call void @__clang_call_terminate(ptr %351) #26
+  %356 = extractvalue { ptr, i32 } %355, 0
+  call void @__clang_call_terminate(ptr %356) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i: ; preds = %348
-  br i1 %345, label %352, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i: ; preds = %353
+  br i1 %350, label %357, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
 
-352:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i
-  %353 = load ptr, ptr %11, align 8
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit, label %355
+357:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i
+  %358 = load ptr, ptr %11, align 8
+  %359 = icmp eq ptr %358, null
+  br i1 %359, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit, label %360
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %353, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 8
-  %358 = load ptr, ptr %357, align 8
-  call void %358(ptr noundef nonnull align 8 dereferenceable(8) %353) #25
+360:                                              ; preds = %357
+  %361 = load ptr, ptr %358, align 8
+  %362 = getelementptr inbounds i8, ptr %361, i64 8
+  %363 = load ptr, ptr %362, align 8
+  call void %363(ptr noundef nonnull align 8 dereferenceable(8) %358) #25
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
 
-359:                                              ; preds = %343
-  %360 = landingpad { ptr, i32 }
+364:                                              ; preds = %348
+  %365 = landingpad { ptr, i32 }
           catch ptr null
-  %361 = extractvalue { ptr, i32 } %360, 0
-  call void @__clang_call_terminate(ptr %361) #26
+  %366 = extractvalue { ptr, i32 } %365, 0
+  call void @__clang_call_terminate(ptr %366) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i, %352, %355
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i, %357, %360
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i34 unwind label %377
+          to label %.noexc.i.i34 unwind label %382
 
 .noexc.i.i34:                                     ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
-  %362 = load ptr, ptr %28, align 8
-  %363 = icmp eq ptr %362, %28
-  br i1 %363, label %366, label %.preheader.i.i.i.i35
+  %367 = load ptr, ptr %28, align 8
+  %368 = icmp eq ptr %367, %28
+  br i1 %368, label %371, label %.preheader.i.i.i.i35
 
 .preheader.i.i.i.i35:                             ; preds = %.noexc.i.i34, %.preheader.i.i.i.i35
-  %.0.i.i.i.i36 = phi ptr [ %364, %.preheader.i.i.i.i35 ], [ %362, %.noexc.i.i34 ]
-  %364 = load ptr, ptr %.0.i.i.i.i36, align 8
-  %.not.i.i.i.i37 = icmp eq ptr %364, %28
-  br i1 %.not.i.i.i.i37, label %365, label %.preheader.i.i.i.i35, !llvm.loop !77
+  %.0.i.i.i.i36 = phi ptr [ %369, %.preheader.i.i.i.i35 ], [ %367, %.noexc.i.i34 ]
+  %369 = load ptr, ptr %.0.i.i.i.i36, align 8
+  %.not.i.i.i.i37 = icmp eq ptr %369, %28
+  br i1 %.not.i.i.i.i37, label %370, label %.preheader.i.i.i.i35, !llvm.loop !77
 
-365:                                              ; preds = %.preheader.i.i.i.i35
-  store ptr %362, ptr %.0.i.i.i.i36, align 8
-  br label %366
+370:                                              ; preds = %.preheader.i.i.i.i35
+  store ptr %367, ptr %.0.i.i.i.i36, align 8
+  br label %371
 
-366:                                              ; preds = %365, %.noexc.i.i34
+371:                                              ; preds = %370, %.noexc.i.i34
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38 unwind label %367
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38 unwind label %372
 
-367:                                              ; preds = %366
-  %368 = landingpad { ptr, i32 }
+372:                                              ; preds = %371
+  %373 = landingpad { ptr, i32 }
           catch ptr null
-  %369 = extractvalue { ptr, i32 } %368, 0
-  call void @__clang_call_terminate(ptr %369) #26
+  %374 = extractvalue { ptr, i32 } %373, 0
+  call void @__clang_call_terminate(ptr %374) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38: ; preds = %366
-  br i1 %363, label %370, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38: ; preds = %371
+  br i1 %368, label %375, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
 
-370:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38
-  %371 = load ptr, ptr %10, align 8
-  %372 = icmp eq ptr %371, null
-  br i1 %372, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit, label %373
+375:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38
+  %376 = load ptr, ptr %10, align 8
+  %377 = icmp eq ptr %376, null
+  br i1 %377, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit, label %378
 
-373:                                              ; preds = %370
-  %374 = load ptr, ptr %371, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 8
-  %376 = load ptr, ptr %375, align 8
-  call void %376(ptr noundef nonnull align 8 dereferenceable(8) %371) #25
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %376, align 8
+  %380 = getelementptr inbounds i8, ptr %379, i64 8
+  %381 = load ptr, ptr %380, align 8
+  call void %381(ptr noundef nonnull align 8 dereferenceable(8) %376) #25
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
 
-377:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
-  %378 = landingpad { ptr, i32 }
+382:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev.exit
+  %383 = landingpad { ptr, i32 }
           catch ptr null
-  %379 = extractvalue { ptr, i32 } %378, 0
-  call void @__clang_call_terminate(ptr %379) #26
+  %384 = extractvalue { ptr, i32 } %383, 0
+  call void @__clang_call_terminate(ptr %384) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38, %370, %373
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i38, %375, %378
   invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i39 unwind label %395
+          to label %.noexc.i.i39 unwind label %400
 
 .noexc.i.i39:                                     ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
-  %380 = load ptr, ptr %19, align 8
-  %381 = icmp eq ptr %380, %19
-  br i1 %381, label %384, label %.preheader.i.i.i.i40
+  %385 = load ptr, ptr %19, align 8
+  %386 = icmp eq ptr %385, %19
+  br i1 %386, label %389, label %.preheader.i.i.i.i40
 
 .preheader.i.i.i.i40:                             ; preds = %.noexc.i.i39, %.preheader.i.i.i.i40
-  %.0.i.i.i.i41 = phi ptr [ %382, %.preheader.i.i.i.i40 ], [ %380, %.noexc.i.i39 ]
-  %382 = load ptr, ptr %.0.i.i.i.i41, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %382, %19
-  br i1 %.not.i.i.i.i42, label %383, label %.preheader.i.i.i.i40, !llvm.loop !77
+  %.0.i.i.i.i41 = phi ptr [ %387, %.preheader.i.i.i.i40 ], [ %385, %.noexc.i.i39 ]
+  %387 = load ptr, ptr %.0.i.i.i.i41, align 8
+  %.not.i.i.i.i42 = icmp eq ptr %387, %19
+  br i1 %.not.i.i.i.i42, label %388, label %.preheader.i.i.i.i40, !llvm.loop !77
 
-383:                                              ; preds = %.preheader.i.i.i.i40
-  store ptr %380, ptr %.0.i.i.i.i41, align 8
-  br label %384
+388:                                              ; preds = %.preheader.i.i.i.i40
+  store ptr %385, ptr %.0.i.i.i.i41, align 8
+  br label %389
 
-384:                                              ; preds = %383, %.noexc.i.i39
+389:                                              ; preds = %388, %.noexc.i.i39
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43 unwind label %385
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43 unwind label %390
 
-385:                                              ; preds = %384
-  %386 = landingpad { ptr, i32 }
+390:                                              ; preds = %389
+  %391 = landingpad { ptr, i32 }
           catch ptr null
-  %387 = extractvalue { ptr, i32 } %386, 0
-  call void @__clang_call_terminate(ptr %387) #26
+  %392 = extractvalue { ptr, i32 } %391, 0
+  call void @__clang_call_terminate(ptr %392) #26
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43: ; preds = %384
-  br i1 %381, label %388, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43: ; preds = %389
+  br i1 %386, label %393, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit
 
-388:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43
-  %389 = load ptr, ptr %9, align 8
-  %390 = icmp eq ptr %389, null
-  br i1 %390, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit, label %391
+393:                                              ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43
+  %394 = load ptr, ptr %9, align 8
+  %395 = icmp eq ptr %394, null
+  br i1 %395, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit, label %396
 
-391:                                              ; preds = %388
-  %392 = load ptr, ptr %389, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 8
-  %394 = load ptr, ptr %393, align 8
-  call void %394(ptr noundef nonnull align 8 dereferenceable(8) %389) #25
+396:                                              ; preds = %393
+  %397 = load ptr, ptr %394, align 8
+  %398 = getelementptr inbounds i8, ptr %397, i64 8
+  %399 = load ptr, ptr %398, align 8
+  call void %399(ptr noundef nonnull align 8 dereferenceable(8) %394) #25
   br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit
 
-395:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
-  %396 = landingpad { ptr, i32 }
+400:                                              ; preds = %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev.exit
+  %401 = landingpad { ptr, i32 }
           catch ptr null
-  %397 = extractvalue { ptr, i32 } %396, 0
-  call void @__clang_call_terminate(ptr %397) #26
+  %402 = extractvalue { ptr, i32 } %401, 0
+  call void @__clang_call_terminate(ptr %402) #26
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43, %388, %391
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i43, %393, %396
   ret void
 
-398:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit
-  %399 = landingpad { ptr, i32 }
+403:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatType3allEv.exit
+  %404 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-400:                                              ; preds = %24
-  %401 = landingpad { ptr, i32 }
+405:                                              ; preds = %24
+  %406 = landingpad { ptr, i32 }
           cleanup
   br label %.body16
 
-402:                                              ; preds = %33
-  %403 = landingpad { ptr, i32 }
+407:                                              ; preds = %33
+  %408 = landingpad { ptr, i32 }
           cleanup
   br label %.body19
 
-404:                                              ; preds = %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit
-  %405 = landingpad { ptr, i32 }
+409:                                              ; preds = %_ZN7testing7CombineINS_8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS1_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEEENS1_23CartesianProductHolder6IT_T0_T1_T2_T3_T4_EERKSJ_RKSK_RKSL_RKSM_RKSN_RKSO_.exit
+  %410 = landingpad { ptr, i32 }
           cleanup
   br label %.body30
 
-.body30:                                          ; preds = %342, %404
-  %eh.lpad-body31 = phi { ptr, i32 } [ %405, %404 ], [ %.pn.pn.pn.pn.pn.pn.i, %342 ]
+.body30:                                          ; preds = %347, %409
+  %eh.lpad-body31 = phi { ptr, i32 } [ %410, %409 ], [ %.pn.pn.pn.pn.pn.pn.i, %347 ]
   call fastcc void @_ZN7testing8internal23CartesianProductHolder6INS0_14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEEENS2_INS5_13SourceMatTypeEEENS0_11ValueArray2IN2cv5Size_IiEESD_EENSA_IddEESF_NS2_INS5_7DTFModeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #25
   br label %.body19
 
-.body19:                                          ; preds = %402, %72, %.body30
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body31, %.body30 ], [ %403, %402 ], [ %.pn.i.i, %72 ]
+.body19:                                          ; preds = %407, %74, %.body30
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body31, %.body30 ], [ %408, %407 ], [ %.pn.i.i, %74 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_17DTFModeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   br label %.body16
 
-.body16:                                          ; preds = %400, %.body.i.i.i12, %.body19
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body19 ], [ %401, %400 ], [ %32, %.body.i.i.i12 ]
+.body16:                                          ; preds = %405, %.body.i.i.i12, %.body19
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body19 ], [ %406, %405 ], [ %32, %.body.i.i.i12 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_113SourceMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #25
   br label %.body
 
-.body:                                            ; preds = %398, %.body.i.i.i8, %.body16
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body16 ], [ %399, %398 ], [ %23, %.body.i.i.i8 ]
+.body:                                            ; preds = %403, %.body.i.i.i8, %.body16
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body16 ], [ %404, %403 ], [ %23, %.body.i.i.i8 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_112GuideMatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
   br label %common.resume
 }

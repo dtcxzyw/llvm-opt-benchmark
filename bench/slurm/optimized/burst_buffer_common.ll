@@ -1098,10 +1098,13 @@ define void @bb_load_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %21 = or i32 %20, 1
   store i32 %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 15, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 300, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 86400, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 124
-  store <4 x i32> <i32 15, i32 300, i32 86400, i32 86400>, ptr %22, align 8
+  store i32 86400, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 5, ptr %26, align 8
   %27 = tail call ptr @get_extra_conf_path(ptr noundef nonnull @.str.37) #17

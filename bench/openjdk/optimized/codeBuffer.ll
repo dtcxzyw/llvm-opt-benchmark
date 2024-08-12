@@ -3345,7 +3345,7 @@ define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull a
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %224, label %9
+  br i1 %8, label %230, label %9
 
 9:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
@@ -3717,27 +3717,35 @@ _ZN10CodeBuffer8set_blobEP10BufferBlob.exit.i29:  ; preds = %_ZN10CodeBuffer8set
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %_ZN10CodeBuffer8set_blobEP10BufferBlob.exit.i29 ], [ 0, %_ZN10CodeBuffer8set_blobEP10BufferBlob.exit.i29.preheader ]
   %211 = getelementptr inbounds %class.CodeSection, ptr %12, i64 %indvars.iv.i30
   %212 = getelementptr inbounds %class.CodeSection, ptr %104, i64 %indvars.iv.i30
-  %213 = load <2 x ptr>, ptr %211, align 8
-  store <2 x ptr> %213, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %211, i64 16
-  %215 = getelementptr inbounds i8, ptr %212, i64 16
-  %216 = load <2 x ptr>, ptr %214, align 8
-  store <2 x ptr> %216, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %211, i64 56
+  %213 = load ptr, ptr %211, align 8
+  store ptr %213, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %211, i64 8
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds i8, ptr %212, i64 8
+  store ptr %215, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %211, i64 16
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %212, i64 56
+  %219 = getelementptr inbounds i8, ptr %212, i64 16
   store ptr %218, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %211, i64 68
-  %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds i8, ptr %212, i64 68
-  store i32 %221, ptr %222, align 4
+  %220 = getelementptr inbounds i8, ptr %211, i64 24
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %212, i64 24
+  store ptr %221, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %211, i64 56
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds i8, ptr %212, i64 56
+  store ptr %224, ptr %225, align 8
+  %226 = getelementptr inbounds i8, ptr %211, i64 68
+  %227 = load i32, ptr %226, align 4
+  %228 = getelementptr inbounds i8, ptr %212, i64 68
+  store i32 %227, ptr %228, align 4
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 3
   br i1 %exitcond.not.i32, label %_ZN10CodeBuffer19take_over_code_fromEPS_.exit33, label %_ZN10CodeBuffer8set_blobEP10BufferBlob.exit.i29, !llvm.loop !48
 
 _ZN10CodeBuffer19take_over_code_fromEPS_.exit33:  ; preds = %_ZN10CodeBuffer8set_blobEP10BufferBlob.exit.i29
-  %223 = load ptr, ptr %21, align 8
-  store ptr %223, ptr %125, align 8
+  %229 = load ptr, ptr %21, align 8
+  store ptr %229, ptr %125, align 8
   store ptr null, ptr %21, align 8
   br label %_ZN10CodeBuffer9free_blobEv.exit.sink.split
 
@@ -3748,9 +3756,9 @@ _ZN10CodeBuffer9free_blobEv.exit.sink.split:      ; preds = %_ZN10CodeBuffer19ta
 
 _ZN10CodeBuffer9free_blobEv.exit:                 ; preds = %_ZN10CodeBuffer9free_blobEv.exit.sink.split, %32
   call void @_ZN10CodeBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5) #16
-  br label %224
+  br label %230
 
-224:                                              ; preds = %3, %_ZN10CodeBuffer9free_blobEv.exit
+230:                                              ; preds = %3, %_ZN10CodeBuffer9free_blobEv.exit
   ret void
 }
 

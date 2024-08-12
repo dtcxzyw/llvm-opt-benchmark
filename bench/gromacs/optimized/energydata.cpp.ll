@@ -4836,62 +4836,66 @@ define void @_ZN3gmx10EnergyData32setParrinelloRahmanBoxVelocitiesEOSt8functionI
 
 13:                                               ; preds = %8
   %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
-          to label %15 unwind label %17
+          to label %15 unwind label %19
 
 15:                                               ; preds = %13
-  %16 = load <2 x ptr>, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %11, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %9, align 8
-  %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %20
+  %21 = load ptr, ptr %9, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %22
 
-20:                                               ; preds = %17
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %22
+22:                                               ; preds = %19
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %24
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #26
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %20, %17
-  resume { ptr, i32 } %18
+_ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %22, %19
+  resume { ptr, i32 } %20
 
 _ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i:         ; preds = %15, %8
-  %25 = phi ptr [ null, %8 ], [ %.pre, %15 ]
-  %26 = phi <2 x ptr> [ zeroinitializer, %8 ], [ %16, %15 ]
+  %27 = phi ptr [ null, %8 ], [ %.pre, %15 ]
+  %28 = phi ptr [ null, %8 ], [ %17, %15 ]
+  %29 = phi ptr [ null, %8 ], [ %18, %15 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  store ptr %25, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 440
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %10, align 8
-  store <2 x ptr> %26, ptr %5, align 8
-  %.not.i.i2.i = icmp eq ptr %25, null
-  br i1 %.not.i.i2.i, label %_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit, label %29
+  store ptr %27, ptr %9, align 8
+  store ptr %29, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 440
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %10, align 8
+  store ptr %28, ptr %30, align 8
+  %.not.i.i2.i = icmp eq ptr %27, null
+  br i1 %.not.i.i2.i, label %_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit, label %32
 
-29:                                               ; preds = %_ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i
-  %30 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit unwind label %31
+32:                                               ; preds = %_ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i
+  %33 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit unwind label %34
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #26
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #26
   unreachable
 
-_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit:           ; preds = %_ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i, %29
+_ZNSt8functionIFPA3_KfvEEaSERKS4_.exit:           ; preds = %_ZNSt8functionIFPA3_KfvEEC2ERKS4_.exit.i, %32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

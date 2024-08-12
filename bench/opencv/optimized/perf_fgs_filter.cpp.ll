@@ -604,7 +604,13 @@ _ZN11opencv_test12_GLOBAL__N_112_GLOBAL__N_110GuideTypes3allEv.exit: ; preds = %
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   %22 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %21, ptr %22, align 8, !noalias !26
-  store <4 x i32> <i32 0, i32 16, i32 3, i32 19>, ptr %18, align 4, !noalias !26
+  store i32 0, ptr %18, align 4, !noalias !26
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 16, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !26
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
+  store i32 3, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !26
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 12
+  store i32 19, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !26
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 16
   store i32 5, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !26
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 20

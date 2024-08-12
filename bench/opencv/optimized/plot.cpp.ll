@@ -970,12 +970,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit14:               ; preds = %_ZN2cv3MataSERKNS_7
 73:                                               ; preds = %3
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %136
 
 75:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %136
 
 ._crit_edge:                                      ; preds = %50, %_ZN2cv3MataSERKNS_7MatExprE.exit14
   %77 = getelementptr inbounds i8, ptr %0, i64 744
@@ -1051,34 +1051,48 @@ _ZN2cv3MataSERKNS_7MatExprE.exit14:               ; preds = %_ZN2cv3MataSERKNS_7
   %114 = getelementptr inbounds i8, ptr %0, i64 552
   %115 = getelementptr inbounds i8, ptr %0, i64 568
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 584
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 600
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 520
-  %119 = getelementptr inbounds i8, ptr %0, i64 488
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, i8 0, i64 32, i1 false)
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 504
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 616
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 632
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 477
-  store i8 1, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %0, i64 478
-  store i8 1, ptr %124, align 2
-  %125 = getelementptr inbounds i8, ptr %0, i64 480
-  store i32 10, ptr %125, align 8
-  %126 = load i32, ptr %22, align 8
-  %127 = add nsw i32 %126, -1
-  %128 = getelementptr inbounds i8, ptr %0, i64 484
-  store i32 %127, ptr %128, align 4
+  store double 2.550000e+02, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 576
+  store double 0.000000e+00, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 584
+  store double 2.550000e+02, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 592
+  store double 2.550000e+02, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 600
+  store double 2.550000e+02, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 608
+  store double 0.000000e+00, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 520
+  %122 = getelementptr inbounds i8, ptr %0, i64 488
+  store double 0.000000e+00, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 496
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 32, i1 false)
+  store double 2.550000e+02, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 504
+  store double 2.550000e+02, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 512
+  store double 0.000000e+00, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 616
+  store double 2.550000e+02, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 624
+  store double 2.550000e+02, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %0, i64 632
+  store double 2.550000e+02, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 640
+  store double 0.000000e+00, ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 477
+  store i8 1, ptr %130, align 1
+  %131 = getelementptr inbounds i8, ptr %0, i64 478
+  store i8 1, ptr %131, align 2
+  %132 = getelementptr inbounds i8, ptr %0, i64 480
+  store i32 10, ptr %132, align 8
+  %133 = load i32, ptr %22, align 8
+  %134 = add nsw i32 %133, -1
+  %135 = getelementptr inbounds i8, ptr %0, i64 484
+  store i32 %134, ptr %135, align 4
   ret void
 
-129:                                              ; preds = %75, %73
+136:                                              ; preds = %75, %73
   %.sink = phi ptr [ %5, %75 ], [ %4, %73 ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %.sink) #18

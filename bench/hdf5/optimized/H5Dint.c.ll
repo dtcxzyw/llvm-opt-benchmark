@@ -5156,32 +5156,36 @@ define internal range(i32 -1, 1) i32 @H5D__vlen_get_buf_size_cb(ptr nocapture re
   %12 = load i64, ptr @H5E_DATASET_g, align 8
   %13 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__vlen_get_buf_size_cb, i32 noundef 2659, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.262) #12
-  br label %29
+  br label %32
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 176
-  %18 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 120
+  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 184
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 176
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 200
-  store ptr %1, ptr %22, align 8
-  %23 = call i32 @H5D__read(i64 noundef 1, ptr noundef nonnull %6) #12
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %29
+  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 120
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %6, i64 200
+  store ptr %1, ptr %25, align 8
+  %26 = call i32 @H5D__read(i64 noundef 1, ptr noundef nonnull %6) #12
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %32
 
-25:                                               ; preds = %15
-  %26 = load i64, ptr @H5E_DATASET_g, align 8
-  %27 = load i64, ptr @H5E_READERROR_g, align 8
-  %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__vlen_get_buf_size_cb, i32 noundef 2670, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.263) #12
-  br label %29
+28:                                               ; preds = %15
+  %29 = load i64, ptr @H5E_DATASET_g, align 8
+  %30 = load i64, ptr @H5E_READERROR_g, align 8
+  %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__vlen_get_buf_size_cb, i32 noundef 2670, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.263) #12
+  br label %32
 
-29:                                               ; preds = %15, %25, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %25 ], [ 0, %15 ]
+32:                                               ; preds = %15, %28, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %28 ], [ 0, %15 ]
   ret i32 %.0
 }
 

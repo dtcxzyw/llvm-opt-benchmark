@@ -11,14 +11,25 @@ entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i26.i, align 4
   %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
   store i32 0, ptr %port.i, align 4
   %len.i27.i = getelementptr inbounds i8, ptr %parsed, i64 36
   store i32 -1, ptr %len.i27.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  store i32 0, ptr %query.i, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i28.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
+  store i32 0, ptr %ref.i, align 4
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  store i32 -1, ptr %len.i29.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
@@ -346,14 +357,25 @@ entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i26.i, align 4
   %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
   store i32 0, ptr %port.i, align 4
   %len.i27.i = getelementptr inbounds i8, ptr %parsed, i64 36
   store i32 -1, ptr %len.i27.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  store i32 0, ptr %query.i, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i28.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
+  store i32 0, ptr %ref.i, align 4
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  store i32 -1, ptr %len.i29.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 

@@ -582,35 +582,43 @@ if.end4:                                          ; preds = %if.end.i
 
 if.then11:                                        ; preds = %if.end4
   %min_proto_version = getelementptr inbounds i8, ptr %ctx, i64 324
+  %7 = load i32, ptr %min_proto_version, align 4
   %min_proto_version12 = getelementptr inbounds i8, ptr %call, i64 2364
-  %7 = load <2 x i32>, ptr %min_proto_version, align 4
-  store <2 x i32> %7, ptr %min_proto_version12, align 4
+  store i32 %7, ptr %min_proto_version12, align 4
+  %max_proto_version = getelementptr inbounds i8, ptr %ctx, i64 328
+  %8 = load i32, ptr %max_proto_version, align 8
+  %max_proto_version13 = getelementptr inbounds i8, ptr %call, i64 2368
+  store i32 %8, ptr %max_proto_version13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end4
   %mode = getelementptr inbounds i8, ptr %ctx, i64 320
-  %8 = load i32, ptr %mode, align 8
+  %9 = load i32, ptr %mode, align 8
   %mode15 = getelementptr inbounds i8, ptr %call, i64 2360
-  store i32 %8, ptr %mode15, align 8
+  store i32 %9, ptr %mode15, align 8
   %max_cert_list = getelementptr inbounds i8, ptr %ctx, i64 336
-  %9 = load i64, ptr %max_cert_list, align 8
+  %10 = load i64, ptr %max_cert_list, align 8
   %max_cert_list16 = getelementptr inbounds i8, ptr %call, i64 2376
-  store i64 %9, ptr %max_cert_list16, align 8
+  store i64 %10, ptr %max_cert_list16, align 8
   %max_early_data = getelementptr inbounds i8, ptr %ctx, i64 992
+  %11 = load i32, ptr %max_early_data, align 8
   %max_early_data17 = getelementptr inbounds i8, ptr %call, i64 5280
-  %10 = load <2 x i32>, ptr %max_early_data, align 8
-  store <2 x i32> %10, ptr %max_early_data17, align 8
+  store i32 %11, ptr %max_early_data17, align 8
+  %recv_max_early_data = getelementptr inbounds i8, ptr %ctx, i64 996
+  %12 = load i32, ptr %recv_max_early_data, align 4
+  %recv_max_early_data18 = getelementptr inbounds i8, ptr %call, i64 5284
+  store i32 %12, ptr %recv_max_early_data18, align 4
   %num_tickets = getelementptr inbounds i8, ptr %ctx, i64 1048
-  %11 = load i64, ptr %num_tickets, align 8
+  %13 = load i64, ptr %num_tickets, align 8
   %num_tickets19 = getelementptr inbounds i8, ptr %call, i64 5296
-  store i64 %11, ptr %num_tickets19, align 8
+  store i64 %13, ptr %num_tickets19, align 8
   %pha_enabled = getelementptr inbounds i8, ptr %ctx, i64 1072
-  %12 = load i32, ptr %pha_enabled, align 8
+  %14 = load i32, ptr %pha_enabled, align 8
   %pha_enabled20 = getelementptr inbounds i8, ptr %call, i64 2828
-  store i32 %12, ptr %pha_enabled20, align 4
+  store i32 %14, ptr %pha_enabled20, align 4
   %tls13_ciphersuites = getelementptr inbounds i8, ptr %ctx, i64 32
-  %13 = load ptr, ptr %tls13_ciphersuites, align 8
-  %call22 = tail call ptr @OPENSSL_sk_dup(ptr noundef %13) #24
+  %15 = load ptr, ptr %tls13_ciphersuites, align 8
+  %call22 = tail call ptr @OPENSSL_sk_dup(ptr noundef %15) #24
   %tls13_ciphersuites23 = getelementptr inbounds i8, ptr %call, i64 1264
   store ptr %call22, ptr %tls13_ciphersuites23, align 8
   %cmp25 = icmp eq ptr %call22, null
@@ -618,8 +626,8 @@ if.end14:                                         ; preds = %if.then11, %if.end4
 
 if.end27:                                         ; preds = %if.end14
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
-  %14 = load ptr, ptr %cert, align 8
-  %call28 = tail call ptr @ssl_cert_dup(ptr noundef %14) #24
+  %16 = load ptr, ptr %cert, align 8
+  %call28 = tail call ptr @ssl_cert_dup(ptr noundef %16) #24
   %cert29 = getelementptr inbounds i8, ptr %call, i64 2048
   store ptr %call28, ptr %cert29, align 8
   %cmp31 = icmp eq ptr %call28, null
@@ -627,34 +635,42 @@ if.end27:                                         ; preds = %if.end14
 
 if.end33:                                         ; preds = %if.end27
   %read_ahead = getelementptr inbounds i8, ptr %ctx, i64 360
-  %15 = load i32, ptr %read_ahead, align 8
+  %17 = load i32, ptr %read_ahead, align 8
   %read_ahead35 = getelementptr inbounds i8, ptr %call, i64 3072
-  store i32 %15, ptr %read_ahead35, align 8
+  store i32 %17, ptr %read_ahead35, align 8
   %msg_callback = getelementptr inbounds i8, ptr %ctx, i64 368
+  %18 = load ptr, ptr %msg_callback, align 8
   %msg_callback36 = getelementptr inbounds i8, ptr %call, i64 1144
-  %16 = load <2 x ptr>, ptr %msg_callback, align 8
-  store <2 x ptr> %16, ptr %msg_callback36, align 8
+  store ptr %18, ptr %msg_callback36, align 8
+  %msg_callback_arg = getelementptr inbounds i8, ptr %ctx, i64 376
+  %19 = load ptr, ptr %msg_callback_arg, align 8
+  %msg_callback_arg37 = getelementptr inbounds i8, ptr %call, i64 1152
+  store ptr %19, ptr %msg_callback_arg37, align 8
   %verify_mode = getelementptr inbounds i8, ptr %ctx, i64 384
-  %17 = load i32, ptr %verify_mode, align 8
+  %20 = load i32, ptr %verify_mode, align 8
   %verify_mode38 = getelementptr inbounds i8, ptr %call, i64 2256
-  store i32 %17, ptr %verify_mode38, align 8
+  store i32 %20, ptr %verify_mode38, align 8
   %not_resumable_session_cb = getelementptr inbounds i8, ptr %ctx, i64 968
-  %18 = load ptr, ptr %not_resumable_session_cb, align 8
+  %21 = load ptr, ptr %not_resumable_session_cb, align 8
   %not_resumable_session_cb39 = getelementptr inbounds i8, ptr %call, i64 2992
-  store ptr %18, ptr %not_resumable_session_cb39, align 8
+  store ptr %21, ptr %not_resumable_session_cb39, align 8
   %record_padding_cb = getelementptr inbounds i8, ptr %ctx, i64 1000
+  %22 = load ptr, ptr %record_padding_cb, align 8
   %record_padding_cb41 = getelementptr inbounds i8, ptr %call, i64 3152
-  %19 = load <2 x ptr>, ptr %record_padding_cb, align 8
-  store <2 x ptr> %19, ptr %record_padding_cb41, align 8
+  store ptr %22, ptr %record_padding_cb41, align 8
+  %record_padding_arg = getelementptr inbounds i8, ptr %ctx, i64 1008
+  %23 = load ptr, ptr %record_padding_arg, align 8
+  %record_padding_arg43 = getelementptr inbounds i8, ptr %call, i64 3160
+  store ptr %23, ptr %record_padding_arg43, align 8
   %block_padding = getelementptr inbounds i8, ptr %ctx, i64 1016
-  %20 = load i64, ptr %block_padding, align 8
+  %24 = load i64, ptr %block_padding, align 8
   %block_padding45 = getelementptr inbounds i8, ptr %call, i64 3168
-  store i64 %20, ptr %block_padding45, align 8
+  store i64 %24, ptr %block_padding45, align 8
   %sid_ctx_length = getelementptr inbounds i8, ptr %ctx, i64 392
-  %21 = load i64, ptr %sid_ctx_length, align 8
+  %25 = load i64, ptr %sid_ctx_length, align 8
   %sid_ctx_length46 = getelementptr inbounds i8, ptr %call, i64 2136
-  store i64 %21, ptr %sid_ctx_length46, align 8
-  %cmp48 = icmp ult i64 %21, 33
+  store i64 %25, ptr %sid_ctx_length46, align 8
+  %cmp48 = icmp ult i64 %25, 33
   br i1 %cmp48, label %if.end55, label %if.end.i176
 
 if.end55:                                         ; preds = %if.end33
@@ -662,13 +678,13 @@ if.end55:                                         ; preds = %if.end33
   %sid_ctx56 = getelementptr inbounds i8, ptr %ctx, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sid_ctx, ptr noundef nonnull align 8 dereferenceable(32) %sid_ctx56, i64 32, i1 false)
   %default_verify_callback = getelementptr inbounds i8, ptr %ctx, i64 432
-  %22 = load ptr, ptr %default_verify_callback, align 8
+  %26 = load ptr, ptr %default_verify_callback, align 8
   %verify_callback = getelementptr inbounds i8, ptr %call, i64 2264
-  store ptr %22, ptr %verify_callback, align 8
+  store ptr %26, ptr %verify_callback, align 8
   %generate_session_id = getelementptr inbounds i8, ptr %ctx, i64 440
-  %23 = load ptr, ptr %generate_session_id, align 8
+  %27 = load ptr, ptr %generate_session_id, align 8
   %generate_session_id57 = getelementptr inbounds i8, ptr %call, i64 2208
-  store ptr %23, ptr %generate_session_id57, align 8
+  store ptr %27, ptr %generate_session_id57, align 8
   %call58 = tail call ptr @X509_VERIFY_PARAM_new() #24
   %param = getelementptr inbounds i8, ptr %call, i64 1168
   store ptr %call58, ptr %param, align 8
@@ -677,81 +693,85 @@ if.end55:                                         ; preds = %if.end33
 
 if.end63:                                         ; preds = %if.end55
   %param65 = getelementptr inbounds i8, ptr %ctx, i64 448
-  %24 = load ptr, ptr %param65, align 8
-  %call66 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call58, ptr noundef %24) #24
-  %25 = load ptr, ptr %method8, align 8
+  %28 = load ptr, ptr %param65, align 8
+  %call66 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call58, ptr noundef %28) #24
+  %29 = load ptr, ptr %method8, align 8
   %call68 = tail call ptr @OSSL_QUIC_client_method() #24
-  %cmp69 = icmp eq ptr %25, %call68
+  %cmp69 = icmp eq ptr %29, %call68
   br i1 %cmp69, label %cond.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end63
-  %26 = load ptr, ptr %method8, align 8
+  %30 = load ptr, ptr %method8, align 8
   %call72 = tail call ptr @OSSL_QUIC_client_thread_method() #24
-  %cmp73 = icmp eq ptr %26, %call72
+  %cmp73 = icmp eq ptr %30, %call72
   br i1 %cmp73, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %lor.lhs.false
   %quiet_shutdown = getelementptr inbounds i8, ptr %ctx, i64 456
-  %27 = load i32, ptr %quiet_shutdown, align 8
+  %31 = load i32, ptr %quiet_shutdown, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end63, %lor.lhs.false, %cond.false
-  %cond = phi i32 [ %27, %cond.false ], [ 0, %lor.lhs.false ], [ 0, %if.end63 ]
+  %cond = phi i32 [ %31, %cond.false ], [ 0, %lor.lhs.false ], [ 0, %if.end63 ]
   %quiet_shutdown75 = getelementptr inbounds i8, ptr %call, i64 120
   store i32 %cond, ptr %quiet_shutdown75, align 8
-  %28 = load ptr, ptr %method8, align 8
+  %32 = load ptr, ptr %method8, align 8
   %call77 = tail call ptr @OSSL_QUIC_client_method() #24
-  %cmp78 = icmp eq ptr %28, %call77
+  %cmp78 = icmp eq ptr %32, %call77
   br i1 %cmp78, label %if.end88, label %lor.lhs.false80
 
 lor.lhs.false80:                                  ; preds = %cond.end
-  %29 = load ptr, ptr %method8, align 8
+  %33 = load ptr, ptr %method8, align 8
   %call82 = tail call ptr @OSSL_QUIC_client_thread_method() #24
-  %cmp83 = icmp eq ptr %29, %call82
+  %cmp83 = icmp eq ptr %33, %call82
   br i1 %cmp83, label %if.end88, label %if.then85
 
 if.then85:                                        ; preds = %lor.lhs.false80
   %max_fragment_len_mode = getelementptr inbounds i8, ptr %ctx, i64 620
-  %30 = load i8, ptr %max_fragment_len_mode, align 4
+  %34 = load i8, ptr %max_fragment_len_mode, align 4
   %max_fragment_len_mode87 = getelementptr inbounds i8, ptr %call, i64 2708
-  store i8 %30, ptr %max_fragment_len_mode87, align 4
+  store i8 %34, ptr %max_fragment_len_mode87, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then85, %lor.lhs.false80, %cond.end
+  %max_send_fragment = getelementptr inbounds i8, ptr %ctx, i64 496
+  %35 = load i64, ptr %max_send_fragment, align 8
+  %max_send_fragment89 = getelementptr inbounds i8, ptr %call, i64 2400
+  store i64 %35, ptr %max_send_fragment89, align 8
   %split_send_fragment = getelementptr inbounds i8, ptr %ctx, i64 488
+  %36 = load i64, ptr %split_send_fragment, align 8
   %split_send_fragment90 = getelementptr inbounds i8, ptr %call, i64 2392
-  %31 = load <2 x i64>, ptr %split_send_fragment, align 8
-  store <2 x i64> %31, ptr %split_send_fragment90, align 8
+  store i64 %36, ptr %split_send_fragment90, align 8
   %max_pipelines = getelementptr inbounds i8, ptr %ctx, i64 504
-  %32 = load i64, ptr %max_pipelines, align 8
+  %37 = load i64, ptr %max_pipelines, align 8
   %max_pipelines91 = getelementptr inbounds i8, ptr %call, i64 2408
-  store i64 %32, ptr %max_pipelines91, align 8
+  store i64 %37, ptr %max_pipelines91, align 8
   %default_read_buf_len = getelementptr inbounds i8, ptr %ctx, i64 512
-  %33 = load i64, ptr %default_read_buf_len, align 8
+  %38 = load i64, ptr %default_read_buf_len, align 8
   %default_read_buf_len93 = getelementptr inbounds i8, ptr %call, i64 3064
-  store i64 %33, ptr %default_read_buf_len93, align 8
+  store i64 %38, ptr %default_read_buf_len93, align 8
   %debug_cb = getelementptr inbounds i8, ptr %call, i64 2448
   %ticket_expected = getelementptr inbounds i8, ptr %call, i64 2528
   store i32 0, ptr %ticket_expected, align 8
   %status_type = getelementptr inbounds i8, ptr %ctx, i64 616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %debug_cb, i8 0, i64 16, i1 false)
-  %34 = load i32, ptr %status_type, align 8
+  %39 = load i32, ptr %status_type, align 8
   %status_type99 = getelementptr inbounds i8, ptr %call, i64 2472
-  store i32 %34, ptr %status_type99, align 8
+  store i32 %39, ptr %status_type99, align 8
   %status_expected = getelementptr inbounds i8, ptr %call, i64 2492
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %status_expected, i8 0, i64 36, i1 false)
-  %35 = atomicrmw add ptr %references.i.i, i32 1 monotonic, align 4
+  %40 = atomicrmw add ptr %references.i.i, i32 1 monotonic, align 4
   %session_ctx = getelementptr inbounds i8, ptr %call, i64 2792
   store ptr %ctx, ptr %session_ctx, align 8
   %ecpointformats = getelementptr inbounds i8, ptr %ctx, i64 632
-  %36 = load ptr, ptr %ecpointformats, align 8
-  %tobool110.not = icmp eq ptr %36, null
+  %41 = load ptr, ptr %ecpointformats, align 8
+  %tobool110.not = icmp eq ptr %41, null
   br i1 %tobool110.not, label %if.end129, label %if.then111
 
 if.then111:                                       ; preds = %if.end88
   %ecpointformats_len = getelementptr inbounds i8, ptr %ctx, i64 624
-  %37 = load i64, ptr %ecpointformats_len, align 8
-  %call115 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull @.str, i32 noundef 849) #24
+  %42 = load i64, ptr %ecpointformats_len, align 8
+  %call115 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %41, i64 noundef %42, ptr noundef nonnull @.str, i32 noundef 849) #24
   %ecpointformats117 = getelementptr inbounds i8, ptr %call, i64 2544
   store ptr %call115, ptr %ecpointformats117, align 8
   %tobool120.not = icmp eq ptr %call115, null
@@ -763,22 +783,22 @@ if.then121:                                       ; preds = %if.then111
   br label %if.end.i176
 
 if.end124:                                        ; preds = %if.then111
-  %38 = load i64, ptr %ecpointformats_len, align 8
+  %43 = load i64, ptr %ecpointformats_len, align 8
   %ecpointformats_len128 = getelementptr inbounds i8, ptr %call, i64 2536
-  store i64 %38, ptr %ecpointformats_len128, align 8
+  store i64 %43, ptr %ecpointformats_len128, align 8
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end124, %if.end88
   %supportedgroups = getelementptr inbounds i8, ptr %ctx, i64 648
-  %39 = load ptr, ptr %supportedgroups, align 8
-  %tobool131.not = icmp eq ptr %39, null
+  %44 = load ptr, ptr %supportedgroups, align 8
+  %tobool131.not = icmp eq ptr %44, null
   br i1 %tobool131.not, label %if.end150, label %if.then132
 
 if.then132:                                       ; preds = %if.end129
   %supportedgroups_len = getelementptr inbounds i8, ptr %ctx, i64 640
-  %40 = load i64, ptr %supportedgroups_len, align 8
-  %mul = shl i64 %40, 1
-  %call136 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %39, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 861) #24
+  %45 = load i64, ptr %supportedgroups_len, align 8
+  %mul = shl i64 %45, 1
+  %call136 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %44, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 861) #24
   %supportedgroups138 = getelementptr inbounds i8, ptr %call, i64 2576
   store ptr %call136, ptr %supportedgroups138, align 8
   %tobool141.not = icmp eq ptr %call136, null
@@ -790,23 +810,23 @@ if.then142:                                       ; preds = %if.then132
   br label %if.end.i176
 
 if.end145:                                        ; preds = %if.then132
-  %41 = load i64, ptr %supportedgroups_len, align 8
+  %46 = load i64, ptr %supportedgroups_len, align 8
   %supportedgroups_len149 = getelementptr inbounds i8, ptr %call, i64 2568
-  store i64 %41, ptr %supportedgroups_len149, align 8
+  store i64 %46, ptr %supportedgroups_len149, align 8
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end145, %if.end129
   %npn = getelementptr inbounds i8, ptr %call, i64 2656
   store ptr null, ptr %npn, align 8
   %alpn = getelementptr inbounds i8, ptr %ctx, i64 688
-  %42 = load ptr, ptr %alpn, align 8
-  %cmp153.not = icmp eq ptr %42, null
+  %47 = load ptr, ptr %alpn, align 8
+  %cmp153.not = icmp eq ptr %47, null
   br i1 %cmp153.not, label %if.end178, label %if.then155
 
 if.then155:                                       ; preds = %if.end150
   %alpn_len = getelementptr inbounds i8, ptr %ctx, i64 696
-  %43 = load i64, ptr %alpn_len, align 8
-  %call157 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 874) #24
+  %48 = load i64, ptr %alpn_len, align 8
+  %call157 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %48, ptr noundef nonnull @.str, i32 noundef 874) #24
   %alpn159 = getelementptr inbounds i8, ptr %call, i64 2640
   store ptr %call157, ptr %alpn159, align 8
   %cmp162 = icmp eq ptr %call157, null
@@ -818,129 +838,149 @@ if.then164:                                       ; preds = %if.then155
   br label %if.end.i176
 
 if.end167:                                        ; preds = %if.then155
-  %44 = load ptr, ptr %alpn, align 8
-  %45 = load i64, ptr %alpn_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call157, ptr align 1 %44, i64 %45, i1 false)
+  %49 = load ptr, ptr %alpn, align 8
+  %50 = load i64, ptr %alpn_len, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call157, ptr align 1 %49, i64 %50, i1 false)
   %alpn_len177 = getelementptr inbounds i8, ptr %call, i64 2648
-  store i64 %45, ptr %alpn_len177, align 8
+  store i64 %50, ptr %alpn_len177, align 8
   br label %if.end178
 
 if.end178:                                        ; preds = %if.end167, %if.end150
   %verified_chain = getelementptr inbounds i8, ptr %call, i64 2320
   %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %verified_chain, i8 0, i64 16, i1 false)
+  %51 = load ptr, ptr %default_passwd_callback, align 8
   %default_passwd_callback179 = getelementptr inbounds i8, ptr %call, i64 5240
-  %46 = load <2 x ptr>, ptr %default_passwd_callback, align 8
-  store <2 x ptr> %46, ptr %default_passwd_callback179, align 8
+  store ptr %51, ptr %default_passwd_callback179, align 8
+  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 192
+  %52 = load ptr, ptr %default_passwd_callback_userdata, align 8
+  %default_passwd_callback_userdata180 = getelementptr inbounds i8, ptr %call, i64 5248
+  store ptr %52, ptr %default_passwd_callback_userdata180, align 8
   %key_update = getelementptr inbounds i8, ptr %call, i64 2820
   store i32 -1, ptr %key_update, align 4
-  %47 = load ptr, ptr %method8, align 8
+  %53 = load ptr, ptr %method8, align 8
   %call182 = tail call ptr @OSSL_QUIC_client_method() #24
-  %cmp183 = icmp eq ptr %47, %call182
+  %cmp183 = icmp eq ptr %53, %call182
   br i1 %cmp183, label %if.end193, label %lor.lhs.false185
 
 lor.lhs.false185:                                 ; preds = %if.end178
-  %48 = load ptr, ptr %method8, align 8
+  %54 = load ptr, ptr %method8, align 8
   %call187 = tail call ptr @OSSL_QUIC_client_thread_method() #24
-  %cmp188 = icmp eq ptr %48, %call187
+  %cmp188 = icmp eq ptr %54, %call187
   br i1 %cmp188, label %if.end193, label %if.then190
 
 if.then190:                                       ; preds = %lor.lhs.false185
   %allow_early_data_cb = getelementptr inbounds i8, ptr %ctx, i64 1056
+  %55 = load ptr, ptr %allow_early_data_cb, align 8
   %allow_early_data_cb191 = getelementptr inbounds i8, ptr %call, i64 5320
-  %49 = load <2 x ptr>, ptr %allow_early_data_cb, align 8
-  store <2 x ptr> %49, ptr %allow_early_data_cb191, align 8
+  store ptr %55, ptr %allow_early_data_cb191, align 8
+  %allow_early_data_cb_data = getelementptr inbounds i8, ptr %ctx, i64 1064
+  %56 = load ptr, ptr %allow_early_data_cb_data, align 8
+  %allow_early_data_cb_data192 = getelementptr inbounds i8, ptr %call, i64 5328
+  store ptr %56, ptr %allow_early_data_cb_data192, align 8
   br label %if.end193
 
 if.end193:                                        ; preds = %if.then190, %lor.lhs.false185, %if.end178
   %ssl_init = getelementptr inbounds i8, ptr %method, i64 40
-  %50 = load ptr, ptr %ssl_init, align 8
-  %call194 = tail call i32 %50(ptr noundef nonnull %call) #24
+  %57 = load ptr, ptr %ssl_init, align 8
+  %call194 = tail call i32 %57(ptr noundef nonnull %call) #24
   %tobool195.not = icmp eq i32 %call194, 0
   br i1 %tobool195.not, label %err, label %if.end197
 
 if.end197:                                        ; preds = %if.end193
   %ssl_accept = getelementptr inbounds i8, ptr %method, i64 64
-  %51 = load ptr, ptr %ssl_accept, align 8
-  %cmp198 = icmp ne ptr %51, @ssl_undefined_function
+  %58 = load ptr, ptr %ssl_accept, align 8
+  %cmp198 = icmp ne ptr %58, @ssl_undefined_function
   %cond200 = zext i1 %cmp198 to i32
   %server = getelementptr inbounds i8, ptr %call, i64 112
   store i32 %cond200, ptr %server, align 8
   %ssl_reset = getelementptr inbounds i8, ptr %method, i64 32
-  %52 = load ptr, ptr %ssl_reset, align 8
-  %call201 = tail call i32 %52(ptr noundef nonnull %call) #24
+  %59 = load ptr, ptr %ssl_reset, align 8
+  %call201 = tail call i32 %59(ptr noundef nonnull %call) #24
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %err, label %if.end204
 
 if.end204:                                        ; preds = %if.end197
   %psk_client_callback = getelementptr inbounds i8, ptr %ctx, i64 768
+  %60 = load ptr, ptr %psk_client_callback, align 8
   %psk_client_callback205 = getelementptr inbounds i8, ptr %call, i64 2288
-  %53 = load <2 x ptr>, ptr %psk_client_callback, align 8
-  store <2 x ptr> %53, ptr %psk_client_callback205, align 8
+  store ptr %60, ptr %psk_client_callback205, align 8
+  %psk_server_callback = getelementptr inbounds i8, ptr %ctx, i64 776
+  %61 = load ptr, ptr %psk_server_callback, align 8
+  %psk_server_callback206 = getelementptr inbounds i8, ptr %call, i64 2296
+  store ptr %61, ptr %psk_server_callback206, align 8
   %psk_find_session_cb = getelementptr inbounds i8, ptr %ctx, i64 784
+  %62 = load ptr, ptr %psk_find_session_cb, align 8
   %psk_find_session_cb207 = getelementptr inbounds i8, ptr %call, i64 2304
-  %54 = load <2 x ptr>, ptr %psk_find_session_cb, align 8
-  store <2 x ptr> %54, ptr %psk_find_session_cb207, align 8
+  store ptr %62, ptr %psk_find_session_cb207, align 8
+  %psk_use_session_cb = getelementptr inbounds i8, ptr %ctx, i64 792
+  %63 = load ptr, ptr %psk_use_session_cb, align 8
+  %psk_use_session_cb208 = getelementptr inbounds i8, ptr %call, i64 2312
+  store ptr %63, ptr %psk_use_session_cb208, align 8
   %async_cb = getelementptr inbounds i8, ptr %ctx, i64 1080
+  %64 = load ptr, ptr %async_cb, align 8
   %async_cb209 = getelementptr inbounds i8, ptr %call, i64 5336
-  %55 = load <2 x ptr>, ptr %async_cb, align 8
-  store <2 x ptr> %55, ptr %async_cb209, align 8
+  store ptr %64, ptr %async_cb209, align 8
+  %async_cb_arg = getelementptr inbounds i8, ptr %ctx, i64 1088
+  %65 = load ptr, ptr %async_cb_arg, align 8
+  %async_cb_arg210 = getelementptr inbounds i8, ptr %call, i64 5344
+  store ptr %65, ptr %async_cb_arg210, align 8
   %job = getelementptr inbounds i8, ptr %call, i64 5256
   store ptr null, ptr %job, align 8
   %client_cert_type = getelementptr inbounds i8, ptr %ctx, i64 1664
-  %56 = load ptr, ptr %client_cert_type, align 8
-  %cmp211.not = icmp eq ptr %56, null
+  %66 = load ptr, ptr %client_cert_type, align 8
+  %cmp211.not = icmp eq ptr %66, null
   br i1 %cmp211.not, label %if.end224, label %if.then213
 
 if.then213:                                       ; preds = %if.end204
   %client_cert_type_len = getelementptr inbounds i8, ptr %ctx, i64 1672
-  %57 = load i64, ptr %client_cert_type_len, align 8
-  %call215 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %56, i64 noundef %57, ptr noundef nonnull @.str, i32 noundef 921) #24
+  %67 = load i64, ptr %client_cert_type_len, align 8
+  %call215 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %66, i64 noundef %67, ptr noundef nonnull @.str, i32 noundef 921) #24
   %client_cert_type216 = getelementptr inbounds i8, ptr %call, i64 5368
   store ptr %call215, ptr %client_cert_type216, align 8
   %cmp218 = icmp eq ptr %call215, null
   br i1 %cmp218, label %err, label %if.end221
 
 if.end221:                                        ; preds = %if.then213
-  %58 = load i64, ptr %client_cert_type_len, align 8
+  %68 = load i64, ptr %client_cert_type_len, align 8
   %client_cert_type_len223 = getelementptr inbounds i8, ptr %call, i64 5376
-  store i64 %58, ptr %client_cert_type_len223, align 8
+  store i64 %68, ptr %client_cert_type_len223, align 8
   br label %if.end224
 
 if.end224:                                        ; preds = %if.end221, %if.end204
   %server_cert_type = getelementptr inbounds i8, ptr %ctx, i64 1680
-  %59 = load ptr, ptr %server_cert_type, align 8
-  %cmp225.not = icmp eq ptr %59, null
+  %69 = load ptr, ptr %server_cert_type, align 8
+  %cmp225.not = icmp eq ptr %69, null
   br i1 %cmp225.not, label %if.end238, label %if.then227
 
 if.then227:                                       ; preds = %if.end224
   %server_cert_type_len = getelementptr inbounds i8, ptr %ctx, i64 1688
-  %60 = load i64, ptr %server_cert_type_len, align 8
-  %call229 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str, i32 noundef 928) #24
+  %70 = load i64, ptr %server_cert_type_len, align 8
+  %call229 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %69, i64 noundef %70, ptr noundef nonnull @.str, i32 noundef 928) #24
   %server_cert_type230 = getelementptr inbounds i8, ptr %call, i64 5384
   store ptr %call229, ptr %server_cert_type230, align 8
   %cmp232 = icmp eq ptr %call229, null
   br i1 %cmp232, label %err, label %if.end235
 
 if.end235:                                        ; preds = %if.then227
-  %61 = load i64, ptr %server_cert_type_len, align 8
+  %71 = load i64, ptr %server_cert_type_len, align 8
   %server_cert_type_len237 = getelementptr inbounds i8, ptr %call, i64 5392
-  store i64 %61, ptr %server_cert_type_len237, align 8
+  store i64 %71, ptr %server_cert_type_len237, align 8
   br label %if.end238
 
 if.end238:                                        ; preds = %if.end235, %if.end224
   %ct_validation_callback = getelementptr inbounds i8, ptr %ctx, i64 472
-  %62 = load ptr, ptr %ct_validation_callback, align 8
+  %72 = load ptr, ptr %ct_validation_callback, align 8
   %ct_validation_callback_arg = getelementptr inbounds i8, ptr %ctx, i64 480
-  %63 = load ptr, ptr %ct_validation_callback_arg, align 8
-  %call239 = tail call i32 @SSL_set_ct_validation_callback(ptr noundef nonnull %call, ptr noundef %62, ptr noundef %63)
+  %73 = load ptr, ptr %ct_validation_callback_arg, align 8
+  %call239 = tail call i32 @SSL_set_ct_validation_callback(ptr noundef nonnull %call, ptr noundef %72, ptr noundef %73)
   %tobool240.not = icmp eq i32 %call239, 0
   br i1 %tobool240.not, label %err, label %if.end242
 
 if.end242:                                        ; preds = %if.end238
   %sigalg_list_len = getelementptr inbounds i8, ptr %ctx, i64 1632
-  %64 = load i64, ptr %sigalg_list_len, align 8
-  %add = add i64 %64, 9
+  %74 = load i64, ptr %sigalg_list_len, align 8
+  %add = add i64 %74, 9
   %ssl_pkey_num = getelementptr inbounds i8, ptr %call, i64 272
   store i64 %add, ptr %ssl_pkey_num, align 8
   br label %return
@@ -968,8 +1008,8 @@ err:                                              ; preds = %if.then3, %if.end27
 if.end.i176:                                      ; preds = %if.end33, %if.then121, %if.then142, %if.then164, %asn1err, %cerr, %err
   %ssl.1185 = phi ptr [ %ssl.0, %err ], [ %call, %cerr ], [ %call, %asn1err ], [ %call, %if.then164 ], [ %call, %if.then142 ], [ %call, %if.then121 ], [ %call, %if.end33 ]
   %references.i177 = getelementptr inbounds i8, ptr %ssl.1185, i64 32
-  %65 = atomicrmw sub ptr %references.i177, i32 1 monotonic, align 4
-  %cmp.i.i = icmp eq i32 %65, 1
+  %75 = atomicrmw sub ptr %references.i177, i32 1 monotonic, align 4
+  %cmp.i.i = icmp eq i32 %75, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
 CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i176
@@ -977,30 +1017,30 @@ CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %if.end.i176
   br label %if.end3.i
 
 CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i176
-  %cmp1.i178 = icmp sgt i32 %65, 1
+  %cmp1.i178 = icmp sgt i32 %75, 1
   br i1 %cmp1.i178, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %ex_data.i179 = getelementptr inbounds i8, ptr %ssl.1185, i64 48
   tail call void @CRYPTO_free_ex_data(i32 noundef 0, ptr noundef nonnull %ssl.1185, ptr noundef nonnull %ex_data.i179) #24
   %method.i = getelementptr inbounds i8, ptr %ssl.1185, i64 24
-  %66 = load ptr, ptr %method.i, align 8
-  %cmp4.not.i = icmp eq ptr %66, null
+  %76 = load ptr, ptr %method.i, align 8
+  %cmp4.not.i = icmp eq ptr %76, null
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %ssl_free.i = getelementptr inbounds i8, ptr %66, i64 24
-  %67 = load ptr, ptr %ssl_free.i, align 8
-  tail call void %67(ptr noundef nonnull %ssl.1185) #24
+  %ssl_free.i = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = load ptr, ptr %ssl_free.i, align 8
+  tail call void %77(ptr noundef nonnull %ssl.1185) #24
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.end3.i
   %ctx.i = getelementptr inbounds i8, ptr %ssl.1185, i64 8
-  %68 = load ptr, ptr %ctx.i, align 8
-  tail call void @SSL_CTX_free(ptr noundef %68)
+  %78 = load ptr, ptr %ctx.i, align 8
+  tail call void @SSL_CTX_free(ptr noundef %78)
   %lock.i180 = getelementptr inbounds i8, ptr %ssl.1185, i64 40
-  %69 = load ptr, ptr %lock.i180, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %69) #24
+  %79 = load ptr, ptr %lock.i180, align 8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %79) #24
   tail call void @CRYPTO_free(ptr noundef nonnull %ssl.1185, ptr noundef nonnull @.str, i32 noundef 1423) #24
   br label %return
 

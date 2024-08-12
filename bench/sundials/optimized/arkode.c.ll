@@ -170,7 +170,7 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 62, ptr noundef nonnull @__func__.arkCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
-  br label %37
+  br label %40
 
 5:                                                ; preds = %1
   %calloc = tail call dereferenceable_or_null(696) ptr @calloc(i64 1, i64 696)
@@ -179,7 +179,7 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 71, ptr noundef nonnull @__func__.arkCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %37
+  br label %40
 
 8:                                                ; preds = %5
   store ptr %0, ptr %calloc, align 8
@@ -197,7 +197,7 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 134, ptr noundef nonnull @__func__.arkCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
-  br label %37
+  br label %40
 
 16:                                               ; preds = %8
   store i64 28, ptr %10, align 8
@@ -210,7 +210,7 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -20, i32 noundef 145, ptr noundef nonnull @__func__.arkCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
-  br label %37
+  br label %40
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %12, i64 112
@@ -231,21 +231,27 @@ define noundef ptr @arkCreate(ptr noundef %0) local_unnamed_addr #0 {
   %31 = getelementptr inbounds i8, ptr %calloc, i64 628
   store i32 0, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %calloc, i64 612
-  store <4 x i32> <i32 1, i32 0, i32 1, i32 0>, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 376
-  store double 0.000000e+00, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 560
-  store double 0.000000e+00, ptr %34, align 8
-  %35 = call i32 @arkSetDefaults(ptr noundef nonnull %calloc) #16
-  %.not59 = icmp eq i32 %35, 0
-  br i1 %.not59, label %37, label %36
+  store i32 1, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %calloc, i64 616
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %calloc, i64 620
+  store i32 1, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %calloc, i64 624
+  store i32 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %calloc, i64 376
+  store double 0.000000e+00, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %calloc, i64 560
+  store double 0.000000e+00, ptr %37, align 8
+  %38 = call i32 @arkSetDefaults(ptr noundef nonnull %calloc) #16
+  %.not59 = icmp eq i32 %38, 0
+  br i1 %.not59, label %40, label %39
 
-36:                                               ; preds = %21
+39:                                               ; preds = %21
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef 0, i32 noundef 181, ptr noundef nonnull @__func__.arkCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5)
-  br label %37
+  br label %40
 
-37:                                               ; preds = %21, %36, %20, %15, %7, %4
-  %.0 = phi ptr [ null, %7 ], [ null, %15 ], [ null, %20 ], [ null, %36 ], [ null, %4 ], [ %calloc, %21 ]
+40:                                               ; preds = %21, %39, %20, %15, %7, %4
+  %.0 = phi ptr [ null, %7 ], [ null, %15 ], [ null, %20 ], [ null, %39 ], [ null, %4 ], [ %calloc, %21 ]
   ret ptr %.0
 }
 
@@ -1132,7 +1138,7 @@ declare double @N_VMin(ptr noundef) local_unnamed_addr #3
 define range(i32 0, 2) i32 @arkAllocVec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %21
 
 6:                                                ; preds = %3
   %7 = tail call ptr @N_VClone(ptr noundef %1) #16
@@ -1142,18 +1148,24 @@ define range(i32 0, 2) i32 @arkAllocVec(ptr noundef %0, ptr noundef %1, ptr noca
 
 9:                                                ; preds = %6
   tail call void @arkFreeVectors(ptr noundef %0)
-  br label %16
+  br label %21
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 528
-  %12 = getelementptr inbounds i8, ptr %0, i64 544
-  %13 = load <2 x i64>, ptr %11, align 8
-  %14 = load <2 x i64>, ptr %12, align 8
-  %15 = add nsw <2 x i64> %14, %13
-  store <2 x i64> %15, ptr %12, align 8
-  br label %16
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 544
+  %14 = load i64, ptr %13, align 8
+  %15 = add nsw i64 %14, %12
+  store i64 %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 536
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 552
+  %19 = load i64, ptr %18, align 8
+  %20 = add nsw i64 %19, %17
+  store i64 %20, ptr %18, align 8
+  br label %21
 
-16:                                               ; preds = %3, %10, %9
+21:                                               ; preds = %3, %10, %9
   %.0 = phi i32 [ 0, %9 ], [ 1, %10 ], [ 1, %3 ]
   ret i32 %.0
 }
@@ -1234,7 +1246,7 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 514, ptr noundef nonnull @__func__.arkResStolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %38
+  br label %43
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 608
@@ -1244,7 +1256,7 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
 
 9:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 520, ptr noundef nonnull @__func__.arkResStolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
-  br label %38
+  br label %43
 
 10:                                               ; preds = %5
   %11 = fcmp olt double %1, 0.000000e+00
@@ -1252,7 +1264,7 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
 
 12:                                               ; preds = %10
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 526, ptr noundef nonnull @__func__.arkResStolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15)
-  br label %38
+  br label %43
 
 13:                                               ; preds = %10
   %14 = fcmp oeq double %1, 0.000000e+00
@@ -1262,7 +1274,7 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
   %17 = getelementptr inbounds i8, ptr %0, i64 256
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %32, label %19
+  br i1 %.not, label %37, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1277,33 +1289,39 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
 25:                                               ; preds = %19
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 540, ptr noundef nonnull @__func__.arkResStolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %38
+  br label %43
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %0, i64 528
-  %28 = getelementptr inbounds i8, ptr %0, i64 544
-  %29 = load <2 x i64>, ptr %27, align 8
-  %30 = load <2 x i64>, ptr %28, align 8
-  %31 = add nsw <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %28, align 8
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 544
+  %30 = load i64, ptr %29, align 8
+  %31 = add nsw i64 %30, %28
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 536
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 552
+  %35 = load i64, ptr %34, align 8
+  %36 = add nsw i64 %35, %33
+  store i64 %36, ptr %34, align 8
   store i32 0, ptr %17, align 8
-  br label %32
+  br label %37
 
-32:                                               ; preds = %26, %13
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
-  store double %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @arkRwtSet, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %0, ptr %37, align 8
-  br label %38
+37:                                               ; preds = %26, %13
+  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  store double %1, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @arkRwtSet, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %0, ptr %42, align 8
+  br label %43
 
-38:                                               ; preds = %32, %25, %12, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ -22, %12 ], [ 0, %32 ], [ -22, %25 ]
+43:                                               ; preds = %37, %25, %12, %9, %4
+  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ -22, %12 ], [ 0, %37 ], [ -22, %25 ]
   ret i32 %.0
 }
 
@@ -1398,7 +1416,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 567, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %69
+  br label %79
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 608
@@ -1408,7 +1426,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 
 9:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 573, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
-  br label %69
+  br label %79
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %1, null
@@ -1416,7 +1434,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 
 12:                                               ; preds = %10
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 579, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16)
-  br label %69
+  br label %79
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1428,7 +1446,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 
 19:                                               ; preds = %13
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 585, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14)
-  br label %69
+  br label %79
 
 20:                                               ; preds = %13
   %21 = tail call double @N_VMin(ptr noundef nonnull %1) #16
@@ -1437,7 +1455,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 
 23:                                               ; preds = %20
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 592, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15)
-  br label %69
+  br label %79
 
 24:                                               ; preds = %20
   %25 = fcmp oeq double %21, 0.000000e+00
@@ -1447,7 +1465,7 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
   %28 = getelementptr inbounds i8, ptr %0, i64 256
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %43, label %30
+  br i1 %.not, label %48, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1462,72 +1480,84 @@ define range(i32 -23, 1) i32 @arkResVtolerance(ptr noundef %0, ptr noundef %1) l
 36:                                               ; preds = %30
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 606, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %69
+  br label %79
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds i8, ptr %0, i64 528
-  %39 = getelementptr inbounds i8, ptr %0, i64 544
-  %40 = load <2 x i64>, ptr %38, align 8
-  %41 = load <2 x i64>, ptr %39, align 8
-  %42 = add nsw <2 x i64> %41, %40
-  store <2 x i64> %42, ptr %39, align 8
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 544
+  %41 = load i64, ptr %40, align 8
+  %42 = add nsw i64 %41, %39
+  store i64 %42, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 536
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 552
+  %46 = load i64, ptr %45, align 8
+  %47 = add nsw i64 %46, %44
+  store i64 %47, ptr %45, align 8
   store i32 0, ptr %28, align 8
-  br label %43
+  br label %48
 
-43:                                               ; preds = %37, %24
-  %44 = getelementptr inbounds i8, ptr %0, i64 604
-  %45 = load i32, ptr %44, align 4
-  %.not36 = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
-  %47 = load ptr, ptr %46, align 8
-  br i1 %.not36, label %48, label %._crit_edge
-
-48:                                               ; preds = %43
-  %49 = icmp eq ptr %47, null
-  br i1 %49, label %50, label %62
-
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 248
+48:                                               ; preds = %37, %24
+  %49 = getelementptr inbounds i8, ptr %0, i64 604
+  %50 = load i32, ptr %49, align 4
+  %.not36 = icmp eq i32 %50, 0
+  %51 = getelementptr inbounds i8, ptr %0, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr @N_VClone(ptr noundef %52) #16
-  store ptr %53, ptr %46, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %61, label %55
+  br i1 %.not36, label %53, label %._crit_edge
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 528
-  %57 = getelementptr inbounds i8, ptr %0, i64 544
-  %58 = load <2 x i64>, ptr %56, align 8
-  %59 = load <2 x i64>, ptr %57, align 8
-  %60 = add nsw <2 x i64> %59, %58
-  store <2 x i64> %60, ptr %57, align 8
-  br label %62
+53:                                               ; preds = %48
+  %54 = icmp eq ptr %52, null
+  br i1 %54, label %55, label %72
 
-61:                                               ; preds = %50
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %0, i64 248
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call ptr @N_VClone(ptr noundef %57) #16
+  store ptr %58, ptr %51, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %71, label %60
+
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %0, i64 528
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 544
+  %64 = load i64, ptr %63, align 8
+  %65 = add nsw i64 %64, %62
+  store i64 %65, ptr %63, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 536
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 552
+  %69 = load i64, ptr %68, align 8
+  %70 = add nsw i64 %69, %67
+  store i64 %70, ptr %68, align 8
+  br label %72
+
+71:                                               ; preds = %55
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 618, ptr noundef nonnull @__func__.arkResVtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %69
+  br label %79
 
-62:                                               ; preds = %55, %48
-  %63 = phi ptr [ %53, %55 ], [ %47, %48 ]
-  store i32 1, ptr %44, align 4
+72:                                               ; preds = %60, %53
+  %73 = phi ptr [ %58, %60 ], [ %52, %53 ]
+  store i32 1, ptr %49, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %43, %62
-  %64 = phi ptr [ %63, %62 ], [ %47, %43 ]
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %64) #16
-  %65 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 1, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @arkRwtSet, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %0, ptr %68, align 8
-  br label %69
+._crit_edge:                                      ; preds = %48, %72
+  %74 = phi ptr [ %73, %72 ], [ %52, %48 ]
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %74) #16
+  %75 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @arkRwtSet, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %0, ptr %78, align 8
+  br label %79
 
-69:                                               ; preds = %._crit_edge, %61, %36, %23, %19, %12, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ -23, %12 ], [ -22, %19 ], [ -22, %23 ], [ 0, %._crit_edge ], [ -22, %61 ], [ -22, %36 ]
+79:                                               ; preds = %._crit_edge, %71, %36, %23, %19, %12, %9, %4
+  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ -23, %12 ], [ -22, %19 ], [ -22, %23 ], [ 0, %._crit_edge ], [ -22, %71 ], [ -22, %36 ]
   ret i32 %.0
 }
 
@@ -1538,7 +1568,7 @@ define range(i32 -23, 1) i32 @arkResFtolerance(ptr noundef %0, ptr noundef %1) l
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 639, ptr noundef nonnull @__func__.arkResFtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %33
+  br label %38
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 608
@@ -1548,13 +1578,13 @@ define range(i32 -23, 1) i32 @arkResFtolerance(ptr noundef %0, ptr noundef %1) l
 
 9:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -23, i32 noundef 645, ptr noundef nonnull @__func__.arkResFtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
-  br label %33
+  br label %38
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 256
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %26, label %13
+  br i1 %.not, label %31, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1569,33 +1599,39 @@ define range(i32 -23, 1) i32 @arkResFtolerance(ptr noundef %0, ptr noundef %1) l
 19:                                               ; preds = %13
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 656, ptr noundef nonnull @__func__.arkResFtolerance, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %33
+  br label %38
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds i8, ptr %0, i64 528
-  %22 = getelementptr inbounds i8, ptr %0, i64 544
-  %23 = load <2 x i64>, ptr %21, align 8
-  %24 = load <2 x i64>, ptr %22, align 8
-  %25 = add nsw <2 x i64> %24, %23
-  store <2 x i64> %25, ptr %22, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 544
+  %24 = load i64, ptr %23, align 8
+  %25 = add nsw i64 %24, %22
+  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 536
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 552
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %27
+  store i64 %30, ptr %28, align 8
   store i32 0, ptr %11, align 8
-  br label %26
+  br label %31
 
-26:                                               ; preds = %20, %10
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 2, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %31, ptr %32, align 8
-  br label %33
+31:                                               ; preds = %20, %10
+  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 2, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr %1, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %36, ptr %37, align 8
+  br label %38
 
-33:                                               ; preds = %26, %19, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ 0, %26 ], [ -22, %19 ]
+38:                                               ; preds = %31, %19, %9, %4
+  %.0 = phi i32 [ -21, %4 ], [ -23, %9 ], [ 0, %31 ], [ -22, %19 ]
   ret i32 %.0
 }
 
@@ -3857,173 +3893,233 @@ define void @arkFreeVectors(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @N_VDestroy(ptr noundef nonnull %3) #16
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 528
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
-  %7 = load <2 x i64>, ptr %5, align 8
-  %8 = load <2 x i64>, ptr %6, align 8
-  %9 = sub nsw <2 x i64> %8, %7
-  store <2 x i64> %9, ptr %6, align 8
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %8 = load i64, ptr %7, align 8
+  %9 = sub nsw i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 536
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %13 = load i64, ptr %12, align 8
+  %14 = sub nsw i64 %13, %11
+  store i64 %14, ptr %12, align 8
   br label %arkFreeVec.exit
 
 arkFreeVec.exit:                                  ; preds = %1, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 256
-  %11 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %arkFreeVec.exit22
+  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %16 = load i32, ptr %15, align 8
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %17, label %arkFreeVec.exit22
 
-12:                                               ; preds = %arkFreeVec.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
-  %14 = load ptr, ptr %13, align 8
-  %.not.i21 = icmp eq ptr %14, null
-  br i1 %.not.i21, label %arkFreeVec.exit22, label %15
+17:                                               ; preds = %arkFreeVec.exit
+  %18 = getelementptr inbounds i8, ptr %0, i64 248
+  %19 = load ptr, ptr %18, align 8
+  %.not.i21 = icmp eq ptr %19, null
+  br i1 %.not.i21, label %arkFreeVec.exit22, label %20
 
-15:                                               ; preds = %12
-  tail call void @N_VDestroy(ptr noundef nonnull %14) #16
-  store ptr null, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 528
-  %17 = getelementptr inbounds i8, ptr %0, i64 544
-  %18 = load <2 x i64>, ptr %16, align 8
-  %19 = load <2 x i64>, ptr %17, align 8
-  %20 = sub nsw <2 x i64> %19, %18
-  store <2 x i64> %20, ptr %17, align 8
+20:                                               ; preds = %17
+  tail call void @N_VDestroy(ptr noundef nonnull %19) #16
+  store ptr null, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 528
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 544
+  %24 = load i64, ptr %23, align 8
+  %25 = sub nsw i64 %24, %22
+  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 536
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 552
+  %29 = load i64, ptr %28, align 8
+  %30 = sub nsw i64 %29, %27
+  store i64 %30, ptr %28, align 8
   br label %arkFreeVec.exit22
 
-arkFreeVec.exit22:                                ; preds = %15, %12, %arkFreeVec.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 296
-  %22 = load ptr, ptr %21, align 8
-  %.not.i23 = icmp eq ptr %22, null
-  br i1 %.not.i23, label %arkFreeVec.exit24, label %23
+arkFreeVec.exit22:                                ; preds = %20, %17, %arkFreeVec.exit
+  %31 = getelementptr inbounds i8, ptr %0, i64 296
+  %32 = load ptr, ptr %31, align 8
+  %.not.i23 = icmp eq ptr %32, null
+  br i1 %.not.i23, label %arkFreeVec.exit24, label %33
 
-23:                                               ; preds = %arkFreeVec.exit22
-  tail call void @N_VDestroy(ptr noundef nonnull %22) #16
-  store ptr null, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 528
-  %25 = getelementptr inbounds i8, ptr %0, i64 544
-  %26 = load <2 x i64>, ptr %24, align 8
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = sub nsw <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %25, align 8
+33:                                               ; preds = %arkFreeVec.exit22
+  tail call void @N_VDestroy(ptr noundef nonnull %32) #16
+  store ptr null, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 528
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 544
+  %37 = load i64, ptr %36, align 8
+  %38 = sub nsw i64 %37, %35
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 536
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 552
+  %42 = load i64, ptr %41, align 8
+  %43 = sub nsw i64 %42, %40
+  store i64 %43, ptr %41, align 8
   br label %arkFreeVec.exit24
 
-arkFreeVec.exit24:                                ; preds = %arkFreeVec.exit22, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 304
-  %30 = load ptr, ptr %29, align 8
-  %.not.i25 = icmp eq ptr %30, null
-  br i1 %.not.i25, label %arkFreeVec.exit26, label %31
+arkFreeVec.exit24:                                ; preds = %arkFreeVec.exit22, %33
+  %44 = getelementptr inbounds i8, ptr %0, i64 304
+  %45 = load ptr, ptr %44, align 8
+  %.not.i25 = icmp eq ptr %45, null
+  br i1 %.not.i25, label %arkFreeVec.exit26, label %46
 
-31:                                               ; preds = %arkFreeVec.exit24
-  tail call void @N_VDestroy(ptr noundef nonnull %30) #16
-  store ptr null, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 528
-  %33 = getelementptr inbounds i8, ptr %0, i64 544
-  %34 = load <2 x i64>, ptr %32, align 8
-  %35 = load <2 x i64>, ptr %33, align 8
-  %36 = sub nsw <2 x i64> %35, %34
-  store <2 x i64> %36, ptr %33, align 8
+46:                                               ; preds = %arkFreeVec.exit24
+  tail call void @N_VDestroy(ptr noundef nonnull %45) #16
+  store ptr null, ptr %44, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 528
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 544
+  %50 = load i64, ptr %49, align 8
+  %51 = sub nsw i64 %50, %48
+  store i64 %51, ptr %49, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 536
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 552
+  %55 = load i64, ptr %54, align 8
+  %56 = sub nsw i64 %55, %53
+  store i64 %56, ptr %54, align 8
   br label %arkFreeVec.exit26
 
-arkFreeVec.exit26:                                ; preds = %arkFreeVec.exit24, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 312
-  %38 = load ptr, ptr %37, align 8
-  %.not.i27 = icmp eq ptr %38, null
-  br i1 %.not.i27, label %arkFreeVec.exit28, label %39
+arkFreeVec.exit26:                                ; preds = %arkFreeVec.exit24, %46
+  %57 = getelementptr inbounds i8, ptr %0, i64 312
+  %58 = load ptr, ptr %57, align 8
+  %.not.i27 = icmp eq ptr %58, null
+  br i1 %.not.i27, label %arkFreeVec.exit28, label %59
 
-39:                                               ; preds = %arkFreeVec.exit26
-  tail call void @N_VDestroy(ptr noundef nonnull %38) #16
-  store ptr null, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 528
-  %41 = getelementptr inbounds i8, ptr %0, i64 544
-  %42 = load <2 x i64>, ptr %40, align 8
-  %43 = load <2 x i64>, ptr %41, align 8
-  %44 = sub nsw <2 x i64> %43, %42
-  store <2 x i64> %44, ptr %41, align 8
+59:                                               ; preds = %arkFreeVec.exit26
+  tail call void @N_VDestroy(ptr noundef nonnull %58) #16
+  store ptr null, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 528
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 544
+  %63 = load i64, ptr %62, align 8
+  %64 = sub nsw i64 %63, %61
+  store i64 %64, ptr %62, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 536
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 552
+  %68 = load i64, ptr %67, align 8
+  %69 = sub nsw i64 %68, %66
+  store i64 %69, ptr %67, align 8
   br label %arkFreeVec.exit28
 
-arkFreeVec.exit28:                                ; preds = %arkFreeVec.exit26, %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 320
-  %46 = load ptr, ptr %45, align 8
-  %.not.i29 = icmp eq ptr %46, null
-  br i1 %.not.i29, label %arkFreeVec.exit30, label %47
+arkFreeVec.exit28:                                ; preds = %arkFreeVec.exit26, %59
+  %70 = getelementptr inbounds i8, ptr %0, i64 320
+  %71 = load ptr, ptr %70, align 8
+  %.not.i29 = icmp eq ptr %71, null
+  br i1 %.not.i29, label %arkFreeVec.exit30, label %72
 
-47:                                               ; preds = %arkFreeVec.exit28
-  tail call void @N_VDestroy(ptr noundef nonnull %46) #16
-  store ptr null, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 528
-  %49 = getelementptr inbounds i8, ptr %0, i64 544
-  %50 = load <2 x i64>, ptr %48, align 8
-  %51 = load <2 x i64>, ptr %49, align 8
-  %52 = sub nsw <2 x i64> %51, %50
-  store <2 x i64> %52, ptr %49, align 8
+72:                                               ; preds = %arkFreeVec.exit28
+  tail call void @N_VDestroy(ptr noundef nonnull %71) #16
+  store ptr null, ptr %70, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 528
+  %74 = load i64, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 544
+  %76 = load i64, ptr %75, align 8
+  %77 = sub nsw i64 %76, %74
+  store i64 %77, ptr %75, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 536
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 552
+  %81 = load i64, ptr %80, align 8
+  %82 = sub nsw i64 %81, %79
+  store i64 %82, ptr %80, align 8
   br label %arkFreeVec.exit30
 
-arkFreeVec.exit30:                                ; preds = %arkFreeVec.exit28, %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 272
-  %54 = load ptr, ptr %53, align 8
-  %.not.i31 = icmp eq ptr %54, null
-  br i1 %.not.i31, label %arkFreeVec.exit32, label %55
+arkFreeVec.exit30:                                ; preds = %arkFreeVec.exit28, %72
+  %83 = getelementptr inbounds i8, ptr %0, i64 272
+  %84 = load ptr, ptr %83, align 8
+  %.not.i31 = icmp eq ptr %84, null
+  br i1 %.not.i31, label %arkFreeVec.exit32, label %85
 
-55:                                               ; preds = %arkFreeVec.exit30
-  tail call void @N_VDestroy(ptr noundef nonnull %54) #16
-  store ptr null, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 528
-  %57 = getelementptr inbounds i8, ptr %0, i64 544
-  %58 = load <2 x i64>, ptr %56, align 8
-  %59 = load <2 x i64>, ptr %57, align 8
-  %60 = sub nsw <2 x i64> %59, %58
-  store <2 x i64> %60, ptr %57, align 8
+85:                                               ; preds = %arkFreeVec.exit30
+  tail call void @N_VDestroy(ptr noundef nonnull %84) #16
+  store ptr null, ptr %83, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 528
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 544
+  %89 = load i64, ptr %88, align 8
+  %90 = sub nsw i64 %89, %87
+  store i64 %90, ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 536
+  %92 = load i64, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 552
+  %94 = load i64, ptr %93, align 8
+  %95 = sub nsw i64 %94, %92
+  store i64 %95, ptr %93, align 8
   br label %arkFreeVec.exit32
 
-arkFreeVec.exit32:                                ; preds = %arkFreeVec.exit30, %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 280
-  %62 = load ptr, ptr %61, align 8
-  %.not.i33 = icmp eq ptr %62, null
-  br i1 %.not.i33, label %arkFreeVec.exit34, label %63
+arkFreeVec.exit32:                                ; preds = %arkFreeVec.exit30, %85
+  %96 = getelementptr inbounds i8, ptr %0, i64 280
+  %97 = load ptr, ptr %96, align 8
+  %.not.i33 = icmp eq ptr %97, null
+  br i1 %.not.i33, label %arkFreeVec.exit34, label %98
 
-63:                                               ; preds = %arkFreeVec.exit32
-  tail call void @N_VDestroy(ptr noundef nonnull %62) #16
-  store ptr null, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 528
-  %65 = getelementptr inbounds i8, ptr %0, i64 544
-  %66 = load <2 x i64>, ptr %64, align 8
-  %67 = load <2 x i64>, ptr %65, align 8
-  %68 = sub nsw <2 x i64> %67, %66
-  store <2 x i64> %68, ptr %65, align 8
+98:                                               ; preds = %arkFreeVec.exit32
+  tail call void @N_VDestroy(ptr noundef nonnull %97) #16
+  store ptr null, ptr %96, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 528
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 544
+  %102 = load i64, ptr %101, align 8
+  %103 = sub nsw i64 %102, %100
+  store i64 %103, ptr %101, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 536
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 552
+  %107 = load i64, ptr %106, align 8
+  %108 = sub nsw i64 %107, %105
+  store i64 %108, ptr %106, align 8
   br label %arkFreeVec.exit34
 
-arkFreeVec.exit34:                                ; preds = %arkFreeVec.exit32, %63
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %.not.i35 = icmp eq ptr %70, null
-  br i1 %.not.i35, label %arkFreeVec.exit36, label %71
+arkFreeVec.exit34:                                ; preds = %arkFreeVec.exit32, %98
+  %109 = getelementptr inbounds i8, ptr %0, i64 48
+  %110 = load ptr, ptr %109, align 8
+  %.not.i35 = icmp eq ptr %110, null
+  br i1 %.not.i35, label %arkFreeVec.exit36, label %111
 
-71:                                               ; preds = %arkFreeVec.exit34
-  tail call void @N_VDestroy(ptr noundef nonnull %70) #16
-  store ptr null, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 528
-  %73 = getelementptr inbounds i8, ptr %0, i64 544
-  %74 = load <2 x i64>, ptr %72, align 8
-  %75 = load <2 x i64>, ptr %73, align 8
-  %76 = sub nsw <2 x i64> %75, %74
-  store <2 x i64> %76, ptr %73, align 8
+111:                                              ; preds = %arkFreeVec.exit34
+  tail call void @N_VDestroy(ptr noundef nonnull %110) #16
+  store ptr null, ptr %109, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 528
+  %113 = load i64, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 544
+  %115 = load i64, ptr %114, align 8
+  %116 = sub nsw i64 %115, %113
+  store i64 %116, ptr %114, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 536
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 552
+  %120 = load i64, ptr %119, align 8
+  %121 = sub nsw i64 %120, %118
+  store i64 %121, ptr %119, align 8
   br label %arkFreeVec.exit36
 
-arkFreeVec.exit36:                                ; preds = %arkFreeVec.exit34, %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 328
-  %78 = load ptr, ptr %77, align 8
-  %.not.i37 = icmp eq ptr %78, null
-  br i1 %.not.i37, label %arkFreeVec.exit38, label %79
+arkFreeVec.exit36:                                ; preds = %arkFreeVec.exit34, %111
+  %122 = getelementptr inbounds i8, ptr %0, i64 328
+  %123 = load ptr, ptr %122, align 8
+  %.not.i37 = icmp eq ptr %123, null
+  br i1 %.not.i37, label %arkFreeVec.exit38, label %124
 
-79:                                               ; preds = %arkFreeVec.exit36
-  tail call void @N_VDestroy(ptr noundef nonnull %78) #16
-  store ptr null, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 528
-  %81 = getelementptr inbounds i8, ptr %0, i64 544
-  %82 = load <2 x i64>, ptr %80, align 8
-  %83 = load <2 x i64>, ptr %81, align 8
-  %84 = sub nsw <2 x i64> %83, %82
-  store <2 x i64> %84, ptr %81, align 8
+124:                                              ; preds = %arkFreeVec.exit36
+  tail call void @N_VDestroy(ptr noundef nonnull %123) #16
+  store ptr null, ptr %122, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 528
+  %126 = load i64, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 544
+  %128 = load i64, ptr %127, align 8
+  %129 = sub nsw i64 %128, %126
+  store i64 %129, ptr %127, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 536
+  %131 = load i64, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %0, i64 552
+  %133 = load i64, ptr %132, align 8
+  %134 = sub nsw i64 %133, %131
+  store i64 %134, ptr %132, align 8
   br label %arkFreeVec.exit38
 
-arkFreeVec.exit38:                                ; preds = %arkFreeVec.exit36, %79
+arkFreeVec.exit38:                                ; preds = %arkFreeVec.exit36, %124
   ret void
 }
 
@@ -4113,7 +4209,7 @@ define range(i32 -47, 1) i32 @arkInit(ptr noundef %0, double noundef %1, ptr nou
 
 8:                                                ; preds = %4
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1337, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %128
+  br label %129
 
 9:                                                ; preds = %4
   %10 = icmp eq ptr %2, null
@@ -4121,7 +4217,7 @@ define range(i32 -47, 1) i32 @arkInit(ptr noundef %0, double noundef %1, ptr nou
 
 11:                                               ; preds = %9
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1345, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %128
+  br label %129
 
 12:                                               ; preds = %9
   %13 = icmp eq i32 %3, 1
@@ -4161,7 +4257,7 @@ arkCheckTimestepper.exit:                         ; preds = %25
 
 arkCheckTimestepper.exit.thread:                  ; preds = %21, %25, %arkCheckTimestepper.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1363, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.35)
-  br label %128
+  br label %129
 
 31:                                               ; preds = %arkCheckTimestepper.exit
   %32 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4233,7 +4329,7 @@ arkCheckNvector.exit:                             ; preds = %69
 
 arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, %49, %53, %57, %61, %65, %69, %arkCheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1372, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36)
-  br label %128
+  br label %129
 
 75:                                               ; preds = %arkCheckNvector.exit
   %76 = getelementptr inbounds i8, ptr %33, i64 32
@@ -4265,7 +4361,7 @@ arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, 
 
 86:                                               ; preds = %80
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1391, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.37)
-  br label %128
+  br label %129
 
 87:                                               ; preds = %80
   %88 = getelementptr inbounds i8, ptr %0, i64 336
@@ -4281,7 +4377,7 @@ arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, 
 
 93:                                               ; preds = %90
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1402, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.38)
-  br label %128
+  br label %129
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds i8, ptr %0, i64 344
@@ -4305,7 +4401,7 @@ arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, 
   %103 = getelementptr inbounds i8, ptr %0, i64 348
   store i32 0, ptr %103, align 4
   %104 = icmp eq i32 %.057, 0
-  br i1 %104, label %105, label %124
+  br i1 %104, label %105, label %125
 
 105:                                              ; preds = %97
   %106 = getelementptr inbounds i8, ptr %0, i64 480
@@ -4313,47 +4409,49 @@ arkCheckNvector.exit.thread:                      ; preds = %31, %37, %41, %45, 
   %108 = getelementptr inbounds i8, ptr %0, i64 560
   store double 0.000000e+00, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 584
+  store double 0.000000e+00, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %0, i64 408
   store double 0.000000e+00, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 592
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %106, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false)
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 448
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 104
-  %114 = load ptr, ptr %113, align 8
-  %115 = call i32 @SUNAdaptController_Reset(ptr noundef %114) #16
-  %.not66 = icmp eq i32 %115, 0
-  br i1 %.not66, label %117, label %116
-
-116:                                              ; preds = %105
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -47, i32 noundef 1449, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39)
-  br label %128
+  store double 1.000000e+00, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 448
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 104
+  %115 = load ptr, ptr %114, align 8
+  %116 = call i32 @SUNAdaptController_Reset(ptr noundef %115) #16
+  %.not66 = icmp eq i32 %116, 0
+  br i1 %.not66, label %118, label %117
 
 117:                                              ; preds = %105
-  %118 = load ptr, ptr %111, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 136
-  store i64 0, ptr %119, align 8
-  %120 = load ptr, ptr %111, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 144
-  store i64 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 628
-  store i32 0, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 0, ptr %123, align 8
-  br label %124
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -47, i32 noundef 1449, ptr noundef nonnull @__func__.arkInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39)
+  br label %129
 
-124:                                              ; preds = %117, %97
-  %125 = getelementptr inbounds i8, ptr %0, i64 612
-  store i32 1, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 616
-  store i32 %.057, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 620
-  store i32 1, ptr %127, align 4
-  br label %128
+118:                                              ; preds = %105
+  %119 = load ptr, ptr %112, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 136
+  store i64 0, ptr %120, align 8
+  %121 = load ptr, ptr %112, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 144
+  store i64 0, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 628
+  store i32 0, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 0, ptr %124, align 8
+  br label %125
 
-128:                                              ; preds = %124, %116, %93, %86, %arkCheckNvector.exit.thread, %arkCheckTimestepper.exit.thread, %11, %8
-  %.0 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -47, %116 ], [ 0, %124 ], [ -20, %93 ], [ -20, %86 ], [ -22, %arkCheckNvector.exit.thread ], [ -22, %arkCheckTimestepper.exit.thread ]
+125:                                              ; preds = %118, %97
+  %126 = getelementptr inbounds i8, ptr %0, i64 612
+  store i32 1, ptr %126, align 4
+  %127 = getelementptr inbounds i8, ptr %0, i64 616
+  store i32 %.057, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %0, i64 620
+  store i32 1, ptr %128, align 4
+  br label %129
+
+129:                                              ; preds = %125, %117, %93, %86, %arkCheckNvector.exit.thread, %arkCheckTimestepper.exit.thread, %11, %8
+  %.0 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -47, %117 ], [ 0, %125 ], [ -20, %93 ], [ -20, %86 ], [ -22, %arkCheckNvector.exit.thread ], [ -22, %arkCheckTimestepper.exit.thread ]
   ret i32 %.0
 }
 
@@ -4462,7 +4560,7 @@ define range(i32 0, 2) i32 @arkAllocVectors(ptr noundef %0, ptr noundef %1) loca
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %2
   %7 = tail call ptr @N_VClone(ptr noundef %1) #16
@@ -4472,156 +4570,192 @@ define range(i32 0, 2) i32 @arkAllocVectors(ptr noundef %0, ptr noundef %1) loca
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 528
-  %11 = getelementptr inbounds i8, ptr %0, i64 544
-  %12 = load <2 x i64>, ptr %10, align 8
-  %13 = load <2 x i64>, ptr %11, align 8
-  %14 = add nsw <2 x i64> %13, %12
-  store <2 x i64> %14, ptr %11, align 8
-  br label %15
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 544
+  %13 = load i64, ptr %12, align 8
+  %14 = add nsw i64 %13, %11
+  store i64 %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 536
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 552
+  %18 = load i64, ptr %17, align 8
+  %19 = add nsw i64 %18, %16
+  store i64 %19, ptr %17, align 8
+  br label %20
 
 arkAllocVec.exit:                                 ; preds = %6
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   br label %arkAllocVec.exit36.thread
 
-15:                                               ; preds = %9, %2
-  %16 = phi ptr [ %7, %9 ], [ %4, %2 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
-  %18 = load i32, ptr %17, align 8
-  %.not21 = icmp eq i32 %18, 0
-  br i1 %.not21, label %21, label %19
+20:                                               ; preds = %9, %2
+  %21 = phi ptr [ %7, %9 ], [ %4, %2 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 256
+  %23 = load i32, ptr %22, align 8
+  %.not21 = icmp eq i32 %23, 0
+  br i1 %.not21, label %26, label %24
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr %16, ptr %20, align 8
-  br label %21
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr %21, ptr %25, align 8
+  br label %26
 
-21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 272
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %34
+26:                                               ; preds = %24, %20
+  %27 = getelementptr inbounds i8, ptr %0, i64 272
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %44
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @N_VClone(ptr noundef %1) #16
-  store ptr %26, ptr %22, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %arkAllocVec.exit28, label %28
+30:                                               ; preds = %26
+  %31 = tail call ptr @N_VClone(ptr noundef %1) #16
+  store ptr %31, ptr %27, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %arkAllocVec.exit28, label %33
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 528
-  %30 = getelementptr inbounds i8, ptr %0, i64 544
-  %31 = load <2 x i64>, ptr %29, align 8
-  %32 = load <2 x i64>, ptr %30, align 8
-  %33 = add nsw <2 x i64> %32, %31
-  store <2 x i64> %33, ptr %30, align 8
-  br label %34
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %0, i64 528
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 544
+  %37 = load i64, ptr %36, align 8
+  %38 = add nsw i64 %37, %35
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 536
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 552
+  %42 = load i64, ptr %41, align 8
+  %43 = add nsw i64 %42, %40
+  store i64 %43, ptr %41, align 8
+  br label %44
 
-arkAllocVec.exit28:                               ; preds = %25
+arkAllocVec.exit28:                               ; preds = %30
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   br label %arkAllocVec.exit36.thread
 
-34:                                               ; preds = %28, %21
-  %35 = getelementptr inbounds i8, ptr %0, i64 296
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %47
+44:                                               ; preds = %33, %26
+  %45 = getelementptr inbounds i8, ptr %0, i64 296
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %62
 
-38:                                               ; preds = %34
-  %39 = tail call ptr @N_VClone(ptr noundef %1) #16
-  store ptr %39, ptr %35, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %arkAllocVec.exit30, label %41
-
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 528
-  %43 = getelementptr inbounds i8, ptr %0, i64 544
-  %44 = load <2 x i64>, ptr %42, align 8
-  %45 = load <2 x i64>, ptr %43, align 8
-  %46 = add nsw <2 x i64> %45, %44
-  store <2 x i64> %46, ptr %43, align 8
-  br label %47
-
-arkAllocVec.exit30:                               ; preds = %38
-  tail call void @arkFreeVectors(ptr noundef nonnull %0)
-  br label %arkAllocVec.exit36.thread
-
-47:                                               ; preds = %41, %34
-  %48 = getelementptr inbounds i8, ptr %0, i64 304
-  %49 = load ptr, ptr %48, align 8
+48:                                               ; preds = %44
+  %49 = tail call ptr @N_VClone(ptr noundef %1) #16
+  store ptr %49, ptr %45, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %60
+  br i1 %50, label %arkAllocVec.exit30, label %51
 
-51:                                               ; preds = %47
-  %52 = tail call ptr @N_VClone(ptr noundef %1) #16
-  store ptr %52, ptr %48, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %arkAllocVec.exit32, label %54
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %0, i64 528
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 544
+  %55 = load i64, ptr %54, align 8
+  %56 = add nsw i64 %55, %53
+  store i64 %56, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 536
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 552
+  %60 = load i64, ptr %59, align 8
+  %61 = add nsw i64 %60, %58
+  store i64 %61, ptr %59, align 8
+  br label %62
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 528
-  %56 = getelementptr inbounds i8, ptr %0, i64 544
-  %57 = load <2 x i64>, ptr %55, align 8
-  %58 = load <2 x i64>, ptr %56, align 8
-  %59 = add nsw <2 x i64> %58, %57
-  store <2 x i64> %59, ptr %56, align 8
-  br label %60
-
-arkAllocVec.exit32:                               ; preds = %51
+arkAllocVec.exit30:                               ; preds = %48
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   br label %arkAllocVec.exit36.thread
 
-60:                                               ; preds = %54, %47
-  %61 = getelementptr inbounds i8, ptr %0, i64 312
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %73
+62:                                               ; preds = %51, %44
+  %63 = getelementptr inbounds i8, ptr %0, i64 304
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %66, label %80
 
-64:                                               ; preds = %60
-  %65 = tail call ptr @N_VClone(ptr noundef %1) #16
-  store ptr %65, ptr %61, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %arkAllocVec.exit34, label %67
+66:                                               ; preds = %62
+  %67 = tail call ptr @N_VClone(ptr noundef %1) #16
+  store ptr %67, ptr %63, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %arkAllocVec.exit32, label %69
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 528
-  %69 = getelementptr inbounds i8, ptr %0, i64 544
-  %70 = load <2 x i64>, ptr %68, align 8
-  %71 = load <2 x i64>, ptr %69, align 8
-  %72 = add nsw <2 x i64> %71, %70
-  store <2 x i64> %72, ptr %69, align 8
-  br label %73
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %0, i64 528
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 544
+  %73 = load i64, ptr %72, align 8
+  %74 = add nsw i64 %73, %71
+  store i64 %74, ptr %72, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 536
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 552
+  %78 = load i64, ptr %77, align 8
+  %79 = add nsw i64 %78, %76
+  store i64 %79, ptr %77, align 8
+  br label %80
 
-arkAllocVec.exit34:                               ; preds = %64
+arkAllocVec.exit32:                               ; preds = %66
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   br label %arkAllocVec.exit36.thread
 
-73:                                               ; preds = %67, %60
-  %74 = getelementptr inbounds i8, ptr %0, i64 320
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %arkAllocVec.exit36.thread
+80:                                               ; preds = %69, %62
+  %81 = getelementptr inbounds i8, ptr %0, i64 312
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %98
 
-77:                                               ; preds = %73
-  %78 = tail call ptr @N_VClone(ptr noundef %1) #16
-  store ptr %78, ptr %74, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %86, label %80
+84:                                               ; preds = %80
+  %85 = tail call ptr @N_VClone(ptr noundef %1) #16
+  store ptr %85, ptr %81, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %arkAllocVec.exit34, label %87
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 528
-  %82 = getelementptr inbounds i8, ptr %0, i64 544
-  %83 = load <2 x i64>, ptr %81, align 8
-  %84 = load <2 x i64>, ptr %82, align 8
-  %85 = add nsw <2 x i64> %84, %83
-  store <2 x i64> %85, ptr %82, align 8
-  br label %arkAllocVec.exit36.thread
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds i8, ptr %0, i64 528
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 544
+  %91 = load i64, ptr %90, align 8
+  %92 = add nsw i64 %91, %89
+  store i64 %92, ptr %90, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 536
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 552
+  %96 = load i64, ptr %95, align 8
+  %97 = add nsw i64 %96, %94
+  store i64 %97, ptr %95, align 8
+  br label %98
 
-86:                                               ; preds = %77
+arkAllocVec.exit34:                               ; preds = %84
   tail call void @arkFreeVectors(ptr noundef nonnull %0)
   br label %arkAllocVec.exit36.thread
 
-arkAllocVec.exit36.thread:                        ; preds = %73, %80, %86, %arkAllocVec.exit34, %arkAllocVec.exit32, %arkAllocVec.exit30, %arkAllocVec.exit28, %arkAllocVec.exit
-  %.0 = phi i32 [ 0, %arkAllocVec.exit ], [ 0, %arkAllocVec.exit28 ], [ 0, %arkAllocVec.exit30 ], [ 0, %arkAllocVec.exit32 ], [ 0, %arkAllocVec.exit34 ], [ 0, %86 ], [ 1, %80 ], [ 1, %73 ]
+98:                                               ; preds = %87, %80
+  %99 = getelementptr inbounds i8, ptr %0, i64 320
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %arkAllocVec.exit36.thread
+
+102:                                              ; preds = %98
+  %103 = tail call ptr @N_VClone(ptr noundef %1) #16
+  store ptr %103, ptr %99, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %116, label %105
+
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %0, i64 528
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 544
+  %109 = load i64, ptr %108, align 8
+  %110 = add nsw i64 %109, %107
+  store i64 %110, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 536
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 552
+  %114 = load i64, ptr %113, align 8
+  %115 = add nsw i64 %114, %112
+  store i64 %115, ptr %113, align 8
+  br label %arkAllocVec.exit36.thread
+
+116:                                              ; preds = %102
+  tail call void @arkFreeVectors(ptr noundef nonnull %0)
+  br label %arkAllocVec.exit36.thread
+
+arkAllocVec.exit36.thread:                        ; preds = %98, %105, %116, %arkAllocVec.exit34, %arkAllocVec.exit32, %arkAllocVec.exit30, %arkAllocVec.exit28, %arkAllocVec.exit
+  %.0 = phi i32 [ 0, %arkAllocVec.exit ], [ 0, %arkAllocVec.exit28 ], [ 0, %arkAllocVec.exit30 ], [ 0, %arkAllocVec.exit32 ], [ 0, %arkAllocVec.exit34 ], [ 0, %116 ], [ 1, %105 ], [ 1, %98 ]
   ret i32 %.0
 }
 
@@ -4829,20 +4963,26 @@ declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #3
 define void @arkFreeVec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   tail call void @N_VDestroy(ptr noundef nonnull %3) #16
   store ptr null, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 528
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
-  %7 = load <2 x i64>, ptr %5, align 8
-  %8 = load <2 x i64>, ptr %6, align 8
-  %9 = sub nsw <2 x i64> %8, %7
-  store <2 x i64> %9, ptr %6, align 8
-  br label %10
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %8 = load i64, ptr %7, align 8
+  %9 = sub nsw i64 %8, %6
+  store i64 %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 536
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %13 = load i64, ptr %12, align 8
+  %14 = sub nsw i64 %13, %11
+  store i64 %14, ptr %12, align 8
+  br label %15
 
-10:                                               ; preds = %4, %2
+15:                                               ; preds = %4, %2
   ret void
 }
 

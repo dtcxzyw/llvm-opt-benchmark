@@ -16,15 +16,27 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %2, i8 0, i64 12, i1 false)
-  store <4 x i32> <i32 2, i32 30, i32 20, i32 300>, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 5000, i32 0, i32 1>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 2, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 30, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 20, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 300, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %6, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 5000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %12, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -1089,71 +1101,78 @@ Abc_Clock.exit81:                                 ; preds = %.thread94, %121
   %131 = add nsw i64 %128, %130
   store i64 %131, ptr %129, align 8
   %132 = icmp eq i32 %111, 0
-  br i1 %132, label %133, label %137
+  br i1 %132, label %133, label %140
 
 133:                                              ; preds = %Abc_Clock.exit81
-  %134 = getelementptr inbounds i8, ptr %0, i64 788
-  %135 = load <2 x i32>, ptr %134, align 4
-  %136 = add nsw <2 x i32> %135, <i32 1, i32 1>
-  store <2 x i32> %136, ptr %134, align 4
+  %134 = getelementptr inbounds i8, ptr %0, i64 792
+  %135 = load i32, ptr %134, align 8
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %134, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 788
+  %138 = load i32, ptr %137, align 4
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %137, align 4
   br label %.thread
 
-137:                                              ; preds = %Abc_Clock.exit81
-  %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 52
-  %140 = load i32, ptr %139, align 4
-  %.not63 = icmp eq i32 %140, 0
-  br i1 %.not63, label %151, label %141
+140:                                              ; preds = %Abc_Clock.exit81
+  %141 = load ptr, ptr %0, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 52
+  %143 = load i32, ptr %142, align 4
+  %.not63 = icmp eq i32 %143, 0
+  br i1 %.not63, label %154, label %144
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %0, i64 216
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %1, i64 16
-  %147 = load i32, ptr %146, align 8
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds float, ptr %145, i64 %148
-  %150 = load float, ptr %149, align 4
-  br label %151
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds i8, ptr %0, i64 216
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %1, i64 16
+  %150 = load i32, ptr %149, align 8
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds float, ptr %148, i64 %151
+  %153 = load float, ptr %152, align 4
+  br label %154
 
-151:                                              ; preds = %137, %141
-  %152 = phi float [ %150, %141 ], [ -1.000000e+00, %137 ]
-  %153 = getelementptr inbounds i8, ptr %0, i64 128
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %1, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 256
+154:                                              ; preds = %140, %144
+  %155 = phi float [ %153, %144 ], [ -1.000000e+00, %140 ]
+  %156 = getelementptr inbounds i8, ptr %0, i64 128
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %1, i64 56
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 224
-  %161 = load i32, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 120
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 236
-  %165 = call ptr @Abc_NodeIfNodeResyn(ptr noundef %154, ptr noundef %157, ptr noundef %159, i32 noundef %161, ptr noundef %163, ptr noundef nonnull %164, float noundef %152) #11
-  %166 = load ptr, ptr %158, align 8
-  %167 = call i32 @Hop_DagSize(ptr noundef %166) #11
-  %168 = call i32 @Hop_DagSize(ptr noundef %165) #11
-  %169 = sub nsw i32 %167, %168
-  %170 = icmp sgt i32 %169, -1
-  br i1 %170, label %171, label %.thread
+  %158 = load ptr, ptr %1, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 256
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %1, i64 56
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 224
+  %164 = load i32, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %0, i64 120
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %0, i64 236
+  %168 = call ptr @Abc_NodeIfNodeResyn(ptr noundef %157, ptr noundef %160, ptr noundef %162, i32 noundef %164, ptr noundef %166, ptr noundef nonnull %167, float noundef %155) #11
+  %169 = load ptr, ptr %161, align 8
+  %170 = call i32 @Hop_DagSize(ptr noundef %169) #11
+  %171 = call i32 @Hop_DagSize(ptr noundef %168) #11
+  %172 = sub nsw i32 %170, %171
+  %173 = icmp sgt i32 %172, -1
+  br i1 %173, label %174, label %.thread
 
-171:                                              ; preds = %151
-  %172 = getelementptr inbounds i8, ptr %0, i64 136
-  %173 = load <2 x i32>, ptr %172, align 8
-  %174 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %169, i64 1
-  %175 = add nsw <2 x i32> %173, %174
-  store <2 x i32> %175, ptr %172, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 144
-  %177 = load i32, ptr %176, align 8
-  %178 = add nsw i32 %177, %169
-  store i32 %178, ptr %176, align 8
-  store ptr %165, ptr %158, align 8
+174:                                              ; preds = %154
+  %175 = getelementptr inbounds i8, ptr %0, i64 136
+  %176 = load i32, ptr %175, align 8
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %175, align 8
+  %178 = getelementptr inbounds i8, ptr %0, i64 140
+  %179 = load i32, ptr %178, align 4
+  %180 = add nsw i32 %179, %172
+  store i32 %180, ptr %178, align 4
+  %181 = getelementptr inbounds i8, ptr %0, i64 144
+  %182 = load i32, ptr %181, align 8
+  %183 = add nsw i32 %182, %172
+  store i32 %183, ptr %181, align 8
+  store ptr %168, ptr %161, align 8
   br label %.thread
 
-.thread:                                          ; preds = %Abc_Clock.exit79, %151, %171, %108, %133
-  %.0 = phi i32 [ 0, %133 ], [ 0, %108 ], [ 1, %171 ], [ 1, %151 ], [ 0, %Abc_Clock.exit79 ]
+.thread:                                          ; preds = %Abc_Clock.exit79, %154, %174, %108, %133
+  %.0 = phi i32 [ 0, %133 ], [ 0, %108 ], [ 1, %174 ], [ 1, %154 ], [ 0, %Abc_Clock.exit79 ]
   ret i32 %.0
 }
 

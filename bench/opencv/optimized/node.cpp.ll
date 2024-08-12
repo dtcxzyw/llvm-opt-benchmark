@@ -670,64 +670,96 @@ define hidden noundef ptr @_ZNK3ade4Node9getParentEv(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = load ptr, ptr %5, align 8
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = load ptr, ptr %5, align 8
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = load ptr, ptr %5, align 8
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = load ptr, ptr %5, align 8
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.43") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load <2 x ptr>, ptr %3, align 8, !noalias !6
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !6
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = load ptr, ptr %5, align 8, !noalias !6
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.46") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load <2 x ptr>, ptr %3, align 8, !noalias !9
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !9
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = load ptr, ptr %5, align 8, !noalias !9
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.49") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load <2 x ptr>, ptr %3, align 8, !noalias !12
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !12
+  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = load ptr, ptr %5, align 8, !noalias !12
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.52") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = load <2 x ptr>, ptr %3, align 8, !noalias !15
-  store <2 x ptr> %4, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8, !noalias !15
+  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = load ptr, ptr %5, align 8, !noalias !15
+  store ptr %4, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 

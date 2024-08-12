@@ -1555,20 +1555,20 @@ if.else:                                          ; preds = %for.body
   %and14 = and i64 %9, 1
   %tobool.not = icmp eq i64 %and14, 0
   %11 = load i32, ptr %arrayidx, align 4
-  %12 = insertelement <4 x i32> poison, i32 %11, i64 0
-  %13 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> zeroinitializer
-  %14 = and <4 x i32> %13, <i32 4, i32 3, i32 8, i32 16>
-  %15 = icmp ne <4 x i32> %14, zeroinitializer
-  %16 = extractelement <4 x i1> %15, i64 2
-  %17 = and i1 %tobool.not, %16
-  %18 = extractelement <4 x i1> %15, i64 3
-  %spec.select = or i1 %18, %17
-  %19 = extractelement <4 x i1> %15, i64 1
-  %spec.select15 = or i1 %19, %spec.select
-  %20 = extractelement <4 x i1> %15, i64 0
-  %spec.select16 = or i1 %20, %spec.select
+  %and16 = and i32 %11, 16
+  %cmp17.not = icmp ne i32 %and16, 0
+  %and20 = and i32 %11, 8
+  %cmp21 = icmp ne i32 %and20, 0
+  %and24 = and i32 %11, 3
+  %cmp25.not = icmp ne i32 %and24, 0
+  %and28 = and i32 %11, 4
+  %cmp29.not = icmp ne i32 %and28, 0
+  %12 = and i1 %tobool.not, %cmp21
+  %spec.select = or i1 %cmp17.not, %12
+  %spec.select15 = or i1 %cmp25.not, %spec.select
+  %spec.select16 = or i1 %cmp29.not, %spec.select
   %lnot49 = xor i1 %tobool.not, true
-  %21 = and i1 %16, %lnot49
+  %13 = and i1 %cmp21, %lnot49
   br i1 %spec.select15, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
@@ -1585,7 +1585,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
-  br i1 %21, label %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit.thread, label %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit
+  br i1 %13, label %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit.thread, label %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit
 
 _ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit.thread: ; preds = %if.end6.i
   %pending_error_.i = getelementptr inbounds i8, ptr %10, i64 22
@@ -1593,7 +1593,7 @@ _ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.e
   br label %if.then52
 
 _ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit: ; preds = %if.end6.i
-  %spec.select4.i = or i1 %19, %spec.select16
+  %spec.select4.i = or i1 %cmp25.not, %spec.select16
   br i1 %spec.select4.i, label %if.then52, label %for.inc
 
 if.then52:                                        ; preds = %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit.thread, %_ZN17grpc_event_engine12experimental17Epoll1EventHandle17SetPendingActionsEbbb.exit
@@ -1605,16 +1605,16 @@ for.inc:                                          ; preds = %_ZN4absl12lts_20230
   %inc55 = add nuw nsw i32 %idx.026, 1
   %cmp = icmp slt i32 %inc55, %max_epoll_events_to_handle
   %cmp6 = icmp ne i64 %inc, %conv
-  %22 = select i1 %cmp, i1 %cmp6, i1 false
-  br i1 %22, label %for.body, label %for.end.loopexit, !llvm.loop !21
+  %14 = select i1 %cmp, i1 %cmp6, i1 false
+  br i1 %14, label %for.body, label %for.end.loopexit, !llvm.loop !21
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %23 = trunc i64 %inc to i32
+  %15 = trunc i64 %inc to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %was_kicked.0.lcssa = phi i1 [ false, %entry ], [ %was_kicked.1, %for.end.loopexit ]
-  %cursor.0.lcssa = phi i32 [ %1, %entry ], [ %23, %for.end.loopexit ]
+  %cursor.0.lcssa = phi i32 [ %1, %entry ], [ %15, %for.end.loopexit ]
   store i32 %cursor.0.lcssa, ptr %cursor4, align 8
   ret i1 %was_kicked.0.lcssa
 }

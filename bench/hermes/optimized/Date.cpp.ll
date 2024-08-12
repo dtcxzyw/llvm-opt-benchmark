@@ -1849,8 +1849,9 @@ entry:
   %0 = load i32, ptr %argCount_.i, align 8
   %1 = getelementptr inbounds i8, ptr %fields, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 48, i1 false)
+  store double 0x7FF8000000000000, ptr %fields, align 16
   %2 = getelementptr inbounds i8, ptr %fields, i64 8
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %fields, align 16
+  store double 0x7FF8000000000000, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %fields, i64 16
   store double 1.000000e+00, ptr %3, align 16
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 7)

@@ -235,7 +235,7 @@ entry:
   %tmp.i.i = alloca %struct.ossl_param_st, align 8
   %tmp2.i.i = alloca %struct.ossl_param_st, align 8
   %tmp21.i.i = alloca %struct.ossl_param_st, align 8
-  %c.i = alloca [4 x i8], align 4
+  %c.i = alloca [4 x i8], align 1
   %mac_buf.i = alloca [64 x i8], align 16
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -449,7 +449,10 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false17.i
   %arrayidx26.i = getelementptr inbounds i8, ptr %c.i, i64 1
   %arrayidx30.i = getelementptr inbounds i8, ptr %c.i, i64 2
   %arrayidx33.i = getelementptr inbounds i8, ptr %c.i, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %c.i, align 4
+  store i8 0, ptr %c.i, align 1
+  store i8 0, ptr %arrayidx26.i, align 1
+  store i8 0, ptr %arrayidx30.i, align 1
+  store i8 1, ptr %arrayidx33.i, align 1
   %call3454.i = call ptr @EVP_MAC_CTX_dup(ptr noundef %7) #7
   %cmp35.not55.i = icmp eq ptr %call3454.i, null
   br i1 %cmp35.not55.i, label %end.i, label %land.lhs.true37.i
@@ -502,13 +505,13 @@ if.end64.i:                                       ; preds = %if.end55.i
   %inc.i = add i64 %counter.056.i, 1
   %shr.i = lshr i64 %inc.i, 24
   %conv.i = trunc i64 %shr.i to i8
-  store i8 %conv.i, ptr %c.i, align 4
+  store i8 %conv.i, ptr %c.i, align 1
   %shr23.i = lshr i64 %inc.i, 16
   %conv25.i = trunc i64 %shr23.i to i8
   store i8 %conv25.i, ptr %arrayidx26.i, align 1
   %shr27.i = lshr i64 %inc.i, 8
   %conv29.i = trunc i64 %shr27.i to i8
-  store i8 %conv29.i, ptr %arrayidx30.i, align 2
+  store i8 %conv29.i, ptr %arrayidx30.i, align 1
   %conv32.i = trunc i64 %inc.i to i8
   store i8 %conv32.i, ptr %arrayidx33.i, align 1
   %call34.i = call ptr @EVP_MAC_CTX_dup(ptr noundef %7) #7
@@ -820,7 +823,7 @@ declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %info, i64 noundef %info_len, i32 noundef %append_ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
 entry:
-  %c = alloca [4 x i8], align 4
+  %c = alloca [4 x i8], align 1
   %mac = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %z_len, 1073741824
   %cmp1 = icmp ugt i64 %info_len, 1073741824
@@ -853,7 +856,10 @@ for.cond.preheader:                               ; preds = %if.end17
   %arrayidx25 = getelementptr inbounds i8, ptr %c, i64 1
   %arrayidx29 = getelementptr inbounds i8, ptr %c, i64 2
   %arrayidx32 = getelementptr inbounds i8, ptr %c, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %c, align 4
+  store i8 0, ptr %c, align 1
+  store i8 0, ptr %arrayidx25, align 1
+  store i8 0, ptr %arrayidx29, align 1
+  store i8 1, ptr %arrayidx32, align 1
   %call3337 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #7
   %tobool34.not38 = icmp eq i32 %call3337, 0
   br i1 %tobool34.not38, label %end, label %land.lhs.true.lr.ph
@@ -899,13 +905,13 @@ for.inc.us:                                       ; preds = %if.end59.us
   %inc.us = add i64 %counter.039.us, 1
   %shr.us = lshr i64 %inc.us, 24
   %conv21.us = trunc i64 %shr.us to i8
-  store i8 %conv21.us, ptr %c, align 4
+  store i8 %conv21.us, ptr %c, align 1
   %shr22.us = lshr i64 %inc.us, 16
   %conv24.us = trunc i64 %shr22.us to i8
   store i8 %conv24.us, ptr %arrayidx25, align 1
   %shr26.us = lshr i64 %inc.us, 8
   %conv28.us = trunc i64 %shr26.us to i8
-  store i8 %conv28.us, ptr %arrayidx29, align 2
+  store i8 %conv28.us, ptr %arrayidx29, align 1
   %conv31.us = trunc i64 %inc.us to i8
   store i8 %conv31.us, ptr %arrayidx32, align 1
   %call33.us = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %call9, ptr noundef %call10) #7
@@ -960,13 +966,13 @@ for.inc:                                          ; preds = %if.end59
   %inc = add i64 %counter.039, 1
   %shr = lshr i64 %inc, 24
   %conv21 = trunc i64 %shr to i8
-  store i8 %conv21, ptr %c, align 4
+  store i8 %conv21, ptr %c, align 1
   %shr22 = lshr i64 %inc, 16
   %conv24 = trunc i64 %shr22 to i8
   store i8 %conv24, ptr %arrayidx25, align 1
   %shr26 = lshr i64 %inc, 8
   %conv28 = trunc i64 %shr26 to i8
-  store i8 %conv28, ptr %arrayidx29, align 2
+  store i8 %conv28, ptr %arrayidx29, align 1
   %conv31 = trunc i64 %inc to i8
   store i8 %conv31, ptr %arrayidx32, align 1
   %call33 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef %call9, ptr noundef %call10) #7

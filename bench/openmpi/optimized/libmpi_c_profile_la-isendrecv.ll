@@ -714,46 +714,49 @@ define internal noundef i32 @ompi_isendrecv_complete_func(ptr nocapture noundef 
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 76
-  br label %27
+  br label %29
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %24 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 64), align 8
-  store <2 x i32> %24, ptr %23, align 8
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 80), align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 %25, ptr %26, align 8
-  br label %27
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 68), align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %23, ptr %25, align 4
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 64), align 8
+  store i32 %26, ptr %24, align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_request_empty, i64 80), align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 %27, ptr %28, align 8
+  br label %29
 
-27:                                               ; preds = %22, %6
+29:                                               ; preds = %22, %6
   %.sink.in = phi ptr [ getelementptr inbounds (i8, ptr @ompi_request_empty, i64 76), %22 ], [ %21, %6 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %.sink, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not18 = icmp eq ptr %30, null
-  br i1 %.not18, label %35, label %31
+  %30 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %.sink, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %.not18 = icmp eq ptr %32, null
+  br i1 %.not18, label %37, label %33
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %30, i64 120
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef nonnull %29) #6
-  br label %35
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %32, i64 120
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 %35(ptr noundef nonnull %31) #6
+  br label %37
 
-35:                                               ; preds = %31, %27
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %.not19 = icmp eq ptr %37, null
-  br i1 %.not19, label %42, label %38
+37:                                               ; preds = %33, %29
+  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %.not19 = icmp eq ptr %39, null
+  br i1 %.not19, label %44, label %40
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 120
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 %40(ptr noundef nonnull %36) #6
-  br label %42
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %39, i64 120
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call i32 %42(ptr noundef nonnull %38) #6
+  br label %44
 
-42:                                               ; preds = %38, %35
+44:                                               ; preds = %40, %37
   ret i32 0
 }
 

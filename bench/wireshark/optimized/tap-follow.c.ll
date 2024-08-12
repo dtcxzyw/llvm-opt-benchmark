@@ -268,13 +268,16 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   unreachable
 
 85:                                               ; preds = %81, %77
+  %.sink61.i = phi i32 [ 3, %77 ], [ 2, %81 ]
+  %.sink58.i = phi i32 [ 16, %77 ], [ 4, %81 ]
   %.sink.i40 = phi ptr [ %78, %77 ], [ %82, %81 ]
-  %86 = phi <2 x i32> [ <i32 3, i32 16>, %77 ], [ <i32 2, i32 4>, %81 ]
-  %87 = getelementptr [2 x %struct._address], ptr %62, i64 0, i64 %indvars.iv.i
-  store <2 x i32> %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %86 = getelementptr [2 x %struct._address], ptr %62, i64 0, i64 %indvars.iv.i
+  store i32 %.sink61.i, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  store i32 %.sink58.i, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %.sink.i40, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 16
+  %89 = getelementptr inbounds i8, ptr %86, i64 16
   store ptr null, ptr %89, align 8
   %90 = load i32, ptr %4, align 4
   %91 = sext i32 %90 to i64

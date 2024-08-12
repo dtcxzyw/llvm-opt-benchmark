@@ -1188,8 +1188,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer151
-  %.080.ph153172 = phi i32 [ %.080.ph179, %.lr.ph.lr.ph ], [ %63, %.outer151 ]
-  %.081.ph152171 = phi i32 [ %.081.ph178, %.lr.ph.lr.ph ], [ %62, %.outer151 ]
+  %.080.ph153172 = phi i32 [ %.080.ph179, %.lr.ph.lr.ph ], [ %67, %.outer151 ]
+  %.081.ph152171 = phi i32 [ %.081.ph178, %.lr.ph.lr.ph ], [ %66, %.outer151 ]
   %5 = sext i32 %.080.ph153172 to i64
   br label %6
 
@@ -1312,36 +1312,49 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   br i1 %.not131, label %57, label %.outer151
 
 57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %13, i64 2
-  %59 = load <4 x i8>, ptr %58, align 1
-  %.fr247 = freeze <4 x i8> %59
-  %60 = and <4 x i8> %.fr247, <i8 -64, i8 -64, i8 -64, i8 -64>
-  %.scalar = bitcast <4 x i8> %60 to i32
-  %61 = icmp eq i32 %.scalar, -2139062144
-  br i1 %61, label %.outer.backedge, label %.outer151
+  %58 = getelementptr i8, ptr %13, i64 5
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr i8, ptr %13, i64 4
+  %61 = load i8, ptr %60, align 1
+  %62 = getelementptr i8, ptr %13, i64 3
+  %63 = load i8, ptr %62, align 1
+  %64 = getelementptr i8, ptr %13, i64 2
+  %65 = load i8, ptr %64, align 1
+  %.mask.i123 = and i8 %65, -64
+  %.not132 = icmp eq i8 %.mask.i123, -128
+  %.mask.i125 = and i8 %63, -64
+  %.not133 = icmp eq i8 %.mask.i125, -128
+  %or.cond148 = select i1 %.not132, i1 %.not133, i1 false
+  %.mask.i127 = and i8 %61, -64
+  %.not134 = icmp eq i8 %.mask.i127, -128
+  %or.cond149 = select i1 %or.cond148, i1 %.not134, i1 false
+  %.mask.i129 = and i8 %59, -64
+  %.not135 = icmp eq i8 %.mask.i129, -128
+  %or.cond150 = select i1 %or.cond149, i1 %.not135, i1 false
+  br i1 %or.cond150, label %.outer.backedge, label %.outer151
 
 .outer151:                                        ; preds = %17, %35, %32, %52, %57, %54, %42, %45, %24, %27
-  %62 = add nsw i32 %.081.ph152171, 1
-  %63 = add nsw i32 %14, 1
-  %64 = icmp slt i32 %63, %1
-  br i1 %64, label %.lr.ph, label %.outer151._crit_edge, !llvm.loop !10
+  %66 = add nsw i32 %.081.ph152171, 1
+  %67 = add nsw i32 %14, 1
+  %68 = icmp slt i32 %67, %1
+  br i1 %68, label %.lr.ph, label %.outer151._crit_edge, !llvm.loop !10
 
 .outer151._crit_edge:                             ; preds = %.outer.backedge, %.outer151, %10, %2
   %.082.ph.lcssa = phi i32 [ 0, %2 ], [ %.082.ph177, %10 ], [ %.082.ph177, %.outer151 ], [ %.082.ph.be, %.outer.backedge ]
-  %.081.ph152.lcssa164 = phi i32 [ 0, %2 ], [ %.081.ph152171, %10 ], [ %62, %.outer151 ], [ %.081.ph152171, %.outer.backedge ]
-  %65 = add nsw i32 %.081.ph152.lcssa164, %.082.ph.lcssa
-  %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %70, label %66
+  %.081.ph152.lcssa164 = phi i32 [ 0, %2 ], [ %.081.ph152171, %10 ], [ %66, %.outer151 ], [ %.081.ph152171, %.outer.backedge ]
+  %69 = add nsw i32 %.081.ph152.lcssa164, %.082.ph.lcssa
+  %.not = icmp eq i32 %69, 0
+  br i1 %.not, label %74, label %70
 
-66:                                               ; preds = %.outer151._crit_edge
-  %67 = mul nsw i32 %.082.ph.lcssa, 100
-  %68 = sdiv i32 %67, %65
-  %69 = icmp sgt i32 %68, 90
-  %. = zext i1 %69 to i32
-  br label %70
+70:                                               ; preds = %.outer151._crit_edge
+  %71 = mul nsw i32 %.082.ph.lcssa, 100
+  %72 = sdiv i32 %71, %69
+  %73 = icmp sgt i32 %72, 90
+  %. = zext i1 %73 to i32
+  br label %74
 
-70:                                               ; preds = %.outer151._crit_edge, %66
-  %.0 = phi i32 [ %., %66 ], [ 0, %.outer151._crit_edge ]
+74:                                               ; preds = %.outer151._crit_edge, %70
+  %.0 = phi i32 [ %., %70 ], [ 0, %.outer151._crit_edge ]
   ret i32 %.0
 }
 
